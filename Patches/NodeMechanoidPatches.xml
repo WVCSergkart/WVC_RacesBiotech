@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+	  <xpath>/Defs/RecipeDef[defName="ResurrectLightMech"]</xpath>
+	  <safetyDepth>2</safetyDepth>
+	  <value>
+		<fixedIngredientFilter>
+			<thingDefs>
+			  <li>Corpse_WVC_Mech_Hornad</li>
+			  <li>Corpse_WVC_Mech_Nautil</li>
+			  <li>Corpse_WVC_Mech_Fion</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+	  </value>
+	</Operation>
+
+</Patch>

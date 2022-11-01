@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+  <BodyDef>
+	<defName>WVC_Nodes_YellowFormer</defName>
+	<label>Former</label>
+	<corePart>
+	  <def>WVC_FormerFrame</def>
+	  <height>Middle</height>
+	  <depth>Outside</depth>
+	  <groups>
+		<li>Torso</li>
+	  </groups>
+	  <parts>
+		<li>
+		  <def>MechanicalHead</def>
+		  <!-- <customLabel>former head</customLabel> -->
+		  <coverage>0.3</coverage>
+		  <!-- <depth>Outside</depth> -->
+		  <groups>
+			<li>UpperHead</li>
+			<li>FullHead</li>
+			<li>HeadAttackTool</li>
+		  </groups>
+		  <parts>
+			<li>
+			  <def>WVC_FormerHearth</def>
+			  <coverage>0.125</coverage>
+			  <depth>Inside</depth>
+			  <groups>
+				<li>UpperHead</li>
+				<li>FullHead</li>
+			  </groups>
+			</li>
+			<li>
+			  <def>Skull</def>
+			  <customLabel>case</customLabel>
+			  <coverage>0.10</coverage>
+			  <depth>Inside</depth>
+			  <groups>
+				<li>UpperHead</li>
+				<li>FullHead</li>
+			  </groups>
+			  <parts>
+				<li>
+				  <def>Brain</def>
+				  <customLabel>artificial brain</customLabel>
+				  <coverage>0.8</coverage>
+				  <groups>
+					<li>UpperHead</li>
+					<li>FullHead</li>
+				  </groups>
+				</li>
+			  </parts>
+			</li>
+			<li>
+			  <def>WVC_SightSensor</def>
+			  <customLabel>first eye</customLabel>
+			  <coverage>0.07</coverage>
+			  <groups>
+				<li>FullHead</li>
+				<li>Eyes</li>
+			  </groups>
+			</li>
+			<li>
+			  <def>WVC_SightSensor</def>
+			  <customLabel>second eye</customLabel>
+			  <coverage>0.05</coverage>
+			  <groups>
+				<li>FullHead</li>
+				<li>Eyes</li>
+			  </groups>
+			</li>
+			<li>
+			  <def>WVC_SightSensor</def>
+			  <customLabel>third eye</customLabel>
+			  <coverage>0.05</coverage>
+			  <groups>
+				<li>FullHead</li>
+				<li>Eyes</li>
+			  </groups>
+			</li>
+			<li>
+			  <def>WVC_HearingSensor</def>
+			  <customLabel>first sound sensor</customLabel>
+			  <coverage>0.07</coverage>
+			  <groups>
+				<li>UpperHead</li>
+				<li>FullHead</li>
+			  </groups>
+			</li>
+			<li>
+			  <def>WVC_HearingSensor</def>
+			  <customLabel>second sound sensor</customLabel>
+			  <coverage>0.07</coverage>
+			  <groups>
+				<li>UpperHead</li>
+				<li>FullHead</li>
+			  </groups>
+			</li>
+			<li>
+			  <def>WVC_SmellSensor</def>
+			  <coverage>0.05</coverage>
+			  <groups>
+				<li>FullHead</li>
+			  </groups>
+			</li>
+			<li>
+			  <def>WVC_FormerJaw</def>
+			  <coverage>0.10</coverage>
+			  <groups>
+				<li>FullHead</li>
+			  </groups>
+			</li>
+			<li>
+			  <def>WVC_HearingSensor</def>
+			  <customLabel>main head pilon</customLabel>
+			  <coverage>0.03</coverage>
+			  <groups>
+				<li>UpperHead</li>
+				<li>FullHead</li>
+			  </groups>
+			</li>
+			<li>
+			  <def>WVC_HearingSensor</def>
+			  <customLabel>left head pilon</customLabel>
+			  <coverage>0.03</coverage>
+			  <groups>
+				<li>UpperHead</li>
+				<li>FullHead</li>
+			  </groups>
+			</li>
+			<li>
+			  <def>WVC_HearingSensor</def>
+			  <customLabel>right head pilon</customLabel>
+			  <coverage>0.03</coverage>
+			  <groups>
+				<li>UpperHead</li>
+				<li>FullHead</li>
+			  </groups>
+			</li>
+		  </parts>
+		</li>
+		<li>
+		  <def>WVC_FormerCore</def>
+		  <!-- <customLabel>core</customLabel> -->
+		  <coverage>0.1</coverage>
+		  <depth>Inside</depth>
+		  <groups>
+			<li>Torso</li>
+		  </groups>
+		</li>
+		<li>
+		  <def>WVC_FormerPilon</def>
+		  <!-- <customLabel>spine</customLabel> -->
+		  <coverage>0.2</coverage>
+		  <depth>Inside</depth>
+		  <groups>
+			<li>Waist</li>
+			<li>Torso</li>
+		  </groups>
+		</li>
+		<li>
+		  <def>WVC_FormerVeil</def>
+		  <customLabel>right veil</customLabel>
+		  <coverage>0.025</coverage>
+		  <depth>Outside</depth>
+		  <groups>
+			<li>Torso</li>
+			<li>WVC_VeilBlade</li>
+		  </groups>
+		</li>
+		<li>
+		  <def>WVC_FormerVeil</def>
+		  <customLabel>left veil</customLabel>
+		  <coverage>0.025</coverage>
+		  <depth>Outside</depth>
+		  <groups>
+			<li>Torso</li>
+			<li>WVC_VeilBlade</li>
+		  </groups>
+		</li>
+		<li>
+		  <def>WVC_HearingSensor</def>
+		  <customLabel>main pilon</customLabel>
+		  <coverage>0.020</coverage>
+		  <groups>
+			<li>Torso</li>
+		  </groups>
+		</li>
+		<li>
+		  <def>WVC_HearingSensor</def>
+		  <customLabel>left pilon</customLabel>
+		  <coverage>0.020</coverage>
+		  <groups>
+			<li>Torso</li>
+		  </groups>
+		</li>
+		<li>
+		  <def>WVC_HearingSensor</def>
+		  <customLabel>right pilon</customLabel>
+		  <coverage>0.020</coverage>
+		  <groups>
+			<li>Torso</li>
+		  </groups>
+		</li>
+	  </parts>
+	</corePart>
+  </BodyDef>
+  
+</Defs>

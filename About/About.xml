@@ -7,7 +7,7 @@
 		<li>1.4</li>
 	</supportedVersions>
 	<packageId>wvc.sergkart.races.biotech</packageId>
-	<description>Semi-mechanic races separated from my other mod.</description>
+	<description>Semi-mechanic races separated from my other mod. Biotech version.</description>
 	<modDependencies>
 		<li>
 			<packageId>Ludeon.RimWorld.Biotech</packageId>
@@ -25,7 +25,7 @@
 		<li>Ludeon.RimWorld.Ideology</li>
 		<li>Ludeon.RimWorld.Biotech</li>
 		<!-- - -->
-		<!-- <li>honkai.girls.sergkart</li> -->
+		<li>wvc.sergkart.core</li>
 	</loadAfter>
 	<loadBefore>
 		<li>honkai.girls.sergkart</li>
