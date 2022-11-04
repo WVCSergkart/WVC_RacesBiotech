@@ -16,15 +16,15 @@
 	  </statBases>
 	  <race>
 		<mechEnabledWorkTypes>
+		  <li>Firefighter</li>
+		  <li>Hauling</li>
+		  <li>Cleaning</li>
 		  <!-- <li>Construction</li> -->
 		  <!-- <li>Crafting</li> -->
 		  <!-- <li>Smithing</li> -->
 		  <!-- <li>Tailoring</li> -->
 		  <!-- <li>Cooking</li> -->
-		  <li>Hauling</li>
-		  <li>Cleaning</li>
 		  <!-- <li>Doctor</li> -->
-		  <li>Firefighter</li>
 		  <!-- <li>PlantCutting</li> -->
 		  <!-- <li>Growing</li> -->
 		</mechEnabledWorkTypes>
@@ -120,6 +120,7 @@
 	  <defName>WVC_Mech_Hornad</defName>
 	  <label>hornad</label>
 	  <race>WVC_Mech_Hornad</race>
+	  <controlGroupPortraitZoom>0.8</controlGroupPortraitZoom>
 	  <lifeStages>
 		<li>
 		  <bodyGraphicData>
@@ -201,6 +202,7 @@
 	  <defName>WVC_Mech_Nautil</defName>
 	  <label>nautil</label>
 	  <race>WVC_Mech_Nautil</race>
+	  <controlGroupPortraitZoom>0.8</controlGroupPortraitZoom>
 	  <lifeStages>
 		<li>
 		  <bodyGraphicData>
@@ -280,6 +282,7 @@
 	  <defName>WVC_Mech_Fion</defName>
 	  <label>nautil</label>
 	  <race>WVC_Mech_Fion</race>
+	  <controlGroupPortraitZoom>0.8</controlGroupPortraitZoom>
 	  <lifeStages>
 		<li>
 		  <bodyGraphicData>
