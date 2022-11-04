@@ -90,7 +90,7 @@
 	  </statBases>
 	  <race>
 		<baseBodySize>1.2</baseBodySize>
-		<body>WVC_Nodes_BlueFormer</body>
+		<body>WVC_Nodes_Former</body>
 		<mechEnabledWorkTypes>
 		  <li>Construction</li>
 		  <li>Crafting</li>
