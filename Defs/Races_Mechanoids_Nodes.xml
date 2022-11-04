@@ -116,7 +116,7 @@
 	  </race>
 	</ThingDef>
   
-	<PawnKindDef ParentName="LightMechanoidKind">
+	<PawnKindDef ParentName="NonCombatLightMechanoidKind">
 	  <defName>WVC_Mech_Hornad</defName>
 	  <label>hornad</label>
 	  <race>WVC_Mech_Hornad</race>
@@ -198,7 +198,7 @@
 	  </comps>
 	</ThingDef>
   
-	<PawnKindDef ParentName="LightMechanoidKind">
+	<PawnKindDef ParentName="NonCombatLightMechanoidKind">
 	  <defName>WVC_Mech_Nautil</defName>
 	  <label>nautil</label>
 	  <race>WVC_Mech_Nautil</race>
@@ -278,7 +278,7 @@
 	  </race>
 	</ThingDef>
   
-	<PawnKindDef ParentName="LightMechanoidKind">
+	<PawnKindDef ParentName="NonCombatLightMechanoidKind">
 	  <defName>WVC_Mech_Fion</defName>
 	  <label>nautil</label>
 	  <race>WVC_Mech_Fion</race>
