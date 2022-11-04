@@ -2,6 +2,7 @@
 <Defs>
 
   <RecipeDef Name="WVC_NodesMechanoidRecipe" ParentName="BaseMechanoidRecipe" Abstract="True">
+	<gestationCycles>4</gestationCycles>
 	<recipeUsers>
 	  <li>MechGestator</li>
 	  <!-- <li>LargeMechGestator</li> -->
