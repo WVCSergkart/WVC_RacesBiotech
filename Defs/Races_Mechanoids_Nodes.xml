@@ -17,8 +17,8 @@
 	  <race>
 		<mechEnabledWorkTypes>
 		  <li>Firefighter</li>
-		  <li>Hauling</li>
-		  <li>Cleaning</li>
+		  <!-- <li>Hauling</li> -->
+		  <!-- <li>Cleaning</li> -->
 		  <!-- <li>Construction</li> -->
 		  <!-- <li>Crafting</li> -->
 		  <!-- <li>Smithing</li> -->
@@ -168,6 +168,9 @@
 		<MoveSpeed>7.9</MoveSpeed>
 	  </statBases>
 	  <race>
+		<mechEnabledWorkTypes>
+		  <li>Cleaning</li>
+		</mechEnabledWorkTypes>
 		<body>WVC_Nodes_RedFormer</body>
 		<lifeStageAges>
 		  <li>
