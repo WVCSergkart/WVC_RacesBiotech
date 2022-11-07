@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<XmlExtensions.SettingsMenuDef>
+		<defName>Settings_Biotech_Races_WVC</defName>
+		<modId>honkai.girls.sergkart</modId>
+		<settings>
+			<li Class="XmlExtensions.Setting.TabView">
+				<tabs>
+					<li>
+						<label>&lt;color=#85caff&gt;Hornad&lt;/color&gt;</label>
+						<settings>
+							<li Class="XmlExtensions.Setting.EmbedMenu">
+								<menu>Settings_Biotech_Races_Hornad_WVC</menu>
+							</li>
+						</settings>
+					</li>
+					<li>
+						<label>&lt;color=#FF8585&gt;Nautil&lt;/color&gt;</label>
+						<settings>
+							<li Class="XmlExtensions.Setting.EmbedMenu">
+								<menu>Settings_Biotech_Races_Nautil_WVC</menu>
+							</li>
+						</settings>
+					</li>
+					<li>
+						<label>&lt;color=#FFF885&gt;Fion&lt;/color&gt;</label>
+						<settings>
+							<li Class="XmlExtensions.Setting.EmbedMenu">
+								<menu>Settings_Biotech_Races_Fion_WVC</menu>
+							</li>
+						</settings>
+					</li>
+				</tabs>
+			</li>
+		</settings>
+	</XmlExtensions.SettingsMenuDef>
+</Defs>

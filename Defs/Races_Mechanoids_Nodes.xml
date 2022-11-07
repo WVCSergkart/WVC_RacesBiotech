@@ -15,6 +15,7 @@
 		<Flammability>0</Flammability>
 	  </statBases>
 	  <race>
+		<mechFixedSkillLevel>18</mechFixedSkillLevel>
 		<mechEnabledWorkTypes>
 		  <li>Firefighter</li>
 		  <!-- <li>Hauling</li> -->
@@ -92,10 +93,11 @@
 		<baseBodySize>1.2</baseBodySize>
 		<body>WVC_Nodes_Former</body>
 		<mechEnabledWorkTypes>
-		  <li>Construction</li>
+		  <!-- <li>Construction</li> -->
 		  <li>Crafting</li>
 		  <li>Smithing</li>
 		  <li>Tailoring</li>
+		  <li>WVC_ComplexWork</li>
 		</mechEnabledWorkTypes>
 		<lifeStageAges>
 		  <li>
