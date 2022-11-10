@@ -2,12 +2,20 @@
 <Defs>
 
   <RecipeDef Name="WVC_NodesMechanoidRecipe" ParentName="BaseMechanoidRecipe" Abstract="True">
-	<gestationCycles>4</gestationCycles>
+	<gestationCycles>6</gestationCycles>
 	<recipeUsers>
-	  <li>MechGestator</li>
-	  <!-- <li>LargeMechGestator</li> -->
+	  <!-- <li>MechGestator</li> -->
+	  <li>LargeMechGestator</li>
 	</recipeUsers>
 	<ingredients>
+	  <li>
+		<filter>
+		  <thingDefs>
+			<li>WVC_LivingMetall</li>
+		  </thingDefs>
+		</filter>
+		<count>75</count>
+	  </li>
 	  <!-- <li> -->
 		<!-- <filter> -->
 		  <!-- <thingDefs> -->
@@ -39,7 +47,7 @@
 			<li>WVC_ResourceNodes_Blue</li>
 		  </thingDefs>
 		</filter>
-		<count>50</count>
+		<count>25</count>
 	  </li>
 	</ingredients>
 	<products>
@@ -62,7 +70,7 @@
 			<li>WVC_ResourceNodes_Red</li>
 		  </thingDefs>
 		</filter>
-		<count>50</count>
+		<count>25</count>
 	  </li>
 	</ingredients>
 	<products>
@@ -85,7 +93,7 @@
 			<li>WVC_ResourceNodes_Yellow</li>
 		  </thingDefs>
 		</filter>
-		<count>50</count>
+		<count>25</count>
 	  </li>
 	</ingredients>
 	<products>
