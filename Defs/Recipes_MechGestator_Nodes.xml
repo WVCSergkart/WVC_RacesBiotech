@@ -16,14 +16,6 @@
 		</filter>
 		<count>75</count>
 	  </li>
-	  <!-- <li> -->
-		<!-- <filter> -->
-		  <!-- <thingDefs> -->
-			<!-- <li>WVC_ResourceNodes_Blue</li> -->
-		  <!-- </thingDefs> -->
-		<!-- </filter> -->
-		<!-- <count>50</count> -->
-	  <!-- </li> -->
 	  <li>
 		<filter>
 		  <thingDefs>
