@@ -75,7 +75,7 @@
 	  </li>
 	</conditionalStatAffecters>
 	<biostatCpx>2</biostatCpx>
-	<biostatMet>1</biostatMet>
+	<biostatMet>-1</biostatMet>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>sun</symbol></li>
