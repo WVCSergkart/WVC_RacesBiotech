@@ -17,7 +17,7 @@
 	<labelShortAdj>mecha-enchanced</labelShortAdj>
 	<description>Carriers of this gene control mechanoids better.</description>
 	<iconPath>WVC/UI/Genes/EnchancedMechSensetivity</iconPath>
-	<displayOrderInCategory>70</displayOrderInCategory>
+	<displayOrderInCategory>1070</displayOrderInCategory>
 	<statOffsets>
 	  <WorkSpeedGlobalOffsetMech>0.2</WorkSpeedGlobalOffsetMech>
 	</statOffsets>
@@ -40,7 +40,7 @@
 	<labelShortAdj>mecha-extreme</labelShortAdj>
 	<description>Carriers of this gene control mechanoids much better.</description>
 	<iconPath>WVC/UI/Genes/ExtremeMechSensetivity</iconPath>
-	<displayOrderInCategory>75</displayOrderInCategory>
+	<displayOrderInCategory>1071</displayOrderInCategory>
 	<statOffsets>
 	  <WorkSpeedGlobalOffsetMech>0.5</WorkSpeedGlobalOffsetMech>
 	</statOffsets>
@@ -59,12 +59,20 @@
 
   <!-- UV Sensitivity -->
 
-  <GeneDef>
+  <GeneDef Name="WVC_PsychicSunSensitivityBase" Abstract="True">
+	<displayCategory>Psychic</displayCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<exclusionTags>
+	  <li>WVC_PsychicSunSensitivity</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_PsychicSunSensitivityBase">
 	<defName>WVC_UVSensitivity_Psychic</defName>
 	<label>psychic UV sensitivity</label>
 	<labelShortAdj>UV-psychic</labelShortAdj>
-	<description>Carriers of this gene have increased psi sensitivity when they are in the sun.</description>
-	<displayCategory>Psychic</displayCategory>
+	<description>Carriers of this gene have increased psi sensitivity when they are in sunlight.</description>
 	<iconPath>WVC/UI/Genes/SunPsychicallySensetivity</iconPath>
 	<displayOrderInCategory>90</displayOrderInCategory>
 	<conditionalStatAffecters>
@@ -74,8 +82,6 @@
 		</statOffsets>
 	  </li>
 	</conditionalStatAffecters>
-	<biostatCpx>2</biostatCpx>
-	<biostatMet>-1</biostatMet>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>sun</symbol></li>
@@ -85,6 +91,33 @@
 		<li><symbol>lit</symbol></li>
 		<li><symbol>psyh</symbol></li>
 		<li><symbol>sunset</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_PsychicSunSensitivityBase">
+	<defName>WVC_NoUVSensitivity_Psychic</defName>
+	<label>psychic dark sensitivity</label>
+	<labelShortAdj>dark-psychic</labelShortAdj>
+	<description>Carriers of this gene have increased psi sensitivity when they are out of sunlight.</description>
+	<iconPath>WVC/UI/Genes/NightPsychicallySensetivity</iconPath>
+	<displayOrderInCategory>90</displayOrderInCategory>
+	<conditionalStatAffecters>
+	  <li Class="VanillaGenesExpanded.ConditionalStatAffecter_NoSunlight">
+		<statOffsets>
+		  <PsychicSensitivity>0.5</PsychicSensitivity>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>night</symbol></li>
+		<li><symbol>dark</symbol></li>
+		<li><symbol>dar</symbol></li>
+		<li><symbol>moon</symbol></li>
+		<li><symbol>sleep</symbol></li>
+		<li><symbol>psyh</symbol></li>
+		<li><symbol>darkn</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
   </GeneDef>

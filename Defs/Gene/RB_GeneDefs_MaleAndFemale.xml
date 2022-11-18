@@ -15,6 +15,17 @@
 	<label>Monogender (Female)</label>
 	<description>Carriers of this gene may only be female.</description>
 	<iconPath>WVC/UI/Genes/Gene_FemaleOnly</iconPath>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>femi</symbol></li>
+		<li><symbol>fem</symbol></li>
+		<li><symbol>girl</symbol></li>
+		<li><symbol>girly</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>fem</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<forceFemale>true</forceFemale>
@@ -27,6 +38,19 @@
 	<label>Monogender (Male)</label>
 	<description>Carriers of this gene may only be male.</description>
 	<iconPath>WVC/UI/Genes/Gene_MaleOnly</iconPath>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>boy</symbol></li>
+		<li><symbol>man</symbol></li>
+		<li><symbol>big</symbol></li>
+		<li><symbol>gachi</symbol></li>
+		<li><symbol>chad</symbol></li>
+		<li><symbol>gym</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>gym</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<forceMale>true</forceMale>

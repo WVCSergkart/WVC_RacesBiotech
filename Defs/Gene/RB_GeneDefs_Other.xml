@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="GeneLearningBase">
+	<defName>WVC_NoLearning</defName>
+	<label>dumb</label>
+	<description>Carriers of this gene at some point in time stop learning new things.</description>
+	<iconPath>WVC/UI/Genes/Dumb</iconPath>
+	<displayOrderInCategory>40</displayOrderInCategory>
+	<minAgeActive>24</minAgeActive>
+	<statFactors>
+	  <GlobalLearningFactor>0</GlobalLearningFactor>
+	</statFactors>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>6</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>stup</symbol></li>
+		<li><symbol>dumb</symbol></li>
+		<li><symbol>dove</symbol></li>
+		<li><symbol>usl</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>bad</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef>
+	<defName>WVC_Emotionless</defName>
+	<label>emotionless</label>
+	<description>Carriers of this gene do not experience emotions.</description>
+	<iconPath>WVC/UI/Genes/Emotionless</iconPath>
+	<displayCategory>Mood</displayCategory>
+	<displayOrderInCategory>15</displayOrderInCategory>
+	<statFactors>
+	  <MentalBreakThreshold>0</MentalBreakThreshold>
+	  <SocialImpact>0.1</SocialImpact>
+	</statFactors>
+	<biostatCpx>5</biostatCpx>
+	<biostatMet>-4</biostatMet>
+	<exclusionTags>
+	  <!-- <li>MeleeDamage</li> -->
+	  <!-- <li>ShootingAccuracy</li> -->
+	  <li>Aggressive</li>
+	  <li>KillThirst</li>
+	  <li>Mood</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>calm</symbol></li>
+		<li><symbol>peace</symbol></li>
+		<li><symbol>dove</symbol></li>
+		<li><symbol>emo</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>emo</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+  
+</Defs>
