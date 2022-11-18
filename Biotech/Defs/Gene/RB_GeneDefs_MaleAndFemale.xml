@@ -17,12 +17,16 @@
 	<iconPath>WVC/UI/Genes/Gene_FemaleOnly</iconPath>
 	<symbolPack>
 	  <prefixSymbols>
+		<li><symbol>fe</symbol></li>
+		<li><symbol>gi</symbol></li>
 		<li><symbol>femi</symbol></li>
 		<li><symbol>fem</symbol></li>
 		<li><symbol>girl</symbol></li>
 		<li><symbol>girly</symbol></li>
 	  </prefixSymbols>
 	  <suffixSymbols>
+		<li><symbol>fe</symbol></li>
+		<li><symbol>gi</symbol></li>
 		<li><symbol>fem</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
@@ -44,10 +48,12 @@
 		<li><symbol>man</symbol></li>
 		<li><symbol>big</symbol></li>
 		<li><symbol>gachi</symbol></li>
+		<li><symbol>giga</symbol></li>
 		<li><symbol>chad</symbol></li>
 		<li><symbol>gym</symbol></li>
 	  </prefixSymbols>
 	  <suffixSymbols>
+		<li><symbol>chad</symbol></li>
 		<li><symbol>gym</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>

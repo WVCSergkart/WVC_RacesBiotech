@@ -82,7 +82,7 @@
   <!-- ======================================================= -->
 
   <GeneDef>
-	<defName>WVC_NoArmorNoDamage</defName>
+	<defName>WVC_GrayGooSkin</defName>
 	<label>gray goo skin</label>
 	<description>Carriers of this gene have archites which replace the skin making it soft and very unpleasant to look at and touch. However, due to such changes, archites absorb almost all incoming damage, making the owners of this gene practically invulnerable.</description>
 	<iconPath>WVC/UI/Genes/NoArmor</iconPath>
@@ -107,12 +107,12 @@
 	<!-- <biostatMet>-2</biostatMet> -->
 	<biostatArc>2</biostatArc>
 	<exclusionTags>
-	  <li>WVC_NaturalArmor</li>
-	  <li>Toughness</li>
-	  <li>Beauty</li>
+	  <!-- <li>WVC_NaturalArmor</li> -->
+	  <!-- <li>Toughness</li> -->
+	  <!-- <li>Beauty</li> -->
 	  <!-- <li>Fur</li> -->
-	  <li>HairColor</li>
-	  <li>SkinColorOverride</li>
+	  <!-- <li>HairColor</li> -->
+	  <!-- <li>SkinColorOverride</li> -->
 	  <!-- <li>SkinColor</li> -->
 	</exclusionTags>
 	<symbolPack>
