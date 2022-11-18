@@ -48,14 +48,63 @@
 	</exclusionTags>
 	<symbolPack>
 	  <prefixSymbols>
-		<li><symbol>calm</symbol></li>
-		<li><symbol>peace</symbol></li>
-		<li><symbol>dove</symbol></li>
+		<li><symbol>emot</symbol></li>
 		<li><symbol>emo</symbol></li>
 	  </prefixSymbols>
 	  <suffixSymbols>
 		<li><symbol>emo</symbol></li>
 	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- Hunter -->
+
+  <GeneDef Name="WVC_NaturalHunterBase" Abstract="True">
+	<displayCategory>Violence</displayCategory>
+	<biostatCpx>1</biostatCpx>
+	<exclusionTags>
+	  <li>WVC_NaturalHunter</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_NaturalHunterBase">
+	<defName>WVC_BadHunter</defName>
+	<label>bad hunter</label> 
+	<labelShortAdj>hunter</labelShortAdj>
+	<description>Carriers of this gene are bad hunters.</description>
+	<iconPath>WVC/UI/Genes/BadHunter</iconPath>
+	<displayOrderInCategory>1085</displayOrderInCategory>
+	<biostatMet>1</biostatMet>
+	<statOffsets>
+	  <HuntingStealth>-0.25</HuntingStealth>
+	</statOffsets>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>grass</symbol></li>
+		<li><symbol>gras</symbol></li>
+		<li><symbol>weak</symbol></li>
+		<li><symbol>wea</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_NaturalHunterBase">
+	<defName>WVC_SilentHunter</defName>
+	<label>silent hunter</label> 
+	<labelShortAdj>hunter</labelShortAdj>
+	<description>Carriers of this gene are born hunters.</description>
+	<iconPath>WVC/UI/Genes/SilentHunter</iconPath>
+	<displayOrderInCategory>1090</displayOrderInCategory>
+	<biostatMet>-1</biostatMet>
+	<statOffsets>
+	  <HuntingStealth>0.25</HuntingStealth>
+	</statOffsets>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>hunt</symbol></li>
+		<li><symbol>hunter</symbol></li>
+		<li><symbol>silent</symbol></li>
+	  </prefixSymbols>
 	</symbolPack>
   </GeneDef>
   

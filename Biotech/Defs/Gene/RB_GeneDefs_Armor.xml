@@ -79,28 +79,4 @@
 	</symbolPack>
   </GeneDef>
 
-  <!-- Hunter -->
-
-  <GeneDef>
-	<defName>WVC_SilentHunter</defName>
-	<label>silent hunter</label> 
-	<labelShortAdj>hunter</labelShortAdj>
-	<description>Carriers of this gene are born hunters.</description>
-	<iconPath>WVC/UI/Genes/SilentHunter</iconPath>
-	<displayOrderInCategory>85</displayOrderInCategory>
-	<displayCategory>Violence</displayCategory>
-	<biostatCpx>1</biostatCpx>
-	<statOffsets>
-	  <HuntingStealth>0.25</HuntingStealth>
-	</statOffsets>
-	<biostatMet>-1</biostatMet>
-	<symbolPack>
-	  <prefixSymbols>
-		<li><symbol>hunt</symbol></li>
-		<li><symbol>hunter</symbol></li>
-		<li><symbol>silent</symbol></li>
-	  </prefixSymbols>
-	</symbolPack>
-  </GeneDef>
-
 </Defs>
