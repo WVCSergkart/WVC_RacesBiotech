@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneCategoryDef>
+	<defName>WVC_WeirdVoices</defName>
+	<label>weird voices</label>
+	<displayPriorityInXenotype>291</displayPriorityInXenotype>
+  </GeneCategoryDef>
+
+  <!-- ================================================================== -->
+
+  <GeneDef MayRequireAnyOf="ludeon.rimworld.ideology" ParentName="GeneVoiceBase" Name="WVC_DryadVoicesBase" Abstract="True">
+	<displayCategory>WVC_WeirdVoices</displayCategory>
+	<description>Carriers of this gene have weird vocal chords.</description>
+	<displayOrderInCategory>1500</displayOrderInCategory>
+	<iconPath>UI/Icons/Genes/Gene_VoiceHuman</iconPath>
+	<!-- <biostatCpx>1</biostatCpx> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_NaturalHunter</li> -->
+	<!-- </exclusionTags> -->
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>dryad</symbol></li>
+	  </wholeNameSymbols>
+	  <suffixSymbols>
+		<li><symbol>ad</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- ================================= -->
+
+  <GeneDef MayRequireAnyOf="ludeon.rimworld.ideology" ParentName="WVC_DryadVoicesBase">
+	<defName>WVC_VoiceDryadBasic</defName>
+	<label>basic dryad voice</label>
+	<soundCall>Pawn_Dryad_Call</soundCall>
+	<soundWounded>Pawn_Dryad_Wounded</soundWounded>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>dry</symbol></li>
+		<li><symbol>drya</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef MayRequireAnyOf="ludeon.rimworld.ideology" ParentName="WVC_DryadVoicesBase">
+	<defName>WVC_VoiceDryadBarkskin</defName>
+	<label>barkskin voice</label>
+	<soundCall>Pawn_Dryad_Barkskin_Call</soundCall>
+	<soundWounded>Pawn_Dryad_Barkskin_Wounded</soundWounded>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>dry</symbol></li>
+		<li><symbol>bar</symbol></li>
+		<li><symbol>bark</symbol></li>
+		<li><symbol>barks</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>kin</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef MayRequireAnyOf="ludeon.rimworld.ideology" ParentName="WVC_DryadVoicesBase">
+	<defName>WVC_VoiceDryadWoodmaker</defName>
+	<label>woodmaker voice</label>
+	<soundCall>Pawn_Dryad_Woodmaker_Call</soundCall>
+	<soundWounded>Pawn_Dryad_Woodmaker_Wounded</soundWounded>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>dry</symbol></li>
+		<li><symbol>woo</symbol></li>
+		<li><symbol>wood</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>er</symbol></li>
+		<li><symbol>ker</symbol></li>
+		<li><symbol>maker</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef MayRequireAnyOf="ludeon.rimworld.ideology" ParentName="WVC_DryadVoicesBase">
+	<defName>WVC_VoiceDryadBerrymaker</defName>
+	<label>berrymaker voice</label>
+	<soundCall>Pawn_Dryad_Berrymaker_Call</soundCall>
+	<soundWounded>Pawn_Dryad_Berrymaker_Wounded</soundWounded>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>dry</symbol></li>
+		<li><symbol>berry</symbol></li>
+		<li><symbol>ber</symbol></li>
+		<li><symbol>be</symbol></li>
+		<li><symbol>berr</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>er</symbol></li>
+		<li><symbol>ker</symbol></li>
+		<li><symbol>maker</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef MayRequireAnyOf="ludeon.rimworld.ideology" ParentName="WVC_DryadVoicesBase">
+	<defName>WVC_VoiceDryadMedicinemaker</defName>
+	<label>medicinemaker voice</label>
+	<soundCall>Pawn_Dryad_Medicinemaker_Call</soundCall>
+	<soundWounded>Pawn_Dryad_Medicinemaker_Wounded</soundWounded>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>dry</symbol></li>
+		<li><symbol>medic</symbol></li>
+		<li><symbol>medi</symbol></li>
+		<li><symbol>med</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>er</symbol></li>
+		<li><symbol>ker</symbol></li>
+		<li><symbol>maker</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef MayRequireAnyOf="ludeon.rimworld.ideology" ParentName="WVC_DryadVoicesBase">
+	<defName>WVC_VoiceDryadGaumaker</defName>
+	<label>gaumaker voice</label>
+	<soundCall>Pawn_Dryad_Gaumaker_Call</soundCall>
+	<soundWounded>Pawn_Dryad_Gaumaker_Wounded</soundWounded>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>dry</symbol></li>
+		<li><symbol>gau</symbol></li>
+		<li><symbol>gaur</symbol></li>
+		<li><symbol>ga</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>er</symbol></li>
+		<li><symbol>ker</symbol></li>
+		<li><symbol>maker</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef MayRequireAnyOf="ludeon.rimworld.ideology" ParentName="WVC_DryadVoicesBase">
+	<defName>WVC_VoiceDryadCarrier</defName>
+	<label>carrier voice</label>
+	<soundCall>Pawn_Dryad_Carrier_Call</soundCall>
+	<soundWounded>Pawn_Dryad_Carrier_Wounded</soundWounded>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>dry</symbol></li>
+		<li><symbol>carr</symbol></li>
+		<li><symbol>car</symbol></li>
+		<li><symbol>carri</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>er</symbol></li>
+		<li><symbol>ier</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef MayRequireAnyOf="ludeon.rimworld.ideology" ParentName="WVC_DryadVoicesBase">
+	<defName>WVC_VoiceDryadClawer</defName>
+	<label>clawer voice</label>
+	<soundCall>Pawn_Dryad_Clawer_Call</soundCall>
+	<soundWounded>Pawn_Dryad_Clawer_Wounded</soundWounded>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>dry</symbol></li>
+		<li><symbol>claw</symbol></li>
+		<li><symbol>clawer</symbol></li>
+		<li><symbol>cla</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>er</symbol></li>
+		<li><symbol>wer</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+  
+</Defs>
