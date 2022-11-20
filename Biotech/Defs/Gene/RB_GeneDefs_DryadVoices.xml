@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneCategoryDef>
-	<defName>WVC_WeirdVoices</defName>
-	<label>weird voices</label>
-	<displayPriorityInXenotype>291</displayPriorityInXenotype>
-  </GeneCategoryDef>
+  <!-- <GeneCategoryDef> -->
+	<!-- <defName>WVC_WeirdVoices</defName> -->
+	<!-- <label>weird voices</label> -->
+	<!-- <displayPriorityInXenotype>291</displayPriorityInXenotype> -->
+  <!-- </GeneCategoryDef> -->
 
   <!-- ================================================================== -->
 
   <GeneDef MayRequireAnyOf="ludeon.rimworld.ideology" ParentName="GeneVoiceBase" Name="WVC_DryadVoicesBase" Abstract="True">
-	<displayCategory>WVC_WeirdVoices</displayCategory>
+	<!-- <displayCategory>WVC_WeirdVoices</displayCategory> -->
 	<description>Carriers of this gene have weird vocal chords.</description>
-	<displayOrderInCategory>1500</displayOrderInCategory>
+	<!-- <displayOrderInCategory>1500</displayOrderInCategory> -->
+	<displayOrderInCategory>132</displayOrderInCategory>
 	<iconPath>UI/Icons/Genes/Gene_VoiceHuman</iconPath>
 	<iconColor>(255, 153, 88)</iconColor>
 	<!-- <biostatCpx>1</biostatCpx> -->
@@ -50,6 +51,9 @@
 	<soundCall>Pawn_Dryad_Barkskin_Call</soundCall>
 	<soundWounded>Pawn_Dryad_Barkskin_Wounded</soundWounded>
 	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>barkskin</symbol></li>
+	  </wholeNameSymbols>
 	  <prefixSymbols>
 		<li><symbol>dry</symbol></li>
 		<li><symbol>bar</symbol></li>
@@ -68,6 +72,9 @@
 	<soundCall>Pawn_Dryad_Woodmaker_Call</soundCall>
 	<soundWounded>Pawn_Dryad_Woodmaker_Wounded</soundWounded>
 	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>woodmaker</symbol></li>
+	  </wholeNameSymbols>
 	  <prefixSymbols>
 		<li><symbol>dry</symbol></li>
 		<li><symbol>woo</symbol></li>
@@ -87,6 +94,9 @@
 	<soundCall>Pawn_Dryad_Berrymaker_Call</soundCall>
 	<soundWounded>Pawn_Dryad_Berrymaker_Wounded</soundWounded>
 	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>berrymaker</symbol></li>
+	  </wholeNameSymbols>
 	  <prefixSymbols>
 		<li><symbol>dry</symbol></li>
 		<li><symbol>berry</symbol></li>
@@ -108,6 +118,9 @@
 	<soundCall>Pawn_Dryad_Medicinemaker_Call</soundCall>
 	<soundWounded>Pawn_Dryad_Medicinemaker_Wounded</soundWounded>
 	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>medicinemaker</symbol></li>
+	  </wholeNameSymbols>
 	  <prefixSymbols>
 		<li><symbol>dry</symbol></li>
 		<li><symbol>medic</symbol></li>
@@ -128,6 +141,9 @@
 	<soundCall>Pawn_Dryad_Gaumaker_Call</soundCall>
 	<soundWounded>Pawn_Dryad_Gaumaker_Wounded</soundWounded>
 	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>gaumaker</symbol></li>
+	  </wholeNameSymbols>
 	  <prefixSymbols>
 		<li><symbol>dry</symbol></li>
 		<li><symbol>gau</symbol></li>
@@ -148,6 +164,9 @@
 	<soundCall>Pawn_Dryad_Carrier_Call</soundCall>
 	<soundWounded>Pawn_Dryad_Carrier_Wounded</soundWounded>
 	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>carrier</symbol></li>
+	  </wholeNameSymbols>
 	  <prefixSymbols>
 		<li><symbol>dry</symbol></li>
 		<li><symbol>carr</symbol></li>
@@ -167,6 +186,9 @@
 	<soundCall>Pawn_Dryad_Clawer_Call</soundCall>
 	<soundWounded>Pawn_Dryad_Clawer_Wounded</soundWounded>
 	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>clawer</symbol></li>
+	  </wholeNameSymbols>
 	  <prefixSymbols>
 		<li><symbol>dry</symbol></li>
 		<li><symbol>claw</symbol></li>
