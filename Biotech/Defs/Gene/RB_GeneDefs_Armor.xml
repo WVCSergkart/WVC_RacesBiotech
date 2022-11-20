@@ -88,8 +88,8 @@
 	<iconPath>WVC/UI/Genes/NoArmor</iconPath>
 	<displayCategory>Archite</displayCategory>
 	<displayOrderInCategory>150</displayOrderInCategory>
-	<skinColorOverride>(79, 80, 81)</skinColorOverride>
-	<hairColorOverride>(79, 80, 81)</hairColorOverride>
+	<!-- <skinColorOverride>(79, 80, 81)</skinColorOverride> -->
+	<!-- <hairColorOverride>(79, 80, 81)</hairColorOverride> -->
 	<missingGeneRomanceChanceFactor>0.2</missingGeneRomanceChanceFactor>
 	<statOffsets>
 	  <!-- <ArmorRating_Blunt>-5.0</ArmorRating_Blunt> -->

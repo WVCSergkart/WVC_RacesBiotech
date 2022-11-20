@@ -33,6 +33,7 @@
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<forceFemale>true</forceFemale>
+			<!-- <bodyScaleFactor>0.7</bodyScaleFactor> -->
 		</li>
 	</modExtensions>
   </GeneDef>
