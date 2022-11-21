@@ -7,7 +7,7 @@
 	<description>Carriers of this gene at some point in time stop learning new things.</description>
 	<iconPath>WVC/UI/Genes/Dumb</iconPath>
 	<displayOrderInCategory>40</displayOrderInCategory>
-	<minAgeActive>24</minAgeActive>
+	<minAgeActive>25</minAgeActive>
 	<statFactors>
 	  <GlobalLearningFactor>0</GlobalLearningFactor>
 	</statFactors>

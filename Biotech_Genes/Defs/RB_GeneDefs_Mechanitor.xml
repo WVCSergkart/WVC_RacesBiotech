@@ -112,13 +112,13 @@
 	<displayCategory>Ability</displayCategory>
 	<!-- <displayCategory>Archite</displayCategory> -->
 	<displayOrderInCategory>1125</displayOrderInCategory>
-	<prerequisite>PsychicAbility_Extreme</prerequisite>
+	<!-- <prerequisite>PsychicAbility_Extreme</prerequisite> -->
 	<statOffsets>
 		<MechBandwidth>-4</MechBandwidth>
 		<MechControlGroups>-1</MechControlGroups>
 	</statOffsets>
 	<biostatCpx>3</biostatCpx>
-	<biostatMet>-2</biostatMet>
+	<biostatMet>-3</biostatMet>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>meca</symbol></li>
@@ -160,8 +160,8 @@
 	<!-- <statOffsets> -->
 	<!-- </statOffsets> -->
 	<biostatCpx>3</biostatCpx>
-	<biostatMet>-2</biostatMet>
-	<prerequisite>PsychicAbility_Extreme</prerequisite>
+	<biostatMet>-3</biostatMet>
+	<!-- <prerequisite>PsychicAbility_Extreme</prerequisite> -->
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>psy</symbol></li>

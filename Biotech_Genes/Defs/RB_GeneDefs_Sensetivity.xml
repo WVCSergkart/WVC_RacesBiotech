@@ -42,10 +42,10 @@
 	<iconPath>WVC/UI/Genes/EnchancedMechSensetivity</iconPath>
 	<displayOrderInCategory>1070</displayOrderInCategory>
 	<statOffsets>
-	  <WorkSpeedGlobalOffsetMech>0.2</WorkSpeedGlobalOffsetMech>
+	  <WorkSpeedGlobalOffsetMech>0.25</WorkSpeedGlobalOffsetMech>
 	</statOffsets>
-	<biostatMet>-1</biostatMet>
-	<prerequisite>PsychicAbility_Enhanced</prerequisite>
+	<biostatMet>-2</biostatMet>
+	<!-- <prerequisite>PsychicAbility_Enhanced</prerequisite> -->
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>mec</symbol></li>
@@ -67,8 +67,8 @@
 	<statOffsets>
 	  <WorkSpeedGlobalOffsetMech>0.5</WorkSpeedGlobalOffsetMech>
 	</statOffsets>
-	<biostatMet>-2</biostatMet>
-	<prerequisite>PsychicAbility_Extreme</prerequisite>
+	<biostatMet>-3</biostatMet>
+	<!-- <prerequisite>PsychicAbility_Extreme</prerequisite> -->
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>mec</symbol></li>
