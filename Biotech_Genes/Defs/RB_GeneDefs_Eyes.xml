@@ -7,7 +7,7 @@
 	<!-- <defName>Eyes_Gray</defName> -->
 	<!-- <label>gray eyes</label> -->
 	<!-- <labelShortAdj>gray-eyed</labelShortAdj> -->
-	<description>Carriers of this gene have a unique eye color.</description>
+	<description>Carriers of this gene have a unique eye color.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; The name of all colors was given relative to the HEX code, and may not be accurate.</description>
 	<iconPath>UI/Icons/Genes/Gene_GrayEyes</iconPath>
 	<displayOrderInCategory>2</displayOrderInCategory>
 	<!-- <graphicData> -->
@@ -21,7 +21,7 @@
 	<defName>WVC_Eyes_7c69ce_HEX</defName>
 	<label>blue-magenta eyes</label>
 	<labelShortAdj>blue-eyed</labelShortAdj>
-	<iconPath>WVC/UI/Genes/EyesColors/Eyes_Female_7c69ce</iconPath>
+	<iconPath>WVC/UI/Genes/EyesColors/Eyes_Icon_7c69ce</iconPath>
 	<graphicData>
 	  <drawScale>0.28</drawScale>
 	  <graphicPath>WVC/UI/Genes/EyesColors/Eyes_Male_7c69ce</graphicPath>
@@ -33,7 +33,7 @@
 	<defName>WVC_Eyes_69a2ce_HEX</defName>
 	<label>cyan-blue eyes</label>
 	<labelShortAdj>blue-eyed</labelShortAdj>
-	<iconPath>WVC/UI/Genes/EyesColors/Eyes_Female_69a2ce</iconPath>
+	<iconPath>WVC/UI/Genes/EyesColors/Eyes_Icon_69a2ce</iconPath>
 	<graphicData>
 	  <drawScale>0.28</drawScale>
 	  <graphicPath>WVC/UI/Genes/EyesColors/Eyes_Male_69a2ce</graphicPath>
@@ -45,7 +45,7 @@
 	<defName>WVC_Eyes_69ce7a_HEX</defName>
 	<label>green eyes</label>
 	<labelShortAdj>green-eyed</labelShortAdj>
-	<iconPath>WVC/UI/Genes/EyesColors/Eyes_Female_69ce7a</iconPath>
+	<iconPath>WVC/UI/Genes/EyesColors/Eyes_Icon_69ce7a</iconPath>
 	<graphicData>
 	  <drawScale>0.28</drawScale>
 	  <graphicPath>WVC/UI/Genes/EyesColors/Eyes_Male_69ce7a</graphicPath>
@@ -57,7 +57,7 @@
 	<defName>WVC_Eyes_c8ce69_HEX</defName>
 	<label>yellow-green eyes</label>
 	<labelShortAdj>yellow-eyed</labelShortAdj>
-	<iconPath>WVC/UI/Genes/EyesColors/Eyes_Female_c8ce69</iconPath>
+	<iconPath>WVC/UI/Genes/EyesColors/Eyes_Icon_c8ce69</iconPath>
 	<graphicData>
 	  <drawScale>0.28</drawScale>
 	  <graphicPath>WVC/UI/Genes/EyesColors/Eyes_Male_c8ce69</graphicPath>
@@ -69,7 +69,7 @@
 	<defName>WVC_Eyes_ce69c3_HEX</defName>
 	<label>magenta eyes</label>
 	<labelShortAdj>magenta-eyed</labelShortAdj>
-	<iconPath>WVC/UI/Genes/EyesColors/Eyes_Female_ce69c3</iconPath>
+	<iconPath>WVC/UI/Genes/EyesColors/Eyes_Icon_ce69c3</iconPath>
 	<graphicData>
 	  <drawScale>0.28</drawScale>
 	  <graphicPath>WVC/UI/Genes/EyesColors/Eyes_Male_ce69c3</graphicPath>
@@ -81,7 +81,7 @@
 	<defName>WVC_Eyes_ce6969_HEX</defName>
 	<label>red eyes</label>
 	<labelShortAdj>red-eyed</labelShortAdj>
-	<iconPath>WVC/UI/Genes/EyesColors/Eyes_Female_ce6969</iconPath>
+	<iconPath>WVC/UI/Genes/EyesColors/Eyes_Icon_ce6969</iconPath>
 	<graphicData>
 	  <drawScale>0.28</drawScale>
 	  <graphicPath>WVC/UI/Genes/EyesColors/Eyes_Male_ce6969</graphicPath>
@@ -93,7 +93,7 @@
 	<defName>WVC_Eyes_ceae69_HEX</defName>
 	<label>yellow eyes</label>
 	<labelShortAdj>yellow-eyed</labelShortAdj>
-	<iconPath>WVC/UI/Genes/EyesColors/Eyes_Female_ceae69</iconPath>
+	<iconPath>WVC/UI/Genes/EyesColors/Eyes_Icon_ceae69</iconPath>
 	<graphicData>
 	  <drawScale>0.28</drawScale>
 	  <graphicPath>WVC/UI/Genes/EyesColors/Eyes_Male_ceae69</graphicPath>
@@ -105,7 +105,7 @@
 	<defName>WVC_Eyes_69cec6_HEX</defName>
 	<label>cyan eyes</label>
 	<labelShortAdj>cyan-eyed</labelShortAdj>
-	<iconPath>WVC/UI/Genes/EyesColors/Eyes_Female_69cec6</iconPath>
+	<iconPath>WVC/UI/Genes/EyesColors/Eyes_Icon_69cec6</iconPath>
 	<graphicData>
 	  <drawScale>0.28</drawScale>
 	  <graphicPath>WVC/UI/Genes/EyesColors/Eyes_Male_69cec6</graphicPath>
