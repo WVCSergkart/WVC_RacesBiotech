@@ -13,11 +13,11 @@
 			<packageId>Ludeon.RimWorld.Biotech</packageId>
 			<displayName>Biotech</displayName>
 		</li>
-		<li>
-			<packageId>wvc.sergkart.core</packageId>
-			<displayName>WVC - Core</displayName>
-			<steamWorkshopUrl>steam://url/CommunityFilePage/2875630809</steamWorkshopUrl>
-		</li>
+		<!-- <li> -->
+			<!-- <packageId>wvc.sergkart.core</packageId> -->
+			<!-- <displayName>WVC - Core</displayName> -->
+			<!-- <steamWorkshopUrl>steam://url/CommunityFilePage/2875630809</steamWorkshopUrl> -->
+		<!-- </li> -->
 	</modDependencies>
 	<loadAfter>
 		<li>Ludeon.RimWorld</li>

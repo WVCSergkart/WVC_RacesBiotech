@@ -1,6 +1,8 @@
 <loadFolders>
 	<v1.4>
-		<li IfModActive="ludeon.rimworld.biotech">Biotech</li>
+		<li>/</li>
+		<li IfModActive="wvc.sergkart.core">Biotech_Core</li>
+		<li IfModActive="ludeon.rimworld.biotech">Biotech_Genes</li>
 	</v1.4>
 </loadFolders>
 
