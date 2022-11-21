@@ -13,6 +13,11 @@
 			<packageId>Ludeon.RimWorld.Biotech</packageId>
 			<displayName>Biotech</displayName>
 		</li>
+		<li>
+			<packageId>OskarPotocki.VanillaFactionsExpanded.Core</packageId>
+			<displayName>Vanilla Expanded Framework</displayName>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=1854607105</steamWorkshopUrl>
+		</li>
 		<!-- <li> -->
 			<!-- <packageId>wvc.sergkart.core</packageId> -->
 			<!-- <displayName>WVC - Core</displayName> -->
@@ -25,6 +30,7 @@
 		<li>Ludeon.RimWorld.Ideology</li>
 		<li>Ludeon.RimWorld.Biotech</li>
 		<!-- - -->
+		<li>OskarPotocki.VanillaFactionsExpanded.Core</li>
 		<li>wvc.sergkart.core</li>
 	</loadAfter>
 	<loadBefore>
