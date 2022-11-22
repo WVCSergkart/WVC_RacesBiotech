@@ -46,6 +46,7 @@
 		<MechBandwidth>8</MechBandwidth>
 		<MechControlGroups>2</MechControlGroups>
 	</statOffsets>
+	<biostatCpx>3</biostatCpx>
 	<biostatMet>-3</biostatMet>
 	<symbolPack>
 	  <prefixSymbols>
