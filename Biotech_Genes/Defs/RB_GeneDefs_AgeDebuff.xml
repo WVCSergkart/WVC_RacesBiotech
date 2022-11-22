@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneCategoryDef>
+	<defName>WVC_AgeDebuffs</defName>
+	<label>age degradation</label>
+	<displayPriorityInXenotype>1200</displayPriorityInXenotype>
+  </GeneCategoryDef>
+
+  <!-- ================================================================== -->
+
+  <GeneDef ParentName="GeneLearningBase">
+	<defName>WVC_NoLearning</defName>
+	<label>arrested development</label>
+	<description>Carriers of this gene at some point in time stop learning new things.</description>
+	<iconPath>WVC/UI/Genes/AgeDebuff_Dumb</iconPath>
+	<displayCategory>WVC_AgeDebuffs</displayCategory>
+	<displayOrderInCategory>40</displayOrderInCategory>
+	<minAgeActive>25</minAgeActive>
+	<statFactors>
+	  <GlobalLearningFactor>0</GlobalLearningFactor>
+	</statFactors>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>6</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>stup</symbol></li>
+		<li><symbol>dumb</symbol></li>
+		<li><symbol>dove</symbol></li>
+		<li><symbol>usl</symbol></li>
+		<li><symbol>age</symbol></li>
+		<li><symbol>weak</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>bad</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- ============== -->
+
+  <GeneDef ParentName="GeneToxResistBase">
+	<defName>WVC_AgeDebuff_ToxResist</defName>
+	<label>tox filtration degradation</label>
+	<labelShortAdj>tox-age-weakness</labelShortAdj>
+	<description>Carriers of this gene at some point in their lives become very vulnerable to toxins.</description>
+	<iconPath>WVC/UI/Genes/AgeDebuff_ToxSens</iconPath>
+	<displayCategory>WVC_AgeDebuffs</displayCategory>
+	<displayOrderInCategory>11</displayOrderInCategory>
+	<!-- <immuneToToxGasExposure>true</immuneToToxGasExposure> -->
+	<minAgeActive>25</minAgeActive>
+	<!-- <customEffectDescriptions> -->
+	  <!-- <li>Tox gas immunity</li> -->
+	<!-- </customEffectDescriptions> -->
+	<statOffsets>
+	  <ToxicResistance>-1</ToxicResistance>
+	</statOffsets>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>3</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>tox</symbol></li>
+		<li><symbol>weak</symbol></li>
+		<li><symbol>age</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- ============== -->
+
+  <GeneDef ParentName="FertilityBase">
+	<defName>WVC_AgeDebuff_Sterile</defName>
+	<label>reproductive degradation</label>
+	<description>Carriers of this gene become unable to reproduce at some point in their lives.</description>
+	<iconPath>WVC/UI/Genes/AgeDebuff_Fertility</iconPath>
+	<minAgeActive>25</minAgeActive>
+	<sterilize>true</sterilize>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>1</biostatMet>
+	<displayCategory>WVC_AgeDebuffs</displayCategory>
+	<displayOrderInCategory>101</displayOrderInCategory>
+	<statFactors>
+	  <Fertility>0</Fertility>
+	</statFactors>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>age</symbol></li>
+		<li><symbol>weak</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- ============== -->
+
+  <GeneDef ParentName="LibidoBase">
+	<defName>WVC_AgeDebuff_Libido</defName>
+	<label>decline in libido</label>
+	<description>Carriers of this gene become unable to engage in lovin' with their partner.</description>
+	<customEffectDescriptions>
+	  <li>Decreases the chance of lovin'.</li>
+	</customEffectDescriptions>
+	<minAgeActive>25</minAgeActive>
+	<iconPath>WVC/UI/Genes/AgeDebuff_Libido</iconPath>
+	<displayCategory>WVC_AgeDebuffs</displayCategory>
+	<displayOrderInCategory>11</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>1</biostatMet>
+	<lovinMTBFactor>0.0</lovinMTBFactor>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>age</symbol></li>
+		<li><symbol>weak</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- ============== -->
+
+  <GeneDef ParentName="GeneMoveSpeedBase">
+	<defName>WVC_AgeDebuff_MoveSpeed</defName>
+	<label>weake legs</label> 
+	<labelShortAdj>slow</labelShortAdj>
+	<description>Carriers of this gene become very slow at some point in their lives.</description>
+	<iconPath>WVC/UI/Genes/AgeDebuff_MoveSpeed</iconPath>
+	<displayCategory>WVC_AgeDebuffs</displayCategory>
+	<displayOrderInCategory>21</displayOrderInCategory>
+	<minAgeActive>25</minAgeActive>
+	<statOffsets>
+	  <MoveSpeed>-2</MoveSpeed>
+	</statOffsets>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>4</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>slow</symbol></li>
+		<li><symbol>age</symbol></li>
+		<li><symbol>weak</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- ============== -->
+
+  <GeneDef>
+	<defName>WVC_AgeDebuff_Manipulation</defName>
+	<label>motor impairment</label> 
+	<labelShortAdj>bad-hand</labelShortAdj>
+	<description>Carriers of this gene begin to suffer from fine motor impairment at some point in their lives.</description>
+	<iconPath>WVC/UI/Genes/AgeDebuff_Manipulation</iconPath>
+	<displayCategory>WVC_AgeDebuffs</displayCategory>
+	<displayOrderInCategory>21</displayOrderInCategory>
+	<minAgeActive>25</minAgeActive>
+	<capMods>
+	  <li>
+		<capacity>Manipulation</capacity>
+		<postFactor>0.5</postFactor>
+	  </li>
+	</capMods>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>4</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>age</symbol></li>
+		<li><symbol>weak</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- ============== -->
+
+  <GeneDef>
+	<defName>WVC_AgeDebuff_Social</defName>
+	<label>vocal cord degradation</label> 
+	<labelShortAdj>bad-hand</labelShortAdj>
+	<description>Carriers of this gene lose the ability to speak at some point in their lives.</description>
+	<iconPath>WVC/UI/Genes/AgeDebuff_Talk</iconPath>
+	<displayCategory>WVC_AgeDebuffs</displayCategory>
+	<displayOrderInCategory>21</displayOrderInCategory>
+	<minAgeActive>25</minAgeActive>
+	<capMods>
+	  <li>
+		<capacity>Talking</capacity>
+		<setMax>0.0</setMax>
+	  </li>
+	</capMods>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>3</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>mute</symbol></li>
+		<li><symbol>age</symbol></li>
+		<li><symbol>weak</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- ============== -->
+
+  <GeneDef>
+	<defName>WVC_AgeDebuff_Beauty</defName>
+	<label>premature old</label>
+	<description>Carriers of this gene outwardly age very early.</description>
+	<iconPath>WVC/UI/Genes/AgeDebuff_Beauty</iconPath>
+	<displayCategory>WVC_AgeDebuffs</displayCategory>
+	<displayOrderInCategory>10</displayOrderInCategory>
+	<minAgeActive>25</minAgeActive>
+	<statOffsets>
+	  <PawnBeauty>-2</PawnBeauty>
+	</statOffsets>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>2</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li>
+		  <symbol>ug</symbol>
+		</li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- ============== -->
+
+  <GeneDef>
+	<defName>WVC_ForeverYoung</defName>
+	<label>forever young</label>
+	<description>Carriers of this gene have malfunctioning architis that prevents them from growing naturally.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; Pawns cannot become adults, but this only applies to children who grow up in a colony, during generation, the age of pawns with this gene can be any.</description>
+	<iconPath>WVC/UI/Genes/AgeDebuff_ForeverYoung</iconPath>
+	<displayCategory>WVC_AgeDebuffs</displayCategory>
+	<displayOrderInCategory>100</displayOrderInCategory>
+	<minAgeActive>10</minAgeActive>
+	<biologicalAgeTickFactorFromAgeCurve>
+	  <points>
+		<li>(11, 1)</li>
+		<li>(12, 0)</li>
+		<li>(13, 0)</li>
+		<!-- <li>(14, 1)</li> -->
+		<li>(15, 1)</li>
+	  </points>
+	</biologicalAgeTickFactorFromAgeCurve>
+	<biostatCpx>6</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>6</biostatMet>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>young</symbol></li>
+	  </wholeNameSymbols>
+	  <prefixSymbols>
+		<li><symbol>for</symbol></li>
+		<li><symbol>fore</symbol></li>
+		<li><symbol>eve</symbol></li>
+		<li><symbol>ever</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>you</symbol></li>
+		<li><symbol>yo</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>
