@@ -67,6 +67,7 @@
 	<statOffsets>
 	  <WorkSpeedGlobalOffsetMech>0.5</WorkSpeedGlobalOffsetMech>
 	</statOffsets>
+	<biostatCpx>2</biostatCpx>
 	<biostatMet>-3</biostatMet>
 	<!-- <prerequisite>PsychicAbility_Extreme</prerequisite> -->
 	<symbolPack>

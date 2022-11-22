@@ -3,7 +3,7 @@
 
   <GeneDef ParentName="GeneLearningBase">
 	<defName>WVC_NoLearning</defName>
-	<label>dumb</label>
+	<label>arrested development</label>
 	<description>Carriers of this gene at some point in time stop learning new things.</description>
 	<iconPath>WVC/UI/Genes/Dumb</iconPath>
 	<displayOrderInCategory>40</displayOrderInCategory>
