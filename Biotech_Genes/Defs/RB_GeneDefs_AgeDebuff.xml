@@ -35,6 +35,12 @@
 		<li><symbol>bad</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- ============== -->
@@ -64,6 +70,12 @@
 		<li><symbol>age</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- ============== -->
@@ -88,6 +100,12 @@
 		<li><symbol>weak</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- ============== -->
@@ -112,6 +130,12 @@
 		<li><symbol>weak</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- ============== -->
@@ -137,6 +161,12 @@
 		<li><symbol>weak</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- ============== -->
@@ -164,6 +194,12 @@
 		<li><symbol>weak</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- ============== -->
@@ -192,6 +228,12 @@
 		<li><symbol>weak</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- ============== -->
@@ -216,45 +258,12 @@
 		</li>
 	  </prefixSymbols>
 	</symbolPack>
-  </GeneDef>
-
-  <!-- ============== -->
-
-  <GeneDef>
-	<defName>WVC_ForeverYoung</defName>
-	<label>forever young</label>
-	<description>Carriers of this gene have malfunctioning architis that prevents them from growing naturally.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; Pawns cannot become adults, but this only applies to children who grow up in a colony, during generation, the age of pawns with this gene can be any.</description>
-	<iconPath>WVC/UI/Genes/AgeDebuff_ForeverYoung</iconPath>
-	<displayCategory>WVC_AgeDebuffs</displayCategory>
-	<displayOrderInCategory>100</displayOrderInCategory>
-	<minAgeActive>10</minAgeActive>
-	<biologicalAgeTickFactorFromAgeCurve>
-	  <points>
-		<li>(11, 1)</li>
-		<li>(12, 0)</li>
-		<li>(13, 0)</li>
-		<!-- <li>(14, 1)</li> -->
-		<li>(15, 1)</li>
-	  </points>
-	</biologicalAgeTickFactorFromAgeCurve>
-	<biostatCpx>6</biostatCpx>
-	<biostatArc>1</biostatArc>
-	<biostatMet>6</biostatMet>
-	<symbolPack>
-	  <wholeNameSymbols>
-		<li><symbol>young</symbol></li>
-	  </wholeNameSymbols>
-	  <prefixSymbols>
-		<li><symbol>for</symbol></li>
-		<li><symbol>fore</symbol></li>
-		<li><symbol>eve</symbol></li>
-		<li><symbol>ever</symbol></li>
-	  </prefixSymbols>
-	  <suffixSymbols>
-		<li><symbol>you</symbol></li>
-		<li><symbol>yo</symbol></li>
-	  </suffixSymbols>
-	</symbolPack>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+	</modExtensions>
   </GeneDef>
 
 </Defs>

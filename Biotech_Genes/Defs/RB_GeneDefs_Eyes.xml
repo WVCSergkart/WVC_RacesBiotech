@@ -15,6 +15,12 @@
 	  <!-- <graphicPath>Things/Pawn/Humanlike/HeadAttachments/GrayEyes/Male/GrayEyes_Male</graphicPath> -->
 	  <!-- <graphicPathFemale>Things/Pawn/Humanlike/HeadAttachments/GrayEyes/Female/GrayEyes_Female</graphicPathFemale> -->
 	<!-- </graphicData> -->
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_GeneEyeColorBase">

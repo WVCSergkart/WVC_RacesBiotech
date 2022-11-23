@@ -30,6 +30,12 @@
 		<li><symbol>emo</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- Hunter -->
@@ -40,6 +46,12 @@
 	<exclusionTags>
 	  <li>WVC_NaturalHunter</li>
 	</exclusionTags>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_NaturalHunterBase">

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Gray goo -->
+
+  <GeneDef>
+	<defName>WVC_GrayGooSkin</defName>
+	<label>gray goo skin</label>
+	<description>Carriers of this gene have archites which replace the skin making it soft and very unpleasant to look at and touch. However, due to such changes, archites absorb almost all incoming damage, making the owners of this gene practically invulnerable.</description>
+	<iconPath>WVC/UI/Genes/NoArmor</iconPath>
+	<displayCategory>Archite</displayCategory>
+	<displayOrderInCategory>150</displayOrderInCategory>
+	<iconColor>(79, 80, 81)</iconColor>
+	<!-- <skinColorOverride>(79, 80, 81)</skinColorOverride> -->
+	<!-- <hairColorOverride>(79, 80, 81)</hairColorOverride> -->
+	<missingGeneRomanceChanceFactor>0.2</missingGeneRomanceChanceFactor>
+	<statOffsets>
+	  <!-- <ArmorRating_Blunt>-5.0</ArmorRating_Blunt> -->
+	  <!-- <ArmorRating_Sharp>-5.0</ArmorRating_Sharp> -->
+	  <!-- <ArmorRating_Heat>-5.0</ArmorRating_Heat> -->
+	  <!-- <PawnBeauty>-2</PawnBeauty> -->
+	</statOffsets>
+	<statFactors>
+	  <!-- <ArmorRating_Blunt>0</ArmorRating_Blunt> -->
+	  <!-- <ArmorRating_Sharp>0</ArmorRating_Sharp> -->
+	  <!-- <ArmorRating_Heat>0</ArmorRating_Heat> -->
+	  <IncomingDamageFactor>0.3</IncomingDamageFactor>
+	</statFactors>
+	<biostatCpx>6</biostatCpx>
+	<!-- <biostatMet>-2</biostatMet> -->
+	<biostatArc>2</biostatArc>
+	<exclusionTags>
+	  <!-- <li>WVC_NaturalArmor</li> -->
+	  <!-- <li>Toughness</li> -->
+	  <!-- <li>Beauty</li> -->
+	  <!-- <li>Fur</li> -->
+	  <!-- <li>HairColor</li> -->
+	  <!-- <li>SkinColorOverride</li> -->
+	  <!-- <li>SkinColor</li> -->
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>inv</symbol></li>
+		<li><symbol>invu</symbol></li>
+		<li><symbol>vuln</symbol></li>
+		<li><symbol>vul</symbol></li>
+		<li><symbol>armor</symbol></li>
+		<li><symbol>less</symbol></li>
+		<li><symbol>dama</symbol></li>
+		<li><symbol>damag</symbol></li>
+		<li><symbol>gray</symbol></li>
+		<li><symbol>goo</symbol></li>
+		<li><symbol>arc</symbol></li>
+		<li><symbol>arch</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>less</symbol></li>
+		<li><symbol>goo</symbol></li>
+		<li><symbol>inv</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+
+  <!-- Mechlink -->
+
+  <GeneDef>
+	<defName>WVC_ArchiteMechlink</defName>
+	<label>mechlink</label> 
+	<labelShortAdj>mechlink</labelShortAdj>
+	<description>Carriers of the gene have archites that form a mechlink in the brain, which allows them to control the mechanoids.</description>
+	<iconPath>WVC/UI/Genes/Mechlink</iconPath>
+	<!-- <displayCategory>Ability</displayCategory> -->
+	<displayCategory>Archite</displayCategory>
+	<displayOrderInCategory>1130</displayOrderInCategory>
+	<statOffsets>
+		<!-- <MechBandwidth>8</MechBandwidth> -->
+		<!-- <MechControlGroups>2</MechControlGroups> -->
+	</statOffsets>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>meca</symbol></li>
+		<li><symbol>mec</symbol></li>
+		<li><symbol>meh</symbol></li>
+		<li><symbol>mech</symbol></li>
+		<li><symbol>mecha</symbol></li>
+		<li><symbol>machi</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>WVC_GeneMechlink</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes> -->
+			<hediffsToBodyParts>
+				<li>
+					<hediff>MechlinkImplant</hediff>
+					<bodyparts>
+						<li>Brain</li>
+					</bodyparts>
+				</li>
+			</hediffsToBodyParts>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- Connected -->
+
+  <GeneDef>
+	<defName>WVC_ArchiteFleetConnected</defName>
+	<label>fleet connected</label> 
+	<labelShortAdj>connected</labelShortAdj>
+	<description>Carriers of this gene have archites that amplify the mechlink's signal, allowing the bearer to establish a stable link with a nearby fleet of mechanoids and use their systems. This link opens up access to the almost endless possibilities of mechanoid control.</description>
+	<iconPath>WVC/UI/Genes/FleetConnection</iconPath>
+	<iconColor>(184, 198, 203)</iconColor>
+	<!-- <iconColor>(255, 230, 215)</iconColor> -->
+	<!-- <iconColor>(79, 80, 81)</iconColor> -->
+	<displayCategory>Archite</displayCategory>
+	<displayOrderInCategory>1131</displayOrderInCategory>
+	<prerequisite>WVC_ArchiteMechlink</prerequisite>
+	<statOffsets>
+		<MechBandwidth>74</MechBandwidth>
+		<MechControlGroups>6</MechControlGroups>
+		<WorkSpeedGlobalOffsetMech>1.0</WorkSpeedGlobalOffsetMech>
+		<MechFormingSpeed>1</MechFormingSpeed>
+		<MechRepairSpeed>1</MechRepairSpeed>
+	</statOffsets>
+	<biostatCpx>6</biostatCpx>
+	<biostatArc>4</biostatArc>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>connect</symbol></li>
+		<li><symbol>con</symbol></li>
+		<li><symbol>connec</symbol></li>
+		<li><symbol>meca</symbol></li>
+		<li><symbol>mec</symbol></li>
+		<li><symbol>meh</symbol></li>
+		<li><symbol>mech</symbol></li>
+		<li><symbol>mecha</symbol></li>
+		<li><symbol>machi</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+
+  <!-- Forever young -->
+
+  <GeneDef>
+	<defName>WVC_ForeverYoung</defName>
+	<label>forever young</label>
+	<description>Carriers of this gene have malfunctioning architis that prevents them from growing naturally.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; Pawns cannot become adults, but this only applies to children who grow up in a colony, during generation, the age of pawns with this gene can be any.</description>
+	<iconPath>WVC/UI/Genes/AgeDebuff_ForeverYoung</iconPath>
+	<displayCategory>WVC_AgeDebuffs</displayCategory>
+	<displayOrderInCategory>100</displayOrderInCategory>
+	<minAgeActive>10</minAgeActive>
+	<biologicalAgeTickFactorFromAgeCurve>
+	  <points>
+		<li>(11, 1)</li>
+		<li>(12, 0)</li>
+		<li>(13, 0)</li>
+		<!-- <li>(14, 1)</li> -->
+		<li>(15, 1)</li>
+	  </points>
+	</biologicalAgeTickFactorFromAgeCurve>
+	<biostatCpx>6</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>6</biostatMet>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>young</symbol></li>
+	  </wholeNameSymbols>
+	  <prefixSymbols>
+		<li><symbol>for</symbol></li>
+		<li><symbol>fore</symbol></li>
+		<li><symbol>eve</symbol></li>
+		<li><symbol>ever</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>you</symbol></li>
+		<li><symbol>yo</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+
+</Defs>
