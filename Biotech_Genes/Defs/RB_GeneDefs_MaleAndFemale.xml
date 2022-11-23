@@ -5,6 +5,8 @@
 	<displayCategory>Reproduction</displayCategory>
 	<exclusionTags>
 	  <li>WVC_Monogender</li>
+	  <li>AG_Gender</li>
+	  <li>Gender</li>
 	</exclusionTags>
 	<biostatCpx>0</biostatCpx>
 	<biostatMet>1</biostatMet>
@@ -23,6 +25,9 @@
 		<li><symbol>fem</symbol></li>
 		<li><symbol>girl</symbol></li>
 		<li><symbol>girly</symbol></li>
+		<li><symbol>gyno</symbol></li>
+		<li><symbol>female</symbol></li>
+		<li><symbol>she-</symbol></li>
 	  </prefixSymbols>
 	  <suffixSymbols>
 		<li><symbol>fe</symbol></li>
@@ -52,6 +57,9 @@
 		<li><symbol>giga</symbol></li>
 		<li><symbol>chad</symbol></li>
 		<li><symbol>gym</symbol></li>
+		<li><symbol>andro</symbol></li>
+		<li><symbol>male</symbol></li>
+		<li><symbol>he-</symbol></li>
 	  </prefixSymbols>
 	  <suffixSymbols>
 		<li><symbol>chad</symbol></li>
