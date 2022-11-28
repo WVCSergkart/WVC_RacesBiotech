@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <HediffDef>
+	<defName>WVC_Genes_UrchinGestator</defName>
+	<label>mech-assembling</label>
+	<description>The archites are slowly assembling the mechanoid.</description>
+	<hediffClass>HediffWithComps</hediffClass>
+	<scenarioCanAdd>false</scenarioCanAdd>
+	<maxSeverity>1.0</maxSeverity>
+	<isBad>false</isBad>
+	<comps>
+		<li Class="AnimalBehaviours.HediffCompProperties_AsexualReproduction">
+			<reproductionIntervalDays>10</reproductionIntervalDays>
+			<convertsIntoAnotherDef>true</convertsIntoAnotherDef>
+			<newDef>WVC_Genes_Mech_Urchin</newDef>
+		</li>
+	</comps>
+  </HediffDef>
+
+  <ThingDef ParentName="LightMechanoid">
+	<defName>WVC_Genes_Mech_Urchin</defName>
+	<label>urchin</label>
+	<description>A small mechanoid bred in the human body with the help of archites. Unlike the war urchin, the archit urchin has a rechargeable power source and is capable of cleaning.</description>
+	<statBases>
+		<MoveSpeed>4.2</MoveSpeed>
+		<MechEnergyLossPerHP>0.5</MechEnergyLossPerHP>
+		<WastepacksPerRecharge>10</WastepacksPerRecharge>
+		<BandwidthCost>0.1</BandwidthCost>
+		<ControlTakingTime>1</ControlTakingTime>
+		<MechEnergyUsageFactor>0.25</MechEnergyUsageFactor>
+	</statBases>
+	<race>
+		<mechEnabledWorkTypes>
+		  <li>Cleaning</li>
+		</mechEnabledWorkTypes>
+		<lifeStageAges>
+		  <li>
+			<def>MechanoidFullyFormed</def>
+			<minAge>0</minAge>
+			<soundWounded>Pawn_Mech_WarUrchin_Wounded</soundWounded>
+			<soundDeath>Pawn_Mech_WarUrchin_Death</soundDeath>
+			<soundCall>Pawn_Mech_WarUrchin_Call</soundCall>
+		  </li>
+		</lifeStageAges>
+		<!-- <thinkTreeConstant>WarUrchinConstant</thinkTreeConstant> -->
+		<baseHealthScale>1.3</baseHealthScale>
+		<ageGenerationCurve>
+			<points>
+				<li>(0,0)</li>
+				<li>(0.0001,100)</li>
+				<li>(0.001,0)</li>
+			</points>
+		</ageGenerationCurve>
+	</race>
+	<!-- <comps Inherit="False"> -->
+		<!-- <li Class="CompProperties_CanBeDormant" /> -->
+		<!-- <li Class="CompProperties_WakeUpDormant"> -->
+		  <!-- <wakeUpOnDamage>true</wakeUpOnDamage> -->
+		  <!-- <wakeUpCheckRadius>30</wakeUpCheckRadius> -->
+		  <!-- <wakeUpSound>MechanoidsWakeUp</wakeUpSound> -->
+		<!-- </li> -->
+		<!-- <li Class="CompProperties_MechPowerCell"> -->
+		  <!-- <totalPowerTicks>15000</totalPowerTicks> -->
+		<!-- </li> -->
+	<!-- </comps> -->
+  </ThingDef>
+
+  <PawnKindDef ParentName="NonCombatLightMechanoidKind">
+	<defName>WVC_Genes_Mech_Urchin</defName>
+	<label>urchin</label>
+	<labelPlural>urchins</labelPlural>
+	<race>WVC_Genes_Mech_Urchin</race>
+	<allowInMechClusters>false</allowInMechClusters>
+	<minGenerationAge>0</minGenerationAge>
+	<!-- <forceNoDeathNotification>true</forceNoDeathNotification> -->
+	<lifeStages>
+		<li>
+		  <bodyGraphicData>
+			<texPath>Things/Pawn/Mechanoid/WarUrchin</texPath>
+			<maskPath>Things/Pawn/Mechanoid/AllegianceOverlays/MechMinimech</maskPath>
+			<shaderType>CutoutWithOverlay</shaderType>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>1.1</drawSize>
+			<!-- <color>(60,60,60)</color> -->
+			<shadowData>
+			  <volume>(0.2, 0.3, 0.2)</volume>
+			</shadowData>
+		  </bodyGraphicData>
+		</li>
+	</lifeStages>
+	<weaponTags>
+		<li>MechanoidGunSpiner</li>
+	</weaponTags>
+  </PawnKindDef>
+
+  <!-- ================================================================== -->
+
+  <GeneDef Name="WVC_UrchinGestatorBase" Abstract="True">
+	<displayCategory>Reproduction</displayCategory>
+	<minAgeActive>13</minAgeActive>
+	<sterilize>true</sterilize>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<biostatArc>2</biostatArc>
+	<displayOrderInCategory>101</displayOrderInCategory>
+	<statFactors>
+	  <Fertility>0</Fertility>
+	</statFactors>
+	<exclusionTags>
+		<li>Fertility</li>
+		<li>Egglaying</li>
+		<li>AG_Egglaying</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>gesta</symbol></li>
+		<li><symbol>gest</symbol></li>
+		<li><symbol>ges</symbol></li>
+		<li><symbol>mech</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>gesta</symbol></li>
+		<li><symbol>gest</symbol></li>
+		<li><symbol>ges</symbol></li>
+		<li><symbol>tor</symbol></li>
+		<li><symbol>or</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_UrchinGestatorBase">
+	<defName>WVC_UrchinGestator</defName>
+	<label>urchin gestator</label>
+	<description>Carriers of this gene have archites that replace the carrier's reproductive system with a mechanoid gestator.</description>
+	<iconPath>Things/Pawn/Mechanoid/WarUrchin_south</iconPath>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<hediffToWholeBody>WVC_Genes_UrchinGestator</hediffToWholeBody>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+
+</Defs>
