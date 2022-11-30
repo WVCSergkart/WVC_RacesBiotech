@@ -132,7 +132,7 @@
   <GeneDef ParentName="WVC_UrchinGestatorBase">
 	<defName>WVC_UrchinGestator</defName>
 	<label>urchin gestator</label>
-	<description>Carriers of this gene have archites that replace the carrier's reproductive system with a mechanoid gestator.</description>
+	<description>Carriers of this gene have archites that replace the carrier's reproductive system with a mechanoid gestator.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; Urchins are NOT automatically assigned to mechanitors, this must be done manually!</description>
 	<iconPath>Things/Pawn/Mechanoid/WarUrchin_south</iconPath>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
