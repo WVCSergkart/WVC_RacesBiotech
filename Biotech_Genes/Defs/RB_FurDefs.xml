@@ -5,9 +5,9 @@
 	<defName>WVC_MechaSkin</defName>
 	<noGraphic>true</noGraphic>
 	<bodyTypeGraphicPaths>
-	  <!-- <Male>WVC/MecaGene_Body/Naked_Male</Male> -->
+	  <Male>WVC/MecaGene_Body/Naked_Male</Male>
 	  <Female>WVC/MecaGene_Body/Naked_Female</Female>
-	  <!-- <Hulk>WVC/MecaGene_Body/Naked_Hulk</Hulk> -->
+	  <Hulk>WVC/MecaGene_Body/Naked_Hulk</Hulk>
 	  <!-- <Fat>WVC/MecaGene_Body/Naked_Fat</Fat> -->
 	  <Thin>WVC/MecaGene_Body/Naked_Thin</Thin>
 	  <!-- Never -->
