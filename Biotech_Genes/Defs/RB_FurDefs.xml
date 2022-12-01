@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <FurDef>
+	<defName>WVC_MechaSkin</defName>
+	<noGraphic>true</noGraphic>
+	<bodyTypeGraphicPaths>
+	  <!-- <Male>WVC/MecaGene_Body/Naked_Male</Male> -->
+	  <Female>WVC/MecaGene_Body/Naked_Female</Female>
+	  <!-- <Hulk>WVC/MecaGene_Body/Naked_Hulk</Hulk> -->
+	  <!-- <Fat>WVC/MecaGene_Body/Naked_Fat</Fat> -->
+	  <Thin>WVC/MecaGene_Body/Naked_Thin</Thin>
+	  <!-- Never -->
+	  <!-- <Child>Things/Pawn/Humanlike/Bodies/Naked_FurChild</Child> -->
+	  <!-- <Baby>Things/Pawn/Humanlike/Bodies/Naked_FurChild</Baby> -->
+	  <!-- Never -->
+	</bodyTypeGraphicPaths>
+  </FurDef>
+
+</Defs>

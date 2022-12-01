@@ -202,4 +202,94 @@
 	<!-- </modExtensions> -->
   </GeneDef>
 
+  <!-- Meca -->
+
+  <GeneDef>
+	<defName>WVC_MechaSkin</defName>
+	<label>mechaskin (TEST)</label>
+	<labelShortAdj>mechaskinned</labelShortAdj>
+	<description>Carriers of this gene have archites that completely transform their body. The body is covered with plates, and the skin becomes hard and resembles plasteel to the touch. The glands are replaced by small colonies of mechanites that serve the body. The hairline completely disappears, remaining only on the head or face. Muscle tissues are strengthened and become more resilient. Most of the internal organs remain intact, but there are enough external changes to indicate that the host is more like a mechanoid than a human.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; The gene is under development, at the moment visual changes only support: Female body, thin body.</description>
+	<biostatCpx>6</biostatCpx>
+	<biostatArc>3</biostatArc>
+	<displayCategory>Archite</displayCategory>
+	<displayOrderInCategory>400</displayOrderInCategory>
+	<iconPath>UI/Icons/Genes/Gene_Furskin</iconPath>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+	<minAgeActive>13</minAgeActive>
+	<!-- <prerequisite>Ageless</prerequisite> -->
+	<!-- <forcedHeadTypes> -->
+	  <!-- <li>Furskin_Average1</li> -->
+	  <!-- <li>Furskin_Average2</li> -->
+	  <!-- <li>Furskin_Average3</li> -->
+	  <!-- <li>Furskin_Narrow1</li> -->
+	  <!-- <li>Furskin_Narrow2</li> -->
+	  <!-- <li>Furskin_Narrow3</li> -->
+	  <!-- <li>Furskin_Heavy1</li> -->
+	  <!-- <li>Furskin_Heavy2</li> -->
+	  <!-- <li>Furskin_Heavy3</li> -->
+	  <!-- <li>Furskin_Gaunt</li> -->
+	<!-- </forcedHeadTypes> -->
+	<!-- <beardTagFilter> -->
+	  <!-- <whitelist>true</whitelist> -->
+	  <!-- <tags> -->
+		<!-- <li>BeardLong</li> -->
+		<!-- <li>Furskin</li> -->
+	  <!-- </tags> -->
+	<!-- </beardTagFilter> -->
+	<exclusionTags>
+	  <!-- <li>HairStyle</li> -->
+	  <li>Skin</li>
+	  <li>Fur</li>
+	  <!-- <li>BeardStyle</li> -->
+	</exclusionTags>
+	<sterilize>true</sterilize>
+	<statFactors>
+	  <Fertility>0</Fertility>
+	  <Flammability>0</Flammability>
+	</statFactors>
+	<statOffsets>
+	  <MoveSpeed>1.0</MoveSpeed>
+	  <ComfyTemperatureMax>24</ComfyTemperatureMax>
+	  <ComfyTemperatureMin>-46</ComfyTemperatureMin>
+	  <ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.25</ArmorRating_Sharp>
+	  <ArmorRating_Heat>2.0</ArmorRating_Heat>
+	</statOffsets>
+	<damageFactors>
+	  <Flame>0.2</Flame>
+	</damageFactors>
+	<missingGeneRomanceChanceFactor>0.5</missingGeneRomanceChanceFactor>
+	<graphicData>
+	  <fur>WVC_MechaSkin</fur>
+	  <tattoosVisible>false</tattoosVisible>
+	</graphicData>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>mechanoid</symbol></li>
+		<li><symbol>mechakind</symbol></li>
+	  </wholeNameSymbols>
+	  <prefixSymbols>
+		<li><symbol>me</symbol></li>
+		<li><symbol>meca</symbol></li>
+		<li><symbol>mec</symbol></li>
+		<li><symbol>mech</symbol></li>
+		<li><symbol>mechan</symbol></li>
+		<li><symbol>mach</symbol></li>
+		<li><symbol>machi</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>ine</symbol></li>
+		<li><symbol>ne</symbol></li>
+		<li><symbol>noid</symbol></li>
+		<li><symbol>oid</symbol></li>
+		<li><symbol>id</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<useSkinColorForFur>True</useSkinColorForFur>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
 </Defs>
