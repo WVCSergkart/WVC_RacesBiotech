@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- For fun -->
+  <XenotypeDef Name="WVC_RB_Xenotypes_Meca" Abstract="True">
+	<!-- <defName>WVC_Pearler</defName> -->
+	<!-- <label>pearler</label> -->
+	<description>An unknown xenotype sometimes found in the vastness of the rimworld.</description>
+	<descriptionShort>An unknown xenotype sometimes found in the vastness of the rimworld.</descriptionShort>
+	<iconPath>UI/Icons/Xenotypes/Custom/CustomXenotypeIcon9</iconPath>
+	<inheritable>true</inheritable>
+	<genes>
+	</genes>
+  </XenotypeDef>
+
+  <!-- Meca -->
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Meca">
+	<defName>WVC_Meca</defName>
+	<label>meca</label>
+	<iconPath>WVC/UI/Xeno2Icons/Xeno10</iconPath>
+	<genes>
+		<li>Ageless</li>
+		<li>ArchiteMetabolism</li>
+		<li>Deathless</li>
+		<li>DiseaseFree</li>
+		<li>PerfectImmunity</li>
+		<li>TotalHealing</li>
+		<li>ToxResist_Total</li>
+		<li>Robust</li>
+		<li>WVC_FemaleOnly</li>
+		<li>Sterile</li>
+		<li>Beauty_Beautiful</li>
+		<li>Beard_NoBeardOnly</li>
+		<li>Ears_Cat</li>
+		<li>Headbone_Human</li>
+		<li>Body_Standard</li>
+		<li>Hair_SnowWhite</li>
+		<li>Skin_SheerWhite</li>
+		<li>Tail_Smooth</li>
+		<!-- <li>Ageless</li> -->
+		<!-- <li>ArchiteMetabolism</li> -->
+		<!-- <li>Deathless</li> -->
+		<!-- <li>DiseaseFree</li> -->
+		<!-- <li>PerfectImmunity</li> -->
+		<!-- <li>TotalHealing</li> -->
+		<!-- <li>ToxResist_Total</li> -->
+		<!-- <li>Robust</li> -->
+		<!-- <li>WVC_FemaleOnly</li> -->
+		<!-- <li>Sterile</li> -->
+		<!-- <li>Beauty_Beautiful</li> -->
+		<!-- <li>Beard_NoBeardOnly</li> -->
+		<!-- <li>Ears_Cat</li> -->
+		<!-- <li>Jaw_Baseline</li> -->
+		<!-- <li>Headbone_Human</li> -->
+		<!-- <li>Body_Standard</li> -->
+		<!-- <li>Hair_SnowWhite</li> -->
+		<!-- <li>Skin_SheerWhite</li> -->
+		<!-- <li>DarkVision</li> -->
+		<!-- <li>Tail_Smooth</li> -->
+		<!-- <li>AptitudeTerrible_Mining</li> -->
+		<!-- <li>AptitudeTerrible_Cooking</li> -->
+		<!-- <li>AptitudeTerrible_Plants</li> -->
+		<!-- <li>AptitudeTerrible_Animals</li> -->
+		<!-- <li>AptitudeTerrible_Artistic</li> -->
+		<!-- <li>AptitudeRemarkable_Medicine</li> -->
+		<!-- <li>AptitudeRemarkable_Social</li> -->
+		<!-- <li>AptitudeRemarkable_Intellectual</li> -->
+	</genes>
+  </XenotypeDef>
+
+</Defs>

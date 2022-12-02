@@ -95,6 +95,8 @@
 	  </prefixSymbols>
 	</symbolPack>
 	<exclusionTags>
+	  <li>AbilityMechlink</li>
+	  <li>Mechlink</li>
 	  <li>WVC_GeneMechlink</li>
 	</exclusionTags>
 	<modExtensions>

@@ -84,6 +84,12 @@
 	  <!-- <li>BeardStyle</li> -->
 	</exclusionTags>
 	<sterilize>true</sterilize>
+	<capMods>
+	  <li>
+		<capacity>Consciousness</capacity>
+		<offset>0.2</offset>
+	  </li>
+	</capMods>
 	<statFactors>
 	  <!-- <PsychicSensitivity>0.7</PsychicSensitivity> -->
 	  <Fertility>0</Fertility>
@@ -141,6 +147,8 @@
 	  </prefixSymbols>
 	</symbolPack>
 	<exclusionTags>
+	  <li>AbilityMechlink</li>
+	  <li>Mechlink</li>
 	  <li>WVC_GeneMechlink</li>
 	</exclusionTags>
 	<modExtensions>
@@ -198,11 +206,13 @@
   <!-- ================================================================== -->
 
   <GeneDef ParentName="GeneVoiceBase" Name="WVC_MechaVoicesBase" Abstract="True">
+	<displayCategory>WVC_MechaBody</displayCategory>
 	<description>Carriers of this gene have archites that change their voice to a cool mechanoid voice.</description>
-	<displayOrderInCategory>134</displayOrderInCategory>
+	<displayOrderInCategory>300</displayOrderInCategory>
 	<iconPath>WVC/UI/Genes/MechanoidizationVoice</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
-	<biostatArc>1</biostatArc>
+	<prerequisite>WVC_MechaSkin</prerequisite>
+	<biostatArc>0</biostatArc>
 	<symbolPack>
 	  <wholeNameSymbols>
 		<li><symbol>mecha</symbol></li>
@@ -211,12 +221,12 @@
 		<li><symbol>noid</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
-	<!-- <modExtensions> -->
-		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
-			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes> -->
-			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- Mechavoice -->
