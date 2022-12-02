@@ -8,8 +8,30 @@
 	<description>An unknown xenotype sometimes found in the vastness of the rimworld.</description>
 	<descriptionShort>An unknown xenotype sometimes found in the vastness of the rimworld.</descriptionShort>
 	<iconPath>UI/Icons/Xenotypes/Custom/CustomXenotypeIcon9</iconPath>
+	<genes>
+	</genes>
+  </XenotypeDef>
+
+  <!-- blank -->
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Meca">
+	<defName>WVC_Blank</defName>
+	<label>blank</label>
+	<iconPath>WVC/UI/Xeno2Icons/Xeno10</iconPath>
 	<inheritable>true</inheritable>
 	<genes>
+		<li>WVC_AgeDebuff_Libido</li>
+		<li>WVC_AgeDebuff_Timeless</li>
+		<li>WVC_NoLearning</li>
+		<li>WVC_AgeDebuff_Sterile</li>
+		<li>WVC_FemaleOnly</li>
+		<li>WVC_Emotionless</li>
+		<li>WVC_BadHunter</li>
+		<li>WVC_Hair_PunkOnly</li>
+		<li>Body_Standard</li>
+		<li>Hair_SnowWhite</li>
+		<li>Skin_SheerWhite</li>
+		<li>Hair_Grayless</li>
+		<li>WVC_AptitudeImpossible_Intellectual</li>
 	</genes>
   </XenotypeDef>
 
@@ -17,54 +39,40 @@
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Meca">
 	<defName>WVC_Meca</defName>
 	<label>meca</label>
-	<iconPath>WVC/UI/Xeno2Icons/Xeno10</iconPath>
+	<iconPath>WVC/UI/Xeno2Icons/Xeno12</iconPath>
+	<inheritable>false</inheritable>
+	<doubleXenotypeChances>
+		<WVC_Blank>1.0</WVC_Blank>
+	</doubleXenotypeChances>
 	<genes>
+		<li>WVC_MechaSkin</li>
+		<li>WVC_MecaBodyParts_Heart</li>
+		<li>WVC_MecaBodyParts_Spine</li>
+		<li>WVC_ArchiteMechlink</li>
+		<li>WVC_ArchiteFleetConnected</li>
+		<li>WVC_VoiceMechaMilitor</li>
 		<li>Ageless</li>
 		<li>ArchiteMetabolism</li>
 		<li>Deathless</li>
 		<li>DiseaseFree</li>
 		<li>PerfectImmunity</li>
 		<li>TotalHealing</li>
-		<li>ToxResist_Total</li>
-		<li>Robust</li>
 		<li>WVC_FemaleOnly</li>
-		<li>Sterile</li>
-		<li>Beauty_Beautiful</li>
+		<li>WVC_ClothedArmor</li>
+		<li>WVC_Emotionless</li>
+		<li>ToxResist_Total</li>
+		<li>FireResistant</li>
+		<li>Neversleep</li>
 		<li>Beard_NoBeardOnly</li>
-		<li>Ears_Cat</li>
-		<li>Headbone_Human</li>
 		<li>Body_Standard</li>
 		<li>Hair_SnowWhite</li>
 		<li>Skin_SheerWhite</li>
-		<li>Tail_Smooth</li>
-		<!-- <li>Ageless</li> -->
-		<!-- <li>ArchiteMetabolism</li> -->
-		<!-- <li>Deathless</li> -->
-		<!-- <li>DiseaseFree</li> -->
-		<!-- <li>PerfectImmunity</li> -->
-		<!-- <li>TotalHealing</li> -->
-		<!-- <li>ToxResist_Total</li> -->
-		<!-- <li>Robust</li> -->
-		<!-- <li>WVC_FemaleOnly</li> -->
-		<!-- <li>Sterile</li> -->
-		<!-- <li>Beauty_Beautiful</li> -->
-		<!-- <li>Beard_NoBeardOnly</li> -->
-		<!-- <li>Ears_Cat</li> -->
-		<!-- <li>Jaw_Baseline</li> -->
-		<!-- <li>Headbone_Human</li> -->
-		<!-- <li>Body_Standard</li> -->
-		<!-- <li>Hair_SnowWhite</li> -->
-		<!-- <li>Skin_SheerWhite</li> -->
-		<!-- <li>DarkVision</li> -->
-		<!-- <li>Tail_Smooth</li> -->
-		<!-- <li>AptitudeTerrible_Mining</li> -->
-		<!-- <li>AptitudeTerrible_Cooking</li> -->
-		<!-- <li>AptitudeTerrible_Plants</li> -->
-		<!-- <li>AptitudeTerrible_Animals</li> -->
-		<!-- <li>AptitudeTerrible_Artistic</li> -->
-		<!-- <li>AptitudeRemarkable_Medicine</li> -->
-		<!-- <li>AptitudeRemarkable_Social</li> -->
-		<!-- <li>AptitudeRemarkable_Intellectual</li> -->
+		<li>DarkVision</li>
+		<li>Unstoppable</li>
+		<li>WVC_AptitudeImpossible_Cooking</li>
+		<li>WVC_AptitudeImpossible_Plants</li>
+		<li>AptitudeRemarkable_Crafting</li>
+		<li>AptitudeRemarkable_Intellectual</li>
 	</genes>
   </XenotypeDef>
 

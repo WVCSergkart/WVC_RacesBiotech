@@ -136,7 +136,7 @@
 	<iconPath>UI/Icons/Genes/Skills/{0}/Terrible</iconPath>
 	<aptitudeOffset>-20</aptitudeOffset>
 	<passionModType>DropAll</passionModType>
-	<displayOrderOffset>0</displayOrderOffset>
+	<displayOrderOffset>-100</displayOrderOffset>
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>8</biostatMet>
 	<!-- <modExtensions> -->
