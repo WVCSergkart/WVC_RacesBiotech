@@ -266,4 +266,98 @@
 	</modExtensions>
   </GeneDef>
 
+  <!-- ============== -->
+
+  <GeneDef>
+	<defName>WVC_AgeDebuff_Timeless</defName>
+	<label>timeless</label>
+	<description>Carriers of this gene do not have much time.</description>
+	<iconPath>WVC/UI/Genes/AgeDebuff_LifespanFactor</iconPath>
+	<displayCategory>WVC_AgeDebuffs</displayCategory>
+	<displayOrderInCategory>20</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>3</biostatMet>
+	<statFactors>
+	  <LifespanFactor>0.1</LifespanFactor>
+	</statFactors>
+	<!-- <exclusionTags> -->
+	  <!-- <li>CellInstability</li> -->
+	<!-- </exclusionTags> -->
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>timeless</symbol></li>
+	  </wholeNameSymbols>
+	  <prefixSymbols>
+		<li><symbol>time</symbol></li>
+		<li><symbol>tim</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>less</symbol></li>
+		<li><symbol>les</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============== -->
+
+  <GeneDef>
+	<defName>WVC_AgeDebuff_Armless</defName>
+	<label>armless</label>
+	<description>Carriers of this gene at some point in time lose their arms.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; If there is at least one xenotype with this gene, it will spam one or two errors per pawn during generation.</description>
+	<iconPath>WVC/UI/Genes/AgeDebuff_Handless</iconPath>
+	<displayCategory>WVC_AgeDebuffs</displayCategory>
+	<displayOrderInCategory>10</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>6</biostatMet>
+	<minAgeActive>13</minAgeActive>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>armless</symbol></li>
+	  </wholeNameSymbols>
+	  <prefixSymbols>
+		<li><symbol>arm</symbol></li>
+		<li><symbol>ar</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>less</symbol></li>
+		<li><symbol>les</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>BodyPartHands</li>
+	  <li>BodyPartHand</li>
+	  <li>AG_BodyPartHand</li>
+	  <li>AG_BodyPartHands</li>
+	  <li>BodyPartArms</li>
+	  <li>BodyPartArm</li>
+	  <li>AG_BodyPartArm</li>
+	  <li>AG_BodyPartArms</li>
+	  <li>BodyPartShoulder</li>
+	  <li>AG_BodyPartShoulder</li>
+	  <li>BodyPartShoulders</li>
+	  <li>AG_BodyPartShoulders</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+			<hediffsToBodyParts>
+				<li>
+					<hediff>MissingBodyPart</hediff>
+					<bodyparts>
+						<li>Shoulder</li>
+						<li>Shoulder</li>
+					</bodyparts>
+				</li>
+			</hediffsToBodyParts>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
 </Defs>

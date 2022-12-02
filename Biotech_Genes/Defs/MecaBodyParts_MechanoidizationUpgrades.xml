@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <HediffDef Name="WVC_RB_Hediff_MecaBodyParts" ParentName="AddedBodyPartBase" Abstract="True">
+	<description>A part of the body created by archites.</description>
+	<scenarioCanAdd>false</scenarioCanAdd>
+	<!-- <defaultLabelColor>(255,224,200)</defaultLabelColor> -->
+	<defaultLabelColor>(184, 198, 203)</defaultLabelColor>
+	<!-- <priceOffset>1200</priceOffset> -->
+	<keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
+	<countsAsAddedPartOrImplant>True</countsAsAddedPartOrImplant>
+	<isBad>false</isBad>
+	<addedPartProps>
+	  <solid>true</solid>
+	  <partEfficiency>1.40</partEfficiency>
+	  <betterThanNatural>true</betterThanNatural>
+	</addedPartProps>
+  </HediffDef>
+
+  <!--=====================================================================-->
+
+  <HediffDef ParentName="WVC_RB_Hediff_MecaBodyParts">
+	<defName>WVC_RB_MecaEye</defName>
+	<label>mechanoid eye</label>
+	<labelNoun>an mechanoid eye</labelNoun>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_RB_Hediff_MecaBodyParts">
+	<defName>WVC_RB_MecaEar</defName>
+	<label>mechanoid ear</label>
+	<labelNoun>a mechanoid ear</labelNoun>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_RB_Hediff_MecaBodyParts">
+	<defName>WVC_RB_MecaJaw</defName>
+	<label>mechanoid jaw</label>
+	<labelNoun>a mechanoid jaw</labelNoun>
+	<stages>
+	  <li>
+		<statOffsets>
+			<PawnBeauty>1</PawnBeauty>
+		</statOffsets>
+	  </li>
+	</stages>
+  </HediffDef>
+  
+  <HediffDef ParentName="WVC_RB_Hediff_MecaBodyParts">
+	<defName>WVC_RB_MecaNose</defName>
+	<label>mechanoid nose</label>
+	<labelNoun>an mechanoid nose</labelNoun>
+	<stages>
+	  <li>
+		<statOffsets>
+			<PawnBeauty>1</PawnBeauty>
+		</statOffsets>
+	  </li>
+	</stages>
+  </HediffDef>
+
+  <!--=====================================================================-->
+
+  <HediffDef ParentName="WVC_RB_Hediff_MecaBodyParts">
+	<defName>WVC_RB_MecaStomach</defName>
+	<label>mechanoid stomach</label>
+	<labelNoun>a mechanoid stomach</labelNoun>
+	<stages>
+	  <li>
+		<hungerRateFactor>0.01</hungerRateFactor>
+		<foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+	  </li>
+	</stages>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_RB_Hediff_MecaBodyParts">
+	<defName>WVC_RB_MecaSpine</defName>
+	<label>mechanoid spine</label>
+	<labelNoun>a mechanoid spine</labelNoun>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_RB_Hediff_MecaBodyParts">
+	<defName>WVC_RB_MecaHeart</defName>
+	<label>mechanoid heart</label>
+	<labelNoun>a mechanoid heart</labelNoun>
+	<stages>
+	  <li>
+		<totalBleedFactor>0.0</totalBleedFactor>
+		<naturalHealingFactor>2</naturalHealingFactor>
+	  </li>
+	</stages>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_RB_Hediff_MecaBodyParts">
+	<defName>WVC_RB_MecaKidney</defName>
+	<label>mechanoid kidney</label>
+	<labelNoun>a mechanoid kidney</labelNoun>
+	<stages>
+	  <li>
+		<statOffsets>
+		  <ImmunityGainSpeed>0.08</ImmunityGainSpeed>
+		  <ToxicResistance>0.25</ToxicResistance>
+		  <ToxicEnvironmentResistance MayRequire="Ludeon.RimWorld.Biotech">0.25</ToxicEnvironmentResistance>
+		</statOffsets>
+	  </li>
+	</stages>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_RB_Hediff_MecaBodyParts">
+	<defName>WVC_RB_MecaLiver</defName>
+	<label>mechanoid liver</label>
+	<labelNoun>a mechanoid liver</labelNoun>
+	<stages>
+	  <li>
+		<statOffsets>
+		  <ToxicResistance>0.5</ToxicResistance>
+		  <ToxicEnvironmentResistance MayRequire="Ludeon.RimWorld.Biotech">0.5</ToxicEnvironmentResistance>
+		</statOffsets>
+	  </li>
+	</stages>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_RB_Hediff_MecaBodyParts">
+	<defName>WVC_RB_MecaLung</defName>
+	<label>mechanoid lung</label>
+	<labelNoun>a mechanoid lung</labelNoun>
+  </HediffDef>
+
+  <!--=====================================================================-->
+
+  <HediffDef ParentName="WVC_RB_Hediff_MecaBodyParts">
+	<defName>WVC_RB_MecaArm</defName>
+	<label>mechanoid arm</label>
+	<labelNoun>an mechanoid arm</labelNoun>
+	<comps>
+	  <li Class="HediffCompProperties_VerbGiver">
+		<tools>
+		  <li>
+			<label>fist</label>
+			<capacities>
+			  <li>Blunt</li>
+			</capacities>
+			<power>20</power>
+			<cooldownTime>2</cooldownTime>
+			<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+			<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+		  </li>
+		</tools>
+	  </li>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_RB_Hediff_MecaBodyParts">
+	<defName>WVC_RB_MecaLeg</defName>
+	<label>mechanoid leg</label>
+	<labelNoun>an mechanoid leg</labelNoun>
+	<comps>
+	  <li Class="HediffCompProperties_VerbGiver">
+		<tools>
+		  <li>
+			<label>feet</label>
+			<capacities>
+			  <li>Blunt</li>
+			</capacities>
+			<power>21</power>
+			<cooldownTime>1.7</cooldownTime>
+			<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+			<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+		  </li>
+		</tools>
+	  </li>
+	</comps>
+  </HediffDef>
+
+</Defs>

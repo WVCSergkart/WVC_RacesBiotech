@@ -97,13 +97,14 @@
   <!-- ================================================================== -->
 
   <GeneDef Name="WVC_UrchinGestatorBase" Abstract="True">
-	<displayCategory>Reproduction</displayCategory>
+	<!-- <displayCategory>Reproduction</displayCategory> -->
+	<displayCategory>WVC_MechaBody</displayCategory>
 	<minAgeActive>13</minAgeActive>
 	<sterilize>true</sterilize>
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>-1</biostatMet>
 	<biostatArc>2</biostatArc>
-	<displayOrderInCategory>101</displayOrderInCategory>
+	<displayOrderInCategory>50</displayOrderInCategory>
 	<statFactors>
 	  <Fertility>0</Fertility>
 	</statFactors>

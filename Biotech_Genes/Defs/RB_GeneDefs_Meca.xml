@@ -1,0 +1,771 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneCategoryDef>
+	<defName>WVC_MechaBody</defName>
+	<label>mechanoidization</label>
+	<displayPriorityInXenotype>1100</displayPriorityInXenotype>
+  </GeneCategoryDef>
+
+  <!-- ================================================================== -->
+
+  <GeneDef Name="WVC_MechanoidizationBase" Abstract="True">
+	<displayCategory>WVC_MechaBody</displayCategory>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>mechanoid</symbol></li>
+		<li><symbol>mechakind</symbol></li>
+		<li><symbol>mecakind</symbol></li>
+	  </wholeNameSymbols>
+	  <prefixSymbols>
+		<li><symbol>me</symbol></li>
+		<li><symbol>meca</symbol></li>
+		<li><symbol>mec</symbol></li>
+		<li><symbol>mech</symbol></li>
+		<li><symbol>mechan</symbol></li>
+		<li><symbol>mach</symbol></li>
+		<li><symbol>machi</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>ine</symbol></li>
+		<li><symbol>ne</symbol></li>
+		<li><symbol>noid</symbol></li>
+		<li><symbol>oid</symbol></li>
+		<li><symbol>id</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- Meca -->
+
+  <GeneDef ParentName="WVC_MechanoidizationBase">
+	<defName>WVC_MechaSkin</defName>
+	<label>mechaskin (Beta)</label>
+	<labelShortAdj>mechaskinned</labelShortAdj>
+	<description>Carriers of this gene have archites that completely transform their body. The body is covered with plates, and the skin becomes hard and resembles plasteel to the touch. The glands are replaced by small colonies of mechanites that serve the body. The hairline completely disappears, remaining only on the head or face. Muscle tissues are strengthened and become more resilient. Most of the internal organs remain intact, but there are enough external changes to indicate that the host is more like a mechanoid than a human.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; The gene is under development, at the moment visual changes only support: Female body, male body, hulk body, thin body.</description>
+	<biostatCpx>6</biostatCpx>
+	<biostatArc>3</biostatArc>
+	<!-- <displayCategory>Archite</displayCategory> -->
+	<displayOrderInCategory>1</displayOrderInCategory>
+	<iconPath>WVC/UI/Genes/MechaIcon</iconPath>
+	<!-- <iconColor>(0.75, 0.75, 0.75)</iconColor> -->
+	<iconColor>(184, 198, 203)</iconColor>
+	<minAgeActive>13</minAgeActive>
+	<marketValueFactor>2</marketValueFactor>
+	<neverGrayHair>true</neverGrayHair>
+	<!-- <foodPoisoningChanceFactor>0</foodPoisoningChanceFactor> -->
+	<!-- <overdoseChanceFactor>0</overdoseChanceFactor> -->
+	<!-- <toleranceBuildupFactor>0</toleranceBuildupFactor> -->
+	<!-- <addictionChanceFactor>0</addictionChanceFactor> -->
+	<!-- <prerequisite>Ageless</prerequisite> -->
+	<!-- <forcedHeadTypes> -->
+	  <!-- <li>Furskin_Average1</li> -->
+	  <!-- <li>Furskin_Average2</li> -->
+	  <!-- <li>Furskin_Average3</li> -->
+	  <!-- <li>Furskin_Narrow1</li> -->
+	  <!-- <li>Furskin_Narrow2</li> -->
+	  <!-- <li>Furskin_Narrow3</li> -->
+	  <!-- <li>Furskin_Heavy1</li> -->
+	  <!-- <li>Furskin_Heavy2</li> -->
+	  <!-- <li>Furskin_Heavy3</li> -->
+	  <!-- <li>Furskin_Gaunt</li> -->
+	<!-- </forcedHeadTypes> -->
+	<!-- <beardTagFilter> -->
+	  <!-- <whitelist>true</whitelist> -->
+	  <!-- <tags> -->
+		<!-- <li>BeardLong</li> -->
+		<!-- <li>Furskin</li> -->
+	  <!-- </tags> -->
+	<!-- </beardTagFilter> -->
+	<exclusionTags>
+	  <!-- <li>HairStyle</li> -->
+	  <li>Skin</li>
+	  <li>Fur</li>
+	  <!-- <li>BeardStyle</li> -->
+	</exclusionTags>
+	<sterilize>true</sterilize>
+	<statFactors>
+	  <!-- <PsychicSensitivity>0.7</PsychicSensitivity> -->
+	  <Fertility>0</Fertility>
+	  <Flammability>0.8</Flammability>
+	</statFactors>
+	<statOffsets>
+	  <MeleeDamageFactor>0.1</MeleeDamageFactor>
+	  <MoveSpeed>1.0</MoveSpeed>
+	  <ComfyTemperatureMax>24</ComfyTemperatureMax>
+	  <ComfyTemperatureMin>-46</ComfyTemperatureMin>
+	  <ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.25</ArmorRating_Sharp>
+	  <ArmorRating_Heat>0.5</ArmorRating_Heat>
+	</statOffsets>
+	<damageFactors>
+	  <Flame>0.8</Flame>
+	</damageFactors>
+	<missingGeneRomanceChanceFactor>0.5</missingGeneRomanceChanceFactor>
+	<graphicData>
+	  <fur>WVC_MechaSkin</fur>
+	  <tattoosVisible>false</tattoosVisible>
+	</graphicData>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<useSkinColorForFur>True</useSkinColorForFur>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- Mechlink -->
+
+  <GeneDef ParentName="WVC_MechanoidizationBase">
+	<defName>WVC_ArchiteMechlink</defName>
+	<label>mechlink</label> 
+	<labelShortAdj>mechlink</labelShortAdj>
+	<description>Carriers of the gene have archites that form a mechlink in the brain, which allows them to control the mechanoids.</description>
+	<iconPath>WVC/UI/Genes/Mechlink</iconPath>
+	<!-- <displayCategory>Ability</displayCategory> -->
+	<!-- <displayCategory>Archite</displayCategory> -->
+	<displayOrderInCategory>150</displayOrderInCategory>
+	<statOffsets>
+		<!-- <MechBandwidth>8</MechBandwidth> -->
+		<!-- <MechControlGroups>2</MechControlGroups> -->
+	</statOffsets>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>meca</symbol></li>
+		<li><symbol>mec</symbol></li>
+		<li><symbol>meh</symbol></li>
+		<li><symbol>mech</symbol></li>
+		<li><symbol>mecha</symbol></li>
+		<li><symbol>machi</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>WVC_GeneMechlink</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<hediffsToBodyParts>
+				<li>
+					<hediff>MechlinkImplant</hediff>
+					<bodyparts>
+						<li>Brain</li>
+					</bodyparts>
+				</li>
+			</hediffsToBodyParts>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- Connected -->
+
+  <GeneDef ParentName="WVC_MechanoidizationBase">
+	<defName>WVC_ArchiteFleetConnected</defName>
+	<label>fleet connected</label> 
+	<labelShortAdj>connected</labelShortAdj>
+	<description>Carriers of this gene have archites that amplify the mechlink's signal, allowing the bearer to establish a stable link with a nearby fleet of mechanoids and use their systems. This link opens up access to the almost endless possibilities of mechanoid control.</description>
+	<iconPath>WVC/UI/Genes/FleetConnection</iconPath>
+	<iconColor>(184, 198, 203)</iconColor>
+	<!-- <iconColor>(255, 230, 215)</iconColor> -->
+	<!-- <iconColor>(79, 80, 81)</iconColor> -->
+	<!-- <displayCategory>Archite</displayCategory> -->
+	<displayOrderInCategory>151</displayOrderInCategory>
+	<prerequisite>WVC_ArchiteMechlink</prerequisite>
+	<statOffsets>
+		<MechBandwidth>74</MechBandwidth>
+		<MechControlGroups>6</MechControlGroups>
+		<WorkSpeedGlobalOffsetMech>1.0</WorkSpeedGlobalOffsetMech>
+		<MechFormingSpeed>1</MechFormingSpeed>
+		<MechRepairSpeed>1</MechRepairSpeed>
+	</statOffsets>
+	<biostatCpx>6</biostatCpx>
+	<biostatArc>4</biostatArc>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>connect</symbol></li>
+		<li><symbol>con</symbol></li>
+		<li><symbol>connec</symbol></li>
+		<li><symbol>meca</symbol></li>
+		<li><symbol>mec</symbol></li>
+		<li><symbol>meh</symbol></li>
+		<li><symbol>mech</symbol></li>
+		<li><symbol>mecha</symbol></li>
+		<li><symbol>machi</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- ================================================================== -->
+
+  <GeneDef ParentName="GeneVoiceBase" Name="WVC_MechaVoicesBase" Abstract="True">
+	<description>Carriers of this gene have archites that change their voice to a cool mechanoid voice.</description>
+	<displayOrderInCategory>134</displayOrderInCategory>
+	<iconPath>WVC/UI/Genes/MechanoidizationVoice</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<biostatArc>1</biostatArc>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>mecha</symbol></li>
+	  </wholeNameSymbols>
+	  <suffixSymbols>
+		<li><symbol>noid</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+
+  <!-- Mechavoice -->
+
+  <!-- light -->
+  <GeneDef ParentName="WVC_MechaVoicesBase">
+	<defName>WVC_VoiceMechaMilitor</defName>
+	<label>militor voice</label>
+	<soundCall>Pawn_Mech_Militor_Call</soundCall>
+	<soundDeath>Pawn_Mech_Militor_Death</soundDeath>
+	<soundWounded>Pawn_Mech_Militor_Wounded</soundWounded>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>militor</symbol></li>
+	  </wholeNameSymbols>
+	</symbolPack>
+  </GeneDef>
+  <GeneDef ParentName="WVC_MechaVoicesBase">
+	<defName>WVC_VoiceMechaLifter</defName>
+	<label>lifter voice</label>
+	<soundCall>Pawn_Mech_Lifter_Call</soundCall>
+	<soundDeath>Pawn_Mech_Lifter_Death</soundDeath>
+	<soundWounded>Pawn_Mech_Lifter_Wounded</soundWounded>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>lifter</symbol></li>
+	  </wholeNameSymbols>
+	</symbolPack>
+  </GeneDef>
+  <GeneDef ParentName="WVC_MechaVoicesBase">
+	<defName>WVC_VoiceMechaConstructoid</defName>
+	<label>constructoid voice</label>
+	<soundCall>Pawn_Mech_Constructoid_Call</soundCall>
+	<soundDeath>Pawn_Mech_Constructoid_Death</soundDeath>
+	<soundWounded>Pawn_Mech_Constructoid_Wounded</soundWounded>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>constructoid</symbol></li>
+	  </wholeNameSymbols>
+	</symbolPack>
+  </GeneDef>
+  <GeneDef ParentName="WVC_MechaVoicesBase">
+	<defName>WVC_VoiceMechaAgrihand</defName>
+	<label>agrihand voice</label>
+	<soundCall>Pawn_Mech_Agrihand_Call</soundCall>
+	<soundDeath>Pawn_Mech_Agrihand_Death</soundDeath>
+	<soundWounded>Pawn_Mech_Agrihand_Wounded</soundWounded>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>agrihand</symbol></li>
+	  </wholeNameSymbols>
+	</symbolPack>
+  </GeneDef>
+  <GeneDef ParentName="WVC_MechaVoicesBase">
+	<defName>WVC_VoiceMechaFabricor</defName>
+	<label>fabricor voice</label>
+	<soundCall>Pawn_Mech_Fabricor_Call</soundCall>
+	<soundDeath>Pawn_Mech_Fabricor_Death</soundDeath>
+	<soundWounded>Pawn_Mech_Fabricor_Wounded</soundWounded>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>fabricor</symbol></li>
+	  </wholeNameSymbols>
+	</symbolPack>
+  </GeneDef>
+  <GeneDef ParentName="WVC_MechaVoicesBase">
+	<defName>WVC_VoiceMechaCleansweeper</defName>
+	<label>cleansweeper voice</label>
+	<soundCall>Pawn_Mech_Cleansweeper_Call</soundCall>
+	<soundDeath>Pawn_Mech_Cleansweeper_Death</soundDeath>
+	<soundWounded>Pawn_Mech_Cleansweeper_Wounded</soundWounded>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>cleansweeper</symbol></li>
+	  </wholeNameSymbols>
+	</symbolPack>
+  </GeneDef>
+  <GeneDef ParentName="WVC_MechaVoicesBase">
+	<defName>WVC_VoiceMechaUrchin</defName>
+	<label>urchin voice</label>
+	<soundCall>Pawn_Mech_WarUrchin_Call</soundCall>
+	<soundDeath>Pawn_Mech_WarUrchin_Death</soundDeath>
+	<soundWounded>Pawn_Mech_WarUrchin_Wounded</soundWounded>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>urchin</symbol></li>
+	  </wholeNameSymbols>
+	</symbolPack>
+  </GeneDef>
+  <GeneDef ParentName="WVC_MechaVoicesBase">
+	<defName>WVC_VoiceMechaParamedic</defName>
+	<label>paramedic voice</label>
+	<soundCall>Pawn_Mech_Paramedic_Call</soundCall>
+	<soundDeath>Pawn_Mech_Paramedic_Death</soundDeath>
+	<soundWounded>Pawn_Mech_Paramedic_Wounded</soundWounded>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>paramedic</symbol></li>
+	  </wholeNameSymbols>
+	</symbolPack>
+  </GeneDef>
+  <!-- medium -->
+  <GeneDef ParentName="WVC_MechaVoicesBase">
+	<defName>WVC_VoiceMechaLegionary</defName>
+	<label>legionary voice</label>
+	<soundCall>Pawn_Mech_Legionary_Call</soundCall>
+	<soundDeath>Pawn_Mech_Legionary_Death</soundDeath>
+	<soundWounded>Pawn_Mech_Legionary_Wounded</soundWounded>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>legionary</symbol></li>
+	  </wholeNameSymbols>
+	</symbolPack>
+  </GeneDef>
+  <GeneDef ParentName="WVC_MechaVoicesBase">
+	<defName>WVC_VoiceMechaTesseron</defName>
+	<label>tesseron voice</label>
+	<soundCall>Pawn_Mech_Tesseron_Call</soundCall>
+	<soundDeath>Pawn_Mech_Tesseron_Death</soundDeath>
+	<soundWounded>Pawn_Mech_Tesseron_Wounded</soundWounded>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>tesseron</symbol></li>
+	  </wholeNameSymbols>
+	</symbolPack>
+  </GeneDef>
+  <GeneDef ParentName="WVC_MechaVoicesBase">
+	<defName>WVC_VoiceMechaScorcher</defName>
+	<label>scorcher voice</label>
+	<soundCall>Pawn_Mech_Scorcher_Call</soundCall>
+	<soundDeath>Pawn_Mech_Scorcher_Death</soundDeath>
+	<soundWounded>Pawn_Mech_Scorcher_Wounded</soundWounded>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>scorcher</symbol></li>
+	  </wholeNameSymbols>
+	</symbolPack>
+  </GeneDef>
+  <GeneDef ParentName="WVC_MechaVoicesBase">
+	<defName>WVC_VoiceMechaApocriton</defName>
+	<label>apocriton voice</label>
+	<soundCall>Pawn_Mech_Apocriton_Call</soundCall>
+	<soundDeath>Pawn_Mech_Apocriton_Death</soundDeath>
+	<soundWounded>Pawn_Mech_Apocriton_Wounded</soundWounded>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>apocriton</symbol></li>
+	  </wholeNameSymbols>
+	</symbolPack>
+  </GeneDef>
+  <GeneDef ParentName="WVC_MechaVoicesBase">
+	<defName>WVC_VoiceMechaScyther</defName>
+	<label>scyther voice</label>
+	<soundCall>Pawn_Mech_Scyther_Call</soundCall>
+	<soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+	<soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>scyther</symbol></li>
+	  </wholeNameSymbols>
+	</symbolPack>
+  </GeneDef>
+  <GeneDef ParentName="WVC_MechaVoicesBase">
+	<defName>WVC_VoiceMechaPikeman</defName>
+	<label>pikeman voice</label>
+	<soundCall>Pawn_Mech_Pikeman_Call</soundCall>
+	<soundDeath>Pawn_Mech_Pikeman_Death</soundDeath>
+	<soundWounded>Pawn_Mech_Pikeman_Wounded</soundWounded>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>pikeman</symbol></li>
+	  </wholeNameSymbols>
+	</symbolPack>
+  </GeneDef>
+  <!-- large -->
+  <GeneDef ParentName="WVC_MechaVoicesBase">
+	<defName>WVC_VoiceMechaTunneler</defName>
+	<label>tunneler voice</label>
+	<soundCall>Pawn_Mech_Tunneler_Call</soundCall>
+	<soundDeath>Pawn_Mech_Tunneler_Death</soundDeath>
+	<soundWounded>Pawn_Mech_Tunneler_Wounded</soundWounded>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>tunneler</symbol></li>
+	  </wholeNameSymbols>
+	</symbolPack>
+  </GeneDef>
+  <GeneDef ParentName="WVC_MechaVoicesBase">
+	<defName>WVC_VoiceMechaCentipede</defName>
+	<label>centipede voice</label>
+	<soundCall>Pawn_Mech_Centipede_Call</soundCall>
+	<soundDeath>Pawn_Mech_Centipede_Death</soundDeath>
+	<soundWounded>Pawn_Mech_Centipede_Wounded</soundWounded>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>centipede</symbol></li>
+	  </wholeNameSymbols>
+	</symbolPack>
+  </GeneDef>
+  <GeneDef ParentName="WVC_MechaVoicesBase">
+	<defName>WVC_VoiceMechaTermite</defName>
+	<label>termite voice</label>
+	<soundCall>Pawn_Mech_Termite_Call</soundCall>
+	<soundDeath>Pawn_Mech_Termite_Death</soundDeath>
+	<soundWounded>Pawn_Mech_Termite_Wounded</soundWounded>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>termite</symbol></li>
+	  </wholeNameSymbols>
+	</symbolPack>
+  </GeneDef>
+  <!-- Ultra large -->
+  <GeneDef ParentName="WVC_MechaVoicesBase">
+	<defName>WVC_VoiceMechaCenturion</defName>
+	<label>centurion voice</label>
+	<soundCall>Pawn_Mech_Centurion_Call</soundCall>
+	<soundDeath>Pawn_Mech_Centurion_Death</soundDeath>
+	<soundWounded>Pawn_Mech_Centurion_Wounded</soundWounded>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>centurion</symbol></li>
+	  </wholeNameSymbols>
+	</symbolPack>
+  </GeneDef>
+  <GeneDef ParentName="WVC_MechaVoicesBase">
+	<defName>WVC_VoiceMechaWarqueen</defName>
+	<label>queen voice</label>
+	<soundCall>Pawn_Mech_Warqueen_Call</soundCall>
+	<soundDeath>Pawn_Mech_Warqueen_Death</soundDeath>
+	<soundWounded>Pawn_Mech_Warqueen_Wounded</soundWounded>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>queen</symbol></li>
+	  </wholeNameSymbols>
+	</symbolPack>
+  </GeneDef>
+  <GeneDef ParentName="WVC_MechaVoicesBase">
+	<defName>WVC_VoiceMechaDiabolus</defName>
+	<label>diabolus voice</label>
+	<soundCall>Pawn_Mech_Diabolus_Call</soundCall>
+	<soundDeath>Pawn_Mech_Diabolus_Death</soundDeath>
+	<soundWounded>Pawn_Mech_Diabolus_Wounded</soundWounded>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>diabolus</symbol></li>
+	  </wholeNameSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- Upgrades -->
+
+  <GeneDef Name="WVC_MechanoidizationUpgrades" ParentName="WVC_MechanoidizationBase" Abstract="True">
+	<description>Carriers of this gene have archites which enhance the owner's mechanoidization.</description>
+	<displayOrderInCategory>20</displayOrderInCategory>
+	<prerequisite>WVC_MechaSkin</prerequisite>
+	<iconPath>WVC/UI/Genes/Mechanoidization</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
+	<defName>WVC_MecaBodyParts_Arm</defName>
+	<label>arm</label> 
+	<exclusionTags>
+	  <li>BodyPartHands</li>
+	  <li>BodyPartHand</li>
+	  <li>AG_BodyPartHand</li>
+	  <li>AG_BodyPartHands</li>
+	  <li>BodyPartArms</li>
+	  <li>BodyPartArm</li>
+	  <li>AG_BodyPartArm</li>
+	  <li>AG_BodyPartArms</li>
+	  <li>BodyPartShoulder</li>
+	  <li>AG_BodyPartShoulder</li>
+	  <li>BodyPartShoulders</li>
+	  <li>AG_BodyPartShoulders</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<hediffsToBodyParts>
+				<li>
+					<hediff>WVC_RB_MecaArm</hediff>
+					<bodyparts>
+						<li>Shoulder</li>
+						<li>Shoulder</li>
+					</bodyparts>
+				</li>
+			</hediffsToBodyParts>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
+	<defName>WVC_MecaBodyParts_Leg</defName>
+	<label>leg</label> 
+	<exclusionTags>
+	  <li>BodyPartLegs</li>
+	  <li>BodyPartLeg</li>
+	  <li>AG_BodyPartLeg</li>
+	  <li>AG_BodyPartLegs</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<hediffsToBodyParts>
+				<li>
+					<hediff>WVC_RB_MecaLeg</hediff>
+					<bodyparts>
+						<li>Leg</li>
+						<li>Leg</li>
+					</bodyparts>
+				</li>
+			</hediffsToBodyParts>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
+	<defName>WVC_MecaBodyParts_Lung</defName>
+	<label>lung</label>
+	<exclusionTags>
+	  <li>BodyPartLungs</li>
+	  <li>BodyPartLung</li>
+	  <li>AG_BodyPartLung</li>
+	  <li>AG_BodyPartLungs</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<hediffsToBodyParts>
+				<li>
+					<hediff>WVC_RB_MecaLung</hediff>
+					<bodyparts>
+						<li>Lung</li>
+						<li>Lung</li>
+					</bodyparts>
+				</li>
+			</hediffsToBodyParts>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
+	<defName>WVC_MecaBodyParts_Liver</defName>
+	<label>liver</label>
+	<exclusionTags>
+	  <li>BodyPartLivers</li>
+	  <li>BodyPartLiver</li>
+	  <li>AG_BodyPartLiver</li>
+	  <li>AG_BodyPartLivers</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<hediffsToBodyParts>
+				<li>
+					<hediff>WVC_RB_MecaLiver</hediff>
+					<bodyparts>
+						<li>Liver</li>
+					</bodyparts>
+				</li>
+			</hediffsToBodyParts>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
+	<defName>WVC_MecaBodyParts_Kidney</defName>
+	<label>kidney</label>
+	<exclusionTags>
+	  <li>BodyPartKidneys</li>
+	  <li>BodyPartKidney</li>
+	  <li>AG_BodyPartKidney</li>
+	  <li>AG_BodyPartKidneys</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<hediffsToBodyParts>
+				<li>
+					<hediff>WVC_RB_MecaKidney</hediff>
+					<bodyparts>
+						<li>Kidney</li>
+						<li>Kidney</li>
+					</bodyparts>
+				</li>
+			</hediffsToBodyParts>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
+	<defName>WVC_MecaBodyParts_Heart</defName>
+	<label>heart</label>
+	<exclusionTags>
+	  <li>BodyPartHearts</li>
+	  <li>BodyPartHeart</li>
+	  <li>AG_BodyPartHeart</li>
+	  <li>AG_BodyPartHearts</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<hediffsToBodyParts>
+				<li>
+					<hediff>WVC_RB_MecaHeart</hediff>
+					<bodyparts>
+						<li>Heart</li>
+					</bodyparts>
+				</li>
+			</hediffsToBodyParts>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
+	<defName>WVC_MecaBodyParts_Spine</defName>
+	<label>spine</label>
+	<exclusionTags>
+	  <li>BodyPartSpines</li>
+	  <li>BodyPartSpine</li>
+	  <li>AG_BodyPartSpine</li>
+	  <li>AG_BodyPartSpines</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<hediffsToBodyParts>
+				<li>
+					<hediff>WVC_RB_MecaSpine</hediff>
+					<bodyparts>
+						<li>Spine</li>
+					</bodyparts>
+				</li>
+			</hediffsToBodyParts>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
+	<defName>WVC_MecaBodyParts_Stomach</defName>
+	<label>stomach</label>
+	<exclusionTags>
+	  <li>BodyPartStomachs</li>
+	  <li>BodyPartStomach</li>
+	  <li>AG_BodyPartStomach</li>
+	  <li>AG_BodyPartStomachs</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<hediffsToBodyParts>
+				<li>
+					<hediff>WVC_RB_MecaStomach</hediff>
+					<bodyparts>
+						<li>Stomach</li>
+					</bodyparts>
+				</li>
+			</hediffsToBodyParts>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
+	<defName>WVC_MecaBodyParts_Nose</defName>
+	<label>nose</label>
+	<exclusionTags>
+	  <li>BodyPartNoses</li>
+	  <li>BodyPartNose</li>
+	  <li>AG_BodyPartNose</li>
+	  <li>AG_BodyPartNoses</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<hediffsToBodyParts>
+				<li>
+					<hediff>WVC_RB_MecaNose</hediff>
+					<bodyparts>
+						<li>Nose</li>
+					</bodyparts>
+				</li>
+			</hediffsToBodyParts>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
+	<defName>WVC_MecaBodyParts_Jaw</defName>
+	<label>jaw</label>
+	<exclusionTags>
+	  <li>BodyPartJaws</li>
+	  <li>BodyPartJaw</li>
+	  <li>AG_BodyPartJaw</li>
+	  <li>AG_BodyPartJaws</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<hediffsToBodyParts>
+				<li>
+					<hediff>WVC_RB_MecaJaw</hediff>
+					<bodyparts>
+						<li>Jaw</li>
+					</bodyparts>
+				</li>
+			</hediffsToBodyParts>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
+	<defName>WVC_MecaBodyParts_Ear</defName>
+	<label>ear</label>
+	<exclusionTags>
+	  <li>BodyPartEars</li>
+	  <li>BodyPartEar</li>
+	  <li>AG_BodyPartEar</li>
+	  <li>AG_BodyPartEars</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<hediffsToBodyParts>
+				<li>
+					<hediff>WVC_RB_MecaEar</hediff>
+					<bodyparts>
+						<li>Ear</li>
+						<li>Ear</li>
+					</bodyparts>
+				</li>
+			</hediffsToBodyParts>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
+	<defName>WVC_MecaBodyParts_Eye</defName>
+	<label>eye</label>
+	<exclusionTags>
+	  <li>BodyPartEyes</li>
+	  <li>BodyPartEye</li>
+	  <li>AG_BodyPartEye</li>
+	  <li>AG_BodyPartEyes</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<hediffsToBodyParts>
+				<li>
+					<hediff>WVC_RB_MecaEye</hediff>
+					<bodyparts>
+						<li>Eye</li>
+						<li>Eye</li>
+					</bodyparts>
+				</li>
+			</hediffsToBodyParts>
+		</li>
+	</modExtensions>
+  </GeneDef>
+  
+</Defs>

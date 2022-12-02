@@ -94,5 +94,75 @@
 	  </prefixSymbols>
 	</symbolPack>
   </GeneDef>
+
+  <!-- Punk -->
+
+  <GeneDef ParentName="GeneHairStyleBase">
+	<defName>WVC_Hair_PunkOnly</defName>
+	<label>punk-haired</label>
+	<description>Carriers of this gene grow hair on the head is a bit weird.</description>
+	<iconPath>WVC/UI/Genes/PunkHaired</iconPath>
+	<displayOrderInCategory>57</displayOrderInCategory>
+	<hairTagFilter>
+	  <whitelist>true</whitelist>
+	  <tags>
+		<li>Punk</li>
+	  </tags>
+	</hairTagFilter>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>punkind</symbol></li>
+		<li><symbol>punkkind</symbol></li>
+	  </wholeNameSymbols>
+	  <prefixSymbols>
+		<li><symbol>punk</symbol></li>
+		<li><symbol>rock</symbol></li>
+		<li><symbol>roc</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>punk</symbol></li>
+		<li><symbol>rocker</symbol></li>
+		<li><symbol>ker</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- Aptitude -->
+
+  <GeneTemplateDef ParentName="GeneAptitudeBase">
+	<defName>WVC_AptitudeImpossible</defName>
+	<label>impossible {0}</label>
+	<description>The carrier's aptitude in {0} is reduced by 20. Aptitude acts like an offset on skill level. Additionally, all passion is removed from {0}.</description>
+	<iconPath>UI/Icons/Genes/Skills/{0}/Terrible</iconPath>
+	<aptitudeOffset>-20</aptitudeOffset>
+	<passionModType>DropAll</passionModType>
+	<displayOrderOffset>0</displayOrderOffset>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>8</biostatMet>
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneTemplateDef>
+
+  <GeneTemplateDef ParentName="GeneAptitudeBase">
+	<defName>WVC_AptitudePerfect</defName>
+	<label>perfect {0}</label>
+	<description>The carrier's aptitude in {0} is increased by 20. Aptitude acts like an offset on skill level. Additionally, one level of passion is added to {0}.</description>
+	<iconPath>UI/Icons/Genes/Skills/{0}/Remarkable</iconPath>
+	<aptitudeOffset>20</aptitudeOffset>
+	<passionModType>AddOneLevel</passionModType>
+	<displayOrderOffset>100</displayOrderOffset>
+	<biostatCpx>5</biostatCpx>
+	<biostatMet>-12</biostatMet>
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneTemplateDef>
   
 </Defs>
