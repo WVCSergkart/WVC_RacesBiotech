@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+	<!-- Meca -->
+
+	<HediffDef>
+		<defName>WVC_MechaGestator</defName>
+		<label>gestator</label>
+		<description>Archites slowly form semi-organic life.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<scenarioCanAdd>false</scenarioCanAdd>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="AnimalBehaviours.HediffCompProperties_AsexualReproduction">
+				<reproductionIntervalDays>120</reproductionIntervalDays>
+				<endogeneTransfer>true</endogeneTransfer>
+				<asexualHatchedMessage>WVC_RB_Gene_MechaGestator</asexualHatchedMessage>
+			</li>
+		</comps>
+	</HediffDef>
+
+  <!-- Urchin -->
+
   <HediffDef>
 	<defName>WVC_Genes_UrchinGestator</defName>
 	<label>mech-assembling</label>
@@ -135,12 +156,47 @@
 	<label>urchin gestator</label>
 	<description>Carriers of this gene have archites that replace the carrier's reproductive system with a mechanoid gestator.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; Urchins are NOT automatically assigned to mechanitors, this must be done manually!</description>
 	<iconPath>Things/Pawn/Mechanoid/WarUrchin_south</iconPath>
+	<iconColor>(184, 198, 203)</iconColor>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<hediffToWholeBody>WVC_Genes_UrchinGestator</hediffToWholeBody>
 		</li>
 	</modExtensions>
   </GeneDef>
+
+  <GeneDef ParentName="WVC_UrchinGestatorBase">
+	<defName>WVC_MechaGestator</defName>
+	<label>gestator</label>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<biostatArc>1</biostatArc>
+	<description>Carriers of this gene have archites that replace the carrier's reproductive system with a mechanoid gestator.\n\n&lt;color=#f5ffa2&gt;Note0:&lt;/color&gt; Spawns a baby-pawn with similar genes every 2 years.\n\n&lt;color=#f5ffa2&gt;Note1:&lt;/color&gt; Changes the gender of a pawn to female.</description>
+	<iconPath>WVC/UI/Genes/Gestator</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<prerequisite>WVC_MechaSkin</prerequisite>
+	<forcedTraits>
+	  <li>
+		<def>Bisexual</def>
+		<!-- <degree>-2</degree> -->
+	  </li>
+	</forcedTraits>
+	<exclusionTags>
+		<li>WVC_Monogender</li>
+		<li>AG_Gender</li>
+		<li>Gender</li>
+		<!-- = -->
+		<li>Fertility</li>
+		<li>Egglaying</li>
+		<li>AG_Egglaying</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<hediffToWholeBody>WVC_MechaGestator</hediffToWholeBody>
+			<forceFemale>true</forceFemale>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
 
 
 </Defs>

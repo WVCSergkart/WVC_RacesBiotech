@@ -115,7 +115,7 @@
 	<label>decline in libido</label>
 	<description>Carriers of this gene become unable to engage in lovin' with their partner.</description>
 	<customEffectDescriptions>
-	  <li>Decreases the chance of lovin'.</li>
+	  <li>No more lovin'.</li>
 	</customEffectDescriptions>
 	<minAgeActive>25</minAgeActive>
 	<iconPath>WVC/UI/Genes/AgeDebuff_Libido</iconPath>

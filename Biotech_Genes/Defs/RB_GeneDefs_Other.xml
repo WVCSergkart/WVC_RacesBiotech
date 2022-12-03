@@ -100,7 +100,7 @@
   <GeneDef ParentName="GeneHairStyleBase">
 	<defName>WVC_Hair_PunkOnly</defName>
 	<label>punk-haired</label>
-	<description>Carriers of this gene grow hair on the head is a bit weird.</description>
+	<description>Carriers of this gene grow hair on the head is a bit weird.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; With ideology disabled, most pawns will spawn bald.</description>
 	<iconPath>WVC/UI/Genes/PunkHaired</iconPath>
 	<displayOrderInCategory>57</displayOrderInCategory>
 	<hairTagFilter>
