@@ -25,4 +25,12 @@
 		</match>
 	</Operation>
 
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/StatDef[defName="MentalBreakThreshold"]/minValue</xpath>
+		<success>Always</success>
+		<value>
+			<minValue>0</minValue>
+		</value>
+	</Operation>
+
 </Patch>

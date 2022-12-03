@@ -73,11 +73,22 @@
 			<label>scythe tail</label>
 			<capacities>
 			  <li>Cut</li>
+			  <li>Stab</li>
 			</capacities>
-			<power>24</power>
-			<cooldownTime>1.2</cooldownTime>
-			<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
-			<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+			<power>20</power>
+			<cooldownTime>1.5</cooldownTime>
+			<armorPenetration>0.8</armorPenetration>
+			<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+			<soundMeleeHit>Pawn_Melee_MechanoidSlash_HitPawn</soundMeleeHit>
+			<soundMeleeMiss>Pawn_Melee_MechanoidSlash_Miss</soundMeleeMiss>
+			<surpriseAttack>
+			  <extraMeleeDamages>
+				<li>
+				  <def>Stun</def>
+				  <amount>14</amount>
+				</li>
+			  </extraMeleeDamages>
+			</surpriseAttack>
 		  </li>
 		</tools>
 	  </li>
