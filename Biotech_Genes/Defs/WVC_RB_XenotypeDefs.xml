@@ -75,7 +75,8 @@
 		<li>TotalHealing</li>
 		<li>StrongStomach</li>
 		<li>WVC_ClothedArmor</li>
-		<!-- <li>WVC_Emotionless</li> -->
+		<li>WVC_Mecha_EarsCat</li>
+		<li>WVC_Mecha_ScytheTail</li>
 		<li>MinTemp_LargeDecrease</li>
 		<li>MaxTemp_LargeIncrease</li>
 		<li>ToxResist_Total</li>

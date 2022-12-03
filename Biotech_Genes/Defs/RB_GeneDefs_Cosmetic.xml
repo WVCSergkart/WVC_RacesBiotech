@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Ears -->
+
+  <GeneDef ParentName="GeneEarsBase">
+	<defName>WVC_Mecha_EarsCat</defName>
+	<label>mecha-cat ears</label>
+	<description>Carriers of this gene have mechanoid cat-like ears. Additional audio sensors in the ears improve hearing.</description>
+	<iconPath>UI/Icons/Genes/Gene_EarCat</iconPath>
+	<displayCategory>WVC_MechaBody</displayCategory>
+	<displayOrderInCategory>250</displayOrderInCategory>
+	<prerequisite>WVC_MechaSkin</prerequisite>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<capMods>
+	  <li>
+		<capacity>Hearing</capacity>
+		<offset>0.2</offset>
+	  </li>
+	</capMods>
+	<graphicData>
+	  <graphicPath>WVC/MecaGene_Ears/CatEars</graphicPath>
+	  <colorType>Hair</colorType>
+	  <useSkinShader>false</useSkinShader>
+	</graphicData>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>cat</symbol></li>
+		<li><symbol>kitty</symbol></li>
+		<li><symbol>kit</symbol></li>
+		<li><symbol>tabby</symbol></li>
+		<li><symbol>tom</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>cat</symbol></li>
+		<li><symbol>kitten</symbol></li>
+		<li><symbol>tabby</symbol></li>
+		<li><symbol>tom</symbol></li>
+		<li><symbol>ear</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- Tail -->
+  
+  <HediffDef>
+	<defName>WVC_RB_Mecha_ScytheTail</defName>
+	<hediffClass>HediffWithComps</hediffClass>
+	<label>scythe tail</label>
+	<description>Should be invisible.</description>
+	<defaultLabelColor>(255,255,255)</defaultLabelColor>
+	<everCurableByItem>false</everCurableByItem>
+	<scenarioCanAdd>false</scenarioCanAdd>
+	<isBad>false</isBad>
+	<makesAlert>false</makesAlert>
+	<stages>
+	  <li>
+		<becomeVisible>false</becomeVisible>
+	  </li>
+	</stages>
+	<comps>
+	  <li Class="HediffCompProperties_VerbGiver">
+		<tools>
+		  <li>
+			<label>scythe tail</label>
+			<capacities>
+			  <li>Cut</li>
+			</capacities>
+			<power>24</power>
+			<cooldownTime>1.2</cooldownTime>
+			<soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+			<soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+		  </li>
+		</tools>
+	  </li>
+	</comps>
+  </HediffDef>
+
+  <GeneDef ParentName="GeneTailBase">
+	<defName>WVC_Mecha_ScytheTail</defName>
+	<label>scythe tail</label>
+	<description>Carriers of this gene grow a sleek long tail with several blades at the end.</description>
+	<iconPath>WVC/MecaGene_ScytheTail/SmoothTail_east</iconPath>
+	<iconColor>(0.85, 0.85, 0.85)</iconColor>
+	<displayCategory>WVC_MechaBody</displayCategory>
+	<displayOrderInCategory>250</displayOrderInCategory>
+	<prerequisite>WVC_MechaSkin</prerequisite>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<statOffsets>
+	  <MeleeDamageFactor>0.15</MeleeDamageFactor>
+	</statOffsets>
+	<graphicData>
+	  <graphicPath>WVC/MecaGene_ScytheTail/SmoothTail</graphicPath>
+	  <colorType>Hair</colorType>
+	  <drawOffsetNorth>(0, 0.2, -0.15)</drawOffsetNorth>
+	  <drawOffsetSouth>(0, -0.1, -0.15)</drawOffsetSouth>
+	  <drawOffsetEast>(-0.5, -0.1, -0.15)</drawOffsetEast>
+	</graphicData>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>scythe</symbol></li>
+		<li><symbol>scy</symbol></li>
+		<li><symbol>scyt</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>the</symbol></li>
+		<li><symbol>he</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes>
+			<hediffsToBodyParts>
+				<li>
+					<hediff>WVC_RB_Mecha_ScytheTail</hediff>
+					<bodyparts>
+						<li>Torso</li>
+					</bodyparts>
+				</li>
+			</hediffsToBodyParts>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>
