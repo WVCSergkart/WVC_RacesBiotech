@@ -9,8 +9,10 @@
 	<description>Carriers of this gene have mechanoid cat-like ears. Additional audio sensors in the ears improve hearing.</description>
 	<iconPath>UI/Icons/Genes/Gene_EarCat</iconPath>
 	<displayCategory>WVC_MechaBody</displayCategory>
-	<displayOrderInCategory>250</displayOrderInCategory>
-	<prerequisite>WVC_MechaSkin</prerequisite>
+	<displayOrderInCategory>8</displayOrderInCategory>
+	<!-- <displayOrderInCategory>250</displayOrderInCategory> -->
+	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
+	<prerequisite>WVC_MechaAI_Base</prerequisite>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>-1</biostatMet>
@@ -102,8 +104,10 @@
 	<iconPath>WVC/MecaGene_ScytheTail/SmoothTail_east</iconPath>
 	<iconColor>(0.85, 0.85, 0.85)</iconColor>
 	<displayCategory>WVC_MechaBody</displayCategory>
-	<displayOrderInCategory>250</displayOrderInCategory>
-	<prerequisite>WVC_MechaSkin</prerequisite>
+	<displayOrderInCategory>8</displayOrderInCategory>
+	<!-- <displayOrderInCategory>250</displayOrderInCategory> -->
+	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
+	<prerequisite>WVC_MechaAI_Base</prerequisite>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>-1</biostatMet>

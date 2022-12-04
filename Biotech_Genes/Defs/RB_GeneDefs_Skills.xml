@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Aptitude -->
+
+  <GeneTemplateDef ParentName="GeneAptitudeBase">
+	<defName>WVC_AptitudeImpossible</defName>
+	<label>impossible {0}</label>
+	<description>The carrier's aptitude in {0} is reduced by 20. Aptitude acts like an offset on skill level. Additionally, all passion is removed from {0}.</description>
+	<iconPath>UI/Icons/Genes/Skills/{0}/Terrible</iconPath>
+	<aptitudeOffset>-20</aptitudeOffset>
+	<passionModType>DropAll</passionModType>
+	<displayOrderOffset>-100</displayOrderOffset>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>8</biostatMet>
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneTemplateDef>
+
+  <GeneTemplateDef ParentName="GeneAptitudeBase">
+	<defName>WVC_AptitudePerfect</defName>
+	<label>perfect {0}</label>
+	<description>The carrier's aptitude in {0} is increased by 20. Aptitude acts like an offset on skill level. Additionally, one level of passion is added to {0}.</description>
+	<iconPath>UI/Icons/Genes/Skills/{0}/Remarkable</iconPath>
+	<aptitudeOffset>20</aptitudeOffset>
+	<passionModType>AddOneLevel</passionModType>
+	<displayOrderOffset>100</displayOrderOffset>
+	<biostatCpx>5</biostatCpx>
+	<biostatMet>-12</biostatMet>
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneTemplateDef>
+
+  <!-- Skills -->
+
+  <GeneDef Name="WVC_Natural_SkillsBase" Abstract="True">
+	<!-- <defName>WVC_Natural_Base</defName> -->
+	<label>skills</label>
+	<description>Carriers of this gene learn the skill better.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; The pawn will not lose the level of the selected skill.</description>
+	<iconPath>WVC/UI/Genes/SkillUp_Base</iconPath>
+	<displayOrderInCategory>-1000</displayOrderInCategory>
+	<!-- <prerequisite>WVC_Natural_Base</prerequisite> -->
+	<displayCategory>Aptitudes</displayCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-3</biostatMet>
+	<biostatArc>0</biostatArc>
+	<exclusionTags>
+	  <!-- <li>WVC_Mechanoidization_Skills</li> -->
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- <GeneDef ParentName="WVC_Natural_SkillsBase"> -->
+	<!-- <defName>WVC_Natural_Skill_Intellectual</defName> -->
+	<!-- <label>natural born: Intellectual</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>noSkillLoss_Intellectual</li> -->
+	  <!-- <li>skillRecreation_Intellectual</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Intellectual</noSkillLoss> -->
+			<!-- <skillRecreation>Intellectual</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Natural_SkillsBase"> -->
+	<!-- <defName>WVC_Natural_Skill_Crafting</defName> -->
+	<!-- <label>natural born: Crafting</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>noSkillLoss_Crafting</li> -->
+	  <!-- <li>skillRecreation_Crafting</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Crafting</noSkillLoss> -->
+			<!-- <skillRecreation>Crafting</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Natural_SkillsBase"> -->
+	<!-- <defName>WVC_Natural_Skill_Melee</defName> -->
+	<!-- <label>natural born: Melee</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>noSkillLoss_Melee</li> -->
+	  <!-- <li>skillRecreation_Melee</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Melee</noSkillLoss> -->
+			<!-- <skillRecreation>Melee</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Natural_SkillsBase"> -->
+	<!-- <defName>WVC_Natural_Skill_Plants</defName> -->
+	<!-- <label>natural born: Plants</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>noSkillLoss_Plants</li> -->
+	  <!-- <li>skillRecreation_Plants</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Plants</noSkillLoss> -->
+			<!-- <skillRecreation>Plants</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Natural_SkillsBase"> -->
+	<!-- <defName>WVC_Natural_Skill_Cooking</defName> -->
+	<!-- <label>natural born: Cooking</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>noSkillLoss_Cooking</li> -->
+	  <!-- <li>skillRecreation_Cooking</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Cooking</noSkillLoss> -->
+			<!-- <skillRecreation>Cooking</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Natural_SkillsBase"> -->
+	<!-- <defName>WVC_Natural_Skill_Mining</defName> -->
+	<!-- <label>natural born: Mining</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>noSkillLoss_Mining</li> -->
+	  <!-- <li>skillRecreation_Mining</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Mining</noSkillLoss> -->
+			<!-- <skillRecreation>Mining</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Natural_SkillsBase"> -->
+	<!-- <defName>WVC_Natural_Skill_Construction</defName> -->
+	<!-- <label>natural born: Construction</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>noSkillLoss_Construction</li> -->
+	  <!-- <li>skillRecreation_Construction</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Construction</noSkillLoss> -->
+			<!-- <skillRecreation>Construction</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Natural_SkillsBase"> -->
+	<!-- <defName>WVC_Natural_Skill_Shooting</defName> -->
+	<!-- <label>natural born: Shooting</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>noSkillLoss_Shooting</li> -->
+	  <!-- <li>skillRecreation_Shooting</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Shooting</noSkillLoss> -->
+			<!-- <skillRecreation>Shooting</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Natural_SkillsBase"> -->
+	<!-- <defName>WVC_Natural_Skill_Animals</defName> -->
+	<!-- <label>natural born: Animals</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>noSkillLoss_Animals</li> -->
+	  <!-- <li>skillRecreation_Animals</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Animals</noSkillLoss> -->
+			<!-- <skillRecreation>Animals</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Natural_SkillsBase"> -->
+	<!-- <defName>WVC_Natural_Skill_Medicine</defName> -->
+	<!-- <label>natural born: Medicine</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>noSkillLoss_Medicine</li> -->
+	  <!-- <li>skillRecreation_Medicine</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Medicine</noSkillLoss> -->
+			<!-- <skillRecreation>Medicine</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Natural_SkillsBase"> -->
+	<!-- <defName>WVC_Natural_Skill_Artistic</defName> -->
+	<!-- <label>natural born: Artistic</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>noSkillLoss_Artistic</li> -->
+	  <!-- <li>skillRecreation_Artistic</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Artistic</noSkillLoss> -->
+			<!-- <skillRecreation>Artistic</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Natural_SkillsBase"> -->
+	<!-- <defName>WVC_Natural_Skill_Social</defName> -->
+	<!-- <label>natural born: Social</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>noSkillLoss_Social</li> -->
+	  <!-- <li>skillRecreation_Social</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Social</noSkillLoss> -->
+			<!-- <skillRecreation>Social</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+
+  <!-- Mecha Skills -->
+
+  <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Mechanoidization_SkillsBase" Abstract="True">
+	<!-- <defName>WVC_MechaAI_Base</defName> -->
+	<label>skills</label>
+	<description>Archites form neural networks that help the carrier of the gene.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; The pawn will not lose the level of the selected skill.</description>
+	<iconPath>WVC/UI/Genes/SkillUp_AI</iconPath>
+	<displayOrderInCategory>6</displayOrderInCategory>
+	<prerequisite>WVC_MechaAI_Base</prerequisite>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<exclusionTags>
+	  <!-- <li>WVC_Mechanoidization_Skills</li> -->
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- <GeneDef ParentName="WVC_Mechanoidization_SkillsBase"> -->
+	<!-- <defName>WVC_MechaAI_Skill_Intellectual</defName> -->
+	<!-- <label>advanced software: Intellectual</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>noSkillLoss_Intellectual</li> -->
+	  <!-- <li>skillRecreation_Intellectual</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Intellectual</noSkillLoss> -->
+			<!-- <skillRecreation>Intellectual</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Mechanoidization_SkillsBase"> -->
+	<!-- <defName>WVC_MechaAI_Skill_Crafting</defName> -->
+	<!-- <label>advanced software: Crafting</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>noSkillLoss_Crafting</li> -->
+	  <!-- <li>skillRecreation_Crafting</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Crafting</noSkillLoss> -->
+			<!-- <skillRecreation>Crafting</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Mechanoidization_SkillsBase"> -->
+	<!-- <defName>WVC_MechaAI_Skill_Melee</defName> -->
+	<!-- <label>advanced software: Melee</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>noSkillLoss_Melee</li> -->
+	  <!-- <li>skillRecreation_Melee</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Melee</noSkillLoss> -->
+			<!-- <skillRecreation>Melee</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Mechanoidization_SkillsBase"> -->
+	<!-- <defName>WVC_MechaAI_Skill_Plants</defName> -->
+	<!-- <label>advanced software: Plants</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>noSkillLoss_Plants</li> -->
+	  <!-- <li>skillRecreation_Plants</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Plants</noSkillLoss> -->
+			<!-- <skillRecreation>Plants</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Mechanoidization_SkillsBase"> -->
+	<!-- <defName>WVC_MechaAI_Skill_Cooking</defName> -->
+	<!-- <label>advanced software: Cooking</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>noSkillLoss_Cooking</li> -->
+	  <!-- <li>skillRecreation_Cooking</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Cooking</noSkillLoss> -->
+			<!-- <skillRecreation>Cooking</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Mechanoidization_SkillsBase"> -->
+	<!-- <defName>WVC_MechaAI_Skill_Mining</defName> -->
+	<!-- <label>advanced software: Mining</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>noSkillLoss_Mining</li> -->
+	  <!-- <li>skillRecreation_Mining</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Mining</noSkillLoss> -->
+			<!-- <skillRecreation>Mining</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Mechanoidization_SkillsBase"> -->
+	<!-- <defName>WVC_MechaAI_Skill_Construction</defName> -->
+	<!-- <label>advanced software: Construction</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>noSkillLoss_Construction</li> -->
+	  <!-- <li>skillRecreation_Construction</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Construction</noSkillLoss> -->
+			<!-- <skillRecreation>Construction</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Mechanoidization_SkillsBase"> -->
+	<!-- <defName>WVC_MechaAI_Skill_Shooting</defName> -->
+	<!-- <label>advanced software: Shooting</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>noSkillLoss_Shooting</li> -->
+	  <!-- <li>skillRecreation_Shooting</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Shooting</noSkillLoss> -->
+			<!-- <skillRecreation>Shooting</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Mechanoidization_SkillsBase"> -->
+	<!-- <defName>WVC_MechaAI_Skill_Animals</defName> -->
+	<!-- <label>advanced software: Animals</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>noSkillLoss_Animals</li> -->
+	  <!-- <li>skillRecreation_Animals</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Animals</noSkillLoss> -->
+			<!-- <skillRecreation>Animals</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Mechanoidization_SkillsBase"> -->
+	<!-- <defName>WVC_MechaAI_Skill_Medicine</defName> -->
+	<!-- <label>advanced software: Medicine</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>noSkillLoss_Medicine</li> -->
+	  <!-- <li>skillRecreation_Medicine</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Medicine</noSkillLoss> -->
+			<!-- <skillRecreation>Medicine</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Mechanoidization_SkillsBase"> -->
+	<!-- <defName>WVC_MechaAI_Skill_Artistic</defName> -->
+	<!-- <label>advanced software: Artistic</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>noSkillLoss_Artistic</li> -->
+	  <!-- <li>skillRecreation_Artistic</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Artistic</noSkillLoss> -->
+			<!-- <skillRecreation>Artistic</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Mechanoidization_SkillsBase"> -->
+	<!-- <defName>WVC_MechaAI_Skill_Social</defName> -->
+	<!-- <label>advanced software: Social</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>noSkillLoss_Social</li> -->
+	  <!-- <li>skillRecreation_Social</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Social</noSkillLoss> -->
+			<!-- <skillRecreation>Social</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+
+</Defs>

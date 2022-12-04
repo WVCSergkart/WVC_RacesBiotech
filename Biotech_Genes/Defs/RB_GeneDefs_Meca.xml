@@ -11,6 +11,7 @@
 
   <GeneDef Name="WVC_MechanoidizationBase" Abstract="True">
 	<displayCategory>WVC_MechaBody</displayCategory>
+	<randomChosen>false</randomChosen>
 	<symbolPack>
 	  <wholeNameSymbols>
 		<li><symbol>mechanoid</symbol></li>
@@ -85,12 +86,6 @@
 	  <!-- <li>BeardStyle</li> -->
 	</exclusionTags>
 	<!-- <sterilize>true</sterilize> -->
-	<capMods>
-	  <li>
-		<capacity>Consciousness</capacity>
-		<offset>0.2</offset>
-	  </li>
-	</capMods>
 	<statFactors>
 	  <!-- <PsychicSensitivity>0.7</PsychicSensitivity> -->
 	  <!-- <Fertility>0.8</Fertility> -->
@@ -120,6 +115,100 @@
 			<customBloodEffect>Damage_HitMechanoid</customBloodEffect>
 		</li>
 	</modExtensions>
+  </GeneDef>
+
+  <!-- Buffs -->
+
+  <GeneDef ParentName="WVC_MechanoidizationBase">
+	<defName>WVC_MechaAI_Base</defName>
+	<label>operating system</label> 
+	<labelShortAdj>AI</labelShortAdj>
+	<description>Archites modified the owner's brain quite a lot, which opened up new possibilities.</description>
+	<iconPath>WVC/UI/Genes/AI</iconPath>
+	<!-- <displayCategory>Ability</displayCategory> -->
+	<!-- <displayCategory>Archite</displayCategory> -->
+	<displayOrderInCategory>5</displayOrderInCategory>
+	<prerequisite>WVC_MechaSkin</prerequisite>
+	<capMods>
+	  <li>
+		<capacity>Consciousness</capacity>
+		<offset>0.2</offset>
+	  </li>
+	</capMods>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>ai</symbol></li>
+		<li><symbol>progr</symbol></li>
+		<li><symbol>prog</symbol></li>
+		<li><symbol>pro</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>ai</symbol></li>
+		<li><symbol>ammed</symbol></li>
+		<li><symbol>amm</symbol></li>
+		<li><symbol>am</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>WVC_Mechanoidization_AI</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- Romance -->
+
+  <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Mechanoidization_RomanceChanceBase" Abstract="True">
+	<!-- <defName>WVC_MechaAI_Base</defName> -->
+	<label>AI</label>
+	<description>Carriers of this gene have a tough program that helps them find the best partners.</description>
+	<iconPath>WVC/UI/Genes/Mechlink</iconPath>
+	<displayOrderInCategory>10</displayOrderInCategory>
+	<prerequisite>WVC_MechaAI_Base</prerequisite>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<exclusionTags>
+	  <li>WVC_Mecha_RomanceChanceBase</li>
+	  <!-- <li>RomanceChance</li> -->
+	  <!-- <li>AG_RomanceChance</li> -->
+	</exclusionTags>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_Mechanoidization_RomanceChanceBase">
+	<defName>WVC_MechaAI_RomanceChanceA</defName>
+	<label>encoding SX</label>
+	<iconPath>WVC/UI/Genes/EncodingSX</iconPath>
+	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Mechanoidization_RomanceChanceBase">
+	<defName>WVC_MechaAI_RomanceChanceB</defName>
+	<label>encoding GB</label>
+	<iconPath>WVC/UI/Genes/EncodingGB</iconPath>
+	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Mechanoidization_RomanceChanceBase">
+	<defName>WVC_MechaAI_RomanceChanceC</defName>
+	<label>encoding HJ</label>
+	<iconPath>WVC/UI/Genes/EncodingHJ</iconPath>
+	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Mechanoidization_RomanceChanceBase">
+	<defName>WVC_MechaAI_RomanceChanceD</defName>
+	<label>encoding CV</label>
+	<iconPath>WVC/UI/Genes/EncodingCV</iconPath>
+	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Mechanoidization_RomanceChanceBase">
+	<defName>WVC_MechaAI_RomanceChanceE</defName>
+	<label>encoding WR</label>
+	<iconPath>WVC/UI/Genes/EncodingWR</iconPath>
+	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
   </GeneDef>
 
   <!-- Mechlink -->

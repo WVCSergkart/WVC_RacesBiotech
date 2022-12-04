@@ -67,6 +67,7 @@
 		<li>WVC_ArchiteMechlink</li>
 		<li>WVC_ArchiteFleetConnected</li>
 		<li>WVC_VoiceMechaMilitor</li>
+		<li>WVC_MechaAI_Base</li>
 		<li>Ageless</li>
 		<li>ArchiteMetabolism</li>
 		<li>Deathless</li>
@@ -89,6 +90,7 @@
 		<li>Skin_SheerWhite</li>
 		<li>DarkVision</li>
 		<li>Unstoppable</li>
+		<li>WVC_Orientation_Bisexual</li>
 		<li>AptitudePoor_Shooting</li>
 		<li>AptitudePoor_Melee</li>
 		<li>AptitudeStrong_Construction</li>
