@@ -168,14 +168,27 @@
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<exclusionTags>
-	  <li>WVC_Mecha_RomanceChanceBase</li>
+	  <!-- <li>WVC_Mecha_RomanceChanceBase</li> -->
 	  <!-- <li>RomanceChance</li> -->
 	  <!-- <li>AG_RomanceChance</li> -->
 	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>encod</symbol></li>
+		<li><symbol>enco</symbol></li>
+		<li><symbol>enc</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>ed</symbol></li>
+		<li><symbol>ded</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes>
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes> -->
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathXenogenes>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -185,30 +198,45 @@
 	<label>encoding SX</label>
 	<iconPath>WVC/UI/Genes/EncodingSX</iconPath>
 	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
+	<exclusionTags>
+	  <li>WVC_Mecha_RomanceChance_SX</li>
+	</exclusionTags>
   </GeneDef>
   <GeneDef ParentName="WVC_Mechanoidization_RomanceChanceBase">
 	<defName>WVC_MechaAI_RomanceChanceB</defName>
 	<label>encoding GB</label>
 	<iconPath>WVC/UI/Genes/EncodingGB</iconPath>
 	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
+	<exclusionTags>
+	  <li>WVC_Mecha_RomanceChance_GB</li>
+	</exclusionTags>
   </GeneDef>
   <GeneDef ParentName="WVC_Mechanoidization_RomanceChanceBase">
 	<defName>WVC_MechaAI_RomanceChanceC</defName>
 	<label>encoding HJ</label>
 	<iconPath>WVC/UI/Genes/EncodingHJ</iconPath>
 	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
+	<exclusionTags>
+	  <li>WVC_Mecha_RomanceChance_HJ</li>
+	</exclusionTags>
   </GeneDef>
   <GeneDef ParentName="WVC_Mechanoidization_RomanceChanceBase">
 	<defName>WVC_MechaAI_RomanceChanceD</defName>
 	<label>encoding CV</label>
 	<iconPath>WVC/UI/Genes/EncodingCV</iconPath>
 	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
+	<exclusionTags>
+	  <li>WVC_Mecha_RomanceChance_CV</li>
+	</exclusionTags>
   </GeneDef>
   <GeneDef ParentName="WVC_Mechanoidization_RomanceChanceBase">
 	<defName>WVC_MechaAI_RomanceChanceE</defName>
 	<label>encoding WR</label>
 	<iconPath>WVC/UI/Genes/EncodingWR</iconPath>
 	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
+	<exclusionTags>
+	  <li>WVC_Mecha_RomanceChance_WR</li>
+	</exclusionTags>
   </GeneDef>
 
   <!-- Mechlink -->
@@ -315,8 +343,12 @@
 	</symbolPack>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes>
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathXenogenes> -->
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ColorlessGene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ColorlessGene</backgroundPathXenogenes>
 		</li>
 	</modExtensions>
   </GeneDef>

@@ -7,7 +7,8 @@
 	<defName>WVC_AptitudeImpossible</defName>
 	<label>impossible {0}</label>
 	<description>The carrier's aptitude in {0} is reduced by 20. Aptitude acts like an offset on skill level. Additionally, all passion is removed from {0}.</description>
-	<iconPath>UI/Icons/Genes/Skills/{0}/Terrible</iconPath>
+	<!-- <iconPath>UI/Icons/Genes/Skills/{0}/Terrible</iconPath> -->
+	<iconPath>WVC/UI/Genes/SkillDown</iconPath>
 	<aptitudeOffset>-20</aptitudeOffset>
 	<passionModType>DropAll</passionModType>
 	<displayOrderOffset>-100</displayOrderOffset>
@@ -25,7 +26,8 @@
 	<defName>WVC_AptitudePerfect</defName>
 	<label>perfect {0}</label>
 	<description>The carrier's aptitude in {0} is increased by 20. Aptitude acts like an offset on skill level. Additionally, one level of passion is added to {0}.</description>
-	<iconPath>UI/Icons/Genes/Skills/{0}/Remarkable</iconPath>
+	<!-- <iconPath>UI/Icons/Genes/Skills/{0}/Remarkable</iconPath> -->
+	<iconPath>WVC/UI/Genes/SkillUp</iconPath>
 	<aptitudeOffset>20</aptitudeOffset>
 	<passionModType>AddOneLevel</passionModType>
 	<displayOrderOffset>100</displayOrderOffset>
@@ -55,6 +57,12 @@
 	<exclusionTags>
 	  <!-- <li>WVC_Mechanoidization_Skills</li> -->
 	</exclusionTags>
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <!-- <GeneDef ParentName="WVC_Natural_SkillsBase"> -->
@@ -66,6 +74,8 @@
 	<!-- </exclusionTags> -->
 	<!-- <modExtensions> -->
 		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes> -->
 			<!-- <noSkillLoss>Intellectual</noSkillLoss> -->
 			<!-- <skillRecreation>Intellectual</skillRecreation> -->
 		<!-- </li> -->
@@ -80,6 +90,8 @@
 	<!-- </exclusionTags> -->
 	<!-- <modExtensions> -->
 		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes> -->
 			<!-- <noSkillLoss>Crafting</noSkillLoss> -->
 			<!-- <skillRecreation>Crafting</skillRecreation> -->
 		<!-- </li> -->
@@ -94,6 +106,8 @@
 	<!-- </exclusionTags> -->
 	<!-- <modExtensions> -->
 		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes> -->
 			<!-- <noSkillLoss>Melee</noSkillLoss> -->
 			<!-- <skillRecreation>Melee</skillRecreation> -->
 		<!-- </li> -->
@@ -108,6 +122,8 @@
 	<!-- </exclusionTags> -->
 	<!-- <modExtensions> -->
 		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes> -->
 			<!-- <noSkillLoss>Plants</noSkillLoss> -->
 			<!-- <skillRecreation>Plants</skillRecreation> -->
 		<!-- </li> -->
@@ -122,6 +138,8 @@
 	<!-- </exclusionTags> -->
 	<!-- <modExtensions> -->
 		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes> -->
 			<!-- <noSkillLoss>Cooking</noSkillLoss> -->
 			<!-- <skillRecreation>Cooking</skillRecreation> -->
 		<!-- </li> -->
@@ -136,6 +154,8 @@
 	<!-- </exclusionTags> -->
 	<!-- <modExtensions> -->
 		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes> -->
 			<!-- <noSkillLoss>Mining</noSkillLoss> -->
 			<!-- <skillRecreation>Mining</skillRecreation> -->
 		<!-- </li> -->
@@ -150,6 +170,8 @@
 	<!-- </exclusionTags> -->
 	<!-- <modExtensions> -->
 		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes> -->
 			<!-- <noSkillLoss>Construction</noSkillLoss> -->
 			<!-- <skillRecreation>Construction</skillRecreation> -->
 		<!-- </li> -->
@@ -164,6 +186,8 @@
 	<!-- </exclusionTags> -->
 	<!-- <modExtensions> -->
 		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes> -->
 			<!-- <noSkillLoss>Shooting</noSkillLoss> -->
 			<!-- <skillRecreation>Shooting</skillRecreation> -->
 		<!-- </li> -->
@@ -178,6 +202,8 @@
 	<!-- </exclusionTags> -->
 	<!-- <modExtensions> -->
 		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes> -->
 			<!-- <noSkillLoss>Animals</noSkillLoss> -->
 			<!-- <skillRecreation>Animals</skillRecreation> -->
 		<!-- </li> -->
@@ -192,6 +218,8 @@
 	<!-- </exclusionTags> -->
 	<!-- <modExtensions> -->
 		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes> -->
 			<!-- <noSkillLoss>Medicine</noSkillLoss> -->
 			<!-- <skillRecreation>Medicine</skillRecreation> -->
 		<!-- </li> -->
@@ -206,6 +234,8 @@
 	<!-- </exclusionTags> -->
 	<!-- <modExtensions> -->
 		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes> -->
 			<!-- <noSkillLoss>Artistic</noSkillLoss> -->
 			<!-- <skillRecreation>Artistic</skillRecreation> -->
 		<!-- </li> -->
@@ -220,6 +250,8 @@
 	<!-- </exclusionTags> -->
 	<!-- <modExtensions> -->
 		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes> -->
 			<!-- <noSkillLoss>Social</noSkillLoss> -->
 			<!-- <skillRecreation>Social</skillRecreation> -->
 		<!-- </li> -->
