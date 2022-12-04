@@ -220,9 +220,9 @@
 	</exclusionTags>
 	<symbolPack>
 	  <prefixSymbols>
+		<li><symbol>sexua</symbol></li>
 		<li><symbol>sexu</symbol></li>
 		<li><symbol>sex</symbol></li>
-		<li><symbol>se</symbol></li>
 	  </prefixSymbols>
 	  <suffixSymbols>
 		<li><symbol>list</symbol></li>
@@ -255,7 +255,6 @@
 	  </li>
 	</suppressedTraits>
   </GeneDef>
-
   <GeneDef ParentName="WVC_OrientationBase">
 	<defName>WVC_Orientation_Bisexual</defName>
 	<label>bisexual</label>
@@ -267,7 +266,6 @@
 	  </li>
 	</forcedTraits>
   </GeneDef>
-
   <GeneDef ParentName="WVC_OrientationBase">
 	<defName>WVC_Orientation_Gay</defName>
 	<label>gay</label>
@@ -279,7 +277,6 @@
 	  </li>
 	</forcedTraits>
   </GeneDef>
-
   <GeneDef ParentName="WVC_OrientationBase">
 	<defName>WVC_Orientation_Asexual</defName>
 	<label>asexual</label>
@@ -291,5 +288,100 @@
 	  </li>
 	</forcedTraits>
   </GeneDef>
+
+  <!-- ================================================================== -->
+
+  <GeneDef Name="WVC_RomanceChanceBase" Abstract="True">
+	<displayCategory>Reproduction</displayCategory>
+	<description>Carriers of this gene secrete special pheromones with the help of which they choose a partner.</description>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<biostatArc>0</biostatArc>
+	<displayOrderInCategory>554</displayOrderInCategory>
+	<iconPath>WVC/UI/Genes/RomanceChance</iconPath>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>fero</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>mons</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_RomanceChanceBase">
+	<defName>WVC_RomanceChanceA</defName>
+	<label>pheromones SX</label>
+	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
+	<iconColor>(133, 202, 255)</iconColor>
+	<exclusionTags>
+	  <li>WVC_RomanceChance_A</li>
+	</exclusionTags>
+  </GeneDef>
+  <GeneDef ParentName="WVC_RomanceChanceBase">
+	<defName>WVC_RomanceChanceB</defName>
+	<label>pheromones GB</label>
+	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
+	<iconColor>(133, 255, 136)</iconColor>
+	<exclusionTags>
+	  <li>WVC_RomanceChance_B</li>
+	</exclusionTags>
+  </GeneDef>
+  <GeneDef ParentName="WVC_RomanceChanceBase">
+	<defName>WVC_RomanceChanceC</defName>
+	<label>pheromones HJ</label>
+	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
+	<iconColor>(255, 133, 133)</iconColor>
+	<exclusionTags>
+	  <li>WVC_RomanceChance_C</li>
+	</exclusionTags>
+  </GeneDef>
+  <GeneDef ParentName="WVC_RomanceChanceBase">
+	<defName>WVC_RomanceChanceD</defName>
+	<label>pheromones CV</label>
+	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
+	<iconColor>(142, 133, 255)</iconColor>
+	<exclusionTags>
+	  <li>WVC_RomanceChance_D</li>
+	</exclusionTags>
+  </GeneDef>
+  <GeneDef ParentName="WVC_RomanceChanceBase">
+	<defName>WVC_RomanceChanceE</defName>
+	<label>pheromones WR</label>
+	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
+	<iconColor>(255, 248, 133)</iconColor>
+	<exclusionTags>
+	  <li>WVC_RomanceChance_E</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_RomanceChanceBase">
+	<defName>WVC_RomanceChanceNeutralized</defName>
+	<label>dull taste</label>
+	<description>This gene completely neutralizes the effects of pheromones or encoding, making the carrier of the gene less picky.</description>
+	<missingGeneRomanceChanceFactor>1</missingGeneRomanceChanceFactor>
+	<iconColor>(175, 175, 175)</iconColor>
+	<biostatCpx>2</biostatCpx>
+	<exclusionTags>
+	  <li>WVC_RomanceChance_A</li>
+	  <li>WVC_RomanceChance_B</li>
+	  <li>WVC_RomanceChance_C</li>
+	  <li>WVC_RomanceChance_D</li>
+	  <li>WVC_RomanceChance_E</li>
+	  <!-- = -->
+	  <li>WVC_Mecha_RomanceChance_WR</li>
+	  <li>WVC_Mecha_RomanceChance_CV</li>
+	  <li>WVC_Mecha_RomanceChance_HJ</li>
+	  <li>WVC_Mecha_RomanceChance_GB</li>
+	  <li>WVC_Mecha_RomanceChance_SX</li>
+	</exclusionTags>
+  </GeneDef>
+
 
 </Defs>
