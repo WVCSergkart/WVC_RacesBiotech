@@ -55,16 +55,9 @@
 
   <!-- Tail -->
   
-  <HediffDef>
+  <HediffDef ParentName="WVC_RB_Hediff_BodyParts_Special">
 	<defName>WVC_RB_Mecha_ScytheTail</defName>
-	<hediffClass>HediffWithComps</hediffClass>
 	<label>scythe tail</label>
-	<description>Should be invisible.</description>
-	<defaultLabelColor>(255,255,255)</defaultLabelColor>
-	<everCurableByItem>false</everCurableByItem>
-	<scenarioCanAdd>false</scenarioCanAdd>
-	<isBad>false</isBad>
-	<makesAlert>false</makesAlert>
 	<stages>
 	  <li>
 		<becomeVisible>false</becomeVisible>

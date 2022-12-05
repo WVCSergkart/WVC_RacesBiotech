@@ -65,7 +65,7 @@
 	<labelNoun>a mechanoid stomach</labelNoun>
 	<stages>
 	  <li>
-		<hungerRateFactor>0.01</hungerRateFactor>
+		<!-- <hungerRateFactor>0.01</hungerRateFactor> -->
 		<foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
 	  </li>
 	</stages>

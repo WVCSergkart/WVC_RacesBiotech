@@ -110,6 +110,7 @@
 	</graphicData>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
+			<!-- <furHidesBody>True</furHidesBody> -->
 			<useSkinColorForFur>True</useSkinColorForFur>
 			<customWoundsFromFleshtype>Mechanoid</customWoundsFromFleshtype>
 			<customBloodEffect>Damage_HitMechanoid</customBloodEffect>
@@ -776,6 +777,9 @@
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
 	<defName>WVC_MecaBodyParts_Spine</defName>
 	<label>spine</label>
+	<customEffectDescriptions>
+		<li>Carrying capacity on the map increased to 20%.</li>
+	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>BodyPartSpines</li>
 	  <li>BodyPartSpine</li>
@@ -784,6 +788,7 @@
 	</exclusionTags>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
+			<caravanCarryingFactor>1.2</caravanCarryingFactor>
 			<hediffsToBodyParts>
 				<li>
 					<hediff>WVC_RB_MecaSpine</hediff>

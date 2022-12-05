@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <HediffDef Name="WVC_RB_Hediff_BodyParts_Special" Abstract="True">
+	<!-- <defName>WVC_RB_Mecha_ScytheTail</defName> -->
+	<hediffClass>HediffWithComps</hediffClass>
+	<label>test</label>
+	<description>Should be invisible.</description>
+	<defaultLabelColor>(255,255,255)</defaultLabelColor>
+	<everCurableByItem>false</everCurableByItem>
+	<scenarioCanAdd>false</scenarioCanAdd>
+	<isBad>false</isBad>
+	<makesAlert>false</makesAlert>
+	<keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
+	<countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <becomeVisible>false</becomeVisible> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+	<!-- <comps> -->
+	  <!-- <li Class="HediffCompProperties_VerbGiver"> -->
+		<!-- <tools> -->
+		  <!-- <li> -->
+			<!-- <label>scythe tail</label> -->
+			<!-- <capacities> -->
+			  <!-- <li>Cut</li> -->
+			  <!-- <li>Stab</li> -->
+			<!-- </capacities> -->
+			<!-- <power>20</power> -->
+			<!-- <cooldownTime>1.5</cooldownTime> -->
+			<!-- <armorPenetration>0.8</armorPenetration> -->
+			<!-- <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon> -->
+			<!-- <soundMeleeHit>Pawn_Melee_MechanoidSlash_HitPawn</soundMeleeHit> -->
+			<!-- <soundMeleeMiss>Pawn_Melee_MechanoidSlash_Miss</soundMeleeMiss> -->
+			<!-- <surpriseAttack> -->
+			  <!-- <extraMeleeDamages> -->
+				<!-- <li> -->
+				  <!-- <def>Stun</def> -->
+				  <!-- <amount>14</amount> -->
+				<!-- </li> -->
+			  <!-- </extraMeleeDamages> -->
+			<!-- </surpriseAttack> -->
+		  <!-- </li> -->
+		<!-- </tools> -->
+	  <!-- </li> -->
+	<!-- </comps> -->
+  </HediffDef>
+
+  <!--=====================================================================-->
+
+  <HediffDef ParentName="WVC_RB_Hediff_BodyParts_Special">
+	<defName>WVC_RB_MechaClaws</defName>
+	<label>mecha-claw</label>
+	<description>Deadly sharp claws.</description>
+	<hediffClass>Hediff_AddedPart</hediffClass>
+	<addedPartProps>
+	  <solid>true</solid>
+	  <partEfficiency>1.0</partEfficiency>
+	  <betterThanNatural>true</betterThanNatural>
+	</addedPartProps>
+	<comps>
+	  <li Class="HediffCompProperties_VerbGiver">
+		<tools>
+		  <li>
+			<label>claw</label>
+			<capacities>
+			  <li>Cut</li>
+			  <li>Stab</li>
+			</capacities>
+			<power>20</power>
+			<cooldownTime>1.6</cooldownTime>
+			<armorPenetration>0.8</armorPenetration>
+			<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+			<soundMeleeHit>Pawn_Melee_MechanoidSlash_HitPawn</soundMeleeHit>
+			<soundMeleeMiss>Pawn_Melee_MechanoidSlash_Miss</soundMeleeMiss>
+			<surpriseAttack>
+			  <extraMeleeDamages>
+				<li>
+				  <def>Stun</def>
+				  <amount>14</amount>
+				</li>
+			  </extraMeleeDamages>
+			</surpriseAttack>
+		  </li>
+		</tools>
+	  </li>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_RB_Hediff_BodyParts_Special">
+	<defName>WVC_RB_NaturalClaws</defName>
+	<label>claw</label>
+	<description>Deadly sharp claws. Not very suitable for fine work.</description>
+	<hediffClass>Hediff_AddedPart</hediffClass>
+	<addedPartProps>
+	  <solid>true</solid>
+	  <partEfficiency>0.80</partEfficiency>
+	  <betterThanNatural>true</betterThanNatural>
+	</addedPartProps>
+	<comps>
+	  <li Class="HediffCompProperties_VerbGiver">
+		<tools>
+		  <li>
+			<label>claw</label>
+			<capacities>
+			  <li>Cut</li>
+			  <li>Stab</li>
+			</capacities>
+			<power>18</power>
+			<cooldownTime>1.6</cooldownTime>
+			<armorPenetration>0.4</armorPenetration>
+			<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+			<surpriseAttack>
+			  <extraMeleeDamages>
+				<li>
+				  <def>Stun</def>
+				  <amount>14</amount>
+				</li>
+			  </extraMeleeDamages>
+			</surpriseAttack>
+		  </li>
+		</tools>
+	  </li>
+	</comps>
+  </HediffDef>
+
+  <!--=====================================================================-->
+
+  <!-- Upgrades -->
+
+  <GeneDef Name="WVC_NaturalWeapon_Arms" Abstract="True">
+	<description>Carriers of this gene have...</description>
+	<displayOrderInCategory>20</displayOrderInCategory>
+	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
+	<iconPath>WVC/UI/Genes/Mechanoidization</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<exclusionTags>
+	  <li>BodyPartHands</li>
+	  <li>BodyPartHand</li>
+	  <li>AG_BodyPartHand</li>
+	  <li>AG_BodyPartHands</li>
+	  <li>BodyPartArms</li>
+	  <li>BodyPartArm</li>
+	  <li>AG_BodyPartArm</li>
+	  <li>AG_BodyPartArms</li>
+	  <li>BodyPartShoulder</li>
+	  <li>AG_BodyPartShoulder</li>
+	  <li>BodyPartShoulders</li>
+	  <li>AG_BodyPartShoulders</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- Upgrades -->
+
+  <GeneDef ParentName="WVC_NaturalWeapon_Arms">
+	<defName>WVC_MecaBodyParts_Claws</defName>
+	<label>mecha-claws</label> 
+	<description>Carriers of this gene have foldable claws that serve as natural weapons.</description>
+	<iconColor>(184, 198, 203)</iconColor>
+	<iconPath>WVC/UI/Genes/Claws</iconPath>
+	<prerequisite>WVC_MechaAI_Base</prerequisite>
+	<displayCategory>WVC_MechaBody</displayCategory>
+	<displayOrderInCategory>8</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes>
+			<hediffsToBodyParts>
+				<li>
+					<hediff>WVC_RB_MechaClaws</hediff>
+					<bodyparts>
+						<li>Hand</li>
+						<li>Hand</li>
+					</bodyparts>
+				</li>
+			</hediffsToBodyParts>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_NaturalWeapon_Arms">
+	<defName>WVC_NaturalBodyParts_Claws</defName>
+	<label>claws</label> 
+	<description>Carriers of this gene grow very sharp claws that serve as natural weapons.</description>
+	<iconPath>WVC/UI/Genes/Claws</iconPath>
+	<iconColor>(181, 93, 99)</iconColor>
+	<displayCategory>Violence</displayCategory>
+	<displayOrderInCategory>320</displayOrderInCategory>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-3</biostatMet>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+			<hediffsToBodyParts>
+				<li>
+					<hediff>WVC_RB_NaturalClaws</hediff>
+					<bodyparts>
+						<li>Hand</li>
+						<li>Hand</li>
+					</bodyparts>
+				</li>
+			</hediffsToBodyParts>
+		</li>
+	</modExtensions>
+  </GeneDef>
+  
+</Defs>
