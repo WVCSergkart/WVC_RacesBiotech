@@ -395,6 +395,68 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <li>WVC_MechaAI_SoftwareDisableTalking</li>
 	</exclusionTags>
   </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+	<defName>WVC_MecaBodyParts_Arm</defName>
+	<label>fight program</label>
+	<statOffsets>
+	  <MeleeDamageFactor>0.15</MeleeDamageFactor>
+	</statOffsets>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>fff.</li> -->
+	<!-- </customEffectDescriptions> -->
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+	<defName>WVC_MecaBodyParts_Jaw</defName>
+	<label>speaking improver</label>
+	<capMods>
+	  <li>
+		<capacity>Talking</capacity>
+		<offset>0.2</offset>
+	  </li>
+	</capMods>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+	<defName>WVC_MecaBodyParts_Nose</defName>
+	<label>chemical analyzer</label>
+	<statFactors>
+	  <FoodPoisonChance>0.0</FoodPoisonChance>
+	</statFactors>
+	<statOffsets>
+	  <CookSpeed>1.0</CookSpeed>
+	  <WorkSpeedGlobal>0.05</WorkSpeedGlobal>
+	</statOffsets>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+	<defName>WVC_MecaBodyParts_Ear</defName>
+	<label>sound analyzer</label>
+	<statOffsets>
+	  <WorkSpeedGlobal>0.1</WorkSpeedGlobal>
+	</statOffsets>
+	<capMods>
+	  <li>
+		<capacity>Hearing</capacity>
+		<offset>0.1</offset>
+	  </li>
+	</capMods>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+	<defName>WVC_MecaBodyParts_Eye</defName>
+	<label>visual analyzer</label>
+	<statOffsets>
+	  <WorkSpeedGlobal>0.1</WorkSpeedGlobal>
+	</statOffsets>
+	<capMods>
+	  <li>
+		<capacity>Sight</capacity>
+		<offset>0.1</offset>
+	  </li>
+	</capMods>
+  </GeneDef>
 
   <!-- Romance -->
 
@@ -924,6 +986,40 @@ Most of the internal organs remain intact, but there are enough external changes
 			<!-- </hediffsToBodyParts> -->
 		<!-- </li> -->
 	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
+	<defName>WVC_MecaBodyParts_Leg</defName>
+	<label>accelerator</label>
+	<statOffsets>
+	  <MoveSpeed>1.0</MoveSpeed>
+	</statOffsets>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
+	<defName>WVC_MecaBodyParts_Lung</defName>
+	<label>improved skin</label>
+	<statOffsets>
+	  <ComfyTemperatureMax>20</ComfyTemperatureMax>
+	  <ComfyTemperatureMin>-20</ComfyTemperatureMin>
+	</statOffsets>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
+	<defName>WVC_MecaBodyParts_Liver</defName>
+	<label>immunostabilizer</label>
+	<statOffsets>
+	  <ImmunityGainSpeed>1</ImmunityGainSpeed>
+	</statOffsets>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
+	<defName>WVC_MecaBodyParts_Kidney</defName>
+	<label>additional mechanite clusters</label>
+	<biostatMet>-1</biostatMet>
+	<statOffsets>
+	  <InjuryHealingFactor>1</InjuryHealingFactor>
+	</statOffsets>
   </GeneDef>
 
 </Defs>
