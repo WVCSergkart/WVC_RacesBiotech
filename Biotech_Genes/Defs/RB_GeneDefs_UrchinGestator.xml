@@ -157,6 +157,10 @@
 	<description>Carriers of this gene have archites that replace the carrier's reproductive system with a mechanoid gestator.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; Urchins are NOT automatically assigned to mechanitors, this must be done manually!</description>
 	<iconPath>Things/Pawn/Mechanoid/WarUrchin_south</iconPath>
 	<iconColor>(184, 198, 203)</iconColor>
+	<customEffectDescriptions>
+		<li>Every 10 days will spawn urchins.</li>
+		<li>Urchins are not bound to a mechanitor and can run wild if ignored.</li>
+	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<hediffToWholeBody>WVC_Genes_UrchinGestator</hediffToWholeBody>
@@ -170,10 +174,13 @@
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<biostatArc>1</biostatArc>
-	<description>Carriers of this gene have archites that replace the carrier's reproductive system with a mechanoid gestator.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; Spawns a baby-pawn with similar genes every 2 years.</description>
+	<description>Carriers of this gene have archites that replace the carrier's reproductive system with a mechanoid gestator.</description>
 	<iconPath>WVC/UI/Genes/Gestator</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
 	<prerequisite>WVC_MechaSkin</prerequisite>
+	<customEffectDescriptions>
+		<li>Spawns a baby-pawn with similar genes every 2 years.</li>
+	</customEffectDescriptions>
 	<!-- <forcedTraits> -->
 	  <!-- <li> -->
 		<!-- <def>Bisexual</def> -->

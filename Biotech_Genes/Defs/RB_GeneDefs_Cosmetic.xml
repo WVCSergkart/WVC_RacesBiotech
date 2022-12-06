@@ -106,6 +106,9 @@
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>-1</biostatMet>
+	<customEffectDescriptions>
+		<li>Adds a deadly tail attack.</li>
+	</customEffectDescriptions>
 	<statOffsets>
 	  <MeleeDamageFactor>0.15</MeleeDamageFactor>
 	</statOffsets>

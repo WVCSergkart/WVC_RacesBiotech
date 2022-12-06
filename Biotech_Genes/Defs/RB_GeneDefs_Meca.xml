@@ -137,26 +137,20 @@ Most of the internal organs remain intact, but there are enough external changes
   <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Mechanoidization_PowerSourceBase" Abstract="True">
 	<!-- <defName>WVC_MechaAI_Base</defName> -->
 	<!-- <label>AI</label> -->
+	<labelShortAdj>power source</labelShortAdj>
+	<description>Carriers of this gene have archites that create a power source for mechanites, due to which mechanites cease to influence the carrier's metabolism.</description>
 	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
 	<displayOrderInCategory>4</displayOrderInCategory>
 	<prerequisite>WVC_MechaSkin</prerequisite>
 	<!-- <biostatCpx>0</biostatCpx> -->
 	<!-- <biostatArc>1</biostatArc> -->
+	<customEffectDescriptions>
+		<li>Compensates for the effect of mechaskin on metabolism.</li>
+	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>WVC_MechaPowerSource</li>
 	</exclusionTags>
-  </GeneDef>
-
-  <GeneDef ParentName="WVC_Mechanoidization_PowerSourceBase">
-	<defName>WVC_MechaPowerSource_Basic</defName>
-	<label>mechanite-forge</label> 
-	<labelShortAdj>mechanite-forge</labelShortAdj>
-	<description>Carriers of this gene have a built-in mechanite-forge, which significantly increases the efficiency of metabolism.</description>
-	<iconPath>WVC/UI/Genes/MechaPowerSource</iconPath>
-	<biostatCpx>3</biostatCpx>
-	<biostatArc>1</biostatArc>
-	<biostatMet>16</biostatMet>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>power</symbol></li>
@@ -173,14 +167,43 @@ Most of the internal organs remain intact, but there are enough external changes
   </GeneDef>
 
   <GeneDef ParentName="WVC_Mechanoidization_PowerSourceBase">
+	<defName>WVC_MechaPowerSource_Unstable</defName>
+	<label>unstable power source</label> 
+	<iconPath>WVC/UI/Genes/PowerSource_Unstable</iconPath>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>16</biostatMet>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Increases fire damage taken.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<statOffsets>
+	  <Flammability>1.0</Flammability>
+	  <ArmorRating_Heat>-0.5</ArmorRating_Heat>
+	</statOffsets>
+	<damageFactors>
+	  <Flame>2.0</Flame>
+	</damageFactors>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_Mechanoidization_PowerSourceBase">
+	<defName>WVC_MechaPowerSource_Stable</defName>
+	<label>stable power source</label> 
+	<iconPath>WVC/UI/Genes/PowerSource_Stable</iconPath>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>3</biostatArc>
+	<biostatMet>16</biostatMet>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_Mechanoidization_PowerSourceBase">
 	<defName>WVC_MechaPowerSource_Vanometric</defName>
-	<label>archite-forge</label> 
-	<labelShortAdj>archite-forge</labelShortAdj>
-	<description>Carriers of this gene have a built-in archite-forge, which significantly increases the efficiency of metabolism.</description>
-	<iconPath>WVC/UI/Genes/VanometricPowerSource</iconPath>
+	<label>vanometric power source</label> 
+	<iconPath>WVC/UI/Genes/PowerSource_Vanometric</iconPath>
 	<biostatCpx>3</biostatCpx>
 	<biostatArc>5</biostatArc>
 	<biostatMet>21</biostatMet>
+	<customEffectDescriptions>
+		<li>Grants an additional 5 metabolism points.</li>
+	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>vanome</symbol></li>
@@ -763,11 +786,17 @@ Most of the internal organs remain intact, but there are enough external changes
 	<iconColor>(255, 255, 255)</iconColor>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
+	<customEffectDescriptions>
+		<li>Adds the corresponding body part. The body part is considered artificial.</li>
+	</customEffectDescriptions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
 	<defName>WVC_MecaBodyParts_Arm</defName>
 	<label>arm</label> 
+	<customEffectDescriptions>
+		<li>Adds a strong fist attack.</li>
+	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>BodyPartHands</li>
 	  <li>BodyPartHand</li>
@@ -800,6 +829,9 @@ Most of the internal organs remain intact, but there are enough external changes
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
 	<defName>WVC_MecaBodyParts_Leg</defName>
 	<label>leg</label> 
+	<customEffectDescriptions>
+		<li>Adds a strong kick attack.</li>
+	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>BodyPartLegs</li>
 	  <li>BodyPartLeg</li>
@@ -851,6 +883,9 @@ Most of the internal organs remain intact, but there are enough external changes
 	<!-- <overdoseChanceFactor>0</overdoseChanceFactor> -->
 	<toleranceBuildupFactor>0</toleranceBuildupFactor>
 	<addictionChanceFactor>0</addictionChanceFactor>
+	<customEffectDescriptions>
+		<li>Reduces the effect of toxins. For complete neutralization, the "Kidney" gene is needed.</li>
+	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>BodyPartLivers</li>
 	  <li>BodyPartLiver</li>
@@ -875,6 +910,9 @@ Most of the internal organs remain intact, but there are enough external changes
 	<defName>WVC_MecaBodyParts_Kidney</defName>
 	<label>kidney</label>
 	<overdoseChanceFactor>0</overdoseChanceFactor>
+	<customEffectDescriptions>
+		<li>Reduces the effect of toxins. For complete neutralization, the "Liver" gene is needed.</li>
+	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>BodyPartKidneys</li>
 	  <li>BodyPartKidney</li>
@@ -899,6 +937,10 @@ Most of the internal organs remain intact, but there are enough external changes
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
 	<defName>WVC_MecaBodyParts_Heart</defName>
 	<label>heart</label>
+	<customEffectDescriptions>
+		<li>Removes bleeding.</li>
+		<li>Changes blood into gears like mechanoids.</li>
+	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>AG_BloodType</li>
 	  <li>BloodType</li>
@@ -983,6 +1025,9 @@ Most of the internal organs remain intact, but there are enough external changes
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
 	<defName>WVC_MecaBodyParts_Nose</defName>
 	<label>nose</label>
+	<customEffectDescriptions>
+		<li>Adds 1 beauty point.</li>
+	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>BodyPartNoses</li>
 	  <li>BodyPartNose</li>
@@ -1006,6 +1051,9 @@ Most of the internal organs remain intact, but there are enough external changes
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
 	<defName>WVC_MecaBodyParts_Jaw</defName>
 	<label>jaw</label>
+	<customEffectDescriptions>
+		<li>Adds 1 beauty point.</li>
+	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>BodyPartJaws</li>
 	  <li>BodyPartJaw</li>

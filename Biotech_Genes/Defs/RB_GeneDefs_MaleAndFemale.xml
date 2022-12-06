@@ -17,6 +17,9 @@
 	<label>Monogender (Female)</label>
 	<description>Carriers of this gene may only be female.</description>
 	<iconPath>WVC/UI/Genes/Gene_FemaleOnly</iconPath>
+	<customEffectDescriptions>
+		<li>Changes the gender of a pawn to female.</li>
+	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>fe</symbol></li>
@@ -50,6 +53,10 @@
 	<label>Monogender (Male)</label>
 	<description>Carriers of this gene may only be male.</description>
 	<iconPath>WVC/UI/Genes/Gene_MaleOnly</iconPath>
+	<customEffectDescriptions>
+		<li>Changes the gender of a pawn to male.</li>
+		<!-- <li>There is a chance that the xenotype with this gene will be called Gigachad.</li> -->
+	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>boy</symbol></li>
