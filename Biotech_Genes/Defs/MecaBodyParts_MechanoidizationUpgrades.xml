@@ -2,7 +2,7 @@
 <Defs>
 
   <HediffDef Name="WVC_RB_Hediff_MecaBodyParts" ParentName="AddedBodyPartBase" Abstract="True">
-	<description>A part of the body created by archites.</description>
+	<description>These body parts should no longer be used. When it becomes possible to replace them, do it.</description>
 	<scenarioCanAdd>false</scenarioCanAdd>
 	<!-- <defaultLabelColor>(255,224,200)</defaultLabelColor> -->
 	<defaultLabelColor>(184, 198, 203)</defaultLabelColor>
@@ -12,7 +12,7 @@
 	<isBad>false</isBad>
 	<addedPartProps>
 	  <solid>true</solid>
-	  <partEfficiency>1.40</partEfficiency>
+	  <partEfficiency>1.00</partEfficiency>
 	  <betterThanNatural>true</betterThanNatural>
 	</addedPartProps>
   </HediffDef>
@@ -35,26 +35,26 @@
 	<defName>WVC_RB_MecaJaw</defName>
 	<label>mechanoid jaw</label>
 	<labelNoun>a mechanoid jaw</labelNoun>
-	<stages>
-	  <li>
-		<statOffsets>
-			<PawnBeauty>1</PawnBeauty>
-		</statOffsets>
-	  </li>
-	</stages>
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <statOffsets> -->
+			<!-- <PawnBeauty>1</PawnBeauty> -->
+		<!-- </statOffsets> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
   </HediffDef>
   
   <HediffDef ParentName="WVC_RB_Hediff_MecaBodyParts">
 	<defName>WVC_RB_MecaNose</defName>
 	<label>mechanoid nose</label>
 	<labelNoun>an mechanoid nose</labelNoun>
-	<stages>
-	  <li>
-		<statOffsets>
-			<PawnBeauty>1</PawnBeauty>
-		</statOffsets>
-	  </li>
-	</stages>
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <statOffsets> -->
+			<!-- <PawnBeauty>1</PawnBeauty> -->
+		<!-- </statOffsets> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
   </HediffDef>
 
   <!--=====================================================================-->
@@ -84,7 +84,7 @@
 	<stages>
 	  <li>
 		<totalBleedFactor>0.0</totalBleedFactor>
-		<naturalHealingFactor>2</naturalHealingFactor>
+		<!-- <naturalHealingFactor>2</naturalHealingFactor> -->
 	  </li>
 	</stages>
   </HediffDef>
@@ -93,29 +93,29 @@
 	<defName>WVC_RB_MecaKidney</defName>
 	<label>mechanoid kidney</label>
 	<labelNoun>a mechanoid kidney</labelNoun>
-	<stages>
-	  <li>
-		<statOffsets>
-		  <ImmunityGainSpeed>0.08</ImmunityGainSpeed>
-		  <ToxicResistance>0.25</ToxicResistance>
-		  <ToxicEnvironmentResistance MayRequire="Ludeon.RimWorld.Biotech">0.25</ToxicEnvironmentResistance>
-		</statOffsets>
-	  </li>
-	</stages>
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <statOffsets> -->
+		  <!-- <ImmunityGainSpeed>0.08</ImmunityGainSpeed> -->
+		  <!-- <ToxicResistance>0.25</ToxicResistance> -->
+		  <!-- <ToxicEnvironmentResistance MayRequire="Ludeon.RimWorld.Biotech">0.25</ToxicEnvironmentResistance> -->
+		<!-- </statOffsets> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
   </HediffDef>
 
   <HediffDef ParentName="WVC_RB_Hediff_MecaBodyParts">
 	<defName>WVC_RB_MecaLiver</defName>
 	<label>mechanoid liver</label>
 	<labelNoun>a mechanoid liver</labelNoun>
-	<stages>
-	  <li>
-		<statOffsets>
-		  <ToxicResistance>0.5</ToxicResistance>
-		  <ToxicEnvironmentResistance MayRequire="Ludeon.RimWorld.Biotech">0.5</ToxicEnvironmentResistance>
-		</statOffsets>
-	  </li>
-	</stages>
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <statOffsets> -->
+		  <!-- <ToxicResistance>0.5</ToxicResistance> -->
+		  <!-- <ToxicEnvironmentResistance MayRequire="Ludeon.RimWorld.Biotech">0.5</ToxicEnvironmentResistance> -->
+		<!-- </statOffsets> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
   </HediffDef>
 
   <HediffDef ParentName="WVC_RB_Hediff_MecaBodyParts">

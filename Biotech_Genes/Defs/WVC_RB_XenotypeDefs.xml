@@ -65,6 +65,7 @@
 		<li>WVC_MechaSkin</li>
 		<li>WVC_MecaBodyParts_Heart</li>
 		<li>WVC_MecaBodyParts_Spine</li>
+		<li>WVC_MecaBodyParts_Stomach</li>
 		<li>WVC_MechaGestator</li>
 		<li>WVC_ArchiteMechlink</li>
 		<li>WVC_ArchiteFleetConnected</li>
@@ -73,11 +74,12 @@
 		<li>Ageless</li>
 		<!-- <li>ArchiteMetabolism</li> -->
 		<li>WVC_MechaPowerSource_Vanometric</li>
+		<li>WVC_MechaHidden_ArchiteForge</li>
 		<li>Deathless</li>
 		<li>DiseaseFree</li>
 		<li>PerfectImmunity</li>
 		<li>TotalHealing</li>
-		<li>StrongStomach</li>
+		<!-- <li>StrongStomach</li> -->
 		<li>WVC_ClothedArmor</li>
 		<li>WVC_Mecha_EarsCat</li>
 		<li>WVC_Mecha_ScytheTail</li>
@@ -86,12 +88,12 @@
 		<li>ToxResist_Total</li>
 		<li>FireResistant</li>
 		<li>Neversleep</li>
-		<li>Robust</li>
+		<!-- <li>Robust</li> -->
 		<li>Body_Standard</li>
 		<li>Hair_SnowWhite</li>
 		<li>Skin_SheerWhite</li>
 		<li>DarkVision</li>
-		<li>Unstoppable</li>
+		<!-- <li>Unstoppable</li> -->
 		<li>WVC_Orientation_Bisexual</li>
 		<!-- <li>WVC_Eyes_69a2ce_HEX</li> -->
 		<li>AptitudePoor_Shooting</li>

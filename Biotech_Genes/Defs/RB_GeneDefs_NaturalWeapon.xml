@@ -47,6 +47,17 @@
 	<!-- </comps> -->
   </HediffDef>
 
+  <!-- <HediffDef ParentName="WVC_RB_Hediff_BodyParts_Special"> -->
+	<!-- <defName>WVC_RB_BleedFactor</defName> -->
+	<!-- <label>no bleeding</label> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <becomeVisible>false</becomeVisible> -->
+		<!-- <totalBleedFactor>0.0</totalBleedFactor> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+  <!-- </HediffDef> -->
+
   <!--=====================================================================-->
 
   <HediffDef ParentName="WVC_RB_Hediff_BodyParts_Special">

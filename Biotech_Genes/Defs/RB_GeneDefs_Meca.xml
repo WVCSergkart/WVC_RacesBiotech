@@ -131,6 +131,34 @@ Most of the internal organs remain intact, but there are enough external changes
 
   <!-- Hidden -->
 
+  <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Mechanoidization_HiddenBase" Abstract="True">
+	<!-- <defName>WVC_MechaAI_Base</defName> -->
+	<!-- <label>AI</label> -->
+	<!-- <labelShortAdj>power source</labelShortAdj> -->
+	<description>Carriers of this gene have archites that are capable of self-replication. This significantly reduces complexity and reduces the need for archites capsules.</description>
+	<iconPath>WVC/UI/Genes/Gear</iconPath>
+	<iconColor>(255, 150, 150)</iconColor>
+	<displayOrderInCategory>0</displayOrderInCategory>
+	<prerequisite>WVC_MechaSkin</prerequisite>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<hideGene>true</hideGene>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_Mechanoidization_HiddenBase">
+	<defName>WVC_MechaHidden_ArchiteForge</defName>
+	<label>archite-forge</label>
+	<description>Carriers of this gene have archites that are capable of self-replication. This significantly reduces complexity and reduces the need for archites capsules.</description>
+	<iconColor>(255, 150, 150)</iconColor>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Compensates for the effect of mechaskin on metabolism.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<biostatCpx>-60</biostatCpx>
+	<biostatArc>-20</biostatArc>
+	<biostatMet>0</biostatMet>
+  </GeneDef>
 
   <!-- Power Source -->
 
@@ -287,6 +315,8 @@ Most of the internal organs remain intact, but there are enough external changes
 	</symbolPack>
   </GeneDef>
 
+  <!-- = -->
+
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MechaAI_SoftwareManipulation</defName>
 	<label>fine motor optimization</label>
@@ -302,6 +332,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <li>WVC_MechaAI_SoftwareManipulation</li>
 	</exclusionTags>
   </GeneDef>
+  <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MechaAI_SoftwareMoving</defName>
 	<label>improved pathfinding</label>
@@ -317,7 +348,36 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <li>WVC_MechaAI_SoftwareMoving</li>
 	</exclusionTags>
   </GeneDef>
-
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+	<defName>WVC_MechaAI_SoftwareFriendOrFoe</defName>
+	<label>friend or foe</label>
+	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath>
+	<iconColor>(230, 255, 150)</iconColor>
+	<customEffectDescriptions>
+		<li>Ancient mechanoids do not attack a pawn, even if a pawn attacks them.</li>
+	</customEffectDescriptions>
+	<forcedTraits>
+	  <li>
+		<def>WVC_RB_FriendOrFoeTrait</def>
+	  </li>
+	</forcedTraits>
+	<exclusionTags>
+	  <li>WVC_MechaAI_SoftwareFriendOrFoe</li>
+	</exclusionTags>
+  </GeneDef>
+  <TraitDef>
+	<defName>WVC_RB_FriendOrFoeTrait</defName>
+	<commonality>0.001</commonality>
+	<disableHostilityFromFaction>Mechanoid</disableHostilityFromFaction>
+	<degreeDatas>
+	  <li>
+		<label>Techno-Ghost</label>
+		<description>For some strange reason, {PAWN_nameDef} is not touched by ancient mechanoids, they constantly ignore [PAWN_objective] no matter what {PAWN_nameDef} takes against them.</description>
+	  </li>
+	</degreeDatas>
+  </TraitDef>
+  <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MechaAI_SoftwareDisableTalking</defName>
 	<label>silent program</label>
@@ -786,340 +846,84 @@ Most of the internal organs remain intact, but there are enough external changes
 	<iconColor>(255, 255, 255)</iconColor>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
-	<customEffectDescriptions>
-		<li>Adds the corresponding body part. The body part is considered artificial.</li>
-	</customEffectDescriptions>
-  </GeneDef>
-
-  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
-	<defName>WVC_MecaBodyParts_Arm</defName>
-	<label>arm</label> 
-	<customEffectDescriptions>
-		<li>Adds a strong fist attack.</li>
-	</customEffectDescriptions>
-	<exclusionTags>
-	  <li>BodyPartHands</li>
-	  <li>BodyPartHand</li>
-	  <li>AG_BodyPartHand</li>
-	  <li>AG_BodyPartHands</li>
-	  <li>BodyPartArms</li>
-	  <li>BodyPartArm</li>
-	  <li>AG_BodyPartArm</li>
-	  <li>AG_BodyPartArms</li>
-	  <li>BodyPartShoulder</li>
-	  <li>AG_BodyPartShoulder</li>
-	  <li>BodyPartShoulders</li>
-	  <li>AG_BodyPartShoulders</li>
-	</exclusionTags>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<hediffsToBodyParts>
-				<li>
-					<hediff>WVC_RB_MecaArm</hediff>
-					<bodyparts>
-						<li>Shoulder</li>
-						<li>Shoulder</li>
-					</bodyparts>
-				</li>
-			</hediffsToBodyParts>
-		</li>
-	</modExtensions>
-  </GeneDef>
-
-  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
-	<defName>WVC_MecaBodyParts_Leg</defName>
-	<label>leg</label> 
-	<customEffectDescriptions>
-		<li>Adds a strong kick attack.</li>
-	</customEffectDescriptions>
-	<exclusionTags>
-	  <li>BodyPartLegs</li>
-	  <li>BodyPartLeg</li>
-	  <li>AG_BodyPartLeg</li>
-	  <li>AG_BodyPartLegs</li>
-	</exclusionTags>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<hediffsToBodyParts>
-				<li>
-					<hediff>WVC_RB_MecaLeg</hediff>
-					<bodyparts>
-						<li>Leg</li>
-						<li>Leg</li>
-					</bodyparts>
-				</li>
-			</hediffsToBodyParts>
-		</li>
-	</modExtensions>
-  </GeneDef>
-
-  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
-	<defName>WVC_MecaBodyParts_Lung</defName>
-	<label>lung</label>
-	<exclusionTags>
-	  <li>BodyPartLungs</li>
-	  <li>BodyPartLung</li>
-	  <li>AG_BodyPartLung</li>
-	  <li>AG_BodyPartLungs</li>
-	</exclusionTags>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<hediffsToBodyParts>
-				<li>
-					<hediff>WVC_RB_MecaLung</hediff>
-					<bodyparts>
-						<li>Lung</li>
-						<li>Lung</li>
-					</bodyparts>
-				</li>
-			</hediffsToBodyParts>
-		</li>
-	</modExtensions>
-  </GeneDef>
-
-  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
-	<defName>WVC_MecaBodyParts_Liver</defName>
-	<label>liver</label>
-	<!-- <overdoseChanceFactor>0</overdoseChanceFactor> -->
-	<toleranceBuildupFactor>0</toleranceBuildupFactor>
-	<addictionChanceFactor>0</addictionChanceFactor>
-	<customEffectDescriptions>
-		<li>Reduces the effect of toxins. For complete neutralization, the "Kidney" gene is needed.</li>
-	</customEffectDescriptions>
-	<exclusionTags>
-	  <li>BodyPartLivers</li>
-	  <li>BodyPartLiver</li>
-	  <li>AG_BodyPartLiver</li>
-	  <li>AG_BodyPartLivers</li>
-	</exclusionTags>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<hediffsToBodyParts>
-				<li>
-					<hediff>WVC_RB_MecaLiver</hediff>
-					<bodyparts>
-						<li>Liver</li>
-					</bodyparts>
-				</li>
-			</hediffsToBodyParts>
-		</li>
-	</modExtensions>
-  </GeneDef>
-
-  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
-	<defName>WVC_MecaBodyParts_Kidney</defName>
-	<label>kidney</label>
-	<overdoseChanceFactor>0</overdoseChanceFactor>
-	<customEffectDescriptions>
-		<li>Reduces the effect of toxins. For complete neutralization, the "Liver" gene is needed.</li>
-	</customEffectDescriptions>
-	<exclusionTags>
-	  <li>BodyPartKidneys</li>
-	  <li>BodyPartKidney</li>
-	  <li>AG_BodyPartKidney</li>
-	  <li>AG_BodyPartKidneys</li>
-	</exclusionTags>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<hediffsToBodyParts>
-				<li>
-					<hediff>WVC_RB_MecaKidney</hediff>
-					<bodyparts>
-						<li>Kidney</li>
-						<li>Kidney</li>
-					</bodyparts>
-				</li>
-			</hediffsToBodyParts>
-		</li>
-	</modExtensions>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Adds the corresponding body part. The body part is considered artificial.</li> -->
+	<!-- </customEffectDescriptions> -->
   </GeneDef>
 
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
 	<defName>WVC_MecaBodyParts_Heart</defName>
-	<label>heart</label>
+	<label>no blood</label>
+	<geneClass>Gene_Clotting</geneClass>
 	<customEffectDescriptions>
-		<li>Removes bleeding.</li>
-		<li>Changes blood into gears like mechanoids.</li>
+		<!-- <li>No bleeding.</li> -->
+		<li>Bleeding wounds close very quickly.</li>
+		<li>Changes blood into machine bits.</li>
 	</customEffectDescriptions>
+	<!-- <makeImmuneTo> -->
+	  <!-- <li>BloodLoss</li> -->
+	<!-- </makeImmuneTo> -->
 	<exclusionTags>
 	  <li>AG_BloodType</li>
 	  <li>BloodType</li>
 	  <li>Blood</li>
-	  <li>BodyPartHearts</li>
-	  <li>BodyPartHeart</li>
-	  <li>AG_BodyPartHeart</li>
-	  <li>AG_BodyPartHearts</li>
 	</exclusionTags>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
-			<hediffsToBodyParts>
-				<li>
-					<hediff>WVC_RB_MecaHeart</hediff>
-					<bodyparts>
-						<li>Heart</li>
-					</bodyparts>
-				</li>
-			</hediffsToBodyParts>
 			<customBloodThingDef>Filth_MachineBits</customBloodThingDef>
 			<customBloodIcon>WVC/UI/InvisibleThing</customBloodIcon>
-			<!-- <customBloodEffect>Damage_HitMechanoid</customBloodEffect> -->
-			<!-- <customWoundsFromFleshtype>Mechanoid</customWoundsFromFleshtype> -->
 		</li>
 	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
 	<defName>WVC_MecaBodyParts_Spine</defName>
-	<label>spine</label>
+	<label>exoskeleton</label>
 	<customEffectDescriptions>
 		<li>Carrying capacity on the map increased to 20%.</li>
 	</customEffectDescriptions>
+	<capMods>
+	  <li>
+		<capacity>Moving</capacity>
+		<offset>0.2</offset>
+	  </li>
+	</capMods>
 	<exclusionTags>
-	  <li>BodyPartSpines</li>
-	  <li>BodyPartSpine</li>
-	  <li>AG_BodyPartSpine</li>
-	  <li>AG_BodyPartSpines</li>
 	</exclusionTags>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<caravanCarryingFactor>1.2</caravanCarryingFactor>
-			<hediffsToBodyParts>
-				<li>
-					<hediff>WVC_RB_MecaSpine</hediff>
-					<bodyparts>
-						<li>Spine</li>
-					</bodyparts>
-				</li>
-			</hediffsToBodyParts>
 		</li>
 	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
 	<defName>WVC_MecaBodyParts_Stomach</defName>
-	<label>stomach</label>
+	<label>mechabolism</label>
 	<foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
-	<!-- <overdoseChanceFactor>0</overdoseChanceFactor> -->
-	<!-- <toleranceBuildupFactor>0</toleranceBuildupFactor> -->
-	<!-- <addictionChanceFactor>0</addictionChanceFactor> -->
+	<overdoseChanceFactor>0</overdoseChanceFactor>
+	<toleranceBuildupFactor>0</toleranceBuildupFactor>
+	<addictionChanceFactor>0</addictionChanceFactor>
+	<capMods>
+	  <li>
+		<capacity>Metabolism</capacity>
+		<offset>0.2</offset>
+	  </li>
+	</capMods>
 	<exclusionTags>
-	  <li>BodyPartStomachs</li>
-	  <li>BodyPartStomach</li>
-	  <li>AG_BodyPartStomach</li>
-	  <li>AG_BodyPartStomachs</li>
 	</exclusionTags>
 	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<hediffsToBodyParts>
-				<li>
-					<hediff>WVC_RB_MecaStomach</hediff>
-					<bodyparts>
-						<li>Stomach</li>
-					</bodyparts>
-				</li>
-			</hediffsToBodyParts>
-		</li>
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <hediffsToBodyParts> -->
+				<!-- <li> -->
+					<!-- <hediff>WVC_RB_MecaStomach</hediff> -->
+					<!-- <bodyparts> -->
+						<!-- <li>Stomach</li> -->
+					<!-- </bodyparts> -->
+				<!-- </li> -->
+			<!-- </hediffsToBodyParts> -->
+		<!-- </li> -->
 	</modExtensions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
-	<defName>WVC_MecaBodyParts_Nose</defName>
-	<label>nose</label>
-	<customEffectDescriptions>
-		<li>Adds 1 beauty point.</li>
-	</customEffectDescriptions>
-	<exclusionTags>
-	  <li>BodyPartNoses</li>
-	  <li>BodyPartNose</li>
-	  <li>AG_BodyPartNose</li>
-	  <li>AG_BodyPartNoses</li>
-	</exclusionTags>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<hediffsToBodyParts>
-				<li>
-					<hediff>WVC_RB_MecaNose</hediff>
-					<bodyparts>
-						<li>Nose</li>
-					</bodyparts>
-				</li>
-			</hediffsToBodyParts>
-		</li>
-	</modExtensions>
-  </GeneDef>
-
-  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
-	<defName>WVC_MecaBodyParts_Jaw</defName>
-	<label>jaw</label>
-	<customEffectDescriptions>
-		<li>Adds 1 beauty point.</li>
-	</customEffectDescriptions>
-	<exclusionTags>
-	  <li>BodyPartJaws</li>
-	  <li>BodyPartJaw</li>
-	  <li>AG_BodyPartJaw</li>
-	  <li>AG_BodyPartJaws</li>
-	</exclusionTags>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<hediffsToBodyParts>
-				<li>
-					<hediff>WVC_RB_MecaJaw</hediff>
-					<bodyparts>
-						<li>Jaw</li>
-					</bodyparts>
-				</li>
-			</hediffsToBodyParts>
-		</li>
-	</modExtensions>
-  </GeneDef>
-
-  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
-	<defName>WVC_MecaBodyParts_Ear</defName>
-	<label>ear</label>
-	<exclusionTags>
-	  <li>BodyPartEars</li>
-	  <li>BodyPartEar</li>
-	  <li>AG_BodyPartEar</li>
-	  <li>AG_BodyPartEars</li>
-	</exclusionTags>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<hediffsToBodyParts>
-				<li>
-					<hediff>WVC_RB_MecaEar</hediff>
-					<bodyparts>
-						<li>Ear</li>
-						<li>Ear</li>
-					</bodyparts>
-				</li>
-			</hediffsToBodyParts>
-		</li>
-	</modExtensions>
-  </GeneDef>
-
-  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
-	<defName>WVC_MecaBodyParts_Eye</defName>
-	<label>eye</label>
-	<exclusionTags>
-	  <li>BodyPartEyes</li>
-	  <li>BodyPartEye</li>
-	  <li>AG_BodyPartEye</li>
-	  <li>AG_BodyPartEyes</li>
-	</exclusionTags>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<hediffsToBodyParts>
-				<li>
-					<hediff>WVC_RB_MecaEye</hediff>
-					<bodyparts>
-						<li>Eye</li>
-						<li>Eye</li>
-					</bodyparts>
-				</li>
-			</hediffsToBodyParts>
-		</li>
-	</modExtensions>
-  </GeneDef>
-  
 </Defs>
