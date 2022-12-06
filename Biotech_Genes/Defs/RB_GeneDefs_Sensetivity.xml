@@ -9,6 +9,12 @@
 	<exclusionTags>
 	  <li>WVC_MechSensetivity</li>
 	</exclusionTags>
+	<suppressedTraits>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-2</degree>
+	  </li>
+	</suppressedTraits>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
@@ -94,6 +100,16 @@
 	<displayOrderInCategory>90</displayOrderInCategory>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>-1</biostatMet>
+	<suppressedTraits>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-1</degree>
+	  </li>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-2</degree>
+	  </li>
+	</suppressedTraits>
 	<exclusionTags>
 	  <li>WVC_PsychicSunSensitivity</li>
 	</exclusionTags>

@@ -15,7 +15,7 @@
   <!-- blank -->
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Meca">
 	<defName>WVC_Blank</defName>
-	<label>blank</label>
+	<label>blank (Beta)</label>
 	<description>Blank - both for the artist his canvas, and for the mad scientist his "dummy". The purpose of their existence has always been the same - to be the canvas on which the masterpiece will be embodied.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; Representatives of this xenotype are suitable only to be experimental subjects. Or pets.</description>
 	<descriptionShort>Blank - both for the artist his canvas, and for the mad scientist his "dummy". The purpose of their existence has always been the same - to be the canvas on which the masterpiece will be embodied.</descriptionShort>
 	<iconPath>WVC/UI/Xeno2Icons/Xeno10</iconPath>
@@ -53,7 +53,7 @@
   <!-- Meca -->
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Meca">
 	<defName>WVC_Meca</defName>
-	<label>meca</label>
+	<label>meca (Beta)</label>
 	<description>An unknown xenotype sometimes found in the vastness of the rimworld.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; The xenotype is still not finished. There is no description, a couple of visual solutions and balancing has not yet been completed. But in general, the xenotype is playable.</description>
 	<descriptionShort>An unknown xenotype sometimes found in the vastness of the rimworld.</descriptionShort>
 	<iconPath>WVC/UI/Xeno2Icons/Xeno12</iconPath>
@@ -71,6 +71,8 @@
 		<li>WVC_ArchiteFleetConnected</li>
 		<li>WVC_VoiceMechaMilitor</li>
 		<li>WVC_MechaAI_Base</li>
+		<li>WVC_MecaBodyParts_Eye</li>
+		<li>WVC_MecaBodyParts_Ear</li>
 		<li>Ageless</li>
 		<!-- <li>ArchiteMetabolism</li> -->
 		<li>WVC_MechaPowerSource_Vanometric</li>
@@ -83,8 +85,11 @@
 		<li>WVC_ClothedArmor</li>
 		<li>WVC_Mecha_EarsCat</li>
 		<li>WVC_Mecha_ScytheTail</li>
-		<li>MinTemp_LargeDecrease</li>
-		<li>MaxTemp_LargeIncrease</li>
+		<!-- <li>MinTemp_LargeDecrease</li> -->
+		<!-- <li>MaxTemp_LargeIncrease</li> -->
+		<li>WVC_MecaBodyParts_Lung</li>
+		<li>WVC_MecaUpgrades_PerfectShape</li>
+		<li>WVC_MecaBodyParts_Leg</li>
 		<li>ToxResist_Total</li>
 		<li>FireResistant</li>
 		<li>Neversleep</li>

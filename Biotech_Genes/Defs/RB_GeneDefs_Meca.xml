@@ -91,6 +91,11 @@ Most of the internal organs remain intact, but there are enough external changes
 	<damageFactors>
 	  <Flame>0.8</Flame>
 	</damageFactors>
+	<suppressedTraits>
+	  <li>
+		<def>BodyPurist</def>
+	  </li>
+	</suppressedTraits>
 	<missingGeneRomanceChanceFactor>0.5</missingGeneRomanceChanceFactor>
 	<graphicData>
 	  <fur>WVC_MechaSkin</fur>
@@ -262,6 +267,14 @@ Most of the internal organs remain intact, but there are enough external changes
 	<!-- <displayCategory>Archite</displayCategory> -->
 	<displayOrderInCategory>5</displayOrderInCategory>
 	<prerequisite>WVC_MechaSkin</prerequisite>
+	<forcedTraits>
+	  <!-- <li> -->
+		<!-- <def>Transhumanist</def> -->
+	  <!-- </li> -->
+	  <li>
+		<def>GreatMemory</def>
+	  </li>
+	</forcedTraits>
 	<capMods>
 	  <li>
 		<capacity>Consciousness</capacity>
@@ -379,6 +392,73 @@ Most of the internal organs remain intact, but there are enough external changes
   </TraitDef>
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+	<defName>WVC_MecaBodyParts_Arm</defName>
+	<label>fight program</label>
+	<iconColor>(255, 200, 130)</iconColor>
+	<statOffsets>
+	  <MeleeDamageFactor>0.15</MeleeDamageFactor>
+	</statOffsets>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>fff.</li> -->
+	<!-- </customEffectDescriptions> -->
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+	<defName>WVC_MecaBodyParts_Jaw</defName>
+	<label>speaking improver</label>
+	<iconColor>(220, 130, 255)</iconColor>
+	<capMods>
+	  <li>
+		<capacity>Talking</capacity>
+		<offset>0.2</offset>
+	  </li>
+	</capMods>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+	<defName>WVC_MecaBodyParts_Nose</defName>
+	<label>chemical analyzer</label>
+	<iconColor>(130, 150, 255)</iconColor>
+	<statFactors>
+	  <FoodPoisonChance>0.0</FoodPoisonChance>
+	</statFactors>
+	<statOffsets>
+	  <CookSpeed>1.0</CookSpeed>
+	  <WorkSpeedGlobal>0.05</WorkSpeedGlobal>
+	</statOffsets>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+	<defName>WVC_MecaBodyParts_Ear</defName>
+	<label>sound analyzer</label>
+	<iconColor>(150, 130, 255)</iconColor>
+	<statOffsets>
+	  <WorkSpeedGlobal>0.1</WorkSpeedGlobal>
+	</statOffsets>
+	<capMods>
+	  <li>
+		<capacity>Hearing</capacity>
+		<offset>0.1</offset>
+	  </li>
+	</capMods>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+	<defName>WVC_MecaBodyParts_Eye</defName>
+	<label>visual analyzer</label>
+	<iconColor>(150, 190, 255)</iconColor>
+	<statOffsets>
+	  <WorkSpeedGlobal>0.1</WorkSpeedGlobal>
+	</statOffsets>
+	<capMods>
+	  <li>
+		<capacity>Sight</capacity>
+		<offset>0.1</offset>
+	  </li>
+	</capMods>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MechaAI_SoftwareDisableTalking</defName>
 	<label>silent program</label>
 	<description>Archits disable the voice functions of the mech, which saves some resources.</description>
@@ -394,68 +474,6 @@ Most of the internal organs remain intact, but there are enough external changes
 	<exclusionTags>
 	  <li>WVC_MechaAI_SoftwareDisableTalking</li>
 	</exclusionTags>
-  </GeneDef>
-  <!-- = -->
-  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
-	<defName>WVC_MecaBodyParts_Arm</defName>
-	<label>fight program</label>
-	<statOffsets>
-	  <MeleeDamageFactor>0.15</MeleeDamageFactor>
-	</statOffsets>
-	<!-- <customEffectDescriptions> -->
-		<!-- <li>fff.</li> -->
-	<!-- </customEffectDescriptions> -->
-  </GeneDef>
-  <!-- = -->
-  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
-	<defName>WVC_MecaBodyParts_Jaw</defName>
-	<label>speaking improver</label>
-	<capMods>
-	  <li>
-		<capacity>Talking</capacity>
-		<offset>0.2</offset>
-	  </li>
-	</capMods>
-  </GeneDef>
-  <!-- = -->
-  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
-	<defName>WVC_MecaBodyParts_Nose</defName>
-	<label>chemical analyzer</label>
-	<statFactors>
-	  <FoodPoisonChance>0.0</FoodPoisonChance>
-	</statFactors>
-	<statOffsets>
-	  <CookSpeed>1.0</CookSpeed>
-	  <WorkSpeedGlobal>0.05</WorkSpeedGlobal>
-	</statOffsets>
-  </GeneDef>
-  <!-- = -->
-  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
-	<defName>WVC_MecaBodyParts_Ear</defName>
-	<label>sound analyzer</label>
-	<statOffsets>
-	  <WorkSpeedGlobal>0.1</WorkSpeedGlobal>
-	</statOffsets>
-	<capMods>
-	  <li>
-		<capacity>Hearing</capacity>
-		<offset>0.1</offset>
-	  </li>
-	</capMods>
-  </GeneDef>
-  <!-- = -->
-  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
-	<defName>WVC_MecaBodyParts_Eye</defName>
-	<label>visual analyzer</label>
-	<statOffsets>
-	  <WorkSpeedGlobal>0.1</WorkSpeedGlobal>
-	</statOffsets>
-	<capMods>
-	  <li>
-		<capacity>Sight</capacity>
-		<offset>0.1</offset>
-	  </li>
-	</capMods>
   </GeneDef>
 
   <!-- Romance -->
@@ -548,6 +566,12 @@ Most of the internal organs remain intact, but there are enough external changes
 	<!-- <displayCategory>Ability</displayCategory> -->
 	<!-- <displayCategory>Archite</displayCategory> -->
 	<displayOrderInCategory>150</displayOrderInCategory>
+	<suppressedTraits>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-2</degree>
+	  </li>
+	</suppressedTraits>
 	<statOffsets>
 		<!-- <MechBandwidth>8</MechBandwidth> -->
 		<!-- <MechControlGroups>2</MechControlGroups> -->
@@ -597,6 +621,16 @@ Most of the internal organs remain intact, but there are enough external changes
 	<!-- <displayCategory>Archite</displayCategory> -->
 	<displayOrderInCategory>151</displayOrderInCategory>
 	<prerequisite>WVC_ArchiteMechlink</prerequisite>
+	<suppressedTraits>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-1</degree>
+	  </li>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-2</degree>
+	  </li>
+	</suppressedTraits>
 	<statOffsets>
 		<MechBandwidth>74</MechBandwidth>
 		<MechControlGroups>6</MechControlGroups>
@@ -631,6 +665,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<iconColor>(255, 255, 255)</iconColor>
 	<prerequisite>WVC_MechaSkin</prerequisite>
 	<biostatArc>0</biostatArc>
+	<minAgeActive>16</minAgeActive>
 	<symbolPack>
 	  <wholeNameSymbols>
 		<li><symbol>mecha</symbol></li>
@@ -917,6 +952,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<defName>WVC_MecaBodyParts_Heart</defName>
 	<label>no blood</label>
 	<geneClass>Gene_Clotting</geneClass>
+	<biostatMet>-2</biostatMet>
 	<customEffectDescriptions>
 		<!-- <li>No bleeding.</li> -->
 		<li>Bleeding wounds close very quickly.</li>
@@ -941,6 +977,14 @@ Most of the internal organs remain intact, but there are enough external changes
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
 	<defName>WVC_MecaBodyParts_Spine</defName>
 	<label>exoskeleton</label>
+	<description>Archites greatly enhance the carrier's skeletal structure.</description>
+	<biostatMet>-2</biostatMet>
+	<statFactors>
+	  <CarryingCapacity>1.2</CarryingCapacity>
+	</statFactors>
+	<statOffsets>
+	  <ArmorRating_Blunt>0.05</ArmorRating_Blunt>
+	</statOffsets>
 	<customEffectDescriptions>
 		<li>Carrying capacity on the map increased to 20%.</li>
 	</customEffectDescriptions>
@@ -990,36 +1034,88 @@ Most of the internal organs remain intact, but there are enough external changes
 
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
 	<defName>WVC_MecaBodyParts_Leg</defName>
-	<label>accelerator</label>
+	<label>light frame</label>
+	<description>Archites lighten the body of the carrier by optimizing the amount of fat and muscle mass, without losing the efficiency of the body.</description>
+	<biostatMet>-2</biostatMet>
+	<statFactors>
+	  <MeatAmount>0.8</MeatAmount>
+	  <LeatherAmount>0.9</LeatherAmount>
+	  <Mass>0.8</Mass>
+	</statFactors>
 	<statOffsets>
 	  <MoveSpeed>1.0</MoveSpeed>
 	</statOffsets>
   </GeneDef>
 
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
-	<defName>WVC_MecaBodyParts_Lung</defName>
-	<label>improved skin</label>
-	<statOffsets>
-	  <ComfyTemperatureMax>20</ComfyTemperatureMax>
-	  <ComfyTemperatureMin>-20</ComfyTemperatureMin>
-	</statOffsets>
-  </GeneDef>
-
-  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
 	<defName>WVC_MecaBodyParts_Liver</defName>
 	<label>immunostabilizer</label>
+	<description>Archites in the carrier's blood significantly enhance immunity.</description>
+	<biostatMet>-5</biostatMet>
+	<customEffectDescriptions>
+		<li>Completely stops the progression of diseases.</li>
+	</customEffectDescriptions>
 	<statOffsets>
 	  <ImmunityGainSpeed>1</ImmunityGainSpeed>
 	</statOffsets>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<diseaseProgressionFactor>0</diseaseProgressionFactor>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
 	<defName>WVC_MecaBodyParts_Kidney</defName>
 	<label>additional mechanite clusters</label>
+	<description>Archites create additional mechanite clusters, slightly increasing regeneration.</description>
 	<biostatMet>-1</biostatMet>
 	<statOffsets>
 	  <InjuryHealingFactor>1</InjuryHealingFactor>
 	</statOffsets>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
+	<defName>WVC_MecaBodyParts_Lung</defName>
+	<label>improved T-adaptation</label>
+	<description>Archites significantly enhance the temperature adaptability of the carrier.</description>
+	<biostatMet>-2</biostatMet>
+	<statOffsets>
+	  <ComfyTemperatureMax>25</ComfyTemperatureMax>
+	  <ComfyTemperatureMin>-25</ComfyTemperatureMin>
+	  <ArmorRating_Heat>0.10</ArmorRating_Heat>
+	</statOffsets>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
+	<defName>WVC_MecaUpgrades_PerfectShape</defName>
+	<label>perfect shape</label>
+	<biostatMet>-1</biostatMet>
+	<description>Archites modify the shape of the carrier, making them almost perfect.</description>
+	<statOffsets>
+	  <PawnBeauty>6</PawnBeauty>
+	</statOffsets>
+	<suppressedTraits>
+	  <li>
+		<def>Beauty</def>
+		<degree>2</degree>
+	  </li>
+	  <li>
+		<def>Beauty</def>
+		<degree>1</degree>
+	  </li>
+	  <li>
+		<def>Beauty</def>
+		<degree>-1</degree>
+	  </li>
+	  <li>
+		<def>Beauty</def>
+		<degree>-2</degree>
+	  </li>
+	  <li>
+		<def>CreepyBreathing</def>
+	  </li>
+	</suppressedTraits>
   </GeneDef>
 
 </Defs>

@@ -6,6 +6,12 @@
   <GeneDef Name="WVC_MechBandwidthBase" Abstract="True">
 	<displayCategory>Psychic</displayCategory>
 	<biostatCpx>2</biostatCpx>
+	<suppressedTraits>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-2</degree>
+	  </li>
+	</suppressedTraits>
 	<exclusionTags>
 	  <li>WVC_MechanitorGenes</li>
 	</exclusionTags>
@@ -82,6 +88,12 @@
 		<MechBandwidth>-4</MechBandwidth>
 		<MechControlGroups>-1</MechControlGroups>
 	</statOffsets>
+	<suppressedTraits>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-2</degree>
+	  </li>
+	</suppressedTraits>
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>-3</biostatMet>
 	<symbolPack>
@@ -131,6 +143,16 @@
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>-3</biostatMet>
 	<!-- <prerequisite>PsychicAbility_Extreme</prerequisite> -->
+	<suppressedTraits>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-1</degree>
+	  </li>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-2</degree>
+	  </li>
+	</suppressedTraits>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>psy</symbol></li>
