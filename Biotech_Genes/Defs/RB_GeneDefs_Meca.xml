@@ -1,40 +1,32 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <!-- <NeedDef> -->
+	<!-- <defName>WVC_MechEnergy</defName> -->
+	<!-- <needClass>Need_MechEnergy</needClass> -->
+	<!-- <description>A reserve of bioelectric energy needed for a mechanoid to function. It can be recharged at a charging station. If it reaches zero, the mech will go into dormant self-charging mode and recharge very slowly.</description> -->
+	<!-- <label>energy</label> -->
+	<!-- <showOnNeedList>true</showOnNeedList> -->
+	<!-- <minIntelligence>ToolUser</minIntelligence> -->
+	<!-- <listPriority>10000</listPriority> -->
+	<!-- <freezeWhileSleeping>true</freezeWhileSleeping> -->
+	<!-- <showForCaravanMembers>true</showForCaravanMembers> -->
+	<!-- <major>true</major> -->
+	<!-- <onlyIfCausedByGene>true</onlyIfCausedByGene> -->
+  <!-- </NeedDef> -->
+
   <GeneCategoryDef>
 	<defName>WVC_MechaBody</defName>
 	<label>mechanoidization</label>
-	<displayPriorityInXenotype>1100</displayPriorityInXenotype>
+	<displayPriorityInXenotype>926</displayPriorityInXenotype>
   </GeneCategoryDef>
 
   <!-- ================================================================== -->
 
   <GeneDef Name="WVC_MechanoidizationBase" Abstract="True">
 	<displayCategory>WVC_MechaBody</displayCategory>
+	<selectionWeight>0</selectionWeight>
 	<randomChosen>false</randomChosen>
-	<symbolPack>
-	  <wholeNameSymbols>
-		<li><symbol>mechanoid</symbol></li>
-		<li><symbol>mechakind</symbol></li>
-		<li><symbol>mecakind</symbol></li>
-	  </wholeNameSymbols>
-	  <prefixSymbols>
-		<li><symbol>me</symbol></li>
-		<li><symbol>meca</symbol></li>
-		<li><symbol>mec</symbol></li>
-		<li><symbol>mech</symbol></li>
-		<li><symbol>mechan</symbol></li>
-		<li><symbol>mach</symbol></li>
-		<li><symbol>machi</symbol></li>
-	  </prefixSymbols>
-	  <suffixSymbols>
-		<li><symbol>ine</symbol></li>
-		<li><symbol>ne</symbol></li>
-		<li><symbol>noid</symbol></li>
-		<li><symbol>oid</symbol></li>
-		<li><symbol>id</symbol></li>
-	  </suffixSymbols>
-	</symbolPack>
   </GeneDef>
 
   <!-- Meca -->
@@ -43,11 +35,16 @@
 	<defName>WVC_MechaSkin</defName>
 	<label>mechaskin</label>
 	<labelShortAdj>mechaskinned</labelShortAdj>
-	<description>Carriers of this gene have archites that completely transform their body. The body is covered with plates, and the skin becomes hard and resembles plasteel to the touch. The glands are replaced by small colonies of mechanites that serve the body. The hairline completely disappears, remaining only on the head or face. Muscle tissues are strengthened and become more resilient. Most of the internal organs remain intact, but there are enough external changes to indicate that the host is more like a mechanoid than a human.</description>
+	<description>Carriers of this gene have archites that completely transform their body. 
+
+The body is covered with plates, and the skin becomes hard and resembles plasteel to the touch. The glands are replaced by small colonies of mechanites that serve the body. Mechanites draw energy directly from the host's body, greatly reducing metabolism. The hairline completely disappears, remaining only on the head or face. Muscle tissues are strengthened and become more resilient. 
+
+Most of the internal organs remain intact, but there are enough external changes to indicate that the host is more like a mechanoid than a human.</description>
 	<biostatCpx>6</biostatCpx>
 	<biostatArc>5</biostatArc>
+	<biostatMet>-16</biostatMet>
 	<!-- <displayCategory>Archite</displayCategory> -->
-	<displayOrderInCategory>1</displayOrderInCategory>
+	<displayOrderInCategory>-100</displayOrderInCategory>
 	<iconPath>WVC/UI/Genes/MechaIcon</iconPath>
 	<!-- <iconColor>(0.75, 0.75, 0.75)</iconColor> -->
 	<iconColor>(184, 198, 203)</iconColor>
@@ -59,26 +56,17 @@
 	<!-- <toleranceBuildupFactor>0</toleranceBuildupFactor> -->
 	<!-- <addictionChanceFactor>0</addictionChanceFactor> -->
 	<!-- <prerequisite>Ageless</prerequisite> -->
-	<!-- <forcedHeadTypes> -->
-	  <!-- <li>Furskin_Average1</li> -->
-	  <!-- <li>Furskin_Average1</li> -->
-	  <!-- <li>Furskin_Average2</li> -->
-	  <!-- <li>Furskin_Average3</li> -->
-	  <!-- <li>Furskin_Narrow1</li> -->
-	  <!-- <li>Furskin_Narrow2</li> -->
-	  <!-- <li>Furskin_Narrow3</li> -->
-	  <!-- <li>Furskin_Heavy1</li> -->
-	  <!-- <li>Furskin_Heavy2</li> -->
-	  <!-- <li>Furskin_Heavy3</li> -->
-	  <!-- <li>Furskin_Gaunt</li> -->
-	<!-- </forcedHeadTypes> -->
-	<!-- <beardTagFilter> -->
-	  <!-- <whitelist>true</whitelist> -->
-	  <!-- <tags> -->
-		<!-- <li>BeardLong</li> -->
-		<!-- <li>Furskin</li> -->
-	  <!-- </tags> -->
-	<!-- </beardTagFilter> -->
+	<!-- <causesNeed>WVC_MechEnergy</causesNeed> -->
+	<forcedHeadTypes>
+	  <!-- <li>WVC_MechaGenderlessHeadA</li> -->
+	  <!-- <li>WVC_Female_AverageWide</li> -->
+	  <li>WVC_Female_AveragePointy</li>
+	  <li>WVC_Female_AverageNormal</li>
+	  <!-- <li>WVC_Male_AverageWide</li> -->
+	  <li>WVC_Male_AveragePointy</li>
+	  <li>WVC_Male_AverageNormal</li>
+	  <li>WVC_Gaunt</li>
+	</forcedHeadTypes>
 	<exclusionTags>
 	  <!-- <li>HairStyle</li> -->
 	  <li>Skin</li>
@@ -108,6 +96,29 @@
 	  <fur>WVC_MechaSkin</fur>
 	  <tattoosVisible>false</tattoosVisible>
 	</graphicData>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>mechanoid</symbol></li>
+		<li><symbol>mechakind</symbol></li>
+		<li><symbol>mecakind</symbol></li>
+	  </wholeNameSymbols>
+	  <prefixSymbols>
+		<li><symbol>me</symbol></li>
+		<li><symbol>meca</symbol></li>
+		<li><symbol>mec</symbol></li>
+		<li><symbol>mech</symbol></li>
+		<li><symbol>mechan</symbol></li>
+		<li><symbol>mach</symbol></li>
+		<li><symbol>machi</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>ine</symbol></li>
+		<li><symbol>ne</symbol></li>
+		<li><symbol>noid</symbol></li>
+		<li><symbol>oid</symbol></li>
+		<li><symbol>id</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<!-- <furHidesBody>True</furHidesBody> -->
@@ -118,14 +129,84 @@
 	</modExtensions>
   </GeneDef>
 
+  <!-- Hidden -->
+
+
+  <!-- Power Source -->
+
+  <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Mechanoidization_PowerSourceBase" Abstract="True">
+	<!-- <defName>WVC_MechaAI_Base</defName> -->
+	<!-- <label>AI</label> -->
+	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>4</displayOrderInCategory>
+	<prerequisite>WVC_MechaSkin</prerequisite>
+	<!-- <biostatCpx>0</biostatCpx> -->
+	<!-- <biostatArc>1</biostatArc> -->
+	<exclusionTags>
+	  <li>WVC_MechaPowerSource</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_Mechanoidization_PowerSourceBase">
+	<defName>WVC_MechaPowerSource_Basic</defName>
+	<label>mechanite-forge</label> 
+	<labelShortAdj>mechanite-forge</labelShortAdj>
+	<description>Carriers of this gene have a built-in mechanite-forge, which significantly increases the efficiency of metabolism.</description>
+	<iconPath>WVC/UI/Genes/MechaPowerSource</iconPath>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>16</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>power</symbol></li>
+		<li><symbol>drain</symbol></li>
+		<li><symbol>pow</symbol></li>
+		<li><symbol>powe</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>ainer</symbol></li>
+		<li><symbol>iner</symbol></li>
+		<li><symbol>ner</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_Mechanoidization_PowerSourceBase">
+	<defName>WVC_MechaPowerSource_Vanometric</defName>
+	<label>archite-forge</label> 
+	<labelShortAdj>archite-forge</labelShortAdj>
+	<description>Carriers of this gene have a built-in archite-forge, which significantly increases the efficiency of metabolism.</description>
+	<iconPath>WVC/UI/Genes/VanometricPowerSource</iconPath>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>5</biostatArc>
+	<biostatMet>21</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>vanome</symbol></li>
+		<li><symbol>vanom</symbol></li>
+		<li><symbol>vano</symbol></li>
+		<li><symbol>van</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>etric</symbol></li>
+		<li><symbol>tric</symbol></li>
+		<li><symbol>ric</symbol></li>
+		<li><symbol>ic</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
   <!-- Buffs -->
 
   <GeneDef ParentName="WVC_MechanoidizationBase">
 	<defName>WVC_MechaAI_Base</defName>
 	<label>operating system</label> 
-	<labelShortAdj>AI</labelShortAdj>
+	<labelShortAdj>OS</labelShortAdj>
 	<description>Archites modified the owner's brain quite a lot, which opened up new possibilities.</description>
-	<iconPath>WVC/UI/Genes/AI</iconPath>
+	<!-- <iconPath>WVC/UI/Genes/AI</iconPath> -->
+	<iconPath>WVC/UI/Genes/MechanoidizationSoftware</iconPath>
+	<iconColor>(184, 198, 203)</iconColor>
 	<!-- <displayCategory>Ability</displayCategory> -->
 	<!-- <displayCategory>Archite</displayCategory> -->
 	<displayOrderInCategory>5</displayOrderInCategory>
@@ -157,6 +238,81 @@
 	</exclusionTags>
   </GeneDef>
 
+  <!-- Soft -->
+
+  <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Mechanoidization_SoftwareBase" Abstract="True">
+	<!-- <defName>WVC_MechaAI_Base</defName> -->
+	<label>AI</label>
+	<description>The carriers of these archites have software that helps them.</description>
+	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath>
+	<displayOrderInCategory>6</displayOrderInCategory>
+	<prerequisite>WVC_MechaAI_Base</prerequisite>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<exclusionTags>
+	  <!-- <li>WVC_Mecha_RomanceChanceBase</li> -->
+	  <!-- <li>RomanceChance</li> -->
+	  <!-- <li>AG_RomanceChance</li> -->
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>soft</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>ware</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+	<defName>WVC_MechaAI_SoftwareManipulation</defName>
+	<label>fine motor optimization</label>
+	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath>
+	<iconColor>(255, 148, 127)</iconColor>
+	<capMods>
+	  <li>
+		<capacity>Manipulation</capacity>
+		<offset>0.2</offset>
+	  </li>
+	</capMods>
+	<exclusionTags>
+	  <li>WVC_MechaAI_SoftwareManipulation</li>
+	</exclusionTags>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+	<defName>WVC_MechaAI_SoftwareMoving</defName>
+	<label>improved pathfinding</label>
+	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath>
+	<iconColor>(187, 255, 127)</iconColor>
+	<capMods>
+	  <li>
+		<capacity>Moving</capacity>
+		<offset>0.2</offset>
+	  </li>
+	</capMods>
+	<exclusionTags>
+	  <li>WVC_MechaAI_SoftwareMoving</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+	<defName>WVC_MechaAI_SoftwareDisableTalking</defName>
+	<label>silent program</label>
+	<description>Archits disable the voice functions of the mech, which saves some resources.</description>
+	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareDown</iconPath>
+	<iconColor>(150, 70, 70)</iconColor>
+	<biostatMet>3</biostatMet>
+	<capMods>
+	  <li>
+		<capacity>Talking</capacity>
+		<setMax>0.0</setMax>
+	  </li>
+	</capMods>
+	<exclusionTags>
+	  <li>WVC_MechaAI_SoftwareDisableTalking</li>
+	</exclusionTags>
+  </GeneDef>
+
   <!-- Romance -->
 
   <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Mechanoidization_RomanceChanceBase" Abstract="True">
@@ -168,6 +324,7 @@
 	<prerequisite>WVC_MechaAI_Base</prerequisite>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>0</biostatArc>
+	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
 	<exclusionTags>
 	  <!-- <li>WVC_Mecha_RomanceChanceBase</li> -->
 	  <!-- <li>RomanceChance</li> -->
@@ -198,7 +355,6 @@
 	<defName>WVC_MechaAI_RomanceChanceA</defName>
 	<label>encoding SX</label>
 	<iconPath>WVC/UI/Genes/EncodingSX</iconPath>
-	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
 	<exclusionTags>
 	  <li>WVC_Mecha_RomanceChance_SX</li>
 	</exclusionTags>
@@ -207,7 +363,6 @@
 	<defName>WVC_MechaAI_RomanceChanceB</defName>
 	<label>encoding GB</label>
 	<iconPath>WVC/UI/Genes/EncodingGB</iconPath>
-	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
 	<exclusionTags>
 	  <li>WVC_Mecha_RomanceChance_GB</li>
 	</exclusionTags>
@@ -216,7 +371,6 @@
 	<defName>WVC_MechaAI_RomanceChanceC</defName>
 	<label>encoding HJ</label>
 	<iconPath>WVC/UI/Genes/EncodingHJ</iconPath>
-	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
 	<exclusionTags>
 	  <li>WVC_Mecha_RomanceChance_HJ</li>
 	</exclusionTags>
@@ -225,7 +379,6 @@
 	<defName>WVC_MechaAI_RomanceChanceD</defName>
 	<label>encoding CV</label>
 	<iconPath>WVC/UI/Genes/EncodingCV</iconPath>
-	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
 	<exclusionTags>
 	  <li>WVC_Mecha_RomanceChance_CV</li>
 	</exclusionTags>
@@ -234,7 +387,6 @@
 	<defName>WVC_MechaAI_RomanceChanceE</defName>
 	<label>encoding WR</label>
 	<iconPath>WVC/UI/Genes/EncodingWR</iconPath>
-	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
 	<exclusionTags>
 	  <li>WVC_Mecha_RomanceChance_WR</li>
 	</exclusionTags>

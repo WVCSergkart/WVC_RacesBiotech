@@ -21,6 +21,12 @@
 						<displayCategory>AG_Gender</displayCategory>
 					</value>
 				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/GeneDef[@ParentName="WVC_MonogenderBase"]/modExtensions/li[@Class="VanillaGenesExpanded.GeneExtension"]</xpath>
+					<value>
+						<hideGene>true</hideGene>
+					</value>
+				</li>
 			</operations>
 		</match>
 	</Operation>
@@ -32,5 +38,18 @@
 			<minValue>0</minValue>
 		</value>
 	</Operation>
+
+	<!-- <Operation Class="PatchOperationAdd"> -->
+		<!-- <xpath>/Defs/GeneDef[description[contains(text(),'is increased by 20. Aptitude')]]</xpath> -->
+		<!-- <value> -->
+			<!-- <biostatArc>2</biostatArc> -->
+		<!-- </value> -->
+	<!-- </Operation> -->
+	<!-- <Operation Class="PatchOperationAdd"> -->
+		<!-- <xpath>/Defs/GeneDef[description[contains(text(),'is reduced by 20. Aptitude')]]</xpath> -->
+		<!-- <value> -->
+			<!-- <biostatArc>1</biostatArc> -->
+		<!-- </value> -->
+	<!-- </Operation> -->
 
 </Patch>

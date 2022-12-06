@@ -33,6 +33,7 @@
 		<li>Hair_SnowWhite</li>
 		<li>Skin_SheerWhite</li>
 		<li>Hair_Grayless</li>
+		<li>Beard_NoBeardOnly</li>
 		<li>WVC_Orientation_Asexual</li>
 		<li>WVC_AptitudeImpossible_Shooting</li>
 		<li>WVC_AptitudeImpossible_Melee</li>
@@ -70,7 +71,8 @@
 		<li>WVC_VoiceMechaMilitor</li>
 		<li>WVC_MechaAI_Base</li>
 		<li>Ageless</li>
-		<li>ArchiteMetabolism</li>
+		<!-- <li>ArchiteMetabolism</li> -->
+		<li>WVC_MechaPowerSource_Vanometric</li>
 		<li>Deathless</li>
 		<li>DiseaseFree</li>
 		<li>PerfectImmunity</li>
@@ -85,13 +87,13 @@
 		<li>FireResistant</li>
 		<li>Neversleep</li>
 		<li>Robust</li>
-		<li>Beard_NoBeardOnly</li>
 		<li>Body_Standard</li>
 		<li>Hair_SnowWhite</li>
 		<li>Skin_SheerWhite</li>
 		<li>DarkVision</li>
 		<li>Unstoppable</li>
 		<li>WVC_Orientation_Bisexual</li>
+		<!-- <li>WVC_Eyes_69a2ce_HEX</li> -->
 		<li>AptitudePoor_Shooting</li>
 		<li>AptitudePoor_Melee</li>
 		<li>AptitudeStrong_Construction</li>

@@ -162,9 +162,10 @@
 	<description>Carriers of this gene have foldable claws that serve as natural weapons.</description>
 	<iconColor>(184, 198, 203)</iconColor>
 	<iconPath>WVC/UI/Genes/Claws</iconPath>
-	<prerequisite>WVC_MechaAI_Base</prerequisite>
+	<prerequisite>WVC_MechaSkin</prerequisite>
+	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
 	<displayCategory>WVC_MechaBody</displayCategory>
-	<displayOrderInCategory>8</displayOrderInCategory>
+	<displayOrderInCategory>21</displayOrderInCategory>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>-2</biostatMet>

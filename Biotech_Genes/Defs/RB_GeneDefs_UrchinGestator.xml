@@ -299,6 +299,7 @@
 	<biostatArc>0</biostatArc>
 	<displayOrderInCategory>554</displayOrderInCategory>
 	<iconPath>WVC/UI/Genes/RomanceChance</iconPath>
+	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>fero</symbol></li>
@@ -318,7 +319,6 @@
   <GeneDef ParentName="WVC_RomanceChanceBase">
 	<defName>WVC_RomanceChanceA</defName>
 	<label>pheromones SX</label>
-	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
 	<iconColor>(133, 202, 255)</iconColor>
 	<exclusionTags>
 	  <li>WVC_RomanceChance_A</li>
@@ -327,7 +327,6 @@
   <GeneDef ParentName="WVC_RomanceChanceBase">
 	<defName>WVC_RomanceChanceB</defName>
 	<label>pheromones GB</label>
-	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
 	<iconColor>(133, 255, 136)</iconColor>
 	<exclusionTags>
 	  <li>WVC_RomanceChance_B</li>
@@ -336,7 +335,6 @@
   <GeneDef ParentName="WVC_RomanceChanceBase">
 	<defName>WVC_RomanceChanceC</defName>
 	<label>pheromones HJ</label>
-	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
 	<iconColor>(255, 133, 133)</iconColor>
 	<exclusionTags>
 	  <li>WVC_RomanceChance_C</li>
@@ -345,7 +343,6 @@
   <GeneDef ParentName="WVC_RomanceChanceBase">
 	<defName>WVC_RomanceChanceD</defName>
 	<label>pheromones CV</label>
-	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
 	<iconColor>(142, 133, 255)</iconColor>
 	<exclusionTags>
 	  <li>WVC_RomanceChance_D</li>
@@ -354,7 +351,6 @@
   <GeneDef ParentName="WVC_RomanceChanceBase">
 	<defName>WVC_RomanceChanceE</defName>
 	<label>pheromones WR</label>
-	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
 	<iconColor>(255, 248, 133)</iconColor>
 	<exclusionTags>
 	  <li>WVC_RomanceChance_E</li>

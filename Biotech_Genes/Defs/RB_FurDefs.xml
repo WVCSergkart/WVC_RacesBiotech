@@ -1,6 +1,70 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <!-- <HeadTypeDef ParentName="AverageBase"> -->
+	<!-- <defName>WVC_MechaGenderlessHeadA</defName> -->
+	<!-- <graphicPath>WVC/MecaGene_Head/MechaHead</graphicPath> -->
+	<!-- <gender>None</gender> -->
+	<!-- <requiredGenes> -->
+	  <!-- <li>WVC_MechaSkin</li> -->
+	<!-- </requiredGenes> -->
+  <!-- </HeadTypeDef> -->
+
+  <HeadTypeDef Name="WVC_MechaSkinAverageBase" ParentName="AverageBase" Abstract="True">
+	<randomChosen>false</randomChosen>
+	<gender>None</gender>
+	<requiredGenes>
+	  <li>WVC_MechaSkin</li>
+	</requiredGenes>
+  </HeadTypeDef>
+
+  <!-- vanilla heads for mecha body -->
+  <HeadTypeDef ParentName="WVC_MechaSkinAverageBase">
+	<defName>WVC_Male_AverageNormal</defName>
+	<graphicPath>Things/Pawn/Humanlike/Heads/Male/Male_Average_Normal</graphicPath>
+	<gender>Male</gender>
+  </HeadTypeDef>
+  <HeadTypeDef ParentName="WVC_MechaSkinAverageBase">
+	<defName>WVC_Male_AveragePointy</defName>
+	<graphicPath>Things/Pawn/Humanlike/Heads/Male/Male_Average_Pointy</graphicPath>
+	<eyeOffsetEastWest>(0.175, 0, 0.18)</eyeOffsetEastWest>
+	<gender>Male</gender>
+  </HeadTypeDef>
+  <!-- <HeadTypeDef ParentName="WVC_MechaSkinAverageBase"> -->
+	<!-- <defName>WVC_Male_AverageWide</defName> -->
+	<!-- <graphicPath>Things/Pawn/Humanlike/Heads/Male/Male_Average_Wide</graphicPath> -->
+	<!-- <gender>Male</gender> -->
+  <!-- </HeadTypeDef> -->
+
+  <HeadTypeDef ParentName="WVC_MechaSkinAverageBase">
+	<defName>WVC_Female_AverageNormal</defName>
+	<graphicPath>Things/Pawn/Humanlike/Heads/Female/Female_Average_Normal</graphicPath>
+	<gender>Female</gender>
+  </HeadTypeDef>
+  <HeadTypeDef ParentName="WVC_MechaSkinAverageBase">
+	<defName>WVC_Female_AveragePointy</defName>
+	<graphicPath>Things/Pawn/Humanlike/Heads/Female/Female_Average_Pointy</graphicPath>
+	<gender>Female</gender>
+  </HeadTypeDef>
+  <!-- <HeadTypeDef ParentName="WVC_MechaSkinAverageBase"> -->
+	<!-- <defName>WVC_Female_AverageWide</defName> -->
+	<!-- <graphicPath>Things/Pawn/Humanlike/Heads/Female/Female_Average_Wide</graphicPath> -->
+	<!-- <gender>Female</gender> -->
+  <!-- </HeadTypeDef> -->
+
+  <HeadTypeDef ParentName="WVC_MechaSkinAverageBase">
+	<defName>WVC_Gaunt</defName>
+	<graphicPath>Things/Pawn/Humanlike/Heads/Genes/None_Gaunt_Average</graphicPath>
+	<randomChosen>false</randomChosen>
+	<gender>None</gender>
+	<selectionWeight>99999</selectionWeight>
+	<requiredGenes>
+	  <li>Head_Gaunt</li>
+	</requiredGenes>
+  </HeadTypeDef>
+
+  <!-- ==================================== -->
+
   <FurDef>
 	<defName>WVC_MechaSkin</defName>
 	<noGraphic>true</noGraphic>

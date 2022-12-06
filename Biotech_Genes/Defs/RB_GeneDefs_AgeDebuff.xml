@@ -4,7 +4,7 @@
   <GeneCategoryDef>
 	<defName>WVC_AgeDebuffs</defName>
 	<label>age degradation</label>
-	<displayPriorityInXenotype>1200</displayPriorityInXenotype>
+	<displayPriorityInXenotype>917</displayPriorityInXenotype>
   </GeneCategoryDef>
 
   <!-- ================================================================== -->
