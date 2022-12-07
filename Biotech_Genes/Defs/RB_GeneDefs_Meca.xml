@@ -26,6 +26,7 @@
   <GeneDef Name="WVC_MechanoidizationBase" Abstract="True">
 	<displayCategory>WVC_MechaBody</displayCategory>
 	<selectionWeight>0</selectionWeight>
+	<minAgeActive>13</minAgeActive>
 	<randomChosen>false</randomChosen>
   </GeneDef>
 
@@ -665,7 +666,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<iconColor>(255, 255, 255)</iconColor>
 	<prerequisite>WVC_MechaSkin</prerequisite>
 	<biostatArc>0</biostatArc>
-	<minAgeActive>16</minAgeActive>
+	<minAgeActive>13</minAgeActive>
 	<symbolPack>
 	  <wholeNameSymbols>
 		<li><symbol>mecha</symbol></li>

@@ -16,6 +16,7 @@
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>-1</biostatMet>
+	<minAgeActive>13</minAgeActive>
 	<capMods>
 	  <li>
 		<capacity>Hearing</capacity>
@@ -106,6 +107,7 @@
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>-1</biostatMet>
+	<minAgeActive>13</minAgeActive>
 	<customEffectDescriptions>
 		<li>Adds a deadly tail attack.</li>
 	</customEffectDescriptions>
