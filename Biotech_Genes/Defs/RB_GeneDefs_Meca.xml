@@ -26,6 +26,7 @@
   <GeneDef Name="WVC_MechanoidizationBase" Abstract="True">
 	<displayCategory>WVC_MechaBody</displayCategory>
 	<selectionWeight>0</selectionWeight>
+	<marketValueFactor>1.2</marketValueFactor>
 	<minAgeActive>13</minAgeActive>
 	<randomChosen>false</randomChosen>
   </GeneDef>
@@ -157,7 +158,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<defName>WVC_MechaHidden_ArchiteForge</defName>
 	<label>archite-forge</label>
 	<description>Carriers of this gene have archites that are capable of self-replication. This significantly reduces complexity and reduces the need for archites capsules.</description>
-	<iconColor>(255, 150, 150)</iconColor>
+	<iconColor>(184, 198, 203)</iconColor>
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>Compensates for the effect of mechaskin on metabolism.</li> -->
 	<!-- </customEffectDescriptions> -->
@@ -447,6 +448,7 @@ Most of the internal organs remain intact, but there are enough external changes
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MecaBodyParts_Eye</defName>
 	<label>visual analyzer</label>
+	<ignoreDarkness>true</ignoreDarkness>
 	<iconColor>(150, 190, 255)</iconColor>
 	<statOffsets>
 	  <WorkSpeedGlobal>0.1</WorkSpeedGlobal>

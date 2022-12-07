@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="AB_ForsakenThunderstorm" or defName="AB_ForsakenRain" or defName="AB_ForsakenNight" or defName="EnvironmentDark"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MecaBodyParts_Eye</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
+	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
+	  <!-- <xpath>/Defs/ThoughtDef[defName="AB_ForsakenThunderstorm" or defName="AB_ForsakenRain" or defName="AB_ForsakenNight" or defName="EnvironmentDark"]</xpath> -->
+	  <!-- <safetyDepth>1</safetyDepth> -->
+	  <!-- <value> -->
+		<!-- <nullifyingGenes> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MecaBodyParts_Eye</li> -->
+		<!-- </nullifyingGenes> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
+	  <!-- <xpath>/Defs/ThoughtDef</xpath> -->
+	  <!-- <safetyDepth>1</safetyDepth> -->
+	  <!-- <value> -->
+		<!-- <nullifyingGenes> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_Emotionless</li> -->
+		<!-- </nullifyingGenes> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="CreepyBreathing"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_SmokepopMech</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
+</Patch>

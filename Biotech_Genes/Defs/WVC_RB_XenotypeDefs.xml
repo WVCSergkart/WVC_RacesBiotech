@@ -66,7 +66,7 @@
 		<li>WVC_MecaBodyParts_Heart</li>
 		<li>WVC_MecaBodyParts_Spine</li>
 		<li>WVC_MecaBodyParts_Stomach</li>
-		<li>WVC_MechaGestator</li>
+		<li>WVC_StartGestation</li>
 		<li>WVC_ArchiteMechlink</li>
 		<li>WVC_ArchiteFleetConnected</li>
 		<li>WVC_VoiceMechaMilitor</li>
@@ -97,7 +97,7 @@
 		<li>Body_Standard</li>
 		<li>Hair_SnowWhite</li>
 		<li>Skin_SheerWhite</li>
-		<li>DarkVision</li>
+		<!-- <li>DarkVision</li> -->
 		<!-- <li>Unstoppable</li> -->
 		<li>WVC_Orientation_Bisexual</li>
 		<!-- <li>WVC_Eyes_69a2ce_HEX</li> -->
