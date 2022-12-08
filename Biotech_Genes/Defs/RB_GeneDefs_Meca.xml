@@ -348,7 +348,19 @@ Most of the internal organs remain intact, but there are enough external changes
 	<biostatArc>3</biostatArc>
 	<biostatMet>6</biostatMet>
 	<!-- <passionMod>AddOneLevel</passionMod> -->
+	<customEffectDescriptions>
+		<li MayRequire="imranfish.xmlextensions">Expectations are always "sky-high" and cannot be higher or lower.</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <MentalBreakThreshold>0.8</MentalBreakThreshold>
+	  <!-- <BondAnimalChanceFactor>0</BondAnimalChanceFactor> -->
+	  <!-- <SocialImpact>0.1</SocialImpact> -->
+	</statFactors>
 	<exclusionTags>
+	  <li>Aggressive</li>
+	  <li>KillThirst</li>
+	  <li>Mood</li>
+	  <!-- = -->
 	  <li>AptitudeIntellectual</li>
 	  <li>Aptitude_Intellectual</li>
 	  <li>AptitudeSocial</li>
@@ -390,6 +402,9 @@ Most of the internal organs remain intact, but there are enough external changes
 	<defName>WVC_MechaAI_FirmwareCreatorMachine</defName>
 	<label>creator machine</label>
 	<iconColor>(130, 175, 255)</iconColor>
+	<socialFightChanceFactor>0.5</socialFightChanceFactor>
+	<aggroMentalBreakSelectionChanceFactor>1.2</aggroMentalBreakSelectionChanceFactor>
+	<prisonBreakMTBFactor>1.2</prisonBreakMTBFactor>
 	<forcedTraits>
 	  <li>
 		<def>Transhumanist</def>
@@ -424,6 +439,9 @@ Most of the internal organs remain intact, but there are enough external changes
 	<defName>WVC_MechaAI_FirmwareWarMachine</defName>
 	<label>war machine</label>
 	<iconColor>(255, 175, 130)</iconColor>
+	<socialFightChanceFactor>2</socialFightChanceFactor>
+	<aggroMentalBreakSelectionChanceFactor>2</aggroMentalBreakSelectionChanceFactor>
+	<prisonBreakMTBFactor>0.6</prisonBreakMTBFactor>
 	<forcedTraits>
 	  <li>
 		<def>Bloodlust</def>
@@ -458,9 +476,12 @@ Most of the internal organs remain intact, but there are enough external changes
 	<defName>WVC_MechaAI_FirmwareGreenMachine</defName>
 	<label>green machine</label>
 	<iconColor>(130, 255, 130)</iconColor>
+	<socialFightChanceFactor>0.5</socialFightChanceFactor>
+	<aggroMentalBreakSelectionChanceFactor>0.8</aggroMentalBreakSelectionChanceFactor>
+	<prisonBreakMTBFactor>1.5</prisonBreakMTBFactor>
 	<forcedTraits>
 	  <li>
-		<def>Delicate</def>
+		<def>QuickSleeper</def>
 	  </li>
 	</forcedTraits>
 	<aptitudes>
@@ -492,6 +513,9 @@ Most of the internal organs remain intact, but there are enough external changes
 	<defName>WVC_MechaAI_FirmwareRogueMachine</defName>
 	<label>rogue machine</label>
 	<iconColor>(255, 250, 150)</iconColor>
+	<socialFightChanceFactor>0.5</socialFightChanceFactor>
+	<aggroMentalBreakSelectionChanceFactor>0.8</aggroMentalBreakSelectionChanceFactor>
+	<prisonBreakMTBFactor>0.5</prisonBreakMTBFactor>
 	<forcedTraits>
 	  <li>
 		<def>Psychopath</def>
