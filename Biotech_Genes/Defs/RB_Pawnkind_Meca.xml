@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <PawnKindDef Name="WVC_MecaBase" Abstract="True">
+	<label>meca</label>
+	<race>Human</race>
+	<xenotypeSet>
+	  <xenotypeChances>
+		<WVC_Meca>999</WVC_Meca>
+	  </xenotypeChances>
+	</xenotypeSet>
+	<useFactionXenotypes>false</useFactionXenotypes>
+	<combatPower>100</combatPower>
+	<backstoryCryptosleepCommonality>0.8</backstoryCryptosleepCommonality>
+	<chemicalAddictionChance>0.0</chemicalAddictionChance>
+	<isFighter>true</isFighter>
+	<chronologicalAgeRange>300~2000</chronologicalAgeRange>
+	<initialResistanceRange>10~80</initialResistanceRange>
+	<initialWillRange>5~15</initialWillRange>
+	<maxGenerationAge>23</maxGenerationAge>
+	<forcedHair>Scrapper</forcedHair>
+	<backstoryFiltersOverride>
+	  <li>
+		<categories>
+		  <li>ImperialRoyal</li>
+		  <li>ImperialFighter</li>
+		  <li>Offworld</li>
+		  <li>Scientist</li>
+		  <li>InsectsRelated</li>
+		</categories>
+	  </li>
+	</backstoryFiltersOverride>
+	<apparelRequired>
+	  <!-- <li>Apparel_HatHood</li> -->
+	  <!-- <li>Apparel_Duster</li> -->
+	  <li>Apparel_CollarShirt</li>
+	  <li>Apparel_Pants</li>
+	</apparelRequired>
+	<requiredWorkTags>
+	  <li>Intellectual</li>
+	  <li>Crafting</li>
+	</requiredWorkTags>
+	<disallowedTraits>
+	  <li>BodyPurist</li>
+	</disallowedTraits>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="WVC_MecaBase">
+	<defName>WVC_Meca_Player</defName>
+	<weaponMoney>0</weaponMoney>
+	<apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+	<apparelColor>(58,58,58)</apparelColor>
+	<defaultFactionType>PlayerColony</defaultFactionType>
+	<apparelMoney>50~120</apparelMoney>
+	<apparelTags>
+	  <li>IndustrialBasic</li>
+	</apparelTags>
+  </PawnKindDef>
+
+</Defs>

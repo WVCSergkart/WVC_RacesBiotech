@@ -177,7 +177,7 @@
 	<targetRequired>False</targetRequired>
 	<showCastingProgressBar>True</showCastingProgressBar>
 	<statBases>
-	  <Ability_Duration>500</Ability_Duration>
+	  <Ability_Duration>5010</Ability_Duration>
 	</statBases>
 	<verbProperties>
 	  <verbClass>Verb_CastAbility</verbClass>
