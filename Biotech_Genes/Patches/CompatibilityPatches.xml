@@ -21,12 +21,12 @@
 						<displayCategory>AG_Gender</displayCategory>
 					</value>
 				</li>
-				<li Class="PatchOperationAdd">
-					<xpath>Defs/GeneDef[@ParentName="WVC_MonogenderBase"]/modExtensions/li[@Class="VanillaGenesExpanded.GeneExtension"]</xpath>
-					<value>
-						<hideGene>true</hideGene>
-					</value>
-				</li>
+				<!-- <li Class="PatchOperationAdd"> -->
+					<!-- <xpath>Defs/GeneDef[@ParentName="WVC_MonogenderBase"]/modExtensions/li[@Class="VanillaGenesExpanded.GeneExtension"]</xpath> -->
+					<!-- <value> -->
+						<!-- <hideGene>true</hideGene> -->
+					<!-- </value> -->
+				<!-- </li> -->
 			</operations>
 		</match>
 	</Operation>

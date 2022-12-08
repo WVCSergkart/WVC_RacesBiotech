@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <TraitDef>
+	<defName>WVC_RB_FriendOrFoeTrait</defName>
+	<commonality>0.001</commonality>
+	<disableHostilityFromFaction>Mechanoid</disableHostilityFromFaction>
+	<degreeDatas>
+	  <li>
+		<label>Techno-Ghost</label>
+		<description>For some strange reason, {PAWN_nameDef} is not touched by ancient mechanoids, they constantly ignore [PAWN_objective] no matter what {PAWN_nameDef} takes against them.</description>
+	  </li>
+	</degreeDatas>
+  </TraitDef>
+  <!-- <TraitDef> -->
+	<!-- <defName>WVC_RB_NotTasty</defName> -->
+	<!-- <commonality>0.001</commonality> -->
+	<!-- <disableHostilityFromAnimalType>Canine</disableHostilityFromAnimalType> -->
+	<!-- <degreeDatas> -->
+	  <!-- <li> -->
+		<!-- <label>Not tasty</label> -->
+		<!-- <description>For some strange reason, {PAWN_nameDef} is not touched by ancient mechanoids, they constantly ignore [PAWN_objective] no matter what {PAWN_nameDef} takes against them.</description> -->
+	  <!-- </li> -->
+	<!-- </degreeDatas> -->
+  <!-- </TraitDef> -->
+
   <!-- <NeedDef> -->
 	<!-- <defName>WVC_MechEnergy</defName> -->
 	<!-- <needClass>Need_MechEnergy</needClass> -->
@@ -29,6 +52,7 @@
 	<marketValueFactor>1.2</marketValueFactor>
 	<minAgeActive>13</minAgeActive>
 	<randomChosen>false</randomChosen>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
   </GeneDef>
 
   <!-- Meca -->
@@ -162,7 +186,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>Compensates for the effect of mechaskin on metabolism.</li> -->
 	<!-- </customEffectDescriptions> -->
-	<biostatCpx>-60</biostatCpx>
+	<biostatCpx>-40</biostatCpx>
 	<biostatArc>-20</biostatArc>
 	<biostatMet>0</biostatMet>
   </GeneDef>
@@ -269,6 +293,13 @@ Most of the internal organs remain intact, but there are enough external changes
 	<!-- <displayCategory>Archite</displayCategory> -->
 	<displayOrderInCategory>5</displayOrderInCategory>
 	<prerequisite>WVC_MechaSkin</prerequisite>
+	<!-- <aptitudes> -->
+	  <!-- <Intellectual>2</Intellectual> -->
+	<!-- </aptitudes> -->
+	<!-- <passionMod> -->
+		<!-- <skill>Intellectual</skill> -->
+		<!-- <modType>AddOneLevel</modType> -->
+	<!-- </passionMod> -->
 	<forcedTraits>
 	  <!-- <li> -->
 		<!-- <def>Transhumanist</def> -->
@@ -304,6 +335,193 @@ Most of the internal organs remain intact, but there are enough external changes
 	</exclusionTags>
   </GeneDef>
 
+  <!-- Firmware -->
+
+  <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Mechanoidization_FirmwareBase" Abstract="True">
+	<!-- <defName>WVC_MechaAI_Base</defName> -->
+	<label>firmware</label>
+	<description>Carriers of this gene have a strong predisposition to certain skills and lifestyle, it is written in them both at the program level and at the genetic level.</description>
+	<iconPath>WVC/UI/Genes/MechanoidizationFirmware</iconPath>
+	<displayOrderInCategory>6</displayOrderInCategory>
+	<prerequisite>WVC_MechaAI_Base</prerequisite>
+	<biostatCpx>8</biostatCpx>
+	<biostatArc>3</biostatArc>
+	<biostatMet>6</biostatMet>
+	<!-- <passionMod>AddOneLevel</passionMod> -->
+	<exclusionTags>
+	  <li>AptitudeIntellectual</li>
+	  <li>Aptitude_Intellectual</li>
+	  <li>AptitudeSocial</li>
+	  <li>Aptitude_Social</li>
+	  <li>AptitudeArtistic</li>
+	  <li>Aptitude_Artistic</li>
+	  <li>AptitudeMedicine</li>
+	  <li>Aptitude_Medicine</li>
+	  <li>AptitudeAnimals</li>
+	  <li>Aptitude_Animals</li>
+	  <li>AptitudeShooting</li>
+	  <li>Aptitude_Shooting</li>
+	  <li>AptitudeConstruction</li>
+	  <li>Aptitude_Construction</li>
+	  <li>AptitudeMining</li>
+	  <li>Aptitude_Mining</li>
+	  <li>AptitudeCooking</li>
+	  <li>Aptitude_Cooking</li>
+	  <li>AptitudePlants</li>
+	  <li>Aptitude_Plants</li>
+	  <li>AptitudeMelee</li>
+	  <li>Aptitude_Melee</li>
+	  <li>AptitudeCrafting</li>
+	  <li>Aptitude_Crafting</li>
+	  <!-- = -->
+	  <li>WVC_MechaAI_Firmware</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>firm</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>ware</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_Mechanoidization_FirmwareBase">
+	<defName>WVC_MechaAI_FirmwareCreatorMachine</defName>
+	<label>creator machine</label>
+	<iconColor>(130, 175, 255)</iconColor>
+	<forcedTraits>
+	  <li>
+		<def>Transhumanist</def>
+	  </li>
+	</forcedTraits>
+	<aptitudes>
+	  <!-- -22 -->
+	  <!-- creator 42 -->
+	  <Construction>8</Construction>
+	  <Intellectual>16</Intellectual>
+	  <Crafting>14</Crafting>
+	  <Artistic>4</Artistic>
+	  <!-- war -24 -->
+	  <Mining>-12</Mining>
+	  <Shooting>-6</Shooting>
+	  <Melee>-6</Melee>
+	  <!-- green -40 -->
+	  <Plants>-4</Plants>
+	  <Cooking>-6</Cooking>
+	  <Animals>-14</Animals>
+	  <Social>-16</Social>
+	  <!-- base -->
+	  <Medicine>6</Medicine>
+	</aptitudes>
+	<passionMod>
+		<skill>Intellectual</skill>
+		<modType>AddOneLevel</modType>
+	</passionMod>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_FirmwareBase">
+	<defName>WVC_MechaAI_FirmwareWarMachine</defName>
+	<label>war machine</label>
+	<iconColor>(255, 175, 130)</iconColor>
+	<forcedTraits>
+	  <li>
+		<def>Bloodlust</def>
+	  </li>
+	</forcedTraits>
+	<aptitudes>
+	  <!-- -22 -->
+	  <!-- creator -42 -->
+	  <Construction>-8</Construction>
+	  <Intellectual>-16</Intellectual>
+	  <Crafting>-14</Crafting>
+	  <Artistic>-4</Artistic>
+	  <!-- war 44 -->
+	  <Mining>12</Mining>
+	  <Shooting>16</Shooting>
+	  <Melee>16</Melee>
+	  <!-- green -26 -->
+	  <Plants>-4</Plants>
+	  <Cooking>-6</Cooking>
+	  <Animals>-2</Animals>
+	  <Social>-12</Social>
+	  <!-- base -->
+	  <Medicine>6</Medicine>
+	</aptitudes>
+	<passionMod>
+		<skill>Shooting</skill>
+		<modType>AddOneLevel</modType>
+	</passionMod>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_FirmwareBase">
+	<defName>WVC_MechaAI_FirmwareGreenMachine</defName>
+	<label>green machine</label>
+	<iconColor>(130, 255, 130)</iconColor>
+	<forcedTraits>
+	  <li>
+		<def>Delicate</def>
+	  </li>
+	</forcedTraits>
+	<aptitudes>
+	  <!-- -22 -->
+	  <!-- creator -48 -->
+	  <Construction>-10</Construction>
+	  <Intellectual>-16</Intellectual>
+	  <Crafting>-6</Crafting>
+	  <Artistic>-16</Artistic>
+	  <!-- war -16 -->
+	  <Mining>0</Mining>
+	  <Shooting>-8</Shooting>
+	  <Melee>-8</Melee>
+	  <!-- green 42 -->
+	  <Plants>12</Plants>
+	  <Cooking>6</Cooking>
+	  <Animals>12</Animals>
+	  <Social>12</Social>
+	  <!-- base -->
+	  <Medicine>6</Medicine>
+	</aptitudes>
+	<passionMod>
+		<skill>Plants</skill>
+		<modType>AddOneLevel</modType>
+	</passionMod>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_FirmwareBase">
+	<defName>WVC_MechaAI_FirmwareRogueMachine</defName>
+	<label>rogue machine</label>
+	<iconColor>(255, 250, 150)</iconColor>
+	<forcedTraits>
+	  <li>
+		<def>Psychopath</def>
+	  </li>
+	</forcedTraits>
+	<aptitudes>
+	  <!-- -22 -->
+	  <!-- creator -28 -->
+	  <Construction>-8</Construction>
+	  <Intellectual>4</Intellectual>
+	  <Crafting>-6</Crafting>
+	  <Artistic>-18</Artistic>
+	  <!-- war 0 -->
+	  <Mining>-6</Mining>
+	  <Shooting>-2</Shooting>
+	  <Melee>8</Melee>
+	  <!-- green 6 -->
+	  <Plants>-4</Plants>
+	  <Cooking>-2</Cooking>
+	  <Animals>4</Animals>
+	  <Social>8</Social>
+	  <!-- base -->
+	  <Medicine>6</Medicine>
+	</aptitudes>
+	<passionMod>
+		<skill>Melee</skill>
+		<modType>AddOneLevel</modType>
+	</passionMod>
+  </GeneDef>
+
   <!-- Soft -->
 
   <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Mechanoidization_SoftwareBase" Abstract="True">
@@ -311,7 +529,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<label>AI</label>
 	<description>The carriers of these archites have software that helps them.</description>
 	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath>
-	<displayOrderInCategory>6</displayOrderInCategory>
+	<displayOrderInCategory>7</displayOrderInCategory>
 	<prerequisite>WVC_MechaAI_Base</prerequisite>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
@@ -331,7 +549,6 @@ Most of the internal organs remain intact, but there are enough external changes
   </GeneDef>
 
   <!-- = -->
-
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MechaAI_SoftwareManipulation</defName>
 	<label>fine motor optimization</label>
@@ -381,17 +598,6 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <li>WVC_MechaAI_SoftwareFriendOrFoe</li>
 	</exclusionTags>
   </GeneDef>
-  <TraitDef>
-	<defName>WVC_RB_FriendOrFoeTrait</defName>
-	<commonality>0.001</commonality>
-	<disableHostilityFromFaction>Mechanoid</disableHostilityFromFaction>
-	<degreeDatas>
-	  <li>
-		<label>Techno-Ghost</label>
-		<description>For some strange reason, {PAWN_nameDef} is not touched by ancient mechanoids, they constantly ignore [PAWN_objective] no matter what {PAWN_nameDef} takes against them.</description>
-	  </li>
-	</degreeDatas>
-  </TraitDef>
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MecaBodyParts_Arm</defName>
@@ -669,6 +875,9 @@ Most of the internal organs remain intact, but there are enough external changes
 	<prerequisite>WVC_MechaSkin</prerequisite>
 	<biostatArc>0</biostatArc>
 	<minAgeActive>13</minAgeActive>
+	<biostatCpx>1</biostatCpx>
+	<randomChosen>false</randomChosen>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<symbolPack>
 	  <wholeNameSymbols>
 		<li><symbol>mecha</symbol></li>
@@ -1013,6 +1222,8 @@ Most of the internal organs remain intact, but there are enough external changes
 	<overdoseChanceFactor>0</overdoseChanceFactor>
 	<toleranceBuildupFactor>0</toleranceBuildupFactor>
 	<addictionChanceFactor>0</addictionChanceFactor>
+	<dontMindRawFood>true</dontMindRawFood>
+	<biostatMet>2</biostatMet>
 	<capMods>
 	  <li>
 		<capacity>Metabolism</capacity>

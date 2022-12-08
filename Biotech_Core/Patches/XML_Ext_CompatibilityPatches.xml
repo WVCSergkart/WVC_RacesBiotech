@@ -3,6 +3,7 @@
 
 	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
 	  <xpath>/Defs/ThoughtDef[defName="AB_ForsakenThunderstorm" or defName="AB_ForsakenRain" or defName="AB_ForsakenNight" or defName="EnvironmentDark"]</xpath>
+	  <success>Always</success>
 	  <safetyDepth>1</safetyDepth>
 	  <value>
 		<nullifyingGenes>
@@ -33,11 +34,45 @@
 
 	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
 	  <xpath>/Defs/ThoughtDef[defName="CreepyBreathing"]</xpath>
+	  <success>Always</success>
 	  <safetyDepth>1</safetyDepth>
 	  <value>
 		<nullifyingGenes>
 		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_SmokepopMech</li>
 		</nullifyingGenes>
+	  </value>
+	</Operation>
+
+	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="ProsthophobeUnhappy" or defName="BodyPuristDisgust"]</xpath>
+	  <success>Always</success>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaSkin</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
+	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+	  <xpath>/Defs/GeneDef[defName="VRESaurids_SauridClaws"]</xpath>
+	  <success>Always</success>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<exclusionTags>
+		  <li>BodyPartHands</li>
+		  <li>BodyPartHand</li>
+		  <li>AG_BodyPartHand</li>
+		  <li>AG_BodyPartHands</li>
+		  <li>BodyPartArms</li>
+		  <li>BodyPartArm</li>
+		  <li>AG_BodyPartArm</li>
+		  <li>AG_BodyPartArms</li>
+		  <li>BodyPartShoulder</li>
+		  <li>AG_BodyPartShoulder</li>
+		  <li>BodyPartShoulders</li>
+		  <li>AG_BodyPartShoulders</li>
+		</exclusionTags>
 	  </value>
 	</Operation>
 

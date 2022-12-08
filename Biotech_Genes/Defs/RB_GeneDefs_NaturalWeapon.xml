@@ -140,7 +140,7 @@
 
   <!-- Upgrades -->
 
-  <GeneDef Name="WVC_NaturalWeapon_Arms" Abstract="True">
+  <GeneDef Name="WVC_NaturalWeapon_Claws" Abstract="True">
 	<description>Carriers of this gene have...</description>
 	<displayOrderInCategory>20</displayOrderInCategory>
 	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
@@ -149,6 +149,21 @@
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>-1</biostatMet>
+	<symbolPack>
+		<wholeNameSymbols>
+			<li><symbol>claws</symbol></li>
+		</wholeNameSymbols>
+		<prefixSymbols>
+			<li><symbol>claw</symbol></li>
+			<li><symbol>sharp</symbol></li>
+			<li><symbol>predator</symbol></li>
+		</prefixSymbols>
+		<suffixSymbols>
+			<li><symbol>claw</symbol></li>
+			<li><symbol>sharp</symbol></li>
+			<li><symbol>predator</symbol></li>
+		</suffixSymbols>
+	</symbolPack>
 	<exclusionTags>
 	  <li>BodyPartHands</li>
 	  <li>BodyPartHand</li>
@@ -167,7 +182,7 @@
 
   <!-- Upgrades -->
 
-  <GeneDef ParentName="WVC_NaturalWeapon_Arms">
+  <GeneDef ParentName="WVC_NaturalWeapon_Claws">
 	<defName>WVC_MecaBodyParts_Claws</defName>
 	<label>mecha-claws</label> 
 	<description>Carriers of this gene have foldable claws that serve as natural weapons.</description>
@@ -198,7 +213,7 @@
 	</modExtensions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_NaturalWeapon_Arms">
+  <GeneDef ParentName="WVC_NaturalWeapon_Claws">
 	<defName>WVC_NaturalBodyParts_Claws</defName>
 	<label>claws</label> 
 	<description>Carriers of this gene grow very sharp claws that serve as natural weapons.</description>
