@@ -1,82 +1,130 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <!-- <GeneDef ParentName="GeneSkinColorOverride"> -->
+  <GeneDef ParentName="GeneSkinColorOverride" Name="WVC_GeneSkinColorOverride" Abstract="True">
+	<description>Carriers of this gene have a unique skin color.</description>
+	<displayOrderInCategory>1200</displayOrderInCategory>
+	<randomBrightnessFactor>0</randomBrightnessFactor>
+	<selectionWeight>0.0</selectionWeight>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- <GeneDef ParentName="WVC_GeneSkinColorOverride"> -->
 	<!-- <defName>WVC_Skin_NodeColor</defName> -->
 	<!-- <label>node machine skin</label> -->
-	<!-- <labelShortAdj>noir</labelShortAdj> -->
-	<!-- <description>Carriers of this gene produce a pigment that turns their skin into a color similar to node machines.</description> -->
-	<!-- <randomBrightnessFactor>0</randomBrightnessFactor> -->
 	<!-- <skinColorOverride>(79, 80, 81)</skinColorOverride> -->
-	<!-- <displayOrderInCategory>200</displayOrderInCategory> -->
-	<!-- <symbolPack> -->
-	  <!-- <prefixSymbols> -->
-		<!-- <li><symbol>node</symbol></li> -->
-		<!-- <li><symbol>dark</symbol></li> -->
-		<!-- <li><symbol>night</symbol></li> -->
-		<!-- <li><symbol>pitch</symbol></li> -->
-		<!-- <li><symbol>shadow</symbol></li> -->
-		<!-- <li><symbol>raven</symbol></li> -->
-		<!-- <li><symbol>jet</symbol></li> -->
-	  <!-- </prefixSymbols> -->
-	  <!-- <suffixSymbols> -->
-		<!-- <li><symbol>shadow</symbol></li> -->
-		<!-- <li><symbol>raven</symbol></li> -->
-		<!-- <li><symbol>jet</symbol></li> -->
-	  <!-- </suffixSymbols> -->
-	<!-- </symbolPack> -->
   <!-- </GeneDef> -->
-
-  <!-- <GeneDef ParentName="GeneSkinColorOverride"> -->
+  <!-- <GeneDef ParentName="WVC_GeneSkinColorOverride"> -->
 	<!-- <defName>WVC_Skin_AncientMechColor</defName> -->
 	<!-- <label>ancient mechanoid skin</label> -->
-	<!-- <labelShortAdj>noir</labelShortAdj> -->
-	<!-- <description>Carriers of this gene produce a pigment that turns their skin into a color similar to ancient mechanoids.</description> -->
-	<!-- <randomBrightnessFactor>0</randomBrightnessFactor> -->
 	<!-- <skinColorOverride>(79, 80, 81)</skinColorOverride> -->
-	<!-- <displayOrderInCategory>200</displayOrderInCategory> -->
-	<!-- <symbolPack> -->
-	  <!-- <prefixSymbols> -->
-		<!-- <li><symbol>node</symbol></li> -->
-		<!-- <li><symbol>dark</symbol></li> -->
-		<!-- <li><symbol>night</symbol></li> -->
-		<!-- <li><symbol>pitch</symbol></li> -->
-		<!-- <li><symbol>shadow</symbol></li> -->
-		<!-- <li><symbol>raven</symbol></li> -->
-		<!-- <li><symbol>jet</symbol></li> -->
-	  <!-- </prefixSymbols> -->
-	  <!-- <suffixSymbols> -->
-		<!-- <li><symbol>shadow</symbol></li> -->
-		<!-- <li><symbol>raven</symbol></li> -->
-		<!-- <li><symbol>jet</symbol></li> -->
-	  <!-- </suffixSymbols> -->
-	<!-- </symbolPack> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_GeneSkinColorOverride"> -->
+	<!-- <defName>WVC_Skin_BranchMechColor</defName> -->
+	<!-- <label>mec</label> -->
+	<!-- <skinColorOverride>(79, 80, 81)</skinColorOverride> -->
   <!-- </GeneDef> -->
 
-  <!-- <GeneDef ParentName="GeneSkinColorOverride"> -->
-	<!-- <defName>WVC_Skin_BranchMechColor</defName> -->
-	<!-- <label>branch mechanoid skin</label> -->
-	<!-- <labelShortAdj>noir</labelShortAdj> -->
-	<!-- <description>Carriers of this gene produce a pigment that turns their skin into a color similar to node machines.</description> -->
-	<!-- <randomBrightnessFactor>0</randomBrightnessFactor> -->
-	<!-- <skinColorOverride>(79, 80, 81)</skinColorOverride> -->
-	<!-- <displayOrderInCategory>200</displayOrderInCategory> -->
-	<!-- <symbolPack> -->
-	  <!-- <prefixSymbols> -->
-		<!-- <li><symbol>node</symbol></li> -->
-		<!-- <li><symbol>dark</symbol></li> -->
-		<!-- <li><symbol>night</symbol></li> -->
-		<!-- <li><symbol>pitch</symbol></li> -->
-		<!-- <li><symbol>shadow</symbol></li> -->
-		<!-- <li><symbol>raven</symbol></li> -->
-		<!-- <li><symbol>jet</symbol></li> -->
-	  <!-- </prefixSymbols> -->
-	  <!-- <suffixSymbols> -->
-		<!-- <li><symbol>shadow</symbol></li> -->
-		<!-- <li><symbol>raven</symbol></li> -->
-		<!-- <li><symbol>jet</symbol></li> -->
-	  <!-- </suffixSymbols> -->
-	<!-- </symbolPack> -->
-  <!-- </GeneDef> -->
+  <GeneDef ParentName="WVC_GeneSkinColorOverride">
+	<defName>WVC_SkinColor_b4c8ff_HEX</defName>
+	<label>bright blue skin</label>
+	<skinColorOverride>(180, 200, 255)</skinColorOverride>
+  </GeneDef>
+  <GeneDef ParentName="WVC_GeneSkinColorOverride">
+	<defName>WVC_SkinColor_c8b4ff_HEX</defName>
+	<label>bright purple skin</label>
+	<skinColorOverride>(200, 180, 255)</skinColorOverride>
+  </GeneDef>
+  <GeneDef ParentName="WVC_GeneSkinColorOverride">
+	<defName>WVC_SkinColor_c8ffb4_HEX</defName>
+	<label>bright green skin</label>
+	<skinColorOverride>(200, 255, 180)</skinColorOverride>
+  </GeneDef>
+  <GeneDef ParentName="WVC_GeneSkinColorOverride">
+	<defName>WVC_SkinColor_ffb4b4_HEX</defName>
+	<label>bright red skin</label>
+	<skinColorOverride>(255, 180, 180)</skinColorOverride>
+  </GeneDef>
+  <GeneDef ParentName="WVC_GeneSkinColorOverride">
+	<defName>WVC_SkinColor_fffab4_HEX</defName>
+	<label>bright yellow skin</label>
+	<skinColorOverride>(255, 250, 180)</skinColorOverride>
+  </GeneDef>
+  <GeneDef ParentName="WVC_GeneSkinColorOverride">
+	<defName>WVC_SkinColor_b4fff0_HEX</defName>
+	<label>bright cian skin</label>
+	<skinColorOverride>(180, 255, 240)</skinColorOverride>
+  </GeneDef>
+  <GeneDef ParentName="WVC_GeneSkinColorOverride">
+	<defName>WVC_SkinColor_ffdcb4_HEX</defName>
+	<label>bright orange skin</label>
+	<skinColorOverride>(255, 220, 180)</skinColorOverride>
+  </GeneDef>
+  <GeneDef ParentName="WVC_GeneSkinColorOverride">
+	<defName>WVC_SkinColor_ffb4dc_HEX</defName>
+	<label>bright pink skin</label>
+	<skinColorOverride>(255, 180, 220)</skinColorOverride>
+  </GeneDef>
+
+  <!-- ======================================================== -->
+
+  <GeneDef ParentName="GeneHairColorBase" Name="WVC_GeneHairColorBase" Abstract="True">
+	<!-- <description>Carriers of this gene have a unique skin color.</description> -->
+	<displayOrderInCategory>1200</displayOrderInCategory>
+	<randomBrightnessFactor>0</randomBrightnessFactor>
+	<selectionWeight>0.0</selectionWeight>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_GeneHairColorBase">
+	<defName>WVC_HairColor_b4c8ff_HEX</defName>
+	<label>bright blue skin</label>
+	<hairColorOverride>(180, 200, 255)</hairColorOverride>
+  </GeneDef>
+  <GeneDef ParentName="WVC_GeneHairColorBase">
+	<defName>WVC_HairColor_c8b4ff_HEX</defName>
+	<label>bright purple skin</label>
+	<hairColorOverride>(200, 180, 255)</hairColorOverride>
+  </GeneDef>
+  <GeneDef ParentName="WVC_GeneHairColorBase">
+	<defName>WVC_HairColor_c8ffb4_HEX</defName>
+	<label>bright green skin</label>
+	<hairColorOverride>(200, 255, 180)</hairColorOverride>
+  </GeneDef>
+  <GeneDef ParentName="WVC_GeneHairColorBase">
+	<defName>WVC_HairColor_ffb4b4_HEX</defName>
+	<label>bright red skin</label>
+	<hairColorOverride>(255, 180, 180)</hairColorOverride>
+  </GeneDef>
+  <GeneDef ParentName="WVC_GeneHairColorBase">
+	<defName>WVC_HairColor_fffab4_HEX</defName>
+	<label>bright yellow skin</label>
+	<hairColorOverride>(255, 250, 180)</hairColorOverride>
+  </GeneDef>
+  <GeneDef ParentName="WVC_GeneHairColorBase">
+	<defName>WVC_HairColor_b4fff0_HEX</defName>
+	<label>bright cian skin</label>
+	<hairColorOverride>(180, 255, 240)</hairColorOverride>
+  </GeneDef>
+  <GeneDef ParentName="WVC_GeneHairColorBase">
+	<defName>WVC_HairColor_ffdcb4_HEX</defName>
+	<label>bright orange skin</label>
+	<hairColorOverride>(255, 220, 180)</hairColorOverride>
+  </GeneDef>
+  <GeneDef ParentName="WVC_GeneHairColorBase">
+	<defName>WVC_HairColor_ffb4dc_HEX</defName>
+	<label>bright pink skin</label>
+	<hairColorOverride>(255, 180, 220)</hairColorOverride>
+  </GeneDef>
 
 </Defs>
