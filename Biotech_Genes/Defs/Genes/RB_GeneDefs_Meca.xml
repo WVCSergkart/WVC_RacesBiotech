@@ -353,6 +353,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	</customEffectDescriptions>
 	<statFactors>
 	  <MentalBreakThreshold>0.8</MentalBreakThreshold>
+	  <GlobalLearningFactor>0.2</GlobalLearningFactor>
 	  <!-- <BondAnimalChanceFactor>0</BondAnimalChanceFactor> -->
 	  <!-- <SocialImpact>0.1</SocialImpact> -->
 	</statFactors>

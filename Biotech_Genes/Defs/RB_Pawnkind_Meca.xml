@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <PawnKindDef Name="WVC_MecaBase" Abstract="True">
-	<label>meca</label>
+  <PawnKindDef Name="WVC_RB_XenoBase" Abstract="True">
 	<race>Human</race>
-	<xenotypeSet>
-	  <xenotypeChances>
-		<WVC_Meca>999</WVC_Meca>
-	  </xenotypeChances>
-	</xenotypeSet>
 	<useFactionXenotypes>false</useFactionXenotypes>
 	<combatPower>100</combatPower>
 	<backstoryCryptosleepCommonality>0.8</backstoryCryptosleepCommonality>
@@ -45,13 +39,39 @@
 	</disallowedTraits>
   </PawnKindDef>
 
-  <PawnKindDef ParentName="WVC_MecaBase">
+  <!-- ================================================ -->
+
+  <PawnKindDef ParentName="WVC_RB_XenoBase">
+	<label>meca</label>
 	<defName>WVC_Meca_Player</defName>
 	<weaponMoney>0</weaponMoney>
 	<apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
 	<apparelColor>(58,58,58)</apparelColor>
 	<defaultFactionType>PlayerColony</defaultFactionType>
-	<apparelMoney>50~120</apparelMoney>
+	<apparelMoney>80~120</apparelMoney>
+	<xenotypeSet>
+	  <xenotypeChances>
+		<WVC_Meca>999</WVC_Meca>
+	  </xenotypeChances>
+	</xenotypeSet>
+	<apparelTags>
+	  <li>IndustrialBasic</li>
+	</apparelTags>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="WVC_RB_XenoBase">
+	<label>blank</label>
+	<defName>WVC_Blank_Player</defName>
+	<weaponMoney>0</weaponMoney>
+	<apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+	<apparelColor>(58,58,58)</apparelColor>
+	<defaultFactionType>PlayerColony</defaultFactionType>
+	<apparelMoney>80~120</apparelMoney>
+	<xenotypeSet>
+	  <xenotypeChances>
+		<WVC_Blank>999</WVC_Blank>
+	  </xenotypeChances>
+	</xenotypeSet>
 	<apparelTags>
 	  <li>IndustrialBasic</li>
 	</apparelTags>

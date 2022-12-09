@@ -15,7 +15,7 @@
   <!-- blank -->
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Meca">
 	<defName>WVC_Blank</defName>
-	<label>blank (Beta)</label>
+	<label>blank</label>
 	<description>Blank - both for the artist his canvas, and for the mad scientist his "dummy". The purpose of their existence has always been the same - to be the canvas on which the masterpiece will be embodied.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; Representatives of this xenotype are suitable only to be experimental subjects. Or pets.</description>
 	<descriptionShort>Blank - both for the artist his canvas, and for the mad scientist his "dummy". The purpose of their existence has always been the same - to be the canvas on which the masterpiece will be embodied.</descriptionShort>
 	<iconPath>WVC/UI/Xeno2Icons/Xeno10</iconPath>
@@ -53,9 +53,9 @@
   <!-- Meca -->
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Meca">
 	<defName>WVC_Meca</defName>
-	<label>meca (Beta)</label>
-	<description>An unknown xenotype sometimes found in the vastness of the rimworld.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; The xenotype is still not finished. There is no description, a couple of visual solutions and balancing has not yet been completed. But in general, the xenotype is playable.</description>
-	<descriptionShort>An unknown xenotype sometimes found in the vastness of the rimworld.</descriptionShort>
+	<label>meca</label>
+	<description>Meca are a type of archotech-enhanced xenohuman. Powered by archites, their abilities go far beyond normal genetic enhancements. They have natural mechanitor abilities and significant bonuses to intelligence and crafting. They do not age and are very hard to kill, and they also have good defense. Meca can make new meca with the gestator ability.\n\nMeca are poor fighters and are practically untrainable as diplomats or farmers. Any new skills are given to them with great difficulty. They don't need sleep, but they need a lot of food.\n\nThe exact origin of meca is not known, at some point years ago they began to appear in all glitter worlds. Despite their mechanoid appearance, they have no direct connection to these machines, although they have limited control over them.\n\nThe exact origin of meca is not known, at some point years ago they began to appear in some glitter worlds. Up to a certain age, meca are no different from baseliners in appearance, except for snow-white skin and hair. However, in worlds with a dense abundance of xenotypes, no one will pay attention to such a trifle until the age of their complete mechanoidization. Despite their mechanoid appearance, they have no direct connection to these machines, although they have limited control over them.\n\nMost meca have a direct genetic link to blanks, which are something of a human pet and ideal specimens for experimentation. Representatives called blank are very often placed in an environment close to baseliner where they live most of their lives, in order to subsequently become victims of various experiments.</description>
+	<descriptionShort>Meca are ageless, deathless mecha-humans powered by archotech-created archites in the bloodstream. They are beautiful and extremely intelligent. They do not suffer from disease or poison. In combat, they can use their deadly scythe tail. The price is that they are very poorly trained and practically cannot master new skills.</descriptionShort>
 	<iconPath>WVC/UI/Xeno2Icons/Xeno12</iconPath>
 	<inheritable>false</inheritable>
 	<doubleXenotypeChances>
@@ -92,7 +92,7 @@
 		<li>WVC_MecaBodyParts_Leg</li>
 		<li>ToxResist_Total</li>
 		<!-- <li>FireResistant</li> -->
-		<!-- <li>Neversleep</li> -->
+		<li>Neversleep</li>
 		<!-- <li>Robust</li> -->
 		<li>Body_Standard</li>
 		<li>Hair_SnowWhite</li>

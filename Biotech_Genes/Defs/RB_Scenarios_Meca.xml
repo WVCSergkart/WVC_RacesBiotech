@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ScenarioDef>
+	<defName>WVC_RB_Blank</defName>
+	<label>Long running joke</label>
+	<description>All your life you have had a strange, eerie feeling that someone is watching you from the shadows. Each of your actions seemed to be a point in some prepared scenario. And the icing on the cake was the fact that your health was deteriorating very quickly. And then when there was almost no hope left, people who were hiding in the shadows came for you and promised to cure all your ailments.\n\nWhen the experiment was over, you were placed in a cryopod, which is the last thing you remember before the drop pod hits the ground.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; Blank cannot learn skills. You have been warned.</description>
+	<scenario>
+	  <summary>One crashlanded blank with no supplies. &lt;color=#ee2a23&gt;Unreal&lt;/color&gt; difficulty.</summary>
+	  <playerFaction>
+		<def>PlayerFaction</def>
+		<factionDef>PlayerColony</factionDef>
+	  </playerFaction>
+	  <parts>
+
+		<!-- Config pages -->
+		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_Xenotypes">
+		  <def>ConfigurePawnsXenotypes</def>
+		  <pawnChoiceCount>8</pawnChoiceCount>
+		  <customSummary>Start with one adult blank with no supplies.</customSummary>
+		  <overrideKinds>
+			<li>
+			  <xenotype>WVC_Blank</xenotype>
+			  <pawnKind>WVC_Blank_Player</pawnKind>
+			</li>
+		  </overrideKinds>
+		  <xenotypeCounts>
+			<li>
+			  <xenotype>WVC_Blank</xenotype>
+			  <count>1</count>
+			  <description>non-child blank</description>
+			  <requiredAtStart>true</requiredAtStart>
+			  <allowedDevelopmentalStages>Adult</allowedDevelopmentalStages>
+			</li>
+		  </xenotypeCounts>
+		</li>
+
+		<!-- Player starting stuff spawn method-->
+		<li Class="ScenPart_PlayerPawnsArriveMethod">
+		  <def>PlayerPawnsArriveMethod</def>
+		  <visible>false</visible>
+		  <method>DropPods</method>
+		</li>
+
+		<!-- Game start dialog -->
+		<li Class="ScenPart_GameStartDialog">
+		  <def>GameStartDialog</def>
+		  <text>All your life you have had a strange, eerie feeling that someone is watching you from the shadows. Each of your actions seemed to be a point in some prepared scenario. And the icing on the cake was the fact that your health was deteriorating very quickly. And then when there was almost no hope left, people who were hiding in the shadows came for you and promised to cure all your ailments.\n\nWhen the experiment was over, you were placed in a cryopod, which is the last thing you remember before the drop pod hits the ground.</text>
+		  <closeSound>GameStartSting</closeSound>
+		</li>
+
+	  </parts>
+	</scenario>
+  </ScenarioDef>
+
+  <ScenarioDef>
+	<defName>WVC_RB_Meca</defName>
+	<label>The Meca</label>
+	<description>All your life you have had a strange, eerie feeling that someone is watching you from the shadows. Each of your actions seemed to be a point in some prepared scenario. And the icing on the cake was the fact that your health was deteriorating very quickly. And then when there was almost no hope left, people who were hiding in the shadows came for you and promised to cure all your ailments.\n\nWhen the experiment was over, you were placed in a cryopod, which is the last thing you remember before the drop pod hits the ground.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; The main disadvantage of meca is the learning speed, they are very slow to learn new skills, and also have a serious debuff on farming and social skills. However, they have a significant boost in intelligence and crafting.</description>
+	<scenario>
+	  <summary>One crashlanded meca with no supplies. &lt;color=#a1ff95&gt;Easy-medium&lt;/color&gt; difficulty.</summary>
+	  <playerFaction>
+		<def>PlayerFaction</def>
+		<factionDef>PlayerColony</factionDef>
+	  </playerFaction>
+	  <parts>
+
+		<!-- Config pages -->
+		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_Xenotypes">
+		  <def>ConfigurePawnsXenotypes</def>
+		  <pawnChoiceCount>8</pawnChoiceCount>
+		  <customSummary>Start with one adult meca with no supplies.</customSummary>
+		  <overrideKinds>
+			<li>
+			  <xenotype>WVC_Meca</xenotype>
+			  <pawnKind>WVC_Meca_Player</pawnKind>
+			</li>
+		  </overrideKinds>
+		  <xenotypeCounts>
+			<li>
+			  <xenotype>WVC_Meca</xenotype>
+			  <count>1</count>
+			  <description>non-child meca</description>
+			  <requiredAtStart>true</requiredAtStart>
+			  <allowedDevelopmentalStages>Adult</allowedDevelopmentalStages>
+			</li>
+		  </xenotypeCounts>
+		</li>
+
+		<!-- Player starting stuff spawn method-->
+		<li Class="ScenPart_PlayerPawnsArriveMethod">
+		  <def>PlayerPawnsArriveMethod</def>
+		  <visible>false</visible>
+		  <method>DropPods</method>
+		</li>
+
+		<!-- Game start dialog -->
+		<li Class="ScenPart_GameStartDialog">
+		  <def>GameStartDialog</def>
+		  <text>All your life you have had a strange, eerie feeling that someone is watching you from the shadows. Each of your actions seemed to be a point in some prepared scenario. And the icing on the cake was the fact that your health was deteriorating very quickly. And then when there was almost no hope left, people who were hiding in the shadows came for you and promised to cure all your ailments.\n\nWhen the experiment was over, you were placed in a cryopod, which is the last thing you remember before the drop pod hits the ground.</text>
+		  <closeSound>GameStartSting</closeSound>
+		</li>
+
+		<!-- Starting research -->
+		<li Class="ScenPart_StartingResearch">
+		  <def>StartingResearch</def>
+		  <project>MicroelectronicsBasics</project>
+		</li>
+		<li Class="ScenPart_StartingResearch">
+		  <def>StartingResearch</def>
+		  <project>BasicMechtech</project>
+		</li>
+		<li Class="ScenPart_StartingResearch">
+		  <def>StartingResearch</def>
+		  <project>Batteries</project>
+		</li>
+
+	  </parts>
+	</scenario>
+  </ScenarioDef>
+
+</Defs>
