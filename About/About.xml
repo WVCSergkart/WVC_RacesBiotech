@@ -7,7 +7,7 @@
 		<li>1.4</li>
 	</supportedVersions>
 	<packageId>wvc.sergkart.races.biotech</packageId>
-	<description>Semi-mechanic races separated from my other mod. Biotech version.</description>
+	<description>Mod adds xenotypes and genes.</description>
 	<modDependencies>
 		<li>
 			<packageId>Ludeon.RimWorld.Biotech</packageId>
@@ -18,11 +18,6 @@
 			<displayName>Vanilla Expanded Framework</displayName>
 			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=1854607105</steamWorkshopUrl>
 		</li>
-		<!-- <li> -->
-			<!-- <packageId>wvc.sergkart.core</packageId> -->
-			<!-- <displayName>WVC - Core</displayName> -->
-			<!-- <steamWorkshopUrl>steam://url/CommunityFilePage/2875630809</steamWorkshopUrl> -->
-		<!-- </li> -->
 	</modDependencies>
 	<loadAfter>
 		<li>Ludeon.RimWorld</li>
