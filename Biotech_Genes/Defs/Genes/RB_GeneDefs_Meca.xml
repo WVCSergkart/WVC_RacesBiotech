@@ -1193,7 +1193,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<customEffectDescriptions>
 		<!-- <li>No bleeding.</li> -->
 		<li>Bleeding wounds close very quickly.</li>
-		<li>Changes blood into machine bits.</li>
+		<li>Changes blood filth into machine bits.</li>
 	</customEffectDescriptions>
 	<!-- <makeImmuneTo> -->
 	  <!-- <li>BloodLoss</li> -->
@@ -1255,20 +1255,6 @@ Most of the internal organs remain intact, but there are enough external changes
 		<offset>0.2</offset>
 	  </li>
 	</capMods>
-	<exclusionTags>
-	</exclusionTags>
-	<modExtensions>
-		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
-			<!-- <hediffsToBodyParts> -->
-				<!-- <li> -->
-					<!-- <hediff>WVC_RB_MecaStomach</hediff> -->
-					<!-- <bodyparts> -->
-						<!-- <li>Stomach</li> -->
-					<!-- </bodyparts> -->
-				<!-- </li> -->
-			<!-- </hediffsToBodyParts> -->
-		<!-- </li> -->
-	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
