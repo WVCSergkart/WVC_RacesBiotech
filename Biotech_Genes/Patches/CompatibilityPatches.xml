@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
 
+	<Operation Class="VFECore.PatchOperationToggableSequence">
+		<enabled>False</enabled>
+		<label>(WVC) Disable mechaskin graphic</label>
+		<operations>
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin"]/forcedHeadTypes</xpath>
+				<success>Always</success>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin"]/graphicData</xpath>
+				<success>Always</success>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin"]/modExtensions/li/furHidesBody</xpath>
+				<success>Always</success>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin"]/modExtensions/li/useSkinColorForFur</xpath>
+				<success>Always</success>
+			</li>
+		</operations>
+	</Operation>
+
 	<Operation Class="PatchOperationFindMod">
 		<mods>
 			<li>Beauty Matters</li>

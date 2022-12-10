@@ -152,7 +152,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	</symbolPack>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
-			<!-- <furHidesBody>True</furHidesBody> -->
+			<furHidesBody>True</furHidesBody>
 			<useSkinColorForFur>True</useSkinColorForFur>
 			<customWoundsFromFleshtype>Mechanoid</customWoundsFromFleshtype>
 			<customBloodEffect>Damage_HitMechanoid</customBloodEffect>
@@ -1187,7 +1187,7 @@ Most of the internal organs remain intact, but there are enough external changes
 
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
 	<defName>WVC_MecaBodyParts_Heart</defName>
-	<label>no bleeding</label>
+	<label>mecha-clotting</label>
 	<geneClass>Gene_Clotting</geneClass>
 	<biostatMet>-2</biostatMet>
 	<customEffectDescriptions>
