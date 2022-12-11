@@ -434,6 +434,12 @@ Most of the internal organs remain intact, but there are enough external changes
 		<skill>Intellectual</skill>
 		<modType>AddOneLevel</modType>
 	</passionMod>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<noSkillLoss>Intellectual</noSkillLoss>
+			<skillRecreation>Intellectual</skillRecreation>
+		</li>
+	</modExtensions>
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_FirmwareBase">
@@ -471,6 +477,12 @@ Most of the internal organs remain intact, but there are enough external changes
 		<skill>Shooting</skill>
 		<modType>AddOneLevel</modType>
 	</passionMod>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<noSkillLoss>Shooting</noSkillLoss>
+			<skillRecreation>Shooting</skillRecreation>
+		</li>
+	</modExtensions>
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_FirmwareBase">
@@ -508,6 +520,12 @@ Most of the internal organs remain intact, but there are enough external changes
 		<skill>Plants</skill>
 		<modType>AddOneLevel</modType>
 	</passionMod>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<noSkillLoss>Plants</noSkillLoss>
+			<skillRecreation>Plants</skillRecreation>
+		</li>
+	</modExtensions>
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_FirmwareBase">
@@ -545,6 +563,12 @@ Most of the internal organs remain intact, but there are enough external changes
 		<skill>Melee</skill>
 		<modType>AddOneLevel</modType>
 	</passionMod>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<noSkillLoss>Melee</noSkillLoss>
+			<skillRecreation>Melee</skillRecreation>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- Soft -->

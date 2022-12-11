@@ -313,6 +313,9 @@
 	<iconPath>WVC/UI/Genes/AgeDebuff_Handless</iconPath>
 	<displayCategory>WVC_AgeDebuffs</displayCategory>
 	<displayOrderInCategory>10</displayOrderInCategory>
+	<selectionWeight>0</selectionWeight>
+	<randomChosen>false</randomChosen>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>6</biostatMet>
 	<minAgeActive>13</minAgeActive>

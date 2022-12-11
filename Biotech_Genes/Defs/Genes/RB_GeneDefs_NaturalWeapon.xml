@@ -64,7 +64,7 @@
 	<defName>WVC_RB_MechaClaws</defName>
 	<label>mecha-claw</label>
 	<description>Deadly sharp claws.</description>
-	<hediffClass>Hediff_AddedPart</hediffClass>
+	<!-- <hediffClass>Hediff_AddedPart</hediffClass> -->
 	<addedPartProps>
 	  <solid>true</solid>
 	  <partEfficiency>1.0</partEfficiency>
@@ -103,7 +103,7 @@
 	<defName>WVC_RB_NaturalClaws</defName>
 	<label>claw</label>
 	<description>Deadly sharp claws. Not very suitable for fine work.</description>
-	<hediffClass>Hediff_AddedPart</hediffClass>
+	<!-- <hediffClass>Hediff_AddedPart</hediffClass> -->
 	<addedPartProps>
 	  <solid>true</solid>
 	  <partEfficiency>0.80</partEfficiency>
@@ -191,6 +191,7 @@
 	<prerequisite>WVC_MechaSkin</prerequisite>
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
 	<displayCategory>WVC_MechaBody</displayCategory>
+	<selectionWeight>0</selectionWeight>
 	<displayOrderInCategory>21</displayOrderInCategory>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>0</biostatArc>
