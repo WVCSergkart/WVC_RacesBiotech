@@ -49,6 +49,17 @@
 		  <closeSound>GameStartSting</closeSound>
 		</li>
 
+		<li Class="ScenPart_StartingThing_Defined">
+		  <def>StartingThing_Defined</def>
+		  <thingDef>Wastepack</thingDef>
+		  <count>15</count>
+		</li>
+		<li Class="ScenPart_ScatterThingsAnywhere">
+		  <def>ScatterThingsAnywhere</def>
+		  <thingDef>Wastepack</thingDef>
+		  <count>50</count>
+		</li>
+
 	  </parts>
 	</scenario>
   </ScenarioDef>
@@ -113,6 +124,17 @@
 		<li Class="ScenPart_StartingResearch">
 		  <def>StartingResearch</def>
 		  <project>Batteries</project>
+		</li>
+
+		<li Class="ScenPart_StartingThing_Defined">
+		  <def>StartingThing_Defined</def>
+		  <thingDef>Wastepack</thingDef>
+		  <count>15</count>
+		</li>
+		<li Class="ScenPart_ScatterThingsAnywhere">
+		  <def>ScatterThingsAnywhere</def>
+		  <thingDef>Wastepack</thingDef>
+		  <count>150</count>
 		</li>
 
 	  </parts>
