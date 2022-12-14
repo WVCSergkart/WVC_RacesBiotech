@@ -20,13 +20,45 @@
 	  </li>
 	  <li>
 		<!-- <label>same as me</label> -->
-		<label>mechaskin vs mechaskin</label>
+		<label>mechaskin modder vs mechaskin</label>
 		<baseOpinionOffset>20</baseOpinionOffset>
 	  </li>
 	  <li>
 		<!-- <label>disgusting creature</label> -->
 		<label>body purist vs mechaskin</label>
 		<baseOpinionOffset>-10</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_MechaSkin_FriendOrFoe</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC.ThoughtWorker_MechaSkin_FriendOrFoe</workerClass>
+	<validWhileDespawned>true</validWhileDespawned>
+	<requiredGenes>
+	  <li>WVC_MechaAI_SoftwareFriendOrFoe</li>
+	</requiredGenes>
+	<stages>
+	  <li>
+		<label>friend or foe</label>
+		<baseOpinionOffset>10</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_MechaSkin_NaturalEnemy</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC.ThoughtWorker_MechaSkin_NaturalEnemy</workerClass>
+	<validWhileDespawned>true</validWhileDespawned>
+	<requiredGenes>
+	  <li>WVC_MechaAI_SoftwareNaturalEnemy</li>
+	</requiredGenes>
+	<stages>
+	  <li>
+		<label>natural enemy</label>
+		<baseOpinionOffset>-100</baseOpinionOffset>
 	  </li>
 	</stages>
   </ThoughtDef>

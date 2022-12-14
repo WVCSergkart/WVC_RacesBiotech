@@ -640,6 +640,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<iconColor>(230, 255, 150)</iconColor>
 	<customEffectDescriptions>
 		<li>Ancient mechanoids do not attack a pawn, even if a pawn attacks them.</li>
+		<li>Increases the opinion of pawns with the same gene by 10.</li>
 	</customEffectDescriptions>
 	<forcedTraits>
 	  <li>
@@ -673,6 +674,9 @@ Most of the internal organs remain intact, but there are enough external changes
 		<offset>0.2</offset>
 	  </li>
 	</capMods>
+	<exclusionTags>
+	  <li>WVC_MechaAI_SoftwareDisableTalking</li>
+	</exclusionTags>
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
@@ -734,6 +738,20 @@ Most of the internal organs remain intact, but there are enough external changes
 	</capMods>
 	<exclusionTags>
 	  <li>WVC_MechaAI_SoftwareDisableTalking</li>
+	</exclusionTags>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+	<defName>WVC_MechaAI_SoftwareNaturalEnemy</defName>
+	<label>natural enemy</label>
+	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareDown</iconPath>
+	<iconColor>(150, 70, 150)</iconColor>
+	<!-- <biostatMet>3</biostatMet> -->
+	<customEffectDescriptions>
+		<li>Decreases the pawn's opinion of everyone who does not have the same gene by 100.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_MechaAI_SoftwareFriendOrFoe</li>
 	</exclusionTags>
   </GeneDef>
 
