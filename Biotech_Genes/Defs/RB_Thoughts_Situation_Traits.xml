@@ -50,4 +50,175 @@
 	<!-- </stages> -->
   <!-- </ThoughtDef> -->
 
+  <!-- ========================================================== -->
+
+  <ThoughtDef Name="WVC_PreferredGenderThoughtBase" Abstract="True">
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<validWhileDespawned>true</validWhileDespawned>
+  </ThoughtDef>
+  <GeneDef ParentName="WVC_PreferredGenderThoughtBase" Name="WVC_PreferredGenderThoughtFemale" Abstract="True">
+	<workerClass>WVC.ThoughtWorker_GenderFemale</workerClass>
+  </GeneDef>
+  <GeneDef ParentName="WVC_PreferredGenderThoughtBase" Name="WVC_PreferredGenderThoughtMale" Abstract="True">
+	<workerClass>WVC.ThoughtWorker_GenderMale</workerClass>
+  </GeneDef>
+
+  <!-- ========================================================== -->
+
+  <ThoughtDef ParentName="WVC_PreferredGenderThoughtMale">
+	<defName>WVC_PreferredGenderGenes_MaleOpinionPlus10c</defName>
+	<requiredGenes>
+	  <li>WVC_PreferredGender_MalePreferably</li>
+	</requiredGenes>
+	<stages>
+	  <li>
+		<label>preferred gender gene (male)</label>
+		<baseOpinionOffset>10</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+  <ThoughtDef ParentName="WVC_PreferredGenderThoughtMale">
+	<defName>WVC_PreferredGenderGenes_MaleOpinionPlus25c</defName>
+	<requiredGenes>
+	  <li>WVC_PreferredGender_MaleDesirable</li>
+	</requiredGenes>
+	<stages>
+	  <li>
+		<label>preferred gender gene (male)</label>
+		<baseOpinionOffset>25</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+  <ThoughtDef ParentName="WVC_PreferredGenderThoughtMale">
+	<defName>WVC_PreferredGenderGenes_MaleOpinionPlus50c</defName>
+	<requiredGenes>
+	  <li>WVC_PreferredGender_MaleBest</li>
+	</requiredGenes>
+	<stages>
+	  <li>
+		<label>preferred gender gene (male)</label>
+		<baseOpinionOffset>50</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <!-- ============== -->
+
+  <ThoughtDef ParentName="WVC_PreferredGenderThoughtFemale">
+	<defName>WVC_PreferredGenderGenes_FemaleOpinionMinus10c</defName>
+	<requiredGenes>
+	  <li>WVC_PreferredGender_MalePreferably</li>
+	</requiredGenes>
+	<stages>
+	  <li>
+		<label>preferred gender gene (male)</label>
+		<baseOpinionOffset>-10</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+  <ThoughtDef ParentName="WVC_PreferredGenderThoughtFemale">
+	<defName>WVC_PreferredGenderGenes_FemaleOpinionMinus25c</defName>
+	<requiredGenes>
+	  <li>WVC_PreferredGender_MaleDesirable</li>
+	</requiredGenes>
+	<stages>
+	  <li>
+		<label>preferred gender gene (male)</label>
+		<baseOpinionOffset>-25</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+  <ThoughtDef ParentName="WVC_PreferredGenderThoughtFemale">
+	<defName>WVC_PreferredGenderGenes_FemaleOpinionMinus50c</defName>
+	<requiredGenes>
+	  <li>WVC_PreferredGender_MaleBest</li>
+	</requiredGenes>
+	<stages>
+	  <li>
+		<label>preferred gender gene (male)</label>
+		<baseOpinionOffset>-50</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <!-- ======================================== -->
+
+  <ThoughtDef ParentName="WVC_PreferredGenderThoughtFemale">
+	<defName>WVC_PreferredGenderGenes_FemaleOpinionPlus10c</defName>
+	<requiredGenes>
+	  <li>WVC_PreferredGender_FemalePreferably</li>
+	</requiredGenes>
+	<stages>
+	  <li>
+		<label>preferred gender gene (female)</label>
+		<baseOpinionOffset>10</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+  <ThoughtDef ParentName="WVC_PreferredGenderThoughtFemale">
+	<defName>WVC_PreferredGenderGenes_FemaleOpinionPlus25c</defName>
+	<requiredGenes>
+	  <li>WVC_PreferredGender_FemaleDesirable</li>
+	</requiredGenes>
+	<stages>
+	  <li>
+		<label>preferred gender gene (female)</label>
+		<baseOpinionOffset>25</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+  <ThoughtDef ParentName="WVC_PreferredGenderThoughtFemale">
+	<defName>WVC_PreferredGenderGenes_FemaleOpinionPlus50c</defName>
+	<requiredGenes>
+	  <li>WVC_PreferredGender_FemaleBest</li>
+	</requiredGenes>
+	<stages>
+	  <li>
+		<label>preferred gender gene (female)</label>
+		<baseOpinionOffset>50</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <!-- ============== -->
+
+  <ThoughtDef ParentName="WVC_PreferredGenderThoughtMale">
+	<defName>WVC_PreferredGenderGenes_MaleOpinionMinus10c</defName>
+	<requiredGenes>
+	  <li>WVC_PreferredGender_FemalePreferably</li>
+	</requiredGenes>
+	<stages>
+	  <li>
+		<label>preferred gender gene (female)</label>
+		<baseOpinionOffset>-10</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+  <ThoughtDef ParentName="WVC_PreferredGenderThoughtMale">
+	<defName>WVC_PreferredGenderGenes_MaleOpinionMinus25c</defName>
+	<requiredGenes>
+	  <li>WVC_PreferredGender_FemaleDesirable</li>
+	</requiredGenes>
+	<stages>
+	  <li>
+		<label>preferred gender gene (female)</label>
+		<baseOpinionOffset>-25</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+  <ThoughtDef ParentName="WVC_PreferredGenderThoughtMale">
+	<defName>WVC_PreferredGenderGenes_MaleOpinionMinus50c</defName>
+	<requiredGenes>
+	  <li>WVC_PreferredGender_FemaleBest</li>
+	</requiredGenes>
+	<stages>
+	  <li>
+		<label>preferred gender gene (female)</label>
+		<baseOpinionOffset>-50</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <!-- ========================================================== -->
+
 </Defs>
