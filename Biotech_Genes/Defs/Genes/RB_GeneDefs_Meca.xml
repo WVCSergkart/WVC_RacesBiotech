@@ -358,6 +358,9 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <!-- <SocialImpact>0.1</SocialImpact> -->
 	</statFactors>
 	<exclusionTags>
+	  <li>VRE_Curiosity</li>
+	  <li>Curiosity</li>
+	  <!-- = -->
 	  <li>Aggressive</li>
 	  <li>KillThirst</li>
 	  <li>Mood</li>

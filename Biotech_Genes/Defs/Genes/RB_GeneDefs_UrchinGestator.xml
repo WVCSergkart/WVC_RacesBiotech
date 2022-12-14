@@ -351,7 +351,7 @@
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<biostatArc>0</biostatArc>
-	<displayOrderInCategory>554</displayOrderInCategory>
+	<displayOrderInCategory>553</displayOrderInCategory>
 	<iconPath>WVC/UI/Genes/RomanceChance</iconPath>
 	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
 	<symbolPack>
@@ -416,6 +416,7 @@
 	<label>dull taste</label>
 	<description>This gene completely neutralizes the effects of pheromones or encoding, making the carrier of the gene less picky.</description>
 	<missingGeneRomanceChanceFactor>1</missingGeneRomanceChanceFactor>
+	<displayOrderInCategory>554</displayOrderInCategory>
 	<iconColor>(175, 175, 175)</iconColor>
 	<biostatCpx>2</biostatCpx>
 	<exclusionTags>

@@ -77,7 +77,7 @@
 	</Operation>
 
 	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
-	  <xpath>/Defs/ThoughtDef[defName="Expectations"]</xpath>
+	  <xpath>/Defs/ThoughtDef[defName="Expectations" or defName="PsychicDrone"]</xpath>
 	  <success>Always</success>
 	  <safetyDepth>1</safetyDepth>
 	  <value>
@@ -86,6 +86,17 @@
 		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaAI_FirmwareGreenMachine</li>
 		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaAI_FirmwareWarMachine</li>
 		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaAI_FirmwareRogueMachine</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
+	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="Sick"]</xpath>
+	  <success>Always</success>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MecaBodyParts_Liver</li>
 		</nullifyingGenes>
 	  </value>
 	</Operation>
