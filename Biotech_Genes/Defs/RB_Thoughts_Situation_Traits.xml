@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThoughtDef>
+	<defName>WVC_MechaSkin_TranshumanistVSBodyPurist</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC.ThoughtWorker_MechaSkin_TranshumanistVSBodyPurist</workerClass>
+	<validWhileDespawned>true</validWhileDespawned>
+	<!-- <requiredTraits> -->
+	  <!-- <li>Transhumanist</li> -->
+	<!-- </requiredTraits> -->
+	<!-- <requiredGenes> -->
+	  <!-- <li>WVC_MechaSkin</li> -->
+	<!-- </requiredGenes> -->
+	<stages>
+	  <li>
+		<!-- <label>perfect being</label> -->
+		<label>body modder vs mechaskin</label>
+		<baseOpinionOffset>10</baseOpinionOffset>
+	  </li>
+	  <li>
+		<!-- <label>same as me</label> -->
+		<label>mechaskin vs mechaskin</label>
+		<baseOpinionOffset>20</baseOpinionOffset>
+	  </li>
+	  <li>
+		<!-- <label>disgusting creature</label> -->
+		<label>body purist vs mechaskin</label>
+		<baseOpinionOffset>-10</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <!-- <ThoughtDef> -->
+	<!-- <defName>WVC_TranshumanistVSMechanoidLike</defName> -->
+	<!-- <thoughtClass>Thought_SituationalSocial</thoughtClass> -->
+	<!-- <workerClass>WVC.ThoughtWorker_SameAsMe_MechaSkin</workerClass> -->
+	<!-- <validWhileDespawned>true</validWhileDespawned> -->
+	<!-- <requiredTraits> -->
+	  <!-- <li>Transhumanist</li> -->
+	<!-- </requiredTraits> -->
+	<!-- <nullifyingGenes> -->
+	  <!-- <li>WVC_MechaSkin</li> -->
+	<!-- </nullifyingGenes> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <label>perfect being</label> -->
+		<!-- <baseOpinionOffset>40</baseOpinionOffset> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+  <!-- </ThoughtDef> -->
+
+</Defs>

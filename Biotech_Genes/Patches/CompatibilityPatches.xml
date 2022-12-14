@@ -92,4 +92,26 @@
 		<!-- </value> -->
 	<!-- </Operation> -->
 
+	<!-- <Operation Class="PatchOperationSequence"> -->
+	  <!-- <success>Always</success> -->
+	  <!-- <operations> -->
+		<!-- <li Class="PatchOperationReplace"> -->
+		  <!-- <xpath>/Defs/ThoughtDef[defName="TranshumanistAppreciation"]/nullifyingGenes</xpath> -->
+		  <!-- <success>Invert</success> -->
+		  <!-- <value> -->
+			  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaSkin</li> -->
+		  <!-- </value> -->
+		<!-- </li> -->
+		<!-- <li Class="PatchOperationAdd"> -->
+		  <!-- <xpath>/Defs/ThoughtDef[defName="TranshumanistAppreciation"]</xpath> -->
+		  <!-- <success>Always</success> -->
+		  <!-- <value> -->
+			<!-- <nullifyingGenes> -->
+			  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaSkin</li> -->
+			<!-- </nullifyingGenes> -->
+		  <!-- </value> -->
+		<!-- </li> -->
+	  <!-- </operations> -->
+	<!-- </Operation> -->
+
 </Patch>
