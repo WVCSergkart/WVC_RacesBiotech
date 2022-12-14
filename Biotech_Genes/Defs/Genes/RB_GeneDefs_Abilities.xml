@@ -141,6 +141,8 @@
 		<li>Fertility</li>
 		<li>Egglaying</li>
 		<li>AG_Egglaying</li>
+		<li>AG_Gestation</li>
+		<li>AG_Fertility</li>
 	</exclusionTags>
 	<abilities>
 	  <li>WVC_StartGestation</li>
@@ -150,13 +152,17 @@
 	</descriptionHyperlinks>
 	<symbolPack>
 	  <prefixSymbols>
-		<li><symbol>ressur</symbol></li>
-		<li><symbol>ressu</symbol></li>
-		<li><symbol>ress</symbol></li>
+		<li><symbol>gesta</symbol></li>
+		<li><symbol>gest</symbol></li>
+		<li><symbol>ges</symbol></li>
+		<li><symbol>mech</symbol></li>
 	  </prefixSymbols>
 	  <suffixSymbols>
-		<li><symbol>ect</symbol></li>
-		<li><symbol>ct</symbol></li>
+		<li><symbol>gesta</symbol></li>
+		<li><symbol>gest</symbol></li>
+		<li><symbol>ges</symbol></li>
+		<li><symbol>tor</symbol></li>
+		<li><symbol>or</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
   </GeneDef>

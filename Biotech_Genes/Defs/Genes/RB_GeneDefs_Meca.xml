@@ -1273,11 +1273,15 @@ Most of the internal organs remain intact, but there are enough external changes
 	<defName>WVC_MecaBodyParts_Stomach</defName>
 	<label>mechabolism</label>
 	<foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
-	<overdoseChanceFactor>0</overdoseChanceFactor>
-	<toleranceBuildupFactor>0</toleranceBuildupFactor>
-	<addictionChanceFactor>0</addictionChanceFactor>
+	<!-- <overdoseChanceFactor>0</overdoseChanceFactor> -->
+	<!-- <toleranceBuildupFactor>0</toleranceBuildupFactor> -->
+	<!-- <addictionChanceFactor>0</addictionChanceFactor> -->
 	<dontMindRawFood>true</dontMindRawFood>
 	<biostatMet>2</biostatMet>
+	<exclusionTags>
+	  <li>AG_StrongStomachAndWeakStomach</li>
+	  <!-- <li>AG_RobustDigestionAndWeakStomach</li> -->
+	</exclusionTags>
 	<capMods>
 	  <li>
 		<capacity>Metabolism</capacity>
@@ -1309,6 +1313,10 @@ Most of the internal organs remain intact, but there are enough external changes
 	<customEffectDescriptions>
 		<li>Completely stops the progression of diseases.</li>
 	</customEffectDescriptions>
+	<exclusionTags>
+	  <!-- <li>Immunity</li> -->
+	  <li>WVC_DiseaseProgression</li>
+	</exclusionTags>
 	<statOffsets>
 	  <ImmunityGainSpeed>1</ImmunityGainSpeed>
 	</statOffsets>

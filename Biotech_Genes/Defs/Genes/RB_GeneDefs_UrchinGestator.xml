@@ -179,6 +179,8 @@
 		<li>Fertility</li>
 		<li>Egglaying</li>
 		<li>AG_Egglaying</li>
+		<li>AG_Gestation</li>
+		<li>AG_Fertility</li>
 	</exclusionTags>
 	<symbolPack>
 	  <prefixSymbols>
