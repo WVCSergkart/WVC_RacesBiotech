@@ -1223,6 +1223,8 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <!-- <li>BloodLoss</li> -->
 	<!-- </makeImmuneTo> -->
 	<exclusionTags>
+	  <li>AG_Bleeding</li>
+	  <li>Bleeding</li>
 	  <li>AG_BloodType</li>
 	  <li>BloodType</li>
 	  <li>Blood</li>
