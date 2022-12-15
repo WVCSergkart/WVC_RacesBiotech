@@ -68,23 +68,23 @@ This parameter is affected only by mecha-genes.</description>
 	<stages>
 	  <li>
 		<label>slightly mechanoidized</label>
-		<baseOpinionOffset>-5</baseOpinionOffset>
+		<baseOpinionOffset>-2</baseOpinionOffset>
 	  </li>
 	  <li>
 		<label>medium mechanoidized</label>
-		<baseOpinionOffset>-10</baseOpinionOffset>
+		<baseOpinionOffset>-5</baseOpinionOffset>
 	  </li>
 	  <li>
 		<label>heavily mechanoidized</label>
-		<baseOpinionOffset>-20</baseOpinionOffset>
+		<baseOpinionOffset>-8</baseOpinionOffset>
+	  </li>
+	  <li>
+		<label>extreme mechanoidized</label>
+		<baseOpinionOffset>-12</baseOpinionOffset>
 	  </li>
 	  <li>
 		<label>mechanoid-like</label>
-		<baseOpinionOffset>-30</baseOpinionOffset>
-	  </li>
-	  <li>
-		<label>mechanoid</label>
-		<baseOpinionOffset>-40</baseOpinionOffset>
+		<baseOpinionOffset>-20</baseOpinionOffset>
 	  </li>
 	</stages>
   </ThoughtDef>
