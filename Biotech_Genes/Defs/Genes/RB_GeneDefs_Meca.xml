@@ -289,6 +289,55 @@ Most of the internal organs remain intact, but there are enough external changes
 	</symbolPack>
   </GeneDef>
 
+  <GeneDef ParentName="WVC_Mechanoidization_PowerSourceBase">
+	<defName>WVC_MechaPowerSource_Tox</defName>
+	<label>tox power source</label> 
+	<iconPath>WVC/UI/Genes/PowerSource_Tox</iconPath>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>21</biostatMet>
+	<customEffectDescriptions>
+		<li>Grants an additional 5 metabolism points.</li>
+		<li>Spawns 5 wastepacks every 5 days.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>tox</symbol></li>
+		<li><symbol>toxic</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>tox</symbol></li>
+		<li><symbol>ox</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<hediffToWholeBody>WVC_MechaPowerSource_ToxProduction</hediffToWholeBody>
+		</li>
+	</modExtensions>
+  </GeneDef>
+  <HediffDef>
+	<defName>WVC_MechaPowerSource_ToxProduction</defName>
+	<label>tox generator</label>
+	<description>The tox generator provides the mechanites with energy, but leaves behind toxic waste.</description>
+	<hediffClass>HediffWithComps</hediffClass>
+	<defaultLabelColor>(255,255,255)</defaultLabelColor>
+	<scenarioCanAdd>false</scenarioCanAdd>
+	<everCurableByItem>false</everCurableByItem>
+	<makesAlert>false</makesAlert>
+	<maxSeverity>1.0</maxSeverity>
+	<isBad>false</isBad>
+	<comps>
+		<li Class="AnimalBehaviours.HediffCompProperties_Spawner">
+			<thingToSpawn>Wastepack</thingToSpawn>
+			<spawnCount>5</spawnCount>
+			<spawnIntervalRange>240000~300000</spawnIntervalRange>
+			<spawnForbidden>false</spawnForbidden>
+			<showMessageIfOwned>false</showMessageIfOwned>
+		</li>
+	</comps>
+  </HediffDef>
+
   <!-- Buffs -->
 
   <GeneDef ParentName="WVC_MechanoidizationBase">

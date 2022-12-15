@@ -12,11 +12,11 @@
   <GeneDef Name="WVC_FurskinBase" Abstract="True">
 	<description>TEST</description>
 	<displayCategory>WVC_FurskinBody</displayCategory>
-	<selectionWeight>0</selectionWeight>
-	<marketValueFactor>1.2</marketValueFactor>
+	<selectionWeight>0.5</selectionWeight>
+	<marketValueFactor>1.0</marketValueFactor>
 	<!-- <minAgeActive>13</minAgeActive> -->
 	<randomChosen>false</randomChosen>
-	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<!-- <canGenerateInGeneSet>false</canGenerateInGeneSet> -->
 	<displayOrderInCategory>20</displayOrderInCategory>
 	<prerequisite>Furskin</prerequisite>
 	<iconPath>WVC/UI/Genes/FurBall</iconPath>
@@ -59,6 +59,23 @@
 	  </prefixSymbols>
 	  <suffixSymbols>
 		<li><symbol>warm</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_FurskinBase">
+	<defName>WVC_Furskin_AttractiveFur</defName>
+	<label>attractive fur</label>
+	<description>Carriers of this gene have coats that draw attention to themselves.</description>
+	<biostatMet>0</biostatMet>
+	<iconColor>(160, 255, 160)</iconColor>
+	<missingGeneRomanceChanceFactor>2</missingGeneRomanceChanceFactor>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>attra</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>ctive</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
   </GeneDef>
@@ -183,6 +200,20 @@
 	<exclusionTags>
 	  <li>WVC_Furskin_Wildness</li>
 	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>wild</symbol></li>
+		<li><symbol>animal</symbol></li>
+		<li><symbol>hunt</symbol></li>
+		<li><symbol>predat</symbol></li>
+		<li><symbol>pred</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>or</symbol></li>
+		<li><symbol>dator</symbol></li>
+		<li><symbol>wild</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
   </GeneDef>
 
   <GeneDef ParentName="WVC_FurskinWildness">
@@ -190,6 +221,7 @@
 	<label>slightly wild</label>
 	<biostatMet>2</biostatMet>
 	<iconColor>(255, 220, 220)</iconColor>
+	<missingGeneRomanceChanceFactor>1</missingGeneRomanceChanceFactor>
 	<statFactors>
 	  <MentalBreakThreshold>1.1</MentalBreakThreshold>
 	  <BondAnimalChanceFactor>1.1</BondAnimalChanceFactor>
@@ -205,6 +237,7 @@
 	<biostatMet>4</biostatMet>
 	<displayOrderInCategory>36</displayOrderInCategory>
 	<iconColor>(255, 180, 180)</iconColor>
+	<missingGeneRomanceChanceFactor>0.8</missingGeneRomanceChanceFactor>
 	<statFactors>
 	  <MentalBreakThreshold>1.2</MentalBreakThreshold>
 	  <BondAnimalChanceFactor>1.2</BondAnimalChanceFactor>
@@ -217,6 +250,7 @@
 	<biostatMet>6</biostatMet>
 	<displayOrderInCategory>37</displayOrderInCategory>
 	<iconColor>(255, 150, 150)</iconColor>
+	<missingGeneRomanceChanceFactor>0.6</missingGeneRomanceChanceFactor>
 	<statFactors>
 	  <MentalBreakThreshold>1.3</MentalBreakThreshold>
 	  <BondAnimalChanceFactor>1.5</BondAnimalChanceFactor>
@@ -229,6 +263,7 @@
 	<biostatMet>8</biostatMet>
 	<displayOrderInCategory>38</displayOrderInCategory>
 	<iconColor>(255, 120, 120)</iconColor>
+	<missingGeneRomanceChanceFactor>0.4</missingGeneRomanceChanceFactor>
 	<statFactors>
 	  <MentalBreakThreshold>1.5</MentalBreakThreshold>
 	  <BondAnimalChanceFactor>2</BondAnimalChanceFactor>
@@ -248,6 +283,14 @@
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>Adds the corresponding body part. The body part is considered artificial.</li> -->
 	<!-- </customEffectDescriptions> -->
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>ani</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>mal</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
   </GeneDef>
 
   <GeneDef ParentName="WVC_FurskinInstincts">
@@ -268,6 +311,56 @@
 	<exclusionTags>
 	  <li>WVC_NaturalHunter</li>
 	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>hunter</symbol></li>
+		<li><symbol>hunt</symbol></li>
+		<li><symbol>predat</symbol></li>
+		<li><symbol>pred</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>or</symbol></li>
+		<li><symbol>dator</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_FurskinInstincts">
+	<defName>WVC_FurskinInstincts_PredatorSense</defName>
+	<label>predator sense</label>
+	<description>Carriers of this gene have an excellent sense of smell.</description>
+	<biostatMet>-1</biostatMet>
+	<iconColor>(150, 230, 255)</iconColor>
+	<statOffsets>
+	  <PawnTrapSpringChance>-0.50</PawnTrapSpringChance>
+	  <FoodPoisonChance>-0.50</FoodPoisonChance>
+	</statOffsets>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_FurskinInstincts">
+	<defName>WVC_FurskinInstincts_KeenEye</defName>
+	<label>keen eye</label>
+	<description>Carriers of this gene are very attentive.</description>
+	<biostatMet>-1</biostatMet>
+	<iconColor>(200, 255, 200)</iconColor>
+	<statOffsets>
+	  <ShootingAccuracyPawn>0.2</ShootingAccuracyPawn>
+	  <AimingDelayFactor>-0.1</AimingDelayFactor>
+	</statOffsets>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_FurskinInstincts">
+	<defName>WVC_FurskinInstincts_Restlessness</defName>
+	<label>restlessness</label>
+	<description>Carriers of this gene concentrate poorly and are constantly distracted by something.</description>
+	<biostatMet>-1</biostatMet>
+	<iconColor>(255, 230, 255)</iconColor>
+	<statOffsets>
+	  <MoveSpeed>4</MoveSpeed>
+	</statOffsets>
+	<statFactors>
+	  <WorkSpeedGlobal>0.3</WorkSpeedGlobal>
+	</statFactors>
   </GeneDef>
   
 </Defs>
