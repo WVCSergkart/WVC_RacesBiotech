@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneCategoryDef>
+	<defName>WVC_FurskinBody</defName>
+	<label>furskin</label>
+	<displayPriorityInXenotype>925</displayPriorityInXenotype>
+  </GeneCategoryDef>
+
+  <!-- ================================================================== -->
+
+  <GeneDef Name="WVC_FurskinBase" Abstract="True">
+	<description>TEST</description>
+	<displayCategory>WVC_FurskinBody</displayCategory>
+	<selectionWeight>0</selectionWeight>
+	<marketValueFactor>1.2</marketValueFactor>
+	<!-- <minAgeActive>13</minAgeActive> -->
+	<randomChosen>false</randomChosen>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<displayOrderInCategory>20</displayOrderInCategory>
+	<prerequisite>Furskin</prerequisite>
+	<iconPath>WVC/UI/Genes/FurBall</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<biostatArc>0</biostatArc>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ==================================== -->
+
+  <GeneDef ParentName="WVC_FurskinBase">
+	<defName>WVC_Furskin_WarmFur</defName>
+	<label>warm fur</label>
+	<description>Carriers of this gene have very warm coats.</description>
+	<biostatMet>-2</biostatMet>
+	<iconColor>(255, 180, 160)</iconColor>
+	<conditionalStatAffecters>
+	  <li Class="ConditionalStatAffecter_Clothed">
+		<statOffsets>
+			<ComfyTemperatureMax>-8</ComfyTemperatureMax>
+			<ComfyTemperatureMin>-28</ComfyTemperatureMin>
+		</statOffsets>
+	  </li>
+	  <li Class="ConditionalStatAffecter_Unclothed">
+		<statOffsets>
+			<ComfyTemperatureMin>-20</ComfyTemperatureMin>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>warm</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>warm</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- ==================================== -->
+
+  <GeneDef ParentName="WVC_FurskinBase">
+	<defName>WVC_Furskin_CoarseFur</defName>
+	<label>coarse fur</label>
+	<description>Carriers of this gene have a very hard coat that serves as natural armor.</description>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-3</biostatMet>
+	<displayOrderInCategory>21</displayOrderInCategory>
+	<iconColor>(190, 220, 255)</iconColor>
+	<conditionalStatAffecters>
+	  <li Class="ConditionalStatAffecter_Clothed">
+		<statOffsets>
+		  <ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+		  <ArmorRating_Sharp>0.25</ArmorRating_Sharp>
+		</statOffsets>
+	  </li>
+	  <li Class="ConditionalStatAffecter_Unclothed">
+		<statOffsets>
+		  <ArmorRating_Blunt>0.10</ArmorRating_Blunt>
+		  <ArmorRating_Sharp>0.10</ArmorRating_Sharp>
+		  <!-- <ArmorRating_Heat>0.5</ArmorRating_Heat> -->
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
+	<exclusionTags>
+	  <li>WVC_Furskin_Fluffy</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>coarse</symbol></li>
+		<li><symbol>coar</symbol></li>
+		<li><symbol>co</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>rse</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+  <GeneDef ParentName="WVC_FurskinBase">
+	<defName>WVC_Furskin_FluffyFur</defName>
+	<label>fluffy fur</label>
+	<description>Carriers of this gene have a very soft, fluffy and neat coat.</description>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-3</biostatMet>
+	<displayOrderInCategory>21</displayOrderInCategory>
+	<iconColor>(255, 190, 250)</iconColor>
+	<statOffsets>
+	  <PawnBeauty>2</PawnBeauty>
+	</statOffsets>
+	<exclusionTags>
+	  <li>WVC_Furskin_Fluffy</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>fluffy</symbol></li>
+		<li><symbol>fluf</symbol></li>
+		<li><symbol>flu</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>puff</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- ==================================== -->
+
+  <GeneDef ParentName="WVC_FurskinBase">
+	<defName>WVC_FurskinInstincts_Base</defName>
+	<label>instincts</label>
+	<description>Carriers of this gene have natural animal-like instincts that help them.</description>
+	<iconPath>WVC/UI/Genes/FurInstinctsBase</iconPath>
+	<iconColor>(184, 198, 203)</iconColor>
+	<displayOrderInCategory>25</displayOrderInCategory>
+	<prerequisite>Furskin</prerequisite>
+	<aptitudes>
+	  <Animals>4</Animals>
+	</aptitudes>
+	<capMods>
+	  <li>
+		<capacity>Manipulation</capacity>
+		<offset>0.1</offset>
+	  </li>
+	  <li>
+		<capacity>Eating</capacity>
+		<offset>0.2</offset>
+	  </li>
+	</capMods>
+	<biostatCpx>4</biostatCpx>
+	<biostatMet>-2</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>wild</symbol></li>
+		<li><symbol>wil</symbol></li>
+		<li><symbol>wi</symbol></li>
+		<li><symbol>anim</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>mal</symbol></li>
+		<li><symbol>mmal</symbol></li>
+		<li><symbol>al</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <!-- <li>WVC_Furskin_Instincts</li> -->
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- Wild -->
+
+  <GeneDef Name="WVC_FurskinWildness" ParentName="WVC_FurskinBase" Abstract="True">
+	<description>Carriers of this gene are very close to the animal world.</description>
+	<displayOrderInCategory>35</displayOrderInCategory>
+	<iconColor>(255, 255, 255)</iconColor>
+	<iconPath>WVC/UI/Genes/FurInstincts</iconPath>
+	<prerequisite>WVC_FurskinInstincts_Base</prerequisite>
+	<biostatCpx>2</biostatCpx>
+	<exclusionTags>
+	  <li>WVC_Furskin_Wildness</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_FurskinWildness">
+	<defName>WVC_FurskinInstincts_LightWildness</defName>
+	<label>slightly wild</label>
+	<biostatMet>2</biostatMet>
+	<iconColor>(255, 220, 220)</iconColor>
+	<statFactors>
+	  <MentalBreakThreshold>1.1</MentalBreakThreshold>
+	  <BondAnimalChanceFactor>1.1</BondAnimalChanceFactor>
+	  <SocialImpact>0.8</SocialImpact>
+	</statFactors>
+	<exclusionTags>
+	  <li>WVC_Furskin_Wildness</li>
+	</exclusionTags>
+  </GeneDef>
+  <GeneDef ParentName="WVC_FurskinWildness">
+	<defName>WVC_FurskinInstincts_MediumWildness</defName>
+	<label>medium wild</label>
+	<biostatMet>4</biostatMet>
+	<displayOrderInCategory>36</displayOrderInCategory>
+	<iconColor>(255, 180, 180)</iconColor>
+	<statFactors>
+	  <MentalBreakThreshold>1.2</MentalBreakThreshold>
+	  <BondAnimalChanceFactor>1.2</BondAnimalChanceFactor>
+	  <SocialImpact>0.6</SocialImpact>
+	</statFactors>
+  </GeneDef>
+  <GeneDef ParentName="WVC_FurskinWildness">
+	<defName>WVC_FurskinInstincts_HighWildness</defName>
+	<label>very wild</label>
+	<biostatMet>6</biostatMet>
+	<displayOrderInCategory>37</displayOrderInCategory>
+	<iconColor>(255, 150, 150)</iconColor>
+	<statFactors>
+	  <MentalBreakThreshold>1.3</MentalBreakThreshold>
+	  <BondAnimalChanceFactor>1.5</BondAnimalChanceFactor>
+	  <SocialImpact>0.4</SocialImpact>
+	</statFactors>
+  </GeneDef>
+  <GeneDef ParentName="WVC_FurskinWildness">
+	<defName>WVC_FurskinInstincts_ExtremeWildness</defName>
+	<label>animal-like wild</label>
+	<biostatMet>8</biostatMet>
+	<displayOrderInCategory>38</displayOrderInCategory>
+	<iconColor>(255, 120, 120)</iconColor>
+	<statFactors>
+	  <MentalBreakThreshold>1.5</MentalBreakThreshold>
+	  <BondAnimalChanceFactor>2</BondAnimalChanceFactor>
+	  <SocialImpact>0.2</SocialImpact>
+	</statFactors>
+  </GeneDef>
+
+  <!-- Upgrades -->
+
+  <GeneDef Name="WVC_FurskinInstincts" ParentName="WVC_FurskinBase" Abstract="True">
+	<description>Carriers of this gene have natural animal instincts that help them.</description>
+	<displayOrderInCategory>50</displayOrderInCategory>
+	<iconColor>(255, 255, 255)</iconColor>
+	<iconPath>WVC/UI/Genes/FurInstincts</iconPath>
+	<prerequisite>WVC_FurskinInstincts_Base</prerequisite>
+	<biostatCpx>1</biostatCpx>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Adds the corresponding body part. The body part is considered artificial.</li> -->
+	<!-- </customEffectDescriptions> -->
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_FurskinInstincts">
+	<defName>WVC_FurskinInstincts_NightHunter</defName>
+	<label>night hunter</label>
+	<description>Carriers of this gene are excellent night hunters. They easily navigate in the dark and always know when the enemy is most vulnerable.</description>
+	<biostatMet>-1</biostatMet>
+	<iconColor>(200, 230, 255)</iconColor>
+	<conditionalStatAffecters>
+	  <li Class="VanillaGenesExpanded.ConditionalStatAffecter_NoSunlight">
+		<statOffsets>
+		  <MeleeHitChance>15</MeleeHitChance>
+		  <MeleeDodgeChance>5</MeleeDodgeChance>
+		  <HuntingStealth>1.0</HuntingStealth>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
+	<exclusionTags>
+	  <li>WVC_NaturalHunter</li>
+	</exclusionTags>
+  </GeneDef>
+  
+</Defs>

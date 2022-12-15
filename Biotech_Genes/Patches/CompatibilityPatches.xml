@@ -89,6 +89,41 @@
 		</match>
 	</Operation>
 
+	<!-- <Operation Class="PatchOperationSequence"> -->
+	  <!-- <success>Always</success> -->
+	  <!-- <operations> -->
+		<!-- <li Class="PatchOperationReplace"> -->
+		  <!-- <xpath>/Defs/GeneDef[defName="Furskin"]/displayCategory</xpath> -->
+		  <!-- <success>Invert</success> -->
+		  <!-- <value> -->
+			<!-- <displayCategory>WVC_FurskinBody</displayCategory> -->
+		  <!-- </value> -->
+		<!-- </li> -->
+		<!-- <li Class="PatchOperationAdd"> -->
+		  <!-- <xpath>/Defs/MechWorkModeDef[defName="Work"]</xpath> -->
+		  <!-- <success>Always</success> -->
+		  <!-- <value> -->
+			<!-- <uiOrder>100</uiOrder> -->
+		  <!-- </value> -->
+		<!-- </li> -->
+	  <!-- </operations> -->
+	<!-- </Operation> -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="Furskin"]/displayCategory</xpath>
+		<success>Always</success>
+		<value>
+			<displayCategory>WVC_FurskinBody</displayCategory>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/GeneDef[defName="Furskin"]/displayOrderInCategory</xpath>
+		<success>Always</success>
+		<value>
+			<displayOrderInCategory>-100</displayOrderInCategory>
+		</value>
+	</Operation>
+
 	<Operation Class="PatchOperationReplace">
 		<xpath>/Defs/StatDef[defName="MentalBreakThreshold"]/minValue</xpath>
 		<success>Always</success>

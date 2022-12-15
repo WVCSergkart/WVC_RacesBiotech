@@ -743,6 +743,9 @@ Most of the internal organs remain intact, but there are enough external changes
 	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareDown</iconPath>
 	<iconColor>(150, 70, 70)</iconColor>
 	<biostatMet>3</biostatMet>
+	<statOffsets>
+	  <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization>
+	</statOffsets>
 	<capMods>
 	  <li>
 		<capacity>Talking</capacity>
@@ -763,6 +766,9 @@ Most of the internal organs remain intact, but there are enough external changes
 	<customEffectDescriptions>
 		<li>Decreases the pawn's opinion of everyone who does not have the same gene by 100.</li>
 	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_PawnMechanoidization>5</WVC_PawnMechanoidization>
+	</statOffsets>
 	<exclusionTags>
 	  <li>WVC_MechaAI_SoftwareFriendOrFoe</li>
 	</exclusionTags>
@@ -924,6 +930,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	  </li>
 	</suppressedTraits>
 	<statOffsets>
+		<WVC_PawnMechanoidization>3</WVC_PawnMechanoidization>
 		<MechBandwidth>74</MechBandwidth>
 		<MechControlGroups>6</MechControlGroups>
 		<WorkSpeedGlobalOffsetMech>1.0</WorkSpeedGlobalOffsetMech>
@@ -962,7 +969,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<randomChosen>false</randomChosen>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<statOffsets>
-	  <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization>
+	  <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization>
 	</statOffsets>
 	<symbolPack>
 	  <wholeNameSymbols>
@@ -1256,6 +1263,9 @@ Most of the internal organs remain intact, but there are enough external changes
 		<li>Bleeding wounds close very quickly.</li>
 		<li>Changes blood filth into machine bits.</li>
 	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization>
+	</statOffsets>
 	<!-- <makeImmuneTo> -->
 	  <!-- <li>BloodLoss</li> -->
 	<!-- </makeImmuneTo> -->
