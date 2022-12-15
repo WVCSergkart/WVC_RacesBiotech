@@ -127,9 +127,18 @@
 	<biostatMet>-3</biostatMet>
 	<displayOrderInCategory>21</displayOrderInCategory>
 	<iconColor>(255, 190, 250)</iconColor>
-	<statOffsets>
-	  <PawnBeauty>2</PawnBeauty>
-	</statOffsets>
+	<conditionalStatAffecters>
+	  <li Class="ConditionalStatAffecter_Clothed">
+		<statOffsets>
+		  <PawnBeauty>0.5</PawnBeauty>
+		</statOffsets>
+	  </li>
+	  <li Class="ConditionalStatAffecter_Unclothed">
+		<statOffsets>
+		  <PawnBeauty>2</PawnBeauty>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
 	<exclusionTags>
 	  <li>WVC_Furskin_Fluffy</li>
 	</exclusionTags>
@@ -331,10 +340,10 @@
 	<description>Carriers of this gene have an excellent sense of smell.</description>
 	<biostatMet>-1</biostatMet>
 	<iconColor>(150, 230, 255)</iconColor>
-	<statOffsets>
-	  <PawnTrapSpringChance>-0.50</PawnTrapSpringChance>
-	  <FoodPoisonChance>-0.50</FoodPoisonChance>
-	</statOffsets>
+	<statFactors>
+	  <PawnTrapSpringChance>0.5</PawnTrapSpringChance>
+	  <FoodPoisonChance>0.5</FoodPoisonChance>
+	</statFactors>
   </GeneDef>
 
   <GeneDef ParentName="WVC_FurskinInstincts">
