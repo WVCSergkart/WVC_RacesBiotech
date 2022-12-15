@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <StatDef>
+	<defName>WVC_PawnMechanoidization</defName>
+	<label>genetic mechanoidization</label>
+	<description>Determines how far mechanoidization has gone. The higher the values, the worse non-mecha pawns treat the carrier of genes.
+
+Values below 5 have no effect and the pawn is treated as a human. All values above begin to lower the opinion of others. Mecha pawns do not have a lower opinion of each other. The mechanoidization opinion debuff stacks with implant and gene modification opinions.
+
+Transhumanists, body modders and mechanitors ignore mechanoidization. Body purists always have the most negative attitude towards mechanoidization. The blind also do not respond to mechanoidization.
+
+The "Natural enemy" gene always gives a high opinion debuff.
+The "Perfect shape" gene lowers the opinion debuff if mechanoidization is below 30 but above 20.
+
+The effect appears only at very low and higher expectations.
+
+This parameter is affected only by mecha-genes.</description>
+	<category>PawnSocial</category>
+	<defaultBaseValue>0</defaultBaseValue>
+	<hideAtValue>0</hideAtValue>
+	<minValue>0.0</minValue>
+	<maxValue>50</maxValue>
+	<showOnAnimals>false</showOnAnimals>
+	<showOnMechanoids>false</showOnMechanoids>
+	<!-- <showIfUndefined>false</showIfUndefined> -->
+	<!-- <showZeroBaseValue>false</showZeroBaseValue> -->
+	<!-- <showOnDefaultValue>false</showOnDefaultValue> -->
+	<scenarioRandomizable>false</scenarioRandomizable>
+	<forInformationOnly>true</forInformationOnly>
+	<alwaysHide>false</alwaysHide>
+	<toStringStyle>FloatOne</toStringStyle>
+	<displayPriorityInCategory>2000</displayPriorityInCategory>
+  </StatDef>
+
+  <ThoughtDef>
+	<defName>WVC_PawnMechanoidization_Social</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC.ThoughtWorker_PawnMechanoidizationVSHumanity</workerClass>
+	<validWhileDespawned>true</validWhileDespawned>
+	<nullifiedIfNotColonist>true</nullifiedIfNotColonist>
+	<minExpectation>VeryLow</minExpectation>
+	<!-- <replaceThoughts> -->
+	  <!-- <li>BodyPuristDisgust</li> -->
+	<!-- </replaceThoughts> -->
+	<!-- <requiredTraits> -->
+	  <!-- <li>Transhumanist</li> -->
+	<!-- </requiredTraits> -->
+	<!-- <requiredGenes> -->
+	  <!-- <li>WVC_MechaSkin</li> -->
+	<!-- </requiredGenes> -->
+	<!-- <nullifyingGenes> -->
+	  <!-- <li>WVC_MechaSkin</li> -->
+	<!-- </nullifyingGenes> -->
+	<nullifyingTraits>
+	  <li>Transhumanist</li>
+	  <li>Kind</li>
+	  <li>Ascetic</li>
+	  <li>TooSmart</li>
+	</nullifyingTraits>
+	<nullifyingHediffs>
+	  <li>MechlinkImplant</li>
+	</nullifyingHediffs>
+	<nullifyingPrecepts>
+	  <li MayRequire="Ludeon.RimWorld.Ideology">BodyMod_Approved</li>
+	  <li MayRequire="vanillaexpanded.vmemese">VME_Mechanoids_Exalted</li>
+	</nullifyingPrecepts>
+	<stages>
+	  <li>
+		<label>slightly mechanoidized</label>
+		<baseOpinionOffset>-5</baseOpinionOffset>
+	  </li>
+	  <li>
+		<label>medium mechanoidized</label>
+		<baseOpinionOffset>-10</baseOpinionOffset>
+	  </li>
+	  <li>
+		<label>heavily mechanoidized</label>
+		<baseOpinionOffset>-20</baseOpinionOffset>
+	  </li>
+	  <li>
+		<label>mechanoid-like</label>
+		<baseOpinionOffset>-30</baseOpinionOffset>
+	  </li>
+	  <li>
+		<label>mechanoid</label>
+		<baseOpinionOffset>-40</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+</Defs>

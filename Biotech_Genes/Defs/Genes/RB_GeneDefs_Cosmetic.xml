@@ -17,6 +17,9 @@
 	<biostatArc>0</biostatArc>
 	<biostatMet>-1</biostatMet>
 	<minAgeActive>13</minAgeActive>
+	<statOffsets>
+	  <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization>
+	</statOffsets>
 	<capMods>
 	  <li>
 		<capacity>Hearing</capacity>
@@ -112,6 +115,7 @@
 		<li>Adds a deadly tail attack.</li>
 	</customEffectDescriptions>
 	<statOffsets>
+	  <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization>
 	  <MeleeDamageFactor>0.15</MeleeDamageFactor>
 	</statOffsets>
 	<graphicData>

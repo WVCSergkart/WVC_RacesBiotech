@@ -197,6 +197,9 @@
 	<biostatArc>0</biostatArc>
 	<biostatMet>-2</biostatMet>
 	<minAgeActive>13</minAgeActive>
+	<statOffsets>
+	  <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization>
+	</statOffsets>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes>

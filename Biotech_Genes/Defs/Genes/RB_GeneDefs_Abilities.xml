@@ -10,6 +10,9 @@
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>-1</biostatMet>
+	<statOffsets>
+	  <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization>
+	</statOffsets>
   </GeneDef>
 
   <GeneDef ParentName="WVC_MechanoidizationAbilities">

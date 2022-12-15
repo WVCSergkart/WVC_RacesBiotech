@@ -53,6 +53,9 @@
 	<minAgeActive>13</minAgeActive>
 	<randomChosen>false</randomChosen>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<statOffsets>
+	  <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization>
+	</statOffsets>
   </GeneDef>
 
   <!-- Meca -->
@@ -113,6 +116,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <ArmorRating_Blunt>0.25</ArmorRating_Blunt>
 	  <ArmorRating_Sharp>0.25</ArmorRating_Sharp>
 	  <ArmorRating_Heat>0.5</ArmorRating_Heat>
+	  <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization>
 	</statOffsets>
 	<damageFactors>
 	  <Flame>0.8</Flame>
@@ -186,6 +190,9 @@ Most of the internal organs remain intact, but there are enough external changes
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>Compensates for the effect of mechaskin on metabolism.</li> -->
 	<!-- </customEffectDescriptions> -->
+	<statOffsets>
+	  <WVC_PawnMechanoidization>5</WVC_PawnMechanoidization>
+	</statOffsets>
 	<biostatCpx>-40</biostatCpx>
 	<biostatArc>-20</biostatArc>
 	<biostatMet>0</biostatMet>
@@ -207,6 +214,9 @@ Most of the internal organs remain intact, but there are enough external changes
 	<customEffectDescriptions>
 		<li>Compensates for the effect of mechaskin on metabolism.</li>
 	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization>
+	</statOffsets>
 	<exclusionTags>
 	  <li>WVC_MechaPowerSource</li>
 	</exclusionTags>
@@ -351,6 +361,9 @@ Most of the internal organs remain intact, but there are enough external changes
 	<customEffectDescriptions>
 		<li MayRequire="imranfish.xmlextensions">Expectations are always "sky-high" and cannot be higher or lower.</li>
 	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_PawnMechanoidization>3</WVC_PawnMechanoidization>
+	</statOffsets>
 	<statFactors>
 	  <MentalBreakThreshold>0.8</MentalBreakThreshold>
 	  <GlobalLearningFactor>0.2</GlobalLearningFactor>
@@ -948,6 +961,9 @@ Most of the internal organs remain intact, but there are enough external changes
 	<biostatCpx>1</biostatCpx>
 	<randomChosen>false</randomChosen>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<statOffsets>
+	  <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization>
+	</statOffsets>
 	<symbolPack>
 	  <wholeNameSymbols>
 		<li><symbol>mecha</symbol></li>

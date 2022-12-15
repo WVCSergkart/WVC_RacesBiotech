@@ -12,6 +12,9 @@
 	<!-- <requiredGenes> -->
 	  <!-- <li>WVC_MechaSkin</li> -->
 	<!-- </requiredGenes> -->
+	<!-- <nullifyingGenes> -->
+	  <!-- <li>WVC_MechaSkin</li> -->
+	<!-- </nullifyingGenes> -->
 	<stages>
 	  <li>
 		<!-- <label>perfect being</label> -->

@@ -3,7 +3,7 @@
 
 	<Operation Class="VFECore.PatchOperationToggableSequence">
 		<enabled>False</enabled>
-		<label>(WVC) Disable mechaskin graphic</label>
+		<label>(WVC - Genes) Disable mechaskin graphic</label>
 		<operations>
 			<li Class="PatchOperationRemove">
 				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin"]/forcedHeadTypes</xpath>
@@ -20,6 +20,24 @@
 			<li Class="PatchOperationRemove">
 				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin"]/modExtensions/li/useSkinColorForFur</xpath>
 				<success>Always</success>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="VFECore.PatchOperationToggableSequence">
+		<enabled>False</enabled>
+		<label>(WVC - Genes) Disable mechanoidization mechanic</label>
+		<operations>
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/GeneDef/statOffsets/WVC_PawnMechanoidization</xpath>
+				<success>Always</success>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/StatDef[defName="WVC_PawnMechanoidization"]/alwaysHide</xpath>
+				<success>Always</success>
+				<value>
+					<alwaysHide>true</alwaysHide>
+				</value>
 			</li>
 		</operations>
 	</Operation>
