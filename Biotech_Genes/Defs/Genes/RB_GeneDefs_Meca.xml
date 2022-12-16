@@ -476,6 +476,11 @@ Most of the internal organs remain intact, but there are enough external changes
 		<def>Transhumanist</def>
 	  </li>
 	</forcedTraits>
+	<statFactors>
+	  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.2</ConversionPower>
+	  <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">1.2</SocialIdeoSpreadFrequencyFactor>
+	  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">0.8</CertaintyLossFactor>
+	</statFactors>
 	<aptitudes>
 	  <!-- -22 -->
 	  <!-- creator 42 -->
@@ -519,6 +524,11 @@ Most of the internal organs remain intact, but there are enough external changes
 		<def>Bloodlust</def>
 	  </li>
 	</forcedTraits>
+	<statFactors>
+	  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">1.5</ConversionPower>
+	  <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">0.4</SocialIdeoSpreadFrequencyFactor>
+	  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">1.0</CertaintyLossFactor>
+	</statFactors>
 	<aptitudes>
 	  <!-- -22 -->
 	  <!-- creator -42 -->
@@ -562,6 +572,11 @@ Most of the internal organs remain intact, but there are enough external changes
 		<def>QuickSleeper</def>
 	  </li>
 	</forcedTraits>
+	<statFactors>
+	  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.8</ConversionPower>
+	  <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">0.6</SocialIdeoSpreadFrequencyFactor>
+	  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">1.2</CertaintyLossFactor>
+	</statFactors>
 	<aptitudes>
 	  <!-- -22 -->
 	  <!-- creator -48 -->
@@ -605,6 +620,11 @@ Most of the internal organs remain intact, but there are enough external changes
 		<def>Psychopath</def>
 	  </li>
 	</forcedTraits>
+	<statFactors>
+	  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.5</ConversionPower>
+	  <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">2</SocialIdeoSpreadFrequencyFactor>
+	  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">2.0</CertaintyLossFactor>
+	</statFactors>
 	<aptitudes>
 	  <!-- -22 -->
 	  <!-- creator -28 -->
@@ -632,6 +652,54 @@ Most of the internal organs remain intact, but there are enough external changes
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<noSkillLoss>Melee</noSkillLoss>
 			<skillRecreation>Melee</skillRecreation>
+		</li>
+	</modExtensions>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_FirmwareBase">
+	<defName>WVC_MechaAI_FirmwarePropagandaMachine</defName>
+	<label>propaganda machine</label>
+	<iconColor>(150, 250, 255)</iconColor>
+	<socialFightChanceFactor>2</socialFightChanceFactor>
+	<aggroMentalBreakSelectionChanceFactor>0.2</aggroMentalBreakSelectionChanceFactor>
+	<prisonBreakMTBFactor>1.5</prisonBreakMTBFactor>
+	<forcedTraits>
+	  <li>
+		<def>Abrasive</def>
+	  </li>
+	</forcedTraits>
+	<statFactors>
+	  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">2</ConversionPower>
+	  <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">2</SocialIdeoSpreadFrequencyFactor>
+	  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">0.5</CertaintyLossFactor>
+	</statFactors>
+	<aptitudes>
+	  <!-- -22 -->
+	  <!-- creator -20 -->
+	  <Construction>-8</Construction>
+	  <Intellectual>12</Intellectual>
+	  <Crafting>-6</Crafting>
+	  <Artistic>-18</Artistic>
+	  <!-- war -26 -->
+	  <Mining>-16</Mining>
+	  <Shooting>-2</Shooting>
+	  <Melee>-8</Melee>
+	  <!-- green 24 -->
+	  <Plants>-2</Plants>
+	  <Cooking>6</Cooking>
+	  <Animals>2</Animals>
+	  <Social>18</Social>
+	  <!-- base -->
+	  <Medicine>6</Medicine>
+	</aptitudes>
+	<passionMod>
+		<skill>Social</skill>
+		<modType>AddOneLevel</modType>
+	</passionMod>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<noSkillLoss>Social</noSkillLoss>
+			<skillRecreation>Social</skillRecreation>
 		</li>
 	</modExtensions>
   </GeneDef>

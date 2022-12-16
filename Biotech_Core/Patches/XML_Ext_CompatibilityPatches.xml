@@ -64,6 +64,7 @@
 		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaAI_FirmwareGreenMachine</li>
 		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaAI_FirmwareWarMachine</li>
 		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaAI_FirmwareRogueMachine</li>
+		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaAI_FirmwarePropagandaMachine</li>
 		</nullifyingGenes>
 	  </value>
 	</Operation>

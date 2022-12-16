@@ -38,7 +38,7 @@
 	<defName>WVC_Furskin_WarmFur</defName>
 	<label>warm fur</label>
 	<description>Carriers of this gene have very warm coats.</description>
-	<biostatMet>-2</biostatMet>
+	<biostatMet>-1</biostatMet>
 	<iconColor>(255, 180, 160)</iconColor>
 	<conditionalStatAffecters>
 	  <li Class="ConditionalStatAffecter_Clothed">
@@ -87,7 +87,7 @@
 	<label>coarse fur</label>
 	<description>Carriers of this gene have a very hard coat that serves as natural armor.</description>
 	<biostatCpx>2</biostatCpx>
-	<biostatMet>-3</biostatMet>
+	<biostatMet>-2</biostatMet>
 	<displayOrderInCategory>21</displayOrderInCategory>
 	<iconColor>(190, 220, 255)</iconColor>
 	<conditionalStatAffecters>
@@ -124,7 +124,7 @@
 	<label>fluffy fur</label>
 	<description>Carriers of this gene have a very soft, fluffy and neat coat.</description>
 	<biostatCpx>2</biostatCpx>
-	<biostatMet>-3</biostatMet>
+	<biostatMet>-2</biostatMet>
 	<displayOrderInCategory>21</displayOrderInCategory>
 	<iconColor>(255, 190, 250)</iconColor>
 	<conditionalStatAffecters>
@@ -178,7 +178,7 @@
 	  </li>
 	</capMods>
 	<biostatCpx>4</biostatCpx>
-	<biostatMet>-2</biostatMet>
+	<biostatMet>-1</biostatMet>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>wild</symbol></li>
@@ -236,9 +236,6 @@
 	  <BondAnimalChanceFactor>1.1</BondAnimalChanceFactor>
 	  <SocialImpact>0.8</SocialImpact>
 	</statFactors>
-	<exclusionTags>
-	  <li>WVC_Furskin_Wildness</li>
-	</exclusionTags>
   </GeneDef>
   <GeneDef ParentName="WVC_FurskinWildness">
 	<defName>WVC_FurskinInstincts_MediumWildness</defName>
@@ -289,6 +286,7 @@
 	<iconPath>WVC/UI/Genes/FurInstincts</iconPath>
 	<prerequisite>WVC_FurskinInstincts_Base</prerequisite>
 	<biostatCpx>1</biostatCpx>
+	<biostatMet>-1</biostatMet>
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>Adds the corresponding body part. The body part is considered artificial.</li> -->
 	<!-- </customEffectDescriptions> -->
@@ -306,7 +304,6 @@
 	<defName>WVC_FurskinInstincts_NightHunter</defName>
 	<label>night hunter</label>
 	<description>Carriers of this gene are excellent night hunters. They easily navigate in the dark and always know when the enemy is most vulnerable.</description>
-	<biostatMet>-1</biostatMet>
 	<iconColor>(200, 230, 255)</iconColor>
 	<conditionalStatAffecters>
 	  <li Class="VanillaGenesExpanded.ConditionalStatAffecter_NoSunlight">
@@ -338,7 +335,6 @@
 	<defName>WVC_FurskinInstincts_PredatorSense</defName>
 	<label>predator sense</label>
 	<description>Carriers of this gene have an excellent sense of smell.</description>
-	<biostatMet>-1</biostatMet>
 	<iconColor>(150, 230, 255)</iconColor>
 	<statFactors>
 	  <PawnTrapSpringChance>0.5</PawnTrapSpringChance>
@@ -350,7 +346,6 @@
 	<defName>WVC_FurskinInstincts_KeenEye</defName>
 	<label>keen eye</label>
 	<description>Carriers of this gene are very attentive.</description>
-	<biostatMet>-1</biostatMet>
 	<iconColor>(200, 255, 200)</iconColor>
 	<statOffsets>
 	  <ShootingAccuracyPawn>0.2</ShootingAccuracyPawn>
@@ -362,7 +357,6 @@
 	<defName>WVC_FurskinInstincts_Restlessness</defName>
 	<label>restlessness</label>
 	<description>Carriers of this gene concentrate poorly and are constantly distracted by something.</description>
-	<biostatMet>-1</biostatMet>
 	<iconColor>(255, 230, 255)</iconColor>
 	<statOffsets>
 	  <MoveSpeed>4</MoveSpeed>
