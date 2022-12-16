@@ -19,8 +19,8 @@ This parameter is affected only by mecha-genes.</description>
 	<defaultBaseValue>0</defaultBaseValue>
 	<hideAtValue>0</hideAtValue>
 	<minValue>0.0</minValue>
-	<!-- A pawn cannot be more than 50% mechanoid-like, too few genes -->
-	<!-- Пешка не может быть мехой больше чем на 50%, слишком мало генов -->
+	<!-- A pawn cannot be more than 50% mechanoid-like, too few mecha-genes -->
+	<!-- Пешка не может быть мехой больше чем на 50%, слишком мало меха-генов -->
 	<maxValue>50</maxValue>
 	<showOnAnimals>false</showOnAnimals>
 	<showOnMechanoids>false</showOnMechanoids>
@@ -92,7 +92,7 @@ This parameter is affected only by mecha-genes.</description>
 	  <!-- 40% -->
 	  <li>
 		<label>mechanoid-like</label>
-		<baseOpinionOffset>-18</baseOpinionOffset>
+		<baseOpinionOffset>-16</baseOpinionOffset>
 	  </li>
 	  <!-- natural enemy and body purists -->
 	  <!-- Для естественных врагов и пуристов -->
@@ -118,7 +118,19 @@ This parameter is affected only by mecha-genes.</description>
 		<label>mechanoidization</label>
 		<description>Emotions become less.</description>
 		<visible>false</visible>
+		<baseMoodEffect>2</baseMoodEffect>
+	  </li>
+	  <li>
+		<label>mechanoidization</label>
+		<description>Emotions become less.</description>
+		<visible>false</visible>
 		<baseMoodEffect>4</baseMoodEffect>
+	  </li>
+	  <li>
+		<label>mechanoidization</label>
+		<description>Emotions become less.</description>
+		<visible>false</visible>
+		<baseMoodEffect>6</baseMoodEffect>
 	  </li>
 	  <li>
 		<label>mechanoidization</label>
@@ -130,19 +142,7 @@ This parameter is affected only by mecha-genes.</description>
 		<label>mechanoidization</label>
 		<description>Emotions become less.</description>
 		<visible>false</visible>
-		<baseMoodEffect>12</baseMoodEffect>
-	  </li>
-	  <li>
-		<label>mechanoidization</label>
-		<description>Emotions become less.</description>
-		<visible>false</visible>
-		<baseMoodEffect>16</baseMoodEffect>
-	  </li>
-	  <li>
-		<label>mechanoidization</label>
-		<description>Emotions become less.</description>
-		<visible>false</visible>
-		<baseMoodEffect>20</baseMoodEffect>
+		<baseMoodEffect>10</baseMoodEffect>
 	  </li>
 	</stages>
   </ThoughtDef>
