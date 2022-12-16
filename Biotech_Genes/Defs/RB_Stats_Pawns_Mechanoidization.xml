@@ -89,4 +89,46 @@ This parameter is affected only by mecha-genes.</description>
 	</stages>
   </ThoughtDef>
 
+  <!-- hidden -->
+  <ThoughtDef>
+	<defName>WVC_PawnMechanoidization_Mood</defName>
+	<workerClass>WVC.ThoughtWorker_PawnMechanoidization_Mood</workerClass>
+	<validWhileDespawned>true</validWhileDespawned>
+	<requiredGenes>
+	  <li>WVC_MechaAI_Base</li>
+	</requiredGenes>
+	<stages>
+	  <li>
+		<label>mechanoidization</label>
+		<description>Emotions become less.</description>
+		<visible>false</visible>
+		<baseMoodEffect>4</baseMoodEffect>
+	  </li>
+	  <li>
+		<label>mechanoidization</label>
+		<description>Emotions become less.</description>
+		<visible>false</visible>
+		<baseMoodEffect>8</baseMoodEffect>
+	  </li>
+	  <li>
+		<label>mechanoidization</label>
+		<description>Emotions become less.</description>
+		<visible>false</visible>
+		<baseMoodEffect>12</baseMoodEffect>
+	  </li>
+	  <li>
+		<label>mechanoidization</label>
+		<description>Emotions become less.</description>
+		<visible>false</visible>
+		<baseMoodEffect>16</baseMoodEffect>
+	  </li>
+	  <li>
+		<label>mechanoidization</label>
+		<description>Emotions become less.</description>
+		<visible>false</visible>
+		<baseMoodEffect>20</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
 </Defs>
