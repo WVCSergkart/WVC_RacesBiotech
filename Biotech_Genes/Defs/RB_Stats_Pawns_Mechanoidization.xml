@@ -4,14 +4,13 @@
   <StatDef>
 	<defName>WVC_PawnMechanoidization</defName>
 	<label>genetic mechanoidization</label>
-	<description>Determines how far mechanoidization has gone. The higher the values, the worse non-mecha pawns treat the carrier of genes.
+	<description>Determines how far mechanoidization has gone. The higher the values, the worse non-mecha pawns treat the carrier of genes. Also, a higher mechanoidization parameter slightly reduces the chance of a nervous breakdown.
 
-Values below 5 have no effect and the pawn is treated as a human. All values above begin to lower the opinion of others. Mecha pawns do not have a lower opinion of each other. The mechanoidization opinion debuff stacks with implant and gene modification opinions.
+Values below 5 have no effect and the pawn is treated as a human. All values above begin to lower the opinion of others. Mecha-pawns also dislike those more mechanized than them, but not as much as non-mechs. The mechanoidization opinion debuff stacks with implant and gene modification opinions.
 
 Transhumanists, body modders and mechanitors ignore mechanoidization. Body purists always have the most negative attitude towards mechanoidization. The blind also do not respond to mechanoidization.
 
-The "Natural enemy" gene always gives a high opinion debuff.
-The "Perfect shape" gene lowers the opinion debuff if mechanoidization is below 30 but above 20.
+Some mecha-genes also affect how the debuff is calculated. For example "Natural enemy" increases the debuff, while "Perfect shape" reduces it.
 
 The effect appears only at very low and higher expectations.
 
@@ -20,6 +19,8 @@ This parameter is affected only by mecha-genes.</description>
 	<defaultBaseValue>0</defaultBaseValue>
 	<hideAtValue>0</hideAtValue>
 	<minValue>0.0</minValue>
+	<!-- A pawn cannot be more than 50% mechanoid-like, too few genes -->
+	<!-- Пешка не может быть мехой больше чем на 50%, слишком мало генов -->
 	<maxValue>50</maxValue>
 	<showOnAnimals>false</showOnAnimals>
 	<showOnMechanoids>false</showOnMechanoids>
@@ -65,23 +66,36 @@ This parameter is affected only by mecha-genes.</description>
 	  <li MayRequire="Ludeon.RimWorld.Ideology">BodyMod_Approved</li>
 	  <li MayRequire="vanillaexpanded.vmemese">VME_Mechanoids_Exalted</li>
 	</nullifyingPrecepts>
+	<!-- All stages are named the same, due to the fact that mech pawns may dislike less human brethren than themselves. -->
+	<!-- Все этапы называются одинаково, по причине того что меха-пешки могут испытывать неприязень к менее человечным собратьям чем они сами. -->
 	<stages>
+	  <!-- 5% -->
 	  <li>
-		<label>slightly mechanoidized</label>
+		<label>mechanoid-like</label>
 		<baseOpinionOffset>-2</baseOpinionOffset>
 	  </li>
+	  <!-- 10% -->
 	  <li>
-		<label>medium mechanoidized</label>
+		<label>mechanoid-like</label>
 		<baseOpinionOffset>-5</baseOpinionOffset>
 	  </li>
+	  <!-- 20% -->
 	  <li>
-		<label>heavily mechanoidized</label>
+		<label>mechanoid-like</label>
 		<baseOpinionOffset>-8</baseOpinionOffset>
 	  </li>
+	  <!-- 30% -->
 	  <li>
-		<label>extreme mechanoidized</label>
+		<label>mechanoid-like</label>
 		<baseOpinionOffset>-12</baseOpinionOffset>
 	  </li>
+	  <!-- 40% -->
+	  <li>
+		<label>mechanoid-like</label>
+		<baseOpinionOffset>-18</baseOpinionOffset>
+	  </li>
+	  <!-- natural enemy and body purists -->
+	  <!-- Для естественных врагов и пуристов -->
 	  <li>
 		<label>mechanoid-like</label>
 		<baseOpinionOffset>-20</baseOpinionOffset>
@@ -97,6 +111,8 @@ This parameter is affected only by mecha-genes.</description>
 	<requiredGenes>
 	  <li>WVC_MechaAI_Base</li>
 	</requiredGenes>
+	<!-- Should always be invisible -->
+	<!-- Должно быть всегда невидимым -->
 	<stages>
 	  <li>
 		<label>mechanoidization</label>
