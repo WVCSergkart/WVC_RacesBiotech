@@ -292,14 +292,50 @@
 
   <!-- ==================================== -->
 
-  <GeneDef ParentName="WVC_FurskinBase">
+  <!-- Upgrades -->
+
+  <GeneDef Name="WVC_FurskinInstincts" Abstract="True">
+	<description>Carriers of this gene have natural animal instincts that help them.</description>
+	<displayOrderInCategory>50</displayOrderInCategory>
+	<iconColor>(255, 255, 255)</iconColor>
+	<iconPath>WVC/UI/Genes/FurInstincts</iconPath>
+	<!-- <prerequisite>WVC_FurskinInstincts_Base</prerequisite> -->
+	<displayCategory>WVC_FurskinBody</displayCategory>
+	<selectionWeight>0.5</selectionWeight>
+	<marketValueFactor>1.0</marketValueFactor>
+	<!-- <minAgeActive>13</minAgeActive> -->
+	<randomChosen>false</randomChosen>
+	<!-- <canGenerateInGeneSet>false</canGenerateInGeneSet> -->
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-3</biostatMet>
+	<biostatArc>0</biostatArc>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Adds the corresponding body part. The body part is considered artificial.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>ani</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>mal</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_FurskinInstincts">
 	<defName>WVC_FurskinInstincts_Base</defName>
-	<label>instincts</label>
+	<label>natural instincts</label>
 	<description>Carriers of this gene have natural animal-like instincts that help them.</description>
-	<iconPath>WVC/UI/Genes/FurInstinctsBase</iconPath>
+	<!-- <iconPath>WVC/UI/Genes/FurInstinctsBase</iconPath> -->
 	<iconColor>(184, 198, 203)</iconColor>
 	<displayOrderInCategory>35</displayOrderInCategory>
-	<prerequisite>Furskin</prerequisite>
+	<!-- <prerequisite>Furskin</prerequisite> -->
 	<aptitudes>
 	  <Animals>4</Animals>
 	</aptitudes>
@@ -314,7 +350,7 @@
 	  </li>
 	</capMods>
 	<biostatCpx>4</biostatCpx>
-	<biostatMet>-1</biostatMet>
+	<biostatMet>-2</biostatMet>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>wild</symbol></li>
@@ -333,34 +369,12 @@
 	</exclusionTags>
   </GeneDef>
 
-  <!-- Upgrades -->
-
-  <GeneDef Name="WVC_FurskinInstincts" ParentName="WVC_FurskinBase" Abstract="True">
-	<description>Carriers of this gene have natural animal instincts that help them.</description>
-	<displayOrderInCategory>50</displayOrderInCategory>
-	<iconColor>(255, 255, 255)</iconColor>
-	<iconPath>WVC/UI/Genes/FurInstincts</iconPath>
-	<prerequisite>WVC_FurskinInstincts_Base</prerequisite>
-	<biostatCpx>1</biostatCpx>
-	<biostatMet>-1</biostatMet>
-	<!-- <customEffectDescriptions> -->
-		<!-- <li>Adds the corresponding body part. The body part is considered artificial.</li> -->
-	<!-- </customEffectDescriptions> -->
-	<symbolPack>
-	  <prefixSymbols>
-		<li><symbol>ani</symbol></li>
-	  </prefixSymbols>
-	  <suffixSymbols>
-		<li><symbol>mal</symbol></li>
-	  </suffixSymbols>
-	</symbolPack>
-  </GeneDef>
-
   <GeneDef ParentName="WVC_FurskinInstincts">
 	<defName>WVC_FurskinInstincts_NightHunter</defName>
 	<label>night hunter</label>
 	<description>Carriers of this gene are excellent night hunters. They easily navigate in the dark and always know when the enemy is most vulnerable.</description>
 	<iconColor>(200, 230, 255)</iconColor>
+	<biostatMet>-3</biostatMet>
 	<conditionalStatAffecters>
 	  <li Class="VanillaGenesExpanded.ConditionalStatAffecter_NoSunlight">
 		<statOffsets>
@@ -392,6 +406,7 @@
 	<label>predator sense</label>
 	<description>Carriers of this gene have an excellent sense of smell.</description>
 	<iconColor>(150, 230, 255)</iconColor>
+	<biostatMet>-2</biostatMet>
 	<statFactors>
 	  <PawnTrapSpringChance>0.5</PawnTrapSpringChance>
 	  <FoodPoisonChance>0.5</FoodPoisonChance>
@@ -403,6 +418,7 @@
 	<label>keen eye</label>
 	<description>Carriers of this gene are very attentive.</description>
 	<iconColor>(200, 255, 200)</iconColor>
+	<biostatMet>-2</biostatMet>
 	<statOffsets>
 	  <ShootingAccuracyPawn>0.2</ShootingAccuracyPawn>
 	  <AimingDelayFactor>-0.1</AimingDelayFactor>
@@ -414,6 +430,7 @@
 	<label>restlessness</label>
 	<description>Carriers of this gene concentrate poorly and are constantly distracted by something.</description>
 	<iconColor>(255, 230, 255)</iconColor>
+	<biostatMet>-2</biostatMet>
 	<statOffsets>
 	  <MoveSpeed>4</MoveSpeed>
 	</statOffsets>
