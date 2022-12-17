@@ -130,6 +130,20 @@
 	<!-- ================================================= -->
 
 	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+	  <xpath>/Defs/GeneDef[defName="Neversleep"]</xpath>
+	  <success>Always</success>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<conditionalStatAffecters>
+		  <li Class="WVC.ConditionalStatAffecter_Mechalike">
+			<statOffsets>
+			  <WVC_PawnMechanoidization>3</WVC_PawnMechanoidization>
+			</statOffsets>
+		  </li>
+		</conditionalStatAffecters>
+	  </value>
+	</Operation>
+	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
 	  <xpath>/Defs/GeneDef[defName="Deathless" or defName="Ageless"]</xpath>
 	  <success>Always</success>
 	  <safetyDepth>1</safetyDepth>
