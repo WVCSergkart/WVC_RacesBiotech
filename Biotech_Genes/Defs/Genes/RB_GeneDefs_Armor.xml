@@ -28,6 +28,14 @@
 	<iconPath>WVC/UI/Genes/ClothedArmor</iconPath>
 	<displayOrderInCategory>70</displayOrderInCategory>
 	<conditionalStatAffecters>
+	  <li Class="WVC.ConditionalStatAffecter_Mechalike">
+		<statOffsets>
+		  <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization>
+		  <!-- <ArmorRating_Blunt>0.05</ArmorRating_Blunt> -->
+		  <!-- <ArmorRating_Sharp>0.05</ArmorRating_Sharp> -->
+		  <ArmorRating_Heat>0.15</ArmorRating_Heat>
+		</statOffsets>
+	  </li>
 	  <li Class="ConditionalStatAffecter_Clothed">
 		<statOffsets>
 		  <ArmorRating_Blunt>0.30</ArmorRating_Blunt>
@@ -62,6 +70,14 @@
 	<iconPath>WVC/UI/Genes/UnClothedArmor</iconPath>
 	<displayOrderInCategory>75</displayOrderInCategory>
 	<conditionalStatAffecters>
+	  <li Class="WVC.ConditionalStatAffecter_Mechalike">
+		<statOffsets>
+		  <WVC_PawnMechanoidization>3</WVC_PawnMechanoidization>
+		  <ArmorRating_Blunt>0.10</ArmorRating_Blunt>
+		  <ArmorRating_Sharp>0.10</ArmorRating_Sharp>
+		  <ArmorRating_Heat>0.15</ArmorRating_Heat>
+		</statOffsets>
+	  </li>
 	  <li Class="ConditionalStatAffecter_Clothed">
 		<statOffsets>
 		  <ArmorRating_Blunt>-0.05</ArmorRating_Blunt>

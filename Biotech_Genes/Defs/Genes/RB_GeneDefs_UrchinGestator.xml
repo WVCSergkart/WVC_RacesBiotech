@@ -424,6 +424,13 @@
 	<displayOrderInCategory>554</displayOrderInCategory>
 	<iconColor>(175, 175, 175)</iconColor>
 	<biostatCpx>2</biostatCpx>
+	<conditionalStatAffecters>
+	  <li Class="WVC.ConditionalStatAffecter_Mechalike">
+		<statOffsets>
+		  <WVC_PawnMechanoidization>-2</WVC_PawnMechanoidization>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
 	<exclusionTags>
 	  <li>WVC_RomanceChance_A</li>
 	  <li>WVC_RomanceChance_B</li>

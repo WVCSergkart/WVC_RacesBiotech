@@ -14,6 +14,8 @@ Some mecha-genes also affect how the debuff is calculated. For example "Natural 
 
 The effect appears only at very low and higher expectations.
 
+Some genes have a bonus to mechanoidization which is marked as (mechalike), this bonus only triggers when a mechaskin is present.
+
 This parameter is affected only by mecha-genes.</description>
 	<category>PawnSocial</category>
 	<defaultBaseValue>0</defaultBaseValue>
@@ -21,7 +23,7 @@ This parameter is affected only by mecha-genes.</description>
 	<minValue>0.0</minValue>
 	<!-- A pawn cannot be more than 50% mechanoid-like, too few mecha-genes -->
 	<!-- Пешка не может быть мехой больше чем на 50%, слишком мало меха-генов -->
-	<maxValue>50</maxValue>
+	<maxValue>100</maxValue>
 	<showOnAnimals>false</showOnAnimals>
 	<showOnMechanoids>false</showOnMechanoids>
 	<!-- <showIfUndefined>false</showIfUndefined> -->
@@ -37,7 +39,7 @@ This parameter is affected only by mecha-genes.</description>
   <ThoughtDef>
 	<defName>WVC_PawnMechanoidization_Social</defName>
 	<thoughtClass>Thought_SituationalSocial</thoughtClass>
-	<workerClass>WVC.ThoughtWorker_PawnMechanoidizationVSHumanity</workerClass>
+	<workerClass>WVC.ThoughtWorker_PawnMechanoidization_Social</workerClass>
 	<validWhileDespawned>true</validWhileDespawned>
 	<nullifiedIfNotColonist>true</nullifiedIfNotColonist>
 	<minExpectation>VeryLow</minExpectation>
@@ -87,18 +89,37 @@ This parameter is affected only by mecha-genes.</description>
 	  <!-- 30% -->
 	  <li>
 		<label>mechanoid-like</label>
-		<baseOpinionOffset>-12</baseOpinionOffset>
+		<baseOpinionOffset>-16</baseOpinionOffset>
 	  </li>
 	  <!-- 40% -->
 	  <li>
 		<label>mechanoid-like</label>
-		<baseOpinionOffset>-16</baseOpinionOffset>
+		<baseOpinionOffset>-22</baseOpinionOffset>
 	  </li>
-	  <!-- natural enemy and body purists -->
-	  <!-- Для естественных врагов и пуристов -->
+	  <!-- 50% -->
 	  <li>
 		<label>mechanoid-like</label>
-		<baseOpinionOffset>-20</baseOpinionOffset>
+		<baseOpinionOffset>-30</baseOpinionOffset>
+	  </li>
+	  <!-- 60% -->
+	  <li>
+		<label>mechanoid-like</label>
+		<baseOpinionOffset>-36</baseOpinionOffset>
+	  </li>
+	  <!-- 70% -->
+	  <li>
+		<label>mechanoid-like</label>
+		<baseOpinionOffset>-44</baseOpinionOffset>
+	  </li>
+	  <!-- 80% -->
+	  <li>
+		<label>mechanoid-like</label>
+		<baseOpinionOffset>-50</baseOpinionOffset>
+	  </li>
+	  <!-- 90% -->
+	  <li>
+		<label>mechanoid-like</label>
+		<baseOpinionOffset>-60</baseOpinionOffset>
 	  </li>
 	</stages>
   </ThoughtDef>
@@ -144,6 +165,37 @@ This parameter is affected only by mecha-genes.</description>
 		<visible>false</visible>
 		<baseMoodEffect>10</baseMoodEffect>
 	  </li>
+	  <!-- = -->
+	  <!-- <li> -->
+		<!-- <label>mechanoidization</label> -->
+		<!-- <description>Emotions become less.</description> -->
+		<!-- <visible>false</visible> -->
+		<!-- <baseMoodEffect>12</baseMoodEffect> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <label>mechanoidization</label> -->
+		<!-- <description>Emotions become less.</description> -->
+		<!-- <visible>false</visible> -->
+		<!-- <baseMoodEffect>14</baseMoodEffect> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <label>mechanoidization</label> -->
+		<!-- <description>Emotions become less.</description> -->
+		<!-- <visible>false</visible> -->
+		<!-- <baseMoodEffect>16</baseMoodEffect> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <label>mechanoidization</label> -->
+		<!-- <description>Emotions become less.</description> -->
+		<!-- <visible>false</visible> -->
+		<!-- <baseMoodEffect>18</baseMoodEffect> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <label>mechanoidization</label> -->
+		<!-- <description>Emotions become less.</description> -->
+		<!-- <visible>false</visible> -->
+		<!-- <baseMoodEffect>20</baseMoodEffect> -->
+	  <!-- </li> -->
 	</stages>
   </ThoughtDef>
 

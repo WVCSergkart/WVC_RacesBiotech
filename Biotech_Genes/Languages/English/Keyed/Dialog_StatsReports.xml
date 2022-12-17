@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<LanguageData>
+
+  <!-- <StatsReport_Genes>Relevant genes</StatsReport_Genes> -->
+  <!-- <StatsReport_InSunlight>in sunlight</StatsReport_InSunlight> -->
+  <!-- <StatsReport_Clothed>clothed</StatsReport_Clothed> -->
+  <WVC_StatsReport_Mechalike>mechalike</WVC_StatsReport_Mechalike>
+  <WVC_StatsReport_Humanlike>humanlike</WVC_StatsReport_Humanlike>
+  <WVC_StatsReport_Furskinned>furskin</WVC_StatsReport_Furskinned>
+  <WVC_StatsReport_NonFurskinned>non-furskin</WVC_StatsReport_NonFurskinned>
+
+</LanguageData>

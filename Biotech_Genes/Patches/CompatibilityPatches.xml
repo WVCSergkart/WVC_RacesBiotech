@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
 
+	<!-- ============================================================ -->
+
 	<Operation Class="VFECore.PatchOperationToggableSequence">
 		<enabled>False</enabled>
 		<label>(WVC - Genes) Disable mechaskin graphic</label>
@@ -32,6 +34,10 @@
 				<xpath>/Defs/GeneDef/statOffsets/WVC_PawnMechanoidization</xpath>
 				<success>Always</success>
 			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/GeneDef/conditionalStatAffecters/li/statOffsets/WVC_PawnMechanoidization</xpath>
+				<success>Always</success>
+			</li>
 			<li Class="PatchOperationReplace">
 				<xpath>/Defs/StatDef[defName="WVC_PawnMechanoidization"]/alwaysHide</xpath>
 				<success>Always</success>
@@ -41,6 +47,23 @@
 			</li>
 		</operations>
 	</Operation>
+
+	<Operation Class="VFECore.PatchOperationToggableSequence">
+		<enabled>False</enabled>
+		<label>(All gene mods) Use vanilla gene backgrounds</label>
+		<operations>
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/GeneDef/modExtensions/li/backgroundPathXenogenes</xpath>
+				<success>Always</success>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/GeneDef/modExtensions/li/backgroundPathEndogenes</xpath>
+				<success>Always</success>
+			</li>
+		</operations>
+	</Operation>
+
+	<!-- ============================================================ -->
 
 	<Operation Class="PatchOperationFindMod">
 		<mods>
@@ -88,6 +111,8 @@
 			</operations>
 		</match>
 	</Operation>
+
+	<!-- ============================================================ -->
 
 	<!-- <Operation Class="PatchOperationSequence"> -->
 	  <!-- <success>Always</success> -->

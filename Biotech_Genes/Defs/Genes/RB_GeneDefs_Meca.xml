@@ -56,6 +56,13 @@
 	<statOffsets>
 	  <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization>
 	</statOffsets>
+	<!-- <conditionalStatAffecters> -->
+	  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
+		<!-- <statOffsets> -->
+		  <!-- <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization> -->
+		<!-- </statOffsets> -->
+	  <!-- </li> -->
+	<!-- </conditionalStatAffecters> -->
   </GeneDef>
 
   <!-- Meca -->
