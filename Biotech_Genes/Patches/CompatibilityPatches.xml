@@ -258,6 +258,28 @@
 			</conditionalStatAffecters>
 		</value>
 	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/GeneDef[defName="Inbred"]/statFactors</xpath>
+		<success>Always</success>
+		<value>
+			<conditionalStatAffecters>
+			  <li Class="WVC.ConditionalStatAffecter_Mechalike">
+				<statFactors>
+				  <Fertility>0.2</Fertility>
+				</statFactors>
+				<statOffsets>
+				  <WVC_PawnMechanoidization>6</WVC_PawnMechanoidization>
+				</statOffsets>
+			  </li>
+			  <li Class="WVC.ConditionalStatAffecter_Humanlike">
+				<statFactors>
+				  <Fertility>0.5</Fertility>
+				  <ImmunityGainSpeed>0.85</ImmunityGainSpeed>
+				</statFactors>
+			  </li>
+			</conditionalStatAffecters>
+		</value>
+	</Operation>
 
 	<!-- <Operation Class="PatchOperationAdd"> -->
 		<!-- <xpath>/Defs/GeneDef[description[contains(text(),'is increased by 20. Aptitude')]]</xpath> -->
