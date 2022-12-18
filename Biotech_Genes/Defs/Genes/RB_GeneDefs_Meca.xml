@@ -200,6 +200,15 @@ Most of the internal organs remain intact, but there are enough external changes
 	<statOffsets>
 	  <WVC_PawnMechanoidization>5</WVC_PawnMechanoidization>
 	</statOffsets>
+	<conditionalStatAffecters>
+	  <li Class="WVC.ConditionalStatAffecter_Genes">
+		<geneDef>WVC_MechaAI_Base</geneDef>
+		<invert>false</invert>
+		<statOffsets>
+		  <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
 	<biostatCpx>-40</biostatCpx>
 	<biostatArc>-20</biostatArc>
 	<biostatMet>0</biostatMet>

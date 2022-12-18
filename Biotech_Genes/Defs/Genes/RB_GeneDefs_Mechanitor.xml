@@ -91,14 +91,18 @@
 	<!-- <displayCategory>Archite</displayCategory> -->
 	<displayOrderInCategory>1125</displayOrderInCategory>
 	<!-- <prerequisite>PsychicAbility_Extreme</prerequisite> -->
-	<statOffsets>
-		<MechBandwidth>-4</MechBandwidth>
-		<MechControlGroups>-1</MechControlGroups>
-	</statOffsets>
 	<conditionalStatAffecters>
 	  <li Class="WVC.ConditionalStatAffecter_Mechalike">
 		<statOffsets>
 		  <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization>
+		</statOffsets>
+	  </li>
+	  <li Class="WVC.ConditionalStatAffecter_Genes">
+		<geneDef>WVC_MechaAI_Base</geneDef>
+		<invert>true</invert>
+		<statOffsets>
+			<MechBandwidth>-4</MechBandwidth>
+			<MechControlGroups>-1</MechControlGroups>
 		</statOffsets>
 	  </li>
 	</conditionalStatAffecters>
