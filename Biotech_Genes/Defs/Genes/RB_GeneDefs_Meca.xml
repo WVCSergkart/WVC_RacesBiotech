@@ -197,18 +197,31 @@ Most of the internal organs remain intact, but there are enough external changes
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>Compensates for the effect of mechaskin on metabolism.</li> -->
 	<!-- </customEffectDescriptions> -->
-	<statOffsets>
-	  <WVC_PawnMechanoidization>5</WVC_PawnMechanoidization>
+	<statOffsets Inherit="False">
+	  <!-- <WVC_PawnMechanoidization>5</WVC_PawnMechanoidization> -->
 	</statOffsets>
-	<!-- <conditionalStatAffecters> -->
-	  <!-- <li Class="WVC.ConditionalStatAffecter_Genes"> -->
-		<!-- <geneDef>WVC_MechaAI_Base</geneDef> -->
-		<!-- <invert>false</invert> -->
+	<conditionalStatAffecters>
+	  <li Class="WVC.ConditionalStatAffecter_Xenotype">
+		<xenotypeDef>WVC_Meca</xenotypeDef>
+		<customName>meca xenotype</customName>
+		<statOffsets>
+		  <WVC_PawnMechanoidization>5</WVC_PawnMechanoidization>
+		</statOffsets>
+	  </li>
+	  <li Class="WVC.ConditionalStatAffecter_Xenotype">
+		<xenotypeDef>WVC_Blank</xenotypeDef>
+		<customName>test subject</customName>
+		<statOffsets>
+		  <WVC_PawnMechanoidization>-15</WVC_PawnMechanoidization>
+		</statOffsets>
+	  </li>
+	  <!-- <li Class="WVC.ConditionalStatAffecter_MechanitorUsedBandwidth"> -->
+		<!-- <usedBandwidth>2</usedBandwidth> -->
 		<!-- <statOffsets> -->
-		  <!-- <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization> -->
+		  <!-- <WVC_PawnMechanoidization>15</WVC_PawnMechanoidization> -->
 		<!-- </statOffsets> -->
 	  <!-- </li> -->
-	<!-- </conditionalStatAffecters> -->
+	</conditionalStatAffecters>
 	<biostatCpx>-40</biostatCpx>
 	<biostatArc>-20</biostatArc>
 	<biostatMet>0</biostatMet>
@@ -870,6 +883,51 @@ Most of the internal organs remain intact, but there are enough external changes
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+	<defName>WVC_MechaAI_MechanitorNetwork</defName>
+	<label>mecha-network</label>
+	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath>
+	<iconColor>(170, 170, 255)</iconColor>
+	<statOffsets>
+	  <WVC_PawnMechanoidization>6</WVC_PawnMechanoidization>
+	</statOffsets>
+	<conditionalStatAffecters>
+	  <li Class="WVC.ConditionalStatAffecter_MechanitorUsedBandwidth">
+		<usedBandwidth>8</usedBandwidth>
+		<statOffsets>
+			<MechRepairSpeed>0.5</MechRepairSpeed>
+		</statOffsets>
+	  </li>
+	  <li Class="WVC.ConditionalStatAffecter_MechanitorUsedBandwidth">
+		<usedBandwidth>12</usedBandwidth>
+		<statOffsets>
+			<MechControlGroups>2</MechControlGroups>
+		</statOffsets>
+	  </li>
+	  <li Class="WVC.ConditionalStatAffecter_MechanitorUsedBandwidth">
+		<usedBandwidth>16</usedBandwidth>
+		<statOffsets>
+			<WorkSpeedGlobalOffsetMech>0.5</WorkSpeedGlobalOffsetMech>
+		</statOffsets>
+	  </li>
+	  <li Class="WVC.ConditionalStatAffecter_MechanitorUsedBandwidth">
+		<usedBandwidth>20</usedBandwidth>
+		<statOffsets>
+			<MechBandwidth>12</MechBandwidth>
+		</statOffsets>
+	  </li>
+	  <li Class="WVC.ConditionalStatAffecter_MechanitorUsedBandwidth">
+		<usedBandwidth>24</usedBandwidth>
+		<statOffsets>
+			<MechFormingSpeed>0.5</MechFormingSpeed>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
+	<exclusionTags>
+	  <li>WVC_MechanitorNetwork</li>
+	</exclusionTags>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MechaAI_SoftwareDisableTalking</defName>
 	<label>silent program</label>
 	<description>Archits disable the voice functions of the mech, which saves some resources.</description>
@@ -1072,6 +1130,9 @@ Most of the internal organs remain intact, but there are enough external changes
 	</statOffsets>
 	<biostatCpx>6</biostatCpx>
 	<biostatArc>4</biostatArc>
+	<exclusionTags>
+	  <li>WVC_MechanitorNetwork</li>
+	</exclusionTags>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>connect</symbol></li>

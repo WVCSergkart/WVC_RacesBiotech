@@ -3,7 +3,7 @@
 
   <StatDef>
 	<defName>WVC_PawnMechanoidization</defName>
-	<label>genetic mechanoidization</label>
+	<label>mechanoidization</label>
 	<description>Determines how far mechanoidization has gone. The higher the values, the worse non-mecha pawns treat the carrier of genes. Also, a higher mechanoidization parameter slightly reduces the chance of a nervous breakdown.
 
 Values below 5 have no effect and the pawn is treated as a human. All values above begin to lower the opinion of others. Mecha-pawns also dislike those more mechanized than them, but not as much as non-mechs. The mechanoidization opinion debuff stacks with implant and gene modification opinions.
@@ -17,12 +17,11 @@ The effect appears only at very low and higher expectations.
 Some genes have a bonus to mechanoidization which is marked as (mechalike), this bonus only triggers when a mechaskin is present.
 
 This parameter is affected only by mecha-genes.</description>
+	<labelForFullStatList>genetic mechanoidization</labelForFullStatList>
 	<category>PawnSocial</category>
 	<defaultBaseValue>0</defaultBaseValue>
 	<hideAtValue>0</hideAtValue>
-	<minValue>0.0</minValue>
-	<!-- A pawn cannot be more than 50% mechanoid-like, too few mecha-genes -->
-	<!-- Пешка не может быть мехой больше чем на 50%, слишком мало меха-генов -->
+	<minValue>0</minValue>
 	<maxValue>100</maxValue>
 	<showOnAnimals>false</showOnAnimals>
 	<showOnMechanoids>false</showOnMechanoids>
@@ -32,8 +31,9 @@ This parameter is affected only by mecha-genes.</description>
 	<scenarioRandomizable>false</scenarioRandomizable>
 	<forInformationOnly>true</forInformationOnly>
 	<alwaysHide>false</alwaysHide>
-	<toStringStyle>FloatOne</toStringStyle>
-	<displayPriorityInCategory>2000</displayPriorityInCategory>
+	<toStringStyle>Integer</toStringStyle>
+	<displayPriorityInCategory>-999</displayPriorityInCategory>
+	<!-- <displayPriorityInCategory>2000</displayPriorityInCategory> -->
   </StatDef>
 
   <ThoughtDef>
@@ -41,7 +41,7 @@ This parameter is affected only by mecha-genes.</description>
 	<thoughtClass>Thought_SituationalSocial</thoughtClass>
 	<workerClass>WVC.ThoughtWorker_PawnMechanoidization_Social</workerClass>
 	<validWhileDespawned>true</validWhileDespawned>
-	<nullifiedIfNotColonist>true</nullifiedIfNotColonist>
+	<!-- <nullifiedIfNotColonist>true</nullifiedIfNotColonist> -->
 	<minExpectation>VeryLow</minExpectation>
 	<!-- <replaceThoughts> -->
 	  <!-- <li>BodyPuristDisgust</li> -->

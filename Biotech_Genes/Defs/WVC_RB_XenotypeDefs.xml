@@ -8,6 +8,7 @@
 	<description>An unknown xenotype sometimes found in the vastness of the rimworld.</description>
 	<descriptionShort>An unknown xenotype sometimes found in the vastness of the rimworld.</descriptionShort>
 	<iconPath>UI/Icons/Xenotypes/Custom/CustomXenotypeIcon9</iconPath>
+	<canGenerateAsCombatant>false</canGenerateAsCombatant>
 	<genes>
 	</genes>
   </XenotypeDef>
@@ -20,6 +21,7 @@
 	<descriptionShort>Blank - both for the artist his canvas, and for the mad scientist his "dummy". The purpose of their existence has always been the same - to be the canvas on which the masterpiece will be embodied.</descriptionShort>
 	<iconPath>WVC/UI/Xeno2Icons/Xeno10</iconPath>
 	<inheritable>true</inheritable>
+	<combatPowerFactor>0.2</combatPowerFactor>
 	<genes>
 		<li>WVC_AgeDebuff_Libido</li>
 		<li>WVC_AgeDebuff_Timeless</li>

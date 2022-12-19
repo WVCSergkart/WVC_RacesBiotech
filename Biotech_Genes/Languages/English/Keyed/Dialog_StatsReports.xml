@@ -13,5 +13,8 @@
   <WVC_StatsReport_OperatingSystem>operating system</WVC_StatsReport_OperatingSystem>
   <WVC_StatsReport_NonOperatingSystem>non-operating system</WVC_StatsReport_NonOperatingSystem>
   <WVC_StatsReport_NonGenes>non-</WVC_StatsReport_NonGenes>
+  <WVC_StatsReport_MechanitorUsedBandwidth>used bandwidth</WVC_StatsReport_MechanitorUsedBandwidth>
+  <WVC_StatsReport_MechanitorTotalBandwidth>total bandwidth</WVC_StatsReport_MechanitorTotalBandwidth>
+  <!-- <WVC_StatsReport_UnknownXenotype>unknown xenotype</WVC_StatsReport_UnknownXenotype> -->
 
 </LanguageData>
