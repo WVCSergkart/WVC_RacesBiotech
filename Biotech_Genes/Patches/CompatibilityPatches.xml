@@ -65,6 +65,63 @@
 
 	<!-- ============================================================ -->
 
+	<Operation Class="WVC.PatchOperationOptional">
+		<settingName>disableFurGraphic</settingName>
+		<caseTrue Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/GeneDef[defName="WVC_MechaSkin"]/forcedHeadTypes</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/GeneDef[defName="WVC_MechaSkin"]/graphicData</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/GeneDef[defName="WVC_MechaSkin"]/modExtensions/li/furHidesBody</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/GeneDef[defName="WVC_MechaSkin"]/modExtensions/li/useSkinColorForFur</xpath>
+					<success>Always</success>
+				</li>
+			</operations>
+		</caseTrue>
+		<!-- <caseFalse Class="PatchOperationSequence"> -->
+			<!-- <operations> -->
+			<!-- </operations> -->
+		<!-- </caseFalse> -->
+	</Operation>
+
+	<Operation Class="WVC.PatchOperationOptional">
+		<settingName>disableMechanoidizationMechanic</settingName>
+		<caseTrue Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/GeneDef/statOffsets/WVC_PawnMechanoidization</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/GeneDef/conditionalStatAffecters/li/statOffsets/WVC_PawnMechanoidization</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/StatDef[defName="WVC_PawnMechanoidization"]/alwaysHide</xpath>
+					<success>Always</success>
+					<value>
+						<alwaysHide>true</alwaysHide>
+					</value>
+				</li>
+			</operations>
+		</caseTrue>
+		<!-- <caseFalse Class="PatchOperationSequence"> -->
+			<!-- <operations> -->
+			<!-- </operations> -->
+		<!-- </caseFalse> -->
+	</Operation>
+
+	<!-- ============================================================ -->
+
 	<Operation Class="PatchOperationFindMod">
 		<mods>
 			<li>Beauty Matters</li>
