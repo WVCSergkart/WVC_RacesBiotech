@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
 
-	<WVC_BiotechSettings>WVC - Genes</WVC_BiotechSettings>
+	<WVC_BiotechSettings>Genes</WVC_BiotechSettings>
 
 	<WVC_Label_disableFurGraphic>Disable mechaskin graphic</WVC_Label_disableFurGraphic>
-	<WVC_ToolTip_disableFurGraphic>Turns off the visual changes introduced by Mechaskin.</WVC_ToolTip_disableFurGraphic>
+	<WVC_ToolTip_disableFurGraphic>Turns off the visual changes introduced by Mechaskin. A restart is required to apply the settings.</WVC_ToolTip_disableFurGraphic>
 	<WVC_Label_disableMechanoidizationMechanic>Disable mechanoidization mechanic</WVC_Label_disableMechanoidizationMechanic>
-	<WVC_ToolTip_disableMechanoidizationMechanic>Disables opinion effects from mechanoidization.</WVC_ToolTip_disableMechanoidizationMechanic>
+	<WVC_ToolTip_disableMechanoidizationMechanic>Disables opinion effects from mechanoidization. A restart is required to apply the settings.</WVC_ToolTip_disableMechanoidizationMechanic>
 	<!-- <WVC_Label_disableXenotypes>Disable xenotypes</WVC_Label_disableXenotypes> -->
 	<!-- <WVC_ToolTip_disableXenotypes>Turns off all xenotypes from the mod. Does not work on already spawned.</WVC_ToolTip_disableXenotypes> -->
 
