@@ -49,7 +49,7 @@
   <GeneDef Name="WVC_MechanoidizationBase" Abstract="True">
 	<displayCategory>WVC_MechaBody</displayCategory>
 	<selectionWeight>0</selectionWeight>
-	<marketValueFactor>1.2</marketValueFactor>
+	<marketValueFactor>1.5</marketValueFactor>
 	<minAgeActive>13</minAgeActive>
 	<randomChosen>false</randomChosen>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
@@ -85,7 +85,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<!-- <iconColor>(0.75, 0.75, 0.75)</iconColor> -->
 	<iconColor>(184, 198, 203)</iconColor>
 	<minAgeActive>13</minAgeActive>
-	<marketValueFactor>2</marketValueFactor>
+	<marketValueFactor>3</marketValueFactor>
 	<neverGrayHair>true</neverGrayHair>
 	<!-- <foodPoisoningChanceFactor>0</foodPoisoningChanceFactor> -->
 	<!-- <overdoseChanceFactor>0</overdoseChanceFactor> -->
@@ -113,20 +113,22 @@ Most of the internal organs remain intact, but there are enough external changes
 	<statFactors>
 	  <!-- <PsychicSensitivity>0.7</PsychicSensitivity> -->
 	  <!-- <Fertility>0.8</Fertility> -->
-	  <Flammability>0.8</Flammability>
+	  <!-- <Flammability>0.8</Flammability> -->
+	  <MeatAmount>0.8</MeatAmount>
+	  <LeatherAmount>0.5</LeatherAmount>
 	</statFactors>
 	<statOffsets>
-	  <MeleeDamageFactor>0.1</MeleeDamageFactor>
-	  <MoveSpeed>1.0</MoveSpeed>
-	  <ComfyTemperatureMax>24</ComfyTemperatureMax>
+	  <!-- <MeleeDamageFactor>0.1</MeleeDamageFactor> -->
+	  <MoveSpeed>0.3</MoveSpeed>
+	  <ComfyTemperatureMax>14</ComfyTemperatureMax>
 	  <ComfyTemperatureMin>-46</ComfyTemperatureMin>
-	  <ArmorRating_Blunt>0.25</ArmorRating_Blunt>
-	  <ArmorRating_Sharp>0.25</ArmorRating_Sharp>
-	  <ArmorRating_Heat>0.5</ArmorRating_Heat>
+	  <ArmorRating_Blunt>0.15</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.15</ArmorRating_Sharp>
+	  <ArmorRating_Heat>0.25</ArmorRating_Heat>
 	  <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization>
 	</statOffsets>
 	<damageFactors>
-	  <Flame>0.8</Flame>
+	  <!-- <Flame>0.8</Flame> -->
 	</damageFactors>
 	<suppressedTraits>
 	  <li>
@@ -136,7 +138,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<missingGeneRomanceChanceFactor>0.5</missingGeneRomanceChanceFactor>
 	<graphicData>
 	  <fur>WVC_MechaSkin</fur>
-	  <tattoosVisible>false</tattoosVisible>
+	  <tattoosVisible>true</tattoosVisible>
 	</graphicData>
 	<symbolPack>
 	  <wholeNameSymbols>
@@ -194,6 +196,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<label>archite-forge</label>
 	<description>Carriers of this gene have archites that are capable of self-replication. This significantly reduces complexity and reduces the need for archites capsules.</description>
 	<iconColor>(184, 198, 203)</iconColor>
+	<marketValueFactor>3</marketValueFactor>
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>Compensates for the effect of mechaskin on metabolism.</li> -->
 	<!-- </customEffectDescriptions> -->
@@ -240,6 +243,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<prerequisite>WVC_MechaSkin</prerequisite>
 	<!-- <biostatCpx>0</biostatCpx> -->
 	<!-- <biostatArc>1</biostatArc> -->
+	<marketValueFactor>3</marketValueFactor>
 	<customEffectDescriptions>
 		<li>Compensates for the effect of mechaskin on metabolism.</li>
 	</customEffectDescriptions>
@@ -381,6 +385,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<!-- <displayCategory>Archite</displayCategory> -->
 	<displayOrderInCategory>5</displayOrderInCategory>
 	<prerequisite>WVC_MechaSkin</prerequisite>
+	<marketValueFactor>2</marketValueFactor>
 	<!-- <aptitudes> -->
 	  <!-- <Intellectual>2</Intellectual> -->
 	<!-- </aptitudes> -->
@@ -432,6 +437,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<iconPath>WVC/UI/Genes/MechanoidizationFirmware</iconPath>
 	<displayOrderInCategory>6</displayOrderInCategory>
 	<prerequisite>WVC_MechaAI_Base</prerequisite>
+	<marketValueFactor>2</marketValueFactor>
 	<biostatCpx>8</biostatCpx>
 	<biostatArc>3</biostatArc>
 	<biostatMet>6</biostatMet>
@@ -511,18 +517,18 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">0.8</CertaintyLossFactor>
 	</statFactors>
 	<aptitudes>
-	  <!-- -22 -->
+	  <!-- -30 -->
 	  <!-- creator 42 -->
 	  <Construction>8</Construction>
 	  <Intellectual>16</Intellectual>
 	  <Crafting>14</Crafting>
 	  <Artistic>4</Artistic>
-	  <!-- war -24 -->
-	  <Mining>-12</Mining>
-	  <Shooting>-6</Shooting>
+	  <!-- war -32 -->
+	  <Mining>-16</Mining>
+	  <Shooting>-10</Shooting>
 	  <Melee>-6</Melee>
-	  <!-- green -40 -->
-	  <Plants>-4</Plants>
+	  <!-- green -46 -->
+	  <Plants>-10</Plants>
 	  <Cooking>-6</Cooking>
 	  <Animals>-14</Animals>
 	  <Social>-16</Social>
@@ -559,12 +565,12 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">1.0</CertaintyLossFactor>
 	</statFactors>
 	<aptitudes>
-	  <!-- -22 -->
-	  <!-- creator -42 -->
+	  <!-- -30 -->
+	  <!-- creator -54 -->
 	  <Construction>-8</Construction>
 	  <Intellectual>-16</Intellectual>
 	  <Crafting>-14</Crafting>
-	  <Artistic>-4</Artistic>
+	  <Artistic>-18</Artistic>
 	  <!-- war 44 -->
 	  <Mining>12</Mining>
 	  <Shooting>16</Shooting>
@@ -607,16 +613,16 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">1.2</CertaintyLossFactor>
 	</statFactors>
 	<aptitudes>
-	  <!-- -22 -->
-	  <!-- creator -48 -->
-	  <Construction>-10</Construction>
+	  <!-- -30 -->
+	  <!-- creator -50 -->
+	  <Construction>-12</Construction>
 	  <Intellectual>-16</Intellectual>
 	  <Crafting>-6</Crafting>
 	  <Artistic>-16</Artistic>
-	  <!-- war -16 -->
-	  <Mining>0</Mining>
-	  <Shooting>-8</Shooting>
-	  <Melee>-8</Melee>
+	  <!-- war -28 -->
+	  <Mining>-4</Mining>
+	  <Shooting>-12</Shooting>
+	  <Melee>-12</Melee>
 	  <!-- green 42 -->
 	  <Plants>12</Plants>
 	  <Cooking>6</Cooking>
@@ -655,19 +661,19 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">2.0</CertaintyLossFactor>
 	</statFactors>
 	<aptitudes>
-	  <!-- -22 -->
+	  <!-- -30 -->
 	  <!-- creator -28 -->
 	  <Construction>-8</Construction>
 	  <Intellectual>4</Intellectual>
 	  <Crafting>-6</Crafting>
 	  <Artistic>-18</Artistic>
-	  <!-- war 0 -->
-	  <Mining>-6</Mining>
+	  <!-- war -8 -->
+	  <Mining>-10</Mining>
 	  <Shooting>-2</Shooting>
 	  <Melee>8</Melee>
-	  <!-- green 6 -->
-	  <Plants>-4</Plants>
-	  <Cooking>-2</Cooking>
+	  <!-- green 0 -->
+	  <Plants>-6</Plants>
+	  <Cooking>-6</Cooking>
 	  <Animals>4</Animals>
 	  <Social>8</Social>
 	  <!-- base -->
@@ -703,16 +709,16 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">0.5</CertaintyLossFactor>
 	</statFactors>
 	<aptitudes>
-	  <!-- -22 -->
-	  <!-- creator -20 -->
-	  <Construction>-8</Construction>
+	  <!-- -30 -->
+	  <!-- creator -26 -->
+	  <Construction>-14</Construction>
 	  <Intellectual>12</Intellectual>
 	  <Crafting>-6</Crafting>
 	  <Artistic>-18</Artistic>
-	  <!-- war -26 -->
+	  <!-- war -34 -->
 	  <Mining>-16</Mining>
-	  <Shooting>-2</Shooting>
-	  <Melee>-8</Melee>
+	  <Shooting>-12</Shooting>
+	  <Melee>-6</Melee>
 	  <!-- green 24 -->
 	  <Plants>-2</Plants>
 	  <Cooking>6</Cooking>
@@ -744,6 +750,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<prerequisite>WVC_MechaAI_Base</prerequisite>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
+	<marketValueFactor>2</marketValueFactor>
 	<exclusionTags>
 	  <!-- <li>WVC_Mecha_RomanceChanceBase</li> -->
 	  <!-- <li>RomanceChance</li> -->
@@ -1110,6 +1117,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<!-- <displayCategory>Archite</displayCategory> -->
 	<displayOrderInCategory>151</displayOrderInCategory>
 	<prerequisite>WVC_ArchiteMechlink</prerequisite>
+	<marketValueFactor>3</marketValueFactor>
 	<suppressedTraits>
 	  <li>
 		<def>PsychicSensitivity</def>
@@ -1581,6 +1589,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<description>Archites significantly enhance the temperature adaptability of the carrier.</description>
 	<biostatMet>-2</biostatMet>
 	<statOffsets>
+	  <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization>
 	  <ComfyTemperatureMax>25</ComfyTemperatureMax>
 	  <ComfyTemperatureMin>-25</ComfyTemperatureMin>
 	  <ArmorRating_Heat>0.10</ArmorRating_Heat>

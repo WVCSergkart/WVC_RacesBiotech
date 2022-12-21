@@ -46,24 +46,31 @@
 						<!-- <hideGene>true</hideGene> -->
 					<!-- </value> -->
 				<!-- </li> -->
-				<li Class="PatchOperationReplace">
-					<xpath>/Defs/GeneDef[defName="AG_Instability_Lethal"]/statFactors</xpath>
-					<success>Always</success>
-					<value>
-						<conditionalStatAffecters>
-						  <li Class="WVC.ConditionalStatAffecter_Mechalike">
-							<statOffsets>
-							  <WVC_PawnMechanoidization>25</WVC_PawnMechanoidization>
-							</statOffsets>
-						  </li>
-						  <li Class="WVC.ConditionalStatAffecter_Humanlike">
-							<statFactors>
-								<CancerRate>7</CancerRate>
-								<ImmunityGainSpeed>0.85</ImmunityGainSpeed>
-							</statFactors>
-						  </li>
-						</conditionalStatAffecters>
-					</value>
+				<li Class="WVC.PatchOperationOptional">
+					<settingName>mechanoidizationGenesPatch</settingName>
+					<caseTrue Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/GeneDef[defName="AG_Instability_Lethal"]/statFactors</xpath>
+								<success>Always</success>
+								<value>
+									<conditionalStatAffecters>
+									  <li Class="WVC.ConditionalStatAffecter_Mechalike">
+										<statOffsets>
+										  <WVC_PawnMechanoidization>25</WVC_PawnMechanoidization>
+										</statOffsets>
+									  </li>
+									  <li Class="WVC.ConditionalStatAffecter_Humanlike">
+										<statFactors>
+											<CancerRate>7</CancerRate>
+											<ImmunityGainSpeed>0.85</ImmunityGainSpeed>
+										</statFactors>
+									  </li>
+									</conditionalStatAffecters>
+								</value>
+							</li>
+						</operations>
+					</caseTrue>
 				</li>
 			</operations>
 		</match>
@@ -133,91 +140,6 @@
 		<!-- </li> -->
 	  <!-- </operations> -->
 	<!-- </Operation> -->
-
-	<Operation Class="PatchOperationReplace">
-		<xpath>/Defs/GeneDef[defName="Learning_Slow"]/statFactors</xpath>
-		<success>Always</success>
-		<value>
-			<conditionalStatAffecters>
-			  <li Class="WVC.ConditionalStatAffecter_OperatingSystem">
-				<statOffsets>
-				  <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization>
-				</statOffsets>
-				<statFactors>
-				  <GlobalLearningFactor>0.8</GlobalLearningFactor>
-				</statFactors>
-			  </li>
-			  <li Class="WVC.ConditionalStatAffecter_NonOperatingSystem">
-				<statFactors>
-				  <GlobalLearningFactor>0.5</GlobalLearningFactor>
-				</statFactors>
-			  </li>
-			</conditionalStatAffecters>
-		</value>
-	</Operation>
-
-	<Operation Class="PatchOperationReplace">
-		<xpath>/Defs/GeneDef[defName="Instability_Mild"]/statFactors</xpath>
-		<success>Always</success>
-		<value>
-			<conditionalStatAffecters>
-			  <li Class="WVC.ConditionalStatAffecter_Mechalike">
-				<statOffsets>
-				  <WVC_PawnMechanoidization>11</WVC_PawnMechanoidization>
-				</statOffsets>
-			  </li>
-			  <li Class="WVC.ConditionalStatAffecter_Humanlike">
-				<statFactors>
-				  <LifespanFactor>0.8</LifespanFactor>
-				  <CancerRate>3</CancerRate>
-				  <ImmunityGainSpeed>0.96</ImmunityGainSpeed>
-				</statFactors>
-			  </li>
-			</conditionalStatAffecters>
-		</value>
-	</Operation>
-	<Operation Class="PatchOperationReplace">
-		<xpath>/Defs/GeneDef[defName="Instability_Major"]/statFactors</xpath>
-		<success>Always</success>
-		<value>
-			<conditionalStatAffecters>
-			  <li Class="WVC.ConditionalStatAffecter_Mechalike">
-				<statOffsets>
-				  <WVC_PawnMechanoidization>16</WVC_PawnMechanoidization>
-				</statOffsets>
-			  </li>
-			  <li Class="WVC.ConditionalStatAffecter_Humanlike">
-				<statFactors>
-				  <LifespanFactor>0.6</LifespanFactor>
-				  <CancerRate>5</CancerRate>
-				  <ImmunityGainSpeed>0.92</ImmunityGainSpeed>
-				</statFactors>
-			  </li>
-			</conditionalStatAffecters>
-		</value>
-	</Operation>
-	<Operation Class="PatchOperationReplace">
-		<xpath>/Defs/GeneDef[defName="Inbred"]/statFactors</xpath>
-		<success>Always</success>
-		<value>
-			<conditionalStatAffecters>
-			  <li Class="WVC.ConditionalStatAffecter_Mechalike">
-				<statFactors>
-				  <Fertility>0.2</Fertility>
-				</statFactors>
-				<statOffsets>
-				  <WVC_PawnMechanoidization>6</WVC_PawnMechanoidization>
-				</statOffsets>
-			  </li>
-			  <li Class="WVC.ConditionalStatAffecter_Humanlike">
-				<statFactors>
-				  <Fertility>0.5</Fertility>
-				  <ImmunityGainSpeed>0.85</ImmunityGainSpeed>
-				</statFactors>
-			  </li>
-			</conditionalStatAffecters>
-		</value>
-	</Operation>
 
 	<!-- <Operation Class="PatchOperationAdd"> -->
 		<!-- <xpath>/Defs/GeneDef[description[contains(text(),'is increased by 20. Aptitude')]]</xpath> -->

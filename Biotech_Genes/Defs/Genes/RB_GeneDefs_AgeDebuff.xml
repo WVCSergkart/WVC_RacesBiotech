@@ -20,7 +20,7 @@
 	<conditionalStatAffecters>
 	  <li Class="WVC.ConditionalStatAffecter_Mechalike">
 		<statOffsets>
-		  <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization>
+		  <WVC_PawnMechanoidization>3</WVC_PawnMechanoidization>
 		</statOffsets>
 		<statFactors>
 		  <GlobalLearningFactor>0.2</GlobalLearningFactor>
@@ -292,7 +292,7 @@
 	<conditionalStatAffecters>
 	  <li Class="WVC.ConditionalStatAffecter_Mechalike">
 		<statOffsets>
-		  <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization>
+		  <WVC_PawnMechanoidization>4</WVC_PawnMechanoidization>
 		</statOffsets>
 	  </li>
 	  <li Class="WVC.ConditionalStatAffecter_Humanlike">
@@ -332,7 +332,7 @@
 	<conditionalStatAffecters>
 	  <li Class="WVC.ConditionalStatAffecter_Mechalike">
 		<statOffsets>
-		  <WVC_PawnMechanoidization>4</WVC_PawnMechanoidization>
+		  <WVC_PawnMechanoidization>6</WVC_PawnMechanoidization>
 		</statOffsets>
 	  </li>
 	  <li Class="WVC.ConditionalStatAffecter_Humanlike">

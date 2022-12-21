@@ -115,8 +115,8 @@
 		<li>Adds a deadly tail attack.</li>
 	</customEffectDescriptions>
 	<statOffsets>
-	  <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization>
-	  <MeleeDamageFactor>0.15</MeleeDamageFactor>
+	  <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization>
+	  <!-- <MeleeDamageFactor>0.15</MeleeDamageFactor> -->
 	</statOffsets>
 	<graphicData>
 	  <graphicPath>WVC/MecaGene_ScytheTail/SmoothTail</graphicPath>
