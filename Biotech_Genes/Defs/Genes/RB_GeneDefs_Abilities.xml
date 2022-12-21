@@ -6,7 +6,7 @@
 	<marketValueFactor>1.2</marketValueFactor>
 	<prerequisite>WVC_MechaSkin</prerequisite>
 	<minAgeActive>13</minAgeActive>
-	<displayOrderInCategory>-10</displayOrderInCategory>
+	<displayOrderInCategory>-100</displayOrderInCategory>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>-1</biostatMet>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<!-- ============================================================ -->
+
+	<Operation Class="VFECore.PatchOperationToggableSequence">
+		<enabled>False</enabled>
+		<label>(WVC - Genes) Disable mechaskin graphic</label>
+		<operations>
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin"]/forcedHeadTypes</xpath>
+				<success>Always</success>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin"]/graphicData</xpath>
+				<success>Always</success>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin"]/modExtensions/li/furHidesBody</xpath>
+				<success>Always</success>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin"]/modExtensions/li/useSkinColorForFur</xpath>
+				<success>Always</success>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="VFECore.PatchOperationToggableSequence">
+		<enabled>False</enabled>
+		<label>(WVC - Genes) Disable mechanoidization mechanic</label>
+		<operations>
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/GeneDef/statOffsets/WVC_PawnMechanoidization</xpath>
+				<success>Always</success>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/GeneDef/conditionalStatAffecters/li/statOffsets/WVC_PawnMechanoidization</xpath>
+				<success>Always</success>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/StatDef[defName="WVC_PawnMechanoidization"]/alwaysHide</xpath>
+				<success>Always</success>
+				<value>
+					<alwaysHide>true</alwaysHide>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="VFECore.PatchOperationToggableSequence">
+		<enabled>False</enabled>
+		<label>(All gene mods) Use vanilla gene backgrounds</label>
+		<operations>
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/GeneDef/modExtensions/li/backgroundPathXenogenes</xpath>
+				<success>Always</success>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/GeneDef/modExtensions/li/backgroundPathEndogenes</xpath>
+				<success>Always</success>
+			</li>
+		</operations>
+	</Operation>
+
+	<!-- ============================================================ -->
+
+	<Operation Class="WVC.PatchOperationOptional">
+		<settingName>disableFurGraphic</settingName>
+		<caseTrue Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/GeneDef[defName="WVC_MechaSkin"]/forcedHeadTypes</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/GeneDef[defName="WVC_MechaSkin"]/graphicData</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/GeneDef[defName="WVC_MechaSkin"]/modExtensions/li/furHidesBody</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/GeneDef[defName="WVC_MechaSkin"]/modExtensions/li/useSkinColorForFur</xpath>
+					<success>Always</success>
+				</li>
+			</operations>
+		</caseTrue>
+		<!-- <caseFalse Class="PatchOperationSequence"> -->
+			<!-- <operations> -->
+			<!-- </operations> -->
+		<!-- </caseFalse> -->
+	</Operation>
+
+	<Operation Class="WVC.PatchOperationOptional">
+		<settingName>disableMechanoidizationMechanic</settingName>
+		<caseTrue Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/GeneDef/statOffsets/WVC_PawnMechanoidization</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/GeneDef/conditionalStatAffecters/li/statOffsets/WVC_PawnMechanoidization</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/StatDef[defName="WVC_PawnMechanoidization"]/alwaysHide</xpath>
+					<success>Always</success>
+					<value>
+						<alwaysHide>true</alwaysHide>
+					</value>
+				</li>
+			</operations>
+		</caseTrue>
+		<!-- <caseFalse Class="PatchOperationSequence"> -->
+			<!-- <operations> -->
+			<!-- </operations> -->
+		<!-- </caseFalse> -->
+	</Operation>
+
+	<Operation Class="WVC.PatchOperationOptional">
+		<settingName>mecaXenotypeIsInheritable</settingName>
+		<caseTrue Class="PatchOperationReplace">
+			<xpath>/Defs/XenotypeDef[defName="WVC_Meca"]/inheritable</xpath>
+			<success>Always</success>
+			<value>
+				<inheritable>true</inheritable>
+			</value>
+		</caseTrue>
+	</Operation>
+
+	<!-- ============================================================ -->
+
+</Patch>
