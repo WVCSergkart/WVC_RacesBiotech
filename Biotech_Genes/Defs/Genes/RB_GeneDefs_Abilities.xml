@@ -8,11 +8,11 @@
 	<minAgeActive>13</minAgeActive>
 	<displayOrderInCategory>-100</displayOrderInCategory>
 	<biostatCpx>1</biostatCpx>
-	<biostatArc>1</biostatArc>
+	<biostatArc>3</biostatArc>
 	<biostatMet>-1</biostatMet>
-	<statOffsets>
-	  <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization>
-	</statOffsets>
+	<!-- <statOffsets> -->
+	  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
+	<!-- </statOffsets> -->
   </GeneDef>
 
   <GeneDef ParentName="WVC_MechanoidizationAbilities">

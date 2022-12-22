@@ -14,12 +14,12 @@
 	<prerequisite>WVC_MechaSkin</prerequisite>
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
 	<biostatCpx>1</biostatCpx>
-	<biostatArc>0</biostatArc>
+	<biostatArc>1</biostatArc>
 	<biostatMet>-1</biostatMet>
 	<minAgeActive>13</minAgeActive>
-	<statOffsets>
-	  <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization>
-	</statOffsets>
+	<!-- <statOffsets> -->
+	  <!-- <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization> -->
+	<!-- </statOffsets> -->
 	<capMods>
 	  <li>
 		<capacity>Hearing</capacity>
@@ -49,8 +49,8 @@
 	</symbolPack>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes>
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes> -->
 			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathEndogenes> -->
 			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathXenogenes> -->
 		</li>
@@ -108,14 +108,14 @@
 	<prerequisite>WVC_MechaSkin</prerequisite>
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
 	<biostatCpx>1</biostatCpx>
-	<biostatArc>0</biostatArc>
+	<biostatArc>2</biostatArc>
 	<biostatMet>-1</biostatMet>
 	<minAgeActive>13</minAgeActive>
 	<customEffectDescriptions>
 		<li>Adds a deadly tail attack.</li>
 	</customEffectDescriptions>
 	<statOffsets>
-	  <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization>
+	  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
 	  <!-- <MeleeDamageFactor>0.15</MeleeDamageFactor> -->
 	</statOffsets>
 	<graphicData>
@@ -138,8 +138,8 @@
 	</symbolPack>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes>
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes> -->
 			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathEndogenes> -->
 			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathXenogenes> -->
 			<hediffsToBodyParts>

@@ -170,7 +170,7 @@
 	<sterilize>true</sterilize>
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>-1</biostatMet>
-	<biostatArc>2</biostatArc>
+	<biostatArc>4</biostatArc>
 	<displayOrderInCategory>50</displayOrderInCategory>
 	<statFactors>
 	  <Fertility>0</Fertility>
@@ -209,9 +209,9 @@
 		<li>Every 10 days will spawn urchins.</li>
 		<li>Urchins are not bound to a mechanitor and can run wild if ignored.</li>
 	</customEffectDescriptions>
-	<statOffsets>
-	  <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization>
-	</statOffsets>
+	<!-- <statOffsets> -->
+	  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
+	<!-- </statOffsets> -->
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<hediffToWholeBody>WVC_Genes_UrchinGestator</hediffToWholeBody>
@@ -424,13 +424,13 @@
 	<displayOrderInCategory>554</displayOrderInCategory>
 	<iconColor>(175, 175, 175)</iconColor>
 	<biostatCpx>2</biostatCpx>
-	<conditionalStatAffecters>
-	  <li Class="WVC.ConditionalStatAffecter_Mechalike">
-		<statOffsets>
-		  <WVC_PawnMechanoidization>-2</WVC_PawnMechanoidization>
-		</statOffsets>
-	  </li>
-	</conditionalStatAffecters>
+	<!-- <conditionalStatAffecters> -->
+	  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
+		<!-- <statOffsets> -->
+		  <!-- <WVC_PawnMechanoidization>-2</WVC_PawnMechanoidization> -->
+		<!-- </statOffsets> -->
+	  <!-- </li> -->
+	<!-- </conditionalStatAffecters> -->
 	<exclusionTags>
 	  <li>WVC_RomanceChance_A</li>
 	  <li>WVC_RomanceChance_B</li>

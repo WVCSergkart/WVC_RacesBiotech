@@ -53,9 +53,11 @@
 	<minAgeActive>13</minAgeActive>
 	<randomChosen>false</randomChosen>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
-	<statOffsets>
-	  <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization>
-	</statOffsets>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<!-- <statOffsets> -->
+	  <!-- <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization> -->
+	<!-- </statOffsets> -->
 	<!-- <conditionalStatAffecters> -->
 	  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
 		<!-- <statOffsets> -->
@@ -76,8 +78,8 @@
 The body is covered with plates, and the skin becomes hard and resembles plasteel to the touch. The glands are replaced by small colonies of mechanites that serve the body. Mechanites draw energy directly from the host's body, greatly reducing metabolism. The hairline completely disappears, remaining only on the head or face. Muscle tissues are strengthened and become more resilient. 
 
 Most of the internal organs remain intact, but there are enough external changes to indicate that the host is more like a mechanoid than a human.</description>
-	<biostatCpx>6</biostatCpx>
-	<biostatArc>5</biostatArc>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>7</biostatArc>
 	<biostatMet>-16</biostatMet>
 	<!-- <WVC_biostatMecha>5</WVC_biostatMecha> -->
 	<!-- <displayCategory>Archite</displayCategory> -->
@@ -126,7 +128,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <ArmorRating_Blunt>0.15</ArmorRating_Blunt>
 	  <ArmorRating_Sharp>0.15</ArmorRating_Sharp>
 	  <ArmorRating_Heat>0.25</ArmorRating_Heat>
-	  <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization>
+	  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
 	</statOffsets>
 	<damageFactors>
 	  <!-- <Flame>0.8</Flame> -->
@@ -192,43 +194,22 @@ Most of the internal organs remain intact, but there are enough external changes
 	</modExtensions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_Mechanoidization_HiddenBase">
+  <GeneDef ParentName="WVC_MechanoidizationBase">
 	<defName>WVC_MechaHidden_ArchiteForge</defName>
 	<label>archite-forge</label>
-	<description>Carriers of this gene have archites that are capable of self-replication. This significantly reduces complexity and reduces the need for archites capsules.</description>
+	<description>Carriers of this gene have archites that are capable of self-replication. Thanks to this, archites from time to time restore lost limbs.</description>
+	<geneClass>WVC.Gene_RestoreMissingBodyParts</geneClass>
 	<iconColor>(184, 198, 203)</iconColor>
-	<marketValueFactor>3</marketValueFactor>
-	<!-- <customEffectDescriptions> -->
-		<!-- <li>Compensates for the effect of mechaskin on metabolism.</li> -->
-	<!-- </customEffectDescriptions> -->
-	<statOffsets Inherit="False">
-	  <!-- <WVC_PawnMechanoidization>5</WVC_PawnMechanoidization> -->
-	</statOffsets>
-	<conditionalStatAffecters>
-	  <li Class="WVC.ConditionalStatAffecter_Xenotype">
-		<xenotypeDef>WVC_Meca</xenotypeDef>
-		<customName>meca xenotype</customName>
-		<statOffsets>
-		  <WVC_PawnMechanoidization>5</WVC_PawnMechanoidization>
-		</statOffsets>
-	  </li>
-	  <li Class="WVC.ConditionalStatAffecter_Xenotype">
-		<xenotypeDef>WVC_Blank</xenotypeDef>
-		<customName>test subject</customName>
-		<statOffsets>
-		  <WVC_PawnMechanoidization>-15</WVC_PawnMechanoidization>
-		</statOffsets>
-	  </li>
-	  <!-- <li Class="WVC.ConditionalStatAffecter_MechanitorUsedBandwidth"> -->
-		<!-- <usedBandwidth>2</usedBandwidth> -->
-		<!-- <statOffsets> -->
-		  <!-- <WVC_PawnMechanoidization>15</WVC_PawnMechanoidization> -->
-		<!-- </statOffsets> -->
-	  <!-- </li> -->
-	</conditionalStatAffecters>
-	<biostatCpx>-40</biostatCpx>
-	<biostatArc>-20</biostatArc>
+	<marketValueFactor>5</marketValueFactor>
+	<iconPath>WVC/UI/Genes/Gear</iconPath>
+	<displayOrderInCategory>0</displayOrderInCategory>
+	<prerequisite>WVC_MechaSkin</prerequisite>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>12</biostatArc>
 	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Restores a lost limb every (*DateTime)5-15 days(/DateTime).</li>
+	</customEffectDescriptions>
   </GeneDef>
 
   <!-- Power Source -->
@@ -243,14 +224,14 @@ Most of the internal organs remain intact, but there are enough external changes
 	<displayOrderInCategory>4</displayOrderInCategory>
 	<prerequisite>WVC_MechaSkin</prerequisite>
 	<!-- <biostatCpx>0</biostatCpx> -->
-	<!-- <biostatArc>1</biostatArc> -->
+	<biostatArc>2</biostatArc>
 	<marketValueFactor>3</marketValueFactor>
 	<customEffectDescriptions>
 		<li>Compensates for the effect of mechaskin on metabolism.</li>
 	</customEffectDescriptions>
-	<statOffsets>
-	  <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization>
-	</statOffsets>
+	<!-- <statOffsets> -->
+	  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
+	<!-- </statOffsets> -->
 	<exclusionTags>
 	  <li>WVC_MechaPowerSource</li>
 	</exclusionTags>
@@ -439,16 +420,16 @@ Most of the internal organs remain intact, but there are enough external changes
 	<displayOrderInCategory>6</displayOrderInCategory>
 	<prerequisite>WVC_MechaAI_Base</prerequisite>
 	<marketValueFactor>2</marketValueFactor>
-	<biostatCpx>8</biostatCpx>
-	<biostatArc>3</biostatArc>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>5</biostatArc>
 	<biostatMet>6</biostatMet>
 	<!-- <passionMod>AddOneLevel</passionMod> -->
 	<customEffectDescriptions>
 		<li MayRequire="imranfish.xmlextensions">Expectations are always "sky-high" and cannot be higher or lower.</li>
 	</customEffectDescriptions>
-	<statOffsets>
-	  <WVC_PawnMechanoidization>3</WVC_PawnMechanoidization>
-	</statOffsets>
+	<!-- <statOffsets> -->
+	  <!-- <WVC_PawnMechanoidization>3</WVC_PawnMechanoidization> -->
+	<!-- </statOffsets> -->
 	<statFactors>
 	  <MentalBreakThreshold>0.8</MentalBreakThreshold>
 	  <GlobalLearningFactor>0.2</GlobalLearningFactor>
@@ -895,9 +876,10 @@ Most of the internal organs remain intact, but there are enough external changes
 	<label>mecha-network</label>
 	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath>
 	<iconColor>(170, 170, 255)</iconColor>
-	<statOffsets>
-	  <WVC_PawnMechanoidization>6</WVC_PawnMechanoidization>
-	</statOffsets>
+	<biostatArc>4</biostatArc>
+	<!-- <statOffsets> -->
+	  <!-- <WVC_PawnMechanoidization>6</WVC_PawnMechanoidization> -->
+	<!-- </statOffsets> -->
 	<conditionalStatAffecters>
 	  <li Class="WVC.ConditionalStatAffecter_MechanitorUsedBandwidth">
 		<usedBandwidth>8</usedBandwidth>
@@ -942,9 +924,10 @@ Most of the internal organs remain intact, but there are enough external changes
 	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareDown</iconPath>
 	<iconColor>(150, 70, 70)</iconColor>
 	<biostatMet>3</biostatMet>
-	<statOffsets>
-	  <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization>
-	</statOffsets>
+	<biostatArc>2</biostatArc>
+	<!-- <statOffsets> -->
+	  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
+	<!-- </statOffsets> -->
 	<capMods>
 	  <li>
 		<capacity>Talking</capacity>
@@ -962,12 +945,13 @@ Most of the internal organs remain intact, but there are enough external changes
 	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareDown</iconPath>
 	<iconColor>(150, 70, 150)</iconColor>
 	<!-- <biostatMet>3</biostatMet> -->
+	<biostatArc>5</biostatArc>
 	<customEffectDescriptions>
 		<li>Decreases the pawn's opinion of everyone who does not have the same gene by 100.</li>
 	</customEffectDescriptions>
-	<statOffsets>
-	  <WVC_PawnMechanoidization>5</WVC_PawnMechanoidization>
-	</statOffsets>
+	<!-- <statOffsets> -->
+	  <!-- <WVC_PawnMechanoidization>5</WVC_PawnMechanoidization> -->
+	<!-- </statOffsets> -->
 	<exclusionTags>
 	  <li>WVC_MechaAI_SoftwareFriendOrFoe</li>
 	</exclusionTags>
@@ -983,7 +967,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<displayOrderInCategory>10</displayOrderInCategory>
 	<prerequisite>WVC_MechaAI_Base</prerequisite>
 	<biostatCpx>0</biostatCpx>
-	<biostatArc>0</biostatArc>
+	<!-- <biostatArc>0</biostatArc> -->
 	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
 	<exclusionTags>
 	  <!-- <li>WVC_Mecha_RomanceChanceBase</li> -->
@@ -1002,12 +986,10 @@ Most of the internal organs remain intact, but there are enough external changes
 	  </suffixSymbols>
 	</symbolPack>
 	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes> -->
-			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes> -->
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathXenogenes>
-		</li>
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathXenogenes> -->
+		<!-- </li> -->
 	</modExtensions>
   </GeneDef>
 
@@ -1130,7 +1112,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	  </li>
 	</suppressedTraits>
 	<statOffsets>
-		<WVC_PawnMechanoidization>3</WVC_PawnMechanoidization>
+		<!-- <WVC_PawnMechanoidization>3</WVC_PawnMechanoidization> -->
 		<MechBandwidth>74</MechBandwidth>
 		<MechControlGroups>6</MechControlGroups>
 		<WorkSpeedGlobalOffsetMech>1.0</WorkSpeedGlobalOffsetMech>
@@ -1166,14 +1148,14 @@ Most of the internal organs remain intact, but there are enough external changes
 	<iconPath>WVC/UI/Genes/MechanoidizationVoice</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
 	<prerequisite>WVC_MechaSkin</prerequisite>
-	<biostatArc>0</biostatArc>
+	<biostatArc>1</biostatArc>
 	<minAgeActive>13</minAgeActive>
-	<biostatCpx>1</biostatCpx>
+	<biostatCpx>0</biostatCpx>
 	<randomChosen>false</randomChosen>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
-	<statOffsets>
-	  <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization>
-	</statOffsets>
+	<!-- <statOffsets> -->
+	  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
+	<!-- </statOffsets> -->
 	<symbolPack>
 	  <wholeNameSymbols>
 		<li><symbol>mecha</symbol></li>
@@ -1183,14 +1165,10 @@ Most of the internal organs remain intact, but there are enough external changes
 	  </suffixSymbols>
 	</symbolPack>
 	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes> -->
-			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes> -->
-			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathEndogenes> -->
-			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathXenogenes> -->
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ColorlessGene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ColorlessGene</backgroundPathXenogenes>
-		</li>
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ColorlessGene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ColorlessGene</backgroundPathXenogenes> -->
+		<!-- </li> -->
 	</modExtensions>
   </GeneDef>
 
@@ -1461,14 +1439,15 @@ Most of the internal organs remain intact, but there are enough external changes
 	<label>mecha-clotting</label>
 	<geneClass>Gene_Clotting</geneClass>
 	<biostatMet>-2</biostatMet>
+	<biostatArc>2</biostatArc>
 	<customEffectDescriptions>
 		<!-- <li>No bleeding.</li> -->
 		<li>Bleeding wounds close very quickly.</li>
 		<li>Changes blood filth into machine bits.</li>
 	</customEffectDescriptions>
-	<statOffsets>
-	  <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization>
-	</statOffsets>
+	<!-- <statOffsets> -->
+	  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
+	<!-- </statOffsets> -->
 	<!-- <makeImmuneTo> -->
 	  <!-- <li>BloodLoss</li> -->
 	<!-- </makeImmuneTo> -->
@@ -1525,6 +1504,9 @@ Most of the internal organs remain intact, but there are enough external changes
 	<!-- <addictionChanceFactor>0</addictionChanceFactor> -->
 	<dontMindRawFood>true</dontMindRawFood>
 	<biostatMet>2</biostatMet>
+	<statFactors>
+	  <MaxNutrition>0.6</MaxNutrition>
+	</statFactors>
 	<exclusionTags>
 	  <li>AG_StrongStomachAndWeakStomach</li>
 	  <!-- <li>AG_RobustDigestionAndWeakStomach</li> -->
@@ -1557,6 +1539,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<label>immunostabilizer</label>
 	<description>Archites in the carrier's blood significantly enhance immunity.</description>
 	<biostatMet>-5</biostatMet>
+	<biostatArc>3</biostatArc>
 	<customEffectDescriptions>
 		<li>Completely stops the progression of diseases.</li>
 	</customEffectDescriptions>
@@ -1565,7 +1548,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <li>WVC_DiseaseProgression</li>
 	</exclusionTags>
 	<statOffsets>
-	  <WVC_PawnMechanoidization>3</WVC_PawnMechanoidization>
+	  <!-- <WVC_PawnMechanoidization>3</WVC_PawnMechanoidization> -->
 	  <ImmunityGainSpeed>1</ImmunityGainSpeed>
 	</statOffsets>
 	<modExtensions>
@@ -1590,8 +1573,9 @@ Most of the internal organs remain intact, but there are enough external changes
 	<label>improved T-adaptation</label>
 	<description>Archites significantly enhance the temperature adaptability of the carrier.</description>
 	<biostatMet>-2</biostatMet>
+	<biostatArc>2</biostatArc>
 	<statOffsets>
-	  <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization>
+	  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
 	  <ComfyTemperatureMax>25</ComfyTemperatureMax>
 	  <ComfyTemperatureMin>-25</ComfyTemperatureMin>
 	  <ArmorRating_Heat>0.10</ArmorRating_Heat>

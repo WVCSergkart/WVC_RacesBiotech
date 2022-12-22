@@ -15,13 +15,13 @@
 		<degree>-2</degree>
 	  </li>
 	</suppressedTraits>
-	<conditionalStatAffecters>
-	  <li Class="WVC.ConditionalStatAffecter_Mechalike">
-		<statOffsets>
-		  <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization>
-		</statOffsets>
-	  </li>
-	</conditionalStatAffecters>
+	<!-- <conditionalStatAffecters> -->
+	  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
+		<!-- <statOffsets> -->
+		  <!-- <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization> -->
+		<!-- </statOffsets> -->
+	  <!-- </li> -->
+	<!-- </conditionalStatAffecters> -->
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>

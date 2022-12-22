@@ -30,7 +30,7 @@
 	<conditionalStatAffecters>
 	  <li Class="WVC.ConditionalStatAffecter_Mechalike">
 		<statOffsets>
-		  <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization>
+		  <!-- <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization> -->
 		  <!-- <ArmorRating_Blunt>0.05</ArmorRating_Blunt> -->
 		  <!-- <ArmorRating_Sharp>0.05</ArmorRating_Sharp> -->
 		  <ArmorRating_Heat>0.15</ArmorRating_Heat>
@@ -72,7 +72,7 @@
 	<conditionalStatAffecters>
 	  <li Class="WVC.ConditionalStatAffecter_Mechalike">
 		<statOffsets>
-		  <WVC_PawnMechanoidization>3</WVC_PawnMechanoidization>
+		  <!-- <WVC_PawnMechanoidization>3</WVC_PawnMechanoidization> -->
 		  <ArmorRating_Blunt>0.10</ArmorRating_Blunt>
 		  <ArmorRating_Sharp>0.10</ArmorRating_Sharp>
 		  <ArmorRating_Heat>0.15</ArmorRating_Heat>

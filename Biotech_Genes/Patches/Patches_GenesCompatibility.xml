@@ -46,32 +46,32 @@
 						<!-- <hideGene>true</hideGene> -->
 					<!-- </value> -->
 				<!-- </li> -->
-				<li Class="WVC.PatchOperationOptional">
-					<settingName>mechanoidizationGenesPatch</settingName>
-					<caseTrue Class="PatchOperationSequence">
-						<operations>
-							<li Class="PatchOperationReplace">
-								<xpath>/Defs/GeneDef[defName="AG_Instability_Lethal"]/statFactors</xpath>
-								<success>Always</success>
-								<value>
-									<conditionalStatAffecters>
-									  <li Class="WVC.ConditionalStatAffecter_Mechalike">
-										<statOffsets>
-										  <WVC_PawnMechanoidization>25</WVC_PawnMechanoidization>
-										</statOffsets>
-									  </li>
-									  <li Class="WVC.ConditionalStatAffecter_Humanlike">
-										<statFactors>
-											<CancerRate>7</CancerRate>
-											<ImmunityGainSpeed>0.85</ImmunityGainSpeed>
-										</statFactors>
-									  </li>
-									</conditionalStatAffecters>
-								</value>
-							</li>
-						</operations>
-					</caseTrue>
-				</li>
+				<!-- <li Class="WVC.PatchOperationOptional"> -->
+					<!-- <settingName>mechanoidizationGenesPatch</settingName> -->
+					<!-- <caseTrue Class="PatchOperationSequence"> -->
+						<!-- <operations> -->
+							<!-- <li Class="PatchOperationReplace"> -->
+								<!-- <xpath>/Defs/GeneDef[defName="AG_Instability_Lethal"]/statFactors</xpath> -->
+								<!-- <success>Always</success> -->
+								<!-- <value> -->
+									<!-- <conditionalStatAffecters> -->
+									  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
+										<!-- <statOffsets> -->
+										  <!-- <WVC_PawnMechanoidization>25</WVC_PawnMechanoidization> -->
+										<!-- </statOffsets> -->
+									  <!-- </li> -->
+									  <!-- <li Class="WVC.ConditionalStatAffecter_Humanlike"> -->
+										<!-- <statFactors> -->
+											<!-- <CancerRate>7</CancerRate> -->
+											<!-- <ImmunityGainSpeed>0.85</ImmunityGainSpeed> -->
+										<!-- </statFactors> -->
+									  <!-- </li> -->
+									<!-- </conditionalStatAffecters> -->
+								<!-- </value> -->
+							<!-- </li> -->
+						<!-- </operations> -->
+					<!-- </caseTrue> -->
+				<!-- </li> -->
 			</operations>
 		</match>
 	</Operation>

@@ -11,11 +11,12 @@
 	<WVC_Label_mecaXenotypeIsInheritable>Meca xenotype have inheritable genes</WVC_Label_mecaXenotypeIsInheritable>
 	<WVC_ToolTip_mecaXenotypeIsInheritable>Changes Meca xenotype allowing genes to be inherited. What makes this xenotype compatible with sangophages and other xenogeneic xenotypes.</WVC_ToolTip_mecaXenotypeIsInheritable>
 
-	<WVC_Label_mechanoidizationGenesPatch>Patch for vanilla genes</WVC_Label_mechanoidizationGenesPatch>
-	<WVC_ToolTip_mechanoidizationGenesPatch>Patches some genes, changing the base effect to an effect that depends on other genes, thus making the genes more versatile.
+	<!-- <WVC_Label_mechanoidizationGenesPatch>Patch for vanilla genes</WVC_Label_mechanoidizationGenesPatch> -->
+	<!-- <WVC_ToolTip_mechanoidizationGenesPatch>Patches some genes, changing the base effect to an effect that depends on other genes, thus making the genes more versatile. -->
 
-If you have a conflict with other mods, disable this patch.</WVC_ToolTip_mechanoidizationGenesPatch>
+<!-- If you have a conflict with other mods, disable this patch.</WVC_ToolTip_mechanoidizationGenesPatch> -->
 
 	<WVC_StatPart_Mechanoidization>Mechanoidization</WVC_StatPart_Mechanoidization>
+	<WVC_StatPart_ArchitesInBloodstream>Archites in bloodstream</WVC_StatPart_ArchitesInBloodstream>
 
 </LanguageData>

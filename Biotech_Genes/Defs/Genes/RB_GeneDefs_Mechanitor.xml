@@ -12,13 +12,13 @@
 		<degree>-2</degree>
 	  </li>
 	</suppressedTraits>
-	<conditionalStatAffecters>
-	  <li Class="WVC.ConditionalStatAffecter_Mechalike">
-		<statOffsets>
-		  <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization>
-		</statOffsets>
-	  </li>
-	</conditionalStatAffecters>
+	<!-- <conditionalStatAffecters> -->
+	  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
+		<!-- <statOffsets> -->
+		  <!-- <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization> -->
+		<!-- </statOffsets> -->
+	  <!-- </li> -->
+	<!-- </conditionalStatAffecters> -->
 	<exclusionTags>
 	  <li>WVC_MechanitorGenes</li>
 	</exclusionTags>
@@ -92,11 +92,11 @@
 	<displayOrderInCategory>1125</displayOrderInCategory>
 	<!-- <prerequisite>PsychicAbility_Extreme</prerequisite> -->
 	<conditionalStatAffecters>
-	  <li Class="WVC.ConditionalStatAffecter_Mechalike">
-		<statOffsets>
-		  <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization>
-		</statOffsets>
-	  </li>
+	  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
+		<!-- <statOffsets> -->
+		  <!-- <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization> -->
+		<!-- </statOffsets> -->
+	  <!-- </li> -->
 	  <li Class="WVC.ConditionalStatAffecter_Genes">
 		<geneDef>WVC_MechaAI_Base</geneDef>
 		<invert>true</invert>

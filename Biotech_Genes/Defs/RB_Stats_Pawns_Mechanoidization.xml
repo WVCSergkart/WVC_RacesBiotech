@@ -13,18 +13,6 @@ Some traits and genes also have an impact on opinion, giving either an additiona
 For example: Transhumanists, body modders and mechanitors ignore mechanoidization.
 
 This parameter is affected only by genes.</description>
-	<!-- <descriptionHyperlinks> -->
-	  <!-- <StatDef>SocialImpact</StatDef> -->
-	  <!-- <StatDef>ArrestSuccessChance</StatDef> -->
-	  <!-- <StatDef>MeatAmount</StatDef> -->
-	  <!-- <StatDef>LeatherAmount</StatDef> -->
-	  <!-- <StatDef>ToxicResistance</StatDef> -->
-	  <!-- <StatDef>ToxicEnvironmentResistance</StatDef> -->
-	  <!-- <StatDef>LifespanFactor</StatDef> -->
-	  <!-- <StatDef>TradePriceImprovement</StatDef> -->
-	  <!-- <StatDef>MaxNutrition</StatDef> -->
-	  <!-- <StatDef>BondAnimalChanceFactor</StatDef> -->
-	<!-- </descriptionHyperlinks> -->
 	<labelForFullStatList>genetic mechanoidization</labelForFullStatList>
 	<category>PawnSocial</category>
 	<defaultBaseValue>0</defaultBaseValue>
@@ -34,15 +22,24 @@ This parameter is affected only by genes.</description>
 	<valueIfMissing>0</valueIfMissing>
 	<showOnAnimals>false</showOnAnimals>
 	<showOnMechanoids>false</showOnMechanoids>
-	<!-- <showIfUndefined>false</showIfUndefined> -->
-	<!-- <showZeroBaseValue>false</showZeroBaseValue> -->
-	<!-- <showOnDefaultValue>false</showOnDefaultValue> -->
 	<scenarioRandomizable>false</scenarioRandomizable>
 	<forInformationOnly>true</forInformationOnly>
 	<alwaysHide>false</alwaysHide>
 	<toStringStyle>Integer</toStringStyle>
-	<displayPriorityInCategory>-999</displayPriorityInCategory>
-	<!-- <displayPriorityInCategory>2000</displayPriorityInCategory> -->
+	<!-- <displayPriorityInCategory>-999</displayPriorityInCategory> -->
+	<displayPriorityInCategory>2000</displayPriorityInCategory>
+	<parts>
+	  <li Class="WVC.StatPart_Mechanoidization">
+		<invert>true</invert>
+		<invisible>true</invisible>
+		<curve>
+		  <points>
+			<li>(0, 0)</li>
+			<li>(100, 100)</li>
+		  </points>
+		</curve>
+	  </li>
+	</parts>
   </StatDef>
 
   <ThoughtDef>

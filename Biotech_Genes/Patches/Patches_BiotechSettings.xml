@@ -405,47 +405,47 @@
 					</operations>
 				</li>
 
-				<li Class="PatchOperationSequence">
-					<success>Always</success>
-					<operations>
-						<li Class="PatchOperationAdd">
-						  <xpath>/Defs/StatDef[defName="MaxNutrition"]/parts</xpath>
-						  <success>Invert</success>
-						  <value>
-							  <li Class="WVC.StatPart_Mechanoidization">
-								<invert>false</invert>
-								<curve>
-								  <points>
-									<li>(20, 0.0)</li>
-									<li>(40, 0.2)</li>
-									<li>(50, 0.5)</li>
-									<li>(100, 1.0)</li>
-								  </points>
-								</curve>
-							  </li>
-						  </value>
-						</li>
-						<li Class="PatchOperationAdd">
-						  <xpath>/Defs/StatDef[defName="MaxNutrition"]</xpath>
-						  <success>Always</success>
-						  <value>
-							<parts>
-							  <li Class="WVC.StatPart_Mechanoidization">
-								<invert>false</invert>
-								<curve>
-								  <points>
-									<li>(20, 0.0)</li>
-									<li>(40, 0.2)</li>
-									<li>(50, 0.5)</li>
-									<li>(100, 1.0)</li>
-								  </points>
-								</curve>
-							  </li>
-							</parts>
-						  </value>
-						</li>
-					</operations>
-				</li>
+				<!-- <li Class="PatchOperationSequence"> -->
+					<!-- <success>Always</success> -->
+					<!-- <operations> -->
+						<!-- <li Class="PatchOperationAdd"> -->
+						  <!-- <xpath>/Defs/StatDef[defName="MaxNutrition"]/parts</xpath> -->
+						  <!-- <success>Invert</success> -->
+						  <!-- <value> -->
+							  <!-- <li Class="WVC.StatPart_Mechanoidization"> -->
+								<!-- <invert>false</invert> -->
+								<!-- <curve> -->
+								  <!-- <points> -->
+									<!-- <li>(20, 0.0)</li> -->
+									<!-- <li>(40, 0.2)</li> -->
+									<!-- <li>(50, 0.5)</li> -->
+									<!-- <li>(100, 1.0)</li> -->
+								  <!-- </points> -->
+								<!-- </curve> -->
+							  <!-- </li> -->
+						  <!-- </value> -->
+						<!-- </li> -->
+						<!-- <li Class="PatchOperationAdd"> -->
+						  <!-- <xpath>/Defs/StatDef[defName="MaxNutrition"]</xpath> -->
+						  <!-- <success>Always</success> -->
+						  <!-- <value> -->
+							<!-- <parts> -->
+							  <!-- <li Class="WVC.StatPart_Mechanoidization"> -->
+								<!-- <invert>false</invert> -->
+								<!-- <curve> -->
+								  <!-- <points> -->
+									<!-- <li>(20, 0.0)</li> -->
+									<!-- <li>(40, 0.2)</li> -->
+									<!-- <li>(50, 0.5)</li> -->
+									<!-- <li>(100, 1.0)</li> -->
+								  <!-- </points> -->
+								<!-- </curve> -->
+							  <!-- </li> -->
+							<!-- </parts> -->
+						  <!-- </value> -->
+						<!-- </li> -->
+					<!-- </operations> -->
+				<!-- </li> -->
 
 				<li Class="PatchOperationSequence">
 					<success>Always</success>
@@ -494,96 +494,96 @@
 
 	<!-- ============================================================ -->
 
-	<Operation Class="WVC.PatchOperationOptional">
-		<settingName>mechanoidizationGenesPatch</settingName>
-		<caseTrue Class="PatchOperationSequence">
-			<operations>
-				<li Class="PatchOperationReplace">
-					<xpath>/Defs/GeneDef[defName="Learning_Slow"]/statFactors</xpath>
-					<success>Always</success>
-					<value>
-						<conditionalStatAffecters>
-						  <li Class="WVC.ConditionalStatAffecter_OperatingSystem">
-							<statOffsets>
-							  <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization>
-							</statOffsets>
-							<statFactors>
-							  <GlobalLearningFactor>0.8</GlobalLearningFactor>
-							</statFactors>
-						  </li>
-						  <li Class="WVC.ConditionalStatAffecter_NonOperatingSystem">
-							<statFactors>
-							  <GlobalLearningFactor>0.5</GlobalLearningFactor>
-							</statFactors>
-						  </li>
-						</conditionalStatAffecters>
-					</value>
-				</li>
-				<li Class="PatchOperationReplace">
-					<xpath>/Defs/GeneDef[defName="Instability_Mild"]/statFactors</xpath>
-					<success>Always</success>
-					<value>
-						<conditionalStatAffecters>
-						  <li Class="WVC.ConditionalStatAffecter_Mechalike">
-							<statOffsets>
-							  <WVC_PawnMechanoidization>11</WVC_PawnMechanoidization>
-							</statOffsets>
-						  </li>
-						  <li Class="WVC.ConditionalStatAffecter_Humanlike">
-							<statFactors>
-							  <LifespanFactor>0.8</LifespanFactor>
-							  <CancerRate>3</CancerRate>
-							  <ImmunityGainSpeed>0.96</ImmunityGainSpeed>
-							</statFactors>
-						  </li>
-						</conditionalStatAffecters>
-					</value>
-				</li>
-				<li Class="PatchOperationReplace">
-					<xpath>/Defs/GeneDef[defName="Instability_Major"]/statFactors</xpath>
-					<success>Always</success>
-					<value>
-						<conditionalStatAffecters>
-						  <li Class="WVC.ConditionalStatAffecter_Mechalike">
-							<statOffsets>
-							  <WVC_PawnMechanoidization>16</WVC_PawnMechanoidization>
-							</statOffsets>
-						  </li>
-						  <li Class="WVC.ConditionalStatAffecter_Humanlike">
-							<statFactors>
-							  <LifespanFactor>0.6</LifespanFactor>
-							  <CancerRate>5</CancerRate>
-							  <ImmunityGainSpeed>0.92</ImmunityGainSpeed>
-							</statFactors>
-						  </li>
-						</conditionalStatAffecters>
-					</value>
-				</li>
-				<li Class="PatchOperationReplace">
-					<xpath>/Defs/GeneDef[defName="Inbred"]/statFactors</xpath>
-					<success>Always</success>
-					<value>
-						<conditionalStatAffecters>
-						  <li Class="WVC.ConditionalStatAffecter_Mechalike">
-							<statFactors>
-							  <Fertility>0.2</Fertility>
-							</statFactors>
-							<statOffsets>
-							  <WVC_PawnMechanoidization>6</WVC_PawnMechanoidization>
-							</statOffsets>
-						  </li>
-						  <li Class="WVC.ConditionalStatAffecter_Humanlike">
-							<statFactors>
-							  <Fertility>0.5</Fertility>
-							  <ImmunityGainSpeed>0.85</ImmunityGainSpeed>
-							</statFactors>
-						  </li>
-						</conditionalStatAffecters>
-					</value>
-				</li>
-			</operations>
-		</caseTrue>
-	</Operation>
+	<!-- <Operation Class="WVC.PatchOperationOptional"> -->
+		<!-- <settingName>mechanoidizationGenesPatch</settingName> -->
+		<!-- <caseTrue Class="PatchOperationSequence"> -->
+			<!-- <operations> -->
+				<!-- <li Class="PatchOperationReplace"> -->
+					<!-- <xpath>/Defs/GeneDef[defName="Learning_Slow"]/statFactors</xpath> -->
+					<!-- <success>Always</success> -->
+					<!-- <value> -->
+						<!-- <conditionalStatAffecters> -->
+						  <!-- <li Class="WVC.ConditionalStatAffecter_OperatingSystem"> -->
+							<!-- <statOffsets> -->
+							  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
+							<!-- </statOffsets> -->
+							<!-- <statFactors> -->
+							  <!-- <GlobalLearningFactor>0.8</GlobalLearningFactor> -->
+							<!-- </statFactors> -->
+						  <!-- </li> -->
+						  <!-- <li Class="WVC.ConditionalStatAffecter_NonOperatingSystem"> -->
+							<!-- <statFactors> -->
+							  <!-- <GlobalLearningFactor>0.5</GlobalLearningFactor> -->
+							<!-- </statFactors> -->
+						  <!-- </li> -->
+						<!-- </conditionalStatAffecters> -->
+					<!-- </value> -->
+				<!-- </li> -->
+				<!-- <li Class="PatchOperationReplace"> -->
+					<!-- <xpath>/Defs/GeneDef[defName="Instability_Mild"]/statFactors</xpath> -->
+					<!-- <success>Always</success> -->
+					<!-- <value> -->
+						<!-- <conditionalStatAffecters> -->
+						  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
+							<!-- <statOffsets> -->
+							  <!-- <WVC_PawnMechanoidization>11</WVC_PawnMechanoidization> -->
+							<!-- </statOffsets> -->
+						  <!-- </li> -->
+						  <!-- <li Class="WVC.ConditionalStatAffecter_Humanlike"> -->
+							<!-- <statFactors> -->
+							  <!-- <LifespanFactor>0.8</LifespanFactor> -->
+							  <!-- <CancerRate>3</CancerRate> -->
+							  <!-- <ImmunityGainSpeed>0.96</ImmunityGainSpeed> -->
+							<!-- </statFactors> -->
+						  <!-- </li> -->
+						<!-- </conditionalStatAffecters> -->
+					<!-- </value> -->
+				<!-- </li> -->
+				<!-- <li Class="PatchOperationReplace"> -->
+					<!-- <xpath>/Defs/GeneDef[defName="Instability_Major"]/statFactors</xpath> -->
+					<!-- <success>Always</success> -->
+					<!-- <value> -->
+						<!-- <conditionalStatAffecters> -->
+						  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
+							<!-- <statOffsets> -->
+							  <!-- <WVC_PawnMechanoidization>16</WVC_PawnMechanoidization> -->
+							<!-- </statOffsets> -->
+						  <!-- </li> -->
+						  <!-- <li Class="WVC.ConditionalStatAffecter_Humanlike"> -->
+							<!-- <statFactors> -->
+							  <!-- <LifespanFactor>0.6</LifespanFactor> -->
+							  <!-- <CancerRate>5</CancerRate> -->
+							  <!-- <ImmunityGainSpeed>0.92</ImmunityGainSpeed> -->
+							<!-- </statFactors> -->
+						  <!-- </li> -->
+						<!-- </conditionalStatAffecters> -->
+					<!-- </value> -->
+				<!-- </li> -->
+				<!-- <li Class="PatchOperationReplace"> -->
+					<!-- <xpath>/Defs/GeneDef[defName="Inbred"]/statFactors</xpath> -->
+					<!-- <success>Always</success> -->
+					<!-- <value> -->
+						<!-- <conditionalStatAffecters> -->
+						  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
+							<!-- <statFactors> -->
+							  <!-- <Fertility>0.2</Fertility> -->
+							<!-- </statFactors> -->
+							<!-- <statOffsets> -->
+							  <!-- <WVC_PawnMechanoidization>6</WVC_PawnMechanoidization> -->
+							<!-- </statOffsets> -->
+						  <!-- </li> -->
+						  <!-- <li Class="WVC.ConditionalStatAffecter_Humanlike"> -->
+							<!-- <statFactors> -->
+							  <!-- <Fertility>0.5</Fertility> -->
+							  <!-- <ImmunityGainSpeed>0.85</ImmunityGainSpeed> -->
+							<!-- </statFactors> -->
+						  <!-- </li> -->
+						<!-- </conditionalStatAffecters> -->
+					<!-- </value> -->
+				<!-- </li> -->
+			<!-- </operations> -->
+		<!-- </caseTrue> -->
+	<!-- </Operation> -->
 
 	<!-- ============================================================ -->
 

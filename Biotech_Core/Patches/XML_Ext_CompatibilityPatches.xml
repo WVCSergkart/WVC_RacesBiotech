@@ -129,90 +129,90 @@
 
 	<!-- ================================================= -->
 
-	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
-	  <xpath>/Defs/GeneDef[defName="Neversleep" or defName="AG_Painless"]</xpath>
-	  <success>Always</success>
-	  <safetyDepth>1</safetyDepth>
-	  <value>
-		<conditionalStatAffecters>
-		  <li Class="WVC.ConditionalStatAffecter_Mechalike">
-			<statOffsets>
-			  <WVC_PawnMechanoidization>3</WVC_PawnMechanoidization>
-			</statOffsets>
-		  </li>
-		</conditionalStatAffecters>
-	  </value>
-	</Operation>
-	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
-	  <xpath>/Defs/GeneDef[defName="Deathless" or defName="Ageless" or defName="ToxResist_Total"]</xpath>
-	  <success>Always</success>
-	  <safetyDepth>1</safetyDepth>
-	  <value>
-		<conditionalStatAffecters>
-		  <li Class="WVC.ConditionalStatAffecter_Mechalike">
-			<statOffsets>
-			  <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization>
-			</statOffsets>
-		  </li>
-		</conditionalStatAffecters>
-	  </value>
-	</Operation>
-	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
-	  <xpath>/Defs/GeneDef[defName="ArchiteMetabolism" or defName="PerfectImmunity" or defName="DiseaseFree" or defName="ToxResist_Partial" or defName="LowSleep" or defName="Pain_Reduced" or defName="AG_ArmourMinor" or defName="AG_ArmourMedium" or defName="AG_ArmourMajor"]</xpath>
-	  <success>Always</success>
-	  <safetyDepth>1</safetyDepth>
-	  <value>
-		<conditionalStatAffecters>
-		  <li Class="WVC.ConditionalStatAffecter_Mechalike">
-			<statOffsets>
-			  <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization>
-			</statOffsets>
-		  </li>
-		</conditionalStatAffecters>
-	  </value>
-	</Operation>
-	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
-	  <xpath>/Defs/GeneDef[defName="Sleepy" or defName="AG_FungalSkin" or defName="AG_FrailSkin"]</xpath>
-	  <success>Always</success>
-	  <safetyDepth>1</safetyDepth>
-	  <value>
-		<conditionalStatAffecters>
-		  <li Class="WVC.ConditionalStatAffecter_Mechalike">
-			<statOffsets>
-			  <WVC_PawnMechanoidization>-1</WVC_PawnMechanoidization>
-			</statOffsets>
-		  </li>
-		</conditionalStatAffecters>
-	  </value>
-	</Operation>
-	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
-	  <xpath>/Defs/GeneDef[defName="Hemogenic" or defName="VerySleepy" or defName="Pain_Extra"]</xpath>
-	  <success>Always</success>
-	  <safetyDepth>1</safetyDepth>
-	  <value>
-		<conditionalStatAffecters>
-		  <li Class="WVC.ConditionalStatAffecter_Mechalike">
-			<statOffsets>
-			  <WVC_PawnMechanoidization>-2</WVC_PawnMechanoidization>
-			</statOffsets>
-		  </li>
-		</conditionalStatAffecters>
-	  </value>
-	</Operation>
-	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
-	  <xpath>/Defs/GeneDef[defName="HemogenDrain" or defName="AG_BrittleBones"]</xpath>
-	  <success>Always</success>
-	  <safetyDepth>1</safetyDepth>
-	  <value>
-		<conditionalStatAffecters>
-		  <li Class="WVC.ConditionalStatAffecter_Mechalike">
-			<statOffsets>
-			  <WVC_PawnMechanoidization>-3</WVC_PawnMechanoidization>
-			</statOffsets>
-		  </li>
-		</conditionalStatAffecters>
-	  </value>
-	</Operation>
+	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
+	  <!-- <xpath>/Defs/GeneDef[defName="Neversleep" or defName="AG_Painless"]</xpath> -->
+	  <!-- <success>Always</success> -->
+	  <!-- <safetyDepth>1</safetyDepth> -->
+	  <!-- <value> -->
+		<!-- <conditionalStatAffecters> -->
+		  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
+			<!-- <statOffsets> -->
+			  <!-- <WVC_PawnMechanoidization>3</WVC_PawnMechanoidization> -->
+			<!-- </statOffsets> -->
+		  <!-- </li> -->
+		<!-- </conditionalStatAffecters> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
+	  <!-- <xpath>/Defs/GeneDef[defName="Deathless" or defName="Ageless" or defName="ToxResist_Total"]</xpath> -->
+	  <!-- <success>Always</success> -->
+	  <!-- <safetyDepth>1</safetyDepth> -->
+	  <!-- <value> -->
+		<!-- <conditionalStatAffecters> -->
+		  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
+			<!-- <statOffsets> -->
+			  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
+			<!-- </statOffsets> -->
+		  <!-- </li> -->
+		<!-- </conditionalStatAffecters> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
+	  <!-- <xpath>/Defs/GeneDef[defName="ArchiteMetabolism" or defName="PerfectImmunity" or defName="DiseaseFree" or defName="ToxResist_Partial" or defName="LowSleep" or defName="Pain_Reduced" or defName="AG_ArmourMinor" or defName="AG_ArmourMedium" or defName="AG_ArmourMajor"]</xpath> -->
+	  <!-- <success>Always</success> -->
+	  <!-- <safetyDepth>1</safetyDepth> -->
+	  <!-- <value> -->
+		<!-- <conditionalStatAffecters> -->
+		  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
+			<!-- <statOffsets> -->
+			  <!-- <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization> -->
+			<!-- </statOffsets> -->
+		  <!-- </li> -->
+		<!-- </conditionalStatAffecters> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
+	  <!-- <xpath>/Defs/GeneDef[defName="Sleepy" or defName="AG_FungalSkin" or defName="AG_FrailSkin"]</xpath> -->
+	  <!-- <success>Always</success> -->
+	  <!-- <safetyDepth>1</safetyDepth> -->
+	  <!-- <value> -->
+		<!-- <conditionalStatAffecters> -->
+		  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
+			<!-- <statOffsets> -->
+			  <!-- <WVC_PawnMechanoidization>-1</WVC_PawnMechanoidization> -->
+			<!-- </statOffsets> -->
+		  <!-- </li> -->
+		<!-- </conditionalStatAffecters> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
+	  <!-- <xpath>/Defs/GeneDef[defName="Hemogenic" or defName="VerySleepy" or defName="Pain_Extra"]</xpath> -->
+	  <!-- <success>Always</success> -->
+	  <!-- <safetyDepth>1</safetyDepth> -->
+	  <!-- <value> -->
+		<!-- <conditionalStatAffecters> -->
+		  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
+			<!-- <statOffsets> -->
+			  <!-- <WVC_PawnMechanoidization>-2</WVC_PawnMechanoidization> -->
+			<!-- </statOffsets> -->
+		  <!-- </li> -->
+		<!-- </conditionalStatAffecters> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
+	  <!-- <xpath>/Defs/GeneDef[defName="HemogenDrain" or defName="AG_BrittleBones"]</xpath> -->
+	  <!-- <success>Always</success> -->
+	  <!-- <safetyDepth>1</safetyDepth> -->
+	  <!-- <value> -->
+		<!-- <conditionalStatAffecters> -->
+		  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
+			<!-- <statOffsets> -->
+			  <!-- <WVC_PawnMechanoidization>-3</WVC_PawnMechanoidization> -->
+			<!-- </statOffsets> -->
+		  <!-- </li> -->
+		<!-- </conditionalStatAffecters> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
 
 	<!-- ================================================= -->
 
