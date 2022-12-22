@@ -16,4 +16,6 @@
 
 If you have a conflict with other mods, disable this patch.</WVC_ToolTip_mechanoidizationGenesPatch>
 
+	<WVC_StatPart_Mechanoidization>Mechanoidization</WVC_StatPart_Mechanoidization>
+
 </LanguageData>

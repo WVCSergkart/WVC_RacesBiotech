@@ -26,27 +26,27 @@
 		</operations>
 	</Operation>
 
-	<Operation Class="VFECore.PatchOperationToggableSequence">
-		<enabled>False</enabled>
-		<label>(WVC - Genes) Disable mechanoidization mechanic</label>
-		<operations>
-			<li Class="PatchOperationRemove">
-				<xpath>/Defs/GeneDef/statOffsets/WVC_PawnMechanoidization</xpath>
-				<success>Always</success>
-			</li>
-			<li Class="PatchOperationRemove">
-				<xpath>/Defs/GeneDef/conditionalStatAffecters/li/statOffsets/WVC_PawnMechanoidization</xpath>
-				<success>Always</success>
-			</li>
-			<li Class="PatchOperationReplace">
-				<xpath>/Defs/StatDef[defName="WVC_PawnMechanoidization"]/alwaysHide</xpath>
-				<success>Always</success>
-				<value>
-					<alwaysHide>true</alwaysHide>
-				</value>
-			</li>
-		</operations>
-	</Operation>
+	<!-- <Operation Class="VFECore.PatchOperationToggableSequence"> -->
+		<!-- <enabled>False</enabled> -->
+		<!-- <label>(WVC - Genes) Disable mechanoidization mechanic</label> -->
+		<!-- <operations> -->
+			<!-- <li Class="PatchOperationRemove"> -->
+				<!-- <xpath>/Defs/GeneDef/statOffsets/WVC_PawnMechanoidization</xpath> -->
+				<!-- <success>Always</success> -->
+			<!-- </li> -->
+			<!-- <li Class="PatchOperationRemove"> -->
+				<!-- <xpath>/Defs/GeneDef/conditionalStatAffecters/li/statOffsets/WVC_PawnMechanoidization</xpath> -->
+				<!-- <success>Always</success> -->
+			<!-- </li> -->
+			<!-- <li Class="PatchOperationReplace"> -->
+				<!-- <xpath>/Defs/StatDef[defName="WVC_PawnMechanoidization"]/alwaysHide</xpath> -->
+				<!-- <success>Always</success> -->
+				<!-- <value> -->
+					<!-- <alwaysHide>true</alwaysHide> -->
+				<!-- </value> -->
+			<!-- </li> -->
+		<!-- </operations> -->
+	<!-- </Operation> -->
 
 	<Operation Class="VFECore.PatchOperationToggableSequence">
 		<enabled>False</enabled>
@@ -94,6 +94,19 @@
 	</Operation>
 
 	<Operation Class="WVC.PatchOperationOptional">
+		<settingName>mecaXenotypeIsInheritable</settingName>
+		<caseTrue Class="PatchOperationReplace">
+			<xpath>/Defs/XenotypeDef[defName="WVC_Meca"]/inheritable</xpath>
+			<success>Always</success>
+			<value>
+				<inheritable>true</inheritable>
+			</value>
+		</caseTrue>
+	</Operation>
+
+	<!-- ============================================================ -->
+
+	<Operation Class="WVC.PatchOperationOptional">
 		<settingName>disableMechanoidizationMechanic</settingName>
 		<caseTrue Class="PatchOperationSequence">
 			<operations>
@@ -114,22 +127,370 @@
 				</li>
 			</operations>
 		</caseTrue>
-		<!-- <caseFalse Class="PatchOperationSequence"> -->
-			<!-- <operations> -->
-			<!-- </operations> -->
-		<!-- </caseFalse> -->
+		<caseFalse Class="PatchOperationSequence">
+			<operations>
+
+				<li Class="PatchOperationSequence">
+					<success>Always</success>
+					<operations>
+						<li Class="PatchOperationAdd">
+						  <xpath>/Defs/StatDef[defName="SocialImpact"]/parts</xpath>
+						  <success>Invert</success>
+						  <value>
+							  <li Class="WVC.StatPart_Mechanoidization">
+								<invert>false</invert>
+								<curve>
+								  <points>
+									<li>(5, 0.0)</li>
+									<li>(20, 0.05)</li>
+									<li>(40, 0.15)</li>
+									<li>(60, 0.30)</li>
+									<li>(80, 0.50)</li>
+								  </points>
+								</curve>
+							  </li>
+						  </value>
+						</li>
+						<li Class="PatchOperationAdd">
+						  <xpath>/Defs/StatDef[defName="SocialImpact"]</xpath>
+						  <success>Always</success>
+						  <value>
+							<parts>
+							  <li Class="WVC.StatPart_Mechanoidization">
+								<invert>false</invert>
+								<curve>
+								  <points>
+									<li>(5, 0.0)</li>
+									<li>(20, 0.05)</li>
+									<li>(40, 0.15)</li>
+									<li>(60, 0.30)</li>
+									<li>(80, 0.50)</li>
+								  </points>
+								</curve>
+							  </li>
+							</parts>
+						  </value>
+						</li>
+					</operations>
+				</li>
+
+				<li Class="PatchOperationSequence">
+					<success>Always</success>
+					<operations>
+						<li Class="PatchOperationAdd">
+						  <xpath>/Defs/StatDef[defName="ArrestSuccessChance"]/parts</xpath>
+						  <success>Invert</success>
+						  <value>
+							  <li Class="WVC.StatPart_Mechanoidization">
+								<invert>true</invert>
+								<curve>
+								  <points>
+									<li>(5, 0.0)</li>
+									<li>(20, 0.10)</li>
+									<li>(40, 0.20)</li>
+									<li>(60, 0.40)</li>
+									<li>(80, 0.60)</li>
+								  </points>
+								</curve>
+							  </li>
+						  </value>
+						</li>
+						<li Class="PatchOperationAdd">
+						  <xpath>/Defs/StatDef[defName="ArrestSuccessChance"]</xpath>
+						  <success>Always</success>
+						  <value>
+							<parts>
+							  <li Class="WVC.StatPart_Mechanoidization">
+								<invert>true</invert>
+								<curve>
+								  <points>
+									<li>(5, 0.0)</li>
+									<li>(20, 0.10)</li>
+									<li>(40, 0.20)</li>
+									<li>(60, 0.40)</li>
+									<li>(80, 0.60)</li>
+								  </points>
+								</curve>
+							  </li>
+							</parts>
+						  </value>
+						</li>
+					</operations>
+				</li>
+
+				<li Class="PatchOperationAdd">
+				  <xpath>/Defs/StatDef[defName="LeatherAmount" or defName="MeatAmount"]/parts</xpath>
+				  <success>Always</success>
+				  <value>
+					  <li Class="WVC.StatPart_Mechanoidization">
+						<invert>false</invert>
+						<curve>
+						  <points>
+							<li>(5, 0.0)</li>
+							<li>(15, 0.15)</li>
+							<li>(30, 0.25)</li>
+							<li>(40, 0.30)</li>
+							<li>(100, 0.50)</li>
+						  </points>
+						</curve>
+					  </li>
+				  </value>
+				</li>
+
+				<li Class="PatchOperationSequence">
+					<success>Always</success>
+					<operations>
+						<li Class="PatchOperationAdd">
+						  <xpath>/Defs/StatDef[defName="ToxicResistance"]/parts</xpath>
+						  <success>Invert</success>
+						  <value>
+							  <li Class="WVC.StatPart_Mechanoidization">
+								<invert>true</invert>
+								<curve>
+								  <points>
+									<li>(5, 0.0)</li>
+									<li>(25, 0.10)</li>
+									<li>(40, 0.50)</li>
+									<li>(50, 1.0)</li>
+								  </points>
+								</curve>
+							  </li>
+						  </value>
+						</li>
+						<li Class="PatchOperationAdd">
+						  <xpath>/Defs/StatDef[defName="ToxicResistance"]</xpath>
+						  <success>Always</success>
+						  <value>
+							<parts>
+							  <li Class="WVC.StatPart_Mechanoidization">
+								<invert>true</invert>
+								<curve>
+								  <points>
+									<li>(5, 0.0)</li>
+									<li>(25, 0.10)</li>
+									<li>(40, 0.50)</li>
+									<li>(50, 1.0)</li>
+								  </points>
+								</curve>
+							  </li>
+							</parts>
+						  </value>
+						</li>
+					</operations>
+				</li>
+
+				<li Class="PatchOperationSequence">
+					<success>Always</success>
+					<operations>
+						<li Class="PatchOperationAdd">
+						  <xpath>/Defs/StatDef[defName="ToxicEnvironmentResistance"]/parts</xpath>
+						  <success>Invert</success>
+						  <value>
+							  <li Class="WVC.StatPart_Mechanoidization">
+								<invert>true</invert>
+								<curve>
+								  <points>
+									<li>(5, 0.0)</li>
+									<li>(10, 0.50)</li>
+									<li>(30, 1.0)</li>
+								  </points>
+								</curve>
+							  </li>
+						  </value>
+						</li>
+						<li Class="PatchOperationAdd">
+						  <xpath>/Defs/StatDef[defName="ToxicEnvironmentResistance"]</xpath>
+						  <success>Always</success>
+						  <value>
+							<parts>
+							  <li Class="WVC.StatPart_Mechanoidization">
+								<invert>true</invert>
+								<curve>
+								  <points>
+									<li>(5, 0.0)</li>
+									<li>(10, 0.50)</li>
+									<li>(30, 1.0)</li>
+								  </points>
+								</curve>
+							  </li>
+							</parts>
+						  </value>
+						</li>
+					</operations>
+				</li>
+
+				<li Class="PatchOperationSequence">
+					<success>Always</success>
+					<operations>
+						<li Class="PatchOperationAdd">
+						  <xpath>/Defs/StatDef[defName="LifespanFactor"]/parts</xpath>
+						  <success>Invert</success>
+						  <value>
+							  <li Class="WVC.StatPart_Mechanoidization">
+								<invert>true</invert>
+								<curve>
+								  <points>
+									<li>(15, 0.0)</li>
+									<li>(20, 1.0)</li>
+									<li>(40, 2.0)</li>
+									<li>(60, 4.0)</li>
+									<li>(100, 10.0)</li>
+								  </points>
+								</curve>
+							  </li>
+						  </value>
+						</li>
+						<li Class="PatchOperationAdd">
+						  <xpath>/Defs/StatDef[defName="LifespanFactor"]</xpath>
+						  <success>Always</success>
+						  <value>
+							<parts>
+							  <li Class="WVC.StatPart_Mechanoidization">
+								<invert>true</invert>
+								<curve>
+								  <points>
+									<li>(15, 0.0)</li>
+									<li>(20, 1.0)</li>
+									<li>(40, 2.0)</li>
+									<li>(60, 4.0)</li>
+									<li>(100, 10.0)</li>
+								  </points>
+								</curve>
+							  </li>
+							</parts>
+						  </value>
+						</li>
+					</operations>
+				</li>
+
+				<li Class="PatchOperationSequence">
+					<success>Always</success>
+					<operations>
+						<li Class="PatchOperationAdd">
+						  <xpath>/Defs/StatDef[defName="TradePriceImprovement"]/parts</xpath>
+						  <success>Invert</success>
+						  <value>
+							  <li Class="WVC.StatPart_Mechanoidization">
+								<invert>false</invert>
+								<curve>
+								  <points>
+									<li>(40, 0.0)</li>
+									<li>(50, 0.2)</li>
+									<li>(80, 0.5)</li>
+									<li>(100, 1.0)</li>
+								  </points>
+								</curve>
+							  </li>
+						  </value>
+						</li>
+						<li Class="PatchOperationAdd">
+						  <xpath>/Defs/StatDef[defName="TradePriceImprovement"]</xpath>
+						  <success>Always</success>
+						  <value>
+							<parts>
+							  <li Class="WVC.StatPart_Mechanoidization">
+								<invert>false</invert>
+								<curve>
+								  <points>
+									<li>(40, 0.0)</li>
+									<li>(50, 0.2)</li>
+									<li>(80, 0.5)</li>
+									<li>(100, 1.0)</li>
+								  </points>
+								</curve>
+							  </li>
+							</parts>
+						  </value>
+						</li>
+					</operations>
+				</li>
+
+				<li Class="PatchOperationSequence">
+					<success>Always</success>
+					<operations>
+						<li Class="PatchOperationAdd">
+						  <xpath>/Defs/StatDef[defName="MaxNutrition"]/parts</xpath>
+						  <success>Invert</success>
+						  <value>
+							  <li Class="WVC.StatPart_Mechanoidization">
+								<invert>false</invert>
+								<curve>
+								  <points>
+									<li>(20, 0.0)</li>
+									<li>(40, 0.2)</li>
+									<li>(50, 0.5)</li>
+									<li>(100, 1.0)</li>
+								  </points>
+								</curve>
+							  </li>
+						  </value>
+						</li>
+						<li Class="PatchOperationAdd">
+						  <xpath>/Defs/StatDef[defName="MaxNutrition"]</xpath>
+						  <success>Always</success>
+						  <value>
+							<parts>
+							  <li Class="WVC.StatPart_Mechanoidization">
+								<invert>false</invert>
+								<curve>
+								  <points>
+									<li>(20, 0.0)</li>
+									<li>(40, 0.2)</li>
+									<li>(50, 0.5)</li>
+									<li>(100, 1.0)</li>
+								  </points>
+								</curve>
+							  </li>
+							</parts>
+						  </value>
+						</li>
+					</operations>
+				</li>
+
+				<li Class="PatchOperationSequence">
+					<success>Always</success>
+					<operations>
+						<li Class="PatchOperationAdd">
+						  <xpath>/Defs/StatDef[defName="BondAnimalChanceFactor"]/parts</xpath>
+						  <success>Invert</success>
+						  <value>
+							  <li Class="WVC.StatPart_Mechanoidization">
+								<invert>false</invert>
+								<curve>
+								  <points>
+									<li>(20, 0.0)</li>
+									<li>(50, 0.5)</li>
+									<li>(100, 1.0)</li>
+								  </points>
+								</curve>
+							  </li>
+						  </value>
+						</li>
+						<li Class="PatchOperationAdd">
+						  <xpath>/Defs/StatDef[defName="BondAnimalChanceFactor"]</xpath>
+						  <success>Always</success>
+						  <value>
+							<parts>
+							  <li Class="WVC.StatPart_Mechanoidization">
+								<invert>false</invert>
+								<curve>
+								  <points>
+									<li>(20, 0.0)</li>
+									<li>(50, 0.5)</li>
+									<li>(100, 1.0)</li>
+								  </points>
+								</curve>
+							  </li>
+							</parts>
+						  </value>
+						</li>
+					</operations>
+				</li>
+
+			</operations>
+		</caseFalse>
 	</Operation>
 
-	<Operation Class="WVC.PatchOperationOptional">
-		<settingName>mecaXenotypeIsInheritable</settingName>
-		<caseTrue Class="PatchOperationReplace">
-			<xpath>/Defs/XenotypeDef[defName="WVC_Meca"]/inheritable</xpath>
-			<success>Always</success>
-			<value>
-				<inheritable>true</inheritable>
-			</value>
-		</caseTrue>
-	</Operation>
 
 	<!-- ============================================================ -->
 

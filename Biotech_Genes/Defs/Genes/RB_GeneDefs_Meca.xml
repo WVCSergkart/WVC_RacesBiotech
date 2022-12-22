@@ -114,8 +114,8 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <!-- <PsychicSensitivity>0.7</PsychicSensitivity> -->
 	  <!-- <Fertility>0.8</Fertility> -->
 	  <!-- <Flammability>0.8</Flammability> -->
-	  <MeatAmount>0.8</MeatAmount>
-	  <LeatherAmount>0.5</LeatherAmount>
+	  <!-- <MeatAmount>0.8</MeatAmount> -->
+	  <!-- <LeatherAmount>0.5</LeatherAmount> -->
 	</statFactors>
 	<statOffsets>
 	  <!-- <MeleeDamageFactor>0.1</MeleeDamageFactor> -->

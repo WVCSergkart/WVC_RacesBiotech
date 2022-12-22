@@ -4,25 +4,22 @@
   <StatDef>
 	<defName>WVC_PawnMechanoidization</defName>
 	<label>mechanoidization</label>
-	<description>Determines how far mechanoidization has gone. The higher the values, the worse non-mecha pawns treat the carrier of genes. Also, a higher mechanoidization parameter slightly reduces the chance of a nervous breakdown.
+	<description>Determines how far mechanoidization has gone. The higher the value, the worse the surroundings treat the owner of the mecha genes. This parameter also affects other parameters such as social impact, toxic resistance, lifespan, etc. high values can raise or lower these parameters.
 
-Values below 5 have no effect and the pawn is treated as a human. All values above begin to lower the opinion of others. Mecha-pawns also dislike those more mechanized than them, but not as much as non-mechs. The mechanoidization opinion debuff stacks with implant and gene modification opinions.
+Values below 5 have no effect and the pawn is treated as a human. All values above will begin to have an effect, changing the parameters and lowering the opinion of others.
 
-Transhumanists, body modders and mechanitors ignore mechanoidization. Body purists always have the most negative attitude towards mechanoidization. The blind also do not respond to mechanoidization.
+Some traits and genes also have an impact on opinion, giving either an additional debuff or vice versa.
 
-Some mecha-genes also affect how the debuff is calculated. For example "Natural enemy" increases the debuff, while "Perfect shape" reduces it.
+For example: Transhumanists, body modders and mechanitors ignore mechanoidization.
 
-The effect appears only at very low and higher expectations.
-
-Some genes have a bonus to mechanoidization which is marked as (mechalike), this bonus only triggers when a mechaskin is present.
-
-This parameter is affected only by mecha-genes.</description>
+This parameter is affected only by genes.</description>
 	<labelForFullStatList>genetic mechanoidization</labelForFullStatList>
 	<category>PawnSocial</category>
 	<defaultBaseValue>0</defaultBaseValue>
 	<hideAtValue>0</hideAtValue>
 	<minValue>0</minValue>
 	<maxValue>100</maxValue>
+	<valueIfMissing>0</valueIfMissing>
 	<showOnAnimals>false</showOnAnimals>
 	<showOnMechanoids>false</showOnMechanoids>
 	<!-- <showIfUndefined>false</showIfUndefined> -->
