@@ -1564,6 +1564,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <li>WVC_DiseaseProgression</li>
 	</exclusionTags>
 	<statOffsets>
+	  <WVC_PawnMechanoidization>3</WVC_PawnMechanoidization>
 	  <ImmunityGainSpeed>1</ImmunityGainSpeed>
 	</statOffsets>
 	<modExtensions>
