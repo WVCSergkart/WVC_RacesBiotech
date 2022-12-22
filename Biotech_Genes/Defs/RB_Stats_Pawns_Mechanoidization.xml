@@ -13,6 +13,18 @@ Some traits and genes also have an impact on opinion, giving either an additiona
 For example: Transhumanists, body modders and mechanitors ignore mechanoidization.
 
 This parameter is affected only by genes.</description>
+	<!-- <descriptionHyperlinks> -->
+	  <!-- <StatDef>SocialImpact</StatDef> -->
+	  <!-- <StatDef>ArrestSuccessChance</StatDef> -->
+	  <!-- <StatDef>MeatAmount</StatDef> -->
+	  <!-- <StatDef>LeatherAmount</StatDef> -->
+	  <!-- <StatDef>ToxicResistance</StatDef> -->
+	  <!-- <StatDef>ToxicEnvironmentResistance</StatDef> -->
+	  <!-- <StatDef>LifespanFactor</StatDef> -->
+	  <!-- <StatDef>TradePriceImprovement</StatDef> -->
+	  <!-- <StatDef>MaxNutrition</StatDef> -->
+	  <!-- <StatDef>BondAnimalChanceFactor</StatDef> -->
+	<!-- </descriptionHyperlinks> -->
 	<labelForFullStatList>genetic mechanoidization</labelForFullStatList>
 	<category>PawnSocial</category>
 	<defaultBaseValue>0</defaultBaseValue>

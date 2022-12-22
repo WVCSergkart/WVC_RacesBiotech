@@ -79,6 +79,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<biostatCpx>6</biostatCpx>
 	<biostatArc>5</biostatArc>
 	<biostatMet>-16</biostatMet>
+	<!-- <WVC_biostatMecha>5</WVC_biostatMecha> -->
 	<!-- <displayCategory>Archite</displayCategory> -->
 	<displayOrderInCategory>-100</displayOrderInCategory>
 	<iconPath>WVC/UI/Genes/MechaIcon</iconPath>
