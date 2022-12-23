@@ -1526,7 +1526,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<dontMindRawFood>true</dontMindRawFood>
 	<biostatMet>2</biostatMet>
 	<statFactors>
-	  <MaxNutrition>0.6</MaxNutrition>
+	  <MaxNutrition MayRequireAnyOf="wvc.wvcmod.wvcspecific">2.0</MaxNutrition>
 	</statFactors>
 	<exclusionTags>
 	  <li>AG_StrongStomachAndWeakStomach</li>
