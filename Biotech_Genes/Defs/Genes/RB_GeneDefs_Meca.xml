@@ -65,6 +65,11 @@
 		<!-- </statOffsets> -->
 	  <!-- </li> -->
 	<!-- </conditionalStatAffecters> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC.GeneExtension"> -->
+			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathArchite> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <!-- Meca -->
@@ -113,6 +118,9 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <!-- <li>BeardStyle</li> -->
 	</exclusionTags>
 	<!-- <sterilize>true</sterilize> -->
+	<customEffectDescriptions>
+		<li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Activates the mechanoidization effect, the more archites used, the higher the mechanoidization.</li>
+	</customEffectDescriptions>
 	<statFactors>
 	  <!-- <PsychicSensitivity>0.7</PsychicSensitivity> -->
 	  <!-- <Fertility>0.8</Fertility> -->
@@ -375,6 +383,9 @@ Most of the internal organs remain intact, but there are enough external changes
 		<!-- <skill>Intellectual</skill> -->
 		<!-- <modType>AddOneLevel</modType> -->
 	<!-- </passionMod> -->
+	<customEffectDescriptions>
+		<li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Reduces social impact and the chance of a nervous breakdown.</li>
+	</customEffectDescriptions>
 	<forcedTraits>
 	  <!-- <li> -->
 		<!-- <def>Transhumanist</def> -->
@@ -804,6 +815,9 @@ Most of the internal organs remain intact, but there are enough external changes
 	<defName>WVC_MecaBodyParts_Arm</defName>
 	<label>fight program</label>
 	<iconColor>(255, 200, 130)</iconColor>
+	<customEffectDescriptions>
+		<li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Increases the chance of arrest.</li>
+	</customEffectDescriptions>
 	<statOffsets>
 	  <MeleeDamageFactor>0.15</MeleeDamageFactor>
 	</statOffsets>
@@ -816,6 +830,11 @@ Most of the internal organs remain intact, but there are enough external changes
 	<defName>WVC_MecaBodyParts_Jaw</defName>
 	<label>speaking improver</label>
 	<iconColor>(220, 130, 255)</iconColor>
+	<suppressedTraits>
+	  <li>
+		<def>AnnoyingVoice</def>
+	  </li>
+	</suppressedTraits>
 	<capMods>
 	  <li>
 		<capacity>Talking</capacity>
@@ -947,6 +966,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<!-- <biostatMet>3</biostatMet> -->
 	<biostatArc>5</biostatArc>
 	<customEffectDescriptions>
+		<li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Significantly reduces trade price improvement.</li>
 		<li>Decreases the pawn's opinion of everyone who does not have the same gene by 100.</li>
 	</customEffectDescriptions>
 	<!-- <statOffsets> -->
@@ -1441,6 +1461,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<biostatMet>-2</biostatMet>
 	<biostatArc>2</biostatArc>
 	<customEffectDescriptions>
+		<li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Increases lifespan factor.</li>
 		<!-- <li>No bleeding.</li> -->
 		<li>Bleeding wounds close very quickly.</li>
 		<li>Changes blood filth into machine bits.</li>
@@ -1524,9 +1545,12 @@ Most of the internal organs remain intact, but there are enough external changes
 	<label>light frame</label>
 	<description>Archites lighten the body of the carrier by optimizing the amount of fat and muscle mass, without losing the efficiency of the body.</description>
 	<biostatMet>-2</biostatMet>
+	<customEffectDescriptions>
+		<li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Reduces the amount of meat and leather.</li>
+	</customEffectDescriptions>
 	<statFactors>
-	  <MeatAmount>0.8</MeatAmount>
-	  <LeatherAmount>0.9</LeatherAmount>
+	  <!-- <MeatAmount>0.8</MeatAmount> -->
+	  <!-- <LeatherAmount>0.9</LeatherAmount> -->
 	  <Mass>0.8</Mass>
 	</statFactors>
 	<statOffsets>
@@ -1541,6 +1565,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<biostatMet>-5</biostatMet>
 	<biostatArc>3</biostatArc>
 	<customEffectDescriptions>
+		<li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Increases resistance to toxins.</li>
 		<li>Completely stops the progression of diseases.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
@@ -1563,6 +1588,9 @@ Most of the internal organs remain intact, but there are enough external changes
 	<label>additional mechanite clusters</label>
 	<description>Archites create additional mechanite clusters, slightly increasing regeneration.</description>
 	<biostatMet>-1</biostatMet>
+	<customEffectDescriptions>
+		<li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Increases injury healing factor.</li>
+	</customEffectDescriptions>
 	<statOffsets>
 	  <InjuryHealingFactor>1</InjuryHealingFactor>
 	</statOffsets>
@@ -1574,6 +1602,9 @@ Most of the internal organs remain intact, but there are enough external changes
 	<description>Archites significantly enhance the temperature adaptability of the carrier.</description>
 	<biostatMet>-2</biostatMet>
 	<biostatArc>2</biostatArc>
+	<customEffectDescriptions>
+		<li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Increases resistance to toxic environment.</li>
+	</customEffectDescriptions>
 	<statOffsets>
 	  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
 	  <ComfyTemperatureMax>25</ComfyTemperatureMax>
@@ -1632,5 +1663,23 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
 	<!-- </statOffsets> -->
   <!-- </GeneDef> -->
+
+  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
+	<defName>WVC_MecaUpgrades_EnergySavingMode</defName>
+	<label>energy saving mode</label>
+	<description>The carrier of this gene has archites, which can significantly optimize the metabolic process during sleep.</description>
+	<biostatArc>3</biostatArc>
+	<customEffectDescriptions>
+		<li>The hunger bar does not decrease while the pawn is on the bed.</li>
+	</customEffectDescriptions>
+	<suppressedTraits>
+	  <li>
+		<def>QuickSleeper</def>
+	  </li>
+	</suppressedTraits>
+	<statFactors>
+	  <BedHungerRateFactor>0.0</BedHungerRateFactor>
+	</statFactors>
+  </GeneDef>
 
 </Defs>

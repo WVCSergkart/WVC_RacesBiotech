@@ -13,6 +13,11 @@
 	<!-- <statOffsets> -->
 	  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
 	<!-- </statOffsets> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC.GeneExtension"> -->
+			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathArchite> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <GeneDef ParentName="WVC_MechanoidizationAbilities">
@@ -79,6 +84,11 @@
 	<label>firefoam pop</label>
 	<description>Carriers of this gene have small accumulations of foam under the mecha-skin, they can release some of these accumulations, which will allow them to put out the fire.</description>
 	<iconPath>UI/Abilities/MechFirefoamPop</iconPath>
+	<suppressedTraits>
+	  <li>
+		<def>Pyromaniac</def>
+	  </li>
+	</suppressedTraits>
 	<statFactors>
 	  <Flammability>0.1</Flammability>
 	</statFactors>

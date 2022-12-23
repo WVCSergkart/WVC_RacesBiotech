@@ -139,6 +139,7 @@
 						  <value>
 							  <li Class="WVC.StatPart_Mechanoidization">
 								<invert>false</invert>
+								<requiredGene>WVC_MechaAI_Base</requiredGene>
 								<curve>
 								  <points>
 									<li>(5, 0.0)</li>
@@ -158,6 +159,7 @@
 							<parts>
 							  <li Class="WVC.StatPart_Mechanoidization">
 								<invert>false</invert>
+								<requiredGene>WVC_MechaAI_Base</requiredGene>
 								<curve>
 								  <points>
 									<li>(5, 0.0)</li>
@@ -183,6 +185,7 @@
 						  <value>
 							  <li Class="WVC.StatPart_Mechanoidization">
 								<invert>true</invert>
+								<requiredGene>WVC_MecaBodyParts_Arm</requiredGene>
 								<curve>
 								  <points>
 									<li>(5, 0.0)</li>
@@ -202,6 +205,7 @@
 							<parts>
 							  <li Class="WVC.StatPart_Mechanoidization">
 								<invert>true</invert>
+								<requiredGene>WVC_MecaBodyParts_Arm</requiredGene>
 								<curve>
 								  <points>
 									<li>(5, 0.0)</li>
@@ -224,6 +228,7 @@
 				  <value>
 					  <li Class="WVC.StatPart_Mechanoidization">
 						<invert>false</invert>
+						<requiredGene>WVC_MecaBodyParts_Leg</requiredGene>
 						<curve>
 						  <points>
 							<li>(5, 0.0)</li>
@@ -246,6 +251,7 @@
 						  <value>
 							  <li Class="WVC.StatPart_Mechanoidization">
 								<invert>true</invert>
+								<requiredGene>WVC_MecaBodyParts_Liver</requiredGene>
 								<curve>
 								  <points>
 									<li>(5, 0.0)</li>
@@ -264,6 +270,7 @@
 							<parts>
 							  <li Class="WVC.StatPart_Mechanoidization">
 								<invert>true</invert>
+								<requiredGene>WVC_MecaBodyParts_Liver</requiredGene>
 								<curve>
 								  <points>
 									<li>(5, 0.0)</li>
@@ -288,6 +295,7 @@
 						  <value>
 							  <li Class="WVC.StatPart_Mechanoidization">
 								<invert>true</invert>
+								<requiredGene>WVC_MecaBodyParts_Lung</requiredGene>
 								<curve>
 								  <points>
 									<li>(5, 0.0)</li>
@@ -305,6 +313,7 @@
 							<parts>
 							  <li Class="WVC.StatPart_Mechanoidization">
 								<invert>true</invert>
+								<requiredGene>WVC_MecaBodyParts_Lung</requiredGene>
 								<curve>
 								  <points>
 									<li>(5, 0.0)</li>
@@ -328,6 +337,7 @@
 						  <value>
 							  <li Class="WVC.StatPart_Mechanoidization">
 								<invert>true</invert>
+								<requiredGene>WVC_MecaBodyParts_Heart</requiredGene>
 								<curve>
 								  <points>
 									<li>(15, 0.0)</li>
@@ -347,6 +357,7 @@
 							<parts>
 							  <li Class="WVC.StatPart_Mechanoidization">
 								<invert>true</invert>
+								<requiredGene>WVC_MecaBodyParts_Heart</requiredGene>
 								<curve>
 								  <points>
 									<li>(15, 0.0)</li>
@@ -372,6 +383,7 @@
 						  <value>
 							  <li Class="WVC.StatPart_Mechanoidization">
 								<invert>false</invert>
+								<requiredGene>WVC_MechaAI_SoftwareNaturalEnemy</requiredGene>
 								<curve>
 								  <points>
 									<li>(40, 0.0)</li>
@@ -390,6 +402,7 @@
 							<parts>
 							  <li Class="WVC.StatPart_Mechanoidization">
 								<invert>false</invert>
+								<requiredGene>WVC_MechaAI_SoftwareNaturalEnemy</requiredGene>
 								<curve>
 								  <points>
 									<li>(40, 0.0)</li>
@@ -485,6 +498,25 @@
 						  </value>
 						</li>
 					</operations>
+				</li>
+
+				<li Class="PatchOperationAdd">
+				  <xpath>/Defs/StatDef[defName="InjuryHealingFactor"]/parts</xpath>
+				  <success>Always</success>
+				  <value>
+					  <li Class="WVC.StatPart_Mechanoidization">
+						<invert>true</invert>
+						<requiredGene>WVC_MecaBodyParts_Kidney</requiredGene>
+						<curve>
+						  <points>
+							<li>(10, 0.0)</li>
+							<li>(20, 1.0)</li>
+							<li>(50, 3.0)</li>
+							<li>(100, 6.0)</li>
+						  </points>
+						</curve>
+					  </li>
+				  </value>
 				</li>
 
 			</operations>
