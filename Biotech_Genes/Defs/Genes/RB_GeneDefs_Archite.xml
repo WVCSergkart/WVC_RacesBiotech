@@ -72,6 +72,11 @@
 			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes> -->
 		<!-- </li> -->
 	<!-- </modExtensions> -->
+	<modExtensions>
+		<li Class="WVC.GeneExtension">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- Forever young -->
@@ -117,6 +122,11 @@
 			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes> -->
 		<!-- </li> -->
 	<!-- </modExtensions> -->
+	<modExtensions>
+		<li Class="WVC.GeneExtension">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
   </GeneDef>
 
 </Defs>
