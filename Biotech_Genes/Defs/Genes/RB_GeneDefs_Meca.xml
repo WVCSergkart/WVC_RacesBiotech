@@ -65,11 +65,11 @@
 		<!-- </statOffsets> -->
 	  <!-- </li> -->
 	<!-- </conditionalStatAffecters> -->
-	<!-- <modExtensions> -->
-		<!-- <li Class="WVC.GeneExtension"> -->
-			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathArchite> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
+	<modExtensions>
+		<li Class="WVC.GeneExtension">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- Meca -->
@@ -174,12 +174,15 @@ Most of the internal organs remain intact, but there are enough external changes
 		<li><symbol>id</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
-	<modExtensions>
+	<modExtensions Inherit="False">
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<furHidesBody>True</furHidesBody>
 			<useSkinColorForFur>True</useSkinColorForFur>
 			<customWoundsFromFleshtype>Mechanoid</customWoundsFromFleshtype>
 			<customBloodEffect>Damage_HitMechanoid</customBloodEffect>
+		</li>
+		<li Class="WVC.GeneExtension">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -419,6 +422,11 @@ Most of the internal organs remain intact, but there are enough external changes
 	<exclusionTags>
 	  <li>WVC_Mechanoidization_AI</li>
 	</exclusionTags>
+	<modExtensions Inherit="False">
+		<li Class="WVC.GeneExtension">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- Firmware -->
@@ -824,6 +832,11 @@ Most of the internal organs remain intact, but there are enough external changes
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>fff.</li> -->
 	<!-- </customEffectDescriptions> -->
+	<modExtensions Inherit="False">
+		<li Class="WVC.GeneExtension">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite>
+		</li>
+	</modExtensions>
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
@@ -975,6 +988,11 @@ Most of the internal organs remain intact, but there are enough external changes
 	<exclusionTags>
 	  <li>WVC_MechaAI_SoftwareFriendOrFoe</li>
 	</exclusionTags>
+	<modExtensions Inherit="False">
+		<li Class="WVC.GeneExtension">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- Romance -->
@@ -1189,6 +1207,9 @@ Most of the internal organs remain intact, but there are enough external changes
 			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ColorlessGene</backgroundPathEndogenes> -->
 			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ColorlessGene</backgroundPathXenogenes> -->
 		<!-- </li> -->
+		<li Class="WVC.GeneExtension">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathArchite>
+		</li>
 	</modExtensions>
   </GeneDef>
 
@@ -1479,10 +1500,13 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <li>BloodType</li>
 	  <li>Blood</li>
 	</exclusionTags>
-	<modExtensions>
+	<modExtensions Inherit="False">
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<customBloodThingDef>Filth_MachineBits</customBloodThingDef>
 			<customBloodIcon>WVC/UI/InvisibleThing</customBloodIcon>
+		</li>
+		<li Class="WVC.GeneExtension">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -1556,6 +1580,11 @@ Most of the internal organs remain intact, but there are enough external changes
 	<statOffsets>
 	  <MoveSpeed>1.0</MoveSpeed>
 	</statOffsets>
+	<modExtensions Inherit="False">
+		<li Class="WVC.GeneExtension">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
@@ -1576,9 +1605,12 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <!-- <WVC_PawnMechanoidization>3</WVC_PawnMechanoidization> -->
 	  <ImmunityGainSpeed>1</ImmunityGainSpeed>
 	</statOffsets>
-	<modExtensions>
+	<modExtensions Inherit="False">
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<diseaseProgressionFactor>0</diseaseProgressionFactor>
+		</li>
+		<li Class="WVC.GeneExtension">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -1594,6 +1626,11 @@ Most of the internal organs remain intact, but there are enough external changes
 	<statOffsets>
 	  <InjuryHealingFactor>1</InjuryHealingFactor>
 	</statOffsets>
+	<modExtensions Inherit="False">
+		<li Class="WVC.GeneExtension">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
@@ -1611,6 +1648,11 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <ComfyTemperatureMin>-25</ComfyTemperatureMin>
 	  <ArmorRating_Heat>0.10</ArmorRating_Heat>
 	</statOffsets>
+	<modExtensions Inherit="False">
+		<li Class="WVC.GeneExtension">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">

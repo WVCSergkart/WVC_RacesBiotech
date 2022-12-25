@@ -48,11 +48,14 @@
 	  </suffixSymbols>
 	</symbolPack>
 	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
 			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes> -->
 			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes> -->
 			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathEndogenes> -->
 			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathXenogenes> -->
+		<!-- </li> -->
+		<li Class="WVC.GeneExtension">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathArchite>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -150,6 +153,9 @@
 					</bodyparts>
 				</li>
 			</hediffsToBodyParts>
+		</li>
+		<li Class="WVC.GeneExtension">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathArchite>
 		</li>
 	</modExtensions>
   </GeneDef>

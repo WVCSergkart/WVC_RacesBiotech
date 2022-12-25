@@ -214,6 +214,9 @@
 				</li>
 			</hediffsToBodyParts>
 		</li>
+		<li Class="WVC.GeneExtension">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathArchite>
+		</li>
 	</modExtensions>
   </GeneDef>
 

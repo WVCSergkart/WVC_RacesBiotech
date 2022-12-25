@@ -13,11 +13,11 @@
 	<!-- <statOffsets> -->
 	  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
 	<!-- </statOffsets> -->
-	<!-- <modExtensions> -->
+	<modExtensions Inherit="False">
 		<!-- <li Class="WVC.GeneExtension"> -->
 			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathArchite> -->
 		<!-- </li> -->
-	<!-- </modExtensions> -->
+	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_MechanoidizationAbilities">
@@ -178,6 +178,11 @@
 		<li><symbol>or</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
+	<modExtensions>
+		<li Class="WVC.GeneExtension">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <AbilityDef>
