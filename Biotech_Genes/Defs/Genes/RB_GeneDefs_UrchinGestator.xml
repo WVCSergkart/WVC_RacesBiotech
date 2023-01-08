@@ -165,7 +165,7 @@
 
   <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_UrchinGestatorBase" Abstract="True">
 	<!-- <displayCategory>Reproduction</displayCategory> -->
-	<displayCategory>WVC_MechaBody</displayCategory>
+	<!-- <displayCategory>WVC_MechaBodyParts</displayCategory> -->
 	<minAgeActive>13</minAgeActive>
 	<sterilize>true</sterilize>
 	<biostatCpx>3</biostatCpx>

@@ -8,7 +8,7 @@
 	<label>mecha-cat ears</label>
 	<description>Carriers of this gene have mechanoid cat-like ears. Additional audio sensors in the ears improve hearing.</description>
 	<iconPath>UI/Icons/Genes/Gene_EarCat</iconPath>
-	<displayCategory>WVC_MechaBody</displayCategory>
+	<displayCategory>WVC_MechaBodyParts</displayCategory>
 	<displayOrderInCategory>21</displayOrderInCategory>
 	<!-- <displayOrderInCategory>250</displayOrderInCategory> -->
 	<prerequisite>WVC_MechaSkin</prerequisite>
@@ -105,7 +105,7 @@
 	<description>Carriers of this gene grow a sleek long tail with several blades at the end.</description>
 	<iconPath>WVC/MecaGene_ScytheTail/SmoothTail_east</iconPath>
 	<iconColor>(0.85, 0.85, 0.85)</iconColor>
-	<displayCategory>WVC_MechaBody</displayCategory>
+	<displayCategory>WVC_MechaBodyParts</displayCategory>
 	<displayOrderInCategory>21</displayOrderInCategory>
 	<!-- <displayOrderInCategory>250</displayOrderInCategory> -->
 	<prerequisite>WVC_MechaSkin</prerequisite>

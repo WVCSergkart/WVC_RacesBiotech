@@ -40,15 +40,45 @@
 
   <GeneCategoryDef>
 	<defName>WVC_MechaBody</defName>
-	<label>mechanoidization</label>
-	<displayPriorityInXenotype>926</displayPriorityInXenotype>
+	<label>mechanoidization - Base</label>
+	<displayPriorityInXenotype>3926</displayPriorityInXenotype>
+  </GeneCategoryDef>
+  <GeneCategoryDef>
+	<defName>WVC_MechaBodyWare</defName>
+	<label>mechanoidization - Ware</label>
+	<displayPriorityInXenotype>3925</displayPriorityInXenotype>
+  </GeneCategoryDef>
+  <!-- <GeneCategoryDef> -->
+	<!-- <defName>WVC_MechaBodyWare</defName> -->
+	<!-- <label>mechanoidization - Firmware</label> -->
+	<!-- <displayPriorityInXenotype>3925</displayPriorityInXenotype> -->
+  <!-- </GeneCategoryDef> -->
+  <!-- <GeneCategoryDef> -->
+	<!-- <defName>WVC_MechaBodyWare</defName> -->
+	<!-- <label>mechanoidization - Software</label> -->
+	<!-- <displayPriorityInXenotype>3924</displayPriorityInXenotype> -->
+  <!-- </GeneCategoryDef> -->
+  <GeneCategoryDef>
+	<defName>WVC_MechaBodyParts</defName>
+	<label>mechanoidization - Parts</label>
+	<displayPriorityInXenotype>3923</displayPriorityInXenotype>
+  </GeneCategoryDef>
+  <!-- <GeneCategoryDef> -->
+	<!-- <defName>WVC_MechaBodyParts</defName> -->
+	<!-- <label>mechanoidization - Other</label> -->
+	<!-- <displayPriorityInXenotype>3921</displayPriorityInXenotype> -->
+  <!-- </GeneCategoryDef> -->
+  <GeneCategoryDef>
+	<defName>WVC_MechaBodyVoices</defName>
+	<label>mechanoidization - Voices</label>
+	<displayPriorityInXenotype>3919</displayPriorityInXenotype>
   </GeneCategoryDef>
 
   <!-- ================================================================== -->
 
   <GeneDef Name="WVC_MechanoidizationBase" Abstract="True">
 	<displayCategory>WVC_MechaBody</displayCategory>
-	<selectionWeight>0</selectionWeight>
+	<selectionWeight>0.01</selectionWeight>
 	<marketValueFactor>1.5</marketValueFactor>
 	<minAgeActive>13</minAgeActive>
 	<randomChosen>false</randomChosen>
@@ -83,6 +113,7 @@
 The body is covered with plates, and the skin becomes hard and resembles plasteel to the touch. The glands are replaced by small colonies of mechanites that serve the body. Mechanites draw energy directly from the host's body, greatly reducing metabolism. The hairline completely disappears, remaining only on the head or face. Muscle tissues are strengthened and become more resilient. 
 
 Most of the internal organs remain intact, but there are enough external changes to indicate that the host is more like a mechanoid than a human.</description>
+	<selectionWeight>0.2</selectionWeight>
 	<biostatCpx>3</biostatCpx>
 	<biostatArc>7</biostatArc>
 	<biostatMet>-16</biostatMet>
@@ -209,6 +240,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<defName>WVC_MechaHidden_ArchiteForge</defName>
 	<label>archite-forge</label>
 	<description>Carriers of this gene have archites that are capable of self-replication. Thanks to this, archites from time to time restore lost limbs.</description>
+	<!-- <selectionWeight>0.01</selectionWeight> -->
 	<geneClass>WVC.Gene_RestoreMissingBodyParts</geneClass>
 	<iconColor>(184, 198, 203)</iconColor>
 	<marketValueFactor>5</marketValueFactor>
@@ -237,6 +269,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<!-- <biostatCpx>0</biostatCpx> -->
 	<biostatArc>2</biostatArc>
 	<marketValueFactor>3</marketValueFactor>
+	<selectionWeight>0.1</selectionWeight>
 	<customEffectDescriptions>
 		<li>Compensates for the effect of mechaskin on metabolism.</li>
 	</customEffectDescriptions>
@@ -377,6 +410,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<!-- <displayCategory>Ability</displayCategory> -->
 	<!-- <displayCategory>Archite</displayCategory> -->
 	<displayOrderInCategory>5</displayOrderInCategory>
+	<displayCategory>WVC_MechaBodyWare</displayCategory>
 	<prerequisite>WVC_MechaSkin</prerequisite>
 	<marketValueFactor>2</marketValueFactor>
 	<!-- <aptitudes> -->
@@ -433,6 +467,7 @@ Most of the internal organs remain intact, but there are enough external changes
 
   <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Mechanoidization_FirmwareBase" Abstract="True">
 	<!-- <defName>WVC_MechaAI_Base</defName> -->
+	<displayCategory>WVC_MechaBodyWare</displayCategory>
 	<label>firmware</label>
 	<description>Carriers of this gene have a strong predisposition to certain skills and lifestyle, it is written in them both at the program level and at the genetic level.</description>
 	<iconPath>WVC/UI/Genes/MechanoidizationFirmware</iconPath>
@@ -744,6 +779,7 @@ Most of the internal organs remain intact, but there are enough external changes
 
   <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Mechanoidization_SoftwareBase" Abstract="True">
 	<!-- <defName>WVC_MechaAI_Base</defName> -->
+	<displayCategory>WVC_MechaBodyWare</displayCategory>
 	<label>AI</label>
 	<description>The carriers of these archites have software that helps them.</description>
 	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath>
@@ -999,6 +1035,8 @@ Most of the internal organs remain intact, but there are enough external changes
 
   <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Mechanoidization_RomanceChanceBase" Abstract="True">
 	<!-- <defName>WVC_MechaAI_Base</defName> -->
+	<displayCategory>WVC_MechaBodyWare</displayCategory>
+	<!-- <displayCategory>WVC_MechaBodyParts</displayCategory> -->
 	<label>AI</label>
 	<description>Carriers of this gene have a tough program that helps them find the best partners.</description>
 	<iconPath>WVC/UI/Genes/Mechlink</iconPath>
@@ -1180,7 +1218,8 @@ Most of the internal organs remain intact, but there are enough external changes
   <!-- ================================================================== -->
 
   <GeneDef ParentName="GeneVoiceBase" Name="WVC_MechaVoicesBase" Abstract="True">
-	<displayCategory>WVC_MechaBody</displayCategory>
+	<!-- <displayCategory>WVC_MechaBody</displayCategory> -->
+	<displayCategory>WVC_MechaBodyVoices</displayCategory>
 	<description>Carriers of this gene have archites that change their voice to a cool mechanoid voice.</description>
 	<displayOrderInCategory>300</displayOrderInCategory>
 	<iconPath>WVC/UI/Genes/MechanoidizationVoice</iconPath>
@@ -1191,6 +1230,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<biostatCpx>0</biostatCpx>
 	<randomChosen>false</randomChosen>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<selectionWeight>0.05</selectionWeight>
 	<!-- <statOffsets> -->
 	  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
 	<!-- </statOffsets> -->
@@ -1463,6 +1503,7 @@ Most of the internal organs remain intact, but there are enough external changes
   <!-- Upgrades -->
 
   <GeneDef Name="WVC_MechanoidizationUpgrades" ParentName="WVC_MechanoidizationBase" Abstract="True">
+	<displayCategory>WVC_MechaBodyParts</displayCategory>
 	<description>Carriers of this gene have archites which enhance the owner's mechanoidization.</description>
 	<displayOrderInCategory>20</displayOrderInCategory>
 	<prerequisite>WVC_MechaSkin</prerequisite>
@@ -1470,6 +1511,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<iconColor>(255, 255, 255)</iconColor>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
+	<selectionWeight>0.02</selectionWeight>
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>Adds the corresponding body part. The body part is considered artificial.</li> -->
 	<!-- </customEffectDescriptions> -->

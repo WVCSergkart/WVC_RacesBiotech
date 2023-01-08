@@ -190,7 +190,7 @@
 	<iconPath>WVC/UI/Genes/Claws</iconPath>
 	<prerequisite>WVC_MechaSkin</prerequisite>
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
-	<displayCategory>WVC_MechaBody</displayCategory>
+	<displayCategory>WVC_MechaBodyParts</displayCategory>
 	<selectionWeight>0</selectionWeight>
 	<displayOrderInCategory>21</displayOrderInCategory>
 	<biostatCpx>2</biostatCpx>
