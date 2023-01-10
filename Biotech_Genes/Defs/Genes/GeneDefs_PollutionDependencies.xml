@@ -5,7 +5,7 @@
 	<defName>WVC_PollutionDependencies</defName>
 	<label>pollution dependencies</label>
 	<description>TEST</description>
-	<!-- <geneClass>WVC.Gene_PollutionDependencies</geneClass> -->
+	<!-- <geneClass>WVC.Gene_ThingSpawner</geneClass> -->
 	<iconPath>UI/Icons/Genes/Gene_PollutionRush</iconPath>
 	<displayCategory>Miscellaneous</displayCategory>
 	<displayOrderInCategory>500</displayOrderInCategory>
