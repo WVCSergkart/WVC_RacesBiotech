@@ -186,7 +186,7 @@
 
   <GeneDef ParentName="WVC_Aptitudes_ZeroHidden">
 	<defName>WVC_Aptitudes_0_Skill_Intellectual</defName>
-	<label>intellectual</label>
+	<label>nullify intellectual</label>
 	<exclusionTags>
 	  <li>AptitudeIntellectual</li>
 	  <li>Aptitude_Intellectual</li>
@@ -194,7 +194,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_Aptitudes_ZeroHidden">
 	<defName>WVC_Aptitudes_0_Skill_Crafting</defName>
-	<label>crafting</label>
+	<label>nullify crafting</label>
 	<exclusionTags>
 	  <li>AptitudeCrafting</li>
 	  <li>Aptitude_Crafting</li>
@@ -202,7 +202,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_Aptitudes_ZeroHidden">
 	<defName>WVC_Aptitudes_0_Skill_Melee</defName>
-	<label>melee</label>
+	<label>nullify melee</label>
 	<exclusionTags>
 	  <li>AptitudeMelee</li>
 	  <li>Aptitude_Melee</li>
@@ -210,7 +210,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_Aptitudes_ZeroHidden">
 	<defName>WVC_Aptitudes_0_Skill_Plants</defName>
-	<label>plants</label>
+	<label>nullify plants</label>
 	<exclusionTags>
 	  <li>AptitudePlants</li>
 	  <li>Aptitude_Plants</li>
@@ -218,7 +218,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_Aptitudes_ZeroHidden">
 	<defName>WVC_Aptitudes_0_Skill_Cooking</defName>
-	<label>cooking</label>
+	<label>nullify cooking</label>
 	<exclusionTags>
 	  <li>AptitudeCooking</li>
 	  <li>Aptitude_Cooking</li>
@@ -226,7 +226,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_Aptitudes_ZeroHidden">
 	<defName>WVC_Aptitudes_0_Skill_Mining</defName>
-	<label>mining</label>
+	<label>nullify mining</label>
 	<exclusionTags>
 	  <li>AptitudeMining</li>
 	  <li>Aptitude_Mining</li>
@@ -234,7 +234,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_Aptitudes_ZeroHidden">
 	<defName>WVC_Aptitudes_0_Skill_Construction</defName>
-	<label>construction</label>
+	<label>nullify construction</label>
 	<exclusionTags>
 	  <li>AptitudeConstruction</li>
 	  <li>Aptitude_Construction</li>
@@ -242,7 +242,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_Aptitudes_ZeroHidden">
 	<defName>WVC_Aptitudes_0_Skill_Shooting</defName>
-	<label>shooting</label>
+	<label>nullify shooting</label>
 	<exclusionTags>
 	  <li>AptitudeShooting</li>
 	  <li>Aptitude_Shooting</li>
@@ -250,7 +250,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_Aptitudes_ZeroHidden">
 	<defName>WVC_Aptitudes_0_Skill_Animals</defName>
-	<label>animals</label>
+	<label>nullify animals</label>
 	<exclusionTags>
 	  <li>AptitudeAnimals</li>
 	  <li>Aptitude_Animals</li>
@@ -258,7 +258,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_Aptitudes_ZeroHidden">
 	<defName>WVC_Aptitudes_0_Skill_Medicine</defName>
-	<label>medicine</label>
+	<label>nullify medicine</label>
 	<exclusionTags>
 	  <li>AptitudeMedicine</li>
 	  <li>Aptitude_Medicine</li>
@@ -266,7 +266,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_Aptitudes_ZeroHidden">
 	<defName>WVC_Aptitudes_0_Skill_Artistic</defName>
-	<label>artistic</label>
+	<label>nullify artistic</label>
 	<exclusionTags>
 	  <li>AptitudeArtistic</li>
 	  <li>Aptitude_Artistic</li>
@@ -274,7 +274,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_Aptitudes_ZeroHidden">
 	<defName>WVC_Aptitudes_0_Skill_Social</defName>
-	<label>social</label>
+	<label>nullify social</label>
 	<exclusionTags>
 	  <li>AptitudeSocial</li>
 	  <li>Aptitude_Social</li>
