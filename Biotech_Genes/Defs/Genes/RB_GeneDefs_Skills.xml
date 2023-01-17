@@ -160,7 +160,7 @@
 	<label>skills</label>
 	<description>The carrier's aptitude is 0. Aptitude acts like an offset on skill level.</description>
 	<iconPath>WVC/UI/Genes/SkillUp_Equal</iconPath>
-	<displayOrderInCategory>0</displayOrderInCategory>
+	<displayOrderInCategory>-990</displayOrderInCategory>
 	<!-- <prerequisite>WVC_Natural_Base</prerequisite> -->
 	<displayCategory>Aptitudes</displayCategory>
 	<biostatCpx>0</biostatCpx>
