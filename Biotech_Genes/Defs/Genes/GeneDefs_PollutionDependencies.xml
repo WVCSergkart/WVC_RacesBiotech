@@ -1,108 +1,104 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef>
-	<defName>WVC_PollutionDependencies</defName>
-	<label>pollution dependencies</label>
-	<description>TEST</description>
-	<!-- <geneClass>WVC.Gene_ThingSpawner</geneClass> -->
-	<iconPath>UI/Icons/Genes/Gene_PollutionRush</iconPath>
-	<displayCategory>Miscellaneous</displayCategory>
-	<displayOrderInCategory>500</displayOrderInCategory>
-	<biostatCpx>3</biostatCpx>
-	<biostatMet>6</biostatMet>
+  <!-- <GeneDef> -->
+	<!-- <defName>WVC_PollutionDependencies</defName> -->
+	<!-- <label>pollution dependencies</label> -->
+	<!-- <description>TEST</description> -->
+	<!-- <iconPath>UI/Icons/Genes/Gene_PollutionRush</iconPath> -->
+	<!-- <displayCategory>Miscellaneous</displayCategory> -->
+	<!-- <displayOrderInCategory>500</displayOrderInCategory> -->
+	<!-- <biostatCpx>3</biostatCpx> -->
+	<!-- <biostatMet>6</biostatMet> -->
 	<!-- <customEffectDescriptions> -->
 	  <!-- <li>Gain stat bonuses when exposed to pollution.</li> -->
 	<!-- </customEffectDescriptions> -->
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<hideGene>true</hideGene>
-			<hediffToWholeBody>WVC_PollutionDependencies</hediffToWholeBody>
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-	</modExtensions>
-  </GeneDef>
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <hideGene>true</hideGene> -->
+			<!-- <hediffToWholeBody>WVC_PollutionDependencies</hediffToWholeBody> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
 
-  <HediffDef>
-	<defName>WVC_PollutionDependencies</defName>
-	<label>pollution dependencies</label>
-	<description>TEST\n\nTEST</description>
-	<descriptionShort>This creature depends on the effects of pollution.</descriptionShort>
-	<hediffClass>HediffWithComps</hediffClass>
-	<defaultLabelColor>(0.7, 1.0, 0.7)</defaultLabelColor>
-	<isBad>false</isBad>
-	<makesSickThought>false</makesSickThought>
-	<scenarioCanAdd>false</scenarioCanAdd>
-	<maxSeverity>2</maxSeverity>
-	<lethalSeverity>2</lethalSeverity>
-	<minSeverity>0.001</minSeverity>
-	<initialSeverity>0.01</initialSeverity>
-	<comps>
-	  <li Class="HediffCompProperties_Pollution">
-		<pollutedSeverity>-0.0333</pollutedSeverity>
-		<unpollutedSeverity>0.0099</unpollutedSeverity>
-		<interval>360</interval>
-	  </li>
-	</comps>
-	<stages>
-	  <li>
-		<becomeVisible>false</becomeVisible>
-		<minSeverity>0.0</minSeverity>
-	  </li>
-	  <li>
-		<label>minor</label>
-		<minSeverity>0.1</minSeverity>
+  <!-- <HediffDef> -->
+	<!-- <defName>WVC_PollutionDependencies</defName> -->
+	<!-- <label>pollution dependencies</label> -->
+	<!-- <description>TEST\n\nTEST</description> -->
+	<!-- <descriptionShort>This creature depends on the effects of pollution.</descriptionShort> -->
+	<!-- <hediffClass>HediffWithComps</hediffClass> -->
+	<!-- <defaultLabelColor>(0.7, 1.0, 0.7)</defaultLabelColor> -->
+	<!-- <isBad>false</isBad> -->
+	<!-- <makesSickThought>false</makesSickThought> -->
+	<!-- <scenarioCanAdd>false</scenarioCanAdd> -->
+	<!-- <maxSeverity>2</maxSeverity> -->
+	<!-- <lethalSeverity>2</lethalSeverity> -->
+	<!-- <minSeverity>0.001</minSeverity> -->
+	<!-- <initialSeverity>0.01</initialSeverity> -->
+	<!-- <comps> -->
+	  <!-- <li Class="HediffCompProperties_Pollution"> -->
+		<!-- <pollutedSeverity>-0.0333</pollutedSeverity> -->
+		<!-- <unpollutedSeverity>0.0099</unpollutedSeverity> -->
+		<!-- <interval>360</interval> -->
+	  <!-- </li> -->
+	<!-- </comps> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <becomeVisible>false</becomeVisible> -->
+		<!-- <minSeverity>0.0</minSeverity> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <label>minor</label> -->
+		<!-- <minSeverity>0.1</minSeverity> -->
+		<!-- <capMods> -->
+		  <!-- <li> -->
+			<!-- <capacity>Consciousness</capacity> -->
+			<!-- <offset>-0.05</offset> -->
+		  <!-- </li> -->
+		<!-- </capMods> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <label>moderate</label> -->
+		<!-- <minSeverity>0.20</minSeverity> -->
 		<!-- <statFactors> -->
-		  <!-- <MoveSpeed>1.1</MoveSpeed> -->
+		  <!-- <MoveSpeed>0.8</MoveSpeed> -->
 		<!-- </statFactors> -->
-		<capMods>
-		  <li>
-			<capacity>Consciousness</capacity>
-			<offset>-0.05</offset>
-		  </li>
-		</capMods>
-	  </li>
-	  <li>
-		<label>moderate</label>
-		<minSeverity>0.20</minSeverity>
-		<statFactors>
-		  <MoveSpeed>0.8</MoveSpeed>
-		</statFactors>
-		<capMods>
-		  <li>
-			<capacity>Consciousness</capacity>
-			<offset>-0.10</offset>
-		  </li>
-		</capMods>
-	  </li>
-	  <li>
-		<label>high</label>
-		<minSeverity>0.50</minSeverity>
-		<statFactors>
-		  <MoveSpeed>0.6</MoveSpeed>
-		</statFactors>
-		<capMods>
-		  <li>
-			<capacity>Consciousness</capacity>
-			<offset>-0.20</offset>
-		  </li>
-		</capMods>
-	  </li>
-	  <li>
-		<label>extreme</label>
-		<minSeverity>0.80</minSeverity>
-		<statFactors>
-		  <MoveSpeed>0.5</MoveSpeed>
-		</statFactors>
-		<capMods>
-		  <li>
-			<capacity>Consciousness</capacity>
-			<offset>-0.30</offset>
-		  </li>
-		</capMods>
-	  </li>
-	</stages>
-  </HediffDef>
+		<!-- <capMods> -->
+		  <!-- <li> -->
+			<!-- <capacity>Consciousness</capacity> -->
+			<!-- <offset>-0.10</offset> -->
+		  <!-- </li> -->
+		<!-- </capMods> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <label>high</label> -->
+		<!-- <minSeverity>0.50</minSeverity> -->
+		<!-- <statFactors> -->
+		  <!-- <MoveSpeed>0.6</MoveSpeed> -->
+		<!-- </statFactors> -->
+		<!-- <capMods> -->
+		  <!-- <li> -->
+			<!-- <capacity>Consciousness</capacity> -->
+			<!-- <offset>-0.20</offset> -->
+		  <!-- </li> -->
+		<!-- </capMods> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <label>extreme</label> -->
+		<!-- <minSeverity>0.80</minSeverity> -->
+		<!-- <statFactors> -->
+		  <!-- <MoveSpeed>0.5</MoveSpeed> -->
+		<!-- </statFactors> -->
+		<!-- <capMods> -->
+		  <!-- <li> -->
+			<!-- <capacity>Consciousness</capacity> -->
+			<!-- <offset>-0.30</offset> -->
+		  <!-- </li> -->
+		<!-- </capMods> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+  <!-- </HediffDef> -->
 
 </Defs>

@@ -167,7 +167,7 @@
 	<biostatMet>0</biostatMet>
 	<biostatArc>0</biostatArc>
 	<customEffectDescriptions>
-		<li>Resets aptitude of the same name.</li>
+		<li>Nullifying aptitude of the same name.</li>
 	</customEffectDescriptions>
 	<!-- <aptitudes> -->
 	  <!-- <Intellectual>1</Intellectual> -->
@@ -177,7 +177,7 @@
 	</exclusionTags>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
-			<hideGene>true</hideGene>
+			<!-- <hideGene>true</hideGene> -->
 			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
 			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
 		</li>
