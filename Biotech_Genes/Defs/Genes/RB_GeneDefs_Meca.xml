@@ -1760,17 +1760,18 @@ Most of the internal organs remain intact, but there are enough external changes
 	<label>energy saving mode</label>
 	<description>The carrier of this gene has archites, which can significantly optimize the metabolic process during sleep.</description>
 	<biostatArc>3</biostatArc>
-	<customEffectDescriptions>
-		<li>The hunger bar does not decrease while the pawn is on the bed.</li>
-	</customEffectDescriptions>
+	<biostatMet>3</biostatMet>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>The hunger bar does not decrease while the pawn is on the bed.</li> -->
+	<!-- </customEffectDescriptions> -->
 	<suppressedTraits>
 	  <li>
 		<def>QuickSleeper</def>
 	  </li>
 	</suppressedTraits>
-	<statFactors>
-	  <BedHungerRateFactor>0.0</BedHungerRateFactor>
-	</statFactors>
+	<!-- <statFactors> -->
+	  <!-- <BedHungerRateFactor>0.0</BedHungerRateFactor> -->
+	<!-- </statFactors> -->
   </GeneDef>
 
 </Defs>
