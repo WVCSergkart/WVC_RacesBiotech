@@ -82,7 +82,7 @@
 	<marketValueFactor>1.5</marketValueFactor>
 	<minAgeActive>13</minAgeActive>
 	<randomChosen>false</randomChosen>
-	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<canGenerateInGeneSet>true</canGenerateInGeneSet>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<!-- <statOffsets> -->
