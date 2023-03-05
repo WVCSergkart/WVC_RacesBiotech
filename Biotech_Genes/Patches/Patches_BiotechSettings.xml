@@ -143,10 +143,10 @@
 								<curve>
 								  <points>
 									<li>(5, 0.0)</li>
-									<li>(20, 0.05)</li>
-									<li>(40, 0.15)</li>
-									<li>(60, 0.30)</li>
-									<li>(80, 0.50)</li>
+									<li>(30, 0.05)</li>
+									<li>(50, 0.25)</li>
+									<li>(60, 0.50)</li>
+									<li>(80, 0.70)</li>
 								  </points>
 								</curve>
 							  </li>
@@ -163,10 +163,10 @@
 								<curve>
 								  <points>
 									<li>(5, 0.0)</li>
-									<li>(20, 0.05)</li>
-									<li>(40, 0.15)</li>
-									<li>(60, 0.30)</li>
-									<li>(80, 0.50)</li>
+									<li>(30, 0.05)</li>
+									<li>(50, 0.25)</li>
+									<li>(60, 0.50)</li>
+									<li>(80, 0.70)</li>
 								  </points>
 								</curve>
 							  </li>
@@ -188,9 +188,9 @@
 								<requiredGene>WVC_MecaBodyParts_Arm</requiredGene>
 								<curve>
 								  <points>
-									<li>(5, 0.0)</li>
-									<li>(20, 0.10)</li>
-									<li>(40, 0.20)</li>
+									<!-- <li>(5, 0.0)</li> -->
+									<li>(20, 0.0)</li>
+									<li>(40, 0.10)</li>
 									<li>(60, 0.40)</li>
 									<li>(80, 0.60)</li>
 								  </points>
@@ -208,9 +208,9 @@
 								<requiredGene>WVC_MecaBodyParts_Arm</requiredGene>
 								<curve>
 								  <points>
-									<li>(5, 0.0)</li>
-									<li>(20, 0.10)</li>
-									<li>(40, 0.20)</li>
+									<!-- <li>(5, 0.0)</li> -->
+									<li>(20, 0.0)</li>
+									<li>(40, 0.10)</li>
 									<li>(60, 0.40)</li>
 									<li>(80, 0.60)</li>
 								  </points>
@@ -232,10 +232,10 @@
 						<curve>
 						  <points>
 							<li>(5, 0.0)</li>
-							<li>(15, 0.15)</li>
-							<li>(30, 0.25)</li>
-							<li>(40, 0.30)</li>
-							<li>(100, 0.50)</li>
+							<li>(15, 0.2)</li>
+							<li>(30, 0.35)</li>
+							<li>(40, 0.40)</li>
+							<li>(100, 0.60)</li>
 						  </points>
 						</curve>
 					  </li>
@@ -387,8 +387,8 @@
 								<curve>
 								  <points>
 									<li>(40, 0.0)</li>
-									<li>(50, 0.2)</li>
-									<li>(80, 0.5)</li>
+									<li>(50, 0.25)</li>
+									<li>(80, 0.75)</li>
 									<li>(100, 1.0)</li>
 								  </points>
 								</curve>
@@ -406,8 +406,8 @@
 								<curve>
 								  <points>
 									<li>(40, 0.0)</li>
-									<li>(50, 0.2)</li>
-									<li>(80, 0.5)</li>
+									<li>(50, 0.25)</li>
+									<li>(80, 0.75)</li>
 									<li>(100, 1.0)</li>
 								  </points>
 								</curve>
@@ -472,7 +472,7 @@
 								<curve>
 								  <points>
 									<li>(20, 0.0)</li>
-									<li>(50, 0.5)</li>
+									<li>(50, 0.75)</li>
 									<li>(100, 1.0)</li>
 								  </points>
 								</curve>
@@ -489,7 +489,7 @@
 								<curve>
 								  <points>
 									<li>(20, 0.0)</li>
-									<li>(50, 0.5)</li>
+									<li>(50, 0.75)</li>
 									<li>(100, 1.0)</li>
 								  </points>
 								</curve>

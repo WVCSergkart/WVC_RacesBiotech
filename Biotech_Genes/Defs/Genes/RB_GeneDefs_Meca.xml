@@ -159,6 +159,9 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <!-- <MeatAmount>0.8</MeatAmount> -->
 	  <!-- <LeatherAmount>0.5</LeatherAmount> -->
 	</statFactors>
+	<makeImmuneTo>
+	  <li>MuscleParasites</li>
+	</makeImmuneTo>
 	<statOffsets>
 	  <!-- <MeleeDamageFactor>0.1</MeleeDamageFactor> -->
 	  <MoveSpeed>0.3</MoveSpeed>
@@ -1542,6 +1545,9 @@ Most of the internal organs remain intact, but there are enough external changes
 	<!-- <makeImmuneTo> -->
 	  <!-- <li>BloodLoss</li> -->
 	<!-- </makeImmuneTo> -->
+	<makeImmuneTo>
+	  <li>WoundInfection</li>
+	</makeImmuneTo>
 	<exclusionTags>
 	  <li>AG_Bleeding</li>
 	  <li>Bleeding</li>
@@ -1598,6 +1604,15 @@ Most of the internal organs remain intact, but there are enough external changes
 	<!-- <addictionChanceFactor>0</addictionChanceFactor> -->
 	<dontMindRawFood>true</dontMindRawFood>
 	<biostatMet>2</biostatMet>
+	<makeImmuneTo>
+	  <li>GutWorms</li>
+	  <!-- <li>MuscleParasites</li> -->
+	  <!-- <li>Malaria</li> -->
+	  <!-- <li>SleepingSickness</li> -->
+	  <!-- <li>Plague</li> -->
+	  <!-- <li>WoundInfection</li> -->
+	  <!-- <li>LungRot</li> -->
+	</makeImmuneTo>
 	<statFactors>
 	  <MaxNutrition MayRequireAnyOf="wvc.wvcmod.wvcspecific">2.0</MaxNutrition>
 	</statFactors>
@@ -1672,6 +1687,9 @@ Most of the internal organs remain intact, but there are enough external changes
 	<customEffectDescriptions>
 		<li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Increases injury healing factor.</li>
 	</customEffectDescriptions>
+	<!-- <makeImmuneTo> -->
+	  <!-- <li>MuscleParasites</li> -->
+	<!-- </makeImmuneTo> -->
 	<statOffsets>
 	  <InjuryHealingFactor>1</InjuryHealingFactor>
 	</statOffsets>
