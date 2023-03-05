@@ -78,7 +78,7 @@
 
   <GeneDef Name="WVC_MechanoidizationBase" Abstract="True">
 	<displayCategory>WVC_MechaBody</displayCategory>
-	<selectionWeight>0.01</selectionWeight>
+	<selectionWeight>0.17</selectionWeight>
 	<marketValueFactor>1.5</marketValueFactor>
 	<minAgeActive>13</minAgeActive>
 	<randomChosen>false</randomChosen>
@@ -272,7 +272,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<!-- <biostatCpx>0</biostatCpx> -->
 	<biostatArc>2</biostatArc>
 	<marketValueFactor>3</marketValueFactor>
-	<selectionWeight>0.1</selectionWeight>
+	<selectionWeight>0.3</selectionWeight>
 	<customEffectDescriptions>
 		<li>Compensates for the effect of mechaskin on metabolism.</li>
 	</customEffectDescriptions>
@@ -329,7 +329,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<defName>WVC_MechaPowerSource_Vanometric</defName>
 	<label>vanometric power source</label> 
 	<iconPath>WVC/UI/Genes/PowerSource_Vanometric</iconPath>
-	<selectionWeight>0.01</selectionWeight>
+	<selectionWeight>0.12</selectionWeight>
 	<biostatCpx>3</biostatCpx>
 	<biostatArc>5</biostatArc>
 	<biostatMet>21</biostatMet>
@@ -357,7 +357,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<label>tox power source</label> 
 	<iconPath>WVC/UI/Genes/PowerSource_Tox</iconPath>
 	<geneClass>WVC.Gene_WastepackSpawner</geneClass>
-	<selectionWeight>0.2</selectionWeight>
+	<selectionWeight>0.3</selectionWeight>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>2</biostatArc>
 	<biostatMet>21</biostatMet>
@@ -1239,8 +1239,8 @@ Most of the internal organs remain intact, but there are enough external changes
 	<minAgeActive>13</minAgeActive>
 	<biostatCpx>0</biostatCpx>
 	<randomChosen>false</randomChosen>
-	<canGenerateInGeneSet>false</canGenerateInGeneSet>
-	<selectionWeight>0.05</selectionWeight>
+	<canGenerateInGeneSet>true</canGenerateInGeneSet>
+	<selectionWeight>0.25</selectionWeight>
 	<!-- <statOffsets> -->
 	  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
 	<!-- </statOffsets> -->
@@ -1521,7 +1521,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<iconColor>(255, 255, 255)</iconColor>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
-	<selectionWeight>0.02</selectionWeight>
+	<selectionWeight>0.18</selectionWeight>
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>Adds the corresponding body part. The body part is considered artificial.</li> -->
 	<!-- </customEffectDescriptions> -->
