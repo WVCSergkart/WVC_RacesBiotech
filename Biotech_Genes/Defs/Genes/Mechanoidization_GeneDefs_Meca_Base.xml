@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <TraitDef>
+	<defName>WVC_RB_FriendOrFoeTrait</defName>
+	<commonality>0.001</commonality>
+	<disableHostilityFromFaction>Mechanoid</disableHostilityFromFaction>
+	<degreeDatas>
+	  <li>
+		<label>Techno-Ghost</label>
+		<description>For some strange reason, {PAWN_nameDef} is not touched by ancient mechanoids, they constantly ignore [PAWN_objective] no matter what {PAWN_nameDef} takes against them.</description>
+	  </li>
+	</degreeDatas>
+  </TraitDef>
+  <!-- <TraitDef> -->
+	<!-- <defName>WVC_RB_NotTasty</defName> -->
+	<!-- <commonality>0.001</commonality> -->
+	<!-- <disableHostilityFromAnimalType>Canine</disableHostilityFromAnimalType> -->
+	<!-- <degreeDatas> -->
+	  <!-- <li> -->
+		<!-- <label>Not tasty</label> -->
+		<!-- <description>For some strange reason, {PAWN_nameDef} is not touched by ancient mechanoids, they constantly ignore [PAWN_objective] no matter what {PAWN_nameDef} takes against them.</description> -->
+	  <!-- </li> -->
+	<!-- </degreeDatas> -->
+  <!-- </TraitDef> -->
+
+  <!-- <NeedDef> -->
+	<!-- <defName>WVC_MechEnergy</defName> -->
+	<!-- <needClass>Need_MechEnergy</needClass> -->
+	<!-- <description>A reserve of bioelectric energy needed for a mechanoid to function. It can be recharged at a charging station. If it reaches zero, the mech will go into dormant self-charging mode and recharge very slowly.</description> -->
+	<!-- <label>energy</label> -->
+	<!-- <showOnNeedList>true</showOnNeedList> -->
+	<!-- <minIntelligence>ToolUser</minIntelligence> -->
+	<!-- <listPriority>10000</listPriority> -->
+	<!-- <freezeWhileSleeping>true</freezeWhileSleeping> -->
+	<!-- <showForCaravanMembers>true</showForCaravanMembers> -->
+	<!-- <major>true</major> -->
+	<!-- <onlyIfCausedByGene>true</onlyIfCausedByGene> -->
+  <!-- </NeedDef> -->
+
+  <GeneCategoryDef>
+	<defName>WVC_MechaBody</defName>
+	<label>mechanoidization - Base</label>
+	<displayPriorityInXenotype>3926</displayPriorityInXenotype>
+  </GeneCategoryDef>
+  <GeneCategoryDef>
+	<defName>WVC_MechaBodyWare</defName>
+	<label>mechanoidization - Ware</label>
+	<displayPriorityInXenotype>3925</displayPriorityInXenotype>
+  </GeneCategoryDef>
+  <!-- <GeneCategoryDef> -->
+	<!-- <defName>WVC_MechaBodyWare</defName> -->
+	<!-- <label>mechanoidization - Firmware</label> -->
+	<!-- <displayPriorityInXenotype>3925</displayPriorityInXenotype> -->
+  <!-- </GeneCategoryDef> -->
+  <!-- <GeneCategoryDef> -->
+	<!-- <defName>WVC_MechaBodyWare</defName> -->
+	<!-- <label>mechanoidization - Software</label> -->
+	<!-- <displayPriorityInXenotype>3924</displayPriorityInXenotype> -->
+  <!-- </GeneCategoryDef> -->
+  <GeneCategoryDef>
+	<defName>WVC_MechaBodyParts</defName>
+	<label>mechanoidization - Parts</label>
+	<displayPriorityInXenotype>3923</displayPriorityInXenotype>
+  </GeneCategoryDef>
+  <!-- <GeneCategoryDef> -->
+	<!-- <defName>WVC_MechaBodyParts</defName> -->
+	<!-- <label>mechanoidization - Other</label> -->
+	<!-- <displayPriorityInXenotype>3921</displayPriorityInXenotype> -->
+  <!-- </GeneCategoryDef> -->
+  <GeneCategoryDef>
+	<defName>WVC_MechaBodyVoices</defName>
+	<label>mechanoidization - Voices</label>
+	<displayPriorityInXenotype>3919</displayPriorityInXenotype>
+  </GeneCategoryDef>
+
+  <!-- ================================================================== -->
+
+  <GeneDef Name="WVC_MechanoidizationBase" Abstract="True">
+	<displayCategory>WVC_MechaBody</displayCategory>
+	<selectionWeight>0.17</selectionWeight>
+	<marketValueFactor>1.5</marketValueFactor>
+	<minAgeActive>13</minAgeActive>
+	<randomChosen>false</randomChosen>
+	<canGenerateInGeneSet>true</canGenerateInGeneSet>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<!-- <statOffsets> -->
+	  <!-- <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization> -->
+	<!-- </statOffsets> -->
+	<!-- <conditionalStatAffecters> -->
+	  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
+		<!-- <statOffsets> -->
+		  <!-- <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization> -->
+		<!-- </statOffsets> -->
+	  <!-- </li> -->
+	<!-- </conditionalStatAffecters> -->
+	<modExtensions>
+		<li Class="WVC.GeneExtension">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Mechlink -->
+
+  <GeneDef ParentName="WVC_MechanoidizationBase">
+	<defName>WVC_ArchiteMechlink</defName>
+	<label>mechlink</label> 
+	<labelShortAdj>mechlink</labelShortAdj>
+	<description>Carriers of the gene have archites that form a mechlink in the brain, which allows them to control the mechanoids.</description>
+	<iconPath>WVC/UI/Genes/Mechlink</iconPath>
+	<!-- <displayCategory>Ability</displayCategory> -->
+	<!-- <displayCategory>Archite</displayCategory> -->
+	<displayOrderInCategory>150</displayOrderInCategory>
+	<suppressedTraits>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-2</degree>
+	  </li>
+	</suppressedTraits>
+	<statOffsets>
+		<!-- <MechBandwidth>8</MechBandwidth> -->
+		<!-- <MechControlGroups>2</MechControlGroups> -->
+	</statOffsets>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>meca</symbol></li>
+		<li><symbol>mec</symbol></li>
+		<li><symbol>meh</symbol></li>
+		<li><symbol>mech</symbol></li>
+		<li><symbol>mecha</symbol></li>
+		<li><symbol>machi</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>AbilityMechlink</li>
+	  <li>Mechlink</li>
+	  <li>WVC_GeneMechlink</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<hediffsToBodyParts>
+				<li>
+					<hediff>MechlinkImplant</hediff>
+					<bodyparts>
+						<li>Brain</li>
+					</bodyparts>
+				</li>
+			</hediffsToBodyParts>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- Connected -->
+
+  <GeneDef ParentName="WVC_MechanoidizationBase">
+	<defName>WVC_ArchiteFleetConnected</defName>
+	<label>fleet connected</label> 
+	<labelShortAdj>connected</labelShortAdj>
+	<description>Carriers of this gene have archites that amplify the mechlink's signal, allowing the bearer to establish a stable link with a nearby fleet of mechanoids and use their systems. This link opens up access to the almost endless possibilities of mechanoid control.</description>
+	<iconPath>WVC/UI/Genes/FleetConnection</iconPath>
+	<iconColor>(184, 198, 203)</iconColor>
+	<!-- <iconColor>(255, 230, 215)</iconColor> -->
+	<!-- <iconColor>(79, 80, 81)</iconColor> -->
+	<!-- <displayCategory>Archite</displayCategory> -->
+	<displayOrderInCategory>151</displayOrderInCategory>
+	<prerequisite>WVC_ArchiteMechlink</prerequisite>
+	<marketValueFactor>3</marketValueFactor>
+	<suppressedTraits>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-1</degree>
+	  </li>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-2</degree>
+	  </li>
+	</suppressedTraits>
+	<statOffsets>
+		<!-- <WVC_PawnMechanoidization>3</WVC_PawnMechanoidization> -->
+		<MechBandwidth>74</MechBandwidth>
+		<MechControlGroups>6</MechControlGroups>
+		<WorkSpeedGlobalOffsetMech>1.0</WorkSpeedGlobalOffsetMech>
+		<MechFormingSpeed>1</MechFormingSpeed>
+		<MechRepairSpeed>1</MechRepairSpeed>
+	</statOffsets>
+	<biostatCpx>6</biostatCpx>
+	<biostatArc>4</biostatArc>
+	<exclusionTags>
+	  <li>WVC_MechanitorNetwork</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>connect</symbol></li>
+		<li><symbol>con</symbol></li>
+		<li><symbol>connec</symbol></li>
+		<li><symbol>meca</symbol></li>
+		<li><symbol>mec</symbol></li>
+		<li><symbol>meh</symbol></li>
+		<li><symbol>mech</symbol></li>
+		<li><symbol>mecha</symbol></li>
+		<li><symbol>machi</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>

@@ -5,7 +5,7 @@
 
 	<Operation Class="VFECore.PatchOperationToggableSequence">
 		<enabled>False</enabled>
-		<label>(WVC - Genes) Disable mechaskin graphic</label>
+		<label>(WVC - Genes) Disable mechaskin/nodeskin graphic</label>
 		<operations>
 			<li Class="PatchOperationRemove">
 				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin"]/forcedHeadTypes</xpath>
@@ -16,11 +16,19 @@
 				<success>Always</success>
 			</li>
 			<li Class="PatchOperationRemove">
-				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin"]/modExtensions/li/furHidesBody</xpath>
+				<xpath>/Defs/GeneDef[@Name="WVC_NodeBody_Base"]/graphicData/fur</xpath>
 				<success>Always</success>
 			</li>
 			<li Class="PatchOperationRemove">
-				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin"]/modExtensions/li/useSkinColorForFur</xpath>
+				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base"]/modExtensions/li/furHidesBody</xpath>
+				<success>Always</success>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base"]/modExtensions/li/useSkinColorForFur</xpath>
+				<success>Always</success>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base"]/modExtensions/li/dontColourFur</xpath>
 				<success>Always</success>
 			</li>
 		</operations>
@@ -48,20 +56,20 @@
 		<!-- </operations> -->
 	<!-- </Operation> -->
 
-	<Operation Class="VFECore.PatchOperationToggableSequence">
-		<enabled>False</enabled>
-		<label>(All gene mods) Use vanilla gene backgrounds</label>
-		<operations>
-			<li Class="PatchOperationRemove">
-				<xpath>/Defs/GeneDef/modExtensions/li/backgroundPathXenogenes</xpath>
-				<success>Always</success>
-			</li>
-			<li Class="PatchOperationRemove">
-				<xpath>/Defs/GeneDef/modExtensions/li/backgroundPathEndogenes</xpath>
-				<success>Always</success>
-			</li>
-		</operations>
-	</Operation>
+	<!-- <Operation Class="VFECore.PatchOperationToggableSequence"> -->
+		<!-- <enabled>False</enabled> -->
+		<!-- <label>(All gene mods) Use vanilla gene backgrounds</label> -->
+		<!-- <operations> -->
+			<!-- <li Class="PatchOperationRemove"> -->
+				<!-- <xpath>/Defs/GeneDef/modExtensions/li/backgroundPathXenogenes</xpath> -->
+				<!-- <success>Always</success> -->
+			<!-- </li> -->
+			<!-- <li Class="PatchOperationRemove"> -->
+				<!-- <xpath>/Defs/GeneDef/modExtensions/li/backgroundPathEndogenes</xpath> -->
+				<!-- <success>Always</success> -->
+			<!-- </li> -->
+		<!-- </operations> -->
+	<!-- </Operation> -->
 
 	<!-- ============================================================ -->
 
@@ -78,11 +86,19 @@
 					<success>Always</success>
 				</li>
 				<li Class="PatchOperationRemove">
-					<xpath>/Defs/GeneDef[defName="WVC_MechaSkin"]/modExtensions/li/furHidesBody</xpath>
+					<xpath>/Defs/GeneDef[@Name="WVC_NodeBody_Base"]/graphicData/fur</xpath>
 					<success>Always</success>
 				</li>
 				<li Class="PatchOperationRemove">
-					<xpath>/Defs/GeneDef[defName="WVC_MechaSkin"]/modExtensions/li/useSkinColorForFur</xpath>
+					<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base"]/modExtensions/li/furHidesBody</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base"]/modExtensions/li/useSkinColorForFur</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base"]/modExtensions/li/dontColourFur</xpath>
 					<success>Always</success>
 				</li>
 			</operations>

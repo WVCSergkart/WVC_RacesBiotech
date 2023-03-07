@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <HeadTypeDef Name="WVC_NodeSkinAverageBase" ParentName="AverageBase" Abstract="True">
+	<randomChosen>false</randomChosen>
+	<gender>None</gender>
+	<!-- <selectionWeight>99999</selectionWeight> -->
+	<!-- <requiredGenes> -->
+	  <!-- <li>WVC_MechaSkin</li> -->
+	<!-- </requiredGenes> -->
+  </HeadTypeDef>
+
+  <HeadTypeDef ParentName="WVC_NodeSkinAverageBase">
+	<defName>WVC_NodeSkin_Blue</defName>
+	<!-- <graphicPath>WVC/NodeGene_Head/HeadBlue</graphicPath> -->
+	<graphicPath>WVC/NodeGene_FacelessHead/Head</graphicPath>
+	<requiredGenes>
+	  <li>WVC_NodeSkin_Blue</li>
+	</requiredGenes>
+  </HeadTypeDef>
+  <HeadTypeDef ParentName="WVC_NodeSkinAverageBase">
+	<defName>WVC_NodeSkin_Red</defName>
+	<!-- <graphicPath>WVC/NodeGene_Head/HeadRed</graphicPath> -->
+	<graphicPath>WVC/NodeGene_FacelessHead/Head</graphicPath>
+	<requiredGenes>
+	  <li>WVC_NodeSkin_Red</li>
+	</requiredGenes>
+  </HeadTypeDef>
+  <HeadTypeDef ParentName="WVC_NodeSkinAverageBase">
+	<defName>WVC_NodeSkin_Green</defName>
+	<!-- <graphicPath>WVC/NodeGene_Head/HeadGreen</graphicPath> -->
+	<graphicPath>WVC/NodeGene_FacelessHead/Head</graphicPath>
+	<requiredGenes>
+	  <li>WVC_NodeSkin_Green</li>
+	</requiredGenes>
+  </HeadTypeDef>
+  <HeadTypeDef ParentName="WVC_NodeSkinAverageBase">
+	<defName>WVC_NodeSkin_Violet</defName>
+	<!-- <graphicPath>WVC/NodeGene_Head/HeadViolet</graphicPath> -->
+	<graphicPath>WVC/NodeGene_FacelessHead/Head</graphicPath>
+	<requiredGenes>
+	  <li>WVC_NodeSkin_Violet</li>
+	</requiredGenes>
+  </HeadTypeDef>
+  <HeadTypeDef ParentName="WVC_NodeSkinAverageBase">
+	<defName>WVC_NodeSkin_Yellow</defName>
+	<!-- <graphicPath>WVC/NodeGene_Head/HeadYellow</graphicPath> -->
+	<graphicPath>WVC/NodeGene_FacelessHead/Head</graphicPath>
+	<requiredGenes>
+	  <li>WVC_NodeSkin_Yellow</li>
+	</requiredGenes>
+  </HeadTypeDef>
+
+  <!-- <HeadTypeDef ParentName="WVC_NodeSkinAverageBase"> -->
+	<!-- <defName>WVC_NodeSkin_Faceless</defName> -->
+	<!-- <graphicPath>WVC/NodeGene_FacelessHead/Head</graphicPath> -->
+	<!-- <requiredGenes> -->
+	  <!-- <li>WVC_NodeSkin_Yellow</li> -->
+	  <!-- <li>WVC_NodeSkin_Violet</li> -->
+	  <!-- <li>WVC_NodeSkin_Green</li> -->
+	  <!-- <li>WVC_NodeSkin_Red</li> -->
+	  <!-- <li>WVC_NodeSkin_Blue</li> -->
+	<!-- </requiredGenes> -->
+  <!-- </HeadTypeDef> -->
+
+  <!-- ==================================== -->
+
+  <FurDef>
+	<defName>WVC_NodeSkin</defName>
+	<noGraphic>true</noGraphic>
+	<bodyTypeGraphicPaths>
+	  <Male>WVC/NodeGene_Body/Naked_Male</Male>
+	  <Female>WVC/NodeGene_Body/Naked_Female</Female>
+	  <Hulk>WVC/NodeGene_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/NodeGene_Body/Naked_Fat</Fat>
+	  <Thin>WVC/NodeGene_Body/Naked_Thin</Thin>
+	  <!-- Never -->
+	  <Child>Things/Pawn/Humanlike/Bodies/Naked_Child</Child>
+	  <Baby>Things/Pawn/Humanlike/Bodies/Naked_Child</Baby>
+	  <!-- Never -->
+	</bodyTypeGraphicPaths>
+  </FurDef>
+
+  <!-- ==================================== -->
+
+  <!-- <GeneCategoryDef> -->
+	<!-- <defName>WVC_NodeBody</defName> -->
+	<!-- <label>nodization</label> -->
+	<!-- <displayPriorityInXenotype>3925</displayPriorityInXenotype> -->
+  <!-- </GeneCategoryDef> -->
+
+  <!-- ================================================================== -->
+
+  <GeneDef Name="WVC_NodizationBase" Abstract="True">
+	<!-- <displayCategory>WVC_NodeBody</displayCategory> -->
+	<displayCategory>WVC_MechaBody</displayCategory>
+	<selectionWeight>0.0</selectionWeight>
+	<marketValueFactor>1.5</marketValueFactor>
+	<minAgeActive>13</minAgeActive>
+	<randomChosen>false</randomChosen>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<modExtensions>
+		<li Class="WVC.GeneExtension">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- Bodies -->
+
+  <GeneDef ParentName="WVC_NodizationBase" Name="WVC_NodeBody_Base" Abstract="True">
+	<!-- <defName>WVC_NodeSkin</defName> -->
+	<label>nodeskin</label>
+	<labelShortAdj>nodeskinned</labelShortAdj>
+	<description>Carriers of this gene have archites that completely transform their body. 
+
+The skin has become like the most durable alloys, but has not lost its elasticity. The face is covered with plates, with a pattern similar to something like eyes, but this does not interfere with the owner's vision at all. Numerous clusters of mekhanites spread throughout the body, greatly strengthening their host.
+
+Most of the internal organs were not affected, but there are too many external changes, which is why "it" cannot be called a human.</description>
+	<!-- <skinColorOverride>(79, 80, 81)</skinColorOverride> -->
+	<!-- <hairColorOverride>(79, 80, 81)</hairColorOverride> -->
+	<randomBrightnessFactor>0</randomBrightnessFactor>
+	<selectionWeight>1.0</selectionWeight>
+	<randomChosen>true</randomChosen>
+	<!-- <selectionWeight>0.2</selectionWeight> -->
+	<biostatCpx>12</biostatCpx>
+	<biostatArc>25</biostatArc>
+	<!-- <biostatMet>-16</biostatMet> -->
+	<displayOrderInCategory>-95</displayOrderInCategory>
+	<iconPath>WVC/UI/Genes/MechaIcon</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<marketValueFactor>3</marketValueFactor>
+	<neverGrayHair>true</neverGrayHair>
+	<prerequisite>WVC_MechaAI_Base</prerequisite>
+	<!-- <forcedHeadTypes> -->
+	  <!-- <li>WVC_NodeSkin_Faceless</li> -->
+	<!-- </forcedHeadTypes> -->
+	<exclusionTags>
+	  <!-- <li>HairStyle</li> -->
+	  <li>Skin</li>
+	  <li>Fur</li>
+	  <!-- <li>BeardStyle</li> -->
+	  <li>WVC_NodeBody</li>
+	</exclusionTags>
+	<!-- <sterilize>true</sterilize> -->
+	<customEffectDescriptions>
+		<!-- <li>Changes the color of the body and hair to dark gray.</li> -->
+		<li>&lt;color=#ffe185&gt;Do not combine nodeskins with other skins, this will cause visual bugs!&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<makeImmuneTo>
+	  <li>MuscleParasites</li>
+	</makeImmuneTo>
+	<statOffsets>
+	  <ComfyTemperatureMax>14</ComfyTemperatureMax>
+	  <ComfyTemperatureMin>-46</ComfyTemperatureMin>
+	  <ArmorRating_Blunt>0.12</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.12</ArmorRating_Sharp>
+	  <ArmorRating_Heat>0.17</ArmorRating_Heat>
+	  <!-- <ArmorRating_Blunt>0.25</ArmorRating_Blunt> -->
+	  <!-- <ArmorRating_Sharp>0.25</ArmorRating_Sharp> -->
+	  <!-- <ArmorRating_Heat>0.35</ArmorRating_Heat> -->
+	</statOffsets>
+	<!-- <damageFactors> -->
+	<!-- </damageFactors> -->
+	<!-- <suppressedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>BodyPurist</def> -->
+	  <!-- </li> -->
+	<!-- </suppressedTraits> -->
+	<missingGeneRomanceChanceFactor>0.1</missingGeneRomanceChanceFactor>
+	<graphicData>
+	  <fur>WVC_NodeSkin</fur>
+	  <tattoosVisible>true</tattoosVisible>
+	  <colorType>Custom</colorType>
+	  <color>(255, 255, 255)</color>
+	  <layer>PostTattoo</layer>
+	  <!-- <layer>PostSkin</layer> -->
+	  <useSkinShader>false</useSkinShader>
+	</graphicData>
+	<beardTagFilter>
+	  <whitelist>true</whitelist>
+	  <tags>
+		<!-- <li>BeardLong</li> -->
+		<!-- <li>Furskin</li> -->
+		<li>WVC_NodeSkin</li>
+	  </tags>
+	</beardTagFilter>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>former</symbol></li>
+		<li><symbol>formkind</symbol></li>
+		<li><symbol>nodekind</symbol></li>
+	  </wholeNameSymbols>
+	  <prefixSymbols>
+		<li><symbol>node</symbol></li>
+		<li><symbol>nod</symbol></li>
+		<li><symbol>no</symbol></li>
+		<li><symbol>form</symbol></li>
+		<li><symbol>for</symbol></li>
+		<li><symbol>fo</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>er</symbol></li>
+		<li><symbol>nod</symbol></li>
+		<li><symbol>d</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<modExtensions Inherit="False">
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<furHidesBody>True</furHidesBody>
+			<dontColourFur>True</dontColourFur>
+			<customWoundsFromFleshtype>Mechanoid</customWoundsFromFleshtype>
+			<customBloodEffect>Damage_HitMechanoid</customBloodEffect>
+		</li>
+		<li Class="WVC.GeneExtension">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- Bodies -->
+
+  <!-- = -->
+  <GeneDef ParentName="WVC_NodeBody_Base">
+	<defName>WVC_NodeSkin_Blue</defName>
+	<label>blue</label>
+	<!-- <biostatMet>-16</biostatMet> -->
+	<iconPath>WVC/UI/Genes/HeadBlue_south</iconPath>
+	<forcedHeadTypes>
+	  <li>WVC_NodeSkin_Blue</li>
+	</forcedHeadTypes>
+	<customEffectDescriptions>
+		<!-- <li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; ???</li> -->
+	</customEffectDescriptions>
+	<graphicData>
+	  <graphicPath>WVC/NodeGene_Head/HeadBlue</graphicPath>
+	</graphicData>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_NodeBody_Base">
+	<defName>WVC_NodeSkin_Red</defName>
+	<label>red</label>
+	<!-- <biostatMet>-16</biostatMet> -->
+	<iconPath>WVC/UI/Genes/HeadRed_south</iconPath>
+	<forcedHeadTypes>
+	  <li>WVC_NodeSkin_Red</li>
+	</forcedHeadTypes>
+	<customEffectDescriptions>
+		<!-- <li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; ???</li> -->
+	</customEffectDescriptions>
+	<graphicData>
+	  <graphicPath>WVC/NodeGene_Head/HeadRed</graphicPath>
+	</graphicData>
+	<statOffsets>
+	  <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+	  <ArmorRating_Heat>0.55</ArmorRating_Heat>
+	</statOffsets>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_NodeBody_Base">
+	<defName>WVC_NodeSkin_Green</defName>
+	<label>green</label>
+	<!-- <biostatMet>-16</biostatMet> -->
+	<iconPath>WVC/UI/Genes/HeadGreen_south</iconPath>
+	<forcedHeadTypes>
+	  <li>WVC_NodeSkin_Green</li>
+	</forcedHeadTypes>
+	<customEffectDescriptions>
+		<!-- <li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; ???</li> -->
+	</customEffectDescriptions>
+	<graphicData>
+	  <graphicPath>WVC/NodeGene_Head/HeadGreen</graphicPath>
+	</graphicData>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_NodeBody_Base">
+	<defName>WVC_NodeSkin_Violet</defName>
+	<label>violet</label>
+	<!-- <biostatMet>-16</biostatMet> -->
+	<iconPath>WVC/UI/Genes/HeadViolet_south</iconPath>
+	<forcedHeadTypes>
+	  <li>WVC_NodeSkin_Violet</li>
+	</forcedHeadTypes>
+	<customEffectDescriptions>
+		<!-- <li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; ???</li> -->
+	</customEffectDescriptions>
+	<graphicData>
+	  <graphicPath>WVC/NodeGene_Head/HeadViolet</graphicPath>
+	</graphicData>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_NodeBody_Base">
+	<defName>WVC_NodeSkin_Yellow</defName>
+	<label>yellow</label>
+	<!-- <biostatMet>-16</biostatMet> -->
+	<iconPath>WVC/UI/Genes/HeadYellow_south</iconPath>
+	<forcedHeadTypes>
+	  <li>WVC_NodeSkin_Yellow</li>
+	</forcedHeadTypes>
+	<customEffectDescriptions>
+		<!-- <li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; ???</li> -->
+	</customEffectDescriptions>
+	<graphicData>
+	  <graphicPath>WVC/NodeGene_Head/HeadYellow</graphicPath>
+	</graphicData>
+  </GeneDef>
+
+</Defs>

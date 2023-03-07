@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Buffs -->
+
+  <GeneDef ParentName="WVC_MechanoidizationBase">
+	<defName>WVC_MechaAI_Base</defName>
+	<label>mecha-subcore</label> 
+	<labelShortAdj>subcore</labelShortAdj>
+	<!-- <description>Archites modified the owner's brain quite a lot, which opened up new possibilities.</description> -->
+	<description>Carriers of this gene have archites that have formed a mechanoid sub-core that connects semi-organics with organics into a single network, which helps to avoid rejection.</description>
+	<iconPath>WVC/UI/Genes/MechanoidizationSoftware</iconPath>
+	<iconColor>(184, 198, 203)</iconColor>
+	<displayOrderInCategory>-555</displayOrderInCategory>
+	<displayCategory>WVC_MechaBody</displayCategory>
+	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
+	<marketValueFactor>2</marketValueFactor>
+	<customEffectDescriptions>
+		<!-- <li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Reduces social impact and the chance of a nervous breakdown.</li> -->
+		<li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Activates the mechanoidization effect, the more archites used, the higher the mechanoidization.</li>
+	</customEffectDescriptions>
+	<forcedTraits>
+	  <!-- <li> -->
+		<!-- <def>Transhumanist</def> -->
+	  <!-- </li> -->
+	  <li>
+		<def>GreatMemory</def>
+	  </li>
+	</forcedTraits>
+	<capMods>
+	  <li>
+		<capacity>Consciousness</capacity>
+		<offset>0.2</offset>
+	  </li>
+	</capMods>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>ai</symbol></li>
+		<li><symbol>progr</symbol></li>
+		<li><symbol>prog</symbol></li>
+		<li><symbol>pro</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>ai</symbol></li>
+		<li><symbol>ammed</symbol></li>
+		<li><symbol>amm</symbol></li>
+		<li><symbol>am</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>WVC_Mechanoidization_AI</li>
+	</exclusionTags>
+	<modExtensions Inherit="False">
+		<li Class="WVC.GeneExtension">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

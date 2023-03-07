@@ -1,8 +1,9 @@
 <loadFolders>
 	<v1.4>
-		<!-- <li>/</li> -->
+		<li>/</li>
 		<li IfModActive="imranfish.xmlextensions">Biotech_Core</li>
 		<li IfModActive="ludeon.rimworld.biotech">Biotech_Genes</li>
+		<li IfModActive="ludeon.rimworld.biotech">Biotech_Genes_Nodes</li>
 	</v1.4>
 </loadFolders>
 

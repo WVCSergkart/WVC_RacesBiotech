@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Hidden -->
+
+  <!-- <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Mechanoidization_HiddenBase" Abstract="True"> -->
+	<!-- <description>Carriers of this gene have archites that are capable of self-replication. This significantly reduces complexity and reduces the need for archites capsules.</description> -->
+	<!-- <iconPath>WVC/UI/Genes/Gear</iconPath> -->
+	<!-- <iconColor>(255, 150, 150)</iconColor> -->
+	<!-- <displayOrderInCategory>0</displayOrderInCategory> -->
+	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <hideGene>true</hideGene> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+
+  <GeneDef ParentName="WVC_MechanoidizationBase">
+	<defName>WVC_MechaHidden_ArchiteForge</defName>
+	<label>archite-forge</label>
+	<description>Carriers of this gene have archites that are capable of self-replication. Thanks to this, archites from time to time restore lost limbs.</description>
+	<!-- <selectionWeight>0.01</selectionWeight> -->
+	<geneClass>WVC.Gene_RestoreMissingBodyParts</geneClass>
+	<iconColor>(184, 198, 203)</iconColor>
+	<marketValueFactor>5</marketValueFactor>
+	<iconPath>WVC/UI/Genes/Gear</iconPath>
+	<displayOrderInCategory>0</displayOrderInCategory>
+	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>12</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Restores a lost limb every (*DateTime)5-15 days(/DateTime).</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+</Defs>

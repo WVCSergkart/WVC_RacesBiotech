@@ -71,6 +71,12 @@
 	<skinColorOverride>(255, 180, 220)</skinColorOverride>
   </GeneDef>
 
+  <GeneDef ParentName="WVC_GeneSkinColorOverride">
+	<defName>WVC_SkinColor_DarkGray</defName>
+	<label>node skin</label>
+	<skinColorOverride>(79, 80, 81)</skinColorOverride>
+  </GeneDef>
+
   <!-- ======================================================== -->
 
   <GeneDef ParentName="GeneHairColorBase" Name="WVC_GeneHairColorBase" Abstract="True">
@@ -88,43 +94,49 @@
 
   <GeneDef ParentName="WVC_GeneHairColorBase">
 	<defName>WVC_HairColor_b4c8ff_HEX</defName>
-	<label>bright blue skin</label>
+	<label>bright blue hair</label>
 	<hairColorOverride>(180, 200, 255)</hairColorOverride>
   </GeneDef>
   <GeneDef ParentName="WVC_GeneHairColorBase">
 	<defName>WVC_HairColor_c8b4ff_HEX</defName>
-	<label>bright purple skin</label>
+	<label>bright purple hair</label>
 	<hairColorOverride>(200, 180, 255)</hairColorOverride>
   </GeneDef>
   <GeneDef ParentName="WVC_GeneHairColorBase">
 	<defName>WVC_HairColor_c8ffb4_HEX</defName>
-	<label>bright green skin</label>
+	<label>bright green hair</label>
 	<hairColorOverride>(200, 255, 180)</hairColorOverride>
   </GeneDef>
   <GeneDef ParentName="WVC_GeneHairColorBase">
 	<defName>WVC_HairColor_ffb4b4_HEX</defName>
-	<label>bright red skin</label>
+	<label>bright red hair</label>
 	<hairColorOverride>(255, 180, 180)</hairColorOverride>
   </GeneDef>
   <GeneDef ParentName="WVC_GeneHairColorBase">
 	<defName>WVC_HairColor_fffab4_HEX</defName>
-	<label>bright yellow skin</label>
+	<label>bright yellow hair</label>
 	<hairColorOverride>(255, 250, 180)</hairColorOverride>
   </GeneDef>
   <GeneDef ParentName="WVC_GeneHairColorBase">
 	<defName>WVC_HairColor_b4fff0_HEX</defName>
-	<label>bright cian skin</label>
+	<label>bright cian hair</label>
 	<hairColorOverride>(180, 255, 240)</hairColorOverride>
   </GeneDef>
   <GeneDef ParentName="WVC_GeneHairColorBase">
 	<defName>WVC_HairColor_ffdcb4_HEX</defName>
-	<label>bright orange skin</label>
+	<label>bright orange hair</label>
 	<hairColorOverride>(255, 220, 180)</hairColorOverride>
   </GeneDef>
   <GeneDef ParentName="WVC_GeneHairColorBase">
 	<defName>WVC_HairColor_ffb4dc_HEX</defName>
-	<label>bright pink skin</label>
+	<label>bright pink hair</label>
 	<hairColorOverride>(255, 180, 220)</hairColorOverride>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_GeneHairColorBase">
+	<defName>WVC_HairColor_DarkGray</defName>
+	<label>node hair</label>
+	<hairColorOverride>(79, 80, 81)</hairColorOverride>
   </GeneDef>
 
 </Defs>
