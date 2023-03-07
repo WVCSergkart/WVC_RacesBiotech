@@ -1,86 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <HeadTypeDef Name="WVC_NodeSkinAverageBase" ParentName="AverageBase" Abstract="True">
-	<randomChosen>false</randomChosen>
-	<gender>None</gender>
-	<!-- <selectionWeight>99999</selectionWeight> -->
-	<!-- <requiredGenes> -->
-	  <!-- <li>WVC_MechaSkin</li> -->
-	<!-- </requiredGenes> -->
-  </HeadTypeDef>
-
-  <HeadTypeDef ParentName="WVC_NodeSkinAverageBase">
-	<defName>WVC_NodeSkin_Blue</defName>
-	<!-- <graphicPath>WVC/NodeGene_Head/HeadBlue</graphicPath> -->
-	<graphicPath>WVC/NodeGene_FacelessHead/Head</graphicPath>
-	<requiredGenes>
-	  <li>WVC_NodeSkin_Blue</li>
-	</requiredGenes>
-  </HeadTypeDef>
-  <HeadTypeDef ParentName="WVC_NodeSkinAverageBase">
-	<defName>WVC_NodeSkin_Red</defName>
-	<!-- <graphicPath>WVC/NodeGene_Head/HeadRed</graphicPath> -->
-	<graphicPath>WVC/NodeGene_FacelessHead/Head</graphicPath>
-	<requiredGenes>
-	  <li>WVC_NodeSkin_Red</li>
-	</requiredGenes>
-  </HeadTypeDef>
-  <HeadTypeDef ParentName="WVC_NodeSkinAverageBase">
-	<defName>WVC_NodeSkin_Green</defName>
-	<!-- <graphicPath>WVC/NodeGene_Head/HeadGreen</graphicPath> -->
-	<graphicPath>WVC/NodeGene_FacelessHead/Head</graphicPath>
-	<requiredGenes>
-	  <li>WVC_NodeSkin_Green</li>
-	</requiredGenes>
-  </HeadTypeDef>
-  <HeadTypeDef ParentName="WVC_NodeSkinAverageBase">
-	<defName>WVC_NodeSkin_Violet</defName>
-	<!-- <graphicPath>WVC/NodeGene_Head/HeadViolet</graphicPath> -->
-	<graphicPath>WVC/NodeGene_FacelessHead/Head</graphicPath>
-	<requiredGenes>
-	  <li>WVC_NodeSkin_Violet</li>
-	</requiredGenes>
-  </HeadTypeDef>
-  <HeadTypeDef ParentName="WVC_NodeSkinAverageBase">
-	<defName>WVC_NodeSkin_Yellow</defName>
-	<!-- <graphicPath>WVC/NodeGene_Head/HeadYellow</graphicPath> -->
-	<graphicPath>WVC/NodeGene_FacelessHead/Head</graphicPath>
-	<requiredGenes>
-	  <li>WVC_NodeSkin_Yellow</li>
-	</requiredGenes>
-  </HeadTypeDef>
-
-  <!-- <HeadTypeDef ParentName="WVC_NodeSkinAverageBase"> -->
-	<!-- <defName>WVC_NodeSkin_Faceless</defName> -->
-	<!-- <graphicPath>WVC/NodeGene_FacelessHead/Head</graphicPath> -->
-	<!-- <requiredGenes> -->
-	  <!-- <li>WVC_NodeSkin_Yellow</li> -->
-	  <!-- <li>WVC_NodeSkin_Violet</li> -->
-	  <!-- <li>WVC_NodeSkin_Green</li> -->
-	  <!-- <li>WVC_NodeSkin_Red</li> -->
-	  <!-- <li>WVC_NodeSkin_Blue</li> -->
-	<!-- </requiredGenes> -->
-  <!-- </HeadTypeDef> -->
-
-  <!-- ==================================== -->
-
-  <FurDef>
-	<defName>WVC_NodeSkin</defName>
-	<noGraphic>true</noGraphic>
-	<bodyTypeGraphicPaths>
-	  <Male>WVC/NodeGene_Body/Naked_Male</Male>
-	  <Female>WVC/NodeGene_Body/Naked_Female</Female>
-	  <Hulk>WVC/NodeGene_Body/Naked_Hulk</Hulk>
-	  <Fat>WVC/NodeGene_Body/Naked_Fat</Fat>
-	  <Thin>WVC/NodeGene_Body/Naked_Thin</Thin>
-	  <!-- Never -->
-	  <Child>Things/Pawn/Humanlike/Bodies/Naked_Child</Child>
-	  <Baby>Things/Pawn/Humanlike/Bodies/Naked_Child</Baby>
-	  <!-- Never -->
-	</bodyTypeGraphicPaths>
-  </FurDef>
-
   <!-- ==================================== -->
 
   <!-- <GeneCategoryDef> -->
@@ -227,7 +147,7 @@ Most of the internal organs were not affected, but there are too many external c
   <GeneDef ParentName="WVC_NodeBody_Base">
 	<defName>WVC_NodeSkin_Blue</defName>
 	<label>blue</label>
-	<biostatMet>5</biostatMet>
+	<biostatMet>7</biostatMet>
 	<iconPath>WVC/UI/Genes/HeadBlue_south</iconPath>
 	<forcedHeadTypes>
 	  <li>WVC_NodeSkin_Blue</li>
@@ -273,7 +193,7 @@ Most of the internal organs were not affected, but there are too many external c
   <GeneDef ParentName="WVC_NodeBody_Base">
 	<defName>WVC_NodeSkin_Red</defName>
 	<label>red</label>
-	<biostatMet>3</biostatMet>
+	<biostatMet>5</biostatMet>
 	<iconPath>WVC/UI/Genes/HeadRed_south</iconPath>
 	<forcedHeadTypes>
 	  <li>WVC_NodeSkin_Red</li>
@@ -304,7 +224,7 @@ Most of the internal organs were not affected, but there are too many external c
   <GeneDef ParentName="WVC_NodeBody_Base">
 	<defName>WVC_NodeSkin_Green</defName>
 	<label>green</label>
-	<biostatMet>8</biostatMet>
+	<biostatMet>10</biostatMet>
 	<iconPath>WVC/UI/Genes/HeadGreen_south</iconPath>
 	<forcedHeadTypes>
 	  <li>WVC_NodeSkin_Green</li>
@@ -324,7 +244,7 @@ Most of the internal organs were not affected, but there are too many external c
   <GeneDef ParentName="WVC_NodeBody_Base">
 	<defName>WVC_NodeSkin_Violet</defName>
 	<label>violet</label>
-	<biostatMet>6</biostatMet>
+	<biostatMet>8</biostatMet>
 	<iconPath>WVC/UI/Genes/HeadViolet_south</iconPath>
 	<forcedHeadTypes>
 	  <li>WVC_NodeSkin_Violet</li>
@@ -348,7 +268,7 @@ Most of the internal organs were not affected, but there are too many external c
   <GeneDef ParentName="WVC_NodeBody_Base">
 	<defName>WVC_NodeSkin_Yellow</defName>
 	<label>yellow</label>
-	<biostatMet>4</biostatMet>
+	<biostatMet>6</biostatMet>
 	<iconPath>WVC/UI/Genes/HeadYellow_south</iconPath>
 	<forcedHeadTypes>
 	  <li>WVC_NodeSkin_Yellow</li>

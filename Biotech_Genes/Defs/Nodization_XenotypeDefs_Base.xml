@@ -17,6 +17,7 @@
 	</doubleXenotypeChances>
 	<genes>
 		<li>WVC_MechaAI_Base</li>
+		<!-- = -->
 		<li>WVC_NodeSkin_Blue</li>
 		<li>WVC_NodeSkin_Green</li>
 		<li>WVC_NodeSkin_Red</li>
@@ -67,8 +68,8 @@
 		<li>WVC_Mecha_EarsCat</li>
 		<li>WVC_VoiceMechaMilitor</li>
 		<!-- =Test= -->
-		<li MayRequire="wvc.wvcmod.wvcspecific">WVC_FemaleOnly</li>
-		<li MayRequire="wvc.wvcmod.wvcspecific">WVC_Orientation_Bisexual</li>
+		<!-- <li MayRequire="WVC.WVCMod.WVCSpecific">WVC_FemaleOnly</li> -->
+		<!-- <li MayRequire="WVC.WVCMod.WVCSpecific">WVC_Orientation_Bisexual</li> -->
 		<!-- =Test= -->
 		<li>Ageless</li>
 		<li>Deathless</li>
