@@ -322,7 +322,7 @@
 
   <GeneDef>
 	<defName>WVC_AgeDebuff_Timeless</defName>
-	<label>timeless</label>
+	<label>lifefall</label>
 	<description>Carriers of this gene do not have much time.</description>
 	<iconPath>WVC/UI/Genes/AgeDebuff_LifespanFactor</iconPath>
 	<displayCategory>WVC_AgeDebuffs</displayCategory>
@@ -337,7 +337,7 @@
 	  <!-- </li> -->
 	  <li Class="WVC.ConditionalStatAffecter_Humanlike">
 		<statFactors>
-		  <LifespanFactor>0.1</LifespanFactor>
+		  <LifespanFactor>0.0</LifespanFactor>
 		</statFactors>
 	  </li>
 	</conditionalStatAffecters>
@@ -346,15 +346,15 @@
 	<!-- </exclusionTags> -->
 	<symbolPack>
 	  <wholeNameSymbols>
-		<li><symbol>timeless</symbol></li>
+		<li><symbol>lifefall</symbol></li>
 	  </wholeNameSymbols>
 	  <prefixSymbols>
-		<li><symbol>time</symbol></li>
-		<li><symbol>tim</symbol></li>
+		<li><symbol>life</symbol></li>
+		<li><symbol>li</symbol></li>
 	  </prefixSymbols>
 	  <suffixSymbols>
-		<li><symbol>less</symbol></li>
-		<li><symbol>les</symbol></li>
+		<li><symbol>fall</symbol></li>
+		<li><symbol>all</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
 	<modExtensions>

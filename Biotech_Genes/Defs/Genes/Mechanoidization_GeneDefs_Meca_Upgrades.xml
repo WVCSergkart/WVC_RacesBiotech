@@ -173,7 +173,7 @@
 
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
 	<defName>WVC_MecaBodyParts_Kidney</defName>
-	<label>additional mechanite clusters</label>
+	<label>mechanite clusters</label>
 	<description>Archites create mechanite clusters, slightly increasing regeneration.</description>
 	<biostatMet>-1</biostatMet>
 	<customEffectDescriptions>

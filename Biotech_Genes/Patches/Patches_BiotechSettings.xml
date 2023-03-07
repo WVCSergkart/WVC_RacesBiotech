@@ -16,19 +16,19 @@
 				<success>Always</success>
 			</li>
 			<li Class="PatchOperationRemove">
-				<xpath>/Defs/GeneDef[@Name="WVC_NodeBody_Base"]/graphicData/fur</xpath>
+				<xpath>/Defs/GeneDef[@Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base"]/graphicData/fur</xpath>
 				<success>Always</success>
 			</li>
 			<li Class="PatchOperationRemove">
-				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base"]/modExtensions/li/furHidesBody</xpath>
+				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base"]/modExtensions/li/furHidesBody</xpath>
 				<success>Always</success>
 			</li>
 			<li Class="PatchOperationRemove">
-				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base"]/modExtensions/li/useSkinColorForFur</xpath>
+				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base"]/modExtensions/li/useSkinColorForFur</xpath>
 				<success>Always</success>
 			</li>
 			<li Class="PatchOperationRemove">
-				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base"]/modExtensions/li/dontColourFur</xpath>
+				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base"]/modExtensions/li/dontColourFur</xpath>
 				<success>Always</success>
 			</li>
 		</operations>
@@ -86,19 +86,19 @@
 					<success>Always</success>
 				</li>
 				<li Class="PatchOperationRemove">
-					<xpath>/Defs/GeneDef[@Name="WVC_NodeBody_Base"]/graphicData/fur</xpath>
+					<xpath>/Defs/GeneDef[@Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base"]/graphicData/fur</xpath>
 					<success>Always</success>
 				</li>
 				<li Class="PatchOperationRemove">
-					<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base"]/modExtensions/li/furHidesBody</xpath>
+					<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base"]/modExtensions/li/furHidesBody</xpath>
 					<success>Always</success>
 				</li>
 				<li Class="PatchOperationRemove">
-					<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base"]/modExtensions/li/useSkinColorForFur</xpath>
+					<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base"]/modExtensions/li/useSkinColorForFur</xpath>
 					<success>Always</success>
 				</li>
 				<li Class="PatchOperationRemove">
-					<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base"]/modExtensions/li/dontColourFur</xpath>
+					<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base"]/modExtensions/li/dontColourFur</xpath>
 					<success>Always</success>
 				</li>
 			</operations>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Former -->
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base">
+	<defName>WVC_RogueFormer</defName>
+	<label>rogkind</label>
+	<!-- <description>Meca are a type of archotech-enhanced xenohuman. Powered by archites, their abilities go far beyond normal genetic enhancements. They have natural mechanitor abilities and significant bonuses to intelligence and crafting. They do not age and are very hard to kill, and they also have good defense. Meca can make new meca with the gestator ability.\n\nMeca are poor fighters and are practically untrainable as diplomats or farmers. Any new skills are given to them with great difficulty. They don't need sleep, but they need a lot of food.\n\nThe exact origin of meca is not known, at some point years ago they began to appear in some glitter worlds. Up to a certain age, meca are no different from baseliners in appearance, except for snow-white skin and hair. However, in worlds with a dense abundance of xenotypes, no one will pay attention to such a trifle until the age of their complete mechanoidization. Despite their mechanoid appearance, they have no direct connection to these machines, although they have limited control over them.\n\nMost meca have a direct genetic link to blanks, which are something of a human pet and ideal specimens for experimentation. Representatives called blank are very often placed in an environment close to baseliner where they live most of their lives, in order to subsequently become victims of various experiments.</description> -->
+	<!-- <descriptionShort>Meca are ageless, deathless mecha-humans powered by archotech-created archites in the bloodstream. They are beautiful and extremely intelligent. They do not suffer from disease or poison. In combat, they can use their deadly scythe tail. The price is that they are very poorly trained and practically cannot master new skills.</descriptionShort> -->
+	<iconPath>WVC/UI/Xeno2Icons/Xeno12</iconPath>
+	<inheritable>true</inheritable>
+	<canGenerateAsCombatant>true</canGenerateAsCombatant>
+	<combatPowerFactor>5</combatPowerFactor>
+	<factionlessGenerationWeight>2</factionlessGenerationWeight>
+	<doubleXenotypeChances>
+		<!-- <Sanguophage>0.1</Sanguophage> -->
+	</doubleXenotypeChances>
+	<genes>
+		<li>WVC_MechaAI_Base</li>
+		<li>WVC_NodeSkin_Blue</li>
+		<li>WVC_NodeSkin_Green</li>
+		<li>WVC_NodeSkin_Red</li>
+		<li>WVC_NodeSkin_Violet</li>
+		<li>WVC_NodeSkin_Yellow</li>
+		<!-- = -->
+		<li>WVC_MechaAI_SoftwareNaturalEnemy</li>
+		<!-- = -->
+		<li>WVC_MecaBodyParts_Nose</li>
+		<li>WVC_MecaBodyParts_Ear</li>
+		<li>WVC_MecaBodyParts_Eye</li>
+		<li>WVC_MecaBodyParts_Spine</li>
+		<li>WVC_MecaBodyParts_Leg</li>
+		<li>WVC_MecaBodyParts_Stomach</li>
+		<li>WVC_MecaBodyParts_Heart</li>
+		<!-- =Buffs= -->
+		<li>WVC_Nodization_PatternBuff_A</li>
+		<li>WVC_Nodization_PointBuff_A</li>
+		<li>WVC_Nodization_SkillBuff_A</li>
+		<li>WVC_Nodization_StringBuff_A</li>
+		<li>WVC_Nodization_VindicationBuff_A</li>
+		<!-- = -->
+		<li>WVC_Nodization_PatternBuff_B</li>
+		<li>WVC_Nodization_PointBuff_B</li>
+		<li>WVC_Nodization_SkillBuff_B</li>
+		<li>WVC_Nodization_StringBuff_B</li>
+		<li>WVC_Nodization_VindicationBuff_B</li>
+		<!-- = -->
+		<li>WVC_Nodization_PatternBuff_C</li>
+		<li>WVC_Nodization_PointBuff_C</li>
+		<li>WVC_Nodization_SkillBuff_C</li>
+		<li>WVC_Nodization_StringBuff_C</li>
+		<li>WVC_Nodization_VindicationBuff_C</li>
+		<!-- = -->
+		<li>WVC_Nodization_PatternBuff_D</li>
+		<li>WVC_Nodization_PointBuff_D</li>
+		<li>WVC_Nodization_SkillBuff_D</li>
+		<li>WVC_Nodization_StringBuff_D</li>
+		<li>WVC_Nodization_VindicationBuff_D</li>
+		<!-- = -->
+		<li>WVC_Nodization_PatternBuff_E</li>
+		<li>WVC_Nodization_PointBuff_E</li>
+		<li>WVC_Nodization_SkillBuff_E</li>
+		<li>WVC_Nodization_StringBuff_E</li>
+		<li>WVC_Nodization_VindicationBuff_E</li>
+		<!-- =Buffs= -->
+		<li>WVC_Mecha_ConnectorTail</li>
+		<li>WVC_Mecha_EarsCat</li>
+		<li>WVC_VoiceMechaMilitor</li>
+		<!-- =Test= -->
+		<li MayRequire="wvc.wvcmod.wvcspecific">WVC_FemaleOnly</li>
+		<li MayRequire="wvc.wvcmod.wvcspecific">WVC_Orientation_Bisexual</li>
+		<!-- =Test= -->
+		<li>Ageless</li>
+		<li>Deathless</li>
+		<li>DiseaseFree</li>
+		<li>PerfectImmunity</li>
+		<li>TotalHealing</li>
+		<!-- = -->
+		<li>ToxResist_Total</li>
+		<!-- = -->
+		<li>UVSensitivity_Intense</li>
+		<li>WVC_ClothedArmor</li>
+		<!-- = -->
+		<li>Neversleep</li>
+		<!-- = -->
+		<li>Body_Standard</li>
+		<li>Body_Thin</li>
+		<!-- = -->
+		<li>WVC_HairColor_DarkGray</li>
+		<li>WVC_SkinColor_DarkGray</li>
+		<!-- = -->
+		<!-- <li>AptitudeTerrible_Construction</li> -->
+		<!-- <li>AptitudePoor_Mining</li> -->
+		<!-- <li>AptitudeTerrible_Cooking</li> -->
+		<!-- <li>AptitudeTerrible_Artistic</li> -->
+		<!-- <li>AptitudeTerrible_Social</li> -->
+		<!-- <li>AptitudeStrong_Intellectual</li> -->
+		<!-- = -->
+		<li>WVC_MechaAI_FirmwareRogueMachine</li>
+	</genes>
+  </XenotypeDef>
+
+</Defs>

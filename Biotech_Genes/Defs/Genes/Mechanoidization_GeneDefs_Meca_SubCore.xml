@@ -27,6 +27,11 @@
 		<def>GreatMemory</def>
 	  </li>
 	</forcedTraits>
+	<suppressedTraits>
+	  <li>
+		<def>BodyPurist</def>
+	  </li>
+	</suppressedTraits>
 	<capMods>
 	  <li>
 		<capacity>Consciousness</capacity>

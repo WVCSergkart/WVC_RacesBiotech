@@ -15,7 +15,7 @@
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>5</biostatArc>
 	<biostatMet>6</biostatMet>
-	<randomChosen>true</randomChosen>
+	<!-- <randomChosen>true</randomChosen> -->
 	<!-- <passionMod>AddOneLevel</passionMod> -->
 	<customEffectDescriptions>
 		<li MayRequire="imranfish.xmlextensions">Expectations are always "sky-high" and cannot be higher or lower.</li>

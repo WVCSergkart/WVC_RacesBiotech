@@ -76,11 +76,11 @@ Most of the internal organs remain intact, but there are enough external changes
 	<damageFactors>
 	  <!-- <Flame>0.8</Flame> -->
 	</damageFactors>
-	<suppressedTraits>
-	  <li>
-		<def>BodyPurist</def>
-	  </li>
-	</suppressedTraits>
+	<!-- <suppressedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>BodyPurist</def> -->
+	  <!-- </li> -->
+	<!-- </suppressedTraits> -->
 	<missingGeneRomanceChanceFactor>0.5</missingGeneRomanceChanceFactor>
 	<graphicData>
 	  <fur>WVC_MechaSkin</fur>

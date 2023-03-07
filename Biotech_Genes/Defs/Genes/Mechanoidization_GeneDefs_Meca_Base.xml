@@ -48,6 +48,11 @@
 	<label>mechanoidization - Ware</label>
 	<displayPriorityInXenotype>3925</displayPriorityInXenotype>
   </GeneCategoryDef>
+  <GeneCategoryDef>
+	<defName>WVC_MechaBodyEncoding</defName>
+	<label>mechanoidization - Encode</label>
+	<displayPriorityInXenotype>3924</displayPriorityInXenotype>
+  </GeneCategoryDef>
   <!-- <GeneCategoryDef> -->
 	<!-- <defName>WVC_MechaBodyWare</defName> -->
 	<!-- <label>mechanoidization - Firmware</label> -->

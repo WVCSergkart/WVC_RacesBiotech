@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Romance -->
+
+  <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Nodization_RandomBuff_Base" Abstract="True">
+	<displayCategory>WVC_MechaBodyEncoding</displayCategory>
+	<!-- <label>AI</label> -->
+	<description>Complex templates for the mechanoid sub-core, which can provide some advantages.</description>
+	<iconPath>WVC/UI/Genes/Mechlink</iconPath>
+	<displayOrderInCategory>-100</displayOrderInCategory>
+	<prerequisite>WVC_MechaAI_Base</prerequisite>
+	<randomChosen>true</randomChosen>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>encod</symbol></li>
+		<li><symbol>enco</symbol></li>
+		<li><symbol>enc</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>ed</symbol></li>
+		<li><symbol>ded</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- Encoding_GeneA -->
+  <!-- Encoding_GeneB -->
+  <!-- Encoding_GeneC -->
+  <!-- Encoding_GeneD -->
+  <!-- Encoding_GeneE -->
+  <!-- Base -->
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Base" Name="WVC_Nodization_RandomBuff_Blue" Abstract="True">
+	<!-- <defName>WVC_MechaAI_RomanceChanceA</defName> -->
+	<label>encoding SX</label>
+	<displayOrderInCategory>-100</displayOrderInCategory>
+	<iconColor>(133, 202, 255)</iconColor>
+	<exclusionTags>
+	  <li>WVC_Nodization_RandomBuff_SX</li>
+	</exclusionTags>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Base" Name="WVC_Nodization_RandomBuff_Red" Abstract="True">
+	<!-- <defName>WVC_MechaAI_RomanceChanceC</defName> -->
+	<label>encoding HJ</label>
+	<displayOrderInCategory>-80</displayOrderInCategory>
+	<iconColor>(255, 133, 133)</iconColor>
+	<exclusionTags>
+	  <li>WVC_Nodization_RandomBuff_HJ</li>
+	</exclusionTags>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Base" Name="WVC_Nodization_RandomBuff_Green" Abstract="True">
+	<!-- <defName>WVC_MechaAI_RomanceChanceB</defName> -->
+	<label>encoding GB</label>
+	<displayOrderInCategory>-60</displayOrderInCategory>
+	<iconColor>(133, 255, 136)</iconColor>
+	<exclusionTags>
+	  <li>WVC_Nodization_RandomBuff_GB</li>
+	</exclusionTags>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Base" Name="WVC_Nodization_RandomBuff_Violet" Abstract="True">
+	<!-- <defName>WVC_MechaAI_RomanceChanceD</defName> -->
+	<label>encoding CV</label>
+	<displayOrderInCategory>-40</displayOrderInCategory>
+	<iconColor>(142, 133, 255)</iconColor>
+	<exclusionTags>
+	  <li>WVC_Nodization_RandomBuff_CV</li>
+	</exclusionTags>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Base" Name="WVC_Nodization_RandomBuff_Yellow" Abstract="True">
+	<!-- <defName>WVC_MechaAI_RomanceChanceE</defName> -->
+	<label>encoding WR</label>
+	<displayOrderInCategory>-20</displayOrderInCategory>
+	<iconColor>(255, 248, 133)</iconColor>
+	<exclusionTags>
+	  <li>WVC_Nodization_RandomBuff_WR</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- Lvl 1 -->
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Blue">
+	<defName>WVC_Nodization_PatternBuff_A</defName>
+	<label>pattern SX</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneA</iconPath>
+	<statOffsets>
+	  <MechFormingSpeed>0.5</MechFormingSpeed>
+	</statOffsets>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Red">
+	<defName>WVC_Nodization_PatternBuff_B</defName>
+	<label>pattern HJ</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneA</iconPath>
+	<statFactors>
+	  <AimingDelayFactor>0.8</AimingDelayFactor>
+	</statFactors>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Green">
+	<defName>WVC_Nodization_PatternBuff_C</defName>
+	<label>pattern GB</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneA</iconPath>
+	<statFactors>
+	  <MentalBreakThreshold>0.80</MentalBreakThreshold>
+	</statFactors>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Violet">
+	<defName>WVC_Nodization_PatternBuff_D</defName>
+	<label>pattern CV</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneA</iconPath>
+	<statOffsets>
+	  <MeleeDamageFactor>0.2</MeleeDamageFactor>
+	</statOffsets>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Yellow">
+	<defName>WVC_Nodization_PatternBuff_E</defName>
+	<label>pattern WR</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneA</iconPath>
+	<statOffsets>
+	  <PawnBeauty>3</PawnBeauty>
+	</statOffsets>
+  </GeneDef>
+
+  <!-- Lvl 2 -->
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Blue">
+	<defName>WVC_Nodization_SkillBuff_A</defName>
+	<label>skill SX</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneB</iconPath>
+	<aptitudes>
+	  <Intellectual>6</Intellectual>
+	</aptitudes>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Red">
+	<defName>WVC_Nodization_SkillBuff_B</defName>
+	<label>skill HJ</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneB</iconPath>
+	<aptitudes>
+	  <Shooting>6</Shooting>
+	</aptitudes>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Green">
+	<defName>WVC_Nodization_SkillBuff_C</defName>
+	<label>skill GB</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneB</iconPath>
+	<aptitudes>
+	  <Medicine>6</Medicine>
+	</aptitudes>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Violet">
+	<defName>WVC_Nodization_SkillBuff_D</defName>
+	<label>skill CV</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneB</iconPath>
+	<aptitudes>
+	  <Melee>6</Melee>
+	</aptitudes>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Yellow">
+	<defName>WVC_Nodization_SkillBuff_E</defName>
+	<label>skill WR</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneB</iconPath>
+	<aptitudes>
+	  <Social>6</Social>
+	</aptitudes>
+  </GeneDef>
+
+  <!-- Lvl 3 -->
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Blue">
+	<defName>WVC_Nodization_VindicationBuff_A</defName>
+	<label>vindication SX</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneC</iconPath>
+	<statOffsets>
+		<WorkSpeedGlobalOffsetMech>0.25</WorkSpeedGlobalOffsetMech>
+	</statOffsets>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Red">
+	<defName>WVC_Nodization_VindicationBuff_B</defName>
+	<label>vindication HJ</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneC</iconPath>
+	<statOffsets>
+	  <ArmorRating_Blunt>0.15</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.15</ArmorRating_Sharp>
+	  <ArmorRating_Heat>0.15</ArmorRating_Heat>
+	</statOffsets>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Green">
+	<defName>WVC_Nodization_VindicationBuff_C</defName>
+	<label>vindication GB</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneC</iconPath>
+	<statOffsets>
+	 <MoveSpeed>2</MoveSpeed>
+	</statOffsets>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Violet">
+	<defName>WVC_Nodization_VindicationBuff_D</defName>
+	<label>vindication CV</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneC</iconPath>
+	<statOffsets>
+	  <MeleeDodgeChance>20</MeleeDodgeChance>
+	</statOffsets>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Yellow">
+	<defName>WVC_Nodization_VindicationBuff_E</defName>
+	<label>vindication WR</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneC</iconPath>
+	<statOffsets>
+		<NegotiationAbility>0.2</NegotiationAbility>
+	</statOffsets>
+  </GeneDef>
+
+  <!-- Lvl 4 -->
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Blue">
+	<defName>WVC_Nodization_StringBuff_A</defName>
+	<label>string SX</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneD</iconPath>
+	<capMods>
+	  <li>
+		<capacity>Consciousness</capacity>
+		<offset>0.1</offset>
+	  </li>
+	</capMods>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Red">
+	<defName>WVC_Nodization_StringBuff_B</defName>
+	<label>string HJ</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneD</iconPath>
+	<capMods>
+	  <li>
+		<capacity>Manipulation</capacity>
+		<offset>0.2</offset>
+	  </li>
+	</capMods>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Green">
+	<defName>WVC_Nodization_StringBuff_C</defName>
+	<label>string GB</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneD</iconPath>
+	<capMods>
+	  <li>
+		<capacity>Metabolism</capacity>
+		<offset>0.3</offset>
+	  </li>
+	</capMods>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Violet">
+	<defName>WVC_Nodization_StringBuff_D</defName>
+	<label>string CV</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneD</iconPath>
+	<capMods>
+	  <li>
+		<capacity>Sight</capacity>
+		<offset>0.2</offset>
+	  </li>
+	  <li>
+		<capacity>Hearing</capacity>
+		<offset>0.2</offset>
+	  </li>
+	</capMods>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Yellow">
+	<defName>WVC_Nodization_StringBuff_E</defName>
+	<label>string WR</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneD</iconPath>
+	<capMods>
+	  <li>
+		<capacity>Talking</capacity>
+		<offset>0.2</offset>
+	  </li>
+	</capMods>
+  </GeneDef>
+
+  <!-- Lvl 5 -->
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Blue">
+	<defName>WVC_Nodization_PointBuff_A</defName>
+	<label>point SX</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneE</iconPath>
+	<statFactors>
+	  <MechBandwidth>2</MechBandwidth>
+	</statFactors>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Red">
+	<defName>WVC_Nodization_PointBuff_B</defName>
+	<label>point HJ</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneE</iconPath>
+	<statFactors>
+	  <ArmorRating_Blunt>1.2</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>1.2</ArmorRating_Sharp>
+	  <ArmorRating_Heat>1.2</ArmorRating_Heat>
+	</statFactors>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Green">
+	<defName>WVC_Nodization_PointBuff_C</defName>
+	<label>point GB</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneE</iconPath>
+	<statFactors>
+	  <InjuryHealingFactor>1.5</InjuryHealingFactor>
+	</statFactors>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Violet">
+	<defName>WVC_Nodization_PointBuff_D</defName>
+	<label>point CV</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneE</iconPath>
+	<statFactors>
+	  <MeleeDodgeChance>2</MeleeDodgeChance>
+	</statFactors>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Yellow">
+	<defName>WVC_Nodization_PointBuff_E</defName>
+	<label>point WR</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneE</iconPath>
+	<statFactors>
+	  <PsychicSensitivity>1.5</PsychicSensitivity>
+	</statFactors>
+  </GeneDef>
+
+</Defs>
