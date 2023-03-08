@@ -3,7 +3,7 @@
 
   <!-- Ears -->
 
-  <GeneDef ParentName="GeneEarsBase">
+  <GeneDef ParentName="GeneEarsBase" Name="WVC_GeneCatEars_Base" Abstract="True">
 	<defName>WVC_Mecha_EarsCat</defName>
 	<label>mecha-cat ears</label>
 	<description>Carriers of this gene have mechanoid cat-like ears. Additional audio sensors in the ears improve hearing.</description>
@@ -20,12 +20,6 @@
 	<!-- <statOffsets> -->
 	  <!-- <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization> -->
 	<!-- </statOffsets> -->
-	<capMods>
-	  <li>
-		<capacity>Hearing</capacity>
-		<offset>0.2</offset>
-	  </li>
-	</capMods>
 	<graphicData>
 	  <graphicPath>WVC/MecaGene_Ears/CatEars</graphicPath>
 	  <colorType>Hair</colorType>
@@ -58,6 +52,38 @@
 			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathArchite>
 		</li>
 	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_GeneCatEars_Base">
+	<defName>WVC_Mecha_EarsCat</defName>
+	<label>mecha-cat ears</label>
+	<graphicData>
+	  <graphicPath>WVC/MecaGene_Ears/CatEars</graphicPath>
+	  <colorType>Hair</colorType>
+	  <useSkinShader>false</useSkinShader>
+	</graphicData>
+	<capMods>
+	  <li>
+		<capacity>Hearing</capacity>
+		<offset>0.2</offset>
+	  </li>
+	</capMods>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_GeneCatEars_Base">
+	<defName>WVC_Mecha_QuadEarsCat</defName>
+	<label>quad-mecha-cat ears</label>
+	<graphicData>
+	  <graphicPath>WVC/MecaGene_Ears/FourCatEars</graphicPath>
+	  <colorType>Hair</colorType>
+	  <useSkinShader>false</useSkinShader>
+	</graphicData>
+	<capMods>
+	  <li>
+		<capacity>Hearing</capacity>
+		<offset>0.25</offset>
+	  </li>
+	</capMods>
   </GeneDef>
 
   <!-- Tail -->

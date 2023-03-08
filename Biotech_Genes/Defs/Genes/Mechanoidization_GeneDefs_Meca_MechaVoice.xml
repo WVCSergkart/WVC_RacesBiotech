@@ -13,7 +13,7 @@
 	<biostatArc>1</biostatArc>
 	<minAgeActive>13</minAgeActive>
 	<biostatCpx>0</biostatCpx>
-	<randomChosen>false</randomChosen>
+	<!-- <randomChosen>false</randomChosen> -->
 	<canGenerateInGeneSet>true</canGenerateInGeneSet>
 	<selectionWeight>0.25</selectionWeight>
 	<!-- <statOffsets> -->
@@ -21,8 +21,11 @@
 	<!-- </statOffsets> -->
 	<symbolPack>
 	  <wholeNameSymbols>
-		<li><symbol>mecha</symbol></li>
+		<li><symbol>mechanoid</symbol></li>
 	  </wholeNameSymbols>
+	  <prefixSymbols>
+		<li><symbol>mecha</symbol></li>
+	  </prefixSymbols>
 	  <suffixSymbols>
 		<li><symbol>noid</symbol></li>
 	  </suffixSymbols>

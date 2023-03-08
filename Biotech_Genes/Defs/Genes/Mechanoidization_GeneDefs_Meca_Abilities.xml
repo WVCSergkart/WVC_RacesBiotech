@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <AbilityCategoryDef>
+	<defName>WVC_Mechalike</defName>
+	<displayOrder>1100</displayOrder>
+  </AbilityCategoryDef>
+
+  <!-- ================ -->
+
   <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_MechanoidizationAbilities" Abstract="True">
 	<displayCategory>Ability</displayCategory>
 	<marketValueFactor>1.2</marketValueFactor>
@@ -144,6 +151,7 @@
 	<label>gestator</label>
 	<description>Carriers of this gene have a built-in gestator that can produce semi-organic life.</description>
 	<iconPath>WVC/UI/Genes/Gestator</iconPath>
+	<prerequisite>WVC_MechaAI_Base</prerequisite>
 	<sterilize>true</sterilize>
 	<customEffectDescriptions>
 		<li>Spawns a baby-pawn with similar genes 5 days after the ability is activated.</li>
@@ -201,6 +209,7 @@
 	<hostile>false</hostile>
 	<targetRequired>False</targetRequired>
 	<showCastingProgressBar>True</showCastingProgressBar>
+	<category>WVC_Mechalike</category>
 	<statBases>
 	  <Ability_Duration>5010</Ability_Duration>
 	</statBases>
@@ -229,6 +238,76 @@
 	  </li>
 	</comps>
 	<confirmationDialogText>After activating the ability, the pawn will receive a moving and manipulation debuff, as well as increased hunger. The process cannot be interrupted.\n\nDo you still need a new mecha-pawn?</confirmationDialogText>
+  </AbilityDef>
+
+  <!-- ============================================================================== -->
+
+  <GeneDef ParentName="WVC_MechanoidizationAbilities">
+	<defName>WVC_EndogermReimplanter</defName>
+	<label>mecha-gene implanter</label>
+	<labelShortAdj>reimplanter</labelShortAdj>
+	<description>Carriers of this gene can implant a copy of their endo/xenogerm into another person through a somewhat gross-looking injector organ. Their own genetic material will then regrow very slowly. If they implant while their genes are regrowing, they will die.</description>
+	<!-- <iconPath>UI/Icons/Genes/Gene_XenogermReimplanter</iconPath> -->
+	<iconPath>WVC/UI/Genes/Reimplanter</iconPath>
+	<!-- <displayCategory>Archite</displayCategory> -->
+	<prerequisite>WVC_MechaAI_Base</prerequisite>
+	<sterilize>true</sterilize>
+	<customEffectDescriptions>
+		<li>Completely changes the genes of the target pawn to the genes of the caster.</li>
+	</customEffectDescriptions>
+	<abilities>
+	  <li>WVC_EndogermReimplanter</li>
+	</abilities>
+	<statFactors>
+	  <Fertility>0</Fertility>
+	</statFactors>
+	<!-- <exclusionTags> -->
+		<!-- <li>Fertility</li> -->
+		<!-- <li>Egglaying</li> -->
+		<!-- <li>AG_Egglaying</li> -->
+		<!-- <li>AG_Gestation</li> -->
+		<!-- <li>AG_Fertility</li> -->
+	<!-- </exclusionTags> -->
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_EndogermReimplanter</AbilityDef>
+	</descriptionHyperlinks>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>0</biostatMet>
+	<modExtensions Inherit="False">
+		<li Class="WVC.GeneExtension">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <AbilityDef ParentName="AbilityTouchBase">
+	<defName>WVC_EndogermReimplanter</defName>
+	<label>implant genes</label>
+	<description>Implant this person's endo/xenogenes into a willing subject using a special injector organ. If this person's genes are currently regrowing, they will implant their endo/xenogerm and die in the process.\n\nWhen implanted, a endo/xenogerm will overwrite the target's endo/xenogenes.</description>
+	<!-- <iconPath>UI/Icons/Genes/Gene_XenogermReimplanter</iconPath> -->
+	<iconPath>WVC/UI/Genes/Reimplanter</iconPath>
+	<warmupStartSound>ReimplantXenogerm_Cast</warmupStartSound>
+	<warmupEffecter>Implant_Xenogerm</warmupEffecter>
+	<category>WVC_Mechalike</category>
+	<displayOrder>500</displayOrder>
+	<hostile>false</hostile>
+	<verbProperties>
+	  <verbClass>Verb_CastAbilityTouch</verbClass>
+	  <drawAimPie>false</drawAimPie>
+	  <range>-1</range>
+	  <warmupTime>4</warmupTime>
+	  <targetParams>
+		<canTargetAnimals>false</canTargetAnimals>
+		<canTargetSelf>false</canTargetSelf>
+		<canTargetBuildings>false</canTargetBuildings>
+		<canTargetMechs>false</canTargetMechs>
+	  </targetParams>
+	</verbProperties>
+	<comps>
+	  <li Class="WVC.CompProperties_AbilityReimplantEndogerm" />
+	  <!-- <li Class="CompProperties_AbilityReimplantXenogerm" /> -->
+	</comps>
   </AbilityDef>
 
 </Defs>

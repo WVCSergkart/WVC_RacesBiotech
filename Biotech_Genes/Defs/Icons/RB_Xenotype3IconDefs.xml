@@ -121,5 +121,9 @@
 	<!-- <defName>WVC_XenoMecha30c</defName> -->
 	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno30</texPath> -->
   <!-- </XenotypeIconDef> -->
+  <XenotypeIconDef>
+	<defName>WVC_XenoRogueFormer1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Roguekind1</texPath>
+  </XenotypeIconDef>
 
 </Defs>

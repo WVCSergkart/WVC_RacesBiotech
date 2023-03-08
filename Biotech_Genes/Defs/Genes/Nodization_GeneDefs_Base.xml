@@ -131,7 +131,8 @@ Most of the internal organs were not affected, but there are too many external c
 	<modExtensions Inherit="False">
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<furHidesBody>True</furHidesBody>
-			<dontColourFur>True</dontColourFur>
+			<!-- <dontColourFur>True</dontColourFur> -->
+			<useSkinColorForFur>True</useSkinColorForFur>
 			<customWoundsFromFleshtype>Mechanoid</customWoundsFromFleshtype>
 			<customBloodEffect>Damage_HitMechanoid</customBloodEffect>
 		</li>
@@ -153,7 +154,7 @@ Most of the internal organs were not affected, but there are too many external c
 	  <li>WVC_NodeSkin_Blue</li>
 	</forcedHeadTypes>
 	<customEffectDescriptions>
-		<li>&lt;color=#85caff&gt;Mechlink:&lt;/color&gt;</li>
+		<li>&lt;color=#85caff&gt;Mechlink&lt;/color&gt;</li>
 		<!-- <li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; ???</li> -->
 	</customEffectDescriptions>
 	<graphicData>
@@ -169,25 +170,25 @@ Most of the internal organs were not affected, but there are too many external c
 		<degree>-2</degree>
 	  </li>
 	</suppressedTraits>
-	<modExtensions Inherit="False">
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<furHidesBody>True</furHidesBody>
-			<dontColourFur>True</dontColourFur>
-			<customWoundsFromFleshtype>Mechanoid</customWoundsFromFleshtype>
-			<customBloodEffect>Damage_HitMechanoid</customBloodEffect>
-			<hediffsToBodyParts>
-				<li>
-					<hediff>MechlinkImplant</hediff>
-					<bodyparts>
-						<li>Brain</li>
-					</bodyparts>
-				</li>
-			</hediffsToBodyParts>
-		</li>
-		<li Class="WVC.GeneExtension">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions Inherit="False"> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <furHidesBody>True</furHidesBody> -->
+			<!-- <useSkinColorForFur>True</useSkinColorForFur> -->
+			<!-- <customWoundsFromFleshtype>Mechanoid</customWoundsFromFleshtype> -->
+			<!-- <customBloodEffect>Damage_HitMechanoid</customBloodEffect> -->
+			<!-- <hediffsToBodyParts> -->
+				<!-- <li> -->
+					<!-- <hediff>MechlinkImplant</hediff> -->
+					<!-- <bodyparts> -->
+						<!-- <li>Brain</li> -->
+					<!-- </bodyparts> -->
+				<!-- </li> -->
+			<!-- </hediffsToBodyParts> -->
+		<!-- </li> -->
+		<!-- <li Class="WVC.GeneExtension"> -->
+			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Base">
@@ -274,7 +275,7 @@ Most of the internal organs were not affected, but there are too many external c
 	  <li>WVC_NodeSkin_Yellow</li>
 	</forcedHeadTypes>
 	<customEffectDescriptions>
-		<li>&lt;color=#fff885&gt;Psylink:&lt;/color&gt;</li>
+		<li>&lt;color=#fff885&gt;Psylink&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<graphicData>
 	  <graphicPath>WVC/NodeGene_Head/HeadYellow</graphicPath>
@@ -300,25 +301,25 @@ Most of the internal organs were not affected, but there are too many external c
 		<degree>2</degree>
 	  </li>
 	</suppressedTraits>
-	<modExtensions Inherit="False">
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<furHidesBody>True</furHidesBody>
-			<dontColourFur>True</dontColourFur>
-			<customWoundsFromFleshtype>Mechanoid</customWoundsFromFleshtype>
-			<customBloodEffect>Damage_HitMechanoid</customBloodEffect>
-			<hediffsToBodyParts>
-				<li MayRequireAnyOf="ludeon.rimworld.royalty">
-					<hediff>PsychicAmplifier</hediff>
-					<bodyparts>
-						<li>Brain</li>
-					</bodyparts>
-				</li>
-			</hediffsToBodyParts>
-		</li>
-		<li Class="WVC.GeneExtension">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions Inherit="False"> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <furHidesBody>True</furHidesBody> -->
+			<!-- <useSkinColorForFur>True</useSkinColorForFur> -->
+			<!-- <customWoundsFromFleshtype>Mechanoid</customWoundsFromFleshtype> -->
+			<!-- <customBloodEffect>Damage_HitMechanoid</customBloodEffect> -->
+			<!-- <hediffsToBodyParts> -->
+				<!-- <li MayRequireAnyOf="ludeon.rimworld.royalty"> -->
+					<!-- <hediff>PsychicAmplifier</hediff> -->
+					<!-- <bodyparts> -->
+						<!-- <li>Brain</li> -->
+					<!-- </bodyparts> -->
+				<!-- </li> -->
+			<!-- </hediffsToBodyParts> -->
+		<!-- </li> -->
+		<!-- <li Class="WVC.GeneExtension"> -->
+			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
 </Defs>
