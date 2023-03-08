@@ -8,27 +8,27 @@
 		<label>(WVC - Genes) Disable mechaskin/nodeskin graphic</label>
 		<operations>
 			<li Class="PatchOperationRemove">
-				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin"]/forcedHeadTypes</xpath>
+				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base"]/forcedHeadTypes</xpath>
 				<success>Always</success>
 			</li>
 			<li Class="PatchOperationRemove">
-				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin"]/graphicData</xpath>
+				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base"]/graphicData</xpath>
 				<success>Always</success>
 			</li>
 			<li Class="PatchOperationRemove">
-				<xpath>/Defs/GeneDef[@Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base"]/graphicData/fur</xpath>
+				<xpath>/Defs/GeneDef[@Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base" or @ParentName="WVC_MechanoidBody_Base"]/graphicData/fur</xpath>
 				<success>Always</success>
 			</li>
 			<li Class="PatchOperationRemove">
-				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base"]/modExtensions/li/furHidesBody</xpath>
+				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base" or @ParentName="WVC_MechanoidBody_Base"]/modExtensions/li/furHidesBody</xpath>
 				<success>Always</success>
 			</li>
 			<li Class="PatchOperationRemove">
-				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base"]/modExtensions/li/useSkinColorForFur</xpath>
+				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base" or @ParentName="WVC_MechanoidBody_Base"]/modExtensions/li/useSkinColorForFur</xpath>
 				<success>Always</success>
 			</li>
 			<li Class="PatchOperationRemove">
-				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base"]/modExtensions/li/dontColourFur</xpath>
+				<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base" or @ParentName="WVC_MechanoidBody_Base"]/modExtensions/li/dontColourFur</xpath>
 				<success>Always</success>
 			</li>
 		</operations>
@@ -78,27 +78,27 @@
 		<caseTrue Class="PatchOperationSequence">
 			<operations>
 				<li Class="PatchOperationRemove">
-					<xpath>/Defs/GeneDef[defName="WVC_MechaSkin"]/forcedHeadTypes</xpath>
+					<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base"]/forcedHeadTypes</xpath>
 					<success>Always</success>
 				</li>
 				<li Class="PatchOperationRemove">
-					<xpath>/Defs/GeneDef[defName="WVC_MechaSkin"]/graphicData</xpath>
+					<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base"]/graphicData</xpath>
 					<success>Always</success>
 				</li>
 				<li Class="PatchOperationRemove">
-					<xpath>/Defs/GeneDef[@Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base"]/graphicData/fur</xpath>
+					<xpath>/Defs/GeneDef[@Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base" or @ParentName="WVC_MechanoidBody_Base"]/graphicData/fur</xpath>
 					<success>Always</success>
 				</li>
 				<li Class="PatchOperationRemove">
-					<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base"]/modExtensions/li/furHidesBody</xpath>
+					<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base" or @ParentName="WVC_MechanoidBody_Base"]/modExtensions/li/furHidesBody</xpath>
 					<success>Always</success>
 				</li>
 				<li Class="PatchOperationRemove">
-					<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base"]/modExtensions/li/useSkinColorForFur</xpath>
+					<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base" or @ParentName="WVC_MechanoidBody_Base"]/modExtensions/li/useSkinColorForFur</xpath>
 					<success>Always</success>
 				</li>
 				<li Class="PatchOperationRemove">
-					<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base"]/modExtensions/li/dontColourFur</xpath>
+					<xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base" or @ParentName="WVC_MechanoidBody_Base"]/modExtensions/li/dontColourFur</xpath>
 					<success>Always</success>
 				</li>
 			</operations>
@@ -146,51 +146,51 @@
 		<caseFalse Class="PatchOperationSequence">
 			<operations>
 
-				<li Class="PatchOperationSequence">
-					<success>Always</success>
-					<operations>
-						<li Class="PatchOperationAdd">
-						  <xpath>/Defs/StatDef[defName="SocialImpact"]/parts</xpath>
-						  <success>Invert</success>
-						  <value>
-							  <li Class="WVC.StatPart_Mechanoidization">
-								<invert>false</invert>
-								<requiredGene>WVC_MechaAI_Base</requiredGene>
-								<curve>
-								  <points>
-									<li>(5, 0.0)</li>
-									<li>(30, 0.05)</li>
-									<li>(50, 0.25)</li>
-									<li>(60, 0.50)</li>
-									<li>(80, 0.70)</li>
-								  </points>
-								</curve>
-							  </li>
-						  </value>
-						</li>
-						<li Class="PatchOperationAdd">
-						  <xpath>/Defs/StatDef[defName="SocialImpact"]</xpath>
-						  <success>Always</success>
-						  <value>
-							<parts>
-							  <li Class="WVC.StatPart_Mechanoidization">
-								<invert>false</invert>
-								<requiredGene>WVC_MechaAI_Base</requiredGene>
-								<curve>
-								  <points>
-									<li>(5, 0.0)</li>
-									<li>(30, 0.05)</li>
-									<li>(50, 0.25)</li>
-									<li>(60, 0.50)</li>
-									<li>(80, 0.70)</li>
-								  </points>
-								</curve>
-							  </li>
-							</parts>
-						  </value>
-						</li>
-					</operations>
-				</li>
+				<!-- <li Class="PatchOperationSequence"> -->
+					<!-- <success>Always</success> -->
+					<!-- <operations> -->
+						<!-- <li Class="PatchOperationAdd"> -->
+						  <!-- <xpath>/Defs/StatDef[defName="SocialImpact"]/parts</xpath> -->
+						  <!-- <success>Invert</success> -->
+						  <!-- <value> -->
+							  <!-- <li Class="WVC.StatPart_Mechanoidization"> -->
+								<!-- <invert>false</invert> -->
+								<!-- <requiredGene>WVC_MechaAI_Base</requiredGene> -->
+								<!-- <curve> -->
+								  <!-- <points> -->
+									<!-- <li>(5, 0.0)</li> -->
+									<!-- <li>(30, 0.05)</li> -->
+									<!-- <li>(50, 0.25)</li> -->
+									<!-- <li>(60, 0.50)</li> -->
+									<!-- <li>(80, 0.70)</li> -->
+								  <!-- </points> -->
+								<!-- </curve> -->
+							  <!-- </li> -->
+						  <!-- </value> -->
+						<!-- </li> -->
+						<!-- <li Class="PatchOperationAdd"> -->
+						  <!-- <xpath>/Defs/StatDef[defName="SocialImpact"]</xpath> -->
+						  <!-- <success>Always</success> -->
+						  <!-- <value> -->
+							<!-- <parts> -->
+							  <!-- <li Class="WVC.StatPart_Mechanoidization"> -->
+								<!-- <invert>false</invert> -->
+								<!-- <requiredGene>WVC_MechaAI_Base</requiredGene> -->
+								<!-- <curve> -->
+								  <!-- <points> -->
+									<!-- <li>(5, 0.0)</li> -->
+									<!-- <li>(30, 0.05)</li> -->
+									<!-- <li>(50, 0.25)</li> -->
+									<!-- <li>(60, 0.50)</li> -->
+									<!-- <li>(80, 0.70)</li> -->
+								  <!-- </points> -->
+								<!-- </curve> -->
+							  <!-- </li> -->
+							<!-- </parts> -->
+						  <!-- </value> -->
+						<!-- </li> -->
+					<!-- </operations> -->
+				<!-- </li> -->
 
 				<li Class="PatchOperationSequence">
 					<success>Always</success>

@@ -74,6 +74,15 @@ This parameter is affected only by genes.</description>
 	  <li MayRequire="Ludeon.RimWorld.Ideology">BodyMod_Approved</li>
 	  <li MayRequire="vanillaexpanded.vmemese">VME_Mechanoids_Exalted</li>
 	</nullifyingPrecepts>
+	<nullifyingGenes>
+	  <li>WVC_MechaSkin</li>
+	  <!-- = -->
+	  <li>WVC_NodeSkin_Blue</li>
+	  <li>WVC_NodeSkin_Red</li>
+	  <li>WVC_NodeSkin_Green</li>
+	  <li>WVC_NodeSkin_Violet</li>
+	  <li>WVC_NodeSkin_Yellow</li>
+	</nullifyingGenes>
 	<!-- All stages are named the same, due to the fact that mech pawns may dislike less human brethren than themselves. -->
 	<!-- Все этапы называются одинаково, по причине того что меха-пешки могут испытывать неприязень к менее человечным собратьям чем они сами. -->
 	<stages>
@@ -131,78 +140,45 @@ This parameter is affected only by genes.</description>
   </ThoughtDef>
 
   <!-- hidden -->
-  <ThoughtDef>
-	<defName>WVC_PawnMechanoidization_Mood</defName>
-	<workerClass>WVC.ThoughtWorker_PawnMechanoidization_Mood</workerClass>
-	<validWhileDespawned>true</validWhileDespawned>
-	<requiredGenes>
-	  <li>WVC_MechaAI_Base</li>
-	</requiredGenes>
-	<!-- Should always be invisible -->
-	<!-- Должно быть всегда невидимым -->
-	<stages>
-	  <li>
-		<label>mechanoidization</label>
-		<description>Emotions become less.</description>
-		<visible>false</visible>
-		<baseMoodEffect>2</baseMoodEffect>
-	  </li>
-	  <li>
-		<label>mechanoidization</label>
-		<description>Emotions become less.</description>
-		<visible>false</visible>
-		<baseMoodEffect>4</baseMoodEffect>
-	  </li>
-	  <li>
-		<label>mechanoidization</label>
-		<description>Emotions become less.</description>
-		<visible>false</visible>
-		<baseMoodEffect>6</baseMoodEffect>
-	  </li>
-	  <li>
-		<label>mechanoidization</label>
-		<description>Emotions become less.</description>
-		<visible>false</visible>
-		<baseMoodEffect>8</baseMoodEffect>
-	  </li>
-	  <li>
-		<label>mechanoidization</label>
-		<description>Emotions become less.</description>
-		<visible>false</visible>
-		<baseMoodEffect>10</baseMoodEffect>
-	  </li>
-	  <!-- = -->
+  <!-- <ThoughtDef> -->
+	<!-- <defName>WVC_PawnMechanoidization_Mood</defName> -->
+	<!-- <workerClass>WVC.ThoughtWorker_PawnMechanoidization_Mood</workerClass> -->
+	<!-- <validWhileDespawned>true</validWhileDespawned> -->
+	<!-- <requiredGenes> -->
+	  <!-- <li>WVC_MechaAI_Base</li> -->
+	<!-- </requiredGenes> -->
+	<!-- <stages> -->
 	  <!-- <li> -->
 		<!-- <label>mechanoidization</label> -->
 		<!-- <description>Emotions become less.</description> -->
 		<!-- <visible>false</visible> -->
-		<!-- <baseMoodEffect>12</baseMoodEffect> -->
+		<!-- <baseMoodEffect>2</baseMoodEffect> -->
 	  <!-- </li> -->
 	  <!-- <li> -->
 		<!-- <label>mechanoidization</label> -->
 		<!-- <description>Emotions become less.</description> -->
 		<!-- <visible>false</visible> -->
-		<!-- <baseMoodEffect>14</baseMoodEffect> -->
+		<!-- <baseMoodEffect>4</baseMoodEffect> -->
 	  <!-- </li> -->
 	  <!-- <li> -->
 		<!-- <label>mechanoidization</label> -->
 		<!-- <description>Emotions become less.</description> -->
 		<!-- <visible>false</visible> -->
-		<!-- <baseMoodEffect>16</baseMoodEffect> -->
+		<!-- <baseMoodEffect>6</baseMoodEffect> -->
 	  <!-- </li> -->
 	  <!-- <li> -->
 		<!-- <label>mechanoidization</label> -->
 		<!-- <description>Emotions become less.</description> -->
 		<!-- <visible>false</visible> -->
-		<!-- <baseMoodEffect>18</baseMoodEffect> -->
+		<!-- <baseMoodEffect>8</baseMoodEffect> -->
 	  <!-- </li> -->
 	  <!-- <li> -->
 		<!-- <label>mechanoidization</label> -->
 		<!-- <description>Emotions become less.</description> -->
 		<!-- <visible>false</visible> -->
-		<!-- <baseMoodEffect>20</baseMoodEffect> -->
+		<!-- <baseMoodEffect>10</baseMoodEffect> -->
 	  <!-- </li> -->
-	</stages>
-  </ThoughtDef>
+	<!-- </stages> -->
+  <!-- </ThoughtDef> -->
 
 </Defs>

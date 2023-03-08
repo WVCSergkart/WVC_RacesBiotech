@@ -281,4 +281,45 @@
 	</exclusionTags>
   </GeneDef>
 
+  <GeneDef ParentName="WVC_Aptitudes_ZeroHidden">
+	<defName>WVC_Aptitudes_GreatEqualizer</defName>
+	<label>great equalizer</label>
+	<description>Turns off all aptitudes.</description>
+	<biostatArc>1</biostatArc>
+	<customEffectDescriptions Inherit="False">
+		<li>Nullifying all aptitudes.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>AptitudeIntellectual</li>
+	  <li>Aptitude_Intellectual</li>
+	  <li>AptitudeSocial</li>
+	  <li>Aptitude_Social</li>
+	  <li>AptitudeArtistic</li>
+	  <li>Aptitude_Artistic</li>
+	  <li>AptitudeMedicine</li>
+	  <li>Aptitude_Medicine</li>
+	  <li>AptitudeAnimals</li>
+	  <li>Aptitude_Animals</li>
+	  <li>AptitudeShooting</li>
+	  <li>Aptitude_Shooting</li>
+	  <li>AptitudeConstruction</li>
+	  <li>Aptitude_Construction</li>
+	  <li>AptitudeMining</li>
+	  <li>Aptitude_Mining</li>
+	  <li>AptitudeCooking</li>
+	  <li>Aptitude_Cooking</li>
+	  <li>AptitudePlants</li>
+	  <li>Aptitude_Plants</li>
+	  <li>AptitudeMelee</li>
+	  <li>Aptitude_Melee</li>
+	  <li>AptitudeCrafting</li>
+	  <li>Aptitude_Crafting</li>
+	</exclusionTags>
+	<modExtensions Inherit="False">
+		<li Class="WVC.GeneExtension">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
 </Defs>

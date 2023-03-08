@@ -7,7 +7,7 @@
 	<!-- <defName>Eyes_Gray</defName> -->
 	<!-- <label>gray eyes</label> -->
 	<!-- <labelShortAdj>gray-eyed</labelShortAdj> -->
-	<description>Carriers of this gene have a unique eye color.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; The name of all colors was given relative to the HEX code, and may not be accurate.</description>
+	<description>Carriers of this gene have a unique eye color.</description>
 	<iconPath>UI/Icons/Genes/Gene_GrayEyes</iconPath>
 	<displayOrderInCategory>2</displayOrderInCategory>
 	<!-- <graphicData> -->

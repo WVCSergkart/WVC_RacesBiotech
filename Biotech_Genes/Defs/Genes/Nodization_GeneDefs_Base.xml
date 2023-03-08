@@ -11,26 +11,9 @@
 
   <!-- ================================================================== -->
 
-  <GeneDef Name="WVC_NodizationBase" Abstract="True">
-	<!-- <displayCategory>WVC_NodeBody</displayCategory> -->
-	<displayCategory>WVC_MechaBody</displayCategory>
-	<selectionWeight>0.0</selectionWeight>
-	<marketValueFactor>1.5</marketValueFactor>
-	<minAgeActive>13</minAgeActive>
-	<randomChosen>false</randomChosen>
-	<canGenerateInGeneSet>false</canGenerateInGeneSet>
-	<biostatCpx>1</biostatCpx>
-	<biostatArc>1</biostatArc>
-	<modExtensions>
-		<li Class="WVC.GeneExtension">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathArchite>
-		</li>
-	</modExtensions>
-  </GeneDef>
-
   <!-- Bodies -->
 
-  <GeneDef ParentName="WVC_NodizationBase" Name="WVC_NodeBody_Base" Abstract="True">
+  <GeneDef ParentName="WVC_MechanoidBody_Base" Name="WVC_NodeBody_Base" Abstract="True">
 	<!-- <defName>WVC_NodeSkin</defName> -->
 	<label>nodeskin</label>
 	<labelShortAdj>nodeskinned</labelShortAdj>
@@ -41,56 +24,24 @@ The skin has become like the most durable alloys, but has not lost its elasticit
 Most of the internal organs were not affected, but there are too many external changes, which is why "it" cannot be called a human.</description>
 	<!-- <skinColorOverride>(79, 80, 81)</skinColorOverride> -->
 	<!-- <hairColorOverride>(79, 80, 81)</hairColorOverride> -->
-	<randomBrightnessFactor>0</randomBrightnessFactor>
-	<selectionWeight>1.0</selectionWeight>
+	<!-- <randomBrightnessFactor>0</randomBrightnessFactor> -->
+	<!-- <canGenerateInGeneSet>false</canGenerateInGeneSet> -->
+	<!-- <selectionWeight>1.0</selectionWeight> -->
 	<randomChosen>true</randomChosen>
-	<!-- <selectionWeight>0.2</selectionWeight> -->
 	<biostatCpx>7</biostatCpx>
 	<biostatArc>8</biostatArc>
-	<!-- <biostatMet>-16</biostatMet> -->
 	<displayOrderInCategory>-95</displayOrderInCategory>
-	<iconPath>WVC/UI/Genes/MechaIcon</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
-	<marketValueFactor>3</marketValueFactor>
-	<neverGrayHair>true</neverGrayHair>
-	<prerequisite>WVC_MechaAI_Base</prerequisite>
-	<!-- <forcedHeadTypes> -->
-	  <!-- <li>WVC_NodeSkin_Faceless</li> -->
-	<!-- </forcedHeadTypes> -->
-	<exclusionTags>
-	  <!-- <li>HairStyle</li> -->
-	  <li>Skin</li>
-	  <li>Fur</li>
-	  <!-- <li>BeardStyle</li> -->
-	  <li>WVC_NodeBody</li>
-	</exclusionTags>
-	<!-- <sterilize>true</sterilize> -->
 	<customEffectDescriptions>
 		<!-- <li>Changes the color of the body and hair to dark gray.</li> -->
 		<li>&lt;color=#ffe185&gt;Do not combine nodeskins with other skins, this will cause visual bugs!&lt;/color&gt;</li>
 	</customEffectDescriptions>
-	<makeImmuneTo>
-	  <li>MuscleParasites</li>
-	</makeImmuneTo>
 	<statOffsets>
-	  <ComfyTemperatureMax>14</ComfyTemperatureMax>
-	  <ComfyTemperatureMin>-46</ComfyTemperatureMin>
 	  <ArmorRating_Blunt>0.12</ArmorRating_Blunt>
 	  <ArmorRating_Sharp>0.12</ArmorRating_Sharp>
 	  <ArmorRating_Heat>0.17</ArmorRating_Heat>
 	  <PawnBeauty>-1</PawnBeauty>
-	  <!-- <ArmorRating_Blunt>0.25</ArmorRating_Blunt> -->
-	  <!-- <ArmorRating_Sharp>0.25</ArmorRating_Sharp> -->
-	  <!-- <ArmorRating_Heat>0.35</ArmorRating_Heat> -->
 	</statOffsets>
-	<!-- <damageFactors> -->
-	<!-- </damageFactors> -->
-	<!-- <suppressedTraits> -->
-	  <!-- <li> -->
-		<!-- <def>BodyPurist</def> -->
-	  <!-- </li> -->
-	<!-- </suppressedTraits> -->
-	<missingGeneRomanceChanceFactor>0.1</missingGeneRomanceChanceFactor>
 	<graphicData>
 	  <fur>WVC_NodeSkin</fur>
 	  <tattoosVisible>false</tattoosVisible>
@@ -103,8 +54,6 @@ Most of the internal organs were not affected, but there are too many external c
 	<beardTagFilter>
 	  <whitelist>true</whitelist>
 	  <tags>
-		<!-- <li>BeardLong</li> -->
-		<!-- <li>Furskin</li> -->
 		<li>WVC_NodeSkin</li>
 	  </tags>
 	</beardTagFilter>
@@ -128,18 +77,6 @@ Most of the internal organs were not affected, but there are too many external c
 		<li><symbol>d</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
-	<modExtensions Inherit="False">
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<furHidesBody>True</furHidesBody>
-			<!-- <dontColourFur>True</dontColourFur> -->
-			<useSkinColorForFur>True</useSkinColorForFur>
-			<customWoundsFromFleshtype>Mechanoid</customWoundsFromFleshtype>
-			<customBloodEffect>Damage_HitMechanoid</customBloodEffect>
-		</li>
-		<li Class="WVC.GeneExtension">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite>
-		</li>
-	</modExtensions>
   </GeneDef>
 
   <!-- Bodies -->
@@ -147,15 +84,13 @@ Most of the internal organs were not affected, but there are too many external c
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Base">
 	<defName>WVC_NodeSkin_Blue</defName>
-	<label>blue</label>
+	<label>nodeskin SX</label>
 	<biostatMet>7</biostatMet>
 	<iconPath>WVC/UI/Genes/HeadBlue_south</iconPath>
 	<forcedHeadTypes>
 	  <li>WVC_NodeSkin_Blue</li>
 	</forcedHeadTypes>
 	<customEffectDescriptions>
-		<li>&lt;color=#85caff&gt;Mechlink&lt;/color&gt;</li>
-		<!-- <li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; ???</li> -->
 	</customEffectDescriptions>
 	<graphicData>
 	  <graphicPath>WVC/NodeGene_Head/HeadBlue</graphicPath>
@@ -170,37 +105,17 @@ Most of the internal organs were not affected, but there are too many external c
 		<degree>-2</degree>
 	  </li>
 	</suppressedTraits>
-	<!-- <modExtensions Inherit="False"> -->
-		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
-			<!-- <furHidesBody>True</furHidesBody> -->
-			<!-- <useSkinColorForFur>True</useSkinColorForFur> -->
-			<!-- <customWoundsFromFleshtype>Mechanoid</customWoundsFromFleshtype> -->
-			<!-- <customBloodEffect>Damage_HitMechanoid</customBloodEffect> -->
-			<!-- <hediffsToBodyParts> -->
-				<!-- <li> -->
-					<!-- <hediff>MechlinkImplant</hediff> -->
-					<!-- <bodyparts> -->
-						<!-- <li>Brain</li> -->
-					<!-- </bodyparts> -->
-				<!-- </li> -->
-			<!-- </hediffsToBodyParts> -->
-		<!-- </li> -->
-		<!-- <li Class="WVC.GeneExtension"> -->
-			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Base">
 	<defName>WVC_NodeSkin_Red</defName>
-	<label>red</label>
+	<label>nodeskin HJ</label>
 	<biostatMet>5</biostatMet>
 	<iconPath>WVC/UI/Genes/HeadRed_south</iconPath>
 	<forcedHeadTypes>
 	  <li>WVC_NodeSkin_Red</li>
 	</forcedHeadTypes>
 	<customEffectDescriptions>
-		<!-- <li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; ???</li> -->
 	</customEffectDescriptions>
 	<graphicData>
 	  <graphicPath>WVC/NodeGene_Head/HeadRed</graphicPath>
@@ -224,34 +139,32 @@ Most of the internal organs were not affected, but there are too many external c
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Base">
 	<defName>WVC_NodeSkin_Green</defName>
-	<label>green</label>
+	<label>nodeskin GB</label>
 	<biostatMet>10</biostatMet>
 	<iconPath>WVC/UI/Genes/HeadGreen_south</iconPath>
 	<forcedHeadTypes>
 	  <li>WVC_NodeSkin_Green</li>
 	</forcedHeadTypes>
 	<customEffectDescriptions>
-		<!-- <li>&lt;color=#85caff&gt;Mechanoidization:&lt;/color&gt; ???</li> -->
 	</customEffectDescriptions>
 	<graphicData>
 	  <graphicPath>WVC/NodeGene_Head/HeadGreen</graphicPath>
 	</graphicData>
-	<statFactors>
-	  <ImmunityGainSpeed>2</ImmunityGainSpeed>
-	  <InjuryHealingFactor>2</InjuryHealingFactor>
-	</statFactors>
+	<statOffsets>
+	  <ImmunityGainSpeed>0.5</ImmunityGainSpeed>
+	  <InjuryHealingFactor>0.5</InjuryHealingFactor>
+	</statOffsets>
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Base">
 	<defName>WVC_NodeSkin_Violet</defName>
-	<label>violet</label>
+	<label>nodeskin CV</label>
 	<biostatMet>8</biostatMet>
 	<iconPath>WVC/UI/Genes/HeadViolet_south</iconPath>
 	<forcedHeadTypes>
 	  <li>WVC_NodeSkin_Violet</li>
 	</forcedHeadTypes>
 	<customEffectDescriptions>
-		<!-- <li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; ???</li> -->
 	</customEffectDescriptions>
 	<graphicData>
 	  <graphicPath>WVC/NodeGene_Head/HeadViolet</graphicPath>
@@ -268,14 +181,13 @@ Most of the internal organs were not affected, but there are too many external c
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Base">
 	<defName>WVC_NodeSkin_Yellow</defName>
-	<label>yellow</label>
+	<label>nodeskin WR</label>
 	<biostatMet>6</biostatMet>
 	<iconPath>WVC/UI/Genes/HeadYellow_south</iconPath>
 	<forcedHeadTypes>
 	  <li>WVC_NodeSkin_Yellow</li>
 	</forcedHeadTypes>
 	<customEffectDescriptions>
-		<li>&lt;color=#fff885&gt;Psylink&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<graphicData>
 	  <graphicPath>WVC/NodeGene_Head/HeadYellow</graphicPath>
@@ -301,25 +213,6 @@ Most of the internal organs were not affected, but there are too many external c
 		<degree>2</degree>
 	  </li>
 	</suppressedTraits>
-	<!-- <modExtensions Inherit="False"> -->
-		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
-			<!-- <furHidesBody>True</furHidesBody> -->
-			<!-- <useSkinColorForFur>True</useSkinColorForFur> -->
-			<!-- <customWoundsFromFleshtype>Mechanoid</customWoundsFromFleshtype> -->
-			<!-- <customBloodEffect>Damage_HitMechanoid</customBloodEffect> -->
-			<!-- <hediffsToBodyParts> -->
-				<!-- <li MayRequireAnyOf="ludeon.rimworld.royalty"> -->
-					<!-- <hediff>PsychicAmplifier</hediff> -->
-					<!-- <bodyparts> -->
-						<!-- <li>Brain</li> -->
-					<!-- </bodyparts> -->
-				<!-- </li> -->
-			<!-- </hediffsToBodyParts> -->
-		<!-- </li> -->
-		<!-- <li Class="WVC.GeneExtension"> -->
-			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
   </GeneDef>
 
 </Defs>

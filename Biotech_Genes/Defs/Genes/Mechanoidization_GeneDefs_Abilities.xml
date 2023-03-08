@@ -292,6 +292,9 @@
 	<category>WVC_Mechalike</category>
 	<displayOrder>500</displayOrder>
 	<hostile>false</hostile>
+	<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+	<showWhenDrafted>false</showWhenDrafted>
 	<verbProperties>
 	  <verbClass>Verb_CastAbilityTouch</verbClass>
 	  <drawAimPie>false</drawAimPie>

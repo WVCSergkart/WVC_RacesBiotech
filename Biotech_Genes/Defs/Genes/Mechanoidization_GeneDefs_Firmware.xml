@@ -11,11 +11,12 @@
 	<iconPath>WVC/UI/Genes/MechanoidizationFirmware</iconPath>
 	<displayOrderInCategory>6</displayOrderInCategory>
 	<prerequisite>WVC_MechaAI_Base</prerequisite>
+	<selectionWeight>0.2</selectionWeight>
 	<marketValueFactor>2</marketValueFactor>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>5</biostatArc>
 	<biostatMet>6</biostatMet>
-	<!-- <randomChosen>true</randomChosen> -->
+	<randomChosen>true</randomChosen>
 	<!-- <passionMod>AddOneLevel</passionMod> -->
 	<customEffectDescriptions>
 		<li MayRequire="imranfish.xmlextensions">Expectations are always "sky-high" and cannot be higher or lower.</li>
@@ -30,37 +31,37 @@
 	  <!-- <SocialImpact>0.1</SocialImpact> -->
 	</statFactors>
 	<exclusionTags>
-	  <li>VRE_Curiosity</li>
-	  <li>Curiosity</li>
+	  <!-- <li>VRE_Curiosity</li> -->
+	  <!-- <li>Curiosity</li> -->
 	  <!-- = -->
-	  <li>Aggressive</li>
-	  <li>KillThirst</li>
-	  <li>Mood</li>
+	  <!-- <li>Aggressive</li> -->
+	  <!-- <li>KillThirst</li> -->
+	  <!-- <li>Mood</li> -->
 	  <!-- = -->
-	  <li>AptitudeIntellectual</li>
-	  <li>Aptitude_Intellectual</li>
-	  <li>AptitudeSocial</li>
-	  <li>Aptitude_Social</li>
-	  <li>AptitudeArtistic</li>
-	  <li>Aptitude_Artistic</li>
-	  <li>AptitudeMedicine</li>
-	  <li>Aptitude_Medicine</li>
-	  <li>AptitudeAnimals</li>
-	  <li>Aptitude_Animals</li>
-	  <li>AptitudeShooting</li>
-	  <li>Aptitude_Shooting</li>
-	  <li>AptitudeConstruction</li>
-	  <li>Aptitude_Construction</li>
-	  <li>AptitudeMining</li>
-	  <li>Aptitude_Mining</li>
-	  <li>AptitudeCooking</li>
-	  <li>Aptitude_Cooking</li>
-	  <li>AptitudePlants</li>
-	  <li>Aptitude_Plants</li>
-	  <li>AptitudeMelee</li>
-	  <li>Aptitude_Melee</li>
-	  <li>AptitudeCrafting</li>
-	  <li>Aptitude_Crafting</li>
+	  <!-- <li>AptitudeIntellectual</li> -->
+	  <!-- <li>Aptitude_Intellectual</li> -->
+	  <!-- <li>AptitudeSocial</li> -->
+	  <!-- <li>Aptitude_Social</li> -->
+	  <!-- <li>AptitudeArtistic</li> -->
+	  <!-- <li>Aptitude_Artistic</li> -->
+	  <!-- <li>AptitudeMedicine</li> -->
+	  <!-- <li>Aptitude_Medicine</li> -->
+	  <!-- <li>AptitudeAnimals</li> -->
+	  <!-- <li>Aptitude_Animals</li> -->
+	  <!-- <li>AptitudeShooting</li> -->
+	  <!-- <li>Aptitude_Shooting</li> -->
+	  <!-- <li>AptitudeConstruction</li> -->
+	  <!-- <li>Aptitude_Construction</li> -->
+	  <!-- <li>AptitudeMining</li> -->
+	  <!-- <li>Aptitude_Mining</li> -->
+	  <!-- <li>AptitudeCooking</li> -->
+	  <!-- <li>Aptitude_Cooking</li> -->
+	  <!-- <li>AptitudePlants</li> -->
+	  <!-- <li>Aptitude_Plants</li> -->
+	  <!-- <li>AptitudeMelee</li> -->
+	  <!-- <li>Aptitude_Melee</li> -->
+	  <!-- <li>AptitudeCrafting</li> -->
+	  <!-- <li>Aptitude_Crafting</li> -->
 	  <!-- = -->
 	  <li>WVC_MechaAI_Firmware</li>
 	</exclusionTags>
@@ -114,12 +115,12 @@
 		<skill>Intellectual</skill>
 		<modType>AddOneLevel</modType>
 	</passionMod>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<noSkillLoss>Intellectual</noSkillLoss>
-			<skillRecreation>Intellectual</skillRecreation>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Intellectual</noSkillLoss> -->
+			<!-- <skillRecreation>Intellectual</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_FirmwareBase">
@@ -162,12 +163,12 @@
 		<skill>Shooting</skill>
 		<modType>AddOneLevel</modType>
 	</passionMod>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<noSkillLoss>Shooting</noSkillLoss>
-			<skillRecreation>Shooting</skillRecreation>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Shooting</noSkillLoss> -->
+			<!-- <skillRecreation>Shooting</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_FirmwareBase">
@@ -210,12 +211,12 @@
 		<skill>Plants</skill>
 		<modType>AddOneLevel</modType>
 	</passionMod>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<noSkillLoss>Plants</noSkillLoss>
-			<skillRecreation>Plants</skillRecreation>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Plants</noSkillLoss> -->
+			<!-- <skillRecreation>Plants</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_FirmwareBase">
@@ -258,12 +259,12 @@
 		<skill>Melee</skill>
 		<modType>AddOneLevel</modType>
 	</passionMod>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<noSkillLoss>Melee</noSkillLoss>
-			<skillRecreation>Melee</skillRecreation>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Melee</noSkillLoss> -->
+			<!-- <skillRecreation>Melee</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_FirmwareBase">
@@ -306,12 +307,12 @@
 		<skill>Social</skill>
 		<modType>AddOneLevel</modType>
 	</passionMod>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<noSkillLoss>Social</noSkillLoss>
-			<skillRecreation>Social</skillRecreation>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Social</noSkillLoss> -->
+			<!-- <skillRecreation>Social</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
 </Defs>

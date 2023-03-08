@@ -38,7 +38,7 @@
 	<capMods>
 	  <li>
 		<capacity>Manipulation</capacity>
-		<offset>0.2</offset>
+		<offset>0.1</offset>
 	  </li>
 	</capMods>
 	<exclusionTags>
@@ -54,7 +54,7 @@
 	<capMods>
 	  <li>
 		<capacity>Moving</capacity>
-		<offset>0.2</offset>
+		<offset>0.1</offset>
 	  </li>
 	</capMods>
 	<exclusionTags>

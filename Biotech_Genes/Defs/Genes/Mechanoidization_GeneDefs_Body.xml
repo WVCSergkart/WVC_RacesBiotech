@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_MechanoidBody_Base" Abstract="True">
+	<!-- <displayCategory>WVC_NodeBody</displayCategory> -->
+	<description>Carriers of this gene have archites that completely transform their body. 
+
+The body is covered with plates, and the skin becomes hard and resembles plasteel to the touch. The glands are replaced by small colonies of mechanites that serve the body. Mechanites draw energy directly from the host's body, greatly reducing metabolism. The hairline completely disappears, remaining only on the head or face. Muscle tissues are strengthened and become more resilient. 
+
+Most of the internal organs remain intact, but there are enough external changes to indicate that the host is more like a mechanoid than a human.</description>
+	<displayCategory>WVC_MechaBody</displayCategory>
+	<selectionWeight>0.2</selectionWeight>
+	<marketValueFactor>1.5</marketValueFactor>
+	<randomChosen>false</randomChosen>
+	<canGenerateInGeneSet>true</canGenerateInGeneSet>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<!-- = -->
+	<iconPath>WVC/UI/Genes/MechaIcon</iconPath>
+	<marketValueFactor>3</marketValueFactor>
+	<neverGrayHair>true</neverGrayHair>
+	<prerequisite>WVC_MechaAI_Base</prerequisite>
+	<missingGeneRomanceChanceFactor>0.2</missingGeneRomanceChanceFactor>
+	<minAgeActive>13</minAgeActive>
+	<customEffectDescriptions>
+		<li>&lt;color=#ff8585&gt;Mechanoidization:&lt;/color&gt; Disables negative emotions about mechanoidization.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <!-- <li>HairStyle</li> -->
+	  <li>Skin</li>
+	  <li>Fur</li>
+	  <!-- <li>BeardStyle</li> -->
+	  <li>WVC_NodeBody</li>
+	</exclusionTags>
+	<statOffsets>
+	  <ComfyTemperatureMax>14</ComfyTemperatureMax>
+	  <ComfyTemperatureMin>-46</ComfyTemperatureMin>
+	</statOffsets>
+	<makeImmuneTo>
+	  <li>MuscleParasites</li>
+	</makeImmuneTo>
+	<!-- = -->
+	<modExtensions Inherit="False">
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<furHidesBody>True</furHidesBody>
+			<useSkinColorForFur>True</useSkinColorForFur>
+			<customWoundsFromFleshtype>Mechanoid</customWoundsFromFleshtype>
+			<customBloodEffect>Damage_HitMechanoid</customBloodEffect>
+		</li>
+		<li Class="WVC.GeneExtension">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_MechaBody</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- Meca -->
+
+  <GeneDef ParentName="WVC_MechanoidBody_Base">
+	<defName>WVC_MechaSkin</defName>
+	<label>mechaskin</label>
+	<labelShortAdj>mechaskinned</labelShortAdj>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>7</biostatArc>
+	<biostatMet>-16</biostatMet>
+	<displayOrderInCategory>-100</displayOrderInCategory>
+	<iconColor>(184, 198, 203)</iconColor>
+	<forcedHeadTypes>
+	  <li>WVC_Female_AveragePointy</li>
+	  <li>WVC_Female_AverageNormal</li>
+	  <li>WVC_Male_AveragePointy</li>
+	  <li>WVC_Male_AverageNormal</li>
+	  <li>WVC_Gaunt</li>
+	</forcedHeadTypes>
+	<statFactors>
+	</statFactors>
+	<statOffsets>
+	  <MoveSpeed>0.3</MoveSpeed>
+	  <ArmorRating_Blunt>0.15</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.15</ArmorRating_Sharp>
+	  <ArmorRating_Heat>0.25</ArmorRating_Heat>
+	</statOffsets>
+	<damageFactors>
+	</damageFactors>
+	<graphicData>
+	  <fur>WVC_MechaSkin</fur>
+	  <tattoosVisible>true</tattoosVisible>
+	  <layer>PostSkin</layer>
+	</graphicData>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>mechanoid</symbol></li>
+		<li><symbol>mechakind</symbol></li>
+		<li><symbol>mecakind</symbol></li>
+	  </wholeNameSymbols>
+	  <prefixSymbols>
+		<li><symbol>me</symbol></li>
+		<li><symbol>meca</symbol></li>
+		<li><symbol>mec</symbol></li>
+		<li><symbol>mech</symbol></li>
+		<li><symbol>mechan</symbol></li>
+		<li><symbol>mach</symbol></li>
+		<li><symbol>machi</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>ine</symbol></li>
+		<li><symbol>ne</symbol></li>
+		<li><symbol>noid</symbol></li>
+		<li><symbol>oid</symbol></li>
+		<li><symbol>id</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- ================================================================== -->
+
+</Defs>

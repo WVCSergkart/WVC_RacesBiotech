@@ -63,6 +63,7 @@
 	<iconPath>WVC/UI/Xeno2Icons/Xeno12</iconPath>
 	<inheritable>false</inheritable>
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>
+	<displayPriority>-1100</displayPriority>
 	<combatPowerFactor>5</combatPowerFactor>
 	<factionlessGenerationWeight>2</factionlessGenerationWeight>
 	<doubleXenotypeChances>
@@ -129,6 +130,7 @@
 		<!-- <li>AptitudeRemarkable_Medicine</li> -->
 		<!-- <li>WVC_Aptitudes_0_Skill_Social</li> -->
 		<!-- <li>AptitudeRemarkable_Intellectual</li> -->
+		<li>WVC_Aptitudes_GreatEqualizer</li>
 		<!-- Firmware -->
 		<li>WVC_MechaAI_FirmwareCreatorMachine</li>
 	</genes>
