@@ -68,10 +68,18 @@
 		<li>WVC_Nodization_VindicationBuff_E</li>
 		<!-- =Buffs= -->
 		<li>WVC_Mecha_ConnectorTail</li>
-		<li>WVC_Mecha_EarsCat</li>
-		<li>WVC_Mecha_QuadEarsCat</li>
+		<!-- <li>WVC_Mecha_EarsCat</li> -->
+		<!-- <li>WVC_Mecha_QuadEarsCat</li> -->
 		<!-- <li>WVC_VoiceMechaMilitor</li> -->
 		<li>WVC_VoiceMechaTesseron</li>
+		<!-- = -->
+		<li>WVC_Mecha_RedFormerEarsDouble</li>
+		<li>WVC_Mecha_RedFormerEarsQuad</li>
+		<li>WVC_Mecha_RedFormerSpikesDouble</li>
+		<li>WVC_Mecha_RedFormerSpikesQuad</li>
+		<li>WVC_Mecha_YellowFormerAntennaDouble</li>
+		<li>WVC_Mecha_YellowFormerAntennaQuad</li>
+		<li>WVC_Mecha_NoEars</li>
 		<!-- = -->
 		<!-- <li>WVC_StartGestation</li> -->
 		<li>WVC_EndogermReimplanter</li>
