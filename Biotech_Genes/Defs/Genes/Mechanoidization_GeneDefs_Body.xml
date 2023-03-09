@@ -41,6 +41,8 @@ Most of the internal organs remain intact, but there are enough external changes
 	<makeImmuneTo>
 	  <li>MuscleParasites</li>
 	</makeImmuneTo>
+	<damageFactors>
+	</damageFactors>
 	<!-- = -->
 	<modExtensions Inherit="False">
 		<li Class="VanillaGenesExpanded.GeneExtension">
@@ -79,8 +81,6 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <ArmorRating_Sharp>0.15</ArmorRating_Sharp>
 	  <ArmorRating_Heat>0.25</ArmorRating_Heat>
 	</statOffsets>
-	<damageFactors>
-	</damageFactors>
 	<graphicData>
 	  <fur>WVC_MechaSkin</fur>
 	  <tattoosVisible>true</tattoosVisible>

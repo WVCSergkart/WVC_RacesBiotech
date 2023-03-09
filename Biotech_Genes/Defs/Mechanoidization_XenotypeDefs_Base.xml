@@ -130,6 +130,7 @@
 		<!-- <li>AptitudeRemarkable_Medicine</li> -->
 		<!-- <li>WVC_Aptitudes_0_Skill_Social</li> -->
 		<!-- <li>AptitudeRemarkable_Intellectual</li> -->
+		<li>WVC_EmotionReset</li>
 		<li>WVC_Aptitudes_GreatEqualizer</li>
 		<!-- Firmware -->
 		<li>WVC_MechaAI_FirmwareCreatorMachine</li>

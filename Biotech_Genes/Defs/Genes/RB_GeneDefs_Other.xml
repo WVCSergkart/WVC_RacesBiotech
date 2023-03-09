@@ -95,6 +95,29 @@
 	</modExtensions>
   </GeneDef>
 
+  <GeneDef>
+	<defName>WVC_EmotionReset</defName>
+	<label>emotional</label>
+	<description>Removes the effects of genes that affect mood.</description>
+	<iconPath>WVC/UI/Genes/EmotionReset</iconPath>
+	<displayCategory>Mood</displayCategory>
+	<displayOrderInCategory>15</displayOrderInCategory>
+	<biostatCpx>0</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions Inherit="False">
+		<li>Removes the effects of genes that affect mood.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>Mood</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
   <!-- Hunter -->
 
   <GeneDef Name="WVC_NaturalHunterBase" Abstract="True">
