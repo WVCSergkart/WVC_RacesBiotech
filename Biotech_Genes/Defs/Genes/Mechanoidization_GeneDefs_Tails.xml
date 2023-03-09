@@ -40,34 +40,50 @@
 	</comps>
   </HediffDef>
 
-  <GeneDef ParentName="GeneTailBase">
+  <!-- Node tail -->
+
+  <GeneDef ParentName="GeneTailBase" Name="WVC_NodeTail_Base" Abstract="True">
+	<label>connector tail</label>
+	<description>Carriers of this gene grow a sleek long tail with several connectors at the end.</description>
+	<iconPath>WVC/MecaGene_ScytheTail/NodeTail_east</iconPath>
+	<iconColor>(0.85, 0.85, 0.85)</iconColor>
+	<displayCategory>WVC_MechaBodyParts</displayCategory>
+	<displayOrderInCategory>1100</displayOrderInCategory>
+	<prerequisite>WVC_MechaAI_Base</prerequisite>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<minAgeActive>13</minAgeActive>
+	<graphicData>
+	  <graphicPath>WVC/MecaGene_ScytheTail/NodeTail</graphicPath>
+	  <colorType>Skin</colorType>
+	  <drawOffsetNorth>(0, 0.2, -0.15)</drawOffsetNorth>
+	  <drawOffsetSouth>(0, -0.1, -0.15)</drawOffsetSouth>
+	  <drawOffsetEast>(-0.5, -0.1, -0.15)</drawOffsetEast>
+	</graphicData>
+	<modExtensions>
+		<li Class="WVC.GeneExtension">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ======================== -->
+
+  <GeneDef ParentName="WVC_NodeTail_Base">
 	<defName>WVC_Mecha_ScytheTail</defName>
 	<label>scythe tail</label>
 	<description>Carriers of this gene grow a sleek long tail with several blades at the end.</description>
 	<iconPath>WVC/MecaGene_ScytheTail/SmoothTail_east</iconPath>
-	<iconColor>(0.85, 0.85, 0.85)</iconColor>
-	<displayCategory>WVC_MechaBodyParts</displayCategory>
-	<displayOrderInCategory>21</displayOrderInCategory>
-	<!-- <displayOrderInCategory>250</displayOrderInCategory> -->
-	<prerequisite>WVC_MechaAI_Base</prerequisite>
-	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>2</biostatArc>
 	<biostatMet>-1</biostatMet>
-	<minAgeActive>13</minAgeActive>
 	<customEffectDescriptions>
 		<li>Adds a deadly tail attack.</li>
 	</customEffectDescriptions>
-	<statOffsets>
-	  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
-	  <!-- <MeleeDamageFactor>0.15</MeleeDamageFactor> -->
-	</statOffsets>
 	<graphicData>
 	  <graphicPath>WVC/MecaGene_ScytheTail/SmoothTail</graphicPath>
 	  <colorType>Hair</colorType>
-	  <drawOffsetNorth>(0, 0.2, -0.15)</drawOffsetNorth>
-	  <drawOffsetSouth>(0, -0.1, -0.15)</drawOffsetSouth>
-	  <drawOffsetEast>(-0.5, -0.1, -0.15)</drawOffsetEast>
 	</graphicData>
 	<symbolPack>
 	  <prefixSymbols>
@@ -82,10 +98,6 @@
 	</symbolPack>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
-			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes> -->
-			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes> -->
-			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathEndogenes> -->
-			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathXenogenes> -->
 			<hediffsToBodyParts>
 				<li>
 					<hediff>WVC_RB_Mecha_ScytheTail</hediff>
@@ -102,54 +114,8 @@
 			 </east>
 			</offsets>
 		</li>
-		<li Class="WVC.GeneExtension">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathArchite>
-		</li>
 	</modExtensions>
   </GeneDef>
-
-  <!-- Node tail -->
-
-  <GeneDef ParentName="GeneTailBase" Name="WVC_NodeTail_Base" Abstract="True">
-	<label>connector tail</label>
-	<description>Carriers of this gene grow a sleek long tail with several connectors at the end.</description>
-	<iconPath>WVC/MecaGene_ScytheTail/NodeTail_east</iconPath>
-	<iconColor>(0.85, 0.85, 0.85)</iconColor>
-	<displayCategory>WVC_MechaBodyParts</displayCategory>
-	<displayOrderInCategory>21</displayOrderInCategory>
-	<!-- <displayOrderInCategory>250</displayOrderInCategory> -->
-	<prerequisite>WVC_MechaAI_Base</prerequisite>
-	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
-	<biostatCpx>1</biostatCpx>
-	<biostatArc>1</biostatArc>
-	<biostatMet>0</biostatMet>
-	<minAgeActive>13</minAgeActive>
-	<graphicData>
-	  <graphicPath>WVC/MecaGene_ScytheTail/NodeTail</graphicPath>
-	  <colorType>Skin</colorType>
-	  <drawOffsetNorth>(0, 0.2, -0.15)</drawOffsetNorth>
-	  <drawOffsetSouth>(0, -0.1, -0.15)</drawOffsetSouth>
-	  <drawOffsetEast>(-0.5, -0.1, -0.15)</drawOffsetEast>
-	</graphicData>
-	<symbolPack>
-	  <prefixSymbols>
-		<li><symbol>conn</symbol></li>
-		<li><symbol>conne</symbol></li>
-		<li><symbol>con</symbol></li>
-	  </prefixSymbols>
-	  <suffixSymbols>
-		<li><symbol>ect</symbol></li>
-		<li><symbol>ector</symbol></li>
-	  </suffixSymbols>
-	</symbolPack>
-	<modExtensions>
-		<li Class="WVC.GeneExtension">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathArchite>
-		</li>
-	</modExtensions>
-  </GeneDef>
-
-  <!-- ======================== -->
 
   <GeneDef ParentName="WVC_NodeTail_Base">
 	<defName>WVC_Mecha_ConnectorTail</defName>
@@ -162,6 +128,17 @@
 	<graphicData>
 	  <graphicPath>WVC/MecaGene_ScytheTail/NodeTail</graphicPath>
 	</graphicData>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>conn</symbol></li>
+		<li><symbol>conne</symbol></li>
+		<li><symbol>con</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>ect</symbol></li>
+		<li><symbol>ector</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<offsets>
@@ -186,6 +163,15 @@
 	<graphicData>
 	  <graphicPath>WVC/MecaGene_ScytheTail/AntennaTail</graphicPath>
 	</graphicData>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>antenna</symbol></li>
+		<li><symbol>anten</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>ten</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<offsets>
@@ -198,6 +184,20 @@
 			</offsets>
 		</li>
 	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_NodeTail_Base">
+	<defName>WVC_Mecha_NoTail</defName>
+	<label>protective plate</label>
+	<description>Carriers of this gene have additional protection.</description>
+	<iconPath>WVC/MecaGene_ScytheTail/NoTail</iconPath>
+	<customEffectDescriptions>
+		<li>Disable tail.</li>
+	</customEffectDescriptions>
+	<graphicData Inherit="False"/>
+	<statOffsets>
+	  <ArmorRating_Blunt>0.05</ArmorRating_Blunt>
+	</statOffsets>
   </GeneDef>
 
 </Defs>

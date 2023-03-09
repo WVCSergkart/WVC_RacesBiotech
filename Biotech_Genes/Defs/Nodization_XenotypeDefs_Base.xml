@@ -5,8 +5,8 @@
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Base">
 	<defName>WVC_RogueFormer</defName>
 	<label>rogkind</label>
-	<!-- <description>Meca are a type of archotech-enhanced xenohuman. Powered by archites, their abilities go far beyond normal genetic enhancements. They have natural mechanitor abilities and significant bonuses to intelligence and crafting. They do not age and are very hard to kill, and they also have good defense. Meca can make new meca with the gestator ability.\n\nMeca are poor fighters and are practically untrainable as diplomats or farmers. Any new skills are given to them with great difficulty. They don't need sleep, but they need a lot of food.\n\nThe exact origin of meca is not known, at some point years ago they began to appear in some glitter worlds. Up to a certain age, meca are no different from baseliners in appearance, except for snow-white skin and hair. However, in worlds with a dense abundance of xenotypes, no one will pay attention to such a trifle until the age of their complete mechanoidization. Despite their mechanoid appearance, they have no direct connection to these machines, although they have limited control over them.\n\nMost meca have a direct genetic link to blanks, which are something of a human pet and ideal specimens for experimentation. Representatives called blank are very often placed in an environment close to baseliner where they live most of their lives, in order to subsequently become victims of various experiments.</description> -->
-	<!-- <descriptionShort>Meca are ageless, deathless mecha-humans powered by archotech-created archites in the bloodstream. They are beautiful and extremely intelligent. They do not suffer from disease or poison. In combat, they can use their deadly scythe tail. The price is that they are very poorly trained and practically cannot master new skills.</descriptionShort> -->
+	<description>Rogkinds are a type of archotech-enhanced xenohuman. Powered by archites, their abilities go far beyond normal genetic enhancements. They carry a huge number of interchangeable genes, which makes their genome unstable and unpredictable. Their strengths and weaknesses always differ from pawn to pawn. But a few things are the same for them. Rogkinds genetically hate those who are different from them and they can spread "their essence".\n\nTheir origin is not known for certain, but all representatives of this xenotype are sterile. Rogkinds reproduce by reimplanting their own genes into other xenotypes, transforming them into their own kind.</description>
+	<descriptionShort>Rogkinds are ageless, deathless mecha-humans powered by archotech-created archites in the bloodstream. They are ugly and moderately strong. They do not suffer from disease or poison. Their abilities are always random and it is impossible to predict how effective they are in combat. They can easily implant their genes, transforming anyone into their own kind. The price of all this is their vulnerability to the sun, poor learning ability and not always a good combination of strengths and weaknesses.</descriptionShort>
 	<iconPath>WVC/UI/Mecha_Icons/Roguekind1</iconPath>
 	<inheritable>true</inheritable>
 	<canGenerateAsCombatant>true</canGenerateAsCombatant>
@@ -68,6 +68,7 @@
 		<li>WVC_Nodization_VindicationBuff_E</li>
 		<!-- =Buffs= -->
 		<li>WVC_Mecha_ConnectorTail</li>
+		<li>WVC_Mecha_NoTail</li>
 		<!-- <li>WVC_Mecha_EarsCat</li> -->
 		<!-- <li>WVC_Mecha_QuadEarsCat</li> -->
 		<!-- <li>WVC_VoiceMechaMilitor</li> -->
