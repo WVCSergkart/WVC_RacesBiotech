@@ -97,8 +97,8 @@
 
   <GeneDef>
 	<defName>WVC_EmotionReset</defName>
-	<label>emotional</label>
-	<description>Removes the effects of genes that affect mood.</description>
+	<label>stable mood</label>
+	<description>Carriers of this gene have the usual mood.</description>
 	<iconPath>WVC/UI/Genes/EmotionReset</iconPath>
 	<displayCategory>Mood</displayCategory>
 	<displayOrderInCategory>15</displayOrderInCategory>
