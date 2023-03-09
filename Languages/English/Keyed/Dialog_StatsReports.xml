@@ -6,12 +6,14 @@
   <!-- <StatsReport_InSunlight>in sunlight</StatsReport_InSunlight> -->
   <!-- <StatsReport_Clothed>clothed</StatsReport_Clothed> -->
   <!-- <WVC_StatsReport_Drafted>drafted</WVC_StatsReport_Drafted> -->
-  <WVC_StatsReport_Mechalike>mechalike</WVC_StatsReport_Mechalike>
-  <WVC_StatsReport_Humanlike>humanlike</WVC_StatsReport_Humanlike>
-  <WVC_StatsReport_Furskinned>furskin</WVC_StatsReport_Furskinned>
-  <WVC_StatsReport_NonFurskinned>non-furskin</WVC_StatsReport_NonFurskinned>
-  <WVC_StatsReport_OperatingSystem>operating system</WVC_StatsReport_OperatingSystem>
-  <WVC_StatsReport_NonOperatingSystem>non-operating system</WVC_StatsReport_NonOperatingSystem>
+  <!-- <WVC_StatsReport_Mechalike>mechalike</WVC_StatsReport_Mechalike> -->
+  <!-- <WVC_StatsReport_Humanlike>humanlike</WVC_StatsReport_Humanlike> -->
+  <WVC_StatsReport_Mechalike>mechaskinned</WVC_StatsReport_Mechalike>
+  <WVC_StatsReport_Humanlike>non-mechaskinned</WVC_StatsReport_Humanlike>
+  <!-- <WVC_StatsReport_Furskinned>furskin</WVC_StatsReport_Furskinned> -->
+  <!-- <WVC_StatsReport_NonFurskinned>non-furskin</WVC_StatsReport_NonFurskinned> -->
+  <!-- <WVC_StatsReport_OperatingSystem>operating system</WVC_StatsReport_OperatingSystem> -->
+  <!-- <WVC_StatsReport_NonOperatingSystem>non-operating system</WVC_StatsReport_NonOperatingSystem> -->
   <WVC_StatsReport_NonGenes>non-</WVC_StatsReport_NonGenes>
   <WVC_StatsReport_MechanitorUsedBandwidth>used bandwidth</WVC_StatsReport_MechanitorUsedBandwidth>
   <WVC_StatsReport_MechanitorTotalBandwidth>total bandwidth</WVC_StatsReport_MechanitorTotalBandwidth>

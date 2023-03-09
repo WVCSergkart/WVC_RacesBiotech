@@ -3,6 +3,8 @@
 
   <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_MechanoidBody_Base" Abstract="True">
 	<!-- <displayCategory>WVC_NodeBody</displayCategory> -->
+	<label>mechaskin</label>
+	<labelShortAdj>mechaskinned</labelShortAdj>
 	<description>Carriers of this gene have archites that completely transform their body. 
 
 The body is covered with plates, and the skin becomes hard and resembles plasteel to the touch. The glands are replaced by small colonies of mechanites that serve the body. Mechanites draw energy directly from the host's body, greatly reducing metabolism. The hairline completely disappears, remaining only on the head or face. Muscle tissues are strengthened and become more resilient. 
@@ -57,8 +59,6 @@ Most of the internal organs remain intact, but there are enough external changes
 
   <GeneDef ParentName="WVC_MechanoidBody_Base">
 	<defName>WVC_MechaSkin</defName>
-	<label>mechaskin</label>
-	<labelShortAdj>mechaskinned</labelShortAdj>
 	<biostatCpx>3</biostatCpx>
 	<biostatArc>7</biostatArc>
 	<biostatMet>-16</biostatMet>
