@@ -12,7 +12,6 @@
 	<initialResistanceRange>10~80</initialResistanceRange>
 	<initialWillRange>5~15</initialWillRange>
 	<maxGenerationAge>23</maxGenerationAge>
-	<forcedHair>Scrapper</forcedHair>
 	<backstoryFiltersOverride>
 	  <li>
 		<categories>
@@ -49,6 +48,7 @@
 	<apparelColor>(58,58,58)</apparelColor>
 	<defaultFactionType>PlayerColony</defaultFactionType>
 	<apparelMoney>80~120</apparelMoney>
+	<forcedHair>Scrapper</forcedHair>
 	<xenotypeSet>
 	  <xenotypeChances>
 		<WVC_Meca>999</WVC_Meca>
@@ -70,6 +70,24 @@
 	<xenotypeSet>
 	  <xenotypeChances>
 		<WVC_Blank>999</WVC_Blank>
+	  </xenotypeChances>
+	</xenotypeSet>
+	<apparelTags>
+	  <li>IndustrialBasic</li>
+	</apparelTags>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="WVC_RB_XenoBase">
+	<label>former</label>
+	<defName>WVC_RogueFormer_Player</defName>
+	<weaponMoney>0</weaponMoney>
+	<apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+	<apparelColor>(58,58,58)</apparelColor>
+	<defaultFactionType>PlayerColony</defaultFactionType>
+	<apparelMoney>80~120</apparelMoney>
+	<xenotypeSet>
+	  <xenotypeChances>
+		<WVC_RogueFormer>999</WVC_RogueFormer>
 	  </xenotypeChances>
 	</xenotypeSet>
 	<apparelTags>
