@@ -16,6 +16,7 @@
 	<biostatArc>2</biostatArc>
 	<marketValueFactor>3</marketValueFactor>
 	<selectionWeight>0.3</selectionWeight>
+	<randomChosen>true</randomChosen>
 	<customEffectDescriptions>
 		<li>Compensates for the effect of mechaskin on metabolism.</li>
 	</customEffectDescriptions>

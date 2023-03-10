@@ -84,7 +84,7 @@ Most of the internal organs were not affected, but there are too many external c
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Base">
 	<defName>WVC_NodeSkin_Blue</defName>
-	<label>mechaskin SX</label>
+	<label>nodeskin SX</label>
 	<biostatMet>7</biostatMet>
 	<iconPath>WVC/UI/Genes/HeadBlue_south</iconPath>
 	<forcedHeadTypes>
@@ -109,7 +109,7 @@ Most of the internal organs were not affected, but there are too many external c
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Base">
 	<defName>WVC_NodeSkin_Red</defName>
-	<label>mechaskin HJ</label>
+	<label>nodeskin HJ</label>
 	<biostatMet>5</biostatMet>
 	<iconPath>WVC/UI/Genes/HeadRed_south</iconPath>
 	<forcedHeadTypes>
@@ -139,7 +139,7 @@ Most of the internal organs were not affected, but there are too many external c
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Base">
 	<defName>WVC_NodeSkin_Green</defName>
-	<label>mechaskin GB</label>
+	<label>nodeskin GB</label>
 	<biostatMet>10</biostatMet>
 	<iconPath>WVC/UI/Genes/HeadGreen_south</iconPath>
 	<forcedHeadTypes>
@@ -158,7 +158,7 @@ Most of the internal organs were not affected, but there are too many external c
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Base">
 	<defName>WVC_NodeSkin_Violet</defName>
-	<label>mechaskin CV</label>
+	<label>nodeskin CV</label>
 	<biostatMet>8</biostatMet>
 	<iconPath>WVC/UI/Genes/HeadViolet_south</iconPath>
 	<forcedHeadTypes>
@@ -181,7 +181,7 @@ Most of the internal organs were not affected, but there are too many external c
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Base">
 	<defName>WVC_NodeSkin_Yellow</defName>
-	<label>mechaskin WR</label>
+	<label>nodeskin WR</label>
 	<biostatMet>6</biostatMet>
 	<iconPath>WVC/UI/Genes/HeadYellow_south</iconPath>
 	<forcedHeadTypes>

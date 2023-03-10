@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Meca -->
+
+	<HediffDef>
+		<defName>WVC_MechaGestator</defName>
+		<label>gestator</label>
+		<description>Archites slowly form semi-organic life.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<scenarioCanAdd>false</scenarioCanAdd>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="AnimalBehaviours.HediffCompProperties_AsexualReproduction">
+				<reproductionIntervalDays>120</reproductionIntervalDays>
+				<endogeneTransfer>true</endogeneTransfer>
+				<asexualHatchedMessage>WVC_RB_Gene_MechaGestator</asexualHatchedMessage>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef Name="WVC_Biotech_AbilityMechaGestator_Base" Abstract="True">
+		<label>gestation process</label>
+		<description>Archites slowly form semi-organic life.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<defaultLabelColor>(255,255,255)</defaultLabelColor>
+		<everCurableByItem>false</everCurableByItem>
+		<scenarioCanAdd>false</scenarioCanAdd>
+		<isBad>false</isBad>
+		<makesAlert>false</makesAlert>
+		<initialSeverity>1</initialSeverity>
+		<maxSeverity>1.0</maxSeverity>
+		<stages>
+		  <li>
+			<hungerRateFactorOffset>0.5</hungerRateFactorOffset>
+			<capMods>
+			  <li>
+				<capacity>Moving</capacity>
+				<offset>-0.5</offset>
+			  </li>
+			  <li>
+				<capacity>Manipulation</capacity>
+				<offset>-0.1</offset>
+			  </li>
+			</capMods>
+		  </li>
+		</stages>
+		<comps>
+			<li Class="HediffCompProperties_MessageAfterTicks">
+				<ticks>300000</ticks>
+				<letterLabel>{0_labelShort} finished the gestation process.</letterLabel>
+				<letterText>{0_labelShort} finished the gestation process!</letterText>
+				<letterType>HumanPregnancy</letterType>
+			</li>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>301500</disappearsAfterTicks>
+				<showRemainingTime>true</showRemainingTime>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef ParentName="WVC_Biotech_AbilityMechaGestator_Base">
+		<defName>WVC_RB_AbilityMechaGestator</defName>
+		<label>gestation process</label>
+		<description>Archites slowly form semi-organic life.</description>
+		<comps>
+			<li Class="AnimalBehaviours.HediffCompProperties_AsexualReproduction">
+				<reproductionIntervalDays>5</reproductionIntervalDays>
+				<endogeneTransfer>true</endogeneTransfer>
+				<asexualHatchedMessage>WVC_RB_Gene_MechaGestator</asexualHatchedMessage>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef ParentName="WVC_Biotech_AbilityMechaGestator_Base">
+		<defName>WVC_RB_AbilityUrchinGestator</defName>
+		<label>urchin gestation</label>
+		<description>The archites are slowly assembling the mechanoid.</description>
+		<comps>
+			<li Class="AnimalBehaviours.HediffCompProperties_AsexualReproduction">
+				<reproductionIntervalDays>5</reproductionIntervalDays>
+				<convertsIntoAnotherDef>true</convertsIntoAnotherDef>
+				<newDef>WVC_Genes_Mech_Urchin</newDef>
+			</li>
+		</comps>
+	</HediffDef>
+
+  <!-- Urchin -->
+
+  <HediffDef>
+	<defName>WVC_Genes_UrchinGestator</defName>
+	<label>mech-assembling</label>
+	<description>The archites are slowly assembling the mechanoid.</description>
+	<hediffClass>HediffWithComps</hediffClass>
+	<scenarioCanAdd>false</scenarioCanAdd>
+	<maxSeverity>1.0</maxSeverity>
+	<isBad>false</isBad>
+	<comps>
+		<li Class="AnimalBehaviours.HediffCompProperties_AsexualReproduction">
+			<reproductionIntervalDays>10</reproductionIntervalDays>
+			<convertsIntoAnotherDef>true</convertsIntoAnotherDef>
+			<newDef>WVC_Genes_Mech_Urchin</newDef>
+		</li>
+	</comps>
+  </HediffDef>
+
+</Defs>

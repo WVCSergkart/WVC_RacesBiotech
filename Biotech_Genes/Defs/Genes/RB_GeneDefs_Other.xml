@@ -101,7 +101,7 @@
 	<description>Carriers of this gene have the usual mood.</description>
 	<iconPath>WVC/UI/Genes/EmotionReset</iconPath>
 	<displayCategory>Mood</displayCategory>
-	<displayOrderInCategory>15</displayOrderInCategory>
+	<displayOrderInCategory>1245</displayOrderInCategory>
 	<biostatCpx>0</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions Inherit="False">
