@@ -6,7 +6,7 @@
 	<defName>WVC_RogueFormer</defName>
 	<label>rogkind</label>
 	<description>Rogkinds are a type of archotech-enhanced xenohuman. Powered by archites, their abilities go far beyond normal genetic enhancements. They carry a huge number of interchangeable genes, which makes their genome unstable and unpredictable. Their strengths and weaknesses always differ from pawn to pawn. But a few things are the same for them. Rogkinds genetically hate those who are different from them and they can spread "their essence".\n\nTheir origin is not known for certain, but all representatives of this xenotype are sterile. Rogkinds reproduce by reimplanting their own genes into other xenotypes, transforming them into their own kind.</description>
-	<descriptionShort>Rogkinds are ageless, deathless mecha-humans powered by archotech-created archites in the bloodstream. They are ugly and moderately strong. They do not suffer from disease or poison. Their abilities are always random and it is impossible to predict how effective they are in combat. They can easily implant their genes, transforming anyone into their own kind. The price of all this is their vulnerability to the sun, poor learning ability and not always a good combination of strengths and weaknesses.</descriptionShort>
+	<descriptionShort>Rogkinds are ageless, deathless mecha-humans powered by archotech-created archites in the bloodstream. They are ugly and moderately strong. They do not suffer from disease or poison. Their abilities are always random and it is impossible to predict how effective they are in combat. They can easily implant their genes, transforming anyone into their own kind. The price of all this is their vulnerability to the sun and a very bad relationship with everyone.</descriptionShort>
 	<iconPath>WVC/UI/Mecha_Icons/Roguekind1</iconPath>
 	<inheritable>true</inheritable>
 	<canGenerateAsCombatant>true</canGenerateAsCombatant>
@@ -128,10 +128,11 @@
 		<li>WVC_ClothedArmor</li>
 		<!-- = -->
 		<li>Neversleep</li>
-		<li>Aggression_DeadCalm</li>
+		<!-- <li>Aggression_DeadCalm</li> -->
 		<!-- = -->
 		<li>Body_Standard</li>
 		<li>Body_Thin</li>
+		<li>WVC_BodySize_Small</li>
 		<li>Beauty_Ugly</li>
 		<!-- = -->
 		<li>WVC_HairColor_DarkGray</li>

@@ -99,27 +99,27 @@ This parameter is affected only by genes.</description>
 	  <!-- 20% -->
 	  <li>
 		<label>mechanoid-like</label>
-		<baseOpinionOffset>-8</baseOpinionOffset>
+		<baseOpinionOffset>-7</baseOpinionOffset>
 	  </li>
 	  <!-- 30% -->
 	  <li>
 		<label>mechanoid-like</label>
-		<baseOpinionOffset>-16</baseOpinionOffset>
+		<baseOpinionOffset>-11</baseOpinionOffset>
 	  </li>
 	  <!-- 40% -->
 	  <li>
 		<label>mechanoid-like</label>
-		<baseOpinionOffset>-22</baseOpinionOffset>
+		<baseOpinionOffset>-15</baseOpinionOffset>
 	  </li>
 	  <!-- 50% -->
 	  <li>
 		<label>mechanoid-like</label>
-		<baseOpinionOffset>-30</baseOpinionOffset>
+		<baseOpinionOffset>-19</baseOpinionOffset>
 	  </li>
 	  <!-- 60% -->
 	  <li>
 		<label>mechanoid-like</label>
-		<baseOpinionOffset>-36</baseOpinionOffset>
+		<baseOpinionOffset>-27</baseOpinionOffset>
 	  </li>
 	  <!-- 70% -->
 	  <li>
@@ -129,12 +129,12 @@ This parameter is affected only by genes.</description>
 	  <!-- 80% -->
 	  <li>
 		<label>mechanoid-like</label>
-		<baseOpinionOffset>-50</baseOpinionOffset>
+		<baseOpinionOffset>-66</baseOpinionOffset>
 	  </li>
 	  <!-- 90% -->
 	  <li>
 		<label>mechanoid-like</label>
-		<baseOpinionOffset>-60</baseOpinionOffset>
+		<baseOpinionOffset>-100</baseOpinionOffset>
 	  </li>
 	</stages>
   </ThoughtDef>

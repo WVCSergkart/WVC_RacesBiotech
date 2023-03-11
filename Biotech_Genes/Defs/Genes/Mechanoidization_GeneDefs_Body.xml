@@ -25,7 +25,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<missingGeneRomanceChanceFactor>0.5</missingGeneRomanceChanceFactor>
 	<minAgeActive>13</minAgeActive>
 	<customEffectDescriptions>
-		<li>&lt;color=#ff8585&gt;Mechanoidization:&lt;/color&gt; Disables negative emotions about mechanoidization.</li>
+		<li>&lt;color=#ff8585&gt;Mechanoidization:&lt;/color&gt; Disables negative emotions about mechanoidization and significantly worsens the opinion of others.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <!-- <li>HairStyle</li> -->
@@ -61,7 +61,7 @@ Most of the internal organs remain intact, but there are enough external changes
 
   <GeneDef ParentName="WVC_MechanoidBody_Base">
 	<defName>WVC_MechaSkin</defName>
-	<biostatCpx>5</biostatCpx>
+	<biostatCpx>7</biostatCpx>
 	<biostatArc>7</biostatArc>
 	<biostatMet>-16</biostatMet>
 	<displayOrderInCategory>-100</displayOrderInCategory>
