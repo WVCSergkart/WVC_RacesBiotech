@@ -4,14 +4,25 @@
   <!-- Natural armor -->
 
   <GeneDef Name="WVC_NaturalArmorBase" Abstract="True">
+	<description>Carriers of this gene have strong skin.</description>
 	<displayCategory>Violence</displayCategory>
-	<biostatCpx>3</biostatCpx>
+	<biostatCpx>2</biostatCpx>
+	<displayOrderInCategory>1870</displayOrderInCategory>
+	<labelShortAdj>armor skin</labelShortAdj>
 	<exclusionTags>
 		<li>WVC_NaturalArmor</li>
 		<li>AG_Armour</li>
 		<li>Armour</li>
 		<li>Armor</li>
 	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>armor</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>skin</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
@@ -23,10 +34,8 @@
   <GeneDef ParentName="WVC_NaturalArmorBase">
 	<defName>WVC_ClothedArmor</defName>
 	<label>armor skin</label>
-	<labelShortAdj>armor skin</labelShortAdj>
 	<description>Carriers of this gene have very strong skin.</description>
 	<iconPath>WVC/UI/Genes/ClothedArmor</iconPath>
-	<displayOrderInCategory>70</displayOrderInCategory>
 	<conditionalStatAffecters>
 	  <li Class="WVC.ConditionalStatAffecter_Mechalike">
 		<statOffsets>
@@ -68,10 +77,8 @@
   <GeneDef ParentName="WVC_NaturalArmorBase">
 	<defName>WVC_UnClothedArmor</defName>
 	<label>nude armor skin</label> 
-	<labelShortAdj>armor skin</labelShortAdj>
 	<description>Carriers of this gene have very strong skin, but friction with clothing makes it soft.</description>
 	<iconPath>WVC/UI/Genes/UnClothedArmor</iconPath>
-	<displayOrderInCategory>75</displayOrderInCategory>
 	<conditionalStatAffecters>
 	  <li Class="WVC.ConditionalStatAffecter_Mechalike">
 		<statOffsets>
@@ -105,6 +112,69 @@
 		<li><symbol>power</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_NaturalArmorBase">
+	<defName>WVC_ArmoredSkin_Light</defName>
+	<label>stone skin</label> 
+	<iconPath>WVC/UI/Genes/Armor_Light</iconPath>
+	<biostatMet>-2</biostatMet>
+	<statOffsets>
+	  <ArmorRating_Blunt>0.05</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.05</ArmorRating_Sharp>
+	  <ArmorRating_Heat>0.05</ArmorRating_Heat>
+	</statOffsets>
+	<conditionalStatAffecters>
+	  <li Class="WVC.ConditionalStatAffecter_Mechalike">
+		<statOffsets>
+		  <ArmorRating_Blunt>0.05</ArmorRating_Blunt>
+		  <ArmorRating_Sharp>0.05</ArmorRating_Sharp>
+		  <ArmorRating_Heat>0.10</ArmorRating_Heat>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
+	<biostatMet>-2</biostatMet>
+  </GeneDef>
+  <GeneDef ParentName="WVC_NaturalArmorBase">
+	<defName>WVC_ArmoredSkin_Good</defName>
+	<label>steel skin</label> 
+	<iconPath>WVC/UI/Genes/Armor_Good</iconPath>
+	<biostatMet>-3</biostatMet>
+	<statOffsets>
+	  <ArmorRating_Blunt>0.15</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.15</ArmorRating_Sharp>
+	  <ArmorRating_Heat>0.15</ArmorRating_Heat>
+	</statOffsets>
+	<conditionalStatAffecters>
+	  <li Class="WVC.ConditionalStatAffecter_Mechalike">
+		<statOffsets>
+		  <ArmorRating_Blunt>0.05</ArmorRating_Blunt>
+		  <ArmorRating_Sharp>0.05</ArmorRating_Sharp>
+		  <ArmorRating_Heat>0.10</ArmorRating_Heat>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
+	<biostatMet>-2</biostatMet>
+  </GeneDef>
+  <GeneDef ParentName="WVC_NaturalArmorBase">
+	<defName>WVC_ArmoredSkin_Strong</defName>
+	<label>plasteel skin</label> 
+	<iconPath>WVC/UI/Genes/Armor_Strong</iconPath>
+	<biostatMet>-4</biostatMet>
+	<statOffsets>
+	  <ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.25</ArmorRating_Sharp>
+	  <ArmorRating_Heat>0.25</ArmorRating_Heat>
+	</statOffsets>
+	<conditionalStatAffecters>
+	  <li Class="WVC.ConditionalStatAffecter_Mechalike">
+		<statOffsets>
+		  <ArmorRating_Blunt>0.05</ArmorRating_Blunt>
+		  <ArmorRating_Sharp>0.05</ArmorRating_Sharp>
+		  <ArmorRating_Heat>0.10</ArmorRating_Heat>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
   </GeneDef>
 
   <!-- ======================================================= -->
