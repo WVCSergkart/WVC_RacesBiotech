@@ -125,7 +125,10 @@
 		<li>ToxResist_Total</li>
 		<!-- = -->
 		<li>UVSensitivity_Intense</li>
-		<li>WVC_ClothedArmor</li>
+		<li>WVC_ArmoredSkin_Steel</li>
+		<li>WVC_NoUVSensitivity_Psychic</li>
+		<li>WVC_DebuffUV_ExtremeInjuryHealing</li>
+		<li>WVC_DebuffUV_ExtremePsychicSensitivity</li>
 		<!-- = -->
 		<li>Neversleep</li>
 		<!-- <li>Aggression_DeadCalm</li> -->

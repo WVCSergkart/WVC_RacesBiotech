@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- UV Sensitivity -->
+
+  <GeneDef Name="WVC_PsychicSunSensitivityBase" Abstract="True">
+	<displayCategory>Psychic</displayCategory>
+	<displayOrderInCategory>90</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<suppressedTraits>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-1</degree>
+	  </li>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-2</degree>
+	  </li>
+	</suppressedTraits>
+	<exclusionTags>
+	  <li>WVC_PsychicSunSensitivity</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_PsychicSunSensitivityBase">
+	<defName>WVC_UVSensitivity_Psychic</defName>
+	<label>psychic UV sensitivity</label>
+	<labelShortAdj>UV-psychic</labelShortAdj>
+	<description>Carriers of this gene have increased psi sensitivity when they are in sunlight.</description>
+	<iconPath>WVC/UI/Genes/SunPsychicallySensetivity</iconPath>
+	<conditionalStatAffecters>
+	  <li Class="ConditionalStatAffecter_InSunlight">
+		<statOffsets>
+		  <PsychicSensitivity>0.5</PsychicSensitivity>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>sun</symbol></li>
+		<li><symbol>su</symbol></li>
+		<li><symbol>psysu</symbol></li>
+		<li><symbol>light</symbol></li>
+		<li><symbol>lit</symbol></li>
+		<li><symbol>psyh</symbol></li>
+		<li><symbol>sunset</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_PsychicSunSensitivityBase">
+	<defName>WVC_NoUVSensitivity_Psychic</defName>
+	<label>psychic dark sensitivity</label>
+	<labelShortAdj>dark-psychic</labelShortAdj>
+	<description>Carriers of this gene have increased psi sensitivity when they are out of sunlight.</description>
+	<iconPath>WVC/UI/Genes/NightPsychicallySensetivity</iconPath>
+	<conditionalStatAffecters>
+	  <li Class="VanillaGenesExpanded.ConditionalStatAffecter_NoSunlight">
+		<statOffsets>
+		  <PsychicSensitivity>0.5</PsychicSensitivity>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>night</symbol></li>
+		<li><symbol>dark</symbol></li>
+		<li><symbol>dar</symbol></li>
+		<li><symbol>moon</symbol></li>
+		<li><symbol>sleep</symbol></li>
+		<li><symbol>psyh</symbol></li>
+		<li><symbol>darkn</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- UV Phobia -->
+
+  <GeneDef Name="WVC_SunPhobiaSensitivity_Base" Abstract="True">
+	<displayCategory>Psychic</displayCategory>
+	<displayOrderInCategory>190</displayOrderInCategory>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>night</symbol></li>
+		<li><symbol>dark</symbol></li>
+		<li><symbol>dar</symbol></li>
+		<li><symbol>moon</symbol></li>
+		<li><symbol>sleep</symbol></li>
+		<li><symbol>psyh</symbol></li>
+		<li><symbol>darkn</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_SunPhobiaSensitivity_Base">
+	<defName>WVC_DebuffUV_StrongInjuryHealing</defName>
+	<label>extreme sunphobia</label>
+	<description>Carriers of this gene partially stop regeneration when they are in sunlight.</description>
+	<iconPath>WVC/UI/Genes/SunDebuff_Heal1</iconPath>
+	<displayCategory>Healing</displayCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>3</biostatMet>
+	<conditionalStatAffecters>
+	  <li Class="ConditionalStatAffecter_InSunlight">
+		<statFactors>
+		  <InjuryHealingFactor>0.5</InjuryHealingFactor>
+		</statFactors>
+	  </li>
+	</conditionalStatAffecters>
+  </GeneDef>
+  <GeneDef ParentName="WVC_SunPhobiaSensitivity_Base">
+	<defName>WVC_DebuffUV_ExtremeInjuryHealing</defName>
+	<label>extreme sunphobia</label>
+	<description>Carriers of this gene completely stop regeneration when they are in sunlight.</description>
+	<iconPath>WVC/UI/Genes/SunDebuff_Heal2</iconPath>
+	<displayCategory>Healing</displayCategory>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>4</biostatMet>
+	<conditionalStatAffecters>
+	  <li Class="ConditionalStatAffecter_InSunlight">
+		<statFactors>
+		  <InjuryHealingFactor>0.0</InjuryHealingFactor>
+		</statFactors>
+	  </li>
+	</conditionalStatAffecters>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_SunPhobiaSensitivity_Base">
+	<defName>WVC_DebuffUV_StrongPsychicSensitivity</defName>
+	<label>UV psychically deaf</label>
+	<description>Carriers of this gene partially lose psi-sensitivity when exposed to the sun.</description>
+	<iconPath>WVC/UI/Genes/SunDebuffPsychicallySensetivity2</iconPath>
+	<displayCategory>Psychic</displayCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>2</biostatMet>
+	<conditionalStatAffecters>
+	  <li Class="ConditionalStatAffecter_InSunlight">
+		<statFactors>
+		  <PsychicSensitivity>0.5</PsychicSensitivity>
+		</statFactors>
+	  </li>
+	</conditionalStatAffecters>
+  </GeneDef>
+  <GeneDef ParentName="WVC_SunPhobiaSensitivity_Base">
+	<defName>WVC_DebuffUV_ExtremePsychicSensitivity</defName>
+	<label>UV psychically dull</label>
+	<description>Carriers of this gene lose psi-sensitivity when exposed to the sun.</description>
+	<iconPath>WVC/UI/Genes/SunDebuffPsychicallySensetivity1</iconPath>
+	<displayCategory>Psychic</displayCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>3</biostatMet>
+	<conditionalStatAffecters>
+	  <li Class="ConditionalStatAffecter_InSunlight">
+		<statFactors>
+		  <PsychicSensitivity>0.0</PsychicSensitivity>
+		</statFactors>
+	  </li>
+	</conditionalStatAffecters>
+  </GeneDef>
+
+</Defs>

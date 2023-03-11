@@ -115,7 +115,7 @@
   </GeneDef>
 
   <GeneDef ParentName="WVC_NaturalArmorBase">
-	<defName>WVC_ArmoredSkin_Light</defName>
+	<defName>WVC_ArmoredSkin_Stone</defName>
 	<label>stone skin</label> 
 	<iconPath>WVC/UI/Genes/Armor_Light</iconPath>
 	<biostatMet>-2</biostatMet>
@@ -136,7 +136,7 @@
 	<biostatMet>-2</biostatMet>
   </GeneDef>
   <GeneDef ParentName="WVC_NaturalArmorBase">
-	<defName>WVC_ArmoredSkin_Good</defName>
+	<defName>WVC_ArmoredSkin_Steel</defName>
 	<label>steel skin</label> 
 	<iconPath>WVC/UI/Genes/Armor_Good</iconPath>
 	<biostatMet>-3</biostatMet>
@@ -157,7 +157,7 @@
 	<biostatMet>-2</biostatMet>
   </GeneDef>
   <GeneDef ParentName="WVC_NaturalArmorBase">
-	<defName>WVC_ArmoredSkin_Strong</defName>
+	<defName>WVC_ArmoredSkin_Plasteel</defName>
 	<label>plasteel skin</label> 
 	<iconPath>WVC/UI/Genes/Armor_Strong</iconPath>
 	<biostatMet>-4</biostatMet>
