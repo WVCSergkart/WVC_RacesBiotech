@@ -28,8 +28,8 @@ Most of the internal organs were not affected, but there are too many external c
 	<!-- <canGenerateInGeneSet>false</canGenerateInGeneSet> -->
 	<!-- <selectionWeight>1.0</selectionWeight> -->
 	<randomChosen>true</randomChosen>
-	<biostatCpx>7</biostatCpx>
-	<biostatArc>8</biostatArc>
+	<biostatCpx>5</biostatCpx>
+	<biostatArc>12</biostatArc>
 	<displayOrderInCategory>-95</displayOrderInCategory>
 	<iconColor>(255, 255, 255)</iconColor>
 	<customEffectDescriptions>
@@ -37,10 +37,10 @@ Most of the internal organs were not affected, but there are too many external c
 		<li>&lt;color=#ffe185&gt;Do not combine nodeskins with other skins, this will cause visual bugs!&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<statOffsets>
-	  <ArmorRating_Blunt>0.12</ArmorRating_Blunt>
-	  <ArmorRating_Sharp>0.12</ArmorRating_Sharp>
-	  <ArmorRating_Heat>0.17</ArmorRating_Heat>
-	  <PawnBeauty>-1</PawnBeauty>
+	  <!-- <ArmorRating_Blunt>0.12</ArmorRating_Blunt> -->
+	  <!-- <ArmorRating_Sharp>0.12</ArmorRating_Sharp> -->
+	  <!-- <ArmorRating_Heat>0.17</ArmorRating_Heat> -->
+	  <!-- <PawnBeauty>-1</PawnBeauty> -->
 	</statOffsets>
 	<graphicData>
 	  <fur>WVC_NodeSkin</fur>
@@ -125,11 +125,11 @@ Most of the internal organs were not affected, but there are too many external c
 	  <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
 	  <ArmorRating_Heat>0.55</ArmorRating_Heat>
 	</statOffsets>
-	<forcedTraits>
-	  <li>
-		<def>Bloodlust</def>
-	  </li>
-	</forcedTraits>
+	<!-- <forcedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>Bloodlust</def> -->
+	  <!-- </li> -->
+	<!-- </forcedTraits> -->
 	<suppressedTraits>
 	  <li>
 		<def>Tough</def>
@@ -213,6 +213,42 @@ Most of the internal organs were not affected, but there are too many external c
 		<degree>2</degree>
 	  </li>
 	</suppressedTraits>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_NodeBody_Base">
+	<defName>WVC_NodeSkin_AltBlue</defName>
+	<label>nodeskin VX</label>
+	<biostatMet>8</biostatMet>
+	<iconPath>WVC/UI/Genes/HeadAltBlue_south</iconPath>
+	<forcedHeadTypes>
+	  <li>WVC_NodeSkin_AltBlue</li>
+	</forcedHeadTypes>
+	<customEffectDescriptions>
+	</customEffectDescriptions>
+	<graphicData>
+	  <graphicPath>WVC/NodeGene_Head/HeadAltBlue</graphicPath>
+	</graphicData>
+	<statOffsets>
+	  <WorkSpeedGlobalOffsetMech>0.5</WorkSpeedGlobalOffsetMech>
+	</statOffsets>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_NodeBody_Base">
+	<defName>WVC_NodeSkin_Orange</defName>
+	<label>nodeskin YR</label>
+	<biostatMet>9</biostatMet>
+	<iconPath>WVC/UI/Genes/HeadOrange_south</iconPath>
+	<forcedHeadTypes>
+	  <li>WVC_NodeSkin_Orange</li>
+	</forcedHeadTypes>
+	<customEffectDescriptions>
+	</customEffectDescriptions>
+	<graphicData>
+	  <graphicPath>WVC/NodeGene_Head/HeadOrange</graphicPath>
+	</graphicData>
+	<statOffsets>
+	  <HemogenGainFactor>0.5</HemogenGainFactor>
+	</statOffsets>
   </GeneDef>
 
 </Defs>

@@ -33,7 +33,10 @@
 		  <!-- <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization> -->
 		  <!-- <ArmorRating_Blunt>0.05</ArmorRating_Blunt> -->
 		  <!-- <ArmorRating_Sharp>0.05</ArmorRating_Sharp> -->
-		  <ArmorRating_Heat>0.15</ArmorRating_Heat>
+		  <!-- <ArmorRating_Heat>0.15</ArmorRating_Heat> -->
+		  <ArmorRating_Blunt>0.12</ArmorRating_Blunt>
+		  <ArmorRating_Sharp>0.12</ArmorRating_Sharp>
+		  <ArmorRating_Heat>0.17</ArmorRating_Heat>
 		</statOffsets>
 	  </li>
 	  <li Class="ConditionalStatAffecter_Clothed">

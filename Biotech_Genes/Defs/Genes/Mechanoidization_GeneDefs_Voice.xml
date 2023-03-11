@@ -30,6 +30,11 @@
 		<li><symbol>noid</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
+	<suppressedTraits>
+	  <li>
+		<def>AnnoyingVoice</def>
+	  </li>
+	</suppressedTraits>
 	<modExtensions>
 		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
 			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ColorlessGene</backgroundPathEndogenes> -->

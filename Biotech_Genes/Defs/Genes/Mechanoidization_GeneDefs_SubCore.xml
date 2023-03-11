@@ -41,7 +41,7 @@
 	<statFactors>
 	  <SocialImpact>0.8</SocialImpact>
 	</statFactors>
-	<biostatCpx>0</biostatCpx>
+	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<symbolPack>
 	  <prefixSymbols>

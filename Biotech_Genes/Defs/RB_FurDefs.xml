@@ -76,7 +76,6 @@
 
   <HeadTypeDef ParentName="WVC_NodeSkinAverageBase">
 	<defName>WVC_NodeSkin_Blue</defName>
-	<!-- <graphicPath>WVC/NodeGene_Head/HeadBlue</graphicPath> -->
 	<graphicPath>WVC/NodeGene_FacelessHead/Head</graphicPath>
 	<requiredGenes>
 	  <li>WVC_NodeSkin_Blue</li>
@@ -84,7 +83,6 @@
   </HeadTypeDef>
   <HeadTypeDef ParentName="WVC_NodeSkinAverageBase">
 	<defName>WVC_NodeSkin_Red</defName>
-	<!-- <graphicPath>WVC/NodeGene_Head/HeadRed</graphicPath> -->
 	<graphicPath>WVC/NodeGene_FacelessHead/Head</graphicPath>
 	<requiredGenes>
 	  <li>WVC_NodeSkin_Red</li>
@@ -92,7 +90,6 @@
   </HeadTypeDef>
   <HeadTypeDef ParentName="WVC_NodeSkinAverageBase">
 	<defName>WVC_NodeSkin_Green</defName>
-	<!-- <graphicPath>WVC/NodeGene_Head/HeadGreen</graphicPath> -->
 	<graphicPath>WVC/NodeGene_FacelessHead/Head</graphicPath>
 	<requiredGenes>
 	  <li>WVC_NodeSkin_Green</li>
@@ -100,7 +97,6 @@
   </HeadTypeDef>
   <HeadTypeDef ParentName="WVC_NodeSkinAverageBase">
 	<defName>WVC_NodeSkin_Violet</defName>
-	<!-- <graphicPath>WVC/NodeGene_Head/HeadViolet</graphicPath> -->
 	<graphicPath>WVC/NodeGene_FacelessHead/Head</graphicPath>
 	<requiredGenes>
 	  <li>WVC_NodeSkin_Violet</li>
@@ -108,10 +104,23 @@
   </HeadTypeDef>
   <HeadTypeDef ParentName="WVC_NodeSkinAverageBase">
 	<defName>WVC_NodeSkin_Yellow</defName>
-	<!-- <graphicPath>WVC/NodeGene_Head/HeadYellow</graphicPath> -->
 	<graphicPath>WVC/NodeGene_FacelessHead/Head</graphicPath>
 	<requiredGenes>
 	  <li>WVC_NodeSkin_Yellow</li>
+	</requiredGenes>
+  </HeadTypeDef>
+  <HeadTypeDef ParentName="WVC_NodeSkinAverageBase">
+	<defName>WVC_NodeSkin_AltBlue</defName>
+	<graphicPath>WVC/NodeGene_FacelessHead/Head</graphicPath>
+	<requiredGenes>
+	  <li>WVC_NodeSkin_AltBlue</li>
+	</requiredGenes>
+  </HeadTypeDef>
+  <HeadTypeDef ParentName="WVC_NodeSkinAverageBase">
+	<defName>WVC_NodeSkin_Orange</defName>
+	<graphicPath>WVC/NodeGene_FacelessHead/Head</graphicPath>
+	<requiredGenes>
+	  <li>WVC_NodeSkin_Orange</li>
 	</requiredGenes>
   </HeadTypeDef>
 

@@ -61,7 +61,7 @@ Most of the internal organs remain intact, but there are enough external changes
 
   <GeneDef ParentName="WVC_MechanoidBody_Base">
 	<defName>WVC_MechaSkin</defName>
-	<biostatCpx>3</biostatCpx>
+	<biostatCpx>5</biostatCpx>
 	<biostatArc>7</biostatArc>
 	<biostatMet>-16</biostatMet>
 	<displayOrderInCategory>-100</displayOrderInCategory>
@@ -76,10 +76,10 @@ Most of the internal organs remain intact, but there are enough external changes
 	<statFactors>
 	</statFactors>
 	<statOffsets>
-	  <MoveSpeed>0.3</MoveSpeed>
-	  <ArmorRating_Blunt>0.15</ArmorRating_Blunt>
-	  <ArmorRating_Sharp>0.15</ArmorRating_Sharp>
-	  <ArmorRating_Heat>0.25</ArmorRating_Heat>
+	  <!-- <MoveSpeed>0.3</MoveSpeed> -->
+	  <!-- <ArmorRating_Blunt>0.15</ArmorRating_Blunt> -->
+	  <!-- <ArmorRating_Sharp>0.15</ArmorRating_Sharp> -->
+	  <!-- <ArmorRating_Heat>0.25</ArmorRating_Heat> -->
 	</statOffsets>
 	<graphicData>
 	  <fur>WVC_MechaSkin</fur>

@@ -11,7 +11,7 @@
 	<displayOrderInCategory>-100</displayOrderInCategory>
 	<prerequisite>WVC_MechaAI_Base</prerequisite>
 	<randomChosen>true</randomChosen>
-	<biostatCpx>3</biostatCpx>
+	<biostatCpx>0</biostatCpx>
 	<biostatArc>2</biostatArc>
 	<symbolPack>
 	  <prefixSymbols>
@@ -33,7 +33,6 @@
   <!-- Encoding_GeneE -->
   <!-- Base -->
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Base" Name="WVC_Nodization_RandomBuff_Blue" Abstract="True">
-	<!-- <defName>WVC_MechaAI_RomanceChanceA</defName> -->
 	<label>encoding SX</label>
 	<displayOrderInCategory>-100</displayOrderInCategory>
 	<iconColor>(133, 202, 255)</iconColor>
@@ -42,39 +41,51 @@
 	</exclusionTags>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Base" Name="WVC_Nodization_RandomBuff_Red" Abstract="True">
-	<!-- <defName>WVC_MechaAI_RomanceChanceC</defName> -->
 	<label>encoding HJ</label>
-	<displayOrderInCategory>-80</displayOrderInCategory>
+	<displayOrderInCategory>-90</displayOrderInCategory>
 	<iconColor>(255, 133, 133)</iconColor>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_HJ</li>
 	</exclusionTags>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Base" Name="WVC_Nodization_RandomBuff_Green" Abstract="True">
-	<!-- <defName>WVC_MechaAI_RomanceChanceB</defName> -->
 	<label>encoding GB</label>
-	<displayOrderInCategory>-60</displayOrderInCategory>
+	<displayOrderInCategory>-80</displayOrderInCategory>
 	<iconColor>(133, 255, 136)</iconColor>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_GB</li>
 	</exclusionTags>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Base" Name="WVC_Nodization_RandomBuff_Violet" Abstract="True">
-	<!-- <defName>WVC_MechaAI_RomanceChanceD</defName> -->
 	<label>encoding CV</label>
-	<displayOrderInCategory>-40</displayOrderInCategory>
+	<displayOrderInCategory>-70</displayOrderInCategory>
 	<iconColor>(142, 133, 255)</iconColor>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_CV</li>
 	</exclusionTags>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Base" Name="WVC_Nodization_RandomBuff_Yellow" Abstract="True">
-	<!-- <defName>WVC_MechaAI_RomanceChanceE</defName> -->
 	<label>encoding WR</label>
-	<displayOrderInCategory>-20</displayOrderInCategory>
+	<displayOrderInCategory>-60</displayOrderInCategory>
 	<iconColor>(255, 248, 133)</iconColor>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_WR</li>
+	</exclusionTags>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Base" Name="WVC_Nodization_RandomBuff_AltBlue" Abstract="True">
+	<label>encoding VX</label>
+	<displayOrderInCategory>-50</displayOrderInCategory>
+	<iconColor>(133, 167, 255)</iconColor>
+	<exclusionTags>
+	  <li>WVC_Nodization_RandomBuff_VX</li>
+	</exclusionTags>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Base" Name="WVC_Nodization_RandomBuff_Orange" Abstract="True">
+	<label>encoding YR</label>
+	<displayOrderInCategory>-40</displayOrderInCategory>
+	<iconColor>(255, 182, 133)</iconColor>
+	<exclusionTags>
+	  <li>WVC_Nodization_RandomBuff_YR</li>
 	</exclusionTags>
   </GeneDef>
 
@@ -86,6 +97,9 @@
 	<statOffsets>
 	  <MechFormingSpeed>0.5</MechFormingSpeed>
 	</statOffsets>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_Nodization_RandomPatternBuff_VX</li> -->
+	<!-- </exclusionTags> -->
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Red">
 	<defName>WVC_Nodization_PatternBuff_B</defName>
@@ -102,6 +116,9 @@
 	<statFactors>
 	  <MentalBreakThreshold>0.80</MentalBreakThreshold>
 	</statFactors>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_Nodization_RandomPatternBuff_YR</li> -->
+	<!-- </exclusionTags> -->
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Violet">
 	<defName>WVC_Nodization_PatternBuff_D</defName>
@@ -116,8 +133,33 @@
 	<label>pattern WR</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneA</iconPath>
 	<statOffsets>
-	  <PawnBeauty>3</PawnBeauty>
+	  <PawnBeauty>2</PawnBeauty>
 	</statOffsets>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_AltBlue">
+	<defName>WVC_Nodization_PatternBuff_F</defName>
+	<label>pattern VX</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneA</iconPath>
+	<statOffsets>
+	  <WorkSpeedGlobalOffsetMech>0.2</WorkSpeedGlobalOffsetMech>
+	  <!-- <WorkSpeedGlobal>-0.5</WorkSpeedGlobal> -->
+	</statOffsets>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_Nodization_RandomPatternBuff_VX</li> -->
+	<!-- </exclusionTags> -->
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Orange">
+	<defName>WVC_Nodization_PatternBuff_G</defName>
+	<label>pattern YR</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneA</iconPath>
+	<statOffsets>
+	  <HemogenGainFactor>0.2</HemogenGainFactor>
+	  <!-- <InjuryHealingFactor>-0.2</InjuryHealingFactor> -->
+	</statOffsets>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_Nodization_RandomPatternBuff_YR</li> -->
+	<!-- </exclusionTags> -->
   </GeneDef>
 
   <!-- Lvl 2 -->
@@ -136,6 +178,9 @@
 	<aptitudes>
 	  <Shooting>6</Shooting>
 	</aptitudes>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_Nodization_RandomSkillBuff_YR</li> -->
+	<!-- </exclusionTags> -->
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Green">
 	<defName>WVC_Nodization_SkillBuff_C</defName>
@@ -152,6 +197,9 @@
 	<aptitudes>
 	  <Melee>6</Melee>
 	</aptitudes>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_Nodization_RandomSkillBuff_VX</li> -->
+	<!-- </exclusionTags> -->
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Yellow">
 	<defName>WVC_Nodization_SkillBuff_E</defName>
@@ -160,6 +208,31 @@
 	<aptitudes>
 	  <Social>6</Social>
 	</aptitudes>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_AltBlue">
+	<defName>WVC_Nodization_SkillBuff_F</defName>
+	<label>skill VX</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneB</iconPath>
+	<aptitudes>
+	  <Crafting>3</Crafting>
+	  <Artistic>3</Artistic>
+	</aptitudes>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_Nodization_RandomSkillBuff_VX</li> -->
+	<!-- </exclusionTags> -->
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Orange">
+	<defName>WVC_Nodization_SkillBuff_G</defName>
+	<label>skill YR</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneB</iconPath>
+	<aptitudes>
+	  <Mining>3</Mining>
+	  <Animals>3</Animals>
+	</aptitudes>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_Nodization_RandomSkillBuff_YR</li> -->
+	<!-- </exclusionTags> -->
   </GeneDef>
 
   <!-- Lvl 3 -->
@@ -188,6 +261,9 @@
 	<statOffsets>
 	 <MoveSpeed>2</MoveSpeed>
 	</statOffsets>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_Nodization_RandomVindicationBuff_VX</li> -->
+	<!-- </exclusionTags> -->
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Violet">
 	<defName>WVC_Nodization_VindicationBuff_D</defName>
@@ -204,6 +280,34 @@
 	<statOffsets>
 		<NegotiationAbility>0.2</NegotiationAbility>
 	</statOffsets>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_Nodization_RandomVindicationBuff_YR</li> -->
+	<!-- </exclusionTags> -->
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_AltBlue">
+	<defName>WVC_Nodization_VindicationBuff_F</defName>
+	<label>vindication VX</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneC</iconPath>
+	<statOffsets>
+		<PsychicSensitivity>-0.2</PsychicSensitivity>
+		<GlobalLearningFactor>0.2</GlobalLearningFactor>
+	</statOffsets>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_Nodization_RandomVindicationBuff_VX</li> -->
+	<!-- </exclusionTags> -->
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Orange">
+	<defName>WVC_Nodization_VindicationBuff_G</defName>
+	<label>vindication YR</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneC</iconPath>
+	<statOffsets>
+		<GlobalLearningFactor>-0.2</GlobalLearningFactor>
+		<PsychicSensitivity>0.2</PsychicSensitivity>
+	</statOffsets>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_Nodization_RandomVindicationBuff_YR</li> -->
+	<!-- </exclusionTags> -->
   </GeneDef>
 
   <!-- Lvl 4 -->
@@ -266,6 +370,29 @@
 	  </li>
 	</capMods>
   </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_AltBlue">
+	<defName>WVC_Nodization_StringBuff_F</defName>
+	<label>string VX</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneD</iconPath>
+	<capMods>
+	  <li>
+		<capacity>BloodFiltration</capacity>
+		<offset>0.2</offset>
+	  </li>
+	</capMods>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Orange">
+	<defName>WVC_Nodization_StringBuff_G</defName>
+	<label>string YR</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneD</iconPath>
+	<capMods>
+	  <li>
+		<capacity>BloodPumping</capacity>
+		<offset>0.2</offset>
+	  </li>
+	</capMods>
+  </GeneDef>
 
   <!-- Lvl 5 -->
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Blue">
@@ -308,6 +435,155 @@
 	<iconPath>WVC/UI/Genes/Encoding_GeneE</iconPath>
 	<statFactors>
 	  <PsychicSensitivity>1.5</PsychicSensitivity>
+	</statFactors>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_AltBlue">
+	<defName>WVC_Nodization_PointBuff_F</defName>
+	<label>point VX</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneE</iconPath>
+	<statFactors>
+	  <IncomingDamageFactor>0.8</IncomingDamageFactor>
+	</statFactors>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Orange">
+	<defName>WVC_Nodization_PointBuff_G</defName>
+	<label>point YR</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneE</iconPath>
+	<statFactors>
+	  <PsychicSensitivity>1.2</PsychicSensitivity>
+	</statFactors>
+  </GeneDef>
+
+  <!-- Lvl 6 -->
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Blue">
+	<defName>WVC_Nodization_EntityBuff_A</defName>
+	<label>entity SX</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneF</iconPath>
+	<forcedTraits>
+	  <li>
+		<def>Recluse</def>
+	  </li>
+	</forcedTraits>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Red">
+	<defName>WVC_Nodization_EntityBuff_B</defName>
+	<label>entity HJ</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneF</iconPath>
+	<forcedTraits>
+	  <li>
+		<def>Bloodlust</def>
+	  </li>
+	</forcedTraits>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Green">
+	<defName>WVC_Nodization_EntityBuff_C</defName>
+	<label>entity GB</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneF</iconPath>
+	<forcedTraits>
+	  <li>
+		<def>Cannibal</def>
+	  </li>
+	</forcedTraits>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Violet">
+	<defName>WVC_Nodization_EntityBuff_D</defName>
+	<label>entity CV</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneF</iconPath>
+	<forcedTraits>
+	  <li>
+		<def>Brawler</def>
+	  </li>
+	</forcedTraits>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Yellow">
+	<defName>WVC_Nodization_EntityBuff_E</defName>
+	<label>entity WR</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneF</iconPath>
+	<forcedTraits>
+	  <li>
+		<def>Abrasive</def>
+	  </li>
+	</forcedTraits>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_AltBlue">
+	<defName>WVC_Nodization_EntityBuff_F</defName>
+	<label>entity VX</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneF</iconPath>
+	<forcedTraits>
+	  <li>
+		<def>Transhumanist</def>
+	  </li>
+	</forcedTraits>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Orange">
+	<defName>WVC_Nodization_EntityBuff_G</defName>
+	<label>entity YR</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneF</iconPath>
+	<forcedTraits>
+	  <li>
+		<def>Ascetic</def>
+	  </li>
+	</forcedTraits>
+  </GeneDef>
+
+  <!-- Lvl 7 -->
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Blue">
+	<defName>WVC_Nodization_DecisionBuff_A</defName>
+	<label>decision SX</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneG</iconPath>
+	<statFactors>
+	  <ResearchSpeed>1.2</ResearchSpeed>
+	</statFactors>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Red">
+	<defName>WVC_Nodization_DecisionBuff_B</defName>
+	<label>decision HJ</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneG</iconPath>
+	<statFactors>
+	  <CleaningSpeed>2</CleaningSpeed>
+	</statFactors>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Green">
+	<defName>WVC_Nodization_DecisionBuff_C</defName>
+	<label>decision GB</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneG</iconPath>
+	<statFactors>
+	  <MedicalTendSpeed>1.2</MedicalTendSpeed>
+	</statFactors>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Violet">
+	<defName>WVC_Nodization_DecisionBuff_D</defName>
+	<label>decision CV</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneG</iconPath>
+	<statFactors>
+	  <ArrestSuccessChance>2</ArrestSuccessChance>
+	</statFactors>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Yellow">
+	<defName>WVC_Nodization_DecisionBuff_E</defName>
+	<label>decision WR</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneG</iconPath>
+	<statFactors>
+	  <TradePriceImprovement>1.2</TradePriceImprovement>
+	</statFactors>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_AltBlue">
+	<defName>WVC_Nodization_DecisionBuff_F</defName>
+	<label>decision VX</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneG</iconPath>
+	<statFactors>
+	  <WorkSpeedGlobalOffsetMech>1.5</WorkSpeedGlobalOffsetMech>
+	</statFactors>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Nodization_RandomBuff_Orange">
+	<defName>WVC_Nodization_DecisionBuff_G</defName>
+	<label>decision YR</label>
+	<iconPath>WVC/UI/Genes/Encoding_GeneG</iconPath>
+	<statFactors>
+	  <MiningSpeed>1.2</MiningSpeed>
 	</statFactors>
   </GeneDef>
 

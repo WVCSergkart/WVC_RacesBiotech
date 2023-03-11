@@ -25,11 +25,21 @@
 	  <!-- <WVC_PawnMechanoidization>3</WVC_PawnMechanoidization> -->
 	<!-- </statOffsets> -->
 	<statFactors>
-	  <MentalBreakThreshold>0.8</MentalBreakThreshold>
-	  <GlobalLearningFactor>0.2</GlobalLearningFactor>
+	  <!-- <MentalBreakThreshold>0.8</MentalBreakThreshold> -->
+	  <!-- <GlobalLearningFactor>0.2</GlobalLearningFactor> -->
 	  <!-- <BondAnimalChanceFactor>0</BondAnimalChanceFactor> -->
 	  <!-- <SocialImpact>0.1</SocialImpact> -->
 	</statFactors>
+	<conditionalStatAffecters>
+	  <li Class="WVC.ConditionalStatAffecter_Xenotype">
+		<xenotypeDef>WVC_Meca</xenotypeDef>
+		<customName>mechakin only</customName>
+		<statFactors>
+		  <MentalBreakThreshold>0.8</MentalBreakThreshold>
+		  <GlobalLearningFactor>0.2</GlobalLearningFactor>
+		</statFactors>
+	  </li>
+	</conditionalStatAffecters>
 	<exclusionTags>
 	  <!-- <li>VRE_Curiosity</li> -->
 	  <!-- <li>Curiosity</li> -->
