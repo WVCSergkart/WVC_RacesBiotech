@@ -460,6 +460,9 @@
 	<defName>WVC_Nodization_EntityBuff_A</defName>
 	<label>entity SX</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneF</iconPath>
+	<!-- <statOffsets> -->
+	  <!-- <MechBandwidth>1.2</MechBandwidth> -->
+	<!-- </statOffsets> -->
 	<suppressedTraits>
 	  <li>
 		<def>Recluse</def>
@@ -470,6 +473,9 @@
 	<defName>WVC_Nodization_EntityBuff_B</defName>
 	<label>entity HJ</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneF</iconPath>
+	<!-- <statOffsets> -->
+	  <!-- <ShootingAccuracyPawn>0.2</ShootingAccuracyPawn> -->
+	<!-- </statOffsets> -->
 	<suppressedTraits>
 	  <li>
 		<def>Bloodlust</def>
@@ -480,6 +486,10 @@
 	<defName>WVC_Nodization_EntityBuff_C</defName>
 	<label>entity GB</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneF</iconPath>
+	<!-- <statOffsets> -->
+	  <!-- <ImmunityGainSpeed>0.1</ImmunityGainSpeed> -->
+	  <!-- <InjuryHealingFactor>0.1</InjuryHealingFactor> -->
+	<!-- </statOffsets> -->
 	<suppressedTraits>
 	  <li>
 		<def>Cannibal</def>
@@ -490,6 +500,9 @@
 	<defName>WVC_Nodization_EntityBuff_D</defName>
 	<label>entity CV</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneF</iconPath>
+	<!-- <statOffsets> -->
+	  <!-- <IncomingDamageFactor>-0.1</IncomingDamageFactor> -->
+	<!-- </statOffsets> -->
 	<suppressedTraits>
 	  <li>
 		<def>Brawler</def>
@@ -500,6 +513,9 @@
 	<defName>WVC_Nodization_EntityBuff_E</defName>
 	<label>entity WR</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneF</iconPath>
+	<!-- <statOffsets> -->
+	  <!-- <PsychicSensitivity>0.2</PsychicSensitivity> -->
+	<!-- </statOffsets> -->
 	<suppressedTraits>
 	  <li>
 		<def>Abrasive</def>
@@ -511,6 +527,9 @@
 	<defName>WVC_Nodization_EntityBuff_F</defName>
 	<label>entity VX</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneF</iconPath>
+	<!-- <statOffsets> -->
+	  <!-- <WorkSpeedGlobalOffsetMech>0.2</WorkSpeedGlobalOffsetMech> -->
+	<!-- </statOffsets> -->
 	<suppressedTraits>
 	  <li>
 		<def>Transhumanist</def>
@@ -526,6 +545,9 @@
 		<!-- <def>Ascetic</def> -->
 	  <!-- </li> -->
 	<!-- </forcedTraits> -->
+	<!-- <statOffsets> -->
+	  <!-- <HemogenGainFactor>0.2</HemogenGainFactor> -->
+	<!-- </statOffsets> -->
 	<suppressedTraits>
 	  <li>
 		<def>Ascetic</def>

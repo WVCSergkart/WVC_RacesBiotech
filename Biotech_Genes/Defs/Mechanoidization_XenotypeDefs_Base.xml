@@ -134,10 +134,10 @@
 		<li>WVC_Aptitudes_GreatEqualizer</li>
 		<!-- Firmware -->
 		<li>WVC_MechaAI_FirmwareCreatorMachine</li>
-		<li>WVC_MechaAI_FirmwareWarMachine</li>
-		<li>WVC_MechaAI_FirmwareGreenMachine</li>
-		<li>WVC_MechaAI_FirmwareRogueMachine</li>
-		<li>WVC_MechaAI_FirmwarePropagandaMachine</li>
+		<!-- <li>WVC_MechaAI_FirmwareWarMachine</li> -->
+		<!-- <li>WVC_MechaAI_FirmwareGreenMachine</li> -->
+		<!-- <li>WVC_MechaAI_FirmwareRogueMachine</li> -->
+		<!-- <li>WVC_MechaAI_FirmwarePropagandaMachine</li> -->
 	</genes>
   </XenotypeDef>
 

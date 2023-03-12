@@ -93,11 +93,11 @@
 	<socialFightChanceFactor>0.5</socialFightChanceFactor>
 	<aggroMentalBreakSelectionChanceFactor>1.2</aggroMentalBreakSelectionChanceFactor>
 	<prisonBreakMTBFactor>1.2</prisonBreakMTBFactor>
-	<forcedTraits>
-	  <li>
-		<def>Transhumanist</def>
-	  </li>
-	</forcedTraits>
+	<!-- <forcedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>Transhumanist</def> -->
+	  <!-- </li> -->
+	<!-- </forcedTraits> -->
 	<statFactors>
 	  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.2</ConversionPower>
 	  <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">1.2</SocialIdeoSpreadFrequencyFactor>
@@ -122,10 +122,10 @@
 	  <!-- base -->
 	  <Medicine>6</Medicine>
 	</aptitudes>
-	<passionMod>
-		<skill>Intellectual</skill>
-		<modType>AddOneLevel</modType>
-	</passionMod>
+	<!-- <passionMod> -->
+		<!-- <skill>Intellectual</skill> -->
+		<!-- <modType>AddOneLevel</modType> -->
+	<!-- </passionMod> -->
 	<!-- <modExtensions> -->
 		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
 			<!-- <noSkillLoss>Intellectual</noSkillLoss> -->
@@ -142,11 +142,11 @@
 	<socialFightChanceFactor>2</socialFightChanceFactor>
 	<aggroMentalBreakSelectionChanceFactor>2</aggroMentalBreakSelectionChanceFactor>
 	<prisonBreakMTBFactor>0.6</prisonBreakMTBFactor>
-	<forcedTraits>
-	  <li>
-		<def>Bloodlust</def>
-	  </li>
-	</forcedTraits>
+	<!-- <forcedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>Bloodlust</def> -->
+	  <!-- </li> -->
+	<!-- </forcedTraits> -->
 	<statFactors>
 	  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">1.5</ConversionPower>
 	  <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">0.4</SocialIdeoSpreadFrequencyFactor>
@@ -171,10 +171,10 @@
 	  <!-- base -->
 	  <Medicine>6</Medicine>
 	</aptitudes>
-	<passionMod>
-		<skill>Shooting</skill>
-		<modType>AddOneLevel</modType>
-	</passionMod>
+	<!-- <passionMod> -->
+		<!-- <skill>Shooting</skill> -->
+		<!-- <modType>AddOneLevel</modType> -->
+	<!-- </passionMod> -->
 	<!-- <modExtensions> -->
 		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
 			<!-- <noSkillLoss>Shooting</noSkillLoss> -->
@@ -191,11 +191,11 @@
 	<socialFightChanceFactor>0.5</socialFightChanceFactor>
 	<aggroMentalBreakSelectionChanceFactor>0.8</aggroMentalBreakSelectionChanceFactor>
 	<prisonBreakMTBFactor>1.5</prisonBreakMTBFactor>
-	<forcedTraits>
-	  <li>
-		<def>QuickSleeper</def>
-	  </li>
-	</forcedTraits>
+	<!-- <forcedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>QuickSleeper</def> -->
+	  <!-- </li> -->
+	<!-- </forcedTraits> -->
 	<statFactors>
 	  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.8</ConversionPower>
 	  <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">0.6</SocialIdeoSpreadFrequencyFactor>
@@ -220,10 +220,10 @@
 	  <!-- base -->
 	  <Medicine>6</Medicine>
 	</aptitudes>
-	<passionMod>
-		<skill>Plants</skill>
-		<modType>AddOneLevel</modType>
-	</passionMod>
+	<!-- <passionMod> -->
+		<!-- <skill>Plants</skill> -->
+		<!-- <modType>AddOneLevel</modType> -->
+	<!-- </passionMod> -->
 	<!-- <modExtensions> -->
 		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
 			<!-- <noSkillLoss>Plants</noSkillLoss> -->
@@ -240,11 +240,11 @@
 	<socialFightChanceFactor>0.5</socialFightChanceFactor>
 	<aggroMentalBreakSelectionChanceFactor>0.8</aggroMentalBreakSelectionChanceFactor>
 	<prisonBreakMTBFactor>0.5</prisonBreakMTBFactor>
-	<forcedTraits>
-	  <li>
-		<def>Psychopath</def>
-	  </li>
-	</forcedTraits>
+	<!-- <forcedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>Psychopath</def> -->
+	  <!-- </li> -->
+	<!-- </forcedTraits> -->
 	<statFactors>
 	  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.5</ConversionPower>
 	  <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">2</SocialIdeoSpreadFrequencyFactor>
@@ -269,10 +269,10 @@
 	  <!-- base -->
 	  <Medicine>6</Medicine>
 	</aptitudes>
-	<passionMod>
-		<skill>Melee</skill>
-		<modType>AddOneLevel</modType>
-	</passionMod>
+	<!-- <passionMod> -->
+		<!-- <skill>Melee</skill> -->
+		<!-- <modType>AddOneLevel</modType> -->
+	<!-- </passionMod> -->
 	<!-- <modExtensions> -->
 		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
 			<!-- <noSkillLoss>Melee</noSkillLoss> -->
@@ -289,11 +289,11 @@
 	<socialFightChanceFactor>2</socialFightChanceFactor>
 	<aggroMentalBreakSelectionChanceFactor>0.2</aggroMentalBreakSelectionChanceFactor>
 	<prisonBreakMTBFactor>1.5</prisonBreakMTBFactor>
-	<forcedTraits>
-	  <li>
-		<def>Abrasive</def>
-	  </li>
-	</forcedTraits>
+	<!-- <forcedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>Abrasive</def> -->
+	  <!-- </li> -->
+	<!-- </forcedTraits> -->
 	<statFactors>
 	  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">2</ConversionPower>
 	  <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">2</SocialIdeoSpreadFrequencyFactor>
@@ -318,10 +318,10 @@
 	  <!-- base -->
 	  <Medicine>6</Medicine>
 	</aptitudes>
-	<passionMod>
-		<skill>Social</skill>
-		<modType>AddOneLevel</modType>
-	</passionMod>
+	<!-- <passionMod> -->
+		<!-- <skill>Social</skill> -->
+		<!-- <modType>AddOneLevel</modType> -->
+	<!-- </passionMod> -->
 	<!-- <modExtensions> -->
 		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
 			<!-- <noSkillLoss>Social</noSkillLoss> -->
