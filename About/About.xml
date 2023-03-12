@@ -33,15 +33,15 @@
 		<!-- - -->
 		<li>OskarPotocki.VanillaFactionsExpanded.Core</li>
 		<!-- - -->
-		<li>vanillaracesexpanded.saurid</li>
-		<li>vanillaracesexpanded.hussar</li>
-		<li>vanillaracesexpanded.genie</li>
-		<li>sarg.alphagenes</li>
+		<!-- <li>vanillaracesexpanded.saurid</li> -->
+		<!-- <li>vanillaracesexpanded.hussar</li> -->
+		<!-- <li>vanillaracesexpanded.genie</li> -->
+		<!-- <li>sarg.alphagenes</li> -->
 		<!-- - -->
 		<li>wvc.sergkart.core</li>
 	</loadAfter>
 	<loadBefore>
-		<li>honkai.girls.sergkart</li>
+		<!-- <li>honkai.girls.sergkart</li> -->
 	</loadBefore>
 	<incompatibleWith>
 	</incompatibleWith>

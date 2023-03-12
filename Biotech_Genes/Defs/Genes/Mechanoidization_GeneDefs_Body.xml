@@ -26,6 +26,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<minAgeActive>13</minAgeActive>
 	<customEffectDescriptions>
 		<li>&lt;color=#ff8585&gt;Mechanoidization:&lt;/color&gt; Disables negative emotions about mechanoidization and significantly worsens the opinion of others.</li>
+		<!-- <li>&lt;color=#ffe185&gt;Graphic elements can be disabled in the settings.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <!-- <li>HairStyle</li> -->
