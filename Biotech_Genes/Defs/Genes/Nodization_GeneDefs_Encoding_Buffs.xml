@@ -460,72 +460,77 @@
 	<defName>WVC_Nodization_EntityBuff_A</defName>
 	<label>entity SX</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneF</iconPath>
-	<forcedTraits>
+	<suppressedTraits>
 	  <li>
 		<def>Recluse</def>
 	  </li>
-	</forcedTraits>
+	</suppressedTraits>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Red">
 	<defName>WVC_Nodization_EntityBuff_B</defName>
 	<label>entity HJ</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneF</iconPath>
-	<forcedTraits>
+	<suppressedTraits>
 	  <li>
 		<def>Bloodlust</def>
 	  </li>
-	</forcedTraits>
+	</suppressedTraits>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Green">
 	<defName>WVC_Nodization_EntityBuff_C</defName>
 	<label>entity GB</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneF</iconPath>
-	<forcedTraits>
+	<suppressedTraits>
 	  <li>
 		<def>Cannibal</def>
 	  </li>
-	</forcedTraits>
+	</suppressedTraits>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Violet">
 	<defName>WVC_Nodization_EntityBuff_D</defName>
 	<label>entity CV</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneF</iconPath>
-	<forcedTraits>
+	<suppressedTraits>
 	  <li>
 		<def>Brawler</def>
 	  </li>
-	</forcedTraits>
+	</suppressedTraits>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Yellow">
 	<defName>WVC_Nodization_EntityBuff_E</defName>
 	<label>entity WR</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneF</iconPath>
-	<forcedTraits>
+	<suppressedTraits>
 	  <li>
 		<def>Abrasive</def>
 	  </li>
-	</forcedTraits>
+	</suppressedTraits>
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_Nodization_RandomBuff_AltBlue">
 	<defName>WVC_Nodization_EntityBuff_F</defName>
 	<label>entity VX</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneF</iconPath>
-	<forcedTraits>
+	<suppressedTraits>
 	  <li>
 		<def>Transhumanist</def>
 	  </li>
-	</forcedTraits>
+	</suppressedTraits>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Orange">
 	<defName>WVC_Nodization_EntityBuff_G</defName>
 	<label>entity YR</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneF</iconPath>
-	<forcedTraits>
+	<!-- <forcedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>Ascetic</def> -->
+	  <!-- </li> -->
+	<!-- </forcedTraits> -->
+	<suppressedTraits>
 	  <li>
 		<def>Ascetic</def>
 	  </li>
-	</forcedTraits>
+	</suppressedTraits>
   </GeneDef>
 
   <!-- Lvl 7 -->

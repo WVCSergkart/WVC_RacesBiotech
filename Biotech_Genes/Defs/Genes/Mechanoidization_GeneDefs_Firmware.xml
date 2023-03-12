@@ -88,7 +88,8 @@
   <GeneDef ParentName="WVC_Mechanoidization_FirmwareBase">
 	<defName>WVC_MechaAI_FirmwareCreatorMachine</defName>
 	<label>creator machine</label>
-	<iconColor>(130, 175, 255)</iconColor>
+	<iconColor>(133, 202, 255)</iconColor>
+	<!-- <iconColor>(130, 175, 255)</iconColor> -->
 	<socialFightChanceFactor>0.5</socialFightChanceFactor>
 	<aggroMentalBreakSelectionChanceFactor>1.2</aggroMentalBreakSelectionChanceFactor>
 	<prisonBreakMTBFactor>1.2</prisonBreakMTBFactor>
@@ -136,7 +137,8 @@
   <GeneDef ParentName="WVC_Mechanoidization_FirmwareBase">
 	<defName>WVC_MechaAI_FirmwareWarMachine</defName>
 	<label>war machine</label>
-	<iconColor>(255, 175, 130)</iconColor>
+	<!-- <iconColor>(255, 175, 130)</iconColor> -->
+	<iconColor>(255, 133, 133)</iconColor>
 	<socialFightChanceFactor>2</socialFightChanceFactor>
 	<aggroMentalBreakSelectionChanceFactor>2</aggroMentalBreakSelectionChanceFactor>
 	<prisonBreakMTBFactor>0.6</prisonBreakMTBFactor>
@@ -184,7 +186,8 @@
   <GeneDef ParentName="WVC_Mechanoidization_FirmwareBase">
 	<defName>WVC_MechaAI_FirmwareGreenMachine</defName>
 	<label>green machine</label>
-	<iconColor>(130, 255, 130)</iconColor>
+	<iconColor>(133, 255, 136)</iconColor>
+	<!-- <iconColor>(130, 255, 130)</iconColor> -->
 	<socialFightChanceFactor>0.5</socialFightChanceFactor>
 	<aggroMentalBreakSelectionChanceFactor>0.8</aggroMentalBreakSelectionChanceFactor>
 	<prisonBreakMTBFactor>1.5</prisonBreakMTBFactor>
@@ -232,7 +235,8 @@
   <GeneDef ParentName="WVC_Mechanoidization_FirmwareBase">
 	<defName>WVC_MechaAI_FirmwareRogueMachine</defName>
 	<label>rogue machine</label>
-	<iconColor>(255, 250, 150)</iconColor>
+	<iconColor>(255, 182, 133)</iconColor>
+	<!-- <iconColor>(255, 250, 150)</iconColor> -->
 	<socialFightChanceFactor>0.5</socialFightChanceFactor>
 	<aggroMentalBreakSelectionChanceFactor>0.8</aggroMentalBreakSelectionChanceFactor>
 	<prisonBreakMTBFactor>0.5</prisonBreakMTBFactor>
@@ -280,7 +284,8 @@
   <GeneDef ParentName="WVC_Mechanoidization_FirmwareBase">
 	<defName>WVC_MechaAI_FirmwarePropagandaMachine</defName>
 	<label>propaganda machine</label>
-	<iconColor>(150, 250, 255)</iconColor>
+	<iconColor>(255, 248, 133)</iconColor>
+	<!-- <iconColor>(150, 250, 255)</iconColor> -->
 	<socialFightChanceFactor>2</socialFightChanceFactor>
 	<aggroMentalBreakSelectionChanceFactor>0.2</aggroMentalBreakSelectionChanceFactor>
 	<prisonBreakMTBFactor>1.5</prisonBreakMTBFactor>
