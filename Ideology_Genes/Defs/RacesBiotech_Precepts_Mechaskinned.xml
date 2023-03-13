@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Precepts -->
+
+  <PreceptDef>
+	<defName>WVC_Mechaskinned_Horrible</defName>
+	<issue>WVC_Mechaskinned</issue>
+	<label>horrible</label>
+	<description>Such a disgusting hybrids should not exist.</description>
+	<!-- <impact>High</impact> -->
+	<impact>Low</impact>
+	<displayOrderInIssue>40</displayOrderInIssue>
+	<displayOrderInImpact>100</displayOrderInImpact>
+	<!-- <defaultSelectionWeight>1</defaultSelectionWeight> -->
+	<conflictingMemes>
+	  <li>Transhumanist</li>
+	</conflictingMemes>
+	<associatedMemes>
+	  <li>FleshPurity</li>
+	</associatedMemes>
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_PawnIsMechaskinned_Horrible_Social</thought>
+	  </li>
+	  <!-- <li Class="PreceptComp_SituationalThought"> -->
+		<!-- <thought>HasNoProsthetic_Disapproved</thought> -->
+	  <!-- </li> -->
+	</comps>
+  </PreceptDef>
+
+  <PreceptDef>
+	<defName>WVC_Mechaskinned_Disapproved</defName>
+	<issue>WVC_Mechaskinned</issue>
+	<label>disapproved</label>
+	<description>Mechanoids are the enemies of humanity and people who look like mechanoids too.</description>
+	<impact>Low</impact>
+	<displayOrderInIssue>30</displayOrderInIssue>
+	<displayOrderInImpact>100</displayOrderInImpact>
+	<defaultSelectionWeight>1</defaultSelectionWeight>
+	<!-- <conflictingMemes> -->
+	  <!-- <li>Transhumanist</li> -->
+	<!-- </conflictingMemes> -->
+	<!-- <associatedMemes> -->
+	  <!-- <li>FleshPurity</li> -->
+	<!-- </associatedMemes> -->
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_PawnIsMechaskinned_Disapproved_Social</thought>
+	  </li>
+	  <!-- <li Class="PreceptComp_SituationalThought"> -->
+		<!-- <thought>HasNoProsthetic_Disapproved</thought> -->
+	  <!-- </li> -->
+	</comps>
+  </PreceptDef>
+
+  <PreceptDef>
+	<defName>WVC_Mechaskinned_Acceptable</defName>
+	<issue>WVC_Mechaskinned</issue>
+	<label>acceptable</label>
+	<description>Even becoming a mechanoid, a person remains a person, we must give a chance.</description>
+	<!-- <impact>Medium</impact> -->
+	<impact>Low</impact>
+	<displayOrderInIssue>20</displayOrderInIssue>
+	<displayOrderInImpact>100</displayOrderInImpact>
+	<!-- <defaultSelectionWeight>0.1</defaultSelectionWeight> -->
+	<conflictingMemes>
+	  <li>FleshPurity</li>
+	</conflictingMemes>
+	<associatedMemes>
+	  <li>Transhumanist</li>
+	</associatedMemes>
+	<!-- <statFactors> -->
+	  <!-- <CertaintyLossFactor>0.4</CertaintyLossFactor> -->
+	<!-- </statFactors> -->
+  </PreceptDef>
+
+  <PreceptDef>
+	<defName>WVC_Mechaskinned_Preferred</defName>
+	<issue>WVC_Mechaskinned</issue>
+	<label>preferred</label>
+	<description>A being that combines a mechanoid and a human is a priori perfect.</description>
+	<!-- <impact>High</impact> -->
+	<impact>Low</impact>
+	<displayOrderInIssue>10</displayOrderInIssue>
+	<displayOrderInImpact>100</displayOrderInImpact>
+	<conflictingMemes>
+	  <li>FleshPurity</li>
+	</conflictingMemes>
+	<associatedMemes>
+	  <li>Transhumanist</li>
+	</associatedMemes>
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_PawnIsMechaskinned_Preferred_Social</thought>
+	  </li>
+	  <!-- <li Class="PreceptComp_SituationalThought"> -->
+		<!-- <thought>HasNoProsthetic_Disapproved</thought> -->
+	  <!-- </li> -->
+	</comps>
+  </PreceptDef>
+
+  <PreceptDef MayRequire="vanillaexpanded.vmemese">
+	<defName>WVC_Mechaskinned_Exalted</defName>
+	<issue>WVC_Mechaskinned</issue>
+	<label>exalted</label>
+	<description>A being that combines a mechanoid and a human is a priori divine.</description>
+	<impact>High</impact>
+	<displayOrderInIssue>0</displayOrderInIssue>
+	<displayOrderInImpact>100</displayOrderInImpact>
+	<conflictingMemes>
+	  <li>FleshPurity</li>
+	</conflictingMemes>
+	<associatedMemes>
+	  <li>VME_MechanoidSupremacy</li>
+	</associatedMemes>
+	<requiredMemes>
+	  <li>VME_MechanoidSupremacy</li>
+	</requiredMemes>
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_PawnIsMechaskinned_Exalted_Social</thought>
+	  </li>
+	</comps>
+  </PreceptDef>
+
+  <!-- <PreceptDef> -->
+	<!-- <defName>WVC_Mechaskinned_Godlike</defName> -->
+	<!-- <issue>WVC_Mechaskinned</issue> -->
+	<!-- <label>godlike</label> -->
+	<!-- <description>A being that combines a machine and a human is a priori divine.</description> -->
+	<!-- <impact>High</impact> -->
+	<!-- <displayOrderInIssue>0</displayOrderInIssue> -->
+	<!-- <conflictingMemes> -->
+	  <!-- <li>FleshPurity</li> -->
+	<!-- </conflictingMemes> -->
+	<!-- <associatedMemes> -->
+	  <!-- <li>Transhumanist</li> -->
+	<!-- </associatedMemes> -->
+  <!-- </PreceptDef> -->
+
+  <!-- ====================================================== -->
+
+  <ThoughtDef>
+	<defName>WVC_PawnIsMechaskinned_Disapproved_Social</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
+	<nullifyingTraits>
+	  <li>Transhumanist</li>
+	  <li>BodyPurist</li>
+	</nullifyingTraits>
+	<stages>
+	  <li>
+		<label>mechaskinned</label>
+		<baseOpinionOffset>-20</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_PawnIsMechaskinned_Preferred_Social</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
+	<nullifyingTraits>
+	  <li>Transhumanist</li>
+	  <li>BodyPurist</li>
+	</nullifyingTraits>
+	<stages>
+	  <!-- Precept: Mechaskinned: Preferred -->
+	  <li>
+		<label>mechaskinned</label>
+		<baseOpinionOffset>20</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_PawnIsMechaskinned_Horrible_Social</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
+	<nullifyingTraits>
+	  <li>Transhumanist</li>
+	  <li>BodyPurist</li>
+	</nullifyingTraits>
+	<stages>
+	  <li>
+		<label>mechaskinned</label>
+		<baseOpinionOffset>-50</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef MayRequire="vanillaexpanded.vmemese">
+	<defName>WVC_PawnIsMechaskinned_Exalted_Social</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
+	<nullifyingTraits>
+	  <!-- <li>Transhumanist</li> -->
+	  <li>BodyPurist</li>
+	</nullifyingTraits>
+	<stages>
+	  <li>
+		<label>mechaskinned</label>
+		<baseOpinionOffset>100</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+</Defs>

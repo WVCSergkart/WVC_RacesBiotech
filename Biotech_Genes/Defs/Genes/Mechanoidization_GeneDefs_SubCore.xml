@@ -63,9 +63,9 @@
 		<li><symbol>am</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
-	<exclusionTags>
-	  <li>WVC_Mechanoidization_AI</li>
-	</exclusionTags>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_Mechanoidization_AI</li> -->
+	<!-- </exclusionTags> -->
 	<modExtensions Inherit="False">
 		<li Class="WVC.GeneExtension">
 			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite>

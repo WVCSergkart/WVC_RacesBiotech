@@ -50,9 +50,32 @@
 	  <value>
 		<nullifyingGenes>
 		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaSkin</li>
+		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Blue</li>
+		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Red</li>
+		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Green</li>
+		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Violet</li>
+		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Yellow</li>
+		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_AltBlue</li>
+		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Orange</li>
 		</nullifyingGenes>
 	  </value>
 	</Operation>
+
+	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
+	  <!-- <xpath>/Defs/ThoughtDef[defName="Ugly" or defName="Pretty"]</xpath>  -->
+	  <!-- <safetyDepth>1</safetyDepth> -->
+	  <!-- <value> -->
+		<!-- <nullifyingGenes> -->
+		  <!-- <li>WVC_NodeSkin_Blue</li> -->
+		  <!-- <li>WVC_NodeSkin_Red</li> -->
+		  <!-- <li>WVC_NodeSkin_Green</li> -->
+		  <!-- <li>WVC_NodeSkin_Violet</li> -->
+		  <!-- <li>WVC_NodeSkin_Yellow</li> -->
+		  <!-- <li>WVC_NodeSkin_AltBlue</li> -->
+		  <!-- <li>WVC_NodeSkin_Orange</li> -->
+		<!-- </nullifyingGenes> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
 
 	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
 	  <xpath>/Defs/ThoughtDef[defName="Expectations" or defName="PsychicDrone"]</xpath>
@@ -216,5 +239,17 @@
 
 	<!-- ================================================= -->
 
+
+	<!-- <Operation Class="XmlExtensions.FindMod"> -->
+		<!-- <mods> -->
+			<!-- <li>ludeon.rimworld.ideology</li> -->
+			<!-- <li>ludeon.rimworld.royalty</li> -->
+		<!-- </mods> -->
+		<!-- <packageId>true</packageId> -->
+		<!-- <logic>and</logic> -->
+		<!-- <caseTrue> -->
+
+		<!-- </caseTrue> -->
+	<!-- </Operation> -->
 
 </Patch>

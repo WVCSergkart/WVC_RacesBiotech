@@ -99,6 +99,9 @@ Most of the internal organs were not affected, but there are too many external c
 	  <MechBandwidth>6</MechBandwidth>
 	  <MechControlGroups>1</MechControlGroups>
 	</statOffsets>
+	<aptitudes>
+	  <Intellectual>2</Intellectual>
+	</aptitudes>
 	<suppressedTraits>
 	  <li>
 		<def>PsychicSensitivity</def>
@@ -125,6 +128,9 @@ Most of the internal organs were not affected, but there are too many external c
 	  <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
 	  <ArmorRating_Heat>0.55</ArmorRating_Heat>
 	</statOffsets>
+	<aptitudes>
+	  <Shooting>2</Shooting>
+	</aptitudes>
 	<!-- <forcedTraits> -->
 	  <!-- <li> -->
 		<!-- <def>Bloodlust</def> -->
@@ -150,6 +156,9 @@ Most of the internal organs were not affected, but there are too many external c
 	<graphicData>
 	  <graphicPath>WVC/NodeGene_Head/HeadGreen</graphicPath>
 	</graphicData>
+	<aptitudes>
+	  <Medicine>2</Medicine>
+	</aptitudes>
 	<statOffsets>
 	  <ImmunityGainSpeed>0.5</ImmunityGainSpeed>
 	  <InjuryHealingFactor>0.5</InjuryHealingFactor>
@@ -172,6 +181,9 @@ Most of the internal organs were not affected, but there are too many external c
 	<statFactors>
 	  <IncomingDamageFactor>0.5</IncomingDamageFactor>
 	</statFactors>
+	<aptitudes>
+	  <Melee>2</Melee>
+	</aptitudes>
 	<suppressedTraits>
 	  <li>
 		<def>Tough</def>
@@ -195,6 +207,9 @@ Most of the internal organs were not affected, but there are too many external c
 	<statOffsets>
 	  <PsychicSensitivity>1.0</PsychicSensitivity>
 	</statOffsets>
+	<aptitudes>
+	  <Social>2</Social>
+	</aptitudes>
 	<suppressedTraits>
 	  <li>
 		<def>PsychicSensitivity</def>
@@ -228,6 +243,9 @@ Most of the internal organs were not affected, but there are too many external c
 	<graphicData>
 	  <graphicPath>WVC/NodeGene_Head/HeadAltBlue</graphicPath>
 	</graphicData>
+	<aptitudes>
+	  <Crafting>2</Crafting>
+	</aptitudes>
 	<statOffsets>
 	  <WorkSpeedGlobalOffsetMech>0.5</WorkSpeedGlobalOffsetMech>
 	</statOffsets>
@@ -246,6 +264,10 @@ Most of the internal organs were not affected, but there are too many external c
 	<graphicData>
 	  <graphicPath>WVC/NodeGene_Head/HeadOrange</graphicPath>
 	</graphicData>
+	<aptitudes>
+	  <Intellectual>1</Intellectual>
+	  <Social>1</Social>
+	</aptitudes>
 	<statOffsets>
 	  <HemogenGainFactor>0.5</HemogenGainFactor>
 	</statOffsets>

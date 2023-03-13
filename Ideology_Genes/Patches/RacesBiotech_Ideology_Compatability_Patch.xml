@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<!-- ============================================================ -->
+
+	<!-- <Operation Class="PatchOperationFindMod"> -->
+		<!-- <mods> -->
+			<!-- <li>Ideology</li> -->
+		<!-- </mods> -->
+		<!-- <match Class="PatchOperationRemove"> -->
+			<!-- <xpath>/Defs/ThoughtDef[defName="WVC_PawnMechanoidization_Social"]</xpath> -->
+			<!-- <success>Always</success> -->
+		<!-- </match> -->
+	<!-- </Operation> -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/MemeDef[defName="Transhumanist"]/requireOne</xpath>
+		<!-- <success>Always</success> -->
+		<value>
+		  <li>
+			<li>WVC_Mechaskinned_Acceptable</li>
+			<li>WVC_Mechaskinned_Preferred</li>
+		  </li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/MemeDef[defName="FleshPurity"]/requireOne</xpath>
+		<!-- <success>Always</success> -->
+		<value>
+		  <li>
+			<li>WVC_Mechaskinned_Horrible</li>
+			<li>WVC_Mechaskinned_Disapproved</li>
+		  </li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Ideology Expanded - Memes and Structures</li>
+		</mods>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/MemeDef[defName="VME_MechanoidSupremacy"]/requireOne</xpath>
+			<value>
+			  <li>
+				<li>WVC_Mechaskinned_Preferred</li>
+				<li>WVC_Mechaskinned_Exalted</li>
+			  </li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

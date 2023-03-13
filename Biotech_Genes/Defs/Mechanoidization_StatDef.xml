@@ -4,15 +4,7 @@
   <StatDef>
 	<defName>WVC_PawnMechanoidization</defName>
 	<label>mechanoidization</label>
-	<description>Determines how far mechanoidization has gone. The higher the value, the worse the surroundings treat the owner of the mecha genes. This parameter also affects other parameters such as social impact, toxic resistance, lifespan, etc. high values can raise or lower these parameters.
-
-Values below 5 have no effect and the pawn is treated as a human. All values above will begin to have an effect, changing the parameters and lowering the opinion of others.
-
-Some traits and genes also have an impact on opinion, giving either an additional debuff or vice versa.
-
-For example: Transhumanists, body modders and mechanitors ignore mechanoidization.
-
-This parameter is affected only by genes.</description>
+	<description>Displays the exact level of current mechanoidization. This parameter completely depends on the number of archite capsules.</description>
 	<labelForFullStatList>genetic mechanoidization</labelForFullStatList>
 	<category>PawnSocial</category>
 	<defaultBaseValue>0</defaultBaseValue>
@@ -42,143 +34,59 @@ This parameter is affected only by genes.</description>
 	</parts>
   </StatDef>
 
+  <!-- Issue -->
+
+  <IssueDef>
+	<defName>WVC_Mechaskinned</defName>
+	<label>mechaskin</label>
+	<iconPath>WVC/UI/Precepts/Mechanoidization</iconPath>
+  </IssueDef>
+
+  <!-- Precepts -->
+
+  <PreceptDef>
+	<defName>WVC_Mechaskinned_Classic</defName>
+	<issue>WVC_Mechaskinned</issue>
+	<classic>true</classic>
+	<impact>Medium</impact>
+	<visible>false</visible>
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_PawnMechanoidization_Social</thought>
+	  </li>
+	</comps>
+  </PreceptDef>
+
   <ThoughtDef>
 	<defName>WVC_PawnMechanoidization_Social</defName>
 	<thoughtClass>Thought_SituationalSocial</thoughtClass>
-	<workerClass>WVC.ThoughtWorker_PawnMechanoidization_Social</workerClass>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
 	<validWhileDespawned>true</validWhileDespawned>
-	<!-- <nullifiedIfNotColonist>true</nullifiedIfNotColonist> -->
-	<minExpectation>VeryLow</minExpectation>
-	<!-- <replaceThoughts> -->
-	  <!-- <li>BodyPuristDisgust</li> -->
-	<!-- </replaceThoughts> -->
-	<!-- <requiredTraits> -->
-	  <!-- <li>Transhumanist</li> -->
-	<!-- </requiredTraits> -->
-	<!-- <requiredGenes> -->
-	  <!-- <li>WVC_MechaSkin</li> -->
-	<!-- </requiredGenes> -->
-	<!-- <nullifyingGenes> -->
-	  <!-- <li>WVC_MechaSkin</li> -->
-	<!-- </nullifyingGenes> -->
 	<nullifyingTraits>
 	  <li>Transhumanist</li>
-	  <li>Kind</li>
-	  <li>Ascetic</li>
-	  <li>TooSmart</li>
+	  <li>BodyPurist</li>
 	</nullifyingTraits>
-	<nullifyingHediffs>
-	  <li>MechlinkImplant</li>
-	</nullifyingHediffs>
-	<nullifyingPrecepts>
-	  <li MayRequire="Ludeon.RimWorld.Ideology">BodyMod_Approved</li>
-	  <li MayRequire="vanillaexpanded.vmemese">VME_Mechanoids_Exalted</li>
-	</nullifyingPrecepts>
-	<nullifyingGenes>
-	  <li>WVC_MechaSkin</li>
-	  <!-- = -->
-	  <li>WVC_NodeSkin_Blue</li>
-	  <li>WVC_NodeSkin_Red</li>
-	  <li>WVC_NodeSkin_Green</li>
-	  <li>WVC_NodeSkin_Violet</li>
-	  <li>WVC_NodeSkin_Yellow</li>
-	</nullifyingGenes>
-	<!-- All stages are named the same, due to the fact that mech pawns may dislike less human brethren than themselves. -->
-	<!-- Все этапы называются одинаково, по причине того что меха-пешки могут испытывать неприязень к менее человечным собратьям чем они сами. -->
+	<!-- <nullifyingHediffs> -->
+	  <!-- <li>MechlinkImplant</li> -->
+	<!-- </nullifyingHediffs> -->
+	<!-- <nullifyingPrecepts> -->
+	  <!-- <li MayRequire="Ludeon.RimWorld.Ideology">BodyMod_Approved</li> -->
+	  <!-- <li MayRequire="vanillaexpanded.vmemese">VME_Mechanoids_Exalted</li> -->
+	<!-- </nullifyingPrecepts> -->
+	<!-- <nullifyingGenes> -->
+	  <!-- <li>WVC_MechaSkin</li> -->
+	  <!-- <li>WVC_NodeSkin_Blue</li> -->
+	  <!-- <li>WVC_NodeSkin_Red</li> -->
+	  <!-- <li>WVC_NodeSkin_Green</li> -->
+	  <!-- <li>WVC_NodeSkin_Violet</li> -->
+	  <!-- <li>WVC_NodeSkin_Yellow</li> -->
+	<!-- </nullifyingGenes> -->
 	<stages>
-	  <!-- 5% -->
 	  <li>
-		<label>mechanoid-like</label>
-		<baseOpinionOffset>-2</baseOpinionOffset>
-	  </li>
-	  <!-- 10% -->
-	  <li>
-		<label>mechanoid-like</label>
-		<baseOpinionOffset>-5</baseOpinionOffset>
-	  </li>
-	  <!-- 20% -->
-	  <li>
-		<label>mechanoid-like</label>
-		<baseOpinionOffset>-7</baseOpinionOffset>
-	  </li>
-	  <!-- 30% -->
-	  <li>
-		<label>mechanoid-like</label>
-		<baseOpinionOffset>-11</baseOpinionOffset>
-	  </li>
-	  <!-- 40% -->
-	  <li>
-		<label>mechanoid-like</label>
-		<baseOpinionOffset>-15</baseOpinionOffset>
-	  </li>
-	  <!-- 50% -->
-	  <li>
-		<label>mechanoid-like</label>
-		<baseOpinionOffset>-19</baseOpinionOffset>
-	  </li>
-	  <!-- 60% -->
-	  <li>
-		<label>mechanoid-like</label>
-		<baseOpinionOffset>-27</baseOpinionOffset>
-	  </li>
-	  <!-- 70% -->
-	  <li>
-		<label>mechanoid-like</label>
-		<baseOpinionOffset>-44</baseOpinionOffset>
-	  </li>
-	  <!-- 80% -->
-	  <li>
-		<label>mechanoid-like</label>
-		<baseOpinionOffset>-66</baseOpinionOffset>
-	  </li>
-	  <!-- 90% -->
-	  <li>
-		<label>mechanoid-like</label>
-		<baseOpinionOffset>-100</baseOpinionOffset>
+		<label>mechaskinned</label>
+		<baseOpinionOffset>-20</baseOpinionOffset>
 	  </li>
 	</stages>
   </ThoughtDef>
-
-  <!-- hidden -->
-  <!-- <ThoughtDef> -->
-	<!-- <defName>WVC_PawnMechanoidization_Mood</defName> -->
-	<!-- <workerClass>WVC.ThoughtWorker_PawnMechanoidization_Mood</workerClass> -->
-	<!-- <validWhileDespawned>true</validWhileDespawned> -->
-	<!-- <requiredGenes> -->
-	  <!-- <li>WVC_MechaAI_Base</li> -->
-	<!-- </requiredGenes> -->
-	<!-- <stages> -->
-	  <!-- <li> -->
-		<!-- <label>mechanoidization</label> -->
-		<!-- <description>Emotions become less.</description> -->
-		<!-- <visible>false</visible> -->
-		<!-- <baseMoodEffect>2</baseMoodEffect> -->
-	  <!-- </li> -->
-	  <!-- <li> -->
-		<!-- <label>mechanoidization</label> -->
-		<!-- <description>Emotions become less.</description> -->
-		<!-- <visible>false</visible> -->
-		<!-- <baseMoodEffect>4</baseMoodEffect> -->
-	  <!-- </li> -->
-	  <!-- <li> -->
-		<!-- <label>mechanoidization</label> -->
-		<!-- <description>Emotions become less.</description> -->
-		<!-- <visible>false</visible> -->
-		<!-- <baseMoodEffect>6</baseMoodEffect> -->
-	  <!-- </li> -->
-	  <!-- <li> -->
-		<!-- <label>mechanoidization</label> -->
-		<!-- <description>Emotions become less.</description> -->
-		<!-- <visible>false</visible> -->
-		<!-- <baseMoodEffect>8</baseMoodEffect> -->
-	  <!-- </li> -->
-	  <!-- <li> -->
-		<!-- <label>mechanoidization</label> -->
-		<!-- <description>Emotions become less.</description> -->
-		<!-- <visible>false</visible> -->
-		<!-- <baseMoodEffect>10</baseMoodEffect> -->
-	  <!-- </li> -->
-	<!-- </stages> -->
-  <!-- </ThoughtDef> -->
 
 </Defs>

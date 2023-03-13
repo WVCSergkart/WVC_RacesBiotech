@@ -19,17 +19,17 @@
 	  <li>
 		<!-- <label>perfect being</label> -->
 		<label>body modder vs mechaskin</label>
-		<baseOpinionOffset>10</baseOpinionOffset>
+		<baseOpinionOffset>20</baseOpinionOffset>
 	  </li>
 	  <li>
 		<!-- <label>same as me</label> -->
 		<label>mechaskin modder vs mechaskin</label>
-		<baseOpinionOffset>20</baseOpinionOffset>
+		<baseOpinionOffset>5</baseOpinionOffset>
 	  </li>
 	  <li>
 		<!-- <label>disgusting creature</label> -->
 		<label>body purist vs mechaskin</label>
-		<baseOpinionOffset>-10</baseOpinionOffset>
+		<baseOpinionOffset>-50</baseOpinionOffset>
 	  </li>
 	</stages>
   </ThoughtDef>
