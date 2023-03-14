@@ -14,6 +14,7 @@
 	<displayOrderInImpact>100</displayOrderInImpact>
 	<!-- <defaultSelectionWeight>1</defaultSelectionWeight> -->
 	<conflictingMemes>
+	  <li>WVC_Mechaskinist</li>
 	  <li>Transhumanist</li>
 	</conflictingMemes>
 	<associatedMemes>
@@ -44,6 +45,9 @@
 	<!-- <associatedMemes> -->
 	  <!-- <li>FleshPurity</li> -->
 	<!-- </associatedMemes> -->
+	<conflictingMemes>
+	  <li>WVC_Mechaskinist</li>
+	</conflictingMemes>
 	<comps>
 	  <li Class="PreceptComp_SituationalThought">
 		<thought>WVC_PawnIsMechaskinned_Disapproved_Social</thought>
@@ -69,6 +73,7 @@
 	</conflictingMemes>
 	<associatedMemes>
 	  <li>Transhumanist</li>
+	  <li>WVC_Mechaskinist</li>
 	</associatedMemes>
 	<!-- <statFactors> -->
 	  <!-- <CertaintyLossFactor>0.4</CertaintyLossFactor> -->
@@ -90,6 +95,7 @@
 	</conflictingMemes>
 	<associatedMemes>
 	  <li>Transhumanist</li>
+	  <li>WVC_Mechaskinist</li>
 	</associatedMemes>
 	<comps>
 	  <li Class="PreceptComp_SituationalThought">
@@ -114,6 +120,7 @@
 	</conflictingMemes>
 	<associatedMemes>
 	  <li>VME_MechanoidSupremacy</li>
+	  <li>WVC_Mechaskinist</li>
 	</associatedMemes>
 	<requiredMemes>
 	  <li>VME_MechanoidSupremacy</li>
