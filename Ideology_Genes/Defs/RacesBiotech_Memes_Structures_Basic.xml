@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- ================================================================ -->
+
+	<MemeDef MayRequire="wvc.sergkart.core">
+		<defName>WVC_Structure_Hybridism</defName>
+		<label>hybridism</label>
+		<description>There is no place in the world for a separation between organic and mechanical life. The true manifestation of great purpose is to be great in both.</description>
+		<!-- <exclusionTags> -->
+		<!-- </exclusionTags> -->
+		<category>Structure</category>
+		<iconPath>WVC/Icons/Faction</iconPath>
+		<impact>0</impact>
+		<randomizationSelectionWeightFactor>0.1</randomizationSelectionWeightFactor>
+		<deityCount>0</deityCount>
+		<generalRules>
+			<rulesStrings>
+				<li>memeAdjective->archic</li>
+				<li>memeAdjective->archotechnic</li>
+				<li>memeAdjective->archonic</li>
+				<li>memeHyphenPrefix->nod</li>
+				<li>memeHyphenPrefix->node</li>
+				<li>memeHyphenPrefix->archo</li>
+				<li>memeHyphenPrefix->arch</li>
+				<li>memeLeaderNoun->xenist</li>
+				<li>memeLeaderNoun->nodist</li>
+				<li>memeLeaderNoun->hybridist</li>
+				<li>memeLeaderNoun->archist</li>
+				<li>memeLeaderNoun->archotechnist</li>
+				<li>memeLeaderAdjective->archic</li>
+				<li>memeLeaderAdjective->exochrome</li>
+				<li>memeLeaderAdjective->mainframe</li>
+				<li>memeLeaderAdjective->heart</li>
+				<li>memeMoralist->priest</li>
+				<li>memeMoralist->cleric</li>
+				<li>memeMoralist->rector</li>
+				<li>memeMoralist->abbot</li>
+				<li>memeMoralist->matrix</li>
+				<li>memeMoralist->node</li>
+			</rulesStrings>
+		</generalRules>
+		<descriptionMaker>
+		  <patterns>
+			<li><def>ArchistDescription</def></li>
+		  </patterns>
+		  <constants>
+			<li><key>structure_archist</key><value>true</value></li>
+		  </constants>
+		</descriptionMaker>
+		<worshipRoomLabel>base</worshipRoomLabel>
+		<symbolPacks>
+		  <!-- <li> -->
+			<!-- <ideoName>Archotechnics</ideoName> -->
+			<!-- <theme>archotechnology</theme> -->
+			<!-- <adjective>archotechnic</adjective> -->
+			<!-- <member>archotechnist</member> -->
+		  <!-- </li> -->
+		  <li>
+			<ideoName>Archism</ideoName>
+			<theme>archism</theme>
+			<adjective>archist</adjective>
+			<member>archist</member>
+		  </li>
+		  <li>
+			<ideoName>Hybridism</ideoName>
+			<theme>hybridism</theme>
+			<adjective>hybridist</adjective>
+			<member>hybridist</member>
+		  </li>
+		  <li>
+			<ideoName>Nodism</ideoName>
+			<theme>nodism</theme>
+			<adjective>nodist</adjective>
+			<member>nodist</member>
+		  </li>
+		  <li>
+			<ideoName>Xenism</ideoName>
+			<theme>xenism</theme>
+			<adjective>xenist</adjective>
+			<member>xenist</member>
+		  </li>
+		  <li>
+			<ideoName>Foreverism</ideoName>
+			<theme>foreverism</theme>
+			<adjective>foreverist</adjective>
+			<member>foreverist</member>
+		  </li>
+		</symbolPacks>
+		<!-- <requireOne> -->
+			<!-- <li> -->
+				<!-- <li>WVC_Apostasy_Never</li> -->
+			<!-- </li> -->
+			<!-- <li MayRequire="erdelf.humanoidalienraces"> -->
+				<!-- <li>HAR_AlienRaces_Respected</li> -->
+			<!-- </li> -->
+			<!-- <li MayRequire="erdelf.humanoidalienraces"> -->
+				<!-- <li>HAR_AlienDating_Preferred</li> -->
+			<!-- </li> -->
+			<!-- <li> -->
+				<!-- <li>Lovin_FreeApproved</li> -->
+			<!-- </li> -->
+			<!-- <li> -->
+				<!-- <li>Proselytizing_Frequently</li> -->
+				<!-- <li MayRequire="vanillaexpanded.vmemese">VME_Proselytizing_Forceful</li> -->
+			<!-- </li> -->
+			<!-- <li> -->
+				<!-- <li>SpouseCount_Female_Unlimited</li> -->
+			<!-- </li> -->
+			<!-- <li> -->
+				<!-- <li>SpouseCount_Male_Unlimited</li> -->
+			<!-- </li> -->
+			<!-- <li> -->
+				<!-- <li>Nudity_Female_NoRules</li> -->
+			<!-- </li> -->
+			<!-- <li> -->
+				<!-- <li>Nudity_Male_NoRules</li> -->
+			<!-- </li> -->
+			<!-- <li MayRequire="vanillaexpanded.vmemese"> -->
+				<!-- <li>VME_TatteredApparel_DontCare</li> -->
+			<!-- </li> -->
+			<!-- <li MayRequire="vanillaexpanded.vmemese"> -->
+				<!-- <li>VME_TaintedApparel_DontCare</li> -->
+			<!-- </li> -->
+		<!-- </requireOne> -->
+	</MemeDef>
+
+	<MemeDef>
+		<defName>WVC_Mechaskinist</defName>
+		<label>mechaskinist</label>
+		<description>There is no place in the world for a separation between organic and mechanical life. The true manifestation of great purpose is to be great in both.</description>
+		<iconPath>WVC/UI/Precepts/Memes_Hybridism</iconPath>
+		<groupDef>Misc</groupDef>
+		<impact>1</impact>
+		<!-- <exclusionTags> -->
+		  <!-- <li>FleshAugmentation</li> -->
+		<!-- </exclusionTags> -->
+		<generalRules>
+		  <rulesStrings>
+			<li>memeAdjective->technological</li>
+			<li>memeAdjective->machine</li>
+			<li>memeAdjective->industrial</li>
+			<li>memeCreed->school</li>
+			<li>memeCreed->academy</li>
+			<li>memeCreed->university</li>
+			<li>memeCreed->philosophy</li>
+			<li>memeHyphenPrefix->techno</li>
+			<li>memeHyphenPrefix->cyber</li>
+			<li>memeHyphenPrefix->haxor</li>
+			<li>memeHyphenPrefix->wire</li>
+			<li>memeConcept->technology</li>
+			<li>memeConcept->silicon</li>
+			<li>memeConcept->artifice</li>
+			<li>memeConcept->augmentation</li>
+			<li>memeConcept->enhancement</li>
+			<li>memeLeaderNoun->haxor</li>
+			<li>memeLeaderNoun->superuser</li>
+			<li>memeLeaderNoun->booster</li>
+			<li>memeLeaderNoun->nodist</li>
+			<li>memeLeaderNoun->hybridist</li>
+			<li>memeLeaderAdjective->techno</li>
+			<li>memeLeaderAdjective->cyber</li>
+			<li>memeMoralist->installer</li>
+			<li>memeMoralist->fixer</li>
+			<li>memeMoralist->uplifter</li>
+			<li>memeMoralist->technologist</li>
+		  </rulesStrings>
+		</generalRules>
+		<descriptionMaker>
+		  <rules>
+			<rulesStrings>
+			  <!-- theist myth -->
+			  <li>creation(tag=meme_Transhumanist)        ->[deity0_name] granted us the knowledge of technology, that we may use it to improve and remake ourselves in [deity0_possessive] perfect image.</li>
+			  <li>episode(uses=1,tag=meme_Transhumanist)  ->Human bio-engineers studied the works of [deity0_name], which pleased [deity0_objective].</li>
+			  <!-- theist founder -->
+			  <li>intro(tag=meme_Transhumanist)           ->On the [place_summary] [place_name], the [memberNamePlural] found the words of [deity0_name] whispering to them through their machines.</li>
+			  <li>conflict(tag=meme_Transhumanist)        ->A luddite [foeLeader] envied the enhanced progress of the [memberNamePlural], and [foeLeader_possessive] [foeSoldiers] destroyed their workshops with [place_personalWeapon]s.</li>
+			  <li>founderJoin(tag=meme_Transhumanist)     ->A cunning [place_job] named [founderName] fashioned a sensor implant to warn the [memberNamePlural] of the approach of the [foeSoldiers].</li>
+			  <li>victory(tag=meme_Transhumanist)         ->[founderName] received divine technological knowledge from [deity0_name], and used it to enhance the bodies and minds of the [memberNamePlural] so they could defeat the [foeSoldiers].</li>
+			  <!-- ideological founder -->
+			  <li>setup(tag=meme_Transhumanist)           ->[founderName] was a bio-scientist in the early days of human planetary colonization. Seeing the bureaucratic restrictions of the common colonies, [founder_pronoun] took a small ship to found [founder_possessive] own movement.</li>
+			  <li>story(uses=1,tag=meme_Transhumanist)    ->[founderName] assembled a team of great scientists and inventors to re-define humanity.</li>
+			  <!-- ideological lesson -->
+			  <li>lessonIntro(tag=meme_Transhumanist)         ->The oldest researcher in my division taught me the history of technology, from neolithic to archotech, but this was not his true lesson. He was really leading me to understand that</li>
+			  <li>lesson(tag=meme_Transhumanist)              ->humanity's heavenly future is not a thing of meat and bone, but of silicon and exochrome</li>
+			  <li>lessonReinforcement(tag=meme_Transhumanist) ->I even programmed a simulation to confirm it.</li>
+			  <!-- archist -->
+			  <li>archistBasis(tag=meme_Transhumanist)    ->Humanity's pursuit of technology gave birth to the all-powerful archotechs as the rightful next step in the development of consciousness.</li>
+			  <li>archistFact(tag=meme_Transhumanist)     ->Technology allows humans to be more like the archotechs.</li>
+			  <li>archistProphecy(tag=meme_Transhumanist) ->[inTheEnd], the archotechs will depart. Only those who are sufficiently augmented will be allowed to go with them.</li>
+			  <!-- animist -->
+			  <li>animistBasis(tag=meme_Transhumanist)    ->The spirit world drives every action in the universe, and it is only by learning and controlling the laws of the universe that we can integrate with it.</li>
+			  <li>animistFact(tag=meme_Transhumanist)     ->Like seeks like - build a device for a purpose and it will filled with a spirit of a like nature.</li>
+			  <li>animistFact(tag=meme_Transhumanist)     ->When technology is fused with flesh, the spirits of both are combined and become more powerful.</li>
+			  <li>animistProphecy(tag=meme_Transhumanist) ->[itIsSaid] that one day the wielder of the [relic0_name] will summon its spirit who will teach humanity the ultimate bio-fusion technology.</li>
+			</rulesStrings>
+		  </rules>
+		</descriptionMaker>
+		<symbolPacks>
+		  <li>
+			<ideoName>Mechanoidism</ideoName>
+			<theme>mechanoidism</theme>
+			<adjective>mechanoidist</adjective>
+			<member>mechanoidist</member>
+		  </li>
+		  <li>
+			<ideoName>Hybridism</ideoName>
+			<theme>hybridism</theme>
+			<adjective>hybridist</adjective>
+			<member>hybridist</member>
+		  </li>
+		  <li>
+			<ideoName>Nodism</ideoName>
+			<theme>nodism</theme>
+			<adjective>nodist</adjective>
+			<member>nodist</member>
+		  </li>
+		  <li>
+			<ideoName>Xenism</ideoName>
+			<theme>xenism</theme>
+			<adjective>xenist</adjective>
+			<member>xenist</member>
+		  </li>
+		</symbolPacks>
+		<preferredWeaponClasses>
+		  <noble>Ultratech</noble>
+		  <despised>Neolithic</despised>
+		</preferredWeaponClasses>
+		<requireOne>
+		  <li>
+			<li>WVC_Mechaskinned_Acceptable</li>
+			<li>WVC_Mechaskinned_Preferred</li>
+			<li MayRequire="vanillaexpanded.vmemese">WVC_Mechaskinned_Exalted</li>
+		  </li>
+		  <li>
+			<li>WVC_MechanoidLabor_Light</li>
+			<li>MechanoidLabor_Enhanced</li>
+			<li>WVC_MechanoidLabor_Extreme</li>
+		  </li>
+		  <!-- <li> -->
+			<!-- <li MayRequire="Ludeon.RimWorld.Ideology">OrganUse_Acceptable</li> -->
+		  <!-- </li> -->
+		</requireOne>
+		<styleItemTags>
+		  <li>
+			<tag>NoBeard</tag>
+			<weightFactor>2</weightFactor>
+		  </li>
+		</styleItemTags>
+		<thingStyleCategories>
+		  <li>
+			<category>Techist</category>
+			<priority>4</priority>
+		  </li>
+		</thingStyleCategories>
+		<agreeableTraits>
+		  <li>Transhumanist</li>
+		</agreeableTraits>
+		<disagreeableTraits>
+		  <li>BodyPurist</li>
+		</disagreeableTraits>
+	</MemeDef>
+
+</Defs>

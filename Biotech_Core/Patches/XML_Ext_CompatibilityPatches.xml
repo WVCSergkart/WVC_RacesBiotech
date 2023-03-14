@@ -252,4 +252,26 @@
 		<!-- </caseTrue> -->
 	<!-- </Operation> -->
 
+	<Operation Class="XmlExtensions.FindMod">
+		<mods>
+			<li>ludeon.rimworld.ideology</li>
+		</mods>
+		<packageId>true</packageId>
+		<logic>and</logic>
+		<caseTrue>
+
+			<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+			  <xpath>/Defs/PreceptDef[defName="MechanoidLabor_Enhanced"]</xpath>
+			  <success>Always</success>
+			  <safetyDepth>1</safetyDepth>
+			  <value>
+				<associatedMemes>
+				  <li>WVC_Mechaskinist</li>
+				</associatedMemes>
+			  </value>
+			</Operation>
+
+		</caseTrue>
+	</Operation>
+
 </Patch>

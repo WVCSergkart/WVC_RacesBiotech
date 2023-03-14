@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Precepts -->
+
+  <PreceptDef>
+	<defName>WVC_MechanoidLabor_Light</defName>
+	<issue>MechanoidLabor</issue>
+	<label>light</label>
+	<description>The mechanoids are quite useful, we could put some work on them.</description>
+	<impact>Low</impact>
+	<associatedMemes>
+	  <li>WVC_Mechaskinist</li>
+	</associatedMemes>
+	<!-- <requiredMemes> -->
+	  <!-- <li>WVC_Mechaskinist</li> -->
+	<!-- </requiredMemes> -->
+	<statOffsets>
+	  <WorkSpeedGlobalOffsetMech>0.1</WorkSpeedGlobalOffsetMech>
+	  <!-- <WorkSpeedGlobal>-0.2</WorkSpeedGlobal> -->
+	</statOffsets>
+  </PreceptDef>
+
+  <PreceptDef>
+	<defName>WVC_MechanoidLabor_Extreme</defName>
+	<issue>MechanoidLabor</issue>
+	<label>extreme</label>
+	<description>Mechanoids can do anything, so why should we work?</description>
+	<impact>High</impact>
+	<associatedMemes>
+	  <li>WVC_Mechaskinist</li>
+	</associatedMemes>
+	<!-- <requiredMemes> -->
+	  <!-- <li>WVC_Mechaskinist</li> -->
+	<!-- </requiredMemes> -->
+	<!-- <statOffsets> -->
+	  <!-- <WorkSpeedGlobalOffsetMech>1.0</WorkSpeedGlobalOffsetMech> -->
+	  <!-- <WorkSpeedGlobal>-0.5</WorkSpeedGlobal> -->
+	<!-- </statOffsets> -->
+	<statFactors>
+	  <WorkSpeedGlobalOffsetMech>2.0</WorkSpeedGlobalOffsetMech>
+	  <WorkSpeedGlobal>0.5</WorkSpeedGlobal>
+	</statFactors>
+  </PreceptDef>
+
+</Defs>

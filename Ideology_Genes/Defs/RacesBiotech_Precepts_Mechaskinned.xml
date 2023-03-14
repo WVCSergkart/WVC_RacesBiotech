@@ -81,7 +81,8 @@
 	<label>preferred</label>
 	<description>A being that combines a mechanoid and a human is a priori perfect.</description>
 	<!-- <impact>High</impact> -->
-	<impact>Low</impact>
+	<!-- <impact>Low</impact> -->
+	<impact>Medium</impact>
 	<displayOrderInIssue>10</displayOrderInIssue>
 	<displayOrderInImpact>100</displayOrderInImpact>
 	<conflictingMemes>
