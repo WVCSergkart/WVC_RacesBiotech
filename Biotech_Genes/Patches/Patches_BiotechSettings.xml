@@ -109,16 +109,16 @@
 		<!-- </caseFalse> -->
 	</Operation>
 
-	<Operation Class="WVC.PatchOperationOptional">
-		<settingName>mecaXenotypeIsInheritable</settingName>
-		<caseTrue Class="PatchOperationReplace">
-			<xpath>/Defs/XenotypeDef[defName="WVC_Meca"]/inheritable</xpath>
-			<success>Always</success>
-			<value>
-				<inheritable>true</inheritable>
-			</value>
-		</caseTrue>
-	</Operation>
+	<!-- <Operation Class="WVC.PatchOperationOptional"> -->
+		<!-- <settingName>mecaXenotypeIsInheritable</settingName> -->
+		<!-- <caseTrue Class="PatchOperationReplace"> -->
+			<!-- <xpath>/Defs/XenotypeDef[defName="WVC_Meca"]/inheritable</xpath> -->
+			<!-- <success>Always</success> -->
+			<!-- <value> -->
+				<!-- <inheritable>true</inheritable> -->
+			<!-- </value> -->
+		<!-- </caseTrue> -->
+	<!-- </Operation> -->
 
 
 </Patch>
