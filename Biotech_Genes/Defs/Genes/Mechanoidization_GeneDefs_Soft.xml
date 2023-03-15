@@ -35,9 +35,9 @@
 	<label>fine motor optimization</label>
 	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath>
 	<iconColor>(255, 148, 127)</iconColor>
-	<customEffectDescriptions>
-		<li>&lt;color=#b8c6ff&gt;Increases the chance of arrest.&lt;/color&gt;</li>
-	</customEffectDescriptions>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>&lt;color=#b8c6ff&gt;Increases the chance of arrest.&lt;/color&gt;</li> -->
+	<!-- </customEffectDescriptions> -->
 	<capMods>
 	  <li>
 		<capacity>Manipulation</capacity>
@@ -47,11 +47,11 @@
 	<exclusionTags>
 	  <li>WVC_MechaAI_SoftwareManipulation</li>
 	</exclusionTags>
-	<modExtensions Inherit="False">
-		<li Class="WVC.GeneExtension">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions Inherit="False"> -->
+		<!-- <li Class="WVC.GeneExtension"> -->
+			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
@@ -74,17 +74,17 @@
 	<defName>WVC_MecaBodyParts_Arm</defName>
 	<label>fight program</label>
 	<iconColor>(255, 200, 130)</iconColor>
-	<customEffectDescriptions>
-		<li>&lt;color=#b8c6ff&gt;Increases the chance of arrest.&lt;/color&gt;</li>
-	</customEffectDescriptions>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>&lt;color=#b8c6ff&gt;Increases the chance of arrest.&lt;/color&gt;</li> -->
+	<!-- </customEffectDescriptions> -->
 	<statOffsets>
 	  <MeleeDamageFactor>0.15</MeleeDamageFactor>
 	</statOffsets>
-	<modExtensions Inherit="False">
-		<li Class="WVC.GeneExtension">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions Inherit="False"> -->
+		<!-- <li Class="WVC.GeneExtension"> -->
+			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
@@ -225,7 +225,7 @@
 	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath>
 	<iconColor>(230, 255, 150)</iconColor>
 	<customEffectDescriptions>
-		<li>&lt;color=#b8c6ff&gt;Reduces trade price improvement and bond chance.&lt;/color&gt;</li>
+		<!-- <li>&lt;color=#b8c6ff&gt;Reduces trade price improvement and bond chance.&lt;/color&gt;</li> -->
 		<li>Ancient mechanoids do not attack a pawn, even if a pawn attacks them.</li>
 	</customEffectDescriptions>
 	<forcedTraits>
@@ -233,11 +233,11 @@
 		<def>WVC_RB_FriendOrFoeTrait</def>
 	  </li>
 	</forcedTraits>
-	<modExtensions Inherit="False">
-		<li Class="WVC.GeneExtension">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions Inherit="False"> -->
+		<!-- <li Class="WVC.GeneExtension"> -->
+			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
@@ -249,18 +249,19 @@
 	<biostatArc>5</biostatArc>
 	<statFactors>
 	  <TradePriceImprovement>0.2</TradePriceImprovement>
+	  <BondAnimalChanceFactor>0.0</BondAnimalChanceFactor>
 	</statFactors>
 	<customEffectDescriptions>
-		<li>&lt;color=#b8c6ff&gt;Reduces trade price improvement and bond chance.&lt;/color&gt;</li>
+		<!-- <li>&lt;color=#b8c6ff&gt;Reduces trade price improvement and bond chance.&lt;/color&gt;</li> -->
 		<li>Increases the opinion of pawns with the same gene by 20.</li>
 		<li>The opinion of all pawns that do not have the mechaskin gene is reduced by 500.</li>
 		<!-- <li>Ancient mechanoids do not attack a pawn, even if a pawn attacks them.</li> -->
 	</customEffectDescriptions>
-	<modExtensions Inherit="False">
-		<li Class="WVC.GeneExtension">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions Inherit="False"> -->
+		<!-- <li Class="WVC.GeneExtension"> -->
+			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
 </Defs>

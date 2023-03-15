@@ -145,9 +145,9 @@
 	<label>immunostabilizer</label>
 	<description>Archites in the carrier's blood significantly enhance immunity.</description>
 	<biostatMet>-5</biostatMet>
-	<biostatArc>3</biostatArc>
+	<biostatArc>1</biostatArc>
 	<customEffectDescriptions>
-		<li>&lt;color=#b8c6ff&gt;Increases toxic resistance.&lt;/color&gt;</li>
+		<!-- <li>&lt;color=#b8c6ff&gt;Increases toxic resistance.&lt;/color&gt;</li> -->
 		<li>Completely stops the progression of diseases.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
@@ -155,16 +155,16 @@
 	  <li>WVC_DiseaseProgression</li>
 	</exclusionTags>
 	<statOffsets>
-	  <!-- <WVC_PawnMechanoidization>3</WVC_PawnMechanoidization> -->
+	  <ToxicResistance>0.5</ToxicResistance>
 	  <ImmunityGainSpeed>1</ImmunityGainSpeed>
 	</statOffsets>
-	<modExtensions Inherit="False">
+	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<diseaseProgressionFactor>0</diseaseProgressionFactor>
 		</li>
-		<li Class="WVC.GeneExtension">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite>
-		</li>
+		<!-- <li Class="WVC.GeneExtension"> -->
+			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite> -->
+		<!-- </li> -->
 	</modExtensions>
   </GeneDef>
 
@@ -173,20 +173,21 @@
 	<label>mechanite clusters</label>
 	<description>Archites create mechanite clusters, slightly increasing regeneration.</description>
 	<biostatMet>-1</biostatMet>
-	<customEffectDescriptions>
-		<li>&lt;color=#b8c6ff&gt;Increases toxic resistance.&lt;/color&gt;</li>
-	</customEffectDescriptions>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>&lt;color=#b8c6ff&gt;Increases toxic resistance.&lt;/color&gt;</li> -->
+	<!-- </customEffectDescriptions> -->
 	<!-- <makeImmuneTo> -->
 	  <!-- <li>MuscleParasites</li> -->
 	<!-- </makeImmuneTo> -->
 	<statOffsets>
+	  <ToxicResistance>0.25</ToxicResistance>
 	  <InjuryHealingFactor>1</InjuryHealingFactor>
 	</statOffsets>
-	<modExtensions Inherit="False">
-		<li Class="WVC.GeneExtension">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions Inherit="False"> -->
+		<!-- <li Class="WVC.GeneExtension"> -->
+			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
@@ -195,20 +196,21 @@
 	<description>Archites significantly enhance the temperature adaptability of the carrier.</description>
 	<biostatMet>-2</biostatMet>
 	<biostatArc>2</biostatArc>
-	<customEffectDescriptions>
-		<li>&lt;color=#b8c6ff&gt;Increases toxic resistance.&lt;/color&gt;</li>
-	</customEffectDescriptions>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>&lt;color=#b8c6ff&gt;Increases toxic resistance.&lt;/color&gt;</li> -->
+	<!-- </customEffectDescriptions> -->
 	<statOffsets>
+	  <ToxicResistance>0.25</ToxicResistance>
 	  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
 	  <ComfyTemperatureMax>25</ComfyTemperatureMax>
 	  <ComfyTemperatureMin>-25</ComfyTemperatureMin>
 	  <ArmorRating_Heat>0.10</ArmorRating_Heat>
 	</statOffsets>
-	<modExtensions Inherit="False">
-		<li Class="WVC.GeneExtension">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions Inherit="False"> -->
+		<!-- <li Class="WVC.GeneExtension"> -->
+			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">

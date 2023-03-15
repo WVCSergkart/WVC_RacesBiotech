@@ -17,7 +17,7 @@
 	<marketValueFactor>2</marketValueFactor>
 	<customEffectDescriptions>
 		<!-- <li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Reduces social impact and the chance of a nervous breakdown.</li> -->
-		<li>&lt;color=#b8c6ff&gt;Activates the mechanoidization effect. The effects of mechanoidization depend on genes and their combinations.&lt;/color&gt;</li>
+		<!-- <li>&lt;color=#b8c6ff&gt;Activates the mechanoidization effect. The effects of mechanoidization depend on genes and their combinations.&lt;/color&gt;</li> -->
 		<!-- <li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Activates the mechanoidization effect, the more archites used, the higher the mechanoidization.</li> -->
 	</customEffectDescriptions>
 	<forcedTraits>
