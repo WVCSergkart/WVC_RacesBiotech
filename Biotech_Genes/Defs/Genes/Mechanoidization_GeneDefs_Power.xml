@@ -108,7 +108,7 @@
 	<customEffectDescriptions>
 		<li>Grants an additional 5 metabolism points.</li>
 		<li>Spawns wastepacks every (*DateTime)2-5 days(/DateTime).</li>
-		<li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; The number of wastepacks depends on the level of mechanoidization.</li>
+		<li>&lt;color=#b8c6ff&gt;The number of wastepacks depends on the archites capsules.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>
@@ -121,9 +121,6 @@
 	  </suffixSymbols>
 	</symbolPack>
 	<modExtensions Inherit="False">
-		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
-			<!-- <hediffToWholeBody>WVC_MechaPowerSource_ToxProduction</hediffToWholeBody> -->
-		<!-- </li> -->
 		<li Class="WVC.GeneExtension">
 			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite>
 		</li>

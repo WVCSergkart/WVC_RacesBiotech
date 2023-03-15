@@ -19,4 +19,7 @@
 	<WVC_StatPart_Mechanoidization>Mechanoidization</WVC_StatPart_Mechanoidization>
 	<WVC_StatPart_ArchitesInBloodstream>Archites in bloodstream</WVC_StatPart_ArchitesInBloodstream>
 
+	<WVC_StatPart_GenesCombo_Cause>Mecha-genes</WVC_StatPart_GenesCombo_Cause>
+	<WVC_StatPart_GenesCombo_Static>Forced to</WVC_StatPart_GenesCombo_Static>
+
 </LanguageData>

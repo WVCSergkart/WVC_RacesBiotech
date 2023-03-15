@@ -1,38 +1,55 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <StatDef>
-	<defName>WVC_PawnMechanoidization</defName>
-	<label>mechanoidization</label>
-	<description>Displays the exact level of current mechanoidization. This parameter completely depends on the number of archite capsules.</description>
-	<labelForFullStatList>genetic mechanoidization</labelForFullStatList>
-	<category>PawnSocial</category>
-	<defaultBaseValue>0</defaultBaseValue>
-	<hideAtValue>0</hideAtValue>
-	<minValue>0</minValue>
-	<maxValue>100</maxValue>
-	<valueIfMissing>0</valueIfMissing>
-	<showOnAnimals>false</showOnAnimals>
-	<showOnMechanoids>false</showOnMechanoids>
-	<scenarioRandomizable>false</scenarioRandomizable>
-	<forInformationOnly>true</forInformationOnly>
-	<alwaysHide>false</alwaysHide>
-	<toStringStyle>Integer</toStringStyle>
-	<!-- <displayPriorityInCategory>-999</displayPriorityInCategory> -->
-	<displayPriorityInCategory>2000</displayPriorityInCategory>
-	<parts>
-	  <li Class="WVC.StatPart_Mechanoidization">
-		<invert>true</invert>
-		<invisible>true</invisible>
-		<curve>
-		  <points>
-			<li>(0, 0)</li>
-			<li>(100, 100)</li>
-		  </points>
-		</curve>
-	  </li>
-	</parts>
-  </StatDef>
+  <!-- <StatDef> -->
+	<!-- <defName>WVC_PawnMechanoidization</defName> -->
+	<!-- <label>mechanoidization</label> -->
+	<!-- <description>Displays the exact level of current mechanoidization. This parameter completely depends on the number of archite capsules.</description> -->
+	<!-- <labelForFullStatList>genetic mechanoidization</labelForFullStatList> -->
+	<!-- <category>PawnSocial</category> -->
+	<!-- <defaultBaseValue>0</defaultBaseValue> -->
+	<!-- <hideAtValue>0</hideAtValue> -->
+	<!-- <minValue>0</minValue> -->
+	<!-- <maxValue>100</maxValue> -->
+	<!-- <valueIfMissing>0</valueIfMissing> -->
+	<!-- <showOnAnimals>false</showOnAnimals> -->
+	<!-- <showOnMechanoids>false</showOnMechanoids> -->
+	<!-- <scenarioRandomizable>false</scenarioRandomizable> -->
+	<!-- <forInformationOnly>true</forInformationOnly> -->
+	<!-- <alwaysHide>false</alwaysHide> -->
+	<!-- <toStringStyle>Integer</toStringStyle> -->
+	<!-- <displayPriorityInCategory>2000</displayPriorityInCategory> -->
+	<!-- <parts> -->
+	  <!-- <li Class="WVC.StatPart_Mechanoidization"> -->
+		<!-- <invert>true</invert> -->
+		<!-- <invisible>true</invisible> -->
+		<!-- <curve> -->
+		  <!-- <points> -->
+			<!-- <li>(0, 0)</li> -->
+			<!-- <li>(100, 100)</li> -->
+		  <!-- </points> -->
+		<!-- </curve> -->
+	  <!-- </li> -->
+	<!-- </parts> -->
+  <!-- </StatDef> -->
+
+  <!-- <StatDef> -->
+	<!-- <defName>WVC_SkillsDecayFactor</defName> -->
+	<!-- <label>skills decay factor</label> -->
+	<!-- <description>Multiplies skill forgetting by this value.</description> -->
+	<!-- <defaultBaseValue>1</defaultBaseValue> -->
+	<!-- <hideAtValue>0</hideAtValue> -->
+	<!-- <minValue>0</minValue> -->
+	<!-- <maxValue>1</maxValue> -->
+	<!-- <valueIfMissing>0</valueIfMissing> -->
+	<!-- <showOnAnimals>false</showOnAnimals> -->
+	<!-- <showOnMechanoids>false</showOnMechanoids> -->
+	<!-- <scenarioRandomizable>false</scenarioRandomizable> -->
+	<!-- <forInformationOnly>true</forInformationOnly> -->
+	<!-- <alwaysHide>true</alwaysHide> -->
+	<!-- <toStringStyle>PercentZero</toStringStyle> -->
+	<!-- <displayPriorityInCategory>2000</displayPriorityInCategory> -->
+  <!-- </StatDef> -->
 
   <!-- Issue -->
 
@@ -62,10 +79,10 @@
 	<thoughtClass>Thought_SituationalSocial</thoughtClass>
 	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
 	<validWhileDespawned>true</validWhileDespawned>
-	<nullifyingTraits>
-	  <li>Transhumanist</li>
-	  <li>BodyPurist</li>
-	</nullifyingTraits>
+	<!-- <nullifyingTraits> -->
+	  <!-- <li>Transhumanist</li> -->
+	  <!-- <li>BodyPurist</li> -->
+	<!-- </nullifyingTraits> -->
 	<!-- <nullifyingHediffs> -->
 	  <!-- <li>MechlinkImplant</li> -->
 	<!-- </nullifyingHediffs> -->
@@ -85,6 +102,21 @@
 	  <li>
 		<label>mechaskinned</label>
 		<baseOpinionOffset>-20</baseOpinionOffset>
+	  </li>
+	  <li>
+		<!-- <label>perfect being</label> -->
+		<label>body modder vs mechaskin</label>
+		<baseOpinionOffset>20</baseOpinionOffset>
+	  </li>
+	  <li>
+		<!-- <label>same as me</label> -->
+		<label>mechaskin modder vs mechaskin</label>
+		<baseOpinionOffset>5</baseOpinionOffset>
+	  </li>
+	  <li>
+		<!-- <label>disgusting creature</label> -->
+		<label>body purist vs mechaskin</label>
+		<baseOpinionOffset>-50</baseOpinionOffset>
 	  </li>
 	</stages>
   </ThoughtDef>

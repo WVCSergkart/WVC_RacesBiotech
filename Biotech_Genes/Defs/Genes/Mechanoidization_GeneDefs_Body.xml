@@ -25,6 +25,10 @@ Most of the internal organs remain intact, but there are enough external changes
 	<missingGeneRomanceChanceFactor>0.5</missingGeneRomanceChanceFactor>
 	<minAgeActive>13</minAgeActive>
 	<customEffectDescriptions>
+		<!-- <li>Maximum comfortable temperature is always 250</li> -->
+		<!-- <li>Minimum comfortable temperature is always -100</li> -->
+		<li>&lt;color=#ff8585&gt;Maximum comfortable temperature is always 250&lt;/color&gt;</li>
+		<li>&lt;color=#ff8585&gt;Minimum comfortable temperature is always -100&lt;/color&gt;</li>
 		<!-- <li>&lt;color=#ff8585&gt;Mechanoidization:&lt;/color&gt; Disables negative emotions about mechanoidization and significantly worsens the opinion of others.</li> -->
 		<!-- <li>&lt;color=#ffe185&gt;Graphic elements can be disabled in the settings.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
@@ -35,10 +39,10 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <!-- <li>BeardStyle</li> -->
 	  <li>WVC_NodeBody</li>
 	</exclusionTags>
-	<statOffsets>
-	  <ComfyTemperatureMax>14</ComfyTemperatureMax>
-	  <ComfyTemperatureMin>-46</ComfyTemperatureMin>
-	</statOffsets>
+	<!-- <statOffsets> -->
+	  <!-- <ComfyTemperatureMax>14</ComfyTemperatureMax> -->
+	  <!-- <ComfyTemperatureMin>-46</ComfyTemperatureMin> -->
+	<!-- </statOffsets> -->
 	<makeImmuneTo>
 	  <li>MuscleParasites</li>
 	</makeImmuneTo>
@@ -74,14 +78,14 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <li>WVC_Male_AverageNormal</li>
 	  <li>WVC_Gaunt</li>
 	</forcedHeadTypes>
-	<statFactors>
-	</statFactors>
-	<statOffsets>
-	  <!-- <MoveSpeed>0.3</MoveSpeed> -->
-	  <!-- <ArmorRating_Blunt>0.15</ArmorRating_Blunt> -->
-	  <!-- <ArmorRating_Sharp>0.15</ArmorRating_Sharp> -->
-	  <!-- <ArmorRating_Heat>0.25</ArmorRating_Heat> -->
-	</statOffsets>
+	<!-- <statFactors> -->
+	  <!-- <MentalBreakThreshold>0.8</MentalBreakThreshold> -->
+	<!-- </statFactors> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>&lt;color=#ff8585&gt;Global learning factor is always 40%&lt;/color&gt;</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <statOffsets> -->
+	<!-- </statOffsets> -->
 	<graphicData>
 	  <fur>WVC_MechaSkin</fur>
 	  <tattoosVisible>true</tattoosVisible>

@@ -1,67 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThoughtDef>
-	<defName>WVC_MechaSkin_TranshumanistVSBodyPurist</defName>
-	<thoughtClass>Thought_SituationalSocial</thoughtClass>
-	<workerClass>WVC.ThoughtWorker_MechaSkin_TranshumanistVSBodyPurist</workerClass>
-	<validWhileDespawned>true</validWhileDespawned>
-	<!-- <requiredTraits> -->
-	  <!-- <li>Transhumanist</li> -->
-	<!-- </requiredTraits> -->
+  <!-- <ThoughtDef> -->
+	<!-- <defName>WVC_MechaSkin_FriendOrFoe</defName> -->
+	<!-- <thoughtClass>Thought_SituationalSocial</thoughtClass> -->
+	<!-- <workerClass>WVC.ThoughtWorker_MechaSkin_FriendOrFoe</workerClass> -->
+	<!-- <validWhileDespawned>true</validWhileDespawned> -->
 	<!-- <requiredGenes> -->
-	  <!-- <li>WVC_MechaSkin</li> -->
+	  <!-- <li>WVC_MechaAI_SoftwareFriendOrFoe</li> -->
 	<!-- </requiredGenes> -->
-	<!-- <nullifyingGenes> -->
-	  <!-- <li>WVC_MechaSkin</li> -->
-	<!-- </nullifyingGenes> -->
-	<stages>
-	  <li>
-		<!-- <label>perfect being</label> -->
-		<label>body modder vs mechaskin</label>
-		<baseOpinionOffset>20</baseOpinionOffset>
-	  </li>
-	  <li>
-		<!-- <label>same as me</label> -->
-		<label>mechaskin modder vs mechaskin</label>
-		<baseOpinionOffset>5</baseOpinionOffset>
-	  </li>
-	  <li>
-		<!-- <label>disgusting creature</label> -->
-		<label>body purist vs mechaskin</label>
-		<baseOpinionOffset>-50</baseOpinionOffset>
-	  </li>
-	</stages>
-  </ThoughtDef>
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <label>friend or foe</label> -->
+		<!-- <baseOpinionOffset>10</baseOpinionOffset> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+  <!-- </ThoughtDef> -->
+
+  <!-- <ThoughtDef> -->
+	<!-- <defName>WVC_MechaSkin_NaturalEnemy</defName> -->
+	<!-- <thoughtClass>Thought_SituationalSocial</thoughtClass> -->
+	<!-- <workerClass>WVC.ThoughtWorker_MechaSkin_NaturalEnemy</workerClass> -->
+	<!-- <validWhileDespawned>true</validWhileDespawned> -->
+	<!-- <requiredGenes> -->
+	  <!-- <li>WVC_MechaAI_SoftwareNaturalEnemy</li> -->
+	<!-- </requiredGenes> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <label>natural enemy</label> -->
+		<!-- <baseOpinionOffset>-100</baseOpinionOffset> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+  <!-- </ThoughtDef> -->
 
   <ThoughtDef>
-	<defName>WVC_MechaSkin_FriendOrFoe</defName>
+	<defName>WVC_MechaAI_MechaSensesFriendOrFoe</defName>
 	<thoughtClass>Thought_SituationalSocial</thoughtClass>
-	<workerClass>WVC.ThoughtWorker_MechaSkin_FriendOrFoe</workerClass>
-	<validWhileDespawned>true</validWhileDespawned>
-	<requiredGenes>
-	  <li>WVC_MechaAI_SoftwareFriendOrFoe</li>
-	</requiredGenes>
-	<stages>
-	  <li>
-		<label>friend or foe</label>
-		<baseOpinionOffset>10</baseOpinionOffset>
-	  </li>
-	</stages>
-  </ThoughtDef>
-
-  <ThoughtDef>
-	<defName>WVC_MechaSkin_NaturalEnemy</defName>
-	<thoughtClass>Thought_SituationalSocial</thoughtClass>
-	<workerClass>WVC.ThoughtWorker_MechaSkin_NaturalEnemy</workerClass>
+	<workerClass>WVC.ThoughtWorker_MechaSensesFriendOrFoe</workerClass>
 	<validWhileDespawned>true</validWhileDespawned>
 	<requiredGenes>
 	  <li>WVC_MechaAI_SoftwareNaturalEnemy</li>
 	</requiredGenes>
 	<stages>
 	  <li>
-		<label>natural enemy</label>
-		<baseOpinionOffset>-100</baseOpinionOffset>
+		<label>same as me</label>
+		<baseOpinionOffset>20</baseOpinionOffset>
+	  </li>
+	  <!-- <li> -->
+		<!-- <label>mechalike</label> -->
+		<!-- <baseOpinionOffset>2</baseOpinionOffset> -->
+	  <!-- </li> -->
+	  <li>
+		<label>leather bag</label>
+		<baseOpinionOffset>-500</baseOpinionOffset>
 	  </li>
 	</stages>
   </ThoughtDef>

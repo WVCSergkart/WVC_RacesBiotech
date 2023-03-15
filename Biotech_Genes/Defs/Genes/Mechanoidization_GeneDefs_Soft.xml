@@ -35,6 +35,9 @@
 	<label>fine motor optimization</label>
 	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath>
 	<iconColor>(255, 148, 127)</iconColor>
+	<customEffectDescriptions>
+		<li>&lt;color=#b8c6ff&gt;Increases the chance of arrest.&lt;/color&gt;</li>
+	</customEffectDescriptions>
 	<capMods>
 	  <li>
 		<capacity>Manipulation</capacity>
@@ -44,6 +47,11 @@
 	<exclusionTags>
 	  <li>WVC_MechaAI_SoftwareManipulation</li>
 	</exclusionTags>
+	<modExtensions Inherit="False">
+		<li Class="WVC.GeneExtension">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite>
+		</li>
+	</modExtensions>
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
@@ -63,37 +71,15 @@
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
-	<defName>WVC_MechaAI_SoftwareFriendOrFoe</defName>
-	<label>friend or foe</label>
-	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath>
-	<iconColor>(230, 255, 150)</iconColor>
-	<customEffectDescriptions>
-		<li>Ancient mechanoids do not attack a pawn, even if a pawn attacks them.</li>
-		<li>Increases the opinion of pawns with the same gene by 10.</li>
-	</customEffectDescriptions>
-	<forcedTraits>
-	  <li>
-		<def>WVC_RB_FriendOrFoeTrait</def>
-	  </li>
-	</forcedTraits>
-	<exclusionTags>
-	  <li>WVC_MechaAI_SoftwareFriendOrFoe</li>
-	</exclusionTags>
-  </GeneDef>
-  <!-- = -->
-  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MecaBodyParts_Arm</defName>
 	<label>fight program</label>
 	<iconColor>(255, 200, 130)</iconColor>
 	<customEffectDescriptions>
-		<li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Increases the chance of arrest.</li>
+		<li>&lt;color=#b8c6ff&gt;Increases the chance of arrest.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<statOffsets>
 	  <MeleeDamageFactor>0.15</MeleeDamageFactor>
 	</statOffsets>
-	<!-- <customEffectDescriptions> -->
-		<!-- <li>fff.</li> -->
-	<!-- </customEffectDescriptions> -->
 	<modExtensions Inherit="False">
 		<li Class="WVC.GeneExtension">
 			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite>
@@ -234,22 +220,42 @@
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+	<defName>WVC_MechaAI_SoftwareFriendOrFoe</defName>
+	<label>friend or foe</label>
+	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath>
+	<iconColor>(230, 255, 150)</iconColor>
+	<customEffectDescriptions>
+		<li>&lt;color=#b8c6ff&gt;Reduces trade price improvement and bond chance.&lt;/color&gt;</li>
+		<li>Ancient mechanoids do not attack a pawn, even if a pawn attacks them.</li>
+	</customEffectDescriptions>
+	<forcedTraits>
+	  <li>
+		<def>WVC_RB_FriendOrFoeTrait</def>
+	  </li>
+	</forcedTraits>
+	<modExtensions Inherit="False">
+		<li Class="WVC.GeneExtension">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MechaAI_SoftwareNaturalEnemy</defName>
-	<label>natural enemy</label>
+	<label>mecha-minded</label>
 	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareDown</iconPath>
 	<iconColor>(150, 70, 150)</iconColor>
 	<!-- <biostatMet>3</biostatMet> -->
 	<biostatArc>5</biostatArc>
+	<statFactors>
+	  <TradePriceImprovement>0.2</TradePriceImprovement>
+	</statFactors>
 	<customEffectDescriptions>
-		<li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Significantly reduces trade price improvement.</li>
-		<li>Decreases the pawn's opinion of everyone who does not have the same gene by 100.</li>
+		<li>&lt;color=#b8c6ff&gt;Reduces trade price improvement and bond chance.&lt;/color&gt;</li>
+		<li>Increases the opinion of pawns with the same gene by 20.</li>
+		<li>The opinion of all pawns that do not have the mechaskin gene is reduced by 500.</li>
+		<!-- <li>Ancient mechanoids do not attack a pawn, even if a pawn attacks them.</li> -->
 	</customEffectDescriptions>
-	<!-- <statOffsets> -->
-	  <!-- <WVC_PawnMechanoidization>5</WVC_PawnMechanoidization> -->
-	<!-- </statOffsets> -->
-	<exclusionTags>
-	  <li>WVC_MechaAI_SoftwareFriendOrFoe</li>
-	</exclusionTags>
 	<modExtensions Inherit="False">
 		<li Class="WVC.GeneExtension">
 			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite>

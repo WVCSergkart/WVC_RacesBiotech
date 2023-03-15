@@ -46,7 +46,7 @@
 		<thought>WVC_MechanoidLabor_Hard_AssignedWork</thought>
 		<!-- <description>Assigned work</description> -->
 		<thoughtStageDescriptions>
-		  <li>Not assigned work</li>
+		  <li>No assigned work</li>
 		  <li>Anyone assigned work</li>
 		</thoughtStageDescriptions>
 	  </li>
@@ -78,7 +78,7 @@
 		<thought>WVC_MechanoidLabor_Exteme_AssignedWork</thought>
 		<!-- <description>Assigned work</description> -->
 		<thoughtStageDescriptions>
-		  <li>Not assigned work</li>
+		  <li>No assigned work</li>
 		  <li>Anyone assigned work</li>
 		</thoughtStageDescriptions>
 	  </li>
@@ -94,7 +94,7 @@
 	<doNotApplyToQuestLodgers>true</doNotApplyToQuestLodgers>
 	<stages>
 	  <li>
-		<label>not assigned work</label>
+		<label>no assigned work</label>
 		<description>While the mechanoids are responsible for the work, I can relax.</description>
 		<baseMoodEffect>4</baseMoodEffect>
 	  </li>
@@ -113,7 +113,7 @@
 	<doNotApplyToQuestLodgers>true</doNotApplyToQuestLodgers>
 	<stages>
 	  <li>
-		<label>not assigned work</label>
+		<label>no assigned work</label>
 		<description>While the mechanoids are responsible for the work, I can relax.</description>
 		<baseMoodEffect>8</baseMoodEffect>
 	  </li>

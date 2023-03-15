@@ -26,7 +26,7 @@
 	<biostatMet>-2</biostatMet>
 	<biostatArc>2</biostatArc>
 	<customEffectDescriptions>
-		<li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Increases lifespan factor.</li>
+		<!-- <li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Increases lifespan factor.</li> -->
 		<!-- <li>No bleeding.</li> -->
 		<li>Bleeding wounds close very quickly.</li>
 		<li>Changes blood filth into machine bits.</li>
@@ -47,13 +47,10 @@
 	  <li>BloodType</li>
 	  <li>Blood</li>
 	</exclusionTags>
-	<modExtensions Inherit="False">
+	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<customBloodThingDef>Filth_MachineBits</customBloodThingDef>
 			<customBloodIcon>WVC/UI/InvisibleThing</customBloodIcon>
-		</li>
-		<li Class="WVC.GeneExtension">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -125,22 +122,22 @@
 	<label>light frame</label>
 	<description>Archites lighten the body of the carrier by optimizing the amount of fat and muscle mass, without losing the efficiency of the body.</description>
 	<biostatMet>-2</biostatMet>
-	<customEffectDescriptions>
-		<li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Reduces the amount of meat and leather.</li>
-	</customEffectDescriptions>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Reduces the amount of meat and leather.</li> -->
+	<!-- </customEffectDescriptions> -->
 	<statFactors>
-	  <!-- <MeatAmount>0.8</MeatAmount> -->
-	  <!-- <LeatherAmount>0.9</LeatherAmount> -->
+	  <MeatAmount>0.8</MeatAmount>
+	  <LeatherAmount>0.8</LeatherAmount>
 	  <Mass>0.8</Mass>
 	</statFactors>
 	<statOffsets>
 	  <MoveSpeed>1.0</MoveSpeed>
 	</statOffsets>
-	<modExtensions Inherit="False">
-		<li Class="WVC.GeneExtension">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions Inherit="False"> -->
+		<!-- <li Class="WVC.GeneExtension"> -->
+			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
@@ -150,7 +147,7 @@
 	<biostatMet>-5</biostatMet>
 	<biostatArc>3</biostatArc>
 	<customEffectDescriptions>
-		<li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Increases resistance to toxins.</li>
+		<li>&lt;color=#b8c6ff&gt;Increases toxic resistance.&lt;/color&gt;</li>
 		<li>Completely stops the progression of diseases.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
@@ -177,7 +174,7 @@
 	<description>Archites create mechanite clusters, slightly increasing regeneration.</description>
 	<biostatMet>-1</biostatMet>
 	<customEffectDescriptions>
-		<li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Increases injury healing factor.</li>
+		<li>&lt;color=#b8c6ff&gt;Increases toxic resistance.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<!-- <makeImmuneTo> -->
 	  <!-- <li>MuscleParasites</li> -->
@@ -199,7 +196,7 @@
 	<biostatMet>-2</biostatMet>
 	<biostatArc>2</biostatArc>
 	<customEffectDescriptions>
-		<li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Increases resistance to toxic environment.</li>
+		<li>&lt;color=#b8c6ff&gt;Increases toxic resistance.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<statOffsets>
 	  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
@@ -269,7 +266,7 @@
 	<defName>WVC_MecaUpgrades_EnergySavingMode</defName>
 	<label>energy saving mode</label>
 	<description>The carrier of this gene has archites, which can significantly optimize the metabolic process during sleep.</description>
-	<biostatArc>3</biostatArc>
+	<biostatArc>1</biostatArc>
 	<biostatMet>3</biostatMet>
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>The hunger bar does not decrease while the pawn is on the bed.</li> -->

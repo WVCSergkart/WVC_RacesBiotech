@@ -228,9 +228,10 @@
 		</preferredWeaponClasses>
 		<requireOne>
 		  <li>
+			<li>WVC_Mechaskinned_Indifference</li>
 			<li>WVC_Mechaskinned_Acceptable</li>
 			<li>WVC_Mechaskinned_Preferred</li>
-			<li MayRequire="vanillaexpanded.vmemese">WVC_Mechaskinned_Exalted</li>
+			<li>WVC_Mechaskinned_Exalted</li>
 		  </li>
 		  <li>
 			<li>WVC_MechanoidLabor_Light</li>

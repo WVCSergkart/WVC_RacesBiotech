@@ -50,6 +50,7 @@ Most of the internal organs were not affected, but there are too many external c
 	  <layer>PostTattoo</layer>
 	  <!-- <layer>PostSkin</layer> -->
 	  <useSkinShader>false</useSkinShader>
+	  <drawIfFaceCovered>true</drawIfFaceCovered>
 	</graphicData>
 	<beardTagFilter>
 	  <whitelist>true</whitelist>
