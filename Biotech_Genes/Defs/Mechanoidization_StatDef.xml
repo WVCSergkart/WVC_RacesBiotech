@@ -100,7 +100,7 @@
 	<!-- </nullifyingGenes> -->
 	<stages>
 	  <li>
-		<label>mechaskinned</label>
+		<label>non-mechaskin vs mechaskin</label>
 		<baseOpinionOffset>-20</baseOpinionOffset>
 	  </li>
 	  <li>
@@ -117,6 +117,10 @@
 		<!-- <label>disgusting creature</label> -->
 		<label>body purist vs mechaskin</label>
 		<baseOpinionOffset>-50</baseOpinionOffset>
+	  </li>
+	  <li>
+		<label>mechaskin vs mechaskin</label>
+		<baseOpinionOffset>0</baseOpinionOffset>
 	  </li>
 	</stages>
   </ThoughtDef>

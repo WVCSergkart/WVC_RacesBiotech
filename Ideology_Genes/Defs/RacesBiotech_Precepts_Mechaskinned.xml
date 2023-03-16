@@ -24,15 +24,22 @@
 	  <li Class="PreceptComp_SituationalThought">
 		<thought>WVC_PawnIsMechaskinned_Horrible_Social</thought>
 		<thoughtStageDescriptions>
-		  <li>Non-mechaskinned</li>
-		  <li>Body modder</li>
-		  <li>Mechaskinned body modder</li>
-		  <li>Body purist</li>
+		  <li>Non-mechaskin vs mechaskin</li>
+		  <li>Body modder vs mechaskin</li>
+		  <li>Mechaskin body modder vs mechaskin</li>
+		  <li>Body purist vs mechaskin</li>
+		  <li>Mechaskin vs mechaskin</li>
 		</thoughtStageDescriptions>
 	  </li>
-	  <!-- <li Class="PreceptComp_SituationalThought"> -->
-		<!-- <thought>HasNoProsthetic_Disapproved</thought> -->
-	  <!-- </li> -->
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_PawnIsMechaskinned_Horrible</thought>
+		<thoughtStageDescriptions>
+		  <li>Not mechaskinned</li>
+		  <li>Mechaskinned</li>
+		  <li>Body modder mechaskinned</li>
+		  <li>Body purist mechaskinned</li>
+		</thoughtStageDescriptions>
+	  </li>
 	</comps>
   </PreceptDef>
 
@@ -58,15 +65,22 @@
 	  <li Class="PreceptComp_SituationalThought">
 		<thought>WVC_PawnIsMechaskinned_Disapproved_Social</thought>
 		<thoughtStageDescriptions>
-		  <li>Non-mechaskinned</li>
-		  <li>Body modder</li>
-		  <li>Mechaskinned body modder</li>
-		  <li>Body purist</li>
+		  <li>Non-mechaskin vs mechaskin</li>
+		  <li>Body modder vs mechaskin</li>
+		  <li>Mechaskin body modder vs mechaskin</li>
+		  <li>Body purist vs mechaskin</li>
+		  <li>Mechaskin vs mechaskin</li>
 		</thoughtStageDescriptions>
 	  </li>
-	  <!-- <li Class="PreceptComp_SituationalThought"> -->
-		<!-- <thought>HasNoProsthetic_Disapproved</thought> -->
-	  <!-- </li> -->
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_PawnIsMechaskinned_Disapproved</thought>
+		<thoughtStageDescriptions>
+		  <li>Not mechaskinned</li>
+		  <li>Mechaskinned</li>
+		  <li>Body modder mechaskinned</li>
+		  <li>Body purist mechaskinned</li>
+		</thoughtStageDescriptions>
+	  </li>
 	</comps>
   </PreceptDef>
 
@@ -74,15 +88,15 @@
 	<defName>WVC_Mechaskinned_Indifference</defName>
 	<issue>WVC_Mechaskinned</issue>
 	<label>indifference</label>
-	<description>Even becoming a mechanoid, a person remains a person.</description>
+	<description>Even becoming a mechanoid-like, a person remains a person.</description>
 	<!-- <impact>Medium</impact> -->
 	<impact>Low</impact>
 	<displayOrderInIssue>15</displayOrderInIssue>
 	<displayOrderInImpact>100</displayOrderInImpact>
 	<!-- <defaultSelectionWeight>0.1</defaultSelectionWeight> -->
-	<conflictingMemes>
-	  <li>FleshPurity</li>
-	</conflictingMemes>
+	<!-- <conflictingMemes> -->
+	  <!-- <li>FleshPurity</li> -->
+	<!-- </conflictingMemes> -->
 	<associatedMemes>
 	  <li>Transhumanist</li>
 	  <li>WVC_Mechaskinist</li>
@@ -96,7 +110,7 @@
 	<defName>WVC_Mechaskinned_Acceptable</defName>
 	<issue>WVC_Mechaskinned</issue>
 	<label>acceptable</label>
-	<description>Even becoming a mechanoid, a person remains a person, we must give a chance.</description>
+	<description>Even becoming a mechanoid-like, a person remains a person, we must give a chance.</description>
 	<!-- <impact>Medium</impact> -->
 	<impact>Low</impact>
 	<displayOrderInIssue>20</displayOrderInIssue>
@@ -112,10 +126,20 @@
 	  <li Class="PreceptComp_SituationalThought">
 		<thought>WVC_PawnIsMechaskinned_Acceptable_Social</thought>
 		<thoughtStageDescriptions>
-		  <li>Non-mechaskinned</li>
-		  <li>Body modder</li>
-		  <li>Mechaskinned body modder</li>
-		  <li>Body purist</li>
+		  <li>Non-mechaskin vs mechaskin</li>
+		  <li>Body modder vs mechaskin</li>
+		  <li>Mechaskin body modder vs mechaskin</li>
+		  <li>Body purist vs mechaskin</li>
+		  <li>Mechaskin vs mechaskin</li>
+		</thoughtStageDescriptions>
+	  </li>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_PawnIsMechaskinned_Acceptable</thought>
+		<thoughtStageDescriptions>
+		  <li>Not mechaskinned</li>
+		  <li>Mechaskinned</li>
+		  <li>Body modder mechaskinned</li>
+		  <li>Body purist mechaskinned</li>
 		</thoughtStageDescriptions>
 	  </li>
 	</comps>
@@ -142,15 +166,22 @@
 	  <li Class="PreceptComp_SituationalThought">
 		<thought>WVC_PawnIsMechaskinned_Preferred_Social</thought>
 		<thoughtStageDescriptions>
-		  <li>Non-mechaskinned</li>
-		  <li>Body modder</li>
-		  <li>Mechaskinned body modder</li>
-		  <li>Body purist</li>
+		  <li>Non-mechaskin vs mechaskin</li>
+		  <li>Body modder vs mechaskin</li>
+		  <li>Mechaskin body modder vs mechaskin</li>
+		  <li>Body purist vs mechaskin</li>
+		  <li>Mechaskin vs mechaskin</li>
 		</thoughtStageDescriptions>
 	  </li>
-	  <!-- <li Class="PreceptComp_SituationalThought"> -->
-		<!-- <thought>HasNoProsthetic_Disapproved</thought> -->
-	  <!-- </li> -->
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_PawnIsMechaskinned_Preferred</thought>
+		<thoughtStageDescriptions>
+		  <li>Not mechaskinned</li>
+		  <li>Mechaskinned</li>
+		  <li>Body modder mechaskinned</li>
+		  <li>Body purist mechaskinned</li>
+		</thoughtStageDescriptions>
+	  </li>
 	</comps>
   </PreceptDef>
 
@@ -171,16 +202,26 @@
 	</associatedMemes>
 	<requiredMemes>
 	  <li>WVC_Mechaskinist</li>
-	  <li MayRequire="vanillaexpanded.vmemese">VME_MechanoidSupremacy</li>
+	  <!-- <li MayRequire="vanillaexpanded.vmemese">VME_MechanoidSupremacy</li> -->
 	</requiredMemes>
 	<comps>
 	  <li Class="PreceptComp_SituationalThought">
 		<thought>WVC_PawnIsMechaskinned_Exalted_Social</thought>
 		<thoughtStageDescriptions>
-		  <li>Non-mechaskinned</li>
-		  <li>Body modder</li>
-		  <li>Mechaskinned body modder</li>
-		  <li>Body purist</li>
+		  <li>Non-mechaskin vs mechaskin</li>
+		  <li>Body modder vs mechaskin</li>
+		  <li>Mechaskin body modder vs mechaskin</li>
+		  <li>Body purist vs mechaskin</li>
+		  <li>Mechaskin vs mechaskin</li>
+		</thoughtStageDescriptions>
+	  </li>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_PawnIsMechaskinned_Exalted</thought>
+		<thoughtStageDescriptions>
+		  <li>Not mechaskinned</li>
+		  <li>Mechaskinned</li>
+		  <li>Body modder mechaskinned</li>
+		  <li>Body purist mechaskinned</li>
 		</thoughtStageDescriptions>
 	  </li>
 	</comps>
@@ -201,93 +242,7 @@
 	<!-- </associatedMemes> -->
   <!-- </PreceptDef> -->
 
-  <!-- ====================================================== -->
-
-  <ThoughtDef>
-	<defName>WVC_PawnIsMechaskinned_Disapproved_Social</defName>
-	<thoughtClass>Thought_SituationalSocial</thoughtClass>
-	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
-	<!-- <nullifyingTraits> -->
-	  <!-- <li>Transhumanist</li> -->
-	  <!-- <li>BodyPurist</li> -->
-	<!-- </nullifyingTraits> -->
-	<stages>
-	  <li>
-		<label>mechaskinned</label>
-		<baseOpinionOffset>-20</baseOpinionOffset>
-	  </li>
-	  <li>
-		<!-- <label>perfect being</label> -->
-		<label>body modder vs mechaskin</label>
-		<baseOpinionOffset>20</baseOpinionOffset>
-	  </li>
-	  <li>
-		<!-- <label>same as me</label> -->
-		<label>mechaskin modder vs mechaskin</label>
-		<baseOpinionOffset>5</baseOpinionOffset>
-	  </li>
-	  <li>
-		<!-- <label>disgusting creature</label> -->
-		<label>body purist vs mechaskin</label>
-		<baseOpinionOffset>-50</baseOpinionOffset>
-	  </li>
-	</stages>
-  </ThoughtDef>
-
-  <ThoughtDef>
-	<defName>WVC_PawnIsMechaskinned_Acceptable_Social</defName>
-	<thoughtClass>Thought_SituationalSocial</thoughtClass>
-	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
-	<stages>
-	  <li>
-		<label>mechaskinned</label>
-		<baseOpinionOffset>0</baseOpinionOffset>
-	  </li>
-	  <li>
-		<!-- <label>perfect being</label> -->
-		<label>body modder vs mechaskin</label>
-		<baseOpinionOffset>7</baseOpinionOffset>
-	  </li>
-	  <li>
-		<!-- <label>same as me</label> -->
-		<label>mechaskin modder vs mechaskin</label>
-		<baseOpinionOffset>5</baseOpinionOffset>
-	  </li>
-	  <li>
-		<!-- <label>disgusting creature</label> -->
-		<label>body purist vs mechaskin</label>
-		<baseOpinionOffset>-20</baseOpinionOffset>
-	  </li>
-	</stages>
-  </ThoughtDef>
-
-  <ThoughtDef>
-	<defName>WVC_PawnIsMechaskinned_Preferred_Social</defName>
-	<thoughtClass>Thought_SituationalSocial</thoughtClass>
-	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
-	<stages>
-	  <!-- Precept: Mechaskinned: Preferred -->
-	  <li>
-		<label>mechaskinned</label>
-		<baseOpinionOffset>20</baseOpinionOffset>
-	  </li>
-	  <li>
-		<!-- <label>perfect being</label> -->
-		<label>body modder vs mechaskin</label>
-		<baseOpinionOffset>20</baseOpinionOffset>
-	  </li>
-	  <li>
-		<!-- <label>same as me</label> -->
-		<label>mechaskin modder vs mechaskin</label>
-		<baseOpinionOffset>5</baseOpinionOffset>
-	  </li>
-	  <li>
-		<!-- <label>disgusting creature</label> -->
-		<label>body purist vs mechaskin</label>
-		<baseOpinionOffset>-50</baseOpinionOffset>
-	  </li>
-	</stages>
-  </ThoughtDef>
+  <!-- =Social=Social=Social=Social=Social=Social=Social=Social=Social=Social= -->
 
   <ThoughtDef>
 	<defName>WVC_PawnIsMechaskinned_Horrible_Social</defName>
@@ -295,7 +250,7 @@
 	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
 	<stages>
 	  <li>
-		<label>mechaskinned</label>
+		<label>non-mechaskin vs mechaskin</label>
 		<baseOpinionOffset>-50</baseOpinionOffset>
 	  </li>
 	  <li>
@@ -313,6 +268,111 @@
 		<label>body purist vs mechaskin</label>
 		<baseOpinionOffset>-75</baseOpinionOffset>
 	  </li>
+	  <li>
+		<label>mechaskin vs mechaskin</label>
+		<baseOpinionOffset>-5</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_PawnIsMechaskinned_Disapproved_Social</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
+	<!-- <nullifyingTraits> -->
+	  <!-- <li>Transhumanist</li> -->
+	  <!-- <li>BodyPurist</li> -->
+	<!-- </nullifyingTraits> -->
+	<stages>
+	  <li>
+		<label>non-mechaskin vs mechaskin</label>
+		<baseOpinionOffset>-20</baseOpinionOffset>
+	  </li>
+	  <li>
+		<!-- <label>perfect being</label> -->
+		<label>body modder vs mechaskin</label>
+		<baseOpinionOffset>10</baseOpinionOffset>
+	  </li>
+	  <li>
+		<!-- <label>same as me</label> -->
+		<label>mechaskin modder vs mechaskin</label>
+		<visible>false</visible>
+		<baseOpinionOffset>0</baseOpinionOffset>
+	  </li>
+	  <li>
+		<!-- <label>disgusting creature</label> -->
+		<label>body purist vs mechaskin</label>
+		<baseOpinionOffset>-50</baseOpinionOffset>
+	  </li>
+	  <li>
+		<label>mechaskin vs mechaskin</label>
+		<baseOpinionOffset>-5</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_PawnIsMechaskinned_Acceptable_Social</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
+	<stages>
+	  <li>
+		<label>non-mechaskin vs mechaskin</label>
+		<visible>false</visible>
+		<baseOpinionOffset>0</baseOpinionOffset>
+	  </li>
+	  <li>
+		<!-- <label>perfect being</label> -->
+		<label>body modder vs mechaskin</label>
+		<baseOpinionOffset>7</baseOpinionOffset>
+	  </li>
+	  <li>
+		<!-- <label>same as me</label> -->
+		<label>mechaskin modder vs mechaskin</label>
+		<baseOpinionOffset>5</baseOpinionOffset>
+	  </li>
+	  <li>
+		<!-- <label>disgusting creature</label> -->
+		<label>body purist vs mechaskin</label>
+		<baseOpinionOffset>-10</baseOpinionOffset>
+	  </li>
+	  <li>
+		<label>mechaskin vs mechaskin</label>
+		<visible>false</visible>
+		<baseOpinionOffset>0</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_PawnIsMechaskinned_Preferred_Social</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
+	<stages>
+	  <!-- Precept: Mechaskinned: Preferred -->
+	  <li>
+		<label>non-mechaskin vs mechaskin</label>
+		<baseOpinionOffset>20</baseOpinionOffset>
+	  </li>
+	  <li>
+		<!-- <label>perfect being</label> -->
+		<label>body modder vs mechaskin</label>
+		<baseOpinionOffset>30</baseOpinionOffset>
+	  </li>
+	  <li>
+		<!-- <label>same as me</label> -->
+		<label>mechaskin modder vs mechaskin</label>
+		<baseOpinionOffset>5</baseOpinionOffset>
+	  </li>
+	  <li>
+		<!-- <label>disgusting creature</label> -->
+		<label>body purist vs mechaskin</label>
+		<baseOpinionOffset>-5</baseOpinionOffset>
+	  </li>
+	  <li>
+		<label>mechaskin vs mechaskin</label>
+		<baseOpinionOffset>5</baseOpinionOffset>
+	  </li>
 	</stages>
   </ThoughtDef>
 
@@ -322,23 +382,173 @@
 	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
 	<stages>
 	  <li>
-		<label>mechaskinned</label>
-		<baseOpinionOffset>100</baseOpinionOffset>
+		<label>non-mechaskin vs mechaskin</label>
+		<baseOpinionOffset>25</baseOpinionOffset>
 	  </li>
 	  <li>
 		<!-- <label>perfect being</label> -->
 		<label>body modder vs mechaskin</label>
-		<baseOpinionOffset>150</baseOpinionOffset>
+		<baseOpinionOffset>40</baseOpinionOffset>
 	  </li>
 	  <li>
 		<!-- <label>same as me</label> -->
 		<label>mechaskin modder vs mechaskin</label>
-		<baseOpinionOffset>25</baseOpinionOffset>
+		<baseOpinionOffset>15</baseOpinionOffset>
 	  </li>
 	  <li>
 		<!-- <label>disgusting creature</label> -->
 		<label>body purist vs mechaskin</label>
-		<baseOpinionOffset>-10</baseOpinionOffset>
+		<visible>false</visible>
+		<baseOpinionOffset>0</baseOpinionOffset>
+	  </li>
+	  <li>
+		<label>mechaskin vs mechaskin</label>
+		<baseOpinionOffset>10</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <!-- =Self=Self=Self=Self=Self=Self=Self=Self=Self=Self=Self=Self=Self= -->
+
+  <ThoughtDef>
+	<defName>WVC_PawnIsMechaskinned_Horrible</defName>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought</workerClass>
+	<validWhileDespawned>true</validWhileDespawned>
+	<stages>
+	  <li>
+		<label>Not mechaskinned</label>
+		<description>I am clean of this mechanical dirt.</description>
+		<baseMoodEffect>10</baseMoodEffect>
+	  </li>
+	  <li>
+		<label>Mechaskinned</label>
+		<description>My flesh is disgusting to myself..</description>
+		<baseMoodEffect>-10</baseMoodEffect>
+	  </li>
+	  <li>
+		<label>Mechaskinned</label>
+		<description>My faith says that Mechaskinn is disgusting. But I love this skin. Where is the truth?</description>
+		<baseMoodEffect>-5</baseMoodEffect>
+	  </li>
+	  <li>
+		<label>Mechaskinned</label>
+		<description>I'm a disgustingly cursed creature!</description>
+		<baseMoodEffect>-20</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_PawnIsMechaskinned_Disapproved</defName>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought</workerClass>
+	<stages>
+	  <li>
+		<label>Not mechaskinned</label>
+		<description>I am clean of this mechanical dirt.</description>
+		<baseMoodEffect>5</baseMoodEffect>
+	  </li>
+	  <li>
+		<label>Mechaskinned</label>
+		<description>My flesh is disgusting to myself..</description>
+		<baseMoodEffect>-5</baseMoodEffect>
+	  </li>
+	  <li>
+		<label>Mechaskinned</label>
+		<description>My faith says that Mechaskinn is disgusting. But I love this skin. Where is the truth?</description>
+		<visible>false</visible>
+		<baseMoodEffect>0</baseMoodEffect>
+	  </li>
+	  <li>
+		<label>Mechaskinned</label>
+		<description>I'm a disgustingly cursed creature!</description>
+		<baseMoodEffect>-10</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_PawnIsMechaskinned_Acceptable</defName>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought</workerClass>
+	<stages>
+	  <li>
+		<label>Not mechaskinned</label>
+		<description>Not bad not good.</description>
+		<visible>false</visible>
+		<baseMoodEffect>0</baseMoodEffect>
+	  </li>
+	  <li>
+		<label>Mechaskinned</label>
+		<description>Not bad not good.</description>
+		<visible>false</visible>
+		<baseMoodEffect>0</baseMoodEffect>
+	  </li>
+	  <li>
+		<label>Mechaskinned</label>
+		<description>I am perfection.</description>
+		<baseMoodEffect>5</baseMoodEffect>
+	  </li>
+	  <li>
+		<label>Mechaskinned</label>
+		<description>My flesh is disgusting to myself..</description>
+		<baseMoodEffect>-2</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_PawnIsMechaskinned_Preferred</defName>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought</workerClass>
+	<stages>
+	  <li>
+		<label>Not mechaskinned</label>
+		<description>I feel weak and fragile.</description>
+		<!-- <visible>false</visible> -->
+		<baseMoodEffect>-5</baseMoodEffect>
+	  </li>
+	  <li>
+		<label>Mechaskinned</label>
+		<description>My flesh matches my faith.</description>
+		<baseMoodEffect>5</baseMoodEffect>
+	  </li>
+	  <li>
+		<label>Mechaskinned</label>
+		<description>How good am I!</description>
+		<baseMoodEffect>10</baseMoodEffect>
+	  </li>
+	  <li>
+		<label>Mechaskinned</label>
+		<description>My flesh is disgusting to myself..</description>
+		<visible>false</visible>
+		<baseMoodEffect>0</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_PawnIsMechaskinned_Exalted</defName>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought</workerClass>
+	<stages>
+	  <li>
+		<label>Not mechaskinned</label>
+		<description>I feel weak and fragile.</description>
+		<!-- <visible>false</visible> -->
+		<baseMoodEffect>-8</baseMoodEffect>
+	  </li>
+	  <li>
+		<label>Mechaskinned</label>
+		<description>My flesh matches my faith.</description>
+		<baseMoodEffect>8</baseMoodEffect>
+	  </li>
+	  <li>
+		<label>Mechaskinned</label>
+		<description>I am machine!</description>
+		<baseMoodEffect>15</baseMoodEffect>
+	  </li>
+	  <li>
+		<label>Mechaskinned</label>
+		<description>My flesh is disgusting to myself..</description>
+		<visible>false</visible>
+		<baseMoodEffect>0</baseMoodEffect>
 	  </li>
 	</stages>
   </ThoughtDef>
