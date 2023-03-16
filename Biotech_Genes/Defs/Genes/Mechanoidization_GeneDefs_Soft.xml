@@ -156,7 +156,7 @@
 	<label>mecha-network</label>
 	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath>
 	<iconColor>(170, 170, 255)</iconColor>
-	<biostatArc>4</biostatArc>
+	<!-- <biostatArc>1</biostatArc> -->
 	<!-- <statOffsets> -->
 	  <!-- <WVC_PawnMechanoidization>6</WVC_PawnMechanoidization> -->
 	<!-- </statOffsets> -->
@@ -203,8 +203,8 @@
 	<description>Archits disable the voice functions of the mech, which saves some resources.</description>
 	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareDown</iconPath>
 	<iconColor>(150, 70, 70)</iconColor>
-	<biostatMet>3</biostatMet>
-	<biostatArc>2</biostatArc>
+	<biostatMet>1</biostatMet>
+	<!-- <biostatArc>1</biostatArc> -->
 	<!-- <statOffsets> -->
 	  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
 	<!-- </statOffsets> -->
@@ -245,16 +245,17 @@
 	<label>mecha-minded</label>
 	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareDown</iconPath>
 	<iconColor>(150, 70, 150)</iconColor>
+	<biostatCpx>1</biostatCpx>
 	<!-- <biostatMet>3</biostatMet> -->
-	<biostatArc>5</biostatArc>
+	<!-- <biostatArc>2</biostatArc> -->
 	<statFactors>
 	  <TradePriceImprovement>0.2</TradePriceImprovement>
 	  <BondAnimalChanceFactor>0.0</BondAnimalChanceFactor>
 	</statFactors>
 	<customEffectDescriptions>
 		<!-- <li>&lt;color=#b8c6ff&gt;Reduces trade price improvement and bond chance.&lt;/color&gt;</li> -->
-		<li>Increases the opinion of pawns with the same gene by 20.</li>
-		<li>The opinion of all pawns that do not have the mechaskin gene is reduced by 500.</li>
+		<li>Increases the opinion of pawns with the same gene by 20. (Mechaskin only)</li>
+		<li>The opinion of all pawns that do not have the mechaskin gene is reduced by 500. (Mechaskin only)</li>
 		<!-- <li>Ancient mechanoids do not attack a pawn, even if a pawn attacks them.</li> -->
 	</customEffectDescriptions>
 	<!-- <modExtensions Inherit="False"> -->

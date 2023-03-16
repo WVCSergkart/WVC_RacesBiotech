@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Issue -->
+
+  <IssueDef>
+	<defName>WVC_SubCorred</defName>
+	<label>subcore</label>
+	<iconPath>WVC/UI/Precepts/SubCore_Buff</iconPath>
+  </IssueDef>
+
+  <!-- Precepts -->
+
+  <PreceptDef>
+	<defName>WVC_SubCorred_Improved</defName>
+	<issue>WVC_SubCorred</issue>
+	<label>improved</label>
+	<description>The mecha-subcore has truly unlimited possibilities, and we must help those who are gifted to unlock this potential.</description>
+	<impact>Medium</impact>
+	<displayOrderInIssue>0</displayOrderInIssue>
+	<!-- <displayOrderInImpact>50</displayOrderInImpact> -->
+	<associatedMemes>
+	  <li MayRequire="vanillaexpanded.vmemese">VME_MechanoidSupremacy</li>
+	  <li>WVC_Mechaskinist</li>
+	</associatedMemes>
+	<requiredMemes>
+	  <li>WVC_Mechaskinist</li>
+	</requiredMemes>
+	<conditionalStatAffecters>
+	  <li Class="WVC.ConditionalStatAffecter_Genes">
+		<geneDef>WVC_MechaAI_Base</geneDef>
+		<statOffsets>
+		  <GlobalLearningFactor>0.2</GlobalLearningFactor>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
+  </PreceptDef>
+
+</Defs>

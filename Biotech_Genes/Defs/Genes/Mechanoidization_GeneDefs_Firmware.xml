@@ -14,7 +14,7 @@
 	<selectionWeight>0.2</selectionWeight>
 	<marketValueFactor>2</marketValueFactor>
 	<biostatCpx>2</biostatCpx>
-	<biostatArc>5</biostatArc>
+	<biostatArc>1</biostatArc>
 	<biostatMet>6</biostatMet>
 	<randomChosen>true</randomChosen>
 	<!-- <passionMod>AddOneLevel</passionMod> -->

@@ -242,6 +242,9 @@
 		  <!-- <li> -->
 			<!-- <li MayRequire="Ludeon.RimWorld.Ideology">OrganUse_Acceptable</li> -->
 		  <!-- </li> -->
+		  <!-- <li> -->
+			<!-- <li>WVC_SubCorred_Improved</li> -->
+		  <!-- </li> -->
 		</requireOne>
 		<styleItemTags>
 		  <li>

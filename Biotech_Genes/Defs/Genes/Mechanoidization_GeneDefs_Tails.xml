@@ -76,7 +76,7 @@
 	<description>Carriers of this gene grow a sleek long tail with several blades at the end.</description>
 	<iconPath>WVC/MecaGene_ScytheTail/SmoothTail_east</iconPath>
 	<biostatCpx>1</biostatCpx>
-	<biostatArc>2</biostatArc>
+	<biostatArc>1</biostatArc>
 	<biostatMet>-1</biostatMet>
 	<customEffectDescriptions>
 		<li>Adds a deadly tail attack.</li>

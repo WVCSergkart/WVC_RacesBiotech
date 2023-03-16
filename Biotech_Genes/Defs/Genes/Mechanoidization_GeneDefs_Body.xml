@@ -15,8 +15,8 @@ Most of the internal organs remain intact, but there are enough external changes
 	<marketValueFactor>1.5</marketValueFactor>
 	<randomChosen>false</randomChosen>
 	<canGenerateInGeneSet>true</canGenerateInGeneSet>
-	<biostatCpx>1</biostatCpx>
-	<biostatArc>1</biostatArc>
+	<biostatCpx>6</biostatCpx>
+	<biostatArc>3</biostatArc>
 	<!-- = -->
 	<iconPath>WVC/UI/Genes/MechaIcon</iconPath>
 	<marketValueFactor>3</marketValueFactor>
@@ -66,8 +66,6 @@ Most of the internal organs remain intact, but there are enough external changes
 
   <GeneDef ParentName="WVC_MechanoidBody_Base">
 	<defName>WVC_MechaSkin</defName>
-	<biostatCpx>7</biostatCpx>
-	<biostatArc>7</biostatArc>
 	<biostatMet>-16</biostatMet>
 	<displayOrderInCategory>-100</displayOrderInCategory>
 	<iconColor>(184, 198, 203)</iconColor>

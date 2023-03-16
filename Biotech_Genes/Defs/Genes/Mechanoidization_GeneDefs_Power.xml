@@ -65,7 +65,7 @@
 	<label>stable power source</label> 
 	<iconPath>WVC/UI/Genes/PowerSource_Stable</iconPath>
 	<biostatCpx>2</biostatCpx>
-	<biostatArc>3</biostatArc>
+	<biostatArc>2</biostatArc>
 	<biostatMet>16</biostatMet>
   </GeneDef>
 
@@ -74,8 +74,8 @@
 	<label>vanometric power source</label> 
 	<iconPath>WVC/UI/Genes/PowerSource_Vanometric</iconPath>
 	<selectionWeight>0.12</selectionWeight>
-	<biostatCpx>3</biostatCpx>
-	<biostatArc>5</biostatArc>
+	<biostatCpx>5</biostatCpx>
+	<biostatArc>3</biostatArc>
 	<biostatMet>21</biostatMet>
 	<customEffectDescriptions>
 		<li>Grants an additional 5 metabolism points.</li>

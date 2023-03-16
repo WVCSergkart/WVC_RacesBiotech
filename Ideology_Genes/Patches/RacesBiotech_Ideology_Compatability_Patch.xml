@@ -18,6 +18,7 @@
 		<!-- <success>Always</success> -->
 		<value>
 		  <li>
+			<li>WVC_Mechaskinned_Indifference</li>
 			<li>WVC_Mechaskinned_Acceptable</li>
 			<li>WVC_Mechaskinned_Preferred</li>
 		  </li>
@@ -29,6 +30,7 @@
 		<!-- <success>Always</success> -->
 		<value>
 		  <li>
+			<li>WVC_Mechaskinned_Indifference</li>
 			<li>WVC_Mechaskinned_Horrible</li>
 			<li>WVC_Mechaskinned_Disapproved</li>
 		  </li>
@@ -43,6 +45,7 @@
 			<xpath>/Defs/MemeDef[defName="VME_MechanoidSupremacy"]/requireOne</xpath>
 			<value>
 			  <li>
+				<li>WVC_Mechaskinned_Acceptable</li>
 				<li>WVC_Mechaskinned_Preferred</li>
 				<li>WVC_Mechaskinned_Exalted</li>
 			  </li>

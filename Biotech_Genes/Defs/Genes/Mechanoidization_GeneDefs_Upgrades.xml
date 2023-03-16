@@ -24,7 +24,7 @@
 	<label>mecha-clotting</label>
 	<geneClass>Gene_Clotting</geneClass>
 	<biostatMet>-2</biostatMet>
-	<biostatArc>2</biostatArc>
+	<!-- <biostatArc>2</biostatArc> -->
 	<customEffectDescriptions>
 		<!-- <li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Increases lifespan factor.</li> -->
 		<!-- <li>No bleeding.</li> -->
@@ -145,7 +145,7 @@
 	<label>immunostabilizer</label>
 	<description>Archites in the carrier's blood significantly enhance immunity.</description>
 	<biostatMet>-5</biostatMet>
-	<biostatArc>1</biostatArc>
+	<!-- <biostatArc>1</biostatArc> -->
 	<customEffectDescriptions>
 		<!-- <li>&lt;color=#b8c6ff&gt;Increases toxic resistance.&lt;/color&gt;</li> -->
 		<li>Completely stops the progression of diseases.</li>
@@ -195,7 +195,7 @@
 	<label>improved T-adaptation</label>
 	<description>Archites significantly enhance the temperature adaptability of the carrier.</description>
 	<biostatMet>-2</biostatMet>
-	<biostatArc>2</biostatArc>
+	<!-- <biostatArc>2</biostatArc> -->
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>&lt;color=#b8c6ff&gt;Increases toxic resistance.&lt;/color&gt;</li> -->
 	<!-- </customEffectDescriptions> -->
@@ -268,7 +268,7 @@
 	<defName>WVC_MecaUpgrades_EnergySavingMode</defName>
 	<label>energy saving mode</label>
 	<description>The carrier of this gene has archites, which can significantly optimize the metabolic process during sleep.</description>
-	<biostatArc>1</biostatArc>
+	<!-- <biostatArc>1</biostatArc> -->
 	<biostatMet>3</biostatMet>
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>The hunger bar does not decrease while the pawn is on the bed.</li> -->
