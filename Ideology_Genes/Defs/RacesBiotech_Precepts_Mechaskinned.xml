@@ -9,7 +9,8 @@
 	<label>horrible</label>
 	<description>Such a disgusting hybrids should not exist.</description>
 	<!-- <impact>High</impact> -->
-	<impact>Low</impact>
+	<impact>Medium</impact>
+	<!-- <impact>Low</impact> -->
 	<displayOrderInIssue>40</displayOrderInIssue>
 	<displayOrderInImpact>100</displayOrderInImpact>
 	<!-- <defaultSelectionWeight>1</defaultSelectionWeight> -->
@@ -60,6 +61,7 @@
 	<!-- </associatedMemes> -->
 	<conflictingMemes>
 	  <li>WVC_Mechaskinist</li>
+	  <li>Transhumanist</li>
 	</conflictingMemes>
 	<comps>
 	  <li Class="PreceptComp_SituationalThought">
@@ -111,8 +113,8 @@
 	<issue>WVC_Mechaskinned</issue>
 	<label>acceptable</label>
 	<description>Even becoming a mechanoid-like, a person remains a person, we must give a chance.</description>
-	<!-- <impact>Medium</impact> -->
-	<impact>Low</impact>
+	<impact>Medium</impact>
+	<!-- <impact>Low</impact> -->
 	<displayOrderInIssue>20</displayOrderInIssue>
 	<displayOrderInImpact>100</displayOrderInImpact>
 	<conflictingMemes>

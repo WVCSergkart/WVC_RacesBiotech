@@ -13,17 +13,16 @@
 		<!-- </match> -->
 	<!-- </Operation> -->
 
-	<Operation Class="PatchOperationAdd">
-		<xpath>/Defs/MemeDef[defName="Transhumanist"]/requireOne</xpath>
-		<!-- <success>Always</success> -->
-		<value>
-		  <li>
-			<li>WVC_Mechaskinned_Indifference</li>
-			<li>WVC_Mechaskinned_Acceptable</li>
-			<li>WVC_Mechaskinned_Preferred</li>
-		  </li>
-		</value>
-	</Operation>
+	<!-- <Operation Class="PatchOperationAdd"> -->
+		<!-- <xpath>/Defs/MemeDef[defName="Transhumanist"]/requireOne</xpath> -->
+		<!-- <value> -->
+		  <!-- <li> -->
+			<!-- <li>WVC_Mechaskinned_Indifference</li> -->
+			<!-- <li>WVC_Mechaskinned_Acceptable</li> -->
+			<!-- <li>WVC_Mechaskinned_Preferred</li> -->
+		  <!-- </li> -->
+		<!-- </value> -->
+	<!-- </Operation> -->
 
 	<Operation Class="PatchOperationAdd">
 		<xpath>/Defs/MemeDef[defName="FleshPurity"]/requireOne</xpath>

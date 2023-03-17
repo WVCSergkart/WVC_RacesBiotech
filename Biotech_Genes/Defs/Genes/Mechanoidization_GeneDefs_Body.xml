@@ -27,8 +27,8 @@ Most of the internal organs remain intact, but there are enough external changes
 	<customEffectDescriptions>
 		<!-- <li>Maximum comfortable temperature is always 250</li> -->
 		<!-- <li>Minimum comfortable temperature is always -100</li> -->
-		<li>&lt;color=#ff8585&gt;Maximum comfortable temperature is always 250&lt;/color&gt;</li>
-		<li>&lt;color=#ff8585&gt;Minimum comfortable temperature is always -100&lt;/color&gt;</li>
+		<!-- <li>&lt;color=#ff8585&gt;Maximum comfortable temperature is always 250&lt;/color&gt;</li> -->
+		<!-- <li>&lt;color=#ff8585&gt;Minimum comfortable temperature is always -100&lt;/color&gt;</li> -->
 		<!-- <li>&lt;color=#ff8585&gt;Mechanoidization:&lt;/color&gt; Disables negative emotions about mechanoidization and significantly worsens the opinion of others.</li> -->
 		<!-- <li>&lt;color=#ffe185&gt;Graphic elements can be disabled in the settings.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
@@ -39,10 +39,12 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <!-- <li>BeardStyle</li> -->
 	  <li>WVC_NodeBody</li>
 	</exclusionTags>
-	<!-- <statOffsets> -->
-	  <!-- <ComfyTemperatureMax>14</ComfyTemperatureMax> -->
-	  <!-- <ComfyTemperatureMin>-46</ComfyTemperatureMin> -->
-	<!-- </statOffsets> -->
+	<statOffsets>
+	  <!-- <ComfyTemperatureMax>250</ComfyTemperatureMax> -->
+	  <!-- <ComfyTemperatureMin>-100</ComfyTemperatureMin> -->
+	  <ComfyTemperatureMax>14</ComfyTemperatureMax>
+	  <ComfyTemperatureMin>-46</ComfyTemperatureMin>
+	</statOffsets>
 	<makeImmuneTo>
 	  <li>MuscleParasites</li>
 	</makeImmuneTo>

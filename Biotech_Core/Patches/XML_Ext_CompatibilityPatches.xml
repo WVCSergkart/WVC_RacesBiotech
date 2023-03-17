@@ -43,22 +43,74 @@
 	  </value>
 	</Operation>
 
-	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
-	  <xpath>/Defs/ThoughtDef[defName="ProsthophobeUnhappy" or defName="BodyPuristDisgust"]</xpath>
-	  <success>Always</success>
-	  <safetyDepth>1</safetyDepth>
-	  <value>
-		<nullifyingGenes>
-		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaSkin</li>
-		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Blue</li>
-		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Red</li>
-		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Green</li>
-		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Violet</li>
-		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Yellow</li>
-		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_AltBlue</li>
-		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Orange</li>
-		</nullifyingGenes>
-	  </value>
+	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
+	  <!-- <xpath>/Defs/ThoughtDef[defName="ProsthophobeUnhappy" or defName="BodyPuristDisgust"]</xpath> -->
+	  <!-- <success>Always</success> -->
+	  <!-- <safetyDepth>1</safetyDepth> -->
+	  <!-- <value> -->
+		<!-- <nullifyingGenes> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaSkin</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Blue</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Red</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Green</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Violet</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Yellow</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_AltBlue</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Orange</li> -->
+		<!-- </nullifyingGenes> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
+	  <!-- <xpath>/Defs/ThoughtDef[defName="EnvironmentCold" or defName="EnvironmentHot" or defName="SleptInHeat" or defName="SleptInCold"]</xpath> -->
+	  <!-- <success>Always</success> -->
+	  <!-- <safetyDepth>1</safetyDepth> -->
+	  <!-- <value> -->
+		<!-- <nullifyingGenes> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaSkin</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Blue</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Red</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Green</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Violet</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Yellow</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_AltBlue</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Orange</li> -->
+		<!-- </nullifyingGenes> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<Operation Class="XmlExtensions.FindMod">
+		<mods>
+			<li>wvc.wvcmod.wvcspecific</li>
+		</mods>
+		<packageId>true</packageId>
+		<logic>and</logic>
+		<caseTrue>
+
+			<Operation Class="PatchOperationAdd">
+			  <xpath>/Defs/StatDef[defName="ComfyTemperatureMin"]/parts</xpath>
+			  <success>Always</success>
+			  <value>
+				  <li Class="WVC.StatPart_GenesCombo">
+					<useMechaskinInsteadSubcore>true</useMechaskinInsteadSubcore>
+					<useStaticValue>true</useStaticValue>
+					<staticValue>-100</staticValue>
+				  </li>
+			  </value>
+			</Operation>
+			<Operation Class="PatchOperationAdd">
+			  <xpath>/Defs/StatDef[defName="ComfyTemperatureMax"]/parts</xpath>
+			  <success>Always</success>
+			  <value>
+				  <li Class="WVC.StatPart_GenesCombo">
+					<useMechaskinInsteadSubcore>true</useMechaskinInsteadSubcore>
+					<useStaticValue>true</useStaticValue>
+					<staticValue>250</staticValue>
+				  </li>
+			  </value>
+			</Operation>
+
+		</caseTrue>
 	</Operation>
 
 	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
