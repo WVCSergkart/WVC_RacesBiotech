@@ -42,7 +42,8 @@ Most of the internal organs were not affected, but there are too many external c
 	</statOffsets>
 	<graphicData>
 	  <fur>WVC_NodeSkin</fur>
-	  <tattoosVisible>false</tattoosVisible>
+	  <!-- <tattoosVisible>false</tattoosVisible> -->
+	  <tattoosVisible>true</tattoosVisible>
 	  <colorType>Custom</colorType>
 	  <color>(255, 255, 255)</color>
 	  <layer>PostTattoo</layer>
