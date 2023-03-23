@@ -30,7 +30,9 @@ Most of the internal organs remain intact, but there are enough external changes
 		<!-- <li>&lt;color=#ff8585&gt;Maximum comfortable temperature is always 250&lt;/color&gt;</li> -->
 		<!-- <li>&lt;color=#ff8585&gt;Minimum comfortable temperature is always -100&lt;/color&gt;</li> -->
 		<!-- <li>&lt;color=#ff8585&gt;Mechanoidization:&lt;/color&gt; Disables negative emotions about mechanoidization and significantly worsens the opinion of others.</li> -->
-		<!-- <li>&lt;color=#ffe185&gt;Graphic elements can be disabled in the settings.&lt;/color&gt;</li> -->
+		<li>&lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</li>
+		<li>&lt;color=#ffe185&gt;Note:&lt;/color&gt; Do not combine nodeskins with other skins, this will cause visual bugs!</li>
+		<!-- <li>&lt;color=#ffe185&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</li> -->
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <!-- <li>HairStyle</li> -->
@@ -44,6 +46,9 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <!-- <ComfyTemperatureMin>-100</ComfyTemperatureMin> -->
 	  <ComfyTemperatureMax>14</ComfyTemperatureMax>
 	  <ComfyTemperatureMin>-46</ComfyTemperatureMin>
+	  <ArmorRating_Blunt>0.05</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.05</ArmorRating_Sharp>
+	  <ArmorRating_Heat>0.07</ArmorRating_Heat>
 	</statOffsets>
 	<makeImmuneTo>
 	  <li>MuscleParasites</li>

@@ -4,12 +4,12 @@
 	<WVC_BiotechSettings>Genes</WVC_BiotechSettings>
 
 	<WVC_Label_disableFurGraphic>Disable mechaskin/nodeskin graphic</WVC_Label_disableFurGraphic>
-	<WVC_ToolTip_disableFurGraphic>Turns off the visual changes introduced by Mechaskin. A restart is required to apply the settings.</WVC_ToolTip_disableFurGraphic>
-	<WVC_Label_disableMechanoidizationMechanic>Disable mechanoidization mechanic</WVC_Label_disableMechanoidizationMechanic>
-	<WVC_ToolTip_disableMechanoidizationMechanic>Disables opinion effects from mechanoidization. A restart is required to apply the settings.</WVC_ToolTip_disableMechanoidizationMechanic>
+	<WVC_ToolTip_disableFurGraphic>Turns off the visual changes introduced by Mechaskins. A restart is required to apply the settings.</WVC_ToolTip_disableFurGraphic>
+	<WVC_Label_enableGenesCombo>Mechaskin combo effect</WVC_Label_enableGenesCombo>
+	<WVC_ToolTip_enableGenesCombo>Additional effects from genes that are activated by their combination with mechaskin. A restart is required to apply the settings.</WVC_ToolTip_enableGenesCombo>
 
-	<WVC_Label_mecaXenotypeIsInheritable>Meca xenotype have inheritable genes</WVC_Label_mecaXenotypeIsInheritable>
-	<WVC_ToolTip_mecaXenotypeIsInheritable>Changes Meca xenotype allowing genes to be inherited. What makes this xenotype compatible with sangophages and other xenogeneic xenotypes.</WVC_ToolTip_mecaXenotypeIsInheritable>
+	<!-- <WVC_Label_mecaXenotypeIsInheritable>Meca xenotype have inheritable genes</WVC_Label_mecaXenotypeIsInheritable> -->
+	<!-- <WVC_ToolTip_mecaXenotypeIsInheritable>Changes Meca xenotype allowing genes to be inherited. What makes this xenotype compatible with sangophages and other xenogeneic xenotypes.</WVC_ToolTip_mecaXenotypeIsInheritable> -->
 
 	<!-- <WVC_Label_mechanoidizationGenesPatch>Patch for vanilla genes</WVC_Label_mechanoidizationGenesPatch> -->
 	<!-- <WVC_ToolTip_mechanoidizationGenesPatch>Patches some genes, changing the base effect to an effect that depends on other genes, thus making the genes more versatile. -->

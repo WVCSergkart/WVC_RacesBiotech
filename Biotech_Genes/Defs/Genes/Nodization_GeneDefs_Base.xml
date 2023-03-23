@@ -1,45 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <!-- ==================================== -->
-
-  <!-- <GeneCategoryDef> -->
-	<!-- <defName>WVC_NodeBody</defName> -->
-	<!-- <label>nodization</label> -->
-	<!-- <displayPriorityInXenotype>3925</displayPriorityInXenotype> -->
-  <!-- </GeneCategoryDef> -->
-
-  <!-- ================================================================== -->
-
   <!-- Bodies -->
 
   <GeneDef ParentName="WVC_MechanoidBody_Base" Name="WVC_NodeBody_Base" Abstract="True">
-	<!-- <defName>WVC_NodeSkin</defName> -->
-	<!-- <label>nodeskin</label> -->
-	<!-- <labelShortAdj>nodeskinned</labelShortAdj> -->
 	<description>Carriers of this gene have archites that completely transform their body. 
 
 The skin has become like the most durable alloys, but has not lost its elasticity. The face is covered with plates, with a pattern similar to something like eyes, but this does not interfere with the owner's vision at all. Numerous clusters of mekhanites spread throughout the body, greatly strengthening their host.
 
 Most of the internal organs were not affected, but there are too many external changes, which is why "it" cannot be called a human.</description>
-	<!-- <skinColorOverride>(79, 80, 81)</skinColorOverride> -->
-	<!-- <hairColorOverride>(79, 80, 81)</hairColorOverride> -->
-	<!-- <randomBrightnessFactor>0</randomBrightnessFactor> -->
-	<!-- <canGenerateInGeneSet>false</canGenerateInGeneSet> -->
-	<!-- <selectionWeight>1.0</selectionWeight> -->
 	<randomChosen>true</randomChosen>
 	<displayOrderInCategory>-95</displayOrderInCategory>
 	<iconColor>(255, 255, 255)</iconColor>
-	<customEffectDescriptions>
-		<!-- <li>Changes the color of the body and hair to dark gray.</li> -->
-		<li>&lt;color=#ffe185&gt;Do not combine nodeskins with other skins, this will cause visual bugs!&lt;/color&gt;</li>
-	</customEffectDescriptions>
-	<statOffsets>
-	  <!-- <ArmorRating_Blunt>0.12</ArmorRating_Blunt> -->
-	  <!-- <ArmorRating_Sharp>0.12</ArmorRating_Sharp> -->
-	  <!-- <ArmorRating_Heat>0.17</ArmorRating_Heat> -->
-	  <!-- <PawnBeauty>-1</PawnBeauty> -->
-	</statOffsets>
 	<graphicData>
 	  <fur>WVC_NodeSkin</fur>
 	  <!-- <tattoosVisible>false</tattoosVisible> -->
@@ -79,7 +51,7 @@ Most of the internal organs were not affected, but there are too many external c
 	</symbolPack>
   </GeneDef>
 
-  <!-- Bodies -->
+  <!-- ================================================================== -->
 
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Base">
