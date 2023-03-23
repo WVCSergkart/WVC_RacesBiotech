@@ -4,9 +4,21 @@
 	<WVC_BiotechSettings>Genes</WVC_BiotechSettings>
 
 	<WVC_Label_disableFurGraphic>Disable mechaskin/nodeskin graphic</WVC_Label_disableFurGraphic>
-	<WVC_ToolTip_disableFurGraphic>Turns off the visual changes introduced by Mechaskins. A restart is required to apply the settings.</WVC_ToolTip_disableFurGraphic>
-	<WVC_Label_enableGenesCombo>Mechaskin combo effect</WVC_Label_enableGenesCombo>
-	<WVC_ToolTip_enableGenesCombo>Additional effects from genes that are activated by their combination with mechaskin. A restart is required to apply the settings.</WVC_ToolTip_enableGenesCombo>
+	<WVC_ToolTip_disableFurGraphic>Turns off the visual changes introduced by Mechaskins.
+
+A restart is required to apply the settings.</WVC_ToolTip_disableFurGraphic>
+	<WVC_Label_enableGenesCombo>Mechaskin forced temperature</WVC_Label_enableGenesCombo>
+	<WVC_ToolTip_enableGenesCombo>Adds a temperature immunity effect to the mechaskin when the pawn has 5 immortality genes.
+
+Immortality genes: Deathless, ageless, scarless, non-senescent and perfect immunity.
+
+A restart is required to apply the settings.</WVC_ToolTip_enableGenesCombo>
+	<WVC_Label_minWastepacksPerRecharge>Force minimal waste</WVC_Label_minWastepacksPerRecharge>
+	<WVC_ToolTip_minWastepacksPerRecharge>Force the minimum amount of waste produced by mechanoids, preventing it from dropping below 1.
+
+Nodeskin VX allows you to reduce the bandwidth cost to 0, which causes the mechanoids to stop making waste. If you need waste produced by mechanoids, then enable this option.
+
+A restart is required to apply the settings.</WVC_ToolTip_minWastepacksPerRecharge>
 
 	<!-- <WVC_Label_mecaXenotypeIsInheritable>Meca xenotype have inheritable genes</WVC_Label_mecaXenotypeIsInheritable> -->
 	<!-- <WVC_ToolTip_mecaXenotypeIsInheritable>Changes Meca xenotype allowing genes to be inherited. What makes this xenotype compatible with sangophages and other xenogeneic xenotypes.</WVC_ToolTip_mecaXenotypeIsInheritable> -->
@@ -21,5 +33,6 @@
 
 	<WVC_StatPart_GenesCombo_Cause>Mecha-genes</WVC_StatPart_GenesCombo_Cause>
 	<WVC_StatPart_GenesCombo_Static>Forced to</WVC_StatPart_GenesCombo_Static>
+	<WVC_StatPart_GenesCombo_ForcedByStat>Forced by</WVC_StatPart_GenesCombo_ForcedByStat>
 
 </LanguageData>

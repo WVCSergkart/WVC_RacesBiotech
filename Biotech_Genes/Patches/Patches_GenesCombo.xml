@@ -28,14 +28,138 @@
 					  <li Class="WVC.StatPart_GenesCombo">
 						<useImmortalityInsteadSubcore>true</useImmortalityInsteadSubcore>
 						<useStaticValue>true</useStaticValue>
-						<!-- <staticGeneDefName>Deathless</staticGeneDefName> -->
 						<staticValue>250</staticValue>
 					  </li>
 				  </value>
 				</li>
 
+				<!-- <li Class="PatchOperationAdd"> -->
+				  <!-- <xpath>/Defs/StatDef[defName="ComfyTemperatureMin"]/parts</xpath> -->
+				  <!-- <success>Always</success> -->
+				  <!-- <value> -->
+					  <!-- <li Class="WVC.StatPart_ForcedByImmortalityGenes"> -->
+						<!-- <statDefName>WVC_ForcedStat_ComfyTemperatureMin</statDefName> -->
+					  <!-- </li> -->
+				  <!-- </value> -->
+				<!-- </li> -->
+				<!-- <li Class="PatchOperationAdd"> -->
+				  <!-- <xpath>/Defs/StatDef[defName="ComfyTemperatureMax"]/parts</xpath> -->
+				  <!-- <success>Always</success> -->
+				  <!-- <value> -->
+					  <!-- <li Class="WVC.StatPart_ForcedByImmortalityGenes"> -->
+						<!-- <statDefName>WVC_ForcedStat_ComfyTemperatureMax</statDefName> -->
+					  <!-- </li> -->
+				  <!-- </value> -->
+				<!-- </li> -->
+
+				<!-- <li Class="PatchOperationAdd"> -->
+				  <!-- <xpath>/Defs/StatDef[defName="InjuryHealingFactor"]/parts</xpath> -->
+				  <!-- <success>Always</success> -->
+				  <!-- <value> -->
+					  <!-- <li Class="WVC.StatPart_ForcedByImmortalityGenes"> -->
+						<!-- <statDefName>WVC_ForcedStat_InjuryHealingFactor</statDefName> -->
+					  <!-- </li> -->
+				  <!-- </value> -->
+				<!-- </li> -->
+
+				<!-- <li Class="PatchOperationAdd"> -->
+				  <!-- <xpath>/Defs/StatDef[defName="ArmorRating_Sharp"]/parts</xpath> -->
+				  <!-- <success>Always</success> -->
+				  <!-- <value> -->
+					  <!-- <li Class="WVC.StatPart_ForcedByImmortalityGenes"> -->
+						<!-- <statDefName>WVC_ForcedStat_ArmorRating_Sharp</statDefName> -->
+					  <!-- </li> -->
+				  <!-- </value> -->
+				<!-- </li> -->
+				<!-- <li Class="PatchOperationAdd"> -->
+				  <!-- <xpath>/Defs/StatDef[defName="ArmorRating_Blunt"]/parts</xpath> -->
+				  <!-- <success>Always</success> -->
+				  <!-- <value> -->
+					  <!-- <li Class="WVC.StatPart_ForcedByImmortalityGenes"> -->
+						<!-- <statDefName>WVC_ForcedStat_ArmorRating_Blunt</statDefName> -->
+					  <!-- </li> -->
+				  <!-- </value> -->
+				<!-- </li> -->
+				<!-- <li Class="PatchOperationAdd"> -->
+				  <!-- <xpath>/Defs/StatDef[defName="ArmorRating_Heat"]/parts</xpath> -->
+				  <!-- <success>Always</success> -->
+				  <!-- <value> -->
+					  <!-- <li Class="WVC.StatPart_ForcedByImmortalityGenes"> -->
+						<!-- <statDefName>WVC_ForcedStat_ArmorRating_Heat</statDefName> -->
+					  <!-- </li> -->
+				  <!-- </value> -->
+				<!-- </li> -->
+
+				<!-- <li Class="PatchOperationSequence"> -->
+					<!-- <success>Always</success> -->
+					<!-- <operations> -->
+						<!-- <li Class="PatchOperationAdd"> -->
+						  <!-- <xpath>/Defs/StatDef[defName="ArrestSuccessChance"]/parts</xpath> -->
+						  <!-- <success>Invert</success> -->
+						  <!-- <value> -->
+							  <!-- <li Class="WVC.StatPart_ForcedByImmortalityGenes"> -->
+								<!-- <statDefName>WVC_ForcedStat_ComfyTemperatureMax</statDefName> -->
+							  <!-- </li> -->
+						  <!-- </value> -->
+						<!-- </li> -->
+						<!-- <li Class="PatchOperationAdd"> -->
+						  <!-- <xpath>/Defs/StatDef[defName="ArrestSuccessChance"]</xpath> -->
+						  <!-- <success>Always</success> -->
+						  <!-- <value> -->
+							<!-- <parts> -->
+							  <!-- <li Class="WVC.StatPart_ForcedByImmortalityGenes"> -->
+								<!-- <statDefName>WVC_ForcedStat_ComfyTemperatureMax</statDefName> -->
+							  <!-- </li> -->
+							<!-- </parts> -->
+						  <!-- </value> -->
+						<!-- </li> -->
+					<!-- </operations> -->
+				<!-- </li> -->
+
 			</operations>
 		</caseTrue>
+	</Operation>
+
+	<Operation Class="WVC.PatchOperationOptional">
+		<settingName>minWastepacksPerRecharge</settingName>
+		<caseTrue Class="PatchOperationReplace">
+		  <xpath>/Defs/StatDef[defName="WastepacksPerRecharge"]/minValue</xpath>
+		  <success>Always</success>
+		  <value>
+			  <minValue>1</minValue>
+		  </value>
+		</caseTrue>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/StatDef[defName="MechBandwidth"]/parts</xpath>
+			  <success>Invert</success>
+			  <value>
+				  <!-- <li Class="WVC.StatPart_GenesCombo"> -->
+					<!-- <useGeneDefNameInsteadSubcore>WVC_NodeSkin_AltBlue</useGeneDefNameInsteadSubcore> -->
+					<!-- <useStaticValue>true</useStaticValue> -->
+					<!-- <staticValue>2</staticValue> -->
+				  <!-- </li> -->
+				  <li Class="WVC.StatPart_ForceTo">
+					<statDefName>WVC_ForceTo_MechBandwidth</statDefName>
+				  </li>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/StatDef[defName="MechBandwidth"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<parts>
+				  <li Class="WVC.StatPart_ForceTo">
+					<statDefName>WVC_ForceTo_MechBandwidth</statDefName>
+				  </li>
+				</parts>
+			  </value>
+			</li>
+		</operations>
 	</Operation>
 
 	<!-- <Operation Class="PatchOperationAdd"> -->
@@ -60,5 +184,61 @@
 		  <!-- </li> -->
 	  <!-- </value> -->
 	<!-- </Operation> -->
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/StatDef[defName="BandwidthCost"]/parts</xpath>
+			  <success>Invert</success>
+			  <value>
+				  <li Class="StatPart_OverseerStatOffset" MayRequire="Ludeon.RimWorld.Biotech">
+					<stat>WVC_BandwidthCostOffsetMech</stat>
+					<label>Offset from mechanitor</label>
+				  </li>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/StatDef[defName="BandwidthCost"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<parts>
+				  <li Class="StatPart_OverseerStatOffset" MayRequire="Ludeon.RimWorld.Biotech">
+					<stat>WVC_BandwidthCostOffsetMech</stat>
+					<label>Offset from mechanitor</label>
+				  </li>
+				</parts>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/StatDef[defName="MechEnergyUsageFactor"]/parts</xpath>
+			  <success>Invert</success>
+			  <value>
+				  <li Class="StatPart_OverseerStatOffset" MayRequire="Ludeon.RimWorld.Biotech">
+					<stat>WVC_MechEnergyUsageOffset</stat>
+					<label>Offset from mechanitor</label>
+				  </li>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/StatDef[defName="MechEnergyUsageFactor"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<parts>
+				  <li Class="StatPart_OverseerStatOffset" MayRequire="Ludeon.RimWorld.Biotech">
+					<stat>WVC_MechEnergyUsageOffset</stat>
+					<label>Offset from mechanitor</label>
+				  </li>
+				</parts>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
 
 </Patch>

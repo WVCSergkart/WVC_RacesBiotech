@@ -561,7 +561,8 @@
 	<label>decision SX</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneG</iconPath>
 	<statFactors>
-	  <ResearchSpeed>1.2</ResearchSpeed>
+	  <WorkSpeedGlobalOffsetMech>1.5</WorkSpeedGlobalOffsetMech>
+	  <!-- <ResearchSpeed>1.2</ResearchSpeed> -->
 	</statFactors>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Red">
@@ -601,9 +602,13 @@
 	<defName>WVC_Nodization_DecisionBuff_F</defName>
 	<label>decision VX</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneG</iconPath>
-	<statFactors>
-	  <WorkSpeedGlobalOffsetMech>1.5</WorkSpeedGlobalOffsetMech>
-	</statFactors>
+	<!-- <statFactors> -->
+	  <!-- <WorkSpeedGlobalOffsetMech>1.5</WorkSpeedGlobalOffsetMech> -->
+	<!-- </statFactors> -->
+	<statOffsets>
+	  <!-- <WVC_BandwidthCostOffsetMech>-1</WVC_BandwidthCostOffsetMech> -->
+	  <WVC_MechEnergyUsageOffset>-0.5</WVC_MechEnergyUsageOffset>
+	</statOffsets>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Orange">
 	<defName>WVC_Nodization_DecisionBuff_G</defName>

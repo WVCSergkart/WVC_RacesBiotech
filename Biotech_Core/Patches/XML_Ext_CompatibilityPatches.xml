@@ -215,7 +215,7 @@
 				  <safetyDepth>1</safetyDepth>
 				  <value>
 					<customEffectDescriptions>
-						<li>&lt;color=#85a7ff&gt;Immortal:&lt;/color&gt; It is considered one of the immortality genes.</li>
+						<li>&lt;color=#85a7ff&gt;Immortal:&lt;/color&gt; It is considered one of the immortality genes. A pawn that possesses all five immortality genes is considered immortal.</li>
 						<!-- <li>&lt;color=#ffe185&gt;It is part of the immortality set.&lt;/color&gt;</li> -->
 						<!-- <li>&lt;color=#ffe185&gt;It is considered one of the immortality genes. The full set gives additional effects when combined with the Mechaskin.&lt;/color&gt;</li> -->
 					</customEffectDescriptions>

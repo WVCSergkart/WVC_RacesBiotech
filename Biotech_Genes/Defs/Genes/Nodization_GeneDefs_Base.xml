@@ -8,7 +8,10 @@
 
 The skin has become like the most durable alloys, but has not lost its elasticity. The face is covered with plates, with a pattern similar to something like eyes, but this does not interfere with the owner's vision at all. Numerous clusters of mekhanites spread throughout the body, greatly strengthening their host.
 
-Most of the internal organs were not affected, but there are too many external changes, which is why "it" cannot be called a human.</description>
+Most of the internal organs were not affected, but there are too many external changes, which is why "it" cannot be called a human.
+
+&lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.
+&lt;color=#ffe185&gt;Note:&lt;/color&gt; Do not combine nodeskins with other skins, this will cause visual bugs!</description>
 	<randomChosen>true</randomChosen>
 	<displayOrderInCategory>-95</displayOrderInCategory>
 	<iconColor>(255, 255, 255)</iconColor>
@@ -113,6 +116,13 @@ Most of the internal organs were not affected, but there are too many external c
 		<def>Tough</def>
 	  </li>
 	</suppressedTraits>
+	<!-- <conditionalStatAffecters> -->
+	  <!-- <li Class="WVC.ConditionalStatAffecter_Immortal"> -->
+		<!-- <statOffsets> -->
+		  <!-- <WVC_ForcedStat_ArmorRating_Heat>2.0</WVC_ForcedStat_ArmorRating_Heat> -->
+		<!-- </statOffsets> -->
+	  <!-- </li> -->
+	<!-- </conditionalStatAffecters> -->
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Base">
@@ -135,6 +145,13 @@ Most of the internal organs were not affected, but there are too many external c
 	  <ImmunityGainSpeed>0.5</ImmunityGainSpeed>
 	  <InjuryHealingFactor>0.5</InjuryHealingFactor>
 	</statOffsets>
+	<!-- <conditionalStatAffecters> -->
+	  <!-- <li Class="WVC.ConditionalStatAffecter_Immortal"> -->
+		<!-- <statOffsets> -->
+		  <!-- <WVC_ForcedStat_InjuryHealingFactor>5</WVC_ForcedStat_InjuryHealingFactor> -->
+		<!-- </statOffsets> -->
+	  <!-- </li> -->
+	<!-- </conditionalStatAffecters> -->
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Base">
@@ -211,6 +228,7 @@ Most of the internal organs were not affected, but there are too many external c
 	  <li>WVC_NodeSkin_AltBlue</li>
 	</forcedHeadTypes>
 	<customEffectDescriptions>
+		<!-- <li>Mech bandwidth is always 2</li> -->
 	</customEffectDescriptions>
 	<graphicData>
 	  <graphicPath>WVC/NodeGene_Head/HeadAltBlue</graphicPath>
@@ -218,8 +236,13 @@ Most of the internal organs were not affected, but there are too many external c
 	<aptitudes>
 	  <Crafting>2</Crafting>
 	</aptitudes>
+	<!-- <statFactors> -->
+	  <!-- <MechBandwidth>0.2</MechBandwidth> -->
+	<!-- </statFactors> -->
 	<statOffsets>
-	  <WorkSpeedGlobalOffsetMech>0.5</WorkSpeedGlobalOffsetMech>
+	  <!-- <WorkSpeedGlobalOffsetMech>0.5</WorkSpeedGlobalOffsetMech> -->
+	  <WVC_BandwidthCostOffsetMech>-1</WVC_BandwidthCostOffsetMech>
+	  <WVC_ForceTo_MechBandwidth>2</WVC_ForceTo_MechBandwidth>
 	</statOffsets>
   </GeneDef>
   <!-- = -->

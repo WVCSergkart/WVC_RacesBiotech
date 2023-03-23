@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<StatDef>
+	  <defName>WVC_BandwidthCostOffsetMech</defName>
+	  <label>mech bandwidth cost offset</label>
+	  <description>A bandwidth cost offset applied to a mechanitor's mechs.</description>
+	  <category>Mechanitor</category>
+	  <defaultBaseValue>0</defaultBaseValue>
+	  <!-- <minValue>0</minValue> -->
+	  <hideAtValue>0</hideAtValue>
+	  <!-- <toStringStyle>PercentZero</toStringStyle> -->
+	  <scenarioRandomizable>true</scenarioRandomizable>
+	  <displayPriorityInCategory>5000</displayPriorityInCategory>
+	  <showOnMechanoids>false</showOnMechanoids>
+	  <showOnAnimals>false</showOnAnimals>
+	</StatDef>
+
+	<StatDef>
+	  <defName>WVC_MechEnergyUsageOffset</defName>
+	  <label>mech energy usage offset</label>
+	  <description>A energy usage offset applied to a mechanitor's mechs.</description>
+	  <category>Mechanitor</category>
+	  <defaultBaseValue>0</defaultBaseValue>
+	  <!-- <minValue>0</minValue> -->
+	  <hideAtValue>0</hideAtValue>
+	  <toStringStyle>PercentZero</toStringStyle>
+	  <scenarioRandomizable>true</scenarioRandomizable>
+	  <displayPriorityInCategory>5000</displayPriorityInCategory>
+	  <showOnMechanoids>false</showOnMechanoids>
+	  <showOnAnimals>false</showOnAnimals>
+	</StatDef>
+
+  <!-- <StatCategoryDef> -->
+	<!-- <defName>WVC_ForcedStats_Genes</defName> -->
+	<!-- <label>Immortality bonus</label> -->
+	<!-- <displayOrder>95</displayOrder> -->
+	<!-- <displayAllByDefault>true</displayAllByDefault> -->
+  <!-- </StatCategoryDef> -->
+
+  <StatDef Name="WVC_Biotech_ForcedStat_Base" Abstract="True">
+	<description>Should be invisible.</description>
+	<!-- <category>WVC_ForcedStats_Genes</category> -->
+	<defaultBaseValue>0</defaultBaseValue>
+	<hideAtValue>0</hideAtValue>
+	<valueIfMissing>0</valueIfMissing>
+	<showOnAnimals>false</showOnAnimals>
+	<showOnMechanoids>false</showOnMechanoids>
+	<scenarioRandomizable>false</scenarioRandomizable>
+	<forInformationOnly>true</forInformationOnly>
+	<alwaysHide>true</alwaysHide>
+	<toStringStyle>Integer</toStringStyle>
+	<displayPriorityInCategory>2000</displayPriorityInCategory>
+  </StatDef>
+
+  <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
+	<defName>WVC_ForceTo_MechBandwidth</defName>
+	<label>mech bandwidth is always</label>
+  </StatDef>
+
+  <!-- <StatDef ParentName="WVC_Biotech_ForcedStat_Base"> -->
+	<!-- <defName>WVC_ForcedStat_ComfyTemperatureMin</defName> -->
+	<!-- <label>forced minimum comfortable temperature</label> -->
+	<!-- <toStringStyle>Temperature</toStringStyle> -->
+  <!-- </StatDef> -->
+  <!-- <StatDef ParentName="WVC_Biotech_ForcedStat_Base"> -->
+	<!-- <defName>WVC_ForcedStat_ComfyTemperatureMax</defName> -->
+	<!-- <label>forced maximum comfortable temperature</label> -->
+	<!-- <toStringStyle>Temperature</toStringStyle> -->
+  <!-- </StatDef> -->
+
+  <!-- <StatDef ParentName="WVC_Biotech_ForcedStat_Base"> -->
+	<!-- <defName>WVC_ForcedStat_InjuryHealingFactor</defName> -->
+	<!-- <label>forced injury healing factor</label> -->
+	<!-- <toStringStyle>PercentZero</toStringStyle> -->
+  <!-- </StatDef> -->
+
+  <!-- <StatDef ParentName="WVC_Biotech_ForcedStat_Base"> -->
+	<!-- <defName>WVC_ForcedStat_ArmorRating_Sharp</defName> -->
+	<!-- <label>forced Armor - Sharp</label> -->
+	<!-- <toStringStyle>PercentOne</toStringStyle> -->
+  <!-- </StatDef> -->
+  <!-- <StatDef ParentName="WVC_Biotech_ForcedStat_Base"> -->
+	<!-- <defName>WVC_ForcedStat_ArmorRating_Blunt</defName> -->
+	<!-- <label>forced Armor - Blunt</label> -->
+	<!-- <toStringStyle>PercentOne</toStringStyle> -->
+  <!-- </StatDef> -->
+  <!-- <StatDef ParentName="WVC_Biotech_ForcedStat_Base"> -->
+	<!-- <defName>WVC_ForcedStat_ArmorRating_Heat</defName> -->
+	<!-- <label>forced Armor - Heat</label> -->
+	<!-- <toStringStyle>PercentOne</toStringStyle> -->
+  <!-- </StatDef> -->
+
+
+</Defs>
