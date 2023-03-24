@@ -204,23 +204,23 @@
 
 	<!-- ================================================= -->
 
+	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+	  <xpath>/Defs/GeneDef[defName="TotalHealing" or defName="Ageless" or defName="Deathless" or defName="DiseaseFree" or defName="PerfectImmunity"]</xpath>
+	  <success>Always</success>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<customEffectDescriptions>
+			<li>&lt;color=#85a7ff&gt;Immortal:&lt;/color&gt; It is considered one of the immortality genes. A pawn that possesses all five immortality genes is considered immortal.</li>
+			<!-- <li>&lt;color=#ffe185&gt;It is part of the immortality set.&lt;/color&gt;</li> -->
+			<!-- <li>&lt;color=#ffe185&gt;It is considered one of the immortality genes. The full set gives additional effects when combined with the Mechaskin.&lt;/color&gt;</li> -->
+		</customEffectDescriptions>
+	  </value>
+	</Operation>
+
 	<Operation Class="WVC.PatchOperationOptional">
-		<settingName>enableGenesCombo</settingName>
+		<settingName>mechaskinTemperatureAdaptability</settingName>
 		<caseTrue Class="PatchOperationSequence">
 			<operations>
-
-				<li Class="XmlExtensions.PatchOperationSafeAdd">
-				  <xpath>/Defs/GeneDef[defName="TotalHealing" or defName="Ageless" or defName="Deathless" or defName="DiseaseFree" or defName="PerfectImmunity"]</xpath>
-				  <success>Always</success>
-				  <safetyDepth>1</safetyDepth>
-				  <value>
-					<customEffectDescriptions>
-						<li>&lt;color=#85a7ff&gt;Immortal:&lt;/color&gt; It is considered one of the immortality genes. A pawn that possesses all five immortality genes is considered immortal.</li>
-						<!-- <li>&lt;color=#ffe185&gt;It is part of the immortality set.&lt;/color&gt;</li> -->
-						<!-- <li>&lt;color=#ffe185&gt;It is considered one of the immortality genes. The full set gives additional effects when combined with the Mechaskin.&lt;/color&gt;</li> -->
-					</customEffectDescriptions>
-				  </value>
-				</li>
 
 				<li Class="XmlExtensions.PatchOperationSafeAdd">
 				  <xpath>/Defs/GeneDef[@Name="WVC_MechanoidBody_Base"]</xpath>
@@ -228,6 +228,7 @@
 				  <safetyDepth>1</safetyDepth>
 				  <value>
 					<customEffectDescriptions>
+						<!-- Immortality genes: Deathless, ageless, scarless, non-senescent and perfect immunity. -->
 						<li>&lt;color=#85a7ff&gt;Immortal:&lt;/color&gt; Gives immunity to temperatures when combined with immortality genes.</li>
 					</customEffectDescriptions>
 				  </value>

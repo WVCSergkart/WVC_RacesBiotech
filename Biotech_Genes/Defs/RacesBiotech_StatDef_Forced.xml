@@ -58,16 +58,16 @@
 	<label>mech bandwidth is always</label>
   </StatDef>
 
-  <!-- <StatDef ParentName="WVC_Biotech_ForcedStat_Base"> -->
-	<!-- <defName>WVC_ForcedStat_ComfyTemperatureMin</defName> -->
-	<!-- <label>forced minimum comfortable temperature</label> -->
-	<!-- <toStringStyle>Temperature</toStringStyle> -->
-  <!-- </StatDef> -->
-  <!-- <StatDef ParentName="WVC_Biotech_ForcedStat_Base"> -->
-	<!-- <defName>WVC_ForcedStat_ComfyTemperatureMax</defName> -->
-	<!-- <label>forced maximum comfortable temperature</label> -->
-	<!-- <toStringStyle>Temperature</toStringStyle> -->
-  <!-- </StatDef> -->
+  <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
+	<defName>WVC_ForceTo_ComfyTemperatureMin</defName>
+	<label>minimum comfortable temperature is always</label>
+	<toStringStyle>Temperature</toStringStyle>
+  </StatDef>
+  <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
+	<defName>WVC_ForceTo_ComfyTemperatureMax</defName>
+	<label>maximum comfortable temperature is always</label>
+	<toStringStyle>Temperature</toStringStyle>
+  </StatDef>
 
   <!-- <StatDef ParentName="WVC_Biotech_ForcedStat_Base"> -->
 	<!-- <defName>WVC_ForcedStat_InjuryHealingFactor</defName> -->

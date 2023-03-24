@@ -52,6 +52,15 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <ArmorRating_Sharp>0.15</ArmorRating_Sharp>
 	  <ArmorRating_Heat>0.17</ArmorRating_Heat>
 	</statOffsets>
+	<conditionalStatAffecters>
+	  <li Class="WVC.ConditionalStatAffecter_CauseSetting">
+		<settingName>mechaskinTemperatureAdaptability</settingName>
+		<statOffsets>
+		  <WVC_ForceTo_ComfyTemperatureMax>250</WVC_ForceTo_ComfyTemperatureMax>
+		  <WVC_ForceTo_ComfyTemperatureMin>-100</WVC_ForceTo_ComfyTemperatureMin>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
 	<makeImmuneTo>
 	  <li>MuscleParasites</li>
 	</makeImmuneTo>

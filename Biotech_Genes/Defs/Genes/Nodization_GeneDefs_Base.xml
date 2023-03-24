@@ -242,8 +242,15 @@ Most of the internal organs were not affected, but there are too many external c
 	<statOffsets>
 	  <!-- <WorkSpeedGlobalOffsetMech>0.5</WorkSpeedGlobalOffsetMech> -->
 	  <WVC_BandwidthCostOffsetMech>-1</WVC_BandwidthCostOffsetMech>
-	  <WVC_ForceTo_MechBandwidth>2</WVC_ForceTo_MechBandwidth>
 	</statOffsets>
+	<conditionalStatAffecters>
+	  <li Class="WVC.ConditionalStatAffecter_CauseSetting">
+		<settingName>nodeskinVX_MechBandwidth</settingName>
+		<statOffsets>
+			<WVC_ForceTo_MechBandwidth>2</WVC_ForceTo_MechBandwidth>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Base">

@@ -19,5 +19,7 @@
   <WVC_StatsReport_MechanitorUsedBandwidth>used bandwidth</WVC_StatsReport_MechanitorUsedBandwidth>
   <WVC_StatsReport_MechanitorTotalBandwidth>total bandwidth</WVC_StatsReport_MechanitorTotalBandwidth>
   <!-- <WVC_StatsReport_UnknownXenotype>unknown xenotype</WVC_StatsReport_UnknownXenotype> -->
+  <WVC_StatsReport_CauseSetting_On>enabled</WVC_StatsReport_CauseSetting_On>
+  <WVC_StatsReport_CauseSetting_Off>disabled</WVC_StatsReport_CauseSetting_Off>
 
 </LanguageData>

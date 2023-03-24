@@ -1,37 +1,33 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
 
-	<Operation Class="WVC.PatchOperationOptional">
-		<settingName>enableGenesCombo</settingName>
+	<!-- <Operation Class="WVC.PatchOperationOptional"> -->
+		<!-- <settingName>enableGenesCombo</settingName> -->
 		<!-- <caseTrue Class="PatchOperationSequence"> -->
 			<!-- <operations> -->
-			<!-- </operations> -->
-		<!-- </caseTrue> -->
-		<caseTrue Class="PatchOperationSequence">
-			<operations>
 
-				<li Class="PatchOperationAdd">
-				  <xpath>/Defs/StatDef[defName="ComfyTemperatureMin"]/parts</xpath>
-				  <success>Always</success>
-				  <value>
-					  <li Class="WVC.StatPart_GenesCombo">
-						<useImmortalityInsteadSubcore>true</useImmortalityInsteadSubcore>
-						<useStaticValue>true</useStaticValue>
-						<staticValue>-100</staticValue>
-					  </li>
-				  </value>
-				</li>
-				<li Class="PatchOperationAdd">
-				  <xpath>/Defs/StatDef[defName="ComfyTemperatureMax"]/parts</xpath>
-				  <success>Always</success>
-				  <value>
-					  <li Class="WVC.StatPart_GenesCombo">
-						<useImmortalityInsteadSubcore>true</useImmortalityInsteadSubcore>
-						<useStaticValue>true</useStaticValue>
-						<staticValue>250</staticValue>
-					  </li>
-				  </value>
-				</li>
+				<!-- <li Class="PatchOperationAdd"> -->
+				  <!-- <xpath>/Defs/StatDef[defName="ComfyTemperatureMin"]/parts</xpath> -->
+				  <!-- <success>Always</success> -->
+				  <!-- <value> -->
+					  <!-- <li Class="WVC.StatPart_GenesCombo"> -->
+						<!-- <useImmortalityInsteadSubcore>true</useImmortalityInsteadSubcore> -->
+						<!-- <useStaticValue>true</useStaticValue> -->
+						<!-- <staticValue>-100</staticValue> -->
+					  <!-- </li> -->
+				  <!-- </value> -->
+				<!-- </li> -->
+				<!-- <li Class="PatchOperationAdd"> -->
+				  <!-- <xpath>/Defs/StatDef[defName="ComfyTemperatureMax"]/parts</xpath> -->
+				  <!-- <success>Always</success> -->
+				  <!-- <value> -->
+					  <!-- <li Class="WVC.StatPart_GenesCombo"> -->
+						<!-- <useImmortalityInsteadSubcore>true</useImmortalityInsteadSubcore> -->
+						<!-- <useStaticValue>true</useStaticValue> -->
+						<!-- <staticValue>250</staticValue> -->
+					  <!-- </li> -->
+				  <!-- </value> -->
+				<!-- </li> -->
 
 				<!-- <li Class="PatchOperationAdd"> -->
 				  <!-- <xpath>/Defs/StatDef[defName="ComfyTemperatureMin"]/parts</xpath> -->
@@ -116,8 +112,27 @@
 					<!-- </operations> -->
 				<!-- </li> -->
 
-			</operations>
-		</caseTrue>
+			<!-- </operations> -->
+		<!-- </caseTrue> -->
+	<!-- </Operation> -->
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/StatDef[defName="ComfyTemperatureMin"]/parts</xpath>
+	  <success>Always</success>
+	  <value>
+		  <li Class="WVC.StatPart_ForceTo">
+			<statDefName>WVC_ForceTo_ComfyTemperatureMin</statDefName>
+		  </li>
+	  </value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/StatDef[defName="ComfyTemperatureMax"]/parts</xpath>
+	  <success>Always</success>
+	  <value>
+		  <li Class="WVC.StatPart_ForceTo">
+			<statDefName>WVC_ForceTo_ComfyTemperatureMax</statDefName>
+		  </li>
+	  </value>
 	</Operation>
 
 	<Operation Class="WVC.PatchOperationOptional">
