@@ -253,7 +253,7 @@
 	<stages>
 	  <li>
 		<label>non-mechaskin vs mechaskin</label>
-		<baseOpinionOffset>-50</baseOpinionOffset>
+		<baseOpinionOffset>-20</baseOpinionOffset>
 	  </li>
 	  <li>
 		<!-- <label>perfect being</label> -->
@@ -268,7 +268,7 @@
 	  <li>
 		<!-- <label>disgusting creature</label> -->
 		<label>body purist vs mechaskin</label>
-		<baseOpinionOffset>-75</baseOpinionOffset>
+		<baseOpinionOffset>-50</baseOpinionOffset>
 	  </li>
 	  <li>
 		<label>mechaskin vs mechaskin</label>
@@ -288,7 +288,7 @@
 	<stages>
 	  <li>
 		<label>non-mechaskin vs mechaskin</label>
-		<baseOpinionOffset>-20</baseOpinionOffset>
+		<baseOpinionOffset>-10</baseOpinionOffset>
 	  </li>
 	  <li>
 		<!-- <label>perfect being</label> -->
@@ -304,11 +304,12 @@
 	  <li>
 		<!-- <label>disgusting creature</label> -->
 		<label>body purist vs mechaskin</label>
-		<baseOpinionOffset>-50</baseOpinionOffset>
+		<baseOpinionOffset>-30</baseOpinionOffset>
 	  </li>
 	  <li>
 		<label>mechaskin vs mechaskin</label>
-		<baseOpinionOffset>-5</baseOpinionOffset>
+		<visible>false</visible>
+		<baseOpinionOffset>0</baseOpinionOffset>
 	  </li>
 	</stages>
   </ThoughtDef>
@@ -495,7 +496,8 @@
 	  <li>
 		<label>Mechaskinned</label>
 		<description>My flesh is disgusting to myself..</description>
-		<baseMoodEffect>-2</baseMoodEffect>
+		<visible>false</visible>
+		<baseMoodEffect>0</baseMoodEffect>
 	  </li>
 	</stages>
   </ThoughtDef>

@@ -101,12 +101,12 @@
 	<stages>
 	  <li>
 		<label>non-mechaskin vs mechaskin</label>
-		<baseOpinionOffset>-20</baseOpinionOffset>
+		<baseOpinionOffset>-5</baseOpinionOffset>
 	  </li>
 	  <li>
 		<!-- <label>perfect being</label> -->
 		<label>body modder vs mechaskin</label>
-		<baseOpinionOffset>20</baseOpinionOffset>
+		<baseOpinionOffset>10</baseOpinionOffset>
 	  </li>
 	  <li>
 		<!-- <label>same as me</label> -->
@@ -116,7 +116,7 @@
 	  <li>
 		<!-- <label>disgusting creature</label> -->
 		<label>body purist vs mechaskin</label>
-		<baseOpinionOffset>-50</baseOpinionOffset>
+		<baseOpinionOffset>-20</baseOpinionOffset>
 	  </li>
 	  <li>
 		<label>mechaskin vs mechaskin</label>

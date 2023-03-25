@@ -217,26 +217,25 @@
 	  </value>
 	</Operation>
 
-	<Operation Class="WVC.PatchOperationOptional">
-		<settingName>mechaskinTemperatureAdaptability</settingName>
-		<caseTrue Class="PatchOperationSequence">
-			<operations>
+	<!-- <Operation Class="WVC.PatchOperationOptional"> -->
+		<!-- <settingName>mechaskinTemperatureAdaptability</settingName> -->
+		<!-- <caseTrue Class="PatchOperationSequence"> -->
+			<!-- <operations> -->
 
-				<li Class="XmlExtensions.PatchOperationSafeAdd">
-				  <xpath>/Defs/GeneDef[@Name="WVC_MechanoidBody_Base"]</xpath>
-				  <success>Always</success>
-				  <safetyDepth>1</safetyDepth>
-				  <value>
-					<customEffectDescriptions>
-						<!-- Immortality genes: Deathless, ageless, scarless, non-senescent and perfect immunity. -->
-						<li>&lt;color=#85a7ff&gt;Immortal:&lt;/color&gt; Gives immunity to temperatures when combined with immortality genes.</li>
-					</customEffectDescriptions>
-				  </value>
-				</li>
+				<!-- <li Class="XmlExtensions.PatchOperationSafeAdd"> -->
+				  <!-- <xpath>/Defs/GeneDef[@Name="WVC_MechanoidBody_Base"]</xpath> -->
+				  <!-- <success>Always</success> -->
+				  <!-- <safetyDepth>1</safetyDepth> -->
+				  <!-- <value> -->
+					<!-- <customEffectDescriptions> -->
+						<!-- <li>&lt;color=#85a7ff&gt;Immortal:&lt;/color&gt; Gives immunity to temperatures when combined with immortality genes.</li> -->
+					<!-- </customEffectDescriptions> -->
+				  <!-- </value> -->
+				<!-- </li> -->
 
-			</operations>
-		</caseTrue>
-	</Operation>
+			<!-- </operations> -->
+		<!-- </caseTrue> -->
+	<!-- </Operation> -->
 
 	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
 	  <!-- <xpath>/Defs/GeneDef[defName="Neversleep" or defName="AG_Painless"]</xpath> -->
