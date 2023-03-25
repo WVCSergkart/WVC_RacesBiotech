@@ -3,19 +3,25 @@
 
 	<WVC_BiotechSettings>Genes</WVC_BiotechSettings>
 
+	<WVC_BiotechSettings_Label_Graphics>Graphics</WVC_BiotechSettings_Label_Graphics>
+	<WVC_BiotechSettings_Label_Genes>Genes</WVC_BiotechSettings_Label_Genes>
+	<WVC_BiotechSettings_Label_Other>Other</WVC_BiotechSettings_Label_Other>
+
+	<WVC_BiotechSettings_Tooltip_Graphics>Settings responsible for graphic elements.</WVC_BiotechSettings_Tooltip_Graphics>
+	<WVC_BiotechSettings_Tooltip_Genes>Settings responsible for the special effects of genes.</WVC_BiotechSettings_Tooltip_Genes>
+	<WVC_BiotechSettings_Tooltip_Other>Settings not related to anything specific.</WVC_BiotechSettings_Tooltip_Other>
+
 	<!-- ====================================================================================== -->
 	<WVC_Label_disableFurGraphic>Disable mechaskin/nodeskin graphic</WVC_Label_disableFurGraphic>
 	<WVC_ToolTip_disableFurGraphic>Turns off the visual changes introduced by Mechaskins.
 
-A restart is required to apply the settings.</WVC_ToolTip_disableFurGraphic>
+A restart is required to apply the setting.</WVC_ToolTip_disableFurGraphic>
 
 	<!-- ====================================================================================== -->
 
 	<!-- Immortality genes: Deathless, ageless, scarless, non-senescent and perfect immunity. -->
 	<WVC_Label_mechaskinTemperatureAdaptability>Mechaskin forced temperature</WVC_Label_mechaskinTemperatureAdaptability>
-	<WVC_ToolTip_mechaskinTemperatureAdaptability>Adds a temperature immunity effect to the mechaskin.
-
-A restart is only needed to change the description.</WVC_ToolTip_mechaskinTemperatureAdaptability>
+	<WVC_ToolTip_mechaskinTemperatureAdaptability>Adds a temperature immunity effect to the mechaskin.</WVC_ToolTip_mechaskinTemperatureAdaptability>
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_minWastepacksPerRecharge>Force minimal waste</WVC_Label_minWastepacksPerRecharge>
@@ -23,13 +29,11 @@ A restart is only needed to change the description.</WVC_ToolTip_mechaskinTemper
 
 Nodeskin VX allows you to reduce the bandwidth cost to 0, which causes the mechanoids to stop making waste. If you need waste produced by mechanoids, then enable this option.
 
-A restart is required to apply the settings.</WVC_ToolTip_minWastepacksPerRecharge>
+A restart is required to apply the setting.</WVC_ToolTip_minWastepacksPerRecharge>
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_nodeskinVX_MechBandwidth>Enable Nodeskin VX bandwidth limit</WVC_Label_nodeskinVX_MechBandwidth>
-	<WVC_ToolTip_nodeskinVX_MechBandwidth>Responsible for whether Nodeskin VX will have a limit on the number of bandwidth.
-
-A restart is only needed to change the description.</WVC_ToolTip_nodeskinVX_MechBandwidth>
+	<WVC_ToolTip_nodeskinVX_MechBandwidth>Responsible for whether Nodeskin VX will have a limit on the number of bandwidth.</WVC_ToolTip_nodeskinVX_MechBandwidth>
 
 	<!-- ====================================================================================== -->
 	<!-- <WVC_Label_mecaXenotypeIsInheritable>Meca xenotype have inheritable genes</WVC_Label_mecaXenotypeIsInheritable> -->
@@ -42,11 +46,11 @@ A restart is only needed to change the description.</WVC_ToolTip_nodeskinVX_Mech
 
 	<!-- ====================================================================================== -->
 
-	<WVC_StatPart_Mechanoidization>Mechanoidization</WVC_StatPart_Mechanoidization>
-	<WVC_StatPart_ArchitesInBloodstream>Archites in bloodstream</WVC_StatPart_ArchitesInBloodstream>
+	<!-- <WVC_StatPart_Mechanoidization>Mechanoidization</WVC_StatPart_Mechanoidization> -->
+	<!-- <WVC_StatPart_ArchitesInBloodstream>Archites in bloodstream</WVC_StatPart_ArchitesInBloodstream> -->
 
 	<WVC_StatPart_GenesCombo_Cause>Mecha-genes</WVC_StatPart_GenesCombo_Cause>
 	<WVC_StatPart_GenesCombo_Static>Forced to</WVC_StatPart_GenesCombo_Static>
-	<WVC_StatPart_GenesCombo_ForcedByStat>Forced by</WVC_StatPart_GenesCombo_ForcedByStat>
+	<!-- <WVC_StatPart_GenesCombo_ForcedByStat>Forced by</WVC_StatPart_GenesCombo_ForcedByStat> -->
 
 </LanguageData>
