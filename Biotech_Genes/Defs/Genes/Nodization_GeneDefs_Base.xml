@@ -270,9 +270,15 @@ Most of the internal organs were not affected, but there are too many external c
 	  <Intellectual>1</Intellectual>
 	  <Social>1</Social>
 	</aptitudes>
-	<statOffsets>
-	  <HemogenGainFactor>0.5</HemogenGainFactor>
-	</statOffsets>
+	<conditionalStatAffecters>
+	  <li Class="WVC.ConditionalStatAffecter_Genes">
+		<geneDef>Bloodfeeder</geneDef>
+		<pawnShouldBeImmortal>true</pawnShouldBeImmortal>
+		<statOffsets>
+		  <HemogenGainFactor>1.0</HemogenGainFactor>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
   </GeneDef>
 
 </Defs>
