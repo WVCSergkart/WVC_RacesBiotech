@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="GeneSetHolderBase">
+	<defName>WVC_Genepack</defName>
+	<label>genepack</label>
+	<description>A small capsule containing a package of genetic information. To use a genepack, it must be placed in a gene bank near a gene assembler and combined into an implantable xenogerm.\n\nIf not kept in a powered gene bank, this genepack will slowly deteriorate.</description>
+	<thingClass>Genepack</thingClass>
+	<tickerType>Rare</tickerType>
+	<useHitPoints>true</useHitPoints>
+	<canDeteriorateUnspawned>true</canDeteriorateUnspawned>
+	<deteriorateFromEnvironmentalEffects>false</deteriorateFromEnvironmentalEffects>
+	<inspectorTabs>
+	  <li>ITab_Genes</li>
+	</inspectorTabs>
+	<graphicData>
+	  <texPath>Things/Item/Special/Genepack</texPath>
+	  <graphicClass>Graphic_Genepack</graphicClass>
+	  <drawSize>(0.75, 0.75)</drawSize>
+	</graphicData>
+	<statBases>
+	  <MarketValue>150</MarketValue>
+	  <DeteriorationRate>2</DeteriorationRate>
+	</statBases>
+	<descriptionHyperlinks>
+	  <ThingDef>Xenogerm</ThingDef>
+	  <ThingDef>GeneAssembler</ThingDef>
+	</descriptionHyperlinks>
+	<thingSetMakerTags>
+	  <li>RewardStandardMidFreq</li>
+	</thingSetMakerTags>
+  </ThingDef>
+
+  <RulePackDef>
+	<defName>WVC_NamerGenepack</defName>
+	<rulePack>
+	  <rulesStrings>
+		<li>r_name->mechapack ([geneWord][otherGenesInfo])</li>
+
+		<li>otherGenesInfo(geneCount==1)-></li>
+		<li>otherGenesInfo(geneCount>=2)-> +[geneCountMinusOne]</li>
+	  </rulesStrings>
+	</rulePack>
+  </RulePackDef>
+
+</Defs>

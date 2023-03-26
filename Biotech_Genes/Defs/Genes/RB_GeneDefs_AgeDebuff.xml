@@ -17,6 +17,7 @@
 	<displayCategory>WVC_AgeDebuffs</displayCategory>
 	<displayOrderInCategory>40</displayOrderInCategory>
 	<minAgeActive>25</minAgeActive>
+	<selectionWeight>0.05</selectionWeight>
 	<conditionalStatAffecters>
 	  <li Class="WVC.ConditionalStatAffecter_Mechalike">
 		<!-- <statOffsets> -->
@@ -70,6 +71,7 @@
 	<!-- <customEffectDescriptions> -->
 	  <!-- <li>Tox gas immunity</li> -->
 	<!-- </customEffectDescriptions> -->
+	<selectionWeight>0.05</selectionWeight>
 	<conditionalStatAffecters>
 	  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
 		<!-- <statOffsets> -->
@@ -115,6 +117,7 @@
 	<biostatMet>1</biostatMet>
 	<displayCategory>WVC_AgeDebuffs</displayCategory>
 	<displayOrderInCategory>101</displayOrderInCategory>
+	<selectionWeight>0.05</selectionWeight>
 	<exclusionTags>
 	  <li>Fertility</li>
 	</exclusionTags>
@@ -158,6 +161,7 @@
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>1</biostatMet>
 	<lovinMTBFactor>0.0</lovinMTBFactor>
+	<selectionWeight>0.05</selectionWeight>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>age</symbol></li>
@@ -183,6 +187,7 @@
 	<displayCategory>WVC_AgeDebuffs</displayCategory>
 	<displayOrderInCategory>21</displayOrderInCategory>
 	<minAgeActive>25</minAgeActive>
+	<selectionWeight>0.05</selectionWeight>
 	<conditionalStatAffecters>
 	  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
 		<!-- <statOffsets> -->
@@ -223,6 +228,7 @@
 	<displayCategory>WVC_AgeDebuffs</displayCategory>
 	<displayOrderInCategory>21</displayOrderInCategory>
 	<minAgeActive>25</minAgeActive>
+	<selectionWeight>0.05</selectionWeight>
 	<capMods>
 	  <li>
 		<capacity>Manipulation</capacity>
@@ -256,6 +262,7 @@
 	<displayCategory>WVC_AgeDebuffs</displayCategory>
 	<displayOrderInCategory>21</displayOrderInCategory>
 	<minAgeActive>25</minAgeActive>
+	<selectionWeight>0.05</selectionWeight>
 	<capMods>
 	  <li>
 		<capacity>Talking</capacity>
@@ -289,6 +296,7 @@
 	<displayCategory>WVC_AgeDebuffs</displayCategory>
 	<displayOrderInCategory>10</displayOrderInCategory>
 	<minAgeActive>25</minAgeActive>
+	<selectionWeight>0.05</selectionWeight>
 	<conditionalStatAffecters>
 	  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
 		<!-- <statOffsets> -->
@@ -329,6 +337,7 @@
 	<displayOrderInCategory>20</displayOrderInCategory>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>3</biostatMet>
+	<selectionWeight>0.05</selectionWeight>
 	<conditionalStatAffecters>
 	  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
 		<!-- <statOffsets> -->

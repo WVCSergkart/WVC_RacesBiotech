@@ -11,6 +11,7 @@
 	<displayOrderInCategory>-100</displayOrderInCategory>
 	<prerequisite>WVC_MechaAI_Base</prerequisite>
 	<randomChosen>true</randomChosen>
+	<selectionWeight>0.4</selectionWeight>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<symbolPack>

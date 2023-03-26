@@ -13,6 +13,7 @@
 	<biostatCpx>0</biostatCpx>
 	<!-- <biostatArc>0</biostatArc> -->
 	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
+	<selectionWeight>0.1</selectionWeight>
 	<exclusionTags>
 	  <!-- <li>WVC_Mecha_RomanceChanceBase</li> -->
 	  <!-- <li>RomanceChance</li> -->

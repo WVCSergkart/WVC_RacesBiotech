@@ -83,7 +83,7 @@
 
   <GeneDef Name="WVC_MechanoidizationBase" Abstract="True">
 	<displayCategory>WVC_MechaBody</displayCategory>
-	<selectionWeight>0.17</selectionWeight>
+	<selectionWeight>1.0</selectionWeight>
 	<marketValueFactor>1.5</marketValueFactor>
 	<minAgeActive>13</minAgeActive>
 	<randomChosen>false</randomChosen>

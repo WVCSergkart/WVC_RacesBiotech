@@ -30,6 +30,7 @@
 	<biostatCpx>3</biostatCpx>
 	<biostatArc>2</biostatArc>
 	<biostatMet>0</biostatMet>
+	<selectionWeight>0.2</selectionWeight>
 	<customEffectDescriptions>
 		<li>Restores a lost limb every (*DateTime)5-15 days(/DateTime).</li>
 	</customEffectDescriptions>

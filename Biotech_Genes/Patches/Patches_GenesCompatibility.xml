@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
 
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/TraderKindDef/stockGenerators[li[thingDef="Genepack"]]</xpath>
+	  <value>
+		  <li MayRequire="Ludeon.RimWorld.Biotech" Class="StockGenerator_SingleDef">
+			<thingDef>WVC_Genepack</thingDef>
+			<countRange>1~2</countRange>
+		  </li>
+	  </value>
+	</Operation>
+
 	<!-- ============================================================ -->
 
 	<Operation Class="PatchOperationFindMod">

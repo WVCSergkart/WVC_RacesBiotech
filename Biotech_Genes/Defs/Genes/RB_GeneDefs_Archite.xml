@@ -11,6 +11,7 @@
 	<displayCategory>Archite</displayCategory>
 	<displayOrderInCategory>150</displayOrderInCategory>
 	<iconColor>(79, 80, 81)</iconColor>
+	<selectionWeight>0.1</selectionWeight>
 	<!-- <skinColorOverride>(79, 80, 81)</skinColorOverride> -->
 	<!-- <hairColorOverride>(79, 80, 81)</hairColorOverride> -->
 	<missingGeneRomanceChanceFactor>0.2</missingGeneRomanceChanceFactor>
@@ -89,6 +90,8 @@
 	<displayCategory>WVC_AgeDebuffs</displayCategory>
 	<displayOrderInCategory>100</displayOrderInCategory>
 	<minAgeActive>10</minAgeActive>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<biologicalAgeTickFactorFromAgeCurve>
 	  <points>
 		<li>(11, 1)</li>
@@ -116,6 +119,9 @@
 		<li><symbol>yo</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
+	<exclusionTags>
+		<li>WVC_OnlyOnCharacterCreation_ForeverYoung</li>
+	</exclusionTags>
 	<!-- <modExtensions> -->
 		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
 			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes> -->
@@ -126,6 +132,9 @@
 		<li Class="WVC.GeneExtension">
 			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
 		</li>
+		<!-- <li Class="WVC.GeneExtension_Genepack"> -->
+			<!-- <spawnGeneInGenepack>false</spawnGeneInGenepack> -->
+		<!-- </li> -->
 	</modExtensions>
   </GeneDef>
 

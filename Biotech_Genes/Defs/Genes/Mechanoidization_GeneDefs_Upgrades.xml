@@ -13,7 +13,7 @@
 	<iconColor>(255, 255, 255)</iconColor>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
-	<selectionWeight>0.18</selectionWeight>
+	<!-- <selectionWeight>0.18</selectionWeight> -->
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>Adds the corresponding body part. The body part is considered artificial.</li> -->
 	<!-- </customEffectDescriptions> -->
