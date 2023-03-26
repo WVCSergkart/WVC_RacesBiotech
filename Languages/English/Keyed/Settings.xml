@@ -18,6 +18,10 @@
 A restart is required to apply the setting.</WVC_ToolTip_disableFurGraphic>
 
 	<!-- ====================================================================================== -->
+	<WVC_Label_enableGeneSpawnerGizmo>Enable gene-spawner gizmo</WVC_Label_enableGeneSpawnerGizmo>
+	<WVC_ToolTip_enableGeneSpawnerGizmo>Responsible for displaying the informational gizmo of spawner genes. These gizmos write the name of the resource and the time before it spawns.</WVC_ToolTip_enableGeneSpawnerGizmo>
+
+	<!-- ====================================================================================== -->
 
 	<!-- Immortality genes: Deathless, ageless, scarless, non-senescent and perfect immunity. -->
 	<WVC_Label_mechaskinTemperatureAdaptability>Mechaskin forced temperature</WVC_Label_mechaskinTemperatureAdaptability>

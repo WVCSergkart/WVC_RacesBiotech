@@ -22,4 +22,10 @@
   <WVC_StatsReport_CauseSetting_On>enabled</WVC_StatsReport_CauseSetting_On>
   <WVC_StatsReport_CauseSetting_Off>disabled</WVC_StatsReport_CauseSetting_Off>
 
+  <WVC_GeneSpawner_GizmoTitle>Resource spawner</WVC_GeneSpawner_GizmoTitle>
+  <WVC_GeneSpawner_GizmoSpawn>Spawn</WVC_GeneSpawner_GizmoSpawn>
+  <WVC_GeneSpawner_GizmoNextIn>Next in</WVC_GeneSpawner_GizmoNextIn>
+  <WVC_GeneSpawner_GizmoCountSpawn>in count</WVC_GeneSpawner_GizmoCountSpawn>
+  <WVC_GeneSpawner_GizmoTooltip>This information is associated with the spawner gene. The display of this gizmo can be disabled in the settings.</WVC_GeneSpawner_GizmoTooltip>
+
 </LanguageData>

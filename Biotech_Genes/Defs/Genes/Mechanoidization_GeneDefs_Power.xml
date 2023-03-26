@@ -100,14 +100,15 @@
 	<defName>WVC_MechaPowerSource_Tox</defName>
 	<label>tox power source</label> 
 	<iconPath>WVC/UI/Genes/PowerSource_Tox</iconPath>
-	<geneClass>WVC.Gene_WastepackSpawner</geneClass>
+	<geneClass>WVC.Gene_Spawner</geneClass>
+	<!-- <geneClass>WVC.Gene_WastepackSpawner</geneClass> -->
 	<selectionWeight>0.3</selectionWeight>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>2</biostatArc>
 	<biostatMet>21</biostatMet>
 	<customEffectDescriptions>
 		<li>Grants an additional 5 metabolism points.</li>
-		<li>Spawns wastepacks every (*DateTime)2-5 days(/DateTime).</li>
+		<li>Spawns 5 wastepacks every (*DateTime)2-5 days(/DateTime).</li>
 		<!-- <li>&lt;color=#b8c6ff&gt;The number of wastepacks depends on the archites capsules.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<symbolPack>
@@ -120,11 +121,13 @@
 		<li><symbol>ox</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
-	<!-- <modExtensions Inherit="False"> -->
-		<!-- <li Class="WVC.GeneExtension"> -->
-			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
+	<modExtensions>
+		<li Class="WVC.GeneExtension_Spawner">
+			<thingDefToSpawn>Wastepack</thingDefToSpawn>
+			<stackCount>5</stackCount>
+			<!-- <customLabel>Wastepack</customLabel> -->
+		</li>
+	</modExtensions>
   </GeneDef>
   <!-- <HediffDef> -->
 	<!-- <defName>WVC_MechaPowerSource_ToxProduction</defName> -->
