@@ -13,7 +13,7 @@
 	<marketValueFactor>1.2</marketValueFactor>
 	<prerequisite>WVC_MechaSkin</prerequisite>
 	<minAgeActive>13</minAgeActive>
-	<selectionWeight>0.2</selectionWeight>
+	<selectionWeight>0.6</selectionWeight>
 	<displayOrderInCategory>-100</displayOrderInCategory>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>3</biostatArc>
@@ -158,6 +158,7 @@
 	<sterilize>true</sterilize>
 	<customEffectDescriptions>
 		<li>Completely changes the genes of the target pawn to the genes of the caster.</li>
+		<li>&lt;color=#ff8585&gt;Can't be absorbed forcly.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<abilities>
 	  <li>WVC_EndogermReimplanter</li>

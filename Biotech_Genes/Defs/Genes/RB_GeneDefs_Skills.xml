@@ -286,6 +286,7 @@
 	<label>great equalizer</label>
 	<description>Turns off all aptitudes.</description>
 	<biostatArc>1</biostatArc>
+	<selectionWeight>0.4</selectionWeight>
 	<customEffectDescriptions Inherit="False">
 		<li>Nullifying all aptitudes.</li>
 	</customEffectDescriptions>

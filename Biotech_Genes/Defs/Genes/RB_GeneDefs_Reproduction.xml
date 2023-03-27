@@ -13,6 +13,7 @@
 	<displayCategory>Archite</displayCategory>
 	<minAgeActive>13</minAgeActive>
 	<sterilize>true</sterilize>
+	<selectionWeight>0.05</selectionWeight>
 	<statFactors>
 	  <Fertility>0</Fertility>
 	</statFactors>

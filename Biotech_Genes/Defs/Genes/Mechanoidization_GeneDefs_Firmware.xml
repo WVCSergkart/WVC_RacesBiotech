@@ -11,7 +11,7 @@
 	<iconPath>WVC/UI/Genes/MechanoidizationFirmware</iconPath>
 	<displayOrderInCategory>6</displayOrderInCategory>
 	<prerequisite>WVC_MechaAI_Base</prerequisite>
-	<selectionWeight>0.2</selectionWeight>
+	<selectionWeight>0.6</selectionWeight>
 	<marketValueFactor>2</marketValueFactor>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>1</biostatArc>

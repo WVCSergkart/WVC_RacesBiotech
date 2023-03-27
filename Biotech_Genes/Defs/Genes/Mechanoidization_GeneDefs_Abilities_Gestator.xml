@@ -7,6 +7,7 @@
 	<iconPath>WVC/UI/Genes/Gestator</iconPath>
 	<prerequisite>WVC_MechaAI_Base</prerequisite>
 	<sterilize>true</sterilize>
+	<selectionWeight>0.5</selectionWeight>
 	<statFactors>
 	  <Fertility>0</Fertility>
 	</statFactors>
@@ -60,6 +61,7 @@
 	<defName>WVC_StartUrchinGestation</defName>
 	<label>urchin gestator</label>
 	<iconPath>Things/Pawn/Mechanoid/WarUrchin_south</iconPath>
+	<selectionWeight>0.1</selectionWeight>
 	<customEffectDescriptions>
 		<li>Spawns a urchin 5 days after the ability is activated.</li>
 	</customEffectDescriptions>

@@ -13,7 +13,7 @@ Most of the internal organs remain intact, but there are enough external changes
 
 &lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
 	<displayCategory>WVC_MechaBody</displayCategory>
-	<selectionWeight>0.7</selectionWeight>
+	<selectionWeight>0.8</selectionWeight>
 	<!-- <marketValueFactor>1.5</marketValueFactor> -->
 	<randomChosen>false</randomChosen>
 	<canGenerateInGeneSet>true</canGenerateInGeneSet>
