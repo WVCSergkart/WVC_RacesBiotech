@@ -6,7 +6,15 @@
 	  <value>
 		  <li MayRequire="Ludeon.RimWorld.Biotech" Class="StockGenerator_SingleDef">
 			<thingDef>WVC_Genepack</thingDef>
-			<countRange>1~2</countRange>
+			<countRange>0~3</countRange>
+		  </li>
+		  <li MayRequire="Ludeon.RimWorld.Biotech" Class="StockGenerator_SingleDef">
+			<thingDef>WVC_UltraGenepack</thingDef>
+			<countRange>0~3</countRange>
+		  </li>
+		  <li MayRequire="Ludeon.RimWorld.Biotech" Class="StockGenerator_SingleDef">
+			<thingDef>WVC_MechaGenepack</thingDef>
+			<countRange>0~3</countRange>
 		  </li>
 	  </value>
 	</Operation>
