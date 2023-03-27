@@ -4,17 +4,22 @@
 	<Operation Class="PatchOperationAdd">
 	  <xpath>/Defs/TraderKindDef/stockGenerators[li[thingDef="Genepack"]]</xpath>
 	  <value>
-		  <li MayRequire="Ludeon.RimWorld.Biotech" Class="StockGenerator_SingleDef">
-			<thingDef>WVC_Genepack</thingDef>
-			<countRange>0~3</countRange>
-		  </li>
-		  <li MayRequire="Ludeon.RimWorld.Biotech" Class="StockGenerator_SingleDef">
-			<thingDef>WVC_UltraGenepack</thingDef>
-			<countRange>0~3</countRange>
-		  </li>
-		  <li MayRequire="Ludeon.RimWorld.Biotech" Class="StockGenerator_SingleDef">
-			<thingDef>WVC_MechaGenepack</thingDef>
-			<countRange>0~3</countRange>
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech" Class="StockGenerator_SingleDef"> -->
+			<!-- <thingDef>WVC_Genepack</thingDef> -->
+			<!-- <countRange>0~3</countRange> -->
+		  <!-- </li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech" Class="StockGenerator_SingleDef"> -->
+			<!-- <thingDef>WVC_UltraGenepack</thingDef> -->
+			<!-- <countRange>0~3</countRange> -->
+		  <!-- </li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech" Class="StockGenerator_SingleDef"> -->
+			<!-- <thingDef>WVC_MechaGenepack</thingDef> -->
+			<!-- <countRange>0~3</countRange> -->
+		  <!-- </li> -->
+		  <li Class="StockGenerator_Tag">
+			<tradeTag>WVC_GenePacks</tradeTag>
+			<thingDefCountRange>0~3</thingDefCountRange>
+			<countRange>1~2</countRange>
 		  </li>
 	  </value>
 	</Operation>

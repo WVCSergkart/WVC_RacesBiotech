@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Genepack spawner -->
+
+  <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Mechanoidization_GenepackSpawnerBase" Abstract="True">
+	<labelShortAdj>genepack thrower</labelShortAdj>
+	<description>Carriers of this gene have archites that constantly generate genes and separate them from the carrier.</description>
+	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<!-- <displayCategory>WVC_MechaBody</displayCategory> -->
+	<displayOrderInCategory>957</displayOrderInCategory>
+	<geneClass>WVC.Gene_Spawner</geneClass>
+	<biostatArc>1</biostatArc>
+	<biostatCpx>3</biostatCpx>
+	<marketValueFactor>2</marketValueFactor>
+	<selectionWeight>0.3</selectionWeight>
+	<customEffectDescriptions>
+		<li>Spawns genepack every (*DateTime)5-15 days(/DateTime).</li>
+	</customEffectDescriptions>
+	<!-- <randomChosen>true</randomChosen> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_MechaPowerSource</li> -->
+	<!-- </exclusionTags> -->
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>gene</symbol></li>
+		<li><symbol>pack</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>gene</symbol></li>
+		<li><symbol>pack</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- Vanilla -->
+  <GeneDef ParentName="WVC_Mechanoidization_GenepackSpawnerBase">
+	<defName>WVC_GenePackSpawner_Vanilla</defName>
+	<label>genepack thrower</label>
+	<iconPath>Things/Item/Special/Genepack/Genepack_e</iconPath>
+	<biostatArc>1</biostatArc>
+	<modExtensions>
+		<li Class="WVC.GeneExtension_Spawner">
+			<thingDefToSpawn>Genepack</thingDefToSpawn>
+			<stackCount>1</stackCount>
+			<spawnIntervalRange><min>300000</min><max>900000</max></spawnIntervalRange>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- WVC -->
+  <GeneDef ParentName="WVC_Mechanoidization_GenepackSpawnerBase">
+	<defName>WVC_GenePackSpawner_Base</defName>
+	<label>w-pack thrower</label>
+	<iconPath>WVC/Things/Mecha_Genepack/Genepack_e</iconPath>
+	<biostatArc>1</biostatArc>
+	<modExtensions>
+		<li Class="WVC.GeneExtension_Spawner">
+			<thingDefToSpawn>WVC_Genepack</thingDefToSpawn>
+			<stackCount>1</stackCount>
+			<spawnIntervalRange><min>300000</min><max>900000</max></spawnIntervalRange>
+		</li>
+	</modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Mechanoidization_GenepackSpawnerBase">
+	<defName>WVC_GenePackSpawner_Ultra</defName>
+	<label>ultrapack thrower</label>
+	<iconPath>WVC/Things/Ultra_Genepack/Ultrapack_e</iconPath>
+	<biostatArc>2</biostatArc>
+	<modExtensions>
+		<li Class="WVC.GeneExtension_Spawner">
+			<thingDefToSpawn>WVC_UltraGenepack</thingDefToSpawn>
+			<stackCount>1</stackCount>
+			<spawnIntervalRange><min>300000</min><max>900000</max></spawnIntervalRange>
+		</li>
+	</modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Mechanoidization_GenepackSpawnerBase">
+	<defName>WVC_GenePackSpawner_Mecha</defName>
+	<label>mechapack thrower</label>
+	<iconPath>WVC/Things/Mecha_Genepack/Genepack_f</iconPath>
+	<biostatArc>3</biostatArc>
+	<modExtensions>
+		<li Class="WVC.GeneExtension_Spawner">
+			<thingDefToSpawn>WVC_MechaGenepack</thingDefToSpawn>
+			<stackCount>1</stackCount>
+			<spawnIntervalRange><min>300000</min><max>900000</max></spawnIntervalRange>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- Alpha Genes -->
+  <GeneDef MayRequireAnyOf="sarg.alphagenes" ParentName="WVC_Mechanoidization_GenepackSpawnerBase">
+	<defName>WVC_GenePackSpawner_AlphaBase</defName>
+	<label>alphapack thrower</label>
+	<iconPath>Things/Item/AG_Alphapack/AG_Alphapack_e</iconPath>
+	<biostatArc>1</biostatArc>
+	<modExtensions>
+		<li Class="WVC.GeneExtension_Spawner">
+			<thingDefToSpawn>AG_Alphapack</thingDefToSpawn>
+			<stackCount>1</stackCount>
+			<spawnIntervalRange><min>300000</min><max>900000</max></spawnIntervalRange>
+		</li>
+	</modExtensions>
+  </GeneDef>
+  <GeneDef MayRequireAnyOf="sarg.alphagenes" ParentName="WVC_Mechanoidization_GenepackSpawnerBase">
+	<defName>WVC_GenePackSpawner_AlphaMixed</defName>
+	<label>mixedpack thrower</label>
+	<iconPath>Things/Item/AG_Mixedpack/AG_Mixedpack_e</iconPath>
+	<biostatArc>2</biostatArc>
+	<modExtensions>
+		<li Class="WVC.GeneExtension_Spawner">
+			<thingDefToSpawn>AG_Mixedpack</thingDefToSpawn>
+			<stackCount>1</stackCount>
+			<spawnIntervalRange><min>300000</min><max>900000</max></spawnIntervalRange>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>
