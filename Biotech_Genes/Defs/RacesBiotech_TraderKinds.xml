@@ -3,7 +3,7 @@
 
   <TraderKindDef>
 	<defName>WVC_Orbital_GenePackTrader</defName>
-	<label>genepacks trader</label>
+	<label>genepack trader</label>
 	<orbital>true</orbital>
 	<stockGenerators>
 	  
