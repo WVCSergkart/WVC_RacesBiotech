@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <TraderKindDef>
+	<defName>WVC_Orbital_GenePackTrader</defName>
+	<label>genepacks trader</label>
+	<orbital>true</orbital>
+	<stockGenerators>
+	  
+	  <!-- Resources -->
+	  <li Class="StockGenerator_SingleDef">
+		<thingDef>Silver</thingDef>
+		<countRange>14000~22000</countRange>
+	  </li>
+	  <li Class="StockGenerator_SingleDef">
+		<thingDef>MedicineIndustrial</thingDef>
+		<countRange>4~9</countRange>
+	  </li>
+	  <li Class="StockGenerator_SingleDef">
+		<thingDef>MedicineUltratech</thingDef>
+		<countRange>2~6</countRange>
+	  </li>
+	  <li MayRequire="Ludeon.RimWorld.Biotech" Class="StockGenerator_SingleDef">
+		<thingDef>Genepack</thingDef>
+		<countRange>7~14</countRange>
+	  </li>
+	  <li Class="StockGenerator_Tag">
+		<tradeTag>WVC_GenePacks</tradeTag>
+		<thingDefCountRange>9~21</thingDefCountRange>
+		<countRange>1~1</countRange>
+	  </li>
+	  <li MayRequire="sarg.alphagenes" Class="StockGenerator_SingleDef">
+		<thingDef>AG_Alphapack</thingDef>
+		<countRange>0~2</countRange>
+	  </li>
+	  <li MayRequire="sarg.alphagenes" Class="StockGenerator_SingleDef">
+		<thingDef>AG_Mixedpack</thingDef>
+		<countRange>0~2</countRange>
+	  </li>
+
+	  <!-- Buying -->
+	  <li Class="StockGenerator_BuyExpensiveSimple" />
+	  <li Class="StockGenerator_BuyTradeTag"><tag>Art</tag></li>
+	  <li Class="StockGenerator_BuyTradeTag"><tag>ImplantEmpireCommon</tag></li>
+	  <li Class="StockGenerator_BuyTradeTag"><tag>ImplantEmpireRoyal</tag></li>
+	  <li Class="StockGenerator_BuyTradeTag"><tag>PsylinkNeuroformer</tag></li>
+	  <li Class="StockGenerator_BuyTradeTag"><tag>ExoticBuilding</tag></li>
+	  <li Class="StockGenerator_BuyTradeTag"><tag>MusicalInstrument</tag></li>
+	  
+	</stockGenerators>
+  </TraderKindDef>
+
+</Defs>

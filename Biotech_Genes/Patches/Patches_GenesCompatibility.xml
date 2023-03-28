@@ -19,10 +19,17 @@
 		  <li Class="StockGenerator_Tag">
 			<tradeTag>WVC_GenePacks</tradeTag>
 			<thingDefCountRange>0~3</thingDefCountRange>
-			<countRange>1~2</countRange>
+			<countRange>1~1</countRange>
 		  </li>
 	  </value>
 	</Operation>
+
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/FactionDef/caravanTraderKinds[li="Caravan_Outlander_Exotic"]</xpath> -->
+	  <!-- <value> -->
+		  <!-- <li>WVC_GenePackTrader</li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
 
 	<!-- ============================================================ -->
 

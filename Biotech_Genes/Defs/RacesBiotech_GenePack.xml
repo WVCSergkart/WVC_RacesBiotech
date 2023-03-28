@@ -25,9 +25,9 @@
 	  <ThingDef>Xenogerm</ThingDef>
 	  <ThingDef>GeneAssembler</ThingDef>
 	</descriptionHyperlinks>
-	<techHediffsTags>
+	<tradeTags>
 	  <li>WVC_GenePacks</li>
-	</techHediffsTags>
+	</tradeTags>
 	<thingSetMakerTags>
 	  <li>RewardStandardMidFreq</li>
 	</thingSetMakerTags>
