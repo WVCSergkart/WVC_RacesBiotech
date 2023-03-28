@@ -143,7 +143,7 @@
 	<label>pattern VX</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneA</iconPath>
 	<statOffsets>
-	  <WorkSpeedGlobalOffsetMech>0.2</WorkSpeedGlobalOffsetMech>
+	  <MechControlGroups>1</MechControlGroups>
 	  <!-- <WorkSpeedGlobal>-0.5</WorkSpeedGlobal> -->
 	</statOffsets>
 	<!-- <exclusionTags> -->
@@ -169,7 +169,7 @@
 	<label>skill SX</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneB</iconPath>
 	<aptitudes>
-	  <Intellectual>6</Intellectual>
+	  <Crafting>6</Crafting>
 	</aptitudes>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Red">
@@ -217,7 +217,7 @@
 	<iconPath>WVC/UI/Genes/Encoding_GeneB</iconPath>
 	<aptitudes>
 	  <Crafting>3</Crafting>
-	  <Artistic>3</Artistic>
+	  <Melee>3</Melee>
 	</aptitudes>
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_Nodization_RandomSkillBuff_VX</li> -->
@@ -228,8 +228,8 @@
 	<label>skill YR</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneB</iconPath>
 	<aptitudes>
-	  <Mining>3</Mining>
-	  <Animals>3</Animals>
+	  <Social>3</Social>
+	  <Intellectual>3</Intellectual>
 	</aptitudes>
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_Nodization_RandomSkillBuff_YR</li> -->
@@ -260,7 +260,7 @@
 	<label>vindication GB</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneC</iconPath>
 	<statOffsets>
-	 <MoveSpeed>2</MoveSpeed>
+	 <MoveSpeed>0.8</MoveSpeed>
 	</statOffsets>
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_Nodization_RandomVindicationBuff_VX</li> -->
@@ -452,7 +452,7 @@
 	<label>point YR</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneE</iconPath>
 	<statFactors>
-	  <PsychicSensitivity>1.2</PsychicSensitivity>
+	  <HemogenGainFactor>1.5</HemogenGainFactor>
 	</statFactors>
   </GeneDef>
 
@@ -568,7 +568,8 @@
 		<geneDef>Bloodfeeder</geneDef>
 		<pawnShouldBeImmortal>true</pawnShouldBeImmortal>
 		<statOffsets>
-		  <WorkSpeedGlobalOffsetMech>0.2</WorkSpeedGlobalOffsetMech>
+		  <WVC_BandwidthCostOffsetMech>-1</WVC_BandwidthCostOffsetMech>
+		  <!-- <WorkSpeedGlobalOffsetMech>0.2</WorkSpeedGlobalOffsetMech> -->
 		</statOffsets>
 	  </li>
 	</conditionalStatAffecters>
@@ -587,7 +588,9 @@
 		<geneDef>Bloodfeeder</geneDef>
 		<pawnShouldBeImmortal>true</pawnShouldBeImmortal>
 		<statOffsets>
-		  <HemogenGainFactor>0.2</HemogenGainFactor>
+		  <PawnBeauty>1</PawnBeauty>
+		  <SocialImpact>0.2</SocialImpact>
+		  <!-- <MeleeDodgeChance>20</MeleeDodgeChance> -->
 		</statOffsets>
 	  </li>
 	</conditionalStatAffecters>
@@ -621,7 +624,7 @@
 	<label>decision GB</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneG</iconPath>
 	<statFactors>
-	  <MedicalTendSpeed>1.2</MedicalTendSpeed>
+	  <MedicalTendSpeed>1.5</MedicalTendSpeed>
 	</statFactors>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Violet">
@@ -637,7 +640,7 @@
 	<label>decision WR</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneG</iconPath>
 	<statFactors>
-	  <TradePriceImprovement>1.2</TradePriceImprovement>
+	  <SocialImpact>1.5</SocialImpact>
 	</statFactors>
   </GeneDef>
   <!-- = -->
@@ -657,9 +660,9 @@
 	<defName>WVC_Nodization_DecisionBuff_G</defName>
 	<label>decision YR</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneG</iconPath>
-	<statFactors>
-	  <MiningSpeed>1.2</MiningSpeed>
-	</statFactors>
+	<statOffsets>
+	  <WorkSpeedGlobal>0.25</WorkSpeedGlobal>
+	</statOffsets>
   </GeneDef>
 
 </Defs>
