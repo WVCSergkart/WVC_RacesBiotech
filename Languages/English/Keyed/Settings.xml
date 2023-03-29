@@ -40,6 +40,10 @@ A restart is required to apply the setting.</WVC_ToolTip_minWastepacksPerRecharg
 	<WVC_ToolTip_nodeskinVX_MechBandwidth>Responsible for whether Nodeskin VX will have a limit on the number of bandwidth.</WVC_ToolTip_nodeskinVX_MechBandwidth>
 
 	<!-- ====================================================================================== -->
+	<WVC_Label_enableStatSkillFactor>Enable stat skill factor</WVC_Label_enableStatSkillFactor>
+	<WVC_ToolTip_enableStatSkillFactor>Responsible for whether the stat factor on skills will be applied or not.</WVC_ToolTip_enableStatSkillFactor>
+
+	<!-- ====================================================================================== -->
 	<!-- <WVC_Label_mecaXenotypeIsInheritable>Meca xenotype have inheritable genes</WVC_Label_mecaXenotypeIsInheritable> -->
 	<!-- <WVC_ToolTip_mecaXenotypeIsInheritable>Changes Meca xenotype allowing genes to be inherited. What makes this xenotype compatible with sangophages and other xenogeneic xenotypes.</WVC_ToolTip_mecaXenotypeIsInheritable> -->
 

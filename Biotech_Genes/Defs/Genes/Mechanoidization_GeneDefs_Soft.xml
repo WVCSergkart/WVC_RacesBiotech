@@ -104,7 +104,7 @@
 	<capMods>
 	  <li>
 		<capacity>Talking</capacity>
-		<offset>0.2</offset>
+		<offset>0.1</offset>
 	  </li>
 	</capMods>
 	<exclusionTags>
