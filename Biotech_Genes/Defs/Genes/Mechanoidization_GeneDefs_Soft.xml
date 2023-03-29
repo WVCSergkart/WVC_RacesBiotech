@@ -4,7 +4,7 @@
   <!-- Soft -->
 
   <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Mechanoidization_SoftwareBase" Abstract="True">
-	<!-- <defName>WVC_MechaAI_Base</defName> -->
+	<!-- <geneClass>WVC.Gene_WithConditions</geneClass> -->
 	<displayCategory>WVC_MechaBodyWare</displayCategory>
 	<label>AI</label>
 	<description>The carriers of these archites have software that helps them.</description>
@@ -14,19 +14,24 @@
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<marketValueFactor>2</marketValueFactor>
-	<exclusionTags>
-	  <!-- <li>WVC_Mecha_RomanceChanceBase</li> -->
-	  <!-- <li>RomanceChance</li> -->
-	  <!-- <li>AG_RomanceChance</li> -->
-	</exclusionTags>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>&lt;color=#ff8585&gt;Activation of the gene requires either the "mecha-subcore" gene or any of the mechaskins.&lt;/color&gt;</li> -->
+	<!-- </customEffectDescriptions> -->
 	<symbolPack>
 	  <prefixSymbols>
+		<li><symbol>ware</symbol></li>
 		<li><symbol>soft</symbol></li>
 	  </prefixSymbols>
 	  <suffixSymbols>
 		<li><symbol>ware</symbol></li>
+		<li><symbol>soft</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC.GeneExtension_Conditions"> -->
+			<!-- <pawnShouldBeMechalike>true</pawnShouldBeMechalike> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <!-- = -->

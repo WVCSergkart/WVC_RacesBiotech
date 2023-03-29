@@ -21,6 +21,7 @@
   <!-- <WVC_StatsReport_UnknownXenotype>unknown xenotype</WVC_StatsReport_UnknownXenotype> -->
   <WVC_StatsReport_CauseSetting_On>enabled</WVC_StatsReport_CauseSetting_On>
   <WVC_StatsReport_CauseSetting_Off>disabled</WVC_StatsReport_CauseSetting_Off>
+  <WVC_StatsReport_PowerSource>powered</WVC_StatsReport_PowerSource>
 
   <WVC_GeneSpawner_GizmoTitle>Resource spawner</WVC_GeneSpawner_GizmoTitle>
   <WVC_GeneSpawner_GizmoSpawn>Spawn</WVC_GeneSpawner_GizmoSpawn>

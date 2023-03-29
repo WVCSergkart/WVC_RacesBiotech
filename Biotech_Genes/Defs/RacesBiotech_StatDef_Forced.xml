@@ -69,6 +69,21 @@
 	<toStringStyle>Temperature</toStringStyle>
   </StatDef>
 
+  <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
+	<defName>WVC_BleedingFactor</defName>
+	<label>bleeding</label>
+	<defaultBaseValue>1</defaultBaseValue>
+	<toStringStyle>PercentZero</toStringStyle>
+  </StatDef>
+
+  <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
+	<defName>WVC_HungerRateFactor</defName>
+	<label>hunger rate</label>
+	<defaultBaseValue>1</defaultBaseValue>
+	<!-- <toStringStyle>Integer</toStringStyle> -->
+	<toStringStyle>PercentZero</toStringStyle>
+  </StatDef>
+
   <!-- <StatDef ParentName="WVC_Biotech_ForcedStat_Base"> -->
 	<!-- <defName>WVC_ForcedStat_InjuryHealingFactor</defName> -->
 	<!-- <label>forced injury healing factor</label> -->

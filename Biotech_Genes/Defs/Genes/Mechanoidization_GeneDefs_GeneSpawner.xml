@@ -46,6 +46,11 @@
 			<stackCount>1</stackCount>
 			<spawnIntervalRange><min>300000</min><max>900000</max></spawnIntervalRange>
 		</li>
+		<!-- <li Class="WVC.GeneExtension_Conditions"> -->
+			<!-- <pawnShouldHaveSubcore>true</pawnShouldHaveSubcore> -->
+			<!-- <pawnShouldBeMechaskinned>false</pawnShouldBeMechaskinned> -->
+			<!-- <pawnShouldBeImmortal>false</pawnShouldBeImmortal> -->
+		<!-- </li> -->
 	</modExtensions>
   </GeneDef>
 

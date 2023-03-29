@@ -5,7 +5,7 @@
 	<label>gestator</label>
 	<description>Carriers of this gene have a built-in gestator that can produce semi-organic life.</description>
 	<iconPath>WVC/UI/Genes/Gestator</iconPath>
-	<prerequisite>WVC_MechaAI_Base</prerequisite>
+	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
 	<sterilize>true</sterilize>
 	<selectionWeight>0.5</selectionWeight>
 	<statFactors>

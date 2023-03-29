@@ -4,39 +4,47 @@
   <!-- Upgrades -->
 
   <GeneDef Name="WVC_MechanoidizationUpgrades" ParentName="WVC_MechanoidizationBase" Abstract="True">
+	<!-- <geneClass>WVC.Gene_WithConditions</geneClass> -->
 	<displayCategory>WVC_MechaBodyParts</displayCategory>
 	<description>Carriers of this gene have archites which enhance the owner's mechanoidization.</description>
 	<displayOrderInCategory>20</displayOrderInCategory>
 	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
-	<prerequisite>WVC_MechaAI_Base</prerequisite>
+	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
 	<iconPath>WVC/UI/Genes/Mechanoidization</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<!-- <selectionWeight>0.18</selectionWeight> -->
 	<!-- <customEffectDescriptions> -->
-		<!-- <li>Adds the corresponding body part. The body part is considered artificial.</li> -->
+		<!-- <li>&lt;color=#ff8585&gt;Activation of the gene requires either the "mecha-subcore" gene or any of the mechaskins.&lt;/color&gt;</li> -->
 	<!-- </customEffectDescriptions> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC.GeneExtension_Conditions"> -->
+			<!-- <pawnShouldBeMechalike>true</pawnShouldBeMechalike> -->
+			<!-- <pawnShouldHaveSubcore>false</pawnShouldHaveSubcore> -->
+			<!-- <pawnShouldBeMechaskinned>false</pawnShouldBeMechaskinned> -->
+			<!-- <pawnShouldBeImmortal>false</pawnShouldBeImmortal> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
 	<defName>WVC_MecaBodyParts_Heart</defName>
 	<label>mecha-clotting</label>
-	<geneClass>Gene_Clotting</geneClass>
+	<description>Carriers of this gene have archites that stabilize blood pressure, which helps to avoid bleeding.</description>
+	<!-- <geneClass>WVC.Gene_MechaClotting</geneClass> -->
+	<!-- <geneClass>Gene_Clotting</geneClass> -->
 	<biostatMet>-2</biostatMet>
 	<!-- <biostatArc>2</biostatArc> -->
 	<customEffectDescriptions>
 		<!-- <li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Increases lifespan factor.</li> -->
-		<!-- <li>No bleeding.</li> -->
-		<li>Bleeding wounds close very quickly.</li>
+		<!-- <li>Prevent bleeding.</li> -->
+		<!-- <li>Bleeding wounds close very quickly.</li> -->
 		<li>Changes blood filth into machine bits.</li>
 	</customEffectDescriptions>
-	<!-- <statOffsets> -->
-	  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
-	<!-- </statOffsets> -->
-	<!-- <makeImmuneTo> -->
-	  <!-- <li>BloodLoss</li> -->
-	<!-- </makeImmuneTo> -->
+	<statFactors>
+	  <WVC_BleedingFactor>0</WVC_BleedingFactor>
+	</statFactors>
 	<makeImmuneTo>
 	  <li>WoundInfection</li>
 	</makeImmuneTo>
@@ -52,6 +60,9 @@
 			<customBloodThingDef>Filth_MachineBits</customBloodThingDef>
 			<customBloodIcon>WVC/UI/InvisibleThing</customBloodIcon>
 		</li>
+		<!-- <li Class="WVC.GeneExtension_MechaClotting"> -->
+			<!-- <preventBleeding>true</preventBleeding> -->
+		<!-- </li> -->
 	</modExtensions>
   </GeneDef>
 
@@ -87,6 +98,7 @@
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
 	<defName>WVC_MecaBodyParts_Stomach</defName>
 	<label>mechabolism</label>
+	<description>Carriers of this gene have archites which significantly improve the digestive system.</description>
 	<foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
 	<!-- <overdoseChanceFactor>0</overdoseChanceFactor> -->
 	<!-- <toleranceBuildupFactor>0</toleranceBuildupFactor> -->

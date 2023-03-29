@@ -23,7 +23,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<iconPath>WVC/UI/Genes/MechaIcon</iconPath>
 	<marketValueFactor>3</marketValueFactor>
 	<neverGrayHair>true</neverGrayHair>
-	<prerequisite>WVC_MechaAI_Base</prerequisite>
+	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
 	<missingGeneRomanceChanceFactor>0.5</missingGeneRomanceChanceFactor>
 	<minAgeActive>13</minAgeActive>
 	<customEffectDescriptions>
@@ -87,7 +87,7 @@ Most of the internal organs remain intact, but there are enough external changes
 
   <GeneDef ParentName="WVC_MechanoidBody_Base">
 	<defName>WVC_MechaSkin</defName>
-	<biostatMet>-16</biostatMet>
+	<!-- <biostatMet>-16</biostatMet> -->
 	<displayOrderInCategory>-100</displayOrderInCategory>
 	<iconColor>(184, 198, 203)</iconColor>
 	<forcedHeadTypes>
@@ -105,14 +105,17 @@ Most of the internal organs remain intact, but there are enough external changes
 	<!-- </customEffectDescriptions> -->
 	<!-- <statOffsets> -->
 	<!-- </statOffsets> -->
-	<!-- <conditionalStatAffecters> -->
-	  <!-- <li Class="WVC.ConditionalStatAffecter_Immortal"> -->
-		<!-- <statOffsets> -->
-		  <!-- <WVC_ForcedStat_ComfyTemperatureMax>250</WVC_ForcedStat_ComfyTemperatureMax> -->
-		  <!-- <WVC_ForcedStat_ComfyTemperatureMin>-100</WVC_ForcedStat_ComfyTemperatureMin> -->
-		<!-- </statOffsets> -->
-	  <!-- </li> -->
-	<!-- </conditionalStatAffecters> -->
+	<conditionalStatAffecters>
+	  <li Class="WVC.ConditionalStatAffecter_PowerSource">
+		<invert>true</invert>
+		<statFactors>
+		  <WVC_HungerRateFactor>5.0</WVC_HungerRateFactor>
+		</statFactors>
+	  </li>
+	</conditionalStatAffecters>
+	<!-- <statFactors> -->
+	  <!-- <WVC_HungerRateFactor>0.0</WVC_HungerRateFactor> -->
+	<!-- </statFactors> -->
 	<statOffsets>
 	  <ArmorRating_Blunt>0.17</ArmorRating_Blunt>
 	  <ArmorRating_Sharp>0.17</ArmorRating_Sharp>

@@ -11,7 +11,7 @@
   <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_MechanoidizationAbilities" Abstract="True">
 	<displayCategory>Ability</displayCategory>
 	<marketValueFactor>1.2</marketValueFactor>
-	<prerequisite>WVC_MechaSkin</prerequisite>
+	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
 	<minAgeActive>13</minAgeActive>
 	<selectionWeight>0.6</selectionWeight>
 	<displayOrderInCategory>-100</displayOrderInCategory>
@@ -21,10 +21,10 @@
 	<!-- <statOffsets> -->
 	  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
 	<!-- </statOffsets> -->
-	<modExtensions Inherit="False">
-		<li Class="WVC.GeneExtension">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
-		</li>
+	<modExtensions>
+		<!-- <li Class="WVC.GeneExtension"> -->
+			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite> -->
+		<!-- </li> -->
 	</modExtensions>
   </GeneDef>
 
@@ -154,7 +154,7 @@
 	<!-- <iconPath>UI/Icons/Genes/Gene_XenogermReimplanter</iconPath> -->
 	<iconPath>WVC/UI/Genes/Reimplanter</iconPath>
 	<!-- <displayCategory>Archite</displayCategory> -->
-	<prerequisite>WVC_MechaAI_Base</prerequisite>
+	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
 	<sterilize>true</sterilize>
 	<customEffectDescriptions>
 		<li>Completely changes the genes of the target pawn to the genes of the caster.</li>
@@ -179,11 +179,11 @@
 	<biostatCpx>3</biostatCpx>
 	<!-- <biostatArc>2</biostatArc> -->
 	<biostatMet>0</biostatMet>
-	<modExtensions Inherit="False">
-		<li Class="WVC.GeneExtension">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathArchite>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions Inherit="False"> -->
+		<!-- <li Class="WVC.GeneExtension"> -->
+			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathArchite> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <AbilityDef ParentName="AbilityTouchBase">

@@ -18,7 +18,8 @@
 	<selectionWeight>0.8</selectionWeight>
 	<randomChosen>true</randomChosen>
 	<customEffectDescriptions>
-		<li>Compensates for the effect of mechaskin on metabolism.</li>
+		<!-- <li>Compensates for the effect of mechaskin on metabolism.</li> -->
+		<li>Disable mechaskin's 5x hunger rate multiplier.</li>
 	</customEffectDescriptions>
 	<!-- <statOffsets> -->
 	  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
@@ -47,7 +48,7 @@
 	<iconPath>WVC/UI/Genes/PowerSource_Unstable</iconPath>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
-	<biostatMet>16</biostatMet>
+	<!-- <biostatMet>16</biostatMet> -->
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>Increases fire damage taken.</li> -->
 	<!-- </customEffectDescriptions> -->
@@ -66,7 +67,7 @@
 	<iconPath>WVC/UI/Genes/PowerSource_Stable</iconPath>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>2</biostatArc>
-	<biostatMet>16</biostatMet>
+	<!-- <biostatMet>16</biostatMet> -->
   </GeneDef>
 
   <GeneDef ParentName="WVC_Mechanoidization_PowerSourceBase">
@@ -76,9 +77,9 @@
 	<selectionWeight>0.12</selectionWeight>
 	<biostatCpx>5</biostatCpx>
 	<biostatArc>3</biostatArc>
-	<biostatMet>21</biostatMet>
+	<biostatMet>5</biostatMet>
 	<customEffectDescriptions>
-		<li>Grants an additional 5 metabolism points.</li>
+		<!-- <li>Grants an additional 5 metabolism points.</li> -->
 	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>
@@ -105,9 +106,9 @@
 	<selectionWeight>0.3</selectionWeight>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>2</biostatArc>
-	<biostatMet>21</biostatMet>
+	<biostatMet>5</biostatMet>
 	<customEffectDescriptions>
-		<li>Grants an additional 5 metabolism points.</li>
+		<!-- <li>Grants an additional 5 metabolism points.</li> -->
 		<li>Spawns 5 wastepacks every (*DateTime)2-5 days(/DateTime).</li>
 		<!-- <li>&lt;color=#b8c6ff&gt;The number of wastepacks depends on the archites capsules.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
@@ -129,26 +130,5 @@
 		</li>
 	</modExtensions>
   </GeneDef>
-  <!-- <HediffDef> -->
-	<!-- <defName>WVC_MechaPowerSource_ToxProduction</defName> -->
-	<!-- <label>tox generator</label> -->
-	<!-- <description>The tox generator provides the mechanites with energy, but leaves behind toxic waste.</description> -->
-	<!-- <hediffClass>HediffWithComps</hediffClass> -->
-	<!-- <defaultLabelColor>(255,255,255)</defaultLabelColor> -->
-	<!-- <scenarioCanAdd>false</scenarioCanAdd> -->
-	<!-- <everCurableByItem>false</everCurableByItem> -->
-	<!-- <makesAlert>false</makesAlert> -->
-	<!-- <maxSeverity>1.0</maxSeverity> -->
-	<!-- <isBad>false</isBad> -->
-	<!-- <comps> -->
-		<!-- <li Class="AnimalBehaviours.HediffCompProperties_Spawner"> -->
-			<!-- <thingToSpawn>Wastepack</thingToSpawn> -->
-			<!-- <spawnCount>5</spawnCount> -->
-			<!-- <spawnIntervalRange>240000~300000</spawnIntervalRange> -->
-			<!-- <spawnForbidden>false</spawnForbidden> -->
-			<!-- <showMessageIfOwned>false</showMessageIfOwned> -->
-		<!-- </li> -->
-	<!-- </comps> -->
-  <!-- </HediffDef> -->
 
 </Defs>

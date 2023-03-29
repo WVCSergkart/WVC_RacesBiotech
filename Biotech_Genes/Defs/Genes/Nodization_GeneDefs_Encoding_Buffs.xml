@@ -4,6 +4,7 @@
   <!-- Romance -->
 
   <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Nodization_RandomBuff_Base" Abstract="True">
+	<!-- <geneClass>WVC.Gene_WithConditions</geneClass> -->
 	<displayCategory>WVC_MechaBodyEncoding</displayCategory>
 	<!-- <label>AI</label> -->
 	<description>Complex templates for the mechanoid sub-core, which can provide some advantages.</description>
@@ -14,6 +15,9 @@
 	<selectionWeight>0.7</selectionWeight>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>&lt;color=#ff8585&gt;Activation of the gene requires either the "mecha-subcore" gene or any of the mechaskins.&lt;/color&gt;</li> -->
+	<!-- </customEffectDescriptions> -->
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>encod</symbol></li>
@@ -25,6 +29,11 @@
 		<li><symbol>ded</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC.GeneExtension_Conditions"> -->
+			<!-- <pawnShouldBeMechalike>true</pawnShouldBeMechalike> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <!-- Encoding_GeneA -->

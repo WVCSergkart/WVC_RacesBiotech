@@ -75,7 +75,7 @@ Most of the internal organs were not affected, but there are too many external c
 	  <MechControlGroups>1</MechControlGroups>
 	</statOffsets>
 	<aptitudes>
-	  <Intellectual>2</Intellectual>
+	  <Crafting>4</Crafting>
 	</aptitudes>
 	<suppressedTraits>
 	  <li>
@@ -104,7 +104,7 @@ Most of the internal organs were not affected, but there are too many external c
 	  <ArmorRating_Heat>0.55</ArmorRating_Heat>
 	</statOffsets>
 	<aptitudes>
-	  <Shooting>2</Shooting>
+	  <Shooting>4</Shooting>
 	</aptitudes>
 	<!-- <forcedTraits> -->
 	  <!-- <li> -->
@@ -139,7 +139,7 @@ Most of the internal organs were not affected, but there are too many external c
 	  <graphicPath>WVC/NodeGene_Head/HeadGreen</graphicPath>
 	</graphicData>
 	<aptitudes>
-	  <Medicine>2</Medicine>
+	  <Medicine>4</Medicine>
 	</aptitudes>
 	<statOffsets>
 	  <ImmunityGainSpeed>0.5</ImmunityGainSpeed>
@@ -171,7 +171,7 @@ Most of the internal organs were not affected, but there are too many external c
 	  <IncomingDamageFactor>0.5</IncomingDamageFactor>
 	</statFactors>
 	<aptitudes>
-	  <Melee>2</Melee>
+	  <Melee>4</Melee>
 	</aptitudes>
 	<suppressedTraits>
 	  <li>
@@ -197,7 +197,7 @@ Most of the internal organs were not affected, but there are too many external c
 	  <PsychicSensitivity>1.0</PsychicSensitivity>
 	</statOffsets>
 	<aptitudes>
-	  <Social>2</Social>
+	  <Social>4</Social>
 	</aptitudes>
 	<suppressedTraits>
 	  <li>
@@ -235,6 +235,7 @@ Most of the internal organs were not affected, but there are too many external c
 	</graphicData>
 	<aptitudes>
 	  <Crafting>2</Crafting>
+	  <Melee>2</Melee>
 	</aptitudes>
 	<!-- <statFactors> -->
 	  <!-- <MechBandwidth>0.2</MechBandwidth> -->
@@ -267,8 +268,8 @@ Most of the internal organs were not affected, but there are too many external c
 	  <graphicPath>WVC/NodeGene_Head/HeadOrange</graphicPath>
 	</graphicData>
 	<aptitudes>
-	  <Intellectual>1</Intellectual>
-	  <Social>1</Social>
+	  <Intellectual>2</Intellectual>
+	  <Social>2</Social>
 	</aptitudes>
 	<conditionalStatAffecters>
 	  <li Class="WVC.ConditionalStatAffecter_Genes">
