@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Genetics -->
+
+  <WorkGiverDef>
+	<defName>WVC_HaulToGeneBank_BasePack</defName>
+	<label>bank w-pack</label>
+	<giverClass>WVC.WorkGiver_HaulToGeneBank_BasePack</giverClass>
+	<workType>Hauling</workType>
+	<verb>bank</verb>
+	<gerund>banking</gerund>
+	<priorityInType>111</priorityInType>
+	<requiredCapacities>
+	  <li>Manipulation</li>
+	</requiredCapacities>
+  </WorkGiverDef>
+
+   <WorkGiverDef>
+	<defName>WVC_HaulToGeneBank_UltraPack</defName>
+	<label>bank ultrapack</label>
+	<giverClass>WVC.WorkGiver_HaulToGeneBank_UltraPack</giverClass>
+	<workType>Hauling</workType>
+	<verb>bank</verb>
+	<gerund>banking</gerund>
+	<priorityInType>111</priorityInType>
+	<requiredCapacities>
+	  <li>Manipulation</li>
+	</requiredCapacities>
+  </WorkGiverDef>
+
+   <WorkGiverDef>
+	<defName>WVC_HaulToGeneBank_MechaPack</defName>
+	<label>bank mechapack</label>
+	<giverClass>WVC.WorkGiver_HaulToGeneBank_MechaPack</giverClass>
+	<workType>Hauling</workType>
+	<verb>bank</verb>
+	<gerund>banking</gerund>
+	<priorityInType>111</priorityInType>
+	<requiredCapacities>
+	  <li>Manipulation</li>
+	</requiredCapacities>
+  </WorkGiverDef>
+
+</Defs>
