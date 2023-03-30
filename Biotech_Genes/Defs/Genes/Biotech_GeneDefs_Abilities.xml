@@ -155,7 +155,7 @@
 	<iconPath>WVC/UI/Genes/Reimplanter</iconPath>
 	<!-- <displayCategory>Archite</displayCategory> -->
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
-	<sterilize>true</sterilize>
+	<minAgeActive>3</minAgeActive>
 	<customEffectDescriptions>
 		<li>Completely changes the genes of the target pawn to the genes of the caster.</li>
 		<li>&lt;color=#ff8585&gt;Can't be absorbed forcly.&lt;/color&gt;</li>
@@ -163,16 +163,9 @@
 	<abilities>
 	  <li>WVC_EndogermReimplanter</li>
 	</abilities>
-	<statFactors>
-	  <Fertility>0</Fertility>
-	</statFactors>
-	<!-- <exclusionTags> -->
-		<!-- <li>Fertility</li> -->
-		<!-- <li>Egglaying</li> -->
-		<!-- <li>AG_Egglaying</li> -->
-		<!-- <li>AG_Gestation</li> -->
-		<!-- <li>AG_Fertility</li> -->
-	<!-- </exclusionTags> -->
+	<exclusionTags>
+		<li>WVC_Reimplanter</li>
+	</exclusionTags>
 	<descriptionHyperlinks>
 	  <AbilityDef>WVC_EndogermReimplanter</AbilityDef>
 	</descriptionHyperlinks>
@@ -192,6 +185,10 @@
 	<iconPath>WVC/UI/Genes/Reimplanter</iconPath>
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>0</biostatMet>
+	<sterilize>true</sterilize>
+	<statFactors>
+	  <Fertility>0</Fertility>
+	</statFactors>
   </GeneDef>
 
   <GeneDef ParentName="WVC_MechanoidizationAbilities_Reimplanter">
@@ -199,7 +196,7 @@
 	<label>natural-reimplanter</label>
 	<iconPath>WVC/UI/Genes/Reimplanter_Natural</iconPath>
 	<biostatCpx>3</biostatCpx>
-	<biostatMet>-3</biostatMet>
+	<biostatMet>-2</biostatMet>
 	<biostatArc>0</biostatArc>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
