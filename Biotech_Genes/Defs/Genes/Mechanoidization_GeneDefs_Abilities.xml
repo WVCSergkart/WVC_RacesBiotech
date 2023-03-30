@@ -146,9 +146,9 @@
 
   <!-- ============================================================================== -->
 
-  <GeneDef ParentName="WVC_MechanoidizationAbilities">
-	<defName>WVC_EndogermReimplanter</defName>
-	<label>mecha-gene implanter</label>
+  <GeneDef ParentName="WVC_MechanoidizationAbilities" Name="WVC_MechanoidizationAbilities_Reimplanter" Abstract="True">
+	<!-- <defName>WVC_EndogermReimplanter</defName> -->
+	<!-- <label>mecha-gene implanter</label> -->
 	<labelShortAdj>reimplanter</labelShortAdj>
 	<description>Carriers of this gene can implant a copy of their endo/xenogerm into another person through a somewhat gross-looking injector organ. Their own genetic material will then regrow very slowly. If they implant while their genes are regrowing, they will die.</description>
 	<!-- <iconPath>UI/Icons/Genes/Gene_XenogermReimplanter</iconPath> -->
@@ -185,6 +185,31 @@
 		<!-- </li> -->
 	<!-- </modExtensions> -->
   </GeneDef>
+
+  <GeneDef ParentName="WVC_MechanoidizationAbilities_Reimplanter">
+	<defName>WVC_EndogermReimplanter</defName>
+	<label>arch-reimplanter</label>
+	<iconPath>WVC/UI/Genes/Reimplanter</iconPath>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>0</biostatMet>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_MechanoidizationAbilities_Reimplanter">
+	<defName>WVC_NaturalReimplanter</defName>
+	<label>natural-reimplanter</label>
+	<iconPath>WVC/UI/Genes/Reimplanter_Natural</iconPath>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>-3</biostatMet>
+	<biostatArc>0</biostatArc>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================================================================== -->
 
   <AbilityDef ParentName="AbilityTouchBase">
 	<defName>WVC_EndogermReimplanter</defName>
