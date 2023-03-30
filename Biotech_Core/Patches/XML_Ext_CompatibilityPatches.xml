@@ -359,4 +359,77 @@
 		<!-- </caseTrue> -->
 	<!-- </Operation> -->
 
+	<!-- =TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST= -->
+
+	<Operation Class="XmlExtensions.FindMod">
+		<mods>
+			<li>wvc.wvcmod.wvcspecific</li>
+		</mods>
+		<packageId>true</packageId>
+		<logic>and</logic>
+		<caseTrue>
+
+			<!-- <Operation Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/StatDef[defName="ComfyTemperatureMin"]/parts</xpath> -->
+			  <!-- <success>Always</success> -->
+			  <!-- <value> -->
+				  <!-- <li Class="WVC.StatPart_GenesCombo"> -->
+					<!-- <useMechaskinInsteadSubcore>true</useMechaskinInsteadSubcore> -->
+					<!-- <useStaticValue>true</useStaticValue> -->
+					<!-- <staticValue>-100</staticValue> -->
+				  <!-- </li> -->
+			  <!-- </value> -->
+			<!-- </Operation> -->
+			<!-- <Operation Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/StatDef[defName="ComfyTemperatureMax"]/parts</xpath> -->
+			  <!-- <success>Always</success> -->
+			  <!-- <value> -->
+				  <!-- <li Class="WVC.StatPart_GenesCombo"> -->
+					<!-- <useMechaskinInsteadSubcore>true</useMechaskinInsteadSubcore> -->
+					<!-- <useStaticValue>true</useStaticValue> -->
+					<!-- <staticValue>250</staticValue> -->
+				  <!-- </li> -->
+			  <!-- </value> -->
+			<!-- </Operation> -->
+
+			<Operation Class="PatchOperationAdd">
+			  <xpath>/Defs/HediffGiverSetDef[defName="Human"]/hediffGivers</xpath>
+			  <!-- <success>Always</success> -->
+			  <value>
+				  <li Class="WVC.HediffGiver_RandomByGene">
+					<geneDef>WVC_NodeSkin_Blue</geneDef>
+					<hediff>MechlinkImplant</hediff>
+					<mtbDays>30</mtbDays>
+					<partsToAffect>
+					  <li>Brain</li>
+					</partsToAffect>
+				  </li>
+				  <li Class="WVC.HediffGiver_RandomByGene">
+					<geneDef>WVC_NodeSkin_AltBlue</geneDef>
+					<hediff>MechlinkImplant</hediff>
+					<mtbDays>30</mtbDays>
+					<partsToAffect>
+					  <li>Brain</li>
+					</partsToAffect>
+				  </li>
+				  <li MayRequireAnyOf="ludeon.rimworld.royalty" Class="WVC.HediffGiver_RandomByGene">
+					<geneDef>WVC_NodeSkin_Yellow</geneDef>
+					<hediff>PsychicAmplifier</hediff>
+					<mtbDays>30</mtbDays>
+					<partsToAffect>
+					  <li>Brain</li>
+					</partsToAffect>
+					<!-- <ageFractionMtbDaysCurve> -->
+					  <!-- <points> -->
+						<!-- <li>(0, 1)</li> -->
+						<!-- <li>(1, 1)</li> -->
+					  <!-- </points> -->
+					<!-- </ageFractionMtbDaysCurve> -->
+				  </li>
+			  </value>
+			</Operation>
+
+		</caseTrue>
+	</Operation>
+
 </Patch>

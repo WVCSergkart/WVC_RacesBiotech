@@ -60,6 +60,7 @@ Most of the internal organs were not affected, but there are too many external c
   <GeneDef ParentName="WVC_NodeBody_Base">
 	<defName>WVC_NodeSkin_Blue</defName>
 	<label>nodeskin SX</label>
+	<!-- <geneClass>WVC.Gene_HediffGiver</geneClass> -->
 	<biostatMet>-4</biostatMet>
 	<iconPath>WVC/UI/Genes/HeadBlue_south</iconPath>
 	<forcedHeadTypes>
@@ -83,6 +84,14 @@ Most of the internal organs were not affected, but there are too many external c
 		<degree>-2</degree>
 	  </li>
 	</suppressedTraits>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC.GeneExtension_HediffGiver"> -->
+			<!-- <hediffDef>MechlinkImplant</hediffDef> -->
+			<!-- <bodyPartToAdd> -->
+			  <!-- <li>Brain</li> -->
+			<!-- </bodyPartToAdd> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Base">
@@ -183,6 +192,7 @@ Most of the internal organs were not affected, but there are too many external c
   <GeneDef ParentName="WVC_NodeBody_Base">
 	<defName>WVC_NodeSkin_Yellow</defName>
 	<label>nodeskin WR</label>
+	<!-- <geneClass>WVC.Gene_HediffGiver</geneClass> -->
 	<biostatMet>-5</biostatMet>
 	<iconPath>WVC/UI/Genes/HeadYellow_south</iconPath>
 	<forcedHeadTypes>
@@ -217,11 +227,20 @@ Most of the internal organs were not affected, but there are too many external c
 		<degree>2</degree>
 	  </li>
 	</suppressedTraits>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC.GeneExtension_HediffGiver"> -->
+			<!-- <hediffDef>PsychicAmplifier</hediffDef> -->
+			<!-- <bodyPartToAdd> -->
+			  <!-- <li>Brain</li> -->
+			<!-- </bodyPartToAdd> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Base">
 	<defName>WVC_NodeSkin_AltBlue</defName>
 	<label>nodeskin VX</label>
+	<!-- <geneClass>WVC.Gene_HediffGiver</geneClass> -->
 	<biostatMet>-3</biostatMet>
 	<iconPath>WVC/UI/Genes/HeadAltBlue_south</iconPath>
 	<forcedHeadTypes>
@@ -252,6 +271,14 @@ Most of the internal organs were not affected, but there are too many external c
 		</statOffsets>
 	  </li>
 	</conditionalStatAffecters>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC.GeneExtension_HediffGiver"> -->
+			<!-- <hediffDef>MechlinkImplant</hediffDef> -->
+			<!-- <bodyPartToAdd> -->
+			  <!-- <li>Brain</li> -->
+			<!-- </bodyPartToAdd> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Base">
