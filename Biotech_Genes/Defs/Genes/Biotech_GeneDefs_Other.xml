@@ -18,8 +18,9 @@
 
   <GeneDef ParentName="WVC_MechanoidizationBase">
 	<defName>WVC_MechaHidden_ArchiteForge</defName>
-	<label>archite-forge</label>
-	<description>Carriers of this gene have archites that are capable of self-replication. Thanks to this, archites from time to time restore lost limbs.</description>
+	<label>self-replication</label>
+	<!-- <label>archite-forge</label> -->
+	<description>Carriers of this gene have archites that are capable of self-replication. Thanks to this, archites from time to time restore lost limbs or heals scars.</description>
 	<!-- <selectionWeight>0.01</selectionWeight> -->
 	<geneClass>WVC.Gene_RestoreMissingBodyParts</geneClass>
 	<iconColor>(184, 198, 203)</iconColor>
@@ -27,12 +28,12 @@
 	<iconPath>WVC/UI/Genes/Gear</iconPath>
 	<displayOrderInCategory>0</displayOrderInCategory>
 	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
-	<biostatCpx>3</biostatCpx>
+	<biostatCpx>4</biostatCpx>
 	<biostatArc>2</biostatArc>
 	<biostatMet>0</biostatMet>
 	<selectionWeight>0.2</selectionWeight>
 	<customEffectDescriptions>
-		<li>Restores a lost limb every (*DateTime)5-15 days(/DateTime).</li>
+		<li>Restores a lost limb or heals scars every (*DateTime)15-30 days(/DateTime).</li>
 	</customEffectDescriptions>
   </GeneDef>
 
