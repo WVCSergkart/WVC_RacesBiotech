@@ -14,7 +14,7 @@
 	<iconColor>(255, 255, 255)</iconColor>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
-	<!-- <selectionWeight>0.18</selectionWeight> -->
+	<!-- <selectionWeight>0.8</selectionWeight> -->
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>&lt;color=#ff8585&gt;Activation of the gene requires either the "mecha-subcore" gene or any of the mechaskins.&lt;/color&gt;</li> -->
 	<!-- </customEffectDescriptions> -->
@@ -68,26 +68,27 @@
 
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
 	<defName>WVC_MecaBodyParts_Spine</defName>
-	<label>exoskeleton</label>
+	<label>mechaskeleton</label>
 	<description>Archites greatly enhance the carrier's skeletal structure.</description>
 	<biostatMet>-2</biostatMet>
 	<statFactors>
 	  <CarryingCapacity>1.2</CarryingCapacity>
 	</statFactors>
 	<statOffsets>
+	  <!-- <MoveSpeed>0.5</MoveSpeed> -->
 	  <ArmorRating_Blunt>0.05</ArmorRating_Blunt>
 	</statOffsets>
 	<customEffectDescriptions>
 		<li>Carrying capacity on the map increased to 20%.</li>
 	</customEffectDescriptions>
-	<capMods>
-	  <li>
-		<capacity>Moving</capacity>
-		<offset>0.2</offset>
-	  </li>
-	</capMods>
-	<exclusionTags>
-	</exclusionTags>
+	<!-- <capMods> -->
+	  <!-- <li> -->
+		<!-- <capacity>Moving</capacity> -->
+		<!-- <offset>0.1</offset> -->
+	  <!-- </li> -->
+	<!-- </capMods> -->
+	<!-- <exclusionTags> -->
+	<!-- </exclusionTags> -->
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<caravanCarryingFactor>1.2</caravanCarryingFactor>
@@ -124,7 +125,7 @@
 	<capMods>
 	  <li>
 		<capacity>Metabolism</capacity>
-		<offset>0.2</offset>
+		<offset>0.05</offset>
 	  </li>
 	</capMods>
   </GeneDef>
@@ -143,7 +144,7 @@
 	  <Mass>0.8</Mass>
 	</statFactors>
 	<statOffsets>
-	  <MoveSpeed>1.0</MoveSpeed>
+	  <MoveSpeed>0.2</MoveSpeed>
 	</statOffsets>
 	<!-- <modExtensions Inherit="False"> -->
 		<!-- <li Class="WVC.GeneExtension"> -->
@@ -250,9 +251,9 @@
 		<def>Beauty</def>
 		<degree>-2</degree>
 	  </li>
-	  <li>
-		<def>CreepyBreathing</def>
-	  </li>
+	  <!-- <li> -->
+		<!-- <def>CreepyBreathing</def> -->
+	  <!-- </li> -->
 	</suppressedTraits>
   </GeneDef>
 
@@ -281,7 +282,9 @@
 	<label>energy saving mode</label>
 	<description>The carrier of this gene has archites, which can significantly optimize the metabolic process during sleep.</description>
 	<!-- <biostatArc>1</biostatArc> -->
+	<biostatCpx>3</biostatCpx>
 	<biostatMet>3</biostatMet>
+	<selectionWeight>0.1</selectionWeight>
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>The hunger bar does not decrease while the pawn is on the bed.</li> -->
 	<!-- </customEffectDescriptions> -->

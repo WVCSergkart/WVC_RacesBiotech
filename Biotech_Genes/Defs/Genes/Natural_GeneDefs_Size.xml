@@ -19,7 +19,7 @@
 
 	<GeneDef ParentName="WVC_BodySize_Base">
 		<defName>WVC_BodySize_Small</defName>
-		<label>small height</label>
+		<label>small size</label>
 		<description>Carriers of this gene are slightly smaller than baseline humans.</description>
 		<displayOrderInCategory>161</displayOrderInCategory>
 		<iconPath>WVC/UI/Genes/BodySize_Small</iconPath>
@@ -51,7 +51,7 @@
 
 	<GeneDef ParentName="WVC_BodySize_Base">
 		<defName>WVC_BodySize_Average</defName>
-		<label>average height</label>
+		<label>average size</label>
 		<description>Carriers of this gene have a normal baseline human size.</description>
 		<displayOrderInCategory>162</displayOrderInCategory>
 		<iconPath>WVC/UI/Genes/BodySize_Average</iconPath>
@@ -70,7 +70,7 @@
 
 	<GeneDef ParentName="WVC_BodySize_Base">
 		<defName>WVC_BodySize_Large</defName>
-		<label>large height</label>
+		<label>large size</label>
 		<description>Carriers of this gene are slightly larger than baseline humans.</description>
 		<displayOrderInCategory>163</displayOrderInCategory>
 		<iconPath>WVC/UI/Genes/BodySize_Large</iconPath>

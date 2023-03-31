@@ -52,7 +52,7 @@
 	<impact>Low</impact>
 	<displayOrderInIssue>30</displayOrderInIssue>
 	<displayOrderInImpact>100</displayOrderInImpact>
-	<defaultSelectionWeight>1</defaultSelectionWeight>
+	<defaultSelectionWeight>0.6</defaultSelectionWeight>
 	<!-- <conflictingMemes> -->
 	  <!-- <li>Transhumanist</li> -->
 	<!-- </conflictingMemes> -->
@@ -95,7 +95,7 @@
 	<impact>Low</impact>
 	<displayOrderInIssue>15</displayOrderInIssue>
 	<displayOrderInImpact>100</displayOrderInImpact>
-	<!-- <defaultSelectionWeight>0.1</defaultSelectionWeight> -->
+	<defaultSelectionWeight>0.2</defaultSelectionWeight>
 	<!-- <conflictingMemes> -->
 	  <!-- <li>FleshPurity</li> -->
 	<!-- </conflictingMemes> -->
@@ -117,6 +117,7 @@
 	<!-- <impact>Low</impact> -->
 	<displayOrderInIssue>20</displayOrderInIssue>
 	<displayOrderInImpact>100</displayOrderInImpact>
+	<defaultSelectionWeight>0.2</defaultSelectionWeight>
 	<conflictingMemes>
 	  <li>FleshPurity</li>
 	</conflictingMemes>
@@ -253,25 +254,28 @@
 	<stages>
 	  <li>
 		<label>non-mechaskin vs mechaskin</label>
-		<baseOpinionOffset>-20</baseOpinionOffset>
+		<baseOpinionOffset>-10</baseOpinionOffset>
 	  </li>
 	  <li>
 		<!-- <label>perfect being</label> -->
 		<label>body modder vs mechaskin</label>
-		<baseOpinionOffset>10</baseOpinionOffset>
+		<visible>false</visible>
+		<baseOpinionOffset>0</baseOpinionOffset>
 	  </li>
 	  <li>
 		<!-- <label>same as me</label> -->
 		<label>mechaskin modder vs mechaskin</label>
-		<baseOpinionOffset>5</baseOpinionOffset>
+		<visible>false</visible>
+		<baseOpinionOffset>0</baseOpinionOffset>
 	  </li>
 	  <li>
 		<!-- <label>disgusting creature</label> -->
 		<label>body purist vs mechaskin</label>
-		<baseOpinionOffset>-50</baseOpinionOffset>
+		<baseOpinionOffset>-20</baseOpinionOffset>
 	  </li>
 	  <li>
 		<label>mechaskin vs mechaskin</label>
+		<!-- <visible>false</visible> -->
 		<baseOpinionOffset>-5</baseOpinionOffset>
 	  </li>
 	</stages>
@@ -288,12 +292,12 @@
 	<stages>
 	  <li>
 		<label>non-mechaskin vs mechaskin</label>
-		<baseOpinionOffset>-10</baseOpinionOffset>
+		<baseOpinionOffset>-5</baseOpinionOffset>
 	  </li>
 	  <li>
 		<!-- <label>perfect being</label> -->
 		<label>body modder vs mechaskin</label>
-		<baseOpinionOffset>10</baseOpinionOffset>
+		<baseOpinionOffset>5</baseOpinionOffset>
 	  </li>
 	  <li>
 		<!-- <label>same as me</label> -->
@@ -304,7 +308,7 @@
 	  <li>
 		<!-- <label>disgusting creature</label> -->
 		<label>body purist vs mechaskin</label>
-		<baseOpinionOffset>-30</baseOpinionOffset>
+		<baseOpinionOffset>-10</baseOpinionOffset>
 	  </li>
 	  <li>
 		<label>mechaskin vs mechaskin</label>
@@ -355,22 +359,23 @@
 	  <!-- Precept: Mechaskinned: Preferred -->
 	  <li>
 		<label>non-mechaskin vs mechaskin</label>
-		<baseOpinionOffset>20</baseOpinionOffset>
+		<baseOpinionOffset>5</baseOpinionOffset>
 	  </li>
 	  <li>
 		<!-- <label>perfect being</label> -->
 		<label>body modder vs mechaskin</label>
-		<baseOpinionOffset>30</baseOpinionOffset>
+		<baseOpinionOffset>10</baseOpinionOffset>
 	  </li>
 	  <li>
 		<!-- <label>same as me</label> -->
 		<label>mechaskin modder vs mechaskin</label>
-		<baseOpinionOffset>5</baseOpinionOffset>
+		<baseOpinionOffset>7</baseOpinionOffset>
 	  </li>
 	  <li>
 		<!-- <label>disgusting creature</label> -->
 		<label>body purist vs mechaskin</label>
-		<baseOpinionOffset>-5</baseOpinionOffset>
+		<visible>false</visible>
+		<baseOpinionOffset>0</baseOpinionOffset>
 	  </li>
 	  <li>
 		<label>mechaskin vs mechaskin</label>
@@ -386,17 +391,17 @@
 	<stages>
 	  <li>
 		<label>non-mechaskin vs mechaskin</label>
-		<baseOpinionOffset>25</baseOpinionOffset>
+		<baseOpinionOffset>10</baseOpinionOffset>
 	  </li>
 	  <li>
 		<!-- <label>perfect being</label> -->
 		<label>body modder vs mechaskin</label>
-		<baseOpinionOffset>40</baseOpinionOffset>
+		<baseOpinionOffset>20</baseOpinionOffset>
 	  </li>
 	  <li>
 		<!-- <label>same as me</label> -->
 		<label>mechaskin modder vs mechaskin</label>
-		<baseOpinionOffset>15</baseOpinionOffset>
+		<baseOpinionOffset>10</baseOpinionOffset>
 	  </li>
 	  <li>
 		<!-- <label>disgusting creature</label> -->

@@ -105,7 +105,7 @@
 	<label>pattern SX</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneA</iconPath>
 	<statOffsets>
-	  <MechFormingSpeed>0.5</MechFormingSpeed>
+	  <MechFormingSpeed>0.25</MechFormingSpeed>
 	</statOffsets>
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_Nodization_RandomPatternBuff_VX</li> -->
@@ -135,7 +135,7 @@
 	<label>pattern CV</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneA</iconPath>
 	<statOffsets>
-	  <MeleeDamageFactor>0.2</MeleeDamageFactor>
+	  <MeleeDamageFactor>0.1</MeleeDamageFactor>
 	</statOffsets>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Yellow">
@@ -143,7 +143,7 @@
 	<label>pattern WR</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneA</iconPath>
 	<statOffsets>
-	  <PawnBeauty>2</PawnBeauty>
+	  <PawnBeauty>1</PawnBeauty>
 	</statOffsets>
   </GeneDef>
   <!-- = -->
@@ -178,7 +178,7 @@
 	<label>skill SX</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneB</iconPath>
 	<aptitudes>
-	  <Crafting>6</Crafting>
+	  <Crafting>2</Crafting>
 	</aptitudes>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Red">
@@ -186,7 +186,7 @@
 	<label>skill HJ</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneB</iconPath>
 	<aptitudes>
-	  <Shooting>6</Shooting>
+	  <Shooting>2</Shooting>
 	</aptitudes>
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_Nodization_RandomSkillBuff_YR</li> -->
@@ -197,7 +197,7 @@
 	<label>skill GB</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneB</iconPath>
 	<aptitudes>
-	  <Medicine>6</Medicine>
+	  <Medicine>2</Medicine>
 	</aptitudes>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Violet">
@@ -205,7 +205,7 @@
 	<label>skill CV</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneB</iconPath>
 	<aptitudes>
-	  <Melee>6</Melee>
+	  <Melee>2</Melee>
 	</aptitudes>
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_Nodization_RandomSkillBuff_VX</li> -->
@@ -216,7 +216,7 @@
 	<label>skill WR</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneB</iconPath>
 	<aptitudes>
-	  <Social>6</Social>
+	  <Social>2</Social>
 	</aptitudes>
   </GeneDef>
   <!-- = -->
@@ -225,8 +225,8 @@
 	<label>skill VX</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneB</iconPath>
 	<aptitudes>
-	  <Crafting>3</Crafting>
-	  <Melee>3</Melee>
+	  <Crafting>1</Crafting>
+	  <Melee>1</Melee>
 	</aptitudes>
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_Nodization_RandomSkillBuff_VX</li> -->
@@ -237,8 +237,8 @@
 	<label>skill YR</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneB</iconPath>
 	<aptitudes>
-	  <Social>3</Social>
-	  <Intellectual>3</Intellectual>
+	  <Social>1</Social>
+	  <Intellectual>1</Intellectual>
 	</aptitudes>
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_Nodization_RandomSkillBuff_YR</li> -->
@@ -251,7 +251,7 @@
 	<label>vindication SX</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneC</iconPath>
 	<statOffsets>
-		<WorkSpeedGlobalOffsetMech>0.25</WorkSpeedGlobalOffsetMech>
+		<WorkSpeedGlobalOffsetMech>0.2</WorkSpeedGlobalOffsetMech>
 	</statOffsets>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Red">
@@ -259,9 +259,9 @@
 	<label>vindication HJ</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneC</iconPath>
 	<statOffsets>
-	  <ArmorRating_Blunt>0.15</ArmorRating_Blunt>
-	  <ArmorRating_Sharp>0.15</ArmorRating_Sharp>
-	  <ArmorRating_Heat>0.15</ArmorRating_Heat>
+	  <ArmorRating_Blunt>0.07</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.07</ArmorRating_Sharp>
+	  <ArmorRating_Heat>0.07</ArmorRating_Heat>
 	</statOffsets>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Green">
@@ -269,7 +269,7 @@
 	<label>vindication GB</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneC</iconPath>
 	<statOffsets>
-	 <MoveSpeed>0.8</MoveSpeed>
+	 <MoveSpeed>0.4</MoveSpeed>
 	</statOffsets>
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_Nodization_RandomVindicationBuff_VX</li> -->
@@ -280,7 +280,7 @@
 	<label>vindication CV</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneC</iconPath>
 	<statOffsets>
-	  <MeleeDodgeChance>20</MeleeDodgeChance>
+	  <MeleeDodgeChance>10</MeleeDodgeChance>
 	</statOffsets>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Yellow">
@@ -328,7 +328,7 @@
 	<capMods>
 	  <li>
 		<capacity>Consciousness</capacity>
-		<offset>0.1</offset>
+		<offset>0.05</offset>
 	  </li>
 	</capMods>
   </GeneDef>
@@ -339,7 +339,7 @@
 	<capMods>
 	  <li>
 		<capacity>Manipulation</capacity>
-		<offset>0.1</offset>
+		<offset>0.05</offset>
 	  </li>
 	</capMods>
   </GeneDef>
@@ -350,7 +350,7 @@
 	<capMods>
 	  <li>
 		<capacity>Metabolism</capacity>
-		<offset>0.2</offset>
+		<offset>0.05</offset>
 	  </li>
 	</capMods>
   </GeneDef>
@@ -361,11 +361,11 @@
 	<capMods>
 	  <li>
 		<capacity>Sight</capacity>
-		<offset>0.1</offset>
+		<offset>0.02</offset>
 	  </li>
 	  <li>
 		<capacity>Hearing</capacity>
-		<offset>0.1</offset>
+		<offset>0.02</offset>
 	  </li>
 	</capMods>
   </GeneDef>
@@ -376,7 +376,7 @@
 	<capMods>
 	  <li>
 		<capacity>Talking</capacity>
-		<offset>0.2</offset>
+		<offset>0.05</offset>
 	  </li>
 	</capMods>
   </GeneDef>
@@ -388,7 +388,7 @@
 	<capMods>
 	  <li>
 		<capacity>BloodFiltration</capacity>
-		<offset>0.2</offset>
+		<offset>0.05</offset>
 	  </li>
 	</capMods>
   </GeneDef>
@@ -399,7 +399,7 @@
 	<capMods>
 	  <li>
 		<capacity>BloodPumping</capacity>
-		<offset>0.2</offset>
+		<offset>0.05</offset>
 	  </li>
 	</capMods>
   </GeneDef>
@@ -598,7 +598,7 @@
 		<pawnShouldBeImmortal>true</pawnShouldBeImmortal>
 		<statOffsets>
 		  <PawnBeauty>1</PawnBeauty>
-		  <SocialImpact>0.2</SocialImpact>
+		  <SocialImpact>0.1</SocialImpact>
 		  <!-- <MeleeDodgeChance>20</MeleeDodgeChance> -->
 		</statOffsets>
 	  </li>
@@ -615,10 +615,10 @@
 	<defName>WVC_Nodization_DecisionBuff_A</defName>
 	<label>decision SX</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneG</iconPath>
-	<statFactors>
-	  <WorkSpeedGlobalOffsetMech>1.5</WorkSpeedGlobalOffsetMech>
+	<statOffsets>
+	  <WorkSpeedGlobalOffsetMech>0.25</WorkSpeedGlobalOffsetMech>
 	  <!-- <ResearchSpeed>1.2</ResearchSpeed> -->
-	</statFactors>
+	</statOffsets>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Red">
 	<defName>WVC_Nodization_DecisionBuff_B</defName>
@@ -632,25 +632,25 @@
 	<defName>WVC_Nodization_DecisionBuff_C</defName>
 	<label>decision GB</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneG</iconPath>
-	<statFactors>
-	  <MedicalTendSpeed>1.5</MedicalTendSpeed>
-	</statFactors>
+	<statOffsets>
+	  <MedicalTendSpeed>0.2</MedicalTendSpeed>
+	</statOffsets>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Violet">
 	<defName>WVC_Nodization_DecisionBuff_D</defName>
 	<label>decision CV</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneG</iconPath>
-	<statFactors>
-	  <ArrestSuccessChance>2</ArrestSuccessChance>
-	</statFactors>
+	<statOffsets>
+	  <ArrestSuccessChance>0.2</ArrestSuccessChance>
+	</statOffsets>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Yellow">
 	<defName>WVC_Nodization_DecisionBuff_E</defName>
 	<label>decision WR</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneG</iconPath>
-	<statFactors>
-	  <SocialImpact>1.5</SocialImpact>
-	</statFactors>
+	<statOffsets>
+	  <SocialImpact>0.2</SocialImpact>
+	</statOffsets>
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_Nodization_RandomBuff_AltBlue">
@@ -662,7 +662,7 @@
 	<!-- </statFactors> -->
 	<statOffsets>
 	  <!-- <WVC_BandwidthCostOffsetMech>-1</WVC_BandwidthCostOffsetMech> -->
-	  <WVC_MechEnergyUsageOffset>-0.5</WVC_MechEnergyUsageOffset>
+	  <WVC_MechEnergyUsageOffset>-0.25</WVC_MechEnergyUsageOffset>
 	</statOffsets>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Orange">
@@ -670,7 +670,7 @@
 	<label>decision YR</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneG</iconPath>
 	<statOffsets>
-	  <WorkSpeedGlobal>0.25</WorkSpeedGlobal>
+	  <WorkSpeedGlobal>0.1</WorkSpeedGlobal>
 	</statOffsets>
   </GeneDef>
 

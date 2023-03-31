@@ -64,7 +64,7 @@
 	<inheritable>false</inheritable>
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>
 	<displayPriority>-1100</displayPriority>
-	<combatPowerFactor>5</combatPowerFactor>
+	<combatPowerFactor>2</combatPowerFactor>
 	<factionlessGenerationWeight>2</factionlessGenerationWeight>
 	<doubleXenotypeChances>
 		<WVC_Blank>1.0</WVC_Blank>

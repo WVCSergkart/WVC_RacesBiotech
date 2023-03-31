@@ -107,7 +107,7 @@
 
   <GeneDef ParentName="WVC_SunPhobiaSensitivity_Base">
 	<defName>WVC_DebuffUV_StrongInjuryHealing</defName>
-	<label>extreme sunphobia</label>
+	<label>strong sunphobia</label>
 	<description>Carriers of this gene partially stop regeneration when they are in sunlight.</description>
 	<iconPath>WVC/UI/Genes/SunDebuff_Heal1</iconPath>
 	<displayCategory>Healing</displayCategory>

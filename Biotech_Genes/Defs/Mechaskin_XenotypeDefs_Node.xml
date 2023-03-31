@@ -10,10 +10,10 @@
 	<iconPath>WVC/UI/Mecha_Icons/Roguekind1</iconPath>
 	<inheritable>true</inheritable>
 	<canGenerateAsCombatant>true</canGenerateAsCombatant>
-	<combatPowerFactor>5</combatPowerFactor>
+	<combatPowerFactor>2</combatPowerFactor>
 	<displayPriority>-1100</displayPriority>
 	<factionlessGenerationWeight>2</factionlessGenerationWeight>
-	<generateWithXenogermReplicatingHediffChance>0.5</generateWithXenogermReplicatingHediffChance>
+	<generateWithXenogermReplicatingHediffChance>0.2</generateWithXenogermReplicatingHediffChance>
 	<xenogermReplicatingDurationLeftDaysRange>0.1~140</xenogermReplicatingDurationLeftDaysRange>
 	<doubleXenotypeChances>
 		<!-- <Sanguophage>0.1</Sanguophage> -->
@@ -129,6 +129,7 @@
 		<li>WVC_NoUVSensitivity_Psychic</li>
 		<li>WVC_DebuffUV_ExtremeInjuryHealing</li>
 		<li>WVC_DebuffUV_ExtremePsychicSensitivity</li>
+		<!-- <li>WVC_LongjumpMech</li> -->
 		<!-- = -->
 		<li>Neversleep</li>
 		<!-- <li>Aggression_DeadCalm</li> -->

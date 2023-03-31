@@ -34,7 +34,7 @@
 	<description>Carriers of this gene have ultrafast mechanoid muscles which allow them to jump short distances.</description>
 	<iconPath>UI/Abilities/MechLongJump</iconPath>
 	<statOffsets>
-	  <MoveSpeed>0.5</MoveSpeed>
+	  <MoveSpeed>0.2</MoveSpeed>
 	</statOffsets>
 	<abilities>
 	  <li>LongjumpMech</li>
@@ -62,7 +62,7 @@
 	<capMods>
 	  <li>
 		<capacity>Breathing</capacity>
-		<offset>0.2</offset>
+		<offset>0.05</offset>
 	  </li>
 	</capMods>
 	<forcedTraits>
@@ -90,7 +90,7 @@
   <GeneDef ParentName="WVC_MechanoidizationAbilities">
 	<defName>WVC_FirefoampopMech</defName>
 	<label>firefoam pop</label>
-	<description>Carriers of this gene have small accumulations of foam under the mecha-skin, they can release some of these accumulations, which will allow them to put out the fire.</description>
+	<description>Carriers of this gene have small accumulations of foam under the skin, they can release some of these accumulations, which will allow them to put out the fire.</description>
 	<iconPath>UI/Abilities/MechFirefoamPop</iconPath>
 	<suppressedTraits>
 	  <li>
