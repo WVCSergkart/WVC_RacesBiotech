@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- <HediffDef ParentName="MechanitesBase"> -->
+	<!-- <defName>WVC_MalfunctioningMechanites</defName> -->
+	<!-- <label>malfunctioning mechanites</label> -->
+	<!-- <description>Due to an unforeseen failure, several mechanite clusters went out of order.</description> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <label>over 20%</label> -->
+		<!-- <statFactors> -->
+		  <!-- <WVC_HungerRateFactor>0.9</WVC_HungerRateFactor> -->
+		  <!-- <ImmunityGainSpeed>0.8</ImmunityGainSpeed> -->
+		  <!-- <InjuryHealingFactor>0.8</InjuryHealingFactor> -->
+		<!-- </statFactors> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <minSeverity>0.5</minSeverity> -->
+		<!-- <label>over 50%</label> -->
+		<!-- <statFactors> -->
+		  <!-- <WVC_HungerRateFactor>0.7</WVC_HungerRateFactor> -->
+		  <!-- <ImmunityGainSpeed>0.5</ImmunityGainSpeed> -->
+		  <!-- <InjuryHealingFactor>0.5</InjuryHealingFactor> -->
+		<!-- </statFactors> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <minSeverity>0.9</minSeverity> -->
+		<!-- <label>over 90%</label> -->
+		<!-- <statFactors> -->
+		  <!-- <WVC_HungerRateFactor>0.5</WVC_HungerRateFactor> -->
+		  <!-- <ImmunityGainSpeed>0.2</ImmunityGainSpeed> -->
+		  <!-- <InjuryHealingFactor>0.2</InjuryHealingFactor> -->
+		<!-- </statFactors> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <minSeverity>1.0</minSeverity> -->
+		<!-- <label>100%</label> -->
+		<!-- <statFactors> -->
+		  <!-- <WVC_HungerRateFactor>0.2</WVC_HungerRateFactor> -->
+		  <!-- <ImmunityGainSpeed>0.0</ImmunityGainSpeed> -->
+		  <!-- <InjuryHealingFactor>0.0</InjuryHealingFactor> -->
+		<!-- </statFactors> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+  <!-- </HediffDef> -->
+
+  <!-- <HediffDef ParentName="MechanitesBase"> -->
+	<!-- <defName>WVC_ExtraMechanites</defName> -->
+	<!-- <label>extra mechanites</label> -->
+	<!-- <description>Due to an error in mechanite replication, there were slightly more of them than required.</description> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <label>over 20%</label> -->
+		<!-- <statFactors> -->
+		  <!-- <WVC_HungerRateFactor>1.2</WVC_HungerRateFactor> -->
+		  <!-- <ImmunityGainSpeed>1.15</ImmunityGainSpeed> -->
+		  <!-- <InjuryHealingFactor>1.15</InjuryHealingFactor> -->
+		<!-- </statFactors> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <minSeverity>0.5</minSeverity> -->
+		<!-- <label>over 50%</label> -->
+		<!-- <statFactors> -->
+		  <!-- <WVC_HungerRateFactor>1.5</WVC_HungerRateFactor> -->
+		  <!-- <ImmunityGainSpeed>1.3</ImmunityGainSpeed> -->
+		  <!-- <InjuryHealingFactor>1.3</InjuryHealingFactor> -->
+		<!-- </statFactors> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <minSeverity>0.9</minSeverity> -->
+		<!-- <label>over 90%</label> -->
+		<!-- <statFactors> -->
+		  <!-- <WVC_HungerRateFactor>1.7</WVC_HungerRateFactor> -->
+		  <!-- <ImmunityGainSpeed>1.4</ImmunityGainSpeed> -->
+		  <!-- <InjuryHealingFactor>1.4</InjuryHealingFactor> -->
+		<!-- </statFactors> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <minSeverity>1.0</minSeverity> -->
+		<!-- <label>100%</label> -->
+		<!-- <statFactors> -->
+		  <!-- <WVC_HungerRateFactor>2.0</WVC_HungerRateFactor> -->
+		  <!-- <ImmunityGainSpeed>1.5</ImmunityGainSpeed> -->
+		  <!-- <InjuryHealingFactor>1.5</InjuryHealingFactor> -->
+		<!-- </statFactors> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+  <!-- </HediffDef> -->
+
+</Defs>

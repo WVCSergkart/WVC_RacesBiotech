@@ -394,7 +394,6 @@
 
 			<Operation Class="PatchOperationAdd">
 			  <xpath>/Defs/HediffGiverSetDef[defName="Human"]/hediffGivers</xpath>
-			  <!-- <success>Always</success> -->
 			  <value>
 				  <li Class="WVC.HediffGiver_RandomByGene">
 					<geneDef>WVC_NodeSkin_Blue</geneDef>
@@ -419,12 +418,6 @@
 					<partsToAffect>
 					  <li>Brain</li>
 					</partsToAffect>
-					<!-- <ageFractionMtbDaysCurve> -->
-					  <!-- <points> -->
-						<!-- <li>(0, 1)</li> -->
-						<!-- <li>(1, 1)</li> -->
-					  <!-- </points> -->
-					<!-- </ageFractionMtbDaysCurve> -->
 				  </li>
 			  </value>
 			</Operation>

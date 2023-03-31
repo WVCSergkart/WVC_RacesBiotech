@@ -206,19 +206,19 @@
 	</statFactors>
 	<aptitudes>
 	  <!-- -30 -->
-	  <!-- creator -28 -->
-	  <Construction>-8</Construction>
+	  <!-- creator -24 -->
+	  <Construction>-6</Construction>
 	  <Intellectual>4</Intellectual>
-	  <Crafting>-6</Crafting>
+	  <Crafting>-4</Crafting>
 	  <Artistic>-18</Artistic>
-	  <!-- war -8 -->
+	  <!-- war -2 -->
 	  <Mining>-10</Mining>
-	  <Shooting>-2</Shooting>
+	  <Shooting>0</Shooting>
 	  <Melee>8</Melee>
-	  <!-- green 0 -->
+	  <!-- green -10 -->
 	  <Plants>-6</Plants>
 	  <Cooking>-6</Cooking>
-	  <Animals>4</Animals>
+	  <Animals>-6</Animals>
 	  <Social>8</Social>
 	  <!-- base -->
 	  <Medicine>6</Medicine>
