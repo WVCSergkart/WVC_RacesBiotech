@@ -60,6 +60,11 @@
 	<label>w-pack thrower</label>
 	<iconPath>WVC/Things/Mecha_Genepack/Genepack_e</iconPath>
 	<biostatArc>1</biostatArc>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>w-</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
 	<modExtensions>
 		<li Class="WVC.GeneExtension_Spawner">
 			<thingDefToSpawn>WVC_Genepack</thingDefToSpawn>
@@ -73,6 +78,12 @@
 	<label>ultrapack thrower</label>
 	<iconPath>WVC/Things/Ultra_Genepack/Ultrapack_e</iconPath>
 	<biostatArc>2</biostatArc>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>ultra-</symbol></li>
+		<li><symbol>ultra</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
 	<modExtensions>
 		<li Class="WVC.GeneExtension_Spawner">
 			<thingDefToSpawn>WVC_UltraGenepack</thingDefToSpawn>
@@ -86,6 +97,12 @@
 	<label>mechapack thrower</label>
 	<iconPath>WVC/Things/Mecha_Genepack/Genepack_f</iconPath>
 	<biostatArc>3</biostatArc>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>mecha-</symbol></li>
+		<li><symbol>mecha</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
 	<modExtensions>
 		<li Class="WVC.GeneExtension_Spawner">
 			<thingDefToSpawn>WVC_MechaGenepack</thingDefToSpawn>
@@ -101,6 +118,12 @@
 	<label>alphapack thrower</label>
 	<iconPath>Things/Item/AG_Alphapack/AG_Alphapack_e</iconPath>
 	<biostatArc>1</biostatArc>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>alpha-</symbol></li>
+		<li><symbol>alpha</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
 	<modExtensions>
 		<li Class="WVC.GeneExtension_Spawner">
 			<thingDefToSpawn>AG_Alphapack</thingDefToSpawn>
@@ -114,6 +137,12 @@
 	<label>mixedpack thrower</label>
 	<iconPath>Things/Item/AG_Mixedpack/AG_Mixedpack_e</iconPath>
 	<biostatArc>2</biostatArc>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>mixed-</symbol></li>
+		<li><symbol>mixed</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
 	<modExtensions>
 		<li Class="WVC.GeneExtension_Spawner">
 			<thingDefToSpawn>AG_Mixedpack</thingDefToSpawn>
