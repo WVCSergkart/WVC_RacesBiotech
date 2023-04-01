@@ -14,9 +14,9 @@
 	<prerequisite>WVC_MechaAI_Base</prerequisite>
 	<selectionWeight>0.6</selectionWeight>
 	<marketValueFactor>2</marketValueFactor>
-	<biostatCpx>6</biostatCpx>
-	<biostatArc>2</biostatArc>
-	<biostatMet>6</biostatMet>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
 	<randomChosen>true</randomChosen>
 	<customEffectDescriptions>
 		<!-- <li>&lt;color=#ff8585&gt;Activation of the gene requires either the "mecha-subcore" gene or any of the mechaskins.&lt;/color&gt;</li> -->

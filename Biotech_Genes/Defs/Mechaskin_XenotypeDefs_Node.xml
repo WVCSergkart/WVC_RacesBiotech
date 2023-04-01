@@ -100,6 +100,9 @@
 		<!-- <li>WVC_Mecha_EarsCat</li> -->
 		<!-- <li>WVC_Mecha_QuadEarsCat</li> -->
 		<!-- <li>WVC_VoiceMechaMilitor</li> -->
+		<!-- <li>WVC_VoiceMechaWarqueen</li> -->
+		<!-- <li>WVC_VoiceMechaScorcher</li> -->
+		<!-- <li>WVC_VoiceMechaLegionary</li> -->
 		<li>WVC_VoiceMechaTesseron</li>
 		<!-- = -->
 		<li>WVC_Mecha_RedFormerEarsDouble</li>
@@ -125,11 +128,14 @@
 		<li>ToxResist_Total</li>
 		<!-- = -->
 		<li>UVSensitivity_Intense</li>
-		<li>WVC_ArmoredSkin_Steel</li>
-		<li>WVC_NoUVSensitivity_Psychic</li>
+		<!-- <li>WVC_ArmoredSkin_Steel</li> -->
+		<!-- <li>WVC_NoUVSensitivity_Psychic</li> -->
 		<li>WVC_DebuffUV_ExtremeInjuryHealing</li>
 		<li>WVC_DebuffUV_ExtremePsychicSensitivity</li>
+		<!-- = -->
 		<!-- <li>WVC_LongjumpMech</li> -->
+		<!-- <li>WVC_FirefoampopMech</li> -->
+		<li>WVC_SunlightBeauty_Moon</li>
 		<!-- = -->
 		<li>Neversleep</li>
 		<!-- <li>Aggression_DeadCalm</li> -->
@@ -137,7 +143,7 @@
 		<li>Body_Standard</li>
 		<li>Body_Thin</li>
 		<li>WVC_BodySize_Small</li>
-		<li>Beauty_Ugly</li>
+		<!-- <li>Beauty_Ugly</li> -->
 		<!-- = -->
 		<li>WVC_HairColor_DarkGray</li>
 		<li>WVC_SkinColor_DarkGray</li>

@@ -18,7 +18,7 @@
 
   <GeneDef ParentName="WVC_MechanoidizationBase">
 	<defName>WVC_MechaHidden_ArchiteForge</defName>
-	<label>self-replication</label>
+	<label>self-replicator</label>
 	<!-- <label>archite-forge</label> -->
 	<description>Carriers of this gene have archites that are capable of self-replication. Thanks to this, archites from time to time restore lost limbs or heals scars.</description>
 	<!-- <selectionWeight>0.01</selectionWeight> -->

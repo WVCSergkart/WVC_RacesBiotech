@@ -77,7 +77,7 @@
 	<iconPath>WVC/MecaGene_ScytheTail/SmoothTail_east</iconPath>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
-	<biostatMet>-1</biostatMet>
+	<!-- <biostatMet>-1</biostatMet> -->
 	<customEffectDescriptions>
 		<li>Adds a deadly tail attack.</li>
 	</customEffectDescriptions>

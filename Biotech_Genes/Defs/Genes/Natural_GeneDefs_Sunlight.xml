@@ -171,4 +171,76 @@
 	</conditionalStatAffecters>
   </GeneDef>
 
+  <!-- UV Phobia -->
+
+  <GeneDef ParentName="GeneBeautyBase">
+	<defName>WVC_SunlightBeauty_Sun</defName>
+	<label>sunlight beauty</label>
+	<description>Due to exposure to sunlight, the skin of carriers of this gene becomes very attractive, but it is so only in the sun.</description>
+	<iconPath>WVC/UI/Genes/SunlightBeautyA</iconPath>
+	<displayOrderInCategory>70</displayOrderInCategory>
+	<!-- <biostatCpx>1</biostatCpx> -->
+	<biostatMet>-1</biostatMet>
+	<conditionalStatAffecters>
+	  <li Class="ConditionalStatAffecter_InSunlight">
+		<statOffsets>
+			<PawnBeauty>2</PawnBeauty>
+		</statOffsets>
+	  </li>
+	  <li Class="VanillaGenesExpanded.ConditionalStatAffecter_NoSunlight">
+		<statOffsets>
+			<PawnBeauty>-2</PawnBeauty>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>sun</symbol></li>
+		<li><symbol>light</symbol></li>
+		<li><symbol>sunlight-</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="GeneBeautyBase">
+	<defName>WVC_SunlightBeauty_Moon</defName>
+	<label>moonlight beauty</label>
+	<description>Due to exposure to sunlight, the skin of carriers of this gene becomes very ugly, but this is only in the sun.</description>
+	<iconPath>WVC/UI/Genes/SunlightBeautyB</iconPath>
+	<displayOrderInCategory>70</displayOrderInCategory>
+	<!-- <biostatCpx>1</biostatCpx> -->
+	<biostatMet>-1</biostatMet>
+	<conditionalStatAffecters>
+	  <li Class="ConditionalStatAffecter_InSunlight">
+		<statOffsets>
+			<PawnBeauty>-2</PawnBeauty>
+		</statOffsets>
+	  </li>
+	  <li Class="VanillaGenesExpanded.ConditionalStatAffecter_NoSunlight">
+		<statOffsets>
+			<PawnBeauty>2</PawnBeauty>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>moon</symbol></li>
+		<li><symbol>light</symbol></li>
+		<li><symbol>moonlight-</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
 </Defs>

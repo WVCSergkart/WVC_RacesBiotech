@@ -34,7 +34,7 @@
 	<description>Carriers of this gene have archites that stabilize blood pressure, which helps to avoid bleeding.</description>
 	<!-- <geneClass>WVC.Gene_MechaClotting</geneClass> -->
 	<!-- <geneClass>Gene_Clotting</geneClass> -->
-	<biostatMet>-2</biostatMet>
+	<biostatMet>-1</biostatMet>
 	<!-- <biostatArc>2</biostatArc> -->
 	<customEffectDescriptions>
 		<!-- <li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Increases lifespan factor.</li> -->
@@ -70,7 +70,7 @@
 	<defName>WVC_MecaBodyParts_Spine</defName>
 	<label>mechaskeleton</label>
 	<description>Archites greatly enhance the carrier's skeletal structure.</description>
-	<biostatMet>-2</biostatMet>
+	<biostatMet>-1</biostatMet>
 	<statFactors>
 	  <CarryingCapacity>1.2</CarryingCapacity>
 	</statFactors>
@@ -134,7 +134,7 @@
 	<defName>WVC_MecaBodyParts_Leg</defName>
 	<label>light frame</label>
 	<description>Archites lighten the body of the carrier by optimizing the amount of fat and muscle mass, without losing the efficiency of the body.</description>
-	<biostatMet>-2</biostatMet>
+	<biostatMet>-1</biostatMet>
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Reduces the amount of meat and leather.</li> -->
 	<!-- </customEffectDescriptions> -->

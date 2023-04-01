@@ -49,6 +49,7 @@
 	<defaultFactionType>PlayerColony</defaultFactionType>
 	<apparelMoney>80~120</apparelMoney>
 	<forcedHair>Scrapper</forcedHair>
+	<!-- <favoriteColor>(245,245,245)</favoriteColor> -->
 	<xenotypeSet>
 	  <xenotypeChances>
 		<WVC_Meca>999</WVC_Meca>
@@ -85,6 +86,7 @@
 	<apparelColor>(58,58,58)</apparelColor>
 	<defaultFactionType>PlayerColony</defaultFactionType>
 	<apparelMoney>80~120</apparelMoney>
+	<!-- <favoriteColor>(79,80,81)</favoriteColor> -->
 	<xenotypeSet>
 	  <xenotypeChances>
 		<WVC_RogueFormer>999</WVC_RogueFormer>

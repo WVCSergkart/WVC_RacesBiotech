@@ -8,6 +8,7 @@
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
 	<sterilize>true</sterilize>
 	<selectionWeight>0.5</selectionWeight>
+	<biostatMet>0</biostatMet>
 	<statFactors>
 	  <Fertility>0</Fertility>
 	</statFactors>

@@ -15,7 +15,7 @@
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
-	<biostatMet>-1</biostatMet>
+	<!-- <biostatMet>-1</biostatMet> -->
 	<minAgeActive>13</minAgeActive>
 	<!-- <statOffsets> -->
 	  <!-- <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization> -->
