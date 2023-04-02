@@ -12,10 +12,15 @@
 		<maxSeverity>1.0</maxSeverity>
 		<isBad>false</isBad>
 		<comps>
-			<li Class="AnimalBehaviours.HediffCompProperties_AsexualReproduction">
-				<reproductionIntervalDays>120</reproductionIntervalDays>
+			<!-- <li Class="AnimalBehaviours.HediffCompProperties_AsexualReproduction"> -->
+				<!-- <reproductionIntervalDays>120</reproductionIntervalDays> -->
+				<!-- <endogeneTransfer>true</endogeneTransfer> -->
+				<!-- <asexualHatchedMessage>WVC_RB_Gene_MechaGestator</asexualHatchedMessage> -->
+			<!-- </li> -->
+			<li Class="WVC.HediffCompProperties_Gestator">
+				<gestationIntervalDays>120</gestationIntervalDays>
 				<endogeneTransfer>true</endogeneTransfer>
-				<asexualHatchedMessage>WVC_RB_Gene_MechaGestator</asexualHatchedMessage>
+				<completeMessage>WVC_RB_Gene_MechaGestator</completeMessage>
 			</li>
 		</comps>
 	</HediffDef>
@@ -55,7 +60,7 @@
 			</li>
 			<li Class="HediffCompProperties_Disappears">
 				<disappearsAfterTicks>301500</disappearsAfterTicks>
-				<showRemainingTime>true</showRemainingTime>
+				<showRemainingTime>false</showRemainingTime>
 			</li>
 		</comps>
 	</HediffDef>
@@ -65,10 +70,15 @@
 		<label>gestation process</label>
 		<description>Archites slowly form semi-organic life.</description>
 		<comps>
-			<li Class="AnimalBehaviours.HediffCompProperties_AsexualReproduction">
-				<reproductionIntervalDays>5</reproductionIntervalDays>
+			<!-- <li Class="AnimalBehaviours.HediffCompProperties_AsexualReproduction"> -->
+				<!-- <reproductionIntervalDays>5</reproductionIntervalDays> -->
+				<!-- <endogeneTransfer>true</endogeneTransfer> -->
+				<!-- <asexualHatchedMessage>WVC_RB_Gene_MechaGestator</asexualHatchedMessage> -->
+			<!-- </li> -->
+			<li Class="WVC.HediffCompProperties_Gestator">
+				<gestationIntervalDays>5</gestationIntervalDays>
 				<endogeneTransfer>true</endogeneTransfer>
-				<asexualHatchedMessage>WVC_RB_Gene_MechaGestator</asexualHatchedMessage>
+				<completeMessage>WVC_RB_Gene_MechaGestator</completeMessage>
 			</li>
 		</comps>
 	</HediffDef>

@@ -29,4 +29,11 @@
   <WVC_GeneSpawner_GizmoCountSpawn>in count</WVC_GeneSpawner_GizmoCountSpawn>
   <WVC_GeneSpawner_GizmoTooltip>This information is associated with the spawner gene. The display of this gizmo can be disabled in the settings.</WVC_GeneSpawner_GizmoTooltip>
 
+  <!-- <WVC_GeneSpawner_GizmoTitle>Resource spawner</WVC_GeneSpawner_GizmoTitle> -->
+  <WVC_GeneGestator_GizmoLabel>Gestator</WVC_GeneGestator_GizmoLabel>
+  <WVC_GeneGestator_GizmoCondition_Ready>Ready</WVC_GeneGestator_GizmoCondition_Ready>
+  <WVC_GeneGestator_GizmoCondition_NotReady>Charging</WVC_GeneGestator_GizmoCondition_NotReady>
+  <WVC_GeneGestator_GizmoCondition_UntilFullCharge>Until fully charged</WVC_GeneGestator_GizmoCondition_UntilFullCharge>
+  <WVC_GeneGestator_GizmoGestation>Gestation</WVC_GeneGestator_GizmoGestation>
+
 </LanguageData>

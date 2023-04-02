@@ -112,6 +112,9 @@
 		<li>Spawns 5 wastepacks every (*DateTime)2-5 days(/DateTime).</li>
 		<!-- <li>&lt;color=#b8c6ff&gt;The number of wastepacks depends on the archites capsules.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
+	<statOffsets>
+	  <ToxicResistance MayRequireAnyOf="wvc.wvcmod.wvcspecific">1.0</ToxicResistance>
+	</statOffsets>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>tox</symbol></li>

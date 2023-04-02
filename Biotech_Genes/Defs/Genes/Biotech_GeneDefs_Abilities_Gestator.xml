@@ -47,6 +47,7 @@
 	<defName>WVC_StartGestation</defName>
 	<label>gestator</label>
 	<iconPath>WVC/UI/Genes/Gestator</iconPath>
+	<!-- <geneClass>WVC.Gene_Gestator</geneClass> -->
 	<customEffectDescriptions>
 		<li>Spawns a baby-pawn with similar genes 5 days after the ability is activated.</li>
 	</customEffectDescriptions>
