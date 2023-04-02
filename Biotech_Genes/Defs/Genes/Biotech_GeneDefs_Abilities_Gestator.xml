@@ -92,6 +92,9 @@
 	<targetRequired>False</targetRequired>
 	<showCastingProgressBar>True</showCastingProgressBar>
 	<category>WVC_Mechalike</category>
+	<sendLetterOnCooldownComplete>True</sendLetterOnCooldownComplete>
+	<overrideGroupCooldown>True</overrideGroupCooldown>
+	<groupAbility>True</groupAbility>
 	<statBases>
 	  <Ability_Duration>5010</Ability_Duration>
 	</statBases>

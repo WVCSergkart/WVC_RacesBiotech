@@ -60,7 +60,7 @@
 			</li>
 			<li Class="HediffCompProperties_Disappears">
 				<disappearsAfterTicks>301500</disappearsAfterTicks>
-				<showRemainingTime>false</showRemainingTime>
+				<showRemainingTime>true</showRemainingTime>
 			</li>
 		</comps>
 	</HediffDef>

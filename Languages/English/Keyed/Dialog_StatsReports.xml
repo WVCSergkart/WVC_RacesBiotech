@@ -27,13 +27,14 @@
   <WVC_GeneSpawner_GizmoSpawn>Spawn</WVC_GeneSpawner_GizmoSpawn>
   <WVC_GeneSpawner_GizmoNextIn>Next in</WVC_GeneSpawner_GizmoNextIn>
   <WVC_GeneSpawner_GizmoCountSpawn>in count</WVC_GeneSpawner_GizmoCountSpawn>
-  <WVC_GeneSpawner_GizmoTooltip>This information is associated with the spawner gene. The display of this gizmo can be disabled in the settings.</WVC_GeneSpawner_GizmoTooltip>
+  <WVC_GeneSpawner_GizmoTooltip>Gizmo can be disabled in the settings.</WVC_GeneSpawner_GizmoTooltip>
 
   <!-- <WVC_GeneSpawner_GizmoTitle>Resource spawner</WVC_GeneSpawner_GizmoTitle> -->
-  <WVC_GeneGestator_GizmoLabel>Gestator</WVC_GeneGestator_GizmoLabel>
-  <WVC_GeneGestator_GizmoCondition_Ready>Ready</WVC_GeneGestator_GizmoCondition_Ready>
-  <WVC_GeneGestator_GizmoCondition_NotReady>Charging</WVC_GeneGestator_GizmoCondition_NotReady>
-  <WVC_GeneGestator_GizmoCondition_UntilFullCharge>Until fully charged</WVC_GeneGestator_GizmoCondition_UntilFullCharge>
-  <WVC_GeneGestator_GizmoGestation>Gestation</WVC_GeneGestator_GizmoGestation>
+  <!-- <WVC_GeneGestator_GizmoLabel>Gestator</WVC_GeneGestator_GizmoLabel> -->
+  <!-- <WVC_GeneGestator_GizmoCondition_Ready>Ready</WVC_GeneGestator_GizmoCondition_Ready> -->
+  <!-- <WVC_GeneGestator_GizmoCondition_NotReady>Charging</WVC_GeneGestator_GizmoCondition_NotReady> -->
+  <!-- <WVC_GeneGestator_GizmoCondition_UntilFullCharge>Until fully charged</WVC_GeneGestator_GizmoCondition_UntilFullCharge> -->
+  <!-- <WVC_GeneGestator_GizmoGestation>Gestation</WVC_GeneGestator_GizmoGestation> -->
+  <!-- <WVC_GeneGestator_GizmoConfirmationDialog>After activating the ability, the pawn will receive a moving and manipulation debuff, as well as increased hunger. The process cannot be interrupted.\n\nDo you still need a new mecha-pawn?</WVC_GeneGestator_GizmoConfirmationDialog> -->
 
 </LanguageData>

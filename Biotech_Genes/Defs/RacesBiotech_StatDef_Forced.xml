@@ -41,6 +41,7 @@
   <StatDef Name="WVC_Biotech_ForcedStat_Base" Abstract="True">
 	<description>Should be invisible.</description>
 	<!-- <category>WVC_ForcedStats_Genes</category> -->
+	<category>PawnMisc</category>
 	<defaultBaseValue>0</defaultBaseValue>
 	<hideAtValue>0</hideAtValue>
 	<valueIfMissing>0</valueIfMissing>
@@ -71,17 +72,23 @@
 
   <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
 	<defName>WVC_BleedingFactor</defName>
-	<label>bleeding</label>
+	<label>total bleeding factor</label>
+	<description>Bleeding multiplier.</description>
 	<defaultBaseValue>1</defaultBaseValue>
+	<hideAtValue>1</hideAtValue>
 	<toStringStyle>PercentZero</toStringStyle>
+	<alwaysHide>false</alwaysHide>
   </StatDef>
 
   <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
 	<defName>WVC_HungerRateFactor</defName>
-	<label>hunger rate</label>
+	<label>total hunger rate</label>
+	<description>Hunger multiplier. The higher the value, the faster the pawn will want to eat.</description>
 	<defaultBaseValue>1</defaultBaseValue>
+	<hideAtValue>1</hideAtValue>
 	<!-- <toStringStyle>Integer</toStringStyle> -->
 	<toStringStyle>PercentZero</toStringStyle>
+	<alwaysHide>false</alwaysHide>
   </StatDef>
 
   <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
@@ -95,7 +102,6 @@
 	<hideAtValue>1</hideAtValue>
 	<alwaysHide>false</alwaysHide>
 	<toStringStyle>PercentZero</toStringStyle>
-	<category>PawnMisc</category>
   </StatDef>
   <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
 	<defName>WVC_MinSkillLevel</defName>
@@ -108,7 +114,6 @@
 	<hideAtValue>0</hideAtValue>
 	<alwaysHide>false</alwaysHide>
 	<!-- <toStringStyle>Integer</toStringStyle> -->
-	<category>PawnMisc</category>
   </StatDef>
 
   <!-- <StatDef ParentName="WVC_Biotech_ForcedStat_Base"> -->
