@@ -120,6 +120,9 @@
 	<displayCategory>Healing</displayCategory>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>3</biostatMet>
+	<exclusionTags>
+	  <li>WVC_DebuffUV_InjuryHealing</li>
+	</exclusionTags>
 	<conditionalStatAffecters>
 	  <li Class="ConditionalStatAffecter_InSunlight">
 		<statFactors>
@@ -136,6 +139,9 @@
 	<displayCategory>Healing</displayCategory>
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>4</biostatMet>
+	<exclusionTags>
+	  <li>WVC_DebuffUV_InjuryHealing</li>
+	</exclusionTags>
 	<conditionalStatAffecters>
 	  <li Class="ConditionalStatAffecter_InSunlight">
 		<statFactors>
@@ -154,7 +160,7 @@
 	<iconPath>WVC/UI/Genes/SunDebuffPsychicallySensetivity2</iconPath>
 	<displayCategory>Psychic</displayCategory>
 	<biostatCpx>1</biostatCpx>
-	<biostatMet>1</biostatMet>
+	<biostatMet>2</biostatMet>
 	<exclusionTags>
 	  <li>WVC_PsychicSunSensitivityDeaf</li>
 	</exclusionTags>
@@ -173,7 +179,7 @@
 	<iconPath>WVC/UI/Genes/SunDebuffPsychicallySensetivity1</iconPath>
 	<displayCategory>Psychic</displayCategory>
 	<biostatCpx>2</biostatCpx>
-	<biostatMet>2</biostatMet>
+	<biostatMet>3</biostatMet>
 	<exclusionTags>
 	  <li>WVC_PsychicSunSensitivityDeaf</li>
 	</exclusionTags>
@@ -195,7 +201,7 @@
 	<iconPath>WVC/UI/Genes/MoonDebuffPsychicallySensetivityA</iconPath>
 	<displayCategory>Psychic</displayCategory>
 	<biostatCpx>1</biostatCpx>
-	<biostatMet>1</biostatMet>
+	<biostatMet>2</biostatMet>
 	<exclusionTags>
 	  <li>WVC_PsychicMoonSensitivityDeaf</li>
 	</exclusionTags>
@@ -214,7 +220,7 @@
 	<iconPath>WVC/UI/Genes/MoonDebuffPsychicallySensetivityB</iconPath>
 	<displayCategory>Psychic</displayCategory>
 	<biostatCpx>2</biostatCpx>
-	<biostatMet>2</biostatMet>
+	<biostatMet>3</biostatMet>
 	<exclusionTags>
 	  <li>WVC_PsychicMoonSensitivityDeaf</li>
 	</exclusionTags>

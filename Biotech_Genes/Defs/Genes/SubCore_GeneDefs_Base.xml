@@ -12,7 +12,8 @@
 	<iconPath>WVC/UI/Genes/MechanoidizationSoftware</iconPath>
 	<iconColor>(184, 198, 203)</iconColor>
 	<displayOrderInCategory>-555</displayOrderInCategory>
-	<displayCategory>WVC_MechaBody</displayCategory>
+	<!-- <displayCategory>WVC_MechaBody</displayCategory> -->
+	<displayCategory>WVC_MechaBodyWare</displayCategory>
 	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
 	<marketValueFactor>2</marketValueFactor>
 	<selectionWeight>0.8</selectionWeight>
