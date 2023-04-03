@@ -58,7 +58,7 @@
   <GeneDef ParentName="WVC_Mechanoidization_GenepackSpawnerBase">
 	<defName>WVC_GenePackSpawner_Base</defName>
 	<label>w-pack thrower</label>
-	<iconPath>WVC/Things/Mecha_Genepack/Genepack_e</iconPath>
+	<iconPath>WVC/Things/W_Genepack/Genepack_e</iconPath>
 	<biostatArc>1</biostatArc>
 	<symbolPack>
 	  <prefixSymbols>
@@ -95,7 +95,7 @@
   <GeneDef ParentName="WVC_Mechanoidization_GenepackSpawnerBase">
 	<defName>WVC_GenePackSpawner_Mecha</defName>
 	<label>mechapack thrower</label>
-	<iconPath>WVC/Things/Mecha_Genepack/Genepack_f</iconPath>
+	<iconPath>WVC/Things/Mecha_Genepack/MechapackB</iconPath>
 	<biostatArc>3</biostatArc>
 	<symbolPack>
 	  <prefixSymbols>

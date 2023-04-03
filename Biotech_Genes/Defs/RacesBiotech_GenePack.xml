@@ -43,7 +43,7 @@
 	  <DeteriorationRate>3</DeteriorationRate>
 	</statBases>
 	<graphicData>
-	  <texPath>WVC/Things/Mecha_Genepack</texPath>
+	  <texPath>WVC/Things/W_Genepack</texPath>
 	</graphicData>
 	<comps>
 	  <li Class="CompProperties_Glower">
@@ -80,6 +80,7 @@
 	</statBases>
 	<graphicData>
 	  <texPath>WVC/Things/Mecha_Genepack</texPath>
+	  <graphicClass>Graphic_Random</graphicClass>
 	</graphicData>
 	<comps>
 	  <li Class="CompProperties_Glower">
