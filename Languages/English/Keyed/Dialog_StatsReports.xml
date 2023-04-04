@@ -30,11 +30,20 @@
   <WVC_GeneSpawner_GizmoTooltip>Gizmo can be disabled in the settings.</WVC_GeneSpawner_GizmoTooltip>
 
   <!-- <WVC_GeneSpawner_GizmoTitle>Resource spawner</WVC_GeneSpawner_GizmoTitle> -->
-  <!-- <WVC_GeneGestator_GizmoLabel>Gestator</WVC_GeneGestator_GizmoLabel> -->
+  <WVC_GeneGestator_GizmoLabel>Gestator</WVC_GeneGestator_GizmoLabel>
+  <WVC_GeneGestator_GizmoOn>On</WVC_GeneGestator_GizmoOn>
+  <WVC_GeneGestator_GizmoOff>Off</WVC_GeneGestator_GizmoOff>
+  <WVC_GeneGestator_GizmoComplete>Time until the end of the process</WVC_GeneGestator_GizmoComplete>
+  <WVC_GeneGestator_GizmoCondition_GestatorOn>Gestator is On</WVC_GeneGestator_GizmoCondition_GestatorOn>
+  <WVC_GeneGestator_GizmoCondition_GestatorOff>Gestator is Off</WVC_GeneGestator_GizmoCondition_GestatorOff>
+  <WVC_GeneGestator_GizmoCondition_LimitForCancel>After a day after starting, the process cannot be interrupted.</WVC_GeneGestator_GizmoCondition_LimitForCancel>
   <!-- <WVC_GeneGestator_GizmoCondition_Ready>Ready</WVC_GeneGestator_GizmoCondition_Ready> -->
   <!-- <WVC_GeneGestator_GizmoCondition_NotReady>Charging</WVC_GeneGestator_GizmoCondition_NotReady> -->
   <!-- <WVC_GeneGestator_GizmoCondition_UntilFullCharge>Until fully charged</WVC_GeneGestator_GizmoCondition_UntilFullCharge> -->
-  <!-- <WVC_GeneGestator_GizmoGestation>Gestation</WVC_GeneGestator_GizmoGestation> -->
+  <!-- <WVC_GeneGestator_GizmoGestation>On</WVC_GeneGestator_GizmoGestation> -->
   <!-- <WVC_GeneGestator_GizmoConfirmationDialog>After activating the ability, the pawn will receive a moving and manipulation debuff, as well as increased hunger. The process cannot be interrupted.\n\nDo you still need a new mecha-pawn?</WVC_GeneGestator_GizmoConfirmationDialog> -->
+
+  <WVC_StatsReport_GestatorIsOn>during gestation</WVC_StatsReport_GestatorIsOn>
+  <WVC_StatsReport_Drafted>drafted</WVC_StatsReport_Drafted>
 
 </LanguageData>

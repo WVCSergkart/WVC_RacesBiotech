@@ -47,10 +47,20 @@
 	<defName>WVC_StartGestation</defName>
 	<label>gestator</label>
 	<iconPath>WVC/UI/Genes/Gestator</iconPath>
-	<!-- <geneClass>WVC.Gene_Gestator</geneClass> -->
 	<customEffectDescriptions>
 		<li>Spawns a baby-pawn with similar genes 5 days after the ability is activated.</li>
 	</customEffectDescriptions>
+	<!-- <geneClass>WVC.Gene_Gestator</geneClass> -->
+	<!-- <conditionalStatAffecters> -->
+	  <!-- <li Class="WVC.ConditionalStatAffecter_GestatorIsOn"> -->
+		<!-- <geneDef>WVC_StartGestation</geneDef> -->
+		<!-- <statFactors> -->
+		  <!-- <WVC_HungerRateFactor>2.0</WVC_HungerRateFactor> -->
+		  <!-- <MoveSpeed>0.5</MoveSpeed> -->
+		  <!-- <WorkSpeedGlobal>0.7</WorkSpeedGlobal> -->
+		<!-- </statFactors> -->
+	  <!-- </li> -->
+	<!-- </conditionalStatAffecters> -->
 	<abilities>
 	  <li>WVC_StartGestation</li>
 	</abilities>

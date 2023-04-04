@@ -51,6 +51,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <ArmorRating_Blunt>0.15</ArmorRating_Blunt>
 	  <ArmorRating_Sharp>0.15</ArmorRating_Sharp>
 	  <ArmorRating_Heat>0.17</ArmorRating_Heat>
+	  <ToxicEnvironmentResistance MayRequireAnyOf="wvc.wvcmod.wvcspecific">2.0</ToxicEnvironmentResistance>
 	</statOffsets>
 	<conditionalStatAffecters>
 	  <li Class="WVC.ConditionalStatAffecter_CauseSetting">
