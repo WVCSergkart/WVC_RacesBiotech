@@ -87,6 +87,11 @@
 
   <!-- ============================================================================================ -->
 
+  <AbilityGroupDef>
+	<defName>WVC_MechaGestator</defName>
+	<cooldownTicks>900000</cooldownTicks>
+  </AbilityGroupDef>
+
   <AbilityDef Name="WVC_GestationAbilities_Base" Abstract="True">
 	<label>gestator</label>
 	<description>Carriers of this gene have a built-in gestator that can produce semi-organic life.</description>
@@ -101,7 +106,8 @@
 	<hostile>false</hostile>
 	<targetRequired>False</targetRequired>
 	<showCastingProgressBar>True</showCastingProgressBar>
-	<category>WVC_Mechalike</category>
+	<!-- <category>WVC_Mechalike</category> -->
+	<groupDef>WVC_MechaGestator</groupDef>
 	<sendLetterOnCooldownComplete>True</sendLetterOnCooldownComplete>
 	<overrideGroupCooldown>True</overrideGroupCooldown>
 	<groupAbility>True</groupAbility>

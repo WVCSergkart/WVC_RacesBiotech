@@ -106,6 +106,16 @@
 		<li><symbol>machi</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
+	<!-- <abilities> -->
+	  <!-- <li>WVC_MechSummon_Light</li> -->
+	  <!-- <li>WVC_MechSummon_Medium</li> -->
+	  <!-- <li>WVC_MechSummon_Heavy</li> -->
+	<!-- </abilities> -->
+	<!-- <descriptionHyperlinks> -->
+	  <!-- <AbilityDef>WVC_MechSummon_Light</AbilityDef> -->
+	  <!-- <AbilityDef>WVC_MechSummon_Medium</AbilityDef> -->
+	  <!-- <AbilityDef>WVC_MechSummon_Heavy</AbilityDef> -->
+	<!-- </descriptionHyperlinks> -->
   </GeneDef>
 
 </Defs>

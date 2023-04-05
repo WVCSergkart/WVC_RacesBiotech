@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <AbilityCategoryDef>
-	<defName>WVC_Mechalike</defName>
-	<displayOrder>1100</displayOrder>
-  </AbilityCategoryDef>
+  <!-- <AbilityCategoryDef> -->
+	<!-- <defName>WVC_Mechalike</defName> -->
+	<!-- <displayOrder>1100</displayOrder> -->
+  <!-- </AbilityCategoryDef> -->
+
+  <!-- <AbilityCategoryDef> -->
+	<!-- <defName>WVC_MechaSummonning</defName> -->
+	<!-- <displayOrder>1100</displayOrder> -->
+  <!-- </AbilityCategoryDef> -->
 
   <!-- ================ -->
 
@@ -216,7 +221,7 @@
 	<iconPath>WVC/UI/Genes/Reimplanter</iconPath>
 	<warmupStartSound>ReimplantXenogerm_Cast</warmupStartSound>
 	<warmupEffecter>Implant_Xenogerm</warmupEffecter>
-	<category>WVC_Mechalike</category>
+	<!-- <category>WVC_Mechalike</category> -->
 	<displayOrder>500</displayOrder>
 	<hostile>false</hostile>
 	<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
