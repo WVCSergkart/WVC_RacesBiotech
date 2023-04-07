@@ -232,7 +232,7 @@
 	<biostatMet>-1</biostatMet>
 	<description>Archites modify the shape of the carrier, making them almost perfect.</description>
 	<statOffsets>
-	  <PawnBeauty>6</PawnBeauty>
+	  <PawnBeauty>2</PawnBeauty>
 	</statOffsets>
 	<suppressedTraits>
 	  <li>

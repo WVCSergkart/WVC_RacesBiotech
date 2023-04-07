@@ -50,7 +50,7 @@
 	<customEffectDescriptions>
 		<li>Spawns a baby-pawn with similar genes 5 days after the ability is activated.</li>
 	</customEffectDescriptions>
-	<!-- <geneClass>WVC.Gene_Gestator</geneClass> -->
+	<geneClass>WVC.Gene_Gestator_TestTool</geneClass>
 	<!-- <conditionalStatAffecters> -->
 	  <!-- <li Class="WVC.ConditionalStatAffecter_GestatorIsOn"> -->
 		<!-- <geneDef>WVC_StartGestation</geneDef> -->
@@ -139,10 +139,11 @@
 	<defName>WVC_StartGestation</defName>
 	<label>gestator</label>
 	<comps>
-	  <li Class="CompProperties_AbilityGiveHediff">
-		<compClass>CompAbilityEffect_GiveHediff</compClass>
+	  <li Class="WVC.CompProperties_AbilityGiveHediff">
+		<compClass>WVC.CompAbilityEffect_GiveHediff</compClass>
 		<hediffDef>WVC_RB_AbilityMechaGestator</hediffDef>
 		<onlyApplyToSelf>true</onlyApplyToSelf>
+		<onlyReproductive>true</onlyReproductive>
 		<!-- <onlyBrain>true</onlyBrain> -->
 	  </li>
 	</comps>
@@ -152,10 +153,11 @@
 	<defName>WVC_StartUrchinGestation</defName>
 	<label>urchin gestator</label>
 	<comps>
-	  <li Class="CompProperties_AbilityGiveHediff">
-		<compClass>CompAbilityEffect_GiveHediff</compClass>
+	  <li Class="WVC.CompProperties_AbilityGiveHediff">
+		<compClass>WVC.CompAbilityEffect_GiveHediff</compClass>
 		<hediffDef>WVC_RB_AbilityUrchinGestator</hediffDef>
 		<onlyApplyToSelf>true</onlyApplyToSelf>
+		<onlyReproductive>true</onlyReproductive>
 		<!-- <onlyBrain>true</onlyBrain> -->
 	  </li>
 	</comps>

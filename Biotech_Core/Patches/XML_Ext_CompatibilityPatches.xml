@@ -422,6 +422,14 @@
 			  </value>
 			</Operation>
 
+			<Operation Class="PatchOperationReplace">
+				<xpath>/Defs/GeneDef[defName="WVC_MecaUpgrades_PerfectShape"]/statOffsets/PawnBeauty</xpath>
+				<success>Always</success>
+				<value>
+					<PawnBeauty>6</PawnBeauty>
+				</value>
+			</Operation>
+
 		</caseTrue>
 	</Operation>
 
