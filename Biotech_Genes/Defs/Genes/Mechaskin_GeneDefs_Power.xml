@@ -40,6 +40,11 @@
 		<li><symbol>ner</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
+	<modExtensions>
+		<li Class="WVC.GeneExtension_Mechaskin">
+			<geneIsPowerSource>true</geneIsPowerSource>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_Mechanoidization_PowerSourceBase">

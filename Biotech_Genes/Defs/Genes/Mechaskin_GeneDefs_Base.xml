@@ -78,9 +78,9 @@ Most of the internal organs remain intact, but there are enough external changes
 		<li Class="WVC.GeneExtension">
 			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_MechaBody</backgroundPathArchite>
 		</li>
-		<!-- <li Class="WVC.GeneExtension_Mechaskin"> -->
-			<!-- <geneIsMechaskin>true</geneIsMechaskin> -->
-		<!-- </li> -->
+		<li Class="WVC.GeneExtension_Mechaskin">
+			<geneIsMechaskin>true</geneIsMechaskin>
+		</li>
 	</modExtensions>
   </GeneDef>
 

@@ -10,7 +10,8 @@
   <!-- <WVC_StatsReport_Humanlike>humanlike</WVC_StatsReport_Humanlike> -->
   <WVC_StatsReport_Mechalike>mechaskinned</WVC_StatsReport_Mechalike>
   <WVC_StatsReport_Humanlike>non-mechaskinned</WVC_StatsReport_Humanlike>
-  <WVC_StatsReport_Immortal>immortal</WVC_StatsReport_Immortal>
+  <WVC_StatsReport_Immortal>deathless</WVC_StatsReport_Immortal>
+  <!-- <WVC_StatsReport_Immortal>immortal</WVC_StatsReport_Immortal> -->
   <!-- <WVC_StatsReport_Furskinned>furskin</WVC_StatsReport_Furskinned> -->
   <!-- <WVC_StatsReport_NonFurskinned>non-furskin</WVC_StatsReport_NonFurskinned> -->
   <!-- <WVC_StatsReport_OperatingSystem>operating system</WVC_StatsReport_OperatingSystem> -->
