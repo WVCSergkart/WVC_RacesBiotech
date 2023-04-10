@@ -7,10 +7,11 @@
 	<!-- <geneClass>WVC.Gene_WithConditions</geneClass> -->
 	<displayCategory>WVC_MechaBodyEncoding</displayCategory>
 	<!-- <label>AI</label> -->
-	<description>Complex templates for the mechanoid sub-core, which can provide some advantages.</description>
+	<!-- <description>Complex templates for the mechanoid sub-core, which can provide some advantages.</description> -->
+	<description>A complex genetic pattern that gives carriers some advantages.</description>
 	<iconPath>WVC/UI/Genes/Mechlink</iconPath>
 	<displayOrderInCategory>-100</displayOrderInCategory>
-	<prerequisite>WVC_MechaAI_Base</prerequisite>
+	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
 	<randomChosen>true</randomChosen>
 	<selectionWeight>0.7</selectionWeight>
 	<biostatCpx>0</biostatCpx>
@@ -30,8 +31,8 @@
 	  </suffixSymbols>
 	</symbolPack>
 	<!-- <modExtensions> -->
-		<!-- <li Class="WVC.GeneExtension_Conditions"> -->
-			<!-- <pawnShouldBeMechalike>true</pawnShouldBeMechalike> -->
+		<!-- <li Class="WVC.GeneExtension_Mechaskin"> -->
+			<!-- <geneIsSubcore>true</geneIsSubcore> -->
 		<!-- </li> -->
 	<!-- </modExtensions> -->
   </GeneDef>

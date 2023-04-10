@@ -128,4 +128,38 @@
 	</rulePack>
   </RulePackDef>
 
+  <!-- ======================================================= -->
+
+  <!-- <ThingDef> -->
+	<!-- <defName>WVC_HumanEmbryo</defName> -->
+	<!-- <label>embryo</label> -->
+	<!-- <description>A human embryo which can be implanted in a mother to create a pregnancy.</description> -->
+	<!-- <thingClass>HumanEmbryo</thingClass> -->
+	<!-- <graphicData> -->
+	  <!-- <texPath>Things/Item/Special/Embryo</texPath> -->
+	  <!-- <graphicClass>Graphic_Single</graphicClass> -->
+	<!-- </graphicData> -->
+	<!-- <statBases> -->
+	  <!-- <MaxHitPoints>50</MaxHitPoints> -->
+	  <!-- <MarketValue>50</MarketValue> -->
+	  <!-- <Mass>0.5</Mass> -->
+	<!-- </statBases> -->
+	<!-- <thingCategories> -->
+	  <!-- <li>ItemsMisc</li> -->
+	<!-- </thingCategories> -->
+	<!-- <category>Item</category> -->
+	<!-- <alwaysHaulable>true</alwaysHaulable> -->
+	<!-- <drawGUIOverlay>true</drawGUIOverlay> -->
+	<!-- <useHitPoints>true</useHitPoints> -->
+	<!-- <selectable>true</selectable> -->
+	<!-- <rotatable>false</rotatable> -->
+	<!-- <pathCost>14</pathCost> -->
+	<!-- <comps> -->
+	  <!-- <li Class="CompProperties_HasPawnSources"/> -->
+	<!-- </comps> -->
+	<!-- <inspectorTabs> -->
+	  <!-- <li>ITab_Genes</li> -->
+	<!-- </inspectorTabs> -->
+  <!-- </ThingDef> -->
+
 </Defs>

@@ -8,13 +8,14 @@
 	<defName>WVC_MechaAI_Base</defName>
 	<displayCategory>WVC_MechaBodyWare</displayCategory>
 	<label>firmware</label>
+	<labelShortAdj>firmware</labelShortAdj>
 	<description>Carriers of this gene have a strong predisposition to certain skills and lifestyle, it is written in them both at the program level and at the genetic level.</description>
 	<iconPath>WVC/UI/Genes/MechanoidizationFirmware</iconPath>
-	<displayOrderInCategory>6</displayOrderInCategory>
-	<prerequisite>WVC_MechaAI_Base</prerequisite>
+	<displayOrderInCategory>0</displayOrderInCategory>
+	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
 	<selectionWeight>0.6</selectionWeight>
 	<marketValueFactor>2</marketValueFactor>
-	<biostatCpx>2</biostatCpx>
+	<biostatCpx>3</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
 	<randomChosen>true</randomChosen>
@@ -35,6 +36,11 @@
 		<li><symbol>firm</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
+	<modExtensions>
+		<li Class="WVC.GeneExtension_Mechaskin">
+			<geneIsSubcore>true</geneIsSubcore>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- Firmware -->

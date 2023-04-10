@@ -6,70 +6,103 @@
   <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Mechanoidization_SoftwareBase" Abstract="True">
 	<!-- <geneClass>WVC.Gene_WithConditions</geneClass> -->
 	<displayCategory>WVC_MechaBodyWare</displayCategory>
-	<label>AI</label>
-	<description>The carriers of these archites have software that helps them.</description>
-	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath>
-	<displayOrderInCategory>7</displayOrderInCategory>
-	<prerequisite>WVC_MechaAI_Base</prerequisite>
-	<biostatCpx>0</biostatCpx>
+	<labelShortAdj>subcore</labelShortAdj>
+	<!-- <description>Archites modified the owner's brain quite a lot, which opened up new possibilities.</description> -->
+	<description>Carriers of this gene have archites that have formed a mechanoid subcore.</description>
+	<iconPath>WVC/UI/Genes/MechanoidizationSoftware</iconPath>
+	<!-- <iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath> -->
+	<displayOrderInCategory>120</displayOrderInCategory>
+	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
+	<biostatCpx>2</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<marketValueFactor>2</marketValueFactor>
-	<!-- <customEffectDescriptions> -->
-		<!-- <li>&lt;color=#ff8585&gt;Activation of the gene requires either the "mecha-subcore" gene or any of the mechaskins.&lt;/color&gt;</li> -->
-	<!-- </customEffectDescriptions> -->
+	<selectionWeight>0.8</selectionWeight>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>ware</symbol></li>
 		<li><symbol>soft</symbol></li>
+		<li><symbol>sub-</symbol></li>
+		<li><symbol>sub</symbol></li>
+		<li><symbol>master-</symbol></li>
+		<li><symbol>master</symbol></li>
+		<li><symbol>core</symbol></li>
+		<li><symbol>ai</symbol></li>
+		<li><symbol>progr</symbol></li>
+		<li><symbol>prog</symbol></li>
+		<li><symbol>pro</symbol></li>
 	  </prefixSymbols>
 	  <suffixSymbols>
 		<li><symbol>ware</symbol></li>
 		<li><symbol>soft</symbol></li>
+		<li><symbol>core</symbol></li>
+		<li><symbol>ai</symbol></li>
+		<li><symbol>ammed</symbol></li>
+		<li><symbol>amm</symbol></li>
+		<li><symbol>am</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
-	<!-- <modExtensions> -->
-		<!-- <li Class="WVC.GeneExtension_Conditions"> -->
-			<!-- <pawnShouldBeMechalike>true</pawnShouldBeMechalike> -->
+	<modExtensions>
+		<!-- <li Class="WVC.GeneExtension"> -->
+			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite> -->
 		<!-- </li> -->
-	<!-- </modExtensions> -->
+		<li Class="WVC.GeneExtension_Mechaskin">
+			<geneIsSubcore>true</geneIsSubcore>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ========================================================== -->
+  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+	<defName>WVC_MechaAI_Base</defName>
+	<label>memory subcore</label> 
+	<iconColor>(184, 198, 203)</iconColor>
+	<suppressedTraits>
+	  <li>
+		<def>BodyPurist</def>
+	  </li>
+	</suppressedTraits>
+	<capMods>
+	  <li>
+		<capacity>Consciousness</capacity>
+		<offset>0.05</offset>
+	  </li>
+	</capMods>
+	<statFactors>
+	  <SocialImpact>0.8</SocialImpact>
+	  <WVC_SkillsDecayFactor>0.0</WVC_SkillsDecayFactor>
+	</statFactors>
+	<statOffsets>
+	  <WVC_MinSkillLevel>12</WVC_MinSkillLevel>
+	</statOffsets>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_Mechanoidization_AI</li> -->
+	<!-- </exclusionTags> -->
   </GeneDef>
 
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MechaAI_SoftwareManipulation</defName>
 	<label>fine motor optimization</label>
-	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath>
 	<iconColor>(255, 148, 127)</iconColor>
-	<!-- <customEffectDescriptions> -->
-		<!-- <li>&lt;color=#b8c6ff&gt;Increases the chance of arrest.&lt;/color&gt;</li> -->
-	<!-- </customEffectDescriptions> -->
-	<!-- <biostatCpx>1</biostatCpx> -->
 	<capMods>
 	  <li>
 		<capacity>Manipulation</capacity>
-		<offset>0.05</offset>
+		<offset>0.1</offset>
 	  </li>
 	</capMods>
 	<exclusionTags>
 	  <li>WVC_MechaAI_SoftwareManipulation</li>
 	</exclusionTags>
-	<!-- <modExtensions Inherit="False"> -->
-		<!-- <li Class="WVC.GeneExtension"> -->
-			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MechaAI_SoftwareMoving</defName>
 	<label>improved pathfinding</label>
-	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath>
 	<iconColor>(187, 255, 127)</iconColor>
-	<!-- <biostatCpx>1</biostatCpx> -->
 	<capMods>
 	  <li>
 		<capacity>Moving</capacity>
-		<offset>0.05</offset>
+		<offset>0.1</offset>
 	  </li>
 	</capMods>
 	<exclusionTags>
@@ -79,27 +112,17 @@
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MecaBodyParts_Arm</defName>
-	<label>fight program</label>
+	<label>fight subcore</label>
 	<iconColor>(255, 200, 130)</iconColor>
-	<!-- <biostatCpx>1</biostatCpx> -->
-	<!-- <customEffectDescriptions> -->
-		<!-- <li>&lt;color=#b8c6ff&gt;Increases the chance of arrest.&lt;/color&gt;</li> -->
-	<!-- </customEffectDescriptions> -->
 	<statOffsets>
-	  <MeleeDamageFactor>0.05</MeleeDamageFactor>
+	  <MeleeDamageFactor>0.2</MeleeDamageFactor>
 	</statOffsets>
-	<!-- <modExtensions Inherit="False"> -->
-		<!-- <li Class="WVC.GeneExtension"> -->
-			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MecaBodyParts_Jaw</defName>
 	<label>speaking improver</label>
 	<iconColor>(220, 130, 255)</iconColor>
-	<!-- <biostatCpx>1</biostatCpx> -->
 	<suppressedTraits>
 	  <li>
 		<def>AnnoyingVoice</def>
@@ -108,7 +131,7 @@
 	<capMods>
 	  <li>
 		<capacity>Talking</capacity>
-		<offset>0.05</offset>
+		<offset>0.1</offset>
 	  </li>
 	</capMods>
 	<exclusionTags>
@@ -120,13 +143,12 @@
 	<defName>WVC_MecaBodyParts_Nose</defName>
 	<label>chemical analyzer</label>
 	<iconColor>(130, 150, 255)</iconColor>
-	<!-- <biostatCpx>1</biostatCpx> -->
 	<statFactors>
 	  <FoodPoisonChance>0.0</FoodPoisonChance>
 	</statFactors>
 	<statOffsets>
 	  <!-- <CookSpeed>1.0</CookSpeed> -->
-	  <WorkSpeedGlobal>0.02</WorkSpeedGlobal>
+	  <WorkSpeedGlobal>0.05</WorkSpeedGlobal>
 	</statOffsets>
   </GeneDef>
   <!-- = -->
@@ -134,9 +156,8 @@
 	<defName>WVC_MecaBodyParts_Ear</defName>
 	<label>sound analyzer</label>
 	<iconColor>(150, 130, 255)</iconColor>
-	<!-- <biostatCpx>1</biostatCpx> -->
 	<statOffsets>
-	  <WorkSpeedGlobal>0.04</WorkSpeedGlobal>
+	  <WorkSpeedGlobal>0.125</WorkSpeedGlobal>
 	</statOffsets>
 	<capMods>
 	  <li>
@@ -151,9 +172,8 @@
 	<label>visual analyzer</label>
 	<ignoreDarkness>true</ignoreDarkness>
 	<iconColor>(150, 190, 255)</iconColor>
-	<!-- <biostatCpx>1</biostatCpx> -->
 	<statOffsets>
-	  <WorkSpeedGlobal>0.04</WorkSpeedGlobal>
+	  <WorkSpeedGlobal>0.125</WorkSpeedGlobal>
 	</statOffsets>
 	<capMods>
 	  <li>
@@ -166,12 +186,7 @@
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MechaAI_MechanitorNetwork</defName>
 	<label>mecha-network</label>
-	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath>
 	<iconColor>(170, 170, 255)</iconColor>
-	<!-- <biostatArc>1</biostatArc> -->
-	<!-- <statOffsets> -->
-	  <!-- <WVC_PawnMechanoidization>6</WVC_PawnMechanoidization> -->
-	<!-- </statOffsets> -->
 	<conditionalStatAffecters>
 	  <li Class="WVC.ConditionalStatAffecter_MechanitorUsedBandwidth">
 		<usedBandwidth>8</usedBandwidth>
@@ -213,13 +228,8 @@
 	<defName>WVC_MechaAI_SoftwareDisableTalking</defName>
 	<label>silent program</label>
 	<description>Archits disable the voice functions of the mech, which saves some resources.</description>
-	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareDown</iconPath>
 	<iconColor>(150, 70, 70)</iconColor>
-	<biostatMet>1</biostatMet>
-	<!-- <biostatArc>1</biostatArc> -->
-	<!-- <statOffsets> -->
-	  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
-	<!-- </statOffsets> -->
+	<biostatMet>3</biostatMet>
 	<capMods>
 	  <li>
 		<capacity>Talking</capacity>
@@ -234,10 +244,8 @@
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MechaAI_SoftwareFriendOrFoe</defName>
 	<label>friend or foe</label>
-	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath>
 	<iconColor>(230, 255, 150)</iconColor>
 	<customEffectDescriptions>
-		<!-- <li>&lt;color=#b8c6ff&gt;Reduces trade price improvement and bond chance.&lt;/color&gt;</li> -->
 		<li>Ancient mechanoids do not attack a pawn, even if a pawn attacks them.</li>
 	</customEffectDescriptions>
 	<forcedTraits>
@@ -245,36 +253,21 @@
 		<def>WVC_RB_FriendOrFoeTrait</def>
 	  </li>
 	</forcedTraits>
-	<!-- <modExtensions Inherit="False"> -->
-		<!-- <li Class="WVC.GeneExtension"> -->
-			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MechaAI_SoftwareNaturalEnemy</defName>
 	<label>mecha-minded</label>
-	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareDown</iconPath>
 	<iconColor>(150, 70, 150)</iconColor>
-	<biostatCpx>1</biostatCpx>
-	<!-- <biostatMet>3</biostatMet> -->
-	<!-- <biostatArc>2</biostatArc> -->
+	<biostatCpx>3</biostatCpx>
 	<statFactors>
 	  <TradePriceImprovement>0.0</TradePriceImprovement>
 	  <BondAnimalChanceFactor>0.0</BondAnimalChanceFactor>
 	</statFactors>
 	<customEffectDescriptions>
-		<!-- <li>&lt;color=#b8c6ff&gt;Reduces trade price improvement and bond chance.&lt;/color&gt;</li> -->
 		<li>Increases the opinion of pawns with the same gene by 20. (Mechaskin only)</li>
 		<li>The opinion of all pawns that do not have the mechaskin gene is reduced by 500. (Mechaskin only)</li>
-		<!-- <li>Ancient mechanoids do not attack a pawn, even if a pawn attacks them.</li> -->
 	</customEffectDescriptions>
-	<!-- <modExtensions Inherit="False"> -->
-		<!-- <li Class="WVC.GeneExtension"> -->
-			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
   </GeneDef>
 
 </Defs>

@@ -4,6 +4,7 @@
   <!-- Bodies -->
 
   <GeneDef ParentName="WVC_MechanoidBody_Base" Name="WVC_NodeBody_Base" Abstract="True">
+	<labelShortAdj>nodeskin</labelShortAdj>
 	<description>Carriers of this gene have archites that completely transform their body. 
 
 The skin has become like the most durable alloys, but has not lost its elasticity. The face is covered with plates, with a pattern similar to something like eyes, but this does not interfere with the owner's vision at all. Numerous clusters of mekhanites spread throughout the body, greatly strengthening their host.

@@ -45,7 +45,7 @@
   </GeneCategoryDef>
   <GeneCategoryDef>
 	<defName>WVC_MechaBodyWare</defName>
-	<label>mechanoidization - Ware</label>
+	<label>mechanoidization - Subcore</label>
 	<displayPriorityInXenotype>3925</displayPriorityInXenotype>
   </GeneCategoryDef>
   <GeneCategoryDef>
