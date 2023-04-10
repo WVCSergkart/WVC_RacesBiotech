@@ -3,84 +3,6 @@
 
   <!-- ================================================================== -->
 
-  <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_PassivePawnGestator_Base" Abstract="True">
-	<!-- <displayCategory>Reproduction</displayCategory> -->
-	<!-- <displayCategory>WVC_MechaBodyParts</displayCategory> -->
-	<biostatCpx>3</biostatCpx>
-	<biostatMet>0</biostatMet>
-	<biostatArc>2</biostatArc>
-	<displayOrderInCategory>50</displayOrderInCategory>
-	<displayCategory>Archite</displayCategory>
-	<minAgeActive>13</minAgeActive>
-	<sterilize>true</sterilize>
-	<selectionWeight>0.05</selectionWeight>
-	<statFactors>
-	  <Fertility>0</Fertility>
-	</statFactors>
-	<exclusionTags>
-		<li>Fertility</li>
-		<li>Egglaying</li>
-		<li>AG_Egglaying</li>
-		<li>AG_Gestation</li>
-		<li>AG_Fertility</li>
-	</exclusionTags>
-	<symbolPack>
-	  <prefixSymbols>
-		<li><symbol>gesta</symbol></li>
-		<li><symbol>gest</symbol></li>
-		<li><symbol>ges</symbol></li>
-		<li><symbol>mech</symbol></li>
-	  </prefixSymbols>
-	  <suffixSymbols>
-		<li><symbol>gesta</symbol></li>
-		<li><symbol>gest</symbol></li>
-		<li><symbol>ges</symbol></li>
-		<li><symbol>tor</symbol></li>
-		<li><symbol>or</symbol></li>
-	  </suffixSymbols>
-	</symbolPack>
-	<modExtensions Inherit="False">
-		<li Class="WVC.GeneExtension">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
-		</li>
-	</modExtensions>
-  </GeneDef>
-
-  <GeneDef ParentName="WVC_PassivePawnGestator_Base">
-	<defName>WVC_UrchinGestator</defName>
-	<label>urchin gestator</label>
-	<description>Carriers of this gene have archites that replace the carrier's reproductive system with a mechanoid gestator.</description>
-	<iconPath>Things/Pawn/Mechanoid/WarUrchin_south</iconPath>
-	<iconColor>(184, 198, 203)</iconColor>
-	<customEffectDescriptions>
-		<li>Every 10 days will spawn urchins.</li>
-		<li>Urchins are not bound to a mechanitor and can run wild if ignored.</li>
-	</customEffectDescriptions>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<hediffToWholeBody>WVC_Genes_UrchinGestator</hediffToWholeBody>
-		</li>
-	</modExtensions>
-  </GeneDef>
-
-  <GeneDef ParentName="WVC_PassivePawnGestator_Base">
-	<defName>WVC_MechaGestator</defName>
-	<label>gestator</label>
-	<description>Carriers of this gene have archites that replace the carrier's reproductive system with a mechanoid gestator.</description>
-	<iconPath>WVC/UI/Genes/Gestator</iconPath>
-	<iconColor>(255, 255, 255)</iconColor>
-	<customEffectDescriptions>
-		<li>Spawns a baby-pawn with similar genes every 2 years.</li>
-	</customEffectDescriptions>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<hediffToWholeBody>WVC_MechaGestator</hediffToWholeBody>
-		</li>
-	</modExtensions>
-  </GeneDef>
-
-  <!-- ================================================================== -->
-
   <GeneDef Name="WVC_OrientationBase" Abstract="True">
 	<displayCategory>Reproduction</displayCategory>
 	<!-- <minAgeActive>13</minAgeActive> -->
@@ -93,6 +15,7 @@
 	<biostatArc>0</biostatArc>
 	<displayOrderInCategory>552</displayOrderInCategory>
 	<iconPath>WVC/UI/Genes/Orientation</iconPath>
+	<selectionWeight>0.025</selectionWeight>
 	<!-- <forcedTraits> -->
 	  <!-- <li> -->
 		<!-- <def>Bisexual</def> -->
@@ -183,6 +106,7 @@
 	<displayOrderInCategory>553</displayOrderInCategory>
 	<iconPath>WVC/UI/Genes/RomanceChance</iconPath>
 	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
+	<selectionWeight>0.025</selectionWeight>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>fero</symbol></li>

@@ -8,6 +8,7 @@
 	<iconPath>WVC/UI/Genes/Emotionless</iconPath>
 	<displayCategory>Mood</displayCategory>
 	<displayOrderInCategory>15</displayOrderInCategory>
+	<selectionWeight>0.05</selectionWeight>
 	<statFactors>
 	  <MentalBreakThreshold>0</MentalBreakThreshold>
 	  <BondAnimalChanceFactor>0</BondAnimalChanceFactor>
@@ -102,6 +103,7 @@
 	<iconPath>WVC/UI/Genes/EmotionReset</iconPath>
 	<displayCategory>Mood</displayCategory>
 	<displayOrderInCategory>1245</displayOrderInCategory>
+	<selectionWeight>0.025</selectionWeight>
 	<biostatCpx>0</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions Inherit="False">
@@ -123,6 +125,7 @@
   <GeneDef Name="WVC_NaturalHunterBase" Abstract="True">
 	<displayCategory>Violence</displayCategory>
 	<biostatCpx>1</biostatCpx>
+	<selectionWeight>0.015</selectionWeight>
 	<exclusionTags>
 	  <li>WVC_NaturalHunter</li>
 	</exclusionTags>
@@ -183,6 +186,7 @@
 	<description>Carriers of this gene grow hair on the head is a bit weird.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; With ideology disabled, most pawns will spawn bald.</description>
 	<iconPath>WVC/UI/Genes/PunkHaired</iconPath>
 	<displayOrderInCategory>57</displayOrderInCategory>
+	<selectionWeight>0.025</selectionWeight>
 	<hairTagFilter>
 	  <whitelist>true</whitelist>
 	  <tags>

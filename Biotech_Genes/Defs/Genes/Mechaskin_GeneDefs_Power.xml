@@ -11,11 +11,11 @@
 	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
 	<displayOrderInCategory>4</displayOrderInCategory>
-	<prerequisite>WVC_MechaSkin</prerequisite>
+	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
 	<!-- <biostatCpx>0</biostatCpx> -->
 	<biostatArc>2</biostatArc>
 	<marketValueFactor>3</marketValueFactor>
-	<selectionWeight>0.8</selectionWeight>
+	<selectionWeight>0.0075</selectionWeight>
 	<randomChosen>true</randomChosen>
 	<customEffectDescriptions>
 		<!-- <li>Compensates for the effect of mechaskin on metabolism.</li> -->
@@ -53,10 +53,7 @@
 	<iconPath>WVC/UI/Genes/PowerSource_Unstable</iconPath>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
-	<!-- <biostatMet>16</biostatMet> -->
-	<!-- <customEffectDescriptions> -->
-		<!-- <li>Increases fire damage taken.</li> -->
-	<!-- </customEffectDescriptions> -->
+	<biostatMet>3</biostatMet>
 	<statOffsets>
 	  <Flammability>1.0</Flammability>
 	  <ArmorRating_Heat>-0.5</ArmorRating_Heat>
@@ -72,20 +69,16 @@
 	<iconPath>WVC/UI/Genes/PowerSource_Stable</iconPath>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>1</biostatArc>
-	<!-- <biostatMet>16</biostatMet> -->
+	<biostatMet>2</biostatMet>
   </GeneDef>
 
   <GeneDef ParentName="WVC_Mechanoidization_PowerSourceBase">
 	<defName>WVC_MechaPowerSource_Vanometric</defName>
 	<label>vanometric power source</label> 
 	<iconPath>WVC/UI/Genes/PowerSource_Vanometric</iconPath>
-	<selectionWeight>0.12</selectionWeight>
 	<biostatCpx>5</biostatCpx>
 	<biostatArc>2</biostatArc>
 	<biostatMet>5</biostatMet>
-	<customEffectDescriptions>
-		<!-- <li>Grants an additional 5 metabolism points.</li> -->
-	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>vanome</symbol></li>
@@ -107,8 +100,6 @@
 	<label>tox power source</label> 
 	<iconPath>WVC/UI/Genes/PowerSource_Tox</iconPath>
 	<geneClass>WVC.Gene_Spawner</geneClass>
-	<!-- <geneClass>WVC.Gene_WastepackSpawner</geneClass> -->
-	<selectionWeight>0.3</selectionWeight>
 	<biostatCpx>3</biostatCpx>
 	<biostatArc>2</biostatArc>
 	<biostatMet>5</biostatMet>

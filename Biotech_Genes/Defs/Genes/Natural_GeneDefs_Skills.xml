@@ -14,6 +14,7 @@
 	<displayOrderOffset>-100</displayOrderOffset>
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>8</biostatMet>
+	<selectionWeight>0.035</selectionWeight>
 	<!-- <modExtensions> -->
 		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
 			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes> -->
@@ -32,6 +33,7 @@
 	<displayOrderOffset>100</displayOrderOffset>
 	<biostatCpx>5</biostatCpx>
 	<biostatMet>-12</biostatMet>
+	<selectionWeight>0.035</selectionWeight>
   </GeneTemplateDef>
 
   <!-- WVC_AptitudePerfect -->
@@ -163,6 +165,7 @@
 	<displayOrderInCategory>-990</displayOrderInCategory>
 	<!-- <prerequisite>WVC_Natural_Base</prerequisite> -->
 	<displayCategory>Aptitudes</displayCategory>
+	<selectionWeight>0.015</selectionWeight>
 	<biostatCpx>0</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<biostatArc>0</biostatArc>
@@ -286,7 +289,7 @@
 	<label>great equalizer</label>
 	<description>Turns off all aptitudes.</description>
 	<biostatArc>1</biostatArc>
-	<selectionWeight>0.3</selectionWeight>
+	<selectionWeight>0.0055</selectionWeight>
 	<customEffectDescriptions Inherit="False">
 		<li>Nullifying all aptitudes.</li>
 	</customEffectDescriptions>

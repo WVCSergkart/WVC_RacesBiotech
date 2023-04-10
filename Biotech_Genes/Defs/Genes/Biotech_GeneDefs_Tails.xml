@@ -54,6 +54,7 @@
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
 	<minAgeActive>13</minAgeActive>
+	<selectionWeight>0.0125</selectionWeight>
 	<graphicData>
 	  <graphicPath>WVC/MecaGene_ScytheTail/NodeTail</graphicPath>
 	  <colorType>Skin</colorType>

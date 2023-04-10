@@ -6,6 +6,7 @@
   <GeneDef Name="WVC_MechBandwidthBase" Abstract="True">
 	<displayCategory>Psychic</displayCategory>
 	<biostatCpx>2</biostatCpx>
+	<selectionWeight>0.05</selectionWeight>
 	<suppressedTraits>
 	  <li>
 		<def>PsychicSensitivity</def>
@@ -91,6 +92,7 @@
 	<!-- <displayCategory>Archite</displayCategory> -->
 	<displayOrderInCategory>1125</displayOrderInCategory>
 	<!-- <prerequisite>PsychicAbility_Extreme</prerequisite> -->
+	<selectionWeight>0.05</selectionWeight>
 	<conditionalStatAffecters>
 	  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
 		<!-- <statOffsets> -->
@@ -156,6 +158,7 @@
 	<displayCategory>Ability</displayCategory>
 	<!-- <displayCategory>Archite</displayCategory> -->
 	<displayOrderInCategory>1115</displayOrderInCategory>
+	<selectionWeight>0.05</selectionWeight>
 	<!-- <statOffsets> -->
 	<!-- </statOffsets> -->
 	<biostatCpx>3</biostatCpx>

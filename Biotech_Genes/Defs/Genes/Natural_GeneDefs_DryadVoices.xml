@@ -22,6 +22,7 @@
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_NaturalHunter</li> -->
 	<!-- </exclusionTags> -->
+	<selectionWeight>0.0075</selectionWeight>
 	<symbolPack>
 	  <wholeNameSymbols>
 		<li><symbol>dryad</symbol></li>

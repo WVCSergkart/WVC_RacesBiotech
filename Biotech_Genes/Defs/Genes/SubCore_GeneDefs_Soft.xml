@@ -16,7 +16,7 @@
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<marketValueFactor>2</marketValueFactor>
-	<selectionWeight>0.8</selectionWeight>
+	<!-- <selectionWeight>0.2</selectionWeight> -->
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>ware</symbol></li>

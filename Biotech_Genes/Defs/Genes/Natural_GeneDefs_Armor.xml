@@ -9,6 +9,7 @@
 	<biostatCpx>2</biostatCpx>
 	<displayOrderInCategory>1870</displayOrderInCategory>
 	<labelShortAdj>armor skin</labelShortAdj>
+	<selectionWeight>0.05</selectionWeight>
 	<exclusionTags>
 		<li>WVC_NaturalArmor</li>
 		<li>AG_Armour</li>

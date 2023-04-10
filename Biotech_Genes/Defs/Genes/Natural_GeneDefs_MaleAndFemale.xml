@@ -3,6 +3,7 @@
 
   <GeneDef Name="WVC_MonogenderBase" Abstract="True">
 	<displayCategory>Reproduction</displayCategory>
+	<selectionWeight>0.05</selectionWeight>
 	<exclusionTags>
 	  <li>WVC_Monogender</li>
 	  <li>AG_Gender</li>

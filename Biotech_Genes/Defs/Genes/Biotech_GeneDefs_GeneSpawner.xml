@@ -14,7 +14,7 @@
 	<biostatArc>1</biostatArc>
 	<biostatCpx>3</biostatCpx>
 	<marketValueFactor>2</marketValueFactor>
-	<selectionWeight>0.3</selectionWeight>
+	<selectionWeight>0.0085</selectionWeight>
 	<customEffectDescriptions>
 		<li>Spawns genepack every (*DateTime)5-15 days(/DateTime).</li>
 	</customEffectDescriptions>

@@ -165,31 +165,31 @@
 		<exclusionTags>
 		  <li>BodyPartHands</li>
 		  <li>BodyPartHand</li>
-		  <li>AG_BodyPartHand</li>
-		  <li>AG_BodyPartHands</li>
-		  <li>BodyPartArms</li>
-		  <li>BodyPartArm</li>
-		  <li>AG_BodyPartArm</li>
-		  <li>AG_BodyPartArms</li>
-		  <li>BodyPartShoulder</li>
-		  <li>AG_BodyPartShoulder</li>
-		  <li>BodyPartShoulders</li>
-		  <li>AG_BodyPartShoulders</li>
+		  <!-- <li>AG_BodyPartHand</li> -->
+		  <!-- <li>AG_BodyPartHands</li> -->
+		  <!-- <li>BodyPartArms</li> -->
+		  <!-- <li>BodyPartArm</li> -->
+		  <!-- <li>AG_BodyPartArm</li> -->
+		  <!-- <li>AG_BodyPartArms</li> -->
+		  <!-- <li>BodyPartShoulder</li> -->
+		  <!-- <li>AG_BodyPartShoulder</li> -->
+		  <!-- <li>BodyPartShoulders</li> -->
+		  <!-- <li>AG_BodyPartShoulders</li> -->
 		</exclusionTags>
 	  </value>
 	</Operation>
 
-	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
-	  <xpath>/Defs/GeneDef[defName="Superclotting"]</xpath>
-	  <success>Always</success>
-	  <safetyDepth>1</safetyDepth>
-	  <value>
-		<exclusionTags>
-		  <li>AG_Bleeding</li>
-		  <li>Bleeding</li>
-		</exclusionTags>
-	  </value>
-	</Operation>
+	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
+	  <!-- <xpath>/Defs/GeneDef[defName="Superclotting"]</xpath> -->
+	  <!-- <success>Always</success> -->
+	  <!-- <safetyDepth>1</safetyDepth> -->
+	  <!-- <value> -->
+		<!-- <exclusionTags> -->
+		  <!-- <li>AG_Bleeding</li> -->
+		  <!-- <li>Bleeding</li> -->
+		<!-- </exclusionTags> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
 
 	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
 	  <xpath>/Defs/GeneDef[defName="VRE_Slow_Diseases"]</xpath>
@@ -214,6 +214,22 @@
 		<!-- </customEffectDescriptions> -->
 	  <!-- </value> -->
 	<!-- </Operation> -->
+
+	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+	  <xpath>/Defs/GeneDef[defName="ArchiteMetabolism"]</xpath>
+	  <!-- <success>Always</success> -->
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<customEffectDescriptions>
+			<li>Disable mechaskin's 5x hunger rate multiplier.</li>
+		</customEffectDescriptions>
+		<modExtensions>
+			<li Class="WVC.GeneExtension_Mechaskin">
+				<geneIsPowerSource>true</geneIsPowerSource>
+			</li>
+		</modExtensions>
+	  </value>
+	</Operation>
 
 	<!-- <Operation Class="WVC.PatchOperationOptional"> -->
 		<!-- <settingName>mechaskinTemperatureAdaptability</settingName> -->

@@ -8,6 +8,7 @@
 	<biostatMet>1</biostatMet>
 	<biostatArc>0</biostatArc>
 	<displayOrderInCategory>572</displayOrderInCategory>
+	<selectionWeight>0.025</selectionWeight>
 	<exclusionTags>
 		<li>WVC_PreferredGender</li>
 	</exclusionTags>

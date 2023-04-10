@@ -12,7 +12,7 @@
 	<!-- <displayCategory>Ability</displayCategory> -->
 	<!-- <displayCategory>Archite</displayCategory> -->
 	<displayOrderInCategory>150</displayOrderInCategory>
-	<selectionWeight>0.4</selectionWeight>
+	<!-- <selectionWeight>0.0125</selectionWeight> -->
 	<suppressedTraits>
 	  <li>
 		<def>PsychicSensitivity</def>
@@ -69,7 +69,7 @@
 	<displayOrderInCategory>151</displayOrderInCategory>
 	<!-- <prerequisite>WVC_ArchiteMechlink</prerequisite> -->
 	<marketValueFactor>3</marketValueFactor>
-	<selectionWeight>0.1</selectionWeight>
+	<!-- <selectionWeight>0.0125</selectionWeight> -->
 	<suppressedTraits>
 	  <li>
 		<def>PsychicSensitivity</def>

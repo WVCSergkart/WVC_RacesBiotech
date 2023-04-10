@@ -9,6 +9,7 @@
 		<displayCategory>Miscellaneous</displayCategory>
 		<displayOrderInCategory>162</displayOrderInCategory>
 		<iconColor>(255, 255, 255)</iconColor>
+		<selectionWeight>0.05</selectionWeight>
 		<exclusionTags>
 			<li>BodySize</li>
 			<li>AG_BodySize</li>

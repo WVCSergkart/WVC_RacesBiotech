@@ -12,6 +12,7 @@
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
 	<iconPath>WVC/UI/Genes/Mechanoidization</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
+	<!-- <selectionWeight>0.2</selectionWeight> -->
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<!-- <selectionWeight>0.8</selectionWeight> -->
@@ -281,7 +282,7 @@
 	<!-- <biostatArc>1</biostatArc> -->
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>3</biostatMet>
-	<selectionWeight>0.1</selectionWeight>
+	<selectionWeight>0.01</selectionWeight>
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>The hunger bar does not decrease while the pawn is on the bed.</li> -->
 	<!-- </customEffectDescriptions> -->

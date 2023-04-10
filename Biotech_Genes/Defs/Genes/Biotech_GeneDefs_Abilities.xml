@@ -18,7 +18,7 @@
 	<marketValueFactor>1.2</marketValueFactor>
 	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
 	<minAgeActive>13</minAgeActive>
-	<selectionWeight>0.6</selectionWeight>
+	<!-- <selectionWeight>0.15</selectionWeight> -->
 	<displayOrderInCategory>-100</displayOrderInCategory>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
@@ -203,6 +203,7 @@
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>-2</biostatMet>
 	<biostatArc>0</biostatArc>
+	<selectionWeight>0.05</selectionWeight>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>

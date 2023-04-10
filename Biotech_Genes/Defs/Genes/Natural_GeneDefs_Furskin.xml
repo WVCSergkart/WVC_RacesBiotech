@@ -12,7 +12,7 @@
   <GeneDef Name="WVC_FurskinBase" Abstract="True">
 	<description>TEST</description>
 	<displayCategory>WVC_FurskinBody</displayCategory>
-	<selectionWeight>0.5</selectionWeight>
+	<selectionWeight>0.05</selectionWeight>
 	<marketValueFactor>1.0</marketValueFactor>
 	<!-- <minAgeActive>13</minAgeActive> -->
 	<randomChosen>false</randomChosen>
@@ -165,7 +165,7 @@
 	<biostatMet>-1</biostatMet>
 	<biostatArc>0</biostatArc>
 	<displayCategory>WVC_FurskinBody</displayCategory>
-	<selectionWeight>0.5</selectionWeight>
+	<selectionWeight>0.05</selectionWeight>
 	<marketValueFactor>1.0</marketValueFactor>
 	<!-- <minAgeActive>13</minAgeActive> -->
 	<randomChosen>false</randomChosen>
@@ -317,7 +317,7 @@
 	<iconPath>WVC/UI/Genes/FurInstincts</iconPath>
 	<!-- <prerequisite>WVC_FurskinInstincts_Base</prerequisite> -->
 	<displayCategory>WVC_FurskinBody</displayCategory>
-	<selectionWeight>0.5</selectionWeight>
+	<selectionWeight>0.05</selectionWeight>
 	<marketValueFactor>1.0</marketValueFactor>
 	<!-- <minAgeActive>13</minAgeActive> -->
 	<randomChosen>false</randomChosen>

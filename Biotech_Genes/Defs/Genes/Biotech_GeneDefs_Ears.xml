@@ -13,6 +13,7 @@
 	<!-- <displayOrderInCategory>250</displayOrderInCategory> -->
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
+	<selectionWeight>0.0125</selectionWeight>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<!-- <biostatMet>-1</biostatMet> -->

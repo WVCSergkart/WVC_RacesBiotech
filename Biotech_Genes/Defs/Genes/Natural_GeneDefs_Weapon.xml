@@ -149,6 +149,7 @@
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>-1</biostatMet>
+	<selectionWeight>0.00325</selectionWeight>
 	<symbolPack>
 		<wholeNameSymbols>
 			<li><symbol>claws</symbol></li>
@@ -231,7 +232,7 @@
 	<biostatCpx>3</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>-3</biostatMet>
-	<selectionWeight>0.7</selectionWeight>
+	<!-- <selectionWeight>0.7</selectionWeight> -->
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
