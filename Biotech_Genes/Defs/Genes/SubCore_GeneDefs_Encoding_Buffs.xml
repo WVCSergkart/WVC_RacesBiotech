@@ -252,7 +252,7 @@
 	<label>vindication SX</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneC</iconPath>
 	<statOffsets>
-		<WorkSpeedGlobalOffsetMech>0.2</WorkSpeedGlobalOffsetMech>
+	  <WVC_MechEnergyUsageOffset>-0.25</WVC_MechEnergyUsageOffset>
 	</statOffsets>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Red">

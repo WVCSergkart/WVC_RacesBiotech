@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- [defName="FPC" or defName="Feral" or defName="TribeSavage" or defName="SettlerCivil" or defName="SettlerRough" or defName="SettlerSavage" or defName="VFEV_VikingsClan" or defName="VFEV_VikingsSlaver" or defName="VFEM_KingdomCivil" or defName="VFEM_KingdomRough" or defName="VFEM_KingdomSavage" or defName="Pirate" or defName="OutlanderRough" or defName="PirateWaster" or defName="OutlanderRoughPig" or defName="TribeSavageImpid" or defName="PirateYttakin" or defName="TribeRoughNeanderthal"] -->
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/FactionDef/xenotypeSet/xenotypeChances</xpath>
+	  <value>
+		<!-- MayRequire="wvc.sergkart.races.biotech.morexenotypes" -->
+		<!-- = -->
+		<WVC_MoreXenotypes_Ultraist>0.02</WVC_MoreXenotypes_Ultraist>
+		<WVC_MoreXenotypes_Nonod>0.02</WVC_MoreXenotypes_Nonod>
+		<WVC_MoreXenotypes_Mackd>0.02</WVC_MoreXenotypes_Mackd>
+		<WVC_MoreXenotypes_Osur>0.02</WVC_MoreXenotypes_Osur>
+		<WVC_MoreXenotypes_Coreect>0.02</WVC_MoreXenotypes_Coreect>
+		<!-- = -->
+		<WVC_MoreXenotypes_Yoner>0.02</WVC_MoreXenotypes_Yoner>
+		<WVC_MoreXenotypes_Subid>0.02</WVC_MoreXenotypes_Subid>
+		<WVC_MoreXenotypes_Plodex>0.02</WVC_MoreXenotypes_Plodex>
+		<WVC_MoreXenotypes_Wareer>0.02</WVC_MoreXenotypes_Wareer>
+		<WVC_MoreXenotypes_Nour>0.02</WVC_MoreXenotypes_Nour>
+		<!-- = -->
+		<WVC_Meca>0.002</WVC_Meca>
+		<WVC_Blank>0.002</WVC_Blank>
+		<WVC_RogueFormer>0.002</WVC_RogueFormer>
+	  </value>
+	</Operation>
+
+</Patch>
