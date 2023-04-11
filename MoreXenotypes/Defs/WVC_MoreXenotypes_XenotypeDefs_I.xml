@@ -7,289 +7,66 @@
 	<descriptionShort>An unknown xenotype sometimes found in the vastness of the rimworld.</descriptionShort>
 	<iconPath>UI/Icons/Xenotypes/Custom/CustomXenotypeIcon9</iconPath>
 	<inheritable>true</inheritable>
+	<displayPriority>-1100</displayPriority>
+	<combatPowerFactor>2</combatPowerFactor>
+	<factionlessGenerationWeight>2</factionlessGenerationWeight>
 	<genes>
+	</genes>
+  </XenotypeDef>
+
+  <!-- throwex -->
+  <XenotypeDef ParentName="WVC_MoreXenotypes_Xenotypes_Mechalike">
+	<defName>WVC_GeneThrower</defName>
+	<label>throwex</label>
+	<iconPath>WVC/UI/Xeno2Icons/Xeno13</iconPath>
+	<genes>
+		<li>WVC_MechaSkin</li>
+		<li>WVC_MechaPowerSource_Tox</li>
+		<li>WVC_MechaPowerSource_Vanometric</li>
+		<li>WVC_GenePackSpawner_Disable</li>
+		<li>WVC_GenePackSpawner_Vanilla</li>
+		<li>WVC_GenePackSpawner_Mecha</li>
+		<li>WVC_GenePackSpawner_Ultra</li>
+		<li>WVC_GenePackSpawner_Base</li>
+		<li>WVC_MechaAI_FirmwareCreatorMachine</li>
+		<li>WVC_MechaAI_FirmwareGreenMachine</li>
+		<li>WVC_MechaAI_FirmwarePropagandaMachine</li>
+		<li>WVC_MechaAI_FirmwareRogueMachine</li>
+		<li>WVC_MechaAI_FirmwareWarMachine</li>
 		<li>WVC_MecaBodyParts_Nose</li>
+		<li>WVC_MechaAI_PsychicDull</li>
 		<li>WVC_MecaBodyParts_Ear</li>
 		<li>WVC_MecaBodyParts_Eye</li>
 		<li>WVC_MecaBodyParts_Leg</li>
 		<li>WVC_MecaBodyParts_Stomach</li>
 		<li>WVC_MecaBodyParts_Heart</li>
 		<li>WVC_MecaBodyParts_Spine</li>
-		<li>WVC_VoiceMechaCenturion</li>
+		<li>WVC_Mecha_ConnectorTail</li>
+		<li>WVC_Mecha_RedFormerSpikesQuad</li>
 		<li>WVC_VoiceMechaFabricor</li>
-		<li>WVC_VoiceMechaScorcher</li>
-		<li>WVC_VoiceMechaScyther</li>
+		<li>WVC_VoiceMechaLifter</li>
+		<li>WVC_VoiceMechaParamedic</li>
 		<li>Ageless</li>
+		<li>ArchiteMetabolism</li>
 		<li>Deathless</li>
 		<li>DiseaseFree</li>
 		<li>PerfectImmunity</li>
+		<li>TotalHealing</li>
+		<li>WVC_FirefoampopMech</li>
 		<li>WVC_StartGestation</li>
-		<li>WVC_MechaAI_PsychicDull</li>
-		<!-- <li>PsychicAbility_Dull</li> -->
-		<li>ToxicEnvironmentResistance_Total</li>
+		<li>WVC_LongjumpMech</li>
+		<li>MoveSpeed_VeryQuick</li>
+		<li>ToxResist_Total</li>
+		<li>WVC_ArmoredSkin_Steel</li>
 		<li>Neversleep</li>
+		<!-- <li>WVC_FemaleOnly</li> -->
 		<li>Body_Standard</li>
-		<!-- <li>AptitudeTerrible_Plants</li> -->
-		<!-- <li>AptitudeTerrible_Animals</li> -->
-		<li>Beard_NoBeardOnly</li>
-	</genes>
-  </XenotypeDef>
-
-  <!-- Plodex -->
-  <XenotypeDef ParentName="WVC_MoreXenotypes_Xenotypes_Mechalike">
-	<defName>WVC_MoreXenotypes_Plodex</defName>
-	<label>plodex</label>
-	<iconPath>WVC/UI/Xeno2Icons/Xeno13</iconPath>
-	<genes>
-		<li>WVC_MechaSkin</li>
-		<li>WVC_MechaPowerSource_Tox</li>
-		<li>WVC_GenePackSpawner_Ultra</li>
-		<li>WVC_MechaAI_FirmwareCreatorMachine</li>
-		<li>WVC_Mecha_ConnectorTail</li>
-		<li>WVC_Mecha_RedFormerSpikesDouble</li>
-		<li>MoveSpeed_Slow</li>
-		<li>MeleeDamage_Weak</li>
 		<li>Hair_InkBlack</li>
 		<li>WVC_SkinColor_b4c8ff_HEX</li>
+		<li>WVC_SkinColor_ffdcb4_HEX</li>
+		<li>WVC_SkinColor_ffb4dc_HEX</li>
 		<li>WVC_SkinColor_c8b4ff_HEX</li>
 		<li>WVC_BodySize_Small</li>
-	</genes>
-  </XenotypeDef>
-
-  <!-- wareer -->
-  <XenotypeDef ParentName="WVC_MoreXenotypes_Xenotypes_Mechalike">
-	<defName>WVC_MoreXenotypes_Wareer</defName>
-	<label>wareer</label>
-	<iconPath>WVC/UI/XenoIcons/Xeno24</iconPath>
-	<genes>
-		<li>WVC_MechaSkin</li>
-		<li>WVC_MechaPowerSource_Stable</li>
-		<li>WVC_MechaAI_FirmwareWarMachine</li>
-		<li>WVC_MechaAI_SoftwareNaturalEnemy</li>
-		<li>WVC_MecaUpgrades_CombatMode</li>
-		<li>WVC_MecaBodyParts_Lung</li>
-		<li>WVC_Mecha_ConnectorTail</li>
-		<li>WVC_Mecha_RedFormerSpikesQuad</li>
-		<li>MeleeDamage_Strong</li>
-		<li>WVC_ArmoredSkin_Plasteel</li>
-		<li>Robust</li>
-		<li>Hair_DarkBlack</li>
-		<li>WVC_SkinColor_ffdcb4_HEX</li>
-		<li>WVC_SkinColor_ffb4b4_HEX</li>
-		<li>WVC_AptitudeImpossible_Cooking</li>
-		<li>WVC_AptitudeImpossible_Artistic</li>
-	</genes>
-  </XenotypeDef>
-
-  <!-- subid -->
-  <XenotypeDef ParentName="WVC_MoreXenotypes_Xenotypes_Mechalike">
-	<defName>WVC_MoreXenotypes_Subid</defName>
-	<label>subid</label>
-	<iconPath>WVC/UI/Xeno2Icons/Xeno20</iconPath>
-	<genes>
-		<li>WVC_MechaSkin</li>
-		<li>WVC_MechaPowerSource_Tox</li>
-		<li>WVC_MechaAI_FirmwareGreenMachine</li>
-		<li>WVC_MechaAI_SoftwareManipulation</li>
-		<li>Mood_Sanguine</li>
-		<li>Ears_Pointed</li>
-		<li>Hair_DarkBlack</li>
-		<li>WVC_SkinColor_c8ffb4_HEX</li>
-		<li>WVC_SkinColor_fffab4_HEX</li>
-		<li>WVC_BodySize_Small</li>
-		<li>WVC_AptitudeImpossible_Construction</li>
-		<!-- <li>WVC_AptitudeImpossible_Mining</li> -->
-		<li>AptitudeRemarkable_Cooking</li>
-		<li>AptitudeRemarkable_Plants</li>
-	</genes>
-  </XenotypeDef>
-
-  <!-- yoner -->
-  <XenotypeDef ParentName="WVC_MoreXenotypes_Xenotypes_Mechalike">
-	<defName>WVC_MoreXenotypes_Yoner</defName>
-	<label>yoner</label>
-	<iconPath>WVC/UI/Xeno2Icons/Xeno22</iconPath>
-	<genes>
-		<li>WVC_MechaSkin</li>
-		<li>WVC_MechaPowerSource_Stable</li>
-		<li>WVC_MechaAI_FirmwarePropagandaMachine</li>
-		<li>WVC_MecaBodyParts_Jaw</li>
-		<li>WVC_MecaBodyParts_Kidney</li>
-		<li>WVC_Mecha_QuadEarsCat</li>
-		<li>Mood_Sanguine</li>
-		<li>Aggression_DeadCalm</li>
-		<li>Beauty_Beautiful</li>
-		<li>Hair_DarkBlack</li>
-		<li>WVC_SkinColor_b4fff0_HEX</li>
-		<li>WVC_SkinColor_c8ffb4_HEX</li>
-		<li>WVC_BodySize_Small</li>
-		<li>WVC_AptitudeImpossible_Shooting</li>
-		<li>WVC_AptitudeImpossible_Melee</li>
-		<li>AptitudeRemarkable_Social</li>
-	</genes>
-  </XenotypeDef>
-
-  <!-- coreect -->
-  <XenotypeDef ParentName="WVC_MoreXenotypes_Xenotypes_Mechalike">
-	<defName>WVC_MoreXenotypes_Coreect</defName>
-	<label>coreect</label>
-	<iconPath>WVC/UI/Xeno2Icons/Xeno8</iconPath>
-	<genes>
-		<li>WVC_MechaSkin</li>
-		<li>WVC_MechaPowerSource_Vanometric</li>
-		<li>WVC_MechaAI_Base</li>
-		<li>WVC_Mecha_ConnectorTail</li>
-		<li>WVC_Mecha_RedFormerSpikesQuad</li>
-		<li>MoveSpeed_VeryQuick</li>
-		<li>Hair_DarkBlack</li>
-		<li>WVC_SkinColor_b4c8ff_HEX</li>
-		<li>WVC_BodySize_Small</li>
-		<li>AptitudeTerrible_Shooting</li>
-		<li>AptitudeTerrible_Melee</li>
-		<li>AptitudeRemarkable_Construction</li>
-		<li>AptitudeRemarkable_Medicine</li>
-		<!-- <li>WVC_AptitudeImpossible_Cooking</li> -->
-		<li>WVC_AptitudeImpossible_Artistic</li>
-	</genes>
-  </XenotypeDef>
-
-  <!-- osur -->
-  <XenotypeDef ParentName="WVC_MoreXenotypes_Xenotypes_Mechalike">
-	<defName>WVC_MoreXenotypes_Osur</defName>
-	<label>osur</label>
-	<iconPath>WVC/UI/Xeno2Icons/Xeno29</iconPath>
-	<genes>
-		<li>WVC_NodeSkin_Blue</li>
-		<li>WVC_NodeSkin_AltBlue</li>
-		<li>WVC_MechaAI_FirmwareCreatorMachine</li>
-		<li>WVC_Nodization_DecisionBuff_A</li>
-		<li>WVC_Nodization_VindicationBuff_A</li>
-		<li>WVC_Nodization_DecisionBuff_F</li>
-		<li>WVC_Nodization_VindicationBuff_F</li>
-		<li>WVC_Mecha_ConnectorTail</li>
-		<li>WVC_LongjumpMech</li>
-		<li>WVC_MechSummon_Light</li>
-		<li>WVC_HairColor_DarkGray</li>
-		<li>WVC_SkinColor_DarkGray</li>
-		<li>WVC_BodySize_Small</li>
-		<li>AptitudeRemarkable_Crafting</li>
-		<li>WVC_AptitudeImpossible_Cooking</li>
-		<li>WVC_AptitudeImpossible_Artistic</li>
-	</genes>
-  </XenotypeDef>
-
-  <!-- mackd -->
-  <XenotypeDef ParentName="WVC_MoreXenotypes_Xenotypes_Mechalike">
-	<defName>WVC_MoreXenotypes_Mackd</defName>
-	<label>mackd</label>
-	<iconPath>WVC/UI/Xeno2Icons/Xeno21</iconPath>
-	<genes>
-		<li>WVC_NodeSkin_Violet</li>
-		<li>WVC_NodeSkin_AltBlue</li>
-		<li>WVC_Nodization_PointBuff_D</li>
-		<li>WVC_Nodization_PointBuff_F</li>
-		<li>WVC_Mecha_ConnectorTail</li>
-		<li>WVC_Mecha_RedFormerSpikesQuad</li>
-		<li>WVC_LongjumpMech</li>
-		<li>WVC_MechSummon_Medium</li>
-		<li>MoveSpeed_VeryQuick</li>
-		<li>Aggression_HyperAggressive</li>
-		<li>MeleeDamage_Strong</li>
-		<li>WVC_ArmoredSkin_Plasteel</li>
-		<li>WVC_HairColor_DarkGray</li>
-		<li>WVC_SkinColor_DarkGray</li>
-		<li>WVC_BodySize_Small</li>
-		<li>WVC_AptitudeImpossible_Shooting</li>
-		<li>WVC_AptitudePerfect_Melee</li>
-		<li>AptitudeTerrible_Construction</li>
-		<li>AptitudeTerrible_Mining</li>
-		<li>AptitudeTerrible_Plants</li>
-		<li>AptitudeTerrible_Animals</li>
-		<li>AptitudeRemarkable_Crafting</li>
-		<li>AptitudeStrong_Medicine</li>
-		<li>AptitudeTerrible_Social</li>
-		<li>AptitudeTerrible_Intellectual</li>
-		<li>WVC_AptitudeImpossible_Cooking</li>
-		<li>WVC_AptitudeImpossible_Artistic</li>
-	</genes>
-  </XenotypeDef>
-
-  <!-- nonod -->
-  <XenotypeDef ParentName="WVC_MoreXenotypes_Xenotypes_Mechalike">
-	<defName>WVC_MoreXenotypes_Nonod</defName>
-	<label>nonod</label>
-	<iconPath>WVC/UI/Xeno2Icons/Xeno26</iconPath>
-	<genes>
-		<li>WVC_NodeSkin_Yellow</li>
-		<li>WVC_NodeSkin_Orange</li>
-		<li>WVC_GenePackSpawner_Mecha</li>
-		<li>WVC_MecaBodyParts_Jaw</li>
-		<li>WVC_Nodization_PointBuff_E</li>
-		<li>WVC_Nodization_EntityBuff_G</li>
-		<li>PsychicAbility_Extreme</li>
-		<li>MeleeDamage_Weak</li>
-		<li>WVC_HairColor_DarkGray</li>
-		<li>WVC_SkinColor_DarkGray</li>
-		<li>WVC_BodySize_Small</li>
-		<li>WVC_AptitudeImpossible_Shooting</li>
-		<li>WVC_AptitudeImpossible_Melee</li>
-		<li>AptitudeRemarkable_Social</li>
-		<li>AptitudeRemarkable_Intellectual</li>
-	</genes>
-  </XenotypeDef>
-
-  <!-- ultraist -->
-  <XenotypeDef ParentName="WVC_MoreXenotypes_Xenotypes_Mechalike">
-	<defName>WVC_MoreXenotypes_Ultraist</defName>
-	<label>ultraist</label>
-	<iconPath>WVC/UI/Xeno2Icons/Xeno4</iconPath>
-	<genes>
-		<li>WVC_NodeSkin_Green</li>
-		<li>WVC_GenePackSpawner_Vanilla</li>
-		<li>WVC_MechaAI_FirmwareGreenMachine</li>
-		<li>WVC_MechaAI_SoftwareMoving</li>
-		<li>WVC_MechaAI_SoftwareDisableTalking</li>
-		<li>WVC_Nodization_PatternBuff_C</li>
-		<li>WVC_Nodization_PointBuff_C</li>
-		<li>WVC_Nodization_StringBuff_C</li>
-		<li>WVC_MechaAI_RomanceChanceB</li>
-		<li>NakedSpeed</li>
-		<li>Mood_Sanguine</li>
-		<li>Aggression_DeadCalm</li>
-		<li>WVC_UnClothedArmor</li>
-		<li>WVC_HairColor_DarkGray</li>
-		<li>WVC_SkinColor_DarkGray</li>
-		<li>WVC_BodySize_Small</li>
-		<li>WVC_AptitudeImpossible_Cooking</li>
-		<!-- <li>WVC_AptitudeImpossible_Artistic</li> -->
-	</genes>
-  </XenotypeDef>
-
-  <!-- nour -->
-  <XenotypeDef ParentName="WVC_MoreXenotypes_Xenotypes_Mechalike">
-	<defName>WVC_MoreXenotypes_Nour</defName>
-	<label>nour</label>
-	<iconPath>WVC/UI/XenoIcons/Xeno13</iconPath>
-	<genes>
-		<li>WVC_NodeSkin_Red</li>
-		<li>WVC_MechaAI_FirmwareWarMachine</li>
-		<li>WVC_MechaAI_SoftwareManipulation</li>
-		<li>WVC_Nodization_PatternBuff_B</li>
-		<li>WVC_Mecha_RedFormerEarsQuad</li>
-		<li>WVC_SmokepopMech</li>
-		<li>MoveSpeed_VeryQuick</li>
-		<li>NakedSpeed</li>
-		<li>Aggression_DeadCalm</li>
-		<li>MeleeDamage_Weak</li>
-		<li>WVC_UnClothedArmor</li>
-		<li>Delicate</li>
-		<li>WVC_HairColor_DarkGray</li>
-		<li>WVC_SkinColor_DarkGray</li>
-		<li>WVC_BodySize_Small</li>
-		<li>WVC_AptitudePerfect_Shooting</li>
-		<li>WVC_AptitudeImpossible_Melee</li>
-		<li>WVC_AptitudeImpossible_Cooking</li>
-		<li>WVC_AptitudeImpossible_Artistic</li>
 	</genes>
   </XenotypeDef>
 

@@ -62,7 +62,7 @@
 	<descriptionShort>Mechakins are ageless, deathless mecha-humans powered by archotech-created archites in the bloodstream. They are beautiful and extremely intelligent. They do not suffer from disease or poison. In combat, they can use their deadly scythe tail. The price is that they are very poorly trained and practically cannot master new skills.</descriptionShort>
 	<iconPath>WVC/UI/Xeno2Icons/Xeno12</iconPath>
 	<inheritable>false</inheritable>
-	<canGenerateAsCombatant>false</canGenerateAsCombatant>
+	<canGenerateAsCombatant>true</canGenerateAsCombatant>
 	<displayPriority>-1100</displayPriority>
 	<combatPowerFactor>2</combatPowerFactor>
 	<factionlessGenerationWeight>2</factionlessGenerationWeight>

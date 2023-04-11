@@ -5,6 +5,7 @@
 		<li IfModActive="ludeon.rimworld.biotech">Biotech_Genes</li>
 		<li IfModActive="ludeon.rimworld.ideology">Ideology_Genes</li>
 		<!-- <li IfModActive="ludeon.rimworld.biotech">Biotech_Genes_Nodes</li> -->
+		<!-- Only for tests -->
 		<li IfModActive="wvc.wvcmod.wvcspecific">MoreXenotypes</li>
 		<li IfModActive="wvc.sergkart.races.biotech.morexenotypes">MoreXenotypes</li>
 	</v1.4>
