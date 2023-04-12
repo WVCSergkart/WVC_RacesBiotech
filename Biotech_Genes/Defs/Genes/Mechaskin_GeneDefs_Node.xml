@@ -23,6 +23,7 @@ Most of the internal organs were not affected, but there are too many external c
 	  <colorType>Custom</colorType>
 	  <color>(255, 255, 255)</color>
 	  <layer>PostTattoo</layer>
+	  <!-- <drawOnEyes>true</drawOnEyes> -->
 	  <!-- <layer>PostSkin</layer> -->
 	  <useSkinShader>false</useSkinShader>
 	  <drawIfFaceCovered>true</drawIfFaceCovered>

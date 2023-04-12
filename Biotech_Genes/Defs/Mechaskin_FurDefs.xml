@@ -13,6 +13,7 @@
   <HeadTypeDef Name="WVC_MechaSkinAverageBase" ParentName="AverageBase" Abstract="True">
 	<randomChosen>false</randomChosen>
 	<gender>None</gender>
+	<!-- <selectionWeight>99999</selectionWeight> -->
 	<requiredGenes>
 	  <li>WVC_MechaSkin</li>
 	</requiredGenes>
@@ -57,7 +58,7 @@
 	<graphicPath>Things/Pawn/Humanlike/Heads/Genes/None_Gaunt_Average</graphicPath>
 	<randomChosen>false</randomChosen>
 	<gender>None</gender>
-	<selectionWeight>99999</selectionWeight>
+	<selectionWeight>999</selectionWeight>
 	<requiredGenes>
 	  <li>Head_Gaunt</li>
 	</requiredGenes>
@@ -68,7 +69,8 @@
   <HeadTypeDef Name="WVC_NodeSkinAverageBase" ParentName="AverageBase" Abstract="True">
 	<randomChosen>false</randomChosen>
 	<gender>None</gender>
-	<!-- <selectionWeight>99999</selectionWeight> -->
+	<selectionWeight>99999</selectionWeight>
+	<!-- <eyeOffsetEastWest>(9.9, 0, 9.9)</eyeOffsetEastWest> -->
 	<!-- <requiredGenes> -->
 	  <!-- <li>WVC_MechaSkin</li> -->
 	<!-- </requiredGenes> -->
@@ -141,6 +143,7 @@
   <FurDef>
 	<defName>WVC_MechaSkin</defName>
 	<noGraphic>true</noGraphic>
+	<!-- <requiredGene>WVC_MechaSkin</requiredGene> -->
 	<bodyTypeGraphicPaths>
 	  <Male>WVC/MecaGene_Body/Naked_Male</Male>
 	  <Female>WVC/MecaGene_Body/Naked_Female</Female>
