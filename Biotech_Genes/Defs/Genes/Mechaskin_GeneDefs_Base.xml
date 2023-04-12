@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_MechanoidBody_Base" Abstract="True">
+  <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_MechanoidBody_Base" Abstract="True" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<!-- <displayCategory>WVC_NodeBody</displayCategory> -->
 	<label>mechaskin</label>
 	<labelShortAdj>mechaskin</labelShortAdj>
@@ -86,7 +86,7 @@ Most of the internal organs remain intact, but there are enough external changes
 
   <!-- Meca -->
 
-  <GeneDef ParentName="WVC_MechanoidBody_Base">
+  <GeneDef ParentName="WVC_MechanoidBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_MechaSkin</defName>
 	<!-- <biostatMet>-16</biostatMet> -->
 	<displayOrderInCategory>-100</displayOrderInCategory>

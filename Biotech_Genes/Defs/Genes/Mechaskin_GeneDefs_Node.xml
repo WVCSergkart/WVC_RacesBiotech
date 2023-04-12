@@ -3,7 +3,7 @@
 
   <!-- Bodies -->
 
-  <GeneDef ParentName="WVC_MechanoidBody_Base" Name="WVC_NodeBody_Base" Abstract="True">
+  <GeneDef ParentName="WVC_MechanoidBody_Base" Name="WVC_NodeBody_Base" Abstract="True" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<labelShortAdj>nodeskin</labelShortAdj>
 	<description>Carriers of this gene have archites that completely transform their body. 
 
@@ -54,12 +54,17 @@ Most of the internal organs were not affected, but there are too many external c
 		<li><symbol>d</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
+	<modExtensions>
+		<li Class="WVC.GeneExtension_EyeDraws">
+			<eyesShouldBeInvisble>true</eyesShouldBeInvisble>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- ================================================================== -->
 
   <!-- = -->
-  <GeneDef ParentName="WVC_NodeBody_Base">
+  <GeneDef ParentName="WVC_NodeBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeSkin_Blue</defName>
 	<label>nodeskin SX</label>
 	<!-- <geneClass>WVC.Gene_HediffGiver</geneClass> -->
@@ -96,7 +101,7 @@ Most of the internal organs were not affected, but there are too many external c
 	<!-- </modExtensions> -->
   </GeneDef>
   <!-- = -->
-  <GeneDef ParentName="WVC_NodeBody_Base">
+  <GeneDef ParentName="WVC_NodeBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeSkin_Red</defName>
 	<label>nodeskin HJ</label>
 	<biostatMet>-6</biostatMet>
@@ -136,7 +141,7 @@ Most of the internal organs were not affected, but there are too many external c
 	<!-- </conditionalStatAffecters> -->
   </GeneDef>
   <!-- = -->
-  <GeneDef ParentName="WVC_NodeBody_Base">
+  <GeneDef ParentName="WVC_NodeBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeSkin_Green</defName>
 	<label>nodeskin GB</label>
 	<biostatMet>-1</biostatMet>
@@ -165,7 +170,7 @@ Most of the internal organs were not affected, but there are too many external c
 	<!-- </conditionalStatAffecters> -->
   </GeneDef>
   <!-- = -->
-  <GeneDef ParentName="WVC_NodeBody_Base">
+  <GeneDef ParentName="WVC_NodeBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeSkin_Violet</defName>
 	<label>nodeskin CV</label>
 	<biostatMet>-3</biostatMet>
@@ -191,7 +196,7 @@ Most of the internal organs were not affected, but there are too many external c
 	</suppressedTraits>
   </GeneDef>
   <!-- = -->
-  <GeneDef ParentName="WVC_NodeBody_Base">
+  <GeneDef ParentName="WVC_NodeBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeSkin_Yellow</defName>
 	<label>nodeskin WR</label>
 	<!-- <geneClass>WVC.Gene_HediffGiver</geneClass> -->
@@ -239,7 +244,7 @@ Most of the internal organs were not affected, but there are too many external c
 	<!-- </modExtensions> -->
   </GeneDef>
   <!-- = -->
-  <GeneDef ParentName="WVC_NodeBody_Base">
+  <GeneDef ParentName="WVC_NodeBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeSkin_AltBlue</defName>
 	<label>nodeskin VX</label>
 	<!-- <geneClass>WVC.Gene_HediffGiver</geneClass> -->
@@ -283,7 +288,7 @@ Most of the internal organs were not affected, but there are too many external c
 	<!-- </modExtensions> -->
   </GeneDef>
   <!-- = -->
-  <GeneDef ParentName="WVC_NodeBody_Base">
+  <GeneDef ParentName="WVC_NodeBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeSkin_Orange</defName>
 	<label>nodeskin YR</label>
 	<biostatMet>-2</biostatMet>
