@@ -450,9 +450,13 @@
 	<statOffsets>
 	  <MoveSpeed>4</MoveSpeed>
 	</statOffsets>
-	<statFactors>
-	  <WorkSpeedGlobal>0.3</WorkSpeedGlobal>
-	</statFactors>
+	<disabledWorkTags>
+	  <!-- <li>AllWork</li> -->
+	  <li>ManualSkilled</li>
+	</disabledWorkTags>
+	<!-- <statFactors> -->
+	  <!-- <WorkSpeedGlobal>0.3</WorkSpeedGlobal> -->
+	<!-- </statFactors> -->
   </GeneDef>
   
 </Defs>

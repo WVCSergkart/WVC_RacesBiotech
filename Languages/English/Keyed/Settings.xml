@@ -44,6 +44,10 @@ A restart is required to apply the setting.</WVC_ToolTip_minWastepacksPerRecharg
 	<WVC_ToolTip_enableStatSkillFactor>Responsible for whether the stat factor on skills will be applied or not.</WVC_ToolTip_enableStatSkillFactor>
 
 	<!-- ====================================================================================== -->
+	<WVC_Label_canMechaskinBePredatorPrey>Can mechaskin be predator prey</WVC_Label_canMechaskinBePredatorPrey>
+	<WVC_ToolTip_canMechaskinBePredatorPrey>Responsible for whether animals will try to hunt for mecha-pawns. Enabled by default.</WVC_ToolTip_canMechaskinBePredatorPrey>
+
+	<!-- ====================================================================================== -->
 	<!-- <WVC_Label_mecaXenotypeIsInheritable>Meca xenotype have inheritable genes</WVC_Label_mecaXenotypeIsInheritable> -->
 	<!-- <WVC_ToolTip_mecaXenotypeIsInheritable>Changes Meca xenotype allowing genes to be inherited. What makes this xenotype compatible with sangophages and other xenogeneic xenotypes.</WVC_ToolTip_mecaXenotypeIsInheritable> -->
 
