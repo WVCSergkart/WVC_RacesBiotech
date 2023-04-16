@@ -193,6 +193,15 @@
 		<MechFormingSpeed>0.25</MechFormingSpeed>
 	</statOffsets>
 	<!-- <conditionalStatAffecters> -->
+	  <!-- <li Class="WVC.ConditionalStatAffecter_Skills"> -->
+		<!-- <skillDef>Melee</skillDef> -->
+		<!-- <targetLevel>8</targetLevel> -->
+		<!-- <statOffsets> -->
+			<!-- <MechRepairSpeed>0.5</MechRepairSpeed> -->
+		<!-- </statOffsets> -->
+	  <!-- </li> -->
+	<!-- </conditionalStatAffecters> -->
+	<!-- <conditionalStatAffecters> -->
 	  <!-- <li Class="WVC.ConditionalStatAffecter_MechanitorUsedBandwidth"> -->
 		<!-- <usedBandwidth>8</usedBandwidth> -->
 		<!-- <statOffsets> -->
