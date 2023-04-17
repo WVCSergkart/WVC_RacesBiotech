@@ -187,11 +187,11 @@
 	<defName>WVC_MechaAI_MechanitorNetwork</defName>
 	<label>mecha-network</label>
 	<iconColor>(170, 170, 255)</iconColor>
-	<statOffsets>
-		<MechRepairSpeed>0.25</MechRepairSpeed>
-		<WorkSpeedGlobalOffsetMech>0.25</WorkSpeedGlobalOffsetMech>
-		<MechFormingSpeed>0.25</MechFormingSpeed>
-	</statOffsets>
+	<!-- <statOffsets> -->
+		<!-- <MechRepairSpeed>0.25</MechRepairSpeed> -->
+		<!-- <WorkSpeedGlobalOffsetMech>0.25</WorkSpeedGlobalOffsetMech> -->
+		<!-- <MechFormingSpeed>0.25</MechFormingSpeed> -->
+	<!-- </statOffsets> -->
 	<!-- <conditionalStatAffecters> -->
 	  <!-- <li Class="WVC.ConditionalStatAffecter_Skills"> -->
 		<!-- <skillDef>Melee</skillDef> -->
@@ -201,41 +201,47 @@
 		<!-- </statOffsets> -->
 	  <!-- </li> -->
 	<!-- </conditionalStatAffecters> -->
-	<!-- <conditionalStatAffecters> -->
-	  <!-- <li Class="WVC.ConditionalStatAffecter_MechanitorUsedBandwidth"> -->
-		<!-- <usedBandwidth>8</usedBandwidth> -->
-		<!-- <statOffsets> -->
-			<!-- <MechRepairSpeed>0.5</MechRepairSpeed> -->
-		<!-- </statOffsets> -->
-	  <!-- </li> -->
-	  <!-- <li Class="WVC.ConditionalStatAffecter_MechanitorUsedBandwidth"> -->
-		<!-- <usedBandwidth>12</usedBandwidth> -->
-		<!-- <statOffsets> -->
-			<!-- <MechControlGroups>2</MechControlGroups> -->
-		<!-- </statOffsets> -->
-	  <!-- </li> -->
-	  <!-- <li Class="WVC.ConditionalStatAffecter_MechanitorUsedBandwidth"> -->
-		<!-- <usedBandwidth>16</usedBandwidth> -->
-		<!-- <statOffsets> -->
-			<!-- <WorkSpeedGlobalOffsetMech>0.5</WorkSpeedGlobalOffsetMech> -->
-		<!-- </statOffsets> -->
-	  <!-- </li> -->
-	  <!-- <li Class="WVC.ConditionalStatAffecter_MechanitorUsedBandwidth"> -->
-		<!-- <usedBandwidth>20</usedBandwidth> -->
-		<!-- <statOffsets> -->
-			<!-- <MechBandwidth>12</MechBandwidth> -->
-		<!-- </statOffsets> -->
-	  <!-- </li> -->
-	  <!-- <li Class="WVC.ConditionalStatAffecter_MechanitorUsedBandwidth"> -->
-		<!-- <usedBandwidth>24</usedBandwidth> -->
-		<!-- <statOffsets> -->
-			<!-- <MechFormingSpeed>0.5</MechFormingSpeed> -->
-		<!-- </statOffsets> -->
-	  <!-- </li> -->
-	<!-- </conditionalStatAffecters> -->
-	<!-- <exclusionTags> -->
-	  <!-- <li>WVC_MechanitorNetwork</li> -->
-	<!-- </exclusionTags> -->
+	<conditionalStatAffecters>
+	  <li Class="WVC.ConditionalStatAffecter_MechanitorUsedBandwidth">
+		<controlledPawns>8</controlledPawns>
+		<statOffsets>
+			<MechRepairSpeed>0.5</MechRepairSpeed>
+		</statOffsets>
+	  </li>
+	  <li Class="WVC.ConditionalStatAffecter_MechanitorUsedBandwidth">
+		<controlledPawns>12</controlledPawns>
+		<statOffsets>
+			<MechControlGroups>2</MechControlGroups>
+		</statOffsets>
+	  </li>
+	  <li Class="WVC.ConditionalStatAffecter_MechanitorUsedBandwidth">
+		<controlledPawns>16</controlledPawns>
+		<statOffsets>
+			<WorkSpeedGlobalOffsetMech>0.5</WorkSpeedGlobalOffsetMech>
+		</statOffsets>
+	  </li>
+	  <li Class="WVC.ConditionalStatAffecter_MechanitorUsedBandwidth">
+		<controlledPawns>20</controlledPawns>
+		<statOffsets>
+			<MechBandwidth>12</MechBandwidth>
+		</statOffsets>
+	  </li>
+	  <li Class="WVC.ConditionalStatAffecter_MechanitorUsedBandwidth">
+		<controlledPawns>24</controlledPawns>
+		<statOffsets>
+			<MechFormingSpeed>0.5</MechFormingSpeed>
+		</statOffsets>
+	  </li>
+	  <li Class="WVC.ConditionalStatAffecter_MechanitorUsedBandwidth">
+		<controlledPawns>30</controlledPawns>
+		<statOffsets>
+			<WVC_BandwidthCostOffsetMech>-1</WVC_BandwidthCostOffsetMech>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
+	<exclusionTags>
+	  <li>WVC_MechanitorNetwork</li>
+	</exclusionTags>
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
