@@ -128,20 +128,20 @@
 	  <!-- </operations> -->
 	<!-- </Operation> -->
 
-	<Operation Class="PatchOperationReplace">
-		<xpath>Defs/GeneDef[defName="Furskin"]/displayCategory</xpath>
-		<success>Always</success>
-		<value>
-			<displayCategory>WVC_FurskinBody</displayCategory>
-		</value>
-	</Operation>
-	<Operation Class="PatchOperationReplace">
-		<xpath>Defs/GeneDef[defName="Furskin"]/displayOrderInCategory</xpath>
-		<success>Always</success>
-		<value>
-			<displayOrderInCategory>-100</displayOrderInCategory>
-		</value>
-	</Operation>
+	<!-- <Operation Class="PatchOperationReplace"> -->
+		<!-- <xpath>Defs/GeneDef[defName="Furskin"]/displayCategory</xpath> -->
+		<!-- <success>Always</success> -->
+		<!-- <value> -->
+			<!-- <displayCategory>WVC_FurskinBody</displayCategory> -->
+		<!-- </value> -->
+	<!-- </Operation> -->
+	<!-- <Operation Class="PatchOperationReplace"> -->
+		<!-- <xpath>Defs/GeneDef[defName="Furskin"]/displayOrderInCategory</xpath> -->
+		<!-- <success>Always</success> -->
+		<!-- <value> -->
+			<!-- <displayOrderInCategory>-100</displayOrderInCategory> -->
+		<!-- </value> -->
+	<!-- </Operation> -->
 
 	<Operation Class="PatchOperationReplace">
 		<xpath>/Defs/StatDef[defName="MentalBreakThreshold" or defName="InjuryHealingFactor"]/minValue</xpath>

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneCategoryDef>
-	<defName>WVC_FurskinBody</defName>
-	<label>furskin</label>
-	<displayPriorityInXenotype>925</displayPriorityInXenotype>
-  </GeneCategoryDef>
+  <!-- <GeneCategoryDef> -->
+	<!-- <defName>WVC_FurskinBody</defName> -->
+	<!-- <label>furskin</label> -->
+	<!-- <displayPriorityInXenotype>925</displayPriorityInXenotype> -->
+  <!-- </GeneCategoryDef> -->
 
   <!-- ================================================================== -->
 
   <GeneDef Name="WVC_FurskinBase" Abstract="True">
 	<description>TEST</description>
-	<displayCategory>WVC_FurskinBody</displayCategory>
+	<displayCategory>Miscellaneous</displayCategory>
 	<selectionWeight>0.05</selectionWeight>
 	<marketValueFactor>1.0</marketValueFactor>
 	<!-- <minAgeActive>13</minAgeActive> -->
@@ -40,6 +40,7 @@
 	<description>Carriers of this gene have very warm coats.</description>
 	<biostatMet>-1</biostatMet>
 	<iconColor>(255, 180, 160)</iconColor>
+    <displayCategory>Temperature</displayCategory>
 	<conditionalStatAffecters>
 	  <li Class="ConditionalStatAffecter_Clothed">
 		<statOffsets>
@@ -70,6 +71,7 @@
 	<biostatMet>0</biostatMet>
 	<iconColor>(160, 255, 160)</iconColor>
 	<missingGeneRomanceChanceFactor>2</missingGeneRomanceChanceFactor>
+	<displayCategory>Beauty</displayCategory>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>attra</symbol></li>
@@ -90,6 +92,7 @@
 	<biostatMet>-2</biostatMet>
 	<displayOrderInCategory>21</displayOrderInCategory>
 	<iconColor>(190, 220, 255)</iconColor>
+	<displayCategory>Violence</displayCategory>
 	<conditionalStatAffecters>
 	  <li Class="ConditionalStatAffecter_Clothed">
 		<statOffsets>
@@ -127,6 +130,7 @@
 	<biostatMet>-2</biostatMet>
 	<displayOrderInCategory>21</displayOrderInCategory>
 	<iconColor>(255, 190, 250)</iconColor>
+	<displayCategory>Beauty</displayCategory>
 	<conditionalStatAffecters>
 	  <li Class="ConditionalStatAffecter_Clothed">
 		<statOffsets>
@@ -164,7 +168,7 @@
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>-1</biostatMet>
 	<biostatArc>0</biostatArc>
-	<displayCategory>WVC_FurskinBody</displayCategory>
+	<displayCategory>Violence</displayCategory>
 	<selectionWeight>0.05</selectionWeight>
 	<marketValueFactor>1.0</marketValueFactor>
 	<!-- <minAgeActive>13</minAgeActive> -->
@@ -316,7 +320,7 @@
 	<iconColor>(255, 255, 255)</iconColor>
 	<iconPath>WVC/UI/Genes/FurInstincts</iconPath>
 	<!-- <prerequisite>WVC_FurskinInstincts_Base</prerequisite> -->
-	<displayCategory>WVC_FurskinBody</displayCategory>
+	<displayCategory>Violence</displayCategory>
 	<selectionWeight>0.05</selectionWeight>
 	<marketValueFactor>1.0</marketValueFactor>
 	<!-- <minAgeActive>13</minAgeActive> -->

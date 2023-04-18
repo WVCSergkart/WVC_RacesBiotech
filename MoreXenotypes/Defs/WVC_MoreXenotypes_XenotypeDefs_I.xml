@@ -70,5 +70,27 @@
 	</genes>
   </XenotypeDef>
 
+  <!-- runeex -->
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base">
+	<defName>WVC_RuneDryad</defName>
+	<!-- dev name -->
+	<label>runeex</label>
+	<!-- dev name -->
+	<iconPath>WVC/UI/Xeno2Icons/Xeno13</iconPath>
+	<genes>
+		<li>WVC_RuneSkin</li>
+		<li>WVC_VoiceDryadBarkskin</li>
+		<li>WVC_FemaleOnly</li>
+		<li>WVC_Hair_PunkOnly</li>
+		<li>Body_Standard</li>
+		<li>Hair_DarkBlack</li>
+		<li>WVC_SkinColor_b4c8ff_HEX</li>
+		<li>WVC_SkinColor_ffdcb4_HEX</li>
+		<li>WVC_SkinColor_c8b4ff_HEX</li>
+		<li>WVC_SkinColor_ffb4b4_HEX</li>
+		<li>WVC_BodySize_Small</li>
+	</genes>
+  </XenotypeDef>
+
 
 </Defs>

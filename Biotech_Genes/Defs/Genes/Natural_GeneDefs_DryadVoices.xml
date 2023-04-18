@@ -13,8 +13,8 @@
 	<!-- <displayCategory>WVC_WeirdVoices</displayCategory> -->
 	<description>Carriers of this gene have weird vocal chords.</description>
 	<!-- <displayOrderInCategory>1500</displayOrderInCategory> -->
-	<displayCategory>WVC_FurskinBody</displayCategory>
-	<displayOrderInCategory>900</displayOrderInCategory>
+	<!-- <displayCategory>WVC_FurskinBody</displayCategory> -->
+	<!-- <displayOrderInCategory>900</displayOrderInCategory> -->
 	<!-- <displayOrderInCategory>132</displayOrderInCategory> -->
 	<iconPath>UI/Icons/Genes/Gene_VoiceHuman</iconPath>
 	<iconColor>(255, 153, 88)</iconColor>

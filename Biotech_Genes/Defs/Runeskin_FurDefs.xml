@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ==================================== -->
+
+  <HeadTypeDef ParentName="WVC_NodeSkinAverageBase">
+	<defName>WVC_RuneSkin_Average</defName>
+	<graphicPath>WVC/RunicGene_Head/Head</graphicPath>
+	<requiredGenes>
+	  <li>WVC_RuneSkin</li>
+	</requiredGenes>
+  </HeadTypeDef>
+
+  <!-- ==================================== -->
+
+  <FurDef>
+	<defName>WVC_RuneSkin</defName>
+	<noGraphic>true</noGraphic>
+	<bodyTypeGraphicPaths>
+	  <Male>WVC/RunicGene_Body/Naked_Male</Male>
+	  <Female>WVC/RunicGene_Body/Naked_Female</Female>
+	  <Hulk>WVC/RunicGene_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/RunicGene_Body/Naked_Fat</Fat>
+	  <Thin>WVC/RunicGene_Body/Naked_Thin</Thin>
+	  <!-- Never -->
+	  <Child>Things/Pawn/Humanlike/Bodies/Naked_Child</Child>
+	  <Baby>Things/Pawn/Humanlike/Bodies/Naked_Child</Baby>
+	  <!-- Never -->
+	</bodyTypeGraphicPaths>
+  </FurDef>
+
+</Defs>

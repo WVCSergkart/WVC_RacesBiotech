@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_RuneBody_Base" Abstract="True" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<!-- <displayCategory>WVC_NodeBody</displayCategory> -->
+	<label>runeskin</label>
+	<labelShortAdj>runeskin</labelShortAdj>
+	<description>TEST DESC</description>
+	<displayCategory>WVC_MechaBody</displayCategory>
+	<selectionWeight>0.0125</selectionWeight>
+	<!-- <marketValueFactor>1.5</marketValueFactor> -->
+	<randomChosen>false</randomChosen>
+	<canGenerateInGeneSet>true</canGenerateInGeneSet>
+	<biostatCpx>6</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<!-- = -->
+	<iconPath>WVC/UI/Genes/MechaIcon</iconPath>
+	<marketValueFactor>2</marketValueFactor>
+	<neverGrayHair>true</neverGrayHair>
+	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
+	<missingGeneRomanceChanceFactor>0.35</missingGeneRomanceChanceFactor>
+	<minAgeActive>13</minAgeActive>
+	<exclusionTags>
+	  <li>Skin</li>
+	  <li>Fur</li>
+	</exclusionTags>
+	<!-- = -->
+	<modExtensions Inherit="False">
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+			<furHidesBody>True</furHidesBody>
+			<useSkinColorForFur>True</useSkinColorForFur>
+			<!-- <customWoundsFromFleshtype>Mechanoid</customWoundsFromFleshtype> -->
+			<!-- <customBloodEffect>Damage_HitMechanoid</customBloodEffect> -->
+		</li>
+		<!-- <li Class="WVC.GeneExtension"> -->
+			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_MechaBody</backgroundPathArchite> -->
+		<!-- </li> -->
+		<!-- <li Class="WVC.GeneExtension_Mechaskin"> -->
+			<!-- <geneIsMechaskin>true</geneIsMechaskin> -->
+		<!-- </li> -->
+	</modExtensions>
+  </GeneDef>
+
+  <!-- Meca -->
+
+  <GeneDef ParentName="WVC_RuneBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_RuneSkin</defName>
+	<label>runeskin</label>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-2</biostatMet>
+	<displayCategory>Miscellaneous</displayCategory>
+	<displayOrderInCategory>400</displayOrderInCategory>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+	<iconPath>WVC/UI/Genes/HeadRune_south</iconPath>
+	<forcedHeadTypes>
+	  <li>WVC_RuneSkin_Average</li>
+	</forcedHeadTypes>
+	<statOffsets>
+	  <ArmorRating_Blunt>0.22</ArmorRating_Blunt>
+	  <PsychicSensitivity>0.2</PsychicSensitivity>
+	</statOffsets>
+	<!-- <statFactors> -->
+	  <!-- <Flammability>0.5</Flammability> -->
+	<!-- </statFactors> -->
+	<suppressedTraits>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-2</degree>
+	  </li>
+	</suppressedTraits>
+	<graphicData>
+	  <fur>WVC_RuneSkin</fur>
+	  <tattoosVisible>true</tattoosVisible>
+	  <layer>PostSkin</layer>
+	</graphicData>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>rune</symbol></li>
+		<li><symbol>runic</symbol></li>
+		<li><symbol>run</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>nic</symbol></li>
+		<li><symbol>ne</symbol></li>
+		<li><symbol>e</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- ================================================================== -->
+
+</Defs>
