@@ -48,6 +48,12 @@ A restart is required to apply the setting.</WVC_ToolTip_minWastepacksPerRecharg
 	<WVC_ToolTip_canMechaskinBePredatorPrey>Responsible for whether animals will try to hunt for mecha-pawns. Enabled by default.</WVC_ToolTip_canMechaskinBePredatorPrey>
 
 	<!-- ====================================================================================== -->
+	<WVC_Label_hideEncodingGenes>Hide encoding genes</WVC_Label_hideEncodingGenes>
+	<WVC_ToolTip_hideEncodingGenes>If enabled, the genes from the "Encoding" tab will always be invisible. Does not affect spawning in genepacks.
+
+A restart is required to apply the setting.</WVC_ToolTip_hideEncodingGenes>
+
+	<!-- ====================================================================================== -->
 	<!-- <WVC_Label_mecaXenotypeIsInheritable>Meca xenotype have inheritable genes</WVC_Label_mecaXenotypeIsInheritable> -->
 	<!-- <WVC_ToolTip_mecaXenotypeIsInheritable>Changes Meca xenotype allowing genes to be inherited. What makes this xenotype compatible with sangophages and other xenogeneic xenotypes.</WVC_ToolTip_mecaXenotypeIsInheritable> -->
 

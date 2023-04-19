@@ -21,6 +21,7 @@
 			<MarketValue>150</MarketValue>
 			<ArmorRating_Blunt>0.6</ArmorRating_Blunt>
 			<MoveSpeed>3.6</MoveSpeed>
+			<FoodPoisonChance>0</FoodPoisonChance>
 		</statBases>
 		<uiIconScale>1.5</uiIconScale>
 		<tools Inherit="False">
@@ -91,7 +92,7 @@
 		<defName>WVC_Golem_Liftoid</defName>
 		<label>golem liftoid</label>
 		<statBases>
-			<MarketValue>150</MarketValue>
+			<ArmorRating_Sharp>0.45</ArmorRating_Sharp>
 			<ArmorRating_Blunt>0.6</ArmorRating_Blunt>
 			<MoveSpeed>3.2</MoveSpeed>
 		</statBases>
@@ -124,9 +125,9 @@
 
 	<ThingDef ParentName="WVC_GolemsBase">
 		<defName>WVC_Golem_Constructoid</defName>
-		<label>golem constructor</label>
+		<label>golem structoid</label>
 		<statBases>
-			<MarketValue>150</MarketValue>
+			<ArmorRating_Sharp>0.7</ArmorRating_Sharp>
 			<ArmorRating_Blunt>0.8</ArmorRating_Blunt>
 			<MoveSpeed>2.4</MoveSpeed>
 		</statBases>
@@ -134,8 +135,9 @@
 			<mechEnabledWorkTypes>
 			  <!-- <li>Firefighter</li> -->
 			  <!-- <li>BasicWorker</li> -->
-			  <!-- <li>PlantCutting</li> -->
-			  <li>Crafting</li>
+			  <li>PlantCutting</li>
+			  <li>Growing</li>
+			  <!-- <li>Crafting</li> -->
 			  <li>Construction</li>
 			  <!-- <li>Cleaning</li> -->
 			  <!-- <li>Hauling</li> -->
@@ -144,12 +146,53 @@
 	</ThingDef>
 	<PawnKindDef ParentName="WVC_NonCombatGolemKind">
 		<defName>WVC_Golem_Constructoid</defName>
-		<label>golem constructor</label>
+		<label>golem structoid</label>
 		<race>WVC_Golem_Constructoid</race>
 		<lifeStages>
 			<li>
 				<bodyGraphicData>
 					<texPath>WVC/Things/Mechanoids_Golems/GolemConstructor</texPath>
+					<drawSize>2</drawSize>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+
+	<!-- ======================= -->
+
+	<ThingDef ParentName="WVC_GolemsBase">
+		<defName>WVC_Golem_Crafter</defName>
+		<label>golem craftoid</label>
+		<statBases>
+			<ArmorRating_Sharp>0.2</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.4</ArmorRating_Blunt>
+			<MoveSpeed>2.2</MoveSpeed>
+		</statBases>
+		<race>
+			<mechEnabledWorkTypes>
+			  <!-- <li>Firefighter</li> -->
+			  <!-- <li>BasicWorker</li> -->
+			  <!-- <li>PlantCutting</li> -->
+			  <!-- <li>Crafting</li> -->
+			  <!-- <li>Construction</li> -->
+			  <!-- <li>Cleaning</li> -->
+			  <!-- <li>Hauling</li> -->
+			  <li>Crafting</li>
+			  <li>Smithing</li>
+			  <li>Tailoring</li>
+			  <li>Cooking</li>
+			  <li>Doctor</li>
+			</mechEnabledWorkTypes>
+		</race>
+	</ThingDef>
+	<PawnKindDef ParentName="WVC_NonCombatGolemKind">
+		<defName>WVC_Golem_Crafter</defName>
+		<label>golem craftoid</label>
+		<race>WVC_Golem_Crafter</race>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>WVC/Things/Mechanoids_Golems/GolemCrafter</texPath>
 					<drawSize>2</drawSize>
 				</bodyGraphicData>
 			</li>

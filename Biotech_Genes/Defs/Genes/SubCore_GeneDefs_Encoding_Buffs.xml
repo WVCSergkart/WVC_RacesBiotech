@@ -30,11 +30,11 @@
 		<li><symbol>ded</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
-	<!-- <modExtensions> -->
-		<!-- <li Class="WVC.GeneExtension_Mechaskin"> -->
-			<!-- <geneIsSubcore>true</geneIsSubcore> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<hideGene>true</hideGene>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- Encoding_GeneA -->

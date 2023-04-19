@@ -81,6 +81,9 @@
 	<customEffectDescriptions>
 		<li>A pawn can only reproduce with the help of golems.</li>
 	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_BandwidthCostOffsetMech>2</WVC_BandwidthCostOffsetMech>
+	</statOffsets>
 	<statFactors>
 	  <Fertility>0</Fertility>
 	  <WVC_ForceTo_GolemsBandwidthCost>0</WVC_ForceTo_GolemsBandwidthCost>
@@ -193,6 +196,7 @@
   <AbilityDef ParentName="WVC_GestationAbilities_Base">
 	<defName>WVC_MechanoidAbility_ActivateGestator</defName>
 	<label>re-gestator</label>
+	<description>This mechanoid has a large accumulation of mechanites, sufficient to form organic life.</description>
 	<comps>
 	  <li Class="WVC.CompProperties_AbilityGiveHediff">
 		<compClass>WVC.CompAbilityEffect_GiveHediff</compClass>
