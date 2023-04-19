@@ -34,18 +34,19 @@
 	<label>mecha-clotting</label>
 	<description>Carriers of this gene have archites that stabilize blood pressure, which helps to avoid bleeding.</description>
 	<!-- <geneClass>WVC.Gene_MechaClotting</geneClass> -->
-	<!-- <geneClass>Gene_Clotting</geneClass> -->
+	<geneClass>WVC.Gene_MechaClotting</geneClass>
 	<biostatMet>-1</biostatMet>
 	<!-- <biostatArc>2</biostatArc> -->
 	<customEffectDescriptions>
 		<!-- <li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Increases lifespan factor.</li> -->
-		<!-- <li>Prevent bleeding.</li> -->
+		<li>Prevent bleeding.</li>
 		<!-- <li>Bleeding wounds close very quickly.</li> -->
+		<li>Treat wounds from time to time.</li>
 		<li>Changes blood filth into machine bits.</li>
 	</customEffectDescriptions>
-	<statFactors>
-	  <WVC_BleedingFactor>0</WVC_BleedingFactor>
-	</statFactors>
+	<!-- <statFactors> -->
+	  <!-- <WVC_BleedingFactor>0</WVC_BleedingFactor> -->
+	<!-- </statFactors> -->
 	<makeImmuneTo>
 	  <li>WoundInfection</li>
 	</makeImmuneTo>
@@ -60,6 +61,8 @@
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<customBloodThingDef>Filth_MachineBits</customBloodThingDef>
 			<customBloodIcon>WVC/UI/InvisibleThing</customBloodIcon>
+			<!-- Not necessary -->
+			<hediffToWholeBody>WVC_MechaClotting_PreventBleeding</hediffToWholeBody>
 		</li>
 		<!-- <li Class="WVC.GeneExtension_MechaClotting"> -->
 			<!-- <preventBleeding>true</preventBleeding> -->

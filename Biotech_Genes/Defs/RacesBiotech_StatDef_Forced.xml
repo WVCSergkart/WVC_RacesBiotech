@@ -79,26 +79,25 @@
 	<toStringStyle>Temperature</toStringStyle>
   </StatDef>
 
-  <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
-	<defName>WVC_BleedingFactor</defName>
-	<label>total bleeding factor</label>
-	<description>Bleeding multiplier.</description>
-	<defaultBaseValue>1</defaultBaseValue>
-	<hideAtValue>1</hideAtValue>
-	<toStringStyle>PercentZero</toStringStyle>
-	<alwaysHide>false</alwaysHide>
-  </StatDef>
+  <!-- <StatDef ParentName="WVC_Biotech_ForcedStat_Base"> -->
+	<!-- <defName>WVC_BleedingFactor</defName> -->
+	<!-- <label>total bleeding factor</label> -->
+	<!-- <description>Bleeding multiplier.</description> -->
+	<!-- <defaultBaseValue>1</defaultBaseValue> -->
+	<!-- <hideAtValue>1</hideAtValue> -->
+	<!-- <toStringStyle>PercentZero</toStringStyle> -->
+	<!-- <alwaysHide>false</alwaysHide> -->
+  <!-- </StatDef> -->
 
-  <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
-	<defName>WVC_HungerRateFactor</defName>
-	<label>total hunger rate</label>
-	<description>Hunger multiplier. The higher the value, the faster the pawn will want to eat.</description>
-	<defaultBaseValue>1</defaultBaseValue>
-	<hideAtValue>1</hideAtValue>
-	<!-- <toStringStyle>Integer</toStringStyle> -->
-	<toStringStyle>PercentZero</toStringStyle>
-	<alwaysHide>false</alwaysHide>
-  </StatDef>
+  <!-- <StatDef ParentName="WVC_Biotech_ForcedStat_Base"> -->
+	<!-- <defName>WVC_HungerRateFactor</defName> -->
+	<!-- <label>total hunger rate</label> -->
+	<!-- <description>Hunger multiplier. The higher the value, the faster the pawn will want to eat.</description> -->
+	<!-- <defaultBaseValue>1</defaultBaseValue> -->
+	<!-- <hideAtValue>1</hideAtValue> -->
+	<!-- <toStringStyle>PercentZero</toStringStyle> -->
+	<!-- <alwaysHide>false</alwaysHide> -->
+  <!-- </StatDef> -->
 
   <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
 	<defName>WVC_SkillsDecayFactor</defName>

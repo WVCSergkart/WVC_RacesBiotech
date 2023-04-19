@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <HediffDef>
+	<defName>WVC_MechaClotting_PreventBleeding</defName>
+	<label>prevent bleeding</label>
+	<description>Should be invisible.</description>
+	<scenarioCanAdd>false</scenarioCanAdd>
+	<isBad>false</isBad>
+	<stages>
+	  <li>
+		<totalBleedFactor>0</totalBleedFactor>
+		<becomeVisible>false</becomeVisible>
+		<minSeverity>0.0</minSeverity>
+	  </li>
+	</stages>
+  </HediffDef>
+
+</Defs>
