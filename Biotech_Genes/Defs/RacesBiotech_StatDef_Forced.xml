@@ -60,6 +60,15 @@
   </StatDef>
 
   <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
+	<defName>WVC_ForceTo_GolemsBandwidthCost</defName>
+	<label>golem bandwidth cost</label>
+	<description>Bandwidth cost force for stone mechanoids. Does not affect normal mechanoids.</description>
+	<defaultBaseValue>6</defaultBaseValue>
+	<hideAtValue>6</hideAtValue>
+	<alwaysHide>false</alwaysHide>
+  </StatDef>
+
+  <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
 	<defName>WVC_ForceTo_ComfyTemperatureMin</defName>
 	<label>minimum comfortable temperature is always</label>
 	<toStringStyle>Temperature</toStringStyle>

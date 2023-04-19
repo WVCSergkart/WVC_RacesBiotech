@@ -71,9 +71,9 @@
   </GeneDef>
 
   <GeneDef ParentName="WVC_GeneGestationAbilities_Base">
-	<defName>WVC_Golem</defName>
-	<label>golem</label>
-	<description>Carriers of this gene can infuse a dose of mechanites into the ground and raise several golems.
+	<defName>WVC_MechanitesSwarmConnection</defName>
+	<label>swarm connection</label>
+	<description>Carriers of this gene have a strong psionic bond with a mechanite swarm in a nearby asteroid cluster.
 
 &lt;color=#ff8585&gt;Note:&lt;/color&gt; Golems are mechanoid-like creatures that also require a mechlink to control. Golem control requires 6 bandwidth, but it's free for owners of this gene.</description>
 	<iconPath>WVC/UI/Genes/Gestator</iconPath>
@@ -83,13 +83,17 @@
 	</customEffectDescriptions>
 	<statFactors>
 	  <Fertility>0</Fertility>
+	  <WVC_ForceTo_GolemsBandwidthCost>0</WVC_ForceTo_GolemsBandwidthCost>
 	</statFactors>
-	<!-- <abilities> -->
-	  <!-- <li>WVC_StartGestation</li> -->
-	<!-- </abilities> -->
-	<!-- <descriptionHyperlinks> -->
-	  <!-- <AbilityDef>WVC_StartGestation</AbilityDef> -->
-	<!-- </descriptionHyperlinks> -->
+	<abilities>
+	  <li>WVC_MechSummon_Golems</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_MechSummon_Golems</AbilityDef>
+	</descriptionHyperlinks>
+	<exclusionTags>
+	  <li>WVC_MechanitorNetwork</li>
+	</exclusionTags>
   </GeneDef>
 
   <GeneDef ParentName="WVC_GeneGestationAbilities_Base">
@@ -198,7 +202,7 @@
 		<!-- <onlyBrain>true</onlyBrain> -->
 	  </li>
 	</comps>
-	<confirmationDialogText>After activating the ability, the mechanoid will lose consciousness. When the gestation process is over, the mechanoid will die. The process cannot be interrupted.\n\nPlease note that if the overseer does not have the "Golem" gene, then a new pawn will not be born. If the mechanoid loses connection with the overseer during the process, it will immediately die.\n\nDo you still need a new pawn?</confirmationDialogText>
+	<confirmationDialogText>After activating the ability, the mechanoid will lose consciousness. When the gestation process is over, the mechanoid will die. The process cannot be interrupted.\n\nPlease note that if the overseer does not have the "Swarm connection" gene, then a new pawn will not be born. If the mechanoid loses connection with the overseer during the process, it will immediately die.\n\nDo you still need a new pawn?</confirmationDialogText>
   </AbilityDef>
 
   <!-- ============================================================================== -->

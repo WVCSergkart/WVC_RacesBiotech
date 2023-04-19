@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThingDef ParentName="LightMechanoid" Name="WVC_GolemsBase" Abstract="True">
+		<description>A piece of rock chunk, animated by mechanites swarm. Golems do not require recharge but require a lot of bandwidth to control.</description>
+		<statBases>
+			<!-- <ToxicResistance>1</ToxicResistance> -->
+			<!-- <PsychicSensitivity>1</PsychicSensitivity> -->
+			<!-- <Flammability>0</Flammability> -->
+			<!-- <MeatAmount>0</MeatAmount> -->
+			<!-- <LeatherAmount>0</LeatherAmount> -->
+			<!-- <ArmorRating_Heat>2.00</ArmorRating_Heat> -->
+			<MechEnergyLossPerHP>0.0</MechEnergyLossPerHP>
+			<WastepacksPerRecharge>0.0</WastepacksPerRecharge>
+			<BandwidthCost>0</BandwidthCost>
+			<!-- <BandwidthCost>6</BandwidthCost> -->
+			<ControlTakingTime MayRequire="Ludeon.Rimworld.Biotech">1</ControlTakingTime>
+			<MechEnergyUsageFactor>0.0</MechEnergyUsageFactor>
+			<!-- <ComfyTemperatureMin>-100</ComfyTemperatureMin> -->
+			<!-- <ComfyTemperatureMax>250</ComfyTemperatureMax> -->
+			<MarketValue>150</MarketValue>
+			<ArmorRating_Blunt>0.6</ArmorRating_Blunt>
+			<MoveSpeed>3.6</MoveSpeed>
+		</statBases>
+		<uiIconScale>1.5</uiIconScale>
+		<tools Inherit="False">
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>12</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+			</li>
+		</tools>
+		<race>
+			<!-- <mechEnabledWorkTypes> -->
+			  <!-- <li>Firefighter</li> -->
+			  <!-- <li>BasicWorker</li> -->
+			  <!-- <li>PlantCutting</li> -->
+			  <!-- <li>Crafting</li> -->
+			  <!-- <li>Cleaning</li> -->
+			  <!-- <li>Hauling</li> -->
+			<!-- </mechEnabledWorkTypes> -->
+			<body>Mech_Light</body>
+			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+			<lifeStageAges>
+				<li>
+					<def>MechanoidFullyFormed</def>
+					<minAge>0</minAge>
+					<soundWounded>Pawn_Mech_Constructoid_Wounded</soundWounded>
+					<soundDeath>Pawn_Mech_Constructoid_Death</soundDeath>
+					<soundCall>Pawn_Mech_Constructoid_Call</soundCall>
+				</li>
+			</lifeStageAges>
+		</race>
+		<butcherProducts Inherit="False">
+			<Steel>5</Steel>
+		</butcherProducts>
+		<comps>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="NonCombatLightMechanoidKind" Name="WVC_NonCombatGolemKind" Abstract="True">
+		<!-- <defName>WVC_Golem_Liftoid</defName> -->
+		<!-- <label>golem liftoid</label> -->
+		<!-- <race>WVC_Golem_Liftoid</race> -->
+		<allowInMechClusters>false</allowInMechClusters>
+		<minGenerationAge MayRequire="Ludeon.Rimworld.Biotech">0</minGenerationAge>
+		<alternateGraphicChance>1.0</alternateGraphicChance>
+		<isFighter>false</isFighter>
+		<alternateGraphics>
+			<li><color>(60,60,60)</color></li>
+			<li><color>(70,70,70)</color></li>
+			<li><color>(158,153,135)</color></li>
+			<li><color>(105,95,97)</color></li>
+			<li><color>(126,104,94)</color></li>
+			<li><color>(132,135,132)</color></li>
+		</alternateGraphics>
+		<abilities>
+			<li>WVC_MechanoidAbility_ActivateGestator</li>
+		</abilities>
+	</PawnKindDef>
+
+	<!-- =================================================================== -->
+
+	<ThingDef ParentName="WVC_GolemsBase">
+		<defName>WVC_Golem_Liftoid</defName>
+		<label>golem liftoid</label>
+		<statBases>
+			<MarketValue>150</MarketValue>
+			<ArmorRating_Blunt>0.6</ArmorRating_Blunt>
+			<MoveSpeed>3.2</MoveSpeed>
+		</statBases>
+		<race>
+			<mechEnabledWorkTypes>
+			  <!-- <li>Firefighter</li> -->
+			  <li>BasicWorker</li>
+			  <!-- <li>PlantCutting</li> -->
+			  <!-- <li>Crafting</li> -->
+			  <li>Cleaning</li>
+			  <li>Hauling</li>
+			</mechEnabledWorkTypes>
+		</race>
+	</ThingDef>
+	<PawnKindDef ParentName="WVC_NonCombatGolemKind">
+		<defName>WVC_Golem_Liftoid</defName>
+		<label>golem liftoid</label>
+		<race>WVC_Golem_Liftoid</race>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>WVC/Things/Mechanoids_Golems/GolemLifter</texPath>
+					<drawSize>2</drawSize>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+
+	<!-- ======================= -->
+
+	<ThingDef ParentName="WVC_GolemsBase">
+		<defName>WVC_Golem_Constructoid</defName>
+		<label>golem constructor</label>
+		<statBases>
+			<MarketValue>150</MarketValue>
+			<ArmorRating_Blunt>0.8</ArmorRating_Blunt>
+			<MoveSpeed>2.4</MoveSpeed>
+		</statBases>
+		<race>
+			<mechEnabledWorkTypes>
+			  <!-- <li>Firefighter</li> -->
+			  <!-- <li>BasicWorker</li> -->
+			  <!-- <li>PlantCutting</li> -->
+			  <li>Crafting</li>
+			  <li>Construction</li>
+			  <!-- <li>Cleaning</li> -->
+			  <!-- <li>Hauling</li> -->
+			</mechEnabledWorkTypes>
+		</race>
+	</ThingDef>
+	<PawnKindDef ParentName="WVC_NonCombatGolemKind">
+		<defName>WVC_Golem_Constructoid</defName>
+		<label>golem constructor</label>
+		<race>WVC_Golem_Constructoid</race>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>WVC/Things/Mechanoids_Golems/GolemConstructor</texPath>
+					<drawSize>2</drawSize>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+
+</Defs>

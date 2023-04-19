@@ -89,6 +89,8 @@
 		<li>WVC_SkinColor_c8b4ff_HEX</li>
 		<li>WVC_SkinColor_ffb4b4_HEX</li>
 		<li>WVC_BodySize_Small</li>
+		<li>WVC_NaturalMechlink</li>
+		<li>WVC_MechanitesSwarmConnection</li>
 	</genes>
   </XenotypeDef>
 

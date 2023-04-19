@@ -167,6 +167,18 @@
 	</comps>
   </AbilityDef>
 
+  <AbilityDef ParentName="WVC_SummonAbilities_Base">
+	<defName>WVC_MechSummon_Golems</defName>
+	<label>summon golems</label>
+	<comps>
+	  <li Class="WVC.CompProperties_Summon">
+		<compClass>WVC.CompAbilityEffect_Summon</compClass>
+		<quest>WVC_MechanitorSummonGolems</quest>
+		<spawnCountRange><min>1</min><max>5</max></spawnCountRange>
+	  </li>
+	</comps>
+  </AbilityDef>
+
   <!-- ============================================== -->
 
   <QuestScriptDef Name="WVC_SummonQuestScript_Base" Abstract="True">
@@ -221,6 +233,21 @@
 		<li>Mech_CentipedeBlaster</li>
 		<li>Mech_CentipedeBurner</li>
 		<li>Mech_CentipedeGunner</li>
+	  </mechTypes>
+	</root>
+  </QuestScriptDef>
+
+  <QuestScriptDef ParentName="WVC_SummonQuestScript_Base">
+	<defName>WVC_MechanitorSummonGolems</defName>
+	<root Class="WVC.QuestNode_Root_MechanitorSummonMech">
+	  <mechTypes>
+		<li>WVC_Golem_Liftoid</li>
+		<li>WVC_Golem_Constructoid</li>
+		<!-- <li>Mech_Militor</li> -->
+		<!-- <li>Mech_Fabricor</li> -->
+		<!-- <li>Mech_Agrihand</li> -->
+		<!-- <li>Mech_Cleansweeper</li> -->
+		<!-- <li>Mech_Paramedic</li> -->
 	  </mechTypes>
 	</root>
   </QuestScriptDef>
