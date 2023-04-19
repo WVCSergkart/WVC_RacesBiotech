@@ -96,6 +96,36 @@
 		</comps>
 	</HediffDef>
 
+	<HediffDef ParentName="WVC_Biotech_AbilityMechaGestator_Base">
+		<defName>WVC_MechanoidAbility_ActivateGestator</defName>
+		<label>gestation process</label>
+		<description>Mechanites slowly form semi-organic life.</description>
+		<stages Inherit="False">
+		  <li>
+			<capMods>
+			  <li>
+				<capacity>Consciousness</capacity>
+				<setMax>0.2</setMax>
+			  </li>
+			</capMods>
+		  </li>
+		</stages>
+		<comps>
+			<!-- <li Class="AnimalBehaviours.HediffCompProperties_AsexualReproduction"> -->
+				<!-- <reproductionIntervalDays>5</reproductionIntervalDays> -->
+				<!-- <endogeneTransfer>true</endogeneTransfer> -->
+				<!-- <asexualHatchedMessage>WVC_RB_Gene_MechaGestator</asexualHatchedMessage> -->
+			<!-- </li> -->
+			<li Class="WVC.HediffCompProperties_GolemGestator">
+				<gestationIntervalDays>5</gestationIntervalDays>
+				<endogeneTransfer>true</endogeneTransfer>
+				<geneDef>WVC_RuneSkin</geneDef>
+				<completeMessage>WVC_RB_Gene_GolemGestator</completeMessage>
+			</li>
+			<li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+	</HediffDef>
+
   <!-- Urchin -->
 
   <HediffDef>

@@ -375,6 +375,16 @@
 
 	<!-- =TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST= -->
 
+	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
+	  <!-- <xpath>/Defs/ThingDef[defName="Mech_Constructoid"]</xpath> -->
+	  <!-- <safetyDepth>1</safetyDepth> -->
+	  <!-- <value> -->
+		  <!-- <abilities> -->
+			<!-- <li>WVC_MechanoidAbility_ActivateGestator</li> -->
+		  <!-- </abilities> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
 	<Operation Class="XmlExtensions.FindMod">
 		<mods>
 			<li>wvc.wvcmod.wvcspecific</li>

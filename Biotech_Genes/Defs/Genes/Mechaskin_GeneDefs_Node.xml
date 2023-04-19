@@ -28,6 +28,9 @@ Most of the internal organs were not affected, but there are too many external c
 	  <useSkinShader>false</useSkinShader>
 	  <drawIfFaceCovered>true</drawIfFaceCovered>
 	</graphicData>
+	<exclusionTags>
+	  <li>WVC_NodeBody</li>
+	</exclusionTags>
 	<beardTagFilter>
 	  <whitelist>true</whitelist>
 	  <tags>

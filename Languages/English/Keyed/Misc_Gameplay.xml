@@ -3,6 +3,8 @@
 
 	<WVC_RB_Gene_MechaGestator>{0} has gestated new pawn.</WVC_RB_Gene_MechaGestator>
 
+	<WVC_RB_Gene_GolemGestator>{0}'s mechanoid has finished the gestation process.</WVC_RB_Gene_GolemGestator>
+
 	<!-- <WVC_RB_Gene_MechaGestator_PawnReady>{0} pawn ready for gestation.</WVC_RB_Gene_MechaGestator_PawnReady> -->
 	<!-- <WVC_RB_Gene_MechaGestator_PawnNotReady>The gestator is still charging.</WVC_RB_Gene_MechaGestator_PawnNotReady> -->
 	

@@ -116,6 +116,28 @@
 		<!-- </caseTrue> -->
 	<!-- </Operation> -->
 
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/PawnKindDef[defName="Mech_Constructoid"]</xpath> -->
+	  <!-- <value> -->
+		  <!-- <abilities> -->
+			<!-- <li>WVC_MechanoidAbility_ActivateGestator</li> -->
+		  <!-- </abilities> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/ThinkTreeDef[defName="Mechanoid" or defName="RM_Mechanoid_Caretaker" or defName="RM_Mechanoid_Sentinel"]/thinkRoot/subNodes</xpath> -->
+	  <!-- <order>Prepend</order> -->
+	  <!-- <value> -->
+		  <!-- <li Class="WVC.ThinkNode_ConditionalPawnHasHediff" MayRequire="Ludeon.RimWorld.Biotech"> -->
+			<!-- <hediffDef>WVC_MechanoidAbility_ActivateGestator</hediffDef> -->
+			<!-- <subNodes> -->
+			  <!-- <li Class="JobGiver_WanderOverseer" /> -->
+			<!-- </subNodes> -->
+		  <!-- </li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
 	<Operation Class="PatchOperationAdd">
 	  <xpath>/Defs/StatDef[defName="ComfyTemperatureMin"]/parts</xpath>
 	  <success>Always</success>

@@ -41,7 +41,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <li>Skin</li>
 	  <li>Fur</li>
 	  <!-- <li>BeardStyle</li> -->
-	  <li>WVC_NodeBody</li>
+	  <!-- <li>WVC_NodeBody</li> -->
 	</exclusionTags>
 	<statOffsets>
 	  <!-- <ComfyTemperatureMax>250</ComfyTemperatureMax> -->
