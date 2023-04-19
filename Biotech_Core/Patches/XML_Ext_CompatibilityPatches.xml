@@ -416,35 +416,35 @@
 			  <!-- </value> -->
 			<!-- </Operation> -->
 
-			<Operation Class="PatchOperationAdd">
-			  <xpath>/Defs/HediffGiverSetDef[defName="Human"]/hediffGivers</xpath>
-			  <value>
-				  <li Class="WVC.HediffGiver_RandomByGene">
-					<geneDef>WVC_NodeSkin_Blue</geneDef>
-					<hediff>MechlinkImplant</hediff>
-					<mtbDays>30</mtbDays>
-					<partsToAffect>
-					  <li>Brain</li>
-					</partsToAffect>
-				  </li>
-				  <li Class="WVC.HediffGiver_RandomByGene">
-					<geneDef>WVC_NodeSkin_AltBlue</geneDef>
-					<hediff>MechlinkImplant</hediff>
-					<mtbDays>30</mtbDays>
-					<partsToAffect>
-					  <li>Brain</li>
-					</partsToAffect>
-				  </li>
-				  <li MayRequireAnyOf="ludeon.rimworld.royalty" Class="WVC.HediffGiver_RandomByGene">
-					<geneDef>WVC_NodeSkin_Yellow</geneDef>
-					<hediff>PsychicAmplifier</hediff>
-					<mtbDays>30</mtbDays>
-					<partsToAffect>
-					  <li>Brain</li>
-					</partsToAffect>
-				  </li>
-			  </value>
-			</Operation>
+			<!-- <Operation Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/HediffGiverSetDef[defName="Human"]/hediffGivers</xpath> -->
+			  <!-- <value> -->
+				  <!-- <li Class="WVC.HediffGiver_RandomByGene"> -->
+					<!-- <geneDef>WVC_NodeSkin_Blue</geneDef> -->
+					<!-- <hediff>MechlinkImplant</hediff> -->
+					<!-- <mtbDays>30</mtbDays> -->
+					<!-- <partsToAffect> -->
+					  <!-- <li>Brain</li> -->
+					<!-- </partsToAffect> -->
+				  <!-- </li> -->
+				  <!-- <li Class="WVC.HediffGiver_RandomByGene"> -->
+					<!-- <geneDef>WVC_NodeSkin_AltBlue</geneDef> -->
+					<!-- <hediff>MechlinkImplant</hediff> -->
+					<!-- <mtbDays>30</mtbDays> -->
+					<!-- <partsToAffect> -->
+					  <!-- <li>Brain</li> -->
+					<!-- </partsToAffect> -->
+				  <!-- </li> -->
+				  <!-- <li MayRequireAnyOf="ludeon.rimworld.royalty" Class="WVC.HediffGiver_RandomByGene"> -->
+					<!-- <geneDef>WVC_NodeSkin_Yellow</geneDef> -->
+					<!-- <hediff>PsychicAmplifier</hediff> -->
+					<!-- <mtbDays>30</mtbDays> -->
+					<!-- <partsToAffect> -->
+					  <!-- <li>Brain</li> -->
+					<!-- </partsToAffect> -->
+				  <!-- </li> -->
+			  <!-- </value> -->
+			<!-- </Operation> -->
 
 			<Operation Class="PatchOperationReplace">
 				<xpath>/Defs/GeneDef[defName="WVC_MecaUpgrades_PerfectShape"]/statOffsets/PawnBeauty</xpath>

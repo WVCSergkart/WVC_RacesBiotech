@@ -91,6 +91,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<!-- <biostatMet>-16</biostatMet> -->
 	<displayOrderInCategory>-100</displayOrderInCategory>
 	<iconColor>(184, 198, 203)</iconColor>
+	<geneClass>WVC.Gene_MechaskinHunger</geneClass>
 	<forcedHeadTypes>
 	  <li>WVC_Female_AveragePointy</li>
 	  <li>WVC_Female_AverageNormal</li>
@@ -101,9 +102,10 @@ Most of the internal organs remain intact, but there are enough external changes
 	<!-- <statFactors> -->
 	  <!-- <MentalBreakThreshold>0.8</MentalBreakThreshold> -->
 	<!-- </statFactors> -->
-	<!-- <customEffectDescriptions> -->
+	<customEffectDescriptions>
 		<!-- <li>&lt;color=#ff8585&gt;Global learning factor is always 40%&lt;/color&gt;</li> -->
-	<!-- </customEffectDescriptions> -->
+		<li>In the absence of a power source, from time to time increases hunger by 5 times.</li>
+	</customEffectDescriptions>
 	<!-- <statOffsets> -->
 	<!-- </statOffsets> -->
 	<!-- <conditionalStatAffecters> -->

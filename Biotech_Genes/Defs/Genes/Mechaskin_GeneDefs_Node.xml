@@ -70,13 +70,14 @@ Most of the internal organs were not affected, but there are too many external c
   <GeneDef ParentName="WVC_NodeBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeSkin_Blue</defName>
 	<label>nodeskin SX</label>
-	<!-- <geneClass>WVC.Gene_HediffGiver</geneClass> -->
+	<geneClass>WVC.Gene_RandomHediffFromTime</geneClass>
 	<biostatMet>-4</biostatMet>
 	<iconPath>WVC/UI/Genes/HeadBlue_south</iconPath>
 	<forcedHeadTypes>
 	  <li>WVC_NodeSkin_Blue</li>
 	</forcedHeadTypes>
 	<customEffectDescriptions>
+		<li>A carrier of this gene has a small chance of getting a mechlink permanently.</li>
 	</customEffectDescriptions>
 	<graphicData>
 	  <graphicPath>WVC/NodeGene_Head/HeadBlue</graphicPath>
@@ -94,14 +95,14 @@ Most of the internal organs were not affected, but there are too many external c
 		<degree>-2</degree>
 	  </li>
 	</suppressedTraits>
-	<!-- <modExtensions> -->
-		<!-- <li Class="WVC.GeneExtension_HediffGiver"> -->
-			<!-- <hediffDef>MechlinkImplant</hediffDef> -->
-			<!-- <bodyPartToAdd> -->
-			  <!-- <li>Brain</li> -->
-			<!-- </bodyPartToAdd> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
+	<modExtensions>
+		<li Class="WVC.GeneExtension_HediffGiver">
+			<hediffDefName>MechlinkImplant</hediffDefName>
+			<bodyparts>
+			  <li>Brain</li>
+			</bodyparts>
+		</li>
+	</modExtensions>
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch">
@@ -202,13 +203,14 @@ Most of the internal organs were not affected, but there are too many external c
   <GeneDef ParentName="WVC_NodeBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeSkin_Yellow</defName>
 	<label>nodeskin WR</label>
-	<!-- <geneClass>WVC.Gene_HediffGiver</geneClass> -->
+	<geneClass>WVC.Gene_RandomHediffFromTime</geneClass>
 	<biostatMet>-5</biostatMet>
 	<iconPath>WVC/UI/Genes/HeadYellow_south</iconPath>
 	<forcedHeadTypes>
 	  <li>WVC_NodeSkin_Yellow</li>
 	</forcedHeadTypes>
 	<customEffectDescriptions>
+		<li>A carrier of this gene has a small chance of getting a psylink permanently.</li>
 	</customEffectDescriptions>
 	<graphicData>
 	  <graphicPath>WVC/NodeGene_Head/HeadYellow</graphicPath>
@@ -237,27 +239,27 @@ Most of the internal organs were not affected, but there are too many external c
 		<degree>2</degree>
 	  </li>
 	</suppressedTraits>
-	<!-- <modExtensions> -->
-		<!-- <li Class="WVC.GeneExtension_HediffGiver"> -->
-			<!-- <hediffDef>PsychicAmplifier</hediffDef> -->
-			<!-- <bodyPartToAdd> -->
-			  <!-- <li>Brain</li> -->
-			<!-- </bodyPartToAdd> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
+	<modExtensions>
+		<li Class="WVC.GeneExtension_HediffGiver">
+			<hediffDefName>PsychicAmplifier</hediffDefName>
+			<bodyparts>
+			  <li>Brain</li>
+			</bodyparts>
+		</li>
+	</modExtensions>
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeSkin_AltBlue</defName>
 	<label>nodeskin VX</label>
-	<!-- <geneClass>WVC.Gene_HediffGiver</geneClass> -->
+	<geneClass>WVC.Gene_RandomHediffFromTime</geneClass>
 	<biostatMet>-3</biostatMet>
 	<iconPath>WVC/UI/Genes/HeadAltBlue_south</iconPath>
 	<forcedHeadTypes>
 	  <li>WVC_NodeSkin_AltBlue</li>
 	</forcedHeadTypes>
 	<customEffectDescriptions>
-		<!-- <li>Mech bandwidth is always 2</li> -->
+		<li>A carrier of this gene has a small chance of getting a mechlink permanently.</li>
 	</customEffectDescriptions>
 	<graphicData>
 	  <graphicPath>WVC/NodeGene_Head/HeadAltBlue</graphicPath>
@@ -281,14 +283,14 @@ Most of the internal organs were not affected, but there are too many external c
 		</statOffsets>
 	  </li>
 	</conditionalStatAffecters>
-	<!-- <modExtensions> -->
-		<!-- <li Class="WVC.GeneExtension_HediffGiver"> -->
-			<!-- <hediffDef>MechlinkImplant</hediffDef> -->
-			<!-- <bodyPartToAdd> -->
-			  <!-- <li>Brain</li> -->
-			<!-- </bodyPartToAdd> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
+	<modExtensions>
+		<li Class="WVC.GeneExtension_HediffGiver">
+			<hediffDefName>MechlinkImplant</hediffDefName>
+			<bodyparts>
+			  <li>Brain</li>
+			</bodyparts>
+		</li>
+	</modExtensions>
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch">
