@@ -12,17 +12,17 @@
 	<initialResistanceRange>10~80</initialResistanceRange>
 	<initialWillRange>5~15</initialWillRange>
 	<maxGenerationAge>23</maxGenerationAge>
-	<backstoryFiltersOverride>
-	  <li>
-		<categories>
-		  <li>ImperialRoyal</li>
-		  <li>ImperialFighter</li>
-		  <li>Offworld</li>
-		  <li>Scientist</li>
-		  <li>InsectsRelated</li>
-		</categories>
-	  </li>
-	</backstoryFiltersOverride>
+	<!-- <backstoryFiltersOverride> -->
+	  <!-- <li> -->
+		<!-- <categories> -->
+		  <!-- <li>ImperialRoyal</li> -->
+		  <!-- <li>ImperialFighter</li> -->
+		  <!-- <li>Offworld</li> -->
+		  <!-- <li>Scientist</li> -->
+		  <!-- <li>InsectsRelated</li> -->
+		<!-- </categories> -->
+	  <!-- </li> -->
+	<!-- </backstoryFiltersOverride> -->
 	<apparelRequired>
 	  <!-- <li>Apparel_HatHood</li> -->
 	  <!-- <li>Apparel_Duster</li> -->
@@ -32,6 +32,8 @@
 	<requiredWorkTags>
 	  <li>Intellectual</li>
 	  <li>Crafting</li>
+	  <li>Violent</li>
+	  <!-- <li>AllWork</li> -->
 	</requiredWorkTags>
 	<disallowedTraits>
 	  <li>BodyPurist</li>
@@ -41,7 +43,7 @@
   <!-- ================================================ -->
 
   <PawnKindDef ParentName="WVC_RB_XenoBase">
-	<label>meca</label>
+	<label>mechalike</label>
 	<defName>WVC_Meca_Player</defName>
 	<weaponMoney>0</weaponMoney>
 	<apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
@@ -52,7 +54,11 @@
 	<!-- <favoriteColor>(245,245,245)</favoriteColor> -->
 	<xenotypeSet>
 	  <xenotypeChances>
-		<WVC_Meca>999</WVC_Meca>
+		<!-- Meca -->
+		<WVC_Meca>0.35</WVC_Meca>
+		<WVC_GeneThrower>0.15</WVC_GeneThrower>
+		<!-- Former -->
+		<WVC_RogueFormer>0.5</WVC_RogueFormer>
 	  </xenotypeChances>
 	</xenotypeSet>
 	<apparelTags>
@@ -78,23 +84,59 @@
 	</apparelTags>
   </PawnKindDef>
 
+  <!-- <PawnKindDef ParentName="WVC_RB_XenoBase"> -->
+	<!-- <label>former</label> -->
+	<!-- <defName>WVC_RogueFormer_Player</defName> -->
+	<!-- <weaponMoney>0</weaponMoney> -->
+	<!-- <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance> -->
+	<!-- <apparelColor>(58,58,58)</apparelColor> -->
+	<!-- <defaultFactionType>PlayerColony</defaultFactionType> -->
+	<!-- <apparelMoney>80~120</apparelMoney> -->
+	<!-- <xenotypeSet> -->
+	  <!-- <xenotypeChances> -->
+		<!-- <WVC_RogueFormer>999</WVC_RogueFormer> -->
+	  <!-- </xenotypeChances> -->
+	<!-- </xenotypeSet> -->
+	<!-- <apparelTags> -->
+	  <!-- <li>IndustrialBasic</li> -->
+	<!-- </apparelTags> -->
+  <!-- </PawnKindDef> -->
+
   <PawnKindDef ParentName="WVC_RB_XenoBase">
-	<label>former</label>
-	<defName>WVC_RogueFormer_Player</defName>
+	<defName>WVC_RuneDryad_Player</defName>
+	<label>rune dryad</label>
 	<weaponMoney>0</weaponMoney>
+	<backstoryCryptosleepCommonality>0.02</backstoryCryptosleepCommonality>
 	<apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
 	<apparelColor>(58,58,58)</apparelColor>
-	<defaultFactionType>PlayerColony</defaultFactionType>
+	<defaultFactionType>PlayerTribe</defaultFactionType>
 	<apparelMoney>80~120</apparelMoney>
-	<!-- <favoriteColor>(79,80,81)</favoriteColor> -->
 	<xenotypeSet>
 	  <xenotypeChances>
-		<WVC_RogueFormer>999</WVC_RogueFormer>
+		<WVC_RuneDryad>999</WVC_RuneDryad>
 	  </xenotypeChances>
 	</xenotypeSet>
 	<apparelTags>
-	  <li>IndustrialBasic</li>
+	  <li>Neolithic</li>
 	</apparelTags>
   </PawnKindDef>
+
+  <!-- <PawnKindDef ParentName="WVC_RB_XenoBase"> -->
+	<!-- <defName>WVC_GeneThrower_Player</defName> -->
+	<!-- <label>gene thrower</label> -->
+	<!-- <weaponMoney>0</weaponMoney> -->
+	<!-- <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance> -->
+	<!-- <apparelColor>(58,58,58)</apparelColor> -->
+	<!-- <defaultFactionType>PlayerColony</defaultFactionType> -->
+	<!-- <apparelMoney>80~120</apparelMoney> -->
+	<!-- <xenotypeSet> -->
+	  <!-- <xenotypeChances> -->
+		<!-- <WVC_GeneThrower>999</WVC_GeneThrower> -->
+	  <!-- </xenotypeChances> -->
+	<!-- </xenotypeSet> -->
+	<!-- <apparelTags> -->
+	  <!-- <li>IndustrialBasic</li> -->
+	<!-- </apparelTags> -->
+  <!-- </PawnKindDef> -->
 
 </Defs>

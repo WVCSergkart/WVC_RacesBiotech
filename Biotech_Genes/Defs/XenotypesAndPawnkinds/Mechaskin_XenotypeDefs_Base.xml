@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <!-- For fun -->
+  <!-- General -->
   <XenotypeDef Name="WVC_RB_Xenotypes_Base" Abstract="True">
 	<!-- <defName>WVC_Pearler</defName> -->
 	<!-- <label>pearler</label> -->
+	<!-- Temporary description -->
 	<description>An unknown xenotype sometimes found in the vastness of the rimworld.</description>
 	<descriptionShort>An unknown xenotype sometimes found in the vastness of the rimworld.</descriptionShort>
 	<iconPath>UI/Icons/Xenotypes/Custom/CustomXenotypeIcon9</iconPath>

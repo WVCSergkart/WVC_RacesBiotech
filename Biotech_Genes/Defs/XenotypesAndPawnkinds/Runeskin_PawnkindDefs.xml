@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- runeex -->
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base">
+	<defName>WVC_RuneDryad</defName>
+	<label>runeex</label>
+	<iconPath>WVC/UI/Xeno2Icons/Xeno14</iconPath>
+	<inheritable>true</inheritable>
+	<genes>
+		<!-- Beta -->
+		<li>Ageless</li>
+		<li>ArchiteMetabolism</li>
+		<li>WVC_MechanitesSwarmConnection</li>
+		<li>WVC_NaturalMechlink</li>
+		<li>Immunity_SuperStrong</li>
+		<li>WoundHealing_Fast</li>
+		<li>PsychicAbility_Extreme</li>
+		<li>MoveSpeed_Slow</li>
+		<li>NakedSpeed</li>
+		<li>MinTemp_LargeDecrease</li>
+		<li>MaxTemp_LargeIncrease</li>
+		<li>ToxicEnvironmentResistance_Total</li>
+		<li>FireResistant</li>
+		<li>MeleeDamage_Weak</li>
+		<li>WVC_UnClothedArmor</li>
+		<li>Sleepy</li>
+		<li>WVC_FemaleOnly</li>
+		<li>WVC_Orientation_Bisexual</li>
+		<li>Beauty_Beautiful</li>
+		<li>WVC_VoiceDryadBarkskin</li>
+		<li>Body_Standard</li>
+		<li>Hair_DarkBlack</li>
+		<li>WVC_SkinColor_b4c8ff_HEX</li>
+		<li>WVC_SkinColor_ffdcb4_HEX</li>
+		<li>WVC_SkinColor_c8b4ff_HEX</li>
+		<li>WVC_SkinColor_ffb4b4_HEX</li>
+		<li>StrongStomach</li>
+		<li>RobustDigestion</li>
+		<li>WVC_BodySize_Small</li>
+		<li>WVC_RuneSkin</li>
+		<li>WVC_AptitudeImpossible_Shooting</li>
+		<li>WVC_AptitudeImpossible_Melee</li>
+		<li>AptitudeRemarkable_Crafting</li>
+	</genes>
+  </XenotypeDef>
+
+</Defs>
