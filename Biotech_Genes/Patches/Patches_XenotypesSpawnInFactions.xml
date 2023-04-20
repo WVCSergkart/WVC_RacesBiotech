@@ -46,6 +46,34 @@
 	  </value>
 	</Operation>
 
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/PawnKindDef[defName="WildMan"]/xenotypeSet/xenotypeChances</xpath>
+			  <success>Invert</success>
+			  <value>
+				<WVC_Blank>0.2</WVC_Blank>
+			  </value>
+			</li>
+			<li Class="PatchOperationTest">
+			  <xpath>/Defs/PawnKindDef[defName="WildMan"]/xenotypeSet</xpath>
+			  <success>Invert</success>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/PawnKindDef[defName="WildMan"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<xenotypeSet>
+				  <xenotypeChances>
+					<WVC_Blank>0.2</WVC_Blank>
+				  </xenotypeChances>
+				</xenotypeSet>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
 	<!-- <Operation Class="PatchOperationAdd"> -->
 	  <!-- <xpath>/Defs/FactionDef[techLevel="Industrial" or techLevel="Spacer" or techLevel="Ultra" or techLevel="Archotech"]/xenotypeSet/xenotypeChances</xpath> -->
 	  <!-- <value> -->

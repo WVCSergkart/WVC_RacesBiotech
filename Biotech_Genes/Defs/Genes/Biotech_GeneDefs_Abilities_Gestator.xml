@@ -76,7 +76,7 @@
 	<description>Carriers of this gene have a strong psionic bond with a mechanite swarm in a nearby asteroid cluster.
 
 &lt;color=#ff8585&gt;Note:&lt;/color&gt; Golems are mechanoid-like creatures that also require a mechlink to control. Golem control requires 6 bandwidth, but it's free for owners of this gene.</description>
-	<iconPath>WVC/UI/Genes/Gestator</iconPath>
+	<iconPath>WVC/UI/Genes/SwarmConnection</iconPath>
 	<sterilize>true</sterilize>
 	<customEffectDescriptions>
 		<li>A pawn can only reproduce with the help of golems.</li>
@@ -85,7 +85,7 @@
 	  <WVC_BandwidthCostOffsetMech>2</WVC_BandwidthCostOffsetMech>
 	</statOffsets>
 	<statFactors>
-	  <Fertility>0</Fertility>
+	  <!-- <Fertility>0</Fertility> -->
 	  <WVC_ForceTo_GolemsBandwidthCost>0</WVC_ForceTo_GolemsBandwidthCost>
 	</statFactors>
 	<abilities>
@@ -94,7 +94,7 @@
 	<descriptionHyperlinks>
 	  <AbilityDef>WVC_MechSummon_Golems</AbilityDef>
 	</descriptionHyperlinks>
-	<exclusionTags>
+	<exclusionTags Inherit="False">
 	  <li>WVC_MechanitorNetwork</li>
 	</exclusionTags>
   </GeneDef>
