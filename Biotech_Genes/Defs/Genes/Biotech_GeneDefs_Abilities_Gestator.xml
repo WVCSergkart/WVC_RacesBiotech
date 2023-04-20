@@ -71,35 +71,6 @@
   </GeneDef>
 
   <GeneDef ParentName="WVC_GeneGestationAbilities_Base">
-	<defName>WVC_MechanitesSwarmConnection</defName>
-	<label>swarm connection</label>
-	<description>Carriers of this gene have a strong psionic bond with a mechanite swarm in a nearby asteroid cluster.
-
-&lt;color=#ff8585&gt;Note:&lt;/color&gt; Golems are mechanoid-like creatures that also require a mechlink to control. Golem control requires 6 bandwidth, but it's free for owners of this gene.</description>
-	<iconPath>WVC/UI/Genes/SwarmConnection</iconPath>
-	<sterilize>true</sterilize>
-	<customEffectDescriptions>
-		<li>A pawn can only reproduce with the help of golems.</li>
-	</customEffectDescriptions>
-	<statOffsets>
-	  <WVC_BandwidthCostOffsetMech>2</WVC_BandwidthCostOffsetMech>
-	</statOffsets>
-	<statFactors>
-	  <!-- <Fertility>0</Fertility> -->
-	  <WVC_ForceTo_GolemsBandwidthCost>0</WVC_ForceTo_GolemsBandwidthCost>
-	</statFactors>
-	<abilities>
-	  <li>WVC_MechSummon_Golems</li>
-	</abilities>
-	<descriptionHyperlinks>
-	  <AbilityDef>WVC_MechSummon_Golems</AbilityDef>
-	</descriptionHyperlinks>
-	<exclusionTags Inherit="False">
-	  <li>WVC_MechanitorNetwork</li>
-	</exclusionTags>
-  </GeneDef>
-
-  <GeneDef ParentName="WVC_GeneGestationAbilities_Base">
 	<defName>WVC_StartUrchinGestation</defName>
 	<label>urchin gestator</label>
 	<iconPath>Things/Pawn/Mechanoid/WarUrchin_south</iconPath>

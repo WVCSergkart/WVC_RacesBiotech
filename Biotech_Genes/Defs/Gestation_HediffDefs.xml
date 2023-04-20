@@ -27,7 +27,7 @@
 
 	<HediffDef Name="WVC_Biotech_AbilityMechaGestator_Base" Abstract="True">
 		<label>gestation process</label>
-		<description>Archites slowly form semi-organic life.</description>
+		<description>Archites slowly form new life.</description>
 		<hediffClass>HediffWithComps</hediffClass>
 		<defaultLabelColor>(255,255,255)</defaultLabelColor>
 		<everCurableByItem>false</everCurableByItem>
@@ -68,7 +68,7 @@
 	<HediffDef ParentName="WVC_Biotech_AbilityMechaGestator_Base">
 		<defName>WVC_RB_AbilityMechaGestator</defName>
 		<label>gestation process</label>
-		<description>Archites slowly form semi-organic life.</description>
+		<description>Archites slowly form new life.</description>
 		<comps>
 			<!-- <li Class="AnimalBehaviours.HediffCompProperties_AsexualReproduction"> -->
 				<!-- <reproductionIntervalDays>5</reproductionIntervalDays> -->
@@ -99,7 +99,7 @@
 	<HediffDef ParentName="WVC_Biotech_AbilityMechaGestator_Base">
 		<defName>WVC_MechanoidAbility_ActivateGestator</defName>
 		<label>gestation process</label>
-		<description>Mechanites slowly form semi-organic life.</description>
+		<description>Mechanites slowly form new life.</description>
 		<stages Inherit="False">
 		  <li>
 			<capMods>
@@ -119,7 +119,7 @@
 			<li Class="WVC.HediffCompProperties_GolemGestator">
 				<gestationIntervalDays>5</gestationIntervalDays>
 				<endogeneTransfer>true</endogeneTransfer>
-				<geneDef>WVC_RuneSkin</geneDef>
+				<geneDef>WVC_SwarmConnection_Golems</geneDef>
 				<completeMessage>WVC_RB_Gene_GolemGestator</completeMessage>
 			</li>
 			<li Class="HediffCompProperties_DisappearsOnDeath"/>

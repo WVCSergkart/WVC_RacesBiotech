@@ -233,6 +233,17 @@
 		  <!-- </li> -->
 	  <!-- </value> -->
 	<!-- </Operation> -->
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/StatDef[defName="WorkSpeedGlobal"]/parts</xpath>
+	  <value>
+		  <li Class="WVC.StatPart_GolemsBandwidthCost" MayRequire="Ludeon.RimWorld.Biotech">
+			<!-- Full name is not required -->
+			<!-- Only need a pawnkind tag as code are not looking for a specific defName -->
+			<pawnKindDef>WVC_Golem</pawnKindDef>
+			<stat>PsychicSensitivity</stat>
+		  </li>
+	  </value>
+	</Operation>
 
 	<Operation Class="PatchOperationSequence">
 		<success>Always</success>

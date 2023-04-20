@@ -48,8 +48,9 @@
   <GeneDef ParentName="WVC_RuneBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_RuneSkin</defName>
 	<label>runeskin</label>
+	<description>The body of carriers of this gene is covered with birthmarks resembling scars, these spots are hard to the touch and a bit like a stone.</description>
 	<biostatCpx>2</biostatCpx>
-	<biostatMet>-2</biostatMet>
+	<biostatMet>-1</biostatMet>
 	<displayCategory>Miscellaneous</displayCategory>
 	<displayOrderInCategory>400</displayOrderInCategory>
 	<iconColor>(0.75, 0.75, 0.75)</iconColor>
@@ -59,17 +60,10 @@
 	</forcedHeadTypes>
 	<statOffsets>
 	  <ArmorRating_Blunt>0.22</ArmorRating_Blunt>
-	  <PsychicSensitivity>0.2</PsychicSensitivity>
 	</statOffsets>
 	<!-- <statFactors> -->
 	  <!-- <Flammability>0.5</Flammability> -->
 	<!-- </statFactors> -->
-	<suppressedTraits>
-	  <li>
-		<def>PsychicSensitivity</def>
-		<degree>-2</degree>
-	  </li>
-	</suppressedTraits>
 	<graphicData>
 	  <fur>WVC_RuneSkin</fur>
 	  <tattoosVisible>true</tattoosVisible>

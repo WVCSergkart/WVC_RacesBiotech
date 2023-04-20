@@ -40,6 +40,16 @@
 		<statOffsets>
 		  <MoveSpeed>0.1</MoveSpeed>
 		</statOffsets>
+		<symbolPack>
+		  <prefixSymbols>
+			<li><symbol>chibi</symbol></li>
+			<li><symbol>small</symbol></li>
+		  </prefixSymbols>
+		  <suffixSymbols>
+			<li><symbol>chibi</symbol></li>
+			<li><symbol>small</symbol></li>
+		  </suffixSymbols>
+		</symbolPack>
 		<modExtensions>
 			<li Class="VanillaGenesExpanded.GeneExtension">
 				<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
@@ -91,6 +101,16 @@
 		<statOffsets>
 		  <MoveSpeed>-0.1</MoveSpeed>
 		</statOffsets>
+		<symbolPack>
+		  <prefixSymbols>
+			<li><symbol>giant</symbol></li>
+			<li><symbol>big</symbol></li>
+		  </prefixSymbols>
+		  <suffixSymbols>
+			<li><symbol>giant</symbol></li>
+			<li><symbol>big</symbol></li>
+		  </suffixSymbols>
+		</symbolPack>
 		<modExtensions>
 			<li Class="VanillaGenesExpanded.GeneExtension">
 				<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>

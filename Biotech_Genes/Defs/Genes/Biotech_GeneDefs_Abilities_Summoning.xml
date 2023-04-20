@@ -13,15 +13,27 @@
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
 	<!-- <selectionWeight>0.075</selectionWeight> -->
-	<customEffectDescriptions>
-		<li>Recommended to be combined with the "Fleet connected" gene.</li>
-	</customEffectDescriptions>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Recommended to be combined with the "Fleet connected" gene.</li> -->
+	<!-- </customEffectDescriptions> -->
 	<!-- <abilities> -->
 	  <!-- <li>WVC_Summoner_TEST</li> -->
 	<!-- </abilities> -->
 	<!-- <descriptionHyperlinks> -->
 	  <!-- <AbilityDef>WVC_Summoner_TEST</AbilityDef> -->
 	<!-- </descriptionHyperlinks> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_MechSummonGenes</li> -->
+	<!-- </exclusionTags> -->
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>over</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>seer</symbol></li>
+		<li><symbol>lord</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
   </GeneDef>
 
   <!-- ============================================== -->
@@ -82,6 +94,45 @@
 	<descriptionHyperlinks>
 	  <AbilityDef>WVC_MechSummon_Heavy</AbilityDef>
 	</descriptionHyperlinks>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_MechanoidizationAbilities_MechSummoning">
+	<defName>WVC_SwarmConnection_Golems</defName>
+	<label>swarm connection</label>
+	<description>Carriers of this gene have a strong psionic bond with a mechanite swarm in a nearby asteroid cluster.
+
+&lt;color=#ff8585&gt;Note:&lt;/color&gt; Golems are mechanoid-like creatures that also require a mechlink to control. Golem control requires 6 bandwidth, but it's free for owners of this gene.</description>
+	<iconPath>WVC/UI/Genes/SwarmConnection</iconPath>
+	<biostatArc>2</biostatArc>
+	<!-- <sterilize>true</sterilize> -->
+	<customEffectDescriptions>
+		<li>After activating the ability, summons from 1 to 5 golems.</li>
+		<li>&lt;color=#c0dc86&gt;Global work speed&lt;/color&gt; of the golems depends on the &lt;color=#c0dc86&gt;psychic sensitivity&lt;/color&gt; of the overseer.</li>
+		<li>A overseer can reproduce with the help of golems.</li>
+	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_BandwidthCostOffsetMech>2</WVC_BandwidthCostOffsetMech>
+	  <!-- <PsychicSensitivity>0.2</PsychicSensitivity> -->
+	</statOffsets>
+	<statFactors>
+	  <!-- <Fertility>0</Fertility> -->
+	  <WVC_ForceTo_GolemsBandwidthCost>0</WVC_ForceTo_GolemsBandwidthCost>
+	</statFactors>
+	<suppressedTraits>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-2</degree>
+	  </li>
+	</suppressedTraits>
+	<abilities>
+	  <li>WVC_MechSummon_Golems</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_MechSummon_Golems</AbilityDef>
+	</descriptionHyperlinks>
+	<exclusionTags>
+	  <li>WVC_MechanitorNetwork</li>
+	</exclusionTags>
   </GeneDef>
 
   <!-- ============================================================================================ -->

@@ -38,4 +38,19 @@
 	</comps>
   </HediffDef>
 
+  <HediffDef>
+	<defName>WVC_SleepyStomach_HungerFactor</defName>
+	<label>sleepy stomach</label>
+	<description>Should be invisible.</description>
+	<scenarioCanAdd>false</scenarioCanAdd>
+	<isBad>false</isBad>
+	<stages>
+	  <li>
+		<hungerRateFactor>0.2</hungerRateFactor>
+		<becomeVisible>false</becomeVisible>
+		<minSeverity>0.0</minSeverity>
+	  </li>
+	</stages>
+  </HediffDef>
+
 </Defs>
