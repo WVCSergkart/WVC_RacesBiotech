@@ -12,6 +12,7 @@
 	<initialResistanceRange>10~80</initialResistanceRange>
 	<initialWillRange>5~15</initialWillRange>
 	<maxGenerationAge>23</maxGenerationAge>
+	<apparelIgnorePollution MayRequire="Ludeon.RimWorld.Biotech">true</apparelIgnorePollution>
 	<!-- <backstoryFiltersOverride> -->
 	  <!-- <li> -->
 		<!-- <categories> -->
@@ -23,12 +24,10 @@
 		<!-- </categories> -->
 	  <!-- </li> -->
 	<!-- </backstoryFiltersOverride> -->
-	<apparelRequired>
-	  <!-- <li>Apparel_HatHood</li> -->
-	  <!-- <li>Apparel_Duster</li> -->
-	  <li>Apparel_CollarShirt</li>
-	  <li>Apparel_Pants</li>
-	</apparelRequired>
+	<!-- <apparelRequired> -->
+	  <!-- <li>Apparel_CollarShirt</li> -->
+	  <!-- <li>Apparel_Pants</li> -->
+	<!-- </apparelRequired> -->
 	<requiredWorkTags>
 	  <li>Intellectual</li>
 	  <li>Crafting</li>
@@ -106,11 +105,23 @@
 	<defName>WVC_RuneDryad_Player</defName>
 	<label>rune dryad</label>
 	<weaponMoney>0</weaponMoney>
-	<backstoryCryptosleepCommonality>0.02</backstoryCryptosleepCommonality>
+	<chronologicalAgeRange>0</chronologicalAgeRange>
+	<backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
 	<apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
 	<apparelColor>(58,58,58)</apparelColor>
 	<defaultFactionType>PlayerTribe</defaultFactionType>
 	<apparelMoney>80~120</apparelMoney>
+	<maxGenerationAge>17</maxGenerationAge>
+	<backstoryFiltersOverride>
+	  <li>
+		<categories>
+		  <li>Tribal</li>
+		</categories>
+	  </li>
+	</backstoryFiltersOverride>
+	<forcedTraits>
+	  <Recluse>0</Recluse>
+	</forcedTraits>
 	<xenotypeSet>
 	  <xenotypeChances>
 		<WVC_RuneDryad>999</WVC_RuneDryad>
@@ -119,6 +130,10 @@
 	<apparelTags>
 	  <li>Neolithic</li>
 	</apparelTags>
+	<!-- <disallowedTraitsWithDegree> -->
+	  <!-- <PsychicSensitivity>-1</PsychicSensitivity> -->
+	  <!-- <PsychicSensitivity>-2</PsychicSensitivity> -->
+	<!-- </disallowedTraitsWithDegree> -->
   </PawnKindDef>
 
   <!-- <PawnKindDef ParentName="WVC_RB_XenoBase"> -->

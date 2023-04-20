@@ -177,4 +177,98 @@
 	</scenario>
   </ScenarioDef>
 
+  <!-- ========================================================= -->
+
+  <ScenarioDef>
+	<defName>WVC_RB_RuneDryad</defName>
+	<label>Child of the stars</label>
+	<description>You have spent your entire life in a star-worshipping tribe. The elders of the tribe very often talked about the messenger of the gods, who once descended from heaven and helped the tribe in their hour of need. The creature's flesh was entirely made of stone, and its endurance could be envied by the strongest warriors of the tribe. But even such a strong creature could not live forever, and when his time came, a child was found in his remains, and that child was you.\n\nNot much time has passed since you left the tribe to go on a journey. Forces left you very quickly, and food supplies came to an end. And remembering the legend of your birth, you begged heaven for help. And help came.</description>
+	<scenario>
+	  <summary>One runeex pawn with no supplies and two golems. &lt;color=#a1ff95&gt;Easy-medium&lt;/color&gt; difficulty.</summary>
+	  <playerFaction>
+		<def>PlayerFaction</def>
+		<factionDef>PlayerTribe</factionDef>
+	  </playerFaction>
+	  <parts>
+
+		<!-- Config pages -->
+		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_KindDefs">
+			<def>ConfigurePawnsKindDefs</def>
+			<pawnChoiceCount>1</pawnChoiceCount>
+			<kindCounts>
+				<li>
+					<count>1</count>
+					<kindDef>WVC_RuneDryad_Player</kindDef>
+				</li>
+			</kindCounts>
+		</li>
+		<!-- <li Class="ScenPart_ConfigPage_ConfigureStartingPawns_Xenotypes"> -->
+		  <!-- <def>ConfigurePawnsXenotypes</def> -->
+		  <!-- <pawnChoiceCount>8</pawnChoiceCount> -->
+		  <!-- <customSummary>Start with one adult mechalike pawn with no supplies.</customSummary> -->
+		  <!-- <overrideKinds> -->
+			<!-- <li> -->
+			  <!-- <xenotype>WVC_Meca</xenotype> -->
+			  <!-- <pawnKind>WVC_Meca_Player</pawnKind> -->
+			<!-- </li> -->
+		  <!-- </overrideKinds> -->
+		  <!-- <xenotypeCounts> -->
+			<!-- <li> -->
+			  <!-- <xenotype>WVC_Meca</xenotype> -->
+			  <!-- <count>1</count> -->
+			  <!-- <description>non-child mechalike</description> -->
+			  <!-- <requiredAtStart>false</requiredAtStart> -->
+			  <!-- <allowedDevelopmentalStages>Adult</allowedDevelopmentalStages> -->
+			<!-- </li> -->
+		  <!-- </xenotypeCounts> -->
+		<!-- </li> -->
+
+		<!-- Player starting stuff spawn method-->
+		<li Class="ScenPart_PlayerPawnsArriveMethod">
+			<def>PlayerPawnsArriveMethod</def>
+		</li>
+
+		<!-- Game start dialog -->
+		<li Class="ScenPart_GameStartDialog">
+		  <def>GameStartDialog</def>
+		  <text>You have spent your entire life in a star-worshipping tribe. The elders of the tribe very often talked about the messenger of the gods, who once descended from heaven and helped the tribe in their hour of need. The creature's flesh was entirely made of stone, and its endurance could be envied by the strongest warriors of the tribe. But even such a strong creature could not live forever, and when his time came, a child was found in his remains, and that child was you.\n\nNot much time has passed since you left the tribe to go on a journey. Forces left you very quickly, and food supplies came to an end. And remembering the legend of your birth, you begged heaven for help. And help came.</text>
+		  <closeSound>GameStartSting</closeSound>
+		</li>
+
+		<li Class="ScenPart_DisableMapGen">
+			<def>DisableExostriderRemains</def>
+		</li>
+		<li Class="ScenPart_Naked">
+			<def>Naked</def>
+			<chance>0.25</chance>
+		</li>
+
+		<li Class="ScenPart_StartingMech">
+		  <def>StartingMech</def>
+		  <mechKind>WVC_Golem_Liftoid</mechKind>
+		  <overseenByPlayerPawnChance>1</overseenByPlayerPawnChance>
+		</li>
+		<li Class="ScenPart_StartingMech">
+		  <def>StartingMech</def>
+		  <mechKind>WVC_Golem_Constructoid</mechKind>
+		  <overseenByPlayerPawnChance>1</overseenByPlayerPawnChance>
+		</li>
+
+		<li MayRequireAnyOf="ludeon.rimworld.royalty" Class="KCSG.ScenPart_AddStartingStructure">
+			<def>VFEC_AddStartingStructure</def>
+			<structureLabel>Stone Altar</structureLabel>
+			<nearMapCenter>True</nearMapCenter>
+			<chooseFrom>
+				<li>WVC_Biotech_Altar_Slate</li>
+				<li>WVC_Biotech_Altar_Sandstone</li>
+				<li>WVC_Biotech_Altar_Marble</li>
+				<li>WVC_Biotech_Altar_Limestone</li>
+				<li>WVC_Biotech_Altar_Granite</li>
+			</chooseFrom>
+		</li>
+
+	  </parts>
+	</scenario>
+  </ScenarioDef>
+
 </Defs>
