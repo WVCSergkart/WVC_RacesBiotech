@@ -17,9 +17,7 @@
 	</HediffGiverSetDef>
 
 	<ThingDef ParentName="LightMechanoid" Name="WVC_GolemsBase" Abstract="True">
-		<description>A piece of rock chunk, animated by mechanites swarm. Golems do not require recharge. At the same time, there can be a limited number of living golems under the control of the overseer.
-
-At the same time, there can be a limited number of living golems under the control of the overseer. Golems can only be controlled by an overseer with the "Swarm connection" gene. If the overseer lacks this gene, the golem will die after some time.</description>
+		<description>A piece of rock chunk, animated by mechanites swarm.</description>
 		<statBases>
 			<!-- <ToxicResistance>1</ToxicResistance> -->
 			<!-- <PsychicSensitivity>1</PsychicSensitivity> -->

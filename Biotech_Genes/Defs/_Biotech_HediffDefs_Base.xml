@@ -56,7 +56,10 @@
   <HediffDef>
 	<defName>WVC_SelfPopulationRegulation_Golems</defName>
 	<label>golem</label>
-	<description>This creature is a golem and can only live under certain conditions.</description>
+	<description>This creature is a golem and can only live under certain conditions.
+
+At the same time, there can be a limited number of living golems under the control of the overseer. If there are more golems than the allowed number, the extra ones will die after a while.
+Golems can only be controlled by an overseer with the "Swarm connection" gene. If the overseer lacks this gene, the golem will die after some time.</description>
 	<hediffClass>HediffWithComps</hediffClass>
 	<scenarioCanAdd>false</scenarioCanAdd>
 	<isBad>false</isBad>
