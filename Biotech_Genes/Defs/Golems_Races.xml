@@ -30,8 +30,8 @@
 				<capacities>
 					<li>Blunt</li>
 				</capacities>
-				<power>12</power>
-				<cooldownTime>2</cooldownTime>
+				<power>16</power>
+				<cooldownTime>1.8</cooldownTime>
 				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
 				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
 			</li>
@@ -193,6 +193,47 @@
 			<li>
 				<bodyGraphicData>
 					<texPath>WVC/Things/Mechanoids_Golems/GolemCrafter</texPath>
+					<drawSize>2</drawSize>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+
+	<!-- ======================= -->
+
+	<ThingDef ParentName="WVC_GolemsBase">
+		<defName>WVC_Golem_Miner</defName>
+		<label>golem minenoid</label>
+		<statBases>
+			<ArmorRating_Sharp>0.8</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.8</ArmorRating_Blunt>
+			<MoveSpeed>2.6</MoveSpeed>
+		</statBases>
+		<race>
+			<mechEnabledWorkTypes>
+			  <li>Firefighter</li>
+			  <li>Mining</li>
+			  <!-- <li>PlantCutting</li> -->
+			  <!-- <li>Crafting</li> -->
+			  <!-- <li>Construction</li> -->
+			  <!-- <li>Cleaning</li> -->
+			  <!-- <li>Hauling</li> -->
+			  <!-- <li>Crafting</li> -->
+			  <!-- <li>Smithing</li> -->
+			  <!-- <li>Tailoring</li> -->
+			  <!-- <li>Cooking</li> -->
+			  <!-- <li>Doctor</li> -->
+			</mechEnabledWorkTypes>
+		</race>
+	</ThingDef>
+	<PawnKindDef ParentName="WVC_NonCombatGolemKind">
+		<defName>WVC_Golem_Miner</defName>
+		<label>golem minenoid</label>
+		<race>WVC_Golem_Miner</race>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>WVC/Things/Mechanoids_Golems/GolemMiner</texPath>
 					<drawSize>2</drawSize>
 				</bodyGraphicData>
 			</li>

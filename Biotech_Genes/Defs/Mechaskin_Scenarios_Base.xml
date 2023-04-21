@@ -241,6 +241,7 @@
 		<li Class="ScenPart_Naked">
 			<def>Naked</def>
 			<chance>0.25</chance>
+			<context>PlayerStarter</context>
 		</li>
 
 		<li Class="ScenPart_StartingMech">

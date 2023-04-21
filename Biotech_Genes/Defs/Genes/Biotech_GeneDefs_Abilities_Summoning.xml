@@ -295,7 +295,7 @@
 		<li>WVC_Golem_Liftoid</li>
 		<li>WVC_Golem_Constructoid</li>
 		<li>WVC_Golem_Crafter</li>
-		<!-- <li>Mech_Fabricor</li> -->
+		<li>WVC_Golem_Miner</li>
 		<!-- <li>Mech_Agrihand</li> -->
 		<!-- <li>Mech_Cleansweeper</li> -->
 		<!-- <li>Mech_Paramedic</li> -->
