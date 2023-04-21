@@ -19,6 +19,7 @@
 	</customEffectDescriptions>
 	<statFactors>
 	  <RestFallRateFactor>2.0</RestFallRateFactor>
+	  <RestRateMultiplier>0.5</RestRateMultiplier>
 	</statFactors>
 	<biostatMet>1</biostatMet>
 	<symbolPack>

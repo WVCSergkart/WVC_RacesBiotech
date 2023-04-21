@@ -93,6 +93,9 @@
 	<displayOrderInCategory>1125</displayOrderInCategory>
 	<!-- <prerequisite>PsychicAbility_Extreme</prerequisite> -->
 	<selectionWeight>0.05</selectionWeight>
+	<statOffsets>
+	  <WVC_OverseerMaxGolems>1</WVC_OverseerMaxGolems>
+	</statOffsets>
 	<conditionalStatAffecters>
 	  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
 		<!-- <statOffsets> -->

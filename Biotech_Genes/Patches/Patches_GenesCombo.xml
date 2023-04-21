@@ -256,13 +256,10 @@
 					<stat>WVC_BandwidthCostOffsetMech</stat>
 					<label>Offset from mechanitor</label>
 				  </li>
-				  <li Class="WVC.StatPart_GolemsBandwidthCost" MayRequire="Ludeon.RimWorld.Biotech">
-					<!-- Full name is not required -->
-					<!-- Only need a pawnkind tag as code are not looking for a specific defName -->
-					<pawnKindDef>WVC_Golem</pawnKindDef>
-					<stat>WVC_ForceTo_GolemsBandwidthCost</stat>
-					<!-- <label>Factor from mechanitor</label> -->
-				  </li>
+				  <!-- <li Class="WVC.StatPart_GolemsBandwidthCost" MayRequire="Ludeon.RimWorld.Biotech"> -->
+					<!-- <pawnKindDef>WVC_Golem</pawnKindDef> -->
+					<!-- <stat>WVC_ForceTo_GolemsBandwidthCost</stat> -->
+				  <!-- </li> -->
 			  </value>
 			</li>
 			<li Class="PatchOperationAdd">
@@ -274,11 +271,10 @@
 					<stat>WVC_BandwidthCostOffsetMech</stat>
 					<label>Offset from mechanitor</label>
 				  </li>
-				  <li Class="WVC.StatPart_GolemsBandwidthCost" MayRequire="Ludeon.RimWorld.Biotech">
-					<pawnKindDef>WVC_Golem</pawnKindDef>
-					<stat>WVC_ForceTo_GolemsBandwidthCost</stat>
-					<!-- <label>Factor from mechanitor</label> -->
-				  </li>
+				  <!-- <li Class="WVC.StatPart_GolemsBandwidthCost" MayRequire="Ludeon.RimWorld.Biotech"> -->
+					<!-- <pawnKindDef>WVC_Golem</pawnKindDef> -->
+					<!-- <stat>WVC_ForceTo_GolemsBandwidthCost</stat> -->
+				  <!-- </li> -->
 				</parts>
 			  </value>
 			</li>

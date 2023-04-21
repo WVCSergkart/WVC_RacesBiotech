@@ -53,4 +53,28 @@
 	</stages>
   </HediffDef>
 
+  <HediffDef>
+	<defName>WVC_SelfPopulationRegulation_Golems</defName>
+	<label>golem</label>
+	<description>This creature is a golem and can only live under certain conditions.</description>
+	<hediffClass>HediffWithComps</hediffClass>
+	<scenarioCanAdd>false</scenarioCanAdd>
+	<isBad>false</isBad>
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <becomeVisible>true</becomeVisible> -->
+		<!-- <minSeverity>0.0</minSeverity> -->
+		<!-- <statOffsets> -->
+			<!-- <BandwidthCost>-999</BandwidthCost> -->
+		<!-- </statOffsets> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+	<comps>
+		<li Class="WVC.HediffCompProperties_GolemPopulationRegulation">
+			<geneDef>WVC_SwarmConnection_Golems</geneDef>
+			<statDef>WVC_OverseerMaxGolems</statDef>
+		</li>
+	</comps>
+  </HediffDef>
+
 </Defs>

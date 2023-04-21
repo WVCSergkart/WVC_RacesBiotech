@@ -1,8 +1,25 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+	<HediffGiverSetDef>
+		<defName>WVC_MechanoidGolem_HediffGiver</defName>
+		<hediffGivers>
+			<li Class="HediffGiver_Birthday">
+				<hediff>WVC_SelfPopulationRegulation_Golems</hediff>
+				<ageFractionChanceCurve>
+				  <points>
+					<li>(0, 1)</li>
+					<li>(1, 1)</li>
+				  </points>
+				</ageFractionChanceCurve>
+			</li>
+		</hediffGivers>
+	</HediffGiverSetDef>
+
 	<ThingDef ParentName="LightMechanoid" Name="WVC_GolemsBase" Abstract="True">
-		<description>A piece of rock chunk, animated by mechanites swarm. Golems do not require recharge but require a lot of bandwidth to control.</description>
+		<description>A piece of rock chunk, animated by mechanites swarm. Golems do not require recharge. At the same time, there can be a limited number of living golems under the control of the overseer.
+
+At the same time, there can be a limited number of living golems under the control of the overseer. Golems can only be controlled by an overseer with the "Swarm connection" gene. If the overseer lacks this gene, the golem will die after some time.</description>
 		<statBases>
 			<!-- <ToxicResistance>1</ToxicResistance> -->
 			<!-- <PsychicSensitivity>1</PsychicSensitivity> -->
@@ -12,7 +29,7 @@
 			<!-- <ArmorRating_Heat>2.00</ArmorRating_Heat> -->
 			<MechEnergyLossPerHP>0.0</MechEnergyLossPerHP>
 			<WastepacksPerRecharge>0.0</WastepacksPerRecharge>
-			<BandwidthCost>0</BandwidthCost>
+			<BandwidthCost>-999</BandwidthCost>
 			<!-- <BandwidthCost>6</BandwidthCost> -->
 			<ControlTakingTime MayRequire="Ludeon.Rimworld.Biotech">1</ControlTakingTime>
 			<MechEnergyUsageFactor>0.0</MechEnergyUsageFactor>
@@ -74,11 +91,18 @@
 					<!-- <soundCall>Pawn_Mech_Constructoid_Call</soundCall> -->
 				</li>
 			</lifeStageAges>
+			<hediffGiverSets Inherit="False">
+				<li>WVC_MechanoidGolem_HediffGiver</li>
+			</hediffGiverSets>
 		</race>
 		<butcherProducts Inherit="False">
 			<Steel>5</Steel>
 		</butcherProducts>
 		<comps>
+			<li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_InitialHediff">
+				<hediffname>WVC_SelfPopulationRegulation_Golems</hediffname>
+				<hediffseverity>1</hediffseverity>
+			</li>
 		</comps>
 	</ThingDef>
 	<PawnKindDef ParentName="NonCombatLightMechanoidKind" Name="WVC_NonCombatGolemKind" Abstract="True">

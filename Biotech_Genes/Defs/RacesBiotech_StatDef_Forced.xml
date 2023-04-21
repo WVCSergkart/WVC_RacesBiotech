@@ -59,12 +59,21 @@
 	<label>mech bandwidth is always</label>
   </StatDef>
 
+  <!-- <StatDef ParentName="WVC_Biotech_ForcedStat_Base"> -->
+	<!-- <defName>WVC_ForceTo_GolemsBandwidthCost</defName> -->
+	<!-- <label>golem bandwidth cost</label> -->
+	<!-- <description>Bandwidth cost force for stone mechanoids. Does not affect normal mechanoids.</description> -->
+	<!-- <defaultBaseValue>6</defaultBaseValue> -->
+	<!-- <hideAtValue>6</hideAtValue> -->
+	<!-- <alwaysHide>false</alwaysHide> -->
+  <!-- </StatDef> -->
+
   <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
-	<defName>WVC_ForceTo_GolemsBandwidthCost</defName>
-	<label>golem bandwidth cost</label>
-	<description>Bandwidth cost force for stone mechanoids. Does not affect normal mechanoids.</description>
-	<defaultBaseValue>6</defaultBaseValue>
-	<hideAtValue>6</hideAtValue>
+	<defName>WVC_OverseerMaxGolems</defName>
+	<label>mechanitor max golems</label>
+	<description>Determines the maximum number of golems of the same type that the mechanitor can control at the same time.</description>
+	<defaultBaseValue>0</defaultBaseValue>
+	<hideAtValue>0</hideAtValue>
 	<alwaysHide>false</alwaysHide>
   </StatDef>
 
