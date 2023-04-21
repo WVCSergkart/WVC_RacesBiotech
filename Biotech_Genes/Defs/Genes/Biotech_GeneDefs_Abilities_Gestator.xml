@@ -166,7 +166,7 @@
 
   <AbilityDef ParentName="WVC_GestationAbilities_Base">
 	<defName>WVC_MechanoidAbility_ActivateGestator</defName>
-	<label>re-gestator</label>
+	<label>gestator</label>
 	<description>This mechanoid has a large accumulation of mechanites, sufficient to form organic life.</description>
 	<comps>
 	  <li Class="WVC.CompProperties_AbilityGiveHediff">

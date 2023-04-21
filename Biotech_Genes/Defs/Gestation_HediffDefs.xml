@@ -110,14 +110,14 @@
 			</capMods>
 		  </li>
 		</stages>
-		<comps>
+		<comps Inherit="False">
 			<!-- <li Class="AnimalBehaviours.HediffCompProperties_AsexualReproduction"> -->
 				<!-- <reproductionIntervalDays>5</reproductionIntervalDays> -->
 				<!-- <endogeneTransfer>true</endogeneTransfer> -->
 				<!-- <asexualHatchedMessage>WVC_RB_Gene_MechaGestator</asexualHatchedMessage> -->
 			<!-- </li> -->
 			<li Class="WVC.HediffCompProperties_GolemGestator">
-				<gestationIntervalDays>5</gestationIntervalDays>
+				<gestationIntervalDays>1</gestationIntervalDays>
 				<endogeneTransfer>true</endogeneTransfer>
 				<geneDef>WVC_SwarmConnection_Golems</geneDef>
 				<completeMessage>WVC_RB_Gene_GolemGestator</completeMessage>
