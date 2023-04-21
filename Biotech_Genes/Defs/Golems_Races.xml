@@ -21,7 +21,23 @@
 			<MarketValue>150</MarketValue>
 			<ArmorRating_Blunt>0.6</ArmorRating_Blunt>
 			<MoveSpeed>3.6</MoveSpeed>
+			<!-- Work -->
 			<FoodPoisonChance>0</FoodPoisonChance>
+			<MiningSpeed>0.25</MiningSpeed>
+			<PlantWorkSpeed>0.25</PlantWorkSpeed>
+			<ConstructionSpeed>0.25</ConstructionSpeed>
+			<SmoothingSpeed>0.25</SmoothingSpeed>
+			<GeneralLaborSpeed>0.25</GeneralLaborSpeed>
+			<MedicalTendSpeed>0.25</MedicalTendSpeed>
+			<MedicalOperationSpeed>0.25</MedicalOperationSpeed>
+			<CookSpeed>0.25</CookSpeed>
+			<SmeltingSpeed>0.25</SmeltingSpeed>
+			<DrugSynthesisSpeed>0.25</DrugSynthesisSpeed>
+			<ButcheryFleshSpeed>0.25</ButcheryFleshSpeed>
+			<ButcheryMechanoidSpeed>0.25</ButcheryMechanoidSpeed>
+			<MedicalSurgerySuccessChance>2.0</MedicalSurgerySuccessChance>
+			<ConstructSuccessChance>2.0</ConstructSuccessChance>
+			<FixBrokenDownBuildingSuccessChance>2.0</FixBrokenDownBuildingSuccessChance>
 		</statBases>
 		<uiIconScale>1.5</uiIconScale>
 		<tools Inherit="False">
@@ -53,9 +69,9 @@
 				<li>
 					<def>MechanoidFullyFormed</def>
 					<minAge>0</minAge>
-					<soundWounded>Pawn_Mech_Constructoid_Wounded</soundWounded>
-					<soundDeath>Pawn_Mech_Constructoid_Death</soundDeath>
-					<soundCall>Pawn_Mech_Constructoid_Call</soundCall>
+					<!-- <soundWounded>Pawn_Mech_Constructoid_Wounded</soundWounded> -->
+					<!-- <soundDeath>Pawn_Mech_Constructoid_Death</soundDeath> -->
+					<!-- <soundCall>Pawn_Mech_Constructoid_Call</soundCall> -->
 				</li>
 			</lifeStageAges>
 		</race>
