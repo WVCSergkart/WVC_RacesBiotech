@@ -47,4 +47,14 @@
   <WVC_StatsReport_GestatorIsOn>during gestation</WVC_StatsReport_GestatorIsOn>
   <WVC_StatsReport_Drafted>drafted</WVC_StatsReport_Drafted>
 
+	<!-- ====================================================================================== -->
+
+	<!-- <WVC_StatPart_Mechanoidization>Mechanoidization</WVC_StatPart_Mechanoidization> -->
+	<!-- <WVC_StatPart_ArchitesInBloodstream>Archites in bloodstream</WVC_StatPart_ArchitesInBloodstream> -->
+
+	<WVC_StatPart_GenesCombo_Cause>Mecha-genes</WVC_StatPart_GenesCombo_Cause>
+	<WVC_StatPart_GenesCombo_Static>Forced to</WVC_StatPart_GenesCombo_Static>
+	<WVC_StatPart_GenesCombo_OffsetFromBuildings>Offset from buildings</WVC_StatPart_GenesCombo_OffsetFromBuildings>
+	<!-- <WVC_StatPart_GenesCombo_ForcedByStat>Forced by</WVC_StatPart_GenesCombo_ForcedByStat> -->
+
 </LanguageData>
