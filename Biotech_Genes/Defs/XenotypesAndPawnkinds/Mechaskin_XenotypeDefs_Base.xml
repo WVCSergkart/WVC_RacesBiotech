@@ -10,7 +10,9 @@
 	<descriptionShort>An unknown xenotype sometimes found in the vastness of the rimworld.</descriptionShort>
 	<iconPath>UI/Icons/Xenotypes/Custom/CustomXenotypeIcon9</iconPath>
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>
-	<combatPowerFactor>2</combatPowerFactor>
+	<combatPowerFactor>2.2</combatPowerFactor>
+	<factionlessGenerationWeight>2</factionlessGenerationWeight>
+	<inheritable>true</inheritable>
 	<genes>
 	</genes>
   </XenotypeDef>
@@ -22,10 +24,6 @@
 	<description>Blankind - both for the artist his canvas, and for the mad scientist his "dummy". The purpose of their existence has always been the same - to be the canvas on which the masterpiece will be embodied.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; Representatives of this xenotype are suitable only to be experimental subjects. Or pets.</description>
 	<descriptionShort>Blankind - both for the artist his canvas, and for the mad scientist his "dummy". The purpose of their existence has always been the same - to be the canvas on which the masterpiece will be embodied.</descriptionShort>
 	<iconPath>WVC/UI/Xeno2Icons/Xeno10</iconPath>
-	<inheritable>true</inheritable>
-	<canGenerateAsCombatant>false</canGenerateAsCombatant>
-	<combatPowerFactor>0.2</combatPowerFactor>
-	<!-- <factionlessGenerationWeight>5</factionlessGenerationWeight> -->
 	<genes>
 		<li>WVC_AgeDebuff_Libido</li>
 		<li>WVC_AgeDebuff_Timeless</li>
@@ -66,8 +64,6 @@
 	<inheritable>false</inheritable>
 	<canGenerateAsCombatant>true</canGenerateAsCombatant>
 	<displayPriority>-1100</displayPriority>
-	<combatPowerFactor>2</combatPowerFactor>
-	<factionlessGenerationWeight>2</factionlessGenerationWeight>
 	<doubleXenotypeChances>
 		<WVC_Blank>1.0</WVC_Blank>
 	</doubleXenotypeChances>

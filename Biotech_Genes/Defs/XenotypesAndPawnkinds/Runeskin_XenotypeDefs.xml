@@ -8,8 +8,6 @@
 	<description>Runeex are ageless humans powered by archotech-created archites in the bloodstream. They are beautiful and extremely weak. They are practically unable to fight and cannot work much. However, they require little to no food and can control unlimited hordes of golems.</description>
 	<descriptionShort>Runeex are ageless humans powered by archotech-created archites in the bloodstream. They are beautiful and extremely weak. They are practically unable to fight and cannot work much. However, they require little to no food and can control unlimited hordes of golems.</descriptionShort>
 	<iconPath>WVC/UI/Xeno2Icons/Xeno14</iconPath>
-	<inheritable>true</inheritable>
-	<canGenerateAsCombatant>false</canGenerateAsCombatant>
 	<genes>
 		<!-- Beta -->
 		<li>Ageless</li>

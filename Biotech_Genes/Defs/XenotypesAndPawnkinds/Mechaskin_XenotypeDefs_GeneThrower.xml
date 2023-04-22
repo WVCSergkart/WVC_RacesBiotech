@@ -8,10 +8,7 @@
 	<description>Throwex are ageless, deathless mecha-humans powered by archotech-created archites in the bloodstream. They are voracious and not infrequently their waste products are toxic. They do not suffer from disease or poison. They are not the most useful in combat, but due to their resistance to fire, they can play an important role. They have a hard time learning new skills, but they can be a constant source of new genes.</description>
 	<descriptionShort>Throwex are ageless, deathless mecha-humans powered by archotech-created archites in the bloodstream. They are voracious and not infrequently their waste products are toxic. They do not suffer from disease or poison. They are not the most useful in combat, but due to their resistance to fire, they can play an important role. They have a hard time learning new skills, but they can be a constant source of new genes.</descriptionShort>
 	<iconPath>WVC/UI/Xeno2Icons/Xeno13</iconPath>
-	<inheritable>true</inheritable>
 	<displayPriority>-1100</displayPriority>
-	<combatPowerFactor>2</combatPowerFactor>
-	<factionlessGenerationWeight>2</factionlessGenerationWeight>
 	<genes>
 		<li>WVC_MechaSkin</li>
 		<li>WVC_MechaPowerSource_Tox</li>

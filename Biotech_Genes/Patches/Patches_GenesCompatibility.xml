@@ -47,6 +47,16 @@
 
 	<!-- ============================================================ -->
 
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>WVC - Work Modes</li>
+		</mods>
+		<match Class="PatchOperationRemove">
+			<xpath>/Defs/DesignationCategoryDef[defName="Biotech"]/researchPrerequisites</xpath>
+			<success>Always</success>
+		</match>
+	</Operation>
+
 	<!-- <Operation Class="PatchOperationFindMod"> -->
 		<!-- <mods> -->
 			<!-- <li>Beauty Matters</li> -->
