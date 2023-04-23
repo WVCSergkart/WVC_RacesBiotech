@@ -10,12 +10,12 @@
 	<exclusionTags>
 	  <li>WVC_MechSensetivity</li>
 	</exclusionTags>
-	<suppressedTraits>
-	  <li>
-		<def>PsychicSensitivity</def>
-		<degree>-2</degree>
-	  </li>
-	</suppressedTraits>
+	<!-- <suppressedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>PsychicSensitivity</def> -->
+		<!-- <degree>-2</degree> -->
+	  <!-- </li> -->
+	<!-- </suppressedTraits> -->
 	<!-- <conditionalStatAffecters> -->
 	  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
 		<!-- <statOffsets> -->

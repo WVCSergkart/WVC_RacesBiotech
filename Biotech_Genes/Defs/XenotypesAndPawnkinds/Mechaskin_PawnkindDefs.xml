@@ -103,7 +103,7 @@
 
   <PawnKindDef ParentName="WVC_RB_XenoBase">
 	<defName>WVC_RuneDryad_Player</defName>
-	<label>rune dryad</label>
+	<label>runeex</label>
 	<weaponMoney>0</weaponMoney>
 	<chronologicalAgeRange>0</chronologicalAgeRange>
 	<backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>

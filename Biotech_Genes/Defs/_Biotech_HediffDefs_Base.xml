@@ -59,9 +59,7 @@
 	<label>golem</label>
 	<description>This creature is a golem and can only live under certain conditions:
 
-1. At the same time, there can be a limited number of living golems under the control of the overseer. If there are more golems than the allowed number, the extra ones will die after a while. Unconscious golems do not count.
-2. Golems can only be controlled by an overseer with the "Swarm connection" gene. If the overseer lacks this gene, the golem will die after some time.
-3. Golems in caravans do not die regardless of the limit and gene.
+At the same time, there can be a limited number of living golems under the control of the overseer. If there are more golems than the allowed number, the extra ones will die after a while. Unconscious golems do not count. Golems in caravans do not die regardless of the limit.
 
 &lt;color=#f5ffa2&gt;Royalty:&lt;/color&gt; Each natural shrine that is on the same map as the overseer increases the limit by 0.2</description>
 	<hediffClass>HediffWithComps</hediffClass>
@@ -78,7 +76,7 @@
 	<!-- </stages> -->
 	<comps>
 		<li Class="WVC.HediffCompProperties_GolemPopulationRegulation">
-			<geneDef>WVC_SwarmConnection_Golems</geneDef>
+			<!-- <geneDef>WVC_SwarmConnection_Golems</geneDef> -->
 			<statDef>WVC_OverseerMaxGolems</statDef>
 		</li>
 	</comps>
