@@ -54,6 +54,12 @@ A restart is required to apply the setting.</WVC_ToolTip_minWastepacksPerRecharg
 A restart is required to apply the setting.</WVC_ToolTip_hideEncodingGenes>
 
 	<!-- ====================================================================================== -->
+	<WVC_Label_fixAgelessAge>Fix age ageless pawns</WVC_Label_fixAgelessAge>
+	<WVC_ToolTip_fixAgelessAge>If enabled, then all pawns with the "Ageless" gene will be generated with an age of no more than 18. Does not affect already generated ones.
+
+A restart is required to apply the setting.</WVC_ToolTip_fixAgelessAge>
+
+	<!-- ====================================================================================== -->
 	<!-- <WVC_Label_mecaXenotypeIsInheritable>Meca xenotype have inheritable genes</WVC_Label_mecaXenotypeIsInheritable> -->
 	<!-- <WVC_ToolTip_mecaXenotypeIsInheritable>Changes Meca xenotype allowing genes to be inherited. What makes this xenotype compatible with sangophages and other xenogeneic xenotypes.</WVC_ToolTip_mecaXenotypeIsInheritable> -->
 

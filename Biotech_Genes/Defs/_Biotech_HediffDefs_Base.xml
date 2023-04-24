@@ -65,6 +65,9 @@ At the same time, there can be a limited number of living golems under the contr
 	<hediffClass>HediffWithComps</hediffClass>
 	<scenarioCanAdd>false</scenarioCanAdd>
 	<isBad>false</isBad>
+	<!-- <disablesNeeds> -->
+	  <!-- <li>MechEnergy</li> -->
+	<!-- </disablesNeeds> -->
 	<!-- <stages> -->
 	  <!-- <li> -->
 		<!-- <becomeVisible>true</becomeVisible> -->
