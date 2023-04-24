@@ -25,6 +25,32 @@
 	<!-- </Operation> -->
 
 	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/PreceptDef[defName="Temperature_Tough" or defName="RoughLiving_Welcomed"]/requiredMemes</xpath>
+		<value>
+			<li>WVC_Golemist</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/PreceptDef[defName="Temperature_Tough" or defName="RoughLiving_Welcomed"]/associatedMemes</xpath>
+		<value>
+			<li>WVC_Golemist</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/PreceptDef[defName="Temperature_Tough"]/requiredMemes</xpath>
+		<value>
+			<li>WVC_Mechaskinist</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/PreceptDef[defName="Temperature_Tough"]/associatedMemes</xpath>
+		<value>
+			<li>WVC_Mechaskinist</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
 		<xpath>/Defs/MemeDef[defName="FleshPurity"]/requireOne</xpath>
 		<!-- <success>Always</success> -->
 		<value>

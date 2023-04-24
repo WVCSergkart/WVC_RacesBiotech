@@ -16,6 +16,7 @@
 	<!-- <defaultSelectionWeight>1</defaultSelectionWeight> -->
 	<conflictingMemes>
 	  <li>WVC_Mechaskinist</li>
+	  <li>WVC_Golemist</li>
 	  <li>Transhumanist</li>
 	</conflictingMemes>
 	<associatedMemes>
@@ -61,6 +62,7 @@
 	<!-- </associatedMemes> -->
 	<conflictingMemes>
 	  <li>WVC_Mechaskinist</li>
+	  <li>WVC_Golemist</li>
 	  <li>Transhumanist</li>
 	</conflictingMemes>
 	<comps>

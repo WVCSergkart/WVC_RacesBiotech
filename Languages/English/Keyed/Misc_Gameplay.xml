@@ -9,5 +9,7 @@
 	<!-- <WVC_RB_Gene_MechaGestator_PawnNotReady>The gestator is still charging.</WVC_RB_Gene_MechaGestator_PawnNotReady> -->
 	
 	<WVC_RB_Gene_Summoner>The package is already on its way!</WVC_RB_Gene_Summoner>
+	
+	<WVC_RoleRequirementShouldBeMechanitor>Must be a Mechanitor</WVC_RoleRequirementShouldBeMechanitor>
 
 </LanguageData>

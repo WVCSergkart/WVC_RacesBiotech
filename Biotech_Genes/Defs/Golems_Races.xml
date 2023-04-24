@@ -142,8 +142,8 @@
 		<defName>WVC_Golem_Liftoid</defName>
 		<label>golem liftoid</label>
 		<statBases>
-			<ArmorRating_Sharp>0.45</ArmorRating_Sharp>
-			<ArmorRating_Blunt>0.6</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.25</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.3</ArmorRating_Blunt>
 			<MoveSpeed>3.2</MoveSpeed>
 		</statBases>
 		<race>
@@ -177,8 +177,8 @@
 		<defName>WVC_Golem_Constructoid</defName>
 		<label>golem structoid</label>
 		<statBases>
-			<ArmorRating_Sharp>0.7</ArmorRating_Sharp>
-			<ArmorRating_Blunt>0.8</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.3</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.3</ArmorRating_Blunt>
 			<MoveSpeed>2.4</MoveSpeed>
 		</statBases>
 		<race>
@@ -255,8 +255,8 @@
 		<defName>WVC_Golem_Miner</defName>
 		<label>golem minenoid</label>
 		<statBases>
-			<ArmorRating_Sharp>0.8</ArmorRating_Sharp>
-			<ArmorRating_Blunt>0.8</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.3</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.3</ArmorRating_Blunt>
 			<MoveSpeed>2.6</MoveSpeed>
 		</statBases>
 		<race>

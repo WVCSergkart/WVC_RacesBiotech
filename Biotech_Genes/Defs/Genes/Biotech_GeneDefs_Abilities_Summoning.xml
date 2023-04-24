@@ -144,8 +144,8 @@
   </AbilityGroupDef>
 
   <AbilityDef Name="WVC_SummonAbilities_Base" Abstract="True">
-	<label>gestator</label>
-	<description>Carriers of this gene have a built-in gestator that can produce semi-organic life.</description>
+	<label>summon</label>
+	<description>After activating the ability, summons several mechanoids that will automatically attach to the mechanitor.</description>
 	<iconPath>WVC/UI/Genes/MechSummon</iconPath>
 	<cooldownTicksRange>900000</cooldownTicksRange><!-- 15 days -->
 	<canUseAoeToGetTargets>false</canUseAoeToGetTargets>

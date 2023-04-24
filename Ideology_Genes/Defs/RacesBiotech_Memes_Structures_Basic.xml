@@ -166,36 +166,6 @@
 			<li>memeMoralist->technologist</li>
 		  </rulesStrings>
 		</generalRules>
-		<descriptionMaker>
-		  <rules>
-			<rulesStrings>
-			  <!-- theist myth -->
-			  <li>creation(tag=meme_Transhumanist)        ->[deity0_name] granted us the knowledge of technology, that we may use it to improve and remake ourselves in [deity0_possessive] perfect image.</li>
-			  <li>episode(uses=1,tag=meme_Transhumanist)  ->Human bio-engineers studied the works of [deity0_name], which pleased [deity0_objective].</li>
-			  <!-- theist founder -->
-			  <li>intro(tag=meme_Transhumanist)           ->On the [place_summary] [place_name], the [memberNamePlural] found the words of [deity0_name] whispering to them through their machines.</li>
-			  <li>conflict(tag=meme_Transhumanist)        ->A luddite [foeLeader] envied the enhanced progress of the [memberNamePlural], and [foeLeader_possessive] [foeSoldiers] destroyed their workshops with [place_personalWeapon]s.</li>
-			  <li>founderJoin(tag=meme_Transhumanist)     ->A cunning [place_job] named [founderName] fashioned a sensor implant to warn the [memberNamePlural] of the approach of the [foeSoldiers].</li>
-			  <li>victory(tag=meme_Transhumanist)         ->[founderName] received divine technological knowledge from [deity0_name], and used it to enhance the bodies and minds of the [memberNamePlural] so they could defeat the [foeSoldiers].</li>
-			  <!-- ideological founder -->
-			  <li>setup(tag=meme_Transhumanist)           ->[founderName] was a bio-scientist in the early days of human planetary colonization. Seeing the bureaucratic restrictions of the common colonies, [founder_pronoun] took a small ship to found [founder_possessive] own movement.</li>
-			  <li>story(uses=1,tag=meme_Transhumanist)    ->[founderName] assembled a team of great scientists and inventors to re-define humanity.</li>
-			  <!-- ideological lesson -->
-			  <li>lessonIntro(tag=meme_Transhumanist)         ->The oldest researcher in my division taught me the history of technology, from neolithic to archotech, but this was not his true lesson. He was really leading me to understand that</li>
-			  <li>lesson(tag=meme_Transhumanist)              ->humanity's heavenly future is not a thing of meat and bone, but of silicon and exochrome</li>
-			  <li>lessonReinforcement(tag=meme_Transhumanist) ->I even programmed a simulation to confirm it.</li>
-			  <!-- archist -->
-			  <li>archistBasis(tag=meme_Transhumanist)    ->Humanity's pursuit of technology gave birth to the all-powerful archotechs as the rightful next step in the development of consciousness.</li>
-			  <li>archistFact(tag=meme_Transhumanist)     ->Technology allows humans to be more like the archotechs.</li>
-			  <li>archistProphecy(tag=meme_Transhumanist) ->[inTheEnd], the archotechs will depart. Only those who are sufficiently augmented will be allowed to go with them.</li>
-			  <!-- animist -->
-			  <li>animistBasis(tag=meme_Transhumanist)    ->The spirit world drives every action in the universe, and it is only by learning and controlling the laws of the universe that we can integrate with it.</li>
-			  <li>animistFact(tag=meme_Transhumanist)     ->Like seeks like - build a device for a purpose and it will filled with a spirit of a like nature.</li>
-			  <li>animistFact(tag=meme_Transhumanist)     ->When technology is fused with flesh, the spirits of both are combined and become more powerful.</li>
-			  <li>animistProphecy(tag=meme_Transhumanist) ->[itIsSaid] that one day the wielder of the [relic0_name] will summon its spirit who will teach humanity the ultimate bio-fusion technology.</li>
-			</rulesStrings>
-		  </rules>
-		</descriptionMaker>
 		<symbolPacks>
 		  <li>
 			<ideoName>Mechanoidism</ideoName>
@@ -234,11 +204,14 @@
 			<li>WVC_Mechaskinned_Exalted</li>
 		  </li>
 		  <li>
-			<li>WVC_MechanoidLabor_Light</li>
-			<li>MechanoidLabor_Enhanced</li>
-			<li>WVC_MechanoidLabor_Hard</li>
-			<li>WVC_MechanoidLabor_Extreme</li>
+			<li>Temperature_Tough</li>
 		  </li>
+		  <!-- <li> -->
+			<!-- <li>WVC_MechanoidLabor_Light</li> -->
+			<!-- <li>MechanoidLabor_Enhanced</li> -->
+			<!-- <li>WVC_MechanoidLabor_Hard</li> -->
+			<!-- <li>WVC_MechanoidLabor_Extreme</li> -->
+		  <!-- </li> -->
 		  <!-- <li> -->
 			<!-- <li MayRequire="Ludeon.RimWorld.Ideology">OrganUse_Acceptable</li> -->
 		  <!-- </li> -->
