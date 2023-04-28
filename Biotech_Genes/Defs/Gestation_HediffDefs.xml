@@ -52,12 +52,12 @@
 		  </li>
 		</stages>
 		<comps>
-			<li Class="HediffCompProperties_MessageAfterTicks">
-				<ticks>300000</ticks>
-				<letterLabel>{0_labelShort} finished the gestation process.</letterLabel>
-				<letterText>{0_labelShort} finished the gestation process!</letterText>
-				<letterType>HumanPregnancy</letterType>
-			</li>
+			<!-- <li Class="HediffCompProperties_MessageAfterTicks"> -->
+				<!-- <ticks>300000</ticks> -->
+				<!-- <letterLabel>{0_labelShort} finished the gestation process.</letterLabel> -->
+				<!-- <letterText>{0_labelShort} finished the gestation process!</letterText> -->
+				<!-- <letterType>HumanPregnancy</letterType> -->
+			<!-- </li> -->
 			<li Class="HediffCompProperties_Disappears">
 				<disappearsAfterTicks>301500</disappearsAfterTicks>
 				<showRemainingTime>true</showRemainingTime>
