@@ -65,6 +65,7 @@ Most of the internal organs were not affected, but there are too many external c
 	<defName>WVC_NodeSkin</defName>
 	<label>nodeskin</label>
 	<iconPath>WVC/UI/Genes/FacelessIcon</iconPath>
+	<biostatMet>-8</biostatMet>
 	<forcedHeadTypes>
 	  <li>WVC_NodeSkin_Faceless</li>
 	</forcedHeadTypes>

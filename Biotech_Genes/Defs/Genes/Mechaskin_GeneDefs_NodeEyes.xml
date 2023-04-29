@@ -33,6 +33,12 @@
 	<exclusionTags>
 	  <li>WVC_NodeBody_Eyes</li>
 	</exclusionTags>
+	<capMods>
+	  <li>
+		<capacity>Sight</capacity>
+		<offset>0.1</offset>
+	  </li>
+	</capMods>
 	<!-- <beardTagFilter> -->
 	  <!-- <whitelist>true</whitelist> -->
 	  <!-- <tags> -->
@@ -52,94 +58,87 @@
   <GeneDef ParentName="WVC_NodeBody_Eyes" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeSkin_Blue</defName>
 	<label>eyes SX</label>
-	<biostatMet>-4</biostatMet>
 	<iconPath>WVC/UI/Genes/HeadBlue_south</iconPath>
 	<graphicData>
 	  <graphicPath>WVC/NodeGene_Head/HeadBlue</graphicPath>
 	</graphicData>
-	<aptitudes>
-	  <Crafting>4</Crafting>
-	</aptitudes>
+	<!-- <aptitudes> -->
+	  <!-- <Crafting>4</Crafting> -->
+	<!-- </aptitudes> -->
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Eyes" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeSkin_Red</defName>
 	<label>eyes HJ</label>
-	<biostatMet>-6</biostatMet>
 	<iconPath>WVC/UI/Genes/HeadRed_south</iconPath>
 	<graphicData>
 	  <graphicPath>WVC/NodeGene_Head/HeadRed</graphicPath>
 	</graphicData>
-	<aptitudes>
-	  <Shooting>4</Shooting>
-	</aptitudes>
+	<!-- <aptitudes> -->
+	  <!-- <Shooting>4</Shooting> -->
+	<!-- </aptitudes> -->
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Eyes" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeSkin_Green</defName>
 	<label>eyes GB</label>
-	<biostatMet>-1</biostatMet>
 	<iconPath>WVC/UI/Genes/HeadGreen_south</iconPath>
 	<graphicData>
 	  <graphicPath>WVC/NodeGene_Head/HeadGreen</graphicPath>
 	</graphicData>
-	<aptitudes>
-	  <Medicine>4</Medicine>
-	</aptitudes>
+	<!-- <aptitudes> -->
+	  <!-- <Medicine>4</Medicine> -->
+	<!-- </aptitudes> -->
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Eyes" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeSkin_Violet</defName>
 	<label>eyes CV</label>
-	<biostatMet>-3</biostatMet>
 	<iconPath>WVC/UI/Genes/HeadViolet_south</iconPath>
 	<graphicData>
 	  <graphicPath>WVC/NodeGene_Head/HeadViolet</graphicPath>
 	</graphicData>
-	<aptitudes>
-	  <Melee>4</Melee>
-	</aptitudes>
+	<!-- <aptitudes> -->
+	  <!-- <Melee>4</Melee> -->
+	<!-- </aptitudes> -->
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Eyes" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeSkin_Yellow</defName>
 	<label>eyes WR</label>
-	<biostatMet>-5</biostatMet>
 	<iconPath>WVC/UI/Genes/HeadYellow_south</iconPath>
 	<graphicData>
 	  <graphicPath>WVC/NodeGene_Head/HeadYellow</graphicPath>
 	</graphicData>
-	<aptitudes>
-	  <Social>4</Social>
-	</aptitudes>
+	<!-- <aptitudes> -->
+	  <!-- <Social>4</Social> -->
+	<!-- </aptitudes> -->
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Eyes" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeSkin_AltBlue</defName>
 	<label>eyes VX</label>
-	<biostatMet>-3</biostatMet>
 	<iconPath>WVC/UI/Genes/HeadAltBlue_south</iconPath>
 	<graphicData>
 	  <graphicPath>WVC/NodeGene_Head/HeadAltBlue</graphicPath>
 	</graphicData>
-	<aptitudes>
-	  <Crafting>2</Crafting>
-	  <Melee>2</Melee>
-	</aptitudes>
+	<!-- <aptitudes> -->
+	  <!-- <Crafting>2</Crafting> -->
+	  <!-- <Melee>2</Melee> -->
+	<!-- </aptitudes> -->
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Eyes" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeSkin_Orange</defName>
 	<label>eyes YR</label>
-	<biostatMet>-2</biostatMet>
 	<iconPath>WVC/UI/Genes/HeadOrange_south</iconPath>
 	<graphicData>
 	  <graphicPath>WVC/NodeGene_Head/HeadOrange</graphicPath>
 	</graphicData>
-	<aptitudes>
-	  <Intellectual>2</Intellectual>
-	  <Social>2</Social>
-	</aptitudes>
+	<!-- <aptitudes> -->
+	  <!-- <Intellectual>2</Intellectual> -->
+	  <!-- <Social>2</Social> -->
+	<!-- </aptitudes> -->
   </GeneDef>
 
 </Defs>
