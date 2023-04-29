@@ -5,7 +5,7 @@
 
   <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Nodization_RandomBuff_Base" Abstract="True">
 	<!-- <geneClass>WVC.Gene_WithConditions</geneClass> -->
-	<displayCategory>WVC_MechaBodyEncoding</displayCategory>
+	<!-- <displayCategory>WVC_MechaBodyEncoding</displayCategory> -->
 	<!-- <label>AI</label> -->
 	<!-- <description>Complex templates for the mechanoid sub-core, which can provide some advantages.</description> -->
 	<description>A complex genetic pattern that gives carriers some advantages.</description>
@@ -231,7 +231,9 @@
 	<defName>WVC_Nodization_PatternBuff_A</defName>
 	<label>metabolism SX</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneA</iconPath>
+	<biostatCpx>4</biostatCpx>
 	<biostatMet>4</biostatMet>
+	<biostatArc>2</biostatArc>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_Pattern</li>
 	</exclusionTags>
@@ -240,7 +242,9 @@
 	<defName>WVC_Nodization_PatternBuff_B</defName>
 	<label>metabolism HJ</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneA</iconPath>
+	<biostatCpx>2</biostatCpx>
 	<biostatMet>2</biostatMet>
+	<biostatArc>2</biostatArc>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_Pattern</li>
 	</exclusionTags>
@@ -249,7 +253,9 @@
 	<defName>WVC_Nodization_PatternBuff_C</defName>
 	<label>metabolism GB</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneA</iconPath>
-	<biostatMet>7</biostatMet>
+	<biostatCpx>6</biostatCpx>
+	<biostatMet>6</biostatMet>
+	<biostatArc>2</biostatArc>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_Pattern</li>
 	</exclusionTags>
@@ -258,7 +264,9 @@
 	<defName>WVC_Nodization_PatternBuff_D</defName>
 	<label>metabolism CV</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneA</iconPath>
+	<biostatCpx>5</biostatCpx>
 	<biostatMet>5</biostatMet>
+	<biostatArc>2</biostatArc>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_Pattern</li>
 	</exclusionTags>
@@ -267,7 +275,9 @@
 	<defName>WVC_Nodization_PatternBuff_E</defName>
 	<label>metabolism WR</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneA</iconPath>
+	<biostatCpx>3</biostatCpx>
 	<biostatMet>3</biostatMet>
+	<biostatArc>2</biostatArc>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_Pattern</li>
 	</exclusionTags>
@@ -277,7 +287,9 @@
 	<defName>WVC_Nodization_PatternBuff_F</defName>
 	<label>metabolism VX</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneA</iconPath>
-	<biostatMet>5</biostatMet>
+	<biostatCpx>7</biostatCpx>
+	<biostatMet>7</biostatMet>
+	<biostatArc>2</biostatArc>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_Pattern</li>
 	</exclusionTags>
@@ -286,7 +298,9 @@
 	<defName>WVC_Nodization_PatternBuff_G</defName>
 	<label>metabolism YR</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneA</iconPath>
-	<biostatMet>6</biostatMet>
+	<biostatCpx>8</biostatCpx>
+	<biostatMet>8</biostatMet>
+	<biostatArc>2</biostatArc>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_Pattern</li>
 	</exclusionTags>
@@ -390,9 +404,9 @@
 	<defName>WVC_Nodization_VindicationBuff_B</defName>
 	<label>vindication HJ</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneC</iconPath>
-	<statFactors>
-	  <MentalBreakThreshold>0.5</MentalBreakThreshold>
-	</statFactors>
+	<statOffsets>
+	  <MoveSpeed>1.0</MoveSpeed>
+	</statOffsets>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_Vindication</li>
 	</exclusionTags>
@@ -401,9 +415,9 @@
 	<defName>WVC_Nodization_VindicationBuff_C</defName>
 	<label>vindication GB</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneC</iconPath>
-	<statOffsets>
-	 <MoveSpeed>1.0</MoveSpeed>
-	</statOffsets>
+	<statFactors>
+	  <MentalBreakThreshold>0.5</MentalBreakThreshold>
+	</statFactors>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_Vindication</li>
 	</exclusionTags>
@@ -448,9 +462,11 @@
 	<label>vindication YR</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneC</iconPath>
 	<statOffsets>
-	 <MoveSpeed>0.5</MoveSpeed>
 	  <PawnBeauty>1</PawnBeauty>
 	</statOffsets>
+	<statFactors>
+	  <MentalBreakThreshold>0.8</MentalBreakThreshold>
+	</statFactors>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_Vindication</li>
 	</exclusionTags>
@@ -620,9 +636,21 @@
 	<iconPath>WVC/UI/Genes/Encoding_GeneD</iconPath>
 	<capMods>
 	  <li>
-		<capacity>BloodFiltration</capacity>
-		<offset>0.1</offset>
+		<capacity>Consciousness</capacity>
+		<offset>0.05</offset>
 	  </li>
+	  <li>
+		<capacity>Sight</capacity>
+		<offset>0.05</offset>
+	  </li>
+	  <li>
+		<capacity>Hearing</capacity>
+		<offset>0.05</offset>
+	  </li>
+	  <!-- <li> -->
+		<!-- <capacity>BloodFiltration</capacity> -->
+		<!-- <offset>0.1</offset> -->
+	  <!-- </li> -->
 	</capMods>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_String</li>
@@ -634,9 +662,17 @@
 	<iconPath>WVC/UI/Genes/Encoding_GeneD</iconPath>
 	<capMods>
 	  <li>
-		<capacity>BloodPumping</capacity>
+		<capacity>Metabolism</capacity>
 		<offset>0.1</offset>
 	  </li>
+	  <li>
+		<capacity>Talking</capacity>
+		<offset>0.05</offset>
+	  </li>
+	  <!-- <li> -->
+		<!-- <capacity>BloodPumping</capacity> -->
+		<!-- <offset>0.1</offset> -->
+	  <!-- </li> -->
 	</capMods>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_String</li>
@@ -648,10 +684,9 @@
 	<defName>WVC_Nodization_DecisionBuff_A</defName>
 	<label>decision SX</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneG</iconPath>
-	<biostatMet>2</biostatMet>
-	<!-- <statOffsets> -->
-	  <!-- <WorkSpeedGlobalOffsetMech>0.5</WorkSpeedGlobalOffsetMech> -->
-	<!-- </statOffsets> -->
+	<statOffsets>
+		<WorkSpeedGlobalOffsetMech>0.5</WorkSpeedGlobalOffsetMech>
+	</statOffsets>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_String</li>
 	</exclusionTags>
@@ -660,10 +695,9 @@
 	<defName>WVC_Nodization_DecisionBuff_B</defName>
 	<label>decision HJ</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneG</iconPath>
-	<biostatMet>1</biostatMet>
-	<!-- <statFactors> -->
-	  <!-- <CleaningSpeed>2</CleaningSpeed> -->
-	<!-- </statFactors> -->
+	<statFactors>
+		<AimingDelayFactor>0.5</AimingDelayFactor>
+	</statFactors>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_String</li>
 	</exclusionTags>
@@ -672,10 +706,9 @@
 	<defName>WVC_Nodization_DecisionBuff_C</defName>
 	<label>decision GB</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneG</iconPath>
-	<biostatMet>5</biostatMet>
-	<!-- <statOffsets> -->
-	  <!-- <MedicalTendSpeed>0.5</MedicalTendSpeed> -->
-	<!-- </statOffsets> -->
+	<statOffsets>
+		<GlobalLearningFactor>0.5</GlobalLearningFactor>
+	</statOffsets>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_String</li>
 	</exclusionTags>
@@ -684,10 +717,9 @@
 	<defName>WVC_Nodization_DecisionBuff_D</defName>
 	<label>decision CV</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneG</iconPath>
-	<biostatMet>4</biostatMet>
-	<!-- <statOffsets> -->
-	  <!-- <ArrestSuccessChance>0.2</ArrestSuccessChance> -->
-	<!-- </statOffsets> -->
+	<statOffsets>
+		<MeleeHitChance>30</MeleeHitChance>
+	</statOffsets>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_String</li>
 	</exclusionTags>
@@ -696,10 +728,9 @@
 	<defName>WVC_Nodization_DecisionBuff_E</defName>
 	<label>decision WR</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneG</iconPath>
-	<biostatMet>3</biostatMet>
-	<!-- <statOffsets> -->
-	  <!-- <SocialImpact>0.5</SocialImpact> -->
-	<!-- </statOffsets> -->
+	<statOffsets>
+		<SocialImpact>0.5</SocialImpact>
+	</statOffsets>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_String</li>
 	</exclusionTags>

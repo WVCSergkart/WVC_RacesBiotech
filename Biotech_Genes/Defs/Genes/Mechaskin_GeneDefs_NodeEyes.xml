@@ -14,6 +14,7 @@
 	<!-- <displayCategory>Cosmetic</displayCategory> -->
 	<displayOrderInCategory>-5</displayOrderInCategory>
 	<iconColor>(255, 255, 255)</iconColor>
+	<biostatCpx>0</biostatCpx>
 	<customEffectDescriptions>
 		<!-- <li>This gene is activated only in the presence of the "Faceless" gene.</li> -->
 		<li>&lt;color=#ff8585&gt;Requires "Nodeskin" gene&lt;/color&gt;</li>
