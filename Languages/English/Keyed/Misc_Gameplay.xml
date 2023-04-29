@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
+	<!-- <WVC_RB_Gene_MechaGestatorLabel>H.</WVC_RB_Gene_MechaGestatorLabel> -->
+
 	<WVC_RB_Gene_MechaGestator>{0} has gestated new pawn.</WVC_RB_Gene_MechaGestator>
 
 	<WVC_RB_Gene_GolemGestator>{0}'s mechanoid has finished the gestation process.</WVC_RB_Gene_GolemGestator>

@@ -7,13 +7,12 @@
 	<labelShortAdj>nodeskin</labelShortAdj>
 	<description>Carriers of this gene have archites that completely transform their body. 
 
-The skin has become like the most durable alloys, but has not lost its elasticity. The face is covered with plates, with a pattern similar to something like eyes, but this does not interfere with the owner's vision at all. Numerous clusters of mekhanites spread throughout the body, greatly strengthening their host.
+The skin has become like the most durable alloys, but has not lost its elasticity. The face is covered with plates, but this does not interfere with the owner's vision at all. Numerous clusters of mechanites spread throughout the body, greatly strengthening their host.
 
 Most of the internal organs were not affected, but there are too many external changes, which is why "it" cannot be called a human.
 
-&lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.
-&lt;color=#ffe185&gt;Note:&lt;/color&gt; Do not combine nodeskins with other skins, this will cause visual bugs!</description>
-	<randomChosen>true</randomChosen>
+&lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
+	<randomChosen>false</randomChosen>
 	<displayOrderInCategory>-95</displayOrderInCategory>
 	<iconColor>(255, 255, 255)</iconColor>
 	<graphicData>
@@ -28,9 +27,9 @@ Most of the internal organs were not affected, but there are too many external c
 	  <useSkinShader>false</useSkinShader>
 	  <drawIfFaceCovered>true</drawIfFaceCovered>
 	</graphicData>
-	<exclusionTags>
-	  <li>WVC_NodeBody</li>
-	</exclusionTags>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_NodeBody</li> -->
+	<!-- </exclusionTags> -->
 	<beardTagFilter>
 	  <whitelist>true</whitelist>
 	  <tags>
@@ -57,6 +56,18 @@ Most of the internal organs were not affected, but there are too many external c
 		<li><symbol>d</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
+  </GeneDef>
+
+  <!-- ================================================================== -->
+
+  <!-- = -->
+  <GeneDef ParentName="WVC_NodeBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_NodeSkin</defName>
+	<label>nodeskin</label>
+	<iconPath>WVC/UI/Genes/FacelessIcon</iconPath>
+	<forcedHeadTypes>
+	  <li>WVC_NodeSkin_Faceless</li>
+	</forcedHeadTypes>
 	<modExtensions>
 		<li Class="WVC.GeneExtension_EyeDraws">
 			<eyesShouldBeInvisble>true</eyesShouldBeInvisble>
@@ -64,261 +75,236 @@ Most of the internal organs were not affected, but there are too many external c
 	</modExtensions>
   </GeneDef>
 
-  <!-- ================================================================== -->
-
   <!-- = -->
-  <GeneDef ParentName="WVC_NodeBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch">
-	<defName>WVC_NodeSkin_Blue</defName>
-	<label>nodeskin SX</label>
-	<geneClass>WVC.Gene_RandomHediffFromTime</geneClass>
-	<biostatMet>-4</biostatMet>
-	<iconPath>WVC/UI/Genes/HeadBlue_south</iconPath>
-	<forcedHeadTypes>
-	  <li>WVC_NodeSkin_Blue</li>
-	</forcedHeadTypes>
-	<customEffectDescriptions>
-		<li>A carrier of this gene has a small chance of getting a mechlink permanently.</li>
-	</customEffectDescriptions>
-	<graphicData>
-	  <graphicPath>WVC/NodeGene_Head/HeadBlue</graphicPath>
-	</graphicData>
-	<statOffsets>
-	  <MechBandwidth>6</MechBandwidth>
-	  <MechControlGroups>1</MechControlGroups>
-	</statOffsets>
-	<aptitudes>
-	  <Crafting>4</Crafting>
-	</aptitudes>
-	<suppressedTraits>
-	  <li>
-		<def>PsychicSensitivity</def>
-		<degree>-2</degree>
-	  </li>
-	</suppressedTraits>
-	<modExtensions>
-		<li Class="WVC.GeneExtension_HediffGiver">
-			<hediffDefName>MechlinkImplant</hediffDefName>
-			<bodyparts>
-			  <li>Brain</li>
-			</bodyparts>
-		</li>
-	</modExtensions>
-  </GeneDef>
-  <!-- = -->
-  <GeneDef ParentName="WVC_NodeBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch">
-	<defName>WVC_NodeSkin_Red</defName>
-	<label>nodeskin HJ</label>
-	<biostatMet>-6</biostatMet>
-	<iconPath>WVC/UI/Genes/HeadRed_south</iconPath>
-	<forcedHeadTypes>
-	  <li>WVC_NodeSkin_Red</li>
-	</forcedHeadTypes>
-	<customEffectDescriptions>
-	</customEffectDescriptions>
-	<graphicData>
-	  <graphicPath>WVC/NodeGene_Head/HeadRed</graphicPath>
-	</graphicData>
-	<statOffsets>
-	  <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
-	  <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
-	  <ArmorRating_Heat>0.55</ArmorRating_Heat>
-	</statOffsets>
-	<aptitudes>
-	  <Shooting>4</Shooting>
-	</aptitudes>
-	<!-- <forcedTraits> -->
+  <!-- <GeneDef ParentName="WVC_NodeBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch"> -->
+	<!-- <defName>WVC_NodeSkin_Blue</defName> -->
+	<!-- <label>nodeskin SX</label> -->
+	<!-- <geneClass>WVC.Gene_RandomHediffFromTime</geneClass> -->
+	<!-- <biostatMet>-4</biostatMet> -->
+	<!-- <iconPath>WVC/UI/Genes/HeadBlue_south</iconPath> -->
+	<!-- <forcedHeadTypes> -->
+	  <!-- <li>WVC_NodeSkin_Blue</li> -->
+	<!-- </forcedHeadTypes> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>A carrier of this gene has a small chance of getting a mechlink permanently.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <graphicData> -->
+	  <!-- <graphicPath>WVC/NodeGene_Head/HeadBlue</graphicPath> -->
+	<!-- </graphicData> -->
+	<!-- <statOffsets> -->
+	  <!-- <MechBandwidth>6</MechBandwidth> -->
+	  <!-- <MechControlGroups>1</MechControlGroups> -->
+	<!-- </statOffsets> -->
+	<!-- <aptitudes> -->
+	  <!-- <Crafting>4</Crafting> -->
+	<!-- </aptitudes> -->
+	<!-- <suppressedTraits> -->
 	  <!-- <li> -->
-		<!-- <def>Bloodlust</def> -->
+		<!-- <def>PsychicSensitivity</def> -->
+		<!-- <degree>-2</degree> -->
 	  <!-- </li> -->
-	<!-- </forcedTraits> -->
-	<suppressedTraits>
-	  <li>
-		<def>Tough</def>
-	  </li>
-	</suppressedTraits>
-	<!-- <conditionalStatAffecters> -->
-	  <!-- <li Class="WVC.ConditionalStatAffecter_Immortal"> -->
-		<!-- <statOffsets> -->
-		  <!-- <WVC_ForcedStat_ArmorRating_Heat>2.0</WVC_ForcedStat_ArmorRating_Heat> -->
-		<!-- </statOffsets> -->
+	<!-- </suppressedTraits> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC.GeneExtension_HediffGiver"> -->
+			<!-- <hediffDefName>MechlinkImplant</hediffDefName> -->
+			<!-- <bodyparts> -->
+			  <!-- <li>Brain</li> -->
+			<!-- </bodyparts> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+  <!-- = -->
+  <!-- <GeneDef ParentName="WVC_NodeBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch"> -->
+	<!-- <defName>WVC_NodeSkin_Red</defName> -->
+	<!-- <label>nodeskin HJ</label> -->
+	<!-- <biostatMet>-6</biostatMet> -->
+	<!-- <iconPath>WVC/UI/Genes/HeadRed_south</iconPath> -->
+	<!-- <forcedHeadTypes> -->
+	  <!-- <li>WVC_NodeSkin_Red</li> -->
+	<!-- </forcedHeadTypes> -->
+	<!-- <customEffectDescriptions> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <graphicData> -->
+	  <!-- <graphicPath>WVC/NodeGene_Head/HeadRed</graphicPath> -->
+	<!-- </graphicData> -->
+	<!-- <statOffsets> -->
+	  <!-- <ArmorRating_Blunt>0.35</ArmorRating_Blunt> -->
+	  <!-- <ArmorRating_Sharp>0.35</ArmorRating_Sharp> -->
+	  <!-- <ArmorRating_Heat>0.55</ArmorRating_Heat> -->
+	<!-- </statOffsets> -->
+	<!-- <aptitudes> -->
+	  <!-- <Shooting>4</Shooting> -->
+	<!-- </aptitudes> -->
+	<!-- <suppressedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>Tough</def> -->
 	  <!-- </li> -->
-	<!-- </conditionalStatAffecters> -->
-  </GeneDef>
+	<!-- </suppressedTraits> -->
+  <!-- </GeneDef> -->
   <!-- = -->
-  <GeneDef ParentName="WVC_NodeBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch">
-	<defName>WVC_NodeSkin_Green</defName>
-	<label>nodeskin GB</label>
-	<biostatMet>-1</biostatMet>
-	<iconPath>WVC/UI/Genes/HeadGreen_south</iconPath>
-	<forcedHeadTypes>
-	  <li>WVC_NodeSkin_Green</li>
-	</forcedHeadTypes>
-	<customEffectDescriptions>
-	</customEffectDescriptions>
-	<graphicData>
-	  <graphicPath>WVC/NodeGene_Head/HeadGreen</graphicPath>
-	</graphicData>
-	<aptitudes>
-	  <Medicine>4</Medicine>
-	</aptitudes>
-	<statOffsets>
-	  <ImmunityGainSpeed>0.5</ImmunityGainSpeed>
-	  <InjuryHealingFactor>0.5</InjuryHealingFactor>
-	</statOffsets>
-	<!-- <conditionalStatAffecters> -->
-	  <!-- <li Class="WVC.ConditionalStatAffecter_Immortal"> -->
-		<!-- <statOffsets> -->
-		  <!-- <WVC_ForcedStat_InjuryHealingFactor>5</WVC_ForcedStat_InjuryHealingFactor> -->
-		<!-- </statOffsets> -->
-	  <!-- </li> -->
-	<!-- </conditionalStatAffecters> -->
-  </GeneDef>
+  <!-- <GeneDef ParentName="WVC_NodeBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch"> -->
+	<!-- <defName>WVC_NodeSkin_Green</defName> -->
+	<!-- <label>nodeskin GB</label> -->
+	<!-- <biostatMet>-1</biostatMet> -->
+	<!-- <iconPath>WVC/UI/Genes/HeadGreen_south</iconPath> -->
+	<!-- <forcedHeadTypes> -->
+	  <!-- <li>WVC_NodeSkin_Green</li> -->
+	<!-- </forcedHeadTypes> -->
+	<!-- <customEffectDescriptions> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <graphicData> -->
+	  <!-- <graphicPath>WVC/NodeGene_Head/HeadGreen</graphicPath> -->
+	<!-- </graphicData> -->
+	<!-- <aptitudes> -->
+	  <!-- <Medicine>4</Medicine> -->
+	<!-- </aptitudes> -->
+	<!-- <statOffsets> -->
+	  <!-- <ImmunityGainSpeed>0.5</ImmunityGainSpeed> -->
+	  <!-- <InjuryHealingFactor>0.5</InjuryHealingFactor> -->
+	<!-- </statOffsets> -->
+  <!-- </GeneDef> -->
   <!-- = -->
-  <GeneDef ParentName="WVC_NodeBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch">
-	<defName>WVC_NodeSkin_Violet</defName>
-	<label>nodeskin CV</label>
-	<biostatMet>-3</biostatMet>
-	<iconPath>WVC/UI/Genes/HeadViolet_south</iconPath>
-	<forcedHeadTypes>
-	  <li>WVC_NodeSkin_Violet</li>
-	</forcedHeadTypes>
-	<customEffectDescriptions>
-	</customEffectDescriptions>
-	<graphicData>
-	  <graphicPath>WVC/NodeGene_Head/HeadViolet</graphicPath>
-	</graphicData>
-	<statFactors>
-	  <IncomingDamageFactor>0.5</IncomingDamageFactor>
-	</statFactors>
-	<aptitudes>
-	  <Melee>4</Melee>
-	</aptitudes>
-	<suppressedTraits>
-	  <li>
-		<def>Tough</def>
-	  </li>
-	</suppressedTraits>
-  </GeneDef>
-  <!-- = -->
-  <GeneDef ParentName="WVC_NodeBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch">
-	<defName>WVC_NodeSkin_Yellow</defName>
-	<label>nodeskin WR</label>
-	<geneClass>WVC.Gene_RandomHediffFromTime</geneClass>
-	<biostatMet>-5</biostatMet>
-	<iconPath>WVC/UI/Genes/HeadYellow_south</iconPath>
-	<forcedHeadTypes>
-	  <li>WVC_NodeSkin_Yellow</li>
-	</forcedHeadTypes>
-	<customEffectDescriptions>
-		<li>A carrier of this gene has a small chance of getting a psylink permanently.</li>
-	</customEffectDescriptions>
-	<graphicData>
-	  <graphicPath>WVC/NodeGene_Head/HeadYellow</graphicPath>
-	</graphicData>
-	<statOffsets>
-	  <PsychicSensitivity>1.0</PsychicSensitivity>
-	</statOffsets>
-	<aptitudes>
-	  <Social>4</Social>
-	</aptitudes>
-	<suppressedTraits>
-	  <li>
-		<def>PsychicSensitivity</def>
-		<degree>-2</degree>
-	  </li>
-	  <li>
-		<def>PsychicSensitivity</def>
-		<degree>-1</degree>
-	  </li>
-	  <li>
-		<def>PsychicSensitivity</def>
-		<degree>1</degree>
-	  </li>
-	  <li>
-		<def>PsychicSensitivity</def>
-		<degree>2</degree>
-	  </li>
-	</suppressedTraits>
-	<modExtensions>
-		<li Class="WVC.GeneExtension_HediffGiver">
-			<hediffDefName>PsychicAmplifier</hediffDefName>
-			<bodyparts>
-			  <li>Brain</li>
-			</bodyparts>
-		</li>
-	</modExtensions>
-  </GeneDef>
-  <!-- = -->
-  <GeneDef ParentName="WVC_NodeBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch">
-	<defName>WVC_NodeSkin_AltBlue</defName>
-	<label>nodeskin VX</label>
-	<geneClass>WVC.Gene_RandomHediffFromTime</geneClass>
-	<biostatMet>-3</biostatMet>
-	<iconPath>WVC/UI/Genes/HeadAltBlue_south</iconPath>
-	<forcedHeadTypes>
-	  <li>WVC_NodeSkin_AltBlue</li>
-	</forcedHeadTypes>
-	<customEffectDescriptions>
-		<li>A carrier of this gene has a small chance of getting a mechlink permanently.</li>
-	</customEffectDescriptions>
-	<graphicData>
-	  <graphicPath>WVC/NodeGene_Head/HeadAltBlue</graphicPath>
-	</graphicData>
-	<aptitudes>
-	  <Crafting>2</Crafting>
-	  <Melee>2</Melee>
-	</aptitudes>
+  <!-- <GeneDef ParentName="WVC_NodeBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch"> -->
+	<!-- <defName>WVC_NodeSkin_Violet</defName> -->
+	<!-- <label>nodeskin CV</label> -->
+	<!-- <biostatMet>-3</biostatMet> -->
+	<!-- <iconPath>WVC/UI/Genes/HeadViolet_south</iconPath> -->
+	<!-- <forcedHeadTypes> -->
+	  <!-- <li>WVC_NodeSkin_Violet</li> -->
+	<!-- </forcedHeadTypes> -->
+	<!-- <customEffectDescriptions> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <graphicData> -->
+	  <!-- <graphicPath>WVC/NodeGene_Head/HeadViolet</graphicPath> -->
+	<!-- </graphicData> -->
 	<!-- <statFactors> -->
-	  <!-- <MechBandwidth>0.2</MechBandwidth> -->
+	  <!-- <IncomingDamageFactor>0.5</IncomingDamageFactor> -->
 	<!-- </statFactors> -->
-	<statOffsets>
-	  <!-- <WorkSpeedGlobalOffsetMech>0.5</WorkSpeedGlobalOffsetMech> -->
-	  <WVC_BandwidthCostOffsetMech>-1</WVC_BandwidthCostOffsetMech>
-	</statOffsets>
-	<conditionalStatAffecters>
-	  <li Class="WVC.ConditionalStatAffecter_CauseSetting">
-		<settingName>nodeskinVX_MechBandwidth</settingName>
-		<statOffsets>
-			<WVC_ForceTo_MechBandwidth>2</WVC_ForceTo_MechBandwidth>
-		</statOffsets>
-	  </li>
-	</conditionalStatAffecters>
-	<modExtensions>
-		<li Class="WVC.GeneExtension_HediffGiver">
-			<hediffDefName>MechlinkImplant</hediffDefName>
-			<bodyparts>
-			  <li>Brain</li>
-			</bodyparts>
-		</li>
-	</modExtensions>
-  </GeneDef>
+	<!-- <aptitudes> -->
+	  <!-- <Melee>4</Melee> -->
+	<!-- </aptitudes> -->
+	<!-- <suppressedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>Tough</def> -->
+	  <!-- </li> -->
+	<!-- </suppressedTraits> -->
+  <!-- </GeneDef> -->
   <!-- = -->
-  <GeneDef ParentName="WVC_NodeBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch">
-	<defName>WVC_NodeSkin_Orange</defName>
-	<label>nodeskin YR</label>
-	<biostatMet>-2</biostatMet>
-	<iconPath>WVC/UI/Genes/HeadOrange_south</iconPath>
-	<forcedHeadTypes>
-	  <li>WVC_NodeSkin_Orange</li>
-	</forcedHeadTypes>
-	<customEffectDescriptions>
-	</customEffectDescriptions>
-	<graphicData>
-	  <graphicPath>WVC/NodeGene_Head/HeadOrange</graphicPath>
-	</graphicData>
-	<aptitudes>
-	  <Intellectual>2</Intellectual>
-	  <Social>2</Social>
-	</aptitudes>
-	<conditionalStatAffecters>
-	  <li Class="WVC.ConditionalStatAffecter_Genes">
-		<geneDef>Bloodfeeder</geneDef>
-		<pawnShouldBeImmortal>true</pawnShouldBeImmortal>
-		<statOffsets>
-		  <HemogenGainFactor>1.0</HemogenGainFactor>
-		</statOffsets>
-	  </li>
-	</conditionalStatAffecters>
-  </GeneDef>
+  <!-- <GeneDef ParentName="WVC_NodeBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch"> -->
+	<!-- <defName>WVC_NodeSkin_Yellow</defName> -->
+	<!-- <label>nodeskin WR</label> -->
+	<!-- <geneClass>WVC.Gene_RandomHediffFromTime</geneClass> -->
+	<!-- <biostatMet>-5</biostatMet> -->
+	<!-- <iconPath>WVC/UI/Genes/HeadYellow_south</iconPath> -->
+	<!-- <forcedHeadTypes> -->
+	  <!-- <li>WVC_NodeSkin_Yellow</li> -->
+	<!-- </forcedHeadTypes> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>A carrier of this gene has a small chance of getting a psylink permanently.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <graphicData> -->
+	  <!-- <graphicPath>WVC/NodeGene_Head/HeadYellow</graphicPath> -->
+	<!-- </graphicData> -->
+	<!-- <statOffsets> -->
+	  <!-- <PsychicSensitivity>1.0</PsychicSensitivity> -->
+	<!-- </statOffsets> -->
+	<!-- <aptitudes> -->
+	  <!-- <Social>4</Social> -->
+	<!-- </aptitudes> -->
+	<!-- <suppressedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>PsychicSensitivity</def> -->
+		<!-- <degree>-2</degree> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <def>PsychicSensitivity</def> -->
+		<!-- <degree>-1</degree> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <def>PsychicSensitivity</def> -->
+		<!-- <degree>1</degree> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <def>PsychicSensitivity</def> -->
+		<!-- <degree>2</degree> -->
+	  <!-- </li> -->
+	<!-- </suppressedTraits> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC.GeneExtension_HediffGiver"> -->
+			<!-- <hediffDefName>PsychicAmplifier</hediffDefName> -->
+			<!-- <bodyparts> -->
+			  <!-- <li>Brain</li> -->
+			<!-- </bodyparts> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+  <!-- = -->
+  <!-- <GeneDef ParentName="WVC_NodeBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch"> -->
+	<!-- <defName>WVC_NodeSkin_AltBlue</defName> -->
+	<!-- <label>nodeskin VX</label> -->
+	<!-- <geneClass>WVC.Gene_RandomHediffFromTime</geneClass> -->
+	<!-- <biostatMet>-3</biostatMet> -->
+	<!-- <iconPath>WVC/UI/Genes/HeadAltBlue_south</iconPath> -->
+	<!-- <forcedHeadTypes> -->
+	  <!-- <li>WVC_NodeSkin_AltBlue</li> -->
+	<!-- </forcedHeadTypes> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>A carrier of this gene has a small chance of getting a mechlink permanently.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <graphicData> -->
+	  <!-- <graphicPath>WVC/NodeGene_Head/HeadAltBlue</graphicPath> -->
+	<!-- </graphicData> -->
+	<!-- <aptitudes> -->
+	  <!-- <Crafting>2</Crafting> -->
+	  <!-- <Melee>2</Melee> -->
+	<!-- </aptitudes> -->
+	<!-- <statOffsets> -->
+	  <!-- <WVC_BandwidthCostOffsetMech>-1</WVC_BandwidthCostOffsetMech> -->
+	<!-- </statOffsets> -->
+	<!-- <conditionalStatAffecters> -->
+	  <!-- <li Class="WVC.ConditionalStatAffecter_CauseSetting"> -->
+		<!-- <settingName>nodeskinVX_MechBandwidth</settingName> -->
+		<!-- <statOffsets> -->
+			<!-- <WVC_ForceTo_MechBandwidth>2</WVC_ForceTo_MechBandwidth> -->
+		<!-- </statOffsets> -->
+	  <!-- </li> -->
+	<!-- </conditionalStatAffecters> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC.GeneExtension_HediffGiver"> -->
+			<!-- <hediffDefName>MechlinkImplant</hediffDefName> -->
+			<!-- <bodyparts> -->
+			  <!-- <li>Brain</li> -->
+			<!-- </bodyparts> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+  <!-- = -->
+  <!-- <GeneDef ParentName="WVC_NodeBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch"> -->
+	<!-- <defName>WVC_NodeSkin_Orange</defName> -->
+	<!-- <label>nodeskin YR</label> -->
+	<!-- <biostatMet>-2</biostatMet> -->
+	<!-- <iconPath>WVC/UI/Genes/HeadOrange_south</iconPath> -->
+	<!-- <forcedHeadTypes> -->
+	  <!-- <li>WVC_NodeSkin_Orange</li> -->
+	<!-- </forcedHeadTypes> -->
+	<!-- <customEffectDescriptions> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <graphicData> -->
+	  <!-- <graphicPath>WVC/NodeGene_Head/HeadOrange</graphicPath> -->
+	<!-- </graphicData> -->
+	<!-- <aptitudes> -->
+	  <!-- <Intellectual>2</Intellectual> -->
+	  <!-- <Social>2</Social> -->
+	<!-- </aptitudes> -->
+	<!-- <conditionalStatAffecters> -->
+	  <!-- <li Class="WVC.ConditionalStatAffecter_Genes"> -->
+		<!-- <geneDef>Bloodfeeder</geneDef> -->
+		<!-- <pawnShouldBeImmortal>true</pawnShouldBeImmortal> -->
+		<!-- <statOffsets> -->
+		  <!-- <HemogenGainFactor>1.0</HemogenGainFactor> -->
+		<!-- </statOffsets> -->
+	  <!-- </li> -->
+	<!-- </conditionalStatAffecters> -->
+  <!-- </GeneDef> -->
 
 </Defs>

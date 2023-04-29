@@ -88,7 +88,9 @@
 	<displayOrderInCategory>-50</displayOrderInCategory>
 	<iconColor>(133, 167, 255)</iconColor>
 	<exclusionTags>
-	  <li>WVC_Nodization_RandomBuff_VX</li>
+	  <li>WVC_Nodization_RandomBuff_SX</li>
+	  <!-- <li>WVC_Nodization_RandomBuff_CV</li> -->
+	  <!-- <li>WVC_Nodization_RandomBuff_VX</li> -->
 	</exclusionTags>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Base" Name="WVC_Nodization_RandomBuff_Orange" Abstract="True">
@@ -96,7 +98,9 @@
 	<displayOrderInCategory>-40</displayOrderInCategory>
 	<iconColor>(255, 182, 133)</iconColor>
 	<exclusionTags>
-	  <li>WVC_Nodization_RandomBuff_YR</li>
+	  <!-- <li>WVC_Nodization_RandomBuff_GB</li> -->
+	  <li>WVC_Nodization_RandomBuff_WR</li>
+	  <!-- <li>WVC_Nodization_RandomBuff_YR</li> -->
 	</exclusionTags>
   </GeneDef>
 
@@ -106,7 +110,7 @@
 	<label>pattern SX</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneA</iconPath>
 	<statOffsets>
-	  <MechFormingSpeed>0.25</MechFormingSpeed>
+	  <MechFormingSpeed>1.0</MechFormingSpeed>
 	</statOffsets>
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_Nodization_RandomPatternBuff_VX</li> -->
@@ -117,7 +121,7 @@
 	<label>pattern HJ</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneA</iconPath>
 	<statFactors>
-	  <AimingDelayFactor>0.8</AimingDelayFactor>
+	  <AimingDelayFactor>0.5</AimingDelayFactor>
 	</statFactors>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Green">
@@ -125,7 +129,7 @@
 	<label>pattern GB</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneA</iconPath>
 	<statFactors>
-	  <MentalBreakThreshold>0.80</MentalBreakThreshold>
+	  <MentalBreakThreshold>0.5</MentalBreakThreshold>
 	</statFactors>
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_Nodization_RandomPatternBuff_YR</li> -->
@@ -136,7 +140,7 @@
 	<label>pattern CV</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneA</iconPath>
 	<statOffsets>
-	  <MeleeDamageFactor>0.1</MeleeDamageFactor>
+	  <MeleeDamageFactor>0.25</MeleeDamageFactor>
 	</statOffsets>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Yellow">
@@ -144,7 +148,7 @@
 	<label>pattern WR</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneA</iconPath>
 	<statOffsets>
-	  <PawnBeauty>1</PawnBeauty>
+	  <PawnBeauty>2</PawnBeauty>
 	</statOffsets>
   </GeneDef>
   <!-- = -->
@@ -153,8 +157,8 @@
 	<label>pattern VX</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneA</iconPath>
 	<statOffsets>
-	  <MechControlGroups>1</MechControlGroups>
-	  <!-- <WorkSpeedGlobal>-0.5</WorkSpeedGlobal> -->
+	  <MechFormingSpeed>0.5</MechFormingSpeed>
+	  <MeleeDamageFactor>0.1</MeleeDamageFactor>
 	</statOffsets>
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_Nodization_RandomPatternBuff_VX</li> -->
@@ -165,8 +169,8 @@
 	<label>pattern YR</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneA</iconPath>
 	<statOffsets>
-	  <HemogenGainFactor>0.2</HemogenGainFactor>
-	  <!-- <InjuryHealingFactor>-0.2</InjuryHealingFactor> -->
+	  <MentalBreakThreshold>0.8</MentalBreakThreshold>
+	  <PawnBeauty>1</PawnBeauty>
 	</statOffsets>
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_Nodization_RandomPatternBuff_YR</li> -->
@@ -179,7 +183,7 @@
 	<label>skill SX</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneB</iconPath>
 	<aptitudes>
-	  <Crafting>2</Crafting>
+	  <Crafting>6</Crafting>
 	</aptitudes>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Red">
@@ -187,7 +191,7 @@
 	<label>skill HJ</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneB</iconPath>
 	<aptitudes>
-	  <Shooting>2</Shooting>
+	  <Shooting>6</Shooting>
 	</aptitudes>
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_Nodization_RandomSkillBuff_YR</li> -->
@@ -198,7 +202,7 @@
 	<label>skill GB</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneB</iconPath>
 	<aptitudes>
-	  <Medicine>2</Medicine>
+	  <Medicine>6</Medicine>
 	</aptitudes>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Violet">
@@ -206,7 +210,7 @@
 	<label>skill CV</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneB</iconPath>
 	<aptitudes>
-	  <Melee>2</Melee>
+	  <Melee>6</Melee>
 	</aptitudes>
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_Nodization_RandomSkillBuff_VX</li> -->
@@ -217,7 +221,7 @@
 	<label>skill WR</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneB</iconPath>
 	<aptitudes>
-	  <Social>2</Social>
+	  <Social>6</Social>
 	</aptitudes>
   </GeneDef>
   <!-- = -->
@@ -226,8 +230,8 @@
 	<label>skill VX</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneB</iconPath>
 	<aptitudes>
-	  <Crafting>1</Crafting>
-	  <Melee>1</Melee>
+	  <Crafting>3</Crafting>
+	  <Melee>3</Melee>
 	</aptitudes>
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_Nodization_RandomSkillBuff_VX</li> -->
@@ -238,8 +242,8 @@
 	<label>skill YR</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneB</iconPath>
 	<aptitudes>
-	  <Social>1</Social>
-	  <Intellectual>1</Intellectual>
+	  <Social>3</Social>
+	  <Intellectual>3</Intellectual>
 	</aptitudes>
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_Nodization_RandomSkillBuff_YR</li> -->
@@ -252,7 +256,7 @@
 	<label>vindication SX</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneC</iconPath>
 	<statOffsets>
-	  <WVC_MechEnergyUsageOffset>-0.25</WVC_MechEnergyUsageOffset>
+	  <WVC_MechEnergyUsageOffset>-0.5</WVC_MechEnergyUsageOffset>
 	</statOffsets>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Red">
@@ -260,9 +264,9 @@
 	<label>vindication HJ</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneC</iconPath>
 	<statOffsets>
-	  <ArmorRating_Blunt>0.07</ArmorRating_Blunt>
-	  <ArmorRating_Sharp>0.07</ArmorRating_Sharp>
-	  <ArmorRating_Heat>0.07</ArmorRating_Heat>
+	  <ArmorRating_Blunt>0.24</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.24</ArmorRating_Sharp>
+	  <ArmorRating_Heat>0.33</ArmorRating_Heat>
 	</statOffsets>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Green">
@@ -270,7 +274,7 @@
 	<label>vindication GB</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneC</iconPath>
 	<statOffsets>
-	 <MoveSpeed>0.4</MoveSpeed>
+	 <MoveSpeed>1.0</MoveSpeed>
 	</statOffsets>
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_Nodization_RandomVindicationBuff_VX</li> -->
@@ -281,7 +285,7 @@
 	<label>vindication CV</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneC</iconPath>
 	<statOffsets>
-	  <MeleeDodgeChance>10</MeleeDodgeChance>
+	  <MeleeDodgeChance>30</MeleeDodgeChance>
 	</statOffsets>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Yellow">
@@ -289,7 +293,7 @@
 	<label>vindication WR</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneC</iconPath>
 	<statOffsets>
-		<NegotiationAbility>0.2</NegotiationAbility>
+		<NegotiationAbility>0.5</NegotiationAbility>
 	</statOffsets>
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_Nodization_RandomVindicationBuff_YR</li> -->
@@ -301,9 +305,13 @@
 	<label>vindication VX</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneC</iconPath>
 	<statOffsets>
-		<PsychicSensitivity>-0.2</PsychicSensitivity>
-		<GlobalLearningFactor>0.2</GlobalLearningFactor>
+		<!-- <PsychicSensitivity>-0.2</PsychicSensitivity> -->
+		<GlobalLearningFactor>0.5</GlobalLearningFactor>
 	</statOffsets>
+	<!-- <statFactors> -->
+	  <!-- <PsychicSensitivity>0.5</PsychicSensitivity> -->
+	  <!-- <GlobalLearningFactor>1.2</GlobalLearningFactor> -->
+	<!-- </statFactors> -->
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_Nodization_RandomVindicationBuff_VX</li> -->
 	<!-- </exclusionTags> -->
@@ -313,9 +321,13 @@
 	<label>vindication YR</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneC</iconPath>
 	<statOffsets>
-		<GlobalLearningFactor>-0.2</GlobalLearningFactor>
-		<PsychicSensitivity>0.2</PsychicSensitivity>
+		<!-- <GlobalLearningFactor>-0.2</GlobalLearningFactor> -->
+		<PsychicSensitivity>0.5</PsychicSensitivity>
 	</statOffsets>
+	<!-- <statFactors> -->
+	  <!-- <PsychicSensitivity>1.2</PsychicSensitivity> -->
+	  <!-- <GlobalLearningFactor>0.5</GlobalLearningFactor> -->
+	<!-- </statFactors> -->
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_Nodization_RandomVindicationBuff_YR</li> -->
 	<!-- </exclusionTags> -->
@@ -329,7 +341,7 @@
 	<capMods>
 	  <li>
 		<capacity>Consciousness</capacity>
-		<offset>0.05</offset>
+		<offset>0.1</offset>
 	  </li>
 	</capMods>
   </GeneDef>
@@ -340,7 +352,7 @@
 	<capMods>
 	  <li>
 		<capacity>Manipulation</capacity>
-		<offset>0.05</offset>
+		<offset>0.1</offset>
 	  </li>
 	</capMods>
   </GeneDef>
@@ -351,7 +363,7 @@
 	<capMods>
 	  <li>
 		<capacity>Metabolism</capacity>
-		<offset>0.05</offset>
+		<offset>0.2</offset>
 	  </li>
 	</capMods>
   </GeneDef>
@@ -362,11 +374,11 @@
 	<capMods>
 	  <li>
 		<capacity>Sight</capacity>
-		<offset>0.02</offset>
+		<offset>0.1</offset>
 	  </li>
 	  <li>
 		<capacity>Hearing</capacity>
-		<offset>0.02</offset>
+		<offset>0.1</offset>
 	  </li>
 	</capMods>
   </GeneDef>
@@ -377,7 +389,7 @@
 	<capMods>
 	  <li>
 		<capacity>Talking</capacity>
-		<offset>0.05</offset>
+		<offset>0.1</offset>
 	  </li>
 	</capMods>
   </GeneDef>
@@ -389,7 +401,7 @@
 	<capMods>
 	  <li>
 		<capacity>BloodFiltration</capacity>
-		<offset>0.05</offset>
+		<offset>0.1</offset>
 	  </li>
 	</capMods>
   </GeneDef>
@@ -400,7 +412,7 @@
 	<capMods>
 	  <li>
 		<capacity>BloodPumping</capacity>
-		<offset>0.05</offset>
+		<offset>0.1</offset>
 	  </li>
 	</capMods>
   </GeneDef>
@@ -419,9 +431,9 @@
 	<label>point HJ</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneE</iconPath>
 	<statFactors>
-	  <ArmorRating_Blunt>1.2</ArmorRating_Blunt>
-	  <ArmorRating_Sharp>1.2</ArmorRating_Sharp>
-	  <ArmorRating_Heat>1.2</ArmorRating_Heat>
+	  <ArmorRating_Blunt>1.5</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>1.5</ArmorRating_Sharp>
+	  <ArmorRating_Heat>2</ArmorRating_Heat>
 	</statFactors>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Green">
@@ -429,7 +441,7 @@
 	<label>point GB</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneE</iconPath>
 	<statFactors>
-	  <InjuryHealingFactor>1.5</InjuryHealingFactor>
+	  <InjuryHealingFactor>2.0</InjuryHealingFactor>
 	</statFactors>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Violet">
@@ -454,7 +466,7 @@
 	<label>point VX</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneE</iconPath>
 	<statFactors>
-	  <IncomingDamageFactor>0.8</IncomingDamageFactor>
+	  <IncomingDamageFactor>0.5</IncomingDamageFactor>
 	</statFactors>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Orange">
@@ -471,18 +483,14 @@
 	<defName>WVC_Nodization_EntityBuff_A</defName>
 	<label>entity SX</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneF</iconPath>
-	<conditionalStatAffecters>
-	  <li Class="WVC.ConditionalStatAffecter_Genes">
-		<geneDef>Bloodfeeder</geneDef>
-		<pawnShouldBeImmortal>true</pawnShouldBeImmortal>
-		<statOffsets>
-		  <MechBandwidth>6</MechBandwidth>
-		</statOffsets>
-	  </li>
-	</conditionalStatAffecters>
+	<statOffsets>
+	  <MechBandwidth>6</MechBandwidth>
+	  <MechControlGroups>1</MechControlGroups>
+	</statOffsets>
 	<suppressedTraits>
 	  <li>
-		<def>Recluse</def>
+		<def>PsychicSensitivity</def>
+		<degree>-2</degree>
 	  </li>
 	</suppressedTraits>
   </GeneDef>
@@ -490,23 +498,14 @@
 	<defName>WVC_Nodization_EntityBuff_B</defName>
 	<label>entity HJ</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneF</iconPath>
-	<!-- <statOffsets> -->
-	  <!-- <ShootingAccuracyPawn>0.2</ShootingAccuracyPawn> -->
-	<!-- </statOffsets> -->
-	<conditionalStatAffecters>
-	  <li Class="WVC.ConditionalStatAffecter_Genes">
-		<geneDef>Bloodfeeder</geneDef>
-		<pawnShouldBeImmortal>true</pawnShouldBeImmortal>
-		<statOffsets>
-		  <ArmorRating_Blunt>0.12</ArmorRating_Blunt>
-		  <ArmorRating_Sharp>0.07</ArmorRating_Sharp>
-		  <ArmorRating_Heat>0.1</ArmorRating_Heat>
-		</statOffsets>
-	  </li>
-	</conditionalStatAffecters>
+	<statOffsets>
+	  <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+	  <ArmorRating_Heat>0.55</ArmorRating_Heat>
+	</statOffsets>
 	<suppressedTraits>
 	  <li>
-		<def>Bloodlust</def>
+		<def>Tough</def>
 	  </li>
 	</suppressedTraits>
   </GeneDef>
@@ -514,38 +513,21 @@
 	<defName>WVC_Nodization_EntityBuff_C</defName>
 	<label>entity GB</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneF</iconPath>
-	<conditionalStatAffecters>
-	  <li Class="WVC.ConditionalStatAffecter_Genes">
-		<geneDef>Bloodfeeder</geneDef>
-		<pawnShouldBeImmortal>true</pawnShouldBeImmortal>
-		<statOffsets>
-		  <ImmunityGainSpeed>0.25</ImmunityGainSpeed>
-		  <InjuryHealingFactor>0.25</InjuryHealingFactor>
-		</statOffsets>
-	  </li>
-	</conditionalStatAffecters>
-	<suppressedTraits>
-	  <li>
-		<def>Cannibal</def>
-	  </li>
-	</suppressedTraits>
+	<statOffsets>
+	  <ImmunityGainSpeed>0.5</ImmunityGainSpeed>
+	  <InjuryHealingFactor>0.5</InjuryHealingFactor>
+	</statOffsets>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Violet">
 	<defName>WVC_Nodization_EntityBuff_D</defName>
 	<label>entity CV</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneF</iconPath>
-	<conditionalStatAffecters>
-	  <li Class="WVC.ConditionalStatAffecter_Genes">
-		<geneDef>Bloodfeeder</geneDef>
-		<pawnShouldBeImmortal>true</pawnShouldBeImmortal>
-		<statFactors>
-		  <IncomingDamageFactor>0.9</IncomingDamageFactor>
-		</statFactors>
-	  </li>
-	</conditionalStatAffecters>
+	<statFactors>
+	  <IncomingDamageFactor>0.5</IncomingDamageFactor>
+	</statFactors>
 	<suppressedTraits>
 	  <li>
-		<def>Brawler</def>
+		<def>Tough</def>
 	  </li>
 	</suppressedTraits>
   </GeneDef>
@@ -553,18 +535,25 @@
 	<defName>WVC_Nodization_EntityBuff_E</defName>
 	<label>entity WR</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneF</iconPath>
-	<conditionalStatAffecters>
-	  <li Class="WVC.ConditionalStatAffecter_Genes">
-		<geneDef>Bloodfeeder</geneDef>
-		<pawnShouldBeImmortal>true</pawnShouldBeImmortal>
-		<statOffsets>
-		  <PsychicSensitivity>0.2</PsychicSensitivity>
-		</statOffsets>
-	  </li>
-	</conditionalStatAffecters>
+	<statOffsets>
+	  <PsychicSensitivity>1.0</PsychicSensitivity>
+	</statOffsets>
 	<suppressedTraits>
 	  <li>
-		<def>Abrasive</def>
+		<def>PsychicSensitivity</def>
+		<degree>-2</degree>
+	  </li>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-1</degree>
+	  </li>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>1</degree>
+	  </li>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>2</degree>
 	  </li>
 	</suppressedTraits>
   </GeneDef>
@@ -573,42 +562,25 @@
 	<defName>WVC_Nodization_EntityBuff_F</defName>
 	<label>entity VX</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneF</iconPath>
+	<statOffsets>
+	  <WVC_BandwidthCostOffsetMech>-1</WVC_BandwidthCostOffsetMech>
+	</statOffsets>
 	<conditionalStatAffecters>
-	  <li Class="WVC.ConditionalStatAffecter_Genes">
-		<geneDef>Bloodfeeder</geneDef>
-		<pawnShouldBeImmortal>true</pawnShouldBeImmortal>
+	  <li Class="WVC.ConditionalStatAffecter_CauseSetting">
+		<settingName>nodeskinVX_MechBandwidth</settingName>
 		<statOffsets>
-		  <WVC_BandwidthCostOffsetMech>-1</WVC_BandwidthCostOffsetMech>
-		  <!-- <WorkSpeedGlobalOffsetMech>0.2</WorkSpeedGlobalOffsetMech> -->
+			<WVC_ForceTo_MechBandwidth>2</WVC_ForceTo_MechBandwidth>
 		</statOffsets>
 	  </li>
 	</conditionalStatAffecters>
-	<suppressedTraits>
-	  <li>
-		<def>Transhumanist</def>
-	  </li>
-	</suppressedTraits>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Orange">
 	<defName>WVC_Nodization_EntityBuff_G</defName>
 	<label>entity YR</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneF</iconPath>
-	<conditionalStatAffecters>
-	  <li Class="WVC.ConditionalStatAffecter_Genes">
-		<geneDef>Bloodfeeder</geneDef>
-		<pawnShouldBeImmortal>true</pawnShouldBeImmortal>
-		<statOffsets>
-		  <PawnBeauty>1</PawnBeauty>
-		  <SocialImpact>0.1</SocialImpact>
-		  <!-- <MeleeDodgeChance>20</MeleeDodgeChance> -->
-		</statOffsets>
-	  </li>
-	</conditionalStatAffecters>
-	<suppressedTraits>
-	  <li>
-		<def>Ascetic</def>
-	  </li>
-	</suppressedTraits>
+	<statOffsets>
+	  <HemogenGainFactor>1.0</HemogenGainFactor>
+	</statOffsets>
   </GeneDef>
 
   <!-- Lvl 7 -->
@@ -658,21 +630,35 @@
 	<defName>WVC_Nodization_DecisionBuff_F</defName>
 	<label>decision VX</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneG</iconPath>
-	<!-- <statFactors> -->
-	  <!-- <WorkSpeedGlobalOffsetMech>1.5</WorkSpeedGlobalOffsetMech> -->
-	<!-- </statFactors> -->
-	<statOffsets>
-	  <!-- <WVC_BandwidthCostOffsetMech>-1</WVC_BandwidthCostOffsetMech> -->
-	  <WVC_MechEnergyUsageOffset>-0.25</WVC_MechEnergyUsageOffset>
-	</statOffsets>
+	<geneClass>WVC.Gene_RandomHediffFromTime</geneClass>
+	<customEffectDescriptions>
+		<li>A carrier of this gene has a small chance of getting a mechlink permanently.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC.GeneExtension_HediffGiver">
+			<hediffDefName>MechlinkImplant</hediffDefName>
+			<bodyparts>
+			  <li>Brain</li>
+			</bodyparts>
+		</li>
+	</modExtensions>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Orange">
 	<defName>WVC_Nodization_DecisionBuff_G</defName>
 	<label>decision YR</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneG</iconPath>
-	<statOffsets>
-	  <WorkSpeedGlobal>0.1</WorkSpeedGlobal>
-	</statOffsets>
+	<geneClass>WVC.Gene_RandomHediffFromTime</geneClass>
+	<customEffectDescriptions>
+		<li>A carrier of this gene has a small chance of getting a psylink permanently.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC.GeneExtension_HediffGiver">
+			<hediffDefName>PsychicAmplifier</hediffDefName>
+			<bodyparts>
+			  <li>Brain</li>
+			</bodyparts>
+		</li>
+	</modExtensions>
   </GeneDef>
 
 </Defs>

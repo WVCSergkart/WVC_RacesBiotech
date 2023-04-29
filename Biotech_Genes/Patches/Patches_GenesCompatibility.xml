@@ -38,7 +38,7 @@
 		<nomatch Class="PatchOperationSequence">
 			<operations>
 				<li Class="PatchOperationRemove">
-					<xpath>/Defs/GeneDef[defName="WVC_NodeSkin_Yellow"]/geneClass</xpath>
+					<xpath>/Defs/GeneDef[defName="WVC_Nodization_DecisionBuff_G"]/geneClass</xpath>
 					<success>Always</success>
 				</li>
 			</operations>

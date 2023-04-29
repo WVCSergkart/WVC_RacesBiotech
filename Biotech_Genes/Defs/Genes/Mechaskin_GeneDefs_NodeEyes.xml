@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Bodies -->
+
+  <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_NodeBody_Eyes" Abstract="True" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<labelShortAdj>nodeyes</labelShortAdj>
+	<description>Carriers of this gene have archites that have formed a plate that closes the eyes, for some reason this plate does not interfere with vision at all. The surface of this plate has a pattern resembling eyes.
+
+&lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
+	<geneClass>WVC.Gene_Faceless</geneClass>
+	<minAgeActive>0</minAgeActive>
+	<randomChosen>true</randomChosen>
+	<!-- <displayCategory>Cosmetic</displayCategory> -->
+	<displayOrderInCategory>-5</displayOrderInCategory>
+	<iconColor>(255, 255, 255)</iconColor>
+	<customEffectDescriptions>
+		<!-- <li>This gene is activated only in the presence of the "Faceless" gene.</li> -->
+		<li>&lt;color=#ff8585&gt;Requires "Nodeskin" gene&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<graphicData>
+	  <!-- <fur>WVC_NodeSkin</fur> -->
+	  <!-- <tattoosVisible>false</tattoosVisible> -->
+	  <!-- <tattoosVisible>true</tattoosVisible> -->
+	  <colorType>Custom</colorType>
+	  <color>(255, 255, 255)</color>
+	  <layer>PostTattoo</layer>
+	  <!-- <drawOnEyes>true</drawOnEyes> -->
+	  <!-- <layer>PostSkin</layer> -->
+	  <useSkinShader>false</useSkinShader>
+	  <drawIfFaceCovered>true</drawIfFaceCovered>
+	</graphicData>
+	<exclusionTags>
+	  <li>WVC_NodeBody_Eyes</li>
+	</exclusionTags>
+	<!-- <beardTagFilter> -->
+	  <!-- <whitelist>true</whitelist> -->
+	  <!-- <tags> -->
+		<!-- <li>WVC_NodeSkin</li> -->
+	  <!-- </tags> -->
+	<!-- </beardTagFilter> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC.GeneExtension_EyeDraws"> -->
+			<!-- <eyesShouldBeInvisble>true</eyesShouldBeInvisble> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+
+  <!-- ================================================================== -->
+
+  <!-- = -->
+  <GeneDef ParentName="WVC_NodeBody_Eyes" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_NodeSkin_Blue</defName>
+	<label>eyes SX</label>
+	<biostatMet>-4</biostatMet>
+	<iconPath>WVC/UI/Genes/HeadBlue_south</iconPath>
+	<graphicData>
+	  <graphicPath>WVC/NodeGene_Head/HeadBlue</graphicPath>
+	</graphicData>
+	<aptitudes>
+	  <Crafting>4</Crafting>
+	</aptitudes>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_NodeBody_Eyes" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_NodeSkin_Red</defName>
+	<label>eyes HJ</label>
+	<biostatMet>-6</biostatMet>
+	<iconPath>WVC/UI/Genes/HeadRed_south</iconPath>
+	<graphicData>
+	  <graphicPath>WVC/NodeGene_Head/HeadRed</graphicPath>
+	</graphicData>
+	<aptitudes>
+	  <Shooting>4</Shooting>
+	</aptitudes>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_NodeBody_Eyes" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_NodeSkin_Green</defName>
+	<label>eyes GB</label>
+	<biostatMet>-1</biostatMet>
+	<iconPath>WVC/UI/Genes/HeadGreen_south</iconPath>
+	<graphicData>
+	  <graphicPath>WVC/NodeGene_Head/HeadGreen</graphicPath>
+	</graphicData>
+	<aptitudes>
+	  <Medicine>4</Medicine>
+	</aptitudes>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_NodeBody_Eyes" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_NodeSkin_Violet</defName>
+	<label>eyes CV</label>
+	<biostatMet>-3</biostatMet>
+	<iconPath>WVC/UI/Genes/HeadViolet_south</iconPath>
+	<graphicData>
+	  <graphicPath>WVC/NodeGene_Head/HeadViolet</graphicPath>
+	</graphicData>
+	<aptitudes>
+	  <Melee>4</Melee>
+	</aptitudes>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_NodeBody_Eyes" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_NodeSkin_Yellow</defName>
+	<label>eyes WR</label>
+	<biostatMet>-5</biostatMet>
+	<iconPath>WVC/UI/Genes/HeadYellow_south</iconPath>
+	<graphicData>
+	  <graphicPath>WVC/NodeGene_Head/HeadYellow</graphicPath>
+	</graphicData>
+	<aptitudes>
+	  <Social>4</Social>
+	</aptitudes>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_NodeBody_Eyes" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_NodeSkin_AltBlue</defName>
+	<label>eyes VX</label>
+	<biostatMet>-3</biostatMet>
+	<iconPath>WVC/UI/Genes/HeadAltBlue_south</iconPath>
+	<graphicData>
+	  <graphicPath>WVC/NodeGene_Head/HeadAltBlue</graphicPath>
+	</graphicData>
+	<aptitudes>
+	  <Crafting>2</Crafting>
+	  <Melee>2</Melee>
+	</aptitudes>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_NodeBody_Eyes" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_NodeSkin_Orange</defName>
+	<label>eyes YR</label>
+	<biostatMet>-2</biostatMet>
+	<iconPath>WVC/UI/Genes/HeadOrange_south</iconPath>
+	<graphicData>
+	  <graphicPath>WVC/NodeGene_Head/HeadOrange</graphicPath>
+	</graphicData>
+	<aptitudes>
+	  <Intellectual>2</Intellectual>
+	  <Social>2</Social>
+	</aptitudes>
+  </GeneDef>
+
+</Defs>

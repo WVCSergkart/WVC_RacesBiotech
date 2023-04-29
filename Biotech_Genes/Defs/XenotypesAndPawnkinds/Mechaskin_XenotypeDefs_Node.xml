@@ -16,7 +16,7 @@
 		<!-- <Sanguophage>0.1</Sanguophage> -->
 	</doubleXenotypeChances>
 	<genes>
-		<li>WVC_MechaAI_Base</li>
+		<li>WVC_NodeSkin</li>
 		<!-- = -->
 		<li>WVC_NodeSkin_Blue</li>
 		<li>WVC_NodeSkin_Green</li>
@@ -28,6 +28,7 @@
 		<!-- = -->
 		<li>WVC_MechaAI_SoftwareNaturalEnemy</li>
 		<!-- = -->
+		<li>WVC_MechaAI_Base</li>
 		<li>WVC_MecaBodyParts_Nose</li>
 		<li>WVC_MecaBodyParts_Ear</li>
 		<li>WVC_MecaBodyParts_Eye</li>

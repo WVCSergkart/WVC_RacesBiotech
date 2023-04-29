@@ -105,6 +105,10 @@
 					<xpath>/Defs/GeneDef[@WVC_Tag="MechaAndNodeSkins_EasyPatch"]/modExtensions/li[@Class="WVC.GeneExtension_EyeDraws"]</xpath>
 					<success>Always</success>
 				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/GeneDef[@WVC_Tag="MechaAndNodeSkins_EasyPatch"]/geneClass[contains(text(),'WVC.Gene_Faceless')]</xpath>
+					<success>Always</success>
+				</li>
 			</operations>
 		</caseTrue>
 		<!-- <caseFalse Class="PatchOperationSequence"> -->
