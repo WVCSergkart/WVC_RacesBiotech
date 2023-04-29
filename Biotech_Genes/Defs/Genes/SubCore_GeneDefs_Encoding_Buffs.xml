@@ -5,11 +5,12 @@
 
   <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Nodization_RandomBuff_Base" Abstract="True">
 	<!-- <geneClass>WVC.Gene_WithConditions</geneClass> -->
-	<!-- <displayCategory>WVC_MechaBodyEncoding</displayCategory> -->
+	<displayCategory>WVC_MechaBodyEncoding</displayCategory>
 	<!-- <label>AI</label> -->
 	<!-- <description>Complex templates for the mechanoid sub-core, which can provide some advantages.</description> -->
 	<description>A complex genetic pattern that gives carriers some advantages.</description>
 	<iconPath>WVC/UI/Genes/Mechlink</iconPath>
+	<!-- <displayCategory>WVC_MechaBodyWare</displayCategory> -->
 	<displayOrderInCategory>-100</displayOrderInCategory>
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
 	<randomChosen>true</randomChosen>

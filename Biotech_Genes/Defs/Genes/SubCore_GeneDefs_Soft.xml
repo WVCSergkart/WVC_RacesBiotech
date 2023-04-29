@@ -13,7 +13,7 @@
 	<!-- <iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath> -->
 	<displayOrderInCategory>120</displayOrderInCategory>
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
-	<biostatCpx>2</biostatCpx>
+	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<marketValueFactor>2</marketValueFactor>
 	<!-- <selectionWeight>0.2</selectionWeight> -->
@@ -279,7 +279,7 @@
 	<defName>WVC_MechaAI_SoftwareNaturalEnemy</defName>
 	<label>mecha-minded</label>
 	<iconColor>(150, 70, 150)</iconColor>
-	<biostatCpx>3</biostatCpx>
+	<!-- <biostatCpx>3</biostatCpx> -->
 	<statFactors>
 	  <TradePriceImprovement>0.0</TradePriceImprovement>
 	  <BondAnimalChanceFactor>0.0</BondAnimalChanceFactor>

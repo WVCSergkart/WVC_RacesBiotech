@@ -18,6 +18,7 @@
 	<!-- <displayOrderInCategory>132</displayOrderInCategory> -->
 	<iconPath>UI/Icons/Genes/Gene_VoiceHuman</iconPath>
 	<iconColor>(255, 153, 88)</iconColor>
+    <displayOrderInCategory>136</displayOrderInCategory>
 	<!-- <biostatCpx>1</biostatCpx> -->
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_NaturalHunter</li> -->

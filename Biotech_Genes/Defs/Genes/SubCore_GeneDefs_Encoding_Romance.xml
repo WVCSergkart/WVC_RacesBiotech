@@ -4,8 +4,8 @@
   <!-- Romance -->
 
   <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Mechanoidization_RomanceChanceBase" Abstract="True">
-	<!-- <displayCategory>WVC_MechaBodyEncoding</displayCategory> -->
-	<displayCategory>Reproduction</displayCategory>
+	<displayCategory>WVC_MechaBodyEncoding</displayCategory>
+	<!-- <displayCategory>Reproduction</displayCategory> -->
 	<label>AI</label>
 	<description>Carriers of this gene have a tough program that helps them find the best partners.</description>
 	<iconPath>WVC/UI/Genes/Mechlink</iconPath>
