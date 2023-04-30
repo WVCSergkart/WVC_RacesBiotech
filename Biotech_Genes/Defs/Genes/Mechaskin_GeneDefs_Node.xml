@@ -12,7 +12,7 @@ The skin has become like the most durable alloys, but has not lost its elasticit
 Most of the internal organs were not affected, but there are too many external changes, which is why "it" cannot be called a human.
 
 &lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
-	<randomChosen>false</randomChosen>
+	<!-- <randomChosen>false</randomChosen> -->
 	<displayOrderInCategory>-95</displayOrderInCategory>
 	<iconColor>(255, 255, 255)</iconColor>
 	<graphicData>
@@ -67,7 +67,7 @@ Most of the internal organs were not affected, but there are too many external c
 	<iconPath>WVC/UI/Genes/FacelessIcon</iconPath>
 	<biostatMet>-8</biostatMet>
 	<forcedHeadTypes>
-	  <li>WVC_NodeSkin_Faceless</li>
+	  <li>WVC_Faceless_NodeSkin</li>
 	</forcedHeadTypes>
 	<modExtensions>
 		<li Class="WVC.GeneExtension_EyeDraws">

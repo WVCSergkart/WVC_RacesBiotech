@@ -18,13 +18,16 @@
 	<genes>
 		<li>WVC_NodeSkin</li>
 		<!-- = -->
-		<li>WVC_NodeSkin_Blue</li>
-		<li>WVC_NodeSkin_Green</li>
-		<li>WVC_NodeSkin_Red</li>
-		<li>WVC_NodeSkin_Violet</li>
-		<li>WVC_NodeSkin_Yellow</li>
-		<li>WVC_NodeSkin_AltBlue</li>
-		<li>WVC_NodeSkin_Orange</li>
+		<li>WVC_NodeEyes_A</li>
+		<li>WVC_NodeEyes_B</li>
+		<li>WVC_NodeEyes_C</li>
+		<li>WVC_NodeEyes_D</li>
+		<li>WVC_NodeEyes_E</li>
+		<li>WVC_NodeEyes_Y</li>
+		<li>WVC_NodeEyes_F</li>
+		<!-- New -->
+		<li>WVC_NodeEyes_G</li>
+		<li>WVC_NodeEyes_H</li>
 		<!-- = -->
 		<li>WVC_MechaAI_SoftwareNaturalEnemy</li>
 		<!-- = -->

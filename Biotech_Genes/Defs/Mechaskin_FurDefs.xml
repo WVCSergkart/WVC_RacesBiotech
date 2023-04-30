@@ -127,11 +127,16 @@
   <!-- </HeadTypeDef> -->
 
   <HeadTypeDef ParentName="WVC_NodeSkinAverageBase">
-	<defName>WVC_NodeSkin_Faceless</defName>
+	<defName>WVC_Faceless_NodeSkin</defName>
 	<graphicPath>WVC/NodeGene_FacelessHead/Head</graphicPath>
 	<requiredGenes>
 	  <li>WVC_NodeSkin</li>
 	</requiredGenes>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC.HeadTypeExtension_Faceless"> -->
+			<!-- <faceless>true</faceless> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </HeadTypeDef>
 
   <!-- ==================================== -->
