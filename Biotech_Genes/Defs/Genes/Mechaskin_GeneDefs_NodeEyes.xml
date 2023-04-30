@@ -40,6 +40,11 @@
 		<!-- <offset>0.1</offset> -->
 	  <!-- </li> -->
 	<!-- </capMods> -->
+	<modExtensions>
+		<li Class="WVC.GeneExtension_EyeDraws">
+			<eyesShouldBeInvisble>true</eyesShouldBeInvisble>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- ================================================================== -->
@@ -158,6 +163,30 @@
 	  <ArmorRating_Blunt>0.06</ArmorRating_Blunt>
 	  <ArmorRating_Sharp>0.07</ArmorRating_Sharp>
 	  <ArmorRating_Heat>0.02</ArmorRating_Heat>
+	</statOffsets>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_NodeBody_Eyes" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_NodeEyes_J</defName>
+	<label>eyes SX_A</label>
+	<iconPath>WVC/UI/Genes/HeadBlue_A_south</iconPath>
+	<graphicData>
+	  <graphicPath>WVC/NodeGene_Head/HeadBlue_A</graphicPath>
+	</graphicData>
+	<statOffsets>
+	  <WVC_MechEnergyUsageOffset>-0.1</WVC_MechEnergyUsageOffset>
+	</statOffsets>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_NodeBody_Eyes" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_NodeEyes_K</defName>
+	<label>eyes WR_A</label>
+	<iconPath>WVC/UI/Genes/HeadYellow_A_south</iconPath>
+	<graphicData>
+	  <graphicPath>WVC/NodeGene_Head/HeadYellow_A</graphicPath>
+	</graphicData>
+	<statOffsets>
+	  <SocialImpact>0.1</SocialImpact>
 	</statOffsets>
   </GeneDef>
 
