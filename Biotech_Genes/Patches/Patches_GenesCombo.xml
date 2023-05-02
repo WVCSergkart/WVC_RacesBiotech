@@ -138,14 +138,31 @@
 	  <!-- </value> -->
 	<!-- </Operation> -->
 
-	<Operation Class="WVC.PatchOperationOptional">
-		<settingName>fixAgelessAge</settingName>
-		<caseTrue Class="PatchOperationAdd">
-		  <xpath>/Defs/GeneDef[defName="Ageless"]</xpath>
-		  <value>
-			<geneClass>WVC.Gene_Ageless</geneClass>
-		  </value>
-		</caseTrue>
+	<!-- <Operation Class="WVC.PatchOperationOptional"> -->
+		<!-- <settingName>fixAgelessAge</settingName> -->
+		<!-- <caseTrue Class="PatchOperationAdd"> -->
+		  <!-- <xpath>/Defs/GeneDef[defName="Ageless"]</xpath> -->
+		  <!-- <value> -->
+			<!-- <geneClass>WVC.Gene_Ageless</geneClass> -->
+		  <!-- </value> -->
+		<!-- </caseTrue> -->
+	<!-- </Operation> -->
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+			  <xpath>/Defs/GeneDef[defName="Ageless"]/geneClass</xpath>
+			  <success>Invert</success>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/GeneDef[defName="Ageless"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<geneClass>WVC.Gene_Ageless</geneClass>
+			  </value>
+			</li>
+		</operations>
 	</Operation>
 
 	<Operation Class="PatchOperationAdd">
