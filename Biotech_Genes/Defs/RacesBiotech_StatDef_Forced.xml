@@ -79,10 +79,12 @@
 	<displayPriorityInCategory>2001</displayPriorityInCategory>
 	<parts>
 	  <li Class="WVC.StatPart_OffsetFromBuildingsOnMap" MayRequire="Ludeon.RimWorld.Royalty">
-		<!-- Looks for matches in defNames, so the full name is not necessary -->
+		<!-- Localization defName. Default "WVC_StatPart_GenesCombo_OffsetFromBuildings" -->
+		<label>WVC_StatPart_GenesCombo_OffsetFromShrines</label>
+		<!-- Looks for matches in defNames, so the full name is not necessary. Default "NatureShrine" -->
 		<buildingDefName>NatureShrine</buildingDefName>
 		<!-- After counting all the buildings, multiplies their number by this coefficient. Default 0.2 -->
-		<!-- <buildingWeightFactor>0.2</buildingWeightFactor> -->
+		<buildingWeightFactor>0.2</buildingWeightFactor>
 	  </li>
 	</parts>
   </StatDef>

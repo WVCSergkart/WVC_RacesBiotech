@@ -246,10 +246,10 @@
 	<Operation Class="PatchOperationAdd">
 	  <xpath>/Defs/StatDef[defName="WorkSpeedGlobal"]/parts</xpath>
 	  <value>
-		  <li Class="WVC.StatPart_GolemsBandwidthCost" MayRequire="Ludeon.RimWorld.Biotech">
-			<!-- Full name is not required -->
-			<!-- Only need a pawnkind tag as code are not looking for a specific defName -->
+		  <li Class="WVC.StatPart_FactorForUniqueKind" MayRequire="Ludeon.RimWorld.Biotech">
+			<!-- Looks for matches in defNames, so the full name is not necessary -->
 			<pawnKindDef>WVC_Golem</pawnKindDef>
+			<!-- Any overseer stat -->
 			<stat>PsychicSensitivity</stat>
 		  </li>
 	  </value>
