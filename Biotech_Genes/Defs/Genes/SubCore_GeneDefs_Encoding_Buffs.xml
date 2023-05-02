@@ -482,7 +482,7 @@
 	  <MechBandwidth>2</MechBandwidth>
 	</statFactors>
 	<exclusionTags>
-	  <li>WVC_Nodization_RandomBuff_Vindication</li>
+	  <li>WVC_Nodization_RandomBuff_Point</li>
 	</exclusionTags>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Red">
@@ -495,7 +495,7 @@
 	  <ArmorRating_Heat>2</ArmorRating_Heat>
 	</statFactors>
 	<exclusionTags>
-	  <li>WVC_Nodization_RandomBuff_Vindication</li>
+	  <li>WVC_Nodization_RandomBuff_Point</li>
 	</exclusionTags>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Green">
@@ -506,7 +506,7 @@
 	  <InjuryHealingFactor>2.0</InjuryHealingFactor>
 	</statFactors>
 	<exclusionTags>
-	  <li>WVC_Nodization_RandomBuff_Vindication</li>
+	  <li>WVC_Nodization_RandomBuff_Point</li>
 	</exclusionTags>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Violet">
@@ -517,7 +517,7 @@
 	  <MeleeDodgeChance>2</MeleeDodgeChance>
 	</statFactors>
 	<exclusionTags>
-	  <li>WVC_Nodization_RandomBuff_Vindication</li>
+	  <li>WVC_Nodization_RandomBuff_Point</li>
 	</exclusionTags>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Yellow">
@@ -528,7 +528,7 @@
 	  <PsychicSensitivity>1.5</PsychicSensitivity>
 	</statFactors>
 	<exclusionTags>
-	  <li>WVC_Nodization_RandomBuff_Vindication</li>
+	  <li>WVC_Nodization_RandomBuff_Point</li>
 	</exclusionTags>
   </GeneDef>
   <!-- = -->
@@ -540,7 +540,7 @@
 	  <GlobalLearningFactor>1.5</GlobalLearningFactor>
 	</statFactors>
 	<exclusionTags>
-	  <li>WVC_Nodization_RandomBuff_Vindication</li>
+	  <li>WVC_Nodization_RandomBuff_Point</li>
 	</exclusionTags>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Orange">
@@ -551,7 +551,7 @@
 	  <HemogenGainFactor>1.5</HemogenGainFactor>
 	</statFactors>
 	<exclusionTags>
-	  <li>WVC_Nodization_RandomBuff_Vindication</li>
+	  <li>WVC_Nodization_RandomBuff_Point</li>
 	</exclusionTags>
   </GeneDef>
 
@@ -689,7 +689,7 @@
 		<WorkSpeedGlobalOffsetMech>0.5</WorkSpeedGlobalOffsetMech>
 	</statOffsets>
 	<exclusionTags>
-	  <li>WVC_Nodization_RandomBuff_String</li>
+	  <li>WVC_Nodization_RandomBuff_Decision</li>
 	</exclusionTags>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Red">
@@ -700,7 +700,7 @@
 		<AimingDelayFactor>0.5</AimingDelayFactor>
 	</statFactors>
 	<exclusionTags>
-	  <li>WVC_Nodization_RandomBuff_String</li>
+	  <li>WVC_Nodization_RandomBuff_Decision</li>
 	</exclusionTags>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Green">
@@ -711,7 +711,7 @@
 		<GlobalLearningFactor>0.5</GlobalLearningFactor>
 	</statOffsets>
 	<exclusionTags>
-	  <li>WVC_Nodization_RandomBuff_String</li>
+	  <li>WVC_Nodization_RandomBuff_Decision</li>
 	</exclusionTags>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Violet">
@@ -722,7 +722,7 @@
 		<MeleeHitChance>30</MeleeHitChance>
 	</statOffsets>
 	<exclusionTags>
-	  <li>WVC_Nodization_RandomBuff_String</li>
+	  <li>WVC_Nodization_RandomBuff_Decision</li>
 	</exclusionTags>
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Yellow">
@@ -733,7 +733,7 @@
 		<SocialImpact>0.5</SocialImpact>
 	</statOffsets>
 	<exclusionTags>
-	  <li>WVC_Nodization_RandomBuff_String</li>
+	  <li>WVC_Nodization_RandomBuff_Decision</li>
 	</exclusionTags>
   </GeneDef>
   <!-- = -->
@@ -746,7 +746,7 @@
 		<li>A carrier of this gene has a small chance of getting a mechlink permanently.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
-	  <li>WVC_Nodization_RandomBuff_String</li>
+	  <li>WVC_Nodization_RandomBuff_Decision</li>
 	</exclusionTags>
 	<modExtensions>
 		<li Class="WVC.GeneExtension_HediffGiver">
@@ -766,7 +766,7 @@
 		<li>A carrier of this gene has a small chance of getting a psylink permanently.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
-	  <li>WVC_Nodization_RandomBuff_String</li>
+	  <li>WVC_Nodization_RandomBuff_Decision</li>
 	</exclusionTags>
 	<modExtensions>
 		<li Class="WVC.GeneExtension_HediffGiver">
