@@ -162,6 +162,22 @@
 				<geneClass>WVC.Gene_Ageless</geneClass>
 			  </value>
 			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/GeneDef[defName="Ageless"]/customEffectDescriptions</xpath>
+			  <success>Invert</success>
+			  <value>
+				<li>If the gene is heritable, then the age of the pawn cannot be more than 18.</li>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/GeneDef[defName="Ageless"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<customEffectDescriptions>
+					<li>If the gene is heritable, then the age of the pawn cannot be more than 18.</li>
+				</customEffectDescriptions>
+			  </value>
+			</li>
 		</operations>
 	</Operation>
 

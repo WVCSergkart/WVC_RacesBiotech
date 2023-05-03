@@ -7,11 +7,16 @@
 	<combatPower>100</combatPower>
 	<backstoryCryptosleepCommonality>0.8</backstoryCryptosleepCommonality>
 	<chemicalAddictionChance>0.0</chemicalAddictionChance>
-	<isFighter>true</isFighter>
+	<isFighter>false</isFighter>
+	<weaponMoney>0</weaponMoney>
+	<apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+	<apparelColor>(58,58,58)</apparelColor>
 	<chronologicalAgeRange>300~2000</chronologicalAgeRange>
 	<initialResistanceRange>10~80</initialResistanceRange>
 	<initialWillRange>5~15</initialWillRange>
-	<maxGenerationAge>23</maxGenerationAge>
+	<defaultFactionType>PlayerColony</defaultFactionType>
+	<apparelMoney>80~120</apparelMoney>
+	<!-- <maxGenerationAge>23</maxGenerationAge> -->
 	<apparelIgnorePollution MayRequire="Ludeon.RimWorld.Biotech">true</apparelIgnorePollution>
 	<!-- <backstoryFiltersOverride> -->
 	  <!-- <li> -->
@@ -44,11 +49,6 @@
   <PawnKindDef ParentName="WVC_RB_XenoBase">
 	<label>mechalike</label>
 	<defName>WVC_Meca_Player</defName>
-	<weaponMoney>0</weaponMoney>
-	<apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
-	<apparelColor>(58,58,58)</apparelColor>
-	<defaultFactionType>PlayerColony</defaultFactionType>
-	<apparelMoney>80~120</apparelMoney>
 	<forcedHair>Scrapper</forcedHair>
 	<!-- <favoriteColor>(245,245,245)</favoriteColor> -->
 	<xenotypeSet>
@@ -66,13 +66,8 @@
   </PawnKindDef>
 
   <PawnKindDef ParentName="WVC_RB_XenoBase">
-	<label>blank</label>
+	<label>blankind</label>
 	<defName>WVC_Blank_Player</defName>
-	<weaponMoney>0</weaponMoney>
-	<apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
-	<apparelColor>(58,58,58)</apparelColor>
-	<defaultFactionType>PlayerColony</defaultFactionType>
-	<apparelMoney>80~120</apparelMoney>
 	<xenotypeSet>
 	  <xenotypeChances>
 		<WVC_Blank>999</WVC_Blank>
@@ -104,14 +99,10 @@
   <PawnKindDef ParentName="WVC_RB_XenoBase">
 	<defName>WVC_RuneDryad_Player</defName>
 	<label>runeex</label>
-	<weaponMoney>0</weaponMoney>
 	<chronologicalAgeRange>0</chronologicalAgeRange>
 	<backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
-	<apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
-	<apparelColor>(58,58,58)</apparelColor>
 	<defaultFactionType>PlayerTribe</defaultFactionType>
-	<apparelMoney>80~120</apparelMoney>
-	<maxGenerationAge>17</maxGenerationAge>
+	<!-- <maxGenerationAge>17</maxGenerationAge> -->
 	<backstoryFiltersOverride>
 	  <li>
 		<categories>
