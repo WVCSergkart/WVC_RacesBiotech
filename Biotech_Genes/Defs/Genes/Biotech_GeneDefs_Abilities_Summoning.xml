@@ -299,7 +299,7 @@
 		<li>WVC_Golem_Crafter</li>
 		<li>WVC_Golem_Miner</li>
 		<li>WVC_Golem_Hunter</li>
-		<!-- <li>Mech_Cleansweeper</li> -->
+		<li>WVC_Golem_Behemoth</li>
 		<!-- <li>Mech_Paramedic</li> -->
 	  </mechTypes>
 	</root>

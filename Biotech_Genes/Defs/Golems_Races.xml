@@ -36,6 +36,7 @@
 			<MarketValue>150</MarketValue>
 			<ArmorRating_Blunt>0.6</ArmorRating_Blunt>
 			<MoveSpeed>3.6</MoveSpeed>
+			<Mass>80</Mass>
 			<!-- Work -->
 			<FoodPoisonChance>0</FoodPoisonChance>
 			<MiningSpeed>0.25</MiningSpeed>
@@ -296,9 +297,9 @@
 		<defName>WVC_Golem_Hunter</defName>
 		<label>golem hunteroid</label>
 		<statBases>
-			<ArmorRating_Sharp>0.7</ArmorRating_Sharp>
-			<ArmorRating_Blunt>0.7</ArmorRating_Blunt>
-			<MoveSpeed>1.8</MoveSpeed>
+			<ArmorRating_Sharp>0.1</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+			<MoveSpeed>3.8</MoveSpeed>
 		</statBases>
 		<race>
 			<mechEnabledWorkTypes>
