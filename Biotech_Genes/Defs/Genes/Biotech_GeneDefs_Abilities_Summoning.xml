@@ -112,7 +112,7 @@
 	</customEffectDescriptions>
 	<statOffsets>
 	  <!-- <WVC_BandwidthCostOffsetMech>2</WVC_BandwidthCostOffsetMech> -->
-	  <WVC_OverseerMaxGolems>2</WVC_OverseerMaxGolems>
+	  <WVC_OverseerMaxGolems>1</WVC_OverseerMaxGolems>
 	  <!-- <PsychicSensitivity>0.2</PsychicSensitivity> -->
 	</statOffsets>
 	<statFactors>
@@ -298,7 +298,7 @@
 		<li>WVC_Golem_Constructoid</li>
 		<li>WVC_Golem_Crafter</li>
 		<li>WVC_Golem_Miner</li>
-		<!-- <li>Mech_Agrihand</li> -->
+		<li>WVC_Golem_Hunter</li>
 		<!-- <li>Mech_Cleansweeper</li> -->
 		<!-- <li>Mech_Paramedic</li> -->
 	  </mechTypes>

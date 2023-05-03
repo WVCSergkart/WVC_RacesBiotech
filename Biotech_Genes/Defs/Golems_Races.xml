@@ -290,4 +290,86 @@
 		</lifeStages>
 	</PawnKindDef>
 
+	<!-- ======================= -->
+
+	<ThingDef ParentName="WVC_GolemsBase">
+		<defName>WVC_Golem_Hunter</defName>
+		<label>golem hunteroid</label>
+		<statBases>
+			<ArmorRating_Sharp>0.7</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.7</ArmorRating_Blunt>
+			<MoveSpeed>1.8</MoveSpeed>
+		</statBases>
+		<race>
+			<mechEnabledWorkTypes>
+			  <li>Hunting</li>
+			</mechEnabledWorkTypes>
+		</race>
+	</ThingDef>
+	<PawnKindDef ParentName="WVC_NonCombatGolemKind">
+		<defName>WVC_Golem_Hunter</defName>
+		<label>golem hunteroid</label>
+		<race>WVC_Golem_Hunter</race>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>WVC/Things/Mechanoids_Golems/GolemHunter</texPath>
+					<drawSize>2</drawSize>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+		<weaponTags>
+			<li>WVC_GolemGun_Slugthrower</li>
+		</weaponTags>
+	</PawnKindDef>
+
+  <!-- SlugGun -->
+  <ThingDef ParentName="LightMechanoidGunRanged">
+	<defName>WVC_GolemGun_Slugthrower</defName>
+	<label>slugthrower</label>
+	<description>A compact single-shot slug thrower designed to be mounted on a light combat mechanoid.</description>
+	<graphicData>
+	  <texPath>WVC/Things/Mechanoids_Golems_Guns/Slugthrower</texPath>
+	  <color>(70,70,70)</color>
+	  <graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+	<statBases>
+	  <MarketValue>1000</MarketValue>
+	  <Mass>1.5</Mass>
+	  <AccuracyTouch>0.20</AccuracyTouch>
+	  <AccuracyShort>0.30</AccuracyShort>
+	  <AccuracyMedium>0.40</AccuracyMedium>
+	  <AccuracyLong>0.95</AccuracyLong>
+	  <RangedWeapon_Cooldown>4.0</RangedWeapon_Cooldown>
+	</statBases>
+	<weaponTags>
+	  <li>WVC_GolemGun_Slugthrower</li>
+	</weaponTags>
+	<verbs>
+	  <li>
+		<verbClass>Verb_Shoot</verbClass>
+		<hasStandardCommand>true</hasStandardCommand>
+		<defaultProjectile>Bullet_Slugthrower</defaultProjectile>
+		<warmupTime>0.3</warmupTime>
+		<range>19.9</range>
+		<ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+		<burstShotCount>1</burstShotCount>
+		<soundCast>Shot_Slugthrower</soundCast>
+		<soundCastTail>GunTail_Light</soundCastTail>
+		<muzzleFlashScale>9</muzzleFlashScale>
+	  </li>
+	</verbs>
+	<tools>
+	  <li>
+		<label>barrel</label>
+		<capacities>
+		  <li>Blunt</li>
+		  <li>Poke</li>
+		</capacities>
+		<power>9</power>
+		<cooldownTime>2.6</cooldownTime>
+	  </li>
+	</tools>
+  </ThingDef>
+
 </Defs>
