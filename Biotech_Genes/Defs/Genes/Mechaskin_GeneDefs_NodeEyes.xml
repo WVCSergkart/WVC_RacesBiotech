@@ -18,6 +18,8 @@
 	<displayOrderInCategory>-5</displayOrderInCategory>
 	<iconColor>(255, 255, 255)</iconColor>
 	<biostatCpx>0</biostatCpx>
+	<selectionWeight>0.0112</selectionWeight>
+	<canGenerateInGeneSet>true</canGenerateInGeneSet>
 	<customEffectDescriptions>
 		<li>&lt;color=#ff8585&gt;This gene is activated only in the presence of the "Nodeskin" gene.&lt;/color&gt;</li>
 		<!-- <li>&lt;color=#ff8585&gt;Requires "Nodeskin" gene&lt;/color&gt;</li> -->
