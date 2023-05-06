@@ -94,7 +94,7 @@
 		<!-- Config pages -->
 		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_KindDefs">
 			<def>ConfigurePawnsKindDefs</def>
-			<pawnChoiceCount>8</pawnChoiceCount>
+			<pawnChoiceCount>1</pawnChoiceCount>
 			<kindCounts>
 				<li>
 					<count>1</count>
@@ -138,18 +138,18 @@
 		</li>
 
 		<!-- Starting research -->
-		<li Class="ScenPart_StartingResearch">
-		  <def>StartingResearch</def>
-		  <project>MicroelectronicsBasics</project>
-		</li>
-		<li Class="ScenPart_StartingResearch">
-		  <def>StartingResearch</def>
-		  <project>BasicMechtech</project>
-		</li>
-		<li Class="ScenPart_StartingResearch">
-		  <def>StartingResearch</def>
-		  <project>Batteries</project>
-		</li>
+		<!-- <li Class="ScenPart_StartingResearch"> -->
+		  <!-- <def>StartingResearch</def> -->
+		  <!-- <project>MicroelectronicsBasics</project> -->
+		<!-- </li> -->
+		<!-- <li Class="ScenPart_StartingResearch"> -->
+		  <!-- <def>StartingResearch</def> -->
+		  <!-- <project>BasicMechtech</project> -->
+		<!-- </li> -->
+		<!-- <li Class="ScenPart_StartingResearch"> -->
+		  <!-- <def>StartingResearch</def> -->
+		  <!-- <project>Batteries</project> -->
+		<!-- </li> -->
 
 		<li Class="ScenPart_StartingThing_Defined">
 		  <def>StartingThing_Defined</def>

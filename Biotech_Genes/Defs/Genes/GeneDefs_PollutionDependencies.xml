@@ -4,6 +4,7 @@
   <!-- <GeneDef> -->
 	<!-- <defName>WVC_PollutionDependencies</defName> -->
 	<!-- <label>pollution dependencies</label> -->
+	<!-- <geneClass>WVC.Gene_PollutionDependence</geneClass> -->
 	<!-- <description>TEST</description> -->
 	<!-- <iconPath>UI/Icons/Genes/Gene_PollutionRush</iconPath> -->
 	<!-- <displayCategory>Miscellaneous</displayCategory> -->
@@ -15,18 +16,19 @@
 	<!-- </customEffectDescriptions> -->
 	<!-- <modExtensions> -->
 		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
-			<!-- <hideGene>true</hideGene> -->
-			<!-- <hediffToWholeBody>WVC_PollutionDependencies</hediffToWholeBody> -->
 			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes> -->
 			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes> -->
+		<!-- </li> -->
+		<!-- <li Class="WVC.GeneExtension_HediffGiver"> -->
+			<!-- <hediffDefName>WVC_PollutionDependence</hediffDefName> -->
 		<!-- </li> -->
 	<!-- </modExtensions> -->
   <!-- </GeneDef> -->
 
   <!-- <HediffDef> -->
-	<!-- <defName>WVC_PollutionDependencies</defName> -->
-	<!-- <label>pollution dependencies</label> -->
-	<!-- <description>TEST\n\nTEST</description> -->
+	<!-- <defName>WVC_PollutionDependence</defName> -->
+	<!-- <label>pollution dependency</label> -->
+	<!-- <description>This creature depends on the effects of pollution.</description> -->
 	<!-- <descriptionShort>This creature depends on the effects of pollution.</descriptionShort> -->
 	<!-- <hediffClass>HediffWithComps</hediffClass> -->
 	<!-- <defaultLabelColor>(0.7, 1.0, 0.7)</defaultLabelColor> -->
@@ -35,7 +37,6 @@
 	<!-- <scenarioCanAdd>false</scenarioCanAdd> -->
 	<!-- <maxSeverity>2</maxSeverity> -->
 	<!-- <lethalSeverity>2</lethalSeverity> -->
-	<!-- <minSeverity>0.001</minSeverity> -->
 	<!-- <initialSeverity>0.01</initialSeverity> -->
 	<!-- <comps> -->
 	  <!-- <li Class="HediffCompProperties_Pollution"> -->

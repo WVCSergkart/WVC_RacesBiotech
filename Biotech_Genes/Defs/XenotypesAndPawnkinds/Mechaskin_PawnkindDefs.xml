@@ -60,6 +60,10 @@
 		<WVC_RogueFormer>0.5</WVC_RogueFormer>
 	  </xenotypeChances>
 	</xenotypeSet>
+	<apparelRequired>
+	  <li>Apparel_CollarShirt</li>
+	  <li>Apparel_Pants</li>
+	</apparelRequired>
 	<apparelTags>
 	  <li>IndustrialBasic</li>
 	</apparelTags>
