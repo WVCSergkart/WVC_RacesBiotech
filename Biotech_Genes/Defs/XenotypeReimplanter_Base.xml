@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--=============== Mech serums ====================-->
+
+  <ThingDef ParentName="ResourceBase" Name="WVC_XenotypeSerum_Base" Abstract="True">
+	<description>A one-use super-dose of mechanites tuned to change the user's xenotype. If the pawn's genes are regrowing, there will be no effect.</description>
+	<thingClass>ThingWithComps</thingClass>
+	<resourceReadoutPriority>Middle</resourceReadoutPriority>
+	<useHitPoints>true</useHitPoints>
+	<graphicData>
+	  <texPath>Things/Item/Special/MechSerumHealer</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+	<statBases>
+	  <MarketValue>1500</MarketValue>
+	  <MaxHitPoints>80</MaxHitPoints>
+	  <Mass>0.2</Mass>
+	  <DeteriorationRate>2.0</DeteriorationRate>
+	  <Flammability>0.2</Flammability>
+	</statBases>
+	<stackLimit>10</stackLimit>
+	<techLevel>Ultra</techLevel>
+	<tradeTags>
+	  <li>ExoticMisc</li>
+	</tradeTags>
+	<tradeability>Sellable</tradeability>
+	<thingCategories>
+	  <li>ItemsMisc</li>
+	</thingCategories>
+	<thingSetMakerTags>
+	  <li>RewardStandardCore</li>
+	</thingSetMakerTags>
+	<comps>
+	  <li Class="CompProperties_Usable">
+		<useJob>UseItem</useJob>
+		<useLabel>Use {0_label}</useLabel>
+		<useDuration>600</useDuration>
+	  </li>
+	  <!-- <li Class="CompProperties_UseEffect"> -->
+		<!-- <compClass>CompUseEffect_FixWorstHealthCondition</compClass> -->
+	  <!-- </li> -->
+	  <li Class="CompProperties_UseEffectPlaySound">
+		<soundOnUsed>MechSerumUsed</soundOnUsed>
+	  </li>
+	  <li Class="CompProperties_UseEffectDestroySelf" />
+	</comps>
+  </ThingDef>
+  
+  <RecipeDef Name="WVC_AdministerXenotypeSerum_Base" Abstract="True">
+	<workerClass>Recipe_AdministerUsableItem</workerClass>
+	<targetsBodyPart>false</targetsBodyPart>
+	<anesthetize>false</anesthetize>
+	<workAmount>600</workAmount>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+	<surgeryOutcomeEffect IsNull="True"/>
+	<recipeUsers>
+	  <li>Human</li>
+	</recipeUsers>
+  </RecipeDef>
+
+  <!-- =================================================================================== -->
+
+  <ThingDef ParentName="WVC_XenotypeSerum_Base">
+	<defName>WVC_XenotypeSerum_Mechakin</defName>
+	<label>mechakin xenotype serum</label>
+	<description>A one-use super-dose of mechanites tuned to change the user's xenotype. If the pawn's genes are regrowing, there will be no effect.
+
+If the user is of the &lt;color=#ff8585&gt;"Blankind"&lt;/color&gt; xenotype, no coma effect is applied.</description>
+	<graphicData>
+	  <texPath>Things/Item/Special/MechSerumHealer</texPath>
+	</graphicData>
+	<comps>
+	  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer">
+		<xenotypeDef>WVC_Meca</xenotypeDef>
+		<perfectCandidate>WVC_Blank</perfectCandidate>
+		<removeEndogenes>false</removeEndogenes>
+		<removeXenogenes>true</removeXenogenes>
+	  </li>
+	</comps>
+  </ThingDef>
+  
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+	<defName>WVC_AdministerXenotypeSerum_Mechakin</defName>
+	<label>administer mechakin xenotype serum</label>
+	<description>Administer a mechakin xenotype serum.</description>
+	<jobString>Administering mechakin xenotype serum.</jobString>
+	<ingredients>
+	  <li>
+		<filter>
+		  <thingDefs>
+			<li>WVC_XenotypeSerum_Mechakin</li>
+		  </thingDefs>
+		</filter>
+		<count>1</count>
+	  </li>
+	</ingredients>
+	<fixedIngredientFilter>
+	  <thingDefs>
+		<li>WVC_XenotypeSerum_Mechakin</li>
+	  </thingDefs>
+	</fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- ==================================== -->
+
+  <ThingDef ParentName="WVC_XenotypeSerum_Base">
+	<defName>WVC_XenotypeSerum_Rogkind</defName>
+	<label>rogkind xenotype serum</label>
+	<graphicData>
+	  <texPath>Things/Item/Special/MechSerumHealer</texPath>
+	</graphicData>
+	<comps>
+	  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer">
+		<xenotypeDef>WVC_RogueFormer</xenotypeDef>
+		<removeEndogenes>true</removeEndogenes>
+		<removeXenogenes>false</removeXenogenes>
+	  </li>
+	</comps>
+  </ThingDef>
+  
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+	<defName>WVC_AdministerXenotypeSerum_Rogkind</defName>
+	<label>administer rogkind xenotype serum</label>
+	<description>Administer a rogkind xenotype serum.</description>
+	<jobString>Administering rogkind xenotype serum.</jobString>
+	<ingredients>
+	  <li>
+		<filter>
+		  <thingDefs>
+			<li>WVC_XenotypeSerum_Rogkind</li>
+		  </thingDefs>
+		</filter>
+		<count>1</count>
+	  </li>
+	</ingredients>
+	<fixedIngredientFilter>
+	  <thingDefs>
+		<li>WVC_XenotypeSerum_Rogkind</li>
+	  </thingDefs>
+	</fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- ==================================== -->
+
+  <ThingDef ParentName="WVC_XenotypeSerum_Base">
+	<defName>WVC_XenotypeSerum_Throwex</defName>
+	<label>throwex xenotype serum</label>
+	<graphicData>
+	  <texPath>Things/Item/Special/MechSerumHealer</texPath>
+	</graphicData>
+	<comps>
+	  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer">
+		<xenotypeDef>WVC_GeneThrower</xenotypeDef>
+		<removeEndogenes>true</removeEndogenes>
+		<removeXenogenes>false</removeXenogenes>
+	  </li>
+	</comps>
+  </ThingDef>
+  
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+	<defName>WVC_AdministerXenotypeSerum_Throwex</defName>
+	<label>administer throwex xenotype serum</label>
+	<description>Administer a throwex xenotype serum.</description>
+	<jobString>Administering throwex xenotype serum.</jobString>
+	<ingredients>
+	  <li>
+		<filter>
+		  <thingDefs>
+			<li>WVC_XenotypeSerum_Throwex</li>
+		  </thingDefs>
+		</filter>
+		<count>1</count>
+	  </li>
+	</ingredients>
+	<fixedIngredientFilter>
+	  <thingDefs>
+		<li>WVC_XenotypeSerum_Throwex</li>
+	  </thingDefs>
+	</fixedIngredientFilter>
+  </RecipeDef>
+
+</Defs>
