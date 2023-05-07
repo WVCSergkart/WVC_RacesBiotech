@@ -113,6 +113,10 @@ Does not remove &lt;color=#ff8585&gt;endogens&lt;/color&gt;.</description>
 		<removeEndogenes>false</removeEndogenes>
 		<removeXenogenes>true</removeXenogenes>
 	  </li>
+	  <li Class="CompProperties_Glower">
+		<glowRadius>1</glowRadius>
+		<glowColor>(133,167,255, 0)</glowColor>
+	  </li>
 	</comps>
   </ThingDef>
   
@@ -158,6 +162,10 @@ Does not remove &lt;color=#ff8585&gt;endogens&lt;/color&gt;.</description>
 		<removeEndogenes>true</removeEndogenes>
 		<removeXenogenes>true</removeXenogenes>
 	  </li>
+	  <li Class="CompProperties_Glower">
+		<glowRadius>1</glowRadius>
+		<glowColor>(133,255,136, 0)</glowColor>
+	  </li>
 	</comps>
   </ThingDef>
   
@@ -202,6 +210,10 @@ Does not remove &lt;color=#ff8585&gt;endogens&lt;/color&gt;.</description>
 		<xenotypeDef>WVC_GeneThrower</xenotypeDef>
 		<removeEndogenes>true</removeEndogenes>
 		<removeXenogenes>true</removeXenogenes>
+	  </li>
+	  <li Class="CompProperties_Glower">
+		<glowRadius>1</glowRadius>
+		<glowColor>(255,248,133, 0)</glowColor>
 	  </li>
 	</comps>
   </ThingDef>
@@ -249,6 +261,10 @@ If the user is of the &lt;color=#ff8585&gt;"Blankind"&lt;/color&gt; xenotype, no
 	  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer">
 		<perfectCandidate>WVC_Blank</perfectCandidate>
 	  </li>
+	  <li Class="CompProperties_Glower">
+		<glowRadius>1</glowRadius>
+		<glowColor>(133,202,255, 0)</glowColor>
+	  </li>
 	</comps>
   </ThingDef>
   
@@ -273,5 +289,56 @@ If the user is of the &lt;color=#ff8585&gt;"Blankind"&lt;/color&gt; xenotype, no
 	  </thingDefs>
 	</fixedIngredientFilter>
   </RecipeDef>
+
+  <!-- ==================================== -->
+
+  <!-- <ThingDef ParentName="WVC_XenotypeSerum_Base"> -->
+	<!-- <defName>WVC_XenotypeSerum_CustomRandom</defName> -->
+	<!-- <label>xenotype serum (custom random)</label> -->
+	<!-- <description>A one-use super-dose of mechanites tuned to change the user's xenotype. If the pawn's genes are regrowing, there will be no effect. After applying the serum, the user falls into a two-day coma. -->
+
+<!-- If the user is of the &lt;color=#ff8585&gt;"Blankind"&lt;/color&gt; xenotype, no coma effect is applied.</description> -->
+	<!-- <descriptionHyperlinks> -->
+	  <!-- <XenotypeDef>WVC_Blank</XenotypeDef> -->
+	<!-- </descriptionHyperlinks> -->
+	<!-- <graphicData> -->
+	  <!-- <texPath>WVC/Things/XenotypeSerum</texPath> -->
+	<!-- </graphicData> -->
+	<!-- <costList> -->
+	  <!-- <ArchiteCapsule>1</ArchiteCapsule> -->
+	<!-- </costList> -->
+	<!-- <comps> -->
+	  <!-- <li Class="WVC.CompProperties_UseEffect_XenotypeForcer"> -->
+		<!-- <perfectCandidate>WVC_Blank</perfectCandidate> -->
+		<!-- <useCustomXenotype>true</useCustomXenotype> -->
+	  <!-- </li> -->
+	  <!-- <li Class="CompProperties_Glower"> -->
+		<!-- <glowRadius>1</glowRadius> -->
+		<!-- <glowColor>(133,202,255, 0)</glowColor> -->
+	  <!-- </li> -->
+	<!-- </comps> -->
+  <!-- </ThingDef> -->
+  
+  <!-- <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base"> -->
+	<!-- <defName>WVC_AdministerXenotypeSerum_CustomRandom</defName> -->
+	<!-- <label>administer custom xenotype serum</label> -->
+	<!-- <description>Administer a custom xenotype serum.</description> -->
+	<!-- <jobString>Administering custom xenotype serum.</jobString> -->
+	<!-- <ingredients> -->
+	  <!-- <li> -->
+		<!-- <filter> -->
+		  <!-- <thingDefs> -->
+			<!-- <li>WVC_XenotypeSerum_CustomRandom</li> -->
+		  <!-- </thingDefs> -->
+		<!-- </filter> -->
+		<!-- <count>1</count> -->
+	  <!-- </li> -->
+	<!-- </ingredients> -->
+	<!-- <fixedIngredientFilter> -->
+	  <!-- <thingDefs> -->
+		<!-- <li>WVC_XenotypeSerum_CustomRandom</li> -->
+	  <!-- </thingDefs> -->
+	<!-- </fixedIngredientFilter> -->
+  <!-- </RecipeDef> -->
 
 </Defs>
