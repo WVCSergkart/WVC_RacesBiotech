@@ -9,20 +9,47 @@
 	<resourceReadoutPriority>Middle</resourceReadoutPriority>
 	<useHitPoints>true</useHitPoints>
 	<graphicData>
-	  <texPath>Things/Item/Special/MechSerumHealer</texPath>
-	  <graphicClass>Graphic_Single</graphicClass>
+	  <texPath>WVC/Things/XenotypeSerum_Mecha</texPath>
+	  <graphicClass>Graphic_Random</graphicClass>
 	</graphicData>
 	<statBases>
-	  <MarketValue>1500</MarketValue>
+	  <MarketValue>2100</MarketValue>
 	  <MaxHitPoints>80</MaxHitPoints>
 	  <Mass>0.2</Mass>
 	  <DeteriorationRate>2.0</DeteriorationRate>
 	  <Flammability>0.2</Flammability>
+	  <WorkToMake>25000</WorkToMake>
 	</statBases>
+	<recipeMaker>
+	  <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
+	  <researchPrerequisite>Archogenetics</researchPrerequisite>
+	  <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+	  <workSkill>Crafting</workSkill>
+	  <effectWorking>Smith</effectWorking>
+	  <soundWorking>Recipe_Machining</soundWorking>
+	  <recipeUsers>
+		<!-- <li MayRequire="wvc.sergkart.core">WVC_AdvancedCraftingBench</li> -->
+		<!-- <li MayRequire="wvc.sergkart.core">WVC_NodeCraftingBench</li> -->
+		<li>FabricationBench</li>
+	  </recipeUsers>
+	  <useIngredientsForColor>false</useIngredientsForColor>
+	  <skillRequirements>
+		<Crafting>12</Crafting>
+		<Intellectual>12</Intellectual>
+	  </skillRequirements>
+	</recipeMaker>
+	<costList>
+	  <NanostructuringChip>1</NanostructuringChip>
+	  <ArchiteCapsule>5</ArchiteCapsule>
+	  <WVC_UniversalFuel MayRequire="wvc.sergkart.core">50</WVC_UniversalFuel>
+	  <Plasteel>50</Plasteel>
+	  <Uranium>20</Uranium>
+	</costList>
 	<stackLimit>10</stackLimit>
 	<techLevel>Ultra</techLevel>
 	<tradeTags>
-	  <li>ExoticMisc</li>
+	  <!-- <li>ExoticMisc</li> -->
+	  <li>WVC_XenotypeSerums</li>
 	</tradeTags>
 	<tradeability>Sellable</tradeability>
 	<thingCategories>
@@ -66,10 +93,15 @@
 	<label>mechakin xenotype serum</label>
 	<description>A one-use super-dose of mechanites tuned to change the user's xenotype. If the pawn's genes are regrowing, there will be no effect.
 
-If the user is of the &lt;color=#ff8585&gt;"Blankind"&lt;/color&gt; xenotype, no coma effect is applied.</description>
+If the user is of the &lt;color=#ff8585&gt;"Blankind"&lt;/color&gt; xenotype, no coma effect is applied.
+
+Does not remove &lt;color=#ff8585&gt;endogens&lt;/color&gt;.</description>
 	<graphicData>
-	  <texPath>Things/Item/Special/MechSerumHealer</texPath>
+	  <texPath>WVC/Things/XenotypeSerum_Mecha</texPath>
 	</graphicData>
+	<costList>
+	  <VFE_ComponentMechanoid MayRequire="wvc.sergkart.core">2</VFE_ComponentMechanoid>
+	</costList>
 	<comps>
 	  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer">
 		<xenotypeDef>WVC_Meca</xenotypeDef>
@@ -108,13 +140,16 @@ If the user is of the &lt;color=#ff8585&gt;"Blankind"&lt;/color&gt; xenotype, no
 	<defName>WVC_XenotypeSerum_Rogkind</defName>
 	<label>rogkind xenotype serum</label>
 	<graphicData>
-	  <texPath>Things/Item/Special/MechSerumHealer</texPath>
+	  <texPath>WVC/Things/XenotypeSerum_Node</texPath>
 	</graphicData>
+	<costList>
+	  <WVC_ResourceNodes_Green MayRequire="wvc.sergkart.core">5</WVC_ResourceNodes_Green>
+	</costList>
 	<comps>
 	  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer">
 		<xenotypeDef>WVC_RogueFormer</xenotypeDef>
 		<removeEndogenes>true</removeEndogenes>
-		<removeXenogenes>false</removeXenogenes>
+		<removeXenogenes>true</removeXenogenes>
 	  </li>
 	</comps>
   </ThingDef>
@@ -147,13 +182,16 @@ If the user is of the &lt;color=#ff8585&gt;"Blankind"&lt;/color&gt; xenotype, no
 	<defName>WVC_XenotypeSerum_Throwex</defName>
 	<label>throwex xenotype serum</label>
 	<graphicData>
-	  <texPath>Things/Item/Special/MechSerumHealer</texPath>
+	  <texPath>WVC/Things/XenotypeSerum_Ultra</texPath>
 	</graphicData>
+	<costList>
+	  <VFE_ComponentMechanoid MayRequire="wvc.sergkart.core">2</VFE_ComponentMechanoid>
+	</costList>
 	<comps>
 	  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer">
 		<xenotypeDef>WVC_GeneThrower</xenotypeDef>
 		<removeEndogenes>true</removeEndogenes>
-		<removeXenogenes>false</removeXenogenes>
+		<removeXenogenes>true</removeXenogenes>
 	  </li>
 	</comps>
   </ThingDef>
