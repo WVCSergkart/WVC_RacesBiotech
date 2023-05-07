@@ -4,7 +4,7 @@
   <!--=============== Mech serums ====================-->
 
   <ThingDef ParentName="ResourceBase" Name="WVC_XenotypeSerum_Base" Abstract="True">
-	<description>A one-use super-dose of mechanites tuned to change the user's xenotype. If the pawn's genes are regrowing, there will be no effect.</description>
+	<description>A one-use super-dose of mechanites tuned to change the user's xenotype. If the pawn's genes are regrowing, there will be no effect. After applying the serum, the user falls into a two-day coma.</description>
 	<thingClass>ThingWithComps</thingClass>
 	<resourceReadoutPriority>Middle</resourceReadoutPriority>
 	<useHitPoints>true</useHitPoints>
@@ -90,12 +90,16 @@
 
   <ThingDef ParentName="WVC_XenotypeSerum_Base">
 	<defName>WVC_XenotypeSerum_Mechakin</defName>
-	<label>mechakin xenotype serum</label>
-	<description>A one-use super-dose of mechanites tuned to change the user's xenotype. If the pawn's genes are regrowing, there will be no effect.
+	<label>xenotype serum (mechakin)</label>
+	<description>A one-use super-dose of mechanites tuned to change the user's xenotype. If the pawn's genes are regrowing, there will be no effect. After applying the serum, the user falls into a two-day coma.
 
 If the user is of the &lt;color=#ff8585&gt;"Blankind"&lt;/color&gt; xenotype, no coma effect is applied.
 
 Does not remove &lt;color=#ff8585&gt;endogens&lt;/color&gt;.</description>
+	<descriptionHyperlinks>
+	  <XenotypeDef>WVC_Meca</XenotypeDef>
+	  <XenotypeDef>WVC_Blank</XenotypeDef>
+	</descriptionHyperlinks>
 	<graphicData>
 	  <texPath>WVC/Things/XenotypeSerum_Mecha</texPath>
 	</graphicData>
@@ -138,7 +142,10 @@ Does not remove &lt;color=#ff8585&gt;endogens&lt;/color&gt;.</description>
 
   <ThingDef ParentName="WVC_XenotypeSerum_Base">
 	<defName>WVC_XenotypeSerum_Rogkind</defName>
-	<label>rogkind xenotype serum</label>
+	<label>xenotype serum (rogkind)</label>
+	<descriptionHyperlinks>
+	  <XenotypeDef>WVC_RogueFormer</XenotypeDef>
+	</descriptionHyperlinks>
 	<graphicData>
 	  <texPath>WVC/Things/XenotypeSerum_Node</texPath>
 	</graphicData>
@@ -180,7 +187,10 @@ Does not remove &lt;color=#ff8585&gt;endogens&lt;/color&gt;.</description>
 
   <ThingDef ParentName="WVC_XenotypeSerum_Base">
 	<defName>WVC_XenotypeSerum_Throwex</defName>
-	<label>throwex xenotype serum</label>
+	<label>xenotype serum (throwex)</label>
+	<descriptionHyperlinks>
+	  <XenotypeDef>WVC_GeneThrower</XenotypeDef>
+	</descriptionHyperlinks>
 	<graphicData>
 	  <texPath>WVC/Things/XenotypeSerum_Ultra</texPath>
 	</graphicData>
@@ -214,6 +224,52 @@ Does not remove &lt;color=#ff8585&gt;endogens&lt;/color&gt;.</description>
 	<fixedIngredientFilter>
 	  <thingDefs>
 		<li>WVC_XenotypeSerum_Throwex</li>
+	  </thingDefs>
+	</fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- ==================================== -->
+
+  <ThingDef ParentName="WVC_XenotypeSerum_Base">
+	<defName>WVC_XenotypeSerum_Random</defName>
+	<label>xenotype serum (random)</label>
+	<description>A one-use super-dose of mechanites tuned to change the user's xenotype. If the pawn's genes are regrowing, there will be no effect. After applying the serum, the user falls into a two-day coma.
+
+If the user is of the &lt;color=#ff8585&gt;"Blankind"&lt;/color&gt; xenotype, no coma effect is applied.</description>
+	<descriptionHyperlinks>
+	  <XenotypeDef>WVC_Blank</XenotypeDef>
+	</descriptionHyperlinks>
+	<graphicData>
+	  <texPath>WVC/Things/XenotypeSerum</texPath>
+	</graphicData>
+	<costList>
+	  <ArchiteCapsule>1</ArchiteCapsule>
+	</costList>
+	<comps>
+	  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer">
+		<perfectCandidate>WVC_Blank</perfectCandidate>
+	  </li>
+	</comps>
+  </ThingDef>
+  
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+	<defName>WVC_AdministerXenotypeSerum_Random</defName>
+	<label>administer xenotype serum</label>
+	<description>Administer a xenotype serum.</description>
+	<jobString>Administering xenotype serum.</jobString>
+	<ingredients>
+	  <li>
+		<filter>
+		  <thingDefs>
+			<li>WVC_XenotypeSerum_Random</li>
+		  </thingDefs>
+		</filter>
+		<count>1</count>
+	  </li>
+	</ingredients>
+	<fixedIngredientFilter>
+	  <thingDefs>
+		<li>WVC_XenotypeSerum_Random</li>
 	  </thingDefs>
 	</fixedIngredientFilter>
   </RecipeDef>
