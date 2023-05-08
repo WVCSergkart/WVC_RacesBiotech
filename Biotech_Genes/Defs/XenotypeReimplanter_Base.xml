@@ -16,7 +16,7 @@
 	<resourceReadoutPriority>Middle</resourceReadoutPriority>
 	<useHitPoints>true</useHitPoints>
 	<graphicData>
-	  <texPath>WVC/Things/XenotypeSerum_Mecha</texPath>
+	  <texPath>WVC/Things/XenotypeSerum</texPath>
 	  <graphicClass>Graphic_Random</graphicClass>
 	</graphicData>
 	<statBases>
@@ -30,10 +30,10 @@
 	<stackLimit>10</stackLimit>
 	<techLevel>Ultra</techLevel>
 	<tradeTags>
-	  <!-- <li>ExoticMisc</li> -->
+	  <li>ExoticMisc</li>
 	  <li>WVC_XenotypeSerums</li>
 	</tradeTags>
-	<tradeability>Sellable</tradeability>
+	<tradeability>All</tradeability>
 	<thingCategories>
 	  <!-- <li>ItemsMisc</li> -->
 	  <li>WVC_XenotypeSerums</li>
@@ -60,6 +60,9 @@
 
   <!-- ============Auto Generation Base============ -->
   <ThingDef ParentName="WVC_XenotypeSerum_Base" Name="WVC_XenotypeSerum_Craftable" Abstract="True">
+	<graphicData>
+	  <texPath>WVC/Things/XenotypeSerum</texPath>
+	</graphicData>
 	<recipeMaker>
 	  <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
 	  <researchPrerequisite>Archogenetics</researchPrerequisite>
@@ -80,20 +83,32 @@
 	</recipeMaker>
 	<costList>
 	  <!-- <NanostructuringChip>1</NanostructuringChip> -->
-	  <ArchiteCapsule>3</ArchiteCapsule>
+	  <ArchiteCapsule>5</ArchiteCapsule>
 	  <WVC_UniversalFuel MayRequire="wvc.sergkart.core">50</WVC_UniversalFuel>
 	  <Plasteel>50</Plasteel>
 	  <Uranium>20</Uranium>
 	</costList>
+	<comps>
+	  <li Class="CompProperties_Glower">
+		<glowRadius>1</glowRadius>
+		<glowColor>(133,202,255, 0)</glowColor>
+	  </li>
+	</comps>
   </ThingDef>
 
   <ThingDef ParentName="WVC_XenotypeSerum_Base" Name="WVC_XenotypeSerum_NonCraftable" Abstract="True">
 	<description>A one-use super-dose of mechanites tuned to change the user's xenotype. If the pawn's genes are regrowing, there will be no effect. After applying the serum, the user falls into a two-day coma.
 
 If the user is of the &lt;color=#ff8585&gt;"Blankind"&lt;/color&gt; xenotype, no coma effect is applied.</description>
-	<descriptionHyperlinks Inherit="False"/>
+	<descriptionHyperlinks Inherit="False">
+	  <XenotypeDef>WVC_Blank</XenotypeDef>
+	</descriptionHyperlinks>
+	<statBases>
+	  <MarketValue>1700</MarketValue>
+	  <DeteriorationRate>1.0</DeteriorationRate>
+	</statBases>
 	<graphicData>
-	  <texPath>WVC/Things/XenotypeSerum</texPath>
+	  <texPath>WVC/Things/XenotypeSerum_Ultra</texPath>
 	</graphicData>
 	<thingSetMakerTags Inherit="False">
 	  <li>RewardStandardLowFreq</li>
@@ -101,7 +116,7 @@ If the user is of the &lt;color=#ff8585&gt;"Blankind"&lt;/color&gt; xenotype, no
 	<comps>
 	  <li Class="CompProperties_Glower">
 		<glowRadius>1</glowRadius>
-		<glowColor>(133,202,255, 0)</glowColor>
+		<glowColor>(255,248,133, 0)</glowColor>
 	  </li>
 	</comps>
   </ThingDef>
@@ -133,9 +148,6 @@ Does not remove &lt;color=#ff8585&gt;endogens&lt;/color&gt;.</description>
 	  <XenotypeDef>WVC_Meca</XenotypeDef>
 	  <XenotypeDef>WVC_Blank</XenotypeDef>
 	</descriptionHyperlinks>
-	<graphicData>
-	  <texPath>WVC/Things/XenotypeSerum_Mecha</texPath>
-	</graphicData>
 	<costList>
 	  <VFE_ComponentMechanoid MayRequire="wvc.sergkart.core">2</VFE_ComponentMechanoid>
 	</costList>
@@ -145,10 +157,6 @@ Does not remove &lt;color=#ff8585&gt;endogens&lt;/color&gt;.</description>
 		<perfectCandidate>WVC_Blank</perfectCandidate>
 		<removeEndogenes>false</removeEndogenes>
 		<removeXenogenes>true</removeXenogenes>
-	  </li>
-	  <li Class="CompProperties_Glower">
-		<glowRadius>1</glowRadius>
-		<glowColor>(133,167,255, 0)</glowColor>
 	  </li>
 	</comps>
   </ThingDef>
@@ -183,9 +191,6 @@ Does not remove &lt;color=#ff8585&gt;endogens&lt;/color&gt;.</description>
 	<descriptionHyperlinks>
 	  <XenotypeDef>WVC_RogueFormer</XenotypeDef>
 	</descriptionHyperlinks>
-	<graphicData>
-	  <texPath>WVC/Things/XenotypeSerum_Node</texPath>
-	</graphicData>
 	<costList>
 	  <WVC_ResourceNodes_Green MayRequire="wvc.sergkart.core">5</WVC_ResourceNodes_Green>
 	</costList>
@@ -194,10 +199,6 @@ Does not remove &lt;color=#ff8585&gt;endogens&lt;/color&gt;.</description>
 		<xenotypeDef>WVC_RogueFormer</xenotypeDef>
 		<removeEndogenes>true</removeEndogenes>
 		<removeXenogenes>true</removeXenogenes>
-	  </li>
-	  <li Class="CompProperties_Glower">
-		<glowRadius>1</glowRadius>
-		<glowColor>(133,255,136, 0)</glowColor>
 	  </li>
 	</comps>
   </ThingDef>
@@ -232,9 +233,6 @@ Does not remove &lt;color=#ff8585&gt;endogens&lt;/color&gt;.</description>
 	<descriptionHyperlinks>
 	  <XenotypeDef>WVC_GeneThrower</XenotypeDef>
 	</descriptionHyperlinks>
-	<graphicData>
-	  <texPath>WVC/Things/XenotypeSerum_Ultra</texPath>
-	</graphicData>
 	<costList>
 	  <VFE_ComponentMechanoid MayRequire="wvc.sergkart.core">2</VFE_ComponentMechanoid>
 	</costList>
@@ -243,10 +241,6 @@ Does not remove &lt;color=#ff8585&gt;endogens&lt;/color&gt;.</description>
 		<xenotypeDef>WVC_GeneThrower</xenotypeDef>
 		<removeEndogenes>true</removeEndogenes>
 		<removeXenogenes>true</removeXenogenes>
-	  </li>
-	  <li Class="CompProperties_Glower">
-		<glowRadius>1</glowRadius>
-		<glowColor>(255,248,133, 0)</glowColor>
 	  </li>
 	</comps>
   </ThingDef>
@@ -275,28 +269,15 @@ Does not remove &lt;color=#ff8585&gt;endogens&lt;/color&gt;.</description>
 
   <!-- ==================================== -->
 
-  <ThingDef ParentName="WVC_XenotypeSerum_Base">
+  <ThingDef ParentName="WVC_XenotypeSerum_NonCraftable">
 	<defName>WVC_XenotypeSerum_Random</defName>
 	<label>xenotype serum (random)</label>
-	<description>A one-use super-dose of mechanites tuned to change the user's xenotype. If the pawn's genes are regrowing, there will be no effect. After applying the serum, the user falls into a two-day coma.
-
-If the user is of the &lt;color=#ff8585&gt;"Blankind"&lt;/color&gt; xenotype, no coma effect is applied.</description>
-	<descriptionHyperlinks>
-	  <XenotypeDef>WVC_Blank</XenotypeDef>
-	</descriptionHyperlinks>
-	<graphicData>
-	  <texPath>WVC/Things/XenotypeSerum</texPath>
-	</graphicData>
-	<costList>
-	  <ArchiteCapsule>1</ArchiteCapsule>
-	</costList>
+	<!-- <descriptionHyperlinks> -->
+	  <!-- <XenotypeDef>WVC_Blank</XenotypeDef> -->
+	<!-- </descriptionHyperlinks> -->
 	<comps>
 	  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer">
 		<perfectCandidate>WVC_Blank</perfectCandidate>
-	  </li>
-	  <li Class="CompProperties_Glower">
-		<glowRadius>1</glowRadius>
-		<glowColor>(133,202,255, 0)</glowColor>
 	  </li>
 	</comps>
   </ThingDef>

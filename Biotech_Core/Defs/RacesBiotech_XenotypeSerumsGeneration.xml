@@ -101,48 +101,62 @@
 		</parameters>
 		<apply>
 
-			<Operation Class="PatchOperationAdd">
-				<xpath>/Defs</xpath>
-				<value>
+			<Operation Class="XmlExtensions.PatchByCase">
+				<value>{defName_DEF}</value>
+				<cases>
+					<li><value>WVC_Blank</value><apply></apply></li>
+					<li><value>Baseliner</value><apply></apply></li>
+					<li>
+						<value>{defName_DEF}</value>
+						<apply>
 
-				  <ThingDef ParentName="WVC_XenotypeSerum_NonCraftable">
-					<defName>WVC_XenotypeSerum_{defName_DEF}_{XenotypeSerum_TagName}</defName>
-					<label>xenotype serum ({label_DEF})</label>
-					<descriptionHyperlinks>
-					  <XenotypeDef>{defName_DEF}</XenotypeDef>
-					</descriptionHyperlinks>
-					<comps>
-					  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer">
-						<xenotypeDef>{defName_DEF}</xenotypeDef>
-						<perfectCandidate>WVC_Blank</perfectCandidate>
-						<removeXenogenes>true</removeXenogenes>
-					  </li>
-					</comps>
-				  </ThingDef>
+							<Operation Class="PatchOperationAdd">
+								<xpath>/Defs</xpath>
+								<value>
 
-				  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
-					<defName>WVC_AdministerXenotypeSerum_{defName_DEF}_{XenotypeSerum_TagName}</defName>
-					<label>administer {label_DEF} xenotype serum</label>
-					<description>Administer a {label_DEF} xenotype serum.</description>
-					<jobString>Administering {label_DEF} xenotype serum.</jobString>
-					<ingredients>
-					  <li>
-						<filter>
-						  <thingDefs>
-							<li>WVC_XenotypeSerum_{defName_DEF}_{XenotypeSerum_TagName}</li>
-						  </thingDefs>
-						</filter>
-						<count>1</count>
-					  </li>
-					</ingredients>
-					<fixedIngredientFilter>
-					  <thingDefs>
-						<li>WVC_XenotypeSerum_{defName_DEF}_{XenotypeSerum_TagName}</li>
-					  </thingDefs>
-					</fixedIngredientFilter>
-				  </RecipeDef>
+								  <ThingDef ParentName="WVC_XenotypeSerum_NonCraftable">
+									<defName>WVC_XenotypeSerum_{defName_DEF}_{XenotypeSerum_TagName}</defName>
+									<label>xenotype serum ({label_DEF})</label>
+									<descriptionHyperlinks>
+									  <XenotypeDef>{defName_DEF}</XenotypeDef>
+									</descriptionHyperlinks>
+									<comps>
+									  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer">
+										<xenotypeDef>{defName_DEF}</xenotypeDef>
+										<perfectCandidate>WVC_Blank</perfectCandidate>
+										<removeXenogenes>true</removeXenogenes>
+									  </li>
+									</comps>
+								  </ThingDef>
 
-				</value>
+								  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+									<defName>WVC_AdministerXenotypeSerum_{defName_DEF}_{XenotypeSerum_TagName}</defName>
+									<label>administer {label_DEF} xenotype serum</label>
+									<description>Administer a {label_DEF} xenotype serum.</description>
+									<jobString>Administering {label_DEF} xenotype serum.</jobString>
+									<ingredients>
+									  <li>
+										<filter>
+										  <thingDefs>
+											<li>WVC_XenotypeSerum_{defName_DEF}_{XenotypeSerum_TagName}</li>
+										  </thingDefs>
+										</filter>
+										<count>1</count>
+									  </li>
+									</ingredients>
+									<fixedIngredientFilter>
+									  <thingDefs>
+										<li>WVC_XenotypeSerum_{defName_DEF}_{XenotypeSerum_TagName}</li>
+									  </thingDefs>
+									</fixedIngredientFilter>
+								  </RecipeDef>
+
+								</value>
+							</Operation>
+
+						</apply>
+					</li>
+				</cases>
 			</Operation>
 
 		</apply>
