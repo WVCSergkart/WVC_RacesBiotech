@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!--=====================================================================-->
+
+	<XmlExtensions.PatchDef Name="WVC_RacesBiotech_XenotypeSerumsGeneration" Abstract="True">
+		<parameters>
+			<li>XenotypeSerum_TagName</li>
+		</parameters>
+		<apply>
+
+			<Operation Class="XmlExtensions.ForEach">
+				<xpath>/Defs/XenotypeDef</xpath>
+				<!-- <concreteOnly>true</concreteOnly> -->
+				<storeIn>XenotypeDef_DEF</storeIn>
+				<apply>
+
+					<Operation Class="XmlExtensions.Conditional">
+						<xpath>{XenotypeDef_DEF}/defName</xpath>
+						<caseTrue>
+
+							<Operation Class="XmlExtensions.Conditional">
+								<xpath>{XenotypeDef_DEF}/label</xpath>
+								<caseTrue>
+
+									<Operation Class="XmlExtensions.AggregateValues">
+										<valueOperations>
+
+											<Operation Class="XmlExtensions.CreateVariable">
+												<value>{XenotypeDef_DEF}/label</value>
+												<storeIn>label_DEF</storeIn>
+												<fromXml>true</fromXml>
+											</Operation>
+											<Operation Class="XmlExtensions.CreateVariable">
+												<value>{XenotypeDef_DEF}/defName</value>
+												<storeIn>defName_DEF</storeIn>
+												<fromXml>true</fromXml>
+											</Operation>
+
+										</valueOperations>
+										<apply>
+
+											<Operation Class="XmlExtensions.ApplyPatch">
+												<patchName>WVC_RacesBiotech_XenotypeSerumsGeneration_AddedThing</patchName>
+												<arguments>
+													<li>{XenotypeSerum_TagName}</li>
+													<li>{label_DEF}</li>
+													<li>{defName_DEF}</li>
+												</arguments>
+											</Operation>
+
+										</apply>
+									</Operation>
+
+								</caseTrue>
+								<caseFalse>
+
+									<Operation Class="XmlExtensions.AggregateValues">
+										<valueOperations>
+
+											<Operation Class="XmlExtensions.CreateVariable">
+												<value>{XenotypeDef_DEF}/defName</value>
+												<storeIn>defName_DEF</storeIn>
+												<fromXml>true</fromXml>
+											</Operation>
+
+										</valueOperations>
+										<apply>
+
+											<Operation Class="XmlExtensions.ApplyPatch">
+												<patchName>WVC_RacesBiotech_XenotypeSerumsGeneration_AddedThing</patchName>
+												<arguments>
+													<li>{XenotypeSerum_TagName}</li>
+													<li>unknown xenotype</li>
+													<li>{defName_DEF}</li>
+												</arguments>
+											</Operation>
+
+										</apply>
+									</Operation>
+
+								</caseFalse>
+							</Operation>
+
+						</caseTrue>
+					</Operation>
+
+				</apply>
+			</Operation>
+
+		</apply>
+	</XmlExtensions.PatchDef>
+
+	<!--=====================================================================-->
+
+	<XmlExtensions.PatchDef Name="WVC_RacesBiotech_XenotypeSerumsGeneration_AddedThing" Abstract="True">
+		<parameters>
+			<li>XenotypeSerum_TagName</li>
+			<li>label_DEF</li>
+			<li>defName_DEF</li>
+		</parameters>
+		<apply>
+
+			<Operation Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+				<value>
+
+				  <ThingDef ParentName="WVC_XenotypeSerum_NonCraftable">
+					<defName>WVC_XenotypeSerum_{defName_DEF}_{XenotypeSerum_TagName}</defName>
+					<label>xenotype serum ({label_DEF})</label>
+					<descriptionHyperlinks>
+					  <XenotypeDef>{defName_DEF}</XenotypeDef>
+					</descriptionHyperlinks>
+					<comps>
+					  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer">
+						<xenotypeDef>{defName_DEF}</xenotypeDef>
+						<perfectCandidate>WVC_Blank</perfectCandidate>
+						<removeXenogenes>true</removeXenogenes>
+					  </li>
+					</comps>
+				  </ThingDef>
+
+				  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+					<defName>WVC_AdministerXenotypeSerum_{defName_DEF}_{XenotypeSerum_TagName}</defName>
+					<label>administer {label_DEF} xenotype serum</label>
+					<description>Administer a {label_DEF} xenotype serum.</description>
+					<jobString>Administering {label_DEF} xenotype serum.</jobString>
+					<ingredients>
+					  <li>
+						<filter>
+						  <thingDefs>
+							<li>WVC_XenotypeSerum_{defName_DEF}_{XenotypeSerum_TagName}</li>
+						  </thingDefs>
+						</filter>
+						<count>1</count>
+					  </li>
+					</ingredients>
+					<fixedIngredientFilter>
+					  <thingDefs>
+						<li>WVC_XenotypeSerum_{defName_DEF}_{XenotypeSerum_TagName}</li>
+					  </thingDefs>
+					</fixedIngredientFilter>
+				  </RecipeDef>
+
+				</value>
+			</Operation>
+
+		</apply>
+	</XmlExtensions.PatchDef>
+
+
+</Defs>

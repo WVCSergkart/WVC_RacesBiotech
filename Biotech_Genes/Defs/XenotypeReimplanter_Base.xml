@@ -1,9 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <ThingCategoryDef>
+	<defName>WVC_XenotypeSerums</defName>
+	<label>xenotype serums</label>
+	<parent>Items</parent>
+  </ThingCategoryDef>
+
   <!--=============== Mech serums ====================-->
 
   <ThingDef ParentName="ResourceBase" Name="WVC_XenotypeSerum_Base" Abstract="True">
+	<label>xenotype serum</label>
 	<description>A one-use super-dose of mechanites tuned to change the user's xenotype. If the pawn's genes are regrowing, there will be no effect. After applying the serum, the user falls into a two-day coma.</description>
 	<thingClass>ThingWithComps</thingClass>
 	<resourceReadoutPriority>Middle</resourceReadoutPriority>
@@ -20,6 +27,39 @@
 	  <Flammability>0.2</Flammability>
 	  <WorkToMake>25000</WorkToMake>
 	</statBases>
+	<stackLimit>10</stackLimit>
+	<techLevel>Ultra</techLevel>
+	<tradeTags>
+	  <!-- <li>ExoticMisc</li> -->
+	  <li>WVC_XenotypeSerums</li>
+	</tradeTags>
+	<tradeability>Sellable</tradeability>
+	<thingCategories>
+	  <!-- <li>ItemsMisc</li> -->
+	  <li>WVC_XenotypeSerums</li>
+	</thingCategories>
+	<thingSetMakerTags>
+	  <!-- <li>RewardStandardCore</li> -->
+	  <li>RewardStandardMidFreq</li>
+	</thingSetMakerTags>
+	<comps>
+	  <li Class="CompProperties_Usable">
+		<useJob>UseItem</useJob>
+		<useLabel>Use {0_label}</useLabel>
+		<useDuration>600</useDuration>
+	  </li>
+	  <!-- <li Class="CompProperties_UseEffect"> -->
+		<!-- <compClass>CompUseEffect_FixWorstHealthCondition</compClass> -->
+	  <!-- </li> -->
+	  <li Class="CompProperties_UseEffectPlaySound">
+		<soundOnUsed>MechSerumUsed</soundOnUsed>
+	  </li>
+	  <li Class="CompProperties_UseEffectDestroySelf" />
+	</comps>
+  </ThingDef>
+
+  <!-- ============Auto Generation Base============ -->
+  <ThingDef ParentName="WVC_XenotypeSerum_Base" Name="WVC_XenotypeSerum_Craftable" Abstract="True">
 	<recipeMaker>
 	  <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
 	  <researchPrerequisite>Archogenetics</researchPrerequisite>
@@ -39,40 +79,33 @@
 	  </skillRequirements>
 	</recipeMaker>
 	<costList>
-	  <NanostructuringChip>1</NanostructuringChip>
-	  <ArchiteCapsule>5</ArchiteCapsule>
+	  <!-- <NanostructuringChip>1</NanostructuringChip> -->
+	  <ArchiteCapsule>3</ArchiteCapsule>
 	  <WVC_UniversalFuel MayRequire="wvc.sergkart.core">50</WVC_UniversalFuel>
 	  <Plasteel>50</Plasteel>
 	  <Uranium>20</Uranium>
 	</costList>
-	<stackLimit>10</stackLimit>
-	<techLevel>Ultra</techLevel>
-	<tradeTags>
-	  <!-- <li>ExoticMisc</li> -->
-	  <li>WVC_XenotypeSerums</li>
-	</tradeTags>
-	<tradeability>Sellable</tradeability>
-	<thingCategories>
-	  <li>ItemsMisc</li>
-	</thingCategories>
-	<thingSetMakerTags>
-	  <li>RewardStandardCore</li>
+  </ThingDef>
+
+  <ThingDef ParentName="WVC_XenotypeSerum_Base" Name="WVC_XenotypeSerum_NonCraftable" Abstract="True">
+	<description>A one-use super-dose of mechanites tuned to change the user's xenotype. If the pawn's genes are regrowing, there will be no effect. After applying the serum, the user falls into a two-day coma.
+
+If the user is of the &lt;color=#ff8585&gt;"Blankind"&lt;/color&gt; xenotype, no coma effect is applied.</description>
+	<descriptionHyperlinks Inherit="False"/>
+	<graphicData>
+	  <texPath>WVC/Things/XenotypeSerum</texPath>
+	</graphicData>
+	<thingSetMakerTags Inherit="False">
+	  <li>RewardStandardLowFreq</li>
 	</thingSetMakerTags>
 	<comps>
-	  <li Class="CompProperties_Usable">
-		<useJob>UseItem</useJob>
-		<useLabel>Use {0_label}</useLabel>
-		<useDuration>600</useDuration>
+	  <li Class="CompProperties_Glower">
+		<glowRadius>1</glowRadius>
+		<glowColor>(133,202,255, 0)</glowColor>
 	  </li>
-	  <!-- <li Class="CompProperties_UseEffect"> -->
-		<!-- <compClass>CompUseEffect_FixWorstHealthCondition</compClass> -->
-	  <!-- </li> -->
-	  <li Class="CompProperties_UseEffectPlaySound">
-		<soundOnUsed>MechSerumUsed</soundOnUsed>
-	  </li>
-	  <li Class="CompProperties_UseEffectDestroySelf" />
 	</comps>
   </ThingDef>
+  <!-- ============Auto Generation Base============ -->
   
   <RecipeDef Name="WVC_AdministerXenotypeSerum_Base" Abstract="True">
 	<workerClass>Recipe_AdministerUsableItem</workerClass>
@@ -88,7 +121,7 @@
 
   <!-- =================================================================================== -->
 
-  <ThingDef ParentName="WVC_XenotypeSerum_Base">
+  <ThingDef ParentName="WVC_XenotypeSerum_Craftable">
 	<defName>WVC_XenotypeSerum_Mechakin</defName>
 	<label>xenotype serum (mechakin)</label>
 	<description>A one-use super-dose of mechanites tuned to change the user's xenotype. If the pawn's genes are regrowing, there will be no effect. After applying the serum, the user falls into a two-day coma.
@@ -144,7 +177,7 @@ Does not remove &lt;color=#ff8585&gt;endogens&lt;/color&gt;.</description>
 
   <!-- ==================================== -->
 
-  <ThingDef ParentName="WVC_XenotypeSerum_Base">
+  <ThingDef ParentName="WVC_XenotypeSerum_Craftable">
 	<defName>WVC_XenotypeSerum_Rogkind</defName>
 	<label>xenotype serum (rogkind)</label>
 	<descriptionHyperlinks>
@@ -193,7 +226,7 @@ Does not remove &lt;color=#ff8585&gt;endogens&lt;/color&gt;.</description>
 
   <!-- ==================================== -->
 
-  <ThingDef ParentName="WVC_XenotypeSerum_Base">
+  <ThingDef ParentName="WVC_XenotypeSerum_Craftable">
 	<defName>WVC_XenotypeSerum_Throwex</defName>
 	<label>xenotype serum (throwex)</label>
 	<descriptionHyperlinks>
