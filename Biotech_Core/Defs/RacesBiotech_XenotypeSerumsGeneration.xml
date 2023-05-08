@@ -151,6 +151,18 @@
 									</fixedIngredientFilter>
 								  </RecipeDef>
 
+								  <GeneDef ParentName="WVC_Mechanoidization_SerumSpawner_NonSpawnable">
+									<defName>WVC_XenotypeSerumSpawner_{defName_DEF}_{XenotypeSerum_TagName}</defName>
+									<label>serum thrower ({label_DEF})</label>
+									<modExtensions>
+										<li Class="WVC.GeneExtension_Spawner">
+											<thingDefToSpawn>WVC_XenotypeSerum_{defName_DEF}_{XenotypeSerum_TagName}</thingDefToSpawn>
+											<stackCount>1</stackCount>
+											<spawnIntervalRange><min>900000</min><max>2700000</max></spawnIntervalRange>
+										</li>
+									</modExtensions>
+								  </GeneDef>
+
 								</value>
 							</Operation>
 

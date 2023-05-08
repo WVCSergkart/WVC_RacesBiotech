@@ -78,6 +78,11 @@
 	<label>mechanoidization - Voices</label>
 	<displayPriorityInXenotype>3919</displayPriorityInXenotype>
   </GeneCategoryDef>
+  <GeneCategoryDef>
+	<defName>WVC_XenotypeSerumSpawners</defName>
+	<label>serum spawners</label>
+	<displayPriorityInXenotype>3917</displayPriorityInXenotype>
+  </GeneCategoryDef>
 
   <!-- ================================================================== -->
 

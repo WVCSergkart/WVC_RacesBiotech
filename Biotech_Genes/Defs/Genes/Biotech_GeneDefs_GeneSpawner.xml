@@ -96,7 +96,7 @@
 	<defName>WVC_GenePackSpawner_Mecha</defName>
 	<label>mechapack thrower</label>
 	<iconPath>WVC/Things/Mecha_Genepack/MechapackB</iconPath>
-	<biostatArc>3</biostatArc>
+	<biostatArc>2</biostatArc>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>mecha-</symbol></li>
@@ -166,6 +166,54 @@
 	<statOffsets>
 	  <InjuryHealingFactor>0.25</InjuryHealingFactor>
 	</statOffsets>
+  </GeneDef>
+
+  <!-- Serum -->
+  <GeneDef ParentName="WVC_Mechanoidization_GenepackSpawnerBase">
+	<defName>WVC_XenotypeSerumSpawner_Random</defName>
+	<label>serum thrower</label>
+	<labelShortAdj>serum thrower</labelShortAdj>
+	<iconPath>WVC/Things/XenotypeSerum_Ultra/XenotypeSerum_Ultra</iconPath>
+	<biostatArc>2</biostatArc>
+	<customEffectDescriptions Inherit="False">
+		<li>Spawns xenotype serum every (*DateTime)15-45 days(/DateTime).</li>
+		<li>Xenotype serum (random) - a one-time serum that changes a pawn's xenotype to any random one. Custom xenotypes are not supported.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>serum-</symbol></li>
+		<li><symbol>serum</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC.GeneExtension_Spawner">
+			<thingDefToSpawn>WVC_XenotypeSerum_Random</thingDefToSpawn>
+			<stackCount>1</stackCount>
+			<spawnIntervalRange><min>900000</min><max>2700000</max></spawnIntervalRange>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- Auto Generated Serum -->
+  <GeneDef ParentName="WVC_Mechanoidization_GenepackSpawnerBase" Name="WVC_Mechanoidization_SerumSpawner_NonSpawnable" Abstract="True">
+	<label>serum thrower</label>
+	<labelShortAdj>serum thrower</labelShortAdj>
+	<iconPath>WVC/Things/XenotypeSerum_Ultra/XenotypeSerum_Ultra_D</iconPath>
+	<biostatArc>2</biostatArc>
+	<selectionWeight>0.0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<displayCategory>WVC_XenotypeSerumSpawners</displayCategory>
+	<customEffectDescriptions Inherit="False">
+		<li>Spawns xenotype serum every (*DateTime)15-45 days(/DateTime).</li>
+		<li>Xenotype serum - a one-time serum that changes a pawn's xenotype.</li>
+		<li>&lt;color=#ff8585&gt;Cannot spawn in genepacks.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>serum-</symbol></li>
+		<li><symbol>serum</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
   </GeneDef>
 
 </Defs>
