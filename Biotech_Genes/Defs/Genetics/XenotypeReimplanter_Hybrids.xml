@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- =================================================================================== -->
+
+  <ThingDef ParentName="WVC_XenotypeSerum_HybridNonCraftable">
+	<defName>WVC_XenotypeSerum_HybridRandom</defName>
+	<label>hybrid serum (random)</label>
+	<comps>
+	  <li Class="WVC.CompProperties_UseEffect_HybridXenotypeForcer">
+		<perfectCandidate>WVC_Blank</perfectCandidate>
+	  </li>
+	</comps>
+  </ThingDef>
+  
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+	<defName>WVC_AdministerXenotypeSerum_HybridRandom</defName>
+	<label>administer hybrid serum</label>
+	<description>Administer a hybrid serum.</description>
+	<jobString>Administering hybrid serum.</jobString>
+	<ingredients>
+	  <li>
+		<filter>
+		  <thingDefs>
+			<li>WVC_XenotypeSerum_HybridRandom</li>
+		  </thingDefs>
+		</filter>
+		<count>1</count>
+	  </li>
+	</ingredients>
+	<fixedIngredientFilter>
+	  <thingDefs>
+		<li>WVC_XenotypeSerum_HybridRandom</li>
+	  </thingDefs>
+	</fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- ==================================== -->
+
+</Defs>

@@ -163,6 +163,56 @@
 									</modExtensions>
 								  </GeneDef>
 
+								  <!-- ===Hybrids===Hybrids===Hybrids===Hybrids===Hybrids=== -->
+
+								  <ThingDef ParentName="WVC_XenotypeSerum_HybridNonCraftable">
+									<defName>WVC_XenotypeSerum_Hybrid_{defName_DEF}_{XenotypeSerum_TagName}</defName>
+									<label>hybrid serum ({label_DEF})</label>
+									<descriptionHyperlinks>
+									  <XenotypeDef>{defName_DEF}</XenotypeDef>
+									</descriptionHyperlinks>
+									<comps>
+									  <li Class="WVC.CompProperties_UseEffect_HybridXenotypeForcer">
+										<xenotypeDef>{defName_DEF}</xenotypeDef>
+										<perfectCandidate>WVC_Blank</perfectCandidate>
+									  </li>
+									</comps>
+								  </ThingDef>
+
+								  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+									<defName>WVC_AdministerXenotypeSerum_Hybrid_{defName_DEF}_{XenotypeSerum_TagName}</defName>
+									<label>administer {label_DEF} hybrid serum</label>
+									<description>Administer a {label_DEF} hybrid serum.</description>
+									<jobString>Administering {label_DEF} hybrid serum.</jobString>
+									<ingredients>
+									  <li>
+										<filter>
+										  <thingDefs>
+											<li>WVC_XenotypeSerum_Hybrid_{defName_DEF}_{XenotypeSerum_TagName}</li>
+										  </thingDefs>
+										</filter>
+										<count>1</count>
+									  </li>
+									</ingredients>
+									<fixedIngredientFilter>
+									  <thingDefs>
+										<li>WVC_XenotypeSerum_Hybrid_{defName_DEF}_{XenotypeSerum_TagName}</li>
+									  </thingDefs>
+									</fixedIngredientFilter>
+								  </RecipeDef>
+
+								  <GeneDef ParentName="WVC_Mechanoidization_HybridSerumSpawner_NonSpawnable">
+									<defName>WVC_XenotypeSerumSpawner_Hybrid_{defName_DEF}_{XenotypeSerum_TagName}</defName>
+									<label>hybrid serum thrower ({label_DEF})</label>
+									<modExtensions>
+										<li Class="WVC.GeneExtension_Spawner">
+											<thingDefToSpawn>WVC_XenotypeSerum_Hybrid_{defName_DEF}_{XenotypeSerum_TagName}</thingDefToSpawn>
+											<stackCount>1</stackCount>
+											<spawnIntervalRange><min>900000</min><max>2700000</max></spawnIntervalRange>
+										</li>
+									</modExtensions>
+								  </GeneDef>
+
 								</value>
 							</Operation>
 
