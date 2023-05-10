@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WVC.BlackListedXenotypesDef>
+	<defName>WVC_RacesBiotech_BlackListedXenotypes</defName>
+	<blackListedForSerums>
+		<li>Baseliner</li>
+		<li>WVC_Blank</li>
+		<li>AG_Wretch</li>
+		<li>AG_RandomCustom</li>
+	</blackListedForSerums>
+  </WVC.BlackListedXenotypesDef>
+
+</Defs>

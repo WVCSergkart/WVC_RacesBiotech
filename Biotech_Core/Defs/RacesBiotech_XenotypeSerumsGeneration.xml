@@ -106,6 +106,7 @@
 				<cases>
 					<li><value>WVC_Blank</value><apply></apply></li>
 					<li><value>Baseliner</value><apply></apply></li>
+					<!-- <li><value>AG_RandomCustom</value><apply></apply></li> -->
 					<li>
 						<value>{defName_DEF}</value>
 						<apply>
@@ -122,6 +123,7 @@
 									</descriptionHyperlinks>
 									<comps>
 									  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer">
+										<xenotypeForcerType>Base</xenotypeForcerType>
 										<xenotypeDef>{defName_DEF}</xenotypeDef>
 										<perfectCandidate>WVC_Blank</perfectCandidate>
 										<removeXenogenes>true</removeXenogenes>
@@ -172,7 +174,8 @@
 									  <XenotypeDef>{defName_DEF}</XenotypeDef>
 									</descriptionHyperlinks>
 									<comps>
-									  <li Class="WVC.CompProperties_UseEffect_HybridXenotypeForcer">
+									  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer">
+										<xenotypeForcerType>Hybrid</xenotypeForcerType>
 										<xenotypeDef>{defName_DEF}</xenotypeDef>
 										<perfectCandidate>WVC_Blank</perfectCandidate>
 									  </li>

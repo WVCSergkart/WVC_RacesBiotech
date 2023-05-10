@@ -7,7 +7,8 @@
 	<defName>WVC_XenotypeSerum_HybridRandom</defName>
 	<label>hybrid serum (random)</label>
 	<comps>
-	  <li Class="WVC.CompProperties_UseEffect_HybridXenotypeForcer">
+	  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer">
+		<xenotypeForcerType>Hybrid</xenotypeForcerType>
 		<perfectCandidate>WVC_Blank</perfectCandidate>
 	  </li>
 	</comps>

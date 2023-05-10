@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <!-- <WVC.ArchiteSkillsGeneTemplateDef> -->
+	<!-- <defName>WVC_AptitudeArchite</defName> -->
+	<!-- <label>archite {0}</label> -->
+	<!-- <description>The carrier's aptitude in {0} is increased by 20. Aptitude acts like an offset on skill level. Additionally, one level of passion is added to {0}.</description> -->
+	<!-- <iconPath>WVC/UI/Genes/SkillUp</iconPath> -->
+	<!-- <aptitudeOffset>20</aptitudeOffset> -->
+	<!-- <passionModType>AddOneLevel</passionModType> -->
+	<!-- <displayOrderOffset>100</displayOrderOffset> -->
+	<!-- <biostatCpx>3</biostatCpx> -->
+	<!-- <biostatMet>0</biostatMet> -->
+	<!-- <biostatArc>0</biostatArc> -->
+	<!-- <selectionWeight>0.035</selectionWeight> -->
+	<!-- <geneClass>Gene</geneClass> -->
+	<!-- <ignoreIllegalLabelCharacterConfigError>true</ignoreIllegalLabelCharacterConfigError> -->
+	<!-- <exclusionTagPrefix>Aptitude</exclusionTagPrefix> -->
+	<!-- <displayCategory>Aptitudes</displayCategory> -->
+  <!-- </WVC.ArchiteSkillsGeneTemplateDef> -->
+
   <!-- Aptitude -->
 
   <GeneTemplateDef ParentName="GeneAptitudeBase">
