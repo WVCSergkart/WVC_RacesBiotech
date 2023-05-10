@@ -15,7 +15,6 @@
 	<comps>
 	  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer">
 		<xenotypeDef>WVC_Meca</xenotypeDef>
-		<perfectCandidate>WVC_Blank</perfectCandidate>
 		<removeEndogenes>false</removeEndogenes>
 		<removeXenogenes>true</removeXenogenes>
 	  </li>
@@ -58,7 +57,6 @@
 	<comps>
 	  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer">
 		<xenotypeDef>WVC_RogueFormer</xenotypeDef>
-		<perfectCandidate>WVC_Blank</perfectCandidate>
 		<removeEndogenes>true</removeEndogenes>
 		<removeXenogenes>true</removeXenogenes>
 	  </li>
@@ -101,7 +99,6 @@
 	<comps>
 	  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer">
 		<xenotypeDef>WVC_GeneThrower</xenotypeDef>
-		<perfectCandidate>WVC_Blank</perfectCandidate>
 		<removeEndogenes>true</removeEndogenes>
 		<removeXenogenes>true</removeXenogenes>
 	  </li>

@@ -7,9 +7,7 @@
 	<defName>WVC_XenotypeSerum_Random</defName>
 	<label>xenotype serum (random)</label>
 	<comps>
-	  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer">
-		<perfectCandidate>WVC_Blank</perfectCandidate>
-	  </li>
+	  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer"/>
 	</comps>
   </ThingDef>
   

@@ -9,7 +9,6 @@
 	<comps>
 	  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer">
 		<xenotypeForcerType>Hybrid</xenotypeForcerType>
-		<perfectCandidate>WVC_Blank</perfectCandidate>
 	  </li>
 	</comps>
   </ThingDef>

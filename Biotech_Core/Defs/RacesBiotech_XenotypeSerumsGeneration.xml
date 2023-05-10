@@ -125,7 +125,6 @@
 									  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer">
 										<xenotypeForcerType>Base</xenotypeForcerType>
 										<xenotypeDef>{defName_DEF}</xenotypeDef>
-										<perfectCandidate>WVC_Blank</perfectCandidate>
 										<removeXenogenes>true</removeXenogenes>
 									  </li>
 									</comps>
@@ -177,7 +176,6 @@
 									  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer">
 										<xenotypeForcerType>Hybrid</xenotypeForcerType>
 										<xenotypeDef>{defName_DEF}</xenotypeDef>
-										<perfectCandidate>WVC_Blank</perfectCandidate>
 									  </li>
 									</comps>
 								  </ThingDef>
