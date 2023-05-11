@@ -8,6 +8,7 @@
 	<label>scythe tail</label>
 	<stages>
 	  <li>
+		<!-- <partIgnoreMissingHP>true</partIgnoreMissingHP> -->
 		<becomeVisible>false</becomeVisible>
 	  </li>
 	</stages>
