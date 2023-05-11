@@ -127,4 +127,59 @@
 	</fixedIngredientFilter>
   </RecipeDef>
 
+  <!-- ==================================== -->
+
+  <ThingDef ParentName="WVC_XenotypeSerum_Craftable">
+	<defName>WVC_GeneRestorationSerum_Base</defName>
+	<label>gene restoration serum</label>
+	<description>A one-use super-dose of mechanites tuned to restore the user's genes. After using the serum, it removes from the user the effect associated with the reimplantation of genes.</description>
+	<descriptionHyperlinks Inherit="False">
+	  <HediffDef>XenogermReplicating</HediffDef>
+	  <HediffDef>XenogerminationComa</HediffDef>
+	  <HediffDef>XenogermLossShock</HediffDef>
+	</descriptionHyperlinks>
+	<statBases>
+	  <MarketValue>670</MarketValue>
+	  <DeteriorationRate>0.5</DeteriorationRate>
+	</statBases>
+	<recipeMaker>
+	  <researchPrerequisite>Xenogermination</researchPrerequisite>
+	  <skillRequirements>
+		<Crafting>6</Crafting>
+		<Intellectual>8</Intellectual>
+	  </skillRequirements>
+	</recipeMaker>
+	<costList Inherit="False">
+	  <WVC_UniversalFuel MayRequire="wvc.sergkart.core">50</WVC_UniversalFuel>
+	  <Plasteel>50</Plasteel>
+	  <Uranium>35</Uranium>
+	  <Gold>2</Gold>
+	</costList>
+	<comps>
+	  <li Class="WVC.CompProperties_UseEffect_GeneRestoration"/>
+	</comps>
+  </ThingDef>
+  
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+	<defName>WVC_AdministerGeneRestorationSerum_Base</defName>
+	<label>administer gene restoration serum</label>
+	<description>Administer a gene restoration serum.</description>
+	<jobString>Administering gene restoration serum.</jobString>
+	<ingredients>
+	  <li>
+		<filter>
+		  <thingDefs>
+			<li>WVC_GeneRestorationSerum_Base</li>
+		  </thingDefs>
+		</filter>
+		<count>1</count>
+	  </li>
+	</ingredients>
+	<fixedIngredientFilter>
+	  <thingDefs>
+		<li>WVC_GeneRestorationSerum_Base</li>
+	  </thingDefs>
+	</fixedIngredientFilter>
+  </RecipeDef>
+
 </Defs>
