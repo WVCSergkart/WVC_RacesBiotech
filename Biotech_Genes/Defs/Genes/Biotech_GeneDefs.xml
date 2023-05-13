@@ -80,7 +80,7 @@
   </GeneCategoryDef>
   <GeneCategoryDef>
 	<defName>WVC_XenotypeSerumSpawners</defName>
-	<label>serum spawners</label>
+	<label>spawners</label>
 	<displayPriorityInXenotype>3917</displayPriorityInXenotype>
   </GeneCategoryDef>
 

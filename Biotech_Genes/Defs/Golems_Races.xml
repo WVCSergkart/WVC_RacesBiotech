@@ -114,10 +114,15 @@
 		<isFighter>false</isFighter>
 		<alternateGraphics>
 			<!-- Base -->
+			<!-- slate -->
 			<li><color>(70,70,70)</color></li>
+			<!-- limestone -->
 			<li><color>(158,153,135)</color></li>
+			<!-- granite -->
 			<li><color>(105,95,97)</color></li>
+			<!-- sandstone -->
 			<li><color>(126,104,94)</color></li>
+			<!-- marble -->
 			<li><color>(132,135,132)</color></li>
 			<!-- Other -->
 			<li><color>(85,118,69)</color><weight>0.05</weight></li>

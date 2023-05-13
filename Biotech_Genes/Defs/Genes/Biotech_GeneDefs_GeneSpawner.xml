@@ -9,6 +9,7 @@
 	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
 	<!-- <displayCategory>WVC_MechaBody</displayCategory> -->
+	<displayCategory>WVC_XenotypeSerumSpawners</displayCategory>
 	<displayOrderInCategory>957</displayOrderInCategory>
 	<geneClass>WVC.Gene_Spawner</geneClass>
 	<biostatArc>1</biostatArc>
@@ -228,7 +229,7 @@
 	<selectionWeight>0.0</selectionWeight>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<displayCategory>WVC_XenotypeSerumSpawners</displayCategory>
-	<displayOrderInCategory>958</displayOrderInCategory>
+	<displayOrderInCategory>1000</displayOrderInCategory>
 	<customEffectDescriptions Inherit="False">
 		<li>Spawns xenotype serum every (*DateTime)15-45 days(/DateTime).</li>
 		<li>Xenotype serum - a one-time serum that changes a pawn's xenotype.</li>
@@ -250,7 +251,7 @@
 	<selectionWeight>0.0</selectionWeight>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<displayCategory>WVC_XenotypeSerumSpawners</displayCategory>
-	<displayOrderInCategory>959</displayOrderInCategory>
+	<displayOrderInCategory>1001</displayOrderInCategory>
 	<customEffectDescriptions Inherit="False">
 		<li>Spawns hybrid serum every (*DateTime)15-45 days(/DateTime).</li>
 		<li>Hybrid serum - a one-time serum that changes a pawn's xenotype.</li>

@@ -19,7 +19,8 @@
 	<neverGrayHair>true</neverGrayHair>
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
 	<missingGeneRomanceChanceFactor>0.35</missingGeneRomanceChanceFactor>
-	<minAgeActive>13</minAgeActive>
+	<minAgeActive>0</minAgeActive>
+	<!-- <minAgeActive>13</minAgeActive> -->
 	<exclusionTags>
 	  <li>Skin</li>
 	  <li>Fur</li>
@@ -43,8 +44,9 @@
 	</modExtensions>
   </GeneDef>
 
-  <!-- Meca -->
+  <!-- ================================================================== -->
 
+  <!-- Rune -->
   <GeneDef ParentName="WVC_RuneBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_RuneSkin</defName>
 	<label>runeskin</label>
@@ -83,6 +85,49 @@
 	</symbolPack>
   </GeneDef>
 
-  <!-- ================================================================== -->
+  <!-- Stone -->
+  <GeneDef ParentName="WVC_RuneBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_StoneSkin</defName>
+	<label>stoneskin</label>
+	<description>The body of carriers of this gene is all covered with stone-like growths.</description>
+	<biostatCpx>4</biostatCpx>
+	<biostatMet>-3</biostatMet>
+	<!-- <biostatArc>1</biostatArc> -->
+	<displayCategory>Miscellaneous</displayCategory>
+	<displayOrderInCategory>400</displayOrderInCategory>
+	<iconColor>(105,95,97)</iconColor>
+	<iconPath>WVC/UI/Genes/HeadStone_south</iconPath>
+	<missingGeneRomanceChanceFactor>0.1</missingGeneRomanceChanceFactor>
+	<forcedHeadTypes>
+	  <li>WVC_StoneSkin_Average</li>
+	</forcedHeadTypes>
+	<statOffsets>
+	  <WVC_OverseerMaxGolems>1</WVC_OverseerMaxGolems>
+	  <ArmorRating_Blunt>0.22</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.12</ArmorRating_Sharp>
+	  <ArmorRating_Heat>0.11</ArmorRating_Heat>
+	</statOffsets>
+	<statFactors>
+	  <Flammability>0.2</Flammability>
+	</statFactors>
+	<graphicData>
+	  <fur>WVC_StoneSkin</fur>
+	  <tattoosVisible>true</tattoosVisible>
+	  <layer>PostSkin</layer>
+	</graphicData>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>stone</symbol></li>
+		<li><symbol>slate</symbol></li>
+		<li><symbol>marble</symbol></li>
+		<li><symbol>sand</symbol></li>
+		<li><symbol>lime</symbol></li>
+		<li><symbol>granite</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>stone</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
 
 </Defs>

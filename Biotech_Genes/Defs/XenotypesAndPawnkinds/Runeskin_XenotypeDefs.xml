@@ -9,7 +9,6 @@
 	<descriptionShort>Runeex are ageless humans powered by archotech-created archites in the bloodstream. They are beautiful and extremely weak. They are practically unable to fight and cannot work much. However, they require little to no food and can control unlimited hordes of golems.</descriptionShort>
 	<iconPath>WVC/UI/Xeno2Icons/Xeno14</iconPath>
 	<genes>
-		<!-- Beta -->
 		<li>Ageless</li>
 		<li>ArchiteMetabolism</li>
 		<li>WVC_SwarmConnection_Golems</li>
@@ -45,6 +44,47 @@
 		<li>WVC_AptitudeImpossible_Shooting</li>
 		<li>WVC_AptitudeImpossible_Melee</li>
 		<li>AptitudeRemarkable_Crafting</li>
+	</genes>
+  </XenotypeDef>
+
+  <!-- golemkind -->
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base">
+	<defName>WVC_Golemkind</defName>
+	<label>golemkind</label>
+	<description>Runeex are ageless humans powered by archotech-created archites in the bloodstream. They are beautiful and extremely weak. They are practically unable to fight and cannot work much. However, they require little to no food and can control unlimited hordes of golems.</description>
+	<descriptionShort>Runeex are ageless humans powered by archotech-created archites in the bloodstream. They are beautiful and extremely weak. They are practically unable to fight and cannot work much. However, they require little to no food and can control unlimited hordes of golems.</descriptionShort>
+	<iconPath>WVC/UI/Xeno2Icons/Xeno25</iconPath>
+	<inheritable>false</inheritable>
+	<!-- <canGenerateAsCombatant>true</canGenerateAsCombatant> -->
+	<doubleXenotypeChances>
+		<WVC_RuneDryad>1.0</WVC_RuneDryad>
+	</doubleXenotypeChances>
+	<genes>
+		<li>Ageless</li>
+		<li>DiseaseFree</li>
+		<li>PerfectImmunity</li>
+		<li>WoundHealing_Slow</li>
+		<li>MoveSpeed_Slow</li>
+		<li>NakedSpeed</li>
+		<li>ToxicEnvironmentResistance_Total</li>
+		<li>WVC_ArmoredSkin_Stone</li>
+		<li>WVC_SleepyStomach</li>
+		<li>Robust</li>
+		<li>Pain_Reduced</li>
+		<li>Sterile</li>
+		<li>Hair_BaldOnly</li>
+		<li>Beard_NoBeardOnly</li>
+		<li>WVC_SkinColor_Granite</li>
+		<li>WVC_SkinColor_Limestone</li>
+		<li>WVC_SkinColor_Marble</li>
+		<li>WVC_SkinColor_Sandstone</li>
+		<li>WVC_SkinColor_Slate</li>
+		<!-- <li>WVC_SkinColor_Coral</li> -->
+		<li>StrongStomach</li>
+		<li>Learning_Slow</li>
+		<li>WVC_StoneSkin</li>
+		<li>Unstoppable</li>
+		<li>AptitudeStrong_Mining</li>
 	</genes>
   </XenotypeDef>
 

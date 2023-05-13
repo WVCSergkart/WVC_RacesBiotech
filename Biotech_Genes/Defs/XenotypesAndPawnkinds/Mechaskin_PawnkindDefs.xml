@@ -119,7 +119,8 @@
 	</forcedTraits>
 	<xenotypeSet>
 	  <xenotypeChances>
-		<WVC_RuneDryad>999</WVC_RuneDryad>
+		<WVC_RuneDryad>0.9</WVC_RuneDryad>
+		<WVC_Golemkind>0.1</WVC_Golemkind>
 	  </xenotypeChances>
 	</xenotypeSet>
 	<apparelTags>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ==================================== -->
+
+  <FurDef>
+	<defName>WVC_RuneSkin</defName>
+	<noGraphic>true</noGraphic>
+	<bodyTypeGraphicPaths>
+	  <Male>WVC/RunicGene_Body/Naked_Male</Male>
+	  <Female>WVC/RunicGene_Body/Naked_Female</Female>
+	  <Hulk>WVC/RunicGene_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/RunicGene_Body/Naked_Fat</Fat>
+	  <Thin>WVC/RunicGene_Body/Naked_Thin</Thin>
+	  <!-- Never -->
+	  <Child>Things/Pawn/Humanlike/Bodies/Naked_Child</Child>
+	  <Baby>Things/Pawn/Humanlike/Bodies/Naked_Child</Baby>
+	  <!-- Never -->
+	</bodyTypeGraphicPaths>
+  </FurDef>
+
+  <FurDef>
+	<defName>WVC_StoneSkin</defName>
+	<noGraphic>true</noGraphic>
+	<bodyTypeGraphicPaths>
+	  <Male>WVC/StoneGene_Body/Naked_Male</Male>
+	  <Female>WVC/StoneGene_Body/Naked_Female</Female>
+	  <Hulk>WVC/StoneGene_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/StoneGene_Body/Naked_Fat</Fat>
+	  <Thin>WVC/StoneGene_Body/Naked_Thin</Thin>
+	  <!-- Never -->
+	  <Child>Things/Pawn/Humanlike/Bodies/Naked_Child</Child>
+	  <Baby>Things/Pawn/Humanlike/Bodies/Naked_Child</Baby>
+	  <!-- Never -->
+	</bodyTypeGraphicPaths>
+  </FurDef>
+
+  <!-- ==================================== -->
+
+  <FurDef>
+	<defName>WVC_MechaSkin</defName>
+	<noGraphic>true</noGraphic>
+	<!-- <requiredGene>WVC_MechaSkin</requiredGene> -->
+	<bodyTypeGraphicPaths>
+	  <Male>WVC/MecaGene_Body/Naked_Male</Male>
+	  <Female>WVC/MecaGene_Body/Naked_Female</Female>
+	  <Hulk>WVC/MecaGene_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/MecaGene_Body/Naked_Fat</Fat>
+	  <Thin>WVC/MecaGene_Body/Naked_Thin</Thin>
+	  <!-- Never -->
+	  <Child>Things/Pawn/Humanlike/Bodies/Naked_Child</Child>
+	  <Baby>Things/Pawn/Humanlike/Bodies/Naked_Child</Baby>
+	  <!-- Never -->
+	</bodyTypeGraphicPaths>
+  </FurDef>
+
+  <FurDef>
+	<defName>WVC_NodeSkin</defName>
+	<noGraphic>true</noGraphic>
+	<bodyTypeGraphicPaths>
+	  <Male>WVC/NodeGene_Body/Naked_Male</Male>
+	  <Female>WVC/NodeGene_Body/Naked_Female</Female>
+	  <Hulk>WVC/NodeGene_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/NodeGene_Body/Naked_Fat</Fat>
+	  <Thin>WVC/NodeGene_Body/Naked_Thin</Thin>
+	  <!-- Never -->
+	  <Child>Things/Pawn/Humanlike/Bodies/Naked_Child</Child>
+	  <Baby>Things/Pawn/Humanlike/Bodies/Naked_Child</Baby>
+	  <!-- Never -->
+	</bodyTypeGraphicPaths>
+  </FurDef>
+
+</Defs>
