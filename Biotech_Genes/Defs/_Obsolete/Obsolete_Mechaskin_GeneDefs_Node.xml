@@ -61,7 +61,7 @@
 			<customWoundsFromFleshtype>Mechanoid</customWoundsFromFleshtype>
 			<customBloodEffect>Damage_HitMechanoid</customBloodEffect>
 		</li>
-		<li Class="WVC.GeneExtension">
+		<li Class="WVC.GeneExtension_Background">
 			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_MechaBody</backgroundPathArchite>
 		</li>
 		<li Class="WVC.GeneExtension_General">

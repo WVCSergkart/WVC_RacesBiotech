@@ -106,7 +106,7 @@
 	  <!-- </li> -->
 	<!-- </conditionalStatAffecters> -->
 	<modExtensions>
-		<li Class="WVC.GeneExtension">
+		<li Class="WVC.GeneExtension_Background">
 			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathArchite>
 		</li>
 	</modExtensions>

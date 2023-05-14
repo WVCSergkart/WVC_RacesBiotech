@@ -27,7 +27,7 @@
 	  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
 	<!-- </statOffsets> -->
 	<modExtensions>
-		<!-- <li Class="WVC.GeneExtension"> -->
+		<!-- <li Class="WVC.GeneExtension_Background"> -->
 			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite> -->
 		<!-- </li> -->
 	</modExtensions>
@@ -178,7 +178,7 @@
 	<!-- <biostatArc>2</biostatArc> -->
 	<biostatMet>0</biostatMet>
 	<!-- <modExtensions Inherit="False"> -->
-		<!-- <li Class="WVC.GeneExtension"> -->
+		<!-- <li Class="WVC.GeneExtension_Background"> -->
 			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathArchite> -->
 		<!-- </li> -->
 	<!-- </modExtensions> -->

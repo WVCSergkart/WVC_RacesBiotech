@@ -40,7 +40,7 @@
 			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ColorlessGene</backgroundPathEndogenes> -->
 			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ColorlessGene</backgroundPathXenogenes> -->
 		<!-- </li> -->
-		<li Class="WVC.GeneExtension">
+		<li Class="WVC.GeneExtension_Background">
 			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathArchite>
 		</li>
 	</modExtensions>

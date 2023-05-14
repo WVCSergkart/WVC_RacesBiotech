@@ -151,7 +151,7 @@
 	  <MoveSpeed>0.2</MoveSpeed>
 	</statOffsets>
 	<!-- <modExtensions Inherit="False"> -->
-		<!-- <li Class="WVC.GeneExtension"> -->
+		<!-- <li Class="WVC.GeneExtension_Background"> -->
 			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite> -->
 		<!-- </li> -->
 	<!-- </modExtensions> -->
@@ -179,7 +179,7 @@
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<diseaseProgressionFactor>0.5</diseaseProgressionFactor>
 		</li>
-		<!-- <li Class="WVC.GeneExtension"> -->
+		<!-- <li Class="WVC.GeneExtension_Background"> -->
 			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite> -->
 		<!-- </li> -->
 	</modExtensions>
@@ -201,7 +201,7 @@
 	  <InjuryHealingFactor>1</InjuryHealingFactor>
 	</statOffsets>
 	<!-- <modExtensions Inherit="False"> -->
-		<!-- <li Class="WVC.GeneExtension"> -->
+		<!-- <li Class="WVC.GeneExtension_Background"> -->
 			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite> -->
 		<!-- </li> -->
 	<!-- </modExtensions> -->
@@ -224,7 +224,7 @@
 	  <ArmorRating_Heat>0.10</ArmorRating_Heat>
 	</statOffsets>
 	<!-- <modExtensions Inherit="False"> -->
-		<!-- <li Class="WVC.GeneExtension"> -->
+		<!-- <li Class="WVC.GeneExtension_Background"> -->
 			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite> -->
 		<!-- </li> -->
 	<!-- </modExtensions> -->

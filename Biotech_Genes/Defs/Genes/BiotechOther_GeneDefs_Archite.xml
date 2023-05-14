@@ -55,7 +55,7 @@
 		<!-- </li> -->
 	<!-- </modExtensions> -->
 	<modExtensions>
-		<li Class="WVC.GeneExtension">
+		<li Class="WVC.GeneExtension_Background">
 			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
 		</li>
 		<!-- <li Class="WVC.GeneExtension_Genepack"> -->

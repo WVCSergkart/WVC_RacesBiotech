@@ -36,7 +36,7 @@
 	  </suffixSymbols>
 	</symbolPack>
 	<!-- <modExtensions Inherit="False"> -->
-		<!-- <li Class="WVC.GeneExtension"> -->
+		<!-- <li Class="WVC.GeneExtension_Background"> -->
 			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite> -->
 		<!-- </li> -->
 	<!-- </modExtensions> -->
