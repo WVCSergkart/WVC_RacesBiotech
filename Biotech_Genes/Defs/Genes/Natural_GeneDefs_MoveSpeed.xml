@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef ParentName="GeneSleepBase" Name="WVC_GeneSleep_Base" Abstract="True">
+  <GeneDef ParentName="GeneMoveSpeedBase" Name="WVC_GeneMoveSpeed_Base" Abstract="True">
 	<selectionWeight>0.045</selectionWeight>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
@@ -13,35 +13,39 @@
 
   <!-- ============================= -->
 
-	<!-- <modExtensions> -->
-		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
-			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes> -->
-			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
-
-  <GeneDef ParentName="WVC_GeneSleep_Base">
-	<defName>WVC_SleepyStomach</defName>
-	<label>sleepy stomach</label>
-	<description>Carriers of this gene get tired very quickly due to their slow metabolism, but they require very little food.</description>
-	<iconPath>WVC/UI/Genes/SleepyStomach</iconPath>
+  <GeneDef ParentName="WVC_GeneMoveSpeed_Base">
+	<defName>WVC_StoneStomach</defName>
+	<label>stone stomach</label> 
+	<labelShortAdj>very slow</labelShortAdj>
+	<description>Carriers of this gene move extremely slowly, but they require very little food.</description>
+	<iconPath>WVC/UI/Genes/StoneStomach_v0</iconPath>
+	<iconColor>(105,95,97)</iconColor>
 	<displayOrderInCategory>-5</displayOrderInCategory>
 	<customEffectDescriptions>
 		<li>Hunger rate factor x20%</li>
 	</customEffectDescriptions>
 	<statFactors>
-	  <RestFallRateFactor>2.0</RestFallRateFactor>
-	  <RestRateMultiplier>0.5</RestRateMultiplier>
+	  <MoveSpeed>0.4</MoveSpeed>
 	</statFactors>
+	<capMods>
+	  <li>
+		<capacity>Moving</capacity>
+		<setMax>1.0</setMax>
+	  </li>
+	</capMods>
 	<biostatMet>1</biostatMet>
 	<symbolPack>
 	  <prefixSymbols>
-		<li><symbol>sleep</symbol></li>
-		<li><symbol>bed</symbol></li>
-		<li><symbol>somno</symbol></li>
+		<li><symbol>slow</symbol></li>
+		<li><symbol>plod</symbol></li>
+		<li><symbol>grado</symbol></li>
+		<li><symbol>letho</symbol></li>
+		<li><symbol>slug</symbol></li>
+		<li><symbol>slack</symbol></li>
 	  </prefixSymbols>
 	  <suffixSymbols>
-		<li><symbol>loaf</symbol></li>
+		<li><symbol>slug</symbol></li>
+		<li><symbol>plodder</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
 	<exclusionTags>

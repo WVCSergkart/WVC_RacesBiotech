@@ -10,7 +10,7 @@
 	<descriptionShort>An unknown xenotype sometimes found in the vastness of the rimworld.</descriptionShort>
 	<iconPath>UI/Icons/Xenotypes/Custom/CustomXenotypeIcon9</iconPath>
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>
-	<combatPowerFactor>3.0</combatPowerFactor>
+	<combatPowerFactor>2.5</combatPowerFactor>
 	<factionlessGenerationWeight>0.2</factionlessGenerationWeight>
 	<inheritable>true</inheritable>
 	<genes>
