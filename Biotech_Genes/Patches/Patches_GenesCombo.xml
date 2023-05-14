@@ -181,6 +181,58 @@
 		</operations>
 	</Operation>
 
+	<!-- ================== -->
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/GeneDef[defName="ArchiteMetabolism"]/modExtensions</xpath>
+			  <success>Invert</success>
+			  <value>
+					<li Class="WVC.GeneExtension_General">
+						<geneIsPowerSource>true</geneIsPowerSource>
+					</li>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/GeneDef[defName="ArchiteMetabolism"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<modExtensions>
+					<li Class="WVC.GeneExtension_General">
+						<geneIsPowerSource>true</geneIsPowerSource>
+					</li>
+				</modExtensions>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/GeneDef[defName="ArchiteMetabolism"]/customEffectDescriptions</xpath>
+			  <success>Invert</success>
+			  <value>
+					<li>Disable mechaskin's 5x hunger rate multiplier.</li>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/GeneDef[defName="ArchiteMetabolism"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<customEffectDescriptions>
+					<li>Disable mechaskin's 5x hunger rate multiplier.</li>
+				</customEffectDescriptions>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<!-- ================== -->
+
 	<Operation Class="PatchOperationAdd">
 	  <xpath>/Defs/StatDef[defName="ComfyTemperatureMin"]/parts</xpath>
 	  <success>Always</success>
@@ -199,6 +251,8 @@
 		  </li>
 	  </value>
 	</Operation>
+
+	<!-- ================== -->
 
 	<Operation Class="WVC.PatchOperationOptional">
 		<settingName>minWastepacksPerRecharge</settingName>
@@ -222,6 +276,8 @@
 		  <success>Always</success>
 		</caseFalse>
 	</Operation>
+
+	<!-- ================== -->
 
 	<Operation Class="PatchOperationSequence">
 		<success>Always</success>
@@ -253,6 +309,8 @@
 			</li>
 		</operations>
 	</Operation>
+
+	<!-- ================== -->
 
 	<!-- <Operation Class="PatchOperationAdd"> -->
 	  <!-- <xpath>/Defs/StatDef[defName="ComfyTemperatureMin"]/parts</xpath> -->

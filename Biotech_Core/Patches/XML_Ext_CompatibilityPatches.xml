@@ -215,21 +215,20 @@
 	  <!-- </value> -->
 	<!-- </Operation> -->
 
-	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
-	  <xpath>/Defs/GeneDef[defName="ArchiteMetabolism"]</xpath>
-	  <!-- <success>Always</success> -->
-	  <safetyDepth>1</safetyDepth>
-	  <value>
-		<customEffectDescriptions>
-			<li>Disable mechaskin's 5x hunger rate multiplier.</li>
-		</customEffectDescriptions>
-		<modExtensions>
-			<li Class="WVC.GeneExtension_Mechaskin">
-				<geneIsPowerSource>true</geneIsPowerSource>
-			</li>
-		</modExtensions>
-	  </value>
-	</Operation>
+	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
+	  <!-- <xpath>/Defs/GeneDef[defName="ArchiteMetabolism"]</xpath> -->
+	  <!-- <safetyDepth>1</safetyDepth> -->
+	  <!-- <value> -->
+		<!-- <customEffectDescriptions> -->
+			<!-- <li>Disable mechaskin's 5x hunger rate multiplier.</li> -->
+		<!-- </customEffectDescriptions> -->
+		<!-- <modExtensions> -->
+			<!-- <li Class="WVC.GeneExtension_General"> -->
+				<!-- <geneIsPowerSource>true</geneIsPowerSource> -->
+			<!-- </li> -->
+		<!-- </modExtensions> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
 
 	<!-- <Operation Class="WVC.PatchOperationOptional"> -->
 		<!-- <settingName>mechaskinTemperatureAdaptability</settingName> -->

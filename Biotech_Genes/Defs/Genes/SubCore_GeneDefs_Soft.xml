@@ -45,7 +45,7 @@
 		<!-- <li Class="WVC.GeneExtension"> -->
 			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite> -->
 		<!-- </li> -->
-		<li Class="WVC.GeneExtension_Mechaskin">
+		<li Class="WVC.GeneExtension_General">
 			<geneIsSubcore>true</geneIsSubcore>
 		</li>
 	</modExtensions>

@@ -41,7 +41,7 @@
 	  </suffixSymbols>
 	</symbolPack>
 	<modExtensions>
-		<li Class="WVC.GeneExtension_Mechaskin">
+		<li Class="WVC.GeneExtension_General">
 			<geneIsPowerSource>true</geneIsPowerSource>
 		</li>
 	</modExtensions>

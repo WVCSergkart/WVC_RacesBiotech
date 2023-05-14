@@ -43,7 +43,7 @@
 	  <!-- </li> -->
 	<!-- </capMods> -->
 	<modExtensions>
-		<li Class="WVC.GeneExtension_EyeDraws">
+		<li Class="WVC.GeneExtension_General">
 			<eyesShouldBeInvisble>true</eyesShouldBeInvisble>
 		</li>
 	</modExtensions>
