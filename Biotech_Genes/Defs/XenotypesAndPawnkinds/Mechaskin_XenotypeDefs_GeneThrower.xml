@@ -57,6 +57,8 @@
 		<li>WVC_SkinColor_ffb4dc_HEX</li>
 		<li>WVC_SkinColor_c8b4ff_HEX</li>
 		<li>WVC_BodySize_Small</li>
+		<!-- = -->
+		<li>WVC_PredatorPrey_NotTasty</li>
 	</genes>
   </XenotypeDef>
 

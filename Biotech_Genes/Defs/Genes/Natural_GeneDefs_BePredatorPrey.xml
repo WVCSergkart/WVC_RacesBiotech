@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_BePredatorPrey_Base" Abstract="True">
+	<iconColor>(255,255,255)</iconColor>
+	<selectionWeight>0.025</selectionWeight>
+	<biostatCpx>1</biostatCpx>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>prey</symbol></li>
+		<li><symbol>tasty</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>prey</symbol></li>
+		<li><symbol>tasty</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>WVC_BePredatorPrey</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_BePredatorPrey_Base">
+	<defName>WVC_PredatorPrey_NotTasty</defName>
+	<label>not tasty</label>
+	<description>Predators do not prey on carriers of this gene.</description>
+	<iconPath>WVC/UI/Genes/Prey_B</iconPath>
+	<displayOrderInCategory>-120</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Predators do not prey on carriers of this gene.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC.GeneExtension_PawnPredatorPrey">
+			<canBePredatorPrey>false</canBePredatorPrey>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_BePredatorPrey_Base">
+	<defName>WVC_PredatorPrey_Tasty</defName>
+	<label>tasty</label>
+	<description>Predators do prey on carriers of this gene.</description>
+	<iconPath>WVC/UI/Genes/Prey_A</iconPath>
+	<displayOrderInCategory>-115</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Disable "not tasty" gene.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+</Defs>

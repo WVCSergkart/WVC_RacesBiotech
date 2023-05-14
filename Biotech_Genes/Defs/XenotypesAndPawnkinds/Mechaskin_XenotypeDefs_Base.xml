@@ -136,6 +136,8 @@
 		<li>WVC_MechaAI_FirmwareGreenMachine</li>
 		<li>WVC_MechaAI_FirmwareRogueMachine</li>
 		<li>WVC_MechaAI_FirmwarePropagandaMachine</li>
+		<!-- = -->
+		<li>WVC_PredatorPrey_NotTasty</li>
 	</genes>
   </XenotypeDef>
 
