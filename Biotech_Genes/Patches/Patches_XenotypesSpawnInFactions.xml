@@ -38,11 +38,11 @@
 	<Operation Class="PatchOperationAdd">
 	  <xpath>/Defs/FactionDef/xenotypeSet/xenotypeChances</xpath>
 	  <value>
-		<WVC_Meca>0.07</WVC_Meca>
-		<WVC_GeneThrower>0.07</WVC_GeneThrower>
+		<WVC_Meca>0.007</WVC_Meca>
+		<WVC_GeneThrower>0.007</WVC_GeneThrower>
 		<!-- <WVC_Blank>0.0001</WVC_Blank> -->
-		<WVC_RuneDryad>0.05</WVC_RuneDryad>
-		<WVC_RogueFormer>0.01</WVC_RogueFormer>
+		<WVC_RuneDryad>0.005</WVC_RuneDryad>
+		<WVC_RogueFormer>0.001</WVC_RogueFormer>
 	  </value>
 	</Operation>
 
