@@ -67,7 +67,7 @@
 	<capMods>
 	  <li>
 		<capacity>Hearing</capacity>
-		<offset>0.05</offset>
+		<offset>0.15</offset>
 	  </li>
 	</capMods>
   </GeneDef>
@@ -83,7 +83,7 @@
 	<capMods>
 	  <li>
 		<capacity>Hearing</capacity>
-		<offset>0.07</offset>
+		<offset>0.20</offset>
 	  </li>
 	</capMods>
   </GeneDef>
@@ -101,7 +101,7 @@
 	<capMods>
 	  <li>
 		<capacity>Hearing</capacity>
-		<offset>0.05</offset>
+		<offset>0.15</offset>
 	  </li>
 	</capMods>
   </GeneDef>
@@ -118,7 +118,7 @@
 	<capMods>
 	  <li>
 		<capacity>Hearing</capacity>
-		<offset>0.07</offset>
+		<offset>0.20</offset>
 	  </li>
 	</capMods>
   </GeneDef>
@@ -134,7 +134,7 @@
 	  <useSkinShader>false</useSkinShader>
 	</graphicData>
 	<statOffsets>
-	  <ArmorRating_Heat>0.05</ArmorRating_Heat>
+	  <ArmorRating_Heat>0.15</ArmorRating_Heat>
 	</statOffsets>
   </GeneDef>
   <GeneDef ParentName="WVC_GeneCatEars_Base">
@@ -148,7 +148,7 @@
 	  <useSkinShader>false</useSkinShader>
 	</graphicData>
 	<statOffsets>
-	  <ArmorRating_Heat>0.07</ArmorRating_Heat>
+	  <ArmorRating_Heat>0.20</ArmorRating_Heat>
 	</statOffsets>
   </GeneDef>
 
@@ -192,7 +192,7 @@
 	</customEffectDescriptions>
 	<graphicData Inherit="False"/>
 	<statOffsets>
-	  <ArmorRating_Blunt>0.02</ArmorRating_Blunt>
+	  <ArmorRating_Blunt>0.12</ArmorRating_Blunt>
 	</statOffsets>
   </GeneDef>
 

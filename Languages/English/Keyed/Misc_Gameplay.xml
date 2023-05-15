@@ -13,6 +13,8 @@
 	<WVC_RB_Gene_Summoner>The package is already on its way!</WVC_RB_Gene_Summoner>
 	
 	<WVC_RoleRequirementShouldBeMechanitor>Must be a Mechanitor</WVC_RoleRequirementShouldBeMechanitor>
+	
+	<WVC_PawnIsAndroidCheck>Target should be a human.</WVC_PawnIsAndroidCheck>
 
 
 	<WVC_LetterTextGenesImplanted>{TARGET_nameDef} will be in a xenogermination coma for the next {COMADURATION} while {TARGET_possessive} body adjusts to the changes.</WVC_LetterTextGenesImplanted>

@@ -198,7 +198,7 @@
 	</customEffectDescriptions>
 	<graphicData Inherit="False"/>
 	<statOffsets>
-	  <ArmorRating_Blunt>0.02</ArmorRating_Blunt>
+	  <ArmorRating_Blunt>0.12</ArmorRating_Blunt>
 	</statOffsets>
   </GeneDef>
 
