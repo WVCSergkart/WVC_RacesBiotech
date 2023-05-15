@@ -15,7 +15,7 @@
 	<WVC_Label_disableFurGraphic>Disable mechaskin/nodeskin graphic</WVC_Label_disableFurGraphic>
 	<WVC_ToolTip_disableFurGraphic>Turns off the visual changes introduced by Mechaskins.
 
-A restart is required to apply the setting.</WVC_ToolTip_disableFurGraphic>
+A restart is required to apply the setting. Required new game!</WVC_ToolTip_disableFurGraphic>
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_enableGeneSpawnerGizmo>Enable gene-spawner gizmo</WVC_Label_enableGeneSpawnerGizmo>

@@ -50,6 +50,7 @@
 	<description>Predators do prey on carriers of this gene.</description>
 	<iconPath>WVC/UI/Genes/Prey_A</iconPath>
 	<displayOrderInCategory>-115</displayOrderInCategory>
+	<biostatCpx>0</biostatCpx>
 	<customEffectDescriptions>
 		<li>Disable "not tasty" gene.</li>
 	</customEffectDescriptions>
