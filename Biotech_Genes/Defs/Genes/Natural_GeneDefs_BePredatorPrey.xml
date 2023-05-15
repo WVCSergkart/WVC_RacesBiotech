@@ -3,7 +3,7 @@
 
   <GeneDef Name="WVC_BePredatorPrey_Base" Abstract="True">
 	<iconColor>(255,255,255)</iconColor>
-	<selectionWeight>0.025</selectionWeight>
+	<selectionWeight>0.005</selectionWeight>
 	<biostatCpx>1</biostatCpx>
 	<symbolPack>
 	  <prefixSymbols>

@@ -7,7 +7,7 @@
 	  <!-- <li>PsychicAbility</li> -->
 	<!-- </exclusionTags> -->
 	<iconColor>(137, 136, 90)</iconColor>
-	<selectionWeight>0.045</selectionWeight>
+	<selectionWeight>0.025</selectionWeight>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>

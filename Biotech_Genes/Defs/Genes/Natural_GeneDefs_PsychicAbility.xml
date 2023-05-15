@@ -6,7 +6,7 @@
 	<!-- <exclusionTags> -->
 	  <!-- <li>PsychicAbility</li> -->
 	<!-- </exclusionTags> -->
-	<selectionWeight>0.045</selectionWeight>
+	<selectionWeight>0.025</selectionWeight>
 	<suppressedTraits>
 	  <li>
 		<def>PsychicSensitivity</def>

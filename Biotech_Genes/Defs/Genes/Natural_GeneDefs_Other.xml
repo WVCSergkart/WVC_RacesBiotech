@@ -8,7 +8,7 @@
 	<iconPath>WVC/UI/Genes/Emotionless</iconPath>
 	<displayCategory>Mood</displayCategory>
 	<displayOrderInCategory>15</displayOrderInCategory>
-	<selectionWeight>0.05</selectionWeight>
+	<selectionWeight>0.03</selectionWeight>
 	<statFactors>
 	  <MentalBreakThreshold>0</MentalBreakThreshold>
 	  <BondAnimalChanceFactor>0</BondAnimalChanceFactor>

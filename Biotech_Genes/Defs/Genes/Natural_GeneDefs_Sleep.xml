@@ -2,7 +2,7 @@
 <Defs>
 
   <GeneDef ParentName="GeneSleepBase" Name="WVC_GeneSleep_Base" Abstract="True">
-	<selectionWeight>0.045</selectionWeight>
+	<selectionWeight>0.025</selectionWeight>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>

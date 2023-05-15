@@ -32,7 +32,7 @@
 	<displayOrderOffset>-100</displayOrderOffset>
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>8</biostatMet>
-	<selectionWeight>0.035</selectionWeight>
+	<selectionWeight>0.015</selectionWeight>
 	<!-- <modExtensions> -->
 		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
 			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes> -->
@@ -51,7 +51,7 @@
 	<displayOrderOffset>100</displayOrderOffset>
 	<biostatCpx>5</biostatCpx>
 	<biostatMet>-12</biostatMet>
-	<selectionWeight>0.035</selectionWeight>
+	<selectionWeight>0.015</selectionWeight>
   </GeneTemplateDef>
 
   <!-- WVC_AptitudePerfect -->
@@ -183,7 +183,7 @@
 	<displayOrderInCategory>-990</displayOrderInCategory>
 	<!-- <prerequisite>WVC_Natural_Base</prerequisite> -->
 	<displayCategory>Aptitudes</displayCategory>
-	<selectionWeight>0.015</selectionWeight>
+	<selectionWeight>0.005</selectionWeight>
 	<biostatCpx>0</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<biostatArc>0</biostatArc>

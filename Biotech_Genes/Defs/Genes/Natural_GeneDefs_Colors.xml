@@ -5,7 +5,7 @@
 	<description>Carriers of this gene have a unique skin color.</description>
 	<displayOrderInCategory>1200</displayOrderInCategory>
 	<randomBrightnessFactor>0</randomBrightnessFactor>
-	<selectionWeight>0.025</selectionWeight>
+	<selectionWeight>0.005</selectionWeight>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
@@ -118,7 +118,7 @@
 	<!-- <description>Carriers of this gene have a unique skin color.</description> -->
 	<displayOrderInCategory>1200</displayOrderInCategory>
 	<randomBrightnessFactor>0</randomBrightnessFactor>
-	<selectionWeight>0.01</selectionWeight>
+	<selectionWeight>0.002</selectionWeight>
 	<canGenerateInGeneSet>true</canGenerateInGeneSet>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">

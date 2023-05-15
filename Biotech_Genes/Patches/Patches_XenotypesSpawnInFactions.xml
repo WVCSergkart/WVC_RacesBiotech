@@ -38,12 +38,12 @@
 	<Operation Class="PatchOperationAdd">
 	  <xpath>/Defs/FactionDef/xenotypeSet/xenotypeChances</xpath>
 	  <value>
-		<WVC_Meca>0.007</WVC_Meca>
-		<WVC_GeneThrower>0.007</WVC_GeneThrower>
+		<WVC_Meca>0.005</WVC_Meca>
+		<WVC_GeneThrower>0.004</WVC_GeneThrower>
+		<WVC_RogueFormer>0.001</WVC_RogueFormer>
 		<!-- <WVC_Blank>0.0001</WVC_Blank> -->
 		<WVC_RuneDryad>0.005</WVC_RuneDryad>
 		<WVC_Golemkind>0.002</WVC_Golemkind>
-		<WVC_RogueFormer>0.001</WVC_RogueFormer>
 	  </value>
 	</Operation>
 
@@ -57,10 +57,19 @@
 				<WVC_Blank>0.2</WVC_Blank>
 			  </value>
 			</li>
-			<li Class="PatchOperationTest">
+			<li Class="PatchOperationAdd">
 			  <xpath>/Defs/PawnKindDef[defName="WildMan"]/xenotypeSet</xpath>
 			  <success>Invert</success>
+			  <value>
+				  <xenotypeChances>
+					<WVC_Blank>0.2</WVC_Blank>
+				  </xenotypeChances>
+			  </value>
 			</li>
+			<!-- <li Class="PatchOperationTest"> -->
+			  <!-- <xpath>/Defs/PawnKindDef[defName="WildMan"]/xenotypeSet</xpath> -->
+			  <!-- <success>Invert</success> -->
+			<!-- </li> -->
 			<li Class="PatchOperationAdd">
 			  <xpath>/Defs/PawnKindDef[defName="WildMan"]</xpath>
 			  <success>Always</success>

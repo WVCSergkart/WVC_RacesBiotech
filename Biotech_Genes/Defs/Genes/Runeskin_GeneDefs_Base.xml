@@ -7,7 +7,7 @@
 	<labelShortAdj>runeskin</labelShortAdj>
 	<description>TEST DESC</description>
 	<displayCategory>WVC_MechaBody</displayCategory>
-	<selectionWeight>0.0125</selectionWeight>
+	<selectionWeight>0.0185</selectionWeight>
 	<!-- <marketValueFactor>1.5</marketValueFactor> -->
 	<randomChosen>false</randomChosen>
 	<canGenerateInGeneSet>true</canGenerateInGeneSet>
@@ -53,7 +53,9 @@
   <GeneDef ParentName="WVC_RuneBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_RuneSkin</defName>
 	<label>runeskin</label>
-	<description>The body of carriers of this gene is covered with birthmarks resembling scars, these spots are hard to the touch and a bit like a stone.</description>
+	<description>The body of carriers of this gene is covered with birthmarks resembling scars, these spots are hard to the touch and a bit like a stone.
+
+&lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>-1</biostatMet>
 	<displayCategory>Miscellaneous</displayCategory>
@@ -92,7 +94,9 @@
   <GeneDef ParentName="WVC_RuneBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_StoneSkin</defName>
 	<label>stoneskin</label>
-	<description>The body of carriers of this gene is all covered with stone-like growths.</description>
+	<description>The body of carriers of this gene is all covered with stone-like growths.
+
+&lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
 	<biostatCpx>4</biostatCpx>
 	<biostatMet>-3</biostatMet>
 	<!-- <biostatArc>1</biostatArc> -->

@@ -17,7 +17,7 @@
 	<!-- <displayOrderInCategory>900</displayOrderInCategory> -->
 	<!-- <displayOrderInCategory>132</displayOrderInCategory> -->
 	<iconPath>UI/Icons/Genes/Gene_VoiceHuman</iconPath>
-	<iconColor>(255, 153, 88)</iconColor>
+	<iconColor>(194, 123, 71)</iconColor>
     <displayOrderInCategory>136</displayOrderInCategory>
 	<!-- <biostatCpx>1</biostatCpx> -->
 	<!-- <exclusionTags> -->

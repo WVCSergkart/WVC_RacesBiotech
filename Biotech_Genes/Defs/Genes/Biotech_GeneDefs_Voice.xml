@@ -4,16 +4,16 @@
   <GeneDef ParentName="GeneVoiceBase" Name="WVC_MechaVoicesBase" Abstract="True">
 	<!-- <displayCategory>WVC_MechaBody</displayCategory> -->
 	<!-- <displayCategory>WVC_MechaBodyVoices</displayCategory> -->
-	<description>Carriers of this gene have archites that change their voice to a cool mechanoid voice.</description>
+	<description>Carriers of this gene have cool mechanoid-like voice.</description>
 	<!-- <displayOrderInCategory>300</displayOrderInCategory> -->
 	<displayOrderInCategory>137</displayOrderInCategory>
 	<iconPath>WVC/UI/Genes/MechanoidizationVoice</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
 	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
-	<biostatArc>1</biostatArc>
-	<minAgeActive>13</minAgeActive>
-	<biostatCpx>0</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<minAgeActive>0</minAgeActive>
+	<biostatCpx>1</biostatCpx>
 	<randomChosen>true</randomChosen>
 	<canGenerateInGeneSet>true</canGenerateInGeneSet>
 	<selectionWeight>0.0075</selectionWeight>
@@ -37,13 +37,13 @@
 	  </li>
 	</suppressedTraits>
 	<modExtensions>
-		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
-			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ColorlessGene</backgroundPathEndogenes> -->
-			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ColorlessGene</backgroundPathXenogenes> -->
-		<!-- </li> -->
-		<li Class="WVC.GeneExtension_Background">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathArchite>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
 		</li>
+		<!-- <li Class="WVC.GeneExtension_Background"> -->
+			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathArchite> -->
+		<!-- </li> -->
 	</modExtensions>
   </GeneDef>
 
