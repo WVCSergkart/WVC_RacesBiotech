@@ -106,6 +106,8 @@
 				<cases>
 					<li><value>WVC_Blank</value><apply></apply></li>
 					<li><value>Baseliner</value><apply></apply></li>
+					<li><value>VREA_AndroidBasic</value><apply></apply></li>
+					<li><value>VREA_AndroidAwakened</value><apply></apply></li>
 					<!-- <li><value>AG_RandomCustom</value><apply></apply></li> -->
 					<li>
 						<value>{defName_DEF}</value>

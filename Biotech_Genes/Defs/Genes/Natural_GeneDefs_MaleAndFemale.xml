@@ -3,6 +3,7 @@
 
   <GeneDef Name="WVC_MonogenderBase" Abstract="True">
 	<displayCategory>Reproduction</displayCategory>
+	<displayOrderInCategory>-100</displayOrderInCategory>
 	<selectionWeight>0.05</selectionWeight>
 	<exclusionTags>
 	  <li>WVC_Monogender</li>
@@ -81,6 +82,24 @@
 			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
 			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
 			<forceMale>true</forceMale>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_MonogenderBase">
+	<defName>WVC_Monogender_Disabled</defName>
+	<label>Monogender (Disabled)</label>
+	<description>Carriers of this gene can be either male or female.</description>
+	<iconPath>WVC/UI/Genes/Monogender_Disabled_v0</iconPath>
+	<biostatCpx>0</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Disable monogender genes.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
 		</li>
 	</modExtensions>
   </GeneDef>

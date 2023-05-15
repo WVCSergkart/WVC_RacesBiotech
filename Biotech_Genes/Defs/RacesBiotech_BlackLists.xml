@@ -9,6 +9,8 @@
 		<li>WVC_Blank</li>
 		<li>AG_Wretch</li>
 		<li>AG_RandomCustom</li>
+		<li>VREA_AndroidBasic</li>
+		<li>VREA_AndroidAwakened</li>
 	</blackListedForSerums>
 	<!-- Xenotypes that do not fall into a coma when using serum -->
 	<perfectCandidatesForSerums>

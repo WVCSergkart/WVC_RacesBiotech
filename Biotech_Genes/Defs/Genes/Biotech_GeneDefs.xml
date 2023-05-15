@@ -73,11 +73,11 @@
 	<!-- <label>mechanoidization - Other</label> -->
 	<!-- <displayPriorityInXenotype>3921</displayPriorityInXenotype> -->
   <!-- </GeneCategoryDef> -->
-  <GeneCategoryDef>
-	<defName>WVC_MechaBodyVoices</defName>
-	<label>mechanoidization - Voices</label>
-	<displayPriorityInXenotype>3919</displayPriorityInXenotype>
-  </GeneCategoryDef>
+  <!-- <GeneCategoryDef> -->
+	<!-- <defName>WVC_MechaBodyVoices</defName> -->
+	<!-- <label>mechanoidization - Voices</label> -->
+	<!-- <displayPriorityInXenotype>3919</displayPriorityInXenotype> -->
+  <!-- </GeneCategoryDef> -->
   <GeneCategoryDef>
 	<defName>WVC_XenotypeSerumSpawners</defName>
 	<label>spawners</label>

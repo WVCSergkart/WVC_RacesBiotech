@@ -22,6 +22,9 @@
 	<minAgeActive>0</minAgeActive>
 	<!-- <minAgeActive>13</minAgeActive> -->
 	<exclusionTags>
+	  <li>AG_Bodies</li>
+	  <li>Bodies</li>
+	  <!-- <li>Body</li> -->
 	  <li>Skin</li>
 	  <li>Fur</li>
 	</exclusionTags>

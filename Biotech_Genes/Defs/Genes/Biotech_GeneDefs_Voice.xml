@@ -3,9 +3,10 @@
 
   <GeneDef ParentName="GeneVoiceBase" Name="WVC_MechaVoicesBase" Abstract="True">
 	<!-- <displayCategory>WVC_MechaBody</displayCategory> -->
-	<displayCategory>WVC_MechaBodyVoices</displayCategory>
+	<!-- <displayCategory>WVC_MechaBodyVoices</displayCategory> -->
 	<description>Carriers of this gene have archites that change their voice to a cool mechanoid voice.</description>
-	<displayOrderInCategory>300</displayOrderInCategory>
+	<!-- <displayOrderInCategory>300</displayOrderInCategory> -->
+	<displayOrderInCategory>137</displayOrderInCategory>
 	<iconPath>WVC/UI/Genes/MechanoidizationVoice</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
 	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->

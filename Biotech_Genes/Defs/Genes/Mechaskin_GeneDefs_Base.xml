@@ -38,6 +38,9 @@ Most of the internal organs remain intact, but there are enough external changes
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <!-- <li>HairStyle</li> -->
+	  <li>AG_Bodies</li>
+	  <li>Bodies</li>
+	  <!-- <li>Body</li> -->
 	  <li>Skin</li>
 	  <li>Fur</li>
 	  <!-- <li>BeardStyle</li> -->
