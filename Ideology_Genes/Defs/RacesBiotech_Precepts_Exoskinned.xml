@@ -13,13 +13,12 @@
 	<defName>WVC_Mechaskinned_Horrible</defName>
 	<issue>WVC_Mechaskinned</issue>
 	<label>horrible</label>
-	<description>Such disgusting skin should not exist.</description>
-	<!-- <impact>High</impact> -->
-	<impact>Medium</impact>
-	<!-- <impact>Low</impact> -->
+	<description>Such disgusting skins should not exist.
+
+&lt;color=#ff8585&gt;Note:&lt;/color&gt; Affect all (fur, scale, stone, mecha, etc.)skin genes</description>
+	<impact>High</impact>
 	<displayOrderInIssue>40</displayOrderInIssue>
 	<displayOrderInImpact>100</displayOrderInImpact>
-	<!-- <defaultSelectionWeight>1</defaultSelectionWeight> -->
 	<conflictingMemes>
 	  <li>WVC_Mechaskinist</li>
 	  <li>Transhumanist</li>
@@ -44,8 +43,10 @@
 	<defName>WVC_Mechaskinned_Disapproved</defName>
 	<issue>WVC_Mechaskinned</issue>
 	<label>disapproved</label>
-	<description>Exo skin is disgusting.</description>
-	<impact>Low</impact>
+	<description>Exoskins is disgusting.
+
+&lt;color=#ff8585&gt;Note:&lt;/color&gt; Affect all (fur, scale, stone, mecha, etc.)skin genes</description>
+	<impact>Medium</impact>
 	<displayOrderInIssue>30</displayOrderInIssue>
 	<displayOrderInImpact>100</displayOrderInImpact>
 	<conflictingMemes>
@@ -73,7 +74,6 @@
 	<issue>WVC_Mechaskinned</issue>
 	<label>indifference</label>
 	<description>We don't care about skin.</description>
-	<!-- <impact>Medium</impact> -->
 	<impact>Low</impact>
 	<displayOrderInIssue>15</displayOrderInIssue>
 	<displayOrderInImpact>100</displayOrderInImpact>
@@ -86,14 +86,18 @@
 	<defName>WVC_Mechaskinned_Acceptable</defName>
 	<issue>WVC_Mechaskinned</issue>
 	<label>liking</label>
-	<description>Exo skin is cute.</description>
+	<description>Exo skin is cute.
+
+&lt;color=#ff8585&gt;Note:&lt;/color&gt; Affect all (fur, scale, stone, mecha, etc.)skin genes</description>
 	<impact>Medium</impact>
-	<!-- <impact>Low</impact> -->
 	<displayOrderInIssue>20</displayOrderInIssue>
 	<displayOrderInImpact>100</displayOrderInImpact>
 	<associatedMemes>
 	  <li>WVC_Mechaskinist</li>
 	</associatedMemes>
+	<requiredMemes>
+	  <li>WVC_Mechaskinist</li>
+	</requiredMemes>
 	<comps>
 	  <li Class="PreceptComp_SituationalThought">
 		<thought>WVC_PawnIsMechaskinned_Acceptable_Social</thought>
@@ -114,15 +118,18 @@
 	<defName>WVC_Mechaskinned_Preferred</defName>
 	<issue>WVC_Mechaskinned</issue>
 	<label>preferred</label>
-	<description>The best skin is the one that is different from human skin.</description>
-	<!-- <impact>High</impact> -->
-	<!-- <impact>Low</impact> -->
-	<impact>Medium</impact>
+	<description>The best skin is the one that is different from human skin.
+
+&lt;color=#ff8585&gt;Note:&lt;/color&gt; Affect all (fur, scale, stone, mecha, etc.)skin genes</description>
+	<impact>High</impact>
 	<displayOrderInIssue>10</displayOrderInIssue>
 	<displayOrderInImpact>100</displayOrderInImpact>
 	<associatedMemes>
 	  <li>WVC_Mechaskinist</li>
 	</associatedMemes>
+	<requiredMemes>
+	  <li>WVC_Mechaskinist</li>
+	</requiredMemes>
 	<comps>
 	  <li Class="PreceptComp_SituationalThought">
 		<thought>WVC_PawnIsMechaskinned_Preferred_Social</thought>
@@ -143,7 +150,9 @@
 	<defName>WVC_Mechaskinned_Exalted</defName>
 	<issue>WVC_Mechaskinned</issue>
 	<label>exalted</label>
-	<description>Exo skin is a blessing.</description>
+	<description>Exoskins is a blessing.
+
+&lt;color=#ff8585&gt;Note:&lt;/color&gt; Affect all (fur, scale, stone, mecha, etc.)skin genes</description>
 	<impact>High</impact>
 	<displayOrderInIssue>0</displayOrderInIssue>
 	<displayOrderInImpact>100</displayOrderInImpact>
@@ -168,21 +177,6 @@
 	  </li>
 	</comps>
   </PreceptDef>
-
-  <!-- <PreceptDef> -->
-	<!-- <defName>WVC_Mechaskinned_Godlike</defName> -->
-	<!-- <issue>WVC_Mechaskinned</issue> -->
-	<!-- <label>godlike</label> -->
-	<!-- <description>A being that combines a machine and a human is a priori divine.</description> -->
-	<!-- <impact>High</impact> -->
-	<!-- <displayOrderInIssue>0</displayOrderInIssue> -->
-	<!-- <conflictingMemes> -->
-	  <!-- <li>FleshPurity</li> -->
-	<!-- </conflictingMemes> -->
-	<!-- <associatedMemes> -->
-	  <!-- <li>Transhumanist</li> -->
-	<!-- </associatedMemes> -->
-  <!-- </PreceptDef> -->
 
   <!-- =Social=Social=Social=Social=Social=Social=Social=Social=Social=Social= -->
 
@@ -217,7 +211,6 @@
 	<stages>
 	  <li>
 		<label>exoskinned</label>
-		<!-- <visible>false</visible> -->
 		<baseOpinionOffset>5</baseOpinionOffset>
 	  </li>
 	</stages>
@@ -282,7 +275,6 @@
 	  <li>
 		<label>exoskinned</label>
 		<description>Not bad not good.</description>
-		<!-- <visible>false</visible> -->
 		<baseMoodEffect>5</baseMoodEffect>
 	  </li>
 	</stages>
@@ -295,7 +287,6 @@
 	  <li>
 		<label>exoskinned</label>
 		<description>My flesh matches my faith.</description>
-		<!-- <visible>false</visible> -->
 		<baseMoodEffect>8</baseMoodEffect>
 	  </li>
 	</stages>
@@ -308,7 +299,6 @@
 	  <li>
 		<label>exoskinned</label>
 		<description>My flesh matches my faith.</description>
-		<!-- <visible>false</visible> -->
 		<baseMoodEffect>15</baseMoodEffect>
 	  </li>
 	</stages>

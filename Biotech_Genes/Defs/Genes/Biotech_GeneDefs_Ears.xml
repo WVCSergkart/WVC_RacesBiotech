@@ -57,7 +57,7 @@
 
   <GeneDef ParentName="WVC_GeneCatEars_Base">
 	<defName>WVC_Mecha_EarsCat</defName>
-	<label>mecha-cat ears</label>
+	<label>cat ears</label>
 	<iconPath>WVC/MecaGene_Ears/CatEars_icon</iconPath>
 	<graphicData>
 	  <graphicPath>WVC/MecaGene_Ears/CatEars</graphicPath>
@@ -73,7 +73,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_GeneCatEars_Base">
 	<defName>WVC_Mecha_QuadEarsCat</defName>
-	<label>quad-mecha-cat ears</label>
+	<label>quad-cat ears</label>
 	<iconPath>WVC/MecaGene_Ears/FourCatEars_icon</iconPath>
 	<graphicData>
 	  <graphicPath>WVC/MecaGene_Ears/FourCatEars</graphicPath>
@@ -125,7 +125,7 @@
 
   <GeneDef ParentName="WVC_GeneCatEars_Base">
 	<defName>WVC_Mecha_RedFormerSpikesDouble</defName>
-	<label>mecha-spikes</label>
+	<label>spikes</label>
 	<description>Carriers of this gene have mechanoid spikes.</description>
 	<iconPath>WVC/MecaGene_Ears/RedFormerSpikesDouble_icon</iconPath>
 	<minAgeActive>13</minAgeActive>
@@ -140,7 +140,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_GeneCatEars_Base">
 	<defName>WVC_Mecha_RedFormerSpikesQuad</defName>
-	<label>quad mecha-spikes</label>
+	<label>quad spikes</label>
 	<description>Carriers of this gene have mechanoid spikes.</description>
 	<iconPath>WVC/MecaGene_Ears/RedFormerSpikesQuad_icon</iconPath>
 	<minAgeActive>13</minAgeActive>
@@ -156,7 +156,7 @@
 
   <GeneDef ParentName="WVC_GeneCatEars_Base">
 	<defName>WVC_Mecha_YellowFormerAntennaDouble</defName>
-	<label>mecha-antenna</label>
+	<label>antenna</label>
 	<description>Carriers of this gene have mechanoid antenna.</description>
 	<iconPath>WVC/MecaGene_Ears/YellowFormerAntennaDouble_icon</iconPath>
 	<minAgeActive>13</minAgeActive>
@@ -171,7 +171,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_GeneCatEars_Base">
 	<defName>WVC_Mecha_YellowFormerAntennaQuad</defName>
-	<label>quad-mecha-antenna</label>
+	<label>quad-antenna</label>
 	<description>Carriers of this gene have mechanoid antenna.</description>
 	<iconPath>WVC/MecaGene_Ears/YellowFormerAntenna_icon</iconPath>
 	<minAgeActive>13</minAgeActive>
