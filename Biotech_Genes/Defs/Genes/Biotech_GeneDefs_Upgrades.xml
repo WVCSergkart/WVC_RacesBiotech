@@ -6,7 +6,7 @@
   <GeneDef Name="WVC_MechanoidizationUpgrades" ParentName="WVC_MechanoidizationBase" Abstract="True">
 	<!-- <geneClass>WVC.Gene_WithConditions</geneClass> -->
 	<displayCategory>WVC_MechaBodyParts</displayCategory>
-	<description>Carriers of this gene have archites which enhance the owner's mechanoidization.</description>
+	<description>Carriers of this gene have archites..</description>
 	<displayOrderInCategory>20</displayOrderInCategory>
 	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->

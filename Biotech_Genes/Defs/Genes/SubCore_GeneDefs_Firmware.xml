@@ -7,9 +7,9 @@
 	<!-- <geneClass>WVC.Gene_WithConditions</geneClass> -->
 	<defName>WVC_MechaAI_Base</defName>
 	<displayCategory>WVC_MechaBodyWare</displayCategory>
-	<label>firmware</label>
-	<labelShortAdj>firmware</labelShortAdj>
-	<description>Carriers of this gene have a strong predisposition to certain skills and lifestyle, it is written in them both at the program level and at the genetic level.</description>
+	<label>aptitude</label>
+	<labelShortAdj>archite aptitude</labelShortAdj>
+	<description>Carriers of this gene have archites who have prescribed certain patterns and behaviors at the genetic level.</description>
 	<iconPath>WVC/UI/Genes/MechanoidizationFirmware</iconPath>
 	<displayOrderInCategory>0</displayOrderInCategory>
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
@@ -36,18 +36,18 @@
 		<li><symbol>firm</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
-	<modExtensions>
-		<li Class="WVC.GeneExtension_General">
-			<geneIsSubcore>true</geneIsSubcore>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC.GeneExtension_General"> -->
+			<!-- <geneIsSubcore>true</geneIsSubcore> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
-  <!-- Firmware -->
+  <!-- Aptitudes -->
 
   <GeneDef ParentName="WVC_Mechanoidization_FirmwareBase">
 	<defName>WVC_MechaAI_FirmwareCreatorMachine</defName>
-	<label>creator firmware</label>
+	<label>creator aptitude</label>
 	<iconColor>(133, 202, 255)</iconColor>
 	<!-- <iconColor>(130, 175, 255)</iconColor> -->
 	<socialFightChanceFactor>0.5</socialFightChanceFactor>
@@ -96,7 +96,7 @@
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_FirmwareBase">
 	<defName>WVC_MechaAI_FirmwareWarMachine</defName>
-	<label>war firmware</label>
+	<label>war aptitude</label>
 	<!-- <iconColor>(255, 175, 130)</iconColor> -->
 	<iconColor>(255, 133, 133)</iconColor>
 	<socialFightChanceFactor>2</socialFightChanceFactor>
@@ -145,7 +145,7 @@
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_FirmwareBase">
 	<defName>WVC_MechaAI_FirmwareGreenMachine</defName>
-	<label>green firmware</label>
+	<label>green aptitude</label>
 	<iconColor>(133, 255, 136)</iconColor>
 	<!-- <iconColor>(130, 255, 130)</iconColor> -->
 	<socialFightChanceFactor>0.5</socialFightChanceFactor>
@@ -194,7 +194,7 @@
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_FirmwareBase">
 	<defName>WVC_MechaAI_FirmwareRogueMachine</defName>
-	<label>rogue firmware</label>
+	<label>rogue aptitude</label>
 	<iconColor>(255, 182, 133)</iconColor>
 	<!-- <iconColor>(255, 250, 150)</iconColor> -->
 	<socialFightChanceFactor>0.5</socialFightChanceFactor>
@@ -243,7 +243,7 @@
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_FirmwareBase">
 	<defName>WVC_MechaAI_FirmwarePropagandaMachine</defName>
-	<label>propaganda firmware</label>
+	<label>propaganda aptitude</label>
 	<iconColor>(255, 248, 133)</iconColor>
 	<!-- <iconColor>(150, 250, 255)</iconColor> -->
 	<socialFightChanceFactor>2</socialFightChanceFactor>

@@ -17,7 +17,7 @@
 	<displayCategory>Ability</displayCategory>
 	<marketValueFactor>1.2</marketValueFactor>
 	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
-	<minAgeActive>13</minAgeActive>
+	<minAgeActive>3</minAgeActive>
 	<!-- <selectionWeight>0.15</selectionWeight> -->
 	<displayOrderInCategory>-100</displayOrderInCategory>
 	<biostatCpx>1</biostatCpx>

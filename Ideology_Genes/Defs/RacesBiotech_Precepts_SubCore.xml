@@ -5,7 +5,7 @@
 
   <IssueDef>
 	<defName>WVC_SubCorred</defName>
-	<label>subcore</label>
+	<label>memory</label>
 	<iconPath>WVC/UI/Precepts/SubCore_Buff</iconPath>
   </IssueDef>
 
@@ -14,26 +14,52 @@
   <PreceptDef>
 	<defName>WVC_SubCorred_Improved</defName>
 	<issue>WVC_SubCorred</issue>
-	<label>improved</label>
-	<description>The mecha-subcore has truly unlimited possibilities, and we must help those who are gifted to unlock this potential.</description>
-	<impact>Medium</impact>
+	<label>great</label>
+	<description>We must honor our skills and train our memory.</description>
+	<impact>High</impact>
 	<displayOrderInIssue>0</displayOrderInIssue>
 	<!-- <displayOrderInImpact>50</displayOrderInImpact> -->
-	<associatedMemes>
-	  <li MayRequire="vanillaexpanded.vmemese">VME_MechanoidSupremacy</li>
-	  <li>WVC_Mechaskinist</li>
-	</associatedMemes>
-	<requiredMemes>
-	  <li>WVC_Mechaskinist</li>
-	</requiredMemes>
+	<!-- <associatedMemes> -->
+	  <!-- <li>WVC_Mechaskinist</li> -->
+	<!-- </associatedMemes> -->
+	<!-- <requiredMemes> -->
+	  <!-- <li>WVC_Mechaskinist</li> -->
+	<!-- </requiredMemes> -->
+	<statFactors>
+	  <WVC_SkillsDecayFactor>0.0</WVC_SkillsDecayFactor>
+	</statFactors>
 	<conditionalStatAffecters>
 	  <li Class="WVC.ConditionalStatAffecter_Genes">
 		<geneDef>WVC_MechaAI_Base</geneDef>
+		<invert>false</invert>
 		<statOffsets>
-		  <GlobalLearningFactor>0.2</GlobalLearningFactor>
+		  <WVC_MinSkillLevel>4</WVC_MinSkillLevel>
+		</statOffsets>
+	  </li>
+	  <li Class="WVC.ConditionalStatAffecter_Genes">
+		<geneDef>WVC_MechaAI_Base</geneDef>
+		<invert>true</invert>
+		<statOffsets>
+		  <WVC_MinSkillLevel>12</WVC_MinSkillLevel>
 		</statOffsets>
 	  </li>
 	</conditionalStatAffecters>
+  </PreceptDef>
+
+  <PreceptDef>
+	<defName>WVC_SubCorred_Flexible</defName>
+	<issue>WVC_SubCorred</issue>
+	<label>flexible</label>
+	<description>Forgetting is natural. Our minds must be flexible, there is no point in remembering everything.</description>
+	<impact>Medium</impact>
+	<displayOrderInIssue>10</displayOrderInIssue>
+	<!-- <associatedMemes> -->
+	  <!-- <li>WVC_Mechaskinist</li> -->
+	<!-- </associatedMemes> -->
+	<statOffsets>
+	  <GlobalLearningFactor>0.25</GlobalLearningFactor>
+	  <WVC_MinSkillLevel>-4</WVC_MinSkillLevel>
+	</statOffsets>
   </PreceptDef>
 
 </Defs>

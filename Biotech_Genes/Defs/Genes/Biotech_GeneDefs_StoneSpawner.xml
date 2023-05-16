@@ -17,6 +17,7 @@
 	<biostatCpx>2</biostatCpx>
 	<marketValueFactor>0.8</marketValueFactor>
 	<selectionWeight>0.041</selectionWeight>
+	<minAgeActive>3</minAgeActive>
 	<customEffectDescriptions>
 		<li>Spawns stonechunk every (*DateTime)10-15 days(/DateTime).</li>
 	</customEffectDescriptions>

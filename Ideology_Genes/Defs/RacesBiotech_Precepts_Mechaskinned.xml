@@ -1,6 +1,56 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <IssueDef>
+	<defName>WVC_Mechaskinned</defName>
+	<label>mechaskin</label>
+	<iconPath>WVC/UI/Precepts/Mechanoidization</iconPath>
+  </IssueDef>
+
+  <!-- Precepts -->
+
+  <!-- <PreceptDef> -->
+	<!-- <defName>WVC_Mechaskinned_Classic</defName> -->
+	<!-- <issue>WVC_Mechaskinned</issue> -->
+	<!-- <classic>true</classic> -->
+	<!-- <impact>Medium</impact> -->
+	<!-- <visible>false</visible> -->
+	<!-- <comps> -->
+	  <!-- <li Class="PreceptComp_SituationalThought"> -->
+		<!-- <thought>WVC_PawnMechanoidization_Social</thought> -->
+	  <!-- </li> -->
+	<!-- </comps> -->
+  <!-- </PreceptDef> -->
+
+  <!-- <ThoughtDef> -->
+	<!-- <defName>WVC_PawnMechanoidization_Social</defName> -->
+	<!-- <thoughtClass>Thought_SituationalSocial</thoughtClass> -->
+	<!-- <workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass> -->
+	<!-- <validWhileDespawned>true</validWhileDespawned> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <label>non-mechaskin vs mechaskin</label> -->
+		<!-- <baseOpinionOffset>-5</baseOpinionOffset> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <label>body modder vs mechaskin</label> -->
+		<!-- <baseOpinionOffset>10</baseOpinionOffset> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <label>mechaskin modder vs mechaskin</label> -->
+		<!-- <baseOpinionOffset>5</baseOpinionOffset> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <label>body purist vs mechaskin</label> -->
+		<!-- <baseOpinionOffset>-20</baseOpinionOffset> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <label>mechaskin vs mechaskin</label> -->
+		<!-- <baseOpinionOffset>0</baseOpinionOffset> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+  <!-- </ThoughtDef> -->
+
   <!-- Precepts -->
 
   <PreceptDef>
@@ -8,15 +58,12 @@
 	<issue>WVC_Mechaskinned</issue>
 	<label>horrible</label>
 	<description>Such a disgusting hybrids should not exist.</description>
-	<!-- <impact>High</impact> -->
 	<impact>Medium</impact>
-	<!-- <impact>Low</impact> -->
 	<displayOrderInIssue>40</displayOrderInIssue>
 	<displayOrderInImpact>100</displayOrderInImpact>
-	<!-- <defaultSelectionWeight>1</defaultSelectionWeight> -->
 	<conflictingMemes>
 	  <li>WVC_Mechaskinist</li>
-	  <li>WVC_Golemist</li>
+	  <!-- <li>WVC_Golemist</li> -->
 	  <li>Transhumanist</li>
 	</conflictingMemes>
 	<associatedMemes>
@@ -53,16 +100,16 @@
 	<impact>Low</impact>
 	<displayOrderInIssue>30</displayOrderInIssue>
 	<displayOrderInImpact>100</displayOrderInImpact>
-	<defaultSelectionWeight>0.6</defaultSelectionWeight>
+	<!-- <defaultSelectionWeight>0.2</defaultSelectionWeight> -->
 	<!-- <conflictingMemes> -->
 	  <!-- <li>Transhumanist</li> -->
 	<!-- </conflictingMemes> -->
-	<!-- <associatedMemes> -->
-	  <!-- <li>FleshPurity</li> -->
-	<!-- </associatedMemes> -->
+	<associatedMemes>
+	  <li>FleshPurity</li>
+	</associatedMemes>
 	<conflictingMemes>
 	  <li>WVC_Mechaskinist</li>
-	  <li>WVC_Golemist</li>
+	  <!-- <li>WVC_Golemist</li> -->
 	  <li>Transhumanist</li>
 	</conflictingMemes>
 	<comps>
@@ -97,11 +144,12 @@
 	<impact>Low</impact>
 	<displayOrderInIssue>15</displayOrderInIssue>
 	<displayOrderInImpact>100</displayOrderInImpact>
-	<defaultSelectionWeight>0.2</defaultSelectionWeight>
+	<!-- <defaultSelectionWeight>0.3</defaultSelectionWeight> -->
 	<!-- <conflictingMemes> -->
 	  <!-- <li>FleshPurity</li> -->
 	<!-- </conflictingMemes> -->
 	<associatedMemes>
+	  <li>FleshPurity</li>
 	  <li>Transhumanist</li>
 	  <li>WVC_Mechaskinist</li>
 	</associatedMemes>
@@ -119,7 +167,7 @@
 	<!-- <impact>Low</impact> -->
 	<displayOrderInIssue>20</displayOrderInIssue>
 	<displayOrderInImpact>100</displayOrderInImpact>
-	<defaultSelectionWeight>0.2</defaultSelectionWeight>
+	<!-- <defaultSelectionWeight>0.2</defaultSelectionWeight> -->
 	<conflictingMemes>
 	  <li>FleshPurity</li>
 	</conflictingMemes>

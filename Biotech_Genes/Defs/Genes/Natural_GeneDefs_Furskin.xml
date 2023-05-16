@@ -204,26 +204,11 @@
 	<biostatMet>2</biostatMet>
 	<iconColor>(255, 220, 220)</iconColor>
 	<missingGeneRomanceChanceFactor>1</missingGeneRomanceChanceFactor>
-	<conditionalStatAffecters>
-	  <li Class="WVC.ConditionalStatAffecter_Genes">
-		<geneDef>Furskin</geneDef>
-		<invert>false</invert>
-		<statFactors>
-		  <MentalBreakThreshold>1.1</MentalBreakThreshold>
-		  <BondAnimalChanceFactor>1.1</BondAnimalChanceFactor>
-		  <SocialImpact>0.8</SocialImpact>
-		</statFactors>
-	  </li>
-	  <li Class="WVC.ConditionalStatAffecter_Genes">
-		<geneDef>Furskin</geneDef>
-		<invert>true</invert>
-		<statFactors>
-		  <MentalBreakThreshold>1.2</MentalBreakThreshold>
-		  <BondAnimalChanceFactor>1.2</BondAnimalChanceFactor>
-		  <SocialImpact>0.6</SocialImpact>
-		</statFactors>
-	  </li>
-	</conditionalStatAffecters>
+	<statFactors>
+	  <MentalBreakThreshold>1.1</MentalBreakThreshold>
+	  <BondAnimalChanceFactor>1.1</BondAnimalChanceFactor>
+	  <SocialImpact>0.8</SocialImpact>
+	</statFactors>
   </GeneDef>
   <GeneDef ParentName="WVC_FurskinWildness">
 	<defName>WVC_FurskinInstincts_MediumWildness</defName>
@@ -232,26 +217,11 @@
 	<displayOrderInCategory>26</displayOrderInCategory>
 	<iconColor>(255, 180, 180)</iconColor>
 	<missingGeneRomanceChanceFactor>0.8</missingGeneRomanceChanceFactor>
-	<conditionalStatAffecters>
-	  <li Class="WVC.ConditionalStatAffecter_Genes">
-		<geneDef>Furskin</geneDef>
-		<invert>false</invert>
-		<statFactors>
-		  <MentalBreakThreshold>1.2</MentalBreakThreshold>
-		  <BondAnimalChanceFactor>1.2</BondAnimalChanceFactor>
-		  <SocialImpact>0.6</SocialImpact>
-		</statFactors>
-	  </li>
-	  <li Class="WVC.ConditionalStatAffecter_Genes">
-		<geneDef>Furskin</geneDef>
-		<invert>true</invert>
-		<statFactors>
-		  <MentalBreakThreshold>1.3</MentalBreakThreshold>
-		  <BondAnimalChanceFactor>1.3</BondAnimalChanceFactor>
-		  <SocialImpact>0.4</SocialImpact>
-		</statFactors>
-	  </li>
-	</conditionalStatAffecters>
+	<statFactors>
+	  <MentalBreakThreshold>1.2</MentalBreakThreshold>
+	  <BondAnimalChanceFactor>1.2</BondAnimalChanceFactor>
+	  <SocialImpact>0.6</SocialImpact>
+	</statFactors>
   </GeneDef>
   <GeneDef ParentName="WVC_FurskinWildness">
 	<defName>WVC_FurskinInstincts_HighWildness</defName>
@@ -260,26 +230,11 @@
 	<displayOrderInCategory>27</displayOrderInCategory>
 	<iconColor>(255, 150, 150)</iconColor>
 	<missingGeneRomanceChanceFactor>0.6</missingGeneRomanceChanceFactor>
-	<conditionalStatAffecters>
-	  <li Class="WVC.ConditionalStatAffecter_Genes">
-		<geneDef>Furskin</geneDef>
-		<invert>false</invert>
-		<statFactors>
-		  <MentalBreakThreshold>1.3</MentalBreakThreshold>
-		  <BondAnimalChanceFactor>1.5</BondAnimalChanceFactor>
-		  <SocialImpact>0.4</SocialImpact>
-		</statFactors>
-	  </li>
-	  <li Class="WVC.ConditionalStatAffecter_Genes">
-		<geneDef>Furskin</geneDef>
-		<invert>true</invert>
-		<statFactors>
-		  <MentalBreakThreshold>1.5</MentalBreakThreshold>
-		  <BondAnimalChanceFactor>1.5</BondAnimalChanceFactor>
-		  <SocialImpact>0.3</SocialImpact>
-		</statFactors>
-	  </li>
-	</conditionalStatAffecters>
+	<statFactors>
+	  <MentalBreakThreshold>1.3</MentalBreakThreshold>
+	  <BondAnimalChanceFactor>1.5</BondAnimalChanceFactor>
+	  <SocialImpact>0.4</SocialImpact>
+	</statFactors>
   </GeneDef>
   <GeneDef ParentName="WVC_FurskinWildness">
 	<defName>WVC_FurskinInstincts_ExtremeWildness</defName>
@@ -288,26 +243,11 @@
 	<displayOrderInCategory>28</displayOrderInCategory>
 	<iconColor>(255, 120, 120)</iconColor>
 	<missingGeneRomanceChanceFactor>0.4</missingGeneRomanceChanceFactor>
-	<conditionalStatAffecters>
-	  <li Class="WVC.ConditionalStatAffecter_Genes">
-		<geneDef>Furskin</geneDef>
-		<invert>false</invert>
-		<statFactors>
-		  <MentalBreakThreshold>1.5</MentalBreakThreshold>
-		  <BondAnimalChanceFactor>2</BondAnimalChanceFactor>
-		  <SocialImpact>0.2</SocialImpact>
-		</statFactors>
-	  </li>
-	  <li Class="WVC.ConditionalStatAffecter_Genes">
-		<geneDef>Furskin</geneDef>
-		<invert>true</invert>
-		<statFactors>
-		  <MentalBreakThreshold>1.8</MentalBreakThreshold>
-		  <BondAnimalChanceFactor>2</BondAnimalChanceFactor>
-		  <SocialImpact>0.1</SocialImpact>
-		</statFactors>
-	  </li>
-	</conditionalStatAffecters>
+	<statFactors>
+	  <MentalBreakThreshold>1.5</MentalBreakThreshold>
+	  <BondAnimalChanceFactor>2</BondAnimalChanceFactor>
+	  <SocialImpact>0.2</SocialImpact>
+	</statFactors>
   </GeneDef>
 
   <!-- ==================================== -->

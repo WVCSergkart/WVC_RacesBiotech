@@ -42,6 +42,7 @@
   <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_PassivePawnGestator_Base" Abstract="True">
 	<!-- <displayCategory>Reproduction</displayCategory> -->
 	<!-- <displayCategory>WVC_MechaBodyParts</displayCategory> -->
+	<description>Carriers of this gene have archites that replace the carrier's reproductive system with a gestator.</description>
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<biostatArc>2</biostatArc>
@@ -85,7 +86,7 @@
   <GeneDef ParentName="WVC_PassivePawnGestator_Base">
 	<defName>WVC_UrchinGestator</defName>
 	<label>urchin gestator</label>
-	<description>Carriers of this gene have archites that replace the carrier's reproductive system with a mechanoid gestator.</description>
+	<!-- <description>Carriers of this gene have archites that replace the carrier's reproductive system with a mechanoid gestator.</description> -->
 	<iconPath>Things/Pawn/Mechanoid/WarUrchin_south</iconPath>
 	<iconColor>(184, 198, 203)</iconColor>
 	<customEffectDescriptions>
@@ -102,7 +103,6 @@
   <GeneDef ParentName="WVC_PassivePawnGestator_Base">
 	<defName>WVC_MechaGestator</defName>
 	<label>gestator</label>
-	<description>Carriers of this gene have archites that replace the carrier's reproductive system with a mechanoid gestator.</description>
 	<iconPath>WVC/UI/Genes/Gestator</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
 	<customEffectDescriptions>

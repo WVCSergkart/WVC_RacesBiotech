@@ -45,6 +45,36 @@
 		</nomatch>
 	</Operation>
 
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Races Expanded - Android</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAdd">
+				  <xpath>/Defs/GeneDef[defName="VREA_SyntheticSkin"]/modExtensions</xpath>
+				  <success>Invert</success>
+				  <value>
+						<li Class="WVC.GeneExtension_General">
+							<geneIsMechaskin>true</geneIsMechaskin>
+						</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAdd">
+				  <xpath>/Defs/GeneDef[defName="VREA_SyntheticSkin"]</xpath>
+				  <success>Always</success>
+				  <value>
+					<modExtensions>
+						<li Class="WVC.GeneExtension_General">
+							<geneIsMechaskin>true</geneIsMechaskin>
+						</li>
+					</modExtensions>
+				  </value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+
 	<!-- ============================================================ -->
 
 	<Operation Class="PatchOperationFindMod">

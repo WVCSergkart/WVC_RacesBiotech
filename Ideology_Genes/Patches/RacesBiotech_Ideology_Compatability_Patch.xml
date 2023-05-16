@@ -50,17 +50,16 @@
 		</value>
 	</Operation>
 
-	<Operation Class="PatchOperationAdd">
-		<xpath>/Defs/MemeDef[defName="FleshPurity"]/requireOne</xpath>
-		<!-- <success>Always</success> -->
-		<value>
-		  <li>
-			<li>WVC_Mechaskinned_Indifference</li>
-			<li>WVC_Mechaskinned_Horrible</li>
-			<li>WVC_Mechaskinned_Disapproved</li>
-		  </li>
-		</value>
-	</Operation>
+	<!-- <Operation Class="PatchOperationAdd"> -->
+		<!-- <xpath>/Defs/MemeDef[defName="FleshPurity"]/requireOne</xpath> -->
+		<!-- <value> -->
+		  <!-- <li> -->
+			<!-- <li>WVC_Mechaskinned_Indifference</li> -->
+			<!-- <li>WVC_Mechaskinned_Horrible</li> -->
+			<!-- <li>WVC_Mechaskinned_Disapproved</li> -->
+		  <!-- </li> -->
+		<!-- </value> -->
+	<!-- </Operation> -->
 
 	<Operation Class="PatchOperationFindMod">
 		<mods>

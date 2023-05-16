@@ -18,21 +18,9 @@
 	<displayOrderInCategory>40</displayOrderInCategory>
 	<minAgeActive>25</minAgeActive>
 	<selectionWeight>0.002</selectionWeight>
-	<conditionalStatAffecters>
-	  <li Class="WVC.ConditionalStatAffecter_Mechalike">
-		<!-- <statOffsets> -->
-		  <!-- <WVC_PawnMechanoidization>3</WVC_PawnMechanoidization> -->
-		<!-- </statOffsets> -->
-		<statFactors>
-		  <GlobalLearningFactor>0.2</GlobalLearningFactor>
-		</statFactors>
-	  </li>
-	  <li Class="WVC.ConditionalStatAffecter_Humanlike">
-		<statFactors>
-		  <GlobalLearningFactor>0</GlobalLearningFactor>
-		</statFactors>
-	  </li>
-	</conditionalStatAffecters>
+	<statFactors>
+	  <GlobalLearningFactor>0</GlobalLearningFactor>
+	</statFactors>
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>6</biostatMet>
 	<symbolPack>
@@ -72,18 +60,9 @@
 	  <!-- <li>Tox gas immunity</li> -->
 	<!-- </customEffectDescriptions> -->
 	<selectionWeight>0.002</selectionWeight>
-	<conditionalStatAffecters>
-	  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
-		<!-- <statOffsets> -->
-		  <!-- <WVC_PawnMechanoidization>5</WVC_PawnMechanoidization> -->
-		<!-- </statOffsets> -->
-	  <!-- </li> -->
-	  <li Class="WVC.ConditionalStatAffecter_Humanlike">
-		<statOffsets>
-		  <ToxicResistance>-1</ToxicResistance>
-		</statOffsets>
-	  </li>
-	</conditionalStatAffecters>
+	<statOffsets>
+	  <ToxicResistance>-1</ToxicResistance>
+	</statOffsets>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>3</biostatMet>
 	<exclusionTags>
@@ -188,18 +167,9 @@
 	<displayOrderInCategory>21</displayOrderInCategory>
 	<minAgeActive>25</minAgeActive>
 	<selectionWeight>0.002</selectionWeight>
-	<conditionalStatAffecters>
-	  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
-		<!-- <statOffsets> -->
-		  <!-- <WVC_PawnMechanoidization>3</WVC_PawnMechanoidization> -->
-		<!-- </statOffsets> -->
-	  <!-- </li> -->
-	  <li Class="WVC.ConditionalStatAffecter_Humanlike">
-		<statOffsets>
-		  <MoveSpeed>-2</MoveSpeed>
-		</statOffsets>
-	  </li>
-	</conditionalStatAffecters>
+	<statOffsets>
+	  <MoveSpeed>-2</MoveSpeed>
+	</statOffsets>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>4</biostatMet>
 	<symbolPack>
@@ -297,18 +267,9 @@
 	<displayOrderInCategory>10</displayOrderInCategory>
 	<minAgeActive>25</minAgeActive>
 	<selectionWeight>0.002</selectionWeight>
-	<conditionalStatAffecters>
-	  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
-		<!-- <statOffsets> -->
-		  <!-- <WVC_PawnMechanoidization>4</WVC_PawnMechanoidization> -->
-		<!-- </statOffsets> -->
-	  <!-- </li> -->
-	  <li Class="WVC.ConditionalStatAffecter_Humanlike">
-		<statOffsets>
-		  <PawnBeauty>-2</PawnBeauty>
-		</statOffsets>
-	  </li>
-	</conditionalStatAffecters>
+	<statOffsets>
+	  <PawnBeauty>-2</PawnBeauty>
+	</statOffsets>
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>2</biostatMet>
 	<symbolPack>
@@ -338,18 +299,9 @@
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>3</biostatMet>
 	<selectionWeight>0.002</selectionWeight>
-	<conditionalStatAffecters>
-	  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
-		<!-- <statOffsets> -->
-		  <!-- <WVC_PawnMechanoidization>6</WVC_PawnMechanoidization> -->
-		<!-- </statOffsets> -->
-	  <!-- </li> -->
-	  <li Class="WVC.ConditionalStatAffecter_Humanlike">
-		<statFactors>
-		  <LifespanFactor>0.0</LifespanFactor>
-		</statFactors>
-	  </li>
-	</conditionalStatAffecters>
+	<statFactors>
+	  <LifespanFactor>0.0</LifespanFactor>
+	</statFactors>
 	<!-- <exclusionTags> -->
 	  <!-- <li>CellInstability</li> -->
 	<!-- </exclusionTags> -->

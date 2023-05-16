@@ -54,7 +54,7 @@
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
-	<minAgeActive>13</minAgeActive>
+	<minAgeActive>0</minAgeActive>
 	<selectionWeight>0.0125</selectionWeight>
 	<graphicData>
 	  <graphicPath>WVC/MecaGene_ScytheTail/NodeTail</graphicPath>
@@ -80,6 +80,7 @@
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<!-- <biostatMet>-1</biostatMet> -->
+	<minAgeActive>13</minAgeActive>
 	<customEffectDescriptions>
 		<li>Adds a deadly tail attack.</li>
 	</customEffectDescriptions>
@@ -124,6 +125,7 @@
 	<label>connector tail</label>
 	<description>Carriers of this gene grow a sleek long tail with several connectors at the end.</description>
 	<iconPath>WVC/MecaGene_ScytheTail/NodeTail_east</iconPath>
+	<minAgeActive>13</minAgeActive>
 	<statOffsets>
 		<MechRepairSpeed>0.1</MechRepairSpeed>
 	</statOffsets>
@@ -159,6 +161,7 @@
 	<label>antenna tail</label>
 	<description>Carriers of this gene grow a short antenna-like tail.</description>
 	<iconPath>WVC/MecaGene_ScytheTail/AntennaTail_east</iconPath>
+	<minAgeActive>13</minAgeActive>
 	<statOffsets>
 		<MechBandwidth>3</MechBandwidth>
 	</statOffsets>

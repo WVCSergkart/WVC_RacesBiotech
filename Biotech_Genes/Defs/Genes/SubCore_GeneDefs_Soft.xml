@@ -8,7 +8,8 @@
 	<displayCategory>WVC_MechaBodyWare</displayCategory>
 	<labelShortAdj>subcore</labelShortAdj>
 	<!-- <description>Archites modified the owner's brain quite a lot, which opened up new possibilities.</description> -->
-	<description>Carriers of this gene have archites that have formed a mechanoid subcore.</description>
+	<!-- <description>Carriers of this gene have archites that have formed a mechanoid subcore.</description> -->
+	<description>Carriers of this gene have archites that have formed special neural connections that expand the capabilities of the carrier's brain.</description>
 	<iconPath>WVC/UI/Genes/MechanoidizationSoftware</iconPath>
 	<!-- <iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath> -->
 	<displayOrderInCategory>120</displayOrderInCategory>
@@ -41,20 +42,17 @@
 		<li><symbol>am</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
-	<modExtensions>
-		<!-- <li Class="WVC.GeneExtension_Background"> -->
-			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC.GeneExtension_General"> -->
+			<!-- <geneIsSubcore>true</geneIsSubcore> -->
 		<!-- </li> -->
-		<li Class="WVC.GeneExtension_General">
-			<geneIsSubcore>true</geneIsSubcore>
-		</li>
-	</modExtensions>
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <!-- ========================================================== -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MechaAI_Base</defName>
-	<label>memory subcore</label> 
+	<label>great memory</label> 
 	<iconColor>(184, 198, 203)</iconColor>
 	<suppressedTraits>
 	  <li>
@@ -112,10 +110,10 @@
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MecaBodyParts_Arm</defName>
-	<label>fight subcore</label>
+	<label>fight instincts</label>
 	<iconColor>(255, 200, 130)</iconColor>
 	<statOffsets>
-	  <MeleeDamageFactor>0.2</MeleeDamageFactor>
+	  <MeleeDamageFactor>0.25</MeleeDamageFactor>
 	</statOffsets>
   </GeneDef>
   <!-- = -->
@@ -187,6 +185,7 @@
 	<defName>WVC_MechaAI_MechanitorNetwork</defName>
 	<label>mecha-network</label>
 	<iconColor>(170, 170, 255)</iconColor>
+	<minAgeActive>3</minAgeActive>
 	<!-- <statOffsets> -->
 		<!-- <MechRepairSpeed>0.25</MechRepairSpeed> -->
 		<!-- <WorkSpeedGlobalOffsetMech>0.25</WorkSpeedGlobalOffsetMech> -->
@@ -292,7 +291,7 @@
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MechaAI_PsychicDull</defName>
-	<label>psydull subcore</label>
+	<label>psydull</label>
 	<iconColor>(255, 255, 150)</iconColor>
 	<biostatMet>2</biostatMet>
 	<statFactors>

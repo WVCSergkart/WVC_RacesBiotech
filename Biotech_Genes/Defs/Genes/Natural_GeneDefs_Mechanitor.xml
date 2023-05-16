@@ -97,11 +97,6 @@
 	  <WVC_OverseerMaxGolems>1</WVC_OverseerMaxGolems>
 	</statOffsets>
 	<conditionalStatAffecters>
-	  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
-		<!-- <statOffsets> -->
-		  <!-- <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization> -->
-		<!-- </statOffsets> -->
-	  <!-- </li> -->
 	  <li Class="WVC.ConditionalStatAffecter_Genes">
 		<geneDef>WVC_MechaAI_Base</geneDef>
 		<invert>true</invert>
@@ -168,10 +163,10 @@
 	<biostatMet>-3</biostatMet>
 	<!-- <prerequisite>PsychicAbility_Extreme</prerequisite> -->
 	<suppressedTraits>
-	  <li>
-		<def>PsychicSensitivity</def>
-		<degree>-1</degree>
-	  </li>
+	  <!-- <li> -->
+		<!-- <def>PsychicSensitivity</def> -->
+		<!-- <degree>-1</degree> -->
+	  <!-- </li> -->
 	  <li>
 		<def>PsychicSensitivity</def>
 		<degree>-2</degree>

@@ -6,8 +6,8 @@
   <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Mechanoidization_PowerSourceBase" Abstract="True">
 	<!-- <defName>WVC_MechaAI_Base</defName> -->
 	<!-- <label>AI</label> -->
-	<labelShortAdj>power source</labelShortAdj>
-	<description>Carriers of this gene have archites that create a power source for mechanites, due to which mechanites cease to influence the carrier's metabolism.</description>
+	<!-- <labelShortAdj>power source</labelShortAdj> -->
+	<description>Carriers of this gene have special archites in their cells that facilitate and optimize metabolism. This improves overall genetic and metabolic quality.</description>
 	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
 	<displayOrderInCategory>4</displayOrderInCategory>
@@ -17,6 +17,7 @@
 	<marketValueFactor>3</marketValueFactor>
 	<selectionWeight>0.0075</selectionWeight>
 	<randomChosen>true</randomChosen>
+	<minAgeActive>3</minAgeActive>
 	<customEffectDescriptions>
 		<!-- <li>Compensates for the effect of mechaskin on metabolism.</li> -->
 		<li>Disable mechaskin's 5x hunger rate multiplier.</li>
@@ -49,7 +50,7 @@
 
   <GeneDef ParentName="WVC_Mechanoidization_PowerSourceBase">
 	<defName>WVC_MechaPowerSource_Unstable</defName>
-	<label>unstable power source</label> 
+	<label>unstable metabolism</label> 
 	<iconPath>WVC/UI/Genes/PowerSource_Unstable</iconPath>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
@@ -65,7 +66,7 @@
 
   <GeneDef ParentName="WVC_Mechanoidization_PowerSourceBase">
 	<defName>WVC_MechaPowerSource_Stable</defName>
-	<label>stable power source</label> 
+	<label>stable metabolism</label> 
 	<iconPath>WVC/UI/Genes/PowerSource_Stable</iconPath>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>1</biostatArc>
@@ -74,7 +75,7 @@
 
   <GeneDef ParentName="WVC_Mechanoidization_PowerSourceBase">
 	<defName>WVC_MechaPowerSource_Vanometric</defName>
-	<label>vanometric power source</label> 
+	<label>vanometric metabolism</label> 
 	<iconPath>WVC/UI/Genes/PowerSource_Vanometric</iconPath>
 	<biostatCpx>5</biostatCpx>
 	<biostatArc>2</biostatArc>
@@ -97,7 +98,7 @@
 
   <GeneDef ParentName="WVC_Mechanoidization_PowerSourceBase">
 	<defName>WVC_MechaPowerSource_Tox</defName>
-	<label>tox power source</label> 
+	<label>tox metabolism</label> 
 	<iconPath>WVC/UI/Genes/PowerSource_Tox</iconPath>
 	<geneClass>WVC.Gene_Spawner</geneClass>
 	<biostatCpx>3</biostatCpx>
