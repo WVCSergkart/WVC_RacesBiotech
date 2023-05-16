@@ -59,18 +59,9 @@ Most of the internal organs were not affected, but there are too many external c
 		<li><symbol>d</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
-	<modExtensions Inherit="False">
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<furHidesBody>True</furHidesBody>
-			<useSkinColorForFur>True</useSkinColorForFur>
-			<customWoundsFromFleshtype>Mechanoid</customWoundsFromFleshtype>
-			<customBloodEffect>Damage_HitMechanoid</customBloodEffect>
-		</li>
-		<li Class="WVC.GeneExtension_Background">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_MechaBody</backgroundPathArchite>
-		</li>
+	<modExtensions>
 		<li Class="WVC.GeneExtension_General">
-			<geneIsMechaskin>true</geneIsMechaskin>
+			<!-- <geneIsMechaskin>true</geneIsMechaskin> -->
 			<eyesShouldBeInvisble>true</eyesShouldBeInvisble>
 		</li>
 	</modExtensions>

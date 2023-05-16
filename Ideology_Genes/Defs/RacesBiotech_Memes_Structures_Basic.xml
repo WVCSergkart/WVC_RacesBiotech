@@ -7,8 +7,6 @@
 		<defName>WVC_Structure_Hybridism</defName>
 		<label>hybridism</label>
 		<description>There is no place in the world for a separation between organic and mechanical life. The true manifestation of great purpose is to be great in both.</description>
-		<!-- <exclusionTags> -->
-		<!-- </exclusionTags> -->
 		<category>Structure</category>
 		<iconPath>WVC/Icons/Faction</iconPath>
 		<impact>0</impact>
@@ -50,12 +48,6 @@
 		</descriptionMaker>
 		<worshipRoomLabel>base</worshipRoomLabel>
 		<symbolPacks>
-		  <!-- <li> -->
-			<!-- <ideoName>Archotechnics</ideoName> -->
-			<!-- <theme>archotechnology</theme> -->
-			<!-- <adjective>archotechnic</adjective> -->
-			<!-- <member>archotechnist</member> -->
-		  <!-- </li> -->
 		  <li>
 			<ideoName>Archism</ideoName>
 			<theme>archism</theme>
@@ -87,156 +79,53 @@
 			<member>foreverist</member>
 		  </li>
 		</symbolPacks>
-		<!-- <requireOne> -->
-			<!-- <li> -->
-				<!-- <li>WVC_Apostasy_Never</li> -->
-			<!-- </li> -->
-			<!-- <li MayRequire="erdelf.humanoidalienraces"> -->
-				<!-- <li>HAR_AlienRaces_Respected</li> -->
-			<!-- </li> -->
-			<!-- <li MayRequire="erdelf.humanoidalienraces"> -->
-				<!-- <li>HAR_AlienDating_Preferred</li> -->
-			<!-- </li> -->
-			<!-- <li> -->
-				<!-- <li>Lovin_FreeApproved</li> -->
-			<!-- </li> -->
-			<!-- <li> -->
-				<!-- <li>Proselytizing_Frequently</li> -->
-				<!-- <li MayRequire="vanillaexpanded.vmemese">VME_Proselytizing_Forceful</li> -->
-			<!-- </li> -->
-			<!-- <li> -->
-				<!-- <li>SpouseCount_Female_Unlimited</li> -->
-			<!-- </li> -->
-			<!-- <li> -->
-				<!-- <li>SpouseCount_Male_Unlimited</li> -->
-			<!-- </li> -->
-			<!-- <li> -->
-				<!-- <li>Nudity_Female_NoRules</li> -->
-			<!-- </li> -->
-			<!-- <li> -->
-				<!-- <li>Nudity_Male_NoRules</li> -->
-			<!-- </li> -->
-			<!-- <li MayRequire="vanillaexpanded.vmemese"> -->
-				<!-- <li>VME_TatteredApparel_DontCare</li> -->
-			<!-- </li> -->
-			<!-- <li MayRequire="vanillaexpanded.vmemese"> -->
-				<!-- <li>VME_TaintedApparel_DontCare</li> -->
-			<!-- </li> -->
-		<!-- </requireOne> -->
 	</MemeDef>
 
-	<MemeDef>
-		<defName>WVC_Mechaskinist</defName>
-		<label>mechaskinist</label>
-		<description>There is no place in the world for a separation between organic and mechanical life. The true manifestation of great purpose is to be great in both.</description>
-		<iconPath>WVC/UI/Precepts/Memes_Hybridism</iconPath>
-		<groupDef>Misc</groupDef>
-		<impact>2</impact>
-		<!-- <exclusionTags> -->
-		  <!-- <li>FleshAugmentation</li> -->
-		<!-- </exclusionTags> -->
-		<generalRules>
-		  <rulesStrings>
-			<li>memeAdjective->technological</li>
-			<li>memeAdjective->machine</li>
-			<li>memeAdjective->industrial</li>
-			<li>memeCreed->school</li>
-			<li>memeCreed->academy</li>
-			<li>memeCreed->university</li>
-			<li>memeCreed->philosophy</li>
-			<li>memeHyphenPrefix->techno</li>
-			<li>memeHyphenPrefix->cyber</li>
-			<li>memeHyphenPrefix->haxor</li>
-			<li>memeHyphenPrefix->wire</li>
-			<li>memeConcept->technology</li>
-			<li>memeConcept->silicon</li>
-			<li>memeConcept->artifice</li>
-			<li>memeConcept->augmentation</li>
-			<li>memeConcept->enhancement</li>
-			<li>memeLeaderNoun->haxor</li>
-			<li>memeLeaderNoun->superuser</li>
-			<li>memeLeaderNoun->booster</li>
-			<li>memeLeaderNoun->nodist</li>
-			<li>memeLeaderNoun->hybridist</li>
-			<li>memeLeaderAdjective->techno</li>
-			<li>memeLeaderAdjective->cyber</li>
-			<li>memeMoralist->installer</li>
-			<li>memeMoralist->fixer</li>
-			<li>memeMoralist->uplifter</li>
-			<li>memeMoralist->technologist</li>
-		  </rulesStrings>
-		</generalRules>
-		<symbolPacks>
-		  <li>
-			<ideoName>Mechanoidism</ideoName>
-			<theme>mechanoidism</theme>
-			<adjective>mechanoidist</adjective>
-			<member>mechanoidist</member>
-		  </li>
-		  <li>
-			<ideoName>Hybridism</ideoName>
-			<theme>hybridism</theme>
-			<adjective>hybridist</adjective>
-			<member>hybridist</member>
-		  </li>
-		  <li>
-			<ideoName>Nodism</ideoName>
-			<theme>nodism</theme>
-			<adjective>nodist</adjective>
-			<member>nodist</member>
-		  </li>
-		  <li>
-			<ideoName>Xenism</ideoName>
-			<theme>xenism</theme>
-			<adjective>xenist</adjective>
-			<member>xenist</member>
-		  </li>
-		</symbolPacks>
-		<preferredWeaponClasses>
-		  <noble>Ultratech</noble>
-		  <despised>Neolithic</despised>
-		</preferredWeaponClasses>
-		<requireOne>
-		  <li>
-			<li>WVC_Mechaskinned_Indifference</li>
-			<li>WVC_Mechaskinned_Acceptable</li>
-			<li>WVC_Mechaskinned_Preferred</li>
-			<li>WVC_Mechaskinned_Exalted</li>
-		  </li>
-		  <li>
-			<li>Temperature_Tough</li>
-		  </li>
+	<!-- <MemeDef> -->
+		<!-- <defName>WVC_Mechaskinist</defName> -->
+		<!-- <label>exoskinist</label> -->
+		<!-- <description>There is nothing more reliable in this world than our flesh. And perfection is achieved where the flesh of a person is likened to metal.</description> -->
+		<!-- <iconPath>WVC/UI/Precepts/Memes_Hybridism</iconPath> -->
+		<!-- <groupDef>Misc</groupDef> -->
+		<!-- <impact>2</impact> -->
+		<!-- <randomizationSelectionWeightFactor>0.05</randomizationSelectionWeightFactor> -->
+		<!-- <symbolPacks> -->
 		  <!-- <li> -->
-			<!-- <li>WVC_MechanoidLabor_Light</li> -->
-			<!-- <li>MechanoidLabor_Enhanced</li> -->
-			<!-- <li>WVC_MechanoidLabor_Hard</li> -->
-			<!-- <li>WVC_MechanoidLabor_Extreme</li> -->
+			<!-- <ideoName>exoskinism</ideoName> -->
+			<!-- <theme>exoskinism</theme> -->
+			<!-- <adjective>exoskinist</adjective> -->
+			<!-- <member>exoskinist</member> -->
+		  <!-- </li> -->
+		<!-- </symbolPacks> -->
+		<!-- <requireOne> -->
+		  <!-- <li> -->
+			<!-- <li>WVC_Exoskinism_Misc</li> -->
+			<!-- <li>WVC_Exoskinism_Melee</li> -->
+			<!-- <li>WVC_Exoskinism_Social</li> -->
+			<!-- <li>WVC_Exoskinism_Medicine</li> -->
+			<!-- <li>WVC_Exoskinism_Intellectual</li> -->
+			<!-- <li>WVC_Exoskinism_Shooting</li> -->
 		  <!-- </li> -->
 		  <!-- <li> -->
-			<!-- <li MayRequire="Ludeon.RimWorld.Ideology">OrganUse_Acceptable</li> -->
+			<!-- <li>Temperature_Tough</li> -->
+		  <!-- </li> -->
+		  <!-- <li> -->
+			<!-- <li>RoughLiving_Welcomed</li> -->
+		  <!-- </li> -->
+		  <!-- <li> -->
+			<!-- <li>Nudity_Male_Mandatory</li> -->
+		  <!-- </li> -->
+		  <!-- <li> -->
+			<!-- <li>Nudity_Female_Mandatory</li> -->
 		  <!-- </li> -->
 		  <!-- <li> -->
 			<!-- <li>WVC_SubCorred_Improved</li> -->
+			<!-- <li>WVC_SubCorred_Flexible</li> -->
 		  <!-- </li> -->
-		</requireOne>
-		<styleItemTags>
-		  <li>
-			<tag>NoBeard</tag>
-			<weightFactor>2</weightFactor>
-		  </li>
-		</styleItemTags>
-		<thingStyleCategories>
-		  <li>
-			<category>Techist</category>
-			<priority>4</priority>
-		  </li>
-		</thingStyleCategories>
-		<agreeableTraits>
-		  <li>Transhumanist</li>
-		</agreeableTraits>
-		<disagreeableTraits>
-		  <li>BodyPurist</li>
-		</disagreeableTraits>
-	</MemeDef>
+		<!-- </requireOne> -->
+		<!-- <agreeableTraits> -->
+		  <!-- <li>Nudist</li> -->
+		<!-- </agreeableTraits> -->
+	<!-- </MemeDef> -->
 
 </Defs>

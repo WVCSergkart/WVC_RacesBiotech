@@ -36,7 +36,7 @@
   <GeneDef ParentName="WVC_MechanoidizationAbilities">
 	<defName>WVC_LongjumpMech</defName>
 	<label>mech longjump</label>
-	<description>Carriers of this gene have ultrafast mechanoid muscles which allow them to jump short distances.</description>
+	<description>Carriers of this gene have ultrafast muscles which allow them to jump short distances.</description>
 	<iconPath>UI/Abilities/MechLongJump</iconPath>
 	<statOffsets>
 	  <MoveSpeed>0.2</MoveSpeed>

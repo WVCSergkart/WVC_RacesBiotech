@@ -27,28 +27,30 @@
 	<Operation Class="PatchOperationAdd">
 		<xpath>/Defs/PreceptDef[defName="Temperature_Tough" or defName="RoughLiving_Welcomed"]/requiredMemes</xpath>
 		<value>
+			<!-- <li>WVC_Mechaskinist</li> -->
 			<li>WVC_Golemist</li>
 		</value>
 	</Operation>
 	<Operation Class="PatchOperationAdd">
 		<xpath>/Defs/PreceptDef[defName="Temperature_Tough" or defName="RoughLiving_Welcomed"]/associatedMemes</xpath>
 		<value>
+			<!-- <li>WVC_Mechaskinist</li> -->
 			<li>WVC_Golemist</li>
 		</value>
 	</Operation>
 
-	<Operation Class="PatchOperationAdd">
-		<xpath>/Defs/PreceptDef[defName="Temperature_Tough"]/requiredMemes</xpath>
-		<value>
-			<li>WVC_Mechaskinist</li>
-		</value>
-	</Operation>
-	<Operation Class="PatchOperationAdd">
-		<xpath>/Defs/PreceptDef[defName="Temperature_Tough"]/associatedMemes</xpath>
-		<value>
-			<li>WVC_Mechaskinist</li>
-		</value>
-	</Operation>
+	<!-- <Operation Class="PatchOperationAdd"> -->
+		<!-- <xpath>/Defs/PreceptDef[defName="Temperature_Tough"]/requiredMemes</xpath> -->
+		<!-- <value> -->
+			<!-- <li>WVC_Mechaskinist</li> -->
+		<!-- </value> -->
+	<!-- </Operation> -->
+	<!-- <Operation Class="PatchOperationAdd"> -->
+		<!-- <xpath>/Defs/PreceptDef[defName="Temperature_Tough"]/associatedMemes</xpath> -->
+		<!-- <value> -->
+			<!-- <li>WVC_Mechaskinist</li> -->
+		<!-- </value> -->
+	<!-- </Operation> -->
 
 	<!-- <Operation Class="PatchOperationAdd"> -->
 		<!-- <xpath>/Defs/MemeDef[defName="FleshPurity"]/requireOne</xpath> -->
@@ -61,20 +63,20 @@
 		<!-- </value> -->
 	<!-- </Operation> -->
 
-	<Operation Class="PatchOperationFindMod">
-		<mods>
-			<li>Vanilla Ideology Expanded - Memes and Structures</li>
-		</mods>
-		<match Class="PatchOperationAdd">
-			<xpath>/Defs/MemeDef[defName="VME_MechanoidSupremacy"]/requireOne</xpath>
-			<value>
-			  <li>
-				<li>WVC_Mechaskinned_Acceptable</li>
-				<li>WVC_Mechaskinned_Preferred</li>
-				<li>WVC_Mechaskinned_Exalted</li>
-			  </li>
-			</value>
-		</match>
-	</Operation>
+	<!-- <Operation Class="PatchOperationFindMod"> -->
+		<!-- <mods> -->
+			<!-- <li>Vanilla Ideology Expanded - Memes and Structures</li> -->
+		<!-- </mods> -->
+		<!-- <match Class="PatchOperationAdd"> -->
+			<!-- <xpath>/Defs/MemeDef[defName="VME_MechanoidSupremacy"]/requireOne</xpath> -->
+			<!-- <value> -->
+			  <!-- <li> -->
+				<!-- <li>WVC_Mechaskinned_Acceptable</li> -->
+				<!-- <li>WVC_Mechaskinned_Preferred</li> -->
+				<!-- <li>WVC_Mechaskinned_Exalted</li> -->
+			  <!-- </li> -->
+			<!-- </value> -->
+		<!-- </match> -->
+	<!-- </Operation> -->
 
 </Patch>
