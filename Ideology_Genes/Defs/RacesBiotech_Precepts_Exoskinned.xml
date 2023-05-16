@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <IssueDef>
+	<defName>WVC_Mechaskinned</defName>
+	<label>exoskin</label>
+	<iconPath>WVC/UI/Precepts/Mechanoidization</iconPath>
+  </IssueDef>
+
+  <!-- Precepts -->
+
+  <PreceptDef>
+	<defName>WVC_Mechaskinned_Horrible</defName>
+	<issue>WVC_Mechaskinned</issue>
+	<label>horrible</label>
+	<description>Such disgusting skin should not exist.</description>
+	<!-- <impact>High</impact> -->
+	<impact>Medium</impact>
+	<!-- <impact>Low</impact> -->
+	<displayOrderInIssue>40</displayOrderInIssue>
+	<displayOrderInImpact>100</displayOrderInImpact>
+	<!-- <defaultSelectionWeight>1</defaultSelectionWeight> -->
+	<conflictingMemes>
+	  <li>WVC_Mechaskinist</li>
+	  <li>Transhumanist</li>
+	</conflictingMemes>
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_PawnIsMechaskinned_Horrible_Social</thought>
+		<thoughtStageDescriptions>
+		  <li>Exoskinned</li>
+		</thoughtStageDescriptions>
+	  </li>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_PawnIsMechaskinned_Horrible</thought>
+		<thoughtStageDescriptions>
+		  <li>Exoskinned</li>
+		</thoughtStageDescriptions>
+	  </li>
+	</comps>
+  </PreceptDef>
+
+  <PreceptDef>
+	<defName>WVC_Mechaskinned_Disapproved</defName>
+	<issue>WVC_Mechaskinned</issue>
+	<label>disapproved</label>
+	<description>Exo skin is disgusting.</description>
+	<impact>Low</impact>
+	<displayOrderInIssue>30</displayOrderInIssue>
+	<displayOrderInImpact>100</displayOrderInImpact>
+	<conflictingMemes>
+	  <li>WVC_Mechaskinist</li>
+	  <li>Transhumanist</li>
+	</conflictingMemes>
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_PawnIsMechaskinned_Disapproved_Social</thought>
+		<thoughtStageDescriptions>
+		  <li>Exoskinned</li>
+		</thoughtStageDescriptions>
+	  </li>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_PawnIsMechaskinned_Disapproved</thought>
+		<thoughtStageDescriptions>
+		  <li>Exoskinned</li>
+		</thoughtStageDescriptions>
+	  </li>
+	</comps>
+  </PreceptDef>
+
+  <PreceptDef>
+	<defName>WVC_Mechaskinned_Indifference</defName>
+	<issue>WVC_Mechaskinned</issue>
+	<label>indifference</label>
+	<description>We don't care about skin.</description>
+	<!-- <impact>Medium</impact> -->
+	<impact>Low</impact>
+	<displayOrderInIssue>15</displayOrderInIssue>
+	<displayOrderInImpact>100</displayOrderInImpact>
+	<associatedMemes>
+	  <li>WVC_Mechaskinist</li>
+	</associatedMemes>
+  </PreceptDef>
+
+  <PreceptDef>
+	<defName>WVC_Mechaskinned_Acceptable</defName>
+	<issue>WVC_Mechaskinned</issue>
+	<label>liking</label>
+	<description>Exo skin is cute.</description>
+	<impact>Medium</impact>
+	<!-- <impact>Low</impact> -->
+	<displayOrderInIssue>20</displayOrderInIssue>
+	<displayOrderInImpact>100</displayOrderInImpact>
+	<associatedMemes>
+	  <li>WVC_Mechaskinist</li>
+	</associatedMemes>
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_PawnIsMechaskinned_Acceptable_Social</thought>
+		<thoughtStageDescriptions>
+		  <li>Exoskinned</li>
+		</thoughtStageDescriptions>
+	  </li>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_PawnIsMechaskinned_Acceptable</thought>
+		<thoughtStageDescriptions>
+		  <li>Exoskinned</li>
+		</thoughtStageDescriptions>
+	  </li>
+	</comps>
+  </PreceptDef>
+
+  <PreceptDef>
+	<defName>WVC_Mechaskinned_Preferred</defName>
+	<issue>WVC_Mechaskinned</issue>
+	<label>preferred</label>
+	<description>The best skin is the one that is different from human skin.</description>
+	<!-- <impact>High</impact> -->
+	<!-- <impact>Low</impact> -->
+	<impact>Medium</impact>
+	<displayOrderInIssue>10</displayOrderInIssue>
+	<displayOrderInImpact>100</displayOrderInImpact>
+	<associatedMemes>
+	  <li>WVC_Mechaskinist</li>
+	</associatedMemes>
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_PawnIsMechaskinned_Preferred_Social</thought>
+		<thoughtStageDescriptions>
+		  <li>Exoskinned</li>
+		</thoughtStageDescriptions>
+	  </li>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_PawnIsMechaskinned_Preferred</thought>
+		<thoughtStageDescriptions>
+		  <li>Exoskinned</li>
+		</thoughtStageDescriptions>
+	  </li>
+	</comps>
+  </PreceptDef>
+
+  <PreceptDef>
+	<defName>WVC_Mechaskinned_Exalted</defName>
+	<issue>WVC_Mechaskinned</issue>
+	<label>exalted</label>
+	<description>Exo skin is a blessing.</description>
+	<impact>High</impact>
+	<displayOrderInIssue>0</displayOrderInIssue>
+	<displayOrderInImpact>100</displayOrderInImpact>
+	<associatedMemes>
+	  <li>WVC_Mechaskinist</li>
+	</associatedMemes>
+	<requiredMemes>
+	  <li>WVC_Mechaskinist</li>
+	</requiredMemes>
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_PawnIsMechaskinned_Exalted_Social</thought>
+		<thoughtStageDescriptions>
+		  <li>Exoskinned</li>
+		</thoughtStageDescriptions>
+	  </li>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_PawnIsMechaskinned_Exalted</thought>
+		<thoughtStageDescriptions>
+		  <li>Exoskinned</li>
+		</thoughtStageDescriptions>
+	  </li>
+	</comps>
+  </PreceptDef>
+
+  <!-- <PreceptDef> -->
+	<!-- <defName>WVC_Mechaskinned_Godlike</defName> -->
+	<!-- <issue>WVC_Mechaskinned</issue> -->
+	<!-- <label>godlike</label> -->
+	<!-- <description>A being that combines a machine and a human is a priori divine.</description> -->
+	<!-- <impact>High</impact> -->
+	<!-- <displayOrderInIssue>0</displayOrderInIssue> -->
+	<!-- <conflictingMemes> -->
+	  <!-- <li>FleshPurity</li> -->
+	<!-- </conflictingMemes> -->
+	<!-- <associatedMemes> -->
+	  <!-- <li>Transhumanist</li> -->
+	<!-- </associatedMemes> -->
+  <!-- </PreceptDef> -->
+
+  <!-- =Social=Social=Social=Social=Social=Social=Social=Social=Social=Social= -->
+
+  <ThoughtDef>
+	<defName>WVC_PawnIsMechaskinned_Horrible_Social</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
+	<stages>
+	  <li>
+		<label>exoskinned</label>
+		<baseOpinionOffset>-18</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_PawnIsMechaskinned_Disapproved_Social</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
+	<stages>
+	  <li>
+		<label>exoskinned</label>
+		<baseOpinionOffset>-8</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_PawnIsMechaskinned_Acceptable_Social</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
+	<stages>
+	  <li>
+		<label>exoskinned</label>
+		<!-- <visible>false</visible> -->
+		<baseOpinionOffset>5</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_PawnIsMechaskinned_Preferred_Social</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
+	<stages>
+	  <li>
+		<label>exoskinned</label>
+		<baseOpinionOffset>10</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_PawnIsMechaskinned_Exalted_Social</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
+	<stages>
+	  <li>
+		<label>exoskinned</label>
+		<baseOpinionOffset>20</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <!-- =Self=Self=Self=Self=Self=Self=Self=Self=Self=Self=Self=Self=Self= -->
+
+  <ThoughtDef>
+	<defName>WVC_PawnIsMechaskinned_Horrible</defName>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought</workerClass>
+	<validWhileDespawned>true</validWhileDespawned>
+	<stages>
+	  <li>
+		<label>exoskinned</label>
+		<description>I am clean of this dirt.</description>
+		<baseMoodEffect>-10</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_PawnIsMechaskinned_Disapproved</defName>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought</workerClass>
+	<stages>
+	  <li>
+		<label>exoskinned</label>
+		<description>I am clean of this dirt.</description>
+		<!-- <visible>false</visible> -->
+		<baseMoodEffect>-5</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_PawnIsMechaskinned_Acceptable</defName>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought</workerClass>
+	<stages>
+	  <li>
+		<label>exoskinned</label>
+		<description>Not bad not good.</description>
+		<!-- <visible>false</visible> -->
+		<baseMoodEffect>5</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_PawnIsMechaskinned_Preferred</defName>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought</workerClass>
+	<stages>
+	  <li>
+		<label>exoskinned</label>
+		<description>My flesh matches my faith.</description>
+		<!-- <visible>false</visible> -->
+		<baseMoodEffect>8</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_PawnIsMechaskinned_Exalted</defName>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought</workerClass>
+	<stages>
+	  <li>
+		<label>exoskinned</label>
+		<description>My flesh matches my faith.</description>
+		<!-- <visible>false</visible> -->
+		<baseMoodEffect>15</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+</Defs>

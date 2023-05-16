@@ -81,23 +81,29 @@
 		</symbolPacks>
 	</MemeDef>
 
-	<!-- <MemeDef> -->
-		<!-- <defName>WVC_Mechaskinist</defName> -->
-		<!-- <label>exoskinist</label> -->
-		<!-- <description>There is nothing more reliable in this world than our flesh. And perfection is achieved where the flesh of a person is likened to metal.</description> -->
-		<!-- <iconPath>WVC/UI/Precepts/Memes_Hybridism</iconPath> -->
-		<!-- <groupDef>Misc</groupDef> -->
-		<!-- <impact>2</impact> -->
-		<!-- <randomizationSelectionWeightFactor>0.05</randomizationSelectionWeightFactor> -->
-		<!-- <symbolPacks> -->
-		  <!-- <li> -->
-			<!-- <ideoName>exoskinism</ideoName> -->
-			<!-- <theme>exoskinism</theme> -->
-			<!-- <adjective>exoskinist</adjective> -->
-			<!-- <member>exoskinist</member> -->
-		  <!-- </li> -->
-		<!-- </symbolPacks> -->
-		<!-- <requireOne> -->
+	<MemeDef>
+		<defName>WVC_Mechaskinist</defName>
+		<label>exoskinist</label>
+		<description>There is nothing more reliable in this world than our flesh.</description>
+		<iconPath>WVC/UI/Precepts/Memes_Hybridism</iconPath>
+		<groupDef>Misc</groupDef>
+		<impact>1</impact>
+		<randomizationSelectionWeightFactor>0.05</randomizationSelectionWeightFactor>
+		<symbolPacks>
+		  <li>
+			<ideoName>exoskinism</ideoName>
+			<theme>exoskinism</theme>
+			<adjective>exoskinist</adjective>
+			<member>exoskinist</member>
+		  </li>
+		</symbolPacks>
+		<requireOne>
+		  <li>
+			<li>WVC_Mechaskinned_Indifference</li>
+			<li>WVC_Mechaskinned_Acceptable</li>
+			<li>WVC_Mechaskinned_Preferred</li>
+			<li>WVC_Mechaskinned_Exalted</li>
+		  </li>
 		  <!-- <li> -->
 			<!-- <li>WVC_Exoskinism_Misc</li> -->
 			<!-- <li>WVC_Exoskinism_Melee</li> -->
@@ -122,10 +128,7 @@
 			<!-- <li>WVC_SubCorred_Improved</li> -->
 			<!-- <li>WVC_SubCorred_Flexible</li> -->
 		  <!-- </li> -->
-		<!-- </requireOne> -->
-		<!-- <agreeableTraits> -->
-		  <!-- <li>Nudist</li> -->
-		<!-- </agreeableTraits> -->
-	<!-- </MemeDef> -->
+		</requireOne>
+	</MemeDef>
 
 </Defs>

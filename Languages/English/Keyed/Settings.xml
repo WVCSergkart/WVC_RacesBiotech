@@ -12,9 +12,10 @@
 	<WVC_BiotechSettings_Tooltip_Other>Settings not related to anything specific.</WVC_BiotechSettings_Tooltip_Other>
 
 	<!-- ====================================================================================== -->
-	<WVC_Label_disableFurGraphic>Disable mechaskin/nodeskin graphic</WVC_Label_disableFurGraphic>
-	<WVC_ToolTip_disableFurGraphic>Turns off the visual changes introduced by Mechaskins.
+	<WVC_Label_disableFurGraphic>Disable mecha/node/rune/stone(skin) graphic</WVC_Label_disableFurGraphic>
+	<WVC_ToolTip_disableFurGraphic>Turns off the visual changes introduced by (...)skins.
 
+Note that the "exoskinist" meme precepts only work if graphics are enabled.
 A restart is required to apply the setting. Required new game!</WVC_ToolTip_disableFurGraphic>
 
 	<!-- ====================================================================================== -->
