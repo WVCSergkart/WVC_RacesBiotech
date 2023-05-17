@@ -41,6 +41,7 @@
 	<biostatMet>-1</biostatMet>
 	<iconColor>(255, 180, 160)</iconColor>
     <displayCategory>Temperature</displayCategory>
+	<displayOrderInCategory>555</displayOrderInCategory>
 	<conditionalStatAffecters>
 	  <li Class="ConditionalStatAffecter_Clothed">
 		<statOffsets>

@@ -72,6 +72,11 @@
 	<statOffsets>
 	  <WVC_MinSkillLevel>12</WVC_MinSkillLevel>
 	</statOffsets>
+	<hediffGiversCannotGive>
+	  <li>Dementia</li>
+	  <li>Alzheimers</li>
+	  <li>TraumaSavant</li>
+	</hediffGiversCannotGive>
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_Mechanoidization_AI</li> -->
 	<!-- </exclusionTags> -->
@@ -163,6 +168,9 @@
 		<offset>0.05</offset>
 	  </li>
 	</capMods>
+	<hediffGiversCannotGive>
+	  <li>HearingLoss</li>
+	</hediffGiversCannotGive>
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
@@ -179,6 +187,9 @@
 		<offset>0.05</offset>
 	  </li>
 	</capMods>
+	<hediffGiversCannotGive>
+	  <li>Cataract</li>
+	</hediffGiversCannotGive>
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">

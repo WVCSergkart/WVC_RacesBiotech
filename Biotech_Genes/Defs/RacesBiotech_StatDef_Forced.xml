@@ -89,16 +89,16 @@
 	</parts>
   </StatDef>
 
-  <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
-	<defName>WVC_ForceTo_ComfyTemperatureMin</defName>
-	<label>minimum comfortable temperature is always</label>
-	<toStringStyle>Temperature</toStringStyle>
-  </StatDef>
-  <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
-	<defName>WVC_ForceTo_ComfyTemperatureMax</defName>
-	<label>maximum comfortable temperature is always</label>
-	<toStringStyle>Temperature</toStringStyle>
-  </StatDef>
+  <!-- <StatDef ParentName="WVC_Biotech_ForcedStat_Base"> -->
+	<!-- <defName>WVC_ForceTo_ComfyTemperatureMin</defName> -->
+	<!-- <label>minimum comfortable temperature is always</label> -->
+	<!-- <toStringStyle>Temperature</toStringStyle> -->
+  <!-- </StatDef> -->
+  <!-- <StatDef ParentName="WVC_Biotech_ForcedStat_Base"> -->
+	<!-- <defName>WVC_ForceTo_ComfyTemperatureMax</defName> -->
+	<!-- <label>maximum comfortable temperature is always</label> -->
+	<!-- <toStringStyle>Temperature</toStringStyle> -->
+  <!-- </StatDef> -->
 
   <!-- <StatDef ParentName="WVC_Biotech_ForcedStat_Base"> -->
 	<!-- <defName>WVC_BleedingFactor</defName> -->

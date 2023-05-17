@@ -200,6 +200,10 @@
 	  <ToxicResistance>0.25</ToxicResistance>
 	  <InjuryHealingFactor>1</InjuryHealingFactor>
 	</statOffsets>
+	<makeImmuneTo>
+	  <li>FibrousMechanites</li>
+	  <li>SensoryMechanites</li>
+	</makeImmuneTo>
 	<!-- <modExtensions Inherit="False"> -->
 		<!-- <li Class="WVC.GeneExtension_Background"> -->
 			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGeneActive</backgroundPathArchite> -->
@@ -223,6 +227,10 @@
 	  <ComfyTemperatureMin>-25</ComfyTemperatureMin>
 	  <ArmorRating_Heat>0.10</ArmorRating_Heat>
 	</statOffsets>
+	<makeImmuneTo>
+	  <li>LungRot</li>
+	  <li>LungRotExposure</li>
+	</makeImmuneTo>
 	<!-- <modExtensions Inherit="False"> -->
 		<!-- <li Class="WVC.GeneExtension_Background"> -->
 			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGeneActive</backgroundPathArchite> -->
@@ -294,6 +302,9 @@
 		<def>QuickSleeper</def>
 	  </li>
 	</suppressedTraits>
+	<makeImmuneTo>
+	  <li>SleepingSickness</li>
+	</makeImmuneTo>
 	<!-- <statFactors> -->
 	  <!-- <BedHungerRateFactor>0.0</BedHungerRateFactor> -->
 	<!-- </statFactors> -->

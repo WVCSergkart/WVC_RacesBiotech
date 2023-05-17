@@ -120,6 +120,37 @@
 	</modExtensions>
   </GeneDef>
 
+  <GeneDef>
+	<defName>WVC_EmotionlessUnshakable</defName>
+	<label>unshakable</label>
+	<description>Carriers of this gene never experience nervous breakdowns.</description>
+	<iconPath>WVC/UI/Genes/Emotionless_Unshakable</iconPath>
+	<displayCategory>Mood</displayCategory>
+	<displayOrderInCategory>1245</displayOrderInCategory>
+	<selectionWeight>0.0105</selectionWeight>
+	<statFactors>
+	  <MentalBreakThreshold>0</MentalBreakThreshold>
+	</statFactors>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<biostatArc>1</biostatArc>
+	<exclusionTags>
+	  <li>Aggressive</li>
+	  <li>KillThirst</li>
+	  <li>Mood</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>steady</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC.GeneExtension_Background">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
   <!-- Hunter -->
 
   <GeneDef Name="WVC_NaturalHunterBase" Abstract="True">

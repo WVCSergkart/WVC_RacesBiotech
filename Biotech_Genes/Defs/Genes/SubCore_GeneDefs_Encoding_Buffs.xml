@@ -203,15 +203,15 @@
 	<iconPath>WVC/UI/Genes/Encoding_GeneF</iconPath>
 	<statOffsets>
 	  <WVC_BandwidthCostOffsetMech>-1</WVC_BandwidthCostOffsetMech>
+	  <WVC_ForceTo_MechBandwidth>2</WVC_ForceTo_MechBandwidth>
 	</statOffsets>
-	<conditionalStatAffecters>
-	  <li Class="WVC.ConditionalStatAffecter_CauseSetting">
-		<settingName>nodeskinVX_MechBandwidth</settingName>
-		<statOffsets>
-			<WVC_ForceTo_MechBandwidth>2</WVC_ForceTo_MechBandwidth>
-		</statOffsets>
-	  </li>
-	</conditionalStatAffecters>
+	<!-- <conditionalStatAffecters> -->
+	  <!-- <li Class="WVC.ConditionalStatAffecter_CauseSetting"> -->
+		<!-- <settingName>nodeskinVX_MechBandwidth</settingName> -->
+		<!-- <statOffsets> -->
+		<!-- </statOffsets> -->
+	  <!-- </li> -->
+	<!-- </conditionalStatAffecters> -->
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_Entity</li>
 	</exclusionTags>
