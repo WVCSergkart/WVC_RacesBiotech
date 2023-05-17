@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <!-- <WVC.ArchiteSkillsGeneTemplateDef> -->
+  <!-- <WVC.SkillsGeneTemplateDef> -->
 	<!-- <defName>WVC_AptitudeArchite</defName> -->
 	<!-- <label>archite {0}</label> -->
 	<!-- <description>The carrier's aptitude in {0} is increased by 20. Aptitude acts like an offset on skill level. Additionally, one level of passion is added to {0}.</description> -->
@@ -11,13 +11,22 @@
 	<!-- <displayOrderOffset>100</displayOrderOffset> -->
 	<!-- <biostatCpx>3</biostatCpx> -->
 	<!-- <biostatMet>0</biostatMet> -->
-	<!-- <biostatArc>0</biostatArc> -->
+	<!-- <biostatArc>1</biostatArc> -->
 	<!-- <selectionWeight>0.035</selectionWeight> -->
 	<!-- <geneClass>Gene</geneClass> -->
 	<!-- <ignoreIllegalLabelCharacterConfigError>true</ignoreIllegalLabelCharacterConfigError> -->
 	<!-- <exclusionTagPrefix>Aptitude</exclusionTagPrefix> -->
 	<!-- <displayCategory>Aptitudes</displayCategory> -->
-  <!-- </WVC.ArchiteSkillsGeneTemplateDef> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes> -->
+		<!-- </li> -->
+		<!-- <li Class="WVC.GeneExtension_Background"> -->
+			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </WVC.SkillsGeneTemplateDef> -->
 
   <!-- Aptitude -->
 
@@ -175,13 +184,24 @@
 
   <!-- Hidden -->
 
+  <GeneTemplateDef ParentName="GeneAptitudeBase">
+	<defName>WVC_Aptitudes_0_Skill</defName>
+	<label>nullify {0}</label>
+	<description>The carrier's aptitude in {0} is nullified. Aptitude acts like an offset on skill level.</description>
+	<iconPath>WVC/UI/Genes/SkillUp_Equal</iconPath>
+	<aptitudeOffset>0</aptitudeOffset>
+	<!-- <passionModType>AddOneLevel</passionModType> -->
+	<displayOrderOffset>15</displayOrderOffset>
+	<biostatCpx>0</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<selectionWeight>0.005</selectionWeight>
+  </GeneTemplateDef>
+
   <GeneDef Name="WVC_Aptitudes_ZeroHidden" Abstract="True">
-	<!-- <defName>WVC_Natural_Base</defName> -->
 	<label>skills</label>
 	<description>The carrier's aptitude is 0. Aptitude acts like an offset on skill level.</description>
 	<iconPath>WVC/UI/Genes/SkillUp_Equal</iconPath>
 	<displayOrderInCategory>-990</displayOrderInCategory>
-	<!-- <prerequisite>WVC_Natural_Base</prerequisite> -->
 	<displayCategory>Aptitudes</displayCategory>
 	<selectionWeight>0.005</selectionWeight>
 	<biostatCpx>0</biostatCpx>
@@ -190,124 +210,120 @@
 	<customEffectDescriptions>
 		<li>Nullifying aptitude of the same name.</li>
 	</customEffectDescriptions>
-	<!-- <aptitudes> -->
-	  <!-- <Intellectual>1</Intellectual> -->
-	<!-- </aptitudes> -->
 	<exclusionTags>
-	  <!-- <li>WVC_Mechanoidization_Skills</li> -->
 	</exclusionTags>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
-			<!-- <hideGene>true</hideGene> -->
 			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
 			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
 		</li>
 	</modExtensions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_Aptitudes_ZeroHidden">
-	<defName>WVC_Aptitudes_0_Skill_Intellectual</defName>
-	<label>nullify intellectual</label>
-	<exclusionTags>
-	  <li>AptitudeIntellectual</li>
-	  <li>Aptitude_Intellectual</li>
-	</exclusionTags>
-  </GeneDef>
-  <GeneDef ParentName="WVC_Aptitudes_ZeroHidden">
-	<defName>WVC_Aptitudes_0_Skill_Crafting</defName>
-	<label>nullify crafting</label>
-	<exclusionTags>
-	  <li>AptitudeCrafting</li>
-	  <li>Aptitude_Crafting</li>
-	</exclusionTags>
-  </GeneDef>
-  <GeneDef ParentName="WVC_Aptitudes_ZeroHidden">
-	<defName>WVC_Aptitudes_0_Skill_Melee</defName>
-	<label>nullify melee</label>
-	<exclusionTags>
-	  <li>AptitudeMelee</li>
-	  <li>Aptitude_Melee</li>
-	</exclusionTags>
-  </GeneDef>
-  <GeneDef ParentName="WVC_Aptitudes_ZeroHidden">
-	<defName>WVC_Aptitudes_0_Skill_Plants</defName>
-	<label>nullify plants</label>
-	<exclusionTags>
-	  <li>AptitudePlants</li>
-	  <li>Aptitude_Plants</li>
-	</exclusionTags>
-  </GeneDef>
-  <GeneDef ParentName="WVC_Aptitudes_ZeroHidden">
-	<defName>WVC_Aptitudes_0_Skill_Cooking</defName>
-	<label>nullify cooking</label>
-	<exclusionTags>
-	  <li>AptitudeCooking</li>
-	  <li>Aptitude_Cooking</li>
-	</exclusionTags>
-  </GeneDef>
-  <GeneDef ParentName="WVC_Aptitudes_ZeroHidden">
-	<defName>WVC_Aptitudes_0_Skill_Mining</defName>
-	<label>nullify mining</label>
-	<exclusionTags>
-	  <li>AptitudeMining</li>
-	  <li>Aptitude_Mining</li>
-	</exclusionTags>
-  </GeneDef>
-  <GeneDef ParentName="WVC_Aptitudes_ZeroHidden">
-	<defName>WVC_Aptitudes_0_Skill_Construction</defName>
-	<label>nullify construction</label>
-	<exclusionTags>
-	  <li>AptitudeConstruction</li>
-	  <li>Aptitude_Construction</li>
-	</exclusionTags>
-  </GeneDef>
-  <GeneDef ParentName="WVC_Aptitudes_ZeroHidden">
-	<defName>WVC_Aptitudes_0_Skill_Shooting</defName>
-	<label>nullify shooting</label>
-	<exclusionTags>
-	  <li>AptitudeShooting</li>
-	  <li>Aptitude_Shooting</li>
-	</exclusionTags>
-  </GeneDef>
-  <GeneDef ParentName="WVC_Aptitudes_ZeroHidden">
-	<defName>WVC_Aptitudes_0_Skill_Animals</defName>
-	<label>nullify animals</label>
-	<exclusionTags>
-	  <li>AptitudeAnimals</li>
-	  <li>Aptitude_Animals</li>
-	</exclusionTags>
-  </GeneDef>
-  <GeneDef ParentName="WVC_Aptitudes_ZeroHidden">
-	<defName>WVC_Aptitudes_0_Skill_Medicine</defName>
-	<label>nullify medicine</label>
-	<exclusionTags>
-	  <li>AptitudeMedicine</li>
-	  <li>Aptitude_Medicine</li>
-	</exclusionTags>
-  </GeneDef>
-  <GeneDef ParentName="WVC_Aptitudes_ZeroHidden">
-	<defName>WVC_Aptitudes_0_Skill_Artistic</defName>
-	<label>nullify artistic</label>
-	<exclusionTags>
-	  <li>AptitudeArtistic</li>
-	  <li>Aptitude_Artistic</li>
-	</exclusionTags>
-  </GeneDef>
-  <GeneDef ParentName="WVC_Aptitudes_ZeroHidden">
-	<defName>WVC_Aptitudes_0_Skill_Social</defName>
-	<label>nullify social</label>
-	<exclusionTags>
-	  <li>AptitudeSocial</li>
-	  <li>Aptitude_Social</li>
-	</exclusionTags>
-  </GeneDef>
+  <!-- <GeneDef ParentName="WVC_Aptitudes_ZeroHidden"> -->
+	<!-- <defName>WVC_Aptitudes_0_Skill_Intellectual</defName> -->
+	<!-- <label>nullify intellectual</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>AptitudeIntellectual</li> -->
+	  <!-- <li>Aptitude_Intellectual</li> -->
+	<!-- </exclusionTags> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Aptitudes_ZeroHidden"> -->
+	<!-- <defName>WVC_Aptitudes_0_Skill_Crafting</defName> -->
+	<!-- <label>nullify crafting</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>AptitudeCrafting</li> -->
+	  <!-- <li>Aptitude_Crafting</li> -->
+	<!-- </exclusionTags> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Aptitudes_ZeroHidden"> -->
+	<!-- <defName>WVC_Aptitudes_0_Skill_Melee</defName> -->
+	<!-- <label>nullify melee</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>AptitudeMelee</li> -->
+	  <!-- <li>Aptitude_Melee</li> -->
+	<!-- </exclusionTags> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Aptitudes_ZeroHidden"> -->
+	<!-- <defName>WVC_Aptitudes_0_Skill_Plants</defName> -->
+	<!-- <label>nullify plants</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>AptitudePlants</li> -->
+	  <!-- <li>Aptitude_Plants</li> -->
+	<!-- </exclusionTags> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Aptitudes_ZeroHidden"> -->
+	<!-- <defName>WVC_Aptitudes_0_Skill_Cooking</defName> -->
+	<!-- <label>nullify cooking</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>AptitudeCooking</li> -->
+	  <!-- <li>Aptitude_Cooking</li> -->
+	<!-- </exclusionTags> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Aptitudes_ZeroHidden"> -->
+	<!-- <defName>WVC_Aptitudes_0_Skill_Mining</defName> -->
+	<!-- <label>nullify mining</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>AptitudeMining</li> -->
+	  <!-- <li>Aptitude_Mining</li> -->
+	<!-- </exclusionTags> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Aptitudes_ZeroHidden"> -->
+	<!-- <defName>WVC_Aptitudes_0_Skill_Construction</defName> -->
+	<!-- <label>nullify construction</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>AptitudeConstruction</li> -->
+	  <!-- <li>Aptitude_Construction</li> -->
+	<!-- </exclusionTags> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Aptitudes_ZeroHidden"> -->
+	<!-- <defName>WVC_Aptitudes_0_Skill_Shooting</defName> -->
+	<!-- <label>nullify shooting</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>AptitudeShooting</li> -->
+	  <!-- <li>Aptitude_Shooting</li> -->
+	<!-- </exclusionTags> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Aptitudes_ZeroHidden"> -->
+	<!-- <defName>WVC_Aptitudes_0_Skill_Animals</defName> -->
+	<!-- <label>nullify animals</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>AptitudeAnimals</li> -->
+	  <!-- <li>Aptitude_Animals</li> -->
+	<!-- </exclusionTags> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Aptitudes_ZeroHidden"> -->
+	<!-- <defName>WVC_Aptitudes_0_Skill_Medicine</defName> -->
+	<!-- <label>nullify medicine</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>AptitudeMedicine</li> -->
+	  <!-- <li>Aptitude_Medicine</li> -->
+	<!-- </exclusionTags> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Aptitudes_ZeroHidden"> -->
+	<!-- <defName>WVC_Aptitudes_0_Skill_Artistic</defName> -->
+	<!-- <label>nullify artistic</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>AptitudeArtistic</li> -->
+	  <!-- <li>Aptitude_Artistic</li> -->
+	<!-- </exclusionTags> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_Aptitudes_ZeroHidden"> -->
+	<!-- <defName>WVC_Aptitudes_0_Skill_Social</defName> -->
+	<!-- <label>nullify social</label> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>AptitudeSocial</li> -->
+	  <!-- <li>Aptitude_Social</li> -->
+	<!-- </exclusionTags> -->
+  <!-- </GeneDef> -->
 
   <GeneDef ParentName="WVC_Aptitudes_ZeroHidden">
 	<defName>WVC_Aptitudes_GreatEqualizer</defName>
 	<label>great equalizer</label>
 	<description>Turns off all aptitudes.</description>
 	<biostatArc>1</biostatArc>
-	<selectionWeight>0.0055</selectionWeight>
+	<!-- <selectionWeight>0.0055</selectionWeight> -->
+	<displayOrderInCategory>-999</displayOrderInCategory>
 	<customEffectDescriptions Inherit="False">
 		<li>Nullifying all aptitudes.</li>
 	</customEffectDescriptions>
