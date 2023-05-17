@@ -5,8 +5,8 @@
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Base">
 	<defName>WVC_RuneDryad</defName>
 	<label>runeex</label>
-	<description>Runeex are ageless humans powered by archotech-created archites in the bloodstream. They are beautiful and extremely weak. They are practically unable to fight and cannot work much. However, they require little to no food and can control unlimited hordes of golems.</description>
-	<descriptionShort>Runeex are ageless humans powered by archotech-created archites in the bloodstream. They are beautiful and extremely weak. They are practically unable to fight and cannot work much. However, they require little to no food and can control unlimited hordes of golems.</descriptionShort>
+	<description>Runeex are ageless super-humans powered by archotech-created archites in the bloodstream. They are beautiful and extremely weak. They are practically unable to fight and cannot work much. However, they require little to no food and can control unlimited hordes of golems.</description>
+	<descriptionShort>Runeex are ageless super-humans powered by archotech-created archites in the bloodstream. They are beautiful and extremely weak. They are practically unable to fight and cannot work much. However, they require little to no food and can control unlimited hordes of golems.</descriptionShort>
 	<iconPath>WVC/UI/Xeno2Icons/Xeno14</iconPath>
 	<genes>
 		<li>Ageless</li>
@@ -51,8 +51,8 @@
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Base">
 	<defName>WVC_Golemkind</defName>
 	<label>golemkind</label>
-	<description>Golemkinds are ageless humans powered by archotech-created archites in the bloodstream. They are extremely slow, have poor psychic sensitivity, are very slow to learn, and their wounds take a very long time to heal. However, they are immune to most diseases, have excellent fire resistance, are very durable, and require very little food.</description>
-	<descriptionShort>Golemkinds are ageless humans powered by archotech-created archites in the bloodstream. They are extremely slow, have poor psychic sensitivity, are very slow to learn, and their wounds take a very long time to heal. However, they are immune to most diseases, have excellent fire resistance, are very durable, and require very little food.</descriptionShort>
+	<description>Golemkinds are ageless super-humans powered by archotech-created archites in the bloodstream. They are extremely slow, have poor psychic sensitivity, are very slow to learn, and their wounds take a very long time to heal. However, they are immune to most diseases, have excellent fire resistance, are very durable, and require very little food.</description>
+	<descriptionShort>Golemkinds are ageless super-humans powered by archotech-created archites in the bloodstream. They are extremely slow, have poor psychic sensitivity, are very slow to learn, and their wounds take a very long time to heal. However, they are immune to most diseases, have excellent fire resistance, are very durable, and require very little food.</descriptionShort>
 	<iconPath>WVC/UI/Xeno2Icons/Xeno25</iconPath>
 	<inheritable>false</inheritable>
 	<!-- <canGenerateAsCombatant>true</canGenerateAsCombatant> -->

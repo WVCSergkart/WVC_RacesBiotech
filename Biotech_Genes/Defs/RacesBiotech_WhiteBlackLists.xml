@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WVC.BlackListedXenotypesDef>
+	<defName>WVC_RacesBiotech_BlackListedXenotypes</defName>
+	<!-- Xenotypes not selected for random serum -->
+	<blackListedForSerums>
+		<li>Baseliner</li>
+		<li>WVC_Blank</li>
+		<li>AG_Wretch</li>
+		<li>AG_RandomCustom</li>
+		<li>VREA_AndroidBasic</li>
+		<li>VREA_AndroidAwakened</li>
+	</blackListedForSerums>
+	<!-- Xenotypes that do not fall into a coma when using serum -->
+	<perfectCandidatesForSerums>
+		<li>WVC_Blank</li>
+		<li>AG_Wretch</li>
+	</perfectCandidatesForSerums>
+  </WVC.BlackListedXenotypesDef>
+
+  <!-- Traits that are allowed to be generated as genes -->
+  <!-- <WVC.Template_WhiteListedTraitsDef> -->
+	<!-- <defName>WVC_RacesBiotech_WhiteListedTraits</defName> -->
+	<!-- <whiteListedTraits> -->
+		<!-- <li>Nudist</li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+	<!-- </whiteListedTraits> -->
+  <!-- </WVC.Template_WhiteListedTraitsDef> -->
+
+</Defs>
