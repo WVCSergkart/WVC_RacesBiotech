@@ -163,7 +163,7 @@
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<customEffectDescriptions Inherit="False">
-		<li>Disables genepack throwers genes.</li>
+		<li>Disables genepack thrower genes.</li>
 	</customEffectDescriptions>
 	<statOffsets>
 	  <InjuryHealingFactor>0.25</InjuryHealingFactor>

@@ -102,7 +102,7 @@
 					<success>Always</success>
 				</li>
 				<li Class="PatchOperationRemove">
-					<xpath>/Defs/GeneDef[@WVC_Tag="MechaAndNodeSkins_EasyPatch"]/modExtensions/li[@Class="WVC.GeneExtension_EyeDraws"]</xpath>
+					<xpath>/Defs/GeneDef[@WVC_Tag="MechaAndNodeSkins_EasyPatch"]/modExtensions/li[@Class="WVC.GeneExtension_General"]/eyesShouldBeInvisble</xpath>
 					<success>Always</success>
 				</li>
 				<li Class="PatchOperationRemove">

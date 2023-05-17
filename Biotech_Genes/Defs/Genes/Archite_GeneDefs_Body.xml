@@ -31,7 +31,7 @@
 
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
 	<defName>WVC_MecaBodyParts_Heart</defName>
-	<label>mecha-clotting</label>
+	<label>archite-clotting</label>
 	<description>Carriers of this gene have archites that stabilize blood pressure, which helps to avoid bleeding.</description>
 	<!-- <geneClass>WVC.Gene_MechaClotting</geneClass> -->
 	<geneClass>WVC.Gene_MechaClotting</geneClass>
@@ -72,7 +72,7 @@
 
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
 	<defName>WVC_MecaBodyParts_Spine</defName>
-	<label>mechaskeleton</label>
+	<label>super-skeleton</label>
 	<description>Archites greatly enhance the carrier's skeletal structure.</description>
 	<biostatMet>-1</biostatMet>
 	<statFactors>
@@ -80,7 +80,7 @@
 	</statFactors>
 	<statOffsets>
 	  <!-- <MoveSpeed>0.5</MoveSpeed> -->
-	  <ArmorRating_Blunt>0.05</ArmorRating_Blunt>
+	  <ArmorRating_Blunt>0.15</ArmorRating_Blunt>
 	</statOffsets>
 	<customEffectDescriptions>
 		<li>Carrying capacity on the map increased to 20%.</li>
@@ -109,7 +109,7 @@
 	<!-- <toleranceBuildupFactor>0</toleranceBuildupFactor> -->
 	<!-- <addictionChanceFactor>0</addictionChanceFactor> -->
 	<dontMindRawFood>true</dontMindRawFood>
-	<biostatMet>2</biostatMet>
+	<biostatMet>1</biostatMet>
 	<makeImmuneTo>
 	  <li>GutWorms</li>
 	  <!-- <li>MuscleParasites</li> -->
@@ -129,7 +129,7 @@
 	<capMods>
 	  <li>
 		<capacity>Metabolism</capacity>
-		<offset>0.05</offset>
+		<offset>0.1</offset>
 	  </li>
 	</capMods>
   </GeneDef>

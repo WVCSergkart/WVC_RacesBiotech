@@ -51,7 +51,7 @@
 	<!-- <displayCategory>WVC_MechaBodyParts</displayCategory> -->
 	<displayOrderInCategory>1001</displayOrderInCategory>
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
-	<biostatCpx>1</biostatCpx>
+	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
 	<minAgeActive>0</minAgeActive>
@@ -195,7 +195,8 @@
 	<defName>WVC_Mecha_NoTail</defName>
 	<label>protective plate</label>
 	<description>Carriers of this gene have additional protection.</description>
-	<iconPath>WVC/MecaGene_ScytheTail/NoTail</iconPath>
+	<iconPath>WVC/UI/Genes/NoTail</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
 	<customEffectDescriptions>
 		<li>Disable tail.</li>
 	</customEffectDescriptions>

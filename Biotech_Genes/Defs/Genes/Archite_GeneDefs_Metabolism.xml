@@ -9,7 +9,7 @@
 	<labelShortAdj>blood saturation</labelShortAdj>
 	<description>Carriers of this gene have archites in their blood, which improve blood circulation and optimize blood saturation with nutrients. Which improves the genetic and metabolic quality.</description>
 	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath>
-	<!-- <iconColor>(255, 255, 255)</iconColor> -->
+	<iconColor>(255, 255, 255)</iconColor>
 	<displayCategory>Archite</displayCategory>
 	<displayOrderInCategory>-6</displayOrderInCategory>
 	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
@@ -100,7 +100,7 @@
 	<label>tox saturation</label> 
 	<iconPath>WVC/UI/Genes/PowerSource_Tox</iconPath>
 	<geneClass>WVC.Gene_Spawner</geneClass>
-	<biostatCpx>3</biostatCpx>
+	<biostatCpx>1</biostatCpx>
 	<biostatArc>2</biostatArc>
 	<biostatMet>5</biostatMet>
 	<minAgeActive>3</minAgeActive>

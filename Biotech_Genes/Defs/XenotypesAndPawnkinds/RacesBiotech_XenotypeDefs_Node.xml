@@ -34,10 +34,10 @@
 		<li>WVC_MechaAI_SoftwareNaturalEnemy</li>
 		<!-- = -->
 		<li>WVC_MechaAI_Base</li>
-		<li>WVC_MecaBodyParts_Nose</li>
+		<!-- <li>WVC_MecaBodyParts_Nose</li> -->
 		<li>WVC_MecaBodyParts_Ear</li>
 		<li>WVC_MecaBodyParts_Eye</li>
-		<li>WVC_MecaBodyParts_Spine</li>
+		<!-- <li>WVC_MecaBodyParts_Spine</li> -->
 		<li>WVC_MecaBodyParts_Leg</li>
 		<li>WVC_MecaBodyParts_Stomach</li>
 		<li>WVC_MecaBodyParts_Heart</li>

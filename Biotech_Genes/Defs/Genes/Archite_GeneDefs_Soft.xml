@@ -54,11 +54,11 @@
 	<defName>WVC_MechaAI_Base</defName>
 	<label>excellent memory</label> 
 	<iconColor>(184, 198, 203)</iconColor>
-	<suppressedTraits>
-	  <li>
-		<def>BodyPurist</def>
-	  </li>
-	</suppressedTraits>
+	<!-- <suppressedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>BodyPurist</def> -->
+	  <!-- </li> -->
+	<!-- </suppressedTraits> -->
 	<capMods>
 	  <li>
 		<capacity>Consciousness</capacity>

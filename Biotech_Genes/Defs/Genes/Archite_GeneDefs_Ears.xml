@@ -14,7 +14,7 @@
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
 	<selectionWeight>0.0125</selectionWeight>
-	<biostatCpx>1</biostatCpx>
+	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<!-- <biostatMet>-1</biostatMet> -->
 	<minAgeActive>0</minAgeActive>
@@ -190,7 +190,8 @@
 	<defName>WVC_Mecha_NoEars</defName>
 	<label>protective plate</label>
 	<description>Carriers of this gene have additional head protection.</description>
-	<iconPath>WVC/MecaGene_Ears/NoEars</iconPath>
+	<iconPath>WVC/UI/Genes/NoEars</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
 	<customEffectDescriptions>
 		<li>Disable ears.</li>
 	</customEffectDescriptions>

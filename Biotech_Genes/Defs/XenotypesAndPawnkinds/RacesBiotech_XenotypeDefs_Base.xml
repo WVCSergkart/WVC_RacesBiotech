@@ -71,7 +71,7 @@
 	<genes>
 		<li>WVC_MechaSkin</li>
 		<li>WVC_MecaBodyParts_Heart</li>
-		<li>WVC_MecaBodyParts_Spine</li>
+		<!-- <li>WVC_MecaBodyParts_Spine</li> -->
 		<li>WVC_MecaBodyParts_Stomach</li>
 		<li>WVC_StartGestation</li>
 		<li>WVC_ArchiteMechlink</li>

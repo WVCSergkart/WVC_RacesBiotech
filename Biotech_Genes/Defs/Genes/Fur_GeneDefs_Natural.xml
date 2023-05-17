@@ -17,8 +17,8 @@
 	<biostatArc>0</biostatArc>
 	<!-- = -->
 	<iconPath>WVC/UI/Genes/MechaIcon</iconPath>
-	<marketValueFactor>2</marketValueFactor>
-	<neverGrayHair>true</neverGrayHair>
+	<marketValueFactor>1.2</marketValueFactor>
+	<!-- <neverGrayHair>true</neverGrayHair> -->
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
 	<missingGeneRomanceChanceFactor>0.35</missingGeneRomanceChanceFactor>
 	<minAgeActive>0</minAgeActive>
@@ -94,6 +94,7 @@
   <GeneDef ParentName="WVC_RuneBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_StoneSkin</defName>
 	<label>stoneskin</label>
+	<labelShortAdj>stoneskin</labelShortAdj>
 	<description>The body of carriers of this gene is all covered with stone-like growths.
 
 &lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
@@ -103,6 +104,7 @@
 	<iconColor>(105,95,97)</iconColor>
 	<iconPath>WVC/UI/Genes/HeadStone_south</iconPath>
 	<missingGeneRomanceChanceFactor>0.1</missingGeneRomanceChanceFactor>
+	<marketValueFactor>1.5</marketValueFactor>
 	<forcedHeadTypes>
 	  <li>WVC_StoneSkin_Average</li>
 	</forcedHeadTypes>

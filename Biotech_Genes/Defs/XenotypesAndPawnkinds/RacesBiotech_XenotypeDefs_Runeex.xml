@@ -30,12 +30,13 @@
 		<li>WVC_Orientation_Bisexual</li>
 		<li>Sterile</li>
 		<li>Beauty_Beautiful</li>
-		<li MayRequire="Ludeon.RimWorld.Ideology">WVC_VoiceDryadBarkskin</li>
+		<!-- <li MayRequire="Ludeon.RimWorld.Ideology">WVC_VoiceDryadBarkskin</li> -->
 		<li>Body_Standard</li>
 		<li>Hair_DarkBlack</li>
-		<li>WVC_SkinColor_b4c8ff_HEX</li>
+		<!-- <li>WVC_SkinColor_b4c8ff_HEX</li> -->
+		<!-- <li>WVC_SkinColor_ffdcb4_HEX</li> -->
+		<!-- <li>WVC_SkinColor_c8b4ff_HEX</li> -->
 		<li>WVC_SkinColor_ffdcb4_HEX</li>
-		<li>WVC_SkinColor_c8b4ff_HEX</li>
 		<li>WVC_SkinColor_ffb4b4_HEX</li>
 		<li>StrongStomach</li>
 		<li>RobustDigestion</li>
