@@ -52,7 +52,7 @@
   <!-- ========================================================== -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MechaAI_Base</defName>
-	<label>great memory</label> 
+	<label>excellent memory</label> 
 	<iconColor>(184, 198, 203)</iconColor>
 	<suppressedTraits>
 	  <li>

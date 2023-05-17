@@ -6,22 +6,21 @@
   <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Mechanoidization_PowerSourceBase" Abstract="True">
 	<!-- <defName>WVC_MechaAI_Base</defName> -->
 	<!-- <label>AI</label> -->
-	<!-- <labelShortAdj>power source</labelShortAdj> -->
-	<description>Carriers of this gene have special archites in their cells that facilitate and optimize metabolism. This improves overall genetic and metabolic quality.</description>
+	<labelShortAdj>blood saturation</labelShortAdj>
+	<description>Carriers of this gene have archites in their blood, which improve blood circulation and optimize blood saturation with nutrients. Which improves the genetic and metabolic quality.</description>
 	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath>
-	<iconColor>(255, 255, 255)</iconColor>
-	<displayOrderInCategory>4</displayOrderInCategory>
+	<!-- <iconColor>(255, 255, 255)</iconColor> -->
+	<displayCategory>Archite</displayCategory>
+	<displayOrderInCategory>-6</displayOrderInCategory>
 	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
 	<!-- <biostatCpx>0</biostatCpx> -->
 	<biostatArc>2</biostatArc>
 	<marketValueFactor>3</marketValueFactor>
 	<selectionWeight>0.0075</selectionWeight>
 	<randomChosen>true</randomChosen>
-	<minAgeActive>3</minAgeActive>
-	<customEffectDescriptions>
-		<!-- <li>Compensates for the effect of mechaskin on metabolism.</li> -->
-		<li>Disable mechaskin's 5x hunger rate multiplier.</li>
-	</customEffectDescriptions>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Disable mechaskin's 5x hunger rate multiplier.</li> -->
+	<!-- </customEffectDescriptions> -->
 	<!-- <statOffsets> -->
 	  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
 	<!-- </statOffsets> -->
@@ -41,16 +40,16 @@
 		<li><symbol>ner</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
-	<modExtensions>
-		<li Class="WVC.GeneExtension_General">
-			<geneIsPowerSource>true</geneIsPowerSource>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC.GeneExtension_General"> -->
+			<!-- <geneIsPowerSource>true</geneIsPowerSource> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <GeneDef ParentName="WVC_Mechanoidization_PowerSourceBase">
 	<defName>WVC_MechaPowerSource_Unstable</defName>
-	<label>unstable metabolism</label> 
+	<label>unstable saturation</label> 
 	<iconPath>WVC/UI/Genes/PowerSource_Unstable</iconPath>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
@@ -66,7 +65,7 @@
 
   <GeneDef ParentName="WVC_Mechanoidization_PowerSourceBase">
 	<defName>WVC_MechaPowerSource_Stable</defName>
-	<label>stable metabolism</label> 
+	<label>stable saturation</label> 
 	<iconPath>WVC/UI/Genes/PowerSource_Stable</iconPath>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>1</biostatArc>
@@ -75,7 +74,7 @@
 
   <GeneDef ParentName="WVC_Mechanoidization_PowerSourceBase">
 	<defName>WVC_MechaPowerSource_Vanometric</defName>
-	<label>vanometric metabolism</label> 
+	<label>archite saturation</label> 
 	<iconPath>WVC/UI/Genes/PowerSource_Vanometric</iconPath>
 	<biostatCpx>5</biostatCpx>
 	<biostatArc>2</biostatArc>
@@ -98,12 +97,13 @@
 
   <GeneDef ParentName="WVC_Mechanoidization_PowerSourceBase">
 	<defName>WVC_MechaPowerSource_Tox</defName>
-	<label>tox metabolism</label> 
+	<label>tox saturation</label> 
 	<iconPath>WVC/UI/Genes/PowerSource_Tox</iconPath>
 	<geneClass>WVC.Gene_Spawner</geneClass>
 	<biostatCpx>3</biostatCpx>
 	<biostatArc>2</biostatArc>
 	<biostatMet>5</biostatMet>
+	<minAgeActive>3</minAgeActive>
 	<customEffectDescriptions>
 		<!-- <li>Grants an additional 5 metabolism points.</li> -->
 		<li>Spawns 5 wastepacks every (*DateTime)2-5 days(/DateTime).</li>

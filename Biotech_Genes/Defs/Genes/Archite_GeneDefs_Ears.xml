@@ -8,8 +8,8 @@
 	<label>mecha-cat ears</label>
 	<description>Carriers of this gene have mechanoid cat-like ears. Additional audio sensors in the ears improve hearing.</description>
 	<iconPath>UI/Icons/Genes/Gene_EarCat</iconPath>
-	<displayCategory>WVC_MechaBodyParts</displayCategory>
-	<displayOrderInCategory>1200</displayOrderInCategory>
+	<!-- <displayCategory>WVC_MechaBodyParts</displayCategory> -->
+	<!-- <displayOrderInCategory>1200</displayOrderInCategory> -->
 	<!-- <displayOrderInCategory>250</displayOrderInCategory> -->
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
@@ -46,11 +46,11 @@
 		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
 			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes> -->
 			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes> -->
-			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathEndogenes> -->
-			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathXenogenes> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes> -->
 		<!-- </li> -->
 		<li Class="WVC.GeneExtension_Background">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathArchite>
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
 		</li>
 	</modExtensions>
   </GeneDef>

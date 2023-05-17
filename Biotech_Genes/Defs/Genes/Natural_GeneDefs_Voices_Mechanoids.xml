@@ -42,7 +42,7 @@
 			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
 		</li>
 		<!-- <li Class="WVC.GeneExtension_Background"> -->
-			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathArchite> -->
+			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite> -->
 		<!-- </li> -->
 	</modExtensions>
   </GeneDef>

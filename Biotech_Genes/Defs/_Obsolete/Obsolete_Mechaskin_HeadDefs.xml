@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <HeadTypeDef ParentName="WVC_RacesBiotech_AverageBase">
+	<defName>WVC_Male_AverageNormal</defName>
+	<graphicPath>Things/Pawn/Humanlike/Heads/Male/Male_Average_Normal</graphicPath>
+	<gender>Male</gender>
+	<selectionWeight>0</selectionWeight>
+	<requiredGenes>
+	  <li>WVC_MechaSkin</li>
+	</requiredGenes>
+  </HeadTypeDef>
+  <HeadTypeDef ParentName="WVC_RacesBiotech_AverageBase">
+	<defName>WVC_Male_AveragePointy</defName>
+	<graphicPath>Things/Pawn/Humanlike/Heads/Male/Male_Average_Pointy</graphicPath>
+	<eyeOffsetEastWest>(0.175, 0, 0.18)</eyeOffsetEastWest>
+	<gender>Male</gender>
+	<selectionWeight>0</selectionWeight>
+	<requiredGenes>
+	  <li>WVC_MechaSkin</li>
+	</requiredGenes>
+  </HeadTypeDef>
+
+  <HeadTypeDef ParentName="WVC_RacesBiotech_AverageBase">
+	<defName>WVC_Female_AverageNormal</defName>
+	<graphicPath>Things/Pawn/Humanlike/Heads/Female/Female_Average_Normal</graphicPath>
+	<gender>Female</gender>
+	<selectionWeight>0</selectionWeight>
+	<requiredGenes>
+	  <li>WVC_MechaSkin</li>
+	</requiredGenes>
+  </HeadTypeDef>
+  <HeadTypeDef ParentName="WVC_RacesBiotech_AverageBase">
+	<defName>WVC_Female_AveragePointy</defName>
+	<graphicPath>Things/Pawn/Humanlike/Heads/Female/Female_Average_Pointy</graphicPath>
+	<gender>Female</gender>
+	<selectionWeight>0</selectionWeight>
+	<requiredGenes>
+	  <li>WVC_MechaSkin</li>
+	</requiredGenes>
+  </HeadTypeDef>
+
+  <HeadTypeDef ParentName="WVC_RacesBiotech_AverageBase">
+	<defName>WVC_Gaunt</defName>
+	<graphicPath>Things/Pawn/Humanlike/Heads/Genes/None_Gaunt_Average</graphicPath>
+	<randomChosen>false</randomChosen>
+	<gender>None</gender>
+	<selectionWeight>0</selectionWeight>
+	<requiredGenes>
+	  <li>Head_Gaunt</li>
+	  <li>WVC_MechaSkin</li>
+	</requiredGenes>
+  </HeadTypeDef>
+
+  <!-- Obsolete -->
+  <HeadTypeDef ParentName="WVC_RacesBiotech_AverageBase">
+	<defName>WVC_NodeSkin_Blue</defName>
+	<graphicPath>WVC/NodeGene_FacelessHead/Head</graphicPath>
+	<selectionWeight>0</selectionWeight>
+	<requiredGenes>
+	  <li>WVC_NodeSkin_Blue</li>
+	</requiredGenes>
+  </HeadTypeDef>
+  <HeadTypeDef ParentName="WVC_RacesBiotech_AverageBase">
+	<defName>WVC_NodeSkin_Red</defName>
+	<graphicPath>WVC/NodeGene_FacelessHead/Head</graphicPath>
+	<selectionWeight>0</selectionWeight>
+	<requiredGenes>
+	  <li>WVC_NodeSkin_Red</li>
+	</requiredGenes>
+  </HeadTypeDef>
+  <HeadTypeDef ParentName="WVC_RacesBiotech_AverageBase">
+	<defName>WVC_NodeSkin_Green</defName>
+	<graphicPath>WVC/NodeGene_FacelessHead/Head</graphicPath>
+	<selectionWeight>0</selectionWeight>
+	<requiredGenes>
+	  <li>WVC_NodeSkin_Green</li>
+	</requiredGenes>
+  </HeadTypeDef>
+  <HeadTypeDef ParentName="WVC_RacesBiotech_AverageBase">
+	<defName>WVC_NodeSkin_Violet</defName>
+	<graphicPath>WVC/NodeGene_FacelessHead/Head</graphicPath>
+	<selectionWeight>0</selectionWeight>
+	<requiredGenes>
+	  <li>WVC_NodeSkin_Violet</li>
+	</requiredGenes>
+  </HeadTypeDef>
+  <HeadTypeDef ParentName="WVC_RacesBiotech_AverageBase">
+	<defName>WVC_NodeSkin_Yellow</defName>
+	<graphicPath>WVC/NodeGene_FacelessHead/Head</graphicPath>
+	<selectionWeight>0</selectionWeight>
+	<requiredGenes>
+	  <li>WVC_NodeSkin_Yellow</li>
+	</requiredGenes>
+  </HeadTypeDef>
+  <HeadTypeDef ParentName="WVC_RacesBiotech_AverageBase">
+	<defName>WVC_NodeSkin_AltBlue</defName>
+	<graphicPath>WVC/NodeGene_FacelessHead/Head</graphicPath>
+	<selectionWeight>0</selectionWeight>
+	<requiredGenes>
+	  <li>WVC_NodeSkin_AltBlue</li>
+	</requiredGenes>
+  </HeadTypeDef>
+  <HeadTypeDef ParentName="WVC_RacesBiotech_AverageBase">
+	<defName>WVC_NodeSkin_Orange</defName>
+	<graphicPath>WVC/NodeGene_FacelessHead/Head</graphicPath>
+	<selectionWeight>0</selectionWeight>
+	<requiredGenes>
+	  <li>WVC_NodeSkin_Orange</li>
+	</requiredGenes>
+  </HeadTypeDef>
+  <!-- Obsolete -->
+
+</Defs>

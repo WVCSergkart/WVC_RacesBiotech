@@ -13,9 +13,11 @@
 <!-- 2. There is a gene that disables the display of eyes. -->
 	<geneClass>WVC.Gene_Faceless</geneClass>
 	<minAgeActive>0</minAgeActive>
+	<displayCategory>Cosmetic</displayCategory>
+	<displayOrderInCategory>3</displayOrderInCategory>
 	<randomChosen>true</randomChosen>
 	<!-- <displayCategory>Cosmetic</displayCategory> -->
-	<displayOrderInCategory>-5</displayOrderInCategory>
+	<!-- <displayOrderInCategory>-5</displayOrderInCategory> -->
 	<iconColor>(255, 255, 255)</iconColor>
 	<biostatCpx>0</biostatCpx>
 	<selectionWeight>0.0112</selectionWeight>

@@ -5,13 +5,14 @@
 
   <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Nodization_RandomBuff_Base" Abstract="True">
 	<!-- <geneClass>WVC.Gene_WithConditions</geneClass> -->
-	<displayCategory>WVC_MechaBodyWare</displayCategory>
+	<!-- <displayCategory>WVC_MechaBodyWare</displayCategory> -->
 	<!-- <label>AI</label> -->
 	<!-- <description>Complex templates for the mechanoid sub-core, which can provide some advantages.</description> -->
 	<description>Carriers of this gene have archites that formed special neural connections in the brain and improved the carrier's nervous system pointwise.</description>
 	<iconPath>WVC/UI/Genes/Mechlink</iconPath>
 	<!-- <displayCategory>WVC_MechaBodyWare</displayCategory> -->
-	<displayOrderInCategory>1200</displayOrderInCategory>
+	<displayCategory>WVC_MechaBodyParts</displayCategory>
+	<displayOrderInCategory>-1200</displayOrderInCategory>
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
 	<randomChosen>true</randomChosen>
 	<selectionWeight>0.0095</selectionWeight>
@@ -46,7 +47,7 @@
   <!-- Base -->
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Base" Name="WVC_Nodization_RandomBuff_Blue" Abstract="True">
 	<label>encoding SX</label>
-	<displayOrderInCategory>1200</displayOrderInCategory>
+	<displayOrderInCategory>-1200</displayOrderInCategory>
 	<iconColor>(133, 202, 255)</iconColor>
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_Nodization_RandomBuff_SX</li> -->
@@ -54,7 +55,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Base" Name="WVC_Nodization_RandomBuff_Red" Abstract="True">
 	<label>encoding HJ</label>
-	<displayOrderInCategory>1190</displayOrderInCategory>
+	<displayOrderInCategory>-1190</displayOrderInCategory>
 	<iconColor>(255, 133, 133)</iconColor>
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_Nodization_RandomBuff_HJ</li> -->
@@ -62,7 +63,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Base" Name="WVC_Nodization_RandomBuff_Green" Abstract="True">
 	<label>encoding GB</label>
-	<displayOrderInCategory>1180</displayOrderInCategory>
+	<displayOrderInCategory>-1180</displayOrderInCategory>
 	<iconColor>(133, 255, 136)</iconColor>
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_Nodization_RandomBuff_GB</li> -->
@@ -70,7 +71,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Base" Name="WVC_Nodization_RandomBuff_Violet" Abstract="True">
 	<label>encoding CV</label>
-	<displayOrderInCategory>1170</displayOrderInCategory>
+	<displayOrderInCategory>-1170</displayOrderInCategory>
 	<iconColor>(142, 133, 255)</iconColor>
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_Nodization_RandomBuff_CV</li> -->
@@ -78,7 +79,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Base" Name="WVC_Nodization_RandomBuff_Yellow" Abstract="True">
 	<label>encoding WR</label>
-	<displayOrderInCategory>1160</displayOrderInCategory>
+	<displayOrderInCategory>-1160</displayOrderInCategory>
 	<iconColor>(255, 248, 133)</iconColor>
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_Nodization_RandomBuff_WR</li> -->
@@ -86,7 +87,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Base" Name="WVC_Nodization_RandomBuff_AltBlue" Abstract="True">
 	<label>encoding VX</label>
-	<displayOrderInCategory>1150</displayOrderInCategory>
+	<displayOrderInCategory>-1150</displayOrderInCategory>
 	<iconColor>(133, 167, 255)</iconColor>
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_Nodization_RandomBuff_SX</li> -->
@@ -94,7 +95,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_Nodization_RandomBuff_Base" Name="WVC_Nodization_RandomBuff_Orange" Abstract="True">
 	<label>encoding YR</label>
-	<displayOrderInCategory>1140</displayOrderInCategory>
+	<displayOrderInCategory>-1140</displayOrderInCategory>
 	<iconColor>(255, 182, 133)</iconColor>
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_Nodization_RandomBuff_WR</li> -->

@@ -15,7 +15,7 @@ Most of the internal organs were not affected, but there are too many external c
 &lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
 	<iconPath>WVC/UI/Genes/FacelessIcon</iconPath>
 	<biostatMet>-8</biostatMet>
-	<displayOrderInCategory>-95</displayOrderInCategory>
+	<!-- <displayOrderInCategory>-95</displayOrderInCategory> -->
 	<iconColor>(255, 255, 255)</iconColor>
 	<missingGeneRomanceChanceFactor>0.2</missingGeneRomanceChanceFactor>
 	<forcedHeadTypes>

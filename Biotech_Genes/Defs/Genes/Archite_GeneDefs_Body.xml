@@ -152,7 +152,7 @@
 	</statOffsets>
 	<!-- <modExtensions Inherit="False"> -->
 		<!-- <li Class="WVC.GeneExtension_Background"> -->
-			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite> -->
+			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGeneActive</backgroundPathArchite> -->
 		<!-- </li> -->
 	<!-- </modExtensions> -->
   </GeneDef>
@@ -180,7 +180,7 @@
 			<diseaseProgressionFactor>0.5</diseaseProgressionFactor>
 		</li>
 		<!-- <li Class="WVC.GeneExtension_Background"> -->
-			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite> -->
+			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGeneActive</backgroundPathArchite> -->
 		<!-- </li> -->
 	</modExtensions>
   </GeneDef>
@@ -202,7 +202,7 @@
 	</statOffsets>
 	<!-- <modExtensions Inherit="False"> -->
 		<!-- <li Class="WVC.GeneExtension_Background"> -->
-			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite> -->
+			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGeneActive</backgroundPathArchite> -->
 		<!-- </li> -->
 	<!-- </modExtensions> -->
   </GeneDef>
@@ -225,7 +225,7 @@
 	</statOffsets>
 	<!-- <modExtensions Inherit="False"> -->
 		<!-- <li Class="WVC.GeneExtension_Background"> -->
-			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGeneActive</backgroundPathArchite> -->
+			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGeneActive</backgroundPathArchite> -->
 		<!-- </li> -->
 	<!-- </modExtensions> -->
   </GeneDef>

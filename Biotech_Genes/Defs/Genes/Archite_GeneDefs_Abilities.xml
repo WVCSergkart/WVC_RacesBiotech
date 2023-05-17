@@ -179,7 +179,7 @@
 	<biostatMet>0</biostatMet>
 	<!-- <modExtensions Inherit="False"> -->
 		<!-- <li Class="WVC.GeneExtension_Background"> -->
-			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathArchite> -->
+			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite> -->
 		<!-- </li> -->
 	<!-- </modExtensions> -->
   </GeneDef>

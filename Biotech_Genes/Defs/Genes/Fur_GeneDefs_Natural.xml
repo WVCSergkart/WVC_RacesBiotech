@@ -6,7 +6,9 @@
 	<label>runeskin</label>
 	<labelShortAdj>runeskin</labelShortAdj>
 	<description>TEST DESC</description>
-	<displayCategory>WVC_MechaBody</displayCategory>
+	<!-- <displayCategory>WVC_MechaBody</displayCategory> -->
+	<displayCategory>Miscellaneous</displayCategory>
+	<displayOrderInCategory>400</displayOrderInCategory>
 	<selectionWeight>0.0185</selectionWeight>
 	<!-- <marketValueFactor>1.5</marketValueFactor> -->
 	<randomChosen>false</randomChosen>
@@ -25,7 +27,7 @@
 	  <li>AG_Bodies</li>
 	  <li>Bodies</li>
 	  <!-- <li>Body</li> -->
-	  <li>Skin</li>
+	  <!-- <li>Skin</li> -->
 	  <li>Fur</li>
 	</exclusionTags>
 	<!-- = -->
@@ -39,7 +41,7 @@
 			<!-- <customBloodEffect>Damage_HitMechanoid</customBloodEffect> -->
 		</li>
 		<!-- <li Class="WVC.GeneExtension_Background"> -->
-			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_MechaBody</backgroundPathArchite> -->
+			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite> -->
 		<!-- </li> -->
 		<!-- <li Class="WVC.GeneExtension_General"> -->
 			<!-- <geneIsMechaskin>true</geneIsMechaskin> -->
@@ -58,8 +60,6 @@
 &lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>-1</biostatMet>
-	<displayCategory>Miscellaneous</displayCategory>
-	<displayOrderInCategory>400</displayOrderInCategory>
 	<iconColor>(0.75, 0.75, 0.75)</iconColor>
 	<iconPath>WVC/UI/Genes/HeadRune_south</iconPath>
 	<forcedHeadTypes>
@@ -100,8 +100,6 @@
 	<biostatCpx>4</biostatCpx>
 	<biostatMet>-3</biostatMet>
 	<!-- <biostatArc>1</biostatArc> -->
-	<displayCategory>Miscellaneous</displayCategory>
-	<displayOrderInCategory>400</displayOrderInCategory>
 	<iconColor>(105,95,97)</iconColor>
 	<iconPath>WVC/UI/Genes/HeadStone_south</iconPath>
 	<missingGeneRomanceChanceFactor>0.1</missingGeneRomanceChanceFactor>

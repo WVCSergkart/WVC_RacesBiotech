@@ -13,11 +13,11 @@
 	</degreeDatas>
   </TraitDef>
 
-  <GeneCategoryDef>
-	<defName>WVC_MechaBody</defName>
-	<label>archite - Misc</label>
-	<displayPriorityInXenotype>3926</displayPriorityInXenotype>
-  </GeneCategoryDef>
+  <!-- <GeneCategoryDef> -->
+	<!-- <defName>WVC_MechaBody</defName> -->
+	<!-- <label>archite - Misc</label> -->
+	<!-- <displayPriorityInXenotype>3926</displayPriorityInXenotype> -->
+  <!-- </GeneCategoryDef> -->
   <GeneCategoryDef>
 	<defName>WVC_MechaBodyWare</defName>
 	<label>archite - Brain</label>
@@ -62,7 +62,7 @@
   <!-- ================================================================== -->
 
   <GeneDef Name="WVC_MechanoidizationBase" Abstract="True">
-	<displayCategory>WVC_MechaBody</displayCategory>
+	<!-- <displayCategory>WVC_MechaBody</displayCategory> -->
 	<selectionWeight>0.0125</selectionWeight>
 	<marketValueFactor>1.5</marketValueFactor>
 	<minAgeActive>0</minAgeActive>
@@ -82,7 +82,7 @@
 	<!-- </conditionalStatAffecters> -->
 	<modExtensions>
 		<li Class="WVC.GeneExtension_Background">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_NodeGene</backgroundPathArchite>
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
 		</li>
 	</modExtensions>
   </GeneDef>
