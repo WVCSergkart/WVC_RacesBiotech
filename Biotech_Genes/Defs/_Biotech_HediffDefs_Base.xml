@@ -43,27 +43,27 @@
 	</stages>
   </HediffDef>
 
-  <HediffDef>
-	<defName>WVC_MechaskinHunger_HungerFactor</defName>
-	<label>mechanite hunger</label>
-	<description>Due to the lack of a power source, the mechanites temporarily impaired the host's metabolism.</description>
-	<hediffClass>HediffWithComps</hediffClass>
-	<scenarioCanAdd>false</scenarioCanAdd>
-	<isBad>false</isBad>
-	<stages>
-	  <li>
-		<hungerRateFactor>5.0</hungerRateFactor>
-		<becomeVisible>true</becomeVisible>
-		<minSeverity>0.0</minSeverity>
-	  </li>
-	</stages>
-	<comps>
-		<li Class="HediffCompProperties_Disappears">
-			<disappearsAfterTicks>12000~34000</disappearsAfterTicks>
-			<showRemainingTime>true</showRemainingTime>
-		</li>
-	</comps>
-  </HediffDef>
+  <!-- <HediffDef> -->
+	<!-- <defName>WVC_MechaskinHunger_HungerFactor</defName> -->
+	<!-- <label>mechanite hunger</label> -->
+	<!-- <description>Due to the lack of a power source, the mechanites temporarily impaired the host's metabolism.</description> -->
+	<!-- <hediffClass>HediffWithComps</hediffClass> -->
+	<!-- <scenarioCanAdd>false</scenarioCanAdd> -->
+	<!-- <isBad>false</isBad> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <hungerRateFactor>5.0</hungerRateFactor> -->
+		<!-- <becomeVisible>true</becomeVisible> -->
+		<!-- <minSeverity>0.0</minSeverity> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+	<!-- <comps> -->
+		<!-- <li Class="HediffCompProperties_Disappears"> -->
+			<!-- <disappearsAfterTicks>12000~34000</disappearsAfterTicks> -->
+			<!-- <showRemainingTime>true</showRemainingTime> -->
+		<!-- </li> -->
+	<!-- </comps> -->
+  <!-- </HediffDef> -->
 
   <HediffDef>
 	<defName>WVC_SleepyStomach_HungerFactor</defName>

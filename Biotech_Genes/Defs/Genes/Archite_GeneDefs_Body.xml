@@ -35,6 +35,7 @@
 	<description>Carriers of this gene have archites that stabilize blood pressure, which helps to avoid bleeding.</description>
 	<!-- <geneClass>WVC.Gene_MechaClotting</geneClass> -->
 	<geneClass>WVC.Gene_MechaClotting</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Superclotting_v0</iconPath>
 	<biostatMet>-1</biostatMet>
 	<!-- <biostatArc>2</biostatArc> -->
 	<customEffectDescriptions>
@@ -72,18 +73,19 @@
 
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
 	<defName>WVC_MecaBodyParts_Spine</defName>
-	<label>super-skeleton</label>
+	<label>super endurance</label>
 	<description>Archites greatly enhance the carrier's skeletal structure.</description>
 	<biostatMet>-1</biostatMet>
+	<iconPath>WVC/UI/Genes/Endurance_v0</iconPath>
 	<statFactors>
-	  <CarryingCapacity>1.2</CarryingCapacity>
+	  <CarryingCapacity>1.5</CarryingCapacity>
 	</statFactors>
 	<statOffsets>
 	  <!-- <MoveSpeed>0.5</MoveSpeed> -->
 	  <ArmorRating_Blunt>0.15</ArmorRating_Blunt>
 	</statOffsets>
 	<customEffectDescriptions>
-		<li>Carrying capacity on the map increased to 20%.</li>
+		<li>Carrying capacity on the map increased to 50%.</li>
 	</customEffectDescriptions>
 	<!-- <capMods> -->
 	  <!-- <li> -->
@@ -95,7 +97,7 @@
 	<!-- </exclusionTags> -->
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
-			<caravanCarryingFactor>1.2</caravanCarryingFactor>
+			<caravanCarryingFactor>1.5</caravanCarryingFactor>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -108,6 +110,7 @@
 	<!-- <overdoseChanceFactor>0</overdoseChanceFactor> -->
 	<!-- <toleranceBuildupFactor>0</toleranceBuildupFactor> -->
 	<!-- <addictionChanceFactor>0</addictionChanceFactor> -->
+	<iconPath>WVC/UI/Genes/ArchiteStomach_v0</iconPath>
 	<dontMindRawFood>true</dontMindRawFood>
 	<biostatMet>1</biostatMet>
 	<makeImmuneTo>
@@ -139,6 +142,7 @@
 	<label>light frame</label>
 	<description>Archites lighten the body of the carrier by optimizing the amount of fat and muscle mass, without losing the efficiency of the body.</description>
 	<biostatMet>-1</biostatMet>
+	<iconPath>WVC/UI/Genes/LightFrame_v0</iconPath>
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Reduces the amount of meat and leather.</li> -->
 	<!-- </customEffectDescriptions> -->
@@ -162,6 +166,7 @@
 	<label>immunostabilizer</label>
 	<description>Archites in the carrier's blood significantly enhance immunity.</description>
 	<biostatMet>-3</biostatMet>
+	<iconPath>WVC/UI/Genes/Immunostabilizer_v0</iconPath>
 	<!-- <biostatArc>1</biostatArc> -->
 	<customEffectDescriptions>
 		<!-- <li>&lt;color=#b8c6ff&gt;Increases toxic resistance.&lt;/color&gt;</li> -->
@@ -190,6 +195,7 @@
 	<label>mechanite clusters</label>
 	<description>Archites create mechanite clusters, slightly increasing regeneration.</description>
 	<biostatMet>-1</biostatMet>
+	<iconPath>WVC/UI/Genes/MechaClusters_v0</iconPath>
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>&lt;color=#b8c6ff&gt;Increases toxic resistance.&lt;/color&gt;</li> -->
 	<!-- </customEffectDescriptions> -->
@@ -216,6 +222,7 @@
 	<label>improved T-adaptation</label>
 	<description>Archites significantly enhance the temperature adaptability of the carrier.</description>
 	<biostatMet>-2</biostatMet>
+	<iconPath>WVC/UI/Genes/Gene_TemperatureAdaptation_v0</iconPath>
 	<!-- <biostatArc>2</biostatArc> -->
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>&lt;color=#b8c6ff&gt;Increases toxic resistance.&lt;/color&gt;</li> -->
@@ -243,6 +250,7 @@
 	<label>perfect shape</label>
 	<biostatMet>-1</biostatMet>
 	<description>Archites modify the shape of the carrier, making them almost perfect.</description>
+	<iconPath>WVC/UI/Genes/PerfectShape_v0</iconPath>
 	<statOffsets>
 	  <PawnBeauty>2</PawnBeauty>
 	</statOffsets>
@@ -284,30 +292,6 @@
 		</statOffsets>
 	  </li>
 	</conditionalStatAffecters>
-  </GeneDef>
-
-  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
-	<defName>WVC_MecaUpgrades_EnergySavingMode</defName>
-	<label>energy saving mode</label>
-	<description>The carrier of this gene has archites, which can significantly optimize the metabolic process during sleep.</description>
-	<!-- <biostatArc>1</biostatArc> -->
-	<biostatCpx>3</biostatCpx>
-	<biostatMet>3</biostatMet>
-	<selectionWeight>0.01</selectionWeight>
-	<!-- <customEffectDescriptions> -->
-		<!-- <li>The hunger bar does not decrease while the pawn is on the bed.</li> -->
-	<!-- </customEffectDescriptions> -->
-	<suppressedTraits>
-	  <li>
-		<def>QuickSleeper</def>
-	  </li>
-	</suppressedTraits>
-	<makeImmuneTo>
-	  <li>SleepingSickness</li>
-	</makeImmuneTo>
-	<!-- <statFactors> -->
-	  <!-- <BedHungerRateFactor>0.0</BedHungerRateFactor> -->
-	<!-- </statFactors> -->
   </GeneDef>
 
 </Defs>

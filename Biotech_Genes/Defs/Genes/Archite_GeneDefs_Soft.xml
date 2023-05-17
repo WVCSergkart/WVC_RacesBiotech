@@ -14,6 +14,7 @@
 	<!-- <iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath> -->
 	<displayOrderInCategory>120</displayOrderInCategory>
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
+	<iconColor>(255, 255, 255)</iconColor>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<marketValueFactor>1.2</marketValueFactor>
@@ -54,6 +55,7 @@
 	<defName>WVC_MechaAI_Base</defName>
 	<label>excellent memory</label> 
 	<iconColor>(184, 198, 203)</iconColor>
+	<iconPath>WVC/UI/Genes/MechanoidizationSoftware</iconPath>
 	<!-- <suppressedTraits> -->
 	  <!-- <li> -->
 		<!-- <def>BodyPurist</def> -->
@@ -85,47 +87,49 @@
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MechaAI_SoftwareManipulation</defName>
-	<label>fine motor optimization</label>
-	<iconColor>(255, 148, 127)</iconColor>
+	<label>improved intuition</label>
+	<iconPath>WVC/UI/Genes/ImprovedIntuitionAttentiveness_A</iconPath>
 	<capMods>
 	  <li>
+		<capacity>Moving</capacity>
+		<offset>0.125</offset>
+	  </li>
+	  <li>
 		<capacity>Manipulation</capacity>
-		<offset>0.1</offset>
+		<offset>0.125</offset>
 	  </li>
 	</capMods>
-	<exclusionTags>
-	  <li>WVC_MechaAI_SoftwareManipulation</li>
-	</exclusionTags>
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MechaAI_SoftwareMoving</defName>
-	<label>improved pathfinding</label>
-	<iconColor>(187, 255, 127)</iconColor>
+	<label>improved attentiveness</label>
+	<iconPath>WVC/UI/Genes/ImprovedIntuitionAttentiveness_B</iconPath>
 	<capMods>
 	  <li>
 		<capacity>Moving</capacity>
-		<offset>0.1</offset>
+		<offset>0.125</offset>
+	  </li>
+	  <li>
+		<capacity>Manipulation</capacity>
+		<offset>0.125</offset>
 	  </li>
 	</capMods>
-	<exclusionTags>
-	  <li>WVC_MechaAI_SoftwareMoving</li>
-	</exclusionTags>
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MecaBodyParts_Arm</defName>
-	<label>fight instincts</label>
-	<iconColor>(255, 200, 130)</iconColor>
+	<label>striking power</label>
+	<iconPath>WVC/UI/Genes/StrikingPower_v0</iconPath>
 	<statOffsets>
-	  <MeleeDamageFactor>0.25</MeleeDamageFactor>
+	  <MeleeDamageFactor>0.5</MeleeDamageFactor>
 	</statOffsets>
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MecaBodyParts_Jaw</defName>
-	<label>speaking improver</label>
-	<iconColor>(220, 130, 255)</iconColor>
+	<label>pleasant voice</label>
+	<iconPath>WVC/UI/Genes/PleasantVoice_v0</iconPath>
 	<suppressedTraits>
 	  <li>
 		<def>AnnoyingVoice</def>
@@ -145,7 +149,7 @@
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MecaBodyParts_Nose</defName>
 	<label>chemical analyzer</label>
-	<iconColor>(130, 150, 255)</iconColor>
+	<iconPath>WVC/UI/Genes/Analyzer_Chemical_v0</iconPath>
 	<statFactors>
 	  <FoodPoisonChance>0.0</FoodPoisonChance>
 	</statFactors>
@@ -158,7 +162,7 @@
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MecaBodyParts_Ear</defName>
 	<label>sound analyzer</label>
-	<iconColor>(150, 130, 255)</iconColor>
+	<iconPath>WVC/UI/Genes/Analyzer_Sound_v0</iconPath>
 	<statOffsets>
 	  <WorkSpeedGlobal>0.125</WorkSpeedGlobal>
 	</statOffsets>
@@ -177,7 +181,7 @@
 	<defName>WVC_MecaBodyParts_Eye</defName>
 	<label>visual analyzer</label>
 	<ignoreDarkness>true</ignoreDarkness>
-	<iconColor>(150, 190, 255)</iconColor>
+	<iconPath>WVC/UI/Genes/Analyzer_Visual_v0</iconPath>
 	<statOffsets>
 	  <WorkSpeedGlobal>0.125</WorkSpeedGlobal>
 	</statOffsets>
@@ -195,7 +199,7 @@
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MechaAI_MechanitorNetwork</defName>
 	<label>mecha-network</label>
-	<iconColor>(170, 170, 255)</iconColor>
+	<iconPath>WVC/UI/Genes/MechaNetwork_v0</iconPath>
 	<minAgeActive>3</minAgeActive>
 	<!-- <statOffsets> -->
 		<!-- <MechRepairSpeed>0.25</MechRepairSpeed> -->
@@ -256,10 +260,10 @@
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MechaAI_SoftwareDisableTalking</defName>
-	<label>silent program</label>
+	<label>silence</label>
 	<!-- <description>Archites disable the voice functions of the pawn, which saves some resources.</description> -->
-	<iconColor>(150, 70, 70)</iconColor>
 	<biostatMet>3</biostatMet>
+	<iconPath>WVC/UI/Genes/DisableTalking_v0</iconPath>
 	<capMods>
 	  <li>
 		<capacity>Talking</capacity>
@@ -274,7 +278,7 @@
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MechaAI_SoftwareFriendOrFoe</defName>
 	<label>friend or foe</label>
-	<iconColor>(230, 255, 150)</iconColor>
+	<iconPath>WVC/UI/Genes/FriendOrFoe_v0</iconPath>
 	<customEffectDescriptions>
 		<li>Ancient mechanoids do not attack a pawn, even if a pawn attacks them.</li>
 	</customEffectDescriptions>
@@ -288,7 +292,7 @@
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MechaAI_SoftwareNaturalEnemy</defName>
 	<label>hard-minded</label>
-	<iconColor>(150, 70, 150)</iconColor>
+	<iconPath>WVC/UI/Genes/NaturalEnemy_v0</iconPath>
 	<!-- <biostatCpx>3</biostatCpx> -->
 	<statFactors>
 	  <TradePriceImprovement>0.0</TradePriceImprovement>

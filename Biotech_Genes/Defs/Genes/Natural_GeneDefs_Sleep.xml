@@ -56,4 +56,38 @@
 	</modExtensions>
   </GeneDef>
 
+  <GeneDef ParentName="WVC_GeneSleep_Base">
+	<defName>WVC_MecaUpgrades_EnergySavingMode</defName>
+	<label>healthy sleep</label>
+	<description>The carrier of this gene has archites, which can significantly optimize the metabolic process during sleep.</description>
+	<!-- <biostatArc>1</biostatArc> -->
+	<iconPath>WVC/UI/Genes/HealthySleep_v0</iconPath>
+	<displayOrderInCategory>-10</displayOrderInCategory>
+	<selectionWeight>0.0125</selectionWeight>
+	<!-- <biostatCpx>3</biostatCpx> -->
+	<biostatMet>5</biostatMet>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<!-- <selectionWeight>0.005</selectionWeight> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>The hunger bar does not decrease while the pawn is on the bed.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<suppressedTraits>
+	  <li>
+		<def>QuickSleeper</def>
+	  </li>
+	</suppressedTraits>
+	<makeImmuneTo>
+	  <li>SleepingSickness</li>
+	</makeImmuneTo>
+	<!-- <statFactors> -->
+	  <!-- <BedHungerRateFactor>0.0</BedHungerRateFactor> -->
+	<!-- </statFactors> -->
+	<modExtensions Inherit="False">
+		<li Class="WVC.GeneExtension_Background">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
 </Defs>
