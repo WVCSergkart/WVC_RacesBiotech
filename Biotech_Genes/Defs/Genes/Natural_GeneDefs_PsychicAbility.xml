@@ -77,4 +77,27 @@
 	</symbolPack>
   </GeneDef>
 
+  <!-- = -->
+  <GeneDef ParentName="WVC_GenePsychicAbility_NonTrait">
+	<defName>WVC_MechaAI_PsychicDull</defName>
+	<label>psydull</label>
+	<description>Carriers of this gene are less psychically-sensitive than others.</description>
+	<iconPath>WVC/UI/Genes/PsyDull_v0</iconPath>
+	<displayOrderInCategory>-50</displayOrderInCategory>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>2</biostatMet>
+	<selectionWeight>0.0125</selectionWeight>
+	<statFactors>
+	  <PsychicSensitivity>0.5</PsychicSensitivity>
+	  <BondAnimalChanceFactor>0.0</BondAnimalChanceFactor>
+	</statFactors>
+	<exclusionTags Inherit="False"/>
+	<modExtensions>
+		<li Class="WVC.GeneExtension_Background">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
 </Defs>

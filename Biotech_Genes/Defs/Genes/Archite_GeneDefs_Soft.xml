@@ -303,16 +303,5 @@
 		<li>Opinion about pawns without this gene is -500.</li>
 	</customEffectDescriptions>
   </GeneDef>
-  <!-- = -->
-  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
-	<defName>WVC_MechaAI_PsychicDull</defName>
-	<label>psydull</label>
-	<iconColor>(255, 255, 150)</iconColor>
-	<biostatMet>2</biostatMet>
-	<statFactors>
-	  <PsychicSensitivity>0.5</PsychicSensitivity>
-	  <BondAnimalChanceFactor>0.0</BondAnimalChanceFactor>
-	</statFactors>
-  </GeneDef>
 
 </Defs>
