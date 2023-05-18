@@ -5,9 +5,9 @@
 
   <GeneDef Name="WVC_MechanoidizationUpgrades" ParentName="WVC_MechanoidizationBase" Abstract="True">
 	<!-- <geneClass>WVC.Gene_WithConditions</geneClass> -->
-	<displayCategory>WVC_MechaBodyParts</displayCategory>
+	<!-- <displayCategory>WVC_MechaBodyParts</displayCategory> -->
 	<description>Carriers of this gene have archites..</description>
-	<displayOrderInCategory>20</displayOrderInCategory>
+	<displayOrderInCategory>-33</displayOrderInCategory>
 	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
 	<iconPath>WVC/UI/Genes/Mechanoidization</iconPath>
@@ -38,6 +38,9 @@
 	<iconPath>WVC/UI/Genes/Gene_Superclotting_v0</iconPath>
 	<biostatMet>-1</biostatMet>
 	<!-- <biostatArc>2</biostatArc> -->
+	<displayCategory>Healing</displayCategory>
+	<!-- <displayOrderInCategory>-33</displayOrderInCategory> -->
+	<displayOrderInCategory>100</displayOrderInCategory>
 	<customEffectDescriptions>
 		<!-- <li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Increases lifespan factor.</li> -->
 		<li>Prevent bleeding.</li>
@@ -77,6 +80,8 @@
 	<description>Archites greatly enhance the carrier's skeletal structure.</description>
 	<biostatMet>-1</biostatMet>
 	<iconPath>WVC/UI/Genes/Endurance_v0</iconPath>
+	<displayCategory>Miscellaneous</displayCategory>
+	<displayOrderInCategory>164</displayOrderInCategory>
 	<statFactors>
 	  <CarryingCapacity>1.5</CarryingCapacity>
 	</statFactors>
@@ -93,13 +98,43 @@
 		<!-- <offset>0.1</offset> -->
 	  <!-- </li> -->
 	<!-- </capMods> -->
-	<!-- <exclusionTags> -->
-	<!-- </exclusionTags> -->
+	<exclusionTags>
+	  <li>WVC_LightFrameSuperSpine</li>
+	</exclusionTags>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<caravanCarryingFactor>1.5</caravanCarryingFactor>
 		</li>
 	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
+	<defName>WVC_MecaBodyParts_Leg</defName>
+	<label>light frame</label>
+	<description>Archites lighten the body of the carrier by optimizing the amount of fat and muscle mass, without losing the efficiency of the body.</description>
+	<biostatMet>-1</biostatMet>
+	<iconPath>WVC/UI/Genes/LightFrame_v0</iconPath>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Reduces the amount of meat and leather.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<displayCategory>Miscellaneous</displayCategory>
+	<displayOrderInCategory>164</displayOrderInCategory>
+	<statFactors>
+	  <MeatAmount>0.8</MeatAmount>
+	  <LeatherAmount>0.8</LeatherAmount>
+	  <Mass>0.8</Mass>
+	</statFactors>
+	<statOffsets>
+	  <MoveSpeed>0.2</MoveSpeed>
+	</statOffsets>
+	<!-- <modExtensions Inherit="False"> -->
+		<!-- <li Class="WVC.GeneExtension_Background"> -->
+			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGeneActive</backgroundPathArchite> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+	<exclusionTags>
+	  <li>WVC_LightFrameSuperSpine</li>
+	</exclusionTags>
   </GeneDef>
 
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
@@ -113,6 +148,8 @@
 	<iconPath>WVC/UI/Genes/ArchiteStomach_v0</iconPath>
 	<dontMindRawFood>true</dontMindRawFood>
 	<biostatMet>1</biostatMet>
+	<displayCategory>Miscellaneous</displayCategory>
+	<displayOrderInCategory>9</displayOrderInCategory>
 	<makeImmuneTo>
 	  <li>GutWorms</li>
 	  <!-- <li>MuscleParasites</li> -->
@@ -138,36 +175,13 @@
   </GeneDef>
 
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
-	<defName>WVC_MecaBodyParts_Leg</defName>
-	<label>light frame</label>
-	<description>Archites lighten the body of the carrier by optimizing the amount of fat and muscle mass, without losing the efficiency of the body.</description>
-	<biostatMet>-1</biostatMet>
-	<iconPath>WVC/UI/Genes/LightFrame_v0</iconPath>
-	<!-- <customEffectDescriptions> -->
-		<!-- <li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Reduces the amount of meat and leather.</li> -->
-	<!-- </customEffectDescriptions> -->
-	<statFactors>
-	  <MeatAmount>0.8</MeatAmount>
-	  <LeatherAmount>0.8</LeatherAmount>
-	  <Mass>0.8</Mass>
-	</statFactors>
-	<statOffsets>
-	  <MoveSpeed>0.2</MoveSpeed>
-	</statOffsets>
-	<!-- <modExtensions Inherit="False"> -->
-		<!-- <li Class="WVC.GeneExtension_Background"> -->
-			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGeneActive</backgroundPathArchite> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
-  </GeneDef>
-
-  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
 	<defName>WVC_MecaBodyParts_Liver</defName>
 	<label>immunostabilizer</label>
 	<description>Archites in the carrier's blood significantly enhance immunity.</description>
 	<biostatMet>-3</biostatMet>
 	<iconPath>WVC/UI/Genes/Immunostabilizer_v0</iconPath>
 	<!-- <biostatArc>1</biostatArc> -->
+	<displayCategory>Healing</displayCategory>
 	<customEffectDescriptions>
 		<!-- <li>&lt;color=#b8c6ff&gt;Increases toxic resistance.&lt;/color&gt;</li> -->
 		<li>Slowdown the progression of diseases.</li>
@@ -202,6 +216,7 @@
 	<!-- <makeImmuneTo> -->
 	  <!-- <li>MuscleParasites</li> -->
 	<!-- </makeImmuneTo> -->
+	<displayCategory>Healing</displayCategory>
 	<statOffsets>
 	  <ToxicResistance>0.25</ToxicResistance>
 	  <InjuryHealingFactor>1</InjuryHealingFactor>
@@ -227,6 +242,7 @@
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>&lt;color=#b8c6ff&gt;Increases toxic resistance.&lt;/color&gt;</li> -->
 	<!-- </customEffectDescriptions> -->
+	<displayCategory>Temperature</displayCategory>
 	<statOffsets>
 	  <ToxicResistance>0.25</ToxicResistance>
 	  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
@@ -251,6 +267,7 @@
 	<biostatMet>-1</biostatMet>
 	<description>Archites modify the shape of the carrier, making them almost perfect.</description>
 	<iconPath>WVC/UI/Genes/PerfectShape_v0</iconPath>
+	<displayCategory>Beauty</displayCategory>
 	<statOffsets>
 	  <PawnBeauty>2</PawnBeauty>
 	</statOffsets>
@@ -275,6 +292,9 @@
 		<!-- <def>CreepyBreathing</def> -->
 	  <!-- </li> -->
 	</suppressedTraits>
+	<exclusionTags>
+	  <li>Beauty</li>
+	</exclusionTags>
   </GeneDef>
 
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
@@ -282,6 +302,7 @@
 	<label>combat mode</label>
 	<description>The carrier of this gene has archites which can increase the strength of the carrier's skin in case of danger.</description>
 	<biostatMet>-2</biostatMet>
+	<displayCategory>Violence</displayCategory>
 	<conditionalStatAffecters>
 	  <li Class="WVC.ConditionalStatAffecter_Drafted">
 		<statOffsets>

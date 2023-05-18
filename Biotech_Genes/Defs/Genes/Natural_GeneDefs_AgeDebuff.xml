@@ -195,7 +195,7 @@
 	<labelShortAdj>bad-hand</labelShortAdj>
 	<description>Carriers of this gene begin to suffer from fine motor impairment at some point in their lives.</description>
 	<iconPath>WVC/UI/Genes/AgeDebuff_Manipulation</iconPath>
-	<displayCategory>Miscellaneous</displayCategory>
+	<displayCategory>Violence</displayCategory>
 	<displayOrderInCategory>21</displayOrderInCategory>
 	<minAgeActive>25</minAgeActive>
 	<selectionWeight>0.002</selectionWeight>
@@ -233,6 +233,9 @@
 	<displayOrderInCategory>21</displayOrderInCategory>
 	<minAgeActive>25</minAgeActive>
 	<selectionWeight>0.002</selectionWeight>
+	<exclusionTags>
+	  <li>WVC_MechaAI_SoftwareDisableTalking</li>
+	</exclusionTags>
 	<capMods>
 	  <li>
 		<capacity>Talking</capacity>
@@ -289,13 +292,13 @@
 
   <!-- ============== -->
 
-  <GeneDef>
+  <GeneDef ParentName="CellInstabilityBase">
 	<defName>WVC_AgeDebuff_Timeless</defName>
 	<label>lifefall</label>
 	<description>Carriers of this gene do not have much time.</description>
 	<iconPath>WVC/UI/Genes/AgeDebuff_LifespanFactor</iconPath>
-	<displayCategory>Miscellaneous</displayCategory>
-	<displayOrderInCategory>20</displayOrderInCategory>
+	<!-- <displayCategory>Miscellaneous</displayCategory> -->
+	<displayOrderInCategory>129</displayOrderInCategory>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>3</biostatMet>
 	<selectionWeight>0.002</selectionWeight>
@@ -334,7 +337,7 @@
 	<description>Carriers of this gene at some point in time lose their arms.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; If there is at least one xenotype with this gene, it will spam one or two errors per pawn during generation.</description>
 	<iconPath>WVC/UI/Genes/AgeDebuff_Handless</iconPath>
 	<displayCategory>Miscellaneous</displayCategory>
-	<displayOrderInCategory>10</displayOrderInCategory>
+	<displayOrderInCategory>9999</displayOrderInCategory>
 	<selectionWeight>0</selectionWeight>
 	<randomChosen>false</randomChosen>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>

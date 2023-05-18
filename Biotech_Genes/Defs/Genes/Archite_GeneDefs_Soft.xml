@@ -5,14 +5,14 @@
 
   <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Mechanoidization_SoftwareBase" Abstract="True">
 	<!-- <geneClass>WVC.Gene_WithConditions</geneClass> -->
-	<displayCategory>WVC_MechaBodyWare</displayCategory>
+	<!-- <displayCategory>WVC_MechaBodyWare</displayCategory> -->
 	<labelShortAdj>subcore</labelShortAdj>
 	<!-- <description>Archites modified the owner's brain quite a lot, which opened up new possibilities.</description> -->
 	<!-- <description>Carriers of this gene have archites that have formed a mechanoid subcore.</description> -->
 	<description>Carriers of this gene have archites that have formed special neural connections that expand the capabilities of the carrier's brain.</description>
 	<iconPath>WVC/UI/Genes/MechanoidizationSoftware</iconPath>
 	<!-- <iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath> -->
-	<displayOrderInCategory>120</displayOrderInCategory>
+	<displayOrderInCategory>-120</displayOrderInCategory>
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
 	<iconColor>(255, 255, 255)</iconColor>
 	<biostatCpx>0</biostatCpx>
@@ -56,6 +56,8 @@
 	<label>excellent memory</label> 
 	<iconColor>(184, 198, 203)</iconColor>
 	<iconPath>WVC/UI/Genes/MechanoidizationSoftware</iconPath>
+	<displayCategory>Miscellaneous</displayCategory>
+	<displayOrderInCategory>29</displayOrderInCategory>
 	<!-- <suppressedTraits> -->
 	  <!-- <li> -->
 		<!-- <def>BodyPurist</def> -->
@@ -89,6 +91,8 @@
 	<defName>WVC_MechaAI_SoftwareManipulation</defName>
 	<label>improved intuition</label>
 	<iconPath>WVC/UI/Genes/ImprovedIntuitionAttentiveness_A</iconPath>
+	<displayCategory>Violence</displayCategory>
+	<!-- <displayOrderInCategory>-120</displayOrderInCategory> -->
 	<capMods>
 	  <li>
 		<capacity>Moving</capacity>
@@ -105,6 +109,8 @@
 	<defName>WVC_MechaAI_SoftwareMoving</defName>
 	<label>improved attentiveness</label>
 	<iconPath>WVC/UI/Genes/ImprovedIntuitionAttentiveness_B</iconPath>
+	<displayCategory>Violence</displayCategory>
+	<!-- <displayOrderInCategory>-120</displayOrderInCategory> -->
 	<capMods>
 	  <li>
 		<capacity>Moving</capacity>
@@ -121,6 +127,7 @@
 	<defName>WVC_MecaBodyParts_Arm</defName>
 	<label>striking power</label>
 	<iconPath>WVC/UI/Genes/StrikingPower_v0</iconPath>
+	<displayCategory>Violence</displayCategory>
 	<statOffsets>
 	  <MeleeDamageFactor>0.5</MeleeDamageFactor>
 	</statOffsets>
@@ -130,6 +137,8 @@
 	<defName>WVC_MecaBodyParts_Jaw</defName>
 	<label>pleasant voice</label>
 	<iconPath>WVC/UI/Genes/PleasantVoice_v0</iconPath>
+	<displayCategory>Miscellaneous</displayCategory>
+	<displayOrderInCategory>21</displayOrderInCategory>
 	<suppressedTraits>
 	  <li>
 		<def>AnnoyingVoice</def>
@@ -147,9 +156,30 @@
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+	<defName>WVC_MechaAI_SoftwareDisableTalking</defName>
+	<label>silence</label>
+	<!-- <description>Archites disable the voice functions of the pawn, which saves some resources.</description> -->
+	<biostatMet>3</biostatMet>
+	<iconPath>WVC/UI/Genes/DisableTalking_v0</iconPath>
+	<displayCategory>Miscellaneous</displayCategory>
+	<displayOrderInCategory>21</displayOrderInCategory>
+	<capMods>
+	  <li>
+		<capacity>Talking</capacity>
+		<setMax>0.0</setMax>
+	  </li>
+	</capMods>
+	<exclusionTags>
+	  <li>WVC_MechaAI_SoftwareDisableTalking</li>
+	</exclusionTags>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MecaBodyParts_Nose</defName>
 	<label>chemical analyzer</label>
 	<iconPath>WVC/UI/Genes/Analyzer_Chemical_v0</iconPath>
+	<displayCategory>Miscellaneous</displayCategory>
+	<displayOrderInCategory>61</displayOrderInCategory>
 	<statFactors>
 	  <FoodPoisonChance>0.0</FoodPoisonChance>
 	</statFactors>
@@ -163,6 +193,8 @@
 	<defName>WVC_MecaBodyParts_Ear</defName>
 	<label>sound analyzer</label>
 	<iconPath>WVC/UI/Genes/Analyzer_Sound_v0</iconPath>
+	<displayCategory>Miscellaneous</displayCategory>
+	<displayOrderInCategory>61</displayOrderInCategory>
 	<statOffsets>
 	  <WorkSpeedGlobal>0.125</WorkSpeedGlobal>
 	</statOffsets>
@@ -182,6 +214,8 @@
 	<label>visual analyzer</label>
 	<ignoreDarkness>true</ignoreDarkness>
 	<iconPath>WVC/UI/Genes/Analyzer_Visual_v0</iconPath>
+	<displayCategory>Miscellaneous</displayCategory>
+	<displayOrderInCategory>61</displayOrderInCategory>
 	<statOffsets>
 	  <WorkSpeedGlobal>0.125</WorkSpeedGlobal>
 	</statOffsets>
@@ -201,6 +235,8 @@
 	<label>mecha-network</label>
 	<iconPath>WVC/UI/Genes/MechaNetwork_v0</iconPath>
 	<minAgeActive>3</minAgeActive>
+	<displayCategory>Ability</displayCategory>
+	<displayOrderInCategory>234</displayOrderInCategory>
 	<!-- <statOffsets> -->
 		<!-- <MechRepairSpeed>0.25</MechRepairSpeed> -->
 		<!-- <WorkSpeedGlobalOffsetMech>0.25</WorkSpeedGlobalOffsetMech> -->
@@ -259,26 +295,11 @@
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
-	<defName>WVC_MechaAI_SoftwareDisableTalking</defName>
-	<label>silence</label>
-	<!-- <description>Archites disable the voice functions of the pawn, which saves some resources.</description> -->
-	<biostatMet>3</biostatMet>
-	<iconPath>WVC/UI/Genes/DisableTalking_v0</iconPath>
-	<capMods>
-	  <li>
-		<capacity>Talking</capacity>
-		<setMax>0.0</setMax>
-	  </li>
-	</capMods>
-	<exclusionTags>
-	  <li>WVC_MechaAI_SoftwareDisableTalking</li>
-	</exclusionTags>
-  </GeneDef>
-  <!-- = -->
-  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MechaAI_SoftwareFriendOrFoe</defName>
 	<label>friend or foe</label>
 	<iconPath>WVC/UI/Genes/FriendOrFoe_v0</iconPath>
+	<displayCategory>Violence</displayCategory>
+	<displayOrderInCategory>-22</displayOrderInCategory>
 	<customEffectDescriptions>
 		<li>Ancient mechanoids do not attack a pawn, even if a pawn attacks them.</li>
 	</customEffectDescriptions>
@@ -294,6 +315,8 @@
 	<label>hard-minded</label>
 	<iconPath>WVC/UI/Genes/NaturalEnemy_v0</iconPath>
 	<!-- <biostatCpx>3</biostatCpx> -->
+	<displayCategory>Violence</displayCategory>
+	<displayOrderInCategory>-22</displayOrderInCategory>
 	<statFactors>
 	  <TradePriceImprovement>0.0</TradePriceImprovement>
 	  <BondAnimalChanceFactor>0.0</BondAnimalChanceFactor>

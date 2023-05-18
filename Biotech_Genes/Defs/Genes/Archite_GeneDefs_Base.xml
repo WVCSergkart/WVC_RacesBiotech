@@ -18,11 +18,11 @@
 	<!-- <label>archite - Misc</label> -->
 	<!-- <displayPriorityInXenotype>3926</displayPriorityInXenotype> -->
   <!-- </GeneCategoryDef> -->
-  <GeneCategoryDef>
-	<defName>WVC_MechaBodyWare</defName>
-	<label>archite - Brain</label>
-	<displayPriorityInXenotype>3925</displayPriorityInXenotype>
-  </GeneCategoryDef>
+  <!-- <GeneCategoryDef> -->
+	<!-- <defName>WVC_MechaBodyWare</defName> -->
+	<!-- <label>archite - Brain</label> -->
+	<!-- <displayPriorityInXenotype>3925</displayPriorityInXenotype> -->
+  <!-- </GeneCategoryDef> -->
   <!-- <GeneCategoryDef> -->
 	<!-- <defName>WVC_MechaBodyEncoding</defName> -->
 	<!-- <label>archite - Encode</label> -->
@@ -38,11 +38,11 @@
 	<!-- <label>archite - Software</label> -->
 	<!-- <displayPriorityInXenotype>3924</displayPriorityInXenotype> -->
   <!-- </GeneCategoryDef> -->
-  <GeneCategoryDef>
-	<defName>WVC_MechaBodyParts</defName>
-	<label>archite - Body</label>
-	<displayPriorityInXenotype>3923</displayPriorityInXenotype>
-  </GeneCategoryDef>
+  <!-- <GeneCategoryDef> -->
+	<!-- <defName>WVC_MechaBodyParts</defName> -->
+	<!-- <label>archite - Body</label> -->
+	<!-- <displayPriorityInXenotype>3923</displayPriorityInXenotype> -->
+  <!-- </GeneCategoryDef> -->
   <!-- <GeneCategoryDef> -->
 	<!-- <defName>WVC_MechaBodyParts</defName> -->
 	<!-- <label>archite - Other</label> -->
@@ -62,7 +62,7 @@
   <!-- ================================================================== -->
 
   <GeneDef Name="WVC_MechanoidizationBase" Abstract="True">
-	<!-- <displayCategory>WVC_MechaBody</displayCategory> -->
+	<displayCategory>Archite</displayCategory>
 	<selectionWeight>0.0125</selectionWeight>
 	<marketValueFactor>1.5</marketValueFactor>
 	<minAgeActive>0</minAgeActive>

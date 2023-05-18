@@ -92,7 +92,7 @@
 	  <PsychicSensitivity>0.5</PsychicSensitivity>
 	  <BondAnimalChanceFactor>0.0</BondAnimalChanceFactor>
 	</statFactors>
-	<exclusionTags Inherit="False"/>
+	<!-- <exclusionTags Inherit="False"/> -->
 	<modExtensions>
 		<li Class="WVC.GeneExtension_Background">
 			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>

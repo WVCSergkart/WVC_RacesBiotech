@@ -11,7 +11,7 @@
 	<description>Carriers of this gene have archites that formed special neural connections in the brain and improved the carrier's nervous system pointwise.</description>
 	<iconPath>WVC/UI/Genes/Mechlink</iconPath>
 	<!-- <displayCategory>WVC_MechaBodyWare</displayCategory> -->
-	<displayCategory>WVC_MechaBodyParts</displayCategory>
+	<!-- <displayCategory>WVC_MechaBodyParts</displayCategory> -->
 	<displayOrderInCategory>-1200</displayOrderInCategory>
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
 	<randomChosen>true</randomChosen>

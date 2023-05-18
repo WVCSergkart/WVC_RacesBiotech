@@ -47,8 +47,10 @@
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<biostatArc>2</biostatArc>
-	<displayOrderInCategory>50</displayOrderInCategory>
-	<displayCategory>Archite</displayCategory>
+	<!-- <displayOrderInCategory>50</displayOrderInCategory> -->
+	<!-- <displayCategory>Archite</displayCategory> -->
+	<displayCategory>Reproduction</displayCategory>
+	<displayOrderInCategory>-552</displayOrderInCategory>
 	<minAgeActive>13</minAgeActive>
 	<sterilize>true</sterilize>
 	<selectionWeight>0.00125</selectionWeight>

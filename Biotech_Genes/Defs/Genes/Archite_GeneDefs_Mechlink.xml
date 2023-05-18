@@ -66,9 +66,8 @@
 	<!-- <iconColor>(255, 230, 215)</iconColor> -->
 	<!-- <iconColor>(79, 80, 81)</iconColor> -->
 	<!-- <displayCategory>Archite</displayCategory> -->
-	<displayCategory>Archite</displayCategory>
-	<!-- <displayOrderInCategory>0</displayOrderInCategory> -->
-	<!-- <displayOrderInCategory>151</displayOrderInCategory> -->
+	<displayCategory>Ability</displayCategory>
+	<displayOrderInCategory>234</displayOrderInCategory>
 	<!-- <prerequisite>WVC_ArchiteMechlink</prerequisite> -->
 	<marketValueFactor>3</marketValueFactor>
 	<!-- <selectionWeight>0.0125</selectionWeight> -->

@@ -5,13 +5,15 @@
 
   <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Mechanoidization_FirmwareBase" Abstract="True">
 	<!-- <geneClass>WVC.Gene_WithConditions</geneClass> -->
-	<defName>WVC_MechaAI_Base</defName>
-	<displayCategory>WVC_MechaBodyWare</displayCategory>
+	<!-- <defName>WVC_MechaAI_Base</defName> -->
+	<!-- <displayCategory>WVC_MechaBodyWare</displayCategory> -->
+	<displayOrderInCategory>-1000</displayOrderInCategory>
+	<displayCategory>Aptitudes</displayCategory>
 	<label>aptitude</label>
 	<labelShortAdj>archite aptitude</labelShortAdj>
 	<description>Carriers of this gene have archites who have prescribed certain patterns and behaviors at the genetic level.</description>
 	<iconPath>WVC/UI/Genes/MechanoidizationFirmware</iconPath>
-	<displayOrderInCategory>0</displayOrderInCategory>
+	<!-- <displayOrderInCategory>0</displayOrderInCategory> -->
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
 	<!-- <selectionWeight>0.15</selectionWeight> -->
 	<marketValueFactor>2</marketValueFactor>

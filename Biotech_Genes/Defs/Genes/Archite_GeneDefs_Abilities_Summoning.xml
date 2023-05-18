@@ -105,6 +105,8 @@
 	<iconPath>WVC/UI/Genes/SwarmConnection</iconPath>
 	<biostatArc>2</biostatArc>
 	<!-- <sterilize>true</sterilize> -->
+	<displayCategory>Ability</displayCategory>
+	<displayOrderInCategory>234</displayOrderInCategory>
 	<customEffectDescriptions>
 		<li>After activating the ability, summons from 1 to 5 golems.</li>
 		<li>&lt;color=#c0dc86&gt;Global work speed&lt;/color&gt; of the golems depends on the &lt;color=#c0dc86&gt;psychic sensitivity&lt;/color&gt; of the overseer.</li>

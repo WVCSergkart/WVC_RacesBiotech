@@ -129,8 +129,9 @@
 	  <!-- </value> -->
 	<!-- </Operation> -->
 
+	 <!-- or defName="PsychicDrone" -->
 	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
-	  <xpath>/Defs/ThoughtDef[defName="Expectations" or defName="PsychicDrone"]</xpath>
+	  <xpath>/Defs/ThoughtDef[defName="Expectations"]</xpath>
 	  <success>Always</success>
 	  <safetyDepth>1</safetyDepth>
 	  <value>
