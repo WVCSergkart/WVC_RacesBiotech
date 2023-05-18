@@ -1,6 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Patch>
 
+	<Operation Class="XmlExtensions.ForEach">
+		<xpath>/Defs/WVC.BlackListedXenotypesDef/blackListedForSerums/li</xpath>
+		<prefixLength>4</prefixLength>
+		<storeIn>blackListedForSerums_DEF</storeIn>
+		<apply>
+
+			<!-- <Operation Class="XmlExtensions.Log"> -->
+				<!-- <xpath>{blackListedForSerums_DEF}</xpath> -->
+			<!-- </Operation> -->
+
+			<Operation Class="XmlExtensions.AggregateValues">
+				<valueOperations>
+
+					<Operation Class="XmlExtensions.CreateVariable">
+						<value>{blackListedForSerums_DEF}</value>
+						<storeIn>li_DEF</storeIn>
+						<fromXml>true</fromXml>
+					</Operation>
+
+				</valueOperations>
+				<apply>
+
+					<Operation Class="PatchOperationAdd">
+						<xpath>/Defs/XmlExtensions.PatchDef[@Name="WVC_RacesBiotech_XenotypeSerumsGeneration_AddedThing"]/apply/Operation/cases[@WVC_Tag="AutoPatcherFilterEasyPatch"]</xpath>
+						<order>Prepend</order>
+						<value>
+							<li><value>{li_DEF}</value><apply></apply></li>
+						</value>
+					</Operation>
+
+				</apply>
+			</Operation>
+
+		</apply>
+	</Operation>
+
 	<Operation Class="XmlExtensions.ApplyPatch">
 		<patchName>WVC_RacesBiotech_XenotypeSerumsGeneration</patchName>
 		<arguments>

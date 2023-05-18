@@ -144,6 +144,16 @@
 		</nullifyingGenes>
 	  </value>
 	</Operation>
+	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="PsychicDrone"]</xpath>
+	  <success>Always</success>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaAI_PsychicDull</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
 
 	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
 	  <xpath>/Defs/ThoughtDef[defName="Sick"]</xpath>

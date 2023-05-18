@@ -7,7 +7,7 @@
 	<blackListedForSerums>
 		<li>Baseliner</li>
 		<li>WVC_Blank</li>
-		<li>AG_Wretch</li>
+		<!-- <li>AG_Wretch</li> -->
 		<li>AG_RandomCustom</li>
 		<li>VREA_AndroidBasic</li>
 		<li>VREA_AndroidAwakened</li>
