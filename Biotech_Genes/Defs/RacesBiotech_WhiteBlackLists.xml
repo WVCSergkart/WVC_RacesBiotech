@@ -3,7 +3,7 @@
 
   <WVC.BlackListedXenotypesDef>
 	<defName>WVC_RacesBiotech_BlackListedXenotypes</defName>
-	<!-- Xenotypes not selected for random serum -->
+	<!-- Xenotypes not selected for random serum. Any string -->
 	<blackListedForSerums>
 		<li>Baseliner</li>
 		<li>WVC_Blank</li>
@@ -12,11 +12,24 @@
 		<li>VREA_AndroidBasic</li>
 		<li>VREA_AndroidAwakened</li>
 	</blackListedForSerums>
-	<!-- Xenotypes that do not fall into a coma when using serum -->
+	<!-- Xenotypes that do not fall into a coma when using serum. Any string -->
 	<perfectCandidatesForSerums>
 		<li>WVC_Blank</li>
 		<li>AG_Wretch</li>
 	</perfectCandidatesForSerums>
+	<!-- List of genes that are labeled as (exo)skins. Used for ideology. Required defNames -->
+	<whiteListedExoskinGenes>
+		<li>WVC_MechaSkin</li>
+		<li>WVC_NodeSkin</li>
+		<li>WVC_RuneSkin</li>
+		<li>WVC_StoneSkin</li>
+		<li>Furskin</li>
+		<li MayRequire="vanillaracesexpanded.phytokin">VRE_BarkSkin</li>
+		<li MayRequire="vanillaracesexpanded.saurid">VRESaurids_ScaleSkin</li>
+		<!-- <li>VRE_BarkSkin</li> -->
+		<!-- <li>VRE_BarkSkin</li> -->
+		<!-- <li>VRE_BarkSkin</li> -->
+	</whiteListedExoskinGenes>
   </WVC.BlackListedXenotypesDef>
 
   <!-- Traits that are allowed to be generated as genes -->

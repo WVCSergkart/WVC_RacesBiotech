@@ -25,12 +25,12 @@
 			<!-- <MeatAmount>0</MeatAmount> -->
 			<!-- <LeatherAmount>0</LeatherAmount> -->
 			<!-- <ArmorRating_Heat>2.00</ArmorRating_Heat> -->
-			<MechEnergyLossPerHP>0.0</MechEnergyLossPerHP>
-			<WastepacksPerRecharge>0.0</WastepacksPerRecharge>
 			<BandwidthCost>-999</BandwidthCost>
+			<MechEnergyUsageFactor>-1</MechEnergyUsageFactor>
+			<MechEnergyLossPerHP>-1</MechEnergyLossPerHP>
+			<WastepacksPerRecharge>0</WastepacksPerRecharge>
 			<!-- <BandwidthCost>6</BandwidthCost> -->
 			<ControlTakingTime MayRequire="Ludeon.Rimworld.Biotech">1</ControlTakingTime>
-			<MechEnergyUsageFactor>0.0</MechEnergyUsageFactor>
 			<!-- <ComfyTemperatureMin>-100</ComfyTemperatureMin> -->
 			<!-- <ComfyTemperatureMax>250</ComfyTemperatureMax> -->
 			<MarketValue>150</MarketValue>
@@ -78,6 +78,7 @@
 			  <!-- <li>Hauling</li> -->
 			<!-- </mechEnabledWorkTypes> -->
 			<body>Mech_Light</body>
+			<maxMechEnergy>1</maxMechEnergy>
 			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
 			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
 			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
