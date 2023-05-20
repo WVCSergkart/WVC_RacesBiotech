@@ -44,4 +44,24 @@
 		</arguments>
 	</Operation>
 
+	<!-- <Operation Class="XmlExtensions.FindMod"> -->
+		<!-- <mods> -->
+			<!-- <li>ludeon.rimworld.ideology</li> -->
+		<!-- </mods> -->
+		<!-- <packageId>true</packageId> -->
+		<!-- <logic>or</logic> -->
+		<!-- <caseTrue> -->
+
+			<!-- <Operation Class="XmlExtensions.ApplyPatch"> -->
+				<!-- <patchName>WVC_RacesBiotech_PreceptGeneration_Main</patchName> -->
+				<!-- <arguments> -->
+					<!-- <li>RB</li> -->
+					<!-- <li>RB</li> -->
+					<!-- <li>RB</li> -->
+				<!-- </arguments> -->
+			<!-- </Operation> -->
+
+		<!-- </caseTrue> -->
+	<!-- </Operation> -->
+
 </Patch>

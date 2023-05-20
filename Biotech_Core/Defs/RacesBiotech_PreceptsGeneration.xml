@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!--=====================================================================-->
+
+	<!-- <XmlExtensions.PatchDef Name="WVC_RacesBiotech_PreceptGeneration_Main" Abstract="True"> -->
+		<!-- <parameters> -->
+			<!-- <li>XenotypeSerum_TagName</li> -->
+			<!-- <li>label_DEF</li> -->
+			<!-- <li>defName_DEF</li> -->
+		<!-- </parameters> -->
+		<!-- <apply> -->
+
+
+		<!-- </apply> -->
+	<!-- </XmlExtensions.PatchDef> -->
+
+
+</Defs>
