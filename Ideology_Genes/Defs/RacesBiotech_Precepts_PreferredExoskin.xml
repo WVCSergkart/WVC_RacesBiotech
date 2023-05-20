@@ -4,7 +4,7 @@
   <IssueDef>
 	<defName>WVC_PreferredExoskin</defName>
 	<label>chosen exoskin</label>
-	<iconPath>WVC/UI/Precepts/PreferredSkin_v0</iconPath>
+	<iconPath>WVC/UI/Precepts/Exoskin_v0</iconPath>
   </IssueDef>
 
   <PreceptDef Name="WVC_IssueExoskinism_Base" Abstract="True">
@@ -24,10 +24,21 @@
   <!-- Precepts -->
 
   <PreceptDef ParentName="WVC_IssueExoskinism_Base">
-	<defName>WVC_PreferredExoskin_Absent</defName>
-	<label>none</label>
-	<description>All exotic skins are beautiful.</description>
+	<defName>WVC_PreferredExoskin_Baseliner</defName>
+	<label>human skin</label>
+	<description>Normal human appearance is best.</description>
 	<displayOrderInIssue>0</displayOrderInIssue>
+	<associatedMemes>
+	  <li>FleshPurity</li>
+	</associatedMemes>
+	<conditionalStatAffecters>
+	  <li Class="WVC.ConditionalStatAffecter_PawnIsExoskinned">
+		<pawnShouldBeExoskinned>false</pawnShouldBeExoskinned>
+		<statOffsets>
+		  <WVC_RacesBiotech_PawnExoBeauty>1</WVC_RacesBiotech_PawnExoBeauty>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
   </PreceptDef>
 
   <WVC.RacesBiotech.ExoskinistPreceptTemplateDef ParentName="WVC_IssueExoskinism_Base">
@@ -35,20 +46,23 @@
 	<label>misc</label>
 	<description>All exotic skins are beautiful, but only one is the most beautiful.</description>
 	<displayOrderInIssue>100</displayOrderInIssue>
-	<comps>
-	  <li Class="PreceptComp_SituationalThought">
-		<thought>WVC_PreferredExoskin_Social</thought>
-		<thoughtStageDescriptions>
-		  <li>Preferred exoskin</li>
-		</thoughtStageDescriptions>
-	  </li>
-	  <li Class="PreceptComp_SituationalThought">
-		<thought>WVC_PreferredExoskin_Self</thought>
-		<thoughtStageDescriptions>
-		  <li>Preferred exoskin</li>
-		</thoughtStageDescriptions>
-	  </li>
-	</comps>
+	<associatedMemes>
+	  <li>Transhumanist</li>
+	</associatedMemes>
+	<!-- <comps> -->
+	  <!-- <li Class="PreceptComp_SituationalThought"> -->
+		<!-- <thought>WVC_PreferredExoskin_Social</thought> -->
+		<!-- <thoughtStageDescriptions> -->
+		  <!-- <li>Preferred exoskin</li> -->
+		<!-- </thoughtStageDescriptions> -->
+	  <!-- </li> -->
+	  <!-- <li Class="PreceptComp_SituationalThought"> -->
+		<!-- <thought>WVC_PreferredExoskin_Self</thought> -->
+		<!-- <thoughtStageDescriptions> -->
+		  <!-- <li>Preferred exoskin</li> -->
+		<!-- </thoughtStageDescriptions> -->
+	  <!-- </li> -->
+	<!-- </comps> -->
   </WVC.RacesBiotech.ExoskinistPreceptTemplateDef>
 
   <!-- <PreceptDef ParentName="WVC_IssueExoskinism_Base"> -->
@@ -73,32 +87,32 @@
 
   <!-- =Social=Social=Social=Social=Social=Social=Social=Social=Social= -->
 
-  <ThoughtDef>
-	<defName>WVC_PreferredExoskin_Social</defName>
-	<thoughtClass>Thought_SituationalSocial</thoughtClass>
-	<workerClass>WVC.ThoughtWorker_PreferredExoskin_SingleThought_Social</workerClass>
-	<stages>
-	  <li>
-		<label>preferred exoskin</label>
-		<baseOpinionOffset>20</baseOpinionOffset>
-	  </li>
-	</stages>
-  </ThoughtDef>
+  <!-- <ThoughtDef> -->
+	<!-- <defName>WVC_PreferredExoskin_Social</defName> -->
+	<!-- <thoughtClass>Thought_SituationalSocial</thoughtClass> -->
+	<!-- <workerClass>WVC.ThoughtWorker_PreferredExoskin_SingleThought_Social</workerClass> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <label>preferred exoskin</label> -->
+		<!-- <baseOpinionOffset>20</baseOpinionOffset> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+  <!-- </ThoughtDef> -->
 
   <!-- =Self=Self=Self=Self=Self=Self=Self=Self=Self=Self=Self=Self=Self= -->
 
-  <ThoughtDef>
-	<defName>WVC_PreferredExoskin_Self</defName>
-	<workerClass>WVC.ThoughtWorker_PreferredExoskin_SingleThought</workerClass>
-	<validWhileDespawned>true</validWhileDespawned>
-	<stages>
-	  <li>
-		<label>preferred exoskin</label>
-		<description>My skin is the best.</description>
-		<baseMoodEffect>10</baseMoodEffect>
-	  </li>
-	</stages>
-  </ThoughtDef>
+  <!-- <ThoughtDef> -->
+	<!-- <defName>WVC_PreferredExoskin_Self</defName> -->
+	<!-- <workerClass>WVC.ThoughtWorker_PreferredExoskin_SingleThought</workerClass> -->
+	<!-- <validWhileDespawned>true</validWhileDespawned> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <label>preferred exoskin</label> -->
+		<!-- <description>My skin is the best.</description> -->
+		<!-- <baseMoodEffect>10</baseMoodEffect> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+  <!-- </ThoughtDef> -->
 
 
 </Defs>

@@ -6,7 +6,7 @@
   <IssueDef>
 	<defName>WVC_SubCorred</defName>
 	<label>memory</label>
-	<iconPath>WVC/UI/Precepts/SubCore_Buff</iconPath>
+	<iconPath>WVC/UI/Precepts/Mechanoidization</iconPath>
   </IssueDef>
 
   <!-- Precepts -->

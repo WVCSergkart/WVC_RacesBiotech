@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <IssueDef>
+	<defName>WVC_ExoBeauty</defName>
+	<label>beauty</label>
+	<iconPath>WVC/UI/Precepts/ExoPretty_v1</iconPath>
+  </IssueDef>
+
+  <PreceptDef Name="WVC_ExoBeauty_Base" Abstract="True">
+	<issue>WVC_ExoBeauty</issue>
+	<label>test</label>
+	<description>TEST.</description>
+	<impact>High</impact>
+	<displayOrderInImpact>100</displayOrderInImpact>
+	<associatedMemes>
+	  <li>WVC_Mechaskinist</li>
+	</associatedMemes>
+	<requiredMemes>
+	  <li>WVC_Mechaskinist</li>
+	</requiredMemes>
+  </PreceptDef>
+
+  <!-- Precepts -->
+
+  <PreceptDef ParentName="WVC_ExoBeauty_Base">
+	<defName>WVC_ExoBeauty_Base</defName>
+	<label>ideological</label>
+	<description>The concept of beauty was invented by man and we ourselves define it for ourselves.
+
+&lt;color=#ff8585&gt;Effect:&lt;/color&gt; Nullifies the influence of beauty on the opinion of pawns. Activates ideological beauty, which has an effect only within one ideology.</description>
+	<displayOrderInIssue>0</displayOrderInIssue>
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_ExoBeauty_Social</thought>
+		<thoughtStageDescriptions>
+		  <li>physically hideous (ideology)</li>
+		  <li>physically unsightly (ideology)</li>
+		  <li>physically appealing (ideology)</li>
+		  <li>physically stunning (ideology)</li>
+		</thoughtStageDescriptions>
+	  </li>
+	</comps>
+  </PreceptDef>
+
+  <!-- =Social=Social=Social=Social=Social=Social=Social=Social=Social= -->
+
+  <ThoughtDef>
+	<defName>WVC_ExoBeauty_Social</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC.ThoughtWorker_ExoBeauty_Social</workerClass>
+	<stages>
+	  <li>
+		<label>physically hideous</label>
+		<baseOpinionOffset>-40</baseOpinionOffset>
+	  </li>
+	  <li>
+		<label>physically unsightly</label>
+		<baseOpinionOffset>-20</baseOpinionOffset>
+	  </li>
+	  <li>
+		<label>physically appealing</label>
+		<baseOpinionOffset>20</baseOpinionOffset>
+	  </li>
+	  <li>
+		<label>physically stunning</label>
+		<baseOpinionOffset>40</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+
+</Defs>

@@ -8,9 +8,10 @@
   <!-- <WVC_StatsReport_Drafted>drafted</WVC_StatsReport_Drafted> -->
   <!-- <WVC_StatsReport_Mechalike>mechalike</WVC_StatsReport_Mechalike> -->
   <!-- <WVC_StatsReport_Humanlike>humanlike</WVC_StatsReport_Humanlike> -->
-  <WVC_StatsReport_Mechalike>mechaskinned</WVC_StatsReport_Mechalike>
-  <WVC_StatsReport_Humanlike>non-mechaskinned</WVC_StatsReport_Humanlike>
-  <WVC_StatsReport_Immortal>deathless</WVC_StatsReport_Immortal>
+  <WVC_StatsReport_PawnIsExoskinned>exoskinned</WVC_StatsReport_PawnIsExoskinned>
+  <!-- <WVC_StatsReport_Mechalike>mechaskinned</WVC_StatsReport_Mechalike> -->
+  <!-- <WVC_StatsReport_Humanlike>non-mechaskinned</WVC_StatsReport_Humanlike> -->
+  <!-- <WVC_StatsReport_Immortal>deathless</WVC_StatsReport_Immortal> -->
   <!-- <WVC_StatsReport_Immortal>immortal</WVC_StatsReport_Immortal> -->
   <!-- <WVC_StatsReport_Furskinned>furskin</WVC_StatsReport_Furskinned> -->
   <!-- <WVC_StatsReport_NonFurskinned>non-furskin</WVC_StatsReport_NonFurskinned> -->

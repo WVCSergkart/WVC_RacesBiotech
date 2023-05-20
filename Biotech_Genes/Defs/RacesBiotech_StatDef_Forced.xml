@@ -167,5 +167,17 @@
 	<!-- <toStringStyle>PercentOne</toStringStyle> -->
   <!-- </StatDef> -->
 
+  <StatDef>
+	<defName>WVC_RacesBiotech_PawnExoBeauty</defName>
+	<label>ideo beauty</label>
+	<description>Determines attractiveness within one ideology. Does not affect trade relations with other factions. Has no effect without a specific precept.</description>
+	<category>PawnSocial</category>
+	<maxValue>2</maxValue>
+	<minValue>-2</minValue>
+	<hideAtValue>0</hideAtValue>
+	<defaultBaseValue>0</defaultBaseValue>
+	<toStringStyle>FloatOne</toStringStyle>
+	<displayPriorityInCategory>2001</displayPriorityInCategory>
+  </StatDef>
 
 </Defs>
