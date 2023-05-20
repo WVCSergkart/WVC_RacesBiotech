@@ -7,29 +7,24 @@
 	<iconPath>WVC/UI/Precepts/ExoPretty_v1</iconPath>
   </IssueDef>
 
-  <PreceptDef Name="WVC_ExoBeauty_Base" Abstract="True">
+  <!-- Precepts -->
+
+  <PreceptDef>
+	<defName>WVC_ExoBeauty_Base</defName>
+	<label>ideology</label>
+	<description>The concept of beauty was invented by man and we ourselves define it for ourselves.
+
+&lt;color=#ff8585&gt;Effect:&lt;/color&gt; Nullifies the influence of beauty on the opinion of pawns. Activates ideological beauty, which has an effect only within one ideology.</description>
 	<issue>WVC_ExoBeauty</issue>
-	<label>test</label>
-	<description>TEST.</description>
-	<impact>High</impact>
+	<displayOrderInIssue>0</displayOrderInIssue>
 	<displayOrderInImpact>100</displayOrderInImpact>
+	<impact>High</impact>
 	<associatedMemes>
 	  <li>WVC_Mechaskinist</li>
 	</associatedMemes>
 	<requiredMemes>
 	  <li>WVC_Mechaskinist</li>
 	</requiredMemes>
-  </PreceptDef>
-
-  <!-- Precepts -->
-
-  <PreceptDef ParentName="WVC_ExoBeauty_Base">
-	<defName>WVC_ExoBeauty_Base</defName>
-	<label>ideological</label>
-	<description>The concept of beauty was invented by man and we ourselves define it for ourselves.
-
-&lt;color=#ff8585&gt;Effect:&lt;/color&gt; Nullifies the influence of beauty on the opinion of pawns. Activates ideological beauty, which has an effect only within one ideology.</description>
-	<displayOrderInIssue>0</displayOrderInIssue>
 	<comps>
 	  <li Class="PreceptComp_SituationalThought">
 		<thought>WVC_ExoBeauty_Social</thought>

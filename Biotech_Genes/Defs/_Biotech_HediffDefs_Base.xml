@@ -80,6 +80,21 @@
 	</stages>
   </HediffDef>
 
+  <HediffDef>
+	<defName>WVC_StoneStomach_HungerFactor</defName>
+	<label>stone stomach</label>
+	<description>Should be invisible.</description>
+	<scenarioCanAdd>false</scenarioCanAdd>
+	<isBad>false</isBad>
+	<stages>
+	  <li>
+		<hungerRateFactor>0.2</hungerRateFactor>
+		<becomeVisible>false</becomeVisible>
+		<minSeverity>0.0</minSeverity>
+	  </li>
+	</stages>
+  </HediffDef>
+
   <!-- f4e776 -->
   <HediffDef>
 	<defName>WVC_SelfPopulationRegulation_Golems</defName>

@@ -87,7 +87,7 @@
 		<description>There is nothing more reliable in this world than our flesh.</description>
 		<iconPath>WVC/UI/Precepts/Memes_Hybridism</iconPath>
 		<groupDef>Misc</groupDef>
-		<impact>1</impact>
+		<impact>2</impact>
 		<randomizationSelectionWeightFactor>0.25</randomizationSelectionWeightFactor>
 		<symbolPacks>
 		  <li>

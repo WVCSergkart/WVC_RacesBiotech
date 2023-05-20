@@ -55,7 +55,7 @@
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
 			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-			<hediffToWholeBody>WVC_SleepyStomach_HungerFactor</hediffToWholeBody>
+			<hediffToWholeBody>WVC_StoneStomach_HungerFactor</hediffToWholeBody>
 		</li>
 	</modExtensions>
   </GeneDef>
