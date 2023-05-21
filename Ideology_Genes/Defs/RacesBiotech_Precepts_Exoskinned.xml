@@ -19,39 +19,39 @@
 	<impact>High</impact>
 	<displayOrderInIssue>40</displayOrderInIssue>
 	<displayOrderInImpact>100</displayOrderInImpact>
-	<!-- <conflictingMemes> -->
-	  <!-- <li>WVC_Mechaskinist</li> -->
-	  <!-- <li>Transhumanist</li> -->
-	<!-- </conflictingMemes> -->
-	<associatedMemes>
+	<conflictingMemes>
 	  <li>WVC_Mechaskinist</li>
+	  <li>Transhumanist</li>
+	</conflictingMemes>
+	<associatedMemes>
+	  <!-- <li>WVC_Mechaskinist</li> -->
 	  <li>FleshPurity</li>
 	</associatedMemes>
-	<requiredMemes>
-	  <li>WVC_Mechaskinist</li>
-	</requiredMemes>
-	<conditionalStatAffecters>
-	  <li Class="WVC.ConditionalStatAffecter_PawnIsExoskinned">
-		<pawnShouldBeExoskinned>true</pawnShouldBeExoskinned>
-		<statOffsets>
-		  <WVC_RacesBiotech_PawnExoBeauty>-2</WVC_RacesBiotech_PawnExoBeauty>
-		</statOffsets>
+	<!-- <requiredMemes> -->
+	  <!-- <li>WVC_Mechaskinist</li> -->
+	<!-- </requiredMemes> -->
+	<!-- <conditionalStatAffecters> -->
+	  <!-- <li Class="WVC.ConditionalStatAffecter_PawnIsExoskinned"> -->
+		<!-- <pawnShouldBeExoskinned>true</pawnShouldBeExoskinned> -->
+		<!-- <statOffsets> -->
+		  <!-- <WVC_RacesBiotech_PawnExoBeauty>-2</WVC_RacesBiotech_PawnExoBeauty> -->
+		<!-- </statOffsets> -->
+	  <!-- </li> -->
+	<!-- </conditionalStatAffecters> -->
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_PawnIsMechaskinned_Horrible_Social</thought>
+		<thoughtStageDescriptions>
+		  <li>Exoskinned</li>
+		</thoughtStageDescriptions>
 	  </li>
-	</conditionalStatAffecters>
-	<!-- <comps> -->
-	  <!-- <li Class="PreceptComp_SituationalThought"> -->
-		<!-- <thought>WVC_PawnIsMechaskinned_Horrible_Social</thought> -->
-		<!-- <thoughtStageDescriptions> -->
-		  <!-- <li>Exoskinned</li> -->
-		<!-- </thoughtStageDescriptions> -->
-	  <!-- </li> -->
-	  <!-- <li Class="PreceptComp_SituationalThought"> -->
-		<!-- <thought>WVC_PawnIsMechaskinned_Horrible</thought> -->
-		<!-- <thoughtStageDescriptions> -->
-		  <!-- <li>Exoskinned</li> -->
-		<!-- </thoughtStageDescriptions> -->
-	  <!-- </li> -->
-	<!-- </comps> -->
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_PawnIsMechaskinned_Horrible</thought>
+		<thoughtStageDescriptions>
+		  <li>Exoskinned</li>
+		</thoughtStageDescriptions>
+	  </li>
+	</comps>
   </PreceptDef>
 
   <PreceptDef>
@@ -64,35 +64,39 @@
 	<impact>Medium</impact>
 	<displayOrderInIssue>30</displayOrderInIssue>
 	<displayOrderInImpact>100</displayOrderInImpact>
-	<associatedMemes>
+	<conflictingMemes>
 	  <li>WVC_Mechaskinist</li>
+	  <li>Transhumanist</li>
+	</conflictingMemes>
+	<associatedMemes>
+	  <!-- <li>WVC_Mechaskinist</li> -->
 	  <li>FleshPurity</li>
 	</associatedMemes>
-	<requiredMemes>
-	  <li>WVC_Mechaskinist</li>
-	</requiredMemes>
-	<conditionalStatAffecters>
-	  <li Class="WVC.ConditionalStatAffecter_PawnIsExoskinned">
-		<pawnShouldBeExoskinned>true</pawnShouldBeExoskinned>
-		<statOffsets>
-		  <WVC_RacesBiotech_PawnExoBeauty>-1</WVC_RacesBiotech_PawnExoBeauty>
-		</statOffsets>
+	<!-- <requiredMemes> -->
+	  <!-- <li>WVC_Mechaskinist</li> -->
+	<!-- </requiredMemes> -->
+	<!-- <conditionalStatAffecters> -->
+	  <!-- <li Class="WVC.ConditionalStatAffecter_PawnIsExoskinned"> -->
+		<!-- <pawnShouldBeExoskinned>true</pawnShouldBeExoskinned> -->
+		<!-- <statOffsets> -->
+		  <!-- <WVC_RacesBiotech_PawnExoBeauty>-1</WVC_RacesBiotech_PawnExoBeauty> -->
+		<!-- </statOffsets> -->
+	  <!-- </li> -->
+	<!-- </conditionalStatAffecters> -->
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_PawnIsMechaskinned_Disapproved_Social</thought>
+		<thoughtStageDescriptions>
+		  <li>Exoskinned</li>
+		</thoughtStageDescriptions>
 	  </li>
-	</conditionalStatAffecters>
-	<!-- <comps> -->
-	  <!-- <li Class="PreceptComp_SituationalThought"> -->
-		<!-- <thought>WVC_PawnIsMechaskinned_Disapproved_Social</thought> -->
-		<!-- <thoughtStageDescriptions> -->
-		  <!-- <li>Exoskinned</li> -->
-		<!-- </thoughtStageDescriptions> -->
-	  <!-- </li> -->
-	  <!-- <li Class="PreceptComp_SituationalThought"> -->
-		<!-- <thought>WVC_PawnIsMechaskinned_Disapproved</thought> -->
-		<!-- <thoughtStageDescriptions> -->
-		  <!-- <li>Exoskinned</li> -->
-		<!-- </thoughtStageDescriptions> -->
-	  <!-- </li> -->
-	<!-- </comps> -->
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_PawnIsMechaskinned_Disapproved</thought>
+		<thoughtStageDescriptions>
+		  <li>Exoskinned</li>
+		</thoughtStageDescriptions>
+	  </li>
+	</comps>
   </PreceptDef>
 
   <PreceptDef>
@@ -128,28 +132,28 @@
 	<requiredMemes>
 	  <li>WVC_Mechaskinist</li>
 	</requiredMemes>
-	<conditionalStatAffecters>
-	  <li Class="WVC.ConditionalStatAffecter_PawnIsExoskinned">
-		<pawnShouldBeExoskinned>false</pawnShouldBeExoskinned>
-		<statOffsets>
-		  <WVC_RacesBiotech_PawnExoBeauty>-1</WVC_RacesBiotech_PawnExoBeauty>
-		</statOffsets>
+	<!-- <conditionalStatAffecters> -->
+	  <!-- <li Class="WVC.ConditionalStatAffecter_PawnIsExoskinned"> -->
+		<!-- <pawnShouldBeExoskinned>false</pawnShouldBeExoskinned> -->
+		<!-- <statOffsets> -->
+		  <!-- <WVC_RacesBiotech_PawnExoBeauty>-1</WVC_RacesBiotech_PawnExoBeauty> -->
+		<!-- </statOffsets> -->
+	  <!-- </li> -->
+	<!-- </conditionalStatAffecters> -->
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_PawnIsMechaskinned_Acceptable_Social</thought>
+		<thoughtStageDescriptions>
+		  <li>Exoskinned</li>
+		</thoughtStageDescriptions>
 	  </li>
-	</conditionalStatAffecters>
-	<!-- <comps> -->
-	  <!-- <li Class="PreceptComp_SituationalThought"> -->
-		<!-- <thought>WVC_PawnIsMechaskinned_Acceptable_Social</thought> -->
-		<!-- <thoughtStageDescriptions> -->
-		  <!-- <li>Exoskinned</li> -->
-		<!-- </thoughtStageDescriptions> -->
-	  <!-- </li> -->
-	  <!-- <li Class="PreceptComp_SituationalThought"> -->
-		<!-- <thought>WVC_PawnIsMechaskinned_Acceptable</thought> -->
-		<!-- <thoughtStageDescriptions> -->
-		  <!-- <li>Exoskinned</li> -->
-		<!-- </thoughtStageDescriptions> -->
-	  <!-- </li> -->
-	<!-- </comps> -->
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_PawnIsMechaskinned_Acceptable</thought>
+		<thoughtStageDescriptions>
+		  <li>Exoskinned</li>
+		</thoughtStageDescriptions>
+	  </li>
+	</comps>
   </PreceptDef>
 
   <PreceptDef>
@@ -169,28 +173,28 @@
 	<requiredMemes>
 	  <li>WVC_Mechaskinist</li>
 	</requiredMemes>
-	<conditionalStatAffecters>
-	  <li Class="WVC.ConditionalStatAffecter_PawnIsExoskinned">
-		<pawnShouldBeExoskinned>false</pawnShouldBeExoskinned>
-		<statOffsets>
-		  <WVC_RacesBiotech_PawnExoBeauty>-2</WVC_RacesBiotech_PawnExoBeauty>
-		</statOffsets>
+	<!-- <conditionalStatAffecters> -->
+	  <!-- <li Class="WVC.ConditionalStatAffecter_PawnIsExoskinned"> -->
+		<!-- <pawnShouldBeExoskinned>false</pawnShouldBeExoskinned> -->
+		<!-- <statOffsets> -->
+		  <!-- <WVC_RacesBiotech_PawnExoBeauty>-2</WVC_RacesBiotech_PawnExoBeauty> -->
+		<!-- </statOffsets> -->
+	  <!-- </li> -->
+	<!-- </conditionalStatAffecters> -->
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_PawnIsMechaskinned_Preferred_Social</thought>
+		<thoughtStageDescriptions>
+		  <li>Exoskinned</li>
+		</thoughtStageDescriptions>
 	  </li>
-	</conditionalStatAffecters>
-	<!-- <comps> -->
-	  <!-- <li Class="PreceptComp_SituationalThought"> -->
-		<!-- <thought>WVC_PawnIsMechaskinned_Preferred_Social</thought> -->
-		<!-- <thoughtStageDescriptions> -->
-		  <!-- <li>Exoskinned</li> -->
-		<!-- </thoughtStageDescriptions> -->
-	  <!-- </li> -->
-	  <!-- <li Class="PreceptComp_SituationalThought"> -->
-		<!-- <thought>WVC_PawnIsMechaskinned_Preferred</thought> -->
-		<!-- <thoughtStageDescriptions> -->
-		  <!-- <li>Exoskinned</li> -->
-		<!-- </thoughtStageDescriptions> -->
-	  <!-- </li> -->
-	<!-- </comps> -->
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_PawnIsMechaskinned_Preferred</thought>
+		<thoughtStageDescriptions>
+		  <li>Exoskinned</li>
+		</thoughtStageDescriptions>
+	  </li>
+	</comps>
   </PreceptDef>
 
   <PreceptDef>
@@ -210,159 +214,159 @@
 	<requiredMemes>
 	  <li>WVC_Mechaskinist</li>
 	</requiredMemes>
-	<conditionalStatAffecters>
-	  <li Class="WVC.ConditionalStatAffecter_PawnIsExoskinned">
-		<pawnShouldBeExoskinned>false</pawnShouldBeExoskinned>
-		<statOffsets>
-		  <WVC_RacesBiotech_PawnExoBeauty>-2</WVC_RacesBiotech_PawnExoBeauty>
-		</statOffsets>
-	  </li>
-	  <li Class="WVC.ConditionalStatAffecter_PawnIsExoskinned">
-		<pawnShouldBeExoskinned>true</pawnShouldBeExoskinned>
-		<statOffsets>
-		  <WVC_RacesBiotech_PawnExoBeauty>1</WVC_RacesBiotech_PawnExoBeauty>
-		</statOffsets>
-	  </li>
-	</conditionalStatAffecters>
-	<!-- <comps> -->
-	  <!-- <li Class="PreceptComp_SituationalThought"> -->
-		<!-- <thought>WVC_PawnIsMechaskinned_Exalted_Social</thought> -->
-		<!-- <thoughtStageDescriptions> -->
-		  <!-- <li>Exoskinned</li> -->
-		<!-- </thoughtStageDescriptions> -->
+	<!-- <conditionalStatAffecters> -->
+	  <!-- <li Class="WVC.ConditionalStatAffecter_PawnIsExoskinned"> -->
+		<!-- <pawnShouldBeExoskinned>false</pawnShouldBeExoskinned> -->
+		<!-- <statOffsets> -->
+		  <!-- <WVC_RacesBiotech_PawnExoBeauty>-2</WVC_RacesBiotech_PawnExoBeauty> -->
+		<!-- </statOffsets> -->
 	  <!-- </li> -->
-	  <!-- <li Class="PreceptComp_SituationalThought"> -->
-		<!-- <thought>WVC_PawnIsMechaskinned_Exalted</thought> -->
-		<!-- <thoughtStageDescriptions> -->
-		  <!-- <li>Exoskinned</li> -->
-		<!-- </thoughtStageDescriptions> -->
+	  <!-- <li Class="WVC.ConditionalStatAffecter_PawnIsExoskinned"> -->
+		<!-- <pawnShouldBeExoskinned>true</pawnShouldBeExoskinned> -->
+		<!-- <statOffsets> -->
+		  <!-- <WVC_RacesBiotech_PawnExoBeauty>1</WVC_RacesBiotech_PawnExoBeauty> -->
+		<!-- </statOffsets> -->
 	  <!-- </li> -->
-	<!-- </comps> -->
+	<!-- </conditionalStatAffecters> -->
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_PawnIsMechaskinned_Exalted_Social</thought>
+		<thoughtStageDescriptions>
+		  <li>Exoskinned</li>
+		</thoughtStageDescriptions>
+	  </li>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_PawnIsMechaskinned_Exalted</thought>
+		<thoughtStageDescriptions>
+		  <li>Exoskinned</li>
+		</thoughtStageDescriptions>
+	  </li>
+	</comps>
   </PreceptDef>
 
   <!-- =Social=Social=Social=Social=Social=Social=Social=Social=Social=Social= -->
 
-  <!-- <ThoughtDef> -->
-	<!-- <defName>WVC_PawnIsMechaskinned_Horrible_Social</defName> -->
-	<!-- <thoughtClass>Thought_SituationalSocial</thoughtClass> -->
-	<!-- <workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass> -->
-	<!-- <stages> -->
-	  <!-- <li> -->
-		<!-- <label>exoskinned</label> -->
-		<!-- <baseOpinionOffset>-18</baseOpinionOffset> -->
-	  <!-- </li> -->
-	<!-- </stages> -->
-  <!-- </ThoughtDef> -->
+  <ThoughtDef>
+	<defName>WVC_PawnIsMechaskinned_Horrible_Social</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
+	<stages>
+	  <li>
+		<label>exoskinned</label>
+		<baseOpinionOffset>-18</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
 
-  <!-- <ThoughtDef> -->
-	<!-- <defName>WVC_PawnIsMechaskinned_Disapproved_Social</defName> -->
-	<!-- <thoughtClass>Thought_SituationalSocial</thoughtClass> -->
-	<!-- <workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass> -->
-	<!-- <stages> -->
-	  <!-- <li> -->
-		<!-- <label>exoskinned</label> -->
-		<!-- <baseOpinionOffset>-8</baseOpinionOffset> -->
-	  <!-- </li> -->
-	<!-- </stages> -->
-  <!-- </ThoughtDef> -->
+  <ThoughtDef>
+	<defName>WVC_PawnIsMechaskinned_Disapproved_Social</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
+	<stages>
+	  <li>
+		<label>exoskinned</label>
+		<baseOpinionOffset>-8</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
 
-  <!-- <ThoughtDef> -->
-	<!-- <defName>WVC_PawnIsMechaskinned_Acceptable_Social</defName> -->
-	<!-- <thoughtClass>Thought_SituationalSocial</thoughtClass> -->
-	<!-- <workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass> -->
-	<!-- <stages> -->
-	  <!-- <li> -->
-		<!-- <label>exoskinned</label> -->
-		<!-- <baseOpinionOffset>5</baseOpinionOffset> -->
-	  <!-- </li> -->
-	<!-- </stages> -->
-  <!-- </ThoughtDef> -->
+  <ThoughtDef>
+	<defName>WVC_PawnIsMechaskinned_Acceptable_Social</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
+	<stages>
+	  <li>
+		<label>exoskinned</label>
+		<baseOpinionOffset>5</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
 
-  <!-- <ThoughtDef> -->
-	<!-- <defName>WVC_PawnIsMechaskinned_Preferred_Social</defName> -->
-	<!-- <thoughtClass>Thought_SituationalSocial</thoughtClass> -->
-	<!-- <workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass> -->
-	<!-- <stages> -->
-	  <!-- <li> -->
-		<!-- <label>exoskinned</label> -->
-		<!-- <baseOpinionOffset>10</baseOpinionOffset> -->
-	  <!-- </li> -->
-	<!-- </stages> -->
-  <!-- </ThoughtDef> -->
+  <ThoughtDef>
+	<defName>WVC_PawnIsMechaskinned_Preferred_Social</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
+	<stages>
+	  <li>
+		<label>exoskinned</label>
+		<baseOpinionOffset>10</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
 
-  <!-- <ThoughtDef> -->
-	<!-- <defName>WVC_PawnIsMechaskinned_Exalted_Social</defName> -->
-	<!-- <thoughtClass>Thought_SituationalSocial</thoughtClass> -->
-	<!-- <workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass> -->
-	<!-- <stages> -->
-	  <!-- <li> -->
-		<!-- <label>exoskinned</label> -->
-		<!-- <baseOpinionOffset>20</baseOpinionOffset> -->
-	  <!-- </li> -->
-	<!-- </stages> -->
-  <!-- </ThoughtDef> -->
+  <ThoughtDef>
+	<defName>WVC_PawnIsMechaskinned_Exalted_Social</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
+	<stages>
+	  <li>
+		<label>exoskinned</label>
+		<baseOpinionOffset>20</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
 
   <!-- =Self=Self=Self=Self=Self=Self=Self=Self=Self=Self=Self=Self=Self= -->
 
-  <!-- <ThoughtDef> -->
-	<!-- <defName>WVC_PawnIsMechaskinned_Horrible</defName> -->
-	<!-- <workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought</workerClass> -->
-	<!-- <validWhileDespawned>true</validWhileDespawned> -->
-	<!-- <stages> -->
-	  <!-- <li> -->
-		<!-- <label>exoskinned</label> -->
-		<!-- <description>I am clean of this dirt.</description> -->
-		<!-- <baseMoodEffect>-10</baseMoodEffect> -->
-	  <!-- </li> -->
-	<!-- </stages> -->
-  <!-- </ThoughtDef> -->
+  <ThoughtDef>
+	<defName>WVC_PawnIsMechaskinned_Horrible</defName>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought</workerClass>
+	<validWhileDespawned>true</validWhileDespawned>
+	<stages>
+	  <li>
+		<label>exoskinned</label>
+		<description>I am clean of this dirt.</description>
+		<baseMoodEffect>-10</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
 
-  <!-- <ThoughtDef> -->
-	<!-- <defName>WVC_PawnIsMechaskinned_Disapproved</defName> -->
-	<!-- <workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought</workerClass> -->
-	<!-- <stages> -->
-	  <!-- <li> -->
-		<!-- <label>exoskinned</label> -->
-		<!-- <description>I am clean of this dirt.</description> -->
-		<!-- <baseMoodEffect>-5</baseMoodEffect> -->
-	  <!-- </li> -->
-	<!-- </stages> -->
-  <!-- </ThoughtDef> -->
+  <ThoughtDef>
+	<defName>WVC_PawnIsMechaskinned_Disapproved</defName>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought</workerClass>
+	<stages>
+	  <li>
+		<label>exoskinned</label>
+		<description>I am clean of this dirt.</description>
+		<baseMoodEffect>-5</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
 
-  <!-- <ThoughtDef> -->
-	<!-- <defName>WVC_PawnIsMechaskinned_Acceptable</defName> -->
-	<!-- <workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought</workerClass> -->
-	<!-- <stages> -->
-	  <!-- <li> -->
-		<!-- <label>exoskinned</label> -->
-		<!-- <description>Not bad not good.</description> -->
-		<!-- <baseMoodEffect>5</baseMoodEffect> -->
-	  <!-- </li> -->
-	<!-- </stages> -->
-  <!-- </ThoughtDef> -->
+  <ThoughtDef>
+	<defName>WVC_PawnIsMechaskinned_Acceptable</defName>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought</workerClass>
+	<stages>
+	  <li>
+		<label>exoskinned</label>
+		<description>Not bad not good.</description>
+		<baseMoodEffect>5</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
 
-  <!-- <ThoughtDef> -->
-	<!-- <defName>WVC_PawnIsMechaskinned_Preferred</defName> -->
-	<!-- <workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought</workerClass> -->
-	<!-- <stages> -->
-	  <!-- <li> -->
-		<!-- <label>exoskinned</label> -->
-		<!-- <description>My flesh matches my faith.</description> -->
-		<!-- <baseMoodEffect>8</baseMoodEffect> -->
-	  <!-- </li> -->
-	<!-- </stages> -->
-  <!-- </ThoughtDef> -->
+  <ThoughtDef>
+	<defName>WVC_PawnIsMechaskinned_Preferred</defName>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought</workerClass>
+	<stages>
+	  <li>
+		<label>exoskinned</label>
+		<description>My flesh matches my faith.</description>
+		<baseMoodEffect>8</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
 
-  <!-- <ThoughtDef> -->
-	<!-- <defName>WVC_PawnIsMechaskinned_Exalted</defName> -->
-	<!-- <workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought</workerClass> -->
-	<!-- <stages> -->
-	  <!-- <li> -->
-		<!-- <label>exoskinned</label> -->
-		<!-- <description>My flesh matches my faith.</description> -->
-		<!-- <baseMoodEffect>15</baseMoodEffect> -->
-	  <!-- </li> -->
-	<!-- </stages> -->
-  <!-- </ThoughtDef> -->
+  <ThoughtDef>
+	<defName>WVC_PawnIsMechaskinned_Exalted</defName>
+	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought</workerClass>
+	<stages>
+	  <li>
+		<label>exoskinned</label>
+		<description>My flesh matches my faith.</description>
+		<baseMoodEffect>15</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
 
 </Defs>
