@@ -3,13 +3,13 @@
 
   <WorkGiverDef>
 	<defName>WVC_DoBillsCraftSerums</defName>
-	<label>craft serums</label>
+	<label>Make serums at serum lab</label>
 	<giverClass>WorkGiver_DoBill</giverClass>
 	<workType>Crafting</workType>
 	<workTags>
 	  <li>Intellectual</li>
 	</workTags>
-	<priorityInType>70</priorityInType>
+	<priorityInType>170</priorityInType>
 	<fixedBillGiverDefs>
 	  <li>WVC_SerumCraftingTable</li>
 	</fixedBillGiverDefs>
