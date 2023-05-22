@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ==================================== -->
+
+  <WVC.RacesBiotech.SerumTemplateDef ParentName="WVC_XenotypeSerum_NonCraftable">
+	<defName>WVC_XenotypeSerum</defName>
+	<label>xenotype serum</label>
+	<xenotypeForcerType>Base</xenotypeForcerType>
+	<removeEndogenes>false</removeEndogenes>
+	<removeXenogenes>true</removeXenogenes>
+	<recipeTemplateDef>WVC_AdministerXenotypeSerum</recipeTemplateDef>
+	<geneTemplateDef>WVC_XenotypeSerumSpawner</geneTemplateDef>
+  </WVC.RacesBiotech.SerumTemplateDef>
+  
+  <WVC.RacesBiotech.SerumRecipeTemplateDef ParentName="WVC_AdministerXenotypeSerum_Base">
+	<defName>WVC_AdministerXenotypeSerum</defName>
+	<label>administer xenotype serum</label>
+	<description>Administer a xenotype serum</description>
+	<jobString>Administering xenotype serum</jobString>
+  </WVC.RacesBiotech.SerumRecipeTemplateDef>
+
+  <WVC.RacesBiotech.SerumGeneTemplateDef ParentName="WVC_Mechanoidization_SerumSpawner_NonSpawnable">
+	<defName>WVC_XenotypeSerumSpawner</defName>
+	<label>serum thrower</label>
+	<stackCount>1</stackCount>
+	<displayOrderOffset>5</displayOrderOffset>
+	<spawnIntervalRange><min>900000</min><max>2700000</max></spawnIntervalRange>
+  </WVC.RacesBiotech.SerumGeneTemplateDef>
+
+  <!-- ==================================== -->
+
+  <WVC.RacesBiotech.SerumTemplateDef ParentName="WVC_XenotypeSerum_HybridNonCraftable">
+	<defName>WVC_AdministerXenotypeSerum_Hybrid</defName>
+	<label>hybrid serum</label>
+	<xenotypeForcerType>Hybrid</xenotypeForcerType>
+	<removeEndogenes>false</removeEndogenes>
+	<removeXenogenes>true</removeXenogenes>
+	<recipeTemplateDef>WVC_AdministerXenotypeSerum_Hybrid</recipeTemplateDef>
+	<geneTemplateDef>WVC_XenotypeSerumSpawner_Hybrid</geneTemplateDef>
+  </WVC.RacesBiotech.SerumTemplateDef>
+
+  <WVC.RacesBiotech.SerumRecipeTemplateDef ParentName="WVC_AdministerXenotypeSerum_Base">
+	<defName>WVC_AdministerXenotypeSerum_Hybrid</defName>
+	<label>administer hybrid serum</label>
+	<description>Administer a hybrid serum</description>
+	<jobString>Administering hybrid serum</jobString>
+  </WVC.RacesBiotech.SerumRecipeTemplateDef>
+
+  <WVC.RacesBiotech.SerumGeneTemplateDef ParentName="WVC_Mechanoidization_HybridSerumSpawner_NonSpawnable">
+	<defName>WVC_XenotypeSerumSpawner_Hybrid</defName>
+	<label>hybrid serum thrower</label>
+	<stackCount>1</stackCount>
+	<displayOrderOffset>10</displayOrderOffset>
+	<spawnIntervalRange><min>900000</min><max>2700000</max></spawnIntervalRange>
+  </WVC.RacesBiotech.SerumGeneTemplateDef>
+
+</Defs>

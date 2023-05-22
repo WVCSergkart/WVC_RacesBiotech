@@ -61,6 +61,10 @@ A restart is required to apply the setting.</WVC_ToolTip_hideEncodingGenes>
 A restart is required to apply the setting.</WVC_ToolTip_fixAgelessAge>
 
 	<!-- ====================================================================================== -->
+	<WVC_Label_serumsForAllXenotypes>Generate xenotypes serums</WVC_Label_serumsForAllXenotypes>
+	<WVC_ToolTip_serumsForAllXenotypes>Affects whether serums for all possible xenotypes will be generated. Does not affect custom ones.</WVC_ToolTip_serumsForAllXenotypes>
+
+	<!-- ====================================================================================== -->
 	<!-- <WVC_Label_mecaXenotypeIsInheritable>Meca xenotype have inheritable genes</WVC_Label_mecaXenotypeIsInheritable> -->
 	<!-- <WVC_ToolTip_mecaXenotypeIsInheritable>Changes Meca xenotype allowing genes to be inherited. What makes this xenotype compatible with sangophages and other xenogeneic xenotypes.</WVC_ToolTip_mecaXenotypeIsInheritable> -->
 
