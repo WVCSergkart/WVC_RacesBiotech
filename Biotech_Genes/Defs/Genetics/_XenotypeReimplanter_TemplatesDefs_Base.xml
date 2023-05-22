@@ -46,6 +46,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	<stackLimit>10</stackLimit>
 	<techLevel>Ultra</techLevel>
 	<tradeTags>
+	  <li>WVC_All_XenotypeSerums</li>
 	  <li>ExoticMisc</li>
 	</tradeTags>
 	<tradeability>All</tradeability>
@@ -97,7 +98,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <Uranium>20</Uranium>
 	</costList>
 	<tradeTags>
-	  <li>WVC_XenotypeSerums</li>
+	  <li>WVC_Template_XenotypeSerums</li>
 	</tradeTags>
 	<thingCategories>
 	  <li>WVC_XenotypeSerums_Base</li>
@@ -119,9 +120,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <texPath>WVC/Things/XenotypeSerum_Ultra</texPath>
 	</graphicData>
 	<tradeTags>
-	  <li>WVC_XenotypeSerums</li>
-	  <li>WVC_XenotypeSerums_NonCraftable</li>
-	  <li>WVC_XenotypeSerums_Ultra</li>
+	  <li>WVC_Template_XenotypeSerums_Ultra</li>
 	</tradeTags>
 	<thingCategories>
 	  <li>WVC_XenotypeSerums_Ultra</li>
@@ -143,8 +142,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <texPath>WVC/Things/XenotypeSerum_Mecha</texPath>
 	</graphicData>
 	<tradeTags>
-	  <li>WVC_XenotypeSerums_NonCraftable</li>
-	  <li>WVC_XenotypeSerums_HybridNonCraftable</li>
+	  <li>WVC_Template_XenotypeSerums_Hybrid</li>
 	</tradeTags>
 	<thingCategories>
 	  <li>WVC_XenotypeSerums_Mecha</li>

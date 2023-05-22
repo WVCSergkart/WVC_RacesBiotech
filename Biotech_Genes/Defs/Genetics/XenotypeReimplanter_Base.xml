@@ -53,6 +53,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	<stackLimit>10</stackLimit>
 	<techLevel>Ultra</techLevel>
 	<tradeTags>
+	  <li>WVC_All_XenotypeSerums</li>
 	  <li>ExoticMisc</li>
 	</tradeTags>
 	<tradeability>All</tradeability>

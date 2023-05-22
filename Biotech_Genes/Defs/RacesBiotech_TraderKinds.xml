@@ -44,17 +44,32 @@
 		<countRange>1~1</countRange>
 	  </li>
 	  <li Class="StockGenerator_Tag">
-		<tradeTag>WVC_XenotypeSerums_NonCraftable</tradeTag>
-		<thingDefCountRange>1~4</thingDefCountRange>
+		<tradeTag>WVC_All_XenotypeSerums</tradeTag>
+		<thingDefCountRange>0~2</thingDefCountRange>
 		<countRange>1~1</countRange>
 	  </li>
 	  <li Class="StockGenerator_Tag">
-		<tradeTag>WVC_XenotypeSerums_Ultra</tradeTag>
+		<tradeTag>WVC_XenotypeSerums_NonCraftable</tradeTag>
 		<thingDefCountRange>0~2</thingDefCountRange>
 		<countRange>1~1</countRange>
 	  </li>
 	  <li Class="StockGenerator_Tag">
 		<tradeTag>WVC_XenotypeSerums_HybridNonCraftable</tradeTag>
+		<thingDefCountRange>0~1</thingDefCountRange>
+		<countRange>1~1</countRange>
+	  </li>
+	  <li Class="StockGenerator_Tag">
+		<tradeTag>WVC_Template_XenotypeSerums</tradeTag>
+		<thingDefCountRange>0~2</thingDefCountRange>
+		<countRange>1~1</countRange>
+	  </li>
+	  <li Class="StockGenerator_Tag">
+		<tradeTag>WVC_Template_XenotypeSerums_Ultra</tradeTag>
+		<thingDefCountRange>0~2</thingDefCountRange>
+		<countRange>1~1</countRange>
+	  </li>
+	  <li Class="StockGenerator_Tag">
+		<tradeTag>WVC_Template_XenotypeSerums_Hybrid</tradeTag>
 		<thingDefCountRange>0~2</thingDefCountRange>
 		<countRange>1~1</countRange>
 	  </li>
