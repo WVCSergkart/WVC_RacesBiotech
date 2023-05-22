@@ -76,13 +76,13 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	</graphicData>
 	<recipeMaker>
 	  <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
-	  <researchPrerequisite>Archogenetics</researchPrerequisite>
+	  <researchPrerequisite>Xenogermination</researchPrerequisite>
 	  <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 	  <workSkill>Crafting</workSkill>
 	  <effectWorking>Smith</effectWorking>
 	  <soundWorking>Recipe_Machining</soundWorking>
 	  <recipeUsers>
-		<li>DrugLab</li>
+		<li>WVC_SerumCraftingTable</li>
 	  </recipeUsers>
 	  <useIngredientsForColor>false</useIngredientsForColor>
 	  <skillRequirements>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WorkGiverDef>
+	<defName>WVC_DoBillsCraftSerums</defName>
+	<label>craft serums</label>
+	<giverClass>WorkGiver_DoBill</giverClass>
+	<workType>Crafting</workType>
+	<workTags>
+	  <li>Intellectual</li>
+	</workTags>
+	<priorityInType>70</priorityInType>
+	<fixedBillGiverDefs>
+	  <li>WVC_SerumCraftingTable</li>
+	</fixedBillGiverDefs>
+	<verb>craft serums</verb>
+	<gerund>craft serums at</gerund>
+	<requiredCapacities>
+	  <li>Manipulation</li>
+	</requiredCapacities>
+	<prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <!-- Serums -->
+  <ThingDef ParentName="BenchBase">
+	<defName>WVC_SerumCraftingTable</defName>
+	<label>serum lab</label>
+	<description>A high-tech workbench for the production of xenotype serums.</description>
+	<thingClass>Building_WorkTable</thingClass>
+	<canOverlapZones>false</canOverlapZones>
+	<passability>PassThroughOnly</passability>
+	<fillPercent>0.3</fillPercent>
+	<pathCost>33</pathCost>
+	<graphicData>
+	  <texPath>WVC/Things/SerumCraftingTable/SerumCraftingTable2</texPath>
+	  <!-- <texPath>Things/Building/Production/SubcoreEncoder</texPath> -->
+	  <graphicClass>Graphic_Multi</graphicClass>
+	  <drawSize>(3,2)</drawSize>
+	  <shadowData>
+		<volume>(3, 2, 1.9)</volume>
+	  </shadowData>
+	</graphicData>
+	<altitudeLayer>Building</altitudeLayer>
+	<building>
+	  <ai_chillDestination>false</ai_chillDestination>
+	  <buildingTags>
+		<li>Biotech</li>
+	  </buildingTags>
+	</building>
+	<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+	<designationCategory>Biotech</designationCategory>
+	<uiOrder>2430</uiOrder>
+	<statBases>
+	  <MaxHitPoints>200</MaxHitPoints>
+	  <WorkToBuild>8000</WorkToBuild>
+	  <Mass>25</Mass>
+	  <Flammability>0.5</Flammability>
+	</statBases>
+	<size>(3,2)</size>
+	<costList>
+	  <Steel>120</Steel>
+	  <ComponentIndustrial>5</ComponentIndustrial>
+	</costList>
+	<researchPrerequisites>
+	  <li>Xenogermination</li>
+	</researchPrerequisites>
+	<hasInteractionCell>true</hasInteractionCell>
+	<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+	<inspectorTabs>
+	  <li>ITab_Bills</li>
+	</inspectorTabs>
+	<comps>
+	  <li Class="CompProperties_MoteEmitter">
+		<perRotationMotes>
+		  <li>Mote_MechbandPreparing</li>
+		  <li>Mote_MechbandPreparing</li>
+		  <li>Mote_MechbandPreparing</li>
+		  <li>Mote_MechbandPreparing</li>
+		  <!-- <li>Mote_SubcoreEncoderNorth</li> -->
+		  <!-- <li>Mote_SubcoreEncoderEast</li> -->
+		  <!-- <li>Mote_SubcoreEncoderSouth</li> -->
+		  <!-- <li>Mote_SubcoreEncoderEast</li> -->
+		</perRotationMotes>
+		<offsetNorth>(0, 0, -0.34)</offsetNorth>
+		<offsetSouth>(0, 0, 0.66)</offsetSouth>
+		<offsetWest>(0.575, 0, 0.24)</offsetWest>
+		<offsetEast>(-0.575, 0, 0.24)</offsetEast>
+		<useParentRotation>true</useParentRotation>
+	  </li>
+	  <li Class="CompProperties_Power">
+		<compClass>CompPowerTrader</compClass>
+		<basePowerConsumption>50</basePowerConsumption>
+	  </li>
+	  <li Class="CompProperties_Flickable"/>
+	</comps>
+	<placeWorkers>
+	  <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+	</placeWorkers>
+  </ThingDef>
+
+</Defs>

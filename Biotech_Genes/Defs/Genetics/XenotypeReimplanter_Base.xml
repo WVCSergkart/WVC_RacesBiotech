@@ -92,7 +92,8 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 		<!-- <li MayRequire="wvc.sergkart.core">WVC_AdvancedCraftingBench</li> -->
 		<!-- <li MayRequire="wvc.sergkart.core">WVC_NodeCraftingBench</li> -->
 		<!-- <li>FabricationBench</li> -->
-		<li>DrugLab</li>
+		<!-- <li>DrugLab</li> -->
+		<li>WVC_SerumCraftingTable</li>
 	  </recipeUsers>
 	  <useIngredientsForColor>false</useIngredientsForColor>
 	  <skillRequirements>

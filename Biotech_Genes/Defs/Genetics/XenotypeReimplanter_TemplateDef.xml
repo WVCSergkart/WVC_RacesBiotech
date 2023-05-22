@@ -13,10 +13,15 @@
 	<label>xenotype serum</label>
 	<!-- Cost -->
 	<!-- Instead of MarketValue, the templates use marketValueOffset, since the final price is calculated through a formula. -->
-	<!-- marketValueOffset + 100 * ((Arc * 0.4 ) + (Cpx * 0.1 ) + (-1 * (Met * 0.2 ))) -->
+	<!-- marketValueOffset + 100 * ((Arc * 0.6 ) + (Cpx * 0.1 ) + (-1 * (Met * 0.2 ))) -->
 	<!-- The higher the metabolic efficiency, the cheaper the xenotype. -->
 	<!-- Arc also have a very strong influence. Xenotypes with archites will be noticeably more expensive. -->
 	<marketValueOffset>2100</marketValueOffset>
+	<!-- Research -->
+	<!-- If these fields are filled then adds one additional tech dependency. -->
+	<!-- If the xenotype is ordinary, then it is basic, if it is archite, then it is accordingly archite. -->
+	<basicResearchProjectDef>GeneProcessor</basicResearchProjectDef>
+	<architeResearchProjectDef>Archogenetics</architeResearchProjectDef>
 	<!-- Forcer -->
 	<xenotypeForcerType>Base</xenotypeForcerType>
 	<removeEndogenes>false</removeEndogenes>

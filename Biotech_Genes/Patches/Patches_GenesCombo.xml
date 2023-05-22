@@ -147,6 +147,13 @@
 		  <!-- </value> -->
 		<!-- </caseTrue> -->
 	<!-- </Operation> -->
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/WorkGiverDef[defName="DoBillsProduceDrugs"]/fixedBillGiverDefs</xpath> -->
+	  <!-- <success>Invert</success> -->
+	  <!-- <value> -->
+		<!-- <li>DrugLab</li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
 
 	<Operation Class="PatchOperationSequence">
 		<success>Always</success>
