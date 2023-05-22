@@ -11,9 +11,17 @@
 	<!-- Rimworld is very sensitive to numbers, it is advisable to never end defNames with numbers. -->
 	<defName>WVC_XenotypeSerum</defName>
 	<label>xenotype serum</label>
+	<!-- Cost -->
+	<!-- Instead of MarketValue, the templates use marketValueOffset, since the final price is calculated through a formula. -->
+	<!-- marketValueOffset + 100 * ((Arc * 0.4 ) + (Cpx * 0.1 ) + (-1 * (Met * 0.2 ))) -->
+	<!-- The higher the metabolic efficiency, the cheaper the xenotype. -->
+	<!-- Arc also have a very strong influence. Xenotypes with archites will be noticeably more expensive. -->
+	<marketValueOffset>1700</marketValueOffset>
+	<!-- Forcer -->
 	<xenotypeForcerType>Base</xenotypeForcerType>
 	<removeEndogenes>false</removeEndogenes>
 	<removeXenogenes>true</removeXenogenes>
+	<!-- Templates -->
 	<!-- These fields can be left blank. Then the recipe or gene will not be generated. -->
 	<recipeTemplateDef>WVC_AdministerXenotypeSerum</recipeTemplateDef>
 	<geneTemplateDef>WVC_XenotypeSerumSpawner</geneTemplateDef>
@@ -38,11 +46,15 @@
   <!-- ==================================== -->
 
   <WVC.RacesBiotech.SerumTemplateDef ParentName="WVC_XenotypeSerumTemplate_HybridNonCraftable">
-	<defName>WVC_AdministerXenotypeSerum_Hybrid</defName>
+	<defName>WVC_XenotypeSerum_Hybrid</defName>
 	<label>hybrid serum</label>
+	<!-- Cost -->
+	<marketValueOffset>2750</marketValueOffset>
+	<!-- Forcer -->
 	<xenotypeForcerType>Hybrid</xenotypeForcerType>
 	<removeEndogenes>false</removeEndogenes>
 	<removeXenogenes>true</removeXenogenes>
+	<!-- Templates -->
 	<recipeTemplateDef>WVC_AdministerXenotypeSerum_Hybrid</recipeTemplateDef>
 	<geneTemplateDef>WVC_XenotypeSerumSpawner_Hybrid</geneTemplateDef>
   </WVC.RacesBiotech.SerumTemplateDef>

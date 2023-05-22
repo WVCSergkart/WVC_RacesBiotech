@@ -35,7 +35,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <graphicClass>Graphic_Random</graphicClass>
 	</graphicData>
 	<statBases>
-	  <Beauty>-4</Beauty>
+	  <Beauty>-2</Beauty>
 	  <MarketValue>2100</MarketValue>
 	  <MaxHitPoints>80</MaxHitPoints>
 	  <Mass>0.2</Mass>
