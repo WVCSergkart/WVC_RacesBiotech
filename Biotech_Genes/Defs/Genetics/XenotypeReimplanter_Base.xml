@@ -8,6 +8,11 @@
   </ThingCategoryDef>
 
   <ThingCategoryDef>
+	<defName>WVC_XenotypeSerums_Base</defName>
+	<label>base serums</label>
+	<parent>WVC_XenotypeSerums</parent>
+  </ThingCategoryDef>
+  <ThingCategoryDef>
 	<defName>WVC_XenotypeSerums_Ultra</defName>
 	<label>ultra serums</label>
 	<parent>WVC_XenotypeSerums</parent>
@@ -106,7 +111,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <li>WVC_XenotypeSerums</li>
 	</tradeTags>
 	<thingCategories>
-	  <li>WVC_XenotypeSerums</li>
+	  <li>WVC_XenotypeSerums_Base</li>
 	</thingCategories>
 	<comps>
 	  <li Class="CompProperties_Glower">

@@ -70,45 +70,45 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
   </WVC.RacesBiotech.SerumTemplateDef>
 
   <!-- ============Auto Generation Base============ -->
-  <!-- <WVC.RacesBiotech.SerumTemplateDef ParentName="WVC_XenotypeSerumTemplate_Base" Name="WVC_XenotypeSerumTemplate_Craftable" Abstract="True"> -->
-	<!-- <graphicData> -->
-	  <!-- <texPath>WVC/Things/XenotypeSerum</texPath> -->
-	<!-- </graphicData> -->
-	<!-- <recipeMaker> -->
-	  <!-- <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef> -->
-	  <!-- <researchPrerequisite>Archogenetics</researchPrerequisite> -->
-	  <!-- <workSpeedStat>GeneralLaborSpeed</workSpeedStat> -->
-	  <!-- <workSkill>Crafting</workSkill> -->
-	  <!-- <effectWorking>Smith</effectWorking> -->
-	  <!-- <soundWorking>Recipe_Machining</soundWorking> -->
-	  <!-- <recipeUsers> -->
-		<!-- <li>DrugLab</li> -->
-	  <!-- </recipeUsers> -->
-	  <!-- <useIngredientsForColor>false</useIngredientsForColor> -->
-	  <!-- <skillRequirements> -->
-		<!-- <Crafting>12</Crafting> -->
-		<!-- <Intellectual>12</Intellectual> -->
-	  <!-- </skillRequirements> -->
-	<!-- </recipeMaker> -->
-	<!-- <costList> -->
+  <WVC.RacesBiotech.SerumTemplateDef ParentName="WVC_XenotypeSerumTemplate_Base" Name="WVC_XenotypeSerumTemplate_Craftable" Abstract="True">
+	<graphicData>
+	  <texPath>WVC/Things/XenotypeSerum</texPath>
+	</graphicData>
+	<recipeMaker>
+	  <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
+	  <researchPrerequisite>Archogenetics</researchPrerequisite>
+	  <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+	  <workSkill>Crafting</workSkill>
+	  <effectWorking>Smith</effectWorking>
+	  <soundWorking>Recipe_Machining</soundWorking>
+	  <recipeUsers>
+		<li>DrugLab</li>
+	  </recipeUsers>
+	  <useIngredientsForColor>false</useIngredientsForColor>
+	  <skillRequirements>
+		<Crafting>12</Crafting>
+		<Intellectual>12</Intellectual>
+	  </skillRequirements>
+	</recipeMaker>
+	<costList>
 	  <!-- <ArchiteCapsule>5</ArchiteCapsule> -->
-	  <!-- <WVC_UniversalFuel MayRequire="wvc.sergkart.core">50</WVC_UniversalFuel> -->
-	  <!-- <Plasteel>50</Plasteel> -->
-	  <!-- <Uranium>20</Uranium> -->
-	<!-- </costList> -->
-	<!-- <tradeTags> -->
-	  <!-- <li>WVC_XenotypeSerums</li> -->
-	<!-- </tradeTags> -->
-	<!-- <thingCategories> -->
-	  <!-- <li>WVC_XenotypeSerums</li> -->
-	<!-- </thingCategories> -->
-	<!-- <comps> -->
-	  <!-- <li Class="CompProperties_Glower"> -->
-		<!-- <glowRadius>1</glowRadius> -->
-		<!-- <glowColor>(133,202,255, 0)</glowColor> -->
-	  <!-- </li> -->
-	<!-- </comps> -->
-  <!-- </WVC.RacesBiotech.SerumTemplateDef> -->
+	  <WVC_UniversalFuel MayRequire="wvc.sergkart.core">50</WVC_UniversalFuel>
+	  <Plasteel>50</Plasteel>
+	  <Uranium>20</Uranium>
+	</costList>
+	<tradeTags>
+	  <li>WVC_XenotypeSerums</li>
+	</tradeTags>
+	<thingCategories>
+	  <li>WVC_XenotypeSerums_Base</li>
+	</thingCategories>
+	<comps>
+	  <li Class="CompProperties_Glower">
+		<glowRadius>1</glowRadius>
+		<glowColor>(133,202,255, 0)</glowColor>
+	  </li>
+	</comps>
+  </WVC.RacesBiotech.SerumTemplateDef>
 
   <WVC.RacesBiotech.SerumTemplateDef ParentName="WVC_XenotypeSerumTemplate_Base" Name="WVC_XenotypeSerumTemplate_NonCraftable" Abstract="True">
 	<statBases>

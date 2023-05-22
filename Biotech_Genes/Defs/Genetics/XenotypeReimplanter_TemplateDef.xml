@@ -5,7 +5,7 @@
   <!-- Recipe and gene are optional, generation can work without them -->
   <!-- ==================================== -->
 
-  <WVC.RacesBiotech.SerumTemplateDef ParentName="WVC_XenotypeSerumTemplate_NonCraftable">
+  <WVC.RacesBiotech.SerumTemplateDef ParentName="WVC_XenotypeSerumTemplate_Craftable">
 	<!-- The generated serum has the defName "WVC_XenotypeSerum_MyXenotypeDefName_RB" -->
 	<!-- The "_RB" tag is needed in case some idiot added numbers to the end of the xenotype defName.  -->
 	<!-- Rimworld is very sensitive to numbers, it is advisable to never end defNames with numbers. -->
@@ -16,7 +16,7 @@
 	<!-- marketValueOffset + 100 * ((Arc * 0.4 ) + (Cpx * 0.1 ) + (-1 * (Met * 0.2 ))) -->
 	<!-- The higher the metabolic efficiency, the cheaper the xenotype. -->
 	<!-- Arc also have a very strong influence. Xenotypes with archites will be noticeably more expensive. -->
-	<marketValueOffset>1700</marketValueOffset>
+	<marketValueOffset>2100</marketValueOffset>
 	<!-- Forcer -->
 	<xenotypeForcerType>Base</xenotypeForcerType>
 	<removeEndogenes>false</removeEndogenes>
@@ -24,11 +24,34 @@
 	<!-- Templates -->
 	<!-- These fields can be left blank. Then the recipe or gene will not be generated. -->
 	<recipeTemplateDef>WVC_AdministerXenotypeSerum</recipeTemplateDef>
+	<!-- <geneTemplateDef>WVC_XenotypeSerumSpawner_Hybrid</geneTemplateDef> -->
+  </WVC.RacesBiotech.SerumTemplateDef>
+
+  <WVC.RacesBiotech.SerumRecipeTemplateDef ParentName="WVC_AdministerXenotypeSerumTemplate_Template">
+	<defName>WVC_AdministerXenotypeSerum</defName>
+	<label>administer xenotype serum</label>
+	<description>Administer a xenotype serum</description>
+	<jobString>Administering xenotype serum</jobString>
+  </WVC.RacesBiotech.SerumRecipeTemplateDef>
+
+  <!-- ==================================== -->
+
+  <WVC.RacesBiotech.SerumTemplateDef ParentName="WVC_XenotypeSerumTemplate_NonCraftable">
+	<defName>WVC_XenotypeSerum_Ultra</defName>
+	<label>xenotype serum</label>
+	<!-- Cost -->
+	<marketValueOffset>1700</marketValueOffset>
+	<!-- Forcer -->
+	<xenotypeForcerType>Base</xenotypeForcerType>
+	<removeEndogenes>false</removeEndogenes>
+	<removeXenogenes>true</removeXenogenes>
+	<!-- Templates -->
+	<recipeTemplateDef>WVC_AdministerXenotypeSerum_Ultra</recipeTemplateDef>
 	<geneTemplateDef>WVC_XenotypeSerumSpawner</geneTemplateDef>
   </WVC.RacesBiotech.SerumTemplateDef>
   
   <WVC.RacesBiotech.SerumRecipeTemplateDef ParentName="WVC_AdministerXenotypeSerumTemplate_Template">
-	<defName>WVC_AdministerXenotypeSerum</defName>
+	<defName>WVC_AdministerXenotypeSerum_Ultra</defName>
 	<label>administer xenotype serum</label>
 	<description>Administer a xenotype serum</description>
 	<jobString>Administering xenotype serum</jobString>
