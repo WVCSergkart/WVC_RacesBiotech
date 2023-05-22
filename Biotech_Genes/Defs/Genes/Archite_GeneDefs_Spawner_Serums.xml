@@ -52,49 +52,4 @@
 	</modExtensions>
   </GeneDef>
 
-  <!-- Auto Generated Serum -->
-  <GeneDef ParentName="WVC_Mechanoidization_GenepackSpawnerBase" Name="WVC_Mechanoidization_SerumSpawner_NonSpawnable" Abstract="True">
-	<label>serum thrower</label>
-	<labelShortAdj>serum thrower</labelShortAdj>
-	<iconPath>WVC/Things/XenotypeSerum_Ultra/XenotypeSerum_Ultra_D</iconPath>
-	<biostatArc>2</biostatArc>
-	<selectionWeight>0.0</selectionWeight>
-	<canGenerateInGeneSet>false</canGenerateInGeneSet>
-	<displayCategory>WVC_XenotypeSerumSpawners</displayCategory>
-	<displayOrderInCategory>1000</displayOrderInCategory>
-	<customEffectDescriptions Inherit="False">
-		<li>Spawns xenotype serum every (*DateTime)15-45 days(/DateTime).</li>
-		<li>Xenotype serum - a one-time serum that changes a pawn's xenotype.</li>
-		<li>&lt;color=#ff8585&gt;Cannot spawn in genepacks.&lt;/color&gt;</li>
-	</customEffectDescriptions>
-	<symbolPack>
-	  <prefixSymbols>
-		<li><symbol>serum-</symbol></li>
-		<li><symbol>serum</symbol></li>
-	  </prefixSymbols>
-	</symbolPack>
-  </GeneDef>
-
-  <GeneDef ParentName="WVC_Mechanoidization_GenepackSpawnerBase" Name="WVC_Mechanoidization_HybridSerumSpawner_NonSpawnable" Abstract="True">
-	<label>hybrid serum thrower</label>
-	<labelShortAdj>serum thrower</labelShortAdj>
-	<iconPath>WVC/Things/XenotypeSerum_Mecha/XenotypeSerum_Variants_v4</iconPath>
-	<biostatArc>2</biostatArc>
-	<selectionWeight>0.0</selectionWeight>
-	<canGenerateInGeneSet>false</canGenerateInGeneSet>
-	<displayCategory>WVC_XenotypeSerumSpawners</displayCategory>
-	<displayOrderInCategory>1001</displayOrderInCategory>
-	<customEffectDescriptions Inherit="False">
-		<li>Spawns hybrid serum every (*DateTime)15-45 days(/DateTime).</li>
-		<li>Hybrid serum - a one-time serum that changes a pawn's xenotype.</li>
-		<li>&lt;color=#ff8585&gt;Cannot spawn in genepacks.&lt;/color&gt;</li>
-	</customEffectDescriptions>
-	<symbolPack>
-	  <prefixSymbols>
-		<li><symbol>serum-</symbol></li>
-		<li><symbol>serum</symbol></li>
-	  </prefixSymbols>
-	</symbolPack>
-  </GeneDef>
-
 </Defs>

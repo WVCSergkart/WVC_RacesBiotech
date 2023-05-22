@@ -19,8 +19,8 @@ Most of the internal organs remain intact, but there are enough external changes
 	<!-- <marketValueFactor>1.5</marketValueFactor> -->
 	<randomChosen>false</randomChosen>
 	<canGenerateInGeneSet>true</canGenerateInGeneSet>
-	<biostatCpx>5</biostatCpx>
-	<biostatArc>2</biostatArc>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>1</biostatArc>
 	<!-- = -->
 	<iconPath>WVC/UI/Genes/MechaIcon</iconPath>
 	<marketValueFactor>3</marketValueFactor>

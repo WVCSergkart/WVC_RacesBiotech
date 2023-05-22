@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--=============== Mech serums ====================-->
+
+  <WVC.RacesBiotech.SerumTemplateDef Name="WVC_XenotypeSerumTemplate_Base" Abstract="True">
+	<!-- <thingClass>ThingWithComps</thingClass> -->
+	<category>Item</category>
+	<drawerType>MapMeshOnly</drawerType>
+	<!-- <resourceReadoutPriority>Middle</resourceReadoutPriority> -->
+	<!-- <useHitPoints>true</useHitPoints> -->
+	<selectable>true</selectable>
+	<altitudeLayer>Item</altitudeLayer>
+	<!-- <stackLimit>75</stackLimit> -->
+	<alwaysHaulable>true</alwaysHaulable>
+	<drawGUIOverlay>true</drawGUIOverlay>
+	<rotatable>false</rotatable>
+	<pathCost>14</pathCost>
+	<allowedArchonexusCount>-1</allowedArchonexusCount>
+	<!-- = -->
+	<label>xenotype serum</label>
+	<description>A one-use super-dose of mechanites tuned to change the user's xenotype. After using the serum, the user will fall into a two-day coma, except for the &lt;color=#f5ffa2&gt;Blankind&lt;/color&gt; xenotype.
+
+If the user's genes are regrowing, then instead of applying the xenotype, the gene regeneration timer will be reset.
+
+&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; If the xenotype is inheritable and has no skin/hair color, then a white skin/hair gene will be added.</description>
+	<descriptionHyperlinks>
+	  <XenotypeDef>WVC_Blank</XenotypeDef>
+	</descriptionHyperlinks>
+	<thingClass>ThingWithComps</thingClass>
+	<resourceReadoutPriority>Middle</resourceReadoutPriority>
+	<useHitPoints>true</useHitPoints>
+	<graphicData>
+	  <texPath>WVC/Things/XenotypeSerum</texPath>
+	  <graphicClass>Graphic_Random</graphicClass>
+	</graphicData>
+	<statBases>
+	  <Beauty>-4</Beauty>
+	  <MarketValue>2100</MarketValue>
+	  <MaxHitPoints>80</MaxHitPoints>
+	  <Mass>0.2</Mass>
+	  <DeteriorationRate>2.0</DeteriorationRate>
+	  <Flammability>0.2</Flammability>
+	  <WorkToMake>25000</WorkToMake>
+	</statBases>
+	<stackLimit>10</stackLimit>
+	<techLevel>Ultra</techLevel>
+	<tradeTags>
+	  <li>ExoticMisc</li>
+	</tradeTags>
+	<tradeability>All</tradeability>
+	<thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+	</thingSetMakerTags>
+	<comps>
+	  <li Class="CompProperties_Forbiddable"/>
+	  <li Class="CompProperties_Usable">
+		<useJob>UseItem</useJob>
+		<useLabel>Use {0_label}</useLabel>
+		<useDuration>600</useDuration>
+	  </li>
+	  <!-- <li Class="CompProperties_UseEffect"> -->
+		<!-- <compClass>CompUseEffect_FixWorstHealthCondition</compClass> -->
+	  <!-- </li> -->
+	  <li Class="CompProperties_UseEffectPlaySound">
+		<soundOnUsed>MechSerumUsed</soundOnUsed>
+	  </li>
+	  <li Class="CompProperties_UseEffectDestroySelf" />
+	</comps>
+  </WVC.RacesBiotech.SerumTemplateDef>
+
+  <!-- ============Auto Generation Base============ -->
+  <!-- <WVC.RacesBiotech.SerumTemplateDef ParentName="WVC_XenotypeSerumTemplate_Base" Name="WVC_XenotypeSerumTemplate_Craftable" Abstract="True"> -->
+	<!-- <graphicData> -->
+	  <!-- <texPath>WVC/Things/XenotypeSerum</texPath> -->
+	<!-- </graphicData> -->
+	<!-- <recipeMaker> -->
+	  <!-- <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef> -->
+	  <!-- <researchPrerequisite>Archogenetics</researchPrerequisite> -->
+	  <!-- <workSpeedStat>GeneralLaborSpeed</workSpeedStat> -->
+	  <!-- <workSkill>Crafting</workSkill> -->
+	  <!-- <effectWorking>Smith</effectWorking> -->
+	  <!-- <soundWorking>Recipe_Machining</soundWorking> -->
+	  <!-- <recipeUsers> -->
+		<!-- <li>DrugLab</li> -->
+	  <!-- </recipeUsers> -->
+	  <!-- <useIngredientsForColor>false</useIngredientsForColor> -->
+	  <!-- <skillRequirements> -->
+		<!-- <Crafting>12</Crafting> -->
+		<!-- <Intellectual>12</Intellectual> -->
+	  <!-- </skillRequirements> -->
+	<!-- </recipeMaker> -->
+	<!-- <costList> -->
+	  <!-- <ArchiteCapsule>5</ArchiteCapsule> -->
+	  <!-- <WVC_UniversalFuel MayRequire="wvc.sergkart.core">50</WVC_UniversalFuel> -->
+	  <!-- <Plasteel>50</Plasteel> -->
+	  <!-- <Uranium>20</Uranium> -->
+	<!-- </costList> -->
+	<!-- <tradeTags> -->
+	  <!-- <li>WVC_XenotypeSerums</li> -->
+	<!-- </tradeTags> -->
+	<!-- <thingCategories> -->
+	  <!-- <li>WVC_XenotypeSerums</li> -->
+	<!-- </thingCategories> -->
+	<!-- <comps> -->
+	  <!-- <li Class="CompProperties_Glower"> -->
+		<!-- <glowRadius>1</glowRadius> -->
+		<!-- <glowColor>(133,202,255, 0)</glowColor> -->
+	  <!-- </li> -->
+	<!-- </comps> -->
+  <!-- </WVC.RacesBiotech.SerumTemplateDef> -->
+
+  <WVC.RacesBiotech.SerumTemplateDef ParentName="WVC_XenotypeSerumTemplate_Base" Name="WVC_XenotypeSerumTemplate_NonCraftable" Abstract="True">
+	<statBases>
+	  <MarketValue>1700</MarketValue>
+	  <DeteriorationRate>1.0</DeteriorationRate>
+	</statBases>
+	<graphicData>
+	  <texPath>WVC/Things/XenotypeSerum_Ultra</texPath>
+	</graphicData>
+	<tradeTags>
+	  <li>WVC_XenotypeSerums</li>
+	  <li>WVC_XenotypeSerums_NonCraftable</li>
+	  <li>WVC_XenotypeSerums_Ultra</li>
+	</tradeTags>
+	<thingCategories>
+	  <li>WVC_XenotypeSerums_Ultra</li>
+	</thingCategories>
+	<comps>
+	  <li Class="CompProperties_Glower">
+		<glowRadius>1</glowRadius>
+		<glowColor>(255,248,133, 0)</glowColor>
+	  </li>
+	</comps>
+  </WVC.RacesBiotech.SerumTemplateDef>
+
+  <WVC.RacesBiotech.SerumTemplateDef ParentName="WVC_XenotypeSerumTemplate_Base" Name="WVC_XenotypeSerumTemplate_HybridNonCraftable" Abstract="True">
+	<statBases>
+	  <MarketValue>2750</MarketValue>
+	  <DeteriorationRate>0.0</DeteriorationRate>
+	</statBases>
+	<graphicData>
+	  <texPath>WVC/Things/XenotypeSerum_Mecha</texPath>
+	</graphicData>
+	<tradeTags>
+	  <li>WVC_XenotypeSerums_NonCraftable</li>
+	  <li>WVC_XenotypeSerums_HybridNonCraftable</li>
+	</tradeTags>
+	<thingCategories>
+	  <li>WVC_XenotypeSerums_Mecha</li>
+	</thingCategories>
+	<comps>
+	  <li Class="CompProperties_Glower">
+		<glowRadius>1</glowRadius>
+		<glowColor>(133,167,255, 0)</glowColor>
+	  </li>
+	</comps>
+  </WVC.RacesBiotech.SerumTemplateDef>
+
+  <!-- =================================Recipe================================= -->
+
+  <WVC.RacesBiotech.SerumRecipeTemplateDef Name="WVC_AdministerXenotypeSerumTemplate_Template" Abstract="True">
+	<workerClass>Recipe_AdministerUsableItem</workerClass>
+	<targetsBodyPart>false</targetsBodyPart>
+	<anesthetize>false</anesthetize>
+	<workAmount>600</workAmount>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+	<surgeryOutcomeEffect IsNull="True"/>
+	<recipeUsers>
+	  <li>Human</li>
+	</recipeUsers>
+  </WVC.RacesBiotech.SerumRecipeTemplateDef>
+
+  <!-- =================================Genes================================= -->
+
+  <WVC.RacesBiotech.SerumGeneTemplateDef Name="WVC_XenotypeSerumTemplateSpawner_Base" Abstract="True">
+	<label>serum thrower</label>
+	<labelShortAdj>serum thrower</labelShortAdj>
+	<description>Carriers of this gene have archites that constantly generate genes and separate them from the carrier.</description>
+	<iconPath>WVC/Things/XenotypeSerum_Ultra/XenotypeSerum_Ultra_D</iconPath>
+	<!-- <iconColor>(255, 255, 255)</iconColor> -->
+	<displayOrderInCategory>957</displayOrderInCategory>
+	<geneClass>WVC.Gene_Spawner</geneClass>
+	<biostatCpx>3</biostatCpx>
+	<marketValueFactor>2</marketValueFactor>
+	<minAgeActive>13</minAgeActive>
+	<biostatArc>2</biostatArc>
+	<selectionWeight>0.0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<displayCategory>WVC_XenotypeSerumSpawners</displayCategory>
+	<customEffectDescriptions>
+		<li>Spawns hybrid serum every (*DateTime)15-45 days(/DateTime).</li>
+		<li>Hybrid serum - a one-time serum that changes a pawn's xenotype.</li>
+		<li>&lt;color=#ff8585&gt;Cannot spawn in genepacks.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<randomChosen>true</randomChosen>
+	<exclusionTags>
+	  <li>WVC_GenepackSpawner</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>serum-</symbol></li>
+		<li><symbol>serum</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC.GeneExtension_Background">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </WVC.RacesBiotech.SerumGeneTemplateDef>
+
+  <!-- Auto Generated Serum -->
+  <WVC.RacesBiotech.SerumGeneTemplateDef ParentName="WVC_XenotypeSerumTemplateSpawner_Base" Name="WVC_XenotypeSerumTemplateSpawner_Ultra" Abstract="True">
+	<iconPath>WVC/Things/XenotypeSerum_Ultra/XenotypeSerum_Ultra_D</iconPath>
+	<displayOrderInCategory>1000</displayOrderInCategory>
+  </WVC.RacesBiotech.SerumGeneTemplateDef>
+
+  <WVC.RacesBiotech.SerumGeneTemplateDef ParentName="WVC_XenotypeSerumTemplateSpawner_Base" Name="WVC_XenotypeSerumTemplateSpawner_Hybrid" Abstract="True">
+	<label>hybrid serum thrower</label>
+	<iconPath>WVC/Things/XenotypeSerum_Mecha/XenotypeSerum_Variants_v4</iconPath>
+	<displayOrderInCategory>1001</displayOrderInCategory>
+  </WVC.RacesBiotech.SerumGeneTemplateDef>
+  
+
+</Defs>

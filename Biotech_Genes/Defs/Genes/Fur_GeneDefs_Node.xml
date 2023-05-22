@@ -18,6 +18,7 @@ Most of the internal organs were not affected, but there are too many external c
 	<!-- <displayOrderInCategory>-95</displayOrderInCategory> -->
 	<iconColor>(255, 255, 255)</iconColor>
 	<missingGeneRomanceChanceFactor>0.2</missingGeneRomanceChanceFactor>
+	<biostatCpx>1</biostatCpx>
 	<forcedHeadTypes>
 	  <li>WVC_Faceless_NodeSkin</li>
 	</forcedHeadTypes>
