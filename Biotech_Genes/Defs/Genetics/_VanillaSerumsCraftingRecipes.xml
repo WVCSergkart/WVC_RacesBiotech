@@ -23,6 +23,14 @@
 	  <li>
 		<filter>
 		  <thingDefs>
+			<li>NanostructuringChip</li>
+		  </thingDefs>
+		</filter>
+		<count>1</count>
+	  </li>
+	  <li>
+		<filter>
+		  <thingDefs>
 			<li>Plasteel</li>
 		  </thingDefs>
 		</filter>
@@ -36,14 +44,14 @@
 		</filter>
 		<count>40</count>
 	  </li>
-	  <li MayRequire="wvc.sergkart.core">
-		<filter>
-		  <thingDefs>
-			<li>WVC_UniversalFuel</li>
-		  </thingDefs>
-		</filter>
-		<count>120</count>
-	  </li>
+	  <!-- <li MayRequire="wvc.sergkart.core"> -->
+		<!-- <filter> -->
+		  <!-- <thingDefs> -->
+			<!-- <li>WVC_UniversalFuel</li> -->
+		  <!-- </thingDefs> -->
+		<!-- </filter> -->
+		<!-- <count>120</count> -->
+	  <!-- </li> -->
 	</ingredients>
   </RecipeDef>
 

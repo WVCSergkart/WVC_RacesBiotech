@@ -93,7 +93,8 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	</recipeMaker>
 	<costList>
 	  <!-- <ArchiteCapsule>5</ArchiteCapsule> -->
-	  <WVC_UniversalFuel MayRequire="wvc.sergkart.core">50</WVC_UniversalFuel>
+	  <!-- <WVC_UniversalFuel MayRequire="wvc.sergkart.core">50</WVC_UniversalFuel> -->
+	  <PowerfocusChip>1</PowerfocusChip>
 	  <Plasteel>50</Plasteel>
 	  <Uranium>20</Uranium>
 	</costList>
