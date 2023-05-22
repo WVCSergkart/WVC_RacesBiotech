@@ -45,20 +45,15 @@
 	  </li>
 	  <li Class="StockGenerator_Tag">
 		<tradeTag>WVC_XenotypeSerums_NonCraftable</tradeTag>
-		<thingDefCountRange>0~1</thingDefCountRange>
+		<thingDefCountRange>1~4</thingDefCountRange>
 		<countRange>1~1</countRange>
 	  </li>
-	  <li MayRequire="imranfish.xmlextensions" Class="StockGenerator_Tag">
+	  <li Class="StockGenerator_Tag">
 		<tradeTag>WVC_XenotypeSerums_Ultra</tradeTag>
 		<thingDefCountRange>0~2</thingDefCountRange>
 		<countRange>1~1</countRange>
 	  </li>
-	  <li MayRequire="imranfish.xmlextensions" Class="StockGenerator_Tag">
-		<tradeTag>WVC_XenotypeSerums_NonCraftable</tradeTag>
-		<thingDefCountRange>1~4</thingDefCountRange>
-		<countRange>1~1</countRange>
-	  </li>
-	  <li MayRequire="imranfish.xmlextensions" Class="StockGenerator_Tag">
+	  <li Class="StockGenerator_Tag">
 		<tradeTag>WVC_XenotypeSerums_HybridNonCraftable</tradeTag>
 		<thingDefCountRange>0~2</thingDefCountRange>
 		<countRange>1~1</countRange>

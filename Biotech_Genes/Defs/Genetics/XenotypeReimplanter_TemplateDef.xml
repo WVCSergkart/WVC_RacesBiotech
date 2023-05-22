@@ -1,14 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <!-- Generates a serum for each xenotype (except those on the blacklist) -->
+  <!-- Recipe and gene are optional, generation can work without them -->
   <!-- ==================================== -->
 
   <WVC.RacesBiotech.SerumTemplateDef ParentName="WVC_XenotypeSerum_NonCraftable">
+	<!-- The generated serum has the defName "WVC_XenotypeSerum_MyXenotypeDefName_RB" -->
+	<!-- The "_RB" tag is needed in case some idiot added numbers to the end of the xenotype defName.  -->
+	<!-- Rimworld is very sensitive to numbers, it is advisable to never end defNames with numbers. -->
 	<defName>WVC_XenotypeSerum</defName>
 	<label>xenotype serum</label>
 	<xenotypeForcerType>Base</xenotypeForcerType>
 	<removeEndogenes>false</removeEndogenes>
 	<removeXenogenes>true</removeXenogenes>
+	<!-- These fields can be left blank. Then the recipe or gene will not be generated. -->
 	<recipeTemplateDef>WVC_AdministerXenotypeSerum</recipeTemplateDef>
 	<geneTemplateDef>WVC_XenotypeSerumSpawner</geneTemplateDef>
   </WVC.RacesBiotech.SerumTemplateDef>
@@ -23,6 +29,7 @@
   <WVC.RacesBiotech.SerumGeneTemplateDef ParentName="WVC_Mechanoidization_SerumSpawner_NonSpawnable">
 	<defName>WVC_XenotypeSerumSpawner</defName>
 	<label>serum thrower</label>
+	<!-- These fields are responsible for the spawner. -->
 	<stackCount>1</stackCount>
 	<displayOrderOffset>5</displayOrderOffset>
 	<spawnIntervalRange><min>900000</min><max>2700000</max></spawnIntervalRange>
