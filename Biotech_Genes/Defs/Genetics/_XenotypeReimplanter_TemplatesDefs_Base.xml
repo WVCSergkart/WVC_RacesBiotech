@@ -181,21 +181,22 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	<!-- <iconColor>(255, 255, 255)</iconColor> -->
 	<displayOrderInCategory>957</displayOrderInCategory>
 	<geneClass>WVC.Gene_Spawner</geneClass>
-	<biostatCpx>3</biostatCpx>
 	<marketValueFactor>2</marketValueFactor>
 	<minAgeActive>13</minAgeActive>
+	<biostatCpx>3</biostatCpx>
 	<biostatArc>2</biostatArc>
-	<selectionWeight>0.0</selectionWeight>
-	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<selectionWeight>0.00025</selectionWeight>
+	<canGenerateInGeneSet>true</canGenerateInGeneSet>
 	<displayCategory>WVC_XenotypeSerumSpawners</displayCategory>
 	<customEffectDescriptions>
 		<li>Spawns hybrid serum every (*DateTime)15-45 days(/DateTime).</li>
 		<li>Hybrid serum - a one-time serum that changes a pawn's xenotype.</li>
-		<li>&lt;color=#ff8585&gt;Cannot spawn in genepacks.&lt;/color&gt;</li>
+		<!-- <li>&lt;color=#ff8585&gt;Cannot spawn in genepacks.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<randomChosen>true</randomChosen>
 	<exclusionTags>
-	  <li>WVC_GenepackSpawner</li>
+	  <!-- <li>WVC_GenepackSpawner</li> -->
+	  <li>WVC_TemplateSerumSpawner</li>
 	</exclusionTags>
 	<symbolPack>
 	  <prefixSymbols>
