@@ -8,7 +8,7 @@
   <!-- <WVC_StatsReport_Drafted>drafted</WVC_StatsReport_Drafted> -->
   <!-- <WVC_StatsReport_Mechalike>mechalike</WVC_StatsReport_Mechalike> -->
   <!-- <WVC_StatsReport_Humanlike>humanlike</WVC_StatsReport_Humanlike> -->
-  <WVC_StatsReport_PawnIsExoskinned>exoskinned</WVC_StatsReport_PawnIsExoskinned>
+  <!-- <WVC_StatsReport_PawnIsExoskinned>exoskinned</WVC_StatsReport_PawnIsExoskinned> -->
   <!-- <WVC_StatsReport_Mechalike>mechaskinned</WVC_StatsReport_Mechalike> -->
   <!-- <WVC_StatsReport_Humanlike>non-mechaskinned</WVC_StatsReport_Humanlike> -->
   <!-- <WVC_StatsReport_Immortal>deathless</WVC_StatsReport_Immortal> -->
@@ -18,12 +18,12 @@
   <!-- <WVC_StatsReport_OperatingSystem>operating system</WVC_StatsReport_OperatingSystem> -->
   <!-- <WVC_StatsReport_NonOperatingSystem>non-operating system</WVC_StatsReport_NonOperatingSystem> -->
   <WVC_StatsReport_NonGenes>non-</WVC_StatsReport_NonGenes>
-  <WVC_StatsReport_MechanitorUsedBandwidth>used bandwidth</WVC_StatsReport_MechanitorUsedBandwidth>
+  <!-- <WVC_StatsReport_MechanitorUsedBandwidth>used bandwidth</WVC_StatsReport_MechanitorUsedBandwidth> -->
   <WVC_StatsReport_MechanitorTotalBandwidth>controlled mechs</WVC_StatsReport_MechanitorTotalBandwidth>
   <!-- <WVC_StatsReport_UnknownXenotype>unknown xenotype</WVC_StatsReport_UnknownXenotype> -->
   <WVC_StatsReport_CauseSetting_On>enabled</WVC_StatsReport_CauseSetting_On>
   <WVC_StatsReport_CauseSetting_Off>disabled</WVC_StatsReport_CauseSetting_Off>
-  <WVC_StatsReport_PowerSource>powered</WVC_StatsReport_PowerSource>
+  <!-- <WVC_StatsReport_PowerSource>powered</WVC_StatsReport_PowerSource> -->
 
   <WVC_GeneSpawner_GizmoTitle>Resource spawner</WVC_GeneSpawner_GizmoTitle>
   <WVC_GeneSpawner_GizmoSpawn>Spawn</WVC_GeneSpawner_GizmoSpawn>
@@ -45,7 +45,7 @@
   <!-- <WVC_GeneGestator_GizmoGestation>On</WVC_GeneGestator_GizmoGestation> -->
   <!-- <WVC_GeneGestator_GizmoConfirmationDialog>After activating the ability, the pawn will receive a moving and manipulation debuff, as well as increased hunger. The process cannot be interrupted.\n\nDo you still need a new mecha-pawn?</WVC_GeneGestator_GizmoConfirmationDialog> -->
 
-  <WVC_StatsReport_GestatorIsOn>during gestation</WVC_StatsReport_GestatorIsOn>
+  <!-- <WVC_StatsReport_GestatorIsOn>during gestation</WVC_StatsReport_GestatorIsOn> -->
   <WVC_StatsReport_Drafted>drafted</WVC_StatsReport_Drafted>
 
 	<!-- ====================================================================================== -->
@@ -53,7 +53,7 @@
 	<!-- <WVC_StatPart_Mechanoidization>Mechanoidization</WVC_StatPart_Mechanoidization> -->
 	<!-- <WVC_StatPart_ArchitesInBloodstream>Archites in bloodstream</WVC_StatPart_ArchitesInBloodstream> -->
 
-	<WVC_StatPart_GenesCombo_Cause>Mecha-genes</WVC_StatPart_GenesCombo_Cause>
+	<!-- <WVC_StatPart_GenesCombo_Cause>Mecha-genes</WVC_StatPart_GenesCombo_Cause> -->
 	<WVC_StatPart_GenesCombo_Static>Forced to</WVC_StatPart_GenesCombo_Static>
 	<WVC_StatPart_GenesCombo_OffsetFromBuildings>Offset from buildings</WVC_StatPart_GenesCombo_OffsetFromBuildings>
 	<WVC_StatPart_GenesCombo_OffsetFromShrines>Offset from shrines</WVC_StatPart_GenesCombo_OffsetFromShrines>

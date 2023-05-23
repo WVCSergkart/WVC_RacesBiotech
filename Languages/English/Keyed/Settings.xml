@@ -23,12 +23,6 @@ A restart is required to apply the setting. Required new game!</WVC_ToolTip_disa
 	<WVC_ToolTip_enableGeneSpawnerGizmo>Responsible for displaying the informational gizmo of spawner genes. These gizmos write the name of the resource and the time before it spawns.</WVC_ToolTip_enableGeneSpawnerGizmo>
 
 	<!-- ====================================================================================== -->
-
-	<!-- Immortality genes: Deathless, ageless, scarless, non-senescent and perfect immunity. -->
-	<WVC_Label_mechaskinTemperatureAdaptability>Mechaskin forced temperature</WVC_Label_mechaskinTemperatureAdaptability>
-	<WVC_ToolTip_mechaskinTemperatureAdaptability>Adds a temperature immunity effect to the mechaskin.</WVC_ToolTip_mechaskinTemperatureAdaptability>
-
-	<!-- ====================================================================================== -->
 	<WVC_Label_minWastepacksPerRecharge>Force minimal waste</WVC_Label_minWastepacksPerRecharge>
 	<WVC_ToolTip_minWastepacksPerRecharge>Force the minimum amount of waste produced by mechanoids, preventing it from dropping below 1.
 
@@ -37,16 +31,8 @@ Nodeskin VX allows you to reduce the bandwidth cost to 0, which causes the mecha
 A restart is required to apply the setting.</WVC_ToolTip_minWastepacksPerRecharge>
 
 	<!-- ====================================================================================== -->
-	<WVC_Label_nodeskinVX_MechBandwidth>Enable Nodeskin VX bandwidth limit</WVC_Label_nodeskinVX_MechBandwidth>
-	<WVC_ToolTip_nodeskinVX_MechBandwidth>Responsible for whether Nodeskin VX will have a limit on the number of bandwidth.</WVC_ToolTip_nodeskinVX_MechBandwidth>
-
-	<!-- ====================================================================================== -->
 	<WVC_Label_enableStatSkillFactor>Enable stat skill factor</WVC_Label_enableStatSkillFactor>
 	<WVC_ToolTip_enableStatSkillFactor>Responsible for whether the stat factor on skills will be applied or not.</WVC_ToolTip_enableStatSkillFactor>
-
-	<!-- ====================================================================================== -->
-	<WVC_Label_canMechaskinBePredatorPrey>Can mechaskin be predator prey</WVC_Label_canMechaskinBePredatorPrey>
-	<WVC_ToolTip_canMechaskinBePredatorPrey>Responsible for whether animals will try to hunt for mecha-pawns. Enabled by default.</WVC_ToolTip_canMechaskinBePredatorPrey>
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_hideEncodingGenes>Hide encoding genes</WVC_Label_hideEncodingGenes>
@@ -55,22 +41,7 @@ A restart is required to apply the setting.</WVC_ToolTip_minWastepacksPerRecharg
 A restart is required to apply the setting.</WVC_ToolTip_hideEncodingGenes>
 
 	<!-- ====================================================================================== -->
-	<WVC_Label_fixAgelessAge>Fix age ageless pawns</WVC_Label_fixAgelessAge>
-	<WVC_ToolTip_fixAgelessAge>If enabled, then all pawns with the "Ageless" gene will be generated with an age of no more than 18. Does not affect already generated ones.
-
-A restart is required to apply the setting.</WVC_ToolTip_fixAgelessAge>
-
-	<!-- ====================================================================================== -->
 	<WVC_Label_serumsForAllXenotypes>Generate xenotypes serums</WVC_Label_serumsForAllXenotypes>
 	<WVC_ToolTip_serumsForAllXenotypes>Affects whether serums for all possible xenotypes will be generated. Does not affect custom ones.</WVC_ToolTip_serumsForAllXenotypes>
-
-	<!-- ====================================================================================== -->
-	<!-- <WVC_Label_mecaXenotypeIsInheritable>Meca xenotype have inheritable genes</WVC_Label_mecaXenotypeIsInheritable> -->
-	<!-- <WVC_ToolTip_mecaXenotypeIsInheritable>Changes Meca xenotype allowing genes to be inherited. What makes this xenotype compatible with sangophages and other xenogeneic xenotypes.</WVC_ToolTip_mecaXenotypeIsInheritable> -->
-
-	<!-- <WVC_Label_mechanoidizationGenesPatch>Patch for vanilla genes</WVC_Label_mechanoidizationGenesPatch> -->
-	<!-- <WVC_ToolTip_mechanoidizationGenesPatch>Patches some genes, changing the base effect to an effect that depends on other genes, thus making the genes more versatile. -->
-
-<!-- If you have a conflict with other mods, disable this patch.</WVC_ToolTip_mechanoidizationGenesPatch> -->
 
 </LanguageData>
