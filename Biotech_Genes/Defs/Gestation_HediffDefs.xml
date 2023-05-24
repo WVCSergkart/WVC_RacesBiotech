@@ -101,14 +101,14 @@
 		<label>gestation process</label>
 		<description>Mechanites slowly form new life.</description>
 		<stages Inherit="False">
-		  <li>
-			<capMods>
-			  <li>
-				<capacity>Consciousness</capacity>
-				<setMax>0.2</setMax>
-			  </li>
-			</capMods>
-		  </li>
+		  <!-- <li> -->
+			<!-- <capMods> -->
+			  <!-- <li> -->
+				<!-- <capacity>Consciousness</capacity> -->
+				<!-- <setMax>0.8</setMax> -->
+			  <!-- </li> -->
+			<!-- </capMods> -->
+		  <!-- </li> -->
 		</stages>
 		<comps Inherit="False">
 			<!-- <li Class="AnimalBehaviours.HediffCompProperties_AsexualReproduction"> -->
