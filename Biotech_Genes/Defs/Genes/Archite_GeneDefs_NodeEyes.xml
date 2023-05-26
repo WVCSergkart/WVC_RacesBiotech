@@ -11,7 +11,7 @@
 <!-- &lt;color=#ff8585&gt;Note:&lt;/color&gt; The gene is activated only under certain conditions.  -->
 <!-- 1. The head of the pawn must be without eyes. -->
 <!-- 2. There is a gene that disables the display of eyes. -->
-	<geneClass>WVC.Gene_Faceless</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Faceless</geneClass>
 	<minAgeActive>0</minAgeActive>
 	<displayCategory>Cosmetic</displayCategory>
 	<displayOrderInCategory>3</displayOrderInCategory>

@@ -4,7 +4,7 @@
   <!-- Upgrades -->
 
   <GeneDef Name="WVC_MechanoidizationUpgrades" ParentName="WVC_MechanoidizationBase" Abstract="True">
-	<!-- <geneClass>WVC.Gene_WithConditions</geneClass> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_WithConditions</geneClass> -->
 	<!-- <displayCategory>WVC_MechaBodyParts</displayCategory> -->
 	<description>Carriers of this gene have archites..</description>
 	<displayOrderInCategory>-33</displayOrderInCategory>
@@ -33,8 +33,8 @@
 	<defName>WVC_MecaBodyParts_Heart</defName>
 	<label>archite-clotting</label>
 	<description>Carriers of this gene have archites that stabilize blood pressure, which helps to avoid bleeding.</description>
-	<!-- <geneClass>WVC.Gene_MechaClotting</geneClass> -->
-	<geneClass>WVC.Gene_MechaClotting</geneClass>
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_MechaClotting</geneClass> -->
+	<geneClass>WVC_XenotypesAndGenes.Gene_MechaClotting</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_Superclotting_v0</iconPath>
 	<biostatMet>-1</biostatMet>
 	<!-- <biostatArc>2</biostatArc> -->

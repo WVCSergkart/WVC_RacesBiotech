@@ -179,7 +179,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	<iconPath>WVC/Things/XenotypeSerum_Ultra/XenotypeSerum_Ultra_D</iconPath>
 	<!-- <iconColor>(255, 255, 255)</iconColor> -->
 	<displayOrderInCategory>957</displayOrderInCategory>
-	<geneClass>WVC.Gene_Spawner</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Spawner</geneClass>
 	<marketValueFactor>2</marketValueFactor>
 	<minAgeActive>13</minAgeActive>
 	<biostatCpx>3</biostatCpx>

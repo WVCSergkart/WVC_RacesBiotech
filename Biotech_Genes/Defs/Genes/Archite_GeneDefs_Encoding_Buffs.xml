@@ -4,7 +4,7 @@
   <!-- Romance -->
 
   <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Nodization_RandomBuff_Base" Abstract="True">
-	<!-- <geneClass>WVC.Gene_WithConditions</geneClass> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_WithConditions</geneClass> -->
 	<!-- <displayCategory>WVC_MechaBodyWare</displayCategory> -->
 	<!-- <label>AI</label> -->
 	<!-- <description>Complex templates for the mechanoid sub-core, which can provide some advantages.</description> -->
@@ -742,7 +742,7 @@
 	<defName>WVC_Nodization_DecisionBuff_F</defName>
 	<label>decision VX</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneG</iconPath>
-	<geneClass>WVC.Gene_RandomHediffFromTime</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_RandomHediffFromTime</geneClass>
 	<customEffectDescriptions>
 		<li>A carrier of this gene has a small chance of getting a mechlink permanently.</li>
 	</customEffectDescriptions>
@@ -762,7 +762,7 @@
 	<defName>WVC_Nodization_DecisionBuff_G</defName>
 	<label>decision YR</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneG</iconPath>
-	<geneClass>WVC.Gene_RandomHediffFromTime</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_RandomHediffFromTime</geneClass>
 	<customEffectDescriptions>
 		<li>A carrier of this gene has a small chance of getting a psylink permanently.</li>
 	</customEffectDescriptions>

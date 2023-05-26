@@ -4,7 +4,7 @@
   <!-- <GeneDef> -->
 	<!-- <defName>WVC_PollutionDependencies</defName> -->
 	<!-- <label>pollution dependencies</label> -->
-	<!-- <geneClass>WVC.Gene_PollutionDependence</geneClass> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_PollutionDependence</geneClass> -->
 	<!-- <description>TEST</description> -->
 	<!-- <iconPath>UI/Icons/Genes/Gene_PollutionRush</iconPath> -->
 	<!-- <displayCategory>Miscellaneous</displayCategory> -->

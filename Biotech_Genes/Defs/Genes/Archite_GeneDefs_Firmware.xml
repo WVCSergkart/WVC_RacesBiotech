@@ -4,7 +4,7 @@
   <!-- Firmware -->
 
   <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Mechanoidization_FirmwareBase" Abstract="True">
-	<!-- <geneClass>WVC.Gene_WithConditions</geneClass> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_WithConditions</geneClass> -->
 	<!-- <defName>WVC_MechaAI_Base</defName> -->
 	<!-- <displayCategory>WVC_MechaBodyWare</displayCategory> -->
 	<displayOrderInCategory>-1000</displayOrderInCategory>

@@ -4,7 +4,7 @@
   <!-- Soft -->
 
   <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Mechanoidization_SoftwareBase" Abstract="True">
-	<!-- <geneClass>WVC.Gene_WithConditions</geneClass> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_WithConditions</geneClass> -->
 	<!-- <displayCategory>WVC_MechaBodyWare</displayCategory> -->
 	<labelShortAdj>subcore</labelShortAdj>
 	<!-- <description>Archites modified the owner's brain quite a lot, which opened up new possibilities.</description> -->

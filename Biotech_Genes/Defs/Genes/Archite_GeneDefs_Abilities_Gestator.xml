@@ -51,7 +51,7 @@
 	<customEffectDescriptions>
 		<li>Spawns a baby-pawn with similar genes 5 days after the ability is activated.</li>
 	</customEffectDescriptions>
-	<geneClass>WVC.Gene_Gestator_TestTool</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Gestator_TestTool</geneClass>
 	<!-- <conditionalStatAffecters> -->
 	  <!-- <li Class="WVC.ConditionalStatAffecter_GestatorIsOn"> -->
 		<!-- <geneDef>WVC_StartGestation</geneDef> -->

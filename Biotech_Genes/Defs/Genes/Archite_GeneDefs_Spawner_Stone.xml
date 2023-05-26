@@ -12,7 +12,7 @@
 	<!-- <displayCategory>WVC_MechaBody</displayCategory> -->
 	<displayCategory>WVC_XenotypeSerumSpawners</displayCategory>
 	<displayOrderInCategory>950</displayOrderInCategory>
-	<geneClass>WVC.Gene_Spawner</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Spawner</geneClass>
 	<!-- <biostatArc>1</biostatArc> -->
 	<biostatCpx>2</biostatCpx>
 	<marketValueFactor>0.8</marketValueFactor>

@@ -99,7 +99,7 @@
 	<defName>WVC_MechaPowerSource_Tox</defName>
 	<label>tox saturation</label> 
 	<iconPath>WVC/UI/Genes/PowerSource_Tox</iconPath>
-	<geneClass>WVC.Gene_Spawner</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Spawner</geneClass>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>2</biostatArc>
 	<biostatMet>5</biostatMet>
