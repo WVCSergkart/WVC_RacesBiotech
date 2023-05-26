@@ -17,7 +17,7 @@
 				<!-- <endogeneTransfer>true</endogeneTransfer> -->
 				<!-- <asexualHatchedMessage>WVC_RB_Gene_MechaGestator</asexualHatchedMessage> -->
 			<!-- </li> -->
-			<li Class="WVC.HediffCompProperties_Gestator">
+			<li Class="WVC_XenotypesAndGenes.HediffCompProperties_Gestator">
 				<gestationIntervalDays>120</gestationIntervalDays>
 				<endogeneTransfer>true</endogeneTransfer>
 				<completeMessage>WVC_RB_Gene_MechaGestator</completeMessage>
@@ -75,7 +75,7 @@
 				<!-- <endogeneTransfer>true</endogeneTransfer> -->
 				<!-- <asexualHatchedMessage>WVC_RB_Gene_MechaGestator</asexualHatchedMessage> -->
 			<!-- </li> -->
-			<li Class="WVC.HediffCompProperties_Gestator">
+			<li Class="WVC_XenotypesAndGenes.HediffCompProperties_Gestator">
 				<gestationIntervalDays>5</gestationIntervalDays>
 				<endogeneTransfer>true</endogeneTransfer>
 				<completeMessage>WVC_RB_Gene_MechaGestator</completeMessage>
@@ -116,7 +116,7 @@
 				<!-- <endogeneTransfer>true</endogeneTransfer> -->
 				<!-- <asexualHatchedMessage>WVC_RB_Gene_MechaGestator</asexualHatchedMessage> -->
 			<!-- </li> -->
-			<li Class="WVC.HediffCompProperties_GolemGestator">
+			<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GolemGestator">
 				<gestationIntervalDays>1</gestationIntervalDays>
 				<endogeneTransfer>true</endogeneTransfer>
 				<geneDef>WVC_SwarmConnection_Golems</geneDef>

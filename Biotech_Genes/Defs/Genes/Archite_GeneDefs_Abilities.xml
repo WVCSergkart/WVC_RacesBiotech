@@ -241,7 +241,7 @@
 	  </targetParams>
 	</verbProperties>
 	<comps>
-	  <li Class="WVC.CompProperties_AbilityReimplantEndogerm" />
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplantEndogerm" />
 	  <!-- <li Class="CompProperties_AbilityReimplantXenogerm" /> -->
 	</comps>
   </AbilityDef>

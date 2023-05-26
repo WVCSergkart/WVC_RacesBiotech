@@ -189,8 +189,8 @@
 	<defName>WVC_MechSummon_Light</defName>
 	<label>summon light mechs</label>
 	<comps>
-	  <li Class="WVC.CompProperties_Summon">
-		<compClass>WVC.CompAbilityEffect_Summon</compClass>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_Summon">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Summon</compClass>
 		<quest>WVC_MechanitorSummonLightMech</quest>
 		<spawnCountRange><min>1</min><max>5</max></spawnCountRange>
 	  </li>
@@ -201,8 +201,8 @@
 	<defName>WVC_MechSummon_Medium</defName>
 	<label>summon medium mechs</label>
 	<comps>
-	  <li Class="WVC.CompProperties_Summon">
-		<compClass>WVC.CompAbilityEffect_Summon</compClass>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_Summon">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Summon</compClass>
 		<quest>WVC_MechanitorSummonMediumMech</quest>
 		<spawnCountRange><min>1</min><max>2</max></spawnCountRange>
 	  </li>
@@ -213,8 +213,8 @@
 	<defName>WVC_MechSummon_Heavy</defName>
 	<label>summon heavy mechs</label>
 	<comps>
-	  <li Class="WVC.CompProperties_Summon">
-		<compClass>WVC.CompAbilityEffect_Summon</compClass>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_Summon">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Summon</compClass>
 		<quest>WVC_MechanitorSummonHeavyMech</quest>
 		<spawnCountRange><min>1</min><max>1</max></spawnCountRange>
 	  </li>
@@ -226,8 +226,8 @@
 	<label>summon golems</label>
 	<cooldownTicksRange>1800000</cooldownTicksRange><!-- 30 days -->
 	<comps>
-	  <li Class="WVC.CompProperties_Summon">
-		<compClass>WVC.CompAbilityEffect_Summon</compClass>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_Summon">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Summon</compClass>
 		<quest>WVC_MechanitorSummonGolems</quest>
 		<spawnCountRange><min>1</min><max>5</max></spawnCountRange>
 	  </li>
@@ -252,7 +252,7 @@
 
   <QuestScriptDef ParentName="WVC_SummonQuestScript_Base">
 	<defName>WVC_MechanitorSummonLightMech</defName>
-	<root Class="WVC.QuestNode_Root_MechanitorSummonMech">
+	<root Class="WVC_XenotypesAndGenes.QuestNode_Root_MechanitorSummonMech">
 	  <mechTypes>
 		<li>Mech_Lifter</li>
 		<li>Mech_Constructoid</li>
@@ -267,7 +267,7 @@
 
   <QuestScriptDef ParentName="WVC_SummonQuestScript_Base">
 	<defName>WVC_MechanitorSummonMediumMech</defName>
-	<root Class="WVC.QuestNode_Root_MechanitorSummonMech">
+	<root Class="WVC_XenotypesAndGenes.QuestNode_Root_MechanitorSummonMech">
 	  <mechTypes>
 		<li>Mech_Scyther</li>
 		<li>Mech_Lancer</li>
@@ -281,7 +281,7 @@
 
   <QuestScriptDef ParentName="WVC_SummonQuestScript_Base">
 	<defName>WVC_MechanitorSummonHeavyMech</defName>
-	<root Class="WVC.QuestNode_Root_MechanitorSummonMech">
+	<root Class="WVC_XenotypesAndGenes.QuestNode_Root_MechanitorSummonMech">
 	  <mechTypes>
 		<li>Mech_Pikeman</li>
 		<li>Mech_Tunneler</li>
@@ -294,7 +294,7 @@
 
   <QuestScriptDef ParentName="WVC_SummonQuestScript_Base">
 	<defName>WVC_MechanitorSummonGolems</defName>
-	<root Class="WVC.QuestNode_Root_MechanitorSummonMech">
+	<root Class="WVC_XenotypesAndGenes.QuestNode_Root_MechanitorSummonMech">
 	  <mechTypes>
 		<li>WVC_Golem_Liftoid</li>
 		<li>WVC_Golem_Constructoid</li>

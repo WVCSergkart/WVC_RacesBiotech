@@ -120,7 +120,7 @@ At the same time, there can be a limited number of living golems under the contr
 	  <!-- </li> -->
 	<!-- </stages> -->
 	<comps>
-		<li Class="WVC.HediffCompProperties_GolemPopulationRegulation">
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GolemPopulationRegulation">
 			<!-- <geneDef>WVC_SwarmConnection_Golems</geneDef> -->
 			<statDef>WVC_OverseerMaxGolems</statDef>
 		</li>

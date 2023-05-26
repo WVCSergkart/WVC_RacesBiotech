@@ -140,8 +140,8 @@
 	<defName>WVC_StartGestation</defName>
 	<label>gestator</label>
 	<comps>
-	  <li Class="WVC.CompProperties_AbilityGiveHediff">
-		<compClass>WVC.CompAbilityEffect_GiveHediff</compClass>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGiveHediff">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_GiveHediff</compClass>
 		<hediffDef>WVC_RB_AbilityMechaGestator</hediffDef>
 		<onlyApplyToSelf>true</onlyApplyToSelf>
 		<onlyReproductive>true</onlyReproductive>
@@ -154,8 +154,8 @@
 	<defName>WVC_StartUrchinGestation</defName>
 	<label>urchin gestator</label>
 	<comps>
-	  <li Class="WVC.CompProperties_AbilityGiveHediff">
-		<compClass>WVC.CompAbilityEffect_GiveHediff</compClass>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGiveHediff">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_GiveHediff</compClass>
 		<hediffDef>WVC_RB_AbilityUrchinGestator</hediffDef>
 		<onlyApplyToSelf>true</onlyApplyToSelf>
 		<onlyReproductive>true</onlyReproductive>
@@ -169,8 +169,8 @@
 	<label>gestator</label>
 	<description>This mechanoid has a large accumulation of mechanites, sufficient to form organic life.</description>
 	<comps>
-	  <li Class="WVC.CompProperties_AbilityGiveHediff">
-		<compClass>WVC.CompAbilityEffect_GiveHediff</compClass>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGiveHediff">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_GiveHediff</compClass>
 		<hediffDef>WVC_MechanoidAbility_ActivateGestator</hediffDef>
 		<onlyApplyToSelf>true</onlyApplyToSelf>
 		<onlyReproductive>false</onlyReproductive>
