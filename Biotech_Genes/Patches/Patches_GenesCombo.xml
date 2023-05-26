@@ -344,10 +344,13 @@
 	<Operation Class="PatchOperationAdd">
 	  <xpath>/Defs/StatDef[defName="WorkSpeedGlobal"]/parts</xpath>
 	  <value>
-		  <li Class="WVC.StatPart_FactorForUniqueKind" MayRequire="Ludeon.RimWorld.Biotech">
+		  <!-- <li Class="WVC.StatPart_FactorForUniqueKind" MayRequire="Ludeon.RimWorld.Biotech"> -->
 			<!-- Looks for matches in defNames, so the full name is not necessary -->
-			<pawnKindDef>WVC_Golem</pawnKindDef>
+			<!-- <pawnKindDef>WVC_Golem</pawnKindDef> -->
 			<!-- Any overseer stat -->
+			<!-- <stat>PsychicSensitivity</stat> -->
+		  <!-- </li> -->
+		  <li Class="WVC.StatPart_FactorForGolems" MayRequire="Ludeon.RimWorld.Biotech">
 			<stat>PsychicSensitivity</stat>
 		  </li>
 	  </value>

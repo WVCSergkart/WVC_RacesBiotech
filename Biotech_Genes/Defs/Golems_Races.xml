@@ -337,7 +337,7 @@
 	<description>A compact single-shot slug thrower designed to be mounted on a light combat mechanoid.</description>
 	<graphicData>
 	  <texPath>WVC/Things/Mechanoids_Golems_Guns/Slugthrower</texPath>
-	  <color>(70,70,70)</color>
+	  <!-- <color>(70,70,70)</color> -->
 	  <graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
 	<statBases>
@@ -349,6 +349,10 @@
 	  <AccuracyLong>0.95</AccuracyLong>
 	  <RangedWeapon_Cooldown>4.0</RangedWeapon_Cooldown>
 	</statBases>
+	<costStuffCount>40</costStuffCount>
+	<stuffCategories>
+	  <li>Stony</li>
+	</stuffCategories>
 	<weaponTags>
 	  <li>WVC_GolemGun_Slugthrower</li>
 	</weaponTags>

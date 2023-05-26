@@ -1,23 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <WVC.BlackListedXenotypesDef>
-	<defName>WVC_RacesBiotech_BlackListedXenotypes</defName>
+  <WVC.XenotypesAndGenesListDef>
+	<defName>WVC_RacesBiotech_XenotypesAndGenes</defName>
 	<!-- Xenotypes not selected for random serum. Any string -->
-	<blackListedForSerums>
+	<blackListedXenotypesForSerums>
 		<li>Baseliner</li>
 		<li>WVC_Blank</li>
 		<!-- <li>AG_Wretch</li> -->
 		<li>AG_RandomCustom</li>
 		<li>VREA_AndroidBasic</li>
 		<li>VREA_AndroidAwakened</li>
-	</blackListedForSerums>
+	</blackListedXenotypesForSerums>
+	<!-- Things that can't use serums. Any thing defNames -->
+	<blackListedThingsForSerums>
+		<!-- Any HAR or HAR-like thing defNames -->
+		<li MayRequire="wvc.sergkart.races">WVC_AlienRace_BlueFormer</li>
+		<li MayRequire="wvc.sergkart.races">WVC_AlienRace_YellowFormer</li>
+		<li MayRequire="wvc.sergkart.races">WVC_AlienRace_Meka</li>
+		<li MayRequire="wvc.sergkart.races">WVC_AlienRace_RedFormer</li>
+	</blackListedThingsForSerums>
 	<!-- Xenotypes that do not fall into a coma when using serum. Any string -->
 	<perfectCandidatesForSerums>
 		<li>WVC_Blank</li>
 		<li>AG_Wretch</li>
 	</perfectCandidatesForSerums>
-	<!-- List of genes that are labeled as (exo)skins. Used for ideology. Required defNames -->
+	<!-- List of genes that are (exo)skins. Used for ideology. Required gene defNames -->
 	<whiteListedExoskinGenes>
 		<li>WVC_MechaSkin</li>
 		<li>WVC_NodeSkin</li>
@@ -26,15 +34,22 @@
 		<li>Furskin</li>
 		<li MayRequire="vanillaracesexpanded.phytokin">VRE_BarkSkin</li>
 		<li MayRequire="vanillaracesexpanded.saurid">VRESaurids_ScaleSkin</li>
-		<!-- <li>VRE_BarkSkin</li> -->
-		<!-- <li>VRE_BarkSkin</li> -->
-		<!-- <li>VRE_BarkSkin</li> -->
+		<li MayRequire="vanillaracesexpanded.android">VREA_SyntheticBody</li>
+		<li MayRequire="sarg.alphagenes">AG_RockyBody</li>
+		<li MayRequire="sarg.alphagenes">AG_ScalyBody</li>
+		<li MayRequire="sarg.alphagenes">AG_SlugBody</li>
+		<li MayRequire="sarg.alphagenes">AG_SlimeBody</li>
 	</whiteListedExoskinGenes>
-  </WVC.BlackListedXenotypesDef>
-
-  <!-- Traits that are allowed to be generated as genes -->
-  <!-- <WVC.Template_WhiteListedTraitsDef> -->
-	<!-- <defName>WVC_RacesBiotech_WhiteListedTraits</defName> -->
+	<!-- Mechanoids that are considered golems. Required thing defNames -->
+	<listedGolems>
+		<li>WVC_Golem_Liftoid</li>
+		<li>WVC_Golem_Constructoid</li>
+		<li>WVC_Golem_Crafter</li>
+		<li>WVC_Golem_Miner</li>
+		<li>WVC_Golem_Hunter</li>
+		<li>WVC_Golem_Behemoth</li>
+	</listedGolems>
+	<!-- Traits that are allowed to be generated as genes -->
 	<!-- <whiteListedTraits> -->
 		<!-- <li>Nudist</li> -->
 		<!-- <li></li> -->
@@ -56,6 +71,6 @@
 		<!-- <li></li> -->
 		<!-- <li></li> -->
 	<!-- </whiteListedTraits> -->
-  <!-- </WVC.Template_WhiteListedTraitsDef> -->
+  </WVC.XenotypesAndGenesListDef>
 
 </Defs>
