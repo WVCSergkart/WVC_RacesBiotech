@@ -22,7 +22,7 @@
 	  </prefixSymbols>
 	</symbolPack>
 	<modExtensions>
-		<li Class="WVC.GeneExtension_Spawner">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
 			<thingDefToSpawn>WVC_XenotypeSerum_Random</thingDefToSpawn>
 			<stackCount>1</stackCount>
 			<spawnIntervalRange><min>900000</min><max>2700000</max></spawnIntervalRange>
@@ -50,7 +50,7 @@
 	  </prefixSymbols>
 	</symbolPack>
 	<modExtensions>
-		<li Class="WVC.GeneExtension_Spawner">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
 			<thingDefToSpawn>WVC_XenotypeSerum_HybridRandom</thingDefToSpawn>
 			<stackCount>1</stackCount>
 			<spawnIntervalRange><min>900000</min><max>2700000</max></spawnIntervalRange>

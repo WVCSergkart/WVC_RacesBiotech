@@ -249,7 +249,7 @@
   <ThoughtDef>
 	<defName>WVC_PawnIsMechaskinned_Horrible_Social</defName>
 	<thoughtClass>Thought_SituationalSocial</thoughtClass>
-	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
 	<stages>
 	  <li>
 		<label>exoskinned</label>
@@ -261,7 +261,7 @@
   <ThoughtDef>
 	<defName>WVC_PawnIsMechaskinned_Disapproved_Social</defName>
 	<thoughtClass>Thought_SituationalSocial</thoughtClass>
-	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
 	<stages>
 	  <li>
 		<label>exoskinned</label>
@@ -273,7 +273,7 @@
   <ThoughtDef>
 	<defName>WVC_PawnIsMechaskinned_Acceptable_Social</defName>
 	<thoughtClass>Thought_SituationalSocial</thoughtClass>
-	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
 	<stages>
 	  <li>
 		<label>exoskinned</label>
@@ -285,7 +285,7 @@
   <ThoughtDef>
 	<defName>WVC_PawnIsMechaskinned_Preferred_Social</defName>
 	<thoughtClass>Thought_SituationalSocial</thoughtClass>
-	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
 	<stages>
 	  <li>
 		<label>exoskinned</label>
@@ -297,7 +297,7 @@
   <ThoughtDef>
 	<defName>WVC_PawnIsMechaskinned_Exalted_Social</defName>
 	<thoughtClass>Thought_SituationalSocial</thoughtClass>
-	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_PawnIsMechaskinned_SingleThought_Social</workerClass>
 	<stages>
 	  <li>
 		<label>exoskinned</label>
@@ -310,7 +310,7 @@
 
   <ThoughtDef>
 	<defName>WVC_PawnIsMechaskinned_Horrible</defName>
-	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought</workerClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_PawnIsMechaskinned_SingleThought</workerClass>
 	<validWhileDespawned>true</validWhileDespawned>
 	<stages>
 	  <li>
@@ -323,7 +323,7 @@
 
   <ThoughtDef>
 	<defName>WVC_PawnIsMechaskinned_Disapproved</defName>
-	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought</workerClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_PawnIsMechaskinned_SingleThought</workerClass>
 	<stages>
 	  <li>
 		<label>exoskinned</label>
@@ -335,7 +335,7 @@
 
   <ThoughtDef>
 	<defName>WVC_PawnIsMechaskinned_Acceptable</defName>
-	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought</workerClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_PawnIsMechaskinned_SingleThought</workerClass>
 	<stages>
 	  <li>
 		<label>exoskinned</label>
@@ -347,7 +347,7 @@
 
   <ThoughtDef>
 	<defName>WVC_PawnIsMechaskinned_Preferred</defName>
-	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought</workerClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_PawnIsMechaskinned_SingleThought</workerClass>
 	<stages>
 	  <li>
 		<label>exoskinned</label>
@@ -359,7 +359,7 @@
 
   <ThoughtDef>
 	<defName>WVC_PawnIsMechaskinned_Exalted</defName>
-	<workerClass>WVC.ThoughtWorker_PawnIsMechaskinned_SingleThought</workerClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_PawnIsMechaskinned_SingleThought</workerClass>
 	<stages>
 	  <li>
 		<label>exoskinned</label>

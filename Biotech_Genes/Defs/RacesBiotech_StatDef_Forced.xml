@@ -78,7 +78,7 @@
 	<category>Mechanitor</category>
 	<displayPriorityInCategory>2001</displayPriorityInCategory>
 	<parts>
-	  <li Class="WVC.StatPart_OffsetFromBuildingsOnMap" MayRequire="Ludeon.RimWorld.Royalty">
+	  <li Class="WVC_XenotypesAndGenes.StatPart_OffsetFromBuildingsOnMap" MayRequire="Ludeon.RimWorld.Royalty">
 		<!-- Localization defName. Default "WVC_StatPart_GenesCombo_OffsetFromBuildings" -->
 		<label>WVC_StatPart_GenesCombo_OffsetFromShrines</label>
 		<!-- Looks for matches in defNames, so the full name is not necessary. Default "NatureShrine" -->

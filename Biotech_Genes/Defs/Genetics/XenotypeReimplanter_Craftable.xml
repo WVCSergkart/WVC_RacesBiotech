@@ -31,7 +31,7 @@
 	  <Gold>2</Gold>
 	</costList>
 	<comps>
-	  <li Class="WVC.CompProperties_UseEffect_GeneRestoration"/>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_GeneRestoration"/>
 	</comps>
   </ThingDef>
   
@@ -85,7 +85,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <Gold>3</Gold>
 	</costList>
 	<comps>
-	  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer">
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenotypeForcer">
 		<xenotypeDef>Baseliner</xenotypeDef>
 		<removeEndogenes>true</removeEndogenes>
 		<removeXenogenes>true</removeXenogenes>

@@ -44,7 +44,7 @@
 	  </suffixSymbols>
 	</symbolPack>
 	<!-- <modExtensions> -->
-		<!-- <li Class="WVC.GeneExtension_General"> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
 			<!-- <geneIsSubcore>true</geneIsSubcore> -->
 		<!-- </li> -->
 	<!-- </modExtensions> -->
@@ -252,37 +252,37 @@
 	  <!-- </li> -->
 	<!-- </conditionalStatAffecters> -->
 	<conditionalStatAffecters>
-	  <li Class="WVC.ConditionalStatAffecter_MechanitorUsedBandwidth">
+	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_MechanitorUsedBandwidth">
 		<controlledPawns>8</controlledPawns>
 		<statOffsets>
 			<MechRepairSpeed>0.5</MechRepairSpeed>
 		</statOffsets>
 	  </li>
-	  <li Class="WVC.ConditionalStatAffecter_MechanitorUsedBandwidth">
+	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_MechanitorUsedBandwidth">
 		<controlledPawns>12</controlledPawns>
 		<statOffsets>
 			<MechControlGroups>2</MechControlGroups>
 		</statOffsets>
 	  </li>
-	  <li Class="WVC.ConditionalStatAffecter_MechanitorUsedBandwidth">
+	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_MechanitorUsedBandwidth">
 		<controlledPawns>16</controlledPawns>
 		<statOffsets>
 			<WorkSpeedGlobalOffsetMech>0.5</WorkSpeedGlobalOffsetMech>
 		</statOffsets>
 	  </li>
-	  <li Class="WVC.ConditionalStatAffecter_MechanitorUsedBandwidth">
+	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_MechanitorUsedBandwidth">
 		<controlledPawns>20</controlledPawns>
 		<statOffsets>
 			<MechBandwidth>12</MechBandwidth>
 		</statOffsets>
 	  </li>
-	  <li Class="WVC.ConditionalStatAffecter_MechanitorUsedBandwidth">
+	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_MechanitorUsedBandwidth">
 		<controlledPawns>24</controlledPawns>
 		<statOffsets>
 			<MechFormingSpeed>0.5</MechFormingSpeed>
 		</statOffsets>
 	  </li>
-	  <li Class="WVC.ConditionalStatAffecter_MechanitorUsedBandwidth">
+	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_MechanitorUsedBandwidth">
 		<controlledPawns>30</controlledPawns>
 		<statOffsets>
 			<WVC_BandwidthCostOffsetMech>-1</WVC_BandwidthCostOffsetMech>

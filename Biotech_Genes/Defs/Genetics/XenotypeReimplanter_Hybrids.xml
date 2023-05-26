@@ -7,7 +7,7 @@
 	<defName>WVC_XenotypeSerum_HybridRandom</defName>
 	<label>hybrid serum (random)</label>
 	<comps>
-	  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer">
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenotypeForcer">
 		<xenotypeForcerType>Hybrid</xenotypeForcerType>
 	  </li>
 	</comps>
@@ -48,7 +48,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 
 &lt;color=#f5ffa2&gt;Note:&lt;/color&gt; Please note that at least &lt;color=#f5ffa2&gt;2 types of custom xenotypes&lt;/color&gt; must exist at the same time. With inherited genes and not inherited. Otherwise, &lt;color=#f5ffa2&gt;normal xenotypes&lt;/color&gt; will be selected.</description>
 	<comps>
-	  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer">
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenotypeForcer">
 		<xenotypeForcerType>CustomHybrid</xenotypeForcerType>
 	  </li>
 	</comps>

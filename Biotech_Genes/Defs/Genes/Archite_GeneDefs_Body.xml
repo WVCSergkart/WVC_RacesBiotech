@@ -128,7 +128,7 @@
 	  <MoveSpeed>0.2</MoveSpeed>
 	</statOffsets>
 	<!-- <modExtensions Inherit="False"> -->
-		<!-- <li Class="WVC.GeneExtension_Background"> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Background"> -->
 			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGeneActive</backgroundPathArchite> -->
 		<!-- </li> -->
 	<!-- </modExtensions> -->
@@ -198,7 +198,7 @@
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<diseaseProgressionFactor>0.5</diseaseProgressionFactor>
 		</li>
-		<!-- <li Class="WVC.GeneExtension_Background"> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Background"> -->
 			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGeneActive</backgroundPathArchite> -->
 		<!-- </li> -->
 	</modExtensions>
@@ -226,7 +226,7 @@
 	  <li>SensoryMechanites</li>
 	</makeImmuneTo>
 	<!-- <modExtensions Inherit="False"> -->
-		<!-- <li Class="WVC.GeneExtension_Background"> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Background"> -->
 			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGeneActive</backgroundPathArchite> -->
 		<!-- </li> -->
 	<!-- </modExtensions> -->
@@ -255,7 +255,7 @@
 	  <li>LungRotExposure</li>
 	</makeImmuneTo>
 	<!-- <modExtensions Inherit="False"> -->
-		<!-- <li Class="WVC.GeneExtension_Background"> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Background"> -->
 			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGeneActive</backgroundPathArchite> -->
 		<!-- </li> -->
 	<!-- </modExtensions> -->
@@ -304,7 +304,7 @@
 	<biostatMet>-2</biostatMet>
 	<displayCategory>Violence</displayCategory>
 	<conditionalStatAffecters>
-	  <li Class="WVC.ConditionalStatAffecter_Drafted">
+	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_Drafted">
 		<statOffsets>
 		  <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
 		  <ArmorRating_Sharp>0.25</ArmorRating_Sharp>

@@ -19,7 +19,7 @@
 			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes> -->
 			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes> -->
 		<!-- </li> -->
-		<!-- <li Class="WVC.GeneExtension_HediffGiver"> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_HediffGiver"> -->
 			<!-- <hediffDefName>WVC_PollutionDependence</hediffDefName> -->
 		<!-- </li> -->
 	<!-- </modExtensions> -->

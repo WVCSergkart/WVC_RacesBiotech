@@ -80,7 +80,7 @@
 	<label>slate molt</label>
 	<iconColor>(70,70,70)</iconColor>
 	<modExtensions>
-		<li Class="WVC.GeneExtension_Spawner">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
 			<thingDefToSpawn>ChunkSlate</thingDefToSpawn>
 			<stackCount>1</stackCount>
 			<spawnIntervalRange><min>600000</min><max>900000</max></spawnIntervalRange>
@@ -92,7 +92,7 @@
 	<label>limestone molt</label>
 	<iconColor>(158,153,135)</iconColor>
 	<modExtensions>
-		<li Class="WVC.GeneExtension_Spawner">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
 			<thingDefToSpawn>ChunkLimestone</thingDefToSpawn>
 			<stackCount>1</stackCount>
 			<spawnIntervalRange><min>600000</min><max>900000</max></spawnIntervalRange>
@@ -104,7 +104,7 @@
 	<label>granite molt</label>
 	<iconColor>(105,95,97)</iconColor>
 	<modExtensions>
-		<li Class="WVC.GeneExtension_Spawner">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
 			<thingDefToSpawn>ChunkGranite</thingDefToSpawn>
 			<stackCount>1</stackCount>
 			<spawnIntervalRange><min>600000</min><max>900000</max></spawnIntervalRange>
@@ -116,7 +116,7 @@
 	<label>sandstone molt</label>
 	<iconColor>(126,104,94)</iconColor>
 	<modExtensions>
-		<li Class="WVC.GeneExtension_Spawner">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
 			<thingDefToSpawn>ChunkSandstone</thingDefToSpawn>
 			<stackCount>1</stackCount>
 			<spawnIntervalRange><min>600000</min><max>900000</max></spawnIntervalRange>
@@ -128,7 +128,7 @@
 	<label>marble molt</label>
 	<iconColor>(132,135,132)</iconColor>
 	<modExtensions>
-		<li Class="WVC.GeneExtension_Spawner">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
 			<thingDefToSpawn>ChunkMarble</thingDefToSpawn>
 			<stackCount>1</stackCount>
 			<spawnIntervalRange><min>600000</min><max>900000</max></spawnIntervalRange>

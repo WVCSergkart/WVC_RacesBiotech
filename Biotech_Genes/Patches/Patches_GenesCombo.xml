@@ -244,7 +244,7 @@
 	  <!-- <xpath>/Defs/StatDef[defName="ComfyTemperatureMin"]/parts</xpath> -->
 	  <!-- <success>Always</success> -->
 	  <!-- <value> -->
-		  <!-- <li Class="WVC.StatPart_ForceTo"> -->
+		  <!-- <li Class="WVC_XenotypesAndGenes.StatPart_ForceTo"> -->
 			<!-- <statDefName>WVC_ForceTo_ComfyTemperatureMin</statDefName> -->
 		  <!-- </li> -->
 	  <!-- </value> -->
@@ -253,7 +253,7 @@
 	  <!-- <xpath>/Defs/StatDef[defName="ComfyTemperatureMax"]/parts</xpath> -->
 	  <!-- <success>Always</success> -->
 	  <!-- <value> -->
-		  <!-- <li Class="WVC.StatPart_ForceTo"> -->
+		  <!-- <li Class="WVC_XenotypesAndGenes.StatPart_ForceTo"> -->
 			<!-- <statDefName>WVC_ForceTo_ComfyTemperatureMax</statDefName> -->
 		  <!-- </li> -->
 	  <!-- </value> -->
@@ -298,7 +298,7 @@
 					<!-- <useStaticValue>true</useStaticValue> -->
 					<!-- <staticValue>2</staticValue> -->
 				  <!-- </li> -->
-				  <li Class="WVC.StatPart_ForceTo">
+				  <li Class="WVC_XenotypesAndGenes.StatPart_ForceTo">
 					<statDefName>WVC_ForceTo_MechBandwidth</statDefName>
 				  </li>
 			  </value>
@@ -308,7 +308,7 @@
 			  <success>Always</success>
 			  <value>
 				<parts>
-				  <li Class="WVC.StatPart_ForceTo">
+				  <li Class="WVC_XenotypesAndGenes.StatPart_ForceTo">
 					<statDefName>WVC_ForceTo_MechBandwidth</statDefName>
 				  </li>
 				</parts>
@@ -344,13 +344,13 @@
 	<Operation Class="PatchOperationAdd">
 	  <xpath>/Defs/StatDef[defName="WorkSpeedGlobal"]/parts</xpath>
 	  <value>
-		  <!-- <li Class="WVC.StatPart_FactorForUniqueKind" MayRequire="Ludeon.RimWorld.Biotech"> -->
+		  <!-- <li Class="WVC_XenotypesAndGenes.StatPart_FactorForUniqueKind" MayRequire="Ludeon.RimWorld.Biotech"> -->
 			<!-- Looks for matches in defNames, so the full name is not necessary -->
 			<!-- <pawnKindDef>WVC_Golem</pawnKindDef> -->
 			<!-- Any overseer stat -->
 			<!-- <stat>PsychicSensitivity</stat> -->
 		  <!-- </li> -->
-		  <li Class="WVC.StatPart_FactorForGolems" MayRequire="Ludeon.RimWorld.Biotech">
+		  <li Class="WVC_XenotypesAndGenes.StatPart_FactorForGolems" MayRequire="Ludeon.RimWorld.Biotech">
 			<stat>PsychicSensitivity</stat>
 		  </li>
 	  </value>

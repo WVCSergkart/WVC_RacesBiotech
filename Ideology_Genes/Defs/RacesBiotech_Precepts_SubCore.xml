@@ -29,14 +29,14 @@
 	  <WVC_SkillsDecayFactor>0.0</WVC_SkillsDecayFactor>
 	</statFactors>
 	<conditionalStatAffecters>
-	  <li Class="WVC.ConditionalStatAffecter_Genes">
+	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_Genes">
 		<geneDef>WVC_MechaAI_Base</geneDef>
 		<invert>false</invert>
 		<statOffsets>
 		  <WVC_MinSkillLevel>4</WVC_MinSkillLevel>
 		</statOffsets>
 	  </li>
-	  <li Class="WVC.ConditionalStatAffecter_Genes">
+	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_Genes">
 		<geneDef>WVC_MechaAI_Base</geneDef>
 		<invert>true</invert>
 		<statOffsets>

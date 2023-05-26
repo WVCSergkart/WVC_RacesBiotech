@@ -4,7 +4,7 @@
   <ThoughtDef>
 	<defName>WVC_MechaAI_MechaSensesFriendOrFoe</defName>
 	<thoughtClass>Thought_SituationalSocial</thoughtClass>
-	<workerClass>WVC.ThoughtWorker_MechaSensesFriendOrFoe</workerClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_MechaSensesFriendOrFoe</workerClass>
 	<validWhileDespawned>true</validWhileDespawned>
 	<requiredGenes>
 	  <li>WVC_MechaAI_SoftwareNaturalEnemy</li>
@@ -28,10 +28,10 @@
 	<validWhileDespawned>true</validWhileDespawned>
   </ThoughtDef>
   <GeneDef ParentName="WVC_PreferredGenderThoughtBase" Name="WVC_PreferredGenderThoughtFemale" Abstract="True">
-	<workerClass>WVC.ThoughtWorker_GenderFemale</workerClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_GenderFemale</workerClass>
   </GeneDef>
   <GeneDef ParentName="WVC_PreferredGenderThoughtBase" Name="WVC_PreferredGenderThoughtMale" Abstract="True">
-	<workerClass>WVC.ThoughtWorker_GenderMale</workerClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_GenderMale</workerClass>
   </GeneDef>
 
   <!-- ========================================================== -->

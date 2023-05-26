@@ -7,7 +7,7 @@
 	<defName>WVC_XenotypeSerum_Random</defName>
 	<label>xenotype serum (random)</label>
 	<comps>
-	  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer"/>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenotypeForcer"/>
 	</comps>
   </ThingDef>
   
@@ -46,7 +46,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 
 &lt;color=#f5ffa2&gt;Note:&lt;/color&gt; If there are no &lt;color=#f5ffa2&gt;custom xenotypes&lt;/color&gt;, then the pawn will receive a random &lt;color=#f5ffa2&gt;normal xenotype&lt;/color&gt;.</description>
 	<comps>
-	  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer">
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenotypeForcer">
 		<xenotypeForcerType>Custom</xenotypeForcerType>
 	  </li>
 	</comps>
@@ -84,7 +84,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 If the user's genes are regrowing, then instead of applying the xenotype, the gene regeneration timer will be reset.</description>
 	<descriptionHyperlinks Inherit="False"/>
 	<comps>
-	  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer">
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenotypeForcer">
 		<xenotypeDef>Baseliner</xenotypeDef>
 		<removeEndogenes>true</removeEndogenes>
 		<removeXenogenes>true</removeXenogenes>

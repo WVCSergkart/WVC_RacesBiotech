@@ -18,7 +18,7 @@
 	  <WVC_OverseerMaxGolems>1</WVC_OverseerMaxGolems>
 	</statOffsets>
 	<conditionalStatAffecters>
-	  <li Class="WVC.ConditionalStatAffecter_Genes">
+	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_Genes">
 		<geneDef>WVC_MechaAI_Base</geneDef>
 		<invert>true</invert>
 		<statOffsets>

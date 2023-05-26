@@ -38,7 +38,7 @@
 		<li>Predators do not prey on carriers of this gene.</li>
 	</customEffectDescriptions>
 	<modExtensions>
-		<li Class="WVC.GeneExtension_General">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
 			<canBePredatorPrey>false</canBePredatorPrey>
 		</li>
 	</modExtensions>

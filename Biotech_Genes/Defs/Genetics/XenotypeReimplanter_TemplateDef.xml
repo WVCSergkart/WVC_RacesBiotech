@@ -5,7 +5,7 @@
   <!-- Recipe and gene are optional, generation can work without them -->
   <!-- ==================================== -->
 
-  <WVC.RacesBiotech.SerumTemplateDef ParentName="WVC_XenotypeSerumTemplate_Craftable">
+  <WVC_XenotypesAndGenes.SerumTemplateDef ParentName="WVC_XenotypeSerumTemplate_Craftable">
 	<!-- The generated serum has the defName "WVC_XenotypeSerum_MyXenotypeDefName_RB" -->
 	<!-- The "_RB" tag is needed in case some idiot added numbers to the end of the xenotype defName.  -->
 	<!-- Rimworld is very sensitive to numbers, it is advisable to never end defNames with numbers. -->
@@ -30,18 +30,18 @@
 	<!-- These fields can be left blank. Then the recipe or gene will not be generated. -->
 	<recipeTemplateDef>WVC_AdministerXenotypeSerum</recipeTemplateDef>
 	<!-- <geneTemplateDef>WVC_XenotypeSerumSpawner_Hybrid</geneTemplateDef> -->
-  </WVC.RacesBiotech.SerumTemplateDef>
+  </WVC_XenotypesAndGenes.SerumTemplateDef>
 
-  <WVC.RacesBiotech.SerumRecipeTemplateDef ParentName="WVC_AdministerXenotypeSerumTemplate_Template">
+  <WVC_XenotypesAndGenes.SerumRecipeTemplateDef ParentName="WVC_AdministerXenotypeSerumTemplate_Template">
 	<defName>WVC_AdministerXenotypeSerum</defName>
 	<label>administer xenotype serum</label>
 	<description>Administer a xenotype serum</description>
 	<jobString>Administering xenotype serum</jobString>
-  </WVC.RacesBiotech.SerumRecipeTemplateDef>
+  </WVC_XenotypesAndGenes.SerumRecipeTemplateDef>
 
   <!-- ==================================== -->
 
-  <WVC.RacesBiotech.SerumTemplateDef ParentName="WVC_XenotypeSerumTemplate_NonCraftable">
+  <WVC_XenotypesAndGenes.SerumTemplateDef ParentName="WVC_XenotypeSerumTemplate_NonCraftable">
 	<defName>WVC_XenotypeSerum_Ultra</defName>
 	<label>xenotype serum</label>
 	<!-- Cost -->
@@ -53,27 +53,27 @@
 	<!-- Templates -->
 	<recipeTemplateDef>WVC_AdministerXenotypeSerum_Ultra</recipeTemplateDef>
 	<geneTemplateDef>WVC_XenotypeSerumSpawner</geneTemplateDef>
-  </WVC.RacesBiotech.SerumTemplateDef>
+  </WVC_XenotypesAndGenes.SerumTemplateDef>
   
-  <WVC.RacesBiotech.SerumRecipeTemplateDef ParentName="WVC_AdministerXenotypeSerumTemplate_Template">
+  <WVC_XenotypesAndGenes.SerumRecipeTemplateDef ParentName="WVC_AdministerXenotypeSerumTemplate_Template">
 	<defName>WVC_AdministerXenotypeSerum_Ultra</defName>
 	<label>administer xenotype serum</label>
 	<description>Administer a xenotype serum</description>
 	<jobString>Administering xenotype serum</jobString>
-  </WVC.RacesBiotech.SerumRecipeTemplateDef>
+  </WVC_XenotypesAndGenes.SerumRecipeTemplateDef>
 
-  <WVC.RacesBiotech.SerumGeneTemplateDef ParentName="WVC_XenotypeSerumTemplateSpawner_Ultra">
+  <WVC_XenotypesAndGenes.SerumGeneTemplateDef ParentName="WVC_XenotypeSerumTemplateSpawner_Ultra">
 	<defName>WVC_XenotypeSerumSpawner</defName>
 	<label>serum thrower</label>
 	<!-- These fields are responsible for the spawner. -->
 	<stackCount>1</stackCount>
 	<displayOrderOffset>5</displayOrderOffset>
 	<spawnIntervalRange><min>900000</min><max>2700000</max></spawnIntervalRange>
-  </WVC.RacesBiotech.SerumGeneTemplateDef>
+  </WVC_XenotypesAndGenes.SerumGeneTemplateDef>
 
   <!-- ==================================== -->
 
-  <WVC.RacesBiotech.SerumTemplateDef ParentName="WVC_XenotypeSerumTemplate_HybridNonCraftable">
+  <WVC_XenotypesAndGenes.SerumTemplateDef ParentName="WVC_XenotypeSerumTemplate_HybridNonCraftable">
 	<defName>WVC_XenotypeSerum_Hybrid</defName>
 	<label>hybrid serum</label>
 	<!-- Cost -->
@@ -85,21 +85,21 @@
 	<!-- Templates -->
 	<recipeTemplateDef>WVC_AdministerXenotypeSerum_Hybrid</recipeTemplateDef>
 	<geneTemplateDef>WVC_XenotypeSerumSpawner_Hybrid</geneTemplateDef>
-  </WVC.RacesBiotech.SerumTemplateDef>
+  </WVC_XenotypesAndGenes.SerumTemplateDef>
 
-  <WVC.RacesBiotech.SerumRecipeTemplateDef ParentName="WVC_AdministerXenotypeSerumTemplate_Template">
+  <WVC_XenotypesAndGenes.SerumRecipeTemplateDef ParentName="WVC_AdministerXenotypeSerumTemplate_Template">
 	<defName>WVC_AdministerXenotypeSerum_Hybrid</defName>
 	<label>administer hybrid serum</label>
 	<description>Administer a hybrid serum</description>
 	<jobString>Administering hybrid serum</jobString>
-  </WVC.RacesBiotech.SerumRecipeTemplateDef>
+  </WVC_XenotypesAndGenes.SerumRecipeTemplateDef>
 
-  <WVC.RacesBiotech.SerumGeneTemplateDef ParentName="WVC_XenotypeSerumTemplateSpawner_Hybrid">
+  <WVC_XenotypesAndGenes.SerumGeneTemplateDef ParentName="WVC_XenotypeSerumTemplateSpawner_Hybrid">
 	<defName>WVC_XenotypeSerumSpawner_Hybrid</defName>
 	<label>hybrid serum thrower</label>
 	<stackCount>1</stackCount>
 	<displayOrderOffset>10</displayOrderOffset>
 	<spawnIntervalRange><min>900000</min><max>2700000</max></spawnIntervalRange>
-  </WVC.RacesBiotech.SerumGeneTemplateDef>
+  </WVC_XenotypesAndGenes.SerumGeneTemplateDef>
 
 </Defs>

@@ -89,7 +89,7 @@
 
   <ThoughtDef>
 	<defName>WVC_MechanoidLabor_Hard_AssignedWork</defName>
-	<workerClass>WVC.ThoughtWorker_Precept_MechanoidLabor_AssignedWork</workerClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_MechanoidLabor_AssignedWork</workerClass>
 	<!-- <developmentalStageFilter>Adult</developmentalStageFilter> -->
 	<doNotApplyToQuestLodgers>true</doNotApplyToQuestLodgers>
 	<stages>
@@ -108,7 +108,7 @@
 
   <ThoughtDef>
 	<defName>WVC_MechanoidLabor_Exteme_AssignedWork</defName>
-	<workerClass>WVC.ThoughtWorker_Precept_MechanoidLabor_AssignedWork</workerClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_MechanoidLabor_AssignedWork</workerClass>
 	<!-- <developmentalStageFilter>Adult</developmentalStageFilter> -->
 	<doNotApplyToQuestLodgers>true</doNotApplyToQuestLodgers>
 	<stages>

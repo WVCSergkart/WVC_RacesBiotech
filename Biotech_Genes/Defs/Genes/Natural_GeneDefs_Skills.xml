@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <WVC.SkillsGeneTemplateDef Name="WVC_GeneAptitude_Base" Abstract="True">
+  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef Name="WVC_GeneAptitude_Base" Abstract="True">
 	<geneClass>Gene</geneClass>
 	<ignoreIllegalLabelCharacterConfigError>true</ignoreIllegalLabelCharacterConfigError>
 	<exclusionTagPrefix>Aptitude</exclusionTagPrefix>
@@ -15,15 +15,15 @@
 			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
 			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
 		</li>
-		<li Class="WVC.GeneExtension_Background">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
 			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
 		</li>
 	</modExtensions>
-  </WVC.SkillsGeneTemplateDef>
+  </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
 
   <!-- Aptitude -->
 
-  <WVC.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Base">
+  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Base">
 	<defName>WVC_AptitudeImpossible</defName>
 	<label>impossible {0}</label>
 	<description>The carrier's aptitude in {0} is reduced by 20. Aptitude acts like an offset on skill level. Additionally, all passion is removed from {0}.</description>
@@ -34,9 +34,9 @@
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>8</biostatMet>
 	<selectionWeight>0.015</selectionWeight>
-  </WVC.SkillsGeneTemplateDef>
+  </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
 
-  <WVC.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Base">
+  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Base">
 	<defName>WVC_AptitudePerfect</defName>
 	<label>perfect {0}</label>
 	<description>The carrier's aptitude in {0} is increased by 20. Aptitude acts like an offset on skill level. Additionally, one level of passion is added to {0}.</description>
@@ -47,9 +47,9 @@
 	<biostatCpx>5</biostatCpx>
 	<biostatMet>-12</biostatMet>
 	<selectionWeight>0.015</selectionWeight>
-  </WVC.SkillsGeneTemplateDef>
+  </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
 
-  <WVC.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Base">
+  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Base">
 	<defName>WVC_Aptitudes_0_Skill</defName>
 	<label>nullify {0}</label>
 	<description>The carrier's aptitude in {0} is nullified. Aptitude acts like an offset on skill level.</description>
@@ -59,7 +59,7 @@
 	<biostatCpx>0</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<selectionWeight>0.005</selectionWeight>
-  </WVC.SkillsGeneTemplateDef>
+  </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
 
   <!-- <GeneTemplateDef ParentName="GeneAptitudeBase"> -->
 	<!-- <defName>WVC_AptitudePerfect</defName> -->
@@ -101,15 +101,15 @@
 
   <!-- Archite -->
 
-  <WVC.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Base" Name="WVC_GeneAptitude_Archite" Abstract="True">
+  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Base" Name="WVC_GeneAptitude_Archite" Abstract="True">
 	<iconPath>WVC/UI/Genes/SkillUp_v0</iconPath>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
 	<selectionWeight>0.00125</selectionWeight>
-  </WVC.SkillsGeneTemplateDef>
+  </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
 
-  <WVC.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Archite">
+  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Archite">
 	<defName>WVC_AptitudeArchiteStrong</defName>
 	<label>strong {0}</label>
 	<description>The carrier's aptitude in {0} is increased by 6. Aptitude acts like an offset on skill level. Additionally, one level of passion is added to {0}.</description>
@@ -117,9 +117,9 @@
 	<passionModType>AddOneLevel</passionModType>
 	<displayOrderOffset>110</displayOrderOffset>
 	<biostatArc>1</biostatArc>
-  </WVC.SkillsGeneTemplateDef>
+  </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
 
-  <WVC.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Archite">
+  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Archite">
 	<defName>WVC_AptitudeArchiteGreat</defName>
 	<label>great {0}</label>
 	<description>The carrier's aptitude in {0} is increased by 12. Aptitude acts like an offset on skill level. Additionally, one level of passion is added to {0}.</description>
@@ -127,9 +127,9 @@
 	<passionModType>AddOneLevel</passionModType>
 	<displayOrderOffset>115</displayOrderOffset>
 	<biostatArc>2</biostatArc>
-  </WVC.SkillsGeneTemplateDef>
+  </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
 
-  <WVC.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Archite">
+  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Archite">
 	<defName>WVC_AptitudeArchitePerfect</defName>
 	<label>perfect {0}</label>
 	<description>The carrier's aptitude in {0} is increased by 18. Aptitude acts like an offset on skill level. Additionally, one level of passion is added to {0}.</description>
@@ -137,7 +137,7 @@
 	<passionModType>AddOneLevel</passionModType>
 	<displayOrderOffset>120</displayOrderOffset>
 	<biostatArc>3</biostatArc>
-  </WVC.SkillsGeneTemplateDef>
+  </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
 
   <!-- =============================================== -->
 
@@ -298,7 +298,7 @@
 	  <li>Aptitude_Crafting</li>
 	</exclusionTags>
 	<modExtensions Inherit="False">
-		<li Class="WVC.GeneExtension_Background">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
 			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
 		</li>
 	</modExtensions>

@@ -750,7 +750,7 @@
 	  <li>WVC_Nodization_RandomBuff_Decision</li>
 	</exclusionTags>
 	<modExtensions>
-		<li Class="WVC.GeneExtension_HediffGiver">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_HediffGiver">
 			<hediffDefName>MechlinkImplant</hediffDefName>
 			<bodyparts>
 			  <li>Brain</li>
@@ -770,7 +770,7 @@
 	  <li>WVC_Nodization_RandomBuff_Decision</li>
 	</exclusionTags>
 	<modExtensions>
-		<li Class="WVC.GeneExtension_HediffGiver">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_HediffGiver">
 			<hediffDefName>PsychicAmplifier</hediffDefName>
 			<bodyparts>
 			  <li>Brain</li>

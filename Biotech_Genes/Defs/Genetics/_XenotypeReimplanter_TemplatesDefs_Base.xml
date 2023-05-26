@@ -3,7 +3,7 @@
 
   <!--=============== Mech serums ====================-->
 
-  <WVC.RacesBiotech.SerumTemplateDef Name="WVC_XenotypeSerumTemplate_Base" Abstract="True">
+  <WVC_XenotypesAndGenes.SerumTemplateDef Name="WVC_XenotypeSerumTemplate_Base" Abstract="True">
 	<!-- <thingClass>ThingWithComps</thingClass> -->
 	<category>Item</category>
 	<drawerType>MapMeshOnly</drawerType>
@@ -68,10 +68,10 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  </li>
 	  <li Class="CompProperties_UseEffectDestroySelf" />
 	</comps>
-  </WVC.RacesBiotech.SerumTemplateDef>
+  </WVC_XenotypesAndGenes.SerumTemplateDef>
 
   <!-- ============Auto Generation Base============ -->
-  <WVC.RacesBiotech.SerumTemplateDef ParentName="WVC_XenotypeSerumTemplate_Base" Name="WVC_XenotypeSerumTemplate_Craftable" Abstract="True">
+  <WVC_XenotypesAndGenes.SerumTemplateDef ParentName="WVC_XenotypeSerumTemplate_Base" Name="WVC_XenotypeSerumTemplate_Craftable" Abstract="True">
 	<graphicData>
 	  <texPath>WVC/Things/XenotypeSerum</texPath>
 	</graphicData>
@@ -110,9 +110,9 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 		<glowColor>(133,202,255, 0)</glowColor>
 	  </li>
 	</comps>
-  </WVC.RacesBiotech.SerumTemplateDef>
+  </WVC_XenotypesAndGenes.SerumTemplateDef>
 
-  <WVC.RacesBiotech.SerumTemplateDef ParentName="WVC_XenotypeSerumTemplate_Base" Name="WVC_XenotypeSerumTemplate_NonCraftable" Abstract="True">
+  <WVC_XenotypesAndGenes.SerumTemplateDef ParentName="WVC_XenotypeSerumTemplate_Base" Name="WVC_XenotypeSerumTemplate_NonCraftable" Abstract="True">
 	<statBases>
 	  <MarketValue>1700</MarketValue>
 	  <DeteriorationRate>1.0</DeteriorationRate>
@@ -132,9 +132,9 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 		<glowColor>(255,248,133, 0)</glowColor>
 	  </li>
 	</comps>
-  </WVC.RacesBiotech.SerumTemplateDef>
+  </WVC_XenotypesAndGenes.SerumTemplateDef>
 
-  <WVC.RacesBiotech.SerumTemplateDef ParentName="WVC_XenotypeSerumTemplate_Base" Name="WVC_XenotypeSerumTemplate_HybridNonCraftable" Abstract="True">
+  <WVC_XenotypesAndGenes.SerumTemplateDef ParentName="WVC_XenotypeSerumTemplate_Base" Name="WVC_XenotypeSerumTemplate_HybridNonCraftable" Abstract="True">
 	<statBases>
 	  <MarketValue>2750</MarketValue>
 	  <DeteriorationRate>0.0</DeteriorationRate>
@@ -154,11 +154,11 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 		<glowColor>(133,167,255, 0)</glowColor>
 	  </li>
 	</comps>
-  </WVC.RacesBiotech.SerumTemplateDef>
+  </WVC_XenotypesAndGenes.SerumTemplateDef>
 
   <!-- =================================Recipe================================= -->
 
-  <WVC.RacesBiotech.SerumRecipeTemplateDef Name="WVC_AdministerXenotypeSerumTemplate_Template" Abstract="True">
+  <WVC_XenotypesAndGenes.SerumRecipeTemplateDef Name="WVC_AdministerXenotypeSerumTemplate_Template" Abstract="True">
 	<workerClass>Recipe_AdministerUsableItem</workerClass>
 	<targetsBodyPart>false</targetsBodyPart>
 	<anesthetize>false</anesthetize>
@@ -168,11 +168,11 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	<recipeUsers>
 	  <li>Human</li>
 	</recipeUsers>
-  </WVC.RacesBiotech.SerumRecipeTemplateDef>
+  </WVC_XenotypesAndGenes.SerumRecipeTemplateDef>
 
   <!-- =================================Genes================================= -->
 
-  <WVC.RacesBiotech.SerumGeneTemplateDef Name="WVC_XenotypeSerumTemplateSpawner_Base" Abstract="True">
+  <WVC_XenotypesAndGenes.SerumGeneTemplateDef Name="WVC_XenotypeSerumTemplateSpawner_Base" Abstract="True">
 	<label>serum thrower</label>
 	<labelShortAdj>serum thrower</labelShortAdj>
 	<description>Carriers of this gene have archites that constantly generate genes and separate them from the carrier.</description>
@@ -204,23 +204,23 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  </prefixSymbols>
 	</symbolPack>
 	<modExtensions>
-		<li Class="WVC.GeneExtension_Background">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
 			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
 		</li>
 	</modExtensions>
-  </WVC.RacesBiotech.SerumGeneTemplateDef>
+  </WVC_XenotypesAndGenes.SerumGeneTemplateDef>
 
   <!-- Auto Generated Serum -->
-  <WVC.RacesBiotech.SerumGeneTemplateDef ParentName="WVC_XenotypeSerumTemplateSpawner_Base" Name="WVC_XenotypeSerumTemplateSpawner_Ultra" Abstract="True">
+  <WVC_XenotypesAndGenes.SerumGeneTemplateDef ParentName="WVC_XenotypeSerumTemplateSpawner_Base" Name="WVC_XenotypeSerumTemplateSpawner_Ultra" Abstract="True">
 	<iconPath>WVC/Things/XenotypeSerum_Ultra/XenotypeSerum_Ultra_D</iconPath>
 	<displayOrderInCategory>1000</displayOrderInCategory>
-  </WVC.RacesBiotech.SerumGeneTemplateDef>
+  </WVC_XenotypesAndGenes.SerumGeneTemplateDef>
 
-  <WVC.RacesBiotech.SerumGeneTemplateDef ParentName="WVC_XenotypeSerumTemplateSpawner_Base" Name="WVC_XenotypeSerumTemplateSpawner_Hybrid" Abstract="True">
+  <WVC_XenotypesAndGenes.SerumGeneTemplateDef ParentName="WVC_XenotypeSerumTemplateSpawner_Base" Name="WVC_XenotypeSerumTemplateSpawner_Hybrid" Abstract="True">
 	<label>hybrid serum thrower</label>
 	<iconPath>WVC/Things/XenotypeSerum_Mecha/XenotypeSerum_Variants_v4</iconPath>
 	<displayOrderInCategory>1001</displayOrderInCategory>
-  </WVC.RacesBiotech.SerumGeneTemplateDef>
+  </WVC_XenotypesAndGenes.SerumGeneTemplateDef>
   
 
 </Defs>

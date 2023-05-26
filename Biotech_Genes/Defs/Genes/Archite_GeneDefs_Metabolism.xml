@@ -41,7 +41,7 @@
 	  </suffixSymbols>
 	</symbolPack>
 	<!-- <modExtensions> -->
-		<!-- <li Class="WVC.GeneExtension_General"> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
 			<!-- <geneIsPowerSource>true</geneIsPowerSource> -->
 		<!-- </li> -->
 	<!-- </modExtensions> -->
@@ -123,7 +123,7 @@
 	  </suffixSymbols>
 	</symbolPack>
 	<modExtensions>
-		<li Class="WVC.GeneExtension_Spawner">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
 			<thingDefToSpawn>Wastepack</thingDefToSpawn>
 			<stackCount>5</stackCount>
 			<!-- <customLabel>Wastepack</customLabel> -->

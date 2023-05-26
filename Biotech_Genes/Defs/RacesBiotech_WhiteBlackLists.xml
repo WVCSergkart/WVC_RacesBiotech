@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <WVC.XenotypesAndGenesListDef>
+  <WVC_XenotypesAndGenes.XenotypesAndGenesListDef>
 	<defName>WVC_RacesBiotech_XenotypesAndGenes</defName>
 	<!-- Xenotypes not selected for random serum. Any string -->
 	<blackListedXenotypesForSerums>
@@ -71,6 +71,6 @@
 		<!-- <li></li> -->
 		<!-- <li></li> -->
 	<!-- </whiteListedTraits> -->
-  </WVC.XenotypesAndGenesListDef>
+  </WVC_XenotypesAndGenes.XenotypesAndGenesListDef>
 
 </Defs>

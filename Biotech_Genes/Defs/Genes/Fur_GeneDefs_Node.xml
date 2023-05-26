@@ -61,7 +61,7 @@ Most of the internal organs were not affected, but there are too many external c
 	  </suffixSymbols>
 	</symbolPack>
 	<modExtensions>
-		<li Class="WVC.GeneExtension_General">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
 			<!-- <geneIsMechaskin>true</geneIsMechaskin> -->
 			<eyesShouldBeInvisble>true</eyesShouldBeInvisble>
 		</li>

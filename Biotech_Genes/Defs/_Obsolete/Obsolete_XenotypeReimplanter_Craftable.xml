@@ -16,7 +16,7 @@
 	  <li>ExoticMisc</li>
 	</tradeTags>
 	<comps>
-	  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer">
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenotypeForcer">
 		<xenotypeDef>WVC_Meca</xenotypeDef>
 		<removeEndogenes>false</removeEndogenes>
 		<removeXenogenes>true</removeXenogenes>
@@ -61,7 +61,7 @@
 	  <li>ExoticMisc</li>
 	</tradeTags>
 	<comps>
-	  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer">
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenotypeForcer">
 		<xenotypeDef>WVC_RogueFormer</xenotypeDef>
 		<removeEndogenes>true</removeEndogenes>
 		<removeXenogenes>true</removeXenogenes>
@@ -106,7 +106,7 @@
 	  <li>ExoticMisc</li>
 	</tradeTags>
 	<comps>
-	  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer">
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenotypeForcer">
 		<xenotypeDef>WVC_GeneThrower</xenotypeDef>
 		<removeEndogenes>true</removeEndogenes>
 		<removeXenogenes>true</removeXenogenes>
@@ -148,7 +148,7 @@
 	  <li>ExoticMisc</li>
 	</tradeTags>
 	<comps>
-	  <li Class="WVC.CompProperties_UseEffect_XenotypeForcer">
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenotypeForcer">
 		<xenotypeDef>WVC_Golemkind</xenotypeDef>
 		<removeEndogenes>false</removeEndogenes>
 		<removeXenogenes>true</removeXenogenes>

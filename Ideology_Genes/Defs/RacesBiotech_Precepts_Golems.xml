@@ -58,7 +58,7 @@
 	<iconPath>WVC/UI/Precepts/GolemSpecialist</iconPath>
 	<nameMaker>NamerRoleProductionSpecialist</nameMaker>
 	<roleRequirements>
-	  <li Class="WVC.RoleRequirement_Mechanitor"/>
+	  <li Class="WVC_XenotypesAndGenes.RoleRequirement_Mechanitor"/>
 	  <li Class="RoleRequirement_MinSkillAny">
 		<skills>
 		  <Crafting>6</Crafting>

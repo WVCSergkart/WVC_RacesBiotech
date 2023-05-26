@@ -39,7 +39,7 @@
 	  </suffixSymbols>
 	</symbolPack>
 	<!-- <modExtensions> -->
-		<!-- <li Class="WVC.GeneExtension_General"> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
 			<!-- <geneIsSubcore>true</geneIsSubcore> -->
 		<!-- </li> -->
 	<!-- </modExtensions> -->

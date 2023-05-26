@@ -40,10 +40,10 @@
 			<!-- <customWoundsFromFleshtype>Mechanoid</customWoundsFromFleshtype> -->
 			<!-- <customBloodEffect>Damage_HitMechanoid</customBloodEffect> -->
 		</li>
-		<!-- <li Class="WVC.GeneExtension_Background"> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Background"> -->
 			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite> -->
 		<!-- </li> -->
-		<!-- <li Class="WVC.GeneExtension_General"> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
 			<!-- <geneIsMechaskin>true</geneIsMechaskin> -->
 		<!-- </li> -->
 	</modExtensions>

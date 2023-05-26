@@ -45,7 +45,7 @@
 	  <!-- </li> -->
 	<!-- </capMods> -->
 	<modExtensions>
-		<li Class="WVC.GeneExtension_General">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
 			<eyesShouldBeInvisble>true</eyesShouldBeInvisble>
 		</li>
 	</modExtensions>

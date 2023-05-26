@@ -43,7 +43,7 @@
 	<iconPath>Things/Item/Special/Genepack/Genepack_e</iconPath>
 	<biostatArc>1</biostatArc>
 	<modExtensions>
-		<li Class="WVC.GeneExtension_Spawner">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
 			<thingDefToSpawn>Genepack</thingDefToSpawn>
 			<stackCount>1</stackCount>
 			<spawnIntervalRange><min>300000</min><max>900000</max></spawnIntervalRange>
@@ -68,7 +68,7 @@
 	  </prefixSymbols>
 	</symbolPack>
 	<modExtensions>
-		<li Class="WVC.GeneExtension_Spawner">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
 			<thingDefToSpawn>WVC_Genepack</thingDefToSpawn>
 			<stackCount>1</stackCount>
 			<spawnIntervalRange><min>300000</min><max>900000</max></spawnIntervalRange>
@@ -87,7 +87,7 @@
 	  </prefixSymbols>
 	</symbolPack>
 	<modExtensions>
-		<li Class="WVC.GeneExtension_Spawner">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
 			<thingDefToSpawn>WVC_UltraGenepack</thingDefToSpawn>
 			<stackCount>1</stackCount>
 			<spawnIntervalRange><min>300000</min><max>900000</max></spawnIntervalRange>
@@ -106,7 +106,7 @@
 	  </prefixSymbols>
 	</symbolPack>
 	<modExtensions>
-		<li Class="WVC.GeneExtension_Spawner">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
 			<thingDefToSpawn>WVC_MechaGenepack</thingDefToSpawn>
 			<stackCount>1</stackCount>
 			<spawnIntervalRange><min>300000</min><max>900000</max></spawnIntervalRange>
@@ -127,7 +127,7 @@
 	  </prefixSymbols>
 	</symbolPack>
 	<modExtensions>
-		<li Class="WVC.GeneExtension_Spawner">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
 			<thingDefToSpawn>AG_Alphapack</thingDefToSpawn>
 			<stackCount>1</stackCount>
 			<spawnIntervalRange><min>300000</min><max>900000</max></spawnIntervalRange>
@@ -146,7 +146,7 @@
 	  </prefixSymbols>
 	</symbolPack>
 	<modExtensions>
-		<li Class="WVC.GeneExtension_Spawner">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
 			<thingDefToSpawn>AG_Mixedpack</thingDefToSpawn>
 			<stackCount>1</stackCount>
 			<spawnIntervalRange><min>300000</min><max>900000</max></spawnIntervalRange>

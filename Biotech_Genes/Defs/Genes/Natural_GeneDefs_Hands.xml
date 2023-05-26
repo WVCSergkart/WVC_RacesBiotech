@@ -172,7 +172,7 @@
 				</li>
 			</hediffsToBodyParts>
 		</li>
-		<li Class="WVC.GeneExtension_Background">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
 			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
 		</li>
 	</modExtensions>
