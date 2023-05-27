@@ -19,6 +19,9 @@
 		<li MayRequire="wvc.sergkart.races">WVC_AlienRace_YellowFormer</li>
 		<li MayRequire="wvc.sergkart.races">WVC_AlienRace_Meka</li>
 		<li MayRequire="wvc.sergkart.races">WVC_AlienRace_RedFormer</li>
+		<li MayRequire="honkai.girls.sergkart">Alien_ELF_WVC</li>
+		<li MayRequire="honkai.girls.sergkart">Alien_DryadMother_WVC</li>
+		<li MayRequire="honkai.girls.sergkart">Alien_Valkyrie_WVC</li>
 	</blackListedThingsForSerums>
 	<!-- Xenotypes that do not fall into a coma when using serum. Any string -->
 	<perfectCandidatesForSerums>

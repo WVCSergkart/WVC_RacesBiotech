@@ -83,14 +83,14 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_Archites">
 	<defName>WVC_MechaHidden_ArchiteForge</defName>
-	<label>self-replicator</label>
+	<label>total healing</label>
 	<!-- <label>archite-forge</label> -->
-	<description>Carriers of this gene have archites that are capable of self-replication. Thanks to this, archites from time to time restore lost limbs or heals scars.</description>
+	<description>Carriers of this gene have archites that regenerate lost limbs or heal scars.</description>
 	<!-- <selectionWeight>0.01</selectionWeight> -->
 	<geneClass>WVC_XenotypesAndGenes.Gene_RestoreMissingBodyParts</geneClass>
-	<iconColor>(184, 198, 203)</iconColor>
-	<marketValueFactor>5</marketValueFactor>
-	<iconPath>WVC/UI/Genes/Gear</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<marketValueFactor>3</marketValueFactor>
+	<iconPath>WVC/UI/Genes/Gene_TotalHealing_v0</iconPath>
 	<displayCategory>Archite</displayCategory>
 	<displayOrderInCategory>0</displayOrderInCategory>
 	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
