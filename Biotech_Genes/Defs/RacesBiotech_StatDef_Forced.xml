@@ -120,30 +120,29 @@
 	<!-- <alwaysHide>false</alwaysHide> -->
   <!-- </StatDef> -->
 
-  <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
-	<defName>WVC_SkillsDecayFactor</defName>
-	<label>skill decay factor</label>
-	<description>A multiplier for how quickly a pawn forgets skills.
+  <!-- <StatDef ParentName="WVC_Biotech_ForcedStat_Base"> -->
+	<!-- <defName>WVC_SkillsDecayFactor</defName> -->
+	<!-- <label>skill decay factor</label> -->
+	<!-- <description>A multiplier for how quickly a pawn forgets skills. -->
 
-(Can be disabled in settings.)</description>
-	<defaultBaseValue>1</defaultBaseValue>
-	<minValue>0</minValue>
-	<hideAtValue>1</hideAtValue>
-	<alwaysHide>false</alwaysHide>
-	<toStringStyle>PercentZero</toStringStyle>
-  </StatDef>
-  <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
-	<defName>WVC_MinSkillLevel</defName>
-	<label>min skill level for decay</label>
-	<description>Determines the minimum skill level upon reaching which the skill decay factor is applied.
+<!-- (Can be disabled in settings.)</description> -->
+	<!-- <defaultBaseValue>1</defaultBaseValue> -->
+	<!-- <minValue>0</minValue> -->
+	<!-- <hideAtValue>1</hideAtValue> -->
+	<!-- <alwaysHide>false</alwaysHide> -->
+	<!-- <toStringStyle>PercentZero</toStringStyle> -->
+  <!-- </StatDef> -->
+  <!-- <StatDef ParentName="WVC_Biotech_ForcedStat_Base"> -->
+	<!-- <defName>WVC_MinSkillLevel</defName> -->
+	<!-- <label>min skill level for decay</label> -->
+	<!-- <description>Determines the minimum skill level upon reaching which the skill decay factor is applied. -->
 
-(Can be disabled in settings.)</description>
-	<minValue>0</minValue>
-	<defaultBaseValue>0</defaultBaseValue>
-	<hideAtValue>0</hideAtValue>
-	<alwaysHide>false</alwaysHide>
-	<!-- <toStringStyle>Integer</toStringStyle> -->
-  </StatDef>
+<!-- (Can be disabled in settings.)</description> -->
+	<!-- <minValue>0</minValue> -->
+	<!-- <defaultBaseValue>0</defaultBaseValue> -->
+	<!-- <hideAtValue>0</hideAtValue> -->
+	<!-- <alwaysHide>false</alwaysHide> -->
+  <!-- </StatDef> -->
 
   <!-- <StatDef ParentName="WVC_Biotech_ForcedStat_Base"> -->
 	<!-- <defName>WVC_ForcedStat_InjuryHealingFactor</defName> -->

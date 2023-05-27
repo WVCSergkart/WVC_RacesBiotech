@@ -63,6 +63,9 @@
 		<!-- <def>BodyPurist</def> -->
 	  <!-- </li> -->
 	<!-- </suppressedTraits> -->
+	<customEffectDescriptions>
+		<li>Skills not decay.</li>
+	</customEffectDescriptions>
 	<capMods>
 	  <li>
 		<capacity>Consciousness</capacity>
@@ -71,11 +74,11 @@
 	</capMods>
 	<statFactors>
 	  <SocialImpact>0.8</SocialImpact>
-	  <WVC_SkillsDecayFactor>0.0</WVC_SkillsDecayFactor>
+	  <!-- <WVC_SkillsDecayFactor>0.0</WVC_SkillsDecayFactor> -->
 	</statFactors>
-	<statOffsets>
-	  <WVC_MinSkillLevel>12</WVC_MinSkillLevel>
-	</statOffsets>
+	<!-- <statOffsets> -->
+	  <!-- <WVC_MinSkillLevel>12</WVC_MinSkillLevel> -->
+	<!-- </statOffsets> -->
 	<hediffGiversCannotGive>
 	  <li>Dementia</li>
 	  <li>Alzheimers</li>
@@ -84,6 +87,11 @@
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_Mechanoidization_AI</li> -->
 	<!-- </exclusionTags> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<noSkillDecay>true</noSkillDecay>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- = -->

@@ -25,25 +25,33 @@
 	<!-- <requiredMemes> -->
 	  <!-- <li>WVC_Mechaskinist</li> -->
 	<!-- </requiredMemes> -->
+	<statOffsets>
+	  <GlobalLearningFactor>0.5</GlobalLearningFactor>
+	</statOffsets>
 	<statFactors>
-	  <WVC_SkillsDecayFactor>0.0</WVC_SkillsDecayFactor>
+	  <SocialImpact>0.8</SocialImpact>
 	</statFactors>
-	<conditionalStatAffecters>
-	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_Genes">
-		<geneDef>WVC_MechaAI_Base</geneDef>
-		<invert>false</invert>
-		<statOffsets>
-		  <WVC_MinSkillLevel>4</WVC_MinSkillLevel>
-		</statOffsets>
-	  </li>
-	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_Genes">
-		<geneDef>WVC_MechaAI_Base</geneDef>
-		<invert>true</invert>
-		<statOffsets>
-		  <WVC_MinSkillLevel>12</WVC_MinSkillLevel>
-		</statOffsets>
-	  </li>
-	</conditionalStatAffecters>
+	<!-- <conditionalStatAffecters> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_Genes"> -->
+		<!-- <geneDef>WVC_MechaAI_Base</geneDef> -->
+		<!-- <invert>false</invert> -->
+		<!-- <statOffsets> -->
+		  <!-- <WVC_MinSkillLevel>4</WVC_MinSkillLevel> -->
+		<!-- </statOffsets> -->
+	  <!-- </li> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_Genes"> -->
+		<!-- <geneDef>WVC_MechaAI_Base</geneDef> -->
+		<!-- <invert>true</invert> -->
+		<!-- <statOffsets> -->
+		  <!-- <WVC_MinSkillLevel>12</WVC_MinSkillLevel> -->
+		<!-- </statOffsets> -->
+	  <!-- </li> -->
+	<!-- </conditionalStatAffecters> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <noSkillDecay>true</noSkillDecay> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </PreceptDef>
 
   <PreceptDef>
@@ -58,7 +66,7 @@
 	<!-- </associatedMemes> -->
 	<statOffsets>
 	  <GlobalLearningFactor>0.25</GlobalLearningFactor>
-	  <WVC_MinSkillLevel>-4</WVC_MinSkillLevel>
+	  <!-- <WVC_MinSkillLevel>-4</WVC_MinSkillLevel> -->
 	</statOffsets>
   </PreceptDef>
 
