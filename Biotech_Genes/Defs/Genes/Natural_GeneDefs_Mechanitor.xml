@@ -7,13 +7,17 @@
 	<defName>WVC_NaturalMechlink</defName>
 	<label>natural mechlink</label> 
 	<labelShortAdj>mechlink</labelShortAdj>
-	<description>Carriers of this gene have naturally strong psionic formations in the brain allowing them to partially control mechanoids.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; Since a mechlink is required for the mechanitor's abilities to work, the natural mechlink gene gives the pawn a regular mechlink with a permanent debuff.</description>
+	<description>Carriers of this gene have naturally strong psionic formations in the brain allowing them to partially control mechanoids.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; Since a mechlink is required for the mechanitor's abilities to work, the natural mechlink gene gives the pawn a vanilla mechlink with a permanent debuff.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_PermanentHediff</geneClass>
 	<iconPath>WVC/UI/Genes/NaturalMechlink</iconPath>
 	<displayCategory>Ability</displayCategory>
 	<!-- <displayCategory>Archite</displayCategory> -->
 	<displayOrderInCategory>1125</displayOrderInCategory>
 	<!-- <prerequisite>PsychicAbility_Extreme</prerequisite> -->
 	<selectionWeight>0.03</selectionWeight>
+	<customEffectDescriptions>
+		<li>Carriers of this gene get mechlink permanently.</li>
+	</customEffectDescriptions>
 	<statOffsets>
 	  <WVC_OverseerMaxGolems>1</WVC_OverseerMaxGolems>
 	</statOffsets>
@@ -54,14 +58,20 @@
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
 			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-			<hediffsToBodyParts>
-				<li>
-					<hediff>MechlinkImplant</hediff>
-					<bodyparts>
-						<li>Brain</li>
-					</bodyparts>
-				</li>
-			</hediffsToBodyParts>
+			<!-- <hediffsToBodyParts> -->
+				<!-- <li> -->
+					<!-- <hediff>MechlinkImplant</hediff> -->
+					<!-- <bodyparts> -->
+						<!-- <li>Brain</li> -->
+					<!-- </bodyparts> -->
+				<!-- </li> -->
+			<!-- </hediffsToBodyParts> -->
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_HediffGiver">
+			<hediffDefName>MechlinkImplant</hediffDefName>
+			<bodyparts>
+			  <li>Brain</li>
+			</bodyparts>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -73,6 +83,7 @@
 	<label>natural psylink</label> 
 	<labelShortAdj>psylink</labelShortAdj>
 	<description>Carriers of this gene have natural psionic abilities.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_PermanentHediff</geneClass>
 	<iconPath>WVC/UI/Genes/Psylink</iconPath>
 	<displayCategory>Ability</displayCategory>
 	<!-- <displayCategory>Archite</displayCategory> -->
@@ -83,6 +94,9 @@
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>-3</biostatMet>
 	<!-- <prerequisite>PsychicAbility_Extreme</prerequisite> -->
+	<customEffectDescriptions>
+		<li>Carriers of this gene get psylink permanently.</li>
+	</customEffectDescriptions>
 	<suppressedTraits>
 	  <!-- <li> -->
 		<!-- <def>PsychicSensitivity</def> -->
@@ -107,14 +121,20 @@
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
 			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-			<hediffsToBodyParts>
-				<li>
-					<hediff>PsychicAmplifier</hediff>
-					<bodyparts>
-						<li>Brain</li>
-					</bodyparts>
-				</li>
-			</hediffsToBodyParts>
+			<!-- <hediffsToBodyParts> -->
+				<!-- <li> -->
+					<!-- <hediff>PsychicAmplifier</hediff> -->
+					<!-- <bodyparts> -->
+						<!-- <li>Brain</li> -->
+					<!-- </bodyparts> -->
+				<!-- </li> -->
+			<!-- </hediffsToBodyParts> -->
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_HediffGiver">
+			<hediffDefName>PsychicAmplifier</hediffDefName>
+			<bodyparts>
+			  <li>Brain</li>
+			</bodyparts>
 		</li>
 	</modExtensions>
   </GeneDef>

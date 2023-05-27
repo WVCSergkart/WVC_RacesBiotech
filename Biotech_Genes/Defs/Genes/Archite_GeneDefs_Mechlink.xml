@@ -8,11 +8,15 @@
 	<label>mechlink</label> 
 	<labelShortAdj>mechlink</labelShortAdj>
 	<description>Carriers of the gene have archites that form a mechlink in the brain, which allows them to control the mechanoids.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_PermanentHediff</geneClass>
 	<iconPath>WVC/UI/Genes/Mechlink</iconPath>
 	<!-- <displayCategory>Ability</displayCategory> -->
 	<!-- <displayCategory>Archite</displayCategory> -->
 	<displayCategory>Ability</displayCategory>
 	<displayOrderInCategory>1125</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Carriers of this gene get mechlink permanently.</li>
+	</customEffectDescriptions>
 	<suppressedTraits>
 	  <li>
 		<def>PsychicSensitivity</def>
@@ -41,15 +45,21 @@
 	  <li>WVC_GeneMechlink</li>
 	</exclusionTags>
 	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<hediffsToBodyParts>
-				<li>
-					<hediff>MechlinkImplant</hediff>
-					<bodyparts>
-						<li>Brain</li>
-					</bodyparts>
-				</li>
-			</hediffsToBodyParts>
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <hediffsToBodyParts> -->
+				<!-- <li> -->
+					<!-- <hediff>MechlinkImplant</hediff> -->
+					<!-- <bodyparts> -->
+						<!-- <li>Brain</li> -->
+					<!-- </bodyparts> -->
+				<!-- </li> -->
+			<!-- </hediffsToBodyParts> -->
+		<!-- </li> -->
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_HediffGiver">
+			<hediffDefName>MechlinkImplant</hediffDefName>
+			<bodyparts>
+			  <li>Brain</li>
+			</bodyparts>
 		</li>
 	</modExtensions>
   </GeneDef>

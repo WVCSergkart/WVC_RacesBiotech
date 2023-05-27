@@ -41,14 +41,14 @@
 		<li MayRequire="sarg.alphagenes">AG_SlimeBody</li>
 	</whiteListedExoskinGenes>
 	<!-- Mechanoids that are considered golems. Required thing defNames -->
-	<listedGolems>
-		<li>WVC_Golem_Liftoid</li>
-		<li>WVC_Golem_Constructoid</li>
-		<li>WVC_Golem_Crafter</li>
-		<li>WVC_Golem_Miner</li>
-		<li>WVC_Golem_Hunter</li>
-		<li>WVC_Golem_Behemoth</li>
-	</listedGolems>
+	<!-- <listedGolems> -->
+		<!-- <li>WVC_Golem_Liftoid</li> -->
+		<!-- <li>WVC_Golem_Constructoid</li> -->
+		<!-- <li>WVC_Golem_Crafter</li> -->
+		<!-- <li>WVC_Golem_Miner</li> -->
+		<!-- <li>WVC_Golem_Hunter</li> -->
+		<!-- <li>WVC_Golem_Behemoth</li> -->
+	<!-- </listedGolems> -->
 	<!-- Traits that are allowed to be generated as genes -->
 	<!-- <whiteListedTraits> -->
 		<!-- <li>Nudist</li> -->
