@@ -3,7 +3,7 @@
 
   <!-- Bodies -->
 
-  <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_NodeBody_Eyes" Abstract="True" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Archites" Name="WVC_NodeBody_Eyes" Abstract="True" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<labelShortAdj>nodeyes</labelShortAdj>
 	<description>Carriers of this gene have archites that have formed a plate that closes the eyes, for some reason this plate does not interfere with vision at all. The surface of this plate has a pattern resembling eyes.
 

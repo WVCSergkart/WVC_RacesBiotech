@@ -3,7 +3,7 @@
 
   <!-- Upgrades -->
 
-  <GeneDef Name="WVC_MechanoidizationUpgrades" ParentName="WVC_MechanoidizationBase" Abstract="True">
+  <GeneDef Name="WVC_MechanoidizationUpgrades" ParentName="WVC_XenotypesAndGenes_Archites" Abstract="True">
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_WithConditions</geneClass> -->
 	<!-- <displayCategory>WVC_MechaBodyParts</displayCategory> -->
 	<description>Carriers of this gene have archites..</description>

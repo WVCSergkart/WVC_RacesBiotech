@@ -2,7 +2,7 @@
 <Defs>
 
   <!-- = -->
-  <GeneDef ParentName="WVC_MechanoidBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinArchite" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeSkin</defName>
 	<label>nodeskin</label>
 	<labelShortAdj>nodeskin</labelShortAdj>

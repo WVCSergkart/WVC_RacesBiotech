@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef Name="WVC_RuneBody_Base" Abstract="True" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+  <GeneDef Name="WVC_XenotypesAndGenes_FurskinNatural" Abstract="True" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<!-- <displayCategory>WVC_NodeBody</displayCategory> -->
 	<label>runeskin</label>
 	<labelShortAdj>runeskin</labelShortAdj>
@@ -13,7 +13,7 @@
 	<!-- <marketValueFactor>1.5</marketValueFactor> -->
 	<randomChosen>false</randomChosen>
 	<canGenerateInGeneSet>true</canGenerateInGeneSet>
-	<biostatCpx>6</biostatCpx>
+	<biostatCpx>1</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<!-- = -->
 	<iconPath>WVC/UI/Genes/MechaIcon</iconPath>
@@ -52,7 +52,7 @@
   <!-- ================================================================== -->
 
   <!-- Rune -->
-  <GeneDef ParentName="WVC_RuneBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_RuneSkin</defName>
 	<label>runeskin</label>
 	<description>The body of carriers of this gene is covered with birthmarks resembling scars, these spots are hard to the touch and a bit like a stone.
@@ -91,7 +91,7 @@
   </GeneDef>
 
   <!-- Stone -->
-  <GeneDef ParentName="WVC_RuneBody_Base" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_StoneSkin</defName>
 	<label>stoneskin</label>
 	<labelShortAdj>stoneskin</labelShortAdj>

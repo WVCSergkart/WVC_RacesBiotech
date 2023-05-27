@@ -55,9 +55,9 @@
 	  <xenotypeChances>
 		<!-- Meca -->
 		<WVC_Meca>0.35</WVC_Meca>
-		<WVC_GeneThrower>0.15</WVC_GeneThrower>
+		<WVC_GeneThrower>0.25</WVC_GeneThrower>
 		<!-- Former -->
-		<WVC_RogueFormer>0.5</WVC_RogueFormer>
+		<WVC_RogueFormer>0.4</WVC_RogueFormer>
 	  </xenotypeChances>
 	</xenotypeSet>
 	<apparelRequired>
@@ -119,8 +119,8 @@
 	</forcedTraits>
 	<xenotypeSet>
 	  <xenotypeChances>
-		<WVC_RuneDryad>0.8</WVC_RuneDryad>
-		<WVC_Golemkind>0.2</WVC_Golemkind>
+		<WVC_RuneDryad>0.75</WVC_RuneDryad>
+		<WVC_Golemkind>0.25</WVC_Golemkind>
 	  </xenotypeChances>
 	</xenotypeSet>
 	<apparelTags>

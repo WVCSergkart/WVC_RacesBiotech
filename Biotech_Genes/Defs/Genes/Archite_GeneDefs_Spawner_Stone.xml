@@ -3,7 +3,7 @@
 
   <!-- Chunk spawner -->
 
-  <!-- ParentName="WVC_MechanoidizationBase" -->
+  <!-- ParentName="WVC_XenotypesAndGenes_Archites" -->
   <GeneDef Name="WVC_Mechanoidization_StoneChunkSpawnerBase" Abstract="True">
 	<labelShortAdj>stone molt</labelShortAdj>
 	<description>Carriers of this gene have tough and rough skin, causing the carrier to shed in stone chunks.</description>

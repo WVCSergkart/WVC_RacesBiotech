@@ -3,7 +3,7 @@
 
   <!-- Power Source -->
 
-  <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Mechanoidization_PowerSourceBase" Abstract="True">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Archites" Name="WVC_Mechanoidization_PowerSourceBase" Abstract="True">
 	<!-- <defName>WVC_MechaAI_Base</defName> -->
 	<!-- <label>AI</label> -->
 	<labelShortAdj>blood saturation</labelShortAdj>

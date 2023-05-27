@@ -61,7 +61,7 @@
 
   <!-- ================================================================== -->
 
-  <GeneDef Name="WVC_MechanoidizationBase" Abstract="True">
+  <GeneDef Name="WVC_XenotypesAndGenes_Archites" Abstract="True">
 	<displayCategory>Archite</displayCategory>
 	<selectionWeight>0.0125</selectionWeight>
 	<marketValueFactor>1.5</marketValueFactor>

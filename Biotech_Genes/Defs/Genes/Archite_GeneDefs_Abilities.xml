@@ -13,7 +13,7 @@
 
   <!-- ================ -->
 
-  <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_MechanoidizationAbilities" Abstract="True">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Archites" Name="WVC_MechanoidizationAbilities" Abstract="True">
 	<displayCategory>Ability</displayCategory>
 	<marketValueFactor>1.2</marketValueFactor>
 	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->

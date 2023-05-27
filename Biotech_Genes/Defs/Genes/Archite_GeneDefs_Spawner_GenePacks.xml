@@ -3,7 +3,7 @@
 
   <!-- Genepack spawner -->
 
-  <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Mechanoidization_GenepackSpawnerBase" Abstract="True">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Archites" Name="WVC_Mechanoidization_GenepackSpawnerBase" Abstract="True">
 	<labelShortAdj>genepack thrower</labelShortAdj>
 	<description>Carriers of this gene have archites that constantly generate genes and separate them from the carrier.</description>
 	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath>

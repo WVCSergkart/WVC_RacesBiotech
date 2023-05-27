@@ -3,7 +3,7 @@
 
   <!-- Romance -->
 
-  <GeneDef ParentName="WVC_MechanoidizationBase" Name="WVC_Nodization_RandomBuff_Base" Abstract="True">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Archites" Name="WVC_Nodization_RandomBuff_Base" Abstract="True">
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_WithConditions</geneClass> -->
 	<!-- <displayCategory>WVC_MechaBodyWare</displayCategory> -->
 	<!-- <label>AI</label> -->
