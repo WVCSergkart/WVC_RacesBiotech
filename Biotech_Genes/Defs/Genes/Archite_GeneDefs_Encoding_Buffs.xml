@@ -244,9 +244,9 @@
 	<defName>WVC_Nodization_PatternBuff_B</defName>
 	<label>metabolism HJ</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneA</iconPath>
-	<biostatCpx>2</biostatCpx>
+	<biostatCpx>0</biostatCpx>
 	<biostatMet>2</biostatMet>
-	<biostatArc>2</biostatArc>
+	<biostatArc>1</biostatArc>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_Pattern</li>
 	</exclusionTags>
@@ -277,9 +277,9 @@
 	<defName>WVC_Nodization_PatternBuff_E</defName>
 	<label>metabolism WR</label>
 	<iconPath>WVC/UI/Genes/Encoding_GeneA</iconPath>
-	<biostatCpx>3</biostatCpx>
+	<biostatCpx>1</biostatCpx>
 	<biostatMet>3</biostatMet>
-	<biostatArc>2</biostatArc>
+	<biostatArc>1</biostatArc>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_Pattern</li>
 	</exclusionTags>

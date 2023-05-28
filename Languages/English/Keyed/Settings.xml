@@ -3,6 +3,9 @@
 
 	<WVC_BiotechSettings>Xenotypes and Genes</WVC_BiotechSettings>
 
+	<WVC_BiotechSettings_Tab_General>General</WVC_BiotechSettings_Tab_General>
+	<WVC_BiotechSettings_Tab_XenotypesFilter>Xenotypes Filter</WVC_BiotechSettings_Tab_XenotypesFilter>
+
 	<WVC_BiotechSettings_Label_Graphics>Graphics</WVC_BiotechSettings_Label_Graphics>
 	<WVC_BiotechSettings_Label_Genes>Genes</WVC_BiotechSettings_Label_Genes>
 	<WVC_BiotechSettings_Label_Other>Other</WVC_BiotechSettings_Label_Other>
@@ -10,6 +13,10 @@
 	<WVC_BiotechSettings_Tooltip_Graphics>Settings responsible for graphic elements.</WVC_BiotechSettings_Tooltip_Graphics>
 	<WVC_BiotechSettings_Tooltip_Genes>Settings responsible for the special effects of genes.</WVC_BiotechSettings_Tooltip_Genes>
 	<WVC_BiotechSettings_Tooltip_Other>Settings not related to anything specific.</WVC_BiotechSettings_Tooltip_Other>
+
+	<WVC_BiotechSettings_XenotypesFilter_Reset>Reset to default</WVC_BiotechSettings_XenotypesFilter_Reset>
+	<WVC_BiotechSettings_XenotypesFilter_Title>Set xenotypes that can be used for serums. Restart is required.</WVC_BiotechSettings_XenotypesFilter_Title>
+	<WVC_BiotechSettings_XenotypesFilter_Search>Search:</WVC_BiotechSettings_XenotypesFilter_Search>
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_disableFurGraphic>Disable mecha/node/rune/stone(skin) graphic</WVC_Label_disableFurGraphic>
