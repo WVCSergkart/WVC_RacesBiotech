@@ -71,6 +71,7 @@
 	<exclusionTags>
 	  <li>WVC_GenepackSpawner</li>
 	  <li>WVC_ChunkSpawner</li>
+	  <li>WVC_TemplateSerumSpawner</li>
 	</exclusionTags>
   </GeneDef>
 
