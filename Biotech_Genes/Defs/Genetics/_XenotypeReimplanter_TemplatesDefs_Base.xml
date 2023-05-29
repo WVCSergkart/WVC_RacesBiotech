@@ -26,6 +26,10 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 &lt;color=#f5ffa2&gt;Note:&lt;/color&gt; If the xenotype is inheritable and has no skin/hair color, then a white skin/hair gene will be added.</description>
 	<descriptionHyperlinks>
 	  <XenotypeDef>WVC_Blank</XenotypeDef>
+	  <!-- <ConceptDef>WVC_Tutorial_XenotypeSerums_I</ConceptDef> -->
+	  <!-- <ConceptDef>WVC_Tutorial_XenotypeSerums_II</ConceptDef> -->
+	  <!-- <ConceptDef>WVC_Tutorial_XenotypeSerums_III</ConceptDef> -->
+	  <ConceptDef>WVC_Tutorial_XenotypeSerums_Desc</ConceptDef>
 	</descriptionHyperlinks>
 	<thingClass>ThingWithComps</thingClass>
 	<resourceReadoutPriority>Middle</resourceReadoutPriority>
