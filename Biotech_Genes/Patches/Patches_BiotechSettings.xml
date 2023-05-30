@@ -1,78 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
 
-	<!-- ============================================================ -->
-
-	<!-- <Operation Class="VFECore.PatchOperationToggableSequence"> -->
-		<!-- <enabled>False</enabled> -->
-		<!-- <label>(WVC - Genes) Disable mechaskin/nodeskin graphic</label> -->
-		<!-- <operations> -->
-			<!-- <li Class="PatchOperationRemove"> -->
-				<!-- <xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base"]/forcedHeadTypes</xpath> -->
-				<!-- <success>Always</success> -->
-			<!-- </li> -->
-			<!-- <li Class="PatchOperationRemove"> -->
-				<!-- <xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base"]/graphicData</xpath> -->
-				<!-- <success>Always</success> -->
-			<!-- </li> -->
-			<!-- <li Class="PatchOperationRemove"> -->
-				<!-- <xpath>/Defs/GeneDef[@Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base" or @ParentName="WVC_MechanoidBody_Base"]/graphicData/fur</xpath> -->
-				<!-- <success>Always</success> -->
-			<!-- </li> -->
-			<!-- <li Class="PatchOperationRemove"> -->
-				<!-- <xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base" or @ParentName="WVC_MechanoidBody_Base"]/modExtensions/li/furHidesBody</xpath> -->
-				<!-- <success>Always</success> -->
-			<!-- </li> -->
-			<!-- <li Class="PatchOperationRemove"> -->
-				<!-- <xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base" or @ParentName="WVC_MechanoidBody_Base"]/modExtensions/li/useSkinColorForFur</xpath> -->
-				<!-- <success>Always</success> -->
-			<!-- </li> -->
-			<!-- <li Class="PatchOperationRemove"> -->
-				<!-- <xpath>/Defs/GeneDef[defName="WVC_MechaSkin" or @Name="WVC_NodeBody_Base" or @ParentName="WVC_NodeBody_Base" or @ParentName="WVC_MechanoidBody_Base"]/modExtensions/li/dontColourFur</xpath> -->
-				<!-- <success>Always</success> -->
-			<!-- </li> -->
-		<!-- </operations> -->
-	<!-- </Operation> -->
-
-	<!-- <Operation Class="VFECore.PatchOperationToggableSequence"> -->
-		<!-- <enabled>False</enabled> -->
-		<!-- <label>(WVC - Genes) Disable mechanoidization mechanic</label> -->
-		<!-- <operations> -->
-			<!-- <li Class="PatchOperationRemove"> -->
-				<!-- <xpath>/Defs/GeneDef/statOffsets/WVC_PawnMechanoidization</xpath> -->
-				<!-- <success>Always</success> -->
-			<!-- </li> -->
-			<!-- <li Class="PatchOperationRemove"> -->
-				<!-- <xpath>/Defs/GeneDef/conditionalStatAffecters/li/statOffsets/WVC_PawnMechanoidization</xpath> -->
-				<!-- <success>Always</success> -->
-			<!-- </li> -->
-			<!-- <li Class="PatchOperationReplace"> -->
-				<!-- <xpath>/Defs/StatDef[defName="WVC_PawnMechanoidization"]/alwaysHide</xpath> -->
-				<!-- <success>Always</success> -->
-				<!-- <value> -->
-					<!-- <alwaysHide>true</alwaysHide> -->
-				<!-- </value> -->
-			<!-- </li> -->
-		<!-- </operations> -->
-	<!-- </Operation> -->
-
-	<!-- <Operation Class="VFECore.PatchOperationToggableSequence"> -->
-		<!-- <enabled>False</enabled> -->
-		<!-- <label>(All gene mods) Use vanilla gene backgrounds</label> -->
-		<!-- <operations> -->
-			<!-- <li Class="PatchOperationRemove"> -->
-				<!-- <xpath>/Defs/GeneDef/modExtensions/li/backgroundPathXenogenes</xpath> -->
-				<!-- <success>Always</success> -->
-			<!-- </li> -->
-			<!-- <li Class="PatchOperationRemove"> -->
-				<!-- <xpath>/Defs/GeneDef/modExtensions/li/backgroundPathEndogenes</xpath> -->
-				<!-- <success>Always</success> -->
-			<!-- </li> -->
-		<!-- </operations> -->
-	<!-- </Operation> -->
-
-	<!-- ============================================================ -->
-
 	<Operation Class="WVC.PatchOperationOptional">
 		<settingName>disableFurGraphic</settingName>
 		<caseTrue Class="PatchOperationSequence">
@@ -102,11 +30,15 @@
 					<success>Always</success>
 				</li>
 				<li Class="PatchOperationRemove">
-					<xpath>/Defs/GeneDef[@WVC_Tag="MechaAndNodeSkins_EasyPatch"]/modExtensions/li[@Class="WVC.GeneExtension_General"]/eyesShouldBeInvisble</xpath>
+					<xpath>/Defs/GeneDef[@WVC_Tag="MechaAndNodeSkins_EasyPatch"]/modExtensions/li[@Class="WVC_XenotypesAndGenes.GeneExtension_General"]/eyesShouldBeInvisble</xpath>
 					<success>Always</success>
 				</li>
 				<li Class="PatchOperationRemove">
 					<xpath>/Defs/GeneDef[@WVC_Tag="MechaAndNodeSkins_EasyPatch"]/geneClass[contains(text(),'WVC.Gene_Faceless')]</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/GeneDef[@WVC_Tag="MechaAndNodeSkins_EasyPatch"]/geneClass[contains(text(),'WVC_XenotypesAndGenes.Gene_Faceless')]</xpath>
 					<success>Always</success>
 				</li>
 			</operations>
@@ -116,17 +48,6 @@
 			<!-- </operations> -->
 		<!-- </caseFalse> -->
 	</Operation>
-
-	<!-- <Operation Class="WVC.PatchOperationOptional"> -->
-		<!-- <settingName>mecaXenotypeIsInheritable</settingName> -->
-		<!-- <caseTrue Class="PatchOperationReplace"> -->
-			<!-- <xpath>/Defs/XenotypeDef[defName="WVC_Meca"]/inheritable</xpath> -->
-			<!-- <success>Always</success> -->
-			<!-- <value> -->
-				<!-- <inheritable>true</inheritable> -->
-			<!-- </value> -->
-		<!-- </caseTrue> -->
-	<!-- </Operation> -->
 
 
 </Patch>

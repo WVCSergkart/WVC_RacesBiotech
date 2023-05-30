@@ -36,6 +36,7 @@
 	<labelShortAdj>UV-psychic</labelShortAdj>
 	<description>Carriers of this gene have increased psi sensitivity when they are in sunlight.</description>
 	<iconPath>WVC/UI/Genes/SunPsychicallySensetivity</iconPath>
+	<dislikesSunlight>true</dislikesSunlight>
 	<exclusionTags>
 	  <!-- <li>WVC_PsychicSunSensitivity</li> -->
 	  <li>WVC_PsychicSunSensitivityDeaf</li>
@@ -120,6 +121,7 @@
 	<description>Carriers of this gene partially stop regeneration when they are in sunlight.</description>
 	<iconPath>WVC/UI/Genes/SunDebuff_Heal1</iconPath>
 	<displayCategory>Healing</displayCategory>
+	<dislikesSunlight>true</dislikesSunlight>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>3</biostatMet>
 	<exclusionTags>
@@ -139,6 +141,7 @@
 	<description>Carriers of this gene completely stop regeneration when they are in sunlight.</description>
 	<iconPath>WVC/UI/Genes/SunDebuff_Heal2</iconPath>
 	<displayCategory>Healing</displayCategory>
+	<dislikesSunlight>true</dislikesSunlight>
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>4</biostatMet>
 	<exclusionTags>
@@ -161,6 +164,7 @@
 	<description>Carriers of this gene partially lose psi-sensitivity when exposed to the sun.</description>
 	<iconPath>WVC/UI/Genes/SunDebuffPsychicallySensetivity2</iconPath>
 	<displayCategory>Psychic</displayCategory>
+	<dislikesSunlight>true</dislikesSunlight>
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>2</biostatMet>
 	<exclusionTags>
@@ -180,6 +184,7 @@
 	<description>Carriers of this gene lose psi-sensitivity when exposed to the sun.</description>
 	<iconPath>WVC/UI/Genes/SunDebuffPsychicallySensetivity1</iconPath>
 	<displayCategory>Psychic</displayCategory>
+	<dislikesSunlight>true</dislikesSunlight>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>3</biostatMet>
 	<exclusionTags>
@@ -279,6 +284,7 @@
 	<description>Due to exposure to sunlight, the skin of carriers of this gene becomes very ugly, but this is only in the sun.</description>
 	<iconPath>WVC/UI/Genes/SunlightBeautyB</iconPath>
 	<displayOrderInCategory>70</displayOrderInCategory>
+	<dislikesSunlight>true</dislikesSunlight>
 	<!-- <biostatCpx>1</biostatCpx> -->
 	<biostatMet>-1</biostatMet>
 	<selectionWeight>0.03</selectionWeight>

@@ -191,6 +191,7 @@
 	<iconPath>WVC/UI/Genes/Analyzer_Chemical_v0</iconPath>
 	<displayCategory>Miscellaneous</displayCategory>
 	<displayOrderInCategory>61</displayOrderInCategory>
+	<immuneToToxGasExposure>true</immuneToToxGasExposure>
 	<statFactors>
 	  <FoodPoisonChance>0.0</FoodPoisonChance>
 	</statFactors>
@@ -206,6 +207,7 @@
 	<iconPath>WVC/UI/Genes/Analyzer_Sound_v0</iconPath>
 	<displayCategory>Miscellaneous</displayCategory>
 	<displayOrderInCategory>61</displayOrderInCategory>
+	<ignoreDarkness>true</ignoreDarkness>
 	<statOffsets>
 	  <WorkSpeedGlobal>0.125</WorkSpeedGlobal>
 	</statOffsets>
@@ -223,10 +225,10 @@
   <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
 	<defName>WVC_MecaBodyParts_Eye</defName>
 	<label>visual analyzer</label>
-	<ignoreDarkness>true</ignoreDarkness>
 	<iconPath>WVC/UI/Genes/Analyzer_Visual_v0</iconPath>
 	<displayCategory>Miscellaneous</displayCategory>
 	<displayOrderInCategory>61</displayOrderInCategory>
+	<ignoreDarkness>true</ignoreDarkness>
 	<statOffsets>
 	  <WorkSpeedGlobal>0.125</WorkSpeedGlobal>
 	</statOffsets>

@@ -1,160 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
 
-	<!-- <Operation Class="WVC.PatchOperationOptional"> -->
-		<!-- <settingName>enableGenesCombo</settingName> -->
-		<!-- <caseTrue Class="PatchOperationSequence"> -->
-			<!-- <operations> -->
-
-				<!-- <li Class="PatchOperationAdd"> -->
-				  <!-- <xpath>/Defs/StatDef[defName="ComfyTemperatureMin"]/parts</xpath> -->
-				  <!-- <success>Always</success> -->
-				  <!-- <value> -->
-					  <!-- <li Class="WVC.StatPart_GenesCombo"> -->
-						<!-- <useImmortalityInsteadSubcore>true</useImmortalityInsteadSubcore> -->
-						<!-- <useStaticValue>true</useStaticValue> -->
-						<!-- <staticValue>-100</staticValue> -->
-					  <!-- </li> -->
-				  <!-- </value> -->
-				<!-- </li> -->
-				<!-- <li Class="PatchOperationAdd"> -->
-				  <!-- <xpath>/Defs/StatDef[defName="ComfyTemperatureMax"]/parts</xpath> -->
-				  <!-- <success>Always</success> -->
-				  <!-- <value> -->
-					  <!-- <li Class="WVC.StatPart_GenesCombo"> -->
-						<!-- <useImmortalityInsteadSubcore>true</useImmortalityInsteadSubcore> -->
-						<!-- <useStaticValue>true</useStaticValue> -->
-						<!-- <staticValue>250</staticValue> -->
-					  <!-- </li> -->
-				  <!-- </value> -->
-				<!-- </li> -->
-
-				<!-- <li Class="PatchOperationAdd"> -->
-				  <!-- <xpath>/Defs/StatDef[defName="ComfyTemperatureMin"]/parts</xpath> -->
-				  <!-- <success>Always</success> -->
-				  <!-- <value> -->
-					  <!-- <li Class="WVC.StatPart_ForcedByImmortalityGenes"> -->
-						<!-- <statDefName>WVC_ForcedStat_ComfyTemperatureMin</statDefName> -->
-					  <!-- </li> -->
-				  <!-- </value> -->
-				<!-- </li> -->
-				<!-- <li Class="PatchOperationAdd"> -->
-				  <!-- <xpath>/Defs/StatDef[defName="ComfyTemperatureMax"]/parts</xpath> -->
-				  <!-- <success>Always</success> -->
-				  <!-- <value> -->
-					  <!-- <li Class="WVC.StatPart_ForcedByImmortalityGenes"> -->
-						<!-- <statDefName>WVC_ForcedStat_ComfyTemperatureMax</statDefName> -->
-					  <!-- </li> -->
-				  <!-- </value> -->
-				<!-- </li> -->
-
-				<!-- <li Class="PatchOperationAdd"> -->
-				  <!-- <xpath>/Defs/StatDef[defName="InjuryHealingFactor"]/parts</xpath> -->
-				  <!-- <success>Always</success> -->
-				  <!-- <value> -->
-					  <!-- <li Class="WVC.StatPart_ForcedByImmortalityGenes"> -->
-						<!-- <statDefName>WVC_ForcedStat_InjuryHealingFactor</statDefName> -->
-					  <!-- </li> -->
-				  <!-- </value> -->
-				<!-- </li> -->
-
-				<!-- <li Class="PatchOperationAdd"> -->
-				  <!-- <xpath>/Defs/StatDef[defName="ArmorRating_Sharp"]/parts</xpath> -->
-				  <!-- <success>Always</success> -->
-				  <!-- <value> -->
-					  <!-- <li Class="WVC.StatPart_ForcedByImmortalityGenes"> -->
-						<!-- <statDefName>WVC_ForcedStat_ArmorRating_Sharp</statDefName> -->
-					  <!-- </li> -->
-				  <!-- </value> -->
-				<!-- </li> -->
-				<!-- <li Class="PatchOperationAdd"> -->
-				  <!-- <xpath>/Defs/StatDef[defName="ArmorRating_Blunt"]/parts</xpath> -->
-				  <!-- <success>Always</success> -->
-				  <!-- <value> -->
-					  <!-- <li Class="WVC.StatPart_ForcedByImmortalityGenes"> -->
-						<!-- <statDefName>WVC_ForcedStat_ArmorRating_Blunt</statDefName> -->
-					  <!-- </li> -->
-				  <!-- </value> -->
-				<!-- </li> -->
-				<!-- <li Class="PatchOperationAdd"> -->
-				  <!-- <xpath>/Defs/StatDef[defName="ArmorRating_Heat"]/parts</xpath> -->
-				  <!-- <success>Always</success> -->
-				  <!-- <value> -->
-					  <!-- <li Class="WVC.StatPart_ForcedByImmortalityGenes"> -->
-						<!-- <statDefName>WVC_ForcedStat_ArmorRating_Heat</statDefName> -->
-					  <!-- </li> -->
-				  <!-- </value> -->
-				<!-- </li> -->
-
-				<!-- <li Class="PatchOperationSequence"> -->
-					<!-- <success>Always</success> -->
-					<!-- <operations> -->
-						<!-- <li Class="PatchOperationAdd"> -->
-						  <!-- <xpath>/Defs/StatDef[defName="ArrestSuccessChance"]/parts</xpath> -->
-						  <!-- <success>Invert</success> -->
-						  <!-- <value> -->
-							  <!-- <li Class="WVC.StatPart_ForcedByImmortalityGenes"> -->
-								<!-- <statDefName>WVC_ForcedStat_ComfyTemperatureMax</statDefName> -->
-							  <!-- </li> -->
-						  <!-- </value> -->
-						<!-- </li> -->
-						<!-- <li Class="PatchOperationAdd"> -->
-						  <!-- <xpath>/Defs/StatDef[defName="ArrestSuccessChance"]</xpath> -->
-						  <!-- <success>Always</success> -->
-						  <!-- <value> -->
-							<!-- <parts> -->
-							  <!-- <li Class="WVC.StatPart_ForcedByImmortalityGenes"> -->
-								<!-- <statDefName>WVC_ForcedStat_ComfyTemperatureMax</statDefName> -->
-							  <!-- </li> -->
-							<!-- </parts> -->
-						  <!-- </value> -->
-						<!-- </li> -->
-					<!-- </operations> -->
-				<!-- </li> -->
-
-			<!-- </operations> -->
-		<!-- </caseTrue> -->
-	<!-- </Operation> -->
-
-	<!-- <Operation Class="PatchOperationAdd"> -->
-	  <!-- <xpath>/Defs/PawnKindDef[defName="Mech_Constructoid"]</xpath> -->
-	  <!-- <value> -->
-		  <!-- <abilities> -->
-			<!-- <li>WVC_MechanoidAbility_ActivateGestator</li> -->
-		  <!-- </abilities> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-
-	<!-- <Operation Class="PatchOperationAdd"> -->
-	  <!-- <xpath>/Defs/ThinkTreeDef[defName="Mechanoid" or defName="RM_Mechanoid_Caretaker" or defName="RM_Mechanoid_Sentinel"]/thinkRoot/subNodes</xpath> -->
-	  <!-- <order>Prepend</order> -->
-	  <!-- <value> -->
-		  <!-- <li Class="WVC.ThinkNode_ConditionalPawnHasHediff" MayRequire="Ludeon.RimWorld.Biotech"> -->
-			<!-- <hediffDef>WVC_MechanoidAbility_ActivateGestator</hediffDef> -->
-			<!-- <subNodes> -->
-			  <!-- <li Class="JobGiver_WanderOverseer" /> -->
-			<!-- </subNodes> -->
-		  <!-- </li> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-
-	<!-- <Operation Class="WVC.PatchOperationOptional"> -->
-		<!-- <settingName>fixAgelessAge</settingName> -->
-		<!-- <caseTrue Class="PatchOperationAdd"> -->
-		  <!-- <xpath>/Defs/GeneDef[defName="Ageless"]</xpath> -->
-		  <!-- <value> -->
-			<!-- <geneClass>WVC.Gene_Ageless</geneClass> -->
-		  <!-- </value> -->
-		<!-- </caseTrue> -->
-	<!-- </Operation> -->
-	<!-- <Operation Class="PatchOperationAdd"> -->
-	  <!-- <xpath>/Defs/WorkGiverDef[defName="DoBillsProduceDrugs"]/fixedBillGiverDefs</xpath> -->
-	  <!-- <success>Invert</success> -->
-	  <!-- <value> -->
-		<!-- <li>DrugLab</li> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-
 	<Operation Class="PatchOperationSequence">
 		<success>Always</success>
 		<operations>
@@ -166,7 +12,7 @@
 			  <xpath>/Defs/GeneDef[defName="Ageless"]</xpath>
 			  <success>Always</success>
 			  <value>
-				<geneClass>WVC.Gene_Ageless</geneClass>
+				<geneClass>WVC_XenotypesAndGenes.Gene_Ageless</geneClass>
 			  </value>
 			</li>
 			<li Class="PatchOperationAdd">
@@ -187,77 +33,6 @@
 			</li>
 		</operations>
 	</Operation>
-
-	<!-- ================== -->
-
-	<!-- <Operation Class="PatchOperationSequence"> -->
-		<!-- <success>Always</success> -->
-		<!-- <operations> -->
-			<!-- <li Class="PatchOperationAdd"> -->
-			  <!-- <xpath>/Defs/GeneDef[defName="ArchiteMetabolism"]/modExtensions</xpath> -->
-			  <!-- <success>Invert</success> -->
-			  <!-- <value> -->
-					<!-- <li Class="WVC.GeneExtension_General"> -->
-						<!-- <geneIsPowerSource>true</geneIsPowerSource> -->
-					<!-- </li> -->
-			  <!-- </value> -->
-			<!-- </li> -->
-			<!-- <li Class="PatchOperationAdd"> -->
-			  <!-- <xpath>/Defs/GeneDef[defName="ArchiteMetabolism"]</xpath> -->
-			  <!-- <success>Always</success> -->
-			  <!-- <value> -->
-				<!-- <modExtensions> -->
-					<!-- <li Class="WVC.GeneExtension_General"> -->
-						<!-- <geneIsPowerSource>true</geneIsPowerSource> -->
-					<!-- </li> -->
-				<!-- </modExtensions> -->
-			  <!-- </value> -->
-			<!-- </li> -->
-		<!-- </operations> -->
-	<!-- </Operation> -->
-
-	<!-- <Operation Class="PatchOperationSequence"> -->
-		<!-- <success>Always</success> -->
-		<!-- <operations> -->
-			<!-- <li Class="PatchOperationAdd"> -->
-			  <!-- <xpath>/Defs/GeneDef[defName="ArchiteMetabolism"]/customEffectDescriptions</xpath> -->
-			  <!-- <success>Invert</success> -->
-			  <!-- <value> -->
-					<!-- <li>Disable mechaskin's 5x hunger rate multiplier.</li> -->
-			  <!-- </value> -->
-			<!-- </li> -->
-			<!-- <li Class="PatchOperationAdd"> -->
-			  <!-- <xpath>/Defs/GeneDef[defName="ArchiteMetabolism"]</xpath> -->
-			  <!-- <success>Always</success> -->
-			  <!-- <value> -->
-				<!-- <customEffectDescriptions> -->
-					<!-- <li>Disable mechaskin's 5x hunger rate multiplier.</li> -->
-				<!-- </customEffectDescriptions> -->
-			  <!-- </value> -->
-			<!-- </li> -->
-		<!-- </operations> -->
-	<!-- </Operation> -->
-
-	<!-- ================== -->
-
-	<!-- <Operation Class="PatchOperationAdd"> -->
-	  <!-- <xpath>/Defs/StatDef[defName="ComfyTemperatureMin"]/parts</xpath> -->
-	  <!-- <success>Always</success> -->
-	  <!-- <value> -->
-		  <!-- <li Class="WVC_XenotypesAndGenes.StatPart_ForceTo"> -->
-			<!-- <statDefName>WVC_ForceTo_ComfyTemperatureMin</statDefName> -->
-		  <!-- </li> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-	<!-- <Operation Class="PatchOperationAdd"> -->
-	  <!-- <xpath>/Defs/StatDef[defName="ComfyTemperatureMax"]/parts</xpath> -->
-	  <!-- <success>Always</success> -->
-	  <!-- <value> -->
-		  <!-- <li Class="WVC_XenotypesAndGenes.StatPart_ForceTo"> -->
-			<!-- <statDefName>WVC_ForceTo_ComfyTemperatureMax</statDefName> -->
-		  <!-- </li> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
 
 	<!-- ================== -->
 
@@ -319,28 +94,6 @@
 
 	<!-- ================== -->
 
-	<!-- <Operation Class="PatchOperationAdd"> -->
-	  <!-- <xpath>/Defs/StatDef[defName="ComfyTemperatureMin"]/parts</xpath> -->
-	  <!-- <success>Always</success> -->
-	  <!-- <value> -->
-		  <!-- <li Class="WVC.StatPart_GenesCombo"> -->
-			<!-- <useMechaskinInsteadSubcore>true</useMechaskinInsteadSubcore> -->
-			<!-- <useStaticValue>true</useStaticValue> -->
-			<!-- <staticValue>-100</staticValue> -->
-		  <!-- </li> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-	<!-- <Operation Class="PatchOperationAdd"> -->
-	  <!-- <xpath>/Defs/StatDef[defName="ComfyTemperatureMax"]/parts</xpath> -->
-	  <!-- <success>Always</success> -->
-	  <!-- <value> -->
-		  <!-- <li Class="WVC.StatPart_GenesCombo"> -->
-			<!-- <useMechaskinInsteadSubcore>true</useMechaskinInsteadSubcore> -->
-			<!-- <useStaticValue>true</useStaticValue> -->
-			<!-- <staticValue>250</staticValue> -->
-		  <!-- </li> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
 	<Operation Class="PatchOperationAdd">
 	  <xpath>/Defs/StatDef[defName="WorkSpeedGlobal"]/parts</xpath>
 	  <value>
@@ -367,10 +120,6 @@
 					<stat>WVC_BandwidthCostOffsetMech</stat>
 					<label>Offset from mechanitor</label>
 				  </li>
-				  <!-- <li Class="WVC.StatPart_GolemsBandwidthCost" MayRequire="Ludeon.RimWorld.Biotech"> -->
-					<!-- <pawnKindDef>WVC_Golem</pawnKindDef> -->
-					<!-- <stat>WVC_ForceTo_GolemsBandwidthCost</stat> -->
-				  <!-- </li> -->
 			  </value>
 			</li>
 			<li Class="PatchOperationAdd">
@@ -382,10 +131,6 @@
 					<stat>WVC_BandwidthCostOffsetMech</stat>
 					<label>Offset from mechanitor</label>
 				  </li>
-				  <!-- <li Class="WVC.StatPart_GolemsBandwidthCost" MayRequire="Ludeon.RimWorld.Biotech"> -->
-					<!-- <pawnKindDef>WVC_Golem</pawnKindDef> -->
-					<!-- <stat>WVC_ForceTo_GolemsBandwidthCost</stat> -->
-				  <!-- </li> -->
 				</parts>
 			  </value>
 			</li>
@@ -419,54 +164,5 @@
 			</li>
 		</operations>
 	</Operation>
-
-	<!-- <Operation Class="WVC.PatchOperationOptional"> -->
-		<!-- <settingName>enableMechaskinInfection</settingName> -->
-		<!-- <caseTrue Class="PatchOperationSequence"> -->
-			<!-- <operations> -->
-
-				<!-- <li Class="PatchOperationAdd"> -->
-				  <!-- <xpath>/Defs/HediffGiverSetDef[defName="Human"]/hediffGivers</xpath> -->
-				  <!-- <value> -->
-					  <!-- <li Class="WVC.HediffGiver_RandomByGene"> -->
-						<!-- <geneDef>WVC_NodeSkin_Blue</geneDef> -->
-						<!-- <hediff>MechlinkImplant</hediff> -->
-						<!-- <mtbDays>30</mtbDays> -->
-						<!-- <partsToAffect> -->
-						  <!-- <li>Brain</li> -->
-						<!-- </partsToAffect> -->
-					  <!-- </li> -->
-					  <!-- <li Class="WVC.HediffGiver_RandomByGene"> -->
-						<!-- <geneDef>WVC_NodeSkin_AltBlue</geneDef> -->
-						<!-- <hediff>MechlinkImplant</hediff> -->
-						<!-- <mtbDays>30</mtbDays> -->
-						<!-- <partsToAffect> -->
-						  <!-- <li>Brain</li> -->
-						<!-- </partsToAffect> -->
-					  <!-- </li> -->
-					  <!-- <li MayRequireAnyOf="ludeon.rimworld.royalty" Class="WVC.HediffGiver_RandomByGene"> -->
-						<!-- <geneDef>WVC_NodeSkin_Yellow</geneDef> -->
-						<!-- <hediff>PsychicAmplifier</hediff> -->
-						<!-- <mtbDays>30</mtbDays> -->
-						<!-- <partsToAffect> -->
-						  <!-- <li>Brain</li> -->
-						<!-- </partsToAffect> -->
-					  <!-- </li> -->
-					  <!-- <li Class="WVC.HediffGiver_RandomByMechaskin"> -->
-						<!-- <hediff>WVC_MalfunctioningMechanites</hediff> -->
-						<!-- <incompatibleHediff>WVC_ExtraMechanites</incompatibleHediff> -->
-						<!-- <mtbDays>90</mtbDays> -->
-					  <!-- </li> -->
-					  <!-- <li Class="WVC.HediffGiver_RandomByMechaskin"> -->
-						<!-- <hediff>WVC_ExtraMechanites</hediff> -->
-						<!-- <incompatibleHediff>WVC_MalfunctioningMechanites</incompatibleHediff> -->
-						<!-- <mtbDays>90</mtbDays> -->
-					  <!-- </li> -->
-				  <!-- </value> -->
-				<!-- </li> -->
-
-			<!-- </operations> -->
-		<!-- </caseTrue> -->
-	<!-- </Operation> -->
 
 </Patch>

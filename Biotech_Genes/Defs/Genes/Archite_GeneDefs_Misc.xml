@@ -93,6 +93,7 @@
 	<iconPath>WVC/UI/Genes/Gene_TotalHealing_v0</iconPath>
 	<displayCategory>Archite</displayCategory>
 	<displayOrderInCategory>0</displayOrderInCategory>
+	<preventPermanentWounds>true</preventPermanentWounds>
 	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
 	<biostatCpx>4</biostatCpx>
 	<biostatArc>2</biostatArc>
