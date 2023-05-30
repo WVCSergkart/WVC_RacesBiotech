@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneDisabledWork_Base" Abstract="True">
+	<!-- <label>mechlink</label>  -->
+	<!-- <labelShortAdj>blindness</labelShortAdj> -->
+	<description>TEST</description>
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_PermanentHediff</geneClass> -->
+	<selectionWeight>0.012</selectionWeight>
+	<!-- <displayCategory>Ability</displayCategory> -->
+	<!-- <displayCategory>Archite</displayCategory> -->
+	<displayCategory>Violence</displayCategory>
+	<displayOrderInCategory>2220</displayOrderInCategory>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>use</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>less</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_Ageless</li> -->
+	<!-- </exclusionTags> -->
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDisabledWork_Base">
+	<defName>WVC_DisabledAllWork</defName>
+	<label>blank</label>
+	<description>Carriers of this gene are completely and irreversibly useless. They are unable to perform even the dumb work.</description>
+	<iconPath>WVC/UI/Genes/Gene_Blankind_v0</iconPath>
+	<biostatCpx>4</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>8</biostatMet>
+	<disabledWorkTags>
+	  <li>AllWork</li>
+	</disabledWorkTags>
+	<exclusionTags>
+	  <li>WVC_DisabledWork_Useless</li>
+	</exclusionTags>
+  </GeneDef>
+
+</Defs>

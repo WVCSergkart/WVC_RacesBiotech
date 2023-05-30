@@ -294,33 +294,18 @@
 
   <GeneDef ParentName="CellInstabilityBase">
 	<defName>WVC_AgeDebuff_Timeless</defName>
-	<label>lifefall</label>
-	<description>Carriers of this gene do not have much time.</description>
-	<iconPath>WVC/UI/Genes/AgeDebuff_LifespanFactor</iconPath>
+	<label>dangerous cell instability</label>
+	<description>Carriers of this gene need much less metabolic energy to stay alive, at the cost of greatly-reduced stability in their cell-replication machinery.</description>
+	<iconPath>WVC/UI/Genes/Gene_MajorCellInstability_v0</iconPath>
 	<!-- <displayCategory>Miscellaneous</displayCategory> -->
-	<displayOrderInCategory>129</displayOrderInCategory>
-	<biostatCpx>2</biostatCpx>
-	<biostatMet>3</biostatMet>
+	<displayOrderInCategory>137</displayOrderInCategory>
 	<selectionWeight>0.002</selectionWeight>
+	<biostatMet>8</biostatMet>
 	<statFactors>
-	  <LifespanFactor>0.0</LifespanFactor>
+	  <LifespanFactor>0.1</LifespanFactor>
+	  <CancerRate>7</CancerRate>
+	  <ImmunityGainSpeed>0.8</ImmunityGainSpeed>
 	</statFactors>
-	<!-- <exclusionTags> -->
-	  <!-- <li>CellInstability</li> -->
-	<!-- </exclusionTags> -->
-	<symbolPack>
-	  <wholeNameSymbols>
-		<li><symbol>lifefall</symbol></li>
-	  </wholeNameSymbols>
-	  <prefixSymbols>
-		<li><symbol>life</symbol></li>
-		<li><symbol>li</symbol></li>
-	  </prefixSymbols>
-	  <suffixSymbols>
-		<li><symbol>fall</symbol></li>
-		<li><symbol>all</symbol></li>
-	  </suffixSymbols>
-	</symbolPack>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>

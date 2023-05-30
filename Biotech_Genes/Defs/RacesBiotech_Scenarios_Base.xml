@@ -4,7 +4,7 @@
   <ScenarioDef>
 	<defName>WVC_RB_Blank</defName>
 	<label>Long running joke</label>
-	<description>All your life you have had a strange, eerie feeling that someone is watching you from the shadows. Each of your actions seemed to be a point in some prepared scenario. And the icing on the cake was the fact that your health was deteriorating very quickly. And then when there was almost no hope left, people who were hiding in the shadows came for you and promised to cure all your ailments.\n\nWhen the experiment was over, you were placed in a cryopod, which is the last thing you remember before the drop pod hits the ground.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; Blank cannot learn skills. You have been warned.</description>
+	<description>All your life you have had a strange, eerie feeling that someone is watching you from the shadows. Each of your actions seemed to be a point in some prepared scenario. And the icing on the cake was the fact that your health was deteriorating very quickly. And then when there was almost no hope left, people who were hiding in the shadows came for you and promised to cure all your ailments.\n\nWhen the experiment was over, you were placed in a cryopod, which is the last thing you remember before the drop pod hits the ground.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; Blankinds can't do anything. You have been warned.</description>
 	<scenario>
 	  <summary>One crashlanded blank with no supplies. &lt;color=#ee2a23&gt;Unreal&lt;/color&gt; difficulty.</summary>
 	  <playerFaction>
@@ -16,7 +16,7 @@
 		<!-- Config pages -->
 		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_Xenotypes">
 		  <def>ConfigurePawnsXenotypes</def>
-		  <pawnChoiceCount>8</pawnChoiceCount>
+		  <pawnChoiceCount>1</pawnChoiceCount>
 		  <customSummary>Start with one adult blank with no supplies.</customSummary>
 		  <overrideKinds>
 			<li>

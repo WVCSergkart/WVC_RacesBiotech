@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneGeneticInstability_Base" Abstract="True">
+	<!-- <label>mechlink</label>  -->
+	<!-- <labelShortAdj>blindness</labelShortAdj> -->
+	<description>Carriers of this gene have a serious genetic instability. It affects health, fertility and metabolic efficiency.</description>
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_PermanentHediff</geneClass> -->
+	<selectionWeight>0.0012</selectionWeight>
+	<!-- <displayCategory>Ability</displayCategory> -->
+	<!-- <displayCategory>Archite</displayCategory> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Ageless</geneClass> -->
+	<displayCategory>Healing</displayCategory>
+	<displayOrderInCategory>1251</displayOrderInCategory>
+	<customEffectDescriptions>
+	  <li>Carriers of this gene do not lose consciousness when using serums.</li>
+	</customEffectDescriptions>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>gen</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>stab</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>WVC_GeneticInstabilityGenes</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneticInstability_Base">
+	<defName>WVC_MildGeneticInstability</defName>
+	<label>mild genetic instability</label>
+	<iconPath>WVC/UI/Genes/Gene_Inbred2_v0</iconPath>
+	<biostatCpx>-1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<displayOrderInCategory>1251</displayOrderInCategory>
+	<statFactors>
+	  <Fertility>0.8</Fertility>
+	  <ImmunityGainSpeed>0.95</ImmunityGainSpeed>
+	</statFactors>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneticInstability_Base">
+	<defName>WVC_MajorGeneticInstability</defName>
+	<label>major genetic instability</label>
+	<iconPath>WVC/UI/Genes/Gene_Inbred1_v0</iconPath>
+	<biostatCpx>-3</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-4</biostatMet>
+	<displayOrderInCategory>1252</displayOrderInCategory>
+	<statFactors>
+	  <Fertility>0.5</Fertility>
+	  <ImmunityGainSpeed>0.85</ImmunityGainSpeed>
+	</statFactors>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneticInstability_Base">
+	<defName>WVC_ExtremeGeneticInstability</defName>
+	<label>extreme genetic instability</label>
+	<iconPath>WVC/UI/Genes/Gene_Inbred_v0</iconPath>
+	<biostatCpx>-5</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-7</biostatMet>
+	<displayOrderInCategory>1253</displayOrderInCategory>
+	<statFactors>
+	  <Fertility>0.1</Fertility>
+	  <ImmunityGainSpeed>0.75</ImmunityGainSpeed>
+	</statFactors>
+  </GeneDef>
+
+</Defs>
