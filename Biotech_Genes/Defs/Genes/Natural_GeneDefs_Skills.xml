@@ -272,7 +272,7 @@
 		<li>Nullifying all aptitudes.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
-	  <li>WVC_DisabledWork_Useless</li>
+	  <!-- <li>WVC_DisabledWork_Useless</li> -->
 	  <li>AptitudeIntellectual</li>
 	  <li>Aptitude_Intellectual</li>
 	  <li>AptitudeSocial</li>

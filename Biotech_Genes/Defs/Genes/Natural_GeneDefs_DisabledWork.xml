@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef Name="WVC_XenotypesAndGenes_GeneDisabledWork_Base" Abstract="True">
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneDisabledWork_AllWork" Abstract="True">
 	<!-- <label>mechlink</label>  -->
 	<!-- <labelShortAdj>blindness</labelShortAdj> -->
-	<description>TEST</description>
+	<description>Carriers of this gene are completely and irreversibly useless. They are unable to perform even the dumb work.</description>
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_PermanentHediff</geneClass> -->
 	<selectionWeight>0.012</selectionWeight>
+	<iconPath>WVC/UI/Genes/Gene_Blankind_v0</iconPath>
 	<!-- <displayCategory>Ability</displayCategory> -->
 	<!-- <displayCategory>Archite</displayCategory> -->
 	<displayCategory>Violence</displayCategory>
 	<displayOrderInCategory>2220</displayOrderInCategory>
-	<biostatCpx>0</biostatCpx>
+	<biostatCpx>1</biostatCpx>
 	<biostatArc>0</biostatArc>
-	<biostatMet>0</biostatMet>
+	<biostatMet>5</biostatMet>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>use</symbol></li>
@@ -22,9 +23,12 @@
 		<li><symbol>less</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
-	<!-- <exclusionTags> -->
-	  <!-- <li>WVC_Ageless</li> -->
-	<!-- </exclusionTags> -->
+	<disabledWorkTags>
+	  <li>AllWork</li>
+	</disabledWorkTags>
+	<exclusionTags>
+	  <li>WVC_DisabledWork_AllWork</li>
+	</exclusionTags>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
@@ -38,20 +42,21 @@
 
   <!-- ============================= -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDisabledWork_Base">
-	<defName>WVC_DisabledAllWork</defName>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDisabledWork_AllWork">
+	<defName>WVC_DisabledAllWork_Blank</defName>
 	<label>blank</label>
-	<description>Carriers of this gene are completely and irreversibly useless. They are unable to perform even the dumb work.</description>
-	<iconPath>WVC/UI/Genes/Gene_Blankind_v0</iconPath>
-	<biostatCpx>4</biostatCpx>
-	<biostatArc>0</biostatArc>
-	<biostatMet>8</biostatMet>
-	<disabledWorkTags>
-	  <li>AllWork</li>
-	</disabledWorkTags>
-	<exclusionTags>
-	  <li>WVC_DisabledWork_Useless</li>
-	</exclusionTags>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Blank</geneClass>
+	<selectionWeight>0.0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<customEffectDescriptions>
+	  <li>The gene can only be active if the carrier does not have any &lt;color=#8a8ae6&gt;xenogenes&lt;/color&gt;.</li>
+	  <li>&lt;color=#ff8585&gt;Cannot spawn in genepacks.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDisabledWork_AllWork">
+	<defName>WVC_DisabledAllWork_Useless</defName>
+	<label>useless</label>
   </GeneDef>
 
 </Defs>

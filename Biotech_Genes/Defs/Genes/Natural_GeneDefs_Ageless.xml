@@ -44,7 +44,7 @@
 	<description>Carriers of this gene completely stop aging after reaching the age of 18.</description>
 	<iconPath>WVC/UI/Genes/Gene_Ageless_Basic_v0</iconPath>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Ageless</geneClass>
-	<biostatCpx>5</biostatCpx>
+	<biostatCpx>3</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>-3</biostatMet>
 	<displayOrderInCategory>1240</displayOrderInCategory>
@@ -65,7 +65,7 @@
 	<description>Carriers of this gene reach adulthood incredibly quickly.</description>
 	<iconPath>WVC/UI/Genes/Gene_Ageless_EarlyAdult_v0</iconPath>
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Ageless</geneClass> -->
-	<biostatCpx>5</biostatCpx>
+	<biostatCpx>1</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>2</biostatMet>
 	<displayOrderInCategory>1242</displayOrderInCategory>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="GeneLearningBase" Name="WVC_XenotypesAndGenes_GeneLearning_Base" Abstract="True">
+	<!-- <label>mechlink</label>  -->
+	<!-- <labelShortAdj>blindness</labelShortAdj> -->
+	<!-- <description>TEST</description> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_PermanentHediff</geneClass> -->
+	<selectionWeight>0.022</selectionWeight>
+	<!-- <displayCategory>Ability</displayCategory> -->
+	<!-- <displayCategory>Archite</displayCategory> -->
+	<!-- <displayCategory>Violence</displayCategory> -->
+	<!-- <displayOrderInCategory>2220</displayOrderInCategory> -->
+	<!-- <biostatCpx>0</biostatCpx> -->
+	<!-- <biostatArc>0</biostatArc> -->
+	<!-- <biostatMet>0</biostatMet> -->
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneLearning_Base">
+	<defName>WVC_Learning_ExtremeSlow</defName>
+	<label>meaningless study</label>
+	<description>Carriers of this gene have deficient long-term memories and don't understand new ideas. They practically cannot learn new skills and knowledge.</description>
+	<iconPath>WVC/UI/Genes/Gene_SlowLearning_v0</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Amnesia</geneClass>
+	<displayOrderInCategory>27</displayOrderInCategory>
+	<customEffectDescriptions>
+	  <li>Childhood and adulthood background will be &lt;color=#8a8ae6&gt;amnesiac&lt;/color&gt;. Does not work if the carrier is a native colonist.</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <GlobalLearningFactor>0.2</GlobalLearningFactor>
+	</statFactors>
+	<biostatMet>4</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>thag</symbol></li>
+		<li><symbol>grunt</symbol></li>
+		<li><symbol>slow</symbol></li>
+		<li><symbol>dull</symbol></li>
+		<li><symbol>dumb</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>grunt</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>

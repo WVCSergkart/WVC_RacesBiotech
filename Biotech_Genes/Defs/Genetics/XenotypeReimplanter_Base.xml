@@ -27,13 +27,13 @@
 
   <ThingDef ParentName="ResourceBase" Name="WVC_XenotypeSerum_Base" Abstract="True">
 	<label>xenotype serum</label>
-	<description>A one-use super-dose of mechanites tuned to change the user's xenotype. After using the serum, the user will fall into a two-day coma, except for the &lt;color=#f5ffa2&gt;Blankind&lt;/color&gt; xenotype.
+	<description>A one-use super-dose of mechanites tuned to change the user's xenotype. After using the serum, the user will fall into a two-day coma.
 
 If the user's genes are regrowing, then instead of applying the xenotype, the gene regeneration timer will be reset.
 
 &lt;color=#f5ffa2&gt;Note:&lt;/color&gt; If the xenotype is inheritable and has no skin/hair color, then a white skin/hair gene will be added.</description>
 	<descriptionHyperlinks>
-	  <XenotypeDef>WVC_Blank</XenotypeDef>
+	  <!-- <XenotypeDef>WVC_Blank</XenotypeDef> -->
 	  <!-- <ConceptDef>WVC_Tutorial_XenotypeSerums_I</ConceptDef> -->
 	  <!-- <ConceptDef>WVC_Tutorial_XenotypeSerums_II</ConceptDef> -->
 	  <!-- <ConceptDef>WVC_Tutorial_XenotypeSerums_III</ConceptDef> -->

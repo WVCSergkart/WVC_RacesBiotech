@@ -48,7 +48,7 @@
 	<iconPath>WVC/UI/Genes/Gene_Inbred2_v0</iconPath>
 	<biostatCpx>-1</biostatCpx>
 	<biostatArc>0</biostatArc>
-	<biostatMet>-2</biostatMet>
+	<biostatMet>-1</biostatMet>
 	<displayOrderInCategory>1251</displayOrderInCategory>
 	<statFactors>
 	  <Fertility>0.8</Fertility>
@@ -62,7 +62,7 @@
 	<iconPath>WVC/UI/Genes/Gene_Inbred1_v0</iconPath>
 	<biostatCpx>-3</biostatCpx>
 	<biostatArc>0</biostatArc>
-	<biostatMet>-4</biostatMet>
+	<biostatMet>-3</biostatMet>
 	<displayOrderInCategory>1252</displayOrderInCategory>
 	<statFactors>
 	  <Fertility>0.5</Fertility>
@@ -76,7 +76,7 @@
 	<iconPath>WVC/UI/Genes/Gene_Inbred_v0</iconPath>
 	<biostatCpx>-5</biostatCpx>
 	<biostatArc>0</biostatArc>
-	<biostatMet>-7</biostatMet>
+	<biostatMet>-5</biostatMet>
 	<displayOrderInCategory>1253</displayOrderInCategory>
 	<statFactors>
 	  <Fertility>0.1</Fertility>

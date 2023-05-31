@@ -72,6 +72,13 @@
   <PawnKindDef ParentName="WVC_RB_XenoBase">
 	<label>blankind</label>
 	<defName>WVC_Blank_Player</defName>
+	<backstoryFiltersOverride>
+	  <li>
+		<categories>
+		  <li>Madman</li>
+		</categories>
+	  </li>
+	</backstoryFiltersOverride>
 	<xenotypeSet>
 	  <xenotypeChances>
 		<WVC_Blank>999</WVC_Blank>

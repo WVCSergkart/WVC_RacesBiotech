@@ -23,14 +23,13 @@
 		<li MayRequire="honkai.girls.sergkart">Alien_DryadMother_WVC</li>
 		<li MayRequire="honkai.girls.sergkart">Alien_Valkyrie_WVC</li>
 	</blackListedThingsForSerums>
-	<!-- Xenotypes that do not fall into a coma when using serum. Any string -->
 	<!-- Genes with which pawns do not lose consciousness when using serums. Any gene defNames -->
 	<perfectCandidatesForSerums>
-		<li>WVC_Blank</li>
-		<li>AG_Wretch</li>
-		<!-- <li>WVC_MildGeneticInstability</li> -->
-		<!-- <li>WVC_MajorGeneticInstability</li> -->
-		<!-- <li>WVC_ExtremeGeneticInstability</li> -->
+		<!-- <li>WVC_Blank</li> -->
+		<!-- <li>AG_Wretch</li> -->
+		<li>WVC_MildGeneticInstability</li>
+		<li>WVC_MajorGeneticInstability</li>
+		<li>WVC_ExtremeGeneticInstability</li>
 	</perfectCandidatesForSerums>
 	<!-- List of genes that are (exo)skins. Used for ideology. Required gene defNames -->
 	<whiteListedExoskinGenes>

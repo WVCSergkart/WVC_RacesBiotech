@@ -5,8 +5,8 @@
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Base">
 	<defName>WVC_Blank</defName>
 	<label>blankind</label>
-	<description>Blankind - both for the artist his canvas, and for the mad scientist his "dummy". The purpose of their existence has always been the same - to be the canvas on which the masterpiece will be embodied.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; Representatives of this xenotype are suitable only to be experimental subjects. Or pets.</description>
-	<descriptionShort>Blankind - both for the artist his canvas, and for the mad scientist his "dummy". The purpose of their existence has always been the same - to be the canvas on which the masterpiece will be embodied.</descriptionShort>
+	<description>Created for the purpose of experimentation, Blankinds are nothing more than a template from which something more can turn out. They are weak, incredibly stupid, and their immunity is practically unable to cope with any disease. However, they do not age and very quickly become adults.</description>
+	<descriptionShort>Created for the purpose of experimentation, Blankinds are nothing more than a template from which something more can turn out. They are weak, incredibly stupid, and their immunity is practically unable to cope with any disease. However, they do not age and very quickly become adults.</descriptionShort>
 	<iconPath>WVC/UI/Xeno2Icons/Xeno10</iconPath>
 	<genes>
 		<!-- old -->
@@ -37,10 +37,11 @@
 		<!-- <li>WVC_AptitudeImpossible_Social</li> -->
 		<!-- <li>WVC_AptitudeImpossible_Intellectual</li> -->
 		<!-- new -->
+		<li>WVC_NaturalAgeless</li>
 		<li>WVC_NaturalFastGrowing</li>
 		<li>WVC_Emotionless</li>
 		<!-- <li>MeleeDamage_Weak</li> -->
-		<li>WVC_DisabledAllWork</li>
+		<li>WVC_DisabledAllWork_Blank</li>
 		<li>WVC_SleepyStomach</li>
 		<!-- <li>WVC_Glass</li> -->
 		<li>WVC_FemaleOnly</li>
@@ -53,11 +54,11 @@
 		<li>Body_Standard</li>
 		<li>Hair_SnowWhite</li>
 		<li>Skin_SheerWhite</li>
-		<li>WVC_NoLearning</li>
+		<li>WVC_Learning_ExtremeSlow</li>
 		<!-- <li>Instability_Major</li> -->
 		<li>WVC_AgeDebuff_Timeless</li>
 		<li>WVC_BodySize_Small</li>
-		<li>Hair_Grayless</li>
+		<!-- <li>Hair_Grayless</li> -->
 	</genes>
   </XenotypeDef>
 

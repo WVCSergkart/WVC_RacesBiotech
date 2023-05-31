@@ -300,7 +300,7 @@
 	<!-- <displayCategory>Miscellaneous</displayCategory> -->
 	<displayOrderInCategory>137</displayOrderInCategory>
 	<selectionWeight>0.002</selectionWeight>
-	<biostatMet>8</biostatMet>
+	<biostatMet>6</biostatMet>
 	<statFactors>
 	  <LifespanFactor>0.1</LifespanFactor>
 	  <CancerRate>7</CancerRate>
