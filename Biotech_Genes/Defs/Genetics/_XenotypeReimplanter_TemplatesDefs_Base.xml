@@ -193,7 +193,6 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	<displayCategory>WVC_XenotypeSerumSpawners</displayCategory>
 	<customEffectDescriptions>
 		<li>Spawns hybrid serum every (*DateTime)15-45 days(/DateTime).</li>
-		<li>Hybrid serum - a one-time serum that changes a pawn's xenotype.</li>
 		<!-- <li>&lt;color=#ff8585&gt;Cannot spawn in genepacks.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<randomChosen>true</randomChosen>
@@ -218,12 +217,18 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
   <WVC_XenotypesAndGenes.SerumGeneTemplateDef ParentName="WVC_XenotypeSerumTemplateSpawner_Base" Name="WVC_XenotypeSerumTemplateSpawner_Ultra" Abstract="True">
 	<iconPath>WVC/Things/XenotypeSerum_Ultra/XenotypeSerum_Ultra_D</iconPath>
 	<displayOrderInCategory>1000</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Xenotype serum - a one-time serum that changes a pawn's xenotype.</li>
+	</customEffectDescriptions>
   </WVC_XenotypesAndGenes.SerumGeneTemplateDef>
 
   <WVC_XenotypesAndGenes.SerumGeneTemplateDef ParentName="WVC_XenotypeSerumTemplateSpawner_Base" Name="WVC_XenotypeSerumTemplateSpawner_Hybrid" Abstract="True">
 	<label>hybrid serum thrower</label>
 	<iconPath>WVC/Things/XenotypeSerum_Mecha/XenotypeSerum_Variants_v4</iconPath>
 	<displayOrderInCategory>1001</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Hybrid serum - a one-time serum that gives 2 xenotypes.</li>
+	</customEffectDescriptions>
   </WVC_XenotypesAndGenes.SerumGeneTemplateDef>
   
 
