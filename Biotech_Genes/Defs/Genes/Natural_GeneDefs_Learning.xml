@@ -26,7 +26,7 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
 			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
 		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_HediffGiver">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<childBackstoryDef>WVC_RacesBiotech_Amnesia_Child</childBackstoryDef>
 			<adultBackstoryDef>WVC_RacesBiotech_Amnesia_Adult</adultBackstoryDef>
 		</li>

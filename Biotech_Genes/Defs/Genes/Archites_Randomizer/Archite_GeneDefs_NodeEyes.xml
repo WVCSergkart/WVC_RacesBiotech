@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_EncodeBuffRandomGiver">
+	<defName>WVC_NodeEyes_Randomizer</defName>
+	<label>random faceplate</label>
+	<description>Carriers of this gene have archites that have formed a plate that closes the eyes, for some reason this plate does not interfere with vision at all. The surface of this plate has a pattern resembling eyes.</description>
+	<displayCategory>Cosmetic</displayCategory>
+	<displayOrderInCategory>3</displayOrderInCategory>
+	<iconPath>WVC/UI/Genes/Gene_RandomNodeEyes</iconPath>
+	<!-- <selectionWeight>0.0112</selectionWeight> -->
+	<canGenerateInGeneSet>true</canGenerateInGeneSet>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<randomizerGenesList>
+				<li>WVC_NodeEyes_A</li>
+				<li>WVC_NodeEyes_B</li>
+				<li>WVC_NodeEyes_C</li>
+				<li>WVC_NodeEyes_D</li>
+				<li>WVC_NodeEyes_E</li>
+				<li>WVC_NodeEyes_Y</li>
+				<li>WVC_NodeEyes_F</li>
+				<!-- New -->
+				<li>WVC_NodeEyes_G</li>
+				<li>WVC_NodeEyes_H</li>
+				<li>WVC_NodeEyes_J</li>
+				<li>WVC_NodeEyes_K</li>
+			</randomizerGenesList>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
   <!-- Bodies -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_Archites" Name="WVC_NodeBody_Eyes" Abstract="True" WVC_Tag="MechaAndNodeSkins_EasyPatch">
@@ -11,7 +40,8 @@
 <!-- &lt;color=#ff8585&gt;Note:&lt;/color&gt; The gene is activated only under certain conditions.  -->
 <!-- 1. The head of the pawn must be without eyes. -->
 <!-- 2. There is a gene that disables the display of eyes. -->
-	<geneClass>WVC_XenotypesAndGenes.Gene_Faceless</geneClass>
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Faceless</geneClass> -->
+	<geneClass>WVC_XenotypesAndGenes.Gene_FacelessShuffle</geneClass>
 	<minAgeActive>0</minAgeActive>
 	<displayCategory>Cosmetic</displayCategory>
 	<displayOrderInCategory>3</displayOrderInCategory>
@@ -20,8 +50,8 @@
 	<!-- <displayOrderInCategory>-5</displayOrderInCategory> -->
 	<iconColor>(255, 255, 255)</iconColor>
 	<biostatCpx>0</biostatCpx>
-	<selectionWeight>0.0112</selectionWeight>
-	<canGenerateInGeneSet>true</canGenerateInGeneSet>
+	<selectionWeight>0.0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<customEffectDescriptions>
 		<li>&lt;color=#ff8585&gt;This gene is activated only in the presence of the "Nodeskin" gene.&lt;/color&gt;</li>
 		<!-- <li>&lt;color=#ff8585&gt;Requires "Nodeskin" gene&lt;/color&gt;</li> -->
@@ -45,8 +75,27 @@
 	  <!-- </li> -->
 	<!-- </capMods> -->
 	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<hideGene>true</hideGene>
+		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
 			<eyesShouldBeInvisble>true</eyesShouldBeInvisble>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<!-- <randomizerGene>WVC_NodeEyes_Randomizer</randomizerGene> -->
+			<randomizerGenesList>
+				<li>WVC_NodeEyes_A</li>
+				<li>WVC_NodeEyes_B</li>
+				<li>WVC_NodeEyes_C</li>
+				<li>WVC_NodeEyes_D</li>
+				<li>WVC_NodeEyes_E</li>
+				<li>WVC_NodeEyes_Y</li>
+				<li>WVC_NodeEyes_F</li>
+				<li>WVC_NodeEyes_G</li>
+				<li>WVC_NodeEyes_H</li>
+				<li>WVC_NodeEyes_J</li>
+				<li>WVC_NodeEyes_K</li>
+			</randomizerGenesList>
 		</li>
 	</modExtensions>
   </GeneDef>

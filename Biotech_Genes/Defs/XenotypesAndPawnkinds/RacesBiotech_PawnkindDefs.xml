@@ -53,6 +53,7 @@
 	<!-- <favoriteColor>(245,245,245)</favoriteColor> -->
 	<xenotypeSet>
 	  <xenotypeChances>
+		<!-- <WVC_RogueFormer>999</WVC_RogueFormer> -->
 		<!-- Meca -->
 		<WVC_Meca>0.35</WVC_Meca>
 		<WVC_GeneThrower>0.25</WVC_GeneThrower>

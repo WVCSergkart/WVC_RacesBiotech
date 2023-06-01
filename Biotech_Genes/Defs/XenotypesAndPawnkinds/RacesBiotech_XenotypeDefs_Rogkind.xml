@@ -18,18 +18,18 @@
 	<genes>
 		<li>WVC_NodeSkin</li>
 		<!-- = -->
-		<li>WVC_NodeEyes_A</li>
-		<li>WVC_NodeEyes_B</li>
-		<li>WVC_NodeEyes_C</li>
-		<li>WVC_NodeEyes_D</li>
-		<li>WVC_NodeEyes_E</li>
-		<li>WVC_NodeEyes_Y</li>
-		<li>WVC_NodeEyes_F</li>
+		<!-- <li>WVC_NodeEyes_A</li> -->
+		<!-- <li>WVC_NodeEyes_B</li> -->
+		<!-- <li>WVC_NodeEyes_C</li> -->
+		<!-- <li>WVC_NodeEyes_D</li> -->
+		<!-- <li>WVC_NodeEyes_E</li> -->
+		<!-- <li>WVC_NodeEyes_Y</li> -->
+		<!-- <li>WVC_NodeEyes_F</li> -->
 		<!-- New -->
-		<li>WVC_NodeEyes_G</li>
-		<li>WVC_NodeEyes_H</li>
-		<li>WVC_NodeEyes_J</li>
-		<li>WVC_NodeEyes_K</li>
+		<!-- <li>WVC_NodeEyes_G</li> -->
+		<!-- <li>WVC_NodeEyes_H</li> -->
+		<!-- <li>WVC_NodeEyes_J</li> -->
+		<!-- <li>WVC_NodeEyes_K</li> -->
 		<!-- = -->
 		<li>WVC_MechaAI_SoftwareNaturalEnemy</li>
 		<!-- = -->
@@ -42,29 +42,34 @@
 		<li>WVC_MecaBodyParts_Stomach</li>
 		<li>WVC_MecaBodyParts_Heart</li>
 		<!-- =Buffs= -->
-		<li>WVC_Nodization_EntityBuff_A</li>
-		<li>WVC_Nodization_EntityBuff_B</li>
-		<li>WVC_Nodization_EntityBuff_C</li>
-		<li>WVC_Nodization_EntityBuff_D</li>
-		<li>WVC_Nodization_EntityBuff_E</li>
-		<li>WVC_Nodization_EntityBuff_F</li>
-		<li>WVC_Nodization_EntityBuff_G</li>
+		<li>WVC_NodeEyes_Randomizer</li>
+		<li>WVC_Nodization_EntityRandomizer</li>
+		<li>WVC_Nodization_SkillRandomizer</li>
+		<li>WVC_Nodization_PatternRandomizer</li>
+		<!-- =Buffs= -->
+		<!-- <li>WVC_Nodization_EntityBuff_A</li> -->
+		<!-- <li>WVC_Nodization_EntityBuff_B</li> -->
+		<!-- <li>WVC_Nodization_EntityBuff_C</li> -->
+		<!-- <li>WVC_Nodization_EntityBuff_D</li> -->
+		<!-- <li>WVC_Nodization_EntityBuff_E</li> -->
+		<!-- <li>WVC_Nodization_EntityBuff_F</li> -->
+		<!-- <li>WVC_Nodization_EntityBuff_G</li> -->
 		<!-- = -->
-		<li>WVC_Nodization_SkillBuff_A</li>
-		<li>WVC_Nodization_SkillBuff_B</li>
-		<li>WVC_Nodization_SkillBuff_C</li>
-		<li>WVC_Nodization_SkillBuff_D</li>
-		<li>WVC_Nodization_SkillBuff_E</li>
-		<li>WVC_Nodization_SkillBuff_F</li>
-		<li>WVC_Nodization_SkillBuff_G</li>
+		<!-- <li>WVC_Nodization_SkillBuff_A</li> -->
+		<!-- <li>WVC_Nodization_SkillBuff_B</li> -->
+		<!-- <li>WVC_Nodization_SkillBuff_C</li> -->
+		<!-- <li>WVC_Nodization_SkillBuff_D</li> -->
+		<!-- <li>WVC_Nodization_SkillBuff_E</li> -->
+		<!-- <li>WVC_Nodization_SkillBuff_F</li> -->
+		<!-- <li>WVC_Nodization_SkillBuff_G</li> -->
 		<!-- = -->
-		<li>WVC_Nodization_PatternBuff_A</li>
-		<li>WVC_Nodization_PatternBuff_B</li>
-		<li>WVC_Nodization_PatternBuff_C</li>
-		<li>WVC_Nodization_PatternBuff_D</li>
-		<li>WVC_Nodization_PatternBuff_E</li>
-		<li>WVC_Nodization_PatternBuff_F</li>
-		<li>WVC_Nodization_PatternBuff_G</li>
+		<!-- <li>WVC_Nodization_PatternBuff_A</li> -->
+		<!-- <li>WVC_Nodization_PatternBuff_B</li> -->
+		<!-- <li>WVC_Nodization_PatternBuff_C</li> -->
+		<!-- <li>WVC_Nodization_PatternBuff_D</li> -->
+		<!-- <li>WVC_Nodization_PatternBuff_E</li> -->
+		<!-- <li>WVC_Nodization_PatternBuff_F</li> -->
+		<!-- <li>WVC_Nodization_PatternBuff_G</li> -->
 		<!-- = -->
 		<!-- <li>WVC_Nodization_PointBuff_A</li> -->
 		<!-- <li>WVC_Nodization_PointBuff_B</li> -->

@@ -58,7 +58,7 @@
 				<!-- </li> -->
 			<!-- </hediffsToBodyParts> -->
 		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_HediffGiver">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>PsychicAmplifier</hediffDefName>
 			<bodyparts>
 			  <li>Brain</li>

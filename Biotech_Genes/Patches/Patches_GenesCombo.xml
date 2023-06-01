@@ -47,17 +47,13 @@
 		</caseTrue>
 	</Operation>
 
-	<Operation Class="WVC.PatchOperationOptional">
-		<settingName>hideEncodingGenes</settingName>
-		<!-- <caseTrue Class="PatchOperationSequence"> -->
-			<!-- <operations> -->
-			<!-- </operations> -->
-		<!-- </caseTrue> -->
-		<caseFalse Class="PatchOperationRemove">
-		  <xpath>/Defs/GeneDef[@Name="WVC_Nodization_RandomBuff_Base"]/modExtensions/li[@Class="VanillaGenesExpanded.GeneExtension"]/hideGene</xpath>
-		  <success>Always</success>
-		</caseFalse>
-	</Operation>
+	<!-- <Operation Class="WVC.PatchOperationOptional"> -->
+		<!-- <settingName>hideEncodingGenes</settingName> -->
+		<!-- <caseFalse Class="PatchOperationRemove"> -->
+		  <!-- <xpath>/Defs/GeneDef[@Name="WVC_Nodization_RandomBuff_Base"]/modExtensions/li[@Class="VanillaGenesExpanded.GeneExtension"]/hideGene</xpath> -->
+		  <!-- <success>Always</success> -->
+		<!-- </caseFalse> -->
+	<!-- </Operation> -->
 
 	<!-- ================== -->
 

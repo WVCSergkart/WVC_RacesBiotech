@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode" Name="WVC_XenotypesAndGenes_ArchitesRandomEncode_Vindication" Abstract="True">
+	<label>encoding CV</label>
+	<displayOrderInCategory>-1170</displayOrderInCategory>
+	<iconPath>WVC/UI/Genes/Encoding_GeneC</iconPath>
+	<exclusionTags>
+	  <li>WVC_Nodization_RandomBuff_Vindication</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<!-- <randomizerGene>WVC_Nodization_VindicationRandomizer</randomizerGene> -->
+			<randomizerGenesList>
+				<li>WVC_Nodization_VindicationBuff_A</li>
+				<li>WVC_Nodization_VindicationBuff_B</li>
+				<li>WVC_Nodization_VindicationBuff_C</li>
+				<li>WVC_Nodization_VindicationBuff_D</li>
+				<li>WVC_Nodization_VindicationBuff_E</li>
+				<li>WVC_Nodization_VindicationBuff_F</li>
+				<li>WVC_Nodization_VindicationBuff_G</li>
+			</randomizerGenesList>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- Lvl 3 -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Vindication">
+	<defName>WVC_Nodization_VindicationBuff_A</defName>
+	<label>vindication SX</label>
+	<iconColor>(133, 202, 255)</iconColor>
+	<statOffsets>
+	  <WVC_MechEnergyUsageOffset>-0.5</WVC_MechEnergyUsageOffset>
+	</statOffsets>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Vindication">
+	<defName>WVC_Nodization_VindicationBuff_B</defName>
+	<label>vindication HJ</label>
+	<iconColor>(255, 133, 133)</iconColor>
+	<statOffsets>
+	  <MoveSpeed>1.0</MoveSpeed>
+	</statOffsets>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Vindication">
+	<defName>WVC_Nodization_VindicationBuff_C</defName>
+	<label>vindication GB</label>
+	<iconColor>(133, 255, 136)</iconColor>
+	<statFactors>
+	  <MentalBreakThreshold>0.5</MentalBreakThreshold>
+	</statFactors>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Vindication">
+	<defName>WVC_Nodization_VindicationBuff_D</defName>
+	<label>vindication CV</label>
+	<iconColor>(142, 133, 255)</iconColor>
+	<statOffsets>
+	  <MeleeDodgeChance>30</MeleeDodgeChance>
+	</statOffsets>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Vindication">
+	<defName>WVC_Nodization_VindicationBuff_E</defName>
+	<label>vindication WR</label>
+	<iconColor>(255, 248, 133)</iconColor>
+	<statOffsets>
+	  <PawnBeauty>2</PawnBeauty>
+	</statOffsets>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Vindication">
+	<defName>WVC_Nodization_VindicationBuff_F</defName>
+	<label>vindication VX</label>
+	<iconColor>(133, 167, 255)</iconColor>
+	<statOffsets>
+	  <WVC_MechEnergyUsageOffset>-0.25</WVC_MechEnergyUsageOffset>
+	  <MeleeDodgeChance>15</MeleeDodgeChance>
+	</statOffsets>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Vindication">
+	<defName>WVC_Nodization_VindicationBuff_G</defName>
+	<label>vindication YR</label>
+	<iconColor>(255, 182, 133)</iconColor>
+	<statOffsets>
+	  <PawnBeauty>1</PawnBeauty>
+	</statOffsets>
+	<statFactors>
+	  <MentalBreakThreshold>0.8</MentalBreakThreshold>
+	</statFactors>
+  </GeneDef>
+
+</Defs>

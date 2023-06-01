@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode" Name="WVC_XenotypesAndGenes_ArchitesRandomEncode_Skill" Abstract="True">
+	<label>encoding GB</label>
+	<displayOrderInCategory>-1180</displayOrderInCategory>
+	<iconPath>WVC/UI/Genes/Encoding_GeneB</iconPath>
+	<exclusionTags>
+	  <li>WVC_Nodization_RandomBuff_Skill</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<!-- <randomizerGene>WVC_Nodization_SkillRandomizer</randomizerGene> -->
+			<randomizerGenesList>
+				<li>WVC_Nodization_SkillBuff_A</li>
+				<li>WVC_Nodization_SkillBuff_B</li>
+				<li>WVC_Nodization_SkillBuff_C</li>
+				<li>WVC_Nodization_SkillBuff_D</li>
+				<li>WVC_Nodization_SkillBuff_E</li>
+				<li>WVC_Nodization_SkillBuff_F</li>
+				<li>WVC_Nodization_SkillBuff_G</li>
+			</randomizerGenesList>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- Lvl 2 -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Skill">
+	<defName>WVC_Nodization_SkillBuff_A</defName>
+	<label>skill SX</label>
+	<iconColor>(133, 202, 255)</iconColor>
+	<aptitudes>
+	  <Crafting>8</Crafting>
+	</aptitudes>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Skill">
+	<defName>WVC_Nodization_SkillBuff_B</defName>
+	<label>skill HJ</label>
+	<iconColor>(255, 133, 133)</iconColor>
+	<aptitudes>
+	  <Shooting>8</Shooting>
+	</aptitudes>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Skill">
+	<defName>WVC_Nodization_SkillBuff_C</defName>
+	<label>skill GB</label>
+	<iconColor>(133, 255, 136)</iconColor>
+	<aptitudes>
+	  <Medicine>8</Medicine>
+	</aptitudes>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Skill">
+	<defName>WVC_Nodization_SkillBuff_D</defName>
+	<label>skill CV</label>
+	<iconColor>(142, 133, 255)</iconColor>
+	<aptitudes>
+	  <Melee>8</Melee>
+	</aptitudes>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Skill">
+	<defName>WVC_Nodization_SkillBuff_E</defName>
+	<label>skill WR</label>
+	<iconColor>(255, 248, 133)</iconColor>
+	<aptitudes>
+	  <Social>8</Social>
+	</aptitudes>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Skill">
+	<defName>WVC_Nodization_SkillBuff_F</defName>
+	<label>skill VX</label>
+	<iconColor>(133, 167, 255)</iconColor>
+	<aptitudes>
+	  <Crafting>4</Crafting>
+	  <Melee>4</Melee>
+	</aptitudes>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Skill">
+	<defName>WVC_Nodization_SkillBuff_G</defName>
+	<label>skill YR</label>
+	<iconColor>(255, 182, 133)</iconColor>
+	<aptitudes>
+	  <Social>4</Social>
+	  <Intellectual>4</Intellectual>
+	</aptitudes>
+  </GeneDef>
+
+</Defs>
