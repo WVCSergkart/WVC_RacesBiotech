@@ -1,13 +1,146 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <HediffDef>
+  <HediffDef Name="WVC_XenotypesAndGenes_Hediffs_Base" Abstract="True">
+	<label>test</label>
+	<description>Should be invisible.</description>
+	<defaultLabelColor>(255,255,255)</defaultLabelColor>
+	<hediffClass>HediffWithComps</hediffClass>
+	<scenarioCanAdd>false</scenarioCanAdd>
+	<isBad>false</isBad>
+	<everCurableByItem>false</everCurableByItem>
+	<makesAlert>false</makesAlert>
+	<keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
+	<countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
+	<allowMothballIfLowPriorityWorldPawn>true</allowMothballIfLowPriorityWorldPawn>
+  </HediffDef>
+
+  <!--=====================================================================-->
+  
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_RB_Mecha_ScytheTail</defName>
+	<label>scythe tail</label>
+	<stages>
+	  <li>
+		<!-- <partIgnoreMissingHP>true</partIgnoreMissingHP> -->
+		<becomeVisible>false</becomeVisible>
+	  </li>
+	</stages>
+	<comps>
+	  <li Class="HediffCompProperties_VerbGiver">
+		<tools>
+		  <li>
+			<label>scythe tail</label>
+			<capacities>
+			  <li>Cut</li>
+			  <li>Stab</li>
+			</capacities>
+			<power>20</power>
+			<cooldownTime>1.5</cooldownTime>
+			<armorPenetration>0.8</armorPenetration>
+			<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+			<soundMeleeHit>Pawn_Melee_MechanoidSlash_HitPawn</soundMeleeHit>
+			<soundMeleeMiss>Pawn_Melee_MechanoidSlash_Miss</soundMeleeMiss>
+			<surpriseAttack>
+			  <extraMeleeDamages>
+				<li>
+				  <def>Stun</def>
+				  <amount>14</amount>
+				</li>
+			  </extraMeleeDamages>
+			</surpriseAttack>
+		  </li>
+		</tools>
+	  </li>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_RB_MechaClaws</defName>
+	<label>foldable claw</label>
+	<description>Deadly sharp claw.</description>
+	<hediffClass>HediffWithComps</hediffClass>
+	<addedPartProps>
+	  <!-- <solid>true</solid> -->
+	  <partEfficiency>1.0</partEfficiency>
+	  <betterThanNatural>true</betterThanNatural>
+	</addedPartProps>
+	<comps>
+	  <li Class="HediffCompProperties_VerbGiver">
+		<tools>
+		  <li>
+			<label>claw</label>
+			<capacities>
+			  <li>Cut</li>
+			  <li>Stab</li>
+			</capacities>
+			<power>20</power>
+			<cooldownTime>1.6</cooldownTime>
+			<armorPenetration>0.8</armorPenetration>
+			<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+			<soundMeleeHit>Pawn_Melee_MechanoidSlash_HitPawn</soundMeleeHit>
+			<soundMeleeMiss>Pawn_Melee_MechanoidSlash_Miss</soundMeleeMiss>
+			<surpriseAttack>
+			  <extraMeleeDamages>
+				<li>
+				  <def>Stun</def>
+				  <amount>14</amount>
+				</li>
+			  </extraMeleeDamages>
+			</surpriseAttack>
+		  </li>
+		</tools>
+	  </li>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_RB_NaturalClaws</defName>
+	<label>claw</label>
+	<description>Deadly sharp claw. Not very suitable for fine work.</description>
+	<hediffClass>HediffWithComps</hediffClass>
+	<addedPartProps>
+	  <!-- <solid>true</solid> -->
+	  <partEfficiency>0.80</partEfficiency>
+	  <betterThanNatural>true</betterThanNatural>
+	</addedPartProps>
+	<comps>
+	  <li Class="HediffCompProperties_VerbGiver">
+		<tools>
+		  <li>
+			<label>claw</label>
+			<capacities>
+			  <li>Cut</li>
+			  <li>Stab</li>
+			</capacities>
+			<power>18</power>
+			<cooldownTime>1.6</cooldownTime>
+			<armorPenetration>0.4</armorPenetration>
+			<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+			<surpriseAttack>
+			  <extraMeleeDamages>
+				<li>
+				  <def>Stun</def>
+				  <amount>14</amount>
+				</li>
+			  </extraMeleeDamages>
+			</surpriseAttack>
+		  </li>
+		</tools>
+	  </li>
+	</comps>
+  </HediffDef>
+
+  <!--=====================================================================-->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
 	<defName>WVC_IncompatibilityComa</defName>
 	<label>incompatibility coma</label>
 	<description>The pawn was rendered unconscious by a dose of incompatible mechanites.</description>
 	<hediffClass>HediffWithComps</hediffClass>
 	<scenarioCanAdd>false</scenarioCanAdd>
 	<isBad>false</isBad>
+	<allowMothballIfLowPriorityWorldPawn>true</allowMothballIfLowPriorityWorldPawn>
 	<stages>
 	  <li>
 		<becomeVisible>true</becomeVisible>
@@ -28,12 +161,9 @@
 	</comps>
   </HediffDef>
 
-  <HediffDef>
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
 	<defName>WVC_MechaClotting_PreventBleeding</defName>
 	<label>prevent bleeding</label>
-	<description>Should be invisible.</description>
-	<scenarioCanAdd>false</scenarioCanAdd>
-	<isBad>false</isBad>
 	<stages>
 	  <li>
 		<totalBleedFactor>0</totalBleedFactor>
@@ -65,12 +195,9 @@
 	<!-- </comps> -->
   <!-- </HediffDef> -->
 
-  <HediffDef>
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
 	<defName>WVC_SleepyStomach_HungerFactor</defName>
 	<label>sleepy stomach</label>
-	<description>Should be invisible.</description>
-	<scenarioCanAdd>false</scenarioCanAdd>
-	<isBad>false</isBad>
 	<stages>
 	  <li>
 		<hungerRateFactor>0.2</hungerRateFactor>
@@ -80,12 +207,9 @@
 	</stages>
   </HediffDef>
 
-  <HediffDef>
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
 	<defName>WVC_StoneStomach_HungerFactor</defName>
 	<label>stone stomach</label>
-	<description>Should be invisible.</description>
-	<scenarioCanAdd>false</scenarioCanAdd>
-	<isBad>false</isBad>
 	<stages>
 	  <li>
 		<hungerRateFactor>0.2</hungerRateFactor>
@@ -95,8 +219,10 @@
 	</stages>
   </HediffDef>
 
+  <!--=====================================================================-->
+
   <!-- f4e776 -->
-  <HediffDef>
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
 	<defName>WVC_SelfPopulationRegulation_Golems</defName>
 	<label>golem</label>
 	<description>This creature is a golem and can only live under certain conditions:
@@ -124,6 +250,131 @@ At the same time, there can be a limited number of living golems under the contr
 		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GolemPopulationRegulation">
 			<!-- <geneDef>WVC_SwarmConnection_Golems</geneDef> -->
 			<statDef>WVC_OverseerMaxGolems</statDef>
+		</li>
+	</comps>
+  </HediffDef>
+
+  <!--=====================================================================-->
+
+  <!-- Active -->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base" Name="WVC_XenotypesAndGenes_Hediffs_AbilityGestator" Abstract="True">
+	<label>gestation process</label>
+	<description>Mechanites slowly form new life.</description>
+	<hediffClass>HediffWithComps</hediffClass>
+	<defaultLabelColor>(255,255,255)</defaultLabelColor>
+	<preventsPregnancy>true</preventsPregnancy>
+	<removeOnQuestLodgers>true</removeOnQuestLodgers>
+	<initialSeverity>1</initialSeverity>
+	<maxSeverity>1.0</maxSeverity>
+	<stages>
+	  <li>
+		<hungerRateFactorOffset>0.5</hungerRateFactorOffset>
+		<capMods>
+		  <li>
+			<capacity>Moving</capacity>
+			<offset>-0.5</offset>
+		  </li>
+		  <li>
+			<capacity>Manipulation</capacity>
+			<offset>-0.1</offset>
+		  </li>
+		</capMods>
+	  </li>
+	</stages>
+	<comps>
+		<li Class="HediffCompProperties_DisappearsOnDeath"/>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_AbilityGestator">
+	<defName>WVC_RB_AbilityMechaGestator</defName>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_Gestator">
+			<gestationIntervalDays>5</gestationIntervalDays>
+			<endogeneTransfer>true</endogeneTransfer>
+			<completeMessage>WVC_RB_Gene_MechaGestator</completeMessage>
+		</li>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_AbilityGestator">
+	<defName>WVC_RB_AbilityUrchinGestator</defName>
+	<comps>
+		<li Class="AnimalBehaviours.HediffCompProperties_AsexualReproduction">
+			<reproductionIntervalDays>5</reproductionIntervalDays>
+			<convertsIntoAnotherDef>true</convertsIntoAnotherDef>
+			<newDef>WVC_Genes_Mech_Urchin</newDef>
+		</li>
+		<li Class="HediffCompProperties_Disappears">
+			<disappearsAfterTicks>301500</disappearsAfterTicks>
+			<showRemainingTime>true</showRemainingTime>
+		</li>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_AbilityGestator">
+	<defName>WVC_MechanoidAbility_ActivateGestator</defName>
+	<stages Inherit="False">
+	  <!-- <li> -->
+		<!-- <capMods> -->
+		  <!-- <li> -->
+			<!-- <capacity>Consciousness</capacity> -->
+			<!-- <setMax>0.8</setMax> -->
+		  <!-- </li> -->
+		<!-- </capMods> -->
+	  <!-- </li> -->
+	</stages>
+	<comps>
+		<!-- <li Class="AnimalBehaviours.HediffCompProperties_AsexualReproduction"> -->
+			<!-- <reproductionIntervalDays>5</reproductionIntervalDays> -->
+			<!-- <endogeneTransfer>true</endogeneTransfer> -->
+			<!-- <asexualHatchedMessage>WVC_RB_Gene_MechaGestator</asexualHatchedMessage> -->
+		<!-- </li> -->
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GolemGestator">
+			<gestationIntervalDays>1</gestationIntervalDays>
+			<endogeneTransfer>true</endogeneTransfer>
+			<geneDef>WVC_SwarmConnection_Golems</geneDef>
+			<completeMessage>WVC_RB_Gene_GolemGestator</completeMessage>
+		</li>
+	</comps>
+  </HediffDef>
+
+  <!-- Passive -->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_MechaGestator</defName>
+	<label>gestator</label>
+	<description>Mechanites slowly form new life.</description>
+	<hediffClass>HediffWithComps</hediffClass>
+	<preventsPregnancy>true</preventsPregnancy>
+	<maxSeverity>1.0</maxSeverity>
+	<comps>
+		<!-- <li Class="AnimalBehaviours.HediffCompProperties_AsexualReproduction"> -->
+			<!-- <reproductionIntervalDays>120</reproductionIntervalDays> -->
+			<!-- <endogeneTransfer>true</endogeneTransfer> -->
+			<!-- <asexualHatchedMessage>WVC_RB_Gene_MechaGestator</asexualHatchedMessage> -->
+		<!-- </li> -->
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_Gestator">
+			<gestationIntervalDays>120</gestationIntervalDays>
+			<endogeneTransfer>true</endogeneTransfer>
+			<completeMessage>WVC_RB_Gene_MechaGestator</completeMessage>
+		</li>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_Genes_UrchinGestator</defName>
+	<label>mech-assembling</label>
+	<description>The mechanites are slowly assembling the mechanoid.</description>
+	<hediffClass>HediffWithComps</hediffClass>
+	<preventsPregnancy>true</preventsPregnancy>
+	<maxSeverity>1.0</maxSeverity>
+	<comps>
+		<li Class="AnimalBehaviours.HediffCompProperties_AsexualReproduction">
+			<reproductionIntervalDays>10</reproductionIntervalDays>
+			<convertsIntoAnotherDef>true</convertsIntoAnotherDef>
+			<newDef>WVC_Genes_Mech_Urchin</newDef>
 		</li>
 	</comps>
   </HediffDef>

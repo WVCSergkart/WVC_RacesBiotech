@@ -2,44 +2,6 @@
 <Defs>
 
   <!-- Tail -->
-  
-  <HediffDef ParentName="WVC_RB_Hediff_BodyParts_Special">
-	<defName>WVC_RB_Mecha_ScytheTail</defName>
-	<label>scythe tail</label>
-	<stages>
-	  <li>
-		<!-- <partIgnoreMissingHP>true</partIgnoreMissingHP> -->
-		<becomeVisible>false</becomeVisible>
-	  </li>
-	</stages>
-	<comps>
-	  <li Class="HediffCompProperties_VerbGiver">
-		<tools>
-		  <li>
-			<label>scythe tail</label>
-			<capacities>
-			  <li>Cut</li>
-			  <li>Stab</li>
-			</capacities>
-			<power>20</power>
-			<cooldownTime>1.5</cooldownTime>
-			<armorPenetration>0.8</armorPenetration>
-			<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
-			<soundMeleeHit>Pawn_Melee_MechanoidSlash_HitPawn</soundMeleeHit>
-			<soundMeleeMiss>Pawn_Melee_MechanoidSlash_Miss</soundMeleeMiss>
-			<surpriseAttack>
-			  <extraMeleeDamages>
-				<li>
-				  <def>Stun</def>
-				  <amount>14</amount>
-				</li>
-			  </extraMeleeDamages>
-			</surpriseAttack>
-		  </li>
-		</tools>
-	  </li>
-	</comps>
-  </HediffDef>
 
   <!-- Node tail -->
 
