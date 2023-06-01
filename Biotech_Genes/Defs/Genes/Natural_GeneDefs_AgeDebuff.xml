@@ -9,41 +9,6 @@
 
   <!-- ================================================================== -->
 
-  <GeneDef ParentName="GeneLearningBase">
-	<defName>WVC_NoLearning</defName>
-	<label>arrested development</label>
-	<description>Carriers of this gene at some point in time stop learning new things.</description>
-	<iconPath>WVC/UI/Genes/AgeDebuff_Dumb</iconPath>
-	<!-- <displayCategory>WVC_AgeDebuffs</displayCategory> -->
-	<displayOrderInCategory>40</displayOrderInCategory>
-	<minAgeActive>25</minAgeActive>
-	<selectionWeight>0.002</selectionWeight>
-	<statFactors>
-	  <GlobalLearningFactor>0</GlobalLearningFactor>
-	</statFactors>
-	<biostatCpx>3</biostatCpx>
-	<biostatMet>6</biostatMet>
-	<symbolPack>
-	  <prefixSymbols>
-		<li><symbol>stup</symbol></li>
-		<li><symbol>dumb</symbol></li>
-		<li><symbol>dove</symbol></li>
-		<li><symbol>usl</symbol></li>
-		<li><symbol>age</symbol></li>
-		<li><symbol>weak</symbol></li>
-	  </prefixSymbols>
-	  <suffixSymbols>
-		<li><symbol>bad</symbol></li>
-	  </suffixSymbols>
-	</symbolPack>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-	</modExtensions>
-  </GeneDef>
-
   <!-- ============== -->
 
   <GeneDef ParentName="GeneToxResistBase">

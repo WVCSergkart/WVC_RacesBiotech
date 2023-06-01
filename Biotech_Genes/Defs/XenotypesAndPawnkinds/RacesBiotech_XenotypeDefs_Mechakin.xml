@@ -36,8 +36,9 @@
 		<li>PerfectImmunity</li>
 		<li>TotalHealing</li>
 		<!-- <li>StrongStomach</li> -->
-		<li>WVC_ClothedArmor</li>
-		<li>WVC_Mecha_EarsCat</li>
+		<!-- <li>WVC_ClothedArmor</li> -->
+		<li>WVC_ArmoredSkin_Fortress</li>
+		<!-- <li>WVC_Mecha_EarsCat</li> -->
 		<li>WVC_Mecha_ScytheTail</li>
 		<!-- <li>MinTemp_LargeDecrease</li> -->
 		<!-- <li>MaxTemp_LargeIncrease</li> -->
@@ -79,13 +80,13 @@
 		<!-- <li>AptitudeRemarkable_Intellectual</li> -->
 		<!-- <li>WVC_EmotionReset</li> -->
 		<li>WVC_EmotionlessUnshakable</li>
-		<li>WVC_Aptitudes_GreatEqualizer</li>
+		<!-- <li>WVC_Aptitudes_GreatEqualizer</li> -->
 		<!-- Firmware -->
 		<li>WVC_MechaAI_FirmwareCreatorMachine</li>
 		<li>WVC_MechaAI_FirmwareWarMachine</li>
-		<li>WVC_MechaAI_FirmwareGreenMachine</li>
-		<li>WVC_MechaAI_FirmwareRogueMachine</li>
-		<li>WVC_MechaAI_FirmwarePropagandaMachine</li>
+		<!-- <li>WVC_MechaAI_FirmwareGreenMachine</li> -->
+		<!-- <li>WVC_MechaAI_FirmwareRogueMachine</li> -->
+		<!-- <li>WVC_MechaAI_FirmwarePropagandaMachine</li> -->
 		<!-- = -->
 		<li>WVC_PredatorPrey_NotTasty</li>
 	</genes>

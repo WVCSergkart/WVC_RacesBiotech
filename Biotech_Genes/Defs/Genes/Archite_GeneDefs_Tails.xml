@@ -76,7 +76,7 @@
 	<defName>WVC_Mecha_ScytheTail</defName>
 	<label>scythe tail</label>
 	<description>Carriers of this gene grow a sleek long tail with several blades at the end.</description>
-	<iconPath>WVC/MecaGene_ScytheTail/SmoothTail_east</iconPath>
+	<iconPath>WVC/MecaGene_ScytheTail/ScytheTail_east</iconPath>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<!-- <biostatMet>-1</biostatMet> -->
@@ -85,7 +85,7 @@
 		<li>Adds a deadly tail attack.</li>
 	</customEffectDescriptions>
 	<graphicData>
-	  <graphicPath>WVC/MecaGene_ScytheTail/SmoothTail</graphicPath>
+	  <graphicPath>WVC/MecaGene_ScytheTail/ScytheTail</graphicPath>
 	  <colorType>Hair</colorType>
 	</graphicData>
 	<symbolPack>
