@@ -168,6 +168,9 @@
 	<!-- <selectionWeight>0.0075</selectionWeight> -->
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
+	<customEffectDescriptions>
+		<li>Has a 20% chance of being replaced by any other gene of the same type. The effect is triggered when a gene is transferred/reimplanted/added.</li>
+	</customEffectDescriptions>
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>&lt;color=#ff8585&gt;Activation of the gene requires either the "mecha-subcore" gene or any of the mechaskins.&lt;/color&gt;</li> -->
 	<!-- </customEffectDescriptions> -->

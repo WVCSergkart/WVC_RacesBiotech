@@ -53,8 +53,8 @@
 	<selectionWeight>0.0</selectionWeight>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<customEffectDescriptions>
+		<li>Has a 20% chance of being replaced by any other gene of the same type. The effect is triggered when a gene is transferred/reimplanted/added.</li>
 		<li>&lt;color=#ff8585&gt;This gene is activated only in the presence of the "Nodeskin" gene.&lt;/color&gt;</li>
-		<!-- <li>&lt;color=#ff8585&gt;Requires "Nodeskin" gene&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<graphicData>
 	  <colorType>Custom</colorType>
@@ -67,6 +67,7 @@
 	</graphicData>
 	<exclusionTags>
 	  <li>WVC_NodeBody_Eyes</li>
+	  <li>WVC_XenotypesAndGenes_GeneTagRandomizer_RandomFaceplate</li>
 	</exclusionTags>
 	<!-- <capMods> -->
 	  <!-- <li> -->
@@ -82,7 +83,6 @@
 			<eyesShouldBeInvisble>true</eyesShouldBeInvisble>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<!-- <randomizerGene>WVC_NodeEyes_Randomizer</randomizerGene> -->
 			<randomizerGenesList>
 				<li>WVC_NodeEyes_A</li>
 				<li>WVC_NodeEyes_B</li>

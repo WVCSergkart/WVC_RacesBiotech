@@ -7,10 +7,10 @@
 	<displayOrderInCategory>-1200</displayOrderInCategory>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_Entity</li>
+	  <li>WVC_XenotypesAndGenes_ArchitesRandomEncode_GeneTagRandomizer_Entity</li>
 	</exclusionTags>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<!-- <randomizerGene>WVC_Nodization_EntityRandomizer</randomizerGene> -->
 			<randomizerGenesList>
 				<li>WVC_Nodization_EntityBuff_A</li>
 				<li>WVC_Nodization_EntityBuff_B</li>

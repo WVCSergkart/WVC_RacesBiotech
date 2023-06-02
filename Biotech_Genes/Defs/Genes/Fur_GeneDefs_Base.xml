@@ -96,6 +96,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<!-- <displayOrderInCategory>-100</displayOrderInCategory> -->
 	<iconColor>(184, 198, 203)</iconColor>
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_MechaskinHunger</geneClass> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_TEST</geneClass> -->
 	<minAgeActive>13</minAgeActive>
 	<forcedHeadTypes>
 	  <li>Male_AverageNormal</li>

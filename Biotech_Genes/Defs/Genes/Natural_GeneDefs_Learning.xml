@@ -6,11 +6,11 @@
 	<!-- <labelShortAdj>blindness</labelShortAdj> -->
 	<!-- <description>TEST</description> -->
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_PermanentHediff</geneClass> -->
-	<geneClass>WVC_XenotypesAndGenes.Gene_BackstoryChanger</geneClass>
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_BackstoryChanger</geneClass> -->
 	<selectionWeight>0.022</selectionWeight>
-	<customEffectDescriptions>
-	  <li>Childhood and adulthood background will be &lt;color=#8a8ae6&gt;amnesiac&lt;/color&gt;. Does not work if the carrier is a native colonist.</li>
-	</customEffectDescriptions>
+	<!-- <customEffectDescriptions> -->
+	  <!-- <li>Childhood and adulthood background will be &lt;color=#8a8ae6&gt;amnesiac&lt;/color&gt;. Does not work if the carrier is a native colonist.</li> -->
+	<!-- </customEffectDescriptions> -->
 	<!-- <displayCategory>Ability</displayCategory> -->
 	<!-- <displayCategory>Archite</displayCategory> -->
 	<!-- <displayCategory>Violence</displayCategory> -->
@@ -26,10 +26,10 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
 			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
 		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<childBackstoryDef>WVC_RacesBiotech_Amnesia_Child</childBackstoryDef>
-			<adultBackstoryDef>WVC_RacesBiotech_Amnesia_Adult</adultBackstoryDef>
-		</li>
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <childBackstoryDef>WVC_RacesBiotech_Amnesia_Child</childBackstoryDef> -->
+			<!-- <adultBackstoryDef>WVC_RacesBiotech_Amnesia_Adult</adultBackstoryDef> -->
+		<!-- </li> -->
 	</modExtensions>
   </GeneDef>
 

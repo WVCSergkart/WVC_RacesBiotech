@@ -7,10 +7,10 @@
 	<iconPath>WVC/UI/Genes/Encoding_GeneG</iconPath>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_Decision</li>
+	  <li>WVC_XenotypesAndGenes_ArchitesRandomEncode_GeneTagRandomizer_Decision</li>
 	</exclusionTags>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<!-- <randomizerGene>WVC_Nodization_DecisionRandomizer</randomizerGene> -->
 			<randomizerGenesList>
 				<li>WVC_Nodization_DecisionBuff_A</li>
 				<li>WVC_Nodization_DecisionBuff_B</li>
