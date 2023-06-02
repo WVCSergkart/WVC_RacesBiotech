@@ -83,6 +83,7 @@
 			<eyesShouldBeInvisble>true</eyesShouldBeInvisble>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<!-- <exclusionTag>WVC_XenotypesAndGenes_GeneTagRandomizer_RandomFaceplate</exclusionTag> -->
 			<randomizerGenesList>
 				<li>WVC_NodeEyes_A</li>
 				<li>WVC_NodeEyes_B</li>

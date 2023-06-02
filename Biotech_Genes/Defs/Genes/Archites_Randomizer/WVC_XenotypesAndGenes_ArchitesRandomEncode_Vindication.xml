@@ -11,6 +11,7 @@
 	</exclusionTags>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<!-- <exclusionTag>WVC_XenotypesAndGenes_ArchitesRandomEncode_GeneTagRandomizer_Vindication</exclusionTag> -->
 			<randomizerGenesList>
 				<li>WVC_Nodization_VindicationBuff_A</li>
 				<li>WVC_Nodization_VindicationBuff_B</li>
