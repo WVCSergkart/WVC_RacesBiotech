@@ -36,19 +36,19 @@
 	  <!-- </value> -->
 	<!-- </Operation> -->
 
-	<Operation Class="PatchOperationFindMod">
-		<mods>
-			<li>Royalty</li>
-		</mods>
-		<nomatch Class="PatchOperationSequence">
-			<operations>
-				<li Class="PatchOperationRemove">
-					<xpath>/Defs/GeneDef[defName="WVC_Nodization_DecisionBuff_G"]/geneClass</xpath>
-					<success>Always</success>
-				</li>
-			</operations>
-		</nomatch>
-	</Operation>
+	<!-- <Operation Class="PatchOperationFindMod"> -->
+		<!-- <mods> -->
+			<!-- <li>Royalty</li> -->
+		<!-- </mods> -->
+		<!-- <nomatch Class="PatchOperationSequence"> -->
+			<!-- <operations> -->
+				<!-- <li Class="PatchOperationRemove"> -->
+					<!-- <xpath>/Defs/GeneDef[defName="WVC_Nodization_DecisionBuff_G"]/geneClass</xpath> -->
+					<!-- <success>Always</success> -->
+				<!-- </li> -->
+			<!-- </operations> -->
+		<!-- </nomatch> -->
+	<!-- </Operation> -->
 
 	<!-- <Operation Class="PatchOperationFindMod"> -->
 		<!-- <mods> -->
