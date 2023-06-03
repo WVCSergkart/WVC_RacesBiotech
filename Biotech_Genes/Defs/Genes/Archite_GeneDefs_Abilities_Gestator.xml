@@ -3,7 +3,7 @@
 
   <GeneDef ParentName="WVC_MechanoidizationAbilities" Name="WVC_GeneGestationAbilities_Base" Abstract="True">
 	<label>gestator</label>
-	<description>Carriers of this gene have a built-in gestator that can produce semi-organic life.</description>
+	<description>Carriers of this gene have a built-in gestator that can produce new life.</description>
 	<iconPath>WVC/UI/Genes/Gestator</iconPath>
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
 	<sterilize>true</sterilize>
