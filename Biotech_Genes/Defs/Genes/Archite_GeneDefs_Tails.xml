@@ -37,7 +37,7 @@
   <GeneDef ParentName="WVC_NodeTail_Base">
 	<defName>WVC_Mecha_ScytheTail</defName>
 	<label>scythe tail</label>
-	<description>Carriers of this gene grow a sleek long tail with several blades at the end.</description>
+	<description>Carriers of this gene grow two tails with scythe-like blades at the end.</description>
 	<iconPath>WVC/MecaGene_ScytheTail/ScytheTail_east</iconPath>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
@@ -46,6 +46,12 @@
 	<customEffectDescriptions>
 		<li>Adds a deadly tail attack.</li>
 	</customEffectDescriptions>
+	<aptitudes>
+	  <Plants>6</Plants>
+	</aptitudes>
+	<statOffsets>
+	  <PlantWorkSpeed>0.5</PlantWorkSpeed>
+	</statOffsets>
 	<graphicData>
 	  <graphicPath>WVC/MecaGene_ScytheTail/ScytheTail</graphicPath>
 	  <colorType>Hair</colorType>
@@ -89,8 +95,12 @@
 	<iconPath>WVC/MecaGene_ScytheTail/NodeTail_east</iconPath>
 	<minAgeActive>13</minAgeActive>
 	<statOffsets>
-		<MechRepairSpeed>0.1</MechRepairSpeed>
+		<MechBandwidth>2</MechBandwidth>
+		<MechRepairSpeed>1.0</MechRepairSpeed>
 	</statOffsets>
+	<aptitudes>
+	  <Crafting>3</Crafting>
+	</aptitudes>
 	<graphicData>
 	  <graphicPath>WVC/MecaGene_ScytheTail/NodeTail</graphicPath>
 	</graphicData>
@@ -125,7 +135,7 @@
 	<iconPath>WVC/MecaGene_ScytheTail/AntennaTail_east</iconPath>
 	<minAgeActive>13</minAgeActive>
 	<statOffsets>
-		<MechBandwidth>3</MechBandwidth>
+		<MechBandwidth>12</MechBandwidth>
 	</statOffsets>
 	<graphicData>
 	  <graphicPath>WVC/MecaGene_ScytheTail/AntennaTail</graphicPath>
@@ -164,7 +174,7 @@
 	</customEffectDescriptions>
 	<graphicData Inherit="False"/>
 	<statOffsets>
-	  <ArmorRating_Blunt>0.12</ArmorRating_Blunt>
+	  <ArmorRating_Blunt>0.20</ArmorRating_Blunt>
 	</statOffsets>
   </GeneDef>
 
