@@ -46,6 +46,17 @@
 		<li MayRequire="sarg.alphagenes">AG_SlugBody</li>
 		<li MayRequire="sarg.alphagenes">AG_SlimeBody</li>
 	</whiteListedExoskinGenes>
+	<!-- List of backstories that will not be overridden by the backstory changer. Required backstory defNames -->
+	<blackListedBackstoryForChanger>
+		<li>Newborn79</li>
+		<li>Colonist97</li>
+		<li>ColonyChild59</li>
+		<li>Child27</li>
+		<li>ChildTribal</li>
+		<li>TribeChild19</li>
+		<li>TribeMember57</li>
+		<li>VatgrownChild11</li>
+	</blackListedBackstoryForChanger>
 	<!-- Mechanoids that are considered golems. Required thing defNames -->
 	<!-- <listedGolems> -->
 		<!-- <li>WVC_Golem_Liftoid</li> -->
