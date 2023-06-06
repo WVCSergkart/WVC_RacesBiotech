@@ -49,6 +49,16 @@ A restart is required to apply the setting.</WVC_ToolTip_hideEncodingGenes>
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_serumsForAllXenotypes>Generate xenotypes serums</WVC_Label_serumsForAllXenotypes>
-	<WVC_ToolTip_serumsForAllXenotypes>Affects whether serums for all possible xenotypes will be generated. Does not affect custom ones.</WVC_ToolTip_serumsForAllXenotypes>
+	<WVC_ToolTip_serumsForAllXenotypes>Affects whether serums for all possible xenotypes will be generated. Does not affect custom ones. Restart required.
+
+May affect startup speed on modlists with a lot of mods that add xenotypes.</WVC_ToolTip_serumsForAllXenotypes>
+
+	<!-- ====================================================================================== -->
+	<WVC_Label_serumsForAllXenotypes_Recipes>Generate serum recipes</WVC_Label_serumsForAllXenotypes_Recipes>
+	<WVC_ToolTip_serumsForAllXenotypes_Recipes>If enabled, it creates a recipe for each serum, allowing it to be used through the "Operation" menu, in the pawn's health tab. Restart required.</WVC_ToolTip_serumsForAllXenotypes_Recipes>
+
+	<!-- ====================================================================================== -->
+	<WVC_Label_serumsSpawnersForAllXenotypes>Generate serum spawner genes</WVC_Label_serumsSpawnersForAllXenotypes>
+	<WVC_ToolTip_serumsSpawnersForAllXenotypes>If enabled, a spawner gene will be added for each serum. Restart required.</WVC_ToolTip_serumsSpawnersForAllXenotypes>
 
 </LanguageData>
