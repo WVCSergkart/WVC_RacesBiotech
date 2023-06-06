@@ -21,12 +21,12 @@ namespace WVC_XenotypesAndGenes
 
 		public static List<BackstoryDef> BlackListedBackstoryForChanger()
 		{
-			List<BackstoryDef> blackListedBackstoryForChanger = new();
+			List<BackstoryDef> list = new();
 			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
 			{
-				blackListedBackstoryForChanger.AddRange(item.blackListedBackstoryForChanger);
+				list.AddRange(item.blackListedBackstoryForChanger);
 			}
-			return blackListedBackstoryForChanger;
+			return list;
 		}
 
 		public static List<string> WhiteListedXenotypesForFilter()
@@ -41,62 +41,54 @@ namespace WVC_XenotypesAndGenes
 
 		public static List<string> BlackListedXenotypesForSerums(bool addFromFilter = true)
 		{
-			List<string> blackListedXenotypesForSerums = new();
+			List<string> list = new();
 			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
 			{
-				blackListedXenotypesForSerums.AddRange(item.blackListedXenotypesForSerums);
+				list.AddRange(item.blackListedXenotypesForSerums);
 			}
 			if (addFromFilter)
 			{
 				foreach (string item in XenotypesFilterStartup.filterBlackListedXenotypesForSerums)
 				{
-					blackListedXenotypesForSerums.Add(item);
+					list.Add(item);
 				}
 			}
-			return blackListedXenotypesForSerums;
+			return list;
 		}
 
-		public static List<XenotypeDef> WhiteListedXenotypes()
+		public static List<XenotypeDef> WhiteListedXenotypes(bool addFromFilter = false)
 		{
-			List<string> blackListedXenotypesForSerums = new();
-			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
-			{
-				blackListedXenotypesForSerums.AddRange(item.blackListedXenotypesForSerums);
-			}
-			List<XenotypeDef> genesListForReading = DefDatabase<XenotypeDef>.AllDefsListForReading;
-			List<XenotypeDef> whiteListedXenotypes = new();
-			for (int i = 0; i < genesListForReading.Count; i++)
-			{
-				if (!blackListedXenotypesForSerums.Contains(genesListForReading[i].defName))
-				{
-					whiteListedXenotypes.Add(genesListForReading[i]);
-				}
-			}
-			return whiteListedXenotypes;
-		}
-
-		public static List<XenotypeDef> WhiteListedXenotypes_Filtered()
-		{
-			List<string> blackListedXenotypesForSerums = XenotypeFilterUtility.BlackListedXenotypesForSerums();
+			List<string> filterList = BlackListedXenotypesForSerums(addFromFilter);
 			// foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
 			// {
 				// blackListedXenotypesForSerums.AddRange(item.blackListedXenotypesForSerums);
 			// }
-			// foreach (string item in XenotypesFilterStartup.filterBlackListedXenotypesForSerums)
-			// {
-				// blackListedXenotypesForSerums.Add(item);
-			// }
 			List<XenotypeDef> genesListForReading = DefDatabase<XenotypeDef>.AllDefsListForReading;
-			List<XenotypeDef> whiteListedXenotypes = new();
+			List<XenotypeDef> list = new();
 			for (int i = 0; i < genesListForReading.Count; i++)
 			{
-				if (!blackListedXenotypesForSerums.Contains(genesListForReading[i].defName))
+				if (!filterList.Contains(genesListForReading[i].defName))
 				{
-					whiteListedXenotypes.Add(genesListForReading[i]);
+					list.Add(genesListForReading[i]);
 				}
 			}
-			return whiteListedXenotypes;
+			return list;
 		}
+
+		// public static List<XenotypeDef> WhiteListedXenotypes_Filtered()
+		// {
+			// List<string> blackListedXenotypesForSerums = XenotypeFilterUtility.BlackListedXenotypesForSerums();
+			// List<XenotypeDef> genesListForReading = DefDatabase<XenotypeDef>.AllDefsListForReading;
+			// List<XenotypeDef> whiteListedXenotypes = new();
+			// for (int i = 0; i < genesListForReading.Count; i++)
+			// {
+				// if (!blackListedXenotypesForSerums.Contains(genesListForReading[i].defName))
+				// {
+					// whiteListedXenotypes.Add(genesListForReading[i]);
+				// }
+			// }
+			// return whiteListedXenotypes;
+		// }
 
 	}
 }

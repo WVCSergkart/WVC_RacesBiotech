@@ -97,7 +97,7 @@ namespace WVC_XenotypesAndGenes
 					// }
 				// }
 				// List<GeneDef> whiteListedGenes = new List<GeneDef>();
-				foreach (XenotypeDef allDef in XenotypeFilterUtility.WhiteListedXenotypes_Filtered())
+				foreach (XenotypeDef allDef in XenotypeFilterUtility.WhiteListedXenotypes(true))
 				{
 					yield return TemplatesUtility.GetFromThingTemplate(g, allDef, allDef.index * 1000);
 				}

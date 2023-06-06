@@ -63,13 +63,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Old_Resources\Gene_Ageless.cs" />
-    <Compile Include="Old_Resources\Gene_BodyPartRegeneration.cs" />
-    <Compile Include="Old_Resources\Gene_Faceless.cs" />
-    <Compile Include="Old_Resources\Gene_GestatorTestTool.cs" />
-    <Compile Include="Old_Resources\Gene_MechaClotting.cs" />
-    <Compile Include="Old_Resources\Gene_RandomMechlinkFromTime.cs" />
-    <Compile Include="Old_Resources\Gene_Spawner.cs" />
     <Compile Include="Resources_Genes\Gene_Ageless.cs" />
     <Compile Include="Resources_Genes\Gene_Amnesia.cs" />
     <Compile Include="Resources_Genes\Gene_Blank.cs" />

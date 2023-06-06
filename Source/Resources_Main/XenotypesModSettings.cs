@@ -36,7 +36,7 @@ namespace WVC_XenotypesAndGenes
 			// anyShieldItemPresent = DefDatabase<ThingDef>.AllDefs.Any(x => x.GetCompProperties<CompProperties_Shield>() != null);
 			// List<string> whiteListedXenotypesFromDef = XenotypeFilterUtility.WhiteListedXenotypesForFilter();
 			WVC_Biotech.cachedXenotypesFilter ??= new Dictionary<string, bool>();
-			WVC_Biotech.allXenotypes = XenotypeFilterUtility.WhiteListedXenotypes();
+			WVC_Biotech.allXenotypes = XenotypeFilterUtility.WhiteListedXenotypes(false);
 			SetValues(XenotypeFilterUtility.WhiteListedXenotypesForFilter());
 		}
 
@@ -44,39 +44,48 @@ namespace WVC_XenotypesAndGenes
 		{
 			foreach (XenotypeDef thingDef in WVC_Biotech.allXenotypes)
 			{
+				bool flag = WVC_Biotech.cachedXenotypesFilter[thingDef.defName];
 				// XenotypesFilterMod.cachedXenotypesFilter[thingDef.defName] = true;
 				if (!WVC_Biotech.cachedXenotypesFilter.TryGetValue(thingDef.defName, out _))
 				{
+					// Whitelist from defs
 					if (whiteListedXenotypesFromDef.Contains(thingDef.defName))
 					{
-						WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = true;
+						flag = _ = true;
 					}
+					// Immediately weed out all xenotypes that can cause bugs
+					// Androids do not work correctly with sera
+					// Random xenotypes should not be in sera
+					// AG_ just in case
 					else if (thingDef.defName.Contains("AG_") || thingDef.defName.Contains("VREA_") || thingDef.defName.Contains("Android") || thingDef.defName.Contains("Random"))
 					{
-						WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = false;
+						flag = _ = false;
 					}
+					// We give a chance only to non-inherited xenotypes
 					else if (!thingDef.inheritable)
 					{
 						if (thingDef.defName.Contains("WVC_"))
 						{
-							WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = true;
+							flag = _ = true;
 						}
+						// If the xenotype is intended to be hybrid, we immediately cross it out
 						else if (thingDef.doubleXenotypeChances != null)
 						{
-							WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = false;
+							flag = _ = false;
 						}
-						else if (thingDef.genes.Count > 15)
+						// If a xenotype has less than two lines of genes, then it is quite small, it is probably not worth spending time on generation
+						else if (thingDef.genes.Count > 14)
 						{
-							WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = true;
+							flag = _ = true;
 						}
 						else
 						{
-							WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = false;
+							flag = _ = false;
 						}
 					}
 					else
 					{
-						WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = false;
+						flag = _ = false;
 					}
 				}
 				// else
@@ -84,7 +93,7 @@ namespace WVC_XenotypesAndGenes
 					// filterBlackListedXenotypesForSerums.Add(thingDef.defName);
 				// }
 
-				if (WVC_Biotech.cachedXenotypesFilter[thingDef.defName] == false)
+				if (flag == false)
 				{
 					filterBlackListedXenotypesForSerums.Add(thingDef.defName);
 				}
