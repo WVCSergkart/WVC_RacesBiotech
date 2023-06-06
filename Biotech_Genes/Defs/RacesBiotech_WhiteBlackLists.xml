@@ -12,6 +12,42 @@
 		<li>VREA_AndroidBasic</li>
 		<li>VREA_AndroidAwakened</li>
 	</blackListedXenotypesForSerums>
+	<!-- Xenotypes for xenotype filter. Needed to determine default xenotypes for sera. Not used for random sera. Any string -->
+	<!-- In addition to this filter, there are several more filtering stages. All of them are in C# code and cannot be changed via XML. However, this filter takes precedence. -->
+	<whiteListedXenotypesForFilter>
+		<!-- Vanilla -->
+		<!-- Add to the white list only those xenotypes for which the VRE extension has been released or they are not inherited. -->
+		<li>Highmate</li>
+		<!-- <li>Yttakin</li> -->
+		<li>Waster</li>
+		<!-- <li>Impid</li> -->
+		<!-- <li>Pigskin</li> -->
+		<!-- <li>Neanderthal</li> -->
+		<li>Sanguophage</li>
+		<li>Hussar</li>
+		<li>Genie</li>
+		<!-- <li>Dirtmole</li> -->
+		<!-- WVC -->
+		<li>WVC_Meca</li>
+		<li>WVC_RogueFormer</li>
+		<!-- Runeex was not intended to be a serum xenotype. So off by default. -->
+		<!-- <li>WVC_RuneDryad</li> -->
+		<!-- Blankind must be the rarest and most useless xenotype. -->
+		<!-- <li>WVC_Blank</li> -->
+		<li>WVC_GeneThrower</li>
+		<li>WVC_Golemkind</li>
+		<!-- AG -->
+		<!-- AG xenotypes are now all exceptions by default. Although their mechanics are quite interesting, xenotypes are quite specific. -->
+		<!-- <li>AG_Wretch</li> -->
+		<!-- VRE -->
+		<li>VREH_Uhlan</li>
+		<li>VRE_Gauranlenkin</li>
+		<li>VRE_Animakin</li>
+		<li>VRE_Poluxkin</li>
+		<li>VRE_Strigoi</li>
+		<li>VRE_Ekkimian</li>
+		<li>VRE_Bruxa</li>
+	</whiteListedXenotypesForFilter>
 	<!-- Things that can't use serums. Any thing defNames -->
 	<blackListedThingsForSerums>
 		<!-- Any HAR or HAR-like thing defNames -->
