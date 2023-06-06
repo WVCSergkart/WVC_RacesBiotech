@@ -1,0 +1,102 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using RimWorld;
+using RimWorld.Planet;
+using RimWorld.QuestGen;
+using UnityEngine;
+using Verse;
+using Verse.Sound;
+using Verse.AI.Group;
+using WVC;
+using WVC_XenotypesAndGenes;
+
+
+namespace WVC_XenotypesAndGenes
+{
+
+	// [StaticConstructorOnStartup]
+	public static class XenotypeFilterUtility
+	{
+
+		public static List<BackstoryDef> BlackListedBackstoryForChanger()
+		{
+			List<BackstoryDef> blackListedBackstoryForChanger = new();
+			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+			{
+				blackListedBackstoryForChanger.AddRange(item.blackListedBackstoryForChanger);
+			}
+			return blackListedBackstoryForChanger;
+		}
+
+		public static List<string> WhiteListedXenotypesForFilter()
+		{
+			List<string> whiteListedXenotypesFromDef = new();
+			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+			{
+				whiteListedXenotypesFromDef.AddRange(item.whiteListedXenotypesForFilter);
+			}
+			return whiteListedXenotypesFromDef;
+		}
+
+		public static List<string> BlackListedXenotypesForSerums(bool addFromFilter = true)
+		{
+			List<string> blackListedXenotypesForSerums = new();
+			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+			{
+				blackListedXenotypesForSerums.AddRange(item.blackListedXenotypesForSerums);
+			}
+			if (addFromFilter)
+			{
+				foreach (string item in XenotypesFilterStartup.filterBlackListedXenotypesForSerums)
+				{
+					blackListedXenotypesForSerums.Add(item);
+				}
+			}
+			return blackListedXenotypesForSerums;
+		}
+
+		public static List<XenotypeDef> WhiteListedXenotypes()
+		{
+			List<string> blackListedXenotypesForSerums = new();
+			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+			{
+				blackListedXenotypesForSerums.AddRange(item.blackListedXenotypesForSerums);
+			}
+			List<XenotypeDef> genesListForReading = DefDatabase<XenotypeDef>.AllDefsListForReading;
+			List<XenotypeDef> whiteListedXenotypes = new();
+			for (int i = 0; i < genesListForReading.Count; i++)
+			{
+				if (!blackListedXenotypesForSerums.Contains(genesListForReading[i].defName))
+				{
+					whiteListedXenotypes.Add(genesListForReading[i]);
+				}
+			}
+			return whiteListedXenotypes;
+		}
+
+		public static List<XenotypeDef> WhiteListedXenotypes_Filtered()
+		{
+			List<string> blackListedXenotypesForSerums = XenotypeFilterUtility.BlackListedXenotypesForSerums();
+			// foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+			// {
+				// blackListedXenotypesForSerums.AddRange(item.blackListedXenotypesForSerums);
+			// }
+			// foreach (string item in XenotypesFilterStartup.filterBlackListedXenotypesForSerums)
+			// {
+				// blackListedXenotypesForSerums.Add(item);
+			// }
+			List<XenotypeDef> genesListForReading = DefDatabase<XenotypeDef>.AllDefsListForReading;
+			List<XenotypeDef> whiteListedXenotypes = new();
+			for (int i = 0; i < genesListForReading.Count; i++)
+			{
+				if (!blackListedXenotypesForSerums.Contains(genesListForReading[i].defName))
+				{
+					whiteListedXenotypes.Add(genesListForReading[i]);
+				}
+			}
+			return whiteListedXenotypes;
+		}
+
+	}
+}

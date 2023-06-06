@@ -1,0 +1,111 @@
+using System;
+using System.Xml;
+using System.Linq;
+using System.Reflection;
+using System.Collections.Generic;
+using Verse;
+using UnityEngine;
+using RimWorld;
+using WVC;
+using WVC_XenotypesAndGenes;
+
+
+namespace WVC_XenotypesAndGenes
+{
+
+	public class SkillsGeneTemplateDef : Def
+	{
+		public Type geneClass = typeof(Gene);
+
+		public int biostatCpx;
+
+		public int biostatMet;
+
+		public int biostatArc;
+
+		public int aptitudeOffset;
+
+		// public Color? iconColor;
+
+		// public float addictionChanceFactor = 1f;
+
+		public PassionMod.PassionModType passionModType;
+
+		public float minAgeActive;
+
+		public GeneCategoryDef displayCategory;
+
+		public int displayOrderOffset;
+
+		public float selectionWeight = 1f;
+
+		[MustTranslate]
+		public string labelShortAdj;
+
+		[NoTranslate]
+		public string iconPath;
+
+		[NoTranslate]
+		public string exclusionTagPrefix;
+
+		public override IEnumerable<string> ConfigErrors()
+		{
+			foreach (string item in base.ConfigErrors())
+			{
+				yield return item;
+			}
+			if (!typeof(Gene).IsAssignableFrom(geneClass))
+			{
+				yield return "geneClass is not Gene or child thereof.";
+			}
+		}
+	}
+
+	// public class ExoskinistPreceptTemplateDef : Def
+	// {
+		// public Type preceptClass = typeof(Precept);
+
+		// public IssueDef issue;
+
+		// public PreceptImpact impact;
+
+		// public List<MemeDef> associatedMemes = new List<MemeDef>();
+
+		// public List<MemeDef> conflictingMemes = new List<MemeDef>();
+
+		// public List<MemeDef> requiredMemes = new List<MemeDef>();
+
+		// public int displayOrderInImpact;
+
+		// public int displayOrderInIssue;
+
+		// public List<PreceptComp> comps = new List<PreceptComp>();
+
+		// public List<PreceptApparelRequirement> roleApparelRequirements;
+
+		// public WorkTags roleDisabledWorkTags;
+	// }
+
+	// public class ExoskinistThoughtTemplateDef : Def
+	// {
+		// public string postfixName;
+
+		// public Type workerClass;
+
+		// public List<TraitDef> nullifyingTraits;
+
+		// public List<TraitRequirement> nullifyingTraitDegrees;
+
+		// public List<PreceptDef> nullifyingPrecepts;
+
+		// public List<HediffDef> nullifyingHediffs;
+
+		// public List<GeneDef> nullifyingGenes;
+
+		// public ExpectationDef minExpectation;
+
+		// public bool validWhileDespawned;
+
+		// public List<ThoughtStage> stages = new List<ThoughtStage>();
+	// }
+}
