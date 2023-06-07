@@ -4,6 +4,9 @@
   <GeneDef ParentName="GeneSleepBase" Name="WVC_GeneSleep_Base" Abstract="True">
 	<selectionWeight>0.025</selectionWeight>
 	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
+		</li>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
 			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
@@ -12,6 +15,28 @@
   </GeneDef>
 
   <!-- ============================= -->
+
+  <!-- Archite version -->
+  <GeneDef ParentName="WVC_GeneSleep_Base">
+	<defName>WVC_Neversleep</defName>
+	<label>never sleep</label>
+	<description>Carriers of this gene have a unique metabolic process which allows clusters of neurons to sleep while the rest of the brain stays awake. They never need to sleep.</description>
+	<iconPath>UI/Icons/Genes/Gene_Neversleep</iconPath>
+	<marketValueFactor>1.5</marketValueFactor>
+	<displayOrderInCategory>31</displayOrderInCategory>
+	<disablesNeeds>
+	  <li>Rest</li>
+	</disablesNeeds>
+	<biostatMet>0</biostatMet>
+	<biostatArc>1</biostatArc>
+	<biostatCpx>3</biostatCpx>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>wake</symbol></li>
+		<li><symbol>night</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
 
 	<!-- <modExtensions> -->
 		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef Name="WVC_GeneManipulation_VeryWeak" Abstract="True">
-	<selectionWeight>0.002</selectionWeight>
+  <GeneDef ParentName="GeneHandsBase" Name="WVC_GeneManipulation_VeryWeak" Abstract="True">
+	<!-- <selectionWeight>0.002</selectionWeight> -->
 	<description>Carriers of this gene have very weak hands, which makes it difficult for them to cope with all manual work.</description>
-	<biostatCpx>1</biostatCpx>
-	<displayCategory>Miscellaneous</displayCategory>
-	<displayOrderInCategory>3427</displayOrderInCategory>
+	<!-- <biostatCpx>1</biostatCpx> -->
+	<!-- <displayCategory>Miscellaneous</displayCategory> -->
+	<displayOrderInCategory>322</displayOrderInCategory>
 	<iconPath>WVC/UI/Genes/Gene_WeakHand_v0</iconPath>
 	<exclusionTags>
 	  <li>WVC_GeneManipulation_Base</li>
