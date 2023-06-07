@@ -68,12 +68,12 @@ namespace WVC_XenotypesAndGenes
 						{
 							flag = _ = true;
 						}
-						// If the xenotype is intended to be hybrid, we immediately cross it out
-						else if (thingDef.doubleXenotypeChances != null)
-						{
-							flag = _ = false;
-						}
+						// else if (thingDef.doubleXenotypeChances != null)
+						// {
+							// flag = _ = false;
+						// }
 						// If a xenotype has less than two lines of genes, then it is quite small, it is probably not worth spending time on generation
+						// And if there are too many xenotypes, this can affect the speed of the game launch
 						else if (thingDef.genes.Count > 14)
 						{
 							flag = _ = true;
