@@ -2,7 +2,7 @@
 <Defs>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode" Name="WVC_XenotypesAndGenes_ArchitesRandomEncode_Entity" Abstract="True">
-	<label>encoding SX</label>
+	<label>genetic tendency</label>
 	<iconPath>WVC/UI/Genes/Gene_RandomBuff_Flesh_v0</iconPath>
 	<displayOrderInCategory>-1200</displayOrderInCategory>
 	<exclusionTags>
@@ -28,7 +28,7 @@
   <!-- Lvl 6 -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Entity">
 	<defName>WVC_Nodization_EntityBuff_A</defName>
-	<label>flesh SX</label>
+	<!-- <label>flesh SX</label> -->
 	<iconColor>(133, 202, 255)</iconColor>
 	<statOffsets>
 	  <MechBandwidth>6</MechBandwidth>
@@ -43,7 +43,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Entity">
 	<defName>WVC_Nodization_EntityBuff_B</defName>
-	<label>flesh HJ</label>
+	<!-- <label>flesh HJ</label> -->
 	<iconColor>(255, 133, 133)</iconColor>
 	<statOffsets>
 	  <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
@@ -58,7 +58,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Entity">
 	<defName>WVC_Nodization_EntityBuff_C</defName>
-	<label>flesh GB</label>
+	<!-- <label>flesh GB</label> -->
 	<iconColor>(133, 255, 136)</iconColor>
 	<statOffsets>
 	  <ImmunityGainSpeed>0.5</ImmunityGainSpeed>
@@ -67,7 +67,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Entity">
 	<defName>WVC_Nodization_EntityBuff_D</defName>
-	<label>flesh CV</label>
+	<!-- <label>flesh CV</label> -->
 	<iconColor>(142, 133, 255)</iconColor>
 	<statFactors>
 	  <IncomingDamageFactor>0.5</IncomingDamageFactor>
@@ -80,7 +80,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Entity">
 	<defName>WVC_Nodization_EntityBuff_E</defName>
-	<label>flesh WR</label>
+	<!-- <label>flesh WR</label> -->
 	<iconColor>(255, 248, 133)</iconColor>
 	<statOffsets>
 	  <PsychicSensitivity>1.0</PsychicSensitivity>
@@ -107,7 +107,7 @@
   <!-- = -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Entity">
 	<defName>WVC_Nodization_EntityBuff_F</defName>
-	<label>flesh VX</label>
+	<!-- <label>flesh VX</label> -->
 	<iconColor>(133, 167, 255)</iconColor>
 	<statOffsets>
 	  <WVC_BandwidthCostOffsetMech>-1</WVC_BandwidthCostOffsetMech>
@@ -116,7 +116,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Entity">
 	<defName>WVC_Nodization_EntityBuff_G</defName>
-	<label>flesh YR</label>
+	<!-- <label>flesh YR</label> -->
 	<iconColor>(255, 182, 133)</iconColor>
 	<statOffsets>
 	  <HemogenGainFactor>1.0</HemogenGainFactor>

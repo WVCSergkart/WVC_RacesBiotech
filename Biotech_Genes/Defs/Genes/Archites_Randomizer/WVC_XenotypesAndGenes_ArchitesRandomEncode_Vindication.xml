@@ -2,7 +2,7 @@
 <Defs>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode" Name="WVC_XenotypesAndGenes_ArchitesRandomEncode_Vindication" Abstract="True">
-	<label>encoding CV</label>
+	<label>predisposition</label>
 	<displayOrderInCategory>-1170</displayOrderInCategory>
 	<iconPath>WVC/UI/Genes/Gene_RandomBuff_Misc_v0</iconPath>
 	<exclusionTags>
@@ -28,7 +28,7 @@
   <!-- Lvl 3 -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Vindication">
 	<defName>WVC_Nodization_VindicationBuff_A</defName>
-	<label>vindication SX</label>
+	<!-- <label>vindication SX</label> -->
 	<iconColor>(133, 202, 255)</iconColor>
 	<statOffsets>
 	  <WVC_MechEnergyUsageOffset>-0.5</WVC_MechEnergyUsageOffset>
@@ -36,7 +36,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Vindication">
 	<defName>WVC_Nodization_VindicationBuff_B</defName>
-	<label>vindication HJ</label>
+	<!-- <label>vindication HJ</label> -->
 	<iconColor>(255, 133, 133)</iconColor>
 	<statOffsets>
 	  <MoveSpeed>1.0</MoveSpeed>
@@ -44,7 +44,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Vindication">
 	<defName>WVC_Nodization_VindicationBuff_C</defName>
-	<label>vindication GB</label>
+	<!-- <label>vindication GB</label> -->
 	<iconColor>(133, 255, 136)</iconColor>
 	<statFactors>
 	  <MentalBreakThreshold>0.5</MentalBreakThreshold>
@@ -52,7 +52,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Vindication">
 	<defName>WVC_Nodization_VindicationBuff_D</defName>
-	<label>vindication CV</label>
+	<!-- <label>vindication CV</label> -->
 	<iconColor>(142, 133, 255)</iconColor>
 	<statOffsets>
 	  <MeleeDodgeChance>30</MeleeDodgeChance>
@@ -60,7 +60,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Vindication">
 	<defName>WVC_Nodization_VindicationBuff_E</defName>
-	<label>vindication WR</label>
+	<!-- <label>vindication WR</label> -->
 	<iconColor>(255, 248, 133)</iconColor>
 	<statOffsets>
 	  <PawnBeauty>2</PawnBeauty>
@@ -69,7 +69,7 @@
   <!-- = -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Vindication">
 	<defName>WVC_Nodization_VindicationBuff_F</defName>
-	<label>vindication VX</label>
+	<!-- <label>vindication VX</label> -->
 	<iconColor>(133, 167, 255)</iconColor>
 	<statOffsets>
 	  <WVC_MechEnergyUsageOffset>-0.25</WVC_MechEnergyUsageOffset>
@@ -78,7 +78,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Vindication">
 	<defName>WVC_Nodization_VindicationBuff_G</defName>
-	<label>vindication YR</label>
+	<!-- <label>vindication YR</label> -->
 	<iconColor>(255, 182, 133)</iconColor>
 	<statOffsets>
 	  <PawnBeauty>1</PawnBeauty>

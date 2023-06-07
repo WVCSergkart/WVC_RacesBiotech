@@ -2,7 +2,8 @@
 <Defs>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode" Name="WVC_XenotypesAndGenes_ArchitesRandomEncode_Point" Abstract="True">
-	<label>encoding WR</label>
+	<label>naturally strong</label>
+	<!-- <label>encoding WR</label> -->
 	<displayOrderInCategory>-1160</displayOrderInCategory>
 	<iconPath>WVC/UI/Genes/Gene_RandomBuff_Factor_v0</iconPath>
 	<exclusionTags>
@@ -28,7 +29,7 @@
   <!-- Lvl 5 -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Point">
 	<defName>WVC_Nodization_PointBuff_A</defName>
-	<label>point SX</label>
+	<!-- <label>point SX</label> -->
 	<iconColor>(133, 202, 255)</iconColor>
 	<statFactors>
 	  <MechBandwidth>2</MechBandwidth>
@@ -36,7 +37,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Point">
 	<defName>WVC_Nodization_PointBuff_B</defName>
-	<label>point HJ</label>
+	<!-- <label>point HJ</label> -->
 	<iconColor>(255, 133, 133)</iconColor>
 	<statFactors>
 	  <ArmorRating_Blunt>1.5</ArmorRating_Blunt>
@@ -46,7 +47,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Point">
 	<defName>WVC_Nodization_PointBuff_C</defName>
-	<label>point GB</label>
+	<!-- <label>point GB</label> -->
 	<iconColor>(133, 255, 136)</iconColor>
 	<statFactors>
 	  <InjuryHealingFactor>2.0</InjuryHealingFactor>
@@ -54,7 +55,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Point">
 	<defName>WVC_Nodization_PointBuff_D</defName>
-	<label>point CV</label>
+	<!-- <label>point CV</label> -->
 	<iconColor>(142, 133, 255)</iconColor>
 	<statFactors>
 	  <MeleeDodgeChance>2</MeleeDodgeChance>
@@ -62,7 +63,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Point">
 	<defName>WVC_Nodization_PointBuff_E</defName>
-	<label>point WR</label>
+	<!-- <label>point WR</label> -->
 	<iconColor>(255, 248, 133)</iconColor>
 	<statFactors>
 	  <PsychicSensitivity>1.5</PsychicSensitivity>
@@ -71,7 +72,7 @@
   <!-- = -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Point">
 	<defName>WVC_Nodization_PointBuff_F</defName>
-	<label>point VX</label>
+	<!-- <label>point VX</label> -->
 	<iconColor>(133, 167, 255)</iconColor>
 	<statFactors>
 	  <GlobalLearningFactor>1.5</GlobalLearningFactor>
@@ -79,7 +80,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Point">
 	<defName>WVC_Nodization_PointBuff_G</defName>
-	<label>point YR</label>
+	<!-- <label>point YR</label> -->
 	<iconColor>(255, 182, 133)</iconColor>
 	<statFactors>
 	  <HemogenGainFactor>1.5</HemogenGainFactor>

@@ -23,7 +23,7 @@
   <!-- Giver -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_EncodeBuffRandomGiver">
 	<defName>WVC_Nodization_EntityRandomizer</defName>
-	<label>random flesh</label>
+	<label>random genetic tendency gene</label>
 	<iconColor>(255, 182, 133)</iconColor>
 	<customEffectDescriptions>
 		<li>Gives a gene that can significantly enhance the pawn's parameters, such as psi sensitivity, immunity, regeneration, armor, survivability, etc.</li>
@@ -44,10 +44,10 @@
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_EncodeBuffRandomGiver">
 	<defName>WVC_Nodization_SkillRandomizer</defName>
-	<label>random skill</label>
+	<label>random light aptitude gene</label>
 	<iconColor>(133, 167, 255)</iconColor>
 	<customEffectDescriptions>
-		<li>Gives a gene that increases one of the skills by 6 or two by 3.</li>
+		<li>Gives a gene that increases one of the skills by 8 or two by 4.</li>
 	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
@@ -65,7 +65,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_EncodeBuffRandomGiver">
 	<defName>WVC_Nodization_PatternRandomizer</defName>
-	<label>random metabolism</label>
+	<label>random metabolism gene</label>
 	<iconColor>(255, 248, 133)</iconColor>
 	<customEffectDescriptions>
 		<li>Gives a boost to metabolism. Randomly from 2 to 8.</li>
@@ -86,7 +86,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_EncodeBuffRandomGiver">
 	<defName>WVC_Nodization_PointRandomizer</defName>
-	<label>random point</label>
+	<label>random naturally strong gene</label>
 	<iconColor>(142, 133, 255)</iconColor>
 	<customEffectDescriptions>
 		<li>Gives a gene with a multiplier to stats. Such as psi sensitivity, immunity, regeneration, armor, survivability, etc.</li>
@@ -107,7 +107,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_EncodeBuffRandomGiver">
 	<defName>WVC_Nodization_StringRandomizer</defName>
-	<label>random string</label>
+	<label>random improved capacity gene</label>
 	<iconColor>(133, 255, 136)</iconColor>
 	<customEffectDescriptions>
 		<li>Gives a random gene that increases capacity.</li>
@@ -128,7 +128,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_EncodeBuffRandomGiver">
 	<defName>WVC_Nodization_VindicationRandomizer</defName>
-	<label>random vindication</label>
+	<label>random predisposition gene</label>
 	<iconColor>(255, 133, 133)</iconColor>
 	<customEffectDescriptions>
 		<li>Gives a gene with a offset/factor to stats. Such as psi sensitivity, immunity, regeneration, armor, survivability, etc.</li>
@@ -149,7 +149,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_EncodeBuffRandomGiver">
 	<defName>WVC_Nodization_DecisionRandomizer</defName>
-	<label>random decision</label>
+	<label>random flexible mind gene</label>
 	<iconColor>(133, 202, 255)</iconColor>
 	<customEffectDescriptions>
 		<li>Gives a gene with a offset to stats. Such as psi sensitivity, immunity, regeneration, armor, survivability, etc.</li>
@@ -176,7 +176,7 @@
 	<!-- <displayCategory>WVC_MechaBodyWare</displayCategory> -->
 	<!-- <label>AI</label> -->
 	<!-- <description>Complex templates for the mechanoid sub-core, which can provide some advantages.</description> -->
-	<description>Carriers of this gene have archites that formed special neural connections in the brain and improved the carrier's nervous system pointwise.</description>
+	<description>Carriers of this gene have formed special neural connections and improved overall physical condition.</description>
 	<iconPath>WVC/UI/Genes/Gene_RandomBuff_v0</iconPath>
 	<!-- <displayCategory>WVC_MechaBodyWare</displayCategory> -->
 	<!-- <displayCategory>WVC_MechaBodyParts</displayCategory> -->

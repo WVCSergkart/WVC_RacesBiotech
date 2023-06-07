@@ -3,7 +3,7 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_EncodeBuffRandomGiver">
 	<defName>WVC_NodeEyes_Randomizer</defName>
-	<label>random faceplate</label>
+	<label>random faceplate gene</label>
 	<description>Carriers of this gene have archites that have formed a plate that closes the faceplate, for some reason this plate does not interfere with vision at all. The surface of this plate has a pattern resembling faceplate.</description>
 	<displayCategory>Cosmetic</displayCategory>
 	<displayOrderInCategory>3</displayOrderInCategory>
@@ -33,13 +33,11 @@
   <!-- Bodies -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_Archites" Name="WVC_NodeBody_Eyes" Abstract="True" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<label>faceplate</label>
 	<labelShortAdj>faceplate</labelShortAdj>
-	<description>Carriers of this gene have archites that have formed a plate that closes the faceplate, for some reason this plate does not interfere with vision at all. The surface of this plate has a pattern resembling faceplate.
+	<description>Carriers of this gene have a bizarrely shaped and unnatural color birthmark on the plate covering the face.
 
 &lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
-<!-- &lt;color=#ff8585&gt;Note:&lt;/color&gt; The gene is activated only under certain conditions.  -->
-<!-- 1. The head of the pawn must be without faceplate. -->
-<!-- 2. There is a gene that disables the display of faceplate. -->
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Faceless</geneClass> -->
 	<geneClass>WVC_XenotypesAndGenes.Gene_FacelessShuffle</geneClass>
 	<minAgeActive>0</minAgeActive>
@@ -111,7 +109,7 @@
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Eyes" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeEyes_A</defName>
-	<label>faceplate SX</label>
+	<!-- <label>faceplate SX</label> -->
 	<iconPath>WVC/UI/Genes/HeadBlue_south</iconPath>
 	<graphicData>
 	  <graphicPath>WVC/NodeGene_Head/HeadBlue</graphicPath>
@@ -123,7 +121,7 @@
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Eyes" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeEyes_B</defName>
-	<label>faceplate HJ</label>
+	<!-- <label>faceplate HJ</label> -->
 	<iconPath>WVC/UI/Genes/HeadRed_south</iconPath>
 	<graphicData>
 	  <graphicPath>WVC/NodeGene_Head/HeadRed</graphicPath>
@@ -137,7 +135,7 @@
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Eyes" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeEyes_C</defName>
-	<label>faceplate GB</label>
+	<!-- <label>faceplate GB</label> -->
 	<iconPath>WVC/UI/Genes/HeadGreen_south</iconPath>
 	<graphicData>
 	  <graphicPath>WVC/NodeGene_Head/HeadGreen</graphicPath>
@@ -150,7 +148,7 @@
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Eyes" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeEyes_D</defName>
-	<label>faceplate CV</label>
+	<!-- <label>faceplate CV</label> -->
 	<iconPath>WVC/UI/Genes/HeadViolet_south</iconPath>
 	<graphicData>
 	  <graphicPath>WVC/NodeGene_Head/HeadViolet</graphicPath>
@@ -162,7 +160,7 @@
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Eyes" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeEyes_E</defName>
-	<label>faceplate WR</label>
+	<!-- <label>faceplate WR</label> -->
 	<iconPath>WVC/UI/Genes/HeadYellow_south</iconPath>
 	<graphicData>
 	  <graphicPath>WVC/NodeGene_Head/HeadYellow</graphicPath>
@@ -174,7 +172,7 @@
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Eyes" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeEyes_Y</defName>
-	<label>faceplate VX</label>
+	<!-- <label>faceplate VX</label> -->
 	<iconPath>WVC/UI/Genes/HeadAltBlue_south</iconPath>
 	<graphicData>
 	  <graphicPath>WVC/NodeGene_Head/HeadAltBlue</graphicPath>
@@ -186,7 +184,7 @@
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Eyes" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeEyes_F</defName>
-	<label>faceplate YR</label>
+	<!-- <label>faceplate YR</label> -->
 	<iconPath>WVC/UI/Genes/HeadOrange_south</iconPath>
 	<graphicData>
 	  <graphicPath>WVC/NodeGene_Head/HeadOrange</graphicPath>
@@ -201,7 +199,7 @@
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Eyes" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeEyes_G</defName>
-	<label>faceplate VX_A</label>
+	<!-- <label>faceplate VX_A</label> -->
 	<iconPath>WVC/UI/Genes/HeadAltBlue_B_south</iconPath>
 	<graphicData>
 	  <graphicPath>WVC/NodeGene_Head/HeadAltBlue_B</graphicPath>
@@ -213,7 +211,7 @@
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Eyes" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeEyes_H</defName>
-	<label>faceplate HJ_A</label>
+	<!-- <label>faceplate HJ_A</label> -->
 	<iconPath>WVC/UI/Genes/HeadRed_A_south</iconPath>
 	<graphicData>
 	  <graphicPath>WVC/NodeGene_Head/HeadRed_A</graphicPath>
@@ -227,7 +225,7 @@
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Eyes" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeEyes_J</defName>
-	<label>faceplate SX_A</label>
+	<!-- <label>faceplate SX_A</label> -->
 	<iconPath>WVC/UI/Genes/HeadBlue_A_south</iconPath>
 	<graphicData>
 	  <graphicPath>WVC/NodeGene_Head/HeadBlue_A</graphicPath>
@@ -239,7 +237,7 @@
   <!-- = -->
   <GeneDef ParentName="WVC_NodeBody_Eyes" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeEyes_K</defName>
-	<label>faceplate WR_A</label>
+	<!-- <label>faceplate WR_A</label> -->
 	<iconPath>WVC/UI/Genes/HeadYellow_A_south</iconPath>
 	<graphicData>
 	  <graphicPath>WVC/NodeGene_Head/HeadYellow_A</graphicPath>

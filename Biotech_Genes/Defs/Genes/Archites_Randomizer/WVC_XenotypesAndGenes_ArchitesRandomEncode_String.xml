@@ -2,7 +2,7 @@
 <Defs>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode" Name="WVC_XenotypesAndGenes_ArchitesRandomEncode_String" Abstract="True">
-	<label>encoding VX</label>
+	<label>improved capacity</label>
 	<displayOrderInCategory>-1150</displayOrderInCategory>
 	<iconPath>WVC/UI/Genes/Gene_RandomBuff_CaoMod_v0</iconPath>
 	<exclusionTags>
@@ -28,80 +28,80 @@
   <!-- Lvl 4 -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_String">
 	<defName>WVC_Nodization_StringBuff_A</defName>
-	<label>string SX</label>
+	<!-- <label>string SX</label> -->
 	<iconColor>(133, 202, 255)</iconColor>
 	<capMods>
 	  <li>
 		<capacity>Consciousness</capacity>
-		<offset>0.1</offset>
-	  </li>
-	</capMods>
-  </GeneDef>
-  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_String">
-	<defName>WVC_Nodization_StringBuff_B</defName>
-	<label>string HJ</label>
-	<iconColor>(255, 133, 133)</iconColor>
-	<capMods>
-	  <li>
-		<capacity>Manipulation</capacity>
-		<offset>0.1</offset>
-	  </li>
-	</capMods>
-  </GeneDef>
-  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_String">
-	<defName>WVC_Nodization_StringBuff_C</defName>
-	<label>string GB</label>
-	<iconColor>(133, 255, 136)</iconColor>
-	<capMods>
-	  <li>
-		<capacity>Metabolism</capacity>
 		<offset>0.2</offset>
 	  </li>
 	</capMods>
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_String">
+	<defName>WVC_Nodization_StringBuff_B</defName>
+	<!-- <label>string HJ</label> -->
+	<iconColor>(255, 133, 133)</iconColor>
+	<capMods>
+	  <li>
+		<capacity>Manipulation</capacity>
+		<offset>0.2</offset>
+	  </li>
+	</capMods>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_String">
+	<defName>WVC_Nodization_StringBuff_C</defName>
+	<!-- <label>string GB</label> -->
+	<iconColor>(133, 255, 136)</iconColor>
+	<capMods>
+	  <li>
+		<capacity>Metabolism</capacity>
+		<offset>0.25</offset>
+	  </li>
+	</capMods>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_String">
 	<defName>WVC_Nodization_StringBuff_D</defName>
-	<label>string CV</label>
+	<!-- <label>string CV</label> -->
 	<iconColor>(142, 133, 255)</iconColor>
 	<capMods>
 	  <li>
 		<capacity>Sight</capacity>
-		<offset>0.1</offset>
+		<offset>0.2</offset>
 	  </li>
 	  <li>
 		<capacity>Hearing</capacity>
-		<offset>0.1</offset>
+		<offset>0.2</offset>
 	  </li>
 	</capMods>
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_String">
 	<defName>WVC_Nodization_StringBuff_E</defName>
-	<label>string WR</label>
+	<!-- <label>string WR</label> -->
 	<iconColor>(255, 248, 133)</iconColor>
 	<capMods>
 	  <li>
 		<capacity>Talking</capacity>
-		<offset>0.1</offset>
+		<offset>0.2</offset>
 	  </li>
 	</capMods>
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_String">
 	<defName>WVC_Nodization_StringBuff_F</defName>
-	<label>string VX</label>
+	<!-- <label>string VX</label> -->
 	<iconColor>(133, 167, 255)</iconColor>
 	<capMods>
 	  <li>
 		<capacity>Consciousness</capacity>
-		<offset>0.05</offset>
+		<offset>0.1</offset>
 	  </li>
 	  <li>
 		<capacity>Sight</capacity>
-		<offset>0.05</offset>
+		<offset>0.1</offset>
 	  </li>
 	  <li>
 		<capacity>Hearing</capacity>
-		<offset>0.05</offset>
+		<offset>0.1</offset>
 	  </li>
 	  <!-- <li> -->
 		<!-- <capacity>BloodFiltration</capacity> -->
@@ -111,16 +111,16 @@
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_String">
 	<defName>WVC_Nodization_StringBuff_G</defName>
-	<label>string YR</label>
+	<!-- <label>string YR</label> -->
 	<iconColor>(255, 182, 133)</iconColor>
 	<capMods>
 	  <li>
 		<capacity>Metabolism</capacity>
-		<offset>0.1</offset>
+		<offset>0.2</offset>
 	  </li>
 	  <li>
 		<capacity>Talking</capacity>
-		<offset>0.05</offset>
+		<offset>0.1</offset>
 	  </li>
 	  <!-- <li> -->
 		<!-- <capacity>BloodPumping</capacity> -->
