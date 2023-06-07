@@ -60,4 +60,18 @@
 	</modExtensions>
   </GeneDef>
 
+  <GeneDef ParentName="WVC_GeneMoveSpeed_Base">
+	<defName>WVC_AgeDebuff_MoveSpeed</defName>
+	<label>extreme slow runner</label> 
+	<labelShortAdj>slow</labelShortAdj>
+	<description>Carriers of this gene move more very slowly than normal.</description>
+	<iconPath>WVC/UI/Genes/Gene_ExtremlySlowRunner_v0</iconPath>
+	<!-- <displayCategory>WVC_AgeDebuffs</displayCategory> -->
+	<displayOrderInCategory>-3</displayOrderInCategory>
+	<biostatMet>5</biostatMet>
+	<statOffsets>
+	  <MoveSpeed>-0.8</MoveSpeed>
+	</statOffsets>
+  </GeneDef>
+
 </Defs>

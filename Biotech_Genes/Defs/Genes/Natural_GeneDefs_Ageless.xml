@@ -78,6 +78,8 @@
 	</biologicalAgeTickFactorFromAgeCurve>
   </GeneDef>
 
+  <!-- ==== -->
+
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneAgeless_Base">
 	<defName>WVC_NaturalFastAging</defName>
 	<label>fast aging</label>
@@ -111,6 +113,41 @@
 		<li>(0, 0.5)</li>
 	  </points>
 	</biologicalAgeTickFactorFromAgeCurve>
+	<exclusionTags>
+	  <li>WVC_Ageless_FastSlowAging</li>
+	  <li>AG_Aging</li>
+	  <li>Aging</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneAgeless_Base">
+	<defName>WVC_ForeverYoung</defName>
+	<label>very slow aging</label>
+	<description>Carriers of this gene mature very slowly, which is why they remain young for a very long time.</description>
+	<iconPath>WVC/UI/Genes/Gene_Ageless_ForeverYoung_v0</iconPath>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>4</biostatMet>
+	<biologicalAgeTickFactorFromAgeCurve>
+	  <points>
+		<li>(0, 0.2)</li>
+	  </points>
+	</biologicalAgeTickFactorFromAgeCurve>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>young</symbol></li>
+	  </wholeNameSymbols>
+	  <prefixSymbols>
+		<li><symbol>for</symbol></li>
+		<li><symbol>fore</symbol></li>
+		<li><symbol>eve</symbol></li>
+		<li><symbol>ever</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>you</symbol></li>
+		<li><symbol>yo</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
 	<exclusionTags>
 	  <li>WVC_Ageless_FastSlowAging</li>
 	  <li>AG_Aging</li>

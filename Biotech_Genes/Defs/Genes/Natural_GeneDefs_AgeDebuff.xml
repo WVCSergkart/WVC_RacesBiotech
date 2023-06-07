@@ -52,15 +52,15 @@
 
   <GeneDef ParentName="FertilityBase">
 	<defName>WVC_AgeDebuff_Sterile</defName>
-	<label>reproductive degradation</label>
-	<description>Carriers of this gene become unable to reproduce at some point in their lives.</description>
-	<iconPath>WVC/UI/Genes/AgeDebuff_Fertility</iconPath>
-	<minAgeActive>25</minAgeActive>
+	<label>extreme low fertility</label>
+	<description>Carriers of this gene have very low fertility.</description>
+	<iconPath>WVC/UI/Genes/Gene_Sterile_v0</iconPath>
+	<!-- <minAgeActive>25</minAgeActive> -->
 	<sterilize>false</sterilize>
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>1</biostatMet>
 	<!-- <displayCategory>WVC_AgeDebuffs</displayCategory> -->
-	<displayOrderInCategory>101</displayOrderInCategory>
+	<displayOrderInCategory>102</displayOrderInCategory>
 	<selectionWeight>0.002</selectionWeight>
 	<exclusionTags>
 	  <li>Fertility</li>
@@ -73,14 +73,8 @@
 	  <!-- </li> -->
 	<!-- </conditionalStatAffecters> -->
 	<statFactors>
-	  <Fertility>0</Fertility>
+	  <Fertility>0.1</Fertility>
 	</statFactors>
-	<symbolPack>
-	  <prefixSymbols>
-		<li><symbol>age</symbol></li>
-		<li><symbol>weak</symbol></li>
-	  </prefixSymbols>
-	</symbolPack>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
@@ -93,25 +87,19 @@
 
   <GeneDef ParentName="LibidoBase">
 	<defName>WVC_AgeDebuff_Libido</defName>
-	<label>decline in libido</label>
+	<label>extreme low libido</label>
 	<description>Carriers of this gene become unable to engage in lovin' with their partner.</description>
 	<customEffectDescriptions>
 	  <li>No more lovin'.</li>
 	</customEffectDescriptions>
-	<minAgeActive>25</minAgeActive>
-	<iconPath>WVC/UI/Genes/AgeDebuff_Libido</iconPath>
+	<!-- <minAgeActive>25</minAgeActive> -->
+	<iconPath>WVC/UI/Genes/Gene_LowLibido_v0</iconPath>
 	<!-- <displayCategory>WVC_AgeDebuffs</displayCategory> -->
-	<displayOrderInCategory>11</displayOrderInCategory>
-	<biostatCpx>1</biostatCpx>
-	<biostatMet>1</biostatMet>
-	<lovinMTBFactor>0.0</lovinMTBFactor>
+	<displayOrderInCategory>-5</displayOrderInCategory>
+	<!-- <biostatCpx>1</biostatCpx> -->
+	<!-- <biostatMet>1</biostatMet> -->
+	<lovinMTBFactor>7</lovinMTBFactor>
 	<selectionWeight>0.002</selectionWeight>
-	<symbolPack>
-	  <prefixSymbols>
-		<li><symbol>age</symbol></li>
-		<li><symbol>weak</symbol></li>
-	  </prefixSymbols>
-	</symbolPack>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
@@ -122,69 +110,7 @@
 
   <!-- ============== -->
 
-  <GeneDef ParentName="GeneMoveSpeedBase">
-	<defName>WVC_AgeDebuff_MoveSpeed</defName>
-	<label>weake legs</label> 
-	<labelShortAdj>slow</labelShortAdj>
-	<description>Carriers of this gene become very slow at some point in their lives.</description>
-	<iconPath>WVC/UI/Genes/AgeDebuff_MoveSpeed</iconPath>
-	<!-- <displayCategory>WVC_AgeDebuffs</displayCategory> -->
-	<displayOrderInCategory>21</displayOrderInCategory>
-	<minAgeActive>25</minAgeActive>
-	<selectionWeight>0.002</selectionWeight>
-	<statOffsets>
-	  <MoveSpeed>-2</MoveSpeed>
-	</statOffsets>
-	<biostatCpx>2</biostatCpx>
-	<biostatMet>4</biostatMet>
-	<symbolPack>
-	  <prefixSymbols>
-		<li><symbol>slow</symbol></li>
-		<li><symbol>age</symbol></li>
-		<li><symbol>weak</symbol></li>
-	  </prefixSymbols>
-	</symbolPack>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-	</modExtensions>
-  </GeneDef>
-
   <!-- ============== -->
-
-  <GeneDef>
-	<defName>WVC_AgeDebuff_Manipulation</defName>
-	<label>motor impairment</label> 
-	<labelShortAdj>bad-hand</labelShortAdj>
-	<description>Carriers of this gene begin to suffer from fine motor impairment at some point in their lives.</description>
-	<iconPath>WVC/UI/Genes/AgeDebuff_Manipulation</iconPath>
-	<displayCategory>Violence</displayCategory>
-	<displayOrderInCategory>21</displayOrderInCategory>
-	<minAgeActive>25</minAgeActive>
-	<selectionWeight>0.002</selectionWeight>
-	<capMods>
-	  <li>
-		<capacity>Manipulation</capacity>
-		<postFactor>0.5</postFactor>
-	  </li>
-	</capMods>
-	<biostatCpx>2</biostatCpx>
-	<biostatMet>4</biostatMet>
-	<symbolPack>
-	  <prefixSymbols>
-		<li><symbol>age</symbol></li>
-		<li><symbol>weak</symbol></li>
-	  </prefixSymbols>
-	</symbolPack>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-	</modExtensions>
-  </GeneDef>
 
   <!-- ============== -->
 
@@ -275,69 +201,6 @@
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
 			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-	</modExtensions>
-  </GeneDef>
-
-  <!-- ============== -->
-
-  <GeneDef>
-	<defName>WVC_AgeDebuff_Armless</defName>
-	<label>armless</label>
-	<description>Carriers of this gene at some point in time lose their arms.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; If there is at least one xenotype with this gene, it will spam one or two errors per pawn during generation.</description>
-	<iconPath>WVC/UI/Genes/AgeDebuff_Handless</iconPath>
-	<displayCategory>Miscellaneous</displayCategory>
-	<displayOrderInCategory>9999</displayOrderInCategory>
-	<selectionWeight>0</selectionWeight>
-	<randomChosen>false</randomChosen>
-	<canGenerateInGeneSet>false</canGenerateInGeneSet>
-	<biostatCpx>2</biostatCpx>
-	<biostatMet>6</biostatMet>
-	<minAgeActive>13</minAgeActive>
-	<customEffectDescriptions>
-		<li>&lt;color=#ff8585&gt;Cannot spawn in genepacks.&lt;/color&gt;</li>
-	</customEffectDescriptions>
-	<symbolPack>
-	  <wholeNameSymbols>
-		<li><symbol>armless</symbol></li>
-	  </wholeNameSymbols>
-	  <prefixSymbols>
-		<li><symbol>arm</symbol></li>
-		<li><symbol>ar</symbol></li>
-	  </prefixSymbols>
-	  <suffixSymbols>
-		<li><symbol>less</symbol></li>
-		<li><symbol>les</symbol></li>
-	  </suffixSymbols>
-	</symbolPack>
-	<exclusionTags>
-	  <li>AG_OnlyOnCharacterCreation_WVC_AgeDebuff_Armless</li>
-	  <li>BodyPartHands</li>
-	  <li>BodyPartHand</li>
-	  <li>AG_BodyPartHand</li>
-	  <li>AG_BodyPartHands</li>
-	  <li>BodyPartArms</li>
-	  <li>BodyPartArm</li>
-	  <li>AG_BodyPartArm</li>
-	  <li>AG_BodyPartArms</li>
-	  <li>BodyPartShoulder</li>
-	  <li>AG_BodyPartShoulder</li>
-	  <li>BodyPartShoulders</li>
-	  <li>AG_BodyPartShoulders</li>
-	</exclusionTags>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-			<hediffsToBodyParts>
-				<li>
-					<hediff>MissingBodyPart</hediff>
-					<bodyparts>
-						<li>Shoulder</li>
-						<li>Shoulder</li>
-					</bodyparts>
-				</li>
-			</hediffsToBodyParts>
 		</li>
 	</modExtensions>
   </GeneDef>
