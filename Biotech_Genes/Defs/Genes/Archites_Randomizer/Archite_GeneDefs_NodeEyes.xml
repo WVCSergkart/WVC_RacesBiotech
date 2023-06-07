@@ -49,7 +49,10 @@
 	<!-- <displayCategory>Cosmetic</displayCategory> -->
 	<!-- <displayOrderInCategory>-5</displayOrderInCategory> -->
 	<iconColor>(255, 255, 255)</iconColor>
+	<!-- They cost nothing, as they can only be obtained through a randomizer. -->
 	<biostatCpx>0</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
 	<selectionWeight>0.0</selectionWeight>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<customEffectDescriptions>
@@ -77,6 +80,8 @@
 	<!-- </capMods> -->
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
 			<hideGene>true</hideGene>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">

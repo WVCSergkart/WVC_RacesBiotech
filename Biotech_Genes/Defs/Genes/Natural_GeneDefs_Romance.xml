@@ -31,7 +31,7 @@
 
   <GeneDef ParentName="WVC_RomanceChanceBase">
 	<defName>WVC_RomanceChanceA</defName>
-	<label>pheromones SX</label>
+	<label>pheromones A</label>
 	<iconColor>(133, 202, 255)</iconColor>
 	<exclusionTags>
 	  <li>WVC_RomanceChance_A</li>
@@ -39,7 +39,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_RomanceChanceBase">
 	<defName>WVC_RomanceChanceB</defName>
-	<label>pheromones GB</label>
+	<label>pheromones B</label>
 	<iconColor>(133, 255, 136)</iconColor>
 	<exclusionTags>
 	  <li>WVC_RomanceChance_B</li>
@@ -47,7 +47,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_RomanceChanceBase">
 	<defName>WVC_RomanceChanceC</defName>
-	<label>pheromones HJ</label>
+	<label>pheromones C</label>
 	<iconColor>(255, 133, 133)</iconColor>
 	<exclusionTags>
 	  <li>WVC_RomanceChance_C</li>
@@ -55,7 +55,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_RomanceChanceBase">
 	<defName>WVC_RomanceChanceD</defName>
-	<label>pheromones CV</label>
+	<label>pheromones D</label>
 	<iconColor>(142, 133, 255)</iconColor>
 	<exclusionTags>
 	  <li>WVC_RomanceChance_D</li>
@@ -63,7 +63,7 @@
   </GeneDef>
   <GeneDef ParentName="WVC_RomanceChanceBase">
 	<defName>WVC_RomanceChanceE</defName>
-	<label>pheromones WR</label>
+	<label>pheromones E</label>
 	<iconColor>(255, 248, 133)</iconColor>
 	<exclusionTags>
 	  <li>WVC_RomanceChance_E</li>
@@ -108,40 +108,45 @@
 
   <GeneDef ParentName="WVC_RomanceChance_Encode">
 	<defName>WVC_MechaAI_RomanceChanceA</defName>
-	<label>pheromones SX_A</label>
-	<iconPath>WVC/UI/Genes/EncodingSX</iconPath>
+	<label>pheromones F</label>
+	<iconColor>(255, 255, 133)</iconColor>
+	<!-- <iconPath>WVC/UI/Genes/EncodingSX</iconPath> -->
 	<exclusionTags>
 	  <li>WVC_Mecha_RomanceChance_SX</li>
 	</exclusionTags>
   </GeneDef>
   <GeneDef ParentName="WVC_RomanceChance_Encode">
 	<defName>WVC_MechaAI_RomanceChanceB</defName>
-	<label>pheromones GB_A</label>
-	<iconPath>WVC/UI/Genes/EncodingGB</iconPath>
+	<label>pheromones G</label>
+	<iconColor>(133, 255, 255)</iconColor>
+	<!-- <iconPath>WVC/UI/Genes/EncodingGB</iconPath> -->
 	<exclusionTags>
 	  <li>WVC_Mecha_RomanceChance_GB</li>
 	</exclusionTags>
   </GeneDef>
   <GeneDef ParentName="WVC_RomanceChance_Encode">
 	<defName>WVC_MechaAI_RomanceChanceC</defName>
-	<label>pheromones HJ_A</label>
-	<iconPath>WVC/UI/Genes/EncodingHJ</iconPath>
+	<label>pheromones H</label>
+	<iconColor>(255, 133, 255)</iconColor>
+	<!-- <iconPath>WVC/UI/Genes/EncodingHJ</iconPath> -->
 	<exclusionTags>
 	  <li>WVC_Mecha_RomanceChance_HJ</li>
 	</exclusionTags>
   </GeneDef>
   <GeneDef ParentName="WVC_RomanceChance_Encode">
 	<defName>WVC_MechaAI_RomanceChanceD</defName>
-	<label>pheromones CV_A</label>
-	<iconPath>WVC/UI/Genes/EncodingCV</iconPath>
+	<label>pheromones I</label>
+	<iconColor>(133, 255, 133)</iconColor>
+	<!-- <iconPath>WVC/UI/Genes/EncodingCV</iconPath> -->
 	<exclusionTags>
 	  <li>WVC_Mecha_RomanceChance_CV</li>
 	</exclusionTags>
   </GeneDef>
   <GeneDef ParentName="WVC_RomanceChance_Encode">
 	<defName>WVC_MechaAI_RomanceChanceE</defName>
-	<label>pheromones WR_A</label>
-	<iconPath>WVC/UI/Genes/EncodingWR</iconPath>
+	<label>pheromones J</label>
+	<iconColor>(133, 255, 153)</iconColor>
+	<!-- <iconPath>WVC/UI/Genes/EncodingWR</iconPath> -->
 	<exclusionTags>
 	  <li>WVC_Mecha_RomanceChance_WR</li>
 	</exclusionTags>

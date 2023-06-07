@@ -4,7 +4,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode" Name="WVC_XenotypesAndGenes_ArchitesRandomEncode_Vindication" Abstract="True">
 	<label>encoding CV</label>
 	<displayOrderInCategory>-1170</displayOrderInCategory>
-	<iconPath>WVC/UI/Genes/Encoding_GeneC</iconPath>
+	<iconPath>WVC/UI/Genes/Gene_RandomBuff_Misc_v0</iconPath>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_Vindication</li>
 	  <li>WVC_XenotypesAndGenes_ArchitesRandomEncode_GeneTagRandomizer_Vindication</li>

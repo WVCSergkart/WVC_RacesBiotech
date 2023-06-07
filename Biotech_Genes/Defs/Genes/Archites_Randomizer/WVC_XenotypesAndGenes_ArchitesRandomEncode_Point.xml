@@ -4,7 +4,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode" Name="WVC_XenotypesAndGenes_ArchitesRandomEncode_Point" Abstract="True">
 	<label>encoding WR</label>
 	<displayOrderInCategory>-1160</displayOrderInCategory>
-	<iconPath>WVC/UI/Genes/Encoding_GeneE</iconPath>
+	<iconPath>WVC/UI/Genes/Gene_RandomBuff_Factor_v0</iconPath>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_Point</li>
 	  <li>WVC_XenotypesAndGenes_ArchitesRandomEncode_GeneTagRandomizer_Point</li>

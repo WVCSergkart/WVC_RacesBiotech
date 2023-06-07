@@ -3,7 +3,7 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode" Name="WVC_XenotypesAndGenes_ArchitesRandomEncode_Entity" Abstract="True">
 	<label>encoding SX</label>
-	<iconPath>WVC/UI/Genes/Encoding_GeneF</iconPath>
+	<iconPath>WVC/UI/Genes/Gene_RandomBuff_Flesh_v0</iconPath>
 	<displayOrderInCategory>-1200</displayOrderInCategory>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_Entity</li>

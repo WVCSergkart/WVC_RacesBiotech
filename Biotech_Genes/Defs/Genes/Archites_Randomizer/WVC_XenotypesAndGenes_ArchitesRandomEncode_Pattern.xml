@@ -4,7 +4,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode" Name="WVC_XenotypesAndGenes_ArchitesRandomEncode_Pattern" Abstract="True">
 	<label>encoding HJ</label>
 	<displayOrderInCategory>-1190</displayOrderInCategory>
-	<iconPath>WVC/UI/Genes/Encoding_GeneA</iconPath>
+	<iconPath>WVC/UI/Genes/Gene_RandomBuff_Metabol_v0</iconPath>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_Pattern</li>
 	  <li>WVC_XenotypesAndGenes_ArchitesRandomEncode_GeneTagRandomizer_Pattern</li>
@@ -30,58 +30,58 @@
 	<defName>WVC_Nodization_PatternBuff_A</defName>
 	<label>metabolism SX</label>
 	<iconColor>(133, 202, 255)</iconColor>
-	<biostatCpx>4</biostatCpx>
+	<!-- <biostatCpx>4</biostatCpx> -->
 	<biostatMet>4</biostatMet>
-	<biostatArc>2</biostatArc>
+	<!-- <biostatArc>2</biostatArc> -->
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Pattern">
 	<defName>WVC_Nodization_PatternBuff_B</defName>
 	<label>metabolism HJ</label>
 	<iconColor>(255, 133, 133)</iconColor>
-	<biostatCpx>0</biostatCpx>
+	<!-- <biostatCpx>0</biostatCpx> -->
 	<biostatMet>2</biostatMet>
-	<biostatArc>1</biostatArc>
+	<!-- <biostatArc>1</biostatArc> -->
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Pattern">
 	<defName>WVC_Nodization_PatternBuff_C</defName>
 	<label>metabolism GB</label>
 	<iconColor>(133, 255, 136)</iconColor>
-	<biostatCpx>6</biostatCpx>
+	<!-- <biostatCpx>6</biostatCpx> -->
 	<biostatMet>6</biostatMet>
-	<biostatArc>2</biostatArc>
+	<!-- <biostatArc>2</biostatArc> -->
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Pattern">
 	<defName>WVC_Nodization_PatternBuff_D</defName>
 	<label>metabolism CV</label>
 	<iconColor>(142, 133, 255)</iconColor>
-	<biostatCpx>5</biostatCpx>
+	<!-- <biostatCpx>5</biostatCpx> -->
 	<biostatMet>5</biostatMet>
-	<biostatArc>2</biostatArc>
+	<!-- <biostatArc>2</biostatArc> -->
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Pattern">
 	<defName>WVC_Nodization_PatternBuff_E</defName>
 	<label>metabolism WR</label>
 	<iconColor>(255, 248, 133)</iconColor>
-	<biostatCpx>1</biostatCpx>
+	<!-- <biostatCpx>1</biostatCpx> -->
 	<biostatMet>3</biostatMet>
-	<biostatArc>1</biostatArc>
+	<!-- <biostatArc>1</biostatArc> -->
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Pattern">
 	<defName>WVC_Nodization_PatternBuff_F</defName>
 	<label>metabolism VX</label>
 	<iconColor>(133, 167, 255)</iconColor>
-	<biostatCpx>7</biostatCpx>
+	<!-- <biostatCpx>7</biostatCpx> -->
 	<biostatMet>7</biostatMet>
-	<biostatArc>2</biostatArc>
+	<!-- <biostatArc>2</biostatArc> -->
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Pattern">
 	<defName>WVC_Nodization_PatternBuff_G</defName>
 	<label>metabolism YR</label>
 	<iconColor>(255, 182, 133)</iconColor>
-	<biostatCpx>8</biostatCpx>
+	<!-- <biostatCpx>8</biostatCpx> -->
 	<biostatMet>8</biostatMet>
-	<biostatArc>2</biostatArc>
+	<!-- <biostatArc>2</biostatArc> -->
   </GeneDef>
 
 </Defs>

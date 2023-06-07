@@ -7,7 +7,7 @@
 	<customEffectDescriptions>
 		<li>Replaced with one random gene from its series.</li>
 	</customEffectDescriptions>
-	<iconPath>WVC/UI/Genes/Encoding_Giver</iconPath>
+	<iconPath>WVC/UI/Genes/Gene_RandomBuff_v0</iconPath>
 	<displayOrderInCategory>-1900</displayOrderInCategory>
 	<!-- <randomChosen>true</randomChosen> -->
 	<selectionWeight>0.0112</selectionWeight>
@@ -25,6 +25,9 @@
 	<defName>WVC_Nodization_EntityRandomizer</defName>
 	<label>random flesh</label>
 	<iconColor>(255, 182, 133)</iconColor>
+	<customEffectDescriptions>
+		<li>Gives a gene that can significantly enhance the pawn's parameters, such as psi sensitivity, immunity, regeneration, armor, survivability, etc.</li>
+	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<randomizerGenesList>
@@ -43,6 +46,9 @@
 	<defName>WVC_Nodization_SkillRandomizer</defName>
 	<label>random skill</label>
 	<iconColor>(133, 167, 255)</iconColor>
+	<customEffectDescriptions>
+		<li>Gives a gene that increases one of the skills by 6 or two by 3.</li>
+	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<randomizerGenesList>
@@ -61,6 +67,9 @@
 	<defName>WVC_Nodization_PatternRandomizer</defName>
 	<label>random metabolism</label>
 	<iconColor>(255, 248, 133)</iconColor>
+	<customEffectDescriptions>
+		<li>Gives a boost to metabolism. Randomly from 2 to 8.</li>
+	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<randomizerGenesList>
@@ -79,6 +88,9 @@
 	<defName>WVC_Nodization_PointRandomizer</defName>
 	<label>random point</label>
 	<iconColor>(142, 133, 255)</iconColor>
+	<customEffectDescriptions>
+		<li>Gives a gene with a multiplier to stats. Such as psi sensitivity, immunity, regeneration, armor, survivability, etc.</li>
+	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<randomizerGenesList>
@@ -97,6 +109,9 @@
 	<defName>WVC_Nodization_StringRandomizer</defName>
 	<label>random string</label>
 	<iconColor>(133, 255, 136)</iconColor>
+	<customEffectDescriptions>
+		<li>Gives a random gene that increases capacity.</li>
+	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<randomizerGenesList>
@@ -115,6 +130,9 @@
 	<defName>WVC_Nodization_VindicationRandomizer</defName>
 	<label>random vindication</label>
 	<iconColor>(255, 133, 133)</iconColor>
+	<customEffectDescriptions>
+		<li>Gives a gene with a offset/factor to stats. Such as psi sensitivity, immunity, regeneration, armor, survivability, etc.</li>
+	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<randomizerGenesList>
@@ -133,6 +151,9 @@
 	<defName>WVC_Nodization_DecisionRandomizer</defName>
 	<label>random decision</label>
 	<iconColor>(133, 202, 255)</iconColor>
+	<customEffectDescriptions>
+		<li>Gives a gene with a offset to stats. Such as psi sensitivity, immunity, regeneration, armor, survivability, etc.</li>
+	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<randomizerGenesList>
@@ -156,7 +177,7 @@
 	<!-- <label>AI</label> -->
 	<!-- <description>Complex templates for the mechanoid sub-core, which can provide some advantages.</description> -->
 	<description>Carriers of this gene have archites that formed special neural connections in the brain and improved the carrier's nervous system pointwise.</description>
-	<iconPath>WVC/UI/Genes/Mechlink</iconPath>
+	<iconPath>WVC/UI/Genes/Gene_RandomBuff_v0</iconPath>
 	<!-- <displayCategory>WVC_MechaBodyWare</displayCategory> -->
 	<!-- <displayCategory>WVC_MechaBodyParts</displayCategory> -->
 	<displayOrderInCategory>-1200</displayOrderInCategory>
@@ -166,8 +187,10 @@
 	<selectionWeight>0.0</selectionWeight>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<!-- <selectionWeight>0.0075</selectionWeight> -->
+	<!-- They cost nothing, as they can only be obtained through a randomizer. -->
 	<biostatCpx>0</biostatCpx>
-	<biostatArc>1</biostatArc>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
 		<li>Has a 20% chance of being replaced by any other gene of the same type. The effect is triggered when a gene is transferred/reimplanted/added.</li>
 	</customEffectDescriptions>
@@ -187,6 +210,8 @@
 	</symbolPack>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
 			<hideGene>true</hideGene>
 		</li>
 	</modExtensions>

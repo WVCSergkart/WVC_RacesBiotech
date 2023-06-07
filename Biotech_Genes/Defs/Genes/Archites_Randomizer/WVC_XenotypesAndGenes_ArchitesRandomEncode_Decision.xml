@@ -4,7 +4,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode" Name="WVC_XenotypesAndGenes_ArchitesRandomEncode_Decision" Abstract="True">
 	<label>encoding YR</label>
 	<displayOrderInCategory>-1140</displayOrderInCategory>
-	<iconPath>WVC/UI/Genes/Encoding_GeneG</iconPath>
+	<iconPath>WVC/UI/Genes/Gene_RandomBuff_Offset_v0</iconPath>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_Decision</li>
 	  <li>WVC_XenotypesAndGenes_ArchitesRandomEncode_GeneTagRandomizer_Decision</li>

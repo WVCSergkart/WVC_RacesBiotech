@@ -4,7 +4,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode" Name="WVC_XenotypesAndGenes_ArchitesRandomEncode_Skill" Abstract="True">
 	<label>encoding GB</label>
 	<displayOrderInCategory>-1180</displayOrderInCategory>
-	<iconPath>WVC/UI/Genes/Encoding_GeneB</iconPath>
+	<iconPath>WVC/UI/Genes/Gene_RandomBuff_Skill_v0</iconPath>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_Skill</li>
 	  <li>WVC_XenotypesAndGenes_ArchitesRandomEncode_GeneTagRandomizer_Skill</li>

@@ -4,7 +4,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode" Name="WVC_XenotypesAndGenes_ArchitesRandomEncode_String" Abstract="True">
 	<label>encoding VX</label>
 	<displayOrderInCategory>-1150</displayOrderInCategory>
-	<iconPath>WVC/UI/Genes/Encoding_GeneD</iconPath>
+	<iconPath>WVC/UI/Genes/Gene_RandomBuff_CaoMod_v0</iconPath>
 	<exclusionTags>
 	  <li>WVC_Nodization_RandomBuff_String</li>
 	  <li>WVC_XenotypesAndGenes_ArchitesRandomEncode_GeneTagRandomizer_String</li>
