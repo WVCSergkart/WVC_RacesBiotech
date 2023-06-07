@@ -44,14 +44,14 @@ namespace WVC_XenotypesAndGenes
 		{
 			foreach (XenotypeDef thingDef in WVC_Biotech.allXenotypes)
 			{
-				bool flag = WVC_Biotech.cachedXenotypesFilter[thingDef.defName];
+				// bool flag = WVC_Biotech.cachedXenotypesFilter[thingDef.defName];
 				// XenotypesFilterMod.cachedXenotypesFilter[thingDef.defName] = true;
 				if (!WVC_Biotech.cachedXenotypesFilter.TryGetValue(thingDef.defName, out _))
 				{
 					// Whitelist from defs
 					if (whiteListedXenotypesFromDef.Contains(thingDef.defName))
 					{
-						flag = _ = true;
+						WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = true;
 					}
 					// Immediately weed out all xenotypes that can cause bugs
 					// Androids do not work correctly with sera
@@ -59,14 +59,14 @@ namespace WVC_XenotypesAndGenes
 					// AG_ just in case
 					else if (thingDef.defName.Contains("AG_") || thingDef.defName.Contains("VREA_") || thingDef.defName.Contains("Android") || thingDef.defName.Contains("Random"))
 					{
-						flag = _ = false;
+						WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = false;
 					}
 					// We give a chance only to non-inherited xenotypes
 					else if (!thingDef.inheritable)
 					{
 						if (thingDef.defName.Contains("WVC_"))
 						{
-							flag = _ = true;
+							WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = true;
 						}
 						// else if (thingDef.doubleXenotypeChances != null)
 						// {
@@ -76,16 +76,16 @@ namespace WVC_XenotypesAndGenes
 						// And if there are too many xenotypes, this can affect the speed of the game launch
 						else if (thingDef.genes.Count > 14)
 						{
-							flag = _ = true;
+							WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = true;
 						}
 						else
 						{
-							flag = _ = false;
+							WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = false;
 						}
 					}
 					else
 					{
-						flag = _ = false;
+						WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = false;
 					}
 				}
 				// else
@@ -93,7 +93,7 @@ namespace WVC_XenotypesAndGenes
 					// filterBlackListedXenotypesForSerums.Add(thingDef.defName);
 				// }
 
-				if (flag == false)
+				if (WVC_Biotech.cachedXenotypesFilter[thingDef.defName] == false)
 				{
 					filterBlackListedXenotypesForSerums.Add(thingDef.defName);
 				}
