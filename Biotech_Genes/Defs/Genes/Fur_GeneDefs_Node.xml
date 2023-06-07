@@ -4,8 +4,8 @@
   <!-- = -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinArchite" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeSkin</defName>
-	<label>nodeskin</label>
-	<labelShortAdj>nodeskin</labelShortAdj>
+	<label>faceless</label>
+	<labelShortAdj>faceless</labelShortAdj>
 	<description>Carriers of this gene have archites that completely transform their body. 
 
 The skin has become like the most durable alloys, but has not lost its elasticity. The face is covered with plates, but this does not interfere with the owner's vision at all. Numerous clusters of mechanites spread throughout the body, greatly strengthening their host.

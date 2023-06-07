@@ -126,4 +126,45 @@
 	<!-- </whiteListedTraits> -->
   </WVC_XenotypesAndGenes.XenotypesAndGenesListDef>
 
+  <AlphaGenes.WretchBlacklistDef MayRequire="sarg.alphagenes">
+	<defName>WVC_WretchBlacklistDef</defName>
+	<blackListedGenes>
+		<!-- Cause dangerous effect -->
+		<li>WVC_AgeDebuff_Armless</li>
+		<li>WVC_Learning_ExtremeSlow</li>
+		<li>WVC_NoLearning</li>
+		<li>WVC_DisabledAllWork_Useless</li>
+		<li>WVC_DisabledAllWork_Blank</li>
+		<!-- For future -->
+		<li>WVC_NodeEyes_A</li>
+		<li>WVC_NodeEyes_B</li>
+		<li>WVC_NodeEyes_C</li>
+		<li>WVC_NodeEyes_D</li>
+		<li>WVC_NodeEyes_E</li>
+		<li>WVC_NodeEyes_Y</li>
+		<li>WVC_NodeEyes_F</li>
+		<li>WVC_NodeEyes_G</li>
+		<li>WVC_NodeEyes_H</li>
+		<li>WVC_NodeEyes_J</li>
+		<li>WVC_NodeEyes_K</li>
+		<!-- = -->
+		<li>WVC_NodeEyes_Randomizer</li>
+		<li>WVC_Nodization_DecisionRandomizer</li>
+		<li>WVC_Nodization_VindicationRandomizer</li>
+		<li>WVC_Nodization_StringRandomizer</li>
+		<li>WVC_Nodization_PointRandomizer</li>
+		<li>WVC_Nodization_PatternRandomizer</li>
+		<li>WVC_Nodization_SkillRandomizer</li>
+		<li>WVC_Nodization_EntityRandomizer</li>
+		<!-- = -->
+		<li>WVC_MechaSkin</li>
+		<li>WVC_RuneSkin</li>
+		<li>WVC_StoneSkin</li>
+		<li>WVC_NodeSkin</li>
+		<!-- = -->
+		<li>WVC_MecaBodyParts_Claws</li>
+		<li>WVC_NaturalBodyParts_Claws</li>
+	</blackListedGenes>
+  </AlphaGenes.WretchBlacklistDef>
+
 </Defs>
