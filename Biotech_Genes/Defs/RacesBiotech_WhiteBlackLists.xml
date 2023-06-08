@@ -227,6 +227,9 @@
 		<li>WVC_Nodization_VindicationBuff_E</li>
 		<li>WVC_Nodization_VindicationBuff_F</li>
 		<li>WVC_Nodization_VindicationBuff_G</li>
+		<!-- = -->
+		<li>WVC_Undead</li>
+		<li>WVC_NaturalUndead</li>
 	</blackListedGenes>
   </AlphaGenes.WretchBlacklistDef>
 

@@ -21,21 +21,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			if (pawn?.story != null)
-			{
-				if (pawn.story.Childhood != null)
-				{
-					List<BackstoryDef> blackListedBackstoryForChanger = XenotypeFilterUtility.BlackListedBackstoryForChanger();
-					if (ChildBackstoryDef != null && !blackListedBackstoryForChanger.Contains(pawn.story.Childhood))
-					{
-						pawn.story.Childhood = ChildBackstoryDef;
-					}
-					if (pawn.story.Adulthood != null && AdultBackstoryDef != null && !blackListedBackstoryForChanger.Contains(pawn.story.Adulthood))
-					{
-						pawn.story.Adulthood = AdultBackstoryDef;
-					}
-				}
-			}
+			BackstoryChanger(pawn, ChildBackstoryDef, AdultBackstoryDef);
 			// if (pawn?.story != null && ChildBackstoryDef != null && pawn.ageTracker.AgeBiologicalTicks >= 46800000f)
 			// {
 				// pawn.story.Childhood = ChildBackstoryDef;
@@ -52,6 +38,25 @@ namespace WVC_XenotypesAndGenes
 			// {
 				// pawn.story.Adulthood = WVC_GenesDefOf.WVC_RacesBiotech_Amnesia_Adult;
 			// }
+		}
+
+		public static void BackstoryChanger(Pawn pawn, BackstoryDef childBackstoryDef = null, BackstoryDef adultBackstoryDef = null)
+		{
+			if (pawn?.story != null)
+			{
+				if (pawn.story.Childhood != null)
+				{
+					List<BackstoryDef> blackListedBackstoryForChanger = XenotypeFilterUtility.BlackListedBackstoryForChanger();
+					if (childBackstoryDef != null && !blackListedBackstoryForChanger.Contains(pawn.story.Childhood))
+					{
+						pawn.story.Childhood = childBackstoryDef;
+					}
+					if (pawn.story.Adulthood != null && adultBackstoryDef != null && !blackListedBackstoryForChanger.Contains(pawn.story.Adulthood))
+					{
+						pawn.story.Adulthood = adultBackstoryDef;
+					}
+				}
+			}
 		}
 	}
 

@@ -24,6 +24,7 @@
 	<iconPath>WVC/UI/Genes/Gene_NeverRest_v0</iconPath>
 	<marketValueFactor>1.5</marketValueFactor>
 	<displayOrderInCategory>31</displayOrderInCategory>
+	<selectionWeight>0.0125</selectionWeight>
 	<disablesNeeds>
 	  <li>Rest</li>
 	  <li>Comfort</li>

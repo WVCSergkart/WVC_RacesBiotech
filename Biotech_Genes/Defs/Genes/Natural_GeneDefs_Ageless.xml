@@ -41,6 +41,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneAgeless_Base">
 	<defName>WVC_NaturalAgeless</defName>
 	<label>natural ageless</label>
+	<labelShortAdj>ageless</labelShortAdj>
 	<description>Carriers of this gene completely stop aging after reaching the age of 18.</description>
 	<iconPath>WVC/UI/Genes/Gene_Ageless_Basic_v0</iconPath>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Ageless</geneClass>

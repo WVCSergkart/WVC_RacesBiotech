@@ -67,6 +67,7 @@
     <Compile Include="Resources_Genes\Gene_Amnesia.cs" />
     <Compile Include="Resources_Genes\Gene_Blank.cs" />
     <Compile Include="Resources_Genes\Gene_BodyPartRegeneration.cs" />
+    <Compile Include="Resources_Genes\Gene_Undead.cs" />
     <Compile Include="Resources_Genes\Gene_Faceless.cs" />
     <Compile Include="Resources_Genes\Gene_Randomizer.cs" />
     <Compile Include="Resources_Genes\Gene_Shuffle.cs" />

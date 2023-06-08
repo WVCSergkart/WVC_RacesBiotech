@@ -34,14 +34,19 @@ namespace WVC_XenotypesAndGenes
 						// num++;
 					// }
 				// }
-				int num = 0;
-				foreach (BodyPartDef bodypart in Bodyparts)
+				BodyPartGiver(Bodyparts, pawn, HediffDefName);
+			}
+		}
+
+		public static void BodyPartGiver(List<BodyPartDef> bodyparts, Pawn pawn, HediffDef hediffDefName)
+		{
+			int num = 0;
+			foreach (BodyPartDef bodypart in bodyparts)
+			{
+				if (!pawn.RaceProps.body.GetPartsWithDef(bodypart).EnumerableNullOrEmpty() && num <= pawn.RaceProps.body.GetPartsWithDef(bodypart).Count)
 				{
-					if (!pawn.RaceProps.body.GetPartsWithDef(bodypart).EnumerableNullOrEmpty() && num <= pawn.RaceProps.body.GetPartsWithDef(bodypart).Count)
-					{
-						pawn.health.AddHediff(HediffDefName, pawn.RaceProps.body.GetPartsWithDef(bodypart).ToArray()[num]);
-						num++;
-					}
+					pawn.health.AddHediff(hediffDefName, pawn.RaceProps.body.GetPartsWithDef(bodypart).ToArray()[num]);
+					num++;
 				}
 			}
 		}

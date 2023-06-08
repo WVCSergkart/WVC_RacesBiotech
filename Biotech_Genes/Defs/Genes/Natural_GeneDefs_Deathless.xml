@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneDeathless_Undead" Abstract="True">
+	<labelShortAdj>undead</labelShortAdj>
+	<!-- <description>Carriers of this gene are formally immortal. Regardless of the number of damaged or destroyed organs, their body is able to regenerate in the event of death. The price of this is a few years of their life.</description> -->
+	<description>Carriers of this gene accumulate resurgent cells with age. In the event of death, these cells are immediately activated and, in a fairly short time, completely restore damaged or even destroyed tissues.</description>
+	<iconPath>WVC/UI/Genes/Gene_Deathless_v0</iconPath>
+	<selectionWeight>0.022</selectionWeight>
+	<displayCategory>Healing</displayCategory>
+	<displayOrderInCategory>1275</displayOrderInCategory>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Undead</geneClass>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+	  <!-- <li>Can only die from destruction of brain.</li> -->
+	  <li>In the event of death, the carrier is resurrected completely healthy and without damage.</li>
+	  <li>After resurrection, the carrier of the gene loses 5 years of life, backstory, if any, and all experience in skills.</li>
+	  <li>The minimum age to which the carrier can roll back is 14 years. If the carrier does not have enough age, then death is not reversible.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>undead</symbol></li>
+	  </wholeNameSymbols>
+	  <prefixSymbols>
+		<li><symbol>un</symbol></li>
+		<li><symbol>mortal</symbol></li>
+		<li><symbol>im</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>dead</symbol></li>
+		<li><symbol>im</symbol></li>
+		<li><symbol>mortal</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>WVC_XenotypesAndGenes_GeneDeathless_Undead</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<childBackstoryDef>WVC_RacesBiotech_Amnesia_Child</childBackstoryDef>
+			<adultBackstoryDef>WVC_RacesBiotech_Amnesia_Adult</adultBackstoryDef>
+			<hediffDefName>WVC_GeneUndead_PawnResurrected</hediffDefName>
+			<bodyparts>
+			  <li>Torso</li>
+			</bodyparts>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Undead">
+	<defName>WVC_Undead</defName>
+	<label>undead</label>
+	<displayOrderInCategory>1270</displayOrderInCategory>
+	<iconColor>(93, 101, 126)</iconColor>
+	<selectionWeight>0.0125</selectionWeight>
+	<biostatCpx>7</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Undead">
+	<defName>WVC_NaturalUndead</defName>
+	<label>natural undead</label>
+	<displayOrderInCategory>1271</displayOrderInCategory>
+	<iconColor>(93, 101, 126)</iconColor>
+	<biostatCpx>7</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-6</biostatMet>
+  </GeneDef>
+
+</Defs>

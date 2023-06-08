@@ -16,7 +16,11 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			HediffGiver(Bodyparts, HediffDefName, pawn, Active);
+			if (Active && Rand.Chance(0.2f))
+			{
+				Gene_PermanentHediff.BodyPartGiver(Bodyparts, pawn, HediffDefName);
+			}
+			// HediffGiver(Bodyparts, HediffDefName, pawn, Active);
 		}
 
 		public override void Tick()
@@ -27,24 +31,28 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			HediffGiver(Bodyparts, HediffDefName, pawn, Active);
+			if (Active && Rand.Chance(0.2f))
+			{
+				Gene_PermanentHediff.BodyPartGiver(Bodyparts, pawn, HediffDefName);
+			}
+			// HediffGiver(Bodyparts, HediffDefName, pawn, Active);
 		}
 
-		public static void HediffGiver(List<BodyPartDef> bodyparts, HediffDef hediffDefName, Pawn pawn, bool active)
-		{
-			if (active && Rand.Chance(0.2f))
-			{
-				int num = 0;
-				foreach (BodyPartDef bodypart in bodyparts)
-				{
-					if (!pawn.RaceProps.body.GetPartsWithDef(bodypart).EnumerableNullOrEmpty() && num <= pawn.RaceProps.body.GetPartsWithDef(bodypart).Count)
-					{
-						pawn.health.AddHediff(hediffDefName, pawn.RaceProps.body.GetPartsWithDef(bodypart).ToArray()[num]);
-						num++;
-					}
-				}
-			}
-		}
+		// public static void HediffGiver(List<BodyPartDef> bodyparts, HediffDef hediffDefName, Pawn pawn, bool active)
+		// {
+			// if (active && Rand.Chance(0.2f))
+			// {
+				// int num = 0;
+				// foreach (BodyPartDef bodypart in bodyparts)
+				// {
+					// if (!pawn.RaceProps.body.GetPartsWithDef(bodypart).EnumerableNullOrEmpty() && num <= pawn.RaceProps.body.GetPartsWithDef(bodypart).Count)
+					// {
+						// pawn.health.AddHediff(hediffDefName, pawn.RaceProps.body.GetPartsWithDef(bodypart).ToArray()[num]);
+						// num++;
+					// }
+				// }
+			// }
+		// }
 	}
 
 }
