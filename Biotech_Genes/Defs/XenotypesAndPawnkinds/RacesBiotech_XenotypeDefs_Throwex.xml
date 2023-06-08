@@ -37,15 +37,15 @@
 		<!-- <li>WVC_VoiceMechaLifter</li> -->
 		<!-- <li>WVC_VoiceMechaParamedic</li> -->
 		<li>Ageless</li>
-		<li>ArchiteMetabolism</li>
+		<!-- <li>ArchiteMetabolism</li> -->
 		<li>Deathless</li>
 		<li>DiseaseFree</li>
 		<li>PerfectImmunity</li>
 		<li>TotalHealing</li>
 		<li>WVC_FirefoampopMech</li>
 		<li>WVC_StartGestation</li>
-		<li>WVC_LongjumpMech</li>
-		<li>MoveSpeed_VeryQuick</li>
+		<!-- <li>WVC_LongjumpMech</li> -->
+		<!-- <li>MoveSpeed_VeryQuick</li> -->
 		<li>ToxResist_Total</li>
 		<!-- <li>WVC_ArmoredSkin_Steel</li> -->
 		<li>WVC_MinMaxTemp_Archite</li>
