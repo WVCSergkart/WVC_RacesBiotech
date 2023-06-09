@@ -18,6 +18,8 @@
 	  <li>In the event of death, the carrier is resurrected completely healthy and without damage.</li>
 	  <li>After resurrection, the carrier of the gene loses 5 years of life, backstory, all non-blood relations and all experience in skills.</li>
 	  <li>The minimum age to which the carrier can roll back is 14 years. If the carrier does not have enough age, then death is not reversible.</li>
+	  <li>The gene has no effect if the carrier has the deathless gene.</li>
+	  <!-- <li>The gene has a 25% chance to fail. For every 10 complexity, the chance increases by 5. With the presence of archite genes, the chance is 100%. With the Deathless gene, the chance is 0%.</li> -->
 	</customEffectDescriptions>
 	<symbolPack>
 	  <wholeNameSymbols>

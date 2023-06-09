@@ -27,6 +27,13 @@
 		<li>Hair_Grayless</li>
 		<li>WVC_PatchSkin</li>
 		<!-- Random -->
+		<li>WVC_RandomLearning</li>
+		<li>WVC_RandomHands</li>
+		<li>WVC_RandomWoundHealing</li>
+		<li>WVC_RandomImmunity</li>
+		<li>WVC_RandomMetabolism</li>
+		<li>WVC_RandomMoveSpeed</li>
+		<li>WVC_RandomPsychicAbility</li>
 	</genes>
   </XenotypeDef>
 

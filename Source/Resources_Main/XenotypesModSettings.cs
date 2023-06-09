@@ -61,8 +61,7 @@ namespace WVC_XenotypesAndGenes
 					// Immediately weed out all xenotypes that can cause bugs
 					// Androids do not work correctly with sera
 					// Random xenotypes should not be in sera
-					// AG_ just in case
-					else if (thingDef.defName.Contains("AG_") || thingDef.defName.Contains("VREA_") || thingDef.defName.Contains("Android") || thingDef.defName.Contains("Random"))
+					else if (thingDef.defName.Contains("VREA_") || thingDef.defName.Contains("Android") || thingDef.defName.Contains("Random"))
 					{
 						WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = false;
 					}

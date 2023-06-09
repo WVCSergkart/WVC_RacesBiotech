@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRandom_Base" Name="WVC_XenotypesAndGenes_GeneNaturalRandom_Learning" Abstract="True">
+	<label>learning</label>
+	<labelShortAdj>learning</labelShortAdj>
+	<description>Carriers of this gene have an unstable neural mutation, which can either improve or worsen over generations.</description>
+	<iconPath>WVC/UI/Genes/Gene_Random_Learning_v0</iconPath>
+	<exclusionTags>
+	  <li>Learning</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<randomizerGenesList>
+				<li>WVC_RandomLearning_A</li>
+				<li>WVC_RandomLearning_B</li>
+				<li>WVC_RandomLearning_C</li>
+				<li>WVC_RandomLearning_D</li>
+				<li>WVC_RandomLearning_E</li>
+			</randomizerGenesList>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneNaturalRandom_Learning">
+	<defName>WVC_RandomLearning_A</defName>
+	<iconColor>(126, 61, 60)</iconColor>
+	<statFactors>
+	  <GlobalLearningFactor>0.5</GlobalLearningFactor>
+	</statFactors>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneNaturalRandom_Learning">
+	<defName>WVC_RandomLearning_B</defName>
+	<iconColor>(178, 97, 96)</iconColor>
+	<statFactors>
+	  <GlobalLearningFactor>0.75</GlobalLearningFactor>
+	</statFactors>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneNaturalRandom_Learning">
+	<defName>WVC_RandomLearning_C</defName>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneNaturalRandom_Learning">
+	<defName>WVC_RandomLearning_D</defName>
+	<iconColor>(112, 173, 120)</iconColor>
+	<statFactors>
+	  <GlobalLearningFactor>1.25</GlobalLearningFactor>
+	</statFactors>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneNaturalRandom_Learning">
+	<defName>WVC_RandomLearning_E</defName>
+	<iconColor>(71, 117, 60)</iconColor>
+	<statFactors>
+	  <GlobalLearningFactor>1.5</GlobalLearningFactor>
+	</statFactors>
+  </GeneDef>
+
+</Defs>

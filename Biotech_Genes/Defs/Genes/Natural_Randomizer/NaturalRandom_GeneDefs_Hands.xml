@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRandom_Base" Name="WVC_XenotypesAndGenes_GeneNaturalRandom_Hands" Abstract="True">
+	<label>hands</label>
+	<labelShortAdj>hands</labelShortAdj>
+	<description>Carriers of this gene have an unstable hands mutation, which can either improve or worsen over generations.</description>
+	<iconPath>WVC/UI/Genes/Gene_Random_Hand_v0</iconPath>
+	<exclusionTags>
+	  <li>Hands</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<randomizerGenesList>
+				<li>WVC_RandomHands_A</li>
+				<li>WVC_RandomHands_B</li>
+				<li>WVC_RandomHands_C</li>
+				<li>WVC_RandomHands_D</li>
+				<li>WVC_RandomHands_E</li>
+			</randomizerGenesList>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneNaturalRandom_Hands">
+	<defName>WVC_RandomHands_A</defName>
+	<iconColor>(126, 61, 60)</iconColor>
+	<capMods>
+	  <li>
+		<capacity>Manipulation</capacity>
+		<postFactor>0.50</postFactor>
+	  </li>
+	</capMods>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneNaturalRandom_Hands">
+	<defName>WVC_RandomHands_B</defName>
+	<iconColor>(178, 97, 96)</iconColor>
+	<capMods>
+	  <li>
+		<capacity>Manipulation</capacity>
+		<postFactor>0.75</postFactor>
+	  </li>
+	</capMods>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneNaturalRandom_Hands">
+	<defName>WVC_RandomHands_C</defName>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneNaturalRandom_Hands">
+	<defName>WVC_RandomHands_D</defName>
+	<iconColor>(112, 173, 120)</iconColor>
+	<capMods>
+	  <li>
+		<capacity>Manipulation</capacity>
+		<postFactor>1.2</postFactor>
+	  </li>
+	</capMods>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneNaturalRandom_Hands">
+	<defName>WVC_RandomHands_E</defName>
+	<iconColor>(71, 117, 60)</iconColor>
+	<capMods>
+	  <li>
+		<capacity>Manipulation</capacity>
+		<postFactor>1.50</postFactor>
+	  </li>
+	</capMods>
+  </GeneDef>
+
+</Defs>

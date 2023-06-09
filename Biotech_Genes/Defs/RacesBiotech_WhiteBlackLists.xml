@@ -230,6 +230,56 @@
 		<!-- = -->
 		<li>WVC_Undead</li>
 		<li>WVC_NaturalUndead</li>
+		<!-- = -->
+		<li>WVC_RandomLearning</li>
+		<li>WVC_RandomHands</li>
+		<li>WVC_RandomWoundHealing</li>
+		<li>WVC_RandomImmunity</li>
+		<li>WVC_RandomMetabolism</li>
+		<li>WVC_RandomMoveSpeed</li>
+		<li>WVC_RandomPsychicAbility</li>
+		<!-- = -->
+		<li>WVC_RandomMetabolism_A</li>
+		<li>WVC_RandomMetabolism_B</li>
+		<li>WVC_RandomMetabolism_C</li>
+		<li>WVC_RandomMetabolism_D</li>
+		<li>WVC_RandomMetabolism_E</li>
+		<!-- = -->
+		<li>WVC_RandomImmunity_A</li>
+		<li>WVC_RandomImmunity_B</li>
+		<li>WVC_RandomImmunity_C</li>
+		<li>WVC_RandomImmunity_D</li>
+		<li>WVC_RandomImmunity_E</li>
+		<!-- = -->
+		<li>WVC_RandomWoundHealing_A</li>
+		<li>WVC_RandomWoundHealing_B</li>
+		<li>WVC_RandomWoundHealing_C</li>
+		<li>WVC_RandomWoundHealing_D</li>
+		<li>WVC_RandomWoundHealing_E</li>
+		<!-- = -->
+		<li>WVC_RandomHands_A</li>
+		<li>WVC_RandomHands_B</li>
+		<li>WVC_RandomHands_C</li>
+		<li>WVC_RandomHands_D</li>
+		<li>WVC_RandomHands_E</li>
+		<!-- = -->
+		<li>WVC_RandomLearning_A</li>
+		<li>WVC_RandomLearning_B</li>
+		<li>WVC_RandomLearning_C</li>
+		<li>WVC_RandomLearning_D</li>
+		<li>WVC_RandomLearning_E</li>
+		<!-- = -->
+		<li>WVC_RandomMoveSpeed_A</li>
+		<li>WVC_RandomMoveSpeed_B</li>
+		<li>WVC_RandomMoveSpeed_C</li>
+		<li>WVC_RandomMoveSpeed_D</li>
+		<li>WVC_RandomMoveSpeed_E</li>
+		<!-- = -->
+		<li>WVC_RandomPsychicAbility_A</li>
+		<li>WVC_RandomPsychicAbility_B</li>
+		<li>WVC_RandomPsychicAbility_C</li>
+		<li>WVC_RandomPsychicAbility_D</li>
+		<li>WVC_RandomPsychicAbility_E</li>
 	</blackListedGenes>
   </AlphaGenes.WretchBlacklistDef>
 

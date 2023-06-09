@@ -281,7 +281,7 @@
 	<!-- Вы уже и не помните, что мотивировало вас отправиться в преключение. Это воспоминание было настолько мимолётным и незначительным, что акцентировать на нём внимание у вас не было желания. Сейчас же вас больше волновало обильное кровотечение от раны ловко оставленной клинком. Группа рейдеров заметила вас раньше и застала в расплох, забрав ваши пожитки и оставив вас умирать они исчезли так же резко как и появились.\n\nПеред тем же как испустить дух вы мельком словно в тумание увидели силуэт. Когда вы открыли глаза, ран на вашем теле не было, а вы уже были всё тем же, но всё таки другим человеком. -->
 	<description>You no longer remember what motivated you to go on an adventure. This memory was so fleeting and insignificant that you had no desire to focus on it. Now you were more worried about the profuse bleeding from the wound deftly left by the blade. A group of raiders spotted you early and took you by surprise, taking your belongings and leaving you to die, they disappeared as abruptly as they appeared.\n\nBefore you expire, you caught a glimpse of a silhouette as if in a mist. When you opened your eyes, there were no wounds on your body, and you were already the same, but still a different person.</description>
 	<scenario>
-	  <summary>One undead pawn with no supplies. &lt;color=#a1ff95&gt;Easy-medium&lt;/color&gt; difficulty.</summary>
+	  <summary>One undead pawn with no supplies. &lt;color=#fff695&gt;Medium&lt;/color&gt; difficulty.</summary>
 	  <playerFaction>
 		<def>PlayerFaction</def>
 		<factionDef>PlayerColony</factionDef>
