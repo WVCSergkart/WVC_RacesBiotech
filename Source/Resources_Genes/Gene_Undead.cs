@@ -38,25 +38,42 @@ namespace WVC_XenotypesAndGenes
 			{
 				ResurrectionUtility.Resurrect(pawn);
 				pawn.ageTracker.AgeBiologicalTicks = Math.Max(limit, pawn.ageTracker.AgeBiologicalTicks - penalty);
+				Gene_PermanentHediff.BodyPartGiver(Bodyparts, pawn, HediffDefName);
 				Gene_BackstoryChanger.BackstoryChanger(pawn, ChildBackstoryDef, AdultBackstoryDef);
 				// int max = (int)((float)pawn.ageTracker.AgeBiologicalTicks / (float)(oneYear * 14));
 				// For any case
-				int skillsNumber = 0;
-				foreach (SkillDef item in DefDatabase<SkillDef>.AllDefsListForReading)
+				// int skillsNumber = 0;
+				// foreach (SkillDef item in DefDatabase<SkillDef>.AllDefsListForReading)
+				// {
+					// skillsNumber++;
+				// }
+				// for (int i = 0; i < skillsNumber; i++)
+				// {
+					// if (pawn.skills.skills.Where((SkillRecord x) => !x.TotallyDisabled && x.XpTotalEarned > 0f).TryRandomElementByWeight((SkillRecord x) => (float)x.GetLevel() * 10f, out var result))
+					// {
+						// float num = result.XpTotalEarned;
+						// result.Learn(0f - num, direct: true);
+					// }
+				// }
+				// foreach (Trait item in pawn.story.traits.allTraits)
+				// {
+					// if (item.sourceGene == null)
+					// {
+						// pawn.story.traits.RemoveTrait(item);
+					// }
+				// }
+				foreach (SkillRecord item in pawn.skills.skills)
 				{
-					skillsNumber++;
-				}
-				for (int i = 0; i < skillsNumber; i++)
-				{
-					if (pawn.skills.skills.Where((SkillRecord x) => !x.TotallyDisabled && x.XpTotalEarned > 0f).TryRandomElementByWeight((SkillRecord x) => (float)x.GetLevel() * 10f, out var result))
+					if (!item.TotallyDisabled && item.XpTotalEarned > 0f)
 					{
 						// float num = result.XpTotalEarned * XPLossPercentFromDeathrestRange.RandomInRange;
-						float num = result.XpTotalEarned;
+						float num = item.XpTotalEarned;
 						// letterText += "\n\n" + "DeathrestLostSkill".Translate(pawn.Named("PAWN"), result.def.label.Named("SKILL"), ((int)num).Named("XPLOSS"));
-						result.Learn(0f - num, direct: true);
+						item.Learn(0f - num, direct: true);
 						// gene_Deathless.lastSkillReductionTick = Find.TickManager.TicksGame;
 					}
 				}
+				pawn.relations.ClearAllNonBloodRelations();
 				// Pretty dumb and lazy solution
 				// LetterStack letterStack = Find.LetterStack;
 				// List<Letter> dismissibleLetters = letterStack.LettersListForReading.Where((Letter x) => x.CanDismissWithRightClick).ToList();
@@ -65,7 +82,6 @@ namespace WVC_XenotypesAndGenes
 				// {
 					// letterStack.RemoveLetter(dismissibleLetters.First());
 				// }
-				Gene_PermanentHediff.BodyPartGiver(Bodyparts, pawn, HediffDefName);
 				Find.LetterStack.ReceiveLetter("WVC_LetterLabelSecondChance_GeneUndead".Translate(), "WVC_LetterTextSecondChance_GeneUndead".Translate(pawn.Named("TARGET"), penaltyYears.Named("COMADURATION")), LetterDefOf.NeutralEvent, new LookTargets(pawn));
 			}
 			// pawn.ageTracker.ResetAgeReversalDemand(Pawn_AgeTracker.AgeReversalReason.ViaTreatment);

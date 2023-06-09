@@ -16,7 +16,7 @@
 	<customEffectDescriptions>
 	  <!-- <li>Can only die from destruction of brain.</li> -->
 	  <li>In the event of death, the carrier is resurrected completely healthy and without damage.</li>
-	  <li>After resurrection, the carrier of the gene loses 5 years of life, backstory, if any, and all experience in skills.</li>
+	  <li>After resurrection, the carrier of the gene loses 5 years of life, backstory, all non-blood relations and all experience in skills.</li>
 	  <li>The minimum age to which the carrier can roll back is 14 years. If the carrier does not have enough age, then death is not reversible.</li>
 	</customEffectDescriptions>
 	<symbolPack>

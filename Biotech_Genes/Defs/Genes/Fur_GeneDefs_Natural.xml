@@ -137,4 +137,28 @@
 	</symbolPack>
   </GeneDef>
 
+  <!-- Undead -->
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch"> -->
+	<!-- <defName>WVC_UndeadSkin</defName> -->
+	<!-- <label>undeadskin</label> -->
+	<!-- <biostatCpx>2</biostatCpx> -->
+	<!-- <biostatMet>-1</biostatMet> -->
+	<!-- <iconColor>(0.75, 0.75, 0.75)</iconColor> -->
+	<!-- <iconPath>WVC/UI/Genes/HeadRune_south</iconPath> -->
+	<!-- <graphicData> -->
+	  <!-- <fur>WVC_UndeadSkin</fur> -->
+	  <!-- <tattoosVisible>true</tattoosVisible> -->
+	  <!-- <layer>PostSkin</layer> -->
+	<!-- </graphicData> -->
+	<!-- <symbolPack> -->
+	  <!-- <prefixSymbols> -->
+		<!-- <li><symbol>un</symbol></li> -->
+		<!-- <li><symbol>dead</symbol></li> -->
+	  <!-- </prefixSymbols> -->
+	  <!-- <suffixSymbols> -->
+		<!-- <li><symbol>dead</symbol></li> -->
+	  <!-- </suffixSymbols> -->
+	<!-- </symbolPack> -->
+  <!-- </GeneDef> -->
+
 </Defs>

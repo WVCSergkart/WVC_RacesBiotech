@@ -124,6 +124,14 @@
 	<skinColorOverride>(192,159,104)</skinColorOverride>
   </GeneDef>
 
+  <!-- =============== -->
+
+  <GeneDef ParentName="WVC_GeneSkinColorOverride">
+	<defName>WVC_SkinColor_Undead</defName>
+	<label>undead skin</label>
+	<skinColorOverride>(93,101,126)</skinColorOverride>
+  </GeneDef>
+
   <!-- ======================================================== -->
 
   <GeneDef ParentName="GeneHairColorBase" Name="WVC_GeneHairColorBase" Abstract="True">
@@ -232,6 +240,14 @@
 	<defName>WVC_HairColor_Sand</defName>
 	<label>sand hair</label>
 	<hairColorOverride>(192,159,104)</hairColorOverride>
+  </GeneDef>
+
+  <!-- =============== -->
+
+  <GeneDef ParentName="WVC_GeneHairColorBase">
+	<defName>WVC_HairColor_Undead</defName>
+	<label>undead hair</label>
+	<hairColorOverride>(93,101,126)</hairColorOverride>
   </GeneDef>
 
 </Defs>
