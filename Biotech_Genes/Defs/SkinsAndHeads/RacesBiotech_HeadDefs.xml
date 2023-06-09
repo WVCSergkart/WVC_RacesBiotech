@@ -33,4 +33,12 @@
 	</requiredGenes>
   </HeadTypeDef>
 
+  <HeadTypeDef ParentName="WVC_RacesBiotech_AverageBase">
+	<defName>WVC_PatchSkin_Average</defName>
+	<graphicPath>WVC/UndeadGene_Head/Head</graphicPath>
+	<requiredGenes>
+	  <li>WVC_PatchSkin</li>
+	</requiredGenes>
+  </HeadTypeDef>
+
 </Defs>

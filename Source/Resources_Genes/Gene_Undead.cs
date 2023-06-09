@@ -26,8 +26,9 @@ namespace WVC_XenotypesAndGenes
 		public override void Notify_PawnDied()
 		{
 			base.Notify_PawnDied();
-			// It's not certain that this check will work, since in some cases vanilla simply ignores the state of the gene.
-			if (!Active)
+			// It's not certain that Active check will work, since in some cases vanilla simply ignores the state of the gene.
+			// With the help of HasGene, we will try to prevent a possible bug associated with incorrect resurrection and subsequent shit
+			if (!Active || Overridden || pawn.Map == null || pawn.genes.HasGene(GeneDefOf.Deathless))
 			{
 				return;
 			}

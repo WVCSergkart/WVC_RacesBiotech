@@ -137,28 +137,33 @@
 	</symbolPack>
   </GeneDef>
 
-  <!-- Undead -->
-  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch"> -->
-	<!-- <defName>WVC_UndeadSkin</defName> -->
-	<!-- <label>undeadskin</label> -->
-	<!-- <biostatCpx>2</biostatCpx> -->
-	<!-- <biostatMet>-1</biostatMet> -->
-	<!-- <iconColor>(0.75, 0.75, 0.75)</iconColor> -->
-	<!-- <iconPath>WVC/UI/Genes/HeadRune_south</iconPath> -->
-	<!-- <graphicData> -->
-	  <!-- <fur>WVC_UndeadSkin</fur> -->
-	  <!-- <tattoosVisible>true</tattoosVisible> -->
-	  <!-- <layer>PostSkin</layer> -->
-	<!-- </graphicData> -->
-	<!-- <symbolPack> -->
-	  <!-- <prefixSymbols> -->
-		<!-- <li><symbol>un</symbol></li> -->
-		<!-- <li><symbol>dead</symbol></li> -->
-	  <!-- </prefixSymbols> -->
-	  <!-- <suffixSymbols> -->
-		<!-- <li><symbol>dead</symbol></li> -->
-	  <!-- </suffixSymbols> -->
-	<!-- </symbolPack> -->
-  <!-- </GeneDef> -->
+  <!-- Patch -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_PatchSkin</defName>
+	<label>patchskin</label>
+	<description>Carriers of this gene have unevenly developed skin. Some areas are younger, some noticeably older, which makes it feel like patches sewn together.
+
+&lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
+	<iconPath>WVC/UI/Genes/HeadPatch_south</iconPath>
+	<iconColor>(93, 101, 126)</iconColor>
+	<forcedHeadTypes>
+	  <li>WVC_PatchSkin_Average</li>
+	</forcedHeadTypes>
+	<graphicData>
+	  <fur>WVC_PatchSkin</fur>
+	  <tattoosVisible>true</tattoosVisible>
+	  <layer>PostSkin</layer>
+	</graphicData>
+	<missingGeneRomanceChanceFactor>0.15</missingGeneRomanceChanceFactor>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>un</symbol></li>
+		<li><symbol>dead</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>dead</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
 
 </Defs>

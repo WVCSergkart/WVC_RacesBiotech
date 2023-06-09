@@ -158,4 +158,14 @@
 	<!-- </apparelTags> -->
   <!-- </PawnKindDef> -->
 
+  <PawnKindDef ParentName="WVC_RB_XenoBase">
+	<defName>WVC_Undead_Player</defName>
+	<label>undead</label>
+	<xenotypeSet>
+	  <xenotypeChances>
+		<WVC_Undead>999</WVC_Undead>
+	  </xenotypeChances>
+	</xenotypeSet>
+  </PawnKindDef>
+
 </Defs>

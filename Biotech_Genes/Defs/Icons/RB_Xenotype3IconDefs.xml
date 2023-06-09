@@ -126,4 +126,9 @@
 	<texPath>WVC/UI/Mecha_Icons/Roguekind1</texPath>
   </XenotypeIconDef>
 
+  <XenotypeIconDef>
+	<defName>WVC_XenoUndead1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Xeno_Undead_v0</texPath>
+  </XenotypeIconDef>
+
 </Defs>

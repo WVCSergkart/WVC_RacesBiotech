@@ -36,16 +36,16 @@
 	</bodyTypeGraphicPaths>
   </FurDef>
 
-  <!-- <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base"> -->
-	<!-- <defName>WVC_UndeadSkin</defName> -->
-	<!-- <bodyTypeGraphicPaths> -->
-	  <!-- <Male>WVC/RunicGene_Body/Naked_Male</Male> -->
-	  <!-- <Female>WVC/UndeadGene_Body/Naked_Female</Female> -->
-	  <!-- <Hulk>WVC/RunicGene_Body/Naked_Hulk</Hulk> -->
-	  <!-- <Fat>WVC/RunicGene_Body/Naked_Fat</Fat> -->
-	  <!-- <Thin>WVC/RunicGene_Body/Naked_Thin</Thin> -->
-	<!-- </bodyTypeGraphicPaths> -->
-  <!-- </FurDef> -->
+  <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
+	<defName>WVC_PatchSkin</defName>
+	<bodyTypeGraphicPaths>
+	  <Male>WVC/RunicGene_Body/Naked_Male</Male>
+	  <Female>WVC/UndeadGene_Body/Naked_Female</Female>
+	  <Hulk>WVC/RunicGene_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/RunicGene_Body/Naked_Fat</Fat>
+	  <Thin>WVC/RunicGene_Body/Naked_Thin</Thin>
+	</bodyTypeGraphicPaths>
+  </FurDef>
 
   <!-- ==================================== -->
 

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- undead -->
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base">
+	<defName>WVC_Undead</defName>
+	<!-- undead necrokind necrokin necromantic -->
+	<label>undead</label>
+	<!-- <description>Runeex are ageless super-humans powered by archotech-created archites in the bloodstream. They are slow, weak, get tired quickly and are practically unable to fight. However, they require little to no food and can control hordes of golems.</description> -->
+	<!-- <descriptionShort>Runeex are ageless super-humans powered by archotech-created archites in the bloodstream. They are slow, weak, get tired quickly and are practically unable to fight. However, they require little to no food and can control hordes of golems.</descriptionShort> -->
+	<iconPath>WVC/UI/Mecha_Icons/Xeno_Undead_v0</iconPath>
+	<genes>
+		<!-- Base -->
+		<li>WVC_NaturalReimplanter_RiseFromTheDead</li>
+		<li>WVC_NaturalFastAging</li>
+		<li>WVC_NaturalFastGrowing</li>
+		<li>WVC_MildGeneticInstability</li>
+		<li>WVC_NaturalUndead</li>
+		<li>ToxResist_Total</li>
+		<li>WVC_Fragile</li>
+		<li>WVC_AgeDebuff_Sterile</li>
+		<li>Body_Standard</li>
+		<li>Hair_SnowWhite</li>
+		<li>WVC_SkinColor_Undead</li>
+		<li>WVC_PredatorPrey_NotTasty</li>
+		<li>StrongStomach</li>
+		<li>Hair_Grayless</li>
+		<li>WVC_PatchSkin</li>
+		<!-- Random -->
+	</genes>
+  </XenotypeDef>
+
+</Defs>

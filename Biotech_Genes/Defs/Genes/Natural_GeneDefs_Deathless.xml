@@ -76,7 +76,7 @@
 	<iconColor>(93, 101, 126)</iconColor>
 	<biostatCpx>7</biostatCpx>
 	<biostatArc>0</biostatArc>
-	<biostatMet>-6</biostatMet>
+	<biostatMet>-1</biostatMet>
   </GeneDef>
 
 </Defs>
