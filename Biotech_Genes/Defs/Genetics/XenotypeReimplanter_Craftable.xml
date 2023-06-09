@@ -115,4 +115,28 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	</fixedIngredientFilter>
   </RecipeDef>
 
+  <!-- ======================================== -->
+
+  <ThingDef ParentName="WVC_XenotypeResurrectorSerum_Craftable">
+	<defName>WVC_XenotypeResurrectorSerum_Undead</defName>
+	<label>xenotype resurrector (undead)</label>
+	<descriptionHyperlinks>
+	  <XenotypeDef>WVC_Undead</XenotypeDef>
+	</descriptionHyperlinks>
+	<costList Inherit="False">
+	  <ArchiteCapsule>1</ArchiteCapsule>
+	  <NanostructuringChip>1</NanostructuringChip>
+	  <Plasteel>50</Plasteel>
+	  <Uranium>35</Uranium>
+	  <Gold>2</Gold>
+	</costList>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_TargetEffect_DoJobOnTarget">
+		<moteDef>Mote_ResurrectFlash</moteDef>
+		<xenotypeDef>WVC_Undead</xenotypeDef>
+		<jobDef>WVC_XenotypesAndGenes_ResurrectAndChangeXenotype</jobDef>
+	  </li>
+	</comps>
+  </ThingDef>
+
 </Defs>

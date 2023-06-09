@@ -120,10 +120,13 @@
     <Compile Include="Resources_Thought\ThoughtWorker_MechaSensesFriendOrFoe.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_MechanoidLabor.cs" />
     <Compile Include="Resources_GenePacks\WorkGiver_HaulToGeneBank.cs" />
+    <Compile Include="Resources_Xenotype\CompProperties_TargetEffectRiseFromTheDead.cs" />
     <Compile Include="Resources_Xenotype\CompProperties_UseEffect_GeneRestoration.cs" />
     <Compile Include="Resources_Xenotype\CompProperties_UseEffect_XenotypeForcer.cs" />
+    <Compile Include="Resources_Xenotype\CompTargetEffect_RiseFromTheDead.cs" />
     <Compile Include="Resources_Xenotype\CompUseEffect_GeneRestoration.cs" />
     <Compile Include="Resources_Xenotype\CompUseEffect_XenotypeForcer.cs" />
+    <Compile Include="Resources_Xenotype\JobDriver_ResurrectAndChangeXenotype.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

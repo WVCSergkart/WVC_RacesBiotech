@@ -20,8 +20,8 @@ namespace WVC_XenotypesAndGenes
 		public BackstoryDef ChildBackstoryDef => def.GetModExtension<GeneExtension_Giver>().childBackstoryDef;
 		public BackstoryDef AdultBackstoryDef => def.GetModExtension<GeneExtension_Giver>().adultBackstoryDef;
 
-		public HediffDef HediffDefName => def.GetModExtension<GeneExtension_Giver>().hediffDefName;
-		public List<BodyPartDef> Bodyparts => def.GetModExtension<GeneExtension_Giver>().bodyparts;
+		// public HediffDef HediffDefName => def.GetModExtension<GeneExtension_Giver>().hediffDefName;
+		// public List<BodyPartDef> Bodyparts => def.GetModExtension<GeneExtension_Giver>().bodyparts;
 
 		public override void Notify_PawnDied()
 		{
@@ -38,8 +38,9 @@ namespace WVC_XenotypesAndGenes
 			if ((currentAge - penalty) > limit)
 			{
 				ResurrectionUtility.Resurrect(pawn);
+				pawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
 				pawn.ageTracker.AgeBiologicalTicks = Math.Max(limit, pawn.ageTracker.AgeBiologicalTicks - penalty);
-				Gene_PermanentHediff.BodyPartGiver(Bodyparts, pawn, HediffDefName);
+				// Gene_PermanentHediff.BodyPartGiver(Bodyparts, pawn, HediffDefName);
 				Gene_BackstoryChanger.BackstoryChanger(pawn, ChildBackstoryDef, AdultBackstoryDef);
 				// int max = (int)((float)pawn.ageTracker.AgeBiologicalTicks / (float)(oneYear * 14));
 				// For any case

@@ -50,10 +50,10 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<childBackstoryDef>WVC_RacesBiotech_Amnesia_Child</childBackstoryDef>
 			<adultBackstoryDef>WVC_RacesBiotech_Amnesia_Adult</adultBackstoryDef>
-			<hediffDefName>WVC_GeneUndead_PawnResurrected</hediffDefName>
-			<bodyparts>
-			  <li>Torso</li>
-			</bodyparts>
+			<!-- <hediffDefName>WVC_GeneUndead_PawnResurrected</hediffDefName> -->
+			<!-- <bodyparts> -->
+			  <!-- <li>Torso</li> -->
+			<!-- </bodyparts> -->
 		</li>
 	</modExtensions>
   </GeneDef>

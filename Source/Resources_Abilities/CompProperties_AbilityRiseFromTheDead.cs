@@ -36,6 +36,7 @@ namespace WVC_XenotypesAndGenes
 			base.Apply(target, dest);
 			Pawn innerPawn = ((Corpse)target.Thing).InnerPawn;
 			ResurrectionUtility.Resurrect(innerPawn);
+			innerPawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
 			Messages.Message("MessagePawnResurrected".Translate(innerPawn), innerPawn, MessageTypeDefOf.PositiveEvent);
 			MoteMaker.MakeAttachedOverlay(innerPawn, ThingDefOf.Mote_ResurrectFlash, Vector3.zero);
 			// Pawn pawn = target.Pawn;
