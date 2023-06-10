@@ -8,6 +8,7 @@
 	<label>undead</label>
 	<description>Undeads are partially immortal, rapidly aging xeno-humans. Their genes are quite unstable and often their health can cause death, their bodies are very fragile, which is why even a fist fight can be fatal for them. In compensation, they can reanimate the dead by turning them into their own kind, and death is not always the end for them.</description>
 	<descriptionShort>Undeads are partially immortal, rapidly aging xeno-humans. Their genes are quite unstable and often their health can cause death, their bodies are very fragile, which is why even a fist fight can be fatal for them. In compensation, they can reanimate the dead by turning them into their own kind, and death is not always the end for them.</descriptionShort>
+	<canGenerateAsCombatant>true</canGenerateAsCombatant>
 	<iconPath>WVC/UI/Mecha_Icons/Xeno_Undead_v0</iconPath>
 	<genes>
 		<!-- Base -->

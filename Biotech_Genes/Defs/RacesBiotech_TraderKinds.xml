@@ -58,14 +58,14 @@
 		<thingDefCountRange>0~1</thingDefCountRange>
 		<countRange>1~1</countRange>
 	  </li>
-	  <li Class="StockGenerator_Tag">
-		<tradeTag>WVC_Template_XenotypeSerums</tradeTag>
-		<thingDefCountRange>0~2</thingDefCountRange>
-		<countRange>1~1</countRange>
-	  </li>
+	  <!-- <li Class="StockGenerator_Tag"> -->
+		<!-- <tradeTag>WVC_Template_XenotypeSerums</tradeTag> -->
+		<!-- <thingDefCountRange>0~2</thingDefCountRange> -->
+		<!-- <countRange>1~1</countRange> -->
+	  <!-- </li> -->
 	  <li Class="StockGenerator_Tag">
 		<tradeTag>WVC_Template_XenotypeSerums_Ultra</tradeTag>
-		<thingDefCountRange>0~2</thingDefCountRange>
+		<thingDefCountRange>0~4</thingDefCountRange>
 		<countRange>1~1</countRange>
 	  </li>
 	  <li Class="StockGenerator_Tag">
