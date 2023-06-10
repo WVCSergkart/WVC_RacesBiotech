@@ -76,7 +76,7 @@
 			<li>Gold</li>
 		  </thingDefs>
 		</filter>
-		<count>160</count>
+		<count>16</count>
 	  </li>
 	  <li>
 		<filter>
@@ -84,7 +84,7 @@
 			<li>Silver</li>
 		  </thingDefs>
 		</filter>
-		<count>220</count>
+		<count>22</count>
 	  </li>
 	  <li>
 		<filter>
@@ -116,7 +116,7 @@
 			<li>Gold</li>
 		  </thingDefs>
 		</filter>
-		<count>220</count>
+		<count>22</count>
 	  </li>
 	  <li>
 		<filter>
@@ -124,7 +124,7 @@
 			<li>Silver</li>
 		  </thingDefs>
 		</filter>
-		<count>320</count>
+		<count>32</count>
 	  </li>
 	  <li>
 		<filter>

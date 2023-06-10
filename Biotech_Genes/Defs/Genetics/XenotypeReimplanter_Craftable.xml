@@ -128,7 +128,8 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <NanostructuringChip>1</NanostructuringChip>
 	  <Plasteel>50</Plasteel>
 	  <Uranium>35</Uranium>
-	  <Gold>2</Gold>
+	  <Gold>8</Gold>
+	  <Silver>22</Silver>
 	</costList>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_TargetEffect_DoJobOnTarget">
