@@ -54,9 +54,6 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <li>ExoticMisc</li>
 	</tradeTags>
 	<tradeability>All</tradeability>
-	<thingSetMakerTags>
-	  <li>RewardStandardLowFreq</li>
-	</thingSetMakerTags>
 	<comps>
 	  <li Class="CompProperties_Forbiddable"/>
 	  <li Class="CompProperties_Usable">
@@ -130,6 +127,9 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	<thingCategories>
 	  <li>WVC_XenotypeSerums_Ultra</li>
 	</thingCategories>
+	<thingSetMakerTags>
+	  <li>RewardStandardMidFreq</li>
+	</thingSetMakerTags>
 	<comps>
 	  <li Class="CompProperties_Glower">
 		<glowRadius>1</glowRadius>
@@ -152,6 +152,9 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	<thingCategories>
 	  <li>WVC_XenotypeSerums_Mecha</li>
 	</thingCategories>
+	<thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+	</thingSetMakerTags>
 	<comps>
 	  <li Class="CompProperties_Glower">
 		<glowRadius>1</glowRadius>
