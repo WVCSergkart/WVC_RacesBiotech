@@ -5,6 +5,7 @@
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Base">
 	<defName>WVC_RuneDryad</defName>
 	<label>runeex</label>
+	<!-- A successful experiment, not the most useful aspects, "and so it will do" conclusion -->
 	<description>Runeex are ageless super-humans powered by archotech-created archites in the bloodstream. They are slow, weak, get tired quickly and are practically unable to fight. However, they require little to no food and can control hordes of golems.</description>
 	<descriptionShort>Runeex are ageless super-humans powered by archotech-created archites in the bloodstream. They are slow, weak, get tired quickly and are practically unable to fight. However, they require little to no food and can control hordes of golems.</descriptionShort>
 	<iconPath>WVC/UI/Xeno2Icons/Xeno14</iconPath>

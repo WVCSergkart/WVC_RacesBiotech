@@ -5,6 +5,7 @@
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Base">
 	<defName>WVC_Golemkind</defName>
 	<label>golemkind</label>
+	<!-- Modification, side effect, enhanced features -->
 	<description>Golemkinds are ageless super-humans powered by archotech-created archites in the bloodstream. They are extremely slow, have poor psychic sensitivity, are very slow to learn, and their wounds take a very long time to heal. However, they are immune to most diseases, have excellent fire resistance, are very durable, and require very little food.</description>
 	<descriptionShort>Golemkinds are ageless super-humans powered by archotech-created archites in the bloodstream. They are extremely slow, have poor psychic sensitivity, are very slow to learn, and their wounds take a very long time to heal. However, they are immune to most diseases, have excellent fire resistance, are very durable, and require very little food.</descriptionShort>
 	<iconPath>WVC/UI/Xeno2Icons/Xeno25</iconPath>

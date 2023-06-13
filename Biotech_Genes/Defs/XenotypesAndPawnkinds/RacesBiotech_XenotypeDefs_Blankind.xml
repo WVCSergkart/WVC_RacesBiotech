@@ -5,6 +5,7 @@
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Base">
 	<defName>WVC_Blank</defName>
 	<label>blankind</label>
+	<!-- Experiments, garbage, template, by-product. -->
 	<description>Created for the purpose of experimentation, Blankinds are nothing more than a template from which something more can turn out. They are weak, incredibly stupid, and their immunity is practically unable to cope with any disease. However, they do not age and very quickly become adults.</description>
 	<descriptionShort>Created for the purpose of experimentation, Blankinds are nothing more than a template from which something more can turn out. They are weak, incredibly stupid, and their immunity is practically unable to cope with any disease. However, they do not age and very quickly become adults.</descriptionShort>
 	<iconPath>WVC/UI/Xeno2Icons/Xeno10</iconPath>
