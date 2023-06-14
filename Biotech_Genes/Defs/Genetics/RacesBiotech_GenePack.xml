@@ -76,7 +76,7 @@
 	<label>mechapack</label>
 	<statBases>
 	  <MarketValue>150</MarketValue>
-	  <DeteriorationRate>0</DeteriorationRate>
+	  <DeteriorationRate>1</DeteriorationRate>
 	</statBases>
 	<graphicData>
 	  <texPath>WVC/Things/Mecha_Genepack</texPath>

@@ -123,9 +123,11 @@
     <Compile Include="Resources_Xenotype\CompProperties_TargetEffectRiseFromTheDead.cs" />
     <Compile Include="Resources_Xenotype\CompProperties_UseEffect_GeneRestoration.cs" />
     <Compile Include="Resources_Xenotype\CompProperties_UseEffect_XenotypeForcer.cs" />
+    <Compile Include="Resources_Xenotype\CompProperties_UseEffect_XenotypeForcer_II.cs" />
     <Compile Include="Resources_Xenotype\CompTargetEffect_RiseFromTheDead.cs" />
     <Compile Include="Resources_Xenotype\CompUseEffect_GeneRestoration.cs" />
     <Compile Include="Resources_Xenotype\CompUseEffect_XenotypeForcer.cs" />
+    <Compile Include="Resources_Xenotype\CompUseEffect_XenotypeForcer_II.cs" />
     <Compile Include="Resources_Xenotype\JobDriver_ResurrectAndChangeXenotype.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -76,4 +76,39 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	</fixedIngredientFilter>
   </RecipeDef>
 
+  <!-- =================================================================================== -->
+
+  <!-- <ThingDef ParentName="WVC_XenotypeSerum_HybridNonCraftable"> -->
+	<!-- <defName>WVC_XenotypeSerum_Hybrid</defName> -->
+	<!-- <label>hybrid serum</label> -->
+	<!-- <comps> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenotypeForcer_II"> -->
+		<!-- <removeEndogenes>false</removeEndogenes> -->
+		<!-- <removeXenogenes>true</removeXenogenes> -->
+	  <!-- </li> -->
+	<!-- </comps> -->
+  <!-- </ThingDef> -->
+  
+  <!-- <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base"> -->
+	<!-- <defName>WVC_AdministerXenotypeSerum_Hybrid</defName> -->
+	<!-- <label>administer hybrid serum</label> -->
+	<!-- <description>Administer a hybrid serum.</description> -->
+	<!-- <jobString>Administering hybrid serum.</jobString> -->
+	<!-- <ingredients> -->
+	  <!-- <li> -->
+		<!-- <filter> -->
+		  <!-- <thingDefs> -->
+			<!-- <li>WVC_XenotypeSerum_Hybrid</li> -->
+		  <!-- </thingDefs> -->
+		<!-- </filter> -->
+		<!-- <count>1</count> -->
+	  <!-- </li> -->
+	<!-- </ingredients> -->
+	<!-- <fixedIngredientFilter> -->
+	  <!-- <thingDefs> -->
+		<!-- <li>WVC_XenotypeSerum_Hybrid</li> -->
+	  <!-- </thingDefs> -->
+	<!-- </fixedIngredientFilter> -->
+  <!-- </RecipeDef> -->
+
 </Defs>
