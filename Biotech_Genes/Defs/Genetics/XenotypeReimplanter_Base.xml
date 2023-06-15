@@ -38,6 +38,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <!-- <ConceptDef>WVC_Tutorial_XenotypeSerums_II</ConceptDef> -->
 	  <!-- <ConceptDef>WVC_Tutorial_XenotypeSerums_III</ConceptDef> -->
 	  <ConceptDef>WVC_Tutorial_XenotypeSerums_Desc</ConceptDef>
+	  <ConceptDef>WVC_XenotypeSerums_SupportedXenotypesList</ConceptDef>
 	</descriptionHyperlinks>
 	<thingClass>ThingWithComps</thingClass>
 	<resourceReadoutPriority>Middle</resourceReadoutPriority>
@@ -54,7 +55,11 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <Flammability>0.2</Flammability>
 	  <WorkToMake>25000</WorkToMake>
 	</statBases>
+	<tradeNeverStack>true</tradeNeverStack>
+	<tradeNeverGenerateStacked>true</tradeNeverGenerateStacked>
+	<healthAffectsPrice>false</healthAffectsPrice>
 	<stackLimit>10</stackLimit>
+	<!-- <drawGUIOverlay>false</drawGUIOverlay> -->
 	<techLevel>Ultra</techLevel>
 	<tradeTags>
 	  <li>WVC_All_XenotypeSerums</li>
@@ -107,12 +112,12 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  </skillRequirements>
 	</recipeMaker>
 	<costList>
-	  <!-- <NanostructuringChip>1</NanostructuringChip> -->
-	  <!-- <ArchiteCapsule>5</ArchiteCapsule> -->
-	  <SignalChip>1</SignalChip>
-	  <!-- <WVC_UniversalFuel MayRequire="wvc.sergkart.core">50</WVC_UniversalFuel> -->
+	  <!-- <ArchiteCapsule>1</ArchiteCapsule> -->
+	  <NanostructuringChip>1</NanostructuringChip>
 	  <Plasteel>50</Plasteel>
-	  <Uranium>20</Uranium>
+	  <Uranium>35</Uranium>
+	  <Gold>8</Gold>
+	  <Silver>22</Silver>
 	</costList>
 	<tradeTags>
 	  <li>WVC_XenotypeSerums</li>
@@ -130,7 +135,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 
   <ThingDef ParentName="WVC_XenotypeSerum_Base" Name="WVC_XenotypeSerum_NonCraftable" Abstract="True">
 	<statBases>
-	  <MarketValue>1700</MarketValue>
+	  <MarketValue>2700</MarketValue>
 	  <DeteriorationRate>1.0</DeteriorationRate>
 	</statBases>
 	<graphicData>
@@ -158,7 +163,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
   <ThingDef ParentName="WVC_XenotypeSerum_Base" Name="WVC_XenotypeSerum_HybridNonCraftable" Abstract="True">
 	<statBases>
 	  <MarketValue>2750</MarketValue>
-	  <DeteriorationRate>0.0</DeteriorationRate>
+	  <DeteriorationRate>0.5</DeteriorationRate>
 	</statBases>
 	<graphicData>
 	  <texPath>WVC/Things/XenotypeSerum_Mecha</texPath>

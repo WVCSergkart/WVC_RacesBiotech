@@ -65,5 +65,18 @@ Please note that the filter does not display xenotypes that the mod developer co
 	<helpText>Should be never displayed.</helpText>
   </ConceptDef>
 
+  <ConceptDef>
+	<defName>WVC_XenotypeSerums_SupportedXenotypesList</defName>
+	<label>supported xenotypes</label>
+	<priority>-1000</priority>
+	<needsOpportunity>false</needsOpportunity>
+	<description>Below is a list of xenotypes supported by serums. These xenotypes can be randomly found in serums or their serums can be crafted.
+
+This list does not include xenotypes that have unique serum mechanics or are prohibited for serums.</description>
+	<descriptionHyperlinks>
+	</descriptionHyperlinks>
+	<helpText>Should be never displayed.</helpText>
+  </ConceptDef>
+
 
 </Defs>

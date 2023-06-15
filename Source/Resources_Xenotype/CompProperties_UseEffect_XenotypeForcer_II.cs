@@ -11,6 +11,8 @@ namespace WVC_XenotypesAndGenes
 
 		public XenotypeForcerType xenotypeForcerType = (XenotypeForcerType)0;
 
+		public XenotypeType xenotypeType = (XenotypeType)0;
+
 		public XenotypeDef xenotypeDef;
 
 		public bool removeEndogenes = false;
@@ -23,6 +25,13 @@ namespace WVC_XenotypesAndGenes
 			Hybrid,
 			Custom,
 			CustomHybrid
+		}
+
+		public enum XenotypeType
+		{
+			Base,
+			Archite,
+			Hybrid
 		}
 
 		public CompProperties_UseEffect_XenotypeForcer_II()

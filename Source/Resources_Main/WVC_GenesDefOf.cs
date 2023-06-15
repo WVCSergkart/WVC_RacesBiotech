@@ -76,6 +76,7 @@ namespace WVC_XenotypesAndGenes
 		// Backstory
 		// public static BackstoryDef WVC_RacesBiotech_Amnesia_Child;
 		// public static BackstoryDef WVC_RacesBiotech_Amnesia_Adult;
+		public static ConceptDef WVC_XenotypeSerums_SupportedXenotypesList;
 	}
 
 }

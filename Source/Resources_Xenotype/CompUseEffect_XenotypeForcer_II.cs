@@ -19,8 +19,28 @@ namespace WVC_XenotypesAndGenes
 		public override void PostPostMake()
 		{
 			base.PostPostMake();
-			List<XenotypeDef> xenotypeDef = XenotypeFilterUtility.WhiteListedXenotypes(true);
-			xenotype = xenotypeDef.RandomElement();
+			if (xenotype == null)
+			{
+				List<XenotypeDef> xenotypeDef = XenotypeFilterUtility.WhiteListedXenotypes(true);
+				switch (Props.xenotypeType)
+				{
+				case CompProperties_UseEffect_XenotypeForcer_II.XenotypeType.Base:
+					xenotype = xenotypeDef.Where((XenotypeDef randomXenotypeDef) => !SerumUtility.XenotypeHasArchites(randomXenotypeDef)).RandomElement();
+					break;
+				case CompProperties_UseEffect_XenotypeForcer_II.XenotypeType.Archite:
+					xenotype = xenotypeDef.Where((XenotypeDef randomXenotypeDef) => SerumUtility.XenotypeHasArchites(randomXenotypeDef)).RandomElement();
+					break;
+				case CompProperties_UseEffect_XenotypeForcer_II.XenotypeType.Hybrid:
+					xenotype = xenotypeDef.Where((XenotypeDef randomXenotypeDef) => SerumUtility.XenotypeHasArchites(randomXenotypeDef)).RandomElement();
+					break;
+				}
+				if (xenotype == null)
+				{
+					// We assign a random xenotype if there are no alternatives.
+					Log.Error("Generated serum with null xenotype. Choose random.");
+					xenotype = xenotypeDef.RandomElement();
+				}
+			}
 			// descriptionHyperlinks = new List<DefHyperlink> { xenotype };
 			// if (parent.DescriptionHyperlinks != null)
 			// {
@@ -30,6 +50,10 @@ namespace WVC_XenotypesAndGenes
 
 		public override string TransformLabel(string label)
 		{
+			if (xenotype == null)
+			{
+				return parent.def.label + " (" + "ERR" + ")";
+			}
 			return parent.def.label + " (" + xenotype.label + ")";
 		}
 
@@ -47,10 +71,12 @@ namespace WVC_XenotypesAndGenes
 				pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));
 				return;
 			}
-			// if (xenotype == null)
-			// {
-				// return;
-			// }
+			if (xenotype == null)
+			{
+				// This is already a problem created by the player. Occurs if the player has blacklisted ALL xenotypes.
+				Log.Error("Xenotype is still null. Do not report this to the developer, you yourself created this creepy world filled with bugs.");
+				// The following code will try a few more times to try to assign the xenotype, and if it doesn't work, it will spam everything with errors.
+			}
 			bool perfectCandidate = SerumUtility.HasCandidateGene(pawn);
 			List<string> blackListedXenotypes = XenotypeFilterUtility.BlackListedXenotypesForSerums(false);
 			switch (Props.xenotypeForcerType)

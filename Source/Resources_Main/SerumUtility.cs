@@ -48,6 +48,19 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		public static bool XenotypeHasArchites(XenotypeDef xenotypeDef)
+		{
+			List<GeneDef> genesListForReading = xenotypeDef.genes;
+			for (int i = 0; i < genesListForReading.Count; i++)
+			{
+				if (genesListForReading[i].biostatArc > 0)
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
 		// private static bool PawnIsAndroid(Pawn pawn)
 		// {
 			// List<Gene> genesListForReading = pawn.genes.GenesListForReading;
