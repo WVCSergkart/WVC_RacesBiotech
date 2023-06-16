@@ -56,7 +56,7 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
-		public static List<XenotypeDef> WhiteListedXenotypes(bool addFromFilter = false)
+		public static List<XenotypeDef> WhiteListedXenotypes(bool addFromFilter = false, bool addFromResurrectorFilter = false)
 		{
 			List<string> filterList = BlackListedXenotypesForSerums(addFromFilter);
 			// foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
@@ -70,6 +70,13 @@ namespace WVC_XenotypesAndGenes
 				if (!filterList.Contains(genesListForReading[i].defName))
 				{
 					list.Add(genesListForReading[i]);
+				}
+			}
+			if (addFromResurrectorFilter)
+			{
+				foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+				{
+					list.AddRange(item.whiteListedXenotypesForResurrectorSerums);
 				}
 			}
 			return list;

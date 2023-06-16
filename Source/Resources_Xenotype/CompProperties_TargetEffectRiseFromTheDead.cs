@@ -12,7 +12,7 @@ namespace WVC_XenotypesAndGenes
 
 		public ThingDef moteDef;
 
-		public XenotypeDef xenotypeDef;
+		public XenotypeDef xenotypeDef = null;
 
 		public CompProperties_TargetEffect_DoJobOnTarget()
 		{

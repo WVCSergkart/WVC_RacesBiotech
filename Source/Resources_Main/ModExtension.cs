@@ -97,6 +97,7 @@ namespace WVC_XenotypesAndGenes
 	public class XenotypesAndGenesListDef : Def
 	{
 		public List<string> blackListedXenotypesForSerums;
+		public List<XenotypeDef> whiteListedXenotypesForResurrectorSerums;
 		public List<string> whiteListedXenotypesForFilter;
 		public List<ThingDef> blackListedThingsForSerums;
 		public List<GeneDef> perfectCandidatesForSerums;

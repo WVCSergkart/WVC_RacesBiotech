@@ -69,7 +69,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				ResurrectionUtility.Resurrect(innerPawn);
 				innerPawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
-				XenotypeDef xenotypeDef = Item?.TryGetComp<CompTargetEffect_DoJobOnTarget>()?.Props.xenotypeDef;
+				XenotypeDef xenotypeDef = Item?.TryGetComp<CompTargetEffect_DoJobOnTarget>()?.xenotypeDef;
 				SerumUtility.XenotypeSerum(innerPawn, XenotypeFilterUtility.BlackListedXenotypesForSerums(false), xenotypeDef, false, false);
 				innerPawn.health.AddHediff(HediffDefOf.XenogerminationComa);
 				GeneUtility.UpdateXenogermReplication(innerPawn);

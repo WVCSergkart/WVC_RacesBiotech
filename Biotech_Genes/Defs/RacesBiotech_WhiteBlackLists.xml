@@ -14,6 +14,11 @@
 		<li>VREA_AndroidBasic</li>
 		<li>VREA_AndroidAwakened</li>
 	</blackListedXenotypesForSerums>
+	<!-- List of xenotypes that can be in the resurrection serum. Any xenotype defs -->
+	<!-- It is combined with the usual list, it is only necessary to determine which of the prohibited xenotypes are allowed specifically for these purposes. -->
+	<whiteListedXenotypesForResurrectorSerums>
+		<li>WVC_Undead</li>
+	</whiteListedXenotypesForResurrectorSerums>
 	<!-- Xenotypes for xenotype filter. Needed to determine default xenotypes for sera. Not used for random sera. Any string -->
 	<!-- In addition to this filter, there are several more filtering stages. All of them are in C# code and cannot be changed via XML. However, this filter takes precedence. -->
 	<whiteListedXenotypesForFilter>

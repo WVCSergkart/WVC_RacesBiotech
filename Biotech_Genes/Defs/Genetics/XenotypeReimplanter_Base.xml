@@ -1,31 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThingCategoryDef>
-	<defName>WVC_XenotypeSerums</defName>
-	<label>xenotype serums</label>
-	<parent>Items</parent>
-  </ThingCategoryDef>
-
-  <ThingCategoryDef>
-	<defName>WVC_XenotypeSerums_Base</defName>
-	<label>base serums</label>
-	<parent>WVC_XenotypeSerums</parent>
-  </ThingCategoryDef>
-  <ThingCategoryDef>
-	<defName>WVC_XenotypeSerums_Ultra</defName>
-	<label>ultra serums</label>
-	<parent>WVC_XenotypeSerums</parent>
-  </ThingCategoryDef>
-  <ThingCategoryDef>
-	<defName>WVC_XenotypeSerums_Mecha</defName>
-	<label>hybrid serums</label>
-	<parent>WVC_XenotypeSerums</parent>
-  </ThingCategoryDef>
-
-  <!--=============== Mech serums ====================-->
-
-  <ThingDef ParentName="ResourceBase" Name="WVC_XenotypeSerum_Base" Abstract="True">
+  <ThingDef ParentName="WVC_XenotypesAndGenes_XenotypeSerumsBase" Name="WVC_XenotypeSerum_Base" Abstract="True">
 	<label>xenotype serum</label>
 	<description>A one-use super-dose of mechanites tuned to change the user's xenotype. After using the serum, the user will fall into a two-day coma.
 
@@ -33,43 +9,8 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 
 &lt;color=#f5ffa2&gt;Note:&lt;/color&gt; If the xenotype is inheritable and has no skin/hair color, then a white skin/hair gene will be added.</description>
 	<descriptionHyperlinks>
-	  <!-- <XenotypeDef>WVC_Blank</XenotypeDef> -->
-	  <!-- <ConceptDef>WVC_Tutorial_XenotypeSerums_I</ConceptDef> -->
-	  <!-- <ConceptDef>WVC_Tutorial_XenotypeSerums_II</ConceptDef> -->
-	  <!-- <ConceptDef>WVC_Tutorial_XenotypeSerums_III</ConceptDef> -->
-	  <ConceptDef>WVC_Tutorial_XenotypeSerums_Desc</ConceptDef>
 	  <ConceptDef>WVC_XenotypeSerums_SupportedXenotypesList</ConceptDef>
 	</descriptionHyperlinks>
-	<thingClass>ThingWithComps</thingClass>
-	<resourceReadoutPriority>Middle</resourceReadoutPriority>
-	<useHitPoints>true</useHitPoints>
-	<graphicData>
-	  <texPath>WVC/Things/XenotypeSerum</texPath>
-	  <graphicClass>Graphic_Random</graphicClass>
-	</graphicData>
-	<statBases>
-	  <MarketValue>2100</MarketValue>
-	  <MaxHitPoints>80</MaxHitPoints>
-	  <Mass>0.2</Mass>
-	  <DeteriorationRate>2.0</DeteriorationRate>
-	  <Flammability>0.2</Flammability>
-	  <WorkToMake>25000</WorkToMake>
-	</statBases>
-	<tradeNeverStack>true</tradeNeverStack>
-	<tradeNeverGenerateStacked>true</tradeNeverGenerateStacked>
-	<healthAffectsPrice>false</healthAffectsPrice>
-	<stackLimit>10</stackLimit>
-	<!-- <drawGUIOverlay>false</drawGUIOverlay> -->
-	<techLevel>Ultra</techLevel>
-	<tradeTags>
-	  <li>WVC_All_XenotypeSerums</li>
-	  <li>ExoticMisc</li>
-	</tradeTags>
-	<tradeability>All</tradeability>
-	<thingSetMakerTags>
-	  <!-- <li>RewardStandardCore</li> -->
-	  <li>RewardStandardMidFreq</li>
-	</thingSetMakerTags>
 	<comps>
 	  <li Class="CompProperties_Usable">
 		<useJob>UseItem</useJob>
@@ -186,17 +127,5 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	</comps>
   </ThingDef>
   <!-- ============Auto Generation Base============ -->
-  
-  <RecipeDef Name="WVC_AdministerXenotypeSerum_Base" Abstract="True">
-	<workerClass>Recipe_AdministerUsableItem</workerClass>
-	<targetsBodyPart>false</targetsBodyPart>
-	<anesthetize>false</anesthetize>
-	<workAmount>600</workAmount>
-	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
-	<surgeryOutcomeEffect IsNull="True"/>
-	<recipeUsers>
-	  <li>Human</li>
-	</recipeUsers>
-  </RecipeDef>
 
 </Defs>

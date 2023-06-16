@@ -150,4 +150,17 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	</fixedIngredientFilter>
   </RecipeDef>
 
+  <!-- =========== -->
+
+  <ThingDef ParentName="WVC_XenotypeResurrectorSerum_NonCraftable">
+	<defName>WVC_XenotypeResurrectorSerum_Ultra</defName>
+	<label>xenotype resurrector</label>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_TargetEffect_DoJobOnTarget">
+		<moteDef>Mote_ResurrectFlash</moteDef>
+		<jobDef>WVC_XenotypesAndGenes_ResurrectAndChangeXenotype</jobDef>
+	  </li>
+	</comps>
+  </ThingDef>
+
 </Defs>
