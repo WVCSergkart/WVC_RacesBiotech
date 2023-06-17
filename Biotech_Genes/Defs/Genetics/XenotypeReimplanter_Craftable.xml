@@ -120,9 +120,9 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
   <ThingDef ParentName="WVC_XenotypeResurrectorSerum_Craftable">
 	<defName>WVC_XenotypeResurrectorSerum_Undead</defName>
 	<label>xenotype resurrector</label>
-	<descriptionHyperlinks>
-	  <XenotypeDef>WVC_Undead</XenotypeDef>
-	</descriptionHyperlinks>
+	<!-- <descriptionHyperlinks> -->
+	  <!-- <XenotypeDef>WVC_Undead</XenotypeDef> -->
+	<!-- </descriptionHyperlinks> -->
 	<costList Inherit="False">
 	  <ArchiteCapsule>1</ArchiteCapsule>
 	  <NanostructuringChip>1</NanostructuringChip>
