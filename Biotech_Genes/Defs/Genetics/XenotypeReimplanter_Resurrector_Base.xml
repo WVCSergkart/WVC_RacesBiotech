@@ -80,7 +80,7 @@
 
   <ThingDef ParentName="WVC_XenotypeResurrectorSerum_Base" Name="WVC_XenotypeResurrectorSerum_NonCraftable" Abstract="True">
 	<statBases>
-	  <MarketValue>1700</MarketValue>
+	  <MarketValue>2450</MarketValue>
 	  <DeteriorationRate>1.0</DeteriorationRate>
 	</statBases>
 	<graphicData>
@@ -108,7 +108,7 @@
   <ThingDef ParentName="WVC_XenotypeResurrectorSerum_Base" Name="WVC_XenotypeResurrectorSerum_HybridNonCraftable" Abstract="True">
 	<statBases>
 	  <MarketValue>2750</MarketValue>
-	  <DeteriorationRate>0.0</DeteriorationRate>
+	  <DeteriorationRate>0.5</DeteriorationRate>
 	</statBases>
 	<graphicData>
 	  <texPath>WVC/Things/XenotypeSerum_Mecha</texPath>

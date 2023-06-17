@@ -12,7 +12,7 @@ namespace WVC_XenotypesAndGenes
 
 	public class CompUseEffect_XenotypeForcer_II : CompUseEffect
 	{
-		XenotypeDef xenotype = null;
+		public XenotypeDef xenotype = null;
 
 		public CompProperties_UseEffect_XenotypeForcer_II Props => (CompProperties_UseEffect_XenotypeForcer_II)props;
 
@@ -42,9 +42,9 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 			// descriptionHyperlinks = new List<DefHyperlink> { xenotype };
-			// if (parent.DescriptionHyperlinks != null)
+			// if (this.DescriptionHyperlinks != null)
 			// {
-				// parent.DescriptionHyperlinks.Add(xenotype);
+				// this.DescriptionHyperlinks.Add(xenotype);
 			// }
 		}
 

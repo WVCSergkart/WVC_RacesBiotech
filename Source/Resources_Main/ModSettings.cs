@@ -21,7 +21,7 @@ namespace WVC
 		// public bool enableStatSkillFactor;
 		// public bool canMechaskinBePredatorPrey;
 		// public bool hideEncodingGenes = true;
-		public bool serumsForAllXenotypes = true;
+		public bool serumsForAllXenotypes = false;
 		public bool serumsForAllXenotypes_Recipes = true;
 		public bool serumsForAllXenotypes_Spawners = false;
 		// public bool convertCustomXenotypesIntoXenotypes;
@@ -46,7 +46,7 @@ namespace WVC
 			// Scribe_Values.Look(ref enableStatSkillFactor, "enableStatSkillFactor", defaultValue: true);
 			// Scribe_Values.Look(ref canMechaskinBePredatorPrey, "canMechaskinBePredatorPrey", defaultValue: true);
 			// Scribe_Values.Look(ref hideEncodingGenes, "hideEncodingGenes", defaultValue: true);
-			Scribe_Values.Look(ref serumsForAllXenotypes, "serumsForAllXenotypes", defaultValue: true);
+			Scribe_Values.Look(ref serumsForAllXenotypes, "serumsForAllXenotypes", defaultValue: false);
 			Scribe_Values.Look(ref serumsForAllXenotypes_Recipes, "serumsForAllXenotypes_Recipes", defaultValue: true);
 			Scribe_Values.Look(ref serumsForAllXenotypes_Spawners, "serumsForAllXenotypes_Spawners", defaultValue: false);
 			// Scribe_Values.Look(ref serumsCraftCost_ArchitesFactor, "serumsCraftCost_ArchitesFactor", 1f);

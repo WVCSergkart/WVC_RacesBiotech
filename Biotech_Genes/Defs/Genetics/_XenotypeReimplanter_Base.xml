@@ -30,8 +30,10 @@
 	<!-- <description>A one-use super-dose of mechanites tuned to change the user's xenotype. After using the serum, the user will fall into a two-day coma.</description> -->
 	<descriptionHyperlinks>
 	  <ConceptDef>WVC_Tutorial_XenotypeSerums_Desc</ConceptDef>
+	  <ConceptDef>WVC_XenotypeSerums_SupportedXenotypesList</ConceptDef>
 	</descriptionHyperlinks>
-	<thingClass>ThingWithComps</thingClass>
+	<!-- <thingClass>ThingWithComps</thingClass> -->
+	<thingClass>WVC_XenotypesAndGenes.XenotypeSerum</thingClass>
 	<resourceReadoutPriority>Middle</resourceReadoutPriority>
 	<useHitPoints>true</useHitPoints>
 	<graphicData>

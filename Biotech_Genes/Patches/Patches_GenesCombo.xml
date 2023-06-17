@@ -91,6 +91,15 @@
 	<!-- ================== -->
 
 	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/StatDef[@Name="MarketValueBase"]/parts</xpath>
+	  <value>
+		  <li Class="WVC_XenotypesAndGenes.StatPart_XenotypeSerum" MayRequire="Ludeon.RimWorld.Biotech"/>
+	  </value>
+	</Operation>
+
+	<!-- ================== -->
+
+	<Operation Class="PatchOperationAdd">
 	  <xpath>/Defs/StatDef[defName="WorkSpeedGlobal"]/parts</xpath>
 	  <value>
 		  <!-- <li Class="WVC_XenotypesAndGenes.StatPart_FactorForUniqueKind" MayRequire="Ludeon.RimWorld.Biotech"> -->

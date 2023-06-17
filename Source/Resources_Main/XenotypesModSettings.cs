@@ -38,7 +38,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.cachedXenotypesFilter ??= new Dictionary<string, bool>();
 			WVC_Biotech.allXenotypes = XenotypeFilterUtility.WhiteListedXenotypes(false);
 			SetValues(XenotypeFilterUtility.WhiteListedXenotypesForFilter());
-			foreach (XenotypeDef item in XenotypeFilterUtility.WhiteListedXenotypes(true))
+			foreach (XenotypeDef item in XenotypeFilterUtility.WhiteListedXenotypes(true, true))
 			{
 				WVC_GenesDefOf.WVC_XenotypeSerums_SupportedXenotypesList.descriptionHyperlinks.Add(item);
 			}
