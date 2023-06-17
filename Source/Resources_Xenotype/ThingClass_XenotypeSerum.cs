@@ -28,8 +28,11 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{
-			IEnumerable<Dialog_InfoCard.Hyperlink> enumerable = Dialog_InfoCard.DefsToHyperlinks(GeneDefHyperlinks);
-			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XenotypeSerumThing_XenotypeLabel".Translate().CapitalizeFirst(), XenotypeLabel().CapitalizeFirst(), "WVC_XenotypeSerumThing_XenotypeDesc".Translate() + ":", 999, null, enumerable);
+			if (this?.TryGetComp<CompUseEffect_XenotypeForcer_II>()?.xenotype != null || this?.TryGetComp<CompTargetEffect_DoJobOnTarget>()?.xenotypeDef != null)
+			{
+				IEnumerable<Dialog_InfoCard.Hyperlink> enumerable = Dialog_InfoCard.DefsToHyperlinks(GeneDefHyperlinks);
+				yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XenotypeSerumThing_XenotypeLabel".Translate().CapitalizeFirst(), XenotypeLabel().CapitalizeFirst(), "WVC_XenotypeSerumThing_XenotypeDesc".Translate().CapitalizeFirst() + ":", 999, null, enumerable);
+			}
 		}
 
 		private string XenotypeLabel()
