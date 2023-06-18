@@ -24,7 +24,6 @@
 	  </skillRequirements>
 	</recipeMaker>
 	<costList Inherit="False">
-	  <!-- <WVC_UniversalFuel MayRequire="wvc.sergkart.core">50</WVC_UniversalFuel> -->
 	  <SignalChip>1</SignalChip>
 	  <Plasteel>50</Plasteel>
 	  <Uranium>35</Uranium>
@@ -78,7 +77,6 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  </skillRequirements>
 	</recipeMaker>
 	<costList Inherit="False">
-	  <!-- <WVC_UniversalFuel MayRequire="wvc.sergkart.core">50</WVC_UniversalFuel> -->
 	  <SignalChip>1</SignalChip>
 	  <Plasteel>50</Plasteel>
 	  <Uranium>35</Uranium>

@@ -25,6 +25,12 @@ namespace WVC_XenotypesAndGenes
 					XenotypeDef xenotypeDef = xenotypeSerum.TryGetComp<CompTargetEffect_DoJobOnTarget>().xenotypeDef;
 					num = TemplatesUtility.XenotypeCost(xenotypeDef);
 				}
+				if (xenotypeSerum?.TryGetComp<CompUseEffect_XenotypeForcer_Hybrid>() != null)
+				{
+					XenotypeDef xenotypeA = xenotypeSerum.TryGetComp<CompUseEffect_XenotypeForcer_Hybrid>().endotype;
+					XenotypeDef xenotypeB = xenotypeSerum.TryGetComp<CompUseEffect_XenotypeForcer_Hybrid>().xenotype;
+					num = TemplatesUtility.XenotypeCost(xenotypeA) + TemplatesUtility.XenotypeCost(xenotypeB);
+				}
 				// if (xenotypeSerum?.TryGetComp<CompUseEffect_XenotypeForcer_II>()?.xenotypeDef != null)
 				// {
 					// XenotypeDef xenotypeDef = xenotypeSerum.TryGetComp<CompUseEffect_XenotypeForcer_II>().xenotypeDef;

@@ -38,6 +38,11 @@ namespace WVC_XenotypesAndGenes
 				{
 					yield return new DefHyperlink(this.TryGetComp<CompTargetEffect_DoJobOnTarget>().xenotypeDef);
 				}
+				if (this?.TryGetComp<CompUseEffect_XenotypeForcer_Hybrid>() != null)
+				{
+					yield return new DefHyperlink(this.TryGetComp<CompUseEffect_XenotypeForcer_Hybrid>().endotype);
+					yield return new DefHyperlink(this.TryGetComp<CompUseEffect_XenotypeForcer_Hybrid>().xenotype);
+				}
 				if (def.descriptionHyperlinks != null)
 				{
 					for (int i = 0; i < def.descriptionHyperlinks.Count; i++)

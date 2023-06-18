@@ -25,7 +25,10 @@
   <ThingDef ParentName="BenchBase">
 	<defName>WVC_SerumCraftingTable</defName>
 	<label>serum lab</label>
-	<description>A high-tech workbench for the production of xenotype serums.</description>
+	<description>A high-tech workbench for the production of serums.</description>
+	<descriptionHyperlinks>
+	  <ThingDef>WVC_XenotypeSerumCapsule</ThingDef>
+	</descriptionHyperlinks>
 	<thingClass>Building_WorkTable</thingClass>
 	<canOverlapZones>false</canOverlapZones>
 	<passability>PassThroughOnly</passability>
@@ -96,6 +99,78 @@
 	<placeWorkers>
 	  <li>PlaceWorker_PreventInteractionSpotOverlap</li>
 	</placeWorkers>
+  </ThingDef>
+
+  <!-- ========================================================== -->
+
+  <ThingDef>
+	<defName>WVC_XenotypeSerumCapsule</defName>
+	<label>serum capsule</label>
+	<description>A small capsule containing a special super-dose of mechanites and is used to create disposable serums. One such dose is enough to completely overwrite the genetic code of any person, but without a special injector it is completely useless.</description>
+	<descriptionHyperlinks>
+	  <!-- <ThingDef>WVC_XenotypeSerum_Base</ThingDef> -->
+	  <!-- <ThingDef>WVC_XenotypeSerum_Ultra</ThingDef> -->
+	  <!-- <ThingDef>WVC_XenotypeSerum_Hybrid</ThingDef> -->
+	  <ThingDef>WVC_SerumCraftingTable</ThingDef>
+	</descriptionHyperlinks>
+	<thingClass>ThingWithComps</thingClass>
+	<graphicData>
+	  <texPath>WVC/Things/SerumCapsule</texPath>
+	  <graphicClass>Graphic_Random</graphicClass>
+	</graphicData>
+	<statBases>
+	  <MaxHitPoints>200</MaxHitPoints>
+	  <MarketValue>75</MarketValue>
+	  <Mass>0.5</Mass>
+	  <Flammability>0</Flammability>
+	</statBases>
+	<recipeMaker>
+	  <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
+	  <researchPrerequisite>Xenogermination</researchPrerequisite>
+	  <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+	  <workSkill>Crafting</workSkill>
+	  <effectWorking>Smith</effectWorking>
+	  <soundWorking>Recipe_Machining</soundWorking>
+	  <recipeUsers>
+		<!-- <li MayRequire="wvc.sergkart.core">WVC_AdvancedCraftingBench</li> -->
+		<!-- <li MayRequire="wvc.sergkart.core">WVC_NodeCraftingBench</li> -->
+		<!-- <li>FabricationBench</li> -->
+		<!-- <li>DrugLab</li> -->
+		<li>WVC_SerumCraftingTable</li>
+	  </recipeUsers>
+	  <useIngredientsForColor>false</useIngredientsForColor>
+	  <skillRequirements>
+		<Crafting>12</Crafting>
+		<Intellectual>12</Intellectual>
+	  </skillRequirements>
+	</recipeMaker>
+	<costList>
+	  <!-- <ArchiteCapsule>1</ArchiteCapsule> -->
+	  <NanostructuringChip>1</NanostructuringChip>
+	  <Plasteel>50</Plasteel>
+	  <Uranium>35</Uranium>
+	  <Gold>8</Gold>
+	  <Silver>22</Silver>
+	</costList>
+	<thingCategories>
+	  <li>ItemsMisc</li>
+	</thingCategories>
+	<stackLimit>25</stackLimit>
+	<category>Item</category>
+	<drawerType>MapMeshOnly</drawerType>
+	<resourceReadoutPriority>Middle</resourceReadoutPriority>
+	<selectable>true</selectable>
+	<altitudeLayer>Item</altitudeLayer>
+	<alwaysHaulable>true</alwaysHaulable>
+	<drawGUIOverlay>true</drawGUIOverlay>
+	<rotatable>false</rotatable>
+	<pathCost>14</pathCost>
+	<thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+	</thingSetMakerTags>
+	<comps>
+	  <li Class="CompProperties_Forbiddable"/>
+	</comps>
   </ThingDef>
 
 </Defs>

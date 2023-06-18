@@ -30,9 +30,9 @@ namespace WVC_XenotypesAndGenes
 				case CompProperties_UseEffect_XenotypeForcer_II.XenotypeType.Archite:
 					xenotype = xenotypeDef.Where((XenotypeDef randomXenotypeDef) => SerumUtility.XenotypeHasArchites(randomXenotypeDef)).RandomElement();
 					break;
-				case CompProperties_UseEffect_XenotypeForcer_II.XenotypeType.Hybrid:
-					xenotype = xenotypeDef.Where((XenotypeDef randomXenotypeDef) => SerumUtility.XenotypeHasArchites(randomXenotypeDef)).RandomElement();
-					break;
+				// case CompProperties_UseEffect_XenotypeForcer_II.XenotypeType.Hybrid:
+					// xenotype = xenotypeDef.Where((XenotypeDef randomXenotypeDef) => SerumUtility.XenotypeHasArchites(randomXenotypeDef)).RandomElement();
+					// break;
 				}
 				if (xenotype == null)
 				{
@@ -74,26 +74,26 @@ namespace WVC_XenotypesAndGenes
 			if (xenotype == null)
 			{
 				// This is already a problem created by the player. Occurs if the player has blacklisted ALL xenotypes.
-				Log.Error("Xenotype is still null. Do not report this to the developer, you yourself created this creepy world filled with bugs.");
+				Log.Error("Xenotype is still null. Do not report this to the developer, you yourself created this creepy world filled with bugs. To fix the situation, reset the filter in the " + "WVC_BiotechSettings".Translate() + " mod settings and restart the game.");
 				// The following code will try a few more times to try to assign the xenotype, and if it doesn't work, it will spam everything with errors.
 			}
 			bool perfectCandidate = SerumUtility.HasCandidateGene(pawn);
 			List<string> blackListedXenotypes = XenotypeFilterUtility.BlackListedXenotypesForSerums(false);
-			switch (Props.xenotypeForcerType)
-			{
-			case CompProperties_UseEffect_XenotypeForcer_II.XenotypeForcerType.Base:
-				SerumUtility.XenotypeSerum(pawn, blackListedXenotypes, xenotype, Props.removeEndogenes, Props.removeXenogenes);
-				break;
-			case CompProperties_UseEffect_XenotypeForcer_II.XenotypeForcerType.Hybrid:
-				SerumUtility.HybridXenotypeSerum(pawn, blackListedXenotypes, xenotype);
-				break;
-			case CompProperties_UseEffect_XenotypeForcer_II.XenotypeForcerType.Custom:
-				SerumUtility.CustomXenotypeSerum(pawn, blackListedXenotypes);
-				break;
-			case CompProperties_UseEffect_XenotypeForcer_II.XenotypeForcerType.CustomHybrid:
-				SerumUtility.CustomHybridXenotypeSerum(pawn, blackListedXenotypes);
-				break;
-			}
+			SerumUtility.XenotypeSerum(pawn, blackListedXenotypes, xenotype, Props.removeEndogenes, Props.removeXenogenes);
+			// switch (Props.xenotypeForcerType)
+			// {
+			// case CompProperties_UseEffect_XenotypeForcer_II.XenotypeForcerType.Base:
+				// break;
+			// case CompProperties_UseEffect_XenotypeForcer_II.XenotypeForcerType.Hybrid:
+				// SerumUtility.HybridXenotypeSerum(pawn, blackListedXenotypes, xenotype);
+				// break;
+			// case CompProperties_UseEffect_XenotypeForcer_II.XenotypeForcerType.Custom:
+				// SerumUtility.CustomXenotypeSerum(pawn, blackListedXenotypes);
+				// break;
+			// case CompProperties_UseEffect_XenotypeForcer_II.XenotypeForcerType.CustomHybrid:
+				// SerumUtility.CustomHybridXenotypeSerum(pawn, blackListedXenotypes);
+				// break;
+			// }
 			if (!perfectCandidate)
 			{
 				pawn.health.AddHediff(HediffDefOf.XenogerminationComa);

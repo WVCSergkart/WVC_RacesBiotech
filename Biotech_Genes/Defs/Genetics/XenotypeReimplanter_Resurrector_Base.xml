@@ -37,23 +37,10 @@
 	  <texPath>WVC/Things/XenotypeSerum</texPath>
 	</graphicData>
 	<recipeMaker>
-	  <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
 	  <researchPrerequisite>Archogenetics</researchPrerequisite>
-	  <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-	  <workSkill>Crafting</workSkill>
-	  <effectWorking>Smith</effectWorking>
-	  <soundWorking>Recipe_Machining</soundWorking>
-	  <recipeUsers>
-		<!-- <li MayRequire="wvc.sergkart.core">WVC_AdvancedCraftingBench</li> -->
-		<!-- <li MayRequire="wvc.sergkart.core">WVC_NodeCraftingBench</li> -->
-		<!-- <li>FabricationBench</li> -->
-		<!-- <li>DrugLab</li> -->
-		<li>WVC_SerumCraftingTable</li>
-	  </recipeUsers>
-	  <useIngredientsForColor>false</useIngredientsForColor>
 	  <skillRequirements>
-		<Crafting>12</Crafting>
-		<Intellectual>12</Intellectual>
+		<Crafting>14</Crafting>
+		<Intellectual>14</Intellectual>
 	  </skillRequirements>
 	</recipeMaker>
 	<costList>

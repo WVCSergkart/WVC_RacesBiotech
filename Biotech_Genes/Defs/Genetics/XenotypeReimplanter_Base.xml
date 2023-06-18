@@ -11,6 +11,18 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	<!-- <descriptionHyperlinks> -->
 	  <!-- <ConceptDef>WVC_XenotypeSerums_SupportedXenotypesList</ConceptDef> -->
 	<!-- </descriptionHyperlinks> -->
+	<!-- <recipeMaker> -->
+	  <!-- <researchPrerequisite>Xenogermination</researchPrerequisite> -->
+	  <!-- <skillRequirements> -->
+		<!-- <Crafting>12</Crafting> -->
+		<!-- <Intellectual>12</Intellectual> -->
+	  <!-- </skillRequirements> -->
+	<!-- </recipeMaker> -->
+	<costList>
+	  <!-- <WVC_EmptyXenotypeSerum>1</WVC_EmptyXenotypeSerum> -->
+	  <Plasteel>12</Plasteel>
+	  <Gold>1</Gold>
+	</costList>
 	<comps>
 	  <li Class="CompProperties_Usable">
 		<useJob>UseItem</useJob>
@@ -34,16 +46,12 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	</graphicData>
 	<recipeMaker>
 	  <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
-	  <researchPrerequisite>Archogenetics</researchPrerequisite>
+	  <researchPrerequisite>Xenogermination</researchPrerequisite>
 	  <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 	  <workSkill>Crafting</workSkill>
 	  <effectWorking>Smith</effectWorking>
 	  <soundWorking>Recipe_Machining</soundWorking>
 	  <recipeUsers>
-		<!-- <li MayRequire="wvc.sergkart.core">WVC_AdvancedCraftingBench</li> -->
-		<!-- <li MayRequire="wvc.sergkart.core">WVC_NodeCraftingBench</li> -->
-		<!-- <li>FabricationBench</li> -->
-		<!-- <li>DrugLab</li> -->
 		<li>WVC_SerumCraftingTable</li>
 	  </recipeUsers>
 	  <useIngredientsForColor>false</useIngredientsForColor>
@@ -54,11 +62,11 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	</recipeMaker>
 	<costList>
 	  <!-- <ArchiteCapsule>1</ArchiteCapsule> -->
-	  <NanostructuringChip>1</NanostructuringChip>
-	  <Plasteel>50</Plasteel>
-	  <Uranium>35</Uranium>
-	  <Gold>8</Gold>
-	  <Silver>22</Silver>
+	  <WVC_XenotypeSerumCapsule>1</WVC_XenotypeSerumCapsule>
+	  <!-- <Plasteel>50</Plasteel> -->
+	  <!-- <Uranium>35</Uranium> -->
+	  <!-- <Gold>8</Gold> -->
+	  <!-- <Silver>22</Silver> -->
 	</costList>
 	<tradeTags>
 	  <li>WVC_XenotypeSerums</li>
@@ -79,6 +87,17 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <MarketValue>2700</MarketValue>
 	  <DeteriorationRate>1.0</DeteriorationRate>
 	</statBases>
+	<!-- <recipeMaker> -->
+	  <!-- <researchPrerequisite>Archogenetics</researchPrerequisite> -->
+	  <!-- <skillRequirements> -->
+		<!-- <Crafting>14</Crafting> -->
+		<!-- <Intellectual>14</Intellectual> -->
+	  <!-- </skillRequirements> -->
+	<!-- </recipeMaker> -->
+	<costList>
+	  <ArchiteCapsule>1</ArchiteCapsule>
+	  <WVC_XenotypeSerumCapsule>1</WVC_XenotypeSerumCapsule>
+	</costList>
 	<graphicData>
 	  <texPath>WVC/Things/XenotypeSerum_Ultra</texPath>
 	</graphicData>
@@ -106,6 +125,17 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <MarketValue>2750</MarketValue>
 	  <DeteriorationRate>0.5</DeteriorationRate>
 	</statBases>
+	<!-- <recipeMaker> -->
+	  <!-- <researchPrerequisite>Archogenetics</researchPrerequisite> -->
+	  <!-- <skillRequirements> -->
+		<!-- <Crafting>16</Crafting> -->
+		<!-- <Intellectual>16</Intellectual> -->
+	  <!-- </skillRequirements> -->
+	<!-- </recipeMaker> -->
+	<costList>
+	  <ArchiteCapsule>2</ArchiteCapsule>
+	  <WVC_XenotypeSerumCapsule>2</WVC_XenotypeSerumCapsule>
+	</costList>
 	<graphicData>
 	  <texPath>WVC/Things/XenotypeSerum_Mecha</texPath>
 	</graphicData>
