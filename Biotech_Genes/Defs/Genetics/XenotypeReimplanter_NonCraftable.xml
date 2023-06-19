@@ -120,6 +120,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	<defName>WVC_XenotypeSerum_Ultra</defName>
 	<label>ultratype serum</label>
 	<recipeMaker>
+	  <displayPriority>-19</displayPriority>
 	  <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
 	  <researchPrerequisite>Archogenetics</researchPrerequisite>
 	  <workSpeedStat>GeneralLaborSpeed</workSpeedStat>

@@ -23,27 +23,43 @@
 	  <li>
 		<filter>
 		  <thingDefs>
-			<li>NanostructuringChip</li>
+			<li>WVC_EmptyXenotypeSerum</li>
 		  </thingDefs>
 		</filter>
 		<count>1</count>
 	  </li>
-	  <li>
-		<filter>
-		  <thingDefs>
-			<li>Plasteel</li>
-		  </thingDefs>
-		</filter>
-		<count>80</count>
-	  </li>
-	  <li>
-		<filter>
-		  <thingDefs>
-			<li>Uranium</li>
-		  </thingDefs>
-		</filter>
-		<count>40</count>
-	  </li>
+	  <!-- <li> -->
+		<!-- <filter> -->
+		  <!-- <thingDefs> -->
+			<!-- <li>WVC_EmptyXenotypeSerum</li> -->
+		  <!-- </thingDefs> -->
+		<!-- </filter> -->
+		<!-- <count>1</count> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <filter> -->
+		  <!-- <thingDefs> -->
+			<!-- <li>NanostructuringChip</li> -->
+		  <!-- </thingDefs> -->
+		<!-- </filter> -->
+		<!-- <count>1</count> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <filter> -->
+		  <!-- <thingDefs> -->
+			<!-- <li>Plasteel</li> -->
+		  <!-- </thingDefs> -->
+		<!-- </filter> -->
+		<!-- <count>80</count> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <filter> -->
+		  <!-- <thingDefs> -->
+			<!-- <li>Uranium</li> -->
+		  <!-- </thingDefs> -->
+		<!-- </filter> -->
+		<!-- <count>40</count> -->
+	  <!-- </li> -->
 	  <!-- <li MayRequire="wvc.sergkart.core"> -->
 		<!-- <filter> -->
 		  <!-- <thingDefs> -->
@@ -59,7 +75,7 @@
 
   <RecipeDef ParentName="WVC_VanillaSerumCrafting_Base">
 	<defName>WVC_RacesBiotech_MakeMechSerumHealer</defName>
-	<label>Make healer mech serum</label>
+	<label>make healer mech serum</label>
 	<description>Make a healer mech serum.</description>
 	<jobString>Making healer mech serum.</jobString>
 	<skillRequirements>
@@ -73,33 +89,49 @@
 	  <li>
 		<filter>
 		  <thingDefs>
-			<li>Gold</li>
+			<li>ComponentSpacer</li>
 		  </thingDefs>
 		</filter>
-		<count>16</count>
+		<count>1</count>
 	  </li>
 	  <li>
 		<filter>
 		  <thingDefs>
-			<li>Silver</li>
-		  </thingDefs>
-		</filter>
-		<count>22</count>
-	  </li>
-	  <li>
-		<filter>
-		  <thingDefs>
-			<li>ArchiteCapsule</li>
+			<li>WVC_XenotypeSerumCapsule</li>
 		  </thingDefs>
 		</filter>
 		<count>2</count>
 	  </li>
+	  <!-- <li> -->
+		<!-- <filter> -->
+		  <!-- <thingDefs> -->
+			<!-- <li>Gold</li> -->
+		  <!-- </thingDefs> -->
+		<!-- </filter> -->
+		<!-- <count>16</count> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <filter> -->
+		  <!-- <thingDefs> -->
+			<!-- <li>Silver</li> -->
+		  <!-- </thingDefs> -->
+		<!-- </filter> -->
+		<!-- <count>22</count> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <filter> -->
+		  <!-- <thingDefs> -->
+			<!-- <li>ArchiteCapsule</li> -->
+		  <!-- </thingDefs> -->
+		<!-- </filter> -->
+		<!-- <count>2</count> -->
+	  <!-- </li> -->
 	</ingredients>
   </RecipeDef>
 
   <RecipeDef ParentName="WVC_VanillaSerumCrafting_Base">
 	<defName>WVC_RacesBiotech_MechSerumResurrector</defName>
-	<label>Make resurrector mech serum</label>
+	<label>make resurrector mech serum</label>
 	<description>Make a resurrector mech serum.</description>
 	<jobString>Making resurrector mech serum.</jobString>
 	<skillRequirements>
@@ -110,21 +142,37 @@
 	  <MechSerumResurrector>1</MechSerumResurrector>
 	</products>
 	<ingredients>
+	  <!-- <li> -->
+		<!-- <filter> -->
+		  <!-- <thingDefs> -->
+			<!-- <li>Gold</li> -->
+		  <!-- </thingDefs> -->
+		<!-- </filter> -->
+		<!-- <count>22</count> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <filter> -->
+		  <!-- <thingDefs> -->
+			<!-- <li>Silver</li> -->
+		  <!-- </thingDefs> -->
+		<!-- </filter> -->
+		<!-- <count>32</count> -->
+	  <!-- </li> -->
 	  <li>
 		<filter>
 		  <thingDefs>
-			<li>Gold</li>
+			<li>ComponentSpacer</li>
 		  </thingDefs>
 		</filter>
-		<count>22</count>
+		<count>3</count>
 	  </li>
 	  <li>
 		<filter>
 		  <thingDefs>
-			<li>Silver</li>
+			<li>WVC_XenotypeSerumCapsule</li>
 		  </thingDefs>
 		</filter>
-		<count>32</count>
+		<count>1</count>
 	  </li>
 	  <li>
 		<filter>
@@ -132,7 +180,7 @@
 			<li>ArchiteCapsule</li>
 		  </thingDefs>
 		</filter>
-		<count>5</count>
+		<count>1</count>
 	  </li>
 	</ingredients>
   </RecipeDef>

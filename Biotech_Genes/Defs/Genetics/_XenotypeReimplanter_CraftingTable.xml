@@ -27,6 +27,7 @@
 	<label>serum lab</label>
 	<description>A high-tech workbench for the production of serums.</description>
 	<descriptionHyperlinks>
+	  <ThingDef>WVC_EmptyXenotypeSerum</ThingDef>
 	  <ThingDef>WVC_XenotypeSerumCapsule</ThingDef>
 	</descriptionHyperlinks>
 	<thingClass>Building_WorkTable</thingClass>
@@ -103,10 +104,97 @@
 
   <!-- ========================================================== -->
 
-  <ThingDef>
-	<defName>WVC_XenotypeSerumCapsule</defName>
-	<label>serum capsule</label>
-	<description>A small capsule containing a special super-dose of mechanites and is used to create disposable serums. One such dose is enough to completely overwrite the genetic code of any person, but without a special injector it is completely useless.</description>
+  <ThingDef ParentName="BuildingBase">
+	<defName>WVC_XenotypesAndGenes_UltranitesSpawner</defName>
+	<label>ultranite gestation vat</label>
+	<description>Artificial environment for gestation of microscopic hybrid machines.</description>
+	<descriptionHyperlinks>
+	  <ThingDef>WVC_UniversalFuel</ThingDef>
+	</descriptionHyperlinks>
+	<graphicData>
+	  <texPath>WVC/Things/Ultranites_Spawner</texPath>
+	  <graphicClass>Graphic_Random</graphicClass>
+	  <drawSize>(2, 2)</drawSize>
+	  <shadowData>
+		<volume>(1.8, 1.0, 0.2)</volume>
+		<offset>(0.0, 0.0, -0.4)</offset>
+	  </shadowData>
+	</graphicData>
+	<thingCategories>
+	  <li>BuildingsSpecial</li>
+	</thingCategories>
+	<costList>
+	  <Steel>175</Steel>
+	  <Plasteel>25</Plasteel>
+	  <SignalChip>1</SignalChip>
+	  <ComponentIndustrial>6</ComponentIndustrial>
+	  <!-- <ComponentSpacer>1</ComponentSpacer> -->
+	</costList>
+	<building>
+	  <destroySound>BuildingDestroyed_Metal_Big</destroySound>
+	</building>
+	<comps>
+	  <li Class="CompProperties_Power">
+		<compClass>CompPowerTrader</compClass>
+		<basePowerConsumption>300</basePowerConsumption>
+	  </li>
+	  <li Class="CompProperties_Breakdownable"/>
+	  <li Class="CompProperties_Flickable"/>
+	  <li Class="CompProperties_Spawner">
+		<requiresPower>true</requiresPower>
+		<thingToSpawn>WVC_UniversalFuel</thingToSpawn>
+		<spawnCount>75</spawnCount>
+		<!-- <spawnIntervalRange><min>600000</min><max>900000</max></spawnIntervalRange> -->
+		<spawnIntervalRange><min>240000</min><max>540000</max></spawnIntervalRange>
+		<writeTimeLeftToSpawn>true</writeTimeLeftToSpawn>
+		<showMessageIfOwned>false</showMessageIfOwned>
+	  </li>
+	  <!-- <li Class="CompProperties_Explosive"> -->
+		<!-- <explosiveRadius>8</explosiveRadius> -->
+		<!-- <explosiveDamageType>Flame</explosiveDamageType> -->
+	  <!-- </li> -->
+	  <li Class="CompProperties_Glower">
+		<glowRadius>2</glowRadius>
+		<glowColor>(133,202,255, 0)</glowColor>
+	  </li>
+	</comps>
+	<altitudeLayer>Building</altitudeLayer>
+	<statBases>
+	  <MarketValue>780</MarketValue>
+	  <MaxHitPoints>120</MaxHitPoints>
+	  <Flammability>0.2</Flammability>
+	  <Beauty>-10</Beauty>
+	  <Mass>35</Mass>
+	  <WorkToBuild>18000</WorkToBuild>
+	</statBases>
+	<thingSetMakerTags>
+	  <li>RewardStandardCore</li>
+	</thingSetMakerTags>
+	<tickerType>Rare</tickerType>
+	<size>(2, 2)</size>
+	<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+	<fillPercent>0.7</fillPercent>
+	<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+	<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+	<passability>PassThroughOnly</passability>
+	<pathCost>70</pathCost>
+	<rotatable>false</rotatable>
+	<canOverlapZones>false</canOverlapZones>
+	<minifiedDef>MinifiedThing</minifiedDef>
+	<tradeability>Sellable</tradeability>
+	<designationCategory>Biotech</designationCategory>
+	<researchPrerequisites>
+	  <li>Xenogermination</li>
+	  <li>BasicMechtech</li>
+	</researchPrerequisites>
+	<tradeTags>
+	  <li>ExoticBuilding</li>
+	</tradeTags>
+  </ThingDef>
+
+  <!-- ========================================================== -->
+
+  <ThingDef Name="WVC_XenotypesAndGenes_SerumComponents_Base" Abstract="True">
 	<descriptionHyperlinks>
 	  <!-- <ThingDef>WVC_XenotypeSerum_Base</ThingDef> -->
 	  <!-- <ThingDef>WVC_XenotypeSerum_Ultra</ThingDef> -->
@@ -119,12 +207,13 @@
 	  <graphicClass>Graphic_Random</graphicClass>
 	</graphicData>
 	<statBases>
-	  <MaxHitPoints>200</MaxHitPoints>
+	  <MaxHitPoints>70</MaxHitPoints>
 	  <MarketValue>75</MarketValue>
 	  <Mass>0.5</Mass>
-	  <Flammability>0</Flammability>
+	  <Flammability>0.2</Flammability>
 	</statBases>
 	<recipeMaker>
+	  <displayPriority>-100</displayPriority>
 	  <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
 	  <researchPrerequisite>Xenogermination</researchPrerequisite>
 	  <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
@@ -144,14 +233,6 @@
 		<Intellectual>12</Intellectual>
 	  </skillRequirements>
 	</recipeMaker>
-	<costList>
-	  <!-- <ArchiteCapsule>1</ArchiteCapsule> -->
-	  <NanostructuringChip>1</NanostructuringChip>
-	  <Plasteel>50</Plasteel>
-	  <Uranium>35</Uranium>
-	  <Gold>8</Gold>
-	  <Silver>22</Silver>
-	</costList>
 	<thingCategories>
 	  <li>ItemsMisc</li>
 	</thingCategories>
@@ -171,6 +252,52 @@
 	<comps>
 	  <li Class="CompProperties_Forbiddable"/>
 	</comps>
+  </ThingDef>
+
+  <!-- Serums -->
+  <ThingDef ParentName="WVC_XenotypesAndGenes_SerumComponents_Base">
+	<defName>WVC_XenotypeSerumCapsule</defName>
+	<label>serum capsule</label>
+	<description>A small capsule containing a special super-dose of mechanites and is used to create disposable serums. One such dose is enough to completely overwrite the genetic code of any person, but without a special injector it is completely useless.</description>
+	<descriptionHyperlinks>
+	  <ThingDef>WVC_EmptyXenotypeSerum</ThingDef>
+	</descriptionHyperlinks>
+	<costList>
+	  <!-- <ArchiteCapsule>1</ArchiteCapsule> -->
+	  <NanostructuringChip>1</NanostructuringChip>
+	  <!-- <Plasteel>50</Plasteel> -->
+	  <WVC_UniversalFuel>50</WVC_UniversalFuel>
+	  <Uranium>35</Uranium>
+	  <Gold>1</Gold>
+	  <Silver>2</Silver>
+	</costList>
+  </ThingDef>
+
+  <ThingDef ParentName="WVC_XenotypesAndGenes_SerumComponents_Base">
+	<defName>WVC_EmptyXenotypeSerum</defName>
+	<label>empty serum case</label>
+	<description>Empty super dose injection device. Only suitable for certain types of injections.</description>
+	<descriptionHyperlinks>
+	  <ThingDef>WVC_XenotypeSerumCapsule</ThingDef>
+	  <ThingDef>WVC_XenotypeSerum_Base</ThingDef>
+	  <ThingDef>WVC_XenotypeSerum_Ultra</ThingDef>
+	  <ThingDef>WVC_XenotypeSerum_Hybrid</ThingDef>
+	</descriptionHyperlinks>
+	<graphicData>
+	  <texPath>WVC/Things/XenotypeSerum_Empty</texPath>
+	</graphicData>
+	<statBases>
+	  <MaxHitPoints>120</MaxHitPoints>
+	  <MarketValue>220</MarketValue>
+	  <Mass>0.7</Mass>
+	  <Flammability>0.5</Flammability>
+	</statBases>
+	<stackLimit>5</stackLimit>
+	<costList>
+	  <Plasteel>50</Plasteel>
+	  <ComponentIndustrial>6</ComponentIndustrial>
+	  <!-- <ComponentSpacer>2</ComponentSpacer> -->
+	</costList>
   </ThingDef>
 
 </Defs>

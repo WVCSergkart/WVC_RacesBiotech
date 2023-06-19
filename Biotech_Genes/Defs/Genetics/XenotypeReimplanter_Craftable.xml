@@ -23,11 +23,14 @@
 		<Intellectual>8</Intellectual>
 	  </skillRequirements>
 	</recipeMaker>
-	<costList Inherit="False">
-	  <SignalChip>1</SignalChip>
-	  <Plasteel>50</Plasteel>
-	  <Uranium>35</Uranium>
-	  <Gold>2</Gold>
+	<costList>
+	  <!-- <SignalChip>1</SignalChip> -->
+	  <!-- <WVC_XenotypeSerumCapsule>1</WVC_XenotypeSerumCapsule> -->
+	  <!-- <WVC_EmptyXenotypeSerum>1</WVC_EmptyXenotypeSerum> -->
+	  <ComponentIndustrial>5</ComponentIndustrial>
+	  <!-- <Plasteel>50</Plasteel> -->
+	  <!-- <Uranium>35</Uranium> -->
+	  <!-- <Gold>2</Gold> -->
 	</costList>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_GeneRestoration"/>
@@ -76,11 +79,15 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 		<Intellectual>12</Intellectual>
 	  </skillRequirements>
 	</recipeMaker>
-	<costList Inherit="False">
+	<costList>
 	  <SignalChip>1</SignalChip>
-	  <Plasteel>50</Plasteel>
-	  <Uranium>35</Uranium>
-	  <Gold>3</Gold>
+	  <ComponentIndustrial>2</ComponentIndustrial>
+	  <!-- <WVC_XenotypeSerumCapsule>2</WVC_XenotypeSerumCapsule> -->
+	  <!-- <WVC_EmptyXenotypeSerum>1</WVC_EmptyXenotypeSerum> -->
+	  <!-- <SignalChip>1</SignalChip> -->
+	  <!-- <Plasteel>50</Plasteel> -->
+	  <!-- <Uranium>35</Uranium> -->
+	  <!-- <Gold>3</Gold> -->
 	</costList>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenotypeForcer">
@@ -121,13 +128,17 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	<!-- <descriptionHyperlinks> -->
 	  <!-- <XenotypeDef>WVC_Undead</XenotypeDef> -->
 	<!-- </descriptionHyperlinks> -->
-	<costList Inherit="False">
-	  <ArchiteCapsule>1</ArchiteCapsule>
-	  <NanostructuringChip>1</NanostructuringChip>
-	  <Plasteel>50</Plasteel>
-	  <Uranium>35</Uranium>
-	  <Gold>8</Gold>
-	  <Silver>22</Silver>
+	<!-- <costList Inherit="False"> -->
+	  <!-- <ArchiteCapsule>1</ArchiteCapsule> -->
+	  <!-- <NanostructuringChip>1</NanostructuringChip> -->
+	  <!-- <Plasteel>50</Plasteel> -->
+	  <!-- <Uranium>35</Uranium> -->
+	  <!-- <Gold>8</Gold> -->
+	  <!-- <Silver>22</Silver> -->
+	<!-- </costList> -->
+	<costList>
+	  <SignalChip>2</SignalChip>
+	  <ComponentIndustrial>3</ComponentIndustrial>
 	</costList>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_TargetEffect_DoJobOnTarget">

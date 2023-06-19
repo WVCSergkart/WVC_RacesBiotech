@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="ResourceBase">
+	<defName>WVC_UniversalFuel</defName>
+	<label>ultranites</label>
+	<description>Unstable convertible microscopic machines capable of taking the desired "form". To manipulate them, special devices are required. They can be eaten as a nutritional paste.</description>
+	<descriptionHyperlinks>
+	  <ThingDef>WVC_XenotypesAndGenes_UltranitesSpawner</ThingDef>
+	  <ThingDef MayRequire="wvc.sergkart.core">ComponentSpawner_WVC</ThingDef>
+	  <!-- <ConceptDef>WVC_MechanitesIsUniversalFuel</ConceptDef> -->
+	</descriptionHyperlinks>
+	<!-- <tickerType>Normal</tickerType> -->
+	<techLevel>Ultra</techLevel>
+	<graphicData>
+	  <texPath>WVC/Things/Ultranites</texPath>
+	  <graphicClass>Graphic_StackCount</graphicClass>
+	  <drawSize>1.0</drawSize>
+	</graphicData>
+	<stackLimit>750</stackLimit>
+	<healthAffectsPrice>false</healthAffectsPrice>
+	<socialPropernessMatters>true</socialPropernessMatters>
+	<!-- <smallVolume>true</smallVolume> -->
+	<statBases>
+	  <MaxHitPoints>50</MaxHitPoints>
+	  <MarketValue>0.07</MarketValue>
+	  <Mass>0.0025</Mass>
+	  <Flammability>0.0</Flammability>
+	  <DeteriorationRate>5.0</DeteriorationRate>
+	  <Nutrition>0.06</Nutrition>
+	  <!-- <Bulk MayRequire="ceteam.combatextended">0.2</Bulk> -->
+	</statBases>
+	<intricate>true</intricate>
+	<thingCategories>
+	  <li>Manufactured</li>
+	  <li>FoodMeals</li>
+	  <!-- <li>ResourcesRaw</li> -->
+	</thingCategories>
+	<ingestible>
+	  <preferability>MealAwful</preferability>
+	  <foodType>Processed</foodType>
+	  <ateEvent>AteNutrientPaste</ateEvent>
+	  <ingestEffect>EatVegetarian</ingestEffect>
+	  <ingestSound>Meal_Eat</ingestSound>
+	  <babiesCanIngest>true</babiesCanIngest>
+	  <canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
+	  <tableDesired>false</tableDesired>
+	  <ingestHoldUsesTable>false</ingestHoldUsesTable>
+	  <optimalityOffsetHumanlikes>-100</optimalityOffsetHumanlikes>
+	  <optimalityOffsetFeedingAnimals>-100</optimalityOffsetFeedingAnimals>
+	</ingestible>
+	<comps>
+	  <!-- <li Class="CompProperties_Glower"> -->
+		<!-- <glowRadius>2</glowRadius> -->
+		<!-- <glowColor>(78, 226, 229, 0)</glowColor> -->
+	  <!-- </li> -->
+	  <li Class="CompProperties_Glower">
+		<glowRadius>1</glowRadius>
+		<glowColor>(255,248,133, 0)</glowColor>
+	  </li>
+	</comps>
+	<allowedArchonexusCount>750</allowedArchonexusCount>
+  </ThingDef>
+
+</Defs>

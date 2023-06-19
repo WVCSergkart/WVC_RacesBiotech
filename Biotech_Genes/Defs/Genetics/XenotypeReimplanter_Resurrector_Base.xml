@@ -44,12 +44,11 @@
 	  </skillRequirements>
 	</recipeMaker>
 	<costList>
-	  <!-- <NanostructuringChip>1</NanostructuringChip> -->
-	  <!-- <ArchiteCapsule>5</ArchiteCapsule> -->
-	  <SignalChip>1</SignalChip>
-	  <!-- <WVC_UniversalFuel MayRequire="wvc.sergkart.core">50</WVC_UniversalFuel> -->
-	  <Plasteel>50</Plasteel>
-	  <Uranium>20</Uranium>
+	  <ArchiteCapsule>1</ArchiteCapsule>
+	  <WVC_XenotypeSerumCapsule>1</WVC_XenotypeSerumCapsule>
+	  <!-- <SignalChip>1</SignalChip> -->
+	  <!-- <Plasteel>50</Plasteel> -->
+	  <!-- <Uranium>20</Uranium> -->
 	</costList>
 	<tradeTags>
 	  <li>WVC_XenotypeSerums</li>

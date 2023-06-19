@@ -40,6 +40,11 @@
 	  <texPath>WVC/Things/XenotypeSerum</texPath>
 	  <graphicClass>Graphic_Random</graphicClass>
 	</graphicData>
+	<costList>
+	  <WVC_EmptyXenotypeSerum>1</WVC_EmptyXenotypeSerum>
+	  <ComponentIndustrial>3</ComponentIndustrial>
+	  <!-- <ComponentSpacer>1</ComponentSpacer> -->
+	</costList>
 	<statBases>
 	  <MarketValue>2100</MarketValue>
 	  <MaxHitPoints>80</MaxHitPoints>

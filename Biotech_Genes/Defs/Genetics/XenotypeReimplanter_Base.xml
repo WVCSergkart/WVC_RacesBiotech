@@ -18,11 +18,6 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 		<!-- <Intellectual>12</Intellectual> -->
 	  <!-- </skillRequirements> -->
 	<!-- </recipeMaker> -->
-	<costList>
-	  <!-- <WVC_EmptyXenotypeSerum>1</WVC_EmptyXenotypeSerum> -->
-	  <Plasteel>12</Plasteel>
-	  <Gold>1</Gold>
-	</costList>
 	<comps>
 	  <li Class="CompProperties_Usable">
 		<useJob>UseItem</useJob>
@@ -45,6 +40,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <texPath>WVC/Things/XenotypeSerum</texPath>
 	</graphicData>
 	<recipeMaker>
+	  <displayPriority>-20</displayPriority>
 	  <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
 	  <researchPrerequisite>Xenogermination</researchPrerequisite>
 	  <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
