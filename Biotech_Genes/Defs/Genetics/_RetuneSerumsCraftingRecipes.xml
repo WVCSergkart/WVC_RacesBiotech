@@ -21,7 +21,7 @@
 	</recipeUsers>
 	<displayPriority>500</displayPriority>
 	<researchPrerequisites>
-	  <li>Xenogermination</li>
+	  <li>WVC_XenotypesAndGenes_RetuneSerum</li>
 	</researchPrerequisites>
   </RecipeDef>
 
@@ -29,8 +29,8 @@
 
   <RecipeDef ParentName="WVC_RetuneSerumCrafting_Base">
 	<defName>WVC_RacesBiotech_RetuneSerumBase</defName>
-	<label>retune xenotype serum</label>
-	<description>Retune xenotype serum.</description>
+	<label>retune basetype serum</label>
+	<description>Retune basetype serum.</description>
 	<products>
 	  <WVC_XenotypeSerum_Base>1</WVC_XenotypeSerum_Base>
 	</products>

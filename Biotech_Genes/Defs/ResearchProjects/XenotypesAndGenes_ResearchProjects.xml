@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ResearchProjectDef Abstract="True" Name="WVC_XenotypesAndGenesResearchProjectDefs_Base">
+	<techLevel>Industrial</techLevel>
+	<baseCost>1200</baseCost>
+	<requiresMechanitor>false</requiresMechanitor>
+	<tab>WVC_TechTab</tab>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="WVC_XenotypesAndGenesResearchProjectDefs_Base">
+	<defName>WVC_XenotypesAndGenes_SerumLab</defName>
+	<label>serum lab</label>
+	<description>The basic technology needed to produce xenotype serums.</description>
+	<researchViewX>0.00</researchViewX>
+	<researchViewY>4.65</researchViewY>
+	<prerequisites>
+	  <li>Xenogermination</li>
+	</prerequisites>
+  </ResearchProjectDef>
+
+<!-- WVC_XenotypesAndGenes_SerumLab -->
+<!-- WVC_XenotypesAndGenes_GeneRestoration -->
+<!-- WVC_XenotypesAndGenes_DisassembleSerum -->
+<!-- WVC_XenotypesAndGenes_RetuneSerum -->
+<!-- WVC_XenotypesAndGenes_XenotypeSerumCrafting -->
+<!-- WVC_XenotypesAndGenes_XenotypeResurrectorSerumCrafting -->
+
+  <!-- ======================================================================= -->
+
+  <ResearchProjectDef Abstract="True" ParentName="WVC_XenotypesAndGenesResearchProjectDefs_Base" Name="WVC_XenotypesAndGenesResearchProjectDefs_AfterSerumLab">
+	<techLevel>Ultra</techLevel>
+	<baseCost>2200</baseCost>
+	<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+	<prerequisites>
+	  <li>WVC_XenotypesAndGenes_SerumLab</li>
+	</prerequisites>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="WVC_XenotypesAndGenesResearchProjectDefs_AfterSerumLab">
+	<defName>WVC_XenotypesAndGenes_GeneRestoration</defName>
+	<label>gene restoration</label>
+	<description>Technology for fast and safe gene restoration.</description>
+	<baseCost>1700</baseCost>
+	<researchViewX>1.00</researchViewX>
+	<researchViewY>5.20</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="WVC_XenotypesAndGenesResearchProjectDefs_AfterSerumLab">
+	<defName>WVC_XenotypesAndGenes_DisassembleSerum</defName>
+	<label>serum disassemble</label>
+	<description>The technology needed for the safe disassembly of serums.</description>
+	<baseCost>1200</baseCost>
+	<researchViewX>1.00</researchViewX>
+	<researchViewY>4.65</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="WVC_XenotypesAndGenesResearchProjectDefs_AfterSerumLab">
+	<defName>WVC_XenotypesAndGenes_RetuneSerum</defName>
+	<label>serum retune</label>
+	<description>The technology needed for the serum retuning.</description>
+	<baseCost>900</baseCost>
+	<researchViewX>1.00</researchViewX>
+	<researchViewY>4.10</researchViewY>
+  </ResearchProjectDef>
+
+  <!-- ======================================================================= -->
+
+  <ResearchProjectDef Abstract="True" ParentName="WVC_XenotypesAndGenesResearchProjectDefs_AfterSerumLab" Name="WVC_XenotypesAndGenesResearchProjectDefs_AfterAfterSerumLab">
+	<baseCost>2700</baseCost>
+	<prerequisites>
+	  <li>GeneProcessor</li>
+	</prerequisites>
+	<requiredResearchFacilities>
+	  <li>MultiAnalyzer</li>
+	</requiredResearchFacilities>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="WVC_XenotypesAndGenesResearchProjectDefs_AfterAfterSerumLab">
+	<defName>WVC_XenotypesAndGenes_XenotypeSerumCrafting</defName>
+	<label>serum crafting</label>
+	<description>Advanced injector technology to quickly overwrite the genetic code.</description>
+	<baseCost>1900</baseCost>
+	<researchViewX>2.00</researchViewX>
+	<researchViewY>4.55</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="WVC_XenotypesAndGenesResearchProjectDefs_AfterAfterSerumLab">
+	<defName>WVC_XenotypesAndGenes_XenotypeResurrectorSerumCrafting</defName>
+	<label>resurrector serum crafting</label>
+	<description>Advanced injector technology to resurrect a fresh corpse.</description>
+	<baseCost>2200</baseCost>
+	<researchViewX>2.00</researchViewX>
+	<researchViewY>5.05</researchViewY>
+  </ResearchProjectDef>
+
+</Defs>

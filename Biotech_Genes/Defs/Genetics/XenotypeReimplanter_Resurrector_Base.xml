@@ -37,12 +37,18 @@
 	  <texPath>WVC/Things/XenotypeSerum</texPath>
 	</graphicData>
 	<recipeMaker>
-	  <researchPrerequisite>Archogenetics</researchPrerequisite>
+	  <researchPrerequisites>
+		<li>Archogenetics</li>
+		<li>WVC_XenotypesAndGenes_XenotypeResurrectorSerumCrafting</li>
+	  </researchPrerequisites>
 	  <skillRequirements>
 		<Crafting>14</Crafting>
 		<Intellectual>14</Intellectual>
 	  </skillRequirements>
 	</recipeMaker>
+	<thingSetMakerTags Inherit="False">
+	  <li>RewardStandardLowFreq</li>
+	</thingSetMakerTags>
 	<costList>
 	  <ArchiteCapsule>1</ArchiteCapsule>
 	  <WVC_XenotypeSerumCapsule>1</WVC_XenotypeSerumCapsule>
@@ -77,9 +83,6 @@
 	  <li>WVC_XenotypeSerums_NonCraftable</li>
 	  <li>WVC_XenotypeSerums_Ultra</li>
 	</tradeTags>
-	<thingSetMakerTags Inherit="False">
-	  <li>RewardStandardLowFreq</li>
-	</thingSetMakerTags>
 	<thingCategories>
 	  <li>WVC_XenotypeSerums_Ultra</li>
 	</thingCategories>

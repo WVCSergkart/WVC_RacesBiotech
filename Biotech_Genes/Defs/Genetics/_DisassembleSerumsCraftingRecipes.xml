@@ -24,7 +24,7 @@
 	</recipeUsers>
 	<displayPriority>-500</displayPriority>
 	<researchPrerequisites>
-	  <li>Xenogermination</li>
+	  <li>WVC_XenotypesAndGenes_DisassembleSerum</li>
 	</researchPrerequisites>
   </RecipeDef>
 

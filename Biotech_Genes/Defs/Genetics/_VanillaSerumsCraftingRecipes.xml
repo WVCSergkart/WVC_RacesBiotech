@@ -17,7 +17,7 @@
 	</recipeUsers>
 	<displayPriority>1</displayPriority>
 	<researchPrerequisites>
-	  <li>Archogenetics</li>
+	  <li>WVC_XenotypesAndGenes_XenotypeResurrectorSerumCrafting</li>
 	</researchPrerequisites>
 	<ingredients>
 	  <li>
@@ -82,6 +82,9 @@
 	  <Crafting>12</Crafting>
 	  <Intellectual>16</Intellectual>
 	</skillRequirements>
+	<researchPrerequisites>
+	  <li>WVC_XenotypesAndGenes_GeneRestoration</li>
+	</researchPrerequisites>
 	<products>
 	  <MechSerumHealer>1</MechSerumHealer>
 	</products>
@@ -138,6 +141,9 @@
 	  <Crafting>16</Crafting>
 	  <Intellectual>16</Intellectual>
 	</skillRequirements>
+	<researchPrerequisites>
+	  <li>Archogenetics</li>
+	</researchPrerequisites>
 	<products>
 	  <MechSerumResurrector>1</MechSerumResurrector>
 	</products>

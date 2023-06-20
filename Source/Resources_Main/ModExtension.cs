@@ -99,7 +99,7 @@ namespace WVC_XenotypesAndGenes
 		public List<string> blackListedXenotypesForSerums;
 		public List<XenotypeDef> whiteListedXenotypesForResurrectorSerums;
 		public List<string> whiteListedXenotypesForFilter;
-		public List<ThingDef> blackListedThingsForSerums;
+		public List<ThingDef> blackListedDefsForSerums;
 		public List<GeneDef> perfectCandidatesForSerums;
 		public List<GeneDef> whiteListedExoskinGenes;
 		public List<BackstoryDef> blackListedBackstoryForChanger;

@@ -17,7 +17,7 @@
 	  <DeteriorationRate>0.5</DeteriorationRate>
 	</statBases>
 	<recipeMaker>
-	  <researchPrerequisite>Xenogermination</researchPrerequisite>
+	  <researchPrerequisite>WVC_XenotypesAndGenes_GeneRestoration</researchPrerequisite>
 	  <skillRequirements>
 		<Crafting>6</Crafting>
 		<Intellectual>8</Intellectual>
@@ -73,7 +73,11 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <DeteriorationRate>3.0</DeteriorationRate>
 	</statBases>
 	<recipeMaker>
-	  <researchPrerequisite>Xenogermination</researchPrerequisite>
+	  <!-- <researchPrerequisite>Xenogermination</researchPrerequisite> -->
+	  <researchPrerequisites>
+		<li>WVC_XenotypesAndGenes_GeneRestoration</li>
+		<li>WVC_XenotypesAndGenes_XenotypeSerumCrafting</li>
+	  </researchPrerequisites>
 	  <skillRequirements>
 		<Crafting>8</Crafting>
 		<Intellectual>12</Intellectual>
@@ -153,7 +157,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 
   <ThingDef ParentName="WVC_XenotypeSerum_Craftable">
 	<defName>WVC_XenotypeSerum_Base</defName>
-	<label>xenotype serum</label>
+	<label>basetype serum</label>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenotypeForcer_II">
 		<xenotypeType>Base</xenotypeType>
@@ -165,9 +169,9 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
   
   <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
 	<defName>WVC_AdministerXenotypeSerum_Base</defName>
-	<label>administer xenotype serum</label>
-	<description>Administer a xenotype serum.</description>
-	<jobString>Administering xenotype serum.</jobString>
+	<label>administer basetype serum</label>
+	<description>Administer a basetype serum.</description>
+	<jobString>Administering basetype serum.</jobString>
 	<ingredients>
 	  <li>
 		<filter>

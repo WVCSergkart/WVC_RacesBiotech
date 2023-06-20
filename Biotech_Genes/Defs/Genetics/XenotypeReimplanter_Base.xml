@@ -42,7 +42,8 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	<recipeMaker>
 	  <displayPriority>-20</displayPriority>
 	  <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
-	  <researchPrerequisite>Xenogermination</researchPrerequisite>
+	  <!-- <researchPrerequisite>Xenogermination</researchPrerequisite> -->
+	  <researchPrerequisite>WVC_XenotypesAndGenes_XenotypeSerumCrafting</researchPrerequisite>
 	  <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 	  <workSkill>Crafting</workSkill>
 	  <effectWorking>Smith</effectWorking>

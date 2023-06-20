@@ -66,7 +66,7 @@
 	  <ComponentIndustrial>5</ComponentIndustrial>
 	</costList>
 	<researchPrerequisites>
-	  <li>Xenogermination</li>
+	  <li>WVC_XenotypesAndGenes_SerumLab</li>
 	</researchPrerequisites>
 	<hasInteractionCell>true</hasInteractionCell>
 	<interactionCellOffset>(0,0,-1)</interactionCellOffset>
@@ -153,10 +153,10 @@
 		<!-- <explosiveRadius>8</explosiveRadius> -->
 		<!-- <explosiveDamageType>Flame</explosiveDamageType> -->
 	  <!-- </li> -->
-	  <li Class="CompProperties_Glower">
-		<glowRadius>2</glowRadius>
-		<glowColor>(133,202,255, 0)</glowColor>
-	  </li>
+	  <!-- <li Class="CompProperties_Glower"> -->
+		<!-- <glowRadius>2</glowRadius> -->
+		<!-- <glowColor>(133,202,255, 0)</glowColor> -->
+	  <!-- </li> -->
 	</comps>
 	<altitudeLayer>Building</altitudeLayer>
 	<statBases>
@@ -184,7 +184,7 @@
 	<tradeability>Sellable</tradeability>
 	<designationCategory>Biotech</designationCategory>
 	<researchPrerequisites>
-	  <li>Xenogermination</li>
+	  <li>WVC_XenotypesAndGenes_SerumLab</li>
 	  <li>BasicMechtech</li>
 	</researchPrerequisites>
 	<tradeTags>
@@ -215,7 +215,7 @@
 	<recipeMaker>
 	  <displayPriority>-100</displayPriority>
 	  <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
-	  <researchPrerequisite>Xenogermination</researchPrerequisite>
+	  <researchPrerequisite>WVC_XenotypesAndGenes_SerumLab</researchPrerequisite>
 	  <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 	  <workSkill>Crafting</workSkill>
 	  <effectWorking>Smith</effectWorking>

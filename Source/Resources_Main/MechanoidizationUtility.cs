@@ -108,27 +108,15 @@ namespace WVC_XenotypesAndGenes
 			{
 				return true;
 			}
-			List<ThingDef> blackListedThings = new();
+			List<Def> blackListedThings = new();
 			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
 			{
-				blackListedThings.AddRange(item.blackListedThingsForSerums);
+				blackListedThings.AddRange(item.blackListedDefsForSerums);
 			}
 			if (blackListedThings.Contains(pawn.def))
 			{
 				return true;
 			}
-			// if (pawn.kindDef.race.Contains("VREA_SyntheticBody"))
-			// {
-				// return true;
-			// }
-			// List<Gene> genesListForReading = pawn.genes.GenesListForReading;
-			// for (int i = 0; i < genesListForReading.Count; i++)
-			// {
-				// if (genesListForReading[i].def.defName.Contains("VREA_SyntheticBody"))
-				// {
-					// return true;
-				// }
-			// }
 			return false;
 		}
 
