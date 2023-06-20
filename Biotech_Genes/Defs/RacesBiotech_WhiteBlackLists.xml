@@ -136,7 +136,7 @@
   <!-- ======================================================================= -->
 
   <AlphaGenes.WretchBlacklistDef MayRequire="sarg.alphagenes">
-	<defName>WVC_WretchBlacklistDef</defName>
+	<defName>WVC_RacesBiotech_WretchBlacklistDef</defName>
 	<blackListedGenes>
 		<!-- Cause dangerous effect -->
 		<li>WVC_AgeDebuff_Armless</li>
