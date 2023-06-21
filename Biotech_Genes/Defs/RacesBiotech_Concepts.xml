@@ -41,6 +41,19 @@ Please note that the filter does not display xenotypes that the mod developer co
   </ConceptDef>
 
   <ConceptDef>
+	<defName>WVC_Tutorial_XenotypeSerums_IV</defName>
+	<label>WVC - Xenotype Serums IV</label>
+	<!-- <priority>-1000</priority> -->
+	<priority>124</priority>
+	<needsOpportunity>false</needsOpportunity>
+	<helpText>Basetype serum (_name_) - contains only non-archite xenotypes. May be crafted. When crafting, as well as when generating, it always contains a random xenotype. The xenotype can be changed for free with the retuning technology.
+
+Ultratype serum (_name_) - contains only archite xenotypes. Same as basetype serum.
+
+Hybridtype serum (_name_ + _name_) - contain any two xenotypes. Same as basetype serum. But with two xenotypes.</helpText>
+  </ConceptDef>
+
+  <ConceptDef>
 	<defName>WVC_Tutorial_XenotypeSerums_Desc</defName>
 	<label>Xenotype Serums Guide</label>
 	<priority>-1000</priority>
@@ -61,7 +74,15 @@ Xenotype filter settings.
 
 Everything is very simple here. Open the mod settings and go to the Xenotypes Filter tab.
 Allowed xnotypes are marked with a green checkmark, prohibited ones with a red cross.
-Please note that the filter does not display xenotypes that the mod developer considered prohibited.</description>
+Please note that the filter does not display xenotypes that the mod developer considered prohibited.
+
+_Name_type serums:
+
+Basetype serum (_name_) - contains only non-archite xenotypes. May be crafted. When crafting, as well as when generating, it always contains a random xenotype. The xenotype can be changed for free with the retuning technology.
+
+Ultratype serum (_name_) - contains only archite xenotypes. Same as basetype serum.
+
+Hybridtype serum (_name_ + _name_) - contain any two xenotypes. Same as basetype serum. But with two xenotypes.</description>
 	<helpText>Should be never displayed.</helpText>
   </ConceptDef>
 

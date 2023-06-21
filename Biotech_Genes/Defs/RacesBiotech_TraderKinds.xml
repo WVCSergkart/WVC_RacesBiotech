@@ -45,7 +45,7 @@
 	  <!-- </li> -->
 	  <li Class="StockGenerator_Tag">
 		<tradeTag>WVC_All_XenotypeSerums</tradeTag>
-		<thingDefCountRange>3~9</thingDefCountRange>
+		<thingDefCountRange>2~12</thingDefCountRange>
 		<countRange>1~1</countRange>
 	  </li>
 	  <!-- <li Class="StockGenerator_Tag"> -->

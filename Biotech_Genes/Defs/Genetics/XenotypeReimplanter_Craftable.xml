@@ -27,7 +27,7 @@
 	  <!-- <SignalChip>1</SignalChip> -->
 	  <!-- <WVC_XenotypeSerumCapsule>1</WVC_XenotypeSerumCapsule> -->
 	  <!-- <WVC_EmptyXenotypeSerum>1</WVC_EmptyXenotypeSerum> -->
-	  <ComponentIndustrial>5</ComponentIndustrial>
+	  <ComponentIndustrial>1</ComponentIndustrial>
 	  <!-- <Plasteel>50</Plasteel> -->
 	  <!-- <Uranium>35</Uranium> -->
 	  <!-- <Gold>2</Gold> -->
@@ -84,8 +84,9 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  </skillRequirements>
 	</recipeMaker>
 	<costList>
-	  <SignalChip>1</SignalChip>
-	  <ComponentIndustrial>2</ComponentIndustrial>
+	  <!-- <SignalChip>1</SignalChip> -->
+	  <ComponentSpacer>1</ComponentSpacer>
+	  <ComponentIndustrial>1</ComponentIndustrial>
 	  <!-- <WVC_XenotypeSerumCapsule>2</WVC_XenotypeSerumCapsule> -->
 	  <!-- <WVC_EmptyXenotypeSerum>1</WVC_EmptyXenotypeSerum> -->
 	  <!-- <SignalChip>1</SignalChip> -->
@@ -143,8 +144,8 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <!-- <Silver>22</Silver> -->
 	<!-- </costList> -->
 	<costList>
-	  <SignalChip>2</SignalChip>
-	  <ComponentIndustrial>3</ComponentIndustrial>
+	  <ComponentSpacer>1</ComponentSpacer>
+	  <ComponentIndustrial>2</ComponentIndustrial>
 	</costList>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_TargetEffect_DoJobOnTarget">

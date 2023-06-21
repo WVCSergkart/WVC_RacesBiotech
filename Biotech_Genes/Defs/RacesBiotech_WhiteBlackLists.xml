@@ -58,13 +58,13 @@
 	<!-- Defs that can't use serums. Any defNames -->
 	<blackListedDefsForSerums>
 		<!-- Any HAR or HAR-like defNames -->
-		<li MayRequire="wvc.sergkart.races">WVC_AlienRace_BlueFormer</li>
-		<li MayRequire="wvc.sergkart.races">WVC_AlienRace_YellowFormer</li>
-		<li MayRequire="wvc.sergkart.races">WVC_AlienRace_Meka</li>
-		<li MayRequire="wvc.sergkart.races">WVC_AlienRace_RedFormer</li>
-		<li MayRequire="honkai.girls.sergkart">Alien_ELF_WVC</li>
-		<li MayRequire="honkai.girls.sergkart">Alien_DryadMother_WVC</li>
-		<li MayRequire="honkai.girls.sergkart">Alien_Valkyrie_WVC</li>
+		<li MayRequire="wvc.sergkart.races,erdelf.humanoidalienraces">WVC_AlienRace_BlueFormer</li>
+		<li MayRequire="wvc.sergkart.races,erdelf.humanoidalienraces">WVC_AlienRace_YellowFormer</li>
+		<li MayRequire="wvc.sergkart.races,erdelf.humanoidalienraces">WVC_AlienRace_Meka</li>
+		<li MayRequire="wvc.sergkart.races,erdelf.humanoidalienraces">WVC_AlienRace_RedFormer</li>
+		<li MayRequire="honkai.girls.sergkart,erdelf.humanoidalienraces">Alien_ELF_WVC</li>
+		<li MayRequire="honkai.girls.sergkart,erdelf.humanoidalienraces">Alien_DryadMother_WVC</li>
+		<li MayRequire="honkai.girls.sergkart,erdelf.humanoidalienraces">Alien_Valkyrie_WVC</li>
 	</blackListedDefsForSerums>
 	<!-- Genes with which pawns do not lose consciousness when using serums. Any gene defNames -->
 	<perfectCandidatesForSerums>
