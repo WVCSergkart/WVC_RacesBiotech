@@ -50,6 +50,9 @@ namespace WVC_XenotypesAndGenes
 		public static RulePackDef WVC_NamerGenepack;
 		public static RulePackDef WVC_NamerUltraGenepack;
 		public static RulePackDef WVC_NamerMechaGenepack;
+		// Capsule
+		public static ThingDef WVC_XenotypeSerumCapsule;
+		public static ThingDef WVC_XenotypeSerumUltraCapsule;
 		// HumanEmbryo
 		// public static ThingDef WVC_HumanEmbryo;
 		// Reimplanter

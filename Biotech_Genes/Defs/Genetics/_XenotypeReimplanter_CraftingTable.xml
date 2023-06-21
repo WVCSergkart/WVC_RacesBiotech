@@ -348,6 +348,7 @@
   <!-- ========================================================== -->
 
   <ThingDef Name="WVC_XenotypesAndGenes_SerumComponents_Base" Abstract="True">
+	<description>A small capsule containing a special super-dose of mechanites and is used to create disposable serums. One such dose is enough to completely overwrite the genetic code of any person, but without a special injector it is completely useless.</description>
 	<descriptionHyperlinks>
 	  <!-- <ThingDef>WVC_XenotypeSerum_Base</ThingDef> -->
 	  <!-- <ThingDef>WVC_XenotypeSerum_Ultra</ThingDef> -->
@@ -368,7 +369,11 @@
 	<recipeMaker>
 	  <displayPriority>-100</displayPriority>
 	  <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
-	  <researchPrerequisite>WVC_XenotypesAndGenes_SerumLab</researchPrerequisite>
+	  <!-- <researchPrerequisite>WVC_XenotypesAndGenes_SerumLab</researchPrerequisite> -->
+	  <researchPrerequisites>
+		<li>WVC_XenotypesAndGenes_SerumLab</li>
+		<!-- <li>WVC_XenotypesAndGenes_XenotypeSerumCrafting</li> -->
+	  </researchPrerequisites>
 	  <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 	  <workSkill>Crafting</workSkill>
 	  <effectWorking>Smith</effectWorking>
@@ -407,14 +412,17 @@
 	</comps>
   </ThingDef>
 
-  <!-- Serums -->
+  <!-- Capsule -->
   <ThingDef ParentName="WVC_XenotypesAndGenes_SerumComponents_Base">
 	<defName>WVC_XenotypeSerumCapsule</defName>
-	<label>serum capsule</label>
-	<description>A small capsule containing a special super-dose of mechanites and is used to create disposable serums. One such dose is enough to completely overwrite the genetic code of any person, but without a special injector it is completely useless.</description>
+	<label>basic serum capsule</label>
 	<descriptionHyperlinks>
 	  <ThingDef>WVC_EmptyXenotypeSerum</ThingDef>
 	</descriptionHyperlinks>
+	<graphicData>
+	  <texPath>WVC/Things/SerumCapsule/SerumCapsule_v0</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
 	<costList>
 	  <!-- <ArchiteCapsule>1</ArchiteCapsule> -->
 	  <NanostructuringChip>1</NanostructuringChip>
@@ -427,11 +435,41 @@
   </ThingDef>
 
   <ThingDef ParentName="WVC_XenotypesAndGenes_SerumComponents_Base">
+	<defName>WVC_XenotypeSerumUltraCapsule</defName>
+	<label>ultra serum capsule</label>
+	<descriptionHyperlinks>
+	  <ThingDef>WVC_EmptyXenotypeSerum</ThingDef>
+	</descriptionHyperlinks>
+	<graphicData>
+	  <texPath>WVC/Things/SerumCapsule/SerumArchiteCapsule_v0</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+	<recipeMaker>
+	  <researchPrerequisites>
+		<li>Archogenetics</li>
+	  </researchPrerequisites>
+	</recipeMaker>
+	<costList>
+	  <SignalChip>1</SignalChip>
+	  <ArchiteCapsule>1</ArchiteCapsule>
+	  <!-- <NanostructuringChip>1</NanostructuringChip> -->
+	  <Plasteel>50</Plasteel>
+	  <WVC_UniversalFuel>75</WVC_UniversalFuel>
+	  <!-- <Uranium>35</Uranium> -->
+	  <Gold>5</Gold>
+	  <!-- <Silver>2</Silver> -->
+	</costList>
+  </ThingDef>
+
+
+  <!-- Serums -->
+  <ThingDef ParentName="WVC_XenotypesAndGenes_SerumComponents_Base">
 	<defName>WVC_EmptyXenotypeSerum</defName>
 	<label>empty serum case</label>
 	<description>Empty super dose injection device. Only suitable for certain types of injections.</description>
 	<descriptionHyperlinks>
 	  <ThingDef>WVC_XenotypeSerumCapsule</ThingDef>
+	  <ThingDef>WVC_XenotypeSerumUltraCapsule</ThingDef>
 	  <ThingDef>WVC_XenotypeSerum_Base</ThingDef>
 	  <ThingDef>WVC_XenotypeSerum_Ultra</ThingDef>
 	  <ThingDef>WVC_XenotypeSerum_Hybrid</ThingDef>

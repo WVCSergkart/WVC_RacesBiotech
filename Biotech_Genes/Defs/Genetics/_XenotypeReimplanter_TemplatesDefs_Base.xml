@@ -101,7 +101,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <!-- <Uranium>20</Uranium> -->
 	  <WVC_EmptyXenotypeSerum>1</WVC_EmptyXenotypeSerum>
 	  <WVC_XenotypeSerumCapsule>1</WVC_XenotypeSerumCapsule>
-	  <ComponentIndustrial>3</ComponentIndustrial>
+	  <!-- <ComponentIndustrial>3</ComponentIndustrial> -->
 	</costList>
 	<!-- <tradeTags> -->
 	  <!-- <li>WVC_Template_XenotypeSerums</li> -->

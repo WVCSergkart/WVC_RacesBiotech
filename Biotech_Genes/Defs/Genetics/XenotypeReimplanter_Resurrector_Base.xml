@@ -50,7 +50,8 @@
 	  <li>RewardStandardLowFreq</li>
 	</thingSetMakerTags>
 	<costList>
-	  <ArchiteCapsule>1</ArchiteCapsule>
+	  <!-- <ArchiteCapsule>1</ArchiteCapsule> -->
+	  <WVC_XenotypeSerumUltraCapsule>1</WVC_XenotypeSerumUltraCapsule>
 	  <WVC_XenotypeSerumCapsule>1</WVC_XenotypeSerumCapsule>
 	  <!-- <SignalChip>1</SignalChip> -->
 	  <!-- <Plasteel>50</Plasteel> -->

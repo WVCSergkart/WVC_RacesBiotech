@@ -92,7 +92,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <!-- </skillRequirements> -->
 	<!-- </recipeMaker> -->
 	<costList>
-	  <ArchiteCapsule>1</ArchiteCapsule>
+	  <WVC_XenotypeSerumUltraCapsule>1</WVC_XenotypeSerumUltraCapsule>
 	  <WVC_XenotypeSerumCapsule>1</WVC_XenotypeSerumCapsule>
 	</costList>
 	<graphicData>
@@ -130,8 +130,8 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <!-- </skillRequirements> -->
 	<!-- </recipeMaker> -->
 	<costList>
-	  <ArchiteCapsule>2</ArchiteCapsule>
 	  <WVC_XenotypeSerumCapsule>2</WVC_XenotypeSerumCapsule>
+	  <WVC_XenotypeSerumUltraCapsule>2</WVC_XenotypeSerumUltraCapsule>
 	</costList>
 	<graphicData>
 	  <texPath>WVC/Things/XenotypeSerum_Mecha</texPath>

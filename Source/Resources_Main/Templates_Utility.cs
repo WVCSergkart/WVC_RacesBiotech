@@ -150,30 +150,33 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (xenotypeArc > 0)
 				{
-					int countArc = 2 + (int)(1 * (xenotypeArc * 0.1));
+					int countArc = 1 + (int)(1 * (xenotypeArc * 0.1));
 					ThingDefCountClass itemArc = new()
                     {
-						thingDef = ThingDefOf.ArchiteCapsule,
+						// thingDef = ThingDefOf.ArchiteCapsule,
+						thingDef = WVC_GenesDefOf.WVC_XenotypeSerumUltraCapsule,
 						count = countArc
 					};
 					thingDef.costList.Add(itemArc);
 				}
 				if (xenotypeCpx > 0)
 				{
-					int countCpx = 5 + (int)(1 * (xenotypeCpx * 0.5));
+					int countCpx = 2 + (int)(1 * (xenotypeCpx * 0.1));
 					ThingDefCountClass itemCpx = new()
                     {
-						thingDef = ThingDefOf.Silver,
+						// thingDef = ThingDefOf.Silver,
+						thingDef = ThingDefOf.ComponentIndustrial,
 						count = countCpx
 					};
 					thingDef.costList.Add(itemCpx);
 				}
 				if (xenotypeMet > 0)
 				{
-					int countMet = 2 + (int)(1 * (xenotypeMet * 0.5));
+					int countMet = 1 + (int)(1 * (xenotypeMet * 0.1));
 					ThingDefCountClass itemMet = new()
                     {
-						thingDef = ThingDefOf.Gold,
+						thingDef = ThingDefOf.ComponentSpacer,
+						// thingDef = ThingDefOf.Gold,
 						count = countMet
 					};
 					thingDef.costList.Add(itemMet);

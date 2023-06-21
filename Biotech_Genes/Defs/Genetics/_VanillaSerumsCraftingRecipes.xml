@@ -183,7 +183,7 @@
 	  <li>
 		<filter>
 		  <thingDefs>
-			<li>ArchiteCapsule</li>
+			<li>WVC_XenotypeSerumUltraCapsule</li>
 		  </thingDefs>
 		</filter>
 		<count>1</count>

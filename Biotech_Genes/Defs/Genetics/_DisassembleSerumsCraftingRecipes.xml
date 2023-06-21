@@ -55,7 +55,7 @@
 	<description>Disassemble ultratype serum.</description>
 	<products>
 	  <WVC_XenotypeSerumCapsule>1</WVC_XenotypeSerumCapsule>
-	  <ArchiteCapsule>1</ArchiteCapsule>
+	  <WVC_XenotypeSerumUltraCapsule>1</WVC_XenotypeSerumUltraCapsule>
 	</products>
 	<ingredients>
 	  <li>
@@ -75,7 +75,7 @@
 	<description>Disassemble hybridtype serum.</description>
 	<products>
 	  <WVC_XenotypeSerumCapsule>2</WVC_XenotypeSerumCapsule>
-	  <ArchiteCapsule>2</ArchiteCapsule>
+	  <WVC_XenotypeSerumUltraCapsule>2</WVC_XenotypeSerumUltraCapsule>
 	</products>
 	<ingredients>
 	  <li>
