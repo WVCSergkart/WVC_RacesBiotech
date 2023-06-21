@@ -275,6 +275,11 @@
 		<materialsAddedSound>WastepackAtomizer_MaterialInserted</materialsAddedSound>
 		<contentsDrawOffset>(0.05, 0, 0.2)</contentsDrawOffset>
 	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_RecyclerSpawner">
+		<productDef>WVC_UniversalFuel</productDef>
+		<productCount>11</productCount>
+		<ticksUntilSpawn>12000~17000</ticksUntilSpawn>
+	  </li>
 	  <li Class="CompProperties_Flickable"/>
 	</comps>
   </ThingDef>

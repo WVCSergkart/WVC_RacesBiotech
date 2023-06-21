@@ -34,4 +34,16 @@
 	<giverClass>WVC_XenotypesAndGenes.WorkGiver_HaulToGeneBank_MechaPack</giverClass>
   </WorkGiverDef>
 
+  <!-- <WorkGiverDef ParentName="HaulToBase"> -->
+	<!-- <defName>WVC_XenotypesAndGenes_HaulToUltraniteRecycler</defName> -->
+	<!-- <label>haul resources to ultranite recycler</label> -->
+	<!-- <giverClass>WVC_XenotypesAndGenes.WorkGiver_HaulToRecycler</giverClass> -->
+  <!-- </WorkGiverDef> -->
+
+  <!-- <JobDef> -->
+	<!-- <defName>WVC_XenotypesAndGenes_HaulToRecycler</defName> -->
+	<!-- <driverClass>WVC_XenotypesAndGenes.JobDriver_HaulToRecycler</driverClass> -->
+	<!-- <reportString>hauling TargetA.</reportString> -->
+  <!-- </JobDef> -->
+
 </Defs>

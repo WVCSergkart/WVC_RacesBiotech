@@ -64,6 +64,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources_Abilities\CompProperties_AbilityRiseFromTheDead.cs" />
+    <Compile Include="Resources_Buildings\CompProperties_RecyclerSpawner.cs" />
+    <Compile Include="Resources_Buildings\CompRecyclerSpawner.cs" />
     <Compile Include="Resources_Genes\Gene_Ageless.cs" />
     <Compile Include="Resources_Genes\Gene_Amnesia.cs" />
     <Compile Include="Resources_Genes\Gene_Blank.cs" />
@@ -138,5 +140,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
