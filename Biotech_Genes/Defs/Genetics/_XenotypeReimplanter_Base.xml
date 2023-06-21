@@ -56,8 +56,7 @@
 	<tradeNeverStack>true</tradeNeverStack>
 	<tradeNeverGenerateStacked>true</tradeNeverGenerateStacked>
 	<healthAffectsPrice>false</healthAffectsPrice>
-	<stackLimit>1</stackLimit>
-	<drawGUIOverlay>false</drawGUIOverlay>
+	<stackLimit>10</stackLimit>
 	<techLevel>Ultra</techLevel>
 	<tradeTags>
 	  <li>WVC_All_XenotypeSerums</li>

@@ -114,6 +114,8 @@
 	<graphicData>
 	  <texPath>WVC/Things/Ultranites_Spawner</texPath>
 	  <graphicClass>Graphic_Random</graphicClass>
+	  <drawRotated>false</drawRotated>
+	  <allowFlip>false</allowFlip>
 	  <drawSize>(2, 2)</drawSize>
 	  <shadowData>
 		<volume>(1.8, 1.0, 0.2)</volume>
@@ -191,6 +193,152 @@
 	  <li>ExoticBuilding</li>
 	</tradeTags>
   </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+	<defName>WVC_XenotypesAndGenes_UltraniteRecycler</defName>
+	<label>ultranite recycler</label>
+	<description>A glittertech device that deconstructs toxic wastepacks into microscopic hybrid machines using advanced molecular processes. The process requires considerable amounts of power.</description>
+	<descriptionHyperlinks>
+	  <ThingDef>WVC_UniversalFuel</ThingDef>
+	</descriptionHyperlinks>
+	<thingClass>Building_WastepackAtomizer</thingClass>
+	<drawerType>MapMeshAndRealTime</drawerType>
+	<tickerType>Normal</tickerType>
+	<graphicData>
+	  <texPath>WVC/Things/UltranitesRecycler</texPath>
+	  <graphicClass>Graphic_Random</graphicClass>
+	  <drawRotated>false</drawRotated>
+	  <allowFlip>false</allowFlip>
+	  <drawSize>(2,2)</drawSize>
+	</graphicData>
+	<altitudeLayer>Building</altitudeLayer>
+	<passability>PassThroughOnly</passability>
+	<canOverlapZones>false</canOverlapZones>
+	<pathCost>42</pathCost>
+	<blockWind>true</blockWind>
+	<castEdgeShadows>true</castEdgeShadows>
+	<staticSunShadowHeight>0.3</staticSunShadowHeight>
+	<fillPercent>0.5</fillPercent>
+	<building>
+	  <buildingTags>
+		<li>Biotech</li>
+	  </buildingTags>
+	  <ai_chillDestination>false</ai_chillDestination>
+	  <wastepackAtomizerBottomGraphic>
+		<texPath>WVC/Things/UltranitesRecycler_Parts/UltranitesRecycler_Bottom</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+		<drawRotated>false</drawRotated>
+		<allowFlip>false</allowFlip>
+		<drawSize>(2,2)</drawSize>
+	  </wastepackAtomizerBottomGraphic>
+	  <wastepackAtomizerWindowGraphic>
+		<texPath>WVC/Things/UltranitesRecycler_Parts/UltranitesRecycler_Window</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+		<drawRotated>false</drawRotated>
+		<allowFlip>false</allowFlip>
+		<drawSize>(2,2)</drawSize>
+	  </wastepackAtomizerWindowGraphic>
+	  <wastepackAtomizerOperationEffecter>WVC_XenotypesAndGenes_UltraniteRecycler_Operating</wastepackAtomizerOperationEffecter>
+	</building>
+	<designationCategory>Biotech</designationCategory>
+	<hasInteractionCell>true</hasInteractionCell>
+	<interactionCellOffset>(0, 0, -1)</interactionCellOffset>
+	<statBases>
+	  <MaxHitPoints>500</MaxHitPoints>
+	  <WorkToBuild>30000</WorkToBuild>
+	  <Mass>80</Mass>
+	  <Flammability>0.2</Flammability>
+	</statBases>
+	<size>(2,2)</size>
+	<costList>
+	  <Steel>200</Steel>
+	  <Plasteel>50</Plasteel>
+	  <NanostructuringChip>1</NanostructuringChip>
+	</costList>
+	<researchPrerequisites>
+	  <li>WastepackAtomizer</li>
+	  <li>WVC_XenotypesAndGenes_SerumLab</li>
+	</researchPrerequisites>
+	<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+	<comps>
+	  <li Class="CompProperties_Power">
+		<compClass>CompPowerTrader</compClass>
+		<basePowerConsumption>400</basePowerConsumption>
+	  </li>
+	  <li Class="CompProperties_Atomizer">
+		<thingDef>Wastepack</thingDef>
+		<stackLimit>15</stackLimit>
+		<drawContainedThing>false</drawContainedThing>
+		<ticksPerAtomize>30000</ticksPerAtomize>
+		<resolveEffecter>AtomizerResolve</resolveEffecter>
+		<workingEffecter>WastepackAtomizer_Working</workingEffecter>
+		<materialsAddedSound>WastepackAtomizer_MaterialInserted</materialsAddedSound>
+		<contentsDrawOffset>(0.05, 0, 0.2)</contentsDrawOffset>
+	  </li>
+	  <li Class="CompProperties_Flickable"/>
+	</comps>
+  </ThingDef>
+
+  <EffecterDef>
+	<defName>WVC_XenotypesAndGenes_UltraniteRecycler_Operating</defName>
+	<children>
+	  <li>
+		<subEffecterClass>SubEffecter_SprayerContinuous</subEffecterClass>
+		<fleckDef>WVC_XenotypesAndGenes_UltraniteRecycler_Forward</fleckDef>
+		<spawnLocType>BetweenPositions</spawnLocType>
+		<positionLerpFactor>0.6</positionLerpFactor>
+		<positionOffset>(0, 0, 0.15)</positionOffset>
+		<rotation>0</rotation>
+		<ticksBetweenMotes>180</ticksBetweenMotes>
+		<speed>-0.52</speed>
+		<angle>0</angle>
+		<useTargetBInitialRotation>true</useTargetBInitialRotation>
+		<fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity>
+	  </li>
+	  <li>
+		<subEffecterClass>SubEffecter_SprayerContinuous</subEffecterClass>
+		<fleckDef>WVC_XenotypesAndGenes_UltraniteRecycler_Backward</fleckDef>
+		<spawnLocType>BetweenPositions</spawnLocType>
+		<positionLerpFactor>1.3</positionLerpFactor>
+		<positionOffset>(0, 0, 0.15)</positionOffset>
+		<rotation>0</rotation>
+		<ticksBetweenMotes>180</ticksBetweenMotes>
+		<initialDelayTicks>120</initialDelayTicks>
+		<speed>1</speed>
+		<angle>0</angle>
+		<useTargetBInitialRotation>true</useTargetBInitialRotation>
+		<fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity>
+	  </li>
+	</children>
+  </EffecterDef>
+
+  <FleckDef ParentName="FleckBase_Thrown">
+	<defName>WVC_XenotypesAndGenes_UltraniteRecycler_Forward</defName>
+	<altitudeLayer>Building</altitudeLayer>
+	<altitudeLayerIncOffset>-0.1</altitudeLayerIncOffset>
+	<fadeInTime>0.1</fadeInTime>
+	<solidTime>1.8</solidTime>
+	<fadeOutTime>0.4</fadeOutTime>
+	<graphicData>
+	  <texPath>Things/Mote/BrightFlash</texPath>
+	  <drawSize>(2,1)</drawSize>
+	  <color>(255, 182, 133, 155)</color>
+	</graphicData>
+  </FleckDef>
+
+  <FleckDef ParentName="FleckBase_Thrown">
+	<defName>WVC_XenotypesAndGenes_UltraniteRecycler_Backward</defName>
+	<altitudeLayer>Building</altitudeLayer>
+	<altitudeLayerIncOffset>-0.1</altitudeLayerIncOffset>
+	<fadeInTime>0.1</fadeInTime>
+	<solidTime>0.4</solidTime>
+	<fadeOutTime>0.3</fadeOutTime>
+	<graphicData>
+	  <texPath>Things/Mote/BrightFlash</texPath>
+	  <drawSize>(2,1)</drawSize>
+	  <color>(255, 182, 133, 155)</color>
+	</graphicData>
+  </FleckDef>
 
   <!-- ========================================================== -->
 

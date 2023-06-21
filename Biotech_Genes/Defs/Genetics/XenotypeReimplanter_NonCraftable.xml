@@ -119,6 +119,8 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
   <ThingDef ParentName="WVC_XenotypeSerum_NonCraftable">
 	<defName>WVC_XenotypeSerum_Ultra</defName>
 	<label>ultratype serum</label>
+	<stackLimit>1</stackLimit>
+	<drawGUIOverlay>false</drawGUIOverlay>
 	<recipeMaker>
 	  <displayPriority>-19</displayPriority>
 	  <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
@@ -175,6 +177,8 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
   <ThingDef ParentName="WVC_XenotypeResurrectorSerum_NonCraftable">
 	<defName>WVC_XenotypeResurrectorSerum_Ultra</defName>
 	<label>xenotype resurrector</label>
+	<stackLimit>1</stackLimit>
+	<drawGUIOverlay>false</drawGUIOverlay>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_TargetEffect_DoJobOnTarget">
 		<moteDef>Mote_ResurrectFlash</moteDef>
