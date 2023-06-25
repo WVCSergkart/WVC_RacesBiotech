@@ -80,10 +80,13 @@
 		<li>WVC_NodeSkin</li>
 		<li>WVC_RuneSkin</li>
 		<li>WVC_StoneSkin</li>
+		<li>WVC_PatchSkin</li>
 		<li>Furskin</li>
 		<li MayRequire="vanillaracesexpanded.phytokin">VRE_BarkSkin</li>
 		<li MayRequire="vanillaracesexpanded.saurid">VRESaurids_ScaleSkin</li>
 		<li MayRequire="vanillaracesexpanded.android">VREA_SyntheticBody</li>
+		<li MayRequire="sarg.alphagenes,vanillaracesexpanded.android">AG_RoboticBodySkeletal</li>
+		<li MayRequire="sarg.alphagenes,vanillaracesexpanded.android">AG_RoboticBodyPlastic</li>
 		<li MayRequire="sarg.alphagenes">AG_RockyBody</li>
 		<li MayRequire="sarg.alphagenes">AG_ScalyBody</li>
 		<li MayRequire="sarg.alphagenes">AG_SlugBody</li>
