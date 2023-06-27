@@ -27,15 +27,17 @@
 		<li>WVC_MechaAI_Base</li>
 		<li>WVC_MecaBodyParts_Eye</li>
 		<li>WVC_MecaBodyParts_Ear</li>
-		<!-- <li>Ageless</li> -->
-		<li>WVC_NaturalAgeless</li>
 		<!-- <li>ArchiteMetabolism</li> -->
 		<li>WVC_MechaPowerSource_Vanometric</li>
-		<!-- <li>WVC_MechaHidden_ArchiteForge</li> -->
+		<!-- = -->
 		<li>Deathless</li>
-		<li>DiseaseFree</li>
-		<li>PerfectImmunity</li>
-		<li>TotalHealing</li>
+		<!-- <li>Ageless</li> -->
+		<!-- <li>WVC_NaturalAgeless</li> -->
+		<!-- <li>DiseaseFree</li> -->
+		<!-- <li>PerfectImmunity</li> -->
+		<!-- <li>TotalHealing</li> -->
+		<li>WVC_MechaHidden_ArchiteForge</li>
+		<!-- = -->
 		<!-- <li>StrongStomach</li> -->
 		<!-- <li>WVC_ClothedArmor</li> -->
 		<li>WVC_ArmoredSkin_Fortress</li>
@@ -83,11 +85,12 @@
 		<li>WVC_EmotionlessUnshakable</li>
 		<!-- <li>WVC_Aptitudes_GreatEqualizer</li> -->
 		<!-- Firmware -->
-		<li>WVC_MechaAI_FirmwareCreatorMachine</li>
-		<li>WVC_MechaAI_FirmwareWarMachine</li>
+		<!-- <li>WVC_MechaAI_FirmwareCreatorMachine</li> -->
+		<!-- <li>WVC_MechaAI_FirmwareWarMachine</li> -->
 		<!-- <li>WVC_MechaAI_FirmwareGreenMachine</li> -->
 		<!-- <li>WVC_MechaAI_FirmwareRogueMachine</li> -->
 		<!-- <li>WVC_MechaAI_FirmwarePropagandaMachine</li> -->
+		<li>WVC_MechaAI_FirmwareMechanitorMachine</li>
 		<!-- = -->
 		<li>WVC_PredatorPrey_NotTasty</li>
 	</genes>

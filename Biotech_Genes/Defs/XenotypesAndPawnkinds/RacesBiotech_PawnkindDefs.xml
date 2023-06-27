@@ -49,7 +49,7 @@
   <PawnKindDef ParentName="WVC_RB_XenoBase">
 	<label>mechalike</label>
 	<defName>WVC_Meca_Player</defName>
-	<forcedHair>Scrapper</forcedHair>
+	<!-- <forcedHair>Scrapper</forcedHair> -->
 	<!-- <favoriteColor>(245,245,245)</favoriteColor> -->
 	<xenotypeSet>
 	  <xenotypeChances>

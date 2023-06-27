@@ -176,6 +176,7 @@
 		<li>WVC_RuneSkin</li>
 		<li>WVC_StoneSkin</li>
 		<li>WVC_NodeSkin</li>
+		<li>WVC_PatchSkin</li>
 		<!-- = -->
 		<li>WVC_MecaBodyParts_Claws</li>
 		<li>WVC_NaturalBodyParts_Claws</li>
