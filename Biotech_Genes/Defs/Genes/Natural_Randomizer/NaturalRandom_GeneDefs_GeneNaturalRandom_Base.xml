@@ -3,7 +3,7 @@
 
   <GeneDef Name="WVC_XenotypesAndGenes_GeneRandom_Base" Abstract="True">
 	<iconColor>(255, 255, 255)</iconColor>
-	<displayCategory>Miscellaneous</displayCategory>
+	<displayCategory>WVC_RandomGenes</displayCategory>
 	<displayOrderInCategory>-537</displayOrderInCategory>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Shuffle</geneClass>
 	<randomChosen>false</randomChosen>
@@ -30,7 +30,7 @@
   <GeneDef Name="WVC_XenotypesAndGenes_GeneNaturalRandom_Base" Abstract="True">
 	<iconColor>(93, 101, 126)</iconColor>
 	<selectionWeight>0.012</selectionWeight>
-	<displayCategory>Healing</displayCategory>
+	<displayCategory>WVC_RandomGenes</displayCategory>
 	<displayOrderInCategory>-537</displayOrderInCategory>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Randomizer</geneClass>
 	<biostatCpx>5</biostatCpx>
@@ -129,7 +129,7 @@
 	<customEffectDescriptions>
 		<li>Gives a gene with manipulation from x0.50 to x1.50</li>
 	</customEffectDescriptions>
-	<displayCategory>Miscellaneous</displayCategory>
+	<!-- <displayCategory>Miscellaneous</displayCategory> -->
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<randomizerGenesList>
@@ -152,7 +152,7 @@
 	<customEffectDescriptions>
 		<li>Gives a gene with learning from x0.50 to x1.50</li>
 	</customEffectDescriptions>
-	<displayCategory>Miscellaneous</displayCategory>
+	<!-- <displayCategory>Miscellaneous</displayCategory> -->
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<randomizerGenesList>
@@ -174,7 +174,7 @@
 	<labelShortAdj>runner</labelShortAdj>
 	<description>Carriers of this gene have an unstable muscule mutation, which can either improve or worsen over generations.</description>
 	<iconPath>WVC/UI/Genes/Gene_Random_Runner_v0</iconPath>
-	<displayCategory>Movement</displayCategory>
+	<!-- <displayCategory>Movement</displayCategory> -->
 	<customEffectDescriptions>
 		<li>Gives a gene with move speed from -0.4 to +0.4</li>
 	</customEffectDescriptions>
@@ -199,7 +199,7 @@
 	<labelShortAdj>psy-sens</labelShortAdj>
 	<description>Carriers of this gene have an unstable neural mutation, which can either improve or worsen over generations.</description>
 	<iconPath>WVC/UI/Genes/Gene_Random_Psychic_v0</iconPath>
-	<displayCategory>Psychic</displayCategory>
+	<!-- <displayCategory>Psychic</displayCategory> -->
 	<customEffectDescriptions>
 		<li>Gives a gene with psychic sensitivity from x0.0 to x2.0</li>
 	</customEffectDescriptions>

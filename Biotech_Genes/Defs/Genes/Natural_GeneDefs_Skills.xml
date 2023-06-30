@@ -5,7 +5,8 @@
 	<geneClass>Gene</geneClass>
 	<ignoreIllegalLabelCharacterConfigError>true</ignoreIllegalLabelCharacterConfigError>
 	<exclusionTagPrefix>Aptitude</exclusionTagPrefix>
-	<displayCategory>Aptitudes</displayCategory>
+	<!-- <displayCategory>Aptitudes</displayCategory> -->
+	<displayCategory>WVC_Aptitudes</displayCategory>
 	<selectionWeight>0.015</selectionWeight>
 	<biostatCpx>0</biostatCpx>
 	<biostatMet>0</biostatMet>
@@ -146,7 +147,7 @@
 	<description>The carrier's aptitude is 0. Aptitude acts like an offset on skill level.</description>
 	<iconPath>WVC/UI/Genes/SkillUp_Equal</iconPath>
 	<displayOrderInCategory>-990</displayOrderInCategory>
-	<displayCategory>Aptitudes</displayCategory>
+	<displayCategory>WVC_Aptitudes</displayCategory>
 	<selectionWeight>0.0025</selectionWeight>
 	<biostatCpx>0</biostatCpx>
 	<biostatMet>0</biostatMet>

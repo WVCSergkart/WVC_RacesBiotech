@@ -8,7 +8,8 @@
 	<!-- <defName>WVC_MechaAI_Base</defName> -->
 	<!-- <displayCategory>WVC_MechaBodyWare</displayCategory> -->
 	<displayOrderInCategory>-1000</displayOrderInCategory>
-	<displayCategory>Aptitudes</displayCategory>
+	<!-- <displayCategory>Aptitudes</displayCategory> -->
+	<displayCategory>WVC_Aptitudes</displayCategory>
 	<label>aptitude</label>
 	<labelShortAdj>archite aptitude</labelShortAdj>
 	<description>Carriers of this gene have archites who have prescribed certain patterns and behaviors at the genetic level.</description>

@@ -1,0 +1,46 @@
+using System.Collections.Generic;
+using RimWorld;
+using UnityEngine;
+using Verse;
+using WVC;
+using WVC_XenotypesAndGenes;
+
+namespace WVC_XenotypesAndGenes
+{
+
+	public class Gene_ResurgentClotting : Gene
+	{
+		// private const int ClotCheckInterval = 750;
+
+		private static readonly FloatRange TendingQualityRange = new(0.5f, 1.0f);
+
+		public override void Tick()
+		{
+			base.Tick();
+			if (!pawn.IsHashIntervalTick(1500))
+			{
+				return;
+			}
+			if (Active)
+			{
+				Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
+				if (gene_Resurgent != null)
+				{
+					List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
+					for (int num = hediffs.Count - 1; num >= 0; num--)
+					{
+						if (hediffs[num].TendableNow() && !hediffs[num].IsTended())
+						{
+							if ((gene_Resurgent.Value - def.resourceLossPerDay) >= 0f)
+							{
+								gene_Resurgent.Value -= def.resourceLossPerDay;
+								hediffs[num].Tended(TendingQualityRange.RandomInRange, TendingQualityRange.TrueMax, 1);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+}

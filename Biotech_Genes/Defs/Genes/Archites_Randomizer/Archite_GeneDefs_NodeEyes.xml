@@ -5,9 +5,10 @@
 	<defName>WVC_NodeEyes_Randomizer</defName>
 	<label>random faceplate gene</label>
 	<description>Carriers of this gene have archites that have formed a plate that closes the face, for some reason this plate does not interfere with vision at all. The surface of this plate has a pattern resembling unnatural eyes.</description>
-	<displayCategory>Cosmetic</displayCategory>
+	<!-- <displayCategory>Cosmetic</displayCategory> -->
 	<displayOrderInCategory>3</displayOrderInCategory>
 	<iconPath>WVC/UI/Genes/Gene_RandomNodeEyes</iconPath>
+	<displayCategory>WVC_RandomGenes</displayCategory>
 	<!-- <selectionWeight>0.0112</selectionWeight> -->
 	<canGenerateInGeneSet>true</canGenerateInGeneSet>
 	<modExtensions>
@@ -41,10 +42,11 @@
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Faceless</geneClass> -->
 	<geneClass>WVC_XenotypesAndGenes.Gene_FacelessShuffle</geneClass>
 	<minAgeActive>0</minAgeActive>
-	<displayCategory>Cosmetic</displayCategory>
+	<!-- <displayCategory>Cosmetic</displayCategory> -->
 	<displayOrderInCategory>3</displayOrderInCategory>
 	<randomChosen>true</randomChosen>
 	<!-- <displayCategory>Cosmetic</displayCategory> -->
+	<displayCategory>WVC_RandomGenes</displayCategory>
 	<!-- <displayOrderInCategory>-5</displayOrderInCategory> -->
 	<iconColor>(255, 255, 255)</iconColor>
 	<!-- They cost nothing, as they can only be obtained through a randomizer. -->

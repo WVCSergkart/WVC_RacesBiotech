@@ -56,9 +56,35 @@
   <GeneCategoryDef>
 	<defName>WVC_XenotypeSerumSpawners</defName>
 	<label>spawners</label>
-	<displayPriorityInXenotype>3917</displayPriorityInXenotype>
+	<!-- <displayPriorityInXenotype>3917</displayPriorityInXenotype> -->
+	<displayPriorityInXenotype>400.2886992038</displayPriorityInXenotype>
   </GeneCategoryDef>
 
+  <GeneCategoryDef>
+	<defName>WVC_ResurgentCells</defName>
+	<label>resurgent</label>
+	<displayPriorityInXenotype>510.2886992038</displayPriorityInXenotype>
+  </GeneCategoryDef>
+
+  <GeneCategoryDef>
+	<defName>WVC_RandomGenes</defName>
+	<label>random</label>
+	<displayPriorityInXenotype>430.2886992038</displayPriorityInXenotype>
+  </GeneCategoryDef>
+
+  <GeneCategoryDef>
+	<defName>WVC_Aptitudes</defName>
+	<label>aptitudes: Archite and Overbalanced</label>
+	<displayPriorityInXenotype>199.2886992038</displayPriorityInXenotype>
+  </GeneCategoryDef>
+
+  <!-- <GeneCategoryDef> -->
+	<!-- <defName>WVC_Miscellaneous</defName> -->
+	<!-- <label>miscellaneous:</label> -->
+	<!-- <displayPriorityInXenotype>270.2886992038</displayPriorityInXenotype> -->
+  <!-- </GeneCategoryDef> -->
+
+  <!-- https://steamcommunity.com/sharedfiles/filedetails/?id=2886992038 -->
   <!-- ================================================================== -->
 
   <GeneDef Name="WVC_XenotypesAndGenes_Archites" Abstract="True">

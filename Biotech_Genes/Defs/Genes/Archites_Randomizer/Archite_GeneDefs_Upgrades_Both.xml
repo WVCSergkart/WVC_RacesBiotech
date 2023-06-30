@@ -13,6 +13,7 @@
 	<selectionWeight>0.0112</selectionWeight>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
+	<displayCategory>WVC_RandomGenes</displayCategory>
 	<!-- <modExtensions> -->
 		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
 			<!-- <hideGene>true</hideGene> -->
@@ -180,6 +181,7 @@
 	<iconPath>WVC/UI/Genes/Gene_RandomBuff_v0</iconPath>
 	<!-- <displayCategory>WVC_MechaBodyWare</displayCategory> -->
 	<!-- <displayCategory>WVC_MechaBodyParts</displayCategory> -->
+	<displayCategory>WVC_RandomGenes</displayCategory>
 	<displayOrderInCategory>-1200</displayOrderInCategory>
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
 	<geneClass>WVC_XenotypesAndGenes.Gene_Shuffle</geneClass>

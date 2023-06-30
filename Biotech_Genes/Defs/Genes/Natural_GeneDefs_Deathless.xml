@@ -5,9 +5,10 @@
 	<iconPath>WVC/UI/Genes/Gene_Deathless_v0</iconPath>
 	<marketValueFactor>2</marketValueFactor>
 	<selectionWeight>0.012</selectionWeight>
-	<displayCategory>Healing</displayCategory>
+	<displayCategory>WVC_ResurgentCells</displayCategory>
 	<displayOrderInCategory>1275</displayOrderInCategory>
 	<biostatArc>0</biostatArc>
+	<iconColor>(255, 255, 255)</iconColor>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
@@ -27,7 +28,7 @@
 	<description>Carriers of this gene accumulate resurgent cells with age. In the event of death, these cells are immediately activated and, in a fairly short time, completely restore damaged or even destroyed tissues.</description>
 	<iconPath>WVC/UI/Genes/Gene_Deathless_v0</iconPath>
 	<selectionWeight>0.022</selectionWeight>
-	<displayCategory>Healing</displayCategory>
+	<!-- <displayCategory>Healing</displayCategory> -->
 	<displayOrderInCategory>1275</displayOrderInCategory>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Undead</geneClass>
 	<biostatCpx>0</biostatCpx>
@@ -150,7 +151,6 @@
 	<label>resurgent healing</label>
 	<description>In carriers of this gene, resurgent cells can regenerate lost limbs or heal wounds.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentTotalHealing</geneClass>
-	<iconColor>(255, 255, 255)</iconColor>
 	<!-- <marketValueFactor>3</marketValueFactor> -->
 	<iconPath>WVC/UI/Genes/Gene_ResurgentTotalHealing_v0</iconPath>
 	<displayOrderInCategory>1235</displayOrderInCategory>
@@ -184,6 +184,25 @@
 		<li>(18.5, 0)</li>
 	  </points>
 	</biologicalAgeTickFactorFromAgeCurve>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells">
+	<defName>WVC_ResurgentCells_Clotting</defName>
+	<label>resurgent clotting</label>
+	<description>In carriers of this gene, resurgent cells can quickly stop bleeding and treat wounds.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentClotting</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_ResurgentClotting_v0</iconPath>
+	<iconColor>(93, 101, 126)</iconColor>
+	<biostatMet>-1</biostatMet>
+	<displayOrderInCategory>1245</displayOrderInCategory>
+	<resourceLossPerDay>0.01</resourceLossPerDay>
+	<customEffectDescriptions>
+		<li>Treat wounds from time to time.</li>
+		<li>Requires 1 resurgent cell for each wound.</li>
+	</customEffectDescriptions>
+	<makeImmuneTo>
+	  <li>WoundInfection</li>
+	</makeImmuneTo>
   </GeneDef>
 
 </Defs>

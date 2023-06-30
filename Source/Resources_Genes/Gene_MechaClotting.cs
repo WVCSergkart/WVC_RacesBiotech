@@ -26,7 +26,7 @@ namespace WVC_XenotypesAndGenes
 				List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
 				for (int num = hediffs.Count - 1; num >= 0; num--)
 				{
-					if (!hediffs[num].IsTended())
+					if (hediffs[num].TendableNow() && !hediffs[num].IsTended())
 					{
 						hediffs[num].Tended(TendingQualityRange.RandomInRange, TendingQualityRange.TrueMax, 1);
 					}
