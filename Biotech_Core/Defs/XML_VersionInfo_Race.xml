@@ -5,7 +5,7 @@
 		<modId>honkai.girls.sergkart</modId>
 		<settings>
 			<li Class="XmlExtensions.Setting.Text">
-				<text>BIO v0.95.53</text>
+				<text>BIO v0.95.74</text>
 				<anchor>Middle</anchor>
 			</li>
 		</settings>
