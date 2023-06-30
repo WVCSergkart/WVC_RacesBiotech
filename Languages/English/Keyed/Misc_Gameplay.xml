@@ -22,6 +22,8 @@
 	<WVC_LetterLabelSecondChance_GeneUndead>Second chance</WVC_LetterLabelSecondChance_GeneUndead>
 	<WVC_LetterTextSecondChance_GeneUndead>{TARGET_nameDef} gets another life, but at the cost of {COMADURATION} years of life and all the accumulated experience in all skills.</WVC_LetterTextSecondChance_GeneUndead>
 
+	<WVC_LetterTextSecondChance_GeneUndeadResurgent>{TARGET_nameDef} gets another life.</WVC_LetterTextSecondChance_GeneUndeadResurgent>
+
 	<WVC_LetterLabel_GeneRiseFromTheDead>Rised from the dead</WVC_LetterLabel_GeneRiseFromTheDead>
 	<WVC_LetterText_GeneRiseFromTheDead>{TARGET_nameDef} was resurrected, but this left a mark on {TARGET_objective}, now {TARGET_nameDef} is completely different.</WVC_LetterText_GeneRiseFromTheDead>
 

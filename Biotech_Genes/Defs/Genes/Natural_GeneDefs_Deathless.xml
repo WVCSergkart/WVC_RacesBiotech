@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef Name="WVC_XenotypesAndGenes_GeneDeathless_Undead" Abstract="True">
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneDeathless_Base" Abstract="True">
+	<iconPath>WVC/UI/Genes/Gene_Deathless_v0</iconPath>
+	<marketValueFactor>2</marketValueFactor>
+	<selectionWeight>0.012</selectionWeight>
+	<displayCategory>Healing</displayCategory>
+	<displayOrderInCategory>1275</displayOrderInCategory>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ================================================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Base" Name="WVC_XenotypesAndGenes_GeneDeathless_Undead" Abstract="True">
 	<labelShortAdj>undead</labelShortAdj>
 	<!-- <description>Carriers of this gene are formally immortal. Regardless of the number of damaged or destroyed organs, their body is able to regenerate in the event of death. The price of this is a few years of their life.</description> -->
 	<description>Carriers of this gene accumulate resurgent cells with age. In the event of death, these cells are immediately activated and, in a fairly short time, completely restore damaged or even destroyed tissues.</description>
@@ -20,6 +39,8 @@
 	  <li>The minimum age to which the carrier can roll back is 14 years. If the carrier does not have enough age, then death is not reversible.</li>
 	  <li>The gene has no effect if the carrier has the deathless gene.</li>
 	  <!-- <li>The gene has a 25% chance to fail. For every 10 complexity, the chance increases by 5. With the presence of archite genes, the chance is 100%. With the Deathless gene, the chance is 0%.</li> -->
+	  <li>If the "resurgent" gene is present, instead of age, the resource of the gene will be spent. Also, the carrier will not receive penalties for resurrection.</li>
+	  <li>Requires 37 resurgent cells.</li>
 	</customEffectDescriptions>
 	<symbolPack>
 	  <wholeNameSymbols>
@@ -36,17 +57,11 @@
 		<li><symbol>mortal</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
+	<resourceLossPerDay>0.37</resourceLossPerDay>
 	<exclusionTags>
 	  <li>WVC_XenotypesAndGenes_GeneDeathless_Undead</li>
 	</exclusionTags>
 	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
-		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<childBackstoryDef>WVC_RacesBiotech_Amnesia_Child</childBackstoryDef>
 			<adultBackstoryDef>WVC_RacesBiotech_Amnesia_Adult</adultBackstoryDef>
@@ -79,6 +94,88 @@
 	<biostatCpx>7</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>-1</biostatMet>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Base">
+	<defName>WVC_ResurgentCells</defName>
+	<label>resurgent</label>
+	<description>Carriers of this gene accumulate resurgent cells over time. With the help of these cells, the host can resurrect or resurrect others.\n\nCarriers gain 5 cells per day.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentCells</geneClass>
+	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_ResourceResurgentCells</resourceGizmoType>
+	<resourceLabel>resurgent cells</resourceLabel>
+	<resourceGizmoThresholds>
+	  <li>0.05</li>
+	  <li>0.25</li>
+	  <li>0.50</li>
+	  <li>0.75</li>
+	  <li>0.95</li>
+	</resourceGizmoThresholds>
+	<showGizmoOnWorldView>true</showGizmoOnWorldView>
+	<showGizmoWhenDrafted>true</showGizmoWhenDrafted>
+	<resourceDescription>A reserve of dormant cells that can be spent for various purposes.\n\nResurgent cells cannot be increased by any means, they regenerate themselves depending on genes and some external factors.\n\nIf cells reaches zero, {PAWN_nameDef} will fall into a two-day coma.</resourceDescription>
+	<!-- \n\nIf cells reaches zero, {PAWN_nameDef} will become very unhappy. -->
+	<iconPath>WVC/UI/Genes/Gene_ResurgentCells_v0</iconPath>
+	<iconColor>(93, 101, 126)</iconColor>
+	<selectionWeight>0</selectionWeight>
+	<displayOrderInCategory>1230</displayOrderInCategory>
+	<customEffectDescriptions>
+	  <li>Gives resurgent supply.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>resur</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<minAgeActive>3</minAgeActive>
+	<resourceLossPerDay>0.05</resourceLossPerDay>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-1</biostatMet>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Base">
+	<defName>WVC_ResurgentCells_TotalHealing</defName>
+	<label>resurgent healing</label>
+	<description>In carriers of this gene, resurgent cells can regenerate lost limbs or heal wounds.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentTotalHealing</geneClass>
+	<iconColor>(255, 255, 255)</iconColor>
+	<!-- <marketValueFactor>3</marketValueFactor> -->
+	<iconPath>WVC/UI/Genes/Gene_ResurgentTotalHealing_v0</iconPath>
+	<displayOrderInCategory>1235</displayOrderInCategory>
+	<preventPermanentWounds>true</preventPermanentWounds>
+	<resourceLossPerDay>0.13</resourceLossPerDay>
+	<biostatCpx>4</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-3</biostatMet>
+	<customEffectDescriptions>
+		<li>Restores a lost limb or heals scars every (*DateTime)1-2 days(/DateTime).</li>
+		<li>Requires 13 resurgent cells.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Base">
+	<defName>WVC_ResurgentAgeless</defName>
+	<label>resurgent ageless</label>
+	<labelShortAdj>ageless</labelShortAdj>
+	<description>Carriers of this gene completely stop aging after reaching the age of 18.</description>
+	<iconPath>WVC/UI/Genes/Gene_ResurgentAgeless_v0</iconPath>
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_ResurgentAgeless</geneClass> -->
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-3</biostatMet>
+	<displayOrderInCategory>1240</displayOrderInCategory>
+	<resourceLossPerDay>0.06</resourceLossPerDay>
+	<customEffectDescriptions>
+		<li>Carriers of the gene always spawn with age within 18.</li>
+		<li>Requires 6 resurgent cells.</li>
+	</customEffectDescriptions>
+	<biologicalAgeTickFactorFromAgeCurve>
+	  <points>
+		<li>(13, 1)</li>
+		<li>(18.5, 0)</li>
+	  </points>
+	</biologicalAgeTickFactorFromAgeCurve>
   </GeneDef>
 
 </Defs>

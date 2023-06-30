@@ -66,10 +66,13 @@
     <Compile Include="Resources_Abilities\CompProperties_AbilityRiseFromTheDead.cs" />
     <Compile Include="Resources_Buildings\CompProperties_RecyclerSpawner.cs" />
     <Compile Include="Resources_Buildings\CompRecyclerSpawner.cs" />
+    <Compile Include="Resources_Genes\GeneGizmo_ResurgentCells.cs" />
     <Compile Include="Resources_Genes\Gene_Ageless.cs" />
     <Compile Include="Resources_Genes\Gene_Amnesia.cs" />
     <Compile Include="Resources_Genes\Gene_Blank.cs" />
     <Compile Include="Resources_Genes\Gene_BodyPartRegeneration.cs" />
+    <Compile Include="Resources_Genes\Gene_ResurgentCells.cs" />
+    <Compile Include="Resources_Genes\Gene_ResurgentRegeneration.cs" />
     <Compile Include="Resources_Genes\Gene_Undead.cs" />
     <Compile Include="Resources_Genes\Gene_Faceless.cs" />
     <Compile Include="Resources_Genes\Gene_Randomizer.cs" />
@@ -86,6 +89,7 @@
     <Compile Include="Resources_Main\MechanoidizationUtility.cs" />
     <Compile Include="Resources_Main\ModExtension.cs" />
     <Compile Include="Resources_Main\SerumUtility.cs" />
+    <Compile Include="Resources_Main\UndeadUtility.cs" />
     <Compile Include="Resources_Main\WVC_GenesDefOf.cs" />
     <Compile Include="Resources_Main\XenotypeFilterUtility.cs" />
     <Compile Include="Resources_Main\XenotypesModSettings.cs" />
