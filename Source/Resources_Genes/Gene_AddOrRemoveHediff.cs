@@ -8,7 +8,7 @@ using WVC_XenotypesAndGenes;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_ResurgentHediff : Gene
+	public class Gene_AddOrRemoveHediff : Gene
 	{
 
 		public HediffDef HediffDefName => def.GetModExtension<GeneExtension_Giver>().hediffDefName;
@@ -39,20 +39,9 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (Active)
 			{
-				Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
-				if (gene_Resurgent != null)
+				if (!pawn.health.hediffSet.HasHediff(HediffDefName))
 				{
-					if (gene_Resurgent.Value >= def.resourceLossPerDay)
-					{
-						if (!pawn.health.hediffSet.HasHediff(HediffDefName))
-						{
-							pawn.health.AddHediff(HediffDefName);
-						}
-					}
-					else
-					{
-						RemoveHediff();
-					}
+					pawn.health.AddHediff(HediffDefName);
 				}
 			}
 			else

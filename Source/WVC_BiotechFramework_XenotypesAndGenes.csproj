@@ -67,6 +67,7 @@
     <Compile Include="Resources_Buildings\CompProperties_RecyclerSpawner.cs" />
     <Compile Include="Resources_Buildings\CompRecyclerSpawner.cs" />
     <Compile Include="Resources_Genes\GeneGizmo_ResurgentCells.cs" />
+    <Compile Include="Resources_Genes\Gene_AddOrRemoveHediff.cs" />
     <Compile Include="Resources_Genes\Gene_Ageless.cs" />
     <Compile Include="Resources_Genes\Gene_Amnesia.cs" />
     <Compile Include="Resources_Genes\Gene_Blank.cs" />
@@ -89,6 +90,8 @@
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_MechanitorUsedBandwidth.cs" />
     <Compile Include="Resources_GenePacks\GenePacks.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityReimplantEndogerm.cs" />
+    <Compile Include="Resources_Hediff\HediffCompProperties_SeverityFromResurgent.cs" />
+    <Compile Include="Resources_Hediff\HediffComp_SeverityFromResurgent.cs" />
     <Compile Include="Resources_Main\MechanoidizationUtility.cs" />
     <Compile Include="Resources_Main\ModExtension.cs" />
     <Compile Include="Resources_Main\SerumUtility.cs" />

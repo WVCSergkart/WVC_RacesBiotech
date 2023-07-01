@@ -211,13 +211,13 @@
 	<defName>WVC_ResurgentCells_Blood</defName>
 	<label>resurgent blood</label>
 	<description>In carriers of this gene, resurgent cells with sufficient saturation completely stop bleeding.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentHediff</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_ResurgentBlood_v0</iconPath>
 	<biostatMet>2</biostatMet>
 	<displayOrderInCategory>1250</displayOrderInCategory>
-	<resourceLossPerDay>0.70</resourceLossPerDay>
+	<!-- <resourceLossPerDay>0.70</resourceLossPerDay> -->
 	<customEffectDescriptions>
-		<li>Prevent bleeding if the number of cells is more than 70</li>
+		<li>Bleeding depends on the amount of accumulated resurgent cells.</li>
 		<li>Changes blood filth color to dark blue.</li>
 		<li>Refresh time (*DateTime)~1 day(/DateTime).</li>
 	</customEffectDescriptions>
@@ -251,13 +251,13 @@
 	<defName>WVC_ResurgentCells_Stomach</defName>
 	<label>resurgent stomach</label>
 	<description>In carriers of this gene, resurgent cells significantly improve digestion.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentHediff</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_ResurgentStomach_v0</iconPath>
 	<biostatMet>3</biostatMet>
 	<displayOrderInCategory>1255</displayOrderInCategory>
-	<resourceLossPerDay>0.50</resourceLossPerDay>
+	<!-- <resourceLossPerDay>0.50</resourceLossPerDay> -->
 	<customEffectDescriptions>
-		<li>Hunger rate factor x10% if the number of cells is more than 50</li>
+		<li>Hunger rate factor depends on the amount of accumulated resurgent cells.</li>
 		<li>Refresh time (*DateTime)~1 day(/DateTime).</li>
 	</customEffectDescriptions>
 	<makeImmuneTo>
