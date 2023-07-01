@@ -428,7 +428,7 @@ namespace WVC_XenotypesAndGenes
 			// }
 		// }
 
-		public static void GenerateNewBornPawn(Pawn pawn, string completeMessage = "WVC_RB_Gene_MechaGestator", bool endogeneTransfer = true)
+		public static void GenerateNewBornPawn(Pawn pawn, string completeMessage = "WVC_RB_Gene_MechaGestator", bool endogeneTransfer = true, bool xenogeneTransfer = true)
 		{
 			Pawn pawnParent = pawn;
 			int litterSize = ((pawnParent.RaceProps.litterSizeCurve == null) ? 1 : Mathf.RoundToInt(Rand.ByCurve(pawnParent.RaceProps.litterSizeCurve)));
@@ -452,11 +452,29 @@ namespace WVC_XenotypesAndGenes
 					{
 						pawnNewBornChild.genes?.AddGene(item.def, xenogene: false);
 					}
-					if (pawnParent.genes?.Xenotype != null)
+				}
+				if (xenogeneTransfer)
+				{
+					for (int numXenogenes = pawnNewBornChild.genes.Xenogenes.Count - 1; numXenogenes >= 0; numXenogenes--)
 					{
-						pawnNewBornChild.genes?.SetXenotype(pawnParent.genes?.Xenotype);
+						pawnNewBornChild.genes.RemoveGene(pawnNewBornChild.genes.Xenogenes[numXenogenes]);
+					}
+					List<Gene> list = pawnParent.genes?.Xenogenes;
+					foreach (Gene item in list)
+					{
+						pawnNewBornChild.genes?.AddGene(item.def, xenogene: true);
 					}
 				}
+				// if (pawnParent.genes?.Xenotype != null)
+				// {
+					// pawnNewBornChild.genes?.SetXenotypeDirect(pawnParent.genes?.Xenotype);
+				// }
+				pawnNewBornChild.genes?.SetXenotypeDirect(pawnParent.genes?.Xenotype);
+				pawnNewBornChild.genes.xenotypeName = pawnParent.genes.xenotypeName;
+				pawnNewBornChild.genes.iconDef = pawnParent.genes.iconDef;
+				// else
+				// {
+				// }
 				if (PawnUtility.TrySpawnHatchedOrBornPawn(pawnNewBornChild, pawnParent))
 				{
 					if (pawnNewBornChild.playerSettings != null && pawnParent.playerSettings != null)

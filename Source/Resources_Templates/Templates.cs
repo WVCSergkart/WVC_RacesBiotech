@@ -61,6 +61,67 @@ namespace WVC_XenotypesAndGenes
 		}
 	}
 
+	public class InheritableImmuneGeneTemplateDef : Def
+	{
+		public Type geneClass = typeof(Gene);
+
+		public int biostatCpx;
+
+		public int biostatMet;
+
+		public int biostatArc;
+
+		public float minAgeActive;
+
+		public GeneCategoryDef displayCategory;
+
+		// public int displayOrderOffset;
+
+		public float selectionWeight = 1f;
+
+		public GeneDef inheritableGeneDef = null;
+
+		public List<HediffDef> makeImmuneTo;
+
+		public List<HediffDef> hediffGiversCannotGive;
+
+		public GeneDef prerequisite;
+
+		[MustTranslate]
+		public string labelShortAdj;
+
+		[NoTranslate]
+		public string iconPath;
+
+		// [NoTranslate]
+		// public string exclusionTagPrefix;
+
+		[MustTranslate]
+		public List<string> customEffectDescriptions;
+
+		public List<string> exclusionTags;
+
+		public float displayOrderInCategory;
+
+		public float resourceLossPerDay;
+
+		public override IEnumerable<string> ConfigErrors()
+		{
+			foreach (string item in base.ConfigErrors())
+			{
+				yield return item;
+			}
+			if (!typeof(Gene).IsAssignableFrom(geneClass))
+			{
+				yield return "geneClass is not Gene or child thereof.";
+			}
+			if (inheritableGeneDef == null)
+			{
+				yield return "inheritableGeneDef is null.";
+			}
+		}
+	}
+
 	// public class ExoskinistPreceptTemplateDef : Def
 	// {
 		// public Type preceptClass = typeof(Precept);

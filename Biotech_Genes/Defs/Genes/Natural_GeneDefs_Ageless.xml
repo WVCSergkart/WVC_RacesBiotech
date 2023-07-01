@@ -58,6 +58,9 @@
 		<li>(18.5, 0)</li>
 	  </points>
 	</biologicalAgeTickFactorFromAgeCurve>
+	<exclusionTags>
+	  <li>WVC_Ageless</li>
+	</exclusionTags>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneAgeless_Base">

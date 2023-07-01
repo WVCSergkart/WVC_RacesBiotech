@@ -20,6 +20,10 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
+			if (!Active)
+			{
+				return;
+			}
 			Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
 			if (gene_Resurgent != null)
 			{

@@ -141,6 +141,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Base" Name="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells" Abstract="True">
 	<selectionWeight>0.009</selectionWeight>
 	<prerequisite>WVC_ResurgentCells</prerequisite>
+	<minAgeActive>3</minAgeActive>
 	<resourceLossPerDay>0.02</resourceLossPerDay>
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>-3</biostatMet>
@@ -185,6 +186,9 @@
 		<li>(18.5, 0)</li>
 	  </points>
 	</biologicalAgeTickFactorFromAgeCurve>
+	<exclusionTags>
+	  <li>WVC_Ageless</li>
+	</exclusionTags>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells">

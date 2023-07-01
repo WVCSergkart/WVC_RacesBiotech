@@ -72,6 +72,7 @@
     <Compile Include="Resources_Genes\Gene_Amnesia.cs" />
     <Compile Include="Resources_Genes\Gene_Blank.cs" />
     <Compile Include="Resources_Genes\Gene_BodyPartRegeneration.cs" />
+    <Compile Include="Resources_Genes\Gene_ResurgentActive.cs" />
     <Compile Include="Resources_Genes\Gene_ResurgentAgeless.cs" />
     <Compile Include="Resources_Genes\Gene_ResurgentCells.cs" />
     <Compile Include="Resources_Genes\Gene_ResurgentClotting.cs" />

@@ -15,10 +15,10 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				if (Overridden)
-				{
-					return false;
-				}
+				// if (Overridden)
+				// {
+					// return false;
+				// }
 				// if (pawn?.ageTracker != null && (float)pawn.ageTracker.AgeBiologicalYears < def.minAgeActive)
 				// {
 					// return false;
@@ -32,11 +32,14 @@ namespace WVC_XenotypesAndGenes
 				// {
 					// return false;
 				// }
-				if (pawn?.story != null && !pawn.story.headType.defName.Contains("WVC_Faceless"))
+				if (base.Active)
 				{
-					return false;
+					if (pawn?.story != null && !pawn.story.headType.defName.Contains("WVC_Faceless"))
+					{
+						return false;
+					}
 				}
-				return true;
+				return base.Active;
 			}
 		}
 

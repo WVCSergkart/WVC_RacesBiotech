@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WVC_XenotypesAndGenes.InheritableImmuneGeneTemplateDef Name="WVC_XenotypesAndGenes_GeneInheritableImmune_ResurgentHealth" Abstract="True">
+	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentActive</geneClass>
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass> -->
+	<ignoreIllegalLabelCharacterConfigError>true</ignoreIllegalLabelCharacterConfigError>
+	<selectionWeight>0.0065</selectionWeight>
+	<displayCategory>WVC_ResurgentCells</displayCategory>
+	<displayOrderInCategory>1275</displayOrderInCategory>
+	<prerequisite>WVC_ResurgentCells</prerequisite>
+	<minAgeActive>3</minAgeActive>
+	<biostatCpx>0</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<biostatArc>0</biostatArc>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </WVC_XenotypesAndGenes.InheritableImmuneGeneTemplateDef>
+
+  <!-- Base -->
+
+  <WVC_XenotypesAndGenes.InheritableImmuneGeneTemplateDef ParentName="WVC_XenotypesAndGenes_GeneInheritableImmune_ResurgentHealth">
+	<defName>WVC_ResurgentImmunity</defName>
+	<label>resurgent immunity</label>
+	<description>Carriers of this gene have resurgent cells that provide almost perfect immunity.</description>
+	<iconPath>WVC/UI/Genes/Gene_PerfectImmunity_v0</iconPath>
+	<inheritableGeneDef>PerfectImmunity</inheritableGeneDef>
+	<displayOrderInCategory>1290</displayOrderInCategory>
+	<resourceLossPerDay>0.55</resourceLossPerDay>
+	<customEffectDescriptions>
+		<li>The gene is only active if there are more than 55 resurgent cells.</li>
+		<!-- <li>Immunity depends on the amount of accumulated resurgent cells.</li> -->
+	</customEffectDescriptions>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>-2</biostatMet>
+	<!-- <exclusionTags> -->
+	  <!-- <li>ToxResistance</li> -->
+	  <!-- <li>ToxicEnvironmentResistance</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <hediffDefName>WVC_ResurgentHealth_Immunity</hediffDefName> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </WVC_XenotypesAndGenes.InheritableImmuneGeneTemplateDef>
+
+  <WVC_XenotypesAndGenes.InheritableImmuneGeneTemplateDef ParentName="WVC_XenotypesAndGenes_GeneInheritableImmune_ResurgentHealth">
+	<defName>WVC_ResurgentDisease</defName>
+	<label>resurgent senescent</label>
+	<description>Carriers of this gene have resurgent cells that completely prevent chronic diseases.</description>
+	<iconPath>WVC/UI/Genes/Gene_NonSenescent_v0</iconPath>
+	<inheritableGeneDef>DiseaseFree</inheritableGeneDef>
+	<displayOrderInCategory>1295</displayOrderInCategory>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<resourceLossPerDay>0.40</resourceLossPerDay>
+	<customEffectDescriptions>
+		<li>The gene is only active if there are more than 40 resurgent cells.</li>
+		<!-- <li>Wound healing depends on the amount of accumulated resurgent cells.</li> -->
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <!-- <li>WoundHealingRate</li> -->
+	  <li>WVC_DiseaseFree</li>
+	</exclusionTags>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <hediffDefName>WVC_ResurgentHealth_Healing</hediffDefName> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </WVC_XenotypesAndGenes.InheritableImmuneGeneTemplateDef>
+
+</Defs>

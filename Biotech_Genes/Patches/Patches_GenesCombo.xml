@@ -90,10 +90,68 @@
 
 	<!-- ================== -->
 
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+			  <xpath>/Defs/GeneDef[defName="DiseaseFree"]/exclusionTags</xpath>
+			  <success>Invert</success>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/GeneDef[defName="DiseaseFree"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<exclusionTags/>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+			  <xpath>/Defs/GeneDef[defName="Ageless"]/exclusionTags</xpath>
+			  <success>Invert</success>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/GeneDef[defName="Ageless"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<exclusionTags/>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<!-- ================== -->
+
 	<Operation Class="PatchOperationAdd">
 	  <xpath>/Defs/StatDef[@Name="MarketValueBase"]/parts</xpath>
 	  <value>
 		  <li Class="WVC_XenotypesAndGenes.StatPart_XenotypeSerum" MayRequire="Ludeon.RimWorld.Biotech"/>
+	  </value>
+	</Operation>
+
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/GeneDef[defName="PerfectImmunity"]/makeImmuneTo</xpath> -->
+	  <!-- <value> -->
+		<!-- <li>BloodRot</li> -->
+		<!-- <li>GutWorms</li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/GeneDef[defName="DiseaseFree"]/exclusionTags</xpath>
+	  <value>
+		<li>WVC_DiseaseFree</li>
+	  </value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/GeneDef[defName="Ageless"]/exclusionTags</xpath>
+	  <value>
+		<li>WVC_Ageless</li>
 	  </value>
 	</Operation>
 
