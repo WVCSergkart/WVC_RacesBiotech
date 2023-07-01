@@ -241,6 +241,10 @@
 		<!-- = -->
 		<li>WVC_Undead</li>
 		<li>WVC_NaturalUndead</li>
+		<li>WVC_ResurgentCells</li>
+		<li>WVC_ResurgentCells_TotalHealing</li>
+		<li>WVC_ResurgentCells_Clotting</li>
+		<li>WVC_ResurgentCells_Ageless</li>
 		<!-- = -->
 		<li>WVC_RandomLearning</li>
 		<li>WVC_RandomHands</li>

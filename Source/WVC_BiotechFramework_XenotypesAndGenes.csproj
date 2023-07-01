@@ -74,6 +74,7 @@
     <Compile Include="Resources_Genes\Gene_ResurgentAgeless.cs" />
     <Compile Include="Resources_Genes\Gene_ResurgentCells.cs" />
     <Compile Include="Resources_Genes\Gene_ResurgentClotting.cs" />
+    <Compile Include="Resources_Genes\Gene_ResurgentHediff.cs" />
     <Compile Include="Resources_Genes\Gene_ResurgentRegeneration.cs" />
     <Compile Include="Resources_Genes\Gene_Undead.cs" />
     <Compile Include="Resources_Genes\Gene_Faceless.cs" />

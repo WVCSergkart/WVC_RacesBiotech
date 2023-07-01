@@ -171,6 +171,7 @@
 	<iconPath>WVC/UI/Genes/Gene_ResurgentAgeless_v0</iconPath>
 	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentAgeless</geneClass>
 	<biostatCpx>3</biostatCpx>
+	<biostatMet>-1</biostatMet>
 	<displayOrderInCategory>1240</displayOrderInCategory>
 	<resourceLossPerDay>0.06</resourceLossPerDay>
 	<customEffectDescriptions>
@@ -193,6 +194,7 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentClotting</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_ResurgentClotting_v0</iconPath>
 	<iconColor>(93, 101, 126)</iconColor>
+	<biostatCpx>2</biostatCpx>
 	<biostatMet>-1</biostatMet>
 	<displayOrderInCategory>1245</displayOrderInCategory>
 	<resourceLossPerDay>0.01</resourceLossPerDay>
@@ -203,6 +205,72 @@
 	<makeImmuneTo>
 	  <li>WoundInfection</li>
 	</makeImmuneTo>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells">
+	<defName>WVC_ResurgentCells_Blood</defName>
+	<label>resurgent blood</label>
+	<description>In carriers of this gene, resurgent cells with sufficient saturation completely stop bleeding.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentHediff</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_ResurgentBlood_v0</iconPath>
+	<biostatMet>2</biostatMet>
+	<displayOrderInCategory>1250</displayOrderInCategory>
+	<resourceLossPerDay>0.70</resourceLossPerDay>
+	<customEffectDescriptions>
+		<li>Prevent bleeding if the number of cells is more than 70</li>
+		<li>Changes blood filth color to dark blue.</li>
+		<li>Refresh time (*DateTime)~1 day(/DateTime).</li>
+	</customEffectDescriptions>
+	<makeImmuneTo>
+	  <li>BloodRot</li>
+	</makeImmuneTo>
+	<exclusionTags>
+	  <li>AG_Bleeding</li>
+	  <li>Bleeding</li>
+	  <li>AG_BloodType</li>
+	  <li>BloodType</li>
+	  <li>Blood</li>
+	</exclusionTags>
+	<modExtensions Inherit="False">
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+			<!-- blood -->
+			<customBloodThingDef>WVC_ResurgentBlood</customBloodThingDef>
+			<customBloodIcon>WVC/UI/BloodIcon/Gene_ResurgentBloodIcon_v0</customBloodIcon>
+			<customBloodEffect>WVC_Damage_Hit_Resurgent</customBloodEffect>
+			<customWoundsFromFleshtype>WVC_ResurgentWounds</customWoundsFromFleshtype>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_ResurgentBlood_Bleeding</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells">
+	<defName>WVC_ResurgentCells_Stomach</defName>
+	<label>resurgent stomach</label>
+	<description>In carriers of this gene, resurgent cells significantly improve digestion.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentHediff</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_ResurgentStomach_v0</iconPath>
+	<biostatMet>3</biostatMet>
+	<displayOrderInCategory>1255</displayOrderInCategory>
+	<resourceLossPerDay>0.50</resourceLossPerDay>
+	<customEffectDescriptions>
+		<li>Hunger rate factor x10% if the number of cells is more than 50</li>
+		<li>Refresh time (*DateTime)~1 day(/DateTime).</li>
+	</customEffectDescriptions>
+	<makeImmuneTo>
+	  <li>GutWorms</li>
+	</makeImmuneTo>
+	<exclusionTags>
+	  <li>WVC_HybridStomach</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_ResurgentStomach_HungerFactor</hediffDefName>
+		</li>
+	</modExtensions>
   </GeneDef>
 
 </Defs>

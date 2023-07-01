@@ -455,6 +455,33 @@
 	</stages>
   </HediffDef>
 
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_ResurgentStomach_HungerFactor</defName>
+	<label>resurgent stomach</label>
+	<description>Accumulated resurgent cells in the stomach significantly improve the intake of nutrients by reducing the need for food.</description>
+	<defaultLabelColor>(189, 205, 255)</defaultLabelColor>
+	<stages>
+	  <li>
+		<hungerRateFactor>0.1</hungerRateFactor>
+		<becomeVisible>true</becomeVisible>
+		<minSeverity>0.0</minSeverity>
+	  </li>
+	</stages>
+  </HediffDef>
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_ResurgentBlood_Bleeding</defName>
+	<label>resurgent blood</label>
+	<description>Resurgent cells accumulated in the blood help prevent bleeding.</description>
+	<defaultLabelColor>(189, 205, 255)</defaultLabelColor>
+	<stages>
+	  <li>
+		<totalBleedFactor>0</totalBleedFactor>
+		<becomeVisible>true</becomeVisible>
+		<minSeverity>0.0</minSeverity>
+	  </li>
+	</stages>
+  </HediffDef>
+
   <!--=====================================================================-->
 
   <!-- f4e776 -->
