@@ -10,29 +10,11 @@ namespace WVC_XenotypesAndGenes
 	{
 		public int gestationIntervalDays = 1;
 
-		// public string customString = "";
-
-		// public bool produceEggs = false;
-
-		// public string eggDef = "";
-
-		// public bool isGreenGoo = false;
-
-		// public int GreenGooLimit = 0;
-
-		// public string GreenGooTarget = "";
-
 		public string completeMessage = "WVC_RB_Gene_MechaGestator";
 
-		// public string asexualCloningMessage = "VEF_AsexualCloning";
+		public bool endogeneTransfer = true;
 
-		// public string asexualEggMessage = "VEF_AsexualHatchedEgg";
-
-		// public bool convertsIntoAnotherDef = false;
-
-		// public string newDef = "";
-
-		public bool endogeneTransfer = false;
+		public bool xenogeneTransfer = true;
 
 		public GeneDef geneDef;
 

@@ -91,8 +91,10 @@
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_MechanitorUsedBandwidth.cs" />
     <Compile Include="Resources_GenePacks\GenePacks.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityReimplantEndogerm.cs" />
+    <Compile Include="Resources_Genes\Gene_XenotypeForcer.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_SeverityFromResurgent.cs" />
     <Compile Include="Resources_Hediff\HediffComp_SeverityFromResurgent.cs" />
+    <Compile Include="Resources_Main\GestationUtility.cs" />
     <Compile Include="Resources_Main\MechanoidizationUtility.cs" />
     <Compile Include="Resources_Main\ModExtension.cs" />
     <Compile Include="Resources_Main\SerumUtility.cs" />

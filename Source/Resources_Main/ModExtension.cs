@@ -86,6 +86,7 @@ namespace WVC_XenotypesAndGenes
 		// public GeneDef randomizerGene;
 		// public bool geneIsRandomized = false;
 		// public IntRange intRange = new IntRange(1, 1);
+		public XenotypeDef xenotypeForcerDef = null;
 	}
 
 	// public class HeadTypeExtension_Faceless : DefModExtension

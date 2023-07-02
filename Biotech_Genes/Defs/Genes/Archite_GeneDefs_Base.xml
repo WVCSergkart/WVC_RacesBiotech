@@ -84,6 +84,12 @@
 	<!-- <displayPriorityInXenotype>270.2886992038</displayPriorityInXenotype> -->
   <!-- </GeneCategoryDef> -->
 
+  <GeneCategoryDef>
+	<defName>WVC_XenotypeForcerGenes</defName>
+	<label>xenotype forcers</label>
+	<displayPriorityInXenotype>-1.2886992038</displayPriorityInXenotype>
+  </GeneCategoryDef>
+
   <!-- https://steamcommunity.com/sharedfiles/filedetails/?id=2886992038 -->
   <!-- ================================================================== -->
 

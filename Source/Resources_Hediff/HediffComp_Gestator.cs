@@ -60,7 +60,7 @@ namespace WVC_XenotypesAndGenes
 				// asexualFissionCounter = 0;
 				// return;
 			// }
-			MechanoidizationUtility.GenerateNewBornPawn(parent.pawn, Props.completeMessage, Props.endogeneTransfer);
+			GestationUtility.GenerateNewBornPawn(parent.pawn, Props.completeMessage, Props.endogeneTransfer, Props.xenogeneTransfer);
 			ticksCounter = 0;
 			base.Pawn.health.RemoveHediff(parent);
 		}

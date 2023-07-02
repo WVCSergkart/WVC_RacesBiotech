@@ -24,7 +24,7 @@ namespace WVC_XenotypesAndGenes
 					defaultLabel = "DEV: Spawn pawn",
 					action = delegate
 					{
-						MechanoidizationUtility.GenerateNewBornPawn(pawn, "WVC_RB_Gene_MechaGestator", true);
+						GestationUtility.GenerateNewBornPawn(pawn);
 					}
 				};
 			}

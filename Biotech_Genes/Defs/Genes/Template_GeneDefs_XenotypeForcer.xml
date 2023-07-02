@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WVC_XenotypesAndGenes.XenotypeForcerGeneTemplateDef Name="WVC_XenotypesAndGenes_XenotypeForcerGeneTemplateDef_Base" Abstract="True">
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_ResurgentActive</geneClass> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass> -->
+	<ignoreIllegalLabelCharacterConfigError>true</ignoreIllegalLabelCharacterConfigError>
+	<displayCategory>WVC_XenotypeForcerGenes</displayCategory>
+	<displayOrderOffset>100</displayOrderOffset>
+	<!-- <biostatCpx>0</biostatCpx> -->
+	<!-- <biostatMet>0</biostatMet> -->
+	<!-- <biostatArc>5</biostatArc> -->
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </WVC_XenotypesAndGenes.XenotypeForcerGeneTemplateDef>
+
+  <!-- Base -->
+
+  <WVC_XenotypesAndGenes.XenotypeForcerGeneTemplateDef ParentName="WVC_XenotypesAndGenes_XenotypeForcerGeneTemplateDef_Base">
+	<defName>WVC_XenotypeForcer</defName>
+	<label>xeno-forcer ({0})</label>
+	<description>Adds "{0}" xenotype genes in addition to the existing ones. Allows you to make hybrid xenotypes.
+
+Please note that if the xenotype is inherited and your geneset is also inherited, then all genes will be overwritten.</description>
+  </WVC_XenotypesAndGenes.XenotypeForcerGeneTemplateDef>
+
+</Defs>
