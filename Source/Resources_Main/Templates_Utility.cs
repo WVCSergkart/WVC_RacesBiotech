@@ -37,21 +37,30 @@ namespace WVC_XenotypesAndGenes
 				biostatArc = template.biostatArc,
 				displayCategory = template.displayCategory,
 				// displayOrderInCategory = template.displayOrderInCategory,
+				customEffectDescriptions = template.customEffectDescriptions,
 				displayOrderInCategory = displayOrderBase + template.displayOrderOffset,
 				minAgeActive = template.minAgeActive,
 				modContentPack = template.modContentPack,
-				exclusionTags = new List<string>
-				{
-					"WVC_XenotypesAndGenes_XenotypeTemplateCollection"
-				},
+				exclusionTags = new List<string>(),
 				modExtensions = new List<DefModExtension>
 				{
 					new GeneExtension_Giver
 					{
-						xenotypeForcerDef = def
+						xenotypeForcerDef = def,
+						xenotypeIsInheritable = def.inheritable
 					}
 				}
 			};
+			string exclusionTag = "WVC_XenotypesAndGenes_XenotypeTemplateCollection";
+			if (def.inheritable)
+			{
+				exclusionTag += "_Endo";
+			}
+			else
+			{
+				exclusionTag += "_Xeno";
+			}
+			geneDef.exclusionTags.Add(exclusionTag);
 			if (template.exclusionTags != null)
 			{
 				foreach (string item in template.exclusionTags)

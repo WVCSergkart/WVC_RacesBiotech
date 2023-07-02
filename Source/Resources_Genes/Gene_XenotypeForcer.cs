@@ -23,35 +23,40 @@ namespace WVC_XenotypesAndGenes
 
 		public static void RandomXenotype(Pawn pawn, Gene gene, XenotypeDef xenotype)
 		{
-			bool geneIsXenogene = true;
-			List<Gene> endogenes = pawn.genes.Endogenes;
-			if (endogenes.Contains(gene))
-			{
-				geneIsXenogene = false;
-			}
+			// bool geneIsXenogene = true;
+			// List<Gene> endogenes = pawn.genes.Endogenes;
+			// if (endogenes.Contains(gene))
+			// {
+				// geneIsXenogene = false;
+			// }
 			if (xenotype == null)
 			{
 				List<XenotypeDef> xenotypeDef = XenotypeFilterUtility.WhiteListedXenotypes(true, true);
-				if (!geneIsXenogene)
+				if (gene.def.GetModExtension<GeneExtension_Giver>() != null && gene.def.GetModExtension<GeneExtension_Giver>().xenotypeIsInheritable)
 				{
 					xenotype = xenotypeDef.Where((XenotypeDef randomXenotypeDef) => randomXenotypeDef.inheritable).RandomElement();
 				}
-				if (geneIsXenogene)
+				else
 				{
 					xenotype = xenotypeDef.Where((XenotypeDef randomXenotypeDef) => !randomXenotypeDef.inheritable).RandomElement();
 				}
 				if (xenotype == null)
 				{
+					Log.Error("Generated gene with null xenotype. Choose random.");
 					xenotype = xenotypeDef.RandomElement();
 				}
 			}
 			if (xenotype == null)
 			{
 				pawn.genes.RemoveGene(gene);
+				Log.Error("Xenotype is null. Do not report this to the developer, you yourself created this creepy world filled with bugs. To fix the situation, reset the filter in the " + "WVC_BiotechSettings".Translate() + " mod settings and restart the game.");
 				return;
 			}
 			XenotypeForcer_SimpleVersion(pawn, xenotype);
-			pawn.genes.RemoveGene(gene);
+			if (gene != null)
+			{
+				pawn.genes.RemoveGene(gene);
+			}
 		}
 
 		public static void XenotypeForcer_SimpleVersion(Pawn pawn, XenotypeDef xenotype)

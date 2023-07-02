@@ -147,6 +147,9 @@ namespace WVC_XenotypesAndGenes
 		[MustTranslate]
 		public string labelShortAdj;
 
+		[MustTranslate]
+		public List<string> customEffectDescriptions;
+
 		[NoTranslate]
 		public string iconPath;
 

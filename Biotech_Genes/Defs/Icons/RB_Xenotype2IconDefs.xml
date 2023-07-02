@@ -122,4 +122,9 @@
 	<texPath>WVC/UI/Xeno2Icons/Xeno30</texPath>
   </XenotypeIconDef>
 
+  <XenotypeIconDef>
+	<defName>WVC_XenoRandomKindc</defName>
+	<texPath>WVC/UI/Xeno2Icons/Xeno_RandomKind</texPath>
+  </XenotypeIconDef>
+
 </Defs>

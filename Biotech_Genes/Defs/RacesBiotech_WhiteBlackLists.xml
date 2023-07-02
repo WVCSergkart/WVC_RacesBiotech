@@ -9,6 +9,8 @@
 		<!-- An undead xenotype has a separate serum mechanic. -->
 		<li>WVC_Undead</li>
 		<!-- <li>WVC_Blank</li> -->
+		<li>WVC_RandomHybrid</li>
+		<li>WVC_RandomHybrid_Blankind</li>
 		<!-- <li>AG_Wretch</li> -->
 		<li>AG_RandomCustom</li>
 		<li>VREA_AndroidBasic</li>

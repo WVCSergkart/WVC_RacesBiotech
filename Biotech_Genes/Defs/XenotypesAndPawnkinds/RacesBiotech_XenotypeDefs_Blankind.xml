@@ -2,7 +2,7 @@
 <Defs>
 
   <!-- blank -->
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base">
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" Name="WVC_RB_Xenotypes_Blankind">
 	<defName>WVC_Blank</defName>
 	<label>blankind</label>
 	<!-- Experiments, garbage, template, by-product. -->
@@ -60,6 +60,15 @@
 		<li>WVC_AgeDebuff_Timeless</li>
 		<li>WVC_BodySize_Small</li>
 		<!-- <li>Hair_Grayless</li> -->
+	</genes>
+  </XenotypeDef>
+
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Blankind">
+	<defName>WVC_RandomHybrid_Blankind</defName>
+	<iconPath>WVC/UI/Xeno2Icons/Xeno_RandomKind</iconPath>
+	<displayPriority>-9990</displayPriority>
+	<genes>
+		<li>WVC_XenotypesAndGenes_RandomXenotypeForcer</li>
 	</genes>
   </XenotypeDef>
 
