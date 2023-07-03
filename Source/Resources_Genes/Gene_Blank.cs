@@ -16,10 +16,10 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				if (Overridden)
-				{
-					return false;
-				}
+				// if (Overridden)
+				// {
+					// return false;
+				// }
 				if (pawn?.genes != null)
 				{
 					List<Gene> genesListForReading = pawn.genes.Xenogenes;
@@ -28,7 +28,7 @@ namespace WVC_XenotypesAndGenes
 						return false;
 					}
 				}
-				return true;
+				return base.Active;
 			}
 		}
 

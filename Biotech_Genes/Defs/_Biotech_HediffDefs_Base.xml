@@ -681,6 +681,20 @@ At the same time, there can be a limited number of living golems under the contr
 	</comps>
   </HediffDef>
 
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_XenotypesAndGenes_NoBleedNoPainNoPoisoning</defName>
+	<label>no bleed no pain no poison</label>
+	<stages>
+	  <li>
+		<minSeverity>0.0</minSeverity>
+		<becomeVisible>false</becomeVisible>
+		<foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+		<totalBleedFactor>0</totalBleedFactor>
+		<painFactor>0</painFactor>
+	  </li>
+	</stages>
+  </HediffDef>
+
   <!--=====================================================================-->
 
   <!-- Active -->

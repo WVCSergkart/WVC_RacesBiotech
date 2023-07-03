@@ -29,6 +29,9 @@
 	<WVC_LetterLabel_GeneRiseFromTheDead>Rised from the dead</WVC_LetterLabel_GeneRiseFromTheDead>
 	<WVC_LetterText_GeneRiseFromTheDead>{TARGET_nameDef} was resurrected, but this left a mark on {TARGET_objective}, now {TARGET_nameDef} is completely different.</WVC_LetterText_GeneRiseFromTheDead>
 
+	<WVC_XaG_Label_CompHiveSpawnAnimals>Time to next spawn: {0}</WVC_XaG_Label_CompHiveSpawnAnimals>
+	<WVC_XaG_Label_CompHiveSpawnAnimals_WalkingCorpses>walking corpses</WVC_XaG_Label_CompHiveSpawnAnimals_WalkingCorpses>
+
 
 	<!-- <LetterTextGenesImplanted>{CASTER_nameDef} has implanted a copy of {CASTER_possessive} xenogerm into {TARGET_nameDef}, passing all xenogenes onto {TARGET_objective}.\n\n{TARGET_nameDef} will be in a xenogermination coma for the next {COMADURATION} while {TARGET_possessive} body adjusts to the changes.\n\n{CASTER_nameDef} will suffer from gene loss shock for the next {SHOCKDURATION}. {CASTER_possessive} genes will also need to regrow. This process takes time. If {CASTER_nameDef} implants {CASTER_possessive} xenogerm again before {CASTER_possessive} genes have regrown, {CASTER_pronoun} will die.</LetterTextGenesImplanted> -->
 

@@ -28,33 +28,43 @@
 	<defName>WVC_AptitudeImpossible</defName>
 	<label>impossible {0}</label>
 	<description>The carrier's aptitude in {0} is reduced by 20. Aptitude acts like an offset on skill level. Additionally, all passion is removed from {0}.</description>
-	<iconPath>WVC/UI/Genes/SkillDown</iconPath>
+	<iconPath>WVC/UI/Genes/Skills/{0}/NoChance</iconPath>
 	<aptitudeOffset>-20</aptitudeOffset>
 	<passionModType>DropAll</passionModType>
 	<displayOrderOffset>-100</displayOrderOffset>
 	<biostatCpx>1</biostatCpx>
-	<biostatMet>8</biostatMet>
-	<selectionWeight>0.015</selectionWeight>
+	<biostatMet>5</biostatMet>
   </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
 
+  <!-- <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Base"> -->
+	<!-- <defName>WVC_AptitudeShameful</defName> -->
+	<!-- <label>shameful {0}</label> -->
+	<!-- <description>The carrier's aptitude in {0} is reduced by 12. Aptitude acts like an offset on skill level. Additionally, all passion is removed from {0}.</description> -->
+	<!-- <iconPath>WVC/UI/Genes/Skills/{0}/SkillDown</iconPath> -->
+	<!-- <aptitudeOffset>-16</aptitudeOffset> -->
+	<!-- <passionModType>DropAll</passionModType> -->
+	<!-- <displayOrderOffset>-20</displayOrderOffset> -->
+	<!-- <biostatCpx>1</biostatCpx> -->
+	<!-- <biostatMet>4</biostatMet> -->
+  <!-- </WVC_XenotypesAndGenes.SkillsGeneTemplateDef> -->
+
   <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Base">
-	<defName>WVC_AptitudePerfect</defName>
-	<label>perfect {0}</label>
-	<description>The carrier's aptitude in {0} is increased by 20. Aptitude acts like an offset on skill level. Additionally, one level of passion is added to {0}.</description>
-	<iconPath>WVC/UI/Genes/SkillUp</iconPath>
-	<aptitudeOffset>20</aptitudeOffset>
-	<passionModType>AddOneLevel</passionModType>
-	<displayOrderOffset>100</displayOrderOffset>
-	<biostatCpx>5</biostatCpx>
-	<biostatMet>-12</biostatMet>
-	<selectionWeight>0.015</selectionWeight>
+	<defName>WVC_AptitudeShameful</defName>
+	<label>shameful {0}</label>
+	<description>The carrier's aptitude in {0} is reduced by 12. Aptitude acts like an offset on skill level. Additionally, all passion is removed from {0}.</description>
+	<iconPath>WVC/UI/Genes/Skills/{0}/SkillDown</iconPath>
+	<aptitudeOffset>-12</aptitudeOffset>
+	<passionModType>DropAll</passionModType>
+	<displayOrderOffset>-10</displayOrderOffset>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>3</biostatMet>
   </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
 
   <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Base">
 	<defName>WVC_Aptitudes_0_Skill</defName>
 	<label>nullify {0}</label>
 	<description>The carrier's aptitude in {0} is nullified. Aptitude acts like an offset on skill level.</description>
-	<iconPath>WVC/UI/Genes/SkillUp_Equal</iconPath>
+	<iconPath>WVC/UI/Genes/Skills/{0}/SkillUp_Equal</iconPath>
 	<aptitudeOffset>0</aptitudeOffset>
 	<displayOrderOffset>15</displayOrderOffset>
 	<biostatCpx>0</biostatCpx>
@@ -62,43 +72,41 @@
 	<selectionWeight>0.005</selectionWeight>
   </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
 
-  <!-- <GeneTemplateDef ParentName="GeneAptitudeBase"> -->
-	<!-- <defName>WVC_AptitudePerfect</defName> -->
-	<!-- <label>perfect {0}</label> -->
-	<!-- <description>The carrier's aptitude in {0} is increased by 20. Aptitude acts like an offset on skill level. Additionally, one level of passion is added to {0}.</description> -->
-	<!-- <iconPath>WVC/UI/Genes/SkillUp</iconPath> -->
-	<!-- <aptitudeOffset>20</aptitudeOffset> -->
+  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Base">
+	<defName>WVC_AptitudeMarvelous</defName>
+	<label>marvelous {0}</label>
+	<description>The carrier's aptitude in {0} is increased by 12. Aptitude acts like an offset on skill level. Additionally, one level of passion is added to {0}.</description>
+	<iconPath>WVC/UI/Genes/Skills/{0}/SkillUp</iconPath>
+	<aptitudeOffset>12</aptitudeOffset>
+	<passionModType>AddOneLevel</passionModType>
+	<displayOrderOffset>40</displayOrderOffset>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>-5</biostatMet>
+  </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
+
+  <!-- <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Base"> -->
+	<!-- <defName>WVC_AptitudeMarvelous</defName> -->
+	<!-- <label>marvelous {0}</label> -->
+	<!-- <description>The carrier's aptitude in {0} is increased by 12. Aptitude acts like an offset on skill level. Additionally, one level of passion is added to {0}.</description> -->
+	<!-- <iconPath>WVC/UI/Genes/Skills/{0}/SkillUp</iconPath> -->
+	<!-- <aptitudeOffset>16</aptitudeOffset> -->
 	<!-- <passionModType>AddOneLevel</passionModType> -->
-	<!-- <displayOrderOffset>100</displayOrderOffset> -->
-	<!-- <biostatCpx>5</biostatCpx> -->
-	<!-- <biostatMet>-12</biostatMet> -->
-	<!-- <selectionWeight>0.015</selectionWeight> -->
-  <!-- </GeneTemplateDef> -->
+	<!-- <displayOrderOffset>50</displayOrderOffset> -->
+	<!-- <biostatCpx>3</biostatCpx> -->
+	<!-- <biostatMet>-7</biostatMet> -->
+  <!-- </WVC_XenotypesAndGenes.SkillsGeneTemplateDef> -->
 
-  <!-- <GeneTemplateDef ParentName="GeneAptitudeBase"> -->
-	<!-- <defName>WVC_Aptitudes_0_Skill</defName> -->
-	<!-- <label>nullify {0}</label> -->
-	<!-- <description>The carrier's aptitude in {0} is nullified. Aptitude acts like an offset on skill level.</description> -->
-	<!-- <iconPath>WVC/UI/Genes/SkillUp_Equal</iconPath> -->
-	<!-- <aptitudeOffset>0</aptitudeOffset> -->
-	<!-- <displayOrderOffset>15</displayOrderOffset> -->
-	<!-- <biostatCpx>0</biostatCpx> -->
-	<!-- <biostatMet>0</biostatMet> -->
-	<!-- <selectionWeight>0.005</selectionWeight> -->
-  <!-- </GeneTemplateDef> -->
-
-  <!-- <GeneTemplateDef ParentName="GeneAptitudeBase"> -->
-	<!-- <defName>WVC_AptitudeImpossible</defName> -->
-	<!-- <label>impossible {0}</label> -->
-	<!-- <description>The carrier's aptitude in {0} is reduced by 20. Aptitude acts like an offset on skill level. Additionally, all passion is removed from {0}.</description> -->
-	<!-- <iconPath>WVC/UI/Genes/SkillDown</iconPath> -->
-	<!-- <aptitudeOffset>-20</aptitudeOffset> -->
-	<!-- <passionModType>DropAll</passionModType> -->
-	<!-- <displayOrderOffset>-100</displayOrderOffset> -->
-	<!-- <biostatCpx>1</biostatCpx> -->
-	<!-- <biostatMet>8</biostatMet> -->
-	<!-- <selectionWeight>0.015</selectionWeight> -->
-  <!-- </GeneTemplateDef> -->
+  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Base">
+	<defName>WVC_AptitudePerfect</defName>
+	<label>perfect {0}</label>
+	<description>The carrier's aptitude in {0} is increased by 20. Aptitude acts like an offset on skill level. Additionally, one level of passion is added to {0}.</description>
+	<iconPath>WVC/UI/Genes/Skills/{0}/Crown</iconPath>
+	<aptitudeOffset>20</aptitudeOffset>
+	<passionModType>AddOneLevel</passionModType>
+	<displayOrderOffset>100</displayOrderOffset>
+	<biostatCpx>4</biostatCpx>
+	<biostatMet>-9</biostatMet>
+  </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
 
   <!-- Archite -->
 
@@ -115,6 +123,7 @@
 	<label>strong {0}</label>
 	<description>The carrier's aptitude in {0} is increased by 6. Aptitude acts like an offset on skill level. Additionally, one level of passion is added to {0}.</description>
 	<aptitudeOffset>6</aptitudeOffset>
+	<iconPath>WVC/UI/Genes/Skills/{0}/Archite1</iconPath>
 	<passionModType>AddOneLevel</passionModType>
 	<displayOrderOffset>110</displayOrderOffset>
 	<biostatArc>1</biostatArc>
@@ -125,6 +134,7 @@
 	<label>great {0}</label>
 	<description>The carrier's aptitude in {0} is increased by 12. Aptitude acts like an offset on skill level. Additionally, one level of passion is added to {0}.</description>
 	<aptitudeOffset>12</aptitudeOffset>
+	<iconPath>WVC/UI/Genes/Skills/{0}/Archite2</iconPath>
 	<passionModType>AddOneLevel</passionModType>
 	<displayOrderOffset>115</displayOrderOffset>
 	<biostatArc>2</biostatArc>
@@ -135,6 +145,7 @@
 	<label>perfect {0}</label>
 	<description>The carrier's aptitude in {0} is increased by 18. Aptitude acts like an offset on skill level. Additionally, one level of passion is added to {0}.</description>
 	<aptitudeOffset>18</aptitudeOffset>
+	<iconPath>WVC/UI/Genes/Skills/{0}/Archite3</iconPath>
 	<passionModType>AddOneLevel</passionModType>
 	<displayOrderOffset>120</displayOrderOffset>
 	<biostatArc>3</biostatArc>
@@ -164,103 +175,6 @@
 		</li>
 	</modExtensions>
   </GeneDef>
-
-  <!-- <GeneDef ParentName="WVC_Aptitudes_ZeroHidden"> -->
-	<!-- <defName>WVC_Aptitudes_0_Skill_Intellectual</defName> -->
-	<!-- <label>nullify intellectual</label> -->
-	<!-- <exclusionTags> -->
-	  <!-- <li>AptitudeIntellectual</li> -->
-	  <!-- <li>Aptitude_Intellectual</li> -->
-	<!-- </exclusionTags> -->
-  <!-- </GeneDef> -->
-  <!-- <GeneDef ParentName="WVC_Aptitudes_ZeroHidden"> -->
-	<!-- <defName>WVC_Aptitudes_0_Skill_Crafting</defName> -->
-	<!-- <label>nullify crafting</label> -->
-	<!-- <exclusionTags> -->
-	  <!-- <li>AptitudeCrafting</li> -->
-	  <!-- <li>Aptitude_Crafting</li> -->
-	<!-- </exclusionTags> -->
-  <!-- </GeneDef> -->
-  <!-- <GeneDef ParentName="WVC_Aptitudes_ZeroHidden"> -->
-	<!-- <defName>WVC_Aptitudes_0_Skill_Melee</defName> -->
-	<!-- <label>nullify melee</label> -->
-	<!-- <exclusionTags> -->
-	  <!-- <li>AptitudeMelee</li> -->
-	  <!-- <li>Aptitude_Melee</li> -->
-	<!-- </exclusionTags> -->
-  <!-- </GeneDef> -->
-  <!-- <GeneDef ParentName="WVC_Aptitudes_ZeroHidden"> -->
-	<!-- <defName>WVC_Aptitudes_0_Skill_Plants</defName> -->
-	<!-- <label>nullify plants</label> -->
-	<!-- <exclusionTags> -->
-	  <!-- <li>AptitudePlants</li> -->
-	  <!-- <li>Aptitude_Plants</li> -->
-	<!-- </exclusionTags> -->
-  <!-- </GeneDef> -->
-  <!-- <GeneDef ParentName="WVC_Aptitudes_ZeroHidden"> -->
-	<!-- <defName>WVC_Aptitudes_0_Skill_Cooking</defName> -->
-	<!-- <label>nullify cooking</label> -->
-	<!-- <exclusionTags> -->
-	  <!-- <li>AptitudeCooking</li> -->
-	  <!-- <li>Aptitude_Cooking</li> -->
-	<!-- </exclusionTags> -->
-  <!-- </GeneDef> -->
-  <!-- <GeneDef ParentName="WVC_Aptitudes_ZeroHidden"> -->
-	<!-- <defName>WVC_Aptitudes_0_Skill_Mining</defName> -->
-	<!-- <label>nullify mining</label> -->
-	<!-- <exclusionTags> -->
-	  <!-- <li>AptitudeMining</li> -->
-	  <!-- <li>Aptitude_Mining</li> -->
-	<!-- </exclusionTags> -->
-  <!-- </GeneDef> -->
-  <!-- <GeneDef ParentName="WVC_Aptitudes_ZeroHidden"> -->
-	<!-- <defName>WVC_Aptitudes_0_Skill_Construction</defName> -->
-	<!-- <label>nullify construction</label> -->
-	<!-- <exclusionTags> -->
-	  <!-- <li>AptitudeConstruction</li> -->
-	  <!-- <li>Aptitude_Construction</li> -->
-	<!-- </exclusionTags> -->
-  <!-- </GeneDef> -->
-  <!-- <GeneDef ParentName="WVC_Aptitudes_ZeroHidden"> -->
-	<!-- <defName>WVC_Aptitudes_0_Skill_Shooting</defName> -->
-	<!-- <label>nullify shooting</label> -->
-	<!-- <exclusionTags> -->
-	  <!-- <li>AptitudeShooting</li> -->
-	  <!-- <li>Aptitude_Shooting</li> -->
-	<!-- </exclusionTags> -->
-  <!-- </GeneDef> -->
-  <!-- <GeneDef ParentName="WVC_Aptitudes_ZeroHidden"> -->
-	<!-- <defName>WVC_Aptitudes_0_Skill_Animals</defName> -->
-	<!-- <label>nullify animals</label> -->
-	<!-- <exclusionTags> -->
-	  <!-- <li>AptitudeAnimals</li> -->
-	  <!-- <li>Aptitude_Animals</li> -->
-	<!-- </exclusionTags> -->
-  <!-- </GeneDef> -->
-  <!-- <GeneDef ParentName="WVC_Aptitudes_ZeroHidden"> -->
-	<!-- <defName>WVC_Aptitudes_0_Skill_Medicine</defName> -->
-	<!-- <label>nullify medicine</label> -->
-	<!-- <exclusionTags> -->
-	  <!-- <li>AptitudeMedicine</li> -->
-	  <!-- <li>Aptitude_Medicine</li> -->
-	<!-- </exclusionTags> -->
-  <!-- </GeneDef> -->
-  <!-- <GeneDef ParentName="WVC_Aptitudes_ZeroHidden"> -->
-	<!-- <defName>WVC_Aptitudes_0_Skill_Artistic</defName> -->
-	<!-- <label>nullify artistic</label> -->
-	<!-- <exclusionTags> -->
-	  <!-- <li>AptitudeArtistic</li> -->
-	  <!-- <li>Aptitude_Artistic</li> -->
-	<!-- </exclusionTags> -->
-  <!-- </GeneDef> -->
-  <!-- <GeneDef ParentName="WVC_Aptitudes_ZeroHidden"> -->
-	<!-- <defName>WVC_Aptitudes_0_Skill_Social</defName> -->
-	<!-- <label>nullify social</label> -->
-	<!-- <exclusionTags> -->
-	  <!-- <li>AptitudeSocial</li> -->
-	  <!-- <li>Aptitude_Social</li> -->
-	<!-- </exclusionTags> -->
-  <!-- </GeneDef> -->
 
   <GeneDef ParentName="WVC_Aptitudes_ZeroHidden">
 	<defName>WVC_Aptitudes_GreatEqualizer</defName>

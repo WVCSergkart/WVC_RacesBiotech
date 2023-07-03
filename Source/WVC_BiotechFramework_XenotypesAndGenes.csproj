@@ -64,8 +64,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources_Abilities\CompProperties_AbilityRiseFromTheDead.cs" />
-    <Compile Include="Resources_Buildings\CompProperties_RecyclerSpawner.cs" />
-    <Compile Include="Resources_Buildings\CompRecyclerSpawner.cs" />
+    <Compile Include="Resources_Main\JobGiver_WanderNearTarget.cs" />
+    <Compile Include="Resources_Things\CompProperties_RecyclerSpawner.cs" />
+    <Compile Include="Resources_Things\CompProperties_Toxifier.cs" />
+    <Compile Include="Resources_Things\CompRecyclerSpawner.cs" />
     <Compile Include="Resources_Genes\GeneGizmo_ResurgentCells.cs" />
     <Compile Include="Resources_Genes\Gene_AddOrRemoveHediff.cs" />
     <Compile Include="Resources_Genes\Gene_Ageless.cs" />
@@ -131,6 +133,10 @@
     <Compile Include="Resources_Templates\Templates.cs" />
     <Compile Include="Resources_Main\Templates_Utility.cs" />
     <Compile Include="Resources_Templates\Templates_XenotypesAndGenes.cs" />
+    <Compile Include="Resources_Things\CompToxifier.cs" />
+    <Compile Include="Resources_Things\DeathAction_SpawnThing.cs" />
+    <Compile Include="Resources_Things\Hive_CompProperties_SpawnInsect.cs" />
+    <Compile Include="Resources_Things\Hive_CompSpawnInsect.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Gender.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_PawnIsMechaskinned_SingleThought.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_MechaSensesFriendOrFoe.cs" />

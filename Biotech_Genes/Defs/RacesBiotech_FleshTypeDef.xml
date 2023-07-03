@@ -18,6 +18,25 @@
 		</genericWounds>
 	</FleshTypeDef>
 
+	<!-- <FleshTypeDef> -->
+	  <!-- <defName>WVC_XenotypesAndGenes_WalkingCorpse</defName> -->
+	  <!-- <corpseCategory>CorpsesAnimal</corpseCategory> -->
+	  <!-- <damageEffecter>Damage_HitFlesh</damageEffecter> -->
+	  <!-- <genericWounds> -->
+		<!-- <li> -->
+			<!-- <texture>Things/Pawn/Wounds/WoundMechA</texture> -->
+		<!-- </li> -->
+		<!-- <li> -->
+			<!-- <texture>Things/Pawn/Wounds/WoundMechB</texture> -->
+		<!-- </li> -->
+		<!-- <li> -->
+			<!-- <texture>Things/Pawn/Wounds/WoundMechC</texture> -->
+		<!-- </li> -->
+	  <!-- </genericWounds> -->
+	<!-- </FleshTypeDef> -->
+
+	<!-- ============================================== -->
+
 	<ThingDef ParentName="BaseFilth">
 		<defName>WVC_ResurgentBlood</defName>
 		<label>necro blood</label>
