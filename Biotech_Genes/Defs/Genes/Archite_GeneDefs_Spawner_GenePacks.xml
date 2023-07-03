@@ -159,6 +159,7 @@
 	<defName>WVC_GenePackSpawner_Disable</defName>
 	<label>disabled thrower</label>
 	<iconPath>WVC/UI/Genes/Genepack_Disable</iconPath>
+	<selectionWeight>0.001</selectionWeight>
 	<geneClass>Gene</geneClass>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>

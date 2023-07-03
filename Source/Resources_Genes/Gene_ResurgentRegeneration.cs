@@ -8,7 +8,7 @@ using WVC_XenotypesAndGenes;
 
 namespace WVC_XenotypesAndGenes
 {
-	public class Gene_ResurgentTotalHealing : Gene
+	public class Gene_ResurgentTotalHealing : Gene_ResurgentDependent
 	{
 		private int ticksToHealBodyPart;
 

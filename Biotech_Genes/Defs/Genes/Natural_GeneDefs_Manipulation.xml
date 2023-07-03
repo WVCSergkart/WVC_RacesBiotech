@@ -6,6 +6,7 @@
 	<description>Carriers of this gene have very weak hands, which makes it difficult for them to cope with all manual work.</description>
 	<!-- <biostatCpx>1</biostatCpx> -->
 	<!-- <displayCategory>Miscellaneous</displayCategory> -->
+	<selectionWeight>0.0025</selectionWeight>
 	<displayOrderInCategory>322</displayOrderInCategory>
 	<iconPath>WVC/UI/Genes/Gene_WeakHand_v0</iconPath>
 	<exclusionTags>

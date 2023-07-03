@@ -8,7 +8,7 @@ using WVC_XenotypesAndGenes;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_ResurgentHediff : Gene
+	public class Gene_ResurgentHediff : Gene_ResurgentDependent
 	{
 
 		public HediffDef HediffDefName => def.GetModExtension<GeneExtension_Giver>().hediffDefName;
@@ -82,10 +82,7 @@ namespace WVC_XenotypesAndGenes
 					defaultLabel = "DEV: Add Or Remove Hediff",
 					action = delegate
 					{
-						if (Active)
-						{
-							AddOrRemoveHediff();
-						}
+						AddOrRemoveHediff();
 					}
 				};
 			}

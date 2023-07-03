@@ -8,7 +8,7 @@ using WVC_XenotypesAndGenes;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_ResurgentClotting : Gene
+	public class Gene_ResurgentClotting : Gene_ResurgentDependent
 	{
 		// private const int ClotCheckInterval = 750;
 

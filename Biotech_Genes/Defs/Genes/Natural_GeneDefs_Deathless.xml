@@ -103,7 +103,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Base">
 	<defName>WVC_ResurgentCells</defName>
 	<label>resurgent</label>
-	<description>Carriers of this gene accumulate resurgent cells over time. With the help of these cells, the host can resurrect or resurrect others.\n\nCarriers gain 5 cells per day.</description>
+	<description>Carriers of this gene accumulate resurgent cells over time. With the help of these cells, the host can resurrect or resurrect others.\n\nCarriers gain 3 cells per day.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentCells</geneClass>
 	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_ResourceResurgentCells</resourceGizmoType>
 	<resourceLabel>resurgent cells</resourceLabel>
@@ -116,11 +116,11 @@
 	</resourceGizmoThresholds>
 	<showGizmoOnWorldView>true</showGizmoOnWorldView>
 	<showGizmoWhenDrafted>true</showGizmoWhenDrafted>
-	<resourceDescription>A reserve of dormant cells that can be spent for various purposes.\n\nResurgent cells cannot be increased by any means, they regenerate themselves depending on genes and some external factors.\n\nIf cells reaches zero, {PAWN_nameDef} will fall into a two-day coma.</resourceDescription>
+	<resourceDescription>A reserve of dormant cells that can be spent for various purposes.\n\nResurgent cells cannot be increased by any means, they regenerate themselves depending on genes and some external factors.\n\nIf the number of cells falls below 5, then most of the resurgent genes will be deactivated.</resourceDescription>
 	<!-- \n\nIf cells reaches zero, {PAWN_nameDef} will become very unhappy. -->
 	<iconPath>WVC/UI/Genes/Gene_ResurgentCells_v0</iconPath>
 	<iconColor>(93, 101, 126)</iconColor>
-	<selectionWeight>0.007</selectionWeight>
+	<selectionWeight>0.0011</selectionWeight>
 	<displayOrderInCategory>1230</displayOrderInCategory>
 	<customEffectDescriptions>
 	  <li>Gives resurgent supply.</li>
@@ -131,7 +131,7 @@
 	  </prefixSymbols>
 	</symbolPack>
 	<minAgeActive>3</minAgeActive>
-	<resourceLossPerDay>0.05</resourceLossPerDay>
+	<resourceLossPerDay>0.03</resourceLossPerDay>
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>-1</biostatMet>
   </GeneDef>
@@ -139,12 +139,26 @@
   <!-- ============================= -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Base" Name="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells" Abstract="True">
-	<selectionWeight>0.009</selectionWeight>
+	<selectionWeight>0.0009</selectionWeight>
 	<prerequisite>WVC_ResurgentCells</prerequisite>
 	<minAgeActive>3</minAgeActive>
 	<resourceLossPerDay>0.02</resourceLossPerDay>
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>-3</biostatMet>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells">
+	<defName>WVC_ResurgentCellsGain</defName>
+	<label>resurgent fungus</label>
+	<description>Carriers of this gene have a symbiotic parasitic fungus. This fungus does not have a noticeable effect on the host but significantly increases the production of resurgent cells.\n\nCarriers gain additional 7 cells per day.</description>
+	<iconPath>WVC/UI/Genes/Gene_ResurgentFungus_v0</iconPath>
+	<iconColor>(93, 101, 126)</iconColor>
+	<resourceLabel>resurgent cells</resourceLabel>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentCellsGain</geneClass>
+	<displayOrderInCategory>1231</displayOrderInCategory>
+	<resourceLossPerDay>0.07</resourceLossPerDay>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>3</biostatMet>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells">

@@ -48,6 +48,7 @@
 	<label>disabled stone molt</label>
 	<iconPath>WVC/UI/Genes/Genepack_Disable</iconPath>
 	<geneClass>Gene</geneClass>
+	<selectionWeight>0.001</selectionWeight>
 	<biostatCpx>0</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<biostatArc>0</biostatArc>
@@ -61,6 +62,7 @@
 	<label>disabled spawner</label>
 	<description>Disables spawner genes.</description>
 	<iconPath>WVC/UI/Genes/Genepack_Disable</iconPath>
+	<selectionWeight>0.001</selectionWeight>
 	<geneClass>Gene</geneClass>
 	<biostatCpx>0</biostatCpx>
 	<biostatMet>0</biostatMet>

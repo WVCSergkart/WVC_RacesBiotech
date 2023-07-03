@@ -39,7 +39,7 @@
   <!-- <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Base"> -->
 	<!-- <defName>WVC_AptitudeShameful</defName> -->
 	<!-- <label>shameful {0}</label> -->
-	<!-- <description>The carrier's aptitude in {0} is reduced by 12. Aptitude acts like an offset on skill level. Additionally, all passion is removed from {0}.</description> -->
+	<!-- <description>The carrier's aptitude in {0} is reduced by 16. Aptitude acts like an offset on skill level. Additionally, all passion is removed from {0}.</description> -->
 	<!-- <iconPath>WVC/UI/Genes/Skills/{0}/SkillDown</iconPath> -->
 	<!-- <aptitudeOffset>-16</aptitudeOffset> -->
 	<!-- <passionModType>DropAll</passionModType> -->
@@ -87,7 +87,7 @@
   <!-- <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Base"> -->
 	<!-- <defName>WVC_AptitudeMarvelous</defName> -->
 	<!-- <label>marvelous {0}</label> -->
-	<!-- <description>The carrier's aptitude in {0} is increased by 12. Aptitude acts like an offset on skill level. Additionally, one level of passion is added to {0}.</description> -->
+	<!-- <description>The carrier's aptitude in {0} is increased by 16. Aptitude acts like an offset on skill level. Additionally, one level of passion is added to {0}.</description> -->
 	<!-- <iconPath>WVC/UI/Genes/Skills/{0}/SkillUp</iconPath> -->
 	<!-- <aptitudeOffset>16</aptitudeOffset> -->
 	<!-- <passionModType>AddOneLevel</passionModType> -->

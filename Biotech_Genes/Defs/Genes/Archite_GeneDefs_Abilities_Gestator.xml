@@ -5,6 +5,7 @@
 	<label>gestator</label>
 	<description>Carriers of this gene have a built-in gestator that can produce new life.</description>
 	<iconPath>WVC/UI/Genes/Gestator</iconPath>
+	<minAgeActive>13</minAgeActive>
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
 	<sterilize>true</sterilize>
 	<!-- <selectionWeight>0.125</selectionWeight> -->
@@ -147,6 +148,11 @@
 		<onlyReproductive>true</onlyReproductive>
 		<!-- <onlyBrain>true</onlyBrain> -->
 	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive">
+		<anyOfGenes>
+		  <li>WVC_StartGestation</li>
+		</anyOfGenes>
+	  </li>
 	</comps>
   </AbilityDef>
 
@@ -160,6 +166,11 @@
 		<onlyApplyToSelf>true</onlyApplyToSelf>
 		<onlyReproductive>true</onlyReproductive>
 		<!-- <onlyBrain>true</onlyBrain> -->
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive">
+		<anyOfGenes>
+		  <li>WVC_StartUrchinGestation</li>
+		</anyOfGenes>
 	  </li>
 	</comps>
   </AbilityDef>

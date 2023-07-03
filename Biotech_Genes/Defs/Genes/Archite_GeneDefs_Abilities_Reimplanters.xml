@@ -147,6 +147,11 @@
 	</verbProperties>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityRiseFromTheDead" />
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityResurgentCost">
+		<resurgentCost>0.2</resurgentCost>
+		<!-- The ability can always be used, regardless of the resurgent gene. -->
+		<skipIfNotResurgent>true</skipIfNotResurgent>
+	  </li>
 	</comps>
   </AbilityDef>
 

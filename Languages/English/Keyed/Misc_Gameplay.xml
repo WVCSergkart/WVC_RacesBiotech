@@ -32,6 +32,14 @@
 	<WVC_XaG_Label_CompHiveSpawnAnimals>Time to next spawn: {0}</WVC_XaG_Label_CompHiveSpawnAnimals>
 	<WVC_XaG_Label_CompHiveSpawnAnimals_WalkingCorpses>walking corpses</WVC_XaG_Label_CompHiveSpawnAnimals_WalkingCorpses>
 
+	<WVC_XaG_AbilityResurgentCost>Resurgent cells cost</WVC_XaG_AbilityResurgentCost>
+	<WVC_XaG_AbilityResurgentGain>Base resurgent cells gain</WVC_XaG_AbilityResurgentGain>
+	<WVC_XaG_AbilityDisabledNoResurgentGene>{0_labelShort} is not resurgent.</WVC_XaG_AbilityDisabledNoResurgentGene>
+	<WVC_XaG_AbilityDisabledNoResurgent>{0_labelShort} does not have enough resurgent cells.</WVC_XaG_AbilityDisabledNoResurgent>
+
+	<WVC_XaG_AbilityGeneIsActive_PawnBaseliner>Pawn must not have this ability.</WVC_XaG_AbilityGeneIsActive_PawnBaseliner>
+	<WVC_XaG_AbilityGeneIsActive_PawnNotHaveGene>Pawn does not have the required gene or it is not active.</WVC_XaG_AbilityGeneIsActive_PawnNotHaveGene>
+
 
 	<!-- <LetterTextGenesImplanted>{CASTER_nameDef} has implanted a copy of {CASTER_possessive} xenogerm into {TARGET_nameDef}, passing all xenogenes onto {TARGET_objective}.\n\n{TARGET_nameDef} will be in a xenogermination coma for the next {COMADURATION} while {TARGET_possessive} body adjusts to the changes.\n\n{CASTER_nameDef} will suffer from gene loss shock for the next {SHOCKDURATION}. {CASTER_possessive} genes will also need to regrow. This process takes time. If {CASTER_nameDef} implants {CASTER_possessive} xenogerm again before {CASTER_possessive} genes have regrown, {CASTER_pronoun} will die.</LetterTextGenesImplanted> -->
 

@@ -5,7 +5,7 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentActive</geneClass>
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass> -->
 	<ignoreIllegalLabelCharacterConfigError>true</ignoreIllegalLabelCharacterConfigError>
-	<selectionWeight>0.0065</selectionWeight>
+	<selectionWeight>0.0005</selectionWeight>
 	<displayCategory>WVC_ResurgentCells</displayCategory>
 	<displayOrderInCategory>1275</displayOrderInCategory>
 	<prerequisite>WVC_ResurgentCells</prerequisite>

@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BuildingBase">
+	<defName>WVC_XenotypesAndGenes_WalkingCorpseTotem</defName>
+	<label>walking corpse totem</label>
+	<description>A totem made from the rotten remains of various creatures. The only thing that holds these remains together is a resurgent fungus that has settled in rotten bones.
+
+A rapidly mutating, resurgent fungus is poisoning the soil beneath it and spreading to ancient animal bones underground. Bones infected with this fungus rise like walking corpses.
+
+This creepy organism obeys the local owner of the "GENE_NAME" gene, forming a stable psychic bond.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; From time to time, the totem raises walking corpses, the number of walking corpses depends on the number of totems. The base amount is 4, each totem increases the limit by 1. If the limit is exceeded as a result of the destruction of totems, then it will not affect existing walking corpses in any way.
+
+Totems also spread pollution from time to time.</description>
+	<descriptionHyperlinks>
+	  <ThingDef>WVC_XenotypesAndGenes_WalkingCorpse</ThingDef>
+	</descriptionHyperlinks>
+	<soundImpactDefault>MeleeHit_Wood</soundImpactDefault>
+	<statBases>
+	  <MaxHitPoints>30</MaxHitPoints>
+	  <WorkToBuild>750</WorkToBuild>
+	  <Mass>10</Mass>
+	  <Flammability>0.2</Flammability>
+	  <Beauty>1</Beauty>
+	  <StyleDominance MayRequire="Ludeon.RimWorld.Ideology">10</StyleDominance>
+	</statBases>
+	<graphicData>
+	  <drawOffset>(0,0,0.2)</drawOffset>
+	  <texPath>WVC/Things/WalkingCorpseTotem</texPath>
+	  <graphicClass>Graphic_Random</graphicClass>
+	  <drawSize>(1.2,1.2)</drawSize>
+	  <color>(195,195,195)</color>
+	  <drawRotated>false</drawRotated>
+	  <allowFlip>true</allowFlip>
+	  <shadowData>
+		<volume>(0.3, 0.5, 0.3)</volume>
+		<offset>(0,0,-0.23)</offset>
+	  </shadowData>
+	  <damageData>
+		<rect>(0.2,0.2,0.6,0.6)</rect>
+	  </damageData>
+	</graphicData>
+	<!-- <uiOrder>2040</uiOrder> -->
+	<altitudeLayer>Building</altitudeLayer>
+	<passability>PassThroughOnly</passability>
+	<fillPercent>0.15</fillPercent>
+	<pathCost>0.35</pathCost>
+	<tickerType>Rare</tickerType>
+	<costList>
+	  <RawFungus>5</RawFungus>
+	  <!-- <ComponentSpacer>1</ComponentSpacer> -->
+	</costList>
+	<designationCategory></designationCategory>
+	<!-- <designationCategory>Power</designationCategory> -->
+	<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+	<!-- <stuffCategories> -->
+	  <!-- <li>Metallic</li> -->
+	  <!-- <li>Woody</li> -->
+	  <!-- <li>Stony</li> -->
+	<!-- </stuffCategories> -->
+	<!-- <costStuffCount>20</costStuffCount> -->
+	<!-- <holdsRoof>true</holdsRoof> -->
+	<canOverlapZones>false</canOverlapZones>
+	<rotatable>false</rotatable>
+	<!-- <fertility>0</fertility> -->
+	<specialDisplayRadius>5.9</specialDisplayRadius>
+	<building>
+	  <destroySound>Harvest_Tree_Finish</destroySound>
+	  <isInert>true</isInert>
+	  <ai_chillDestination>false</ai_chillDestination>
+	  <paintable>true</paintable>
+	  <deconstructible>true</deconstructible>
+	  <alwaysDeconstructible>true</alwaysDeconstructible>
+	  <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+	  <claimable>false</claimable>
+	</building>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_HiveSpawnAnimals">
+		<ticksBetweenSpawn>120000~720000</ticksBetweenSpawn>
+		<pawnsList>
+		  <li>WVC_XenotypesAndGenes_WalkingCorpse</li>
+		</pawnsList>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_Toxifier">
+		<pollutionIntervalTicks>360000~720000</pollutionIntervalTicks>
+	  </li>
+	  <li Class="CompProperties_Styleable" />
+	</comps>
+  </ThingDef>
+
+</Defs>

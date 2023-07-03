@@ -112,7 +112,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			float value = drain.Resource.Value;
 			drain.Resource.Value += amnt;
-			PostResourceOffset(drain, value);
+			// PostResourceOffset(drain, value);
 		}
 
 		public static IEnumerable<Gizmo> GetResourceDrainGizmos(IGeneResourceDrain drain)
@@ -141,17 +141,17 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void PostResourceOffset(IGeneResourceDrain drain, float oldValue)
-		{
-			if (oldValue > 0f && drain.Resource.Value <= 0f)
-			{
-				Pawn pawn = drain.Pawn;
-				if (!pawn.health.hediffSet.HasHediff(HediffDefOf.ResurrectionSickness))
-				{
-					pawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
-				}
-			}
-		}
+		// public static void PostResourceOffset(IGeneResourceDrain drain, float oldValue)
+		// {
+			// if (oldValue > 0f && drain.Resource.Value <= 0f)
+			// {
+				// Pawn pawn = drain.Pawn;
+				// if (!pawn.health.hediffSet.HasHediff(HediffDefOf.ResurrectionSickness))
+				// {
+					// pawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
+				// }
+			// }
+		// }
 
 	}
 }

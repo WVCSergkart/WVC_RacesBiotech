@@ -8,7 +8,7 @@
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_PermanentHediff</geneClass> -->
 	<geneClass>WVC_XenotypesAndGenes.Gene_BackstoryChanger</geneClass>
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Amnesia</geneClass> -->
-	<selectionWeight>0.022</selectionWeight>
+	<selectionWeight>0.0172</selectionWeight>
 	<customEffectDescriptions>
 	  <li>Childhood and adulthood background will be &lt;color=#8a8ae6&gt;amnesiac&lt;/color&gt;. Does not work if the carrier is a native colonist.</li>
 	</customEffectDescriptions>

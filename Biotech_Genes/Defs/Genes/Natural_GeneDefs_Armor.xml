@@ -8,7 +8,7 @@
 	<displayCategory>Violence</displayCategory>
 	<biostatCpx>2</biostatCpx>
 	<displayOrderInCategory>1870</displayOrderInCategory>
-	<labelShortAdj>armor skin</labelShortAdj>
+	<labelShortAdj>armorskin</labelShortAdj>
 	<selectionWeight>0.03</selectionWeight>
 	<exclusionTags>
 		<li>WVC_NaturalArmor</li>

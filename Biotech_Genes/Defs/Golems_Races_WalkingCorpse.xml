@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <BodyDef>
+	<defName>WVC_XenotypesAndGenes_WalkingCorpse</defName>
+	<label>golem</label>
+	<corePart>
+	  <def>Torso</def>
+	  <customLabel>bone pile</customLabel>
+	  <height>Middle</height>
+	  <depth>Outside</depth>
+	  <groups>
+		<li>Torso</li>
+	  </groups>
+	  <parts>
+		<li>
+		  <def>Spine</def>
+		  <customLabel>base of the bone pile</customLabel>
+		  <coverage>0.025</coverage>
+		  <depth>Inside</depth>
+		  <groups>
+			<li>Torso</li>
+		  </groups>
+		</li>
+		<li>
+		  <def>Stomach</def>
+		  <customLabel>acid-active fungus</customLabel>
+		  <coverage>0.025</coverage>
+		  <depth>Inside</depth>
+		  <groups>
+			<li>Torso</li>
+		  </groups>
+		</li>
+		<li>
+		  <def>Heart</def>
+		  <customLabel>fungi electro pulsator</customLabel>
+		  <coverage>0.020</coverage>
+		  <depth>Inside</depth>
+		  <groups>
+			<li>Torso</li>
+		  </groups>
+		</li>
+		<li>
+		  <def>Neck</def>
+		  <coverage>0.075</coverage>
+		  <height>Top</height>
+		  <groups>
+			<li>Neck</li>
+		  </groups>
+		  <parts>
+			<li>
+			  <def>Head</def>
+			  <coverage>0.80</coverage>
+			  <groups>
+				<li>UpperHead</li>
+				<li>FullHead</li>
+				<li>HeadAttackTool</li>
+			  </groups>
+			  <parts>
+				<li>
+				  <def>Skull</def>
+				  <coverage>0.18</coverage>
+				  <depth>Inside</depth>
+				  <groups>
+					<li>UpperHead</li>
+					<li>Eyes</li>
+					<li>FullHead</li>
+				  </groups>
+				  <parts>
+					<li>
+					  <def>Brain</def>
+					  <customLabel>fungal nerve center</customLabel>
+					  <coverage>0.8</coverage>
+					  <groups>
+						<li>UpperHead</li>
+						<li>Eyes</li>
+						<li>FullHead</li>
+					  </groups>
+					</li>
+				  </parts>
+				</li>
+				<li>
+				  <def>Ear</def>
+				  <customLabel>fungal thin membrane</customLabel>
+				  <coverage>0.07</coverage>
+				  <groups>
+					<li>UpperHead</li>
+					<li>FullHead</li>
+				  </groups>
+				</li>
+				<li>
+				  <def>Ear</def>
+				  <customLabel>photosensitive fungus</customLabel>
+				  <coverage>0.07</coverage>
+				  <groups>
+					<li>UpperHead</li>
+					<li>FullHead</li>
+				  </groups>
+				</li>
+				<li>
+				  <def>Jaw</def>
+				  <coverage>0.15</coverage>
+				  <groups>
+					<li>Teeth</li>
+					<li>FullHead</li>
+					<li>Mouth</li>
+				  </groups>
+				</li>
+			  </parts>
+			</li>
+		  </parts>
+		</li>
+		<li>
+		  <def>Arm</def>
+		  <customLabel>left manipulator</customLabel>
+		  <coverage>0.12</coverage>
+		  <woundAnchorTag>LeftShoulder</woundAnchorTag>
+		  <groups>
+			<li>Shoulders</li>
+		  </groups>
+		</li>
+		<li>
+		  <def>Arm</def>
+		  <customLabel>right manipulator</customLabel>
+		  <coverage>0.12</coverage>
+		  <woundAnchorTag>RightShoulder</woundAnchorTag>
+		  <groups>
+			<li>Shoulders</li>
+		  </groups>
+		</li>
+		<li>
+		  <def>Leg</def>
+		  <customLabel>left supporting limb</customLabel>
+		  <coverage>0.14</coverage>
+		  <height>Bottom</height>
+		  <groups>
+			<li>Legs</li>
+		  </groups>
+		  <woundAnchorTag>LeftLeg</woundAnchorTag>
+		</li>
+		<li>
+		  <def>Leg</def>
+		  <customLabel>right supporting limb</customLabel>
+		  <coverage>0.14</coverage>
+		  <height>Bottom</height>
+		  <groups>
+			<li>Legs</li>
+		  </groups>
+		  <woundAnchorTag>RightLeg</woundAnchorTag>
+		</li>
+	  </parts>
+	</corePart>
+  </BodyDef>
+
+	<!-- <LifeStageDef> -->
+		<!-- <defName>WVC_XenotypesAndGenes_WalkingCorpse</defName> -->
+		<!-- <label>adult</label> -->
+		<!-- <visible>false</visible> -->
+		<!-- <reproductive>false</reproductive> -->
+		<!-- <milkable>false</milkable> -->
+		<!-- <shearable>false</shearable> -->
+		<!-- <caravanRideable>false</caravanRideable> -->
+	<!-- </LifeStageDef> -->
+
+	<!-- =================================================================== -->
+
+	<ThingDef ParentName="AnimalThingBase" Name="WVC_XenotypesAndGenes_WalkingCorpse_Base" Abstract="True">
+		<description>A pile of bones animated by a resurgent fungus.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; Walking corpses do not require sleep, but they do need food. They will try to get food by hunting or in warehouses in the settlement. In case of death, the corpses turn into a totem.
+
+Walking corpses cannot be zoned, but they will try to stay close to the totems. Also, when an enemy appears on the map, they will blindly try to destroy it.</description>
+		<descriptionHyperlinks>
+		  <ThingDef>WVC_XenotypesAndGenes_WalkingCorpseTotem</ThingDef>
+		</descriptionHyperlinks>
+		<statBases>
+			<ToxicResistance>1</ToxicResistance>
+			<ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
+			<PsychicSensitivity>1.5</PsychicSensitivity>
+			<Flammability>0.2</Flammability>
+			<MeatAmount>22</MeatAmount>
+			<LeatherAmount>7</LeatherAmount>
+			<ArmorRating_Heat>0.2</ArmorRating_Heat>
+			<ComfyTemperatureMin>-100</ComfyTemperatureMin>
+			<ComfyTemperatureMax>250</ComfyTemperatureMax>
+			<MarketValue>150</MarketValue>
+			<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+			<MoveSpeed>3.6</MoveSpeed>
+			<Mass>80</Mass>
+		</statBases>
+		<tradeability>None</tradeability>
+		<uiIconScale>1.5</uiIconScale>
+		<tools Inherit="False">
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>16</power>
+				<cooldownTime>1.8</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+			</li>
+		</tools>
+		<race>
+			<deathActionWorkerClass>WVC_XenotypesAndGenes.DeathActionWorker_SpawnThing</deathActionWorkerClass>
+			<body>WVC_XenotypesAndGenes_WalkingCorpse</body>
+			<hasGenders>false</hasGenders>
+			<needsRest>false</needsRest>
+			<trainability>None</trainability>
+			<bloodDef>Filth_CorpseBile</bloodDef>
+			<thinkTreeMain>WVC_XenotypesAndGenes_WalkingCorpse</thinkTreeMain>
+			<fleshType>WVC_ResurgentWounds</fleshType>
+			<allowedOnCaravan>false</allowedOnCaravan>
+			<canReleaseToWild>false</canReleaseToWild>
+			<playerCanChangeMaster>false</playerCanChangeMaster>
+			<showTrainables>false</showTrainables>
+			<canBePredatorPrey>false</canBePredatorPrey>
+			<hideTrainingTab>true</hideTrainingTab>
+			<predator>true</predator>
+			<disableAreaControl>true</disableAreaControl>
+			<wildness>0</wildness>
+			<specificMeatDef>RawFungus</specificMeatDef>
+			<leatherDef>RawFungus</leatherDef>
+			<foodType>OmnivoreAnimal, OmnivoreRoughAnimal</foodType>
+			<giveNonToolUserBeatFireVerb>true</giveNonToolUserBeatFireVerb>
+			<baseHungerRate>0.8</baseHungerRate>
+			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+			<lifeStageAges>
+				<li>
+					<def>MechanoidFullyFormed</def>
+					<minAge>0</minAge>
+					<soundWounded>Pawn_Megascarab_Wounded</soundWounded>
+					<soundDeath>Pawn_Megascarab_Death</soundDeath>
+					<soundCall>Pawn_Megascarab_Call</soundCall>
+					<soundAngry>Pawn_Megascarab_Angry</soundAngry>
+				</li>
+			</lifeStageAges>
+			<hediffGiverSets Inherit="False">
+				<!-- <li>WVC_MechanoidGolem_HediffGiver</li> -->
+			</hediffGiverSets>
+		</race>
+		<thingCategories Inherit="False"/>
+		<recipes Inherit="False"/>
+		<butcherProducts Inherit="False"/>
+		<comps>
+			<li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_InitialHediff">
+				<hediffname>WVC_XenotypesAndGenes_NoBleedNoPainNoPoisoning</hediffname>
+				<hediffseverity>1</hediffseverity>
+			</li>
+			<li Class="AnimalBehaviours.CompProperties_DoesntFlee"/>
+		</comps>
+		<modExtensions>
+			<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+				<thingDefToSpawn>WVC_XenotypesAndGenes_WalkingCorpseTotem</thingDefToSpawn>
+				<!-- <stackCount>1</stackCount> -->
+			</li>
+			<!-- <li Class="VFECore.ThingDefExtension"> -->
+				<!-- <destroyCorpse>true</destroyCorpse> -->
+			<!-- </li> -->
+		</modExtensions>
+	</ThingDef>
+	<PawnKindDef Name="WVC_XenotypesAndGenes_WalkingCorpseGolemKind_Base" Abstract="True">
+		<alternateGraphicChance>1.0</alternateGraphicChance>
+		<combatPower>50</combatPower>
+		<isFighter>false</isFighter>
+		<canArriveManhunter>false</canArriveManhunter>
+		<allowInMechClusters>false</allowInMechClusters>
+		<allowOldAgeInjuries>false</allowOldAgeInjuries>
+		<alternateGraphics>
+			<!-- Base -->
+			<li><color>(195,195,195)</color></li>
+			<!-- slate -->
+			<li><color>(70,70,70)</color><weight>0.05</weight></li>
+			<!-- limestone -->
+			<li><color>(158,153,135)</color><weight>0.05</weight></li>
+			<!-- granite -->
+			<li><color>(105,95,97)</color><weight>0.05</weight></li>
+			<!-- sandstone -->
+			<li><color>(126,104,94)</color><weight>0.05</weight></li>
+			<!-- marble -->
+			<li><color>(132,135,132)</color><weight>0.05</weight></li>
+		</alternateGraphics>
+		<!-- <abilities> -->
+			<!-- <li>WVC_MechanoidAbility_ActivateGestator</li> -->
+		<!-- </abilities> -->
+	</PawnKindDef>
+
+	<!-- =================================================================== -->
+
+	<ThingDef ParentName="WVC_XenotypesAndGenes_WalkingCorpse_Base">
+		<defName>WVC_XenotypesAndGenes_WalkingCorpse</defName>
+		<label>walking corpse</label>
+		<statBases>
+			<ArmorRating_Sharp>0.1</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+			<MoveSpeed>3.8</MoveSpeed>
+		</statBases>
+	</ThingDef>
+	<PawnKindDef ParentName="WVC_XenotypesAndGenes_WalkingCorpseGolemKind_Base">
+		<defName>WVC_XenotypesAndGenes_WalkingCorpse</defName>
+		<label>walking corpse</label>
+		<race>WVC_XenotypesAndGenes_WalkingCorpse</race>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>WVC/Things/Mechanoids_Golems/BoneGolem</texPath>
+					<drawSize>1.2</drawSize>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+
+</Defs>

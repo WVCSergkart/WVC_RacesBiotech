@@ -9,7 +9,7 @@ using WVC_XenotypesAndGenes;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_ResurgentAgeless : Gene
+	public class Gene_ResurgentAgeless : Gene_ResurgentDependent
 	{
 		public readonly long oneYear = 3600000L;
 

@@ -467,7 +467,8 @@
 	<maxSeverity>1.0</maxSeverity>
 	<stages>
 	  <li>
-		<becomeVisible>false</becomeVisible>
+		<label>inactive</label>
+		<!-- <becomeVisible>false</becomeVisible> -->
 		<minSeverity>0.0</minSeverity>
 	  </li>
 	</stages>
