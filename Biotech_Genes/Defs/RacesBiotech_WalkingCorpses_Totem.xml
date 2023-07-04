@@ -171,6 +171,10 @@ If a settlement has a pawn with the "Resurgent spores" gene, then the tree will 
 		<glowRadius>3.5</glowRadius>
 		<glowColor>(189,205,255, 0)</glowColor>
 	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_SpawnBabyPawnAndInheritGenes">
+		<ticksBetweenSpawn>2400000~3600000</ticksBetweenSpawn>
+		<geneDef>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</geneDef>
+	  </li>
 	</comps>
   </ThingDef>
 

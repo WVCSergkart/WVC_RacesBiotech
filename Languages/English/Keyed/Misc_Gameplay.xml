@@ -43,6 +43,9 @@
 	<WVC_XaG_AbilitySpawn_WrongTarget>Incorrect target.</WVC_XaG_AbilitySpawn_WrongTarget>
 	<WVC_XaG_AbilitySpawn_WrongTarget_NotSoil>The target must be soil.</WVC_XaG_AbilitySpawn_WrongTarget_NotSoil>
 
+	<WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes>Time to baby gestation: {0}</WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes>
+	<WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes_ChildOwner>Child owner</WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes_ChildOwner>
+
 
 	<!-- <LetterTextGenesImplanted>{CASTER_nameDef} has implanted a copy of {CASTER_possessive} xenogerm into {TARGET_nameDef}, passing all xenogenes onto {TARGET_objective}.\n\n{TARGET_nameDef} will be in a xenogermination coma for the next {COMADURATION} while {TARGET_possessive} body adjusts to the changes.\n\n{CASTER_nameDef} will suffer from gene loss shock for the next {SHOCKDURATION}. {CASTER_possessive} genes will also need to regrow. This process takes time. If {CASTER_nameDef} implants {CASTER_possessive} xenogerm again before {CASTER_possessive} genes have regrown, {CASTER_pronoun} will die.</LetterTextGenesImplanted> -->
 

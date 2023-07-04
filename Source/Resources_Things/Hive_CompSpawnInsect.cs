@@ -143,7 +143,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostExposeData()
 		{
 			base.PostExposeData();
-			Scribe_Values.Look(ref tickCounter, "tickCounterNextSpawn", 0);
+			Scribe_Values.Look(ref tickCounter, "tickCounterNextSpawn_" + Props.uniqueTag, 0);
 			// Scribe_Values.Look(ref ticksBetweenSpawn, "ticksBetweenSpawn", 0);
 			// Scribe_Values.Look(ref TotalNumber, "TotalNumber", 0);
 		}

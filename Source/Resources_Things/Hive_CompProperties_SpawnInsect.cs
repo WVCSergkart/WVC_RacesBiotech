@@ -14,6 +14,8 @@ namespace WVC_XenotypesAndGenes
 
 		public bool ignoreFaction = true;
 
+		public string uniqueTag = "PlayerHive";
+
 		public string inspectString = "WVC_XaG_Label_CompHiveSpawnAnimals_WalkingCorpses";
 
 		public List<PawnKindDef> pawnsList = new();

@@ -107,6 +107,61 @@ namespace WVC_XenotypesAndGenes
 			pawnNewBornChild.genes.xenotypeName = pawnParent.genes.xenotypeName;
 			pawnNewBornChild.genes.iconDef = pawnParent.genes.iconDef;
 		}
-		
+
+		public static void GenerateNewBornPawn_Thing(Pawn pawn, string completeMessage = "WVC_RB_Gene_MechaGestator", bool endogeneTransfer = true, bool xenogeneTransfer = true, Thing spawnTarget = null)
+		{
+			Pawn pawnParent = pawn;
+			Thing pawnTarget = spawnTarget;
+			if (pawnTarget == null)
+			{
+				// pawnTarget = pawn;
+				return;
+			}
+			int litterSize = ((pawnParent.RaceProps.litterSizeCurve == null) ? 1 : Mathf.RoundToInt(Rand.ByCurve(pawnParent.RaceProps.litterSizeCurve)));
+			if (litterSize < 1)
+			{
+				litterSize = 1;
+			}
+			PawnGenerationRequest generateNewBornPawn = new(pawnParent.kindDef, pawnParent.Faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: true, canGeneratePawnRelations: true, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: true, allowAddictions: true, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Newborn);
+			// Pawn pawnNewBornChild = null;
+			for (int i = 0; i < litterSize; i++)
+			{
+				Pawn pawnNewBornChild = PawnGenerator.GeneratePawn(generateNewBornPawn);
+				GeneTransfer(pawnNewBornChild, pawnParent, endogeneTransfer, xenogeneTransfer);
+				if (PawnUtility.TrySpawnHatchedOrBornPawn(pawnNewBornChild, pawnTarget))
+				{
+					if (pawnNewBornChild.playerSettings != null && pawnParent.playerSettings != null)
+					{
+						pawnNewBornChild.playerSettings.AreaRestriction = pawnParent.playerSettings.AreaRestriction;
+					}
+					if (pawnNewBornChild.RaceProps.IsFlesh)
+					{
+						pawnNewBornChild.relations.AddDirectRelation(PawnRelationDefOf.Parent, pawnParent);
+					}
+					if (pawnParent.Spawned)
+					{
+						pawnParent.GetLord()?.AddPawn(pawnNewBornChild);
+					}
+				}
+				else
+				{
+					Find.WorldPawns.PassToWorld(pawnNewBornChild, PawnDiscardDecideMode.Discard);
+				}
+				TaleRecorder.RecordTale(TaleDefOf.GaveBirth, pawnParent, pawn);
+			}
+			if (pawnTarget.Spawned)
+			{
+				FilthMaker.TryMakeFilth(pawnTarget.Position, pawnTarget.Map, ThingDefOf.Filth_Slime, 5);
+				// if (pawn.caller != null)
+				// {
+					// pawn.caller.DoCall();
+				// }
+				if (pawn.caller != null)
+				{
+					pawn.caller.DoCall();
+				}
+			}
+			Messages.Message(completeMessage.Translate(pawn.LabelIndefinite().CapitalizeFirst()), pawn, MessageTypeDefOf.PositiveEvent);
+		}
 	}
 }

@@ -73,6 +73,7 @@
     <Compile Include="Resources_Genes\Gene_ResurgentCellsGain.cs" />
     <Compile Include="Resources_Main\JobGiver_WanderNearTarget.cs" />
     <Compile Include="Resources_Things\CompProperties_RecyclerSpawner.cs" />
+    <Compile Include="Resources_Things\CompProperties_SpawnBaby.cs" />
     <Compile Include="Resources_Things\CompProperties_Toxifier.cs" />
     <Compile Include="Resources_Things\CompRecyclerSpawner.cs" />
     <Compile Include="Resources_Genes\GeneGizmo_ResurgentCells.cs" />
