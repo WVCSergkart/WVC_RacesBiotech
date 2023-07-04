@@ -65,9 +65,11 @@
   <ItemGroup>
     <Compile Include="Resources_Abilities\CompAbilityEffect_GeneIsActive.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_ResurgentCost.cs" />
+    <Compile Include="Resources_Abilities\CompAbilityEffect_Spawn.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityGeneIsActive.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityResurgentCost.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityRiseFromTheDead.cs" />
+    <Compile Include="Resources_Abilities\CompProperties_AbilitySpawn.cs" />
     <Compile Include="Resources_Genes\Gene_ResurgentCellsGain.cs" />
     <Compile Include="Resources_Main\JobGiver_WanderNearTarget.cs" />
     <Compile Include="Resources_Things\CompProperties_RecyclerSpawner.cs" />

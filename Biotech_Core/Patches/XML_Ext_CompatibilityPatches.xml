@@ -386,6 +386,16 @@
 	  <!-- </value> -->
 	<!-- </Operation> -->
 
+	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThingDef/race</xpath> 
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		  <willNeverEat>
+			<li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeResurgent</li>
+		  </willNeverEat>
+	  </value>
+	</Operation>
+
 	<Operation Class="XmlExtensions.FindMod">
 		<mods>
 			<li>wvc.wvcmod.wvcspecific</li>

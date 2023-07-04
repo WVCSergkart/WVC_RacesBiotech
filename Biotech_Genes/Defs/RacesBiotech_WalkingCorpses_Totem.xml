@@ -15,6 +15,7 @@ This creepy organism obeys the local owner of the "GENE_NAME" gene, forming a st
 Totems also spread pollution from time to time.</description>
 	<descriptionHyperlinks>
 	  <ThingDef>WVC_XenotypesAndGenes_WalkingCorpse</ThingDef>
+	  <ThingDef>WVC_Plant_TreeResurgent</ThingDef>
 	</descriptionHyperlinks>
 	<soundImpactDefault>MeleeHit_Wood</soundImpactDefault>
 	<statBases>
@@ -86,6 +87,90 @@ Totems also spread pollution from time to time.</description>
 		<pollutionIntervalTicks>360000~720000</pollutionIntervalTicks>
 	  </li>
 	  <li Class="CompProperties_Styleable" />
+	</comps>
+  </ThingDef>
+
+  <ThingDef ParentName="TreeBase">
+	<defName>WVC_Plant_TreeResurgent</defName>
+	<label>resurgent tree</label>
+	<description>Created by a series of complex mutations, the resurgent tree coexists in symbiosis with the resurgent fungus. While the tree protects the fungus from external influences, the fungus helps nourish the roots of the tree with nutrients. As a result of this symbiosis, the surrounding soil is poisoned with toxic substances.
+
+The fungus, deep in the roots of the tree, slowly infects the ancient remains, animating them in order to spread. Such active distribution greatly harms the ecosystem, and walking corpses attacking animals only accelerate extinction.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; The tree will spawn walking corpses every few days. The limit on walking corpses for trees and totems is different.
+
+The tree also pollutes the environment every few days.
+
+If a settlement has a pawn with the "Resurgent spores" gene, then the tree will spawn a baby once a year, which will inherit the genes of one of these settlers.</description>
+	<descriptionHyperlinks>
+	  <ThingDef>WVC_XenotypesAndGenes_WalkingCorpse</ThingDef>
+	  <ThingDef>WVC_XenotypesAndGenes_WalkingCorpseTotem</ThingDef>
+	  <GeneDef>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</GeneDef>
+	</descriptionHyperlinks>
+	<graphicData>
+	  <texPath>WVC/Things/ResurgentTree</texPath>
+	  <graphicClass>Graphic_Random</graphicClass>
+	  <shadowData>
+		<volume>(0.35, 0.3, 0.35)</volume>
+		<offset>(0,0,0.05)</offset>
+	  </shadowData>
+	</graphicData>
+	<tickerType>Long</tickerType>
+	<minifiedDef IsNull="True" />
+	<statBases>
+	  <Beauty>6</Beauty>
+	  <BeautyOutdoors>6</BeautyOutdoors>
+	  <Flammability>0.5</Flammability>
+	  <MaxHitPoints>300</MaxHitPoints>
+	</statBases>
+	<ingestible />
+	<preventSkyfallersLandingOn>true</preventSkyfallersLandingOn>
+	<canScatterOver>false</canScatterOver>
+	<specialDisplayRadius>8.9</specialDisplayRadius>
+	<plant>
+	  <interferesWithRoof>false</interferesWithRoof>
+	  <growMinGlow>0</growMinGlow>
+	  <pollution>Any</pollution>
+	  <growDays>10</growDays>
+	  <visualSizeRange>1.5~2.1</visualSizeRange>
+	  <sowMinSkill>0</sowMinSkill>
+	  <sowTags Inherit="False"/>
+	  <lifespanDaysPerGrowDays>0</lifespanDaysPerGrowDays>
+	  <fertilityMin>0.05</fertilityMin>
+	  <fertilitySensitivity>0</fertilitySensitivity>
+	  <wildClusterWeight>0</wildClusterWeight>
+	  <sowWork>400</sowWork>
+	  <harvestYield>30</harvestYield>
+	  <treeCategory>Super</treeCategory>
+	  <dieIfNoSunlight>false</dieIfNoSunlight>
+	  <sowResearchPrerequisites Inherit="False" />
+	  <dieFromToxicFallout>False</dieFromToxicFallout>
+	  <showGrowthInInspectPane>false</showGrowthInInspectPane>
+	  <minSpacingBetweenSamePlant>4.9</minSpacingBetweenSamePlant>
+	  <warnIfMarkedForCut>true</warnIfMarkedForCut>
+	  <harvestWork>1000</harvestWork>
+	  <choppedThingDef>ChoppedStump_Polluted</choppedThingDef>
+	  <smashedThingDef>SmashedStump_Polluted</smashedThingDef>
+	</plant>
+	<comps>
+	  <li Class="CompProperties_SelfhealHitpoints">
+		<ticksPerHeal>2000</ticksPerHeal> <!-- 30 hp per day, must be a multiple of 2000, since plants have Long ticker -->
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_HiveSpawnAnimals">
+		<ticksBetweenSpawn>120000~720000</ticksBetweenSpawn>
+		<!-- <maxNumber>5</maxNumber> -->
+		<pawnsList>
+		  <li>WVC_XenotypesAndGenes_WalkingCorpse</li>
+		</pawnsList>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_Toxifier">
+		<pollutionIntervalTicks>360000~720000</pollutionIntervalTicks>
+		<radius>8.9</radius>
+	  </li>
+	  <li Class="CompProperties_Glower">
+		<glowRadius>3.5</glowRadius>
+		<glowColor>(189,205,255, 0)</glowColor>
+	  </li>
 	</comps>
   </ThingDef>
 

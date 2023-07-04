@@ -159,6 +159,9 @@
 	<resourceLossPerDay>0.07</resourceLossPerDay>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>3</biostatMet>
+	<makeImmuneTo>
+	  <li>LungRot</li>
+	</makeImmuneTo>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells">
@@ -289,6 +292,29 @@
 			<hediffDefName>WVC_ResurgentStomach_HungerFactor</hediffDefName>
 		</li>
 	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells">
+	<defName>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</defName>
+	<label>resurgent spores</label>
+	<description>Carriers of this gene have special glands in their palms. They can saturate the soil with resurgent spores by touch, which will allow the growth of a resurgent tree.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentDependent</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_ResurgentTree_v0</iconPath>
+	<displayOrderInCategory>1260</displayOrderInCategory>
+	<minAgeActive>13</minAgeActive>
+	<prerequisite>WVC_ResurgentCellsGain</prerequisite>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<customEffectDescriptions>
+		<li>Makes it possible to plant a resurgent tree at the cost of 66 cells.</li>
+		<li>The resurgent tree slowly pollutes the soil around it and raises walking corpses.</li>
+		<li>Also, the tree once a year will spawn babies that inherit the genes of one of the owners of this gene in the settlement.</li>
+		<li>If all the owners of this gene are dead or absent in the settlement, then the tree will stop spawning babies.</li>
+		<li>Walking corpses are eternally hungry aberrations that will protect the settlement until death.</li>
+	</customEffectDescriptions>
+	<abilities>
+	  <li>WVC_AbilitySpawn_ResurgentTree</li>
+	</abilities>
   </GeneDef>
 
 </Defs>

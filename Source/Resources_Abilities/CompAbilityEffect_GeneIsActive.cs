@@ -25,7 +25,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					if (!MechanoidizationUtility.HasActiveGene(allSelectedItem, pawn))
 					{
-						reason = "WVC_XaG_AbilityGeneIsActive_PawnNotHaveGene".Translate(pawn);
+						reason = "WVC_XaG_AbilityGeneIsActive_PawnNotHaveGene".Translate(pawn) + ": " + allSelectedItem.label;
 						return true;
 					}
 				}
@@ -40,9 +40,11 @@ namespace WVC_XenotypesAndGenes
 						return false;
 					}
 				}
+				reason = "WVC_XaG_AbilityGeneIsActive_PawnNotHaveGene".Translate(pawn);
+				return true;
 			}
-			reason = "WVC_XaG_AbilityGeneIsActive_PawnNotHaveGene".Translate(pawn);
-			return true;
+			reason = null;
+			return false;
 		}
 	}
 

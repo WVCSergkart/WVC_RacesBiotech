@@ -171,6 +171,7 @@
 
 Walking corpses cannot be zoned, but they will try to stay close to the totems. Also, when an enemy appears on the map, they will blindly try to destroy it.</description>
 		<descriptionHyperlinks>
+		  <ThingDef>WVC_Plant_TreeResurgent</ThingDef>
 		  <ThingDef>WVC_XenotypesAndGenes_WalkingCorpseTotem</ThingDef>
 		</descriptionHyperlinks>
 		<statBases>
