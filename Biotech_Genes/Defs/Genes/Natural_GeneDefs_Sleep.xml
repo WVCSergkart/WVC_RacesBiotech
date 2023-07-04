@@ -32,6 +32,9 @@
 	<biostatMet>0</biostatMet>
 	<biostatArc>1</biostatArc>
 	<biostatCpx>3</biostatCpx>
+	<exclusionTags>
+	  <li>WVC_DisableComfort</li>
+	</exclusionTags>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>wake</symbol></li>

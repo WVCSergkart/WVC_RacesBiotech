@@ -208,44 +208,5 @@
 	  </prefixSymbols>
 	</symbolPack>
   </GeneDef>
-
-  <!-- Punk -->
-
-  <GeneDef ParentName="GeneHairStyleBase">
-	<defName>WVC_Hair_PunkOnly</defName>
-	<label>punk-haired</label>
-	<description>Carriers of this gene grow hair on the head is a bit weird.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; With ideology disabled, most pawns will spawn bald.</description>
-	<iconPath>WVC/UI/Genes/PunkHaired</iconPath>
-	<displayOrderInCategory>57</displayOrderInCategory>
-	<selectionWeight>0.025</selectionWeight>
-	<hairTagFilter>
-	  <whitelist>true</whitelist>
-	  <tags>
-		<li>Punk</li>
-	  </tags>
-	</hairTagFilter>
-	<symbolPack>
-	  <wholeNameSymbols>
-		<li><symbol>punkind</symbol></li>
-		<li><symbol>punkkind</symbol></li>
-	  </wholeNameSymbols>
-	  <prefixSymbols>
-		<li><symbol>punk</symbol></li>
-		<li><symbol>rock</symbol></li>
-		<li><symbol>roc</symbol></li>
-	  </prefixSymbols>
-	  <suffixSymbols>
-		<li><symbol>punk</symbol></li>
-		<li><symbol>rocker</symbol></li>
-		<li><symbol>ker</symbol></li>
-	  </suffixSymbols>
-	</symbolPack>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-	</modExtensions>
-  </GeneDef>
   
 </Defs>

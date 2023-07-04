@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- resurgent -->
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base">
+	<defName>WVC_Resurgent</defName>
+	<label>resurgent</label>
+	<!-- Experiments, mutations, critical success -->
+	<!-- <description>Undeads are partially immortal, rapidly aging xeno-humans. Their genes are quite unstable and often their health can cause death, their bodies are very fragile, which is why even a fist fight can be fatal for them. In compensation, they can reanimate the dead by turning them into their own kind, and death is not always the end for them.</description> -->
+	<!-- <descriptionShort>Undeads are partially immortal, rapidly aging xeno-humans. Their genes are quite unstable and often their health can cause death, their bodies are very fragile, which is why even a fist fight can be fatal for them. In compensation, they can reanimate the dead by turning them into their own kind, and death is not always the end for them.</descriptionShort> -->
+	<canGenerateAsCombatant>true</canGenerateAsCombatant>
+	<inheritable>false</inheritable>
+	<iconPath>WVC/UI/Mecha_Icons/Xeno_Undead_v0</iconPath>
+	<doubleXenotypeChances>
+		<WVC_Undead>1.0</WVC_Undead>
+	</doubleXenotypeChances>
+	<genes>
+		<li>Deathless</li>
+		<li>WVC_ResurgentCells</li>
+		<li>WVC_ResurgentCellsGain</li>
+		<li>WVC_ResurgentCells_TotalHealing</li>
+		<li>WVC_ResurgentCells_Ageless</li>
+		<li>WVC_ResurgentCells_Clotting</li>
+		<li>WVC_ResurgentCells_Blood</li>
+		<li>WVC_ResurgentCells_Stomach</li>
+		<li>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</li>
+		<li>WVC_ResurgentImmunity_PerfectImmunity</li>
+		<li>WVC_ResurgentDisease_DiseaseFree</li>
+		<li>WVC_MinMaxTemp_Archite</li>
+		<li>UVSensitivity_Intense</li>
+		<li>Aggression_DeadCalm</li>
+		<li>WVC_Neversleep</li>
+		<li>WVC_Pain_Nullified</li>
+		<li>WVC_Hair_TribalOnly</li>
+		<li>Hair_SnowWhite</li>
+		<li>WVC_SkinColor_Undead</li>
+		<li>DarkVision</li>
+		<li>WVC_BodySize_Small</li>
+		<li>WVC_PatchSkin</li>
+		<li>PollutionRush</li>
+		<li>AptitudePoor_Plants</li>
+		<li>AptitudePoor_Animals</li>
+		<li>AptitudeRemarkable_Medicine</li>
+		<li>WVC_AptitudeShameful_Artistic</li>
+		<!-- TEST -->
+		<!-- <li>WVC_XenotypeForcer_WVC_Undead_XenoForcer</li> -->
+	</genes>
+  </XenotypeDef>
+
+</Defs>

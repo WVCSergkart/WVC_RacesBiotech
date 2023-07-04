@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="GenePainBase" Name="WVC_XenotypesAndGenes_GenePain_Base" Abstract="True">
+	<selectionWeight>0.022</selectionWeight>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GenePain_Base">
+	<defName>WVC_Pain_Nullified</defName>
+	<label>nullified pain</label>
+	<labelShortAdj>pain-deaf</labelShortAdj>
+	<description>Carriers of this gene do not feel pain at all. This can be advantageous sometimes, and dangerous other times.</description>
+	<iconPath>WVC/UI/Genes/Gene_Pain_Nullified_v0</iconPath>
+	<displayOrderInCategory>30</displayOrderInCategory>
+	<painFactor>0.0</painFactor>
+	<biostatMet>-2</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>dull</symbol></li>
+		<li><symbol>daze</symbol></li>
+		<li><symbol>tough</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>
