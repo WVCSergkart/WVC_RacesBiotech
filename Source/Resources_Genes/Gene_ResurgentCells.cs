@@ -31,7 +31,7 @@ namespace WVC_XenotypesAndGenes
 
 		public string DisplayLabel => Label + " (" + "Gene".Translate() + ")";
 
-		public float ResourceLossPerDay => (-1 * def.resourceLossPerDay);
+		public float ResourceLossPerDay => def.resourceLossPerDay;
 
 		public override float InitialResourceMax => 1.0f;
 

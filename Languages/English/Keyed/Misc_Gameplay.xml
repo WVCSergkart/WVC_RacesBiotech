@@ -14,7 +14,7 @@
 	
 	<WVC_RoleRequirementShouldBeMechanitor>Must be a Mechanitor</WVC_RoleRequirementShouldBeMechanitor>
 	
-	<WVC_PawnIsAndroidCheck>Target should be a human.</WVC_PawnIsAndroidCheck>
+	<WVC_PawnIsAndroidCheck>The target must be human and/or genetically compatible.</WVC_PawnIsAndroidCheck>
 
 
 	<WVC_LetterTextGenesImplanted>{TARGET_nameDef} will be in a xenogermination coma for the next {COMADURATION} while {TARGET_possessive} body adjusts to the changes.</WVC_LetterTextGenesImplanted>
@@ -45,6 +45,9 @@
 
 	<WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes>Time to baby gestation: {0}</WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes>
 	<WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes_ChildOwner>Child owner</WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes_ChildOwner>
+
+	<WVC_XaG_Gene_GeneticBackup_Full>{0}'s genes were backed up.</WVC_XaG_Gene_GeneticBackup_Full>
+	<WVC_XaG_Gene_GeneticBackup_Empty>{0}'s gene backup is empty.</WVC_XaG_Gene_GeneticBackup_Empty>
 
 
 	<!-- <LetterTextGenesImplanted>{CASTER_nameDef} has implanted a copy of {CASTER_possessive} xenogerm into {TARGET_nameDef}, passing all xenogenes onto {TARGET_objective}.\n\n{TARGET_nameDef} will be in a xenogermination coma for the next {COMADURATION} while {TARGET_possessive} body adjusts to the changes.\n\n{CASTER_nameDef} will suffer from gene loss shock for the next {SHOCKDURATION}. {CASTER_possessive} genes will also need to regrow. This process takes time. If {CASTER_nameDef} implants {CASTER_possessive} xenogerm again before {CASTER_possessive} genes have regrown, {CASTER_pronoun} will die.</LetterTextGenesImplanted> -->

@@ -15,7 +15,6 @@
 		<WVC_Undead>1.0</WVC_Undead>
 	</doubleXenotypeChances>
 	<genes>
-		<li>Deathless</li>
 		<li>WVC_ResurgentCells</li>
 		<li>WVC_ResurgentCellsGain</li>
 		<li>WVC_ResurgentCells_TotalHealing</li>
@@ -23,13 +22,12 @@
 		<li>WVC_ResurgentCells_Clotting</li>
 		<li>WVC_ResurgentCells_Blood</li>
 		<li>WVC_ResurgentCells_Stomach</li>
+		<li>WVC_ResurgentCells_Sleep</li>
 		<li>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</li>
 		<li>WVC_ResurgentImmunity_PerfectImmunity</li>
+		<li>WVC_ResurgentCells_GeneticStability</li>
 		<li>WVC_ResurgentDisease_DiseaseFree</li>
-		<li>WVC_MinMaxTemp_Archite</li>
-		<li>UVSensitivity_Intense</li>
 		<li>Aggression_DeadCalm</li>
-		<li>WVC_Neversleep</li>
 		<li>WVC_Pain_Nullified</li>
 		<li>WVC_Hair_TribalOnly</li>
 		<li>Hair_SnowWhite</li>
@@ -37,11 +35,6 @@
 		<li>DarkVision</li>
 		<li>WVC_BodySize_Small</li>
 		<li>WVC_PatchSkin</li>
-		<li>PollutionRush</li>
-		<li>AptitudePoor_Plants</li>
-		<li>AptitudePoor_Animals</li>
-		<li>AptitudeRemarkable_Medicine</li>
-		<li>WVC_AptitudeShameful_Artistic</li>
 		<!-- TEST -->
 		<!-- <li>WVC_XenotypeForcer_WVC_Undead_XenoForcer</li> -->
 	</genes>

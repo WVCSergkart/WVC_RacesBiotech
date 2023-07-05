@@ -117,6 +117,22 @@ namespace WVC_XenotypesAndGenes
 			{
 				return true;
 			}
+			if (pawn?.genes == null)
+			{
+				return false;
+			}
+			List<GeneDef> nonCandidates = new();
+			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+			{
+				nonCandidates.AddRange(item.nonCandidatesForSerums);
+			}
+			for (int i = 0; i < nonCandidates.Count; i++)
+			{
+				if (HasActiveGene(nonCandidates[i], pawn))
+				{
+					return true;
+				}
+			}
 			return false;
 		}
 
@@ -140,49 +156,24 @@ namespace WVC_XenotypesAndGenes
 			{
 				whiteListedGenes.AddRange(item.whiteListedExoskinGenes);
 			}
-			List<Gene> genesListForReading = pawn.genes.GenesListForReading;
-			for (int i = 0; i < genesListForReading.Count; i++)
+			for (int i = 0; i < whiteListedGenes.Count; i++)
 			{
-				if (genesListForReading[i].Active == true)
+				if (HasActiveGene(whiteListedGenes[i], pawn))
 				{
-					if (whiteListedGenes.Contains(genesListForReading[i].def))
-					{
-						return true;
-					}
-					// GeneGraphicData geneGraphicData = genesListForReading[i].def.graphicData;
-					// if (geneGraphicData != null)
-					// {
-						// if (geneGraphicData.fur != null)
-						// {
-							// return true;
-						// }
-					// }
-					// for (int j = 0; j < whiteListedGenes.Count; j++)
-					// {
-					// }
-					// if (whiteListedGenes.Contains(genesListForReading[i].def.defName))
+					return true;
+				}
+			}
+			// List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+			// for (int i = 0; i < genesListForReading.Count; i++)
+			// {
+				// if (genesListForReading[i].Active == true)
+				// {
+					// if (whiteListedGenes.Contains(genesListForReading[i].def))
 					// {
 						// return true;
 					// }
-				}
-				// if (!WVC_Biotech.settings.disableFurGraphic)
-				// {
 				// }
-				// else
-				// {
-					// if (genesListForReading[i].Active == true)
-					// {
-						// List<string> exclusionTags = genesListForReading[i].def.exclusionTags;
-						// if (exclusionTags != null)
-						// {
-							// if (exclusionTags.Contains("Fur"))
-							// {
-								// return true;
-							// }
-						// }
-					// }
-				// }
-			}
+			// }
 			return false;
 		}
 

@@ -549,6 +549,54 @@
 	  </li>
 	</stages>
   </HediffDef>
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_ResurgentCells">
+	<defName>WVC_ResurgentSleep_RestFallRateFactor</defName>
+	<label>resurgent sleep</label>
+	<description>Resurgent cells optimize metabolic processes and reduce the load on neuronal clusters, which reduces the need for sleep.</description>
+	<stages>
+	  <li>
+		<label>insufficient cell level</label>
+		<minSeverity>0.25</minSeverity>
+		<statFactors>
+		  <RestFallRateFactor>0.90</RestFallRateFactor>
+		</statFactors>
+	  </li>
+	  <li>
+		<label>low cell level</label>
+		<minSeverity>0.35</minSeverity>
+		<statFactors>
+		  <RestFallRateFactor>0.85</RestFallRateFactor>
+		</statFactors>
+	  </li>
+	  <li>
+		<label>medium cell level</label>
+		<minSeverity>0.50</minSeverity>
+		<statFactors>
+		  <RestFallRateFactor>0.75</RestFallRateFactor>
+		</statFactors>
+	  </li>
+	  <li>
+		<label>high cell level</label>
+		<minSeverity>0.65</minSeverity>
+		<statFactors>
+		  <RestFallRateFactor>0.45</RestFallRateFactor>
+		</statFactors>
+	  </li>
+	  <li>
+		<label>sufficient cell level</label>
+		<minSeverity>0.70</minSeverity>
+		<statFactors>
+		  <RestFallRateFactor>0.25</RestFallRateFactor>
+		</statFactors>
+	  </li>
+	  <li>
+		<minSeverity>0.85</minSeverity>
+		<statFactors>
+		  <RestFallRateFactor>0.1</RestFallRateFactor>
+		</statFactors>
+	  </li>
+	</stages>
+  </HediffDef>
 
   <!-- <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_ResurgentCells"> -->
 	<!-- <defName>WVC_ResurgentHealth_Healing</defName> -->

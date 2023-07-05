@@ -39,7 +39,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public float ResourceLossPerDay => (-1 * def.resourceLossPerDay);
+		public float ResourceLossPerDay => def.resourceLossPerDay;
 
 		public Pawn Pawn => pawn;
 

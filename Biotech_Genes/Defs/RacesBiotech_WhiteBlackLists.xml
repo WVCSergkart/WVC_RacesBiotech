@@ -8,6 +8,7 @@
 		<li>Baseliner</li>
 		<!-- An undead xenotype has a separate serum mechanic. -->
 		<li>WVC_Undead</li>
+		<li>WVC_Resurgent</li>
 		<!-- <li>WVC_Blank</li> -->
 		<li>WVC_RandomHybrid</li>
 		<li>WVC_RandomHybrid_Blankind</li>
@@ -46,8 +47,7 @@
 		<li>WVC_GeneThrower</li>
 		<li>WVC_Golemkind</li>
 		<!-- AG -->
-		<!-- AG xenotypes are now all exceptions by default. Although their mechanics are quite interesting, xenotypes are quite specific. -->
-		<!-- <li>AG_Wretch</li> -->
+		<!-- - -->
 		<!-- VRE -->
 		<li>VREH_Uhlan</li>
 		<li>VRE_Gauranlenkin</li>
@@ -70,12 +70,16 @@
 	</blackListedDefsForSerums>
 	<!-- Genes with which pawns do not lose consciousness when using serums. Any gene defNames -->
 	<perfectCandidatesForSerums>
-		<!-- <li>WVC_Blank</li> -->
-		<!-- <li>AG_Wretch</li> -->
 		<li>WVC_MildGeneticInstability</li>
 		<li>WVC_MajorGeneticInstability</li>
 		<li>WVC_ExtremeGeneticInstability</li>
 	</perfectCandidatesForSerums>
+	<!-- Genes with which it is not possible to use the serum or wvc reimplanters. Any gene defNames -->
+	<nonCandidatesForSerums>
+		<li>WVC_GeneticStability</li>
+		<li>WVC_ResurgentCells_GeneticStability</li>
+		<li MayRequire="vanillaracesexpanded.android">VREA_SyntheticBody</li>
+	</nonCandidatesForSerums>
 	<!-- List of genes that are (exo)skins. Used for ideology. Required gene defNames -->
 	<whiteListedExoskinGenes>
 		<li>WVC_MechaSkin</li>
@@ -243,10 +247,19 @@
 		<!-- = -->
 		<li>WVC_Undead</li>
 		<li>WVC_NaturalUndead</li>
-		<li>WVC_ResurgentCells</li>
+		<li>WVC_ResurgentCellsGain</li>
 		<li>WVC_ResurgentCells_TotalHealing</li>
-		<li>WVC_ResurgentCells_Clotting</li>
 		<li>WVC_ResurgentCells_Ageless</li>
+		<li>WVC_ResurgentCells_Clotting</li>
+		<li>WVC_ResurgentCells_Blood</li>
+		<li>WVC_ResurgentCells_Stomach</li>
+		<li>WVC_ResurgentCells_Sleep</li>
+		<li>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</li>
+		<li>WVC_ResurgentImmunity_PerfectImmunity</li>
+		<li>WVC_ResurgentDisease_DiseaseFree</li>
+		<!-- = -->
+		<li>WVC_GeneticStability</li>
+		<li>WVC_ResurgentCells_GeneticStability</li>
 		<!-- = -->
 		<li>WVC_RandomLearning</li>
 		<li>WVC_RandomHands</li>

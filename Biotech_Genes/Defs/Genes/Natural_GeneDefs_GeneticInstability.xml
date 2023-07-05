@@ -42,6 +42,31 @@
 
   <!-- ============================= -->
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneticInstability_Base" Name="WVC_XenotypesAndGenes_GeneGeneticInstability_Stability" Abstract="True">
+	<iconPath>WVC/UI/Genes/Gene_Inbred3_v0</iconPath>
+	<description>Carriers of this gene have a remarkably stable genetic code. In this connection, some methods of gene manipulation do not work on them.</description>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>2</biostatMet>
+	<displayOrderInCategory>1250</displayOrderInCategory>
+	<customEffectDescriptions Inherit="False">
+	  <li>Carriers of this gene cannot use xenotype serums.</li>
+	  <li>Abilities "Raise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneticInstability_Stability">
+	<defName>WVC_GeneticStability</defName>
+	<label>genetic stability</label>
+	<iconPath>WVC/UI/Genes/Gene_Inbred3_v0</iconPath>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>2</biostatMet>
+	<displayOrderInCategory>1250</displayOrderInCategory>
+  </GeneDef>
+
+  <!-- ============================= -->
+
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneticInstability_Base">
 	<defName>WVC_MildGeneticInstability</defName>
 	<label>mild genetic instability</label>
