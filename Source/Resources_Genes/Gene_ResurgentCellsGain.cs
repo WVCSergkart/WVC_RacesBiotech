@@ -51,13 +51,13 @@ namespace WVC_XenotypesAndGenes
 			UndeadUtility.TickResourceDrain(this);
 		}
 
-		public override IEnumerable<Gizmo> GetGizmos()
-		{
-			foreach (Gizmo resourceDrainGizmo in UndeadUtility.GetResourceDrainGizmos(this))
-			{
-				yield return resourceDrainGizmo;
-			}
-		}
+		// public override IEnumerable<Gizmo> GetGizmos()
+		// {
+			// foreach (Gizmo resourceDrainGizmo in UndeadUtility.GetResourceDrainGizmos(this))
+			// {
+				// yield return resourceDrainGizmo;
+			// }
+		// }
 	}
 
 }

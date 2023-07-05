@@ -106,7 +106,8 @@
 	<description>Carriers of this gene accumulate resurgent cells over time. With the help of these cells, the host can resurrect or resurrect others.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentCells</geneClass>
 	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_ResourceResurgentCells</resourceGizmoType>
-	<resourceLabel>resurgent cells</resourceLabel>
+	<!-- <resourceLabel>resurgent cells</resourceLabel> -->
+	<resourceLabel>cells</resourceLabel>
 	<resourceGizmoThresholds>
 	  <li>0.05</li>
 	  <li>0.25</li>
@@ -152,7 +153,8 @@
 	<defName>WVC_ResurgentCells_GeneticStability</defName>
 	<label>resurgent genetic</label>
 	<description>Carriers of this gene have special resurgent cells that protect their genetic code from most influences.</description>
-	<resourceLabel>resurgent cells</resourceLabel>
+	<!-- <resourceLabel>resurgent cells</resourceLabel> -->
+	<resourceLabel>cells</resourceLabel>
 	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentCellsGain</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_ResurgentGeneticStability_v0</iconPath>
 	<iconColor>(93, 101, 126)</iconColor>
@@ -179,7 +181,8 @@
 	<description>Carriers of this gene have a symbiotic parasitic fungus. This fungus does not have a noticeable effect on the host but significantly increases the production of resurgent cells.</description>
 	<iconPath>WVC/UI/Genes/Gene_ResurgentFungus_v0</iconPath>
 	<iconColor>(93, 101, 126)</iconColor>
-	<resourceLabel>resurgent cells</resourceLabel>
+	<!-- <resourceLabel>resurgent cells</resourceLabel> -->
+	<resourceLabel>cells</resourceLabel>
 	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentCellsGain</geneClass>
 	<displayOrderInCategory>1232</displayOrderInCategory>
 	<resourceLossPerDay>-0.07</resourceLossPerDay>

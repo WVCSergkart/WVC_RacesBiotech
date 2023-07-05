@@ -63,23 +63,26 @@ namespace WVC_XenotypesAndGenes
 			Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
 			if (gene_Resurgent != null)
 			{
-				if ((gene_Resurgent.Value - def.resourceLossPerDay) >= 0f)
+				if (gene_Resurgent.ageReversionAllowed)
 				{
-					gene_Resurgent.Value -= def.resourceLossPerDay;
-					int num = (int)(oneYear * pawn.ageTracker.AdultAgingMultiplier);
-					long val = (long)(oneYear * pawn.ageTracker.AdultMinAge);
-					pawn.ageTracker.AgeBiologicalTicks = Math.Max(val, pawn.ageTracker.AgeBiologicalTicks - num);
-					// pawn.ageTracker.ResetAgeReversalDemand(Pawn_AgeTracker.AgeReversalReason.ViaTreatment);
-					// int num2 = (int)(pawn.ageTracker.AgeReversalDemandedDeadlineTicks / 60000);
-					string text = "WVC_ResurgentGeneAgeReversalCompletedMessage".Translate(pawn.Named("PAWN"));
-					// Ideo ideo = pawn.Ideo;
-					// if (ideo != null && ideo.HasPrecept(PreceptDefOf.AgeReversal_Demanded))
-					// {
-						// text += " " + "AgeReversalExpectationDeadline".Translate(pawn.Named("PAWN"), num2.Named("DEADLINE"));
-					// }
-					if (pawn.IsColonist)
+					if ((gene_Resurgent.Value - def.resourceLossPerDay) >= 0f)
 					{
-						Messages.Message(text, pawn, MessageTypeDefOf.PositiveEvent);
+						gene_Resurgent.Value -= def.resourceLossPerDay;
+						int num = (int)(oneYear * pawn.ageTracker.AdultAgingMultiplier);
+						long val = (long)(oneYear * pawn.ageTracker.AdultMinAge);
+						pawn.ageTracker.AgeBiologicalTicks = Math.Max(val, pawn.ageTracker.AgeBiologicalTicks - num);
+						// pawn.ageTracker.ResetAgeReversalDemand(Pawn_AgeTracker.AgeReversalReason.ViaTreatment);
+						// int num2 = (int)(pawn.ageTracker.AgeReversalDemandedDeadlineTicks / 60000);
+						string text = "WVC_ResurgentGeneAgeReversalCompletedMessage".Translate(pawn.Named("PAWN"));
+						// Ideo ideo = pawn.Ideo;
+						// if (ideo != null && ideo.HasPrecept(PreceptDefOf.AgeReversal_Demanded))
+						// {
+							// text += " " + "AgeReversalExpectationDeadline".Translate(pawn.Named("PAWN"), num2.Named("DEADLINE"));
+						// }
+						if (pawn.IsColonist)
+						{
+							Messages.Message(text, pawn, MessageTypeDefOf.PositiveEvent);
+						}
 					}
 				}
 			}

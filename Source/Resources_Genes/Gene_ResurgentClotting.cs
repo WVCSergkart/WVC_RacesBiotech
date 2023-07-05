@@ -26,15 +26,18 @@ namespace WVC_XenotypesAndGenes
 				Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
 				if (gene_Resurgent != null)
 				{
-					List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
-					for (int num = hediffs.Count - 1; num >= 0; num--)
+					if (gene_Resurgent.woundClottingAllowed)
 					{
-						if (hediffs[num].TendableNow() && !hediffs[num].IsTended())
+						List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
+						for (int num = hediffs.Count - 1; num >= 0; num--)
 						{
-							if ((gene_Resurgent.Value - def.resourceLossPerDay) >= 0f)
+							if (hediffs[num].TendableNow() && !hediffs[num].IsTended())
 							{
-								gene_Resurgent.Value -= def.resourceLossPerDay;
-								hediffs[num].Tended(TendingQualityRange.RandomInRange, TendingQualityRange.TrueMax, 1);
+								if ((gene_Resurgent.Value - def.resourceLossPerDay) >= 0f)
+								{
+									gene_Resurgent.Value -= def.resourceLossPerDay;
+									hediffs[num].Tended(TendingQualityRange.RandomInRange, TendingQualityRange.TrueMax, 1);
+								}
 							}
 						}
 					}

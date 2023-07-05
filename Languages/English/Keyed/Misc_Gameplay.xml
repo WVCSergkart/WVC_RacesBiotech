@@ -46,9 +46,14 @@
 	<WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes>Time to baby gestation: {0}</WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes>
 	<WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes_ChildOwner>Child owner</WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes_ChildOwner>
 
-	<WVC_XaG_Gene_GeneticBackup_Full>{0}'s genes were backed up.</WVC_XaG_Gene_GeneticBackup_Full>
-	<WVC_XaG_Gene_GeneticBackup_Empty>{0}'s gene backup is empty.</WVC_XaG_Gene_GeneticBackup_Empty>
+	<!-- <WVC_XaG_Gene_GeneticBackup_Full>{0}'s genes were backed up.</WVC_XaG_Gene_GeneticBackup_Full> -->
+	<!-- <WVC_XaG_Gene_GeneticBackup_Empty>{0}'s gene backup is empty.</WVC_XaG_Gene_GeneticBackup_Empty> -->
 
+	<WVC_XaG_AutoBaseDesc>Determines whether the gene will be triggered automatically.</WVC_XaG_AutoBaseDesc>
+
+	<WVC_XaG_AutoTotalHealingDesc>\n\nAutomatic total healing is currently {ONOFF}.</WVC_XaG_AutoTotalHealingDesc>
+	<WVC_XaG_AutoAgeReversionDesc>\n\nAutomatic age reversion is currently {ONOFF}.</WVC_XaG_AutoAgeReversionDesc>
+	<WVC_XaG_AutoWoundClottingDesc>\n\nAutomatic clotting is currently {ONOFF}.</WVC_XaG_AutoWoundClottingDesc>
 
 	<!-- <LetterTextGenesImplanted>{CASTER_nameDef} has implanted a copy of {CASTER_possessive} xenogerm into {TARGET_nameDef}, passing all xenogenes onto {TARGET_objective}.\n\n{TARGET_nameDef} will be in a xenogermination coma for the next {COMADURATION} while {TARGET_possessive} body adjusts to the changes.\n\n{CASTER_nameDef} will suffer from gene loss shock for the next {SHOCKDURATION}. {CASTER_possessive} genes will also need to regrow. This process takes time. If {CASTER_nameDef} implants {CASTER_possessive} xenogerm again before {CASTER_possessive} genes have regrown, {CASTER_pronoun} will die.</LetterTextGenesImplanted> -->
 

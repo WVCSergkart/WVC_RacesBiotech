@@ -39,16 +39,19 @@ namespace WVC_XenotypesAndGenes
 			Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
 			if (gene_Resurgent != null)
 			{
-				if ((gene_Resurgent.Value - def.resourceLossPerDay) >= 0f)
+				if (gene_Resurgent.totalHealingAllowed)
 				{
-					TaggedString taggedString = HealthUtility.FixWorstHealthCondition(pawn);
-					if (taggedString != null)
+					if ((gene_Resurgent.Value - def.resourceLossPerDay) >= 0f)
 					{
-						gene_Resurgent.Value -= def.resourceLossPerDay;
-					}
-					if (PawnUtility.ShouldSendNotificationAbout(pawn))
-					{
-						Messages.Message(taggedString, pawn, MessageTypeDefOf.PositiveEvent);
+						TaggedString taggedString = HealthUtility.FixWorstHealthCondition(pawn);
+						if (taggedString != null)
+						{
+							gene_Resurgent.Value -= def.resourceLossPerDay;
+						}
+						if (PawnUtility.ShouldSendNotificationAbout(pawn))
+						{
+							Messages.Message(taggedString, pawn, MessageTypeDefOf.PositiveEvent);
+						}
 					}
 				}
 			}

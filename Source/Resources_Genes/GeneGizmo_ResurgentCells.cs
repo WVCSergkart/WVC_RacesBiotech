@@ -61,35 +61,124 @@ namespace WVC_XenotypesAndGenes
 
 		protected override void DrawLabel(Rect labelRect, ref bool mouseOverAnyHighlightableElement)
 		{
-			// Gene_ResurgentCells hemogenGene;
-			// if ((gene.pawn.IsColonistPlayerControlled || gene.pawn.IsPrisonerOfColony) && (hemogenGene = gene as Gene_ResurgentCells) != null)
+			if ((gene.pawn.IsColonistPlayerControlled || gene.pawn.IsPrisonerOfColony) && gene is Gene_ResurgentCells hemogenGene)
+			{
+				Gene_ResurgentTotalHealing totalHealingGene = hemogenGene.pawn.genes?.GetFirstGeneOfType<Gene_ResurgentTotalHealing>();
+				if (totalHealingGene != null)
+				{
+					labelRect.xMax -= 24f;
+					Rect rect = new(labelRect.xMax, labelRect.y, 24f, 24f);
+					Widgets.DefIcon(rect, totalHealingGene.def);
+					GUI.DrawTexture(new Rect(rect.center.x, rect.y, rect.width / 2f, rect.height / 2f), hemogenGene.totalHealingAllowed ? Widgets.CheckboxOnTex : Widgets.CheckboxOffTex);
+					if (Widgets.ButtonInvisible(rect))
+					{
+						hemogenGene.totalHealingAllowed = !hemogenGene.totalHealingAllowed;
+						if (hemogenGene.totalHealingAllowed)
+						{
+							SoundDefOf.Tick_High.PlayOneShotOnCamera();
+						}
+						else
+						{
+							SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+						}
+					}
+					if (Mouse.IsOver(rect))
+					{
+						Widgets.DrawHighlight(rect);
+						string onOff = (hemogenGene.totalHealingAllowed ? "On" : "Off").Translate().ToString().UncapitalizeFirst();
+						TooltipHandler.TipRegion(rect, () => "WVC_XaG_AutoBaseDesc".Translate() + "WVC_XaG_AutoTotalHealingDesc".Translate(onOff.Named("ONOFF")), 1001);
+						mouseOverAnyHighlightableElement = true;
+					}
+					// DrawButton(labelRect, mouseOverAnyHighlightableElement, totalHealingGene.def, hemogenGene.totalHealingAllowed, "WVC_XaG_AutoTotalHealingDesc", 37f);
+				}
+				Gene_ResurgentAgeless ageReversionGene = hemogenGene.pawn.genes?.GetFirstGeneOfType<Gene_ResurgentAgeless>();
+				if (ageReversionGene != null)
+				{
+					labelRect.xMax -= 24f;
+					Rect rect = new(labelRect.xMax, labelRect.y, 24f, 24f);
+					Widgets.DefIcon(rect, ageReversionGene.def);
+					GUI.DrawTexture(new Rect(rect.center.x, rect.y, rect.width / 2f, rect.height / 2f), hemogenGene.ageReversionAllowed ? Widgets.CheckboxOnTex : Widgets.CheckboxOffTex);
+					if (Widgets.ButtonInvisible(rect))
+					{
+						hemogenGene.ageReversionAllowed = !hemogenGene.ageReversionAllowed;
+						if (hemogenGene.ageReversionAllowed)
+						{
+							SoundDefOf.Tick_High.PlayOneShotOnCamera();
+						}
+						else
+						{
+							SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+						}
+					}
+					if (Mouse.IsOver(rect))
+					{
+						Widgets.DrawHighlight(rect);
+						string onOff = (hemogenGene.ageReversionAllowed ? "On" : "Off").Translate().ToString().UncapitalizeFirst();
+						TooltipHandler.TipRegion(rect, () => "WVC_XaG_AutoBaseDesc".Translate() + "WVC_XaG_AutoAgeReversionDesc".Translate(onOff.Named("ONOFF")), 1001);
+						mouseOverAnyHighlightableElement = true;
+					}
+					// DrawButton(labelRect, mouseOverAnyHighlightableElement, ageReversionGene.def, hemogenGene.ageReversionAllowed, "WVC_XaG_AutoAgeReversionDesc", 37f);
+				}
+				Gene_ResurgentClotting woundClottingGene = hemogenGene.pawn.genes?.GetFirstGeneOfType<Gene_ResurgentClotting>();
+				if (woundClottingGene != null)
+				{
+					labelRect.xMax -= 24f;
+					Rect rect = new(labelRect.xMax, labelRect.y, 24f, 24f);
+					Widgets.DefIcon(rect, woundClottingGene.def);
+					GUI.DrawTexture(new Rect(rect.center.x, rect.y, rect.width / 2f, rect.height / 2f), hemogenGene.woundClottingAllowed ? Widgets.CheckboxOnTex : Widgets.CheckboxOffTex);
+					if (Widgets.ButtonInvisible(rect))
+					{
+						hemogenGene.woundClottingAllowed = !hemogenGene.woundClottingAllowed;
+						if (hemogenGene.woundClottingAllowed)
+						{
+							SoundDefOf.Tick_High.PlayOneShotOnCamera();
+						}
+						else
+						{
+							SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+						}
+					}
+					if (Mouse.IsOver(rect))
+					{
+						Widgets.DrawHighlight(rect);
+						string onOff = (hemogenGene.woundClottingAllowed ? "On" : "Off").Translate().ToString().UncapitalizeFirst();
+						TooltipHandler.TipRegion(rect, () => "WVC_XaG_AutoBaseDesc".Translate() + "WVC_XaG_AutoWoundClottingDesc".Translate(onOff.Named("ONOFF")), 1001);
+						mouseOverAnyHighlightableElement = true;
+					}
+					// DrawButton(labelRect, mouseOverAnyHighlightableElement, woundClottingGene.def, hemogenGene.woundClottingAllowed, "WVC_XaG_AutoWoundClottingDesc", 74f);
+				}
+			}
+			base.DrawLabel(labelRect, ref mouseOverAnyHighlightableElement);
+			// Button(labelRect, mouseOverAnyHighlightableElement, hemogenGene.ageReversionAllowed, 40f);
+			// Button(labelRect, mouseOverAnyHighlightableElement, hemogenGene.totalHealingAllowed, 80f);
+		}
+
+		// public static void DrawButton(Rect labelRect, bool mouseOverAnyHighlightableElement, Def def, out bool buttonBool, string tooltipOfOn, float offset = 24f)
+		// {
+			// labelRect.xMax -= offset;
+			// Rect rect = new(labelRect.xMax, labelRect.y, 24f, 24f);
+			// Widgets.DefIcon(rect, def);
+			// GUI.DrawTexture(new Rect(rect.center.x, rect.y, rect.width / 2f, rect.height / 2f), buttonBool ? Widgets.CheckboxOnTex : Widgets.CheckboxOffTex);
+			// if (Widgets.ButtonInvisible(rect))
 			// {
-				// labelRect.xMax -= 24f;
-				// Rect rect = new Rect(labelRect.xMax, labelRect.y, 24f, 24f);
-				// Widgets.DefIcon(rect, ThingDefOf.HemogenPack);
-				// GUI.DrawTexture(new Rect(rect.center.x, rect.y, rect.width / 2f, rect.height / 2f), hemogenGene.hemogenPacksAllowed ? Widgets.CheckboxOnTex : Widgets.CheckboxOffTex);
-				// if (Widgets.ButtonInvisible(rect))
+				// buttonBool = !buttonBool;
+				// if (buttonBool)
 				// {
-					// hemogenGene.hemogenPacksAllowed = !hemogenGene.hemogenPacksAllowed;
-					// if (hemogenGene.hemogenPacksAllowed)
-					// {
-						// SoundDefOf.Tick_High.PlayOneShotOnCamera();
-					// }
-					// else
-					// {
-						// SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-					// }
+					// SoundDefOf.Tick_High.PlayOneShotOnCamera();
 				// }
-				// if (Mouse.IsOver(rect))
+				// else
 				// {
-					// Widgets.DrawHighlight(rect);
-					// string onOff = (hemogenGene.hemogenPacksAllowed ? "On" : "Off").Translate().ToString().UncapitalizeFirst();
-					// TooltipHandler.TipRegion(rect, () => "AutoTakeHemogenDesc".Translate(gene.pawn.Named("PAWN"), hemogenGene.PostProcessValue(hemogenGene.targetValue).Named("MIN"), onOff.Named("ONOFF")).Resolve(), 828267373);
-					// mouseOverAnyHighlightableElement = true;
+					// SoundDefOf.Tick_Low.PlayOneShotOnCamera();
 				// }
 			// }
-			base.DrawLabel(labelRect, ref mouseOverAnyHighlightableElement);
-		}
+			// if (Mouse.IsOver(rect))
+			// {
+				// Widgets.DrawHighlight(rect);
+				// string onOff = (buttonBool ? "On" : "Off").Translate().ToString().UncapitalizeFirst();
+				// TooltipHandler.TipRegion(rect, () => "WVC_XaG_AutoBaseDesc".Translate() + tooltipOfOn.Translate(onOff.Named("ONOFF")), 1001);
+				// mouseOverAnyHighlightableElement = true;
+			// }
+		// }
 
 		protected override string GetTooltip()
 		{

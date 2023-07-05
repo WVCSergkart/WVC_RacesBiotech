@@ -10,7 +10,9 @@ namespace WVC_XenotypesAndGenes
 
 	public class Gene_ResurgentCells : Gene_Resource, IGeneResourceDrain
 	{
-		// public bool hemogenPacksAllowed = true;
+		public bool woundClottingAllowed = true;
+		public bool ageReversionAllowed = true;
+		public bool totalHealingAllowed = true;
 
 		public Gene_Resource Resource => this;
 
@@ -98,11 +100,13 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		// public override void ExposeData()
-		// {
-			// base.ExposeData();
-			// Scribe_Values.Look(ref hemogenPacksAllowed, "hemogenPacksAllowed", defaultValue: true);
-		// }
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref woundClottingAllowed, "woundClottingAllowed", defaultValue: true);
+			Scribe_Values.Look(ref ageReversionAllowed, "ageReversionAllowed", defaultValue: true);
+			Scribe_Values.Look(ref totalHealingAllowed, "totalHealingAllowed", defaultValue: true);
+		}
 	}
 
 }
