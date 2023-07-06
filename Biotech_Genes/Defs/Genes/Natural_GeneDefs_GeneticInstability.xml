@@ -51,7 +51,7 @@
 	<displayOrderInCategory>1250</displayOrderInCategory>
 	<customEffectDescriptions Inherit="False">
 	  <li>Carriers of this gene cannot use xenotype serums.</li>
-	  <li>Abilities "Raise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li>
+	  <li>Abilities "Rise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li>
 	</customEffectDescriptions>
   </GeneDef>
 

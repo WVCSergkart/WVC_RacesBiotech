@@ -21,6 +21,7 @@
 	<!-- It is combined with the usual list, it is only necessary to determine which of the prohibited xenotypes are allowed specifically for these purposes. -->
 	<whiteListedXenotypesForResurrectorSerums>
 		<li>WVC_Undead</li>
+		<li>WVC_Resurgent</li>
 	</whiteListedXenotypesForResurrectorSerums>
 	<!-- Xenotypes for xenotype filter. Needed to determine default xenotypes for sera. Not used for random sera. Any string -->
 	<!-- In addition to this filter, there are several more filtering stages. All of them are in C# code and cannot be changed via XML. However, this filter takes precedence. -->
@@ -260,6 +261,15 @@
 		<!-- = -->
 		<li>WVC_GeneticStability</li>
 		<li>WVC_ResurgentCells_GeneticStability</li>
+		<!-- = -->
+		<!-- <li>WVC_ArchiteDisableJoy</li> -->
+		<!-- <li>WVC_NaturalDisableJoy</li> -->
+		<!-- <li>WVC_ArchiteDisableBeauty</li> -->
+		<!-- <li>WVC_NaturalDisableBeauty</li> -->
+		<!-- <li>WVC_ArchiteDisableOutdoors</li> -->
+		<!-- <li>WVC_NaturalDisableOutdoors</li> -->
+		<!-- <li>WVC_ArchiteDisableComfort</li> -->
+		<!-- <li>WVC_NaturalDisableComfort</li> -->
 		<!-- = -->
 		<li>WVC_RandomLearning</li>
 		<li>WVC_RandomHands</li>

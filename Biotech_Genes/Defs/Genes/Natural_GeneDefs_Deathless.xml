@@ -3,7 +3,7 @@
 
   <GeneDef Name="WVC_XenotypesAndGenes_GeneDeathless_Base" Abstract="True">
 	<iconPath>WVC/UI/Genes/Gene_Deathless_v0</iconPath>
-	<marketValueFactor>2</marketValueFactor>
+	<marketValueFactor>1.5</marketValueFactor>
 	<selectionWeight>0.012</selectionWeight>
 	<displayCategory>WVC_ResurgentCells</displayCategory>
 	<displayOrderInCategory>1275</displayOrderInCategory>
@@ -98,6 +98,34 @@
 	<biostatMet>-1</biostatMet>
   </GeneDef>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Base">
+	<defName>WVC_ResurgentCells_Skeleton</defName>
+	<label>skeleton</label>
+	<description>Carriers of this gene have very weak bones.</description>
+	<iconPath>WVC/UI/Genes/Gene_Skeleton_v0</iconPath>
+	<biostatCpx>0</biostatCpx>
+	<biostatMet>6</biostatMet>
+	<displayOrderInCategory>1351</displayOrderInCategory>
+	<statFactors>
+	  <IncomingDamageFactor>1.5</IncomingDamageFactor>
+	</statFactors>
+	<capMods>
+	  <li>
+		<capacity>Manipulation</capacity>
+		<setMax>1.0</setMax>
+	  </li>
+	  <li>
+		<capacity>Moving</capacity>
+		<setMax>1.0</setMax>
+	  </li>
+	</capMods>
+	<exclusionTags>
+	  <li>MoveSpeed</li>
+	  <li>Hands</li>
+	  <li>Toughness</li>
+	</exclusionTags>
+  </GeneDef>
+
   <!-- ================================================================== -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Base">
@@ -143,6 +171,7 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentDependent</geneClass>
 	<selectionWeight>0.0009</selectionWeight>
 	<prerequisite>WVC_ResurgentCells</prerequisite>
+	<marketValueFactor>1.7</marketValueFactor>
 	<minAgeActive>3</minAgeActive>
 	<resourceLossPerDay>0.02</resourceLossPerDay>
 	<biostatCpx>1</biostatCpx>
@@ -159,13 +188,13 @@
 	<iconPath>WVC/UI/Genes/Gene_ResurgentGeneticStability_v0</iconPath>
 	<iconColor>(93, 101, 126)</iconColor>
 	<displayOrderInCategory>1231</displayOrderInCategory>
-	<biostatCpx>-1</biostatCpx>
+	<biostatCpx>-3</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>-1</biostatMet>
 	<resourceLossPerDay>-0.05</resourceLossPerDay>
 	<customEffectDescriptions>
 	  <li>Carriers of this gene cannot use xenotype serums.</li>
-	  <li>Abilities "Raise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li>
+	  <li>Abilities "Rise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li>
 	  <!-- <li>Some time after receiving the gene, it creates a backup of all carrier genes.</li> -->
 	  <!-- <li>When you try to change the genes of the carrier, the gene removes all genes and restores the backup.</li> -->
 	 <!-- <li> Also, the gene checks the backup every few days and removes the wrong genes.</li> -->
