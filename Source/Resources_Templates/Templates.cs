@@ -215,4 +215,42 @@ namespace WVC_XenotypesAndGenes
 
 		// public List<ThoughtStage> stages = new List<ThoughtStage>();
 	// }
+
+	public class SubXenotypeDef : Def
+	{
+		public List<GeneDef> genes = new List<GeneDef>();
+
+		public bool inheritable;
+
+		public List<GeneDef> AllGenes => genes;
+
+		public override void ResolveReferences()
+		{
+			if (genes.NullOrEmpty())
+			{
+				return;
+			}
+			if (descriptionHyperlinks == null)
+			{
+				descriptionHyperlinks = new List<DefHyperlink>();
+			}
+			foreach (GeneDef gene in genes)
+			{
+				descriptionHyperlinks.Add(new DefHyperlink(gene));
+			}
+		}
+
+		public override IEnumerable<StatDrawEntry> SpecialDisplayStats(StatRequest req)
+		{
+			foreach (StatDrawEntry item in base.SpecialDisplayStats(req))
+			{
+				yield return item;
+			}
+			yield return new StatDrawEntry(StatCategoryDefOf.Basics, "Genes".Translate().CapitalizeFirst(), genes.Select((GeneDef x) => x.label).ToCommaList().CapitalizeFirst(), "GenesDesc".Translate() + "\n\n" + genes.Select((GeneDef x) => x.label).ToLineList("  - ", capitalizeItems: true), 1000);
+			if (!genes.NullOrEmpty())
+			{
+				yield return new StatDrawEntry(StatCategoryDefOf.Basics, "GenesAreInheritable".Translate(), inheritable.ToStringYesNo(), "GenesAreInheritableXenotypeDef".Translate(), 990);
+			}
+		}
+	}
 }

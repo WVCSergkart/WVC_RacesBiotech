@@ -71,6 +71,7 @@
     <Compile Include="Resources_Abilities\CompProperties_AbilityRiseFromTheDead.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilitySpawn.cs" />
     <Compile Include="Resources_Genes\Gene_ResurgentCellsGain.cs" />
+    <Compile Include="Resources_Genes\Gene_XenotypeMutator.cs" />
     <Compile Include="Resources_Main\JobGiver_WanderNearTarget.cs" />
     <Compile Include="Resources_Things\CompProperties_RecyclerSpawner.cs" />
     <Compile Include="Resources_Things\CompProperties_SpawnBaby.cs" />

@@ -163,8 +163,8 @@
 	<label>undead</label>
 	<xenotypeSet>
 	  <xenotypeChances>
-		<WVC_Undead>0.95</WVC_Undead>
-		<WVC_Resurgent>0.05</WVC_Resurgent>
+		<WVC_Undead>999</WVC_Undead>
+		<!-- <WVC_Resurgent>0.05</WVC_Resurgent> -->
 	  </xenotypeChances>
 	</xenotypeSet>
   </PawnKindDef>
