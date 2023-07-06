@@ -258,6 +258,21 @@ namespace WVC_XenotypesAndGenes
 
 		public static ThingDef GetFromThingTemplate(SerumTemplateDef template, XenotypeDef def, int displayOrderBase)
 		{
+			// switch (template.xenotypeForcerType)
+			// {
+			// case SerumTemplateDef.XenotypeForcerType.Base:
+				// if (XenotypeFilterUtility.BlackListedXenotypesForSingleSerums().Contains(def))
+				// {
+					// return null;
+				// }
+				// break;
+			// case SerumTemplateDef.XenotypeForcerType.Hybrid:
+				// if (XenotypeFilterUtility.BlackListedXenotypesForHybridSerums().Contains(def))
+				// {
+					// return null;
+				// }
+				// break;
+			// }
 			ThingDef thingDef = new()
             {
 				defName = template.defName + "_" + def.defName + "_RB",

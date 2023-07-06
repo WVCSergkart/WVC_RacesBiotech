@@ -26,11 +26,35 @@ namespace WVC_XenotypesAndGenes
 			List<ThingDef> thingDefList = values.ToList();
 			if (WVC_Biotech.settings.serumsForAllXenotypes)
 			{
-				foreach (SerumTemplateDef g in DefDatabase<SerumTemplateDef>.AllDefsListForReading)
+				foreach (SerumTemplateDef serumTemplate in DefDatabase<SerumTemplateDef>.AllDefsListForReading)
 				{
-					foreach (XenotypeDef allDef in XenotypeFilterUtility.WhiteListedXenotypes(true))
+					if (serumTemplate.serumTagName.Contains("BaseSerumsGenerator") && WVC_Biotech.settings.serumsForAllXenotypes_GenBase)
 					{
-						thingDefList.Add(TemplatesUtility.GetFromThingTemplate(g, allDef, allDef.index * 1000));
+						foreach (XenotypeDef allDef in XenotypeFilterUtility.WhiteListedXenotypes(true))
+						{
+							thingDefList.Add(TemplatesUtility.GetFromThingTemplate(serumTemplate, allDef, allDef.index * 1000));
+						}
+					}
+					if (serumTemplate.serumTagName.Contains("UltraSerumsGenerator") && WVC_Biotech.settings.serumsForAllXenotypes_GenUltra)
+					{
+						foreach (XenotypeDef allDef in XenotypeFilterUtility.WhiteListedXenotypes(true))
+						{
+							thingDefList.Add(TemplatesUtility.GetFromThingTemplate(serumTemplate, allDef, allDef.index * 1000));
+						}
+					}
+					if (serumTemplate.serumTagName.Contains("HybridSerumsGenerator") && WVC_Biotech.settings.serumsForAllXenotypes_GenHybrid)
+					{
+						foreach (XenotypeDef allDef in XenotypeFilterUtility.WhiteListedXenotypes(true))
+						{
+							thingDefList.Add(TemplatesUtility.GetFromThingTemplate(serumTemplate, allDef, allDef.index * 1000));
+						}
+					}
+					if (serumTemplate.serumTagName.Contains("AnySerum"))
+					{
+						foreach (XenotypeDef allDef in XenotypeFilterUtility.WhiteListedXenotypes(true))
+						{
+							thingDefList.Add(TemplatesUtility.GetFromThingTemplate(serumTemplate, allDef, allDef.index * 1000));
+						}
 					}
 				}
 			}

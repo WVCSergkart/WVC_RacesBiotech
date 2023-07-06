@@ -56,8 +56,8 @@ namespace WVC_XenotypesAndGenes
 
 		private void ResetResourceValue()
 		{
-			IntRange intRange = new(11, 77);
-			Value = intRange.RandomInRange * 0.01f;
+			FloatRange floatRange = new(0.06f, 0.97f);
+			Value = floatRange.RandomInRange;
 		}
 
 		// public override void Notify_IngestedThing(Thing thing, int numTaken)

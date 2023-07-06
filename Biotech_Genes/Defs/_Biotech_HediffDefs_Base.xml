@@ -462,7 +462,7 @@
 	<description>Accumulated resurgent cells.</description>
 	<defaultLabelColor>(189, 205, 255)</defaultLabelColor>
 	<hediffClass>HediffWithComps</hediffClass>
-	<initialSeverity>0.5</initialSeverity>
+	<initialSeverity>0.05</initialSeverity>
 	<minSeverity>0.01</minSeverity>
 	<maxSeverity>1.0</maxSeverity>
 	<stages>
@@ -483,7 +483,7 @@
 	<description>Accumulated resurgent cells in the stomach significantly improve the intake of nutrients by reducing the need for food.</description>
 	<stages>
 	  <li>
-		<label>insufficient cell level</label>
+		<label>very low cell level</label>
 		<hungerRateFactor>0.80</hungerRateFactor>
 		<minSeverity>0.25</minSeverity>
 	  </li>
@@ -503,7 +503,7 @@
 		<minSeverity>0.65</minSeverity>
 	  </li>
 	  <li>
-		<label>sufficient cell level</label>
+		<label>very high cell level</label>
 		<hungerRateFactor>0.20</hungerRateFactor>
 		<minSeverity>0.70</minSeverity>
 	  </li>
@@ -519,7 +519,7 @@
 	<description>Resurgent cells accumulated in the blood help prevent bleeding.</description>
 	<stages>
 	  <li>
-		<label>insufficient cell level</label>
+		<label>very low cell level</label>
 		<totalBleedFactor>0.90</totalBleedFactor>
 		<minSeverity>0.25</minSeverity>
 	  </li>
@@ -539,7 +539,7 @@
 		<minSeverity>0.65</minSeverity>
 	  </li>
 	  <li>
-		<label>sufficient cell level</label>
+		<label>very high cell level</label>
 		<totalBleedFactor>0.10</totalBleedFactor>
 		<minSeverity>0.70</minSeverity>
 	  </li>
@@ -555,7 +555,7 @@
 	<description>Resurgent cells optimize metabolic processes and reduce the load on neuronal clusters, which reduces the need for sleep.</description>
 	<stages>
 	  <li>
-		<label>insufficient cell level</label>
+		<label>very low cell level</label>
 		<minSeverity>0.25</minSeverity>
 		<statFactors>
 		  <RestFallRateFactor>0.90</RestFallRateFactor>
@@ -583,7 +583,7 @@
 		</statFactors>
 	  </li>
 	  <li>
-		<label>sufficient cell level</label>
+		<label>very high cell level</label>
 		<minSeverity>0.70</minSeverity>
 		<statFactors>
 		  <RestFallRateFactor>0.25</RestFallRateFactor>

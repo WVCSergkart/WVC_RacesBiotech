@@ -44,23 +44,29 @@ namespace WVC_XenotypesAndGenes
 		{
 			Pawn_GeneTracker genes = pawn.genes;
 			List<GeneDef> geneDefs = xenotype.AllGenes;
-			if (!xenotype.inheritable)
+			if (xenotype.overrideExistingGenes)
 			{
-				for (int numXenogenes = genes.Xenogenes.Count - 1; numXenogenes >= 0; numXenogenes--)
+				if (!xenotype.inheritable)
 				{
-					pawn.genes?.RemoveGene(genes.Xenogenes[numXenogenes]);
+					for (int numXenogenes = genes.Xenogenes.Count - 1; numXenogenes >= 0; numXenogenes--)
+					{
+						pawn.genes?.RemoveGene(genes.Xenogenes[numXenogenes]);
+					}
+				}
+				if (xenotype.inheritable)
+				{
+					for (int numEndogenes = genes.Endogenes.Count - 1; numEndogenes >= 0; numEndogenes--)
+					{
+						pawn.genes?.RemoveGene(genes.Endogenes[numEndogenes]);
+					}
 				}
 			}
-			if (xenotype.inheritable)
+			if ((xenotype.inheritable && genes.Endogenes.Count <= 0) || (!xenotype.inheritable && genes.Xenogenes.Count <= 0) || xenotype.ignoreExistingGenes)
 			{
-				for (int numEndogenes = genes.Endogenes.Count - 1; numEndogenes >= 0; numEndogenes--)
+				for (int i = 0; i < geneDefs.Count; i++)
 				{
-					pawn.genes?.RemoveGene(genes.Endogenes[numEndogenes]);
+					pawn.genes?.AddGene(geneDefs[i], !xenotype.inheritable);
 				}
-			}
-			for (int i = 0; i < geneDefs.Count; i++)
-			{
-				pawn.genes?.AddGene(geneDefs[i], !xenotype.inheritable);
 			}
 		}
 

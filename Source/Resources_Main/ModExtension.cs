@@ -91,6 +91,7 @@ namespace WVC_XenotypesAndGenes
 		// Xenotypes
 		public List<SubXenotypeDef> subXenotypeDefs;
 		public float subXenotypeChance = 0.1f;
+		// public bool canBeGeneratedInHybridSerums = true;
 	}
 
 	// public class HeadTypeExtension_Faceless : DefModExtension
@@ -102,6 +103,8 @@ namespace WVC_XenotypesAndGenes
 	public class XenotypesAndGenesListDef : Def
 	{
 		public List<string> blackListedXenotypesForSerums;
+		// public List<XenotypeDef> blackListedXenotypesForSingleSerums;
+		// public List<XenotypeDef> blackListedXenotypesForHybridSerums;
 		public List<XenotypeDef> whiteListedXenotypesForResurrectorSerums;
 		public List<string> whiteListedXenotypesForFilter;
 		public List<ThingDef> blackListedDefsForSerums;

@@ -97,5 +97,25 @@ namespace WVC_XenotypesAndGenes
 			// return whiteListedXenotypes;
 		// }
 
+		// public static List<XenotypeDef> BlackListedXenotypesForHybridSerums()
+		// {
+			// List<XenotypeDef> list = new();
+			// foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+			// {
+				// list.AddRange(item.blackListedXenotypesForHybridSerums);
+			// }
+			// return list;
+		// }
+
+		// public static List<XenotypeDef> BlackListedXenotypesForSingleSerums()
+		// {
+			// List<XenotypeDef> list = new();
+			// foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+			// {
+				// list.AddRange(item.blackListedXenotypesForSingleSerums);
+			// }
+			// return list;
+		// }
+
 	}
 }

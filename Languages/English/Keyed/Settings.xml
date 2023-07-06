@@ -54,6 +54,11 @@ A restart is required to apply the setting.</WVC_ToolTip_hideEncodingGenes>
 May affect startup speed on modlists with a lot of mods that add xenotypes.</WVC_ToolTip_serumsForAllXenotypes>
 
 	<!-- ====================================================================================== -->
+	<WVC_Label_serumsForAllXenotypes_GenBase>Generate base xenotypes serums</WVC_Label_serumsForAllXenotypes_GenBase>
+	<WVC_Label_serumsForAllXenotypes_GenUltra>Generate ultra xenotypes serums</WVC_Label_serumsForAllXenotypes_GenUltra>
+	<WVC_Label_serumsForAllXenotypes_GenHybrid>Generate hybrid xenotypes serums</WVC_Label_serumsForAllXenotypes_GenHybrid>
+
+	<!-- ====================================================================================== -->
 	<WVC_Label_serumsForAllXenotypes_Recipes>Generate serum recipes</WVC_Label_serumsForAllXenotypes_Recipes>
 	<WVC_ToolTip_serumsForAllXenotypes_Recipes>If enabled, it creates a recipe for each serum, allowing it to be used through the "Operation" menu, in the pawn's health tab. Restart required.</WVC_ToolTip_serumsForAllXenotypes_Recipes>
 

@@ -22,6 +22,9 @@ namespace WVC
 		// public bool canMechaskinBePredatorPrey;
 		// public bool hideEncodingGenes = true;
 		public bool serumsForAllXenotypes = true;
+		public bool serumsForAllXenotypes_GenBase = true;
+		public bool serumsForAllXenotypes_GenUltra = true;
+		public bool serumsForAllXenotypes_GenHybrid = true;
 		public bool serumsForAllXenotypes_Recipes = true;
 		public bool serumsForAllXenotypes_Spawners = false;
 		// public bool convertCustomXenotypesIntoXenotypes;
@@ -47,6 +50,9 @@ namespace WVC
 			// Scribe_Values.Look(ref canMechaskinBePredatorPrey, "canMechaskinBePredatorPrey", defaultValue: true);
 			// Scribe_Values.Look(ref hideEncodingGenes, "hideEncodingGenes", defaultValue: true);
 			Scribe_Values.Look(ref serumsForAllXenotypes, "serumsForAllXenotypes", defaultValue: true);
+			Scribe_Values.Look(ref serumsForAllXenotypes_GenBase, "serumsForAllXenotypes_GenBase", defaultValue: true);
+			Scribe_Values.Look(ref serumsForAllXenotypes_GenUltra, "serumsForAllXenotypes_GenUltra", defaultValue: true);
+			Scribe_Values.Look(ref serumsForAllXenotypes_GenHybrid, "serumsForAllXenotypes_GenHybrid", defaultValue: true);
 			Scribe_Values.Look(ref serumsForAllXenotypes_Recipes, "serumsForAllXenotypes_Recipes", defaultValue: true);
 			Scribe_Values.Look(ref serumsForAllXenotypes_Spawners, "serumsForAllXenotypes_Spawners", defaultValue: false);
 			// Scribe_Values.Look(ref serumsCraftCost_ArchitesFactor, "serumsCraftCost_ArchitesFactor", 1f);
@@ -134,6 +140,9 @@ namespace WVC
 			listingStandard.CheckboxLabeled("WVC_Label_minWastepacksPerRecharge".Translate(), ref settings.minWastepacksPerRecharge, "WVC_ToolTip_minWastepacksPerRecharge".Translate());
 			// listingStandard.CheckboxLabeled("WVC_Label_enableStatSkillFactor".Translate(), ref settings.enableStatSkillFactor, "WVC_ToolTip_enableStatSkillFactor".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes".Translate(), ref settings.serumsForAllXenotypes, "WVC_ToolTip_serumsForAllXenotypes".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenBase".Translate(), ref settings.serumsForAllXenotypes_GenBase);
+			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenUltra".Translate(), ref settings.serumsForAllXenotypes_GenUltra);
+			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenHybrid".Translate(), ref settings.serumsForAllXenotypes_GenHybrid);
 			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_Recipes".Translate(), ref settings.serumsForAllXenotypes_Recipes, "WVC_ToolTip_serumsForAllXenotypes_Recipes".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_serumsSpawnersForAllXenotypes".Translate(), ref settings.serumsForAllXenotypes_Spawners, "WVC_ToolTip_serumsSpawnersForAllXenotypes".Translate());
 			// listingStandard.SliderLabeled("WVC_Label_serumsCraftCost_ArchitesFactor".Translate(), ref settings.serumsCraftCost_ArchitesFactor, 0, 10, 0.1f);

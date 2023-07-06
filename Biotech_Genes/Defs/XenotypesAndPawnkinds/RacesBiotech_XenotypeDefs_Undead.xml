@@ -11,6 +11,8 @@
 	<descriptionShort>Undeads are partially immortal, rapidly aging xeno-humans. Their genes are quite unstable and often their health can cause death, their bodies are very fragile, which is why even a fist fight can be fatal for them. In compensation, they can reanimate the dead by turning them into their own kind, and death is not always the end for them.</descriptionShort>
 	<canGenerateAsCombatant>true</canGenerateAsCombatant>
 	<iconPath>WVC/UI/Mecha_Icons/Xeno_Undead_v0</iconPath>
+	<!-- Information about a sub-xenotype is not added automatically into a main xenotype. -->
+	<!-- So if necessary, it must be added manually. -->
 	<descriptionHyperlinks>
 	  <WVC_XenotypesAndGenes.SubXenotypeDef>WVC_Resurgent</WVC_XenotypesAndGenes.SubXenotypeDef>
 	</descriptionHyperlinks>
@@ -46,8 +48,11 @@
 	</genes>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<!-- Chance that getting an additional xenotype -->
 			<subXenotypeChance>0.11</subXenotypeChance>
 			<!-- Sub xenotype is chosen randomly from the list. -->
+			<!-- Sub-xenotype obtained in this way does not change the name or icons. -->
+			<!-- This method is conceived as a random gene list expander, when you need to add a certain set of genes, but randomly with some chance. -->
 			<subXenotypeDefs>
 				<li>WVC_Resurgent</li>
 			</subXenotypeDefs>
@@ -58,9 +63,14 @@
    <!-- Resurgents will work differently. Instead of being a full-fledged xenotype, they will receive randomly as an undead sub-xenotype. -->
   <WVC_XenotypesAndGenes.SubXenotypeDef>
 	<defName>WVC_Resurgent</defName>
-	<label>resurgent mutatoin</label>
+	<label>resurgent mutation</label>
 	<description>Resurgents are a undead sub-xenotype, powered by archotech-created archites in the bloodstream. Resurgents always have the genes of undead xenotype. They are fragile and dependent on resurgent cells. They can regrow lost limbs, never age, and their wounds can close almost instantly. However, their immune system, stomach, blood, disease resistance, their entire body is dependent on these cells. And if the level of the cells is too low, they lose almost all of their special abilities.</description>
 	<inheritable>false</inheritable>
+	<!-- In case the genes need to be added to an already existing set, and not separately. -->
+	<ignoreExistingGenes>false</ignoreExistingGenes>
+	<!-- In case you need to remove existing genes and replace them with new ones. Combined with inheritable. -->
+	<!-- This method will work very poorly with hybrid serums, so it is recommended to include such a xenotype in the exceptions for serums. -->
+	<overrideExistingGenes>false</overrideExistingGenes>
 	<genes>
 		<li>WVC_ResurgentCells</li>
 		<li>WVC_ResurgentCells_GeneticStability</li>

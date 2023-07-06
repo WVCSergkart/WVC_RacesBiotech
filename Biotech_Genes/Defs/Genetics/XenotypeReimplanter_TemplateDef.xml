@@ -6,6 +6,7 @@
   <!-- ==================================== -->
 
   <WVC_XenotypesAndGenes.SerumTemplateDef ParentName="WVC_XenotypeSerumTemplate_Craftable">
+	<serumTagName>BaseSerumsGenerator</serumTagName>
 	<!-- The generated serum has the defName "WVC_XenotypeSerum_MyXenotypeDefName_RB" -->
 	<!-- The "_RB" tag is needed in case some idiot added numbers to the end of the xenotype defName.  -->
 	<!-- Rimworld is very sensitive to numbers, it is advisable to never end defNames with numbers. -->
@@ -42,6 +43,7 @@
   <!-- ==================================== -->
 
   <WVC_XenotypesAndGenes.SerumTemplateDef ParentName="WVC_XenotypeSerumTemplate_NonCraftable">
+	<serumTagName>UltraSerumsGenerator</serumTagName>
 	<defName>WVC_XenotypeSerum_Ultra</defName>
 	<label>xenotype serum</label>
 	<!-- Cost -->
@@ -74,6 +76,7 @@
   <!-- ==================================== -->
 
   <WVC_XenotypesAndGenes.SerumTemplateDef ParentName="WVC_XenotypeSerumTemplate_HybridNonCraftable">
+	<serumTagName>HybridSerumsGenerator</serumTagName>
 	<defName>WVC_XenotypeSerum_Hybrid</defName>
 	<label>hybrid serum</label>
 	<!-- Cost -->

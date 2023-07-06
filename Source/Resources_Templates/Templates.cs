@@ -218,9 +218,13 @@ namespace WVC_XenotypesAndGenes
 
 	public class SubXenotypeDef : Def
 	{
-		public List<GeneDef> genes = new List<GeneDef>();
+		public List<GeneDef> genes = new();
 
 		public bool inheritable;
+
+		public bool overrideExistingGenes = false;
+
+		public bool ignoreExistingGenes = false;
 
 		public List<GeneDef> AllGenes => genes;
 

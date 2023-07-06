@@ -316,6 +316,8 @@ namespace WVC_XenotypesAndGenes
 			CustomHybrid
 		}
 
+		public string serumTagName = "AnySerum";
+
 		public override IEnumerable<string> ConfigErrors()
 		{
 			foreach (string item in base.ConfigErrors())
