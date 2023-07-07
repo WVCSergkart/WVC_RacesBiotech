@@ -162,6 +162,13 @@
 		<!-- <caravanRideable>false</caravanRideable> -->
 	<!-- </LifeStageDef> -->
 
+	<AnimalBehaviours.AnimalsDisabledFromQuestsDef>
+		<defName>WVC_XenotypesAndGenes_DisabledQuestAnimals</defName>
+		<disabledFromQuestsPawns>
+			<li>WVC_XenotypesAndGenes_WalkingCorpse</li>
+		</disabledFromQuestsPawns>
+	</AnimalBehaviours.AnimalsDisabledFromQuestsDef>
+
 	<!-- =================================================================== -->
 
 	<ThingDef ParentName="AnimalThingBase" Name="WVC_XenotypesAndGenes_WalkingCorpse_Base" Abstract="True">
@@ -208,6 +215,7 @@ Walking corpses cannot be zoned, but they will try to stay close to the totems. 
 			<body>WVC_XenotypesAndGenes_WalkingCorpse</body>
 			<hasGenders>false</hasGenders>
 			<needsRest>false</needsRest>
+			<herdMigrationAllowed>false</herdMigrationAllowed>
 			<trainability>None</trainability>
 			<bloodDef>Filth_CorpseBile</bloodDef>
 			<thinkTreeMain>WVC_XenotypesAndGenes_WalkingCorpse</thinkTreeMain>
@@ -230,20 +238,14 @@ Walking corpses cannot be zoned, but they will try to stay close to the totems. 
 			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
 			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
 			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
-			<lifeStageAges>
-				<li>
-					<def>MechanoidFullyFormed</def>
-					<minAge>0</minAge>
-					<soundWounded>Pawn_Megascarab_Wounded</soundWounded>
-					<soundDeath>Pawn_Megascarab_Death</soundDeath>
-					<soundCall>Pawn_Megascarab_Call</soundCall>
-					<soundAngry>Pawn_Megascarab_Angry</soundAngry>
-				</li>
-			</lifeStageAges>
 			<hediffGiverSets Inherit="False">
 				<!-- <li>WVC_MechanoidGolem_HediffGiver</li> -->
 			</hediffGiverSets>
 		</race>
+		<tradeTags>
+		  <li>NonContractable</li>
+		  <li>AnimalDryad</li>
+		</tradeTags>
 		<thingCategories Inherit="False"/>
 		<recipes Inherit="False"/>
 		<butcherProducts Inherit="False"/>
@@ -252,7 +254,12 @@ Walking corpses cannot be zoned, but they will try to stay close to the totems. 
 				<hediffname>WVC_XenotypesAndGenes_NoBleedNoPainNoPoisoning</hediffname>
 				<hediffseverity>1</hediffseverity>
 			</li>
-			<li Class="AnimalBehaviours.CompProperties_DoesntFlee"/>
+			<li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_DoesntFlee"/>
+			<li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_DiseaseImmunity">
+				<hediffsToRemove><li>Animal_Plague</li><li>Animal_Flu</li><li>AB_AnimalSporesAllergy</li></hediffsToRemove>
+				<tickInterval>60000</tickInterval>
+			</li>
+			<li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_DiseaseEventImmunity"/>
 		</comps>
 		<modExtensions>
 			<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
@@ -265,26 +272,11 @@ Walking corpses cannot be zoned, but they will try to stay close to the totems. 
 		</modExtensions>
 	</ThingDef>
 	<PawnKindDef Name="WVC_XenotypesAndGenes_WalkingCorpseGolemKind_Base" Abstract="True">
-		<alternateGraphicChance>1.0</alternateGraphicChance>
 		<combatPower>50</combatPower>
 		<isFighter>false</isFighter>
 		<canArriveManhunter>false</canArriveManhunter>
 		<allowInMechClusters>false</allowInMechClusters>
 		<allowOldAgeInjuries>false</allowOldAgeInjuries>
-		<alternateGraphics>
-			<!-- Base -->
-			<li><color>(195,195,195)</color></li>
-			<!-- slate -->
-			<li><color>(70,70,70)</color><weight>0.05</weight></li>
-			<!-- limestone -->
-			<li><color>(158,153,135)</color><weight>0.05</weight></li>
-			<!-- granite -->
-			<li><color>(105,95,97)</color><weight>0.05</weight></li>
-			<!-- sandstone -->
-			<li><color>(126,104,94)</color><weight>0.05</weight></li>
-			<!-- marble -->
-			<li><color>(132,135,132)</color><weight>0.05</weight></li>
-		</alternateGraphics>
 		<!-- <abilities> -->
 			<!-- <li>WVC_MechanoidAbility_ActivateGestator</li> -->
 		<!-- </abilities> -->
@@ -300,11 +292,38 @@ Walking corpses cannot be zoned, but they will try to stay close to the totems. 
 			<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
 			<MoveSpeed>3.8</MoveSpeed>
 		</statBases>
+		<race>
+			<lifeStageAges>
+				<li>
+					<def>MechanoidFullyFormed</def>
+					<minAge>0</minAge>
+					<soundWounded>Pawn_Megascarab_Wounded</soundWounded>
+					<soundDeath>Pawn_Megascarab_Death</soundDeath>
+					<soundCall>Pawn_Megascarab_Call</soundCall>
+					<soundAngry>Pawn_Megascarab_Angry</soundAngry>
+				</li>
+			</lifeStageAges>
+		</race>
 	</ThingDef>
 	<PawnKindDef ParentName="WVC_XenotypesAndGenes_WalkingCorpseGolemKind_Base">
 		<defName>WVC_XenotypesAndGenes_WalkingCorpse</defName>
 		<label>walking corpse</label>
 		<race>WVC_XenotypesAndGenes_WalkingCorpse</race>
+		<alternateGraphicChance>1.0</alternateGraphicChance>
+		<alternateGraphics>
+			<!-- Base -->
+			<li><color>(195,195,195)</color></li>
+			<!-- slate -->
+			<li><color>(70,70,70)</color><weight>0.05</weight></li>
+			<!-- limestone -->
+			<li><color>(158,153,135)</color><weight>0.05</weight></li>
+			<!-- granite -->
+			<li><color>(105,95,97)</color><weight>0.05</weight></li>
+			<!-- sandstone -->
+			<li><color>(126,104,94)</color><weight>0.05</weight></li>
+			<!-- marble -->
+			<li><color>(132,135,132)</color><weight>0.05</weight></li>
+		</alternateGraphics>
 		<lifeStages>
 			<li>
 				<bodyGraphicData>

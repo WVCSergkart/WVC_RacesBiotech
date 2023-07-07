@@ -11,7 +11,7 @@
 	<!-- The "_RB" tag is needed in case some idiot added numbers to the end of the xenotype defName.  -->
 	<!-- Rimworld is very sensitive to numbers, it is advisable to never end defNames with numbers. -->
 	<defName>WVC_XenotypeSerum</defName>
-	<label>xenotype serum</label>
+	<label>xeno-serum</label>
 	<!-- Cost -->
 	<!-- Instead of MarketValue, the templates use marketValueOffset, since the final price is calculated through a formula. -->
 	<!-- marketValueOffset + 100 * ((Arc * 0.6 ) + (Cpx * 0.1 ) + (-1 * (Met * 0.2 ))) -->
@@ -35,9 +35,9 @@
 
   <WVC_XenotypesAndGenes.SerumRecipeTemplateDef ParentName="WVC_AdministerXenotypeSerumTemplate_Template">
 	<defName>WVC_AdministerXenotypeSerum</defName>
-	<label>administer xenotype serum</label>
-	<description>Administer a xenotype serum</description>
-	<jobString>Administering xenotype serum</jobString>
+	<label>administer xeno-serum</label>
+	<description>Administer a xeno-serum</description>
+	<jobString>Administering xeno-serum</jobString>
   </WVC_XenotypesAndGenes.SerumRecipeTemplateDef>
 
   <!-- ==================================== -->
@@ -45,7 +45,7 @@
   <WVC_XenotypesAndGenes.SerumTemplateDef ParentName="WVC_XenotypeSerumTemplate_NonCraftable">
 	<serumTagName>UltraSerumsGenerator</serumTagName>
 	<defName>WVC_XenotypeSerum_Ultra</defName>
-	<label>xenotype serum</label>
+	<label>xeno-serum</label>
 	<!-- Cost -->
 	<marketValueOffset>1700</marketValueOffset>
 	<!-- Forcer -->
@@ -59,9 +59,9 @@
   
   <WVC_XenotypesAndGenes.SerumRecipeTemplateDef ParentName="WVC_AdministerXenotypeSerumTemplate_Template">
 	<defName>WVC_AdministerXenotypeSerum_Ultra</defName>
-	<label>administer xenotype serum</label>
-	<description>Administer a xenotype serum</description>
-	<jobString>Administering xenotype serum</jobString>
+	<label>administer xeno-serum</label>
+	<description>Administer a xeno-serum</description>
+	<jobString>Administering xeno-serum</jobString>
   </WVC_XenotypesAndGenes.SerumRecipeTemplateDef>
 
   <WVC_XenotypesAndGenes.SerumGeneTemplateDef ParentName="WVC_XenotypeSerumTemplateSpawner_Ultra">
