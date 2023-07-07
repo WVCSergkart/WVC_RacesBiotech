@@ -63,6 +63,7 @@
    <!-- Resurgents will work differently. Instead of being a full-fledged xenotype, they will receive randomly as an undead sub-xenotype. -->
   <WVC_XenotypesAndGenes.SubXenotypeDef>
 	<defName>WVC_Resurgent</defName>
+	<!-- The name of the xenotype does not change. If change it, then the xenotype will be marked as custom and the hyperlink will stop working. -->
 	<label>resurgent mutation</label>
 	<description>Resurgents are a undead sub-xenotype, powered by archotech-created archites in the bloodstream. Resurgents always have the genes of undead xenotype. They are fragile and dependent on resurgent cells. They can regrow lost limbs, never age, and their wounds can close almost instantly. However, their immune system, stomach, blood, disease resistance, their entire body is dependent on these cells. And if the level of the cells is too low, they lose almost all of their special abilities.</description>
 	<inheritable>false</inheritable>
@@ -71,6 +72,8 @@
 	<!-- In case you need to remove existing genes and replace them with new ones. Combined with inheritable. -->
 	<!-- This method will work very poorly with hybrid serums, so it is recommended to include such a xenotype in the exceptions for serums. -->
 	<overrideExistingGenes>false</overrideExistingGenes>
+	<!-- If present, it replaces the icon. -->
+	<xenotypeIconDef>WVC_XenoUndead2c</xenotypeIconDef>
 	<genes>
 		<li>WVC_ResurgentCells</li>
 		<li>WVC_ResurgentCells_GeneticStability</li>

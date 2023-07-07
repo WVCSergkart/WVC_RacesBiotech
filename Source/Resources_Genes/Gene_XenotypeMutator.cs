@@ -68,6 +68,10 @@ namespace WVC_XenotypesAndGenes
 					pawn.genes?.AddGene(geneDefs[i], !xenotype.inheritable);
 				}
 			}
+			if (xenotype.xenotypeIconDef != null)
+			{
+				pawn.genes.iconDef = xenotype.xenotypeIconDef;
+			}
 		}
 
 	}

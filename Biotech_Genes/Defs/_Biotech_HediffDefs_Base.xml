@@ -462,16 +462,15 @@
 	<description>Accumulated resurgent cells.</description>
 	<defaultLabelColor>(189, 205, 255)</defaultLabelColor>
 	<hediffClass>HediffWithComps</hediffClass>
-	<initialSeverity>0.05</initialSeverity>
+	<initialSeverity>1.0</initialSeverity>
 	<minSeverity>0.01</minSeverity>
 	<maxSeverity>1.0</maxSeverity>
-	<stages>
-	  <li>
-		<label>inactive</label>
-		<!-- <becomeVisible>false</becomeVisible> -->
-		<minSeverity>0.0</minSeverity>
-	  </li>
-	</stages>
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <label>inactive</label> -->
+		<!-- <minSeverity>0.0</minSeverity> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
 	<comps>
 		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_SeverityFromResurgent"/>
 	</comps>
@@ -483,33 +482,49 @@
 	<description>Accumulated resurgent cells in the stomach significantly improve the intake of nutrients by reducing the need for food.</description>
 	<stages>
 	  <li>
-		<label>very low cell level</label>
-		<hungerRateFactor>0.80</hungerRateFactor>
+		<label>critical low</label>
+		<hungerRateFactor>2.0</hungerRateFactor>
+		<minSeverity>0.0</minSeverity>
+	  </li>
+	  <li>
+		<label>extreme low</label>
+		<hungerRateFactor>1.7</hungerRateFactor>
+		<minSeverity>0.17</minSeverity>
+	  </li>
+	  <li>
+		<label>very low</label>
+		<hungerRateFactor>1.33</hungerRateFactor>
 		<minSeverity>0.25</minSeverity>
 	  </li>
 	  <li>
-		<label>low cell level</label>
-		<hungerRateFactor>0.70</hungerRateFactor>
+		<label>low</label>
+		<hungerRateFactor>1.1</hungerRateFactor>
 		<minSeverity>0.35</minSeverity>
 	  </li>
 	  <li>
-		<label>medium cell level</label>
-		<hungerRateFactor>0.40</hungerRateFactor>
-		<minSeverity>0.5</minSeverity>
+		<label>medium</label>
+		<hungerRateFactor>0.72</hungerRateFactor>
+		<minSeverity>0.45</minSeverity>
 	  </li>
 	  <li>
-		<label>high cell level</label>
-		<hungerRateFactor>0.35</hungerRateFactor>
-		<minSeverity>0.65</minSeverity>
+		<label>high</label>
+		<hungerRateFactor>0.56</hungerRateFactor>
+		<minSeverity>0.55</minSeverity>
 	  </li>
 	  <li>
-		<label>very high cell level</label>
-		<hungerRateFactor>0.20</hungerRateFactor>
+		<label>very high</label>
+		<hungerRateFactor>0.34</hungerRateFactor>
 		<minSeverity>0.70</minSeverity>
 	  </li>
 	  <li>
-		<hungerRateFactor>0.10</hungerRateFactor>
-		<minSeverity>0.85</minSeverity>
+		<label>extreme high</label>
+		<hungerRateFactor>0.2</hungerRateFactor>
+		<minSeverity>0.87</minSeverity>
+	  </li>
+	  <li>
+		<label>full</label>
+		<hungerRateFactor>0.01</hungerRateFactor>
+		<minSeverity>1.0</minSeverity>
 	  </li>
 	</stages>
   </HediffDef>
@@ -519,33 +534,49 @@
 	<description>Resurgent cells accumulated in the blood help prevent bleeding.</description>
 	<stages>
 	  <li>
-		<label>very low cell level</label>
-		<totalBleedFactor>0.90</totalBleedFactor>
+		<label>critical low</label>
+		<totalBleedFactor>2.0</totalBleedFactor>
+		<minSeverity>0.0</minSeverity>
+	  </li>
+	  <li>
+		<label>extreme low</label>
+		<totalBleedFactor>1.7</totalBleedFactor>
+		<minSeverity>0.17</minSeverity>
+	  </li>
+	  <li>
+		<label>very low</label>
+		<totalBleedFactor>1.2</totalBleedFactor>
 		<minSeverity>0.25</minSeverity>
 	  </li>
 	  <li>
-		<label>low cell level</label>
-		<totalBleedFactor>0.75</totalBleedFactor>
+		<label>low</label>
+		<totalBleedFactor>0.89</totalBleedFactor>
 		<minSeverity>0.35</minSeverity>
 	  </li>
 	  <li>
-		<label>medium cell level</label>
-		<totalBleedFactor>0.5</totalBleedFactor>
+		<label>medium</label>
+		<totalBleedFactor>0.67</totalBleedFactor>
 		<minSeverity>0.50</minSeverity>
 	  </li>
 	  <li>
-		<label>high cell level</label>
-		<totalBleedFactor>0.25</totalBleedFactor>
+		<label>high</label>
+		<totalBleedFactor>0.44</totalBleedFactor>
 		<minSeverity>0.65</minSeverity>
 	  </li>
 	  <li>
-		<label>very high cell level</label>
-		<totalBleedFactor>0.10</totalBleedFactor>
+		<label>very high</label>
+		<totalBleedFactor>0.23</totalBleedFactor>
 		<minSeverity>0.70</minSeverity>
 	  </li>
 	  <li>
-		<totalBleedFactor>0.0</totalBleedFactor>
+		<label>extreme high</label>
+		<totalBleedFactor>0.1</totalBleedFactor>
 		<minSeverity>0.85</minSeverity>
+	  </li>
+	  <li>
+		<label>full</label>
+		<totalBleedFactor>0.0</totalBleedFactor>
+		<minSeverity>1.0</minSeverity>
 	  </li>
 	</stages>
   </HediffDef>
@@ -555,44 +586,66 @@
 	<description>Resurgent cells optimize metabolic processes and reduce the load on neuronal clusters, which reduces the need for sleep.</description>
 	<stages>
 	  <li>
-		<label>very low cell level</label>
-		<minSeverity>0.25</minSeverity>
+		<label>critical low</label>
+		<minSeverity>0.0</minSeverity>
 		<statFactors>
-		  <RestFallRateFactor>0.90</RestFallRateFactor>
+		  <RestFallRateFactor>2.0</RestFallRateFactor>
 		</statFactors>
 	  </li>
 	  <li>
-		<label>low cell level</label>
+		<label>extreme low</label>
+		<minSeverity>0.17</minSeverity>
+		<statFactors>
+		  <RestFallRateFactor>1.7</RestFallRateFactor>
+		</statFactors>
+	  </li>
+	  <li>
+		<label>very low</label>
+		<minSeverity>0.25</minSeverity>
+		<statFactors>
+		  <RestFallRateFactor>1.25</RestFallRateFactor>
+		</statFactors>
+	  </li>
+	  <li>
+		<label>low</label>
 		<minSeverity>0.35</minSeverity>
 		<statFactors>
 		  <RestFallRateFactor>0.85</RestFallRateFactor>
 		</statFactors>
 	  </li>
 	  <li>
-		<label>medium cell level</label>
+		<label>medium</label>
 		<minSeverity>0.50</minSeverity>
 		<statFactors>
 		  <RestFallRateFactor>0.75</RestFallRateFactor>
 		</statFactors>
 	  </li>
 	  <li>
-		<label>high cell level</label>
+		<label>high</label>
 		<minSeverity>0.65</minSeverity>
 		<statFactors>
 		  <RestFallRateFactor>0.45</RestFallRateFactor>
 		</statFactors>
 	  </li>
 	  <li>
-		<label>very high cell level</label>
+		<label>very high</label>
 		<minSeverity>0.70</minSeverity>
 		<statFactors>
 		  <RestFallRateFactor>0.25</RestFallRateFactor>
 		</statFactors>
 	  </li>
 	  <li>
+		<label>extreme high</label>
 		<minSeverity>0.85</minSeverity>
 		<statFactors>
 		  <RestFallRateFactor>0.1</RestFallRateFactor>
+		</statFactors>
+	  </li>
+	  <li>
+		<label>full</label>
+		<minSeverity>1.0</minSeverity>
+		<statFactors>
+		  <RestFallRateFactor>0.01</RestFallRateFactor>
 		</statFactors>
 	  </li>
 	</stages>

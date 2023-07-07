@@ -8,7 +8,7 @@
 
 A rapidly mutating, resurgent fungus is poisoning the soil beneath it and spreading to ancient animal bones underground. Bones infected with this fungus rise like walking corpses.
 
-This creepy organism obeys the local owner of the "GENE_NAME" gene, forming a stable psychic bond.
+This creepy organism obeys the local owner of the "Resurgent spores" gene, forming a stable psychic bond.
 
 &lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; From time to time, the totem raises walking corpses, the number of walking corpses depends on the number of totems. The base amount is 4, each totem increases the limit by 1. If the limit is exceeded as a result of the destruction of totems, then it will not affect existing walking corpses in any way.
 
@@ -85,6 +85,7 @@ Totems also spread pollution from time to time.</description>
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_Toxifier">
 		<pollutionIntervalTicks>360000~720000</pollutionIntervalTicks>
+		<cellsToPollute>3</cellsToPollute>
 	  </li>
 	  <li Class="CompProperties_Styleable" />
 	</comps>
@@ -167,6 +168,7 @@ If a settlement has a pawn with the "Resurgent spores" gene, then the tree will 
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_Toxifier">
 		<pollutionIntervalTicks>360000~720000</pollutionIntervalTicks>
+		<cellsToPollute>6</cellsToPollute>
 		<radius>8.9</radius>
 	  </li>
 	  <li Class="CompProperties_Glower">

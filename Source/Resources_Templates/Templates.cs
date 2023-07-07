@@ -228,6 +228,8 @@ namespace WVC_XenotypesAndGenes
 
 		public List<GeneDef> AllGenes => genes;
 
+		public XenotypeIconDef xenotypeIconDef = null;
+
 		public override void ResolveReferences()
 		{
 			if (genes.NullOrEmpty())

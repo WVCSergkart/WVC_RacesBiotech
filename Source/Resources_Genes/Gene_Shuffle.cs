@@ -22,6 +22,19 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostAdd();
 			// ResetChance();
+			// if (HaveGenes(RandomizerGenesList, pawn, this))
+			// {
+				// pawn.genes.RemoveGene(this);
+				// return;
+			// }
+			// if (Overridden)
+			// {
+				// if (RandomizerGenesList.Contains(overriddenByGene.def))
+				// {
+					// pawn.genes.RemoveGene(this);
+					// return;
+				// }
+			// }
 			if (Rand.Chance(0.2f))
 			// if (!GeneIsRandomized)
 			{
@@ -52,6 +65,18 @@ namespace WVC_XenotypesAndGenes
 			// }
 		// }
 
+		// public static bool HaveGenes(List<GeneDef> genesList, Pawn pawn, Gene gene)
+		// {
+			// for (int i = 0; i < genesList.Count; i++)
+			// {
+				// if (pawn.genes.HasGene(genesList[i]) && genesList[i] != gene.def)
+				// {
+					// return true;
+				// }
+			// }
+			// return false;
+		// }
+
 	}
 
 	public class Gene_FacelessShuffle : Gene_Faceless
@@ -77,6 +102,19 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostAdd();
 			// ResetChance();
+			// if (Gene_Shuffle.HaveGenes(RandomizerGenesList, pawn, this))
+			// {
+				// pawn.genes.RemoveGene(this);
+				// return;
+			// }
+			// if (Overridden)
+			// {
+				// if (RandomizerGenesList.Contains(overriddenByGene.def))
+				// {
+					// pawn.genes.RemoveGene(this);
+					// return;
+				// }
+			// }
 			if (Rand.Chance(0.2f))
 			{
 				// GeneDef geneDef = DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef randomGeneDef) => randomGeneDef.defName != def.defName && randomGeneDef.exclusionTags == def.exclusionTags).RandomElement();

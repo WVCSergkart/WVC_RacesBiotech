@@ -130,5 +130,17 @@
 	<defName>WVC_XenoUndead1c</defName>
 	<texPath>WVC/UI/Mecha_Icons/Xeno_Undead_v0</texPath>
   </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_XenoUndead2c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Xeno_Undead_v1</texPath>
+  </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_XenoUndead3c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Xeno_Undead_v2</texPath>
+  </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_XenoUndead4c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Xeno_Undead_v3</texPath>
+  </XenotypeIconDef>
 
 </Defs>
