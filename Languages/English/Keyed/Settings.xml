@@ -42,6 +42,13 @@ A restart is required to apply the setting.</WVC_ToolTip_minWastepacksPerRecharg
 	<WVC_ToolTip_enableStatSkillFactor>Responsible for whether the stat factor on skills will be applied or not.</WVC_ToolTip_enableStatSkillFactor>
 
 	<!-- ====================================================================================== -->
+	<WVC_Label_generateSkillGenes>Enable aptitude genes</WVC_Label_generateSkillGenes>
+	<WVC_Label_generateXenotypeForceGenes>Enable endo/xeno-forcer genes</WVC_Label_generateXenotypeForceGenes>
+	<WVC_ToolTip_generateTemplateGenes>If enabled, the corresponding genes will be generated at startup.
+
+A restart is required to apply the setting.</WVC_ToolTip_generateTemplateGenes>
+
+	<!-- ====================================================================================== -->
 	<WVC_Label_hideEncodingGenes>Hide encoding genes</WVC_Label_hideEncodingGenes>
 	<WVC_ToolTip_hideEncodingGenes>If enabled, the genes from the "Encoding" tab will always be invisible. Does not affect spawning in genepacks.
 

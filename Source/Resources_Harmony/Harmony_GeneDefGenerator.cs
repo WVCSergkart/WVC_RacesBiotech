@@ -22,23 +22,29 @@ namespace WVC_XenotypesAndGenes
 		public static IEnumerable<GeneDef> Postfix(IEnumerable<GeneDef> values)
 		{
 			List<GeneDef> geneDefList = values.ToList();
-			foreach (SkillsGeneTemplateDef template in DefDatabase<SkillsGeneTemplateDef>.AllDefsListForReading)
+			if (WVC_Biotech.settings.generateSkillGenes)
 			{
-				List<SkillDef> skillDefs = DefDatabase<SkillDef>.AllDefsListForReading;
-				foreach (SkillDef skillDef in skillDefs)
+				foreach (SkillsGeneTemplateDef template in DefDatabase<SkillsGeneTemplateDef>.AllDefsListForReading)
 				{
-					geneDefList.Add(TemplatesUtility.GetFromTemplate_Skills(template, skillDef, skillDef.index * 1000));
+					List<SkillDef> skillDefs = DefDatabase<SkillDef>.AllDefsListForReading;
+					foreach (SkillDef skillDef in skillDefs)
+					{
+						geneDefList.Add(TemplatesUtility.GetFromTemplate_Skills(template, skillDef, skillDef.index * 1000));
+					}
 				}
 			}
 			foreach (InheritableImmuneGeneTemplateDef template in DefDatabase<InheritableImmuneGeneTemplateDef>.AllDefsListForReading)
 			{
 				geneDefList.Add(TemplatesUtility.GetFromTemplate_InheritableImmune(template));
 			}
-			foreach (XenotypeForcerGeneTemplateDef template in DefDatabase<XenotypeForcerGeneTemplateDef>.AllDefsListForReading)
+			if (WVC_Biotech.settings.generateXenotypeForceGenes)
 			{
-				foreach (XenotypeDef allDef in XenotypeFilterUtility.WhiteListedXenotypes(true, true))
+				foreach (XenotypeForcerGeneTemplateDef template in DefDatabase<XenotypeForcerGeneTemplateDef>.AllDefsListForReading)
 				{
-					geneDefList.Add(TemplatesUtility.GetFromTemplate_XenotypeForcer(template, allDef, allDef.index * 1000));
+					foreach (XenotypeDef allDef in XenotypeFilterUtility.WhiteListedXenotypes(true, true))
+					{
+						geneDefList.Add(TemplatesUtility.GetFromTemplate_XenotypeForcer(template, allDef, allDef.index * 1000));
+					}
 				}
 			}
 			return geneDefList;

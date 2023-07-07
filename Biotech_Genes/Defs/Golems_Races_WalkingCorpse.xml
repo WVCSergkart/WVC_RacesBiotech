@@ -225,7 +225,8 @@ Walking corpses cannot be zoned, but they will try to stay close to the totems. 
 			<leatherDef>RawFungus</leatherDef>
 			<foodType>OmnivoreAnimal, OmnivoreRoughAnimal</foodType>
 			<giveNonToolUserBeatFireVerb>true</giveNonToolUserBeatFireVerb>
-			<baseHungerRate>0.8</baseHungerRate>
+			<baseHungerRate>1.2</baseHungerRate>
+			<baseHealthScale>0.6</baseHealthScale>
 			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
 			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
 			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>

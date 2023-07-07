@@ -14,6 +14,8 @@ namespace WVC
 	public class WVC_BiotechSettings : ModSettings
 	{
 		public bool disableFurGraphic = false;
+		public bool generateSkillGenes = true;
+		public bool generateXenotypeForceGenes = true;
 		// public bool mechaskinTemperatureAdaptability;
 		public bool minWastepacksPerRecharge = false;
 		// public bool nodeskinVX_MechBandwidth;
@@ -42,6 +44,8 @@ namespace WVC
 		public override void ExposeData()
 		{
 			Scribe_Values.Look(ref disableFurGraphic, "disableFurGraphic", defaultValue: false);
+			Scribe_Values.Look(ref generateSkillGenes, "generateSkillGenes", defaultValue: true);
+			Scribe_Values.Look(ref generateXenotypeForceGenes, "generateXenotypeForceGenes", defaultValue: true);
 			// Scribe_Values.Look(ref mechaskinTemperatureAdaptability, "mechaskinTemperatureAdaptability", defaultValue: false);
 			Scribe_Values.Look(ref minWastepacksPerRecharge, "minWastepacksPerRecharge", defaultValue: false);
 			// Scribe_Values.Look(ref nodeskinVX_MechBandwidth, "nodeskinVX_MechBandwidth", defaultValue: true);
@@ -127,14 +131,16 @@ namespace WVC
 			// listingStandard.None();
 			listingStandard.Label("");
 			// ===============
-			// listingStandard.Label("WVC_BiotechSettings_Label_Genes".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Genes".Translate());
+			listingStandard.Label("WVC_BiotechSettings_Label_Genes".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Genes".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_generateSkillGenes".Translate(), ref settings.generateSkillGenes, "WVC_ToolTip_generateTemplateGenes".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_generateXenotypeForceGenes".Translate(), ref settings.generateXenotypeForceGenes, "WVC_ToolTip_generateTemplateGenes".Translate());
 			// listingStandard.CheckboxLabeled("WVC_Label_mechaskinTemperatureAdaptability".Translate(), ref settings.mechaskinTemperatureAdaptability, "WVC_ToolTip_mechaskinTemperatureAdaptability".Translate());
 			// listingStandard.CheckboxLabeled("WVC_Label_nodeskinVX_MechBandwidth".Translate(), ref settings.nodeskinVX_MechBandwidth, "WVC_ToolTip_nodeskinVX_MechBandwidth".Translate());
 			// listingStandard.CheckboxLabeled("WVC_Label_canMechaskinBePredatorPrey".Translate(), ref settings.canMechaskinBePredatorPrey, "WVC_ToolTip_canMechaskinBePredatorPrey".Translate());
 			// listingStandard.CheckboxLabeled("WVC_Label_hideEncodingGenes".Translate(), ref settings.hideEncodingGenes, "WVC_ToolTip_hideEncodingGenes".Translate());
 			// listingStandard.CheckboxLabeled("WVC_Label_fixAgelessAge".Translate(), ref settings.fixAgelessAge, "WVC_ToolTip_fixAgelessAge".Translate());
 			// listingStandard.None();
-			// listingStandard.Label("");
+			listingStandard.Label("");
 			// ===============
 			listingStandard.Label("WVC_BiotechSettings_Label_Other".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Other".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_minWastepacksPerRecharge".Translate(), ref settings.minWastepacksPerRecharge, "WVC_ToolTip_minWastepacksPerRecharge".Translate());
