@@ -13,7 +13,7 @@ namespace WVC_XenotypesAndGenes
 
 		private int pollutingProgressTicks;
 
-		private int pollutionIntervalTicks;
+		// private int pollutionIntervalTicks;
 
 		private CompProperties_Toxifier Props => (CompProperties_Toxifier)props;
 
@@ -40,11 +40,11 @@ namespace WVC_XenotypesAndGenes
 				// parent.Destroy();
 				// return;
 			// }
-			ResetInterval();
 			base.PostSpawnSetup(respawningAfterLoad);
 			if (!respawningAfterLoad)
 			{
-				pollutingProgressTicks = pollutionIntervalTicks;
+				ResetInterval();
+				// pollutingProgressTicks = pollutionIntervalTicks;
 			}
 		}
 
@@ -57,7 +57,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					taggedString += "\n";
 				}
-				taggedString += (string)("PollutingTerrainProgress".Translate() + ": " + (pollutionIntervalTicks - pollutingProgressTicks).ToStringTicksToPeriod() + " (") + Props.cellsToPollute + " " + "TilesLower".Translate() + ")";
+				taggedString += (string)("PollutingTerrainProgress".Translate() + ": " + (pollutingProgressTicks).ToStringTicksToPeriod() + " (") + Props.cellsToPollute + " " + "TilesLower".Translate() + ")";
 			}
 			return taggedString.Resolve();
 		}
@@ -148,8 +148,8 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (CanPolluteNow)
 			{
-				pollutingProgressTicks += tick;
-				if (pollutingProgressTicks >= pollutionIntervalTicks)
+				pollutingProgressTicks -= tick;
+				if (pollutingProgressTicks <= 0)
 				{
 					PolluteNextCell();
 					ResetInterval();
@@ -159,8 +159,8 @@ namespace WVC_XenotypesAndGenes
 
 		public void ResetInterval()
 		{
-			pollutionIntervalTicks = Props.pollutionIntervalTicks.RandomInRange;
-			pollutingProgressTicks = 0;
+			pollutingProgressTicks = Props.pollutionIntervalTicks.RandomInRange;
+			// pollutingProgressTicks = 0;
 		}
 
 		public override IEnumerable<Gizmo> CompGetGizmosExtra()
@@ -184,7 +184,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			Scribe_Values.Look(ref nextPollutionCell, "nextPollutionCell", IntVec3.Invalid);
 			Scribe_Values.Look(ref pollutingProgressTicks, "pollutingProgressTicks", 0);
-			Scribe_Values.Look(ref pollutionIntervalTicks, "pollutionIntervalTicks", 0);
+			// Scribe_Values.Look(ref pollutionIntervalTicks, "pollutionIntervalTicks", 0);
 		}
 	}
 

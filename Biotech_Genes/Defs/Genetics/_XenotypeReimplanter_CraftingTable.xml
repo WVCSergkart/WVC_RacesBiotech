@@ -366,6 +366,7 @@
 	  <MarketValue>75</MarketValue>
 	  <Mass>0.5</Mass>
 	  <Flammability>0.2</Flammability>
+	  <WorkToMake>14000</WorkToMake>
 	</statBases>
 	<recipeMaker>
 	  <displayPriority>-100</displayPriority>

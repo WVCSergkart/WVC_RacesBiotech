@@ -288,10 +288,10 @@ Walking corpses cannot be zoned, but they will try to stay close to the totems. 
 
 	<ThingDef ParentName="WVC_XenotypesAndGenes_WalkingCorpse_Base">
 		<defName>WVC_XenotypesAndGenes_WalkingCorpse</defName>
-		<label>walking corpse</label>
+		<label>walking bonepile</label>
 		<statBases>
-			<ArmorRating_Sharp>0.1</ArmorRating_Sharp>
-			<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.2</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.1</ArmorRating_Blunt>
 			<MoveSpeed>3.8</MoveSpeed>
 		</statBases>
 		<race>
@@ -301,15 +301,15 @@ Walking corpses cannot be zoned, but they will try to stay close to the totems. 
 					<minAge>0</minAge>
 					<soundWounded>Pawn_Megascarab_Wounded</soundWounded>
 					<soundDeath>Pawn_Megascarab_Death</soundDeath>
-					<soundCall>Pawn_Megascarab_Call</soundCall>
-					<soundAngry>Pawn_Megascarab_Angry</soundAngry>
+					<!-- <soundCall>Pawn_Megascarab_Call</soundCall> -->
+					<!-- <soundAngry>Pawn_Megascarab_Angry</soundAngry> -->
 				</li>
 			</lifeStageAges>
 		</race>
 	</ThingDef>
 	<PawnKindDef ParentName="WVC_XenotypesAndGenes_WalkingCorpseGolemKind_Base">
 		<defName>WVC_XenotypesAndGenes_WalkingCorpse</defName>
-		<label>walking corpse</label>
+		<label>walking bonepile</label>
 		<race>WVC_XenotypesAndGenes_WalkingCorpse</race>
 		<alternateGraphicChance>1.0</alternateGraphicChance>
 		<alternateGraphics>
@@ -344,10 +344,11 @@ Walking corpses cannot be zoned, but they will try to stay close to the totems. 
 		<statBases>
 			<ArmorRating_Sharp>0.5</ArmorRating_Sharp>
 			<ArmorRating_Blunt>0.0</ArmorRating_Blunt>
+			<ArmorRating_Heat>0.0</ArmorRating_Heat>
 			<MoveSpeed>4.8</MoveSpeed>
 			<Mass>37</Mass>
 		</statBases>
-		<tools>
+		<tools Inherit="False">
 			<li>
 				<label>left fist</label>
 				<capacities>
@@ -406,6 +407,26 @@ Walking corpses cannot be zoned, but they will try to stay close to the totems. 
 			<li><color>(195,195,195)</color></li>
 			<!-- slate -->
 			<li><color>(70,70,70)</color><weight>0.15</weight></li>
+			<!-- sandstone -->
+			<li><color>(126,104,94)</color><weight>0.05</weight></li>
+			<!-- Headless -->
+			<li>
+				<texPath>WVC/Things/Mechanoids_Golems/SkeletonHeadless</texPath>
+				<color>(195,195,195)</color>
+				<weight>0.5</weight>
+			</li>
+			<!-- slate -->
+			<li>
+				<texPath>WVC/Things/Mechanoids_Golems/SkeletonHeadless</texPath>
+				<color>(70,70,70)</color>
+				<weight>0.10</weight>
+			</li>
+			<!-- sandstone -->
+			<li>
+				<texPath>WVC/Things/Mechanoids_Golems/SkeletonHeadless</texPath>
+				<color>(126,104,94)</color>
+				<weight>0.05</weight>
+			</li>
 		</alternateGraphics>
 		<lifeStages>
 			<li>
