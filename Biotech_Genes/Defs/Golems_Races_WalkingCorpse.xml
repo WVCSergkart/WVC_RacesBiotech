@@ -117,6 +117,7 @@
 		  <woundAnchorTag>LeftShoulder</woundAnchorTag>
 		  <groups>
 			<li>Shoulders</li>
+			<li>LeftHand</li>
 		  </groups>
 		</li>
 		<li>
@@ -126,6 +127,7 @@
 		  <woundAnchorTag>RightShoulder</woundAnchorTag>
 		  <groups>
 			<li>Shoulders</li>
+			<li>RightHand</li>
 		  </groups>
 		</li>
 		<li>
@@ -186,15 +188,15 @@ Walking corpses cannot be zoned, but they will try to stay close to the totems. 
 			<ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
 			<PsychicSensitivity>1.5</PsychicSensitivity>
 			<Flammability>0.2</Flammability>
-			<MeatAmount>22</MeatAmount>
-			<LeatherAmount>7</LeatherAmount>
+			<MeatAmount>5</MeatAmount>
+			<LeatherAmount>3</LeatherAmount>
 			<ArmorRating_Heat>0.2</ArmorRating_Heat>
 			<ComfyTemperatureMin>-100</ComfyTemperatureMin>
 			<ComfyTemperatureMax>250</ComfyTemperatureMax>
 			<MarketValue>150</MarketValue>
 			<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
 			<MoveSpeed>3.6</MoveSpeed>
-			<Mass>80</Mass>
+			<Mass>43</Mass>
 		</statBases>
 		<tradeability>None</tradeability>
 		<uiIconScale>1.5</uiIconScale>
@@ -234,7 +236,7 @@ Walking corpses cannot be zoned, but they will try to stay close to the totems. 
 			<foodType>OmnivoreAnimal, OmnivoreRoughAnimal</foodType>
 			<giveNonToolUserBeatFireVerb>true</giveNonToolUserBeatFireVerb>
 			<baseHungerRate>1.2</baseHungerRate>
-			<baseHealthScale>0.6</baseHealthScale>
+			<baseHealthScale>0.4</baseHealthScale>
 			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
 			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
 			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
@@ -329,6 +331,87 @@ Walking corpses cannot be zoned, but they will try to stay close to the totems. 
 				<bodyGraphicData>
 					<texPath>WVC/Things/Mechanoids_Golems/BoneGolem</texPath>
 					<drawSize>1.2</drawSize>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+
+	<!-- =================================================================== -->
+
+	<ThingDef ParentName="WVC_XenotypesAndGenes_WalkingCorpse_Base">
+		<defName>WVC_XenotypesAndGenes_WalkingSkeleton</defName>
+		<label>walking skeleton</label>
+		<statBases>
+			<ArmorRating_Sharp>0.5</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.0</ArmorRating_Blunt>
+			<MoveSpeed>4.8</MoveSpeed>
+			<Mass>37</Mass>
+		</statBases>
+		<tools>
+			<li>
+				<label>left fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8.2</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>9</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+			</li>
+			<li>
+				<label>right fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8.2</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>9</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+			</li>
+		</tools>
+		<race>
+			<baseHungerRate>1.4</baseHungerRate>
+			<baseHealthScale>0.6</baseHealthScale>
+			<lifeStageAges>
+				<li>
+					<def>MechanoidFullyFormed</def>
+					<minAge>0</minAge>
+					<soundWounded>Pawn_Megascarab_Wounded</soundWounded>
+					<soundDeath>Pawn_Megascarab_Death</soundDeath>
+				</li>
+			</lifeStageAges>
+		</race>
+	</ThingDef>
+	<PawnKindDef ParentName="WVC_XenotypesAndGenes_WalkingCorpseGolemKind_Base">
+		<defName>WVC_XenotypesAndGenes_WalkingSkeleton</defName>
+		<label>walking skeleton</label>
+		<race>WVC_XenotypesAndGenes_WalkingSkeleton</race>
+		<alternateGraphicChance>1.0</alternateGraphicChance>
+		<alternateGraphics>
+			<!-- Base -->
+			<li><color>(195,195,195)</color></li>
+			<!-- slate -->
+			<li><color>(70,70,70)</color><weight>0.15</weight></li>
+		</alternateGraphics>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>WVC/Things/Mechanoids_Golems/Skeleton</texPath>
+					<drawSize>1.5</drawSize>
 				</bodyGraphicData>
 			</li>
 		</lifeStages>

@@ -16,10 +16,30 @@ namespace WVC_XenotypesAndGenes
 
 		private CompProperties_HiveSpawnAnimals Props => (CompProperties_HiveSpawnAnimals)props;
 
+		// public override void PostPostMake()
+		// {
+			// if (parent.def.descriptionHyperlinks == null)
+			// {
+				// parent.def.descriptionHyperlinks = new List<DefHyperlink>();
+			// }
+			// foreach (PawnKindDef pawnKindDef in Props.pawnsList)
+			// {
+				// parent.def.descriptionHyperlinks.Add(new DefHyperlink(pawnKindDef));
+			// }
+		// }
+
 		public override void Initialize(CompProperties props)
 		{
 			base.Initialize(props);
 			ResetCounter();
+			// if (parent.def.descriptionHyperlinks == null)
+			// {
+				// parent.def.descriptionHyperlinks = new List<DefHyperlink>();
+			// }
+			// foreach (PawnKindDef pawnKindDef in Props.pawnsList)
+			// {
+				// parent.def.descriptionHyperlinks.Add(new DefHyperlink(pawnKindDef));
+			// }
 		}
 
 		public override void PostSpawnSetup(bool respawningAfterLoad)

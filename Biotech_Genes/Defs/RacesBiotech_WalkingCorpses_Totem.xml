@@ -14,8 +14,9 @@ This creepy organism obeys the local owner of the "Resurgent spores" gene, formi
 
 Totems also spread pollution from time to time.</description>
 	<descriptionHyperlinks>
-	  <ThingDef>WVC_XenotypesAndGenes_WalkingCorpse</ThingDef>
 	  <ThingDef>WVC_Plant_TreeResurgent</ThingDef>
+	  <ThingDef>WVC_XenotypesAndGenes_WalkingCorpse</ThingDef>
+	  <ThingDef>WVC_XenotypesAndGenes_WalkingSkeleton</ThingDef>
 	</descriptionHyperlinks>
 	<soundImpactDefault>MeleeHit_Wood</soundImpactDefault>
 	<statBases>
@@ -81,6 +82,7 @@ Totems also spread pollution from time to time.</description>
 		<ticksBetweenSpawn>120000~720000</ticksBetweenSpawn>
 		<pawnsList>
 		  <li>WVC_XenotypesAndGenes_WalkingCorpse</li>
+		  <li>WVC_XenotypesAndGenes_WalkingSkeleton</li>
 		</pawnsList>
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_Toxifier">
@@ -104,9 +106,10 @@ The tree also pollutes the environment every few days.
 
 If a settlement has a pawn with the "Resurgent spores" gene, then the tree will spawn a baby once a year, which will inherit the genes of one of these settlers.</description>
 	<descriptionHyperlinks>
-	  <ThingDef>WVC_XenotypesAndGenes_WalkingCorpse</ThingDef>
 	  <ThingDef>WVC_XenotypesAndGenes_WalkingCorpseTotem</ThingDef>
 	  <GeneDef>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</GeneDef>
+	  <ThingDef>WVC_XenotypesAndGenes_WalkingCorpse</ThingDef>
+	  <ThingDef>WVC_XenotypesAndGenes_WalkingSkeleton</ThingDef>
 	</descriptionHyperlinks>
 	<graphicData>
 	  <!-- <drawOffset>(0,0.5,0)</drawOffset> -->
@@ -164,6 +167,7 @@ If a settlement has a pawn with the "Resurgent spores" gene, then the tree will 
 		<!-- <maxNumber>5</maxNumber> -->
 		<pawnsList>
 		  <li>WVC_XenotypesAndGenes_WalkingCorpse</li>
+		  <li>WVC_XenotypesAndGenes_WalkingSkeleton</li>
 		</pawnsList>
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_Toxifier">

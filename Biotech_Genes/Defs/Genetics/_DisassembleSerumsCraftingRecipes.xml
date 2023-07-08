@@ -32,8 +32,8 @@
 
   <RecipeDef ParentName="WVC_DisassembleSerumCrafting_Base">
 	<defName>WVC_RacesBiotech_DisassembleSerumBase</defName>
-	<label>disassemble basetype serum</label>
-	<description>Disassemble xenotype serum.</description>
+	<label>disassemble base serum</label>
+	<description>Disassemble base serum.</description>
 	<products>
 	  <WVC_XenotypeSerumCapsule>1</WVC_XenotypeSerumCapsule>
 	</products>
@@ -56,8 +56,8 @@
 
   <RecipeDef ParentName="WVC_DisassembleSerumCrafting_Base">
 	<defName>WVC_RacesBiotech_DisassembleSerumUltra</defName>
-	<label>disassemble ultratype serum</label>
-	<description>Disassemble ultratype serum.</description>
+	<label>disassemble ultra serum</label>
+	<description>Disassemble ultra serum.</description>
 	<products>
 	  <WVC_XenotypeSerumCapsule>1</WVC_XenotypeSerumCapsule>
 	  <WVC_XenotypeSerumUltraCapsule>1</WVC_XenotypeSerumUltraCapsule>
@@ -81,8 +81,8 @@
 
   <RecipeDef ParentName="WVC_DisassembleSerumCrafting_Base">
 	<defName>WVC_RacesBiotech_DisassembleSerumHybrid</defName>
-	<label>disassemble hybridtype serum</label>
-	<description>Disassemble hybridtype serum.</description>
+	<label>disassemble hybrid serum</label>
+	<description>Disassemble hybrid serum.</description>
 	<products>
 	  <WVC_XenotypeSerumCapsule>2</WVC_XenotypeSerumCapsule>
 	  <WVC_XenotypeSerumUltraCapsule>2</WVC_XenotypeSerumUltraCapsule>
