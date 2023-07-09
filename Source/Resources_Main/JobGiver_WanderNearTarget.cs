@@ -1,4 +1,5 @@
 // Verse.AI.JobGiver_WanderNearConnectedTree
+using RimWorld;
 using System.Collections.Generic;
 using Verse;
 using Verse.AI;
@@ -7,6 +8,23 @@ using WVC_XenotypesAndGenes;
 
 namespace WVC_XenotypesAndGenes
 {
+
+	public class ThinkNode_ConditionalAnyEnemyInMap : ThinkNode_Conditional
+	{
+		protected override bool Satisfied(Pawn pawn)
+		{
+			if (!pawn.Spawned)
+			{
+				return false;
+			}
+			Map map = pawn.Map;
+			if (map.IsPlayerHome)
+			{
+				return GenHostility.AnyHostileActiveThreatToPlayer(map, countDormantPawnsAsHostile: false);
+			}
+			return false;
+		}
+	}
 
 	public class JobGiver_WanderNearTarget : JobGiver_Wander
 	{

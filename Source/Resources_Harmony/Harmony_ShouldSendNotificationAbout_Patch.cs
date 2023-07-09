@@ -17,11 +17,24 @@ namespace WVC_XenotypesAndGenes
 	{
 		public static void Postfix(ref bool __result, Pawn p)
 		{
-			if (__result && MechanoidizationUtility.ShouldSendNotificationAbout(p))
+			if (__result && MechanoidizationUtility.ShouldNotSendNotificationAbout(p))
 			{
 				__result = false;
 			}
 		}
 	}
+
+	// [HarmonyPatch(typeof(TaleUtility), "Notify_PawnDied")]
+	// public static class TaleUtility_Notify_PawnDied_Patch
+	// {
+		// public static bool Prefix(ref Pawn victim)
+		// {
+			// if (MechanoidizationUtility.ShouldNotSendNotificationAbout(victim, true))
+			// {
+				// return false;
+			// }
+			// return true;
+		// }
+	// }
 
 }

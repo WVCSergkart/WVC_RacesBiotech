@@ -22,7 +22,6 @@
 	<WVC_Label_disableFurGraphic>Disable mecha/node/rune/stone(skin) graphic</WVC_Label_disableFurGraphic>
 	<WVC_ToolTip_disableFurGraphic>Turns off the visual changes introduced by (...)skins.
 
-Note that the "exoskinist" meme precepts only work if graphics are enabled.
 A restart is required to apply the setting. Required new game!</WVC_ToolTip_disableFurGraphic>
 
 	<!-- ====================================================================================== -->
@@ -32,8 +31,6 @@ A restart is required to apply the setting. Required new game!</WVC_ToolTip_disa
 	<!-- ====================================================================================== -->
 	<WVC_Label_minWastepacksPerRecharge>Force minimal waste</WVC_Label_minWastepacksPerRecharge>
 	<WVC_ToolTip_minWastepacksPerRecharge>Force the minimum amount of waste produced by mechanoids, preventing it from dropping below 1.
-
-Nodeskin VX allows you to reduce the bandwidth cost to 0, which causes the mechanoids to stop making waste. If you need waste produced by mechanoids, then enable this option.
 
 A restart is required to apply the setting.</WVC_ToolTip_minWastepacksPerRecharge>
 
@@ -49,10 +46,8 @@ A restart is required to apply the setting.</WVC_ToolTip_minWastepacksPerRecharg
 A restart is required to apply the setting.</WVC_ToolTip_generateTemplateGenes>
 
 	<!-- ====================================================================================== -->
-	<WVC_Label_hideEncodingGenes>Hide encoding genes</WVC_Label_hideEncodingGenes>
-	<WVC_ToolTip_hideEncodingGenes>If enabled, the genes from the "Encoding" tab will always be invisible. Does not affect spawning in genepacks.
-
-A restart is required to apply the setting.</WVC_ToolTip_hideEncodingGenes>
+	<WVC_Label_canNonPlayerPawnResurrect>Can non-player pawns be resurrected</WVC_Label_canNonPlayerPawnResurrect>
+	<WVC_ToolTip_canNonPlayerPawnResurrect>Gene "Undead" allows pawns to be resurrected instantly upon death. If disabled, pawns not controlled by the player will always die. This affects prisoners, rebellious slaves, guests and enemies.</WVC_ToolTip_canNonPlayerPawnResurrect>
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_serumsForAllXenotypes>Generate xenotypes serums</WVC_Label_serumsForAllXenotypes>

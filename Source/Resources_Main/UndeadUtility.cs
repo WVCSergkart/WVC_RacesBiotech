@@ -66,14 +66,20 @@ namespace WVC_XenotypesAndGenes
 			// {
 				// letterStack.RemoveLetter(dismissibleLetters.First());
 			// }
-			Find.LetterStack.ReceiveLetter("WVC_LetterLabelSecondChance_GeneUndead".Translate(), "WVC_LetterTextSecondChance_GeneUndead".Translate(pawn.Named("TARGET"), penaltyYears.Named("COMADURATION")), LetterDefOf.NeutralEvent, new LookTargets(pawn));
+			if (PawnUtility.ShouldSendNotificationAbout(pawn))
+			{
+				Find.LetterStack.ReceiveLetter("WVC_LetterLabelSecondChance_GeneUndead".Translate(), "WVC_LetterTextSecondChance_GeneUndead".Translate(pawn.Named("TARGET"), penaltyYears.Named("COMADURATION")), LetterDefOf.NeutralEvent, new LookTargets(pawn));
+			}
 		}
 
 		public static void Resurrect(Pawn pawn)
 		{
 			ResurrectionUtility.Resurrect(pawn);
 			pawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
-			Find.LetterStack.ReceiveLetter("WVC_LetterLabelSecondChance_GeneUndead".Translate(), "WVC_LetterTextSecondChance_GeneUndeadResurgent".Translate(pawn.Named("TARGET")), LetterDefOf.NeutralEvent, new LookTargets(pawn));
+			if (PawnUtility.ShouldSendNotificationAbout(pawn))
+			{
+				Find.LetterStack.ReceiveLetter("WVC_LetterLabelSecondChance_GeneUndead".Translate(), "WVC_LetterTextSecondChance_GeneUndeadResurgent".Translate(pawn.Named("TARGET")), LetterDefOf.NeutralEvent, new LookTargets(pawn));
+			}
 		}
 
 		public static void OffsetResurgentCells(Pawn pawn, float offset)

@@ -125,11 +125,15 @@
 				<li Class="ThinkNode_Tagger">
 					<tagToGive>TrainedAnimalBehavior</tagToGive>
 					<subNodes>
-						<li Class="JobGiver_AIFightEnemies">
-							<targetAcquireRadius>65</targetAcquireRadius>
-							<targetKeepRadius>72</targetKeepRadius>
+						<li Class="WVC_XenotypesAndGenes.ThinkNode_ConditionalAnyEnemyInMap">
+						  <subNodes>
+							<li Class="JobGiver_AIFightEnemies">
+								<targetAcquireRadius>65</targetAcquireRadius>
+								<targetKeepRadius>72</targetKeepRadius>
+							</li>
+							<li Class="JobGiver_AIGotoNearestHostile" />
+						  </subNodes>
 						</li>
-						<li Class="JobGiver_AIGotoNearestHostile" />
 					</subNodes>
 				</li>
 
@@ -168,14 +172,14 @@
 			  <tagToGive>Idle</tagToGive>
 			  <subNodes>
 				<!-- Wander near your current position if in hostile map -->
-				<li Class="ThinkNode_ConditionalAnyEnemyInHostileMap">
-				  <subNodes>
-					<li Class="JobGiver_WanderAnywhere">
-					  <maxDanger>None</maxDanger>
-					  <ticksBetweenWandersRange>120~240</ticksBetweenWandersRange>
-					</li>
-				  </subNodes>
-				</li>
+				<!-- <li Class="ThinkNode_ConditionalAnyEnemyInHostileMap"> -->
+				  <!-- <subNodes> -->
+					<!-- <li Class="JobGiver_WanderAnywhere"> -->
+					  <!-- <maxDanger>None</maxDanger> -->
+					  <!-- <ticksBetweenWandersRange>120~240</ticksBetweenWandersRange> -->
+					<!-- </li> -->
+				  <!-- </subNodes> -->
+				<!-- </li> -->
 
 				<!-- Wander near colony -->
 				<li Class="WVC_XenotypesAndGenes.JobGiver_WanderNearTarget">

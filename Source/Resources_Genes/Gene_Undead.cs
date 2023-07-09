@@ -13,16 +13,22 @@ namespace WVC_XenotypesAndGenes
 
 	public class Gene_Undead : Gene
 	{
-		public int penaltyYears = 5;
-		public int minAge = 14;
+		private readonly int penaltyYears = 5;
 
 		private readonly float oneYear = 3600000f;
 
-		public BackstoryDef ChildBackstoryDef => def.GetModExtension<GeneExtension_Giver>().childBackstoryDef;
-		public BackstoryDef AdultBackstoryDef => def.GetModExtension<GeneExtension_Giver>().adultBackstoryDef;
+		private int Penalty => (int)(oneYear * penaltyYears);
+		private long Limit => (long)(oneYear * MinAge);
+		private float CurrentAge => pawn.ageTracker.AgeBiologicalTicks;
+		private float MinAge => pawn.ageTracker.AdultMinAge;
+
+		public BackstoryDef ChildBackstoryDef => def.GetModExtension<GeneExtension_Giver>()?.childBackstoryDef;
+		public BackstoryDef AdultBackstoryDef => def.GetModExtension<GeneExtension_Giver>()?.adultBackstoryDef;
 
 		// public HediffDef HediffDefName => def.GetModExtension<GeneExtension_Giver>().hediffDefName;
 		// public List<BodyPartDef> Bodyparts => def.GetModExtension<GeneExtension_Giver>().bodyparts;
+
+		public Gene_ResurgentCells Gene_ResurgentCells => pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
 
 		public bool PawnCanResurrect => CanResurrect();
 
@@ -31,27 +37,31 @@ namespace WVC_XenotypesAndGenes
 			base.Notify_PawnDied();
 			// It's not certain that Active check will work, since in some cases vanilla simply ignores the state of the gene.
 			// With the help of HasGene, we will try to prevent a possible bug associated with incorrect resurrection and subsequent shit
-			if (!Active || Overridden || pawn.genes.HasGene(GeneDefOf.Deathless))
+			// if (!Active || Overridden || pawn.genes.HasGene(GeneDefOf.Deathless))
+			// {
+				// return;
+			// }
+			// Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
+			if (!CanResurrect())
 			{
 				return;
 			}
-			Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
-			if (gene_Resurgent != null)
+			if (EnoughResurgentCells())
 			{
-				if ((gene_Resurgent.Value - def.resourceLossPerDay) >= 0f)
-				{
-					gene_Resurgent.Value -= def.resourceLossPerDay;
-					UndeadUtility.Resurrect(pawn);
-				}
-				return;
+				Gene_ResurgentCells.Value -= def.resourceLossPerDay;
+				UndeadUtility.Resurrect(pawn);
+				// return;
 			}
-			int penalty = (int)(oneYear * penaltyYears);
-			long limit = (long)(oneYear * minAge);
-			float currentAge = pawn.ageTracker.AgeBiologicalTicks;
-			if ((currentAge - penalty) > limit)
+			else if (CorrectAge())
 			{
-				UndeadUtility.ResurrectWithPenalties(pawn, limit, penalty, ChildBackstoryDef, AdultBackstoryDef, penaltyYears);
+				UndeadUtility.ResurrectWithPenalties(pawn, Limit, Penalty, ChildBackstoryDef, AdultBackstoryDef, penaltyYears);
 			}
+			// int penalty = (int)(oneYear * penaltyYears);
+			// long limit = (long)(oneYear * minAge);
+			// float currentAge = pawn.ageTracker.AgeBiologicalTicks;
+			// if ((currentAge - penalty) > limit)
+			// {
+			// }
 			// pawn.ageTracker.ResetAgeReversalDemand(Pawn_AgeTracker.AgeReversalReason.ViaTreatment);
 			// int num2 = (int)(pawn.ageTracker.AgeReversalDemandedDeadlineTicks / 60000);
 			// string text = "BiosculpterAgeReversalCompletedMessage".Translate(pawn.Named("PAWN"));
@@ -64,9 +74,9 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		//For ShouldSendNotificationAbout check
-		public bool CanResurrect()
+		private bool CanResurrect()
 		{
-			if (!Active || Overridden || pawn.genes.HasGene(GeneDefOf.Deathless))
+			if (!Active || Overridden || pawn.genes.HasGene(GeneDefOf.Deathless) || (!pawn.IsColonist && !WVC_Biotech.settings.canNonPlayerPawnResurrect))
 			{
 				return false;
 			}
@@ -81,12 +91,12 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public bool EnoughResurgentCells()
+		private bool EnoughResurgentCells()
 		{
-			Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
-			if (gene_Resurgent != null)
+			// Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
+			if (Gene_ResurgentCells != null)
 			{
-				if ((gene_Resurgent.Value - def.resourceLossPerDay) >= 0f)
+				if ((Gene_ResurgentCells.Value - def.resourceLossPerDay) >= 0f)
 				{
 					return true;
 				}
@@ -94,12 +104,12 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public bool CorrectAge()
+		private bool CorrectAge()
 		{
-			int penalty = (int)(oneYear * penaltyYears);
-			long limit = (long)(oneYear * minAge);
-			float currentAge = pawn.ageTracker.AgeBiologicalTicks;
-			if ((currentAge - penalty) > limit)
+			// int penalty = (int)(oneYear * penaltyYears);
+			// long limit = (long)(oneYear * minAge);
+			// float currentAge = pawn.ageTracker.AgeBiologicalTicks;
+			if ((CurrentAge - Penalty) > Limit)
 			{
 				return true;
 			}
