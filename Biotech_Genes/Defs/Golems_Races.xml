@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<HediffGiverSetDef>
-		<defName>WVC_MechanoidGolem_HediffGiver</defName>
-		<hediffGivers>
-			<li Class="HediffGiver_Birthday">
-				<hediff>WVC_SelfPopulationRegulation_Golems</hediff>
-				<ageFractionChanceCurve>
-				  <points>
-					<li>(0, 1)</li>
-					<li>(1, 1)</li>
-				  </points>
-				</ageFractionChanceCurve>
-			</li>
-		</hediffGivers>
-	</HediffGiverSetDef>
+	<!-- <HediffGiverSetDef> -->
+		<!-- <defName>WVC_MechanoidGolem_HediffGiver</defName> -->
+		<!-- <hediffGivers> -->
+			<!-- <li Class="HediffGiver_Birthday"> -->
+				<!-- <hediff>WVC_SelfPopulationRegulation_Golems</hediff> -->
+				<!-- <ageFractionChanceCurve> -->
+				  <!-- <points> -->
+					<!-- <li>(0, 1)</li> -->
+					<!-- <li>(1, 1)</li> -->
+				  <!-- </points> -->
+				<!-- </ageFractionChanceCurve> -->
+			<!-- </li> -->
+		<!-- </hediffGivers> -->
+	<!-- </HediffGiverSetDef> -->
 
 	<ThingDef ParentName="LightMechanoid" Name="WVC_GolemsBase" Abstract="True">
 		<description>A piece of rock chunk, animated by mechanites swarm.</description>
@@ -92,16 +92,21 @@
 				</li>
 			</lifeStageAges>
 			<hediffGiverSets Inherit="False">
-				<li>WVC_MechanoidGolem_HediffGiver</li>
+				<!-- <li>WVC_MechanoidGolem_HediffGiver</li> -->
 			</hediffGiverSets>
 		</race>
 		<butcherProducts Inherit="False">
 			<Steel>5</Steel>
 		</butcherProducts>
 		<comps>
-			<li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_InitialHediff">
-				<hediffname>WVC_SelfPopulationRegulation_Golems</hediffname>
-				<hediffseverity>1</hediffseverity>
+			<!-- <li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_InitialHediff"> -->
+				<!-- <hediffname>WVC_SelfPopulationRegulation_Golems</hediffname> -->
+				<!-- <hediffseverity>1</hediffseverity> -->
+			<!-- </li> -->
+			<li Class="WVC_XenotypesAndGenes.CompProperties_InitialHediff">
+				<hediffDefs>
+				  <li>WVC_SelfPopulationRegulation_Golems</li>
+				</hediffDefs>
 			</li>
 		</comps>
 	</ThingDef>

@@ -42,6 +42,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void PostSpawnSetup(bool respawningAfterLoad)
 		{
+			base.PostSpawnSetup(respawningAfterLoad);
 			if (!respawningAfterLoad)
 			{
 				ResetCounter();

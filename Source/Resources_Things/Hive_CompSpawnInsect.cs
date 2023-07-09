@@ -44,6 +44,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void PostSpawnSetup(bool respawningAfterLoad)
 		{
+			base.PostSpawnSetup(respawningAfterLoad);
 			if (!respawningAfterLoad)
 			{
 				ResetCounter();
@@ -76,7 +77,10 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			TryDoSpawn();
-			ResetCounter();
+			if (Props.resetTimerIfCannotSpawn)
+			{
+				ResetCounter();
+			}
 		}
 
 		public void TryDoSpawn()
@@ -94,6 +98,10 @@ namespace WVC_XenotypesAndGenes
 					FilthMaker.TryMakeFilth(parent.Position, parent.Map, ThingDefOf.Filth_Slime);
 					SoundDefOf.Hive_Spawn.PlayOneShot(new TargetInfo(parent));
 				}
+				if (!Props.resetTimerIfCannotSpawn)
+				{
+					ResetCounter();
+				}
 			}
 		}
 
@@ -109,6 +117,10 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 			int maxNumber = Props.maxNumber + hiveNumber;
+			if (maxNumber > Props.maxLivingThings)
+			{
+				maxNumber = 20;
+			}
 			return maxNumber;
 		}
 
@@ -142,16 +154,25 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (DebugSettings.ShowDevGizmos)
 			{
-                Command_Action command_Action = new()
-                {
-                    defaultLabel = "DEV: Spawn creature",
-                    action = delegate
-                    {
-                        ResetCounter();
-                        TryDoSpawn();
-                    }
-                };
-                yield return command_Action;
+				Command_Action command_Action = new()
+				{
+					defaultLabel = "DEV: Spawn creature",
+					action = delegate
+					{
+						ResetCounter();
+						TryDoSpawn();
+					}
+				};
+				yield return command_Action;
+				Command_Action command_Action1 = new()
+				{
+					defaultLabel = "DEV: Reset timer to 0",
+					action = delegate
+					{
+						tickCounter = 0;
+					}
+				};
+				yield return command_Action1;
 			}
 		}
 

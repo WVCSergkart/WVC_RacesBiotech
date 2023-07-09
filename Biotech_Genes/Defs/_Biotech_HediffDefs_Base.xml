@@ -796,6 +796,17 @@ At the same time, there can be a limited number of living golems under the contr
 	  </li>
 	</stages>
   </HediffDef>
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_SelfPopulationRegulation_BoneGolems</defName>
+	<label>bone golem</label>
+	<description>This creature is a pile of animated bones, it does not require medical attention and is able to regenerate lost limbs by literally picking them up from the ground.</description>
+	<hediffClass>HediffWithComps</hediffClass>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_SuperRegeneration">
+			<refreshTicks>6000</refreshTicks>
+		</li>
+	</comps>
+  </HediffDef>
 
   <!--=====================================================================-->
 

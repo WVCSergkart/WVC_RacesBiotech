@@ -252,9 +252,16 @@ Walking corpses cannot be zoned, but they will try to stay close to the totems. 
 		<recipes Inherit="False"/>
 		<butcherProducts Inherit="False"/>
 		<comps>
-			<li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_InitialHediff">
-				<hediffname>WVC_XenotypesAndGenes_NoBleedNoPainNoPoisoning</hediffname>
-				<hediffseverity>1</hediffseverity>
+			<!-- <li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_InitialHediff"> -->
+				<!-- <hediffname>WVC_XenotypesAndGenes_NoBleedNoPainNoPoisoning</hediffname> -->
+				<!-- <hediffseverity>1</hediffseverity> -->
+			<!-- </li> -->
+			<!-- Runs on spawn and save load. Checks if there are needed hediffs and adds missing ones. -->
+			<li Class="WVC_XenotypesAndGenes.CompProperties_InitialHediff">
+				<hediffDefs>
+				  <li>WVC_XenotypesAndGenes_NoBleedNoPainNoPoisoning</li>
+				  <li>WVC_SelfPopulationRegulation_BoneGolems</li>
+				</hediffDefs>
 			</li>
 			<li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_DoesntFlee"/>
 			<li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_DiseaseImmunity">
@@ -267,6 +274,9 @@ Walking corpses cannot be zoned, but they will try to stay close to the totems. 
 			<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
 				<thingDefToSpawn>WVC_XenotypesAndGenes_WalkingCorpseTotem</thingDefToSpawn>
 				<!-- <stackCount>1</stackCount> -->
+			</li>
+			<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+				<shouldSendNotificationAbout>false</shouldSendNotificationAbout>
 			</li>
 			<!-- <li Class="VFECore.ThingDefExtension"> -->
 				<!-- <destroyCorpse>true</destroyCorpse> -->
@@ -348,7 +358,7 @@ Walking corpses cannot be zoned, but they will try to stay close to the totems. 
 			<MoveSpeed>4.8</MoveSpeed>
 			<Mass>37</Mass>
 		</statBases>
-		<tools Inherit="False">
+		<tools>
 			<li>
 				<label>left fist</label>
 				<capacities>

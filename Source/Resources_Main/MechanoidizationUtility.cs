@@ -18,6 +18,24 @@ namespace WVC_XenotypesAndGenes
 	public static class MechanoidizationUtility
 	{
 
+		public static bool ShouldSendNotificationAbout(Pawn pawn)
+		{
+			if (pawn.RaceProps.Humanlike)
+			{
+				Gene_Undead undead = pawn.genes?.GetFirstGeneOfType<Gene_Undead>();
+				if (undead != null)
+				{
+					return undead.PawnCanResurrect;
+				}
+			}
+			GeneExtension_General modExtension = pawn.def.GetModExtension<GeneExtension_General>();
+			if (modExtension != null)
+			{
+				return !modExtension.shouldSendNotificationAbout;
+			}
+			return false;
+		}
+
 		// public static void RandomTaggedGene(GeneDef def, Pawn pawn, Gene gene)
 		// {
 			// bool geneIsXenogene = true;

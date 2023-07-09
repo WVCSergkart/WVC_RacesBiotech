@@ -12,6 +12,10 @@ namespace WVC_XenotypesAndGenes
 
 		public int maxNumber = 4;
 
+		public int maxLivingThings = 20;
+
+		public bool resetTimerIfCannotSpawn = true;
+
 		public bool ignoreFaction = true;
 
 		public string uniqueTag = "PlayerHive";

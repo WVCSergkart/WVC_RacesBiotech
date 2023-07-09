@@ -24,6 +24,8 @@ namespace WVC_XenotypesAndGenes
 		// public HediffDef HediffDefName => def.GetModExtension<GeneExtension_Giver>().hediffDefName;
 		// public List<BodyPartDef> Bodyparts => def.GetModExtension<GeneExtension_Giver>().bodyparts;
 
+		public bool PawnCanResurrect => CanResurrect();
+
 		public override void Notify_PawnDied()
 		{
 			base.Notify_PawnDied();
@@ -59,6 +61,49 @@ namespace WVC_XenotypesAndGenes
 				// text += " " + "AgeReversalExpectationDeadline".Translate(pawn.Named("PAWN"), num2.Named("DEADLINE"));
 			// }
 			// Messages.Message(text, pawn, MessageTypeDefOf.PositiveEvent);
+		}
+
+		//For ShouldSendNotificationAbout check
+		public bool CanResurrect()
+		{
+			if (!Active || Overridden || pawn.genes.HasGene(GeneDefOf.Deathless))
+			{
+				return false;
+			}
+			if (EnoughResurgentCells())
+			{
+				return true;
+			}
+			else if (CorrectAge())
+			{
+				return true;
+			}
+			return false;
+		}
+
+		public bool EnoughResurgentCells()
+		{
+			Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
+			if (gene_Resurgent != null)
+			{
+				if ((gene_Resurgent.Value - def.resourceLossPerDay) >= 0f)
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
+		public bool CorrectAge()
+		{
+			int penalty = (int)(oneYear * penaltyYears);
+			long limit = (long)(oneYear * minAge);
+			float currentAge = pawn.ageTracker.AgeBiologicalTicks;
+			if ((currentAge - penalty) > limit)
+			{
+				return true;
+			}
+			return false;
 		}
 
 	}

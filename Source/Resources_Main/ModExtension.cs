@@ -34,6 +34,7 @@ namespace WVC_XenotypesAndGenes
 		public bool eyesShouldBeInvisble = false;
 		public bool canBePredatorPrey = true;
 		public bool noSkillDecay = false;
+		public bool shouldSendNotificationAbout = true;
 	}
 
 	// public class ThoughtExtension_General : DefModExtension

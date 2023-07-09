@@ -110,7 +110,7 @@
 		</li>
 
 		<!-- Lay eggs you need to -->
-		<li Class="JobGiver_LayEgg" />
+		<!-- <li Class="JobGiver_LayEgg" /> -->
 
 		<!-- Tame animal -->
 		<li Class="ThinkNode_ConditionalOfPlayerFaction">
@@ -138,15 +138,15 @@
 
 			<!-- Take care of critical needs (below rescue - so heroic!)-->
 			
-			<li Class="ThinkNode_Tagger">
-			  <tagToGive>RestingForMedicalReasons</tagToGive>
-			  <subNodes>
-				<li Class="JobGiver_PatientGoToBed" />
-			  </subNodes>
-			</li>
+			<!-- <li Class="ThinkNode_Tagger"> -->
+			  <!-- <tagToGive>RestingForMedicalReasons</tagToGive> -->
+			  <!-- <subNodes> -->
+				<!-- <li Class="JobGiver_PatientGoToBed" /> -->
+			  <!-- </subNodes> -->
+			<!-- </li> -->
 			
-			<li Class="JobGiver_SeekAllowedArea" />
-			<li Class="JobGiver_SeekSafeTemperature" />
+			<!-- <li Class="JobGiver_SeekAllowedArea" /> -->
+			<!-- <li Class="JobGiver_SeekSafeTemperature" /> -->
 			
 		  </subNodes>
 		</li>
