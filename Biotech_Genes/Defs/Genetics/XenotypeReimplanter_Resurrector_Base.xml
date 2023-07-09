@@ -37,6 +37,16 @@
 	  <texPath>WVC/Things/XenotypeSerum</texPath>
 	</graphicData>
 	<recipeMaker>
+	  <displayPriority>-15</displayPriority>
+	  <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
+	  <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+	  <workSkill>Crafting</workSkill>
+	  <effectWorking>Smith</effectWorking>
+	  <soundWorking>Recipe_Machining</soundWorking>
+	  <recipeUsers>
+		<li>WVC_SerumCraftingTable</li>
+	  </recipeUsers>
+	  <useIngredientsForColor>false</useIngredientsForColor>
 	  <researchPrerequisites>
 		<li>Archogenetics</li>
 		<li>WVC_XenotypesAndGenes_XenotypeResurrectorSerumCrafting</li>
