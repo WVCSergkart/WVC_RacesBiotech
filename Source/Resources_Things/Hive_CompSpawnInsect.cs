@@ -11,6 +11,7 @@ namespace WVC_XenotypesAndGenes
 	public class CompHiveSpawnAnimals : ThingComp
 	{
 		public int tickCounter = 0;
+		public int currentNumberOfSpawns = 0;
 
 		// private int ticksBetweenSpawn = 0;
 
@@ -76,31 +77,33 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			TryDoSpawn();
-			if (Props.resetTimerIfCannotSpawn)
+			if (currentNumberOfSpawns < Props.maxNumberOfSpawns)
 			{
-				ResetCounter();
+				currentNumberOfSpawns ++;
 			}
+			TryDoSpawn();
+			ResetCounter();
 		}
 
 		public void TryDoSpawn()
 		{
-			if (GetTotalNumber() < GetMaxNumber())
+			// int trySpawn = currentNumberOfSpawns;
+			for (int i = currentNumberOfSpawns; i > 0; i--)
 			{
-				IntVec3 intVec = parent.Position.RandomAdjacentCell8Way();
-				if (intVec.InBounds(parent.Map) && intVec.Walkable(parent.Map))
+				if (GetTotalNumber() < GetMaxNumber())
 				{
-					Pawn newThing = PawnGenerator.GeneratePawn(Props.pawnsList.RandomElement(), Faction.OfPlayer);
-					GenSpawn.Spawn(newThing, intVec, parent.Map);
-					newThing.ageTracker.AgeBiologicalTicks = 0;
-					newThing.ageTracker.AgeChronologicalTicks = 0;
-					newThing.ageTracker.PostResolveLifeStageChange();
-					FilthMaker.TryMakeFilth(parent.Position, parent.Map, ThingDefOf.Filth_Slime);
-					SoundDefOf.Hive_Spawn.PlayOneShot(new TargetInfo(parent));
-				}
-				if (!Props.resetTimerIfCannotSpawn)
-				{
-					ResetCounter();
+					IntVec3 intVec = parent.Position.RandomAdjacentCell8Way();
+					if (intVec.InBounds(parent.Map) && intVec.Walkable(parent.Map))
+					{
+						Pawn newThing = PawnGenerator.GeneratePawn(Props.pawnsList.RandomElement(), Faction.OfPlayer);
+						GenSpawn.Spawn(newThing, intVec, parent.Map);
+						newThing.ageTracker.AgeBiologicalTicks = 0;
+						newThing.ageTracker.AgeChronologicalTicks = 0;
+						newThing.ageTracker.PostResolveLifeStageChange();
+						FilthMaker.TryMakeFilth(parent.Position, parent.Map, ThingDefOf.Filth_Slime);
+						SoundDefOf.Hive_Spawn.PlayOneShot(new TargetInfo(parent));
+					}
+					currentNumberOfSpawns --;
 				}
 			}
 		}
@@ -119,7 +122,7 @@ namespace WVC_XenotypesAndGenes
 			int maxNumber = Props.maxNumber + hiveNumber;
 			if (maxNumber > Props.maxLivingThings)
 			{
-				maxNumber = 20;
+				maxNumber = Props.maxLivingThings;
 			}
 			return maxNumber;
 		}
@@ -145,9 +148,9 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (GetTotalNumber() < GetMaxNumber())
 			{
-				return "WVC_XaG_Label_CompHiveSpawnAnimals".Translate((tickCounter).ToStringTicksToPeriod()) + "\n" + Props.inspectString.Translate() + ": " + GetTotalNumber() + "/" + GetMaxNumber();
+				return "WVC_XaG_Label_CompHiveSpawnAnimals".Translate((tickCounter).ToStringTicksToPeriod()) + "\n" + Props.inspectString.Translate() + ": " + GetTotalNumber() + "/" + GetMaxNumber() + "\n" + "WVC_XaG_Label_CompHiveSpawnAnimals_currentNumberOfSpawns".Translate() + ": " + currentNumberOfSpawns + "/" + Props.maxNumberOfSpawns;
 			}
-			return Props.inspectString.Translate() + ": " + GetTotalNumber() + "/" + GetMaxNumber();
+			return Props.inspectString.Translate() + ": " + GetTotalNumber() + "/" + GetMaxNumber() + "\n" + "WVC_XaG_Label_CompHiveSpawnAnimals_currentNumberOfSpawns".Translate() + ": " + currentNumberOfSpawns + "/" + Props.maxNumberOfSpawns;
 		}
 
 		public override IEnumerable<Gizmo> CompGetGizmosExtra()
@@ -185,6 +188,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostExposeData();
 			Scribe_Values.Look(ref tickCounter, "tickCounterNextSpawn_" + Props.uniqueTag, 0);
+			Scribe_Values.Look(ref currentNumberOfSpawns, "currentNumberOfSpawns" + Props.uniqueTag, 0);
 			// Scribe_Values.Look(ref ticksBetweenSpawn, "ticksBetweenSpawn", 0);
 			// Scribe_Values.Look(ref TotalNumber, "TotalNumber", 0);
 		}

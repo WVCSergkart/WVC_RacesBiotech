@@ -83,7 +83,10 @@ Totems also spread pollution from time to time.</description>
 		<ticksBetweenSpawn>60000~300000</ticksBetweenSpawn>
 		<!-- Responsible for the maximum possible limit of walking. Default 20 -->
 		<maxLivingThings>20</maxLivingThings>
-		<resetTimerIfCannotSpawn>false</resetTimerIfCannotSpawn>
+		<!-- How many corpses can accumulate in anticipation of spawn. Default 1 -->
+		<!-- It is necessary to quickly restore the number of corpses after the raid. -->
+		<!-- The accumulated corpses will spawn after the timer is reset, if the limit allows. -->
+		<maxNumberOfSpawns>5</maxNumberOfSpawns>
 		<pawnsList>
 		  <li>WVC_XenotypesAndGenes_WalkingCorpse</li>
 		  <li>WVC_XenotypesAndGenes_WalkingSkeleton</li>

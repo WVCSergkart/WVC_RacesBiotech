@@ -31,6 +31,7 @@
 
 	<WVC_XaG_Label_CompHiveSpawnAnimals>Time to next spawn: {0}</WVC_XaG_Label_CompHiveSpawnAnimals>
 	<WVC_XaG_Label_CompHiveSpawnAnimals_WalkingCorpses>Walking corpses</WVC_XaG_Label_CompHiveSpawnAnimals_WalkingCorpses>
+	<WVC_XaG_Label_CompHiveSpawnAnimals_currentNumberOfSpawns>Accumulated spawns</WVC_XaG_Label_CompHiveSpawnAnimals_currentNumberOfSpawns>
 
 	<WVC_XaG_AbilityResurgentCost>Resurgent cells cost</WVC_XaG_AbilityResurgentCost>
 	<WVC_XaG_AbilityResurgentGain>Base resurgent cells gain</WVC_XaG_AbilityResurgentGain>

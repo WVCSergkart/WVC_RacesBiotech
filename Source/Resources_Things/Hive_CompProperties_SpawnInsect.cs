@@ -14,7 +14,7 @@ namespace WVC_XenotypesAndGenes
 
 		public int maxLivingThings = 20;
 
-		public bool resetTimerIfCannotSpawn = true;
+		public int maxNumberOfSpawns = 1;
 
 		public bool ignoreFaction = true;
 
