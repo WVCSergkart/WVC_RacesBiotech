@@ -49,7 +49,7 @@
 	  <ComfyTemperatureMin>-12</ComfyTemperatureMin>
 	</statOffsets>
 	<graphicData>
-		<graphicPath>WVC/BodyParts_Wings/FeatheredWings</graphicPath>
+		<graphicPath>WVC/BodyParts/BodyParts_Wings/FeatheredWings</graphicPath>
 		<drawScale>1.5</drawScale>
 		<colorType>Hair</colorType>
 	</graphicData>

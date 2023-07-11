@@ -88,6 +88,7 @@
 		<li>WVC_RuneSkin</li>
 		<li>WVC_StoneSkin</li>
 		<li>WVC_PatchSkin</li>
+		<li>WVC_FeatherSkin</li>
 		<li>Furskin</li>
 		<li MayRequire="vanillaracesexpanded.phytokin">VRE_BarkSkin</li>
 		<li MayRequire="vanillaracesexpanded.saurid">VRESaurids_ScaleSkin</li>
@@ -157,6 +158,9 @@
   <AlphaGenes.WretchBlacklistDef MayRequire="sarg.alphagenes">
 	<defName>WVC_RacesBiotech_WretchBlacklistDef</defName>
 	<blackListedGenes>
+		<li>WVC_FemaleOnly</li>
+		<li>WVC_MaleOnly</li>
+		<li>WVC_Monogender_Disabled</li>
 		<!-- Cause dangerous effect -->
 		<li>WVC_AgeDebuff_Armless</li>
 		<li>WVC_Learning_ExtremeSlow</li>
@@ -193,6 +197,7 @@
 		<li>WVC_StoneSkin</li>
 		<li>WVC_NodeSkin</li>
 		<li>WVC_PatchSkin</li>
+		<li>WVC_FeatherSkin</li>
 		<!-- = -->
 		<li>WVC_MecaBodyParts_Claws</li>
 		<li>WVC_NaturalBodyParts_Claws</li>

@@ -68,6 +68,7 @@
 	<statOffsets>
 	  <ArmorRating_Blunt>0.22</ArmorRating_Blunt>
 	</statOffsets>
+	<missingGeneRomanceChanceFactor>0.65</missingGeneRomanceChanceFactor>
 	<!-- <statFactors> -->
 	  <!-- <Flammability>0.5</Flammability> -->
 	<!-- </statFactors> -->
@@ -154,7 +155,7 @@
 	  <tattoosVisible>true</tattoosVisible>
 	  <layer>PostSkin</layer>
 	</graphicData>
-	<missingGeneRomanceChanceFactor>0.15</missingGeneRomanceChanceFactor>
+	<missingGeneRomanceChanceFactor>0.85</missingGeneRomanceChanceFactor>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>un</symbol></li>
@@ -162,6 +163,42 @@
 	  </prefixSymbols>
 	  <suffixSymbols>
 		<li><symbol>dead</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- Feathered -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_FeatherSkin</defName>
+	<label>featherskin</label>
+	<description>Carriers of this gene grow feathers on some parts of the body.
+
+&lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
+	<iconPath>WVC/UI/Genes/HeadPatch_south</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<forcedHeadTypes>
+	  <li>Male_AverageNormal</li>
+	  <li>Male_AveragePointy</li>
+	  <li>Female_AverageNormal</li>
+	  <li>Female_AveragePointy</li>
+	</forcedHeadTypes>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<statOffsets>
+	  <ComfyTemperatureMin>-4</ComfyTemperatureMin>
+	</statOffsets>
+	<graphicData>
+	  <fur>WVC_FeatheredSkin</fur>
+	  <tattoosVisible>true</tattoosVisible>
+	  <layer>PostSkin</layer>
+	</graphicData>
+	<missingGeneRomanceChanceFactor>0.75</missingGeneRomanceChanceFactor>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>bird</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>bird</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
   </GeneDef>

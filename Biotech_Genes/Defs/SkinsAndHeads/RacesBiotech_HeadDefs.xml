@@ -11,7 +11,7 @@
 
   <HeadTypeDef ParentName="WVC_RacesBiotech_AverageBase">
 	<defName>WVC_Faceless_NodeSkin</defName>
-	<graphicPath>WVC/NodeGene_FacelessHead/Head</graphicPath>
+	<graphicPath>WVC/Heads/NodeGene_FacelessHead/Head</graphicPath>
 	<requiredGenes>
 	  <li>WVC_NodeSkin</li>
 	</requiredGenes>
@@ -19,7 +19,7 @@
 
   <HeadTypeDef ParentName="WVC_RacesBiotech_AverageBase">
 	<defName>WVC_RuneSkin_Average</defName>
-	<graphicPath>WVC/RunicGene_Head/Head</graphicPath>
+	<graphicPath>WVC/Heads/RunicGene_Head/Head</graphicPath>
 	<requiredGenes>
 	  <li>WVC_RuneSkin</li>
 	</requiredGenes>
@@ -27,7 +27,7 @@
 
   <HeadTypeDef ParentName="WVC_RacesBiotech_AverageBase">
 	<defName>WVC_StoneSkin_Average</defName>
-	<graphicPath>WVC/StoneGene_Head/Head</graphicPath>
+	<graphicPath>WVC/Heads/StoneGene_Head/Head</graphicPath>
 	<requiredGenes>
 	  <li>WVC_StoneSkin</li>
 	</requiredGenes>
@@ -35,7 +35,7 @@
 
   <HeadTypeDef ParentName="WVC_RacesBiotech_AverageBase">
 	<defName>WVC_PatchSkin_Average</defName>
-	<graphicPath>WVC/UndeadGene_Head/Head</graphicPath>
+	<graphicPath>WVC/Heads/UndeadGene_Head/Head</graphicPath>
 	<requiredGenes>
 	  <li>WVC_PatchSkin</li>
 	</requiredGenes>

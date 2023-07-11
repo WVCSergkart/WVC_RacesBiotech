@@ -22,7 +22,7 @@
 	  <!-- <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization> -->
 	<!-- </statOffsets> -->
 	<graphicData>
-	  <graphicPath>WVC/MecaGene_Ears/CatEars</graphicPath>
+	  <graphicPath>WVC/BodyParts/MecaGene_Ears/CatEars</graphicPath>
 	  <colorType>Hair</colorType>
 	  <useSkinShader>false</useSkinShader>
 	</graphicData>
@@ -58,9 +58,9 @@
   <GeneDef ParentName="WVC_GeneCatEars_Base">
 	<defName>WVC_Mecha_EarsCat</defName>
 	<label>cat ears</label>
-	<iconPath>WVC/MecaGene_Ears/CatEars_icon</iconPath>
+	<iconPath>WVC/BodyParts/MecaGene_Ears/CatEars_icon</iconPath>
 	<graphicData>
-	  <graphicPath>WVC/MecaGene_Ears/CatEars</graphicPath>
+	  <graphicPath>WVC/BodyParts/MecaGene_Ears/CatEars</graphicPath>
 	  <colorType>Hair</colorType>
 	  <useSkinShader>false</useSkinShader>
 	</graphicData>
@@ -74,9 +74,9 @@
   <GeneDef ParentName="WVC_GeneCatEars_Base">
 	<defName>WVC_Mecha_QuadEarsCat</defName>
 	<label>quad-cat ears</label>
-	<iconPath>WVC/MecaGene_Ears/FourCatEars_icon</iconPath>
+	<iconPath>WVC/BodyParts/MecaGene_Ears/FourCatEars_icon</iconPath>
 	<graphicData>
-	  <graphicPath>WVC/MecaGene_Ears/FourCatEars</graphicPath>
+	  <graphicPath>WVC/BodyParts/MecaGene_Ears/FourCatEars</graphicPath>
 	  <colorType>Hair</colorType>
 	  <useSkinShader>false</useSkinShader>
 	</graphicData>
@@ -92,9 +92,9 @@
 	<defName>WVC_Mecha_RedFormerEarsDouble</defName>
 	<label>spikelike ears</label>
 	<description>Carriers of this gene have mechanoid spike-like ears. Additional audio sensors in the ears improve hearing.</description>
-	<iconPath>WVC/MecaGene_Ears/RedFormerEarsDouble_icon</iconPath>
+	<iconPath>WVC/BodyParts/MecaGene_Ears/RedFormerEarsDouble_icon</iconPath>
 	<graphicData>
-	  <graphicPath>WVC/MecaGene_Ears/RedFormerEarsDouble</graphicPath>
+	  <graphicPath>WVC/BodyParts/MecaGene_Ears/RedFormerEarsDouble</graphicPath>
 	  <colorType>Hair</colorType>
 	  <useSkinShader>false</useSkinShader>
 	</graphicData>
@@ -109,9 +109,9 @@
 	<defName>WVC_Mecha_RedFormerEarsQuad</defName>
 	<label>quad-spikelike ears</label>
 	<description>Carriers of this gene have mechanoid spike-like ears. Additional audio sensors in the ears improve hearing.</description>
-	<iconPath>WVC/MecaGene_Ears/RedFormerEarsQuad_icon</iconPath>
+	<iconPath>WVC/BodyParts/MecaGene_Ears/RedFormerEarsQuad_icon</iconPath>
 	<graphicData>
-	  <graphicPath>WVC/MecaGene_Ears/RedFormerEarsQuad</graphicPath>
+	  <graphicPath>WVC/BodyParts/MecaGene_Ears/RedFormerEarsQuad</graphicPath>
 	  <colorType>Hair</colorType>
 	  <useSkinShader>false</useSkinShader>
 	</graphicData>
@@ -127,10 +127,10 @@
 	<defName>WVC_Mecha_RedFormerSpikesDouble</defName>
 	<label>spikes</label>
 	<description>Carriers of this gene have mechanoid spikes.</description>
-	<iconPath>WVC/MecaGene_Ears/RedFormerSpikesDouble_icon</iconPath>
+	<iconPath>WVC/BodyParts/MecaGene_Ears/RedFormerSpikesDouble_icon</iconPath>
 	<minAgeActive>13</minAgeActive>
 	<graphicData>
-	  <graphicPath>WVC/MecaGene_Ears/RedFormerSpikesDouble</graphicPath>
+	  <graphicPath>WVC/BodyParts/MecaGene_Ears/RedFormerSpikesDouble</graphicPath>
 	  <colorType>Hair</colorType>
 	  <useSkinShader>false</useSkinShader>
 	</graphicData>
@@ -142,10 +142,10 @@
 	<defName>WVC_Mecha_RedFormerSpikesQuad</defName>
 	<label>quad spikes</label>
 	<description>Carriers of this gene have mechanoid spikes.</description>
-	<iconPath>WVC/MecaGene_Ears/RedFormerSpikesQuad_icon</iconPath>
+	<iconPath>WVC/BodyParts/MecaGene_Ears/RedFormerSpikesQuad_icon</iconPath>
 	<minAgeActive>13</minAgeActive>
 	<graphicData>
-	  <graphicPath>WVC/MecaGene_Ears/RedFormerSpikesQuad</graphicPath>
+	  <graphicPath>WVC/BodyParts/MecaGene_Ears/RedFormerSpikesQuad</graphicPath>
 	  <colorType>Hair</colorType>
 	  <useSkinShader>false</useSkinShader>
 	</graphicData>
@@ -158,10 +158,10 @@
 	<defName>WVC_Mecha_YellowFormerAntennaDouble</defName>
 	<label>antenna</label>
 	<description>Carriers of this gene have mechanoid antenna.</description>
-	<iconPath>WVC/MecaGene_Ears/YellowFormerAntennaDouble_icon</iconPath>
+	<iconPath>WVC/BodyParts/MecaGene_Ears/YellowFormerAntennaDouble_icon</iconPath>
 	<minAgeActive>13</minAgeActive>
 	<graphicData>
-	  <graphicPath>WVC/MecaGene_Ears/YellowFormerAntennaDouble</graphicPath>
+	  <graphicPath>WVC/BodyParts/MecaGene_Ears/YellowFormerAntennaDouble</graphicPath>
 	  <colorType>Hair</colorType>
 	  <useSkinShader>false</useSkinShader>
 	</graphicData>
@@ -173,10 +173,10 @@
 	<defName>WVC_Mecha_YellowFormerAntennaQuad</defName>
 	<label>quad-antenna</label>
 	<description>Carriers of this gene have mechanoid antenna.</description>
-	<iconPath>WVC/MecaGene_Ears/YellowFormerAntenna_icon</iconPath>
+	<iconPath>WVC/BodyParts/MecaGene_Ears/YellowFormerAntenna_icon</iconPath>
 	<minAgeActive>13</minAgeActive>
 	<graphicData>
-	  <graphicPath>WVC/MecaGene_Ears/YellowFormerAntenna</graphicPath>
+	  <graphicPath>WVC/BodyParts/MecaGene_Ears/YellowFormerAntenna</graphicPath>
 	  <colorType>Hair</colorType>
 	  <useSkinShader>false</useSkinShader>
 	</graphicData>

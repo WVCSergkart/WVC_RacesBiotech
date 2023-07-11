@@ -8,7 +8,7 @@
   <GeneDef ParentName="GeneTailBase" Name="WVC_NodeTail_Base" Abstract="True">
 	<label>connector tail</label>
 	<description>Carriers of this gene grow a sleek long tail with several connectors at the end.</description>
-	<iconPath>WVC/MecaGene_ScytheTail/NodeTail_east</iconPath>
+	<iconPath>WVC/BodyParts/MecaGene_ScytheTail/NodeTail_east</iconPath>
 	<iconColor>(0.85, 0.85, 0.85)</iconColor>
 	<!-- <displayCategory>WVC_MechaBodyParts</displayCategory> -->
 	<displayOrderInCategory>1001</displayOrderInCategory>
@@ -19,7 +19,7 @@
 	<minAgeActive>0</minAgeActive>
 	<selectionWeight>0.0125</selectionWeight>
 	<graphicData>
-	  <graphicPath>WVC/MecaGene_ScytheTail/NodeTail</graphicPath>
+	  <graphicPath>WVC/BodyParts/MecaGene_ScytheTail/NodeTail</graphicPath>
 	  <colorType>Skin</colorType>
 	  <drawOffsetNorth>(0, 0.2, -0.15)</drawOffsetNorth>
 	  <drawOffsetSouth>(0, -0.1, -0.15)</drawOffsetSouth>
@@ -38,7 +38,7 @@
 	<defName>WVC_Mecha_ScytheTail</defName>
 	<label>scythe tail</label>
 	<description>Carriers of this gene grow two tails with scythe-like blades at the end.</description>
-	<iconPath>WVC/MecaGene_ScytheTail/ScytheTail_east</iconPath>
+	<iconPath>WVC/BodyParts/MecaGene_ScytheTail/ScytheTail_east</iconPath>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<!-- <biostatMet>-1</biostatMet> -->
@@ -53,7 +53,7 @@
 	  <PlantWorkSpeed>0.5</PlantWorkSpeed>
 	</statOffsets>
 	<graphicData>
-	  <graphicPath>WVC/MecaGene_ScytheTail/ScytheTail</graphicPath>
+	  <graphicPath>WVC/BodyParts/MecaGene_ScytheTail/ScytheTail</graphicPath>
 	  <colorType>Hair</colorType>
 	</graphicData>
 	<symbolPack>
@@ -92,7 +92,7 @@
 	<defName>WVC_Mecha_ConnectorTail</defName>
 	<label>connector tail</label>
 	<description>Carriers of this gene grow a sleek long tail with several connectors at the end.</description>
-	<iconPath>WVC/MecaGene_ScytheTail/NodeTail_east</iconPath>
+	<iconPath>WVC/BodyParts/MecaGene_ScytheTail/NodeTail_east</iconPath>
 	<minAgeActive>13</minAgeActive>
 	<statOffsets>
 		<MechBandwidth>2</MechBandwidth>
@@ -102,7 +102,7 @@
 	  <Crafting>3</Crafting>
 	</aptitudes>
 	<graphicData>
-	  <graphicPath>WVC/MecaGene_ScytheTail/NodeTail</graphicPath>
+	  <graphicPath>WVC/BodyParts/MecaGene_ScytheTail/NodeTail</graphicPath>
 	</graphicData>
 	<symbolPack>
 	  <prefixSymbols>
@@ -132,13 +132,13 @@
 	<defName>WVC_Mecha_AntennaTail</defName>
 	<label>antenna tail</label>
 	<description>Carriers of this gene grow a short antenna-like tail.</description>
-	<iconPath>WVC/MecaGene_ScytheTail/AntennaTail_east</iconPath>
+	<iconPath>WVC/BodyParts/MecaGene_ScytheTail/AntennaTail_east</iconPath>
 	<minAgeActive>13</minAgeActive>
 	<statOffsets>
 		<MechBandwidth>12</MechBandwidth>
 	</statOffsets>
 	<graphicData>
-	  <graphicPath>WVC/MecaGene_ScytheTail/AntennaTail</graphicPath>
+	  <graphicPath>WVC/BodyParts/MecaGene_ScytheTail/AntennaTail</graphicPath>
 	</graphicData>
 	<symbolPack>
 	  <prefixSymbols>

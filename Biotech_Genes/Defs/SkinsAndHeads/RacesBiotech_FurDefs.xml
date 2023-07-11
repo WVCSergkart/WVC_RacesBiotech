@@ -17,33 +17,44 @@
   <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
 	<defName>WVC_RuneSkin</defName>
 	<bodyTypeGraphicPaths>
-	  <Male>WVC/RunicGene_Body/Naked_Male</Male>
-	  <Female>WVC/RunicGene_Body/Naked_Female</Female>
-	  <Hulk>WVC/RunicGene_Body/Naked_Hulk</Hulk>
-	  <Fat>WVC/RunicGene_Body/Naked_Fat</Fat>
-	  <Thin>WVC/RunicGene_Body/Naked_Thin</Thin>
+	  <Male>WVC/Bodies/RunicGene_Body/Naked_Male</Male>
+	  <Female>WVC/Bodies/RunicGene_Body/Naked_Female</Female>
+	  <Hulk>WVC/Bodies/RunicGene_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/Bodies/RunicGene_Body/Naked_Fat</Fat>
+	  <Thin>WVC/Bodies/RunicGene_Body/Naked_Thin</Thin>
 	</bodyTypeGraphicPaths>
   </FurDef>
 
   <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
 	<defName>WVC_StoneSkin</defName>
 	<bodyTypeGraphicPaths>
-	  <Male>WVC/StoneGene_Body/Naked_Male</Male>
-	  <Female>WVC/StoneGene_Body/Naked_Female</Female>
-	  <Hulk>WVC/StoneGene_Body/Naked_Hulk</Hulk>
-	  <Fat>WVC/StoneGene_Body/Naked_Fat</Fat>
-	  <Thin>WVC/StoneGene_Body/Naked_Thin</Thin>
+	  <Male>WVC/Bodies/StoneGene_Body/Naked_Male</Male>
+	  <Female>WVC/Bodies/StoneGene_Body/Naked_Female</Female>
+	  <Hulk>WVC/Bodies/StoneGene_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/Bodies/StoneGene_Body/Naked_Fat</Fat>
+	  <Thin>WVC/Bodies/StoneGene_Body/Naked_Thin</Thin>
 	</bodyTypeGraphicPaths>
   </FurDef>
 
   <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
 	<defName>WVC_PatchSkin</defName>
 	<bodyTypeGraphicPaths>
-	  <Male>WVC/UndeadGene_Body/Naked_Male</Male>
-	  <Female>WVC/UndeadGene_Body/Naked_Female</Female>
-	  <Hulk>WVC/UndeadGene_Body/Naked_Hulk</Hulk>
-	  <Fat>WVC/UndeadGene_Body/Naked_Fat</Fat>
-	  <Thin>WVC/UndeadGene_Body/Naked_Thin</Thin>
+	  <Male>WVC/Bodies/UndeadGene_Body/Naked_Male</Male>
+	  <Female>WVC/Bodies/UndeadGene_Body/Naked_Female</Female>
+	  <Hulk>WVC/Bodies/UndeadGene_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/Bodies/UndeadGene_Body/Naked_Fat</Fat>
+	  <Thin>WVC/Bodies/UndeadGene_Body/Naked_Thin</Thin>
+	</bodyTypeGraphicPaths>
+  </FurDef>
+
+  <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
+	<defName>WVC_FeatheredSkin</defName>
+	<bodyTypeGraphicPaths>
+	  <Male>WVC/Bodies/UndeadGene_Body/Naked_Male</Male>
+	  <Female>WVC/Bodies/Feathered_Body/Naked_Female</Female>
+	  <Hulk>WVC/Bodies/UndeadGene_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/Bodies/UndeadGene_Body/Naked_Fat</Fat>
+	  <Thin>WVC/Bodies/UndeadGene_Body/Naked_Thin</Thin>
 	</bodyTypeGraphicPaths>
   </FurDef>
 
@@ -52,22 +63,22 @@
   <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
 	<defName>WVC_MechaSkin</defName>
 	<bodyTypeGraphicPaths>
-	  <Male>WVC/MecaGene_Body/Naked_Male</Male>
-	  <Female>WVC/MecaGene_Body/Naked_Female</Female>
-	  <Hulk>WVC/MecaGene_Body/Naked_Hulk</Hulk>
-	  <Fat>WVC/MecaGene_Body/Naked_Fat</Fat>
-	  <Thin>WVC/MecaGene_Body/Naked_Thin</Thin>
+	  <Male>WVC/Bodies/MecaGene_Body/Naked_Male</Male>
+	  <Female>WVC/Bodies/MecaGene_Body/Naked_Female</Female>
+	  <Hulk>WVC/Bodies/MecaGene_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/Bodies/MecaGene_Body/Naked_Fat</Fat>
+	  <Thin>WVC/Bodies/MecaGene_Body/Naked_Thin</Thin>
 	</bodyTypeGraphicPaths>
   </FurDef>
 
   <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
 	<defName>WVC_NodeSkin</defName>
 	<bodyTypeGraphicPaths>
-	  <Male>WVC/NodeGene_Body/Naked_Male</Male>
-	  <Female>WVC/NodeGene_Body/Naked_Female</Female>
-	  <Hulk>WVC/NodeGene_Body/Naked_Hulk</Hulk>
-	  <Fat>WVC/NodeGene_Body/Naked_Fat</Fat>
-	  <Thin>WVC/NodeGene_Body/Naked_Thin</Thin>
+	  <Male>WVC/Bodies/NodeGene_Body/Naked_Male</Male>
+	  <Female>WVC/Bodies/NodeGene_Body/Naked_Female</Female>
+	  <Hulk>WVC/Bodies/NodeGene_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/Bodies/NodeGene_Body/Naked_Fat</Fat>
+	  <Thin>WVC/Bodies/NodeGene_Body/Naked_Thin</Thin>
 	</bodyTypeGraphicPaths>
   </FurDef>
 
