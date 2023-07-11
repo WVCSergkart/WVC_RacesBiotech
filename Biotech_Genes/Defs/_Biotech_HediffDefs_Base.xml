@@ -455,21 +455,21 @@
 	</stages>
   </HediffDef>
 
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
-	<defName>WVC_Wings_FeatheredWings</defName>
-	<label>feathered wings</label>
-	<stages>
-	  <li>
-		<becomeVisible>false</becomeVisible>
-		<minSeverity>0.0</minSeverity>
-	  </li>
-	</stages>
-	<comps>
-	  <li Class="AnimalBehaviours.HediffCompProperties_Floating">
-		<checkingInterval>1500</checkingInterval>
-	  </li>
-	</comps>
-  </HediffDef>
+  <!-- <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base"> -->
+	<!-- <defName>WVC_Wings_FeatheredWings</defName> -->
+	<!-- <label>feathered wings</label> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <becomeVisible>false</becomeVisible> -->
+		<!-- <minSeverity>0.0</minSeverity> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+	<!-- <comps> -->
+	  <!-- <li Class="AnimalBehaviours.HediffCompProperties_Floating"> -->
+		<!-- <checkingInterval>1500</checkingInterval> -->
+	  <!-- </li> -->
+	<!-- </comps> -->
+  <!-- </HediffDef> -->
 
 
   <!--=====================================================================-->
