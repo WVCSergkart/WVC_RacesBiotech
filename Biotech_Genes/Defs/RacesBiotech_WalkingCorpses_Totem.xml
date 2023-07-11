@@ -97,6 +97,9 @@ Totems also spread pollution from time to time.</description>
 		<cellsToPollute>3</cellsToPollute>
 	  </li>
 	  <li Class="CompProperties_Styleable" />
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_RandomName">
+		<nameMaker>WVC_XenotypesAndGenes_TotemNames</nameMaker>
+	  </li>
 	</comps>
   </ThingDef>
 

@@ -28,6 +28,26 @@ namespace WVC_XenotypesAndGenes
 		{
 			compClass = typeof(CompHiveSpawnAnimals);
 		}
+
+		public override IEnumerable<string> ConfigErrors(ThingDef parentDef)
+		{
+			foreach (string item in base.ConfigErrors(parentDef))
+			{
+				yield return item;
+			}
+			if (maxNumberOfSpawns < 0)
+			{
+				yield return "Invalid maxNumberOfSpawns value. The valid range is zero or more.";
+			}
+			if (maxLivingThings < maxNumber)
+			{
+				yield return "Invalid maxLivingThings value. maxLivingThings must be greater than maxNumber.";
+			}
+			if (parentDef.tickerType == TickerType.Never)
+			{
+				yield return "has CompHiveSpawnAnimals, but its TickerType is set to Never";
+			}
+		}
 	}
 
 }
