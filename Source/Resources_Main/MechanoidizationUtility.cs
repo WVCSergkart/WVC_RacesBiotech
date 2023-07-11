@@ -271,14 +271,30 @@ namespace WVC_XenotypesAndGenes
 			}
 			return false;
 		}
-		// public static bool OtherIsMechaskinned(Pawn other)
-		// {
-			// if (other.genes.HasGene(WVC_GenesDefOf.WVC_MechaSkin) || other.genes.HasGene(WVC_GenesDefOf.WVC_NodeSkin_Blue) || other.genes.HasGene(WVC_GenesDefOf.WVC_NodeSkin_Red) || other.genes.HasGene(WVC_GenesDefOf.WVC_NodeSkin_Green) || other.genes.HasGene(WVC_GenesDefOf.WVC_NodeSkin_Violet) || other.genes.HasGene(WVC_GenesDefOf.WVC_NodeSkin_Yellow) || other.genes.HasGene(WVC_GenesDefOf.WVC_NodeSkin_AltBlue) || other.genes.HasGene(WVC_GenesDefOf.WVC_NodeSkin_Orange))
-			// {
-				// return true;
-			// }
-			// return false;
-		// }
+
+		public static bool IsAngelBeauty(Pawn pawn)
+		{
+			if (pawn?.genes == null)
+			{
+				return false;
+			}
+			List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+			for (int i = 0; i < genesListForReading.Count; i++)
+			{
+				if (genesListForReading[i].Active == true)
+				{
+					GeneExtension_General modExtension = genesListForReading[i].def.GetModExtension<GeneExtension_General>();
+					if (modExtension != null)
+					{
+						if (modExtension.geneIsAngelBeauty)
+						{
+							return true;
+						}
+					}
+				}
+			}
+			return false;
+		}
 
 		public static bool HasActiveGene(GeneDef geneDef, Pawn pawn)
 		{

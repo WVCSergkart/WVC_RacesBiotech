@@ -27,7 +27,6 @@ namespace WVC_XenotypesAndGenes
 		// public static GeneDef Furskin;
 		// public static GeneDef WVC_MechaAI_Base;
 		// public static GeneDef WVC_MechaAI_SoftwareFriendOrFoe;
-		public static GeneDef WVC_MechaAI_SoftwareNaturalEnemy;
 		// public static GeneDef WVC_MecaUpgrades_PerfectShape;
 		// public static StatDef WVC_PawnMechanoidization;
 		// public static StatDef WVC_SkillsDecayFactor;
@@ -37,6 +36,9 @@ namespace WVC_XenotypesAndGenes
 		// Xenotype
 		public static GeneDef Hair_SnowWhite;
 		public static GeneDef Skin_SheerWhite;
+		// Misc
+		public static GeneDef WVC_MechaAI_SoftwareNaturalEnemy;
+		// public static GeneDef WVC_Dustogenic_AngelBeauty;
 		// Immortal combo
 		// public static GeneDef TotalHealing;
 		// public static GeneDef PerfectImmunity;

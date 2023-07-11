@@ -35,6 +35,7 @@ namespace WVC_XenotypesAndGenes
 		public bool canBePredatorPrey = true;
 		public bool noSkillDecay = false;
 		public bool shouldSendNotificationAbout = true;
+		public bool geneIsAngelBeauty = false;
 	}
 
 	// public class ThoughtExtension_General : DefModExtension
@@ -114,6 +115,9 @@ namespace WVC_XenotypesAndGenes
 		public List<GeneDef> whiteListedExoskinGenes;
 		public List<BackstoryDef> blackListedBackstoryForChanger;
 		// public List<ThingDef> listedGolems;
+		// public List<GeneDef> gene_IsNotAcceptablePrey;
+		// public List<GeneDef> gene_IsAngelBeauty;
+		// public List<GeneDef> gene_PawnSkillsNotDecay;
 	}
 	
 	// public class WhiteListedGolemsDef : Def

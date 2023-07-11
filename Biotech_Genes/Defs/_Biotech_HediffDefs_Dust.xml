@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_Wings_FeatheredWings</defName>
+	<label>flying</label>
+	<!-- <label>feathered wings</label> -->
+	<description>The pawn uses wings for ease of movement.</description>
+	<stages>
+	  <li>
+		<!-- <becomeVisible>false</becomeVisible> -->
+		<minSeverity>0.0</minSeverity>
+	  </li>
+	</stages>
+	<comps>
+	  <li Class="AnimalBehaviours.HediffCompProperties_Floating">
+		<checkingInterval>1500</checkingInterval>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_PawnHaveWings"/>
+	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+	</comps>
+  </HediffDef>
+
+  <!--=====================================================================-->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base" Name="WVC_XenotypesAndGenes_Hediffs_DustSupply" Abstract="True">
+	<label>dust in blood</label>
+	<description>The level of dust in the blood.</description>
+	<defaultLabelColor>(255, 248, 133)</defaultLabelColor>
+	<hediffClass>HediffWithComps</hediffClass>
+	<initialSeverity>1.0</initialSeverity>
+	<minSeverity>0.01</minSeverity>
+	<maxSeverity>1.0</maxSeverity>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_SeverityFromDust"/>
+		<!-- <li Class="HediffCompProperties_DisappearsOnDeath"/> -->
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_DustSupply">
+	<defName>WVC_Dustogenic_HungerFactor</defName>
+	<label>dust in blood</label>
+	<stages>
+	  <li>
+		<hungerRateFactor>4.0</hungerRateFactor>
+		<minSeverity>0.0</minSeverity>
+		<mentalStateGivers>
+		  <li>
+			<mentalState>Binging_Food</mentalState>
+			<mtbDays>0.4</mtbDays>
+		  </li>
+		</mentalStateGivers>
+	  </li>
+	  <li>
+		<hungerRateFactor>3.4</hungerRateFactor>
+		<minSeverity>0.10</minSeverity>
+		<mentalStateGivers>
+		  <li>
+			<mentalState>Binging_Food</mentalState>
+			<mtbDays>0.8</mtbDays>
+		  </li>
+		</mentalStateGivers>
+	  </li>
+	  <li>
+		<hungerRateFactor>2.8</hungerRateFactor>
+		<minSeverity>0.20</minSeverity>
+		<mentalStateGivers>
+		  <li>
+			<mentalState>Binging_Food</mentalState>
+			<mtbDays>1.4</mtbDays>
+		  </li>
+		</mentalStateGivers>
+	  </li>
+	  <li>
+		<hungerRateFactor>2.2</hungerRateFactor>
+		<minSeverity>0.30</minSeverity>
+		<mentalStateGivers>
+		  <li>
+			<mentalState>Binging_Food</mentalState>
+			<mtbDays>5.5</mtbDays>
+		  </li>
+		</mentalStateGivers>
+	  </li>
+	  <li>
+		<hungerRateFactor>1.8</hungerRateFactor>
+		<minSeverity>0.40</minSeverity>
+		<mentalStateGivers>
+		  <li>
+			<mentalState>Binging_Food</mentalState>
+			<mtbDays>12.5</mtbDays>
+		  </li>
+		</mentalStateGivers>
+	  </li>
+	  <li>
+		<hungerRateFactor>1.5</hungerRateFactor>
+		<minSeverity>0.50</minSeverity>
+		<mentalStateGivers>
+		  <li>
+			<mentalState>Binging_Food</mentalState>
+			<mtbDays>16.0</mtbDays>
+		  </li>
+		</mentalStateGivers>
+	  </li>
+	  <li>
+		<hungerRateFactor>1.2</hungerRateFactor>
+		<minSeverity>0.60</minSeverity>
+	  </li>
+	  <li>
+		<hungerRateFactor>1.0</hungerRateFactor>
+		<minSeverity>0.70</minSeverity>
+	  </li>
+	  <li>
+		<hungerRateFactor>0.8</hungerRateFactor>
+		<minSeverity>0.80</minSeverity>
+	  </li>
+	  <li>
+		<hungerRateFactor>0.5</hungerRateFactor>
+		<minSeverity>0.90</minSeverity>
+	  </li>
+	  <li>
+		<hungerRateFactor>0.2</hungerRateFactor>
+		<minSeverity>1.0</minSeverity>
+	  </li>
+	</stages>
+  </HediffDef>
+
+</Defs>

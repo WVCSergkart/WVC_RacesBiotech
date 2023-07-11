@@ -16,7 +16,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			AddOrRemoveHediff();
+			AddOrRemoveHediff(HediffDefName, pawn, this);
 		}
 
 		public override void Tick()
@@ -26,35 +26,35 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			AddOrRemoveHediff();
+			AddOrRemoveHediff(HediffDefName, pawn, this);
 		}
 
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			RemoveHediff();
+			RemoveHediff(HediffDefName, pawn);
 		}
 
-		public void AddOrRemoveHediff()
+		public static void AddOrRemoveHediff(HediffDef hediffDef, Pawn pawn, Gene gene)
 		{
-			if (Active)
+			if (gene.Active)
 			{
-				if (!pawn.health.hediffSet.HasHediff(HediffDefName))
+				if (!pawn.health.hediffSet.HasHediff(hediffDef))
 				{
-					pawn.health.AddHediff(HediffDefName);
+					pawn.health.AddHediff(hediffDef);
 				}
 			}
 			else
 			{
-				RemoveHediff();
+				RemoveHediff(hediffDef, pawn);
 			}
 		}
 
-		public void RemoveHediff()
+		public static void RemoveHediff(HediffDef hediffDef, Pawn pawn)
 		{
-			if (pawn.health.hediffSet.HasHediff(HediffDefName))
+			if (pawn.health.hediffSet.HasHediff(hediffDef))
 			{
-				Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefName);
+				Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(hediffDef);
 				if (firstHediffOfDef != null)
 				{
 					pawn.health.RemoveHediff(firstHediffOfDef);
@@ -73,7 +73,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						if (Active)
 						{
-							AddOrRemoveHediff();
+							AddOrRemoveHediff(HediffDefName, pawn, this);
 						}
 					}
 				};

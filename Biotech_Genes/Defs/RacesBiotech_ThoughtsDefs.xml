@@ -21,6 +21,44 @@
 	</stages>
   </ThoughtDef>
 
+  <ThoughtDef>
+	<defName>WVC_Dustogenic_AngelBeauty</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_AngelBeauty</workerClass>
+	<validWhileDespawned>true</validWhileDespawned>
+	<nullifyingGenes>
+	  <li>WVC_MechaAI_SoftwareNaturalEnemy</li>
+	  <li>WVC_MechaAI_PsychicDull</li>
+	</nullifyingGenes>
+	<stages>
+	  <li>
+		<label>angel</label>
+		<baseOpinionOffset>500</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <!-- <ThoughtDef> -->
+	<!-- <defName>WVC_Social_SameBloodSameXenotype</defName> -->
+	<!-- <thoughtClass>Thought_SituationalSocial</thoughtClass> -->
+	<!-- <workerClass>WVC_XenotypesAndGenes.ThoughtWorker_SameBloodSameXenotype</workerClass> -->
+	<!-- <validWhileDespawned>true</validWhileDespawned> -->
+	<!-- <requiredGenes> -->
+	  <!-- <li>WVC_SameBloodSameXenotype</li> -->
+	<!-- </requiredGenes> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <label>other xenotype</label> -->
+		<!-- <visible>false</visible> -->
+		<!-- <baseOpinionOffset>0</baseOpinionOffset> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <label>same xenotype</label> -->
+		<!-- <baseOpinionOffset>30</baseOpinionOffset> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+  <!-- </ThoughtDef> -->
+
   <!-- ========================================================== -->
 
   <ThoughtDef Name="WVC_PreferredGenderThoughtBase" Abstract="True">

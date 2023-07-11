@@ -8,11 +8,13 @@ using WVC_XenotypesAndGenes;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_ElectricFungus : Gene_Resource, IGeneResourceDrain
+	public class Gene_Dust : Gene_Resource, IGeneResourceDrain
 	{
 		// public bool woundClottingAllowed = true;
 		// public bool ageReversionAllowed = true;
 		// public bool totalHealingAllowed = true;
+
+		public HediffDef HediffDefName => def.GetModExtension<GeneExtension_Giver>().hediffDefName;
 
 		public Gene_Resource Resource => this;
 
@@ -32,7 +34,7 @@ namespace WVC_XenotypesAndGenes
 
 		public string DisplayLabel => Label + " (" + "Gene".Translate() + ")";
 
-		public float ResourceLossPerDay => ResourceLossPerDay();
+		public float ResourceLossPerDay => ResourceLoss();
 
 		public override float InitialResourceMax => 1.0f;
 
@@ -42,16 +44,36 @@ namespace WVC_XenotypesAndGenes
 
 		public override float MaxLevelOffset => 0.20f;
 
-		protected override Color BarColor => new ColorInt(125, 114, 37).ToColor;
+		protected override Color BarColor => new ColorInt(125, 122, 65).ToColor;
 
 		protected override Color BarHighlightColor => new ColorInt(156, 142, 46).ToColor;
 
+		// Base
 		public override void PostAdd()
 		{
 			base.PostAdd();
 			Reset();
 			ResetResourceValue();
+			Gene_AddOrRemoveHediff.AddOrRemoveHediff(HediffDefName, pawn, this);
 		}
+
+		public override void Tick()
+		{
+			base.Tick();
+			UndeadUtility.TickResourceDrain(this);
+			if (!pawn.IsHashIntervalTick(60000))
+			{
+				return;
+			}
+			Gene_AddOrRemoveHediff.AddOrRemoveHediff(HediffDefName, pawn, this);
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			Gene_AddOrRemoveHediff.RemoveHediff(HediffDefName, pawn);
+		}
+		// Base
 
 		private void ResetResourceValue()
 		{
@@ -59,44 +81,39 @@ namespace WVC_XenotypesAndGenes
 			Value = floatRange.RandomInRange;
 		}
 
-		// public override void Notify_IngestedThing(Thing thing, int numTaken)
-		// {
+		public override void Notify_IngestedThing(Thing thing, int numTaken)
+		{
 			// if (thing.def.IsMeat)
 			// {
-				// IngestibleProperties ingestible = thing.def.ingestible;
-				// if (ingestible != null && ingestible.sourceDef?.race?.Humanlike == true)
-				// {
-					// GeneUtility.OffsetHemogen(pawn, 0.0375f * thing.GetStatValue(StatDefOf.Nutrition) * (float)numTaken);
-				// }
 			// }
+			IngestibleProperties ingestible = thing.def.ingestible;
+			float nutrition = thing.GetStatValue(StatDefOf.Nutrition);
+			if (ingestible != null && nutrition > 0f)
+			{
+				DustUtility.OffsetDust(pawn, 0.0625f * thing.GetStatValue(StatDefOf.Nutrition) * (float)numTaken);
+			}
+		}
+
+		// public override void SetTargetValuePct(float val)
+		// {
+			// targetValue = Mathf.Clamp(val * Max, 0f, Max - MaxLevelOffset);
 		// }
 
-		public override void Tick()
-		{
-			base.Tick();
-			UndeadUtility.TickResourceDrain(this);
-		}
-
-		public override void SetTargetValuePct(float val)
-		{
-			targetValue = Mathf.Clamp(val * Max, 0f, Max - MaxLevelOffset);
-		}
-
-		public bool ShouldChargeNow()
-		{
-			return Value < targetValue;
-		}
+		// public bool ShouldChargeNow()
+		// {
+			// return Value < targetValue;
+		// }
 
 		public bool PawnUnconscious()
 		{
 			if (pawn.Downed || pawn.Deathresting || pawn.needs.rest.Resting)
 			{
-				return false;
+				return true;
 			}
-			return true;
+			return false;
 		}
 
-		public float ResourceLossPerDay()
+		public float ResourceLoss()
 		{
 			if (PawnUnconscious())
 			{

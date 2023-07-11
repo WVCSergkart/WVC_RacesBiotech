@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="GeneMoveSpeedBase" Name="WVC_XenotypesAndGenes_GeneWings_Base" Abstract="True">
+	<geneClass>WVC_XenotypesAndGenes.Gene_Wings</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_FeatheredWings_v0</iconPath>
+	<marketValueFactor>1.7</marketValueFactor>
+	<selectionWeight>0.012</selectionWeight>
+	<!-- <displayCategory>WVC_ResurgentCells</displayCategory> -->
+	<displayOrderInCategory>3220</displayOrderInCategory>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<iconColor>(255, 255, 255)</iconColor>
+	<customEffectDescriptions>
+		<li>Allows you to turn terrain ignore on or off.</li>
+		<!-- <li>Refresh time (*DateTime)~1 hour(/DateTime).</li> -->
+	</customEffectDescriptions>
+	<graphicData>
+		<drawLoc>Tailbone</drawLoc>
+		<!-- <color>(255, 255, 255)</color> -->
+		<drawOffsetNorth>(0, 0.4, -0.05)</drawOffsetNorth>
+		<drawOffsetSouth>(0, -0.4, -0.05)</drawOffsetSouth>
+		<drawOffsetEast>(-0.08, -0.4, -0.04)</drawOffsetEast>
+	</graphicData>
+	<exclusionTags Inherit="False">
+		<li>Wing</li>
+		<li>Wings</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ================================================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneWings_Base">
+	<defName>WVC_Wings_FeatheredWings</defName>
+	<label>feathered wings</label>
+	<description>Carriers of this gene grow luxurious feathered wings.</description>
+	<iconPath>WVC/UI/Genes/Gene_FeatheredWings_v0</iconPath>
+	<statOffsets>
+	  <MoveSpeed>0.15</MoveSpeed>
+	  <ComfyTemperatureMin>-12</ComfyTemperatureMin>
+	</statOffsets>
+	<graphicData>
+		<graphicPath>WVC/BodyParts_Wings/FeatheredWings</graphicPath>
+		<drawScale>1.5</drawScale>
+		<colorType>Hair</colorType>
+	</graphicData>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>angel</symbol></li>
+		<li><symbol>feather</symbol></li>
+		<li><symbol>winged</symbol></li>
+		<li><symbol>wing</symbol></li>
+		<li><symbol>bird</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>bird</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_Wings_FeatheredWings</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

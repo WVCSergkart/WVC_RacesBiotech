@@ -61,4 +61,9 @@
 	<!-- <WVC_XenotypeSerumThing_XenotypeLabel>xenotype</WVC_XenotypeSerumThing_XenotypeLabel> -->
 	<!-- <WVC_XenotypeSerumThing_XenotypeDesc>xenotype contained in the serum</WVC_XenotypeSerumThing_XenotypeDesc> -->
 
+	<WVC_XaG_Gene_Wings>Use wings</WVC_XaG_Gene_Wings>
+	<WVC_XaG_Gene_WingsDesc>Allows you to switch between walking and flying.</WVC_XaG_Gene_WingsDesc>
+	<WVC_XaG_Gene_Wings_On>Fly</WVC_XaG_Gene_Wings_On>
+	<WVC_XaG_Gene_Wings_Off>Walk</WVC_XaG_Gene_Wings_Off>
+
 </LanguageData>

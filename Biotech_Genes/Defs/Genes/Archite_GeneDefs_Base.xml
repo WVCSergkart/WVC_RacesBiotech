@@ -61,6 +61,11 @@
   </GeneCategoryDef>
 
   <GeneCategoryDef>
+	<defName>WVC_Dustogenic</defName>
+	<label>dust</label>
+	<displayPriorityInXenotype>511.2886992038</displayPriorityInXenotype>
+  </GeneCategoryDef>
+  <GeneCategoryDef>
 	<defName>WVC_ResurgentCells</defName>
 	<label>resurgent</label>
 	<displayPriorityInXenotype>510.2886992038</displayPriorityInXenotype>
