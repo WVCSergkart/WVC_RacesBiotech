@@ -66,6 +66,7 @@
     <Compile Include="Resources_Abilities\CompAbilityEffect_GeneIsActive.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_ResurgentCost.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_Spawn.cs" />
+    <Compile Include="Resources_Abilities\CompProperties_AbilityDustCost.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityGeneIsActive.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityResurgentCost.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityRiseFromTheDead.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Resources_Hediff\HediffCompProperties_PawnHaveWings.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_SeverityFromDust.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_SuperRegeneration.cs" />
+    <Compile Include="Resources_Hediff\HediffComp_DustGestator.cs" />
     <Compile Include="Resources_Hediff\OnlyOneOverseer.cs" />
     <Compile Include="Resources_Main\DustUtility.cs" />
     <Compile Include="Resources_Main\JobGiver_WanderNearTarget.cs" />

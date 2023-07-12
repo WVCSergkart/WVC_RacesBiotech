@@ -89,29 +89,30 @@
 	</customEffectDescriptions>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>-1</biostatMet>
-	<statOffsets>
-	  <MeditationFocusGain>0.5</MeditationFocusGain>
-	</statOffsets>
 	<suppressedTraits>
+	  <!-- <li> -->
+		<!-- <def>Beauty</def> -->
+		<!-- <degree>2</degree> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <def>Beauty</def> -->
+		<!-- <degree>1</degree> -->
+	  <!-- </li> -->
 	  <li>
-		<def>PsychicSensitivity</def>
+		<def>Beauty</def>
 		<degree>-1</degree>
 	  </li>
 	  <li>
-		<def>PsychicSensitivity</def>
+		<def>Beauty</def>
 		<degree>-2</degree>
 	  </li>
-	  <!-- <li> -->
-		<!-- <def>PsychicSensitivity</def> -->
-		<!-- <degree>1</degree> -->
-	  <!-- </li> -->
-	  <!-- <li> -->
-		<!-- <def>PsychicSensitivity</def> -->
-		<!-- <degree>2</degree> -->
-	  <!-- </li> -->
 	</suppressedTraits>
+	<!-- <statOffsets> -->
+	  <!-- <PawnBeauty>2</PawnBeauty> -->
+	<!-- </statOffsets> -->
 	<exclusionTags>
-	  <li>PsychicAbility</li>
+	  <li>Beauty</li>
+	  <!-- <li>PsychicAbility</li> -->
 	</exclusionTags>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
@@ -168,7 +169,7 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
 	<defName>WVC_Dustogenic_MechPsylink</defName>
-	<label>blessedlink</label>
+	<label>blesslink</label>
 	<description>Carriers of this gene have congenital mechlink and psylink.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_DustMechlink</geneClass>
 	<displayOrderInCategory>15</displayOrderInCategory>
@@ -178,7 +179,7 @@
 	<customEffectDescriptions>
 		<li>Carriers of this gene get &lt;color=#8a8ae6&gt;mechlink&lt;/color&gt; and &lt;color=#8a8ae6&gt;psylink&lt;/color&gt; permanently.</li>
 		<li>Allows you to enable or disable the automatic summoning of mechanoids every (*DateTime)8-16 days(/DateTime).</li>
-		<!-- <li>A carrier of this gene cannot craft or resurrect mechanoids.</li> -->
+		<li>A carrier of this gene cannot craft or resurrect mechanoids.</li>
 	</customEffectDescriptions>
 	<statFactors>
 	  <MechBandwidth>0</MechBandwidth>
@@ -186,8 +187,20 @@
 	</statFactors>
 	<statOffsets>
 	  <MechControlGroups>2</MechControlGroups>
+	  <MeditationFocusGain>0.5</MeditationFocusGain>
 	</statOffsets>
+	<suppressedTraits>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-1</degree>
+	  </li>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-2</degree>
+	  </li>
+	</suppressedTraits>
 	<exclusionTags>
+	  <li>PsychicAbility</li>
 	  <li>WVC_MechanitorNetwork</li>
 	  <li>AbilityMechlink</li>
 	  <li>Mechlink</li>
@@ -210,6 +223,37 @@
 			<summonQuest>WVC_MechanitorSummon_DustLinkRandomMechanoid</summonQuest>
 		</li>
 	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
+	<defName>WVC_Dustogenic_ImmaculateConception</defName>
+	<label>dustogenic conception</label>
+	<description>Carriers of this gene do not require a partner for reproduction. Pregnancy occurs only at the request of the mother and only with sufficient dust levels.</description>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_Dustogenic_AbilityImmaculateConception</AbilityDef>
+	</descriptionHyperlinks>
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Gestator_TestTool</geneClass> -->
+	<iconPath>WVC/UI/Genes/Gene_ImmaculateConception_v0</iconPath>
+	<minAgeActive>14</minAgeActive>
+	<sterilize>true</sterilize>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Spawns a baby-pawn with similar genes few days after the ability is activated.</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <Fertility>0</Fertility>
+	</statFactors>
+	<abilities>
+	  <li>WVC_Dustogenic_AbilityImmaculateConception</li>
+	</abilities>
+	<exclusionTags>
+		<li>Fertility</li>
+		<li>Egglaying</li>
+		<li>AG_Egglaying</li>
+		<li>AG_Gestation</li>
+		<li>AG_Fertility</li>
+	</exclusionTags>
   </GeneDef>
 
 </Defs>

@@ -14,6 +14,14 @@ namespace WVC_XenotypesAndGenes
 		public override bool GizmoDisabled(out string reason)
 		{
 			Pawn pawn = parent.pawn;
+			if (Props.gender != Gender.None)
+			{
+				if (Props.gender != pawn.gender)
+				{
+					reason = "WVC_XaG_AbilityGeneIsActive_PawnWrongGender".Translate(pawn);
+					return true;
+				}
+			}
 			if (pawn?.genes == null)
 			{
 				reason = "WVC_XaG_AbilityGeneIsActive_PawnBaseliner".Translate(pawn);

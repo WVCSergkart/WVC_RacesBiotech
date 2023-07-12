@@ -193,5 +193,31 @@
 
   <!-- ============================================================================== -->
 
+  <AbilityDef ParentName="WVC_GestationAbilities_Base">
+	<defName>WVC_Dustogenic_AbilityImmaculateConception</defName>
+	<label>immaculate conception</label>
+	<description>With a sufficient level of dust, it allows you to start the pregnancy process.</description>
+	<iconPath>WVC/UI/Genes/Gene_ImmaculateConception_v0</iconPath>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityDustCost">
+		<dustCost>0.43</dustCost>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive">
+		<gender>Female</gender>
+		<eachOfGenes>
+		  <li>WVC_Dustogenic</li>
+		  <li>WVC_Dustogenic_ImmaculateConception</li>
+		</eachOfGenes>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGiveHediff">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_GiveHediff</compClass>
+		<hediffDef>WVC_Dustogenic_HediffImmaculateConception</hediffDef>
+		<onlyApplyToSelf>true</onlyApplyToSelf>
+		<onlyReproductive>false</onlyReproductive>
+	  </li>
+	</comps>
+	<confirmationDialogText>After using the ability, the pawn will gain a progressive debuff to consciousness and rest fall factor. The process cannot be interrupted.\n\nDo you still need a new pawn?</confirmationDialogText>
+  </AbilityDef>
+
 
 </Defs>

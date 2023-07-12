@@ -611,16 +611,16 @@ At the same time, there can be a limited number of living golems under the contr
 	<preventsPregnancy>true</preventsPregnancy>
 	<maxSeverity>1.0</maxSeverity>
 	<comps>
-		<!-- <li Class="AnimalBehaviours.HediffCompProperties_AsexualReproduction"> -->
-			<!-- <reproductionIntervalDays>120</reproductionIntervalDays> -->
-			<!-- <endogeneTransfer>true</endogeneTransfer> -->
-			<!-- <asexualHatchedMessage>WVC_RB_Gene_MechaGestator</asexualHatchedMessage> -->
-		<!-- </li> -->
-		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_Gestator">
-			<gestationIntervalDays>120</gestationIntervalDays>
+		<li Class="AnimalBehaviours.HediffCompProperties_AsexualReproduction">
+			<reproductionIntervalDays>120</reproductionIntervalDays>
 			<endogeneTransfer>true</endogeneTransfer>
-			<completeMessage>WVC_RB_Gene_MechaGestator</completeMessage>
+			<asexualHatchedMessage>WVC_RB_Gene_MechaGestator</asexualHatchedMessage>
 		</li>
+		<!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_Gestator"> -->
+			<!-- <gestationIntervalDays>120</gestationIntervalDays> -->
+			<!-- <endogeneTransfer>true</endogeneTransfer> -->
+			<!-- <completeMessage>WVC_RB_Gene_MechaGestator</completeMessage> -->
+		<!-- </li> -->
 	</comps>
   </HediffDef>
 

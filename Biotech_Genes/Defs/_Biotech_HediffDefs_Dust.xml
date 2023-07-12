@@ -22,6 +22,78 @@
   </HediffDef>
 
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_Dustogenic_HediffImmaculateConception</defName>
+	<label>pregnant</label>
+	<labelNoun>pregnancy</labelNoun>
+	<description>An artificially launched process using dust. Unlike a standard pregnancy, the result will be 100% successful regardless of external factors.</description>
+	<defaultLabelColor>(255, 248, 133)</defaultLabelColor>
+	<initialSeverity>0.01</initialSeverity>
+	<minSeverity>0.01</minSeverity>
+	<maxSeverity>1.0</maxSeverity>
+	<preventsPregnancy>true</preventsPregnancy>
+	<stages>
+	  <li>
+		<label>first trimester</label>
+		<statFactors>
+		  <RestFallRateFactor>1.2</RestFallRateFactor>
+		</statFactors>
+		<capMods>
+		  <li>
+			<capacity>Consciousness</capacity>
+			<setMax>1.0</setMax>
+		  </li>
+		</capMods>
+	  </li>
+	  <li>
+		<label>second trimester</label>
+		<minSeverity>0.333</minSeverity>
+		<statFactors>
+		  <RestFallRateFactor>1.6</RestFallRateFactor>
+		</statFactors>
+		<capMods>
+		  <li>
+			<capacity>Consciousness</capacity>
+			<setMax>0.80</setMax>
+		  </li>
+		</capMods>
+	  </li>
+	  <li>
+		<label>third trimester</label>
+		<minSeverity>0.666</minSeverity>
+		<statFactors>
+		  <RestFallRateFactor>2.0</RestFallRateFactor>
+		</statFactors>
+		<capMods>
+		  <li>
+			<capacity>Consciousness</capacity>
+			<setMax>0.20</setMax>
+		  </li>
+		</capMods>
+	  </li>
+	  <li>
+		<label>recovery</label>
+		<minSeverity>0.90</minSeverity>
+		<capMods>
+		  <li>
+			<capacity>Consciousness</capacity>
+			<setMax>0.20</setMax>
+		  </li>
+		</capMods>
+	  </li>
+	</stages>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_ImmaculateConception">
+		<requiredSeverity>0.90</requiredSeverity>
+		<completeMessage>WVC_XaG_Gene_ImmaculateConception</completeMessage>
+	  </li>
+	  <li Class="HediffCompProperties_SeverityPerDay">
+		<severityPerDay>0.17</severityPerDay>
+	  </li>
+	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
 	<defName>WVC_DustMechanoid_OnlyOneOverseer</defName>
 	<label>dust mechanoid</label>
 	<description>The software of this mechanoid has a strong modification due to which it practically does not consume bandwidth. However, changing the overseer can lead to a critical error.

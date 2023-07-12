@@ -5,6 +5,8 @@
 
 	<WVC_RB_Gene_MechaGestator>{0} has gestated new pawn.</WVC_RB_Gene_MechaGestator>
 
+	<WVC_XaG_Gene_ImmaculateConception>{0} gave birth.</WVC_XaG_Gene_ImmaculateConception>
+
 	<WVC_RB_Gene_GolemGestator>{0}'s mechanoid has finished the gestation process.</WVC_RB_Gene_GolemGestator>
 
 	<!-- <WVC_RB_Gene_MechaGestator_PawnReady>{0} pawn ready for gestation.</WVC_RB_Gene_MechaGestator_PawnReady> -->
@@ -38,8 +40,14 @@
 	<WVC_XaG_AbilityDisabledNoResurgentGene>{0_labelShort} is not resurgent.</WVC_XaG_AbilityDisabledNoResurgentGene>
 	<WVC_XaG_AbilityDisabledNoResurgent>{0_labelShort} does not have enough resurgent cells.</WVC_XaG_AbilityDisabledNoResurgent>
 
+	<WVC_XaG_AbilityDustCost>Dust cost</WVC_XaG_AbilityDustCost>
+	<WVC_XaG_AbilityDustGain>Base dust gain</WVC_XaG_AbilityDustGain>
+	<WVC_XaG_AbilityDisabledNoDustGene>{0_labelShort} is not dustogenic.</WVC_XaG_AbilityDisabledNoDustGene>
+	<WVC_XaG_AbilityDisabledNoDust>{0_labelShort} does not have enough dust.</WVC_XaG_AbilityDisabledNoDust>
+
 	<WVC_XaG_AbilityGeneIsActive_PawnBaseliner>Pawn must not have this ability.</WVC_XaG_AbilityGeneIsActive_PawnBaseliner>
 	<WVC_XaG_AbilityGeneIsActive_PawnNotHaveGene>Pawn does not have the required gene or it is not active.</WVC_XaG_AbilityGeneIsActive_PawnNotHaveGene>
+	<WVC_XaG_AbilityGeneIsActive_PawnWrongGender>Wrong gender.</WVC_XaG_AbilityGeneIsActive_PawnWrongGender>
 
 	<WVC_XaG_AbilitySpawn_WrongTarget>Incorrect target.</WVC_XaG_AbilitySpawn_WrongTarget>
 	<WVC_XaG_AbilitySpawn_WrongTarget_NotSoil>The target must be soil.</WVC_XaG_AbilitySpawn_WrongTarget_NotSoil>

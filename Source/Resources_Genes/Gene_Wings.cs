@@ -92,7 +92,7 @@ namespace WVC_XenotypesAndGenes
 					// }
 				// };
 			// }
-			if (Active && Find.Selector.SelectedPawns.Count == 1 && pawn.IsColonist || DebugSettings.ShowDevGizmos)
+			if (Active && Find.Selector.SelectedPawns.Count == 1 && pawn.Faction == Faction.OfPlayer || DebugSettings.ShowDevGizmos)
 			{
 				yield return new Command_Action
 				{

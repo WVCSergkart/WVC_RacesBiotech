@@ -14,6 +14,8 @@ namespace WVC_XenotypesAndGenes
 
 		public List<GeneDef> eachOfGenes;
 
+		public Gender gender = Gender.None;
+
 		public CompProperties_AbilityGeneIsActive()
 		{
 			compClass = typeof(CompAbilityEffect_GeneIsActive);

@@ -38,7 +38,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			Gene_Dust gene_Dust = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
-			if (!pawn.IsColonist || !Active || pawn.Map == null || !pawn.ageTracker.Adult || gene_Dust == null)
+			if (pawn.Faction != Faction.OfPlayer || !Active || pawn.Map == null || !pawn.ageTracker.Adult || gene_Dust == null)
 			{
 				return;
 			}
@@ -93,7 +93,7 @@ namespace WVC_XenotypesAndGenes
 					}
 				};
 			}
-			if (Active && Find.Selector.SelectedPawns.Count == 1 && pawn.IsColonist || DebugSettings.ShowDevGizmos)
+			if (Active && Find.Selector.SelectedPawns.Count == 1 && pawn.Faction == Faction.OfPlayer || DebugSettings.ShowDevGizmos)
 			{
 				yield return new Command_Action
 				{
