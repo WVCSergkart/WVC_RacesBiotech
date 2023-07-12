@@ -307,4 +307,35 @@
 	</root>
   </QuestScriptDef>
 
+  <QuestScriptDef ParentName="WVC_SummonQuestScript_Base">
+	<defName>WVC_MechanitorSummon_DustLinkRandomMechanoid</defName>
+	<root Class="WVC_XenotypesAndGenes.QuestNode_Root_MechanitorSummonMech">
+	  <mechTypes>
+		<li>Mech_Lifter</li>
+		<li>Mech_Constructoid</li>
+		<li>Mech_Militor</li>
+		<li>Mech_Fabricor</li>
+		<li>Mech_Agrihand</li>
+		<li>Mech_Cleansweeper</li>
+		<li>Mech_Paramedic</li>
+		<!-- = -->
+		<li>Mech_Scyther</li>
+		<li>Mech_Lancer</li>
+		<li>Mech_Legionary</li>
+		<li>Mech_Tesseron</li>
+		<li>Mech_Scorcher</li>
+		<li>Mech_Apocriton</li>
+		<!-- = -->
+		<li>Mech_Pikeman</li>
+		<li>Mech_Tunneler</li>
+		<li>Mech_CentipedeBlaster</li>
+		<li>Mech_CentipedeBurner</li>
+		<li>Mech_CentipedeGunner</li>
+	  </mechTypes>
+	  <hediffDefs>
+		<li>WVC_DustMechanoid_OnlyOneOverseer</li>
+	  </hediffDefs>
+	</root>
+  </QuestScriptDef>
+
 </Defs>

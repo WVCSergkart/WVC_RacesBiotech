@@ -22,6 +22,7 @@ namespace WVC_XenotypesAndGenes
 		public ThingDef thingDefToSpawn;
 		public int stackCount = 1;
 		public IntRange spawnIntervalRange = new(120000, 300000);
+		public QuestScriptDef summonQuest;
 		// public bool writeTimeLeftToSpawn = true;
 		// public string customLabel = "Resource";
 	}
@@ -79,6 +80,7 @@ namespace WVC_XenotypesAndGenes
 	public class GeneExtension_Giver : DefModExtension
 	{
 		public HediffDef hediffDefName;
+		public List<HediffDef> hediffDefs;
 		// public BodyPartDef bodypart;
 		public List<BodyPartDef> bodyparts;
 		public BackstoryDef childBackstoryDef;

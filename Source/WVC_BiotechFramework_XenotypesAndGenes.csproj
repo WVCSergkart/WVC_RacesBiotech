@@ -74,6 +74,8 @@
     <Compile Include="Resources_Genes\Gene_Dust.cs" />
     <Compile Include="Resources_Genes\Gene_DustAgeless.cs" />
     <Compile Include="Resources_Genes\Gene_DustDrain.cs" />
+    <Compile Include="Resources_Genes\Gene_DustHediffGiver.cs" />
+    <Compile Include="Resources_Genes\Gene_DustMechlink.cs" />
     <Compile Include="Resources_Genes\Gene_ResurgentCellsGain.cs" />
     <Compile Include="Resources_Genes\Gene_Wings.cs" />
     <Compile Include="Resources_Genes\Gene_XenotypeMutator.cs" />
@@ -81,6 +83,7 @@
     <Compile Include="Resources_Hediff\HediffCompProperties_PawnHaveWings.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_SeverityFromDust.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_SuperRegeneration.cs" />
+    <Compile Include="Resources_Hediff\OnlyOneOverseer.cs" />
     <Compile Include="Resources_Main\DustUtility.cs" />
     <Compile Include="Resources_Main\JobGiver_WanderNearTarget.cs" />
     <Compile Include="Resources_Things\CompProperties_InitialHediff.cs" />

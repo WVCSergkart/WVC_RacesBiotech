@@ -21,6 +21,27 @@
 	</comps>
   </HediffDef>
 
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_DustMechanoid_OnlyOneOverseer</defName>
+	<label>dust mechanoid</label>
+	<description>The software of this mechanoid has a strong modification due to which it practically does not consume bandwidth. However, changing the overseer can lead to a critical error.
+
+&lt;color=#f5ffa2&gt;Gameplay effect:&lt;/color&gt; The mechanoid does not require bandwidth, but if you change the overseer, then after a while mechanoid will die.</description>
+	<defaultLabelColor>(255, 248, 133)</defaultLabelColor>
+	<hediffClass>HediffWithComps</hediffClass>
+	<stages>
+	  <li>
+		<statFactors>
+		  <BandwidthCost>0</BandwidthCost>
+		</statFactors>
+	  </li>
+	</stages>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_OnlyOneOverseer"/>
+		<li Class="HediffCompProperties_DisappearsOnDeath"/>
+	</comps>
+  </HediffDef>
+
   <!--=====================================================================-->
 
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base" Name="WVC_XenotypesAndGenes_Hediffs_DustSupply" Abstract="True">

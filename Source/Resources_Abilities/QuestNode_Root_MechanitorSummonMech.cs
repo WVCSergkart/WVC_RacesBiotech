@@ -1,5 +1,6 @@
 // RimWorld.QuestGen.QuestNode_Root_MechanitorStartingMech
 using System.Collections.Generic;
+using System.Linq;
 using RimWorld;
 using RimWorld.QuestGen;
 using Verse;
@@ -15,6 +16,8 @@ namespace WVC_XenotypesAndGenes
 
 		public List<PawnKindDef> mechTypes;
 
+		public List<HediffDef> hediffDefs;
+
 		protected override void RunInt()
 		{
 			Slate slate = QuestGen.slate;
@@ -26,6 +29,16 @@ namespace WVC_XenotypesAndGenes
 			Pawn mech = quest.GeneratePawn(request);
 			slate.Set("mechanitor", pawn);
 			slate.Set("mech", pawnKindDef);
+			if (hediffDefs != null)
+			{
+				foreach (HediffDef hediff in hediffDefs)
+				{
+					if (!mech.health.hediffSet.HasHediff(hediff))
+					{
+						mech.health.AddHediff(hediff);
+					}
+				}
+			}
 			quest.Delay(delayTicks, delegate
 			{
 				quest.AssignMechToMechanitor(pawn, mech);
@@ -45,6 +58,25 @@ namespace WVC_XenotypesAndGenes
 			}
 			return false;
 		}
+
+		// private PawnKindDef MechanoidKind()
+		// {
+			// PawnKindDef pawnKindDef;
+			// pawnKindDef = DefDatabase<PawnKindDef>.AllDefs.Where((PawnKindDef randomXenotypeDef) => randomXenotypeDef.race.race.IsMechanoid 
+			// && randomXenotypeDef.defName.Contains("Mech_") 
+			// && !randomXenotypeDef.defName.Contains("TEST") 
+			// && !randomXenotypeDef.defName.Contains("NonPlayer") 
+			// && !randomXenotypeDef.defName.Contains("Random") 
+			// && randomXenotypeDef.race.race.thinkTreeMain.defName.Contains("Mechanoid") 
+			// && randomXenotypeDef.race.race.maxMechEnergy == 100
+			// && randomXenotypeDef.race.race.lifeStageAges.Count > 1 
+			// ).RandomElement();
+			// if (mechTypes != null)
+			// {
+				// pawnKindDef = mechTypes.RandomElement();
+			// }
+			// return pawnKindDef;
+		// }
 	}
 
 }

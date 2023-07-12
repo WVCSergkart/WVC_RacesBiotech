@@ -45,6 +45,10 @@
 		<li><symbol>wiza</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
+	<exclusionTags>
+	  <li>Psylink</li>
+	  <li>AbilityPsylink</li>
+	</exclusionTags>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>

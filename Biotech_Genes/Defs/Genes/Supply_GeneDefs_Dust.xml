@@ -71,6 +71,7 @@
 	<prerequisite>WVC_Dustogenic</prerequisite>
 	<marketValueFactor>1.2</marketValueFactor>
 	<minAgeActive>3</minAgeActive>
+	<resourceLabel>dust</resourceLabel>
 	<resourceLossPerDay>0.02</resourceLossPerDay>
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>-3</biostatMet>
@@ -82,7 +83,6 @@
 	<description>Carriers of this gene can unconsciously influence how others see them. Their brain emits neuronal psychic waves that cause those around them who are susceptible to psychic influence to deify them.</description>
 	<iconPath>WVC/UI/Genes/Gene_Angel_v0</iconPath>
 	<iconColor>(255, 248, 133)</iconColor>
-	<resourceLabel>dust</resourceLabel>
 	<displayOrderInCategory>25</displayOrderInCategory>
 	<customEffectDescriptions>
 	  <li>All psychic sensitivity pawns that don't have this gene get +500 opinion towards those who carry this gene.</li>
@@ -164,6 +164,52 @@
 	  <li>WVC_XenotypesAndGenes_ArchitesRandomEncode_GeneTagRandomizer_Pattern</li>
 	  <li>WVC_XenotypesAndGenes_GeneNaturalRandom_Metabolism</li>
 	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
+	<defName>WVC_Dustogenic_MechPsylink</defName>
+	<label>blessedlink</label>
+	<description>Carriers of this gene have congenital mechlink and psylink.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DustMechlink</geneClass>
+	<displayOrderInCategory>15</displayOrderInCategory>
+	<resourceLossPerDay>0.03</resourceLossPerDay>
+	<iconPath>WVC/UI/Genes/Gene_Blessedlink_v0</iconPath>
+	<iconColor>(255, 248, 133)</iconColor>
+	<customEffectDescriptions>
+		<li>Carriers of this gene get &lt;color=#8a8ae6&gt;mechlink&lt;/color&gt; and &lt;color=#8a8ae6&gt;psylink&lt;/color&gt; permanently.</li>
+		<li>Allows you to enable or disable the automatic summoning of mechanoids every (*DateTime)8-16 days(/DateTime).</li>
+		<!-- <li>A carrier of this gene cannot craft or resurrect mechanoids.</li> -->
+	</customEffectDescriptions>
+	<statFactors>
+	  <MechBandwidth>0</MechBandwidth>
+	  <WVC_OverseerMaxGolems>0</WVC_OverseerMaxGolems>
+	</statFactors>
+	<statOffsets>
+	  <MechControlGroups>2</MechControlGroups>
+	</statOffsets>
+	<exclusionTags>
+	  <li>WVC_MechanitorNetwork</li>
+	  <li>AbilityMechlink</li>
+	  <li>Mechlink</li>
+	  <li>WVC_GeneMechlink</li>
+	  <li>Psylink</li>
+	  <li>AbilityPsylink</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefs>
+			  <li>MechlinkImplant</li>
+			  <li MayRequire="ludeon.rimworld.royalty">PsychicAmplifier</li>
+			</hediffDefs>
+			<bodyparts>
+			  <li>Brain</li>
+			</bodyparts>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<spawnIntervalRange>480000~960000</spawnIntervalRange>
+			<summonQuest>WVC_MechanitorSummon_DustLinkRandomMechanoid</summonQuest>
+		</li>
+	</modExtensions>
   </GeneDef>
 
 </Defs>

@@ -66,4 +66,9 @@
 	<WVC_XaG_Gene_Wings_On>Fly</WVC_XaG_Gene_Wings_On>
 	<WVC_XaG_Gene_Wings_Off>Walk</WVC_XaG_Gene_Wings_Off>
 
+	<WVC_XaG_Gene_DustMechlink>Summon</WVC_XaG_Gene_DustMechlink>
+	<WVC_XaG_Gene_DustMechlinkDesc>Automatically summons a random mechanoid every few days.</WVC_XaG_Gene_DustMechlinkDesc>
+	<WVC_XaG_Gene_DustMechlink_On>On</WVC_XaG_Gene_DustMechlink_On>
+	<WVC_XaG_Gene_DustMechlink_Off>Off</WVC_XaG_Gene_DustMechlink_Off>
+
 </LanguageData>

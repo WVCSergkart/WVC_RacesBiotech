@@ -24,7 +24,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
+			Gene_Dust gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
 			if (gene_Resurgent != null)
 			{
 				if ((oneYear * humanAdultAge) <= pawn.ageTracker.AgeBiologicalTicks)
