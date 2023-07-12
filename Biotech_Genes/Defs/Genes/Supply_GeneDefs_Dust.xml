@@ -83,7 +83,7 @@
 	<iconPath>WVC/UI/Genes/Gene_Angel_v0</iconPath>
 	<iconColor>(255, 248, 133)</iconColor>
 	<resourceLabel>dust</resourceLabel>
-	<displayOrderInCategory>15</displayOrderInCategory>
+	<displayOrderInCategory>25</displayOrderInCategory>
 	<customEffectDescriptions>
 	  <li>All psychic sensitivity pawns that don't have this gene get +500 opinion towards those who carry this gene.</li>
 	</customEffectDescriptions>
@@ -118,6 +118,52 @@
 			<geneIsAngelBeauty>true</geneIsAngelBeauty>
 		</li>
 	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
+	<defName>WVC_Dustogenic_Ageless</defName>
+	<label>blessed ageless</label>
+	<labelShortAdj>ageless</labelShortAdj>
+	<description>Carriers of this gene completely stop aging after reaching the age of 18.</description>
+	<iconPath>WVC/UI/Genes/Gene_AgelessAngel_v0</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DustAgeless</geneClass>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<displayOrderInCategory>5</displayOrderInCategory>
+	<resourceLossPerDay>0.03</resourceLossPerDay>
+	<customEffectDescriptions>
+		<li>Carriers of the gene always spawn with age within 18.</li>
+		<li>The age of the gene carrier decreases by 1 year every (*DateTime)5-15 days(/DateTime), this continues until the carrier reaches the minimum adult age.</li>
+	</customEffectDescriptions>
+	<biologicalAgeTickFactorFromAgeCurve>
+	  <points>
+		<li>(13, 1)</li>
+		<li>(18.5, 0)</li>
+	  </points>
+	</biologicalAgeTickFactorFromAgeCurve>
+	<exclusionTags>
+	  <li>WVC_Ageless</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
+	<defName>WVC_Dustogenic_Metabolism</defName>
+	<label>dustogenic metabolism</label>
+	<labelShortAdj>dust-metabolic</labelShortAdj>
+	<description>Carriers of this gene have dust in their cells that facilitate and optimize metabolism. This improves overall genetic and metabolic quality.</description>
+	<iconPath>WVC/UI/Genes/Gene_ArchiteMetabolism_v0</iconPath>
+	<iconColor>(255, 248, 133)</iconColor>
+	<displayOrderInCategory>10</displayOrderInCategory>
+	<resourceLossPerDay>0.05</resourceLossPerDay>
+	<marketValueFactor>1.5</marketValueFactor>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>6</biostatMet>
+	<biostatArc>0</biostatArc>
+	<exclusionTags>
+	  <li>WVC_XenotypesAndGenes_ArchitesRandomEncode_GeneTagRandomizer_Pattern</li>
+	  <li>WVC_XenotypesAndGenes_GeneNaturalRandom_Metabolism</li>
+	</exclusionTags>
   </GeneDef>
 
 </Defs>

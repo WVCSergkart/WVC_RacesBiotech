@@ -72,6 +72,7 @@
     <Compile Include="Resources_Abilities\CompProperties_AbilitySpawn.cs" />
     <Compile Include="Resources_Genes\GeneGizmo_Dust.cs" />
     <Compile Include="Resources_Genes\Gene_Dust.cs" />
+    <Compile Include="Resources_Genes\Gene_DustAgeless.cs" />
     <Compile Include="Resources_Genes\Gene_DustDrain.cs" />
     <Compile Include="Resources_Genes\Gene_ResurgentCellsGain.cs" />
     <Compile Include="Resources_Genes\Gene_Wings.cs" />

@@ -174,7 +174,7 @@
 	<description>Carriers of this gene grow feathers on some parts of the body.
 
 &lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
-	<iconPath>WVC/UI/Genes/HeadPatch_south</iconPath>
+	<iconPath>WVC/UI/Genes/HeadFeather_south</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
 	<forcedHeadTypes>
 	  <li>Male_AverageNormal</li>

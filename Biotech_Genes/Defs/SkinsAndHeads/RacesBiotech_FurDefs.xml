@@ -50,11 +50,11 @@
   <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
 	<defName>WVC_FeatheredSkin</defName>
 	<bodyTypeGraphicPaths>
-	  <Male>WVC/Bodies/UndeadGene_Body/Naked_Male</Male>
+	  <Male>WVC/Bodies/Feathered_Body/Naked_Male</Male>
 	  <Female>WVC/Bodies/Feathered_Body/Naked_Female</Female>
-	  <Hulk>WVC/Bodies/UndeadGene_Body/Naked_Hulk</Hulk>
-	  <Fat>WVC/Bodies/UndeadGene_Body/Naked_Fat</Fat>
-	  <Thin>WVC/Bodies/UndeadGene_Body/Naked_Thin</Thin>
+	  <Hulk>WVC/Bodies/Feathered_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/Bodies/Feathered_Body/Naked_Fat</Fat>
+	  <Thin>WVC/Bodies/Feathered_Body/Naked_Thin</Thin>
 	</bodyTypeGraphicPaths>
   </FurDef>
 
