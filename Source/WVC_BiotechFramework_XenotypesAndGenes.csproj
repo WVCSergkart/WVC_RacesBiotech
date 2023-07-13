@@ -71,12 +71,15 @@
     <Compile Include="Resources_Abilities\CompProperties_AbilityResurgentCost.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityRiseFromTheDead.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilitySpawn.cs" />
+    <Compile Include="Resources_Abilities\QuestNode_Root_Reincarnation.cs" />
     <Compile Include="Resources_Genes\GeneGizmo_Dust.cs" />
     <Compile Include="Resources_Genes\Gene_Dust.cs" />
     <Compile Include="Resources_Genes\Gene_DustAgeless.cs" />
     <Compile Include="Resources_Genes\Gene_DustDrain.cs" />
+    <Compile Include="Resources_Genes\Gene_DustGestator_TestTool.cs" />
     <Compile Include="Resources_Genes\Gene_DustHediffGiver.cs" />
     <Compile Include="Resources_Genes\Gene_DustMechlink.cs" />
+    <Compile Include="Resources_Genes\Gene_DustUndeadReincarnation.cs" />
     <Compile Include="Resources_Genes\Gene_ResurgentCellsGain.cs" />
     <Compile Include="Resources_Genes\Gene_Wings.cs" />
     <Compile Include="Resources_Genes\Gene_XenotypeMutator.cs" />

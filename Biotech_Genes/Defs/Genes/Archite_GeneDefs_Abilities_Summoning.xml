@@ -237,7 +237,6 @@
   <!-- ============================================== -->
 
   <QuestScriptDef Name="WVC_SummonQuestScript_Base" Abstract="True">
-	<defName>WVC_MechanitorSummonLightMech</defName>
 	<rootSelectionWeight>0</rootSelectionWeight>
 	<isRootSpecial>true</isRootSpecial>
 	<autoAccept>true</autoAccept>
@@ -337,5 +336,30 @@
 	  </hediffDefs>
 	</root>
   </QuestScriptDef>
+
+  <!-- ============================================== -->
+
+  <QuestScriptDef>
+	<defName>WVC_Dustogenic_QuestUndeadReincarnation</defName>
+	<rootSelectionWeight>0</rootSelectionWeight>
+	<isRootSpecial>true</isRootSpecial>
+	<autoAccept>true</autoAccept>
+	<defaultHidden>true</defaultHidden>
+	<root Class="WVC_XenotypesAndGenes.QuestNode_Root_UndeadReincarnation">
+	  <delayTicks>1500</delayTicks>
+	</root>
+	<questContentRules>
+	  <rulesStrings>
+		<li>arrivalLetterLabel->[mechanitor_nameDef] reincarnated: [reincarnated_nameDef]</li>
+		<li>arrivalLetterText->By an incredible coincidence of fate, [reincarnated_nameDef], being a descendant of the recently deceased [mechanitor_nameDef], arrived in our settlement in a droppod. [reincarnated_nameDef] wants to help us and is not going anywhere.</li>
+	  </rulesStrings>
+	</questContentRules>
+  </QuestScriptDef>
+
+<!-- [PAWN_nameDef] Bobby -->
+<!-- [PAWN_nameFull] Juan Bobby Fisher -->
+<!-- [PAWN_pronoun] he/she -->
+<!-- [PAWN_possessive] his/her -->
+<!-- [PAWN_objective] him/her -->
 
 </Defs>

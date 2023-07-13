@@ -78,50 +78,6 @@
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
-	<defName>WVC_Dustogenic_AngelBeauty</defName>
-	<label>angel beauty</label>
-	<description>Carriers of this gene can unconsciously influence how others see them. Their brain emits neuronal psychic waves that cause those around them who are susceptible to psychic influence to deify them.</description>
-	<iconPath>WVC/UI/Genes/Gene_Angel_v0</iconPath>
-	<iconColor>(255, 248, 133)</iconColor>
-	<displayOrderInCategory>25</displayOrderInCategory>
-	<customEffectDescriptions>
-	  <li>All psychic sensitivity pawns that don't have this gene get +500 opinion towards those who carry this gene.</li>
-	</customEffectDescriptions>
-	<biostatCpx>2</biostatCpx>
-	<biostatMet>-1</biostatMet>
-	<suppressedTraits>
-	  <!-- <li> -->
-		<!-- <def>Beauty</def> -->
-		<!-- <degree>2</degree> -->
-	  <!-- </li> -->
-	  <!-- <li> -->
-		<!-- <def>Beauty</def> -->
-		<!-- <degree>1</degree> -->
-	  <!-- </li> -->
-	  <li>
-		<def>Beauty</def>
-		<degree>-1</degree>
-	  </li>
-	  <li>
-		<def>Beauty</def>
-		<degree>-2</degree>
-	  </li>
-	</suppressedTraits>
-	<!-- <statOffsets> -->
-	  <!-- <PawnBeauty>2</PawnBeauty> -->
-	<!-- </statOffsets> -->
-	<exclusionTags>
-	  <li>Beauty</li>
-	  <!-- <li>PsychicAbility</li> -->
-	</exclusionTags>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
-			<geneIsAngelBeauty>true</geneIsAngelBeauty>
-		</li>
-	</modExtensions>
-  </GeneDef>
-
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
 	<defName>WVC_Dustogenic_Ageless</defName>
 	<label>blessed ageless</label>
 	<labelShortAdj>ageless</labelShortAdj>
@@ -176,6 +132,7 @@
 	<resourceLossPerDay>0.03</resourceLossPerDay>
 	<iconPath>WVC/UI/Genes/Gene_Blessedlink_v0</iconPath>
 	<iconColor>(255, 248, 133)</iconColor>
+	<biostatArc>1</biostatArc>
 	<customEffectDescriptions>
 		<li>Carriers of this gene get &lt;color=#8a8ae6&gt;mechlink&lt;/color&gt; and &lt;color=#8a8ae6&gt;psylink&lt;/color&gt; permanently.</li>
 		<li>Allows you to enable or disable the automatic summoning of mechanoids every (*DateTime)8-16 days(/DateTime).</li>
@@ -232,8 +189,9 @@
 	<descriptionHyperlinks>
 	  <AbilityDef>WVC_Dustogenic_AbilityImmaculateConception</AbilityDef>
 	</descriptionHyperlinks>
-	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Gestator_TestTool</geneClass> -->
+	<geneClass>WVC_XenotypesAndGenes.Gene_DustGestator_TestTool</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_ImmaculateConception_v0</iconPath>
+	<displayOrderInCategory>20</displayOrderInCategory>
 	<minAgeActive>14</minAgeActive>
 	<sterilize>true</sterilize>
 	<biostatCpx>3</biostatCpx>
@@ -254,6 +212,79 @@
 		<li>AG_Gestation</li>
 		<li>AG_Fertility</li>
 	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
+	<defName>WVC_Dustogenic_AngelBeauty</defName>
+	<label>angel beauty</label>
+	<description>Carriers of this gene can unconsciously influence how others see them. Their brain emits neuronal psychic waves that cause those around them who are susceptible to psychic influence to deify them.</description>
+	<iconPath>WVC/UI/Genes/Gene_Angel_v0</iconPath>
+	<iconColor>(255, 248, 133)</iconColor>
+	<displayOrderInCategory>25</displayOrderInCategory>
+	<customEffectDescriptions>
+	  <li>All psychic sensitivity pawns that don't have this gene get +500 opinion towards those who carry this gene.</li>
+	</customEffectDescriptions>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<suppressedTraits>
+	  <!-- <li> -->
+		<!-- <def>Beauty</def> -->
+		<!-- <degree>2</degree> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <def>Beauty</def> -->
+		<!-- <degree>1</degree> -->
+	  <!-- </li> -->
+	  <li>
+		<def>Beauty</def>
+		<degree>-1</degree>
+	  </li>
+	  <li>
+		<def>Beauty</def>
+		<degree>-2</degree>
+	  </li>
+	</suppressedTraits>
+	<!-- <statOffsets> -->
+	  <!-- <PawnBeauty>2</PawnBeauty> -->
+	<!-- </statOffsets> -->
+	<exclusionTags>
+	  <li>Beauty</li>
+	  <!-- <li>PsychicAbility</li> -->
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<geneIsAngelBeauty>true</geneIsAngelBeauty>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
+	<defName>WVC_Dustogenic_Reincarnation</defName>
+	<label>reincarnation</label>
+	<description>Carriers of this gene have a strong connection with the psychic field. Their death never happens by accident, this event is part of their destiny. And when fate takes its toll and death overtakes them, descendants will surely come to replace them.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DustReincarnation</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Reincarnation_v0</iconPath>
+	<iconColor>(255, 248, 133)</iconColor>
+	<displayOrderInCategory>30</displayOrderInCategory>
+	<minAgeActive>13</minAgeActive>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<biostatArc>2</biostatArc>
+	<customEffectDescriptions>
+		<li>In case of death, a pawn will be summoned, which is a descendant of the deceased.</li>
+		<!-- <li>Such a pawn inherits all genes and all skills, without passions.</li> -->
+		<li>The effect will not work if the chronological age of the pawn is less than 20.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_XenotypesAndGenes_GeneDeathless_Undead</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<summonQuest>WVC_Dustogenic_QuestUndeadReincarnation</summonQuest>
+			<!-- In the context of reincarnation, this line is responsible for the minimum chrono age. -->
+			<stackCount>20</stackCount>
+		</li>
+	</modExtensions>
   </GeneDef>
 
 </Defs>
