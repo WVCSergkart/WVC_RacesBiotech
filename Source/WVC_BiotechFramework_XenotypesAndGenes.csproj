@@ -89,6 +89,7 @@
     <Compile Include="Resources_Hediff\HediffCompProperties_SuperRegeneration.cs" />
     <Compile Include="Resources_Hediff\HediffComp_DustGestator.cs" />
     <Compile Include="Resources_Hediff\OnlyOneOverseer.cs" />
+    <Compile Include="Resources_Main\AgelessUtility.cs" />
     <Compile Include="Resources_Main\DustUtility.cs" />
     <Compile Include="Resources_Main\JobGiver_WanderNearTarget.cs" />
     <Compile Include="Resources_Things\CompProperties_InitialHediff.cs" />

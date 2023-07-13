@@ -18,10 +18,11 @@ namespace WVC_XenotypesAndGenes
 			List<Gene> endogenes = pawn.genes.Endogenes;
 			if (endogenes.Contains(this))
 			{
-				if (pawn.ageTracker.AgeBiologicalTicks >= 68400000f)
-				{
-					pawn.ageTracker.AgeBiologicalTicks = 65800000;
-				}
+				// if (pawn.ageTracker.AgeBiologicalTicks >= 68400000f)
+				// {
+					// pawn.ageTracker.AgeBiologicalTicks = 65800000;
+				// }
+				AgelessUtility.Rejuvenation(pawn);
 			}
 			// List<Gene> endogenes = pawn.genes.Endogenes;
 			// for (int i = 0; i < endogenes.Count; i++)

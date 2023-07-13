@@ -39,21 +39,23 @@ namespace WVC_XenotypesAndGenes
 			// reincarnated.skills.skills = pawn.skills.skills;
 			reincarnated.playerSettings.AreaRestriction = pawn.playerSettings.AreaRestriction;
 			reincarnated.relations.AddDirectRelation(PawnRelationDefOf.Parent, pawn);
-			if (reincarnated.ageTracker.AgeChronologicalTicks >= pawn.ageTracker.AgeChronologicalTicks)
-			{
-				if (reincarnated.ageTracker.AgeChronologicalTicks - (18L * 3600000L) < reincarnated.ageTracker.AgeBiologicalTicks)
-				{
-					reincarnated.ageTracker.AgeChronologicalTicks = pawn.ageTracker.AgeChronologicalTicks;
-				}
-				else
-				{
-					reincarnated.ageTracker.AgeChronologicalTicks = pawn.ageTracker.AgeChronologicalTicks - (18L * 3600000L);
-				}
-			}
-			if ((3600000L * 18L) <= reincarnated.ageTracker.AgeBiologicalTicks)
-			{
-				reincarnated.ageTracker.AgeBiologicalTicks = (18L * 3600000L) + 100000;
-			}
+			// if (reincarnated.ageTracker.AgeChronologicalTicks >= pawn.ageTracker.AgeChronologicalTicks)
+			// {
+				// if (reincarnated.ageTracker.AgeChronologicalTicks - (18L * 3600000L) < reincarnated.ageTracker.AgeBiologicalTicks)
+				// {
+					// reincarnated.ageTracker.AgeChronologicalTicks = pawn.ageTracker.AgeChronologicalTicks;
+				// }
+				// else
+				// {
+					// reincarnated.ageTracker.AgeChronologicalTicks = pawn.ageTracker.AgeChronologicalTicks - (18L * 3600000L);
+				// }
+			// }
+			// if ((3600000L * 18L) <= reincarnated.ageTracker.AgeBiologicalTicks)
+			// {
+				// reincarnated.ageTracker.AgeBiologicalTicks = (18L * 3600000L) + 100000;
+			// }
+			AgelessUtility.ChronoCorrection(reincarnated, pawn);
+			AgelessUtility.Rejuvenation(reincarnated);
 			// Log.Error("4");
 			if (hediffDefs != null)
 			{

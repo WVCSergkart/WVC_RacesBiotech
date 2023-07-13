@@ -27,10 +27,11 @@ namespace WVC_XenotypesAndGenes
 			Gene_Dust gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
 			if (gene_Resurgent != null)
 			{
-				if ((oneYear * humanAdultAge) <= pawn.ageTracker.AgeBiologicalTicks)
-				{
-					pawn.ageTracker.AgeBiologicalTicks = (oneYear * humanAdultAge) + 100000;
-				}
+				// if ((oneYear * humanAdultAge) <= pawn.ageTracker.AgeBiologicalTicks)
+				// {
+					// pawn.ageTracker.AgeBiologicalTicks = (oneYear * humanAdultAge) + 100000;
+				// }
+				AgelessUtility.Rejuvenation(pawn);
 			}
 			ResetInterval();
 		}
@@ -53,20 +54,12 @@ namespace WVC_XenotypesAndGenes
 
 		public void AgeReversal()
 		{
-			if ((oneYear * humanAdultAge) + oneYear * 1.5f >= pawn.ageTracker.AgeBiologicalTicks)
+			if (AgelessUtility.CanAgeReverse(pawn))
 			{
-				return;
-			}
-			Gene_Dust gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
-			if (gene_Resurgent != null)
-			{
-				int num = (int)(oneYear * pawn.ageTracker.AdultAgingMultiplier);
-				long val = (long)(oneYear * pawn.ageTracker.AdultMinAge);
-				pawn.ageTracker.AgeBiologicalTicks = Math.Max(val, pawn.ageTracker.AgeBiologicalTicks - num);
-				string text = "WVC_ResurgentGeneAgeReversalCompletedMessage".Translate(pawn.Named("PAWN"));
-				if (pawn.IsColonist)
+				Gene_Dust gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
+				if (gene_Resurgent != null)
 				{
-					Messages.Message(text, pawn, MessageTypeDefOf.PositiveEvent);
+					AgelessUtility.AgeReverse(pawn);
 				}
 			}
 		}
