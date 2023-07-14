@@ -22,6 +22,33 @@
   </HediffDef>
 
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_Dustogenic_KillAfterTime</defName>
+	<label>genetic collapse</label>
+	<description>Remains of dust in the blood cause genetic collapse, this process is not reversible and will definitely lead to imminent death.</description>
+	<stages>
+	  <li>
+		<!-- <becomeVisible>false</becomeVisible> -->
+		<lifeThreatening>true</lifeThreatening>
+		<vomitMtbDays>0.1</vomitMtbDays>
+		<deathMtbDays>0.7</deathMtbDays>
+		<minSeverity>0.0</minSeverity>
+		<capMods>
+		  <li>
+			<capacity>Consciousness</capacity>
+			<setMax>0.2</setMax>
+		  </li>
+		</capMods>
+	  </li>
+	</stages>
+	<comps>
+	  <li Class="HediffCompProperties_KillAfterDays">
+		<days>1</days>
+	  </li>
+	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
 	<defName>WVC_Dustogenic_HediffImmaculateConception</defName>
 	<label>pregnant</label>
 	<labelNoun>pregnancy</labelNoun>

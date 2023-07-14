@@ -39,16 +39,17 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public float ResourceLossPerDay => ResourceLoss();
+		// public float ResourceLossPerDay => ResourceLoss();
+		public float ResourceLossPerDay => Gene_Dust.ResourceLoss(pawn, def.resourceLossPerDay);
 
-		public float ResourceLoss()
-		{
-			if (cachedHemogenGene.PawnUnconscious())
-			{
-				return -1 * def.resourceLossPerDay;
-			}
-			return def.resourceLossPerDay;
-		}
+		// public float ResourceLoss()
+		// {
+			// if (cachedHemogenGene.PawnUnconscious())
+			// {
+				// return -1 * def.resourceLossPerDay;
+			// }
+			// return def.resourceLossPerDay;
+		// }
 
 		public Pawn Pawn => pawn;
 

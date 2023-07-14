@@ -73,6 +73,7 @@
     <Compile Include="Resources_Abilities\CompProperties_AbilitySpawn.cs" />
     <Compile Include="Resources_Abilities\QuestNode_Root_Reincarnation.cs" />
     <Compile Include="Resources_Genes\GeneGizmo_Dust.cs" />
+    <Compile Include="Resources_Genes\Gene_AngelicStability.cs" />
     <Compile Include="Resources_Genes\Gene_Dust.cs" />
     <Compile Include="Resources_Genes\Gene_DustAgeless.cs" />
     <Compile Include="Resources_Genes\Gene_DustDrain.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Resources_Genes\Gene_ResurgentCellsGain.cs" />
     <Compile Include="Resources_Genes\Gene_Wings.cs" />
     <Compile Include="Resources_Genes\Gene_XenotypeMutator.cs" />
+    <Compile Include="Resources_Harmony\Harmony_CompatibilityWith_Patch.cs" />
     <Compile Include="Resources_Harmony\Harmony_ShouldSendNotificationAbout_Patch.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_PawnHaveWings.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_SeverityFromDust.cs" />
@@ -169,6 +171,7 @@
     <Compile Include="Resources_Things\Hive_CompSpawnInsect.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_AngelBeauty.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Gender.cs" />
+    <Compile Include="Resources_Thought\ThoughtWorker_IncestLover.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_PawnIsMechaskinned_SingleThought.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_MechaSensesFriendOrFoe.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_MechanoidLabor.cs" />

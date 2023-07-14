@@ -59,6 +59,22 @@
 	</stages>
   </ThoughtDef>
 
+  <ThoughtDef>
+	<defName>WVC_Social_GeneIncestLover</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_IncestLover</workerClass>
+	<validWhileDespawned>true</validWhileDespawned>
+	<requiredGenes>
+	  <li>WVC_IncestLover</li>
+	</requiredGenes>
+	<stages>
+	  <li>
+		<label>incest lover</label>
+		<baseOpinionOffset>20</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
   <!-- ========================================================== -->
 
   <ThoughtDef Name="WVC_PreferredGenderThoughtBase" Abstract="True">

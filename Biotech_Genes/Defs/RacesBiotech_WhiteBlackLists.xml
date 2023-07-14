@@ -79,6 +79,7 @@
 	<nonCandidatesForSerums>
 		<li>WVC_GeneticStability</li>
 		<li>WVC_ResurgentCells_GeneticStability</li>
+		<li>WVC_Dustogenic_GeneticStability</li>
 		<li MayRequire="vanillaracesexpanded.android">VREA_SyntheticBody</li>
 	</nonCandidatesForSerums>
 	<!-- List of genes that are (exo)skins. Used for ideology. Required gene defNames -->

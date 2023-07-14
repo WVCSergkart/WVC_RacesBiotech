@@ -34,7 +34,7 @@ namespace WVC_XenotypesAndGenes
 
 		public string DisplayLabel => Label + " (" + "Gene".Translate() + ")";
 
-		public float ResourceLossPerDay => ResourceLoss();
+		public float ResourceLossPerDay => ResourceLoss(pawn, def.resourceLossPerDay);
 
 		public override float InitialResourceMax => 1.0f;
 
@@ -44,9 +44,23 @@ namespace WVC_XenotypesAndGenes
 
 		public override float MaxLevelOffset => 0.20f;
 
-		protected override Color BarColor => new ColorInt(125, 122, 65).ToColor;
+		// protected override Color BarColor => new ColorInt(125, 122, 65).ToColor;
+		// protected override Color BarHighlightColor => new ColorInt(156, 142, 46).ToColor;
 
-		protected override Color BarHighlightColor => new ColorInt(156, 142, 46).ToColor;
+		// protected override Color BarColor => new ColorInt(173, 142, 112).ToColor;
+		// protected override Color BarHighlightColor => new ColorInt(173, 142, 112).ToColor;
+
+		protected override Color BarColor => new ColorInt(150, 125, 85).ToColor;
+		protected override Color BarHighlightColor => new ColorInt(150, 125, 85).ToColor;
+
+		// public Color ColorFromValue()
+		// {
+			// if (Value > 50f)
+			// {
+				// return new ColorInt(150, 150, 85).ToColor;
+			// }
+			// return new ColorInt(150, 125, 85).ToColor;
+		// }
 
 		// Base
 		public override void PostAdd()
@@ -104,7 +118,7 @@ namespace WVC_XenotypesAndGenes
 			// return Value < targetValue;
 		// }
 
-		public bool PawnUnconscious()
+		public static bool PawnUnconscious(Pawn pawn)
 		{
 			if (pawn.Downed || pawn.Deathresting || pawn.needs.rest.Resting)
 			{
@@ -113,13 +127,18 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public float ResourceLoss()
+		public static float ResourceLoss(Pawn pawn, float def)
 		{
-			if (PawnUnconscious())
+			Gene_AngelicStability gene_AngelicStability = pawn.genes?.GetFirstGeneOfType<Gene_AngelicStability>();
+			if (gene_AngelicStability != null)
 			{
-				return -1 * def.resourceLossPerDay;
+				return 0f;
 			}
-			return def.resourceLossPerDay;
+			if (PawnUnconscious(pawn))
+			{
+				return -1f * def;
+			}
+			return def;
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()

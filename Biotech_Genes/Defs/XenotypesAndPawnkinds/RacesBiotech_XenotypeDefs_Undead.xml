@@ -49,12 +49,13 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<!-- Chance that getting an additional xenotype -->
-			<subXenotypeChance>0.11</subXenotypeChance>
+			<subXenotypeChance>0.22</subXenotypeChance>
 			<!-- Sub xenotype is chosen randomly from the list. -->
 			<!-- Sub-xenotype obtained in this way does not change the name or icons. -->
 			<!-- This method is conceived as a random gene list expander, when you need to add a certain set of genes, but randomly with some chance. -->
 			<subXenotypeDefs>
 				<li>WVC_Resurgent</li>
+				<li>WVC_DustAngel</li>
 			</subXenotypeDefs>
 		</li>
 	</modExtensions>
@@ -64,7 +65,7 @@
   <WVC_XenotypesAndGenes.SubXenotypeDef>
 	<defName>WVC_Resurgent</defName>
 	<!-- The name of the xenotype does not change. If change it, then the xenotype will be marked as custom and the hyperlink will stop working. -->
-	<label>resurgent mutation</label>
+	<label>resurgent</label>
 	<description>Resurgents are a undead sub-xenotype, powered by archotech-created archites in the bloodstream. Resurgents always have the genes of undead xenotype. They are fragile and dependent on resurgent cells. They can regrow lost limbs, never age, and their wounds can close almost instantly. However, their immune system, stomach, blood, disease resistance, their entire body is dependent on these cells. And if the level of the cells is too low, they lose almost all of their special abilities.</description>
 	<inheritable>false</inheritable>
 	<!-- In case the genes need to be added to an already existing set, and not separately. -->
@@ -95,6 +96,39 @@
 		<li>WVC_Hair_TribalOnly</li>
 		<li>DarkVision</li>
 		<li>WVC_BodySize_Small</li>
+	</genes>
+  </WVC_XenotypesAndGenes.SubXenotypeDef>
+
+  <WVC_XenotypesAndGenes.SubXenotypeDef>
+	<defName>WVC_DustAngel</defName>
+	<label>dust angel</label>
+	<description>TEST_DESC</description>
+	<inheritable>false</inheritable>
+	<ignoreExistingGenes>false</ignoreExistingGenes>
+	<overrideExistingGenes>false</overrideExistingGenes>
+	<xenotypeIconDef>WVC_XenoUndead5c</xenotypeIconDef>
+	<genes>
+		<li>WVC_Dustogenic</li>
+		<li>WVC_Dustogenic_Ageless</li>
+		<li>WVC_Dustogenic_Metabolism</li>
+		<li>WVC_Dustogenic_MechPsylink</li>
+		<li>WVC_Dustogenic_ImmaculateConception</li>
+		<li>WVC_Dustogenic_AngelBeauty</li>
+		<li>WVC_Dustogenic_Reincarnation</li>
+		<li>WVC_Dustogenic_GeneticStability</li>
+		<li>WVC_NaturalDisease_DiseaseFree</li>
+		<li>WVC_NaturalImmunity_PerfectImmunity</li>
+		<li>WVC_Wings_FeatheredWings</li>
+		<li>MinTemp_LargeDecrease</li>
+		<li>Aggression_HyperAggressive</li>
+		<li>WVC_SlaveSuppression_Unruly</li>
+		<li>WVC_SameBloodSameXenotype</li>
+		<li>WVC_HeadBoneHorns</li>
+		<li>Skin_SheerWhite</li>
+		<li>WVC_IncestLover</li>
+		<li>WVC_BodySize_Small</li>
+		<li>Hands_Human</li>
+		<li>WVC_FeatherSkin</li>
 	</genes>
   </WVC_XenotypesAndGenes.SubXenotypeDef>
 

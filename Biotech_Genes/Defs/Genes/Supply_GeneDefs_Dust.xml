@@ -9,6 +9,8 @@
 	<displayOrderInCategory>1275</displayOrderInCategory>
 	<biostatArc>0</biostatArc>
 	<iconColor>(255, 255, 255)</iconColor>
+	<!-- <iconColor>(175, 175, 100)</iconColor> -->
+	<!-- <iconColor>(249, 241, 148)</iconColor> -->
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
@@ -30,17 +32,22 @@
 	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Dust</resourceGizmoType>
 	<resourceLabel>dust</resourceLabel>
 	<resourceGizmoThresholds>
-	  <li>0.05</li>
-	  <li>0.25</li>
+	  <li>0.10</li>
+	  <li>0.20</li>
+	  <li>0.30</li>
+	  <li>0.40</li>
 	  <li>0.50</li>
-	  <li>0.75</li>
-	  <li>0.95</li>
+	  <li>0.60</li>
+	  <li>0.70</li>
+	  <li>0.80</li>
+	  <li>0.90</li>
 	</resourceGizmoThresholds>
 	<showGizmoOnWorldView>true</showGizmoOnWorldView>
 	<showGizmoWhenDrafted>true</showGizmoWhenDrafted>
 	<resourceDescription>The reserve of biological enhancement in the carrier's blood. Dust supply is spent on different abilities or genetic traits.\n\nIt can be replenished with any food. Also, the dust level is replenished automatically while the carrier is sleeping or unconscious.\n\nIf the dust level drops below 40, then the carrier will experience severe hunger and from time to time catch a "food binge" nervous breakdown.</resourceDescription>
 	<iconPath>WVC/UI/Genes/Gene_Dust_v0</iconPath>
-	<iconColor>(255, 248, 133)</iconColor>
+	<!-- <iconColor>(255, 248, 133)</iconColor> -->
+	<!-- <iconColor>(173, 142, 112)</iconColor> -->
 	<selectionWeight>0.0011</selectionWeight>
 	<displayOrderInCategory>0</displayOrderInCategory>
 	<customEffectDescriptions>
@@ -83,6 +90,7 @@
 	<labelShortAdj>ageless</labelShortAdj>
 	<description>Carriers of this gene completely stop aging after reaching the age of 18.</description>
 	<iconPath>WVC/UI/Genes/Gene_AgelessAngel_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
 	<geneClass>WVC_XenotypesAndGenes.Gene_DustAgeless</geneClass>
 	<biostatCpx>3</biostatCpx>
 	<biostatArc>0</biostatArc>
@@ -110,7 +118,8 @@
 	<labelShortAdj>dust-metabolic</labelShortAdj>
 	<description>Carriers of this gene have dust in their cells that facilitate and optimize metabolism. This improves overall genetic and metabolic quality.</description>
 	<iconPath>WVC/UI/Genes/Gene_ArchiteMetabolism_v0</iconPath>
-	<iconColor>(255, 248, 133)</iconColor>
+	<!-- <iconColor>(255, 248, 133)</iconColor> -->
+	<!-- <iconColor>(173, 142, 112)</iconColor> -->
 	<displayOrderInCategory>10</displayOrderInCategory>
 	<resourceLossPerDay>0.05</resourceLossPerDay>
 	<marketValueFactor>1.5</marketValueFactor>
@@ -131,7 +140,8 @@
 	<displayOrderInCategory>15</displayOrderInCategory>
 	<resourceLossPerDay>0.03</resourceLossPerDay>
 	<iconPath>WVC/UI/Genes/Gene_Blessedlink_v0</iconPath>
-	<iconColor>(255, 248, 133)</iconColor>
+	<!-- <iconColor>(255, 248, 133)</iconColor> -->
+	<!-- <iconColor>(173, 142, 112)</iconColor> -->
 	<biostatArc>1</biostatArc>
 	<customEffectDescriptions>
 		<li>Carriers of this gene get &lt;color=#8a8ae6&gt;mechlink&lt;/color&gt; and &lt;color=#8a8ae6&gt;psylink&lt;/color&gt; permanently.</li>
@@ -191,6 +201,7 @@
 	</descriptionHyperlinks>
 	<geneClass>WVC_XenotypesAndGenes.Gene_DustGestator_TestTool</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_ImmaculateConception_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
 	<displayOrderInCategory>20</displayOrderInCategory>
 	<minAgeActive>14</minAgeActive>
 	<sterilize>true</sterilize>
@@ -219,7 +230,9 @@
 	<label>angel beauty</label>
 	<description>Carriers of this gene can unconsciously influence how others see them. Their brain emits neuronal psychic waves that cause those around them who are susceptible to psychic influence to deify them.</description>
 	<iconPath>WVC/UI/Genes/Gene_Angel_v0</iconPath>
-	<iconColor>(255, 248, 133)</iconColor>
+	<!-- <iconColor>(255, 248, 133)</iconColor> -->
+	<!-- <iconColor>(173, 142, 112)</iconColor> -->
+	<iconColor>(249, 241, 148)</iconColor>
 	<displayOrderInCategory>25</displayOrderInCategory>
 	<customEffectDescriptions>
 	  <li>All psychic sensitivity pawns that don't have this gene get +500 opinion towards those who carry this gene.</li>
@@ -264,7 +277,8 @@
 	<description>Carriers of this gene have a strong connection with the psychic field. Their death never happens by accident, this event is part of their destiny. And when fate takes its toll and death overtakes them, descendants will surely come to replace them.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_DustReincarnation</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_Reincarnation_v0</iconPath>
-	<iconColor>(255, 248, 133)</iconColor>
+	<!-- <iconColor>(255, 248, 133)</iconColor> -->
+	<!-- <iconColor>(173, 142, 112)</iconColor> -->
 	<displayOrderInCategory>30</displayOrderInCategory>
 	<minAgeActive>13</minAgeActive>
 	<biostatCpx>3</biostatCpx>
@@ -283,6 +297,32 @@
 			<summonQuest>WVC_Dustogenic_QuestUndeadReincarnation</summonQuest>
 			<!-- In the context of reincarnation, this line is responsible for the minimum chrono age. -->
 			<stackCount>20</stackCount>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
+	<defName>WVC_Dustogenic_GeneticStability</defName>
+	<label>dustogenic genetic</label>
+	<description>Carriers of this gene have a strong genetic dependence on dust.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AngelicStability</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_AngelicStability_v0</iconPath>
+	<displayOrderInCategory>35</displayOrderInCategory>
+	<biostatCpx>-6</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>6</biostatMet>
+	<customEffectDescriptions>
+	  <li>Carriers of this gene cannot use xenotype serums.</li>
+	  <li>Abilities "Rise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li>
+	  <li>If this gene is removed, the carrier will die.</li>
+	  <li>The amount of dust is no longer subject to biological entropy.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_GeneticInstabilityGenes</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_Dustogenic_KillAfterTime</hediffDefName>
 		</li>
 	</modExtensions>
   </GeneDef>

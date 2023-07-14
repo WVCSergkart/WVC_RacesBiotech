@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <AbilityDef>
+	<defName>WVC_XenotypesAndGenes_WingJump</defName>
+	<label>wing jump</label>
+	<description>With the help of wings to overcome a considerable distance.</description>
+	<iconPath>WVC/UI/Genes/Gene_FeatheredWings_v0</iconPath>
+	<cooldownTicksRange>60</cooldownTicksRange>
+	<hostile>false</hostile>
+	<verbProperties>
+	  <verbClass>Verb_CastAbilityJump</verbClass>
+	  <label>wing jump</label>
+	  <violent>false</violent>
+	  <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+	  <warmupTime>0.5</warmupTime>
+	  <range>39.9</range>
+	  <requireLineOfSight>true</requireLineOfSight>
+	  <soundCast>Longjump_Jump</soundCast>
+	  <soundLanding>Longjump_Land</soundLanding>
+	  <targetParams>
+		<canTargetLocations>true</canTargetLocations>
+		<canTargetPawns>false</canTargetPawns>
+		<canTargetBuildings>false</canTargetBuildings>
+	  </targetParams>
+	</verbProperties>
+	<jobDef>CastJump</jobDef>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive">
+		<anyOfGenes>
+		  <li>WVC_Wings_FeatheredWings</li>
+		</anyOfGenes>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+  <!-- ===================================================================== -->
+
   <GeneDef ParentName="GeneMoveSpeedBase" Name="WVC_XenotypesAndGenes_GeneWings_Base" Abstract="True">
 	<geneClass>WVC_XenotypesAndGenes.Gene_Wings</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_FeatheredWings_v0</iconPath>
@@ -26,6 +61,12 @@
 		<li>Wing</li>
 		<li>Wings</li>
 	</exclusionTags>
+	<abilities>
+	  <li>WVC_XenotypesAndGenes_WingJump</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_XenotypesAndGenes_WingJump</AbilityDef>
+	</descriptionHyperlinks>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>

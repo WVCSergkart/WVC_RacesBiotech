@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Hunter -->
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneSlaveSuppression_Base" Abstract="True">
+	<displayCategory>Violence</displayCategory>
+	<biostatCpx>1</biostatCpx>
+	<selectionWeight>0.015</selectionWeight>
+	<displayOrderInCategory>5015</displayOrderInCategory>
+	<iconColor>(200, 200, 200)</iconColor>
+	<exclusionTags>
+	  <li>SlaveSuppression</li>
+	  <li>WVC_SlaveSuppression</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSlaveSuppression_Base">
+	<defName>WVC_SlaveSuppression_Unruly</defName>
+	<label>unruly</label> 
+	<description>Carriers of this gene are very disobedient and freedom-loving.</description>
+	<iconPath>WVC/UI/Genes/Gene_SlaveSuppression_NonSlave</iconPath>
+	<biostatMet>2</biostatMet>
+	<statOffsets>
+	  <SlaveSuppressionFallRate MayRequire="ludeon.rimworld.ideology">0.5</SlaveSuppressionFallRate>
+	</statOffsets>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSlaveSuppression_Base">
+	<defName>WVC_SlaveSuppression_Submissive</defName>
+	<label>submissive</label> 
+	<description>Carriers of this gene are weak and naive.</description>
+	<iconPath>WVC/UI/Genes/Gene_SlaveSuppression_Slave</iconPath>
+	<biostatMet>-2</biostatMet>
+	<statOffsets>
+	  <SlaveSuppressionFallRate MayRequire="ludeon.rimworld.ideology">-0.5</SlaveSuppressionFallRate>
+	</statOffsets>
+  </GeneDef>
+  
+</Defs>

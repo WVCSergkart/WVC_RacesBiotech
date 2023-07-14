@@ -296,6 +296,30 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		public static bool IsIncestLover(Pawn pawn)
+		{
+			if (pawn?.genes == null)
+			{
+				return false;
+			}
+			List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+			for (int i = 0; i < genesListForReading.Count; i++)
+			{
+				if (genesListForReading[i].Active == true)
+				{
+					GeneExtension_General modExtension = genesListForReading[i].def.GetModExtension<GeneExtension_General>();
+					if (modExtension != null)
+					{
+						if (modExtension.geneIsIncestous)
+						{
+							return true;
+						}
+					}
+				}
+			}
+			return false;
+		}
+
 		public static bool HasActiveGene(GeneDef geneDef, Pawn pawn)
 		{
 			if (geneDef == null)

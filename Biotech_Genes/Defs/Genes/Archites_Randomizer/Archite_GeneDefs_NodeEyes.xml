@@ -114,7 +114,7 @@
 	<!-- <label>faceplate SX</label> -->
 	<iconPath>WVC/UI/Genes/HeadBlue_south</iconPath>
 	<graphicData>
-	  <graphicPath>WVC/NodeGene_Head/HeadBlue</graphicPath>
+	  <graphicPath>WVC/Heads/NodeGene_Head/HeadBlue</graphicPath>
 	</graphicData>
 	<statOffsets>
 	  <MechBandwidth>2</MechBandwidth>
@@ -126,7 +126,7 @@
 	<!-- <label>faceplate HJ</label> -->
 	<iconPath>WVC/UI/Genes/HeadRed_south</iconPath>
 	<graphicData>
-	  <graphicPath>WVC/NodeGene_Head/HeadRed</graphicPath>
+	  <graphicPath>WVC/Heads/NodeGene_Head/HeadRed</graphicPath>
 	</graphicData>
 	<statOffsets>
 	  <ArmorRating_Blunt>0.06</ArmorRating_Blunt>
@@ -140,7 +140,7 @@
 	<!-- <label>faceplate GB</label> -->
 	<iconPath>WVC/UI/Genes/HeadGreen_south</iconPath>
 	<graphicData>
-	  <graphicPath>WVC/NodeGene_Head/HeadGreen</graphicPath>
+	  <graphicPath>WVC/Heads/NodeGene_Head/HeadGreen</graphicPath>
 	</graphicData>
 	<statOffsets>
 	  <ImmunityGainSpeed>0.1</ImmunityGainSpeed>
@@ -153,7 +153,7 @@
 	<!-- <label>faceplate CV</label> -->
 	<iconPath>WVC/UI/Genes/HeadViolet_south</iconPath>
 	<graphicData>
-	  <graphicPath>WVC/NodeGene_Head/HeadViolet</graphicPath>
+	  <graphicPath>WVC/Heads/NodeGene_Head/HeadViolet</graphicPath>
 	</graphicData>
 	<statOffsets>
 	  <IncomingDamageFactor>-0.1</IncomingDamageFactor>
@@ -165,7 +165,7 @@
 	<!-- <label>faceplate WR</label> -->
 	<iconPath>WVC/UI/Genes/HeadYellow_south</iconPath>
 	<graphicData>
-	  <graphicPath>WVC/NodeGene_Head/HeadYellow</graphicPath>
+	  <graphicPath>WVC/Heads/NodeGene_Head/HeadYellow</graphicPath>
 	</graphicData>
 	<statOffsets>
 	  <PsychicSensitivity>0.1</PsychicSensitivity>
@@ -177,7 +177,7 @@
 	<!-- <label>faceplate VX</label> -->
 	<iconPath>WVC/UI/Genes/HeadAltBlue_south</iconPath>
 	<graphicData>
-	  <graphicPath>WVC/NodeGene_Head/HeadAltBlue</graphicPath>
+	  <graphicPath>WVC/Heads/NodeGene_Head/HeadAltBlue</graphicPath>
 	</graphicData>
 	<statOffsets>
 	  <MechControlGroups>1</MechControlGroups>
@@ -189,7 +189,7 @@
 	<!-- <label>faceplate YR</label> -->
 	<iconPath>WVC/UI/Genes/HeadOrange_south</iconPath>
 	<graphicData>
-	  <graphicPath>WVC/NodeGene_Head/HeadOrange</graphicPath>
+	  <graphicPath>WVC/Heads/NodeGene_Head/HeadOrange</graphicPath>
 	</graphicData>
 	<statOffsets>
 	  <HemogenGainFactor>0.1</HemogenGainFactor>
@@ -204,7 +204,7 @@
 	<!-- <label>faceplate VX_A</label> -->
 	<iconPath>WVC/UI/Genes/HeadAltBlue_B_south</iconPath>
 	<graphicData>
-	  <graphicPath>WVC/NodeGene_Head/HeadAltBlue_B</graphicPath>
+	  <graphicPath>WVC/Heads/NodeGene_Head/HeadAltBlue_B</graphicPath>
 	</graphicData>
 	<statOffsets>
 	  <WorkSpeedGlobalOffsetMech>0.1</WorkSpeedGlobalOffsetMech>
@@ -216,7 +216,7 @@
 	<!-- <label>faceplate HJ_A</label> -->
 	<iconPath>WVC/UI/Genes/HeadRed_A_south</iconPath>
 	<graphicData>
-	  <graphicPath>WVC/NodeGene_Head/HeadRed_A</graphicPath>
+	  <graphicPath>WVC/Heads/NodeGene_Head/HeadRed_A</graphicPath>
 	</graphicData>
 	<statOffsets>
 	  <ArmorRating_Blunt>0.06</ArmorRating_Blunt>
@@ -230,7 +230,7 @@
 	<!-- <label>faceplate SX_A</label> -->
 	<iconPath>WVC/UI/Genes/HeadBlue_A_south</iconPath>
 	<graphicData>
-	  <graphicPath>WVC/NodeGene_Head/HeadBlue_A</graphicPath>
+	  <graphicPath>WVC/Heads/NodeGene_Head/HeadBlue_A</graphicPath>
 	</graphicData>
 	<statOffsets>
 	  <WVC_MechEnergyUsageOffset>-0.1</WVC_MechEnergyUsageOffset>
@@ -242,7 +242,7 @@
 	<!-- <label>faceplate WR_A</label> -->
 	<iconPath>WVC/UI/Genes/HeadYellow_A_south</iconPath>
 	<graphicData>
-	  <graphicPath>WVC/NodeGene_Head/HeadYellow_A</graphicPath>
+	  <graphicPath>WVC/Heads/NodeGene_Head/HeadYellow_A</graphicPath>
 	</graphicData>
 	<statOffsets>
 	  <SocialImpact>0.1</SocialImpact>

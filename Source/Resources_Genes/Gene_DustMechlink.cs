@@ -22,6 +22,10 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostAdd();
 			ResetInterval();
+			if (pawn.Faction == Faction.OfPlayer)
+			{
+				summonMechanoids = true;
+			}
 		}
 
 		public override void Tick()

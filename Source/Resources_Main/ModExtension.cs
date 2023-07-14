@@ -37,6 +37,7 @@ namespace WVC_XenotypesAndGenes
 		public bool noSkillDecay = false;
 		public bool shouldSendNotificationAbout = true;
 		public bool geneIsAngelBeauty = false;
+		public bool geneIsIncestous = false;
 	}
 
 	// public class ThoughtExtension_General : DefModExtension
