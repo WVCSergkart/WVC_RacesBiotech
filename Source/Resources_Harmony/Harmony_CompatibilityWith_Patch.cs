@@ -48,5 +48,17 @@ namespace WVC_XenotypesAndGenes
 			// return false;
 		// }
 	// }
+	[HarmonyPatch(typeof(RelationsUtility), "RomanceOption")]
+	public static class Patch_RelationsUtility_RomanceOption
+	{
+
+		// public static bool RomanceOption(Pawn initiator, Pawn romanceTarget, out FloatMenuOption option, out float chance)
+		[HarmonyPostfix]
+		public static bool Postfix(ref float __chance)
+		{
+			__chance = 1.0f;
+			return true;
+		}
+	}
 
 }

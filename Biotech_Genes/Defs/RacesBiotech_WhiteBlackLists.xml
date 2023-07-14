@@ -277,6 +277,16 @@
 		<li>WVC_GeneticStability</li>
 		<li>WVC_ResurgentCells_GeneticStability</li>
 		<!-- = -->
+		<li>WVC_Dustogenic</li>
+		<li>WVC_Dustogenic_Ageless</li>
+		<li>WVC_Dustogenic_Metabolism</li>
+		<li>WVC_Dustogenic_MechPsylink</li>
+		<li>WVC_Dustogenic_ImmaculateConception</li>
+		<li>WVC_Dustogenic_AngelBeauty</li>
+		<li>WVC_Dustogenic_Reincarnation</li>
+		<li>WVC_Dustogenic_GeneticStability</li>
+		<li>WVC_FamilyByBlood_Dustogenic</li>
+		<!-- = -->
 		<!-- <li>WVC_ArchiteDisableJoy</li> -->
 		<!-- <li>WVC_NaturalDisableJoy</li> -->
 		<!-- <li>WVC_ArchiteDisableBeauty</li> -->

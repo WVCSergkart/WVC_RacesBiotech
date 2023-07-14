@@ -15,6 +15,7 @@
 	<!-- So if necessary, it must be added manually. -->
 	<descriptionHyperlinks>
 	  <WVC_XenotypesAndGenes.SubXenotypeDef>WVC_Resurgent</WVC_XenotypesAndGenes.SubXenotypeDef>
+	  <WVC_XenotypesAndGenes.SubXenotypeDef>WVC_DustAngel</WVC_XenotypesAndGenes.SubXenotypeDef>
 	</descriptionHyperlinks>
 	<genes>
 		<!-- Base -->
@@ -99,10 +100,12 @@
 	</genes>
   </WVC_XenotypesAndGenes.SubXenotypeDef>
 
+  <!-- Still in BETA -->
+  <!-- Still not implemented some abilities and dust penalties -->
   <WVC_XenotypesAndGenes.SubXenotypeDef>
 	<defName>WVC_DustAngel</defName>
 	<label>dust angel</label>
-	<description>TEST_DESC</description>
+	<description>Dust Angels are an undead sub-xenotype, powered by archotech-created archites in the bloodstream. Angels always have the genes of undead xenotype. Their bodies are dependent on a biological resource called dust. Dust greatly affects their metabolism and at low levels they get hungry faster. They have innate psionic abilities and a slightly wild disposition.</description>
 	<inheritable>false</inheritable>
 	<ignoreExistingGenes>false</ignoreExistingGenes>
 	<overrideExistingGenes>false</overrideExistingGenes>
@@ -116,6 +119,7 @@
 		<li>WVC_Dustogenic_AngelBeauty</li>
 		<li>WVC_Dustogenic_Reincarnation</li>
 		<li>WVC_Dustogenic_GeneticStability</li>
+		<li>WVC_FamilyByBlood_Dustogenic</li>
 		<li>WVC_NaturalDisease_DiseaseFree</li>
 		<li>WVC_NaturalImmunity_PerfectImmunity</li>
 		<li>WVC_Wings_FeatheredWings</li>
@@ -125,7 +129,6 @@
 		<li>WVC_SameBloodSameXenotype</li>
 		<li>WVC_HeadBoneHorns</li>
 		<li>Skin_SheerWhite</li>
-		<li>WVC_IncestLover</li>
 		<li>WVC_BodySize_Small</li>
 		<li>Hands_Human</li>
 		<li>WVC_FeatherSkin</li>

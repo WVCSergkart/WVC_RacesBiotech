@@ -60,17 +60,33 @@
   </ThoughtDef>
 
   <ThoughtDef>
-	<defName>WVC_Social_GeneIncestLover</defName>
+	<defName>WVC_Social_GeneFamilyByBlood_Basic</defName>
 	<thoughtClass>Thought_SituationalSocial</thoughtClass>
-	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_IncestLover</workerClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_FamilyByBlood</workerClass>
 	<validWhileDespawned>true</validWhileDespawned>
 	<requiredGenes>
-	  <li>WVC_IncestLover</li>
+	  <li>WVC_FamilyByBlood_Basic</li>
 	</requiredGenes>
 	<stages>
 	  <li>
-		<label>incest lover</label>
+		<label>family by blood</label>
 		<baseOpinionOffset>20</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_Social_GeneFamilyByBlood_Dustogenic</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_FamilyByBlood</workerClass>
+	<validWhileDespawned>true</validWhileDespawned>
+	<requiredGenes>
+	  <li>WVC_FamilyByBlood_Dustogenic</li>
+	</requiredGenes>
+	<stages>
+	  <li>
+		<label>family by blood</label>
+		<baseOpinionOffset>100</baseOpinionOffset>
 	  </li>
 	</stages>
   </ThoughtDef>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneByBlood_Base" Abstract="True">
+	<!-- <displayCategory>Reproduction</displayCategory> -->
+	<!-- <displayOrderInCategory>0</displayOrderInCategory> -->
+	<description>Carriers of this gene have a special relationship with blood ties.</description>
+	<iconPath>WVC/UI/Genes/Gene_FamilyByBlood_v0</iconPath>
+	<selectionWeight>0.011</selectionWeight>
+	<biostatCpx>1</biostatCpx>
+	<exclusionTags>
+	  <li>FamilyByBlood</li>
+	  <li>WVC_FamilyByBlood</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneByBlood_Base">
+	<defName>WVC_FamilyByBlood_Basic</defName>
+	<label>by blood</label>
+	<iconColor>(206, 125, 123)</iconColor>
+	<customEffectDescriptions>
+	  <li>Relatives opinion +20</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneByBlood_Base">
+	<defName>WVC_FamilyByBlood_Dustogenic</defName>
+	<label>by dust</label>
+	<iconColor>(249, 241, 148)</iconColor>
+	<displayCategory>WVC_Dustogenic</displayCategory>
+	<displayOrderInCategory>100</displayOrderInCategory>
+	<selectionWeight>0.0009</selectionWeight>
+	<prerequisite>WVC_Dustogenic</prerequisite>
+	<marketValueFactor>1.2</marketValueFactor>
+	<customEffectDescriptions>
+	  <li>Relatives opinion +100</li>
+	</customEffectDescriptions>
+  </GeneDef>
+  
+</Defs>

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <AbilityDef>
-	<defName>WVC_XenotypesAndGenes_WingJump</defName>
+  <AbilityDef Name="WVC_XenotypesAndGenes_WingsJump_Base" Abstract="True">
 	<label>wing jump</label>
 	<description>With the help of wings to overcome a considerable distance.</description>
 	<iconPath>WVC/UI/Genes/Gene_FeatheredWings_v0</iconPath>
@@ -25,6 +24,12 @@
 	  </targetParams>
 	</verbProperties>
 	<jobDef>CastJump</jobDef>
+  </AbilityDef>
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_WingsJump_Base">
+	<defName>WVC_XenotypesAndGenes_FeatheredWingsJump</defName>
+	<label>wing jump</label>
+	<iconPath>WVC/UI/Genes/Gene_FeatheredWings_v0</iconPath>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive">
 		<anyOfGenes>
@@ -61,12 +66,6 @@
 		<li>Wing</li>
 		<li>Wings</li>
 	</exclusionTags>
-	<abilities>
-	  <li>WVC_XenotypesAndGenes_WingJump</li>
-	</abilities>
-	<descriptionHyperlinks>
-	  <AbilityDef>WVC_XenotypesAndGenes_WingJump</AbilityDef>
-	</descriptionHyperlinks>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
@@ -94,6 +93,12 @@
 		<drawScale>1.5</drawScale>
 		<colorType>Hair</colorType>
 	</graphicData>
+	<abilities>
+	  <li>WVC_XenotypesAndGenes_FeatheredWingsJump</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_XenotypesAndGenes_FeatheredWingsJump</AbilityDef>
+	</descriptionHyperlinks>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>angel</symbol></li>

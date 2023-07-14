@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef Name="WVC_XenotypesAndGenes_GeneIncestous_Base" Abstract="True">
-	<displayCategory>Reproduction</displayCategory>
-	<displayOrderInCategory>0</displayOrderInCategory>
-	<selectionWeight>0.011</selectionWeight>
-	<biostatCpx>1</biostatCpx>
-	<exclusionTags>
-	  <li>WVC_RomanceChance_A</li>
-	</exclusionTags>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-	</modExtensions>
-  </GeneDef>
+  <!-- <GeneDef Name="WVC_XenotypesAndGenes_GeneIncestous_Base" Abstract="True"> -->
+	<!-- <displayCategory>Reproduction</displayCategory> -->
+	<!-- <displayOrderInCategory>0</displayOrderInCategory> -->
+	<!-- <selectionWeight>0.011</selectionWeight> -->
+	<!-- <biostatCpx>1</biostatCpx> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_RomanceChance_A</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneIncestous_Base">
-	<defName>WVC_IncestLover</defName>
-	<label>incestous</label>
-	<description>Carriers of this gene have a strange attraction to their blood relatives.</description>
-	<iconPath>WVC/UI/Genes/Gene_Incestous_v0</iconPath>
-	<customEffectDescriptions>
-	  <li>Significantly increases the chance of romance of relatives.</li>
-	  <li>Additionally increases opinion towards relatives by 20.</li>
-	</customEffectDescriptions>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
-			<geneIsIncestous>true</geneIsIncestous>
-		</li>
-	</modExtensions>
-  </GeneDef>
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneIncestous_Base"> -->
+	<!-- <defName>WVC_IncestLover</defName> -->
+	<!-- <label>incestous</label> -->
+	<!-- <description>Carriers of this gene have a strange attraction to their blood relatives.</description> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_Incestous_v0</iconPath> -->
+	<!-- <customEffectDescriptions> -->
+	  <!-- <li>Significantly increases the chance of romance of relatives.</li> -->
+	  <!-- <li>Additionally increases opinion towards relatives by 20.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <geneIsIncestous>true</geneIsIncestous> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
 
   <!-- Romance -->
 

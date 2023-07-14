@@ -84,7 +84,6 @@
     <Compile Include="Resources_Genes\Gene_ResurgentCellsGain.cs" />
     <Compile Include="Resources_Genes\Gene_Wings.cs" />
     <Compile Include="Resources_Genes\Gene_XenotypeMutator.cs" />
-    <Compile Include="Resources_Harmony\Harmony_CompatibilityWith_Patch.cs" />
     <Compile Include="Resources_Harmony\Harmony_ShouldSendNotificationAbout_Patch.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_PawnHaveWings.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_SeverityFromDust.cs" />
@@ -171,7 +170,7 @@
     <Compile Include="Resources_Things\Hive_CompSpawnInsect.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_AngelBeauty.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Gender.cs" />
-    <Compile Include="Resources_Thought\ThoughtWorker_IncestLover.cs" />
+    <Compile Include="Resources_Thought\ThoughtWorker_FamilyByBlood.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_PawnIsMechaskinned_SingleThought.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_MechaSensesFriendOrFoe.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_MechanoidLabor.cs" />

@@ -7,7 +7,7 @@ using WVC_XenotypesAndGenes;
 
 namespace WVC_XenotypesAndGenes
 {
-	public class ThoughtWorker_IncestLover : ThoughtWorker
+	public class ThoughtWorker_FamilyByBlood : ThoughtWorker
 	{
 		protected override ThoughtState CurrentSocialStateInternal(Pawn pawn, Pawn other)
 		{
@@ -15,9 +15,6 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			// if (MechanoidizationUtility.IsIncestLover(pawn))
-			// {
-			// }
 			if (pawn.relations.FamilyByBlood.Contains(other))
 			{
 				return ThoughtState.ActiveAtStage(0);
