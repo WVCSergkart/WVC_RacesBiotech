@@ -99,6 +99,9 @@
 			  <!-- <li>Torso</li> -->
 			<!-- </bodyparts> -->
 		</li>
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner"> -->
+			<!-- <summonQuest>WVC_Resurgent_QuestUndeadResurrect</summonQuest> -->
+		<!-- </li> -->
 	</modExtensions>
   </GeneDef>
 

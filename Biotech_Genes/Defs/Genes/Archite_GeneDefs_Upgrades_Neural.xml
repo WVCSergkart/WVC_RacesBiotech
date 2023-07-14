@@ -84,9 +84,9 @@
 	  <li>Alzheimers</li>
 	  <li>TraumaSavant</li>
 	</hediffGiversCannotGive>
-	<!-- <exclusionTags> -->
-	  <!-- <li>WVC_Mechanoidization_AI</li> -->
-	<!-- </exclusionTags> -->
+	<exclusionTags>
+	  <li>WVC_ExcellentMemory</li>
+	</exclusionTags>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
 			<noSkillDecay>true</noSkillDecay>

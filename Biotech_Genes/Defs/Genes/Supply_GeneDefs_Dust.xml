@@ -48,7 +48,6 @@
 	<iconPath>WVC/UI/Genes/Gene_Dust_v0</iconPath>
 	<!-- <iconColor>(255, 248, 133)</iconColor> -->
 	<!-- <iconColor>(173, 142, 112)</iconColor> -->
-	<selectionWeight>0.0011</selectionWeight>
 	<displayOrderInCategory>0</displayOrderInCategory>
 	<customEffectDescriptions>
 	  <li>Gives dust supply.</li>
@@ -74,9 +73,9 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_Base" Name="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent" Abstract="True">
 	<geneClass>WVC_XenotypesAndGenes.Gene_DustDrain</geneClass>
-	<selectionWeight>0.0009</selectionWeight>
 	<prerequisite>WVC_Dustogenic</prerequisite>
 	<marketValueFactor>1.2</marketValueFactor>
+	<selectionWeight>0.009</selectionWeight>
 	<minAgeActive>3</minAgeActive>
 	<resourceLabel>dust</resourceLabel>
 	<resourceLossPerDay>0.02</resourceLossPerDay>
@@ -193,39 +192,6 @@
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
-	<defName>WVC_Dustogenic_ImmaculateConception</defName>
-	<label>dustogenic conception</label>
-	<description>Carriers of this gene do not require a partner for reproduction. Pregnancy occurs only at the request of the mother and only with sufficient dust levels.</description>
-	<descriptionHyperlinks>
-	  <AbilityDef>WVC_Dustogenic_AbilityImmaculateConception</AbilityDef>
-	</descriptionHyperlinks>
-	<geneClass>WVC_XenotypesAndGenes.Gene_DustGestator_TestTool</geneClass>
-	<iconPath>WVC/UI/Genes/Gene_ImmaculateConception_v0</iconPath>
-	<iconColor>(255, 255, 255)</iconColor>
-	<displayOrderInCategory>20</displayOrderInCategory>
-	<minAgeActive>14</minAgeActive>
-	<sterilize>true</sterilize>
-	<biostatCpx>3</biostatCpx>
-	<biostatMet>0</biostatMet>
-	<customEffectDescriptions>
-		<li>Spawns a baby-pawn with similar genes few days after the ability is activated.</li>
-	</customEffectDescriptions>
-	<statFactors>
-	  <Fertility>0</Fertility>
-	</statFactors>
-	<abilities>
-	  <li>WVC_Dustogenic_AbilityImmaculateConception</li>
-	</abilities>
-	<exclusionTags>
-		<li>Fertility</li>
-		<li>Egglaying</li>
-		<li>AG_Egglaying</li>
-		<li>AG_Gestation</li>
-		<li>AG_Fertility</li>
-	</exclusionTags>
-  </GeneDef>
-
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
 	<defName>WVC_Dustogenic_AngelBeauty</defName>
 	<label>angel beauty</label>
 	<description>Carriers of this gene can unconsciously influence how others see them. Their brain emits neuronal psychic waves that cause those around them who are susceptible to psychic influence to deify them.</description>
@@ -280,7 +246,7 @@
 	<!-- <iconColor>(255, 248, 133)</iconColor> -->
 	<!-- <iconColor>(173, 142, 112)</iconColor> -->
 	<displayOrderInCategory>30</displayOrderInCategory>
-	<minAgeActive>13</minAgeActive>
+	<minAgeActive>14</minAgeActive>
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<biostatArc>2</biostatArc>
@@ -301,6 +267,8 @@
 	</modExtensions>
   </GeneDef>
 
+  <!-- dustogenic genetic -->
+
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
 	<defName>WVC_Dustogenic_GeneticStability</defName>
 	<label>dustogenic genetic</label>
@@ -311,6 +279,7 @@
 	<biostatCpx>-6</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>6</biostatMet>
+	<resourceLabel></resourceLabel>
 	<customEffectDescriptions>
 	  <li>Carriers of this gene cannot use xenotype serums.</li>
 	  <li>Abilities "Rise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li>
@@ -325,6 +294,69 @@
 			<hediffDefName>WVC_Dustogenic_KillAfterTime</hediffDefName>
 		</li>
 	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent" Name="WVC_XenotypesAndGenes_GeneDustSupply_DustGenetic" Abstract="True">
+	<prerequisite>WVC_Dustogenic_GeneticStability</prerequisite>
+	<marketValueFactor>1.4</marketValueFactor>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustGenetic">
+	<defName>WVC_Dustogenic_ImmaculateConception</defName>
+	<label>dustogenic conception</label>
+	<description>Carriers of this gene do not require a partner for reproduction. Pregnancy occurs only at the request of the mother and only with sufficient dust levels.</description>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_Dustogenic_AbilityImmaculateConception</AbilityDef>
+	</descriptionHyperlinks>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DustGestator_TestTool</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_ImmaculateConception_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>40</displayOrderInCategory>
+	<minAgeActive>14</minAgeActive>
+	<sterilize>true</sterilize>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Spawns a baby-pawn with similar genes few days after the ability is activated.</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <Fertility>0</Fertility>
+	</statFactors>
+	<abilities>
+	  <li>WVC_Dustogenic_AbilityImmaculateConception</li>
+	</abilities>
+	<exclusionTags>
+		<li>Fertility</li>
+		<li>Egglaying</li>
+		<li>AG_Egglaying</li>
+		<li>AG_Gestation</li>
+		<li>AG_Fertility</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustGenetic">
+	<defName>WVC_Dustogenic_Clotting</defName>
+	<label>dustogenic clotting</label>
+	<description>Carriers of this gene have dust in their blood that heals wounds in an emergency and greatly increases regeneration, but the carrier becomes more susceptible to pain.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DustClotting</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_DustClotting_v0</iconPath>
+	<iconColor>(241, 175, 129)</iconColor>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<painFactor>1.5</painFactor>
+	<displayOrderInCategory>45</displayOrderInCategory>
+	<statFactors>
+	  <InjuryHealingFactor>4</InjuryHealingFactor>
+	</statFactors>
+	<customEffectDescriptions>
+		<li>If a pawn is downed, its wounds will be treated.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WoundHealingRate</li>
+	  <li>SuperClotting</li>
+	</exclusionTags>
   </GeneDef>
 
 </Defs>

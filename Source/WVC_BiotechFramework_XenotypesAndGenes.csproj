@@ -76,6 +76,7 @@
     <Compile Include="Resources_Genes\Gene_AngelicStability.cs" />
     <Compile Include="Resources_Genes\Gene_Dust.cs" />
     <Compile Include="Resources_Genes\Gene_DustAgeless.cs" />
+    <Compile Include="Resources_Genes\Gene_DustClotting.cs" />
     <Compile Include="Resources_Genes\Gene_DustDrain.cs" />
     <Compile Include="Resources_Genes\Gene_DustGestator_TestTool.cs" />
     <Compile Include="Resources_Genes\Gene_DustHediffGiver.cs" />

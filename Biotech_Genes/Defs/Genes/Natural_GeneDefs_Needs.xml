@@ -57,6 +57,7 @@
 	<label>in itself</label>
 	<description>Carriers of this gene do not care for a walk and they do not have a craving for seclusion.</description>
 	<iconPath>WVC/UI/Genes/Gene_DisableOutdoors_v0</iconPath>
+	<biostatMet>-3</biostatMet>
 	<disablesNeeds>
 	  <li>Outdoors</li>
 	  <li>Indoors</li>

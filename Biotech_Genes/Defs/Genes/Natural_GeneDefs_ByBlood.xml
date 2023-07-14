@@ -35,9 +35,9 @@
 	<iconColor>(249, 241, 148)</iconColor>
 	<displayCategory>WVC_Dustogenic</displayCategory>
 	<displayOrderInCategory>100</displayOrderInCategory>
-	<selectionWeight>0.0009</selectionWeight>
-	<prerequisite>WVC_Dustogenic</prerequisite>
-	<marketValueFactor>1.2</marketValueFactor>
+	<selectionWeight>0.006</selectionWeight>
+	<!-- <prerequisite>WVC_Dustogenic</prerequisite> -->
+	<marketValueFactor>1.5</marketValueFactor>
 	<customEffectDescriptions>
 	  <li>Relatives opinion +100</li>
 	</customEffectDescriptions>

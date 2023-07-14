@@ -72,7 +72,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				// quest.AssignMechToMechanitor(pawn, reincarnated);
 				// Log.Error("6");
-				quest.DropPods(map.Parent, Gen.YieldSingle(reincarnated), null, null, null, null, false, useTradeDropSpot: false, joinPlayer: false, makePrisoners: false, null, null, QuestPart.SignalListenMode.OngoingOnly, pawn.PositionHeld);
+				quest.DropPods(map.Parent, Gen.YieldSingle(reincarnated), null, null, null, null, false, useTradeDropSpot: true, joinPlayer: false, makePrisoners: false, null, null, QuestPart.SignalListenMode.OngoingOnly, null);
+				// pawn.PositionHeld
 				quest.Letter(LetterDefOf.PositiveEvent, null, null, null, null, useColonistsFromCaravanArg: false, QuestPart.SignalListenMode.OngoingOnly, Gen.YieldSingle(reincarnated), filterDeadPawnsFromLookTargets: false, "[arrivalLetterText]", null, "[arrivalLetterLabel]");
 				QuestGen_End.End(quest, QuestEndOutcome.Success);
 				// Log.Error("7");

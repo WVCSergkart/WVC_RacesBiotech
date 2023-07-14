@@ -346,7 +346,7 @@
 	<autoAccept>true</autoAccept>
 	<defaultHidden>true</defaultHidden>
 	<root Class="WVC_XenotypesAndGenes.QuestNode_Root_UndeadReincarnation">
-	  <delayTicks>1500</delayTicks>
+	  <delayTicks>17000</delayTicks>
 	</root>
 	<questContentRules>
 	  <rulesStrings>
@@ -355,6 +355,17 @@
 	  </rulesStrings>
 	</questContentRules>
   </QuestScriptDef>
+
+  <!-- <QuestScriptDef> -->
+	<!-- <defName>WVC_Resurgent_QuestUndeadResurrect</defName> -->
+	<!-- <rootSelectionWeight>0</rootSelectionWeight> -->
+	<!-- <isRootSpecial>true</isRootSpecial> -->
+	<!-- <autoAccept>true</autoAccept> -->
+	<!-- <defaultHidden>true</defaultHidden> -->
+	<!-- <root Class="WVC_XenotypesAndGenes.QuestNode_Root_Resurrect"> -->
+	  <!-- <delayTicks>1500</delayTicks> -->
+	<!-- </root> -->
+  <!-- </QuestScriptDef> -->
 
 <!-- [PAWN_nameDef] Bobby -->
 <!-- [PAWN_nameFull] Juan Bobby Fisher -->

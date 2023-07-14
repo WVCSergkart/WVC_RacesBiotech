@@ -115,20 +115,21 @@
 		<li>WVC_Dustogenic_Ageless</li>
 		<li>WVC_Dustogenic_Metabolism</li>
 		<li>WVC_Dustogenic_MechPsylink</li>
-		<li>WVC_Dustogenic_ImmaculateConception</li>
 		<li>WVC_Dustogenic_AngelBeauty</li>
 		<li>WVC_Dustogenic_Reincarnation</li>
 		<li>WVC_Dustogenic_GeneticStability</li>
+		<li>WVC_Dustogenic_ImmaculateConception</li>
+		<li>WVC_Dustogenic_Clotting</li>
 		<li>WVC_FamilyByBlood_Dustogenic</li>
 		<li>WVC_NaturalDisease_DiseaseFree</li>
 		<li>WVC_NaturalImmunity_PerfectImmunity</li>
 		<li>WVC_Wings_FeatheredWings</li>
-		<li>MinTemp_LargeDecrease</li>
 		<li>Aggression_HyperAggressive</li>
 		<li>WVC_SlaveSuppression_Unruly</li>
 		<li>WVC_SameBloodSameXenotype</li>
 		<li>WVC_HeadBoneHorns</li>
 		<li>Skin_SheerWhite</li>
+		<li>WVC_Learning_SlowNoSkillDecay</li>
 		<li>WVC_BodySize_Small</li>
 		<li>Hands_Human</li>
 		<li>WVC_FeatherSkin</li>

@@ -60,6 +60,7 @@
 	  <li>AG_BloodType</li>
 	  <li>BloodType</li>
 	  <li>Blood</li>
+	  <li>SuperClotting</li>
 	</exclusionTags>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">

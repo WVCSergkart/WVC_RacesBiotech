@@ -1,14 +1,68 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef ParentName="GeneLearningBase" Name="WVC_XenotypesAndGenes_GeneLearning_ExtremeSlow" Abstract="True">
+  <GeneDef ParentName="GeneLearningBase" Name="WVC_XenotypesAndGenes_GeneLearning_Base" Abstract="True">
+	<selectionWeight>0.0172</selectionWeight>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneLearning_Base">
+	<defName>WVC_Learning_SlowNoSkillDecay</defName>
+	<label>stubborn study</label>
+	<description>Carriers of this gene have deficient long-term memories and don't understand new ideas. But if they manage to learn something, they do not forget it.</description>
+	<iconPath>WVC/UI/Genes/Gene_StubbornLearning_v0</iconPath>
+	<displayOrderInCategory>28</displayOrderInCategory>
+	<biostatMet>1</biostatMet>
+	<suppressedTraits>
+	  <li>
+		<def>TooSmart</def>
+	  </li>
+	  <li>
+		<def>FastLearner</def>
+	  </li>
+	  <li>
+		<def>SlowLearner</def>
+	  </li>
+	</suppressedTraits>
+	<statFactors>
+	  <GlobalLearningFactor>0.4</GlobalLearningFactor>
+	</statFactors>
+	<customEffectDescriptions>
+		<li>Skills not decay.</li>
+	</customEffectDescriptions>
+	<hediffGiversCannotGive>
+	  <li>Dementia</li>
+	  <li>Alzheimers</li>
+	</hediffGiversCannotGive>
+	<exclusionTags>
+	  <li>WVC_ExcellentMemory</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<noSkillDecay>true</noSkillDecay>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneLearning_Base" Name="WVC_XenotypesAndGenes_GeneLearning_ExtremeSlow" Abstract="True">
 	<!-- <label>mechlink</label>  -->
 	<!-- <labelShortAdj>blindness</labelShortAdj> -->
 	<!-- <description>TEST</description> -->
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_PermanentHediff</geneClass> -->
 	<geneClass>WVC_XenotypesAndGenes.Gene_BackstoryChanger</geneClass>
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Amnesia</geneClass> -->
-	<selectionWeight>0.0172</selectionWeight>
 	<customEffectDescriptions>
 	  <li>Childhood and adulthood background will be &lt;color=#8a8ae6&gt;amnesiac&lt;/color&gt;. Does not work if the carrier is a native colonist.</li>
 	</customEffectDescriptions>
@@ -20,13 +74,6 @@
 	<!-- <biostatArc>0</biostatArc> -->
 	<!-- <biostatMet>0</biostatMet> -->
 	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
-		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<childBackstoryDef>WVC_RacesBiotech_Amnesia_Child</childBackstoryDef>
 			<adultBackstoryDef>WVC_RacesBiotech_Amnesia_Adult</adultBackstoryDef>

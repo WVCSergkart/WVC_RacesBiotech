@@ -12,7 +12,7 @@ namespace WVC_XenotypesAndGenes
 
 	public class QuestNode_Root_MechanitorSummonMech : QuestNode
 	{
-		private readonly int delayTicks = 150;
+		public int delayTicks = 150;
 
 		public List<PawnKindDef> mechTypes;
 
@@ -42,7 +42,7 @@ namespace WVC_XenotypesAndGenes
 			quest.Delay(delayTicks, delegate
 			{
 				quest.AssignMechToMechanitor(pawn, mech);
-				quest.DropPods(map.Parent, Gen.YieldSingle(mech), null, null, null, null, false, useTradeDropSpot: false, joinPlayer: false, makePrisoners: false, null, null, QuestPart.SignalListenMode.OngoingOnly, pawn.PositionHeld);
+				quest.DropPods(map.Parent, Gen.YieldSingle(mech), null, null, null, null, false, useTradeDropSpot: true, joinPlayer: false, makePrisoners: false, null, null, QuestPart.SignalListenMode.OngoingOnly, null);
 				quest.Letter(LetterDefOf.PositiveEvent, null, null, null, null, useColonistsFromCaravanArg: false, QuestPart.SignalListenMode.OngoingOnly, Gen.YieldSingle(mech), filterDeadPawnsFromLookTargets: false, "[arrivalLetterText]", null, "[arrivalLetterLabel]");
 				QuestGen_End.End(quest, QuestEndOutcome.Success);
 			});
