@@ -8,7 +8,8 @@
 	<biostatCpx>1</biostatCpx>
 	<selectionWeight>0.015</selectionWeight>
 	<displayOrderInCategory>5015</displayOrderInCategory>
-	<iconColor>(200, 200, 200)</iconColor>
+	<!-- <iconColor>(200, 200, 200)</iconColor> -->
+    <iconColor>(0.75, 0.75, 0.75)</iconColor>
 	<exclusionTags>
 	  <li>SlaveSuppression</li>
 	  <li>WVC_SlaveSuppression</li>

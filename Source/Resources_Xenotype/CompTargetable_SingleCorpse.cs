@@ -22,22 +22,13 @@ namespace WVC_XenotypesAndGenes
 				canTargetBuildings = false,
 				canTargetItems = true,
 				mapObjectTargetsMustBeAutoAttackable = false,
-				validator = (TargetInfo x) => x.Thing is Corpse corpse && BaseTargetValidator(x.Thing) && HumanityCheck(corpse.InnerPawn)
+				validator = (TargetInfo x) => x.Thing is Corpse corpse && BaseTargetValidator(x.Thing) && SerumUtility.PawnCanUseSerums(corpse.InnerPawn)
 			};
 		}
 
 		public override IEnumerable<Thing> GetTargets(Thing targetChosenByPlayer = null)
 		{
 			yield return targetChosenByPlayer;
-		}
-
-		public static bool HumanityCheck(Pawn pawn)
-		{
-			if (MechanoidizationUtility.PawnIsAndroid(pawn) || !pawn.RaceProps.Humanlike || MechanoidizationUtility.PawnCannotUseSerums(pawn))
-			{
-				return false;
-			}
-			return true;
 		}
 	}
 

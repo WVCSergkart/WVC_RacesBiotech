@@ -118,14 +118,14 @@ namespace WVC_XenotypesAndGenes
 			// return Value < targetValue;
 		// }
 
-		public static bool PawnUnconscious(Pawn pawn)
-		{
-			if (pawn.Downed || pawn.Deathresting || pawn.needs.rest.Resting)
-			{
-				return true;
-			}
-			return false;
-		}
+		// public static bool PawnUnconscious(Pawn pawn)
+		// {
+			// if (DustUtility.PawnInPronePosition(pawn))
+			// {
+				// return true;
+			// }
+			// return false;
+		// }
 
 		public static float ResourceLoss(Pawn pawn, float def)
 		{
@@ -134,7 +134,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return 0f;
 			}
-			if (PawnUnconscious(pawn))
+			if (DustUtility.PawnInPronePosition(pawn))
 			{
 				return -1f * def;
 			}

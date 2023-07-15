@@ -253,7 +253,7 @@
 	<customEffectDescriptions>
 		<li>In case of death, a pawn will be summoned, which is a descendant of the deceased.</li>
 		<!-- <li>Such a pawn inherits all genes and all skills, without passions.</li> -->
-		<li>The effect will not work if the chronological age of the pawn is less than 20.</li>
+		<li>The effect will not work if the chronological age of the pawn is less than 40.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>WVC_XenotypesAndGenes_GeneDeathless_Undead</li>
@@ -262,7 +262,7 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
 			<summonQuest>WVC_Dustogenic_QuestUndeadReincarnation</summonQuest>
 			<!-- In the context of reincarnation, this line is responsible for the minimum chrono age. -->
-			<stackCount>20</stackCount>
+			<stackCount>40</stackCount>
 		</li>
 	</modExtensions>
   </GeneDef>

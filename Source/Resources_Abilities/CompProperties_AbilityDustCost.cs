@@ -46,7 +46,7 @@ namespace WVC_XenotypesAndGenes
 			Gene_Dust gene_Dust = parent.pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
 			if (gene_Dust != null)
 			{
-				UndeadUtility.OffsetResurgentCells(parent.pawn, 0f - Props.dustCost);
+				DustUtility.OffsetDust(parent.pawn, 0f - Props.dustCost);
 			}
 		}
 

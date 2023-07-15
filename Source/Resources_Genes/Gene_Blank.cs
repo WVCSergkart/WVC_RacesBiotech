@@ -20,7 +20,7 @@ namespace WVC_XenotypesAndGenes
 				// {
 					// return false;
 				// }
-				if (pawn?.genes != null)
+				if (base.Active && pawn?.genes != null)
 				{
 					List<Gene> genesListForReading = pawn.genes.Xenogenes;
 					if (genesListForReading.Count > 0)

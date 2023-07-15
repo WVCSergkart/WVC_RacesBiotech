@@ -141,6 +141,69 @@
 	</comps>
   </HediffDef>
 
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_Dustogenic_DelayedReimplanter</defName>
+	<label>genetic storm</label>
+	<description>Delayed reimplantation of genes causes extreme fatigue and hunger.</description>
+	<defaultLabelColor>(255, 248, 133)</defaultLabelColor>
+	<initialSeverity>0.01</initialSeverity>
+	<minSeverity>0.01</minSeverity>
+	<maxSeverity>1.0</maxSeverity>
+	<stages>
+	  <li>
+		<label>minor</label>
+		<hungerRateFactor>1.2</hungerRateFactor>
+		<statFactors>
+		  <RestFallRateFactor>1.2</RestFallRateFactor>
+		</statFactors>
+		<capMods>
+		  <li>
+			<capacity>Consciousness</capacity>
+			<setMax>1.0</setMax>
+		  </li>
+		</capMods>
+	  </li>
+	  <li>
+		<label>severe</label>
+		<minSeverity>0.333</minSeverity>
+		<hungerRateFactor>1.6</hungerRateFactor>
+		<statFactors>
+		  <RestFallRateFactor>1.6</RestFallRateFactor>
+		</statFactors>
+		<capMods>
+		  <li>
+			<capacity>Consciousness</capacity>
+			<setMax>0.80</setMax>
+		  </li>
+		</capMods>
+	  </li>
+	  <li>
+		<label>extreme</label>
+		<minSeverity>0.666</minSeverity>
+		<hungerRateFactor>2.0</hungerRateFactor>
+		<statFactors>
+		  <RestFallRateFactor>2.0</RestFallRateFactor>
+		</statFactors>
+		<capMods>
+		  <li>
+			<capacity>Consciousness</capacity>
+			<setMax>0.20</setMax>
+		  </li>
+		</capMods>
+	  </li>
+	</stages>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_ChangeXenotype"/>
+	  <li Class="HediffCompProperties_SeverityPerDay">
+		<severityPerDay>0.17</severityPerDay>
+	  </li>
+	  <!-- <li Class="HediffCompProperties_SeverityPerDay"> -->
+		<!-- <severityPerDay>1.0</severityPerDay> -->
+	  <!-- </li> -->
+	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+	</comps>
+  </HediffDef>
+
   <!--=====================================================================-->
 
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base" Name="WVC_XenotypesAndGenes_Hediffs_DustSupply" Abstract="True">

@@ -21,19 +21,22 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (Active && pawn.Downed)
+			if (Active)
 			{
-				Gene_Dust gene_Dust = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
-				if (gene_Dust != null)
+				if (DustUtility.PawnInPronePosition(pawn))
 				{
-					List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
-					for (int num = hediffs.Count - 1; num >= 0; num--)
+					Gene_Dust gene_Dust = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
+					if (gene_Dust != null)
 					{
-						if (hediffs[num].TendableNow() && !hediffs[num].IsTended())
+						List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
+						for (int num = hediffs.Count - 1; num >= 0; num--)
 						{
-							hediffs[num].Tended(TendingQualityRange.RandomInRange, TendingQualityRange.TrueMax, 1);
+							if (hediffs[num].TendableNow() && !hediffs[num].IsTended())
+							{
+								hediffs[num].Tended(TendingQualityRange.RandomInRange, TendingQualityRange.TrueMax, 1);
+							}
+							// hediffs[num].Heal(TendingQualityRange.RandomInRange * 2);
 						}
-						// hediffs[num].Heal(TendingQualityRange.RandomInRange * 2);
 					}
 				}
 			}

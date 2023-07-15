@@ -89,6 +89,7 @@
     <Compile Include="Resources_Hediff\HediffCompProperties_PawnHaveWings.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_SeverityFromDust.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_SuperRegeneration.cs" />
+    <Compile Include="Resources_Hediff\HediffComp_ChangeXenotype.cs" />
     <Compile Include="Resources_Hediff\HediffComp_DustGestator.cs" />
     <Compile Include="Resources_Hediff\OnlyOneOverseer.cs" />
     <Compile Include="Resources_Main\AgelessUtility.cs" />
@@ -147,7 +148,6 @@
     <Compile Include="Resources_Hediff\GolemGestator.cs" />
     <Compile Include="Resources_Hediff\GolemGestatorProperties.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_GiveHediff.cs" />
-    <Compile Include="Resources_Abilities\CompProperties_AbilityGiveHediff.cs" />
     <Compile Include="Resources_Hediff\SelfPopulationRegulation.cs" />
     <Compile Include="Resources_Hediff\SelfPopulationRegulationProperties.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_Summon.cs" />

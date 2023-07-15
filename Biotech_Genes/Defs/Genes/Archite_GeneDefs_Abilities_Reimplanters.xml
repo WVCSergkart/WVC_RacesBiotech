@@ -125,7 +125,6 @@
   <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base">
 	<defName>WVC_EndogermReimplanter</defName>
 	<label>implant genes</label>
-	<description>Implant this person's endo/xenogenes into a willing subject using a special injector organ. If this person's genes are currently regrowing, they will implant their endo/xenogerm and die in the process.\n\nWhen implanted, a endo/xenogerm will overwrite the target's endo/xenogenes.</description>
 	<iconPath>WVC/UI/Genes/Reimplanter</iconPath>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplantEndogerm" />
@@ -151,6 +150,36 @@
 		<resurgentCost>0.2</resurgentCost>
 		<!-- The ability can always be used, regardless of the resurgent gene. -->
 		<skipIfNotResurgent>true</skipIfNotResurgent>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+  <!-- ============= -->
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base">
+	<defName>WVC_Reimplanter_BlessedTouch</defName>
+	<label>blessed touch</label>
+	<iconPath>WVC/UI/Genes/Gene_HandsAngels_v0</iconPath>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGiveHediff">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_GiveHediff</compClass>
+		<hediffDef>WVC_Dustogenic_DelayedReimplanter</hediffDef>
+		<!-- <onlyApplyToSelf>false</onlyApplyToSelf> -->
+		<!-- <onlyReproductive>false</onlyReproductive> -->
+		<humanityCheck>true</humanityCheck>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive">
+		<eachOfGenes>
+		  <li>WVC_Dustogenic_GeneticStability</li>
+		  <li>WVC_Hands_Angel</li>
+		  <li>WVC_Dustogenic</li>
+		</eachOfGenes>
+	  </li>
+	  <li Class="CompProperties_AbilityRequiresCapacity">
+		<capacity>Manipulation</capacity>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityDustCost">
+		<dustCost>0.13</dustCost>
 	  </li>
 	</comps>
   </AbilityDef>

@@ -20,6 +20,18 @@
 		<thingDef>MedicineUltratech</thingDef>
 		<countRange>2~6</countRange>
 	  </li>
+	  <li Class="StockGenerator_SingleDef">
+		<thingDef>WVC_EmptyXenotypeSerum</thingDef>
+		<countRange>2~6</countRange>
+	  </li>
+	  <li Class="StockGenerator_SingleDef">
+		<thingDef>WVC_XenotypeSerumCapsule</thingDef>
+		<countRange>1~5</countRange>
+	  </li>
+	  <li Class="StockGenerator_SingleDef">
+		<thingDef>WVC_XenotypeSerumUltraCapsule</thingDef>
+		<countRange>0~4</countRange>
+	  </li>
 	  <li MayRequire="Ludeon.RimWorld.Biotech" Class="StockGenerator_SingleDef">
 		<thingDef>Genepack</thingDef>
 		<countRange>7~14</countRange>

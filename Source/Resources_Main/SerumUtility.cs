@@ -13,9 +13,27 @@ namespace WVC_XenotypesAndGenes
 	public static class SerumUtility
 	{
 
+		public static bool PawnIsHuman(Pawn pawn)
+		{
+			if (MechanoidizationUtility.PawnIsAndroid(pawn) || !pawn.RaceProps.Humanlike)
+			{
+				return false;
+			}
+			return true;
+		}
+
+		public static bool PawnCanUseSerums(Pawn pawn)
+		{
+			if (!PawnIsHuman(pawn) || MechanoidizationUtility.PawnCannotUseSerums(pawn))
+			{
+				return false;
+			}
+			return true;
+		}
+
 		public static void HumanityCheck(Pawn pawn)
 		{
-			if (MechanoidizationUtility.PawnIsAndroid(pawn) || !pawn.RaceProps.Humanlike || MechanoidizationUtility.PawnCannotUseSerums(pawn))
+			if (PawnCanUseSerums(pawn))
 			{
 				pawn.health.AddHediff(WVC_GenesDefOf.WVC_IncompatibilityComa);
 				Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);

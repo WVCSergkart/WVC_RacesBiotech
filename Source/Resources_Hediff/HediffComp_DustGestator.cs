@@ -12,7 +12,9 @@ namespace WVC_XenotypesAndGenes
 
 	public class HediffCompProperties_ImmaculateConception : HediffCompProperties
 	{
-		public float requiredSeverity = 1.0f;
+		public float requiredSeverity = 0.9f;
+
+		public float removeSeverity = 1.0f;
 
 		public string completeMessage = "WVC_XaG_Gene_ImmaculateConception";
 
@@ -37,7 +39,7 @@ namespace WVC_XenotypesAndGenes
 		public override void CompPostTick(ref float severityAdjustment)
 		{
 			base.CompPostTick(ref severityAdjustment);
-			if (!Pawn.IsHashIntervalTick(6000))
+			if (!Pawn.IsHashIntervalTick(1500))
 			{
 				return;
 			}
@@ -54,6 +56,9 @@ namespace WVC_XenotypesAndGenes
 			if (parent.Severity >= Props.requiredSeverity)
 			{
 				GestationUtility.GenerateNewBornPawn(parent.pawn, Props.completeMessage, Props.endogeneTransfer, Props.xenogeneTransfer);
+			}
+			if (parent.Severity >= Props.removeSeverity)
+			{
 				base.Pawn.health.RemoveHediff(parent);
 			}
 		}

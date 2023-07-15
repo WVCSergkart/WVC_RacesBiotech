@@ -19,6 +19,8 @@ namespace WVC_XenotypesAndGenes
 
 		public bool applyToTarget = true;
 
+		public bool humanityCheck = false;
+
 		public bool replaceExisting;
 
 		public bool onlyReproductive;

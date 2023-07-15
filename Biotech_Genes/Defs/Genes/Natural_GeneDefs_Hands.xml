@@ -1,22 +1,110 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <GeneDef ParentName="GeneHandsBase" Name="WVC_XenotypesAndGenes_GeneGeneHands_Base" Abstract="True">
+	<!-- <selectionWeight>0.002</selectionWeight> -->
+	<description>Carriers of this gene have very weak hands, which makes it difficult for them to cope with all manual work.</description>
+	<!-- <biostatCpx>1</biostatCpx> -->
+	<selectionWeight>0.022</selectionWeight>
+	<!-- <displayCategory>Miscellaneous</displayCategory> -->
+	<displayOrderInCategory>300.0001001</displayOrderInCategory>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneHands_Base">
+	<defName>WVC_Hands_Angel</defName>
+	<label>angel hands</label>
+	<description>Carriers of this gene have glands with mutagen poison on their hands.</description>
+	<iconPath>WVC/UI/Genes/Gene_HandsAngels_v0</iconPath>
+	<selectionWeight>0.008</selectionWeight>
+    <iconColor>(0.75, 0.75, 0.75)</iconColor>
+	<!-- <iconColor>(241, 175, 129)</iconColor> -->
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-2</biostatMet>
+	<customEffectDescriptions>
+		<li>Changes the target's genes to the caster's genes some time after the ability is used.</li>
+		<li>&lt;color=#ff8585&gt;Can't be absorbed forcly.&lt;/color&gt;</li>
+		<li>To use the ability, genes are needed: Dustogenic, Dustogenic genetic.</li>
+	</customEffectDescriptions>
+	<abilities>
+	  <li>WVC_Reimplanter_BlessedTouch</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_Reimplanter_BlessedTouch</AbilityDef>
+	</descriptionHyperlinks>
+	<!-- <exclusionTags> -->
+		<!-- <li>WVC_Reimplanter</li> -->
+	<!-- </exclusionTags> -->
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneHands_Base" Name="WVC_XenotypesAndGenes_GeneGeneHands_VeryWeak" Abstract="True">
+	<!-- <selectionWeight>0.002</selectionWeight> -->
+	<description>Carriers of this gene have very weak hands, which makes it difficult for them to cope with all manual work.</description>
+	<iconPath>WVC/UI/Genes/Gene_WeakHand_v0</iconPath>
+	<selectionWeight>0.0025</selectionWeight>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_GeneManipulation_Base</li> -->
+	<!-- </exclusionTags> -->
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneHands_VeryWeak">
+	<defName>WVC_AgeDebuff_Manipulation</defName>
+	<label>very weak hands</label>
+	<iconColor>(178, 97, 96)</iconColor>
+	<biostatMet>3</biostatMet>
+	<displayOrderInCategory>300.0001011</displayOrderInCategory>
+	<capMods>
+	  <li>
+		<capacity>Manipulation</capacity>
+		<postFactor>0.5</postFactor>
+	  </li>
+	</capMods>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneHands_VeryWeak">
+	<defName>WVC_AgeDebuff_Armless</defName>
+	<label>extreme weak hands</label>
+	<iconColor>(126, 61, 60)</iconColor>
+	<biostatMet>6</biostatMet>
+	<displayOrderInCategory>300.0001012</displayOrderInCategory>
+	<capMods>
+	  <li>
+		<capacity>Manipulation</capacity>
+		<postFactor>0.0</postFactor>
+	  </li>
+	</capMods>
+  </GeneDef>
+
   <!--=====================================================================-->
 
   <!-- Upgrades -->
 
-  <GeneDef ParentName="GeneHandsBase" Name="WVC_NaturalWeapon_Claws" Abstract="True">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneHands_Base" Name="WVC_XenotypesAndGenes_GeneGeneHands_Claws" Abstract="True">
 	<description>Carriers of this gene have...</description>
 	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
 	<!-- <displayCategory>Violence</displayCategory> -->
 	<!-- <displayOrderInCategory>320</displayOrderInCategory> -->
-	<displayOrderInCategory>321</displayOrderInCategory>
 	<iconPath>WVC/UI/Genes/Mechanoidization</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>-1</biostatMet>
 	<selectionWeight>0.00325</selectionWeight>
+	<displayOrderInCategory>300.0001101</displayOrderInCategory>
 	<symbolPack>
 		<wholeNameSymbols>
 			<li><symbol>claws</symbol></li>
@@ -50,7 +138,7 @@
 
   <!-- Upgrades -->
 
-  <GeneDef ParentName="WVC_NaturalWeapon_Claws">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneHands_Claws">
 	<defName>WVC_MecaBodyParts_Claws</defName>
 	<label>foldable claws</label> 
 	<description>Carriers of this gene have foldable claws that serve as natural weapons.</description>
@@ -62,11 +150,12 @@
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>-2</biostatMet>
+	<displayOrderInCategory>300.0001101</displayOrderInCategory>
 	<!-- <minAgeActive>13</minAgeActive> -->
 	<!-- <statOffsets> -->
 	  <!-- <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization> -->
 	<!-- </statOffsets> -->
-	<modExtensions>
+	<modExtensions Inherit="False">
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes> -->
 			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes> -->
@@ -86,16 +175,17 @@
 	</modExtensions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_NaturalWeapon_Claws">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneHands_Claws">
 	<defName>WVC_NaturalBodyParts_Claws</defName>
 	<label>claws</label> 
 	<description>Carriers of this gene grow very sharp claws that serve as natural weapons.</description>
 	<iconPath>WVC/UI/Genes/Claws</iconPath>
 	<iconColor>(181, 93, 99)</iconColor>
+	<displayOrderInCategory>300.0001102</displayOrderInCategory>
 	<biostatCpx>3</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>-3</biostatMet>
-	<modExtensions>
+	<modExtensions Inherit="False">
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
 			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
