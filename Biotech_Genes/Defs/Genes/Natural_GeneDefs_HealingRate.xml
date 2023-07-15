@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="GeneHealingRateBase" Name="WVC_XenotypesAndGenes_GeneHealingRate_Base" Abstract="True">
+	<selectionWeight>0.022</selectionWeight>
+	<iconColor>(151, 203, 222)</iconColor>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>stout</symbol></li>
+		<li><symbol>hard</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHealingRate_Base">
+	<defName>WVC_WoundHealing_ExtremeFast</defName>
+	<label>extremefast wound healing</label>
+	<labelShortAdj>extr-heal</labelShortAdj>
+	<description>Carriers of this gene heal from wounds six times as fast as normal.</description>
+	<iconPath>WVC/UI/Genes/Gene_WoundHealingRateSuperfast_v1</iconPath>
+	<displayOrderInCategory>55</displayOrderInCategory>
+	<marketValueFactor>1.4</marketValueFactor>
+	<biostatMet>-4</biostatMet>
+	<statFactors>
+	  <InjuryHealingFactor>6</InjuryHealingFactor>
+	</statFactors>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHealingRate_Base">
+	<defName>WVC_WoundHealing_UnrealFast</defName>
+	<label>unrealfast wound healing</label>
+	<labelShortAdj>unreal-heal</labelShortAdj>
+	<description>Carriers of this gene heal from wounds eight times as fast as normal.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_BodyPartsRestoration</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_WoundHealingRateSuperfast_v2</iconPath>
+	<displayOrderInCategory>60</displayOrderInCategory>
+	<marketValueFactor>1.6</marketValueFactor>
+	<biostatMet>-5</biostatMet>
+	<customEffectDescriptions>
+	  <li>Restores a lost limb every (*DateTime)15-30 days(/DateTime).</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <InjuryHealingFactor>8</InjuryHealingFactor>
+	</statFactors>
+  </GeneDef>
+
+</Defs>

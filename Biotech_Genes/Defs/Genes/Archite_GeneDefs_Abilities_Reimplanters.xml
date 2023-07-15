@@ -163,6 +163,7 @@
   <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base">
 	<defName>WVC_Reimplanter_BlessedTouch</defName>
 	<label>blessed touch</label>
+	<description>Infects the target with a mutagen poison that, after a few days, completely overwrites the target's genes with the caster's genes.</description>
 	<iconPath>WVC/UI/Genes/Gene_HandsAngels_v0</iconPath>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGiveHediff">

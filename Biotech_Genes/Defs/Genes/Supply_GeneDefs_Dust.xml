@@ -84,6 +84,31 @@
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
+	<defName>WVC_Dustogenic_WoundHealing</defName>
+	<label>dustogenic wound healing</label>
+	<labelShortAdj>dust-heal</labelShortAdj>
+	<description>Carriers of this gene heal from wounds eight times as fast as normal.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DustBodyPartsRestoration</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_WoundHealingRateSuperfast_v0</iconPath>
+	<iconColor>(249, 241, 148)</iconColor>
+	<marketValueFactor>1.5</marketValueFactor>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<customEffectDescriptions>
+	  <li>Restores a lost limb every (*DateTime)5-15 days(/DateTime).</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <InjuryHealingFactor>8</InjuryHealingFactor>
+	</statFactors>
+	<displayOrderInCategory>2</displayOrderInCategory>
+	<resourceLossPerDay>0.06</resourceLossPerDay>
+	<exclusionTags>
+	  <li>WoundHealingRate</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
 	<defName>WVC_Dustogenic_Ageless</defName>
 	<label>blessed ageless</label>
 	<labelShortAdj>ageless</labelShortAdj>
@@ -301,6 +326,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent" Name="WVC_XenotypesAndGenes_GeneDustSupply_DustGenetic" Abstract="True">
 	<prerequisite>WVC_Dustogenic_GeneticStability</prerequisite>
 	<marketValueFactor>1.4</marketValueFactor>
+	<resourceLabel></resourceLabel>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustGenetic">
@@ -310,7 +336,7 @@
 	<descriptionHyperlinks>
 	  <AbilityDef>WVC_Dustogenic_AbilityImmaculateConception</AbilityDef>
 	</descriptionHyperlinks>
-	<geneClass>WVC_XenotypesAndGenes.Gene_DustGestator_TestTool</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Gestator_TestTool</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_ImmaculateConception_v0</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
 	<displayOrderInCategory>40</displayOrderInCategory>
@@ -320,6 +346,7 @@
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
 		<li>Spawns a baby-pawn with similar genes few days after the ability is activated.</li>
+		<li>&lt;color=#ff8585&gt;Female only.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<statFactors>
 	  <Fertility>0</Fertility>
@@ -339,22 +366,22 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustGenetic">
 	<defName>WVC_Dustogenic_Clotting</defName>
 	<label>dustogenic clotting</label>
-	<description>Carriers of this gene have dust in their blood that heals wounds in an emergency and greatly increases regeneration, but the carrier becomes more susceptible to pain.</description>
+	<description>Carriers of this gene have dust in their blood that heals wounds in an emergency.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_DustClotting</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_DustClotting_v0</iconPath>
 	<iconColor>(241, 175, 129)</iconColor>
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>-1</biostatMet>
-	<painFactor>1.5</painFactor>
+	<!-- <painFactor>1.5</painFactor> -->
 	<displayOrderInCategory>45</displayOrderInCategory>
-	<statFactors>
-	  <InjuryHealingFactor>4</InjuryHealingFactor>
-	</statFactors>
+	<!-- <statFactors> -->
+	  <!-- <InjuryHealingFactor>4</InjuryHealingFactor> -->
+	<!-- </statFactors> -->
 	<customEffectDescriptions>
-		<li>If a pawn is downed, its wounds will be treated.</li>
+		<li>If a pawn is downed, its wounds will be automatically treated.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
-	  <li>WoundHealingRate</li>
+	  <!-- <li>WoundHealingRate</li> -->
 	  <li>SuperClotting</li>
 	</exclusionTags>
   </GeneDef>

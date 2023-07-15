@@ -448,51 +448,8 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			QuestUtility.SendQuestTargetSignals(caster.questTags, "XenogermReimplanted", caster.Named("SUBJECT"));
-			recipient.genes.SetXenotype(caster.genes.Xenotype);
-			// recipient.genes.SetXenotypeDirect(caster.genes.Xenotype);
-			recipient.genes.xenotypeName = caster.genes.xenotypeName;
-			recipient.genes.iconDef = caster.genes.iconDef;
-			// recipient.genes.ClearXenogenes();
-			// recipient.genes.ClearEndogenes();
-			Pawn_GeneTracker recipientGenes = recipient.genes;
-			// for (int numGenes = recipientGenes.GenesListForReading.Count - 1; numGenes >= 0; numGenes--)
-			// {
-				// recipientGenes.RemoveGene(recipientGenes.GenesListForReading[numGenes]);
-			// }
-			if (recipientGenes != null && recipientGenes.GenesListForReading.Count > 0)
-			{
-				foreach (Gene item in recipient.genes?.GenesListForReading)
-				{
-					recipient.genes?.RemoveGene(item);
-				}
-			}
-			// for (int num = recipient.genes.Endogenes.Count - 1; num >= 0; num--)
-			// {
-				// recipient.genes.RemoveGene(recipient.genes.Endogenes[num]);
-			// }
-			// for (int i = 0; i < caster.genes.Endogenes.Count; i++)
-			// {
-				// recipient.genes.AddGene(caster.genes.Endogenes[i], xenogene: false);
-			// }
-			// for (int i = 0; i < caster.genes.Xenogenes.Count; i++)
-			// {
-				// recipient.genes.AddGene(caster.genes.Xenogenes[i], xenogene: true);
-			// }
-			foreach (Gene endogene in caster.genes.Endogenes)
-			{
-				recipient.genes.AddGene(endogene.def, xenogene: false);
-			}
-			foreach (Gene xenogene in caster.genes.Xenogenes)
-			{
-				recipient.genes.AddGene(xenogene.def, xenogene: true);
-			}
-			if (!caster.genes.Xenotype.soundDefOnImplant.NullOrUndefined())
-			{
-				caster.genes.Xenotype.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(recipient));
-			}
-			recipient.health.AddHediff(HediffDefOf.XenogerminationComa);
+			ReimplanterUtility.ReimplantGenesBase(caster, recipient);
 			GeneUtility.ExtractXenogerm(caster);
-			GeneUtility.UpdateXenogermReplication(recipient);
 		}
 		// public static void ClearEndogenes()
 		// {

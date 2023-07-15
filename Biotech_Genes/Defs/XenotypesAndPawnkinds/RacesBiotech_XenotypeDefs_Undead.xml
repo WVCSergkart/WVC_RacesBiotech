@@ -50,7 +50,7 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<!-- Chance that getting an additional xenotype -->
-			<subXenotypeChance>0.22</subXenotypeChance>
+			<subXenotypeChance>0.33</subXenotypeChance>
 			<!-- Sub xenotype is chosen randomly from the list. -->
 			<!-- Sub-xenotype obtained in this way does not change the name or icons. -->
 			<!-- This method is conceived as a random gene list expander, when you need to add a certain set of genes, but randomly with some chance. -->
@@ -112,6 +112,7 @@
 	<xenotypeIconDef>WVC_XenoUndead5c</xenotypeIconDef>
 	<genes>
 		<li>WVC_Dustogenic</li>
+		<li>WVC_Dustogenic_WoundHealing</li>
 		<li>WVC_Dustogenic_Ageless</li>
 		<li>WVC_Dustogenic_Metabolism</li>
 		<li>WVC_Dustogenic_MechPsylink</li>
@@ -126,12 +127,13 @@
 		<li>WVC_Wings_FeatheredWings</li>
 		<li>Aggression_HyperAggressive</li>
 		<li>WVC_SlaveSuppression_Unruly</li>
+		<li>WVC_Pain_Extra</li>
 		<li>WVC_SameBloodSameXenotype</li>
 		<li>WVC_HeadBoneHorns</li>
 		<li>Skin_SheerWhite</li>
 		<li>WVC_Learning_SlowNoSkillDecay</li>
 		<li>WVC_BodySize_Small</li>
-		<li>Hands_Human</li>
+		<li>WVC_Hands_Angel</li>
 		<li>WVC_FeatherSkin</li>
 	</genes>
   </WVC_XenotypesAndGenes.SubXenotypeDef>

@@ -115,6 +115,17 @@
 		</mods>
 		<match Class="PatchOperationSequence">
 			<operations>
+
+				<!-- <li Class="WVC.PatchOperationOptional"> -->
+					<!-- <settingName>validatorAbilitiesPatch</settingName> -->
+					<!-- <caseTrue Class="PatchOperationAdd"> -->
+					  <!-- <xpath>/Defs/ThingDef[defName="AG_GeneRemover" or defName="AG_Endogenefier" or defName="AG_Xenogenefier" or defName="AG_XenotypeNullifier" or defName="AG_XenotypeInjector" or defName="AG_GermlineMutator"]/comps</xpath> -->
+					  <!-- <value> -->
+						<!-- <li Class="WVC_XenotypesAndGenes.CompTargetable_HumanCanUseSerum"/> -->
+					  <!-- </value> -->
+					<!-- </caseTrue> -->
+				<!-- </li> -->
+
 				<li Class="PatchOperationReplace">
 					<xpath>/Defs/GeneDef[@Name="WVC_NaturalArmorBase"]/displayCategory</xpath>
 					<success>Always</success>

@@ -49,16 +49,20 @@
 
 	<Operation Class="WVC.PatchOperationOptional">
 		<settingName>validatorAbilitiesPatch</settingName>
-		<caseTrue Class="PatchOperationAdd">
-		   <!-- or defName="AG_ParasiticStinger" or defName="AG_ParasiticStingerEndogenes" -->
-		  <xpath>/Defs/AbilityDef[defName="ReimplantXenogerm" or defName="AG_InsectStinger" or defName="AG_InsectStingerEndogenes"]/comps</xpath>
-		  <!-- <success>Always</success> -->
-		  <value>
-			<li Class="WVC_XenotypesAndGenes.CompProperties_AbilityTargetValidation">
-			  <humanityCheck>true</humanityCheck>
-			  <serumsCheck>true</serumsCheck>
-			</li>
-		  </value>
+		<caseTrue Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAdd">
+				   <!-- or defName="AG_ParasiticStinger" or defName="AG_ParasiticStingerEndogenes" -->
+				  <xpath>/Defs/AbilityDef[defName="ReimplantXenogerm" or defName="AG_InsectStinger" or defName="AG_InsectStingerEndogenes"]/comps</xpath>
+				  <success>Always</success>
+				  <value>
+					<li Class="WVC_XenotypesAndGenes.CompProperties_AbilityTargetValidation">
+					  <humanityCheck>true</humanityCheck>
+					  <serumsCheck>true</serumsCheck>
+					</li>
+				  </value>
+				</li>
+			</operations>
 		</caseTrue>
 	</Operation>
 
