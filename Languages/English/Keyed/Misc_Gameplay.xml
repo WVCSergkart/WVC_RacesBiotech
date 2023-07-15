@@ -17,6 +17,8 @@
 	<WVC_RoleRequirementShouldBeMechanitor>Must be a Mechanitor</WVC_RoleRequirementShouldBeMechanitor>
 	
 	<WVC_PawnIsAndroidCheck>The target must be human and/or genetically compatible.</WVC_PawnIsAndroidCheck>
+	
+	<WVC_AbilityValidation_ReimplantationCheck>Reimplantation in progress. Wait for the process to finish before starting another one.</WVC_AbilityValidation_ReimplantationCheck>
 
 
 	<WVC_LetterTextGenesImplanted>{TARGET_nameDef} will be in a xenogermination coma for the next {COMADURATION} while {TARGET_possessive} body adjusts to the changes.</WVC_LetterTextGenesImplanted>

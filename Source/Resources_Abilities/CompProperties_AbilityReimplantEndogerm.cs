@@ -69,14 +69,14 @@ namespace WVC_XenotypesAndGenes
 				}
 				return false;
 			}
-			if (MechanoidizationUtility.PawnIsAndroid(pawn) || MechanoidizationUtility.PawnCannotUseSerums(pawn))
-			{
-				if (throwMessages)
-				{
-					Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
-				}
-				return false;
-			}
+			// if (MechanoidizationUtility.PawnIsAndroid(pawn) || MechanoidizationUtility.PawnCannotUseSerums(pawn))
+			// {
+				// if (throwMessages)
+				// {
+					// Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+				// }
+				// return false;
+			// }
 			// if (GeneUtility.SameXenotype(pawn, parent.pawn))
 			// {
 				// if (throwMessages)

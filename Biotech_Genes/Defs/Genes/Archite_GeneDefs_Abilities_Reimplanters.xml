@@ -128,6 +128,10 @@
 	<iconPath>WVC/UI/Genes/Reimplanter</iconPath>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplantEndogerm" />
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityTargetValidation">
+		<humanityCheck>true</humanityCheck>
+		<serumsCheck>true</serumsCheck>
+	  </li>
 	</comps>
   </AbilityDef>
 
@@ -180,6 +184,10 @@
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityDustCost">
 		<dustCost>0.13</dustCost>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityTargetValidation">
+		<humanityCheck>true</humanityCheck>
+		<serumsCheck>false</serumsCheck>
 	  </li>
 	</comps>
   </AbilityDef>

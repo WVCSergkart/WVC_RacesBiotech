@@ -154,6 +154,31 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		public static bool DelayedReimplanterIsActive(Pawn pawn)
+		{
+			// if (!pawn.RaceProps.Humanlike)
+			// {
+				// return true;
+			// }
+			if (pawn.health != null && pawn.health.hediffSet != null)
+			{
+				List<HediffDef> hediffDefs = new();
+				foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+				{
+					hediffDefs.AddRange(item.blackListedHediffDefForReimplanter);
+				}
+				for (int i = 0; i < hediffDefs.Count; i++)
+				{
+					if (pawn.health.hediffSet.HasHediff(hediffDefs[i]))
+					{
+						return true;
+					}
+					// return pawn.health.hediffSet.HasHediff(hediffDefs[i]);
+				}
+			}
+			return false;
+		}
+
 		// public static bool OtherHasSubCoreInstalled(Pawn other)
 		// {
 			// if (other.RaceProps.Humanlike)

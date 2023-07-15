@@ -82,6 +82,10 @@
 		<li>WVC_Dustogenic_GeneticStability</li>
 		<li MayRequire="vanillaracesexpanded.android">VREA_SyntheticBody</li>
 	</nonCandidatesForSerums>
+	<!-- Hediffs that prevent gene reimplantation. Needed as a measure of anti-bug. Any hediff defNames -->
+	<blackListedHediffDefForReimplanter>
+		<li>WVC_Dustogenic_DelayedReimplanter</li>
+	</blackListedHediffDefForReimplanter>
 	<!-- List of genes that are (exo)skins. Used for ideology. Required gene defNames -->
 	<whiteListedExoskinGenes>
 		<li>WVC_MechaSkin</li>

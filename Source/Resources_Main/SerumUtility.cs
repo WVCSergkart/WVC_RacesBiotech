@@ -24,7 +24,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool PawnCanUseSerums(Pawn pawn)
 		{
-			if (!PawnIsHuman(pawn) || MechanoidizationUtility.PawnCannotUseSerums(pawn))
+			if (!PawnIsHuman(pawn) || MechanoidizationUtility.PawnCannotUseSerums(pawn) || MechanoidizationUtility.DelayedReimplanterIsActive(pawn))
 			{
 				return false;
 			}
@@ -33,7 +33,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void HumanityCheck(Pawn pawn)
 		{
-			if (PawnCanUseSerums(pawn))
+			if (!PawnCanUseSerums(pawn))
 			{
 				pawn.health.AddHediff(WVC_GenesDefOf.WVC_IncompatibilityComa);
 				Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);

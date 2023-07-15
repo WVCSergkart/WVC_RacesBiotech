@@ -19,6 +19,7 @@ namespace WVC
 		public bool canNonPlayerPawnResurrect = false;
 		// public bool mechaskinTemperatureAdaptability;
 		public bool minWastepacksPerRecharge = false;
+		public bool validatorAbilitiesPatch = true;
 		// public bool nodeskinVX_MechBandwidth;
 		public bool enableGeneSpawnerGizmo = true;
 		// public bool enableStatSkillFactor;
@@ -50,6 +51,7 @@ namespace WVC
 			Scribe_Values.Look(ref canNonPlayerPawnResurrect, "canNonPlayerPawnResurrect", defaultValue: false);
 			// Scribe_Values.Look(ref mechaskinTemperatureAdaptability, "mechaskinTemperatureAdaptability", defaultValue: false);
 			Scribe_Values.Look(ref minWastepacksPerRecharge, "minWastepacksPerRecharge", defaultValue: false);
+			Scribe_Values.Look(ref validatorAbilitiesPatch, "validatorAbilitiesPatch", defaultValue: true);
 			// Scribe_Values.Look(ref nodeskinVX_MechBandwidth, "nodeskinVX_MechBandwidth", defaultValue: true);
 			Scribe_Values.Look(ref enableGeneSpawnerGizmo, "enableGeneSpawnerGizmo", defaultValue: true);
 			// Scribe_Values.Look(ref enableStatSkillFactor, "enableStatSkillFactor", defaultValue: true);
@@ -147,6 +149,7 @@ namespace WVC
 			// ===============
 			listingStandard.Label("WVC_BiotechSettings_Label_Other".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Other".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_minWastepacksPerRecharge".Translate(), ref settings.minWastepacksPerRecharge, "WVC_ToolTip_minWastepacksPerRecharge".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_validatorAbilitiesPatch".Translate(), ref settings.validatorAbilitiesPatch, "WVC_ToolTip_validatorAbilitiesPatch".Translate());
 			// listingStandard.CheckboxLabeled("WVC_Label_enableStatSkillFactor".Translate(), ref settings.enableStatSkillFactor, "WVC_ToolTip_enableStatSkillFactor".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes".Translate(), ref settings.serumsForAllXenotypes, "WVC_ToolTip_serumsForAllXenotypes".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenBase".Translate(), ref settings.serumsForAllXenotypes_GenBase);

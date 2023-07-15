@@ -117,6 +117,7 @@ namespace WVC_XenotypesAndGenes
 		public List<GeneDef> nonCandidatesForSerums;
 		public List<GeneDef> whiteListedExoskinGenes;
 		public List<BackstoryDef> blackListedBackstoryForChanger;
+		public List<HediffDef> blackListedHediffDefForReimplanter;
 		// public List<ThingDef> listedGolems;
 		// public List<GeneDef> gene_IsNotAcceptablePrey;
 		// public List<GeneDef> gene_IsAngelBeauty;
