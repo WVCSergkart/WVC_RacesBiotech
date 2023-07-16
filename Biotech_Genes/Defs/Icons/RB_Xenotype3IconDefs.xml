@@ -147,4 +147,9 @@
 	<texPath>WVC/UI/Mecha_Icons/Xeno_Undead_v4</texPath>
   </XenotypeIconDef>
 
+  <XenotypeIconDef>
+	<defName>WVC_XenoDustAngel0c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Gene_DustAngel_v0</texPath>
+  </XenotypeIconDef>
+
 </Defs>

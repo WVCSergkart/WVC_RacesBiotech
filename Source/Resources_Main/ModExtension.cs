@@ -93,7 +93,8 @@ namespace WVC_XenotypesAndGenes
 		// public IntRange intRange = new IntRange(1, 1);
 		public XenotypeDef xenotypeForcerDef = null;
 		public bool xenotypeIsInheritable = true;
-		// Xenotypes
+		// SubXenotypes
+		public SubXenotypeDef mainSubXenotypeDef = null;
 		public List<SubXenotypeDef> subXenotypeDefs;
 		public float subXenotypeChance = 0.1f;
 		// public bool canBeGeneratedInHybridSerums = true;

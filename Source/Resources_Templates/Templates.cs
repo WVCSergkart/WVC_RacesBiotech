@@ -220,11 +220,17 @@ namespace WVC_XenotypesAndGenes
 	{
 		public List<GeneDef> genes = new();
 
-		public bool inheritable;
+		public List<GeneDef> removeGenes = null;
+
+		public List<GeneDef> mainGenes = null;
+
+		public bool inheritable = false;
 
 		public bool overrideExistingGenes = false;
 
 		public bool ignoreExistingGenes = false;
+
+		// public bool useMainAdditionalGenes = false;
 
 		public List<GeneDef> AllGenes => genes;
 
@@ -256,6 +262,8 @@ namespace WVC_XenotypesAndGenes
 			if (!genes.NullOrEmpty())
 			{
 				yield return new StatDrawEntry(StatCategoryDefOf.Basics, "GenesAreInheritable".Translate(), inheritable.ToStringYesNo(), "GenesAreInheritableXenotypeDef".Translate(), 990);
+				yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_XaG_SubXeno_OverrideExistingGenes".Translate(), overrideExistingGenes.ToStringYesNo(), "WVC_XaG_SubXeno_OverrideExistingGenes_Desc".Translate(), 980);
+				yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_XaG_SubXeno_IgnoreExistingGenes".Translate(), ignoreExistingGenes.ToStringYesNo(), "WVC_XaG_SubXeno_IgnoreExistingGenes_Desc".Translate(), 970);
 			}
 		}
 	}

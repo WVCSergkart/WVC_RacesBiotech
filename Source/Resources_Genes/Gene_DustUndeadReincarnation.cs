@@ -12,7 +12,7 @@ using WVC_XenotypesAndGenes;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_DustReincarnation : Gene_DustDrain
+	public class Gene_DustReincarnation : Gene
 	{
 		public QuestScriptDef SummonQuest => def.GetModExtension<GeneExtension_Spawner>().summonQuest;
 		public int MinChronoAge => def.GetModExtension<GeneExtension_Spawner>().stackCount;
@@ -20,11 +20,16 @@ namespace WVC_XenotypesAndGenes
 		public override void Notify_PawnDied()
 		{
 			base.Notify_PawnDied();
-			Gene_Dust gene_Dust = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
-			if (!Active || pawn.Faction != Faction.OfPlayer || gene_Dust == null || pawn.ageTracker.AgeChronologicalYears < MinChronoAge)
+			// Gene_Dust gene_Dust = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
+			if (!Active || pawn.Faction != Faction.OfPlayer || pawn.ageTracker.AgeChronologicalYears < MinChronoAge)
 			{
 				return;
 			}
+			Reincarnate(pawn, SummonQuest);
+		}
+
+		public static void Reincarnate(Pawn pawn, QuestScriptDef summonQuest)
+		{
 			int litterSize = ((pawn.RaceProps.litterSizeCurve == null) ? 1 : Mathf.RoundToInt(Rand.ByCurve(pawn.RaceProps.litterSizeCurve)));
 			if (litterSize < 1)
 			{
@@ -32,7 +37,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			for (int i = 0; i < litterSize; i++)
 			{
-				ReincarnationQuest(pawn, SummonQuest);
+				ReincarnationQuest(pawn, summonQuest);
 			}
 		}
 

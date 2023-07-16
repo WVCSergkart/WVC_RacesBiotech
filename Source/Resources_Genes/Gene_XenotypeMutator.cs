@@ -12,6 +12,7 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		public bool geneIsXenogene = false;
+		public bool shouldAddMainGenes = true;
 
 		public XenotypeDef Xenotype => pawn.genes?.Xenotype;
 
@@ -30,7 +31,12 @@ namespace WVC_XenotypesAndGenes
 					if (Rand.Chance(modExtension.subXenotypeChance))
 					{
 						SubXenotypeDef subXenotypeDef = modExtension.subXenotypeDefs.RandomElement();
-						RandomXenotype(pawn, subXenotypeDef);
+						RandomXenotype(pawn, subXenotypeDef, Xenotype);
+					}
+					if (modExtension.mainSubXenotypeDef != null && shouldAddMainGenes)
+					{
+						SubXenotypeDef subXenotypeDef = modExtension.mainSubXenotypeDef;
+						MainXenotype(pawn, subXenotypeDef, Xenotype);
 					}
 				}
 			}
@@ -40,10 +46,19 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public void RandomXenotype(Pawn pawn, SubXenotypeDef xenotype)
+		public void RandomXenotype(Pawn pawn, SubXenotypeDef xenotype, XenotypeDef mainXenotype)
 		{
+			if (xenotype.removeGenes != null)
+			{
+				RemoveGenes(pawn, xenotype);
+			}
+			if (xenotype.mainGenes != null)
+			{
+				MainXenotype(pawn, xenotype, mainXenotype);
+				shouldAddMainGenes = false;
+			}
 			Pawn_GeneTracker genes = pawn.genes;
-			List<GeneDef> geneDefs = xenotype.AllGenes;
+			List<GeneDef> geneDefs = xenotype.genes;
 			if (xenotype.overrideExistingGenes)
 			{
 				if (!xenotype.inheritable)
@@ -71,6 +86,28 @@ namespace WVC_XenotypesAndGenes
 			if (xenotype.xenotypeIconDef != null)
 			{
 				pawn.genes.iconDef = xenotype.xenotypeIconDef;
+			}
+		}
+
+		public void MainXenotype(Pawn pawn, SubXenotypeDef xenotype, XenotypeDef mainXenotype)
+		{
+			List<GeneDef> geneDefs = xenotype.mainGenes;
+			for (int i = 0; i < geneDefs.Count; i++)
+			{
+				pawn.genes?.AddGene(geneDefs[i], !mainXenotype.inheritable);
+			}
+		}
+
+		public void RemoveGenes(Pawn pawn, SubXenotypeDef xenotype)
+		{
+			List<GeneDef> geneDefs = xenotype.removeGenes;
+			List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+			for (int i = 0; i < genesListForReading.Count; i++)
+			{
+				if (geneDefs.Contains(genesListForReading[i].def))
+				{
+					pawn.genes?.RemoveGene(genesListForReading[i]);
+				}
 			}
 		}
 

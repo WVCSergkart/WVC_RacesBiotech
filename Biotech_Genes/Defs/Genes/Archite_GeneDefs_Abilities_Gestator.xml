@@ -198,6 +198,9 @@
 	<label>immaculate conception</label>
 	<description>With a sufficient level of dust, it allows you to start the pregnancy process.</description>
 	<iconPath>WVC/UI/Genes/Gene_ImmaculateConception_v0</iconPath>
+	<verbProperties>
+	  <warmupEffecter>Berserk</warmupEffecter>
+	</verbProperties>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityDustCost">
 		<dustCost>0.43</dustCost>

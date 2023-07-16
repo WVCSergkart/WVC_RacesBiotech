@@ -31,6 +31,7 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_Dust</geneClass>
 	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Dust</resourceGizmoType>
 	<resourceLabel>dust</resourceLabel>
+	<foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
 	<resourceGizmoThresholds>
 	  <li>0.10</li>
 	  <li>0.20</li>
@@ -52,6 +53,7 @@
 	<customEffectDescriptions>
 	  <li>Gives dust supply.</li>
 	  <li>Refresh time (*DateTime)~1 day(/DateTime).</li>
+	  <!-- <li>In the presence of the &lt;color=#8a8ae6&gt;"Undead"&lt;/color&gt; gene, it gives the effect of &lt;color=#8a8ae6&gt;reincarnation&lt;/color&gt;.</li> -->
 	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>
@@ -166,9 +168,10 @@
 	<iconPath>WVC/UI/Genes/Gene_Blessedlink_v0</iconPath>
 	<!-- <iconColor>(255, 248, 133)</iconColor> -->
 	<!-- <iconColor>(173, 142, 112)</iconColor> -->
-	<biostatArc>1</biostatArc>
+	<!-- <biostatArc>1</biostatArc> -->
 	<customEffectDescriptions>
-		<li>Carriers of this gene get &lt;color=#8a8ae6&gt;mechlink&lt;/color&gt; and &lt;color=#8a8ae6&gt;psylink&lt;/color&gt; permanently.</li>
+		<!-- <li>Carriers of this gene get &lt;color=#8a8ae6&gt;mechlink&lt;/color&gt; and &lt;color=#8a8ae6&gt;psylink&lt;/color&gt; permanently.</li> -->
+		<li>Carriers of this gene get &lt;color=#8a8ae6&gt;mechlink&lt;/color&gt; permanently.</li>
 		<li>Allows you to enable or disable the automatic summoning of mechanoids every (*DateTime)8-16 days(/DateTime).</li>
 		<li>A carrier of this gene cannot craft or resurrect mechanoids.</li>
 	</customEffectDescriptions>
@@ -178,32 +181,32 @@
 	</statFactors>
 	<statOffsets>
 	  <MechControlGroups>2</MechControlGroups>
-	  <MeditationFocusGain>0.5</MeditationFocusGain>
+	  <!-- <MeditationFocusGain>0.5</MeditationFocusGain> -->
 	</statOffsets>
-	<suppressedTraits>
-	  <li>
-		<def>PsychicSensitivity</def>
-		<degree>-1</degree>
-	  </li>
-	  <li>
-		<def>PsychicSensitivity</def>
-		<degree>-2</degree>
-	  </li>
-	</suppressedTraits>
+	<!-- <suppressedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>PsychicSensitivity</def> -->
+		<!-- <degree>-1</degree> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <def>PsychicSensitivity</def> -->
+		<!-- <degree>-2</degree> -->
+	  <!-- </li> -->
+	<!-- </suppressedTraits> -->
 	<exclusionTags>
-	  <li>PsychicAbility</li>
+	  <!-- <li>PsychicAbility</li> -->
 	  <li>WVC_MechanitorNetwork</li>
 	  <li>AbilityMechlink</li>
 	  <li>Mechlink</li>
 	  <li>WVC_GeneMechlink</li>
-	  <li>Psylink</li>
-	  <li>AbilityPsylink</li>
+	  <!-- <li>Psylink</li> -->
+	  <!-- <li>AbilityPsylink</li> -->
 	</exclusionTags>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefs>
 			  <li>MechlinkImplant</li>
-			  <li MayRequire="ludeon.rimworld.royalty">PsychicAmplifier</li>
+			  <!-- <li MayRequire="ludeon.rimworld.royalty">PsychicAmplifier</li> -->
 			</hediffDefs>
 			<bodyparts>
 			  <li>Brain</li>
@@ -272,6 +275,8 @@
 	<!-- <iconColor>(173, 142, 112)</iconColor> -->
 	<displayOrderInCategory>30</displayOrderInCategory>
 	<minAgeActive>14</minAgeActive>
+	<prerequisite></prerequisite>
+	<resourceLabel></resourceLabel>
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<biostatArc>2</biostatArc>

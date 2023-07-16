@@ -201,6 +201,13 @@
 		<li><symbol>bird</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
+	<!-- <modExtensions Inherit="False"> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes> -->
+			<!-- <bodyNakedGraphicPath>WVC/Bodies/Feathered_Body</bodyNakedGraphicPath> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
 </Defs>

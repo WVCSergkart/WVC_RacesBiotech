@@ -20,6 +20,14 @@
 	
 	<WVC_AbilityValidation_ReimplantationCheck>Reimplantation in progress. Wait for the process to finish before starting another one.</WVC_AbilityValidation_ReimplantationCheck>
 
+	<!-- ====================================================================== -->
+
+	<WVC_XaG_SubXeno_OverrideExistingGenes>Rewrite xenotype</WVC_XaG_SubXeno_OverrideExistingGenes>
+	<WVC_XaG_SubXeno_OverrideExistingGenes_Desc>Does this sub-xenotype overwrite existing genes.</WVC_XaG_SubXeno_OverrideExistingGenes_Desc>
+	<WVC_XaG_SubXeno_IgnoreExistingGenes>Expand existing</WVC_XaG_SubXeno_IgnoreExistingGenes>
+	<WVC_XaG_SubXeno_IgnoreExistingGenes_Desc>Does this sub-xenotype add its own genes to the existing ones.</WVC_XaG_SubXeno_IgnoreExistingGenes_Desc>
+
+	<!-- ====================================================================== -->
 
 	<WVC_LetterTextGenesImplanted>{TARGET_nameDef} will be in a xenogermination coma for the next {COMADURATION} while {TARGET_possessive} body adjusts to the changes.</WVC_LetterTextGenesImplanted>
 

@@ -24,10 +24,10 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Base">
 	<defName>WVC_XenotypesAndGenes_SubXenotypeShapeshifter</defName>
-	<label>xenotype mutation</label>
+	<label>random sub-xenotype</label>
 	<!-- For modders only -->
 	<!-- See Resurgent xenotype as example -->
-	<description>Carriers of this gene have a chance for a critical mutation of their genes.</description>
+	<description>Carriers of this gene have a chance of random sub-xeno mutations that can greatly alter the carrier.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_XenotypeShapeshifter</geneClass>
 	<selectionWeight>0.0</selectionWeight>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
@@ -67,8 +67,9 @@
 	  <li>After resurrection, the carrier of the gene loses 5 years of life, backstory, all non-blood relations and all experience in skills.</li>
 	  <li>The minimum age to which the carrier can roll back is 14 years. If the carrier does not have enough age, then death is not reversible.</li>
 	  <li>The gene has no effect if the carrier has the deathless gene.</li>
-	  <!-- <li>The gene has a 25% chance to fail. For every 10 complexity, the chance increases by 5. With the presence of archite genes, the chance is 100%. With the Deathless gene, the chance is 0%.</li> -->
-	  <li>If the "resurgent" gene is present, instead of age, the resource of the gene will be spent. Also, the carrier will not receive penalties for resurrection.</li>
+	  <!-- <li>Conditions under which the standard effect does not work:</li> -->
+	  <li>In the presence of the &lt;color=#8a8ae6&gt;"Dustogenic"&lt;/color&gt; gene, it gives the effect of &lt;color=#8a8ae6&gt;reincarnation&lt;/color&gt;. Disables non-resurgent resurrection.</li>
+	  <li>If the &lt;color=#8a8ae6&gt;"Resurgent"&lt;/color&gt; gene is present, instead of age, the resource of the gene will be spent. Also, the carrier will not receive penalties for resurrection.</li>
 	  <li>Requires 37 resurgent cells.</li>
 	</customEffectDescriptions>
 	<symbolPack>
@@ -99,9 +100,11 @@
 			  <!-- <li>Torso</li> -->
 			<!-- </bodyparts> -->
 		</li>
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner"> -->
-			<!-- <summonQuest>WVC_Resurgent_QuestUndeadResurrect</summonQuest> -->
-		<!-- </li> -->
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<summonQuest>WVC_Dustogenic_QuestUndeadReincarnation</summonQuest>
+			<!-- In the context of reincarnation, this line is responsible for the minimum chrono age. -->
+			<stackCount>40</stackCount>
+		</li>
 	</modExtensions>
   </GeneDef>
 
@@ -120,7 +123,7 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Undead">
 	<defName>WVC_NaturalUndead</defName>
-	<label>natural undead</label>
+	<label>undead</label>
 	<displayOrderInCategory>1271</displayOrderInCategory>
 	<iconColor>(93, 101, 126)</iconColor>
 	<biostatCpx>7</biostatCpx>

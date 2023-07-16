@@ -29,19 +29,17 @@ namespace WVC_XenotypesAndGenes
 		// public List<BodyPartDef> Bodyparts => def.GetModExtension<GeneExtension_Giver>().bodyparts;
 
 		public Gene_ResurgentCells Gene_ResurgentCells => pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
+		public Gene_Dust Gene_Dust => pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
+
+		// public Gene_DustReincarnation gene_DustReincarnation;
+		public QuestScriptDef SummonQuest => def.GetModExtension<GeneExtension_Spawner>().summonQuest;
+		public int MinChronoAge => def.GetModExtension<GeneExtension_Spawner>().stackCount;
 
 		public bool PawnCanResurrect => CanResurrect();
 
 		public override void Notify_PawnDied()
 		{
 			base.Notify_PawnDied();
-			// It's not certain that Active check will work, since in some cases vanilla simply ignores the state of the gene.
-			// With the help of HasGene, we will try to prevent a possible bug associated with incorrect resurrection and subsequent shit
-			// if (!Active || Overridden || pawn.genes.HasGene(GeneDefOf.Deathless))
-			// {
-				// return;
-			// }
-			// Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
 			if (!CanResurrect())
 			{
 				return;
@@ -50,41 +48,47 @@ namespace WVC_XenotypesAndGenes
 			{
 				Gene_ResurgentCells.Value -= def.resourceLossPerDay;
 				UndeadUtility.Resurrect(pawn);
-				// return;
 			}
-			else if (CorrectAge())
+			if (DustogenicCanReincarnate())
+			{
+				Gene_DustReincarnation.Reincarnate(pawn, SummonQuest);
+			}
+			if (CorrectAge() && !PawnHasAnyResourceGene())
 			{
 				UndeadUtility.ResurrectWithPenalties(pawn, Limit, Penalty, ChildBackstoryDef, AdultBackstoryDef, penaltyYears);
 			}
-			// int penalty = (int)(oneYear * penaltyYears);
-			// long limit = (long)(oneYear * minAge);
-			// float currentAge = pawn.ageTracker.AgeBiologicalTicks;
-			// if ((currentAge - penalty) > limit)
-			// {
-			// }
-			// pawn.ageTracker.ResetAgeReversalDemand(Pawn_AgeTracker.AgeReversalReason.ViaTreatment);
-			// int num2 = (int)(pawn.ageTracker.AgeReversalDemandedDeadlineTicks / 60000);
-			// string text = "BiosculpterAgeReversalCompletedMessage".Translate(pawn.Named("PAWN"));
-			// Ideo ideo = pawn.Ideo;
-			// if (ideo != null && ideo.HasPrecept(PreceptDefOf.AgeReversal_Demanded))
-			// {
-				// text += " " + "AgeReversalExpectationDeadline".Translate(pawn.Named("PAWN"), num2.Named("DEADLINE"));
-			// }
-			// Messages.Message(text, pawn, MessageTypeDefOf.PositiveEvent);
 		}
 
-		//For ShouldSendNotificationAbout check
+		//For checks
 		private bool CanResurrect()
 		{
 			if (!Active || Overridden || pawn.genes.HasGene(GeneDefOf.Deathless) || (!pawn.IsColonist && !WVC_Biotech.settings.canNonPlayerPawnResurrect))
 			{
 				return false;
 			}
-			if (EnoughResurgentCells())
+			if (PawnHasAnyResourceGene())
 			{
 				return true;
 			}
 			else if (CorrectAge())
+			{
+				return true;
+			}
+			return false;
+		}
+
+		private bool PawnHasAnyResourceGene()
+		{
+			if (EnoughResurgentCells() || DustogenicCanReincarnate())
+			{
+				return true;
+			}
+			return false;
+		}
+
+		private bool DustogenicCanReincarnate()
+		{
+			if (Gene_Dust != null && pawn.ageTracker.AgeChronologicalYears > MinChronoAge)
 			{
 				return true;
 			}
