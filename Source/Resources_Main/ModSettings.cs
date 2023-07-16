@@ -17,6 +17,7 @@ namespace WVC
 		public bool generateSkillGenes = true;
 		public bool generateXenotypeForceGenes = true;
 		public bool canNonPlayerPawnResurrect = false;
+		public bool allowShapeshiftAfterDeath = true;
 		// public bool mechaskinTemperatureAdaptability;
 		public bool minWastepacksPerRecharge = false;
 		public bool validatorAbilitiesPatch = true;
@@ -49,6 +50,7 @@ namespace WVC
 			Scribe_Values.Look(ref generateSkillGenes, "generateSkillGenes", defaultValue: true);
 			Scribe_Values.Look(ref generateXenotypeForceGenes, "generateXenotypeForceGenes", defaultValue: true);
 			Scribe_Values.Look(ref canNonPlayerPawnResurrect, "canNonPlayerPawnResurrect", defaultValue: false);
+			Scribe_Values.Look(ref allowShapeshiftAfterDeath, "allowShapeshiftAfterDeath", defaultValue: true);
 			// Scribe_Values.Look(ref mechaskinTemperatureAdaptability, "mechaskinTemperatureAdaptability", defaultValue: false);
 			Scribe_Values.Look(ref minWastepacksPerRecharge, "minWastepacksPerRecharge", defaultValue: false);
 			Scribe_Values.Look(ref validatorAbilitiesPatch, "validatorAbilitiesPatch", defaultValue: true);
@@ -139,6 +141,7 @@ namespace WVC
 			listingStandard.CheckboxLabeled("WVC_Label_generateSkillGenes".Translate(), ref settings.generateSkillGenes, "WVC_ToolTip_generateTemplateGenes".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_generateXenotypeForceGenes".Translate(), ref settings.generateXenotypeForceGenes, "WVC_ToolTip_generateTemplateGenes".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_canNonPlayerPawnResurrect".Translate(), ref settings.canNonPlayerPawnResurrect, "WVC_ToolTip_canNonPlayerPawnResurrect".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_allowShapeshiftAfterDeath".Translate(), ref settings.allowShapeshiftAfterDeath, "WVC_ToolTip_allowShapeshiftAfterDeath".Translate());
 			// listingStandard.CheckboxLabeled("WVC_Label_mechaskinTemperatureAdaptability".Translate(), ref settings.mechaskinTemperatureAdaptability, "WVC_ToolTip_mechaskinTemperatureAdaptability".Translate());
 			// listingStandard.CheckboxLabeled("WVC_Label_nodeskinVX_MechBandwidth".Translate(), ref settings.nodeskinVX_MechBandwidth, "WVC_ToolTip_nodeskinVX_MechBandwidth".Translate());
 			// listingStandard.CheckboxLabeled("WVC_Label_canMechaskinBePredatorPrey".Translate(), ref settings.canMechaskinBePredatorPrey, "WVC_ToolTip_canMechaskinBePredatorPrey".Translate());

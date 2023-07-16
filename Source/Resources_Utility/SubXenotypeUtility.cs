@@ -19,17 +19,20 @@ namespace WVC_XenotypesAndGenes
 
 		public static void XenotypeShapeshifter(Pawn pawn)
 		{
-			XenotypeDef xenotype = pawn.genes?.Xenotype;
-			if (xenotype != null)
+			if (WVC_Biotech.settings.allowShapeshiftAfterDeath)
 			{
-				XenotypeExtension_SubXenotype modExtension = xenotype.GetModExtension<XenotypeExtension_SubXenotype>();
-				if (modExtension != null && modExtension.xenotypeCanShapeshiftOnDeath)
+				XenotypeDef xenotype = pawn.genes?.Xenotype;
+				if (xenotype != null)
 				{
-					if (TestXenotype(pawn))
+					XenotypeExtension_SubXenotype modExtension = xenotype.GetModExtension<XenotypeExtension_SubXenotype>();
+					if (modExtension != null && modExtension.xenotypeCanShapeshiftOnDeath)
 					{
-						// List<Gene> genesListForReading = pawn.genes.GenesListForReading;
-						RemoveRandomGenes(pawn);
-						pawn.genes?.AddGene(WVC_GenesDefOf.WVC_XenotypesAndGenes_SubXenotypeShapeshifter, !xenotype.inheritable);
+						if (TestXenotype(pawn))
+						{
+							// List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+							RemoveRandomGenes(pawn);
+							pawn.genes?.AddGene(WVC_GenesDefOf.WVC_XenotypesAndGenes_SubXenotypeShapeshifter, !xenotype.inheritable);
+						}
 					}
 				}
 			}
@@ -58,7 +61,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool TestXenotype_TestGene(GeneDef geneDef)
 		{
-			if (!GeneIsRandom(geneDef) && geneDef != WVC_GenesDefOf.WVC_XenotypesAndGenes_SubXenotypeShapeshifter && !geneDef.defName.Contains("Skin_Melanin") && !geneDef.passOnDirectly)
+			if (!GeneIsRandom(geneDef) && geneDef.geneClass != typeof(Gene_XenotypeShapeshifter) && !geneDef.defName.Contains("Skin_Melanin") && !geneDef.passOnDirectly)
 			{
 				return true;
 			}

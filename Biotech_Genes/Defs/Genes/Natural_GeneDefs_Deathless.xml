@@ -20,33 +20,6 @@
 	</modExtensions>
   </GeneDef>
 
-  <!-- ============ -->
-
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Base">
-	<defName>WVC_XenotypesAndGenes_SubXenotypeShapeshifter</defName>
-	<label>random sub-xenotype</label>
-	<!-- For modders only -->
-	<!-- See Resurgent xenotype as example -->
-	<description>Carriers of this gene have a chance of random sub-xeno mutations that can greatly alter the carrier.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_XenotypeShapeshifter</geneClass>
-	<selectionWeight>0.0</selectionWeight>
-	<canGenerateInGeneSet>false</canGenerateInGeneSet>
-	<biostatCpx>0</biostatCpx>
-	<biostatMet>0</biostatMet>
-	<biostatArc>1</biostatArc>
-	<displayOrderInCategory>-500</displayOrderInCategory>
-	<modExtensions Inherit="False">
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-			<hideGene>true</hideGene>
-		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
-		</li>
-	</modExtensions>
-  </GeneDef>
-
   <!-- ================================================================== -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Base" Name="WVC_XenotypesAndGenes_GeneDeathless_Undead" Abstract="True">
