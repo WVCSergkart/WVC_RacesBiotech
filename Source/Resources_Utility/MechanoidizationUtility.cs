@@ -393,6 +393,34 @@ namespace WVC_XenotypesAndGenes
 			// return false;
 		// }
 
+		// public static bool PawnXenotypeIsModified(Pawn pawn)
+		// {
+			// if (pawn?.genes == null)
+			// {
+				// return true;
+			// }
+			// List<XenotypeDef> pawnXenotype = pawn.genes?.Xenotype;
+			// if (pawnXenotype == null)
+			// {
+				// return true;
+			// }
+			// XenotypeExtension_SubXenotype modExtension = pawnXenotype.GetModExtension<XenotypeExtension_SubXenotype>();
+			// if (modExtension == null)
+			// {
+				// return true;
+			// }
+			// List<GeneDef> pawnXenotypeGenes = pawnXenotype.genes;
+			// List<GeneDef> pawnGenes = pawn.genes?.GenesListForReading;
+			// for (int i = 0; i < pawnGenes.Count; i++)
+			// {
+				// if (pawnGenes[i].Contains(pawnXenotypeGenes))
+				// {
+					// return true;
+				// }
+			// }
+			// return false;
+		// }
+
 		// ===============================================================
 
 		// public static float Archites(Pawn pawn)

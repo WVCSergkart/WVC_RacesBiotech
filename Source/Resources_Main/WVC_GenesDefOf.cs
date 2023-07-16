@@ -39,6 +39,7 @@ namespace WVC_XenotypesAndGenes
 		// Misc
 		public static GeneDef WVC_MechaAI_SoftwareNaturalEnemy;
 		// public static GeneDef WVC_Dustogenic_AngelBeauty;
+		public static GeneDef WVC_XenotypesAndGenes_SubXenotypeShapeshifter;
 		// Immortal combo
 		// public static GeneDef TotalHealing;
 		// public static GeneDef PerfectImmunity;

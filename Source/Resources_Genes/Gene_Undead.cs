@@ -44,16 +44,19 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
+			bool canResurrectBasic = true;
+			if (DustogenicCanReincarnate())
+			{
+				Gene_DustReincarnation.Reincarnate(pawn, SummonQuest);
+				canResurrectBasic = false;
+			}
 			if (EnoughResurgentCells())
 			{
 				Gene_ResurgentCells.Value -= def.resourceLossPerDay;
 				UndeadUtility.Resurrect(pawn);
+				canResurrectBasic = false;
 			}
-			if (DustogenicCanReincarnate())
-			{
-				Gene_DustReincarnation.Reincarnate(pawn, SummonQuest);
-			}
-			if (CorrectAge() && !PawnHasAnyResourceGene())
+			if (CorrectAge() && canResurrectBasic)
 			{
 				UndeadUtility.ResurrectWithPenalties(pawn, Limit, Penalty, ChildBackstoryDef, AdultBackstoryDef, penaltyYears);
 			}

@@ -66,6 +66,7 @@ namespace WVC_XenotypesAndGenes
 			// {
 				// letterStack.RemoveLetter(dismissibleLetters.First());
 			// }
+			SubXenotypeUtility.XenotypeShapeshifter(pawn);
 			if (PawnUtility.ShouldSendNotificationAbout(pawn))
 			{
 				Find.LetterStack.ReceiveLetter("WVC_LetterLabelSecondChance_GeneUndead".Translate(), "WVC_LetterTextSecondChance_GeneUndead".Translate(pawn.Named("TARGET"), penaltyYears.Named("COMADURATION")), LetterDefOf.NeutralEvent, new LookTargets(pawn));
@@ -76,6 +77,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			ResurrectionUtility.Resurrect(pawn);
 			pawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
+			// SubXenotypeUtility.XenotypeShapeshifter(pawn);
 			if (PawnUtility.ShouldSendNotificationAbout(pawn))
 			{
 				Find.LetterStack.ReceiveLetter("WVC_LetterLabelSecondChance_GeneUndead".Translate(), "WVC_LetterTextSecondChance_GeneUndeadResurgent".Translate(pawn.Named("TARGET")), LetterDefOf.NeutralEvent, new LookTargets(pawn));

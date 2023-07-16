@@ -135,6 +135,7 @@
     <Compile Include="Resources_Utility\MechanoidizationUtility.cs" />
     <Compile Include="Resources_Main\ModExtension.cs" />
     <Compile Include="Resources_Utility\SerumUtility.cs" />
+    <Compile Include="Resources_Utility\SubXenotypeUtility.cs" />
     <Compile Include="Resources_Utility\UndeadUtility.cs" />
     <Compile Include="Resources_Main\WVC_GenesDefOf.cs" />
     <Compile Include="Resources_Utility\XenotypeFilterUtility.cs" />

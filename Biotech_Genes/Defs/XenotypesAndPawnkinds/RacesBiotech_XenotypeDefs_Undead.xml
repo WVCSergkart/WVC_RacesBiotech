@@ -7,7 +7,9 @@
 	<!-- undead necrokind necrokin necromantic -->
 	<label>undead</label>
 	<!-- Experiments, eternal youth, critical failure, side effect -->
-	<description>Undeads are partially immortal, rapidly aging xeno-humans. Their genes are quite unstable and often their health can cause death, their bodies are very fragile, which is why even a fist fight can be fatal for them. In compensation, they can reanimate the dead by turning them into their own kind, and death is not always the end for them.</description>
+	<description>Undeads are partially immortal, rapidly aging xeno-humans. Their genes are quite unstable and often their health can cause death, their bodies are very fragile, which is why even a fist fight can be fatal for them. In compensation, they can reanimate the dead by turning them into their own kind, and death is not always the end for them.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; A xenotype, when generated or resurrected by the "Undead" gene, can receive an alternative set of genes. This only works if the xenotype has not acquired one of its sub-xenotypes and/or has not been modified.</description>
 	<descriptionShort>Undeads are partially immortal, rapidly aging xeno-humans. Their genes are quite unstable and often their health can cause death, their bodies are very fragile, which is why even a fist fight can be fatal for them. In compensation, they can reanimate the dead by turning them into their own kind, and death is not always the end for them.</descriptionShort>
 	<canGenerateAsCombatant>true</canGenerateAsCombatant>
 	<iconPath>WVC/UI/Mecha_Icons/Xeno_Undead_v0</iconPath>
@@ -48,11 +50,12 @@
 		<li>WVC_XenotypesAndGenes_SubXenotypeShapeshifter</li>
 	</genes>
 	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+		<li Class="WVC_XenotypesAndGenes.XenotypeExtension_SubXenotype">
 			<!-- Chance that getting an additional xenotype -->
 			<subXenotypeChance>0.33</subXenotypeChance>
 			<!-- Sub xenotype is chosen randomly from the list. -->
-			<!-- Sub-xenotype obtained in this way does not change the name or icons. -->
+			<!-- Sub-xenotype obtained in this way does not change the name. -->
+			<!-- The name of the xenotype does not change. If change it, then the xenotype will be marked as custom and the hyperlink will stop working. -->
 			<!-- This method is conceived as a random gene list expander, when you need to add a certain set of genes, but randomly with some chance. -->
 			<subXenotypeDefs>
 				<li>WVC_Resurgent</li>
@@ -60,11 +63,13 @@
 			</subXenotypeDefs>
 			<!-- mainSubXenotypeDef allows you to specify which genes will be added if none of the sub-xenotypes has been selected. -->
 			<mainSubXenotypeDef>WVC_Resurgent</mainSubXenotypeDef>
+			<!-- Affects whether xenotype genes change in some cases upon death. For example the "Undead" gene. -->
+			<xenotypeCanShapeshiftOnDeath>true</xenotypeCanShapeshiftOnDeath>
 		</li>
 	</modExtensions>
   </XenotypeDef>
 
-  <!-- s -->
+  <!-- It is only needed to add random genes if a sub xenotype is not selected. -->
   <WVC_XenotypesAndGenes.SubXenotypeDef>
 	<defName>WVC_MainUndead</defName>
 	<!-- mainGenes are always added to the genes of the main xenotype. -->
@@ -82,14 +87,13 @@
    <!-- Resurgents will work differently. Instead of being a full-fledged xenotype, they will receive randomly as an undead sub-xenotype. -->
   <WVC_XenotypesAndGenes.SubXenotypeDef>
 	<defName>WVC_Resurgent</defName>
-	<!-- The name of the xenotype does not change. If change it, then the xenotype will be marked as custom and the hyperlink will stop working. -->
 	<label>resurgent</label>
 	<description>Resurgents are a undead sub-xenotype, powered by archotech-created archites in the bloodstream. Resurgents always have the genes of undead xenotype. They are fragile and dependent on resurgent cells. They can regrow lost limbs, never age, and their wounds can close almost instantly. However, their immune system, stomach, blood, disease resistance, their entire body is dependent on these cells. And if the level of the cells is too low, they lose almost all of their special abilities.</description>
 	<inheritable>false</inheritable>
 	<!-- In case the genes need to be added to an already existing set, and not separately. -->
 	<ignoreExistingGenes>false</ignoreExistingGenes>
 	<!-- In case you need to remove existing genes and replace them with new ones. Combined with inheritable. -->
-	<!-- This method will work very poorly with hybrid serums, so it is recommended to include such a xenotype in the exceptions for serums. -->
+	<!-- This method will work very bad with hybrid serums, so it is recommended to include such a xenotype in the exceptions for serums. -->
 	<overrideExistingGenes>false</overrideExistingGenes>
 	<!-- If present, it replaces the icon. -->
 	<xenotypeIconDef>WVC_XenoUndead2c</xenotypeIconDef>

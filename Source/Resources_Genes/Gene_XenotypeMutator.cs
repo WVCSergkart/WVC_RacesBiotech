@@ -25,7 +25,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (Xenotype != null)
 			{
-				GeneExtension_Giver modExtension = Xenotype.GetModExtension<GeneExtension_Giver>();
+				XenotypeExtension_SubXenotype modExtension = Xenotype.GetModExtension<XenotypeExtension_SubXenotype>();
 				if (modExtension != null)
 				{
 					if (Rand.Chance(modExtension.subXenotypeChance))
@@ -48,6 +48,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void RandomXenotype(Pawn pawn, SubXenotypeDef xenotype, XenotypeDef mainXenotype)
 		{
+			shouldAddMainGenes = false;
 			if (xenotype.removeGenes != null)
 			{
 				RemoveGenes(pawn, xenotype);
@@ -55,7 +56,6 @@ namespace WVC_XenotypesAndGenes
 			if (xenotype.mainGenes != null)
 			{
 				MainXenotype(pawn, xenotype, mainXenotype);
-				shouldAddMainGenes = false;
 			}
 			Pawn_GeneTracker genes = pawn.genes;
 			List<GeneDef> geneDefs = xenotype.genes;
