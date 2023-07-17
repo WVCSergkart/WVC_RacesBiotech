@@ -57,7 +57,7 @@ namespace WVC_XenotypesAndGenes
 					// gene_Deathless.lastSkillReductionTick = Find.TickManager.TicksGame;
 				}
 			}
-			pawn.relations.ClearAllNonBloodRelations();
+			// pawn.relations.ClearAllNonBloodRelations();
 			// Pretty dumb and lazy solution
 			// LetterStack letterStack = Find.LetterStack;
 			// List<Letter> dismissibleLetters = letterStack.LettersListForReading.Where((Letter x) => x.CanDismissWithRightClick).ToList();

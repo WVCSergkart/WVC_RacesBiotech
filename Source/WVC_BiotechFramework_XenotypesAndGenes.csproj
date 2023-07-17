@@ -68,7 +68,6 @@
     <Compile Include="Resources_Abilities\CompAbilityEffect_Spawn.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_TargetValid.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityDustCost.cs" />
-    <Compile Include="Resources_Abilities\CompProperties_AbilityGeneIsActive.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityResurgentCost.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityRiseFromTheDead.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilitySpawn.cs" />

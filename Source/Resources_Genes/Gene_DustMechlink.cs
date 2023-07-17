@@ -22,7 +22,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostAdd();
 			ResetInterval();
-			if (pawn.Faction == Faction.OfPlayer)
+			if (pawn.Faction != null && pawn.Faction == Faction.OfPlayer)
 			{
 				summonMechanoids = true;
 			}

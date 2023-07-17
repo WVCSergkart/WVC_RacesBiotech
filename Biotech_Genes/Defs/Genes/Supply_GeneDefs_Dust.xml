@@ -108,6 +108,11 @@
 	<exclusionTags>
 	  <li>WoundHealingRate</li>
 	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>hydra</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
@@ -136,6 +141,11 @@
 	<exclusionTags>
 	  <li>WVC_Ageless</li>
 	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>young</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
@@ -202,6 +212,12 @@
 	  <!-- <li>Psylink</li> -->
 	  <!-- <li>AbilityPsylink</li> -->
 	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>mecha</symbol></li>
+		<li><symbol>nitor</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefs>
@@ -258,6 +274,14 @@
 	  <li>Beauty</li>
 	  <!-- <li>PsychicAbility</li> -->
 	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>angel</symbol></li>
+		<li><symbol>beauty</symbol></li>
+		<li><symbol>cute</symbol></li>
+		<li><symbol>deity</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
 			<geneIsAngelBeauty>true</geneIsAngelBeauty>
@@ -274,7 +298,7 @@
 	<!-- <iconColor>(255, 248, 133)</iconColor> -->
 	<!-- <iconColor>(173, 142, 112)</iconColor> -->
 	<displayOrderInCategory>30</displayOrderInCategory>
-	<minAgeActive>14</minAgeActive>
+	<minAgeActive>13</minAgeActive>
 	<prerequisite></prerequisite>
 	<resourceLabel></resourceLabel>
 	<biostatCpx>3</biostatCpx>
@@ -288,6 +312,11 @@
 	<exclusionTags>
 	  <li>WVC_XenotypesAndGenes_GeneDeathless_Undead</li>
 	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>rein</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
 			<summonQuest>WVC_Dustogenic_QuestUndeadReincarnation</summonQuest>
@@ -345,7 +374,7 @@
 	<iconPath>WVC/UI/Genes/Gene_ImmaculateConception_v0</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
 	<displayOrderInCategory>40</displayOrderInCategory>
-	<minAgeActive>14</minAgeActive>
+	<minAgeActive>13</minAgeActive>
 	<sterilize>true</sterilize>
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>0</biostatMet>
@@ -366,6 +395,11 @@
 		<li>AG_Gestation</li>
 		<li>AG_Fertility</li>
 	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>bless</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustGenetic">
@@ -389,6 +423,11 @@
 	  <!-- <li>WoundHealingRate</li> -->
 	  <li>SuperClotting</li>
 	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>bleed</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
   </GeneDef>
 
 </Defs>

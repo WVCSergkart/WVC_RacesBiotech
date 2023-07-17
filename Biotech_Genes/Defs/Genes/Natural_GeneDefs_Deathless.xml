@@ -37,13 +37,13 @@
 	<customEffectDescriptions>
 	  <!-- <li>Can only die from destruction of brain.</li> -->
 	  <li>In the event of death, the carrier is resurrected completely healthy and without damage.</li>
-	  <li>After resurrection, the carrier of the gene loses 5 years of life, backstory, all non-blood relations and all experience in skills.</li>
+	  <li>After resurrection, the carrier of the gene loses 5 years of life, backstory and all experience in skills.</li>
 	  <li>The minimum age to which the carrier can roll back is 14 years. If the carrier does not have enough age, then death is not reversible.</li>
-	  <li>The gene has no effect if the carrier has the deathless gene.</li>
+	  <li>If the &lt;color=#8a8ae6&gt;"Resurgent"&lt;/color&gt; gene is present, instead of age, the resource of the gene will be spent. Also, the carrier will not receive penalties for resurrection. Requires &lt;color=#8a8ae6&gt;37 resurgent cells&lt;/color&gt;.</li>
 	  <!-- <li>Conditions under which the standard effect does not work:</li> -->
 	  <li>In the presence of the &lt;color=#8a8ae6&gt;"Dustogenic"&lt;/color&gt; gene, it gives the effect of &lt;color=#8a8ae6&gt;reincarnation&lt;/color&gt;. Disables non-resurgent resurrection.</li>
-	  <li>If the &lt;color=#8a8ae6&gt;"Resurgent"&lt;/color&gt; gene is present, instead of age, the resource of the gene will be spent. Also, the carrier will not receive penalties for resurrection.</li>
-	  <li>Requires 37 resurgent cells.</li>
+	  <li>&lt;color=#8a8ae6&gt;Reincarnation&lt;/color&gt; - In case of death, a pawn will be summoned, which is a descendant of the deceased. The effect will not work if the chronological age of the pawn is less than 40.</li>
+	  <li>The gene has no effects if the carrier has the deathless gene.</li>
 	</customEffectDescriptions>
 	<symbolPack>
 	  <wholeNameSymbols>

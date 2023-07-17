@@ -62,7 +62,7 @@
 				<li>WVC_DustAngel</li>
 			</subXenotypeDefs>
 			<!-- mainSubXenotypeDef allows you to specify which genes will be added if none of the sub-xenotypes has been selected. -->
-			<mainSubXenotypeDef>WVC_Resurgent</mainSubXenotypeDef>
+			<mainSubXenotypeDef>WVC_MainUndead</mainSubXenotypeDef>
 			<!-- Affects whether xenotype genes change in some cases upon death. For example the "Undead" gene. -->
 			<xenotypeCanShapeshiftOnDeath>true</xenotypeCanShapeshiftOnDeath>
 		</li>
@@ -123,11 +123,15 @@
 		<li>WVC_RandomLearning</li>
 		<li>WVC_RandomHands</li>
 		<li>WVC_RandomWoundHealing</li>
-		<li>WVC_RandomImmunity</li>
+		<!-- <li>WVC_RandomImmunity</li> -->
 		<li>WVC_RandomMetabolism</li>
-		<li>WVC_RandomMoveSpeed</li>
+		<!-- <li>WVC_RandomMoveSpeed</li> -->
 		<li>WVC_RandomPsychicAbility</li>
 	</mainGenes>
+	<removeGenes>
+		<li>WVC_MildGeneticInstability</li>
+		<li>WVC_Fragile</li>
+	</removeGenes>
   </WVC_XenotypesAndGenes.SubXenotypeDef>
 
   <!-- Still in BETA -->

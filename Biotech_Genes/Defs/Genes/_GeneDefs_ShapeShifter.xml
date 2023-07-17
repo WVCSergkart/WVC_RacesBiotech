@@ -1,20 +1,36 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneXenotypeForcer_Base">
 	<defName>WVC_XenotypesAndGenes_SubXenotypeShapeshifter</defName>
-	<label>random sub-xenotype</label>
+	<!-- <label>random sub-xenotype</label> -->
+	<label>genetic shapeshifter</label>
 	<!-- For modders only -->
 	<!-- This gene is just an initializer. -->
 	<!-- See Undead xenotype as example -->
 	<description>Carriers of this gene have a chance of random sub-xeno mutations that can greatly alter the carrier.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_XenotypeShapeshifter</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_ShapeShifter_v0</iconPath>
 	<selectionWeight>0.0</selectionWeight>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
-	<biostatCpx>0</biostatCpx>
+	<biostatCpx>6</biostatCpx>
 	<biostatMet>0</biostatMet>
-	<biostatArc>1</biostatArc>
-	<displayOrderInCategory>-500</displayOrderInCategory>
+	<biostatArc>3</biostatArc>
+	<!-- <customEffectDescriptions Inherit="False"> -->
+	  <!-- <li>Has a chance to significantly alter the owner's gene set. Triggered by generation, undead resurrection and gene reimplantation.</li> -->
+	  <!-- <li>&lt;color=#ff8585&gt;Cannot spawn in genepacks.&lt;/color&gt;</li> -->
+	  <!-- <li>&lt;color=#ff8585&gt;For modders only.&lt;/color&gt;</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <customEffectDescriptions> -->
+	  <!-- <li>Has a chance to significantly alter the owner's gene set. Triggered by generation, undead resurrection and gene reimplantation.</li> -->
+	  <!-- <li>&lt;color=#ff8585&gt;For modders only.&lt;/color&gt;</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <displayOrderInCategory>-500</displayOrderInCategory> -->
+	<!-- <displayOrderInCategory>1255</displayOrderInCategory> -->
+	<displayOrderInCategory>99999</displayOrderInCategory>
+	<!-- <exclusionTags Inherit="False"> -->
+	  <!-- <li>WVC_GeneticInstabilityGenes</li> -->
+	<!-- </exclusionTags> -->
 	<modExtensions Inherit="False">
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
