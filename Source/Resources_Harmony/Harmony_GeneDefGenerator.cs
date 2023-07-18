@@ -14,41 +14,45 @@ using WVC_XenotypesAndGenes;
 
 namespace WVC_XenotypesAndGenes
 {
-
-	[HarmonyPatch(typeof(GeneDefGenerator), "ImpliedGeneDefs")]
-	public static class WVC_Genes_GeneDefGenerator_ImpliedGeneDefs_Patch
+	namespace HarmonyPatches
 	{
-		[HarmonyPostfix]
-		public static IEnumerable<GeneDef> Postfix(IEnumerable<GeneDef> values)
+
+		[HarmonyPatch(typeof(GeneDefGenerator), "ImpliedGeneDefs")]
+		public static class WVC_Genes_GeneDefGenerator_ImpliedGeneDefs_Patch
 		{
-			List<GeneDef> geneDefList = values.ToList();
-			if (WVC_Biotech.settings.generateSkillGenes)
+			[HarmonyPostfix]
+			public static IEnumerable<GeneDef> Postfix(IEnumerable<GeneDef> values)
 			{
-				foreach (SkillsGeneTemplateDef template in DefDatabase<SkillsGeneTemplateDef>.AllDefsListForReading)
+				List<GeneDef> geneDefList = values.ToList();
+				if (WVC_Biotech.settings.generateSkillGenes)
 				{
-					List<SkillDef> skillDefs = DefDatabase<SkillDef>.AllDefsListForReading;
-					foreach (SkillDef skillDef in skillDefs)
+					foreach (SkillsGeneTemplateDef template in DefDatabase<SkillsGeneTemplateDef>.AllDefsListForReading)
 					{
-						geneDefList.Add(TemplatesUtility.GetFromTemplate_Skills(template, skillDef, skillDef.index * 1000));
+						List<SkillDef> skillDefs = DefDatabase<SkillDef>.AllDefsListForReading;
+						foreach (SkillDef skillDef in skillDefs)
+						{
+							geneDefList.Add(TemplatesUtility.GetFromTemplate_Skills(template, skillDef, skillDef.index * 1000));
+						}
 					}
 				}
-			}
-			foreach (InheritableImmuneGeneTemplateDef template in DefDatabase<InheritableImmuneGeneTemplateDef>.AllDefsListForReading)
-			{
-				geneDefList.Add(TemplatesUtility.GetFromTemplate_InheritableImmune(template));
-			}
-			if (WVC_Biotech.settings.generateXenotypeForceGenes)
-			{
-				foreach (XenotypeForcerGeneTemplateDef template in DefDatabase<XenotypeForcerGeneTemplateDef>.AllDefsListForReading)
+				foreach (InheritableImmuneGeneTemplateDef template in DefDatabase<InheritableImmuneGeneTemplateDef>.AllDefsListForReading)
 				{
-					foreach (XenotypeDef allDef in XenotypeFilterUtility.WhiteListedXenotypes(true, true))
+					geneDefList.Add(TemplatesUtility.GetFromTemplate_InheritableImmune(template));
+				}
+				if (WVC_Biotech.settings.generateXenotypeForceGenes)
+				{
+					foreach (XenotypeForcerGeneTemplateDef template in DefDatabase<XenotypeForcerGeneTemplateDef>.AllDefsListForReading)
 					{
-						geneDefList.Add(TemplatesUtility.GetFromTemplate_XenotypeForcer(template, allDef, allDef.index * 1000));
+						foreach (XenotypeDef allDef in XenotypeFilterUtility.WhiteListedXenotypes(true, true))
+						{
+							geneDefList.Add(TemplatesUtility.GetFromTemplate_XenotypeForcer(template, allDef, allDef.index * 1000));
+						}
 					}
 				}
+				return geneDefList;
 			}
-			return geneDefList;
 		}
+
 	}
 
 }

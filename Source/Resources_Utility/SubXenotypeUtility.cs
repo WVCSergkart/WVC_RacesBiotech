@@ -262,5 +262,22 @@ namespace WVC_XenotypesAndGenes
 			return null;
 		}
 
+		public static bool XenotypeIsSubXenotype(Pawn_GeneTracker geneTracker)
+		{
+			if (geneTracker.hybrid || geneTracker.CustomXenotype != null)
+			{
+				return false;
+			}
+			if (!geneTracker.UniqueXenotype && geneTracker.Xenotype != null && geneTracker.iconDef != null)
+			{
+				XenotypeExtension_SubXenotype modExtension = geneTracker.Xenotype?.GetModExtension<XenotypeExtension_SubXenotype>();
+				if (modExtension != null)
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
 	}
 }

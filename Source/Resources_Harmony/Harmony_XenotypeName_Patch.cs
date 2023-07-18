@@ -12,7 +12,7 @@ using WVC_XenotypesAndGenes;
 namespace WVC_XenotypesAndGenes
 {
 
-	namespace SubXenotypes_HarmonyPatches
+	namespace HarmonyPatches
 	{
 
 		[HarmonyPatch(typeof(Pawn_GeneTracker), "XenotypeLabel", MethodType.Getter)]
@@ -20,14 +20,14 @@ namespace WVC_XenotypesAndGenes
 		{
 			public static void Postfix(ref string __result, Pawn_GeneTracker __instance)
 			{
-				if (!__instance.UniqueXenotype && __instance.iconDef != null && __instance.Xenotype != null)
+				if (SubXenotypeUtility.XenotypeIsSubXenotype(__instance))
 				{
 					XenotypeExtension_SubXenotype modExtension = __instance.Xenotype?.GetModExtension<XenotypeExtension_SubXenotype>();
 					string xenotypeName = SubXenotypeUtility.GetFirstSubXenotypeName(__instance.iconDef, modExtension);
 					if (xenotypeName != null)
 					{
 						// __result = __instance.Xenotype.label + " (" + xenotypeName.CapitalizeFirst() + ")";
-						__result = xenotypeName.CapitalizeFirst();
+						__result = xenotypeName;
 					}
 				}
 			}
@@ -38,7 +38,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			public static void Postfix(ref string __result, Pawn_GeneTracker __instance)
 			{
-				if (!__instance.UniqueXenotype && __instance.iconDef != null && __instance.Xenotype != null)
+				if (SubXenotypeUtility.XenotypeIsSubXenotype(__instance))
 				{
 					XenotypeExtension_SubXenotype modExtension = __instance.Xenotype?.GetModExtension<XenotypeExtension_SubXenotype>();
 					string description = SubXenotypeUtility.GetFirstSubXenotypeDesc(__instance.iconDef, modExtension);

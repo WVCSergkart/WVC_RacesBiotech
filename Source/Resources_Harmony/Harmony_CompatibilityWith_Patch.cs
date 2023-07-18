@@ -11,54 +11,58 @@ using WVC_XenotypesAndGenes;
 
 namespace WVC_XenotypesAndGenes
 {
-
-	[HarmonyPatch(typeof(Pawn_RelationsTracker), "CompatibilityWith")]
-	public static class Pawn_RelationsTracker_CompatibilityWith_Patch
+	namespace HarmonyPatches
 	{
-		public static void Postfix(ref float __result, Pawn otherPawn, Pawn ___pawn)
+
+		[HarmonyPatch(typeof(Pawn_RelationsTracker), "CompatibilityWith")]
+		public static class Pawn_RelationsTracker_CompatibilityWith_Patch
 		{
-			if (___pawn.relations.FamilyByBlood.Contains(otherPawn) && MechanoidizationUtility.IsIncestLover(___pawn))
+			public static void Postfix(ref float __result, Pawn otherPawn, Pawn ___pawn)
 			{
-				__result *= 10f;
+				if (___pawn.relations.FamilyByBlood.Contains(otherPawn) && MechanoidizationUtility.IsIncestLover(___pawn))
+				{
+					__result *= 10f;
+				}
 			}
 		}
-	}
 
-	[HarmonyPatch(typeof(Pawn_RelationsTracker), "SecondaryRomanceChanceFactor")]
-	public static class Pawn_RelationsTracker_SecondaryRomanceChanceFactor_Patch
-	{
-		public static void Postfix(ref float __result, Pawn otherPawn, Pawn ___pawn)
+		[HarmonyPatch(typeof(Pawn_RelationsTracker), "SecondaryRomanceChanceFactor")]
+		public static class Pawn_RelationsTracker_SecondaryRomanceChanceFactor_Patch
 		{
-			if (__result <= 0f && ___pawn.relations.FamilyByBlood.Contains(otherPawn) && MechanoidizationUtility.IsIncestLover(___pawn))
+			public static void Postfix(ref float __result, Pawn otherPawn, Pawn ___pawn)
 			{
-				__result = 1.0f;
+				if (__result <= 0f && ___pawn.relations.FamilyByBlood.Contains(otherPawn) && MechanoidizationUtility.IsIncestLover(___pawn))
+				{
+					__result = 1.0f;
+				}
 			}
 		}
-	}
 
-	// TEST ONLY
-	// [HarmonyPatch(typeof(RelationsUtility), "AttractedToGender")]
-	// public static class Patch_RelationsUtility_AttractedToGender
-	// {
-
-		// [HarmonyPrefix]
-		// public static bool Prefix(ref bool __result)
+		// TEST ONLY
+		// [HarmonyPatch(typeof(RelationsUtility), "AttractedToGender")]
+		// public static class Patch_RelationsUtility_AttractedToGender
 		// {
-			// __result = true;
-			// return false;
-		// }
-	// }
-	[HarmonyPatch(typeof(RelationsUtility), "RomanceOption")]
-	public static class Patch_RelationsUtility_RomanceOption
-	{
 
-		// public static bool RomanceOption(Pawn initiator, Pawn romanceTarget, out FloatMenuOption option, out float chance)
-		[HarmonyPostfix]
-		public static bool Postfix(ref float __chance)
+			// [HarmonyPrefix]
+			// public static bool Prefix(ref bool __result)
+			// {
+				// __result = true;
+				// return false;
+			// }
+		// }
+		[HarmonyPatch(typeof(RelationsUtility), "RomanceOption")]
+		public static class Patch_RelationsUtility_RomanceOption
 		{
-			__chance = 1.0f;
-			return true;
+
+			// public static bool RomanceOption(Pawn initiator, Pawn romanceTarget, out FloatMenuOption option, out float chance)
+			[HarmonyPostfix]
+			public static bool Postfix(ref float __chance)
+			{
+				__chance = 1.0f;
+				return true;
+			}
 		}
+
 	}
 
 }

@@ -25,7 +25,7 @@
 	<label>by blood</label>
 	<iconColor>(206, 125, 123)</iconColor>
 	<customEffectDescriptions>
-	  <li>Relatives opinion +20</li>
+	  <li>Family by blood opinion +20</li>
 	</customEffectDescriptions>
   </GeneDef>
 
@@ -39,7 +39,7 @@
 	<!-- <prerequisite>WVC_Dustogenic</prerequisite> -->
 	<marketValueFactor>1.5</marketValueFactor>
 	<customEffectDescriptions>
-	  <li>Relatives opinion +100</li>
+	  <li>Family by blood opinion +100</li>
 	</customEffectDescriptions>
   </GeneDef>
   

@@ -37,6 +37,30 @@ namespace WVC_XenotypesAndGenes
 
 		public XenotypeIconDef xenotypeIconDef = null;
 
+		// [Unsaved(false)]
+		// private Texture2D cachedIcon;
+
+		// public static readonly Color IconColor = new(0.75f, 0.75f, 0.75f);
+
+		// public Texture2D Icon
+		// {
+			// get
+			// {
+				// if (cachedIcon == null)
+				// {
+					// if (xenotypeIconDef.texPath.NullOrEmpty())
+					// {
+						// cachedIcon = BaseContent.BadTex;
+					// }
+					// else
+					// {
+						// cachedIcon = ContentFinder<Texture2D>.Get(xenotypeIconDef.texPath);
+					// }
+				// }
+				// return cachedIcon;
+			// }
+		// }
+
 		public override void ResolveReferences()
 		{
 			if (genes.NullOrEmpty())
@@ -47,7 +71,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				descriptionHyperlinks = new List<DefHyperlink>();
 			}
-			if (mainGenes != null)
+			if (!mainGenes.NullOrEmpty())
 			{
 				foreach (GeneDef gene in mainGenes)
 				{
@@ -66,12 +90,12 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield return item;
 			}
-			if (mainGenes != null)
+			if (!mainGenes.NullOrEmpty())
 			{
 				yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_XaG_SubXeno_MainGenes".Translate().CapitalizeFirst(), mainGenes.Select((GeneDef x) => x.label).ToCommaList().CapitalizeFirst(), "GenesDesc".Translate() + "\n\n" + "WVC_XaG_SubXeno_MainGenes_Desc".Translate() + "\n\n" + mainGenes.Select((GeneDef x) => x.label).ToLineList("  - ", capitalizeItems: true), 1010);
 			}
 			yield return new StatDrawEntry(StatCategoryDefOf.Basics, "Genes".Translate().CapitalizeFirst(), genes.Select((GeneDef x) => x.label).ToCommaList().CapitalizeFirst(), "GenesDesc".Translate() + "\n\n" + genes.Select((GeneDef x) => x.label).ToLineList("  - ", capitalizeItems: true), 1000);
-			if (removeGenes != null)
+			if (!removeGenes.NullOrEmpty())
 			{
 				yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_XaG_SubXeno_RemovedGenes".Translate().CapitalizeFirst(), removeGenes.Select((GeneDef x) => x.label).ToCommaList().CapitalizeFirst(), "WVC_XaG_SubXeno_RemovedGenes_Desc".Translate() + "\n\n" + removeGenes.Select((GeneDef x) => x.label).ToLineList("  - ", capitalizeItems: true), 990);
 			}
