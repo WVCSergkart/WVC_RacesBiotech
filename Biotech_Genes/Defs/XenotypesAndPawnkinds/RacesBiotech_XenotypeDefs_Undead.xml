@@ -88,7 +88,8 @@
   <WVC_XenotypesAndGenes.SubXenotypeDef>
 	<defName>WVC_Resurgent</defName>
 	<label>resurgent</label>
-	<description>Resurgents are a undead sub-xenotype, powered by archotech-created archites in the bloodstream. Resurgents always have the genes of undead xenotype. They are fragile and dependent on resurgent cells. They can regrow lost limbs, never age, and their wounds can close almost instantly. However, their immune system, stomach, blood, disease resistance, their entire body is dependent on these cells. And if the level of the cells is too low, they lose almost all of their special abilities.</description>
+	<!-- The description is always used as short. Only the main xenotype should have complete information. -->
+	<description>Resurgents are a undead sub-xenotype, despite strong genetic differences they still remain within this xenotype. They are fragile and dependent on resurgent cells. They can regrow lost limbs, never age, and their wounds can close almost instantly. However, their immune system, stomach, blood, disease resistance, their entire body is dependent on these cells. And if the level of the cells is too low, they lose almost all of their special abilities.</description>
 	<inheritable>false</inheritable>
 	<!-- In case the genes need to be added to an already existing set, and not separately. -->
 	<ignoreExistingGenes>false</ignoreExistingGenes>
@@ -96,6 +97,8 @@
 	<!-- This method will work very bad with hybrid serums, so it is recommended to include such a xenotype in the exceptions for serums. -->
 	<overrideExistingGenes>false</overrideExistingGenes>
 	<!-- If present, it replaces the icon. -->
+	<!-- Also, the presence of the icon is responsible for the custom name and description. -->
+	<!-- If the icon is not specified, then the name of the xenotype will be default -->
 	<xenotypeIconDef>WVC_XenoUndead2c</xenotypeIconDef>
 	<genes>
 		<li>WVC_ResurgentCells</li>
@@ -139,7 +142,7 @@
   <WVC_XenotypesAndGenes.SubXenotypeDef>
 	<defName>WVC_DustAngel</defName>
 	<label>dust angel</label>
-	<description>Dust Angels are an undead sub-xenotype, powered by archotech-created archites in the bloodstream. Angels always have the genes of undead xenotype. Their bodies are dependent on a biological resource called dust. Dust greatly affects their metabolism and at low levels they get hungry faster. They have innate psionic abilities and a slightly wild disposition.</description>
+	<description>Dust Angels are an undead sub-xenotype, despite strong genetic differences they still remain within this xenotype. Their bodies are dependent on a biological resource called dust. Dust greatly affects their metabolism and at low levels they get hungry faster. They have innate mechanitor abilities and a slightly wild disposition. They are immune to most diseases, and the non-stable mutations of the undead do not show up on them. However, unlike their close relatives, their death is always the end.</description>
 	<inheritable>false</inheritable>
 	<ignoreExistingGenes>false</ignoreExistingGenes>
 	<overrideExistingGenes>false</overrideExistingGenes>

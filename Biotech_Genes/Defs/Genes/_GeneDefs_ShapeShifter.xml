@@ -14,7 +14,7 @@
 	<selectionWeight>0.0</selectionWeight>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<biostatCpx>6</biostatCpx>
-	<biostatMet>0</biostatMet>
+	<biostatMet>-6</biostatMet>
 	<biostatArc>3</biostatArc>
 	<!-- <customEffectDescriptions Inherit="False"> -->
 	  <!-- <li>Has a chance to significantly alter the owner's gene set. Triggered by generation, undead resurrection and gene reimplantation.</li> -->
@@ -25,9 +25,9 @@
 	  <!-- <li>Has a chance to significantly alter the owner's gene set. Triggered by generation, undead resurrection and gene reimplantation.</li> -->
 	  <!-- <li>&lt;color=#ff8585&gt;For modders only.&lt;/color&gt;</li> -->
 	<!-- </customEffectDescriptions> -->
-	<!-- <displayOrderInCategory>-500</displayOrderInCategory> -->
+	<displayOrderInCategory>-500</displayOrderInCategory>
 	<!-- <displayOrderInCategory>1255</displayOrderInCategory> -->
-	<displayOrderInCategory>99999</displayOrderInCategory>
+	<!-- <displayOrderInCategory>99999</displayOrderInCategory> -->
 	<!-- <exclusionTags Inherit="False"> -->
 	  <!-- <li>WVC_GeneticInstabilityGenes</li> -->
 	<!-- </exclusionTags> -->

@@ -132,6 +132,7 @@
   </XenotypeIconDef>
   <XenotypeIconDef>
 	<defName>WVC_XenoUndead2c</defName>
+	<label>resurgent</label>
 	<texPath>WVC/UI/Mecha_Icons/Xeno_Undead_v1</texPath>
   </XenotypeIconDef>
   <XenotypeIconDef>
@@ -149,6 +150,7 @@
 
   <XenotypeIconDef>
 	<defName>WVC_XenoDustAngel0c</defName>
+	<label>dust angel</label>
 	<texPath>WVC/UI/Mecha_Icons/Gene_DustAngel_v0</texPath>
   </XenotypeIconDef>
 

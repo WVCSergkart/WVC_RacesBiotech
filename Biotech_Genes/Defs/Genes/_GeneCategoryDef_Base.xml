@@ -80,8 +80,8 @@
   <GeneCategoryDef>
 	<defName>WVC_XenotypeForcerGenes</defName>
 	<label>xenotype forcers</label>
-	<!-- <displayPriorityInXenotype>-1.2886992038</displayPriorityInXenotype> -->
-	<displayPriorityInXenotype>-99999</displayPriorityInXenotype>
+	<displayPriorityInXenotype>-1.2886992038</displayPriorityInXenotype>
+	<!-- <displayPriorityInXenotype>-99999</displayPriorityInXenotype> -->
   </GeneCategoryDef>
 
   <!-- https://steamcommunity.com/sharedfiles/filedetails/?id=2886992038 -->

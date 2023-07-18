@@ -1,0 +1,86 @@
+using System;
+using System.Xml;
+using System.Linq;
+using System.Reflection;
+using System.Collections.Generic;
+using Verse;
+using UnityEngine;
+using RimWorld;
+using WVC;
+using WVC_XenotypesAndGenes;
+
+
+namespace WVC_XenotypesAndGenes
+{
+
+	// public class EndotypeDef : XenotypeDef
+	// {
+	// }
+
+	public class SubXenotypeDef : Def
+	{
+		public List<GeneDef> genes = new();
+
+		public List<GeneDef> removeGenes = null;
+
+		public List<GeneDef> mainGenes = null;
+
+		public bool inheritable = false;
+
+		public bool overrideExistingGenes = false;
+
+		public bool ignoreExistingGenes = false;
+
+		// public bool useMainAdditionalGenes = false;
+
+		public List<GeneDef> AllGenes => genes;
+
+		public XenotypeIconDef xenotypeIconDef = null;
+
+		public override void ResolveReferences()
+		{
+			if (genes.NullOrEmpty())
+			{
+				return;
+			}
+			if (descriptionHyperlinks == null)
+			{
+				descriptionHyperlinks = new List<DefHyperlink>();
+			}
+			if (mainGenes != null)
+			{
+				foreach (GeneDef gene in mainGenes)
+				{
+					descriptionHyperlinks.Add(new DefHyperlink(gene));
+				}
+			}
+			foreach (GeneDef gene in genes)
+			{
+				descriptionHyperlinks.Add(new DefHyperlink(gene));
+			}
+		}
+
+		public override IEnumerable<StatDrawEntry> SpecialDisplayStats(StatRequest req)
+		{
+			foreach (StatDrawEntry item in base.SpecialDisplayStats(req))
+			{
+				yield return item;
+			}
+			if (mainGenes != null)
+			{
+				yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_XaG_SubXeno_MainGenes".Translate().CapitalizeFirst(), mainGenes.Select((GeneDef x) => x.label).ToCommaList().CapitalizeFirst(), "GenesDesc".Translate() + "\n\n" + "WVC_XaG_SubXeno_MainGenes_Desc".Translate() + "\n\n" + mainGenes.Select((GeneDef x) => x.label).ToLineList("  - ", capitalizeItems: true), 1010);
+			}
+			yield return new StatDrawEntry(StatCategoryDefOf.Basics, "Genes".Translate().CapitalizeFirst(), genes.Select((GeneDef x) => x.label).ToCommaList().CapitalizeFirst(), "GenesDesc".Translate() + "\n\n" + genes.Select((GeneDef x) => x.label).ToLineList("  - ", capitalizeItems: true), 1000);
+			if (removeGenes != null)
+			{
+				yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_XaG_SubXeno_RemovedGenes".Translate().CapitalizeFirst(), removeGenes.Select((GeneDef x) => x.label).ToCommaList().CapitalizeFirst(), "WVC_XaG_SubXeno_RemovedGenes_Desc".Translate() + "\n\n" + removeGenes.Select((GeneDef x) => x.label).ToLineList("  - ", capitalizeItems: true), 990);
+			}
+			if (!genes.NullOrEmpty())
+			{
+				yield return new StatDrawEntry(StatCategoryDefOf.Basics, "GenesAreInheritable".Translate(), inheritable.ToStringYesNo(), "GenesAreInheritableXenotypeDef".Translate(), 980);
+				yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_XaG_SubXeno_OverrideExistingGenes".Translate(), overrideExistingGenes.ToStringYesNo(), "WVC_XaG_SubXeno_OverrideExistingGenes_Desc".Translate(), 970);
+				yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_XaG_SubXeno_IgnoreExistingGenes".Translate(), ignoreExistingGenes.ToStringYesNo(), "WVC_XaG_SubXeno_IgnoreExistingGenes_Desc".Translate(), 960);
+			}
+		}
+	}
+}

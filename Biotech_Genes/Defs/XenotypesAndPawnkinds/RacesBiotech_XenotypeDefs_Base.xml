@@ -6,8 +6,8 @@
 	<!-- <defName>WVC_Pearler</defName> -->
 	<!-- <label>pearler</label> -->
 	<!-- Temporary description -->
-	<description>An unknown xenotype sometimes found in the vastness of the rimworld.</description>
-	<descriptionShort>An unknown xenotype sometimes found in the vastness of the rimworld.</descriptionShort>
+	<description>A unique human variant with a set of xenogenes that do not fall into any known xenotype.</description>
+	<descriptionShort>A unique human variant with a set of xenogenes that do not fall into any known xenotype.</descriptionShort>
 	<iconPath>UI/Icons/Xenotypes/Custom/CustomXenotypeIcon9</iconPath>
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>
 	<combatPowerFactor>2.5</combatPowerFactor>
