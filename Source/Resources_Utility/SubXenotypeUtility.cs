@@ -29,16 +29,19 @@ namespace WVC_XenotypesAndGenes
 				XenotypeExtension_SubXenotype modExtension = mainXenotype.GetModExtension<XenotypeExtension_SubXenotype>();
 				if (modExtension != null)
 				{
-					if (Rand.Chance(modExtension.subXenotypeChance))
+					if (!modExtension.subXenotypeDefs.NullOrEmpty())
 					{
-						SubXenotypeDef subXenotypeDef = modExtension.subXenotypeDefs.RandomElement();
-						RandomXenotype(pawn, subXenotypeDef, mainXenotype);
-						// pawn.genes.RemoveGene(shapeShiftGene);
-					}
-					else if (modExtension.mainSubXenotypeDef != null)
-					{
-						SubXenotypeDef subXenotypeDef = modExtension.mainSubXenotypeDef;
-						MainXenotype(pawn, subXenotypeDef, mainXenotype);
+						if (Rand.Chance(modExtension.subXenotypeChance))
+						{
+							SubXenotypeDef subXenotypeDef = modExtension.subXenotypeDefs.RandomElement();
+							RandomXenotype(pawn, subXenotypeDef, mainXenotype);
+							// pawn.genes.RemoveGene(shapeShiftGene);
+						}
+						else if (modExtension.mainSubXenotypeDef != null)
+						{
+							SubXenotypeDef subXenotypeDef = modExtension.mainSubXenotypeDef;
+							MainXenotype(pawn, subXenotypeDef, mainXenotype);
+						}
 					}
 				}
 			}
@@ -50,11 +53,11 @@ namespace WVC_XenotypesAndGenes
 
 		public static void RandomXenotype(Pawn pawn, SubXenotypeDef xenotype, XenotypeDef mainXenotype)
 		{
-			if (xenotype.removeGenes != null)
+			if (!xenotype.removeGenes.NullOrEmpty())
 			{
 				RemoveGenes(pawn, xenotype);
 			}
-			if (xenotype.mainGenes != null)
+			if (!xenotype.mainGenes.NullOrEmpty())
 			{
 				MainXenotype(pawn, xenotype, mainXenotype);
 			}
@@ -86,6 +89,14 @@ namespace WVC_XenotypesAndGenes
 				for (int i = 0; i < geneDefs.Count; i++)
 				{
 					pawn.genes?.AddGene(geneDefs[i], !xenotype.inheritable);
+				}
+			}
+			if (!xenotype.randomGenes.NullOrEmpty())
+			{
+				foreach (RandomGenes item in xenotype.randomGenes)
+				{
+					GeneDef randomGene = item.genes.RandomElement();
+					pawn.genes?.AddGene(randomGene, !item.inheritable);
 				}
 			}
 			if (xenotype.xenotypeIconDef != null)

@@ -31,6 +31,8 @@
 	<WVC_XaG_SubXeno_MainGenes_Desc>Always added to the base gene set.</WVC_XaG_SubXeno_MainGenes_Desc>
 	<WVC_XaG_SubXeno_RemovedGenes>Removed genes</WVC_XaG_SubXeno_RemovedGenes>
 	<WVC_XaG_SubXeno_RemovedGenes_Desc>These genes will be removed from the gene set if present.</WVC_XaG_SubXeno_RemovedGenes_Desc>
+	<WVC_XaG_SubXeno_RandomGenes>Possible genes</WVC_XaG_SubXeno_RandomGenes>
+	<WVC_XaG_SubXeno_RandomGenes_Desc>Some of these genes can be added to a gene set.</WVC_XaG_SubXeno_RandomGenes_Desc>
 
 	<!-- ====================================================================== -->
 

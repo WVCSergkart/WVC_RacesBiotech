@@ -51,6 +51,7 @@
 	<biostatArc>0</biostatArc>
 	<biostatMet>-2</biostatMet>
 	<iconColor>(255, 255, 255)</iconColor>
+	<minAgeActive>3</minAgeActive>
 	<customEffectDescriptions>
 		<li>Allows you to turn terrain ignore on or off.</li>
 		<!-- <li>Refresh time (*DateTime)~1 hour(/DateTime).</li> -->
