@@ -44,7 +44,7 @@ namespace WVC_XenotypesAndGenes
 					string description = SubXenotypeUtility.GetFirstSubXenotypeDesc(__instance.iconDef, modExtension);
 					if (description != null)
 					{
-						__result = description;
+						__result = description + "\n\n" + "MoreInfoInInfoScreen".Translate().Colorize(ColoredText.SubtleGrayColor);
 					}
 				}
 			}

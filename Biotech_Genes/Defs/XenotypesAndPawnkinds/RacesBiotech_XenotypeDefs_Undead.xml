@@ -121,9 +121,10 @@
 		<li>WVC_Pain_Nullified</li>
 		<li>WVC_Hair_TribalOnly</li>
 		<li>DarkVision</li>
-		<li>WVC_BodySize_Small</li>
+		<!-- <li>WVC_BodySize_Small</li> -->
 	</genes>
 	<mainGenes>
+		<li>WVC_ForeverYoung</li>
 		<li>WVC_RandomLearning</li>
 		<li>WVC_RandomHands</li>
 		<li>WVC_RandomWoundHealing</li>
@@ -137,6 +138,7 @@
 	<removeGenes>
 		<li>WVC_MildGeneticInstability</li>
 		<li>WVC_Fragile</li>
+		<li>WVC_NaturalFastAging</li>
 	</removeGenes>
   </WVC_XenotypesAndGenes.SubXenotypeDef>
 
