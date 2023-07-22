@@ -77,4 +77,54 @@
 	</weaponTags>
   </PawnKindDef>
 
+  <!-- ================================================= -->
+
+  <!-- <ThingDef ParentName="LightMechanoid"> -->
+	<!-- <defName>WVC_XenotypesAndGenes_XenohumanEgg</defName> -->
+	<!-- <label>xenohuman egg</label> -->
+	<!-- <description>A small mechanoid bred in the human body with the help of archites. Unlike the war urchin, the archite urchin has a rechargeable power source and is capable of cleaning.</description> -->
+	<!-- <statBases> -->
+		<!-- <MoveSpeed>4.2</MoveSpeed> -->
+		<!-- <BandwidthCost>-999</BandwidthCost> -->
+	<!-- </statBases> -->
+	<!-- <race> -->
+		<!-- <lifeStageAges> -->
+		  <!-- <li> -->
+			<!-- <def>MechanoidFullyFormed</def> -->
+			<!-- <minAge>0</minAge> -->
+			<!-- <soundWounded>Pawn_Mech_WarUrchin_Wounded</soundWounded> -->
+			<!-- <soundDeath>Pawn_Mech_WarUrchin_Death</soundDeath> -->
+			<!-- <soundCall>Pawn_Mech_WarUrchin_Call</soundCall> -->
+		  <!-- </li> -->
+		<!-- </lifeStageAges> -->
+	<!-- </race> -->
+	<!-- <comps> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_ShapeshiftToXenohuman"> -->
+		<!-- <xenotypeDef>WVC_Meca</xenotypeDef> -->
+	  <!-- </li> -->
+	<!-- </comps> -->
+  <!-- </ThingDef> -->
+
+  <!-- <PawnKindDef ParentName="NonCombatLightMechanoidKind"> -->
+	<!-- <defName>WVC_XenotypesAndGenes_XenohumanEgg</defName> -->
+	<!-- <label>xenohuman egg</label> -->
+	<!-- <race>WVC_XenotypesAndGenes_XenohumanEgg</race> -->
+	<!-- <allowInMechClusters>false</allowInMechClusters> -->
+	<!-- <forceNoDeathNotification>true</forceNoDeathNotification> -->
+	<!-- <lifeStages> -->
+		<!-- <li> -->
+		  <!-- <bodyGraphicData> -->
+			<!-- <texPath>Things/Pawn/Mechanoid/WarUrchin</texPath> -->
+			<!-- <maskPath>Things/Pawn/Mechanoid/AllegianceOverlays/MechMinimech</maskPath> -->
+			<!-- <shaderType>CutoutWithOverlay</shaderType> -->
+			<!-- <graphicClass>Graphic_Multi</graphicClass> -->
+			<!-- <drawSize>1.1</drawSize> -->
+			<!-- <shadowData> -->
+			  <!-- <volume>(0.2, 0.3, 0.2)</volume> -->
+			<!-- </shadowData> -->
+		  <!-- </bodyGraphicData> -->
+		<!-- </li> -->
+	<!-- </lifeStages> -->
+  <!-- </PawnKindDef> -->
+
 </Defs>

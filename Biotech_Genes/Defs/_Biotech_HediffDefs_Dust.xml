@@ -122,10 +122,10 @@
 
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
 	<defName>WVC_DustMechanoid_OnlyOneOverseer</defName>
-	<label>dust mechanoid</label>
-	<description>The software of this mechanoid has a strong modification due to which it practically does not consume bandwidth. However, changing the overseer can lead to a critical error.
+	<label>connected</label>
+	<description>This mechanoid was incorrectly and rudely connected to the mechanitor's network, it does not require bandwidth, but changing the network can cause critical errors.
 
-&lt;color=#f5ffa2&gt;Gameplay effect:&lt;/color&gt; The mechanoid does not require bandwidth, but if you change the overseer, then after a while mechanoid will die.</description>
+&lt;color=#f5ffa2&gt;Gameplay effect:&lt;/color&gt; Mechanoid does not require bandwidth, but if you change the overseer, then after a while mechanoid will die.</description>
 	<defaultLabelColor>(255, 248, 133)</defaultLabelColor>
 	<hediffClass>HediffWithComps</hediffClass>
 	<stages>
@@ -133,6 +133,9 @@
 		<statFactors>
 		  <BandwidthCost>0</BandwidthCost>
 		</statFactors>
+		<statOffsets>
+		  <BandwidthCost>-999</BandwidthCost>
+		</statOffsets>
 	  </li>
 	</stages>
 	<comps>
@@ -144,7 +147,7 @@
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
 	<defName>WVC_Dustogenic_DelayedReimplanter</defName>
 	<label>genetic storm</label>
-	<description>Delayed reimplantation of genes causes extreme fatigue and hunger.</description>
+	<description>Delayed reimplantation of genes causes fatigue and hunger.</description>
 	<defaultLabelColor>(255, 248, 133)</defaultLabelColor>
 	<initialSeverity>0.01</initialSeverity>
 	<minSeverity>0.01</minSeverity>
@@ -260,7 +263,7 @@
 		<mentalStateGivers>
 		  <li>
 			<mentalState>Binging_Food</mentalState>
-			<mtbDays>5.5</mtbDays>
+			<mtbDays>2.5</mtbDays>
 		  </li>
 		</mentalStateGivers>
 	  </li>
@@ -270,7 +273,7 @@
 		<mentalStateGivers>
 		  <li>
 			<mentalState>Binging_Food</mentalState>
-			<mtbDays>12.5</mtbDays>
+			<mtbDays>6.5</mtbDays>
 		  </li>
 		</mentalStateGivers>
 	  </li>
@@ -280,17 +283,29 @@
 		<mentalStateGivers>
 		  <li>
 			<mentalState>Binging_Food</mentalState>
-			<mtbDays>16.0</mtbDays>
+			<mtbDays>8.0</mtbDays>
 		  </li>
 		</mentalStateGivers>
 	  </li>
 	  <li>
 		<hungerRateFactor>1.2</hungerRateFactor>
 		<minSeverity>0.60</minSeverity>
+		<mentalStateGivers>
+		  <li>
+			<mentalState>Binging_Food</mentalState>
+			<mtbDays>12.0</mtbDays>
+		  </li>
+		</mentalStateGivers>
 	  </li>
 	  <li>
 		<hungerRateFactor>1.0</hungerRateFactor>
 		<minSeverity>0.70</minSeverity>
+		<mentalStateGivers>
+		  <li>
+			<mentalState>Binging_Food</mentalState>
+			<mtbDays>16.0</mtbDays>
+		  </li>
+		</mentalStateGivers>
 	  </li>
 	  <li>
 		<hungerRateFactor>0.8</hungerRateFactor>

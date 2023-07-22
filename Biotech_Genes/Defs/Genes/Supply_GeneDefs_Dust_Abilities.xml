@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_Base" Name="WVC_XenotypesAndGenes_GeneDustSupply_DustAbilities" Abstract="True">
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_DustDrain</geneClass> -->
+	<prerequisite>WVC_Dustogenic_GeneticStability</prerequisite>
+	<marketValueFactor>1.5</marketValueFactor>
+	<selectionWeight>0.009</selectionWeight>
+	<minAgeActive>3</minAgeActive>
+	<!-- <resourceLabel>dust</resourceLabel> -->
+	<!-- <resourceLossPerDay>0.02</resourceLossPerDay> -->
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<displayOrderInCategory>100</displayOrderInCategory>
+  </GeneDef>
+
+  <!-- ================================================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustAbilities">
+	<defName>WVC_Dustogenic_FeatherBlades</defName>
+	<label>sharp feathers</label>
+	<description>Carriers of this gene have sharp feathers with which they can throw them at a distance.</description>
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass> -->
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_Dustogenic_FeatherBlades</AbilityDef>
+	</descriptionHyperlinks>
+	<iconPath>WVC/UI/Genes/Gene_FeatherBlades_v0</iconPath>
+	<iconColor>(241, 175, 129)</iconColor>
+	<displayOrderInCategory>105</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<customEffectDescriptions>
+		<!-- <li>Allows melee and range attacks with feathers.</li> -->
+		<li>To use the ability, the &lt;color=#8a8ae6&gt;"Feathered wings"&lt;/color&gt; gene is required.</li>
+		<!-- <li>Refresh time (*DateTime)~1 day(/DateTime).</li> -->
+	</customEffectDescriptions>
+	<abilities>
+	  <li>WVC_Dustogenic_FeatherBlades</li>
+	</abilities>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>feather</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <hediffDefName>WVC_Dustogenic_WingsWithFeatherBlades</hediffDefName> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+
+</Defs>

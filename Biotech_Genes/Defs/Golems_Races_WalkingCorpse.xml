@@ -289,6 +289,7 @@ Walking corpses cannot be zoned, but they will try to stay close to the totems. 
 		<canArriveManhunter>false</canArriveManhunter>
 		<allowInMechClusters>false</allowInMechClusters>
 		<allowOldAgeInjuries>false</allowOldAgeInjuries>
+		<forceNoDeathNotification>true</forceNoDeathNotification>
 		<!-- <abilities> -->
 			<!-- <li>WVC_MechanoidAbility_ActivateGestator</li> -->
 		<!-- </abilities> -->
