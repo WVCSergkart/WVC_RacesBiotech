@@ -17,30 +17,37 @@ namespace WVC_XenotypesAndGenes
 	public static class SubXenotypeUtility
 	{
 
-		public static void ShapeShift(Pawn pawn, XenotypeDef mainXenotype, Gene shapeShiftGene)
+		public static void ShapeShift(Pawn pawn, XenotypeDef mainXenotype, Gene shapeShiftGene, float xenogermReplicationChance = 0.2f, bool removeRandomGenes = false)
 		{
 			// List<Gene> pawnGenes = pawn.genes?.GenesListForReading;
 			// for (int i = 0; i < pawnGenes.Count; i++)
 			// {
 				// Log.Error("Pawn contain " + pawnGenes[i].def + " " + (i + 1) + "/" + pawnGenes.Count);
 			// }
-			if (mainXenotype != null)
+			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
 			{
-				XenotypeExtension_SubXenotype modExtension = mainXenotype.GetModExtension<XenotypeExtension_SubXenotype>();
-				if (modExtension != null)
+				if (mainXenotype != null)
 				{
-					if (!modExtension.subXenotypeDefs.NullOrEmpty())
+					XenotypeExtension_SubXenotype modExtension = mainXenotype.GetModExtension<XenotypeExtension_SubXenotype>();
+					if (modExtension != null)
 					{
-						if (Rand.Chance(modExtension.subXenotypeChance))
+						if (!modExtension.subXenotypeDefs.NullOrEmpty())
 						{
-							SubXenotypeDef subXenotypeDef = modExtension.subXenotypeDefs.RandomElement();
-							RandomXenotype(pawn, subXenotypeDef, mainXenotype);
-							// pawn.genes.RemoveGene(shapeShiftGene);
-						}
-						else if (modExtension.mainSubXenotypeDef != null)
-						{
-							SubXenotypeDef subXenotypeDef = modExtension.mainSubXenotypeDef;
-							MainXenotype(pawn, subXenotypeDef, mainXenotype);
+							if (removeRandomGenes)
+							{
+								RemoveRandomGenes(pawn);
+							}
+							if (Rand.Chance(modExtension.subXenotypeChance))
+							{
+								SubXenotypeDef subXenotypeDef = modExtension.subXenotypeDefs.RandomElement();
+								RandomXenotype(pawn, subXenotypeDef, mainXenotype, xenogermReplicationChance);
+								// pawn.genes.RemoveGene(shapeShiftGene);
+							}
+							else if (modExtension.mainSubXenotypeDef != null)
+							{
+								SubXenotypeDef subXenotypeDef = modExtension.mainSubXenotypeDef;
+								MainXenotype(pawn, subXenotypeDef, mainXenotype);
+							}
 						}
 					}
 				}
@@ -51,7 +58,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void RandomXenotype(Pawn pawn, SubXenotypeDef xenotype, XenotypeDef mainXenotype)
+		public static void RandomXenotype(Pawn pawn, SubXenotypeDef xenotype, XenotypeDef mainXenotype, float xenogermReplicationChance)
 		{
 			if (!xenotype.removeGenes.NullOrEmpty())
 			{
@@ -103,6 +110,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				pawn.genes.iconDef = xenotype.xenotypeIconDef;
 			}
+			if (Rand.Chance(xenogermReplicationChance))
+			{
+				GeneUtility.UpdateXenogermReplication(pawn);
+			}
 		}
 
 		public static void MainXenotype(Pawn pawn, SubXenotypeDef xenotype, XenotypeDef mainXenotype)
@@ -151,9 +162,10 @@ namespace WVC_XenotypesAndGenes
 				{
 					// Clear the xenotype from random genes.
 					// This is necessary so that they do not produce duplicates indefinitely.
-					RemoveRandomGenes(pawn);
+					// RemoveRandomGenes(pawn);
 					XenotypeDef xenotype = pawn.genes?.Xenotype;
-					pawn.genes?.AddGene(WVC_GenesDefOf.WVC_XenotypesAndGenes_SubXenotypeShapeshifter, !xenotype.inheritable);
+					ShapeShift(pawn, xenotype, null, 1.0f, true);
+					// pawn.genes?.AddGene(WVC_GenesDefOf.WVC_XenotypesAndGenes_SubXenotypeShapeshifter, !xenotype.inheritable);
 				}
 			}
 		}

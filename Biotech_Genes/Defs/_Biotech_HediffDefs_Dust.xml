@@ -233,7 +233,7 @@
 		<mentalStateGivers>
 		  <li>
 			<mentalState>Binging_Food</mentalState>
-			<mtbDays>0.4</mtbDays>
+			<mtbDays>0.2</mtbDays>
 		  </li>
 		</mentalStateGivers>
 	  </li>
