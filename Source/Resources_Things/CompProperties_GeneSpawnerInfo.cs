@@ -34,14 +34,26 @@ namespace WVC_XenotypesAndGenes
 
 		public void CacheInfoGenes()
 		{
-			cachedSpawnerGenes = ActiveSpawnerGenes();
+			if (parent is Pawn pawn)
+			{
+				if (Props.onlyPlayerFaction)
+				{
+					if (pawn.Faction != null && pawn.Faction == Faction.OfPlayer)
+					{
+						cachedSpawnerGenes = ActiveSpawnerGenes(pawn);
+					}
+				}
+				else
+				{
+					cachedSpawnerGenes = ActiveSpawnerGenes(pawn);
+				}
+			}
 		}
 
-		public List<Gene_Spawner> ActiveSpawnerGenes()
+		public List<Gene_Spawner> ActiveSpawnerGenes(Pawn pawn)
 		{
-			// Log.Error("ActiveSpawnerGenes");
 			List<Gene_Spawner> list = new();
-			Pawn pawn = parent as Pawn;
+			// Pawn pawn = parent as Pawn;
 			List<Gene> genesListForReading = pawn?.genes?.GenesListForReading;
 			for (int i = 0; i < genesListForReading.Count; i++)
 			{
@@ -50,29 +62,26 @@ namespace WVC_XenotypesAndGenes
 					list.Add((Gene_Spawner)genesListForReading[i]);
 				}
 			}
+			// Log.Error("Pawn " + pawn.Name + " ActiveSpawnerGenes cached: " + list.Count);
 			return list;
 		}
 
 		public override string CompInspectStringExtra()
 		{
-			Pawn pawn = parent as Pawn;
-			if (Props.onlyPlayerFaction)
+			if (WVC_Biotech.settings.enableGeneSpawnerGizmo == true && !cachedSpawnerGenes.NullOrEmpty())
 			{
-				if (pawn.Faction != null && pawn.Faction != Faction.OfPlayer)
-				{
-					return null;
-				}
-			}
-			if (WVC_Biotech.settings.enableGeneSpawnerGizmo == true && !pawn.Drafted)
-			{
-				// Log.Error("1");
-				// List<Gene_Spawner> spawners = ActiveSpawnerGenes();
-				// Log.Error("2 " + spawners.Count);
-				if (!cachedSpawnerGenes.NullOrEmpty())
-				{
-					return Info();
-				}
-			}
+                if (parent is Pawn pawn && !pawn.Drafted)
+                {
+                    if (Props.onlyPlayerFaction)
+                    {
+                        if (pawn.Faction != null && pawn.Faction != Faction.OfPlayer)
+                        {
+                            return null;
+                        }
+                    }
+                    return Info();
+                }
+            }
 			return null;
 		}
 
