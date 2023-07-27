@@ -13,36 +13,30 @@ namespace WVC
 {
 	public class WVC_BiotechSettings : ModSettings
 	{
+		// Graphic
 		public bool disableFurGraphic = false;
 		public bool disableAllGraphic = false;
+		// Genes
 		public bool generateSkillGenes = true;
 		public bool generateXenotypeForceGenes = true;
 		public bool canNonPlayerPawnResurrect = false;
 		public bool allowShapeshiftAfterDeath = true;
-		// public bool mechaskinTemperatureAdaptability;
+		// Fix
 		public bool minWastepacksPerRecharge = false;
 		public bool validatorAbilitiesPatch = true;
-		// public bool nodeskinVX_MechBandwidth;
+		// Info
+		public bool enableGenesInfo = true;
 		public bool enableGeneSpawnerGizmo = true;
 		public bool enableGeneWingInfo = false;
 		public bool enableGeneBlesslinkInfo = true;
 		public bool enableGeneUndeadInfo = false;
-		// public bool enableStatSkillFactor;
-		// public bool canMechaskinBePredatorPrey;
-		// public bool hideEncodingGenes = true;
+		// Serums
 		public bool serumsForAllXenotypes = true;
 		public bool serumsForAllXenotypes_GenBase = true;
 		public bool serumsForAllXenotypes_GenUltra = true;
 		public bool serumsForAllXenotypes_GenHybrid = true;
 		public bool serumsForAllXenotypes_Recipes = true;
 		public bool serumsForAllXenotypes_Spawners = false;
-		// public bool convertCustomXenotypesIntoXenotypes;
-		// public bool fixAgelessAge;
-		// public bool mecaXenotypeIsInheritable = false;
-		// public bool mechanoidizationGenesPatch = true;
-		// public float serumsCraftCost_ArchitesFactor;
-		// public float serumsCraftCost_MetabolismFactor;
-		// public float serumsCraftCost_ComplexityFactor;
 
 		public IEnumerable<string> GetEnabledSettings => from specificSetting in GetType().GetFields()
 			where specificSetting.FieldType == typeof(bool) && (bool)specificSetting.GetValue(this)
@@ -60,6 +54,7 @@ namespace WVC
 			Scribe_Values.Look(ref minWastepacksPerRecharge, "minWastepacksPerRecharge", defaultValue: false);
 			Scribe_Values.Look(ref validatorAbilitiesPatch, "validatorAbilitiesPatch", defaultValue: true);
 			// Scribe_Values.Look(ref nodeskinVX_MechBandwidth, "nodeskinVX_MechBandwidth", defaultValue: true);
+			Scribe_Values.Look(ref enableGenesInfo, "enableGenesInfo", defaultValue: true);
 			Scribe_Values.Look(ref enableGeneSpawnerGizmo, "enableGeneSpawnerGizmo", defaultValue: true);
 			Scribe_Values.Look(ref enableGeneWingInfo, "enableGeneWingInfo", defaultValue: false);
 			Scribe_Values.Look(ref enableGeneBlesslinkInfo, "enableGeneBlesslinkInfo", defaultValue: true);
@@ -149,6 +144,7 @@ namespace WVC
 			// listingStandard.None();
 			listingStandard.Gap();
 			listingStandard.Label("WVC_BiotechSettings_Label_Info".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Info".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_enableGenesInfo".Translate(), ref settings.enableGenesInfo, "WVC_ToolTip_enableGenesInfo".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enableGeneSpawnerGizmo".Translate(), ref settings.enableGeneSpawnerGizmo, "WVC_ToolTip_enableGenesInfo".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enableGeneWingInfo".Translate(), ref settings.enableGeneWingInfo, "WVC_ToolTip_enableGenesInfo".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enableGeneBlesslinkInfo".Translate(), ref settings.enableGeneBlesslinkInfo, "WVC_ToolTip_enableGenesInfo".Translate());

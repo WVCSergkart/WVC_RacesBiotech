@@ -106,41 +106,51 @@
 	</Operation>
 
 	<Operation Class="WVC.PatchOperationOptional">
-		<settingName>enableGeneUndeadInfo</settingName>
+		<settingName>enableGenesInfo</settingName>
 		<caseTrue Class="PatchOperationAdd">
 		  <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath>
 		  <value>
-			  <li Class="WVC_XenotypesAndGenes.CompProperties_GeneUndeadInfo"/>
+			  <li Class="WVC_XenotypesAndGenes.CompProperties_GenesDisplayInfo"/>
 		  </value>
 		</caseTrue>
 	</Operation>
-	<Operation Class="WVC.PatchOperationOptional">
-		<settingName>enableGeneWingInfo</settingName>
-		<caseTrue Class="PatchOperationAdd">
-		  <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath>
-		  <value>
-			  <li Class="WVC_XenotypesAndGenes.CompProperties_GeneWingInfo"/>
-		  </value>
-		</caseTrue>
-	</Operation>
-	<Operation Class="WVC.PatchOperationOptional">
-		<settingName>enableGeneSpawnerGizmo</settingName>
-		<caseTrue Class="PatchOperationAdd">
-		  <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath>
-		  <value>
-			  <li Class="WVC_XenotypesAndGenes.CompProperties_GeneSpawnerInfo"/>
-		  </value>
-		</caseTrue>
-	</Operation>
-	<Operation Class="WVC.PatchOperationOptional">
-		<settingName>enableGeneBlesslinkInfo</settingName>
-		<caseTrue Class="PatchOperationAdd">
-		  <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath>
-		  <value>
-			  <li Class="WVC_XenotypesAndGenes.CompProperties_GeneBlesslinkInfo"/>
-		  </value>
-		</caseTrue>
-	</Operation>
+
+	<!-- <Operation Class="WVC.PatchOperationOptional"> -->
+		<!-- <settingName>enableGeneUndeadInfo</settingName> -->
+		<!-- <caseTrue Class="PatchOperationAdd"> -->
+		  <!-- <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath> -->
+		  <!-- <value> -->
+			  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_GeneUndeadInfo"/> -->
+		  <!-- </value> -->
+		<!-- </caseTrue> -->
+	<!-- </Operation> -->
+	<!-- <Operation Class="WVC.PatchOperationOptional"> -->
+		<!-- <settingName>enableGeneWingInfo</settingName> -->
+		<!-- <caseTrue Class="PatchOperationAdd"> -->
+		  <!-- <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath> -->
+		  <!-- <value> -->
+			  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_GeneWingInfo"/> -->
+		  <!-- </value> -->
+		<!-- </caseTrue> -->
+	<!-- </Operation> -->
+	<!-- <Operation Class="WVC.PatchOperationOptional"> -->
+		<!-- <settingName>enableGeneSpawnerGizmo</settingName> -->
+		<!-- <caseTrue Class="PatchOperationAdd"> -->
+		  <!-- <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath> -->
+		  <!-- <value> -->
+			  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_GeneSpawnerInfo"/> -->
+		  <!-- </value> -->
+		<!-- </caseTrue> -->
+	<!-- </Operation> -->
+	<!-- <Operation Class="WVC.PatchOperationOptional"> -->
+		<!-- <settingName>enableGeneBlesslinkInfo</settingName> -->
+		<!-- <caseTrue Class="PatchOperationAdd"> -->
+		  <!-- <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath> -->
+		  <!-- <value> -->
+			  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_GeneBlesslinkInfo"/> -->
+		  <!-- </value> -->
+		<!-- </caseTrue> -->
+	<!-- </Operation> -->
 
 	<!-- ================== -->
 

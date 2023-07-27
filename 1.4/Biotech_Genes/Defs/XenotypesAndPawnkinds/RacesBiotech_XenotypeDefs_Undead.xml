@@ -157,7 +157,7 @@
 		<li>WVC_Dustogenic_WoundHealing</li>
 		<li>WVC_Dustogenic_Ageless</li>
 		<li>WVC_Dustogenic_Metabolism</li>
-		<li>WVC_Dustogenic_MechPsylink</li>
+		<li>WVC_Dustogenic_Blesslink</li>
 		<li>WVC_Dustogenic_AngelBeauty</li>
 		<!-- <li>WVC_Dustogenic_Reincarnation</li> -->
 		<li>WVC_Dustogenic_GeneticStability</li>
@@ -194,7 +194,7 @@
 	<!-- Random genes are always added last. -->
 	<randomGenes>
 		<li>
-			<inheritable>false</inheritable>
+			<inheritable>true</inheritable>
 			<genes>
 				<li>WVC_HeadBoneHorns</li>
 				<li>Headbone_MiniHorns</li>

@@ -169,7 +169,7 @@
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
-	<defName>WVC_Dustogenic_MechPsylink</defName>
+	<defName>WVC_Dustogenic_Blesslink</defName>
 	<label>blesslink</label>
 	<description>Carriers of this gene have dust that alters their psychic signature, causing mechanoids to sometimes connect to the gene carrier mechanitor's network.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_DustMechlink</geneClass>

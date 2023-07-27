@@ -35,6 +35,7 @@ A restart is required to apply the setting. Required new game!</WVC_ToolTip_disa
 Requires a restart, a new game and that the previous setting is enabled.</WVC_ToolTip_disableAllGraphic>
 
 	<!-- ====================================================================================== -->
+	<WVC_Label_enableGenesInfo>Enable genes info display (All)</WVC_Label_enableGenesInfo>
 	<WVC_Label_enableGeneSpawnerGizmo>Enable gene-spawner info</WVC_Label_enableGeneSpawnerGizmo>
 	<WVC_Label_enableGeneWingInfo>Enable gene-wing info</WVC_Label_enableGeneWingInfo>
 	<WVC_Label_enableGeneBlesslinkInfo>Enable blesslink summon info</WVC_Label_enableGeneBlesslinkInfo>

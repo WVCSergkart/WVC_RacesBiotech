@@ -94,10 +94,7 @@
     <Compile Include="Resources_Hediff\HediffComp_DustGestator.cs" />
     <Compile Include="Resources_Hediff\OnlyOneOverseer.cs" />
     <Compile Include="Resources_Templates\SubXenotypeDefs.cs" />
-    <Compile Include="Resources_Things\CompProperties_GeneSpawnerInfo.cs" />
-    <Compile Include="Resources_Things\CompProperties_GeneSummonInfo.cs" />
-    <Compile Include="Resources_Things\CompProperties_GeneUndeadInfo.cs" />
-    <Compile Include="Resources_Things\CompProperties_GeneWingInfo.cs" />
+    <Compile Include="Resources_Things\CompProperties_GenesInfo.cs" />
     <Compile Include="Resources_Utility\AgelessUtility.cs" />
     <Compile Include="Resources_Utility\DustUtility.cs" />
     <Compile Include="Resources_Main\JobGiver_WanderNearTarget.cs" />
