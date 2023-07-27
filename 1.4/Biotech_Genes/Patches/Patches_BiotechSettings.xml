@@ -41,6 +41,18 @@
 					<xpath>/Defs/GeneDef[@WVC_Tag="MechaAndNodeSkins_EasyPatch"]/geneClass[contains(text(),'WVC_XenotypesAndGenes.Gene_Faceless')]</xpath>
 					<success>Always</success>
 				</li>
+
+				<li Class="WVC.PatchOperationOptional">
+					<settingName>disableAllGraphic</settingName>
+					<caseTrue Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationRemove">
+								<xpath>/Defs/GeneDef[defName[contains(text(),'WVC_')]]/graphicData</xpath>
+								<success>Always</success>
+							</li>
+						</operations>
+					</caseTrue>
+				</li>
 			</operations>
 		</caseTrue>
 		<!-- <caseFalse Class="PatchOperationSequence"> -->

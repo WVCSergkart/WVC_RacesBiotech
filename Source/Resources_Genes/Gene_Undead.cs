@@ -36,6 +36,7 @@ namespace WVC_XenotypesAndGenes
 		public int MinChronoAge => def.GetModExtension<GeneExtension_Spawner>().stackCount;
 
 		public bool PawnCanResurrect => CanResurrect();
+		// public bool PawnCanReincarnate => DustogenicCanReincarnate();
 
 		public override void Notify_PawnDied()
 		{

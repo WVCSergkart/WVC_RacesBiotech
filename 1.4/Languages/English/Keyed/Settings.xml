@@ -7,10 +7,14 @@
 	<WVC_BiotechSettings_Tab_XenotypesFilter>Xenotypes Filter</WVC_BiotechSettings_Tab_XenotypesFilter>
 
 	<WVC_BiotechSettings_Label_Graphics>Graphics</WVC_BiotechSettings_Label_Graphics>
+	<WVC_BiotechSettings_Label_Info>Info</WVC_BiotechSettings_Label_Info>
 	<WVC_BiotechSettings_Label_Genes>Genes</WVC_BiotechSettings_Label_Genes>
 	<WVC_BiotechSettings_Label_Other>Other</WVC_BiotechSettings_Label_Other>
 
 	<WVC_BiotechSettings_Tooltip_Graphics>Settings responsible for graphic elements.</WVC_BiotechSettings_Tooltip_Graphics>
+	<WVC_BiotechSettings_Tooltip_Info>Settings responsible for information in the interface.
+
+It is recommended to enable all settings for the first acquaintance with the mod. Or disable all settings for a very small performance boost.</WVC_BiotechSettings_Tooltip_Info>
 	<WVC_BiotechSettings_Tooltip_Genes>Settings responsible for the special effects of genes.</WVC_BiotechSettings_Tooltip_Genes>
 	<WVC_BiotechSettings_Tooltip_Other>Settings not related to anything specific.</WVC_BiotechSettings_Tooltip_Other>
 
@@ -25,8 +29,20 @@
 A restart is required to apply the setting. Required new game!</WVC_ToolTip_disableFurGraphic>
 
 	<!-- ====================================================================================== -->
-	<WVC_Label_enableGeneSpawnerGizmo>Enable gene-spawner gizmo</WVC_Label_enableGeneSpawnerGizmo>
-	<WVC_ToolTip_enableGeneSpawnerGizmo>Responsible for displaying the informational gizmo of spawner genes. These gizmos write the name of the resource and the time before it spawns.</WVC_ToolTip_enableGeneSpawnerGizmo>
+	<WVC_Label_disableAllGraphic>Disable all genes graphic</WVC_Label_disableAllGraphic>
+	<WVC_ToolTip_disableAllGraphic>Completely removes all graphic elements of the mod.
+
+Requires a restart, a new game and that the previous setting is enabled.</WVC_ToolTip_disableAllGraphic>
+
+	<!-- ====================================================================================== -->
+	<WVC_Label_enableGeneSpawnerGizmo>Enable gene-spawner info</WVC_Label_enableGeneSpawnerGizmo>
+	<WVC_Label_enableGeneWingInfo>Enable gene-wing info</WVC_Label_enableGeneWingInfo>
+	<WVC_Label_enableGeneBlesslinkInfo>Enable blesslink summon info</WVC_Label_enableGeneBlesslinkInfo>
+	<WVC_Label_enableGeneUndeadInfo>Enable undead info</WVC_Label_enableGeneUndeadInfo>
+
+	<WVC_ToolTip_enableGenesInfo>Responsible for displaying gene information. For example, for spawner genes: time, name and count.
+
+Activation requires a restart, deactivation does not.</WVC_ToolTip_enableGenesInfo>
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_minWastepacksPerRecharge>Force minimal waste</WVC_Label_minWastepacksPerRecharge>

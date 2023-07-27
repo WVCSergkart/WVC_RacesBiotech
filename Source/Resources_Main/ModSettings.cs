@@ -14,6 +14,7 @@ namespace WVC
 	public class WVC_BiotechSettings : ModSettings
 	{
 		public bool disableFurGraphic = false;
+		public bool disableAllGraphic = false;
 		public bool generateSkillGenes = true;
 		public bool generateXenotypeForceGenes = true;
 		public bool canNonPlayerPawnResurrect = false;
@@ -23,6 +24,9 @@ namespace WVC
 		public bool validatorAbilitiesPatch = true;
 		// public bool nodeskinVX_MechBandwidth;
 		public bool enableGeneSpawnerGizmo = true;
+		public bool enableGeneWingInfo = false;
+		public bool enableGeneBlesslinkInfo = true;
+		public bool enableGeneUndeadInfo = false;
 		// public bool enableStatSkillFactor;
 		// public bool canMechaskinBePredatorPrey;
 		// public bool hideEncodingGenes = true;
@@ -47,6 +51,7 @@ namespace WVC
 		public override void ExposeData()
 		{
 			Scribe_Values.Look(ref disableFurGraphic, "disableFurGraphic", defaultValue: false);
+			Scribe_Values.Look(ref disableAllGraphic, "disableAllGraphic", defaultValue: false);
 			Scribe_Values.Look(ref generateSkillGenes, "generateSkillGenes", defaultValue: true);
 			Scribe_Values.Look(ref generateXenotypeForceGenes, "generateXenotypeForceGenes", defaultValue: true);
 			Scribe_Values.Look(ref canNonPlayerPawnResurrect, "canNonPlayerPawnResurrect", defaultValue: false);
@@ -56,6 +61,9 @@ namespace WVC
 			Scribe_Values.Look(ref validatorAbilitiesPatch, "validatorAbilitiesPatch", defaultValue: true);
 			// Scribe_Values.Look(ref nodeskinVX_MechBandwidth, "nodeskinVX_MechBandwidth", defaultValue: true);
 			Scribe_Values.Look(ref enableGeneSpawnerGizmo, "enableGeneSpawnerGizmo", defaultValue: true);
+			Scribe_Values.Look(ref enableGeneWingInfo, "enableGeneWingInfo", defaultValue: false);
+			Scribe_Values.Look(ref enableGeneBlesslinkInfo, "enableGeneBlesslinkInfo", defaultValue: true);
+			Scribe_Values.Look(ref enableGeneUndeadInfo, "enableGeneUndeadInfo", defaultValue: false);
 			// Scribe_Values.Look(ref enableStatSkillFactor, "enableStatSkillFactor", defaultValue: true);
 			// Scribe_Values.Look(ref canMechaskinBePredatorPrey, "canMechaskinBePredatorPrey", defaultValue: true);
 			// Scribe_Values.Look(ref hideEncodingGenes, "hideEncodingGenes", defaultValue: true);
@@ -128,47 +136,43 @@ namespace WVC
 
 		private void GeneralSettings(Rect inRect)
 		{
+			Rect outRect = new(inRect.x, inRect.y, inRect.width, inRect.height);
+			// Rect rect = new(0f, 0f, inRect.width, inRect.height);
+			Rect rect = new(0f, 0f, inRect.width - 30f, inRect.height * 2);
+			Widgets.BeginScrollView(outRect, ref scrollPosition, rect);
 			Listing_Standard listingStandard = new();
-			listingStandard.Begin(inRect);
+			listingStandard.Begin(rect);
 			// ===============
 			listingStandard.Label("WVC_BiotechSettings_Label_Graphics".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Graphics".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableFurGraphic".Translate(), ref settings.disableFurGraphic, "WVC_ToolTip_disableFurGraphic".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_enableGeneSpawnerGizmo".Translate(), ref settings.enableGeneSpawnerGizmo, "WVC_ToolTip_enableGeneSpawnerGizmo".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_disableAllGraphic".Translate(), ref settings.disableAllGraphic, "WVC_ToolTip_disableAllGraphic".Translate());
 			// listingStandard.None();
-			listingStandard.Label("");
+			listingStandard.Gap();
+			listingStandard.Label("WVC_BiotechSettings_Label_Info".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Info".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_enableGeneSpawnerGizmo".Translate(), ref settings.enableGeneSpawnerGizmo, "WVC_ToolTip_enableGenesInfo".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_enableGeneWingInfo".Translate(), ref settings.enableGeneWingInfo, "WVC_ToolTip_enableGenesInfo".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_enableGeneBlesslinkInfo".Translate(), ref settings.enableGeneBlesslinkInfo, "WVC_ToolTip_enableGenesInfo".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_enableGeneUndeadInfo".Translate(), ref settings.enableGeneUndeadInfo, "WVC_ToolTip_enableGenesInfo".Translate());
+			listingStandard.Gap();
 			// ===============
 			listingStandard.Label("WVC_BiotechSettings_Label_Genes".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Genes".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_generateSkillGenes".Translate(), ref settings.generateSkillGenes, "WVC_ToolTip_generateTemplateGenes".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_generateXenotypeForceGenes".Translate(), ref settings.generateXenotypeForceGenes, "WVC_ToolTip_generateTemplateGenes".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_canNonPlayerPawnResurrect".Translate(), ref settings.canNonPlayerPawnResurrect, "WVC_ToolTip_canNonPlayerPawnResurrect".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_allowShapeshiftAfterDeath".Translate(), ref settings.allowShapeshiftAfterDeath, "WVC_ToolTip_allowShapeshiftAfterDeath".Translate());
-			// listingStandard.CheckboxLabeled("WVC_Label_mechaskinTemperatureAdaptability".Translate(), ref settings.mechaskinTemperatureAdaptability, "WVC_ToolTip_mechaskinTemperatureAdaptability".Translate());
-			// listingStandard.CheckboxLabeled("WVC_Label_nodeskinVX_MechBandwidth".Translate(), ref settings.nodeskinVX_MechBandwidth, "WVC_ToolTip_nodeskinVX_MechBandwidth".Translate());
-			// listingStandard.CheckboxLabeled("WVC_Label_canMechaskinBePredatorPrey".Translate(), ref settings.canMechaskinBePredatorPrey, "WVC_ToolTip_canMechaskinBePredatorPrey".Translate());
-			// listingStandard.CheckboxLabeled("WVC_Label_hideEncodingGenes".Translate(), ref settings.hideEncodingGenes, "WVC_ToolTip_hideEncodingGenes".Translate());
-			// listingStandard.CheckboxLabeled("WVC_Label_fixAgelessAge".Translate(), ref settings.fixAgelessAge, "WVC_ToolTip_fixAgelessAge".Translate());
-			// listingStandard.None();
-			listingStandard.Label("");
+			listingStandard.Gap();
 			// ===============
 			listingStandard.Label("WVC_BiotechSettings_Label_Other".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Other".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_minWastepacksPerRecharge".Translate(), ref settings.minWastepacksPerRecharge, "WVC_ToolTip_minWastepacksPerRecharge".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_validatorAbilitiesPatch".Translate(), ref settings.validatorAbilitiesPatch, "WVC_ToolTip_validatorAbilitiesPatch".Translate());
-			// listingStandard.CheckboxLabeled("WVC_Label_enableStatSkillFactor".Translate(), ref settings.enableStatSkillFactor, "WVC_ToolTip_enableStatSkillFactor".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes".Translate(), ref settings.serumsForAllXenotypes, "WVC_ToolTip_serumsForAllXenotypes".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenBase".Translate(), ref settings.serumsForAllXenotypes_GenBase);
 			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenUltra".Translate(), ref settings.serumsForAllXenotypes_GenUltra);
 			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenHybrid".Translate(), ref settings.serumsForAllXenotypes_GenHybrid);
 			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_Recipes".Translate(), ref settings.serumsForAllXenotypes_Recipes, "WVC_ToolTip_serumsForAllXenotypes_Recipes".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_serumsSpawnersForAllXenotypes".Translate(), ref settings.serumsForAllXenotypes_Spawners, "WVC_ToolTip_serumsSpawnersForAllXenotypes".Translate());
-			// listingStandard.SliderLabeled("WVC_Label_serumsCraftCost_ArchitesFactor".Translate(), ref settings.serumsCraftCost_ArchitesFactor, 0, 10, 0.1f);
-			// listingStandard.CheckboxLabeled("WVC_Label_convertCustomXenotypesIntoXenotypes".Translate(), ref settings.convertCustomXenotypesIntoXenotypes, "WVC_ToolTip_convertCustomXenotypesIntoXenotypes".Translate());
-			// listingStandard.Label("");
-			// ===============
-			// listingStandard.Label("WVC_BiotechSettings_Label_Legend".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Legend".Translate());
-			// listingStandard.CheckboxLabeled("WVC_Label_mecaXenotypeIsInheritable".Translate(), ref settings.mecaXenotypeIsInheritable, "WVC_ToolTip_mecaXenotypeIsInheritable".Translate());
-			// listingStandard.CheckboxLabeled("WVC_Label_mechanoidizationGenesPatch".Translate(), ref settings.mechanoidizationGenesPatch, "WVC_ToolTip_mechanoidizationGenesPatch".Translate());
 			listingStandard.End();
-			// base.DoSettingsWindowContents(inRect);
+			Widgets.EndScrollView();
 		}
 
 		private string searchKey;
