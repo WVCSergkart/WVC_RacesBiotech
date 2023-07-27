@@ -18,8 +18,8 @@ namespace WVC_XenotypesAndGenes
 
 		// private static readonly IntRange HealingIntervalTicksRange = new IntRange(120000, 300000);
 
-		[Unsaved(false)]
-		private GeneGizmo_Spawner gizmo;
+		// [Unsaved(false)]
+		// private GeneGizmo_Spawner gizmo;
 
 		public override void PostAdd()
 		{
@@ -72,14 +72,14 @@ namespace WVC_XenotypesAndGenes
 					}
 				};
 			}
-			if (gizmo == null)
-			{
-				gizmo = new GeneGizmo_Spawner(this);
-			}
-			if (Find.Selector.SelectedPawns.Count == 1 && !pawn.Drafted && WVC_Biotech.settings.enableGeneSpawnerGizmo == true && Active)
-			{
-				yield return gizmo;
-			}
+			// if (gizmo == null)
+			// {
+				// gizmo = new GeneGizmo_Spawner(this);
+			// }
+			// if (Find.Selector.SelectedPawns.Count == 1 && !pawn.Drafted && WVC_Biotech.settings.enableGeneSpawnerGizmo == true && Active)
+			// {
+				// yield return gizmo;
+			// }
 			// if (Active)
 			// {
 				// yield return new Command_Settle
@@ -107,46 +107,41 @@ namespace WVC_XenotypesAndGenes
 		// }
 	}
 
-	public class GeneGizmo_Spawner : Gizmo
-	{
-		protected Gene_Spawner gene;
+	// public class GeneGizmo_Spawner : Gizmo
+	// {
+		// protected Gene_Spawner gene;
 
-		// private const float Padding = 6f;
+		// public override float GetWidth(float maxWidth)
+		// {
+			// return 140f;
+		// }
 
-		// private const float Width = 140f;
+		// public GeneGizmo_Spawner(Gene_Spawner gene)
+		// {
+			// this.gene = gene;
+			// Order = -500f;
+		// }
 
-		public override float GetWidth(float maxWidth)
-		{
-			return 140f;
-		}
-
-		public GeneGizmo_Spawner(Gene_Spawner gene)
-		{
-			this.gene = gene;
-			Order = -500f;
-		}
-
-		public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
-		{
-			Rect rect = new Rect(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
-			Rect position = rect.ContractedBy(6f);
-			float num = position.height / 3f;
-			Widgets.DrawWindowBackground(rect);
-			GUI.BeginGroup(position);
-			Widgets.Label(new Rect(0f, 0f, position.width, num), "WVC_GeneSpawner_GizmoTitle".Translate() + ":");
-			Text.Anchor = TextAnchor.UpperCenter;
-			Widgets.Label(new Rect(0f, num * 1.2f, position.width, Text.LineHeight), "WVC_GeneSpawner_GizmoSpawn".Translate() + " " + gene.ThingDefToSpawn.label);
-			Widgets.Label(new Rect(0f, num * 2f, position.width, Text.LineHeight), "WVC_GeneSpawner_GizmoNextIn".Translate() + " " + gene.ticksUntilSpawn.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor));
-			Rect rect2 = new Rect(0f, num * 1f, position.width, 75f);
-			Text.Anchor = TextAnchor.UpperLeft;
-			if (Mouse.IsOver(rect2))
-			{
-				Widgets.DrawHighlight(rect2);
-				TooltipHandler.TipRegion(rect2, "WVC_GeneSpawner_GizmoSpawn".Translate() + " " + gene.ThingDefToSpawn.label + "\n" + "WVC_GeneSpawner_GizmoNextIn".Translate() + " " + gene.ticksUntilSpawn.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor) + " " + "WVC_GeneSpawner_GizmoCountSpawn".Translate() + " " + gene.StackCount + "\n\n(" + "WVC_GeneSpawner_GizmoTooltip".Translate() + ")");
-				// TooltipHandler.TipRegion(rect2, "(" + "WVC_GeneSpawner_GizmoTooltip".Translate() + ")");
-			}
-			GUI.EndGroup();
-			return new GizmoResult(GizmoState.Clear);
-		}
-	}
+		// public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
+		// {
+			// Rect rect = new Rect(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
+			// Rect position = rect.ContractedBy(6f);
+			// float num = position.height / 3f;
+			// Widgets.DrawWindowBackground(rect);
+			// GUI.BeginGroup(position);
+			// Widgets.Label(new Rect(0f, 0f, position.width, num), "WVC_GeneSpawner_GizmoTitle".Translate() + ":");
+			// Text.Anchor = TextAnchor.UpperCenter;
+			// Widgets.Label(new Rect(0f, num * 1.2f, position.width, Text.LineHeight), "WVC_GeneSpawner_GizmoSpawn".Translate() + " " + gene.ThingDefToSpawn.label);
+			// Widgets.Label(new Rect(0f, num * 2f, position.width, Text.LineHeight), "WVC_GeneSpawner_GizmoNextIn".Translate() + " " + gene.ticksUntilSpawn.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor));
+			// Rect rect2 = new Rect(0f, num * 1f, position.width, 75f);
+			// Text.Anchor = TextAnchor.UpperLeft;
+			// if (Mouse.IsOver(rect2))
+			// {
+				// Widgets.DrawHighlight(rect2);
+				// TooltipHandler.TipRegion(rect2, "WVC_GeneSpawner_GizmoSpawn".Translate() + " " + gene.ThingDefToSpawn.label + "\n" + "WVC_GeneSpawner_GizmoNextIn".Translate() + " " + gene.ticksUntilSpawn.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor) + " " + "WVC_GeneSpawner_GizmoCountSpawn".Translate() + " " + gene.StackCount + "\n\n(" + "WVC_GeneSpawner_GizmoTooltip".Translate() + ")");
+			// }
+			// GUI.EndGroup();
+			// return new GizmoResult(GizmoState.Clear);
+		// }
+	// }
 }
