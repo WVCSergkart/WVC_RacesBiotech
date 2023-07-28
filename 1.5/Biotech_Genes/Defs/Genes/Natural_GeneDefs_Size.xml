@@ -6,8 +6,9 @@
 	<GeneDef Name="WVC_BodySize_Base" Abstract="True">
 		<biostatCpx>1</biostatCpx>
 		<biostatMet>-2</biostatMet>
-		<displayCategory>Miscellaneous</displayCategory>
-		<displayOrderInCategory>162</displayOrderInCategory>
+		<!-- <displayCategory>Miscellaneous</displayCategory> -->
+		<displayCategory>Cosmetic_Body</displayCategory>
+		<displayOrderInCategory>2162</displayOrderInCategory>
 		<iconColor>(255, 255, 255)</iconColor>
 		<selectionWeight>0.03</selectionWeight>
 		<exclusionTags>
@@ -22,7 +23,7 @@
 		<defName>WVC_BodySize_Small</defName>
 		<label>small size</label>
 		<description>Carriers of this gene are slightly smaller than baseline humans.</description>
-		<displayOrderInCategory>161</displayOrderInCategory>
+		<displayOrderInCategory>2161</displayOrderInCategory>
 		<iconPath>WVC/UI/Genes/BodySize_Small</iconPath>
 		<biostatCpx>1</biostatCpx>
 		<biostatMet>2</biostatMet>
@@ -65,7 +66,7 @@
 		<defName>WVC_BodySize_Average</defName>
 		<label>average size</label>
 		<description>Carriers of this gene have a normal baseline human size.</description>
-		<displayOrderInCategory>162</displayOrderInCategory>
+		<displayOrderInCategory>2162</displayOrderInCategory>
 		<iconPath>WVC/UI/Genes/BodySize_Average</iconPath>
 		<biostatCpx>0</biostatCpx>
 		<biostatMet>0</biostatMet>
@@ -84,7 +85,7 @@
 		<defName>WVC_BodySize_Large</defName>
 		<label>large size</label>
 		<description>Carriers of this gene are slightly larger than baseline humans.</description>
-		<displayOrderInCategory>163</displayOrderInCategory>
+		<displayOrderInCategory>2163</displayOrderInCategory>
 		<iconPath>WVC/UI/Genes/BodySize_Large</iconPath>
 		<biostatCpx>1</biostatCpx>
 		<biostatMet>-2</biostatMet>

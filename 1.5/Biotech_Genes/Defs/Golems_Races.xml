@@ -69,6 +69,7 @@
 			</li>
 		</tools>
 		<race>
+			<deathActionWorkerClass>WVC_XenotypesAndGenes.DeathActionWorker_SpawnRandomThingFromList</deathActionWorkerClass>
 			<!-- <mechEnabledWorkTypes> -->
 			  <!-- <li>Firefighter</li> -->
 			  <!-- <li>BasicWorker</li> -->
@@ -109,6 +110,18 @@
 				</hediffDefs>
 			</li>
 		</comps>
+		<modExtensions>
+			<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+				<thingDefToSpawn>Filth_RubbleRock</thingDefToSpawn>
+				<thingDefsToSpawn>
+				  <li>ChunkMarble</li>
+				  <li>ChunkSlate</li>
+				  <li>ChunkLimestone</li>
+				  <li>ChunkGranite</li>
+				  <li>ChunkSandstone</li>
+				</thingDefsToSpawn>
+			</li>
+		</modExtensions>
 	</ThingDef>
 	<PawnKindDef ParentName="NonCombatLightMechanoidKind" Name="WVC_NonCombatGolemKind" Abstract="True">
 		<!-- <defName>WVC_Golem_Liftoid</defName> -->

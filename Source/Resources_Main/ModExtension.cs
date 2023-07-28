@@ -11,15 +11,16 @@ namespace WVC_XenotypesAndGenes
         public string backgroundPathArchite;
     }
 
-    public class GeneExtension_Spawner : DefModExtension
-    {
-        public ThingDef thingDefToSpawn;
-        public int stackCount = 1;
-        public IntRange spawnIntervalRange = new(120000, 300000);
-        public QuestScriptDef summonQuest;
-        // public bool writeTimeLeftToSpawn = true;
-        // public string customLabel = "Resource";
-    }
+	public class GeneExtension_Spawner : DefModExtension
+	{
+		public ThingDef thingDefToSpawn;
+		public List<ThingDef> thingDefsToSpawn;
+		public int stackCount = 1;
+		public IntRange spawnIntervalRange = new(120000, 300000);
+		public QuestScriptDef summonQuest;
+		// public bool writeTimeLeftToSpawn = true;
+		// public string customLabel = "Resource";
+	}
 
     public class GeneExtension_General : DefModExtension
     {

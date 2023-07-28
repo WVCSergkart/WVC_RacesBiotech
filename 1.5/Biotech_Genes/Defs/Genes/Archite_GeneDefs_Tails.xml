@@ -5,11 +5,12 @@
 
   <!-- Node tail -->
 
-  <GeneDef ParentName="GeneTailBase" Name="WVC_NodeTail_Base" Abstract="True">
+  <GeneDef ParentName="GeneTailBase" Name="WVC_XenotypesAndGenes_GeneTails_Base" Abstract="True">
 	<label>connector tail</label>
 	<description>Carriers of this gene grow a sleek long tail with several connectors at the end.</description>
 	<iconPath>WVC/BodyParts/MecaGene_ScytheTail/NodeTail_east</iconPath>
 	<iconColor>(0.85, 0.85, 0.85)</iconColor>
+	<displayCategory>WVC_Cosmetic</displayCategory>
 	<!-- <displayCategory>WVC_MechaBodyParts</displayCategory> -->
 	<displayOrderInCategory>1001</displayOrderInCategory>
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
@@ -34,7 +35,7 @@
 
   <!-- ======================== -->
 
-  <GeneDef ParentName="WVC_NodeTail_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneTails_Base">
 	<defName>WVC_Mecha_ScytheTail</defName>
 	<label>scythe tail</label>
 	<description>Carriers of this gene grow two tails with scythe-like blades at the end.</description>
@@ -88,7 +89,7 @@
 	</modExtensions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_NodeTail_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneTails_Base">
 	<defName>WVC_Mecha_ConnectorTail</defName>
 	<label>connector tail</label>
 	<description>Carriers of this gene grow a sleek long tail with several connectors at the end.</description>
@@ -128,7 +129,7 @@
 	</modExtensions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_NodeTail_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneTails_Base">
 	<defName>WVC_Mecha_AntennaTail</defName>
 	<label>antenna tail</label>
 	<description>Carriers of this gene grow a short antenna-like tail.</description>
@@ -163,7 +164,7 @@
 	</modExtensions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_NodeTail_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneTails_Base">
 	<defName>WVC_Mecha_NoTail</defName>
 	<label>protective plate</label>
 	<description>Carriers of this gene have additional protection.</description>

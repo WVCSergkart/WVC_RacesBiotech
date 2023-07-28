@@ -5,6 +5,7 @@
 	<description>Carriers of this gene grow two horns protruding from the forehead.</description>
 	<selectionWeight>0.012</selectionWeight>
 	<minAgeActive>3</minAgeActive>
+	<displayCategory>WVC_Cosmetic</displayCategory>
 	<graphicData>
 	  <color>(255, 255, 255)</color>
 	  <layer>PostHeadgear</layer>
@@ -50,17 +51,6 @@
 	<!-- </graphicData> -->
   <!-- </GeneDef> -->
 
-  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHeadbone_Base"> -->
-	<!-- <defName>WVC_HeadBoneDoubleHorn</defName> -->
-	<!-- <label>double horn</label> -->
-	<!-- <iconPath>WVC/UI/Genes/HornsB_Icon_v0</iconPath> -->
-	<!-- <graphicData> -->
-	  <!-- <graphicPath>WVC/BodyParts/Horns/HornsB</graphicPath> -->
-	  <!-- <drawOffsetNorth>(0, 0, -0.04)</drawOffsetNorth> -->
-	  <!-- <drawOffsetSouth>(0, 0, -0.13)</drawOffsetSouth> -->
-	<!-- </graphicData> -->
-  <!-- </GeneDef> -->
-
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHeadbone_Base">
 	<defName>WVC_HeadBoneHorns</defName>
 	<label>horns</label>
@@ -68,9 +58,20 @@
 	<graphicData>
 	  <graphicPaths>
 		<li>WVC/BodyParts/Horns/HornsA</li>
-		<li>WVC/BodyParts/Horns/HornsB</li>
+		<!-- <li>WVC/BodyParts/Horns/HornsB</li> -->
 		<li>WVC/BodyParts/Horns/HornsC</li>
 	  </graphicPaths>
+	  <drawOffsetNorth>(0, 0, -0.04)</drawOffsetNorth>
+	  <drawOffsetSouth>(0, 0, -0.13)</drawOffsetSouth>
+	</graphicData>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHeadbone_Base">
+	<defName>WVC_HeadBoneDoubleHorn</defName>
+	<label>double horn</label>
+	<iconPath>WVC/UI/Genes/HornsB_Icon_v0</iconPath>
+	<graphicData>
+	  <graphicPath>WVC/BodyParts/Horns/HornsB</graphicPath>
 	  <drawOffsetNorth>(0, 0, -0.04)</drawOffsetNorth>
 	  <drawOffsetSouth>(0, 0, -0.13)</drawOffsetSouth>
 	</graphicData>

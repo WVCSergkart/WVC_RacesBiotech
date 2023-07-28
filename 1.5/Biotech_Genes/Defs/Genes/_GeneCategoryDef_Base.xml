@@ -84,6 +84,13 @@
 	<!-- <displayPriorityInXenotype>-99999</displayPriorityInXenotype> -->
   </GeneCategoryDef>
 
+  <GeneCategoryDef>
+	<defName>WVC_Cosmetic</defName>
+	<label>cosmetic - misc</label>
+	<displayPriorityInXenotype>300.2886992038</displayPriorityInXenotype>
+	<displayPriorityInGenepack>-100</displayPriorityInGenepack>
+  </GeneCategoryDef>
+
   <!-- https://steamcommunity.com/sharedfiles/filedetails/?id=2886992038 -->
   <!-- ================================================================== -->
 
