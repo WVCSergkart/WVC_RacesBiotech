@@ -135,7 +135,7 @@ namespace WVC_XenotypesAndGenes
 		public string Info(Pawn pawn)
 		{
 			string info = null;
-			if (cachedUndeadGene != null && cachedUndeadGene.PawnCanResurrect)
+			if (cachedUndeadGene != null && cachedUndeadGene.PawnCanResurrect())
 			{
 				info += "WVC_XaG_Gene_Undead_On_Info".Translate().Resolve();
 			}

@@ -35,7 +35,7 @@ namespace WVC_XenotypesAndGenes
 		public QuestScriptDef SummonQuest => def.GetModExtension<GeneExtension_Spawner>().summonQuest;
 		public int MinChronoAge => def.GetModExtension<GeneExtension_Spawner>().stackCount;
 
-		public bool PawnCanResurrect => CanResurrect();
+		// public bool PawnCanResurrect => CanResurrect();
 		// public bool PawnCanReincarnate => DustogenicCanReincarnate();
 
 		public override void Notify_PawnDied()
@@ -61,6 +61,15 @@ namespace WVC_XenotypesAndGenes
 			{
 				UndeadUtility.ResurrectWithPenalties(pawn, Limit, Penalty, ChildBackstoryDef, AdultBackstoryDef, penaltyYears);
 			}
+		}
+
+		public bool PawnCanResurrect()
+		{
+			if ((CanResurrect() && !DustogenicCanReincarnate()) || EnoughResurgentCells())
+			{
+				return true;
+			}
+			return false;
 		}
 
 		//For checks

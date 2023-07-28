@@ -47,7 +47,6 @@
 	  <graphicPath>WVC/BodyParts/Horns/HornsA</graphicPath>
 	  <drawOffsetNorth>(0, 0, -0.04)</drawOffsetNorth>
 	  <drawOffsetSouth>(0, 0, -0.13)</drawOffsetSouth>
-	  <!-- <drawOffsetEast>(-0.08, -0.4, -0.04)</drawOffsetEast> -->
 	</graphicData>
   </GeneDef>
 
@@ -59,8 +58,21 @@
 	  <graphicPath>WVC/BodyParts/Horns/HornsB</graphicPath>
 	  <drawOffsetNorth>(0, 0, -0.04)</drawOffsetNorth>
 	  <drawOffsetSouth>(0, 0, -0.13)</drawOffsetSouth>
-	  <!-- <drawOffsetEast>(-0.08, -0.4, -0.04)</drawOffsetEast> -->
 	</graphicData>
   </GeneDef>
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHeadbone_Base"> -->
+	<!-- <defName>WVC_HeadBoneHorns</defName> -->
+	<!-- <label>horns</label> -->
+	<!-- <iconPath>WVC/UI/Genes/HornsA_Icon_v0</iconPath> -->
+	<!-- <graphicData> -->
+	  <!-- <graphicPaths> -->
+		<!-- <li>WVC/BodyParts/Horns/HornsA</li> -->
+		<!-- <li>WVC/BodyParts/Horns/HornsB</li> -->
+	  <!-- </graphicPaths> -->
+	  <!-- <drawOffsetNorth>(0, 0, -0.04)</drawOffsetNorth> -->
+	  <!-- <drawOffsetSouth>(0, 0, -0.13)</drawOffsetSouth> -->
+	<!-- </graphicData> -->
+  <!-- </GeneDef> -->
 
 </Defs>

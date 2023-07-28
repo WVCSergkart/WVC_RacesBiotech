@@ -92,8 +92,8 @@
 	<WVC_XaG_Gene_Wings_Off>Walk</WVC_XaG_Gene_Wings_Off>
 
 	<WVC_XaG_Gene_Wings_On_Info>Ignores terrain</WVC_XaG_Gene_Wings_On_Info>
-	<WVC_XaG_Gene_Undead_On_Info>Undead (Can resurrect/reincarnate)</WVC_XaG_Gene_Undead_On_Info>
-	<!-- <WVC_XaG_Gene_Undead_On_Info>Resurrect in case of death</WVC_XaG_Gene_Undead_On_Info> -->
+	<!-- <WVC_XaG_Gene_Undead_On_Info>Undead (Can resurrect)</WVC_XaG_Gene_Undead_On_Info> -->
+	<WVC_XaG_Gene_Undead_On_Info>Resurrect in case of death</WVC_XaG_Gene_Undead_On_Info>
 	<!-- <WVC_XaG_Gene_DustUndead_On_Info>Reincarnate in case of death</WVC_XaG_Gene_DustUndead_On_Info> -->
 	<WVC_XaG_Gene_Blesslin_On_Info>Next summon in</WVC_XaG_Gene_Blesslin_On_Info>
 
