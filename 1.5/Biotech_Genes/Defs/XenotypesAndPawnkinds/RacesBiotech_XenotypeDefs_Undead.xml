@@ -48,23 +48,25 @@
 		<!-- Mandatory gene for sub-xenotype mutation. -->
 		<!-- I could make code that would work without such a crude hook, but it's better not to clog a vanilla generator with additional checks. -->
 		<li>WVC_XenotypesAndGenes_SubXenotypeShapeshifter</li>
+		<!-- This hook-gene is only used to generate the xenotype. Or getting it through the serum. -->
+		<!-- In all other and planned cases, it will be applied through modExtensions -->
 	</genes>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.XenotypeExtension_SubXenotype">
-			<!-- Chance that getting an additional xenotype -->
+			<!-- Chance that getting an sub-xenotype -->
 			<subXenotypeChance>0.33</subXenotypeChance>
 			<!-- Sub xenotype is chosen randomly from the list. -->
-			<!-- Sub-xenotype obtained in this way does not change the name. -->
-			<!-- The name of the xenotype does not change. If change it, then the xenotype will be marked as custom and the hyperlink will stop working. -->
 			<!-- This method is conceived as a random gene list expander, when you need to add a certain set of genes, but randomly with some chance. -->
 			<subXenotypeDefs>
 				<li>WVC_Resurgent</li>
 				<li>WVC_DustAngel</li>
+				<!-- <li>WVC_BloodDemon</li> -->
 			</subXenotypeDefs>
 			<!-- mainSubXenotypeDef allows you to specify which genes will be added if none of the sub-xenotypes has been selected. -->
 			<mainSubXenotypeDef>WVC_MainUndead</mainSubXenotypeDef>
-			<!-- Affects whether xenotype genes change in some cases upon death. For example the "Undead" gene. -->
+			<!-- Affects whether xenotype genes change in some cases upon death. -->
 			<xenotypeCanShapeshiftOnDeath>true</xenotypeCanShapeshiftOnDeath>
+			<!-- For example, the "Undead" gene rerolls xenotype genes each time it triggers. But this only applies to the base resurrection. -->
 		</li>
 	</modExtensions>
   </XenotypeDef>
@@ -139,6 +141,7 @@
 		<li>WVC_MildGeneticInstability</li>
 		<li>WVC_Fragile</li>
 		<li>WVC_NaturalFastAging</li>
+		<li>Hair_Grayless</li>
 	</removeGenes>
   </WVC_XenotypesAndGenes.SubXenotypeDef>
 
@@ -159,6 +162,7 @@
 		<li>WVC_Dustogenic_Metabolism</li>
 		<li>WVC_Dustogenic_Blesslink</li>
 		<li>WVC_Dustogenic_AngelBeauty</li>
+		<!-- Implemented for the "Undead" gene. A separate gene was left for player use only. -->
 		<!-- <li>WVC_Dustogenic_Reincarnation</li> -->
 		<li>WVC_Dustogenic_GeneticStability</li>
 		<li>WVC_Dustogenic_ImmaculateConception</li>

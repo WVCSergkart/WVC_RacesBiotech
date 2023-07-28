@@ -69,6 +69,7 @@
 	  <graphicPaths>
 		<li>WVC/BodyParts/Horns/HornsA</li>
 		<li>WVC/BodyParts/Horns/HornsB</li>
+		<li>WVC/BodyParts/Horns/HornsC</li>
 	  </graphicPaths>
 	  <drawOffsetNorth>(0, 0, -0.04)</drawOffsetNorth>
 	  <drawOffsetSouth>(0, 0, -0.13)</drawOffsetSouth>

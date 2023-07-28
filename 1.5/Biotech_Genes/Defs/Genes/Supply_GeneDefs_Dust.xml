@@ -289,6 +289,7 @@
 	</modExtensions>
   </GeneDef>
 
+  <!-- Implemented for the "Undead" gene. A separate gene was left for player use only. -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
 	<defName>WVC_Dustogenic_Reincarnation</defName>
 	<label>reincarnation</label>
