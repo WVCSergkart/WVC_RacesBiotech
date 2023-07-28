@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRandom_Base" Name="WVC_XenotypesAndGenes_GeneNaturalRandom_PsychicAbility" Abstract="True">
+	<label>psychic sensitivity</label>
+	<labelShortAdj>psy-sens</labelShortAdj>
+	<description>Carriers of this gene have an unstable neural mutation, which can either improve or worsen over generations.</description>
+	<iconPath>WVC/UI/Genes/Gene_Random_Psychic_v0</iconPath>
+	<exclusionTags>
+	  <li>PsychicAbility</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<randomizerGenesList>
+				<li>WVC_RandomPsychicAbility_A</li>
+				<li>WVC_RandomPsychicAbility_B</li>
+				<li>WVC_RandomPsychicAbility_C</li>
+				<li>WVC_RandomPsychicAbility_D</li>
+				<li>WVC_RandomPsychicAbility_E</li>
+			</randomizerGenesList>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneNaturalRandom_PsychicAbility">
+	<defName>WVC_RandomPsychicAbility_A</defName>
+	<iconColor>(126, 61, 60)</iconColor>
+	<statFactors>
+	  <PsychicSensitivity>0.0</PsychicSensitivity>
+	</statFactors>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneNaturalRandom_PsychicAbility">
+	<defName>WVC_RandomPsychicAbility_B</defName>
+	<iconColor>(178, 97, 96)</iconColor>
+	<statFactors>
+	  <PsychicSensitivity>0.5</PsychicSensitivity>
+	</statFactors>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneNaturalRandom_PsychicAbility">
+	<defName>WVC_RandomPsychicAbility_C</defName>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneNaturalRandom_PsychicAbility">
+	<defName>WVC_RandomPsychicAbility_D</defName>
+	<iconColor>(112, 173, 120)</iconColor>
+	<statFactors>
+	  <PsychicSensitivity>1.5</PsychicSensitivity>
+	</statFactors>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneNaturalRandom_PsychicAbility">
+	<defName>WVC_RandomPsychicAbility_E</defName>
+	<iconColor>(71, 117, 60)</iconColor>
+	<statFactors>
+	  <PsychicSensitivity>2.0</PsychicSensitivity>
+	</statFactors>
+  </GeneDef>
+
+</Defs>

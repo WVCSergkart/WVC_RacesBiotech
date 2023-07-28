@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+  <!-- Temperature -->
+
+  <GeneDef ParentName="GeneMinTempBase" Name="WVC_GeneMinTemp_Base" Abstract="True">
+	<selectionWeight>0.0125</selectionWeight>
+	<biostatMet>0</biostatMet>
+	<biostatArc>1</biostatArc>
+	<!-- <displayCategory>Temperature</displayCategory> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>MinTemperature</li> -->
+	<!-- </exclusionTags> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_GeneMinTemp_Base">
+	<defName>WVC_MinTemp_ArchiteDecrease</defName>
+	<label>cold archite-tolerant</label>
+	<labelShortAdj>cold</labelShortAdj>
+	<description>Carriers of this gene are much more comfortable in very cold temperatures.</description>
+	<iconPath>WVC/UI/Genes/Gene_TemperatureCold_v1</iconPath>
+	<displayOrderInCategory>25</displayOrderInCategory>
+	<statOffsets>
+	  <ComfyTemperatureMin>-999</ComfyTemperatureMin>
+	</statOffsets>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>ice</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="GeneMaxTempBase" Name="WVC_GeneMaxTemp_Base" Abstract="True">
+	<selectionWeight>0.0125</selectionWeight>
+	<biostatMet>0</biostatMet>
+	<biostatArc>1</biostatArc>
+	<!-- <displayCategory>Temperature</displayCategory> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>MaxTemperature</li> -->
+	<!-- </exclusionTags> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_GeneMaxTemp_Base">
+	<defName>WVC_MaxTemp_ArchiteIncrease</defName>
+	<label>heat archite-tolerant</label>
+	<labelShortAdj>hot</labelShortAdj>
+	<description>Carriers of this gene are more comfortable in very hot temperatures.</description>
+	<iconPath>WVC/UI/Genes/Gene_TemperatureHot_v1</iconPath>
+	<displayOrderInCategory>55</displayOrderInCategory>
+	<statOffsets>
+	  <ComfyTemperatureMax>999</ComfyTemperatureMax>
+	</statOffsets>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>hot</symbol></li>
+		<li><symbol>heat</symbol></li>
+		<li><symbol>sun</symbol></li>
+		<li><symbol>sweat</symbol></li>
+		<li><symbol>bake</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- ============================================= -->
+
+  <GeneDef Name="WVC_GeneMinMaxTemp_Base" Abstract="True">
+	<description>Carriers of this gene feel comfortable in any temperature.</description>
+	<selectionWeight>0.0125</selectionWeight>
+	<biostatMet>-2</biostatMet>
+	<biostatArc>1</biostatArc>
+	<displayCategory>Temperature</displayCategory>
+	<statOffsets>
+	  <ComfyTemperatureMax>250</ComfyTemperatureMax>
+	  <ComfyTemperatureMin>-100</ComfyTemperatureMin>
+	</statOffsets>
+	<exclusionTags>
+	  <li>MinTemperature</li>
+	  <li>MaxTemperature</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>ice</symbol></li>
+		<li><symbol>hot</symbol></li>
+		<li><symbol>heat</symbol></li>
+		<li><symbol>sun</symbol></li>
+		<li><symbol>sweat</symbol></li>
+		<li><symbol>bake</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_GeneMinMaxTemp_Base">
+	<defName>WVC_MinMaxTemp_Archite</defName>
+	<label>temperature archite-tolerant</label>
+	<labelShortAdj>arch-temp</labelShortAdj>
+	<iconPath>WVC/UI/Genes/Gene_TemperatureArchite_v0</iconPath>
+	<displayOrderInCategory>27</displayOrderInCategory>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_GeneMinMaxTemp_Base">
+	<defName>WVC_MinMaxTemp_Natural</defName>
+	<label>temperature super-tolerant</label>
+	<labelShortAdj>super-temp</labelShortAdj>
+	<iconPath>WVC/UI/Genes/Gene_TemperatureNatural_v0</iconPath>
+	<displayOrderInCategory>26</displayOrderInCategory>
+	<biostatMet>-6</biostatMet>
+	<biostatArc>0</biostatArc>
+  </GeneDef>
+
+</Defs>

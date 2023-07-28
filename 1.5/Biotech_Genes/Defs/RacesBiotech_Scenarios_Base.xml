@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ScenarioDef>
+	<defName>WVC_XenotypesAndGenes_Blank</defName>
+	<label>Long running joke</label>
+	<description>All your life you have had a strange, eerie feeling that someone is watching you from the shadows. Each of your actions seemed to be a point in some prepared scenario. And the icing on the cake was the fact that your health was deteriorating very quickly. And then when there was almost no hope left, people who were hiding in the shadows came for you and promised to cure all your ailments.\n\nWhen the experiment was over, you were placed in a cryopod, which is the last thing you remember before the drop pod hits the ground.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; Blankinds can't do anything. You have been warned.</description>
+	<scenario>
+	  <summary>One crashlanded blank with no supplies. &lt;color=#ee2a23&gt;Unreal&lt;/color&gt; difficulty.</summary>
+	  <playerFaction>
+		<def>PlayerFaction</def>
+		<factionDef>PlayerColony</factionDef>
+	  </playerFaction>
+	  <parts>
+
+		<!-- Config pages -->
+		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_Xenotypes">
+		  <def>ConfigurePawnsXenotypes</def>
+		  <pawnChoiceCount>1</pawnChoiceCount>
+		  <customSummary>Start with one adult blank with no supplies.</customSummary>
+		  <overrideKinds>
+			<li>
+			  <xenotype>WVC_Blank</xenotype>
+			  <pawnKind>WVC_Blank_Player</pawnKind>
+			</li>
+		  </overrideKinds>
+		  <xenotypeCounts>
+			<li>
+			  <xenotype>WVC_Blank</xenotype>
+			  <count>1</count>
+			  <description>non-child blankind</description>
+			  <requiredAtStart>true</requiredAtStart>
+			  <allowedDevelopmentalStages>Adult</allowedDevelopmentalStages>
+			</li>
+		  </xenotypeCounts>
+		</li>
+
+		<!-- Player starting stuff spawn method-->
+		<li Class="ScenPart_PlayerPawnsArriveMethod">
+		  <def>PlayerPawnsArriveMethod</def>
+		  <visible>false</visible>
+		  <method>DropPods</method>
+		</li>
+
+		<!-- Game start dialog -->
+		<li Class="ScenPart_GameStartDialog">
+		  <def>GameStartDialog</def>
+		  <text>All your life you have had a strange, eerie feeling that someone is watching you from the shadows. Each of your actions seemed to be a point in some prepared scenario. And the icing on the cake was the fact that your health was deteriorating very quickly. And then when there was almost no hope left, people who were hiding in the shadows came for you and promised to cure all your ailments.\n\nWhen the experiment was over, you were placed in a cryopod, which is the last thing you remember before the drop pod hits the ground.</text>
+		  <closeSound>GameStartSting</closeSound>
+		</li>
+
+		<li Class="ScenPart_StartingThing_Defined">
+		  <def>StartingThing_Defined</def>
+		  <thingDef>Wastepack</thingDef>
+		  <count>15</count>
+		</li>
+		<li Class="ScenPart_ScatterThingsAnywhere">
+		  <def>ScatterThingsAnywhere</def>
+		  <thingDef>Wastepack</thingDef>
+		  <count>50</count>
+		</li>
+
+		<li MayRequireAnyOf="ludeon.rimworld.ideology" Class="KCSG.ScenPart_AddStartingStructure">
+			<def>VFEC_AddStartingStructure</def>
+			<structureLabel>Junkyard</structureLabel>
+			<nearMapCenter>True</nearMapCenter>
+			<chooseFrom>
+				<li>WVC_JunkYard_A</li>
+				<li>WVC_JunkYard_B</li>
+				<li>WVC_JunkYard_C</li>
+			</chooseFrom>
+		</li>
+
+	  </parts>
+	</scenario>
+  </ScenarioDef>
+
+  <!-- ========================================================= -->
+
+  <ScenarioDef>
+	<defName>WVC_XenotypesAndGenes_Meca</defName>
+	<label>The Meca</label>
+	<!-- Temporary description -->
+	<description>All your life you have had a strange, eerie feeling that someone is watching you from the shadows. Each of your actions seemed to be a point in some prepared scenario. And the icing on the cake was the fact that your health was deteriorating very quickly. And then when there was almost no hope left, people who were hiding in the shadows came for you and promised to cure all your ailments.\n\nWhen the experiment was over, you were placed in a cryopod, which is the last thing you remember before the drop pod hits the ground.</description>
+	<!-- \n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; The main disadvantage of mechakins is the learning speed, they are very slow to learn new skills, and also have a serious debuff on farming and social skills. However, they have a significant boost in intelligence and crafting. -->
+	<scenario>
+	  <summary>One crashlanded mechalike pawn with no supplies. &lt;color=#a1ff95&gt;Easy-medium&lt;/color&gt; difficulty.</summary>
+	  <playerFaction>
+		<def>PlayerFaction</def>
+		<factionDef>PlayerColony</factionDef>
+	  </playerFaction>
+	  <parts>
+
+		<!-- Config pages -->
+		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_KindDefs">
+			<def>ConfigurePawnsKindDefs</def>
+			<pawnChoiceCount>1</pawnChoiceCount>
+			<kindCounts>
+				<li>
+					<count>1</count>
+					<kindDef>WVC_Meca_Player</kindDef>
+				</li>
+			</kindCounts>
+		</li>
+		<!-- <li Class="ScenPart_ConfigPage_ConfigureStartingPawns_Xenotypes"> -->
+		  <!-- <def>ConfigurePawnsXenotypes</def> -->
+		  <!-- <pawnChoiceCount>8</pawnChoiceCount> -->
+		  <!-- <customSummary>Start with one adult mechalike pawn with no supplies.</customSummary> -->
+		  <!-- <overrideKinds> -->
+			<!-- <li> -->
+			  <!-- <xenotype>WVC_Meca</xenotype> -->
+			  <!-- <pawnKind>WVC_Meca_Player</pawnKind> -->
+			<!-- </li> -->
+		  <!-- </overrideKinds> -->
+		  <!-- <xenotypeCounts> -->
+			<!-- <li> -->
+			  <!-- <xenotype>WVC_Meca</xenotype> -->
+			  <!-- <count>1</count> -->
+			  <!-- <description>non-child mechalike</description> -->
+			  <!-- <requiredAtStart>false</requiredAtStart> -->
+			  <!-- <allowedDevelopmentalStages>Adult</allowedDevelopmentalStages> -->
+			<!-- </li> -->
+		  <!-- </xenotypeCounts> -->
+		<!-- </li> -->
+
+		<!-- Player starting stuff spawn method-->
+		<li Class="ScenPart_PlayerPawnsArriveMethod">
+		  <def>PlayerPawnsArriveMethod</def>
+		  <visible>false</visible>
+		  <method>DropPods</method>
+		</li>
+
+		<!-- Game start dialog -->
+		<li Class="ScenPart_GameStartDialog">
+		  <def>GameStartDialog</def>
+		  <text>All your life you have had a strange, eerie feeling that someone is watching you from the shadows. Each of your actions seemed to be a point in some prepared scenario. And the icing on the cake was the fact that your health was deteriorating very quickly. And then when there was almost no hope left, people who were hiding in the shadows came for you and promised to cure all your ailments.\n\nWhen the experiment was over, you were placed in a cryopod, which is the last thing you remember before the drop pod hits the ground.</text>
+		  <closeSound>GameStartSting</closeSound>
+		</li>
+
+		<!-- Starting research -->
+		<!-- <li Class="ScenPart_StartingResearch"> -->
+		  <!-- <def>StartingResearch</def> -->
+		  <!-- <project>MicroelectronicsBasics</project> -->
+		<!-- </li> -->
+		<!-- <li Class="ScenPart_StartingResearch"> -->
+		  <!-- <def>StartingResearch</def> -->
+		  <!-- <project>BasicMechtech</project> -->
+		<!-- </li> -->
+		<!-- <li Class="ScenPart_StartingResearch"> -->
+		  <!-- <def>StartingResearch</def> -->
+		  <!-- <project>Batteries</project> -->
+		<!-- </li> -->
+
+		<li Class="ScenPart_StartingThing_Defined">
+		  <def>StartingThing_Defined</def>
+		  <thingDef>Wastepack</thingDef>
+		  <count>45</count>
+		</li>
+		<li Class="ScenPart_ScatterThingsAnywhere">
+		  <def>ScatterThingsAnywhere</def>
+		  <thingDef>Wastepack</thingDef>
+		  <count>250</count>
+		</li>
+
+		<li MayRequireAnyOf="ludeon.rimworld.ideology" Class="KCSG.ScenPart_AddStartingStructure">
+			<def>VFEC_AddStartingStructure</def>
+			<structureLabel>Junkyard</structureLabel>
+			<nearMapCenter>True</nearMapCenter>
+			<chooseFrom>
+				<li>WVC_JunkYard_A</li>
+				<li>WVC_JunkYard_B</li>
+				<li>WVC_JunkYard_C</li>
+			</chooseFrom>
+		</li>
+
+	  </parts>
+	</scenario>
+  </ScenarioDef>
+
+  <!-- ========================================================= -->
+
+  <ScenarioDef>
+	<defName>WVC_XenotypesAndGenes_RuneDryad</defName>
+	<label>Child of the stars</label>
+	<description>You have spent your entire life in a star-worshipping tribe. The elders of the tribe very often talked about the messenger of the gods, who once descended from heaven and helped the tribe in their hour of need. The creature's flesh was entirely made of stone, and its endurance could be envied by the strongest warriors of the tribe. But even such a strong creature could not live forever, and when his time came, a child was found in his remains, and that child was you.\n\nNot much time has passed since you left the tribe to go on a journey. Forces left you very quickly, and food supplies came to an end. And remembering the legend of your birth, you begged heaven for help. And help came.</description>
+	<scenario>
+	  <summary>One runeex pawn with no supplies and two golems. &lt;color=#a1ff95&gt;Easy-medium&lt;/color&gt; difficulty.</summary>
+	  <playerFaction>
+		<def>PlayerFaction</def>
+		<factionDef>PlayerTribe</factionDef>
+	  </playerFaction>
+	  <parts>
+
+		<!-- Config pages -->
+		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_KindDefs">
+			<def>ConfigurePawnsKindDefs</def>
+			<pawnChoiceCount>1</pawnChoiceCount>
+			<kindCounts>
+				<li>
+					<count>1</count>
+					<kindDef>WVC_RuneDryad_Player</kindDef>
+				</li>
+			</kindCounts>
+		</li>
+		<!-- <li Class="ScenPart_ConfigPage_ConfigureStartingPawns_Xenotypes"> -->
+		  <!-- <def>ConfigurePawnsXenotypes</def> -->
+		  <!-- <pawnChoiceCount>8</pawnChoiceCount> -->
+		  <!-- <customSummary>Start with one adult mechalike pawn with no supplies.</customSummary> -->
+		  <!-- <overrideKinds> -->
+			<!-- <li> -->
+			  <!-- <xenotype>WVC_Meca</xenotype> -->
+			  <!-- <pawnKind>WVC_Meca_Player</pawnKind> -->
+			<!-- </li> -->
+		  <!-- </overrideKinds> -->
+		  <!-- <xenotypeCounts> -->
+			<!-- <li> -->
+			  <!-- <xenotype>WVC_Meca</xenotype> -->
+			  <!-- <count>1</count> -->
+			  <!-- <description>non-child mechalike</description> -->
+			  <!-- <requiredAtStart>false</requiredAtStart> -->
+			  <!-- <allowedDevelopmentalStages>Adult</allowedDevelopmentalStages> -->
+			<!-- </li> -->
+		  <!-- </xenotypeCounts> -->
+		<!-- </li> -->
+
+		<!-- Player starting stuff spawn method-->
+		<li Class="ScenPart_PlayerPawnsArriveMethod">
+			<def>PlayerPawnsArriveMethod</def>
+		</li>
+
+		<!-- Game start dialog -->
+		<li Class="ScenPart_GameStartDialog">
+		  <def>GameStartDialog</def>
+		  <text>You have spent your entire life in a star-worshipping tribe. The elders of the tribe very often talked about the messenger of the gods, who once descended from heaven and helped the tribe in their hour of need. The creature's flesh was entirely made of stone, and its endurance could be envied by the strongest warriors of the tribe. But even such a strong creature could not live forever, and when his time came, a child was found in his remains, and that child was you.\n\nNot much time has passed since you left the tribe to go on a journey. Forces left you very quickly, and food supplies came to an end. And remembering the legend of your birth, you begged heaven for help. And help came.</text>
+		  <closeSound>GameStartSting</closeSound>
+		</li>
+
+		<li Class="ScenPart_DisableMapGen">
+			<def>DisableExostriderRemains</def>
+		</li>
+		<li Class="ScenPart_Naked">
+			<def>Naked</def>
+			<chance>0.25</chance>
+			<context>PlayerStarter</context>
+		</li>
+
+		<li Class="ScenPart_StartingMech">
+		  <def>StartingMech</def>
+		  <mechKind>WVC_Golem_Liftoid</mechKind>
+		  <overseenByPlayerPawnChance>1</overseenByPlayerPawnChance>
+		</li>
+		<li Class="ScenPart_StartingMech">
+		  <def>StartingMech</def>
+		  <mechKind>WVC_Golem_Constructoid</mechKind>
+		  <overseenByPlayerPawnChance>1</overseenByPlayerPawnChance>
+		</li>
+
+		<li MayRequireAnyOf="ludeon.rimworld.royalty" Class="KCSG.ScenPart_AddStartingStructure">
+			<def>VFEC_AddStartingStructure</def>
+			<structureLabel>Stone Altar</structureLabel>
+			<nearMapCenter>True</nearMapCenter>
+			<chooseFrom>
+				<li>WVC_Biotech_Altar_Slate</li>
+				<li>WVC_Biotech_Altar_Sandstone</li>
+				<li>WVC_Biotech_Altar_Marble</li>
+				<li>WVC_Biotech_Altar_Limestone</li>
+				<li>WVC_Biotech_Altar_Granite</li>
+			</chooseFrom>
+		</li>
+
+	  </parts>
+	</scenario>
+  </ScenarioDef>
+
+  <!-- ========================================================= -->
+
+  <ScenarioDef>
+	<defName>WVC_XenotypesAndGenes_Undead</defName>
+	<label>Risen from the dead</label>
+	<!-- Ru version -->
+	<!-- Вы уже и не помните, что мотивировало вас отправиться в преключение. Это воспоминание было настолько мимолётным и незначительным, что акцентировать на нём внимание у вас не было желания. Сейчас же вас больше волновало обильное кровотечение от раны ловко оставленной клинком. Группа рейдеров заметила вас раньше и застала в расплох, забрав ваши пожитки и оставив вас умирать они исчезли так же резко как и появились.\n\nПеред тем же как испустить дух вы мельком словно в тумание увидели силуэт. Когда вы открыли глаза, ран на вашем теле не было, а вы уже были всё тем же, но всё таки другим человеком. -->
+	<description>You no longer remember what motivated you to go on an adventure. This memory was so fleeting and insignificant that you had no desire to focus on it. Now you were more worried about the profuse bleeding from the wound deftly left by the blade. A group of raiders spotted you early and took you by surprise, taking your belongings and leaving you to die, they disappeared as abruptly as they appeared.\n\nBefore you expire, you caught a glimpse of a silhouette as if in a mist. When you opened your eyes, there were no wounds on your body, and you were already the same, but still a different person.</description>
+	<scenario>
+	  <summary>One undead pawn with no supplies. &lt;color=#fff695&gt;Medium&lt;/color&gt; difficulty.</summary>
+	  <playerFaction>
+		<def>PlayerFaction</def>
+		<factionDef>PlayerColony</factionDef>
+	  </playerFaction>
+	  <parts>
+
+		<!-- Config pages -->
+		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_KindDefs">
+			<def>ConfigurePawnsKindDefs</def>
+			<pawnChoiceCount>1</pawnChoiceCount>
+			<kindCounts>
+				<li>
+					<count>1</count>
+					<kindDef>WVC_Undead_Player</kindDef>
+				</li>
+			</kindCounts>
+		</li>
+
+		<!-- Player starting stuff spawn method-->
+		<li Class="ScenPart_PlayerPawnsArriveMethod">
+			<def>PlayerPawnsArriveMethod</def>
+		</li>
+
+		<!-- Game start dialog -->
+		<li Class="ScenPart_GameStartDialog">
+		  <def>GameStartDialog</def>
+		  <text>You no longer remember what motivated you to go on an adventure. This memory was so fleeting and insignificant that you had no desire to focus on it. Now you were more worried about the profuse bleeding from the wound deftly left by the blade. A group of raiders spotted you early and took you by surprise, taking your belongings and leaving you to die, they disappeared as abruptly as they appeared.\n\nBefore you expire, you caught a glimpse of a silhouette as if in a mist. When you opened your eyes, there were no wounds on your body, and you were already the same, but still a different person.</text>
+		  <closeSound>GameStartSting</closeSound>
+		</li>
+
+		<li Class="ScenPart_Naked">
+			<def>Naked</def>
+			<chance>1.0</chance>
+			<context>PlayerStarter</context>
+		</li>
+
+	  </parts>
+	</scenario>
+  </ScenarioDef>
+
+</Defs>

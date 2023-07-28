@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_Wings_FeatheredWings</defName>
+	<label>flying</label>
+	<!-- <label>feathered wings</label> -->
+	<description>The pawn uses wings for ease of movement.</description>
+	<stages>
+	  <li>
+		<!-- <becomeVisible>false</becomeVisible> -->
+		<minSeverity>0.0</minSeverity>
+	  </li>
+	</stages>
+	<comps>
+	  <li Class="AnimalBehaviours.HediffCompProperties_Floating">
+		<checkingInterval>1500</checkingInterval>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_PawnHaveWings"/>
+	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_Dustogenic_KillAfterTime</defName>
+	<label>genetic collapse</label>
+	<description>Remains of dust in the blood cause genetic collapse, this process is not reversible and will definitely lead to imminent death.</description>
+	<stages>
+	  <li>
+		<!-- <becomeVisible>false</becomeVisible> -->
+		<lifeThreatening>true</lifeThreatening>
+		<vomitMtbDays>0.1</vomitMtbDays>
+		<deathMtbDays>0.7</deathMtbDays>
+		<minSeverity>0.0</minSeverity>
+		<capMods>
+		  <li>
+			<capacity>Consciousness</capacity>
+			<setMax>0.2</setMax>
+		  </li>
+		</capMods>
+	  </li>
+	</stages>
+	<comps>
+	  <li Class="HediffCompProperties_KillAfterDays">
+		<days>1</days>
+	  </li>
+	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_Dustogenic_HediffImmaculateConception</defName>
+	<label>pregnant</label>
+	<labelNoun>pregnancy</labelNoun>
+	<description>An artificially launched process using dust. Unlike a standard pregnancy, the result will be 100% successful regardless of external factors.</description>
+	<defaultLabelColor>(255, 248, 133)</defaultLabelColor>
+	<initialSeverity>0.01</initialSeverity>
+	<minSeverity>0.01</minSeverity>
+	<maxSeverity>1.0</maxSeverity>
+	<preventsPregnancy>true</preventsPregnancy>
+	<stages>
+	  <li>
+		<label>first trimester</label>
+		<statFactors>
+		  <RestFallRateFactor>1.2</RestFallRateFactor>
+		</statFactors>
+		<capMods>
+		  <li>
+			<capacity>Consciousness</capacity>
+			<setMax>1.0</setMax>
+		  </li>
+		</capMods>
+	  </li>
+	  <li>
+		<label>second trimester</label>
+		<minSeverity>0.333</minSeverity>
+		<statFactors>
+		  <RestFallRateFactor>1.6</RestFallRateFactor>
+		</statFactors>
+		<capMods>
+		  <li>
+			<capacity>Consciousness</capacity>
+			<setMax>0.80</setMax>
+		  </li>
+		</capMods>
+	  </li>
+	  <li>
+		<label>third trimester</label>
+		<minSeverity>0.666</minSeverity>
+		<statFactors>
+		  <RestFallRateFactor>2.0</RestFallRateFactor>
+		</statFactors>
+		<capMods>
+		  <li>
+			<capacity>Consciousness</capacity>
+			<setMax>0.20</setMax>
+		  </li>
+		</capMods>
+	  </li>
+	  <li>
+		<label>recovery</label>
+		<minSeverity>0.90</minSeverity>
+		<capMods>
+		  <li>
+			<capacity>Consciousness</capacity>
+			<setMax>0.20</setMax>
+		  </li>
+		</capMods>
+	  </li>
+	</stages>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_ImmaculateConception">
+		<requiredSeverity>0.90</requiredSeverity>
+		<completeMessage>WVC_XaG_Gene_ImmaculateConception</completeMessage>
+	  </li>
+	  <li Class="HediffCompProperties_SeverityPerDay">
+		<severityPerDay>0.17</severityPerDay>
+	  </li>
+	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_DustMechanoid_OnlyOneOverseer</defName>
+	<label>connected</label>
+	<description>This mechanoid was incorrectly and rudely connected to the mechanitor's network, it does not require bandwidth, but changing the network can cause critical errors.
+
+&lt;color=#f5ffa2&gt;Gameplay effect:&lt;/color&gt; Mechanoid does not require bandwidth, but if you change the overseer, then after a while mechanoid will die.</description>
+	<defaultLabelColor>(255, 248, 133)</defaultLabelColor>
+	<hediffClass>HediffWithComps</hediffClass>
+	<stages>
+	  <li>
+		<statFactors>
+		  <BandwidthCost>0</BandwidthCost>
+		</statFactors>
+		<statOffsets>
+		  <BandwidthCost>-999</BandwidthCost>
+		</statOffsets>
+	  </li>
+	</stages>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_OnlyOneOverseer"/>
+		<li Class="HediffCompProperties_DisappearsOnDeath"/>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_Dustogenic_DelayedReimplanter</defName>
+	<label>genetic storm</label>
+	<description>Delayed reimplantation of genes causes fatigue and hunger.</description>
+	<defaultLabelColor>(255, 248, 133)</defaultLabelColor>
+	<initialSeverity>0.01</initialSeverity>
+	<minSeverity>0.01</minSeverity>
+	<maxSeverity>1.0</maxSeverity>
+	<stages>
+	  <li>
+		<label>minor</label>
+		<hungerRateFactor>1.2</hungerRateFactor>
+		<statFactors>
+		  <RestFallRateFactor>1.2</RestFallRateFactor>
+		</statFactors>
+		<capMods>
+		  <li>
+			<capacity>Consciousness</capacity>
+			<setMax>1.0</setMax>
+		  </li>
+		</capMods>
+	  </li>
+	  <li>
+		<label>severe</label>
+		<minSeverity>0.333</minSeverity>
+		<hungerRateFactor>1.6</hungerRateFactor>
+		<statFactors>
+		  <RestFallRateFactor>1.6</RestFallRateFactor>
+		</statFactors>
+		<capMods>
+		  <li>
+			<capacity>Consciousness</capacity>
+			<setMax>0.80</setMax>
+		  </li>
+		</capMods>
+	  </li>
+	  <li>
+		<label>extreme</label>
+		<minSeverity>0.666</minSeverity>
+		<hungerRateFactor>2.0</hungerRateFactor>
+		<statFactors>
+		  <RestFallRateFactor>2.0</RestFallRateFactor>
+		</statFactors>
+		<capMods>
+		  <li>
+			<capacity>Consciousness</capacity>
+			<setMax>0.20</setMax>
+		  </li>
+		</capMods>
+	  </li>
+	</stages>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_ChangeXenotype"/>
+	  <li Class="HediffCompProperties_SeverityPerDay">
+		<severityPerDay>0.17</severityPerDay>
+	  </li>
+	  <!-- <li Class="HediffCompProperties_SeverityPerDay"> -->
+		<!-- <severityPerDay>1.0</severityPerDay> -->
+	  <!-- </li> -->
+	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+	</comps>
+  </HediffDef>
+
+  <!--=====================================================================-->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base" Name="WVC_XenotypesAndGenes_Hediffs_DustSupply" Abstract="True">
+	<label>dust in blood</label>
+	<description>The level of dust in the blood.</description>
+	<defaultLabelColor>(255, 248, 133)</defaultLabelColor>
+	<hediffClass>HediffWithComps</hediffClass>
+	<initialSeverity>1.0</initialSeverity>
+	<minSeverity>0.01</minSeverity>
+	<maxSeverity>1.0</maxSeverity>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_SeverityFromDust"/>
+		<!-- <li Class="HediffCompProperties_DisappearsOnDeath"/> -->
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_DustSupply">
+	<defName>WVC_Dustogenic_HungerFactor</defName>
+	<label>dust in blood</label>
+	<stages>
+	  <li>
+		<hungerRateFactor>4.0</hungerRateFactor>
+		<minSeverity>0.0</minSeverity>
+		<mentalStateGivers>
+		  <li>
+			<mentalState>Binging_Food</mentalState>
+			<mtbDays>0.2</mtbDays>
+		  </li>
+		</mentalStateGivers>
+	  </li>
+	  <li>
+		<hungerRateFactor>3.4</hungerRateFactor>
+		<minSeverity>0.10</minSeverity>
+		<mentalStateGivers>
+		  <li>
+			<mentalState>Binging_Food</mentalState>
+			<mtbDays>0.8</mtbDays>
+		  </li>
+		</mentalStateGivers>
+	  </li>
+	  <li>
+		<hungerRateFactor>2.8</hungerRateFactor>
+		<minSeverity>0.20</minSeverity>
+		<mentalStateGivers>
+		  <li>
+			<mentalState>Binging_Food</mentalState>
+			<mtbDays>1.4</mtbDays>
+		  </li>
+		</mentalStateGivers>
+	  </li>
+	  <li>
+		<hungerRateFactor>2.2</hungerRateFactor>
+		<minSeverity>0.30</minSeverity>
+		<mentalStateGivers>
+		  <li>
+			<mentalState>Binging_Food</mentalState>
+			<mtbDays>2.5</mtbDays>
+		  </li>
+		</mentalStateGivers>
+	  </li>
+	  <li>
+		<hungerRateFactor>1.8</hungerRateFactor>
+		<minSeverity>0.40</minSeverity>
+		<mentalStateGivers>
+		  <li>
+			<mentalState>Binging_Food</mentalState>
+			<mtbDays>6.5</mtbDays>
+		  </li>
+		</mentalStateGivers>
+	  </li>
+	  <li>
+		<hungerRateFactor>1.5</hungerRateFactor>
+		<minSeverity>0.50</minSeverity>
+		<mentalStateGivers>
+		  <li>
+			<mentalState>Binging_Food</mentalState>
+			<mtbDays>8.0</mtbDays>
+		  </li>
+		</mentalStateGivers>
+	  </li>
+	  <li>
+		<hungerRateFactor>1.2</hungerRateFactor>
+		<minSeverity>0.60</minSeverity>
+		<mentalStateGivers>
+		  <li>
+			<mentalState>Binging_Food</mentalState>
+			<mtbDays>12.0</mtbDays>
+		  </li>
+		</mentalStateGivers>
+	  </li>
+	  <li>
+		<hungerRateFactor>1.0</hungerRateFactor>
+		<minSeverity>0.70</minSeverity>
+		<mentalStateGivers>
+		  <li>
+			<mentalState>Binging_Food</mentalState>
+			<mtbDays>16.0</mtbDays>
+		  </li>
+		</mentalStateGivers>
+	  </li>
+	  <li>
+		<hungerRateFactor>0.8</hungerRateFactor>
+		<minSeverity>0.80</minSeverity>
+	  </li>
+	  <li>
+		<hungerRateFactor>0.5</hungerRateFactor>
+		<minSeverity>0.90</minSeverity>
+	  </li>
+	  <li>
+		<hungerRateFactor>0.2</hungerRateFactor>
+		<minSeverity>1.0</minSeverity>
+	  </li>
+	</stages>
+  </HediffDef>
+
+</Defs>

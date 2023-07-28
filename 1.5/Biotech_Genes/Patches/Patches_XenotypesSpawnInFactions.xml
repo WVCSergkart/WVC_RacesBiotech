@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- [defName="FPC" or defName="Feral" or defName="TribeSavage" or defName="SettlerCivil" or defName="SettlerRough" or defName="SettlerSavage" or defName="VFEV_VikingsClan" or defName="VFEV_VikingsSlaver" or defName="VFEM_KingdomCivil" or defName="VFEM_KingdomRough" or defName="VFEM_KingdomSavage" or defName="Pirate" or defName="OutlanderRough" or defName="PirateWaster" or defName="OutlanderRoughPig" or defName="TribeSavageImpid" or defName="PirateYttakin" or defName="TribeRoughNeanderthal"] -->
+
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/FactionDef/xenotypeSet/warnIfTotalAbove1</xpath>
+	  <success>Always</success>
+	  <value>
+		  <warnIfTotalAbove1>false</warnIfTotalAbove1>
+	  </value>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+			  <xpath>/Defs/FactionDef/xenotypeSet/warnIfTotalAbove1</xpath>
+			  <success>Invert</success>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/FactionDef/xenotypeSet</xpath>
+			  <success>Invert</success>
+			  <value>
+				<warnIfTotalAbove1>false</warnIfTotalAbove1>
+			  </value>
+			</li>
+			<li Class="PatchOperationReplace">
+			  <xpath>/Defs/FactionDef/xenotypeSet/warnIfTotalAbove1</xpath>
+			  <success>Always</success>
+			  <value>
+				<warnIfTotalAbove1>false</warnIfTotalAbove1>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/FactionDef/xenotypeSet/xenotypeChances</xpath>
+	  <value>
+		<!-- <WVC_Meca>1</WVC_Meca> -->
+		<!-- <WVC_GeneThrower>1</WVC_GeneThrower> -->
+		<!-- <WVC_RuneDryad>1</WVC_RuneDryad> -->
+		<!-- <WVC_Golemkind>1</WVC_Golemkind> -->
+		<!-- <WVC_RogueFormer>1</WVC_RogueFormer> -->
+		<!-- <WVC_Undead>1</WVC_Undead> -->
+		<!-- <WVC_RandomHybrid>1</WVC_RandomHybrid> -->
+		<!-- <WVC_RandomHybrid_Blankind>1</WVC_RandomHybrid_Blankind> -->
+		<!-- = -->
+		<WVC_Meca>0.001</WVC_Meca>
+		<WVC_GeneThrower>0.002</WVC_GeneThrower>
+		<WVC_RuneDryad>0.002</WVC_RuneDryad>
+		<WVC_Golemkind>0.001</WVC_Golemkind>
+		<WVC_RogueFormer>0.001</WVC_RogueFormer>
+		<WVC_Undead>0.002</WVC_Undead>
+		<WVC_RandomHybrid>0.001</WVC_RandomHybrid>
+		<WVC_RandomHybrid_Blankind>0.001</WVC_RandomHybrid_Blankind>
+	  </value>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/PawnKindDef[defName="WildMan"]/xenotypeSet/xenotypeChances</xpath>
+			  <success>Invert</success>
+			  <value>
+				<WVC_Blank>0.2</WVC_Blank>
+				<WVC_Undead>0.1</WVC_Undead>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/PawnKindDef[defName="WildMan"]/xenotypeSet</xpath>
+			  <success>Invert</success>
+			  <value>
+				  <xenotypeChances>
+					<WVC_Blank>0.2</WVC_Blank>
+					<WVC_Undead>0.1</WVC_Undead>
+				  </xenotypeChances>
+			  </value>
+			</li>
+			<!-- <li Class="PatchOperationTest"> -->
+			  <!-- <xpath>/Defs/PawnKindDef[defName="WildMan"]/xenotypeSet</xpath> -->
+			  <!-- <success>Invert</success> -->
+			<!-- </li> -->
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/PawnKindDef[defName="WildMan"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<xenotypeSet>
+				  <xenotypeChances>
+					<WVC_Blank>0.2</WVC_Blank>
+					<WVC_Undead>0.1</WVC_Undead>
+				  </xenotypeChances>
+				</xenotypeSet>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/FactionDef[techLevel="Industrial" or techLevel="Spacer" or techLevel="Ultra" or techLevel="Archotech"]/xenotypeSet/xenotypeChances</xpath> -->
+	  <!-- <value> -->
+		<!-- <WVC_Meca>0.11</WVC_Meca> -->
+		<!-- <WVC_RogueFormer>0.02</WVC_RogueFormer> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/FactionDef[techLevel="Neolithic" or techLevel="Medieval" or techLevel="Industrial"]/xenotypeSet/xenotypeChances</xpath> -->
+	  <!-- <value> -->
+		<!-- <WVC_RuneDryad>0.05</WVC_RuneDryad> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+</Patch>

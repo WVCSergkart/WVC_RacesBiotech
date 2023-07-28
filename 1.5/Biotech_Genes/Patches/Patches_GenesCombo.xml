@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+			  <xpath>/Defs/GeneDef[defName="Ageless"]/geneClass</xpath>
+			  <success>Invert</success>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/GeneDef[defName="Ageless"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<geneClass>WVC_XenotypesAndGenes.Gene_Ageless</geneClass>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/GeneDef[defName="Ageless"]/customEffectDescriptions</xpath>
+			  <success>Invert</success>
+			  <value>
+				<li>If the gene is heritable, then the age of the pawn cannot be more than 18.</li>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/GeneDef[defName="Ageless"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<customEffectDescriptions>
+					<li>If the gene is heritable, then the age of the pawn cannot be more than 18.</li>
+				</customEffectDescriptions>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<!-- ================== -->
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>minWastepacksPerRecharge</settingName>
+		<caseTrue Class="PatchOperationReplace">
+		  <xpath>/Defs/StatDef[defName="WastepacksPerRecharge"]/minValue</xpath>
+		  <success>Always</success>
+		  <value>
+			  <minValue>1</minValue>
+		  </value>
+		</caseTrue>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>validatorAbilitiesPatch</settingName>
+		<caseTrue Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAdd">
+				   <!-- or defName="AG_ParasiticStinger" or defName="AG_ParasiticStingerEndogenes" -->
+				  <xpath>/Defs/AbilityDef[defName="ReimplantXenogerm" or defName="AG_InsectStinger" or defName="AG_InsectStingerEndogenes"]/comps</xpath>
+				  <success>Always</success>
+				  <value>
+					<li Class="WVC_XenotypesAndGenes.CompProperties_AbilityTargetValidation">
+					  <humanityCheck>true</humanityCheck>
+					  <serumsCheck>true</serumsCheck>
+					</li>
+				  </value>
+				</li>
+			</operations>
+		</caseTrue>
+	</Operation>
+
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
+		<!-- <settingName>hideEncodingGenes</settingName> -->
+		<!-- <caseFalse Class="PatchOperationRemove"> -->
+		  <!-- <xpath>/Defs/GeneDef[@Name="WVC_Nodization_RandomBuff_Base"]/modExtensions/li[@Class="VanillaGenesExpanded.GeneExtension"]/hideGene</xpath> -->
+		  <!-- <success>Always</success> -->
+		<!-- </caseFalse> -->
+	<!-- </Operation> -->
+
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
+		<!-- <settingName>enableGeneSpawnerGizmo</settingName> -->
+		<!-- <caseTrue Class="PatchOperationAdd"> -->
+		  <!-- <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath> -->
+		  <!-- <success>Always</success> -->
+		  <!-- <value> -->
+			  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_GeneSpawnerInfo"/> -->
+		  <!-- </value> -->
+		<!-- </caseTrue> -->
+	<!-- </Operation> -->
+
+	<!-- ================== -->
+
+	<!-- The new way of displaying information is designed only for humans. Patches for HAR need to be added separately. -->
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+			  <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath>
+			  <success>Invert</success>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/ThingDef[defName="Human"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<comps/>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>enableGenesInfo</settingName>
+		<caseTrue Class="PatchOperationAdd">
+		  <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath>
+		  <value>
+			  <li Class="WVC_XenotypesAndGenes.CompProperties_GenesDisplayInfo"/>
+		  </value>
+		</caseTrue>
+	</Operation>
+
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
+		<!-- <settingName>enableGeneUndeadInfo</settingName> -->
+		<!-- <caseTrue Class="PatchOperationAdd"> -->
+		  <!-- <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath> -->
+		  <!-- <value> -->
+			  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_GeneUndeadInfo"/> -->
+		  <!-- </value> -->
+		<!-- </caseTrue> -->
+	<!-- </Operation> -->
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
+		<!-- <settingName>enableGeneWingInfo</settingName> -->
+		<!-- <caseTrue Class="PatchOperationAdd"> -->
+		  <!-- <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath> -->
+		  <!-- <value> -->
+			  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_GeneWingInfo"/> -->
+		  <!-- </value> -->
+		<!-- </caseTrue> -->
+	<!-- </Operation> -->
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
+		<!-- <settingName>enableGeneSpawnerGizmo</settingName> -->
+		<!-- <caseTrue Class="PatchOperationAdd"> -->
+		  <!-- <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath> -->
+		  <!-- <value> -->
+			  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_GeneSpawnerInfo"/> -->
+		  <!-- </value> -->
+		<!-- </caseTrue> -->
+	<!-- </Operation> -->
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
+		<!-- <settingName>enableGeneBlesslinkInfo</settingName> -->
+		<!-- <caseTrue Class="PatchOperationAdd"> -->
+		  <!-- <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath> -->
+		  <!-- <value> -->
+			  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_GeneBlesslinkInfo"/> -->
+		  <!-- </value> -->
+		<!-- </caseTrue> -->
+	<!-- </Operation> -->
+
+	<!-- ================== -->
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/StatDef[defName="MechBandwidth"]/parts</xpath>
+			  <success>Invert</success>
+			  <value>
+				  <!-- <li Class="WVC.StatPart_GenesCombo"> -->
+					<!-- <useGeneDefNameInsteadSubcore>WVC_NodeSkin_AltBlue</useGeneDefNameInsteadSubcore> -->
+					<!-- <useStaticValue>true</useStaticValue> -->
+					<!-- <staticValue>2</staticValue> -->
+				  <!-- </li> -->
+				  <li Class="WVC_XenotypesAndGenes.StatPart_ForceTo">
+					<statDefName>WVC_ForceTo_MechBandwidth</statDefName>
+				  </li>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/StatDef[defName="MechBandwidth"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<parts>
+				  <li Class="WVC_XenotypesAndGenes.StatPart_ForceTo">
+					<statDefName>WVC_ForceTo_MechBandwidth</statDefName>
+				  </li>
+				</parts>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<!-- ================== -->
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+			  <xpath>/Defs/GeneDef[defName="DiseaseFree"]/exclusionTags</xpath>
+			  <success>Invert</success>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/GeneDef[defName="DiseaseFree"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<exclusionTags/>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+			  <xpath>/Defs/GeneDef[defName="Ageless"]/exclusionTags</xpath>
+			  <success>Invert</success>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/GeneDef[defName="Ageless"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<exclusionTags/>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<!-- ================== -->
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/StatDef[@Name="MarketValueBase"]/parts</xpath>
+	  <value>
+		  <li Class="WVC_XenotypesAndGenes.StatPart_XenotypeSerum" MayRequire="Ludeon.RimWorld.Biotech"/>
+	  </value>
+	</Operation>
+
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/GeneDef[defName="PerfectImmunity"]/makeImmuneTo</xpath> -->
+	  <!-- <value> -->
+		<!-- <li>BloodRot</li> -->
+		<!-- <li>GutWorms</li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/GeneDef[defName="DiseaseFree"]/exclusionTags</xpath>
+	  <value>
+		<li>WVC_DiseaseFree</li>
+	  </value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/GeneDef[defName="Ageless"]/exclusionTags</xpath>
+	  <value>
+		<li>WVC_Ageless</li>
+	  </value>
+	</Operation>
+
+	<!-- ================== -->
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/StatDef[defName="WorkSpeedGlobal"]/parts</xpath>
+	  <value>
+		  <!-- <li Class="WVC_XenotypesAndGenes.StatPart_FactorForUniqueKind" MayRequire="Ludeon.RimWorld.Biotech"> -->
+			<!-- Looks for matches in defNames, so the full name is not necessary -->
+			<!-- <pawnKindDef>WVC_Golem</pawnKindDef> -->
+			<!-- Any overseer stat -->
+			<!-- <stat>PsychicSensitivity</stat> -->
+		  <!-- </li> -->
+		  <li Class="WVC_XenotypesAndGenes.StatPart_FactorForGolems" MayRequire="Ludeon.RimWorld.Biotech">
+			<stat>PsychicSensitivity</stat>
+		  </li>
+	  </value>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/StatDef[defName="BandwidthCost"]/parts</xpath>
+			  <success>Invert</success>
+			  <value>
+				  <li Class="StatPart_OverseerStatOffset" MayRequire="Ludeon.RimWorld.Biotech">
+					<stat>WVC_BandwidthCostOffsetMech</stat>
+					<label>Offset from mechanitor</label>
+				  </li>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/StatDef[defName="BandwidthCost"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<parts>
+				  <li Class="StatPart_OverseerStatOffset" MayRequire="Ludeon.RimWorld.Biotech">
+					<stat>WVC_BandwidthCostOffsetMech</stat>
+					<label>Offset from mechanitor</label>
+				  </li>
+				</parts>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/StatDef[defName="MechEnergyUsageFactor"]/parts</xpath>
+			  <success>Invert</success>
+			  <value>
+				  <li Class="StatPart_OverseerStatOffset" MayRequire="Ludeon.RimWorld.Biotech">
+					<stat>WVC_MechEnergyUsageOffset</stat>
+					<label>Offset from mechanitor</label>
+				  </li>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/StatDef[defName="MechEnergyUsageFactor"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<parts>
+				  <li Class="StatPart_OverseerStatOffset" MayRequire="Ludeon.RimWorld.Biotech">
+					<stat>WVC_MechEnergyUsageOffset</stat>
+					<label>Offset from mechanitor</label>
+				  </li>
+				</parts>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

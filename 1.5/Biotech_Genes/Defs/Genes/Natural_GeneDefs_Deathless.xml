@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneDeathless_Base" Abstract="True">
+	<iconPath>WVC/UI/Genes/Gene_Deathless_v0</iconPath>
+	<marketValueFactor>1.5</marketValueFactor>
+	<selectionWeight>0.012</selectionWeight>
+	<displayCategory>WVC_ResurgentCells</displayCategory>
+	<displayOrderInCategory>1275</displayOrderInCategory>
+	<biostatArc>0</biostatArc>
+	<iconColor>(255, 255, 255)</iconColor>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ================================================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Base" Name="WVC_XenotypesAndGenes_GeneDeathless_Undead" Abstract="True">
+	<labelShortAdj>undead</labelShortAdj>
+	<!-- <description>Carriers of this gene are formally immortal. Regardless of the number of damaged or destroyed organs, their body is able to regenerate in the event of death. The price of this is a few years of their life.</description> -->
+	<description>Carriers of this gene accumulate resurgent cells with age. In the event of death, these cells are immediately activated and, in a fairly short time, completely restore damaged or even destroyed tissues.</description>
+	<iconPath>WVC/UI/Genes/Gene_Deathless_v0</iconPath>
+	<selectionWeight>0.022</selectionWeight>
+	<!-- <displayCategory>Healing</displayCategory> -->
+	<displayOrderInCategory>1275</displayOrderInCategory>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Undead</geneClass>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+	  <!-- <li>Can only die from destruction of brain.</li> -->
+	  <li>In the event of death, the carrier is resurrected completely healthy and without damage.</li>
+	  <li>After resurrection, the carrier of the gene loses 5 years of life, backstory and all experience in skills.</li>
+	  <li>The minimum age to which the carrier can roll back is 14 years. If the carrier does not have enough age, then death is not reversible.</li>
+	  <li>If the &lt;color=#8a8ae6&gt;"Resurgent"&lt;/color&gt; gene is present, instead of age, the resource of the gene will be spent. Also, the carrier will not receive penalties for resurrection. Requires &lt;color=#8a8ae6&gt;37 resurgent cells&lt;/color&gt;.</li>
+	  <!-- <li>Conditions under which the standard effect does not work:</li> -->
+	  <li>In the presence of the &lt;color=#8a8ae6&gt;"Dustogenic"&lt;/color&gt; gene, it gives the effect of &lt;color=#8a8ae6&gt;reincarnation&lt;/color&gt;. Disables non-resurgent resurrection.</li>
+	  <li>&lt;color=#8a8ae6&gt;Reincarnation&lt;/color&gt; - In case of death, a pawn will be summoned, which is a descendant of the deceased. The effect will not work if the chronological age of the pawn is less than 40.</li>
+	  <li>The gene has no effects if the carrier has the deathless gene.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>undead</symbol></li>
+	  </wholeNameSymbols>
+	  <prefixSymbols>
+		<li><symbol>un</symbol></li>
+		<li><symbol>mortal</symbol></li>
+		<li><symbol>im</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>dead</symbol></li>
+		<li><symbol>im</symbol></li>
+		<li><symbol>mortal</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<resourceLossPerDay>0.37</resourceLossPerDay>
+	<exclusionTags>
+	  <li>WVC_XenotypesAndGenes_GeneDeathless_Undead</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<childBackstoryDef>WVC_RacesBiotech_Amnesia_Child</childBackstoryDef>
+			<adultBackstoryDef>WVC_RacesBiotech_Amnesia_Adult</adultBackstoryDef>
+			<!-- <hediffDefName>WVC_GeneUndead_PawnResurrected</hediffDefName> -->
+			<!-- <bodyparts> -->
+			  <!-- <li>Torso</li> -->
+			<!-- </bodyparts> -->
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<summonQuest>WVC_Dustogenic_QuestUndeadReincarnation</summonQuest>
+			<!-- In the context of reincarnation, this line is responsible for the minimum chrono age. -->
+			<stackCount>40</stackCount>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Undead">
+	<defName>WVC_Undead</defName>
+	<label>undead</label>
+	<displayOrderInCategory>1270</displayOrderInCategory>
+	<iconColor>(93, 101, 126)</iconColor>
+	<selectionWeight>0.0125</selectionWeight>
+	<biostatCpx>7</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Undead">
+	<defName>WVC_NaturalUndead</defName>
+	<label>undead</label>
+	<displayOrderInCategory>1271</displayOrderInCategory>
+	<iconColor>(93, 101, 126)</iconColor>
+	<biostatCpx>7</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-1</biostatMet>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Base">
+	<defName>WVC_ResurgentCells_Skeleton</defName>
+	<label>skeleton</label>
+	<description>Carriers of this gene have very weak bones.</description>
+	<iconPath>WVC/UI/Genes/Gene_Skeleton_v0</iconPath>
+	<biostatCpx>0</biostatCpx>
+	<biostatMet>6</biostatMet>
+	<displayOrderInCategory>1351</displayOrderInCategory>
+	<statFactors>
+	  <IncomingDamageFactor>1.5</IncomingDamageFactor>
+	</statFactors>
+	<capMods>
+	  <li>
+		<capacity>Manipulation</capacity>
+		<setMax>1.0</setMax>
+	  </li>
+	  <li>
+		<capacity>Moving</capacity>
+		<setMax>1.0</setMax>
+	  </li>
+	</capMods>
+	<exclusionTags>
+	  <li>MoveSpeed</li>
+	  <li>Hands</li>
+	  <li>Toughness</li>
+	</exclusionTags>
+  </GeneDef>
+
+</Defs>

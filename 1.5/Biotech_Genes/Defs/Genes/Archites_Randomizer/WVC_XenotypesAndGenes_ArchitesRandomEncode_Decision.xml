@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode" Name="WVC_XenotypesAndGenes_ArchitesRandomEncode_Decision" Abstract="True">
+	<label>flexible mind</label>
+	<!-- <label>encoding YR</label> -->
+	<displayOrderInCategory>-1140</displayOrderInCategory>
+	<iconPath>WVC/UI/Genes/Gene_RandomBuff_Offset_v0</iconPath>
+	<exclusionTags>
+	  <li>WVC_Nodization_RandomBuff_Decision</li>
+	  <li>WVC_XenotypesAndGenes_ArchitesRandomEncode_GeneTagRandomizer_Decision</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<!-- <exclusionTag>WVC_XenotypesAndGenes_ArchitesRandomEncode_GeneTagRandomizer_Decision</exclusionTag> -->
+			<randomizerGenesList>
+				<li>WVC_Nodization_DecisionBuff_A</li>
+				<li>WVC_Nodization_DecisionBuff_B</li>
+				<li>WVC_Nodization_DecisionBuff_C</li>
+				<li>WVC_Nodization_DecisionBuff_D</li>
+				<li>WVC_Nodization_DecisionBuff_E</li>
+				<li>WVC_Nodization_DecisionBuff_F</li>
+				<li>WVC_Nodization_DecisionBuff_G</li>
+			</randomizerGenesList>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- Lvl 7 -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Decision">
+	<defName>WVC_Nodization_DecisionBuff_A</defName>
+	<!-- <label>decision SX</label> -->
+	<iconColor>(133, 202, 255)</iconColor>
+	<statOffsets>
+		<WorkSpeedGlobalOffsetMech>0.5</WorkSpeedGlobalOffsetMech>
+	</statOffsets>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Decision">
+	<defName>WVC_Nodization_DecisionBuff_B</defName>
+	<!-- <label>decision HJ</label> -->
+	<iconColor>(255, 133, 133)</iconColor>
+	<statFactors>
+		<AimingDelayFactor>0.5</AimingDelayFactor>
+	</statFactors>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Decision">
+	<defName>WVC_Nodization_DecisionBuff_C</defName>
+	<!-- <label>decision GB</label> -->
+	<iconColor>(133, 255, 136)</iconColor>
+	<statOffsets>
+		<GlobalLearningFactor>0.5</GlobalLearningFactor>
+	</statOffsets>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Decision">
+	<defName>WVC_Nodization_DecisionBuff_D</defName>
+	<!-- <label>decision CV</label> -->
+	<iconColor>(142, 133, 255)</iconColor>
+	<statOffsets>
+		<MeleeHitChance>30</MeleeHitChance>
+	</statOffsets>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Decision">
+	<defName>WVC_Nodization_DecisionBuff_E</defName>
+	<!-- <label>decision WR</label> -->
+	<iconColor>(255, 248, 133)</iconColor>
+	<statOffsets>
+		<SocialImpact>0.5</SocialImpact>
+	</statOffsets>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Decision">
+	<defName>WVC_Nodization_DecisionBuff_F</defName>
+	<!-- <label>decision VX</label> -->
+	<iconColor>(133, 167, 255)</iconColor>
+	<statOffsets>
+		<WorkSpeedGlobalOffsetMech>0.25</WorkSpeedGlobalOffsetMech>
+		<MeleeHitChance>15</MeleeHitChance>
+	</statOffsets>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Decision">
+	<defName>WVC_Nodization_DecisionBuff_G</defName>
+	<!-- <label>decision YR</label> -->
+	<iconColor>(255, 182, 133)</iconColor>
+	<statOffsets>
+		<GlobalLearningFactor>0.25</GlobalLearningFactor>
+		<SocialImpact>0.25</SocialImpact>
+	</statOffsets>
+  </GeneDef>
+
+</Defs>

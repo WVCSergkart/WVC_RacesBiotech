@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <RulePackDef>
+	<defName>WVC_XenotypesAndGenes_TotemNames</defName>
+	<rulePack>
+	  <rulesStrings>
+		<!-- <li>r_totem_name->Words/Names/WVC_XenotypesAndGenes_TotemNames</li> -->
+		<li>r_totem_name->walking corpse totem</li>
+		<li>r_totem_name->cursed bones totem</li>
+		<li>r_totem_name->sacred bones totem</li>
+		<li>r_totem_name->dead tree totem</li>
+		<li>r_totem_name->long stick totem</li>
+		<li>r_totem_name->iron cone totem</li>
+		<li>r_totem_name->living bones totem</li>
+		<li>r_totem_name->rebel walker totem</li>
+		<li>r_totem_name->early morning totem</li>
+		<li>r_totem_name->splendid bones totem</li>
+	  </rulesStrings>
+	</rulePack>
+  </RulePackDef>
+
+</Defs>

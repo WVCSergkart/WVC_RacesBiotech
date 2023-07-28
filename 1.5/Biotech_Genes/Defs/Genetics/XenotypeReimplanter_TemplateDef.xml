@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Generates a serum for each xenotype (except those on the blacklist) -->
+  <!-- Recipe and gene are optional, generation can work without them -->
+  <!-- ==================================== -->
+
+  <WVC_XenotypesAndGenes.SerumTemplateDef ParentName="WVC_XenotypeSerumTemplate_Craftable">
+	<serumTagName>BaseSerumsGenerator</serumTagName>
+	<!-- The generated serum has the defName "WVC_XenotypeSerum_MyXenotypeDefName_RB" -->
+	<!-- The "_RB" tag is needed in case some idiot added numbers to the end of the xenotype defName.  -->
+	<!-- Rimworld is very sensitive to numbers, it is advisable to never end defNames with numbers. -->
+	<defName>WVC_XenotypeSerum</defName>
+	<label>xeno-serum</label>
+	<!-- Cost -->
+	<!-- Instead of MarketValue, the templates use marketValueOffset, since the final price is calculated through a formula. -->
+	<!-- marketValueOffset + 100 * ((Arc * 0.6 ) + (Cpx * 0.1 ) + (-1 * (Met * 0.2 ))) -->
+	<!-- The higher the metabolic efficiency, the cheaper the xenotype. -->
+	<!-- Arc also have a very strong influence. Xenotypes with archites will be noticeably more expensive. -->
+	<marketValueOffset>2100</marketValueOffset>
+	<!-- Research -->
+	<!-- If these fields are filled then adds one additional tech dependency. -->
+	<!-- If the xenotype is ordinary, then it is basic, if it is archite, then it is accordingly archite. -->
+	<basicResearchProjectDef>GeneProcessor</basicResearchProjectDef>
+	<architeResearchProjectDef>Archogenetics</architeResearchProjectDef>
+	<!-- Forcer -->
+	<xenotypeForcerType>Base</xenotypeForcerType>
+	<removeEndogenes>false</removeEndogenes>
+	<removeXenogenes>true</removeXenogenes>
+	<!-- Templates -->
+	<!-- These fields can be left blank. Then the recipe or gene will not be generated. -->
+	<recipeTemplateDef>WVC_AdministerXenotypeSerum</recipeTemplateDef>
+	<!-- <geneTemplateDef>WVC_XenotypeSerumSpawner_Hybrid</geneTemplateDef> -->
+  </WVC_XenotypesAndGenes.SerumTemplateDef>
+
+  <WVC_XenotypesAndGenes.SerumRecipeTemplateDef ParentName="WVC_AdministerXenotypeSerumTemplate_Template">
+	<defName>WVC_AdministerXenotypeSerum</defName>
+	<label>administer xeno-serum</label>
+	<description>Administer a xeno-serum</description>
+	<jobString>Administering xeno-serum</jobString>
+  </WVC_XenotypesAndGenes.SerumRecipeTemplateDef>
+
+  <!-- ==================================== -->
+
+  <WVC_XenotypesAndGenes.SerumTemplateDef ParentName="WVC_XenotypeSerumTemplate_NonCraftable">
+	<serumTagName>UltraSerumsGenerator</serumTagName>
+	<defName>WVC_XenotypeSerum_Ultra</defName>
+	<label>xeno-serum</label>
+	<!-- Cost -->
+	<marketValueOffset>1700</marketValueOffset>
+	<!-- Forcer -->
+	<xenotypeForcerType>Base</xenotypeForcerType>
+	<removeEndogenes>false</removeEndogenes>
+	<removeXenogenes>true</removeXenogenes>
+	<!-- Templates -->
+	<recipeTemplateDef>WVC_AdministerXenotypeSerum_Ultra</recipeTemplateDef>
+	<geneTemplateDef>WVC_XenotypeSerumSpawner</geneTemplateDef>
+  </WVC_XenotypesAndGenes.SerumTemplateDef>
+  
+  <WVC_XenotypesAndGenes.SerumRecipeTemplateDef ParentName="WVC_AdministerXenotypeSerumTemplate_Template">
+	<defName>WVC_AdministerXenotypeSerum_Ultra</defName>
+	<label>administer xeno-serum</label>
+	<description>Administer a xeno-serum</description>
+	<jobString>Administering xeno-serum</jobString>
+  </WVC_XenotypesAndGenes.SerumRecipeTemplateDef>
+
+  <WVC_XenotypesAndGenes.SerumGeneTemplateDef ParentName="WVC_XenotypeSerumTemplateSpawner_Ultra">
+	<defName>WVC_XenotypeSerumSpawner</defName>
+	<label>serum thrower</label>
+	<!-- These fields are responsible for the spawner. -->
+	<stackCount>1</stackCount>
+	<displayOrderOffset>5</displayOrderOffset>
+	<spawnIntervalRange><min>900000</min><max>2700000</max></spawnIntervalRange>
+  </WVC_XenotypesAndGenes.SerumGeneTemplateDef>
+
+  <!-- ==================================== -->
+
+  <WVC_XenotypesAndGenes.SerumTemplateDef ParentName="WVC_XenotypeSerumTemplate_HybridNonCraftable">
+	<serumTagName>HybridSerumsGenerator</serumTagName>
+	<defName>WVC_XenotypeSerum_Hybrid</defName>
+	<label>hybrid serum</label>
+	<!-- Cost -->
+	<marketValueOffset>2750</marketValueOffset>
+	<!-- Forcer -->
+	<xenotypeForcerType>Hybrid</xenotypeForcerType>
+	<removeEndogenes>false</removeEndogenes>
+	<removeXenogenes>true</removeXenogenes>
+	<!-- Templates -->
+	<recipeTemplateDef>WVC_AdministerXenotypeSerum_Hybrid</recipeTemplateDef>
+	<geneTemplateDef>WVC_XenotypeSerumSpawner_Hybrid</geneTemplateDef>
+  </WVC_XenotypesAndGenes.SerumTemplateDef>
+
+  <WVC_XenotypesAndGenes.SerumRecipeTemplateDef ParentName="WVC_AdministerXenotypeSerumTemplate_Template">
+	<defName>WVC_AdministerXenotypeSerum_Hybrid</defName>
+	<label>administer hybrid serum</label>
+	<description>Administer a hybrid serum</description>
+	<jobString>Administering hybrid serum</jobString>
+  </WVC_XenotypesAndGenes.SerumRecipeTemplateDef>
+
+  <WVC_XenotypesAndGenes.SerumGeneTemplateDef ParentName="WVC_XenotypeSerumTemplateSpawner_Hybrid">
+	<defName>WVC_XenotypeSerumSpawner_Hybrid</defName>
+	<label>hybrid serum thrower</label>
+	<stackCount>1</stackCount>
+	<displayOrderOffset>10</displayOrderOffset>
+	<spawnIntervalRange><min>900000</min><max>2700000</max></spawnIntervalRange>
+  </WVC_XenotypesAndGenes.SerumGeneTemplateDef>
+
+</Defs>

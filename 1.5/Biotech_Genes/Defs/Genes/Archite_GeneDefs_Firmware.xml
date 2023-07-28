@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Firmware -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Archites" Name="WVC_Mechanoidization_FirmwareBase" Abstract="True">
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_WithConditions</geneClass> -->
+	<!-- <defName>WVC_MechaAI_Base</defName> -->
+	<!-- <displayCategory>WVC_MechaBodyWare</displayCategory> -->
+	<displayOrderInCategory>-1000</displayOrderInCategory>
+	<!-- <displayCategory>Aptitudes</displayCategory> -->
+	<displayCategory>WVC_Aptitudes</displayCategory>
+	<label>aptitude</label>
+	<labelShortAdj>archite aptitude</labelShortAdj>
+	<description>Carriers of this gene have archites who have prescribed certain patterns and behaviors at the genetic level.</description>
+	<iconPath>WVC/UI/Genes/MechanoidizationFirmware</iconPath>
+	<!-- <displayOrderInCategory>0</displayOrderInCategory> -->
+	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
+	<!-- <selectionWeight>0.15</selectionWeight> -->
+	<marketValueFactor>2</marketValueFactor>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<randomChosen>true</randomChosen>
+	<customEffectDescriptions>
+		<!-- <li>&lt;color=#ff8585&gt;Activation of the gene requires either the "mecha-subcore" gene or any of the mechaskins.&lt;/color&gt;</li> -->
+		<li MayRequire="imranfish.xmlextensions">Expectations are always 0 and cannot be higher or lower.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_MechaAI_Firmware</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>ware</symbol></li>
+		<li><symbol>firm</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>ware</symbol></li>
+		<li><symbol>firm</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <geneIsSubcore>true</geneIsSubcore> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+
+  <!-- Aptitudes -->
+
+  <GeneDef ParentName="WVC_Mechanoidization_FirmwareBase">
+	<defName>WVC_MechaAI_FirmwareCreatorMachine</defName>
+	<label>creator aptitude</label>
+	<iconColor>(133, 202, 255)</iconColor>
+	<!-- <iconColor>(130, 175, 255)</iconColor> -->
+	<socialFightChanceFactor>0.5</socialFightChanceFactor>
+	<aggroMentalBreakSelectionChanceFactor>1.2</aggroMentalBreakSelectionChanceFactor>
+	<prisonBreakMTBFactor>1.2</prisonBreakMTBFactor>
+	<!-- <forcedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>Transhumanist</def> -->
+	  <!-- </li> -->
+	<!-- </forcedTraits> -->
+	<statFactors>
+	  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.2</ConversionPower>
+	  <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">1.2</SocialIdeoSpreadFrequencyFactor>
+	  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">0.8</CertaintyLossFactor>
+	</statFactors>
+	<aptitudes>
+	  <!-- -30 -->
+	  <!-- creator 42 -->
+	  <Construction>8</Construction>
+	  <Intellectual>16</Intellectual>
+	  <Crafting>14</Crafting>
+	  <Artistic>4</Artistic>
+	  <!-- war -32 -->
+	  <Mining>-16</Mining>
+	  <Shooting>-10</Shooting>
+	  <Melee>-6</Melee>
+	  <!-- green -46 -->
+	  <Plants>-10</Plants>
+	  <Cooking>-6</Cooking>
+	  <Animals>-14</Animals>
+	  <Social>-16</Social>
+	  <!-- base -->
+	  <Medicine>6</Medicine>
+	</aptitudes>
+	<!-- <passionMod> -->
+		<!-- <skill>Intellectual</skill> -->
+		<!-- <modType>AddOneLevel</modType> -->
+	<!-- </passionMod> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Intellectual</noSkillLoss> -->
+			<!-- <skillRecreation>Intellectual</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_FirmwareBase">
+	<defName>WVC_MechaAI_FirmwareWarMachine</defName>
+	<label>war aptitude</label>
+	<!-- <iconColor>(255, 175, 130)</iconColor> -->
+	<iconColor>(255, 133, 133)</iconColor>
+	<socialFightChanceFactor>2</socialFightChanceFactor>
+	<aggroMentalBreakSelectionChanceFactor>2</aggroMentalBreakSelectionChanceFactor>
+	<prisonBreakMTBFactor>0.6</prisonBreakMTBFactor>
+	<!-- <forcedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>Bloodlust</def> -->
+	  <!-- </li> -->
+	<!-- </forcedTraits> -->
+	<statFactors>
+	  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">1.5</ConversionPower>
+	  <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">0.4</SocialIdeoSpreadFrequencyFactor>
+	  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">1.0</CertaintyLossFactor>
+	</statFactors>
+	<aptitudes>
+	  <!-- -30 -->
+	  <!-- creator -54 -->
+	  <Construction>-8</Construction>
+	  <Intellectual>-16</Intellectual>
+	  <Crafting>-14</Crafting>
+	  <Artistic>-18</Artistic>
+	  <!-- war 44 -->
+	  <Mining>12</Mining>
+	  <Shooting>16</Shooting>
+	  <Melee>16</Melee>
+	  <!-- green -26 -->
+	  <Plants>-4</Plants>
+	  <Cooking>-6</Cooking>
+	  <Animals>-2</Animals>
+	  <Social>-12</Social>
+	  <!-- base -->
+	  <Medicine>6</Medicine>
+	</aptitudes>
+	<!-- <passionMod> -->
+		<!-- <skill>Shooting</skill> -->
+		<!-- <modType>AddOneLevel</modType> -->
+	<!-- </passionMod> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Shooting</noSkillLoss> -->
+			<!-- <skillRecreation>Shooting</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_FirmwareBase">
+	<defName>WVC_MechaAI_FirmwareGreenMachine</defName>
+	<label>green aptitude</label>
+	<iconColor>(133, 255, 136)</iconColor>
+	<!-- <iconColor>(130, 255, 130)</iconColor> -->
+	<socialFightChanceFactor>0.5</socialFightChanceFactor>
+	<aggroMentalBreakSelectionChanceFactor>0.8</aggroMentalBreakSelectionChanceFactor>
+	<prisonBreakMTBFactor>1.5</prisonBreakMTBFactor>
+	<!-- <forcedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>QuickSleeper</def> -->
+	  <!-- </li> -->
+	<!-- </forcedTraits> -->
+	<statFactors>
+	  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.8</ConversionPower>
+	  <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">0.6</SocialIdeoSpreadFrequencyFactor>
+	  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">1.2</CertaintyLossFactor>
+	</statFactors>
+	<aptitudes>
+	  <!-- -30 -->
+	  <!-- creator -50 -->
+	  <Construction>-12</Construction>
+	  <Intellectual>-16</Intellectual>
+	  <Crafting>-6</Crafting>
+	  <Artistic>-16</Artistic>
+	  <!-- war -28 -->
+	  <Mining>-4</Mining>
+	  <Shooting>-12</Shooting>
+	  <Melee>-12</Melee>
+	  <!-- green 42 -->
+	  <Plants>12</Plants>
+	  <Cooking>6</Cooking>
+	  <Animals>12</Animals>
+	  <Social>12</Social>
+	  <!-- base -->
+	  <Medicine>6</Medicine>
+	</aptitudes>
+	<!-- <passionMod> -->
+		<!-- <skill>Plants</skill> -->
+		<!-- <modType>AddOneLevel</modType> -->
+	<!-- </passionMod> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Plants</noSkillLoss> -->
+			<!-- <skillRecreation>Plants</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_FirmwareBase">
+	<defName>WVC_MechaAI_FirmwareRogueMachine</defName>
+	<label>rogue aptitude</label>
+	<iconColor>(255, 182, 133)</iconColor>
+	<!-- <iconColor>(255, 250, 150)</iconColor> -->
+	<socialFightChanceFactor>0.5</socialFightChanceFactor>
+	<aggroMentalBreakSelectionChanceFactor>0.8</aggroMentalBreakSelectionChanceFactor>
+	<prisonBreakMTBFactor>0.5</prisonBreakMTBFactor>
+	<!-- <forcedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>Psychopath</def> -->
+	  <!-- </li> -->
+	<!-- </forcedTraits> -->
+	<statFactors>
+	  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.5</ConversionPower>
+	  <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">2</SocialIdeoSpreadFrequencyFactor>
+	  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">2.0</CertaintyLossFactor>
+	</statFactors>
+	<aptitudes>
+	  <!-- -30 -->
+	  <!-- creator -24 -->
+	  <Construction>-6</Construction>
+	  <Intellectual>4</Intellectual>
+	  <Crafting>-4</Crafting>
+	  <Artistic>-18</Artistic>
+	  <!-- war -2 -->
+	  <Mining>-10</Mining>
+	  <Shooting>0</Shooting>
+	  <Melee>8</Melee>
+	  <!-- green -10 -->
+	  <Plants>-6</Plants>
+	  <Cooking>-6</Cooking>
+	  <Animals>-6</Animals>
+	  <Social>8</Social>
+	  <!-- base -->
+	  <Medicine>6</Medicine>
+	</aptitudes>
+	<!-- <passionMod> -->
+		<!-- <skill>Melee</skill> -->
+		<!-- <modType>AddOneLevel</modType> -->
+	<!-- </passionMod> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Melee</noSkillLoss> -->
+			<!-- <skillRecreation>Melee</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_FirmwareBase">
+	<defName>WVC_MechaAI_FirmwarePropagandaMachine</defName>
+	<label>propaganda aptitude</label>
+	<iconColor>(255, 248, 133)</iconColor>
+	<!-- <iconColor>(150, 250, 255)</iconColor> -->
+	<socialFightChanceFactor>2</socialFightChanceFactor>
+	<aggroMentalBreakSelectionChanceFactor>0.2</aggroMentalBreakSelectionChanceFactor>
+	<prisonBreakMTBFactor>1.5</prisonBreakMTBFactor>
+	<!-- <forcedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>Abrasive</def> -->
+	  <!-- </li> -->
+	<!-- </forcedTraits> -->
+	<statFactors>
+	  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">2</ConversionPower>
+	  <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">2</SocialIdeoSpreadFrequencyFactor>
+	  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">0.5</CertaintyLossFactor>
+	</statFactors>
+	<aptitudes>
+	  <!-- -30 -->
+	  <!-- creator -26 -->
+	  <Construction>-14</Construction>
+	  <Intellectual>12</Intellectual>
+	  <Crafting>-6</Crafting>
+	  <Artistic>-18</Artistic>
+	  <!-- war -34 -->
+	  <Mining>-16</Mining>
+	  <Shooting>-12</Shooting>
+	  <Melee>-6</Melee>
+	  <!-- green 24 -->
+	  <Plants>-2</Plants>
+	  <Cooking>6</Cooking>
+	  <Animals>2</Animals>
+	  <Social>18</Social>
+	  <!-- base -->
+	  <Medicine>6</Medicine>
+	</aptitudes>
+	<!-- <passionMod> -->
+		<!-- <skill>Social</skill> -->
+		<!-- <modType>AddOneLevel</modType> -->
+	<!-- </passionMod> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Social</noSkillLoss> -->
+			<!-- <skillRecreation>Social</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_Mechanoidization_FirmwareBase">
+	<defName>WVC_MechaAI_FirmwareMechanitorMachine</defName>
+	<label>mechanitor aptitude</label>
+	<iconColor>(133, 167, 255)</iconColor>
+	<socialFightChanceFactor>1.2</socialFightChanceFactor>
+	<aggroMentalBreakSelectionChanceFactor>0.5</aggroMentalBreakSelectionChanceFactor>
+	<prisonBreakMTBFactor>1.5</prisonBreakMTBFactor>
+	<statFactors>
+	  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.2</ConversionPower>
+	  <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">0.5</SocialIdeoSpreadFrequencyFactor>
+	  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">0.5</CertaintyLossFactor>
+	</statFactors>
+	<aptitudes>
+	  <!-- -30 -->
+	  <!-- creator 22 -->
+	  <Construction>8</Construction>
+	  <Intellectual>6</Intellectual>
+	  <Crafting>14</Crafting>
+	  <Artistic>-6</Artistic>
+	  <!-- war -4 -->
+	  <Mining>-16</Mining>
+	  <Shooting>6</Shooting>
+	  <Melee>6</Melee>
+	  <!-- green -54 -->
+	  <Plants>-12</Plants>
+	  <Cooking>-12</Cooking>
+	  <Animals>-14</Animals>
+	  <Social>-16</Social>
+	  <!-- base -->
+	  <Medicine>6</Medicine>
+	</aptitudes>
+	<!-- <passionMod> -->
+		<!-- <skill>Intellectual</skill> -->
+		<!-- <modType>AddOneLevel</modType> -->
+	<!-- </passionMod> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <noSkillLoss>Intellectual</noSkillLoss> -->
+			<!-- <skillRecreation>Intellectual</skillRecreation> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+
+</Defs>

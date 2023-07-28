@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_Reimplanters_Base" Abstract="True">
+	<labelShortAdj>reimplanter</labelShortAdj>
+	<description>Carriers of this gene can implant a copy of their endo/xenogerm into another person through a somewhat gross-looking injector organ. Their own genetic material will then regrow very slowly. If they implant while their genes are regrowing, they will die.</description>
+	<minAgeActive>3</minAgeActive>
+	<selectionWeight>0.012</selectionWeight>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<displayCategory>Ability</displayCategory>
+	<displayOrderInCategory>-523</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Completely changes the genes of the target pawn to the genes of the caster.</li>
+		<li>&lt;color=#ff8585&gt;Can't be absorbed forcly.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+		<li>WVC_Reimplanter</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
+		</li>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================================================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_Base" Name="WVC_XenotypesAndGenes_Reimplanters_EndoXeno" Abstract="True">
+	<iconPath>WVC/UI/Genes/Reimplanter</iconPath>
+	<abilities>
+	  <li>WVC_EndogermReimplanter</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_EndogermReimplanter</AbilityDef>
+	</descriptionHyperlinks>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_EndoXeno">
+	<defName>WVC_EndogermReimplanter</defName>
+	<label>arch-reimplanter</label>
+	<iconPath>WVC/UI/Genes/Reimplanter</iconPath>
+	<sterilize>true</sterilize>
+	<statFactors>
+	  <Fertility>0</Fertility>
+	</statFactors>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_EndoXeno">
+	<defName>WVC_NaturalReimplanter</defName>
+	<label>natural-reimplanter</label>
+	<iconPath>WVC/UI/Genes/Reimplanter_Natural</iconPath>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>-2</biostatMet>
+	<biostatArc>0</biostatArc>
+  </GeneDef>
+
+  <!-- ============================================================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_Base" Name="WVC_XenotypesAndGenes_Reimplanters_RiseFromTheDead" Abstract="True">
+	<label>rise from the dead</label>
+	<labelShortAdj>reimplanter</labelShortAdj>
+	<description>Carriers of this gene can reimplant their genes into a corpse through a somewhat gross-looking injector organ. As a result, the dead man comes to life and receives a caster xenotype and a copy of the genes.</description>
+	<iconPath>WVC/UI/Genes/Gene_RiseUp_v0</iconPath>
+	<customEffectDescriptions>
+		<li>The target can only be a human corpse.</li>
+	</customEffectDescriptions>
+	<abilities>
+	  <li>WVC_Reimplanter_RiseFromTheDead</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_Reimplanter_RiseFromTheDead</AbilityDef>
+	</descriptionHyperlinks>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<biostatArc>0</biostatArc>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_RiseFromTheDead">
+	<defName>WVC_Reimplanter_RiseFromTheDead</defName>
+	<sterilize>true</sterilize>
+	<biostatArc>1</biostatArc>
+	<statFactors>
+	  <Fertility>0</Fertility>
+	</statFactors>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_RiseFromTheDead">
+	<defName>WVC_NaturalReimplanter_RiseFromTheDead</defName>
+	<biostatMet>-2</biostatMet>
+  </GeneDef>
+
+  <!-- ============================================================================== -->
+
+  <AbilityDef ParentName="AbilityTouchBase"  Name="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base" Abstract="True">
+	<label>implant genes</label>
+	<description>Implant this person's endo/xenogenes into a willing subject using a special injector organ. If this person's genes are currently regrowing, they will implant their endo/xenogerm and die in the process.\n\nWhen implanted, a endo/xenogerm will overwrite the target's endo/xenogenes.</description>
+	<iconPath>WVC/UI/Genes/Reimplanter</iconPath>
+	<warmupStartSound>ReimplantXenogerm_Cast</warmupStartSound>
+	<warmupEffecter>Implant_Xenogerm</warmupEffecter>
+	<displayOrder>500</displayOrder>
+	<hostile>false</hostile>
+	<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+	<showWhenDrafted>false</showWhenDrafted>
+	<verbProperties>
+	  <verbClass>Verb_CastAbilityTouch</verbClass>
+	  <drawAimPie>false</drawAimPie>
+	  <range>-1</range>
+	  <warmupTime>4</warmupTime>
+	  <targetParams>
+		<canTargetAnimals>false</canTargetAnimals>
+		<canTargetSelf>false</canTargetSelf>
+		<canTargetBuildings>false</canTargetBuildings>
+		<canTargetMechs>false</canTargetMechs>
+	  </targetParams>
+	</verbProperties>
+  </AbilityDef>
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base">
+	<defName>WVC_EndogermReimplanter</defName>
+	<label>implant genes</label>
+	<iconPath>WVC/UI/Genes/Reimplanter</iconPath>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplantEndogerm" />
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityTargetValidation">
+		<humanityCheck>true</humanityCheck>
+		<serumsCheck>true</serumsCheck>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+  <!-- ============= -->
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base">
+	<defName>WVC_Reimplanter_RiseFromTheDead</defName>
+	<label>rise from the dead</label>
+	<description>Resurrect the target corpse and give it a copy of the caster's genes. If this person's genes are currently regrowing, they will implant their genes and die in the process.\n\nThe target's previous genes will be removed.</description>
+	<iconPath>WVC/UI/Genes/Gene_RiseUp_v0</iconPath>
+	<verbProperties>
+	  <targetParams>
+		<canTargetCorpses>true</canTargetCorpses>
+		<canTargetPawns>false</canTargetPawns>
+	  </targetParams>
+	</verbProperties>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityRiseFromTheDead" />
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityResurgentCost">
+		<resurgentCost>0.2</resurgentCost>
+		<!-- The ability can always be used, regardless of the resurgent gene. -->
+		<skipIfNotResurgent>true</skipIfNotResurgent>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+  <!-- ============= -->
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base">
+	<defName>WVC_Reimplanter_BlessedTouch</defName>
+	<label>blessed touch</label>
+	<description>Infects the target with a mutagen poison that, after a few days, completely overwrites the target's genes with the caster's genes.</description>
+	<iconPath>WVC/UI/Genes/Gene_HandsAngels_v0</iconPath>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGiveHediff">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_GiveHediff</compClass>
+		<hediffDef>WVC_Dustogenic_DelayedReimplanter</hediffDef>
+		<!-- <onlyApplyToSelf>false</onlyApplyToSelf> -->
+		<!-- <onlyReproductive>false</onlyReproductive> -->
+		<humanityCheck>true</humanityCheck>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive">
+		<eachOfGenes>
+		  <li>WVC_Dustogenic_GeneticStability</li>
+		  <li>WVC_Hands_Angel</li>
+		  <li>WVC_Dustogenic</li>
+		</eachOfGenes>
+	  </li>
+	  <li Class="CompProperties_AbilityRequiresCapacity">
+		<capacity>Manipulation</capacity>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityDustCost">
+		<dustCost>0.13</dustCost>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityTargetValidation">
+		<humanityCheck>true</humanityCheck>
+		<serumsCheck>false</serumsCheck>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+</Defs>

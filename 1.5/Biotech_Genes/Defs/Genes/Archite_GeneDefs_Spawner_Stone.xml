@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Chunk spawner -->
+
+  <!-- ParentName="WVC_XenotypesAndGenes_Archites" -->
+  <GeneDef Name="WVC_Mechanoidization_StoneChunkSpawnerBase" Abstract="True">
+	<labelShortAdj>stone molt</labelShortAdj>
+	<description>Carriers of this gene have tough and rough skin, causing the carrier to shed in stone chunks.</description>
+	<iconPath>Things/Item/Chunk/ChunkStone/RockLowC</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<!-- <displayCategory>WVC_MechaBody</displayCategory> -->
+	<displayCategory>WVC_XenotypeSerumSpawners</displayCategory>
+	<displayOrderInCategory>950</displayOrderInCategory>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Spawner</geneClass>
+	<!-- <biostatArc>1</biostatArc> -->
+	<biostatCpx>2</biostatCpx>
+	<marketValueFactor>0.8</marketValueFactor>
+	<selectionWeight>0.041</selectionWeight>
+	<minAgeActive>3</minAgeActive>
+	<customEffectDescriptions>
+		<li>Spawns stonechunk every (*DateTime)10-15 days(/DateTime).</li>
+	</customEffectDescriptions>
+	<randomChosen>true</randomChosen>
+	<exclusionTags>
+	  <li>WVC_ChunkSpawner</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>chunk-</symbol></li>
+		<li><symbol>chunk</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>chunk</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- Disable -->
+  <GeneDef ParentName="WVC_Mechanoidization_StoneChunkSpawnerBase">
+	<defName>WVC_StoneChunkSpawner_Disable</defName>
+	<label>disabled stone molt</label>
+	<iconPath>WVC/UI/Genes/Genepack_Disable</iconPath>
+	<geneClass>Gene</geneClass>
+	<selectionWeight>0.001</selectionWeight>
+	<biostatCpx>0</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<biostatArc>0</biostatArc>
+	<customEffectDescriptions Inherit="False">
+		<li>Disables stone molt genes.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_Mechanoidization_StoneChunkSpawnerBase">
+	<defName>WVC_DisableSpawner_General</defName>
+	<label>disabled spawner</label>
+	<description>Disables spawner genes.</description>
+	<iconPath>WVC/UI/Genes/Genepack_Disable</iconPath>
+	<selectionWeight>0.001</selectionWeight>
+	<geneClass>Gene</geneClass>
+	<biostatCpx>0</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<biostatArc>0</biostatArc>
+	<customEffectDescriptions Inherit="False">
+		<li>Disables spawner genes.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_GenepackSpawner</li>
+	  <li>WVC_ChunkSpawner</li>
+	  <li>WVC_TemplateSerumSpawner</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- Vanilla -->
+  <GeneDef ParentName="WVC_Mechanoidization_StoneChunkSpawnerBase">
+	<defName>WVC_StoneChunkSpawner_Slate</defName>
+	<label>slate molt</label>
+	<iconColor>(70,70,70)</iconColor>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<thingDefToSpawn>ChunkSlate</thingDefToSpawn>
+			<stackCount>1</stackCount>
+			<spawnIntervalRange><min>600000</min><max>900000</max></spawnIntervalRange>
+		</li>
+	</modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Mechanoidization_StoneChunkSpawnerBase">
+	<defName>WVC_StoneChunkSpawner_Limestone</defName>
+	<label>limestone molt</label>
+	<iconColor>(158,153,135)</iconColor>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<thingDefToSpawn>ChunkLimestone</thingDefToSpawn>
+			<stackCount>1</stackCount>
+			<spawnIntervalRange><min>600000</min><max>900000</max></spawnIntervalRange>
+		</li>
+	</modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Mechanoidization_StoneChunkSpawnerBase">
+	<defName>WVC_StoneChunkSpawner_Granite</defName>
+	<label>granite molt</label>
+	<iconColor>(105,95,97)</iconColor>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<thingDefToSpawn>ChunkGranite</thingDefToSpawn>
+			<stackCount>1</stackCount>
+			<spawnIntervalRange><min>600000</min><max>900000</max></spawnIntervalRange>
+		</li>
+	</modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Mechanoidization_StoneChunkSpawnerBase">
+	<defName>WVC_StoneChunkSpawner_Sandstone</defName>
+	<label>sandstone molt</label>
+	<iconColor>(126,104,94)</iconColor>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<thingDefToSpawn>ChunkSandstone</thingDefToSpawn>
+			<stackCount>1</stackCount>
+			<spawnIntervalRange><min>600000</min><max>900000</max></spawnIntervalRange>
+		</li>
+	</modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Mechanoidization_StoneChunkSpawnerBase">
+	<defName>WVC_StoneChunkSpawner_Marble</defName>
+	<label>marble molt</label>
+	<iconColor>(132,135,132)</iconColor>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<thingDefToSpawn>ChunkMarble</thingDefToSpawn>
+			<stackCount>1</stackCount>
+			<spawnIntervalRange><min>600000</min><max>900000</max></spawnIntervalRange>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

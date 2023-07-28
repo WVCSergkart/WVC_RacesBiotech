@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_MechBandwidthBase">
+	<defName>WVC_GolemSensetivity_Enchanced</defName>
+	<label>enchanced golem-sensitive</label>
+	<labelShortAdj>golem-enchanced</labelShortAdj>
+	<description>Carriers of this gene control golems better.</description>
+	<iconPath>WVC/UI/Genes/GolemSensetivity_Strong</iconPath>
+	<displayOrderInCategory>1092</displayOrderInCategory>
+	<statOffsets>
+	  <WVC_OverseerMaxGolems>1</WVC_OverseerMaxGolems>
+	</statOffsets>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<!-- <prerequisite>PsychicAbility_Enhanced</prerequisite> -->
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>golem</symbol></li>
+		<li><symbol>gole</symbol></li>
+		<li><symbol>gol</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_MechBandwidthBase">
+	<defName>WVC_GolemSensetivity_Extreme</defName>
+	<label>extreme golem-sensitive</label> 
+	<labelShortAdj>golem-extreme</labelShortAdj>
+	<description>Carriers of this gene control golems much better.</description>
+	<iconPath>WVC/UI/Genes/GolemSensetivity_Extreme</iconPath>
+	<displayOrderInCategory>1093</displayOrderInCategory>
+	<statOffsets>
+	  <WVC_OverseerMaxGolems>2</WVC_OverseerMaxGolems>
+	</statOffsets>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-2</biostatMet>
+	<!-- <prerequisite>PsychicAbility_Extreme</prerequisite> -->
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>golem</symbol></li>
+		<li><symbol>gole</symbol></li>
+		<li><symbol>gol</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>

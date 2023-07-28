@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ================================================================== -->
+
+  <GeneDef ParentName="GeneEyeColor" Name="WVC_GeneEyeColorBase" Abstract="True">
+	<!-- <defName>Eyes_Gray</defName> -->
+	<!-- <label>gray eyes</label> -->
+	<!-- <labelShortAdj>gray-eyed</labelShortAdj> -->
+	<description>Carriers of this gene have a unique eye color.</description>
+	<iconPath>UI/Icons/Genes/Gene_GrayEyes</iconPath>
+	<displayOrderInCategory>2</displayOrderInCategory>
+	<!-- <selectionWeight>0.0085</selectionWeight> -->
+	<selectionWeight>0.0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<customEffectDescriptions>
+		<li>&lt;color=#ff8585&gt;Cannot spawn in genepacks.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<!-- <graphicData> -->
+	  <!-- <drawScale>0.28</drawScale> -->
+	  <!-- <graphicPath>Things/Pawn/Humanlike/HeadAttachments/GrayEyes/Male/GrayEyes_Male</graphicPath> -->
+	  <!-- <graphicPathFemale>Things/Pawn/Humanlike/HeadAttachments/GrayEyes/Female/GrayEyes_Female</graphicPathFemale> -->
+	<!-- </graphicData> -->
+	<exclusionTags>
+		<li>AG_OnlyOnCharacterCreation_WVC_EyesColor</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_GeneEyeColorBase">
+	<defName>WVC_Eyes_7c69ce_HEX</defName>
+	<label>blue-magenta eyes</label>
+	<labelShortAdj>blue-eyed</labelShortAdj>
+	<iconPath>WVC/UI/Genes/EyesColors/Eyes_Icon_7c69ce</iconPath>
+	<graphicData>
+	  <drawScale>0.28</drawScale>
+	  <graphicPath>WVC/UI/Genes/EyesColors/Eyes_Male_7c69ce</graphicPath>
+	  <graphicPathFemale>WVC/UI/Genes/EyesColors/Eyes_Female_7c69ce</graphicPathFemale>
+	</graphicData>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_GeneEyeColorBase">
+	<defName>WVC_Eyes_69a2ce_HEX</defName>
+	<label>cyan-blue eyes</label>
+	<labelShortAdj>blue-eyed</labelShortAdj>
+	<iconPath>WVC/UI/Genes/EyesColors/Eyes_Icon_69a2ce</iconPath>
+	<graphicData>
+	  <drawScale>0.28</drawScale>
+	  <graphicPath>WVC/UI/Genes/EyesColors/Eyes_Male_69a2ce</graphicPath>
+	  <graphicPathFemale>WVC/UI/Genes/EyesColors/Eyes_Female_69a2ce</graphicPathFemale>
+	</graphicData>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_GeneEyeColorBase">
+	<defName>WVC_Eyes_69ce7a_HEX</defName>
+	<label>green eyes</label>
+	<labelShortAdj>green-eyed</labelShortAdj>
+	<iconPath>WVC/UI/Genes/EyesColors/Eyes_Icon_69ce7a</iconPath>
+	<graphicData>
+	  <drawScale>0.28</drawScale>
+	  <graphicPath>WVC/UI/Genes/EyesColors/Eyes_Male_69ce7a</graphicPath>
+	  <graphicPathFemale>WVC/UI/Genes/EyesColors/Eyes_Female_69ce7a</graphicPathFemale>
+	</graphicData>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_GeneEyeColorBase">
+	<defName>WVC_Eyes_c8ce69_HEX</defName>
+	<label>yellow-green eyes</label>
+	<labelShortAdj>yellow-eyed</labelShortAdj>
+	<iconPath>WVC/UI/Genes/EyesColors/Eyes_Icon_c8ce69</iconPath>
+	<graphicData>
+	  <drawScale>0.28</drawScale>
+	  <graphicPath>WVC/UI/Genes/EyesColors/Eyes_Male_c8ce69</graphicPath>
+	  <graphicPathFemale>WVC/UI/Genes/EyesColors/Eyes_Female_c8ce69</graphicPathFemale>
+	</graphicData>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_GeneEyeColorBase">
+	<defName>WVC_Eyes_ce69c3_HEX</defName>
+	<label>magenta eyes</label>
+	<labelShortAdj>magenta-eyed</labelShortAdj>
+	<iconPath>WVC/UI/Genes/EyesColors/Eyes_Icon_ce69c3</iconPath>
+	<graphicData>
+	  <drawScale>0.28</drawScale>
+	  <graphicPath>WVC/UI/Genes/EyesColors/Eyes_Male_ce69c3</graphicPath>
+	  <graphicPathFemale>WVC/UI/Genes/EyesColors/Eyes_Female_ce69c3</graphicPathFemale>
+	</graphicData>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_GeneEyeColorBase">
+	<defName>WVC_Eyes_ce6969_HEX</defName>
+	<label>red eyes</label>
+	<labelShortAdj>red-eyed</labelShortAdj>
+	<iconPath>WVC/UI/Genes/EyesColors/Eyes_Icon_ce6969</iconPath>
+	<graphicData>
+	  <drawScale>0.28</drawScale>
+	  <graphicPath>WVC/UI/Genes/EyesColors/Eyes_Male_ce6969</graphicPath>
+	  <graphicPathFemale>WVC/UI/Genes/EyesColors/Eyes_Female_ce6969</graphicPathFemale>
+	</graphicData>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_GeneEyeColorBase">
+	<defName>WVC_Eyes_ceae69_HEX</defName>
+	<label>yellow eyes</label>
+	<labelShortAdj>yellow-eyed</labelShortAdj>
+	<iconPath>WVC/UI/Genes/EyesColors/Eyes_Icon_ceae69</iconPath>
+	<graphicData>
+	  <drawScale>0.28</drawScale>
+	  <graphicPath>WVC/UI/Genes/EyesColors/Eyes_Male_ceae69</graphicPath>
+	  <graphicPathFemale>WVC/UI/Genes/EyesColors/Eyes_Female_ceae69</graphicPathFemale>
+	</graphicData>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_GeneEyeColorBase">
+	<defName>WVC_Eyes_69cec6_HEX</defName>
+	<label>cyan eyes</label>
+	<labelShortAdj>cyan-eyed</labelShortAdj>
+	<iconPath>WVC/UI/Genes/EyesColors/Eyes_Icon_69cec6</iconPath>
+	<graphicData>
+	  <drawScale>0.28</drawScale>
+	  <graphicPath>WVC/UI/Genes/EyesColors/Eyes_Male_69cec6</graphicPath>
+	  <graphicPathFemale>WVC/UI/Genes/EyesColors/Eyes_Female_69cec6</graphicPathFemale>
+	</graphicData>
+  </GeneDef>
+
+</Defs>

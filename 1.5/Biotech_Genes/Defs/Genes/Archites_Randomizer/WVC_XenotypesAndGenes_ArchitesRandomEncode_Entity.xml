@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode" Name="WVC_XenotypesAndGenes_ArchitesRandomEncode_Entity" Abstract="True">
+	<label>genetic tendency</label>
+	<iconPath>WVC/UI/Genes/Gene_RandomBuff_Flesh_v0</iconPath>
+	<displayOrderInCategory>-1200</displayOrderInCategory>
+	<exclusionTags>
+	  <li>WVC_Nodization_RandomBuff_Entity</li>
+	  <li>WVC_XenotypesAndGenes_ArchitesRandomEncode_GeneTagRandomizer_Entity</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<!-- <exclusionTag>WVC_XenotypesAndGenes_ArchitesRandomEncode_GeneTagRandomizer_Entity</exclusionTag> -->
+			<randomizerGenesList>
+				<li>WVC_Nodization_EntityBuff_A</li>
+				<li>WVC_Nodization_EntityBuff_B</li>
+				<li>WVC_Nodization_EntityBuff_C</li>
+				<li>WVC_Nodization_EntityBuff_D</li>
+				<li>WVC_Nodization_EntityBuff_E</li>
+				<li>WVC_Nodization_EntityBuff_F</li>
+				<li>WVC_Nodization_EntityBuff_G</li>
+			</randomizerGenesList>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- Lvl 6 -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Entity">
+	<defName>WVC_Nodization_EntityBuff_A</defName>
+	<!-- <label>flesh SX</label> -->
+	<iconColor>(133, 202, 255)</iconColor>
+	<statOffsets>
+	  <MechBandwidth>6</MechBandwidth>
+	  <MechControlGroups>1</MechControlGroups>
+	</statOffsets>
+	<suppressedTraits>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-2</degree>
+	  </li>
+	</suppressedTraits>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Entity">
+	<defName>WVC_Nodization_EntityBuff_B</defName>
+	<!-- <label>flesh HJ</label> -->
+	<iconColor>(255, 133, 133)</iconColor>
+	<statOffsets>
+	  <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+	  <ArmorRating_Heat>0.55</ArmorRating_Heat>
+	</statOffsets>
+	<suppressedTraits>
+	  <li>
+		<def>Tough</def>
+	  </li>
+	</suppressedTraits>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Entity">
+	<defName>WVC_Nodization_EntityBuff_C</defName>
+	<!-- <label>flesh GB</label> -->
+	<iconColor>(133, 255, 136)</iconColor>
+	<statOffsets>
+	  <ImmunityGainSpeed>0.5</ImmunityGainSpeed>
+	  <InjuryHealingFactor>0.5</InjuryHealingFactor>
+	</statOffsets>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Entity">
+	<defName>WVC_Nodization_EntityBuff_D</defName>
+	<!-- <label>flesh CV</label> -->
+	<iconColor>(142, 133, 255)</iconColor>
+	<statFactors>
+	  <IncomingDamageFactor>0.5</IncomingDamageFactor>
+	</statFactors>
+	<suppressedTraits>
+	  <li>
+		<def>Tough</def>
+	  </li>
+	</suppressedTraits>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Entity">
+	<defName>WVC_Nodization_EntityBuff_E</defName>
+	<!-- <label>flesh WR</label> -->
+	<iconColor>(255, 248, 133)</iconColor>
+	<statOffsets>
+	  <PsychicSensitivity>1.0</PsychicSensitivity>
+	</statOffsets>
+	<suppressedTraits>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-2</degree>
+	  </li>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-1</degree>
+	  </li>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>1</degree>
+	  </li>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>2</degree>
+	  </li>
+	</suppressedTraits>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Entity">
+	<defName>WVC_Nodization_EntityBuff_F</defName>
+	<!-- <label>flesh VX</label> -->
+	<iconColor>(133, 167, 255)</iconColor>
+	<statOffsets>
+	  <WVC_BandwidthCostOffsetMech>-1</WVC_BandwidthCostOffsetMech>
+	  <WVC_ForceTo_MechBandwidth>2</WVC_ForceTo_MechBandwidth>
+	</statOffsets>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_ArchitesRandomEncode_Entity">
+	<defName>WVC_Nodization_EntityBuff_G</defName>
+	<!-- <label>flesh YR</label> -->
+	<iconColor>(255, 182, 133)</iconColor>
+	<statOffsets>
+	  <HemogenGainFactor>1.0</HemogenGainFactor>
+	</statOffsets>
+  </GeneDef>
+
+</Defs>

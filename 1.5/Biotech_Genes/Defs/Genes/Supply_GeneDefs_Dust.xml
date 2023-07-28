@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneDustSupply_Base" Abstract="True">
+	<iconPath>WVC/UI/Genes/Gene_Deathless_v0</iconPath>
+	<marketValueFactor>0.8</marketValueFactor>
+	<selectionWeight>0.012</selectionWeight>
+	<displayCategory>WVC_Dustogenic</displayCategory>
+	<displayOrderInCategory>1275</displayOrderInCategory>
+	<biostatArc>0</biostatArc>
+	<iconColor>(255, 255, 255)</iconColor>
+	<!-- <iconColor>(175, 175, 100)</iconColor> -->
+	<!-- <iconColor>(249, 241, 148)</iconColor> -->
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ================================================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_Base">
+	<defName>WVC_Dustogenic</defName>
+	<label>dustogenic</label>
+	<description>Carriers of this gene have a reserve of biological strength powered by a resource called dust. The resource can be gained and spent in various ways, all of which are unlocked by other genes.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Dust</geneClass>
+	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Dust</resourceGizmoType>
+	<resourceLabel>dust</resourceLabel>
+	<foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+	<resourceGizmoThresholds>
+	  <li>0.10</li>
+	  <li>0.20</li>
+	  <li>0.30</li>
+	  <li>0.40</li>
+	  <li>0.50</li>
+	  <li>0.60</li>
+	  <li>0.70</li>
+	  <li>0.80</li>
+	  <li>0.90</li>
+	</resourceGizmoThresholds>
+	<showGizmoOnWorldView>true</showGizmoOnWorldView>
+	<showGizmoWhenDrafted>true</showGizmoWhenDrafted>
+	<resourceDescription>The reserve of biological enhancement in the carrier's blood. Dust supply is spent on different abilities or genetic traits.\n\nIt can be replenished with any food. Also, the dust level is replenished automatically while the carrier is sleeping or unconscious.\n\nIf the dust level drops below 40, then the carrier will experience severe hunger and from time to time catch a "food binge" nervous breakdown.</resourceDescription>
+	<iconPath>WVC/UI/Genes/Gene_Dust_v0</iconPath>
+	<!-- <iconColor>(255, 248, 133)</iconColor> -->
+	<!-- <iconColor>(173, 142, 112)</iconColor> -->
+	<displayOrderInCategory>0</displayOrderInCategory>
+	<customEffectDescriptions>
+	  <li>Gives dust supply.</li>
+	  <li>Refresh time (*DateTime)~1 day(/DateTime).</li>
+	  <!-- <li>In the presence of the &lt;color=#8a8ae6&gt;"Undead"&lt;/color&gt; gene, it gives the effect of &lt;color=#8a8ae6&gt;reincarnation&lt;/color&gt;.</li> -->
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>dust</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<minAgeActive>3</minAgeActive>
+	<resourceLossPerDay>0.05</resourceLossPerDay>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>2</biostatMet>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_Dustogenic_HungerFactor</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_Base" Name="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent" Abstract="True">
+	<geneClass>WVC_XenotypesAndGenes.Gene_DustDrain</geneClass>
+	<prerequisite>WVC_Dustogenic</prerequisite>
+	<marketValueFactor>1.2</marketValueFactor>
+	<selectionWeight>0.009</selectionWeight>
+	<minAgeActive>3</minAgeActive>
+	<resourceLabel>dust</resourceLabel>
+	<resourceLossPerDay>0.02</resourceLossPerDay>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-3</biostatMet>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
+	<defName>WVC_Dustogenic_WoundHealing</defName>
+	<label>dustogenic wound healing</label>
+	<labelShortAdj>dust-heal</labelShortAdj>
+	<description>Carriers of this gene heal from wounds eight times as fast as normal.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DustBodyPartsRestoration</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_WoundHealingRateSuperfast_v0</iconPath>
+	<iconColor>(249, 241, 148)</iconColor>
+	<marketValueFactor>1.5</marketValueFactor>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<customEffectDescriptions>
+	  <li>Restores a lost limb every (*DateTime)5-15 days(/DateTime).</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <InjuryHealingFactor>8</InjuryHealingFactor>
+	</statFactors>
+	<displayOrderInCategory>2</displayOrderInCategory>
+	<resourceLossPerDay>0.06</resourceLossPerDay>
+	<exclusionTags>
+	  <li>WoundHealingRate</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>hydra</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
+	<defName>WVC_Dustogenic_Ageless</defName>
+	<label>blessed ageless</label>
+	<labelShortAdj>ageless</labelShortAdj>
+	<description>Carriers of this gene completely stop aging after reaching the age of 18.</description>
+	<iconPath>WVC/UI/Genes/Gene_AgelessAngel_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DustAgeless</geneClass>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<displayOrderInCategory>5</displayOrderInCategory>
+	<resourceLossPerDay>0.03</resourceLossPerDay>
+	<customEffectDescriptions>
+		<li>Carriers of the gene always spawn with age within 18.</li>
+		<li>The age of the gene carrier decreases by 1 year every (*DateTime)5-15 days(/DateTime), this continues until the carrier reaches the minimum adult age.</li>
+	</customEffectDescriptions>
+	<biologicalAgeTickFactorFromAgeCurve>
+	  <points>
+		<li>(13, 1)</li>
+		<li>(18.5, 0)</li>
+	  </points>
+	</biologicalAgeTickFactorFromAgeCurve>
+	<exclusionTags>
+	  <li>WVC_Ageless</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>young</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
+	<defName>WVC_Dustogenic_Metabolism</defName>
+	<label>dustogenic metabolism</label>
+	<labelShortAdj>dust-metabolic</labelShortAdj>
+	<description>Carriers of this gene have dust in their cells that facilitate and optimize metabolism. This improves overall genetic and metabolic quality.</description>
+	<iconPath>WVC/UI/Genes/Gene_ArchiteMetabolism_v0</iconPath>
+	<!-- <iconColor>(255, 248, 133)</iconColor> -->
+	<!-- <iconColor>(173, 142, 112)</iconColor> -->
+	<displayOrderInCategory>10</displayOrderInCategory>
+	<resourceLossPerDay>0.05</resourceLossPerDay>
+	<marketValueFactor>1.5</marketValueFactor>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>6</biostatMet>
+	<biostatArc>0</biostatArc>
+	<exclusionTags>
+	  <li>WVC_XenotypesAndGenes_ArchitesRandomEncode_GeneTagRandomizer_Pattern</li>
+	  <li>WVC_XenotypesAndGenes_GeneNaturalRandom_Metabolism</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
+	<defName>WVC_Dustogenic_Blesslink</defName>
+	<label>blesslink</label>
+	<description>Carriers of this gene have dust that alters their psychic signature, causing mechanoids to sometimes connect to the gene carrier mechanitor's network.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DustMechlink</geneClass>
+	<displayOrderInCategory>15</displayOrderInCategory>
+	<resourceLossPerDay>0.03</resourceLossPerDay>
+	<iconPath>WVC/UI/Genes/Gene_Blessedlink_v0</iconPath>
+	<!-- <iconColor>(255, 248, 133)</iconColor> -->
+	<!-- <iconColor>(173, 142, 112)</iconColor> -->
+	<!-- <biostatArc>1</biostatArc> -->
+	<customEffectDescriptions>
+		<!-- <li>Carriers of this gene get &lt;color=#8a8ae6&gt;mechlink&lt;/color&gt; and &lt;color=#8a8ae6&gt;psylink&lt;/color&gt; permanently.</li> -->
+		<li>Carriers of this gene get &lt;color=#8a8ae6&gt;mechlink&lt;/color&gt; permanently.</li>
+		<li>Allows you to enable or disable the automatic summoning of mechanoids every (*DateTime)8-16 days(/DateTime).</li>
+		<li>A carrier of this gene cannot craft or resurrect mechanoids.</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <MechBandwidth>0</MechBandwidth>
+	  <WVC_OverseerMaxGolems>0</WVC_OverseerMaxGolems>
+	</statFactors>
+	<statOffsets>
+	  <MechControlGroups>2</MechControlGroups>
+	  <!-- <MeditationFocusGain>0.5</MeditationFocusGain> -->
+	</statOffsets>
+	<!-- <suppressedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>PsychicSensitivity</def> -->
+		<!-- <degree>-1</degree> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <def>PsychicSensitivity</def> -->
+		<!-- <degree>-2</degree> -->
+	  <!-- </li> -->
+	<!-- </suppressedTraits> -->
+	<exclusionTags>
+	  <!-- <li>PsychicAbility</li> -->
+	  <li>WVC_MechanitorNetwork</li>
+	  <li>AbilityMechlink</li>
+	  <li>Mechlink</li>
+	  <li>WVC_GeneMechlink</li>
+	  <!-- <li>Psylink</li> -->
+	  <!-- <li>AbilityPsylink</li> -->
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>mecha</symbol></li>
+		<li><symbol>nitor</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefs>
+			  <li>MechlinkImplant</li>
+			  <!-- <li MayRequire="ludeon.rimworld.royalty">PsychicAmplifier</li> -->
+			</hediffDefs>
+			<bodyparts>
+			  <li>Brain</li>
+			</bodyparts>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<spawnIntervalRange>480000~960000</spawnIntervalRange>
+			<summonQuest>WVC_MechanitorSummon_DustLinkRandomMechanoid</summonQuest>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
+	<defName>WVC_Dustogenic_AngelBeauty</defName>
+	<label>angel beauty</label>
+	<description>Carriers of this gene can unconsciously influence how others see them. Their brain emits neuronal psychic waves that cause those around them who are susceptible to psychic influence to deify them.</description>
+	<iconPath>WVC/UI/Genes/Gene_Angel_v0</iconPath>
+	<!-- <iconColor>(255, 248, 133)</iconColor> -->
+	<!-- <iconColor>(173, 142, 112)</iconColor> -->
+	<iconColor>(249, 241, 148)</iconColor>
+	<displayOrderInCategory>25</displayOrderInCategory>
+	<customEffectDescriptions>
+	  <li>All psychic sensitivity pawns that don't have this gene get +500 opinion towards those who carry this gene.</li>
+	</customEffectDescriptions>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<suppressedTraits>
+	  <!-- <li> -->
+		<!-- <def>Beauty</def> -->
+		<!-- <degree>2</degree> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <def>Beauty</def> -->
+		<!-- <degree>1</degree> -->
+	  <!-- </li> -->
+	  <li>
+		<def>Beauty</def>
+		<degree>-1</degree>
+	  </li>
+	  <li>
+		<def>Beauty</def>
+		<degree>-2</degree>
+	  </li>
+	</suppressedTraits>
+	<!-- <statOffsets> -->
+	  <!-- <PawnBeauty>2</PawnBeauty> -->
+	<!-- </statOffsets> -->
+	<exclusionTags>
+	  <li>Beauty</li>
+	  <!-- <li>PsychicAbility</li> -->
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>angel</symbol></li>
+		<li><symbol>beauty</symbol></li>
+		<li><symbol>cute</symbol></li>
+		<li><symbol>deity</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<geneIsAngelBeauty>true</geneIsAngelBeauty>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
+	<defName>WVC_Dustogenic_Reincarnation</defName>
+	<label>reincarnation</label>
+	<description>Carriers of this gene have a strong connection with the psychic field. Their death never happens by accident, this event is part of their destiny. And when fate takes its toll and death overtakes them, descendants will surely come to replace them.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DustReincarnation</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Reincarnation_v0</iconPath>
+	<!-- <iconColor>(255, 248, 133)</iconColor> -->
+	<!-- <iconColor>(173, 142, 112)</iconColor> -->
+	<displayOrderInCategory>30</displayOrderInCategory>
+	<minAgeActive>13</minAgeActive>
+	<prerequisite></prerequisite>
+	<resourceLabel></resourceLabel>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<biostatArc>2</biostatArc>
+	<customEffectDescriptions>
+		<li>In case of death, a pawn will be summoned, which is a descendant of the deceased.</li>
+		<!-- <li>Such a pawn inherits all genes and all skills, without passions.</li> -->
+		<li>The effect will not work if the chronological age of the pawn is less than 40.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_XenotypesAndGenes_GeneDeathless_Undead</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>rein</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<summonQuest>WVC_Dustogenic_QuestUndeadReincarnation</summonQuest>
+			<!-- In the context of reincarnation, this line is responsible for the minimum chrono age. -->
+			<stackCount>40</stackCount>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- dustogenic genetic -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
+	<defName>WVC_Dustogenic_GeneticStability</defName>
+	<label>dustogenic genetic</label>
+	<description>Carriers of this gene have a strong genetic dependence on dust.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AngelicStability</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_AngelicStability_v0</iconPath>
+	<displayOrderInCategory>35</displayOrderInCategory>
+	<biostatCpx>-6</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>6</biostatMet>
+	<resourceLabel></resourceLabel>
+	<customEffectDescriptions>
+	  <li>Carriers of this gene cannot use xenotype serums.</li>
+	  <li>Abilities "Rise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li>
+	  <li>If this gene is removed, the carrier will die.</li>
+	  <li>The amount of dust is no longer subject to biological entropy.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_GeneticInstabilityGenes</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_Dustogenic_KillAfterTime</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent" Name="WVC_XenotypesAndGenes_GeneDustSupply_DustGenetic" Abstract="True">
+	<prerequisite>WVC_Dustogenic_GeneticStability</prerequisite>
+	<marketValueFactor>1.4</marketValueFactor>
+	<resourceLabel></resourceLabel>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustGenetic">
+	<defName>WVC_Dustogenic_ImmaculateConception</defName>
+	<label>dustogenic conception</label>
+	<description>Carriers of this gene do not require a partner for reproduction. Pregnancy occurs only at the request of the mother and only with sufficient dust levels.</description>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_Dustogenic_AbilityImmaculateConception</AbilityDef>
+	</descriptionHyperlinks>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Gestator_TestTool</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_ImmaculateConception_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>40</displayOrderInCategory>
+	<minAgeActive>13</minAgeActive>
+	<sterilize>true</sterilize>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Spawns a baby-pawn with similar genes few days after the ability is activated.</li>
+		<li>&lt;color=#ff8585&gt;Female only.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <Fertility>0</Fertility>
+	</statFactors>
+	<abilities>
+	  <li>WVC_Dustogenic_AbilityImmaculateConception</li>
+	</abilities>
+	<exclusionTags>
+		<li>Fertility</li>
+		<li>Egglaying</li>
+		<li>AG_Egglaying</li>
+		<li>AG_Gestation</li>
+		<li>AG_Fertility</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>bless</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustGenetic">
+	<defName>WVC_Dustogenic_Clotting</defName>
+	<label>dustogenic clotting</label>
+	<description>Carriers of this gene have dust in their blood that heals wounds in an emergency.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DustClotting</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_DustClotting_v0</iconPath>
+	<iconColor>(241, 175, 129)</iconColor>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<!-- <painFactor>1.5</painFactor> -->
+	<displayOrderInCategory>45</displayOrderInCategory>
+	<!-- <statFactors> -->
+	  <!-- <InjuryHealingFactor>4</InjuryHealingFactor> -->
+	<!-- </statFactors> -->
+	<customEffectDescriptions>
+		<li>If a pawn is downed, its wounds will be automatically treated.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <!-- <li>WoundHealingRate</li> -->
+	  <li>SuperClotting</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>bleed</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Meca = Mechakin -->
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base">
+	<defName>WVC_Meca</defName>
+	<label>mechakin</label>
+	<!-- Mysterious origin, not rare in nature, not common in appearance -->
+	<description>Mechakins are a type of archotech-enhanced xenohuman. Powered by archites, their abilities go far beyond normal genetic enhancements. They have natural mechanitor abilities. They do not age and are very hard to kill, and they also have good armor.\n\nThe exact origin of mechakins is not known, at some point years ago they began to appear in some glitter worlds. Up to a certain age, mechakins are no different from baseliners in appearance, except for snow-white skin and hair. However, in worlds with a dense abundance of xeno-humans, no one will pay attention to such a trifle. As they age, the mechakin's skin becomes plasteel-like and superficially resembles the outer armor of mechanoids. Despite their mechanoid appearance, they have no direct connection to these machines, although they have limited control over them.</description>
+	<descriptionShort>Mechakins are ageless, deathless super-humans powered by archotech-created archites in the bloodstream. They are able to withstand the most extreme temperatures, their skin is incredibly durable, and they never experience a nervous breakdown. They do not suffer from disease or poison. In combat, they can use their deadly scythe tail. The price is that they are very poorly trained and practically cannot master new skills.</descriptionShort>
+	<iconPath>WVC/UI/Xeno2Icons/Xeno12</iconPath>
+	<inheritable>false</inheritable>
+	<canGenerateAsCombatant>true</canGenerateAsCombatant>
+	<displayPriority>-1100</displayPriority>
+	<doubleXenotypeChances>
+		<WVC_Blank>1.0</WVC_Blank>
+	</doubleXenotypeChances>
+	<genes>
+		<li>WVC_MechaSkin</li>
+		<li>WVC_MecaBodyParts_Heart</li>
+		<!-- <li>WVC_MecaBodyParts_Spine</li> -->
+		<li>WVC_MecaBodyParts_Stomach</li>
+		<li>WVC_StartGestation</li>
+		<li>WVC_ArchiteMechlink</li>
+		<!-- <li>WVC_ArchiteFleetConnected</li> -->
+		<li>WVC_VoiceMechaMilitor</li>
+		<li>WVC_MechaAI_Base</li>
+		<li>WVC_MecaBodyParts_Eye</li>
+		<li>WVC_MecaBodyParts_Ear</li>
+		<!-- <li>ArchiteMetabolism</li> -->
+		<li>WVC_MechaPowerSource_Vanometric</li>
+		<!-- = -->
+		<li>Deathless</li>
+		<!-- <li>Ageless</li> -->
+		<!-- <li>WVC_NaturalAgeless</li> -->
+		<!-- <li>DiseaseFree</li> -->
+		<!-- <li>PerfectImmunity</li> -->
+		<!-- <li>TotalHealing</li> -->
+		<li>WVC_MechaHidden_ArchiteForge</li>
+		<!-- = -->
+		<!-- <li>StrongStomach</li> -->
+		<!-- <li>WVC_ClothedArmor</li> -->
+		<li>WVC_ArmoredSkin_Fortress</li>
+		<!-- <li>WVC_Mecha_EarsCat</li> -->
+		<li>WVC_Mecha_ScytheTail</li>
+		<!-- <li>MinTemp_LargeDecrease</li> -->
+		<!-- <li>MaxTemp_LargeIncrease</li> -->
+		<li>WVC_MinMaxTemp_Archite</li>
+		<!-- <li>WVC_MecaBodyParts_Lung</li> -->
+		<!-- <li>WVC_MecaUpgrades_PerfectShape</li> -->
+		<li>WVC_MecaBodyParts_Leg</li>
+		<li>ToxResist_Total</li>
+		<!-- <li>FireResistant</li> -->
+		<li>Neversleep</li>
+		<!-- <li>Robust</li> -->
+		<li>Body_Standard</li>
+		<li>Hair_SnowWhite</li>
+		<li>Skin_SheerWhite</li>
+		<!-- <li>DarkVision</li> -->
+		<!-- <li>Unstoppable</li> -->
+		<!-- <li>WVC_Orientation_Bisexual</li> -->
+		<!-- <li>WVC_Eyes_69a2ce_HEX</li> -->
+		<!-- Aptitudes 1 -->
+		<!-- <li>WVC_Aptitudes_0_Skill_Shooting</li> -->
+		<!-- <li>WVC_Aptitudes_0_Skill_Melee</li> -->
+		<!-- <li>AptitudeStrong_Construction</li> -->
+		<!-- <li>AptitudeTerrible_Mining</li> -->
+		<!-- <li>WVC_AptitudePerfect_Crafting</li> -->
+		<!-- <li>AptitudeRemarkable_Medicine</li> -->
+		<!-- <li>WVC_AptitudePerfect_Intellectual</li> -->
+		<!-- Aptitudes 2 -->
+		<!-- <li>WVC_Aptitudes_0_Skill_Shooting</li> -->
+		<!-- <li>WVC_Aptitudes_0_Skill_Melee</li> -->
+		<!-- <li>WVC_Aptitudes_0_Skill_Construction</li> -->
+		<!-- <li>AptitudeTerrible_Mining</li> -->
+		<!-- <li>AptitudeTerrible_Cooking</li> -->
+		<!-- <li>AptitudeTerrible_Plants</li> -->
+		<!-- <li>AptitudeTerrible_Animals</li> -->
+		<!-- <li>AptitudeRemarkable_Crafting</li> -->
+		<!-- <li>WVC_AptitudeImpossible_Artistic</li> -->
+		<!-- <li>AptitudeRemarkable_Medicine</li> -->
+		<!-- <li>WVC_Aptitudes_0_Skill_Social</li> -->
+		<!-- <li>AptitudeRemarkable_Intellectual</li> -->
+		<!-- <li>WVC_EmotionReset</li> -->
+		<li>WVC_EmotionlessUnshakable</li>
+		<!-- <li>WVC_Aptitudes_GreatEqualizer</li> -->
+		<!-- Firmware -->
+		<!-- <li>WVC_MechaAI_FirmwareCreatorMachine</li> -->
+		<!-- <li>WVC_MechaAI_FirmwareWarMachine</li> -->
+		<!-- <li>WVC_MechaAI_FirmwareGreenMachine</li> -->
+		<!-- <li>WVC_MechaAI_FirmwareRogueMachine</li> -->
+		<!-- <li>WVC_MechaAI_FirmwarePropagandaMachine</li> -->
+		<li>WVC_MechaAI_FirmwareMechanitorMachine</li>
+		<!-- = -->
+		<li>WVC_PredatorPrey_NotTasty</li>
+	</genes>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.XenotypeExtension_SubXenotype"> -->
+			<!-- <subXenotypeChance>0</subXenotypeChance> -->
+			<!-- <subXenotypeDefs> -->
+				<!-- <li>WVC_Mechakin</li> -->
+			<!-- </subXenotypeDefs> -->
+			<!-- <xenotypeCanShapeshiftOnDeath>false</xenotypeCanShapeshiftOnDeath> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </XenotypeDef>
+
+  <!-- <WVC_XenotypesAndGenes.SubXenotypeDef> -->
+	<!-- <defName>WVC_Mechakin</defName> -->
+	<!-- <label>mechakin</label> -->
+	<!-- <inheritable>true</inheritable> -->
+	<!-- <overrideExistingGenes>true</overrideExistingGenes> -->
+	<!-- <genes> -->
+		<!-- <li>WVC_MechaSkin</li> -->
+		<!-- <li>WVC_MecaBodyParts_Heart</li> -->
+		<!-- <li>WVC_MecaBodyParts_Stomach</li> -->
+		<!-- <li>WVC_StartGestation</li> -->
+		<!-- <li>WVC_ArchiteMechlink</li> -->
+		<!-- <li>WVC_VoiceMechaMilitor</li> -->
+		<!-- <li>WVC_MechaAI_Base</li> -->
+		<!-- <li>WVC_MecaBodyParts_Eye</li> -->
+		<!-- <li>WVC_MecaBodyParts_Ear</li> -->
+		<!-- <li>WVC_MechaPowerSource_Vanometric</li> -->
+		<!-- <li>Deathless</li> -->
+		<!-- <li>WVC_MechaHidden_ArchiteForge</li> -->
+		<!-- <li>WVC_ArmoredSkin_Fortress</li> -->
+		<!-- <li>WVC_Mecha_ScytheTail</li> -->
+		<!-- <li>WVC_MinMaxTemp_Archite</li> -->
+		<!-- <li>WVC_MecaBodyParts_Leg</li> -->
+		<!-- <li>ToxResist_Total</li> -->
+		<!-- <li>Neversleep</li> -->
+		<!-- <li>Body_Standard</li> -->
+		<!-- <li>Hair_SnowWhite</li> -->
+		<!-- <li>Skin_SheerWhite</li> -->
+		<!-- <li>WVC_EmotionlessUnshakable</li> -->
+		<!-- <li>WVC_MechaAI_FirmwareMechanitorMachine</li> -->
+		<!-- <li>WVC_PredatorPrey_NotTasty</li> -->
+	<!-- </genes> -->
+  <!-- </WVC_XenotypesAndGenes.SubXenotypeDef> -->
+
+</Defs>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+	<WVC_BiotechSettings>Xenotypes and Genes</WVC_BiotechSettings>
+
+	<WVC_BiotechSettings_Tab_General>General</WVC_BiotechSettings_Tab_General>
+	<WVC_BiotechSettings_Tab_XenotypesFilter>Xenotypes Filter</WVC_BiotechSettings_Tab_XenotypesFilter>
+
+	<WVC_BiotechSettings_Label_Graphics>Graphics</WVC_BiotechSettings_Label_Graphics>
+	<WVC_BiotechSettings_Label_Info>Info</WVC_BiotechSettings_Label_Info>
+	<WVC_BiotechSettings_Label_Genes>Genes</WVC_BiotechSettings_Label_Genes>
+	<WVC_BiotechSettings_Label_Other>Other</WVC_BiotechSettings_Label_Other>
+
+	<WVC_BiotechSettings_Tooltip_Graphics>Settings responsible for graphic elements.</WVC_BiotechSettings_Tooltip_Graphics>
+	<WVC_BiotechSettings_Tooltip_Info>Settings responsible for information in the interface.
+
+It is recommended to enable all settings for the first acquaintance with the mod. Or disable all settings for a very small performance boost.</WVC_BiotechSettings_Tooltip_Info>
+	<WVC_BiotechSettings_Tooltip_Genes>Settings responsible for the special effects of genes.</WVC_BiotechSettings_Tooltip_Genes>
+	<WVC_BiotechSettings_Tooltip_Other>Settings not related to anything specific.</WVC_BiotechSettings_Tooltip_Other>
+
+	<WVC_BiotechSettings_XenotypesFilter_Reset>Reset to default</WVC_BiotechSettings_XenotypesFilter_Reset>
+	<WVC_BiotechSettings_XenotypesFilter_Title>Set xenotypes that can be used for serums. Restart is required.</WVC_BiotechSettings_XenotypesFilter_Title>
+	<WVC_BiotechSettings_XenotypesFilter_Search>Search:</WVC_BiotechSettings_XenotypesFilter_Search>
+
+	<!-- ====================================================================================== -->
+	<WVC_Label_disableFurGraphic>Disable mecha/node/rune/stone(skin) graphic</WVC_Label_disableFurGraphic>
+	<WVC_ToolTip_disableFurGraphic>Turns off the visual changes introduced by (...)skins.
+
+A restart is required to apply the setting. Required new game!</WVC_ToolTip_disableFurGraphic>
+
+	<!-- ====================================================================================== -->
+	<WVC_Label_disableAllGraphic>Disable all genes graphic</WVC_Label_disableAllGraphic>
+	<WVC_ToolTip_disableAllGraphic>Completely removes all graphic elements of the mod.
+
+Requires a restart, a new game and that the previous setting is enabled.</WVC_ToolTip_disableAllGraphic>
+
+	<!-- ====================================================================================== -->
+	<WVC_Label_enableGenesInfo>Enable genes info display (All)</WVC_Label_enableGenesInfo>
+	<WVC_Label_enableGeneSpawnerGizmo>Enable gene-spawner info</WVC_Label_enableGeneSpawnerGizmo>
+	<WVC_Label_enableGeneWingInfo>Enable gene-wing info</WVC_Label_enableGeneWingInfo>
+	<WVC_Label_enableGeneBlesslinkInfo>Enable blesslink summon info</WVC_Label_enableGeneBlesslinkInfo>
+	<WVC_Label_enableGeneUndeadInfo>Enable undead info</WVC_Label_enableGeneUndeadInfo>
+
+	<WVC_ToolTip_enableGenesInfo>Responsible for displaying gene information. For example, for spawner genes: time, name and count.
+
+Activation requires a restart, deactivation does not.</WVC_ToolTip_enableGenesInfo>
+
+	<!-- ====================================================================================== -->
+	<WVC_Label_minWastepacksPerRecharge>Force minimal waste</WVC_Label_minWastepacksPerRecharge>
+	<WVC_ToolTip_minWastepacksPerRecharge>Force the minimum amount of waste produced by mechanoids, preventing it from dropping below 1.
+
+A restart is required to apply the setting.</WVC_ToolTip_minWastepacksPerRecharge>
+
+	<!-- ====================================================================================== -->
+	<WVC_Label_validatorAbilitiesPatch>Abilities target validation</WVC_Label_validatorAbilitiesPatch>
+	<WVC_ToolTip_validatorAbilitiesPatch>A patch that adds checks to non-mod reimplanters. This is to make genes like "genetic stability" work properly with other reimplanters. For example, for the vanilla gene implanter.
+
+A restart is required to apply the setting. Enabled by default.</WVC_ToolTip_validatorAbilitiesPatch>
+
+	<!-- ====================================================================================== -->
+	<WVC_Label_enableStatSkillFactor>Enable stat skill factor</WVC_Label_enableStatSkillFactor>
+	<WVC_ToolTip_enableStatSkillFactor>Responsible for whether the stat factor on skills will be applied or not.</WVC_ToolTip_enableStatSkillFactor>
+
+	<!-- ====================================================================================== -->
+	<WVC_Label_generateSkillGenes>Enable aptitude genes</WVC_Label_generateSkillGenes>
+	<WVC_Label_generateXenotypeForceGenes>Enable endo/xeno-forcer genes</WVC_Label_generateXenotypeForceGenes>
+	<WVC_ToolTip_generateTemplateGenes>If enabled, the corresponding genes will be generated at startup.
+
+A restart is required to apply the setting.</WVC_ToolTip_generateTemplateGenes>
+
+	<!-- ====================================================================================== -->
+	<WVC_Label_canNonPlayerPawnResurrect>Can non-player pawns be resurrected</WVC_Label_canNonPlayerPawnResurrect>
+	<WVC_ToolTip_canNonPlayerPawnResurrect>Gene "Undead" allows pawns to be resurrected instantly upon death. If disabled, pawns not controlled by the player will always die. This affects prisoners, rebellious slaves, guests and enemies.</WVC_ToolTip_canNonPlayerPawnResurrect>
+
+	<!-- ====================================================================================== -->
+	<WVC_Label_allowShapeshiftAfterDeath>Allow afterdeath shapeshifting</WVC_Label_allowShapeshiftAfterDeath>
+	<WVC_ToolTip_allowShapeshiftAfterDeath>Xenotype "Undead" after death being resurrected by gene "Undead" changes the set of genes.</WVC_ToolTip_allowShapeshiftAfterDeath>
+
+	<!-- ====================================================================================== -->
+	<WVC_Label_serumsForAllXenotypes>Generate xenotypes serums</WVC_Label_serumsForAllXenotypes>
+	<WVC_ToolTip_serumsForAllXenotypes>Affects whether serums for all possible xenotypes will be generated. Does not affect custom ones. Restart required.
+
+May affect startup speed on modlists with a lot of mods that add xenotypes.</WVC_ToolTip_serumsForAllXenotypes>
+
+	<!-- ====================================================================================== -->
+	<WVC_Label_serumsForAllXenotypes_GenBase>Generate base xenotypes serums</WVC_Label_serumsForAllXenotypes_GenBase>
+	<WVC_Label_serumsForAllXenotypes_GenUltra>Generate ultra xenotypes serums</WVC_Label_serumsForAllXenotypes_GenUltra>
+	<WVC_Label_serumsForAllXenotypes_GenHybrid>Generate hybrid xenotypes serums</WVC_Label_serumsForAllXenotypes_GenHybrid>
+
+	<!-- ====================================================================================== -->
+	<WVC_Label_serumsForAllXenotypes_Recipes>Generate serum recipes</WVC_Label_serumsForAllXenotypes_Recipes>
+	<WVC_ToolTip_serumsForAllXenotypes_Recipes>If enabled, it creates a recipe for each serum, allowing it to be used through the "Operation" menu, in the pawn's health tab. Restart required.</WVC_ToolTip_serumsForAllXenotypes_Recipes>
+
+	<!-- ====================================================================================== -->
+	<WVC_Label_serumsSpawnersForAllXenotypes>Generate serum spawner genes</WVC_Label_serumsSpawnersForAllXenotypes>
+	<WVC_ToolTip_serumsSpawnersForAllXenotypes>If enabled, a spawner gene will be added for each serum. Restart required.</WVC_ToolTip_serumsSpawnersForAllXenotypes>
+
+</LanguageData>

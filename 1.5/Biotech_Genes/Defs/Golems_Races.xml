@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- <HediffGiverSetDef> -->
+		<!-- <defName>WVC_MechanoidGolem_HediffGiver</defName> -->
+		<!-- <hediffGivers> -->
+			<!-- <li Class="HediffGiver_Birthday"> -->
+				<!-- <hediff>WVC_SelfPopulationRegulation_Golems</hediff> -->
+				<!-- <ageFractionChanceCurve> -->
+				  <!-- <points> -->
+					<!-- <li>(0, 1)</li> -->
+					<!-- <li>(1, 1)</li> -->
+				  <!-- </points> -->
+				<!-- </ageFractionChanceCurve> -->
+			<!-- </li> -->
+		<!-- </hediffGivers> -->
+	<!-- </HediffGiverSetDef> -->
+
+	<ThingDef ParentName="LightMechanoid" Name="WVC_GolemsBase" Abstract="True">
+		<description>A piece of rock chunk, animated by mechanites swarm.</description>
+		<statBases>
+			<!-- <ToxicResistance>1</ToxicResistance> -->
+			<!-- <PsychicSensitivity>1</PsychicSensitivity> -->
+			<!-- <Flammability>0</Flammability> -->
+			<!-- <MeatAmount>0</MeatAmount> -->
+			<!-- <LeatherAmount>0</LeatherAmount> -->
+			<!-- <ArmorRating_Heat>2.00</ArmorRating_Heat> -->
+			<BandwidthCost>-999</BandwidthCost>
+			<MechEnergyUsageFactor>-1</MechEnergyUsageFactor>
+			<MechEnergyLossPerHP>-1</MechEnergyLossPerHP>
+			<WastepacksPerRecharge>0</WastepacksPerRecharge>
+			<!-- <BandwidthCost>6</BandwidthCost> -->
+			<ControlTakingTime MayRequire="Ludeon.Rimworld.Biotech">1</ControlTakingTime>
+			<!-- <ComfyTemperatureMin>-100</ComfyTemperatureMin> -->
+			<!-- <ComfyTemperatureMax>250</ComfyTemperatureMax> -->
+			<MarketValue>150</MarketValue>
+			<ArmorRating_Blunt>0.6</ArmorRating_Blunt>
+			<MoveSpeed>3.6</MoveSpeed>
+			<Mass>80</Mass>
+			<!-- Work -->
+			<FoodPoisonChance>0</FoodPoisonChance>
+			<MiningSpeed>0.25</MiningSpeed>
+			<PlantWorkSpeed>0.25</PlantWorkSpeed>
+			<ConstructionSpeed>0.25</ConstructionSpeed>
+			<SmoothingSpeed>0.25</SmoothingSpeed>
+			<GeneralLaborSpeed>0.25</GeneralLaborSpeed>
+			<MedicalTendSpeed>0.25</MedicalTendSpeed>
+			<MedicalOperationSpeed>0.25</MedicalOperationSpeed>
+			<CookSpeed>0.25</CookSpeed>
+			<SmeltingSpeed>0.25</SmeltingSpeed>
+			<DrugSynthesisSpeed>0.25</DrugSynthesisSpeed>
+			<ButcheryFleshSpeed>0.25</ButcheryFleshSpeed>
+			<ButcheryMechanoidSpeed>0.25</ButcheryMechanoidSpeed>
+			<MedicalSurgerySuccessChance>2.0</MedicalSurgerySuccessChance>
+			<ConstructSuccessChance>2.0</ConstructSuccessChance>
+			<FixBrokenDownBuildingSuccessChance>2.0</FixBrokenDownBuildingSuccessChance>
+		</statBases>
+		<uiIconScale>1.5</uiIconScale>
+		<tools Inherit="False">
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>16</power>
+				<cooldownTime>1.8</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+			</li>
+		</tools>
+		<race>
+			<!-- <mechEnabledWorkTypes> -->
+			  <!-- <li>Firefighter</li> -->
+			  <!-- <li>BasicWorker</li> -->
+			  <!-- <li>PlantCutting</li> -->
+			  <!-- <li>Crafting</li> -->
+			  <!-- <li>Cleaning</li> -->
+			  <!-- <li>Hauling</li> -->
+			<!-- </mechEnabledWorkTypes> -->
+			<body>Mech_Light</body>
+			<maxMechEnergy>1</maxMechEnergy>
+			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+			<lifeStageAges>
+				<li>
+					<def>MechanoidFullyFormed</def>
+					<minAge>0</minAge>
+					<!-- <soundWounded>Pawn_Mech_Constructoid_Wounded</soundWounded> -->
+					<!-- <soundDeath>Pawn_Mech_Constructoid_Death</soundDeath> -->
+					<!-- <soundCall>Pawn_Mech_Constructoid_Call</soundCall> -->
+				</li>
+			</lifeStageAges>
+			<hediffGiverSets Inherit="False">
+				<!-- <li>WVC_MechanoidGolem_HediffGiver</li> -->
+			</hediffGiverSets>
+		</race>
+		<butcherProducts Inherit="False">
+			<Steel>5</Steel>
+		</butcherProducts>
+		<comps>
+			<!-- <li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_InitialHediff"> -->
+				<!-- <hediffname>WVC_SelfPopulationRegulation_Golems</hediffname> -->
+				<!-- <hediffseverity>1</hediffseverity> -->
+			<!-- </li> -->
+			<li Class="WVC_XenotypesAndGenes.CompProperties_InitialHediff">
+				<hediffDefs>
+				  <li>WVC_SelfPopulationRegulation_Golems</li>
+				</hediffDefs>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="NonCombatLightMechanoidKind" Name="WVC_NonCombatGolemKind" Abstract="True">
+		<!-- <defName>WVC_Golem_Liftoid</defName> -->
+		<!-- <label>golem liftoid</label> -->
+		<!-- <race>WVC_Golem_Liftoid</race> -->
+		<allowInMechClusters>false</allowInMechClusters>
+		<minGenerationAge MayRequire="Ludeon.Rimworld.Biotech">0</minGenerationAge>
+		<alternateGraphicChance>1.0</alternateGraphicChance>
+		<isFighter>false</isFighter>
+		<alternateGraphics>
+			<!-- Base -->
+			<!-- slate -->
+			<li><color>(70,70,70)</color></li>
+			<!-- limestone -->
+			<li><color>(158,153,135)</color></li>
+			<!-- granite -->
+			<li><color>(105,95,97)</color></li>
+			<!-- sandstone -->
+			<li><color>(126,104,94)</color></li>
+			<!-- marble -->
+			<li><color>(132,135,132)</color></li>
+			<!-- Other -->
+			<li><color>(85,118,69)</color><weight>0.05</weight></li>
+			<li><color>(100,100,100)</color><weight>0.05</weight></li>
+			<!-- Biomes! -->
+			<li><color>(250,180,147)</color><weight>0.05</weight></li>
+			<!-- Alpha Biomes -->
+			<li><color>(120,50,50)</color><weight>0.05</weight></li>
+			<li><color>(36,35,40)</color><weight>0.05</weight></li>
+			<li><color>(50,50,50)</color><weight>0.05</weight></li>
+			<li><color>(31,25,21)</color><weight>0.05</weight></li>
+			<li><color>(45,66,36)</color><weight>0.05</weight></li>
+			<li><color>(80,80,80)</color><weight>0.05</weight></li>
+		</alternateGraphics>
+		<abilities>
+			<li>WVC_MechanoidAbility_ActivateGestator</li>
+		</abilities>
+	</PawnKindDef>
+
+	<!-- =================================================================== -->
+
+	<ThingDef ParentName="WVC_GolemsBase">
+		<defName>WVC_Golem_Liftoid</defName>
+		<label>golem liftoid</label>
+		<statBases>
+			<ArmorRating_Sharp>0.25</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.3</ArmorRating_Blunt>
+			<MoveSpeed>3.2</MoveSpeed>
+		</statBases>
+		<race>
+			<mechEnabledWorkTypes>
+			  <!-- <li>Firefighter</li> -->
+			  <li>BasicWorker</li>
+			  <!-- <li>PlantCutting</li> -->
+			  <!-- <li>Crafting</li> -->
+			  <li>Cleaning</li>
+			  <li>Hauling</li>
+			</mechEnabledWorkTypes>
+		</race>
+	</ThingDef>
+	<PawnKindDef ParentName="WVC_NonCombatGolemKind">
+		<defName>WVC_Golem_Liftoid</defName>
+		<label>golem liftoid</label>
+		<race>WVC_Golem_Liftoid</race>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>WVC/Things/Mechanoids_Golems/GolemLifter</texPath>
+					<drawSize>2</drawSize>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+
+	<!-- ======================= -->
+
+	<ThingDef ParentName="WVC_GolemsBase">
+		<defName>WVC_Golem_Constructoid</defName>
+		<label>golem structoid</label>
+		<statBases>
+			<ArmorRating_Sharp>0.3</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.3</ArmorRating_Blunt>
+			<MoveSpeed>2.4</MoveSpeed>
+		</statBases>
+		<race>
+			<mechEnabledWorkTypes>
+			  <!-- <li>Firefighter</li> -->
+			  <!-- <li>BasicWorker</li> -->
+			  <li>PlantCutting</li>
+			  <li>Growing</li>
+			  <!-- <li>Crafting</li> -->
+			  <li>Construction</li>
+			  <!-- <li>Cleaning</li> -->
+			  <!-- <li>Hauling</li> -->
+			</mechEnabledWorkTypes>
+		</race>
+	</ThingDef>
+	<PawnKindDef ParentName="WVC_NonCombatGolemKind">
+		<defName>WVC_Golem_Constructoid</defName>
+		<label>golem structoid</label>
+		<race>WVC_Golem_Constructoid</race>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>WVC/Things/Mechanoids_Golems/GolemConstructor</texPath>
+					<drawSize>2</drawSize>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+
+	<!-- ======================= -->
+
+	<ThingDef ParentName="WVC_GolemsBase">
+		<defName>WVC_Golem_Crafter</defName>
+		<label>golem craftoid</label>
+		<statBases>
+			<ArmorRating_Sharp>0.2</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.4</ArmorRating_Blunt>
+			<MoveSpeed>2.2</MoveSpeed>
+		</statBases>
+		<race>
+			<mechEnabledWorkTypes>
+			  <!-- <li>Firefighter</li> -->
+			  <!-- <li>BasicWorker</li> -->
+			  <!-- <li>PlantCutting</li> -->
+			  <!-- <li>Crafting</li> -->
+			  <!-- <li>Construction</li> -->
+			  <!-- <li>Cleaning</li> -->
+			  <!-- <li>Hauling</li> -->
+			  <li>Crafting</li>
+			  <li>Smithing</li>
+			  <li>Tailoring</li>
+			  <li>Cooking</li>
+			  <li>Doctor</li>
+			</mechEnabledWorkTypes>
+		</race>
+	</ThingDef>
+	<PawnKindDef ParentName="WVC_NonCombatGolemKind">
+		<defName>WVC_Golem_Crafter</defName>
+		<label>golem craftoid</label>
+		<race>WVC_Golem_Crafter</race>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>WVC/Things/Mechanoids_Golems/GolemCrafter</texPath>
+					<drawSize>2</drawSize>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+
+	<!-- ======================= -->
+
+	<ThingDef ParentName="WVC_GolemsBase">
+		<defName>WVC_Golem_Miner</defName>
+		<label>golem minenoid</label>
+		<statBases>
+			<ArmorRating_Sharp>0.3</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.3</ArmorRating_Blunt>
+			<MoveSpeed>2.6</MoveSpeed>
+		</statBases>
+		<race>
+			<mechEnabledWorkTypes>
+			  <li>Firefighter</li>
+			  <li>Mining</li>
+			  <!-- <li>PlantCutting</li> -->
+			  <!-- <li>Crafting</li> -->
+			  <!-- <li>Construction</li> -->
+			  <!-- <li>Cleaning</li> -->
+			  <!-- <li>Hauling</li> -->
+			  <!-- <li>Crafting</li> -->
+			  <!-- <li>Smithing</li> -->
+			  <!-- <li>Tailoring</li> -->
+			  <!-- <li>Cooking</li> -->
+			  <!-- <li>Doctor</li> -->
+			</mechEnabledWorkTypes>
+		</race>
+	</ThingDef>
+	<PawnKindDef ParentName="WVC_NonCombatGolemKind">
+		<defName>WVC_Golem_Miner</defName>
+		<label>golem minenoid</label>
+		<race>WVC_Golem_Miner</race>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>WVC/Things/Mechanoids_Golems/GolemMiner</texPath>
+					<drawSize>2</drawSize>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+
+	<!-- ======================= -->
+
+	<ThingDef ParentName="WVC_GolemsBase">
+		<defName>WVC_Golem_Hunter</defName>
+		<label>golem hunteroid</label>
+		<statBases>
+			<ArmorRating_Sharp>0.1</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+			<MoveSpeed>3.8</MoveSpeed>
+		</statBases>
+		<race>
+			<mechEnabledWorkTypes>
+			  <li>Hunting</li>
+			</mechEnabledWorkTypes>
+		</race>
+	</ThingDef>
+	<PawnKindDef ParentName="WVC_NonCombatGolemKind">
+		<defName>WVC_Golem_Hunter</defName>
+		<label>golem hunteroid</label>
+		<race>WVC_Golem_Hunter</race>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>WVC/Things/Mechanoids_Golems/GolemHunter</texPath>
+					<drawSize>2</drawSize>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+		<weaponTags>
+			<li>WVC_GolemGun_Slugthrower</li>
+		</weaponTags>
+	</PawnKindDef>
+
+  <!-- SlugGun -->
+  <ThingDef ParentName="LightMechanoidGunRanged">
+	<defName>WVC_GolemGun_Slugthrower</defName>
+	<label>slugthrower</label>
+	<description>A compact single-shot slug thrower designed to be mounted on a light combat mechanoid.</description>
+	<graphicData>
+	  <texPath>WVC/Things/Mechanoids_Golems_Guns/Slugthrower</texPath>
+	  <!-- <color>(70,70,70)</color> -->
+	  <graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+	<statBases>
+	  <MarketValue>1000</MarketValue>
+	  <Mass>1.5</Mass>
+	  <AccuracyTouch>0.20</AccuracyTouch>
+	  <AccuracyShort>0.30</AccuracyShort>
+	  <AccuracyMedium>0.40</AccuracyMedium>
+	  <AccuracyLong>0.95</AccuracyLong>
+	  <RangedWeapon_Cooldown>4.0</RangedWeapon_Cooldown>
+	</statBases>
+	<costStuffCount>40</costStuffCount>
+	<stuffCategories>
+	  <li>Stony</li>
+	</stuffCategories>
+	<weaponTags>
+	  <li>WVC_GolemGun_Slugthrower</li>
+	</weaponTags>
+	<verbs>
+	  <li>
+		<verbClass>Verb_Shoot</verbClass>
+		<hasStandardCommand>true</hasStandardCommand>
+		<defaultProjectile>Bullet_Slugthrower</defaultProjectile>
+		<warmupTime>0.3</warmupTime>
+		<range>19.9</range>
+		<ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+		<burstShotCount>1</burstShotCount>
+		<soundCast>Shot_Slugthrower</soundCast>
+		<soundCastTail>GunTail_Light</soundCastTail>
+		<muzzleFlashScale>9</muzzleFlashScale>
+	  </li>
+	</verbs>
+	<tools>
+	  <li>
+		<label>barrel</label>
+		<capacities>
+		  <li>Blunt</li>
+		  <li>Poke</li>
+		</capacities>
+		<power>9</power>
+		<cooldownTime>2.6</cooldownTime>
+	  </li>
+	</tools>
+  </ThingDef>
+
+</Defs>

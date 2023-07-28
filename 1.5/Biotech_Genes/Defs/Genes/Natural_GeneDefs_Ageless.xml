@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneAgeless_Base" Abstract="True">
+	<!-- <label>mechlink</label>  -->
+	<!-- <labelShortAdj>blindness</labelShortAdj> -->
+	<description>TEST</description>
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_PermanentHediff</geneClass> -->
+	<selectionWeight>0.022</selectionWeight>
+	<!-- <displayCategory>Ability</displayCategory> -->
+	<!-- <displayCategory>Archite</displayCategory> -->
+	<displayCategory>Healing</displayCategory>
+	<displayOrderInCategory>1241</displayOrderInCategory>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>age</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>less</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_Ageless</li> -->
+	<!-- </exclusionTags> -->
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneAgeless_Base">
+	<defName>WVC_NaturalAgeless</defName>
+	<label>natural ageless</label>
+	<labelShortAdj>ageless</labelShortAdj>
+	<description>Carriers of this gene completely stop aging after reaching the age of 18.</description>
+	<iconPath>WVC/UI/Genes/Gene_Ageless_Basic_v0</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Ageless</geneClass>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-3</biostatMet>
+	<displayOrderInCategory>1240</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>If the gene is heritable, then the age of the pawn cannot be more than 18.</li>
+	</customEffectDescriptions>
+	<biologicalAgeTickFactorFromAgeCurve>
+	  <points>
+		<li>(13, 1)</li>
+		<li>(18.5, 0)</li>
+	  </points>
+	</biologicalAgeTickFactorFromAgeCurve>
+	<exclusionTags>
+	  <li>WVC_Ageless</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneAgeless_Base">
+	<defName>WVC_NaturalFastGrowing</defName>
+	<label>fast growing</label>
+	<description>Carriers of this gene reach adulthood incredibly quickly.</description>
+	<iconPath>WVC/UI/Genes/Gene_Ageless_EarlyAdult_v0</iconPath>
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Ageless</geneClass> -->
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>2</biostatMet>
+	<displayOrderInCategory>1242</displayOrderInCategory>
+	<biologicalAgeTickFactorFromAgeCurve>
+	  <points>
+		<li>(0, 4)</li>
+		<li>(13.5, 1)</li>
+		<!-- <li>(18.5, 0)</li> -->
+	  </points>
+	</biologicalAgeTickFactorFromAgeCurve>
+  </GeneDef>
+
+  <!-- ==== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneAgeless_Base">
+	<defName>WVC_NaturalFastAging</defName>
+	<label>fast aging</label>
+	<description>Carriers of this gene age faster.</description>
+	<iconPath>WVC/UI/Genes/Gene_Ageless_Fast_v0</iconPath>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>2</biostatMet>
+	<biologicalAgeTickFactorFromAgeCurve>
+	  <points>
+		<li>(0, 2)</li>
+	  </points>
+	</biologicalAgeTickFactorFromAgeCurve>
+	<exclusionTags>
+	  <li>WVC_Ageless_FastSlowAging</li>
+	  <li>AG_Aging</li>
+	  <li>Aging</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneAgeless_Base">
+	<defName>WVC_NaturalSlowAging</defName>
+	<label>slow aging</label>
+	<description>Carriers of this gene age more slowly.</description>
+	<iconPath>WVC/UI/Genes/Gene_Ageless_Slow_v0</iconPath>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<biologicalAgeTickFactorFromAgeCurve>
+	  <points>
+		<li>(0, 0.5)</li>
+	  </points>
+	</biologicalAgeTickFactorFromAgeCurve>
+	<exclusionTags>
+	  <li>WVC_Ageless_FastSlowAging</li>
+	  <li>AG_Aging</li>
+	  <li>Aging</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneAgeless_Base">
+	<defName>WVC_ForeverYoung</defName>
+	<label>very slow aging</label>
+	<description>Carriers of this gene mature very slowly, which is why they remain young for a very long time.</description>
+	<iconPath>WVC/UI/Genes/Gene_Ageless_ForeverYoung_v0</iconPath>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>4</biostatMet>
+	<biologicalAgeTickFactorFromAgeCurve>
+	  <points>
+		<li>(0, 0.2)</li>
+	  </points>
+	</biologicalAgeTickFactorFromAgeCurve>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>young</symbol></li>
+	  </wholeNameSymbols>
+	  <prefixSymbols>
+		<li><symbol>for</symbol></li>
+		<li><symbol>fore</symbol></li>
+		<li><symbol>eve</symbol></li>
+		<li><symbol>ever</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>you</symbol></li>
+		<li><symbol>yo</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>WVC_Ageless_FastSlowAging</li>
+	  <li>AG_Aging</li>
+	  <li>Aging</li>
+	</exclusionTags>
+  </GeneDef>
+
+</Defs>

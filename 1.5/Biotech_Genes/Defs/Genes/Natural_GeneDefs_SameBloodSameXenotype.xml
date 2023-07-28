@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneSameBloodSameXenotype_Base" Abstract="True">
+	<selectionWeight>0.022</selectionWeight>
+	<displayOrderInCategory>965</displayOrderInCategory>
+	<displayCategory>Reproduction</displayCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_Blindness</li> -->
+	<!-- </exclusionTags> -->
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSameBloodSameXenotype_Base">
+	<defName>WVC_SameBloodSameXenotype</defName>
+	<label>selection</label>
+	<description>Carriers of this gene have almost invisible habits that have a significant psychological impact on individuals with similar habits.</description>
+	<iconPath>WVC/UI/Genes/Gene_SameBlood_v0</iconPath>
+	<iconColor>(112, 173, 120)</iconColor>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Improved relations with any pawn of the same xenotype.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+</Defs>

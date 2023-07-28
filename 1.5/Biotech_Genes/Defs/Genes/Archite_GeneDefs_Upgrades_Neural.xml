@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Soft -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Archites" Name="WVC_Mechanoidization_SoftwareBase" Abstract="True">
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_WithConditions</geneClass> -->
+	<!-- <displayCategory>WVC_MechaBodyWare</displayCategory> -->
+	<labelShortAdj>subcore</labelShortAdj>
+	<!-- <description>Archites modified the owner's brain quite a lot, which opened up new possibilities.</description> -->
+	<!-- <description>Carriers of this gene have archites that have formed a mechanoid subcore.</description> -->
+	<description>Carriers of this gene have archites that have formed special neural connections that expand the capabilities of the carrier's brain.</description>
+	<iconPath>WVC/UI/Genes/MechanoidizationSoftware</iconPath>
+	<!-- <iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath> -->
+	<displayOrderInCategory>-120</displayOrderInCategory>
+	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
+	<iconColor>(255, 255, 255)</iconColor>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<marketValueFactor>1.2</marketValueFactor>
+	<!-- <selectionWeight>0.2</selectionWeight> -->
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>ware</symbol></li>
+		<li><symbol>soft</symbol></li>
+		<li><symbol>sub-</symbol></li>
+		<li><symbol>sub</symbol></li>
+		<li><symbol>master-</symbol></li>
+		<li><symbol>master</symbol></li>
+		<li><symbol>core</symbol></li>
+		<li><symbol>ai</symbol></li>
+		<li><symbol>progr</symbol></li>
+		<li><symbol>prog</symbol></li>
+		<li><symbol>pro</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>ware</symbol></li>
+		<li><symbol>soft</symbol></li>
+		<li><symbol>core</symbol></li>
+		<li><symbol>ai</symbol></li>
+		<li><symbol>ammed</symbol></li>
+		<li><symbol>amm</symbol></li>
+		<li><symbol>am</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <geneIsSubcore>true</geneIsSubcore> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+
+  <!-- ========================================================== -->
+  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+	<defName>WVC_MechaAI_Base</defName>
+	<label>excellent memory</label> 
+	<iconColor>(184, 198, 203)</iconColor>
+	<iconPath>WVC/UI/Genes/MechanoidizationSoftware</iconPath>
+	<displayCategory>Miscellaneous</displayCategory>
+	<displayOrderInCategory>29</displayOrderInCategory>
+	<!-- <suppressedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>BodyPurist</def> -->
+	  <!-- </li> -->
+	<!-- </suppressedTraits> -->
+	<customEffectDescriptions>
+		<li>Skills not decay.</li>
+	</customEffectDescriptions>
+	<capMods>
+	  <li>
+		<capacity>Consciousness</capacity>
+		<offset>0.05</offset>
+	  </li>
+	</capMods>
+	<statFactors>
+	  <SocialImpact>0.8</SocialImpact>
+	  <!-- <WVC_SkillsDecayFactor>0.0</WVC_SkillsDecayFactor> -->
+	</statFactors>
+	<!-- <statOffsets> -->
+	  <!-- <WVC_MinSkillLevel>12</WVC_MinSkillLevel> -->
+	<!-- </statOffsets> -->
+	<hediffGiversCannotGive>
+	  <li>Dementia</li>
+	  <li>Alzheimers</li>
+	  <li>TraumaSavant</li>
+	</hediffGiversCannotGive>
+	<exclusionTags>
+	  <li>WVC_ExcellentMemory</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<noSkillDecay>true</noSkillDecay>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+	<defName>WVC_MechaAI_SoftwareManipulation</defName>
+	<label>improved intuition</label>
+	<iconPath>WVC/UI/Genes/ImprovedIntuitionAttentiveness_A</iconPath>
+	<displayCategory>Violence</displayCategory>
+	<!-- <displayOrderInCategory>-120</displayOrderInCategory> -->
+	<capMods>
+	  <li>
+		<capacity>Moving</capacity>
+		<offset>0.225</offset>
+	  </li>
+	  <li>
+		<capacity>Manipulation</capacity>
+		<offset>0.225</offset>
+	  </li>
+	</capMods>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+	<defName>WVC_MechaAI_SoftwareMoving</defName>
+	<label>improved attentiveness</label>
+	<iconPath>WVC/UI/Genes/ImprovedIntuitionAttentiveness_B</iconPath>
+	<displayCategory>Violence</displayCategory>
+	<!-- <displayOrderInCategory>-120</displayOrderInCategory> -->
+	<capMods>
+	  <li>
+		<capacity>Moving</capacity>
+		<offset>0.225</offset>
+	  </li>
+	  <li>
+		<capacity>Manipulation</capacity>
+		<offset>0.225</offset>
+	  </li>
+	</capMods>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+	<defName>WVC_MecaBodyParts_Arm</defName>
+	<label>striking power</label>
+	<iconPath>WVC/UI/Genes/StrikingPower_v0</iconPath>
+	<displayCategory>Violence</displayCategory>
+	<statOffsets>
+	  <MeleeDamageFactor>0.5</MeleeDamageFactor>
+	</statOffsets>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+	<defName>WVC_MecaBodyParts_Jaw</defName>
+	<label>pleasant voice</label>
+	<iconPath>WVC/UI/Genes/PleasantVoice_v0</iconPath>
+	<displayCategory>Miscellaneous</displayCategory>
+	<displayOrderInCategory>21</displayOrderInCategory>
+	<suppressedTraits>
+	  <li>
+		<def>AnnoyingVoice</def>
+	  </li>
+	</suppressedTraits>
+	<statFactors>
+	  <SocialImpact>2.0</SocialImpact>
+	</statFactors>
+	<capMods>
+	  <li>
+		<capacity>Talking</capacity>
+		<offset>0.1</offset>
+	  </li>
+	</capMods>
+	<exclusionTags>
+	  <li>WVC_MechaAI_SoftwareDisableTalking</li>
+	</exclusionTags>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+	<defName>WVC_MechaAI_SoftwareDisableTalking</defName>
+	<label>silence</label>
+	<!-- <description>Archites disable the voice functions of the pawn, which saves some resources.</description> -->
+	<biostatMet>3</biostatMet>
+	<iconPath>WVC/UI/Genes/DisableTalking_v0</iconPath>
+	<displayCategory>Miscellaneous</displayCategory>
+	<displayOrderInCategory>21</displayOrderInCategory>
+	<capMods>
+	  <li>
+		<capacity>Talking</capacity>
+		<setMax>0.0</setMax>
+	  </li>
+	</capMods>
+	<exclusionTags>
+	  <li>WVC_MechaAI_SoftwareDisableTalking</li>
+	</exclusionTags>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+	<defName>WVC_MecaBodyParts_Nose</defName>
+	<label>chemical analyzer</label>
+	<iconPath>WVC/UI/Genes/Analyzer_Chemical_v0</iconPath>
+	<displayCategory>Miscellaneous</displayCategory>
+	<displayOrderInCategory>61</displayOrderInCategory>
+	<immuneToToxGasExposure>true</immuneToToxGasExposure>
+	<statFactors>
+	  <FoodPoisonChance>0.0</FoodPoisonChance>
+	</statFactors>
+	<statOffsets>
+	  <!-- <CookSpeed>1.0</CookSpeed> -->
+	  <WorkSpeedGlobal>0.05</WorkSpeedGlobal>
+	</statOffsets>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+	<defName>WVC_MecaBodyParts_Ear</defName>
+	<label>sound analyzer</label>
+	<iconPath>WVC/UI/Genes/Analyzer_Sound_v0</iconPath>
+	<displayCategory>Miscellaneous</displayCategory>
+	<displayOrderInCategory>61</displayOrderInCategory>
+	<ignoreDarkness>true</ignoreDarkness>
+	<statOffsets>
+	  <WorkSpeedGlobal>0.125</WorkSpeedGlobal>
+	</statOffsets>
+	<capMods>
+	  <li>
+		<capacity>Hearing</capacity>
+		<offset>0.05</offset>
+	  </li>
+	</capMods>
+	<hediffGiversCannotGive>
+	  <li>HearingLoss</li>
+	</hediffGiversCannotGive>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+	<defName>WVC_MecaBodyParts_Eye</defName>
+	<label>visual analyzer</label>
+	<iconPath>WVC/UI/Genes/Analyzer_Visual_v0</iconPath>
+	<displayCategory>Miscellaneous</displayCategory>
+	<displayOrderInCategory>61</displayOrderInCategory>
+	<ignoreDarkness>true</ignoreDarkness>
+	<statOffsets>
+	  <WorkSpeedGlobal>0.125</WorkSpeedGlobal>
+	</statOffsets>
+	<capMods>
+	  <li>
+		<capacity>Sight</capacity>
+		<offset>0.05</offset>
+	  </li>
+	</capMods>
+	<hediffGiversCannotGive>
+	  <li>Cataract</li>
+	</hediffGiversCannotGive>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+	<defName>WVC_MechaAI_MechanitorNetwork</defName>
+	<label>mecha-network</label>
+	<iconPath>WVC/UI/Genes/MechaNetwork_v0</iconPath>
+	<minAgeActive>3</minAgeActive>
+	<displayCategory>Ability</displayCategory>
+	<displayOrderInCategory>234</displayOrderInCategory>
+	<!-- <statOffsets> -->
+		<!-- <MechRepairSpeed>0.25</MechRepairSpeed> -->
+		<!-- <WorkSpeedGlobalOffsetMech>0.25</WorkSpeedGlobalOffsetMech> -->
+		<!-- <MechFormingSpeed>0.25</MechFormingSpeed> -->
+	<!-- </statOffsets> -->
+	<!-- <conditionalStatAffecters> -->
+	  <!-- <li Class="WVC.ConditionalStatAffecter_Skills"> -->
+		<!-- <skillDef>Melee</skillDef> -->
+		<!-- <targetLevel>8</targetLevel> -->
+		<!-- <statOffsets> -->
+			<!-- <MechRepairSpeed>0.5</MechRepairSpeed> -->
+		<!-- </statOffsets> -->
+	  <!-- </li> -->
+	<!-- </conditionalStatAffecters> -->
+	<conditionalStatAffecters>
+	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_MechanitorUsedBandwidth">
+		<controlledPawns>8</controlledPawns>
+		<statOffsets>
+			<MechRepairSpeed>0.5</MechRepairSpeed>
+		</statOffsets>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_MechanitorUsedBandwidth">
+		<controlledPawns>12</controlledPawns>
+		<statOffsets>
+			<MechControlGroups>2</MechControlGroups>
+		</statOffsets>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_MechanitorUsedBandwidth">
+		<controlledPawns>16</controlledPawns>
+		<statOffsets>
+			<WorkSpeedGlobalOffsetMech>0.5</WorkSpeedGlobalOffsetMech>
+		</statOffsets>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_MechanitorUsedBandwidth">
+		<controlledPawns>20</controlledPawns>
+		<statOffsets>
+			<MechBandwidth>12</MechBandwidth>
+		</statOffsets>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_MechanitorUsedBandwidth">
+		<controlledPawns>24</controlledPawns>
+		<statOffsets>
+			<MechFormingSpeed>0.5</MechFormingSpeed>
+		</statOffsets>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_MechanitorUsedBandwidth">
+		<controlledPawns>30</controlledPawns>
+		<statOffsets>
+			<WVC_BandwidthCostOffsetMech>-1</WVC_BandwidthCostOffsetMech>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
+	<exclusionTags>
+	  <li>WVC_MechanitorNetwork</li>
+	</exclusionTags>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+	<defName>WVC_MechaAI_SoftwareFriendOrFoe</defName>
+	<label>friend or foe</label>
+	<iconPath>WVC/UI/Genes/FriendOrFoe_v0</iconPath>
+	<displayCategory>Violence</displayCategory>
+	<displayOrderInCategory>-22</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Ancient mechanoids do not attack a pawn, even if a pawn attacks them.</li>
+	</customEffectDescriptions>
+	<forcedTraits>
+	  <li>
+		<def>WVC_RB_FriendOrFoeTrait</def>
+	  </li>
+	</forcedTraits>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+	<defName>WVC_MechaAI_SoftwareNaturalEnemy</defName>
+	<label>hard-minded</label>
+	<iconPath>WVC/UI/Genes/NaturalEnemy_v0</iconPath>
+	<!-- <biostatCpx>3</biostatCpx> -->
+	<displayCategory>Violence</displayCategory>
+	<displayOrderInCategory>-22</displayOrderInCategory>
+	<statFactors>
+	  <TradePriceImprovement>0.0</TradePriceImprovement>
+	  <BondAnimalChanceFactor>0.0</BondAnimalChanceFactor>
+	</statFactors>
+	<customEffectDescriptions>
+		<li>Opinion about pawns with this gene is +20.</li>
+		<li>Opinion about pawns without this gene is -500.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+</Defs>

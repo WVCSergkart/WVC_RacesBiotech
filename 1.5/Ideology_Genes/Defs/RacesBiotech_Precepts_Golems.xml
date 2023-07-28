@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Issue -->
+
+  <IssueDef>
+	<defName>WVC_Golems</defName>
+	<label>golems</label>
+	<iconPath>WVC/UI/Precepts/Golems</iconPath>
+  </IssueDef>
+
+  <!-- Precepts -->
+
+  <PreceptDef>
+	<defName>WVC_Golems_Improved</defName>
+	<issue>WVC_Golems</issue>
+	<label>improved</label>
+	<description>Golems are our hands.</description>
+	<!-- <impact>High</impact> -->
+	<impact>Medium</impact>
+	<displayOrderInIssue>0</displayOrderInIssue>
+	<associatedMemes>
+	  <li>WVC_Golemist</li>
+	</associatedMemes>
+	<requiredMemes>
+	  <li>WVC_Golemist</li>
+	</requiredMemes>
+	<statOffsets>
+	  <!-- <WVC_BandwidthCostOffsetMech>1</WVC_BandwidthCostOffsetMech> -->
+	  <WVC_OverseerMaxGolems>1</WVC_OverseerMaxGolems>
+	</statOffsets>
+  </PreceptDef>
+
+  <PreceptDef>
+	<defName>WVC_Golems_Strong</defName>
+	<issue>WVC_Golems</issue>
+	<label>strong</label>
+	<description>Golems are our hands and our weapons.</description>
+	<impact>High</impact>
+	<displayOrderInIssue>0</displayOrderInIssue>
+	<associatedMemes>
+	  <li>WVC_Golemist</li>
+	</associatedMemes>
+	<requiredMemes>
+	  <li>WVC_Golemist</li>
+	</requiredMemes>
+	<statOffsets>
+	  <WVC_BandwidthCostOffsetMech>1</WVC_BandwidthCostOffsetMech>
+	  <WVC_OverseerMaxGolems>2</WVC_OverseerMaxGolems>
+	</statOffsets>
+  </PreceptDef>
+
+  <!-- Role -->
+
+  <PreceptDef ParentName="PreceptRoleMultiBase">
+	<defName>WVC_IdeoRole_GolemSpecialist</defName>
+	<label>golem specialist</label>
+	<description>A special ideoligious status focusing on crafting to the exclusion of all else. This specialized role increases the maximum number of golems and grants the ability to summon golems once a year. Holders of this role will refuse to do some non-production work.</description>
+	<iconPath>WVC/UI/Precepts/GolemSpecialist</iconPath>
+	<nameMaker>NamerRoleProductionSpecialist</nameMaker>
+	<roleRequirements>
+	  <li Class="WVC_XenotypesAndGenes.RoleRequirement_Mechanitor"/>
+	  <li Class="RoleRequirement_MinSkillAny">
+		<skills>
+		  <Crafting>6</Crafting>
+		</skills>
+	  </li>
+	</roleRequirements>
+	<roleRequiredWorkTagAny>
+	  <li>Crafting</li>
+	</roleRequiredWorkTagAny>
+	<roleTags><li>GolemSpecialist</li></roleTags>
+	<requiredMemes>
+	  <li>WVC_Golemist</li>
+	</requiredMemes>
+	<roleEffects>
+	  <li Class="RoleEffect_PawnStatOffset">
+		<statDef>WVC_OverseerMaxGolems</statDef>
+		<modifier>2</modifier>
+	  </li>
+	</roleEffects>
+	<grantedAbilities>
+	  <li>WVC_RoleSummon_Golems</li>
+	</grantedAbilities>
+	<displayOrderInImpact>2</displayOrderInImpact>
+	<roleDisabledWorkTags>
+	  <li>ManualDumb</li>
+	  <li>Animals</li>
+	  <li>Cooking</li>
+	  <li>PlantWork</li>
+	  <li>Mining</li>
+	</roleDisabledWorkTags>
+  </PreceptDef>
+
+  <AbilityDef ParentName="WVC_SummonAbilities_Base">
+	<defName>WVC_RoleSummon_Golems</defName>
+	<label>summon golems</label>
+	<!-- <cooldownTicksRange>3600000</cooldownTicksRange> -->
+	<cooldownTicksRange>1800000</cooldownTicksRange><!-- 30 days -->
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_Summon">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Summon</compClass>
+		<quest>WVC_MechanitorSummonGolems</quest>
+		<spawnCountRange><min>1</min><max>5</max></spawnCountRange>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+</Defs>

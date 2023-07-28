@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRandom_Base" Name="WVC_XenotypesAndGenes_GeneNaturalRandom_MoveSpeed" Abstract="True">
+	<label>runner</label>
+	<labelShortAdj>runner</labelShortAdj>
+	<description>Carriers of this gene have an unstable muscule mutation, which can either improve or worsen over generations.</description>
+	<iconPath>WVC/UI/Genes/Gene_Random_Runner_v0</iconPath>
+	<exclusionTags>
+	  <li>MoveSpeed</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<randomizerGenesList>
+				<li>WVC_RandomMoveSpeed_A</li>
+				<li>WVC_RandomMoveSpeed_B</li>
+				<li>WVC_RandomMoveSpeed_C</li>
+				<li>WVC_RandomMoveSpeed_D</li>
+				<li>WVC_RandomMoveSpeed_E</li>
+			</randomizerGenesList>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneNaturalRandom_MoveSpeed">
+	<defName>WVC_RandomMoveSpeed_A</defName>
+	<iconColor>(126, 61, 60)</iconColor>
+	<statOffsets>
+	  <MoveSpeed>-0.4</MoveSpeed>
+	</statOffsets>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneNaturalRandom_MoveSpeed">
+	<defName>WVC_RandomMoveSpeed_B</defName>
+	<iconColor>(178, 97, 96)</iconColor>
+	<statOffsets>
+	  <MoveSpeed>-0.2</MoveSpeed>
+	</statOffsets>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneNaturalRandom_MoveSpeed">
+	<defName>WVC_RandomMoveSpeed_C</defName>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneNaturalRandom_MoveSpeed">
+	<defName>WVC_RandomMoveSpeed_D</defName>
+	<iconColor>(112, 173, 120)</iconColor>
+	<statOffsets>
+	  <MoveSpeed>0.2</MoveSpeed>
+	</statOffsets>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneNaturalRandom_MoveSpeed">
+	<defName>WVC_RandomMoveSpeed_E</defName>
+	<iconColor>(71, 117, 60)</iconColor>
+	<statOffsets>
+	  <MoveSpeed>0.4</MoveSpeed>
+	</statOffsets>
+  </GeneDef>
+
+</Defs>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <TraitDef>
+	<defName>WVC_RB_FriendOrFoeTrait</defName>
+	<commonality>0.001</commonality>
+	<disableHostilityFromFaction>Mechanoid</disableHostilityFromFaction>
+	<degreeDatas>
+	  <li>
+		<label>Techno-Ghost</label>
+		<description>For some strange reason, {PAWN_nameDef} is not touched by ancient mechanoids, they constantly ignore [PAWN_objective] no matter what {PAWN_nameDef} takes against them.</description>
+	  </li>
+	</degreeDatas>
+  </TraitDef>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_Archites" Abstract="True">
+	<displayCategory>Archite</displayCategory>
+	<selectionWeight>0.0125</selectionWeight>
+	<marketValueFactor>1.5</marketValueFactor>
+	<minAgeActive>0</minAgeActive>
+	<randomChosen>false</randomChosen>
+	<canGenerateInGeneSet>true</canGenerateInGeneSet>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<!-- <statOffsets> -->
+	  <!-- <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization> -->
+	<!-- </statOffsets> -->
+	<!-- <conditionalStatAffecters> -->
+	  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
+		<!-- <statOffsets> -->
+		  <!-- <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization> -->
+		<!-- </statOffsets> -->
+	  <!-- </li> -->
+	<!-- </conditionalStatAffecters> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
+			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

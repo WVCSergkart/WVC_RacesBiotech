@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base">
+	<defName>WVC_RandomHybrid</defName>
+	<label>random hybrid</label>
+	<description>Random hybrid xenotype. Occurs very rarely.</description>
+	<descriptionShort>Random hybrid xenotype. Occurs very rarely.</descriptionShort>
+	<iconPath>WVC/UI/Xeno2Icons/Xeno_RandomKind</iconPath>
+	<displayPriority>-9999</displayPriority>
+	<descriptionHyperlinks>
+	  <ConceptDef>WVC_XenotypeSerums_SupportedXenotypesList</ConceptDef>
+	</descriptionHyperlinks>
+	<genes>
+		<li>WVC_XenotypesAndGenes_RandomEndotypeForcer</li>
+		<li>WVC_XenotypesAndGenes_RandomXenotypeForcer</li>
+	</genes>
+  </XenotypeDef>
+
+</Defs>

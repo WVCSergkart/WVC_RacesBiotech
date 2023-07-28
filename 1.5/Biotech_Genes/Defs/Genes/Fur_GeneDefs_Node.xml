@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- = -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinArchite" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_NodeSkin</defName>
+	<label>faceless</label>
+	<labelShortAdj>faceless</labelShortAdj>
+	<description>Carriers of this gene have archites that completely transform their body. 
+
+The skin has become like the most durable alloys, but has not lost its elasticity. The face is covered with plates, but this does not interfere with the owner's vision at all. Numerous clusters of mechanites spread throughout the body, greatly strengthening their host.
+
+Most of the internal organs were not affected, but there are too many external changes, which is why "it" cannot be called a human.
+
+&lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
+	<iconPath>WVC/UI/Genes/FacelessIcon</iconPath>
+	<biostatCpx>0</biostatCpx>
+	<biostatMet>-8</biostatMet>
+	<!-- <displayOrderInCategory>-95</displayOrderInCategory> -->
+	<iconColor>(255, 255, 255)</iconColor>
+	<missingGeneRomanceChanceFactor>0.2</missingGeneRomanceChanceFactor>
+	<forcedHeadTypes>
+	  <li>WVC_Faceless_NodeSkin</li>
+	</forcedHeadTypes>
+	<graphicData>
+	  <fur>WVC_NodeSkin</fur>
+	  <!-- <tattoosVisible>false</tattoosVisible> -->
+	  <tattoosVisible>true</tattoosVisible>
+	  <colorType>Custom</colorType>
+	  <color>(255, 255, 255)</color>
+	  <layer>PostTattoo</layer>
+	  <!-- <drawOnEyes>true</drawOnEyes> -->
+	  <!-- <layer>PostSkin</layer> -->
+	  <useSkinShader>false</useSkinShader>
+	  <drawIfFaceCovered>true</drawIfFaceCovered>
+	</graphicData>
+	<beardTagFilter>
+	  <whitelist>true</whitelist>
+	  <tags>
+		<li>WVC_NodeSkin</li>
+	  </tags>
+	</beardTagFilter>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>former</symbol></li>
+		<li><symbol>formkind</symbol></li>
+		<li><symbol>nodekind</symbol></li>
+	  </wholeNameSymbols>
+	  <prefixSymbols>
+		<li><symbol>node</symbol></li>
+		<li><symbol>nod</symbol></li>
+		<li><symbol>no</symbol></li>
+		<li><symbol>form</symbol></li>
+		<li><symbol>for</symbol></li>
+		<li><symbol>fo</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>er</symbol></li>
+		<li><symbol>nod</symbol></li>
+		<li><symbol>d</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<!-- <geneIsMechaskin>true</geneIsMechaskin> -->
+			<eyesShouldBeInvisble>true</eyesShouldBeInvisble>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

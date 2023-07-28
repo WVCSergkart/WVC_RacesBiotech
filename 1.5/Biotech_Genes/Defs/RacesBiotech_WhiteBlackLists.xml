@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WVC_XenotypesAndGenes.XenotypesAndGenesListDef>
+	<defName>WVC_RacesBiotech_XenotypesAndGenes</defName>
+	<!-- Xenotypes not selected for random serum. Any string -->
+	<blackListedXenotypesForSerums>
+		<li>Baseliner</li>
+		<!-- An undead xenotype has a separate serum mechanic. -->
+		<li>WVC_Undead</li>
+		<!-- <li>WVC_Resurgent</li> -->
+		<!-- <li>WVC_Blank</li> -->
+		<li>WVC_RandomHybrid</li>
+		<li>WVC_RandomHybrid_Blankind</li>
+		<!-- <li>AG_Wretch</li> -->
+		<li>AG_RandomCustom</li>
+		<li>VREA_AndroidBasic</li>
+		<li>VREA_AndroidAwakened</li>
+	</blackListedXenotypesForSerums>
+	<!-- List of xenotypes that can be in the resurrection serum. Any xenotype defs -->
+	<!-- It is combined with the usual list, it is only necessary to determine which of the prohibited xenotypes are allowed specifically for these purposes. -->
+	<whiteListedXenotypesForResurrectorSerums>
+		<li>WVC_Undead</li>
+		<!-- <li>WVC_Resurgent</li> -->
+	</whiteListedXenotypesForResurrectorSerums>
+	<!-- Xenotypes for xenotype filter. Needed to determine default xenotypes for sera. Not used for random sera. Any string -->
+	<!-- In addition to this filter, there are several more filtering stages. All of them are in C# code and cannot be changed via XML. However, this filter takes precedence. -->
+	<whiteListedXenotypesForFilter>
+		<!-- Vanilla -->
+		<!-- Add to the white list only those xenotypes for which the VRE extension has been released or they are not inherited. -->
+		<li>Highmate</li>
+		<!-- <li>Yttakin</li> -->
+		<li>Waster</li>
+		<!-- <li>Impid</li> -->
+		<!-- <li>Pigskin</li> -->
+		<!-- <li>Neanderthal</li> -->
+		<li>Sanguophage</li>
+		<li>Hussar</li>
+		<li>Genie</li>
+		<!-- <li>Dirtmole</li> -->
+		<!-- WVC -->
+		<li>WVC_Meca</li>
+		<li>WVC_RogueFormer</li>
+		<!-- Runeex was not intended to be a serum xenotype. So off by default. -->
+		<!-- <li>WVC_RuneDryad</li> -->
+		<!-- Blankind must be the rarest and most useless xenotype. -->
+		<!-- <li>WVC_Blank</li> -->
+		<li>WVC_GeneThrower</li>
+		<li>WVC_Golemkind</li>
+		<!-- AG -->
+		<!-- - -->
+		<!-- VRE -->
+		<li>VREH_Uhlan</li>
+		<li>VRE_Gauranlenkin</li>
+		<li>VRE_Animakin</li>
+		<li>VRE_Poluxkin</li>
+		<li>VRE_Strigoi</li>
+		<li>VRE_Ekkimian</li>
+		<li>VRE_Bruxa</li>
+	</whiteListedXenotypesForFilter>
+	<!-- Defs that can't use serums. Any defNames -->
+	<blackListedDefsForSerums>
+		<!-- Any HAR or HAR-like defNames -->
+		<li MayRequire="wvc.sergkart.races,erdelf.humanoidalienraces">WVC_AlienRace_BlueFormer</li>
+		<li MayRequire="wvc.sergkart.races,erdelf.humanoidalienraces">WVC_AlienRace_YellowFormer</li>
+		<li MayRequire="wvc.sergkart.races,erdelf.humanoidalienraces">WVC_AlienRace_Meka</li>
+		<li MayRequire="wvc.sergkart.races,erdelf.humanoidalienraces">WVC_AlienRace_RedFormer</li>
+		<li MayRequire="honkai.girls.sergkart,erdelf.humanoidalienraces">Alien_ELF_WVC</li>
+		<li MayRequire="honkai.girls.sergkart,erdelf.humanoidalienraces">Alien_DryadMother_WVC</li>
+		<li MayRequire="honkai.girls.sergkart,erdelf.humanoidalienraces">Alien_Valkyrie_WVC</li>
+	</blackListedDefsForSerums>
+	<!-- Genes with which pawns do not lose consciousness when using serums. Any gene defNames -->
+	<perfectCandidatesForSerums>
+		<li>WVC_MildGeneticInstability</li>
+		<li>WVC_MajorGeneticInstability</li>
+		<li>WVC_ExtremeGeneticInstability</li>
+	</perfectCandidatesForSerums>
+	<!-- Genes with which it is not possible to use the serum or wvc reimplanters. Any gene defNames -->
+	<nonCandidatesForSerums>
+		<li>WVC_GeneticStability</li>
+		<li>WVC_ResurgentCells_GeneticStability</li>
+		<li>WVC_Dustogenic_GeneticStability</li>
+		<li MayRequire="vanillaracesexpanded.android">VREA_SyntheticBody</li>
+	</nonCandidatesForSerums>
+	<!-- Hediffs that prevent gene reimplantation. Needed as a measure of anti-bug. Any hediff defNames -->
+	<blackListedHediffDefForReimplanter>
+		<li>WVC_Dustogenic_DelayedReimplanter</li>
+	</blackListedHediffDefForReimplanter>
+	<!-- List of genes that are (exo)skins. Used for ideology. Required gene defNames -->
+	<whiteListedExoskinGenes>
+		<li>WVC_MechaSkin</li>
+		<li>WVC_NodeSkin</li>
+		<li>WVC_RuneSkin</li>
+		<li>WVC_StoneSkin</li>
+		<li>WVC_PatchSkin</li>
+		<li>WVC_FeatherSkin</li>
+		<li>Furskin</li>
+		<li MayRequire="vanillaracesexpanded.phytokin">VRE_BarkSkin</li>
+		<li MayRequire="vanillaracesexpanded.saurid">VRESaurids_ScaleSkin</li>
+		<li MayRequire="vanillaracesexpanded.android">VREA_SyntheticBody</li>
+		<li MayRequire="sarg.alphagenes,vanillaracesexpanded.android">AG_RoboticBodySkeletal</li>
+		<li MayRequire="sarg.alphagenes,vanillaracesexpanded.android">AG_RoboticBodyPlastic</li>
+		<li MayRequire="sarg.alphagenes">AG_RockyBody</li>
+		<li MayRequire="sarg.alphagenes">AG_ScalyBody</li>
+		<li MayRequire="sarg.alphagenes">AG_SlugBody</li>
+		<li MayRequire="sarg.alphagenes">AG_SlimeBody</li>
+	</whiteListedExoskinGenes>
+	<!-- List of backstories that will not be overridden by the backstory changer. Required backstory defNames -->
+	<blackListedBackstoryForChanger>
+		<li>Newborn79</li>
+		<li>Colonist97</li>
+		<li>ColonyChild59</li>
+		<li>Child27</li>
+		<li>ChildTribal</li>
+		<li>TribeChild19</li>
+		<li>TribeMember57</li>
+		<li>VatgrownChild11</li>
+	</blackListedBackstoryForChanger>
+	<!-- Mechanoids that are considered golems. Required thing defNames -->
+	<!-- <listedGolems> -->
+		<!-- <li>WVC_Golem_Liftoid</li> -->
+		<!-- <li>WVC_Golem_Constructoid</li> -->
+		<!-- <li>WVC_Golem_Crafter</li> -->
+		<!-- <li>WVC_Golem_Miner</li> -->
+		<!-- <li>WVC_Golem_Hunter</li> -->
+		<!-- <li>WVC_Golem_Behemoth</li> -->
+	<!-- </listedGolems> -->
+	<!-- Traits that are allowed to be generated as genes -->
+	<!-- <whiteListedTraits> -->
+		<!-- <li>Nudist</li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+		<!-- <li></li> -->
+	<!-- </whiteListedTraits> -->
+	<!-- <gene_IsNotAcceptablePrey> -->
+		<!-- <li>Nudist</li> -->
+	<!-- </gene_IsNotAcceptablePrey> -->
+	<!-- <gene_IsAngelBeauty> -->
+		<!-- <li>Nudist</li> -->
+	<!-- </gene_IsAngelBeauty> -->
+	<!-- <gene_PawnSkillsNotDecay> -->
+		<!-- <li>Nudist</li> -->
+	<!-- </gene_PawnSkillsNotDecay> -->
+  </WVC_XenotypesAndGenes.XenotypesAndGenesListDef>
+
+  <!-- ======================================================================= -->
+
+  <AlphaGenes.WretchBlacklistDef MayRequire="sarg.alphagenes">
+	<defName>WVC_RacesBiotech_WretchBlacklistDef</defName>
+	<blackListedGenes>
+		<li>WVC_FemaleOnly</li>
+		<li>WVC_MaleOnly</li>
+		<li>WVC_Monogender_Disabled</li>
+		<!-- Cause dangerous effect -->
+		<li>WVC_XenotypesAndGenes_SubXenotypeShapeshifter</li>
+		<li>WVC_AgeDebuff_Armless</li>
+		<li>WVC_Learning_ExtremeSlow</li>
+		<li>WVC_NoLearning</li>
+		<!-- <li>WVC_DisabledAllWork_</li> -->
+		<li>WVC_DisabledAllWork_Useless</li>
+		<li>WVC_DisabledAllWork_Blank</li>
+		<!-- For future -->
+		<!-- <li>WVC_NodeEyes_</li> -->
+		<li>WVC_NodeEyes_A</li>
+		<li>WVC_NodeEyes_B</li>
+		<li>WVC_NodeEyes_C</li>
+		<li>WVC_NodeEyes_D</li>
+		<li>WVC_NodeEyes_E</li>
+		<li>WVC_NodeEyes_Y</li>
+		<li>WVC_NodeEyes_F</li>
+		<li>WVC_NodeEyes_G</li>
+		<li>WVC_NodeEyes_H</li>
+		<li>WVC_NodeEyes_J</li>
+		<li>WVC_NodeEyes_K</li>
+		<!-- = -->
+		<li>WVC_NodeEyes_Randomizer</li>
+		<!-- <li>WVC_Nodization_</li> -->
+		<li>WVC_Nodization_DecisionRandomizer</li>
+		<li>WVC_Nodization_VindicationRandomizer</li>
+		<li>WVC_Nodization_StringRandomizer</li>
+		<li>WVC_Nodization_PointRandomizer</li>
+		<li>WVC_Nodization_PatternRandomizer</li>
+		<li>WVC_Nodization_SkillRandomizer</li>
+		<li>WVC_Nodization_EntityRandomizer</li>
+		<!-- = -->
+		<li>WVC_MechaSkin</li>
+		<li>WVC_RuneSkin</li>
+		<li>WVC_StoneSkin</li>
+		<li>WVC_NodeSkin</li>
+		<li>WVC_PatchSkin</li>
+		<li>WVC_FeatherSkin</li>
+		<!-- = -->
+		<li>WVC_MecaBodyParts_Claws</li>
+		<li>WVC_NaturalBodyParts_Claws</li>
+		<!-- <li>WVC_AgeDebuff_</li> -->
+		<!-- A B C D E F G -->
+		<!-- = -->
+		<li>WVC_Nodization_EntityBuff_A</li>
+		<li>WVC_Nodization_EntityBuff_B</li>
+		<li>WVC_Nodization_EntityBuff_C</li>
+		<li>WVC_Nodization_EntityBuff_D</li>
+		<li>WVC_Nodization_EntityBuff_E</li>
+		<li>WVC_Nodization_EntityBuff_F</li>
+		<li>WVC_Nodization_EntityBuff_G</li>
+		<!-- = -->
+		<li>WVC_Nodization_PatternBuff_A</li>
+		<li>WVC_Nodization_PatternBuff_B</li>
+		<li>WVC_Nodization_PatternBuff_C</li>
+		<li>WVC_Nodization_PatternBuff_D</li>
+		<li>WVC_Nodization_PatternBuff_E</li>
+		<li>WVC_Nodization_PatternBuff_F</li>
+		<li>WVC_Nodization_PatternBuff_G</li>
+		<!-- = -->
+		<li>WVC_Nodization_DecisionBuff_A</li>
+		<li>WVC_Nodization_DecisionBuff_B</li>
+		<li>WVC_Nodization_DecisionBuff_C</li>
+		<li>WVC_Nodization_DecisionBuff_D</li>
+		<li>WVC_Nodization_DecisionBuff_E</li>
+		<li>WVC_Nodization_DecisionBuff_F</li>
+		<li>WVC_Nodization_DecisionBuff_G</li>
+		<!-- = -->
+		<li>WVC_Nodization_PointBuff_A</li>
+		<li>WVC_Nodization_PointBuff_B</li>
+		<li>WVC_Nodization_PointBuff_C</li>
+		<li>WVC_Nodization_PointBuff_D</li>
+		<li>WVC_Nodization_PointBuff_E</li>
+		<li>WVC_Nodization_PointBuff_F</li>
+		<li>WVC_Nodization_PointBuff_G</li>
+		<!-- = -->
+		<li>WVC_Nodization_SkillBuff_A</li>
+		<li>WVC_Nodization_SkillBuff_B</li>
+		<li>WVC_Nodization_SkillBuff_C</li>
+		<li>WVC_Nodization_SkillBuff_D</li>
+		<li>WVC_Nodization_SkillBuff_E</li>
+		<li>WVC_Nodization_SkillBuff_F</li>
+		<li>WVC_Nodization_SkillBuff_G</li>
+		<!-- = -->
+		<li>WVC_Nodization_StringBuff_A</li>
+		<li>WVC_Nodization_StringBuff_B</li>
+		<li>WVC_Nodization_StringBuff_C</li>
+		<li>WVC_Nodization_StringBuff_D</li>
+		<li>WVC_Nodization_StringBuff_E</li>
+		<li>WVC_Nodization_StringBuff_F</li>
+		<li>WVC_Nodization_StringBuff_G</li>
+		<!-- = -->
+		<li>WVC_Nodization_VindicationBuff_A</li>
+		<li>WVC_Nodization_VindicationBuff_B</li>
+		<li>WVC_Nodization_VindicationBuff_C</li>
+		<li>WVC_Nodization_VindicationBuff_D</li>
+		<li>WVC_Nodization_VindicationBuff_E</li>
+		<li>WVC_Nodization_VindicationBuff_F</li>
+		<li>WVC_Nodization_VindicationBuff_G</li>
+		<!-- = -->
+		<li>WVC_Undead</li>
+		<li>WVC_NaturalUndead</li>
+		<li>WVC_ResurgentCellsGain</li>
+		<li>WVC_ResurgentCells_TotalHealing</li>
+		<li>WVC_ResurgentCells_Ageless</li>
+		<li>WVC_ResurgentCells_Clotting</li>
+		<li>WVC_ResurgentCells_Blood</li>
+		<li>WVC_ResurgentCells_Stomach</li>
+		<li>WVC_ResurgentCells_Sleep</li>
+		<li>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</li>
+		<li>WVC_ResurgentImmunity_PerfectImmunity</li>
+		<li>WVC_ResurgentDisease_DiseaseFree</li>
+		<!-- = -->
+		<li>WVC_GeneticStability</li>
+		<li>WVC_ResurgentCells_GeneticStability</li>
+		<!-- = -->
+		<li>WVC_Dustogenic</li>
+		<li>WVC_Dustogenic_Ageless</li>
+		<li>WVC_Dustogenic_Metabolism</li>
+		<li>WVC_Dustogenic_MechPsylink</li>
+		<li>WVC_Dustogenic_ImmaculateConception</li>
+		<li>WVC_Dustogenic_AngelBeauty</li>
+		<li>WVC_Dustogenic_Reincarnation</li>
+		<li>WVC_Dustogenic_GeneticStability</li>
+		<li>WVC_FamilyByBlood_Dustogenic</li>
+		<!-- = -->
+		<!-- <li>WVC_ArchiteDisableJoy</li> -->
+		<!-- <li>WVC_NaturalDisableJoy</li> -->
+		<!-- <li>WVC_ArchiteDisableBeauty</li> -->
+		<!-- <li>WVC_NaturalDisableBeauty</li> -->
+		<!-- <li>WVC_ArchiteDisableOutdoors</li> -->
+		<!-- <li>WVC_NaturalDisableOutdoors</li> -->
+		<!-- <li>WVC_ArchiteDisableComfort</li> -->
+		<!-- <li>WVC_NaturalDisableComfort</li> -->
+		<!-- = -->
+		<li>WVC_RandomLearning</li>
+		<li>WVC_RandomHands</li>
+		<li>WVC_RandomWoundHealing</li>
+		<li>WVC_RandomImmunity</li>
+		<li>WVC_RandomMetabolism</li>
+		<li>WVC_RandomMoveSpeed</li>
+		<li>WVC_RandomPsychicAbility</li>
+		<!-- = -->
+		<li>WVC_RandomMetabolism_A</li>
+		<li>WVC_RandomMetabolism_B</li>
+		<li>WVC_RandomMetabolism_C</li>
+		<li>WVC_RandomMetabolism_D</li>
+		<li>WVC_RandomMetabolism_E</li>
+		<!-- = -->
+		<li>WVC_RandomImmunity_A</li>
+		<li>WVC_RandomImmunity_B</li>
+		<li>WVC_RandomImmunity_C</li>
+		<li>WVC_RandomImmunity_D</li>
+		<li>WVC_RandomImmunity_E</li>
+		<!-- = -->
+		<li>WVC_RandomWoundHealing_A</li>
+		<li>WVC_RandomWoundHealing_B</li>
+		<li>WVC_RandomWoundHealing_C</li>
+		<li>WVC_RandomWoundHealing_D</li>
+		<li>WVC_RandomWoundHealing_E</li>
+		<!-- = -->
+		<li>WVC_RandomHands_A</li>
+		<li>WVC_RandomHands_B</li>
+		<li>WVC_RandomHands_C</li>
+		<li>WVC_RandomHands_D</li>
+		<li>WVC_RandomHands_E</li>
+		<!-- = -->
+		<li>WVC_RandomLearning_A</li>
+		<li>WVC_RandomLearning_B</li>
+		<li>WVC_RandomLearning_C</li>
+		<li>WVC_RandomLearning_D</li>
+		<li>WVC_RandomLearning_E</li>
+		<!-- = -->
+		<li>WVC_RandomMoveSpeed_A</li>
+		<li>WVC_RandomMoveSpeed_B</li>
+		<li>WVC_RandomMoveSpeed_C</li>
+		<li>WVC_RandomMoveSpeed_D</li>
+		<li>WVC_RandomMoveSpeed_E</li>
+		<!-- = -->
+		<li>WVC_RandomPsychicAbility_A</li>
+		<li>WVC_RandomPsychicAbility_B</li>
+		<li>WVC_RandomPsychicAbility_C</li>
+		<li>WVC_RandomPsychicAbility_D</li>
+		<li>WVC_RandomPsychicAbility_E</li>
+	</blackListedGenes>
+  </AlphaGenes.WretchBlacklistDef>
+
+</Defs>

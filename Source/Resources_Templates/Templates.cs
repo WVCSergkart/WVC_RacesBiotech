@@ -1,218 +1,211 @@
 using System;
-using System.Xml;
-using System.Linq;
-using System.Reflection;
 using System.Collections.Generic;
 using Verse;
-using UnityEngine;
-using RimWorld;
-using WVC;
-using WVC_XenotypesAndGenes;
 
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public class SkillsGeneTemplateDef : Def
-	{
-		public Type geneClass = typeof(Gene);
+    public class SkillsGeneTemplateDef : Def
+    {
+        public Type geneClass = typeof(Gene);
 
-		public int biostatCpx;
+        public int biostatCpx;
 
-		public int biostatMet;
+        public int biostatMet;
 
-		public int biostatArc;
+        public int biostatArc;
 
-		public int aptitudeOffset;
+        public int aptitudeOffset;
 
-		// public Color? iconColor;
+        // public Color? iconColor;
 
-		// public float addictionChanceFactor = 1f;
+        // public float addictionChanceFactor = 1f;
 
-		public PassionMod.PassionModType passionModType;
+        public PassionMod.PassionModType passionModType;
 
-		public float minAgeActive;
+        public float minAgeActive;
 
-		public GeneCategoryDef displayCategory;
+        public GeneCategoryDef displayCategory;
 
-		public int displayOrderOffset;
+        public int displayOrderOffset;
 
-		public float selectionWeight = 1f;
+        public float selectionWeight = 1f;
 
-		[MustTranslate]
-		public string labelShortAdj;
+        [MustTranslate]
+        public string labelShortAdj;
 
-		[NoTranslate]
-		public string iconPath;
+        [NoTranslate]
+        public string iconPath;
 
-		[NoTranslate]
-		public string exclusionTagPrefix;
+        [NoTranslate]
+        public string exclusionTagPrefix;
 
-		public override IEnumerable<string> ConfigErrors()
-		{
-			foreach (string item in base.ConfigErrors())
-			{
-				yield return item;
-			}
-			if (!typeof(Gene).IsAssignableFrom(geneClass))
-			{
-				yield return "geneClass is not Gene or child thereof.";
-			}
-		}
-	}
+        public override IEnumerable<string> ConfigErrors()
+        {
+            foreach (string item in base.ConfigErrors())
+            {
+                yield return item;
+            }
+            if (!typeof(Gene).IsAssignableFrom(geneClass))
+            {
+                yield return "geneClass is not Gene or child thereof.";
+            }
+        }
+    }
 
-	public class InheritableImmuneGeneTemplateDef : Def
-	{
-		public Type geneClass = typeof(Gene);
+    public class InheritableImmuneGeneTemplateDef : Def
+    {
+        public Type geneClass = typeof(Gene);
 
-		public int biostatCpx;
+        public int biostatCpx;
 
-		public int biostatMet;
+        public int biostatMet;
 
-		public int biostatArc;
+        public int biostatArc;
 
-		public float minAgeActive;
+        public float minAgeActive;
 
-		public GeneCategoryDef displayCategory;
+        public GeneCategoryDef displayCategory;
 
-		// public int displayOrderOffset;
+        // public int displayOrderOffset;
 
-		public float selectionWeight = 1f;
+        public float selectionWeight = 1f;
 
-		public GeneDef inheritableGeneDef = null;
+        public GeneDef inheritableGeneDef = null;
 
-		public List<HediffDef> makeImmuneTo;
+        public List<HediffDef> makeImmuneTo;
 
-		public List<HediffDef> hediffGiversCannotGive;
+        public List<HediffDef> hediffGiversCannotGive;
 
-		public GeneDef prerequisite;
+        public GeneDef prerequisite;
 
-		[MustTranslate]
-		public string labelShortAdj;
+        [MustTranslate]
+        public string labelShortAdj;
 
-		[NoTranslate]
-		public string iconPath;
+        [NoTranslate]
+        public string iconPath;
 
-		// [NoTranslate]
-		// public string exclusionTagPrefix;
+        // [NoTranslate]
+        // public string exclusionTagPrefix;
 
-		[MustTranslate]
-		public List<string> customEffectDescriptions;
+        [MustTranslate]
+        public List<string> customEffectDescriptions;
 
-		public List<string> exclusionTags;
+        public List<string> exclusionTags;
 
-		public float displayOrderInCategory;
+        public float displayOrderInCategory;
 
-		public float resourceLossPerDay;
+        public float resourceLossPerDay;
 
-		public override IEnumerable<string> ConfigErrors()
-		{
-			foreach (string item in base.ConfigErrors())
-			{
-				yield return item;
-			}
-			if (!typeof(Gene).IsAssignableFrom(geneClass))
-			{
-				yield return "geneClass is not Gene or child thereof.";
-			}
-			if (inheritableGeneDef == null)
-			{
-				yield return "inheritableGeneDef is null.";
-			}
-		}
-	}
+        public override IEnumerable<string> ConfigErrors()
+        {
+            foreach (string item in base.ConfigErrors())
+            {
+                yield return item;
+            }
+            if (!typeof(Gene).IsAssignableFrom(geneClass))
+            {
+                yield return "geneClass is not Gene or child thereof.";
+            }
+            if (inheritableGeneDef == null)
+            {
+                yield return "inheritableGeneDef is null.";
+            }
+        }
+    }
 
-	public class XenotypeForcerGeneTemplateDef : Def
-	{
-		public Type geneClass = typeof(Gene_XenotypeForcer);
+    public class XenotypeForcerGeneTemplateDef : Def
+    {
+        public Type geneClass = typeof(Gene_XenotypeForcer);
 
-		public int biostatCpx = 0;
+        public int biostatCpx = 0;
 
-		public int biostatMet = 0;
+        public int biostatMet = 0;
 
-		public int biostatArc = 1;
+        public int biostatArc = 1;
 
-		public float selectionWeight = 0.0f;
+        public float selectionWeight = 0.0f;
 
-		public bool canGenerateInGeneSet = false;
+        public bool canGenerateInGeneSet = false;
 
-		public float minAgeActive;
+        public float minAgeActive;
 
-		public GeneCategoryDef displayCategory;
+        public GeneCategoryDef displayCategory;
 
-		// public float displayOrderInCategory;
+        // public float displayOrderInCategory;
 
-		public int displayOrderOffset;
+        public int displayOrderOffset;
 
-		[MustTranslate]
-		public string labelShortAdj;
+        [MustTranslate]
+        public string labelShortAdj;
 
-		[MustTranslate]
-		public List<string> customEffectDescriptions;
+        [MustTranslate]
+        public List<string> customEffectDescriptions;
 
-		[NoTranslate]
-		public string iconPath;
+        [NoTranslate]
+        public string iconPath;
 
-		public List<string> exclusionTags;
+        public List<string> exclusionTags;
 
-		public override IEnumerable<string> ConfigErrors()
-		{
-			foreach (string item in base.ConfigErrors())
-			{
-				yield return item;
-			}
-			if (!typeof(Gene).IsAssignableFrom(geneClass))
-			{
-				yield return "geneClass is not Gene or child thereof.";
-			}
-		}
-	}
+        public override IEnumerable<string> ConfigErrors()
+        {
+            foreach (string item in base.ConfigErrors())
+            {
+                yield return item;
+            }
+            if (!typeof(Gene).IsAssignableFrom(geneClass))
+            {
+                yield return "geneClass is not Gene or child thereof.";
+            }
+        }
+    }
 
-	// public class ExoskinistPreceptTemplateDef : Def
-	// {
-		// public Type preceptClass = typeof(Precept);
+    // public class ExoskinistPreceptTemplateDef : Def
+    // {
+    // public Type preceptClass = typeof(Precept);
 
-		// public IssueDef issue;
+    // public IssueDef issue;
 
-		// public PreceptImpact impact;
+    // public PreceptImpact impact;
 
-		// public List<MemeDef> associatedMemes = new List<MemeDef>();
+    // public List<MemeDef> associatedMemes = new List<MemeDef>();
 
-		// public List<MemeDef> conflictingMemes = new List<MemeDef>();
+    // public List<MemeDef> conflictingMemes = new List<MemeDef>();
 
-		// public List<MemeDef> requiredMemes = new List<MemeDef>();
+    // public List<MemeDef> requiredMemes = new List<MemeDef>();
 
-		// public int displayOrderInImpact;
+    // public int displayOrderInImpact;
 
-		// public int displayOrderInIssue;
+    // public int displayOrderInIssue;
 
-		// public List<PreceptComp> comps = new List<PreceptComp>();
+    // public List<PreceptComp> comps = new List<PreceptComp>();
 
-		// public List<PreceptApparelRequirement> roleApparelRequirements;
+    // public List<PreceptApparelRequirement> roleApparelRequirements;
 
-		// public WorkTags roleDisabledWorkTags;
-	// }
+    // public WorkTags roleDisabledWorkTags;
+    // }
 
-	// public class ExoskinistThoughtTemplateDef : Def
-	// {
-		// public string postfixName;
+    // public class ExoskinistThoughtTemplateDef : Def
+    // {
+    // public string postfixName;
 
-		// public Type workerClass;
+    // public Type workerClass;
 
-		// public List<TraitDef> nullifyingTraits;
+    // public List<TraitDef> nullifyingTraits;
 
-		// public List<TraitRequirement> nullifyingTraitDegrees;
+    // public List<TraitRequirement> nullifyingTraitDegrees;
 
-		// public List<PreceptDef> nullifyingPrecepts;
+    // public List<PreceptDef> nullifyingPrecepts;
 
-		// public List<HediffDef> nullifyingHediffs;
+    // public List<HediffDef> nullifyingHediffs;
 
-		// public List<GeneDef> nullifyingGenes;
+    // public List<GeneDef> nullifyingGenes;
 
-		// public ExpectationDef minExpectation;
+    // public ExpectationDef minExpectation;
 
-		// public bool validWhileDespawned;
+    // public bool validWhileDespawned;
 
-		// public List<ThoughtStage> stages = new List<ThoughtStage>();
-	// }
+    // public List<ThoughtStage> stages = new List<ThoughtStage>();
+    // }
 }

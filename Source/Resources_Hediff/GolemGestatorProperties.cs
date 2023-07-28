@@ -1,27 +1,25 @@
 using Verse;
-using WVC;
-using WVC_XenotypesAndGenes;
 
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public class HediffCompProperties_GolemGestator : HediffCompProperties
-	{
-		public int gestationIntervalDays = 1;
+    public class HediffCompProperties_GolemGestator : HediffCompProperties
+    {
+        public int gestationIntervalDays = 1;
 
-		public string completeMessage = "WVC_RB_Gene_MechaGestator";
+        public string completeMessage = "WVC_RB_Gene_MechaGestator";
 
-		public bool endogeneTransfer = true;
+        public bool endogeneTransfer = true;
 
-		public bool xenogeneTransfer = true;
+        public bool xenogeneTransfer = true;
 
-		public GeneDef geneDef;
+        public GeneDef geneDef;
 
-		public HediffCompProperties_GolemGestator()
-		{
-			compClass = typeof(HediffComp_GolemGestator);
-		}
-	}
+        public HediffCompProperties_GolemGestator()
+        {
+            compClass = typeof(HediffComp_GolemGestator);
+        }
+    }
 
 }

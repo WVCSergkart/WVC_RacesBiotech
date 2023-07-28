@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="WVC_XenotypesAndGenes_XenotypeSerumsBase" Name="WVC_XenotypeResurrectorSerum_Base" Abstract="True">
+	<label>xenotype resurrector</label>
+	<description>A one-use super-dose of mechanites tuned to resurrect the dead. Administered to a corpse, mechanites repair broken-down tissues and kickstart the body back to life. The resurrected will return in full health and without side effects, regardless of the freshness of the body. The price is that the xenotype of the resurrected will be changed, and the resurrected will fall into a two-day coma.
+
+&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; If the xenotype is inheritable and has no skin/hair color, then a white skin/hair gene will be added.</description>
+	<comps>
+	  <li Class="CompProperties_Usable">
+		<useJob>UseItem</useJob>
+		<useLabel>Use {0_label}</useLabel>
+		<useDuration>0</useDuration>
+		<warmupMote>Mote_ResurrectAbility</warmupMote>
+	  </li>
+	  <li Class="CompProperties_Targetable">
+		<compClass>WVC_XenotypesAndGenes.CompTargetable_HumanCorpse</compClass>
+		<fleshCorpsesOnly>true</fleshCorpsesOnly>
+		<nonDessicatedCorpsesOnly>true</nonDessicatedCorpsesOnly>
+	  </li>
+	  <!-- <li Class="CompProperties_TargetEffectResurrect"> -->
+		<!-- <moteDef>Mote_ResurrectFlash</moteDef> -->
+	  <!-- </li> -->
+	</comps>
+  </ThingDef>
+  
+  <JobDef>
+	<defName>WVC_XenotypesAndGenes_ResurrectAndChangeXenotype</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_ResurrectAndChangeXenotype</driverClass>
+	<reportString>resurrecting TargetA.</reportString>
+	<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <!-- ============Auto Generation Base============ -->
+  <ThingDef ParentName="WVC_XenotypeResurrectorSerum_Base" Name="WVC_XenotypeResurrectorSerum_Craftable" Abstract="True">
+	<graphicData>
+	  <texPath>WVC/Things/XenotypeSerum</texPath>
+	</graphicData>
+	<recipeMaker>
+	  <displayPriority>-15</displayPriority>
+	  <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
+	  <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+	  <workSkill>Crafting</workSkill>
+	  <effectWorking>Smith</effectWorking>
+	  <soundWorking>Recipe_Machining</soundWorking>
+	  <recipeUsers>
+		<li>WVC_SerumCraftingTable</li>
+	  </recipeUsers>
+	  <useIngredientsForColor>false</useIngredientsForColor>
+	  <researchPrerequisites>
+		<li>Archogenetics</li>
+		<li>WVC_XenotypesAndGenes_XenotypeResurrectorSerumCrafting</li>
+	  </researchPrerequisites>
+	  <skillRequirements>
+		<Crafting>14</Crafting>
+		<Intellectual>14</Intellectual>
+	  </skillRequirements>
+	</recipeMaker>
+	<thingSetMakerTags Inherit="False">
+	  <li>RewardStandardLowFreq</li>
+	</thingSetMakerTags>
+	<costList>
+	  <!-- <ArchiteCapsule>1</ArchiteCapsule> -->
+	  <WVC_XenotypeSerumUltraCapsule>1</WVC_XenotypeSerumUltraCapsule>
+	  <WVC_XenotypeSerumCapsule>1</WVC_XenotypeSerumCapsule>
+	  <!-- <SignalChip>1</SignalChip> -->
+	  <!-- <Plasteel>50</Plasteel> -->
+	  <!-- <Uranium>20</Uranium> -->
+	</costList>
+	<tradeTags>
+	  <li>WVC_XenotypeSerums</li>
+	</tradeTags>
+	<thingCategories>
+	  <li>WVC_XenotypeSerums_Base</li>
+	</thingCategories>
+	<comps>
+	  <li Class="CompProperties_Glower">
+		<glowRadius>1</glowRadius>
+		<glowColor>(133,202,255, 0)</glowColor>
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <ThingDef ParentName="WVC_XenotypeResurrectorSerum_Base" Name="WVC_XenotypeResurrectorSerum_NonCraftable" Abstract="True">
+	<statBases>
+	  <MarketValue>2450</MarketValue>
+	  <DeteriorationRate>1.0</DeteriorationRate>
+	</statBases>
+	<graphicData>
+	  <texPath>WVC/Things/XenotypeSerum_Ultra</texPath>
+	</graphicData>
+	<tradeTags>
+	  <li>WVC_XenotypeSerums</li>
+	  <li>WVC_XenotypeSerums_NonCraftable</li>
+	  <li>WVC_XenotypeSerums_Ultra</li>
+	</tradeTags>
+	<thingCategories>
+	  <li>WVC_XenotypeSerums_Ultra</li>
+	</thingCategories>
+	<comps>
+	  <li Class="CompProperties_Glower">
+		<glowRadius>1</glowRadius>
+		<glowColor>(255,248,133, 0)</glowColor>
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <ThingDef ParentName="WVC_XenotypeResurrectorSerum_Base" Name="WVC_XenotypeResurrectorSerum_HybridNonCraftable" Abstract="True">
+	<statBases>
+	  <MarketValue>2750</MarketValue>
+	  <DeteriorationRate>0.5</DeteriorationRate>
+	</statBases>
+	<graphicData>
+	  <texPath>WVC/Things/XenotypeSerum_Mecha</texPath>
+	</graphicData>
+	<tradeTags>
+	  <li>WVC_XenotypeSerums_NonCraftable</li>
+	  <li>WVC_XenotypeSerums_HybridNonCraftable</li>
+	</tradeTags>
+	<thingSetMakerTags Inherit="False">
+	  <li>RewardStandardLowFreq</li>
+	</thingSetMakerTags>
+	<thingCategories>
+	  <li>WVC_XenotypeSerums_Mecha</li>
+	</thingCategories>
+	<comps>
+	  <li Class="CompProperties_Glower">
+		<glowRadius>1</glowRadius>
+		<glowColor>(133,167,255, 0)</glowColor>
+	  </li>
+	</comps>
+  </ThingDef>
+
+</Defs>
