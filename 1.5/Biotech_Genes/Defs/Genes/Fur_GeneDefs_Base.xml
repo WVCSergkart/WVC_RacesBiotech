@@ -13,16 +13,18 @@ Most of the internal organs remain intact, but there are enough external changes
 
 &lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
 	<!-- <displayCategory>WVC_MechaBody</displayCategory> -->
-	<displayCategory>Miscellaneous</displayCategory>
+	<!-- <displayCategory>Miscellaneous</displayCategory> -->
+	<displayCategory>WVC_Cosmetic</displayCategory>
 	<displayOrderInCategory>400</displayOrderInCategory>
 	<selectionWeight>0.0125</selectionWeight>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
 	<!-- <marketValueFactor>1.5</marketValueFactor> -->
 	<randomChosen>false</randomChosen>
 	<canGenerateInGeneSet>true</canGenerateInGeneSet>
 	<biostatCpx>3</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<!-- = -->
-	<iconPath>WVC/UI/Genes/MechaIcon</iconPath>
+	<iconPath>WVC/UI/Genes/Gene_FurskinD_v0</iconPath>
 	<marketValueFactor>3</marketValueFactor>
 	<neverGrayHair>true</neverGrayHair>
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
@@ -94,7 +96,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<defName>WVC_MechaSkin</defName>
 	<!-- <biostatMet>-16</biostatMet> -->
 	<!-- <displayOrderInCategory>-100</displayOrderInCategory> -->
-	<iconColor>(184, 198, 203)</iconColor>
+	<!-- <iconColor>(184, 198, 203)</iconColor> -->
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_MechaskinHunger</geneClass> -->
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_TEST</geneClass> -->
 	<minAgeActive>13</minAgeActive>

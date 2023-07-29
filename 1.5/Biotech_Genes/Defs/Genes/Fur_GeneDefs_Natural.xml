@@ -7,9 +7,11 @@
 	<labelShortAdj>runeskin</labelShortAdj>
 	<description>TEST DESC</description>
 	<!-- <displayCategory>WVC_MechaBody</displayCategory> -->
-	<displayCategory>Miscellaneous</displayCategory>
+	<!-- <displayCategory>Miscellaneous</displayCategory> -->
+	<displayCategory>WVC_Cosmetic</displayCategory>
 	<displayOrderInCategory>400</displayOrderInCategory>
 	<selectionWeight>0.0185</selectionWeight>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
 	<!-- <marketValueFactor>1.5</marketValueFactor> -->
 	<randomChosen>false</randomChosen>
 	<canGenerateInGeneSet>true</canGenerateInGeneSet>
@@ -60,8 +62,8 @@
 &lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>-1</biostatMet>
-	<iconColor>(0.75, 0.75, 0.75)</iconColor>
-	<iconPath>WVC/UI/Genes/HeadRune_south</iconPath>
+	<!-- <iconColor>(0.75, 0.75, 0.75)</iconColor> -->
+	<iconPath>WVC/UI/Genes/Gene_FurskinE_v0</iconPath>
 	<forcedHeadTypes>
 	  <li>WVC_RuneSkin_Average</li>
 	</forcedHeadTypes>
@@ -89,6 +91,9 @@
 		<li><symbol>e</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
+	<exclusionTags>
+	  <li>Jaw</li>
+	</exclusionTags>
   </GeneDef>
 
   <!-- Stone -->
@@ -102,8 +107,8 @@
 	<biostatCpx>4</biostatCpx>
 	<biostatMet>-3</biostatMet>
 	<!-- <biostatArc>1</biostatArc> -->
-	<iconColor>(105,95,97)</iconColor>
-	<iconPath>WVC/UI/Genes/HeadStone_south</iconPath>
+	<!-- <iconColor>(105,95,97)</iconColor> -->
+	<iconPath>WVC/UI/Genes/Gene_FurskinC_v0</iconPath>
 	<missingGeneRomanceChanceFactor>0.1</missingGeneRomanceChanceFactor>
 	<marketValueFactor>1.5</marketValueFactor>
 	<forcedHeadTypes>
@@ -136,6 +141,9 @@
 		<li><symbol>stone</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
+	<exclusionTags>
+	  <li>Jaw</li>
+	</exclusionTags>
   </GeneDef>
 
   <!-- Patch -->
@@ -145,8 +153,8 @@
 	<description>Carriers of this gene have unevenly developed skin. Some areas are younger, some noticeably older, which makes it feel like patches sewn together.
 
 &lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
-	<iconPath>WVC/UI/Genes/HeadPatch_south</iconPath>
-	<iconColor>(93, 101, 126)</iconColor>
+	<iconPath>WVC/UI/Genes/Gene_FurskinA_v0</iconPath>
+	<!-- <iconColor>(93, 101, 126)</iconColor> -->
 	<forcedHeadTypes>
 	  <li>WVC_PatchSkin_Average</li>
 	</forcedHeadTypes>
@@ -165,6 +173,9 @@
 		<li><symbol>dead</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
+	<exclusionTags>
+	  <li>Jaw</li>
+	</exclusionTags>
   </GeneDef>
 
   <!-- Feathered -->
@@ -174,8 +185,8 @@
 	<description>Carriers of this gene grow feathers on some parts of the body.
 
 &lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
-	<iconPath>WVC/UI/Genes/HeadFeather_south</iconPath>
-	<iconColor>(255, 255, 255)</iconColor>
+	<iconPath>WVC/UI/Genes/Gene_FurskinB_v0</iconPath>
+	<!-- <iconColor>(255, 255, 255)</iconColor> -->
 	<forcedHeadTypes>
 	  <li>Male_AverageNormal</li>
 	  <li>Male_AveragePointy</li>

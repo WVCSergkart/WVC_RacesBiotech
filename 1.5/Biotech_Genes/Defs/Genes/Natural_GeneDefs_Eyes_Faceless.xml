@@ -6,16 +6,16 @@
 	<defName>WVC_NodeSkin</defName>
 	<label>faceless</label>
 	<labelShortAdj>faceless</labelShortAdj>
-	<description>In carriers of this gene, a translucent organic plate grows on the face, this plate closes the eyes but does not interfere with vision at all.
+	<description>Carriers of this gene have a translucent organic plate on their face. This plate closes the eyes but does not interfere with vision at all.
 
 &lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
-	<iconPath>WVC/UI/Genes/FacelessIcon</iconPath>
+	<iconPath>WVC/UI/Genes/Gene_FurskinG_v0</iconPath>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<iconColor>(0.75, 0.75, 0.75)</iconColor>
 	<missingGeneRomanceChanceFactor>0.5</missingGeneRomanceChanceFactor>
-	<displayCategory>WVC_Cosmetic</displayCategory>
-	<displayOrderInCategory>3</displayOrderInCategory>
+	<!-- <displayCategory>WVC_Cosmetic</displayCategory> -->
+	<!-- <displayOrderInCategory>3</displayOrderInCategory> -->
 	<customEffectDescriptions>
 		<li>Disables the display of eyes and their graphics.</li>
 	</customEffectDescriptions>
@@ -72,7 +72,7 @@
 	<!-- <defName>WVC_FacePlate</defName> -->
 	<label>faceplate</label>
 	<labelShortAdj>faceplate</labelShortAdj>
-	<description>In carriers of this gene, a translucent organic plate with a strange, unnatural pattern grows on the face, this plate closes the eyes but does not interfere with vision at all.
+	<description>Carriers of this gene have a translucent organic plate, with a unnatural pattern, on their face. This plate closes the eyes but does not interfere with vision at all.
 
 &lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
 	<iconPath>WVC/UI/Genes/Gene_Faceplate</iconPath>
