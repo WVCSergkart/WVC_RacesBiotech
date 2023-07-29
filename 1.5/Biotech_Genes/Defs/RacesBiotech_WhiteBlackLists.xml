@@ -160,6 +160,16 @@
 
   <!-- ======================================================================= -->
 
+  <VREAndroids.AndroidConvertableGenesDef MayRequire="vanillaracesexpanded.android">
+	<defName>WVC_RacesBiotech_AndroidConvertableGenes</defName>
+	<geneCategories>
+		<li>WVC_Cosmetic</li>
+		<li>WVC_CosmeticVoices</li>
+	</geneCategories>
+  </VREAndroids.AndroidConvertableGenesDef>
+
+  <!-- ======================================================================= -->
+
   <AlphaGenes.WretchBlacklistDef MayRequire="sarg.alphagenes">
 	<defName>WVC_RacesBiotech_WretchBlacklistDef</defName>
 	<blackListedGenes>

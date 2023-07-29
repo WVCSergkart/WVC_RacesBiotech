@@ -7,7 +7,7 @@
 	<description>Carriers of this gene have cool mechanoid-like voice.</description>
 	<!-- <displayOrderInCategory>300</displayOrderInCategory> -->
 	<displayOrderInCategory>137</displayOrderInCategory>
-	<displayCategory>WVC_Cosmetic</displayCategory>
+	<!-- <displayCategory>WVC_Cosmetic</displayCategory> -->
 	<iconPath>WVC/UI/Genes/MechanoidizationVoice</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
 	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->

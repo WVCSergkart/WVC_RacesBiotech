@@ -16,7 +16,7 @@
 	<!-- <displayCategory>WVC_FurskinBody</displayCategory> -->
 	<!-- <displayOrderInCategory>900</displayOrderInCategory> -->
 	<!-- <displayOrderInCategory>132</displayOrderInCategory> -->
-	<displayCategory>WVC_Cosmetic</displayCategory>
+	<!-- <displayCategory>WVC_Cosmetic</displayCategory> -->
 	<iconPath>UI/Icons/Genes/Gene_VoiceHuman</iconPath>
 	<iconColor>(194, 123, 71)</iconColor>
     <displayOrderInCategory>136</displayOrderInCategory>

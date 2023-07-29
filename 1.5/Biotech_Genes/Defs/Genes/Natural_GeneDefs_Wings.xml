@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <AbilityDef Name="WVC_XenotypesAndGenes_WingsJump_Base" Abstract="True">
+  <AbilityDef Name="WVC_XenotypesAndGenes_AbilityWingsJump_Base" Abstract="True">
 	<label>wing jump</label>
 	<description>With the help of wings to overcome a considerable distance.</description>
 	<iconPath>WVC/UI/Genes/Gene_FeatheredWings_v0</iconPath>
@@ -26,7 +26,7 @@
 	<jobDef>CastJump</jobDef>
   </AbilityDef>
 
-  <AbilityDef ParentName="WVC_XenotypesAndGenes_WingsJump_Base">
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityWingsJump_Base">
 	<defName>WVC_XenotypesAndGenes_FeatheredWingsJump</defName>
 	<label>wing jump</label>
 	<iconPath>WVC/UI/Genes/Gene_FeatheredWings_v0</iconPath>
@@ -41,19 +41,20 @@
 
   <!-- ===================================================================== -->
 
-  <GeneDef ParentName="GeneMoveSpeedBase" Name="WVC_XenotypesAndGenes_GeneWings_Base" Abstract="True">
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneWings_Base" Abstract="True">
 	<geneClass>WVC_XenotypesAndGenes.Gene_Wings</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_FeatheredWings_v0</iconPath>
 	<marketValueFactor>1.7</marketValueFactor>
 	<selectionWeight>0.012</selectionWeight>
+	<displayCategory>WVC_Cosmetic</displayCategory>
 	<!-- <displayCategory>WVC_ResurgentCells</displayCategory> -->
-	<displayOrderInCategory>3220</displayOrderInCategory>
+	<displayOrderInCategory>25</displayOrderInCategory>
 	<biostatArc>0</biostatArc>
 	<biostatMet>-2</biostatMet>
 	<iconColor>(255, 255, 255)</iconColor>
 	<minAgeActive>3</minAgeActive>
 	<customEffectDescriptions>
-		<li>Allows you to turn terrain ignore on or off.</li>
+		<li>Allows to turn terrain ignore on or off.</li>
 		<!-- <li>Refresh time (*DateTime)~1 hour(/DateTime).</li> -->
 	</customEffectDescriptions>
 	<graphicData>

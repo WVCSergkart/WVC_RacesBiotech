@@ -36,6 +36,13 @@
 	  <!-- </value> -->
 	<!-- </Operation> -->
 
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/GeneDef[@Name="GeneVoiceBase"]/displayCategory</xpath>
+	  <value>
+		  <displayCategory>WVC_CosmeticVoices</displayCategory>
+	  </value>
+	</Operation>
+
 	<!-- <Operation Class="PatchOperationFindMod"> -->
 		<!-- <mods> -->
 			<!-- <li>Royalty</li> -->
