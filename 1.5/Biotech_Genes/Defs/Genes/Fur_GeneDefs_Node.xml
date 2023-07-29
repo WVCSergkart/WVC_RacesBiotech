@@ -1,45 +1,128 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Archites" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_FacePlate</defName>
+	<label>faceplate</label>
+	<labelShortAdj>faceplate</labelShortAdj>
+	<description>In carriers of this gene, a translucent organic plate with a strange, unnatural pattern grows on the face, this plate closes the eyes but does not interfere with vision at all.
+
+&lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
+	<iconPath>WVC/UI/Genes/Gene_Faceplate</iconPath>
+	<prerequisite>WVC_NodeSkin</prerequisite>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+	<graphicData>
+	  <graphicPaths>
+		<!-- <li>WVC/BodyParts/Eyes/FaceplateA</li> -->
+		<!-- <li>WVC/BodyParts/Eyes/FaceplateB</li> -->
+		
+		<!-- <li>WVC/BodyParts/Eyes/FaceplateC</li> -->
+		<!-- <li>WVC/BodyParts/Eyes/FaceplateD</li> -->
+		<!-- <li>WVC/BodyParts/Eyes/FaceplateE</li> -->
+		
+		<!-- <li>WVC/BodyParts/Eyes/FaceplateF</li> -->
+		<!-- <li>WVC/BodyParts/Eyes/FaceplateG</li> -->
+		<!-- <li>WVC/BodyParts/Eyes/FaceplateH</li> -->
+		
+		<!-- <li>WVC/BodyParts/Eyes/FaceplateV</li> -->
+		<!-- <li>WVC/BodyParts/Eyes/FaceplateY</li> -->
+		<!-- <li>WVC/BodyParts/Eyes/FaceplateU</li> -->
+
+		<li>WVC/Heads/NodeGene_Head/HeadBlue</li>
+		<li>WVC/Heads/NodeGene_Head/HeadRed</li>
+		
+		<li>WVC/Heads/NodeGene_Head/HeadGreen</li>
+		<li>WVC/Heads/NodeGene_Head/HeadViolet</li>
+		<li>WVC/Heads/NodeGene_Head/HeadYellow</li>
+		
+		<li>WVC/Heads/NodeGene_Head/HeadAltBlue</li>
+		<li>WVC/Heads/NodeGene_Head/HeadOrange</li>
+		<li>WVC/Heads/NodeGene_Head/HeadAltBlue_B</li>
+		
+		<li>WVC/Heads/NodeGene_Head/HeadRed_A</li>
+		<li>WVC/Heads/NodeGene_Head/HeadBlue_A</li>
+		<li>WVC/Heads/NodeGene_Head/HeadYellow_A</li>
+	  </graphicPaths>
+	  <!-- <colorType>Skin</colorType> -->
+	  <colorType>Custom</colorType>
+	  <color>(255, 255, 255)</color>
+	  <layer>PostTattoo</layer>
+	  <!-- <drawOnEyes>true</drawOnEyes> -->
+	  <useSkinShader>false</useSkinShader>
+	  <visibleNorth>false</visibleNorth>
+	  <drawIfFaceCovered>true</drawIfFaceCovered>
+	</graphicData>
+	<!-- <statOffsets> -->
+	  <!-- <ArmorRating_Blunt>0.17</ArmorRating_Blunt> -->
+	<!-- </statOffsets> -->
+	<!-- = -->
+	<geneClass>WVC_XenotypesAndGenes.Gene_Faceless</geneClass>
+	<minAgeActive>0</minAgeActive>
+	<!-- <displayCategory>Cosmetic</displayCategory> -->
+	<displayCategory>WVC_Cosmetic</displayCategory>
+	<displayOrderInCategory>3</displayOrderInCategory>
+	<randomChosen>true</randomChosen>
+	<!-- <displayCategory>WVC_RandomGenes</displayCategory> -->
+	<!-- <displayOrderInCategory>-5</displayOrderInCategory> -->
+	<!-- They cost nothing, as they can only be obtained through a randomizer. -->
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
+	<selectionWeight>0.009</selectionWeight>
+	<canGenerateInGeneSet>true</canGenerateInGeneSet>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>&lt;color=#ff8585&gt;This gene is activated only in the presence of the "Faceless" gene.&lt;/color&gt;</li> -->
+	<!-- </customEffectDescriptions> -->
+	<exclusionTags>
+	  <!-- <li>WVC_NodeBody_Eyes</li> -->
+	  <li>WVC_XenotypesAndGenes_GeneTagRandomizer_RandomFaceplate</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
+			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
+			<!-- <hideGene>true</hideGene> -->
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<eyesShouldBeInvisble>true</eyesShouldBeInvisble>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
   <!-- = -->
-  <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinArchite" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeSkin</defName>
 	<label>faceless</label>
 	<labelShortAdj>faceless</labelShortAdj>
-	<description>Carriers of this gene have archites that completely transform their body. 
-
-The skin has become like the most durable alloys, but has not lost its elasticity. The face is covered with plates, but this does not interfere with the owner's vision at all. Numerous clusters of mechanites spread throughout the body, greatly strengthening their host.
-
-Most of the internal organs were not affected, but there are too many external changes, which is why "it" cannot be called a human.
+	<description>In carriers of this gene, a translucent organic plate grows on the face, this plate closes the eyes but does not interfere with vision at all.
 
 &lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
 	<iconPath>WVC/UI/Genes/FacelessIcon</iconPath>
-	<biostatCpx>0</biostatCpx>
-	<biostatMet>-8</biostatMet>
-	<!-- <displayOrderInCategory>-95</displayOrderInCategory> -->
-	<iconColor>(255, 255, 255)</iconColor>
-	<missingGeneRomanceChanceFactor>0.2</missingGeneRomanceChanceFactor>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+	<missingGeneRomanceChanceFactor>0.5</missingGeneRomanceChanceFactor>
+	<displayCategory>WVC_Cosmetic</displayCategory>
+	<displayOrderInCategory>3</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Disables the display of eyes and their graphics.</li>
+	</customEffectDescriptions>
 	<forcedHeadTypes>
 	  <li>WVC_Faceless_NodeSkin</li>
 	</forcedHeadTypes>
 	<graphicData>
 	  <fur>WVC_NodeSkin</fur>
-	  <!-- <tattoosVisible>false</tattoosVisible> -->
 	  <tattoosVisible>true</tattoosVisible>
-	  <colorType>Custom</colorType>
-	  <color>(255, 255, 255)</color>
-	  <layer>PostTattoo</layer>
-	  <!-- <drawOnEyes>true</drawOnEyes> -->
-	  <!-- <layer>PostSkin</layer> -->
 	  <useSkinShader>false</useSkinShader>
-	  <drawIfFaceCovered>true</drawIfFaceCovered>
+	  <!-- <skinIsHairColor>true</skinIsHairColor> -->
+	  <layer>PostSkin</layer>
 	</graphicData>
-	<beardTagFilter>
-	  <whitelist>true</whitelist>
-	  <tags>
-		<li>WVC_NodeSkin</li>
-	  </tags>
-	</beardTagFilter>
+	<!-- <beardTagFilter> -->
+	  <!-- <whitelist>true</whitelist> -->
+	  <!-- <tags> -->
+		<!-- <li>WVC_NodeSkin</li> -->
+	  <!-- </tags> -->
+	<!-- </beardTagFilter> -->
 	<symbolPack>
 	  <wholeNameSymbols>
 		<li><symbol>former</symbol></li>
@@ -60,6 +143,9 @@ Most of the internal organs were not affected, but there are too many external c
 		<li><symbol>d</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
+	<exclusionTags>
+	  <li>Jaw</li>
+	</exclusionTags>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
 			<!-- <geneIsMechaskin>true</geneIsMechaskin> -->
