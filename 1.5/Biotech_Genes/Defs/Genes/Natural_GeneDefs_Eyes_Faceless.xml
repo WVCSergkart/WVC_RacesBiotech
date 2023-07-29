@@ -10,8 +10,8 @@
 
 &lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
 	<iconPath>WVC/UI/Genes/FacelessIcon</iconPath>
-	<biostatCpx>1</biostatCpx>
-	<biostatMet>-1</biostatMet>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>0</biostatMet>
 	<iconColor>(0.75, 0.75, 0.75)</iconColor>
 	<missingGeneRomanceChanceFactor>0.5</missingGeneRomanceChanceFactor>
 	<displayCategory>WVC_Cosmetic</displayCategory>

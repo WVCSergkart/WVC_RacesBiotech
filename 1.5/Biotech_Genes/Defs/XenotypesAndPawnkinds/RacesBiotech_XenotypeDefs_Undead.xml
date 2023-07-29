@@ -177,6 +177,7 @@
 		<li>WVC_SlaveSuppression_Unruly</li>
 	</genes>
 	<mainGenes>
+		<li>WVC_ToxResist_Total</li>
 		<li>WVC_FeatherSkin</li>
 		<li>WVC_BodySize_Small</li>
 		<!-- <li>WVC_SameBloodSameXenotype</li> -->
@@ -189,6 +190,7 @@
 	</mainGenes>
 	<removeGenes>
 		<li>StrongStomach</li>
+		<li>ToxResist_Total</li>
 		<li>WVC_MildGeneticInstability</li>
 		<li>WVC_AgeDebuff_Sterile</li>
 		<li>WVC_SkinColor_Undead</li>

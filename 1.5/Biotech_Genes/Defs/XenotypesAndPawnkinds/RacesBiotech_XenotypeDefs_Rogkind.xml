@@ -53,7 +53,8 @@
 		<li>PerfectImmunity</li>
 		<!-- <li>TotalHealing</li> -->
 		<!-- = -->
-		<li>ToxResist_Total</li>
+		<!-- <li>ToxResist_Total</li> -->
+		<li>WVC_ToxResist_Total</li>
 		<!-- = -->
 		<li>UVSensitivity_Intense</li>
 		<li>WVC_DebuffUV_ExtremeInjuryHealing</li>
