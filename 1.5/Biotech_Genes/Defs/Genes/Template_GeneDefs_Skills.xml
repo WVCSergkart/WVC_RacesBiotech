@@ -7,7 +7,7 @@
 	<exclusionTagPrefix>Aptitude</exclusionTagPrefix>
 	<!-- <displayCategory>Aptitudes</displayCategory> -->
 	<displayCategory>WVC_Aptitudes</displayCategory>
-	<selectionWeight>0.015</selectionWeight>
+	<selectionWeight>0.012</selectionWeight>
 	<biostatCpx>0</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<biostatArc>0</biostatArc>
@@ -31,22 +31,22 @@
 	<iconPath>WVC/UI/Genes/Skills/{0}/NoChance</iconPath>
 	<aptitudeOffset>-20</aptitudeOffset>
 	<passionModType>DropAll</passionModType>
-	<displayOrderOffset>-100</displayOrderOffset>
+	<displayOrderOffset>-30</displayOrderOffset>
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>5</biostatMet>
   </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
 
-  <!-- <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Base"> -->
-	<!-- <defName>WVC_AptitudeShameful</defName> -->
-	<!-- <label>shameful {0}</label> -->
-	<!-- <description>The carrier's aptitude in {0} is reduced by 16. Aptitude acts like an offset on skill level. Additionally, all passion is removed from {0}.</description> -->
-	<!-- <iconPath>WVC/UI/Genes/Skills/{0}/SkillDown</iconPath> -->
-	<!-- <aptitudeOffset>-16</aptitudeOffset> -->
-	<!-- <passionModType>DropAll</passionModType> -->
-	<!-- <displayOrderOffset>-20</displayOrderOffset> -->
-	<!-- <biostatCpx>1</biostatCpx> -->
-	<!-- <biostatMet>4</biostatMet> -->
-  <!-- </WVC_XenotypesAndGenes.SkillsGeneTemplateDef> -->
+  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Base">
+	<defName>WVC_AptitudeHopeless</defName>
+	<label>hopeless {0}</label>
+	<description>The carrier's aptitude in {0} is reduced by 16. Aptitude acts like an offset on skill level. Additionally, all passion is removed from {0}.</description>
+	<iconPath>WVC/UI/Genes/Skills/{0}/Minus</iconPath>
+	<aptitudeOffset>-16</aptitudeOffset>
+	<passionModType>DropAll</passionModType>
+	<displayOrderOffset>-20</displayOrderOffset>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>4</biostatMet>
+  </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
 
   <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Base">
 	<defName>WVC_AptitudeShameful</defName>
@@ -84,17 +84,17 @@
 	<biostatMet>-5</biostatMet>
   </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
 
-  <!-- <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Base"> -->
-	<!-- <defName>WVC_AptitudeMarvelous</defName> -->
-	<!-- <label>marvelous {0}</label> -->
-	<!-- <description>The carrier's aptitude in {0} is increased by 16. Aptitude acts like an offset on skill level. Additionally, one level of passion is added to {0}.</description> -->
-	<!-- <iconPath>WVC/UI/Genes/Skills/{0}/SkillUp</iconPath> -->
-	<!-- <aptitudeOffset>16</aptitudeOffset> -->
-	<!-- <passionModType>AddOneLevel</passionModType> -->
-	<!-- <displayOrderOffset>50</displayOrderOffset> -->
-	<!-- <biostatCpx>3</biostatCpx> -->
-	<!-- <biostatMet>-7</biostatMet> -->
-  <!-- </WVC_XenotypesAndGenes.SkillsGeneTemplateDef> -->
+  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Base">
+	<defName>WVC_AptitudeFaultless</defName>
+	<label>faultless {0}</label>
+	<description>The carrier's aptitude in {0} is increased by 16. Aptitude acts like an offset on skill level. Additionally, one level of passion is added to {0}.</description>
+	<iconPath>WVC/UI/Genes/Skills/{0}/HalfCrown</iconPath>
+	<aptitudeOffset>16</aptitudeOffset>
+	<passionModType>AddOneLevel</passionModType>
+	<displayOrderOffset>50</displayOrderOffset>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>-7</biostatMet>
+  </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
 
   <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Base">
 	<defName>WVC_AptitudePerfect</defName>
@@ -103,7 +103,7 @@
 	<iconPath>WVC/UI/Genes/Skills/{0}/Crown</iconPath>
 	<aptitudeOffset>20</aptitudeOffset>
 	<passionModType>AddOneLevel</passionModType>
-	<displayOrderOffset>100</displayOrderOffset>
+	<displayOrderOffset>60</displayOrderOffset>
 	<biostatCpx>4</biostatCpx>
 	<biostatMet>-9</biostatMet>
   </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>

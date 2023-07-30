@@ -64,7 +64,8 @@
 	<displayOrderInCategory>25</displayOrderInCategory>
 	<biostatArc>0</biostatArc>
 	<biostatMet>-2</biostatMet>
-	<iconColor>(255, 255, 255)</iconColor>
+	<!-- <iconColor>(255, 255, 255)</iconColor> -->
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
 	<minAgeActive>3</minAgeActive>
 	<randomChosen>true</randomChosen>
 	<customEffectDescriptions>
@@ -139,6 +140,8 @@
 	<label>membranous wings</label>
 	<description>Carriers of this gene grow impressive membranous wings.</description>
 	<iconPath>WVC/UI/Genes/Gene_MembranousWings_v0</iconPath>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-1</biostatMet>
 	<statOffsets>
 	  <MoveSpeed>0.15</MoveSpeed>
 	  <ComfyTemperatureMax>4</ComfyTemperatureMax>

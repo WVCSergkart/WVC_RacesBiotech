@@ -18,6 +18,7 @@
 	<descriptionHyperlinks>
 	  <WVC_XenotypesAndGenes.SubXenotypeDef>WVC_Resurgent</WVC_XenotypesAndGenes.SubXenotypeDef>
 	  <WVC_XenotypesAndGenes.SubXenotypeDef>WVC_DustAngel</WVC_XenotypesAndGenes.SubXenotypeDef>
+	  <WVC_XenotypesAndGenes.SubXenotypeDef>WVC_AshDemon</WVC_XenotypesAndGenes.SubXenotypeDef>
 	</descriptionHyperlinks>
 	<genes>
 		<!-- Base -->
@@ -54,13 +55,14 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.XenotypeExtension_SubXenotype">
 			<!-- Chance that getting an sub-xenotype -->
-			<subXenotypeChance>0.33</subXenotypeChance>
+			<subXenotypeChance>0.44</subXenotypeChance>
 			<!-- Sub xenotype is chosen randomly from the list. -->
 			<!-- This method is conceived as a random gene list expander, when you need to add a certain set of genes, but randomly with some chance. -->
 			<subXenotypeDefs>
 				<li>WVC_Resurgent</li>
 				<li>WVC_DustAngel</li>
 				<!-- <li>WVC_BloodDemon</li> -->
+				<li>WVC_AshDemon</li>
 			</subXenotypeDefs>
 			<!-- mainSubXenotypeDef allows you to specify which genes will be added if none of the sub-xenotypes has been selected. -->
 			<mainSubXenotypeDef>WVC_MainUndead</mainSubXenotypeDef>
@@ -145,12 +147,12 @@
 	</removeGenes>
   </WVC_XenotypesAndGenes.SubXenotypeDef>
 
-  <!-- Still in BETA -->
-  <!-- Still not implemented some abilities and dust penalties -->
+  <!-- Dust Angel -->
   <WVC_XenotypesAndGenes.SubXenotypeDef>
 	<defName>WVC_DustAngel</defName>
-	<label>dust angel</label>
-	<description>Dust Angels are an undead sub-xenotype, despite strong genetic differences they still remain within this xenotype. Their bodies are dependent on a biological resource called dust. Dust greatly affects their metabolism and at low levels they get hungry faster. They have innate mechanitor abilities and a slightly wild disposition. They are immune to most diseases, and the non-stable mutations of the undead do not show up on them. However, unlike their close relatives, their death is always the end.</description>
+	<!-- <label>dust angel</label> -->
+	<label>featherdust</label>
+	<description>Featherdusts are an undead sub-xenotype, despite strong genetic differences they still remain within this xenotype. Their bodies are dependent on a biological resource called dust. Dust greatly affects their metabolism and at low levels they get hungry faster. They have innate mechanitor abilities and a slightly wild disposition. They are immune to most diseases, and the non-stable mutations of the undead do not show up on them. However, unlike their close relatives, their death is always the end.</description>
 	<inheritable>false</inheritable>
 	<ignoreExistingGenes>false</ignoreExistingGenes>
 	<overrideExistingGenes>false</overrideExistingGenes>
@@ -209,6 +211,55 @@
 			<!-- </genes> -->
 		<!-- </li> -->
 	<!-- </randomGenes> -->
+  </WVC_XenotypesAndGenes.SubXenotypeDef>
+
+  <!-- Ash Demon -->
+  <!-- Still in ALPHA -->
+  <!-- Lacks ash mechanics -->
+  <WVC_XenotypesAndGenes.SubXenotypeDef>
+	<defName>WVC_AshDemon</defName>
+	<label>ashen</label>
+	<description>Ashens are an undead sub-xenotype, despite strong genetic differences they still remain within this xenotype.</description>
+	<inheritable>false</inheritable>
+	<ignoreExistingGenes>false</ignoreExistingGenes>
+	<overrideExistingGenes>false</overrideExistingGenes>
+	<xenotypeIconDef>WVC_XenoUndead3c</xenotypeIconDef>
+	<genes>
+		<li>Aggression_DeadCalm</li>
+		<li>WVC_WoundHealing_UnrealFast</li>
+		<li>MeleeDamage_Strong</li>
+		<li>LowSleep</li>
+		<li>WVC_Wings_MembranousWings</li>
+		<li>Unstoppable</li>
+		<!-- = -->
+		<li>WVC_AptitudePerfect_Shooting</li>
+		<li>WVC_AptitudePerfect_Melee</li>
+		<li>WVC_AptitudeImpossible_Construction</li>
+		<li>WVC_AptitudeImpossible_Mining</li>
+		<li>WVC_AptitudeImpossible_Cooking</li>
+		<li>WVC_AptitudeImpossible_Plants</li>
+		<li>WVC_AptitudeImpossible_Animals</li>
+		<li>WVC_AptitudeImpossible_Crafting</li>
+		<li>WVC_AptitudeImpossible_Artistic</li>
+		<li>WVC_AptitudeImpossible_Medicine</li>
+		<li>WVC_AptitudeImpossible_Social</li>
+		<li>WVC_AptitudeImpossible_Intellectual</li>
+	</genes>
+	<mainGenes>
+		<li>WVC_Unbreakable</li>
+		<li>WVC_ToxResist_Total</li>
+		<li>WVC_NaturalImmunity_PerfectImmunity</li>
+		<li>WVC_NaturalAgeless</li>
+		<li>WVC_SkinColor_Slate</li>
+		<li>WVC_HeadBoneHorns</li>
+		<li>WVC_NoLearning</li>
+	</mainGenes>
+	<removeGenes>
+		<li>ToxResist_Total</li>
+		<li>WVC_SkinColor_Undead</li>
+		<li>Hair_Grayless</li>
+		<li>WVC_Fragile</li>
+	</removeGenes>
   </WVC_XenotypesAndGenes.SubXenotypeDef>
 
 </Defs>
