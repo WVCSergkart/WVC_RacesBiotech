@@ -25,6 +25,11 @@
 	<missingGeneRomanceChanceFactor>0.35</missingGeneRomanceChanceFactor>
 	<minAgeActive>0</minAgeActive>
 	<!-- <minAgeActive>13</minAgeActive> -->
+	<!-- <graphicData> -->
+	  <!-- <drawOffsetNorth>(0.0, -1.2, 0.0)</drawOffsetNorth> -->
+	  <!-- <drawOffsetSouth>(0.0, -1.2, 0.0)</drawOffsetSouth> -->
+	  <!-- <drawOffsetEast>(0.0, -1.2, 0.0)</drawOffsetEast> -->
+	<!-- </graphicData> -->
 	<exclusionTags>
 	  <li>AG_Bodies</li>
 	  <li>Bodies</li>

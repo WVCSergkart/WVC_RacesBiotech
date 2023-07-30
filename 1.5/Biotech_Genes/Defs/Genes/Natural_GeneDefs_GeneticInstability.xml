@@ -10,6 +10,7 @@
 	<!-- <displayCategory>Ability</displayCategory> -->
 	<!-- <displayCategory>Archite</displayCategory> -->
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Ageless</geneClass> -->
+	<iconColor>(255, 255, 255)</iconColor>
 	<displayCategory>Healing</displayCategory>
 	<displayOrderInCategory>1251</displayOrderInCategory>
 	<customEffectDescriptions>
@@ -62,8 +63,19 @@
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>2</biostatMet>
-	<displayOrderInCategory>1250</displayOrderInCategory>
+	<displayOrderInCategory>1251</displayOrderInCategory>
   </GeneDef>
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneticInstability_Stability"> -->
+	<!-- <defName>WVC_Ashen_GeneticStability</defName> -->
+	<!-- <label>ashen stability</label> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_GeneticStability_v0</iconPath> -->
+	<!-- <iconColor>(70, 70, 70)</iconColor> -->
+	<!-- <biostatCpx>0</biostatCpx> -->
+	<!-- <biostatArc>0</biostatArc> -->
+	<!-- <biostatMet>2</biostatMet> -->
+	<!-- <displayOrderInCategory>1252</displayOrderInCategory> -->
+  <!-- </GeneDef> -->
 
   <!-- ============================= -->
 
@@ -74,7 +86,7 @@
 	<biostatCpx>-1</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>-1</biostatMet>
-	<displayOrderInCategory>1251</displayOrderInCategory>
+	<displayOrderInCategory>1253</displayOrderInCategory>
 	<statFactors>
 	  <Fertility>0.8</Fertility>
 	  <ImmunityGainSpeed>0.95</ImmunityGainSpeed>
@@ -88,7 +100,7 @@
 	<biostatCpx>-3</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>-3</biostatMet>
-	<displayOrderInCategory>1252</displayOrderInCategory>
+	<displayOrderInCategory>1254</displayOrderInCategory>
 	<statFactors>
 	  <Fertility>0.5</Fertility>
 	  <ImmunityGainSpeed>0.85</ImmunityGainSpeed>
@@ -102,7 +114,7 @@
 	<biostatCpx>-5</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>-5</biostatMet>
-	<displayOrderInCategory>1253</displayOrderInCategory>
+	<displayOrderInCategory>1255</displayOrderInCategory>
 	<statFactors>
 	  <Fertility>0.1</Fertility>
 	  <ImmunityGainSpeed>0.75</ImmunityGainSpeed>

@@ -229,7 +229,6 @@
 		<li>WVC_WoundHealing_UnrealFast</li>
 		<li>MeleeDamage_Strong</li>
 		<li>LowSleep</li>
-		<li>WVC_Wings_MembranousWings</li>
 		<li>Unstoppable</li>
 		<!-- = -->
 		<li>WVC_AptitudePerfect_Shooting</li>
@@ -252,9 +251,14 @@
 		<li>WVC_NaturalAgeless</li>
 		<li>WVC_SkinColor_Slate</li>
 		<li>WVC_HeadBoneHorns</li>
+		<li>WVC_DemonTailA</li>
 		<li>WVC_NoLearning</li>
+		<li>WVC_GeneticStability</li>
 	</mainGenes>
 	<removeGenes>
+		<li>WVC_MildGeneticInstability</li>
+		<li>WVC_NaturalFastAging</li>
+		<li>WVC_NaturalFastGrowing</li>
 		<li>ToxResist_Total</li>
 		<li>WVC_SkinColor_Undead</li>
 		<li>Hair_Grayless</li>
