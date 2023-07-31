@@ -35,7 +35,12 @@
 	<biostatArc>0</biostatArc>
 	<biostatMet>0</biostatMet>
 	<graphicData>
-	  <graphicPath>WVC/BodyParts/MecaGene_ScytheTail/DemonTail</graphicPath>
+	  <!-- <graphicPath>WVC/BodyParts/MecaGene_ScytheTail/DemonTail</graphicPath> -->
+	  <graphicPaths>
+		<li>WVC/BodyParts/MecaGene_ScytheTail/DemonTail</li>
+		<li>WVC/BodyParts/MecaGene_ScytheTail/DemonTailB</li>
+		<li>WVC/BodyParts/MecaGene_ScytheTail/DemonTailC</li>
+	  </graphicPaths>
 	  <colorType>Skin</colorType>
 	  <drawScale>1.25</drawScale>
 	  <drawOffsetNorth>(0.0, 0.2, 0.0)</drawOffsetNorth>
