@@ -41,7 +41,10 @@
 	<label>resurgent immunity</label>
 	<description>Carriers of this gene have resurgent cells that provide almost perfect immunity.</description>
 	<iconPath>WVC/UI/Genes/Gene_PerfectImmunity_v0</iconPath>
-	<inheritableGeneDef>PerfectImmunity</inheritableGeneDef>
+	<suffixDefName>PerfectImmunity</suffixDefName>
+	<inheritableGeneDefs>
+	  <li>PerfectImmunity</li>
+	</inheritableGeneDefs>
 	<displayOrderInCategory>1290</displayOrderInCategory>
 	<resourceLossPerDay>0.55</resourceLossPerDay>
 	<customEffectDescriptions>
@@ -66,7 +69,10 @@
 	<label>resurgent senescent</label>
 	<description>Carriers of this gene have resurgent cells that completely prevent chronic diseases.</description>
 	<iconPath>WVC/UI/Genes/Gene_NonSenescent_v0</iconPath>
-	<inheritableGeneDef>DiseaseFree</inheritableGeneDef>
+	<suffixDefName>DiseaseFree</suffixDefName>
+	<inheritableGeneDefs>
+	  <li>DiseaseFree</li>
+	</inheritableGeneDefs>
 	<displayOrderInCategory>1295</displayOrderInCategory>
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>-1</biostatMet>
@@ -93,7 +99,10 @@
 	<label>perfect immunity</label>
 	<description>Carriers of this gene have almost perfect immunity.</description>
 	<iconPath>WVC/UI/Genes/Gene_NaturalPerfectImmunity_v0</iconPath>
-	<inheritableGeneDef>PerfectImmunity</inheritableGeneDef>
+	<suffixDefName>PerfectImmunity</suffixDefName>
+	<inheritableGeneDefs>
+	  <li>PerfectImmunity</li>
+	</inheritableGeneDefs>
 	<displayOrderInCategory>-720</displayOrderInCategory>
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>-6</biostatMet>
@@ -104,7 +113,10 @@
 	<label>non-senescent</label>
 	<description>Carriers of this gene do not go through senescence in the normal way. They never get chronic age-related diseases like cancer, bad back, cataracts, or dementia.</description>
 	<iconPath>WVC/UI/Genes/Gene_NaturalNonSenescent_v0</iconPath>
-	<inheritableGeneDef>DiseaseFree</inheritableGeneDef>
+	<suffixDefName>DiseaseFree</suffixDefName>
+	<inheritableGeneDefs>
+	  <li>DiseaseFree</li>
+	</inheritableGeneDefs>
 	<displayOrderInCategory>-725</displayOrderInCategory>
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>-6</biostatMet>
@@ -112,5 +124,7 @@
 	  <li>WVC_DiseaseFree</li>
 	</exclusionTags>
   </WVC_XenotypesAndGenes.InheritableImmuneGeneTemplateDef>
+
+  <!-- Combo -->
 
 </Defs>

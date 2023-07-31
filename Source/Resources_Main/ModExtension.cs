@@ -35,44 +35,6 @@ namespace WVC_XenotypesAndGenes
         // public bool geneIsIncestous = false;
     }
 
-    // public class ThoughtExtension_General : DefModExtension
-    // {
-    // public GeneDef geneDef;
-    // }
-
-    // public class GeneExtension_PawnPredatorPrey : DefModExtension
-    // {
-    // }
-
-    // public class GeneExtension_Genepack : DefModExtension
-    // {
-    // public bool spawnGeneInGenepack = true;
-    // }
-
-    // public class GeneExtension_Conditions : DefModExtension
-    // {
-    // public bool pawnShouldBeImmortal = false;
-    // public bool pawnShouldBeMechaskinned = false;
-    // public bool pawnShouldHaveSubcore = false;
-    // public bool pawnShouldBeMechalike = false;
-    // }
-
-    // public class GeneExtension_MechaClotting : DefModExtension
-    // {
-    // public bool preventBleeding = false;
-    // }
-
-    // public class GeneExtension_Giver : DefModExtension
-    // {
-    // public HediffDef hediffDef;
-    // public List<BodyPartDef> bodyPartToAdd;
-    // }
-
-    // public class GeneExtension_Summoner : DefModExtension
-    // {
-    // public QuestScriptDef quest;
-    // }
-
     public class GeneExtension_Giver : DefModExtension
     {
         public HediffDef hediffDefName;
@@ -88,6 +50,10 @@ namespace WVC_XenotypesAndGenes
         // public IntRange intRange = new IntRange(1, 1);
         public XenotypeDef xenotypeForcerDef = null;
         public bool xenotypeIsInheritable = true;
+        public List<HeadTypeDef> headTypeDefs;
+		// Scarifier
+		public int scarsCount = 3;
+		public List<GeneDef> scarGeneDefs;
     }
 
     public class XenotypeExtension_SubXenotype : DefModExtension
@@ -97,11 +63,6 @@ namespace WVC_XenotypesAndGenes
         public float subXenotypeChance = 0.1f;
         public bool xenotypeCanShapeshiftOnDeath = false;
     }
-
-    // public class HeadTypeExtension_Faceless : DefModExtension
-    // {
-    // public bool faceless = true;
-    // }
 
     // public class BlackListedXenotypesDef : Def
     public class XenotypesAndGenesListDef : Def
@@ -122,15 +83,4 @@ namespace WVC_XenotypesAndGenes
         // public List<GeneDef> gene_IsAngelBeauty;
         // public List<GeneDef> gene_PawnSkillsNotDecay;
     }
-
-    // public class WhiteListedGolemsDef : Def
-    // {
-    // public List<string> blackListedForSerums;
-    // public List<string> perfectCandidatesForSerums;
-    // }
-
-    // public class Template_WhiteListedTraitsDef : Def
-    // {
-    // public List<string> whiteListedTraits;
-    // }
 }

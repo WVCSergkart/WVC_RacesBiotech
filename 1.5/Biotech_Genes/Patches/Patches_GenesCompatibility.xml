@@ -51,6 +51,29 @@
 	  </value>
 	</Operation>
 
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+			  <xpath>/Defs/ThoughtDef[defName="Pain"]/nullifyingGenes</xpath>
+			  <success>Invert</success>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/ThoughtDef[defName="Pain"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<nullifyingGenes/>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/ThoughtDef[defName="Pain"]/nullifyingGenes</xpath>
+	  <value>
+		  <li>WVC_Scarifier_Pain</li>
+	  </value>
+	</Operation>
+
 	<!-- <Operation Class="PatchOperationFindMod"> -->
 		<!-- <mods> -->
 			<!-- <li>Royalty</li> -->

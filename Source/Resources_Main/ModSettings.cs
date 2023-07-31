@@ -26,6 +26,7 @@ namespace WVC_XenotypesAndGenes
         public bool enableGeneWingInfo = false;
         public bool enableGeneBlesslinkInfo = true;
         public bool enableGeneUndeadInfo = false;
+        public bool enableGeneScarifierInfo = false;
         // Serums
         public bool serumsForAllXenotypes = true;
         public bool serumsForAllXenotypes_GenBase = true;
@@ -38,43 +39,37 @@ namespace WVC_XenotypesAndGenes
                                                          where specificSetting.FieldType == typeof(bool) && (bool)specificSetting.GetValue(this)
                                                          select specificSetting.Name;
 
-        public override void ExposeData()
-        {
-            Scribe_Values.Look(ref disableFurGraphic, "disableFurGraphic", defaultValue: false);
-            Scribe_Values.Look(ref disableAllGraphic, "disableAllGraphic", defaultValue: false);
-            Scribe_Values.Look(ref generateSkillGenes, "generateSkillGenes", defaultValue: true);
-            Scribe_Values.Look(ref generateXenotypeForceGenes, "generateXenotypeForceGenes", defaultValue: true);
-            Scribe_Values.Look(ref canNonPlayerPawnResurrect, "canNonPlayerPawnResurrect", defaultValue: false);
-            Scribe_Values.Look(ref allowShapeshiftAfterDeath, "allowShapeshiftAfterDeath", defaultValue: true);
-            // Scribe_Values.Look(ref mechaskinTemperatureAdaptability, "mechaskinTemperatureAdaptability", defaultValue: false);
-            Scribe_Values.Look(ref minWastepacksPerRecharge, "minWastepacksPerRecharge", defaultValue: false);
-            Scribe_Values.Look(ref validatorAbilitiesPatch, "validatorAbilitiesPatch", defaultValue: true);
-            // Scribe_Values.Look(ref nodeskinVX_MechBandwidth, "nodeskinVX_MechBandwidth", defaultValue: true);
-            Scribe_Values.Look(ref enableGenesInfo, "enableGenesInfo", defaultValue: true);
-            Scribe_Values.Look(ref enableGeneSpawnerGizmo, "enableGeneSpawnerGizmo", defaultValue: true);
-            Scribe_Values.Look(ref enableGeneWingInfo, "enableGeneWingInfo", defaultValue: false);
-            Scribe_Values.Look(ref enableGeneBlesslinkInfo, "enableGeneBlesslinkInfo", defaultValue: true);
-            Scribe_Values.Look(ref enableGeneUndeadInfo, "enableGeneUndeadInfo", defaultValue: false);
-            // Scribe_Values.Look(ref enableStatSkillFactor, "enableStatSkillFactor", defaultValue: true);
-            // Scribe_Values.Look(ref canMechaskinBePredatorPrey, "canMechaskinBePredatorPrey", defaultValue: true);
-            // Scribe_Values.Look(ref hideEncodingGenes, "hideEncodingGenes", defaultValue: true);
-            Scribe_Values.Look(ref serumsForAllXenotypes, "serumsForAllXenotypes", defaultValue: true);
-            Scribe_Values.Look(ref serumsForAllXenotypes_GenBase, "serumsForAllXenotypes_GenBase", defaultValue: true);
-            Scribe_Values.Look(ref serumsForAllXenotypes_GenUltra, "serumsForAllXenotypes_GenUltra", defaultValue: false);
-            Scribe_Values.Look(ref serumsForAllXenotypes_GenHybrid, "serumsForAllXenotypes_GenHybrid", defaultValue: false);
-            Scribe_Values.Look(ref serumsForAllXenotypes_Recipes, "serumsForAllXenotypes_Recipes", defaultValue: true);
-            Scribe_Values.Look(ref serumsForAllXenotypes_Spawners, "serumsForAllXenotypes_Spawners", defaultValue: false);
-            // Scribe_Values.Look(ref serumsCraftCost_ArchitesFactor, "serumsCraftCost_ArchitesFactor", 1f);
-            // Scribe_Values.Look(ref serumsCraftCost_ComplexityFactor, "serumsCraftCost_ComplexityFactor", 1f);
-            // Scribe_Values.Look(ref serumsCraftCost_MetabolismFactor, "serumsCraftCost_MetabolismFactor", 1f);
-            // Scribe_Values.Look(ref convertCustomXenotypesIntoXenotypes, "convertCustomXenotypesIntoXenotypes", defaultValue: false);
-            // Scribe_Values.Look(ref fixAgelessAge, "fixAgelessAge", defaultValue: false);
-            // Scribe_Values.Look(ref mecaXenotypeIsInheritable, "mecaXenotypeIsInheritable", defaultValue: false);
-            // Scribe_Values.Look(ref mechanoidizationGenesPatch, "mechanoidizationGenesPatch", defaultValue: true);
-            // base.ExposeData();
-            base.ExposeData();
-            Scribe_Collections.Look(ref WVC_Biotech.cachedXenotypesFilter, "cachedXenotypesFilter", LookMode.Value, LookMode.Value);
-        }
+		public override void ExposeData()
+		{
+			// Graphic
+			Scribe_Values.Look(ref disableFurGraphic, "disableFurGraphic", defaultValue: false);
+			Scribe_Values.Look(ref disableAllGraphic, "disableAllGraphic", defaultValue: false);
+			// Genes
+			Scribe_Values.Look(ref generateSkillGenes, "generateSkillGenes", defaultValue: true);
+			Scribe_Values.Look(ref generateXenotypeForceGenes, "generateXenotypeForceGenes", defaultValue: true);
+			Scribe_Values.Look(ref canNonPlayerPawnResurrect, "canNonPlayerPawnResurrect", defaultValue: false);
+			Scribe_Values.Look(ref allowShapeshiftAfterDeath, "allowShapeshiftAfterDeath", defaultValue: true);
+			// Fix
+			Scribe_Values.Look(ref minWastepacksPerRecharge, "minWastepacksPerRecharge", defaultValue: false);
+			Scribe_Values.Look(ref validatorAbilitiesPatch, "validatorAbilitiesPatch", defaultValue: true);
+			// Info
+			Scribe_Values.Look(ref enableGenesInfo, "enableGenesInfo", defaultValue: true);
+			Scribe_Values.Look(ref enableGeneSpawnerGizmo, "enableGeneSpawnerGizmo", defaultValue: true);
+			Scribe_Values.Look(ref enableGeneWingInfo, "enableGeneWingInfo", defaultValue: false);
+			Scribe_Values.Look(ref enableGeneBlesslinkInfo, "enableGeneBlesslinkInfo", defaultValue: true);
+			Scribe_Values.Look(ref enableGeneUndeadInfo, "enableGeneUndeadInfo", defaultValue: false);
+			Scribe_Values.Look(ref enableGeneScarifierInfo, "enableGeneScarifierInfo", defaultValue: false);
+			// Serums
+			Scribe_Values.Look(ref serumsForAllXenotypes, "serumsForAllXenotypes", defaultValue: true);
+			Scribe_Values.Look(ref serumsForAllXenotypes_GenBase, "serumsForAllXenotypes_GenBase", defaultValue: true);
+			Scribe_Values.Look(ref serumsForAllXenotypes_GenUltra, "serumsForAllXenotypes_GenUltra", defaultValue: false);
+			Scribe_Values.Look(ref serumsForAllXenotypes_GenHybrid, "serumsForAllXenotypes_GenHybrid", defaultValue: false);
+			Scribe_Values.Look(ref serumsForAllXenotypes_Recipes, "serumsForAllXenotypes_Recipes", defaultValue: true);
+			Scribe_Values.Look(ref serumsForAllXenotypes_Spawners, "serumsForAllXenotypes_Spawners", defaultValue: false);
+			// End
+			base.ExposeData();
+			Scribe_Collections.Look(ref WVC_Biotech.cachedXenotypesFilter, "cachedXenotypesFilter", LookMode.Value, LookMode.Value);
+		}
     }
 
     public class WVC_Biotech : Mod
@@ -145,6 +140,7 @@ namespace WVC_XenotypesAndGenes
             listingStandard.CheckboxLabeled("WVC_Label_enableGeneWingInfo".Translate(), ref settings.enableGeneWingInfo, "WVC_ToolTip_enableGenesInfo".Translate());
             listingStandard.CheckboxLabeled("WVC_Label_enableGeneBlesslinkInfo".Translate(), ref settings.enableGeneBlesslinkInfo, "WVC_ToolTip_enableGenesInfo".Translate());
             listingStandard.CheckboxLabeled("WVC_Label_enableGeneUndeadInfo".Translate(), ref settings.enableGeneUndeadInfo, "WVC_ToolTip_enableGenesInfo".Translate());
+            listingStandard.CheckboxLabeled("WVC_Label_enableGeneScarifierInfo".Translate(), ref settings.enableGeneScarifierInfo, "WVC_ToolTip_enableGenesInfo".Translate());
             listingStandard.Gap();
             // ===============
             listingStandard.Label("WVC_BiotechSettings_Label_Genes".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Genes".Translate());

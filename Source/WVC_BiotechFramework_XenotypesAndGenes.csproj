@@ -83,6 +83,8 @@
     <Compile Include="Resources_Genes\Gene_DustMechlink.cs" />
     <Compile Include="Resources_Genes\Gene_DustUndeadReincarnation.cs" />
     <Compile Include="Resources_Genes\Gene_ResurgentCellsGain.cs" />
+    <Compile Include="Resources_Genes\Gene_Scarifier.cs" />
+    <Compile Include="Resources_Genes\Gene_ScarifierClotting.cs" />
     <Compile Include="Resources_Genes\Gene_Wings.cs" />
     <Compile Include="Resources_Genes\Gene_XenotypeMutator.cs" />
     <Compile Include="Resources_Harmony\Harmony_ShouldSendNotificationAbout_Patch.cs" />

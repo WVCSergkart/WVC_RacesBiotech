@@ -157,6 +157,12 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
 			<eyesShouldBeInvisble>true</eyesShouldBeInvisble>
 		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<!-- Any HeadTypes -->
+			<headTypeDefs>
+				<li>WVC_Faceless_NodeSkin</li>
+			</headTypeDefs>
+		</li>
 	</modExtensions>
   </GeneDef>
 

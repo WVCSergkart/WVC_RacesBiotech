@@ -40,6 +40,7 @@ Requires a restart, a new game and that the previous setting is enabled.</WVC_To
 	<WVC_Label_enableGeneWingInfo>Enable gene-wing info</WVC_Label_enableGeneWingInfo>
 	<WVC_Label_enableGeneBlesslinkInfo>Enable blesslink summon info</WVC_Label_enableGeneBlesslinkInfo>
 	<WVC_Label_enableGeneUndeadInfo>Enable undead info</WVC_Label_enableGeneUndeadInfo>
+	<WVC_Label_enableGeneScarifierInfo>Enable scarifier info</WVC_Label_enableGeneScarifierInfo>
 
 	<WVC_ToolTip_enableGenesInfo>Responsible for displaying gene information. For example, for spawner genes: time, name and count.
 

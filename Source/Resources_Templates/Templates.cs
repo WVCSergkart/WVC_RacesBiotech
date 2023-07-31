@@ -72,7 +72,9 @@ namespace WVC_XenotypesAndGenes
 
         public float selectionWeight = 1f;
 
-        public GeneDef inheritableGeneDef = null;
+        public string suffixDefName = "XaG";
+
+        public List<GeneDef> inheritableGeneDefs = null;
 
         public List<HediffDef> makeImmuneTo;
 
@@ -108,9 +110,9 @@ namespace WVC_XenotypesAndGenes
             {
                 yield return "geneClass is not Gene or child thereof.";
             }
-            if (inheritableGeneDef == null)
+            if (inheritableGeneDefs == null)
             {
-                yield return "inheritableGeneDef is null.";
+                yield return "inheritableGeneDefs is null.";
             }
         }
     }
@@ -160,52 +162,4 @@ namespace WVC_XenotypesAndGenes
             }
         }
     }
-
-    // public class ExoskinistPreceptTemplateDef : Def
-    // {
-    // public Type preceptClass = typeof(Precept);
-
-    // public IssueDef issue;
-
-    // public PreceptImpact impact;
-
-    // public List<MemeDef> associatedMemes = new List<MemeDef>();
-
-    // public List<MemeDef> conflictingMemes = new List<MemeDef>();
-
-    // public List<MemeDef> requiredMemes = new List<MemeDef>();
-
-    // public int displayOrderInImpact;
-
-    // public int displayOrderInIssue;
-
-    // public List<PreceptComp> comps = new List<PreceptComp>();
-
-    // public List<PreceptApparelRequirement> roleApparelRequirements;
-
-    // public WorkTags roleDisabledWorkTags;
-    // }
-
-    // public class ExoskinistThoughtTemplateDef : Def
-    // {
-    // public string postfixName;
-
-    // public Type workerClass;
-
-    // public List<TraitDef> nullifyingTraits;
-
-    // public List<TraitRequirement> nullifyingTraitDegrees;
-
-    // public List<PreceptDef> nullifyingPrecepts;
-
-    // public List<HediffDef> nullifyingHediffs;
-
-    // public List<GeneDef> nullifyingGenes;
-
-    // public ExpectationDef minExpectation;
-
-    // public bool validWhileDespawned;
-
-    // public List<ThoughtStage> stages = new List<ThoughtStage>();
-    // }
 }

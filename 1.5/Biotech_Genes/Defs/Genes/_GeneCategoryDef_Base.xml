@@ -49,6 +49,11 @@
   </GeneCategoryDef>
 
   <GeneCategoryDef>
+	<defName>WVC_Scarifier</defName>
+	<label>scarifier</label>
+	<displayPriorityInXenotype>512.2886992038</displayPriorityInXenotype>
+  </GeneCategoryDef>
+  <GeneCategoryDef>
 	<defName>WVC_Dustogenic</defName>
 	<label>dustogenic</label>
 	<displayPriorityInXenotype>511.2886992038</displayPriorityInXenotype>

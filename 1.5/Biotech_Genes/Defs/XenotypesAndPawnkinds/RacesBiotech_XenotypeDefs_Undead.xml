@@ -62,7 +62,7 @@
 				<li>WVC_Resurgent</li>
 				<li>WVC_DustAngel</li>
 				<!-- <li>WVC_BloodDemon</li> -->
-				<li>WVC_AshDemon</li>
+				<li MayRequire="ludeon.rimworld.ideology">WVC_AshDemon</li>
 			</subXenotypeDefs>
 			<!-- mainSubXenotypeDef allows you to specify which genes will be added if none of the sub-xenotypes has been selected. -->
 			<mainSubXenotypeDef>WVC_MainUndead</mainSubXenotypeDef>
@@ -214,9 +214,8 @@
   </WVC_XenotypesAndGenes.SubXenotypeDef>
 
   <!-- Ash Demon -->
-  <!-- Still in ALPHA -->
-  <!-- Lacks ash mechanics -->
-  <WVC_XenotypesAndGenes.SubXenotypeDef>
+  <!-- Still in BETA -->
+  <WVC_XenotypesAndGenes.SubXenotypeDef MayRequire="ludeon.rimworld.ideology">
 	<defName>WVC_AshDemon</defName>
 	<label>ashen</label>
 	<description>Ashens are an undead sub-xenotype, despite strong genetic differences they still remain within this xenotype.</description>
@@ -225,8 +224,11 @@
 	<overrideExistingGenes>false</overrideExistingGenes>
 	<xenotypeIconDef>WVC_XenoUndead3c</xenotypeIconDef>
 	<genes>
-		<li>Aggression_DeadCalm</li>
+		<li>WVC_Scarifier</li>
+		<li>WVC_Scarifier_Pain</li>
+		<li>WVC_Scarifier_Clotting</li>
 		<li>WVC_WoundHealing_UnrealFast</li>
+		<li>Aggression_DeadCalm</li>
 		<li>MeleeDamage_Strong</li>
 		<li>LowSleep</li>
 		<li>Unstoppable</li>
@@ -247,13 +249,13 @@
 	<mainGenes>
 		<li>WVC_Unbreakable</li>
 		<li>WVC_ToxResist_Total</li>
-		<li>WVC_NaturalImmunity_PerfectImmunity</li>
+		<li>WVC_PerfectImmunity_DiseaseFree</li>
 		<li>WVC_NaturalAgeless</li>
 		<li>WVC_SkinColor_Slate</li>
 		<li>WVC_HeadBoneHorns</li>
 		<li>WVC_DemonTailA</li>
 		<li>WVC_NoLearning</li>
-		<li>WVC_GeneticStability</li>
+		<li>WVC_Scarifier_GeneticStability</li>
 	</mainGenes>
 	<removeGenes>
 		<li>WVC_MildGeneticInstability</li>

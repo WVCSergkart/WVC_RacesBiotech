@@ -25,6 +25,7 @@ namespace WVC_XenotypesAndGenes
         public Gene_Wings cachedWingGene = null;
         public Gene_Undead cachedUndeadGene = null;
         public Gene_DustMechlink cachedBlesslinkGene = null;
+        public Gene_Scarifier cachedScarifierGene = null;
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
@@ -63,6 +64,10 @@ namespace WVC_XenotypesAndGenes
             {
                 cachedBlesslinkGene = HaveBlesslink(pawn);
             }
+			if (WVC_Biotech.settings.enableGeneBlesslinkInfo)
+			{
+				cachedScarifierGene = HaveScarifier(pawn);
+			}
         }
 
         public List<Gene_Spawner> ActiveSpawnerGenes(Pawn pawn)
@@ -111,6 +116,16 @@ namespace WVC_XenotypesAndGenes
             return null;
         }
 
+		public Gene_Scarifier HaveScarifier(Pawn pawn)
+		{
+			Gene_Scarifier scarifier = pawn.genes?.GetFirstGeneOfType<Gene_Scarifier>();
+			if (scarifier != null)
+			{
+				return scarifier;
+			}
+			return null;
+		}
+
         public override string CompInspectStringExtra()
         {
             if (WVC_Biotech.settings.enableGenesInfo)
@@ -137,7 +152,7 @@ namespace WVC_XenotypesAndGenes
             {
                 info += "WVC_XaG_Gene_Undead_On_Info".Translate().Resolve();
             }
-            if (!cachedSpawnerGenes.NullOrEmpty() && !pawn.Drafted)
+            if (!pawn.Drafted && !cachedSpawnerGenes.NullOrEmpty())
             {
                 for (int i = 0; i < cachedSpawnerGenes.Count; i++)
                 {
@@ -160,6 +175,14 @@ namespace WVC_XenotypesAndGenes
                 }
                 info += "WVC_XaG_Gene_Blesslin_On_Info".Translate().Resolve() + ": " + cachedBlesslinkGene.timeForNextSummon.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
             }
+			if (!pawn.Drafted && cachedScarifierGene != null && cachedScarifierGene.CanScarifyCheck())
+			{
+				if (!info.NullOrEmpty())
+				{
+					info += "\n";
+				}
+				info += "WVC_XaG_Gene_Scarifier_On_Info".Translate().Resolve() + ": " + cachedScarifierGene.scarifyInterval.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
+			}
             if (cachedWingGene != null && pawn.health.hediffSet.HasHediff(cachedWingGene.HediffDefName))
             {
                 if (!info.NullOrEmpty())

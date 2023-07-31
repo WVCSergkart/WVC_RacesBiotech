@@ -1,59 +1,42 @@
+using System.Collections.Generic;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_Faceless : Gene
-    {
+	public class Gene_Faceless : Gene
+	{
 
-        public override bool Active
-        {
-            get
-            {
-                // if (Overridden)
-                // {
-                // return false;
-                // }
-                // if (pawn?.ageTracker != null && (float)pawn.ageTracker.AgeBiologicalYears < def.minAgeActive)
-                // {
-                // return false;
-                // }
-                // GeneExtension_EyeDraws modExtension = def.GetModExtension<GeneExtension_EyeDraws>();
-                // if (modExtension == null || !modExtension.eyesShouldBeInvisble)
-                // {
-                // return false;
-                // }
-                // if (!HasActiveGene(pawn))
-                // {
-                // return false;
-                // }
-                if (base.Active)
-                {
-                    if (pawn?.story != null && !pawn.story.headType.defName.Contains("WVC_Faceless"))
-                    {
-                        return false;
-                    }
-                }
-                return base.Active;
-            }
-        }
+		public List<HeadTypeDef> HeadTypeDefs => def.GetModExtension<GeneExtension_Giver>().headTypeDefs;
 
-        // private static bool HasActiveGene(Pawn pawn)
-        // {
-        // if (pawn?.genes == null)
-        // {
-        // return false;
-        // }
-        // List<Gene> genesListForReading = pawn.genes.GenesListForReading;
-        // for (int i = 0; i < genesListForReading.Count; i++)
-        // {
-        // if (genesListForReading[i].pawn.story.headType.defName.Contains("WVC_Faceless"))
-        // {
-        // return true;
-        // }
-        // }
-        // return false;
-        // }
+		public override bool Active
+		{
+			get
+			{
+				if (base.Active)
+				{
+					// if (pawn?.story != null && !pawn.story.headType.defName.Contains("WVC_Faceless"))
+					// {
+						// return false;
+					// }
+					return HeadTypeIsCorrect(pawn);
+				}
+				return base.Active;
+			}
+		}
 
-    }
+		public bool HeadTypeIsCorrect(Pawn pawn)
+		{
+			if (pawn?.genes == null || pawn?.story == null)
+			{
+				return false;
+			}
+			if (HeadTypeDefs.Contains(pawn.story.headType))
+			{
+				return true;
+			}
+			return false;
+		}
+
+	}
 }

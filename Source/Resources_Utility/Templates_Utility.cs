@@ -116,7 +116,7 @@ namespace WVC_XenotypesAndGenes
         {
             GeneDef geneDef = new()
             {
-                defName = template.defName + "_" + template.inheritableGeneDef.defName,
+                defName = template.defName + "_" + template.suffixDefName,
                 geneClass = template.geneClass,
                 label = template.label,
                 iconPath = template.iconPath,
@@ -166,41 +166,33 @@ namespace WVC_XenotypesAndGenes
                 }
             }
             // inherit
-            if (template.inheritableGeneDef.exclusionTags != null)
-            {
-                foreach (string item in template.inheritableGeneDef.exclusionTags)
-                {
-                    geneDef.exclusionTags.Add(item);
-                }
-            }
-            if (template.inheritableGeneDef.makeImmuneTo != null)
-            {
-                foreach (HediffDef item in template.inheritableGeneDef.makeImmuneTo)
-                {
-                    geneDef.makeImmuneTo.Add(item);
-                }
-            }
-            if (template.inheritableGeneDef.hediffGiversCannotGive != null)
-            {
-                foreach (HediffDef item in template.inheritableGeneDef.hediffGiversCannotGive)
-                {
-                    geneDef.hediffGiversCannotGive.Add(item);
-                }
-            }
-            // if (def is SkillDef skill)
-            // {
-            // if (template.aptitudeOffset != 0)
-            // {
-            // geneDef.aptitudes = new List<Aptitude>
-            // {
-            // new Aptitude(skill, template.aptitudeOffset)
-            // };
-            // }
-            // if (template.passionModType != 0)
-            // {
-            // geneDef.passionMod = new PassionMod(skill, template.passionModType);
-            // }
-            // }
+			if (template.inheritableGeneDefs != null)
+			{
+				foreach (GeneDef inheritableGeneDef in template.inheritableGeneDefs)
+				{
+					if (inheritableGeneDef.exclusionTags != null)
+					{
+						foreach (string item in inheritableGeneDef.exclusionTags)
+						{
+							geneDef.exclusionTags.Add(item);
+						}
+					}
+					if (inheritableGeneDef.makeImmuneTo != null)
+					{
+						foreach (HediffDef item in inheritableGeneDef.makeImmuneTo)
+						{
+							geneDef.makeImmuneTo.Add(item);
+						}
+					}
+					if (inheritableGeneDef.hediffGiversCannotGive != null)
+					{
+						foreach (HediffDef item in inheritableGeneDef.hediffGiversCannotGive)
+						{
+							geneDef.hediffGiversCannotGive.Add(item);
+						}
+					}
+				}
+			}
             return geneDef;
         }
 

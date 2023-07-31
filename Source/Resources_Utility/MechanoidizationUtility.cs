@@ -12,14 +12,6 @@ namespace WVC_XenotypesAndGenes
 
         public static bool ShouldNotSendNotificationAbout(Pawn pawn)
         {
-            // if (pawn.RaceProps.Humanlike)
-            // {
-            // Gene_Undead undead = pawn.genes?.GetFirstGeneOfType<Gene_Undead>();
-            // if (undead != null)
-            // {
-            // return undead.PawnCanResurrect;
-            // }
-            // }
             GeneExtension_General modExtension = pawn.def.GetModExtension<GeneExtension_General>();
             if (modExtension != null)
             {
@@ -27,55 +19,6 @@ namespace WVC_XenotypesAndGenes
             }
             return false;
         }
-
-        // public static void RandomTaggedGene(GeneDef def, Pawn pawn, Gene gene)
-        // {
-        // bool geneIsXenogene = true;
-        // List<Gene> endogenes = pawn.genes.Endogenes;
-        // if (endogenes.Contains(gene))
-        // {
-        // geneIsXenogene = false;
-        // }
-        // GeneDef geneDef = DefDatabase<GeneDef>.AllDefs.Where((GeneDef randomGeneDef) => randomGeneDef != null && randomGeneDef.geneClass == def.geneClass && randomGeneDef.exclusionTags != null && randomGeneDef.exclusionTags == def.exclusionTags && randomGeneDef != def).RandomElement();
-        // if (!pawn.genes.HasEndogene(geneDef))
-        // {
-        // pawn.genes.AddGene(geneDef, xenogene: geneIsXenogene);
-        // pawn.genes.RemoveGene(gene);
-        // }
-        // }
-
-        // public static bool PawnIsMechalike(Pawn pawn)
-        // {
-        // if (PawnIsMechaskinned(pawn) || PawnHasSubCoreInstalled(pawn))
-        // {
-        // return true;
-        // }
-        // return false;
-        // }
-
-        // public static bool PawnHasSubCoreInstalled(Pawn pawn)
-        // {
-        // if (pawn?.genes == null)
-        // {
-        // return false;
-        // }
-        // List<Gene> genesListForReading = pawn.genes.GenesListForReading;
-        // for (int i = 0; i < genesListForReading.Count; i++)
-        // {
-        // if (genesListForReading[i].Active == true)
-        // {
-        // GeneExtension_General modExtension = genesListForReading[i].def.GetModExtension<GeneExtension_General>();
-        // if (modExtension != null)
-        // {
-        // if (modExtension.geneIsSubcore)
-        // {
-        // return true;
-        // }
-        // }
-        // }
-        // }
-        // return false;
-        // }
 
         public static bool PawnIsAndroid(Pawn pawn)
         {
@@ -98,15 +41,6 @@ namespace WVC_XenotypesAndGenes
         {
             if (pawn.RaceProps.IsMechanoid)
             {
-                // List<ThingDef> listedGolems = new List<ThingDef>();
-                // foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
-                // {
-                // listedGolems.AddRange(item.listedGolems);
-                // }
-                // if (listedGolems.Contains(pawn.def))
-                // {
-                // return true;
-                // }
                 return pawn.health.hediffSet.HasHediff(WVC_GenesDefOf.WVC_SelfPopulationRegulation_Golems);
             }
             return false;
@@ -148,10 +82,6 @@ namespace WVC_XenotypesAndGenes
 
         public static bool DelayedReimplanterIsActive(Pawn pawn)
         {
-            // if (!pawn.RaceProps.Humanlike)
-            // {
-            // return true;
-            // }
             if (pawn.health != null && pawn.health.hediffSet != null)
             {
                 List<HediffDef> hediffDefs = new();
@@ -165,20 +95,10 @@ namespace WVC_XenotypesAndGenes
                     {
                         return true;
                     }
-                    // return pawn.health.hediffSet.HasHediff(hediffDefs[i]);
                 }
             }
             return false;
         }
-
-        // public static bool OtherHasSubCoreInstalled(Pawn other)
-        // {
-        // if (other.RaceProps.Humanlike)
-        // {
-        // return other.genes.HasGene(WVC_GenesDefOf.WVC_MechaAI_Base); //MechaSkin
-        // }
-        // return false;
-        // }
 
         public static bool PawnIsExoskinned(Pawn pawn)
         {
@@ -198,48 +118,8 @@ namespace WVC_XenotypesAndGenes
                     return true;
                 }
             }
-            // List<Gene> genesListForReading = pawn.genes.GenesListForReading;
-            // for (int i = 0; i < genesListForReading.Count; i++)
-            // {
-            // if (genesListForReading[i].Active == true)
-            // {
-            // if (whiteListedGenes.Contains(genesListForReading[i].def))
-            // {
-            // return true;
-            // }
-            // }
-            // }
             return false;
         }
-
-        // public static bool PawnIsImmortal(Pawn pawn)
-        // {
-        // return pawn.genes.HasGene(GeneDefOf.Deathless);
-        // }
-
-        // public static bool PawnHasPowerSource(Pawn pawn)
-        // {
-        // if (pawn?.genes == null)
-        // {
-        // return false;
-        // }
-        // List<Gene> genesListForReading = pawn.genes.GenesListForReading;
-        // for (int i = 0; i < genesListForReading.Count; i++)
-        // {
-        // if (genesListForReading[i].Active == true)
-        // {
-        // GeneExtension_General modExtension = genesListForReading[i].def.GetModExtension<GeneExtension_General>();
-        // if (modExtension != null)
-        // {
-        // if (modExtension.geneIsPowerSource)
-        // {
-        // return true;
-        // }
-        // }
-        // }
-        // }
-        // return false;
-        // }
 
         public static bool IsNotAcceptablePrey(Pawn pawn)
         {
@@ -313,30 +193,6 @@ namespace WVC_XenotypesAndGenes
             return false;
         }
 
-        // public static bool IsIncestLover(Pawn pawn)
-        // {
-        // if (pawn?.genes == null)
-        // {
-        // return false;
-        // }
-        // List<Gene> genesListForReading = pawn.genes.GenesListForReading;
-        // for (int i = 0; i < genesListForReading.Count; i++)
-        // {
-        // if (genesListForReading[i].Active == true)
-        // {
-        // GeneExtension_General modExtension = genesListForReading[i].def.GetModExtension<GeneExtension_General>();
-        // if (modExtension != null)
-        // {
-        // if (modExtension.geneIsIncestous)
-        // {
-        // return true;
-        // }
-        // }
-        // }
-        // }
-        // return false;
-        // }
-
         public static bool HasActiveGene(GeneDef geneDef, Pawn pawn)
         {
             if (geneDef == null)
@@ -354,111 +210,6 @@ namespace WVC_XenotypesAndGenes
             return false;
         }
 
-        // public static bool TryGetGeneFromPrecept(Pawn pawn, out GeneDef gene)
-        // {
-        // List<Precept> precept = pawn.ideo.Ideo.PreceptsListForReading;
-        // foreach (Precept item in precept)
-        // {
-        // GeneDef geneDef = null;
-        // ThoughtExtension_General extension = item.def.GetModExtension<ThoughtExtension_General>();
-        // if (extension != null)
-        // {
-        // geneDef = extension.geneDef;
-        // }
-        // gene = geneDef;
-        // return true;
-        // }
-        // gene = null;
-        // return false;
-        // }
-
-        // public static bool HasGeneWithTag(Pawn pawn)
-        // {
-        // List<Gene> genesListForReading = pawn.genes.GenesListForReading;
-        // for (int i = 0; i < genesListForReading.Count; i++)
-        // {
-        // if (genesListForReading[i].def.GetModExtension<GeneExtension_General>().geneIsMechaskin && genesListForReading[i].Active == true)
-        // {
-        // return true;
-        // }
-        // }
-        // return false;
-        // }
-
-        // public static bool PawnXenotypeIsModified(Pawn pawn)
-        // {
-        // if (pawn?.genes == null)
-        // {
-        // return true;
-        // }
-        // List<XenotypeDef> pawnXenotype = pawn.genes?.Xenotype;
-        // if (pawnXenotype == null)
-        // {
-        // return true;
-        // }
-        // XenotypeExtension_SubXenotype modExtension = pawnXenotype.GetModExtension<XenotypeExtension_SubXenotype>();
-        // if (modExtension == null)
-        // {
-        // return true;
-        // }
-        // List<GeneDef> pawnXenotypeGenes = pawnXenotype.genes;
-        // List<GeneDef> pawnGenes = pawn.genes?.GenesListForReading;
-        // for (int i = 0; i < pawnGenes.Count; i++)
-        // {
-        // if (pawnGenes[i].Contains(pawnXenotypeGenes))
-        // {
-        // return true;
-        // }
-        // }
-        // return false;
-        // }
-
-        // ===============================================================
-
-        // public static float Archites(Pawn pawn)
-        // {
-        // float num = 0f;
-        // foreach (Gene item in pawn.genes.GenesListForReading)
-        // {
-        // if (!item.Overridden)
-        // {
-        // num += item.def.biostatArc;
-        // }
-        // }
-        // return num;
-        // }
-
-        // public static bool GeneIsMechaskin(Pawn pawn)
-        // {
-        // return false;
-        // }
-
-        // public static float ArchitesOther(Pawn other)
-        // {
-        // float num = 0f;
-        // foreach (Gene item in other.genes.GenesListForReading)
-        // {
-        // if (!item.Overridden)
-        // {
-        // num += item.def.biostatArc;
-        // }
-        // }
-        // return num;
-        // }
-
-        // public static int SubCoreNetworkCompatiblePawn(Pawn pawn)
-        // {
-        // int num = 0;
-        // foreach (Pawn item in pawn.MapHeld.mapPawns.SpawnedPawnsInFaction(pawn.Faction))
-        // {
-        // if (item.genes.HasGene(WVC_GenesDefOf.WVC_MechaAI_Base) && (item.IsPrisonerOfColony || item.IsSlaveOfColony || item.IsColonist))
-        // {
-        // num++;
-        // }
-        // }
-        // return num;
-        // }
-
         // ===============================================================
 
         public static void ReimplantEndogerm(Pawn caster, Pawn recipient)
@@ -471,13 +222,6 @@ namespace WVC_XenotypesAndGenes
             ReimplanterUtility.ReimplantGenesBase(caster, recipient);
             GeneUtility.ExtractXenogerm(caster);
         }
-        // public static void ClearEndogenes()
-        // {
-        // for (int num = endogenes.Count - 1; num >= 0; num--)
-        // {
-        // Pawn_GeneTracker.RemoveGene(endogenes[num]);
-        // }
-        // }
 
         // ===============================================================
 

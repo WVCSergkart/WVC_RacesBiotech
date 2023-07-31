@@ -80,6 +80,7 @@
 		<li>WVC_GeneticStability</li>
 		<li>WVC_ResurgentCells_GeneticStability</li>
 		<li>WVC_Dustogenic_GeneticStability</li>
+		<li>WVC_Scarifier_GeneticStability</li>
 		<li MayRequire="vanillaracesexpanded.android">VREA_SyntheticBody</li>
 	</nonCandidatesForSerums>
 	<!-- Hediffs that prevent gene reimplantation. Needed as a measure of anti-bug. Any hediff defNames -->
