@@ -1,5 +1,6 @@
 using RimWorld;
 using RimWorld.QuestGen;
+using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 
@@ -15,12 +16,21 @@ namespace WVC_XenotypesAndGenes
         {
             base.Notify_PawnDied();
             // Gene_Dust gene_Dust = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
-            if (!Active || pawn.Faction != Faction.OfPlayer || pawn.ageTracker.AgeChronologicalYears < MinChronoAge)
+            if (CanReincarnate(pawn, this, MinChronoAge))
             {
                 return;
             }
             Reincarnate(pawn, SummonQuest);
         }
+
+		public static bool CanReincarnate(Pawn pawn, Gene gene, int minChronoAge)
+		{
+			if (gene.Active && pawn.Faction != null && pawn.Faction == Faction.OfPlayer && pawn.ageTracker.AgeChronologicalYears > minChronoAge)
+			{
+				return true;
+			}
+			return false;
+		}
 
         public static void Reincarnate(Pawn pawn, QuestScriptDef summonQuest)
         {
@@ -43,6 +53,11 @@ namespace WVC_XenotypesAndGenes
             _ = QuestUtility.GenerateQuestAndMakeAvailable(quest, slate);
             // QuestUtility.SendLetterQuestAvailable(quest);
         }
+
+		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
+		{
+			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate".Translate().CapitalizeFirst(), CanReincarnate(pawn, this, MinChronoAge).ToString(), "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate_Desc".Translate(), 1090);
+		}
 
     }
 }

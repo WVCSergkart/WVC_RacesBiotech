@@ -145,6 +145,11 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
+		{
+			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars".Translate().CapitalizeFirst(), cachedMaxScars.ToString(), "WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars_Desc".Translate(), 500);
+		}
+
 	}
 
 	// public class Gene_Scarifier_AdditionalScars : Gene

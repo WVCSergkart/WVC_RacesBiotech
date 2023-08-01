@@ -184,7 +184,7 @@ namespace WVC_XenotypesAndGenes
 
         public static bool TestXenotype_TestGene(GeneDef geneDef)
         {
-            if (!GeneIsRandom(geneDef) && !geneDef.defName.Contains("Skin_Melanin") && !geneDef.passOnDirectly)
+            if (!GeneIsRandom(geneDef) && !geneDef.defName.Contains("Skin_Melanin"))
             {
                 return true;
             }
@@ -219,6 +219,7 @@ namespace WVC_XenotypesAndGenes
                 // This can be unreliable in some cases, but specifically for Undead it works as it should.
                 if (TestXenotype_TestGene(geneDef))
                 {
+					// Log.Error("Xenotype contain " + geneDef);
                     pawnXenotypeGenes.Add(geneDef);
                 }
             }
@@ -227,11 +228,13 @@ namespace WVC_XenotypesAndGenes
             {
                 if (TestXenotype_TestGene(gene.def))
                 {
+					// Log.Error("Pawn contain " + gene.def);
                     pawnGenes.Add(gene);
                 }
             }
             for (int i = 0; i < pawnGenes.Count; i++)
             {
+				// Log.Error("Checked gene " + pawnGenes[i].def + " " + (i + 1) + "/" + pawnGenes.Count);
                 if (!pawnXenotypeGenes.Contains(pawnGenes[i].def))
                 {
                     // Log.Error("Pawn contain " + pawnGenes[i].def);

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using RimWorld;
 using Verse;
 // using Verse.AI;
@@ -35,76 +36,77 @@ namespace WVC_XenotypesAndGenes
         public override void Notify_PawnDied()
         {
             base.Notify_PawnDied();
-            if (!CanResurrect())
+            // if (!CanResurrect())
+            // {
+                // return;
+            // }
+            // bool canResurrectBasic = true;
+			if (DustogenicCanReincarnate())
+			{
+				Gene_DustReincarnation.Reincarnate(pawn, SummonQuest);
+				// canResurrectBasic = false;
+			}
+            if (PawnCanResurrect())
             {
-                return;
+				if (EnoughResurgentCells())
+				{
+					Gene_ResurgentCells.Value -= def.resourceLossPerDay;
+					UndeadUtility.Resurrect(pawn);
+					// canResurrectBasic = false;
+				}
+				else if (CorrectAge())
+				{
+					UndeadUtility.ResurrectWithPenalties(pawn, Limit, Penalty, ChildBackstoryDef, AdultBackstoryDef, penaltyYears);
+				}
             }
-            bool canResurrectBasic = true;
-            if (DustogenicCanReincarnate())
+        }
+
+        // public bool PawnCanResurrect()
+        // {
+            // if ((CanResurrect() && !DustogenicCanReincarnate()) || EnoughResurgentCells())
+            // {
+                // return true;
+            // }
+            // return false;
+        // }
+
+        //For checks
+        private bool GeneIsActive()
+        {
+            if (!Active || Overridden || (!pawn.IsColonist && !WVC_Biotech.settings.canNonPlayerPawnResurrect) || pawn.genes.HasGene(GeneDefOf.Deathless))
             {
-                Gene_DustReincarnation.Reincarnate(pawn, SummonQuest);
-                canResurrectBasic = false;
+                return false;
             }
-            if (EnoughResurgentCells())
-            {
-                Gene_ResurgentCells.Value -= def.resourceLossPerDay;
-                UndeadUtility.Resurrect(pawn);
-                canResurrectBasic = false;
-            }
-            if (CorrectAge() && canResurrectBasic)
-            {
-                UndeadUtility.ResurrectWithPenalties(pawn, Limit, Penalty, ChildBackstoryDef, AdultBackstoryDef, penaltyYears);
-            }
+            return true;
         }
 
         public bool PawnCanResurrect()
         {
-            if ((CanResurrect() && !DustogenicCanReincarnate()) || EnoughResurgentCells())
+            if (GeneIsActive())
             {
-                return true;
-            }
-            return false;
-        }
-
-        //For checks
-        private bool CanResurrect()
-        {
-            if (!Active || Overridden || pawn.genes.HasGene(GeneDefOf.Deathless) || (!pawn.IsColonist && !WVC_Biotech.settings.canNonPlayerPawnResurrect))
-            {
-                return false;
-            }
-            if (PawnHasAnyResourceGene())
-            {
-                return true;
-            }
-            else if (CorrectAge())
-            {
-                return true;
-            }
-            return false;
-        }
-
-        private bool PawnHasAnyResourceGene()
-        {
-            if (EnoughResurgentCells() || DustogenicCanReincarnate())
-            {
-                return true;
+				if (EnoughResurgentCells())
+				{
+					return true;
+				}
+				else if (CorrectAge())
+				{
+					return true;
+				}
             }
             return false;
         }
 
         private bool DustogenicCanReincarnate()
         {
-            if (Gene_Dust != null && pawn.ageTracker.AgeChronologicalYears > MinChronoAge)
+            if (Gene_Dust != null)
             {
-                return true;
+                return Gene_DustReincarnation.CanReincarnate(pawn, this, MinChronoAge);
             }
             return false;
         }
 
         private bool EnoughResurgentCells()
         {
-            // Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
             if (Gene_ResurgentCells != null)
             {
                 if ((Gene_ResurgentCells.Value - def.resourceLossPerDay) >= 0f)
@@ -115,17 +117,25 @@ namespace WVC_XenotypesAndGenes
             return false;
         }
 
-        private bool CorrectAge()
-        {
-            // int penalty = (int)(oneYear * penaltyYears);
-            // long limit = (long)(oneYear * minAge);
-            // float currentAge = pawn.ageTracker.AgeBiologicalTicks;
-            if ((CurrentAge - Penalty) > Limit)
-            {
-                return true;
-            }
-            return false;
-        }
+		private bool CorrectAge()
+		{
+			if (Gene_ResurgentCells != null || Gene_Dust != null)
+			{
+				return false;
+			}
+			if ((CurrentAge - Penalty) > Limit)
+			{
+				return true;
+			}
+			return false;
+		}
+
+		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
+		{
+			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_Gene_DisplayStats_Undead_CanResurrect".Translate().CapitalizeFirst(), PawnCanResurrect().ToString(), "WVC_XaG_Gene_DisplayStats_Undead_CanResurrect_Desc".Translate(), 1100);
+			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate".Translate().CapitalizeFirst(), DustogenicCanReincarnate().ToString(), "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate_Desc".Translate(), 1090);
+			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_Gene_DisplayStats_Undead_CanShapeshift".Translate().CapitalizeFirst(), SubXenotypeUtility.TestXenotype(pawn).ToString(), "WVC_XaG_Gene_DisplayStats_Undead_CanShapeshift_Desc".Translate(), 150);
+		}
 
     }
 
