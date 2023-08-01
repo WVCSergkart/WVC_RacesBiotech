@@ -35,6 +35,12 @@ A restart is required to apply the setting. Required new game!</WVC_ToolTip_disa
 Requires a restart, a new game and that the previous setting is enabled.</WVC_ToolTip_disableAllGraphic>
 
 	<!-- ====================================================================================== -->
+	<WVC_Label_disableUniqueGeneInterface>Disable unique gene interface</WVC_Label_disableUniqueGeneInterface>
+	<WVC_ToolTip_disableUniqueGeneInterface>Responsible for displaying the unique background and additional information of the gene.
+
+If enabled, then all genes of the mod will have a vanilla interface.</WVC_ToolTip_disableUniqueGeneInterface>
+
+	<!-- ====================================================================================== -->
 	<WVC_Label_enableGenesInfo>Enable genes info display (All)</WVC_Label_enableGenesInfo>
 	<WVC_Label_enableGeneSpawnerGizmo>Enable gene-spawner info</WVC_Label_enableGeneSpawnerGizmo>
 	<WVC_Label_enableGeneWingInfo>Enable gene-wing info</WVC_Label_enableGeneWingInfo>

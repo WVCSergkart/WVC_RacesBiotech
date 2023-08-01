@@ -8,15 +8,6 @@
 	<biostatCpx>3</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>-6</biostatMet>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
-		</li>
-	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDisableNeeds_Base" Name="WVC_XenotypesAndGenes_GeneDisableNeeds_Archite" Abstract="True">

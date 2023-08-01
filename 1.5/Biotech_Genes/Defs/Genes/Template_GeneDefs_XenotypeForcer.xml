@@ -13,20 +13,11 @@ Please note that if the xenotype is (non-)inherited and your geneset is also (no
 	<displayCategory>WVC_XenotypeForcerGenes</displayCategory>
 	<displayOrderInCategory>-500</displayOrderInCategory>
 	<customEffectDescriptions>
-	  <li>&lt;color=#ff8585&gt;Cannot spawn in genepacks.&lt;/color&gt;</li>
+	  <!-- <li>&lt;color=#ff8585&gt;Cannot spawn in genepacks.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
-		</li>
-	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneXenotypeForcer_Base">
@@ -66,7 +57,7 @@ Please note that if the xenotype is (non-)inherited and your geneset is also (no
 	<displayCategory>WVC_XenotypeForcerGenes</displayCategory>
 	<displayOrderOffset>100</displayOrderOffset>
 	<customEffectDescriptions>
-	  <li>&lt;color=#ff8585&gt;Cannot spawn in genepacks.&lt;/color&gt;</li>
+	  <!-- <li>&lt;color=#ff8585&gt;Cannot spawn in genepacks.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<!-- <biostatCpx>0</biostatCpx> -->
 	<!-- <biostatMet>0</biostatMet> -->
@@ -77,15 +68,6 @@ Please note that if the xenotype is (non-)inherited and your geneset is also (no
 	  <!-- For xenotypes -->
 	  <!-- <li>WVC_XenotypesAndGenes_XenotypeTemplateCollection_Xeno</li> -->
 	</exclusionTags>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
-		</li>
-	</modExtensions>
   </WVC_XenotypesAndGenes.XenotypeForcerGeneTemplateDef>
 
   <!-- Base -->

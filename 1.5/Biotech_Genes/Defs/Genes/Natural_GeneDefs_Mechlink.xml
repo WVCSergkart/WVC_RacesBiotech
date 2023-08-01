@@ -37,13 +37,6 @@
 	  <li>WVC_GeneMechlink</li>
 	</exclusionTags>
 	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
-		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>MechlinkImplant</hediffDefName>
 			<bodyparts>

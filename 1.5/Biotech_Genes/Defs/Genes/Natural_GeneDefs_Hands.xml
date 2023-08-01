@@ -8,15 +8,6 @@
 	<selectionWeight>0.022</selectionWeight>
 	<!-- <displayCategory>Miscellaneous</displayCategory> -->
 	<displayOrderInCategory>300.0001001</displayOrderInCategory>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
-		</li>
-	</modExtensions>
   </GeneDef>
 
   <!-- ============================= -->
@@ -170,9 +161,6 @@
 				</li>
 			</hediffsToBodyParts>
 		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
-		</li>
 	</modExtensions>
   </GeneDef>
 
@@ -188,8 +176,6 @@
 	<biostatMet>-3</biostatMet>
 	<modExtensions Inherit="False">
 		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
 			<hediffsToBodyParts>
 				<li>
 					<hediff>WVC_RB_NaturalClaws</hediff>

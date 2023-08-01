@@ -9,15 +9,6 @@
 	<displayOrderInCategory>1275</displayOrderInCategory>
 	<biostatArc>0</biostatArc>
 	<iconColor>(255, 255, 255)</iconColor>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
-		</li>
-	</modExtensions>
   </GeneDef>
 
   <!-- ================================================================== -->

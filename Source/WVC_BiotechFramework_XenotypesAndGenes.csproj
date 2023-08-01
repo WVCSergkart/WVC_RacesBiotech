@@ -87,6 +87,9 @@
     <Compile Include="Resources_Genes\Gene_ScarifierClotting.cs" />
     <Compile Include="Resources_Genes\Gene_Wings.cs" />
     <Compile Include="Resources_Genes\Gene_XenotypeMutator.cs" />
+    <Compile Include="Resources_Harmony\Harmony.cs" />
+    <Compile Include="Resources_Harmony\Harmony_Background_New.cs" />
+    <Compile Include="Resources_Harmony\Harmony_DisablePawnRelations.cs" />
     <Compile Include="Resources_Harmony\Harmony_ShouldSendNotificationAbout_Patch.cs" />
     <Compile Include="Resources_Harmony\Harmony_XenotypeName_Patch.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_PawnHaveWings.cs" />
@@ -100,6 +103,7 @@
     <Compile Include="Resources_Utility\AgelessUtility.cs" />
     <Compile Include="Resources_Utility\DustUtility.cs" />
     <Compile Include="Resources_Main\JobGiver_WanderNearTarget.cs" />
+    <Compile Include="Resources_Utility\GeneUiUtility.cs" />
     <Compile Include="Resources_Utility\ReimplanterUtility.cs" />
     <Compile Include="Resources_Things\CompProperties_InitialHediff.cs" />
     <Compile Include="Resources_Things\CompProperties_RandomName.cs" />
@@ -161,7 +165,6 @@
     <Compile Include="Resources_Abilities\QuestNode_Root_MechanitorSummonMech.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_BattleIsStarted.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_Genes.cs" />
-    <Compile Include="Resources_Harmony\Harmony_Patch.cs" />
     <Compile Include="Resources_Main\ModSettings.cs" />
     <Compile Include="Resources_StatPart\RoleRequirement_Mechanitor.cs" />
     <Compile Include="Resources_StatPart\StatPart_FactorForUniqueKind.cs" />

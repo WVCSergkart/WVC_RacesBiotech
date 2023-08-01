@@ -193,8 +193,6 @@
 	</exclusionTags>
 	<modExtensions Inherit="False">
 		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
 			<!-- blood -->
 			<customBloodThingDef>WVC_ResurgentBlood</customBloodThingDef>
 			<customBloodIcon>WVC/UI/BloodIcon/Gene_ResurgentBloodIcon_v0</customBloodIcon>

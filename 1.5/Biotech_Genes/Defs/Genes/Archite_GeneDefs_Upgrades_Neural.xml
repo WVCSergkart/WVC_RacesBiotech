@@ -204,12 +204,6 @@
 	</capMods>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>3</biostatMet>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-	</modExtensions>
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">

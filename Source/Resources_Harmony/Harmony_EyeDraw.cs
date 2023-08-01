@@ -16,6 +16,7 @@ namespace WVC_XenotypesAndGenes
         [HarmonyPatch]
         public static class DrawGeneEyes_Patch
         {
+
             public static MethodBase TargetMethod()
             {
                 Type[] nestedTypes = typeof(PawnRenderer).GetNestedTypes(AccessTools.all);
@@ -141,35 +142,61 @@ namespace WVC_XenotypesAndGenes
                 }
             }
 
+            // public static float SetEyeScale(Pawn pawn, float scale)
+            // {
+                // foreach (Gene item in pawn.genes.GenesListForReading.Where((Gene x) => x.Active))
+                // {
+                    // if (item.Active)
+                    // {
+                        // GeneExtension_General modExtension = item.def.GetModExtension<GeneExtension_General>();
+                        // if (modExtension != null && modExtension.eyesShouldBeInvisble)
+                        // {
+                            // scale *= 0;
+                        // }
+                    // }
+                // }
+                // return scale;
+            // }
+
+            // public static Vector3 ChangeOffset(Vector3 offset, Pawn pawn)
+            // {
+                // foreach (Gene item in pawn.genes.GenesListForReading.Where((Gene x) => x.Active))
+                // {
+                    // if (item.Active)
+                    // {
+                        // GeneExtension_General modExtension = item.def.GetModExtension<GeneExtension_General>();
+                        // if (modExtension != null && modExtension.eyesShouldBeInvisble)
+                        // {
+                            // offset *= 0;
+                        // }
+                    // }
+                // }
+                // return offset;
+            // }
+
             public static float SetEyeScale(Pawn pawn, float scale)
             {
-                foreach (Gene item in pawn.genes.GenesListForReading.Where((Gene x) => x.Active))
-                {
-                    if (item.Active)
-                    {
-                        GeneExtension_General modExtension = item.def.GetModExtension<GeneExtension_General>();
-                        if (modExtension != null && modExtension.eyesShouldBeInvisble)
-                        {
-                            scale *= 0;
-                        }
-                    }
-                }
+				if (MechanoidizationUtility.EyesShouldBeInvisble(pawn))
+				{
+					scale *= 0;
+				}
+				// if (pawn.story.headType.defName.Contains("WVC_Faceless"))
+				// {
+					// scale *= 0;
+				// }
                 return scale;
             }
 
             public static Vector3 ChangeOffset(Vector3 offset, Pawn pawn)
             {
-                foreach (Gene item in pawn.genes.GenesListForReading.Where((Gene x) => x.Active))
-                {
-                    if (item.Active)
-                    {
-                        GeneExtension_General modExtension = item.def.GetModExtension<GeneExtension_General>();
-                        if (modExtension != null && modExtension.eyesShouldBeInvisble)
-                        {
-                            offset *= 0;
-                        }
-                    }
-                }
+				if (MechanoidizationUtility.EyesShouldBeInvisble(pawn))
+				{
+					offset *= 0;
+				}
+				// if (pawn.story.headType.defName.Contains("WVC_Faceless"))
+				// {
+					// offset *= 0;
+				// }
                 return offset;
             }
         }

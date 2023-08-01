@@ -22,12 +22,6 @@
 	<exclusionTags>
 	  <li>WVC_PsychicSunSensitivity</li>
 	</exclusionTags>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_PsychicSunSensitivityBase">
@@ -107,12 +101,6 @@
 		<li><symbol>darkn</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_SunPhobiaSensitivity_Base">
@@ -270,12 +258,6 @@
 		<li><symbol>sunlight-</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="GeneBeautyBase">
@@ -307,12 +289,6 @@
 		<li><symbol>moonlight-</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-	</modExtensions>
   </GeneDef>
 
 </Defs>

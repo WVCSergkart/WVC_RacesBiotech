@@ -40,8 +40,6 @@
 	<!-- = -->
 	<modExtensions Inherit="False">
 		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
 			<furHidesBody>True</furHidesBody>
 			<useSkinColorForFur>True</useSkinColorForFur>
 			<!-- <customWoundsFromFleshtype>Mechanoid</customWoundsFromFleshtype> -->
@@ -62,9 +60,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_RuneSkin</defName>
 	<label>runeskin</label>
-	<description>The body of carriers of this gene is covered with birthmarks resembling scars, these spots are hard to the touch and a bit like a stone.
-
-&lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
+	<description>The body of carriers of this gene is covered with birthmarks resembling scars, these spots are hard to the touch and a bit like a stone.</description>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>-1</biostatMet>
 	<!-- <iconColor>(0.75, 0.75, 0.75)</iconColor> -->
@@ -106,9 +102,7 @@
 	<defName>WVC_StoneSkin</defName>
 	<label>stoneskin</label>
 	<labelShortAdj>stoneskin</labelShortAdj>
-	<description>The body of carriers of this gene is all covered with stone-like growths.
-
-&lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
+	<description>The body of carriers of this gene is all covered with stone-like growths.</description>
 	<biostatCpx>4</biostatCpx>
 	<biostatMet>-3</biostatMet>
 	<!-- <biostatArc>1</biostatArc> -->
@@ -155,9 +149,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_PatchSkin</defName>
 	<label>patchskin</label>
-	<description>Carriers of this gene have unevenly developed skin. Some areas are younger, some noticeably older, which makes it feel like patches sewn together.
-
-&lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
+	<description>Carriers of this gene have unevenly developed skin. Some areas are younger, some noticeably older, which makes it feel like patches sewn together.</description>
 	<iconPath>WVC/UI/Genes/Gene_FurskinA_v0</iconPath>
 	<!-- <iconColor>(93, 101, 126)</iconColor> -->
 	<forcedHeadTypes>
@@ -187,9 +179,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_FeatherSkin</defName>
 	<label>featherskin</label>
-	<description>Carriers of this gene grow feathers on some parts of the body.
-
-&lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
+	<description>Carriers of this gene grow feathers on some parts of the body.</description>
 	<iconPath>WVC/UI/Genes/Gene_FurskinB_v0</iconPath>
 	<!-- <iconColor>(255, 255, 255)</iconColor> -->
 	<forcedHeadTypes>

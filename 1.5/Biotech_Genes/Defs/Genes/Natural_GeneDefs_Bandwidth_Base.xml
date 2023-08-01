@@ -23,12 +23,6 @@
 	<exclusionTags>
 	  <li>WVC_MechanitorGenes</li>
 	</exclusionTags>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_MechBandwidthBase">

@@ -16,7 +16,7 @@
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<customEffectDescriptions>
 		<li>Eyes have no outline.</li>
-		<li>&lt;color=#ff8585&gt;Cannot spawn in genepacks.&lt;/color&gt;</li>
+		<!-- <li>&lt;color=#ff8585&gt;Cannot spawn in genepacks.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<graphicData>
 	  <drawScale>0.28</drawScale>
@@ -26,12 +26,6 @@
 	<exclusionTags>
 		<li>AG_OnlyOnCharacterCreation_WVC_EyesColor</li>
 	</exclusionTags>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-	</modExtensions>
   </GeneDef>
 
   <!-- ============================ -->

@@ -161,15 +161,26 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        public static bool GeneIsRandom(GeneDef gene)
-        {
-            if (gene.geneClass == typeof(Gene_Shuffle) || gene.geneClass == typeof(Gene_Randomizer) || gene.geneClass == typeof(Gene_FacelessShuffle) || gene.geneClass == typeof(Gene_XenotypeShapeshifter))
-            {
-                return true;
-            }
-            return false;
-        }
+		// Random genes
+		public static bool GeneIsRandom(GeneDef gene)
+		{
+			if (gene.geneClass == typeof(Gene_Randomizer) || gene.geneClass == typeof(Gene_XenotypeShapeshifter) || GeneIsShuffle(gene))
+			{
+				return true;
+			}
+			return false;
+		}
 
+		public static bool GeneIsShuffle(GeneDef gene)
+		{
+			if (gene.geneClass == typeof(Gene_Shuffle) || gene.geneClass == typeof(Gene_FacelessShuffle))
+			{
+				return true;
+			}
+			return false;
+		}
+
+		// Remove genes
         public static void RemoveRandomGenes(Pawn pawn)
         {
             List<Gene> genesListForReading = pawn.genes.GenesListForReading;

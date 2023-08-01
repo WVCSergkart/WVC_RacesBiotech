@@ -12,17 +12,12 @@
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>0</biostatMet>
-	<customEffectDescriptions>
-		<li>Has a 20% chance of being replaced by any other gene of the same type. The effect is triggered when a gene is transferred/reimplanted/added.</li>
-	</customEffectDescriptions>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Has a 20% chance of being replaced by any other gene of the same type. The effect is triggered when a gene is transferred/reimplanted/added.</li> -->
+	<!-- </customEffectDescriptions> -->
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
 			<hideGene>true</hideGene>
-		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -39,15 +34,6 @@
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>Replaced with one random gene from its series.</li> -->
 	<!-- </customEffectDescriptions> -->
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
-		</li>
-	</modExtensions>
   </GeneDef>
 
   <!-- ============================= -->

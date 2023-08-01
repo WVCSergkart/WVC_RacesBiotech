@@ -14,8 +14,6 @@
 			<li>BodySize</li>
 			<li>AG_BodySize</li>
 		</exclusionTags>
-		<modExtensions>
-		</modExtensions>
 	</GeneDef>
 
 	<GeneDef ParentName="WVC_BodySize_Base">
@@ -53,8 +51,6 @@
 		</symbolPack>
 		<modExtensions>
 			<li Class="VanillaGenesExpanded.GeneExtension">
-				<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-				<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
 				<bodyScaleFactor>(0.9, 0.9)</bodyScaleFactor>
 				<headScaleFactor>(0.9, 0.9)</headScaleFactor>
 			</li>
@@ -72,12 +68,6 @@
 		<customEffectDescriptions>
 			<li>Returns the normal pawn size.</li>
 		</customEffectDescriptions>
-		<modExtensions>
-			<li Class="VanillaGenesExpanded.GeneExtension">
-				<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-				<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-			</li>
-		</modExtensions>
 	</GeneDef>
 
 	<GeneDef ParentName="WVC_BodySize_Base">
@@ -114,8 +104,6 @@
 		</symbolPack>
 		<modExtensions>
 			<li Class="VanillaGenesExpanded.GeneExtension">
-				<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-				<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
 				<bodyScaleFactor>(1.1, 1.1)</bodyScaleFactor>
 				<headScaleFactor>(1.1, 1.1)</headScaleFactor>
 			</li>

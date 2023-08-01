@@ -9,15 +9,6 @@
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>-6</biostatMet>
 	<biostatArc>0</biostatArc>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
-		</li>
-	</modExtensions>
   </WVC_XenotypesAndGenes.InheritableImmuneGeneTemplateDef>
 
   <WVC_XenotypesAndGenes.InheritableImmuneGeneTemplateDef ParentName="WVC_XenotypesAndGenes_GeneInheritableImmune_Base" Name="WVC_XenotypesAndGenes_GeneInheritableImmune_ResurgentHealth" Abstract="True">

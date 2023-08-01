@@ -70,12 +70,6 @@
 	<statFactors>
 	  <Fertility>0.1</Fertility>
 	</statFactors>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-	</modExtensions>
   </GeneDef>
 
   <!-- ============== -->
@@ -95,12 +89,6 @@
 	<!-- <biostatMet>1</biostatMet> -->
 	<lovinMTBFactor>7</lovinMTBFactor>
 	<selectionWeight>0.002</selectionWeight>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-	</modExtensions>
   </GeneDef>
 
   <!-- ============== -->
@@ -156,12 +144,6 @@
 	  <CancerRate>7</CancerRate>
 	  <ImmunityGainSpeed>0.88</ImmunityGainSpeed>
 	</statFactors>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-	</modExtensions>
   </GeneDef>
 
 </Defs>

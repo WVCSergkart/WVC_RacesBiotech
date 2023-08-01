@@ -11,15 +11,6 @@
 	<iconColor>(255, 255, 255)</iconColor>
 	<!-- <iconColor>(175, 175, 100)</iconColor> -->
 	<!-- <iconColor>(249, 241, 148)</iconColor> -->
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
-		</li>
-	</modExtensions>
   </GeneDef>
 
   <!-- ================================================================== -->

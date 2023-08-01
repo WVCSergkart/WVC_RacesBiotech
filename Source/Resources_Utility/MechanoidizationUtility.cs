@@ -210,6 +210,34 @@ namespace WVC_XenotypesAndGenes
             return false;
         }
 
+        public static bool EyesShouldBeInvisble(Pawn pawn)
+        {
+            if (pawn?.genes == null || pawn?.story == null || pawn?.story?.headType == null)
+            {
+                return false;
+            }
+            if (pawn.story.headType.defName.Contains("WVC_Faceless"))
+            {
+                return true;
+            }
+            // List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+            // for (int i = 0; i < genesListForReading.Count; i++)
+            // {
+                // if (genesListForReading[i].Active == true)
+                // {
+					// GeneExtension_General modExtension = genesListForReading[i].def.GetModExtension<GeneExtension_General>();
+					// if (modExtension != null)
+					// {
+						// if (modExtension.eyesShouldBeInvisble)
+						// {
+							// return true;
+						// }
+					// }
+                // }
+            // }
+            return false;
+        }
+
         // ===============================================================
 
         public static void ReimplantEndogerm(Pawn caster, Pawn recipient)

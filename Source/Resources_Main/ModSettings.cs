@@ -7,11 +7,13 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
+
     public class WVC_BiotechSettings : ModSettings
     {
         // Graphic
         public bool disableFurGraphic = false;
         public bool disableAllGraphic = false;
+        public bool disableUniqueGeneInterface = false;
         // Genes
         public bool generateSkillGenes = true;
         public bool generateXenotypeForceGenes = true;
@@ -44,6 +46,7 @@ namespace WVC_XenotypesAndGenes
 			// Graphic
 			Scribe_Values.Look(ref disableFurGraphic, "disableFurGraphic", defaultValue: false);
 			Scribe_Values.Look(ref disableAllGraphic, "disableAllGraphic", defaultValue: false);
+			Scribe_Values.Look(ref disableUniqueGeneInterface, "disableUniqueGeneInterface", defaultValue: false);
 			// Genes
 			Scribe_Values.Look(ref generateSkillGenes, "generateSkillGenes", defaultValue: true);
 			Scribe_Values.Look(ref generateXenotypeForceGenes, "generateXenotypeForceGenes", defaultValue: true);
@@ -132,6 +135,7 @@ namespace WVC_XenotypesAndGenes
             listingStandard.Label("WVC_BiotechSettings_Label_Graphics".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Graphics".Translate());
             listingStandard.CheckboxLabeled("WVC_Label_disableFurGraphic".Translate(), ref settings.disableFurGraphic, "WVC_ToolTip_disableFurGraphic".Translate());
             listingStandard.CheckboxLabeled("WVC_Label_disableAllGraphic".Translate(), ref settings.disableAllGraphic, "WVC_ToolTip_disableAllGraphic".Translate());
+            listingStandard.CheckboxLabeled("WVC_Label_disableUniqueGeneInterface".Translate(), ref settings.disableUniqueGeneInterface, "WVC_ToolTip_disableUniqueGeneInterface".Translate());
             // ===============
             listingStandard.Gap();
             listingStandard.Label("WVC_BiotechSettings_Label_Info".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Info".Translate());

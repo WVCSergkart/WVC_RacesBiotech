@@ -6,12 +6,6 @@
 	<displayOrderInCategory>1200</displayOrderInCategory>
 	<randomBrightnessFactor>0</randomBrightnessFactor>
 	<selectionWeight>0.005</selectionWeight>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-	</modExtensions>
   </GeneDef>
 
   <!-- <GeneDef ParentName="WVC_GeneSkinColorOverride"> -->
@@ -140,12 +134,6 @@
 	<randomBrightnessFactor>0</randomBrightnessFactor>
 	<selectionWeight>0.002</selectionWeight>
 	<canGenerateInGeneSet>true</canGenerateInGeneSet>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_GeneHairColorBase">

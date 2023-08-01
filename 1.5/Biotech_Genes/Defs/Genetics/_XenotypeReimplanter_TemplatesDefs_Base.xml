@@ -216,11 +216,11 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 		<li><symbol>serum</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Background"> -->
+			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </WVC_XenotypesAndGenes.SerumGeneTemplateDef>
 
   <!-- Auto Generated Serum -->

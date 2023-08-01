@@ -4,9 +4,9 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_Archites" Name="WVC_XenotypesAndGenes_EncodeBuffRandomGiver" Abstract="True">
 	<geneClass>WVC_XenotypesAndGenes.Gene_Randomizer</geneClass>
 	<description>Carriers of this gene have archites that formed special neural connections in the brain and improved the carrier's nervous system pointwise.</description>
-	<customEffectDescriptions>
-		<li>Replaced with one random gene from its series.</li>
-	</customEffectDescriptions>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Replaced with one random gene from its series.</li> -->
+	<!-- </customEffectDescriptions> -->
 	<iconPath>WVC/UI/Genes/Gene_RandomBuff_v0</iconPath>
 	<displayOrderInCategory>-1900</displayOrderInCategory>
 	<!-- <randomChosen>true</randomChosen> -->
@@ -193,9 +193,9 @@
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>0</biostatMet>
-	<customEffectDescriptions>
-		<li>Has a 20% chance of being replaced by any other gene of the same type. The effect is triggered when a gene is transferred/reimplanted/added.</li>
-	</customEffectDescriptions>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Has a 20% chance of being replaced by any other gene of the same type. The effect is triggered when a gene is transferred/reimplanted/added.</li> -->
+	<!-- </customEffectDescriptions> -->
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>&lt;color=#ff8585&gt;Activation of the gene requires either the "mecha-subcore" gene or any of the mechaskins.&lt;/color&gt;</li> -->
 	<!-- </customEffectDescriptions> -->
@@ -212,8 +212,6 @@
 	</symbolPack>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
 			<hideGene>true</hideGene>
 		</li>
 	</modExtensions>
