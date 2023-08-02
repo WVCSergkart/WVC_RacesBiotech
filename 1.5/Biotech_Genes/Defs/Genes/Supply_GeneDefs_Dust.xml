@@ -44,7 +44,8 @@
 	<customEffectDescriptions>
 	  <li>Gives dust supply.</li>
 	  <li>Refresh time (*DateTime)~1 day(/DateTime).</li>
-	  <!-- <li>In the presence of the &lt;color=#8a8ae6&gt;"Undead"&lt;/color&gt; gene, it gives the effect of &lt;color=#8a8ae6&gt;reincarnation&lt;/color&gt;.</li> -->
+	  <li>In the presence of the &lt;color=#8a8ae6&gt;"Undead"&lt;/color&gt; gene, it gives the effect of &lt;color=#8a8ae6&gt;reincarnation&lt;/color&gt;.</li>
+	  <li>&lt;color=#8a8ae6&gt;Reincarnation&lt;/color&gt; - In case of death, a pawn will be summoned, which is a descendant of the deceased. The effect will not work if the chronological age of the pawn is less than 40.</li>
 	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>

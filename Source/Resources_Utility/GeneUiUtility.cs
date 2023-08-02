@@ -18,7 +18,7 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public static string AdditionalInfo(GeneDef def)
+		public static string AdditionalInfo_GeneDef(GeneDef def)
 		{
 			string text = "";
 			if (def.graphicData != null && def.graphicData.fur != null)
@@ -30,6 +30,10 @@ namespace WVC_XenotypesAndGenes
 				}
 				// text += ".".Colorize(ColoredText.TipSectionTitleColor);
 				text += "\n\n" + "WVC_XaG_NewBack_GeneIsFurskin_CanBeDisabled".Translate().Colorize(ColoredText.SubtleGrayColor);
+			}
+			if (def.geneClass == typeof(Gene_Undead))
+			{
+				text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive_Undead".Translate().Colorize(ColoredText.SubtleGrayColor);
 			}
 			if (SubXenotypeUtility.GeneIsRandom(def))
 			{
@@ -44,7 +48,18 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (def.selectionWeight == 0 && !def.canGenerateInGeneSet)
 			{
-				text += "\n\n" + "WVC_XaG_NewBack_GeneCannotSpawnInGenepacks".Translate().Colorize(ColorLibrary.RedReadable);
+				text += "\n\n" + "WVC_XaG_NewBack_GeneCannotSpawnInGenepacks".Translate().Colorize(ColoredText.SubtleGrayColor);
+			}
+			return text;
+		}
+
+		public static string AdditionalInfo_Gene(Gene gene)
+		{
+			string text = "";
+			if (gene.def.geneClass == typeof(Gene_Scarifier))
+			{
+				Gene_Scarifier scarifier = (Gene_Scarifier)gene;
+				text += "\n\n" + ("WVC_XaG_NewBack_GeneIsScarifier".Translate() + ": " + scarifier.cachedMaxScars.ToString()).Colorize(ColoredText.SubtleGrayColor);
 			}
 			return text;
 		}

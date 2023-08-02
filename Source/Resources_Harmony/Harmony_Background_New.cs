@@ -28,7 +28,8 @@ namespace WVC_XenotypesAndGenes
 					if (Mouse.IsOver(geneRect))
 					{
 						string text = gene.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + gene.def.DescriptionFull;
-						text += GeneUiUtility.AdditionalInfo(gene.def);
+						text += GeneUiUtility.AdditionalInfo_Gene(gene);
+						text += GeneUiUtility.AdditionalInfo_GeneDef(gene.def);
 						if (gene.Overridden)
 						{
 							text += "\n\n";
@@ -36,7 +37,18 @@ namespace WVC_XenotypesAndGenes
 						}
 						else if (!gene.Active)
 						{
-							text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive".Translate().Colorize(ColorLibrary.RedReadable);
+							if (gene.def.geneClass == typeof(Gene_Faceless) || gene.def.geneClass == typeof(Gene_FacelessShuffle))
+							{
+								text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive_WrongFace".Translate().Colorize(ColorLibrary.RedReadable);
+							}
+							// else if (gene.def.geneClass == typeof(Gene_Undead))
+							// {
+								// text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive_Undead".Translate().Colorize(ColoredText.SubtleGrayColor);
+							// }
+							else
+							{
+								text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive".Translate().Colorize(ColorLibrary.RedReadable);
+							}
 						}
 						if (clickable)
 						{
@@ -63,7 +75,7 @@ namespace WVC_XenotypesAndGenes
 					if (Mouse.IsOver(geneRect))
 					{
 						string text = gene.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + gene.DescriptionFull;
-						text += GeneUiUtility.AdditionalInfo(gene);
+						text += GeneUiUtility.AdditionalInfo_GeneDef(gene);
 						if (extraTooltip != null)
 						{
 							string text2 = extraTooltip();

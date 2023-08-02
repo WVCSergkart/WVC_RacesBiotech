@@ -220,21 +220,6 @@ namespace WVC_XenotypesAndGenes
             {
                 return true;
             }
-            // List<Gene> genesListForReading = pawn.genes.GenesListForReading;
-            // for (int i = 0; i < genesListForReading.Count; i++)
-            // {
-                // if (genesListForReading[i].Active == true)
-                // {
-					// GeneExtension_General modExtension = genesListForReading[i].def.GetModExtension<GeneExtension_General>();
-					// if (modExtension != null)
-					// {
-						// if (modExtension.eyesShouldBeInvisble)
-						// {
-							// return true;
-						// }
-					// }
-                // }
-            // }
             return false;
         }
 

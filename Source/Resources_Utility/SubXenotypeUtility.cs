@@ -207,7 +207,7 @@ namespace WVC_XenotypesAndGenes
         {
             Pawn_GeneTracker genes = pawn?.genes;
             // Skip if xenotype is UniqueXenotype
-            if (genes == null || genes.UniqueXenotype)
+            if (genes == null || genes.UniqueXenotype || genes.iconDef != null)
             {
                 return false;
             }

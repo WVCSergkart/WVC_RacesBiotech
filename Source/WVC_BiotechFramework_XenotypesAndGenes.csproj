@@ -150,7 +150,6 @@
     <Compile Include="Resources_Main\XenotypesModSettings.cs" />
     <Compile Include="Resources_StatPart\StatPart_FactorForGolems.cs" />
     <Compile Include="Resources_Harmony\Harmony_DefGenerator_Serums.cs" />
-    <Compile Include="Resources_Harmony\Harmony_EyeDraw.cs" />
     <Compile Include="Resources_Harmony\Harmony_GeneDefGenerator.cs" />
     <Compile Include="Resources_Harmony\Harmony_PredatorPrey.cs" />
     <Compile Include="Resources_Harmony\Harmony_SkillDecay_Patch.cs" />

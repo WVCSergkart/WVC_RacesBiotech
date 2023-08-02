@@ -28,6 +28,7 @@
 	<displayOrderInCategory>1230</displayOrderInCategory>
 	<customEffectDescriptions>
 	  <li>Gives resurgent supply.</li>
+	  <li>In the presence of the &lt;color=#8a8ae6&gt;"Undead"&lt;/color&gt; gene, this gene changes the resurrection mechanics. Instead of age, resurgent cells will be spent. Requires &lt;color=#8a8ae6&gt;37 resurgent cells&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>

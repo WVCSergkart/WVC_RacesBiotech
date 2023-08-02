@@ -25,6 +25,7 @@ namespace WVC_XenotypesAndGenes
 
         public Gene_ResurgentCells Gene_ResurgentCells => pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
         public Gene_Dust Gene_Dust => pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
+        public Gene_Scarifier Gene_Scarifier => pawn.genes?.GetFirstGeneOfType<Gene_Scarifier>();
 
         // public Gene_DustReincarnation gene_DustReincarnation;
         public QuestScriptDef SummonQuest => def.GetModExtension<GeneExtension_Spawner>().summonQuest;
@@ -119,7 +120,7 @@ namespace WVC_XenotypesAndGenes
 
 		private bool CorrectAge()
 		{
-			if (Gene_ResurgentCells != null || Gene_Dust != null)
+			if (Gene_ResurgentCells != null || Gene_Dust != null || Gene_Scarifier != null)
 			{
 				return false;
 			}

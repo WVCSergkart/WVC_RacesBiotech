@@ -4,8 +4,8 @@
   <!-- = -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeSkin</defName>
-	<label>faceless</label>
-	<labelShortAdj>faceless</labelShortAdj>
+	<label>eyeless</label>
+	<!-- <labelShortAdj>eyeless</labelShortAdj> -->
 	<description>Carriers of this gene have a translucent organic plate on their face. This plate closes the eyes but does not interfere with vision at all.</description>
 	<iconPath>WVC/UI/Genes/Gene_FurskinG_v0</iconPath>
 	<biostatCpx>2</biostatCpx>
@@ -14,9 +14,9 @@
 	<missingGeneRomanceChanceFactor>0.5</missingGeneRomanceChanceFactor>
 	<!-- <displayCategory>WVC_Cosmetic</displayCategory> -->
 	<!-- <displayOrderInCategory>3</displayOrderInCategory> -->
-	<customEffectDescriptions>
-		<li>Disables the display of eyes and their graphics.</li>
-	</customEffectDescriptions>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Disables the display of eyes and their graphics.</li> -->
+	<!-- </customEffectDescriptions> -->
 	<forcedHeadTypes>
 	  <li>WVC_Faceless_NodeSkin</li>
 	</forcedHeadTypes>
@@ -56,17 +56,17 @@
 	<exclusionTags>
 	  <li>Jaw</li>
 	</exclusionTags>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
-			<!-- <geneIsMechaskin>true</geneIsMechaskin> -->
-			<eyesShouldBeInvisble>true</eyesShouldBeInvisble>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <eyesShouldBeInvisble>true</eyesShouldBeInvisble> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <!-- ============================================= -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_Archites" Name="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" Abstract="True" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+   <!-- ParentName="GeneEyeColor" -->
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" Abstract="True" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<!-- <defName>WVC_FacePlate</defName> -->
 	<label>faceplate</label>
 	<labelShortAdj>faceplate</labelShortAdj>
@@ -106,6 +106,7 @@
 		<!-- <li>WVC/Heads/NodeGene_Head/HeadBlue_A</li> -->
 		<!-- <li>WVC/Heads/NodeGene_Head/HeadYellow_A</li> -->
 	  </graphicPaths>
+	  <!-- <drawScale>0.42</drawScale> -->
 	  <!-- <colorType>Skin</colorType> -->
 	  <colorType>Custom</colorType>
 	  <color>(255, 255, 255)</color>
@@ -148,9 +149,9 @@
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<!-- <hideGene>true</hideGene> -->
 		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
-			<eyesShouldBeInvisble>true</eyesShouldBeInvisble>
-		</li>
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <eyesShouldBeInvisble>true</eyesShouldBeInvisble> -->
+		<!-- </li> -->
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<!-- Any HeadTypes -->
 			<headTypeDefs>

@@ -19,14 +19,23 @@
 	<WVC_PawnIsAndroidCheck>The target must be human and/or genetically compatible.</WVC_PawnIsAndroidCheck>
 	
 	<WVC_AbilityValidation_ReimplantationCheck>Reimplantation in progress. Wait for the process to finish before starting another one.</WVC_AbilityValidation_ReimplantationCheck>
-	
-	<WVC_XaG_NewBack_GeneIsNotActive>Deactive.</WVC_XaG_NewBack_GeneIsNotActive>
+
+	<!-- Red -->
+	<WVC_XaG_NewBack_GeneIsNotActive>Gene is not active</WVC_XaG_NewBack_GeneIsNotActive>
+	<WVC_XaG_NewBack_GeneIsNotActive_WrongFace>Faceplate removed by augmentation or loss of eye</WVC_XaG_NewBack_GeneIsNotActive_WrongFace>
+	<!-- Yellow -->
 	<WVC_XaG_NewBack_GeneIsFurskin>Overrides body</WVC_XaG_NewBack_GeneIsFurskin>
 	<WVC_XaG_NewBack_GeneIsFurskin_HeadOverride>and head</WVC_XaG_NewBack_GeneIsFurskin_HeadOverride>
-	<WVC_XaG_NewBack_GeneCannotSpawnInGenepacks>Cannot spawn in genepacks</WVC_XaG_NewBack_GeneCannotSpawnInGenepacks>
-	<WVC_XaG_NewBack_GeneIsFurskin_CanBeDisabled>Graphics can be disabled in the settings</WVC_XaG_NewBack_GeneIsFurskin_CanBeDisabled>
-	<WVC_XaG_NewBack_GeneIsRandom>This gene will be replaced by another gene</WVC_XaG_NewBack_GeneIsRandom>
-	<WVC_XaG_NewBack_GeneIsShuffle>This gene has a 20% chance to be replaced by another gene</WVC_XaG_NewBack_GeneIsShuffle>
+	<!-- Gray -->
+	<WVC_XaG_NewBack_GeneCannotSpawnInGenepacks>Cannot spawn in genepacks.</WVC_XaG_NewBack_GeneCannotSpawnInGenepacks>
+	<WVC_XaG_NewBack_GeneIsFurskin_CanBeDisabled>Graphics can be disabled in the settings.</WVC_XaG_NewBack_GeneIsFurskin_CanBeDisabled>
+	<WVC_XaG_NewBack_GeneIsRandom>This gene will be replaced by another gene.</WVC_XaG_NewBack_GeneIsRandom>
+	<WVC_XaG_NewBack_GeneIsShuffle>This gene has a 20% chance to be replaced by another gene.</WVC_XaG_NewBack_GeneIsShuffle>
+	<WVC_XaG_NewBack_GeneIsNotActive_Undead>The basic resurrection mechanic is disabled.</WVC_XaG_NewBack_GeneIsNotActive_Undead>
+	<WVC_XaG_NewBack_GeneIsScarifier>Current max scars</WVC_XaG_NewBack_GeneIsScarifier>
+	<!-- <WVC_XaG_NewBack_GeneIsNotActive_Undead_WrongFaction>The pawn does not belong to the player's faction.</WVC_XaG_NewBack_GeneIsNotActive_Undead_WrongFaction> -->
+	<!-- <WVC_XaG_NewBack_GeneIsNotActive_Undead_TooYoung>The age of the pawn does not meet the requirements.</WVC_XaG_NewBack_GeneIsNotActive_Undead_TooYoung> -->
+	<!-- <WVC_XaG_NewBack_GeneIsNotActive_Undead_NotEnoughCells>There are not enough resurgent cells.</WVC_XaG_NewBack_GeneIsNotActive_Undead_NotEnoughCells> -->
 	<!-- <WVC_XaG_NewBack_GeneIsRandom>The gene is randomized, when adding/reimplanting/transferring this gene, it can/will be replaced by another gene.</WVC_XaG_NewBack_GeneIsRandom> -->
 
 	<!-- ====================================================================== -->

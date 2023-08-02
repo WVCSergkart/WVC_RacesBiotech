@@ -30,7 +30,7 @@ namespace WVC_XenotypesAndGenes
         // public bool geneIsMechaskin = false;
         // public bool geneIsPowerSource = false;
         // public bool geneIsSubcore = false;
-        public bool eyesShouldBeInvisble = false;
+        // public bool eyesShouldBeInvisble = false;
         public bool canBePredatorPrey = true;
         public bool noSkillDecay = false;
         public bool shouldSendNotificationAbout = true;

@@ -1,3 +1,4 @@
+using RimWorld;
 using System.Collections.Generic;
 using Verse;
 
@@ -15,10 +16,6 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (base.Active)
 				{
-					// if (pawn?.story != null && !pawn.story.headType.defName.Contains("WVC_Faceless"))
-					// {
-						// return false;
-					// }
 					return HeadTypeIsCorrect(pawn);
 				}
 				return base.Active;
@@ -33,7 +30,40 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (HeadTypeDefs.Contains(pawn.story.headType))
 			{
+				if (pawn?.health != null && pawn?.health?.hediffSet != null)
+				{
+					if (HasEyesGraphic(pawn) || AnyEyeIsMissing(pawn))
+					{
+						return false;
+					}
+				}
 				return true;
+			}
+			return false;
+		}
+
+		public bool AnyEyeIsMissing(Pawn pawn)
+		{
+			List<Hediff_MissingPart> missingPart = pawn.health.hediffSet.GetMissingPartsCommonAncestors();
+			for (int i = 0; i < missingPart.Count; i++)
+			{
+				if (missingPart[i].Part.def.tags.Contains(BodyPartTagDefOf.SightSource))
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
+		public bool HasEyesGraphic(Pawn pawn)
+		{
+			List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
+			for (int i = 0; i < hediffs.Count; i++)
+			{
+				if (hediffs[i].def.eyeGraphicSouth != null || hediffs[i].def.eyeGraphicEast != null)
+				{
+					return true;
+				}
 			}
 			return false;
 		}
