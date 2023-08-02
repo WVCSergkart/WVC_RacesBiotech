@@ -97,7 +97,7 @@ namespace WVC_XenotypesAndGenes
             return false;
         }
 
-        private bool DustogenicCanReincarnate()
+        public bool DustogenicCanReincarnate()
         {
             if (Gene_Dust != null)
             {
@@ -120,7 +120,7 @@ namespace WVC_XenotypesAndGenes
 
 		private bool CorrectAge()
 		{
-			if (Gene_ResurgentCells != null || Gene_Dust != null || Gene_Scarifier != null)
+			if (AnyResourceIsActive())
 			{
 				return false;
 			}
@@ -130,6 +130,15 @@ namespace WVC_XenotypesAndGenes
 			}
 			return false;
 		}
+
+        public bool AnyResourceIsActive()
+        {
+			if (Gene_ResurgentCells != null || Gene_Dust != null || Gene_Scarifier != null)
+			{
+				return true;
+			}
+            return false;
+        }
 
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{

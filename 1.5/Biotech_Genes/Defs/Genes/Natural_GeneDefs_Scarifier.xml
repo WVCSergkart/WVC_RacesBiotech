@@ -13,7 +13,7 @@
 	<displayOrderInCategory>5</displayOrderInCategory>
 	<biostatCpx>6</biostatCpx>
 	<customEffectDescriptions>
-		<li>Increases the number of scars by 2</li>
+		<li MayRequire="ludeon.rimworld.ideology">Increases the number of scars by 2</li>
 	</customEffectDescriptions>
 	<displayCategory>WVC_Scarifier</displayCategory>
 	<selectionWeight>0.0125</selectionWeight>
@@ -93,7 +93,7 @@
 	<biostatArc>0</biostatArc>
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
-	  <li>Decrease the number of scars by 1</li>
+	  <li MayRequire="ludeon.rimworld.ideology">Decrease the number of scars by 1</li>
 	</customEffectDescriptions>
 	<displayCategory>WVC_Scarifier</displayCategory>
 	<displayOrderInCategory>10</displayOrderInCategory>
@@ -117,7 +117,7 @@
 	<biostatMet>0</biostatMet>
 	<painOffset>-0.2</painOffset>
 	<customEffectDescriptions>
-	  <li>Increase the number of scars by 1</li>
+	  <li MayRequire="ludeon.rimworld.ideology">Increase the number of scars by 1</li>
 	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>
@@ -131,7 +131,7 @@
 	</modExtensions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneScarifier_Base">
+  <GeneDef MayRequire="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_GeneScarifier_Base">
 	<defName>WVC_Scarifier_Clotting</defName>
 	<label>scarifier clotting</label>
 	<description>Carriers of this gene have special coagulation factors in the blood, due to which wounds are treated on their own. However, because of this, there is a chance of scarring.</description>

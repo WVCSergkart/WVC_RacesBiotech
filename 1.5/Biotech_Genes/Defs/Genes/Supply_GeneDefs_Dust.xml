@@ -290,6 +290,7 @@
 	<iconPath>WVC/UI/Genes/Gene_Reincarnation_v0</iconPath>
 	<!-- <iconColor>(255, 248, 133)</iconColor> -->
 	<!-- <iconColor>(173, 142, 112)</iconColor> -->
+	<!-- <iconColor>(93, 101, 126)</iconColor> -->
 	<displayOrderInCategory>30</displayOrderInCategory>
 	<minAgeActive>13</minAgeActive>
 	<prerequisite></prerequisite>
@@ -333,8 +334,8 @@
 	<biostatMet>6</biostatMet>
 	<resourceLabel></resourceLabel>
 	<customEffectDescriptions>
-	  <li>Carriers of this gene cannot use xenotype serums.</li>
-	  <li>Abilities "Rise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li>
+	  <!-- <li>Carriers of this gene cannot use xenotype serums.</li> -->
+	  <!-- <li>Abilities "Rise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li> -->
 	  <li>If this gene is removed, the carrier will die.</li>
 	  <li>The amount of dust is no longer subject to biological entropy.</li>
 	</customEffectDescriptions>

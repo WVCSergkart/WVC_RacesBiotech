@@ -1,4 +1,5 @@
 using RimWorld;
+using System.Collections.Generic;
 using Verse;
 using Verse.Sound;
 
@@ -35,6 +36,46 @@ namespace WVC_XenotypesAndGenes
             }
             recipient.health.AddHediff(HediffDefOf.XenogerminationComa);
             GeneUtility.UpdateXenogermReplication(recipient);
+        }
+
+		public static List<GeneDef> GenesNonCandidatesForSerums()
+		{
+			List<GeneDef> list = new();
+			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+			{
+				list.AddRange(item.nonCandidatesForSerums);
+			}
+			return list;
+		}
+
+		public static List<GeneDef> GenesPerfectCandidatesForSerums()
+		{
+			List<GeneDef> list = new();
+			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+			{
+				list.AddRange(item.perfectCandidatesForSerums);
+			}
+			return list;
+		}
+
+        public static bool DelayedReimplanterIsActive(Pawn pawn)
+        {
+            if (pawn.health != null && pawn.health.hediffSet != null)
+            {
+                List<HediffDef> hediffDefs = new();
+                foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+                {
+                    hediffDefs.AddRange(item.blackListedHediffDefForReimplanter);
+                }
+                for (int i = 0; i < hediffDefs.Count; i++)
+                {
+                    if (pawn.health.hediffSet.HasHediff(hediffDefs[i]))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
 
     }

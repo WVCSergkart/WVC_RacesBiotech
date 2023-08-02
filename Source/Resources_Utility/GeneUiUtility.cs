@@ -31,9 +31,13 @@ namespace WVC_XenotypesAndGenes
 				// text += ".".Colorize(ColoredText.TipSectionTitleColor);
 				text += "\n\n" + "WVC_XaG_NewBack_GeneIsFurskin_CanBeDisabled".Translate().Colorize(ColoredText.SubtleGrayColor);
 			}
-			if (def.geneClass == typeof(Gene_Undead))
+			if (ReimplanterUtility.GenesNonCandidatesForSerums().Contains(def))
 			{
-				text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive_Undead".Translate().Colorize(ColoredText.SubtleGrayColor);
+				text += "\n\n" + "WVC_XaG_NewBack_GeneIsNonCandidatesForSerum".Translate().Colorize(ColoredText.SubtleGrayColor);
+			}
+			else if (ReimplanterUtility.GenesPerfectCandidatesForSerums().Contains(def))
+			{
+				text += "\n\n" + "WVC_XaG_NewBack_GeneIsPerfectCandidatesForSerum".Translate().Colorize(ColoredText.SubtleGrayColor);
 			}
 			if (SubXenotypeUtility.GeneIsRandom(def))
 			{
@@ -56,6 +60,18 @@ namespace WVC_XenotypesAndGenes
 		public static string AdditionalInfo_Gene(Gene gene)
 		{
 			string text = "";
+			if (gene.def.geneClass == typeof(Gene_Undead))
+			{
+				Gene_Undead undead = (Gene_Undead)gene;
+				if (undead.DustogenicCanReincarnate())
+				{
+					text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive_UndeadReincarnate".Translate().Colorize(ColoredText.SubtleGrayColor);
+				}
+				if (undead.AnyResourceIsActive())
+				{
+					text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive_Undead".Translate().Colorize(ColoredText.SubtleGrayColor);
+				}
+			}
 			if (gene.def.geneClass == typeof(Gene_Scarifier))
 			{
 				Gene_Scarifier scarifier = (Gene_Scarifier)gene;

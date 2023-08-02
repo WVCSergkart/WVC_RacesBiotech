@@ -13,9 +13,9 @@
 	<iconColor>(255, 255, 255)</iconColor>
 	<displayCategory>Healing</displayCategory>
 	<displayOrderInCategory>1251</displayOrderInCategory>
-	<customEffectDescriptions>
-	  <li>Carriers of this gene do not lose consciousness when using serums.</li>
-	</customEffectDescriptions>
+	<!-- <customEffectDescriptions> -->
+	  <!-- <li>Carriers of this gene do not lose consciousness when using serums.</li> -->
+	<!-- </customEffectDescriptions> -->
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>0</biostatMet>
@@ -42,8 +42,8 @@
 	<biostatMet>2</biostatMet>
 	<displayOrderInCategory>1250</displayOrderInCategory>
 	<customEffectDescriptions Inherit="False">
-	  <li>Carriers of this gene cannot use xenotype serums.</li>
-	  <li>Abilities "Rise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li>
+	  <!-- <li>Carriers of this gene cannot use xenotype serums.</li> -->
+	  <!-- <li>Abilities "Rise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li> -->
 	</customEffectDescriptions>
   </GeneDef>
 

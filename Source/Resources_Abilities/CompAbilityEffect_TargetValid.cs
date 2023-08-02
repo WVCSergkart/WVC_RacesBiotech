@@ -47,7 +47,7 @@ namespace WVC_XenotypesAndGenes
                 }
                 return false;
             }
-            if (Props.reimplanterDelayCheck && MechanoidizationUtility.DelayedReimplanterIsActive(pawn))
+            if (Props.reimplanterDelayCheck && ReimplanterUtility.DelayedReimplanterIsActive(pawn))
             {
                 if (throwMessages)
                 {

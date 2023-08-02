@@ -21,7 +21,7 @@ namespace WVC_XenotypesAndGenes
 
         public static bool PawnCanUseSerums(Pawn pawn)
         {
-            if (!PawnIsHuman(pawn) || MechanoidizationUtility.PawnCannotUseSerums(pawn) || MechanoidizationUtility.DelayedReimplanterIsActive(pawn))
+            if (!PawnIsHuman(pawn) || MechanoidizationUtility.PawnCannotUseSerums(pawn) || ReimplanterUtility.DelayedReimplanterIsActive(pawn))
             {
                 return false;
             }
@@ -44,11 +44,11 @@ namespace WVC_XenotypesAndGenes
             {
                 return false;
             }
-            List<GeneDef> perfectCandidates = new();
-            foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
-            {
-                perfectCandidates.AddRange(item.perfectCandidatesForSerums);
-            }
+            List<GeneDef> perfectCandidates = ReimplanterUtility.GenesPerfectCandidatesForSerums();
+            // foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+            // {
+                // perfectCandidates.AddRange(item.perfectCandidatesForSerums);
+            // }
             List<Gene> genesListForReading = pawn.genes.GenesListForReading;
             for (int i = 0; i < genesListForReading.Count; i++)
             {

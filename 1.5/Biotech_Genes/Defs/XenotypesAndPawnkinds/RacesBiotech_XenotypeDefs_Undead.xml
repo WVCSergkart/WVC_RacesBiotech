@@ -18,7 +18,7 @@
 	<descriptionHyperlinks>
 	  <WVC_XenotypesAndGenes.SubXenotypeDef>WVC_Resurgent</WVC_XenotypesAndGenes.SubXenotypeDef>
 	  <WVC_XenotypesAndGenes.SubXenotypeDef>WVC_DustAngel</WVC_XenotypesAndGenes.SubXenotypeDef>
-	  <WVC_XenotypesAndGenes.SubXenotypeDef>WVC_AshDemon</WVC_XenotypesAndGenes.SubXenotypeDef>
+	  <WVC_XenotypesAndGenes.SubXenotypeDef MayRequire="ludeon.rimworld.ideology">WVC_AshDemon</WVC_XenotypesAndGenes.SubXenotypeDef>
 	</descriptionHyperlinks>
 	<genes>
 		<!-- Base -->
@@ -26,8 +26,9 @@
 		<li>WVC_NaturalFastAging</li>
 		<li>WVC_NaturalFastGrowing</li>
 		<li>WVC_MildGeneticInstability</li>
-		<li>WVC_NaturalUndead</li>
-		<li>ToxResist_Total</li>
+		<li>WVC_Undead</li>
+		<!-- <li>ToxResist_Total</li> -->
+		<li>WVC_ToxResist_Total</li>
 		<li>WVC_Fragile</li>
 		<li>WVC_AgeDebuff_Sterile</li>
 		<li>Body_Standard</li>
@@ -179,7 +180,7 @@
 		<li>WVC_SlaveSuppression_Unruly</li>
 	</genes>
 	<mainGenes>
-		<li>WVC_ToxResist_Total</li>
+		<!-- <li>WVC_ToxResist_Total</li> -->
 		<li>WVC_FeatherSkin</li>
 		<li>WVC_BodySize_Small</li>
 		<!-- <li>WVC_SameBloodSameXenotype</li> -->
@@ -192,7 +193,7 @@
 	</mainGenes>
 	<removeGenes>
 		<li>StrongStomach</li>
-		<li>ToxResist_Total</li>
+		<!-- <li>ToxResist_Total</li> -->
 		<li>WVC_MildGeneticInstability</li>
 		<li>WVC_AgeDebuff_Sterile</li>
 		<li>WVC_SkinColor_Undead</li>
@@ -247,8 +248,9 @@
 		<li>WVC_AptitudeImpossible_Intellectual</li>
 	</genes>
 	<mainGenes>
+		<li>DarkVision</li>
 		<li>WVC_Unbreakable</li>
-		<li>WVC_ToxResist_Total</li>
+		<!-- <li>WVC_ToxResist_Total</li> -->
 		<li>WVC_PerfectImmunity_DiseaseFree</li>
 		<li>WVC_NaturalAgeless</li>
 		<li>WVC_SkinColor_Slate</li>
@@ -261,7 +263,7 @@
 		<li>WVC_MildGeneticInstability</li>
 		<li>WVC_NaturalFastAging</li>
 		<li>WVC_NaturalFastGrowing</li>
-		<li>ToxResist_Total</li>
+		<!-- <li>ToxResist_Total</li> -->
 		<li>WVC_SkinColor_Undead</li>
 		<li>Hair_Grayless</li>
 		<li>WVC_Fragile</li>

@@ -68,13 +68,13 @@
 	<biostatArc>0</biostatArc>
 	<biostatMet>-1</biostatMet>
 	<resourceLossPerDay>-0.05</resourceLossPerDay>
-	<customEffectDescriptions>
-	  <li>Carriers of this gene cannot use xenotype serums.</li>
-	  <li>Abilities "Rise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li>
+	<!-- <customEffectDescriptions> -->
+	  <!-- <li>Carriers of this gene cannot use xenotype serums.</li> -->
+	  <!-- <li>Abilities "Rise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li> -->
 	  <!-- <li>Some time after receiving the gene, it creates a backup of all carrier genes.</li> -->
 	  <!-- <li>When you try to change the genes of the carrier, the gene removes all genes and restores the backup.</li> -->
 	 <!-- <li> Also, the gene checks the backup every few days and removes the wrong genes.</li> -->
-	</customEffectDescriptions>
+	<!-- </customEffectDescriptions> -->
 	<exclusionTags>
 	  <li>WVC_GeneticInstabilityGenes</li>
 	</exclusionTags>
