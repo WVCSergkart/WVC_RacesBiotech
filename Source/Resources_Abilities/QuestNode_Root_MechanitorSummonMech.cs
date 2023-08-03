@@ -2,6 +2,7 @@
 using RimWorld;
 using RimWorld.QuestGen;
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -20,7 +21,7 @@ namespace WVC_XenotypesAndGenes
             Slate slate = QuestGen.slate;
             Quest quest = QuestGen.quest;
             Pawn pawn = slate.Get<Pawn>("asker");
-            PawnKindDef pawnKindDef = mechTypes.RandomElement();
+            PawnKindDef pawnKindDef = MechanoidKind();
             Map map = pawn.MapHeld;
             PawnGenerationRequest request = new(pawnKindDef, pawn.Faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: false, canGeneratePawnRelations: true, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: true, allowAddictions: true, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Newborn);
             Pawn mech = quest.GeneratePawn(request);
@@ -56,24 +57,60 @@ namespace WVC_XenotypesAndGenes
             return false;
         }
 
-        // private PawnKindDef MechanoidKind()
-        // {
-        // PawnKindDef pawnKindDef;
-        // pawnKindDef = DefDatabase<PawnKindDef>.AllDefs.Where((PawnKindDef randomXenotypeDef) => randomXenotypeDef.race.race.IsMechanoid 
-        // && randomXenotypeDef.defName.Contains("Mech_") 
-        // && !randomXenotypeDef.defName.Contains("TEST") 
-        // && !randomXenotypeDef.defName.Contains("NonPlayer") 
-        // && !randomXenotypeDef.defName.Contains("Random") 
-        // && randomXenotypeDef.race.race.thinkTreeMain.defName.Contains("Mechanoid") 
-        // && randomXenotypeDef.race.race.maxMechEnergy == 100
-        // && randomXenotypeDef.race.race.lifeStageAges.Count > 1 
-        // ).RandomElement();
-        // if (mechTypes != null)
-        // {
-        // pawnKindDef = mechTypes.RandomElement();
-        // }
-        // return pawnKindDef;
-        // }
+        private PawnKindDef MechanoidKind()
+        {
+			List<PawnKindDef> pawnKindDefs;
+			if (!mechTypes.NullOrEmpty())
+			{
+				pawnKindDefs = mechTypes;
+			}
+			else
+			{
+				pawnKindDefs = DefDatabase<PawnKindDef>.AllDefsListForReading.Where((PawnKindDef randomXenotypeDef) => randomXenotypeDef.race.race.IsMechanoid 
+				&& randomXenotypeDef.defName.Contains("Mech_") 
+				&& !randomXenotypeDef.defName.Contains("TEST") 
+				&& !randomXenotypeDef.defName.Contains("NonPlayer") 
+				&& !randomXenotypeDef.defName.Contains("Random") 
+				&& randomXenotypeDef.race.race.thinkTreeMain.defName.Contains("Mechanoid") 
+				&& randomXenotypeDef.race.race.maxMechEnergy == 100
+				&& randomXenotypeDef.race.race.lifeStageAges.Count > 1
+				&& EverControllable(randomXenotypeDef.race)
+				&& EverRepairable(randomXenotypeDef.race)
+				).ToList();
+			}
+			// Log.Error("Mechanoids:");
+			// foreach (PawnKindDef pawnKindDef in pawnKindDefs)
+			// {
+				// Log.Error(" - " + pawnKindDef.defName);
+			// }
+			return pawnKindDefs.RandomElement();
+        }
+
+        public bool EverControllable(ThingDef def)
+        {
+			List<CompProperties> comps = def.comps;
+			for (int i = 0; i < comps.Count; i++)
+			{
+				if (comps[i].compClass == typeof(CompOverseerSubject))
+				{
+					return true;
+				}
+			}
+            return false;
+        }
+
+        public bool EverRepairable(ThingDef def)
+        {
+			List<CompProperties> comps = def.comps;
+			for (int i = 0; i < comps.Count; i++)
+			{
+				if (comps[i].compClass == typeof(CompMechRepairable))
+				{
+					return true;
+				}
+			}
+            return false;
+        }
     }
 
 }

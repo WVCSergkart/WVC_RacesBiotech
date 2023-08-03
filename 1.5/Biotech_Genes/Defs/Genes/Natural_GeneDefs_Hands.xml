@@ -21,7 +21,8 @@
     <iconColor>(0.75, 0.75, 0.75)</iconColor>
 	<!-- <iconColor>(241, 175, 129)</iconColor> -->
 	<biostatCpx>1</biostatCpx>
-	<biostatMet>-2</biostatMet>
+	<biostatMet>-1</biostatMet>
+	<biostatArc>1</biostatArc>
 	<customEffectDescriptions>
 		<li>Changes the target's genes to the caster's genes some time after the ability is used.</li>
 		<li>To use the ability, genes are needed: Dustogenic, Dustogenic genetic.</li>

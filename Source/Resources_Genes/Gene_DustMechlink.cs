@@ -54,7 +54,7 @@ namespace WVC_XenotypesAndGenes
 
         private void SummonRandomMech()
         {
-            IntRange countSpawn = new(1, 3);
+            IntRange countSpawn = new(1, 5);
             for (int i = 0; i < countSpawn.RandomInRange; i++)
             {
                 MechanoidizationUtility.MechSummonQuest(pawn, SummonQuest);
