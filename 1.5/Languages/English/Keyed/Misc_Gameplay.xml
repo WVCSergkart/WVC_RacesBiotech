@@ -84,7 +84,7 @@
 	<WVC_XaG_AbilityDisabledNoDust>{0_labelShort} does not have enough dust.</WVC_XaG_AbilityDisabledNoDust>
 
 	<WVC_XaG_AbilityGeneIsActive_PawnBaseliner>Pawn must not have this ability.</WVC_XaG_AbilityGeneIsActive_PawnBaseliner>
-	<WVC_XaG_AbilityGeneIsActive_PawnNotHaveGene>Pawn does not have the required gene or it is not active.</WVC_XaG_AbilityGeneIsActive_PawnNotHaveGene>
+	<WVC_XaG_AbilityGeneIsActive_PawnNotHaveGene>Pawn does not have the required genes or it is not active</WVC_XaG_AbilityGeneIsActive_PawnNotHaveGene>
 	<WVC_XaG_AbilityGeneIsActive_PawnWrongGender>Wrong gender.</WVC_XaG_AbilityGeneIsActive_PawnWrongGender>
 
 	<WVC_XaG_AbilitySpawn_WrongTarget>Incorrect target.</WVC_XaG_AbilitySpawn_WrongTarget>

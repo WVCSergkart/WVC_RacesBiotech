@@ -1,5 +1,6 @@
 using RimWorld;
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -39,18 +40,18 @@ namespace WVC_XenotypesAndGenes
                 reason = "WVC_XaG_AbilityGeneIsActive_PawnBaseliner".Translate(pawn);
                 return true;
             }
-            if (Props.eachOfGenes != null && Props.eachOfGenes.Count > 0)
+            if (!Props.eachOfGenes.NullOrEmpty())
             {
                 foreach (GeneDef allSelectedItem in Props.eachOfGenes)
                 {
                     if (!MechanoidizationUtility.HasActiveGene(allSelectedItem, pawn))
                     {
-                        reason = "WVC_XaG_AbilityGeneIsActive_PawnNotHaveGene".Translate(pawn) + ": " + allSelectedItem.label;
+                        reason = "WVC_XaG_AbilityGeneIsActive_PawnNotHaveGene".Translate(pawn) + ": " + "\n" + Props.eachOfGenes.Select((GeneDef x) => x.label).ToLineList(" - ", capitalizeItems: true);
                         return true;
                     }
                 }
             }
-            if (Props.anyOfGenes != null && Props.anyOfGenes.Count > 0)
+            if (!Props.anyOfGenes.NullOrEmpty())
             {
                 foreach (GeneDef allSelectedItem in Props.anyOfGenes)
                 {
@@ -60,7 +61,7 @@ namespace WVC_XenotypesAndGenes
                         return false;
                     }
                 }
-                reason = "WVC_XaG_AbilityGeneIsActive_PawnNotHaveGene".Translate(pawn);
+                reason = "WVC_XaG_AbilityGeneIsActive_PawnNotHaveGene".Translate(pawn) + ": " + "\n" + Props.anyOfGenes.Select((GeneDef x) => x.label).ToLineList(" - ", capitalizeItems: true);
                 return true;
             }
             reason = null;
