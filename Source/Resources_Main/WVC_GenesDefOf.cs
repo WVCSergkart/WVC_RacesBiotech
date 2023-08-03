@@ -74,6 +74,8 @@ namespace WVC_XenotypesAndGenes
         // public static BackstoryDef WVC_RacesBiotech_Amnesia_Adult;
         public static ConceptDef WVC_XenotypeSerums_SupportedXenotypesList;
         // public static JobDef WVC_XenotypesAndGenes_HaulToRecycler;
+        public static ThinkTreeDef Mechanoid;
+        public static ThinkTreeDef MechConstant;
     }
 
 }

@@ -1,5 +1,6 @@
 using RimWorld;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -92,6 +93,22 @@ namespace WVC_XenotypesAndGenes
                             SummonRandomMech();
                         }
                         ResetInterval();
+                    }
+                };
+                yield return new Command_Action
+                {
+                    defaultLabel = "DEV: Create Mechanoid List",
+                    action = delegate
+                    {
+						List<PawnKindDef> pawnKindDefs = DefDatabase<PawnKindDef>.AllDefsListForReading.Where((PawnKindDef randomXenotypeDef) => DustUtility.MechanoidIsPlayerMechanoid(randomXenotypeDef)).ToList();
+                        if (!pawnKindDefs.NullOrEmpty())
+                        {
+                            Log.Error("Mechanoids that can be summoned:" + "\n" + pawnKindDefs.Select((PawnKindDef x) => x.defName).ToLineList(" - "));
+                        }
+						else
+						{
+                            Log.Error("Mechanoids list is null");
+						}
                     }
                 };
             }

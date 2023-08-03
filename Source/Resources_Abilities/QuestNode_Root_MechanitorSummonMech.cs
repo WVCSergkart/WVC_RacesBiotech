@@ -66,17 +66,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			else
 			{
-				pawnKindDefs = DefDatabase<PawnKindDef>.AllDefsListForReading.Where((PawnKindDef randomXenotypeDef) => randomXenotypeDef.race.race.IsMechanoid 
-				&& randomXenotypeDef.defName.Contains("Mech_") 
-				&& !randomXenotypeDef.defName.Contains("TEST") 
-				&& !randomXenotypeDef.defName.Contains("NonPlayer") 
-				&& !randomXenotypeDef.defName.Contains("Random") 
-				&& randomXenotypeDef.race.race.thinkTreeMain.defName.Contains("Mechanoid") 
-				&& randomXenotypeDef.race.race.maxMechEnergy == 100
-				&& randomXenotypeDef.race.race.lifeStageAges.Count > 1
-				&& EverControllable(randomXenotypeDef.race)
-				&& EverRepairable(randomXenotypeDef.race)
-				).ToList();
+				pawnKindDefs = DefDatabase<PawnKindDef>.AllDefsListForReading.Where((PawnKindDef randomXenotypeDef) => DustUtility.MechanoidIsPlayerMechanoid(randomXenotypeDef)).ToList();
 			}
 			// Log.Error("Mechanoids:");
 			// foreach (PawnKindDef pawnKindDef in pawnKindDefs)
@@ -84,32 +74,6 @@ namespace WVC_XenotypesAndGenes
 				// Log.Error(" - " + pawnKindDef.defName);
 			// }
 			return pawnKindDefs.RandomElement();
-        }
-
-        public bool EverControllable(ThingDef def)
-        {
-			List<CompProperties> comps = def.comps;
-			for (int i = 0; i < comps.Count; i++)
-			{
-				if (comps[i].compClass == typeof(CompOverseerSubject))
-				{
-					return true;
-				}
-			}
-            return false;
-        }
-
-        public bool EverRepairable(ThingDef def)
-        {
-			List<CompProperties> comps = def.comps;
-			for (int i = 0; i < comps.Count; i++)
-			{
-				if (comps[i].compClass == typeof(CompMechRepairable))
-				{
-					return true;
-				}
-			}
-            return false;
         }
     }
 
