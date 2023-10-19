@@ -82,6 +82,7 @@
     <Compile Include="Resources_Genes\Gene_DustHediffGiver.cs" />
     <Compile Include="Resources_Genes\Gene_DustMechlink.cs" />
     <Compile Include="Resources_Genes\Gene_DustUndeadReincarnation.cs" />
+    <Compile Include="Resources_Genes\Gene_GenerateHediffFromRandomDef.cs" />
     <Compile Include="Resources_Genes\Gene_ResurgentCellsGain.cs" />
     <Compile Include="Resources_Genes\Gene_Scarifier.cs" />
     <Compile Include="Resources_Genes\Gene_ScarifierClotting.cs" />
@@ -125,8 +126,6 @@
     <Compile Include="Resources_Genes\Gene_ResurgentRegeneration.cs" />
     <Compile Include="Resources_Genes\Gene_Undead.cs" />
     <Compile Include="Resources_Genes\Gene_Faceless.cs" />
-    <Compile Include="Resources_Genes\Gene_Randomizer.cs" />
-    <Compile Include="Resources_Genes\Gene_Shuffle.cs" />
     <Compile Include="Resources_Genes\Gene_GestatorTestTool.cs" />
     <Compile Include="Resources_Genes\Gene_MechaClotting.cs" />
     <Compile Include="Resources_Genes\Gene_PermanentHediff.cs" />

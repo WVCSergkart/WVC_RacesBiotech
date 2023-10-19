@@ -39,17 +39,18 @@ namespace WVC_XenotypesAndGenes
 			{
 				text += "\n\n" + "WVC_XaG_NewBack_GeneIsPerfectCandidatesForSerum".Translate().Colorize(ColoredText.SubtleGrayColor);
 			}
-			if (SubXenotypeUtility.GeneIsRandom(def))
-			{
-				if (!SubXenotypeUtility.GeneIsShuffle(def))
-				{
-					text += "\n\n" + "WVC_XaG_NewBack_GeneIsRandom".Translate().Colorize(ColoredText.SubtleGrayColor);
-				}
-				else
-				{
-					text += "\n\n" + "WVC_XaG_NewBack_GeneIsShuffle".Translate().Colorize(ColoredText.SubtleGrayColor);
-				}
-			}
+			//if (SubXenotypeUtility.GeneIsRandom(def))
+			//{
+				//if (!SubXenotypeUtility.GeneIsShuffle(def))
+				//{
+				//	text += "\n\n" + "WVC_XaG_NewBack_GeneIsRandom".Translate().Colorize(ColoredText.SubtleGrayColor);
+				//}
+				//else
+				//{
+				//	text += "\n\n" + "WVC_XaG_NewBack_GeneIsShuffle".Translate().Colorize(ColoredText.SubtleGrayColor);
+				//}
+				//text += "\n\n" + "WVC_XaG_NewBack_GeneIsRandom".Translate().Colorize(ColoredText.SubtleGrayColor);
+			//}
 			if (def.selectionWeight == 0 && !def.canGenerateInGeneSet)
 			{
 				text += "\n\n" + "WVC_XaG_NewBack_GeneCannotSpawnInGenepacks".Translate().Colorize(ColoredText.SubtleGrayColor);

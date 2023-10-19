@@ -37,7 +37,8 @@ namespace WVC_XenotypesAndGenes
 						}
 						else if (!gene.Active)
 						{
-							if (gene.def.geneClass == typeof(Gene_Faceless) || gene.def.geneClass == typeof(Gene_FacelessShuffle))
+							// || gene.def.geneClass == typeof(Gene_FacelessShuffle)
+							if (gene.def.geneClass == typeof(Gene_Faceless))
 							{
 								text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive_WrongFace".Translate().Colorize(ColorLibrary.RedReadable);
 							}

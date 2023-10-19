@@ -31,14 +31,14 @@ namespace WVC_XenotypesAndGenes
                             if (Rand.Chance(modExtension.subXenotypeChance))
                             {
                                 SubXenotypeDef subXenotypeDef = modExtension.subXenotypeDefs.RandomElement();
-                                RandomXenotype(pawn, subXenotypeDef, mainXenotype, xenogermReplicationChance);
+                                SetSubXenotype(pawn, subXenotypeDef, xenogermReplicationChance);
                                 // pawn.genes.RemoveGene(shapeShiftGene);
                             }
-                            else if (modExtension.mainSubXenotypeDef != null)
-                            {
-                                SubXenotypeDef subXenotypeDef = modExtension.mainSubXenotypeDef;
-                                MainXenotype(pawn, subXenotypeDef, mainXenotype);
-                            }
+                            // else if (modExtension.mainSubXenotypeDef != null)
+                            // {
+                                // SubXenotypeDef subXenotypeDef = modExtension.mainSubXenotypeDef;
+                                // MainXenotype(pawn, subXenotypeDef, mainXenotype);
+                            // }
                         }
                     }
                 }
@@ -49,46 +49,45 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        public static void RandomXenotype(Pawn pawn, SubXenotypeDef xenotype, XenotypeDef mainXenotype, float xenogermReplicationChance)
+        public static void SetSubXenotype(Pawn pawn, SubXenotypeDef xenotype, float xenogermReplicationChance)
         {
-            if (!xenotype.removeGenes.NullOrEmpty())
-            {
-                RemoveGenes(pawn, xenotype);
-            }
-            if (!xenotype.mainGenes.NullOrEmpty())
-            {
-                MainXenotype(pawn, xenotype, mainXenotype);
-            }
+			if (!xenotype.removeGenes.NullOrEmpty())
+			{
+				RemoveGenes(pawn, xenotype);
+			}
+			if (!xenotype.endogenes.NullOrEmpty())
+			{
+				AddGenes(pawn, xenotype.endogenes, true);
+			}
+			if (!xenotype.xenogenes.NullOrEmpty())
+			{
+				AddGenes(pawn, xenotype.xenogenes, false);
+			}
             // if (xenotype.genes != null)
             // {
             // pawn.genes?.RemoveGene(WVC_GenesDefOf.WVC_XenotypesAndGenes_SubXenotypeShapeshifter);
             // }
-            Pawn_GeneTracker genes = pawn.genes;
-            List<GeneDef> geneDefs = xenotype.genes;
-            if (xenotype.overrideExistingGenes)
-            {
-                if (!xenotype.inheritable)
-                {
-                    for (int numXenogenes = genes.Xenogenes.Count - 1; numXenogenes >= 0; numXenogenes--)
-                    {
-                        pawn.genes?.RemoveGene(genes.Xenogenes[numXenogenes]);
-                    }
-                }
-                if (xenotype.inheritable)
-                {
-                    for (int numEndogenes = genes.Endogenes.Count - 1; numEndogenes >= 0; numEndogenes--)
-                    {
-                        pawn.genes?.RemoveGene(genes.Endogenes[numEndogenes]);
-                    }
-                }
-            }
-            if ((xenotype.inheritable && genes.Endogenes.Count <= 0) || (!xenotype.inheritable && genes.Xenogenes.Count <= 0) || xenotype.ignoreExistingGenes)
-            {
-                for (int i = 0; i < geneDefs.Count; i++)
-                {
-                    pawn.genes?.AddGene(geneDefs[i], !xenotype.inheritable);
-                }
-            }
+            // Pawn_GeneTracker genes = pawn.genes;
+            // if (xenotype.overrideExistingGenes)
+            // {
+                // if (!xenotype.inheritable)
+                // {
+                    // for (int numXenogenes = genes.Xenogenes.Count - 1; numXenogenes >= 0; numXenogenes--)
+                    // {
+                        // pawn.genes?.RemoveGene(genes.Xenogenes[numXenogenes]);
+                    // }
+                // }
+                // if (xenotype.inheritable)
+                // {
+                    // for (int numEndogenes = genes.Endogenes.Count - 1; numEndogenes >= 0; numEndogenes--)
+                    // {
+                        // pawn.genes?.RemoveGene(genes.Endogenes[numEndogenes]);
+                    // }
+                // }
+            // }
+            // if ((xenotype.inheritable && genes.Endogenes.Count <= 0) || (!xenotype.inheritable && genes.Xenogenes.Count <= 0) || xenotype.ignoreExistingGenes)
+            // {
+            // }
             if (!xenotype.randomGenes.NullOrEmpty())
             {
                 foreach (RandomGenes item in xenotype.randomGenes)
@@ -107,12 +106,12 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        public static void MainXenotype(Pawn pawn, SubXenotypeDef xenotype, XenotypeDef mainXenotype)
+        public static void AddGenes(Pawn pawn, List<GeneDef> genes, bool inheritable)
         {
-            List<GeneDef> geneDefs = xenotype.mainGenes;
-            for (int i = 0; i < geneDefs.Count; i++)
+            // List<GeneDef> geneDefs = genes;
+            for (int i = 0; i < genes.Count; i++)
             {
-                pawn.genes?.AddGene(geneDefs[i], !mainXenotype.inheritable);
+                pawn.genes?.AddGene(genes[i], !inheritable);
             }
         }
 
@@ -164,21 +163,22 @@ namespace WVC_XenotypesAndGenes
 		// Random genes
 		public static bool GeneIsRandom(GeneDef gene)
 		{
-			if (gene.geneClass == typeof(Gene_Randomizer) || gene.geneClass == typeof(Gene_XenotypeShapeshifter) || GeneIsShuffle(gene))
+            // gene.geneClass == typeof(Gene_Randomizer) || || GeneIsShuffle(gene)
+            if (gene.geneClass == typeof(Gene_XenotypeShapeshifter))
 			{
 				return true;
 			}
 			return false;
 		}
 
-		public static bool GeneIsShuffle(GeneDef gene)
-		{
-			if (gene.geneClass == typeof(Gene_Shuffle) || gene.geneClass == typeof(Gene_FacelessShuffle))
-			{
-				return true;
-			}
-			return false;
-		}
+		//public static bool GeneIsShuffle(GeneDef gene)
+		//{
+		//	if (gene.geneClass == typeof(Gene_Shuffle) || gene.geneClass == typeof(Gene_FacelessShuffle))
+		//	{
+		//		return true;
+		//	}
+		//	return false;
+		//}
 
 		// Remove genes
         public static void RemoveRandomGenes(Pawn pawn)

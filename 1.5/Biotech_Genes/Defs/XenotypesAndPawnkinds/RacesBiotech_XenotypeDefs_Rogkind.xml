@@ -28,9 +28,10 @@
 		<li>WVC_MecaBodyParts_Heart</li>
 		<!-- =Buffs= -->
 		<li>WVC_FacelessEyes_ceae69_HEX</li>
-		<li>WVC_Nodization_EntityRandomizer</li>
-		<li>WVC_Nodization_SkillRandomizer</li>
+		<!-- <li>WVC_Nodization_EntityRandomizer</li> -->
+		<!-- <li>WVC_Nodization_SkillRandomizer</li> -->
 		<!-- <li>WVC_Nodization_PatternRandomizer</li> -->
+		<li>WVC_RandomGeneticSpeciality</li>
 		<li>WVC_RandomMetabolism</li>
 		<!-- =Buffs= -->
 		<li>WVC_Mecha_ConnectorTail</li>

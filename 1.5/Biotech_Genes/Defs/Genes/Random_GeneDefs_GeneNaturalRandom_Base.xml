@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- <GeneDef Name="WVC_XenotypesAndGenes_GeneRandom_Base" Abstract="True"> -->
+	<!-- <iconColor>(255, 255, 255)</iconColor> -->
+	<!-- <displayCategory>WVC_RandomGenes</displayCategory> -->
+	<!-- <displayOrderInCategory>-537</displayOrderInCategory> -->
+	<!-- <randomChosen>false</randomChosen> -->
+	<!-- <selectionWeight>0.0</selectionWeight> -->
+	<!-- <canGenerateInGeneSet>false</canGenerateInGeneSet> -->
+	<!-- <biostatCpx>0</biostatCpx> -->
+	<!-- <biostatArc>0</biostatArc> -->
+	<!-- <biostatMet>0</biostatMet> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <hideGene>true</hideGene> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneNaturalRandom_Base" Abstract="True">
+	<!-- <iconColor>(93, 101, 126)</iconColor> -->
+    <iconColor>(0.75, 0.75, 0.75)</iconColor>
+	<selectionWeight>0.012</selectionWeight>
+	<displayCategory>WVC_RandomGenes</displayCategory>
+	<displayOrderInCategory>-537</displayOrderInCategory>
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Randomizer</geneClass> -->
+	<geneClass>WVC_XenotypesAndGenes.Gene_GenerateHediffWithRandomSeverity</geneClass>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Replaced with one random gene from its series.</li> -->
+	<!-- </customEffectDescriptions> -->
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneNaturalRandom_Base">
+	<defName>WVC_RandomGeneticSpeciality</defName>
+	<label>genetic speciality</label>
+	<labelShortAdj>metabolism</labelShortAdj>
+	<description>Carriers of this gene have an unstable metabolism, which can either improve or worsen over generations.</description>
+	<iconPath>WVC/UI/Genes/Gene_RandomBuff_Skill_v0</iconPath>
+	<selectionWeight>0.012</selectionWeight>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<customEffectDescriptions>
+		<!-- <li>Enhance the pawn's stats, such as psi sensitivity, immunity, regeneration, armor, survivability, etc.</li> -->
+		<li>Mech bandwidth +6</li>
+		<li>Mech control groups +1</li>
+		<li>Mech bandwidth cost offset -1</li>
+		<li>-or-</li>
+		<li>Immunity gain speed +50%</li>
+		<li>Injury healing factor +50%</li>
+		<li>Mental break threshold x80%</li>
+		<li>-or-</li>
+		<li>Armor rating - Blunt +35%</li>
+		<li>Armor rating - Sharp +35%</li>
+		<li>Armor rating - Heat +55%</li>
+		<li>-or-</li>
+		<li>Incoming damage factor x50%</li>
+		<li>Melee dodge chance x150%</li>
+		<li>-or-</li>
+		<li>Hemogen gain factor +100%</li>
+		<li>Psychic sensitivity +100%</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_GeneHediffStatRand_FormerGeneticSpeciality</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneNaturalRandom_Base">
+	<defName>WVC_RandomMetabolism</defName>
+	<label>unstable metabolism</label>
+	<labelShortAdj>metabolism</labelShortAdj>
+	<description>Carriers of this gene have an unstable metabolism, which can either improve or worsen over generations.</description>
+	<iconPath>WVC/UI/Genes/Gene_Random_Metabol_v0</iconPath>
+	<customEffectDescriptions>
+		<!-- <li>Multiply hunger from x0.50 to x2.00</li> -->
+		<li>Hunger rate factor x50%</li>
+		<li>Hunger rate factor x75%</li>
+		<li>Hunger rate factor x100%</li>
+		<li>Hunger rate factor x150%</li>
+		<li>Hunger rate factor x200%</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_XenotypesAndGenes_ArchitesRandomEncode_GeneTagRandomizer_Pattern</li>
+	  <li>WVC_XenotypesAndGenes_GeneNaturalRandom_Metabolism</li>
+	</exclusionTags>
+	<modExtensions>
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <randomizerGenesList> -->
+				<!-- <li>WVC_RandomMetabolism_A</li> -->
+				<!-- <li>WVC_RandomMetabolism_B</li> -->
+				<!-- <li>WVC_RandomMetabolism_C</li> -->
+				<!-- <li>WVC_RandomMetabolism_D</li> -->
+				<!-- <li>WVC_RandomMetabolism_E</li> -->
+			<!-- </randomizerGenesList> -->
+		<!-- </li> -->
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_GeneHediffStatRand_hungerRateFactor</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneNaturalRandom_Base">
+	<defName>WVC_RandomImmunity</defName>
+	<label>unstable immunity</label>
+	<labelShortAdj>immunity</labelShortAdj>
+	<description>Carriers of this gene have an unstable immunity, which can either improve or worsen over generations.</description>
+	<iconPath>WVC/UI/Genes/Gene_Random_Imunnity_v0</iconPath>
+	<customEffectDescriptions>
+		<!-- <li>Multiply immunity from x0.50 to x2.00</li> -->
+		<li>Immunity gain speed x50%</li>
+		<li>Immunity gain speed x75%</li>
+		<li>Immunity gain speed x100%</li>
+		<li>Immunity gain speed x150%</li>
+		<li>Immunity gain speed x200%</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>Immunity</li>
+	</exclusionTags>
+	<modExtensions>
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <randomizerGenesList> -->
+				<!-- <li>WVC_RandomImmunity_A</li> -->
+				<!-- <li>WVC_RandomImmunity_B</li> -->
+				<!-- <li>WVC_RandomImmunity_C</li> -->
+				<!-- <li>WVC_RandomImmunity_D</li> -->
+				<!-- <li>WVC_RandomImmunity_E</li> -->
+			<!-- </randomizerGenesList> -->
+		<!-- </li> -->
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_GeneHediffStatRand_ImmunityGainSpeed</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneNaturalRandom_Base">
+	<defName>WVC_RandomWoundHealing</defName>
+	<label>unstable wound healing</label>
+	<labelShortAdj>healing</labelShortAdj>
+	<description>Carriers of this gene have an unstable wound healing, which can either improve or worsen over generations.</description>
+	<iconPath>WVC/UI/Genes/Gene_Random_Healing_v0</iconPath>
+	<customEffectDescriptions>
+		<!-- <li>Multiply wound healing from x0.20 to x4.00</li> -->
+		<li>Injury healing factor x20%</li>
+		<li>Injury healing factor x50%</li>
+		<li>Injury healing factor x100%</li>
+		<li>Injury healing factor x150%</li>
+		<li>Injury healing factor x200%</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WoundHealingRate</li>
+	</exclusionTags>
+	<modExtensions>
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <randomizerGenesList> -->
+				<!-- <li>WVC_RandomWoundHealing_A</li> -->
+				<!-- <li>WVC_RandomWoundHealing_B</li> -->
+				<!-- <li>WVC_RandomWoundHealing_C</li> -->
+				<!-- <li>WVC_RandomWoundHealing_D</li> -->
+				<!-- <li>WVC_RandomWoundHealing_E</li> -->
+			<!-- </randomizerGenesList> -->
+		<!-- </li> -->
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_GeneHediffStatRand_InjuryHealingFactor</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ========================================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneNaturalRandom_Base">
+	<defName>WVC_RandomHands</defName>
+	<label>unstable hands</label>
+	<labelShortAdj>hands</labelShortAdj>
+	<description>Carriers of this gene have an unstable hands mutation, which can either improve or worsen over generations.</description>
+	<iconPath>WVC/UI/Genes/Gene_Random_Hand_v0</iconPath>
+	<randomChosen>true</randomChosen>
+	<customEffectDescriptions>
+		<!-- <li>Multiply manipulation from x0.50 to x1.50</li> -->
+		<li>Work speed global x75%</li>
+		<li>Work speed global x84%</li>
+		<li>Work speed global x100%</li>
+		<li>Work speed global x112%</li>
+		<li>Work speed global x125%</li>
+	</customEffectDescriptions>
+	<!-- <displayCategory>Miscellaneous</displayCategory> -->
+	<exclusionTags>
+	  <li>Hands</li>
+	</exclusionTags>
+	<modExtensions>
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <randomizerGenesList> -->
+				<!-- <li>WVC_RandomHands_A</li> -->
+				<!-- <li>WVC_RandomHands_B</li> -->
+				<!-- <li>WVC_RandomHands_C</li> -->
+				<!-- <li>WVC_RandomHands_D</li> -->
+				<!-- <li>WVC_RandomHands_E</li> -->
+			<!-- </randomizerGenesList> -->
+		<!-- </li> -->
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_GeneHediffStatRand_Manipulation</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneNaturalRandom_Base">
+	<defName>WVC_RandomLearning</defName>
+	<label>unstable learning</label>
+	<labelShortAdj>learning</labelShortAdj>
+	<description>Carriers of this gene have an unstable neural mutation, which can either improve or worsen over generations.</description>
+	<iconPath>WVC/UI/Genes/Gene_Random_Learning_v0</iconPath>
+	<customEffectDescriptions>
+		<!-- <li>Multiply learning from x0.50 to x1.50</li> -->
+		<li>Global learning factor x50%</li>
+		<li>Global learning factor x75%</li>
+		<li>Global learning factor x100%</li>
+		<li>Global learning factor x125%</li>
+		<li>Global learning factor x150%</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>Learning</li>
+	</exclusionTags>
+	<!-- <displayCategory>Miscellaneous</displayCategory> -->
+	<modExtensions>
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <randomizerGenesList> -->
+				<!-- <li>WVC_RandomLearning_A</li> -->
+				<!-- <li>WVC_RandomLearning_B</li> -->
+				<!-- <li>WVC_RandomLearning_C</li> -->
+				<!-- <li>WVC_RandomLearning_D</li> -->
+				<!-- <li>WVC_RandomLearning_E</li> -->
+			<!-- </randomizerGenesList> -->
+		<!-- </li> -->
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_GeneHediffStatRand_GlobalLearningFactor</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ========================================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneNaturalRandom_Base">
+	<defName>WVC_RandomMoveSpeed</defName>
+	<label>unstable runner</label>
+	<labelShortAdj>runner</labelShortAdj>
+	<description>Carriers of this gene have an unstable muscule mutation, which can either improve or worsen over generations.</description>
+	<iconPath>WVC/UI/Genes/Gene_Random_Runner_v0</iconPath>
+	<!-- <displayCategory>Movement</displayCategory> -->
+	<customEffectDescriptions>
+		<!-- <li>Offset move speed from -0.4 to +0.4</li> -->
+		<li>Move speed -0.4</li>
+		<li>Move speed -0.2</li>
+		<li>Move speed +0</li>
+		<li>Move speed +0.2</li>
+		<li>Move speed +0.4</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>MoveSpeed</li>
+	</exclusionTags>
+	<modExtensions> 
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <randomizerGenesList> -->
+				<!-- <li>WVC_RandomMoveSpeed_A</li> -->
+				<!-- <li>WVC_RandomMoveSpeed_B</li> -->
+				<!-- <li>WVC_RandomMoveSpeed_C</li> -->
+				<!-- <li>WVC_RandomMoveSpeed_D</li> -->
+				<!-- <li>WVC_RandomMoveSpeed_E</li> -->
+			<!-- </randomizerGenesList> -->
+		<!-- </li> -->
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_GeneHediffStatRand_MoveSpeed</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ========================================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneNaturalRandom_Base">
+	<defName>WVC_RandomPsychicAbility</defName>
+	<label>unstable psychic sensitivity</label>
+	<labelShortAdj>psy-sens</labelShortAdj>
+	<description>Carriers of this gene have an unstable neural mutation, which can either improve or worsen over generations.</description>
+	<iconPath>WVC/UI/Genes/Gene_Random_Psychic_v0</iconPath>
+	<!-- <displayCategory>Psychic</displayCategory> -->
+	<customEffectDescriptions>
+		<!-- <li>Multiply psychic sensitivity from x0.0 to x2.0</li> -->
+		<li>Psychic sensitivity x0%</li>
+		<li>Psychic sensitivity x50%</li>
+		<li>Psychic sensitivity x100%</li>
+		<li>Psychic sensitivity x150%</li>
+		<li>Psychic sensitivity x200%</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>PsychicAbility</li>
+	</exclusionTags>
+	<modExtensions>
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <randomizerGenesList> -->
+				<!-- <li>WVC_RandomPsychicAbility_A</li> -->
+				<!-- <li>WVC_RandomPsychicAbility_B</li> -->
+				<!-- <li>WVC_RandomPsychicAbility_C</li> -->
+				<!-- <li>WVC_RandomPsychicAbility_D</li> -->
+				<!-- <li>WVC_RandomPsychicAbility_E</li> -->
+			<!-- </randomizerGenesList> -->
+		<!-- </li> -->
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_GeneHediffStatRand_PsychicSensitivity</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

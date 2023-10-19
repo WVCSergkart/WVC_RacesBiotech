@@ -48,8 +48,10 @@
 	<WVC_XaG_SubXeno_IgnoreExistingGenes>Expand existing</WVC_XaG_SubXeno_IgnoreExistingGenes>
 	<WVC_XaG_SubXeno_IgnoreExistingGenes_Desc>Does this sub-xenotype add its own genes to the existing ones.</WVC_XaG_SubXeno_IgnoreExistingGenes_Desc>
 
-	<WVC_XaG_SubXeno_MainGenes>Main genes</WVC_XaG_SubXeno_MainGenes>
-	<WVC_XaG_SubXeno_MainGenes_Desc>Always added to the base gene set.</WVC_XaG_SubXeno_MainGenes_Desc>
+	<WVC_XaG_SubXeno_Endogenes>Endogenes</WVC_XaG_SubXeno_Endogenes>
+	<WVC_XaG_SubXeno_Endogenes_Desc>Always added to the germline.</WVC_XaG_SubXeno_Endogenes_Desc>
+	<WVC_XaG_SubXeno_Xenogenes>Xenogenes</WVC_XaG_SubXeno_Xenogenes>
+	<WVC_XaG_SubXeno_Xenogenes_Desc>Always added as xenogenes.</WVC_XaG_SubXeno_Xenogenes_Desc>
 	<WVC_XaG_SubXeno_RemovedGenes>Removed genes</WVC_XaG_SubXeno_RemovedGenes>
 	<WVC_XaG_SubXeno_RemovedGenes_Desc>These genes will be removed from the gene set if present.</WVC_XaG_SubXeno_RemovedGenes_Desc>
 	<WVC_XaG_SubXeno_RandomGenes>Possible genes</WVC_XaG_SubXeno_RandomGenes>

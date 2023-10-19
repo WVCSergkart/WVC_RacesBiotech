@@ -57,6 +57,8 @@ namespace WVC_XenotypesAndGenes
 		// Scarifier
 		public int scarsCount = 3;
 		public List<GeneDef> scarGeneDefs;
+		// Rand Hediff
+		// public HediffStatRandDef hediffStatRandDef;
     }
 
     public class XenotypeExtension_SubXenotype : DefModExtension
