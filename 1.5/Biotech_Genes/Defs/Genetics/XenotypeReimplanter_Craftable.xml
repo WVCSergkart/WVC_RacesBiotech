@@ -16,6 +16,9 @@
 	  <MarketValue>670</MarketValue>
 	  <DeteriorationRate>0.5</DeteriorationRate>
 	</statBases>
+	<tradeTags>
+	  <li>WVC_XenotypeSerums_NonCraftable</li>
+	</tradeTags>
 	<recipeMaker>
 	  <researchPrerequisite>WVC_XenotypesAndGenes_GeneRestoration</researchPrerequisite>
 	  <skillRequirements>
@@ -83,6 +86,9 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 		<Intellectual>12</Intellectual>
 	  </skillRequirements>
 	</recipeMaker>
+	<!-- <tradeTags> -->
+	  <!-- <li>WVC_XenotypeSerums_NonCraftable</li> -->
+	<!-- </tradeTags> -->
 	<costList>
 	  <!-- <SignalChip>1</SignalChip> -->
 	  <ComponentSpacer>1</ComponentSpacer>
