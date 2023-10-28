@@ -158,9 +158,9 @@ namespace WVC_XenotypesAndGenes
             listingStandard.CheckboxLabeled("WVC_Label_minWastepacksPerRecharge".Translate(), ref settings.minWastepacksPerRecharge, "WVC_ToolTip_minWastepacksPerRecharge".Translate());
             listingStandard.CheckboxLabeled("WVC_Label_validatorAbilitiesPatch".Translate(), ref settings.validatorAbilitiesPatch, "WVC_ToolTip_validatorAbilitiesPatch".Translate());
             listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes".Translate(), ref settings.serumsForAllXenotypes, "WVC_ToolTip_serumsForAllXenotypes".Translate());
-            listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenBase".Translate(), ref settings.serumsForAllXenotypes_GenBase);
-            listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenUltra".Translate(), ref settings.serumsForAllXenotypes_GenUltra);
-            listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenHybrid".Translate(), ref settings.serumsForAllXenotypes_GenHybrid);
+            listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenBase".Translate(), ref settings.serumsForAllXenotypes_GenBase, "WVC_ToolTip_serumsForAllXenotypes_GenBase".Translate());
+            listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenUltra".Translate(), ref settings.serumsForAllXenotypes_GenUltra, "WVC_ToolTip_serumsForAllXenotypes_GenUltra".Translate());
+            listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenHybrid".Translate(), ref settings.serumsForAllXenotypes_GenHybrid, "WVC_ToolTip_serumsForAllXenotypes_GenHybrid".Translate());
             listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_Recipes".Translate(), ref settings.serumsForAllXenotypes_Recipes, "WVC_ToolTip_serumsForAllXenotypes_Recipes".Translate());
             listingStandard.CheckboxLabeled("WVC_Label_serumsSpawnersForAllXenotypes".Translate(), ref settings.serumsForAllXenotypes_Spawners, "WVC_ToolTip_serumsSpawnersForAllXenotypes".Translate());
             listingStandard.End();

@@ -94,6 +94,10 @@ May affect startup speed on modlists with a lot of mods that add xenotypes.</WVC
 	<WVC_Label_serumsForAllXenotypes_GenUltra>Generate ultra xenotypes serums</WVC_Label_serumsForAllXenotypes_GenUltra>
 	<WVC_Label_serumsForAllXenotypes_GenHybrid>Generate hybrid xenotypes serums</WVC_Label_serumsForAllXenotypes_GenHybrid>
 
+	<WVC_ToolTip_serumsForAllXenotypes_GenBase>Responsible for generating serums that can be crafted.</WVC_ToolTip_serumsForAllXenotypes_GenBase>
+	<WVC_ToolTip_serumsForAllXenotypes_GenUltra>Responsible for the generation of serums that can be purchased or spawned using the gene of the same name.</WVC_ToolTip_serumsForAllXenotypes_GenUltra>
+	<WVC_ToolTip_serumsForAllXenotypes_GenHybrid>Responsible for the generation of serums with two xenotypes that can only be purchased or spawned with the gene of the same name.</WVC_ToolTip_serumsForAllXenotypes_GenHybrid>
+
 	<!-- ====================================================================================== -->
 	<WVC_Label_serumsForAllXenotypes_Recipes>Generate serum recipes</WVC_Label_serumsForAllXenotypes_Recipes>
 	<WVC_ToolTip_serumsForAllXenotypes_Recipes>If enabled, it creates a recipe for each serum, allowing it to be used through the "Operation" menu, in the pawn's health tab. Restart required.</WVC_ToolTip_serumsForAllXenotypes_Recipes>
