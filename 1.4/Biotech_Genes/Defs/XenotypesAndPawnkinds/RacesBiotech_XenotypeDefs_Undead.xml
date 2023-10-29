@@ -18,6 +18,7 @@
 	<descriptionHyperlinks>
 	  <WVC_XenotypesAndGenes.SubXenotypeDef>WVC_Resurgent</WVC_XenotypesAndGenes.SubXenotypeDef>
 	  <WVC_XenotypesAndGenes.SubXenotypeDef>WVC_DustAngel</WVC_XenotypesAndGenes.SubXenotypeDef>
+	  <WVC_XenotypesAndGenes.SubXenotypeDef MayRequire="ludeon.rimworld.ideology">WVC_AshDemon</WVC_XenotypesAndGenes.SubXenotypeDef>
 	</descriptionHyperlinks>
 	<genes>
 		<!-- Base -->
@@ -25,8 +26,9 @@
 		<li>WVC_NaturalFastAging</li>
 		<li>WVC_NaturalFastGrowing</li>
 		<li>WVC_MildGeneticInstability</li>
-		<li>WVC_NaturalUndead</li>
-		<li>ToxResist_Total</li>
+		<li>WVC_Undead</li>
+		<!-- <li>ToxResist_Total</li> -->
+		<li>WVC_ToxResist_Total</li>
 		<li>WVC_Fragile</li>
 		<li>WVC_AgeDebuff_Sterile</li>
 		<li>Body_Standard</li>
@@ -37,43 +39,6 @@
 		<li>Hair_Grayless</li>
 		<li>WVC_PatchSkin</li>
 		<!-- Random -->
-		<!-- <li>WVC_RandomLearning</li> -->
-		<!-- <li>WVC_RandomHands</li> -->
-		<!-- <li>WVC_RandomWoundHealing</li> -->
-		<!-- <li>WVC_RandomImmunity</li> -->
-		<!-- <li>WVC_RandomMetabolism</li> -->
-		<!-- <li>WVC_RandomMoveSpeed</li> -->
-		<!-- <li>WVC_RandomPsychicAbility</li> -->
-		<!-- Random -->
-		<!-- Mandatory gene for sub-xenotype mutation. -->
-		<!-- I could make code that would work without such a crude hook, but it's better not to clog a vanilla generator with additional checks. -->
-		<li>WVC_XenotypesAndGenes_SubXenotypeShapeshifter</li>
-	</genes>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.XenotypeExtension_SubXenotype">
-			<!-- Chance that getting an additional xenotype -->
-			<subXenotypeChance>0.33</subXenotypeChance>
-			<!-- Sub xenotype is chosen randomly from the list. -->
-			<!-- Sub-xenotype obtained in this way does not change the name. -->
-			<!-- The name of the xenotype does not change. If change it, then the xenotype will be marked as custom and the hyperlink will stop working. -->
-			<!-- This method is conceived as a random gene list expander, when you need to add a certain set of genes, but randomly with some chance. -->
-			<subXenotypeDefs>
-				<li>WVC_Resurgent</li>
-				<li>WVC_DustAngel</li>
-			</subXenotypeDefs>
-			<!-- mainSubXenotypeDef allows you to specify which genes will be added if none of the sub-xenotypes has been selected. -->
-			<mainSubXenotypeDef>WVC_MainUndead</mainSubXenotypeDef>
-			<!-- Affects whether xenotype genes change in some cases upon death. For example the "Undead" gene. -->
-			<xenotypeCanShapeshiftOnDeath>true</xenotypeCanShapeshiftOnDeath>
-		</li>
-	</modExtensions>
-  </XenotypeDef>
-
-  <!-- It is only needed to add random genes if a sub xenotype is not selected. -->
-  <WVC_XenotypesAndGenes.SubXenotypeDef>
-	<defName>WVC_MainUndead</defName>
-	<!-- mainGenes are always added to the genes of the main xenotype. -->
-	<mainGenes>
 		<li>WVC_RandomLearning</li>
 		<li>WVC_RandomHands</li>
 		<li>WVC_RandomWoundHealing</li>
@@ -81,8 +46,31 @@
 		<li>WVC_RandomMetabolism</li>
 		<li>WVC_RandomMoveSpeed</li>
 		<li>WVC_RandomPsychicAbility</li>
-	</mainGenes>
-  </WVC_XenotypesAndGenes.SubXenotypeDef>
+		<!-- Random -->
+		<!-- Mandatory gene for sub-xenotype mutation. -->
+		<!-- I could make code that would work without such a crude hook, but it's better not to clog a vanilla generator with additional checks. -->
+		<li>WVC_XenotypesAndGenes_SubXenotypeShapeshifter</li>
+		<!-- This hook-gene is only used to generate the xenotype. Or getting it through the serum. -->
+		<!-- In all other and planned cases, it will be applied through modExtensions -->
+	</genes>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.XenotypeExtension_SubXenotype">
+			<!-- Chance that getting an sub-xenotype -->
+			<subXenotypeChance>0.44</subXenotypeChance>
+			<!-- Sub xenotype is chosen randomly from the list. -->
+			<!-- This method is conceived as a random gene list expander, when you need to add a certain set of genes, but randomly with some chance. -->
+			<subXenotypeDefs>
+				<li>WVC_Resurgent</li>
+				<li>WVC_DustAngel</li>
+				<!-- <li>WVC_BloodDemon</li> -->
+				<li MayRequire="ludeon.rimworld.ideology">WVC_AshDemon</li>
+			</subXenotypeDefs>
+			<!-- Affects whether xenotype genes change in some cases upon death. -->
+			<xenotypeCanShapeshiftOnDeath>true</xenotypeCanShapeshiftOnDeath>
+			<!-- For example, the "Undead" gene rerolls xenotype genes each time it triggers. But this only applies to the base resurrection. -->
+		</li>
+	</modExtensions>
+  </XenotypeDef>
 
    <!-- Resurgents will work differently. Instead of being a full-fledged xenotype, they will receive randomly as an undead sub-xenotype. -->
   <WVC_XenotypesAndGenes.SubXenotypeDef>
@@ -90,18 +78,33 @@
 	<label>resurgent</label>
 	<!-- The description is always used as short. Only the main xenotype should have complete information. -->
 	<description>Resurgents are a undead sub-xenotype, despite strong genetic differences they still remain within this xenotype. They are fragile and dependent on resurgent cells. They can regrow lost limbs, never age, and their wounds can close almost instantly. However, their immune system, stomach, blood, disease resistance, their entire body is dependent on these cells. And if the level of the cells is too low, they lose almost all of their special abilities.</description>
-	<inheritable>false</inheritable>
-	<!-- In case the genes need to be added to an already existing set, and not separately. -->
-	<ignoreExistingGenes>false</ignoreExistingGenes>
-	<!-- In case you need to remove existing genes and replace them with new ones. Combined with inheritable. -->
-	<!-- This method will work very bad with hybrid serums, so it is recommended to include such a xenotype in the exceptions for serums. -->
-	<!-- Conflicts with mainGenes. -->
-	<overrideExistingGenes>false</overrideExistingGenes>
 	<!-- If present, it replaces the icon. -->
 	<!-- Also, the presence of the icon is responsible for the custom name and description. -->
 	<!-- If the icon is not specified, then the name of the xenotype will be default -->
 	<xenotypeIconDef>WVC_XenoUndead2c</xenotypeIconDef>
-	<genes>
+	<!-- If any genes need to be removed, they can be listed here. -->
+	<!-- The code is run in this order: removeGenes -> endogenes -> xenogenes -->
+	<removeGenes>
+		<li>WVC_RandomImmunity</li>
+		<li>WVC_RandomMoveSpeed</li>
+		<!-- = -->
+		<li>WVC_MildGeneticInstability</li>
+		<li>WVC_Fragile</li>
+		<li>WVC_NaturalFastAging</li>
+		<li>Hair_Grayless</li>
+	</removeGenes>
+	<!-- endogenes are always added to the germline of the main xenotype. -->
+	<endogenes>
+		<li>WVC_ForeverYoung</li>
+		<li>WVC_RandomLearning</li>
+		<li>WVC_RandomHands</li>
+		<li>WVC_RandomWoundHealing</li>
+		<!-- <li>WVC_RandomImmunity</li> -->
+		<li>WVC_RandomMetabolism</li>
+		<!-- <li>WVC_RandomMoveSpeed</li> -->
+		<li>WVC_RandomPsychicAbility</li>
+	</endogenes>
+	<xenogenes>
 		<li>WVC_ResurgentCells</li>
 		<li>WVC_ResurgentCells_GeneticStability</li>
 		<li>WVC_ResurgentCellsGain</li>
@@ -122,43 +125,24 @@
 		<li>WVC_Hair_TribalOnly</li>
 		<li>DarkVision</li>
 		<!-- <li>WVC_BodySize_Small</li> -->
-	</genes>
-	<mainGenes>
-		<li>WVC_ForeverYoung</li>
-		<li>WVC_RandomLearning</li>
-		<li>WVC_RandomHands</li>
-		<li>WVC_RandomWoundHealing</li>
-		<!-- <li>WVC_RandomImmunity</li> -->
-		<li>WVC_RandomMetabolism</li>
-		<!-- <li>WVC_RandomMoveSpeed</li> -->
-		<li>WVC_RandomPsychicAbility</li>
-	</mainGenes>
-	<!-- If any genes need to be removed, they can be listed here. -->
-	<!-- The code is run in this order: removeGenes -> mainGenes -> genes -->
-	<removeGenes>
-		<li>WVC_MildGeneticInstability</li>
-		<li>WVC_Fragile</li>
-		<li>WVC_NaturalFastAging</li>
-	</removeGenes>
+	</xenogenes>
   </WVC_XenotypesAndGenes.SubXenotypeDef>
 
-  <!-- Still in BETA -->
-  <!-- Still not implemented some abilities and dust penalties -->
+  <!-- Dust Angel -->
   <WVC_XenotypesAndGenes.SubXenotypeDef>
 	<defName>WVC_DustAngel</defName>
-	<label>dust angel</label>
-	<description>Dust Angels are an undead sub-xenotype, despite strong genetic differences they still remain within this xenotype. Their bodies are dependent on a biological resource called dust. Dust greatly affects their metabolism and at low levels they get hungry faster. They have innate mechanitor abilities and a slightly wild disposition. They are immune to most diseases, and the non-stable mutations of the undead do not show up on them. However, unlike their close relatives, their death is always the end.</description>
-	<inheritable>false</inheritable>
-	<ignoreExistingGenes>false</ignoreExistingGenes>
-	<overrideExistingGenes>false</overrideExistingGenes>
+	<!-- <label>dust angel</label> -->
+	<label>featherdust</label>
+	<description>Featherdusts are an undead sub-xenotype, despite strong genetic differences they still remain within this xenotype. Their bodies are dependent on a biological resource called dust. Dust greatly affects their metabolism and at low levels they get hungry faster. They have innate mechanitor abilities and a slightly wild disposition. They are immune to most diseases, and the non-stable mutations of the undead do not show up on them. However, unlike their close relatives, their death is always the end.</description>
 	<xenotypeIconDef>WVC_XenoDustAngel0c</xenotypeIconDef>
-	<genes>
+	<xenogenes>
 		<li>WVC_Dustogenic</li>
 		<li>WVC_Dustogenic_WoundHealing</li>
 		<li>WVC_Dustogenic_Ageless</li>
 		<li>WVC_Dustogenic_Metabolism</li>
 		<li>WVC_Dustogenic_Blesslink</li>
 		<li>WVC_Dustogenic_AngelBeauty</li>
+		<!-- Implemented for the "Undead" gene. A separate gene was left for player use only. -->
 		<!-- <li>WVC_Dustogenic_Reincarnation</li> -->
 		<li>WVC_Dustogenic_GeneticStability</li>
 		<li>WVC_Dustogenic_ImmaculateConception</li>
@@ -171,8 +155,9 @@
 		<!-- = -->
 		<li>Aggression_HyperAggressive</li>
 		<li>WVC_SlaveSuppression_Unruly</li>
-	</genes>
-	<mainGenes>
+	</xenogenes>
+	<endogenes>
+		<!-- <li>WVC_ToxResist_Total</li> -->
 		<li>WVC_FeatherSkin</li>
 		<li>WVC_BodySize_Small</li>
 		<!-- <li>WVC_SameBloodSameXenotype</li> -->
@@ -181,9 +166,19 @@
 		<li>Skin_SheerWhite</li>
 		<li>WVC_NaturalDisease_DiseaseFree</li>
 		<li>WVC_NaturalImmunity_PerfectImmunity</li>
-	</mainGenes>
+		<li>WVC_HeadBoneHorns</li>
+	</endogenes>
 	<removeGenes>
+		<li>WVC_RandomLearning</li>
+		<li>WVC_RandomHands</li>
+		<li>WVC_RandomWoundHealing</li>
+		<li>WVC_RandomImmunity</li>
+		<li>WVC_RandomMetabolism</li>
+		<li>WVC_RandomMoveSpeed</li>
+		<li>WVC_RandomPsychicAbility</li>
+		<!-- = -->
 		<li>StrongStomach</li>
+		<!-- <li>ToxResist_Total</li> -->
 		<li>WVC_MildGeneticInstability</li>
 		<li>WVC_AgeDebuff_Sterile</li>
 		<li>WVC_SkinColor_Undead</li>
@@ -192,16 +187,77 @@
 	</removeGenes>
 	<!-- One gene will be added from each set of genes in this list. -->
 	<!-- Random genes are always added last. -->
-	<randomGenes>
-		<li>
-			<inheritable>true</inheritable>
-			<genes>
-				<li>WVC_HeadBoneHorns</li>
-				<li>Headbone_MiniHorns</li>
-				<li>WVC_HeadBoneDoubleHorn</li>
-			</genes>
-		</li>
-	</randomGenes>
+	<!-- <randomGenes> -->
+		<!-- <li> -->
+			<!-- <inheritable>true</inheritable> -->
+			<!-- <genes> -->
+				<!-- <li>WVC_HeadBoneHorns</li> -->
+				<!-- <li>Headbone_MiniHorns</li> -->
+				<!-- <li>WVC_HeadBoneDoubleHorn</li> -->
+			<!-- </genes> -->
+		<!-- </li> -->
+	<!-- </randomGenes> -->
+  </WVC_XenotypesAndGenes.SubXenotypeDef>
+
+  <!-- Ash Demon -->
+  <!-- Still in BETA -->
+  <WVC_XenotypesAndGenes.SubXenotypeDef MayRequire="ludeon.rimworld.ideology">
+	<defName>WVC_AshDemon</defName>
+	<label>ashen</label>
+	<description>Ashens are an undead sub-xenotype, despite strong genetic differences they still remain within this xenotype.</description>
+	<xenotypeIconDef>WVC_XenoUndead3c</xenotypeIconDef>
+	<xenogenes>
+		<li>WVC_Scarifier</li>
+		<li>WVC_Scarifier_Pain</li>
+		<li>WVC_Scarifier_Clotting</li>
+		<li>WVC_WoundHealing_UnrealFast</li>
+		<li>Aggression_DeadCalm</li>
+		<li>MeleeDamage_Strong</li>
+		<li>LowSleep</li>
+		<li>Unstoppable</li>
+		<!-- = -->
+		<li>WVC_AptitudePerfect_Shooting</li>
+		<li>WVC_AptitudePerfect_Melee</li>
+		<li>WVC_AptitudeImpossible_Construction</li>
+		<li>WVC_AptitudeImpossible_Mining</li>
+		<li>WVC_AptitudeImpossible_Cooking</li>
+		<li>WVC_AptitudeImpossible_Plants</li>
+		<li>WVC_AptitudeImpossible_Animals</li>
+		<li>WVC_AptitudeImpossible_Crafting</li>
+		<li>WVC_AptitudeImpossible_Artistic</li>
+		<li>WVC_AptitudeImpossible_Medicine</li>
+		<li>WVC_AptitudeImpossible_Social</li>
+		<li>WVC_AptitudeImpossible_Intellectual</li>
+	</xenogenes>
+	<endogenes>
+		<li>DarkVision</li>
+		<li>WVC_Unbreakable</li>
+		<!-- <li>WVC_ToxResist_Total</li> -->
+		<li>WVC_PerfectImmunity_DiseaseFree</li>
+		<li>WVC_NaturalAgeless</li>
+		<li>WVC_SkinColor_Slate</li>
+		<li>WVC_HeadBoneHorns</li>
+		<li>WVC_DemonTailA</li>
+		<li>WVC_NoLearning</li>
+		<li>WVC_Scarifier_GeneticStability</li>
+	</endogenes>
+	<removeGenes>
+		<li>WVC_RandomLearning</li>
+		<li>WVC_RandomHands</li>
+		<li>WVC_RandomWoundHealing</li>
+		<li>WVC_RandomImmunity</li>
+		<li>WVC_RandomMetabolism</li>
+		<li>WVC_RandomMoveSpeed</li>
+		<li>WVC_RandomPsychicAbility</li>
+		<!-- = -->
+		<li>WVC_MildGeneticInstability</li>
+		<li>WVC_NaturalFastAging</li>
+		<li>WVC_NaturalFastGrowing</li>
+		<!-- <li>ToxResist_Total</li> -->
+		<li>WVC_SkinColor_Undead</li>
+		<li>Hair_Grayless</li>
+		<li>WVC_Fragile</li>
+	</removeGenes>
   </WVC_XenotypesAndGenes.SubXenotypeDef>
 
 </Defs>

@@ -35,11 +35,18 @@ A restart is required to apply the setting. Required new game!</WVC_ToolTip_disa
 Requires a restart, a new game and that the previous setting is enabled.</WVC_ToolTip_disableAllGraphic>
 
 	<!-- ====================================================================================== -->
+	<WVC_Label_disableUniqueGeneInterface>Disable unique gene interface</WVC_Label_disableUniqueGeneInterface>
+	<WVC_ToolTip_disableUniqueGeneInterface>Responsible for displaying the unique background and additional information of the gene.
+
+If enabled, then all genes of the mod will have a vanilla interface.</WVC_ToolTip_disableUniqueGeneInterface>
+
+	<!-- ====================================================================================== -->
 	<WVC_Label_enableGenesInfo>Enable genes info display (All)</WVC_Label_enableGenesInfo>
 	<WVC_Label_enableGeneSpawnerGizmo>Enable gene-spawner info</WVC_Label_enableGeneSpawnerGizmo>
 	<WVC_Label_enableGeneWingInfo>Enable gene-wing info</WVC_Label_enableGeneWingInfo>
 	<WVC_Label_enableGeneBlesslinkInfo>Enable blesslink summon info</WVC_Label_enableGeneBlesslinkInfo>
 	<WVC_Label_enableGeneUndeadInfo>Enable undead info</WVC_Label_enableGeneUndeadInfo>
+	<WVC_Label_enableGeneScarifierInfo>Enable scarifier info</WVC_Label_enableGeneScarifierInfo>
 
 	<WVC_ToolTip_enableGenesInfo>Responsible for displaying gene information. For example, for spawner genes: time, name and count.
 
@@ -86,6 +93,10 @@ May affect startup speed on modlists with a lot of mods that add xenotypes.</WVC
 	<WVC_Label_serumsForAllXenotypes_GenBase>Generate base xenotypes serums</WVC_Label_serumsForAllXenotypes_GenBase>
 	<WVC_Label_serumsForAllXenotypes_GenUltra>Generate ultra xenotypes serums</WVC_Label_serumsForAllXenotypes_GenUltra>
 	<WVC_Label_serumsForAllXenotypes_GenHybrid>Generate hybrid xenotypes serums</WVC_Label_serumsForAllXenotypes_GenHybrid>
+
+	<WVC_ToolTip_serumsForAllXenotypes_GenBase>Responsible for generating serums that can be crafted.</WVC_ToolTip_serumsForAllXenotypes_GenBase>
+	<WVC_ToolTip_serumsForAllXenotypes_GenUltra>Responsible for the generation of serums that can be purchased or spawned using the gene of the same name.</WVC_ToolTip_serumsForAllXenotypes_GenUltra>
+	<WVC_ToolTip_serumsForAllXenotypes_GenHybrid>Responsible for the generation of serums with two xenotypes that can only be purchased or spawned with the gene of the same name.</WVC_ToolTip_serumsForAllXenotypes_GenHybrid>
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_serumsForAllXenotypes_Recipes>Generate serum recipes</WVC_Label_serumsForAllXenotypes_Recipes>

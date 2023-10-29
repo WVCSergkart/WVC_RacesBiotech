@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef ParentName="GeneVoiceBase" Name="WVC_MechaVoicesBase" Abstract="True">
+  <GeneDef ParentName="GeneVoiceBase" Name="WVC_XenotypesAndGenes_GeneMechaVoices_Base" Abstract="True">
 	<!-- <displayCategory>WVC_MechaBody</displayCategory> -->
 	<!-- <displayCategory>WVC_MechaBodyVoices</displayCategory> -->
 	<description>Carriers of this gene have cool mechanoid-like voice.</description>
 	<!-- <displayOrderInCategory>300</displayOrderInCategory> -->
 	<displayOrderInCategory>137</displayOrderInCategory>
+	<!-- <displayCategory>WVC_Cosmetic</displayCategory> -->
 	<iconPath>WVC/UI/Genes/MechanoidizationVoice</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
 	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
@@ -37,10 +38,6 @@
 	  <!-- </li> -->
 	<!-- </suppressedTraits> -->
 	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
 		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Background"> -->
 			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite> -->
 		<!-- </li> -->
@@ -50,7 +47,7 @@
   <!-- Mechavoice -->
 
   <!-- light -->
-  <GeneDef ParentName="WVC_MechaVoicesBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechaVoices_Base">
 	<defName>WVC_VoiceMechaMilitor</defName>
 	<label>militor voice</label>
 	<soundCall>Pawn_Mech_Militor_Call</soundCall>
@@ -62,7 +59,7 @@
 	  </wholeNameSymbols>
 	</symbolPack>
   </GeneDef>
-  <GeneDef ParentName="WVC_MechaVoicesBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechaVoices_Base">
 	<defName>WVC_VoiceMechaLifter</defName>
 	<label>lifter voice</label>
 	<soundCall>Pawn_Mech_Lifter_Call</soundCall>
@@ -74,7 +71,7 @@
 	  </wholeNameSymbols>
 	</symbolPack>
   </GeneDef>
-  <GeneDef ParentName="WVC_MechaVoicesBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechaVoices_Base">
 	<defName>WVC_VoiceMechaConstructoid</defName>
 	<label>constructoid voice</label>
 	<soundCall>Pawn_Mech_Constructoid_Call</soundCall>
@@ -86,7 +83,7 @@
 	  </wholeNameSymbols>
 	</symbolPack>
   </GeneDef>
-  <GeneDef ParentName="WVC_MechaVoicesBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechaVoices_Base">
 	<defName>WVC_VoiceMechaAgrihand</defName>
 	<label>agrihand voice</label>
 	<soundCall>Pawn_Mech_Agrihand_Call</soundCall>
@@ -98,7 +95,7 @@
 	  </wholeNameSymbols>
 	</symbolPack>
   </GeneDef>
-  <GeneDef ParentName="WVC_MechaVoicesBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechaVoices_Base">
 	<defName>WVC_VoiceMechaFabricor</defName>
 	<label>fabricor voice</label>
 	<soundCall>Pawn_Mech_Fabricor_Call</soundCall>
@@ -110,7 +107,7 @@
 	  </wholeNameSymbols>
 	</symbolPack>
   </GeneDef>
-  <GeneDef ParentName="WVC_MechaVoicesBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechaVoices_Base">
 	<defName>WVC_VoiceMechaCleansweeper</defName>
 	<label>cleansweeper voice</label>
 	<soundCall>Pawn_Mech_Cleansweeper_Call</soundCall>
@@ -122,7 +119,7 @@
 	  </wholeNameSymbols>
 	</symbolPack>
   </GeneDef>
-  <GeneDef ParentName="WVC_MechaVoicesBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechaVoices_Base">
 	<defName>WVC_VoiceMechaUrchin</defName>
 	<label>urchin voice</label>
 	<soundCall>Pawn_Mech_WarUrchin_Call</soundCall>
@@ -134,7 +131,7 @@
 	  </wholeNameSymbols>
 	</symbolPack>
   </GeneDef>
-  <GeneDef ParentName="WVC_MechaVoicesBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechaVoices_Base">
 	<defName>WVC_VoiceMechaParamedic</defName>
 	<label>paramedic voice</label>
 	<soundCall>Pawn_Mech_Paramedic_Call</soundCall>
@@ -147,7 +144,7 @@
 	</symbolPack>
   </GeneDef>
   <!-- medium -->
-  <GeneDef ParentName="WVC_MechaVoicesBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechaVoices_Base">
 	<defName>WVC_VoiceMechaLegionary</defName>
 	<label>legionary voice</label>
 	<soundCall>Pawn_Mech_Legionary_Call</soundCall>
@@ -159,7 +156,7 @@
 	  </wholeNameSymbols>
 	</symbolPack>
   </GeneDef>
-  <GeneDef ParentName="WVC_MechaVoicesBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechaVoices_Base">
 	<defName>WVC_VoiceMechaTesseron</defName>
 	<label>tesseron voice</label>
 	<soundCall>Pawn_Mech_Tesseron_Call</soundCall>
@@ -171,7 +168,7 @@
 	  </wholeNameSymbols>
 	</symbolPack>
   </GeneDef>
-  <GeneDef ParentName="WVC_MechaVoicesBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechaVoices_Base">
 	<defName>WVC_VoiceMechaScorcher</defName>
 	<label>scorcher voice</label>
 	<soundCall>Pawn_Mech_Scorcher_Call</soundCall>
@@ -183,7 +180,7 @@
 	  </wholeNameSymbols>
 	</symbolPack>
   </GeneDef>
-  <GeneDef ParentName="WVC_MechaVoicesBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechaVoices_Base">
 	<defName>WVC_VoiceMechaApocriton</defName>
 	<label>apocriton voice</label>
 	<soundCall>Pawn_Mech_Apocriton_Call</soundCall>
@@ -195,7 +192,7 @@
 	  </wholeNameSymbols>
 	</symbolPack>
   </GeneDef>
-  <GeneDef ParentName="WVC_MechaVoicesBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechaVoices_Base">
 	<defName>WVC_VoiceMechaScyther</defName>
 	<label>scyther voice</label>
 	<soundCall>Pawn_Mech_Scyther_Call</soundCall>
@@ -207,7 +204,7 @@
 	  </wholeNameSymbols>
 	</symbolPack>
   </GeneDef>
-  <GeneDef ParentName="WVC_MechaVoicesBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechaVoices_Base">
 	<defName>WVC_VoiceMechaPikeman</defName>
 	<label>pikeman voice</label>
 	<soundCall>Pawn_Mech_Pikeman_Call</soundCall>
@@ -220,7 +217,7 @@
 	</symbolPack>
   </GeneDef>
   <!-- large -->
-  <GeneDef ParentName="WVC_MechaVoicesBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechaVoices_Base">
 	<defName>WVC_VoiceMechaTunneler</defName>
 	<label>tunneler voice</label>
 	<soundCall>Pawn_Mech_Tunneler_Call</soundCall>
@@ -232,7 +229,7 @@
 	  </wholeNameSymbols>
 	</symbolPack>
   </GeneDef>
-  <GeneDef ParentName="WVC_MechaVoicesBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechaVoices_Base">
 	<defName>WVC_VoiceMechaCentipede</defName>
 	<label>centipede voice</label>
 	<soundCall>Pawn_Mech_Centipede_Call</soundCall>
@@ -244,7 +241,7 @@
 	  </wholeNameSymbols>
 	</symbolPack>
   </GeneDef>
-  <GeneDef ParentName="WVC_MechaVoicesBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechaVoices_Base">
 	<defName>WVC_VoiceMechaTermite</defName>
 	<label>termite voice</label>
 	<soundCall>Pawn_Mech_Termite_Call</soundCall>
@@ -257,7 +254,7 @@
 	</symbolPack>
   </GeneDef>
   <!-- Ultra large -->
-  <GeneDef ParentName="WVC_MechaVoicesBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechaVoices_Base">
 	<defName>WVC_VoiceMechaCenturion</defName>
 	<label>centurion voice</label>
 	<soundCall>Pawn_Mech_Centurion_Call</soundCall>
@@ -269,7 +266,7 @@
 	  </wholeNameSymbols>
 	</symbolPack>
   </GeneDef>
-  <GeneDef ParentName="WVC_MechaVoicesBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechaVoices_Base">
 	<defName>WVC_VoiceMechaWarqueen</defName>
 	<label>queen voice</label>
 	<soundCall>Pawn_Mech_Warqueen_Call</soundCall>
@@ -281,7 +278,7 @@
 	  </wholeNameSymbols>
 	</symbolPack>
   </GeneDef>
-  <GeneDef ParentName="WVC_MechaVoicesBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechaVoices_Base">
 	<defName>WVC_VoiceMechaDiabolus</defName>
 	<label>diabolus voice</label>
 	<soundCall>Pawn_Mech_Diabolus_Call</soundCall>

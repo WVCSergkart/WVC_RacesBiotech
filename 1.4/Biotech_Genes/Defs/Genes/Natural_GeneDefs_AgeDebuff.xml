@@ -11,42 +11,37 @@
 
   <!-- ============== -->
 
-  <GeneDef ParentName="GeneToxResistBase">
-	<defName>WVC_AgeDebuff_ToxResist</defName>
-	<label>tox filtration degradation</label>
-	<labelShortAdj>tox-age-weakness</labelShortAdj>
-	<description>Carriers of this gene at some point in their lives become very vulnerable to toxins.</description>
-	<iconPath>WVC/UI/Genes/AgeDebuff_ToxSens</iconPath>
-	<!-- <displayCategory>WVC_AgeDebuffs</displayCategory> -->
-	<displayOrderInCategory>11</displayOrderInCategory>
-	<!-- <immuneToToxGasExposure>true</immuneToToxGasExposure> -->
-	<minAgeActive>25</minAgeActive>
-	<!-- <customEffectDescriptions> -->
-	  <!-- <li>Tox gas immunity</li> -->
-	<!-- </customEffectDescriptions> -->
-	<selectionWeight>0.002</selectionWeight>
-	<statOffsets>
-	  <ToxicResistance>-1</ToxicResistance>
-	</statOffsets>
-	<biostatCpx>2</biostatCpx>
-	<biostatMet>3</biostatMet>
-	<exclusionTags>
-	  <li>ToxResistance</li>
-	</exclusionTags>
-	<symbolPack>
-	  <prefixSymbols>
-		<li><symbol>tox</symbol></li>
-		<li><symbol>weak</symbol></li>
-		<li><symbol>age</symbol></li>
-	  </prefixSymbols>
-	</symbolPack>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-	</modExtensions>
-  </GeneDef>
+  <!-- <GeneDef ParentName="GeneToxResistBase"> -->
+	<!-- <defName>WVC_AgeDebuff_ToxResist</defName> -->
+	<!-- <label>tox filtration degradation</label> -->
+	<!-- <labelShortAdj>tox-age-weakness</labelShortAdj> -->
+	<!-- <description>Carriers of this gene at some point in their lives become very vulnerable to toxins.</description> -->
+	<!-- <iconPath>WVC/UI/Genes/AgeDebuff_ToxSens</iconPath> -->
+	<!-- <displayOrderInCategory>11</displayOrderInCategory> -->
+	<!-- <minAgeActive>25</minAgeActive> -->
+	<!-- <selectionWeight>0.002</selectionWeight> -->
+	<!-- <statOffsets> -->
+	  <!-- <ToxicResistance>-1</ToxicResistance> -->
+	<!-- </statOffsets> -->
+	<!-- <biostatCpx>2</biostatCpx> -->
+	<!-- <biostatMet>3</biostatMet> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>ToxResistance</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <symbolPack> -->
+	  <!-- <prefixSymbols> -->
+		<!-- <li><symbol>tox</symbol></li> -->
+		<!-- <li><symbol>weak</symbol></li> -->
+		<!-- <li><symbol>age</symbol></li> -->
+	  <!-- </prefixSymbols> -->
+	<!-- </symbolPack> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
 
   <!-- ============== -->
 
@@ -75,12 +70,6 @@
 	<statFactors>
 	  <Fertility>0.1</Fertility>
 	</statFactors>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-	</modExtensions>
   </GeneDef>
 
   <!-- ============== -->
@@ -100,12 +89,6 @@
 	<!-- <biostatMet>1</biostatMet> -->
 	<lovinMTBFactor>7</lovinMTBFactor>
 	<selectionWeight>0.002</selectionWeight>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-	</modExtensions>
   </GeneDef>
 
   <!-- ============== -->
@@ -114,72 +97,36 @@
 
   <!-- ============== -->
 
-  <GeneDef>
-	<defName>WVC_AgeDebuff_Social</defName>
-	<label>vocal cord degradation</label> 
-	<labelShortAdj>bad-hand</labelShortAdj>
-	<description>Carriers of this gene lose the ability to speak at some point in their lives.</description>
-	<iconPath>WVC/UI/Genes/AgeDebuff_Talk</iconPath>
-	<displayCategory>Miscellaneous</displayCategory>
-	<displayOrderInCategory>21</displayOrderInCategory>
-	<minAgeActive>25</minAgeActive>
-	<selectionWeight>0.002</selectionWeight>
-	<exclusionTags>
-	  <li>WVC_MechaAI_SoftwareDisableTalking</li>
-	</exclusionTags>
-	<capMods>
-	  <li>
-		<capacity>Talking</capacity>
-		<setMax>0.0</setMax>
-	  </li>
-	</capMods>
-	<biostatCpx>2</biostatCpx>
-	<biostatMet>3</biostatMet>
-	<symbolPack>
-	  <prefixSymbols>
-		<li><symbol>mute</symbol></li>
-		<li><symbol>age</symbol></li>
-		<li><symbol>weak</symbol></li>
-	  </prefixSymbols>
-	</symbolPack>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-	</modExtensions>
-  </GeneDef>
-
   <!-- ============== -->
 
-  <GeneDef>
-	<defName>WVC_AgeDebuff_Beauty</defName>
-	<label>premature old</label>
-	<description>Carriers of this gene outwardly age very early.</description>
-	<iconPath>WVC/UI/Genes/AgeDebuff_Beauty</iconPath>
-	<displayCategory>Beauty</displayCategory>
-	<displayOrderInCategory>10</displayOrderInCategory>
-	<minAgeActive>25</minAgeActive>
-	<selectionWeight>0.002</selectionWeight>
-	<statOffsets>
-	  <PawnBeauty>-2</PawnBeauty>
-	</statOffsets>
-	<biostatCpx>1</biostatCpx>
-	<biostatMet>2</biostatMet>
-	<symbolPack>
-	  <prefixSymbols>
-		<li>
-		  <symbol>ug</symbol>
-		</li>
-	  </prefixSymbols>
-	</symbolPack>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-	</modExtensions>
-  </GeneDef>
+  <!-- <GeneDef> -->
+	<!-- <defName>WVC_AgeDebuff_Beauty</defName> -->
+	<!-- <label>premature old</label> -->
+	<!-- <description>Carriers of this gene outwardly age very early.</description> -->
+	<!-- <iconPath>WVC/UI/Genes/AgeDebuff_Beauty</iconPath> -->
+	<!-- <displayCategory>Beauty</displayCategory> -->
+	<!-- <displayOrderInCategory>10</displayOrderInCategory> -->
+	<!-- <minAgeActive>25</minAgeActive> -->
+	<!-- <selectionWeight>0.002</selectionWeight> -->
+	<!-- <statOffsets> -->
+	  <!-- <PawnBeauty>-2</PawnBeauty> -->
+	<!-- </statOffsets> -->
+	<!-- <biostatCpx>1</biostatCpx> -->
+	<!-- <biostatMet>2</biostatMet> -->
+	<!-- <symbolPack> -->
+	  <!-- <prefixSymbols> -->
+		<!-- <li> -->
+		  <!-- <symbol>ug</symbol> -->
+		<!-- </li> -->
+	  <!-- </prefixSymbols> -->
+	<!-- </symbolPack> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
 
   <!-- ============== -->
 
@@ -193,16 +140,10 @@
 	<selectionWeight>0.002</selectionWeight>
 	<biostatMet>6</biostatMet>
 	<statFactors>
-	  <LifespanFactor>0.1</LifespanFactor>
+	  <LifespanFactor>0.4</LifespanFactor>
 	  <CancerRate>7</CancerRate>
-	  <ImmunityGainSpeed>0.8</ImmunityGainSpeed>
+	  <ImmunityGainSpeed>0.88</ImmunityGainSpeed>
 	</statFactors>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-	</modExtensions>
   </GeneDef>
 
 </Defs>

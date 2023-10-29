@@ -15,7 +15,7 @@
 		<WVC_RuneDryad>1.0</WVC_RuneDryad>
 	</doubleXenotypeChances>
 	<genes>
-		<li>Ageless</li>
+		<!-- <li>Ageless</li> -->
 		<li>DiseaseFree</li>
 		<li>PerfectImmunity</li>
 		<li>WoundHealing_Slow</li>
@@ -28,7 +28,10 @@
 		<!-- <li>WVC_SleepyStomach</li> -->
 		<li>WVC_StoneStomach</li>
 		<li>WVC_PsychicAbility_Dull</li>
+		<li>WVC_MechaPowerSource_Stable</li>
 		<!-- <li>Robust</li> -->
+		<li>WVC_ForeverYoung</li>
+		<li>WVC_NaturalFastGrowing</li>
 		<li>WVC_Tough</li>
 		<li>Pain_Reduced</li>
 		<!-- <li>Sterile</li> -->

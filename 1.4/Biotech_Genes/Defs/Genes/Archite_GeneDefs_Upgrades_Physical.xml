@@ -128,11 +128,6 @@
 	<statOffsets>
 	  <MoveSpeed>0.2</MoveSpeed>
 	</statOffsets>
-	<!-- <modExtensions Inherit="False"> -->
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Background"> -->
-			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGeneActive</backgroundPathArchite> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
 	<exclusionTags>
 	  <li>WVC_LightFrameSuperSpine</li>
 	</exclusionTags>
@@ -199,9 +194,6 @@
 		<li Class="VanillaGenesExpanded.GeneExtension">
 			<diseaseProgressionFactor>0.5</diseaseProgressionFactor>
 		</li>
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Background"> -->
-			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGeneActive</backgroundPathArchite> -->
-		<!-- </li> -->
 	</modExtensions>
   </GeneDef>
 
@@ -226,11 +218,6 @@
 	  <li>FibrousMechanites</li>
 	  <li>SensoryMechanites</li>
 	</makeImmuneTo>
-	<!-- <modExtensions Inherit="False"> -->
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Background"> -->
-			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGeneActive</backgroundPathArchite> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
   </GeneDef>
 
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
@@ -255,11 +242,6 @@
 	  <li>LungRot</li>
 	  <li>LungRotExposure</li>
 	</makeImmuneTo>
-	<!-- <modExtensions Inherit="False"> -->
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Background"> -->
-			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGeneActive</backgroundPathArchite> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
   </GeneDef>
 
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">

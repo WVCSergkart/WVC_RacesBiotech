@@ -81,59 +81,31 @@
 		</symbolPacks>
 	</MemeDef>
 
-	<MemeDef>
-		<defName>WVC_Mechaskinist</defName>
-		<label>exoskinist</label>
-		<description>There is nothing more reliable in this world than our flesh.</description>
-		<iconPath>WVC/UI/Precepts/Memes_Hybridism</iconPath>
-		<groupDef>Misc</groupDef>
-		<impact>1</impact>
-		<randomizationSelectionWeightFactor>0.15</randomizationSelectionWeightFactor>
-		<symbolPacks>
-		  <li>
-			<ideoName>exoskinism</ideoName>
-			<theme>exoskinism</theme>
-			<adjective>exoskinist</adjective>
-			<member>exoskinist</member>
-		  </li>
-		</symbolPacks>
-		<requireOne>
-		  <li>
-			<!-- <li>WVC_Mechaskinned_Horrible</li> -->
-			<!-- <li>WVC_Mechaskinned_Disapproved</li> -->
-			<li>WVC_Mechaskinned_Indifference</li>
-			<li>WVC_Mechaskinned_Acceptable</li>
-			<li>WVC_Mechaskinned_Preferred</li>
-			<li>WVC_Mechaskinned_Exalted</li>
-		  </li>
+	<!-- Needs a complete redesign. -->
+	<!-- <MemeDef> -->
+		<!-- <defName>WVC_Mechaskinist</defName> -->
+		<!-- <label>exoskinist</label> -->
+		<!-- <description>There is nothing more reliable in this world than our flesh.</description> -->
+		<!-- <iconPath>WVC/UI/Precepts/Memes_Hybridism</iconPath> -->
+		<!-- <groupDef>Misc</groupDef> -->
+		<!-- <impact>1</impact> -->
+		<!-- <randomizationSelectionWeightFactor>0.15</randomizationSelectionWeightFactor> -->
+		<!-- <symbolPacks> -->
 		  <!-- <li> -->
-			<!-- <li>WVC_ExoBeauty_Base</li> -->
+			<!-- <ideoName>exoskinism</ideoName> -->
+			<!-- <theme>exoskinism</theme> -->
+			<!-- <adjective>exoskinist</adjective> -->
+			<!-- <member>exoskinist</member> -->
 		  <!-- </li> -->
+		<!-- </symbolPacks> -->
+		<!-- <requireOne> -->
 		  <!-- <li> -->
-			<!-- <li>WVC_Exoskinism_Misc</li> -->
-			<!-- <li>WVC_Exoskinism_Melee</li> -->
-			<!-- <li>WVC_Exoskinism_Social</li> -->
-			<!-- <li>WVC_Exoskinism_Medicine</li> -->
-			<!-- <li>WVC_Exoskinism_Intellectual</li> -->
-			<!-- <li>WVC_Exoskinism_Shooting</li> -->
+			<!-- <li>WVC_Mechaskinned_Indifference</li> -->
+			<!-- <li>WVC_Mechaskinned_Acceptable</li> -->
+			<!-- <li>WVC_Mechaskinned_Preferred</li> -->
+			<!-- <li>WVC_Mechaskinned_Exalted</li> -->
 		  <!-- </li> -->
-		  <!-- <li> -->
-			<!-- <li>Temperature_Tough</li> -->
-		  <!-- </li> -->
-		  <!-- <li> -->
-			<!-- <li>RoughLiving_Welcomed</li> -->
-		  <!-- </li> -->
-		  <!-- <li> -->
-			<!-- <li>Nudity_Male_Mandatory</li> -->
-		  <!-- </li> -->
-		  <!-- <li> -->
-			<!-- <li>Nudity_Female_Mandatory</li> -->
-		  <!-- </li> -->
-		  <!-- <li> -->
-			<!-- <li>WVC_SubCorred_Improved</li> -->
-			<!-- <li>WVC_SubCorred_Flexible</li> -->
-		  <!-- </li> -->
-		</requireOne>
-	</MemeDef>
+		<!-- </requireOne> -->
+	<!-- </MemeDef> -->
 
 </Defs>

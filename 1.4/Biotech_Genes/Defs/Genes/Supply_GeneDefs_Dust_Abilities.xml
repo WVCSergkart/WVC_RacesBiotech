@@ -4,7 +4,8 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_Base" Name="WVC_XenotypesAndGenes_GeneDustSupply_DustAbilities" Abstract="True">
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_DustDrain</geneClass> -->
-	<prerequisite>WVC_Dustogenic_GeneticStability</prerequisite>
+	<prerequisite>WVC_Dustogenic</prerequisite>
+	<!-- <prerequisite>WVC_Dustogenic_GeneticStability</prerequisite> -->
 	<marketValueFactor>1.5</marketValueFactor>
 	<selectionWeight>0.009</selectionWeight>
 	<minAgeActive>3</minAgeActive>
@@ -18,6 +19,45 @@
   <!-- ================================================= -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustAbilities">
+	<defName>WVC_Dustogenic_ImmaculateConception</defName>
+	<label>dustogenic conception</label>
+	<description>Carriers of this gene do not require a partner for reproduction. Pregnancy occurs only at the request of the mother and only with sufficient dust levels.</description>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_Dustogenic_AbilityImmaculateConception</AbilityDef>
+	</descriptionHyperlinks>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Gestator_TestTool</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_ImmaculateConception_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>105</displayOrderInCategory>
+	<minAgeActive>13</minAgeActive>
+	<sterilize>true</sterilize>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Spawns a baby-pawn with similar genes few days after the ability is activated.</li>
+		<li>&lt;color=#ff8585&gt;Female only.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <Fertility>0</Fertility>
+	</statFactors>
+	<abilities>
+	  <li>WVC_Dustogenic_AbilityImmaculateConception</li>
+	</abilities>
+	<exclusionTags>
+		<li>Fertility</li>
+		<li>Egglaying</li>
+		<li>AG_Egglaying</li>
+		<li>AG_Gestation</li>
+		<li>AG_Fertility</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>bless</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustAbilities">
 	<defName>WVC_Dustogenic_FeatherBlades</defName>
 	<label>sharp feathers</label>
 	<description>Carriers of this gene have sharp feathers with which they can throw them at a distance.</description>
@@ -27,7 +67,7 @@
 	</descriptionHyperlinks>
 	<iconPath>WVC/UI/Genes/Gene_FeatherBlades_v0</iconPath>
 	<iconColor>(241, 175, 129)</iconColor>
-	<displayOrderInCategory>105</displayOrderInCategory>
+	<displayOrderInCategory>110</displayOrderInCategory>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>-1</biostatMet>
 	<customEffectDescriptions>

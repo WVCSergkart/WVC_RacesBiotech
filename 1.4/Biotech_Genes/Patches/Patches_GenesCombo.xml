@@ -36,7 +36,7 @@
 
 	<!-- ================== -->
 
-	<Operation Class="WVC.PatchOperationOptional">
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
 		<settingName>minWastepacksPerRecharge</settingName>
 		<caseTrue Class="PatchOperationReplace">
 		  <xpath>/Defs/StatDef[defName="WastepacksPerRecharge"]/minValue</xpath>
@@ -47,7 +47,7 @@
 		</caseTrue>
 	</Operation>
 
-	<Operation Class="WVC.PatchOperationOptional">
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
 		<settingName>validatorAbilitiesPatch</settingName>
 		<caseTrue Class="PatchOperationSequence">
 			<operations>
@@ -66,7 +66,7 @@
 		</caseTrue>
 	</Operation>
 
-	<!-- <Operation Class="WVC.PatchOperationOptional"> -->
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
 		<!-- <settingName>hideEncodingGenes</settingName> -->
 		<!-- <caseFalse Class="PatchOperationRemove"> -->
 		  <!-- <xpath>/Defs/GeneDef[@Name="WVC_Nodization_RandomBuff_Base"]/modExtensions/li[@Class="VanillaGenesExpanded.GeneExtension"]/hideGene</xpath> -->
@@ -74,7 +74,7 @@
 		<!-- </caseFalse> -->
 	<!-- </Operation> -->
 
-	<!-- <Operation Class="WVC.PatchOperationOptional"> -->
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
 		<!-- <settingName>enableGeneSpawnerGizmo</settingName> -->
 		<!-- <caseTrue Class="PatchOperationAdd"> -->
 		  <!-- <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath> -->
@@ -105,7 +105,7 @@
 		</operations>
 	</Operation>
 
-	<Operation Class="WVC.PatchOperationOptional">
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
 		<settingName>enableGenesInfo</settingName>
 		<caseTrue Class="PatchOperationAdd">
 		  <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath>
@@ -115,7 +115,7 @@
 		</caseTrue>
 	</Operation>
 
-	<!-- <Operation Class="WVC.PatchOperationOptional"> -->
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
 		<!-- <settingName>enableGeneUndeadInfo</settingName> -->
 		<!-- <caseTrue Class="PatchOperationAdd"> -->
 		  <!-- <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath> -->
@@ -124,7 +124,7 @@
 		  <!-- </value> -->
 		<!-- </caseTrue> -->
 	<!-- </Operation> -->
-	<!-- <Operation Class="WVC.PatchOperationOptional"> -->
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
 		<!-- <settingName>enableGeneWingInfo</settingName> -->
 		<!-- <caseTrue Class="PatchOperationAdd"> -->
 		  <!-- <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath> -->
@@ -133,7 +133,7 @@
 		  <!-- </value> -->
 		<!-- </caseTrue> -->
 	<!-- </Operation> -->
-	<!-- <Operation Class="WVC.PatchOperationOptional"> -->
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
 		<!-- <settingName>enableGeneSpawnerGizmo</settingName> -->
 		<!-- <caseTrue Class="PatchOperationAdd"> -->
 		  <!-- <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath> -->
@@ -142,7 +142,7 @@
 		  <!-- </value> -->
 		<!-- </caseTrue> -->
 	<!-- </Operation> -->
-	<!-- <Operation Class="WVC.PatchOperationOptional"> -->
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
 		<!-- <settingName>enableGeneBlesslinkInfo</settingName> -->
 		<!-- <caseTrue Class="PatchOperationAdd"> -->
 		  <!-- <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath> -->

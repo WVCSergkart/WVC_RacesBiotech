@@ -1,15 +1,58 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <GeneDef ParentName="GeneTailBase" Name="WVC_XenotypesAndGenes_GeneTails_Base" Abstract="True">
+	<description>Carriers of this gene grow a sleek long tail.</description>
+	<iconPath>WVC/UI/Genes/Gene_DemonTail_v0</iconPath>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+	<displayCategory>WVC_Cosmetic</displayCategory>
+	<displayOrderInCategory>1000</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
+	<minAgeActive>0</minAgeActive>
+	<selectionWeight>0.022</selectionWeight>
+  </GeneDef>
+
   <!-- Tail -->
 
-  <!-- Node tail -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneTails_Base">
+	<defName>WVC_DemonTailA</defName>
+	<label>demon tail</label>
+	<!-- <description>Carriers of this gene grow a sleek long tail.</description> -->
+	<iconPath>WVC/UI/Genes/Gene_DemonTail_v0</iconPath>
+	<minAgeActive>3</minAgeActive>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
+	<graphicData>
+	  <!-- <graphicPath>WVC/BodyParts/MecaGene_ScytheTail/DemonTail</graphicPath> -->
+	  <graphicPaths>
+		<li>WVC/BodyParts/MecaGene_ScytheTail/DemonTail</li>
+		<li>WVC/BodyParts/MecaGene_ScytheTail/DemonTailB</li>
+		<li>WVC/BodyParts/MecaGene_ScytheTail/DemonTailC</li>
+	  </graphicPaths>
+	  <colorType>Skin</colorType>
+	  <drawScale>1.25</drawScale>
+	  <drawOffsetNorth>(0.0, 0.2, 0.0)</drawOffsetNorth>
+	  <drawOffsetSouth>(0.0, -0.1, 0.0)</drawOffsetSouth>
+	  <drawOffsetEast>(-0.06, -0.1, 0.02)</drawOffsetEast>
+	</graphicData>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>demon</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
 
-  <GeneDef ParentName="GeneTailBase" Name="WVC_NodeTail_Base" Abstract="True">
+  <!-- Old tail -->
+
+  <GeneDef ParentName="GeneTailBase" Name="WVC_XenotypesAndGenes_GeneTails_OldBase" Abstract="True">
 	<label>connector tail</label>
 	<description>Carriers of this gene grow a sleek long tail with several connectors at the end.</description>
 	<iconPath>WVC/BodyParts/MecaGene_ScytheTail/NodeTail_east</iconPath>
-	<iconColor>(0.85, 0.85, 0.85)</iconColor>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+	<displayCategory>WVC_Cosmetic</displayCategory>
 	<!-- <displayCategory>WVC_MechaBodyParts</displayCategory> -->
 	<displayOrderInCategory>1001</displayOrderInCategory>
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
@@ -25,16 +68,11 @@
 	  <drawOffsetSouth>(0, -0.1, -0.15)</drawOffsetSouth>
 	  <drawOffsetEast>(-0.5, -0.1, -0.15)</drawOffsetEast>
 	</graphicData>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
-		</li>
-	</modExtensions>
   </GeneDef>
 
   <!-- ======================== -->
 
-  <GeneDef ParentName="WVC_NodeTail_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneTails_OldBase">
 	<defName>WVC_Mecha_ScytheTail</defName>
 	<label>scythe tail</label>
 	<description>Carriers of this gene grow two tails with scythe-like blades at the end.</description>
@@ -88,7 +126,7 @@
 	</modExtensions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_NodeTail_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneTails_OldBase">
 	<defName>WVC_Mecha_ConnectorTail</defName>
 	<label>connector tail</label>
 	<description>Carriers of this gene grow a sleek long tail with several connectors at the end.</description>
@@ -128,7 +166,7 @@
 	</modExtensions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_NodeTail_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneTails_OldBase">
 	<defName>WVC_Mecha_AntennaTail</defName>
 	<label>antenna tail</label>
 	<description>Carriers of this gene grow a short antenna-like tail.</description>
@@ -163,7 +201,7 @@
 	</modExtensions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_NodeTail_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneTails_OldBase">
 	<defName>WVC_Mecha_NoTail</defName>
 	<label>protective plate</label>
 	<description>Carriers of this gene have additional protection.</description>

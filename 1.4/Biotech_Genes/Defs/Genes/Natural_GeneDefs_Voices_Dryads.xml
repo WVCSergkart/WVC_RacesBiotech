@@ -9,13 +9,14 @@
 
   <!-- ================================================================== -->
 
-  <GeneDef MayRequireAnyOf="ludeon.rimworld.ideology" ParentName="GeneVoiceBase" Name="WVC_DryadVoicesBase" Abstract="True">
+  <GeneDef MayRequireAnyOf="ludeon.rimworld.ideology" ParentName="GeneVoiceBase" Name="WVC_XenotypesAndGenes_GeneDryadVoices_Base" Abstract="True">
 	<!-- <displayCategory>WVC_WeirdVoices</displayCategory> -->
 	<description>Carriers of this gene have weird vocal chords.</description>
 	<!-- <displayOrderInCategory>1500</displayOrderInCategory> -->
 	<!-- <displayCategory>WVC_FurskinBody</displayCategory> -->
 	<!-- <displayOrderInCategory>900</displayOrderInCategory> -->
 	<!-- <displayOrderInCategory>132</displayOrderInCategory> -->
+	<!-- <displayCategory>WVC_Cosmetic</displayCategory> -->
 	<iconPath>UI/Icons/Genes/Gene_VoiceHuman</iconPath>
 	<iconColor>(194, 123, 71)</iconColor>
     <displayOrderInCategory>136</displayOrderInCategory>
@@ -32,17 +33,11 @@
 		<li><symbol>ad</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-	</modExtensions>
   </GeneDef>
 
   <!-- ================================= -->
 
-  <GeneDef MayRequireAnyOf="ludeon.rimworld.ideology" ParentName="WVC_DryadVoicesBase">
+  <GeneDef MayRequireAnyOf="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_GeneDryadVoices_Base">
 	<defName>WVC_VoiceDryadBasic</defName>
 	<label>basic dryad voice</label>
 	<soundCall>Pawn_Dryad_Call</soundCall>
@@ -55,7 +50,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef MayRequireAnyOf="ludeon.rimworld.ideology" ParentName="WVC_DryadVoicesBase">
+  <GeneDef MayRequireAnyOf="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_GeneDryadVoices_Base">
 	<defName>WVC_VoiceDryadBarkskin</defName>
 	<label>barkskin voice</label>
 	<soundCall>Pawn_Dryad_Barkskin_Call</soundCall>
@@ -76,7 +71,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef MayRequireAnyOf="ludeon.rimworld.ideology" ParentName="WVC_DryadVoicesBase">
+  <GeneDef MayRequireAnyOf="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_GeneDryadVoices_Base">
 	<defName>WVC_VoiceDryadWoodmaker</defName>
 	<label>woodmaker voice</label>
 	<soundCall>Pawn_Dryad_Woodmaker_Call</soundCall>
@@ -98,7 +93,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef MayRequireAnyOf="ludeon.rimworld.ideology" ParentName="WVC_DryadVoicesBase">
+  <GeneDef MayRequireAnyOf="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_GeneDryadVoices_Base">
 	<defName>WVC_VoiceDryadBerrymaker</defName>
 	<label>berrymaker voice</label>
 	<soundCall>Pawn_Dryad_Berrymaker_Call</soundCall>
@@ -122,7 +117,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef MayRequireAnyOf="ludeon.rimworld.ideology" ParentName="WVC_DryadVoicesBase">
+  <GeneDef MayRequireAnyOf="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_GeneDryadVoices_Base">
 	<defName>WVC_VoiceDryadMedicinemaker</defName>
 	<label>medicinemaker voice</label>
 	<soundCall>Pawn_Dryad_Medicinemaker_Call</soundCall>
@@ -145,7 +140,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef MayRequireAnyOf="ludeon.rimworld.ideology" ParentName="WVC_DryadVoicesBase">
+  <GeneDef MayRequireAnyOf="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_GeneDryadVoices_Base">
 	<defName>WVC_VoiceDryadGaumaker</defName>
 	<label>gaumaker voice</label>
 	<soundCall>Pawn_Dryad_Gaumaker_Call</soundCall>
@@ -168,7 +163,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef MayRequireAnyOf="ludeon.rimworld.ideology" ParentName="WVC_DryadVoicesBase">
+  <GeneDef MayRequireAnyOf="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_GeneDryadVoices_Base">
 	<defName>WVC_VoiceDryadCarrier</defName>
 	<label>carrier voice</label>
 	<soundCall>Pawn_Dryad_Carrier_Call</soundCall>
@@ -190,7 +185,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef MayRequireAnyOf="ludeon.rimworld.ideology" ParentName="WVC_DryadVoicesBase">
+  <GeneDef MayRequireAnyOf="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_GeneDryadVoices_Base">
 	<defName>WVC_VoiceDryadClawer</defName>
 	<label>clawer voice</label>
 	<soundCall>Pawn_Dryad_Clawer_Call</soundCall>

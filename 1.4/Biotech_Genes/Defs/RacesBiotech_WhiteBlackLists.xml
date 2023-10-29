@@ -80,6 +80,7 @@
 		<li>WVC_GeneticStability</li>
 		<li>WVC_ResurgentCells_GeneticStability</li>
 		<li>WVC_Dustogenic_GeneticStability</li>
+		<li>WVC_Scarifier_GeneticStability</li>
 		<li MayRequire="vanillaracesexpanded.android">VREA_SyntheticBody</li>
 	</nonCandidatesForSerums>
 	<!-- Hediffs that prevent gene reimplantation. Needed as a measure of anti-bug. Any hediff defNames -->
@@ -156,7 +157,30 @@
 	<!-- <gene_PawnSkillsNotDecay> -->
 		<!-- <li>Nudist</li> -->
 	<!-- </gene_PawnSkillsNotDecay> -->
+	<mechDefNameShouldNotContain>
+		<li>TEST</li>
+		<li>NonPlayer</li>
+		<li>NonPlayable</li>
+		<li>Unplayable</li>
+		<li>Random</li>
+		<li>Golem_</li>
+		<li>Zombie_</li>
+		<li>Undead_</li>
+		<li>Corpse_</li>
+		<li>Android_</li>
+		<li>Medieval</li>
+	</mechDefNameShouldNotContain>
   </WVC_XenotypesAndGenes.XenotypesAndGenesListDef>
+
+  <!-- ======================================================================= -->
+
+  <VREAndroids.AndroidConvertableGenesDef MayRequire="vanillaracesexpanded.android">
+	<defName>WVC_RacesBiotech_AndroidConvertableGenes</defName>
+	<geneCategories>
+		<li>WVC_Cosmetic</li>
+		<li>WVC_CosmeticVoices</li>
+	</geneCategories>
+  </VREAndroids.AndroidConvertableGenesDef>
 
   <!-- ======================================================================= -->
 
@@ -176,27 +200,20 @@
 		<li>WVC_DisabledAllWork_Blank</li>
 		<!-- For future -->
 		<!-- <li>WVC_NodeEyes_</li> -->
-		<li>WVC_NodeEyes_A</li>
-		<li>WVC_NodeEyes_B</li>
-		<li>WVC_NodeEyes_C</li>
-		<li>WVC_NodeEyes_D</li>
-		<li>WVC_NodeEyes_E</li>
-		<li>WVC_NodeEyes_Y</li>
-		<li>WVC_NodeEyes_F</li>
-		<li>WVC_NodeEyes_G</li>
-		<li>WVC_NodeEyes_H</li>
-		<li>WVC_NodeEyes_J</li>
-		<li>WVC_NodeEyes_K</li>
+		<!-- <li>WVC_NodeEyes_A</li> -->
+		<!-- <li>WVC_NodeEyes_B</li> -->
+		<!-- <li>WVC_NodeEyes_C</li> -->
+		<!-- <li>WVC_NodeEyes_D</li> -->
+		<!-- <li>WVC_NodeEyes_E</li> -->
+		<!-- <li>WVC_NodeEyes_Y</li> -->
+		<!-- <li>WVC_NodeEyes_F</li> -->
+		<!-- <li>WVC_NodeEyes_G</li> -->
+		<!-- <li>WVC_NodeEyes_H</li> -->
+		<!-- <li>WVC_NodeEyes_J</li> -->
+		<!-- <li>WVC_NodeEyes_K</li> -->
 		<!-- = -->
-		<li>WVC_NodeEyes_Randomizer</li>
+		<!-- <li>WVC_NodeEyes_Randomizer</li> -->
 		<!-- <li>WVC_Nodization_</li> -->
-		<li>WVC_Nodization_DecisionRandomizer</li>
-		<li>WVC_Nodization_VindicationRandomizer</li>
-		<li>WVC_Nodization_StringRandomizer</li>
-		<li>WVC_Nodization_PointRandomizer</li>
-		<li>WVC_Nodization_PatternRandomizer</li>
-		<li>WVC_Nodization_SkillRandomizer</li>
-		<li>WVC_Nodization_EntityRandomizer</li>
 		<!-- = -->
 		<li>WVC_MechaSkin</li>
 		<li>WVC_RuneSkin</li>
@@ -208,63 +225,6 @@
 		<li>WVC_MecaBodyParts_Claws</li>
 		<li>WVC_NaturalBodyParts_Claws</li>
 		<!-- <li>WVC_AgeDebuff_</li> -->
-		<!-- A B C D E F G -->
-		<!-- = -->
-		<li>WVC_Nodization_EntityBuff_A</li>
-		<li>WVC_Nodization_EntityBuff_B</li>
-		<li>WVC_Nodization_EntityBuff_C</li>
-		<li>WVC_Nodization_EntityBuff_D</li>
-		<li>WVC_Nodization_EntityBuff_E</li>
-		<li>WVC_Nodization_EntityBuff_F</li>
-		<li>WVC_Nodization_EntityBuff_G</li>
-		<!-- = -->
-		<li>WVC_Nodization_PatternBuff_A</li>
-		<li>WVC_Nodization_PatternBuff_B</li>
-		<li>WVC_Nodization_PatternBuff_C</li>
-		<li>WVC_Nodization_PatternBuff_D</li>
-		<li>WVC_Nodization_PatternBuff_E</li>
-		<li>WVC_Nodization_PatternBuff_F</li>
-		<li>WVC_Nodization_PatternBuff_G</li>
-		<!-- = -->
-		<li>WVC_Nodization_DecisionBuff_A</li>
-		<li>WVC_Nodization_DecisionBuff_B</li>
-		<li>WVC_Nodization_DecisionBuff_C</li>
-		<li>WVC_Nodization_DecisionBuff_D</li>
-		<li>WVC_Nodization_DecisionBuff_E</li>
-		<li>WVC_Nodization_DecisionBuff_F</li>
-		<li>WVC_Nodization_DecisionBuff_G</li>
-		<!-- = -->
-		<li>WVC_Nodization_PointBuff_A</li>
-		<li>WVC_Nodization_PointBuff_B</li>
-		<li>WVC_Nodization_PointBuff_C</li>
-		<li>WVC_Nodization_PointBuff_D</li>
-		<li>WVC_Nodization_PointBuff_E</li>
-		<li>WVC_Nodization_PointBuff_F</li>
-		<li>WVC_Nodization_PointBuff_G</li>
-		<!-- = -->
-		<li>WVC_Nodization_SkillBuff_A</li>
-		<li>WVC_Nodization_SkillBuff_B</li>
-		<li>WVC_Nodization_SkillBuff_C</li>
-		<li>WVC_Nodization_SkillBuff_D</li>
-		<li>WVC_Nodization_SkillBuff_E</li>
-		<li>WVC_Nodization_SkillBuff_F</li>
-		<li>WVC_Nodization_SkillBuff_G</li>
-		<!-- = -->
-		<li>WVC_Nodization_StringBuff_A</li>
-		<li>WVC_Nodization_StringBuff_B</li>
-		<li>WVC_Nodization_StringBuff_C</li>
-		<li>WVC_Nodization_StringBuff_D</li>
-		<li>WVC_Nodization_StringBuff_E</li>
-		<li>WVC_Nodization_StringBuff_F</li>
-		<li>WVC_Nodization_StringBuff_G</li>
-		<!-- = -->
-		<li>WVC_Nodization_VindicationBuff_A</li>
-		<li>WVC_Nodization_VindicationBuff_B</li>
-		<li>WVC_Nodization_VindicationBuff_C</li>
-		<li>WVC_Nodization_VindicationBuff_D</li>
-		<li>WVC_Nodization_VindicationBuff_E</li>
-		<li>WVC_Nodization_VindicationBuff_F</li>
-		<li>WVC_Nodization_VindicationBuff_G</li>
 		<!-- = -->
 		<li>WVC_Undead</li>
 		<li>WVC_NaturalUndead</li>
@@ -301,55 +261,6 @@
 		<!-- <li>WVC_ArchiteDisableComfort</li> -->
 		<!-- <li>WVC_NaturalDisableComfort</li> -->
 		<!-- = -->
-		<li>WVC_RandomLearning</li>
-		<li>WVC_RandomHands</li>
-		<li>WVC_RandomWoundHealing</li>
-		<li>WVC_RandomImmunity</li>
-		<li>WVC_RandomMetabolism</li>
-		<li>WVC_RandomMoveSpeed</li>
-		<li>WVC_RandomPsychicAbility</li>
-		<!-- = -->
-		<li>WVC_RandomMetabolism_A</li>
-		<li>WVC_RandomMetabolism_B</li>
-		<li>WVC_RandomMetabolism_C</li>
-		<li>WVC_RandomMetabolism_D</li>
-		<li>WVC_RandomMetabolism_E</li>
-		<!-- = -->
-		<li>WVC_RandomImmunity_A</li>
-		<li>WVC_RandomImmunity_B</li>
-		<li>WVC_RandomImmunity_C</li>
-		<li>WVC_RandomImmunity_D</li>
-		<li>WVC_RandomImmunity_E</li>
-		<!-- = -->
-		<li>WVC_RandomWoundHealing_A</li>
-		<li>WVC_RandomWoundHealing_B</li>
-		<li>WVC_RandomWoundHealing_C</li>
-		<li>WVC_RandomWoundHealing_D</li>
-		<li>WVC_RandomWoundHealing_E</li>
-		<!-- = -->
-		<li>WVC_RandomHands_A</li>
-		<li>WVC_RandomHands_B</li>
-		<li>WVC_RandomHands_C</li>
-		<li>WVC_RandomHands_D</li>
-		<li>WVC_RandomHands_E</li>
-		<!-- = -->
-		<li>WVC_RandomLearning_A</li>
-		<li>WVC_RandomLearning_B</li>
-		<li>WVC_RandomLearning_C</li>
-		<li>WVC_RandomLearning_D</li>
-		<li>WVC_RandomLearning_E</li>
-		<!-- = -->
-		<li>WVC_RandomMoveSpeed_A</li>
-		<li>WVC_RandomMoveSpeed_B</li>
-		<li>WVC_RandomMoveSpeed_C</li>
-		<li>WVC_RandomMoveSpeed_D</li>
-		<li>WVC_RandomMoveSpeed_E</li>
-		<!-- = -->
-		<li>WVC_RandomPsychicAbility_A</li>
-		<li>WVC_RandomPsychicAbility_B</li>
-		<li>WVC_RandomPsychicAbility_C</li>
-		<li>WVC_RandomPsychicAbility_D</li>
-		<li>WVC_RandomPsychicAbility_E</li>
 	</blackListedGenes>
   </AlphaGenes.WretchBlacklistDef>
 

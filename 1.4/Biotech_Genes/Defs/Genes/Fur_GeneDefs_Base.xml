@@ -9,20 +9,20 @@
 
 The body is covered with plates, and the skin becomes hard and resembles plasteel to the touch. The glands are replaced by small colonies of mechanites that serve the body. Mechanites have flexibly adapted to the host's body, making their influence almost imperceptible. The hairline completely disappears, remaining only on the head or face. Muscle tissues are strengthened and become more resilient. 
 
-Most of the internal organs remain intact, but there are enough external changes to indicate that the host is more like a mechanoid than a human.
-
-&lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
+Most of the internal organs remain intact, but there are enough external changes to indicate that the host is more like a mechanoid than a human.</description>
 	<!-- <displayCategory>WVC_MechaBody</displayCategory> -->
-	<displayCategory>Miscellaneous</displayCategory>
+	<!-- <displayCategory>Miscellaneous</displayCategory> -->
+	<displayCategory>WVC_Cosmetic</displayCategory>
 	<displayOrderInCategory>400</displayOrderInCategory>
 	<selectionWeight>0.0125</selectionWeight>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
 	<!-- <marketValueFactor>1.5</marketValueFactor> -->
 	<randomChosen>false</randomChosen>
 	<canGenerateInGeneSet>true</canGenerateInGeneSet>
 	<biostatCpx>3</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<!-- = -->
-	<iconPath>WVC/UI/Genes/MechaIcon</iconPath>
+	<iconPath>WVC/UI/Genes/Gene_FurskinD_v0</iconPath>
 	<marketValueFactor>3</marketValueFactor>
 	<neverGrayHair>true</neverGrayHair>
 	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
@@ -79,9 +79,6 @@ Most of the internal organs remain intact, but there are enough external changes
 			<customWoundsFromFleshtype>Mechanoid</customWoundsFromFleshtype>
 			<customBloodEffect>Damage_HitMechanoid</customBloodEffect>
 		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
-		</li>
 		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
 			<!-- <geneIsMechaskin>true</geneIsMechaskin> -->
 		<!-- </li> -->
@@ -94,7 +91,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<defName>WVC_MechaSkin</defName>
 	<!-- <biostatMet>-16</biostatMet> -->
 	<!-- <displayOrderInCategory>-100</displayOrderInCategory> -->
-	<iconColor>(184, 198, 203)</iconColor>
+	<!-- <iconColor>(184, 198, 203)</iconColor> -->
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_MechaskinHunger</geneClass> -->
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_TEST</geneClass> -->
 	<minAgeActive>13</minAgeActive>

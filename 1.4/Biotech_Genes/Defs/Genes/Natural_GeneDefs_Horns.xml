@@ -5,6 +5,7 @@
 	<description>Carriers of this gene grow two horns protruding from the forehead.</description>
 	<selectionWeight>0.012</selectionWeight>
 	<minAgeActive>3</minAgeActive>
+	<displayCategory>WVC_Cosmetic</displayCategory>
 	<graphicData>
 	  <color>(255, 255, 255)</color>
 	  <layer>PostHeadgear</layer>
@@ -26,25 +27,31 @@
 		<li><symbol>vil</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
-		</li>
-	</modExtensions>
   </GeneDef>
 
   <!-- ================================================================== -->
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHeadbone_Base"> -->
+	<!-- <defName>WVC_HeadBoneHorns</defName> -->
+	<!-- <label>horns</label> -->
+	<!-- <iconPath>WVC/UI/Genes/HornsA_Icon_v0</iconPath> -->
+	<!-- <graphicData> -->
+	  <!-- <graphicPath>WVC/BodyParts/Horns/HornsA</graphicPath> -->
+	  <!-- <drawOffsetNorth>(0, 0, -0.04)</drawOffsetNorth> -->
+	  <!-- <drawOffsetSouth>(0, 0, -0.13)</drawOffsetSouth> -->
+	<!-- </graphicData> -->
+  <!-- </GeneDef> -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHeadbone_Base">
 	<defName>WVC_HeadBoneHorns</defName>
 	<label>horns</label>
 	<iconPath>WVC/UI/Genes/HornsA_Icon_v0</iconPath>
 	<graphicData>
-	  <graphicPath>WVC/BodyParts/Horns/HornsA</graphicPath>
+	  <graphicPaths>
+		<li>WVC/BodyParts/Horns/HornsA</li>
+		<!-- <li>WVC/BodyParts/Horns/HornsB</li> -->
+		<li>WVC/BodyParts/Horns/HornsC</li>
+	  </graphicPaths>
 	  <drawOffsetNorth>(0, 0, -0.04)</drawOffsetNorth>
 	  <drawOffsetSouth>(0, 0, -0.13)</drawOffsetSouth>
 	</graphicData>
@@ -60,19 +67,5 @@
 	  <drawOffsetSouth>(0, 0, -0.13)</drawOffsetSouth>
 	</graphicData>
   </GeneDef>
-
-  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHeadbone_Base"> -->
-	<!-- <defName>WVC_HeadBoneHorns</defName> -->
-	<!-- <label>horns</label> -->
-	<!-- <iconPath>WVC/UI/Genes/HornsA_Icon_v0</iconPath> -->
-	<!-- <graphicData> -->
-	  <!-- <graphicPaths> -->
-		<!-- <li>WVC/BodyParts/Horns/HornsA</li> -->
-		<!-- <li>WVC/BodyParts/Horns/HornsB</li> -->
-	  <!-- </graphicPaths> -->
-	  <!-- <drawOffsetNorth>(0, 0, -0.04)</drawOffsetNorth> -->
-	  <!-- <drawOffsetSouth>(0, 0, -0.13)</drawOffsetSouth> -->
-	<!-- </graphicData> -->
-  <!-- </GeneDef> -->
 
 </Defs>

@@ -71,21 +71,21 @@
 	</descriptionHyperlinks>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_GeneGestationAbilities_Base">
-	<defName>WVC_StartUrchinGestation</defName>
-	<label>urchin gestator</label>
-	<iconPath>Things/Pawn/Mechanoid/WarUrchin_south</iconPath>
-	<selectionWeight>0.0015</selectionWeight>
-	<customEffectDescriptions>
-		<li>Spawns a urchin 5 days after the ability is activated.</li>
-	</customEffectDescriptions>
-	<abilities>
-	  <li>WVC_StartUrchinGestation</li>
-	</abilities>
-	<descriptionHyperlinks>
-	  <AbilityDef>WVC_StartUrchinGestation</AbilityDef>
-	</descriptionHyperlinks>
-  </GeneDef>
+  <!-- <GeneDef ParentName="WVC_GeneGestationAbilities_Base"> -->
+	<!-- <defName>WVC_StartUrchinGestation</defName> -->
+	<!-- <label>urchin gestator</label> -->
+	<!-- <iconPath>Things/Pawn/Mechanoid/WarUrchin_south</iconPath> -->
+	<!-- <selectionWeight>0.0015</selectionWeight> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Spawns a urchin 5 days after the ability is activated.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <abilities> -->
+	  <!-- <li>WVC_StartUrchinGestation</li> -->
+	<!-- </abilities> -->
+	<!-- <descriptionHyperlinks> -->
+	  <!-- <AbilityDef>WVC_StartUrchinGestation</AbilityDef> -->
+	<!-- </descriptionHyperlinks> -->
+  <!-- </GeneDef> -->
 
   <!-- ============================================================================================ -->
 
@@ -156,24 +156,23 @@
 	</comps>
   </AbilityDef>
 
-  <AbilityDef ParentName="WVC_GestationAbilities_Base">
-	<defName>WVC_StartUrchinGestation</defName>
-	<label>urchin gestator</label>
-	<comps>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGiveHediff">
-		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_GiveHediff</compClass>
-		<hediffDef>WVC_RB_AbilityUrchinGestator</hediffDef>
-		<onlyApplyToSelf>true</onlyApplyToSelf>
-		<onlyReproductive>true</onlyReproductive>
-		<!-- <onlyBrain>true</onlyBrain> -->
-	  </li>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive">
-		<anyOfGenes>
-		  <li>WVC_StartUrchinGestation</li>
-		</anyOfGenes>
-	  </li>
-	</comps>
-  </AbilityDef>
+  <!-- <AbilityDef ParentName="WVC_GestationAbilities_Base"> -->
+	<!-- <defName>WVC_StartUrchinGestation</defName> -->
+	<!-- <label>urchin gestator</label> -->
+	<!-- <comps> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGiveHediff"> -->
+		<!-- <compClass>WVC_XenotypesAndGenes.CompAbilityEffect_GiveHediff</compClass> -->
+		<!-- <hediffDef>WVC_RB_AbilityUrchinGestator</hediffDef> -->
+		<!-- <onlyApplyToSelf>true</onlyApplyToSelf> -->
+		<!-- <onlyReproductive>true</onlyReproductive> -->
+	  <!-- </li> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive"> -->
+		<!-- <anyOfGenes> -->
+		  <!-- <li>WVC_StartUrchinGestation</li> -->
+		<!-- </anyOfGenes> -->
+	  <!-- </li> -->
+	<!-- </comps> -->
+  <!-- </AbilityDef> -->
 
   <AbilityDef ParentName="WVC_GestationAbilities_Base">
 	<defName>WVC_MechanoidAbility_ActivateGestator</defName>

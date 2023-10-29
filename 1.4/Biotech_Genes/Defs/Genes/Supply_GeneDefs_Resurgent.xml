@@ -28,6 +28,7 @@
 	<displayOrderInCategory>1230</displayOrderInCategory>
 	<customEffectDescriptions>
 	  <li>Gives resurgent supply.</li>
+	  <li>In the presence of the &lt;color=#8a8ae6&gt;"Undead"&lt;/color&gt; gene, this gene changes the resurrection mechanics. Instead of age, resurgent cells will be spent. Requires &lt;color=#8a8ae6&gt;37 resurgent cells&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>
@@ -67,13 +68,13 @@
 	<biostatArc>0</biostatArc>
 	<biostatMet>-1</biostatMet>
 	<resourceLossPerDay>-0.05</resourceLossPerDay>
-	<customEffectDescriptions>
-	  <li>Carriers of this gene cannot use xenotype serums.</li>
-	  <li>Abilities "Rise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li>
+	<!-- <customEffectDescriptions> -->
+	  <!-- <li>Carriers of this gene cannot use xenotype serums.</li> -->
+	  <!-- <li>Abilities "Rise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li> -->
 	  <!-- <li>Some time after receiving the gene, it creates a backup of all carrier genes.</li> -->
 	  <!-- <li>When you try to change the genes of the carrier, the gene removes all genes and restores the backup.</li> -->
 	 <!-- <li> Also, the gene checks the backup every few days and removes the wrong genes.</li> -->
-	</customEffectDescriptions>
+	<!-- </customEffectDescriptions> -->
 	<exclusionTags>
 	  <li>WVC_GeneticInstabilityGenes</li>
 	</exclusionTags>
@@ -92,7 +93,7 @@
 	<resourceLossPerDay>-0.07</resourceLossPerDay>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>3</biostatMet>
-	<!-- <biostatArc>1</biostatArc> -->
+	<biostatArc>1</biostatArc>
 	<makeImmuneTo>
 	  <li>LungRot</li>
 	</makeImmuneTo>
@@ -193,8 +194,6 @@
 	</exclusionTags>
 	<modExtensions Inherit="False">
 		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
 			<!-- blood -->
 			<customBloodThingDef>WVC_ResurgentBlood</customBloodThingDef>
 			<customBloodIcon>WVC/UI/BloodIcon/Gene_ResurgentBloodIcon_v0</customBloodIcon>
@@ -267,7 +266,7 @@
 	<prerequisite>WVC_ResurgentCellsGain</prerequisite>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>0</biostatMet>
-	<!-- <biostatArc>1</biostatArc> -->
+	<biostatArc>1</biostatArc>
 	<customEffectDescriptions>
 		<li>Makes it possible to plant a resurgent tree at the cost of 66 cells.</li>
 		<li>The resurgent tree slowly pollutes the soil around it and raises walking corpses.</li>

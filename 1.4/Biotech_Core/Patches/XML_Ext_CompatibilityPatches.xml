@@ -232,7 +232,7 @@
 	  <!-- </value> -->
 	<!-- </Operation> -->
 
-	<!-- <Operation Class="WVC.PatchOperationOptional"> -->
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
 		<!-- <settingName>mechaskinTemperatureAdaptability</settingName> -->
 		<!-- <caseTrue Class="PatchOperationSequence"> -->
 			<!-- <operations> -->

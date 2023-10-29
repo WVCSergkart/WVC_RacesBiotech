@@ -10,7 +10,7 @@
 	  <!-- Resources -->
 	  <li Class="StockGenerator_SingleDef">
 		<thingDef>Silver</thingDef>
-		<countRange>14000~22000</countRange>
+		<countRange>7000~12000</countRange>
 	  </li>
 	  <li Class="StockGenerator_SingleDef">
 		<thingDef>MedicineIndustrial</thingDef>
@@ -22,23 +22,23 @@
 	  </li>
 	  <li Class="StockGenerator_SingleDef">
 		<thingDef>WVC_EmptyXenotypeSerum</thingDef>
-		<countRange>2~6</countRange>
+		<countRange>0~3</countRange>
 	  </li>
 	  <li Class="StockGenerator_SingleDef">
 		<thingDef>WVC_XenotypeSerumCapsule</thingDef>
-		<countRange>1~5</countRange>
+		<countRange>0~4</countRange>
 	  </li>
 	  <li Class="StockGenerator_SingleDef">
 		<thingDef>WVC_XenotypeSerumUltraCapsule</thingDef>
-		<countRange>0~4</countRange>
+		<countRange>0~3</countRange>
 	  </li>
 	  <li MayRequire="Ludeon.RimWorld.Biotech" Class="StockGenerator_SingleDef">
 		<thingDef>Genepack</thingDef>
-		<countRange>7~14</countRange>
+		<countRange>4~12</countRange>
 	  </li>
 	  <li Class="StockGenerator_Tag">
 		<tradeTag>WVC_GenePacks</tradeTag>
-		<thingDefCountRange>7~14</thingDefCountRange>
+		<thingDefCountRange>4~12</thingDefCountRange>
 		<countRange>1~1</countRange>
 	  </li>
 	  <li MayRequire="sarg.alphagenes" Class="StockGenerator_SingleDef">
@@ -55,9 +55,14 @@
 		<!-- <thingDefCountRange>1~3</thingDefCountRange> -->
 		<!-- <countRange>1~1</countRange> -->
 	  <!-- </li> -->
+	  <!-- <li Class="StockGenerator_Tag"> -->
+		<!-- <tradeTag>WVC_All_XenotypeSerums</tradeTag> -->
+		<!-- <thingDefCountRange>2~12</thingDefCountRange> -->
+		<!-- <countRange>1~1</countRange> -->
+	  <!-- </li> -->
 	  <li Class="StockGenerator_Tag">
-		<tradeTag>WVC_All_XenotypeSerums</tradeTag>
-		<thingDefCountRange>2~12</thingDefCountRange>
+		<tradeTag>WVC_XenotypeSerums_NonCraftable</tradeTag>
+		<thingDefCountRange>0~5</thingDefCountRange>
 		<countRange>1~1</countRange>
 	  </li>
 	  <!-- <li Class="StockGenerator_Tag"> -->

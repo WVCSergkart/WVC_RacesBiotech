@@ -14,15 +14,6 @@
 	  <li>SlaveSuppression</li>
 	  <li>WVC_SlaveSuppression</li>
 	</exclusionTags>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
-		</li>
-	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSlaveSuppression_Base">
@@ -31,6 +22,7 @@
 	<description>Carriers of this gene are very disobedient and freedom-loving.</description>
 	<iconPath>WVC/UI/Genes/Gene_SlaveSuppression_NonSlave</iconPath>
 	<biostatMet>2</biostatMet>
+	<prisonBreakMTBFactor>0.2</prisonBreakMTBFactor>
 	<statOffsets>
 	  <SlaveSuppressionFallRate MayRequire="ludeon.rimworld.ideology">0.5</SlaveSuppressionFallRate>
 	</statOffsets>
@@ -42,6 +34,7 @@
 	<description>Carriers of this gene are weak and naive.</description>
 	<iconPath>WVC/UI/Genes/Gene_SlaveSuppression_Slave</iconPath>
 	<biostatMet>-2</biostatMet>
+	<prisonBreakMTBFactor>-1</prisonBreakMTBFactor>
 	<statOffsets>
 	  <SlaveSuppressionFallRate MayRequire="ludeon.rimworld.ideology">-0.5</SlaveSuppressionFallRate>
 	</statOffsets>

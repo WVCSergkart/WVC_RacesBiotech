@@ -11,15 +11,6 @@
 	<iconColor>(255, 255, 255)</iconColor>
 	<!-- <iconColor>(175, 175, 100)</iconColor> -->
 	<!-- <iconColor>(249, 241, 148)</iconColor> -->
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
-		</li>
-	</modExtensions>
   </GeneDef>
 
   <!-- ================================================================== -->
@@ -53,7 +44,8 @@
 	<customEffectDescriptions>
 	  <li>Gives dust supply.</li>
 	  <li>Refresh time (*DateTime)~1 day(/DateTime).</li>
-	  <!-- <li>In the presence of the &lt;color=#8a8ae6&gt;"Undead"&lt;/color&gt; gene, it gives the effect of &lt;color=#8a8ae6&gt;reincarnation&lt;/color&gt;.</li> -->
+	  <li>In the presence of the &lt;color=#8a8ae6&gt;"Undead"&lt;/color&gt; gene, it gives the effect of &lt;color=#8a8ae6&gt;reincarnation&lt;/color&gt;.</li>
+	  <li>&lt;color=#8a8ae6&gt;Reincarnation&lt;/color&gt; - In case of death, a pawn will be summoned, which is a descendant of the deceased. The effect will not work if the chronological age of the pawn is less than 40.</li>
 	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>
@@ -178,11 +170,11 @@
 	<iconPath>WVC/UI/Genes/Gene_Blessedlink_v0</iconPath>
 	<!-- <iconColor>(255, 248, 133)</iconColor> -->
 	<!-- <iconColor>(173, 142, 112)</iconColor> -->
-	<!-- <biostatArc>1</biostatArc> -->
+	<biostatArc>1</biostatArc>
 	<customEffectDescriptions>
 		<!-- <li>Carriers of this gene get &lt;color=#8a8ae6&gt;mechlink&lt;/color&gt; and &lt;color=#8a8ae6&gt;psylink&lt;/color&gt; permanently.</li> -->
 		<li>Carriers of this gene get &lt;color=#8a8ae6&gt;mechlink&lt;/color&gt; permanently.</li>
-		<li>Allows you to enable or disable the automatic summoning of mechanoids every (*DateTime)8-16 days(/DateTime).</li>
+		<li>Allows to enable or disable the automatic summoning of mechanoids every (*DateTime)8-16 days(/DateTime).</li>
 		<li>A carrier of this gene cannot craft or resurrect mechanoids.</li>
 	</customEffectDescriptions>
 	<statFactors>
@@ -249,6 +241,7 @@
 	</customEffectDescriptions>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>-1</biostatMet>
+	<biostatArc>1</biostatArc>
 	<suppressedTraits>
 	  <!-- <li> -->
 		<!-- <def>Beauty</def> -->
@@ -289,6 +282,7 @@
 	</modExtensions>
   </GeneDef>
 
+  <!-- Implemented for the "Undead" gene. A separate gene was left for player use only. -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
 	<defName>WVC_Dustogenic_Reincarnation</defName>
 	<label>reincarnation</label>
@@ -297,13 +291,14 @@
 	<iconPath>WVC/UI/Genes/Gene_Reincarnation_v0</iconPath>
 	<!-- <iconColor>(255, 248, 133)</iconColor> -->
 	<!-- <iconColor>(173, 142, 112)</iconColor> -->
+	<!-- <iconColor>(93, 101, 126)</iconColor> -->
 	<displayOrderInCategory>30</displayOrderInCategory>
 	<minAgeActive>13</minAgeActive>
 	<prerequisite></prerequisite>
 	<resourceLabel></resourceLabel>
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>0</biostatMet>
-	<biostatArc>2</biostatArc>
+	<biostatArc>1</biostatArc>
 	<customEffectDescriptions>
 		<li>In case of death, a pawn will be summoned, which is a descendant of the deceased.</li>
 		<!-- <li>Such a pawn inherits all genes and all skills, without passions.</li> -->
@@ -326,6 +321,34 @@
 	</modExtensions>
   </GeneDef>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
+	<defName>WVC_Dustogenic_Clotting</defName>
+	<label>dustogenic clotting</label>
+	<description>Carriers of this gene have dust in their blood that heals wounds in an emergency.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DustClotting</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_DustClotting_v0</iconPath>
+	<iconColor>(241, 175, 129)</iconColor>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<!-- <painFactor>1.5</painFactor> -->
+	<displayOrderInCategory>35</displayOrderInCategory>
+	<!-- <statFactors> -->
+	  <!-- <InjuryHealingFactor>4</InjuryHealingFactor> -->
+	<!-- </statFactors> -->
+	<customEffectDescriptions>
+		<li>If a pawn is downed/sleep, its wounds will be automatically treated.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <!-- <li>WoundHealingRate</li> -->
+	  <li>SuperClotting</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>bleed</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
   <!-- dustogenic genetic -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
@@ -334,14 +357,14 @@
 	<description>Carriers of this gene have a strong genetic dependence on dust.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_AngelicStability</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_AngelicStability_v0</iconPath>
-	<displayOrderInCategory>35</displayOrderInCategory>
+	<displayOrderInCategory>45</displayOrderInCategory>
 	<biostatCpx>-6</biostatCpx>
-	<biostatArc>0</biostatArc>
+	<biostatArc>1</biostatArc>
 	<biostatMet>6</biostatMet>
 	<resourceLabel></resourceLabel>
 	<customEffectDescriptions>
-	  <li>Carriers of this gene cannot use xenotype serums.</li>
-	  <li>Abilities "Rise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li>
+	  <!-- <li>Carriers of this gene cannot use xenotype serums.</li> -->
+	  <!-- <li>Abilities "Rise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li> -->
 	  <li>If this gene is removed, the carrier will die.</li>
 	  <li>The amount of dust is no longer subject to biological entropy.</li>
 	</customEffectDescriptions>
@@ -357,77 +380,10 @@
 
   <!-- ============================= -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent" Name="WVC_XenotypesAndGenes_GeneDustSupply_DustGenetic" Abstract="True">
-	<prerequisite>WVC_Dustogenic_GeneticStability</prerequisite>
-	<marketValueFactor>1.4</marketValueFactor>
-	<resourceLabel></resourceLabel>
-  </GeneDef>
-
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustGenetic">
-	<defName>WVC_Dustogenic_ImmaculateConception</defName>
-	<label>dustogenic conception</label>
-	<description>Carriers of this gene do not require a partner for reproduction. Pregnancy occurs only at the request of the mother and only with sufficient dust levels.</description>
-	<descriptionHyperlinks>
-	  <AbilityDef>WVC_Dustogenic_AbilityImmaculateConception</AbilityDef>
-	</descriptionHyperlinks>
-	<geneClass>WVC_XenotypesAndGenes.Gene_Gestator_TestTool</geneClass>
-	<iconPath>WVC/UI/Genes/Gene_ImmaculateConception_v0</iconPath>
-	<iconColor>(255, 255, 255)</iconColor>
-	<displayOrderInCategory>40</displayOrderInCategory>
-	<minAgeActive>13</minAgeActive>
-	<sterilize>true</sterilize>
-	<biostatCpx>3</biostatCpx>
-	<biostatMet>0</biostatMet>
-	<customEffectDescriptions>
-		<li>Spawns a baby-pawn with similar genes few days after the ability is activated.</li>
-		<li>&lt;color=#ff8585&gt;Female only.&lt;/color&gt;</li>
-	</customEffectDescriptions>
-	<statFactors>
-	  <Fertility>0</Fertility>
-	</statFactors>
-	<abilities>
-	  <li>WVC_Dustogenic_AbilityImmaculateConception</li>
-	</abilities>
-	<exclusionTags>
-		<li>Fertility</li>
-		<li>Egglaying</li>
-		<li>AG_Egglaying</li>
-		<li>AG_Gestation</li>
-		<li>AG_Fertility</li>
-	</exclusionTags>
-	<symbolPack>
-	  <prefixSymbols>
-		<li><symbol>bless</symbol></li>
-	  </prefixSymbols>
-	</symbolPack>
-  </GeneDef>
-
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustGenetic">
-	<defName>WVC_Dustogenic_Clotting</defName>
-	<label>dustogenic clotting</label>
-	<description>Carriers of this gene have dust in their blood that heals wounds in an emergency.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_DustClotting</geneClass>
-	<iconPath>WVC/UI/Genes/Gene_DustClotting_v0</iconPath>
-	<iconColor>(241, 175, 129)</iconColor>
-	<biostatCpx>1</biostatCpx>
-	<biostatMet>-1</biostatMet>
-	<!-- <painFactor>1.5</painFactor> -->
-	<displayOrderInCategory>45</displayOrderInCategory>
-	<!-- <statFactors> -->
-	  <!-- <InjuryHealingFactor>4</InjuryHealingFactor> -->
-	<!-- </statFactors> -->
-	<customEffectDescriptions>
-		<li>If a pawn is downed, its wounds will be automatically treated.</li>
-	</customEffectDescriptions>
-	<exclusionTags>
-	  <!-- <li>WoundHealingRate</li> -->
-	  <li>SuperClotting</li>
-	</exclusionTags>
-	<symbolPack>
-	  <prefixSymbols>
-		<li><symbol>bleed</symbol></li>
-	  </prefixSymbols>
-	</symbolPack>
-  </GeneDef>
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent" Name="WVC_XenotypesAndGenes_GeneDustSupply_DustGenetic" Abstract="True"> -->
+	<!-- <prerequisite>WVC_Dustogenic_GeneticStability</prerequisite> -->
+	<!-- <marketValueFactor>1.4</marketValueFactor> -->
+	<!-- <resourceLabel></resourceLabel> -->
+  <!-- </GeneDef> -->
 
 </Defs>

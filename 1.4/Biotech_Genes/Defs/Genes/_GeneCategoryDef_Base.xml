@@ -49,8 +49,13 @@
   </GeneCategoryDef>
 
   <GeneCategoryDef>
+	<defName>WVC_Scarifier</defName>
+	<label>scarifier</label>
+	<displayPriorityInXenotype>512.2886992038</displayPriorityInXenotype>
+  </GeneCategoryDef>
+  <GeneCategoryDef>
 	<defName>WVC_Dustogenic</defName>
-	<label>dust</label>
+	<label>dustogenic</label>
 	<displayPriorityInXenotype>511.2886992038</displayPriorityInXenotype>
   </GeneCategoryDef>
   <GeneCategoryDef>
@@ -67,7 +72,7 @@
 
   <GeneCategoryDef>
 	<defName>WVC_Aptitudes</defName>
-	<label>aptitudes: Archite and Overbalanced</label>
+	<label>aptitudes - archite and overbalanced</label>
 	<displayPriorityInXenotype>199.2886992038</displayPriorityInXenotype>
   </GeneCategoryDef>
 
@@ -82,6 +87,20 @@
 	<label>xenotype forcers</label>
 	<displayPriorityInXenotype>-1.2886992038</displayPriorityInXenotype>
 	<!-- <displayPriorityInXenotype>-99999</displayPriorityInXenotype> -->
+  </GeneCategoryDef>
+
+  <GeneCategoryDef>
+	<defName>WVC_Cosmetic</defName>
+	<label>cosmetic - xenotypes and genes</label>
+	<displayPriorityInXenotype>300.2886992038</displayPriorityInXenotype>
+	<displayPriorityInGenepack>-100</displayPriorityInGenepack>
+  </GeneCategoryDef>
+
+  <GeneCategoryDef>
+	<defName>WVC_CosmeticVoices</defName>
+	<label>cosmetic - voices</label>
+	<displayPriorityInXenotype>299.2886992038</displayPriorityInXenotype>
+	<displayPriorityInGenepack>-100</displayPriorityInGenepack>
   </GeneCategoryDef>
 
   <!-- https://steamcommunity.com/sharedfiles/filedetails/?id=2886992038 -->

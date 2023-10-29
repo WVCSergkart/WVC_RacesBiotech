@@ -33,6 +33,9 @@
 	  <!-- <li>Apparel_CollarShirt</li> -->
 	  <!-- <li>Apparel_Pants</li> -->
 	<!-- </apparelRequired> -->
+	<!-- <apparelTags> -->
+	  <!-- <li>Neolithic</li> -->
+	<!-- </apparelTags> -->
 	<requiredWorkTags>
 	  <li>Intellectual</li>
 	  <li>Crafting</li>
@@ -167,6 +170,9 @@
 		<!-- <WVC_Resurgent>0.05</WVC_Resurgent> -->
 	  </xenotypeChances>
 	</xenotypeSet>
+	<apparelTags>
+	  <li>Neolithic</li>
+	</apparelTags>
   </PawnKindDef>
 
   <PawnKindDef ParentName="WVC_RB_XenoBase">
@@ -178,6 +184,9 @@
 		<WVC_RandomHybrid_Blankind>0.1</WVC_RandomHybrid_Blankind>
 	  </xenotypeChances>
 	</xenotypeSet>
+	<apparelTags>
+	  <li>IndustrialBasic</li>
+	</apparelTags>
   </PawnKindDef>
 
 </Defs>

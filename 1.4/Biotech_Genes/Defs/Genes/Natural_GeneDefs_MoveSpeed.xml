@@ -3,12 +3,6 @@
 
   <GeneDef ParentName="GeneMoveSpeedBase" Name="WVC_GeneMoveSpeed_Base" Abstract="True">
 	<selectionWeight>0.025</selectionWeight>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-	</modExtensions>
   </GeneDef>
 
   <!-- ============================= -->
@@ -53,8 +47,6 @@
 	</exclusionTags>
 	<modExtensions Inherit="False">
 		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
 			<hediffToWholeBody>WVC_StoneStomach_HungerFactor</hediffToWholeBody>
 		</li>
 	</modExtensions>

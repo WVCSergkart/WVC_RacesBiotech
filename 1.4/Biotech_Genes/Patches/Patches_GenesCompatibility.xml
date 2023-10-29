@@ -22,7 +22,7 @@
 			<countRange>1~1</countRange>
 		  </li>
 		  <li Class="StockGenerator_Tag">
-			<tradeTag>WVC_All_XenotypeSerums</tradeTag>
+			<tradeTag>WVC_XenotypeSerums_NonCraftable</tradeTag>
 			<thingDefCountRange>0~1</thingDefCountRange>
 			<countRange>1~1</countRange>
 		  </li>
@@ -35,6 +35,44 @@
 		  <!-- <li>WVC_GenePackTrader</li> -->
 	  <!-- </value> -->
 	<!-- </Operation> -->
+
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/GeneDef[@Name="GeneVoiceBase"]/displayCategory</xpath>
+	  <value>
+		  <displayCategory>WVC_CosmeticVoices</displayCategory>
+	  </value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/ThoughtDef[nullifyingGenes[li[contains(text(),'ToxResist_Total') or contains(text(),'ToxicEnvironmentResistance_Total')]]]/nullifyingGenes</xpath>
+	  <value>
+		  <li>WVC_ToxResist_Total</li>
+		  <li>WVC_ToxResist_Archite</li>
+	  </value>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+			  <xpath>/Defs/ThoughtDef[defName="Pain"]/nullifyingGenes</xpath>
+			  <success>Invert</success>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/ThoughtDef[defName="Pain"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<nullifyingGenes/>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/ThoughtDef[defName="Pain"]/nullifyingGenes</xpath>
+	  <value>
+		  <li>WVC_Scarifier_Pain</li>
+	  </value>
+	</Operation>
 
 	<!-- <Operation Class="PatchOperationFindMod"> -->
 		<!-- <mods> -->
@@ -116,7 +154,7 @@
 		<match Class="PatchOperationSequence">
 			<operations>
 
-				<!-- <li Class="WVC.PatchOperationOptional"> -->
+				<!-- <li Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
 					<!-- <settingName>validatorAbilitiesPatch</settingName> -->
 					<!-- <caseTrue Class="PatchOperationAdd"> -->
 					  <!-- <xpath>/Defs/ThingDef[defName="AG_GeneRemover" or defName="AG_Endogenefier" or defName="AG_Xenogenefier" or defName="AG_XenotypeNullifier" or defName="AG_XenotypeInjector" or defName="AG_GermlineMutator"]/comps</xpath> -->
@@ -146,7 +184,7 @@
 						<!-- <hideGene>true</hideGene> -->
 					<!-- </value> -->
 				<!-- </li> -->
-				<!-- <li Class="WVC.PatchOperationOptional"> -->
+				<!-- <li Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
 					<!-- <settingName>mechanoidizationGenesPatch</settingName> -->
 					<!-- <caseTrue Class="PatchOperationSequence"> -->
 						<!-- <operations> -->

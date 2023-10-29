@@ -42,8 +42,6 @@
 	</symbolPack>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
 			<forceFemale>true</forceFemale>
 			<!-- <bodyScaleFactor>0.7</bodyScaleFactor> -->
 		</li>
@@ -79,8 +77,6 @@
 	</symbolPack>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
 			<forceMale>true</forceMale>
 		</li>
 	</modExtensions>
@@ -96,12 +92,6 @@
 	<customEffectDescriptions>
 		<li>Disable monogender genes.</li>
 	</customEffectDescriptions>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-	</modExtensions>
   </GeneDef>
   
 </Defs>

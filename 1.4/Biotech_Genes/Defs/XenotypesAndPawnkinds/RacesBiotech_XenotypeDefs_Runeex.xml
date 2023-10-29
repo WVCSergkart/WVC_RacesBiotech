@@ -20,13 +20,14 @@
 		<!-- <li>MoveSpeed_Slow</li> -->
 		<li>WVC_AgeDebuff_MoveSpeed</li>
 		<!-- <li>NakedSpeed</li> -->
-		<li>MinTemp_LargeDecrease</li>
+		<!-- <li>MinTemp_LargeDecrease</li> -->
 		<li>MaxTemp_LargeIncrease</li>
 		<li>ToxicEnvironmentResistance_Total</li>
 		<li>FireResistant</li>
 		<!-- <li>MeleeDamage_Weak</li> -->
 		<!-- <li>WVC_UnClothedArmor</li> -->
 		<li>WVC_SleepyStomach</li>
+		<li>WVC_Fragile</li>
 		<!-- <li>Sleepy</li> -->
 		<!-- <li>WVC_FemaleOnly</li> -->
 		<!-- <li>WVC_Orientation_Bisexual</li> -->

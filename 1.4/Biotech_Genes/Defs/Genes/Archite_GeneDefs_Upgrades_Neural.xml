@@ -3,7 +3,7 @@
 
   <!-- Soft -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_Archites" Name="WVC_Mechanoidization_SoftwareBase" Abstract="True">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Archites" Name="WVC_XenotypesAndGenes_GeneArchiteMisc_Software" Abstract="True">
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_WithConditions</geneClass> -->
 	<!-- <displayCategory>WVC_MechaBodyWare</displayCategory> -->
 	<labelShortAdj>subcore</labelShortAdj>
@@ -51,7 +51,7 @@
   </GeneDef>
 
   <!-- ========================================================== -->
-  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
 	<defName>WVC_MechaAI_Base</defName>
 	<label>excellent memory</label> 
 	<iconColor>(184, 198, 203)</iconColor>
@@ -95,7 +95,7 @@
   </GeneDef>
 
   <!-- = -->
-  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
 	<defName>WVC_MechaAI_SoftwareManipulation</defName>
 	<label>improved intuition</label>
 	<iconPath>WVC/UI/Genes/ImprovedIntuitionAttentiveness_A</iconPath>
@@ -113,7 +113,7 @@
 	</capMods>
   </GeneDef>
   <!-- = -->
-  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
 	<defName>WVC_MechaAI_SoftwareMoving</defName>
 	<label>improved attentiveness</label>
 	<iconPath>WVC/UI/Genes/ImprovedIntuitionAttentiveness_B</iconPath>
@@ -131,7 +131,7 @@
 	</capMods>
   </GeneDef>
   <!-- = -->
-  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
 	<defName>WVC_MecaBodyParts_Arm</defName>
 	<label>striking power</label>
 	<iconPath>WVC/UI/Genes/StrikingPower_v0</iconPath>
@@ -141,7 +141,7 @@
 	</statOffsets>
   </GeneDef>
   <!-- = -->
-  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
 	<defName>WVC_MecaBodyParts_Jaw</defName>
 	<label>pleasant voice</label>
 	<iconPath>WVC/UI/Genes/PleasantVoice_v0</iconPath>
@@ -166,7 +166,7 @@
 	</exclusionTags>
   </GeneDef>
   <!-- = -->
-  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
 	<defName>WVC_MechaAI_SoftwareDisableTalking</defName>
 	<label>silence</label>
 	<!-- <description>Archites disable the voice functions of the pawn, which saves some resources.</description> -->
@@ -185,7 +185,28 @@
 	</exclusionTags>
   </GeneDef>
   <!-- = -->
-  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+  <GeneDef>
+	<defName>WVC_AgeDebuff_Social</defName>
+	<label>silence</label>
+	<description>Carriers of this gene are completely and irreversibly mute.</description>
+	<iconPath>WVC/UI/Genes/DisableTalking_v0</iconPath>
+	<displayCategory>Miscellaneous</displayCategory>
+	<displayOrderInCategory>21</displayOrderInCategory>
+	<selectionWeight>0.002</selectionWeight>
+	<exclusionTags>
+	  <li>WVC_MechaAI_SoftwareDisableTalking</li>
+	</exclusionTags>
+	<capMods>
+	  <li>
+		<capacity>Talking</capacity>
+		<setMax>0.0</setMax>
+	  </li>
+	</capMods>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>3</biostatMet>
+  </GeneDef>
+  <!-- = -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
 	<defName>WVC_MecaBodyParts_Nose</defName>
 	<label>chemical analyzer</label>
 	<iconPath>WVC/UI/Genes/Analyzer_Chemical_v0</iconPath>
@@ -201,7 +222,7 @@
 	</statOffsets>
   </GeneDef>
   <!-- = -->
-  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
 	<defName>WVC_MecaBodyParts_Ear</defName>
 	<label>sound analyzer</label>
 	<iconPath>WVC/UI/Genes/Analyzer_Sound_v0</iconPath>
@@ -222,7 +243,7 @@
 	</hediffGiversCannotGive>
   </GeneDef>
   <!-- = -->
-  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
 	<defName>WVC_MecaBodyParts_Eye</defName>
 	<label>visual analyzer</label>
 	<iconPath>WVC/UI/Genes/Analyzer_Visual_v0</iconPath>
@@ -243,7 +264,7 @@
 	</hediffGiversCannotGive>
   </GeneDef>
   <!-- = -->
-  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
 	<defName>WVC_MechaAI_MechanitorNetwork</defName>
 	<label>mecha-network</label>
 	<iconPath>WVC/UI/Genes/MechaNetwork_v0</iconPath>
@@ -307,7 +328,7 @@
 	</exclusionTags>
   </GeneDef>
   <!-- = -->
-  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
 	<defName>WVC_MechaAI_SoftwareFriendOrFoe</defName>
 	<label>friend or foe</label>
 	<iconPath>WVC/UI/Genes/FriendOrFoe_v0</iconPath>
@@ -323,7 +344,7 @@
 	</forcedTraits>
   </GeneDef>
   <!-- = -->
-  <GeneDef ParentName="WVC_Mechanoidization_SoftwareBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
 	<defName>WVC_MechaAI_SoftwareNaturalEnemy</defName>
 	<label>hard-minded</label>
 	<iconPath>WVC/UI/Genes/NaturalEnemy_v0</iconPath>

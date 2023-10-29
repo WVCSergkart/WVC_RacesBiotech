@@ -7,9 +7,11 @@
 	<labelShortAdj>runeskin</labelShortAdj>
 	<description>TEST DESC</description>
 	<!-- <displayCategory>WVC_MechaBody</displayCategory> -->
-	<displayCategory>Miscellaneous</displayCategory>
+	<!-- <displayCategory>Miscellaneous</displayCategory> -->
+	<displayCategory>WVC_Cosmetic</displayCategory>
 	<displayOrderInCategory>400</displayOrderInCategory>
 	<selectionWeight>0.0185</selectionWeight>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
 	<!-- <marketValueFactor>1.5</marketValueFactor> -->
 	<randomChosen>false</randomChosen>
 	<canGenerateInGeneSet>true</canGenerateInGeneSet>
@@ -23,6 +25,11 @@
 	<missingGeneRomanceChanceFactor>0.35</missingGeneRomanceChanceFactor>
 	<minAgeActive>0</minAgeActive>
 	<!-- <minAgeActive>13</minAgeActive> -->
+	<!-- <graphicData> -->
+	  <!-- <drawOffsetNorth>(0.0, -1.2, 0.0)</drawOffsetNorth> -->
+	  <!-- <drawOffsetSouth>(0.0, -1.2, 0.0)</drawOffsetSouth> -->
+	  <!-- <drawOffsetEast>(0.0, -1.2, 0.0)</drawOffsetEast> -->
+	<!-- </graphicData> -->
 	<exclusionTags>
 	  <li>AG_Bodies</li>
 	  <li>Bodies</li>
@@ -33,8 +40,6 @@
 	<!-- = -->
 	<modExtensions Inherit="False">
 		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
 			<furHidesBody>True</furHidesBody>
 			<useSkinColorForFur>True</useSkinColorForFur>
 			<!-- <customWoundsFromFleshtype>Mechanoid</customWoundsFromFleshtype> -->
@@ -55,13 +60,11 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_RuneSkin</defName>
 	<label>runeskin</label>
-	<description>The body of carriers of this gene is covered with birthmarks resembling scars, these spots are hard to the touch and a bit like a stone.
-
-&lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
+	<description>The body of carriers of this gene is covered with birthmarks resembling scars, these spots are hard to the touch and a bit like a stone.</description>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>-1</biostatMet>
-	<iconColor>(0.75, 0.75, 0.75)</iconColor>
-	<iconPath>WVC/UI/Genes/HeadRune_south</iconPath>
+	<!-- <iconColor>(0.75, 0.75, 0.75)</iconColor> -->
+	<iconPath>WVC/UI/Genes/Gene_FurskinE_v0</iconPath>
 	<forcedHeadTypes>
 	  <li>WVC_RuneSkin_Average</li>
 	</forcedHeadTypes>
@@ -89,6 +92,9 @@
 		<li><symbol>e</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
+	<exclusionTags>
+	  <li>Jaw</li>
+	</exclusionTags>
   </GeneDef>
 
   <!-- Stone -->
@@ -96,14 +102,12 @@
 	<defName>WVC_StoneSkin</defName>
 	<label>stoneskin</label>
 	<labelShortAdj>stoneskin</labelShortAdj>
-	<description>The body of carriers of this gene is all covered with stone-like growths.
-
-&lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
+	<description>The body of carriers of this gene is all covered with stone-like growths.</description>
 	<biostatCpx>4</biostatCpx>
 	<biostatMet>-3</biostatMet>
 	<!-- <biostatArc>1</biostatArc> -->
-	<iconColor>(105,95,97)</iconColor>
-	<iconPath>WVC/UI/Genes/HeadStone_south</iconPath>
+	<!-- <iconColor>(105,95,97)</iconColor> -->
+	<iconPath>WVC/UI/Genes/Gene_FurskinC_v0</iconPath>
 	<missingGeneRomanceChanceFactor>0.1</missingGeneRomanceChanceFactor>
 	<marketValueFactor>1.5</marketValueFactor>
 	<forcedHeadTypes>
@@ -136,17 +140,18 @@
 		<li><symbol>stone</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
+	<exclusionTags>
+	  <li>Jaw</li>
+	</exclusionTags>
   </GeneDef>
 
   <!-- Patch -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_PatchSkin</defName>
 	<label>patchskin</label>
-	<description>Carriers of this gene have unevenly developed skin. Some areas are younger, some noticeably older, which makes it feel like patches sewn together.
-
-&lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
-	<iconPath>WVC/UI/Genes/HeadPatch_south</iconPath>
-	<iconColor>(93, 101, 126)</iconColor>
+	<description>Carriers of this gene have unevenly developed skin. Some areas are younger, some noticeably older, which makes it feel like patches sewn together.</description>
+	<iconPath>WVC/UI/Genes/Gene_FurskinA_v0</iconPath>
+	<!-- <iconColor>(93, 101, 126)</iconColor> -->
 	<forcedHeadTypes>
 	  <li>WVC_PatchSkin_Average</li>
 	</forcedHeadTypes>
@@ -165,17 +170,18 @@
 		<li><symbol>dead</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
+	<exclusionTags>
+	  <li>Jaw</li>
+	</exclusionTags>
   </GeneDef>
 
   <!-- Feathered -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_FeatherSkin</defName>
 	<label>featherskin</label>
-	<description>Carriers of this gene grow feathers on some parts of the body.
-
-&lt;color=#ff8585&gt;Note:&lt;/color&gt; Graphics can be disabled in the settings.</description>
-	<iconPath>WVC/UI/Genes/HeadFeather_south</iconPath>
-	<iconColor>(255, 255, 255)</iconColor>
+	<description>Carriers of this gene grow feathers on some parts of the body.</description>
+	<iconPath>WVC/UI/Genes/Gene_FurskinB_v0</iconPath>
+	<!-- <iconColor>(255, 255, 255)</iconColor> -->
 	<forcedHeadTypes>
 	  <li>Male_AverageNormal</li>
 	  <li>Male_AveragePointy</li>

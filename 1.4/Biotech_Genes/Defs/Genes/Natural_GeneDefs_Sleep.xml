@@ -3,15 +3,6 @@
 
   <GeneDef ParentName="GeneSleepBase" Name="WVC_GeneSleep_Base" Abstract="True">
 	<selectionWeight>0.025</selectionWeight>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
-		</li>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
-		</li>
-	</modExtensions>
   </GeneDef>
 
   <!-- ============================= -->
@@ -79,8 +70,6 @@
 	</exclusionTags>
 	<modExtensions Inherit="False">
 		<li Class="VanillaGenesExpanded.GeneExtension">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes>
 			<hediffToWholeBody>WVC_SleepyStomach_HungerFactor</hediffToWholeBody>
 		</li>
 	</modExtensions>
@@ -113,11 +102,6 @@
 	<!-- <statFactors> -->
 	  <!-- <BedHungerRateFactor>0.0</BedHungerRateFactor> -->
 	<!-- </statFactors> -->
-	<modExtensions Inherit="False">
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
-			<backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite>
-		</li>
-	</modExtensions>
   </GeneDef>
 
 </Defs>
