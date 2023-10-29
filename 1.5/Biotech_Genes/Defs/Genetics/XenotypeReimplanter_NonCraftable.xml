@@ -121,6 +121,9 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	<label>ultratype serum</label>
 	<stackLimit>1</stackLimit>
 	<drawGUIOverlay>false</drawGUIOverlay>
+	<tradeTags Inherit="False">
+	  <li>WVC_XenotypeSerums</li>
+	</tradeTags>
 	<recipeMaker>
 	  <displayPriority>-19</displayPriority>
 	  <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
