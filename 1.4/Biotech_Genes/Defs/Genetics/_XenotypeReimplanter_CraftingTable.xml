@@ -406,6 +406,9 @@
 	<drawGUIOverlay>true</drawGUIOverlay>
 	<rotatable>false</rotatable>
 	<pathCost>14</pathCost>
+	<tradeTags>
+	  <li>WVC_SerumComponents_AllCraftable</li>
+	</tradeTags>
 	<thingSetMakerTags>
 	  <li>RewardStandardLowFreq</li>
 	</thingSetMakerTags>
