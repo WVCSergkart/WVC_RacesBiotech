@@ -60,7 +60,7 @@
 	<techLevel>Ultra</techLevel>
 	<tradeTags>
 	  <li>WVC_All_XenotypeSerums</li>
-	  <li>ExoticMisc</li>
+	  <!-- <li>ExoticMisc</li> -->
 	</tradeTags>
 	<tradeability>All</tradeability>
 	<thingSetMakerTags>

@@ -146,12 +146,6 @@
 	  <li>WVC_XenotypesAndGenes_GeneTagRandomizer_RandomFaceplate</li>
 	</exclusionTags>
 	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<!-- <hideGene>true</hideGene> -->
-		</li>
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
-			<!-- <eyesShouldBeInvisble>true</eyesShouldBeInvisble> -->
-		<!-- </li> -->
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<!-- Any HeadTypes -->
 			<headTypeDefs>

@@ -66,6 +66,21 @@
 		</caseTrue>
 	</Operation>
 
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>spawnXenoForcerSerumsFromTraders</settingName>
+		<caseTrue Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAdd">
+				  <xpath>/Defs/ThingDef[@WVC_XaG_EasyPatch="ThingDefSerumXenotypeForcerII"]/tradeTags</xpath>
+				  <success>Always</success>
+				  <value>
+					<li>WVC_XenotypeSerums_NonCraftable</li>
+				  </value>
+				</li>
+			</operations>
+		</caseTrue>
+	</Operation>
+
 	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
 		<!-- <settingName>hideEncodingGenes</settingName> -->
 		<!-- <caseFalse Class="PatchOperationRemove"> -->

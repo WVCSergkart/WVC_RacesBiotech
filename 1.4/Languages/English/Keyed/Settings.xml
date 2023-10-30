@@ -84,6 +84,10 @@ A restart is required to apply the setting.</WVC_ToolTip_generateTemplateGenes>
 	<WVC_ToolTip_allowShapeshiftAfterDeath>Xenotype "Undead" after death being resurrected by gene "Undead" changes the set of genes.</WVC_ToolTip_allowShapeshiftAfterDeath>
 
 	<!-- ====================================================================================== -->
+	<WVC_Label_spawnXenoForcerSerumsFromTraders>Traders sell basetype serums</WVC_Label_spawnXenoForcerSerumsFromTraders>
+	<WVC_ToolTip_spawnXenoForcerSerumsFromTraders>If enabled, traders will sell basetype, ultratype and hybridtype serums. Restart required.</WVC_ToolTip_spawnXenoForcerSerumsFromTraders>
+
+	<!-- ====================================================================================== -->
 	<WVC_Label_serumsForAllXenotypes>Generate xenotypes serums</WVC_Label_serumsForAllXenotypes>
 	<WVC_ToolTip_serumsForAllXenotypes>Affects whether serums for all possible xenotypes will be generated. Does not affect custom ones. Restart required.
 

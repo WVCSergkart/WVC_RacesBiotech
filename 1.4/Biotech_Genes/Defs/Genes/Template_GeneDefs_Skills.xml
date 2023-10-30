@@ -7,7 +7,7 @@
 	<exclusionTagPrefix>Aptitude</exclusionTagPrefix>
 	<!-- <displayCategory>Aptitudes</displayCategory> -->
 	<displayCategory>WVC_Aptitudes</displayCategory>
-	<selectionWeight>0.012</selectionWeight>
+	<selectionWeight>0.008</selectionWeight>
 	<biostatCpx>0</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<biostatArc>0</biostatArc>
@@ -144,29 +144,16 @@
 
   <!-- =============================================== -->
 
-  <GeneDef Name="WVC_Aptitudes_ZeroHidden" Abstract="True">
-	<label>skills</label>
-	<description>The carrier's aptitude is 0. Aptitude acts like an offset on skill level.</description>
-	<iconPath>WVC/UI/Genes/SkillUp_Equal</iconPath>
-	<displayOrderInCategory>-990</displayOrderInCategory>
-	<displayCategory>WVC_Aptitudes</displayCategory>
-	<selectionWeight>0.0025</selectionWeight>
-	<biostatCpx>0</biostatCpx>
-	<biostatMet>0</biostatMet>
-	<biostatArc>0</biostatArc>
-	<customEffectDescriptions>
-		<li>Nullifying aptitude of the same name.</li>
-	</customEffectDescriptions>
-	<exclusionTags>
-	</exclusionTags>
-  </GeneDef>
-
-  <GeneDef ParentName="WVC_Aptitudes_ZeroHidden">
+  <GeneDef>
 	<defName>WVC_Aptitudes_GreatEqualizer</defName>
 	<label>great equalizer</label>
-	<description>Turns off all aptitudes.</description>
+	<description>Nullifying all aptitudes. Aptitude acts like an offset on skill level.</description>
+	<iconPath>WVC/UI/Genes/SkillUp_Equal</iconPath>
+	<biostatCpx>0</biostatCpx>
+	<biostatMet>0</biostatMet>
 	<biostatArc>1</biostatArc>
-	<!-- <selectionWeight>0.0055</selectionWeight> -->
+	<selectionWeight>0.0025</selectionWeight>
+	<displayCategory>WVC_Aptitudes</displayCategory>
 	<displayOrderInCategory>-999</displayOrderInCategory>
 	<customEffectDescriptions Inherit="False">
 		<li>Nullifying all aptitudes.</li>

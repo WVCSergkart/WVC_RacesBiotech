@@ -99,7 +99,7 @@
   <GeneDef ParentName="WVC_RomanceChanceBase">
 	<defName>WVC_RomanceChanceNeutralized</defName>
 	<label>dull taste</label>
-	<description>This gene completely neutralizes the effects of pheromones or encoding, making the carrier of the gene less picky.</description>
+	<description>This gene completely neutralizes the effects of pheromones, making the carrier of the gene less picky.</description>
 	<missingGeneRomanceChanceFactor>1</missingGeneRomanceChanceFactor>
 	<displayOrderInCategory>554</displayOrderInCategory>
 	<iconColor>(175, 175, 175)</iconColor>

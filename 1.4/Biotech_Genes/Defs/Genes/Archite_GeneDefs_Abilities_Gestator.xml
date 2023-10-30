@@ -89,10 +89,10 @@
 
   <!-- ============================================================================================ -->
 
-  <AbilityGroupDef>
-	<defName>WVC_MechaGestator</defName>
-	<cooldownTicks>900000</cooldownTicks>
-  </AbilityGroupDef>
+  <!-- <AbilityGroupDef> -->
+	<!-- <defName>WVC_MechaGestator</defName> -->
+	<!-- <cooldownTicks>900000</cooldownTicks> -->
+  <!-- </AbilityGroupDef> -->
 
   <AbilityDef Name="WVC_GestationAbilities_Base" Abstract="True">
 	<label>gestator</label>
@@ -109,7 +109,7 @@
 	<targetRequired>False</targetRequired>
 	<showCastingProgressBar>True</showCastingProgressBar>
 	<!-- <category>WVC_Mechalike</category> -->
-	<groupDef>WVC_MechaGestator</groupDef>
+	<!-- <groupDef>WVC_MechaGestator</groupDef> -->
 	<sendLetterOnCooldownComplete>True</sendLetterOnCooldownComplete>
 	<overrideGroupCooldown>True</overrideGroupCooldown>
 	<groupAbility>True</groupAbility>

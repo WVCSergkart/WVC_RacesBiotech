@@ -295,7 +295,8 @@
 	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_MechanitorUsedBandwidth">
 		<controlledPawns>12</controlledPawns>
 		<statOffsets>
-			<MechControlGroups>2</MechControlGroups>
+			<!-- <MechControlGroups>2</MechControlGroups> -->
+			<MechFormingSpeed>0.5</MechFormingSpeed>
 		</statOffsets>
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_MechanitorUsedBandwidth">
@@ -307,19 +308,28 @@
 	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_MechanitorUsedBandwidth">
 		<controlledPawns>20</controlledPawns>
 		<statOffsets>
-			<MechBandwidth>12</MechBandwidth>
+			<!-- <MechBandwidth>12</MechBandwidth> -->
+			<WorkSpeedGlobalOffsetMech>0.25</WorkSpeedGlobalOffsetMech>
+			<MechRepairSpeed>0.25</MechRepairSpeed>
+			<MechFormingSpeed>0.25</MechFormingSpeed>
 		</statOffsets>
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_MechanitorUsedBandwidth">
 		<controlledPawns>24</controlledPawns>
 		<statOffsets>
-			<MechFormingSpeed>0.5</MechFormingSpeed>
+			<!-- <MechFormingSpeed>0.5</MechFormingSpeed> -->
+			<WorkSpeedGlobalOffsetMech>0.25</WorkSpeedGlobalOffsetMech>
+			<MechRepairSpeed>0.25</MechRepairSpeed>
+			<MechFormingSpeed>0.25</MechFormingSpeed>
 		</statOffsets>
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_MechanitorUsedBandwidth">
 		<controlledPawns>30</controlledPawns>
 		<statOffsets>
-			<WVC_BandwidthCostOffsetMech>-1</WVC_BandwidthCostOffsetMech>
+			<!-- <WVC_BandwidthCostOffsetMech>-1</WVC_BandwidthCostOffsetMech> -->
+			<WorkSpeedGlobalOffsetMech>0.5</WorkSpeedGlobalOffsetMech>
+			<MechRepairSpeed>0.5</MechRepairSpeed>
+			<MechFormingSpeed>0.5</MechFormingSpeed>
 		</statOffsets>
 	  </li>
 	</conditionalStatAffecters>
@@ -356,8 +366,8 @@
 	  <BondAnimalChanceFactor>0.0</BondAnimalChanceFactor>
 	</statFactors>
 	<customEffectDescriptions>
-		<li>Opinion about pawns with this gene is +20.</li>
-		<li>Opinion about pawns without this gene is -500.</li>
+		<li>Opinion about pawns with this gene is +20</li>
+		<li>Opinion about pawns without this gene is -500</li>
 	</customEffectDescriptions>
   </GeneDef>
 

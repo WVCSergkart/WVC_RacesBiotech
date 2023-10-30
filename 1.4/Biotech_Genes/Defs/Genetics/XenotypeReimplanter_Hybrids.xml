@@ -6,6 +6,9 @@
   <ThingDef ParentName="WVC_XenotypeSerum_HybridNonCraftable">
 	<defName>WVC_XenotypeSerum_HybridRandom</defName>
 	<label>hybrid serum (random)</label>
+	<tradeTags Inherit="False">
+	  <li>WVC_All_XenotypeSerums</li>
+	</tradeTags>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenotypeForcer">
 		<xenotypeForcerType>Hybrid</xenotypeForcerType>
@@ -47,6 +50,9 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 &lt;color=#f5ffa2&gt;Note:&lt;/color&gt; If the xenotype is inheritable and has no skin/hair color, then a white skin/hair gene will be added.
 
 &lt;color=#f5ffa2&gt;Note:&lt;/color&gt; Please note that at least &lt;color=#f5ffa2&gt;2 types of custom xenotypes&lt;/color&gt; must exist at the same time. With inherited genes and not inherited. Otherwise, &lt;color=#f5ffa2&gt;normal xenotypes&lt;/color&gt; will be selected.</description>
+	<tradeTags Inherit="False">
+	  <li>WVC_All_XenotypeSerums</li>
+	</tradeTags>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenotypeForcer">
 		<xenotypeForcerType>CustomHybrid</xenotypeForcerType>
@@ -78,13 +84,14 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 
   <!-- =================================================================================== -->
 
-  <ThingDef ParentName="WVC_XenotypeSerum_HybridNonCraftable">
+  <ThingDef ParentName="WVC_XenotypeSerum_HybridNonCraftable" WVC_XaG_EasyPatch="ThingDefSerumXenotypeForcerII">
 	<defName>WVC_XenotypeSerum_Hybrid</defName>
 	<label>hybridtype serum</label>
 	<stackLimit>1</stackLimit>
 	<drawGUIOverlay>false</drawGUIOverlay>
 	<tradeTags Inherit="False">
 	  <li>WVC_XenotypeSerums</li>
+	  <li>WVC_All_XenotypeSerums</li>
 	</tradeTags>
 	<recipeMaker>
 	  <displayPriority>-18</displayPriority>
@@ -117,9 +124,9 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
   
   <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
 	<defName>WVC_AdministerXenotypeSerum_Hybrid</defName>
-	<label>administer hybrid serum</label>
-	<description>Administer a hybrid serum.</description>
-	<jobString>Administering hybrid serum.</jobString>
+	<label>administer hybridtype serum</label>
+	<description>Administer a hybridtype serum.</description>
+	<jobString>Administering hybridtype serum.</jobString>
 	<ingredients>
 	  <li>
 		<filter>

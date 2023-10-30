@@ -6,6 +6,9 @@
   <ThingDef ParentName="WVC_XenotypeSerum_NonCraftable">
 	<defName>WVC_XenotypeSerum_Random</defName>
 	<label>xenotype serum (random)</label>
+	<tradeTags Inherit="False">
+	  <li>WVC_All_XenotypeSerums</li>
+	</tradeTags>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenotypeForcer"/>
 	</comps>
@@ -45,6 +48,9 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 &lt;color=#f5ffa2&gt;Note:&lt;/color&gt; If the xenotype is inheritable and has no skin/hair color, then a white skin/hair gene will be added.
 
 &lt;color=#f5ffa2&gt;Note:&lt;/color&gt; If there are no &lt;color=#f5ffa2&gt;custom xenotypes&lt;/color&gt;, then the pawn will receive a random &lt;color=#f5ffa2&gt;normal xenotype&lt;/color&gt;.</description>
+	<tradeTags Inherit="False">
+	  <li>WVC_All_XenotypeSerums</li>
+	</tradeTags>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenotypeForcer">
 		<xenotypeForcerType>Custom</xenotypeForcerType>
@@ -116,13 +122,14 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 
   <!-- =================================================================================== -->
 
-  <ThingDef ParentName="WVC_XenotypeSerum_NonCraftable">
+  <ThingDef ParentName="WVC_XenotypeSerum_NonCraftable" WVC_XaG_EasyPatch="ThingDefSerumXenotypeForcerII">
 	<defName>WVC_XenotypeSerum_Ultra</defName>
 	<label>ultratype serum</label>
 	<stackLimit>1</stackLimit>
 	<drawGUIOverlay>false</drawGUIOverlay>
 	<tradeTags Inherit="False">
 	  <li>WVC_XenotypeSerums</li>
+	  <li>WVC_All_XenotypeSerums</li>
 	</tradeTags>
 	<recipeMaker>
 	  <displayPriority>-19</displayPriority>
@@ -155,9 +162,9 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
   
   <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
 	<defName>WVC_AdministerXenotypeSerum_Ultra</defName>
-	<label>administer xenotype serum</label>
-	<description>Administer a xenotype serum.</description>
-	<jobString>Administering xenotype serum.</jobString>
+	<label>administer ultratype serum</label>
+	<description>Administer a ultratype serum.</description>
+	<jobString>Administering ultratype serum.</jobString>
 	<ingredients>
 	  <li>
 		<filter>
