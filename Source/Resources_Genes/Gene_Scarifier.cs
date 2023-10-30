@@ -147,7 +147,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{
-			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars".Translate().CapitalizeFirst(), cachedMaxScars.ToString(), "WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars_Desc".Translate(), 500);
+			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars".Translate().CapitalizeFirst(), MaxScars().ToString(), "WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars_Desc".Translate(), 500);
 		}
 
 	}
