@@ -31,8 +31,11 @@ Totems also spread pollution from time to time.</description>
 	  <drawOffset>(0,0,0.2)</drawOffset>
 	  <texPath>WVC/Things/WalkingCorpseTotem</texPath>
 	  <graphicClass>Graphic_Random</graphicClass>
+	  <shaderType>CutoutComplex</shaderType>
 	  <drawSize>(1.2,1.2)</drawSize>
 	  <color>(195,195,195)</color>
+	  <!-- <color>(5,5,5)</color> -->
+	  <!-- <colorTwo>(5,5,5)</colorTwo> -->
 	  <drawRotated>false</drawRotated>
 	  <allowFlip>true</allowFlip>
 	  <shadowData>

@@ -168,6 +168,7 @@
 		<defName>WVC_XenotypesAndGenes_DisabledQuestAnimals</defName>
 		<disabledFromQuestsPawns>
 			<li>WVC_XenotypesAndGenes_WalkingCorpse</li>
+			<li>WVC_XenotypesAndGenes_WalkingSkeleton</li>
 		</disabledFromQuestsPawns>
 	</AnimalBehaviours.AnimalsDisabledFromQuestsDef>
 
@@ -341,6 +342,7 @@ Walking corpses cannot be zoned, but they will try to stay close to the totems. 
 			<li>
 				<bodyGraphicData>
 					<texPath>WVC/Things/Mechanoids_Golems/BoneGolem</texPath>
+					<shaderType>CutoutComplex</shaderType>
 					<drawSize>1.2</drawSize>
 				</bodyGraphicData>
 			</li>
