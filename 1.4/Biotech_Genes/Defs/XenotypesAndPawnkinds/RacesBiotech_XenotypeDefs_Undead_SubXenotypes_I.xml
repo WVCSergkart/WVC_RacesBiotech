@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+   <!-- Resurgents will work differently. Instead of being a full-fledged xenotype, they will receive randomly as an undead sub-xenotype. -->
+  <WVC_XenotypesAndGenes.SubXenotypeDef>
+	<defName>WVC_Resurgent</defName>
+	<label>resurgent</label>
+	<!-- The description is always used as short. Only the main xenotype should have complete information. -->
+	<description>Resurgents are a undead sub-xenotype, despite strong genetic differences they still remain within this xenotype. They are fragile and dependent on resurgent cells. They can regrow lost limbs, never age, and their wounds can close almost instantly. However, their immune system, stomach, blood, disease resistance, their entire body is dependent on these cells. And if the level of the cells is too low, they lose almost all of their special abilities.</description>
+	<!-- Responsible for the chance with which this sub-xenotype will be selected -->
+	<selectionWeight>1.0</selectionWeight>
+	<!-- If present, it replaces the icon. -->
+	<!-- Also, the presence of the icon is responsible for the custom name and description. -->
+	<!-- If the icon is not specified, then the name of the xenotype will be default -->
+	<xenotypeIconDef>WVC_XenoUndead2c</xenotypeIconDef>
+	<!-- If any genes need to be removed, they can be listed here. -->
+	<!-- The code is run in this order: removeGenes -> endogenes -> xenogenes -->
+	<removeGenes>
+		<li>WVC_RandomImmunity</li>
+		<li>WVC_RandomMoveSpeed</li>
+		<!-- = -->
+		<li>WVC_MildGeneticInstability</li>
+		<li>WVC_Fragile</li>
+		<li>WVC_NaturalFastAging</li>
+		<li>Hair_Grayless</li>
+	</removeGenes>
+	<!-- endogenes are always added to the germline of the main xenotype. -->
+	<endogenes>
+		<li>WVC_ForeverYoung</li>
+		<!-- <li>WVC_RandomLearning</li> -->
+		<!-- <li>WVC_RandomHands</li> -->
+		<!-- <li>WVC_RandomWoundHealing</li> -->
+		<!-- <li>WVC_RandomImmunity</li> -->
+		<!-- <li>WVC_RandomMetabolism</li> -->
+		<!-- <li>WVC_RandomMoveSpeed</li> -->
+		<!-- <li>WVC_RandomPsychicAbility</li> -->
+	</endogenes>
+	<xenogenes>
+		<li>WVC_ResurgentCells</li>
+		<li>WVC_ResurgentCells_GeneticStability</li>
+		<li>WVC_ResurgentCellsGain</li>
+		<li>WVC_ResurgentCells_TotalHealing</li>
+		<li>WVC_ResurgentCells_Ageless</li>
+		<li>WVC_ResurgentCells_Clotting</li>
+		<li>WVC_ResurgentCells_Blood</li>
+		<li>WVC_ResurgentCells_Stomach</li>
+		<li>WVC_ResurgentCells_Sleep</li>
+		<li>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</li>
+		<li>WVC_ResurgentImmunity_PerfectImmunity</li>
+		<li>WVC_ResurgentDisease_DiseaseFree</li>
+		<li>WVC_ResurgentCells_Skeleton</li>
+		<li>WVC_MinMaxTemp_Natural</li>
+		<li>UVSensitivity_Intense</li>
+		<li>Aggression_DeadCalm</li>
+		<li>WVC_Pain_Nullified</li>
+		<li>WVC_Hair_TribalOnly</li>
+		<li>DarkVision</li>
+		<!-- <li>WVC_BodySize_Small</li> -->
+	</xenogenes>
+  </WVC_XenotypesAndGenes.SubXenotypeDef>
+
+  <!-- Dust Angel -->
+  <WVC_XenotypesAndGenes.SubXenotypeDef>
+	<defName>WVC_DustAngel</defName>
+	<!-- <label>dust angel</label> -->
+	<label>featherdust</label>
+	<description>Featherdusts are an undead sub-xenotype, despite strong genetic differences they still remain within this xenotype. Their bodies are dependent on a biological resource called dust. Dust greatly affects their metabolism and at low levels they get hungry faster. They have innate mechanitor abilities and a slightly wild disposition. They are immune to most diseases, and the non-stable mutations of the undead do not show up on them. However, unlike their close relatives, their death is always the end.</description>
+	<xenotypeIconDef>WVC_XenoDustAngel0c</xenotypeIconDef>
+	<selectionWeight>0.77</selectionWeight>
+	<xenogenes>
+		<li>WVC_Dustogenic</li>
+		<li>WVC_Dustogenic_WoundHealing</li>
+		<li>WVC_Dustogenic_Ageless</li>
+		<li>WVC_Dustogenic_Metabolism</li>
+		<li>WVC_Dustogenic_Blesslink</li>
+		<li>WVC_Dustogenic_AngelBeauty</li>
+		<!-- Implemented for the "Undead" gene. A separate gene was left for player use only. -->
+		<!-- <li>WVC_Dustogenic_Reincarnation</li> -->
+		<li>WVC_Dustogenic_GeneticStability</li>
+		<li>WVC_Dustogenic_ImmaculateConception</li>
+		<li>WVC_Dustogenic_Clotting</li>
+		<li>WVC_Dustogenic_FeatherBlades</li>
+		<li>WVC_Wings_FeatheredWings</li>
+		<li>WVC_FamilyByBlood_Dustogenic</li>
+		<!-- <li>WVC_HeadBoneHorns</li> -->
+		<li>WVC_Hands_Angel</li>
+		<!-- = -->
+		<li>Aggression_HyperAggressive</li>
+		<li>WVC_SlaveSuppression_Unruly</li>
+	</xenogenes>
+	<endogenes>
+		<!-- <li>WVC_ToxResist_Total</li> -->
+		<li>WVC_FeatherSkin</li>
+		<li>WVC_BodySize_Small</li>
+		<!-- <li>WVC_SameBloodSameXenotype</li> -->
+		<li>WVC_Pain_Extra</li>
+		<li>WVC_Learning_SlowNoSkillDecay</li>
+		<li>Skin_SheerWhite</li>
+		<li>WVC_NaturalDisease_DiseaseFree</li>
+		<li>WVC_NaturalImmunity_PerfectImmunity</li>
+		<li>WVC_HeadBoneHorns</li>
+	</endogenes>
+	<removeGenes>
+		<li>WVC_RandomLearning</li>
+		<li>WVC_RandomHands</li>
+		<li>WVC_RandomWoundHealing</li>
+		<li>WVC_RandomImmunity</li>
+		<li>WVC_RandomMetabolism</li>
+		<li>WVC_RandomMoveSpeed</li>
+		<li>WVC_RandomPsychicAbility</li>
+		<!-- = -->
+		<li>StrongStomach</li>
+		<!-- <li>ToxResist_Total</li> -->
+		<li>WVC_MildGeneticInstability</li>
+		<li>WVC_AgeDebuff_Sterile</li>
+		<li>WVC_SkinColor_Undead</li>
+		<li>Hair_Grayless</li>
+		<li>WVC_PatchSkin</li>
+	</removeGenes>
+	<!-- One gene will be added from each set of genes in this list. -->
+	<!-- Random genes are always added last. -->
+	<!-- <randomGenes> -->
+		<!-- <li> -->
+			<!-- <inheritable>true</inheritable> -->
+			<!-- <genes> -->
+				<!-- <li>WVC_HeadBoneHorns</li> -->
+				<!-- <li>Headbone_MiniHorns</li> -->
+				<!-- <li>WVC_HeadBoneDoubleHorn</li> -->
+			<!-- </genes> -->
+		<!-- </li> -->
+	<!-- </randomGenes> -->
+  </WVC_XenotypesAndGenes.SubXenotypeDef>
+
+  <!-- Ash Demon -->
+  <!-- Still in BETA -->
+  <WVC_XenotypesAndGenes.SubXenotypeDef MayRequire="ludeon.rimworld.ideology">
+	<defName>WVC_AshDemon</defName>
+	<label>ashen</label>
+	<description>Ashens are an undead sub-xenotype, despite strong genetic differences they still remain within this xenotype.</description>
+	<xenotypeIconDef>WVC_XenoUndead3c</xenotypeIconDef>
+	<!-- It is quite rare due to the fact that it is in beta. -->
+	<selectionWeight>0.18</selectionWeight>
+	<xenogenes>
+		<li>WVC_Scarifier</li>
+		<li>WVC_Scarifier_Pain</li>
+		<li>WVC_Scarifier_Clotting</li>
+		<li>WVC_WoundHealing_UnrealFast</li>
+		<li>Aggression_DeadCalm</li>
+		<li>MeleeDamage_Strong</li>
+		<li>LowSleep</li>
+		<li>Unstoppable</li>
+		<!-- = -->
+		<li>WVC_AptitudePerfect_Shooting</li>
+		<li>WVC_AptitudePerfect_Melee</li>
+		<li>WVC_AptitudeImpossible_Construction</li>
+		<li>WVC_AptitudeImpossible_Mining</li>
+		<li>WVC_AptitudeImpossible_Cooking</li>
+		<li>WVC_AptitudeImpossible_Plants</li>
+		<li>WVC_AptitudeImpossible_Animals</li>
+		<li>WVC_AptitudeImpossible_Crafting</li>
+		<li>WVC_AptitudeImpossible_Artistic</li>
+		<li>WVC_AptitudeImpossible_Medicine</li>
+		<li>WVC_AptitudeImpossible_Social</li>
+		<li>WVC_AptitudeImpossible_Intellectual</li>
+	</xenogenes>
+	<endogenes>
+		<li>DarkVision</li>
+		<li>WVC_Unbreakable</li>
+		<!-- <li>WVC_ToxResist_Total</li> -->
+		<li>WVC_PerfectImmunity_DiseaseFree</li>
+		<li>WVC_NaturalAgeless</li>
+		<li>WVC_SkinColor_Slate</li>
+		<li>WVC_HeadBoneHorns</li>
+		<li>WVC_DemonTailA</li>
+		<li>WVC_NoLearning</li>
+		<li>WVC_Scarifier_GeneticStability</li>
+	</endogenes>
+	<removeGenes>
+		<li>WVC_RandomLearning</li>
+		<li>WVC_RandomHands</li>
+		<li>WVC_RandomWoundHealing</li>
+		<li>WVC_RandomImmunity</li>
+		<li>WVC_RandomMetabolism</li>
+		<li>WVC_RandomMoveSpeed</li>
+		<li>WVC_RandomPsychicAbility</li>
+		<!-- = -->
+		<li>WVC_MildGeneticInstability</li>
+		<li>WVC_NaturalFastAging</li>
+		<li>WVC_NaturalFastGrowing</li>
+		<!-- <li>ToxResist_Total</li> -->
+		<li>WVC_SkinColor_Undead</li>
+		<li>Hair_Grayless</li>
+		<li>WVC_Fragile</li>
+	</removeGenes>
+  </WVC_XenotypesAndGenes.SubXenotypeDef>
+
+</Defs>
