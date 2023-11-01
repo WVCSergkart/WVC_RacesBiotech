@@ -87,12 +87,11 @@
     <Compile Include="Resources_Genes\Gene_Scarifier.cs" />
     <Compile Include="Resources_Genes\Gene_ScarifierClotting.cs" />
     <Compile Include="Resources_Genes\Gene_Wings.cs" />
-    <Compile Include="Resources_Genes\Gene_XenotypeMutator.cs" />
+    <Compile Include="Resources_Genes\Gene_XenotypeShapeShift.cs" />
     <Compile Include="Resources_Harmony\Harmony.cs" />
     <Compile Include="Resources_Harmony\Harmony_Background_New.cs" />
     <Compile Include="Resources_Harmony\Harmony_DisablePawnRelations.cs" />
     <Compile Include="Resources_Harmony\Harmony_ShouldSendNotificationAbout_Patch.cs" />
-    <Compile Include="Resources_Harmony\Harmony_XenotypeName_Patch.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_PawnHaveWings.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_SeverityFromDust.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_SuperRegeneration.cs" />

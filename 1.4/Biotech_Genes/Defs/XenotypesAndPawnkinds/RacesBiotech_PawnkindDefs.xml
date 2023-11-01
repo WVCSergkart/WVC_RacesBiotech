@@ -166,8 +166,10 @@
 	<label>undead</label>
 	<xenotypeSet>
 	  <xenotypeChances>
-		<WVC_Undead>999</WVC_Undead>
-		<!-- <WVC_Resurgent>0.05</WVC_Resurgent> -->
+		<WVC_Undead>0.60</WVC_Undead>
+		<WVC_Featherdust>0.16</WVC_Featherdust>
+		<WVC_Resurgent>0.17</WVC_Resurgent>
+		<WVC_Ashen>0.07</WVC_Ashen>
 	  </xenotypeChances>
 	</xenotypeSet>
 	<apparelTags>

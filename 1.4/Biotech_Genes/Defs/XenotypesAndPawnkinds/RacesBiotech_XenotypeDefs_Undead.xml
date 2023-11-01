@@ -9,17 +9,11 @@
 	<!-- Experiments, eternal youth, critical failure, side effect -->
 	<description>Undeads are partially immortal, rapidly aging xeno-humans. Their genes are quite unstable and often their health can cause death, their bodies are very fragile, which is why even a fist fight can be fatal for them. In compensation, they can reanimate the dead by turning them into their own kind, and death is not always the end for them.
 
-&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; A xenotype, when generated or resurrected by the "Undead" gene, can receive an alternative set of genes. This only works if the xenotype has not acquired one of its sub-xenotypes and/or has not been modified.</description>
+&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; A xenotype, when resurrected by the "Undead" gene, can receive an alternative set of genes. This only works if the xenotype has not been modified.</description>
 	<descriptionShort>Undeads are partially immortal, rapidly aging xeno-humans. Their genes are quite unstable and often their health can cause death, their bodies are very fragile, which is why even a fist fight can be fatal for them. In compensation, they can reanimate the dead by turning them into their own kind, and death is not always the end for them.</descriptionShort>
+	<displayPriority>-200</displayPriority>
 	<canGenerateAsCombatant>true</canGenerateAsCombatant>
 	<iconPath>WVC/UI/Mecha_Icons/Xeno_Undead_v0</iconPath>
-	<!-- Information about a sub-xenotype is not added automatically into a main xenotype. -->
-	<!-- So if necessary, it must be added manually. -->
-	<descriptionHyperlinks>
-	  <WVC_XenotypesAndGenes.SubXenotypeDef>WVC_Resurgent</WVC_XenotypesAndGenes.SubXenotypeDef>
-	  <WVC_XenotypesAndGenes.SubXenotypeDef>WVC_DustAngel</WVC_XenotypesAndGenes.SubXenotypeDef>
-	  <WVC_XenotypesAndGenes.SubXenotypeDef MayRequire="ludeon.rimworld.ideology">WVC_AshDemon</WVC_XenotypesAndGenes.SubXenotypeDef>
-	</descriptionHyperlinks>
 	<genes>
 		<!-- Base -->
 		<li>WVC_NaturalReimplanter_RiseFromTheDead</li>
@@ -46,29 +40,16 @@
 		<li>WVC_RandomMetabolism</li>
 		<li>WVC_RandomMoveSpeed</li>
 		<li>WVC_RandomPsychicAbility</li>
-		<!-- Random -->
-		<!-- Mandatory gene for sub-xenotype mutation. -->
-		<!-- I could make code that would work without such a crude hook, but it's better not to clog a vanilla generator with additional checks. -->
-		<li>WVC_XenotypesAndGenes_SubXenotypeShapeshifter</li>
-		<!-- This hook-gene is only used to generate the xenotype. Or getting it through the serum. -->
-		<!-- In all other and planned cases, it will be applied through modExtensions -->
 	</genes>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.XenotypeExtension_SubXenotype">
-			<!-- Chance that getting an sub-xenotype -->
-			<subXenotypeChance>0.44</subXenotypeChance>
-			<!-- Sub xenotype is chosen randomly from the list. -->
-			<!-- This method is conceived as a random gene list expander, when you need to add a certain set of genes, but randomly with some chance. -->
-			<subXenotypeDefs>
-				<li>WVC_Resurgent</li>
-				<li>WVC_DustAngel</li>
-				<!-- <li>WVC_BloodDemon</li> -->
-				<li MayRequire="ludeon.rimworld.ideology">WVC_AshDemon</li>
-				<!-- <li>WVC_ResurgentAngel</li> -->
-			</subXenotypeDefs>
-			<!-- Affects whether xenotype genes change in some cases upon death. -->
+			<shapeshiftChance>0.22</shapeshiftChance>
 			<xenotypeCanShapeshiftOnDeath>true</xenotypeCanShapeshiftOnDeath>
-			<!-- For example, the "Undead" gene rerolls xenotype genes each time it triggers. But this only applies to the base resurrection. -->
+			<xenotypeDefs>
+			  <li>WVC_Featherdust</li>
+			  <li>WVC_Resurgent</li>
+			  <li>WVC_Ashen</li>
+			</xenotypeDefs>
 		</li>
 	</modExtensions>
   </XenotypeDef>

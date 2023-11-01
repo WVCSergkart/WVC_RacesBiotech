@@ -17,4 +17,22 @@
 	</genes>
   </XenotypeDef>
 
+  <!-- Undead sub-xenotypes -->
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" Name="WVC_XenotypesAndGenes_UndeadSubXenotypes_Base" Abstract="True">
+	<displayPriority>-220</displayPriority>
+	<descriptionHyperlinks>
+	  <XenotypeDef>WVC_Undead</XenotypeDef>
+	</descriptionHyperlinks>
+	<doubleXenotypeChances>
+		<WVC_Undead>1.0</WVC_Undead>
+	</doubleXenotypeChances>
+	<inheritable>false</inheritable>
+  </XenotypeDef>
+
+  <!-- General undead sub-xenotype info -->
+  <WVC_XenotypesAndGenes.SubXenotypeDef Name="WVC_XenotypesAndGenes_SubXenotypeDef_Undead" Abstract="True">
+	<label>genetic changes</label>
+	<description>How will the set of genes change if the xenotype is “native”.</description>
+  </WVC_XenotypesAndGenes.SubXenotypeDef>
+
 </Defs>

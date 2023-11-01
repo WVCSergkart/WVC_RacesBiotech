@@ -52,7 +52,12 @@
 		<WVC_RuneDryad>0.002</WVC_RuneDryad>
 		<WVC_Golemkind>0.001</WVC_Golemkind>
 		<WVC_RogueFormer>0.001</WVC_RogueFormer>
-		<WVC_Undead>0.002</WVC_Undead>
+		<!-- Undead -->
+		<WVC_Undead>0.001</WVC_Undead>
+		<WVC_Resurgent>0.0004</WVC_Resurgent>
+		<WVC_Featherdust>0.0004</WVC_Featherdust>
+		<WVC_Ashen>0.0002</WVC_Ashen>
+		<!-- Random -->
 		<WVC_RandomHybrid>0.001</WVC_RandomHybrid>
 		<WVC_RandomHybrid_Blankind>0.001</WVC_RandomHybrid_Blankind>
 	  </value>

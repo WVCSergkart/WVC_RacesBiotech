@@ -6,37 +6,72 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-    public static class ReimplanterUtility
-    {
+	public static class ReimplanterUtility
+	{
 
-        public static void ReimplantGenesBase(Pawn caster, Pawn recipient)
-        {
-            recipient.genes.SetXenotype(caster.genes.Xenotype);
-            recipient.genes.xenotypeName = caster.genes.xenotypeName;
-            recipient.genes.iconDef = caster.genes.iconDef;
-            Pawn_GeneTracker recipientGenes = recipient.genes;
-            if (recipientGenes != null && recipientGenes.GenesListForReading.Count > 0)
-            {
-                foreach (Gene item in recipient.genes?.GenesListForReading)
-                {
-                    recipient.genes?.RemoveGene(item);
-                }
-            }
-            foreach (Gene endogene in caster.genes.Endogenes)
-            {
-                recipient.genes.AddGene(endogene.def, xenogene: false);
-            }
-            foreach (Gene xenogene in caster.genes.Xenogenes)
-            {
-                recipient.genes.AddGene(xenogene.def, xenogene: true);
-            }
-            if (!caster.genes.Xenotype.soundDefOnImplant.NullOrUndefined())
-            {
-                caster.genes.Xenotype.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(recipient));
-            }
-            recipient.health.AddHediff(HediffDefOf.XenogerminationComa);
-            GeneUtility.UpdateXenogermReplication(recipient);
-        }
+		public static void ReimplantXenogenesFromXenotype(Pawn pawn, XenotypeDef xenotypeDef)
+		{
+			pawn.genes.SetXenotypeDirect(xenotypeDef);
+			// pawn.genes.xenotypeName = null;
+			// pawn.genes.iconDef = null;
+			// pawn.genes.cachedHasCustomXenotype = null;
+			// pawn.genes.cachedCustomXenotype = null;
+			Pawn_GeneTracker pawnGenes = pawn.genes;
+			if (pawnGenes != null && pawnGenes.Xenogenes.Count > 0)
+			{
+				foreach (Gene item in pawn.genes?.Xenogenes)
+				{
+					pawn.genes?.RemoveGene(item);
+				}
+			}
+			foreach (GeneDef xenogene in xenotypeDef.genes)
+			{
+				pawn.genes.AddGene(xenogene, xenogene: true);
+			}
+			if (!xenotypeDef.soundDefOnImplant.NullOrUndefined())
+			{
+				xenotypeDef.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(pawn));
+			}
+			pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
+			GeneUtility.UpdateXenogermReplication(pawn);
+		}
+
+		public static void SaveReimplantXenogenesFromXenotype(Pawn pawn, XenotypeDef xenotypeDef)
+		{
+			if (pawn.genes != null && pawn.genes.Xenogenes.Count <= 0)
+			{
+				ReimplantXenogenesFromXenotype(pawn, xenotypeDef);
+			}
+		}
+
+		public static void ReimplantGenesBase(Pawn caster, Pawn recipient)
+		{
+			recipient.genes.SetXenotype(caster.genes.Xenotype);
+			recipient.genes.xenotypeName = caster.genes.xenotypeName;
+			recipient.genes.iconDef = caster.genes.iconDef;
+			Pawn_GeneTracker recipientGenes = recipient.genes;
+			if (recipientGenes != null && recipientGenes.GenesListForReading.Count > 0)
+			{
+				foreach (Gene item in recipient.genes?.GenesListForReading)
+				{
+					recipient.genes?.RemoveGene(item);
+				}
+			}
+			foreach (Gene endogene in caster.genes.Endogenes)
+			{
+				recipient.genes.AddGene(endogene.def, xenogene: false);
+			}
+			foreach (Gene xenogene in caster.genes.Xenogenes)
+			{
+				recipient.genes.AddGene(xenogene.def, xenogene: true);
+			}
+			if (!caster.genes.Xenotype.soundDefOnImplant.NullOrUndefined())
+			{
+				caster.genes.Xenotype.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(recipient));
+			}
+			recipient.health.AddHediff(HediffDefOf.XenogerminationComa);
+			GeneUtility.UpdateXenogermReplication(recipient);
+		}
 
 		public static List<GeneDef> GenesNonCandidatesForSerums()
 		{
@@ -58,25 +93,25 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
-        public static bool DelayedReimplanterIsActive(Pawn pawn)
-        {
-            if (pawn.health != null && pawn.health.hediffSet != null)
-            {
-                List<HediffDef> hediffDefs = new();
-                foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
-                {
-                    hediffDefs.AddRange(item.blackListedHediffDefForReimplanter);
-                }
-                for (int i = 0; i < hediffDefs.Count; i++)
-                {
-                    if (pawn.health.hediffSet.HasHediff(hediffDefs[i]))
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
+		public static bool DelayedReimplanterIsActive(Pawn pawn)
+		{
+			if (pawn.health != null && pawn.health.hediffSet != null)
+			{
+				List<HediffDef> hediffDefs = new();
+				foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+				{
+					hediffDefs.AddRange(item.blackListedHediffDefForReimplanter);
+				}
+				for (int i = 0; i < hediffDefs.Count; i++)
+				{
+					if (pawn.health.hediffSet.HasHediff(hediffDefs[i]))
+					{
+						return true;
+					}
+				}
+			}
+			return false;
+		}
 
-    }
+	}
 }

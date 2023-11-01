@@ -8,38 +8,19 @@ namespace WVC_XenotypesAndGenes
 	public static class SubXenotypeUtility
 	{
 
-		public static void ShapeShift(Pawn pawn, XenotypeDef mainXenotype, Gene shapeShiftGene, float xenogermReplicationChance = 0.2f, bool removeRandomGenes = false)
+		public static void XenotypeShapeShift(Pawn pawn, XenotypeDef mainXenotype, Gene shapeShiftGene, float xenogermReplicationChance = 0.2f)
 		{
-			// List<Gene> pawnGenes = pawn.genes?.GenesListForReading;
-			// for (int i = 0; i < pawnGenes.Count; i++)
-			// {
-			// Log.Error("Pawn contain " + pawnGenes[i].def + " " + (i + 1) + "/" + pawnGenes.Count);
-			// }
-			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
+			if (mainXenotype != null && CheckIfXenotypeIsCorrect(pawn))
 			{
-				if (mainXenotype != null)
+				// Log.Error(pawn.Name + " xenotype not null.");
+				XenotypeExtension_XenotypeShapeShift modExtension = mainXenotype.GetModExtension<XenotypeExtension_XenotypeShapeShift>();
+				if (modExtension != null)
 				{
-					XenotypeExtension_SubXenotype modExtension = mainXenotype.GetModExtension<XenotypeExtension_SubXenotype>();
-					if (modExtension != null)
+					// Log.Error(pawn.Name + " xenotype is correct.");
+					if (modExtension.subXenotypeDef != null)
 					{
-						if (!modExtension.subXenotypeDefs.NullOrEmpty())
-						{
-							if (removeRandomGenes)
-							{
-								RemoveRandomGenes(pawn);
-							}
-							if (Rand.Chance(modExtension.subXenotypeChance))
-							{
-								SubXenotypeDef subXenotypeDef = modExtension.subXenotypeDefs.RandomElementByWeight((SubXenotypeDef x) => x.selectionWeight);
-								SetSubXenotype(pawn, subXenotypeDef, xenogermReplicationChance);
-								// pawn.genes.RemoveGene(shapeShiftGene);
-							}
-							// else if (modExtension.mainSubXenotypeDef != null)
-							// {
-								// SubXenotypeDef subXenotypeDef = modExtension.mainSubXenotypeDef;
-								// MainXenotype(pawn, subXenotypeDef, mainXenotype);
-							// }
-						}
+						// Log.Error(pawn.Name + " sub-xenotype is chosen.");
+						SetXenotypeGenes(pawn, modExtension.subXenotypeDef, xenogermReplicationChance);
 					}
 				}
 			}
@@ -49,60 +30,53 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void SetSubXenotype(Pawn pawn, SubXenotypeDef xenotype, float xenogermReplicationChance)
+		public static void SetXenotypeGenes(Pawn pawn, SubXenotypeDef xenotype, float xenogermReplicationChance)
 		{
+			// Log.Error(pawn.Name + " genes remove.");
 			if (!xenotype.removeGenes.NullOrEmpty())
 			{
 				RemoveGenes(pawn, xenotype);
 			}
+			// Log.Error(pawn.Name + " genes add.");
 			if (!xenotype.endogenes.NullOrEmpty())
 			{
 				AddGenes(pawn, xenotype.endogenes, true);
 			}
-			if (!xenotype.xenogenes.NullOrEmpty())
-			{
-				AddGenes(pawn, xenotype.xenogenes, false);
-			}
-			// if (xenotype.genes != null)
+			// if (!xenotype.xenogenes.NullOrEmpty())
 			// {
-			// pawn.genes?.RemoveGene(WVC_GenesDefOf.WVC_XenotypesAndGenes_SubXenotypeShapeshifter);
+				// AddGenes(pawn, xenotype.xenogenes, false);
 			// }
-			// Pawn_GeneTracker genes = pawn.genes;
-			// if (xenotype.overrideExistingGenes)
-			// {
-				// if (!xenotype.inheritable)
-				// {
-					// for (int numXenogenes = genes.Xenogenes.Count - 1; numXenogenes >= 0; numXenogenes--)
-					// {
-						// pawn.genes?.RemoveGene(genes.Xenogenes[numXenogenes]);
-					// }
-				// }
-				// if (xenotype.inheritable)
-				// {
-					// for (int numEndogenes = genes.Endogenes.Count - 1; numEndogenes >= 0; numEndogenes--)
-					// {
-						// pawn.genes?.RemoveGene(genes.Endogenes[numEndogenes]);
-					// }
-				// }
-			// }
-			// if ((xenotype.inheritable && genes.Endogenes.Count <= 0) || (!xenotype.inheritable && genes.Xenogenes.Count <= 0) || xenotype.ignoreExistingGenes)
-			// {
-			// }
-			if (!xenotype.randomGenes.NullOrEmpty())
-			{
-				foreach (RandomGenes item in xenotype.randomGenes)
-				{
-					GeneDef randomGene = item.genes.RandomElement();
-					pawn.genes?.AddGene(randomGene, !item.inheritable);
-				}
-			}
-			if (xenotype.xenotypeIconDef != null)
-			{
-				pawn.genes.iconDef = xenotype.xenotypeIconDef;
-			}
 			if (Rand.Chance(xenogermReplicationChance))
 			{
 				GeneUtility.UpdateXenogermReplication(pawn);
+			}
+		}
+
+		// ========================================================
+
+		public static void ShapeShift(Pawn pawn, XenotypeDef mainXenotype, bool removeRandomGenes = false)
+		{
+			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
+			{
+				if (mainXenotype != null)
+				{
+					XenotypeExtension_SubXenotype modExtension = mainXenotype.GetModExtension<XenotypeExtension_SubXenotype>();
+					if (modExtension != null)
+					{
+						if (!modExtension.xenotypeDefs.NullOrEmpty() && modExtension.xenotypeCanShapeshiftOnDeath)
+						{
+							if (removeRandomGenes)
+							{
+								RemoveRandomGenes(pawn);
+							}
+							if (Rand.Chance(modExtension.shapeshiftChance))
+							{
+								XenotypeDef xenotypeDef = modExtension.xenotypeDefs.RandomElementByWeight((XenotypeDef x) => x.GetModExtension<XenotypeExtension_XenotypeShapeShift>().subXenotypeDef.selectionWeight);
+								ReimplanterUtility.SaveReimplantXenogenesFromXenotype(pawn, xenotypeDef);
+							}
+						}
+					}
+				}
 			}
 		}
 
@@ -134,28 +108,10 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (WVC_Biotech.settings.allowShapeshiftAfterDeath)
 			{
-				// Pawn_GeneTracker genes = pawn.genes;
-				// if (genes != null && !genes.UniqueXenotype && genes.Xenotype != null)
-				// {
-				// XenotypeDef xenotype = pawn.genes?.Xenotype;
-				// XenotypeExtension_SubXenotype modExtension = xenotype.GetModExtension<XenotypeExtension_SubXenotype>();
-				// if (modExtension != null && modExtension.xenotypeCanShapeshiftOnDeath)
-				// {
-				// GeneDef shapeGene = WVC_GenesDefOf.WVC_XenotypesAndGenes_SubXenotypeShapeshifter;
-				// if (MechanoidizationUtility.HasActiveGene(shapeGene, pawn))
-				// {
-				// ShapeShift(pawn, xenotype, pawn.genes?.GetGene(shapeGene));
-				// }
-				// }
-				// }
 				if (TestXenotype(pawn))
 				{
-					// Clear the xenotype from random genes.
-					// This is necessary so that they do not produce duplicates indefinitely.
-					// RemoveRandomGenes(pawn);
 					XenotypeDef xenotype = pawn.genes?.Xenotype;
-					ShapeShift(pawn, xenotype, null, 1.0f, true);
-					// pawn.genes?.AddGene(WVC_GenesDefOf.WVC_XenotypesAndGenes_SubXenotypeShapeshifter, !xenotype.inheritable);
+					ShapeShift(pawn, xenotype, true);
 				}
 			}
 		}
@@ -202,6 +158,71 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		public static bool CheckIfXenotypeIsCorrect_CheckXenoChances(XenotypeChance xenotypeChance, Pawn pawn)
+		{
+			// Compare the genes of the original xenotype and the current one to make sure that it can be changed without errors.
+			List<GeneDef> xenotypeGenes = new();
+			foreach (GeneDef geneDef in xenotypeChance.xenotype.genes)
+			{
+				// The gene is skipped if it is random or self-deleting.
+				// This can be unreliable in some cases, but specifically for Undead it works as it should.
+				if (TestXenotype_TestGene(geneDef))
+				{
+					// Log.Error("Xenotype contain " + geneDef);
+					xenotypeGenes.Add(geneDef);
+				}
+			}
+			List<Gene> pawnGenes = new();
+			foreach (Gene gene in pawn.genes?.Endogenes)
+			{
+				if (TestXenotype_TestGene(gene.def))
+				{
+					// Log.Error("Pawn contain " + gene.def);
+					pawnGenes.Add(gene);
+				}
+			}
+			for (int i = 0; i < pawnGenes.Count; i++)
+			{
+				// Log.Error("Checked gene " + pawnGenes[i].def + " " + (i + 1) + "/" + pawnGenes.Count);
+				if (!xenotypeGenes.Contains(pawnGenes[i].def))
+				{
+					// Log.Error("Pawn contain " + pawnGenes[i].def);
+					return false;
+				}
+			}
+			return true;
+		}
+
+		// Check if xenotype is correct
+		public static bool CheckIfXenotypeIsCorrect(Pawn pawn)
+		{
+			Pawn_GeneTracker genes = pawn?.genes;
+			// Skip if xenotype is UniqueXenotype
+			if (genes == null || genes.UniqueXenotype || genes.iconDef != null)
+			{
+				return false;
+			}
+			XenotypeDef pawnXenotype = genes.Xenotype;
+			if (pawnXenotype == null)
+			{
+				return false;
+			}
+			bool xenotypeIsCorrect = false;
+			foreach (XenotypeChance xenotypeChance in pawnXenotype.doubleXenotypeChances)
+			{
+				if (CheckIfXenotypeIsCorrect_CheckXenoChances(xenotypeChance, pawn))
+				{
+					xenotypeIsCorrect = true;
+				}
+			}
+			if (xenotypeIsCorrect)
+			{
+				return true;
+			}
+			// Log.Error("6");
+			return false;
+		}
+
 		// Checks if xenotype is modified.
 		public static bool TestXenotype(Pawn pawn)
 		{
@@ -218,7 +239,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			// Check that the xenotype can be shapeshifted.
 			XenotypeExtension_SubXenotype modExtension = pawnXenotype.GetModExtension<XenotypeExtension_SubXenotype>();
-			if (modExtension == null || !modExtension.xenotypeCanShapeshiftOnDeath)
+			if (modExtension == null && modExtension.xenotypeCanShapeshiftOnDeath)
 			{
 				return false;
 			}
@@ -258,54 +279,54 @@ namespace WVC_XenotypesAndGenes
 
 		// ===============================================
 
-		public static string GetFirstSubXenotypeName(XenotypeIconDef iconDef, XenotypeExtension_SubXenotype modExtension)
-		{
-			if (iconDef != null && modExtension != null)
-			{
-				List<SubXenotypeDef> subDefs = modExtension.subXenotypeDefs;
-				for (int i = 0; i < subDefs.Count; i++)
-				{
-					if (subDefs[i].label != null && subDefs[i].xenotypeIconDef != null && subDefs[i].xenotypeIconDef == iconDef)
-					{
-						return subDefs[i].label;
-					}
-				}
-			}
-			return null;
-		}
+		// public static string GetFirstSubXenotypeName(XenotypeIconDef iconDef, XenotypeExtension_SubXenotype modExtension)
+		// {
+			// if (iconDef != null && modExtension != null)
+			// {
+				// List<SubXenotypeDef> subDefs = modExtension.subXenotypeDefs;
+				// for (int i = 0; i < subDefs.Count; i++)
+				// {
+					// if (subDefs[i].label != null && subDefs[i].xenotypeIconDef != null && subDefs[i].xenotypeIconDef == iconDef)
+					// {
+						// return subDefs[i].label;
+					// }
+				// }
+			// }
+			// return null;
+		// }
 
-		public static string GetFirstSubXenotypeDesc(XenotypeIconDef iconDef, XenotypeExtension_SubXenotype modExtension)
-		{
-			if (iconDef != null && modExtension != null)
-			{
-				List<SubXenotypeDef> subDefs = modExtension.subXenotypeDefs;
-				for (int i = 0; i < subDefs.Count; i++)
-				{
-					if (subDefs[i].description != null && subDefs[i].xenotypeIconDef != null && subDefs[i].xenotypeIconDef == iconDef)
-					{
-						return subDefs[i].description;
-					}
-				}
-			}
-			return null;
-		}
+		// public static string GetFirstSubXenotypeDesc(XenotypeIconDef iconDef, XenotypeExtension_SubXenotype modExtension)
+		// {
+			// if (iconDef != null && modExtension != null)
+			// {
+				// List<SubXenotypeDef> subDefs = modExtension.subXenotypeDefs;
+				// for (int i = 0; i < subDefs.Count; i++)
+				// {
+					// if (subDefs[i].description != null && subDefs[i].xenotypeIconDef != null && subDefs[i].xenotypeIconDef == iconDef)
+					// {
+						// return subDefs[i].description;
+					// }
+				// }
+			// }
+			// return null;
+		// }
 
-		public static bool XenotypeIsSubXenotype(Pawn_GeneTracker geneTracker)
-		{
-			if (geneTracker.hybrid || geneTracker.CustomXenotype != null)
-			{
-				return false;
-			}
-			if (!geneTracker.UniqueXenotype && geneTracker.Xenotype != null && geneTracker.iconDef != null)
-			{
-				XenotypeExtension_SubXenotype modExtension = geneTracker.Xenotype?.GetModExtension<XenotypeExtension_SubXenotype>();
-				if (modExtension != null)
-				{
-					return true;
-				}
-			}
-			return false;
-		}
+		// public static bool XenotypeIsSubXenotype(Pawn_GeneTracker geneTracker)
+		// {
+			// if (geneTracker.hybrid || geneTracker.CustomXenotype != null)
+			// {
+				// return false;
+			// }
+			// if (!geneTracker.UniqueXenotype && geneTracker.Xenotype != null && geneTracker.iconDef != null)
+			// {
+				// XenotypeExtension_SubXenotype modExtension = geneTracker.Xenotype?.GetModExtension<XenotypeExtension_SubXenotype>();
+				// if (modExtension != null)
+				// {
+					// return true;
+				// }
+			// }
+			// return false;
+		// }
 
 	}
 }

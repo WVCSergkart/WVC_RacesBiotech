@@ -16,7 +16,7 @@ namespace WVC_XenotypesAndGenes
         public bool disableUniqueGeneInterface = false;
         // Genes
         public bool generateSkillGenes = true;
-        public bool generateXenotypeForceGenes = true;
+        public bool generateXenotypeForceGenes = false;
         public bool canNonPlayerPawnResurrect = false;
         public bool allowShapeshiftAfterDeath = true;
         // Fix
@@ -50,7 +50,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref disableUniqueGeneInterface, "disableUniqueGeneInterface", defaultValue: false);
 			// Genes
 			Scribe_Values.Look(ref generateSkillGenes, "generateSkillGenes", defaultValue: true);
-			Scribe_Values.Look(ref generateXenotypeForceGenes, "generateXenotypeForceGenes", defaultValue: true);
+			Scribe_Values.Look(ref generateXenotypeForceGenes, "generateXenotypeForceGenes", defaultValue: false);
 			Scribe_Values.Look(ref canNonPlayerPawnResurrect, "canNonPlayerPawnResurrect", defaultValue: false);
 			Scribe_Values.Look(ref allowShapeshiftAfterDeath, "allowShapeshiftAfterDeath", defaultValue: true);
 			// Fix

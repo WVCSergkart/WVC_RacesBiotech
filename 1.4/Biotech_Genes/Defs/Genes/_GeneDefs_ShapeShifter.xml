@@ -8,7 +8,9 @@
 	<!-- For modders only -->
 	<!-- This gene is just an initializer. -->
 	<!-- See Undead xenotype as example -->
-	<description>Carriers of this gene have a chance of random sub-xeno mutations that can greatly alter the carrier.</description>
+	<description>Carriers of this gene have a chance of random sub-xeno mutations that can greatly alter the carrier.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; If a xenotype has a certain set of endogenes (germline genes), then some genes will be added and/or deleted.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_XenotypeShapeshifter</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_ShapeShifter_v0</iconPath>
 	<selectionWeight>0.0</selectionWeight>
@@ -16,25 +18,25 @@
 	<biostatCpx>6</biostatCpx>
 	<biostatMet>-6</biostatMet>
 	<biostatArc>3</biostatArc>
-	<!-- <customEffectDescriptions Inherit="False"> -->
+	<customEffectDescriptions Inherit="False">
 	  <!-- <li>Has a chance to significantly alter the owner's gene set. Triggered by generation, undead resurrection and gene reimplantation.</li> -->
 	  <!-- <li>&lt;color=#ff8585&gt;Cannot spawn in genepacks.&lt;/color&gt;</li> -->
-	  <!-- <li>&lt;color=#ff8585&gt;For modders only.&lt;/color&gt;</li> -->
-	<!-- </customEffectDescriptions> -->
+	  <li>&lt;color=#ff8585&gt;For modders only. Useless for players.&lt;/color&gt;</li>
+	</customEffectDescriptions>
 	<!-- <customEffectDescriptions> -->
 	  <!-- <li>Has a chance to significantly alter the owner's gene set. Triggered by generation, undead resurrection and gene reimplantation.</li> -->
 	  <!-- <li>&lt;color=#ff8585&gt;For modders only.&lt;/color&gt;</li> -->
 	<!-- </customEffectDescriptions> -->
-	<displayOrderInCategory>-500</displayOrderInCategory>
+	<displayOrderInCategory>99999</displayOrderInCategory>
 	<!-- <displayOrderInCategory>1255</displayOrderInCategory> -->
 	<!-- <displayOrderInCategory>99999</displayOrderInCategory> -->
 	<!-- <exclusionTags Inherit="False"> -->
 	  <!-- <li>WVC_GeneticInstabilityGenes</li> -->
 	<!-- </exclusionTags> -->
 	<modExtensions Inherit="False">
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<hideGene>true</hideGene>
-		</li>
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <hideGene>true</hideGene> -->
+		<!-- </li> -->
 	</modExtensions>
   </GeneDef>
 
