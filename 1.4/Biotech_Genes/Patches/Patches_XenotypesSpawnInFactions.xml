@@ -47,19 +47,22 @@
 		<!-- <WVC_RandomHybrid>1</WVC_RandomHybrid> -->
 		<!-- <WVC_RandomHybrid_Blankind>1</WVC_RandomHybrid_Blankind> -->
 		<!-- = -->
+		<!-- 0.007 -->
 		<WVC_Meca>0.001</WVC_Meca>
 		<WVC_GeneThrower>0.002</WVC_GeneThrower>
 		<WVC_RuneDryad>0.002</WVC_RuneDryad>
 		<WVC_Golemkind>0.001</WVC_Golemkind>
 		<WVC_RogueFormer>0.001</WVC_RogueFormer>
 		<!-- Undead -->
-		<WVC_Undead>0.001</WVC_Undead>
-		<WVC_Resurgent>0.0004</WVC_Resurgent>
-		<WVC_Featherdust>0.0004</WVC_Featherdust>
-		<WVC_Ashen>0.0002</WVC_Ashen>
+		<!-- 0.003 -->
+		<WVC_Undead>0.0014</WVC_Undead>
+		<WVC_Resurgent>0.0006</WVC_Resurgent>
+		<WVC_Featherdust>0.0006</WVC_Featherdust>
+		<WVC_Ashen>0.0004</WVC_Ashen>
 		<!-- Random -->
-		<WVC_RandomHybrid>0.001</WVC_RandomHybrid>
-		<WVC_RandomHybrid_Blankind>0.001</WVC_RandomHybrid_Blankind>
+		<!-- 0.001 -->
+		<!-- <WVC_RandomHybrid>0.0008</WVC_RandomHybrid> -->
+		<!-- <WVC_RandomHybrid_Blankind>0.0002</WVC_RandomHybrid_Blankind> -->
 	  </value>
 	</Operation>
 
@@ -70,8 +73,11 @@
 			  <xpath>/Defs/PawnKindDef[defName="WildMan"]/xenotypeSet/xenotypeChances</xpath>
 			  <success>Invert</success>
 			  <value>
-				<WVC_Blank>0.2</WVC_Blank>
+				<WVC_Blank>0.1</WVC_Blank>
 				<WVC_Undead>0.1</WVC_Undead>
+				<WVC_Resurgent>0.04</WVC_Resurgent>
+				<WVC_Featherdust>0.03</WVC_Featherdust>
+				<WVC_Ashen>0.03</WVC_Ashen>
 			  </value>
 			</li>
 			<li Class="PatchOperationAdd">
@@ -79,8 +85,11 @@
 			  <success>Invert</success>
 			  <value>
 				  <xenotypeChances>
-					<WVC_Blank>0.2</WVC_Blank>
+					<WVC_Blank>0.1</WVC_Blank>
 					<WVC_Undead>0.1</WVC_Undead>
+					<WVC_Resurgent>0.04</WVC_Resurgent>
+					<WVC_Featherdust>0.03</WVC_Featherdust>
+					<WVC_Ashen>0.03</WVC_Ashen>
 				  </xenotypeChances>
 			  </value>
 			</li>
@@ -94,8 +103,11 @@
 			  <value>
 				<xenotypeSet>
 				  <xenotypeChances>
-					<WVC_Blank>0.2</WVC_Blank>
+					<WVC_Blank>0.1</WVC_Blank>
 					<WVC_Undead>0.1</WVC_Undead>
+					<WVC_Resurgent>0.04</WVC_Resurgent>
+					<WVC_Featherdust>0.03</WVC_Featherdust>
+					<WVC_Ashen>0.03</WVC_Ashen>
 				  </xenotypeChances>
 				</xenotypeSet>
 			  </value>

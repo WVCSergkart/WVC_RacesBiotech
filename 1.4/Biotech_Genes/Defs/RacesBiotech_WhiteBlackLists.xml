@@ -6,12 +6,17 @@
 	<!-- Xenotypes not selected for random serum. Any string -->
 	<blackListedXenotypesForSerums>
 		<li>Baseliner</li>
+		<!-- <li>WVC_Blank</li> -->
 		<!-- An undead xenotype has a separate serum mechanic. -->
 		<li>WVC_Undead</li>
+		<!-- Only undead resurrection -->
+		<!-- <li>WVC_Featherdust</li> -->
 		<!-- <li>WVC_Resurgent</li> -->
-		<!-- <li>WVC_Blank</li> -->
+		<!-- <li>WVC_Ashen</li> -->
+		<!-- Random -->
 		<li>WVC_RandomHybrid</li>
 		<li>WVC_RandomHybrid_Blankind</li>
+		<!-- Other -->
 		<!-- <li>AG_Wretch</li> -->
 		<li>AG_RandomCustom</li>
 		<li>VREA_AndroidBasic</li>

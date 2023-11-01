@@ -177,18 +177,18 @@
 	</apparelTags>
   </PawnKindDef>
 
-  <PawnKindDef ParentName="WVC_RB_XenoBase">
-	<defName>WVC_RandomXenoHybrid_Player</defName>
-	<label>hybrid</label>
-	<xenotypeSet>
-	  <xenotypeChances>
-		<WVC_RandomHybrid>0.9</WVC_RandomHybrid>
-		<WVC_RandomHybrid_Blankind>0.1</WVC_RandomHybrid_Blankind>
-	  </xenotypeChances>
-	</xenotypeSet>
-	<apparelTags>
-	  <li>IndustrialBasic</li>
-	</apparelTags>
-  </PawnKindDef>
+  <!-- <PawnKindDef ParentName="WVC_RB_XenoBase"> -->
+	<!-- <defName>WVC_RandomXenoHybrid_Player</defName> -->
+	<!-- <label>hybrid</label> -->
+	<!-- <xenotypeSet> -->
+	  <!-- <xenotypeChances> -->
+		<!-- <WVC_RandomHybrid>0.9</WVC_RandomHybrid> -->
+		<!-- <WVC_RandomHybrid_Blankind>0.1</WVC_RandomHybrid_Blankind> -->
+	  <!-- </xenotypeChances> -->
+	<!-- </xenotypeSet> -->
+	<!-- <apparelTags> -->
+	  <!-- <li>IndustrialBasic</li> -->
+	<!-- </apparelTags> -->
+  <!-- </PawnKindDef> -->
 
 </Defs>
