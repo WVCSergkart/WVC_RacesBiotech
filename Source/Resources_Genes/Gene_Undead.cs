@@ -144,7 +144,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_Gene_DisplayStats_Undead_CanResurrect".Translate().CapitalizeFirst(), PawnCanResurrect().ToString(), "WVC_XaG_Gene_DisplayStats_Undead_CanResurrect_Desc".Translate(), 1100);
 			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate".Translate().CapitalizeFirst(), DustogenicCanReincarnate().ToString(), "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate_Desc".Translate(), 1090);
-			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_Gene_DisplayStats_Undead_CanShapeshift".Translate().CapitalizeFirst(), SubXenotypeUtility.TestXenotype(pawn).ToString(), "WVC_XaG_Gene_DisplayStats_Undead_CanShapeshift_Desc".Translate(), 150);
+			// yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_Gene_DisplayStats_Undead_CanShapeshift".Translate().CapitalizeFirst(), SubXenotypeUtility.TestXenotype(pawn).ToString(), "WVC_XaG_Gene_DisplayStats_Undead_CanShapeshift_Desc".Translate(), 150);
 		}
 
     }
