@@ -3,7 +3,7 @@
 
   <!-- Natural armor -->
 
-  <GeneDef Name="WVC_NaturalArmorBase" Abstract="True">
+  <GeneDef Name="WVC_XenotypesAndGenes_NaturalArmorBase" Abstract="True">
 	<description>Carriers of this gene have strong skin.</description>
 	<displayCategory>Violence</displayCategory>
 	<biostatCpx>2</biostatCpx>
@@ -26,7 +26,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_NaturalArmorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_NaturalArmorBase">
 	<defName>WVC_ClothedArmor</defName>
 	<label>armor skin</label>
 	<description>Carriers of this gene have very strong skin.</description>
@@ -59,7 +59,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_NaturalArmorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_NaturalArmorBase">
 	<defName>WVC_UnClothedArmor</defName>
 	<label>nude armor skin</label> 
 	<description>Carriers of this gene have very strong skin, but friction with clothing makes it soft.</description>
@@ -92,7 +92,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_NaturalArmorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_NaturalArmorBase">
 	<defName>WVC_ArmoredSkin_Stone</defName>
 	<label>light armor skin</label> 
 	<iconPath>WVC/UI/Genes/Gene_Armor_A_v0</iconPath>
@@ -109,7 +109,7 @@
 	  </prefixSymbols>
 	</symbolPack>
   </GeneDef>
-  <GeneDef ParentName="WVC_NaturalArmorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_NaturalArmorBase">
 	<defName>WVC_ArmoredSkin_Steel</defName>
 	<label>medium armor skin</label> 
 	<iconPath>WVC/UI/Genes/Gene_Armor_B_v0</iconPath>
@@ -126,7 +126,7 @@
 	  </prefixSymbols>
 	</symbolPack>
   </GeneDef>
-  <GeneDef ParentName="WVC_NaturalArmorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_NaturalArmorBase">
 	<defName>WVC_ArmoredSkin_Plasteel</defName>
 	<label>heavy armor skin</label>
 	<iconPath>WVC/UI/Genes/Gene_Armor_C_v0</iconPath>
@@ -143,7 +143,7 @@
 	  </prefixSymbols>
 	</symbolPack>
   </GeneDef>
-  <GeneDef ParentName="WVC_NaturalArmorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_NaturalArmorBase">
 	<defName>WVC_ArmoredSkin_Fortress</defName>
 	<label>fortress armor skin</label>
 	<iconPath>WVC/UI/Genes/Gene_Armor_D_v0</iconPath>

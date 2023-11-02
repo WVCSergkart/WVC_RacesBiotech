@@ -1,65 +1,65 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef ParentName="GeneSkinColorOverride" Name="WVC_GeneSkinColorOverride" Abstract="True">
+  <GeneDef ParentName="GeneSkinColorOverride" Name="WVC_XenotypesAndGenes_GeneSkinColorOverride" Abstract="True">
 	<description>Carriers of this gene have a unique skin color.</description>
 	<displayOrderInCategory>1200</displayOrderInCategory>
 	<randomBrightnessFactor>0</randomBrightnessFactor>
 	<selectionWeight>0.005</selectionWeight>
   </GeneDef>
 
-  <!-- <GeneDef ParentName="WVC_GeneSkinColorOverride"> -->
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride"> -->
 	<!-- <defName>WVC_Skin_NodeColor</defName> -->
 	<!-- <label>node machine skin</label> -->
 	<!-- <skinColorOverride>(79, 80, 81)</skinColorOverride> -->
   <!-- </GeneDef> -->
-  <!-- <GeneDef ParentName="WVC_GeneSkinColorOverride"> -->
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride"> -->
 	<!-- <defName>WVC_Skin_AncientMechColor</defName> -->
 	<!-- <label>ancient mechanoid skin</label> -->
 	<!-- <skinColorOverride>(79, 80, 81)</skinColorOverride> -->
   <!-- </GeneDef> -->
-  <!-- <GeneDef ParentName="WVC_GeneSkinColorOverride"> -->
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride"> -->
 	<!-- <defName>WVC_Skin_BranchMechColor</defName> -->
 	<!-- <label>mec</label> -->
 	<!-- <skinColorOverride>(79, 80, 81)</skinColorOverride> -->
   <!-- </GeneDef> -->
 
-  <GeneDef ParentName="WVC_GeneSkinColorOverride">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
 	<defName>WVC_SkinColor_b4c8ff_HEX</defName>
 	<label>bright blue skin</label>
 	<skinColorOverride>(180, 200, 255)</skinColorOverride>
   </GeneDef>
-  <GeneDef ParentName="WVC_GeneSkinColorOverride">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
 	<defName>WVC_SkinColor_c8b4ff_HEX</defName>
 	<label>bright purple skin</label>
 	<skinColorOverride>(200, 180, 255)</skinColorOverride>
   </GeneDef>
-  <GeneDef ParentName="WVC_GeneSkinColorOverride">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
 	<defName>WVC_SkinColor_c8ffb4_HEX</defName>
 	<label>bright green skin</label>
 	<skinColorOverride>(200, 255, 180)</skinColorOverride>
   </GeneDef>
-  <GeneDef ParentName="WVC_GeneSkinColorOverride">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
 	<defName>WVC_SkinColor_ffb4b4_HEX</defName>
 	<label>bright red skin</label>
 	<skinColorOverride>(255, 180, 180)</skinColorOverride>
   </GeneDef>
-  <GeneDef ParentName="WVC_GeneSkinColorOverride">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
 	<defName>WVC_SkinColor_fffab4_HEX</defName>
 	<label>bright yellow skin</label>
 	<skinColorOverride>(255, 250, 180)</skinColorOverride>
   </GeneDef>
-  <GeneDef ParentName="WVC_GeneSkinColorOverride">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
 	<defName>WVC_SkinColor_b4fff0_HEX</defName>
 	<label>bright cian skin</label>
 	<skinColorOverride>(180, 255, 240)</skinColorOverride>
   </GeneDef>
-  <GeneDef ParentName="WVC_GeneSkinColorOverride">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
 	<defName>WVC_SkinColor_ffdcb4_HEX</defName>
 	<label>bright orange skin</label>
 	<skinColorOverride>(255, 220, 180)</skinColorOverride>
   </GeneDef>
-  <GeneDef ParentName="WVC_GeneSkinColorOverride">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
 	<defName>WVC_SkinColor_ffb4dc_HEX</defName>
 	<label>bright pink skin</label>
 	<skinColorOverride>(255, 180, 220)</skinColorOverride>
@@ -67,7 +67,7 @@
 
   <!-- =============== -->
 
-  <GeneDef ParentName="WVC_GeneSkinColorOverride">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
 	<defName>WVC_SkinColor_DarkGray</defName>
 	<label>node skin</label>
 	<skinColorOverride>(79, 80, 81)</skinColorOverride>
@@ -75,44 +75,44 @@
 
   <!-- =============== -->
 
-  <GeneDef ParentName="WVC_GeneSkinColorOverride">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
 	<defName>WVC_SkinColor_Slate</defName>
 	<label>slate skin</label>
 	<skinColorOverride>(70,70,70)</skinColorOverride>
   </GeneDef>
-  <GeneDef ParentName="WVC_GeneSkinColorOverride">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
 	<defName>WVC_SkinColor_Limestone</defName>
 	<label>limestone skin</label>
 	<skinColorOverride>(158,153,135)</skinColorOverride>
   </GeneDef>
-  <GeneDef ParentName="WVC_GeneSkinColorOverride">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
 	<defName>WVC_SkinColor_Granite</defName>
 	<label>granite skin</label>
 	<skinColorOverride>(105,95,97)</skinColorOverride>
   </GeneDef>
-  <GeneDef ParentName="WVC_GeneSkinColorOverride">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
 	<defName>WVC_SkinColor_Sandstone</defName>
 	<label>sandstone skin</label>
 	<skinColorOverride>(126,104,94)</skinColorOverride>
   </GeneDef>
-  <GeneDef ParentName="WVC_GeneSkinColorOverride">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
 	<defName>WVC_SkinColor_Marble</defName>
 	<label>marble skin</label>
 	<skinColorOverride>(132,135,132)</skinColorOverride>
   </GeneDef>
 
   <!-- BMT -->
-  <GeneDef ParentName="WVC_GeneSkinColorOverride">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
 	<defName>WVC_SkinColor_Coral</defName>
 	<label>coral skin</label>
 	<skinColorOverride>(250,180,147)</skinColorOverride>
   </GeneDef>
-  <GeneDef ParentName="WVC_GeneSkinColorOverride">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
 	<defName>WVC_SkinColor_GlacialIce</defName>
 	<label>glacial skin</label>
 	<skinColorOverride>(154,216,255)</skinColorOverride>
   </GeneDef>
-  <GeneDef ParentName="WVC_GeneSkinColorOverride">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
 	<defName>WVC_SkinColor_Sand</defName>
 	<label>sand skin</label>
 	<skinColorOverride>(192,159,104)</skinColorOverride>
@@ -120,7 +120,7 @@
 
   <!-- =============== -->
 
-  <GeneDef ParentName="WVC_GeneSkinColorOverride">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
 	<defName>WVC_SkinColor_Undead</defName>
 	<label>undead skin</label>
 	<skinColorOverride>(93,101,126)</skinColorOverride>
@@ -128,7 +128,7 @@
 
   <!-- ======================================================== -->
 
-  <GeneDef ParentName="GeneHairColorBase" Name="WVC_GeneHairColorBase" Abstract="True">
+  <GeneDef ParentName="GeneHairColorBase" Name="WVC_XenotypesAndGenes_GeneHairColorBase" Abstract="True">
 	<!-- <description>Carriers of this gene have a unique skin color.</description> -->
 	<displayOrderInCategory>1200</displayOrderInCategory>
 	<randomBrightnessFactor>0</randomBrightnessFactor>
@@ -136,42 +136,42 @@
 	<canGenerateInGeneSet>true</canGenerateInGeneSet>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_GeneHairColorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHairColorBase">
 	<defName>WVC_HairColor_b4c8ff_HEX</defName>
 	<label>bright blue hair</label>
 	<hairColorOverride>(180, 200, 255)</hairColorOverride>
   </GeneDef>
-  <GeneDef ParentName="WVC_GeneHairColorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHairColorBase">
 	<defName>WVC_HairColor_c8b4ff_HEX</defName>
 	<label>bright purple hair</label>
 	<hairColorOverride>(200, 180, 255)</hairColorOverride>
   </GeneDef>
-  <GeneDef ParentName="WVC_GeneHairColorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHairColorBase">
 	<defName>WVC_HairColor_c8ffb4_HEX</defName>
 	<label>bright green hair</label>
 	<hairColorOverride>(200, 255, 180)</hairColorOverride>
   </GeneDef>
-  <GeneDef ParentName="WVC_GeneHairColorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHairColorBase">
 	<defName>WVC_HairColor_ffb4b4_HEX</defName>
 	<label>bright red hair</label>
 	<hairColorOverride>(255, 180, 180)</hairColorOverride>
   </GeneDef>
-  <GeneDef ParentName="WVC_GeneHairColorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHairColorBase">
 	<defName>WVC_HairColor_fffab4_HEX</defName>
 	<label>bright yellow hair</label>
 	<hairColorOverride>(255, 250, 180)</hairColorOverride>
   </GeneDef>
-  <GeneDef ParentName="WVC_GeneHairColorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHairColorBase">
 	<defName>WVC_HairColor_b4fff0_HEX</defName>
 	<label>bright cian hair</label>
 	<hairColorOverride>(180, 255, 240)</hairColorOverride>
   </GeneDef>
-  <GeneDef ParentName="WVC_GeneHairColorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHairColorBase">
 	<defName>WVC_HairColor_ffdcb4_HEX</defName>
 	<label>bright orange hair</label>
 	<hairColorOverride>(255, 220, 180)</hairColorOverride>
   </GeneDef>
-  <GeneDef ParentName="WVC_GeneHairColorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHairColorBase">
 	<defName>WVC_HairColor_ffb4dc_HEX</defName>
 	<label>bright pink hair</label>
 	<hairColorOverride>(255, 180, 220)</hairColorOverride>
@@ -179,7 +179,7 @@
 
   <!-- =============== -->
 
-  <GeneDef ParentName="WVC_GeneHairColorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHairColorBase">
 	<defName>WVC_HairColor_DarkGray</defName>
 	<label>node hair</label>
 	<hairColorOverride>(79, 80, 81)</hairColorOverride>
@@ -187,44 +187,44 @@
 
   <!-- =============== -->
 
-  <GeneDef ParentName="WVC_GeneHairColorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHairColorBase">
 	<defName>WVC_HairColor_Slate</defName>
 	<label>slate hair</label>
 	<hairColorOverride>(70,70,70)</hairColorOverride>
   </GeneDef>
-  <GeneDef ParentName="WVC_GeneHairColorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHairColorBase">
 	<defName>WVC_HairColor_Limestone</defName>
 	<label>limestone hair</label>
 	<hairColorOverride>(158,153,135)</hairColorOverride>
   </GeneDef>
-  <GeneDef ParentName="WVC_GeneHairColorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHairColorBase">
 	<defName>WVC_HairColor_Granite</defName>
 	<label>granite hair</label>
 	<hairColorOverride>(105,95,97)</hairColorOverride>
   </GeneDef>
-  <GeneDef ParentName="WVC_GeneHairColorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHairColorBase">
 	<defName>WVC_HairColor_Sandstone</defName>
 	<label>sandstone hair</label>
 	<hairColorOverride>(126,104,94)</hairColorOverride>
   </GeneDef>
-  <GeneDef ParentName="WVC_GeneHairColorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHairColorBase">
 	<defName>WVC_HairColor_Marble</defName>
 	<label>marble hair</label>
 	<hairColorOverride>(132,135,132)</hairColorOverride>
   </GeneDef>
 
   <!-- BMT -->
-  <GeneDef ParentName="WVC_GeneHairColorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHairColorBase">
 	<defName>WVC_HairColor_Coral</defName>
 	<label>coral hair</label>
 	<hairColorOverride>(250,180,147)</hairColorOverride>
   </GeneDef>
-  <GeneDef ParentName="WVC_GeneHairColorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHairColorBase">
 	<defName>WVC_HairColor_GlacialIce</defName>
 	<label>glacial hair</label>
 	<hairColorOverride>(154,216,255)</hairColorOverride>
   </GeneDef>
-  <GeneDef ParentName="WVC_GeneHairColorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHairColorBase">
 	<defName>WVC_HairColor_Sand</defName>
 	<label>sand hair</label>
 	<hairColorOverride>(192,159,104)</hairColorOverride>
@@ -232,7 +232,7 @@
 
   <!-- =============== -->
 
-  <GeneDef ParentName="WVC_GeneHairColorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHairColorBase">
 	<defName>WVC_HairColor_Undead</defName>
 	<label>undead hair</label>
 	<hairColorOverride>(93,101,126)</hairColorOverride>

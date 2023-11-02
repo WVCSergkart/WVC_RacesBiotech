@@ -9,7 +9,7 @@
 
   <!-- ================================================================== -->
 
-  <GeneDef Name="WVC_FurskinBase" Abstract="True">
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneFurskinBase" Abstract="True">
 	<description>TEST</description>
 	<displayCategory>Miscellaneous</displayCategory>
 	<selectionWeight>0.012</selectionWeight>
@@ -28,7 +28,7 @@
 
   <!-- ==================================== -->
 
-  <GeneDef ParentName="WVC_FurskinBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFurskinBase">
 	<defName>WVC_Furskin_WarmFur</defName>
 	<label>warm fur</label>
 	<description>Carriers of this gene have very warm coats.</description>
@@ -59,7 +59,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_FurskinBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFurskinBase">
 	<defName>WVC_Furskin_AttractiveFur</defName>
 	<label>attractive fur</label>
 	<description>Carriers of this gene have coats that draw attention to themselves.</description>
@@ -79,7 +79,7 @@
 
   <!-- ==================================== -->
 
-  <GeneDef ParentName="WVC_FurskinBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFurskinBase">
 	<defName>WVC_Furskin_CoarseFur</defName>
 	<label>coarse fur</label>
 	<description>Carriers of this gene have a very hard coat that serves as natural armor.</description>
@@ -117,7 +117,7 @@
 	  </suffixSymbols>
 	</symbolPack>
   </GeneDef>
-  <GeneDef ParentName="WVC_FurskinBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFurskinBase">
 	<defName>WVC_Furskin_FluffyFur</defName>
 	<label>fluffy fur</label>
 	<description>Carriers of this gene have a very soft, fluffy and neat coat.</description>
@@ -155,7 +155,7 @@
 
   <!-- Wild -->
 
-  <GeneDef Name="WVC_FurskinWildness" Abstract="True">
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneFurskinWildness" Abstract="True">
 	<description>Carriers of this gene are very close to the animal world.</description>
 	<displayOrderInCategory>25</displayOrderInCategory>
 	<iconColor>(255, 255, 255)</iconColor>
@@ -187,7 +187,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_FurskinWildness">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFurskinWildness">
 	<defName>WVC_FurskinInstincts_LightWildness</defName>
 	<label>slightly wild</label>
 	<biostatMet>2</biostatMet>
@@ -199,7 +199,7 @@
 	  <SocialImpact>0.8</SocialImpact>
 	</statFactors>
   </GeneDef>
-  <GeneDef ParentName="WVC_FurskinWildness">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFurskinWildness">
 	<defName>WVC_FurskinInstincts_MediumWildness</defName>
 	<label>medium wild</label>
 	<biostatMet>4</biostatMet>
@@ -212,7 +212,7 @@
 	  <SocialImpact>0.6</SocialImpact>
 	</statFactors>
   </GeneDef>
-  <GeneDef ParentName="WVC_FurskinWildness">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFurskinWildness">
 	<defName>WVC_FurskinInstincts_HighWildness</defName>
 	<label>very wild</label>
 	<biostatMet>6</biostatMet>
@@ -225,7 +225,7 @@
 	  <SocialImpact>0.4</SocialImpact>
 	</statFactors>
   </GeneDef>
-  <GeneDef ParentName="WVC_FurskinWildness">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFurskinWildness">
 	<defName>WVC_FurskinInstincts_ExtremeWildness</defName>
 	<label>animal-like wild</label>
 	<biostatMet>8</biostatMet>
@@ -243,7 +243,7 @@
 
   <!-- Upgrades -->
 
-  <GeneDef Name="WVC_FurskinInstincts" Abstract="True">
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneFurskinInstincts" Abstract="True">
 	<description>Carriers of this gene have natural animal instincts that help them.</description>
 	<displayOrderInCategory>50</displayOrderInCategory>
 	<iconColor>(255, 255, 255)</iconColor>
@@ -271,7 +271,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_FurskinInstincts">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFurskinInstincts">
 	<defName>WVC_FurskinInstincts_Base</defName>
 	<label>natural instincts</label>
 	<description>Carriers of this gene have natural animal-like instincts that help them.</description>
@@ -312,7 +312,7 @@
 	</exclusionTags>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_FurskinInstincts">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFurskinInstincts">
 	<defName>WVC_FurskinInstincts_NightHunter</defName>
 	<label>night hunter</label>
 	<description>Carriers of this gene are excellent night hunters. They easily navigate in the dark and always know when the enemy is most vulnerable.</description>
@@ -344,7 +344,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_FurskinInstincts">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFurskinInstincts">
 	<defName>WVC_FurskinInstincts_PredatorSense</defName>
 	<label>predator sense</label>
 	<description>Carriers of this gene have an excellent sense of smell.</description>
@@ -356,7 +356,7 @@
 	</statFactors>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_FurskinInstincts">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFurskinInstincts">
 	<defName>WVC_FurskinInstincts_KeenEye</defName>
 	<label>keen eye</label>
 	<description>Carriers of this gene are very attentive.</description>
@@ -368,7 +368,7 @@
 	</statOffsets>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_FurskinInstincts">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFurskinInstincts">
 	<defName>WVC_FurskinInstincts_Restlessness</defName>
 	<label>restlessness</label>
 	<description>Carriers of this gene concentrate poorly and are constantly distracted by something.</description>

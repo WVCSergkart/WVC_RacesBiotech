@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef ParentName="WVC_MechanoidizationAbilities" Name="WVC_MechanoidizationAbilities_MechSummoning" Abstract="True">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_MechanoidizationAbilities" Name="WVC_XenotypesAndGenes_MechSummoning" Abstract="True">
 	<!-- <defName>WVC_GeneSummoner_TEST</defName> -->
 	<!-- <label>TEST SUMMONER</label> -->
 	<description>Carriers of this gene have a special bond with the mechanoid fleet and can sometimes summon mechanoids.</description>
@@ -38,7 +38,7 @@
 
   <!-- ============================================== -->
 
-  <GeneDef ParentName="WVC_MechanoidizationAbilities_MechSummoning">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_MechSummoning">
 	<defName>WVC_MechSummon_Light</defName>
 	<label>light mech summon</label>
 	<customEffectDescriptions>
@@ -56,7 +56,7 @@
 	</descriptionHyperlinks>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_MechanoidizationAbilities_MechSummoning">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_MechSummoning">
 	<defName>WVC_MechSummon_Medium</defName>
 	<label>medium mech summon</label>
 	<biostatCpx>4</biostatCpx>
@@ -76,7 +76,7 @@
 	</descriptionHyperlinks>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_MechanoidizationAbilities_MechSummoning">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_MechSummoning">
 	<defName>WVC_MechSummon_Heavy</defName>
 	<label>heavy mech summon</label>
 	<biostatCpx>5</biostatCpx>
@@ -96,7 +96,7 @@
 	</descriptionHyperlinks>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_MechanoidizationAbilities_MechSummoning">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_MechSummoning">
 	<defName>WVC_SwarmConnection_Golems</defName>
 	<label>swarm connection</label>
 	<description>Carriers of this gene have a strong psionic bond with a mechanite swarm in a nearby asteroid cluster.

@@ -3,7 +3,7 @@
 
   <!-- Psychic ability -->
 
-  <GeneDef Name="WVC_MechSensetivityBase" Abstract="True">
+  <GeneDef Name="WVC_XenotypesAndGenes_MechSensetivityBase" Abstract="True">
 	<displayCategory>Psychic</displayCategory>
 	<biostatCpx>1</biostatCpx>
 	<selectionWeight>0.03</selectionWeight>
@@ -25,7 +25,7 @@
 	<!-- </conditionalStatAffecters> -->
   </GeneDef>
 
-  <GeneDef ParentName="WVC_MechSensetivityBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_MechSensetivityBase">
 	<defName>WVC_MechSensetivity_Low</defName>
 	<label>low mecha-sensitive</label>
 	<labelShortAdj>mecha-low</labelShortAdj>
@@ -48,7 +48,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_MechSensetivityBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_MechSensetivityBase">
 	<defName>WVC_MechSensetivity_Enchanced</defName>
 	<label>enchanced mecha-sensitive</label>
 	<labelShortAdj>mecha-enchanced</labelShortAdj>
@@ -71,7 +71,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_MechSensetivityBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_MechSensetivityBase">
 	<defName>WVC_MechSensetivity_Extreme</defName>
 	<label>extreme mecha-sensitive</label> 
 	<labelShortAdj>mecha-extreme</labelShortAdj>

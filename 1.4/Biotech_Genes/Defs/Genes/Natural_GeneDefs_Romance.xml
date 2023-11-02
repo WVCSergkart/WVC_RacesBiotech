@@ -35,7 +35,7 @@
 
   <!-- Romance -->
 
-  <GeneDef Name="WVC_RomanceChanceBase" Abstract="True">
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneRomanceChanceBase" Abstract="True">
 	<displayCategory>Reproduction</displayCategory>
 	<description>Carriers of this gene secrete special pheromones with the help of which they choose a partner.</description>
 	<biostatCpx>1</biostatCpx>
@@ -55,7 +55,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_RomanceChanceBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRomanceChanceBase">
 	<defName>WVC_RomanceChanceA</defName>
 	<label>pheromones A</label>
 	<iconColor>(133, 202, 255)</iconColor>
@@ -63,7 +63,7 @@
 	  <li>WVC_RomanceChance_A</li>
 	</exclusionTags>
   </GeneDef>
-  <GeneDef ParentName="WVC_RomanceChanceBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRomanceChanceBase">
 	<defName>WVC_RomanceChanceB</defName>
 	<label>pheromones B</label>
 	<iconColor>(133, 255, 136)</iconColor>
@@ -71,7 +71,7 @@
 	  <li>WVC_RomanceChance_B</li>
 	</exclusionTags>
   </GeneDef>
-  <GeneDef ParentName="WVC_RomanceChanceBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRomanceChanceBase">
 	<defName>WVC_RomanceChanceC</defName>
 	<label>pheromones C</label>
 	<iconColor>(255, 133, 133)</iconColor>
@@ -79,7 +79,7 @@
 	  <li>WVC_RomanceChance_C</li>
 	</exclusionTags>
   </GeneDef>
-  <!-- <GeneDef ParentName="WVC_RomanceChanceBase"> -->
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRomanceChanceBase"> -->
 	<!-- <defName>WVC_RomanceChanceD</defName> -->
 	<!-- <label>pheromones D</label> -->
 	<!-- <iconColor>(142, 133, 255)</iconColor> -->
@@ -87,7 +87,7 @@
 	  <!-- <li>WVC_RomanceChance_D</li> -->
 	<!-- </exclusionTags> -->
   <!-- </GeneDef> -->
-  <!-- <GeneDef ParentName="WVC_RomanceChanceBase"> -->
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRomanceChanceBase"> -->
 	<!-- <defName>WVC_RomanceChanceE</defName> -->
 	<!-- <label>pheromones E</label> -->
 	<!-- <iconColor>(255, 248, 133)</iconColor> -->
@@ -96,7 +96,7 @@
 	<!-- </exclusionTags> -->
   <!-- </GeneDef> -->
 
-  <GeneDef ParentName="WVC_RomanceChanceBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRomanceChanceBase">
 	<defName>WVC_RomanceChanceNeutralized</defName>
 	<label>dull taste</label>
 	<description>This gene completely neutralizes the effects of pheromones, making the carrier of the gene less picky.</description>
@@ -119,7 +119,7 @@
 	</exclusionTags>
   </GeneDef>
 
-  <!-- <GeneDef ParentName="WVC_RomanceChanceBase" Name="WVC_RomanceChance_Encode" Abstract="True"> -->
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRomanceChanceBase" Name="WVC_RomanceChance_Encode" Abstract="True"> -->
 	<!-- <displayOrderInCategory>555</displayOrderInCategory> -->
 	<!-- <selectionWeight>0.0035</selectionWeight> -->
 	<!-- <iconColor>(255, 255, 255)</iconColor> -->

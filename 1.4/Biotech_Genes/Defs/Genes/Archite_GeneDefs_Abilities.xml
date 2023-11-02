@@ -13,7 +13,7 @@
 
   <!-- ================ -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_Archites" Name="WVC_MechanoidizationAbilities" Abstract="True">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Archites" Name="WVC_XenotypesAndGenes_MechanoidizationAbilities" Abstract="True">
 	<displayCategory>Ability</displayCategory>
 	<marketValueFactor>1.2</marketValueFactor>
 	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
@@ -33,7 +33,7 @@
 	</modExtensions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_MechanoidizationAbilities">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_MechanoidizationAbilities">
 	<defName>WVC_LongjumpMech</defName>
 	<label>mech longjump</label>
 	<description>Carriers of this gene have ultrafast muscles which allow them to jump short distances.</description>
@@ -59,7 +59,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_MechanoidizationAbilities">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_MechanoidizationAbilities">
 	<defName>WVC_SmokepopMech</defName>
 	<label>mech smokepop</label>
 	<description>Carriers of this gene exhale smoke when they breathe and, under certain conditions, can exhale a fairly large cloud of smoke.</description>
@@ -92,7 +92,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_MechanoidizationAbilities">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_MechanoidizationAbilities">
 	<defName>WVC_FirefoampopMech</defName>
 	<label>firefoam pop</label>
 	<description>Carriers of this gene have small accumulations of foam under the skin, they can release some of these accumulations, which will allow them to put out the fire.</description>
@@ -122,7 +122,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_MechanoidizationAbilities">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_MechanoidizationAbilities">
 	<defName>WVC_ResurrectionMech</defName>
 	<label>resurrect mech</label>
 	<description>Carriers of this gene can affect the self-repair function of severely damaged mechanoids.</description>

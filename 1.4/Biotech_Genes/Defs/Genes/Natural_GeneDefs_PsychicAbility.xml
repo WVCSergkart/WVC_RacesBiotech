@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef ParentName="GenePsychicAbilityBase" Name="WVC_GenePsychicAbility_NonTrait" Abstract="True">
+  <GeneDef ParentName="GenePsychicAbilityBase" Name="WVC_XenotypesAndGenes_GenePsychicAbility_NonTrait" Abstract="True">
 	<!-- <displayCategory>Psychic</displayCategory> -->
 	<!-- <exclusionTags> -->
 	  <!-- <li>PsychicAbility</li> -->
@@ -28,7 +28,7 @@
   </GeneDef>
 
   <!-- Non trait version -->
-  <GeneDef ParentName="WVC_GenePsychicAbility_NonTrait">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GenePsychicAbility_NonTrait">
 	<defName>WVC_PsychicAbility_Deaf</defName>
 	<label>psychically deaf</label>
 	<labelShortAdj>psy-deaf</labelShortAdj>
@@ -52,7 +52,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_GenePsychicAbility_NonTrait">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GenePsychicAbility_NonTrait">
 	<defName>WVC_PsychicAbility_Dull</defName>
 	<label>psychically dull</label>
 	<labelShortAdj>psy-dull</labelShortAdj>
@@ -72,7 +72,7 @@
   </GeneDef>
 
   <!-- = -->
-  <GeneDef ParentName="WVC_GenePsychicAbility_NonTrait">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GenePsychicAbility_NonTrait">
 	<defName>WVC_MechaAI_PsychicDull</defName>
 	<label>psydull</label>
 	<description>Carriers of this gene are less psychically-sensitive than others.</description>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef Name="WVC_BePredatorPrey_Base" Abstract="True">
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneBePredatorPrey_Base" Abstract="True">
 	<iconColor>(255,255,255)</iconColor>
 	<selectionWeight>0.005</selectionWeight>
 	<biostatCpx>1</biostatCpx>
@@ -22,7 +22,7 @@
 
   <!-- ============================= -->
 
-  <GeneDef ParentName="WVC_BePredatorPrey_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneBePredatorPrey_Base">
 	<defName>WVC_PredatorPrey_NotTasty</defName>
 	<label>not tasty</label>
 	<description>Predators do not prey on carriers of this gene.</description>
@@ -38,7 +38,7 @@
 	</modExtensions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_BePredatorPrey_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneBePredatorPrey_Base">
 	<defName>WVC_PredatorPrey_Tasty</defName>
 	<label>tasty</label>
 	<description>Predators do prey on carriers of this gene.</description>

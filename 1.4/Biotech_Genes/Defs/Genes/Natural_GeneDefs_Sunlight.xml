@@ -3,7 +3,7 @@
 
   <!-- UV Sensitivity -->
 
-  <GeneDef Name="WVC_PsychicSunSensitivityBase" Abstract="True">
+  <GeneDef Name="WVC_XenotypesAndGenes_PsychicSunSensitivityBase" Abstract="True">
 	<displayCategory>Psychic</displayCategory>
 	<displayOrderInCategory>90</displayOrderInCategory>
 	<biostatCpx>2</biostatCpx>
@@ -24,7 +24,7 @@
 	</exclusionTags>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_PsychicSunSensitivityBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_PsychicSunSensitivityBase">
 	<defName>WVC_UVSensitivity_Psychic</defName>
 	<label>psychic UV sensitivity</label>
 	<labelShortAdj>UV-psychic</labelShortAdj>
@@ -55,7 +55,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_PsychicSunSensitivityBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_PsychicSunSensitivityBase">
 	<defName>WVC_NoUVSensitivity_Psychic</defName>
 	<label>psychic dark sensitivity</label>
 	<labelShortAdj>dark-psychic</labelShortAdj>
@@ -86,7 +86,7 @@
 
   <!-- UV Phobia -->
 
-  <GeneDef Name="WVC_SunPhobiaSensitivity_Base" Abstract="True">
+  <GeneDef Name="WVC_XenotypesAndGenes_SunPhobiaSensitivity_Base" Abstract="True">
 	<displayCategory>Psychic</displayCategory>
 	<displayOrderInCategory>190</displayOrderInCategory>
 	<selectionWeight>0.03</selectionWeight>
@@ -103,7 +103,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_SunPhobiaSensitivity_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_SunPhobiaSensitivity_Base">
 	<defName>WVC_DebuffUV_StrongInjuryHealing</defName>
 	<label>strong sunphobia</label>
 	<description>Carriers of this gene partially stop regeneration when they are in sunlight.</description>
@@ -123,7 +123,7 @@
 	  </li>
 	</conditionalStatAffecters>
   </GeneDef>
-  <GeneDef ParentName="WVC_SunPhobiaSensitivity_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_SunPhobiaSensitivity_Base">
 	<defName>WVC_DebuffUV_ExtremeInjuryHealing</defName>
 	<label>extreme sunphobia</label>
 	<description>Carriers of this gene completely stop regeneration when they are in sunlight.</description>
@@ -146,7 +146,7 @@
 
   <!-- UV Psychic Sensitivity -->
 
-  <GeneDef ParentName="WVC_SunPhobiaSensitivity_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_SunPhobiaSensitivity_Base">
 	<defName>WVC_DebuffUV_StrongPsychicSensitivity</defName>
 	<label>UV psychically dull</label>
 	<description>Carriers of this gene partially lose psi-sensitivity when exposed to the sun.</description>
@@ -166,7 +166,7 @@
 	  </li>
 	</conditionalStatAffecters>
   </GeneDef>
-  <GeneDef ParentName="WVC_SunPhobiaSensitivity_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_SunPhobiaSensitivity_Base">
 	<defName>WVC_DebuffUV_ExtremePsychicSensitivity</defName>
 	<label>UV psychically deaf</label>
 	<description>Carriers of this gene lose psi-sensitivity when exposed to the sun.</description>
@@ -189,7 +189,7 @@
 
   <!-- No UV Psychic Sensitivity -->
 
-  <GeneDef ParentName="WVC_SunPhobiaSensitivity_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_SunPhobiaSensitivity_Base">
 	<defName>WVC_DebuffNoUV_StrongPsychicSensitivity</defName>
 	<label>UV psy-dependency dull</label>
 	<description>Carriers of this gene partially lose psi-sensitivity when not under the sun.</description>
@@ -208,7 +208,7 @@
 	  </li>
 	</conditionalStatAffecters>
   </GeneDef>
-  <GeneDef ParentName="WVC_SunPhobiaSensitivity_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_SunPhobiaSensitivity_Base">
 	<defName>WVC_DebuffNoUV_ExtremePsychicSensitivity</defName>
 	<label>UV psy-dependency deaf</label>
 	<description>Carriers of this gene lose psi-sensitivity when not under the sun.</description>

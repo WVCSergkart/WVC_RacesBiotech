@@ -3,7 +3,7 @@
 
 	<!-- Body size -->
 
-	<GeneDef Name="WVC_BodySize_Base" Abstract="True">
+	<GeneDef Name="WVC_XenotypesAndGenes_BodySize_Base" Abstract="True">
 		<biostatCpx>1</biostatCpx>
 		<biostatMet>-2</biostatMet>
 		<!-- <displayCategory>Miscellaneous</displayCategory> -->
@@ -17,7 +17,7 @@
 		</exclusionTags>
 	</GeneDef>
 
-	<GeneDef ParentName="WVC_BodySize_Base">
+	<GeneDef ParentName="WVC_XenotypesAndGenes_BodySize_Base">
 		<defName>WVC_BodySize_Small</defName>
 		<label>small size</label>
 		<description>Carriers of this gene are slightly smaller than baseline humans.</description>
@@ -58,7 +58,7 @@
 		</modExtensions>
 	</GeneDef>
 
-	<GeneDef ParentName="WVC_BodySize_Base">
+	<GeneDef ParentName="WVC_XenotypesAndGenes_BodySize_Base">
 		<defName>WVC_BodySize_Average</defName>
 		<label>average size</label>
 		<description>Carriers of this gene have a normal baseline human size.</description>
@@ -71,7 +71,7 @@
 		</customEffectDescriptions>
 	</GeneDef>
 
-	<GeneDef ParentName="WVC_BodySize_Base">
+	<GeneDef ParentName="WVC_XenotypesAndGenes_BodySize_Base">
 		<defName>WVC_BodySize_Large</defName>
 		<label>large size</label>
 		<description>Carriers of this gene are slightly larger than baseline humans.</description>

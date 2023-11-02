@@ -11,7 +11,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool ReplaceGeneBackground(GeneDef geneDef)
 		{
-			if (!WVC_Biotech.settings.disableUniqueGeneInterface && geneDef.defName.Contains("WVC_"))
+			if (!WVC_Biotech.settings.disableUniqueGeneInterface && (geneDef.defName.Contains("WVC_") || geneDef.GetModExtension<GeneExtension_Background>() != null))
 			{
 				return true;
 			}

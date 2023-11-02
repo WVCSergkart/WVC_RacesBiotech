@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef ParentName="WVC_MechBandwidthBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechBandwidthBase">
 	<defName>WVC_GolemSensetivity_Enchanced</defName>
 	<label>enchanced golem-sensitive</label>
 	<labelShortAdj>golem-enchanced</labelShortAdj>
@@ -23,7 +23,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_MechBandwidthBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechBandwidthBase">
 	<defName>WVC_GolemSensetivity_Extreme</defName>
 	<label>extreme golem-sensitive</label> 
 	<labelShortAdj>golem-extreme</labelShortAdj>

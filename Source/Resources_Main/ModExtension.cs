@@ -6,13 +6,13 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	// public class GeneExtension_Background : DefModExtension
-	// {
+	public class GeneExtension_Background : DefModExtension
+	{
 		// public string backgroundPathEndogenes;
 		// public string backgroundPathXenogenes;
 		// public string backgroundPathArchite;
-		// public bool replaceBackground = false;
-	// }
+		// public bool replaceBackground = true;
+	}
 
 	public class GeneExtension_Spawner : DefModExtension
 	{

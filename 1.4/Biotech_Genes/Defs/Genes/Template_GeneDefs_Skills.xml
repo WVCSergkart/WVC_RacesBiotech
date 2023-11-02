@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef Name="WVC_GeneAptitude_Base" Abstract="True">
+  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef Name="WVC_XenotypesAndGenes_GeneAptitude_Base" Abstract="True">
 	<geneClass>Gene</geneClass>
 	<ignoreIllegalLabelCharacterConfigError>true</ignoreIllegalLabelCharacterConfigError>
 	<exclusionTagPrefix>Aptitude</exclusionTagPrefix>
@@ -15,7 +15,7 @@
 
   <!-- Aptitude -->
 
-  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Base">
+  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_XenotypesAndGenes_GeneAptitude_Base">
 	<defName>WVC_AptitudeImpossible</defName>
 	<label>impossible {0}</label>
 	<description>The carrier's aptitude in {0} is reduced by 20. Aptitude acts like an offset on skill level. Additionally, all passion is removed from {0}.</description>
@@ -27,7 +27,7 @@
 	<biostatMet>5</biostatMet>
   </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
 
-  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Base">
+  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_XenotypesAndGenes_GeneAptitude_Base">
 	<defName>WVC_AptitudeHopeless</defName>
 	<label>hopeless {0}</label>
 	<description>The carrier's aptitude in {0} is reduced by 16. Aptitude acts like an offset on skill level. Additionally, all passion is removed from {0}.</description>
@@ -39,7 +39,7 @@
 	<biostatMet>4</biostatMet>
   </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
 
-  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Base">
+  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_XenotypesAndGenes_GeneAptitude_Base">
 	<defName>WVC_AptitudeShameful</defName>
 	<label>shameful {0}</label>
 	<description>The carrier's aptitude in {0} is reduced by 12. Aptitude acts like an offset on skill level. Additionally, all passion is removed from {0}.</description>
@@ -51,7 +51,7 @@
 	<biostatMet>3</biostatMet>
   </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
 
-  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Base">
+  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_XenotypesAndGenes_GeneAptitude_Base">
 	<defName>WVC_Aptitudes_0_Skill</defName>
 	<label>nullify {0}</label>
 	<description>The carrier's aptitude in {0} is nullified. Aptitude acts like an offset on skill level.</description>
@@ -63,7 +63,7 @@
 	<selectionWeight>0.005</selectionWeight>
   </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
 
-  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Base">
+  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_XenotypesAndGenes_GeneAptitude_Base">
 	<defName>WVC_AptitudeMarvelous</defName>
 	<label>marvelous {0}</label>
 	<description>The carrier's aptitude in {0} is increased by 12. Aptitude acts like an offset on skill level. Additionally, one level of passion is added to {0}.</description>
@@ -75,7 +75,7 @@
 	<biostatMet>-5</biostatMet>
   </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
 
-  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Base">
+  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_XenotypesAndGenes_GeneAptitude_Base">
 	<defName>WVC_AptitudeFaultless</defName>
 	<label>faultless {0}</label>
 	<description>The carrier's aptitude in {0} is increased by 16. Aptitude acts like an offset on skill level. Additionally, one level of passion is added to {0}.</description>
@@ -87,7 +87,7 @@
 	<biostatMet>-7</biostatMet>
   </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
 
-  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Base">
+  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_XenotypesAndGenes_GeneAptitude_Base">
 	<defName>WVC_AptitudePerfect</defName>
 	<label>perfect {0}</label>
 	<description>The carrier's aptitude in {0} is increased by 20. Aptitude acts like an offset on skill level. Additionally, one level of passion is added to {0}.</description>
@@ -101,7 +101,7 @@
 
   <!-- Archite -->
 
-  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Base" Name="WVC_GeneAptitude_Archite" Abstract="True">
+  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_XenotypesAndGenes_GeneAptitude_Base" Name="WVC_XenotypesAndGenes_GeneAptitude_Archite" Abstract="True">
 	<iconPath>WVC/UI/Genes/SkillUp_v0</iconPath>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
@@ -109,7 +109,7 @@
 	<selectionWeight>0.00125</selectionWeight>
   </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
 
-  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Archite">
+  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_XenotypesAndGenes_GeneAptitude_Archite">
 	<defName>WVC_AptitudeArchiteStrong</defName>
 	<label>strong {0}</label>
 	<description>The carrier's aptitude in {0} is increased by 6. Aptitude acts like an offset on skill level. Additionally, one level of passion is added to {0}.</description>
@@ -120,7 +120,7 @@
 	<biostatArc>1</biostatArc>
   </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
 
-  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Archite">
+  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_XenotypesAndGenes_GeneAptitude_Archite">
 	<defName>WVC_AptitudeArchiteGreat</defName>
 	<label>great {0}</label>
 	<description>The carrier's aptitude in {0} is increased by 12. Aptitude acts like an offset on skill level. Additionally, one level of passion is added to {0}.</description>
@@ -131,7 +131,7 @@
 	<biostatArc>2</biostatArc>
   </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
 
-  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_GeneAptitude_Archite">
+  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_XenotypesAndGenes_GeneAptitude_Archite">
 	<defName>WVC_AptitudeArchitePerfect</defName>
 	<label>perfect {0}</label>
 	<description>The carrier's aptitude in {0} is increased by 18. Aptitude acts like an offset on skill level. Additionally, one level of passion is added to {0}.</description>

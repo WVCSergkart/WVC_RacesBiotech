@@ -69,22 +69,19 @@ namespace WVC_XenotypesAndGenes
 						// Immediately weed out all xenotypes that can cause bugs
 						// Androids do not work correctly with sera
 						// Random xenotypes should not be in sera
-						else if (thingDef.defName.Contains("VREA_") || thingDef.defName.Contains("Android") || thingDef.defName.Contains("Random"))
+						// If my xenotypes are not listed in the white list, they are not available by default.
+						else if (thingDef.defName.Contains("VREA_") || thingDef.defName.Contains("Android") || thingDef.defName.Contains("Random") || thingDef.defName.Contains("WVC_"))
 						{
 							WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = false;
 						}
 						// Check that the metabolism are in the limit of the vanilla game.
-						// To exclude xenotypes with millions and millions of metabolism.
+						// To exclude xenotypes with -millions and +millions of metabolism.
 						else if (metabol < -5 && metabol > 5)
 						{
 							WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = false;
 						}
 						else if (!thingDef.inheritable)
 						{
-							if (thingDef.defName.Contains("WVC_"))
-							{
-								WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = false;
-							}
 							// else if (thingDef.doubleXenotypeChances != null)
 							// {
 							// flag = _ = false;
@@ -92,7 +89,7 @@ namespace WVC_XenotypesAndGenes
 							// 7 genes is one line, 14 - two, and so on.
 							// If a xenotype has less than two lines of genes, then it is quite small, it is probably not worth spending time on generation
 							// And if there are too many xenotypes, this can affect the speed of the game launch
-							else if (thingDef.genes.Count > 14)
+							if (thingDef.genes.Count > 14)
 							{
 								WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = true;
 							}
@@ -108,14 +105,9 @@ namespace WVC_XenotypesAndGenes
 							{
 								archites += item.biostatArc;
 							}
-							// If my xenotype is inheritable but not listed, it shouldn't be there by default.
-							if (thingDef.defName.Contains("WVC_"))
-							{
-								WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = false;
-							}
 							// Check for the presence of archite xenotypes with a bunch of genes. 
 							// Quantity is not a sign of quality, but they can be interesting.
-							else if (archites > 0 && thingDef.genes.Count > 14)
+							if (archites > 0 && thingDef.genes.Count > 14)
 							{
 								WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = true;
 							}

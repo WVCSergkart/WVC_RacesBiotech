@@ -3,7 +3,7 @@
 
   <!-- Psychic ability -->
 
-  <GeneDef Name="WVC_MechBandwidthBase" Abstract="True">
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneMechBandwidthBase" Abstract="True">
 	<displayCategory>Psychic</displayCategory>
 	<biostatCpx>2</biostatCpx>
 	<selectionWeight>0.03</selectionWeight>
@@ -25,7 +25,7 @@
 	</exclusionTags>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_MechBandwidthBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechBandwidthBase">
 	<defName>WVC_MechBandwidth_Enchanced</defName>
 	<label>enchanced bandwidth</label>
 	<labelShortAdj>bandwidth</labelShortAdj>
@@ -49,7 +49,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_MechBandwidthBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechBandwidthBase">
 	<defName>WVC_MechBandwidth_Extreme</defName>
 	<label>extreme bandwidth</label> 
 	<labelShortAdj>bandwidth</labelShortAdj>

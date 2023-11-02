@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef ParentName="GeneToughnessBase" Name="WVC_GeneToughness_Base" Abstract="True">
+  <GeneDef ParentName="GeneToughnessBase" Name="WVC_XenotypesAndGenes_GeneToughness_Base" Abstract="True">
 	<!-- <displayCategory>Psychic</displayCategory> -->
 	<!-- <exclusionTags> -->
 	  <!-- <li>PsychicAbility</li> -->
@@ -12,7 +12,7 @@
 
   <!-- ============================= -->
 
-  <GeneDef ParentName="WVC_GeneToughness_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneToughness_Base">
 	<defName>WVC_Tough</defName>
 	<label>tough</label>
 	<description>Carriers of this gene take much less injuries than others from the same damage. They have thickened, densified bones, nearly-solid ribcages, and strengthened binding factors in joints and flesh.</description>
@@ -41,7 +41,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_GeneToughness_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneToughness_Base">
 	<defName>WVC_Unbreakable</defName>
 	<label>unbreakable</label>
 	<description>Carriers of this gene take much less injuries than others from the same damage. They have thickened, densified bones, nearly-solid ribcages, and strengthened binding factors in joints and flesh.</description>
@@ -73,7 +73,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_GeneToughness_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneToughness_Base">
 	<defName>WVC_GrayGooSkin</defName>
 	<label>invulnerable</label>
 	<description>Carriers of this archite gene take much less injuries than others from the same damage. They have thickened, densified bones, nearly-solid ribcages, and strengthened binding factors in joints and flesh.</description>
@@ -123,7 +123,7 @@
 
   <!-- ============================= -->
 
-  <GeneDef ParentName="WVC_GeneToughness_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneToughness_Base">
 	<defName>WVC_Delicate</defName>
 	<label>delicate</label>
 	<description>Carriers of this gene take greater injuries than others from the same damage. They have thin, brittle bones and less binding molecules in joints and flesh.</description>
@@ -152,7 +152,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_GeneToughness_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneToughness_Base">
 	<defName>WVC_Fragile</defName>
 	<label>fragile</label>
 	<description>Carriers of this gene take greater injuries than others from the same damage. They have thin, brittle bones and less binding molecules in joints and flesh.</description>
@@ -184,7 +184,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_GeneToughness_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneToughness_Base">
 	<defName>WVC_Glass</defName>
 	<label>glass</label>
 	<description>Carriers of this gene take greater injuries than others from the same damage. They have thin, brittle bones and less binding molecules in joints and flesh.</description>

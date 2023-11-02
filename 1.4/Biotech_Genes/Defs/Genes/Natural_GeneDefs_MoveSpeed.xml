@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef ParentName="GeneMoveSpeedBase" Name="WVC_GeneMoveSpeed_Base" Abstract="True">
+  <GeneDef ParentName="GeneMoveSpeedBase" Name="WVC_XenotypesAndGenes_GeneMoveSpeed_Base" Abstract="True">
 	<selectionWeight>0.025</selectionWeight>
   </GeneDef>
 
   <!-- ============================= -->
 
-  <GeneDef ParentName="WVC_GeneMoveSpeed_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMoveSpeed_Base">
 	<defName>WVC_StoneStomach</defName>
 	<label>stone stomach</label> 
 	<labelShortAdj>very slow</labelShortAdj>
@@ -52,7 +52,7 @@
 	</modExtensions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_GeneMoveSpeed_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMoveSpeed_Base">
 	<defName>WVC_AgeDebuff_MoveSpeed</defName>
 	<label>extreme slow runner</label> 
 	<labelShortAdj>slow</labelShortAdj>

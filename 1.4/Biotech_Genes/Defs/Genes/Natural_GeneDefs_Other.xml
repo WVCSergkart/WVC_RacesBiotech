@@ -136,7 +136,7 @@
 
   <!-- Hunter -->
 
-  <GeneDef Name="WVC_NaturalHunterBase" Abstract="True">
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneNaturalHunterBase" Abstract="True">
 	<displayCategory>Violence</displayCategory>
 	<biostatCpx>1</biostatCpx>
 	<selectionWeight>0.015</selectionWeight>
@@ -145,7 +145,7 @@
 	</exclusionTags>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_NaturalHunterBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneNaturalHunterBase">
 	<defName>WVC_BadHunter</defName>
 	<label>bad hunter</label> 
 	<labelShortAdj>hunter</labelShortAdj>
@@ -166,7 +166,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_NaturalHunterBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneNaturalHunterBase">
 	<defName>WVC_SilentHunter</defName>
 	<label>silent hunter</label> 
 	<labelShortAdj>hunter</labelShortAdj>
