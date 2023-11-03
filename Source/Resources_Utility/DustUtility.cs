@@ -5,48 +5,48 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public static class DustUtility
-    {
+	public static class DustUtility
+	{
 
-        public static void OffsetDust(Pawn pawn, float offset)
-        {
-            if (!ModsConfig.BiotechActive)
-            {
-                return;
-            }
-            Gene_Dust gene_Hemogen = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
-            if (gene_Hemogen != null)
-            {
-                gene_Hemogen.Value += offset;
-            }
-        }
+		public static void OffsetDust(Pawn pawn, float offset)
+		{
+			if (!ModsConfig.BiotechActive)
+			{
+				return;
+			}
+			Gene_Dust gene_Hemogen = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
+			if (gene_Hemogen != null)
+			{
+				gene_Hemogen.Value += offset;
+			}
+		}
 
-        public static bool PawnInPronePosition(Pawn pawn)
-        {
-            if (pawn.Downed || pawn.Deathresting || RestUtility.InBed(pawn) || !RestUtility.Awake(pawn))
-            {
-                return true;
-            }
-            return false;
-        }
+		public static bool PawnInPronePosition(Pawn pawn)
+		{
+			if (pawn.Downed || pawn.Deathresting || RestUtility.InBed(pawn) || !RestUtility.Awake(pawn))
+			{
+				return true;
+			}
+			return false;
+		}
 
-        public static void ReimplantGenes(Pawn caster, Pawn recipient)
-        {
-            if (!ModLister.CheckBiotech("xenogerm reimplantation"))
-            {
-                return;
-            }
-            ReimplanterUtility.ReimplantGenesBase(caster, recipient);
-            if (PawnUtility.ShouldSendNotificationAbout(recipient))
-            {
-                int max = HediffDefOf.XenogerminationComa.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.max;
-                Find.LetterStack.ReceiveLetter("LetterLabelGenesImplanted".Translate(), "WVC_LetterTextGenesImplanted".Translate(recipient.Named("TARGET"), max.ToStringTicksToPeriod().Named("COMADURATION")), LetterDefOf.NeutralEvent, new LookTargets(recipient));
-            }
-        }
+		public static void ReimplantGenes(Pawn caster, Pawn recipient)
+		{
+			if (!ModLister.CheckBiotech("xenogerm reimplantation"))
+			{
+				return;
+			}
+			ReimplanterUtility.ReimplantGenesBase(caster, recipient);
+			if (PawnUtility.ShouldSendNotificationAbout(recipient))
+			{
+				int max = HediffDefOf.XenogerminationComa.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.max;
+				Find.LetterStack.ReceiveLetter("LetterLabelGenesImplanted".Translate(), "WVC_LetterTextGenesImplanted".Translate(recipient.Named("TARGET"), max.ToStringTicksToPeriod().Named("COMADURATION")), LetterDefOf.NeutralEvent, new LookTargets(recipient));
+			}
+		}
 
 		// Mecha summon
-        public static bool MechanoidIsPlayerMechanoid(PawnKindDef mech)
-        {
+		public static bool MechanoidIsPlayerMechanoid(PawnKindDef mech)
+		{
 			if (mech.race.race.IsMechanoid 
 			&& mech.defName.Contains("Mech_") 
 			&& MechDefNameShouldNotContain(mech.defName)
@@ -60,11 +60,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				return true;
 			}
-            return false;
-        }
+			return false;
+		}
 
-        public static bool MechDefNameShouldNotContain(string defName)
-        {
+		public static bool MechDefNameShouldNotContain(string defName)
+		{
 			List<string> list = new();
 			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
 			{
@@ -74,11 +74,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-            return true;
-        }
+			return true;
+		}
 
-        public static bool EverControllable(ThingDef def)
-        {
+		public static bool EverControllable(ThingDef def)
+		{
 			List<CompProperties> comps = def.comps;
 			for (int i = 0; i < comps.Count; i++)
 			{
@@ -87,11 +87,11 @@ namespace WVC_XenotypesAndGenes
 					return true;
 				}
 			}
-            return false;
-        }
+			return false;
+		}
 
-        public static bool EverRepairable(ThingDef def)
-        {
+		public static bool EverRepairable(ThingDef def)
+		{
 			List<CompProperties> comps = def.comps;
 			for (int i = 0; i < comps.Count; i++)
 			{
@@ -100,8 +100,8 @@ namespace WVC_XenotypesAndGenes
 					return true;
 				}
 			}
-            return false;
-        }
+			return false;
+		}
 
-    }
+	}
 }

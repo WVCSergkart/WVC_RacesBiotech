@@ -9,7 +9,7 @@ namespace WVC_XenotypesAndGenes
     {
         private int ticksToHealBodyPart;
 
-        private static readonly IntRange HealingIntervalTicksRange = new(60000, 120000);
+        private static readonly IntRange HealingIntervalTicksRange = new(300000, 900000);
 
         public override void PostAdd()
         {

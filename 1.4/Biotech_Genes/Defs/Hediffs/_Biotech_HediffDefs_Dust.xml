@@ -122,20 +122,35 @@
 
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
 	<defName>WVC_DustMechanoid_OnlyOneOverseer</defName>
-	<label>connected</label>
+	<label>bonded</label>
 	<description>This mechanoid was incorrectly and rudely connected to the mechanitor's network, it does not require bandwidth, but changing the network can cause critical errors.
 
 &lt;color=#f5ffa2&gt;Gameplay effect:&lt;/color&gt; Mechanoid does not require bandwidth, but if you change the overseer, then after a while mechanoid will die.</description>
 	<defaultLabelColor>(255, 248, 133)</defaultLabelColor>
 	<hediffClass>HediffWithComps</hediffClass>
+	<priceImpact>true</priceImpact>
+	<priceOffset>-350</priceOffset>
 	<stages>
 	  <li>
 		<statFactors>
 		  <BandwidthCost>0</BandwidthCost>
+		  <ArmorRating_Blunt>0.75</ArmorRating_Blunt>
+		  <ArmorRating_Sharp>0.75</ArmorRating_Sharp>
+		  <!-- <ArmorRating_Heat>0.8</ArmorRating_Heat> -->
 		</statFactors>
 		<statOffsets>
 		  <BandwidthCost>-999</BandwidthCost>
+		  <MechEnergyUsageFactor>0.50</MechEnergyUsageFactor>
+		  <MechEnergyLossPerHP>0.44</MechEnergyLossPerHP>
+		  <WorkSpeedGlobal>0.20</WorkSpeedGlobal>
+		  <ControlTakingTime>108</ControlTakingTime>
 		</statOffsets>
+		<capMods>
+		  <li>
+			<capacity>Consciousness</capacity>
+			<setMax>0.90</setMax>
+		  </li>
+		</capMods>
 	  </li>
 	</stages>
 	<comps>

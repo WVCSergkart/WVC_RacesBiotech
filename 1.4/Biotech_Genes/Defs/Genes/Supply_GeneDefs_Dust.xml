@@ -176,6 +176,7 @@
 		<li>Carriers of this gene get &lt;color=#8a8ae6&gt;mechlink&lt;/color&gt; permanently.</li>
 		<li>Allows to enable or disable the automatic summoning of mechanoids every (*DateTime)8-16 days(/DateTime).</li>
 		<li>A carrier of this gene cannot craft or resurrect mechanoids.</li>
+		<li>Each summoned mechanoid costs 3 dust.</li>
 	</customEffectDescriptions>
 	<statFactors>
 	  <MechBandwidth>0</MechBandwidth>

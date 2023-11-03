@@ -19,16 +19,16 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (Active)
 			{
-				Gene_Scarifier gene_Scarifier = pawn.genes?.GetFirstGeneOfType<Gene_Scarifier>();
 				List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
 				for (int num = hediffs.Count - 1; num >= 0; num--)
 				{
 					if (hediffs[num].TendableNow() && !hediffs[num].IsTended())
 					{
 						hediffs[num].Tended(TendingQualityRange.RandomInRange, TendingQualityRange.TrueMax, 1);
-						if (gene_Scarifier == null || (gene_Scarifier != null && gene_Scarifier.CanScarifyCheck()))
+						if (Rand.Chance(0.2f))
 						{
-							if (Rand.Chance(0.2f))
+							Gene_Scarifier gene_Scarifier = pawn.genes?.GetFirstGeneOfType<Gene_Scarifier>();
+							if (gene_Scarifier == null || (gene_Scarifier != null && gene_Scarifier.CanScarifyCheck()))
 							{
 								Gene_Scarifier.Scarify(pawn);
 							}
