@@ -45,10 +45,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if ((gene_Dust.Value - def.resourceLossPerDay) >= 0f)
-			{
-				SummonRandomMech();
-			}
+			// if ((gene_Dust.Value - def.resourceLossPerDay) >= 0f)
+			// {
+			// }
+			SummonRandomMech();
 		}
 
 		private void ResetInterval()
@@ -66,9 +66,12 @@ namespace WVC_XenotypesAndGenes
 				{
 					gene_Dust.Value -= def.resourceLossPerDay;
 					MechanoidizationUtility.MechSummonQuest(pawn, SummonQuest);
+					if (i == 0)
+					{
+						Messages.Message("WVC_RB_Gene_Summoner".Translate(pawn.LabelIndefinite().CapitalizeFirst()), pawn, MessageTypeDefOf.PositiveEvent);
+					}
 				}
 			}
-			Messages.Message("WVC_RB_Gene_Summoner".Translate(pawn.LabelIndefinite().CapitalizeFirst()), pawn, MessageTypeDefOf.PositiveEvent);
 		}
 
 		public override void ExposeData()

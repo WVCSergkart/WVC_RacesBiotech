@@ -72,7 +72,7 @@
 	<selectionWeight>0.009</selectionWeight>
 	<minAgeActive>3</minAgeActive>
 	<resourceLabel>dust</resourceLabel>
-	<resourceLossPerDay>0.02</resourceLossPerDay>
+	<resourceLossPerDay>0.01</resourceLossPerDay>
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>-3</biostatMet>
   </GeneDef>
@@ -96,7 +96,7 @@
 	  <InjuryHealingFactor>8</InjuryHealingFactor>
 	</statFactors>
 	<displayOrderInCategory>2</displayOrderInCategory>
-	<resourceLossPerDay>0.06</resourceLossPerDay>
+	<resourceLossPerDay>0.02</resourceLossPerDay>
 	<exclusionTags>
 	  <li>WoundHealingRate</li>
 	</exclusionTags>
@@ -119,7 +119,7 @@
 	<biostatArc>0</biostatArc>
 	<biostatMet>-1</biostatMet>
 	<displayOrderInCategory>5</displayOrderInCategory>
-	<resourceLossPerDay>0.03</resourceLossPerDay>
+	<resourceLossPerDay>0.01</resourceLossPerDay>
 	<customEffectDescriptions>
 		<li>Carriers of the gene always spawn with age within 18.</li>
 		<li>The age of the gene carrier decreases by 1 year every (*DateTime)5-15 days(/DateTime), this continues until the carrier reaches the minimum adult age.</li>
@@ -149,7 +149,7 @@
 	<!-- <iconColor>(255, 248, 133)</iconColor> -->
 	<!-- <iconColor>(173, 142, 112)</iconColor> -->
 	<displayOrderInCategory>10</displayOrderInCategory>
-	<resourceLossPerDay>0.05</resourceLossPerDay>
+	<resourceLossPerDay>0.02</resourceLossPerDay>
 	<marketValueFactor>1.5</marketValueFactor>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>6</biostatMet>

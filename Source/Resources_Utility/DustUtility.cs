@@ -23,7 +23,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool PawnInPronePosition(Pawn pawn)
 		{
-			if (pawn.Downed || pawn.Deathresting || RestUtility.InBed(pawn) || !RestUtility.Awake(pawn))
+			if (pawn.Downed || pawn.Deathresting || RestUtility.InBed(pawn))
 			{
 				return true;
 			}

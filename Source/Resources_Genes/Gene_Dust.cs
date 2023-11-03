@@ -6,158 +6,166 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_Dust : Gene_Resource, IGeneResourceDrain
-    {
-        // public bool woundClottingAllowed = true;
-        // public bool ageReversionAllowed = true;
-        // public bool totalHealingAllowed = true;
+	public class Gene_Dust : Gene_Resource, IGeneResourceDrain
+	{
+		// public bool woundClottingAllowed = true;
+		// public bool ageReversionAllowed = true;
+		// public bool totalHealingAllowed = true;
 
-        public HediffDef HediffDefName => def.GetModExtension<GeneExtension_Giver>().hediffDefName;
+		public HediffDef HediffDefName => def.GetModExtension<GeneExtension_Giver>().hediffDefName;
 
-        public Gene_Resource Resource => this;
+		public Gene_Resource Resource => this;
 
-        public Pawn Pawn => pawn;
+		public Pawn Pawn => pawn;
 
-        public bool CanOffset
-        {
-            get
-            {
-                if (Active)
-                {
-                    return true;
-                }
-                return false;
-            }
-        }
+		private Gene_AngelicStability cachedGeneStability;
+		private bool shouldCacheGeneStability = true;
 
-        public string DisplayLabel => Label + " (" + "Gene".Translate() + ")";
+		public bool CanOffset
+		{
+			get
+			{
+				if (Active)
+				{
+					return true;
+				}
+				return false;
+			}
+		}
 
-        public float ResourceLossPerDay => ResourceLoss(pawn, def.resourceLossPerDay);
+		public string DisplayLabel => Label + " (" + "Gene".Translate() + ")";
 
-        public override float InitialResourceMax => 1.0f;
+		public float ResourceLossPerDay => ResourceLoss(pawn, def.resourceLossPerDay);
 
-        // public override float Max => 5.0f;
+		public override float InitialResourceMax => 1.0f;
 
-        public override float MinLevelForAlert => 0.05f;
+		// public override float Max => 5.0f;
 
-        public override float MaxLevelOffset => 0.20f;
+		public override float MinLevelForAlert => 0.05f;
 
-        // protected override Color BarColor => new ColorInt(125, 122, 65).ToColor;
-        // protected override Color BarHighlightColor => new ColorInt(156, 142, 46).ToColor;
+		public override float MaxLevelOffset => 0.20f;
 
-        // protected override Color BarColor => new ColorInt(173, 142, 112).ToColor;
-        // protected override Color BarHighlightColor => new ColorInt(173, 142, 112).ToColor;
+		// protected override Color BarColor => new ColorInt(125, 122, 65).ToColor;
+		// protected override Color BarHighlightColor => new ColorInt(156, 142, 46).ToColor;
 
-        protected override Color BarColor => new ColorInt(150, 125, 85).ToColor;
-        protected override Color BarHighlightColor => new ColorInt(150, 125, 85).ToColor;
+		// protected override Color BarColor => new ColorInt(173, 142, 112).ToColor;
+		// protected override Color BarHighlightColor => new ColorInt(173, 142, 112).ToColor;
 
-        // public Color ColorFromValue()
-        // {
-        // if (Value > 50f)
-        // {
-        // return new ColorInt(150, 150, 85).ToColor;
-        // }
-        // return new ColorInt(150, 125, 85).ToColor;
-        // }
+		protected override Color BarColor => new ColorInt(150, 125, 85).ToColor;
+		protected override Color BarHighlightColor => new ColorInt(150, 125, 85).ToColor;
 
-        // Base
-        public override void PostAdd()
-        {
-            base.PostAdd();
-            Reset();
-            ResetResourceValue();
-            Gene_AddOrRemoveHediff.AddOrRemoveHediff(HediffDefName, pawn, this);
-        }
+		// public Color ColorFromValue()
+		// {
+		// if (Value > 50f)
+		// {
+		// return new ColorInt(150, 150, 85).ToColor;
+		// }
+		// return new ColorInt(150, 125, 85).ToColor;
+		// }
 
-        public override void Tick()
-        {
-            base.Tick();
-            UndeadUtility.TickResourceDrain(this);
-            if (!pawn.IsHashIntervalTick(60000))
-            {
-                return;
-            }
-            Gene_AddOrRemoveHediff.AddOrRemoveHediff(HediffDefName, pawn, this);
-        }
+		// Base
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			Reset();
+			ResetResourceValue();
+			Gene_AddOrRemoveHediff.AddOrRemoveHediff(HediffDefName, pawn, this);
+		}
 
-        public override void PostRemove()
-        {
-            base.PostRemove();
-            Gene_AddOrRemoveHediff.RemoveHediff(HediffDefName, pawn);
-        }
-        // Base
+		public override void Tick()
+		{
+			base.Tick();
+			UndeadUtility.TickResourceDrain(this);
+			if (!pawn.IsHashIntervalTick(60000))
+			{
+				return;
+			}
+			Gene_AddOrRemoveHediff.AddOrRemoveHediff(HediffDefName, pawn, this);
+		}
 
-        private void ResetResourceValue()
-        {
-            FloatRange floatRange = new(0.06f, 0.97f);
-            Value = floatRange.RandomInRange;
-        }
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			Gene_AddOrRemoveHediff.RemoveHediff(HediffDefName, pawn);
+		}
+		// Base
 
-        public override void Notify_IngestedThing(Thing thing, int numTaken)
-        {
-            // if (thing.def.IsMeat)
-            // {
-            // }
-            IngestibleProperties ingestible = thing.def.ingestible;
-            float nutrition = thing.GetStatValue(StatDefOf.Nutrition);
-            if (ingestible != null && nutrition > 0f)
-            {
-                DustUtility.OffsetDust(pawn, 0.0625f * thing.GetStatValue(StatDefOf.Nutrition) * (float)numTaken);
-            }
-        }
+		private void ResetResourceValue()
+		{
+			FloatRange floatRange = new(0.06f, 0.97f);
+			Value = floatRange.RandomInRange;
+		}
 
-        // public override void SetTargetValuePct(float val)
-        // {
-        // targetValue = Mathf.Clamp(val * Max, 0f, Max - MaxLevelOffset);
-        // }
+		public override void Notify_IngestedThing(Thing thing, int numTaken)
+		{
+			// if (thing.def.IsMeat)
+			// {
+			// }
+			IngestibleProperties ingestible = thing.def.ingestible;
+			float nutrition = thing.GetStatValue(StatDefOf.Nutrition);
+			if (ingestible != null && nutrition > 0f)
+			{
+				DustUtility.OffsetDust(pawn, 0.0825f * nutrition * (float)numTaken);
+			}
+		}
 
-        // public bool ShouldChargeNow()
-        // {
-        // return Value < targetValue;
-        // }
+		// public override void SetTargetValuePct(float val)
+		// {
+		// targetValue = Mathf.Clamp(val * Max, 0f, Max - MaxLevelOffset);
+		// }
 
-        // public static bool PawnUnconscious(Pawn pawn)
-        // {
-        // if (DustUtility.PawnInPronePosition(pawn))
-        // {
-        // return true;
-        // }
-        // return false;
-        // }
+		// public bool ShouldChargeNow()
+		// {
+		// return Value < targetValue;
+		// }
 
-        public static float ResourceLoss(Pawn pawn, float def)
-        {
-            Gene_AngelicStability gene_AngelicStability = pawn.genes?.GetFirstGeneOfType<Gene_AngelicStability>();
-            if (gene_AngelicStability != null)
-            {
-                return 0f;
-            }
-            if (DustUtility.PawnInPronePosition(pawn))
-            {
-                return -1f * def;
-            }
-            return def;
-        }
+		// public static bool PawnUnconscious(Pawn pawn)
+		// {
+		// if (DustUtility.PawnInPronePosition(pawn))
+		// {
+		// return true;
+		// }
+		// return false;
+		// }
 
-        public override IEnumerable<Gizmo> GetGizmos()
-        {
-            foreach (Gizmo gizmo in base.GetGizmos())
-            {
-                yield return gizmo;
-            }
-            foreach (Gizmo resourceDrainGizmo in UndeadUtility.GetResourceDrainGizmos(this))
-            {
-                yield return resourceDrainGizmo;
-            }
-        }
+		public float ResourceLoss(Pawn pawn, float def)
+		{
+			if (shouldCacheGeneStability && cachedGeneStability == null)
+			{
+				Gene_AngelicStability gene_AngelicStability = pawn.genes?.GetFirstGeneOfType<Gene_AngelicStability>();
+				cachedGeneStability = gene_AngelicStability;
+				shouldCacheGeneStability = false;
+			}
+			if (cachedGeneStability != null)
+			{
+				return 0f;
+			}
+			if (DustUtility.PawnInPronePosition(pawn))
+			{
+				return -1f * def;
+			}
+			return def;
+		}
 
-        // public override void ExposeData()
-        // {
-        // base.ExposeData();
-        // Scribe_Values.Look(ref woundClottingAllowed, "woundClottingAllowed", defaultValue: true);
-        // Scribe_Values.Look(ref ageReversionAllowed, "ageReversionAllowed", defaultValue: true);
-        // Scribe_Values.Look(ref totalHealingAllowed, "totalHealingAllowed", defaultValue: true);
-        // }
-    }
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			foreach (Gizmo gizmo in base.GetGizmos())
+			{
+				yield return gizmo;
+			}
+			foreach (Gizmo resourceDrainGizmo in UndeadUtility.GetResourceDrainGizmos(this))
+			{
+				yield return resourceDrainGizmo;
+			}
+		}
+
+		// public override void ExposeData()
+		// {
+		// base.ExposeData();
+		// Scribe_Values.Look(ref woundClottingAllowed, "woundClottingAllowed", defaultValue: true);
+		// Scribe_Values.Look(ref ageReversionAllowed, "ageReversionAllowed", defaultValue: true);
+		// Scribe_Values.Look(ref totalHealingAllowed, "totalHealingAllowed", defaultValue: true);
+		// }
+	}
 
 }

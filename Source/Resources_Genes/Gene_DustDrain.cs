@@ -4,58 +4,58 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_DustDrain : Gene, IGeneResourceDrain
-    {
-        [Unsaved(false)]
-        private Gene_Dust cachedHemogenGene;
+	public class Gene_DustDrain : Gene, IGeneResourceDrain
+	{
+		[Unsaved(false)]
+		private Gene_Dust cachedDustGene;
 
-        // private const float MinAgeForDrain = 3f;
+		public Pawn Pawn => pawn;
 
-        public Gene_Resource Resource
-        {
-            get
-            {
-                if (cachedHemogenGene == null || !cachedHemogenGene.Active)
-                {
-                    cachedHemogenGene = pawn.genes.GetFirstGeneOfType<Gene_Dust>();
-                }
-                return cachedHemogenGene;
-            }
-        }
+		public string DisplayLabel => Label + " (" + "Gene".Translate() + ")";
 
-        public bool CanOffset
-        {
-            get
-            {
-                if (Active)
-                {
-                    return true;
-                }
-                return false;
-            }
-        }
+		// private const float MinAgeForDrain = 3f;
 
-        // public float ResourceLossPerDay => ResourceLoss();
-        public float ResourceLossPerDay => Gene_Dust.ResourceLoss(pawn, def.resourceLossPerDay);
+		public Gene_Resource Resource
+		{
+			get
+			{
+				if (cachedDustGene == null || !cachedDustGene.Active)
+				{
+					cachedDustGene = pawn.genes.GetFirstGeneOfType<Gene_Dust>();
+				}
+				return cachedDustGene;
+			}
+		}
 
-        // public float ResourceLoss()
-        // {
-        // if (cachedHemogenGene.PawnUnconscious())
-        // {
-        // return -1 * def.resourceLossPerDay;
-        // }
-        // return def.resourceLossPerDay;
-        // }
+		public bool CanOffset
+		{
+			get
+			{
+				if (Active)
+				{
+					return true;
+				}
+				return false;
+			}
+		}
 
-        public Pawn Pawn => pawn;
+		// public float ResourceLossPerDay => ResourceLoss();
+		public float ResourceLossPerDay => ResourceLoss();
 
-        public string DisplayLabel => Label + " (" + "Gene".Translate() + ")";
+		public float ResourceLoss()
+		{
+			if (cachedDustGene.ResourceLossPerDay > 0f)
+			{
+				return def.resourceLossPerDay;
+			}
+			return 0f;
+		}
 
-        public override void Tick()
-        {
-            base.Tick();
-            UndeadUtility.TickResourceDrain(this);
-        }
-    }
+		public override void Tick()
+		{
+			base.Tick();
+			UndeadUtility.TickResourceDrain(this);
+		}
+	}
 
 }
