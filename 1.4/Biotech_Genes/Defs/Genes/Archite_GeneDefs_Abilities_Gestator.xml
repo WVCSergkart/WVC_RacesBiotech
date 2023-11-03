@@ -201,8 +201,8 @@
 	  <warmupEffecter>Berserk</warmupEffecter>
 	</verbProperties>
 	<comps>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityDustCost">
-		<dustCost>0.92</dustCost>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityPawnNutritionCost">
+		<nutritionCost>0.92</nutritionCost>
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive">
 		<gender>Female</gender>

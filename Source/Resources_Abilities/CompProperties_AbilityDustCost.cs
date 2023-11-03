@@ -6,25 +6,25 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class CompProperties_AbilityDustCost : CompProperties_AbilityEffect
+	public class CompProperties_AbilityPawnNutritionCost : CompProperties_AbilityEffect
 	{
-		public float dustCost = 0.2f;
+		public float nutritionCost = 0.2f;
 
-		public CompProperties_AbilityDustCost()
+		public CompProperties_AbilityPawnNutritionCost()
 		{
-			compClass = typeof(CompAbilityEffect_DustCost);
+			compClass = typeof(CompAbilityEffect_PawnNutritionCost);
 		}
 
 		public override IEnumerable<string> ExtraStatSummary()
 		{
-			// yield return (string)("WVC_XaG_AbilityDustCost".Translate() + ": ") + Mathf.RoundToInt(dustCost * 100f);
-			yield return (string)("WVC_XaG_AbilityDustCost".Translate() + ": ") + dustCost;
+			// yield return (string)("WVC_XaG_AbilityPawnNutritionCost".Translate() + ": ") + Mathf.RoundToInt(nutritionCost * 100f);
+			yield return (string)("WVC_XaG_AbilityPawnNutritionCost".Translate() + ": ") + nutritionCost;
 		}
 	}
 
-	public class CompAbilityEffect_DustCost : CompAbilityEffect
+	public class CompAbilityEffect_PawnNutritionCost : CompAbilityEffect
 	{
-		public new CompProperties_AbilityDustCost Props => (CompProperties_AbilityDustCost)props;
+		public new CompProperties_AbilityPawnNutritionCost Props => (CompProperties_AbilityPawnNutritionCost)props;
 
 		private bool HasEnoughDust
 		{
@@ -32,7 +32,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				// Gene_Dust gene_Dust = parent.pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
 				Need_Food need_Food = parent.pawn.needs?.food;
-				if (need_Food == null || need_Food.CurLevel < Props.dustCost)
+				if (need_Food == null || need_Food.CurLevel < Props.nutritionCost)
 				{
 					return false;
 				}
@@ -47,7 +47,7 @@ namespace WVC_XenotypesAndGenes
 			// Gene_Dust gene_Dust = parent.pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
 			if (need_Food != null)
 			{
-				DustUtility.OffsetNeedFood(parent.pawn, 0f - Props.dustCost);
+				DustUtility.OffsetNeedFood(parent.pawn, 0f - Props.nutritionCost);
 			}
 		}
 
@@ -60,14 +60,14 @@ namespace WVC_XenotypesAndGenes
 				reason = "WVC_XaG_AbilityDisabledNoDustGene".Translate(parent.pawn);
 				return true;
 			}
-			if (need_Food.CurLevel < Props.dustCost)
+			if (need_Food.CurLevel < Props.nutritionCost)
 			{
 				reason = "WVC_XaG_AbilityDisabledNoDust".Translate(parent.pawn);
 				return true;
 			}
 			float num = TotalDustCostOfQueuedAbilities();
-			float num2 = Props.dustCost + num;
-			if (Props.dustCost > float.Epsilon && num2 > need_Food.CurLevel)
+			float num2 = Props.nutritionCost + num;
+			if (Props.nutritionCost > float.Epsilon && num2 > need_Food.CurLevel)
 			{
 				reason = "WVC_XaG_AbilityDisabledNoDust".Translate(parent.pawn);
 				return true;
@@ -83,29 +83,29 @@ namespace WVC_XenotypesAndGenes
 
 		private float TotalDustCostOfQueuedAbilities()
 		{
-			float num = (parent.pawn.jobs?.curJob?.verbToUse is not Verb_CastAbility verb_CastAbility) ? 0f : DustCost(verb_CastAbility.ability.comps);
+			float num = (parent.pawn.jobs?.curJob?.verbToUse is not Verb_CastAbility verb_CastAbility) ? 0f : NutritionCost(verb_CastAbility.ability.comps);
 			if (parent.pawn.jobs != null)
 			{
 				for (int i = 0; i < parent.pawn.jobs.jobQueue.Count; i++)
 				{
 					if (parent.pawn.jobs.jobQueue[i].job.verbToUse is Verb_CastAbility verb_CastAbility2)
 					{
-						num += DustCost(verb_CastAbility2.ability.comps);
+						num += NutritionCost(verb_CastAbility2.ability.comps);
 					}
 				}
 			}
 			return num;
 		}
 
-		public float DustCost(List<AbilityComp> comps)
+		public float NutritionCost(List<AbilityComp> comps)
 		{
 			if (comps != null)
 			{
 				foreach (AbilityComp comp in comps)
 				{
-					if (comp is CompAbilityEffect_DustCost compAbilityEffect_DustCost)
+					if (comp is CompAbilityEffect_PawnNutritionCost compAbilityEffect_PawnNutritionCost)
 					{
-						return compAbilityEffect_DustCost.Props.dustCost;
+						return compAbilityEffect_PawnNutritionCost.Props.nutritionCost;
 					}
 				}
 			}
