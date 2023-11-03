@@ -8,18 +8,31 @@ namespace WVC_XenotypesAndGenes
 	public static class DustUtility
 	{
 
-		public static void OffsetDust(Pawn pawn, float offset)
+		public static void OffsetNeedFood(Pawn pawn, float offset)
 		{
 			if (!ModsConfig.BiotechActive)
 			{
 				return;
 			}
-			Gene_Dust gene_Hemogen = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
-			if (gene_Hemogen != null)
+			Need_Food need_Food = pawn.needs?.food;
+			if (need_Food != null)
 			{
-				gene_Hemogen.Value += offset;
+				need_Food.CurLevel += offset;
 			}
 		}
+
+		// public static void OffsetDust(Pawn pawn, float offset)
+		// {
+			// if (!ModsConfig.BiotechActive)
+			// {
+				// return;
+			// }
+			// Gene_Dust gene_Hemogen = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
+			// if (gene_Hemogen != null)
+			// {
+				// gene_Hemogen.Value += offset;
+			// }
+		// }
 
 		public static bool PawnInPronePosition(Pawn pawn)
 		{

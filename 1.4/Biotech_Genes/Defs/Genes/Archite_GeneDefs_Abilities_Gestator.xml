@@ -202,7 +202,7 @@
 	</verbProperties>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityDustCost">
-		<dustCost>0.43</dustCost>
+		<dustCost>0.92</dustCost>
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive">
 		<gender>Female</gender>

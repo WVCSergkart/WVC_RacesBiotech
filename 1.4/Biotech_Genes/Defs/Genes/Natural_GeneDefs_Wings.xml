@@ -31,6 +31,9 @@
 	<label>wing jump</label>
 	<iconPath>WVC/UI/Genes/Gene_FeatheredWings_v0</iconPath>
 	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityDustCost">
+		<dustCost>0.1</dustCost>
+	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive">
 		<anyOfGenes>
 		  <li>WVC_Wings_FeatheredWings</li>
@@ -44,6 +47,9 @@
 	<label>wing jump</label>
 	<iconPath>WVC/UI/Genes/Gene_MembranousWings_v0</iconPath>
 	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityDustCost">
+		<dustCost>0.1</dustCost>
+	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive">
 		<anyOfGenes>
 		  <li>WVC_Wings_MembranousWings</li>

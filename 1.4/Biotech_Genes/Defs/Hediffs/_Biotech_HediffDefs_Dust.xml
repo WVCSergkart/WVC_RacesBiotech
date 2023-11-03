@@ -224,7 +224,8 @@
 
   <!--=====================================================================-->
 
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base" Name="WVC_XenotypesAndGenes_Hediffs_DustSupply" Abstract="True">
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_Dustogenic_HungerFactor</defName>
 	<label>dust in blood</label>
 	<description>The level of dust in the blood.</description>
 	<defaultLabelColor>(255, 248, 133)</defaultLabelColor>
@@ -233,108 +234,10 @@
 	<minSeverity>0.01</minSeverity>
 	<maxSeverity>1.0</maxSeverity>
 	<comps>
-		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_SeverityFromDust"/>
+		<!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_SeverityFromDust"/> -->
 		<!-- <li Class="HediffCompProperties_DisappearsOnDeath"/> -->
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_AlwaysRemove"/>
 	</comps>
-  </HediffDef>
-
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_DustSupply">
-	<defName>WVC_Dustogenic_HungerFactor</defName>
-	<label>dust in blood</label>
-	<stages>
-	  <li>
-		<hungerRateFactor>4.0</hungerRateFactor>
-		<minSeverity>0.0</minSeverity>
-		<mentalStateGivers>
-		  <li>
-			<mentalState>Binging_Food</mentalState>
-			<mtbDays>0.2</mtbDays>
-		  </li>
-		</mentalStateGivers>
-	  </li>
-	  <li>
-		<hungerRateFactor>3.4</hungerRateFactor>
-		<minSeverity>0.10</minSeverity>
-		<mentalStateGivers>
-		  <li>
-			<mentalState>Binging_Food</mentalState>
-			<mtbDays>0.8</mtbDays>
-		  </li>
-		</mentalStateGivers>
-	  </li>
-	  <li>
-		<hungerRateFactor>2.8</hungerRateFactor>
-		<minSeverity>0.20</minSeverity>
-		<mentalStateGivers>
-		  <li>
-			<mentalState>Binging_Food</mentalState>
-			<mtbDays>1.4</mtbDays>
-		  </li>
-		</mentalStateGivers>
-	  </li>
-	  <li>
-		<hungerRateFactor>2.2</hungerRateFactor>
-		<minSeverity>0.30</minSeverity>
-		<mentalStateGivers>
-		  <li>
-			<mentalState>Binging_Food</mentalState>
-			<mtbDays>2.5</mtbDays>
-		  </li>
-		</mentalStateGivers>
-	  </li>
-	  <li>
-		<hungerRateFactor>1.8</hungerRateFactor>
-		<minSeverity>0.40</minSeverity>
-		<mentalStateGivers>
-		  <li>
-			<mentalState>Binging_Food</mentalState>
-			<mtbDays>6.5</mtbDays>
-		  </li>
-		</mentalStateGivers>
-	  </li>
-	  <li>
-		<hungerRateFactor>1.5</hungerRateFactor>
-		<minSeverity>0.50</minSeverity>
-		<mentalStateGivers>
-		  <li>
-			<mentalState>Binging_Food</mentalState>
-			<mtbDays>8.0</mtbDays>
-		  </li>
-		</mentalStateGivers>
-	  </li>
-	  <li>
-		<hungerRateFactor>1.2</hungerRateFactor>
-		<minSeverity>0.60</minSeverity>
-		<mentalStateGivers>
-		  <li>
-			<mentalState>Binging_Food</mentalState>
-			<mtbDays>12.0</mtbDays>
-		  </li>
-		</mentalStateGivers>
-	  </li>
-	  <li>
-		<hungerRateFactor>1.0</hungerRateFactor>
-		<minSeverity>0.70</minSeverity>
-		<mentalStateGivers>
-		  <li>
-			<mentalState>Binging_Food</mentalState>
-			<mtbDays>16.0</mtbDays>
-		  </li>
-		</mentalStateGivers>
-	  </li>
-	  <li>
-		<hungerRateFactor>0.8</hungerRateFactor>
-		<minSeverity>0.80</minSeverity>
-	  </li>
-	  <li>
-		<hungerRateFactor>0.5</hungerRateFactor>
-		<minSeverity>0.90</minSeverity>
-	  </li>
-	  <li>
-		<hungerRateFactor>0.2</hungerRateFactor>
-		<minSeverity>1.0</minSeverity>
-	  </li>
-	</stages>
   </HediffDef>
 
 </Defs>

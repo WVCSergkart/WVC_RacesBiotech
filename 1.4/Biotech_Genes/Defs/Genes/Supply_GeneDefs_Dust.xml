@@ -18,49 +18,56 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_Base">
 	<defName>WVC_Dustogenic</defName>
 	<label>dustogenic</label>
-	<description>Carriers of this gene have a reserve of biological strength powered by a resource called dust. The resource can be gained and spent in various ways, all of which are unlocked by other genes.</description>
+	<description>Carriers of this gene have special blood cells called dust. These cells increase the amount of nutrients available from food sources.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Dust</geneClass>
-	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Dust</resourceGizmoType>
-	<resourceLabel>dust</resourceLabel>
+	<!-- <resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Dust</resourceGizmoType> -->
+	<!-- <resourceLabel>dust</resourceLabel> -->
 	<foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
-	<resourceGizmoThresholds>
-	  <li>0.10</li>
-	  <li>0.20</li>
-	  <li>0.30</li>
-	  <li>0.40</li>
-	  <li>0.50</li>
-	  <li>0.60</li>
-	  <li>0.70</li>
-	  <li>0.80</li>
-	  <li>0.90</li>
-	</resourceGizmoThresholds>
-	<showGizmoOnWorldView>true</showGizmoOnWorldView>
-	<showGizmoWhenDrafted>true</showGizmoWhenDrafted>
-	<resourceDescription>The reserve of biological enhancement in the carrier's blood. Dust supply is spent on different abilities or genetic traits.\n\nIt can be replenished with any food. Also, the dust level is replenished automatically while the carrier is sleeping or unconscious.\n\nIf the dust level drops below 40, then the carrier will experience severe hunger and from time to time catch a "food binge" nervous breakdown.</resourceDescription>
+	<!-- <resourceLabel>nutrition from food</resourceLabel> -->
+	<!-- <resourceGizmoThresholds> -->
+	  <!-- <li>0.10</li> -->
+	  <!-- <li>0.20</li> -->
+	  <!-- <li>0.30</li> -->
+	  <!-- <li>0.40</li> -->
+	  <!-- <li>0.50</li> -->
+	  <!-- <li>0.60</li> -->
+	  <!-- <li>0.70</li> -->
+	  <!-- <li>0.80</li> -->
+	  <!-- <li>0.90</li> -->
+	<!-- </resourceGizmoThresholds> -->
+	<!-- <showGizmoOnWorldView>true</showGizmoOnWorldView> -->
+	<!-- <showGizmoWhenDrafted>true</showGizmoWhenDrafted> -->
+	<!-- <resourceDescription>The reserve of biological enhancement in the carrier's blood. Dust supply is spent on different abilities or genetic traits.\n\nIt can be replenished with any food. Also, the dust level is replenished automatically while the carrier is sleeping or unconscious.\n\nIf the dust level drops below 40, then the carrier will experience severe hunger and from time to time catch a "food binge" nervous breakdown.</resourceDescription> -->
 	<iconPath>WVC/UI/Genes/Gene_Dust_v0</iconPath>
 	<!-- <iconColor>(255, 248, 133)</iconColor> -->
 	<!-- <iconColor>(173, 142, 112)</iconColor> -->
 	<displayOrderInCategory>0</displayOrderInCategory>
 	<customEffectDescriptions>
-	  <li>Gives dust supply.</li>
-	  <li>Refresh time (*DateTime)~1 day(/DateTime).</li>
+	  <!-- <li>Gives dust supply.</li> -->
+	  <!-- <li>Refresh time (*DateTime)~1 day(/DateTime).</li> -->
+	  <li>Any ingested thing is guaranteed to provide 0.3 nutrition</li>
+	  <li>Increases the nutritional value of consumed food by 20%</li>
+	  <li>Food efficiency is multiplied by the max nutrition of the pawn.</li>
 	  <li>In the presence of the &lt;color=#8a8ae6&gt;"Undead"&lt;/color&gt; gene, it gives the effect of &lt;color=#8a8ae6&gt;reincarnation&lt;/color&gt;.</li>
 	  <li>&lt;color=#8a8ae6&gt;Reincarnation&lt;/color&gt; - In case of death, a pawn will be summoned, which is a descendant of the deceased. The effect will not work if the chronological age of the pawn is less than 40.</li>
 	</customEffectDescriptions>
+	<statOffsets>
+	  <MaxNutrition>1.0</MaxNutrition>
+	</statOffsets>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>dust</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
 	<minAgeActive>3</minAgeActive>
-	<resourceLossPerDay>0.05</resourceLossPerDay>
+	<resourceLossPerDay>-0.2</resourceLossPerDay>
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>2</biostatMet>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<hediffDefName>WVC_Dustogenic_HungerFactor</hediffDefName>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <hediffDefName>WVC_Dustogenic_HungerFactor</hediffDefName> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <!-- ============================= -->
@@ -71,8 +78,8 @@
 	<marketValueFactor>1.2</marketValueFactor>
 	<selectionWeight>0.009</selectionWeight>
 	<minAgeActive>3</minAgeActive>
-	<resourceLabel>dust</resourceLabel>
-	<resourceLossPerDay>0.01</resourceLossPerDay>
+	<!-- <resourceLabel>nutrition from food</resourceLabel> -->
+	<!-- <resourceLossPerDay>0.01</resourceLossPerDay> -->
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>-3</biostatMet>
   </GeneDef>
@@ -91,12 +98,16 @@
 	<biostatMet>-2</biostatMet>
 	<customEffectDescriptions>
 	  <li>Restores a lost limb every (*DateTime)5-15 days(/DateTime).</li>
+	  <!-- <li>Decreases the nutritional value of consumed food by 16%</li> -->
 	</customEffectDescriptions>
 	<statFactors>
 	  <InjuryHealingFactor>8</InjuryHealingFactor>
 	</statFactors>
+	<statOffsets>
+	  <MaxNutrition>0.3</MaxNutrition>
+	</statOffsets>
 	<displayOrderInCategory>2</displayOrderInCategory>
-	<resourceLossPerDay>0.02</resourceLossPerDay>
+	<!-- <resourceLossPerDay>0.16</resourceLossPerDay> -->
 	<exclusionTags>
 	  <li>WoundHealingRate</li>
 	</exclusionTags>
@@ -119,11 +130,15 @@
 	<biostatArc>0</biostatArc>
 	<biostatMet>-1</biostatMet>
 	<displayOrderInCategory>5</displayOrderInCategory>
-	<resourceLossPerDay>0.01</resourceLossPerDay>
+	<resourceLossPerDay>0.12</resourceLossPerDay>
 	<customEffectDescriptions>
 		<li>Carriers of the gene always spawn with age within 18.</li>
 		<li>The age of the gene carrier decreases by 1 year every (*DateTime)5-15 days(/DateTime), this continues until the carrier reaches the minimum adult age.</li>
+		<li>Decreases the nutritional value of consumed food by 12%</li>
 	</customEffectDescriptions>
+	<statOffsets>
+	  <MaxNutrition>0.2</MaxNutrition>
+	</statOffsets>
 	<biologicalAgeTickFactorFromAgeCurve>
 	  <points>
 		<li>(13, 1)</li>
@@ -144,16 +159,23 @@
 	<defName>WVC_Dustogenic_Metabolism</defName>
 	<label>dustogenic metabolism</label>
 	<labelShortAdj>dust-metabolic</labelShortAdj>
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_DustogenicMetabolism</geneClass> -->
 	<description>Carriers of this gene have dust in their cells that facilitate and optimize metabolism. This improves overall genetic and metabolic quality.</description>
 	<iconPath>WVC/UI/Genes/Gene_ArchiteMetabolism_v0</iconPath>
 	<!-- <iconColor>(255, 248, 133)</iconColor> -->
 	<!-- <iconColor>(173, 142, 112)</iconColor> -->
 	<displayOrderInCategory>10</displayOrderInCategory>
-	<resourceLossPerDay>0.02</resourceLossPerDay>
+	<resourceLossPerDay>-0.22</resourceLossPerDay>
 	<marketValueFactor>1.5</marketValueFactor>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>6</biostatMet>
 	<biostatArc>0</biostatArc>
+	<customEffectDescriptions>
+	  <li>Increases the nutritional value of consumed food by 22%</li>
+	</customEffectDescriptions>
+	<statOffsets>
+	  <MaxNutrition>0.3</MaxNutrition>
+	</statOffsets>
 	<exclusionTags>
 	  <li>WVC_XenotypesAndGenes_ArchitesRandomEncode_GeneTagRandomizer_Pattern</li>
 	  <li>WVC_XenotypesAndGenes_GeneNaturalRandom_Metabolism</li>
@@ -166,7 +188,7 @@
 	<description>Carriers of this gene have dust that alters their psychic signature, causing mechanoids to sometimes connect to the gene carrier mechanitor's network.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_DustMechlink</geneClass>
 	<displayOrderInCategory>15</displayOrderInCategory>
-	<resourceLossPerDay>0.03</resourceLossPerDay>
+	<resourceLossPerDay>0.15</resourceLossPerDay>
 	<iconPath>WVC/UI/Genes/Gene_Blessedlink_v0</iconPath>
 	<!-- <iconColor>(255, 248, 133)</iconColor> -->
 	<!-- <iconColor>(173, 142, 112)</iconColor> -->
@@ -176,7 +198,8 @@
 		<li>Carriers of this gene get &lt;color=#8a8ae6&gt;mechlink&lt;/color&gt; permanently.</li>
 		<li>Allows to enable or disable the automatic summoning of mechanoids every (*DateTime)8-16 days(/DateTime).</li>
 		<li>A carrier of this gene cannot craft or resurrect mechanoids.</li>
-		<li>Each summoned mechanoid costs 3 dust.</li>
+		<!-- <li>Each summoned mechanoid costs 3 dust.</li> -->
+		<li>Each mechanoid costs 0.15 nutrition to summon</li>
 	</customEffectDescriptions>
 	<statFactors>
 	  <MechBandwidth>0</MechBandwidth>
@@ -239,10 +262,15 @@
 	<displayOrderInCategory>25</displayOrderInCategory>
 	<customEffectDescriptions>
 	  <li>All psychic sensitivity pawns that don't have this gene get +500 opinion towards those who carry this gene.</li>
+	  <li>Decreases the nutritional value of consumed food by 25%</li>
 	</customEffectDescriptions>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>-1</biostatMet>
 	<biostatArc>1</biostatArc>
+	<resourceLossPerDay>0.25</resourceLossPerDay>
+	<statOffsets>
+	  <MaxNutrition>0.2</MaxNutrition>
+	</statOffsets>
 	<suppressedTraits>
 	  <!-- <li> -->
 		<!-- <def>Beauty</def> -->
@@ -296,15 +324,20 @@
 	<displayOrderInCategory>30</displayOrderInCategory>
 	<minAgeActive>13</minAgeActive>
 	<prerequisite></prerequisite>
-	<resourceLabel></resourceLabel>
+	<!-- <resourceLabel></resourceLabel> -->
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>0</biostatMet>
-	<biostatArc>1</biostatArc>
+	<biostatArc>2</biostatArc>
 	<customEffectDescriptions>
 		<li>In case of death, a pawn will be summoned, which is a descendant of the deceased.</li>
 		<!-- <li>Such a pawn inherits all genes and all skills, without passions.</li> -->
 		<li>The effect will not work if the chronological age of the pawn is less than 40.</li>
+		<!-- <li>Decreases the nutritional value of consumed food by 33%</li> -->
 	</customEffectDescriptions>
+	<!-- <resourceLossPerDay>0.33</resourceLossPerDay> -->
+	<!-- <statOffsets> -->
+	  <!-- <MaxNutrition>0.5</MaxNutrition> -->
+	<!-- </statOffsets> -->
 	<exclusionTags>
 	  <li>WVC_XenotypesAndGenes_GeneDeathless_Undead</li>
 	</exclusionTags>
@@ -336,8 +369,11 @@
 	<!-- <statFactors> -->
 	  <!-- <InjuryHealingFactor>4</InjuryHealingFactor> -->
 	<!-- </statFactors> -->
+	<resourceLossPerDay>0.04</resourceLossPerDay>
 	<customEffectDescriptions>
 		<li>If a pawn is downed/sleep, its wounds will be automatically treated.</li>
+		<li>Each wound costs 0.05 nutrition to treat</li>
+		<!-- <li>Decreases the nutritional value of consumed food by 4%</li> -->
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <!-- <li>WoundHealingRate</li> -->
@@ -362,13 +398,18 @@
 	<biostatCpx>-6</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>6</biostatMet>
-	<resourceLabel></resourceLabel>
+	<!-- <resourceLabel></resourceLabel> -->
 	<customEffectDescriptions>
 	  <!-- <li>Carriers of this gene cannot use xenotype serums.</li> -->
 	  <!-- <li>Abilities "Rise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li> -->
 	  <li>If this gene is removed, the carrier will die.</li>
-	  <li>The amount of dust is no longer subject to biological entropy.</li>
+	  <!-- <li>The amount of dust is no longer subject to biological entropy.</li> -->
+	  <li>Increases the nutritional value of consumed food by 50%</li>
 	</customEffectDescriptions>
+	<resourceLossPerDay>-0.5</resourceLossPerDay>
+	<statOffsets>
+	  <MaxNutrition>1.0</MaxNutrition>
+	</statOffsets>
 	<exclusionTags>
 	  <li>WVC_GeneticInstabilityGenes</li>
 	</exclusionTags>

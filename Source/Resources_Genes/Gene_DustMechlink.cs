@@ -58,18 +58,19 @@ namespace WVC_XenotypesAndGenes
 
 		private void SummonRandomMech()
 		{
-			Gene_Dust gene_Dust = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
+			// Gene_Dust gene_Dust = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
 			IntRange countSpawn = new(1, 5);
 			for (int i = 0; i < countSpawn.RandomInRange; i++)
 			{
-				if ((gene_Dust.Value - def.resourceLossPerDay) >= 0f)
+				// if ((gene_Dust.Value - def.resourceLossPerDay) >= 0f)
+				// {
+					// gene_Dust.Value -= def.resourceLossPerDay;
+				// }
+				DustUtility.OffsetNeedFood(pawn, -1f * def.resourceLossPerDay);
+				MechanoidizationUtility.MechSummonQuest(pawn, SummonQuest);
+				if (i == 0)
 				{
-					gene_Dust.Value -= def.resourceLossPerDay;
-					MechanoidizationUtility.MechSummonQuest(pawn, SummonQuest);
-					if (i == 0)
-					{
-						Messages.Message("WVC_RB_Gene_Summoner".Translate(pawn.LabelIndefinite().CapitalizeFirst()), pawn, MessageTypeDefOf.PositiveEvent);
-					}
+					Messages.Message("WVC_RB_Gene_Summoner".Translate(pawn.LabelIndefinite().CapitalizeFirst()), pawn, MessageTypeDefOf.PositiveEvent);
 				}
 			}
 		}

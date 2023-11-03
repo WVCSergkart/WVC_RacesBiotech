@@ -26,11 +26,12 @@ namespace WVC_XenotypesAndGenes
 					{
 						if (DustUtility.PawnInPronePosition(pawn))
 						{
-							Gene_Dust gene_Dust = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
-							if (gene_Dust != null)
-							{
-								hediffs[num].Tended(TendingQualityRange.RandomInRange, TendingQualityRange.TrueMax, 1);
-							}
+							// Gene_Dust gene_Dust = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
+							// if (gene_Dust != null)
+							// {
+							// }
+							DustUtility.OffsetNeedFood(pawn, -1f * def.resourceLossPerDay);
+							hediffs[num].Tended(TendingQualityRange.RandomInRange, TendingQualityRange.TrueMax, 1);
 						}
 					}
 					// hediffs[num].Heal(TendingQualityRange.RandomInRange * 2);

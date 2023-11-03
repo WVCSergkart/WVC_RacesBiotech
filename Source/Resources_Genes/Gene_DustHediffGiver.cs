@@ -4,7 +4,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_DustHediffGiver : Gene_DustDrain
+    public class Gene_DustHediffGiver : Gene
     {
 
         // public HediffDef HediffDefName => def.GetModExtension<GeneExtension_Giver>().hediffDefName;

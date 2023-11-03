@@ -175,7 +175,7 @@
 		<capacity>Manipulation</capacity>
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityDustCost">
-		<dustCost>0.13</dustCost>
+		<dustCost>0.73</dustCost>
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityTargetValidation">
 		<humanityCheck>true</humanityCheck>
