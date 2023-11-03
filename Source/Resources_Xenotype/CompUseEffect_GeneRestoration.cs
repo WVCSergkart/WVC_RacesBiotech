@@ -17,7 +17,11 @@ namespace WVC_XenotypesAndGenes
             // Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
             // return;
             // }
-            SerumUtility.HumanityCheck(pawn);
+            if (!SerumUtility.PawnIsHuman(pawn))
+            {
+                Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+                return;
+            }
             // Main
             if (pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
             {

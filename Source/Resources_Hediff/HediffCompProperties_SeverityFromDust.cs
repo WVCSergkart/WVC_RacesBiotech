@@ -72,13 +72,30 @@ namespace WVC_XenotypesAndGenes
 		}
 
 	}
-
 	public class HediffComp_AlwaysRemove : HediffComp
 	{
 
 		public HediffCompProperties_AlwaysRemove Props => (HediffCompProperties_AlwaysRemove)props;
 
 		public override bool CompShouldRemove => true;
+
+	}
+
+	public class HediffCompProperties_RemoveIfPawnHasAngelicStabilityGene : HediffCompProperties
+	{
+
+		public HediffCompProperties_RemoveIfPawnHasAngelicStabilityGene()
+		{
+			compClass = typeof(HediffComp_RemoveIfPawnHasAngelicStabilityGene);
+		}
+
+	}
+	public class HediffComp_RemoveIfPawnHasAngelicStabilityGene : HediffComp
+	{
+
+		public HediffCompProperties_RemoveIfPawnHasAngelicStabilityGene Props => (HediffCompProperties_RemoveIfPawnHasAngelicStabilityGene)props;
+
+		public override bool CompShouldRemove => base.Pawn.genes?.GetFirstGeneOfType<Gene_AngelicStability>() != null;
 
 	}
 

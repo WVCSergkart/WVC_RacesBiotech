@@ -46,7 +46,8 @@ namespace WVC_XenotypesAndGenes
 
 		public static void ReimplantGenesBase(Pawn caster, Pawn recipient)
 		{
-			recipient.genes.SetXenotype(caster.genes.Xenotype);
+			// recipient.genes.SetXenotype(caster.genes.Xenotype);
+			recipient.genes.SetXenotypeDirect(caster.genes.Xenotype);
 			recipient.genes.xenotypeName = caster.genes.xenotypeName;
 			recipient.genes.iconDef = caster.genes.iconDef;
 			Pawn_GeneTracker recipientGenes = recipient.genes;

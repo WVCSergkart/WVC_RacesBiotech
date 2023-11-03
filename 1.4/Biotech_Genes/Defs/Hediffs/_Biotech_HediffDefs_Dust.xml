@@ -45,6 +45,10 @@
 		<days>1</days>
 	  </li>
 	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+	  <!-- Anti-bug wall -->
+	  <!-- Removes the hediff if it was not applied by mod reimplanters. -->
+	  <!-- For example, the vanilla reimplanter first applies genes, then removes them, and then adds them again. -->
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfPawnHasAngelicStabilityGene"/>
 	</comps>
   </HediffDef>
 
@@ -212,12 +216,12 @@
 	</stages>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_ChangeXenotype"/>
-	  <li Class="HediffCompProperties_SeverityPerDay">
-		<severityPerDay>0.17</severityPerDay>
-	  </li>
 	  <!-- <li Class="HediffCompProperties_SeverityPerDay"> -->
-		<!-- <severityPerDay>1.0</severityPerDay> -->
+		<!-- <severityPerDay>0.17</severityPerDay> -->
 	  <!-- </li> -->
+	  <li Class="HediffCompProperties_SeverityPerDay">
+		<severityPerDay>1.0</severityPerDay>
+	  </li>
 	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
 	</comps>
   </HediffDef>

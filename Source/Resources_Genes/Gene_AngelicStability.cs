@@ -9,6 +9,15 @@ namespace WVC_XenotypesAndGenes
 
 		public HediffDef HediffDefName => def.GetModExtension<GeneExtension_Giver>().hediffDefName;
 
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			if (pawn.health.hediffSet.HasHediff(HediffDefName))
+			{
+				Gene_AddOrRemoveHediff.RemoveHediff(HediffDefName, pawn);;
+			}
+		}
+
 		public override void PostRemove()
 		{
 			base.PostRemove();
