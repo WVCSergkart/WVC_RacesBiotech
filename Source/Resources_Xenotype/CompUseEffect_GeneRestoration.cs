@@ -19,6 +19,7 @@ namespace WVC_XenotypesAndGenes
             // }
             if (!SerumUtility.PawnIsHuman(pawn))
             {
+                pawn.health.AddHediff(WVC_GenesDefOf.WVC_IncompatibilityComa);
                 Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
                 return;
             }
