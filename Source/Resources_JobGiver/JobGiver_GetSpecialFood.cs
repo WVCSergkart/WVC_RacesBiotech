@@ -16,6 +16,15 @@ namespace WVC_XenotypesAndGenes
 
 		public int ingestAtOnce = 1;
 
+		public override ThinkNode DeepCopy(bool resolve = true)
+		{
+			JobGiver_GetSpecialFood obj = (JobGiver_GetSpecialFood)base.DeepCopy(resolve);
+			obj.geneDefs = geneDefs;
+			obj.foodDefs = foodDefs;
+			obj.ingestAtOnce = ingestAtOnce;
+			return obj;
+		}
+
 		public override float GetPriority(Pawn pawn)
 		{
 			if (!ModsConfig.BiotechActive)
@@ -77,6 +86,7 @@ namespace WVC_XenotypesAndGenes
 							job.count = ingestAtOnce;
 							// job.ingestTotalCount = true;
 							// Log.Error(pawn.Name + " eat special food");
+							// Log.Error(specialFood.def.defName);
 							return job;
 						}
 					}

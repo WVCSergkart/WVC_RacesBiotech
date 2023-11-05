@@ -209,6 +209,25 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		public static GeneDef AnyActiveGeneFromList(List<GeneDef> geneDefs, Pawn pawn)
+		{
+			for (int i = 0; i < geneDefs.Count; i++)
+			{
+				if (geneDefs[i] != null)
+				{
+					List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+					for (int j = 0; j < genesListForReading.Count; j++)
+					{
+						if (genesListForReading[j].Active == true && genesListForReading[j].def == geneDefs[i])
+						{
+							return geneDefs[i];
+						}
+					}
+				}
+			}
+			return null;
+		}
+
 		public static bool EyesShouldBeInvisble(Pawn pawn)
 		{
 			if (pawn?.genes == null || pawn?.story == null || pawn?.story?.headType == null)
