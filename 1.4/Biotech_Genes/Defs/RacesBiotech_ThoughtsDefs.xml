@@ -2,6 +2,29 @@
 <Defs>
 
   <ThoughtDef>
+	<defName>WVC_IngestedNutrientsInjector</defName>
+	<thoughtClass>Thought_Memory</thoughtClass>
+	<durationDays>3</durationDays>
+	<stackLimit>5</stackLimit>
+	<nullifyingTraits>
+	  <li>Transhumanist</li>
+	</nullifyingTraits>
+	<nullifyingGenes>
+	  <li>WVC_Dustogenic</li>
+	</nullifyingGenes>
+	<nullifyingPrecepts>
+	  <li MayRequire="Ludeon.RimWorld.Ideology">NutrientPasteEating_DontMind</li>
+	</nullifyingPrecepts>
+	<stages>
+	  <li>
+		<label>ingested nutrients injector</label>
+		<description>I ingested a nutrients injector. It may be nutritious, but it is completely tasteless.</description>
+		<baseMoodEffect>-5</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
 	<defName>WVC_MechaAI_MechaSensesFriendOrFoe</defName>
 	<thoughtClass>Thought_SituationalSocial</thoughtClass>
 	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_MechaSensesFriendOrFoe</workerClass>

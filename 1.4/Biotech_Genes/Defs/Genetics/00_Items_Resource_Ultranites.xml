@@ -14,7 +14,7 @@
 	<!-- <tickerType>Normal</tickerType> -->
 	<techLevel>Ultra</techLevel>
 	<graphicData>
-	  <texPath>WVC/Things/Ultranites</texPath>
+	  <texPath>WVC/Things/XaG_Items/Ultranites</texPath>
 	  <graphicClass>Graphic_StackCount</graphicClass>
 	  <drawSize>1.0</drawSize>
 	</graphicData>
@@ -39,17 +39,18 @@
 	  <!-- <li>ResourcesRaw</li> -->
 	</thingCategories>
 	<ingestible>
-	  <preferability>MealAwful</preferability>
-	  <foodType>Processed</foodType>
+	  <foodType>Fluid</foodType>
+	  <preferability>DesperateOnly</preferability>
+	  <!-- <foodType>Processed</foodType> -->
 	  <ateEvent>AteNutrientPaste</ateEvent>
 	  <ingestEffect>EatVegetarian</ingestEffect>
 	  <ingestSound>Meal_Eat</ingestSound>
 	  <babiesCanIngest>true</babiesCanIngest>
 	  <canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
-	  <tableDesired>false</tableDesired>
-	  <ingestHoldUsesTable>false</ingestHoldUsesTable>
-	  <optimalityOffsetHumanlikes>-100</optimalityOffsetHumanlikes>
-	  <optimalityOffsetFeedingAnimals>-100</optimalityOffsetFeedingAnimals>
+	  <!-- <tableDesired>false</tableDesired> -->
+	  <!-- <ingestHoldUsesTable>false</ingestHoldUsesTable> -->
+	  <!-- <optimalityOffsetHumanlikes>-100</optimalityOffsetHumanlikes> -->
+	  <!-- <optimalityOffsetFeedingAnimals>-100</optimalityOffsetFeedingAnimals> -->
 	</ingestible>
 	<comps>
 	  <!-- <li Class="CompProperties_Glower"> -->
@@ -62,6 +63,64 @@
 	  </li>
 	</comps>
 	<allowedArchonexusCount>750</allowedArchonexusCount>
+  </ThingDef>
+
+  <ThingDef>
+	<defName>WVC_NutrientsInjector</defName>
+	<label>nutrients injector</label>
+	<description>Quite a large dose of nutrients in a convenient injector. It is for those who have problems digesting food. Can be taken orally or by injection.</description>
+	<descriptionHyperlinks>
+	  <GeneDef>WVC_Dustogenic</GeneDef>
+	</descriptionHyperlinks>
+	<techLevel>Ultra</techLevel>
+	<category>Item</category>
+	<thingClass>ThingWithComps</thingClass>
+	<drawerType>MapMeshOnly</drawerType>
+	<useHitPoints>true</useHitPoints>
+	<healthAffectsPrice>false</healthAffectsPrice>
+	<selectable>true</selectable>
+	<stackLimit>10</stackLimit>
+	<tickerType>Rare</tickerType>
+	<possessionCount>5</possessionCount>
+	<socialPropernessMatters>true</socialPropernessMatters>
+	<alwaysHaulable>true</alwaysHaulable>
+	<pathCost>14</pathCost>
+	<allowedArchonexusCount>5</allowedArchonexusCount>
+	<resourceReadoutPriority>Last</resourceReadoutPriority>
+	<drawGUIOverlay>true</drawGUIOverlay>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/DustNutrients</texPath>
+	  <graphicClass>Graphic_StackCount</graphicClass>
+	  <drawSize>0.85</drawSize>
+	</graphicData>
+	<statBases>
+	  <MaxHitPoints>60</MaxHitPoints>
+	  <DeteriorationRate>5</DeteriorationRate>
+	  <Mass>0.50</Mass>
+	  <Flammability>0.4</Flammability>
+	  <Nutrition>1.0</Nutrition>
+	  <Beauty>0</Beauty>
+	  <MarketValue>35</MarketValue>
+	</statBases>
+	<thingCategories>
+	  <li>Foods</li>
+	</thingCategories>
+	<ingestible>
+	  <maxNumToIngestAtOnce>1</maxNumToIngestAtOnce>
+	  <foodType>Fluid</foodType>
+	  <preferability>DesperateOnly</preferability>
+	  <babiesCanIngest>true</babiesCanIngest>
+	  <canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
+	  <specialThoughtDirect>WVC_IngestedNutrientsInjector</specialThoughtDirect>
+	  <ingestSound>HemogenPack_Consume</ingestSound>
+	</ingestible>
+	<comps>
+	  <li Class="CompProperties_Forbiddable"/>
+	  <li Class="CompProperties_Glower">
+		<glowRadius>1</glowRadius>
+		<glowColor>(241, 175, 129, 0)</glowColor>
+	  </li>
+	</comps>
   </ThingDef>
 
 </Defs>

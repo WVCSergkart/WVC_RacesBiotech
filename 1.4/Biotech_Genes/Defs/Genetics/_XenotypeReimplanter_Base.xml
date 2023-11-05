@@ -37,7 +37,7 @@
 	<resourceReadoutPriority>Middle</resourceReadoutPriority>
 	<useHitPoints>true</useHitPoints>
 	<graphicData>
-	  <texPath>WVC/Things/XenotypeSerum</texPath>
+	  <texPath>WVC/Things/XaG_Items/XenotypeSerum</texPath>
 	  <graphicClass>Graphic_Random</graphicClass>
 	</graphicData>
 	<costList>

@@ -2,21 +2,57 @@
 <Patch>
 
 	<!-- Patch for special food for dustogenics -->
-	<!-- <Operation Class="PatchOperationAdd"> -->
-		<!-- <xpath>/Defs/ThinkTreeDef[defName="MainColonistBehaviorCore"]/thinkRoot/subNodes/li[@Class="ThinkNode_PrioritySorter"]/subNodes</xpath> -->
-		<!-- <order>Prepend</order> -->
-		<!-- <value> -->
-		  <!-- <li Class="WVC_XenotypesAndGenes.JobGiver_GetSpecialFood"> -->
-			<!-- <geneDefs> -->
-				<!-- <li>WVC_Dustogenic</li> -->
-			<!-- </geneDefs> -->
-			<!-- <foodDefs> -->
-				<!-- <li>WVC_UniversalFuel</li> -->
-			<!-- </foodDefs> -->
-			<!-- <ingestAtOnce>1</ingestAtOnce> -->
-		  <!-- </li> -->
-		<!-- </value> -->
-	<!-- </Operation> -->
+
+	<!-- Starving -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/ThinkTreeDef[defName="Humanlike"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalColonist"]/subNodes/li[@Class="ThinkNode_ConditionalStarving"]/subNodes/li/subNodes</xpath>
+		<order>Prepend</order>
+		<value>
+		  <li Class="WVC_XenotypesAndGenes.JobGiver_GetSpecialFood">
+			<geneDefs>
+				<li>WVC_Dustogenic</li>
+			</geneDefs>
+			<foodDefs>
+				<li>WVC_NutrientsInjector</li>
+			</foodDefs>
+			<ingestAtOnce>1</ingestAtOnce>
+		  </li>
+		</value>
+	</Operation>
+
+	<!-- Prisoners -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/ThinkTreeDef[defName="Humanlike"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalPrisoner"]/subNodes/li/subNodes/li/subNodes[li[@Class="JobGiver_GetFood"]]</xpath>
+		<order>Prepend</order>
+		<value>
+		  <li Class="WVC_XenotypesAndGenes.JobGiver_GetSpecialFood">
+			<geneDefs>
+				<li>WVC_Dustogenic</li>
+			</geneDefs>
+			<foodDefs>
+				<li>WVC_NutrientsInjector</li>
+			</foodDefs>
+			<ingestAtOnce>1</ingestAtOnce>
+		  </li>
+		</value>
+	</Operation>
+
+	<!-- General -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/ThinkTreeDef[defName="MainColonistBehaviorCore"]/thinkRoot/subNodes/li[@Class="ThinkNode_PrioritySorter"]/subNodes</xpath>
+		<order>Prepend</order>
+		<value>
+		  <li Class="WVC_XenotypesAndGenes.JobGiver_GetSpecialFood">
+			<geneDefs>
+				<li>WVC_Dustogenic</li>
+			</geneDefs>
+			<foodDefs>
+				<li>WVC_NutrientsInjector</li>
+			</foodDefs>
+			<ingestAtOnce>1</ingestAtOnce>
+		  </li>
+		</value>
+	</Operation>
 
 	<!-- ================== -->
 

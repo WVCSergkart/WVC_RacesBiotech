@@ -13,7 +13,7 @@
 	  <li>ITab_Genes</li>
 	</inspectorTabs>
 	<graphicData>
-	  <texPath>WVC/Things/Mecha_Genepack</texPath>
+	  <texPath>WVC/Things/XaG_Items/Mecha_Genepack</texPath>
 	  <graphicClass>Graphic_Genepack</graphicClass>
 	  <drawSize>(0.75, 0.75)</drawSize>
 	</graphicData>
@@ -43,7 +43,7 @@
 	  <DeteriorationRate>3</DeteriorationRate>
 	</statBases>
 	<graphicData>
-	  <texPath>WVC/Things/W_Genepack</texPath>
+	  <texPath>WVC/Things/XaG_Items/W_Genepack</texPath>
 	</graphicData>
 	<comps>
 	  <li Class="CompProperties_Glower">
@@ -61,7 +61,7 @@
 	  <DeteriorationRate>2</DeteriorationRate>
 	</statBases>
 	<graphicData>
-	  <texPath>WVC/Things/Ultra_Genepack</texPath>
+	  <texPath>WVC/Things/XaG_Items/Ultra_Genepack</texPath>
 	</graphicData>
 	<comps>
 	  <li Class="CompProperties_Glower">
@@ -79,7 +79,7 @@
 	  <DeteriorationRate>1</DeteriorationRate>
 	</statBases>
 	<graphicData>
-	  <texPath>WVC/Things/Mecha_Genepack</texPath>
+	  <texPath>WVC/Things/XaG_Items/Mecha_Genepack</texPath>
 	  <graphicClass>Graphic_Random</graphicClass>
 	</graphicData>
 	<comps>

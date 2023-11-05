@@ -9,29 +9,29 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_DustDrain : Gene
 	{
 
-		private float cachedMaxNutrition = 0f;
+		// private float cachedMaxNutrition = 0f;
 
 		public override void Notify_IngestedThing(Thing thing, int numTaken)
 		{
-			if (cachedMaxNutrition <= 0f)
-			{
-				cachedMaxNutrition = pawn.GetStatValue(StatDefOf.MaxNutrition);
-			}
-			// As planned, the bonus should only apply to special food, while the debuff should apply to regular food. 
-			// But since the special food is not ready yet, the bonus and debuff are common to all food.
+			// if (cachedMaxNutrition <= 0f)
+			// {
+				// cachedMaxNutrition = pawn.GetStatValue(StatDefOf.MaxNutrition);
+			// }
 			IngestibleProperties ingestible = thing.def.ingestible;
 			float nutrition = thing.GetStatValue(StatDefOf.Nutrition);
 			if (ingestible != null && nutrition > 0f)
 			{
-				DustUtility.OffsetNeedFood(pawn, (-1f * def.resourceLossPerDay) * nutrition * (float)numTaken * cachedMaxNutrition);
-				// Log.Error(def.defName + " " + ((-1f * def.resourceLossPerDay) * nutrition * (float)numTaken * cachedMaxNutrition) + " nutrition gain");
+				DustUtility.OffsetNeedFood(pawn, (-1f * def.resourceLossPerDay) * nutrition * (float)numTaken);
+				// Log.Error(def.defName + " " + ((-1f * def.resourceLossPerDay) * nutrition * (float)numTaken) + " nutrition gain");
 			}
 		}
 
 	}
 
-	public class Gene_Dust : Gene_DustDrain
+	public class Gene_Dust : Gene
 	{
+
+		public List<ThingDef> SpecialFoodDefs => def.GetModExtension<GeneExtension_Giver>().specialFoodDefs;
 
 		// private float cachedMaxNutrition = 0f;
 
@@ -53,14 +53,20 @@ namespace WVC_XenotypesAndGenes
 		public override void Notify_IngestedThing(Thing thing, int numTaken)
 		{
 			base.Notify_IngestedThing(thing, numTaken);
-			if (DustUtility.PawnInPronePosition(pawn))
+			IngestibleProperties ingestible = thing.def.ingestible;
+			float nutrition = thing.GetStatValue(StatDefOf.Nutrition);
+			if (ingestible != null && nutrition > 0f)
 			{
-				// It is necessary to ensure that the food bar is filled
-				DustUtility.OffsetNeedFood(pawn, 10.0f);
-			}
-			else
-			{
-				DustUtility.OffsetNeedFood(pawn, 0.3f);
+				if (SpecialFoodDefs.Contains(thing.def) || DustUtility.PawnInPronePosition(pawn))
+				{
+					// It is necessary to ensure that the food bar is filled
+					DustUtility.OffsetNeedFood(pawn, 10.0f);
+				}
+				else
+				{
+					// DustUtility.OffsetNeedFood(pawn, 0.3f);
+					DustUtility.OffsetNeedFood(pawn, -0.1f * nutrition * (float)numTaken);
+				}
 			}
 		}
 

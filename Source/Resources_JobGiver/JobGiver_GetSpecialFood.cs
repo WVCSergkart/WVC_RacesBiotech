@@ -25,15 +25,18 @@ namespace WVC_XenotypesAndGenes
 			Need_Food food = pawn.needs.food;
 			if (food == null)
 			{
+				// Log.Error(pawn.Name + " non-food");
 				return 0f;
 			}
 			if (!pawn.RaceProps.Humanlike || pawn.genes == null || pawn.genes.Xenotype == XenotypeDefOf.Baseliner)
 			{
+				// Log.Error(pawn.Name + " non-dustogenic");
 				return 0f;
 			}
 			if (food.CurLevelPercentage < pawn.RaceProps.FoodLevelPercentageWantEat)
 			{
-				return 11.5f;
+				// Log.Error(pawn.Name + " get special food priority");
+				return 9.6f;
 			}
 			return 0f;
 		}
@@ -49,8 +52,18 @@ namespace WVC_XenotypesAndGenes
 			{
 				return null;
 			}
+			// Log.Error(pawn.Name + " try (try get special food)");
+			// if (geneDefs.NullOrEmpty())
+			// {
+				// Log.Error(pawn.Name + " geneDefs is null");
+			// }
+			// if (!MechanoidizationUtility.HasAnyActiveGene(geneDefs, pawn))
+			// {
+				// Log.Error(pawn.Name + " no any active genes");
+			// }
 			if (!geneDefs.NullOrEmpty() && MechanoidizationUtility.HasAnyActiveGene(geneDefs, pawn))
 			{
+				// Log.Error(pawn.Name + " try get special food");
 				// int num = Mathf.FloorToInt((food.Max - gene_Hemogen.Value) / HemogenPackHemogenGain);
 				if (ingestAtOnce > 0)
 				{
@@ -60,13 +73,16 @@ namespace WVC_XenotypesAndGenes
 						if (specialFood != null)
 						{
 							Job job = JobMaker.MakeJob(JobDefOf.Ingest, specialFood);
-							job.count = Mathf.Min(specialFood.stackCount, ingestAtOnce);
-							job.ingestTotalCount = true;
+							// job.count = Mathf.Min(specialFood.stackCount, ingestAtOnce);
+							job.count = ingestAtOnce;
+							// job.ingestTotalCount = true;
+							// Log.Error(pawn.Name + " eat special food");
 							return job;
 						}
 					}
 				}
 			}
+			// Log.Error(pawn.Name + " special food is null");
 			return null;
 		}
 

@@ -23,6 +23,9 @@
 	<!-- <resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Dust</resourceGizmoType> -->
 	<!-- <resourceLabel>dust</resourceLabel> -->
 	<foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+	<descriptionHyperlinks>
+	  <ThingDef>WVC_NutrientsInjector</ThingDef>
+	</descriptionHyperlinks>
 	<!-- <resourceLabel>nutrition from food</resourceLabel> -->
 	<!-- <resourceGizmoThresholds> -->
 	  <!-- <li>0.10</li> -->
@@ -45,9 +48,10 @@
 	<customEffectDescriptions>
 	  <!-- <li>Gives dust supply.</li> -->
 	  <!-- <li>Refresh time (*DateTime)~1 day(/DateTime).</li> -->
-	  <li>Any ingested thing is guaranteed to provide 0.3 nutrition. If the pawn cannot move at this moment (downed or in bed), then this bonus increases significantly.</li>
-	  <li>Increases the nutritional value of consumed food by 20%</li>
-	  <li>Food efficiency is multiplied by the max nutrition of the pawn.</li>
+	  <li>Decreases the nutritional value of consumed food by 10%</li>
+	  <!-- <li>Any ingested thing is guaranteed to provide 0.3 nutrition. If the pawn cannot move at this moment (downed or in bed), then this bonus increases significantly.</li> -->
+	  <!-- <li>Increases the nutritional value of consumed food by 20%</li> -->
+	  <li>If the pawn ingest &lt;color=#8a8ae6&gt;nutrients injector&lt;/color&gt; or at the time of eating food is &lt;color=#8a8ae6&gt;downed&lt;/color&gt;, then the hunger bar is completely filled.</li>
 	  <li>In the presence of the &lt;color=#8a8ae6&gt;"Undead"&lt;/color&gt; gene, it gives the effect of &lt;color=#8a8ae6&gt;reincarnation&lt;/color&gt;.</li>
 	  <li>&lt;color=#8a8ae6&gt;Reincarnation&lt;/color&gt; - In case of death, a pawn will be summoned, which is a descendant of the deceased. The effect will not work if the chronological age of the pawn is less than 40.</li>
 	</customEffectDescriptions>
@@ -60,14 +64,17 @@
 	  </prefixSymbols>
 	</symbolPack>
 	<minAgeActive>3</minAgeActive>
-	<resourceLossPerDay>-0.2</resourceLossPerDay>
+	<!-- <resourceLossPerDay>0.1</resourceLossPerDay> -->
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>2</biostatMet>
-	<!-- <modExtensions> -->
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<!-- <hediffDefName>WVC_Dustogenic_HungerFactor</hediffDefName> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
+			<specialFoodDefs>
+			  <li>WVC_NutrientsInjector</li>
+			</specialFoodDefs>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- ============================= -->
@@ -98,7 +105,7 @@
 	<biostatMet>-2</biostatMet>
 	<customEffectDescriptions>
 	  <li>Restores a lost limb every (*DateTime)5-15 days(/DateTime).</li>
-	  <!-- <li>Decreases the nutritional value of consumed food by 16%</li> -->
+	  <li>Decreases the nutritional value of consumed food by 11%</li>
 	</customEffectDescriptions>
 	<statFactors>
 	  <InjuryHealingFactor>8</InjuryHealingFactor>
@@ -107,7 +114,7 @@
 	  <MaxNutrition>0.3</MaxNutrition>
 	</statOffsets>
 	<displayOrderInCategory>2</displayOrderInCategory>
-	<!-- <resourceLossPerDay>0.16</resourceLossPerDay> -->
+	<resourceLossPerDay>0.11</resourceLossPerDay>
 	<exclusionTags>
 	  <li>WoundHealingRate</li>
 	</exclusionTags>
@@ -130,11 +137,11 @@
 	<biostatArc>0</biostatArc>
 	<biostatMet>-1</biostatMet>
 	<displayOrderInCategory>5</displayOrderInCategory>
-	<resourceLossPerDay>0.12</resourceLossPerDay>
+	<resourceLossPerDay>0.09</resourceLossPerDay>
 	<customEffectDescriptions>
 		<li>Carriers of the gene always spawn with age within 18.</li>
 		<li>The age of the gene carrier decreases by 1 year every (*DateTime)5-15 days(/DateTime), this continues until the carrier reaches the minimum adult age.</li>
-		<li>Decreases the nutritional value of consumed food by 12%</li>
+		<li>Decreases the nutritional value of consumed food by 9%</li>
 	</customEffectDescriptions>
 	<statOffsets>
 	  <MaxNutrition>0.2</MaxNutrition>
@@ -165,13 +172,13 @@
 	<!-- <iconColor>(255, 248, 133)</iconColor> -->
 	<!-- <iconColor>(173, 142, 112)</iconColor> -->
 	<displayOrderInCategory>10</displayOrderInCategory>
-	<resourceLossPerDay>-0.22</resourceLossPerDay>
+	<resourceLossPerDay>0.07</resourceLossPerDay>
 	<marketValueFactor>1.5</marketValueFactor>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>6</biostatMet>
 	<biostatArc>0</biostatArc>
 	<customEffectDescriptions>
-	  <li>Increases the nutritional value of consumed food by 22%</li>
+	  <li>Decreases the nutritional value of consumed food by 7%</li>
 	</customEffectDescriptions>
 	<statOffsets>
 	  <MaxNutrition>0.3</MaxNutrition>
@@ -262,12 +269,12 @@
 	<displayOrderInCategory>25</displayOrderInCategory>
 	<customEffectDescriptions>
 	  <li>All psychic sensitivity pawns that don't have this gene get +500 opinion towards those who carry this gene.</li>
-	  <li>Decreases the nutritional value of consumed food by 25%</li>
+	  <li>Decreases the nutritional value of consumed food by 8%</li>
 	</customEffectDescriptions>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>-1</biostatMet>
 	<biostatArc>1</biostatArc>
-	<resourceLossPerDay>0.25</resourceLossPerDay>
+	<resourceLossPerDay>0.08</resourceLossPerDay>
 	<statOffsets>
 	  <MaxNutrition>0.2</MaxNutrition>
 	</statOffsets>
@@ -404,9 +411,9 @@
 	  <!-- <li>Abilities "Rise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li> -->
 	  <li>If this gene is removed, the carrier will die.</li>
 	  <!-- <li>The amount of dust is no longer subject to biological entropy.</li> -->
-	  <li>Increases the nutritional value of consumed food by 50%</li>
+	  <li>Decreases the nutritional value of consumed food by 15%</li>
 	</customEffectDescriptions>
-	<resourceLossPerDay>-0.5</resourceLossPerDay>
+	<resourceLossPerDay>0.15</resourceLossPerDay>
 	<statOffsets>
 	  <MaxNutrition>1.0</MaxNutrition>
 	</statOffsets>

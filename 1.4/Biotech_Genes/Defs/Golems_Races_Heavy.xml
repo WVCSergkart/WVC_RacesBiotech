@@ -68,7 +68,7 @@
 		<lifeStages>
 			<li>
 				<bodyGraphicData>
-					<texPath>WVC/Things/Mechanoids_Golems/GolemBehemoth</texPath>
+					<texPath>WVC/Things/XaG_Pawns/Mechanoids_Golems/GolemBehemoth</texPath>
 					<drawSize>2</drawSize>
 				</bodyGraphicData>
 			</li>

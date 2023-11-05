@@ -29,7 +29,7 @@ Totems also spread pollution from time to time.</description>
 	</statBases>
 	<graphicData>
 	  <drawOffset>(0,0,0.2)</drawOffset>
-	  <texPath>WVC/Things/WalkingCorpseTotem</texPath>
+	  <texPath>WVC/Things/XaG_Buildings/WalkingCorpseTotem</texPath>
 	  <graphicClass>Graphic_Random</graphicClass>
 	  <shaderType>CutoutComplex</shaderType>
 	  <drawSize>(1.2,1.2)</drawSize>
@@ -126,7 +126,7 @@ If a settlement has a pawn with the "Resurgent spores" gene, then the tree will 
 	</descriptionHyperlinks>
 	<graphicData>
 	  <!-- <drawOffset>(0,0.5,0)</drawOffset> -->
-	  <texPath>WVC/Things/ResurgentTree</texPath>
+	  <texPath>WVC/Things/XaG_Buildings/ResurgentTree</texPath>
 	  <graphicClass>Graphic_Random</graphicClass>
 	  <!-- <shadowData> -->
 		<!-- <volume>(0.35, 0.3, 0.35)</volume> -->

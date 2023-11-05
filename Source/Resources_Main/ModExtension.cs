@@ -59,6 +59,8 @@ namespace WVC_XenotypesAndGenes
 		public List<GeneDef> scarGeneDefs;
 		// Rand Hediff
 		// public HediffStatRandDef hediffStatRandDef;
+		// Special Food
+		public List<ThingDef> specialFoodDefs;
 	}
 
 	public class XenotypeExtension_SubXenotype : DefModExtension

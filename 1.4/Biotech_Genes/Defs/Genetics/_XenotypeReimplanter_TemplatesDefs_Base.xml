@@ -36,7 +36,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	<resourceReadoutPriority>Middle</resourceReadoutPriority>
 	<useHitPoints>true</useHitPoints>
 	<graphicData>
-	  <texPath>WVC/Things/XenotypeSerum</texPath>
+	  <texPath>WVC/Things/XaG_Items/XenotypeSerum</texPath>
 	  <graphicClass>Graphic_Random</graphicClass>
 	</graphicData>
 	<statBases>
@@ -74,7 +74,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
   <!-- ============Auto Generation Base============ -->
   <WVC_XenotypesAndGenes.SerumTemplateDef ParentName="WVC_XenotypeSerumTemplate_Base" Name="WVC_XenotypeSerumTemplate_Craftable" Abstract="True">
 	<graphicData>
-	  <texPath>WVC/Things/XenotypeSerum</texPath>
+	  <texPath>WVC/Things/XaG_Items/XenotypeSerum</texPath>
 	</graphicData>
 	<recipeMaker>
 	  <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
@@ -123,7 +123,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <DeteriorationRate>1.0</DeteriorationRate>
 	</statBases>
 	<graphicData>
-	  <texPath>WVC/Things/XenotypeSerum_Ultra</texPath>
+	  <texPath>WVC/Things/XaG_Items/XenotypeSerum_Ultra</texPath>
 	</graphicData>
 	<tradeTags>
 	  <!-- <li>WVC_Template_XenotypeSerums</li> -->
@@ -151,7 +151,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <DeteriorationRate>0.0</DeteriorationRate>
 	</statBases>
 	<graphicData>
-	  <texPath>WVC/Things/XenotypeSerum_Mecha</texPath>
+	  <texPath>WVC/Things/XaG_Items/XenotypeSerum_Mecha</texPath>
 	</graphicData>
 	<tradeTags>
 	  <li>WVC_All_XenotypeSerums</li>
@@ -192,7 +192,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	<label>serum thrower</label>
 	<labelShortAdj>serum thrower</labelShortAdj>
 	<description>Carriers of this gene have archites that constantly generate genes and separate them from the carrier.</description>
-	<iconPath>WVC/Things/XenotypeSerum_Ultra/XenotypeSerum_Ultra_D</iconPath>
+	<iconPath>WVC/Things/XaG_Items/XenotypeSerum_Ultra/XenotypeSerum_Ultra_D</iconPath>
 	<!-- <iconColor>(255, 255, 255)</iconColor> -->
 	<displayOrderInCategory>957</displayOrderInCategory>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Spawner</geneClass>
@@ -227,7 +227,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 
   <!-- Auto Generated Serum -->
   <WVC_XenotypesAndGenes.SerumGeneTemplateDef ParentName="WVC_XenotypeSerumTemplateSpawner_Base" Name="WVC_XenotypeSerumTemplateSpawner_Ultra" Abstract="True">
-	<iconPath>WVC/Things/XenotypeSerum_Ultra/XenotypeSerum_Ultra_D</iconPath>
+	<iconPath>WVC/Things/XaG_Items/XenotypeSerum_Ultra/XenotypeSerum_Ultra_D</iconPath>
 	<displayOrderInCategory>1000</displayOrderInCategory>
 	<customEffectDescriptions>
 		<li>Xenotype serum - a one-time serum that changes a pawn's xenotype.</li>
@@ -236,7 +236,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 
   <WVC_XenotypesAndGenes.SerumGeneTemplateDef ParentName="WVC_XenotypeSerumTemplateSpawner_Base" Name="WVC_XenotypeSerumTemplateSpawner_Hybrid" Abstract="True">
 	<label>hybrid serum thrower</label>
-	<iconPath>WVC/Things/XenotypeSerum_Mecha/XenotypeSerum_Variants_v4</iconPath>
+	<iconPath>WVC/Things/XaG_Items/XenotypeSerum_Mecha/XenotypeSerum_Variants_v4</iconPath>
 	<displayOrderInCategory>1001</displayOrderInCategory>
 	<customEffectDescriptions>
 		<li>Hybrid serum - a one-time serum that gives 2 xenotypes.</li>

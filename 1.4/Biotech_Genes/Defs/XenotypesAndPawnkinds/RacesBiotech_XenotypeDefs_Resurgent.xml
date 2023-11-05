@@ -7,7 +7,7 @@
 	<label>resurgent</label>
 	<description>Resurgents are a undead sub-xenotype, despite strong genetic differences they still remain within this xenotype. They are fragile and dependent on resurgent cells. They can regrow lost limbs, never age, and their wounds can close almost instantly. However, their immune system, stomach, blood, disease resistance, their entire body is dependent on these cells. And if the level of the cells is too low, they lose almost all of their special abilities.
 
-&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; If the xenotype is inherited from the "Undead" xenotype, then the set of endogens will be changed.</description>
+&lt;color=#f5ffa2&gt;Gameplay Effect (Genes):&lt;/color&gt; If the xenotype is inherited from the "Undead" xenotype, then the set of endogens will be changed.</description>
 	<descriptionShort>Resurgents are a undead sub-xenotype, despite strong genetic differences they still remain within this xenotype. They are fragile and dependent on resurgent cells. They can regrow lost limbs, never age, and their wounds can close almost instantly. However, their immune system, stomach, blood, disease resistance, their entire body is dependent on these cells. And if the level of the cells is too low, they lose almost all of their special abilities.</descriptionShort>
 	<iconPath>WVC/UI/Mecha_Icons/Xeno_Undead_v1</iconPath>
 	<descriptionHyperlinks>

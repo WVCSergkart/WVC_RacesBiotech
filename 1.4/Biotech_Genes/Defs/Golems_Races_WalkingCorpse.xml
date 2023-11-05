@@ -341,7 +341,7 @@ Walking corpses cannot be zoned, but they will try to stay close to the totems. 
 		<lifeStages>
 			<li>
 				<bodyGraphicData>
-					<texPath>WVC/Things/Mechanoids_Golems/BoneGolem</texPath>
+					<texPath>WVC/Things/XaG_Pawns/Mechanoids_Golems/BoneGolem</texPath>
 					<shaderType>CutoutComplex</shaderType>
 					<drawSize>1.2</drawSize>
 				</bodyGraphicData>
@@ -424,19 +424,19 @@ Walking corpses cannot be zoned, but they will try to stay close to the totems. 
 			<li><color>(126,104,94)</color><weight>0.05</weight></li>
 			<!-- Headless -->
 			<li>
-				<texPath>WVC/Things/Mechanoids_Golems/SkeletonHeadless</texPath>
+				<texPath>WVC/Things/XaG_Pawns/Mechanoids_Golems/SkeletonHeadless</texPath>
 				<color>(195,195,195)</color>
 				<weight>0.5</weight>
 			</li>
 			<!-- slate -->
 			<li>
-				<texPath>WVC/Things/Mechanoids_Golems/SkeletonHeadless</texPath>
+				<texPath>WVC/Things/XaG_Pawns/Mechanoids_Golems/SkeletonHeadless</texPath>
 				<color>(70,70,70)</color>
 				<weight>0.10</weight>
 			</li>
 			<!-- sandstone -->
 			<li>
-				<texPath>WVC/Things/Mechanoids_Golems/SkeletonHeadless</texPath>
+				<texPath>WVC/Things/XaG_Pawns/Mechanoids_Golems/SkeletonHeadless</texPath>
 				<color>(126,104,94)</color>
 				<weight>0.05</weight>
 			</li>
@@ -444,7 +444,7 @@ Walking corpses cannot be zoned, but they will try to stay close to the totems. 
 		<lifeStages>
 			<li>
 				<bodyGraphicData>
-					<texPath>WVC/Things/Mechanoids_Golems/Skeleton</texPath>
+					<texPath>WVC/Things/XaG_Pawns/Mechanoids_Golems/Skeleton</texPath>
 					<shaderType>CutoutComplex</shaderType>
 					<drawSize>1.5</drawSize>
 				</bodyGraphicData>

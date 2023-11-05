@@ -36,7 +36,7 @@
 	<fillPercent>0.3</fillPercent>
 	<pathCost>33</pathCost>
 	<graphicData>
-	  <texPath>WVC/Things/SerumCraftingTable/SerumCraftingTable2</texPath>
+	  <texPath>WVC/Things/XaG_Buildings/SerumCraftingTable/SerumCraftingTable2</texPath>
 	  <!-- <texPath>Things/Building/Production/SubcoreEncoder</texPath> -->
 	  <graphicClass>Graphic_Multi</graphicClass>
 	  <drawSize>(3,2)</drawSize>
@@ -112,7 +112,7 @@
 	  <ThingDef>WVC_UniversalFuel</ThingDef>
 	</descriptionHyperlinks>
 	<graphicData>
-	  <texPath>WVC/Things/Ultranites_Spawner</texPath>
+	  <texPath>WVC/Things/XaG_Buildings/Ultranites_Spawner</texPath>
 	  <graphicClass>Graphic_Random</graphicClass>
 	  <drawRotated>false</drawRotated>
 	  <allowFlip>false</allowFlip>
@@ -205,7 +205,7 @@
 	<drawerType>MapMeshAndRealTime</drawerType>
 	<tickerType>Normal</tickerType>
 	<graphicData>
-	  <texPath>WVC/Things/UltranitesRecycler</texPath>
+	  <texPath>WVC/Things/XaG_Buildings/UltranitesRecycler</texPath>
 	  <graphicClass>Graphic_Random</graphicClass>
 	  <drawRotated>false</drawRotated>
 	  <allowFlip>false</allowFlip>
@@ -225,14 +225,14 @@
 	  </buildingTags>
 	  <ai_chillDestination>false</ai_chillDestination>
 	  <wastepackAtomizerBottomGraphic>
-		<texPath>WVC/Things/UltranitesRecycler_Parts/UltranitesRecycler_Bottom</texPath>
+		<texPath>WVC/Things/XaG_Buildings/UltranitesRecycler_Parts/UltranitesRecycler_Bottom</texPath>
 		<graphicClass>Graphic_Single</graphicClass>
 		<drawRotated>false</drawRotated>
 		<allowFlip>false</allowFlip>
 		<drawSize>(2,2)</drawSize>
 	  </wastepackAtomizerBottomGraphic>
 	  <wastepackAtomizerWindowGraphic>
-		<texPath>WVC/Things/UltranitesRecycler_Parts/UltranitesRecycler_Window</texPath>
+		<texPath>WVC/Things/XaG_Buildings/UltranitesRecycler_Parts/UltranitesRecycler_Window</texPath>
 		<graphicClass>Graphic_Single</graphicClass>
 		<drawRotated>false</drawRotated>
 		<allowFlip>false</allowFlip>
@@ -358,7 +358,7 @@
 	</descriptionHyperlinks>
 	<thingClass>ThingWithComps</thingClass>
 	<graphicData>
-	  <texPath>WVC/Things/SerumCapsule</texPath>
+	  <texPath>WVC/Things/XaG_Items/SerumCapsule</texPath>
 	  <graphicClass>Graphic_Random</graphicClass>
 	</graphicData>
 	<statBases>
@@ -425,7 +425,7 @@
 	  <ThingDef>WVC_EmptyXenotypeSerum</ThingDef>
 	</descriptionHyperlinks>
 	<graphicData>
-	  <texPath>WVC/Things/SerumCapsule/SerumCapsule_v0</texPath>
+	  <texPath>WVC/Things/XaG_Items/SerumCapsule/SerumCapsule_v0</texPath>
 	  <graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
 	<costList>
@@ -446,7 +446,7 @@
 	  <ThingDef>WVC_EmptyXenotypeSerum</ThingDef>
 	</descriptionHyperlinks>
 	<graphicData>
-	  <texPath>WVC/Things/SerumCapsule/SerumArchiteCapsule_v0</texPath>
+	  <texPath>WVC/Things/XaG_Items/SerumCapsule/SerumArchiteCapsule_v0</texPath>
 	  <graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
 	<recipeMaker>
@@ -480,7 +480,7 @@
 	  <ThingDef>WVC_XenotypeSerum_Hybrid</ThingDef>
 	</descriptionHyperlinks>
 	<graphicData>
-	  <texPath>WVC/Things/XenotypeSerum_Empty</texPath>
+	  <texPath>WVC/Things/XaG_Items/XenotypeSerum_Empty</texPath>
 	</graphicData>
 	<statBases>
 	  <MaxHitPoints>120</MaxHitPoints>

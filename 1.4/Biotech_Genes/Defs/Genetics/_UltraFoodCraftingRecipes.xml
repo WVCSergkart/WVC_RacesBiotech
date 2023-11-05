@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <RecipeDef>
+	<defName>WVC_Make_NutrientsInjector</defName>
+	<label>make nutrients injector</label>
+	<description>Make a nutrients injector from nutrients.</description>
+	<jobString>Making nutrients injector.</jobString>
+	<workAmount>3450</workAmount>
+	<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+	<workSkill>Crafting</workSkill>
+	<effectWorking>Smith</effectWorking>
+	<soundWorking>Recipe_Machining</soundWorking>
+	<allowMixingIngredients>true</allowMixingIngredients>
+	<ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+	<displayPriority>-9500</displayPriority>
+	<skillRequirements>
+	  <Crafting>6</Crafting>
+	  <Intellectual>8</Intellectual>
+	</skillRequirements>
+	<recipeUsers>
+	  <li>WVC_SerumCraftingTable</li>
+	</recipeUsers>
+	<ingredients>
+	  <li>
+		<filter>
+		  <customSummary>nutrients</customSummary>
+		  <categories>
+			<li>MeatRaw</li>
+			<li>AnimalProductRaw</li>
+			<li>PlantFoodRaw</li>
+		  </categories>
+		</filter>
+		<count>2</count>
+	  </li>
+	  <!-- <li> -->
+		<!-- <filter> -->
+		  <!-- <thingDefs> -->
+			<!-- <li>ComponentIndustrial</li> -->
+		  <!-- </thingDefs> -->
+		<!-- </filter> -->
+		<!-- <count>1</count> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <filter> -->
+		  <!-- <thingDefs> -->
+			<!-- <li>Steel</li> -->
+		  <!-- </thingDefs> -->
+		<!-- </filter> -->
+		<!-- <count>50</count> -->
+	  <!-- </li> -->
+	</ingredients>
+	<products>
+	  <WVC_NutrientsInjector>1</WVC_NutrientsInjector>
+	</products>
+	<fixedIngredientFilter>
+	  <categories>
+		<li>FoodRaw</li>
+	  </categories>
+	  <!-- <thingDefs> -->
+		<!-- <li>ComponentIndustrial</li> -->
+		<!-- <li>Steel</li> -->
+	  <!-- </thingDefs> -->
+	</fixedIngredientFilter>
+	<defaultIngredientFilter>
+	  <categories>
+		<li>Foods</li>
+	  </categories>
+	  <disallowedCategories>
+		<li>EggsFertilized</li>
+	  </disallowedCategories>
+	  <disallowedThingDefs>
+		<li>InsectJelly</li>
+	  </disallowedThingDefs>
+	</defaultIngredientFilter>
+	<researchPrerequisites>
+	  <li>WVC_XenotypesAndGenes_NutrientsInjector</li>
+	</researchPrerequisites>
+  </RecipeDef>
+
+</Defs>

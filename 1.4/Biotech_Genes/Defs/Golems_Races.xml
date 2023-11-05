@@ -189,7 +189,7 @@
 		<lifeStages>
 			<li>
 				<bodyGraphicData>
-					<texPath>WVC/Things/Mechanoids_Golems/GolemLifter</texPath>
+					<texPath>WVC/Things/XaG_Pawns/Mechanoids_Golems/GolemLifter</texPath>
 					<drawSize>2</drawSize>
 				</bodyGraphicData>
 			</li>
@@ -226,7 +226,7 @@
 		<lifeStages>
 			<li>
 				<bodyGraphicData>
-					<texPath>WVC/Things/Mechanoids_Golems/GolemConstructor</texPath>
+					<texPath>WVC/Things/XaG_Pawns/Mechanoids_Golems/GolemConstructor</texPath>
 					<drawSize>2</drawSize>
 				</bodyGraphicData>
 			</li>
@@ -267,7 +267,7 @@
 		<lifeStages>
 			<li>
 				<bodyGraphicData>
-					<texPath>WVC/Things/Mechanoids_Golems/GolemCrafter</texPath>
+					<texPath>WVC/Things/XaG_Pawns/Mechanoids_Golems/GolemCrafter</texPath>
 					<drawSize>2</drawSize>
 				</bodyGraphicData>
 			</li>
@@ -308,7 +308,7 @@
 		<lifeStages>
 			<li>
 				<bodyGraphicData>
-					<texPath>WVC/Things/Mechanoids_Golems/GolemMiner</texPath>
+					<texPath>WVC/Things/XaG_Pawns/Mechanoids_Golems/GolemMiner</texPath>
 					<drawSize>2</drawSize>
 				</bodyGraphicData>
 			</li>
@@ -338,7 +338,7 @@
 		<lifeStages>
 			<li>
 				<bodyGraphicData>
-					<texPath>WVC/Things/Mechanoids_Golems/GolemHunter</texPath>
+					<texPath>WVC/Things/XaG_Pawns/Mechanoids_Golems/GolemHunter</texPath>
 					<drawSize>2</drawSize>
 				</bodyGraphicData>
 			</li>
@@ -354,7 +354,7 @@
 	<label>slugthrower</label>
 	<description>A compact single-shot slug thrower designed to be mounted on a light combat mechanoid.</description>
 	<graphicData>
-	  <texPath>WVC/Things/Mechanoids_Golems_Guns/Slugthrower</texPath>
+	  <texPath>WVC/Things/XaG_Items/Mechanoids_Golems_Guns/Slugthrower</texPath>
 	  <!-- <color>(70,70,70)</color> -->
 	  <graphicClass>Graphic_Single</graphicClass>
 	</graphicData>

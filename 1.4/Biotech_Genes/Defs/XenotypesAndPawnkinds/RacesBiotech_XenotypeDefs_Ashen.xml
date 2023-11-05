@@ -6,7 +6,7 @@
 	<label>ashen</label>
 	<description>Ashens are an undead sub-xenotype, despite strong genetic differences they still remain within this xenotype.
 
-&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; If the xenotype is inherited from the "Undead" xenotype, then the set of endogens will be changed.</description>
+&lt;color=#f5ffa2&gt;Gameplay Effect (Genes):&lt;/color&gt; If the xenotype is inherited from the "Undead" xenotype, then the set of endogens will be changed.</description>
 	<descriptionShort>Ashens are an undead sub-xenotype, despite strong genetic differences they still remain within this xenotype.</descriptionShort>
 	<iconPath>WVC/UI/Mecha_Icons/Xeno_Undead_v2</iconPath>
 	<descriptionHyperlinks>
