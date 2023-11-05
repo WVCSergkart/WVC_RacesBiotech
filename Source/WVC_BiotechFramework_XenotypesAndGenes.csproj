@@ -96,11 +96,12 @@
     <Compile Include="Resources_Hediff\HediffComp_ChangeXenotype.cs" />
     <Compile Include="Resources_Hediff\HediffComp_DustGestator.cs" />
     <Compile Include="Resources_Hediff\OnlyOneOverseer.cs" />
+    <Compile Include="Resources_JobGiver\JobGiver_GetSpecialFood.cs" />
     <Compile Include="Resources_Templates\SubXenotypeDefs.cs" />
     <Compile Include="Resources_Things\CompProperties_GenesInfo.cs" />
     <Compile Include="Resources_Utility\AgelessUtility.cs" />
     <Compile Include="Resources_Utility\DustUtility.cs" />
-    <Compile Include="Resources_Main\JobGiver_WanderNearTarget.cs" />
+    <Compile Include="Resources_JobGiver\JobGiver_WanderNearTarget.cs" />
     <Compile Include="Resources_Utility\GeneUiUtility.cs" />
     <Compile Include="Resources_Utility\ReimplanterUtility.cs" />
     <Compile Include="Resources_Things\CompProperties_InitialHediff.cs" />

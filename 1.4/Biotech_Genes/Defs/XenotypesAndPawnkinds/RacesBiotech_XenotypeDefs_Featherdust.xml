@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <!-- Again in beta -->
   <!-- featherdust -->
   <XenotypeDef ParentName="WVC_XenotypesAndGenes_UndeadSubXenotypes_Base">
 	<defName>WVC_Featherdust</defName>
 	<!-- undead necrokind necrokin necromantic -->
 	<label>featherdust</label>
 	<!-- Experiments, eternal youth, critical failure, side effect -->
-	<description>Featherdusts are an undead sub-xenotype, despite strong genetic differences they still remain within this xenotype. Their bodies are dependent on a biological resource called dust. Dust greatly affects their metabolism and at low levels they get hungry faster. They have innate mechanitor abilities and a slightly wild disposition. They are immune to most diseases, and the non-stable mutations of the undead do not show up on them. However, unlike their close relatives, their death is always the end.
+	<description>Featherdusts are an undead sub-xenotype, despite strong genetic differences they still remain within this xenotype. They are very willful and aggressive, but despite this they are very fragile. Their wounds heal much faster when they are unconscious, and lost limbs can grow back. They are immune to most diseases and can reimplant their genes. However, they vitally need special food, since they can hardly get enough from ordinary food.
 
-&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; If the xenotype is inherited from the "Undead" xenotype, then the set of endogens will be changed.</description>
-	<descriptionShort>Featherdusts are an undead sub-xenotype, despite strong genetic differences they still remain within this xenotype. Their bodies are dependent on a biological resource called dust. Dust greatly affects their metabolism and at low levels they get hungry faster. They have innate mechanitor abilities and a slightly wild disposition. They are immune to most diseases, and the non-stable mutations of the undead do not show up on them. However, unlike their close relatives, their death is always the end.</descriptionShort>
+&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; If the xenotype is inherited from the "Undead" xenotype, then the set of endogens will be changed.
+
+&lt;color=#f5ffa2&gt;In Beta:&lt;/color&gt; Due to significant gene redesign, a number of things related to food were not completed, so there are no dietary restrictions.</description>
+	<descriptionShort>Featherdusts are an undead sub-xenotype, despite strong genetic differences they still remain within this xenotype. They are very willful and aggressive, but despite this they are very fragile. Their wounds heal much faster when they are unconscious, and lost limbs can grow back. They are immune to most diseases and can reimplant their genes. However, they vitally need special food, since they can hardly get enough from ordinary food.</descriptionShort>
 	<iconPath>WVC/UI/Mecha_Icons/Gene_DustAngel_v0</iconPath>
 	<descriptionHyperlinks>
 	  <WVC_XenotypesAndGenes.SubXenotypeDef>WVC_DustAngel</WVC_XenotypesAndGenes.SubXenotypeDef>

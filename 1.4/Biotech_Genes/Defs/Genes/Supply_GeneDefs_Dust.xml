@@ -45,7 +45,7 @@
 	<customEffectDescriptions>
 	  <!-- <li>Gives dust supply.</li> -->
 	  <!-- <li>Refresh time (*DateTime)~1 day(/DateTime).</li> -->
-	  <li>Any ingested thing is guaranteed to provide 0.3 nutrition</li>
+	  <li>Any ingested thing is guaranteed to provide 0.3 nutrition. If the pawn cannot move at this moment (downed or in bed), then this bonus increases significantly.</li>
 	  <li>Increases the nutritional value of consumed food by 20%</li>
 	  <li>Food efficiency is multiplied by the max nutrition of the pawn.</li>
 	  <li>In the presence of the &lt;color=#8a8ae6&gt;"Undead"&lt;/color&gt; gene, it gives the effect of &lt;color=#8a8ae6&gt;reincarnation&lt;/color&gt;.</li>
