@@ -511,6 +511,7 @@ At the same time, there can be a limited number of living golems under the contr
 	<comps>
 		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_SuperRegeneration">
 			<refreshTicks>6000</refreshTicks>
+			<shouldSendNotification>false</shouldSendNotification>
 		</li>
 	</comps>
   </HediffDef>

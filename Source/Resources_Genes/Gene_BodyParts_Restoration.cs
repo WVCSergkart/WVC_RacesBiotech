@@ -26,15 +26,15 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (Active)
 				{
-					TryHealRandomPermanentWound(pawn);
+					TryHealRandomPermanentWound(pawn, this);
 				}
 				ResetInterval();
 			}
 		}
 
-		public static void TryHealRandomPermanentWound(Pawn pawn)
+		public static void TryHealRandomPermanentWound(Pawn pawn, Gene gene, bool healWound = false)
 		{
-			TaggedString taggedString = FixWorstHealthCondition(pawn);
+			TaggedString taggedString = FixWorstHealthCondition(pawn, gene, healWound);
 			if (PawnUtility.ShouldSendNotificationAbout(pawn))
 			{
 				Messages.Message(taggedString, pawn, MessageTypeDefOf.PositiveEvent);
@@ -57,7 +57,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						if (Active)
 						{
-							TryHealRandomPermanentWound(pawn);
+							TryHealRandomPermanentWound(pawn, this);
 						}
 						ResetInterval();
 					}
@@ -71,12 +71,16 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref ticksToHealBodyPart, "ticksToHealBodyPart", 0);
 		}
 
-		public static TaggedString FixWorstHealthCondition(Pawn pawn)
+		public static TaggedString FixWorstHealthCondition(Pawn pawn, Gene gene, bool healWound = false)
 		{
 			BodyPartRecord bodyPartRecord2 = FindBiggestMissingBodyPart(pawn);
 			if (bodyPartRecord2 != null)
 			{
 				return Cure(bodyPartRecord2, pawn);
+			}
+			else if (healWound)
+			{
+				HediffComp_HealPermanentWounds.TryHealRandomPermanentWound(pawn, gene.LabelCap);
 			}
 			return null;
 		}
@@ -122,7 +126,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (Active)
 				{
-					Gene_BodyPartsRestoration.TryHealRandomPermanentWound(pawn);
+					Gene_BodyPartsRestoration.TryHealRandomPermanentWound(pawn, this);
 				}
 				ResetInterval();
 			}
@@ -144,7 +148,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						if (Active)
 						{
-							Gene_BodyPartsRestoration.TryHealRandomPermanentWound(pawn);
+							Gene_BodyPartsRestoration.TryHealRandomPermanentWound(pawn, this);
 						}
 						ResetInterval();
 					}
