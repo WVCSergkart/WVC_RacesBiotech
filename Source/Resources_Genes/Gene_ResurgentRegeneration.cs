@@ -40,7 +40,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					if ((gene_Resurgent.Value - gene.def.resourceLossPerDay) >= 0f)
 					{
-						TaggedString taggedString = Gene_BodyPartsRestoration.FixWorstHealthCondition(pawn, gene, true);
+						TaggedString taggedString = HealingUtility.FixWorstHealthCondition(pawn, gene, true);
 						if (taggedString != null)
 						{
 							gene_Resurgent.Value -= gene.def.resourceLossPerDay;

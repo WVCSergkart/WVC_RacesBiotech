@@ -25,7 +25,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (Active)
 				{
-					Gene_BodyPartsRestoration.TryHealRandomPermanentWound(pawn, this, true);
+					HealingUtility.TryHealRandomPermanentWound(pawn, this, true);
 				}
 				ResetInterval();
 			}
@@ -56,7 +56,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						if (Active)
 						{
-							Gene_BodyPartsRestoration.TryHealRandomPermanentWound(pawn, this, true);
+							HealingUtility.TryHealRandomPermanentWound(pawn, this, true);
 						}
 						ResetInterval();
 					}

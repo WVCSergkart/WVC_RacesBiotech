@@ -102,6 +102,7 @@
     <Compile Include="Resources_Utility\AgelessUtility.cs" />
     <Compile Include="Resources_Utility\DustUtility.cs" />
     <Compile Include="Resources_JobGiver\JobGiver_WanderNearTarget.cs" />
+    <Compile Include="Resources_Utility\GeneHealUtility.cs" />
     <Compile Include="Resources_Utility\GeneUiUtility.cs" />
     <Compile Include="Resources_Utility\ReimplanterUtility.cs" />
     <Compile Include="Resources_Things\CompProperties_InitialHediff.cs" />

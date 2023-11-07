@@ -19,6 +19,7 @@ namespace WVC_XenotypesAndGenes
         public bool generateXenotypeForceGenes = false;
         public bool canNonPlayerPawnResurrect = false;
         public bool allowShapeshiftAfterDeath = true;
+        public bool totalHealingIgnoreScarification = true;
         // Fix
         public bool minWastepacksPerRecharge = false;
         public bool validatorAbilitiesPatch = true;
@@ -53,6 +54,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref generateXenotypeForceGenes, "generateXenotypeForceGenes", defaultValue: false);
 			Scribe_Values.Look(ref canNonPlayerPawnResurrect, "canNonPlayerPawnResurrect", defaultValue: false);
 			Scribe_Values.Look(ref allowShapeshiftAfterDeath, "allowShapeshiftAfterDeath", defaultValue: true);
+			Scribe_Values.Look(ref totalHealingIgnoreScarification, "totalHealingIgnoreScarification", defaultValue: true);
 			// Fix
 			Scribe_Values.Look(ref minWastepacksPerRecharge, "minWastepacksPerRecharge", defaultValue: false);
 			Scribe_Values.Look(ref validatorAbilitiesPatch, "validatorAbilitiesPatch", defaultValue: true);
@@ -154,6 +156,7 @@ namespace WVC_XenotypesAndGenes
             listingStandard.CheckboxLabeled("WVC_Label_generateXenotypeForceGenes".Translate(), ref settings.generateXenotypeForceGenes, "WVC_ToolTip_generateTemplateGenes".Translate());
             listingStandard.CheckboxLabeled("WVC_Label_canNonPlayerPawnResurrect".Translate(), ref settings.canNonPlayerPawnResurrect, "WVC_ToolTip_canNonPlayerPawnResurrect".Translate());
             listingStandard.CheckboxLabeled("WVC_Label_allowShapeshiftAfterDeath".Translate(), ref settings.allowShapeshiftAfterDeath, "WVC_ToolTip_allowShapeshiftAfterDeath".Translate());
+            listingStandard.CheckboxLabeled("WVC_Label_totalHealingIgnoreScarification".Translate(), ref settings.totalHealingIgnoreScarification, "WVC_ToolTip_totalHealingIgnoreScarification".Translate());
             listingStandard.Gap();
             // ===============
             listingStandard.Label("WVC_BiotechSettings_Label_Other".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Other".Translate());

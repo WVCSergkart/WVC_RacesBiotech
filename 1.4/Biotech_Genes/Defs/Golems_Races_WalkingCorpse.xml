@@ -89,7 +89,7 @@
 				  </groups>
 				</li>
 				<li>
-				  <def>Ear</def>
+				  <def>Eye</def>
 				  <customLabel>photosensitive fungus</customLabel>
 				  <coverage>0.07</coverage>
 				  <groups>
@@ -237,7 +237,7 @@ Walking corpses cannot be zoned, but they will try to stay close to the totems. 
 			<foodType>OmnivoreAnimal, OmnivoreRoughAnimal</foodType>
 			<giveNonToolUserBeatFireVerb>true</giveNonToolUserBeatFireVerb>
 			<baseHungerRate>1.8</baseHungerRate>
-			<baseHealthScale>0.4</baseHealthScale>
+			<baseHealthScale>0.6</baseHealthScale>
 			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
 			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
 			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
@@ -399,7 +399,7 @@ Walking corpses cannot be zoned, but they will try to stay close to the totems. 
 		</tools>
 		<race>
 			<baseHungerRate>2.0</baseHungerRate>
-			<baseHealthScale>0.6</baseHealthScale>
+			<baseHealthScale>0.8</baseHealthScale>
 			<lifeStageAges>
 				<li>
 					<def>MechanoidFullyFormed</def>

@@ -397,12 +397,12 @@
 	</Operation>
 
 	<!-- Should fix a bug due to which the vanilla FixWorstHealthCondition "cure" these statuses -->
-	<Operation Class="XmlExtensions.PatchOperationAddOrReplace">
-	  <xpath>/Defs/HediffDef[defName="Malnutrition" or defName="Heatstroke" or defName="Hypothermia"]</xpath>
-	  <value>
-		<isBad>false</isBad>
-	  </value>
-	</Operation>
+	<!-- <Operation Class="XmlExtensions.PatchOperationAddOrReplace"> -->
+	  <!-- <xpath>/Defs/HediffDef[defName="Malnutrition" or defName="Heatstroke" or defName="Hypothermia"]</xpath> -->
+	  <!-- <value> -->
+		<!-- <isBad>false</isBad> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
 
 	<Operation Class="XmlExtensions.FindMod">
 		<mods>

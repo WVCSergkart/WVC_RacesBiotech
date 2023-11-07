@@ -41,7 +41,7 @@ namespace WVC_XenotypesAndGenes
 					hediffs[num].Tended(Props.tendingQualityRange.RandomInRange, Props.tendingQualityRange.TrueMax, 1);
 				}
 			}
-			TaggedString taggedString = Gene_BodyPartsRestoration.FixWorstHealthCondition(pawn, null, false);
+			TaggedString taggedString = HealingUtility.FixWorstHealthCondition(pawn, null, false);
 			if (Props.shouldSendNotification && PawnUtility.ShouldSendNotificationAbout(pawn))
 			{
 				Messages.Message(taggedString, pawn, MessageTypeDefOf.PositiveEvent);

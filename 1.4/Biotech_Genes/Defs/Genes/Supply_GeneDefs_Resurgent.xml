@@ -104,7 +104,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells">
 	<defName>WVC_ResurgentCells_TotalHealing</defName>
 	<label>resurgent healing</label>
-	<description>In carriers of this gene, resurgent cells can regenerate lost limbs or heal wounds.</description>
+	<description>In carriers of this gene, resurgent cells can regenerate lost limbs or heal scars.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentTotalHealing</geneClass>
 	<!-- <marketValueFactor>3</marketValueFactor> -->
 	<iconPath>WVC/UI/Genes/Gene_ResurgentTotalHealing_v0</iconPath>

@@ -65,8 +65,8 @@ A restart is required to apply the setting.</WVC_ToolTip_minWastepacksPerRecharg
 A restart is required to apply the setting. Enabled by default.</WVC_ToolTip_validatorAbilitiesPatch>
 
 	<!-- ====================================================================================== -->
-	<WVC_Label_enableStatSkillFactor>Enable stat skill factor</WVC_Label_enableStatSkillFactor>
-	<WVC_ToolTip_enableStatSkillFactor>Responsible for whether the stat factor on skills will be applied or not.</WVC_ToolTip_enableStatSkillFactor>
+	<WVC_Label_totalHealingIgnoreScarification>Total healing genes ignore scarification</WVC_Label_totalHealingIgnoreScarification>
+	<WVC_ToolTip_totalHealingIgnoreScarification>If enabled, genes that heal scars will ignore ideological scarification. Only affects genes from the mod.</WVC_ToolTip_totalHealingIgnoreScarification>
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_generateSkillGenes>Enable aptitude genes</WVC_Label_generateSkillGenes>

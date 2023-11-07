@@ -26,18 +26,9 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (Active)
 				{
-					TryHealRandomPermanentWound(pawn, this);
+					HealingUtility.TryHealRandomPermanentWound(pawn, this);
 				}
 				ResetInterval();
-			}
-		}
-
-		public static void TryHealRandomPermanentWound(Pawn pawn, Gene gene, bool healWound = false)
-		{
-			TaggedString taggedString = FixWorstHealthCondition(pawn, gene, healWound);
-			if (PawnUtility.ShouldSendNotificationAbout(pawn))
-			{
-				Messages.Message(taggedString, pawn, MessageTypeDefOf.PositiveEvent);
 			}
 		}
 
@@ -57,7 +48,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						if (Active)
 						{
-							TryHealRandomPermanentWound(pawn, this);
+							HealingUtility.TryHealRandomPermanentWound(pawn, this);
 						}
 						ResetInterval();
 					}
@@ -69,39 +60,6 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref ticksToHealBodyPart, "ticksToHealBodyPart", 0);
-		}
-
-		public static TaggedString FixWorstHealthCondition(Pawn pawn, Gene gene, bool healWound = false)
-		{
-			BodyPartRecord bodyPartRecord2 = FindBiggestMissingBodyPart(pawn);
-			if (bodyPartRecord2 != null)
-			{
-				return Cure(bodyPartRecord2, pawn);
-			}
-			else if (healWound)
-			{
-				HediffComp_HealPermanentWounds.TryHealRandomPermanentWound(pawn, gene.LabelCap);
-			}
-			return null;
-		}
-
-		public static TaggedString Cure(BodyPartRecord part, Pawn pawn)
-		{
-			pawn.health.RestorePart(part);
-			return "HealingRestoreBodyPart".Translate(pawn, part.Label);
-		}
-
-		public static BodyPartRecord FindBiggestMissingBodyPart(Pawn pawn, float minCoverage = 0f)
-		{
-			BodyPartRecord bodyPartRecord = null;
-			foreach (Hediff_MissingPart missingPartsCommonAncestor in pawn.health.hediffSet.GetMissingPartsCommonAncestors())
-			{
-				if (!(missingPartsCommonAncestor.Part.coverageAbsWithChildren < minCoverage) && !pawn.health.hediffSet.PartOrAnyAncestorHasDirectlyAddedParts(missingPartsCommonAncestor.Part) && (bodyPartRecord == null || missingPartsCommonAncestor.Part.coverageAbsWithChildren > bodyPartRecord.coverageAbsWithChildren))
-				{
-					bodyPartRecord = missingPartsCommonAncestor.Part;
-				}
-			}
-			return bodyPartRecord;
 		}
 	}
 
@@ -126,7 +84,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (Active)
 				{
-					Gene_BodyPartsRestoration.TryHealRandomPermanentWound(pawn, this);
+					HealingUtility.TryHealRandomPermanentWound(pawn, this);
 				}
 				ResetInterval();
 			}
@@ -148,7 +106,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						if (Active)
 						{
-							Gene_BodyPartsRestoration.TryHealRandomPermanentWound(pawn, this);
+							HealingUtility.TryHealRandomPermanentWound(pawn, this);
 						}
 						ResetInterval();
 					}
