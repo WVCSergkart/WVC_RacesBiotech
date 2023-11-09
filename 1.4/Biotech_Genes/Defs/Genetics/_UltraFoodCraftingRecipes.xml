@@ -15,8 +15,8 @@
 	<ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
 	<displayPriority>-9500</displayPriority>
 	<skillRequirements>
-	  <Crafting>6</Crafting>
-	  <Intellectual>8</Intellectual>
+	  <Crafting>4</Crafting>
+	  <Intellectual>6</Intellectual>
 	</skillRequirements>
 	<recipeUsers>
 	  <li>WVC_SerumCraftingTable</li>

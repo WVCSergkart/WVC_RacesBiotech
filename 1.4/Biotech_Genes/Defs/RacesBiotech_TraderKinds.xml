@@ -29,6 +29,10 @@
 		<thingDef>ArchiteCapsule</thingDef>
 		<countRange>0~2</countRange>
 	  </li>
+	  <li Class="StockGenerator_SingleDef">
+		<thingDef>WVC_NutrientsInjector</thingDef>
+		<countRange>0~15</countRange>
+	  </li>
 	  <!-- <li Class="StockGenerator_SingleDef"> -->
 		<!-- <thingDef>WVC_EmptyXenotypeSerum</thingDef> -->
 		<!-- <countRange>0~3</countRange> -->

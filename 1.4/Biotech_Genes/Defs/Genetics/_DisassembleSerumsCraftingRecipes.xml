@@ -3,7 +3,7 @@
 
   <!-- ======================================================================= -->
 
-  <RecipeDef Name="WVC_DisassembleSerumCrafting_Base" Abstract="True">
+  <RecipeDef Name="WVC_XenotypesAndGenes_DisassembleSerumCrafting_Base" Abstract="True">
 	<label>disassemble the serum</label>
 	<description>Disassemble the serum.</description>
 	<jobString>Disassembles serum.</jobString>
@@ -30,7 +30,7 @@
 
   <!-- ======================================================================= -->
 
-  <RecipeDef ParentName="WVC_DisassembleSerumCrafting_Base">
+  <RecipeDef ParentName="WVC_XenotypesAndGenes_DisassembleSerumCrafting_Base">
 	<defName>WVC_RacesBiotech_DisassembleSerumBase</defName>
 	<label>disassemble base serum</label>
 	<description>Disassemble base serum.</description>
@@ -54,7 +54,7 @@
 	</fixedIngredientFilter>
   </RecipeDef>
 
-  <RecipeDef ParentName="WVC_DisassembleSerumCrafting_Base">
+  <RecipeDef ParentName="WVC_XenotypesAndGenes_DisassembleSerumCrafting_Base">
 	<defName>WVC_RacesBiotech_DisassembleSerumUltra</defName>
 	<label>disassemble ultra serum</label>
 	<description>Disassemble ultra serum.</description>
@@ -79,7 +79,7 @@
 	</fixedIngredientFilter>
   </RecipeDef>
 
-  <RecipeDef ParentName="WVC_DisassembleSerumCrafting_Base">
+  <RecipeDef ParentName="WVC_XenotypesAndGenes_DisassembleSerumCrafting_Base">
 	<defName>WVC_RacesBiotech_DisassembleSerumHybrid</defName>
 	<label>disassemble hybrid serum</label>
 	<description>Disassemble hybrid serum.</description>

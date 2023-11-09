@@ -74,6 +74,9 @@
 	  <li>ITab_Bills</li>
 	</inspectorTabs>
 	<comps>
+	  <!-- <li MayRequire="vanillaexpanded.vnutriente" Class="PipeSystem.CompProperties_Resource"> -->
+		<!-- <pipeNet>VNPE_NutrientPasteNet</pipeNet> -->
+	  <!-- </li> -->
 	  <li Class="CompProperties_MoteEmitter">
 		<perRotationMotes>
 		  <li>Mote_MechbandPreparing</li>
@@ -490,7 +493,7 @@
 	</statBases>
 	<stackLimit>5</stackLimit>
 	<costList>
-	  <Plasteel>35</Plasteel>
+	  <Steel>25</Steel>
 	  <ComponentIndustrial>2</ComponentIndustrial>
 	  <!-- <ComponentSpacer>2</ComponentSpacer> -->
 	</costList>

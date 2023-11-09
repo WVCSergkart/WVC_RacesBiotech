@@ -3,7 +3,7 @@
 
   <!-- ======================================================================= -->
 
-  <RecipeDef Name="WVC_RetuneSerumCrafting_Base" Abstract="True">
+  <RecipeDef Name="WVC_XenotypesAndGenes_RetuneSerumCrafting_Base" Abstract="True">
 	<label>retune the serum</label>
 	<description>Retune the serum.</description>
 	<jobString>Retunes the serum.</jobString>
@@ -27,7 +27,7 @@
 
   <!-- ======================================================================= -->
 
-  <RecipeDef ParentName="WVC_RetuneSerumCrafting_Base">
+  <RecipeDef ParentName="WVC_XenotypesAndGenes_RetuneSerumCrafting_Base">
 	<defName>WVC_RacesBiotech_RetuneSerumBase</defName>
 	<label>retune basetype serum</label>
 	<description>Retune basetype serum.</description>
@@ -46,7 +46,7 @@
 	</ingredients>
   </RecipeDef>
 
-  <RecipeDef ParentName="WVC_RetuneSerumCrafting_Base">
+  <RecipeDef ParentName="WVC_XenotypesAndGenes_RetuneSerumCrafting_Base">
 	<defName>WVC_RacesBiotech_RetuneSerumUltra</defName>
 	<label>retune ultratype serum</label>
 	<description>Retune ultratype serum.</description>
@@ -65,7 +65,7 @@
 	</ingredients>
   </RecipeDef>
 
-  <RecipeDef ParentName="WVC_RetuneSerumCrafting_Base">
+  <RecipeDef ParentName="WVC_XenotypesAndGenes_RetuneSerumCrafting_Base">
 	<defName>WVC_RacesBiotech_RetuneSerumHybrid</defName>
 	<label>retune hybridtype serum</label>
 	<description>Retune hybridtype serum.</description>

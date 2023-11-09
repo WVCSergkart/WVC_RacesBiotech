@@ -3,7 +3,7 @@
 
   <!-- ======================================================================= -->
 
-  <RecipeDef Name="WVC_VanillaSerumCrafting_Base" Abstract="True">
+  <RecipeDef Name="WVC_XenotypesAndGenes_VanillaSerumCrafting_Base" Abstract="True">
 	<label>Make mech serum</label>
 	<description>Make a mech serum.</description>
 	<jobString>Making mech serum.</jobString>
@@ -74,7 +74,7 @@
 
   <!-- ======================================================================= -->
 
-  <RecipeDef ParentName="WVC_VanillaSerumCrafting_Base">
+  <RecipeDef ParentName="WVC_XenotypesAndGenes_VanillaSerumCrafting_Base">
 	<defName>WVC_RacesBiotech_MakeMechSerumHealer</defName>
 	<label>make healer mech serum</label>
 	<description>Make a healer mech serum.</description>
@@ -133,7 +133,7 @@
 	</ingredients>
   </RecipeDef>
 
-  <RecipeDef ParentName="WVC_VanillaSerumCrafting_Base">
+  <RecipeDef ParentName="WVC_XenotypesAndGenes_VanillaSerumCrafting_Base">
 	<defName>WVC_RacesBiotech_MechSerumResurrector</defName>
 	<label>make resurrector mech serum</label>
 	<description>Make a resurrector mech serum.</description>
