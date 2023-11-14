@@ -243,6 +243,40 @@ namespace WVC_XenotypesAndGenes
 
 		// ===============================================================
 
+		public static bool HasAnyHediff(List<HediffDef> hediffDefs, Pawn pawn)
+		{
+			List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
+			for (int i = 0; i < hediffDefs.Count; i++)
+			{
+				for (int j = 0; j < hediffs.Count; j++)
+				{
+					if (hediffs[j].def == hediffDefs[i])
+					{
+						return true;
+					}
+				}
+			}
+			return false;
+		}
+
+		public static HediffDef AnyHediff(List<HediffDef> hediffDefs, Pawn pawn)
+		{
+			List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
+			for (int i = 0; i < hediffDefs.Count; i++)
+			{
+				for (int j = 0; j < hediffs.Count; j++)
+				{
+					if (hediffs[j].def == hediffDefs[i])
+					{
+						return hediffDefs[i];
+					}
+				}
+			}
+			return null;
+		}
+
+		// ===============================================================
+
 		public static void ReimplantEndogerm(Pawn caster, Pawn recipient)
 		{
 			if (!ModLister.CheckBiotech("xenogerm reimplantation"))

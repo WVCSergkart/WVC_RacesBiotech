@@ -6,7 +6,6 @@ using RimWorld.Planet;
 using RimWorld.QuestGen;
 using Verse;
 using Verse.AI.Group;
-using WVC;
 using WVC_XenotypesAndGenes;
 
 namespace WVC_XenotypesAndGenes
@@ -21,18 +20,13 @@ namespace WVC_XenotypesAndGenes
 			Slate slate = QuestGen.slate;
 			Quest quest = QuestGen.quest;
 			Pawn pawn = slate.Get<Pawn>("asker");
-			slate.Set("mechanitor", pawn);
+			// slate.Set("mechanitor", pawn);
 			Gene_Undead gene_Undead = pawn.genes?.GetFirstGeneOfType<Gene_Undead>();
 			quest.Delay(delayTicks, delegate
 			{
-				if (gene_Undead.EnoughCellsForResurrection)
+				if (gene_Undead.PawnCanResurrect())
 				{
-					gene_Undead.Gene_ResurgentCells.Value -= gene_Undead.def.resourceLossPerDay;
-					UndeadUtility.Resurrect(pawn);
-				}
-				else if (gene_Undead.EnoughAgeForResurrection)
-				{
-					UndeadUtility.ResurrectWithPenalties(pawn, gene_Undead.Limit, gene_Undead.Penalty, gene_Undead.ChildBackstoryDef, gene_Undead.AdultBackstoryDef, gene_Undead.penaltyYears);
+					UndeadUtility.NewUndeadResurrect(pawn, gene_Undead.Limit, gene_Undead.Penalty, gene_Undead.ChildBackstoryDef, gene_Undead.AdultBackstoryDef, gene_Undead.penaltyYears, gene_Undead.Gene_ResurgentCells, gene_Undead.def.resourceLossPerDay);
 				}
 				// quest.Letter(LetterDefOf.PositiveEvent, null, null, null, null, useColonistsFromCaravanArg: false, QuestPart.SignalListenMode.OngoingOnly, Gen.YieldSingle(pawn), filterDeadPawnsFromLookTargets: false, "[arrivalLetterText]", null, "[arrivalLetterLabel]");
 				QuestGen_End.End(quest, QuestEndOutcome.Success);

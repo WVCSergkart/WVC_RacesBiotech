@@ -355,6 +355,17 @@
   </QuestScriptDef>
 
   <!-- <QuestScriptDef> -->
+	<!-- <defName>WVC_Resurgent_QuestUndeadResurrection</defName> -->
+	<!-- <rootSelectionWeight>0</rootSelectionWeight> -->
+	<!-- <isRootSpecial>true</isRootSpecial> -->
+	<!-- <autoAccept>true</autoAccept> -->
+	<!-- <defaultHidden>true</defaultHidden> -->
+	<!-- <root Class="WVC_XenotypesAndGenes.QuestNode_Root_Resurrect"> -->
+	  <!-- <delayTicks>1500</delayTicks> -->
+	<!-- </root> -->
+  <!-- </QuestScriptDef> -->
+
+  <!-- <QuestScriptDef> -->
 	<!-- <defName>WVC_Resurgent_QuestUndeadResurrect</defName> -->
 	<!-- <rootSelectionWeight>0</rootSelectionWeight> -->
 	<!-- <isRootSpecial>true</isRootSpecial> -->

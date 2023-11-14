@@ -162,6 +162,16 @@
 	<!-- <gene_PawnSkillsNotDecay> -->
 		<!-- <li>Nudist</li> -->
 	<!-- </gene_PawnSkillsNotDecay> -->
+	<!-- Undead gene does not work in the presence of these hediffs. Required hediff defNames -->
+	<hediffsThatPreventUndeadResurrection>
+		<li>XenogermReplicating</li>
+		<li>XenogermLossShock</li>
+		<li>XenogerminationComa</li>
+		<li>ResurrectionSickness</li>
+		<li>WVC_Resurgent_UndeadResurrectionRecovery</li>
+		<li>WVC_Dustogenic_KillAfterTime</li>
+	</hediffsThatPreventUndeadResurrection>
+	<!-- Words that should not be in the defName of Mechanoids. Used to random summon mechanoids. Required any string -->
 	<mechDefNameShouldNotContain>
 		<li>TEST</li>
 		<li>NonPlayer</li>

@@ -1,4 +1,5 @@
 using RimWorld;
+using System.Linq;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -64,21 +65,31 @@ namespace WVC_XenotypesAndGenes
 			if (gene.def.geneClass == typeof(Gene_Undead))
 			{
 				Gene_Undead undead = (Gene_Undead)gene;
-				if (undead.DustogenicCanReincarnate())
+				if (undead.UndeadCanReincarnate)
 				{
-					text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive_UndeadReincarnate".Translate().Colorize(ColoredText.SubtleGrayColor);
+					text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive_UndeadReincarnate".Translate();
 				}
-				if (undead.AnyResourceIsActive())
+				if (undead.UndeadCanResurrect)
 				{
-					text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive_Undead".Translate().Colorize(ColoredText.SubtleGrayColor);
+					text += "\n\n" + "WVC_XaG_NewBack_GeneIsActive_Undead".Translate();
+				}
+				else if (undead.UndeadResourceIsActive)
+				{
+					text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive_Undead".Translate();
+				}
+				else
+				{
+					text += "\n\n" + "WVC_XaG_Gene_DisplayStats_Undead_CanResurrectHediffs_Desc".Translate() + ":"
+					+ "\n"
+					+ undead.PreventResurrectionHediffs.Select((HediffDef x) => x.label).ToLineList("  - ", capitalizeItems: true);
 				}
 			}
 			if (gene.def.geneClass == typeof(Gene_Scarifier))
 			{
 				Gene_Scarifier scarifier = (Gene_Scarifier)gene;
-				text += "\n\n" + ("WVC_XaG_NewBack_GeneIsScarifier".Translate() + ": " + scarifier.cachedMaxScars.ToString()).Colorize(ColoredText.SubtleGrayColor);
+				text += "\n\n" + ("WVC_XaG_NewBack_GeneIsScarifier".Translate() + ": " + scarifier.cachedMaxScars.ToString());
 			}
-			return text;
+			return text.Colorize(ColoredText.SubtleGrayColor);
 		}
 
 		public static void DrawGeneBasics(GeneDef gene, Rect geneRect, GeneType geneType, bool doBackground, bool clickable, bool overridden)

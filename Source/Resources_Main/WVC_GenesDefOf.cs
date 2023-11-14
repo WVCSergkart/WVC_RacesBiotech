@@ -63,6 +63,7 @@ namespace WVC_XenotypesAndGenes
         // public static HediffDef WVC_MechaskinHunger_HungerFactor;
         public static HediffDef WVC_IncompatibilityComa;
         public static HediffDef WVC_SelfPopulationRegulation_Golems;
+        public static HediffDef WVC_Resurgent_UndeadResurrectionRecovery;
         // public static HediffDef WVC_SelfPopulationRegulation_Golems;
         // Skills
         // public static StatDef WVC_SkillsDecayFactor;

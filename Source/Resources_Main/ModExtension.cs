@@ -21,6 +21,7 @@ namespace WVC_XenotypesAndGenes
 		public int stackCount = 1;
 		public IntRange spawnIntervalRange = new(120000, 300000);
 		public QuestScriptDef summonQuest;
+		// public QuestScriptDef resurrectionQuest;
 		// public bool writeTimeLeftToSpawn = true;
 		// public string customLabel = "Resource";
 	}
@@ -89,6 +90,7 @@ namespace WVC_XenotypesAndGenes
 		public List<GeneDef> whiteListedExoskinGenes;
 		public List<BackstoryDef> blackListedBackstoryForChanger;
 		public List<HediffDef> blackListedHediffDefForReimplanter;
+		public List<HediffDef> hediffsThatPreventUndeadResurrection;
 		// public List<ThingDef> listedGolems;
 		// public List<GeneDef> gene_IsNotAcceptablePrey;
 		// public List<GeneDef> gene_IsAngelBeauty;

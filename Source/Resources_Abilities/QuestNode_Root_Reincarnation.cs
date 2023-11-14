@@ -29,7 +29,7 @@ namespace WVC_XenotypesAndGenes
             PawnGenerationRequest request = new(pawn.kindDef, pawn.Faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: true, canGeneratePawnRelations: true, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: true, allowAddictions: false, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Adult);
             Pawn reincarnated = quest.GeneratePawn(request);
             // Log.Error("3");
-            slate.Set("mechanitor", pawn);
+            // slate.Set("mechanitor", pawn);
             slate.Set("reincarnated", reincarnated);
             GestationUtility.GeneTransfer(reincarnated, pawn, true, true);
             // reincarnated.skills.skills = pawn.skills.skills;
