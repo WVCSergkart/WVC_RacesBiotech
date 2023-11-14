@@ -13,7 +13,9 @@ namespace WVC_XenotypesAndGenes
 		public int scarifyInterval = 60000;
 		public int cachedMaxScars = 3;
 
-		public bool CanScarifyCheck()
+		public bool CanScarify => CanScarifyCheck();
+
+		private bool CanScarifyCheck()
 		{
 			if (cachedMaxScars > pawn.health.hediffSet.GetHediffCount(HediffDefOf.Scarification))
 			{
@@ -87,7 +89,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public int MaxScars()
+		private int MaxScars()
 		{
 			int scars = def.GetModExtension<GeneExtension_Giver>().scarsCount;
 			List<GeneDef> genesListForReading = def.GetModExtension<GeneExtension_Giver>()?.scarGeneDefs;

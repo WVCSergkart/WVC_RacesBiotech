@@ -63,7 +63,7 @@
 		<li>Adds a scar every few days</li>
 		<li>Base number of scars 3</li>
 		<li>Some genes can increase or decrease the number of scars.</li>
-		<li>In the presence of the &lt;color=#8a8ae6&gt;"Undead"&lt;/color&gt; gene, this gene disables the base resurrection mechanic.</li>
+		<!-- <li>In the presence of the &lt;color=#8a8ae6&gt;"Undead"&lt;/color&gt; gene, this gene disables the base resurrection mechanic.</li> -->
 	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>
@@ -143,7 +143,7 @@
 	<displayOrderInCategory>20</displayOrderInCategory>
 	<customEffectDescriptions>
 		<li>Wounds will be automatically treated, but treating each wound has a 20% scar appearance.</li>
-		<li>With the "Scarifier" gene, the number of scars will be limited.</li>
+		<li>With the &lt;color=#8a8ae6&gt;"Scarifier"&lt;/color&gt; gene, the number of scars will be limited.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>SuperClotting</li>

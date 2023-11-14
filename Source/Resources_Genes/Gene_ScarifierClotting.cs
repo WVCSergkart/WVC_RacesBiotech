@@ -28,7 +28,7 @@ namespace WVC_XenotypesAndGenes
 						if (Rand.Chance(0.2f))
 						{
 							Gene_Scarifier gene_Scarifier = pawn.genes?.GetFirstGeneOfType<Gene_Scarifier>();
-							if (gene_Scarifier == null || (gene_Scarifier != null && gene_Scarifier.CanScarifyCheck()))
+							if (gene_Scarifier == null || (gene_Scarifier != null && gene_Scarifier.CanScarify))
 							{
 								Gene_Scarifier.Scarify(pawn);
 							}

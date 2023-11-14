@@ -175,7 +175,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				info += "WVC_XaG_Gene_Blesslin_On_Info".Translate().Resolve() + ": " + cachedBlesslinkGene.timeForNextSummon.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
 			}
-			if (!pawn.Drafted && cachedScarifierGene != null && cachedScarifierGene.CanScarifyCheck())
+			if (!pawn.Drafted && cachedScarifierGene != null && cachedScarifierGene.CanScarify)
 			{
 				if (!info.NullOrEmpty())
 				{
