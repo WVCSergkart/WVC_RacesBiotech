@@ -14,7 +14,7 @@ namespace WVC_XenotypesAndGenes
             base.PostAdd();
             if (Active && Rand.Chance(0.2f))
             {
-                Gene_PermanentHediff.BodyPartGiver(Bodyparts, pawn, HediffDefName);
+                Gene_PermanentHediff.BodyPartsGiver(Bodyparts, pawn, HediffDefName);
             }
             // HediffGiver(Bodyparts, HediffDefName, pawn, Active);
         }
@@ -29,7 +29,7 @@ namespace WVC_XenotypesAndGenes
             }
             if (Active && Rand.Chance(0.2f))
             {
-                Gene_PermanentHediff.BodyPartGiver(Bodyparts, pawn, HediffDefName);
+                Gene_PermanentHediff.BodyPartsGiver(Bodyparts, pawn, HediffDefName);
             }
             // HediffGiver(Bodyparts, HediffDefName, pawn, Active);
         }

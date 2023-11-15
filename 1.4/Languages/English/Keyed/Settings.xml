@@ -24,6 +24,10 @@ It is recommended to enable all settings for the first acquaintance with the mod
 	<WVC_BiotechSettings_XenotypesFilter_Title>Set xenotypes that can be used for serums. Restart is required.</WVC_BiotechSettings_XenotypesFilter_Title>
 	<WVC_BiotechSettings_XenotypesFilter_Search>Search:</WVC_BiotechSettings_XenotypesFilter_Search>
 
+	<!-- <WVC_BiotechSettings_XenotypesFilter_Checkbox_Serums>Serums</WVC_BiotechSettings_XenotypesFilter_Checkbox_Serums> -->
+	<!-- <WVC_BiotechSettings_XenotypesFilter_Checkbox_XenoForcers>Xeno-forcers</WVC_BiotechSettings_XenotypesFilter_Checkbox_XenoForcers> -->
+	<!-- <WVC_BiotechSettings_XenotypesFilter_Checkbox_RandomSerums>Mini serums</WVC_BiotechSettings_XenotypesFilter_Checkbox_RandomSerums> -->
+
 	<!-- ====================================================================================== -->
 	<WVC_Label_disableFurGraphic>Disable mecha/node/rune/stone(skin) graphic</WVC_Label_disableFurGraphic>
 	<WVC_ToolTip_disableFurGraphic>Turns off the visual changes introduced by (...)skins.
@@ -76,6 +80,12 @@ A restart is required to apply the setting. Enabled by default.</WVC_ToolTip_val
 	<WVC_ToolTip_generateTemplateGenes>If enabled, the corresponding genes will be generated at startup.
 
 A restart is required to apply the setting.</WVC_ToolTip_generateTemplateGenes>
+
+	<!-- ====================================================================================== -->
+	<WVC_Label_genesRemoveMechlinkUponDeath>Genes remove mechlink upon death</WVC_Label_genesRemoveMechlinkUponDeath>
+	<WVC_ToolTip_genesRemoveMechlinkUponDeath>If enabled, then in case of death the mechlink will be removed from pawns with the corresponding gene.
+
+Please note that resurrecting a pawn will not bring back a disappeared mechlink.</WVC_ToolTip_genesRemoveMechlinkUponDeath>
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_canNonPlayerPawnResurrect>Can non-player pawns be resurrected</WVC_Label_canNonPlayerPawnResurrect>

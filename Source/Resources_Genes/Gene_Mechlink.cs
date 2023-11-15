@@ -8,7 +8,41 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_DustMechlink : Gene_DustHediffGiver
+	public class Gene_Mechlink : Gene
+	{
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
+			{
+				pawn.health.AddHediff(HediffDefOf.MechlinkImplant, pawn.health.hediffSet.GetBrain());
+			}
+		}
+
+		public override void Notify_PawnDied()
+		{
+			base.Notify_PawnDied();
+			if (WVC_Biotech.settings.genesRemoveMechlinkUponDeath && pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
+			{
+				Gene_AddOrRemoveHediff.RemoveHediff(HediffDefOf.MechlinkImplant, pawn);
+				// DamageInfo dinfo = new(DamageDefOf.ExecutionCut, 9999f, 999f, -1f, null, pawn.health.hediffSet.GetBrain());
+				// pawn.TakeDamage(dinfo);
+			}
+		}
+
+		public override void Reset()
+		{
+			base.Reset();
+			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
+			{
+				pawn.health.AddHediff(HediffDefOf.MechlinkImplant, pawn.health.hediffSet.GetBrain());
+			}
+		}
+
+	}
+
+	public class Gene_DustMechlink : Gene_Mechlink
 	{
 
 		public IntRange SpawnIntervalRange => def.GetModExtension<GeneExtension_Spawner>().spawnIntervalRange;

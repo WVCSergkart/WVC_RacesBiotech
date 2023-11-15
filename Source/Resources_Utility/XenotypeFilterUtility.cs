@@ -43,6 +43,20 @@ namespace WVC_XenotypesAndGenes
 				{
 					list.Add(item);
 				}
+				// foreach (XenotypeDef thingDef in WVC_Biotech.allXenotypes)
+				// {
+					// if (WVC_Biotech.cachedXenotypesFilter[thingDef.defName] == false)
+					// {
+						// list.Add(thingDef.defName);
+					// }
+				// }
+				// if (!WVC_Biotech.cachedXenotypeDefNames.NullOrEmpty())
+				// {
+					// foreach (XenotypeDef thingDef in WVC_Biotech.cachedXenotypeDefNames)
+					// {
+						// list.Add(thingDef.defName);
+					// }
+				// }
 			}
 			return list;
 		}

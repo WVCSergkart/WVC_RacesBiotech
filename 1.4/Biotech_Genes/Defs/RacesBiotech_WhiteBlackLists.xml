@@ -21,6 +21,7 @@
 		<li>AG_RandomCustom</li>
 		<li>VREA_AndroidBasic</li>
 		<li>VREA_AndroidAwakened</li>
+		<li>VREA_</li>
 	</blackListedXenotypesForSerums>
 	<!-- List of xenotypes that can be in the resurrection serum. Any xenotype defs -->
 	<!-- It is combined with the usual list, it is only necessary to determine which of the prohibited xenotypes are allowed specifically for these purposes. -->

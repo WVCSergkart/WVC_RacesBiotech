@@ -5,7 +5,7 @@
 	<label>mechlink</label> 
 	<labelShortAdj>mechlink</labelShortAdj>
 	<description>Carriers of the gene have archites that form a mechlink in the brain, which allows them to control the mechanoids.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_PermanentHediff</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Mechlink</geneClass>
 	<selectionWeight>0.03</selectionWeight>
 	<!-- <displayCategory>Ability</displayCategory> -->
 	<!-- <displayCategory>Archite</displayCategory> -->

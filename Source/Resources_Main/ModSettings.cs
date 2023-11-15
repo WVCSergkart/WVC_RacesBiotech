@@ -20,6 +20,7 @@ namespace WVC_XenotypesAndGenes
 		public bool canNonPlayerPawnResurrect = false;
 		public bool allowShapeshiftAfterDeath = true;
 		public bool totalHealingIgnoreScarification = true;
+		public bool genesRemoveMechlinkUponDeath = false;
 		// Fix
 		public bool minWastepacksPerRecharge = false;
 		public bool validatorAbilitiesPatch = true;
@@ -55,6 +56,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref canNonPlayerPawnResurrect, "canNonPlayerPawnResurrect", defaultValue: false);
 			Scribe_Values.Look(ref allowShapeshiftAfterDeath, "allowShapeshiftAfterDeath", defaultValue: true);
 			Scribe_Values.Look(ref totalHealingIgnoreScarification, "totalHealingIgnoreScarification", defaultValue: true);
+			Scribe_Values.Look(ref genesRemoveMechlinkUponDeath, "genesRemoveMechlinkUponDeath", defaultValue: false);
 			// Fix
 			Scribe_Values.Look(ref minWastepacksPerRecharge, "minWastepacksPerRecharge", defaultValue: false);
 			Scribe_Values.Look(ref validatorAbilitiesPatch, "validatorAbilitiesPatch", defaultValue: true);
@@ -127,6 +129,10 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		// General Settings
+		// General Settings
+		// General Settings
+
 		private void GeneralSettings(Rect inRect)
 		{
 			Rect outRect = new(inRect.x, inRect.y, inRect.width, inRect.height);
@@ -157,6 +163,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_canNonPlayerPawnResurrect".Translate(), ref settings.canNonPlayerPawnResurrect, "WVC_ToolTip_canNonPlayerPawnResurrect".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_allowShapeshiftAfterDeath".Translate(), ref settings.allowShapeshiftAfterDeath, "WVC_ToolTip_allowShapeshiftAfterDeath".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_totalHealingIgnoreScarification".Translate(), ref settings.totalHealingIgnoreScarification, "WVC_ToolTip_totalHealingIgnoreScarification".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_genesRemoveMechlinkUponDeath".Translate(), ref settings.genesRemoveMechlinkUponDeath, "WVC_ToolTip_genesRemoveMechlinkUponDeath".Translate());
 			listingStandard.Gap();
 			// ===============
 			listingStandard.Label("WVC_BiotechSettings_Label_Other".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Other".Translate());
@@ -175,6 +182,10 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.End();
 			Widgets.EndScrollView();
 		}
+
+		// Xenotype Filter Settings
+		// Xenotype Filter Settings
+		// Xenotype Filter Settings
 
 		private string searchKey;
 		private static Vector2 scrollPosition = Vector2.zero;
@@ -234,18 +245,23 @@ namespace WVC_XenotypesAndGenes
 				if (canDrawGroup)
 				{
 					// Log.Error("1");
-					var iconRect = new Rect(outerPos.x + 5, outerPos.y + 5, 24, 24);
+					var infoRect = new Rect(outerPos.x + 5, outerPos.y + 5, 24, 24);
+					Widgets.InfoCardButton(infoRect, def);
+					var iconRect = new Rect(infoRect.xMax + 5, outerPos.y + 5, 24, 24);
 					Widgets.DefIcon(iconRect, def);
+					// Widgets.HyperlinkWithIcon(iconRect, new Dialog_InfoCard.Hyperlink(def));
 					// Log.Error("2");
-					var labelRect = new Rect(iconRect.xMax + 15, outerPos.y + 5, viewArea.width - 80, 24f);
+					var labelRect = new Rect(iconRect.xMax + 15, outerPos.y + 5, viewArea.width - 85, 24f);
 					Widgets.DrawHighlightIfMouseover(labelRect);
-					Widgets.Label(labelRect, def.LabelCap);
+					// Widgets.Label(labelRect, def.LabelCap);
 					// Log.Error("3");
-					var pos = new Vector2(viewArea.width - 40, labelRect.y);
+					// var pos = new Vector2(viewArea.width - 40, labelRect.y);
 					// Log.Error("4");
 					bool value = cachedXenotypesFilter[def.defName];
+					Widgets.CheckboxLabeled(labelRect, def.LabelCap, ref value);
+					// Widgets.InfoCardButton(pos, def);
 					// bool value = true;
-					Widgets.Checkbox(pos, ref value);
+					// Widgets.Checkbox(pos, ref value);
 					// Log.Error("5");
 					cachedXenotypesFilter[def.defName] = value;
 				}

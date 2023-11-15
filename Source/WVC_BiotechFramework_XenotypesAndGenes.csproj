@@ -77,8 +77,7 @@
     <Compile Include="Resources_Genes\Gene_Dust.cs" />
     <Compile Include="Resources_Genes\Gene_DustAgeless.cs" />
     <Compile Include="Resources_Genes\Gene_DustClotting.cs" />
-    <Compile Include="Resources_Genes\Gene_DustHediffGiver.cs" />
-    <Compile Include="Resources_Genes\Gene_DustMechlink.cs" />
+    <Compile Include="Resources_Genes\Gene_Mechlink.cs" />
     <Compile Include="Resources_Genes\Gene_DustUndeadReincarnation.cs" />
     <Compile Include="Resources_Genes\Gene_GenerateHediffFromRandomDef.cs" />
     <Compile Include="Resources_Genes\Gene_ResurgentCellsGain.cs" />
@@ -127,8 +126,6 @@
     <Compile Include="Resources_Genes\Gene_Faceless.cs" />
     <Compile Include="Resources_Genes\Gene_GestatorTestTool.cs" />
     <Compile Include="Resources_Genes\Gene_MechaClotting.cs" />
-    <Compile Include="Resources_Genes\Gene_PermanentHediff.cs" />
-    <Compile Include="Resources_Genes\Gene_HediffRandomizer.cs" />
     <Compile Include="Resources_Genes\Gene_Spawner.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_CauseSetting.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_MechanitorUsedBandwidth.cs" />

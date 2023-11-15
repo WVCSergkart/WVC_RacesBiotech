@@ -29,6 +29,7 @@ namespace WVC_XenotypesAndGenes
 			// anyShieldItemPresent = DefDatabase<ThingDef>.AllDefs.Any(x => x.GetCompProperties<CompProperties_Shield>() != null);
 			// List<string> whiteListedXenotypesFromDef = XenotypeFilterUtility.WhiteListedXenotypesForFilter();
 			WVC_Biotech.cachedXenotypesFilter ??= new Dictionary<string, bool>();
+			// WVC_Biotech.cachedXenotypeDefNames ??= new List<XenotypeDef>();
 			WVC_Biotech.allXenotypes = XenotypeFilterUtility.WhiteListedXenotypes(false);
 			SetValues(XenotypeFilterUtility.WhiteListedXenotypesForFilter());
 			foreach (XenotypeDef item in XenotypeFilterUtility.WhiteListedXenotypes(true, true))
@@ -132,7 +133,6 @@ namespace WVC_XenotypesAndGenes
 				// {
 				// filterBlackListedXenotypesForSerums.Add(thingDef.defName);
 				// }
-
 				if (WVC_Biotech.cachedXenotypesFilter[thingDef.defName] == false)
 				{
 					filterBlackListedXenotypesForSerums.Add(thingDef.defName);
