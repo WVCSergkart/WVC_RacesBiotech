@@ -10,6 +10,7 @@
 	<WVC_BiotechSettings_Label_Info>Info</WVC_BiotechSettings_Label_Info>
 	<WVC_BiotechSettings_Label_Genes>Genes</WVC_BiotechSettings_Label_Genes>
 	<WVC_BiotechSettings_Label_Other>Other</WVC_BiotechSettings_Label_Other>
+	<WVC_BiotechSettings_Label_Serums>Serums</WVC_BiotechSettings_Label_Serums>
 
 	<WVC_BiotechSettings_Tooltip_Graphics>Settings responsible for graphic elements.</WVC_BiotechSettings_Tooltip_Graphics>
 	<WVC_BiotechSettings_Tooltip_Info>Settings responsible for information in the interface.
@@ -17,6 +18,7 @@
 It is recommended to enable all settings for the first acquaintance with the mod. Or disable all settings for a very small performance boost.</WVC_BiotechSettings_Tooltip_Info>
 	<WVC_BiotechSettings_Tooltip_Genes>Settings responsible for the special effects of genes.</WVC_BiotechSettings_Tooltip_Genes>
 	<WVC_BiotechSettings_Tooltip_Other>Settings not related to anything specific.</WVC_BiotechSettings_Tooltip_Other>
+	<WVC_BiotechSettings_Tooltip_Serums>Settings responsible for the generation of serums. If game launch too long, it is recommended to disable all.</WVC_BiotechSettings_Tooltip_Serums>
 
 	<WVC_BiotechSettings_XenotypesFilter_Reset>Reset to default</WVC_BiotechSettings_XenotypesFilter_Reset>
 	<WVC_BiotechSettings_XenotypesFilter_Title>Set xenotypes that can be used for serums. Restart is required.</WVC_BiotechSettings_XenotypesFilter_Title>
