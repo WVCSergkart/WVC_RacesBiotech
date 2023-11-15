@@ -3,69 +3,81 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_ResurgentDependent : Gene
-    {
+	public class Gene_ResurgentDependent : Gene
+	{
 
-        public override bool Active
-        {
-            get
-            {
-                if (base.Active)
-                {
-                    if (pawn?.genes != null)
-                    {
-                        return ResurgentCells(pawn, def);
-                    }
-                }
-                return base.Active;
-            }
-        }
+		[Unsaved(false)]
+		private Gene_ResurgentCells cachedResurgentGene;
 
-        public bool ResurgentCells(Pawn pawn, GeneDef def)
-        {
-            Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
-            if (gene_Resurgent != null)
-            {
-                if (gene_Resurgent.Value >= gene_Resurgent.MinLevelForAlert)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
+		public override bool Active
+		{
+			get
+			{
+				if (base.Active)
+				{
+					if (pawn?.genes != null)
+					{
+						return ResurgentCells(pawn);
+					}
+				}
+				return base.Active;
+			}
+		}
 
-    }
+		public bool ResurgentCells(Pawn pawn)
+		{
+			if (cachedResurgentGene == null)
+			{
+				cachedResurgentGene = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
+			}
+			if (cachedResurgentGene != null)
+			{
+				if (cachedResurgentGene.Value >= cachedResurgentGene.MinLevelForAlert)
+				{
+					return true;
+				}
+			}
+			return false;
+		}
 
-    public class Gene_ResurgentActive : Gene
-    {
+	}
 
-        public override bool Active
-        {
-            get
-            {
-                if (base.Active)
-                {
-                    if (pawn?.genes != null)
-                    {
-                        return ResurgentCells(pawn, def);
-                    }
-                }
-                return false;
-            }
-        }
+	public class Gene_ResurgentActive : Gene
+	{
 
-        public bool ResurgentCells(Pawn pawn, GeneDef def)
-        {
-            Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
-            if (gene_Resurgent != null)
-            {
-                if (gene_Resurgent.Value >= def.resourceLossPerDay)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
+		[Unsaved(false)]
+		private Gene_ResurgentCells cachedResurgentGene;
 
-    }
+		public override bool Active
+		{
+			get
+			{
+				if (base.Active)
+				{
+					if (pawn?.genes != null)
+					{
+						return ResurgentCells(pawn);
+					}
+				}
+				return false;
+			}
+		}
+
+		public bool ResurgentCells(Pawn pawn)
+		{
+			if (cachedResurgentGene == null)
+			{
+				cachedResurgentGene = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
+			}
+			if (cachedResurgentGene != null)
+			{
+				if (cachedResurgentGene.Value >= def.resourceLossPerDay)
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
+	}
 }

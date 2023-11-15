@@ -18,6 +18,21 @@ namespace WVC_XenotypesAndGenes
 			SubXenotypeUtility.XenotypeShapeShift(pawn, Xenotype, this);
 		}
 
+		// public override IEnumerable<Gizmo> GetGizmos()
+		// {
+			// if (DebugSettings.ShowDevGizmos)
+			// {
+				// yield return new Command_Action
+				// {
+					// defaultLabel = "DEV: Shapeshift",
+					// action = delegate
+					// {
+						// SubXenotypeUtility.XenotypeShapeShift(pawn, Xenotype, this, 1.0f);
+					// }
+				// };
+			// }
+		// }
+
 	}
 
 }
