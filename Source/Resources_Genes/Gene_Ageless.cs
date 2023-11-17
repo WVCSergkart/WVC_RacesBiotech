@@ -155,8 +155,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
-			if (gene_Resurgent != null)
+			// Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
+			if (cachedResurgentGene != null)
 			{
 				// if ((oneYear * humanAdultAge) <= pawn.ageTracker.AgeBiologicalTicks)
 				// {
@@ -190,14 +190,14 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (AgelessUtility.CanAgeReverse(pawn))
 			{
-				Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
-				if (gene_Resurgent != null)
+				// Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
+				if (cachedResurgentGene != null)
 				{
-					if (gene_Resurgent.ageReversionAllowed)
+					if (cachedResurgentGene.ageReversionAllowed)
 					{
-						if ((gene_Resurgent.Value - def.resourceLossPerDay) >= 0f)
+						if ((cachedResurgentGene.Value - def.resourceLossPerDay) >= 0f)
 						{
-							gene_Resurgent.Value -= def.resourceLossPerDay;
+							cachedResurgentGene.Value -= def.resourceLossPerDay;
 							AgelessUtility.AgeReverse(pawn);
 						}
 					}

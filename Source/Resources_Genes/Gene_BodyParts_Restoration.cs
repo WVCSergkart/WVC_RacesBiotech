@@ -214,19 +214,19 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void TryHealRandomPermanentWound(Pawn pawn, Gene gene)
+		private void TryHealRandomPermanentWound(Pawn pawn, Gene gene)
 		{
-			Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
-			if (gene_Resurgent != null)
+			// Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
+			if (cachedResurgentGene != null)
 			{
-				if (gene_Resurgent.totalHealingAllowed)
+				if (cachedResurgentGene.totalHealingAllowed)
 				{
-					if ((gene_Resurgent.Value - gene.def.resourceLossPerDay) >= 0f)
+					if ((cachedResurgentGene.Value - gene.def.resourceLossPerDay) >= 0f)
 					{
 						TaggedString taggedString = HealingUtility.FixWorstHealthCondition(pawn, gene, true);
 						if (taggedString != null)
 						{
-							gene_Resurgent.Value -= gene.def.resourceLossPerDay;
+							cachedResurgentGene.Value -= gene.def.resourceLossPerDay;
 						}
 						if (PawnUtility.ShouldSendNotificationAbout(pawn))
 						{

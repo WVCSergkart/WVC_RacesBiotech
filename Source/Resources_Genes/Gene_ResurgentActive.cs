@@ -7,7 +7,7 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		[Unsaved(false)]
-		private Gene_ResurgentCells cachedResurgentGene;
+		public Gene_ResurgentCells cachedResurgentGene;
 
 		public override bool Active
 		{

@@ -8,7 +8,7 @@ namespace WVC_XenotypesAndGenes
 	{
 		// private const int ClotCheckInterval = 750;
 
-		private static readonly FloatRange TendingQualityRange = new FloatRange(0.5f, 1.0f);
+		private static readonly FloatRange TendingQualityRange = new(0.5f, 1.0f);
 
 		public override void Tick()
 		{
@@ -87,14 +87,14 @@ namespace WVC_XenotypesAndGenes
 				{
 					if (hediffs[num].TendableNow() && !hediffs[num].IsTended())
 					{
-						Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
-						if (gene_Resurgent != null)
+						// Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
+						if (cachedResurgentGene != null)
 						{
-							if (gene_Resurgent.woundClottingAllowed)
+							if (cachedResurgentGene.woundClottingAllowed)
 							{
-								if ((gene_Resurgent.Value - def.resourceLossPerDay) >= 0f)
+								if ((cachedResurgentGene.Value - def.resourceLossPerDay) >= 0f)
 								{
-									gene_Resurgent.Value -= def.resourceLossPerDay;
+                                    cachedResurgentGene.Value -= def.resourceLossPerDay;
 									hediffs[num].Tended(TendingQualityRange.RandomInRange, TendingQualityRange.TrueMax, 1);
 								}
 							}
