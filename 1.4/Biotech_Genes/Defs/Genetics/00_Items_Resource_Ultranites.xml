@@ -9,6 +9,7 @@
 	  <ThingDef>WVC_XenotypesAndGenes_UltranitesSpawner</ThingDef>
 	  <ThingDef>WVC_XenotypesAndGenes_UltraniteRecycler</ThingDef>
 	  <ThingDef MayRequire="wvc.sergkart.core">ComponentSpawner_WVC</ThingDef>
+	  <ThingDef MayRequire="wvc.sergkart.ultraexpansion">WVC_UltraniteAssembler</ThingDef>
 	  <!-- <ConceptDef>WVC_MechanitesIsUniversalFuel</ConceptDef> -->
 	</descriptionHyperlinks>
 	<!-- <tickerType>Normal</tickerType> -->

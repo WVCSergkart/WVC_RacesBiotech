@@ -39,6 +39,7 @@
 		<!-- <li>sarg.alphagenes</li> -->
 		<!-- - -->
 		<li>wvc.sergkart.core</li>
+		<li>wvc.sergkart.ultraexpansion</li>
 	</loadAfter>
 	<loadBefore>
 		<!-- <li>honkai.girls.sergkart</li> -->

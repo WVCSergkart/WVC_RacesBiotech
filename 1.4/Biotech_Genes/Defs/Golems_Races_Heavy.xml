@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<ThingDef ParentName="WVC_GolemsBase" Name="WVC_GolemsHeavy" Abstract="True">
+	<ThingDef ParentName="WVC_XenotypesAndGenes_GolemsBase" Name="WVC_XenotypesAndGenes_GolemsHeavy" Abstract="True">
 		<statBases>
 			<ArmorRating_Sharp>0.55</ArmorRating_Sharp>
 			<ArmorRating_Blunt>0.65</ArmorRating_Blunt>
@@ -46,7 +46,7 @@
 
 	<!-- =================================================================== -->
 
-	<ThingDef ParentName="WVC_GolemsHeavy">
+	<ThingDef ParentName="WVC_XenotypesAndGenes_GolemsHeavy">
 		<defName>WVC_Golem_Behemoth</defName>
 		<label>golem behemoth</label>
 		<statBases>
@@ -60,7 +60,7 @@
 			</mechEnabledWorkTypes>
 		</race>
 	</ThingDef>
-	<PawnKindDef ParentName="WVC_NonCombatGolemKind">
+	<PawnKindDef ParentName="WVC_XenotypesAndGenes_NonCombatGolemKind">
 		<defName>WVC_Golem_Behemoth</defName>
 		<label>golem behemoth</label>
 		<controlGroupPortraitZoom>1.35</controlGroupPortraitZoom>
