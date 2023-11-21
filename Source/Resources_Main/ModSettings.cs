@@ -87,6 +87,8 @@ namespace WVC_XenotypesAndGenes
 
 		private int PageIndex = 0;
 
+		private static Vector2 scrollPosition = Vector2.zero;
+
 		public WVC_Biotech(ModContentPack content) : base(content)
 		{
 			settings = GetSettings<WVC_BiotechSettings>();
@@ -188,7 +190,6 @@ namespace WVC_XenotypesAndGenes
 		// Xenotype Filter Settings
 
 		private string searchKey;
-		private static Vector2 scrollPosition = Vector2.zero;
 
 		public static Dictionary<string, bool> cachedXenotypesFilter = new();
 		public static List<XenotypeDef> allXenotypes = new();
