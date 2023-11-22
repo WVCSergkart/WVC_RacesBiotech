@@ -1,4 +1,4 @@
-# WVC_RacesBiotech
+# WVC_XenotypesAndGenes v1.17.57
  
 Pre-release versions require resetting the mod settings.
 
