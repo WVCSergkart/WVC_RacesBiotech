@@ -6,7 +6,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_Archites" Name="WVC_XenotypesAndGenes_GeneArchiteMisc_Software" Abstract="True">
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_WithConditions</geneClass> -->
 	<!-- <displayCategory>WVC_MechaBodyWare</displayCategory> -->
-	<labelShortAdj>subcore</labelShortAdj>
+	<!-- <labelShortAdj>subcore</labelShortAdj> -->
 	<!-- <description>Archites modified the owner's brain quite a lot, which opened up new possibilities.</description> -->
 	<!-- <description>Carriers of this gene have archites that have formed a mechanoid subcore.</description> -->
 	<description>Carriers of this gene have archites that have formed special neural connections that expand the capabilities of the carrier's brain.</description>
