@@ -78,4 +78,67 @@
 	</researchPrerequisites>
   </RecipeDef>
 
+  <RecipeDef ParentName="CookMealBase" Name="WVC_XenotypesAndGenes_CookMeal_Base"  Abstract="True">
+	<workSpeedStat>CookSpeed</workSpeedStat>
+	<effectWorking>Cook</effectWorking>
+	<soundWorking>Recipe_CookMeal</soundWorking>
+	<allowMixingIngredients>true</allowMixingIngredients>
+	<ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+	<skillRequirements>
+	  <Cooking>8</Cooking>
+	</skillRequirements>
+	<researchPrerequisites>
+	  <li>NutrientPaste</li>
+	  <li>PackagedSurvivalMeal</li>
+	</researchPrerequisites>
+	<displayPriority>1500</displayPriority>
+  </RecipeDef>
+
+  <RecipeDef ParentName="WVC_XenotypesAndGenes_CookMeal_Base">
+	<defName>WVC_CookMealDustPack</defName>
+	<label>cook packaged dustogenic meal</label>
+	<description>Prepare a packaged dustogenic meal from a combination of meat and plant ingredients. Much of the ingredients are wasted in the preservation process.</description>
+	<jobString>Cooking dustogenic meal.</jobString>
+	<ingredients>
+	  <li>
+		<filter>
+		  <customSummary>nutrients</customSummary>
+		  <categories>
+			<li>MeatRaw</li>
+			<li>AnimalProductRaw</li>
+			<li>PlantFoodRaw</li>
+		  </categories>
+		</filter>
+		<count>0.60</count>
+	  </li>
+	</ingredients>
+	<products>
+	  <WVC_MealDustPack>1</WVC_MealDustPack>
+	</products>
+  </RecipeDef>
+
+  <RecipeDef ParentName="WVC_XenotypesAndGenes_CookMeal_Base">
+	<defName>WVC_CookCookMealDustPackBulk</defName>
+	<label>cook packaged dustogenic meal x4</label>
+	<description>Prepare 4 packaged dustogenic meals from a combination of meat and plant ingredients. Much of the ingredients are wasted in the preservation process.</description>
+	<jobString>Cooking 4 dustogenic meals.</jobString>
+	<workAmount>1440</workAmount>
+	<ingredients>
+	  <li>
+		<filter>
+		  <customSummary>nutrients</customSummary>
+		  <categories>
+			<li>MeatRaw</li>
+			<li>AnimalProductRaw</li>
+			<li>PlantFoodRaw</li>
+		  </categories>
+		</filter>
+		<count>2.40</count>
+	  </li>
+	</ingredients>
+	<products>
+	  <WVC_MealDustPack>4</WVC_MealDustPack>
+	</products>
+  </RecipeDef>
+
 </Defs>
