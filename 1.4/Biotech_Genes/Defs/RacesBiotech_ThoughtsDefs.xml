@@ -17,9 +17,9 @@
 	</nullifyingPrecepts>
 	<stages>
 	  <li>
-		<label>ingested nutrients injector</label>
-		<description>I ingested a nutrients injector. It may be nutritious, but it is completely tasteless.</description>
-		<baseMoodEffect>-5</baseMoodEffect>
+		<label>ingested dust food</label>
+		<description>I ingested a dustogenic food. It may be nutritious, but it is completely tasteless.</description>
+		<baseMoodEffect>-4</baseMoodEffect>
 	  </li>
 	</stages>
   </ThoughtDef>

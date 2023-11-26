@@ -71,7 +71,8 @@ Dustogenic pawns will automatically try to use these injectors instead of regula
 	  <texPath>WVC/Things/XaG_Items/DustPack</texPath>
 	  <!-- <graphicClass>Graphic_MealVariants</graphicClass> -->
 	  <graphicClass>Graphic_StackCount</graphicClass>
-	  <color>(249,241,148)</color>
+	  <!-- <color>(249,241,148)</color> -->
+	  <color>(255,249,153)</color>
 	</graphicData>
 	<statBases>
 	  <DeteriorationRate>0.25</DeteriorationRate>
@@ -91,6 +92,46 @@ Dustogenic pawns will automatically try to use these injectors instead of regula
 	  <ingestSound>Meal_Eat</ingestSound>
 	</ingestible>
 	<allowedArchonexusCount>40</allowedArchonexusCount>
+  </ThingDef>
+
+  <ThingDef ParentName="MealBase">
+	<defName>WVC_MealDustogenicPaste</defName>
+	<label>dustogenic paste meal</label>
+	<description>A synthetic mixture of protein, carbohydrates, and vitamins, amino acids, minerals and hemogen. Everything the dustogenic body needs, and absolutely disgusting.</description>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/NutrientPaste</texPath>
+	  <graphicClass>Graphic_StackCount</graphicClass>
+	  <color>(255,193,149)</color>
+	  <!-- <color>(249,241,148)</color> -->
+	</graphicData>
+	<statBases>
+	  <MarketValue>10</MarketValue>
+	  <Mass>0.3</Mass>
+	  <WorkToMake>450</WorkToMake>
+	  <Nutrition>0.9</Nutrition>
+	</statBases>
+	<ingestible>
+	  <maxNumToIngestAtOnce>1</maxNumToIngestAtOnce>
+	  <preferability>DesperateOnly</preferability>
+	  <optimalityOffsetHumanlikes>-15</optimalityOffsetHumanlikes>
+	  <optimalityOffsetFeedingAnimals>-100</optimalityOffsetFeedingAnimals>
+	  <!-- <ateEvent>AteNutrientPaste</ateEvent> -->
+	  <specialThoughtDirect>WVC_IngestedNutrientsInjector</specialThoughtDirect>
+	  <ingestEffect>EatVegetarian</ingestEffect>
+	  <ingestSound>Meal_Eat</ingestSound>
+	  <outcomeDoers>
+		<li Class="IngestionOutcomeDoer_OffsetHemogen">
+		  <offset>0.4</offset>
+		</li>
+	  </outcomeDoers>
+	</ingestible>
+	<tradeability>Buyable</tradeability>
+	<comps>
+	  <li Class="CompProperties_Rottable">
+		<daysToRotStart>6</daysToRotStart>
+		<rotDestroys>true</rotDestroys>
+	  </li>
+	</comps>
   </ThingDef>
 
 </Defs>

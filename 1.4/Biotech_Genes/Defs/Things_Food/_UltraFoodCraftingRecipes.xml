@@ -33,22 +33,6 @@
 		</filter>
 		<count>2</count>
 	  </li>
-	  <!-- <li> -->
-		<!-- <filter> -->
-		  <!-- <thingDefs> -->
-			<!-- <li>ComponentIndustrial</li> -->
-		  <!-- </thingDefs> -->
-		<!-- </filter> -->
-		<!-- <count>1</count> -->
-	  <!-- </li> -->
-	  <!-- <li> -->
-		<!-- <filter> -->
-		  <!-- <thingDefs> -->
-			<!-- <li>Steel</li> -->
-		  <!-- </thingDefs> -->
-		<!-- </filter> -->
-		<!-- <count>50</count> -->
-	  <!-- </li> -->
 	</ingredients>
 	<products>
 	  <WVC_NutrientsInjector>1</WVC_NutrientsInjector>
@@ -57,10 +41,6 @@
 	  <categories>
 		<li>FoodRaw</li>
 	  </categories>
-	  <!-- <thingDefs> -->
-		<!-- <li>ComponentIndustrial</li> -->
-		<!-- <li>Steel</li> -->
-	  <!-- </thingDefs> -->
 	</fixedIngredientFilter>
 	<defaultIngredientFilter>
 	  <categories>
@@ -78,6 +58,7 @@
 	</researchPrerequisites>
   </RecipeDef>
 
+  <!-- Meals -->
   <RecipeDef ParentName="CookMealBase" Name="WVC_XenotypesAndGenes_CookMeal_Base"  Abstract="True">
 	<workSpeedStat>CookSpeed</workSpeedStat>
 	<effectWorking>Cook</effectWorking>
@@ -88,12 +69,12 @@
 	  <Cooking>8</Cooking>
 	</skillRequirements>
 	<researchPrerequisites>
-	  <li>NutrientPaste</li>
-	  <li>PackagedSurvivalMeal</li>
+	  <li>WVC_XenotypesAndGenes_DustogenicFood</li>
 	</researchPrerequisites>
 	<displayPriority>1500</displayPriority>
   </RecipeDef>
 
+  <!-- Pack -->
   <RecipeDef ParentName="WVC_XenotypesAndGenes_CookMeal_Base">
 	<defName>WVC_CookMealDustPack</defName>
 	<label>cook packaged dustogenic meal</label>
@@ -118,7 +99,7 @@
   </RecipeDef>
 
   <RecipeDef ParentName="WVC_XenotypesAndGenes_CookMeal_Base">
-	<defName>WVC_CookCookMealDustPackBulk</defName>
+	<defName>WVC_CookMealDustPackBulk</defName>
 	<label>cook packaged dustogenic meal x4</label>
 	<description>Prepare 4 packaged dustogenic meals from a combination of meat and plant ingredients. Much of the ingredients are wasted in the preservation process.</description>
 	<jobString>Cooking 4 dustogenic meals.</jobString>
@@ -139,6 +120,78 @@
 	<products>
 	  <WVC_MealDustPack>4</WVC_MealDustPack>
 	</products>
+  </RecipeDef>
+
+  <!-- Paste -->
+  <RecipeDef ParentName="WVC_XenotypesAndGenes_CookMeal_Base">
+	<defName>WVC_CookMealDustogenicPaste</defName>
+	<label>cook dustogenic paste</label>
+	<description>Prepare a dustogenic paste from a combination of meat and plant ingredients. Much of the ingredients are wasted in the preservation process.</description>
+	<jobString>Cooking dustogenic paste.</jobString>
+	<ingredients>
+	  <li>
+		<filter>
+		  <customSummary>nutrients</customSummary>
+		  <categories>
+			<li>MeatRaw</li>
+			<li>AnimalProductRaw</li>
+			<li>PlantFoodRaw</li>
+		  </categories>
+		</filter>
+		<count>0.40</count>
+	  </li>
+	  <li>
+		<filter>
+		  <customSummary>hemogen</customSummary>
+		  <thingDefs>
+			<li>HemogenPack</li>
+		  </thingDefs>
+		</filter>
+		<count>0.20</count>
+	  </li>
+	</ingredients>
+	<products>
+	  <WVC_MealDustogenicPaste>1</WVC_MealDustogenicPaste>
+	</products>
+	<researchPrerequisites>
+	  <li>Deathrest</li>
+	</researchPrerequisites>
+  </RecipeDef>
+
+  <RecipeDef ParentName="WVC_XenotypesAndGenes_CookMeal_Base">
+	<defName>WVC_CookMealDustogenicPasteBulk</defName>
+	<label>cook dustogenic paste x4</label>
+	<description>Prepare 4 dustogenic paste from a combination of meat and plant ingredients. Much of the ingredients are wasted in the preservation process.</description>
+	<jobString>Cooking 4 dustogenic paste.</jobString>
+	<workAmount>1440</workAmount>
+	<ingredients>
+	  <li>
+		<filter>
+		  <customSummary>nutrients</customSummary>
+		  <categories>
+			<li>MeatRaw</li>
+			<li>AnimalProductRaw</li>
+			<li>PlantFoodRaw</li>
+		  </categories>
+		</filter>
+		<count>1.60</count>
+	  </li>
+	  <li>
+		<filter>
+		  <customSummary>hemogen</customSummary>
+		  <thingDefs>
+			<li>HemogenPack</li>
+		  </thingDefs>
+		</filter>
+		<count>0.80</count>
+	  </li>
+	</ingredients>
+	<products>
+	  <WVC_MealDustogenicPaste>4</WVC_MealDustogenicPaste>
+	</products>
+	<researchPrerequisites>
+	  <li>Deathrest</li>
+	</researchPrerequisites>
   </RecipeDef>
 
 </Defs>

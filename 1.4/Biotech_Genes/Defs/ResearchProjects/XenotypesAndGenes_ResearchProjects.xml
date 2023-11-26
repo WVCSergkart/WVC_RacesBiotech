@@ -13,9 +13,21 @@
 	<label>serum lab</label>
 	<description>The basic technology needed to produce xenotype serums.</description>
 	<researchViewX>0.00</researchViewX>
-	<researchViewY>4.65</researchViewY>
+	<researchViewY>4.50</researchViewY>
 	<prerequisites>
 	  <li>Xenogermination</li>
+	</prerequisites>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="WVC_XenotypesAndGenesResearchProjectDefs_Base">
+	<defName>WVC_XenotypesAndGenes_DustogenicFood</defName>
+	<label>dustogenic food</label>
+	<description>Special food for dust addicts.</description>
+	<baseCost>500</baseCost>
+	<researchViewX>0.00</researchViewX>
+	<researchViewY>5.50</researchViewY>
+	<prerequisites>
+	  <li>PackagedSurvivalMeal</li>
 	</prerequisites>
   </ResearchProjectDef>
 
@@ -43,7 +55,7 @@
 	<description>Emergency methods of obtaining nutrients.</description>
 	<baseCost>700</baseCost>
 	<researchViewX>1.00</researchViewX>
-	<researchViewY>5.65</researchViewY>
+	<researchViewY>5.50</researchViewY>
   </ResearchProjectDef>
 
   <ResearchProjectDef ParentName="WVC_XenotypesAndGenesResearchProjectDefs_AfterSerumLab">
@@ -52,7 +64,7 @@
 	<description>Technology for fast and safe gene restoration.</description>
 	<baseCost>1700</baseCost>
 	<researchViewX>1.00</researchViewX>
-	<researchViewY>5.20</researchViewY>
+	<researchViewY>5.00</researchViewY>
   </ResearchProjectDef>
 
   <ResearchProjectDef ParentName="WVC_XenotypesAndGenesResearchProjectDefs_AfterSerumLab">
@@ -61,7 +73,7 @@
 	<description>The technology needed for the safe disassembly of serums.</description>
 	<baseCost>1200</baseCost>
 	<researchViewX>1.00</researchViewX>
-	<researchViewY>4.65</researchViewY>
+	<researchViewY>4.50</researchViewY>
   </ResearchProjectDef>
 
   <ResearchProjectDef ParentName="WVC_XenotypesAndGenesResearchProjectDefs_AfterSerumLab">
@@ -70,7 +82,7 @@
 	<description>The technology needed for the serum retuning.</description>
 	<baseCost>900</baseCost>
 	<researchViewX>1.00</researchViewX>
-	<researchViewY>4.10</researchViewY>
+	<researchViewY>4.00</researchViewY>
   </ResearchProjectDef>
 
   <!-- ======================================================================= -->
@@ -91,7 +103,7 @@
 	<description>Advanced injector technology to quickly overwrite the genetic code.</description>
 	<baseCost>1900</baseCost>
 	<researchViewX>2.00</researchViewX>
-	<researchViewY>4.55</researchViewY>
+	<researchViewY>4.50</researchViewY>
   </ResearchProjectDef>
 
   <ResearchProjectDef ParentName="WVC_XenotypesAndGenesResearchProjectDefs_AfterAfterSerumLab">
@@ -100,7 +112,7 @@
 	<description>Advanced injector technology to resurrect a fresh corpse.</description>
 	<baseCost>2200</baseCost>
 	<researchViewX>2.00</researchViewX>
-	<researchViewY>5.05</researchViewY>
+	<researchViewY>5.00</researchViewY>
   </ResearchProjectDef>
 
 </Defs>

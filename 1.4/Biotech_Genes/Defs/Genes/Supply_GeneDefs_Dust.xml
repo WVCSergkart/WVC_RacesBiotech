@@ -73,6 +73,7 @@
 			<specialFoodDefs>
 			  <li>WVC_NutrientsInjector</li>
 			  <li>WVC_MealDustPack</li>
+			  <li>WVC_MealDustogenicPaste</li>
 			</specialFoodDefs>
 		</li>
 	</modExtensions>
