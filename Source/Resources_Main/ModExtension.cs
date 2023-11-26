@@ -37,8 +37,9 @@ namespace WVC_XenotypesAndGenes
 		public bool shouldSendNotificationAbout = true;
 		public bool geneIsAngelBeauty = false;
 		// public bool geneIsIncestous = false;
-		public bool perfectImmunity = false;
-		public bool diseaseFree = false;
+		// public bool perfectImmunity = false;
+		// public bool diseaseFree = false;
+		public List<GeneDef> inheritableGeneDefs;
 	}
 
 	public class GeneExtension_Giver : DefModExtension

@@ -22,8 +22,10 @@
 			<scarsCount>2</scarsCount>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
-			<perfectImmunity>true</perfectImmunity>
-			<diseaseFree>true</diseaseFree>
+			<inheritableGeneDefs>
+			  <li>PerfectImmunity</li>
+			  <li>DiseaseFree</li>
+			</inheritableGeneDefs>
 		</li>
 	</modExtensions>
   </GeneDef>

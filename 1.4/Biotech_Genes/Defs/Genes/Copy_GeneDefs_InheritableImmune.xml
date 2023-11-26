@@ -50,8 +50,9 @@
 	<!-- </exclusionTags> -->
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
-			<perfectImmunity>true</perfectImmunity>
-			<diseaseFree>false</diseaseFree>
+			<inheritableGeneDefs>
+			  <li>PerfectImmunity</li>
+			</inheritableGeneDefs>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -79,8 +80,9 @@
 	</exclusionTags>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
-			<perfectImmunity>false</perfectImmunity>
-			<diseaseFree>true</diseaseFree>
+			<inheritableGeneDefs>
+			  <li>DiseaseFree</li>
+			</inheritableGeneDefs>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -101,8 +103,9 @@
 	<biostatMet>-6</biostatMet>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
-			<perfectImmunity>true</perfectImmunity>
-			<diseaseFree>false</diseaseFree>
+			<inheritableGeneDefs>
+			  <li>PerfectImmunity</li>
+			</inheritableGeneDefs>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -124,8 +127,9 @@
 	</exclusionTags>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
-			<perfectImmunity>false</perfectImmunity>
-			<diseaseFree>true</diseaseFree>
+			<inheritableGeneDefs>
+			  <li>DiseaseFree</li>
+			</inheritableGeneDefs>
 		</li>
 	</modExtensions>
   </GeneDef>

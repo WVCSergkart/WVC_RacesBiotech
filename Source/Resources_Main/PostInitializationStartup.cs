@@ -7,21 +7,20 @@ namespace WVC_XenotypesAndGenes
 {
 
 	[StaticConstructorOnStartup]
-	public static class PostInitializationPerfectImmunityGenes
+	public static class PostInitializationInheritFromGenes
 	{
-		static PostInitializationPerfectImmunityGenes()
+		static PostInitializationInheritFromGenes()
 		{
 			// List<string> filter = UltraFilterUtility.BlackListedTerrainDefs();
 			foreach (GeneDef geneDef in DefDatabase<GeneDef>.AllDefsListForReading)
 			{
-				GeneExtension_General modExtension = geneDef.GetModExtension<GeneExtension_General>();
-				if (modExtension != null && modExtension.perfectImmunity)
+				List<GeneDef> inheritableGeneDefs = geneDef?.GetModExtension<GeneExtension_General>()?.inheritableGeneDefs;
+				if (!inheritableGeneDefs.NullOrEmpty())
 				{
-					TemplatesUtility.InheritGeneImmunityFrom(geneDef, WVC_GenesDefOf.PerfectImmunity);
-				}
-				if (modExtension != null && modExtension.diseaseFree)
-				{
-					TemplatesUtility.InheritGeneImmunityFrom(geneDef, WVC_GenesDefOf.DiseaseFree);
+					foreach (GeneDef inheritableGeneDef in inheritableGeneDefs)
+					{
+						TemplatesUtility.InheritGeneImmunityFrom(geneDef, inheritableGeneDef);
+					}
 				}
 			}
 		}

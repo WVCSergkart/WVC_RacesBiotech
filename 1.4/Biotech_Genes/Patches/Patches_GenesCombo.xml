@@ -2,14 +2,21 @@
 <Patch>
 
 	<!-- TEST Patches -->
-	<!-- <Operation Class="PatchOperationAdd"> -->
-	  <!-- <xpath>/Defs/GeneDef[defName="DiseaseFree"]/hediffGiversCannotGive</xpath> -->
-	  <!-- <value> -->
-		  <!-- <li>Plague</li> -->
-		  <!-- <li>WoundInfection</li> -->
-		  <!-- <li>LungRot</li> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/GeneDef[defName="PerfectImmunity"]/makeImmuneTo</xpath>
+	  <value>
+		<li>GutWorms</li>
+		<li>FibrousMechanites</li>
+		<li>SensoryMechanites</li>
+	  </value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/GeneDef[defName="DiseaseFree"]/hediffGiversCannotGive</xpath>
+	  <value>
+		<li>TraumaSavant</li>
+	  </value>
+	</Operation>
 
 	<!-- Patch for special food for dustogenics -->
 

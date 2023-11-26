@@ -2,7 +2,7 @@ using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
-
+using static Verse.GeneSymbolPack;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -13,27 +13,25 @@ namespace WVC_XenotypesAndGenes
 
 		public static void InheritGeneImmunityFrom(GeneDef geneDef, GeneDef inheritGeneDef)
 		{
-			if (geneDef.exclusionTags == null)
-			{
-				geneDef.exclusionTags = new();
-			}
-			if (geneDef.makeImmuneTo == null)
-			{
-				geneDef.makeImmuneTo = new();
-			}
-			if (geneDef.hediffGiversCannotGive == null)
-			{
-				geneDef.hediffGiversCannotGive = new();
-			}
+			// Tags
 			if (inheritGeneDef.exclusionTags != null)
 			{
+				if (geneDef.exclusionTags == null)
+				{
+					geneDef.exclusionTags = new();
+				}
 				foreach (string item in inheritGeneDef.exclusionTags)
 				{
 					geneDef.exclusionTags.Add(item);
 				}
 			}
+			// Immunity
 			if (inheritGeneDef.makeImmuneTo != null)
 			{
+				if (geneDef.makeImmuneTo == null)
+				{
+					geneDef.makeImmuneTo = new();
+				}
 				foreach (HediffDef item in inheritGeneDef.makeImmuneTo)
 				{
 					geneDef.makeImmuneTo.Add(item);
@@ -41,9 +39,111 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (inheritGeneDef.hediffGiversCannotGive != null)
 			{
+				if (geneDef.hediffGiversCannotGive == null)
+				{
+					geneDef.hediffGiversCannotGive = new();
+				}
 				foreach (HediffDef item in inheritGeneDef.hediffGiversCannotGive)
 				{
 					geneDef.hediffGiversCannotGive.Add(item);
+				}
+			}
+			// Traits
+			if (inheritGeneDef.suppressedTraits != null)
+			{
+				if (geneDef.suppressedTraits == null)
+				{
+					geneDef.suppressedTraits = new();
+				}
+				foreach (GeneticTraitData item in inheritGeneDef.suppressedTraits)
+				{
+					geneDef.suppressedTraits.Add(item);
+				}
+			}
+			if (inheritGeneDef.forcedTraits != null)
+			{
+				if (geneDef.forcedTraits == null)
+				{
+					geneDef.forcedTraits = new();
+				}
+				foreach (GeneticTraitData item in inheritGeneDef.forcedTraits)
+				{
+					geneDef.forcedTraits.Add(item);
+				}
+			}
+			// Stats
+			if (inheritGeneDef.conditionalStatAffecters != null)
+			{
+				if (geneDef.conditionalStatAffecters == null)
+				{
+					geneDef.conditionalStatAffecters = new();
+				}
+				foreach (ConditionalStatAffecter item in inheritGeneDef.conditionalStatAffecters)
+				{
+					geneDef.conditionalStatAffecters.Add(item);
+				}
+			}
+			if (inheritGeneDef.statFactors != null)
+			{
+				if (geneDef.statFactors == null)
+				{
+					geneDef.statFactors = new();
+				}
+				foreach (StatModifier item in inheritGeneDef.statFactors)
+				{
+					geneDef.statFactors.Add(item);
+				}
+			}
+			if (inheritGeneDef.statOffsets != null)
+			{
+				if (geneDef.statOffsets == null)
+				{
+					geneDef.statOffsets = new();
+				}
+				foreach (StatModifier item in inheritGeneDef.statOffsets)
+				{
+					geneDef.statOffsets.Add(item);
+				}
+			}
+			// Symbols
+			if (inheritGeneDef.symbolPack != null)
+			{
+				if (geneDef.symbolPack == null)
+				{
+					geneDef.symbolPack = new();
+					if (geneDef.symbolPack.prefixSymbols == null)
+					{
+						geneDef.symbolPack.prefixSymbols = new();
+					}
+					if (geneDef.symbolPack.suffixSymbols == null)
+					{
+						geneDef.symbolPack.suffixSymbols = new();
+					}
+					if (geneDef.symbolPack.wholeNameSymbols == null)
+					{
+						geneDef.symbolPack.wholeNameSymbols = new();
+					}
+				}
+				if (inheritGeneDef.symbolPack.prefixSymbols == null)
+				{
+					foreach (WeightedSymbol item in inheritGeneDef.symbolPack.prefixSymbols)
+					{
+						geneDef.symbolPack.prefixSymbols.Add(item);
+					}
+				}
+				if (inheritGeneDef.symbolPack.suffixSymbols == null)
+				{
+					foreach (WeightedSymbol item in inheritGeneDef.symbolPack.suffixSymbols)
+					{
+						geneDef.symbolPack.suffixSymbols.Add(item);
+					}
+				}
+				if (inheritGeneDef.symbolPack.wholeNameSymbols == null)
+				{
+					foreach (WeightedSymbol item in inheritGeneDef.symbolPack.wholeNameSymbols)
+					{
+						geneDef.symbolPack.wholeNameSymbols.Add(item);
+					}
 				}
 			}
 		}
