@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
 
+	<!-- TEST Patches -->
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/GeneDef[defName="DiseaseFree"]/hediffGiversCannotGive</xpath> -->
+	  <!-- <value> -->
+		  <!-- <li>Plague</li> -->
+		  <!-- <li>WoundInfection</li> -->
+		  <!-- <li>LungRot</li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
 	<!-- Patch for special food for dustogenics -->
 
 	<!-- Starving -->

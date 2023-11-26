@@ -28,10 +28,10 @@ namespace WVC_XenotypesAndGenes
                         }
                     }
                 }
-                foreach (InheritableImmuneGeneTemplateDef template in DefDatabase<InheritableImmuneGeneTemplateDef>.AllDefsListForReading)
-                {
-                    geneDefList.Add(TemplatesUtility.GetFromTemplate_InheritableImmune(template));
-                }
+                // foreach (InheritableImmuneGeneTemplateDef template in DefDatabase<InheritableImmuneGeneTemplateDef>.AllDefsListForReading)
+                // {
+                    // geneDefList.Add(TemplatesUtility.GetFromTemplate_InheritableImmune(template));
+                // }
                 if (WVC_Biotech.settings.generateXenotypeForceGenes)
                 {
                     foreach (XenotypeForcerGeneTemplateDef template in DefDatabase<XenotypeForcerGeneTemplateDef>.AllDefsListForReading)

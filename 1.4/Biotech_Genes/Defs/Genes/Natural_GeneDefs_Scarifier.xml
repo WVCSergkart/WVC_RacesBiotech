@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <WVC_XenotypesAndGenes.InheritableImmuneGeneTemplateDef ParentName="WVC_XenotypesAndGenes_GeneInheritableImmune_Base" Name="WVC_XenotypesAndGenes_GeneInheritableImmune_Scarifier" Abstract="True">
-	<suffixDefName>DiseaseFree</suffixDefName>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneInheritableImmune_Base" Name="WVC_XenotypesAndGenes_GeneInheritableImmune_Scarifier" Abstract="True">
 	<label>perfect senescent</label>
 	<description>Carriers of this gene have almost perfect immunity and they never get chronic age-related diseases like cancer, bad back, cataracts, or dementia.</description>
 	<iconPath>WVC/UI/Genes/Gene_PerfectCombo_v0</iconPath>
-	<inheritableGeneDefs>
-	  <li>PerfectImmunity</li>
-	  <li>DiseaseFree</li>
-	</inheritableGeneDefs>
+	<!-- <suffixDefName>DiseaseFree</suffixDefName> -->
+	<!-- <inheritableGeneDefs> -->
+	  <!-- <li>PerfectImmunity</li> -->
+	  <!-- <li>DiseaseFree</li> -->
+	<!-- </inheritableGeneDefs> -->
 	<displayOrderInCategory>5</displayOrderInCategory>
 	<biostatCpx>6</biostatCpx>
 	<customEffectDescriptions>
@@ -21,22 +21,24 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<scarsCount>2</scarsCount>
 		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<perfectImmunity>true</perfectImmunity>
+			<diseaseFree>true</diseaseFree>
+		</li>
 	</modExtensions>
-  </WVC_XenotypesAndGenes.InheritableImmuneGeneTemplateDef>
+  </GeneDef>
 
-  <WVC_XenotypesAndGenes.InheritableImmuneGeneTemplateDef ParentName="WVC_XenotypesAndGenes_GeneInheritableImmune_Scarifier">
-	<!-- WVC_PerfectImmunity_DiseaseFree -->
-	<defName>WVC_PerfectImmunity</defName>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneInheritableImmune_Scarifier">
+	<defName>WVC_PerfectImmunity_DiseaseFree</defName>
 	<biostatCpx>6</biostatCpx>
 	<biostatMet>-6</biostatMet>
-  </WVC_XenotypesAndGenes.InheritableImmuneGeneTemplateDef>
+  </GeneDef>
 
-  <WVC_XenotypesAndGenes.InheritableImmuneGeneTemplateDef ParentName="WVC_XenotypesAndGenes_GeneInheritableImmune_Scarifier">
-	<!-- WVC_ArchitePerfectImmunity_DiseaseFree -->
-	<defName>WVC_ArchitePerfectImmunity</defName>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneInheritableImmune_Scarifier">
+	<defName>WVC_ArchitePerfectImmunity_DiseaseFree</defName>
 	<biostatMet>0</biostatMet>
 	<biostatArc>2</biostatArc>
-  </WVC_XenotypesAndGenes.InheritableImmuneGeneTemplateDef>
+  </GeneDef>
 
   <!-- ============================= -->
 

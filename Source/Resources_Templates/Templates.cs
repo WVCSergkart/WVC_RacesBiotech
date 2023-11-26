@@ -54,68 +54,63 @@ namespace WVC_XenotypesAndGenes
         }
     }
 
-    public class InheritableImmuneGeneTemplateDef : Def
-    {
-        public Type geneClass = typeof(Gene);
+    // public class InheritableImmuneGeneTemplateDef : Def
+    // {
+        // public Type geneClass = typeof(Gene);
 
-        public int biostatCpx;
+        // public int biostatCpx;
 
-        public int biostatMet;
+        // public int biostatMet;
 
-        public int biostatArc;
+        // public int biostatArc;
 
-        public float minAgeActive;
+        // public float minAgeActive;
 
-        public GeneCategoryDef displayCategory;
+        // public GeneCategoryDef displayCategory;
 
-        // public int displayOrderOffset;
+        // public float selectionWeight = 1f;
 
-        public float selectionWeight = 1f;
+        // public string suffixDefName = "XaG";
 
-        public string suffixDefName = "XaG";
+        // public List<GeneDef> inheritableGeneDefs = null;
 
-        public List<GeneDef> inheritableGeneDefs = null;
+        // public List<HediffDef> makeImmuneTo;
 
-        public List<HediffDef> makeImmuneTo;
+        // public List<HediffDef> hediffGiversCannotGive;
 
-        public List<HediffDef> hediffGiversCannotGive;
+        // public GeneDef prerequisite;
 
-        public GeneDef prerequisite;
-
-        [MustTranslate]
-        public string labelShortAdj;
-
-        [NoTranslate]
-        public string iconPath;
+        // [MustTranslate]
+        // public string labelShortAdj;
 
         // [NoTranslate]
-        // public string exclusionTagPrefix;
+        // public string iconPath;
 
-        [MustTranslate]
-        public List<string> customEffectDescriptions;
+        // [MustTranslate]
+        // public List<string> customEffectDescriptions;
 
-        public List<string> exclusionTags;
+        // public List<string> exclusionTags;
 
-        public float displayOrderInCategory;
+        // public float displayOrderInCategory;
 
-        public float resourceLossPerDay;
+        // public float resourceLossPerDay;
 
-        public override IEnumerable<string> ConfigErrors()
-        {
-            foreach (string item in base.ConfigErrors())
-            {
-                yield return item;
-            }
-            if (!typeof(Gene).IsAssignableFrom(geneClass))
-            {
-                yield return "geneClass is not Gene or child thereof.";
-            }
-            if (inheritableGeneDefs == null)
-            {
-                yield return "inheritableGeneDefs is null.";
-            }
-        }
-    }
+        // public override IEnumerable<string> ConfigErrors()
+        // {
+            // foreach (string item in base.ConfigErrors())
+            // {
+                // yield return item;
+            // }
+            // if (!typeof(Gene).IsAssignableFrom(geneClass))
+            // {
+                // yield return "geneClass is not Gene or child thereof.";
+            // }
+            // if (inheritableGeneDefs == null)
+            // {
+                // yield return "inheritableGeneDefs is null.";
+            // }
+        // }
+    // }
 
     public class XenotypeForcerGeneTemplateDef : Def
     {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <WVC_XenotypesAndGenes.InheritableImmuneGeneTemplateDef Name="WVC_XenotypesAndGenes_GeneInheritableImmune_Base" Abstract="True">
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneInheritableImmune_Base" Abstract="True">
 	<displayCategory>Healing</displayCategory>
 	<displayOrderInCategory>720</displayOrderInCategory>
 	<ignoreIllegalLabelCharacterConfigError>true</ignoreIllegalLabelCharacterConfigError>
@@ -9,9 +9,9 @@
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>-6</biostatMet>
 	<biostatArc>0</biostatArc>
-  </WVC_XenotypesAndGenes.InheritableImmuneGeneTemplateDef>
+  </GeneDef>
 
-  <WVC_XenotypesAndGenes.InheritableImmuneGeneTemplateDef ParentName="WVC_XenotypesAndGenes_GeneInheritableImmune_Base" Name="WVC_XenotypesAndGenes_GeneInheritableImmune_ResurgentHealth" Abstract="True">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneInheritableImmune_Base" Name="WVC_XenotypesAndGenes_GeneInheritableImmune_ResurgentHealth" Abstract="True">
 	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentActive</geneClass>
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass> -->
 	<ignoreIllegalLabelCharacterConfigError>true</ignoreIllegalLabelCharacterConfigError>
@@ -23,19 +23,19 @@
 	<biostatCpx>0</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<biostatArc>0</biostatArc>
-  </WVC_XenotypesAndGenes.InheritableImmuneGeneTemplateDef>
+  </GeneDef>
 
   <!-- Base -->
 
-  <WVC_XenotypesAndGenes.InheritableImmuneGeneTemplateDef ParentName="WVC_XenotypesAndGenes_GeneInheritableImmune_ResurgentHealth">
-	<defName>WVC_ResurgentImmunity</defName>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneInheritableImmune_ResurgentHealth">
+	<defName>WVC_ResurgentImmunity_PerfectImmunity</defName>
 	<label>resurgent immunity</label>
 	<description>Carriers of this gene have resurgent cells that provide almost perfect immunity.</description>
 	<iconPath>WVC/UI/Genes/Gene_PerfectImmunity_v0</iconPath>
-	<suffixDefName>PerfectImmunity</suffixDefName>
-	<inheritableGeneDefs>
-	  <li>PerfectImmunity</li>
-	</inheritableGeneDefs>
+	<!-- <suffixDefName>PerfectImmunity</suffixDefName> -->
+	<!-- <inheritableGeneDefs> -->
+	  <!-- <li>PerfectImmunity</li> -->
+	<!-- </inheritableGeneDefs> -->
 	<displayOrderInCategory>1290</displayOrderInCategory>
 	<resourceLossPerDay>0.55</resourceLossPerDay>
 	<customEffectDescriptions>
@@ -48,22 +48,23 @@
 	  <!-- <li>ToxResistance</li> -->
 	  <!-- <li>ToxicEnvironmentResistance</li> -->
 	<!-- </exclusionTags> -->
-	<!-- <modExtensions> -->
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
-			<!-- <hediffDefName>WVC_ResurgentHealth_Immunity</hediffDefName> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
-  </WVC_XenotypesAndGenes.InheritableImmuneGeneTemplateDef>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<perfectImmunity>true</perfectImmunity>
+			<diseaseFree>false</diseaseFree>
+		</li>
+	</modExtensions>
+  </GeneDef>
 
-  <WVC_XenotypesAndGenes.InheritableImmuneGeneTemplateDef ParentName="WVC_XenotypesAndGenes_GeneInheritableImmune_ResurgentHealth">
-	<defName>WVC_ResurgentDisease</defName>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneInheritableImmune_ResurgentHealth">
+	<defName>WVC_ResurgentDisease_DiseaseFree</defName>
 	<label>resurgent senescent</label>
 	<description>Carriers of this gene have resurgent cells that completely prevent chronic diseases.</description>
 	<iconPath>WVC/UI/Genes/Gene_NonSenescent_v0</iconPath>
-	<suffixDefName>DiseaseFree</suffixDefName>
-	<inheritableGeneDefs>
-	  <li>DiseaseFree</li>
-	</inheritableGeneDefs>
+	<!-- <suffixDefName>DiseaseFree</suffixDefName> -->
+	<!-- <inheritableGeneDefs> -->
+	  <!-- <li>DiseaseFree</li> -->
+	<!-- </inheritableGeneDefs> -->
 	<displayOrderInCategory>1295</displayOrderInCategory>
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>-1</biostatMet>
@@ -76,45 +77,58 @@
 	  <!-- <li>WoundHealingRate</li> -->
 	  <li>WVC_DiseaseFree</li>
 	</exclusionTags>
-	<!-- <modExtensions> -->
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
-			<!-- <hediffDefName>WVC_ResurgentHealth_Healing</hediffDefName> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
-  </WVC_XenotypesAndGenes.InheritableImmuneGeneTemplateDef>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<perfectImmunity>false</perfectImmunity>
+			<diseaseFree>true</diseaseFree>
+		</li>
+	</modExtensions>
+  </GeneDef>
 
   <!-- Natural -->
 
-  <WVC_XenotypesAndGenes.InheritableImmuneGeneTemplateDef ParentName="WVC_XenotypesAndGenes_GeneInheritableImmune_Base">
-	<defName>WVC_NaturalImmunity</defName>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneInheritableImmune_Base">
+	<defName>WVC_NaturalImmunity_PerfectImmunity</defName>
 	<label>perfect immunity</label>
 	<description>Carriers of this gene have almost perfect immunity.</description>
 	<iconPath>WVC/UI/Genes/Gene_NaturalPerfectImmunity_v0</iconPath>
-	<suffixDefName>PerfectImmunity</suffixDefName>
-	<inheritableGeneDefs>
-	  <li>PerfectImmunity</li>
-	</inheritableGeneDefs>
+	<!-- <suffixDefName>PerfectImmunity</suffixDefName> -->
+	<!-- <inheritableGeneDefs> -->
+	  <!-- <li>PerfectImmunity</li> -->
+	<!-- </inheritableGeneDefs> -->
 	<displayOrderInCategory>-720</displayOrderInCategory>
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>-6</biostatMet>
-  </WVC_XenotypesAndGenes.InheritableImmuneGeneTemplateDef>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<perfectImmunity>true</perfectImmunity>
+			<diseaseFree>false</diseaseFree>
+		</li>
+	</modExtensions>
+  </GeneDef>
 
-  <WVC_XenotypesAndGenes.InheritableImmuneGeneTemplateDef ParentName="WVC_XenotypesAndGenes_GeneInheritableImmune_Base">
-	<defName>WVC_NaturalDisease</defName>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneInheritableImmune_Base">
+	<defName>WVC_NaturalDisease_DiseaseFree</defName>
 	<label>non-senescent</label>
 	<description>Carriers of this gene do not go through senescence in the normal way. They never get chronic age-related diseases like cancer, bad back, cataracts, or dementia.</description>
 	<iconPath>WVC/UI/Genes/Gene_NaturalNonSenescent_v0</iconPath>
-	<suffixDefName>DiseaseFree</suffixDefName>
-	<inheritableGeneDefs>
-	  <li>DiseaseFree</li>
-	</inheritableGeneDefs>
+	<!-- <suffixDefName>DiseaseFree</suffixDefName> -->
+	<!-- <inheritableGeneDefs> -->
+	  <!-- <li>DiseaseFree</li> -->
+	<!-- </inheritableGeneDefs> -->
 	<displayOrderInCategory>-725</displayOrderInCategory>
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>-6</biostatMet>
 	<exclusionTags>
 	  <li>WVC_DiseaseFree</li>
 	</exclusionTags>
-  </WVC_XenotypesAndGenes.InheritableImmuneGeneTemplateDef>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<perfectImmunity>false</perfectImmunity>
+			<diseaseFree>true</diseaseFree>
+		</li>
+	</modExtensions>
+  </GeneDef>
 
   <!-- Combo -->
 

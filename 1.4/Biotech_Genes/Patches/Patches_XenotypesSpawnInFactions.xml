@@ -51,22 +51,82 @@
 	<!-- </Operation> -->
 
 	<!-- Factions Patch -->
-	<Operation Class="PatchOperationAdd">
-	  <xpath>/Defs/FactionDef[defName="TribeCivil" or defName="TribeRough"]/xenotypeSet/xenotypeChances</xpath>
-	  <value>
-		<WVC_RuneDryad>0.002</WVC_RuneDryad>
-		<WVC_Golemkind>0.001</WVC_Golemkind>
-		<WVC_Undead>0.0014</WVC_Undead>
-		<WVC_Resurgent>0.0006</WVC_Resurgent>
-	  </value>
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/FactionDef[defName="TribeCivil" or defName="TribeRough"]/xenotypeSet/xenotypeChances</xpath>
+			  <success>Invert</success>
+			  <value>
+				<WVC_RuneDryad>0.002</WVC_RuneDryad>
+				<WVC_Golemkind>0.001</WVC_Golemkind>
+				<WVC_Undead>0.0014</WVC_Undead>
+				<WVC_Resurgent>0.0006</WVC_Resurgent>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/PawnKindDef[defName="TribeCivil" or defName="TribeRough"]/xenotypeSet</xpath>
+			  <success>Invert</success>
+			  <value>
+				  <xenotypeChances>
+					<WVC_RuneDryad>0.002</WVC_RuneDryad>
+					<WVC_Golemkind>0.001</WVC_Golemkind>
+					<WVC_Undead>0.0014</WVC_Undead>
+					<WVC_Resurgent>0.0006</WVC_Resurgent>
+				  </xenotypeChances>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/PawnKindDef[defName="TribeCivil" or defName="TribeRough"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<xenotypeSet>
+				  <xenotypeChances>
+					<WVC_RuneDryad>0.002</WVC_RuneDryad>
+					<WVC_Golemkind>0.001</WVC_Golemkind>
+					<WVC_Undead>0.0014</WVC_Undead>
+					<WVC_Resurgent>0.0006</WVC_Resurgent>
+				  </xenotypeChances>
+				</xenotypeSet>
+			  </value>
+			</li>
+		</operations>
 	</Operation>
 
-	<Operation Class="PatchOperationAdd">
-	  <xpath>/Defs/FactionDef[defName="OutlanderCivil"]/xenotypeSet/xenotypeChances</xpath>
-	  <value>
-		<WVC_GeneThrower>0.002</WVC_GeneThrower>
-		<WVC_Featherdust>0.0006</WVC_Featherdust>
-	  </value>
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/FactionDef[defName="OutlanderCivil" or defName="OutlanderRough"]/xenotypeSet/xenotypeChances</xpath>
+			  <success>Invert</success>
+			  <value>
+				<WVC_GeneThrower>0.002</WVC_GeneThrower>
+				<WVC_Featherdust>0.0006</WVC_Featherdust>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/PawnKindDef[defName="OutlanderCivil" or defName="OutlanderRough"]/xenotypeSet</xpath>
+			  <success>Invert</success>
+			  <value>
+				  <xenotypeChances>
+					<WVC_GeneThrower>0.002</WVC_GeneThrower>
+					<WVC_Featherdust>0.0006</WVC_Featherdust>
+				  </xenotypeChances>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/PawnKindDef[defName="OutlanderCivil" or defName="OutlanderRough"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<xenotypeSet>
+				  <xenotypeChances>
+					<WVC_GeneThrower>0.002</WVC_GeneThrower>
+					<WVC_Featherdust>0.0006</WVC_Featherdust>
+				  </xenotypeChances>
+				</xenotypeSet>
+			  </value>
+			</li>
+		</operations>
 	</Operation>
 
 	<!-- <Operation Class="PatchOperationAdd"> -->
