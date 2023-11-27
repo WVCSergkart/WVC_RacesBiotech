@@ -54,7 +54,7 @@ Totems also spread pollution from time to time.</description>
 	<!-- <tickerType>Rare</tickerType> -->
 	<tickerType>Long</tickerType>
 	<costList>
-	  <RawFungus>5</RawFungus>
+	  <WVC_RawResurgentFungus>5</WVC_RawResurgentFungus>
 	  <!-- <ComponentSpacer>1</ComponentSpacer> -->
 	</costList>
 	<designationCategory></designationCategory>

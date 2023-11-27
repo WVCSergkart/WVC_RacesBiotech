@@ -232,8 +232,8 @@ Walking corpses cannot be zoned, but they will try to stay close to the totems. 
 			<predator>true</predator>
 			<disableAreaControl>true</disableAreaControl>
 			<wildness>0</wildness>
-			<specificMeatDef>RawFungus</specificMeatDef>
-			<leatherDef>RawFungus</leatherDef>
+			<specificMeatDef>WVC_RawResurgentFungus</specificMeatDef>
+			<leatherDef>WVC_RawResurgentFungus</leatherDef>
 			<foodType>OmnivoreAnimal, OmnivoreRoughAnimal</foodType>
 			<giveNonToolUserBeatFireVerb>true</giveNonToolUserBeatFireVerb>
 			<baseHungerRate>1.8</baseHungerRate>

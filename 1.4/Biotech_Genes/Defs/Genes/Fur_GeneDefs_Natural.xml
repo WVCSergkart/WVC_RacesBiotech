@@ -207,13 +207,12 @@
 		<li><symbol>bird</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
-	<!-- <modExtensions Inherit="False"> -->
-		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
-			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_Endogene</backgroundPathEndogenes> -->
-			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_Xenogene</backgroundPathXenogenes> -->
-			<!-- <bodyNakedGraphicPath>WVC/Bodies/Feathered_Body</bodyNakedGraphicPath> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
+	<modExtensions Inherit="False">
+		<li Class="VanillaGenesExpanded.GeneExtension">
+			<furHidesBody>True</furHidesBody>
+			<useSkinAndHairColorsForFur>True</useSkinAndHairColorsForFur>
+		</li>
+	</modExtensions>
   </GeneDef>
 
 </Defs>

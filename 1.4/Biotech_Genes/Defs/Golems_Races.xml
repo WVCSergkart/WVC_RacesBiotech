@@ -80,10 +80,11 @@
 			  <!-- <li>Hauling</li> -->
 			<!-- </mechEnabledWorkTypes> -->
 			<body>Mech_Light</body>
-			<maxMechEnergy>1</maxMechEnergy>
+			<!-- <maxMechEnergy>1</maxMechEnergy> -->
 			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
 			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
 			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+			<!-- <mechWeightClass>Golem</mechWeightClass> -->
 			<lifeStageAges>
 				<li>
 					<def>MechanoidFullyFormed</def>
@@ -110,6 +111,7 @@
 				  <li>WVC_SelfPopulationRegulation_Golems</li>
 				</hediffDefs>
 			</li>
+			<li Class="WVC_XenotypesAndGenes.CompProperties_InitialEnergyNeed"/>
 		</comps>
 		<modExtensions>
 			<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
