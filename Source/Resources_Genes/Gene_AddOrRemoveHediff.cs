@@ -192,6 +192,21 @@ namespace WVC_XenotypesAndGenes
 			Gene_AddOrRemoveHediff.RemoveHediff(HediffDef, pawn);
 		}
 
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: Add Or Remove Hediff",
+					action = delegate
+					{
+						AddOrRemoveHediff(HediffDef, pawn, this);
+					}
+				};
+			}
+		}
+
 	}
 
 	public class Gene_ResurgentHediff : Gene_ResurgentDependent

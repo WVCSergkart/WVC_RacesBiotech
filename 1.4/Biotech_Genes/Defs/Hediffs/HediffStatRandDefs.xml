@@ -29,6 +29,11 @@
 	<defName>WVC_GeneHediffStatRand_FormerGeneticSpeciality</defName>
 	<label>genetic speciality</label>
 	<defaultLabelColor>(255, 216, 133)</defaultLabelColor>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive">
+			<geneDef>WVC_RandomGeneticSpeciality</geneDef>
+		</li>
+	</comps>
 	<stages>
 	  <li>
 		<label>overclocked</label>
@@ -83,6 +88,11 @@
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_GeneHediffStatRand">
 	<defName>WVC_GeneHediffStatRand_hungerRateFactor</defName>
 	<label>genetic metabolism</label>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive">
+			<geneDef>WVC_RandomMetabolism</geneDef>
+		</li>
+	</comps>
 	<stages>
 	  <li>
 		<label>best</label>
@@ -114,6 +124,11 @@
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_GeneHediffStatRand">
 	<defName>WVC_GeneHediffStatRand_PsychicSensitivity</defName>
 	<label>genetic psychic</label>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive">
+			<geneDef>WVC_RandomPsychicAbility</geneDef>
+		</li>
+	</comps>
 	<stages>
 	  <li>
 		<label>deaf</label>
@@ -153,6 +168,11 @@
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_GeneHediffStatRand">
 	<defName>WVC_GeneHediffStatRand_MoveSpeed</defName>
 	<label>genetic speed</label>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive">
+			<geneDef>WVC_RandomMoveSpeed</geneDef>
+		</li>
+	</comps>
 	<stages>
 	  <li>
 		<label>very slow</label>
@@ -192,6 +212,11 @@
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_GeneHediffStatRand">
 	<defName>WVC_GeneHediffStatRand_InjuryHealingFactor</defName>
 	<label>genetic healing</label>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive">
+			<geneDef>WVC_RandomWoundHealing</geneDef>
+		</li>
+	</comps>
 	<stages>
 	  <li>
 		<label>worst</label>
@@ -231,6 +256,11 @@
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_GeneHediffStatRand">
 	<defName>WVC_GeneHediffStatRand_GlobalLearningFactor</defName>
 	<label>genetic learning</label>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive">
+			<geneDef>WVC_RandomLearning</geneDef>
+		</li>
+	</comps>
 	<stages>
 	  <li>
 		<label>very stupid</label>
@@ -270,6 +300,11 @@
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_GeneHediffStatRand">
 	<defName>WVC_GeneHediffStatRand_Manipulation</defName>
 	<label>genetic manipulation</label>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive">
+			<geneDef>WVC_RandomHands</geneDef>
+		</li>
+	</comps>
 	<stages>
 	  <li>
 		<label>poor</label>
@@ -333,6 +368,11 @@
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_GeneHediffStatRand">
 	<defName>WVC_GeneHediffStatRand_ImmunityGainSpeed</defName>
 	<label>genetic immunity</label>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive">
+			<geneDef>WVC_RandomImmunity</geneDef>
+		</li>
+	</comps>
 	<stages>
 	  <li>
 		<label>poor</label>
