@@ -19,6 +19,8 @@ namespace WVC_XenotypesAndGenes
 
 	public class HediffComp_RemoveIfGeneIsNotActive : HediffComp
 	{
+		public GeneDef geneDef;
+
 		public HediffCompProperties_RemoveIfGeneIsNotActive Props => (HediffCompProperties_RemoveIfGeneIsNotActive)props;
 
 		public override void CompPostTick(ref float severityAdjustment)
@@ -28,15 +30,22 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (Props.geneDef == null)
+			if (geneDef == null && Props.geneDef != null)
+			{
+				// base.Pawn.health.RemoveHediff(parent);
+				// return;
+				geneDef = Props.geneDef;
+			}
+			if (!MechanoidizationUtility.HasActiveGene(geneDef, parent.pawn))
 			{
 				base.Pawn.health.RemoveHediff(parent);
-				return;
 			}
-			if (!MechanoidizationUtility.HasActiveGene(Props.geneDef, parent.pawn))
-			{
-				base.Pawn.health.RemoveHediff(parent);
-			}
+		}
+
+		public override void CompExposeData()
+		{
+			base.CompExposeData();
+			Scribe_Defs.Look(ref geneDef, "geneDef");
 		}
 
 	}

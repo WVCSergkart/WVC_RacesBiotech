@@ -37,7 +37,13 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (!pawn.health.hediffSet.HasHediff(hediffDef))
 				{
-					pawn.health.AddHediff(hediffDef);
+					// pawn.health.AddHediff(hediffDef);
+					Hediff hediff = HediffMaker.MakeHediff(hediffDef, pawn);
+					HediffComp_RemoveIfGeneIsNotActive hediff_GeneCheck = hediff.TryGetComp<HediffComp_RemoveIfGeneIsNotActive>();
+					if (hediff_GeneCheck != null)
+					{
+						hediff_GeneCheck.geneDef = gene.def;
+					}
 				}
 			}
 			else
@@ -174,6 +180,11 @@ namespace WVC_XenotypesAndGenes
 				if (!pawn.health.hediffSet.HasHediff(hediffDef))
 				{
 					Hediff hediff = HediffMaker.MakeHediff(hediffDef, pawn);
+					HediffComp_RemoveIfGeneIsNotActive hediff_GeneCheck = hediff.TryGetComp<HediffComp_RemoveIfGeneIsNotActive>();
+					if (hediff_GeneCheck != null)
+					{
+						hediff_GeneCheck.geneDef = gene.def;
+					}
 					FloatRange floatRange = new(hediffDef.minSeverity, hediffDef.maxSeverity);
 					hediff.Severity = floatRange.RandomInRange;
 					pawn.health.AddHediff(hediff);
@@ -247,7 +258,13 @@ namespace WVC_XenotypesAndGenes
 					{
 						if (!pawn.health.hediffSet.HasHediff(HediffDefName))
 						{
-							pawn.health.AddHediff(HediffDefName);
+							// pawn.health.AddHediff(HediffDefName);
+							Hediff hediff = HediffMaker.MakeHediff(HediffDefName, pawn);
+							HediffComp_RemoveIfGeneIsNotActive hediff_GeneCheck = hediff.TryGetComp<HediffComp_RemoveIfGeneIsNotActive>();
+							if (hediff_GeneCheck != null)
+							{
+								hediff_GeneCheck.geneDef = this.def;
+							}
 						}
 					}
 					else
