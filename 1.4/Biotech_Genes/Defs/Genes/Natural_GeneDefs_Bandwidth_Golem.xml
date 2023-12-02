@@ -9,7 +9,7 @@
 	<iconPath>WVC/UI/Genes/GolemSensetivity_Strong</iconPath>
 	<displayOrderInCategory>1092</displayOrderInCategory>
 	<statOffsets>
-	  <WVC_OverseerMaxGolems>1</WVC_OverseerMaxGolems>
+	  <WVC_OverseerMaxGolems>6</WVC_OverseerMaxGolems>
 	</statOffsets>
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>-1</biostatMet>
@@ -31,7 +31,7 @@
 	<iconPath>WVC/UI/Genes/GolemSensetivity_Extreme</iconPath>
 	<displayOrderInCategory>1093</displayOrderInCategory>
 	<statOffsets>
-	  <WVC_OverseerMaxGolems>2</WVC_OverseerMaxGolems>
+	  <WVC_OverseerMaxGolems>12</WVC_OverseerMaxGolems>
 	</statOffsets>
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>-2</biostatMet>

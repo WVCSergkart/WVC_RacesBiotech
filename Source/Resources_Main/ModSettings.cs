@@ -32,6 +32,7 @@ namespace WVC_XenotypesAndGenes
 		public bool enableGeneBlesslinkInfo = true;
 		public bool enableGeneUndeadInfo = false;
 		public bool enableGeneScarifierInfo = false;
+		public bool enableGolemsInfo = true;
 		// Serums
 		public bool serumsForAllXenotypes = true;
 		public bool serumsForAllXenotypes_GenBase = true;
@@ -68,6 +69,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref enableGeneBlesslinkInfo, "enableGeneBlesslinkInfo", defaultValue: true);
 			Scribe_Values.Look(ref enableGeneUndeadInfo, "enableGeneUndeadInfo", defaultValue: false);
 			Scribe_Values.Look(ref enableGeneScarifierInfo, "enableGeneScarifierInfo", defaultValue: false);
+			Scribe_Values.Look(ref enableGolemsInfo, "enableGolemsInfo", defaultValue: true);
 			// Serums
 			Scribe_Values.Look(ref serumsForAllXenotypes, "serumsForAllXenotypes", defaultValue: true);
 			Scribe_Values.Look(ref serumsForAllXenotypes_GenBase, "serumsForAllXenotypes_GenBase", defaultValue: true);
@@ -157,6 +159,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_enableGeneBlesslinkInfo".Translate(), ref settings.enableGeneBlesslinkInfo, "WVC_ToolTip_enableGenesInfo".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enableGeneUndeadInfo".Translate(), ref settings.enableGeneUndeadInfo, "WVC_ToolTip_enableGenesInfo".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enableGeneScarifierInfo".Translate(), ref settings.enableGeneScarifierInfo, "WVC_ToolTip_enableGenesInfo".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_enableGolemsInfo".Translate(), ref settings.enableGolemsInfo, "WVC_ToolTip_enableGenesInfo".Translate());
 			listingStandard.Gap();
 			// ===============
 			listingStandard.Label("WVC_BiotechSettings_Label_Genes".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Genes".Translate());

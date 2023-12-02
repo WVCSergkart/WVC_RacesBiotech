@@ -37,15 +37,6 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public static bool PawnIsGolem(Pawn pawn)
-		{
-			if (pawn.RaceProps.IsMechanoid)
-			{
-				return pawn.health.hediffSet.HasHediff(WVC_GenesDefOf.WVC_SelfPopulationRegulation_Golems);
-			}
-			return false;
-		}
-
 		public static bool PawnCannotUseSerums(Pawn pawn)
 		{
 			if (!pawn.RaceProps.Humanlike)

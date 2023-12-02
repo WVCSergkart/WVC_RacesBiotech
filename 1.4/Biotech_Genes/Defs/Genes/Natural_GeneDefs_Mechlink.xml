@@ -64,7 +64,7 @@
 	<description>Carriers of this gene have naturally strong psionic formations in the brain allowing them to partially control mechanoids.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; Since a mechlink is required for the mechanitor's abilities to work, the natural mechlink gene gives the pawn a vanilla mechlink with a permanent debuff.</description>
 	<iconPath>WVC/UI/Genes/NaturalMechlink</iconPath>
 	<statOffsets>
-	  <WVC_OverseerMaxGolems>1</WVC_OverseerMaxGolems>
+	  <WVC_OverseerMaxGolems>4</WVC_OverseerMaxGolems>
 	  <MechBandwidth>-4</MechBandwidth>
 	  <MechControlGroups>-1</MechControlGroups>
 	</statOffsets>

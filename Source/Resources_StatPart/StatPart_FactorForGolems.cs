@@ -15,7 +15,7 @@ namespace WVC_XenotypesAndGenes
 
         public override void TransformValue(StatRequest req, ref float val)
         {
-            if (req.HasThing && req.Thing is Pawn pawn && MechanoidizationUtility.PawnIsGolem(pawn))
+            if (req.HasThing && req.Thing is Pawn pawn && GolemsUtility.PawnIsGolem(pawn))
             {
                 if (TryGetFactor(req, out var factor))
                 {
@@ -31,7 +31,7 @@ namespace WVC_XenotypesAndGenes
             // return label + ": +" + factor.ToStringPercent();
             // }
             // return null;
-            if (req.HasThing && req.Thing is Pawn pawn && pawn.GetOverseer() != null && MechanoidizationUtility.PawnIsGolem(pawn))
+            if (req.HasThing && req.Thing is Pawn pawn && pawn.GetOverseer() != null && GolemsUtility.PawnIsGolem(pawn))
             {
                 return "WVC_StatPart_GenesCombo_Static".Translate() + ": x" + pawn.GetOverseer().GetStatValue(stat);
             }

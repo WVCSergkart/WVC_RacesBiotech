@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using Verse;
 
@@ -10,6 +11,8 @@ namespace WVC_XenotypesAndGenes
 
 		public bool onlyPlayerFaction = true;
 
+		public Type golemGizmoType = typeof(Gizmo_MaxGolems);
+
 		public CompProperties_GenesDisplayInfo()
 		{
 			compClass = typeof(CompGenesDisplayInfo);
@@ -20,12 +23,6 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		private CompProperties_GenesDisplayInfo Props => (CompProperties_GenesDisplayInfo)props;
-
-		public List<Gene_Spawner> cachedSpawnerGenes = null;
-		public Gene_Wings cachedWingGene = null;
-		public Gene_Undead cachedUndeadGene = null;
-		public Gene_DustMechlink cachedBlesslinkGene = null;
-		public Gene_Scarifier cachedScarifierGene = null;
 
 		public override void PostSpawnSetup(bool respawningAfterLoad)
 		{
@@ -45,6 +42,15 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 		}
+
+		public List<Gene_Spawner> cachedSpawnerGenes = null;
+		public Gene_Wings cachedWingGene = null;
+		public Gene_Undead cachedUndeadGene = null;
+		public Gene_DustMechlink cachedBlesslinkGene = null;
+		public Gene_Scarifier cachedScarifierGene = null;
+
+		private bool cachedShouldShowGolemsInfo = true;
+		// private bool cachedShouldCheckMechanitorInfo = true;
 
 		public void CacheInfoGenes(Pawn pawn)
 		{
@@ -67,6 +73,17 @@ namespace WVC_XenotypesAndGenes
 			if (WVC_Biotech.settings.enableGeneBlesslinkInfo)
 			{
 				cachedScarifierGene = HaveScarifier(pawn);
+			}
+			if (WVC_Biotech.settings.enableGolemsInfo)
+			{
+				if (!MechanitorUtility.IsMechanitor(pawn))
+				{
+					cachedShouldShowGolemsInfo = false;
+				}
+				else if (!GolemsUtility.MechanitorHasAnyGolems(pawn))
+				{
+					cachedShouldShowGolemsInfo = false;
+				}
 			}
 		}
 
@@ -192,6 +209,29 @@ namespace WVC_XenotypesAndGenes
 				info += "WVC_XaG_Gene_Wings_On_Info".Translate().Resolve();
 			}
 			return info;
+		}
+
+		private Gizmo_MaxGolems gizmo;
+
+		public override IEnumerable<Gizmo> CompGetGizmosExtra()
+		{
+			base.CompGetGizmosExtra();
+			// if (!WVC_Biotech.settings.enableGolemsInfo)
+			// {
+				// yield break;
+			// }
+			if (cachedShouldShowGolemsInfo && WVC_Biotech.settings.enableGolemsInfo)
+			{
+				Pawn pawn = parent as Pawn;
+				if (gizmo == null)
+				{
+					gizmo = (Gizmo_MaxGolems)Activator.CreateInstance(Props.golemGizmoType, pawn);
+				}
+				if (Find.Selector.SelectedPawns.Count == 1)
+				{
+					yield return gizmo;
+				}
+			}
 		}
 	}
 

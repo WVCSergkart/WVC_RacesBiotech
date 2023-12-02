@@ -6,21 +6,6 @@ namespace WVC_XenotypesAndGenes
     [DefOf]
     public static class WVC_GenesDefOf
     {
-        // public static GeneDef WVC_MechaSkin;
-        // public static GeneDef WVC_NodeSkin_Blue;
-        // public static GeneDef WVC_NodeSkin_Red;
-        // public static GeneDef WVC_NodeSkin_Green;
-        // public static GeneDef WVC_NodeSkin_Violet;
-        // public static GeneDef WVC_NodeSkin_Yellow;
-        // public static GeneDef WVC_NodeSkin_AltBlue;
-        // public static GeneDef WVC_NodeSkin_Orange;
-        // public static GeneDef Furskin;
-        // public static GeneDef WVC_MechaAI_Base;
-        // public static GeneDef WVC_MechaAI_SoftwareFriendOrFoe;
-        // public static GeneDef WVC_MecaUpgrades_PerfectShape;
-        // public static StatDef WVC_PawnMechanoidization;
-        // public static StatDef WVC_SkillsDecayFactor;
-        // public static HediffDef WVC_PollutionDependencies;
         public static GeneDef WVC_FemaleOnly;
         public static GeneDef WVC_MaleOnly;
         // Xenotype
@@ -33,12 +18,9 @@ namespace WVC_XenotypesAndGenes
         // Inherit
         public static GeneDef PerfectImmunity;
         public static GeneDef DiseaseFree;
-        // Immortal combo
-        // public static GeneDef TotalHealing;
-        // public static GeneDef PerfectImmunity;
-        // public static GeneDef DiseaseFree;
-        // public static GeneDef Deathless;
-        // public static GeneDef Ageless;
+        // Golems
+        public static StatDef WVC_OverseerMaxGolems;
+        public static StatDef WVC_GolemBandwidthCost;
         // Genepack
         public static ThingDef WVC_Genepack;
         public static ThingDef WVC_UltraGenepack;
@@ -49,35 +31,11 @@ namespace WVC_XenotypesAndGenes
         // Capsule
         public static ThingDef WVC_XenotypeSerumCapsule;
         public static ThingDef WVC_XenotypeSerumUltraCapsule;
-        // HumanEmbryo
-        // public static ThingDef WVC_HumanEmbryo;
-        // Reimplanter
-        // public static GeneDef WVC_EndogermReimplanter;
-        // public static GeneDef WVC_MecaBodyParts_Heart;
-        // Power source
-        // public static GeneDef WVC_MechaPowerSource_Vanometric;
-        // public static GeneDef WVC_MechaPowerSource_Stable;
-        // public static GeneDef WVC_MechaPowerSource_Unstable;
-        // public static GeneDef WVC_MechaPowerSource_Tox;
-        // Bleed
-        // public static StatDef WVC_BleedingFactor;
-        // Hunger
-        // public static StatDef WVC_HungerRateFactor;
-        // public static HediffDef WVC_MechaskinHunger_HungerFactor;
+        // Misc
         public static HediffDef WVC_IncompatibilityComa;
         public static HediffDef WVC_SelfPopulationRegulation_Golems;
         public static HediffDef WVC_Resurgent_UndeadResurrectionRecovery;
-        // public static HediffDef WVC_SelfPopulationRegulation_Golems;
-        // Skills
-        // public static StatDef WVC_SkillsDecayFactor;
-        // public static StatDef WVC_MinSkillLevel;
-        // Ideo
-        // public static StatDef WVC_RacesBiotech_PawnExoBeauty;
-        // Backstory
-        // public static BackstoryDef WVC_RacesBiotech_Amnesia_Child;
-        // public static BackstoryDef WVC_RacesBiotech_Amnesia_Adult;
         public static ConceptDef WVC_XenotypeSerums_SupportedXenotypesList;
-        // public static JobDef WVC_XenotypesAndGenes_HaulToRecycler;
         public static ThinkTreeDef Mechanoid;
         public static ThinkTreeDef MechConstant;
     }

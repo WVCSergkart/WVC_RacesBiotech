@@ -26,6 +26,7 @@
 			<!-- <LeatherAmount>0</LeatherAmount> -->
 			<!-- <ArmorRating_Heat>2.00</ArmorRating_Heat> -->
 			<BandwidthCost>-999</BandwidthCost>
+			<WVC_GolemBandwidthCost>1</WVC_GolemBandwidthCost>
 			<MechEnergyUsageFactor>-1</MechEnergyUsageFactor>
 			<MechEnergyLossPerHP>-1</MechEnergyLossPerHP>
 			<WastepacksPerRecharge>0</WastepacksPerRecharge>
@@ -242,6 +243,7 @@
 		<defName>WVC_Golem_Crafter</defName>
 		<label>golem craftoid</label>
 		<statBases>
+			<WVC_GolemBandwidthCost>2</WVC_GolemBandwidthCost>
 			<ArmorRating_Sharp>0.2</ArmorRating_Sharp>
 			<ArmorRating_Blunt>0.4</ArmorRating_Blunt>
 			<MoveSpeed>2.2</MoveSpeed>
@@ -324,6 +326,7 @@
 		<defName>WVC_Golem_Hunter</defName>
 		<label>golem hunteroid</label>
 		<statBases>
+			<WVC_GolemBandwidthCost>2</WVC_GolemBandwidthCost>
 			<ArmorRating_Sharp>0.1</ArmorRating_Sharp>
 			<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
 			<MoveSpeed>3.8</MoveSpeed>

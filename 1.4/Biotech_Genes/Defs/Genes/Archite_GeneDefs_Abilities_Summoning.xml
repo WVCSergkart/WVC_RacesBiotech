@@ -114,7 +114,7 @@
 	</customEffectDescriptions>
 	<statOffsets>
 	  <!-- <WVC_BandwidthCostOffsetMech>2</WVC_BandwidthCostOffsetMech> -->
-	  <WVC_OverseerMaxGolems>1</WVC_OverseerMaxGolems>
+	  <WVC_OverseerMaxGolems>6</WVC_OverseerMaxGolems>
 	  <!-- <PsychicSensitivity>0.2</PsychicSensitivity> -->
 	</statOffsets>
 	<statFactors>
