@@ -58,6 +58,12 @@ If enabled, then all genes of the mod will have a vanilla interface.</WVC_ToolTi
 	<WVC_ToolTip_enableGenesInfo>Responsible for displaying gene information. For example, for spawner genes: time, name and count.
 
 Activation requires a restart, deactivation does not.</WVC_ToolTip_enableGenesInfo>
+	<!-- ====================================================================================== -->
+
+	<WVC_Label_enableCustomMechLinkName>Enable custom mechlink name</WVC_Label_enableCustomMechLinkName>
+	<WVC_ToolTip_enableCustomMechLinkName>If enabled, the name of the mechlink will be replaced with the name of the gene that this mechlink gives. Works only with genes from the mod.
+
+Does not affect already spawned mechlinks.</WVC_ToolTip_enableCustomMechLinkName>
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_minWastepacksPerRecharge>Force minimal waste</WVC_Label_minWastepacksPerRecharge>

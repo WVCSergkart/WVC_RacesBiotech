@@ -85,6 +85,7 @@
     <Compile Include="Resources_Harmony\Harmony_Background_New.cs" />
     <Compile Include="Resources_Harmony\Harmony_DisablePawnRelations.cs" />
     <Compile Include="Resources_Harmony\Harmony_ShouldSendNotificationAbout_Patch.cs" />
+    <Compile Include="Resources_Hediff\CustomMechlinkLabel.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_PawnHaveWings.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_SeverityFromDust.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_SuperRegeneration.cs" />

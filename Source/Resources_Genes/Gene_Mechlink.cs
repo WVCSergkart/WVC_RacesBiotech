@@ -42,6 +42,38 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_ResurgentMechlink : Gene_ResurgentDependent
+	{
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
+			{
+				pawn.health.AddHediff(HediffDefOf.MechlinkImplant, pawn.health.hediffSet.GetBrain());
+			}
+		}
+
+		public override void Notify_PawnDied()
+		{
+			base.Notify_PawnDied();
+			if (WVC_Biotech.settings.genesRemoveMechlinkUponDeath && pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
+			{
+				Gene_AddOrRemoveHediff.RemoveHediff(HediffDefOf.MechlinkImplant, pawn);
+			}
+		}
+
+		public override void Reset()
+		{
+			base.Reset();
+			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
+			{
+				pawn.health.AddHediff(HediffDefOf.MechlinkImplant, pawn.health.hediffSet.GetBrain());
+			}
+		}
+
+	}
+
 	public class Gene_DustMechlink : Gene_Mechlink
 	{
 

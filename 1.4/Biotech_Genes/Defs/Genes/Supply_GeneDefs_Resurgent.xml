@@ -259,9 +259,12 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells">
 	<defName>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</defName>
+	<!-- <label>sporelink</label> -->
 	<label>resurgent spores</label>
 	<description>Carriers of this gene have special glands in their palms. They can saturate the soil with resurgent spores by touch, which will allow the growth of a resurgent tree.</description>
+	<!-- <description>The carrier of this gene has architis, which has greatly changed neural connections. The carrier acquired special sensitivity and the ability to control resurgent spores. Due to this, the wearer has a natural mechlink.</description> -->
 	<iconPath>WVC/UI/Genes/Gene_ResurgentTree_v0</iconPath>
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_ResurgentMechlink</geneClass> -->
 	<displayOrderInCategory>1260</displayOrderInCategory>
 	<minAgeActive>13</minAgeActive>
 	<prerequisite>WVC_ResurgentCellsGain</prerequisite>
@@ -269,11 +272,13 @@
 	<biostatMet>0</biostatMet>
 	<biostatArc>1</biostatArc>
 	<customEffectDescriptions>
+		<li>Carriers of this gene get &lt;color=#8a8ae6&gt;mechlink&lt;/color&gt; permanently.</li>
 		<li>Makes it possible to plant a resurgent tree at the cost of 66 cells.</li>
 		<li>The resurgent tree slowly pollutes the soil around it and raises walking corpses.</li>
+		<!-- <li>Walking corpses are aberrations that will protect the settlement until death.</li> -->
+		<li>Walking corpses are eternally hungry aberrations that will protect the settlement until death.</li>
 		<li>Also, the tree once a year will spawn babies that inherit the genes of one of the owners of this gene in the settlement.</li>
 		<li>If all the owners of this gene are dead or absent in the settlement, then the tree will stop spawning babies.</li>
-		<li>Walking corpses are eternally hungry aberrations that will protect the settlement until death.</li>
 	</customEffectDescriptions>
 	<abilities>
 	  <li>WVC_AbilitySpawn_ResurgentTree</li>

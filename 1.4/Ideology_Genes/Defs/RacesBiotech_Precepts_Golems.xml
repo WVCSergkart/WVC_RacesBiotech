@@ -27,7 +27,7 @@
 	</requiredMemes>
 	<statOffsets>
 	  <!-- <WVC_BandwidthCostOffsetMech>1</WVC_BandwidthCostOffsetMech> -->
-	  <WVC_OverseerMaxGolems>1</WVC_OverseerMaxGolems>
+	  <WVC_OverseerMaxGolems>4</WVC_OverseerMaxGolems>
 	</statOffsets>
   </PreceptDef>
 
@@ -46,7 +46,7 @@
 	</requiredMemes>
 	<statOffsets>
 	  <WVC_BandwidthCostOffsetMech>1</WVC_BandwidthCostOffsetMech>
-	  <WVC_OverseerMaxGolems>2</WVC_OverseerMaxGolems>
+	  <WVC_OverseerMaxGolems>8</WVC_OverseerMaxGolems>
 	</statOffsets>
   </PreceptDef>
 
@@ -55,7 +55,7 @@
   <PreceptDef ParentName="PreceptRoleMultiBase">
 	<defName>WVC_IdeoRole_GolemSpecialist</defName>
 	<label>golem specialist</label>
-	<description>A special ideoligious status focusing on crafting to the exclusion of all else. This specialized role increases the maximum number of golems and grants the ability to summon golems once a year. Holders of this role will refuse to do some non-production work.</description>
+	<description>A special ideoligious status focusing on crafting to the exclusion of all else. This specialized role increases the maximum number of golems and grants the ability to summon golems once a half-year. Holders of this role will refuse to do some non-production work.</description>
 	<iconPath>WVC/UI/Precepts/GolemSpecialist</iconPath>
 	<nameMaker>NamerRoleProductionSpecialist</nameMaker>
 	<roleRequirements>
@@ -76,7 +76,7 @@
 	<roleEffects>
 	  <li Class="RoleEffect_PawnStatOffset">
 		<statDef>WVC_OverseerMaxGolems</statDef>
-		<modifier>2</modifier>
+		<modifier>6</modifier>
 	  </li>
 	</roleEffects>
 	<grantedAbilities>

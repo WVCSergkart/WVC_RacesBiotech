@@ -153,4 +153,8 @@ Each mechanoid costs 0.15 nutrition to summon.</WVC_XaG_Gene_DustMechlinkDesc>
 	<WVC_XaG_GolemBandwidthUsage>Golem bandwidth usage</WVC_XaG_GolemBandwidthUsage>
 	<WVC_XaG_GolemGestationBandwidthUsed>Golem gestation bandwidth</WVC_XaG_GolemGestationBandwidthUsed>
 
+	<!-- ====================================================================== -->
+
+	<WVC_XaG_CustomLabeledMechlinkDesc>A neural formation resulting from genetic evolution or modification, similar to what can be obtained by implanting a mechlink.</WVC_XaG_CustomLabeledMechlinkDesc>
+
 </LanguageData>

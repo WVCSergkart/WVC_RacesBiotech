@@ -21,6 +21,7 @@ namespace WVC_XenotypesAndGenes
 		public bool allowShapeshiftAfterDeath = true;
 		public bool totalHealingIgnoreScarification = true;
 		public bool genesRemoveMechlinkUponDeath = false;
+		public bool enableCustomMechLinkName = false;
 		// Fix
 		public bool minWastepacksPerRecharge = false;
 		public bool validatorAbilitiesPatch = true;
@@ -58,6 +59,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref allowShapeshiftAfterDeath, "allowShapeshiftAfterDeath", defaultValue: true);
 			Scribe_Values.Look(ref totalHealingIgnoreScarification, "totalHealingIgnoreScarification", defaultValue: true);
 			Scribe_Values.Look(ref genesRemoveMechlinkUponDeath, "genesRemoveMechlinkUponDeath", defaultValue: false);
+			Scribe_Values.Look(ref enableCustomMechLinkName, "enableCustomMechLinkName", defaultValue: false);
 			// Fix
 			Scribe_Values.Look(ref minWastepacksPerRecharge, "minWastepacksPerRecharge", defaultValue: false);
 			Scribe_Values.Look(ref validatorAbilitiesPatch, "validatorAbilitiesPatch", defaultValue: true);
@@ -169,6 +171,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_allowShapeshiftAfterDeath".Translate(), ref settings.allowShapeshiftAfterDeath, "WVC_ToolTip_allowShapeshiftAfterDeath".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_totalHealingIgnoreScarification".Translate(), ref settings.totalHealingIgnoreScarification, "WVC_ToolTip_totalHealingIgnoreScarification".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_genesRemoveMechlinkUponDeath".Translate(), ref settings.genesRemoveMechlinkUponDeath, "WVC_ToolTip_genesRemoveMechlinkUponDeath".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_enableCustomMechLinkName".Translate(), ref settings.enableCustomMechLinkName, "WVC_ToolTip_enableCustomMechLinkName".Translate());
 			listingStandard.Gap();
 			// ===============
 			listingStandard.Label("WVC_BiotechSettings_Label_Other".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Other".Translate());

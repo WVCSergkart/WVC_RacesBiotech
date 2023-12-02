@@ -2,20 +2,49 @@
 <Patch>
 
 	<!-- TEST Patches -->
-	<Operation Class="PatchOperationAdd">
-	  <xpath>/Defs/GeneDef[defName="PerfectImmunity"]/makeImmuneTo</xpath>
-	  <value>
-		<li>GutWorms</li>
-		<li>FibrousMechanites</li>
-		<li>SensoryMechanites</li>
-	  </value>
-	</Operation>
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/GeneDef[defName="PerfectImmunity"]/makeImmuneTo</xpath> -->
+	  <!-- <value> -->
+		<!-- <li>GutWorms</li> -->
+		<!-- <li>FibrousMechanites</li> -->
+		<!-- <li>SensoryMechanites</li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
 
-	<Operation Class="PatchOperationAdd">
-	  <xpath>/Defs/GeneDef[defName="DiseaseFree"]/hediffGiversCannotGive</xpath>
-	  <value>
-		<li>TraumaSavant</li>
-	  </value>
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/GeneDef[defName="DiseaseFree"]/hediffGiversCannotGive</xpath> -->
+	  <!-- <value> -->
+		<!-- <li>TraumaSavant</li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<!-- Patch for mechlink label -->
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>enableCustomMechLinkName</settingName>
+		<caseTrue Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationReplace">
+				  <xpath>/Defs/HediffDef[defName="MechlinkImplant"]/hediffClass</xpath>
+				  <value>
+					<hediffClass>WVC_XenotypesAndGenes.Hediff_LabeledMechlink</hediffClass>
+				  </value>
+				</li>
+				<li Class="PatchOperationAdd">
+				  <xpath>/Defs/HediffDef[defName="MechlinkImplant"]/comps</xpath>
+				  <value>
+					<li Class="WVC_XenotypesAndGenes.HediffCompProperties_LabelFromGene">
+					  <geneDefs>
+						<li>WVC_Dustogenic_Blesslink</li>
+						<li>WVC_ArchiteMechlink</li>
+						<li>WVC_NaturalMechlink</li>
+						<!-- <li>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</li> -->
+					  </geneDefs>
+					</li>
+				  </value>
+				</li>
+			</operations>
+		</caseTrue>
 	</Operation>
 
 	<!-- Patch for special food for dustogenics -->
