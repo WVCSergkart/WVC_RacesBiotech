@@ -5,6 +5,25 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
+	public class HediffCompProperties_InstantKill : HediffCompProperties
+	{
+
+		public HediffCompProperties_InstantKill()
+		{
+			compClass = typeof(HediffComp_InstantKill);
+		}
+	}
+
+	public class HediffComp_InstantKill : HediffComp
+	{
+
+		public override void CompPostTick(ref float severityAdjustment)
+		{
+			base.Pawn.Kill(null, parent);
+		}
+
+	}
+
 	public class HediffCompProperties_GolemPopulationRegulation : HediffCompProperties
 	{
 
@@ -53,6 +72,44 @@ namespace WVC_XenotypesAndGenes
 				// }
 			// }
 			if (!GolemsUtility.LimitExceedCheck(overseer))
+			{
+				base.Pawn.Kill(null, parent);
+			}
+		}
+
+	}
+
+	public class HediffCompProperties_BonePopulationRegulation : HediffCompProperties
+	{
+
+		public HediffCompProperties_BonePopulationRegulation()
+		{
+			compClass = typeof(HediffComp_BonePopulationRegulation);
+		}
+	}
+
+	public class HediffComp_BonePopulationRegulation : HediffComp
+	{
+
+		public override void CompPostTick(ref float severityAdjustment)
+		{
+			base.CompPostTick(ref severityAdjustment);
+			if (!Pawn.IsHashIntervalTick(60000))
+			{
+				return;
+			}
+			Pawn golem = parent.pawn;
+			if (golem.GetOverseer() == null)
+			{
+				base.Pawn.Kill(null, parent);
+				return;
+			}
+			if (golem.Map == null)
+			{
+				return;
+			}
+			Pawn overseer = golem.GetOverseer();
+			if (!WalkingUtility.LimitExceedCheck(overseer))
 			{
 				base.Pawn.Kill(null, parent);
 			}

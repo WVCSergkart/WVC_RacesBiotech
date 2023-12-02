@@ -72,6 +72,7 @@
     <Compile Include="Resources_Abilities\CompProperties_AbilityRiseFromTheDead.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilitySpawn.cs" />
     <Compile Include="Resources_Abilities\QuestNode_Root_Reincarnation.cs" />
+    <Compile Include="Resources_Gizmo\GeneGizmo_ResurgentSpores.cs" />
     <Compile Include="Resources_Gizmo\Gizmo_MaxGolems.cs" />
     <Compile Include="Resources_Genes\Gene_AngelicStability.cs" />
     <Compile Include="Resources_Genes\Gene_BodyParts_Restoration.cs" />
@@ -84,7 +85,6 @@
     <Compile Include="Resources_Harmony\Harmony.cs" />
     <Compile Include="Resources_Harmony\Harmony_Background_New.cs" />
     <Compile Include="Resources_Harmony\Harmony_DisablePawnRelations.cs" />
-    <Compile Include="Resources_Harmony\Harmony_ShouldSendNotificationAbout_Patch.cs" />
     <Compile Include="Resources_Hediff\CustomMechlinkLabel.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_PawnHaveWings.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_SeverityFromDust.cs" />
@@ -95,9 +95,12 @@
     <Compile Include="Resources_Hediff\OnlyOneOverseer.cs" />
     <Compile Include="Resources_JobGiver\JobGiver_GetSpecialFood.cs" />
     <Compile Include="Resources_Main\PostInitializationStartup.cs" />
+    <Compile Include="Resources_StatPart\StatPart_OffsetFromPollutedGraves.cs" />
     <Compile Include="Resources_Templates\SubXenotypeDefs.cs" />
     <Compile Include="Resources_Things\CompProperties_GenesInfo.cs" />
     <Compile Include="Resources_Things\CompProperties_InitialNeed.cs" />
+    <Compile Include="Resources_Things\CompProperties_Regeneration.cs" />
+    <Compile Include="Resources_Things\WalkingCorpsesSpawner.cs" />
     <Compile Include="Resources_Utility\AgelessUtility.cs" />
     <Compile Include="Resources_Utility\DustUtility.cs" />
     <Compile Include="Resources_JobGiver\JobGiver_WanderNearTarget.cs" />
@@ -137,6 +140,7 @@
     <Compile Include="Resources_Utility\SubXenotypeUtility.cs" />
     <Compile Include="Resources_Utility\UndeadUtility.cs" />
     <Compile Include="Resources_Main\WVC_GenesDefOf.cs" />
+    <Compile Include="Resources_Utility\WalkingUtility.cs" />
     <Compile Include="Resources_Utility\XenotypeFilterUtility.cs" />
     <Compile Include="Resources_Main\XenotypesModSettings.cs" />
     <Compile Include="Resources_StatPart\StatPart_FactorForGolems.cs" />

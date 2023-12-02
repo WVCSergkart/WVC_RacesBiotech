@@ -98,7 +98,8 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_MechSummoning">
 	<defName>WVC_SwarmConnection_Golems</defName>
-	<label>swarm connection</label>
+	<!-- <label>swarm connection</label> -->
+	<label>stonelink</label>
 	<description>Carriers of this gene have a strong psionic bond with a mechanite swarm in a nearby asteroid cluster.
 
 &lt;color=#ff8585&gt;Note:&lt;/color&gt; Golems are mechanoid-like creatures that also require a mechlink to control.</description>

@@ -15,8 +15,8 @@ This creepy organism obeys the local owner of the "Resurgent spores" gene, formi
 Totems also spread pollution from time to time.</description>
 	<descriptionHyperlinks>
 	  <ThingDef>WVC_Plant_TreeResurgent</ThingDef>
-	  <ThingDef>WVC_XenotypesAndGenes_WalkingCorpse</ThingDef>
-	  <ThingDef>WVC_XenotypesAndGenes_WalkingSkeleton</ThingDef>
+	  <ThingDef>WVC_XenotypesAndGenes_ResurgentSporesSkeleton</ThingDef>
+	  <ThingDef>WVC_XenotypesAndGenes_ResurgentSporesBonepile</ThingDef>
 	</descriptionHyperlinks>
 	<soundImpactDefault>MeleeHit_Wood</soundImpactDefault>
 	<statBases>
@@ -82,18 +82,22 @@ Totems also spread pollution from time to time.</description>
 	  <claimable>false</claimable>
 	</building>
 	<comps>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_HiveSpawnAnimals">
-		<ticksBetweenSpawn>60000~300000</ticksBetweenSpawn>
-		<!-- Responsible for the maximum possible limit of walking. Default 20 -->
-		<maxLivingThings>20</maxLivingThings>
-		<!-- How many corpses can accumulate in anticipation of spawn. Default 1 -->
-		<!-- It is necessary to quickly restore the number of corpses after the raid. -->
-		<!-- The accumulated corpses will spawn after the timer is reset, if the limit allows. -->
-		<maxNumberOfSpawns>5</maxNumberOfSpawns>
-		<pawnsList>
-		  <li>WVC_XenotypesAndGenes_WalkingCorpse</li>
-		  <li>WVC_XenotypesAndGenes_WalkingSkeleton</li>
-		</pawnsList>
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_HiveSpawnAnimals"> -->
+		<!-- <ticksBetweenSpawn>60000~300000</ticksBetweenSpawn> -->
+		<!-- <maxLivingThings>20</maxLivingThings> -->
+		<!-- <maxNumberOfSpawns>5</maxNumberOfSpawns> -->
+		<!-- <pawnsList> -->
+		  <!-- <li>WVC_XenotypesAndGenes_WalkingCorpse</li> -->
+		  <!-- <li>WVC_XenotypesAndGenes_WalkingSkeleton</li> -->
+		<!-- </pawnsList> -->
+	  <!-- </li> -->
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_WalkingCorpsesSpawner">
+		<ticksBetweenSpawn>60000~600000</ticksBetweenSpawn>
+		<filthDef>Filth_CorpseBile</filthDef>
+		<summonsList>
+		  <li>WVC_XenotypesAndGenes_ResurgentSporesSkeleton</li>
+		  <li>WVC_XenotypesAndGenes_ResurgentSporesBonepile</li>
+		</summonsList>
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_Toxifier">
 		<pollutionIntervalTicks>360000~720000</pollutionIntervalTicks>
@@ -121,8 +125,8 @@ If a settlement has a pawn with the "Resurgent spores" gene, then the tree will 
 	<descriptionHyperlinks>
 	  <ThingDef>WVC_XenotypesAndGenes_WalkingCorpseTotem</ThingDef>
 	  <GeneDef>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</GeneDef>
-	  <ThingDef>WVC_XenotypesAndGenes_WalkingCorpse</ThingDef>
-	  <ThingDef>WVC_XenotypesAndGenes_WalkingSkeleton</ThingDef>
+	  <ThingDef>WVC_XenotypesAndGenes_ResurgentSporesSkeleton</ThingDef>
+	  <ThingDef>WVC_XenotypesAndGenes_ResurgentSporesBonepile</ThingDef>
 	</descriptionHyperlinks>
 	<graphicData>
 	  <!-- <drawOffset>(0,0.5,0)</drawOffset> -->
@@ -175,15 +179,13 @@ If a settlement has a pawn with the "Resurgent spores" gene, then the tree will 
 	  <li Class="CompProperties_SelfhealHitpoints">
 		<ticksPerHeal>2000</ticksPerHeal> <!-- 30 hp per day, must be a multiple of 2000, since plants have Long ticker -->
 	  </li>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_HiveSpawnAnimals">
-		<ticksBetweenSpawn>120000~720000</ticksBetweenSpawn>
-		<!-- Responsible for the maximum possible limit of walking -->
-		<!-- For trees 2 times less -->
-		<maxLivingThings>10</maxLivingThings>
-		<pawnsList>
-		  <li>WVC_XenotypesAndGenes_WalkingCorpse</li>
-		  <li>WVC_XenotypesAndGenes_WalkingSkeleton</li>
-		</pawnsList>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_WalkingCorpsesSpawner">
+		<ticksBetweenSpawn>120000~900000</ticksBetweenSpawn>
+		<filthDef>Filth_CorpseBile</filthDef>
+		<summonsList>
+		  <li>WVC_XenotypesAndGenes_ResurgentSporesSkeleton</li>
+		  <li>WVC_XenotypesAndGenes_ResurgentSporesBonepile</li>
+		</summonsList>
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_Toxifier">
 		<pollutionIntervalTicks>360000~720000</pollutionIntervalTicks>

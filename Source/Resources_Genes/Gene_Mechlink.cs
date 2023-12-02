@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -42,33 +43,49 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_ResurgentMechlink : Gene_ResurgentDependent
+	public class Gene_ResurgentMechlink : Gene_Mechlink
 	{
 
-		public override void PostAdd()
-		{
-			base.PostAdd();
-			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
-			{
-				pawn.health.AddHediff(HediffDefOf.MechlinkImplant, pawn.health.hediffSet.GetBrain());
-			}
-		}
+		// public override void PostAdd()
+		// {
+			// base.PostAdd();
+			// if (!pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
+			// {
+				// pawn.health.AddHediff(HediffDefOf.MechlinkImplant, pawn.health.hediffSet.GetBrain());
+			// }
+		// }
 
-		public override void Notify_PawnDied()
-		{
-			base.Notify_PawnDied();
-			if (WVC_Biotech.settings.genesRemoveMechlinkUponDeath && pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
-			{
-				Gene_AddOrRemoveHediff.RemoveHediff(HediffDefOf.MechlinkImplant, pawn);
-			}
-		}
+		// public override void Notify_PawnDied()
+		// {
+			// base.Notify_PawnDied();
+			// if (WVC_Biotech.settings.genesRemoveMechlinkUponDeath && pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
+			// {
+				// Gene_AddOrRemoveHediff.RemoveHediff(HediffDefOf.MechlinkImplant, pawn);
+			// }
+		// }
 
-		public override void Reset()
+		// public override void Reset()
+		// {
+			// base.Reset();
+			// if (!pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
+			// {
+				// pawn.health.AddHediff(HediffDefOf.MechlinkImplant, pawn.health.hediffSet.GetBrain());
+			// }
+		// }
+
+		private Gizmo gizmo;
+
+		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			base.Reset();
-			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
+			base.GetGizmos();
+			// Pawn pawn = parent as Pawn;
+			if (gizmo == null)
 			{
-				pawn.health.AddHediff(HediffDefOf.MechlinkImplant, pawn.health.hediffSet.GetBrain());
+				gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, pawn);
+			}
+			if (Find.Selector.SelectedPawns.Count == 1)
+			{
+				yield return gizmo;
 			}
 		}
 

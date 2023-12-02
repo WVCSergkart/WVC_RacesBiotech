@@ -79,6 +79,12 @@ namespace WVC_XenotypesAndGenes
 		public SubXenotypeDef subXenotypeDef = null;
 	}
 
+	public class ThingExtension_Golems : DefModExtension
+	{
+		public bool removeButcherRecipes = false;
+		public bool removeRepairComp = false;
+		public bool removeDormantComp = false;
+	}
 	// public class BlackListedXenotypesDef : Def
 	public class XenotypesAndGenesListDef : Def
 	{

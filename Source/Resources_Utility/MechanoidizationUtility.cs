@@ -10,15 +10,15 @@ namespace WVC_XenotypesAndGenes
 	public static class MechanoidizationUtility
 	{
 
-		public static bool ShouldNotSendNotificationAbout(Pawn pawn)
-		{
-			GeneExtension_General modExtension = pawn.def.GetModExtension<GeneExtension_General>();
-			if (modExtension != null)
-			{
-				return !modExtension.shouldSendNotificationAbout;
-			}
-			return false;
-		}
+		// public static bool ShouldNotSendNotificationAbout(Pawn pawn)
+		// {
+			// GeneExtension_General modExtension = pawn.def.GetModExtension<GeneExtension_General>();
+			// if (modExtension != null)
+			// {
+				// return !modExtension.shouldSendNotificationAbout;
+			// }
+			// return false;
+		// }
 
 		public static bool PawnIsAndroid(Pawn pawn)
 		{

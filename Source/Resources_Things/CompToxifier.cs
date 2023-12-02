@@ -93,7 +93,7 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        private void PolluteNextCell(bool silent = false)
+        public void PolluteNextCell(bool silent = false)
         {
             if (!CanPolluteNow)
             {

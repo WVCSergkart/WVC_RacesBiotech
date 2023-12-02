@@ -154,52 +154,56 @@
 	</corePart>
   </BodyDef>
 
-	<!-- <LifeStageDef> -->
-		<!-- <defName>WVC_XenotypesAndGenes_WalkingCorpse</defName> -->
-		<!-- <label>adult</label> -->
-		<!-- <visible>false</visible> -->
-		<!-- <reproductive>false</reproductive> -->
-		<!-- <milkable>false</milkable> -->
-		<!-- <shearable>false</shearable> -->
-		<!-- <caravanRideable>false</caravanRideable> -->
-	<!-- </LifeStageDef> -->
-
-	<AnimalBehaviours.AnimalsDisabledFromQuestsDef>
-		<defName>WVC_XenotypesAndGenes_DisabledQuestAnimals</defName>
-		<disabledFromQuestsPawns>
-			<li>WVC_XenotypesAndGenes_WalkingCorpse</li>
-			<li>WVC_XenotypesAndGenes_WalkingSkeleton</li>
-		</disabledFromQuestsPawns>
-	</AnimalBehaviours.AnimalsDisabledFromQuestsDef>
-
 	<!-- =================================================================== -->
 
-	<ThingDef ParentName="AnimalThingBase" Name="WVC_XenotypesAndGenes_WalkingCorpse_Base" Abstract="True">
-		<description>A pile of bones animated by a resurgent fungus.
-
-&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; Walking corpses do not require sleep, but they do need food. They will try to get food by hunting or in warehouses in the settlement. In case of death, the corpses turn into a totem.
-
-Walking corpses cannot be zoned, but they will try to stay close to the totems. Also, when an enemy appears on the map, they will blindly try to destroy it.</description>
+	<ThingDef ParentName="LightMechanoid" Name="WVC_XenotypesAndGenes_ResurgentSpores_Base" Abstract="True">
+		<description>A pile of bones animated by a resurgent fungus.</description>
+		<soundImpactDefault>BulletImpact_Flesh</soundImpactDefault>
 		<descriptionHyperlinks>
 		  <ThingDef>WVC_Plant_TreeResurgent</ThingDef>
 		  <ThingDef>WVC_XenotypesAndGenes_WalkingCorpseTotem</ThingDef>
 		</descriptionHyperlinks>
 		<statBases>
-			<ToxicResistance>1</ToxicResistance>
-			<ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
-			<PsychicSensitivity>1.5</PsychicSensitivity>
+			<!-- <ToxicResistance>1</ToxicResistance> -->
+			<!-- <ToxicEnvironmentResistance>1</ToxicEnvironmentResistance> -->
+			<!-- <PsychicSensitivity>1.5</PsychicSensitivity> -->
 			<Flammability>0.2</Flammability>
-			<MeatAmount>5</MeatAmount>
-			<LeatherAmount>3</LeatherAmount>
-			<ArmorRating_Heat>0.2</ArmorRating_Heat>
-			<ComfyTemperatureMin>-100</ComfyTemperatureMin>
-			<ComfyTemperatureMax>250</ComfyTemperatureMax>
-			<MarketValue>120</MarketValue>
+			<!-- <MeatAmount>5</MeatAmount> -->
+			<!-- <LeatherAmount>3</LeatherAmount> -->
+			<ArmorRating_Sharp>0.3</ArmorRating_Sharp>
 			<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+			<ArmorRating_Heat>0.4</ArmorRating_Heat>
+			<!-- <ComfyTemperatureMin>-100</ComfyTemperatureMin> -->
+			<!-- <ComfyTemperatureMax>250</ComfyTemperatureMax> -->
+			<MarketValue>120</MarketValue>
 			<MoveSpeed>3.6</MoveSpeed>
 			<Mass>43</Mass>
+			<!-- Mech -->
+			<BandwidthCost>-999</BandwidthCost>
+			<WVC_SporesBandwidthCost>1</WVC_SporesBandwidthCost>
+			<MechEnergyUsageFactor>-1</MechEnergyUsageFactor>
+			<MechEnergyLossPerHP>-1</MechEnergyLossPerHP>
+			<WastepacksPerRecharge>0</WastepacksPerRecharge>
+			<!-- Work -->
+			<FoodPoisonChance>0</FoodPoisonChance>
+			<MiningSpeed>0.25</MiningSpeed>
+			<PlantWorkSpeed>0.25</PlantWorkSpeed>
+			<ConstructionSpeed>0.25</ConstructionSpeed>
+			<SmoothingSpeed>0.25</SmoothingSpeed>
+			<GeneralLaborSpeed>0.25</GeneralLaborSpeed>
+			<MedicalTendSpeed>0.25</MedicalTendSpeed>
+			<MedicalOperationSpeed>0.25</MedicalOperationSpeed>
+			<CookSpeed>0.25</CookSpeed>
+			<SmeltingSpeed>0.25</SmeltingSpeed>
+			<DrugSynthesisSpeed>0.25</DrugSynthesisSpeed>
+			<ButcheryFleshSpeed>0.25</ButcheryFleshSpeed>
+			<ButcheryMechanoidSpeed>0.25</ButcheryMechanoidSpeed>
+			<!-- Other -->
+			<MedicalSurgerySuccessChance>2.0</MedicalSurgerySuccessChance>
+			<ConstructSuccessChance>2.0</ConstructSuccessChance>
+			<FixBrokenDownBuildingSuccessChance>2.0</FixBrokenDownBuildingSuccessChance>
 		</statBases>
-		<tradeability>None</tradeability>
+		<!-- <tradeability>None</tradeability> -->
 		<uiIconScale>1.5</uiIconScale>
 		<tools Inherit="False">
 			<li>
@@ -216,113 +220,85 @@ Walking corpses cannot be zoned, but they will try to stay close to the totems. 
 		<race>
 			<deathActionWorkerClass>WVC_XenotypesAndGenes.DeathActionWorker_SpawnThing</deathActionWorkerClass>
 			<body>WVC_XenotypesAndGenes_WalkingCorpse</body>
-			<hasGenders>false</hasGenders>
-			<needsRest>false</needsRest>
-			<herdMigrationAllowed>false</herdMigrationAllowed>
-			<trainability>None</trainability>
 			<bloodDef>Filth_CorpseBile</bloodDef>
-			<thinkTreeMain>WVC_XenotypesAndGenes_WalkingCorpse</thinkTreeMain>
-			<fleshType>WVC_ResurgentWounds</fleshType>
-			<allowedOnCaravan>false</allowedOnCaravan>
-			<canReleaseToWild>false</canReleaseToWild>
-			<playerCanChangeMaster>false</playerCanChangeMaster>
-			<showTrainables>false</showTrainables>
-			<canBePredatorPrey>false</canBePredatorPrey>
-			<hideTrainingTab>true</hideTrainingTab>
-			<predator>true</predator>
-			<disableAreaControl>true</disableAreaControl>
-			<wildness>0</wildness>
+			<!-- <fleshType>WVC_ResurgentWounds</fleshType> -->
 			<specificMeatDef>WVC_RawResurgentFungus</specificMeatDef>
 			<leatherDef>WVC_RawResurgentFungus</leatherDef>
-			<foodType>OmnivoreAnimal, OmnivoreRoughAnimal</foodType>
-			<giveNonToolUserBeatFireVerb>true</giveNonToolUserBeatFireVerb>
-			<baseHungerRate>1.8</baseHungerRate>
 			<baseHealthScale>0.6</baseHealthScale>
 			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
 			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
 			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
-			<hediffGiverSets Inherit="False">
-				<!-- <li>WVC_MechanoidGolem_HediffGiver</li> -->
-			</hediffGiverSets>
-		</race>
-		<tradeTags>
-		  <li>NonContractable</li>
-		  <li>AnimalDryad</li>
-		</tradeTags>
-		<thingCategories Inherit="False"/>
-		<recipes Inherit="False"/>
-		<butcherProducts Inherit="False"/>
-		<comps>
-			<!-- <li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_InitialHediff"> -->
-				<!-- <hediffname>WVC_XenotypesAndGenes_NoBleedNoPainNoPoisoning</hediffname> -->
-				<!-- <hediffseverity>1</hediffseverity> -->
-			<!-- </li> -->
-			<!-- Runs on spawn and save load. Checks if there are needed hediffs and adds missing ones. -->
-			<li Class="WVC_XenotypesAndGenes.CompProperties_InitialHediff">
-				<hediffDefs>
-				  <li>WVC_XenotypesAndGenes_NoBleedNoPainNoPoisoning</li>
-				  <li>WVC_SelfPopulationRegulation_BoneGolems</li>
-				</hediffDefs>
-			</li>
-			<li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_DoesntFlee"/>
-			<li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_DiseaseImmunity">
-				<hediffsToRemove><li>Animal_Plague</li><li>Animal_Flu</li><li>AB_AnimalSporesAllergy</li></hediffsToRemove>
-				<tickInterval>60000</tickInterval>
-			</li>
-			<li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="AnimalBehaviours.CompProperties_DiseaseEventImmunity"/>
-		</comps>
-		<modExtensions>
-			<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
-				<thingDefToSpawn>WVC_XenotypesAndGenes_WalkingCorpseTotem</thingDefToSpawn>
-				<!-- <stackCount>1</stackCount> -->
-			</li>
-			<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
-				<shouldSendNotificationAbout>false</shouldSendNotificationAbout>
-			</li>
-			<!-- <li Class="VFECore.ThingDefExtension"> -->
-				<!-- <destroyCorpse>true</destroyCorpse> -->
-			<!-- </li> -->
-		</modExtensions>
-	</ThingDef>
-	<PawnKindDef Name="WVC_XenotypesAndGenes_WalkingCorpseGolemKind_Base" Abstract="True">
-		<combatPower>50</combatPower>
-		<isFighter>false</isFighter>
-		<canArriveManhunter>false</canArriveManhunter>
-		<allowInMechClusters>false</allowInMechClusters>
-		<allowOldAgeInjuries>false</allowOldAgeInjuries>
-		<forceNoDeathNotification>true</forceNoDeathNotification>
-		<!-- <abilities> -->
-			<!-- <li>WVC_MechanoidAbility_ActivateGestator</li> -->
-		<!-- </abilities> -->
-	</PawnKindDef>
-
-	<!-- =================================================================== -->
-
-	<ThingDef ParentName="WVC_XenotypesAndGenes_WalkingCorpse_Base">
-		<defName>WVC_XenotypesAndGenes_WalkingCorpse</defName>
-		<label>walking bonepile</label>
-		<statBases>
-			<ArmorRating_Sharp>0.2</ArmorRating_Sharp>
-			<ArmorRating_Blunt>0.1</ArmorRating_Blunt>
-			<MoveSpeed>3.8</MoveSpeed>
-		</statBases>
-		<race>
 			<lifeStageAges>
 				<li>
 					<def>MechanoidFullyFormed</def>
 					<minAge>0</minAge>
 					<soundWounded>Pawn_Megascarab_Wounded</soundWounded>
 					<soundDeath>Pawn_Megascarab_Death</soundDeath>
-					<!-- <soundCall>Pawn_Megascarab_Call</soundCall> -->
-					<!-- <soundAngry>Pawn_Megascarab_Angry</soundAngry> -->
+					<soundCall>Pawn_Megascarab_Call</soundCall>
+					<soundAngry>Pawn_Megascarab_Angry</soundAngry>
 				</li>
 			</lifeStageAges>
 		</race>
+		<!-- <thingCategories Inherit="False"/> -->
+		<!-- <recipes Inherit="False"/> -->
+		<!-- <butcherProducts Inherit="False"/> -->
+		<comps>
+			<li Class="WVC_XenotypesAndGenes.CompProperties_Regeneration">
+				<refreshTicks>3000</refreshTicks>
+				<regenAmount>2</regenAmount>
+				<shouldSendNotification>false</shouldSendNotification>
+			</li>
+			<!-- <li MayRequire="Ludeon.Rimworld.Biotech" Class="CompProperties_OverseerSubject"> -->
+				<!-- <needsOverseerEffect>MechUncontrolled</needsOverseerEffect> -->
+				<!-- <delayUntilFeralCheck>120000</delayUntilFeralCheck> -->
+				<!-- <feralMtbDays>10</feralMtbDays> -->
+				<!-- <feralCascadeRadialDistance>25</feralCascadeRadialDistance> -->
+			<!-- </li> -->
+			<!-- Runs on spawn and save load. Checks if there are needed hediffs and adds missing ones. -->
+			<li Class="WVC_XenotypesAndGenes.CompProperties_InitialHediff">
+				<hediffDefs>
+				  <li>WVC_SelfPopulationRegulation_BoneGolems</li>
+				</hediffDefs>
+			</li>
+			<li Class="WVC_XenotypesAndGenes.CompProperties_InitialEnergyNeed"/>
+		</comps>
+		<modExtensions>
+			<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+				<thingDefToSpawn>WVC_XenotypesAndGenes_WalkingCorpseTotem</thingDefToSpawn>
+				<!-- <stackCount>1</stackCount> -->
+			</li>
+			<li Class="WVC_XenotypesAndGenes.ThingExtension_Golems">
+				<removeDormantComp>true</removeDormantComp>
+				<removeRepairComp>true</removeRepairComp>
+				<removeButcherRecipes>true</removeButcherRecipes>
+			</li>
+		</modExtensions>
 	</ThingDef>
-	<PawnKindDef ParentName="WVC_XenotypesAndGenes_WalkingCorpseGolemKind_Base">
-		<defName>WVC_XenotypesAndGenes_WalkingCorpse</defName>
-		<label>walking bonepile</label>
-		<race>WVC_XenotypesAndGenes_WalkingCorpse</race>
+
+	<PawnKindDef ParentName="NonCombatLightMechanoidKind" Name="WVC_XenotypesAndGenes_ResurgentSporesPawnkind_Base" Abstract="True">
+		<allowInMechClusters>false</allowInMechClusters>
+		<minGenerationAge MayRequire="Ludeon.Rimworld.Biotech">0</minGenerationAge>
+		<alternateGraphicChance>1.0</alternateGraphicChance>
+		<isFighter>false</isFighter>
+	</PawnKindDef>
+
+	<!-- =================================================================== -->
+
+	<ThingDef ParentName="WVC_XenotypesAndGenes_ResurgentSpores_Base">
+		<defName>WVC_XenotypesAndGenes_ResurgentSporesBonepile</defName>
+		<label>resurgent bonepile</label>
+		<statBases>
+			<ArmorRating_Sharp>0.2</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+			<MoveSpeed>3.8</MoveSpeed>
+		</statBases>
+		<race>
+		</race>
+	</ThingDef>
+	<PawnKindDef ParentName="WVC_XenotypesAndGenes_ResurgentSporesPawnkind_Base">
+		<defName>WVC_XenotypesAndGenes_ResurgentSporesBonepile</defName>
+		<label>resurgent bonepile</label>
+		<race>WVC_XenotypesAndGenes_ResurgentSporesBonepile</race>
 		<alternateGraphicChance>1.0</alternateGraphicChance>
 		<alternateGraphics>
 			<!-- Base -->
@@ -351,9 +327,9 @@ Walking corpses cannot be zoned, but they will try to stay close to the totems. 
 
 	<!-- =================================================================== -->
 
-	<ThingDef ParentName="WVC_XenotypesAndGenes_WalkingCorpse_Base">
-		<defName>WVC_XenotypesAndGenes_WalkingSkeleton</defName>
-		<label>walking skeleton</label>
+	<ThingDef ParentName="WVC_XenotypesAndGenes_ResurgentSpores_Base">
+		<defName>WVC_XenotypesAndGenes_ResurgentSporesSkeleton</defName>
+		<label>resurgent skeleton</label>
 		<statBases>
 			<ArmorRating_Sharp>0.5</ArmorRating_Sharp>
 			<ArmorRating_Blunt>0.0</ArmorRating_Blunt>
@@ -400,20 +376,12 @@ Walking corpses cannot be zoned, but they will try to stay close to the totems. 
 		<race>
 			<baseHungerRate>2.0</baseHungerRate>
 			<baseHealthScale>0.8</baseHealthScale>
-			<lifeStageAges>
-				<li>
-					<def>MechanoidFullyFormed</def>
-					<minAge>0</minAge>
-					<soundWounded>Pawn_Megascarab_Wounded</soundWounded>
-					<soundDeath>Pawn_Megascarab_Death</soundDeath>
-				</li>
-			</lifeStageAges>
 		</race>
 	</ThingDef>
-	<PawnKindDef ParentName="WVC_XenotypesAndGenes_WalkingCorpseGolemKind_Base">
-		<defName>WVC_XenotypesAndGenes_WalkingSkeleton</defName>
-		<label>walking skeleton</label>
-		<race>WVC_XenotypesAndGenes_WalkingSkeleton</race>
+	<PawnKindDef ParentName="WVC_XenotypesAndGenes_ResurgentSporesPawnkind_Base">
+		<defName>WVC_XenotypesAndGenes_ResurgentSporesSkeleton</defName>
+		<label>resurgent skeleton</label>
+		<race>WVC_XenotypesAndGenes_ResurgentSporesSkeleton</race>
 		<alternateGraphicChance>1.0</alternateGraphicChance>
 		<alternateGraphics>
 			<!-- Base -->

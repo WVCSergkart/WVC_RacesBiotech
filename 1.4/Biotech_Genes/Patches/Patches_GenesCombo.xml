@@ -35,10 +35,11 @@
 				  <value>
 					<li Class="WVC_XenotypesAndGenes.HediffCompProperties_LabelFromGene">
 					  <geneDefs>
+						<li>WVC_SwarmConnection_Golems</li>
+						<li>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</li>
 						<li>WVC_Dustogenic_Blesslink</li>
-						<li>WVC_ArchiteMechlink</li>
 						<li>WVC_NaturalMechlink</li>
-						<!-- <li>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</li> -->
+						<li>WVC_ArchiteMechlink</li>
 					  </geneDefs>
 					</li>
 				  </value>

@@ -20,6 +20,8 @@
 	
 	<WVC_AbilityValidation_ReimplantationCheck>Reimplantation in progress. Wait for the process to finish before starting another one.</WVC_AbilityValidation_ReimplantationCheck>
 
+	<!-- ============================ GENE INFO ============================ -->
+
 	<!-- Red -->
 	<WVC_XaG_NewBack_GeneIsNotActive>Gene is not active</WVC_XaG_NewBack_GeneIsNotActive>
 	<WVC_XaG_NewBack_GeneIsNotActive_WrongFace>Faceplate removed by augmentation or loss of eye</WVC_XaG_NewBack_GeneIsNotActive_WrongFace>
@@ -42,7 +44,7 @@
 	<WVC_XaG_NewBack_GeneIsActive_Undead>The resurrection effect is active.</WVC_XaG_NewBack_GeneIsActive_Undead>
 	<WVC_XaG_NewBack_GeneIsNotActive_UndeadReincarnate>The reincarnation effect is active.</WVC_XaG_NewBack_GeneIsNotActive_UndeadReincarnate>
 
-	<!-- ====================================================================== -->
+	<!-- ============================ SUB-XENOTYPE ============================ -->
 
 	<WVC_XaG_SubXeno_OverrideExistingGenes>Rewrite xenotype</WVC_XaG_SubXeno_OverrideExistingGenes>
 	<WVC_XaG_SubXeno_OverrideExistingGenes_Desc>Does this sub-xenotype overwrite existing genes.</WVC_XaG_SubXeno_OverrideExistingGenes_Desc>
@@ -58,9 +60,11 @@
 	<WVC_XaG_SubXeno_RandomGenes>Possible genes</WVC_XaG_SubXeno_RandomGenes>
 	<WVC_XaG_SubXeno_RandomGenes_Desc>Some of these genes can be added to a gene set.</WVC_XaG_SubXeno_RandomGenes_Desc>
 
-	<!-- ====================================================================== -->
+	<!-- ============================ XENOGERMINATION ============================ -->
 
 	<WVC_LetterTextGenesImplanted>{TARGET_nameDef} will be in a xenogermination coma for the next {COMADURATION} while {TARGET_possessive} body adjusts to the changes.</WVC_LetterTextGenesImplanted>
+
+	<!-- ============================ UNDEAD RESURRECTION ============================ -->
 
 	<WVC_LetterLabelSecondChance_GeneUndead>Second chance</WVC_LetterLabelSecondChance_GeneUndead>
 	<WVC_LetterTextSecondChance_GeneUndead>{TARGET_nameDef} gets another life, but at the cost of {COMADURATION} years of life and all the accumulated experience in all skills.</WVC_LetterTextSecondChance_GeneUndead>
@@ -69,22 +73,32 @@
 
 	<WVC_ResurgentGeneAgeReversalCompletedMessage>{PAWN_labelShort} completed {PAWN_possessive} age reversal cycle.</WVC_ResurgentGeneAgeReversalCompletedMessage>
 
+	<!-- ============================ RISED FROM THE DEAD ============================ -->
+
 	<WVC_LetterLabel_GeneRiseFromTheDead>Rised from the dead</WVC_LetterLabel_GeneRiseFromTheDead>
 	<WVC_LetterText_GeneRiseFromTheDead>{TARGET_nameDef} was resurrected, but this left a mark on {TARGET_objective}, now {TARGET_nameDef} is completely different.</WVC_LetterText_GeneRiseFromTheDead>
+
+	<!-- ============================ WALKING CORPSES SPAWNER ============================ -->
 
 	<WVC_XaG_Label_CompHiveSpawnAnimals>Time to next spawn: {0}</WVC_XaG_Label_CompHiveSpawnAnimals>
 	<WVC_XaG_Label_CompHiveSpawnAnimals_WalkingCorpses>Walking corpses</WVC_XaG_Label_CompHiveSpawnAnimals_WalkingCorpses>
 	<WVC_XaG_Label_CompHiveSpawnAnimals_currentNumberOfSpawns>Accumulated spawns</WVC_XaG_Label_CompHiveSpawnAnimals_currentNumberOfSpawns>
+
+	<!-- ============================ RESURGENT COST ============================ -->
 
 	<WVC_XaG_AbilityResurgentCost>Resurgent cells cost</WVC_XaG_AbilityResurgentCost>
 	<WVC_XaG_AbilityResurgentGain>Base resurgent cells gain</WVC_XaG_AbilityResurgentGain>
 	<WVC_XaG_AbilityDisabledNoResurgentGene>{0_labelShort} is not resurgent.</WVC_XaG_AbilityDisabledNoResurgentGene>
 	<WVC_XaG_AbilityDisabledNoResurgent>{0_labelShort} does not have enough resurgent cells.</WVC_XaG_AbilityDisabledNoResurgent>
 
+	<!-- ============================ DUST HUNGER ============================ -->
+
 	<WVC_XaG_AbilityPawnNutritionCost>Nutrition cost</WVC_XaG_AbilityPawnNutritionCost>
 	<WVC_XaG_AbilityDustGain>Base nutrition gain</WVC_XaG_AbilityDustGain>
 	<WVC_XaG_AbilityDisabledNoDustGene>{0_labelShort} is not organic.</WVC_XaG_AbilityDisabledNoDustGene>
 	<WVC_XaG_AbilityDisabledNoDust>{0_labelShort} does not have enough nutrition.</WVC_XaG_AbilityDisabledNoDust>
+
+	<!-- ============================ ABILITY CHECKER ============================ -->
 
 	<WVC_XaG_AbilityGeneIsActive_PawnBaseliner>Pawn must not have this ability.</WVC_XaG_AbilityGeneIsActive_PawnBaseliner>
 	<WVC_XaG_AbilityGeneIsActive_PawnNotHaveGene>Pawn does not have the required genes or it is not active</WVC_XaG_AbilityGeneIsActive_PawnNotHaveGene>
@@ -93,11 +107,15 @@
 	<WVC_XaG_AbilitySpawn_WrongTarget>Incorrect target.</WVC_XaG_AbilitySpawn_WrongTarget>
 	<WVC_XaG_AbilitySpawn_WrongTarget_NotSoil>The target must be soil.</WVC_XaG_AbilitySpawn_WrongTarget_NotSoil>
 
+	<!-- ============================ GESTATOR ============================ -->
+
 	<WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes>Time to baby gestation: {0}</WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes>
 	<WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes_ChildOwner>Child owner</WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes_ChildOwner>
 
 	<!-- <WVC_XaG_Gene_GeneticBackup_Full>{0}'s genes were backed up.</WVC_XaG_Gene_GeneticBackup_Full> -->
 	<!-- <WVC_XaG_Gene_GeneticBackup_Empty>{0}'s gene backup is empty.</WVC_XaG_Gene_GeneticBackup_Empty> -->
+
+	<!-- ============================ RESURGENT GIZMO BUTTONS ============================ -->
 
 	<WVC_XaG_AutoBaseDesc>Determines whether the gene will be triggered automatically.</WVC_XaG_AutoBaseDesc>
 
@@ -110,13 +128,19 @@
 	<!-- <WVC_XenotypeSerumThing_XenotypeLabel>xenotype</WVC_XenotypeSerumThing_XenotypeLabel> -->
 	<!-- <WVC_XenotypeSerumThing_XenotypeDesc>xenotype contained in the serum</WVC_XenotypeSerumThing_XenotypeDesc> -->
 
+	<!-- ============================ BABY SPAWNER ============================ -->
+
 	<WVC_XaG_GeneBabyTree_label>Baby spawner</WVC_XaG_GeneBabyTree_label>
 	<WVC_XaG_GeneBabyTree_desc>If enabled, the baby will be spawned at the end of the countdown.</WVC_XaG_GeneBabyTree_desc>
+
+	<!-- ============================ WINGS ============================ -->
 
 	<WVC_XaG_Gene_Wings>Use wings</WVC_XaG_Gene_Wings>
 	<WVC_XaG_Gene_WingsDesc>Allows you to switch between walking and flying.</WVC_XaG_Gene_WingsDesc>
 	<WVC_XaG_Gene_Wings_On>Fly</WVC_XaG_Gene_Wings_On>
 	<WVC_XaG_Gene_Wings_Off>Walk</WVC_XaG_Gene_Wings_Off>
+
+	<!-- ============================ INFO STATS ============================ -->
 
 	<WVC_XaG_Gene_Wings_On_Info>Ignores terrain</WVC_XaG_Gene_Wings_On_Info>
 	<!-- <WVC_XaG_Gene_Undead_On_Info>Undead (Can resurrect)</WVC_XaG_Gene_Undead_On_Info> -->
@@ -125,18 +149,28 @@
 	<WVC_XaG_Gene_Blesslin_On_Info>Next summon in</WVC_XaG_Gene_Blesslin_On_Info>
 	<WVC_XaG_Gene_Scarifier_On_Info>Next scarification in</WVC_XaG_Gene_Scarifier_On_Info>
 
+	<!-- ============================ SCARS ============================ -->
+
 	<WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars>max scars</WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars>
 	<WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars_Desc>Responsible for the maximum possible number of scars that a pawn can receive naturally.</WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars_Desc>
+
+	<!-- ============================ RESURRECTION ============================ -->
 
 	<WVC_XaG_Gene_DisplayStats_Undead_CanResurrect>resurrection</WVC_XaG_Gene_DisplayStats_Undead_CanResurrect>
 	<WVC_XaG_Gene_DisplayStats_Undead_CanResurrect_Desc>Responsible for whether the pawn can be auto-resurrected after death.</WVC_XaG_Gene_DisplayStats_Undead_CanResurrect_Desc>
 	<WVC_XaG_Gene_DisplayStats_Undead_CanResurrectHediffs_Desc>Any of can prevent resurrection</WVC_XaG_Gene_DisplayStats_Undead_CanResurrectHediffs_Desc>
 
+	<!-- ============================ REINCARNATION ============================ -->
+
 	<WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate>reincarnation</WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate>
 	<WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate_Desc>Responsible for whether the descendant of the pawn will appear in case of death. The minimum chronological age must be greater than 40.</WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate_Desc>
 
+	<!-- ============================ SHAPESHIFT ============================ -->
+
 	<WVC_XaG_Gene_DisplayStats_Undead_CanShapeshift>shapeshift</WVC_XaG_Gene_DisplayStats_Undead_CanShapeshift>
 	<WVC_XaG_Gene_DisplayStats_Undead_CanShapeshift_Desc>Responsible for whether the pawn's genes will change after auto-resurrection. This is influenced by the set of genes and xenotype.</WVC_XaG_Gene_DisplayStats_Undead_CanShapeshift_Desc>
+
+	<!-- ============================ BLESSLINK SUMMON ============================ -->
 
 	<WVC_XaG_Gene_DustMechlink>Summon</WVC_XaG_Gene_DustMechlink>
 	<WVC_XaG_Gene_DustMechlinkDesc>Automatically summons a random mechanoid every few days.
@@ -145,7 +179,9 @@ Each mechanoid costs 0.15 nutrition to summon.</WVC_XaG_Gene_DustMechlinkDesc>
 	<WVC_XaG_Gene_DustMechlink_On>On</WVC_XaG_Gene_DustMechlink_On>
 	<WVC_XaG_Gene_DustMechlink_Off>Off</WVC_XaG_Gene_DustMechlink_Off>
 
-	<!-- ====================================================================== -->
+	<!-- ============================ GOLEMS ============================ -->
+	<!-- ============================ GOLEMS ============================ -->
+	<!-- ============================ GOLEMS ============================ -->
 
 	<WVC_XaG_GolemBandwidth>Golems</WVC_XaG_GolemBandwidth>
 	<WVC_XaG_GolemBandwidthGizmoTip>A mechanitor can only oversee a golem if there is enough bandwidth to do so. Each golem consumes a different amount of bandwidth.\n\nGain more bandwidth by constructing &lt;color=#f4e776&gt;natural shrines and animus stones&lt;/color&gt; or with help of &lt;color=#6bb6bb&gt;genes&lt;/color&gt;.</WVC_XaG_GolemBandwidthGizmoTip>
@@ -153,7 +189,17 @@ Each mechanoid costs 0.15 nutrition to summon.</WVC_XaG_Gene_DustMechlinkDesc>
 	<WVC_XaG_GolemBandwidthUsage>Golem bandwidth usage</WVC_XaG_GolemBandwidthUsage>
 	<WVC_XaG_GolemGestationBandwidthUsed>Golem gestation bandwidth</WVC_XaG_GolemGestationBandwidthUsed>
 
-	<!-- ====================================================================== -->
+	<!-- ============================ WALKING CORPSES ============================ -->
+	<!-- ============================ WALKING CORPSES ============================ -->
+	<!-- ============================ WALKING CORPSES ============================ -->
+
+	<WVC_XaG_SporesBandwidth>Spores</WVC_XaG_SporesBandwidth>
+	<WVC_XaG_SporesBandwidthGizmoTip>A mechanitor can only oversee a walking corpses if there is enough spores to do so. Each corpse consumes a different amount of spores.\n\nGain more spores by digging up graves and burying the corpses of creatures in them.</WVC_XaG_SporesBandwidthGizmoTip>
+
+	<WVC_XaG_SporesBandwidthUsage>Resurgent spores usage</WVC_XaG_SporesBandwidthUsage>
+	<WVC_XaG_SporesGestationBandwidthUsed>Resurgent spores gestation bandwidth</WVC_XaG_SporesGestationBandwidthUsed>
+
+	<!-- ============================ MECHLINK CUSTOM LABEL ============================ -->
 
 	<WVC_XaG_CustomLabeledMechlinkDesc>A neural formation resulting from genetic evolution or modification, similar to what can be obtained by implanting a mechlink.</WVC_XaG_CustomLabeledMechlinkDesc>
 

@@ -125,6 +125,10 @@
 				  <li>ChunkSandstone</li>
 				</thingDefsToSpawn>
 			</li>
+			<li Class="WVC_XenotypesAndGenes.ThingExtension_Golems">
+				<removeRepairComp>false</removeRepairComp>
+				<removeButcherRecipes>true</removeButcherRecipes>
+			</li>
 		</modExtensions>
 	</ThingDef>
 	<PawnKindDef ParentName="NonCombatLightMechanoidKind" Name="WVC_XenotypesAndGenes_NonCombatGolemKind" Abstract="True">

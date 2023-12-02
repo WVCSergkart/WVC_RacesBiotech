@@ -472,7 +472,7 @@
 
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
 	<defName>WVC_XenotypesAndGenes_NoBleedNoPainNoPoisoning</defName>
-	<label>no bleed no pain no poison</label>
+	<label>instant killer</label>
 	<stages>
 	  <li>
 		<minSeverity>0.0</minSeverity>
@@ -482,17 +482,21 @@
 		<painFactor>0</painFactor>
 	  </li>
 	</stages>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_InstantKill"/>
+	</comps>
   </HediffDef>
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
 	<defName>WVC_SelfPopulationRegulation_BoneGolems</defName>
-	<label>bone golem</label>
-	<description>This creature is a pile of animated bones, it does not require medical attention and is able to regenerate lost limbs by literally picking them up from the ground.</description>
+	<label>golem</label>
+	<description>This creature is a pile of bones animated by archotech-created archites in a toxic fungus. It requires no repair or medical attention, it regenerates by "reassembling parts of itself" from the surface.</description>
 	<hediffClass>HediffWithComps</hediffClass>
 	<comps>
-		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_SuperRegeneration">
-			<refreshTicks>6000</refreshTicks>
-			<shouldSendNotification>false</shouldSendNotification>
-		</li>
+		<!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_SuperRegeneration"> -->
+			<!-- <refreshTicks>6000</refreshTicks> -->
+			<!-- <shouldSendNotification>false</shouldSendNotification> -->
+		<!-- </li> -->
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_BonePopulationRegulation"/>
 	</comps>
   </HediffDef>
 

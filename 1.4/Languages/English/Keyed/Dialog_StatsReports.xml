@@ -57,6 +57,7 @@
 	<WVC_StatPart_GenesCombo_Static>Forced to</WVC_StatPart_GenesCombo_Static>
 	<WVC_StatPart_GenesCombo_OffsetFromBuildings>Offset from buildings</WVC_StatPart_GenesCombo_OffsetFromBuildings>
 	<WVC_StatPart_GenesCombo_OffsetFromShrines>Offset from shrines</WVC_StatPart_GenesCombo_OffsetFromShrines>
+	<WVC_XaG_StatPart_OffsetFromPollutedGraves>Offset from polluted graves</WVC_XaG_StatPart_OffsetFromPollutedGraves>
 	<!-- <WVC_StatPart_GenesCombo_ForcedByStat>Forced by</WVC_StatPart_GenesCombo_ForcedByStat> -->
 
 </LanguageData>
