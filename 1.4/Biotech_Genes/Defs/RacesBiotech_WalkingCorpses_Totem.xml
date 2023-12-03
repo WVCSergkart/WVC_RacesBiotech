@@ -6,17 +6,13 @@
 	<label>walking corpse totem</label>
 	<description>A totem made from the rotten remains of various creatures. The only thing that holds these remains together is a resurgent fungus that has settled in rotten bones.
 
-A rapidly mutating, resurgent fungus is poisoning the soil beneath it and spreading to ancient animal bones underground. Bones infected with this fungus rise like walking corpses.
+A rapidly mutating, resurgent fungus is poisoning the soil beneath it and spreading to ancient bones underground. Bones infected with this fungus rise like walking corpses.
 
-This creepy organism obeys the local owner of the "Resurgent spores" gene, forming a stable psychic bond.
-
-&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; From time to time, the totem raises walking corpses, the number of walking corpses depends on the number of totems. The base amount is 4, each totem increases the limit by 1. If the limit is exceeded as a result of the destruction of totems, then it will not affect existing walking corpses in any way.
-
-Totems also spread pollution from time to time.</description>
+This creepy organism obeys the local owner of the "Sporelink" gene, forming a stable psychic bond.</description>
 	<descriptionHyperlinks>
 	  <ThingDef>WVC_Plant_TreeResurgent</ThingDef>
-	  <ThingDef>WVC_XenotypesAndGenes_ResurgentSporesSkeleton</ThingDef>
-	  <ThingDef>WVC_XenotypesAndGenes_ResurgentSporesBonepile</ThingDef>
+	  <!-- <ThingDef>WVC_Golem_Skeleton</ThingDef> -->
+	  <!-- <ThingDef>WVC_Golem_Bonepile</ThingDef> -->
 	</descriptionHyperlinks>
 	<soundImpactDefault>MeleeHit_Wood</soundImpactDefault>
 	<statBases>
@@ -95,8 +91,9 @@ Totems also spread pollution from time to time.</description>
 		<ticksBetweenSpawn>60000~600000</ticksBetweenSpawn>
 		<filthDef>Filth_CorpseBile</filthDef>
 		<summonsList>
-		  <li>WVC_XenotypesAndGenes_ResurgentSporesSkeleton</li>
-		  <li>WVC_XenotypesAndGenes_ResurgentSporesBonepile</li>
+		  <li>WVC_Golem_Skeleton</li>
+		  <li>WVC_Golem_Bonepile</li>
+		  <li>WVC_Golem_Funghead</li>
 		</summonsList>
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_Toxifier">
@@ -114,20 +111,18 @@ Totems also spread pollution from time to time.</description>
   <ThingDef ParentName="TreeBase">
 	<defName>WVC_Plant_TreeResurgent</defName>
 	<label>resurgent tree</label>
-	<description>Created by a series of complex mutations, the resurgent tree coexists in symbiosis with the resurgent fungus. While the tree protects the fungus from external influences, the fungus helps nourish the roots of the tree with nutrients. As a result of this symbiosis, the surrounding soil is poisoned with toxic substances.
+	<description>Created by a series of complex mutations and archites, the resurgent tree coexists in symbiosis with the resurgent fungus. While the tree protects the fungus from external influences, the fungus helps nourish the roots of the tree with nutrients. As a result of this symbiosis, the surrounding soil is poisoned with toxic substances.
 
-The fungus, deep in the roots of the tree, slowly infects the ancient remains, animating them in order to spread. Such active distribution greatly harms the ecosystem, and walking corpses attacking animals only accelerate extinction.
+The fungus, deep in the roots of the tree, slowly infects the ancient remains, animating them in order to spread. Such active distribution greatly harms the ecosystem.
 
-&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; The tree will spawn walking corpses every few days. The limit on walking corpses for trees and totems is different.
+&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; The tree spawns walking corpses and pollutes the soil every few days. The limit of walkers depends on the mechanitor who controls them; the mechanitor who will control new walkers is selected randomly from the list of those who are able to control walkers. If the mechanitor is not able to control the walker, then the walker will die within a day.
 
-The tree also pollutes the environment every few days.
-
-If a settlement has a pawn with the "Resurgent spores" gene, then the tree will spawn a baby once a year, which will inherit the genes of one of these settlers.</description>
+To control walkers, the mechanitor needs the "Sporelink" gene.</description>
 	<descriptionHyperlinks>
 	  <ThingDef>WVC_XenotypesAndGenes_WalkingCorpseTotem</ThingDef>
 	  <GeneDef>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</GeneDef>
-	  <ThingDef>WVC_XenotypesAndGenes_ResurgentSporesSkeleton</ThingDef>
-	  <ThingDef>WVC_XenotypesAndGenes_ResurgentSporesBonepile</ThingDef>
+	  <!-- <ThingDef>WVC_Golem_Skeleton</ThingDef> -->
+	  <!-- <ThingDef>WVC_Golem_Bonepile</ThingDef> -->
 	</descriptionHyperlinks>
 	<graphicData>
 	  <!-- <drawOffset>(0,0.5,0)</drawOffset> -->
@@ -184,8 +179,9 @@ If a settlement has a pawn with the "Resurgent spores" gene, then the tree will 
 		<ticksBetweenSpawn>120000~900000</ticksBetweenSpawn>
 		<filthDef>Filth_CorpseBile</filthDef>
 		<summonsList>
-		  <li>WVC_XenotypesAndGenes_ResurgentSporesSkeleton</li>
-		  <li>WVC_XenotypesAndGenes_ResurgentSporesBonepile</li>
+		  <li>WVC_Golem_Skeleton</li>
+		  <li>WVC_Golem_Bonepile</li>
+		  <li>WVC_Golem_Funghead</li>
 		</summonsList>
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_Toxifier">

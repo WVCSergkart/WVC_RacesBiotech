@@ -129,4 +129,8 @@ May affect startup speed on modlists with a lot of mods that add xenotypes.</WVC
 	<WVC_Label_serumsSpawnersForAllXenotypes>Generate serum spawner genes</WVC_Label_serumsSpawnersForAllXenotypes>
 	<WVC_ToolTip_serumsSpawnersForAllXenotypes>If enabled, a spawner gene will be added for each serum. Restart required.</WVC_ToolTip_serumsSpawnersForAllXenotypes>
 
+	<!-- ====================================================================================== -->
+	<WVC_Label_fixGenesOnLoad>Fix broken genes on load</WVC_Label_fixGenesOnLoad>
+	<WVC_ToolTip_fixGenesOnLoad>If enabled, it should fix all potentially broken genes. Please note that this will reset the cumulative effects of genes, such as deathrest (deathrest capacity serums).</WVC_ToolTip_fixGenesOnLoad>
+
 </LanguageData>

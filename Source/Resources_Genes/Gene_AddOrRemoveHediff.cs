@@ -44,6 +44,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						hediff_GeneCheck.geneDef = gene.def;
 					}
+					pawn.health.AddHediff(hediff);
 				}
 			}
 			else

@@ -26,6 +26,7 @@ namespace WVC_XenotypesAndGenes
 		public bool minWastepacksPerRecharge = false;
 		public bool validatorAbilitiesPatch = true;
 		public bool spawnXenoForcerSerumsFromTraders = false;
+		public bool fixGenesOnLoad = false;
 		// Info
 		public bool enableGenesInfo = true;
 		public bool enableGeneSpawnerGizmo = true;
@@ -64,6 +65,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref minWastepacksPerRecharge, "minWastepacksPerRecharge", defaultValue: false);
 			Scribe_Values.Look(ref validatorAbilitiesPatch, "validatorAbilitiesPatch", defaultValue: true);
 			Scribe_Values.Look(ref spawnXenoForcerSerumsFromTraders, "spawnXenoForcerSerumsFromTraders", defaultValue: false);
+			Scribe_Values.Look(ref fixGenesOnLoad, "fixGenesOnLoad", defaultValue: false);
 			// Info
 			Scribe_Values.Look(ref enableGenesInfo, "enableGenesInfo", defaultValue: true);
 			Scribe_Values.Look(ref enableGeneSpawnerGizmo, "enableGeneSpawnerGizmo", defaultValue: true);
@@ -178,6 +180,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_minWastepacksPerRecharge".Translate(), ref settings.minWastepacksPerRecharge, "WVC_ToolTip_minWastepacksPerRecharge".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_validatorAbilitiesPatch".Translate(), ref settings.validatorAbilitiesPatch, "WVC_ToolTip_validatorAbilitiesPatch".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_spawnXenoForcerSerumsFromTraders".Translate(), ref settings.spawnXenoForcerSerumsFromTraders, "WVC_ToolTip_spawnXenoForcerSerumsFromTraders".Translate());
+			listingStandard.CheckboxLabeled("DEV: " + "WVC_Label_fixGenesOnLoad".Translate(), ref settings.fixGenesOnLoad, "WVC_ToolTip_fixGenesOnLoad".Translate());
 			listingStandard.Gap();
 			// ===============
 			listingStandard.Label("WVC_BiotechSettings_Label_Serums".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Serums".Translate());

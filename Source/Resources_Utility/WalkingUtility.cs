@@ -11,12 +11,31 @@ namespace WVC_XenotypesAndGenes
 	public static class WalkingUtility
 	{
 
+		// public static bool AnyLichCanSpawnMoreCorpses(List<Pawn> lichs, Pawn golem)
+		// {
+			// foreach (Pawn lich in lichs)
+			// {
+				// return CanSpawnMoreCorpses(lich, golem);
+			// }
+			// return false;
+		// }
+
+		public static bool CanSpawnMoreCorpses(Pawn lich, Pawn golem)
+		{
+			float weight = TotalSporesBandwidth(lich) - GetConsumedBandwidth(lich) - golem.GetStatValue(WVC_GenesDefOf.WVC_SporesBandwidthCost);
+			if (weight < 0f)
+			{
+				return false;
+			}
+			return true;
+		}
+
 		public static float GetLichWeight(Pawn lich)
 		{
 			float weight = TotalSporesBandwidth(lich) - GetConsumedBandwidth(lich);
 			if (weight <= 0f)
 			{
-				weight = 0f;
+				weight = 0.001f;
 			}
 			return weight;
 		}

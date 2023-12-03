@@ -94,6 +94,7 @@
     <Compile Include="Resources_Hediff\HediffComp_RemoveIfGeneIsNotActive.cs" />
     <Compile Include="Resources_Hediff\OnlyOneOverseer.cs" />
     <Compile Include="Resources_JobGiver\JobGiver_GetSpecialFood.cs" />
+    <Compile Include="Resources_Main\GenesFix.cs" />
     <Compile Include="Resources_Main\PostInitializationStartup.cs" />
     <Compile Include="Resources_StatPart\StatPart_OffsetFromPollutedCages.cs" />
     <Compile Include="Resources_StatPart\StatPart_OffsetFromPollutedGraves.cs" />

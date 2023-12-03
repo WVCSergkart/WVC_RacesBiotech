@@ -114,7 +114,7 @@ namespace WVC_XenotypesAndGenes
 				PawnGenerationRequest generateNewPawn = new(Props.summonsList.RandomElement(), Faction.OfPlayer, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: true, canGeneratePawnRelations: true, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: true, allowAddictions: true, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Newborn);
 				Pawn summon = PawnGenerator.GeneratePawn(generateNewPawn);
 				// Pawn summon = PawnGenerator.GeneratePawn(Props.summonsList.RandomElement(), Faction.OfPlayer);
-				if (WalkingUtility.TotalSporesBandwidth(cachedMechanitor) >= (int)summon.GetStatValue(WVC_GenesDefOf.WVC_SporesBandwidthCost))
+				if (WalkingUtility.CanSpawnMoreCorpses(cachedMechanitor, summon))
 				{
 					// Log.Error("3");
 					IntVec3 intVec = parent.Position.RandomAdjacentCell8Way();
