@@ -102,17 +102,17 @@
 	<category>Mechanitor</category>
 	<displayPriorityInCategory>2010</displayPriorityInCategory>
 	<parts>
-	  <li Class="WVC_XenotypesAndGenes.StatPart_OffsetFromBuildingsOnMap">
-		<label>WVC_XaG_StatPart_OffsetFromSkullspikes</label>
-		<buildings>
-		  <li MayRequire="Ludeon.RimWorld.Ideology">
-			<thingDef>Skullspike</thingDef>
-			<bandwidth>1</bandwidth>
-		  </li>
-		</buildings>
-	  </li>
+	  <!-- <li Class="WVC_XenotypesAndGenes.StatPart_OffsetFromBuildingsOnMap"> -->
+		<!-- <label>WVC_XaG_StatPart_OffsetFromSkullspikes</label> -->
+		<!-- <buildings> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Ideology"> -->
+			<!-- <thingDef>Skullspike</thingDef> -->
+			<!-- <bandwidth>1</bandwidth> -->
+		  <!-- </li> -->
+		<!-- </buildings> -->
+	  <!-- </li> -->
 	  <li Class="WVC_XenotypesAndGenes.StatPart_OffsetFromPollutedGraves"/>
-	  <li Class="WVC_XenotypesAndGenes.StatPart_OffsetFromPollutedCages"/>
+	  <!-- <li Class="WVC_XenotypesAndGenes.StatPart_OffsetFromPollutedCages"/> -->
 	</parts>
   </StatDef>
 

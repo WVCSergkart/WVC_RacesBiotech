@@ -29,7 +29,7 @@ This creepy organism obeys the local owner of the "Sporelink" gene, forming a st
 	  <graphicClass>Graphic_Random</graphicClass>
 	  <shaderType>CutoutComplex</shaderType>
 	  <drawSize>(1.2,1.2)</drawSize>
-	  <color>(195,195,195)</color>
+	  <color>(190,190,190)</color>
 	  <!-- <color>(5,5,5)</color> -->
 	  <!-- <colorTwo>(5,5,5)</colorTwo> -->
 	  <drawRotated>false</drawRotated>
@@ -94,12 +94,13 @@ This creepy organism obeys the local owner of the "Sporelink" gene, forming a st
 		  <li>WVC_Golem_Skeleton</li>
 		  <li>WVC_Golem_Bonepile</li>
 		  <li>WVC_Golem_Funghead</li>
+		  <li>WVC_Golem_Aberration</li>
 		</summonsList>
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_Toxifier">
 		<pollutionIntervalTicks>360000~720000</pollutionIntervalTicks>
 		<cellsToPollute>6</cellsToPollute>
-		<radius>8.9</radius>
+		<radius>12.9</radius>
 	  </li>
 	  <li Class="CompProperties_Styleable" />
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_RandomName">
@@ -182,12 +183,13 @@ To control walkers, the mechanitor needs the "Sporelink" gene.</description>
 		  <li>WVC_Golem_Skeleton</li>
 		  <li>WVC_Golem_Bonepile</li>
 		  <li>WVC_Golem_Funghead</li>
+		  <li>WVC_Golem_Aberration</li>
 		</summonsList>
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_Toxifier">
 		<pollutionIntervalTicks>360000~720000</pollutionIntervalTicks>
-		<cellsToPollute>6</cellsToPollute>
-		<radius>11.9</radius>
+		<cellsToPollute>12</cellsToPollute>
+		<radius>19.9</radius>
 	  </li>
 	  <li Class="CompProperties_Glower">
 		<glowRadius>3.5</glowRadius>

@@ -79,13 +79,16 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.GetGizmos();
 			// Pawn pawn = parent as Pawn;
-			if (gizmo == null)
+			if (MechanitorUtility.IsMechanitor(pawn))
 			{
-				gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, pawn);
-			}
-			if (Find.Selector.SelectedPawns.Count == 1)
-			{
-				yield return gizmo;
+				if (gizmo == null)
+				{
+					gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, pawn);
+				}
+				if (Find.Selector.SelectedPawns.Count == 1)
+				{
+					yield return gizmo;
+				}
 			}
 		}
 

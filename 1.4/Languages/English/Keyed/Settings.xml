@@ -131,6 +131,8 @@ May affect startup speed on modlists with a lot of mods that add xenotypes.</WVC
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_fixGenesOnLoad>Fix broken genes on load</WVC_Label_fixGenesOnLoad>
-	<WVC_ToolTip_fixGenesOnLoad>If enabled, it should fix all potentially broken genes. Please note that this will reset the cumulative effects of genes, such as deathrest (deathrest capacity serums).</WVC_ToolTip_fixGenesOnLoad>
+	<WVC_ToolTip_fixGenesOnLoad>If enabled, it should fix all potentially broken genes. Please note that this will reset the cumulative effects of genes, such as deathrest (deathrest capacity serums).
+
+How to use: Enable and load any save.</WVC_ToolTip_fixGenesOnLoad>
 
 </LanguageData>

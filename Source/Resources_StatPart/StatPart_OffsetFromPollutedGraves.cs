@@ -53,9 +53,20 @@ namespace WVC_XenotypesAndGenes
 				}
 				foreach (Building item in allBuildingsColonist)
 				{
-					if (item is Building_Grave building_Grave && building_Grave.HasCorpse && item.Position.IsPolluted(item.Map))
+					if (item.Position.IsPolluted(item.Map))
 					{
-						offset += 1f;
+						if (item is Building_Grave building_Grave && building_Grave.HasCorpse)
+						{
+							offset += 1f;
+						}
+						else if (item is Building_GibbetCage building_GibbetCage && building_GibbetCage.HasCorpse)
+						{
+							offset += 1.2f;
+						}
+						else if (item is Building_Skullspike)
+						{
+							offset += 0.2f;
+						}
 					}
 				}
 				return true;

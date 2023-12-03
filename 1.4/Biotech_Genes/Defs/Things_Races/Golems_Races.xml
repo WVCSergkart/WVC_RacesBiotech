@@ -157,12 +157,12 @@
 			<!-- Biomes! -->
 			<li><color>(250,180,147)</color><weight>0.05</weight></li>
 			<!-- Alpha Biomes -->
-			<li><color>(120,50,50)</color><weight>0.05</weight></li>
-			<li><color>(36,35,40)</color><weight>0.05</weight></li>
-			<li><color>(50,50,50)</color><weight>0.05</weight></li>
-			<li><color>(31,25,21)</color><weight>0.05</weight></li>
-			<li><color>(45,66,36)</color><weight>0.05</weight></li>
-			<li><color>(80,80,80)</color><weight>0.05</weight></li>
+			<!-- <li><color>(120,50,50)</color><weight>0.05</weight></li> -->
+			<!-- <li><color>(36,35,40)</color><weight>0.05</weight></li> -->
+			<!-- <li><color>(50,50,50)</color><weight>0.05</weight></li> -->
+			<!-- <li><color>(31,25,21)</color><weight>0.05</weight></li> -->
+			<!-- <li><color>(45,66,36)</color><weight>0.05</weight></li> -->
+			<!-- <li><color>(80,80,80)</color><weight>0.05</weight></li> -->
 		</alternateGraphics>
 		<abilities>
 			<li>WVC_MechanoidAbility_ActivateGestator</li>

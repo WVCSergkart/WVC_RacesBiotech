@@ -19,9 +19,11 @@ namespace WVC_XenotypesAndGenes
 			Apply();
 		}
 
-		public FixBrokenGenes_GameComponent(Game game)
-		{
-		}
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "<Pending>")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0079:Remove unnecessary suppression", Justification = "<Pending>")]
+        public FixBrokenGenes_GameComponent(Game game)
+        {
+        }
 
 		// public FixBrokenGenes_GameComponent()
 		// {
@@ -47,7 +49,7 @@ namespace WVC_XenotypesAndGenes
 						{
 							genes.RemoveGene(gene);
 							genes.AddGene(gene.def, xenogene: false);
-							Log.Message(item.Name + ": GENE FIXED: " + gene.def.label);
+							Log.Message(item.Name + ": ENDOGENE FIXED: " + gene.def.label);
 						}
 					}
 					if (!genes.Xenogenes.NullOrEmpty())
@@ -56,7 +58,7 @@ namespace WVC_XenotypesAndGenes
 						{
 							genes.RemoveGene(gene);
 							genes.AddGene(gene.def, xenogene: true);
-							Log.Message(item.Name + ": GENE FIXED: " + gene.def.label);
+							Log.Message(item.Name + ": XENOGENE FIXED: " + gene.def.label);
 						}
 					}
 				}

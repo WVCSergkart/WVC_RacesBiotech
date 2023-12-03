@@ -281,6 +281,22 @@
 		<minGenerationAge MayRequire="Ludeon.Rimworld.Biotech">0</minGenerationAge>
 		<alternateGraphicChance>1.0</alternateGraphicChance>
 		<isFighter>false</isFighter>
+		<alternateGraphics>
+			<!-- white -->
+			<li><color>(190,190,190)</color></li>
+			<!-- rot -->
+			<li><color>(198,180,129)</color><weight>0.02</weight></li>
+			<!-- slate -->
+			<li><color>(70,70,70)</color><weight>0.15</weight></li>
+			<!-- limestone -->
+			<li><color>(158,153,135)</color><weight>0.06</weight></li>
+			<!-- granite -->
+			<li><color>(105,95,97)</color><weight>0.04</weight></li>
+			<!-- sandstone -->
+			<li><color>(126,104,94)</color><weight>0.08</weight></li>
+			<!-- marble -->
+			<li><color>(132,135,132)</color><weight>0.02</weight></li>
+		</alternateGraphics>
 	</PawnKindDef>
 
 	<!-- =================================================================== -->
@@ -303,21 +319,6 @@
 		<defName>WVC_Golem_Bonepile</defName>
 		<label>walking bonepile</label>
 		<race>WVC_Golem_Bonepile</race>
-		<alternateGraphicChance>1.0</alternateGraphicChance>
-		<alternateGraphics>
-			<!-- Base -->
-			<li><color>(195,195,195)</color></li>
-			<!-- slate -->
-			<li><color>(70,70,70)</color><weight>0.05</weight></li>
-			<!-- limestone -->
-			<li><color>(158,153,135)</color><weight>0.05</weight></li>
-			<!-- granite -->
-			<li><color>(105,95,97)</color><weight>0.05</weight></li>
-			<!-- sandstone -->
-			<li><color>(126,104,94)</color><weight>0.05</weight></li>
-			<!-- marble -->
-			<li><color>(132,135,132)</color><weight>0.05</weight></li>
-		</alternateGraphics>
 		<lifeStages>
 			<li>
 				<bodyGraphicData>
@@ -389,16 +390,7 @@
 		<defName>WVC_Golem_Skeleton</defName>
 		<label>walking skeleton</label>
 		<race>WVC_Golem_Skeleton</race>
-		<alternateGraphicChance>1.0</alternateGraphicChance>
 		<!-- <controlGroupPortraitZoom>1.48</controlGroupPortraitZoom> -->
-		<alternateGraphics>
-			<!-- Base -->
-			<li><color>(195,195,195)</color></li>
-			<!-- slate -->
-			<li><color>(70,70,70)</color><weight>0.15</weight></li>
-			<!-- sandstone -->
-			<li><color>(126,104,94)</color><weight>0.05</weight></li>
-		</alternateGraphics>
 		<lifeStages>
 			<li>
 				<bodyGraphicData>
@@ -430,14 +422,14 @@
 				<capacities>
 					<li>Blunt</li>
 				</capacities>
-				<power>8.2</power>
+				<power>7.4</power>
 				<cooldownTime>2</cooldownTime>
 				<linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
 				<surpriseAttack>
 					<extraMeleeDamages>
 						<li>
 							<def>Stun</def>
-							<amount>9</amount>
+							<amount>8</amount>
 						</li>
 					</extraMeleeDamages>
 				</surpriseAttack>
@@ -447,14 +439,14 @@
 				<capacities>
 					<li>Blunt</li>
 				</capacities>
-				<power>8.2</power>
+				<power>7.4</power>
 				<cooldownTime>2</cooldownTime>
 				<linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
 				<surpriseAttack>
 					<extraMeleeDamages>
 						<li>
 							<def>Stun</def>
-							<amount>9</amount>
+							<amount>8</amount>
 						</li>
 					</extraMeleeDamages>
 				</surpriseAttack>
@@ -473,19 +465,83 @@
 		<defName>WVC_Golem_Funghead</defName>
 		<label>walking funghead</label>
 		<race>WVC_Golem_Funghead</race>
-		<alternateGraphicChance>1.0</alternateGraphicChance>
-		<alternateGraphics>
-			<!-- Base -->
-			<li><color>(195,195,195)</color></li>
-			<!-- slate -->
-			<li><color>(70,70,70)</color><weight>0.15</weight></li>
-			<!-- sandstone -->
-			<li><color>(126,104,94)</color><weight>0.05</weight></li>
-		</alternateGraphics>
 		<lifeStages>
 			<li>
 				<bodyGraphicData>
 					<texPath>WVC/Things/XaG_Pawns/Mechanoids_Golems/SkeletonHeadless</texPath>
+					<shaderType>CutoutComplex</shaderType>
+					<drawSize>1.5</drawSize>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+
+	<!-- =================================================================== -->
+
+	<ThingDef ParentName="WVC_XenotypesAndGenes_ResurgentSpores_Base">
+		<defName>WVC_Golem_Aberration</defName>
+		<label>walking aberration</label>
+		<statBases>
+			<WVC_SporesBandwidthCost>3</WVC_SporesBandwidthCost>
+			<ArmorRating_Sharp>0.85</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.44</ArmorRating_Blunt>
+			<ArmorRating_Heat>0.6</ArmorRating_Heat>
+			<Flammability>0.4</Flammability>
+			<MoveSpeed>2.8</MoveSpeed>
+			<Mass>54</Mass>
+		</statBases>
+		<tools>
+			<li>
+				<label>left fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>19</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>9</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+			</li>
+			<li>
+				<label>right fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>19</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>9</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+			</li>
+		</tools>
+		<race>
+			<mechEnabledWorkTypes>
+			  <li>Mining</li>
+			  <li>Construction</li>
+			</mechEnabledWorkTypes>
+			<baseHealthScale>1.8</baseHealthScale>
+		</race>
+	</ThingDef>
+	<PawnKindDef ParentName="WVC_XenotypesAndGenes_ResurgentSporesPawnkind_Base">
+		<defName>WVC_Golem_Aberration</defName>
+		<label>walking aberration</label>
+		<race>WVC_Golem_Aberration</race>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>WVC/Things/XaG_Pawns/Mechanoids_Golems/SkeletonAberration</texPath>
 					<shaderType>CutoutComplex</shaderType>
 					<drawSize>1.5</drawSize>
 				</bodyGraphicData>
