@@ -31,7 +31,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (Props.onlyPlayerFaction)
 				{
-					if (pawn.Faction != null && pawn.Faction == Faction.OfPlayer)
+					if (pawn.IsColonist)
 					{
 						CacheInfoGenes(pawn);
 					}
@@ -49,8 +49,7 @@ namespace WVC_XenotypesAndGenes
 		public Gene_DustMechlink cachedBlesslinkGene = null;
 		public Gene_Scarifier cachedScarifierGene = null;
 
-		private bool cachedShouldShowGolemsInfo = true;
-		// private bool cachedShouldCheckMechanitorInfo = true;
+		private bool cachedShouldShowGolemsInfo = false;
 
 		public void CacheInfoGenes(Pawn pawn)
 		{
@@ -76,13 +75,9 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (WVC_Biotech.settings.enableGolemsInfo)
 			{
-				if (!MechanitorUtility.IsMechanitor(pawn))
+				if (MechanitorUtility.IsMechanitor(pawn) && GolemsUtility.MechanitorHasAnyGolems(pawn))
 				{
-					cachedShouldShowGolemsInfo = false;
-				}
-				else if (!GolemsUtility.MechanitorHasAnyGolems(pawn))
-				{
-					cachedShouldShowGolemsInfo = false;
+					cachedShouldShowGolemsInfo = true;
 				}
 			}
 		}

@@ -49,8 +49,8 @@ namespace WVC_XenotypesAndGenes
 						{
 							genes.RemoveGene(gene);
 							genes.AddGene(gene.def, xenogene: false);
-							Log.Message(item.Name + ": ENDOGENE FIXED: " + gene.def.label);
 						}
+						Log.Message(item.Name + ": ENDOGENES FIXED: " + "\n" + genes.Endogenes.Select((Gene x) => x.def.label).ToLineList("  - ", capitalizeItems: true));
 					}
 					if (!genes.Xenogenes.NullOrEmpty())
 					{
@@ -58,8 +58,8 @@ namespace WVC_XenotypesAndGenes
 						{
 							genes.RemoveGene(gene);
 							genes.AddGene(gene.def, xenogene: true);
-							Log.Message(item.Name + ": XENOGENE FIXED: " + gene.def.label);
 						}
+						Log.Message(item.Name + ": XENOGENES FIXED: " + "\n" + genes.Xenogenes.Select((Gene x) => x.def.label).ToLineList("  - ", capitalizeItems: true));
 					}
 				}
 			}

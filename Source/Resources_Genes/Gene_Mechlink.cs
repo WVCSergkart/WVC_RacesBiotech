@@ -79,7 +79,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.GetGizmos();
 			// Pawn pawn = parent as Pawn;
-			if (MechanitorUtility.IsMechanitor(pawn))
+			if (pawn.IsColonist && MechanitorUtility.IsMechanitor(pawn))
 			{
 				if (gizmo == null)
 				{
