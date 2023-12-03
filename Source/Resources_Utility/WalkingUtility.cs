@@ -11,6 +11,16 @@ namespace WVC_XenotypesAndGenes
 	public static class WalkingUtility
 	{
 
+		public static float GetLichWeight(Pawn lich)
+		{
+			float weight = TotalSporesBandwidth(lich) - GetConsumedBandwidth(lich);
+			if (weight <= 0f)
+			{
+				weight = 0f;
+			}
+			return weight;
+		}
+
 		public static List<Pawn> GetAllLichs(Map map)
 		{
 			List<Pawn> list = new();

@@ -101,7 +101,8 @@ Totems also spread pollution from time to time.</description>
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_Toxifier">
 		<pollutionIntervalTicks>360000~720000</pollutionIntervalTicks>
-		<cellsToPollute>3</cellsToPollute>
+		<cellsToPollute>6</cellsToPollute>
+		<radius>8.9</radius>
 	  </li>
 	  <li Class="CompProperties_Styleable" />
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_RandomName">
@@ -190,7 +191,7 @@ If a settlement has a pawn with the "Resurgent spores" gene, then the tree will 
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_Toxifier">
 		<pollutionIntervalTicks>360000~720000</pollutionIntervalTicks>
 		<cellsToPollute>6</cellsToPollute>
-		<radius>8.9</radius>
+		<radius>11.9</radius>
 	  </li>
 	  <li Class="CompProperties_Glower">
 		<glowRadius>3.5</glowRadius>
