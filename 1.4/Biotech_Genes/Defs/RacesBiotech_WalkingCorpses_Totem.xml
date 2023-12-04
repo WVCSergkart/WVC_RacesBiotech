@@ -137,7 +137,7 @@ To control walkers, the mechanitor needs the "Sporelink" gene.</description>
 	<tickerType>Long</tickerType>
 	<!-- <minifiedDef IsNull="True" /> -->
 	<statBases>
-	  <Beauty>6</Beauty>
+	  <Beauty>12</Beauty>
 	  <BeautyOutdoors>6</BeautyOutdoors>
 	  <Flammability>0.5</Flammability>
 	  <MaxHitPoints>300</MaxHitPoints>
@@ -151,8 +151,8 @@ To control walkers, the mechanitor needs the "Sporelink" gene.</description>
 	  <growMinGlow>0</growMinGlow>
 	  <pollution>Any</pollution>
 	  <growDays>10</growDays>
-	  <!-- <visualSizeRange>1.5~2.1</visualSizeRange> -->
-	  <visualSizeRange>2.5~3.1</visualSizeRange>
+	  <visualSizeRange>1.5~2.1</visualSizeRange>
+	  <!-- <visualSizeRange>2.5~3.1</visualSizeRange> -->
 	  <sowMinSkill>0</sowMinSkill>
 	  <sowTags Inherit="False"/>
 	  <lifespanDaysPerGrowDays>0</lifespanDaysPerGrowDays>
@@ -195,17 +195,68 @@ To control walkers, the mechanitor needs the "Sporelink" gene.</description>
 		<!-- <glowRadius>3.5</glowRadius> -->
 		<!-- <glowColor>(189,205,255, 0)</glowColor> -->
 	  <!-- </li> -->
+	  <li Class="CompProperties_Glower">
+		<glowRadius>5.5</glowRadius>
+		<glowColor>(125,150,125, 0)</glowColor>
+	  </li>
 	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_SpawnBabyPawnAndInheritGenes"> -->
 		<!-- <ticksBetweenSpawn>2400000~3600000</ticksBetweenSpawn> -->
 		<!-- <geneDef>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</geneDef> -->
 	  <!-- </li> -->
+	  <li Class="CompProperties_SpawnSubplant">
+		<compClass>WVC_XenotypesAndGenes.CompSpawnSubplantDuration</compClass>
+		<subplant>WVC_Plant_MossResurgent</subplant>
+		<maxRadius>7.9</maxRadius>
+		<subplantSpawnDays>1</subplantSpawnDays>
+		<minGrowthForSpawn>0.6</minGrowthForSpawn>
+		<initialGrowthRange>0.2~0.8</initialGrowthRange>
+		<canSpawnOverPlayerSownPlants>false</canSpawnOverPlayerSownPlants>
+		<plantsToNotOverwrite>
+		  <li>Plant_PodGauranlen</li>
+		  <li MayRequire="Ludeon.RimWorld.Royalty">Plant_GrassAnima</li>
+		  <li MayRequire="Ludeon.RimWorld.Royalty">Plant_TreeAnima</li>
+		  <li MayRequire="Ludeon.RimWorld.Ideology">Plant_TreeGauranlen</li>
+		</plantsToNotOverwrite>
+	  </li>
 	</comps>
+  </ThingDef>
+
+  <ThingDef ParentName="PlantBaseNonEdible">
+	<defName>WVC_Plant_MossResurgent</defName>
+	<label>resurgent moss</label>
+	<description>Symbiotic moss that grows near Resurgent trees.</description>
+	<statBases>
+	  <MaxHitPoints>100</MaxHitPoints>
+	  <Beauty>4</Beauty>
+	  <BeautyOutdoors>4</BeautyOutdoors>
+	</statBases>
+	<descriptionHyperlinks>
+	  <ThingDef>WVC_Plant_TreeResurgent</ThingDef>
+	</descriptionHyperlinks>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Buildings/ResurgentTree_Moss</texPath>
+	  <graphicClass>Graphic_Random</graphicClass>
+	  <drawSize>(0.75, 0.75)</drawSize>
+	</graphicData>
+	<plant>
+	  <growMinGlow>0</growMinGlow>
+	  <pollution>Any</pollution>
+	  <fertilityMin>0.05</fertilityMin>
+	  <fertilitySensitivity>0</fertilitySensitivity>
+	  <sowMinSkill>0</sowMinSkill>
+	  <growDays>5</growDays>
+	  <visualSizeRange>0.5~0.7</visualSizeRange>
+	  <topWindExposure>0</topWindExposure>
+	  <allowAutoCut>false</allowAutoCut>
+	  <wildClusterWeight>0</wildClusterWeight>
+	  <maxMeshCount>4</maxMeshCount>
+	</plant>
   </ThingDef>
 
   <ThingDef ParentName="ResourceBase">
 	<defName>WVC_ResurgentSeed</defName>
-	<label>resurgent seed</label>
-	<description>The seed of a resurgent tree. It can be planted to create a new resurgent tree which will pollute nearby terrain.</description>
+	<label>resurgent spore</label>
+	<description>The spore of a resurgent tree. It can be planted to create a new resurgent tree which will pollute nearby terrain.</description>
 	<descriptionHyperlinks>
 	  <ThingDef>WVC_Plant_TreeResurgent</ThingDef>
 	</descriptionHyperlinks>
@@ -220,7 +271,7 @@ To control walkers, the mechanitor needs the "Sporelink" gene.</description>
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Items/ResurgentSeed</texPath>
 	  <graphicClass>Graphic_StackCount</graphicClass>
-	  <drawSize>(0.6, 0.6)</drawSize>
+	  <drawSize>(1.0, 1.0)</drawSize>
 	</graphicData>
 	<thingCategories>
 	  <li>ItemsMisc</li>
@@ -229,7 +280,7 @@ To control walkers, the mechanitor needs the "Sporelink" gene.</description>
 	  <li Class="CompProperties_Usable">
 		<compClass>CompUsable</compClass>
 		<useJob>UseItem</useJob>
-		<useLabel>Eat resurgent seed</useLabel>
+		<useLabel>Eat resurgent spore</useLabel>
 		<userMustHaveHediff>MechlinkImplant</userMustHaveHediff>
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffectEatSeed">

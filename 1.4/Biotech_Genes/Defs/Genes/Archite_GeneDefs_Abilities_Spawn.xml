@@ -54,8 +54,8 @@
 
   <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilitySpawnThing_Base">
 	<defName>WVC_AbilitySpawn_ResurgentTree</defName>
-	<label>spawn resurgent seed</label>
-	<description>Spawn a resurgent seed. A resurgent seed can be used to plant a resurgent tree. The resurgent tree slowly pollutes the soil around it and raises walking corpses.</description>
+	<label>spawn resurgent spore</label>
+	<description>Spawn a resurgent spore. A resurgent spore can be used to plant a resurgent tree. The resurgent tree slowly pollutes the soil around it and raises walking corpses.</description>
 	<iconPath>WVC/UI/Genes/Gene_ResurgentTree_v0</iconPath>
 	<comps>
 	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilitySpawnOnCell"> -->
