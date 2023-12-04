@@ -182,7 +182,7 @@
 			<!-- <BandwidthCost>-999</BandwidthCost> -->
 			<BandwidthCost>0.2</BandwidthCost>
 			<WVC_SporesBandwidthCost>1</WVC_SporesBandwidthCost>
-			<MechEnergyUsageFactor>0.05</MechEnergyUsageFactor>
+			<MechEnergyUsageFactor>0.2</MechEnergyUsageFactor>
 			<MechEnergyLossPerHP>0.05</MechEnergyLossPerHP>
 			<WastepacksPerRecharge>0</WastepacksPerRecharge>
 			<!-- Work -->
@@ -223,8 +223,8 @@
 			<body>WVC_XenotypesAndGenes_WalkingCorpse</body>
 			<bloodDef>Filth_CorpseBile</bloodDef>
 			<!-- <fleshType>WVC_ResurgentWounds</fleshType> -->
-			<specificMeatDef>WVC_RawResurgentFungus</specificMeatDef>
-			<leatherDef>WVC_RawResurgentFungus</leatherDef>
+			<specificMeatDef>RawFungus</specificMeatDef>
+			<leatherDef>RawFungus</leatherDef>
 			<baseHealthScale>0.6</baseHealthScale>
 			<baseBodySize>1.0</baseBodySize>
 			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
@@ -244,7 +244,7 @@
 		<!-- <thingCategories Inherit="False"/> -->
 		<!-- <recipes Inherit="False"/> -->
 		<butcherProducts Inherit="False">
-			<WVC_RawResurgentFungus>5</WVC_RawResurgentFungus>
+			<RawFungus>5</RawFungus>
 		</butcherProducts>
 		<comps>
 			<li Class="WVC_XenotypesAndGenes.CompProperties_Regeneration">
@@ -532,7 +532,7 @@
 		<race>
 			<mechEnabledWorkTypes>
 			  <li>Mining</li>
-			  <li>Construction</li>
+			  <!-- <li>Construction</li> -->
 			</mechEnabledWorkTypes>
 			<baseHealthScale>1.8</baseHealthScale>
 		</race>

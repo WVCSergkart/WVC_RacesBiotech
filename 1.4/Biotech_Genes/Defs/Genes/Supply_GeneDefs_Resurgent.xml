@@ -37,7 +37,7 @@
 	  </prefixSymbols>
 	</symbolPack>
 	<minAgeActive>3</minAgeActive>
-	<resourceLossPerDay>-0.03</resourceLossPerDay>
+	<resourceLossPerDay>-0.01</resourceLossPerDay>
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>-1</biostatMet>
   </GeneDef>
@@ -68,7 +68,7 @@
 	<biostatCpx>-3</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>-1</biostatMet>
-	<resourceLossPerDay>-0.05</resourceLossPerDay>
+	<resourceLossPerDay>-0.02</resourceLossPerDay>
 	<!-- <customEffectDescriptions> -->
 	  <!-- <li>Carriers of this gene cannot use xenotype serums.</li> -->
 	  <!-- <li>Abilities "Rise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li> -->
@@ -91,7 +91,7 @@
 	<resourceLabel>cells</resourceLabel>
 	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentCellsGain</geneClass>
 	<displayOrderInCategory>1232</displayOrderInCategory>
-	<resourceLossPerDay>-0.07</resourceLossPerDay>
+	<resourceLossPerDay>-0.03</resourceLossPerDay>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>3</biostatMet>
 	<biostatArc>1</biostatArc>
@@ -111,11 +111,11 @@
 	<iconPath>WVC/UI/Genes/Gene_ResurgentTotalHealing_v0</iconPath>
 	<displayOrderInCategory>1235</displayOrderInCategory>
 	<preventPermanentWounds>true</preventPermanentWounds>
-	<resourceLossPerDay>0.13</resourceLossPerDay>
+	<resourceLossPerDay>0.22</resourceLossPerDay>
 	<biostatCpx>4</biostatCpx>
 	<customEffectDescriptions>
 		<li>Restores a lost limb or heals scars every (*DateTime)5-15 days(/DateTime).</li>
-		<li>Requires 13 resurgent cells.</li>
+		<li>Requires &lt;color=#8a8ae6&gt;22 resurgent cells&lt;/color&gt;.</li>
 	</customEffectDescriptions>
   </GeneDef>
 
@@ -133,7 +133,7 @@
 	<customEffectDescriptions>
 		<li>Carriers of the gene always spawn with age within 18.</li>
 		<li>The age of the gene carrier decreases by 1 year every (*DateTime)5-15 days(/DateTime), this continues until the resurgent cells run out or the carrier reaches the minimum adult age.</li>
-		<li>Requires 6 resurgent cells.</li>
+		<li>Requires &lt;color=#8a8ae6&gt;6 resurgent cells&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<biologicalAgeTickFactorFromAgeCurve>
 	  <points>
@@ -159,7 +159,7 @@
 	<resourceLossPerDay>0.01</resourceLossPerDay>
 	<customEffectDescriptions>
 		<li>Treat wounds from time to time.</li>
-		<li>Requires 1 resurgent cell for each wound.</li>
+		<li>Requires &lt;color=#8a8ae6&gt;1 resurgent cell&lt;/color&gt; for each wound.</li>
 	</customEffectDescriptions>
 	<makeImmuneTo>
 	  <li>WoundInfection</li>
@@ -278,8 +278,8 @@
 		<li>The &lt;color=#8a8ae6&gt;resurgent tree&lt;/color&gt; slowly pollutes the soil around it and raises &lt;color=#8a8ae6&gt;walking corpses&lt;/color&gt;.</li>
 		<li>&lt;color=#8a8ae6&gt;Walking corpses&lt;/color&gt; are aberrations that can be controlled by mechanitors who have this gene. &lt;color=#8a8ae6&gt;Resurgent spores&lt;/color&gt; are needed to control these creatures.</li>
 		<!-- <li>Walking corpses are eternally hungry aberrations that will protect the settlement until death.</li> -->
-		<li>Also, the &lt;color=#8a8ae6&gt;tree&lt;/color&gt; once a year will spawn babies that inherit the genes of one of the owners of this gene in the settlement.</li>
-		<li>If all the owners of this gene are dead or absent in the settlement, then the tree will stop spawning babies.</li>
+		<!-- <li>Also, the &lt;color=#8a8ae6&gt;tree&lt;/color&gt; once a year will spawn babies that inherit the genes of one of the owners of this gene in the settlement.</li> -->
+		<!-- <li>If all the owners of this gene are dead or absent in the settlement, then the tree will stop spawning babies.</li> -->
 	</customEffectDescriptions>
 	<statOffsets>
 	  <WVC_SporesBandwidth>6</WVC_SporesBandwidth>

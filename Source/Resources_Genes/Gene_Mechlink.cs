@@ -89,6 +89,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					yield return gizmo;
 				}
+				// yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "DeathrestCapacity".Translate().CapitalizeFirst(), deathrestCapacity.ToString(), "DeathrestCapacityDesc".Translate(), 1010);
 			}
 		}
 

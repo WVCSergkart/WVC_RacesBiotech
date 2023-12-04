@@ -15,7 +15,8 @@ namespace WVC_XenotypesAndGenes
 
         private static readonly Color EmptyBlockColor = new(0.3f, 0.3f, 0.3f, 1f);
 
-		private static readonly Color FilledBlockColor = ColorLibrary.LightBlue;
+		// private static readonly Color FilledBlockColor = ColorLibrary.LightBlue;
+		private static readonly Color FilledBlockColor = ColorLibrary.LightGreen;
 
 		private static readonly Color ExcessBlockColor = ColorLibrary.Red;
 

@@ -50,7 +50,7 @@ This creepy organism obeys the local owner of the "Sporelink" gene, forming a st
 	<!-- <tickerType>Rare</tickerType> -->
 	<tickerType>Long</tickerType>
 	<costList>
-	  <WVC_RawResurgentFungus>5</WVC_RawResurgentFungus>
+	  <RawFungus>5</RawFungus>
 	  <!-- <ComponentSpacer>1</ComponentSpacer> -->
 	</costList>
 	<designationCategory></designationCategory>
@@ -66,7 +66,7 @@ This creepy organism obeys the local owner of the "Sporelink" gene, forming a st
 	<canOverlapZones>false</canOverlapZones>
 	<rotatable>false</rotatable>
 	<!-- <fertility>0</fertility> -->
-	<specialDisplayRadius>5.9</specialDisplayRadius>
+	<specialDisplayRadius>12.9</specialDisplayRadius>
 	<building>
 	  <destroySound>Harvest_Tree_Finish</destroySound>
 	  <isInert>true</isInert>
@@ -126,7 +126,7 @@ To control walkers, the mechanitor needs the "Sporelink" gene.</description>
 	  <!-- <ThingDef>WVC_Golem_Bonepile</ThingDef> -->
 	</descriptionHyperlinks>
 	<graphicData>
-	  <!-- <drawOffset>(0,0.5,0)</drawOffset> -->
+	  <!-- <drawOffset>(10,1.5,5)</drawOffset> -->
 	  <texPath>WVC/Things/XaG_Buildings/ResurgentTree</texPath>
 	  <graphicClass>Graphic_Random</graphicClass>
 	  <!-- <shadowData> -->
@@ -145,14 +145,14 @@ To control walkers, the mechanitor needs the "Sporelink" gene.</description>
 	<ingestible />
 	<preventSkyfallersLandingOn>true</preventSkyfallersLandingOn>
 	<canScatterOver>false</canScatterOver>
-	<specialDisplayRadius>8.9</specialDisplayRadius>
+	<specialDisplayRadius>19.9</specialDisplayRadius>
 	<plant>
 	  <interferesWithRoof>false</interferesWithRoof>
 	  <growMinGlow>0</growMinGlow>
 	  <pollution>Any</pollution>
 	  <growDays>10</growDays>
-	  <visualSizeRange>1.5~2.1</visualSizeRange>
-	  <!-- <visualSizeRange>1.5~3.1</visualSizeRange> -->
+	  <!-- <visualSizeRange>1.5~2.1</visualSizeRange> -->
+	  <visualSizeRange>2.5~3.1</visualSizeRange>
 	  <sowMinSkill>0</sowMinSkill>
 	  <sowTags Inherit="False"/>
 	  <lifespanDaysPerGrowDays>0</lifespanDaysPerGrowDays>
@@ -195,11 +195,40 @@ To control walkers, the mechanitor needs the "Sporelink" gene.</description>
 		<glowRadius>3.5</glowRadius>
 		<glowColor>(189,205,255, 0)</glowColor>
 	  </li>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_SpawnBabyPawnAndInheritGenes">
-		<ticksBetweenSpawn>2400000~3600000</ticksBetweenSpawn>
-		<geneDef>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</geneDef>
-	  </li>
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_SpawnBabyPawnAndInheritGenes"> -->
+		<!-- <ticksBetweenSpawn>2400000~3600000</ticksBetweenSpawn> -->
+		<!-- <geneDef>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</geneDef> -->
+	  <!-- </li> -->
 	</comps>
   </ThingDef>
+
+  <!-- <ThingDef ParentName="ResourceBase"> -->
+	<!-- <defName>WVC_ResurgentSeed</defName> -->
+	<!-- <label>resurgent spore-seed</label> -->
+	<!-- <description>The spore-seed of a resurgent tree. It can be planted to create a new resurgent tree which will pollute nearby terrain.</description> -->
+	<!-- <descriptionHyperlinks> -->
+	  <!-- <ThingDef>WVC_Plant_TreeResurgent</ThingDef> -->
+	<!-- </descriptionHyperlinks> -->
+	<!-- <stackLimit>5</stackLimit> -->
+	<!-- <statBases> -->
+	  <!-- <MaxHitPoints>50</MaxHitPoints> -->
+	  <!-- <Mass>0.3</Mass> -->
+	  <!-- <Beauty>0</Beauty> -->
+	  <!-- <MarketValue>1200</MarketValue> -->
+	<!-- </statBases> -->
+	<!-- <graphicData> -->
+	  <!-- <texPath>WVC/Things/XaG_Items/ResurgentSeed/ResurgentShroom_v0</texPath> -->
+	  <!-- <graphicClass>Graphic_StackCount</graphicClass> -->
+	  <!-- <drawSize>(0.6, 0.6)</drawSize> -->
+	<!-- </graphicData> -->
+	<!-- <thingCategories> -->
+	  <!-- <li>ItemsMisc</li> -->
+	<!-- </thingCategories> -->
+	<!-- <comps> -->
+	  <!-- <li Class="CompProperties_Plantable"> -->
+		<!-- <plantDefToSpawn>WVC_Plant_TreeResurgent</plantDefToSpawn> -->
+	  <!-- </li> -->
+	<!-- </comps> -->
+  <!-- </ThingDef> -->
 
 </Defs>

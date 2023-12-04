@@ -122,6 +122,9 @@
 	<WVC_XaG_AutoTotalHealingDesc>\n\nAuto total healing is currently {ONOFF}.</WVC_XaG_AutoTotalHealingDesc>
 	<WVC_XaG_AutoAgeReversionDesc>\n\nAuto age reversion is currently {ONOFF}.</WVC_XaG_AutoAgeReversionDesc>
 	<WVC_XaG_AutoWoundClottingDesc>\n\nAuto clotting is currently {ONOFF}.</WVC_XaG_AutoWoundClottingDesc>
+	<WVC_XaG_SpawnResurgentTreeSeedDesc>\n\nSpawn resurgent tree spore {ONOFF}.</WVC_XaG_SpawnResurgentTreeSeedDesc>
+
+	<!-- <WVC_XaG_ResurgentSporesCapacity>Determines whether the gene will be triggered automatically.</WVC_XaG_ResurgentSporesCapacity> -->
 
 	<!-- <LetterTextGenesImplanted>{CASTER_nameDef} has implanted a copy of {CASTER_possessive} xenogerm into {TARGET_nameDef}, passing all xenogenes onto {TARGET_objective}.\n\n{TARGET_nameDef} will be in a xenogermination coma for the next {COMADURATION} while {TARGET_possessive} body adjusts to the changes.\n\n{CASTER_nameDef} will suffer from gene loss shock for the next {SHOCKDURATION}. {CASTER_possessive} genes will also need to regrow. This process takes time. If {CASTER_nameDef} implants {CASTER_possessive} xenogerm again before {CASTER_possessive} genes have regrown, {CASTER_pronoun} will die.</LetterTextGenesImplanted> -->
 
