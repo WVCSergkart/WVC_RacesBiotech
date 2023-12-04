@@ -157,7 +157,7 @@
 	<!-- =================================================================== -->
 
 	<ThingDef ParentName="LightMechanoid" Name="WVC_XenotypesAndGenes_ResurgentSpores_Base" Abstract="True">
-		<description>A pile of bones animated by archotech-created archites in a toxic fungus.</description>
+		<description>A pile of bones animated by archotech-created archites in a toxic fungus. This “mechanoid” requires very little energy and bandwidth, but for full control it requires resurgent spores.</description>
 		<soundImpactDefault>BulletImpact_Flesh</soundImpactDefault>
 		<descriptionHyperlinks>
 		  <ThingDef>WVC_Plant_TreeResurgent</ThingDef>
@@ -179,10 +179,11 @@
 			<MoveSpeed>3.6</MoveSpeed>
 			<Mass>43</Mass>
 			<!-- Mech -->
-			<BandwidthCost>-999</BandwidthCost>
+			<!-- <BandwidthCost>-999</BandwidthCost> -->
+			<BandwidthCost>0.2</BandwidthCost>
 			<WVC_SporesBandwidthCost>1</WVC_SporesBandwidthCost>
-			<MechEnergyUsageFactor>-1</MechEnergyUsageFactor>
-			<MechEnergyLossPerHP>-1</MechEnergyLossPerHP>
+			<MechEnergyUsageFactor>0.05</MechEnergyUsageFactor>
+			<MechEnergyLossPerHP>0.05</MechEnergyLossPerHP>
 			<WastepacksPerRecharge>0</WastepacksPerRecharge>
 			<!-- Work -->
 			<FoodPoisonChance>0</FoodPoisonChance>
@@ -242,7 +243,9 @@
 		</race>
 		<!-- <thingCategories Inherit="False"/> -->
 		<!-- <recipes Inherit="False"/> -->
-		<!-- <butcherProducts Inherit="False"/> -->
+		<butcherProducts Inherit="False">
+			<WVC_RawResurgentFungus>5</WVC_RawResurgentFungus>
+		</butcherProducts>
 		<comps>
 			<li Class="WVC_XenotypesAndGenes.CompProperties_Regeneration">
 				<refreshTicks>3000</refreshTicks>

@@ -11,6 +11,32 @@ namespace WVC_XenotypesAndGenes
 	public static class GolemsUtility
 	{
 
+		public static void OffsetNeedEnergy(Pawn pawn, float offset, int hours)
+		{
+			if (!ModsConfig.BiotechActive)
+			{
+				return;
+			}
+			// Log.Error("2");
+			Need_MechEnergy energy = pawn?.needs?.energy;
+			if (energy != null && (energy.IsSelfShutdown || energy.IsLowEnergySelfShutdown))
+			{
+				energy.CurLevel += offset * hours;
+				// Log.Error("3: " + energy.CurLevel);
+			}
+		}
+
+		public static bool MechanoidIsGolemlike(Pawn mech)
+		{
+			if (WalkingUtility.PawnIsBoneGolem(mech) || GolemsUtility.PawnIsGolem(mech))
+			{
+				return true;
+			}
+			return false;
+		}
+
+		// =====================================
+
 		public static int TotalGolemBandwidth(Pawn mechanitor)
 		{
 			return (int)mechanitor.GetStatValue(WVC_GenesDefOf.WVC_OverseerMaxGolems);

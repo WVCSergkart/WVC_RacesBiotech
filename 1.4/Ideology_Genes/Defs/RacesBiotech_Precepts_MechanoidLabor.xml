@@ -35,6 +35,8 @@
 	<!-- </requiredMemes> -->
 	<statOffsets>
 	  <WorkSpeedGlobalOffsetMech>0.75</WorkSpeedGlobalOffsetMech>
+	  <MechBandwidth>2</MechBandwidth>
+	  <MechControlGroups>1</MechControlGroups>
 	  <!-- <WorkSpeedGlobal>-0.5</WorkSpeedGlobal> -->
 	</statOffsets>
 	<statFactors>
@@ -67,6 +69,8 @@
 	<!-- </requiredMemes> -->
 	<statOffsets>
 	  <WorkSpeedGlobalOffsetMech>1.5</WorkSpeedGlobalOffsetMech>
+	  <MechBandwidth>4</MechBandwidth>
+	  <MechControlGroups>2</MechControlGroups>
 	  <!-- <WorkSpeedGlobal>-0.5</WorkSpeedGlobal> -->
 	</statOffsets>
 	<statFactors>

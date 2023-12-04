@@ -10,10 +10,10 @@ namespace WVC_XenotypesAndGenes
 
 		public static void OffsetNeedFood(Pawn pawn, float offset)
 		{
-			if (!ModsConfig.BiotechActive)
-			{
-				return;
-			}
+			// if (!ModsConfig.BiotechActive)
+			// {
+				// return;
+			// }
 			Need_Food need_Food = pawn.needs?.food;
 			if (need_Food != null)
 			{

@@ -17,7 +17,7 @@
 	<!-- </HediffGiverSetDef> -->
 
 	<ThingDef ParentName="LightMechanoid" Name="WVC_XenotypesAndGenes_GolemsBase" Abstract="True">
-		<description>A piece of rock chunk, animated by mechanites swarm.</description>
+		<description>A piece of rock chunk, animated by mechanites. This “mechanoid” requires very little energy and bandwidth, but for full control it requires golem bandwidth.</description>
 		<statBases>
 			<!-- <ToxicResistance>1</ToxicResistance> -->
 			<!-- <PsychicSensitivity>1</PsychicSensitivity> -->
@@ -25,10 +25,11 @@
 			<!-- <MeatAmount>0</MeatAmount> -->
 			<!-- <LeatherAmount>0</LeatherAmount> -->
 			<!-- <ArmorRating_Heat>2.00</ArmorRating_Heat> -->
-			<BandwidthCost>-999</BandwidthCost>
+			<!-- <BandwidthCost>-999</BandwidthCost> -->
+			<BandwidthCost>0.2</BandwidthCost>
 			<WVC_GolemBandwidthCost>1</WVC_GolemBandwidthCost>
-			<MechEnergyUsageFactor>-1</MechEnergyUsageFactor>
-			<MechEnergyLossPerHP>-1</MechEnergyLossPerHP>
+			<MechEnergyUsageFactor>0.05</MechEnergyUsageFactor>
+			<MechEnergyLossPerHP>0.05</MechEnergyLossPerHP>
 			<WastepacksPerRecharge>0</WastepacksPerRecharge>
 			<!-- <BandwidthCost>6</BandwidthCost> -->
 			<ControlTakingTime MayRequire="Ludeon.Rimworld.Biotech">1</ControlTakingTime>

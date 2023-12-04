@@ -283,8 +283,15 @@
 	</customEffectDescriptions>
 	<statOffsets>
 	  <WVC_SporesBandwidth>6</WVC_SporesBandwidth>
-	  <MechBandwidth>-4</MechBandwidth>
+	  <MechBandwidth>-2</MechBandwidth>
+	  <!-- <MechControlGroups>1</MechControlGroups> -->
 	</statOffsets>
+	<suppressedTraits>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-2</degree>
+	  </li>
+	</suppressedTraits>
 	<abilities>
 	  <li>WVC_AbilitySpawn_ResurgentTree</li>
 	</abilities>

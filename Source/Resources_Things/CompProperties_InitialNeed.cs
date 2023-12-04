@@ -9,6 +9,10 @@ namespace WVC_XenotypesAndGenes
 
 		// public List<HediffDef> hediffDefs;
 
+		public int refreshHours = 2;
+
+		public float shutdownEnergyReplenish = 1.0f;
+
 		public CompProperties_InitialEnergyNeed()
 		{
 			compClass = typeof(CompEnergyNeed);
@@ -18,7 +22,7 @@ namespace WVC_XenotypesAndGenes
 	public class CompEnergyNeed : ThingComp
 	{
 
-		// private CompProperties_InitialEnergyNeed Props => (CompProperties_InitialEnergyNeed)props;
+		private CompProperties_InitialEnergyNeed Props => (CompProperties_InitialEnergyNeed)props;
 
 		// public override void Initialize(CompProperties props)
 		// {
@@ -26,11 +30,28 @@ namespace WVC_XenotypesAndGenes
 		// AddHediff();
 		// }
 
+		// private readonly int ticksInHour = 1500;
+
+		public override void CompTick()
+		{
+			base.CompTick();
+			Pawn pawn = parent as Pawn;
+			if (!pawn.IsHashIntervalTick(Props.refreshHours * 1500))
+			{
+				return;
+			}
+			// Log.Error("1");
+			GolemsUtility.OffsetNeedEnergy(pawn, Props.shutdownEnergyReplenish, Props.refreshHours);
+		}
+
 		public override void PostSpawnSetup(bool respawningAfterLoad)
 		{
 			base.PostSpawnSetup(respawningAfterLoad);
-			Pawn pawn = parent as Pawn;
-			pawn.needs.energy.CurLevel = pawn.needs.energy.MaxLevel;
+			if (!respawningAfterLoad)
+			{
+				Pawn pawn = parent as Pawn;
+				pawn.needs.energy.CurLevel = pawn.needs.energy.MaxLevel;
+			}
 			// AddHediff();
 		}
 

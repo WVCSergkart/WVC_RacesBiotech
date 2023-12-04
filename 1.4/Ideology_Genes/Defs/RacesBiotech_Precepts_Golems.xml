@@ -45,7 +45,7 @@
 	  <li>WVC_Golemist</li>
 	</requiredMemes>
 	<statOffsets>
-	  <WVC_BandwidthCostOffsetMech>1</WVC_BandwidthCostOffsetMech>
+	  <WVC_BandwidthCostOffsetMech>0.2</WVC_BandwidthCostOffsetMech>
 	  <WVC_OverseerMaxGolems>8</WVC_OverseerMaxGolems>
 	</statOffsets>
   </PreceptDef>
@@ -77,6 +77,10 @@
 	  <li Class="RoleEffect_PawnStatOffset">
 		<statDef>WVC_OverseerMaxGolems</statDef>
 		<modifier>6</modifier>
+	  </li>
+	  <li Class="RoleEffect_PawnStatOffset">
+		<statDef>WVC_BandwidthCostOffsetMech</statDef>
+		<modifier>-0.1</modifier>
 	  </li>
 	</roleEffects>
 	<grantedAbilities>
