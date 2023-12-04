@@ -191,10 +191,10 @@ To control walkers, the mechanitor needs the "Sporelink" gene.</description>
 		<cellsToPollute>12</cellsToPollute>
 		<radius>19.9</radius>
 	  </li>
-	  <li Class="CompProperties_Glower">
-		<glowRadius>3.5</glowRadius>
-		<glowColor>(189,205,255, 0)</glowColor>
-	  </li>
+	  <!-- <li Class="CompProperties_Glower"> -->
+		<!-- <glowRadius>3.5</glowRadius> -->
+		<!-- <glowColor>(189,205,255, 0)</glowColor> -->
+	  <!-- </li> -->
 	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_SpawnBabyPawnAndInheritGenes"> -->
 		<!-- <ticksBetweenSpawn>2400000~3600000</ticksBetweenSpawn> -->
 		<!-- <geneDef>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</geneDef> -->
@@ -202,33 +202,48 @@ To control walkers, the mechanitor needs the "Sporelink" gene.</description>
 	</comps>
   </ThingDef>
 
-  <!-- <ThingDef ParentName="ResourceBase"> -->
-	<!-- <defName>WVC_ResurgentSeed</defName> -->
-	<!-- <label>resurgent spore-seed</label> -->
-	<!-- <description>The spore-seed of a resurgent tree. It can be planted to create a new resurgent tree which will pollute nearby terrain.</description> -->
-	<!-- <descriptionHyperlinks> -->
-	  <!-- <ThingDef>WVC_Plant_TreeResurgent</ThingDef> -->
-	<!-- </descriptionHyperlinks> -->
-	<!-- <stackLimit>5</stackLimit> -->
-	<!-- <statBases> -->
-	  <!-- <MaxHitPoints>50</MaxHitPoints> -->
-	  <!-- <Mass>0.3</Mass> -->
-	  <!-- <Beauty>0</Beauty> -->
-	  <!-- <MarketValue>1200</MarketValue> -->
-	<!-- </statBases> -->
-	<!-- <graphicData> -->
-	  <!-- <texPath>WVC/Things/XaG_Items/ResurgentSeed/ResurgentShroom_v0</texPath> -->
-	  <!-- <graphicClass>Graphic_StackCount</graphicClass> -->
-	  <!-- <drawSize>(0.6, 0.6)</drawSize> -->
-	<!-- </graphicData> -->
-	<!-- <thingCategories> -->
-	  <!-- <li>ItemsMisc</li> -->
-	<!-- </thingCategories> -->
-	<!-- <comps> -->
-	  <!-- <li Class="CompProperties_Plantable"> -->
-		<!-- <plantDefToSpawn>WVC_Plant_TreeResurgent</plantDefToSpawn> -->
-	  <!-- </li> -->
-	<!-- </comps> -->
-  <!-- </ThingDef> -->
+  <ThingDef ParentName="ResourceBase">
+	<defName>WVC_ResurgentSeed</defName>
+	<label>resurgent seed</label>
+	<description>The seed of a resurgent tree. It can be planted to create a new resurgent tree which will pollute nearby terrain.</description>
+	<descriptionHyperlinks>
+	  <ThingDef>WVC_Plant_TreeResurgent</ThingDef>
+	</descriptionHyperlinks>
+	<stackLimit>5</stackLimit>
+	<statBases>
+	  <MaxHitPoints>50</MaxHitPoints>
+	  <Mass>0.3</Mass>
+	  <Beauty>0</Beauty>
+	  <MarketValue>1200</MarketValue>
+	  <!-- <MaxInstallCount>12</MaxInstallCount> -->
+	</statBases>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/ResurgentSeed</texPath>
+	  <graphicClass>Graphic_StackCount</graphicClass>
+	  <drawSize>(0.6, 0.6)</drawSize>
+	</graphicData>
+	<thingCategories>
+	  <li>ItemsMisc</li>
+	</thingCategories>
+	<comps>
+	  <li Class="CompProperties_Usable">
+		<compClass>CompUsable</compClass>
+		<useJob>UseItem</useJob>
+		<useLabel>Eat resurgent seed</useLabel>
+		<userMustHaveHediff>MechlinkImplant</userMustHaveHediff>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffectEatSeed">
+		<hediffDef>WVC_ResurgentSporeBandwidth</hediffDef>
+		<bandwidthGain>1</bandwidthGain>
+	  </li>
+	  <li Class="CompProperties_UseEffectPlaySound">
+		<soundOnUsed>MechSerumUsed</soundOnUsed>
+	  </li>
+	  <li Class="CompProperties_UseEffectDestroySelf" />
+	  <li Class="CompProperties_Plantable">
+		<plantDefToSpawn>WVC_Plant_TreeResurgent</plantDefToSpawn>
+	  </li>
+	</comps>
+  </ThingDef>
 
 </Defs>

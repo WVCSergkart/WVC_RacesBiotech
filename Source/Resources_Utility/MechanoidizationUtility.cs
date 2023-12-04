@@ -10,6 +10,19 @@ namespace WVC_XenotypesAndGenes
 	public static class MechanoidizationUtility
 	{
 
+		public static bool AbilityIsGeneAbility(Ability ability)
+		{
+			List<GeneDef> genes = DefDatabase<GeneDef>.AllDefsListForReading;
+			for (int i = 0; i < genes.Count; i++)
+			{
+				if (!genes[i].abilities.NullOrEmpty() && genes[i].abilities.Contains(ability.def))
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
 		// public static bool ShouldNotSendNotificationAbout(Pawn pawn)
 		// {
 			// GeneExtension_General modExtension = pawn.def.GetModExtension<GeneExtension_General>();

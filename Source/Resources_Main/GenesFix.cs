@@ -31,39 +31,61 @@ namespace WVC_XenotypesAndGenes
 
 		public static void Apply()
 		{
-			if (!WVC_Biotech.settings.fixGenesOnLoad)
+			if (WVC_Biotech.settings.fixGenesOnLoad)
 			{
-				return;
-			}
-			// foreach (Pawn item in Current.Game.World.worldPawns.AllPawnsAliveOrDead)
-			List<Pawn> pawns = Current.Game.CurrentMap.mapPawns.AllPawns;
-			// Log.Error("1");
-			foreach (Pawn item in pawns.ToList())
-			{
-				if (item != null && item.RaceProps.Humanlike && item.genes != null)
+				// foreach (Pawn item in Current.Game.World.worldPawns.AllPawnsAliveOrDead)
+				// List<Pawn> pawns = Current.Game.CurrentMap.mapPawns.AllPawns;
+				// Log.Error("1");
+				foreach (Pawn item in Current.Game.CurrentMap.mapPawns.AllPawns.ToList())
 				{
-					Pawn_GeneTracker genes = item.genes;
-					if (!genes.Endogenes.NullOrEmpty())
+					if (item != null && item.RaceProps.Humanlike && item.genes != null)
 					{
-						foreach (Gene gene in genes.Endogenes.ToList())
+						Pawn_GeneTracker genes = item.genes;
+						if (!genes.Endogenes.NullOrEmpty())
 						{
-							genes.RemoveGene(gene);
-							genes.AddGene(gene.def, xenogene: false);
+							foreach (Gene gene in genes.Endogenes.ToList())
+							{
+								genes.RemoveGene(gene);
+								genes.AddGene(gene.def, xenogene: false);
+							}
+							Log.Message(item.Name + ": ENDOGENES FIXED: " + "\n" + genes.Endogenes.Select((Gene x) => x.def.label).ToLineList("  - ", capitalizeItems: true));
 						}
-						Log.Message(item.Name + ": ENDOGENES FIXED: " + "\n" + genes.Endogenes.Select((Gene x) => x.def.label).ToLineList("  - ", capitalizeItems: true));
-					}
-					if (!genes.Xenogenes.NullOrEmpty())
-					{
-						foreach (Gene gene in genes.Xenogenes.ToList())
+						if (!genes.Xenogenes.NullOrEmpty())
 						{
-							genes.RemoveGene(gene);
-							genes.AddGene(gene.def, xenogene: true);
+							foreach (Gene gene in genes.Xenogenes.ToList())
+							{
+								genes.RemoveGene(gene);
+								genes.AddGene(gene.def, xenogene: true);
+							}
+							Log.Message(item.Name + ": XENOGENES FIXED: " + "\n" + genes.Xenogenes.Select((Gene x) => x.def.label).ToLineList("  - ", capitalizeItems: true));
 						}
-						Log.Message(item.Name + ": XENOGENES FIXED: " + "\n" + genes.Xenogenes.Select((Gene x) => x.def.label).ToLineList("  - ", capitalizeItems: true));
 					}
 				}
+				WVC_Biotech.settings.fixGenesOnLoad = false;
 			}
-			WVC_Biotech.settings.fixGenesOnLoad = false;
+			if (WVC_Biotech.settings.fixGeneAbilitiesOnLoad)
+			{
+				foreach (Pawn item in Current.Game.CurrentMap.mapPawns.AllPawns.ToList())
+				{
+					if (item != null && item.RaceProps.Humanlike && item.genes != null)
+					{
+						Pawn_AbilityTracker abilities = item.abilities;
+						if (abilities != null && !abilities.AllAbilitiesForReading.NullOrEmpty())
+						{
+							foreach (Ability ability in abilities.AllAbilitiesForReading.ToList())
+							{
+								if (MechanoidizationUtility.AbilityIsGeneAbility(ability))
+								{
+									abilities.RemoveAbility(ability.def);
+									abilities.GainAbility(ability.def);
+									Log.Message(item.Name + ": ABILITY FIXED: " + ability.def.label);
+								}
+							}
+						}
+					}
+				}
+				WVC_Biotech.settings.fixGeneAbilitiesOnLoad = false;
+			}
 		}
 	}
 }

@@ -1,45 +1,69 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <AbilityDef ParentName="AbilityTouchBase"  Name="WVC_XenotypesAndGenes_AbilityTouchSpawn_ResurgentTree" Abstract="True">
+   <!-- ParentName="AbilityTouchBase"   -->
+  <AbilityDef Name="WVC_XenotypesAndGenes_AbilitySpawnThing_Base" Abstract="True">
 	<iconPath>WVC/UI/Genes/Reimplanter</iconPath>
 	<warmupStartSound>ReimplantXenogerm_Cast</warmupStartSound>
-	<warmupEffecter>Implant_Xenogerm</warmupEffecter>
+	<!-- <warmupEffecter>Implant_Xenogerm</warmupEffecter> -->
 	<displayOrder>500</displayOrder>
-	<hostile>false</hostile>
+	<cooldownTicksRange>900000</cooldownTicksRange><!-- 15 days -->
+	<!-- <hostile>false</hostile> -->
+	<!-- <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted> -->
+	<!-- <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted> -->
+	<!-- <showWhenDrafted>false</showWhenDrafted> -->
+	<!-- <verbProperties> -->
+	  <!-- <verbClass>Verb_CastAbilityTouch</verbClass> -->
+	  <!-- <drawAimPie>false</drawAimPie> -->
+	  <!-- <range>-1</range> -->
+	  <!-- <warmupTime>4</warmupTime> -->
+	  <!-- <targetParams> -->
+		<!-- <canTargetAnimals>false</canTargetAnimals> -->
+		<!-- <canTargetSelf>false</canTargetSelf> -->
+		<!-- <canTargetBuildings>false</canTargetBuildings> -->
+		<!-- <canTargetMechs>false</canTargetMechs> -->
+		<!-- <canTargetPawns>false</canTargetPawns> -->
+		<!-- <canTargetLocations>true</canTargetLocations> -->
+	  <!-- </targetParams> -->
+	<!-- </verbProperties> -->
+	<canUseAoeToGetTargets>false</canUseAoeToGetTargets>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+	<showPsycastEffects>False</showPsycastEffects>
 	<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
 	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
 	<showWhenDrafted>false</showWhenDrafted>
+	<hostile>false</hostile>
+	<targetRequired>False</targetRequired>
+	<showCastingProgressBar>True</showCastingProgressBar>
+	<sendLetterOnCooldownComplete>True</sendLetterOnCooldownComplete>
 	<verbProperties>
-	  <verbClass>Verb_CastAbilityTouch</verbClass>
-	  <drawAimPie>false</drawAimPie>
-	  <range>-1</range>
-	  <warmupTime>4</warmupTime>
+	  <verbClass>Verb_CastAbility</verbClass>
+	  <label>spawn thing</label>
+	  <warmupTime>3</warmupTime>
+	  <range>0</range>
+	  <drawAimPie>False</drawAimPie>
+	  <requireLineOfSight>False</requireLineOfSight>
+	  <warmupEffecter>Implant_Xenogerm</warmupEffecter>
 	  <targetParams>
-		<canTargetAnimals>false</canTargetAnimals>
-		<canTargetSelf>false</canTargetSelf>
-		<canTargetBuildings>false</canTargetBuildings>
-		<canTargetMechs>false</canTargetMechs>
-		<canTargetPawns>false</canTargetPawns>
-		<canTargetLocations>true</canTargetLocations>
+		<canTargetSelf>True</canTargetSelf>
+		<canTargetBuildings>False</canTargetBuildings>
+		<canTargetAnimals>False</canTargetAnimals>
 	  </targetParams>
 	</verbProperties>
   </AbilityDef>
 
-  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchSpawn_ResurgentTree">
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilitySpawnThing_Base">
 	<defName>WVC_AbilitySpawn_ResurgentTree</defName>
-	<label>plant resurgent tree</label>
-	<description>Plant a resurgent tree.
-
-The resurgent tree slowly pollutes the soil around it and raises walking corpses.
-Also, the tree once a year will spawn babies that inherit the genes of one of the owners of "Resurgent spores" gene in the settlement.
-If all the owners of this gene are dead or absent in the settlement, then the tree will stop spawning babies.</description>
+	<label>spawn resurgent seed</label>
+	<description>Spawn a resurgent seed. A resurgent seed can be used to plant a resurgent tree. The resurgent tree slowly pollutes the soil around it and raises walking corpses.</description>
 	<iconPath>WVC/UI/Genes/Gene_ResurgentTree_v0</iconPath>
 	<comps>
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilitySpawnOnCell"> -->
+		<!-- <thingDef>WVC_Plant_TreeResurgent</thingDef> -->
+		<!-- <allowOnNonSoil>false</allowOnNonSoil> -->
+	  <!-- </li> -->
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilitySpawn">
-		<!-- Test thing WVC_XenotypesAndGenes_WalkingCorpseTotem -->
-		<thingDef>WVC_Plant_TreeResurgent</thingDef>
-		<allowOnNonSoil>false</allowOnNonSoil>
+		<thingDef>WVC_ResurgentSeed</thingDef>
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityResurgentCost">
 		<resurgentCost>0.66</resurgentCost>
@@ -52,6 +76,7 @@ If all the owners of this gene are dead or absent in the settlement, then the tr
 		</eachOfGenes>
 	  </li>
 	</comps>
+	<confirmationDialogText>After using the ability, the pawn will spend resurgent cells, but will receive a resurgent tree seed. The resurgent tree poisons the soil and spawns walking corpses, which can be controlled by a mechanitor with the "Sporelink" gene.\n\nDo you still need a resurgent seed?</confirmationDialogText>
   </AbilityDef>
 
 </Defs>

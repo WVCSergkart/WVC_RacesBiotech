@@ -122,7 +122,7 @@
 	<WVC_XaG_AutoTotalHealingDesc>\n\nAuto total healing is currently {ONOFF}.</WVC_XaG_AutoTotalHealingDesc>
 	<WVC_XaG_AutoAgeReversionDesc>\n\nAuto age reversion is currently {ONOFF}.</WVC_XaG_AutoAgeReversionDesc>
 	<WVC_XaG_AutoWoundClottingDesc>\n\nAuto clotting is currently {ONOFF}.</WVC_XaG_AutoWoundClottingDesc>
-	<WVC_XaG_SpawnResurgentTreeSeedDesc>\n\nSpawn resurgent tree spore {ONOFF}.</WVC_XaG_SpawnResurgentTreeSeedDesc>
+	<!-- <WVC_XaG_SpawnResurgentTreeSeedDesc>\n\nSpawn resurgent tree spore {ONOFF}.</WVC_XaG_SpawnResurgentTreeSeedDesc> -->
 
 	<!-- <WVC_XaG_ResurgentSporesCapacity>Determines whether the gene will be triggered automatically.</WVC_XaG_ResurgentSporesCapacity> -->
 
@@ -130,6 +130,8 @@
 
 	<!-- <WVC_XenotypeSerumThing_XenotypeLabel>xenotype</WVC_XenotypeSerumThing_XenotypeLabel> -->
 	<!-- <WVC_XenotypeSerumThing_XenotypeDesc>xenotype contained in the serum</WVC_XenotypeSerumThing_XenotypeDesc> -->
+
+	<WVC_XaG_MechanitorShouldBeLich>The user must be a mechanitor and have the "Sporelink" gene.</WVC_XaG_MechanitorShouldBeLich>
 
 	<!-- ============================ BABY SPAWNER ============================ -->
 

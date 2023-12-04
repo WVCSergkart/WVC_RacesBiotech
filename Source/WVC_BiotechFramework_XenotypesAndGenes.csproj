@@ -65,12 +65,12 @@
   <ItemGroup>
     <Compile Include="Resources_Abilities\CompAbilityEffect_GeneIsActive.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_ResurgentCost.cs" />
-    <Compile Include="Resources_Abilities\CompAbilityEffect_Spawn.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_TargetValid.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityDustCost.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityResurgentCost.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityRiseFromTheDead.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilitySpawn.cs" />
+    <Compile Include="Resources_Abilities\CompProperties_AbilitySpawnOnCell.cs" />
     <Compile Include="Resources_Abilities\QuestNode_Root_Reincarnation.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_ResurgentSpores.cs" />
     <Compile Include="Resources_Gizmo\Gizmo_MaxGolems.cs" />
@@ -92,6 +92,7 @@
     <Compile Include="Resources_Hediff\HediffComp_ChangeXenotype.cs" />
     <Compile Include="Resources_Hediff\HediffComp_DustGestator.cs" />
     <Compile Include="Resources_Hediff\HediffComp_RemoveIfGeneIsNotActive.cs" />
+    <Compile Include="Resources_Hediff\Hediff_Spores.cs" />
     <Compile Include="Resources_Hediff\OnlyOneOverseer.cs" />
     <Compile Include="Resources_JobGiver\JobGiver_GetSpecialFood.cs" />
     <Compile Include="Resources_Main\GenesFix.cs" />
@@ -101,6 +102,7 @@
     <Compile Include="Resources_Things\CompProperties_GenesInfo.cs" />
     <Compile Include="Resources_Things\CompProperties_InitialNeed.cs" />
     <Compile Include="Resources_Things\CompProperties_Regeneration.cs" />
+    <Compile Include="Resources_Things\CompProperties_UseEffectEatSeed.cs" />
     <Compile Include="Resources_Things\WalkingCorpsesSpawner.cs" />
     <Compile Include="Resources_Utility\AgelessUtility.cs" />
     <Compile Include="Resources_Utility\DustUtility.cs" />
