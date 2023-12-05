@@ -28,7 +28,7 @@
 			<!-- <BandwidthCost>-999</BandwidthCost> -->
 			<BandwidthCost>0.2</BandwidthCost>
 			<WVC_GolemBandwidthCost>1</WVC_GolemBandwidthCost>
-			<MechEnergyUsageFactor>0.2</MechEnergyUsageFactor>
+			<MechEnergyUsageFactor>0.5</MechEnergyUsageFactor>
 			<MechEnergyLossPerHP>0.05</MechEnergyLossPerHP>
 			<WastepacksPerRecharge>0</WastepacksPerRecharge>
 			<!-- <BandwidthCost>6</BandwidthCost> -->

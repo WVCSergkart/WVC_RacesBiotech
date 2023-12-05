@@ -167,7 +167,7 @@
 			<!-- <ToxicResistance>1</ToxicResistance> -->
 			<!-- <ToxicEnvironmentResistance>1</ToxicEnvironmentResistance> -->
 			<!-- <PsychicSensitivity>1.5</PsychicSensitivity> -->
-			<Flammability>0.2</Flammability>
+			<!-- <Flammability>0.2</Flammability> -->
 			<!-- <MeatAmount>5</MeatAmount> -->
 			<!-- <LeatherAmount>3</LeatherAmount> -->
 			<ArmorRating_Sharp>0.3</ArmorRating_Sharp>
@@ -182,7 +182,7 @@
 			<!-- <BandwidthCost>-999</BandwidthCost> -->
 			<BandwidthCost>0.2</BandwidthCost>
 			<WVC_SporesBandwidthCost>1</WVC_SporesBandwidthCost>
-			<MechEnergyUsageFactor>0.2</MechEnergyUsageFactor>
+			<MechEnergyUsageFactor>0.5</MechEnergyUsageFactor>
 			<MechEnergyLossPerHP>0.05</MechEnergyLossPerHP>
 			<WastepacksPerRecharge>0</WastepacksPerRecharge>
 			<!-- Work -->
@@ -415,7 +415,7 @@
 			<ArmorRating_Sharp>0.5</ArmorRating_Sharp>
 			<ArmorRating_Blunt>0.3</ArmorRating_Blunt>
 			<ArmorRating_Heat>0.1</ArmorRating_Heat>
-			<Flammability>0.6</Flammability>
+			<!-- <Flammability>0.6</Flammability> -->
 			<MoveSpeed>4.2</MoveSpeed>
 			<Mass>39</Mass>
 		</statBases>
@@ -489,7 +489,7 @@
 			<ArmorRating_Sharp>0.85</ArmorRating_Sharp>
 			<ArmorRating_Blunt>0.44</ArmorRating_Blunt>
 			<ArmorRating_Heat>0.6</ArmorRating_Heat>
-			<Flammability>0.4</Flammability>
+			<!-- <Flammability>0.4</Flammability> -->
 			<MoveSpeed>2.8</MoveSpeed>
 			<Mass>54</Mass>
 		</statBases>

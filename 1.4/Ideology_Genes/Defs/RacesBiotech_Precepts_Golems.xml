@@ -78,10 +78,10 @@
 		<statDef>WVC_OverseerMaxGolems</statDef>
 		<modifier>6</modifier>
 	  </li>
-	  <li Class="RoleEffect_PawnStatOffset">
-		<statDef>WVC_BandwidthCostOffsetMech</statDef>
-		<modifier>-0.1</modifier>
-	  </li>
+	  <!-- <li Class="RoleEffect_PawnStatOffset"> -->
+		<!-- <statDef>WVC_BandwidthCostOffsetMech</statDef> -->
+		<!-- <modifier>-0.1</modifier> -->
+	  <!-- </li> -->
 	</roleEffects>
 	<grantedAbilities>
 	  <li>WVC_RoleSummon_Golems</li>
