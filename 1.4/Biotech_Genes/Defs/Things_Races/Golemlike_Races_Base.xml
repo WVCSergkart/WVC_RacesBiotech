@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThingDef ParentName="LightMechanoid" Name="WVC_XenotypesAndGenes_Golemlike_Base" Abstract="True">
+		<statBases>
+			<BandwidthCost>0.2</BandwidthCost>
+			<MechEnergyUsageFactor>2.0</MechEnergyUsageFactor>
+			<MechEnergyLossPerHP>3.0</MechEnergyLossPerHP>
+			<WastepacksPerRecharge>0</WastepacksPerRecharge>
+			<ControlTakingTime MayRequire="Ludeon.Rimworld.Biotech">1</ControlTakingTime>
+			<MarketValue>220</MarketValue>
+			<!-- Work -->
+			<FoodPoisonChance>0</FoodPoisonChance>
+			<MiningSpeed>0.25</MiningSpeed>
+			<PlantWorkSpeed>0.25</PlantWorkSpeed>
+			<ConstructionSpeed>0.25</ConstructionSpeed>
+			<SmoothingSpeed>0.25</SmoothingSpeed>
+			<GeneralLaborSpeed>0.25</GeneralLaborSpeed>
+			<MedicalTendSpeed>0.25</MedicalTendSpeed>
+			<MedicalOperationSpeed>0.25</MedicalOperationSpeed>
+			<CookSpeed>0.25</CookSpeed>
+			<SmeltingSpeed>0.25</SmeltingSpeed>
+			<DrugSynthesisSpeed>0.25</DrugSynthesisSpeed>
+			<ButcheryFleshSpeed>0.25</ButcheryFleshSpeed>
+			<ButcheryMechanoidSpeed>0.25</ButcheryMechanoidSpeed>
+			<!-- Other -->
+			<MedicalSurgerySuccessChance>2.0</MedicalSurgerySuccessChance>
+			<ConstructSuccessChance>2.0</ConstructSuccessChance>
+			<FixBrokenDownBuildingSuccessChance>2.0</FixBrokenDownBuildingSuccessChance>
+		</statBases>
+		<uiIconScale>1.5</uiIconScale>
+		<tools Inherit="False">
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>16</power>
+				<cooldownTime>1.8</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+			</li>
+		</tools>
+		<race>
+			<deathActionWorkerClass>WVC_XenotypesAndGenes.DeathActionWorker_SpawnRandomThingFromList</deathActionWorkerClass>
+			<!-- <maxMechEnergy>1</maxMechEnergy> -->
+			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+			<!-- <mechWeightClass>Golem</mechWeightClass> -->
+			<lifeStageAges Inherit="False">
+				<li>
+					<def>MechanoidFullyFormed</def>
+					<minAge>0</minAge>
+					<soundDeath>Pawn_Mech_Constructoid_Death</soundDeath>
+				</li>
+			</lifeStageAges>
+			<hediffGiverSets Inherit="False"/>
+		</race>
+		<butcherProducts Inherit="False">
+			<Steel>5</Steel>
+		</butcherProducts>
+		<comps>
+			<li Class="WVC_XenotypesAndGenes.CompProperties_InitialEnergyNeed"/>
+		</comps>
+	</ThingDef>
+
+</Defs>

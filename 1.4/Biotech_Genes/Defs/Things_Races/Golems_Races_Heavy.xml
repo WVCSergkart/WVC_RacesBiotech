@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<ThingDef ParentName="WVC_XenotypesAndGenes_GolemsBase" Name="WVC_XenotypesAndGenes_GolemsHeavy" Abstract="True">
+	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Stone" Name="WVC_XenotypesAndGenes_Golemlike_StoneHeavy" Abstract="True">
 		<statBases>
 			<ArmorRating_Sharp>0.55</ArmorRating_Sharp>
 			<ArmorRating_Blunt>0.65</ArmorRating_Blunt>
 			<MoveSpeed>1.6</MoveSpeed>
 			<WVC_GolemBandwidthCost>3</WVC_GolemBandwidthCost>
+			<Mass>126</Mass>
 			<!-- Work -->
 			<MiningSpeed>0.5</MiningSpeed>
 			<PlantWorkSpeed>0.5</PlantWorkSpeed>
@@ -47,7 +48,7 @@
 
 	<!-- =================================================================== -->
 
-	<ThingDef ParentName="WVC_XenotypesAndGenes_GolemsHeavy">
+	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_StoneHeavy">
 		<defName>WVC_Golem_Behemoth</defName>
 		<label>golem behemoth</label>
 		<statBases>

@@ -156,120 +156,53 @@
 
 	<!-- =================================================================== -->
 
-	<ThingDef ParentName="LightMechanoid" Name="WVC_XenotypesAndGenes_ResurgentSpores_Base" Abstract="True">
-		<description>A pile of bones animated by archotech-created archites in a toxic fungus. This “mechanoid” requires very little energy and bandwidth, but for full control it requires resurgent spores.</description>
+	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Base" Name="WVC_XenotypesAndGenes_Golemlike_Bones" Abstract="True">
+		<description>A pile of bones animated by archotech-created archites in a toxic fungus. This “mechanoid” requires  a lot of energy, but very little bandwidth.</description>
 		<soundImpactDefault>BulletImpact_Flesh</soundImpactDefault>
 		<descriptionHyperlinks>
 		  <ThingDef>WVC_Plant_TreeResurgent</ThingDef>
 		  <ThingDef>WVC_XenotypesAndGenes_WalkingCorpseTotem</ThingDef>
 		</descriptionHyperlinks>
 		<statBases>
-			<!-- <ToxicResistance>1</ToxicResistance> -->
-			<!-- <ToxicEnvironmentResistance>1</ToxicEnvironmentResistance> -->
-			<!-- <PsychicSensitivity>1.5</PsychicSensitivity> -->
-			<!-- <Flammability>0.2</Flammability> -->
-			<!-- <MeatAmount>5</MeatAmount> -->
-			<!-- <LeatherAmount>3</LeatherAmount> -->
+			<MechEnergyUsageFactor>3.0</MechEnergyUsageFactor>
 			<ArmorRating_Sharp>0.3</ArmorRating_Sharp>
 			<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
 			<ArmorRating_Heat>0.4</ArmorRating_Heat>
-			<!-- <ComfyTemperatureMin>-100</ComfyTemperatureMin> -->
-			<!-- <ComfyTemperatureMax>250</ComfyTemperatureMax> -->
-			<MarketValue>120</MarketValue>
 			<MoveSpeed>3.6</MoveSpeed>
 			<Mass>43</Mass>
-			<!-- Mech -->
-			<!-- <BandwidthCost>-999</BandwidthCost> -->
-			<BandwidthCost>0.2</BandwidthCost>
 			<WVC_SporesBandwidthCost>1</WVC_SporesBandwidthCost>
-			<MechEnergyUsageFactor>0.5</MechEnergyUsageFactor>
-			<MechEnergyLossPerHP>0.05</MechEnergyLossPerHP>
-			<WastepacksPerRecharge>0</WastepacksPerRecharge>
-			<!-- Work -->
-			<FoodPoisonChance>0</FoodPoisonChance>
-			<MiningSpeed>0.25</MiningSpeed>
-			<PlantWorkSpeed>0.25</PlantWorkSpeed>
-			<ConstructionSpeed>0.25</ConstructionSpeed>
-			<SmoothingSpeed>0.25</SmoothingSpeed>
-			<GeneralLaborSpeed>0.25</GeneralLaborSpeed>
-			<MedicalTendSpeed>0.25</MedicalTendSpeed>
-			<MedicalOperationSpeed>0.25</MedicalOperationSpeed>
-			<CookSpeed>0.25</CookSpeed>
-			<SmeltingSpeed>0.25</SmeltingSpeed>
-			<DrugSynthesisSpeed>0.25</DrugSynthesisSpeed>
-			<ButcheryFleshSpeed>0.25</ButcheryFleshSpeed>
-			<ButcheryMechanoidSpeed>0.25</ButcheryMechanoidSpeed>
-			<!-- Other -->
-			<MedicalSurgerySuccessChance>2.0</MedicalSurgerySuccessChance>
-			<ConstructSuccessChance>2.0</ConstructSuccessChance>
-			<FixBrokenDownBuildingSuccessChance>2.0</FixBrokenDownBuildingSuccessChance>
 		</statBases>
-		<!-- <tradeability>None</tradeability> -->
 		<uiIconScale>1.4</uiIconScale>
-		<tools Inherit="False">
-			<li>
-				<label>head</label>
-				<capacities>
-					<li>Blunt</li>
-				</capacities>
-				<power>16</power>
-				<cooldownTime>1.8</cooldownTime>
-				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
-				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
-			</li>
-		</tools>
 		<race>
-			<deathActionWorkerClass>WVC_XenotypesAndGenes.DeathActionWorker_SpawnThing</deathActionWorkerClass>
+			<!-- <deathActionWorkerClass>WVC_XenotypesAndGenes.DeathActionWorker_SpawnThing</deathActionWorkerClass> -->
 			<body>WVC_XenotypesAndGenes_WalkingCorpse</body>
 			<bloodDef>Filth_CorpseBile</bloodDef>
-			<!-- <fleshType>WVC_ResurgentWounds</fleshType> -->
 			<specificMeatDef>RawFungus</specificMeatDef>
 			<leatherDef>RawFungus</leatherDef>
 			<baseHealthScale>0.6</baseHealthScale>
 			<baseBodySize>1.0</baseBodySize>
-			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
-			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
-			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
-			<lifeStageAges>
-				<li>
-					<def>MechanoidFullyFormed</def>
-					<minAge>0</minAge>
-					<soundWounded>Pawn_Megascarab_Wounded</soundWounded>
-					<soundDeath>Pawn_Megascarab_Death</soundDeath>
-					<soundCall>Pawn_Megascarab_Call</soundCall>
-					<soundAngry>Pawn_Megascarab_Angry</soundAngry>
-				</li>
-			</lifeStageAges>
 		</race>
-		<!-- <thingCategories Inherit="False"/> -->
-		<!-- <recipes Inherit="False"/> -->
-		<butcherProducts Inherit="False">
+		<butcherProducts>
 			<RawFungus>5</RawFungus>
 		</butcherProducts>
 		<comps>
 			<li Class="WVC_XenotypesAndGenes.CompProperties_Regeneration">
 				<refreshTicks>3000</refreshTicks>
-				<regenAmount>2</regenAmount>
+				<regenAmount>1</regenAmount>
 				<shouldSendNotification>false</shouldSendNotification>
 			</li>
-			<!-- <li MayRequire="Ludeon.Rimworld.Biotech" Class="CompProperties_OverseerSubject"> -->
-				<!-- <needsOverseerEffect>MechUncontrolled</needsOverseerEffect> -->
-				<!-- <delayUntilFeralCheck>120000</delayUntilFeralCheck> -->
-				<!-- <feralMtbDays>10</feralMtbDays> -->
-				<!-- <feralCascadeRadialDistance>25</feralCascadeRadialDistance> -->
-			<!-- </li> -->
-			<!-- Runs on spawn and save load. Checks if there are needed hediffs and adds missing ones. -->
 			<li Class="WVC_XenotypesAndGenes.CompProperties_InitialHediff">
 				<hediffDefs>
 				  <li>WVC_SelfPopulationRegulation_BoneGolems</li>
 				</hediffDefs>
 			</li>
-			<li Class="WVC_XenotypesAndGenes.CompProperties_InitialEnergyNeed"/>
 		</comps>
 		<modExtensions>
 			<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
-				<thingDefToSpawn>WVC_XenotypesAndGenes_WalkingCorpseTotem</thingDefToSpawn>
-				<!-- <stackCount>1</stackCount> -->
+				<thingDefToSpawn>Filth_CorpseBile</thingDefToSpawn>
+				<thingDefsToSpawn>
+				  <li>WVC_XenotypesAndGenes_WalkingCorpseTotem</li>
+				</thingDefsToSpawn>
 			</li>
 			<li Class="WVC_XenotypesAndGenes.ThingExtension_Golems">
 				<removeDormantComp>true</removeDormantComp>
@@ -304,7 +237,7 @@
 
 	<!-- =================================================================== -->
 
-	<ThingDef ParentName="WVC_XenotypesAndGenes_ResurgentSpores_Base">
+	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Bones">
 		<defName>WVC_Golem_Bonepile</defName>
 		<label>walking bonepile</label>
 		<statBases>
@@ -335,7 +268,7 @@
 
 	<!-- =================================================================== -->
 
-	<ThingDef ParentName="WVC_XenotypesAndGenes_ResurgentSpores_Base">
+	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Bones">
 		<defName>WVC_Golem_Skeleton</defName>
 		<label>walking skeleton</label>
 		<statBases>
@@ -407,7 +340,7 @@
 
 	<!-- =================================================================== -->
 
-	<ThingDef ParentName="WVC_XenotypesAndGenes_ResurgentSpores_Base">
+	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Bones">
 		<defName>WVC_Golem_Funghead</defName>
 		<label>walking funghead</label>
 		<statBases>
@@ -481,7 +414,7 @@
 
 	<!-- =================================================================== -->
 
-	<ThingDef ParentName="WVC_XenotypesAndGenes_ResurgentSpores_Base">
+	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Bones">
 		<defName>WVC_Golem_Aberration</defName>
 		<label>walking aberration</label>
 		<statBases>
