@@ -10,6 +10,15 @@ namespace WVC_XenotypesAndGenes
 	public static class MechanoidizationUtility
 	{
 
+		public static string OnOrOff(bool onOrOff)
+		{
+			if (onOrOff)
+			{
+				return "WVC_XaG_Gene_DustMechlink_On".Translate();
+			}
+			return "WVC_XaG_Gene_DustMechlink_Off".Translate();
+		}
+
 		public static bool AbilityIsGeneAbility(Ability ability)
 		{
 			List<GeneDef> genes = DefDatabase<GeneDef>.AllDefsListForReading;

@@ -66,7 +66,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			else
 			{
-				pawnKindDefs = DefDatabase<PawnKindDef>.AllDefsListForReading.Where((PawnKindDef randomXenotypeDef) => DustUtility.MechanoidIsPlayerMechanoid(randomXenotypeDef)).ToList();
+				pawnKindDefs = DefDatabase<PawnKindDef>.AllDefsListForReading.Where((PawnKindDef randomXenotypeDef) => MechanoidsUtility.MechanoidIsPlayerMechanoid(randomXenotypeDef)).ToList();
 			}
 			// Log.Error("Mechanoids:");
 			// foreach (PawnKindDef pawnKindDef in pawnKindDefs)

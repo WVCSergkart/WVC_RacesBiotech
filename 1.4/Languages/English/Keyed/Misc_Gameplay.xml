@@ -208,4 +208,21 @@ Each mechanoid costs 0.15 nutrition to summon.</WVC_XaG_Gene_DustMechlinkDesc>
 
 	<WVC_XaG_CustomLabeledMechlinkDesc>A neural formation resulting from genetic evolution or modification, similar to what can be obtained by implanting a mechlink.</WVC_XaG_CustomLabeledMechlinkDesc>
 
+	<!-- ============================ WALKING CORPSES SPAWNER ============================ -->
+
+	<WVC_XaG_ChosenLichLabel>Assign lich</WVC_XaG_ChosenLichLabel>
+	<WVC_XaG_ChosenLichDesc>Allows you to select the mechanic to whom the new golem will be assigned.</WVC_XaG_ChosenLichDesc>
+	<WVC_XaG_MechanitorIsChosen>{0} is assigned as master of {1}.</WVC_XaG_MechanitorIsChosen>
+
+	<WVC_XaG_ChosenWalkerLabel>Assign golem</WVC_XaG_ChosenWalkerLabel>
+	<WVC_XaG_ChosenWalkerDesc>Allows you to select the type of walker that will spawn the tree.</WVC_XaG_ChosenWalkerDesc>
+	<WVC_XaG_WalkerIsChosen>{0} now spawns {1}.</WVC_XaG_WalkerIsChosen>
+	<WVC_XaG_WalkerCost>Spores cost: {0}</WVC_XaG_WalkerCost>
+
+	<WVC_XaG_LichTreeCurrentOwnerLabel>Current owner</WVC_XaG_LichTreeCurrentOwnerLabel>
+	<WVC_XaG_LichTreeCurrentSpawnLabel>Current spawn</WVC_XaG_LichTreeCurrentSpawnLabel>
+
+	<WVC_XaG_AlwaysRandomizeLabel>Randomize: \n{0}</WVC_XaG_AlwaysRandomizeLabel>
+	<WVC_XaG_AlwaysRandomizeDesc>If enabled, after each spawn, the mechanitor and the next spawn are randomized.</WVC_XaG_AlwaysRandomizeDesc>
+
 </LanguageData>

@@ -111,6 +111,7 @@
     <Compile Include="Resources_Utility\GeneHealUtility.cs" />
     <Compile Include="Resources_Utility\GeneUiUtility.cs" />
     <Compile Include="Resources_Utility\GolemsUtility.cs" />
+    <Compile Include="Resources_Utility\MechanidsUtility.cs" />
     <Compile Include="Resources_Utility\ReimplanterUtility.cs" />
     <Compile Include="Resources_Things\CompProperties_InitialHediff.cs" />
     <Compile Include="Resources_Things\CompProperties_RandomName.cs" />

@@ -41,7 +41,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			// Log.Error("1");
-			GolemsUtility.OffsetNeedEnergy(pawn, Props.shutdownEnergyReplenish, Props.refreshHours);
+			MechanoidsUtility.OffsetNeedEnergy(pawn, Props.shutdownEnergyReplenish, Props.refreshHours);
 		}
 
 		public override void PostSpawnSetup(bool respawningAfterLoad)

@@ -11,6 +11,21 @@ namespace WVC_XenotypesAndGenes
 	public static class WalkingUtility
 	{
 
+		public static bool CanChoseMechPawnKindDef(Pawn lich, PawnKindDef golem)
+		{
+			float weight = lich.mechanitor.TotalBandwidth - (lich.mechanitor.UsedBandwidth + golem.race.statBases.GetStatValueFromList(StatDefOf.BandwidthCost, 100f));
+			if (weight < 0f)
+			{
+				return false;
+			}
+			weight = TotalSporesBandwidth(lich) - GetConsumedBandwidth(lich) - golem.race.statBases.GetStatValueFromList(WVC_GenesDefOf.WVC_SporesBandwidthCost, 100f);
+			if (weight < 0f)
+			{
+				return false;
+			}
+			return true;
+		}
+
 		// public static bool AnyLichCanSpawnMoreCorpses(List<Pawn> lichs, Pawn golem)
 		// {
 			// foreach (Pawn lich in lichs)
@@ -22,12 +37,16 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool CanSpawnMoreCorpses(Pawn lich, Pawn golem)
 		{
-			float weight = TotalSporesBandwidth(lich) - GetConsumedBandwidth(lich) - golem.GetStatValue(WVC_GenesDefOf.WVC_SporesBandwidthCost);
-			if (weight < 0f)
+			if (MechanoidsUtility.CanSpawnMoreMechanoids(lich, golem))
 			{
-				return false;
+				float weight = TotalSporesBandwidth(lich) - GetConsumedBandwidth(lich) - golem.GetStatValue(WVC_GenesDefOf.WVC_SporesBandwidthCost);
+				if (weight < 0f)
+				{
+					return false;
+				}
+				return true;
 			}
-			return true;
+			return false;
 		}
 
 		public static float GetLichWeight(Pawn lich)
