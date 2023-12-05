@@ -85,7 +85,7 @@ namespace WVC_XenotypesAndGenes
 			// cachedMechanitors = WalkingUtility.GetAllLichs(parent.Map);
 			if (chosenMechanitor == null || !Props.canBeCustomized)
 			{
-				chosenMechanitor = cachedMechanitors.RandomElement();
+				chosenMechanitor = cachedMechanitors.RandomElementByWeight((Pawn p) => WalkingUtility.GetLichWeight(p));
 			}
 			if (chosenWalker == null || !Props.canBeCustomized)
 			{
@@ -160,7 +160,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (alwaysRandomize || !Props.canBeCustomized)
 			{
-				chosenMechanitor = cachedMechanitors.RandomElement();
+				chosenMechanitor = cachedMechanitors.RandomElementByWeight((Pawn p) => WalkingUtility.GetLichWeight(p));
 				chosenWalker = Props.summonsList.RandomElement();
 			}
 		}
