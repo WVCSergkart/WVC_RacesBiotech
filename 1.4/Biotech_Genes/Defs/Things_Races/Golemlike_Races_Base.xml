@@ -42,7 +42,8 @@
 			</li>
 		</tools>
 		<race>
-			<deathActionWorkerClass>WVC_XenotypesAndGenes.DeathActionWorker_SpawnRandomThingFromList</deathActionWorkerClass>
+			<body>Mech_Light</body>
+			<!-- <deathActionWorkerClass>WVC_XenotypesAndGenes.DeathActionWorker_SpawnRandomThingFromList</deathActionWorkerClass> -->
 			<!-- <maxMechEnergy>1</maxMechEnergy> -->
 			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
 			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
@@ -63,6 +64,11 @@
 		<comps>
 			<li Class="WVC_XenotypesAndGenes.CompProperties_InitialEnergyNeed"/>
 		</comps>
+		<modExtensions>
+			<li Class="VFECore.ThingDefExtension">
+				<destroyCorpse>true</destroyCorpse>
+			</li>
+		</modExtensions>
 	</ThingDef>
 
 </Defs>

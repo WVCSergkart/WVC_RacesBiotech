@@ -26,7 +26,6 @@
 		</statBases>
 		<race>
 			<!-- <deathActionWorkerClass>WVC_XenotypesAndGenes.DeathActionWorker_SpawnRandomThingFromList</deathActionWorkerClass> -->
-			<body>Mech_Light</body>
 		</race>
 		<butcherProducts>
 			<Steel>5</Steel>
@@ -37,10 +36,9 @@
 				  <li>WVC_SelfPopulationRegulation_Golems</li>
 				</hediffDefs>
 			</li>
-		</comps>
-		<modExtensions>
-			<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
-				<thingDefToSpawn>Filth_RubbleRock</thingDefToSpawn>
+			<li Class="WVC_XenotypesAndGenes.CompProperties_SpawnOnDeath">
+				<compClass>WVC_XenotypesAndGenes.CompSpawnOnDeath</compClass>
+				<filthDefToSpawn>Filth_RubbleRock</filthDefToSpawn>
 				<thingDefsToSpawn>
 				  <li>ChunkMarble</li>
 				  <li>ChunkSlate</li>
@@ -49,6 +47,8 @@
 				  <li>ChunkSandstone</li>
 				</thingDefsToSpawn>
 			</li>
+		</comps>
+		<modExtensions>
 			<li Class="WVC_XenotypesAndGenes.ThingExtension_Golems">
 				<removeButcherRecipes>true</removeButcherRecipes>
 			</li>

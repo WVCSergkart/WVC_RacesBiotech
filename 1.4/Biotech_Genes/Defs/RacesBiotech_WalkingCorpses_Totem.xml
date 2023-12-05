@@ -97,21 +97,6 @@ This creepy organism obeys the local owner of the "Sporelink" gene, forming a st
 		  <li>WVC_Golem_Aberration</li>
 		</summonsList>
 	  </li>
-	  <li Class="CompProperties_SpawnSubplant">
-		<compClass>WVC_XenotypesAndGenes.CompSpawnSubplantDuration</compClass>
-		<subplant>WVC_Plant_MossResurgent</subplant>
-		<maxRadius>7.9</maxRadius>
-		<subplantSpawnDays>1</subplantSpawnDays>
-		<minGrowthForSpawn>0.6</minGrowthForSpawn>
-		<initialGrowthRange>0.2~0.8</initialGrowthRange>
-		<canSpawnOverPlayerSownPlants>false</canSpawnOverPlayerSownPlants>
-		<plantsToNotOverwrite>
-		  <li>Plant_PodGauranlen</li>
-		  <li MayRequire="Ludeon.RimWorld.Royalty">Plant_GrassAnima</li>
-		  <li MayRequire="Ludeon.RimWorld.Royalty">Plant_TreeAnima</li>
-		  <li MayRequire="Ludeon.RimWorld.Ideology">Plant_TreeGauranlen</li>
-		</plantsToNotOverwrite>
-	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_Toxifier">
 		<pollutionIntervalTicks>360000~720000</pollutionIntervalTicks>
 		<cellsToPollute>6</cellsToPollute>

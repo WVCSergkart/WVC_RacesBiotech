@@ -196,14 +196,29 @@
 				  <li>WVC_SelfPopulationRegulation_BoneGolems</li>
 				</hediffDefs>
 			</li>
-		</comps>
-		<modExtensions>
-			<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
-				<thingDefToSpawn>Filth_CorpseBile</thingDefToSpawn>
+			<li Class="WVC_XenotypesAndGenes.CompProperties_SpawnOnDeath">
+				<!-- Totem -->
+				<compClass>WVC_XenotypesAndGenes.CompSpawnOnDeath_Subplants</compClass>
+				<filthDefToSpawn>Filth_CorpseBile</filthDefToSpawn>
 				<thingDefsToSpawn>
 				  <li>WVC_XenotypesAndGenes_WalkingCorpseTotem</li>
 				</thingDefsToSpawn>
+				<!-- Subplant -->
+				<subplant>WVC_Plant_MossResurgent</subplant>
+				<subplantCount>3</subplantCount>
+				<maxRadius>2.9</maxRadius>
+				<initialGrowthRange>0.2~0.8</initialGrowthRange>
+				<canSpawnOverPlayerSownPlants>false</canSpawnOverPlayerSownPlants>
+				<plantsToNotOverwrite>
+				  <li>Plant_PodGauranlen</li>
+				  <li>WVC_Plant_TreeResurgent</li>
+				  <li MayRequire="Ludeon.RimWorld.Royalty">Plant_GrassAnima</li>
+				  <li MayRequire="Ludeon.RimWorld.Royalty">Plant_TreeAnima</li>
+				  <li MayRequire="Ludeon.RimWorld.Ideology">Plant_TreeGauranlen</li>
+				</plantsToNotOverwrite>
 			</li>
+		</comps>
+		<modExtensions>
 			<li Class="WVC_XenotypesAndGenes.ThingExtension_Golems">
 				<removeDormantComp>true</removeDormantComp>
 				<removeRepairComp>true</removeRepairComp>

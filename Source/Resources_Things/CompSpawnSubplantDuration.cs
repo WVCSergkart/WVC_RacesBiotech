@@ -59,31 +59,36 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
+			GrowSubplant(parent, Props.maxRadius, Props.subplant, Props.plantsToNotOverwrite, Props.initialGrowthRange, parent.Map, Props.canSpawnOverPlayerSownPlants);
+		}
+
+		public static void GrowSubplant(ThingWithComps parent, float maxRadius, ThingDef subplant, List<ThingDef> plantsToNotOverwrite, FloatRange? initialGrowthRange, Map map, bool canSpawnOverPlayerSownPlants = true)
+		{
 			IntVec3 position = parent.Position;
-			int num = GenRadial.NumCellsInRadius(Props.maxRadius);
+			int num = GenRadial.NumCellsInRadius(maxRadius);
 			for (int i = 0; i < num; i++)
 			{
 				IntVec3 intVec = position + GenRadial.RadialPattern[i];
-				if (!intVec.InBounds(parent.Map) || !WanderUtility.InSameRoom(position, intVec, parent.Map))
+				if (!intVec.InBounds(map) || !WanderUtility.InSameRoom(position, intVec, map))
 				{
 					continue;
 				}
 				bool flag = false;
-				List<Thing> thingList = intVec.GetThingList(parent.Map);
+				List<Thing> thingList = intVec.GetThingList(map);
 				foreach (Thing item in thingList)
 				{
-					if (item.def == Props.subplant)
+					if (item.def == subplant)
 					{
 						flag = true;
 						break;
 					}
-					if (Props.plantsToNotOverwrite.NullOrEmpty())
+					if (plantsToNotOverwrite.NullOrEmpty())
 					{
 						continue;
 					}
-					for (int j = 0; j < Props.plantsToNotOverwrite.Count; j++)
+					for (int j = 0; j < plantsToNotOverwrite.Count; j++)
 					{
-						if (item.def == Props.plantsToNotOverwrite[j])
+						if (item.def == plantsToNotOverwrite[j])
 						{
 							flag = true;
 							break;
@@ -94,16 +99,16 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				if (!Props.canSpawnOverPlayerSownPlants)
+				if (!canSpawnOverPlayerSownPlants)
 				{
-					Plant plant = intVec.GetPlant(parent.Map);
-					Zone zone = parent.Map.zoneManager.ZoneAt(intVec);
+					Plant plant = intVec.GetPlant(map);
+					Zone zone = map.zoneManager.ZoneAt(intVec);
 					if (plant != null && plant.sown && zone != null && zone is Zone_Growing)
 					{
 						continue;
 					}
 				}
-				if (!Props.subplant.CanEverPlantAt(intVec, parent.Map, canWipePlantsExceptTree: true))
+				if (!subplant.CanEverPlantAt(intVec, map, canWipePlantsExceptTree: true))
 				{
 					continue;
 				}
@@ -114,10 +119,10 @@ namespace WVC_XenotypesAndGenes
 						thingList[num2].Destroy();
 					}
 				}
-				Plant plant2 = (Plant)GenSpawn.Spawn(Props.subplant, intVec, parent.Map);
-				if (Props.initialGrowthRange.HasValue)
+				Plant plant2 = (Plant)GenSpawn.Spawn(subplant, intVec, map);
+				if (initialGrowthRange.HasValue)
 				{
-					plant2.Growth = Props.initialGrowthRange.Value.RandomInRange;
+					plant2.Growth = initialGrowthRange.Value.RandomInRange;
 				}
 				break;
 			}

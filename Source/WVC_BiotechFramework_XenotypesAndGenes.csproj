@@ -103,6 +103,7 @@
     <Compile Include="Resources_Things\CompProperties_InitialNeed.cs" />
     <Compile Include="Resources_Things\CompProperties_Regeneration.cs" />
     <Compile Include="Resources_Things\CompProperties_UseEffectEatSeed.cs" />
+    <Compile Include="Resources_Things\CompSpawnOnDeath.cs" />
     <Compile Include="Resources_Things\CompSpawnSubplantDuration.cs" />
     <Compile Include="Resources_Things\WalkingCorpsesSpawner.cs" />
     <Compile Include="Resources_Utility\AgelessUtility.cs" />
