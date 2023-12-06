@@ -211,7 +211,7 @@ Each mechanoid costs 0.15 nutrition to summon.</WVC_XaG_Gene_DustMechlinkDesc>
 	<!-- ============================ WALKING CORPSES SPAWNER ============================ -->
 
 	<WVC_XaG_ChosenLichLabel>Assign lich</WVC_XaG_ChosenLichLabel>
-	<WVC_XaG_ChosenLichDesc>Allows you to select the mechanic to whom the new golem will be assigned.</WVC_XaG_ChosenLichDesc>
+	<WVC_XaG_ChosenLichDesc>Allows you to select the mechanitor to whom the new golem will be assigned.</WVC_XaG_ChosenLichDesc>
 	<WVC_XaG_MechanitorIsChosen>{0} is assigned as master of {1}.</WVC_XaG_MechanitorIsChosen>
 
 	<WVC_XaG_ChosenWalkerLabel>Assign golem</WVC_XaG_ChosenWalkerLabel>
