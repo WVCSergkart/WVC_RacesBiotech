@@ -34,7 +34,10 @@ namespace WVC_XenotypesAndGenes
 				}
 				foreach (HediffDef item in inheritGeneDef.makeImmuneTo)
 				{
-					geneDef.makeImmuneTo.Add(item);
+					if (!geneDef.makeImmuneTo.Contains(item))
+					{
+						geneDef.makeImmuneTo.Add(item);
+					}
 				}
 			}
 			if (inheritGeneDef.hediffGiversCannotGive != null)
@@ -45,7 +48,10 @@ namespace WVC_XenotypesAndGenes
 				}
 				foreach (HediffDef item in inheritGeneDef.hediffGiversCannotGive)
 				{
-					geneDef.hediffGiversCannotGive.Add(item);
+					if (!geneDef.hediffGiversCannotGive.Contains(item))
+					{
+						geneDef.hediffGiversCannotGive.Add(item);
+					}
 				}
 			}
 			// Traits
@@ -57,7 +63,10 @@ namespace WVC_XenotypesAndGenes
 				}
 				foreach (GeneticTraitData item in inheritGeneDef.suppressedTraits)
 				{
-					geneDef.suppressedTraits.Add(item);
+					if (!geneDef.suppressedTraits.Contains(item))
+					{
+						geneDef.suppressedTraits.Add(item);
+					}
 				}
 			}
 			if (inheritGeneDef.forcedTraits != null)
@@ -68,7 +77,10 @@ namespace WVC_XenotypesAndGenes
 				}
 				foreach (GeneticTraitData item in inheritGeneDef.forcedTraits)
 				{
-					geneDef.forcedTraits.Add(item);
+					if (!geneDef.forcedTraits.Contains(item))
+					{
+						geneDef.forcedTraits.Add(item);
+					}
 				}
 			}
 			// Stats
@@ -91,7 +103,10 @@ namespace WVC_XenotypesAndGenes
 				}
 				foreach (StatModifier item in inheritGeneDef.statFactors)
 				{
-					geneDef.statFactors.Add(item);
+					if (!geneDef.statFactors.Contains(item))
+					{
+						geneDef.statFactors.Add(item);
+					}
 				}
 			}
 			if (inheritGeneDef.statOffsets != null)
@@ -102,7 +117,10 @@ namespace WVC_XenotypesAndGenes
 				}
 				foreach (StatModifier item in inheritGeneDef.statOffsets)
 				{
-					geneDef.statOffsets.Add(item);
+					if (!geneDef.statOffsets.Contains(item))
+					{
+						geneDef.statOffsets.Add(item);
+					}
 				}
 			}
 			// Symbols

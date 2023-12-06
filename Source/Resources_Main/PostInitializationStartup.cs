@@ -23,15 +23,10 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			}
-			foreach (ThingDef allDef in DefDatabase<ThingDef>.AllDefsListForReading)
+			foreach (ThingDef thingDef in DefDatabase<ThingDef>.AllDefsListForReading)
 			{
-				ThingExtension_Golems modExtension = allDef.GetModExtension<ThingExtension_Golems>();
+				ThingExtension_Golems modExtension = thingDef?.GetModExtension<ThingExtension_Golems>();
 				if (modExtension == null)
-				{
-					continue;
-				}
-				ThingDef thingDef = allDef;
-				if (thingDef == null)
 				{
 					continue;
 				}
@@ -52,15 +47,6 @@ namespace WVC_XenotypesAndGenes
 				if (modExtension.removeButcherRecipes)
 				{
 					corpseDef.thingCategories = new();
-					// corpseDef.smeltable = false;
-					// corpseDef.burnableByRecipe = false;
-					// Log.Error(corpseDef.defName + ": " + corpseDef.thingCategories.ToString());
-					// corpseDef.comps.RemoveAll((CompProperties compProperties) => compProperties is CompProperties_SpawnerFilth);
-					// corpseDef.SetStatBaseValue(StatDefOf.Nutrition, 0.0f);
-					// foreach (RecipeDef recipeDef in DefDatabase<RecipeDef>.AllDefsListForReading)
-					// {
-						// TemplatesUtility.InheritGeneImmunityFrom(geneDef, inheritableGeneDef);
-					// }
 				}
 			}
 		}

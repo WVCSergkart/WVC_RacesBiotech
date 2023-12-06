@@ -17,6 +17,15 @@
 	</customEffectDescriptions>
 	<displayCategory>WVC_Scarifier</displayCategory>
 	<selectionWeight>0.0125</selectionWeight>
+	<!-- <makeImmuneTo> -->
+	  <!-- <li>GutWorms</li> -->
+	  <!-- <li>MuscleParasites</li> -->
+	  <!-- <li>FibrousMechanites</li> -->
+	  <!-- <li>SensoryMechanites</li> -->
+	<!-- </makeImmuneTo> -->
+	<!-- <hediffGiversCannotGive> -->
+	  <!-- <li>TraumaSavant</li> -->
+	<!-- </hediffGiversCannotGive> -->
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<scarsCount>2</scarsCount>

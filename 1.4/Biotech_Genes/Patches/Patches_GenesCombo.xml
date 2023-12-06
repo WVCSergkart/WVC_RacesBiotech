@@ -6,6 +6,7 @@
 	  <!-- <xpath>/Defs/GeneDef[defName="PerfectImmunity"]/makeImmuneTo</xpath> -->
 	  <!-- <value> -->
 		<!-- <li>GutWorms</li> -->
+		<!-- <li>MuscleParasites</li> -->
 		<!-- <li>FibrousMechanites</li> -->
 		<!-- <li>SensoryMechanites</li> -->
 	  <!-- </value> -->

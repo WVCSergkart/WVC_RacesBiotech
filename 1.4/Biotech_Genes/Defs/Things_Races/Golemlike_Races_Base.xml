@@ -5,7 +5,7 @@
 		<statBases>
 			<BandwidthCost>0.2</BandwidthCost>
 			<MechEnergyUsageFactor>2.0</MechEnergyUsageFactor>
-			<MechEnergyLossPerHP>3.0</MechEnergyLossPerHP>
+			<MechEnergyLossPerHP>1.0</MechEnergyLossPerHP>
 			<WastepacksPerRecharge>0</WastepacksPerRecharge>
 			<ControlTakingTime MayRequire="Ludeon.Rimworld.Biotech">1</ControlTakingTime>
 			<MarketValue>220</MarketValue>

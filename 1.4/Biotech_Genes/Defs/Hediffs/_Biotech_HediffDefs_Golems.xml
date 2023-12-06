@@ -7,6 +7,9 @@
 	<hediffClass>HediffWithComps</hediffClass>
 	<scenarioCanAdd>false</scenarioCanAdd>
 	<isBad>false</isBad>
+	<!-- <disablesNeeds> -->
+		<!-- <li>MechEnergy</li> -->
+	<!-- </disablesNeeds> -->
   </HediffDef>
 
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Golems">
