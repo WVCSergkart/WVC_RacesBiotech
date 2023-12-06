@@ -24,9 +24,13 @@ It is recommended to enable all settings for the first acquaintance with the mod
 	<WVC_BiotechSettings_XenotypesFilter_Title>Set xenotypes that can be used for serums. Restart is required.</WVC_BiotechSettings_XenotypesFilter_Title>
 	<WVC_BiotechSettings_XenotypesFilter_Search>Search:</WVC_BiotechSettings_XenotypesFilter_Search>
 
+	<!-- ====================================================================================== -->
+
 	<!-- <WVC_BiotechSettings_XenotypesFilter_Checkbox_Serums>Serums</WVC_BiotechSettings_XenotypesFilter_Checkbox_Serums> -->
 	<!-- <WVC_BiotechSettings_XenotypesFilter_Checkbox_XenoForcers>Xeno-forcers</WVC_BiotechSettings_XenotypesFilter_Checkbox_XenoForcers> -->
 	<!-- <WVC_BiotechSettings_XenotypesFilter_Checkbox_RandomSerums>Mini serums</WVC_BiotechSettings_XenotypesFilter_Checkbox_RandomSerums> -->
+
+	<!-- <WVC_XaG_ResetAllSettings_Label>Reset to default</WVC_XaG_ResetAllSettings_Label> -->
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_disableFurGraphic>Disable mecha/node/rune/stone(skin) graphic</WVC_Label_disableFurGraphic>

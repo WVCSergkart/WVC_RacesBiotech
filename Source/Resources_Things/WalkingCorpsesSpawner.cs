@@ -18,9 +18,9 @@ namespace WVC_XenotypesAndGenes
 
 		public string inspectString = "WVC_XaG_Label_CompHiveSpawnAnimals";
 
-		public string uiIconAssign = "WVC/Things/XaG_Items/ResurgentSeed/Seed_C";
+		public string uiIconAssign = "WVC/UI/XaG_General/Ui_Overseer";
 
-		public string uiIconRand = "WVC/Things/XaG_Items/ResurgentSeed/Seed_C";
+		public string uiIconRand = "WVC/UI/XaG_General/UiRandomize";
 
 		public List<PawnKindDef> summonsList = new();
 
@@ -201,6 +201,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
+			ResetMechanitors();
 			if (cachedMechanitors.NullOrEmpty())
 			{
 				yield break;

@@ -50,6 +50,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void ExposeData()
 		{
+			base.ExposeData();
 			// Graphic
 			Scribe_Values.Look(ref disableFurGraphic, "disableFurGraphic", defaultValue: false);
 			Scribe_Values.Look(ref disableAllGraphic, "disableAllGraphic", defaultValue: false);
@@ -83,7 +84,6 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref serumsForAllXenotypes_Recipes, "serumsForAllXenotypes_Recipes", defaultValue: true);
 			Scribe_Values.Look(ref serumsForAllXenotypes_Spawners, "serumsForAllXenotypes_Spawners", defaultValue: false);
 			// End
-			base.ExposeData();
 			Scribe_Collections.Look(ref WVC_Biotech.cachedXenotypesFilter, "cachedXenotypesFilter", LookMode.Value, LookMode.Value);
 		}
 	}
@@ -192,6 +192,11 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenHybrid".Translate(), ref settings.serumsForAllXenotypes_GenHybrid, "WVC_ToolTip_serumsForAllXenotypes_GenHybrid".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_Recipes".Translate(), ref settings.serumsForAllXenotypes_Recipes, "WVC_ToolTip_serumsForAllXenotypes_Recipes".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_serumsSpawnersForAllXenotypes".Translate(), ref settings.serumsForAllXenotypes_Spawners, "WVC_ToolTip_serumsSpawnersForAllXenotypes".Translate());
+			listingStandard.Gap();
+			// ===============
+			// if (listingStandard.ButtonText("WVC_XaG_ResetAllSettings_Label"))
+			// {
+			// }
 			listingStandard.End();
 			Widgets.EndScrollView();
 		}
