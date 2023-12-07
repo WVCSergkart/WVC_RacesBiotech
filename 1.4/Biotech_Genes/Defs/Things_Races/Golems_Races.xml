@@ -37,7 +37,7 @@
 				</hediffDefs>
 			</li>
 			<li Class="WVC_XenotypesAndGenes.CompProperties_SpawnOnDeath">
-				<compClass>WVC_XenotypesAndGenes.CompSpawnOnDeath</compClass>
+				<compClass>WVC_XenotypesAndGenes.CompSpawnOnDeath_GetColor</compClass>
 				<filthDefToSpawn>Filth_RubbleRock</filthDefToSpawn>
 				<thingDefsToSpawn>
 				  <li>ChunkMarble</li>
@@ -60,7 +60,7 @@
 		<!-- <race>WVC_Golem_Liftoid</race> -->
 		<allowInMechClusters>false</allowInMechClusters>
 		<minGenerationAge MayRequire="Ludeon.Rimworld.Biotech">0</minGenerationAge>
-		<alternateGraphicChance>1.0</alternateGraphicChance>
+		<alternateGraphicChance>0.0</alternateGraphicChance>
 		<isFighter>false</isFighter>
 		<alternateGraphics>
 			<!-- Base -->
