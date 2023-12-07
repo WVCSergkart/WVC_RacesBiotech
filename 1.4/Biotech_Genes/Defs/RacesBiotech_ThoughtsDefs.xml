@@ -116,6 +116,61 @@
 
   <!-- ========================================================== -->
 
+  <ThoughtDef>
+	<defName>WVC_XenotypesAndGenes_ResurrectedMe</defName>
+	<thoughtClass>Thought_MemorySocial</thoughtClass>
+	<durationDays>20</durationDays>
+	<stackLimit>5</stackLimit>
+	<stackLimitForSameOtherPawn>10</stackLimitForSameOtherPawn>
+	<stackedEffectMultiplier>0.9</stackedEffectMultiplier>
+	<developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+	<socialTargetDevelopmentalStageFilter>Baby, Child, Adult</socialTargetDevelopmentalStageFilter>
+	<nullifyingTraits>
+	  <li>Psychopath</li>
+	</nullifyingTraits>
+	<stages>
+	  <li>
+		<label>resurrected me</label>
+		<baseOpinionOffset>15</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_XenotypesAndGenes_ResurrectedByMe</defName>
+	<thoughtClass>Thought_MemorySocial</thoughtClass>
+	<durationDays>20</durationDays>
+	<stackLimit>5</stackLimit>
+	<stackLimitForSameOtherPawn>10</stackLimitForSameOtherPawn>
+	<stackedEffectMultiplier>0.9</stackedEffectMultiplier>
+	<developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+	<socialTargetDevelopmentalStageFilter>Baby, Child, Adult</socialTargetDevelopmentalStageFilter>
+	<nullifyingTraits>
+	  <li>Psychopath</li>
+	</nullifyingTraits>
+	<stages>
+	  <li>
+		<label>resurrected by me</label>
+		<baseOpinionOffset>5</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_XenotypesAndGenes_WasResurrected</defName>
+	<durationDays>6</durationDays>
+	<stackLimit>1</stackLimit>
+	<stages>
+	  <li>
+		<label>was resurrected</label>
+		<description>I got a second chance, this time I won't die so easily.</description>
+		<baseMoodEffect>20</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <!-- ========================================================== -->
+
   <!-- <ThoughtDef Name="WVC_PreferredGenderThoughtBase" Abstract="True"> -->
 	<!-- <thoughtClass>Thought_SituationalSocial</thoughtClass> -->
 	<!-- <validWhileDespawned>true</validWhileDespawned> -->

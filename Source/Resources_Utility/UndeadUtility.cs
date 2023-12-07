@@ -9,81 +9,22 @@ namespace WVC_XenotypesAndGenes
 	public static class UndeadUtility
 	{
 
-		public static void ResurrectWithPenalties(Pawn pawn, long limit, int penalty, BackstoryDef childBackstoryDef = null, BackstoryDef adultBackstoryDef = null, int penaltyYears = 5)
+		public static void ResurrectWithSickness(Pawn pawn, ThoughtDef resurrectThought = null)
 		{
 			ResurrectionUtility.Resurrect(pawn);
 			pawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
-			pawn.ageTracker.AgeBiologicalTicks = Math.Max(limit, pawn.ageTracker.AgeBiologicalTicks - penalty);
-			// Gene_PermanentHediff.BodyPartGiver(Bodyparts, pawn, HediffDefName);
-			Gene_BackstoryChanger.BackstoryChanger(pawn, childBackstoryDef, adultBackstoryDef);
-			// int max = (int)((float)pawn.ageTracker.AgeBiologicalTicks / (float)(oneYear * 14));
-			// For any case
-			// int skillsNumber = 0;
-			// foreach (SkillDef item in DefDatabase<SkillDef>.AllDefsListForReading)
-			// {
-			// skillsNumber++;
-			// }
-			// for (int i = 0; i < skillsNumber; i++)
-			// {
-			// if (pawn.skills.skills.Where((SkillRecord x) => !x.TotallyDisabled && x.XpTotalEarned > 0f).TryRandomElementByWeight((SkillRecord x) => (float)x.GetLevel() * 10f, out var result))
-			// {
-			// float num = result.XpTotalEarned;
-			// result.Learn(0f - num, direct: true);
-			// }
-			// }
-			// foreach (Trait item in pawn.story.traits.allTraits)
-			// {
-			// if (item.sourceGene == null)
-			// {
-			// pawn.story.traits.RemoveTrait(item);
-			// }
-			// }
-			foreach (SkillRecord item in pawn.skills.skills)
+			if (resurrectThought != null)
 			{
-				if (!item.TotallyDisabled && item.XpTotalEarned > 0f)
-				{
-					// float num = result.XpTotalEarned * XPLossPercentFromDeathrestRange.RandomInRange;
-					float num = item.XpTotalEarned;
-					// letterText += "\n\n" + "DeathrestLostSkill".Translate(pawn.Named("PAWN"), result.def.label.Named("SKILL"), ((int)num).Named("XPLOSS"));
-					item.Learn(0f - num, direct: true);
-					// gene_Deathless.lastSkillReductionTick = Find.TickManager.TicksGame;
-				}
-			}
-			// pawn.relations.ClearAllNonBloodRelations();
-			// Pretty dumb and lazy solution
-			// LetterStack letterStack = Find.LetterStack;
-			// List<Letter> dismissibleLetters = letterStack.LettersListForReading.Where((Letter x) => x.CanDismissWithRightClick).ToList();
-			// letterStack.RemoveLetter(dismissibleLetters.First());
-			// if (ModsConfig.IdeologyActive)
-			// {
-			// letterStack.RemoveLetter(dismissibleLetters.First());
-			// }
-			SubXenotypeUtility.XenotypeShapeshifter(pawn);
-			if (PawnUtility.ShouldSendNotificationAbout(pawn))
-			{
-				Find.LetterStack.ReceiveLetter("WVC_LetterLabelSecondChance_GeneUndead".Translate(), "WVC_LetterTextSecondChance_GeneUndead".Translate(pawn.Named("TARGET"), penaltyYears.Named("COMADURATION")), LetterDefOf.NeutralEvent, new LookTargets(pawn));
-			}
-		}
-
-		public static void Resurrect(Pawn pawn)
-		{
-			ResurrectionUtility.Resurrect(pawn);
-			pawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
-			// SubXenotypeUtility.XenotypeShapeshifter(pawn);
-			if (PawnUtility.ShouldSendNotificationAbout(pawn))
-			{
-				Find.LetterStack.ReceiveLetter("WVC_LetterLabelSecondChance_GeneUndead".Translate(), "WVC_LetterTextSecondChance_GeneUndeadResurgent".Translate(pawn.Named("TARGET")), LetterDefOf.NeutralEvent, new LookTargets(pawn));
+				pawn.needs?.mood?.thoughts?.memories.TryGainMemory(resurrectThought);
 			}
 		}
 
 		public static void NewUndeadResurrect(Pawn pawn, BackstoryDef childBackstoryDef = null, BackstoryDef adultBackstoryDef = null, Gene_ResurgentCells resurgentGene = null, float resourceLossPerDay = 0f)
 		{
-			ResurrectionUtility.Resurrect(pawn);
-			pawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
+			ResurrectWithSickness(pawn, WVC_GenesDefOf.WVC_XenotypesAndGenes_WasResurrected);
 			if (resurgentGene == null)
 			{
 				pawn.health.AddHediff(WVC_GenesDefOf.WVC_Resurgent_UndeadResurrectionRecovery);
-				// pawn.ageTracker.AgeBiologicalTicks = Math.Max(limit, pawn.ageTracker.AgeBiologicalTicks - penalty);
 				Gene_BackstoryChanger.BackstoryChanger(pawn, childBackstoryDef, adultBackstoryDef);
 				foreach (SkillRecord item in pawn.skills.skills)
 				{
@@ -94,12 +35,8 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 				SubXenotypeUtility.XenotypeShapeshifter(pawn);
-				// if (PawnUtility.ShouldSendNotificationAbout(pawn))
-				// {
-					// Find.LetterStack.ReceiveLetter("WVC_LetterLabelSecondChance_GeneUndead".Translate(), "WVC_LetterTextSecondChance_GeneUndead".Translate(pawn.Named("TARGET"), penaltyYears.Named("COMADURATION")), LetterDefOf.NeutralEvent, new LookTargets(pawn));
-				// }
 			}
-			else if (PawnUtility.ShouldSendNotificationAbout(pawn))
+			else
 			{
 				resurgentGene.Value -= resourceLossPerDay;
 			}
@@ -115,16 +52,6 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			// if (offset > 0f && applyStatFactor)
-			// {
-			// offset *= pawn.GetStatValue(StatDefOf.HemogenGainFactor);
-			// }
-			// Gene_HemogenDrain gene_HemogenDrain = pawn.genes?.GetFirstGeneOfType<Gene_HemogenDrain>();
-			// if (gene_HemogenDrain != null)
-			// {
-			// GeneResourceDrainUtility.OffsetResource(gene_HemogenDrain, offset);
-			// return;
-			// }
 			Gene_ResurgentCells gene_Hemogen = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
 			if (gene_Hemogen != null)
 			{

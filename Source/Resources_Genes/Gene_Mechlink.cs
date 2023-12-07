@@ -169,14 +169,14 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref summonMechanoids, "summonMechanoids");
 		}
 
-		private string OnOrOff()
-		{
-			if (summonMechanoids)
-			{
-				return "WVC_XaG_Gene_DustMechlink_On".Translate();
-			}
-			return "WVC_XaG_Gene_DustMechlink_Off".Translate();
-		}
+		// private string OnOrOff()
+		// {
+			// if (summonMechanoids)
+			// {
+				// return "WVC_XaG_Gene_DustMechlink_On".Translate();
+			// }
+			// return "WVC_XaG_Gene_DustMechlink_Off".Translate();
+		// }
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
@@ -215,7 +215,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield return new Command_Action
 				{
-					defaultLabel = "WVC_XaG_Gene_DustMechlink".Translate() + ": " + OnOrOff(),
+					defaultLabel = "WVC_XaG_Gene_DustMechlink".Translate() + ": " + MechanoidizationUtility.OnOrOff(summonMechanoids),
 					defaultDesc = "WVC_XaG_Gene_DustMechlinkDesc".Translate(),
 					icon = ContentFinder<Texture2D>.Get(def.iconPath),
 					action = delegate

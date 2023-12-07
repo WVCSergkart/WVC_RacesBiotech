@@ -183,7 +183,6 @@
     <Compile Include="Resources_Thought\ThoughtWorker_AngelBeauty.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Gender.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_FamilyByBlood.cs" />
-    <Compile Include="Resources_Thought\ThoughtWorker_PawnIsMechaskinned_SingleThought.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_MechaSensesFriendOrFoe.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_MechanoidLabor.cs" />
     <Compile Include="Resources_GenePacks\WorkGiver_HaulToGeneBank.cs" />

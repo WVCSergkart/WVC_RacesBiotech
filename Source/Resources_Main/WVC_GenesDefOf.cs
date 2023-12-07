@@ -20,6 +20,10 @@ namespace WVC_XenotypesAndGenes
 		// Inherit
 		// public static GeneDef PerfectImmunity;
 		// public static GeneDef DiseaseFree;
+		// Resurrection
+		public static ThoughtDef WVC_XenotypesAndGenes_WasResurrected;
+		// public static ThoughtDef WVC_XenotypesAndGenes_ResurrectedMe;
+		// public static ThoughtDef WVC_XenotypesAndGenes_ResurrectedByMe;
 		// Golems
 		public static StatDef WVC_OverseerMaxGolems;
 		public static StatDef WVC_GolemBandwidthCost;
