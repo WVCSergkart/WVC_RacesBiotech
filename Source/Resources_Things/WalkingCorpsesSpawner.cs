@@ -82,14 +82,16 @@ namespace WVC_XenotypesAndGenes
 		public void ResetMechanitors()
 		{
 			cachedMechanitors = WalkingUtility.GetAllLichs(parent.Map);
-			// cachedMechanitors = WalkingUtility.GetAllLichs(parent.Map);
-			if (chosenMechanitor == null || !Props.canBeCustomized)
+			if (!cachedMechanitors.NullOrEmpty())
 			{
-				chosenMechanitor = cachedMechanitors.RandomElementByWeight((Pawn p) => WalkingUtility.GetLichWeight(p));
-			}
-			if (chosenWalker == null || !Props.canBeCustomized)
-			{
-				chosenWalker = Props.summonsList.RandomElement();
+				if (chosenMechanitor == null || !Props.canBeCustomized)
+				{
+					chosenMechanitor = cachedMechanitors.RandomElementByWeight((Pawn p) => WalkingUtility.GetLichWeight(p));
+				}
+				if (chosenWalker == null || !Props.canBeCustomized)
+				{
+					chosenWalker = Props.summonsList.RandomElement();
+				}
 			}
 		}
 

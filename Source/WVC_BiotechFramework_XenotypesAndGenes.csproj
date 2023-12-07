@@ -99,6 +99,7 @@
     <Compile Include="Resources_Main\PostInitializationStartup.cs" />
     <Compile Include="Resources_StatPart\StatPart_OffsetFromPollutedGraves.cs" />
     <Compile Include="Resources_Templates\SubXenotypeDefs.cs" />
+    <Compile Include="Resources_Things\CompProperties_CheckPawnFaction.cs" />
     <Compile Include="Resources_Things\CompProperties_GenesInfo.cs" />
     <Compile Include="Resources_Things\CompProperties_InitialNeed.cs" />
     <Compile Include="Resources_Things\CompProperties_Regeneration.cs" />

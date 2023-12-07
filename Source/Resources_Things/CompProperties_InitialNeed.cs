@@ -50,7 +50,10 @@ namespace WVC_XenotypesAndGenes
 			if (!respawningAfterLoad)
 			{
 				Pawn pawn = parent as Pawn;
-				pawn.needs.energy.CurLevel = pawn.needs.energy.MaxLevel;
+				if (pawn.needs != null && pawn.needs.energy != null)
+				{
+					pawn.needs.energy.CurLevel = pawn.needs.energy.MaxLevel;
+				}
 			}
 			// AddHediff();
 		}

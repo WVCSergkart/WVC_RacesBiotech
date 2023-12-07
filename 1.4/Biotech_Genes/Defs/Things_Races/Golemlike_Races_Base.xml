@@ -69,6 +69,7 @@
 				<!-- 72% each day in shutdown mode. Not much but balanced. -->
 				<shutdownEnergyReplenish>3.0</shutdownEnergyReplenish>
 			</li>
+			<li Class="WVC_XenotypesAndGenes.CompProperties_InitialPawnFaction"/>
 		</comps>
 		<modExtensions>
 			<li Class="VFECore.ThingDefExtension">

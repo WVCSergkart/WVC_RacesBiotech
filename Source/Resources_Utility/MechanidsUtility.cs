@@ -11,6 +11,23 @@ namespace WVC_XenotypesAndGenes
 	public static class MechanoidsUtility
 	{
 
+		public static List<Pawn> GetAllMechanitors(Map map)
+		{
+			List<Pawn> list = new();
+			List<Pawn> colonists = map.mapPawns.FreeColonists;
+			if (!colonists.NullOrEmpty())
+			{
+				foreach (Pawn colonist in colonists)
+				{
+					if (MechanitorUtility.IsMechanitor(colonist))
+					{
+						list.Add(colonist);
+					}
+				}
+			}
+			return list;
+		}
+
 		public static bool CanSpawnMoreMechanoids(Pawn mechanitor, Pawn mech)
 		{
 			float weight = mechanitor.mechanitor.TotalBandwidth - (mechanitor.mechanitor.UsedBandwidth + mech.GetStatValue(StatDefOf.BandwidthCost));
