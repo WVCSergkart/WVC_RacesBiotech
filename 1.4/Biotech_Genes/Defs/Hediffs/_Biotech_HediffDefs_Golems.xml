@@ -16,18 +16,24 @@
 	<defName>WVC_SelfPopulationRegulation_Golems</defName>
 	<description>This creature is a pile of stones animated by the mechanites. If connection with the overseer controlling the mechanites is lost or disturbed, the golem will turn back into a stone chunk.</description>
 	<comps>
-		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GolemPopulationRegulation"/>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GolemLimit">
+			<compClass>WVC_XenotypesAndGenes.HediffComp_GolemLimit_Stone</compClass>
+			<!-- <checkInterval>60000</checkInterval> -->
+		</li>
 	</comps>
   </HediffDef>
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Golems">
 	<defName>WVC_SelfPopulationRegulation_BoneGolems</defName>
-	<description>This creature is a pile of bones animated by archotech-created archites in a toxic fungus. It requires no repair or medical attention, it regenerates by "reassembling parts of itself" from the surface.</description>
+	<description>This creature is a pile of bones animated by archotech-created archites in a toxic fungus. It requires no repair or medical attention, it regenerates by "reassembling parts of itself" from the surface. If connection with the overseer controlling the archites is lost or disturbed, the golem will turn into a bonepile.</description>
 	<comps>
 		<!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_SuperRegeneration"> -->
 			<!-- <refreshTicks>6000</refreshTicks> -->
 			<!-- <shouldSendNotification>false</shouldSendNotification> -->
 		<!-- </li> -->
-		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_BonePopulationRegulation"/>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GolemLimit">
+			<compClass>WVC_XenotypesAndGenes.HediffComp_GolemLimit_Bone</compClass>
+			<!-- <checkInterval>60000</checkInterval> -->
+		</li>
 	</comps>
   </HediffDef>
 

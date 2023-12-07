@@ -11,6 +11,39 @@ namespace WVC_XenotypesAndGenes
 	public static class MechanoidsUtility
 	{
 
+		// public static bool LimitExceedCheck(Pawn mechanitor, StatDef bandwidth)
+		// {
+			// float totalBandwidth = mechanitor.GetStatValue(bandwidth);
+			// float golems = GolemsUtility.GetConsumedBandwidth(mechanitor);
+			// float walkers = WalkingUtility.GetConsumedBandwidth(mechanitor);
+			// if (totalBandwidth >= golems && totalBandwidth >= walkers)
+			// {
+				// return true;
+			// }
+			// return false;
+		// }
+
+		// public static float GetConsumedBandwidth(Pawn mechanitor, StatDef bandwidth)
+		// {
+			// float result = 0;
+			// List <Pawn> mechs = mechanitor.mechanitor.ControlledPawns;
+			// if (mechs.NullOrEmpty())
+			// {
+				// return result;
+			// }
+			// foreach (Pawn mech in mechs)
+			// {
+				// float bandwidth = mech.GetStatValue(bandwidth);
+				// if (bandwidth > 0)
+				// {
+					// result += bandwidth;
+				// }
+			// }
+			// return result;
+		// }
+
+		// =====================================
+
 		public static List<Pawn> GetAllMechanitors(Map map)
 		{
 			List<Pawn> list = new();
@@ -37,6 +70,25 @@ namespace WVC_XenotypesAndGenes
 			}
 			return true;
 		}
+
+		// public static float GetConsumedBandwidth(Pawn mechanitor)
+		// {
+			// float result = 0;
+			// List <Pawn> mechs = mechanitor.mechanitor.ControlledPawns;
+			// if (mechs.NullOrEmpty())
+			// {
+				// return result;
+			// }
+			// foreach (Pawn mech in mechs)
+			// {
+				// float bandwidth = mech.GetStatValue(StatDefOf.BandwidthCost);
+				// if (bandwidth > 0)
+				// {
+					// result += bandwidth;
+				// }
+			// }
+			// return result;
+		// }
 
 		public static void OffsetNeedEnergy(Pawn pawn, float offset, int hours)
 		{

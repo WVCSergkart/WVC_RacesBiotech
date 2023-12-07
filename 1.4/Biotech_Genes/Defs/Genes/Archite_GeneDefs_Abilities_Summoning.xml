@@ -82,7 +82,7 @@
 	<biostatCpx>5</biostatCpx>
 	<biostatArc>2</biostatArc>
 	<customEffectDescriptions>
-		<li>After activating the ability, summons 1 heavy class mechanoids.</li>
+		<li>After activating the ability, summons 1 heavy class mechanoid.</li>
 	</customEffectDescriptions>
 	<statOffsets>
 		<MechBandwidth>8</MechBandwidth>
@@ -115,6 +115,7 @@
 	</customEffectDescriptions>
 	<statOffsets>
 	  <!-- <WVC_BandwidthCostOffsetMech>2</WVC_BandwidthCostOffsetMech> -->
+	  <MechBandwidth>2</MechBandwidth>
 	  <WVC_OverseerMaxGolems>6</WVC_OverseerMaxGolems>
 	  <!-- <MechControlGroups>1</MechControlGroups> -->
 	  <!-- <PsychicSensitivity>0.2</PsychicSensitivity> -->
@@ -192,7 +193,7 @@
 	<label>summon light mechs</label>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_Summon">
-		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Summon</compClass>
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_MechanoidsSummoning</compClass>
 		<quest>WVC_MechanitorSummonLightMech</quest>
 		<spawnCountRange><min>1</min><max>5</max></spawnCountRange>
 	  </li>
@@ -204,7 +205,7 @@
 	<label>summon medium mechs</label>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_Summon">
-		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Summon</compClass>
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_MechanoidsSummoning</compClass>
 		<quest>WVC_MechanitorSummonMediumMech</quest>
 		<spawnCountRange><min>1</min><max>2</max></spawnCountRange>
 	  </li>
@@ -216,7 +217,7 @@
 	<label>summon heavy mechs</label>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_Summon">
-		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Summon</compClass>
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_MechanoidsSummoning</compClass>
 		<quest>WVC_MechanitorSummonHeavyMech</quest>
 		<spawnCountRange><min>1</min><max>1</max></spawnCountRange>
 	  </li>
@@ -229,7 +230,7 @@
 	<cooldownTicksRange>1800000</cooldownTicksRange><!-- 30 days -->
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_Summon">
-		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Summon</compClass>
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_MechanoidsSummoning</compClass>
 		<quest>WVC_MechanitorSummonGolems</quest>
 		<spawnCountRange><min>1</min><max>5</max></spawnCountRange>
 	  </li>

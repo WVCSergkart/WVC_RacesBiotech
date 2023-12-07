@@ -35,8 +35,8 @@ namespace WVC_XenotypesAndGenes
 			Rect rect = new(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
 			Rect rect2 = rect.ContractedBy(6f);
 			Widgets.DrawWindowBackground(rect);
-			int totalBandwidth = GolemsUtility.TotalGolemBandwidth(mechanitor);
-			int usedBandwidth = GolemsUtility.GetConsumedBandwidth(mechanitor);
+			int totalBandwidth = (int)GolemsUtility.TotalGolemBandwidth(mechanitor);
+			int usedBandwidth = (int)GolemsUtility.GetConsumedBandwidth(mechanitor);
 			// Log.Error("totalBandwidth: " + totalBandwidth + ", usedBandwidth: " + usedBandwidth);
 			string text = usedBandwidth.ToString("F0") + " / " + totalBandwidth.ToString("F0");
 			TaggedString taggedString = "WVC_XaG_GolemBandwidth".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + text + "\n\n" + "WVC_XaG_GolemBandwidthGizmoTip".Translate();

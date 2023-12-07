@@ -11,11 +11,25 @@ namespace WVC_XenotypesAndGenes
 	public static class GolemsUtility
 	{
 
+		public static bool CanSpawnMoreGolems(Pawn lich, Pawn golem)
+		{
+			if (MechanoidsUtility.CanSpawnMoreMechanoids(lich, golem))
+			{
+				float weight = TotalGolemBandwidth(lich) - GetConsumedBandwidth(lich) - golem.GetStatValue(WVC_GenesDefOf.WVC_GolemBandwidthCost);
+				if (weight < 0f)
+				{
+					return false;
+				}
+				return true;
+			}
+			return false;
+		}
+
 		// =====================================
 
-		public static int TotalGolemBandwidth(Pawn mechanitor)
+		public static float TotalGolemBandwidth(Pawn mechanitor)
 		{
-			return (int)mechanitor.GetStatValue(WVC_GenesDefOf.WVC_OverseerMaxGolems);
+			return mechanitor.GetStatValue(WVC_GenesDefOf.WVC_OverseerMaxGolems);
 		}
 
 		public static bool MechanitorHasAnyGolems(Pawn mechanitor)
@@ -30,12 +44,12 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool LimitExceedCheck(Pawn mechanitor)
 		{
-			int maxGolems = TotalGolemBandwidth(mechanitor);
+			float maxGolems = TotalGolemBandwidth(mechanitor);
 			// if (maxGolems <= 0f)
 			// {
 				// return false;
 			// }
-			int bandwidthCost = GetConsumedBandwidth(mechanitor);
+			float bandwidthCost = GetConsumedBandwidth(mechanitor);
 			if (maxGolems >= bandwidthCost)
 			{
 				return true;
@@ -43,9 +57,9 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public static int GetConsumedBandwidth(Pawn mechanitor)
+		public static float GetConsumedBandwidth(Pawn mechanitor)
 		{
-			int result = 0;
+			float result = 0;
 			List <Pawn> golems = GetControlledGolems(mechanitor);
 			if (golems.NullOrEmpty())
 			{
@@ -53,7 +67,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			foreach (Pawn golem in golems)
 			{
-				int golemBand = (int)golem.GetStatValue(WVC_GenesDefOf.WVC_GolemBandwidthCost);
+				float golemBand = golem.GetStatValue(WVC_GenesDefOf.WVC_GolemBandwidthCost);
 				if (golemBand > 0)
 				{
 					result += golemBand;

@@ -37,13 +37,20 @@ namespace WVC_XenotypesAndGenes
                     }
                 }
             }
-            quest.Delay(delayTicks, delegate
-            {
-                quest.AssignMechToMechanitor(pawn, mech);
-                quest.DropPods(map.Parent, Gen.YieldSingle(mech), null, null, null, null, false, useTradeDropSpot: true, joinPlayer: false, makePrisoners: false, null, null, QuestPart.SignalListenMode.OngoingOnly, null);
-                quest.Letter(LetterDefOf.PositiveEvent, null, null, null, null, useColonistsFromCaravanArg: false, QuestPart.SignalListenMode.OngoingOnly, Gen.YieldSingle(mech), filterDeadPawnsFromLookTargets: false, "[arrivalLetterText]", null, "[arrivalLetterLabel]");
-                QuestGen_End.End(quest, QuestEndOutcome.Success);
-            });
+			// if (!MechanoidsUtility.CanSpawnMoreMechanoids(pawn, mech) || (GolemsUtility.MechanitorHasAnyGolems(pawn) && !GolemsUtility.CanSpawnMoreGolems(pawn, mech)))
+			// {
+				// QuestGen_End.End(quest, QuestEndOutcome.Success);
+			// }
+			// else
+			// {
+			// }
+			quest.Delay(delayTicks, delegate
+			{
+				quest.AssignMechToMechanitor(pawn, mech);
+				quest.DropPods(map.Parent, Gen.YieldSingle(mech), null, null, null, null, false, useTradeDropSpot: true, joinPlayer: false, makePrisoners: false, null, null, QuestPart.SignalListenMode.OngoingOnly, null);
+				quest.Letter(LetterDefOf.PositiveEvent, null, null, null, null, useColonistsFromCaravanArg: false, QuestPart.SignalListenMode.OngoingOnly, Gen.YieldSingle(mech), filterDeadPawnsFromLookTargets: false, "[arrivalLetterText]", null, "[arrivalLetterLabel]");
+				QuestGen_End.End(quest, QuestEndOutcome.Success);
+			});
             quest.End(QuestEndOutcome.Fail, 0, null, QuestGenUtility.HardcodedSignalWithQuestID("asker.Killed"));
         }
 

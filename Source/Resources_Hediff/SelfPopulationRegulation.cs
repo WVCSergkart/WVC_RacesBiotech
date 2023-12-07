@@ -24,26 +24,28 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class HediffCompProperties_GolemPopulationRegulation : HediffCompProperties
+	public class HediffCompProperties_GolemLimit : HediffCompProperties
 	{
+
+		public int checkInterval = 60000;
 
 		// public StatDef statDef;
 
-		public HediffCompProperties_GolemPopulationRegulation()
-		{
-			compClass = typeof(HediffComp_GolemPopulationRegulation);
-		}
+		// public HediffCompProperties_GolemPopulationRegulation()
+		// {
+			// compClass = typeof(HediffComp_GolemPopulationRegulation);
+		// }
 	}
 
-	public class HediffComp_GolemPopulationRegulation : HediffComp
+	public class HediffComp_GolemLimit_Stone : HediffComp
 	{
 
-		// public HediffCompProperties_GolemPopulationRegulation Props => (HediffCompProperties_GolemPopulationRegulation)props;
+		public HediffCompProperties_GolemLimit Props => (HediffCompProperties_GolemLimit)props;
 
 		public override void CompPostTick(ref float severityAdjustment)
 		{
 			base.CompPostTick(ref severityAdjustment);
-			if (!Pawn.IsHashIntervalTick(60000))
+			if (!Pawn.IsHashIntervalTick(Props.checkInterval))
 			{
 				return;
 			}
@@ -79,22 +81,15 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class HediffCompProperties_BonePopulationRegulation : HediffCompProperties
+	public class HediffComp_GolemLimit_Bone : HediffComp
 	{
 
-		public HediffCompProperties_BonePopulationRegulation()
-		{
-			compClass = typeof(HediffComp_BonePopulationRegulation);
-		}
-	}
-
-	public class HediffComp_BonePopulationRegulation : HediffComp
-	{
+		public HediffCompProperties_GolemLimit Props => (HediffCompProperties_GolemLimit)props;
 
 		public override void CompPostTick(ref float severityAdjustment)
 		{
 			base.CompPostTick(ref severityAdjustment);
-			if (!Pawn.IsHashIntervalTick(60000))
+			if (!Pawn.IsHashIntervalTick(Props.checkInterval))
 			{
 				return;
 			}

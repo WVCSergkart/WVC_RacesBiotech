@@ -103,7 +103,7 @@
 	<cooldownTicksRange>1800000</cooldownTicksRange><!-- 30 days -->
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_Summon">
-		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Summon</compClass>
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_MechanoidsSummoning</compClass>
 		<quest>WVC_MechanitorSummonGolems</quest>
 		<spawnCountRange><min>1</min><max>5</max></spawnCountRange>
 	  </li>
