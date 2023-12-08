@@ -227,16 +227,13 @@
 		</modExtensions>
 	</ThingDef>
 
-	<PawnKindDef ParentName="NonCombatLightMechanoidKind" Name="WVC_XenotypesAndGenes_ResurgentSporesPawnkind_Base" Abstract="True">
-		<allowInMechClusters>false</allowInMechClusters>
-		<minGenerationAge MayRequire="Ludeon.Rimworld.Biotech">0</minGenerationAge>
+	<PawnKindDef ParentName="WVC_XenotypesAndGenes_NonCombatGolemlikeKind_Base" Name="WVC_XenotypesAndGenes_ResurgentSporesPawnkind_Base" Abstract="True">
 		<alternateGraphicChance>1.0</alternateGraphicChance>
-		<isFighter>false</isFighter>
 		<alternateGraphics>
 			<!-- white -->
 			<li><color>(190,190,190)</color></li>
 			<!-- rot -->
-			<li><color>(198,180,129)</color><weight>0.02</weight></li>
+			<li><color>(198,180,129)</color><weight>0.01</weight></li>
 			<!-- slate -->
 			<li><color>(70,70,70)</color><weight>0.15</weight></li>
 			<!-- limestone -->

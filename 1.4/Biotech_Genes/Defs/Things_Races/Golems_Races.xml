@@ -54,39 +54,8 @@
 			</li>
 		</modExtensions>
 	</ThingDef>
-	<PawnKindDef ParentName="NonCombatLightMechanoidKind" Name="WVC_XenotypesAndGenes_NonCombatGolemKind" Abstract="True">
-		<!-- <defName>WVC_Golem_Liftoid</defName> -->
-		<!-- <label>golem liftoid</label> -->
-		<!-- <race>WVC_Golem_Liftoid</race> -->
-		<allowInMechClusters>false</allowInMechClusters>
-		<minGenerationAge MayRequire="Ludeon.Rimworld.Biotech">0</minGenerationAge>
+	<PawnKindDef ParentName="WVC_XenotypesAndGenes_NonCombatGolemlikeKind_Base" Name="WVC_XenotypesAndGenes_NonCombatGolemKind" Abstract="True">
 		<alternateGraphicChance>0.0</alternateGraphicChance>
-		<isFighter>false</isFighter>
-		<alternateGraphics>
-			<!-- Base -->
-			<!-- slate -->
-			<li><color>(70,70,70)</color></li>
-			<!-- limestone -->
-			<li><color>(158,153,135)</color></li>
-			<!-- granite -->
-			<li><color>(105,95,97)</color></li>
-			<!-- sandstone -->
-			<li><color>(126,104,94)</color></li>
-			<!-- marble -->
-			<li><color>(132,135,132)</color></li>
-			<!-- Other -->
-			<li><color>(85,118,69)</color><weight>0.05</weight></li>
-			<li><color>(100,100,100)</color><weight>0.05</weight></li>
-			<!-- Biomes! -->
-			<li><color>(250,180,147)</color><weight>0.05</weight></li>
-			<!-- Alpha Biomes -->
-			<!-- <li><color>(120,50,50)</color><weight>0.05</weight></li> -->
-			<!-- <li><color>(36,35,40)</color><weight>0.05</weight></li> -->
-			<!-- <li><color>(50,50,50)</color><weight>0.05</weight></li> -->
-			<!-- <li><color>(31,25,21)</color><weight>0.05</weight></li> -->
-			<!-- <li><color>(45,66,36)</color><weight>0.05</weight></li> -->
-			<!-- <li><color>(80,80,80)</color><weight>0.05</weight></li> -->
-		</alternateGraphics>
 		<abilities>
 			<li>WVC_MechanoidAbility_ActivateGestator</li>
 		</abilities>

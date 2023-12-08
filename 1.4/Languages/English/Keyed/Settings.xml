@@ -64,6 +64,11 @@ If enabled, then all genes of the mod will have a vanilla interface.</WVC_ToolTi
 Activation requires a restart, deactivation does not.</WVC_ToolTip_enableGenesInfo>
 	<!-- ====================================================================================== -->
 
+	<WVC_Label_fixVanillaGeneImmunityCheck>Fix vanilla genes immunity check</WVC_Label_fixVanillaGeneImmunityCheck>
+	<WVC_ToolTip_fixVanillaGeneImmunityCheck>If enabled, it fix the gene check for disease immunity by adding a check for gene activity. Thus, genes that add immunity will not provide immunity when overridden by other genes.</WVC_ToolTip_fixVanillaGeneImmunityCheck>
+
+	<!-- ====================================================================================== -->
+
 	<WVC_Label_enableCustomMechLinkName>Enable custom mechlink name</WVC_Label_enableCustomMechLinkName>
 	<WVC_ToolTip_enableCustomMechLinkName>If enabled, the name of the mechlink will be replaced with the name of the gene that this mechlink gives. Works only with genes from the mod.
 
@@ -142,6 +147,6 @@ May affect startup speed on modlists with a lot of mods that add xenotypes.</WVC
 
 	<WVC_Alert_fixBrokenShit>How to use: Enable and load any save.
 
-It is not recommended to use more than one fix at a time. It might break something.</WVC_Alert_fixBrokenShit>
+It is not recommended to use more than one DEV-fix at a time. It might break something.</WVC_Alert_fixBrokenShit>
 
 </LanguageData>

@@ -78,4 +78,49 @@
 		</modExtensions>
 	</ThingDef>
 
+	<PawnKindDef ParentName="NonCombatLightMechanoidKind" Name="WVC_XenotypesAndGenes_NonCombatGolemlikeKind_Base" Abstract="True">
+		<allowInMechClusters>false</allowInMechClusters>
+		<minGenerationAge MayRequire="Ludeon.Rimworld.Biotech">0</minGenerationAge>
+		<isFighter>false</isFighter>
+		<abilities>
+			<li>WVC_XenotypesAndGenes_GolemlikeInstantKill</li>
+		</abilities>
+	</PawnKindDef>
+
+	<!-- Abilities -->
+
+	<AbilityDef ParentName="WVC_GestationAbilities_Base">
+		<defName>WVC_XenotypesAndGenes_GolemlikeInstantKill</defName>
+		<label>permanent shutdown</label>
+		<!-- <description>Order this golem to permanently shut down.</description> -->
+		<description>Order the mechanites to disperse, which will result in the instant death of the golem.</description>
+		<iconPath>WVC/UI/XaG_General/Ui_InstantKill</iconPath>
+		<comps>
+		  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGiveHediff">
+			<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_GiveHediff</compClass>
+			<hediffDef>WVC_XenotypesAndGenes_NoBleedNoPainNoPoisoning</hediffDef>
+			<onlyApplyToSelf>true</onlyApplyToSelf>
+			<onlyReproductive>false</onlyReproductive>
+		  </li>
+		</comps>
+		<confirmationDialogText>After using the ability, the golem will instantly die.\n\nAre you sure?</confirmationDialogText>
+	</AbilityDef>
+
+	<AbilityDef ParentName="WVC_GestationAbilities_Base">
+		<defName>WVC_MechanoidAbility_ActivateGestator</defName>
+		<label>gestator</label>
+		<description>This mechanoid has a large accumulation of mechanites, sufficient to form organic life.</description>
+		<comps>
+		  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGiveHediff">
+			<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_GiveHediff</compClass>
+			<hediffDef>WVC_MechanoidAbility_ActivateGestator</hediffDef>
+			<onlyApplyToSelf>true</onlyApplyToSelf>
+			<onlyReproductive>false</onlyReproductive>
+			<mechanoidCheck>true</mechanoidCheck>
+			<overseerShouldHaveGene>WVC_SwarmConnection_Golems</overseerShouldHaveGene>
+		  </li>
+		</comps>
+		<confirmationDialogText>After activating the ability, the golem will begin gestation, during which time it will continue to do its job. When the gestation process is over, the mechanoid will die. The process cannot be interrupted.\n\nPlease note that if the overseer does not have the "Swarm connection" gene, then a new pawn will not be born. If the mechanoid loses connection with the overseer during the process, it will immediately die.\n\nDo you still need a new pawn?</confirmationDialogText>
+	</AbilityDef>
+
 </Defs>
