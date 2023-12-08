@@ -115,8 +115,9 @@
 	</customEffectDescriptions>
 	<statOffsets>
 	  <!-- <WVC_BandwidthCostOffsetMech>2</WVC_BandwidthCostOffsetMech> -->
+	  <WVC_OverseerMaxGolems>2</WVC_OverseerMaxGolems>
 	  <MechBandwidth>2</MechBandwidth>
-	  <WVC_OverseerMaxGolems>6</WVC_OverseerMaxGolems>
+	  <MechControlGroups>1</MechControlGroups>
 	  <!-- <MechControlGroups>1</MechControlGroups> -->
 	  <!-- <PsychicSensitivity>0.2</PsychicSensitivity> -->
 	</statOffsets>
