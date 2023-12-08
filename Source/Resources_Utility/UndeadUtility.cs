@@ -113,5 +113,14 @@ namespace WVC_XenotypesAndGenes
 		// }
 		// }
 
+		public static bool IsUndead(this Pawn pawn)
+		{
+			if (!ModsConfig.BiotechActive || pawn.genes == null)
+			{
+				return false;
+			}
+			return MechanoidizationUtility.HasActiveGene(pawn.genes?.GetFirstGeneOfType<Gene_Undead>().def, pawn);
+		}
+
 	}
 }

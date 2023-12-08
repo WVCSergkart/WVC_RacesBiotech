@@ -27,17 +27,64 @@
 	<Operation Class="PatchOperationAdd">
 		<xpath>/Defs/PreceptDef[defName="Temperature_Tough" or defName="RoughLiving_Welcomed"]/requiredMemes</xpath>
 		<value>
-			<!-- <li>WVC_Mechaskinist</li> -->
+			<!-- <li>WVC_Undeadist</li> -->
 			<li>WVC_Golemist</li>
 		</value>
 	</Operation>
 	<Operation Class="PatchOperationAdd">
 		<xpath>/Defs/PreceptDef[defName="Temperature_Tough" or defName="RoughLiving_Welcomed"]/associatedMemes</xpath>
 		<value>
-			<!-- <li>WVC_Mechaskinist</li> -->
+			<!-- <li>WVC_Undeadist</li> -->
 			<li>WVC_Golemist</li>
 		</value>
 	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/PreceptDef[defName="Corpses_DontCare" or defName="Skullspike_Desired"]/associatedMemes</xpath>
+		<value>
+			<li>WVC_Undeadist</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/PreceptDef[defName="Corpses_DontCare" or defName="Comfort_Ignored" or defName="Pain_Idealized"]/requiredMemes</xpath>
+		<value>
+			<li>WVC_Undeadist</li>
+		</value>
+	</Operation>
+	<!-- <Operation Class="PatchOperationAdd"> -->
+		<!-- <xpath>/Defs/PreceptDef[defName="Execution_Abhorrent" or defName="Execution_Horrible" or defName="Execution_HorribleIfInnocent"]/conflictingMemes</xpath> -->
+		<!-- <value> -->
+			<!-- <li>WVC_Undeadist</li> -->
+		<!-- </value> -->
+	<!-- </Operation> -->
+
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/ThoughtDef[defName="Pain"]/nullifyingPrecepts</xpath> -->
+	  <!-- <value> -->
+		  <!-- <li>WVC_Pain_DontCare</li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<!-- <Operation Class="PatchOperationSequence"> -->
+		<!-- <success>Always</success> -->
+		<!-- <operations> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/ThoughtDef[defName="ColonistLeftUnburied"]/nullifyingPrecepts</xpath> -->
+			  <!-- <success>Invert</success> -->
+			  <!-- <value> -->
+					<!-- <li>WVC_ExoBeauty_Base</li> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/ThoughtDef[defName="ColonistLeftUnburied"]</xpath> -->
+			  <!-- <success>Always</success> -->
+			  <!-- <value> -->
+				<!-- <nullifyingPrecepts> -->
+					<!-- <li>WVC_ExoBeauty_Base</li> -->
+				<!-- </nullifyingPrecepts> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+		<!-- </operations> -->
+	<!-- </Operation> -->
 
 	<!-- <Operation Class="PatchOperationSequence"> -->
 		<!-- <success>Always</success> -->
