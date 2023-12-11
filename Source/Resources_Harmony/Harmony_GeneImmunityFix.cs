@@ -55,7 +55,7 @@ namespace WVC_XenotypesAndGenes
 					for (int i = 0; i < __instance.pawn.genes.GenesListForReading.Count; i++)
 					{
 						Gene gene = __instance.pawn.genes.GenesListForReading[i];
-						if (!gene.Active && gene.def.makeImmuneTo == null)
+						if (!gene.Active || gene.def.makeImmuneTo == null)
 						{
 							continue;
 						}
