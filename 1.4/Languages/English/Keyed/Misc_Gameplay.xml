@@ -110,14 +110,6 @@
 	<WVC_XaG_PawnShouldBeMechanitor>{0} should be a mechanitor.</WVC_XaG_PawnShouldBeMechanitor>
 	<WVC_XaG_OverseerShouldHaveGene>Overseer should have "{0}" gene.</WVC_XaG_OverseerShouldHaveGene>
 
-	<!-- ============================ GESTATOR ============================ -->
-
-	<WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes>Time to baby gestation: {0}</WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes>
-	<WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes_ChildOwner>Child owner</WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes_ChildOwner>
-
-	<!-- <WVC_XaG_Gene_GeneticBackup_Full>{0}'s genes were backed up.</WVC_XaG_Gene_GeneticBackup_Full> -->
-	<!-- <WVC_XaG_Gene_GeneticBackup_Empty>{0}'s gene backup is empty.</WVC_XaG_Gene_GeneticBackup_Empty> -->
-
 	<!-- ============================ RESURGENT GIZMO BUTTONS ============================ -->
 
 	<WVC_XaG_AutoBaseDesc>Determines whether the gene will be triggered automatically.</WVC_XaG_AutoBaseDesc>
@@ -227,5 +219,24 @@ Each mechanoid costs 0.15 nutrition to summon.</WVC_XaG_Gene_DustMechlinkDesc>
 
 	<WVC_XaG_AlwaysRandomizeLabel>Randomize: \n{0}</WVC_XaG_AlwaysRandomizeLabel>
 	<WVC_XaG_AlwaysRandomizeDesc>If enabled, after each spawn, the mechanitor and the next spawn are randomized.</WVC_XaG_AlwaysRandomizeDesc>
+
+	<!-- ============================ XENO TREE SPAWNER ============================ -->
+
+	<WVC_XaG_XenoTreeBirthLabel>Gestation complete</WVC_XaG_XenoTreeBirthLabel>
+	<WVC_XaG_XenoTreeBirthDesc>The {0} has completed the gestation process.</WVC_XaG_XenoTreeBirthDesc>
+
+	<!-- <WVC_XaG_XenoTreeBirthInspect>Time to next baby spawn: {0}</WVC_XaG_XenoTreeBirthInspect> -->
+
+	<WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes>Time to next baby spawn: {0}</WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes>
+	<WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes_ChildOwner>Child owner</WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes_ChildOwner>
+
+	<!-- <WVC_XaG_Gene_GeneticBackup_Full>{0}'s genes were backed up.</WVC_XaG_Gene_GeneticBackup_Full> -->
+	<!-- <WVC_XaG_Gene_GeneticBackup_Empty>{0}'s gene backup is empty.</WVC_XaG_Gene_GeneticBackup_Empty> -->
+
+	<WVC_XaG_XenoTreeXenotypeChooseLabel>Choose xenotype</WVC_XaG_XenoTreeXenotypeChooseLabel>
+	<WVC_XaG_XenoTreeXenotypeChooseDesc>Allows you to select the xenotype of the future baby.</WVC_XaG_XenoTreeXenotypeChooseDesc>
+	<WVC_XaG_XenoTreeXenotypeChooseAssigned>Xenotype "{0}" is assigned.</WVC_XaG_XenoTreeXenotypeChooseAssigned>
+
+	<WVC_XaG_CurrentXenotype>Current xenotype</WVC_XaG_CurrentXenotype>
 
 </LanguageData>

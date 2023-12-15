@@ -392,7 +392,7 @@
 	  <value>
 		  <willNeverEat>
 			<li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeResurgent</li>
-			<!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeXenoSpawner</li> -->
+			<li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeXenoSpawner</li>
 		  </willNeverEat>
 	  </value>
 	</Operation>

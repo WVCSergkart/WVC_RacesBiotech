@@ -1,96 +1,148 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <!-- <ThingDef ParentName="TreeBase"> -->
-	<!-- <defName>WVC_Plant_TreeXenoSpawner</defName> -->
-	<!-- <label>xeno-tree</label> -->
-	<!-- <description>TEST -->
+  <ThingDef ParentName="TreeBase">
+	<defName>WVC_Plant_TreeXenoSpawner</defName>
+	<label>xeno-tree</label>
+	<description>A large mushroom-like tree. It is a hybrid plant-mushroom combined with the human reproductive system. In the trunk of this tree there is a natural organic vat capable of growing xeno-like humans.
 
-<!-- &lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; TEST</description> -->
-	<!-- <descriptionHyperlinks> -->
-	  <!-- <ThingDef>WVC_XenoSpawnerSeed</ThingDef> -->
-	<!-- </descriptionHyperlinks> -->
-	<!-- <graphicData> -->
-	  <!-- <texPath>WVC/Things/XaG_Buildings/XenoTree</texPath> -->
-	  <!-- <graphicClass>Graphic_Random</graphicClass> -->
-	<!-- </graphicData> -->
-	<!-- <tickerType>Long</tickerType> -->
-	<!-- <statBases> -->
-	  <!-- <Beauty>12</Beauty> -->
-	  <!-- <BeautyOutdoors>6</BeautyOutdoors> -->
-	  <!-- <Flammability>0.8</Flammability> -->
-	  <!-- <MaxHitPoints>620</MaxHitPoints> -->
-	<!-- </statBases> -->
-	<!-- <ingestible /> -->
-	<!-- <preventSkyfallersLandingOn>true</preventSkyfallersLandingOn> -->
-	<!-- <canScatterOver>false</canScatterOver> -->
-	<!-- <specialDisplayRadius>19.9</specialDisplayRadius> -->
-	<!-- <plant> -->
-	  <!-- <interferesWithRoof>false</interferesWithRoof> -->
-	  <!-- <growMinGlow>0</growMinGlow> -->
-	  <!-- <pollution>Any</pollution> -->
-	  <!-- <growDays>10</growDays> -->
-	  <!-- <visualSizeRange>1.5~2.1</visualSizeRange> -->
-	  <!-- <sowMinSkill>0</sowMinSkill> -->
-	  <!-- <sowTags Inherit="False"/> -->
-	  <!-- <lifespanDaysPerGrowDays>0</lifespanDaysPerGrowDays> -->
-	  <!-- <fertilityMin>0.05</fertilityMin> -->
-	  <!-- <fertilitySensitivity>0</fertilitySensitivity> -->
-	  <!-- <wildClusterWeight>0</wildClusterWeight> -->
-	  <!-- <sowWork>400</sowWork> -->
-	  <!-- <harvestYield>30</harvestYield> -->
-	  <!-- <treeCategory>Super</treeCategory> -->
-	  <!-- <dieIfNoSunlight>false</dieIfNoSunlight> -->
-	  <!-- <sowResearchPrerequisites Inherit="False" /> -->
-	  <!-- <dieFromToxicFallout>False</dieFromToxicFallout> -->
-	  <!-- <showGrowthInInspectPane>false</showGrowthInInspectPane> -->
-	  <!-- <minSpacingBetweenSamePlant>4.9</minSpacingBetweenSamePlant> -->
-	  <!-- <warnIfMarkedForCut>true</warnIfMarkedForCut> -->
-	  <!-- <harvestWork>1000</harvestWork> -->
+&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; Being fully grown, it allows you to raise babies of any xenotype, with a period of 8-12 days. Some xenotypes may require special conditions. For example, growing xenotypes with tolerance to toxins requires that the tree be located on polluted soil.</description>
+	<descriptionHyperlinks>
+	  <ThingDef>WVC_XenoSpawnerSeed</ThingDef>
+	</descriptionHyperlinks>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Buildings/XenoTree</texPath>
+	  <graphicClass>Graphic_Random</graphicClass>
+	</graphicData>
+	<tickerType>Long</tickerType>
+	<statBases>
+	  <Beauty>12</Beauty>
+	  <BeautyOutdoors>6</BeautyOutdoors>
+	  <Flammability>0.8</Flammability>
+	  <MaxHitPoints>620</MaxHitPoints>
+	</statBases>
+	<ingestible />
+	<preventSkyfallersLandingOn>true</preventSkyfallersLandingOn>
+	<canScatterOver>false</canScatterOver>
+	<specialDisplayRadius>19.9</specialDisplayRadius>
+	<plant>
+	  <interferesWithRoof>false</interferesWithRoof>
+	  <growMinGlow>0</growMinGlow>
+	  <pollution>Any</pollution>
+	  <growDays>4</growDays>
+	  <visualSizeRange>1.5~2.1</visualSizeRange>
+	  <sowMinSkill>0</sowMinSkill>
+	  <sowTags Inherit="False"/>
+	  <lifespanDaysPerGrowDays>0</lifespanDaysPerGrowDays>
+	  <fertilityMin>0.05</fertilityMin>
+	  <fertilitySensitivity>0</fertilitySensitivity>
+	  <wildClusterWeight>0</wildClusterWeight>
+	  <sowWork>400</sowWork>
+	  <harvestYield>30</harvestYield>
+	  <treeCategory>Super</treeCategory>
+	  <dieIfNoSunlight>false</dieIfNoSunlight>
+	  <sowResearchPrerequisites Inherit="False" />
+	  <dieFromToxicFallout>False</dieFromToxicFallout>
+	  <showGrowthInInspectPane>false</showGrowthInInspectPane>
+	  <minSpacingBetweenSamePlant>4.9</minSpacingBetweenSamePlant>
+	  <warnIfMarkedForCut>true</warnIfMarkedForCut>
+	  <harvestWork>1000</harvestWork>
 	  <!-- <choppedThingDef>ChoppedStump_Polluted</choppedThingDef> -->
 	  <!-- <smashedThingDef>SmashedStump_Polluted</smashedThingDef> -->
-	<!-- </plant> -->
-	<!-- <comps> -->
-	  <!-- <li Class="CompProperties_SelfhealHitpoints"> -->
-		<!-- <ticksPerHeal>2000</ticksPerHeal> -->
-	  <!-- </li> -->
-	  <!-- <li Class="CompProperties_Glower"> -->
-		<!-- <glowRadius>5.5</glowRadius> -->
-		<!-- <glowColor>(142,108,108, 0)</glowColor> -->
-	  <!-- </li> -->
-	<!-- </comps> -->
-  <!-- </ThingDef> -->
+	</plant>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_XenoTree">
+		<ticksBetweenSpawn>480000~720000</ticksBetweenSpawn>
+	  </li>
+	  <li Class="CompProperties_SelfhealHitpoints">
+		<ticksPerHeal>2000</ticksPerHeal>
+	  </li>
+	  <li Class="CompProperties_Glower">
+		<glowRadius>5.5</glowRadius>
+		<glowColor>(142,108,108, 0)</glowColor>
+	  </li>
+	  <li Class="CompProperties_SpawnSubplant">
+		<compClass>WVC_XenotypesAndGenes.CompSpawnSubplantDuration</compClass>
+		<subplant>WVC_Plant_MossXenoTree</subplant>
+		<maxRadius>7.9</maxRadius>
+		<subplantSpawnDays>1</subplantSpawnDays>
+		<minGrowthForSpawn>0.6</minGrowthForSpawn>
+		<initialGrowthRange>0.2~0.8</initialGrowthRange>
+		<canSpawnOverPlayerSownPlants>false</canSpawnOverPlayerSownPlants>
+		<plantsToNotOverwrite>
+		  <li>Plant_PodGauranlen</li>
+		  <li MayRequire="Ludeon.RimWorld.Royalty">Plant_GrassAnima</li>
+		  <li MayRequire="Ludeon.RimWorld.Royalty">Plant_TreeAnima</li>
+		  <li MayRequire="Ludeon.RimWorld.Biotech">Plant_TreePolux</li>
+		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeResurgent</li>
+		  <li MayRequire="Ludeon.RimWorld.Ideology">Plant_TreeGauranlen</li>
+		</plantsToNotOverwrite>
+	  </li>
+	</comps>
+  </ThingDef>
 
-  <!-- <ThingDef ParentName="ResourceBase"> -->
-	<!-- <defName>WVC_XenoSpawnerSeed</defName> -->
-	<!-- <label>xeno-tree spore</label> -->
-	<!-- <description>The spore of a xeno-tree. It can be planted to create a new xeno-tree which can birth any xenotypes.</description> -->
-	<!-- <descriptionHyperlinks> -->
-	  <!-- <ThingDef>WVC_Plant_TreeXenoSpawner</ThingDef> -->
-	<!-- </descriptionHyperlinks> -->
-	<!-- <stackLimit>5</stackLimit> -->
-	<!-- <statBases> -->
-	  <!-- <MaxHitPoints>50</MaxHitPoints> -->
-	  <!-- <Mass>0.3</Mass> -->
-	  <!-- <Beauty>0</Beauty> -->
-	  <!-- <MarketValue>2200</MarketValue> -->
-	<!-- </statBases> -->
-	<!-- <graphicData> -->
-	  <!-- <texPath>WVC/Things/XaG_Items/XenoTree_Seed</texPath> -->
-	  <!-- <graphicClass>Graphic_StackCount</graphicClass> -->
-	  <!-- <drawSize>(1.0, 1.0)</drawSize> -->
-	<!-- </graphicData> -->
-	<!-- <thingCategories> -->
-	  <!-- <li>ItemsMisc</li> -->
-	<!-- </thingCategories> -->
-	<!-- <thingSetMakerTags> -->
-	  <!-- <li>RewardStandardQualitySuper</li> -->
-	<!-- </thingSetMakerTags> -->
-	<!-- <comps> -->
-	  <!-- <li Class="CompProperties_Plantable"> -->
-		<!-- <plantDefToSpawn>WVC_Plant_TreeXenoSpawner</plantDefToSpawn> -->
-	  <!-- </li> -->
-	<!-- </comps> -->
-  <!-- </ThingDef> -->
+  <ThingDef ParentName="PlantBaseNonEdible">
+	<defName>WVC_Plant_MossXenoTree</defName>
+	<label>xeno moss</label>
+	<description>Symbiotic moss that grows near Xeno-trees.</description>
+	<statBases>
+	  <MaxHitPoints>100</MaxHitPoints>
+	  <Beauty>4</Beauty>
+	  <BeautyOutdoors>4</BeautyOutdoors>
+	</statBases>
+	<descriptionHyperlinks>
+	  <ThingDef>WVC_Plant_TreeXenoSpawner</ThingDef>
+	</descriptionHyperlinks>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Buildings/XenoTree_Moss</texPath>
+	  <graphicClass>Graphic_Random</graphicClass>
+	  <drawSize>(0.75, 0.75)</drawSize>
+	</graphicData>
+	<plant>
+	  <growMinGlow>0</growMinGlow>
+	  <pollution>Any</pollution>
+	  <fertilityMin>0.05</fertilityMin>
+	  <fertilitySensitivity>0</fertilitySensitivity>
+	  <sowMinSkill>0</sowMinSkill>
+	  <growDays>5</growDays>
+	  <visualSizeRange>0.5~0.7</visualSizeRange>
+	  <topWindExposure>0</topWindExposure>
+	  <allowAutoCut>false</allowAutoCut>
+	  <wildClusterWeight>0</wildClusterWeight>
+	  <maxMeshCount>4</maxMeshCount>
+	</plant>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+	<defName>WVC_XenoSpawnerSeed</defName>
+	<label>xeno-tree spore</label>
+	<description>The spore of a xeno-tree. It can be planted to create a new xeno-tree which can birth any xeno-humans.</description>
+	<descriptionHyperlinks>
+	  <ThingDef>WVC_Plant_TreeXenoSpawner</ThingDef>
+	</descriptionHyperlinks>
+	<stackLimit>5</stackLimit>
+	<statBases>
+	  <MaxHitPoints>50</MaxHitPoints>
+	  <Mass>0.3</Mass>
+	  <Beauty>0</Beauty>
+	  <MarketValue>2200</MarketValue>
+	</statBases>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/XenoTree_Seed</texPath>
+	  <graphicClass>Graphic_StackCount</graphicClass>
+	  <drawSize>(1.0, 1.0)</drawSize>
+	</graphicData>
+	<thingCategories>
+	  <li>ItemsMisc</li>
+	</thingCategories>
+	<thingSetMakerTags>
+	  <li>RewardStandardQualitySuper</li>
+	</thingSetMakerTags>
+	<comps>
+	  <li Class="CompProperties_Plantable">
+		<plantDefToSpawn>WVC_Plant_TreeXenoSpawner</plantDefToSpawn>
+	  </li>
+	</comps>
+  </ThingDef>
 
 </Defs>

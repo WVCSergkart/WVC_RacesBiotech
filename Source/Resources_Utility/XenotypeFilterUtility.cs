@@ -132,5 +132,18 @@ namespace WVC_XenotypesAndGenes
 		// return list;
 		// }
 
+		public static List<XenotypeDef> AllXenotypesExceptAndroids()
+		{
+			List<XenotypeDef> list = new();
+			foreach (XenotypeDef item in DefDatabase<XenotypeDef>.AllDefsListForReading)
+			{
+				if (!MechanoidizationUtility.XenotypeIsAndroid(item))
+				{
+					list.Add(item);
+				}
+			}
+			return list;
+		}
+
 	}
 }

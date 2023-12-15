@@ -59,6 +59,23 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		public static bool XenotypeIsAndroid(XenotypeDef xenotypeDef)
+		{
+			if (xenotypeDef?.genes == null)
+			{
+				return false;
+			}
+			List<GeneDef> genesListForReading = xenotypeDef.genes;
+			for (int i = 0; i < genesListForReading.Count; i++)
+			{
+				if (genesListForReading[i].defName.Contains("VREA_SyntheticBody"))
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
 		public static bool PawnCannotUseSerums(Pawn pawn)
 		{
 			if (!pawn.RaceProps.Humanlike)
