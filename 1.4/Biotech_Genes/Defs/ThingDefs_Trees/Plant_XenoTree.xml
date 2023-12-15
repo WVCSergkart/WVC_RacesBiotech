@@ -6,7 +6,7 @@
 	<label>xeno-tree</label>
 	<description>A large mushroom-like tree. It is a hybrid plant-mushroom combined with the human reproductive system. In the trunk of this tree there is a natural organic vat capable of growing xeno-like humans.
 
-&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; Being fully grown, it allows you to raise babies of any xenotype, with a period of 8-12 days. Some xenotypes may require special conditions. For example, growing xenotypes with tolerance to toxins requires that the tree be located on polluted soil.</description>
+&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; Being fully grown, it allows you to spawn babies of any xenotype, with a period of 8-12 days. Some xenotypes may require special conditions. For example, growing xenotypes with tolerance to toxins requires that the tree be located on polluted soil.</description>
 	<descriptionHyperlinks>
 	  <ThingDef>WVC_XenoSpawnerSeed</ThingDef>
 	</descriptionHyperlinks>

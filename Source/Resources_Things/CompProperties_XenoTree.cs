@@ -13,7 +13,7 @@ namespace WVC_XenotypesAndGenes
 
 		// public GeneDef geneDef = null;
 
-		public float minGrowthForSpawn = 1.0f;
+		// public float minGrowthForSpawn = 1.0f;
 
 		public string uniqueTag = "XenoTree";
 
@@ -119,7 +119,7 @@ namespace WVC_XenotypesAndGenes
 					}
 				};
 			}
-			if (parent is Plant plant && plant.Growth < Props.minGrowthForSpawn)
+			if (Subplant != null && parent is Plant plant && plant.Growth < Subplant.Props.minGrowthForSpawn)
 			{
 				yield break;
 			}
@@ -147,7 +147,7 @@ namespace WVC_XenotypesAndGenes
 						XenotypeDef xenotype = xenotypes[i];
 						if (XenotypeUtility.XenoTree_CanSpawn(xenotype, parent) || DebugSettings.ShowDevGizmos)
 						{
-							list.Add(new FloatMenuOption(xenotype.label.CapitalizeFirst(), delegate
+							list.Add(new FloatMenuOption(GetXenotypeLabel(xenotype), delegate
 							{
 								chosenXenotype = xenotype;
 								Messages.Message("WVC_XaG_XenoTreeXenotypeChooseAssigned".Translate(xenotype.label.CapitalizeFirst()), null, MessageTypeDefOf.NeutralEvent, historical: false);
@@ -171,6 +171,53 @@ namespace WVC_XenotypesAndGenes
 			return parent.def.uiIcon;
 		}
 
+		private string GetXenotypeLabel(XenotypeDef xenotype)
+		{
+			int allGenesCount = XenotypeUtility.GetAllGenesCount(xenotype);
+			string text = xenotype.label.CapitalizeFirst();
+			if (allGenesCount < 7)
+			{
+				text = xenotype.label.CapitalizeFirst().Colorize(ColoredText.SubtleGrayColor);
+			}
+			if (allGenesCount >= 7)
+			{
+				text = xenotype.label.CapitalizeFirst().Colorize(ColorLibrary.LightGreen);
+			}
+			if (allGenesCount >= 14)
+			{
+				text = xenotype.label.CapitalizeFirst().Colorize(ColorLibrary.LightBlue);
+			}
+			if (allGenesCount >= 21)
+			{
+				text = xenotype.label.CapitalizeFirst().Colorize(ColorLibrary.LightPurple);
+			}
+			if (allGenesCount >= 28)
+			{
+				text = xenotype.label.CapitalizeFirst().Colorize(ColorLibrary.LightOrange);
+			}
+			// if (XenotypeUtility.XenotypeIsUndead(xenotype))
+			// {
+				// return xenotype.label.CapitalizeFirst().Colorize(ColorLibrary.LightBlue);
+			// }
+			// if (XenotypeUtility.XenotypeIsBloodfeeder(xenotype))
+			// {
+				// return xenotype.label.CapitalizeFirst().Colorize(ColorLibrary.LightPink);
+			// }
+			// if (XenotypeUtility.XenotypeHasToxResistance(xenotype))
+			// {
+				// return xenotype.label.CapitalizeFirst().Colorize(ColorLibrary.LightGreen);
+			// }
+			// if (XenotypeUtility.XenotypeIsFurskin(xenotype))
+			// {
+				// return xenotype.label.CapitalizeFirst().Colorize(ColorLibrary.LightBrown);
+			// }
+			// if (XenotypeUtility.XenotypeIsArchite(xenotype))
+			// {
+				// return xenotype.label.CapitalizeFirst().Colorize(ColorLibrary.LightOrange);
+			// }
+			return text + " | " + "WVC_XaG_XenoTreeAllGenesCount".Translate(xenotype.genes.Count.ToString(), allGenesCount.ToString()).Resolve();
+		}
+
 		public void ResetCounter()
 		{
 			tickCounter = Props.ticksBetweenSpawn.RandomInRange;
@@ -180,8 +227,8 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostExposeData();
 			Scribe_Values.Look(ref tickCounter, "tickCounterNextBabySpawn_" + Props.uniqueTag, 0);
-			Scribe_Defs.Look(ref chosenXenotype, "chosenXenotype");
-			Scribe_Values.Look(ref spawnerIsActive, "babySpawn_OnOff", true);
+			Scribe_Defs.Look(ref chosenXenotype, "chosenXenotype_" + Props.uniqueTag);
+			Scribe_Values.Look(ref spawnerIsActive, "spawnerIsActive", true);
 		}
 	}
 

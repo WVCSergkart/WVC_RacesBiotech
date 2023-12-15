@@ -60,6 +60,12 @@
 		  <count>50</count>
 		</li>
 
+		<li Class="ScenPart_StartingThing_Defined">
+		  <def>ScatterThingsAnywhere</def>
+		  <thingDef>WVC_XenoSpawnerSeed</thingDef>
+		  <count>1</count>
+		</li>
+
 		<li MayRequireAnyOf="ludeon.rimworld.ideology" Class="KCSG.ScenPart_AddStartingStructure">
 			<def>VFEC_AddStartingStructure</def>
 			<structureLabel>Junkyard</structureLabel>

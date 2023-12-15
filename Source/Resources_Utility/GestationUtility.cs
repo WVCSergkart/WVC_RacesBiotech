@@ -46,6 +46,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						pawnParent.GetLord()?.AddPawn(pawnNewBornChild);
 					}
+					GetBabyName(pawnNewBornChild, pawnParent);
 				}
 				else
 				{
@@ -65,7 +66,11 @@ namespace WVC_XenotypesAndGenes
 					pawn.caller.DoCall();
 				}
 			}
-			Messages.Message(completeMessage.Translate(pawn.LabelIndefinite().CapitalizeFirst()), pawn, MessageTypeDefOf.PositiveEvent);
+			if (PawnUtility.ShouldSendNotificationAbout(pawnParent))
+			{
+				Find.LetterStack.ReceiveLetter("WVC_XaG_XenoTreeBirthLabel".Translate(), completeMessage.Translate(pawnParent.LabelShort), LetterDefOf.PositiveEvent, new LookTargets(pawn));
+			}
+			// Messages.Message(completeMessage.Translate(pawn.LabelIndefinite().CapitalizeFirst()), pawn, MessageTypeDefOf.PositiveEvent);
 		}
 
 		public static void GeneTransfer(Pawn pawnNewBornChild, Pawn pawnParent, bool endogeneTransfer = true, bool xenogeneTransfer = true)
@@ -137,6 +142,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						pawnParent.GetLord()?.AddPawn(pawnNewBornChild);
 					}
+					GetBabyName(pawnNewBornChild, pawnParent);
 				}
 				else
 				{
@@ -156,7 +162,10 @@ namespace WVC_XenotypesAndGenes
 					pawn.caller.DoCall();
 				}
 			}
-			Messages.Message(completeMessage.Translate(pawn.LabelIndefinite().CapitalizeFirst()), pawn, MessageTypeDefOf.PositiveEvent);
+			if (PawnUtility.ShouldSendNotificationAbout(pawnParent))
+			{
+				Find.LetterStack.ReceiveLetter("WVC_XaG_XenoTreeBirthLabel".Translate(), completeMessage.Translate(pawnParent.LabelShort), LetterDefOf.PositiveEvent, new LookTargets(pawn));
+			}
 		}
 
 		// Xeno-Tree Spawner
@@ -172,6 +181,7 @@ namespace WVC_XenotypesAndGenes
 			XenotypeUtility.SetXenotype_DoubleXenotype(pawnNewBornChild, xenotypeDef);
 			if (PawnUtility.TrySpawnHatchedOrBornPawn(pawnNewBornChild, spawnTarget))
 			{
+				GetBabyName(pawnNewBornChild, null);
 			}
 			else
 			{
@@ -189,6 +199,27 @@ namespace WVC_XenotypesAndGenes
 			{
 				Find.LetterStack.ReceiveLetter(completeLetterLabel.Translate(), completeLetterDesc.Translate(spawnTarget.def.label.CapitalizeFirst()), LetterDefOf.PositiveEvent, new LookTargets(pawnNewBornChild));
 			}
+		}
+
+		public static void GetBabyName(Pawn baby, Pawn parent)
+		{
+			baby.Name = PawnBioAndNameGenerator.GenerateFullPawnName(baby.def, baby.kindDef.GetNameMaker(baby.gender), baby.story, null, baby.RaceProps.GetNameGenerator(baby.gender), baby.Faction?.ideos?.PrimaryCulture, baby.gender, baby.RaceProps.nameCategory, GetParentLastName(parent), false);
+			// if (baby.Name is NameTriple nameTriple)
+			// {
+				// if (parent != null && parent.Name is NameTriple parentNameTriple)
+				// {
+					// baby.Name = new NameTriple(nameTriple.First, null, parentNameTriple.Last);
+				// }
+			// }
+		}
+
+		public static string GetParentLastName(Pawn parent)
+		{
+			if (parent != null && parent.Name is NameTriple parentNameTriple)
+			{
+				return parentNameTriple.Last;
+			}
+			return null;
 		}
 
 	}

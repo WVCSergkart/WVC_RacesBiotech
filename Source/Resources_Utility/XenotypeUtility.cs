@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
@@ -30,6 +31,17 @@ namespace WVC_XenotypesAndGenes
 			// }
 			// return false;
 		// }
+
+		public static int GetAllGenesCount(XenotypeDef xenotypeDef)
+		{
+			int genesCount = 0;
+			List<XenotypeDef> xenotypes = GetXenotypeAndDoubleXenotypes(xenotypeDef);
+			foreach (XenotypeDef xenotype in xenotypes)
+			{
+				genesCount += xenotype.genes.Count;
+			}
+			return genesCount;
+		}
 
 		// Basic Checks
 
@@ -72,6 +84,27 @@ namespace WVC_XenotypesAndGenes
 			return xenotypes;
 		}
 
+		public static bool XenotypeIsFurskin(XenotypeDef xenotypeDef)
+		{
+			List<GeneDef> genes = xenotypeDef.genes;
+			if (genes.NullOrEmpty())
+			{
+				return false;
+			}
+			List<XenotypeDef> xenotypes = GetXenotypeAndDoubleXenotypes(xenotypeDef);
+			foreach (XenotypeDef xenotype in xenotypes)
+			{
+				foreach (GeneDef item in xenotype.genes)
+				{
+					if (item.graphicData != null && item.graphicData.fur != null)
+					{
+						return true;
+					}
+				}
+			}
+			return false;
+		}
+
 		// public static bool XenotypeHasAnyDiseaseResistance(XenotypeDef xenotypeDef)
 		// {
 			// List<GeneDef> genes = xenotypeDef.genes;
@@ -93,24 +126,74 @@ namespace WVC_XenotypesAndGenes
 			// return false;
 		// }
 
-		// public static bool XenotypeIsArchite(XenotypeDef xenotypeDef)
-		// {
-			// List<GeneDef> genes = xenotypeDef.genes;
-			// if (genes.NullOrEmpty())
-			// {
-				// return false;
-			// }
-			// int arc = 0;
-			// foreach (GeneDef item in genes)
-			// {
-				// arc += item.biostatArc;
-			// }
-			// if (arc > 0)
-			// {
-				// return true;
-			// }
-			// return false;
-		// }
+		public static bool XenotypeIsArchite(XenotypeDef xenotypeDef)
+		{
+			List<GeneDef> genes = xenotypeDef.genes;
+			if (genes.NullOrEmpty())
+			{
+				return false;
+			}
+			int arc = 0;
+			foreach (GeneDef item in genes)
+			{
+				arc += item.biostatArc;
+			}
+			if (arc > 0)
+			{
+				return true;
+			}
+			return false;
+		}
+
+		public static bool XenotypeIsBloodfeeder(XenotypeDef xenotypeDef)
+		{
+			List<GeneDef> genes = xenotypeDef.genes;
+			if (genes.NullOrEmpty())
+			{
+				return false;
+			}
+			List<XenotypeDef> xenotypes = GetXenotypeAndDoubleXenotypes(xenotypeDef);
+			foreach (XenotypeDef xenotype in xenotypes)
+			{
+				GeneDef geneDef = GetFirstGeneOfType(xenotype.genes, typeof(Gene_Hemogen));
+				if (geneDef != null)
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
+		public static bool XenotypeIsUndead(XenotypeDef xenotypeDef)
+		{
+			List<GeneDef> genes = xenotypeDef.genes;
+			if (genes.NullOrEmpty())
+			{
+				return false;
+			}
+			List<XenotypeDef> xenotypes = GetXenotypeAndDoubleXenotypes(xenotypeDef);
+			foreach (XenotypeDef xenotype in xenotypes)
+			{
+				GeneDef geneDef = GetFirstGeneOfType(xenotype.genes, typeof(Gene_Undead));
+				if (geneDef != null)
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
+		public static GeneDef GetFirstGeneOfType(List<GeneDef> genes, Type type)
+		{
+			for (int i = 0; i < genes.Count; i++)
+			{
+				if (genes[i].geneClass == type)
+				{
+					return genes[i];
+				}
+			}
+			return null;
+		}
 
 		// Setter
 

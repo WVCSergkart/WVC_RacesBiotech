@@ -3,6 +3,8 @@
 
 	<!-- <WVC_RB_Gene_MechaGestatorLabel>H.</WVC_RB_Gene_MechaGestatorLabel> -->
 
+	<!-- <WVC_XaG_MechaGestatorEndGestation>{0} has gestated new pawn.</WVC_XaG_MechaGestatorEndGestation> -->
+
 	<WVC_RB_Gene_MechaGestator>{0} has gestated new pawn.</WVC_RB_Gene_MechaGestator>
 
 	<WVC_XaG_Gene_ImmaculateConception>{0} gave birth.</WVC_XaG_Gene_ImmaculateConception>
@@ -238,5 +240,7 @@ Each mechanoid costs 0.15 nutrition to summon.</WVC_XaG_Gene_DustMechlinkDesc>
 	<WVC_XaG_XenoTreeXenotypeChooseAssigned>Xenotype "{0}" is assigned.</WVC_XaG_XenoTreeXenotypeChooseAssigned>
 
 	<WVC_XaG_CurrentXenotype>Current xenotype</WVC_XaG_CurrentXenotype>
+
+	<WVC_XaG_XenoTreeAllGenesCount>Genes: {0}/{1}</WVC_XaG_XenoTreeAllGenesCount>
 
 </LanguageData>
