@@ -119,7 +119,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			return MechanoidizationUtility.HasActiveGene(pawn.genes?.GetFirstGeneOfType<Gene_Undead>().def, pawn);
+			return MechanoidizationUtility.HasActiveGene(pawn.genes?.GetFirstGeneOfType<Gene_Undead>()?.def, pawn);
 		}
 
 	}

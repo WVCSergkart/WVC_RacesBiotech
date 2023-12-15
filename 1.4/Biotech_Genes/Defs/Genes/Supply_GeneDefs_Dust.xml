@@ -18,7 +18,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_Base">
 	<defName>WVC_Dustogenic</defName>
 	<label>dustogenic</label>
-	<description>Carriers of this gene have special blood cells called dust. These cells increase the amount of nutrients available from food sources.</description>
+	<description>Carriers of this gene have special blood cells called dust. These cells decreases the amount of nutrients available from food sources.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Dust</geneClass>
 	<!-- <resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Dust</resourceGizmoType> -->
 	<!-- <resourceLabel>dust</resourceLabel> -->

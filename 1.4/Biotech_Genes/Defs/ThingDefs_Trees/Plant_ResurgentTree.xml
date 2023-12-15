@@ -8,7 +8,11 @@
 
 A rapidly mutating, resurgent fungus is poisoning the soil beneath it and spreading to ancient bones underground. Bones infected with this fungus rise like walking corpses.
 
-This creepy organism obeys the local owner of the "Sporelink" gene, forming a stable psychic bond.</description>
+This creepy organism obeys the local owner of the "Sporelink" gene, forming a stable psychic bond.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; The totem spawns walking corpses and pollutes the soil every few days. The limit of walkers depends on the mechanitor who controls them; the mechanitor who will control new walkers is selected randomly from the list of those who are able to control walkers. If the mechanitor is not able to control the walker, then the walker will die within a day.
+
+To control walkers, the mechanitor needs the "Sporelink" gene.</description>
 	<descriptionHyperlinks>
 	  <ThingDef>WVC_Plant_TreeResurgent</ThingDef>
 	  <!-- <ThingDef>WVC_Golem_Skeleton</ThingDef> -->
