@@ -96,7 +96,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			curY += 10f;
 			Rect rect4 = new(rect3.x, rect3.yMax - 55f, rect3.width, 55f);
-			foreach (XenotypeDef item in XenotypeUtility.GetXenotypeAndDoubleXenotypes(selectedXeno))
+			foreach (XenotypeDef item in XenoTreeUtility.GetXenotypeAndDoubleXenotypes(selectedXeno))
 			{
 				Widgets.HyperlinkWithIcon(new Rect(rect3.x, curY, rect3.width, Text.LineHeight), new Dialog_InfoCard.Hyperlink(item));
 				curY += Text.LineHeight;
@@ -107,11 +107,21 @@ namespace WVC_XenotypesAndGenes
 				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_XenoTreeXenotypeChangeCooldown".Translate(xenoTree.changeCooldown.ToStringTicksToPeriod()).Colorize(ColorLibrary.RedReadable));
 				curY += 10f;
 			}
-			if (XenotypeUtility.XenotypeHasToxResistance(selectedXeno) && !MeetsRequirements(selectedXeno))
+			if (!XenoTreeUtility.XenoTree_ToxResCheck(selectedXeno, xenoTree.parent))
 			{
 				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_XenoTreeModeRequiredPollution".Translate(xenoTree.parent.LabelCap).Colorize(ColorLibrary.RedReadable));
 				curY += 10f;
 			}
+			// if (!XenoTreeUtility.XenoTree_ColdResCheck(selectedXeno, xenoTree.parent))
+			// {
+				// Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_XenoTreeModeRequiredCold".Translate(xenoTree.parent.LabelCap).Colorize(ColorLibrary.RedReadable));
+				// curY += 10f;
+			// }
+			// if (!XenoTreeUtility.XenoTree_HeatResCheck(selectedXeno, xenoTree.parent))
+			// {
+				// Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_XenoTreeModeRequiredHeat".Translate(xenoTree.parent.LabelCap).Colorize(ColorLibrary.RedReadable));
+				// curY += 10f;
+			// }
 			if (MeetsRequirements(selectedXeno) && selectedXeno != currentXeno)
 			{
 				if (Widgets.ButtonText(rect4, "Accept".Translate()))
@@ -125,7 +135,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			else
 			{
-				string label = ((selectedXeno == currentXeno) ? ((string)"WVC_XaG_XenoTreeMode_AlreadySelected".Translate()) : ((!MeetsMemeRequirements(selectedXeno)) ? ((string)"WVC_XaG_XenoTreeModeNotMeetsRequirements".Translate()) : ((string)"Locked".Translate())));
+				string label = ((selectedXeno == currentXeno) ? ((string)"WVC_XaG_XenoTreeMode_AlreadySelected".Translate()) : ((!MeetsRequirements(selectedXeno)) ? ((string)"WVC_XaG_XenoTreeModeNotMeetsRequirements".Translate()) : ((string)"Locked".Translate())));
 				Text.Anchor = TextAnchor.MiddleCenter;
 				Widgets.DrawHighlight(rect4);
 				Widgets.Label(rect4.ContractedBy(5f), label);
@@ -161,26 +171,30 @@ namespace WVC_XenotypesAndGenes
 			Widgets.EndScrollView();
 		}
 
-		private bool MeetsMemeRequirements(XenotypeDef stage)
-		{
-			if (XenotypeUtility.XenoTree_CanSpawn(stage, xenoTree.parent) || DebugSettings.ShowDevGizmos)
-			{
-				return true;
-			}
-			return false;
-		}
+		// private bool MeetsMemeRequirements(XenotypeDef stage)
+		// {
+			// if (XenotypeUtility.XenoTree_CanSpawn(stage, xenoTree.parent) || DebugSettings.ShowDevGizmos)
+			// {
+				// return true;
+			// }
+			// return false;
+		// }
 
 		private bool MeetsRequirements(XenotypeDef mode)
 		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				return true;
+			}
 			if (Find.TickManager.TicksGame < xenoTree.changeCooldown)
 			{
 				return false;
 			}
-			if (XenotypeUtility.XenoTree_CanSpawn(mode, xenoTree.parent) || DebugSettings.ShowDevGizmos)
+			if (XenoTreeUtility.XenoTree_CanSpawn(mode, xenoTree.parent))
 			{
 				return true;
 			}
-			return MeetsMemeRequirements(mode);
+			return false;
 		}
 
 		private Color GetBoxColor(XenotypeDef mode)
@@ -240,7 +254,7 @@ namespace WVC_XenotypesAndGenes
 
 		public Color GetXenotypeColor(XenotypeDef xenotype)
 		{
-			int allGenesCount = XenotypeUtility.GetAllGenesCount(xenotype);
+			int allGenesCount = XenoTreeUtility.GetAllGenesCount(xenotype);
 			Color color = ColoredText.SubtleGrayColor;
 			if (allGenesCount >= 7)
 			{

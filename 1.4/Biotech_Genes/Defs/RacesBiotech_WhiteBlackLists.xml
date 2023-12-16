@@ -186,6 +186,11 @@
 		<li>Android_</li>
 		<li>Medieval</li>
 	</mechDefNameShouldNotContain>
+	<!-- Limitations for Xeno-Tree. Required gene defNames -->
+	<!-- <xenoTree_PollutionReq_GeneDefs> -->
+		<!-- <li>ToxResist_Total</li> -->
+		<!-- <li>WVC_ToxResist_Total</li> -->
+	<!-- </xenoTree_PollutionReq_GeneDefs> -->
   </WVC_XenotypesAndGenes.XenotypesAndGenesListDef>
 
   <!-- ======================================================================= -->

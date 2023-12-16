@@ -246,4 +246,10 @@ Each mechanoid costs 0.15 nutrition to summon.</WVC_XaG_Gene_DustMechlinkDesc>
 
 	<WVC_XaG_XenoTreeAllGenesCount>Genes: {0}/{1}</WVC_XaG_XenoTreeAllGenesCount>
 
+	<!-- ========== XENO BULB ========== -->
+
+	<!-- <WVC_XaG_XenoTreeXenoBulb_Cpx>Complexity: &lt;color=#8cd7e7&gt;{0}&lt;/color&gt;</WVC_XaG_XenoTreeXenoBulb_Cpx> -->
+	<!-- <WVC_XaG_XenoTreeXenoBulb_Met>Metabolism: &lt;color=#d679b5&gt;{0}&lt;/color&gt;</WVC_XaG_XenoTreeXenoBulb_Met> -->
+	<!-- <WVC_XaG_XenoTreeXenoBulb_Arc>Archites: &lt;color=#cbcb94&gt;{0}&lt;/color&gt;</WVC_XaG_XenoTreeXenoBulb_Arc> -->
+
 </LanguageData>

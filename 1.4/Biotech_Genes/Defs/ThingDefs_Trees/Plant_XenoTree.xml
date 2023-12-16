@@ -8,6 +8,7 @@
 
 &lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; Being fully grown, it allows you to spawn babies of any xenotype, with a period of 8-12 days. Some xenotypes may require special conditions. For example, growing xenotypes with tolerance to toxins requires that the tree be located on polluted soil.</description>
 	<descriptionHyperlinks>
+	  <!-- <ThingDef>WVC_Plant_XenoBulb</ThingDef> -->
 	  <ThingDef>WVC_XenoSpawnerSeed</ThingDef>
 	</descriptionHyperlinks>
 	<graphicData>
@@ -16,6 +17,7 @@
 	</graphicData>
 	<tickerType>Long</tickerType>
 	<statBases>
+	  <MarketValue>2200</MarketValue>
 	  <Beauty>12</Beauty>
 	  <BeautyOutdoors>6</BeautyOutdoors>
 	  <Flammability>0.8</Flammability>
@@ -24,7 +26,7 @@
 	<ingestible />
 	<preventSkyfallersLandingOn>true</preventSkyfallersLandingOn>
 	<canScatterOver>false</canScatterOver>
-	<specialDisplayRadius>19.9</specialDisplayRadius>
+	<!-- <specialDisplayRadius>19.9</specialDisplayRadius> -->
 	<plant>
 	  <interferesWithRoof>false</interferesWithRoof>
 	  <growMinGlow>0</growMinGlow>
@@ -52,6 +54,7 @@
 	</plant>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_XenoTree">
+		<compClass>WVC_XenotypesAndGenes.CompXenoTree</compClass>
 		<ticksBetweenSpawn>480000~720000</ticksBetweenSpawn>
 	  </li>
 	  <li Class="CompProperties_SelfhealHitpoints">
@@ -142,6 +145,9 @@
 	  <li Class="CompProperties_Plantable">
 		<plantDefToSpawn>WVC_Plant_TreeXenoSpawner</plantDefToSpawn>
 	  </li>
+	  <!-- <li Class="CompProperties_Plantable"> -->
+		<!-- <plantDefToSpawn>WVC_Plant_XenoBulb</plantDefToSpawn> -->
+	  <!-- </li> -->
 	</comps>
   </ThingDef>
 

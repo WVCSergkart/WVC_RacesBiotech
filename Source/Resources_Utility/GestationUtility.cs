@@ -178,7 +178,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			PawnGenerationRequest generateNewBornPawn = new(PawnKindDefOf.Colonist, Faction.OfPlayer, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: true, canGeneratePawnRelations: false, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: false, allowAddictions: false, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Newborn);
 			Pawn pawnNewBornChild = PawnGenerator.GeneratePawn(generateNewBornPawn);
-			XenotypeUtility.SetXenotype_DoubleXenotype(pawnNewBornChild, xenotypeDef);
+			XenoTreeUtility.SetXenotype_DoubleXenotype(pawnNewBornChild, xenotypeDef);
 			if (PawnUtility.TrySpawnHatchedOrBornPawn(pawnNewBornChild, spawnTarget))
 			{
 				GetBabyName(pawnNewBornChild, null);

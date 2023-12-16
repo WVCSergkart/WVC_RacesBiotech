@@ -105,5 +105,6 @@ namespace WVC_XenotypesAndGenes
 		// public List<GeneDef> gene_IsAngelBeauty;
 		// public List<GeneDef> gene_PawnSkillsNotDecay;
 		public List<string> mechDefNameShouldNotContain;
+		// public List<GeneDef> xenoTree_PollutionReq_GeneDefs;
 	}
 }

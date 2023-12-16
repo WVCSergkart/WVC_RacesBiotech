@@ -18,15 +18,19 @@ namespace WVC_XenotypesAndGenes
 
 		public int xenotypeChangeCooldown = 420000;
 
+		// public IntRange geneticMaterial_Cpx = new(4, 12);
+		// public IntRange geneticMaterial_Met = new(3, 7);
+		// public IntRange geneticMaterial_Arc = new(0, 2);
+
 		public string uniqueTag = "XenoTree";
 
 		public string completeLetterLabel = "WVC_XaG_XenoTreeBirthLabel";
 		public string completeLetterDesc = "WVC_XaG_XenoTreeBirthDesc";
 
-		public CompProperties_XenoTree()
-		{
-			compClass = typeof(CompXenoTree);
-		}
+		// public CompProperties_XenoTree()
+		// {
+			// compClass = typeof(CompXenoTree);
+		// }
 	}
 
 	public class CompXenoTree : ThingComp

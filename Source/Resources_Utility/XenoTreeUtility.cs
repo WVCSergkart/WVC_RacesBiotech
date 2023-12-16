@@ -7,7 +7,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public static class XenotypeUtility
+	public static class XenoTreeUtility
 	{
 
 		public static bool XenoTree_CanSpawn(XenotypeDef xenotypeDef, Thing parent)
@@ -16,6 +16,15 @@ namespace WVC_XenotypesAndGenes
 			{
 				return true;
 			}
+			if (XenoTree_ToxResCheck(xenotypeDef, parent))
+			{
+				return true;
+			}
+			return false;
+		}
+
+		public static bool XenoTree_ToxResCheck(XenotypeDef xenotypeDef, Thing parent)
+		{
 			if (!XenotypeHasToxResistance(xenotypeDef) || parent.Position.IsPolluted(parent.Map))
 			{
 				return true;
@@ -23,28 +32,27 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		// public static bool XenoTree_CanSpawnArchiteXenos(XenotypeDef xenotypeDef)
+		// public static bool XenoTree_ColdResCheck(XenotypeDef xenotypeDef, Thing parent)
 		// {
-			// if (XenotypeIsArchite(xenotypeDef) && MechanitorUtility.AnyMechanitorInPlayerFaction())
+			// if (!XenotypeHasColdResistance(xenotypeDef) || parent.Map.mapTemperature.SeasonalTemp <= -20f)
 			// {
 				// return true;
 			// }
 			// return false;
 		// }
 
-		public static int GetAllGenesCount(XenotypeDef xenotypeDef)
-		{
-			int genesCount = 0;
-			List<XenotypeDef> xenotypes = GetXenotypeAndDoubleXenotypes(xenotypeDef);
-			foreach (XenotypeDef xenotype in xenotypes)
-			{
-				genesCount += xenotype.genes.Count;
-			}
-			return genesCount;
-		}
+		// public static bool XenoTree_HeatResCheck(XenotypeDef xenotypeDef, Thing parent)
+		// {
+			// if (!XenotypeHasHeatResistance(xenotypeDef) || parent.Map.mapTemperature.SeasonalTemp >= 20f)
+			// {
+				// return true;
+			// }
+			// return false;
+		// }
 
-		// Basic Checks
+		// =============================== ToxResistance ===============================
 
+		// Tox
 		public static bool XenotypeHasToxResistance(XenotypeDef xenotypeDef)
 		{
 			List<GeneDef> genes = xenotypeDef.genes;
@@ -52,37 +60,95 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
+			float toxRes = 0f;
+			float toxEnvRes = 0f;
 			List<XenotypeDef> xenotypes = GetXenotypeAndDoubleXenotypes(xenotypeDef);
 			foreach (XenotypeDef xenotype in xenotypes)
 			{
 				foreach (GeneDef item in xenotype.genes)
 				{
-					if (!item.exclusionTags.NullOrEmpty() && (item.exclusionTags.Contains("ToxicEnvironmentResistance") || item.exclusionTags.Contains("ToxResistance")))
+					if (!item.statOffsets.NullOrEmpty())
 					{
-						return true;
-					}
-					if (item.immuneToToxGasExposure)
-					{
-						return true;
+						foreach (StatModifier statModifier in item.statOffsets)
+						{
+							if (statModifier.stat == StatDefOf.ToxicResistance)
+							{
+								toxRes += statModifier.value;
+							}
+							if (statModifier.stat == StatDefOf.ToxicEnvironmentResistance)
+							{
+								toxEnvRes += statModifier.value;
+							}
+						}
 					}
 				}
+			}
+			if (toxRes >= 1f || toxEnvRes >= 1f)
+			{
+				return true;
 			}
 			return false;
 		}
 
-		public static List<XenotypeDef> GetXenotypeAndDoubleXenotypes(XenotypeDef xenotypeDef)
+		// Heat
+		public static bool XenotypeHasHeatResistance(XenotypeDef xenotypeDef)
 		{
-			List<XenotypeDef> xenotypes = new();
-			xenotypes.Add(xenotypeDef);
-			if (!xenotypeDef.doubleXenotypeChances.NullOrEmpty())
+			List<GeneDef> genes = xenotypeDef.genes;
+			if (genes.NullOrEmpty())
 			{
-				foreach (XenotypeChance item in xenotypeDef.doubleXenotypeChances)
+				return false;
+			}
+			float temperatureMax = 0f;
+			foreach (GeneDef item in xenotypeDef.genes)
+			{
+				if (!item.statOffsets.NullOrEmpty())
 				{
-					xenotypes.Add(item.xenotype);
+					foreach (StatModifier statModifier in item.statOffsets)
+					{
+						if (statModifier.stat == StatDefOf.ComfyTemperatureMax)
+						{
+							temperatureMax += statModifier.value;
+						}
+					}
 				}
 			}
-			return xenotypes;
+			if (temperatureMax >= 20f)
+			{
+				return true;
+			}
+			return false;
 		}
+
+		// Cold
+		public static bool XenotypeHasColdResistance(XenotypeDef xenotypeDef)
+		{
+			List<GeneDef> genes = xenotypeDef.genes;
+			if (genes.NullOrEmpty())
+			{
+				return false;
+			}
+			float temperatureMin = 0f;
+			foreach (GeneDef item in xenotypeDef.genes)
+			{
+				if (!item.statOffsets.NullOrEmpty())
+				{
+					foreach (StatModifier statModifier in item.statOffsets)
+					{
+						if (statModifier.stat == StatDefOf.ComfyTemperatureMin)
+						{
+							temperatureMin += statModifier.value;
+						}
+					}
+				}
+			}
+			if (temperatureMin <= -20f)
+			{
+				return true;
+			}
+			return false;
+		}
+
+		// =============================== Other ===============================
 
 		public static bool XenotypeIsFurskin(XenotypeDef xenotypeDef)
 		{
@@ -105,27 +171,6 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		// public static bool XenotypeHasAnyDiseaseResistance(XenotypeDef xenotypeDef)
-		// {
-			// List<GeneDef> genes = xenotypeDef.genes;
-			// if (genes.NullOrEmpty())
-			// {
-				// return false;
-			// }
-			// foreach (GeneDef item in genes)
-			// {
-				// if (!item.makeImmuneTo.NullOrEmpty())
-				// {
-					// return true;
-				// }
-				// if (!item.hediffGiversCannotGive.NullOrEmpty())
-				// {
-					// return true;
-				// }
-			// }
-			// return false;
-		// }
-
 		public static bool XenotypeIsArchite(XenotypeDef xenotypeDef)
 		{
 			List<GeneDef> genes = xenotypeDef.genes;
@@ -133,14 +178,16 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			int arc = 0;
-			foreach (GeneDef item in genes)
+			List<XenotypeDef> xenotypes = GetXenotypeAndDoubleXenotypes(xenotypeDef);
+			foreach (XenotypeDef xenotype in xenotypes)
 			{
-				arc += item.biostatArc;
-			}
-			if (arc > 0)
-			{
-				return true;
+				foreach (GeneDef item in xenotype.genes)
+				{
+					if (item.biostatArc > 0)
+					{
+						return false;
+					}
+				}
 			}
 			return false;
 		}
@@ -183,6 +230,33 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		// =============================== Getter ===============================
+
+		public static int GetAllGenesCount(XenotypeDef xenotypeDef)
+		{
+			int genesCount = 0;
+			List<XenotypeDef> xenotypes = GetXenotypeAndDoubleXenotypes(xenotypeDef);
+			foreach (XenotypeDef xenotype in xenotypes)
+			{
+				genesCount += xenotype.genes.Count;
+			}
+			return genesCount;
+		}
+
+		public static List<XenotypeDef> GetXenotypeAndDoubleXenotypes(XenotypeDef xenotypeDef)
+		{
+			List<XenotypeDef> xenotypes = new();
+			xenotypes.Add(xenotypeDef);
+			if (!xenotypeDef.doubleXenotypeChances.NullOrEmpty())
+			{
+				foreach (XenotypeChance item in xenotypeDef.doubleXenotypeChances)
+				{
+					xenotypes.Add(item.xenotype);
+				}
+			}
+			return xenotypes;
+		}
+
 		public static GeneDef GetFirstGeneOfType(List<GeneDef> genes, Type type)
 		{
 			for (int i = 0; i < genes.Count; i++)
@@ -195,7 +269,7 @@ namespace WVC_XenotypesAndGenes
 			return null;
 		}
 
-		// Setter
+		// =============================== Setter ===============================
 
 		public static void SetXenotype_DoubleXenotype(Pawn pawn, XenotypeDef xenotypeDef)
 		{
