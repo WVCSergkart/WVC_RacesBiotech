@@ -17,10 +17,17 @@ namespace WVC_XenotypesAndGenes
 		public bool xenogerminationComa = true;
 
 		public int xenotypeChangeCooldown = 420000;
+		public int rootsConnectionCooldown = 220000;
 
 		// public IntRange geneticMaterial_Cpx = new(4, 12);
 		// public IntRange geneticMaterial_Met = new(3, 7);
 		// public IntRange geneticMaterial_Arc = new(0, 2);
+
+		public int geneticMaterialLimitPerBulb = 11;
+
+		public IntRange geneticMaterialProduction = new(1, 3);
+
+		public float minFertilityForMetabolism = 0.8f;
 
 		public string uniqueTag = "XenoTree";
 
@@ -39,6 +46,8 @@ namespace WVC_XenotypesAndGenes
 
 		public int changeCooldown = 0;
 
+		public List<Thing> connectedBulbs = new();
+
 		private bool spawnerIsActive = false;
 
 		public XenotypeDef chosenXenotype = null;
@@ -46,6 +55,11 @@ namespace WVC_XenotypesAndGenes
 		public CompProperties_XenoTree Props => (CompProperties_XenoTree)props;
 
 		public CompSpawnSubplantDuration Subplant => parent.TryGetComp<CompSpawnSubplantDuration>();
+
+		public int geneticMaterial_Cpx = 0;
+		public int geneticMaterial_Met = 0;
+		public int geneticMaterial_Arc = 0;
+		public int geneticMaterial_Tox = 0;
 
 		public override void Initialize(CompProperties props)
 		{
@@ -195,6 +209,20 @@ namespace WVC_XenotypesAndGenes
 			};
 		}
 
+		// private List<Thing> GetAllConnectedBulbs()
+		// {
+			// List<Thing> trees = new();
+			// List<Thing> allThings = parent.Map.listerThings.AllThings;
+			// foreach (Thing item in allThings)
+			// {
+				// if (item.def.plant != null && item.TryGetComp<CompXenoTree>() != null)
+				// {
+					// trees.Add(item);
+				// }
+			// }
+			// return trees;
+		// }
+
 		private Texture2D GetXenotypeIcon()
 		{
 			if (chosenXenotype != null)
@@ -231,6 +259,34 @@ namespace WVC_XenotypesAndGenes
 			// return text;
 		// }
 
+		public override void PostDrawExtraSelectionOverlays()
+		{
+			if (!connectedBulbs.NullOrEmpty())
+			{
+				foreach (Thing item in connectedBulbs)
+				{
+					if (item != null)
+					{
+						GenDraw.DrawLineBetween(parent.TrueCenter(), item.TrueCenter(), SimpleColor.Yellow);
+					}
+				}
+			}
+		}
+
+		public override void PostDestroy(DestroyMode mode, Map previousMap)
+		{
+			if (!connectedBulbs.NullOrEmpty())
+			{
+				foreach (Thing item in connectedBulbs)
+				{
+					if (item != null && item.TryGetComp<CompXenoBulb>() != null)
+					{
+						item.TryGetComp<CompXenoBulb>().mainXenoTree = null;
+					}
+				}
+			}
+		}
+
 		public void ResetCounter()
 		{
 			tickCounter = Props.ticksBetweenSpawn.RandomInRange;
@@ -243,6 +299,11 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref changeCooldown, "changeCooldown_" + Props.uniqueTag, 0);
 			Scribe_Defs.Look(ref chosenXenotype, "chosenXenotype_" + Props.uniqueTag);
 			Scribe_Values.Look(ref spawnerIsActive, "spawnerIsActive", true);
+			// Bulb Materials
+			Scribe_Values.Look(ref geneticMaterial_Cpx, "geneticMaterial_Cpx_" + Props.uniqueTag, 0);
+			Scribe_Values.Look(ref geneticMaterial_Met, "geneticMaterial_Met_" + Props.uniqueTag, 0);
+			Scribe_Values.Look(ref geneticMaterial_Tox, "geneticMaterial_Tox_" + Props.uniqueTag, 0);
+			Scribe_Values.Look(ref geneticMaterial_Arc, "geneticMaterial_Arc_" + Props.uniqueTag, 0);
 		}
 	}
 
