@@ -72,6 +72,7 @@
     <Compile Include="Resources_Abilities\CompProperties_AbilitySpawn.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilitySpawnOnCell.cs" />
     <Compile Include="Resources_Abilities\QuestNode_Root_Reincarnation.cs" />
+    <Compile Include="Resources_Gizmo\Dialog_ChangeXenotype.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_ResurgentSpores.cs" />
     <Compile Include="Resources_Gizmo\Gizmo_MaxGolems.cs" />
     <Compile Include="Resources_Genes\Gene_AngelicStability.cs" />

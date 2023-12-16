@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 using Verse;
+using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -13,7 +14,9 @@ namespace WVC_XenotypesAndGenes
 
 		// public GeneDef geneDef = null;
 
-		// public float minGrowthForSpawn = 1.0f;
+		public bool xenogerminationComa = true;
+
+		public int xenotypeChangeCooldown = 420000;
 
 		public string uniqueTag = "XenoTree";
 
@@ -30,11 +33,13 @@ namespace WVC_XenotypesAndGenes
 	{
 		public int tickCounter = 0;
 
+		public int changeCooldown = 0;
+
 		private bool spawnerIsActive = false;
 
 		public XenotypeDef chosenXenotype = null;
 
-		private CompProperties_XenoTree Props => (CompProperties_XenoTree)props;
+		public CompProperties_XenoTree Props => (CompProperties_XenoTree)props;
 
 		public CompSpawnSubplantDuration Subplant => parent.TryGetComp<CompSpawnSubplantDuration>();
 
@@ -86,7 +91,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (spawnerIsActive && chosenXenotype != null)
 			{
-				GestationUtility.GenerateNewBornPawn_WithChosenXenotype(parent, chosenXenotype, Props.completeLetterLabel, Props.completeLetterDesc);
+				GestationUtility.GenerateNewBornPawn_WithChosenXenotype(parent, chosenXenotype, Props.completeLetterLabel, Props.completeLetterDesc, Props.xenogerminationComa);
 				if (Subplant != null)
 				{
 					Subplant.DoGrowSubplant();
@@ -99,8 +104,12 @@ namespace WVC_XenotypesAndGenes
 			StringBuilder stringBuilder = new(base.CompInspectStringExtra());
 			if (spawnerIsActive && chosenXenotype != null)
 			{
-				stringBuilder.AppendLine(string.Format("{0}", "WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes".Translate(tickCounter.ToStringTicksToPeriod())));
-				stringBuilder.Append(string.Format("{0}: {1}", "WVC_XaG_CurrentXenotype".Translate(), chosenXenotype.label.CapitalizeFirst().Colorize(ColoredText.GeneColor)));
+				if (Find.TickManager.TicksGame < changeCooldown)
+				{
+					stringBuilder.AppendLine(string.Format("{0}", "WVC_XaG_XenoTreeXenotypeChangeCooldown".Translate(changeCooldown.ToStringTicksToPeriod())));
+				}
+				stringBuilder.AppendLine(string.Format("{0}: {1}", "WVC_XaG_CurrentXenotype".Translate(), chosenXenotype.label.CapitalizeFirst().Colorize(ColoredText.GeneColor)));
+				stringBuilder.Append(string.Format("{0}", "WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes".Translate(tickCounter.ToStringTicksToPeriod())));
 			}
 			return stringBuilder.ToString();
 		}
@@ -118,6 +127,14 @@ namespace WVC_XenotypesAndGenes
 						TryDoSpawn();
 					}
 				};
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: Reset cooldown",
+					action = delegate
+					{
+						changeCooldown = 0;
+					}
+				};
 			}
 			if (Subplant != null && parent is Plant plant && plant.Growth < Subplant.Props.minGrowthForSpawn)
 			{
@@ -131,6 +148,14 @@ namespace WVC_XenotypesAndGenes
 				action = delegate
 				{
 					spawnerIsActive = !spawnerIsActive;
+					if (spawnerIsActive)
+					{
+						SoundDefOf.Tick_High.PlayOneShotOnCamera();
+					}
+					else
+					{
+						SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+					}
 				}
 			};
 			yield return new Command_Action
@@ -138,26 +163,30 @@ namespace WVC_XenotypesAndGenes
 				defaultLabel = "WVC_XaG_XenoTreeXenotypeChooseLabel".Translate(),
 				defaultDesc = "WVC_XaG_XenoTreeXenotypeChooseDesc".Translate(),
 				icon = GetXenotypeIcon(),
+				// action = delegate
+				// {
+					// List<FloatMenuOption> list = new();
+					// List<XenotypeDef> xenotypes = XenotypeFilterUtility.AllXenotypesExceptAndroids();
+					// for (int i = 0; i < xenotypes.Count; i++)
+					// {
+						// XenotypeDef xenotype = xenotypes[i];
+						// if (XenotypeUtility.XenoTree_CanSpawn(xenotype, parent) || DebugSettings.ShowDevGizmos)
+						// {
+							// list.Add(new FloatMenuOption(GetXenotypeLabel(xenotype), delegate
+							// {
+								// chosenXenotype = xenotype;
+								// Messages.Message("WVC_XaG_XenoTreeXenotypeChooseAssigned".Translate(xenotype.label.CapitalizeFirst()), null, MessageTypeDefOf.NeutralEvent, historical: false);
+							// }));
+						// }
+					// }
+					// if (list.Any())
+					// {
+						// Find.WindowStack.Add(new FloatMenu(list));
+					// }
+				// }
 				action = delegate
 				{
-					List<FloatMenuOption> list = new();
-					List<XenotypeDef> xenotypes = XenotypeFilterUtility.AllXenotypesExceptAndroids();
-					for (int i = 0; i < xenotypes.Count; i++)
-					{
-						XenotypeDef xenotype = xenotypes[i];
-						if (XenotypeUtility.XenoTree_CanSpawn(xenotype, parent) || DebugSettings.ShowDevGizmos)
-						{
-							list.Add(new FloatMenuOption(GetXenotypeLabel(xenotype), delegate
-							{
-								chosenXenotype = xenotype;
-								Messages.Message("WVC_XaG_XenoTreeXenotypeChooseAssigned".Translate(xenotype.label.CapitalizeFirst()), null, MessageTypeDefOf.NeutralEvent, historical: false);
-							}));
-						}
-					}
-					if (list.Any())
-					{
-						Find.WindowStack.Add(new FloatMenu(list));
-					}
+					Find.WindowStack.Add(new Dialog_ChangeXenotype(parent));
 				}
 			};
 		}
@@ -171,52 +200,32 @@ namespace WVC_XenotypesAndGenes
 			return parent.def.uiIcon;
 		}
 
-		private string GetXenotypeLabel(XenotypeDef xenotype)
-		{
-			int allGenesCount = XenotypeUtility.GetAllGenesCount(xenotype);
-			string text = xenotype.label.CapitalizeFirst();
-			if (allGenesCount < 7)
-			{
-				text = xenotype.label.CapitalizeFirst().Colorize(ColoredText.SubtleGrayColor);
-			}
-			if (allGenesCount >= 7)
-			{
-				text = xenotype.label.CapitalizeFirst().Colorize(ColorLibrary.LightGreen);
-			}
-			if (allGenesCount >= 14)
-			{
-				text = xenotype.label.CapitalizeFirst().Colorize(ColorLibrary.LightBlue);
-			}
-			if (allGenesCount >= 21)
-			{
-				text = xenotype.label.CapitalizeFirst().Colorize(ColorLibrary.LightPurple);
-			}
-			if (allGenesCount >= 28)
-			{
-				text = xenotype.label.CapitalizeFirst().Colorize(ColorLibrary.LightOrange);
-			}
-			// if (XenotypeUtility.XenotypeIsUndead(xenotype))
+		// public string GetXenotypeLabel(XenotypeDef xenotype)
+		// {
+			// int allGenesCount = XenotypeUtility.GetAllGenesCount(xenotype);
+			// string text = xenotype.label.CapitalizeFirst();
+			// if (allGenesCount < 7)
 			// {
-				// return xenotype.label.CapitalizeFirst().Colorize(ColorLibrary.LightBlue);
+				// text = xenotype.label.CapitalizeFirst().Colorize(ColoredText.SubtleGrayColor);
 			// }
-			// if (XenotypeUtility.XenotypeIsBloodfeeder(xenotype))
+			// if (allGenesCount >= 7)
 			// {
-				// return xenotype.label.CapitalizeFirst().Colorize(ColorLibrary.LightPink);
+				// text = xenotype.label.CapitalizeFirst().Colorize(ColorLibrary.LightGreen);
 			// }
-			// if (XenotypeUtility.XenotypeHasToxResistance(xenotype))
+			// if (allGenesCount >= 14)
 			// {
-				// return xenotype.label.CapitalizeFirst().Colorize(ColorLibrary.LightGreen);
+				// text = xenotype.label.CapitalizeFirst().Colorize(ColorLibrary.LightBlue);
 			// }
-			// if (XenotypeUtility.XenotypeIsFurskin(xenotype))
+			// if (allGenesCount >= 21)
 			// {
-				// return xenotype.label.CapitalizeFirst().Colorize(ColorLibrary.LightBrown);
+				// text = xenotype.label.CapitalizeFirst().Colorize(ColorLibrary.LightPurple);
 			// }
-			// if (XenotypeUtility.XenotypeIsArchite(xenotype))
+			// if (allGenesCount >= 28)
 			// {
-				// return xenotype.label.CapitalizeFirst().Colorize(ColorLibrary.LightOrange);
+				// text = xenotype.label.CapitalizeFirst().Colorize(ColorLibrary.LightOrange);
 			// }
-			return text + " | " + "WVC_XaG_XenoTreeAllGenesCount".Translate(xenotype.genes.Count.ToString(), allGenesCount.ToString()).Resolve();
-		}
+			// return text;
+		// }
 
 		public void ResetCounter()
 		{
@@ -227,6 +236,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostExposeData();
 			Scribe_Values.Look(ref tickCounter, "tickCounterNextBabySpawn_" + Props.uniqueTag, 0);
+			Scribe_Values.Look(ref changeCooldown, "changeCooldown_" + Props.uniqueTag, 0);
 			Scribe_Defs.Look(ref chosenXenotype, "chosenXenotype_" + Props.uniqueTag);
 			Scribe_Values.Look(ref spawnerIsActive, "spawnerIsActive", true);
 		}

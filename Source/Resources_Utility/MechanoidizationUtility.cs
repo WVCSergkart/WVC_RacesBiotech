@@ -14,9 +14,9 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (onOrOff)
 			{
-				return "WVC_XaG_Gene_DustMechlink_On".Translate();
+				return "WVC_XaG_Gene_DustMechlink_On".Translate().Colorize(ColorLibrary.Green);
 			}
-			return "WVC_XaG_Gene_DustMechlink_Off".Translate();
+			return "WVC_XaG_Gene_DustMechlink_Off".Translate().Colorize(ColorLibrary.RedReadable);
 		}
 
 		public static bool AbilityIsGeneAbility(Ability ability)

@@ -170,7 +170,7 @@ namespace WVC_XenotypesAndGenes
 
 		// Xeno-Tree Spawner
 
-		public static void GenerateNewBornPawn_WithChosenXenotype(Thing spawnTarget, XenotypeDef xenotypeDef, string completeLetterLabel, string completeLetterDesc)
+		public static void GenerateNewBornPawn_WithChosenXenotype(Thing spawnTarget, XenotypeDef xenotypeDef, string completeLetterLabel, string completeLetterDesc, bool xenogerminationComa = false)
 		{
 			if (spawnTarget == null || xenotypeDef == null)
 			{
@@ -182,6 +182,11 @@ namespace WVC_XenotypesAndGenes
 			if (PawnUtility.TrySpawnHatchedOrBornPawn(pawnNewBornChild, spawnTarget))
 			{
 				GetBabyName(pawnNewBornChild, null);
+				if (xenogerminationComa)
+				{
+					pawnNewBornChild.health.AddHediff(HediffDefOf.XenogerminationComa);
+					GeneUtility.UpdateXenogermReplication(pawnNewBornChild);
+				}
 			}
 			else
 			{

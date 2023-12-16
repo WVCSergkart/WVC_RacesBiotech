@@ -14,7 +14,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (xenotypeDef.genes.NullOrEmpty())
 			{
-				return false;
+				return true;
 			}
 			if (!XenotypeHasToxResistance(xenotypeDef) || parent.Position.IsPolluted(parent.Map))
 			{

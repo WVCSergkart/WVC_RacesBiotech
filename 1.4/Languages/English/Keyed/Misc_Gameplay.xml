@@ -232,6 +232,9 @@ Each mechanoid costs 0.15 nutrition to summon.</WVC_XaG_Gene_DustMechlinkDesc>
 	<WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes>Time to next baby spawn: {0}</WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes>
 	<WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes_ChildOwner>Child owner</WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes_ChildOwner>
 
+	<WVC_XaG_XenoTreeXenotypeChangeCooldown>Xenotype can be changed after: {0}</WVC_XaG_XenoTreeXenotypeChangeCooldown>
+	<!-- <WVC_XaG_XenoTreeXenotypeRecentlyChanged>The xenotype has recently been changed.</WVC_XaG_XenoTreeXenotypeRecentlyChanged> -->
+
 	<!-- <WVC_XaG_Gene_GeneticBackup_Full>{0}'s genes were backed up.</WVC_XaG_Gene_GeneticBackup_Full> -->
 	<!-- <WVC_XaG_Gene_GeneticBackup_Empty>{0}'s gene backup is empty.</WVC_XaG_Gene_GeneticBackup_Empty> -->
 

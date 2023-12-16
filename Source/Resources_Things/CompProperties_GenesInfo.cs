@@ -11,6 +11,8 @@ namespace WVC_XenotypesAndGenes
 
 		public bool onlyPlayerFaction = true;
 
+		public int recacheFrequency = 60000;
+
 		public Type golemGizmoType = typeof(Gizmo_MaxGolems);
 
 		public CompProperties_GenesDisplayInfo()
@@ -24,24 +26,24 @@ namespace WVC_XenotypesAndGenes
 
 		private CompProperties_GenesDisplayInfo Props => (CompProperties_GenesDisplayInfo)props;
 
-		public override void PostSpawnSetup(bool respawningAfterLoad)
-		{
-			base.PostSpawnSetup(respawningAfterLoad);
-			if (parent is Pawn pawn)
-			{
-				if (Props.onlyPlayerFaction)
-				{
-					if (pawn.IsColonist)
-					{
-						CacheInfoGenes(pawn);
-					}
-				}
-				else
-				{
-					CacheInfoGenes(pawn);
-				}
-			}
-		}
+		// public override void PostSpawnSetup(bool respawningAfterLoad)
+		// {
+			// base.PostSpawnSetup(respawningAfterLoad);
+			// if (parent is Pawn pawn)
+			// {
+				// if (Props.onlyPlayerFaction)
+				// {
+					// if (pawn.IsColonist)
+					// {
+						// CacheInfoGenes(pawn);
+					// }
+				// }
+				// else
+				// {
+					// CacheInfoGenes(pawn);
+				// }
+			// }
+		// }
 
 		public List<Gene_Spawner> cachedSpawnerGenes = null;
 		public Gene_Wings cachedWingGene = null;
@@ -50,6 +52,8 @@ namespace WVC_XenotypesAndGenes
 		public Gene_Scarifier cachedScarifierGene = null;
 
 		private bool cachedShouldShowGolemsInfo = false;
+
+		private int nextRecache = -1;
 
 		public void CacheInfoGenes(Pawn pawn)
 		{
@@ -80,6 +84,7 @@ namespace WVC_XenotypesAndGenes
 					cachedShouldShowGolemsInfo = true;
 				}
 			}
+			nextRecache = Find.TickManager.TicksGame + Props.recacheFrequency;
 		}
 
 		public List<Gene_Spawner> ActiveSpawnerGenes(Pawn pawn)
@@ -215,9 +220,13 @@ namespace WVC_XenotypesAndGenes
 			// {
 				// yield break;
 			// }
+			Pawn pawn = parent as Pawn;
+			if (Find.TickManager.TicksGame >= nextRecache)
+			{
+				CacheInfoGenes(pawn);
+			}
 			if (cachedShouldShowGolemsInfo && WVC_Biotech.settings.enableGolemsInfo)
 			{
-				Pawn pawn = parent as Pawn;
 				if (gizmo == null)
 				{
 					gizmo = (Gizmo_MaxGolems)Activator.CreateInstance(Props.golemGizmoType, pawn);
