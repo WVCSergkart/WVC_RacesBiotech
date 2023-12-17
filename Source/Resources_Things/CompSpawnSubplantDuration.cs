@@ -59,10 +59,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			GrowSubplant(parent, Props.maxRadius, Props.subplant, Props.plantsToNotOverwrite, Props.initialGrowthRange, parent.Map, Props.canSpawnOverPlayerSownPlants);
+			GrowSubplant(parent, Props.maxRadius, Props.subplant, Props.initialGrowthRange, parent.Map, Props.canSpawnOverPlayerSownPlants);
 		}
 
-		public static void GrowSubplant(ThingWithComps parent, float maxRadius, ThingDef subplant, List<ThingDef> plantsToNotOverwrite, FloatRange? initialGrowthRange, Map map, bool canSpawnOverPlayerSownPlants = true)
+		public static void GrowSubplant(ThingWithComps parent, float maxRadius, ThingDef subplant, FloatRange? initialGrowthRange, Map map, bool canSpawnOverPlayerSownPlants = true)
 		{
 			IntVec3 position = parent.Position;
 			int num = GenRadial.NumCellsInRadius(maxRadius);
@@ -82,6 +82,7 @@ namespace WVC_XenotypesAndGenes
 						flag = true;
 						break;
 					}
+					List<ThingDef> plantsToNotOverwrite = PlantsToNotOverwrite();
 					if (plantsToNotOverwrite.NullOrEmpty())
 					{
 						continue;
@@ -126,6 +127,16 @@ namespace WVC_XenotypesAndGenes
 				}
 				break;
 			}
+		}
+
+		public static List<ThingDef> PlantsToNotOverwrite()
+		{
+			List<ThingDef> list = new();
+			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+			{
+				list.AddRange(item.plantsToNotOverwrite_SpawnSubplant);
+			}
+			return list;
 		}
 
 		public override IEnumerable<Gizmo> CompGetGizmosExtra()

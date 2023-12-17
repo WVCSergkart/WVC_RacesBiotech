@@ -209,13 +209,13 @@
 				<maxRadius>2.9</maxRadius>
 				<initialGrowthRange>0.2~0.8</initialGrowthRange>
 				<canSpawnOverPlayerSownPlants>false</canSpawnOverPlayerSownPlants>
-				<plantsToNotOverwrite>
-				  <li>Plant_PodGauranlen</li>
-				  <li>WVC_Plant_TreeResurgent</li>
-				  <li MayRequire="Ludeon.RimWorld.Royalty">Plant_GrassAnima</li>
-				  <li MayRequire="Ludeon.RimWorld.Royalty">Plant_TreeAnima</li>
-				  <li MayRequire="Ludeon.RimWorld.Ideology">Plant_TreeGauranlen</li>
-				</plantsToNotOverwrite>
+				<!-- <plantsToNotOverwrite> -->
+				  <!-- <li>Plant_PodGauranlen</li> -->
+				  <!-- <li>WVC_Plant_TreeResurgent</li> -->
+				  <!-- <li MayRequire="Ludeon.RimWorld.Royalty">Plant_GrassAnima</li> -->
+				  <!-- <li MayRequire="Ludeon.RimWorld.Royalty">Plant_TreeAnima</li> -->
+				  <!-- <li MayRequire="Ludeon.RimWorld.Ideology">Plant_TreeGauranlen</li> -->
+				<!-- </plantsToNotOverwrite> -->
 			</li>
 		</comps>
 		<modExtensions>

@@ -191,6 +191,18 @@
 		<!-- <li>ToxResist_Total</li> -->
 		<!-- <li>WVC_ToxResist_Total</li> -->
 	<!-- </xenoTree_PollutionReq_GeneDefs> -->
+	<!-- Work only for WVC -XaG CompSpawnSubplant. Required thing defNames -->
+	<!-- WVC_XenotypesAndGenes.CompSpawnOnDeath_Subplants or WVC_XenotypesAndGenes.CompSpawnSubplantDuration -->
+	<plantsToNotOverwrite_SpawnSubplant>
+	  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeResurgent</li>
+	  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeXenoSpawner</li>
+	  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_XenoBulb</li>
+	  <li MayRequire="Ludeon.RimWorld.Ideology">Plant_PodGauranlen</li>
+	  <li MayRequire="Ludeon.RimWorld.Royalty">Plant_GrassAnima</li>
+	  <li MayRequire="Ludeon.RimWorld.Royalty">Plant_TreeAnima</li>
+	  <li MayRequire="Ludeon.RimWorld.Biotech">Plant_TreePolux</li>
+	  <li MayRequire="Ludeon.RimWorld.Ideology">Plant_TreeGauranlen</li>
+	</plantsToNotOverwrite_SpawnSubplant>
   </WVC_XenotypesAndGenes.XenotypesAndGenesListDef>
 
   <!-- ======================================================================= -->

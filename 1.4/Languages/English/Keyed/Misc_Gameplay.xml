@@ -254,13 +254,21 @@ Each mechanoid costs 0.15 nutrition to summon.</WVC_XaG_Gene_DustMechlinkDesc>
 
 	<WVC_XaG_XenoTreeXenoBulb_NextGenMat>Next genetic material in: {0}</WVC_XaG_XenoTreeXenoBulb_NextGenMat>
 
-	<WVC_XaG_XenoTreeXenoBulb_Cpx>&lt;color=#8cd7e7&gt;Complexity&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Cpx>
-	<WVC_XaG_XenoTreeXenoBulb_Met>&lt;color=#d679b5&gt;Metabolism&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Met>
-	<WVC_XaG_XenoTreeXenoBulb_Arc>&lt;color=#cbcb94&gt;Archites&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Arc>
-	<WVC_XaG_XenoTreeXenoBulb_Tox>&lt;color=#9fe78c&gt;Toxins&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Tox>
+	<!-- <WVC_XaG_XenoTreeXenoBulb_Cpx>&lt;color=#8cd7e7&gt;Complexity&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Cpx> -->
+	<!-- <WVC_XaG_XenoTreeXenoBulb_Met>&lt;color=#d679b5&gt;Metabolism&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Met> -->
+	<!-- <WVC_XaG_XenoTreeXenoBulb_Arc>&lt;color=#cbcb94&gt;Archites&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Arc> -->
+	<!-- <WVC_XaG_XenoTreeXenoBulb_Tox>&lt;color=#9fe78c&gt;Toxins&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Tox> -->
+
+	<WVC_XaG_XenoTreeXenoBulb_Cpx>&lt;color=#8cd7e7&gt;Genetic&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Cpx>
+	<WVC_XaG_XenoTreeXenoBulb_Met>&lt;color=#d679b5&gt;Organic&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Met>
+	<WVC_XaG_XenoTreeXenoBulb_Tox>&lt;color=#9fe78c&gt;Mutagen&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Tox>
+	<WVC_XaG_XenoTreeXenoBulb_Arc>&lt;color=#cbcb94&gt;Embryo&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Arc>
 
 	<WVC_XaG_XenoTreeChooseLabel>Connect roots</WVC_XaG_XenoTreeChooseLabel>
 	<WVC_XaG_XenoTreeChooseDesc>Allows you to select a tree to whose roots the bulb is connected. Re-selection will be available after the cooldown.</WVC_XaG_XenoTreeChooseDesc>
 	<WVC_XaG_XenoTreeChooseAssigned>{0} is assigned to {1}.</WVC_XaG_XenoTreeChooseAssigned>
+
+	<WVC_XaG_XenoTreeCreateBulbLabel>Create bulb</WVC_XaG_XenoTreeCreateBulbLabel>
+	<WVC_XaG_XenoTreeCreateBulbDesc>Creates a xeno-bulb that slowly produces the resources needed to change the xenotype, gestate a baby, or create new bulbs.</WVC_XaG_XenoTreeCreateBulbDesc>
 
 </LanguageData>

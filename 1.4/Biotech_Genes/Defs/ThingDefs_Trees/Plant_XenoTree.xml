@@ -8,7 +8,7 @@
 
 &lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; Being fully grown, it allows you to spawn babies of any xenotype, with a period of 8-12 days. Some xenotypes may require special conditions. For example, growing xenotypes with tolerance to toxins requires that the tree be located on polluted soil.</description>
 	<descriptionHyperlinks>
-	  <ThingDef>WVC_Plant_XenoBulb</ThingDef>
+	  <!-- <ThingDef>WVC_Plant_XenoBulb</ThingDef> -->
 	  <ThingDef>WVC_XenoSpawnerSeed</ThingDef>
 	</descriptionHyperlinks>
 	<graphicData>
@@ -56,6 +56,7 @@
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_XenoTree">
 		<compClass>WVC_XenotypesAndGenes.CompXenoTree</compClass>
 		<ticksBetweenSpawn>480000~720000</ticksBetweenSpawn>
+		<!-- <xenoBulbDef>WVC_Plant_XenoBulb</xenoBulbDef> -->
 	  </li>
 	  <li Class="CompProperties_SelfhealHitpoints">
 		<ticksPerHeal>2000</ticksPerHeal>
@@ -72,14 +73,14 @@
 		<minGrowthForSpawn>0.6</minGrowthForSpawn>
 		<initialGrowthRange>0.2~0.8</initialGrowthRange>
 		<canSpawnOverPlayerSownPlants>false</canSpawnOverPlayerSownPlants>
-		<plantsToNotOverwrite>
-		  <li>Plant_PodGauranlen</li>
-		  <li MayRequire="Ludeon.RimWorld.Royalty">Plant_GrassAnima</li>
-		  <li MayRequire="Ludeon.RimWorld.Royalty">Plant_TreeAnima</li>
-		  <li MayRequire="Ludeon.RimWorld.Biotech">Plant_TreePolux</li>
-		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeResurgent</li>
-		  <li MayRequire="Ludeon.RimWorld.Ideology">Plant_TreeGauranlen</li>
-		</plantsToNotOverwrite>
+		<!-- <plantsToNotOverwrite> -->
+		  <!-- <li>Plant_PodGauranlen</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Royalty">Plant_GrassAnima</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Royalty">Plant_TreeAnima</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">Plant_TreePolux</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeResurgent</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Ideology">Plant_TreeGauranlen</li> -->
+		<!-- </plantsToNotOverwrite> -->
 	  </li>
 	</comps>
   </ThingDef>

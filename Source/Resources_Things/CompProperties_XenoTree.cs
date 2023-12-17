@@ -19,15 +19,26 @@ namespace WVC_XenotypesAndGenes
 		public int xenotypeChangeCooldown = 420000;
 		public int rootsConnectionCooldown = 220000;
 
+		// public ThingDef xenoBulbDef;
+
 		// public IntRange geneticMaterial_Cpx = new(4, 12);
 		// public IntRange geneticMaterial_Met = new(3, 7);
 		// public IntRange geneticMaterial_Arc = new(0, 2);
 
-		public int geneticMaterialLimitPerBulb = 11;
+		// public int limitPerBulb_Cpx = 32;
+		// public int limitPerBulb_Met = 25;
+		// public int limitPerBulb_Tox = 18;
+		// public int limitPerBulb_Arc = 2;
 
-		public IntRange geneticMaterialProduction = new(1, 3);
+		// public IntRange geneticMaterialProduction = new(1, 3);
 
-		public float minFertilityForMetabolism = 0.8f;
+		// public float minFertilityForMetabolism = 0.8f;
+
+		// Bulb Only
+		// public bool unlockXenos_Bloodfeeder = false;
+		// public bool unlockXenos_Undead = false;
+		// public bool unlockXenos_Toxic = false;
+		// public bool unlockXenos_Archite = false;
 
 		public string uniqueTag = "XenoTree";
 
@@ -56,10 +67,10 @@ namespace WVC_XenotypesAndGenes
 
 		public CompSpawnSubplantDuration Subplant => parent.TryGetComp<CompSpawnSubplantDuration>();
 
-		public int geneticMaterial_Cpx = 0;
-		public int geneticMaterial_Met = 0;
-		public int geneticMaterial_Arc = 0;
-		public int geneticMaterial_Tox = 0;
+		// public int geneticMaterial_Cpx = 0;
+		// public int geneticMaterial_Met = 0;
+		// public int geneticMaterial_Arc = 0;
+		// public int geneticMaterial_Tox = 0;
 
 		public override void Initialize(CompProperties props)
 		{
@@ -73,6 +84,7 @@ namespace WVC_XenotypesAndGenes
 			if (!respawningAfterLoad)
 			{
 				ResetCounter();
+				// geneticMaterial_Arc += 1;
 			}
 		}
 
@@ -117,9 +129,23 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		// private int GetGenMatLimit(int baselimit)
+		// {
+			// return connectedBulbs.Count * baselimit;
+		// }
+
 		public override string CompInspectStringExtra()
 		{
 			StringBuilder stringBuilder = new(base.CompInspectStringExtra());
+			// if (!connectedBulbs.NullOrEmpty())
+			// {
+				// stringBuilder.AppendLine(string.Format("{0}/n{1}/n{2}/n{3}", 
+					// "WVC_XaG_XenoTreeXenoBulb_Cpx".Translate(geneticMaterial_Cpx.ToString(), GetGenMatLimit(Props.limitPerBulb_Cpx).ToString()), 
+					// "WVC_XaG_XenoTreeXenoBulb_Tox".Translate(geneticMaterial_Tox.ToString(), GetGenMatLimit(Props.limitPerBulb_Tox).ToString()), 
+					// "WVC_XaG_XenoTreeXenoBulb_Met".Translate(geneticMaterial_Met.ToString(), GetGenMatLimit(Props.limitPerBulb_Met).ToString()), 
+					// "WVC_XaG_XenoTreeXenoBulb_Arc".Translate(geneticMaterial_Arc.ToString(), GetGenMatLimit(Props.limitPerBulb_Arc).ToString())
+					// ));
+			// }
 			if (spawnerIsActive && chosenXenotype != null)
 			{
 				if (Find.TickManager.TicksGame < changeCooldown)
@@ -145,6 +171,14 @@ namespace WVC_XenotypesAndGenes
 						TryDoSpawn();
 					}
 				};
+				// yield return new Command_Action
+				// {
+					// defaultLabel = "DEV: Create bulb",
+					// action = delegate
+					// {
+						// CreateBulb();
+					// }
+				// };
 				yield return new Command_Action
 				{
 					defaultLabel = "DEV: Reset cooldown",
@@ -207,7 +241,29 @@ namespace WVC_XenotypesAndGenes
 					Find.WindowStack.Add(new Dialog_ChangeXenotype(parent));
 				}
 			};
+			// if (Subplant != null && (geneticMaterial_Arc - 1) > 0)
+			// {
+				// yield return new Command_Action
+				// {
+					// defaultLabel = "WVC_XaG_XenoTreeCreateBulbLabel".Translate(),
+					// defaultDesc = "WVC_XaG_XenoTreeCreateBulbDesc".Translate(),
+					// icon = parent.def.uiIcon,
+					// action = delegate
+					// {
+						// CreateBulb();
+						// geneticMaterial_Arc -= 1;
+					// }
+				// };
+			// }
 		}
+
+		// private void CreateBulb()
+		// {
+			// if (Subplant != null)
+			// {
+				// CompSpawnSubplantDuration.GrowSubplant(parent, Subplant.Props.maxRadius, Props.xenoBulbDef, Subplant.Props.plantsToNotOverwrite, Subplant.Props.initialGrowthRange, parent.Map, true);
+			// }
+		// }
 
 		// private List<Thing> GetAllConnectedBulbs()
 		// {
@@ -299,11 +355,13 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref changeCooldown, "changeCooldown_" + Props.uniqueTag, 0);
 			Scribe_Defs.Look(ref chosenXenotype, "chosenXenotype_" + Props.uniqueTag);
 			Scribe_Values.Look(ref spawnerIsActive, "spawnerIsActive", true);
+			// Bulbs
+			Scribe_Collections.Look(ref connectedBulbs, "connectedBulbs_" + Props.uniqueTag, LookMode.Reference);
 			// Bulb Materials
-			Scribe_Values.Look(ref geneticMaterial_Cpx, "geneticMaterial_Cpx_" + Props.uniqueTag, 0);
-			Scribe_Values.Look(ref geneticMaterial_Met, "geneticMaterial_Met_" + Props.uniqueTag, 0);
-			Scribe_Values.Look(ref geneticMaterial_Tox, "geneticMaterial_Tox_" + Props.uniqueTag, 0);
-			Scribe_Values.Look(ref geneticMaterial_Arc, "geneticMaterial_Arc_" + Props.uniqueTag, 0);
+			// Scribe_Values.Look(ref geneticMaterial_Cpx, "geneticMaterial_Cpx_" + Props.uniqueTag, 0);
+			// Scribe_Values.Look(ref geneticMaterial_Met, "geneticMaterial_Met_" + Props.uniqueTag, 0);
+			// Scribe_Values.Look(ref geneticMaterial_Tox, "geneticMaterial_Tox_" + Props.uniqueTag, 0);
+			// Scribe_Values.Look(ref geneticMaterial_Arc, "geneticMaterial_Arc_" + Props.uniqueTag, 0);
 		}
 	}
 

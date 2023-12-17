@@ -82,19 +82,19 @@ namespace WVC_XenotypesAndGenes
 			// }
 			if (mainXenoTree != null)
 			{
-				if (Rand.Chance(0.8f) && GetGenMatLimit() > mainXenoTree.geneticMaterial_Cpx)
+				if (Rand.Chance(0.8f) && GetGenMatLimit(mainXenoTree.Props.limitPerBulb_Cpx) > mainXenoTree.geneticMaterial_Cpx)
 				{
 					mainXenoTree.geneticMaterial_Cpx += Props.geneticMaterialProduction.RandomInRange;
 				}
-				if (Rand.Chance(0.4f) && parent.Position.IsPolluted(parent.Map) && GetGenMatLimit() > mainXenoTree.geneticMaterial_Tox)
+				if (Rand.Chance(0.4f) && parent.Position.IsPolluted(parent.Map) && GetGenMatLimit(mainXenoTree.Props.limitPerBulb_Tox) > mainXenoTree.geneticMaterial_Tox)
 				{
 					mainXenoTree.geneticMaterial_Tox += Props.geneticMaterialProduction.RandomInRange;
 				}
-				else if (Rand.Chance(0.6f) && parent.Position.GetFertility(parent.Map) >= Props.minFertilityForMetabolism && GetGenMatLimit() > mainXenoTree.geneticMaterial_Met)
+				else if (Rand.Chance(0.6f) && parent.Position.GetFertility(parent.Map) >= Props.minFertilityForMetabolism && GetGenMatLimit(mainXenoTree.Props.limitPerBulb_Met) > mainXenoTree.geneticMaterial_Met)
 				{
 					mainXenoTree.geneticMaterial_Met += Props.geneticMaterialProduction.RandomInRange;
 				}
-				if (Rand.Chance(0.09f) && GetGenMatLimit() > mainXenoTree.geneticMaterial_Arc)
+				if (Rand.Chance(0.09f) && GetGenMatLimit(mainXenoTree.Props.limitPerBulb_Arc) > mainXenoTree.geneticMaterial_Arc)
 				{
 					mainXenoTree.geneticMaterial_Arc += Props.geneticMaterialProduction.RandomInRange;
 				}
@@ -103,16 +103,16 @@ namespace WVC_XenotypesAndGenes
 
 		public CompXenoTree mainXenoTree;
 
-		// public List<Thing> xenoTrees;
-
-		private int GetGenMatLimit()
+		private int GetGenMatLimit(int baselimit)
 		{
 			if (mainXenoTree == null)
 			{
 				return 0;
 			}
-			return mainXenoTree.connectedBulbs.Count * Props.geneticMaterialLimitPerBulb;
+			return mainXenoTree.connectedBulbs.Count * baselimit;
 		}
+
+		// public List<Thing> xenoTrees;
 
 		private List<Thing> GetAllXenoTreesOnMap()
 		{
@@ -210,16 +210,16 @@ namespace WVC_XenotypesAndGenes
 			{
 				stringBuilder.AppendLine(string.Format("{0}", "WVC_XaG_XenoTreeXenoBulb_CooldownRootConnection".Translate(rootsCooldown.ToStringTicksToPeriod())));
 			}
-			stringBuilder.AppendLine(string.Format("{0}", "WVC_XaG_XenoTreeXenoBulb_Cpx".Translate(mainXenoTree.geneticMaterial_Cpx.ToString(), GetGenMatLimit().ToString())));
+			stringBuilder.AppendLine(string.Format("{0}", "WVC_XaG_XenoTreeXenoBulb_Cpx".Translate(mainXenoTree.geneticMaterial_Cpx.ToString(), GetGenMatLimit(mainXenoTree.Props.limitPerBulb_Cpx).ToString())));
 			if (parent.Position.IsPolluted(parent.Map))
 			{
-				stringBuilder.AppendLine(string.Format("{0}", "WVC_XaG_XenoTreeXenoBulb_Tox".Translate(mainXenoTree.geneticMaterial_Tox.ToString(), GetGenMatLimit().ToString())));
+				stringBuilder.AppendLine(string.Format("{0}", "WVC_XaG_XenoTreeXenoBulb_Tox".Translate(mainXenoTree.geneticMaterial_Tox.ToString(), GetGenMatLimit(mainXenoTree.Props.limitPerBulb_Tox).ToString())));
 			}
 			else if (parent.Position.GetFertility(parent.Map) >= Props.minFertilityForMetabolism)
 			{
-				stringBuilder.AppendLine(string.Format("{0}", "WVC_XaG_XenoTreeXenoBulb_Met".Translate(mainXenoTree.geneticMaterial_Met.ToString(), GetGenMatLimit().ToString())));
+				stringBuilder.AppendLine(string.Format("{0}", "WVC_XaG_XenoTreeXenoBulb_Met".Translate(mainXenoTree.geneticMaterial_Met.ToString(), GetGenMatLimit(mainXenoTree.Props.limitPerBulb_Met).ToString())));
 			}
-			stringBuilder.AppendLine(string.Format("{0}", "WVC_XaG_XenoTreeXenoBulb_Arc".Translate(mainXenoTree.geneticMaterial_Arc.ToString(), GetGenMatLimit().ToString())));
+			stringBuilder.AppendLine(string.Format("{0}", "WVC_XaG_XenoTreeXenoBulb_Arc".Translate(mainXenoTree.geneticMaterial_Arc.ToString(), GetGenMatLimit(mainXenoTree.Props.limitPerBulb_Arc).ToString())));
 			stringBuilder.Append(string.Format("{0}", "WVC_XaG_XenoTreeXenoBulb_NextGenMat".Translate(tickCounter.ToStringTicksToPeriod())));
 			return stringBuilder.ToString();
 		}

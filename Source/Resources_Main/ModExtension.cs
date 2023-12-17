@@ -106,5 +106,6 @@ namespace WVC_XenotypesAndGenes
 		// public List<GeneDef> gene_PawnSkillsNotDecay;
 		public List<string> mechDefNameShouldNotContain;
 		// public List<GeneDef> xenoTree_PollutionReq_GeneDefs;
+		public List<ThingDef> plantsToNotOverwrite_SpawnSubplant;
 	}
 }

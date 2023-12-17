@@ -7,7 +7,6 @@
 	<description>A small bulb with genetic material. Being planted close to a xeno-tree increases the number of xenotypes available.</description>
 	<descriptionHyperlinks>
 	  <ThingDef>WVC_Plant_TreeXenoSpawner</ThingDef>
-	  <!-- <ThingDef>WVC_XenoBulbSeed</ThingDef> -->
 	</descriptionHyperlinks>
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Buildings/XenoTree_Bulb</texPath>
@@ -27,7 +26,6 @@
 	<ingestible />
 	<preventSkyfallersLandingOn>true</preventSkyfallersLandingOn>
 	<canScatterOver>false</canScatterOver>
-	<minifiedDef IsNull="True" />
 	<plant>
 	  <interferesWithRoof>false</interferesWithRoof>
 	  <growMinGlow>0</growMinGlow>
@@ -55,7 +53,8 @@
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_XenoTree">
 		<compClass>WVC_XenotypesAndGenes.CompXenoBulb</compClass>
-		<ticksBetweenSpawn>12000~26000</ticksBetweenSpawn>
+		<!-- <ticksBetweenSpawn>60000~120000</ticksBetweenSpawn> -->
+		<!-- <geneticMaterialProduction>5~15</geneticMaterialProduction> -->
 		<uniqueTag>XenoBulb</uniqueTag>
 	  </li>
 	  <li Class="CompProperties_Glower">
@@ -70,14 +69,14 @@
 		<minGrowthForSpawn>0.6</minGrowthForSpawn>
 		<initialGrowthRange>0.2~0.8</initialGrowthRange>
 		<canSpawnOverPlayerSownPlants>false</canSpawnOverPlayerSownPlants>
-		<plantsToNotOverwrite>
-		  <li>Plant_PodGauranlen</li>
-		  <li MayRequire="Ludeon.RimWorld.Royalty">Plant_GrassAnima</li>
-		  <li MayRequire="Ludeon.RimWorld.Royalty">Plant_TreeAnima</li>
-		  <li MayRequire="Ludeon.RimWorld.Biotech">Plant_TreePolux</li>
-		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeResurgent</li>
-		  <li MayRequire="Ludeon.RimWorld.Ideology">Plant_TreeGauranlen</li>
-		</plantsToNotOverwrite>
+		<!-- <plantsToNotOverwrite> -->
+		  <!-- <li>Plant_PodGauranlen</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Royalty">Plant_GrassAnima</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Royalty">Plant_TreeAnima</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">Plant_TreePolux</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeResurgent</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Ideology">Plant_TreeGauranlen</li> -->
+		<!-- </plantsToNotOverwrite> -->
 	  </li>
 	</comps>
   </ThingDef>
