@@ -187,6 +187,21 @@ namespace WVC_XenotypesAndGenes
 					pawnNewBornChild.health.AddHediff(HediffDefOf.XenogerminationComa);
 					GeneUtility.UpdateXenogermReplication(pawnNewBornChild);
 				}
+				if (spawnTarget is Pawn pawnParent)
+				{
+					if (pawnNewBornChild.playerSettings != null && pawnParent.playerSettings != null)
+					{
+						pawnNewBornChild.playerSettings.AreaRestriction = pawnParent.playerSettings.AreaRestriction;
+					}
+					if (pawnNewBornChild.RaceProps.IsFlesh)
+					{
+						pawnNewBornChild.relations.AddDirectRelation(PawnRelationDefOf.Parent, pawnParent);
+					}
+					if (pawnParent.Spawned)
+					{
+						pawnParent.GetLord()?.AddPawn(pawnNewBornChild);
+					}
+				}
 			}
 			else
 			{

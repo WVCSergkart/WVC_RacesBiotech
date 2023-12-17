@@ -73,6 +73,7 @@
     <Compile Include="Resources_Abilities\CompProperties_AbilitySpawnOnCell.cs" />
     <Compile Include="Resources_Abilities\QuestNode_Root_Reincarnation.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ChangeXenotype.cs" />
+    <Compile Include="Resources_Gizmo\Dialog_ChooseXenotype.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_ResurgentSpores.cs" />
     <Compile Include="Resources_Gizmo\Gizmo_MaxGolems.cs" />
     <Compile Include="Resources_Genes\Gene_AngelicStability.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="Resources_Utility\GeneUtility.cs" />
     <Compile Include="Resources_Utility\GolemsUtility.cs" />
     <Compile Include="Resources_Utility\MechanidsUtility.cs" />
+    <Compile Include="Resources_Utility\MiscUtility.cs" />
     <Compile Include="Resources_Utility\ReimplanterUtility.cs" />
     <Compile Include="Resources_Things\CompProperties_InitialHediff.cs" />
     <Compile Include="Resources_Things\CompProperties_RandomName.cs" />
@@ -138,7 +140,7 @@
     <Compile Include="Resources_Genes\Gene_ResurgentCells.cs" />
     <Compile Include="Resources_Genes\Gene_Undead.cs" />
     <Compile Include="Resources_Genes\Gene_Faceless.cs" />
-    <Compile Include="Resources_Genes\Gene_GestatorTestTool.cs" />
+    <Compile Include="Resources_Genes\Gene_Gestator.cs" />
     <Compile Include="Resources_Genes\Gene_Clotting.cs" />
     <Compile Include="Resources_Genes\Gene_Spawner.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_CauseSetting.cs" />
@@ -165,7 +167,7 @@
     <Compile Include="Resources_Harmony\Harmony_PredatorPrey.cs" />
     <Compile Include="Resources_Harmony\Harmony_SkillDecay_Patch.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_Gestator.cs" />
-    <Compile Include="Resources_Hediff\HediffComp_Gestator.cs" />
+    <Compile Include="Resources_Hediff\Old_HediffComp_Gestator.cs" />
     <Compile Include="Resources_Hediff\GolemGestator.cs" />
     <Compile Include="Resources_Hediff\GolemGestatorProperties.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_GiveHediff.cs" />

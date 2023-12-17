@@ -271,4 +271,13 @@ Each mechanoid costs 0.15 nutrition to summon.</WVC_XaG_Gene_DustMechlinkDesc>
 	<WVC_XaG_XenoTreeCreateBulbLabel>Create bulb</WVC_XaG_XenoTreeCreateBulbLabel>
 	<WVC_XaG_XenoTreeCreateBulbDesc>Creates a xeno-bulb that slowly produces the resources needed to change the xenotype, gestate a baby, or create new bulbs.</WVC_XaG_XenoTreeCreateBulbDesc>
 
+	<!-- ========== GENE XENO GESTATOR ========== -->
+
+	<WVC_XaG_GeneXenoGestator_Label>Start gestation</WVC_XaG_GeneXenoGestator_Label>
+	<WVC_XaG_GeneXenoGestator_Desc>You can choose any xenotype for gestation. Gestation time directly depends on the complexity of the xenotype. The minimum time that gestation can take is 3 days.</WVC_XaG_GeneXenoGestator_Desc>
+
+	<WVC_XaG_GeneXenoGestator_GestationTime>Gestation time: {0}</WVC_XaG_GeneXenoGestator_GestationTime>
+
+	<WVC_XaG_GeneXenoGestator_GestationWarning>The gestation process will take time. During this time, the pawn will experience severe hunger and increased fatigue.</WVC_XaG_GeneXenoGestator_GestationWarning>
+
 </LanguageData>

@@ -98,6 +98,20 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool HasAnyActiveGene(List<GeneDef> geneDefs, Pawn pawn)
 		{
+			// for (int i = 0; i < geneDefs.Count; i++)
+			// {
+				// if (geneDefs[i] != null)
+				// {
+					// List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+					// for (int j = 0; j < genesListForReading.Count; j++)
+					// {
+						// if (genesListForReading[j].Active == true && genesListForReading[j].def == geneDefs[i])
+						// {
+							// return true;
+						// }
+					// }
+				// }
+			// }
 			for (int i = 0; i < geneDefs.Count; i++)
 			{
 				if (HasActiveGene(geneDefs[i], pawn))
@@ -144,6 +158,21 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 			return null;
+		}
+
+		public static int GetXenotype_Cpx(XenotypeDef xenotypeDef)
+		{
+			List<GeneDef> genes = xenotypeDef.genes;
+			if (genes.NullOrEmpty())
+			{
+				return 0;
+			}
+			int cpx = 0;
+			foreach (GeneDef item in xenotypeDef.genes)
+			{
+				cpx += item.biostatCpx;
+			}
+			return cpx;
 		}
 
 	}

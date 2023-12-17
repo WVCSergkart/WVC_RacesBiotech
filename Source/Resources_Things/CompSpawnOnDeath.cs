@@ -63,7 +63,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			for (int i = 0; i < Props.subplantCount; i++)
 			{
-				CompSpawnSubplantDuration.GrowSubplant(pawn, Props.maxRadius, Props.subplant, Props.initialGrowthRange, previousMap, Props.canSpawnOverPlayerSownPlants);
+				MiscUtility.GrowSubplant(pawn, Props.maxRadius, Props.subplant, Props.initialGrowthRange, previousMap, Props.canSpawnOverPlayerSownPlants);
 			}
 			// FilthMaker.TryMakeFilth(pawn.Position, previousMap, Props.filthDefToSpawn, filthCount);
 			Thing thing = ThingMaker.MakeThing(Props.thingDefsToSpawn.RandomElement());

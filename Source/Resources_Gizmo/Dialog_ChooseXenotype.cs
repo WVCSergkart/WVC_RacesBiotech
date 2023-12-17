@@ -8,15 +8,15 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Dialog_ChangeXenotype : Window
+	public class Dialog_ChooseXenotype : Window
 	{
-		public CompXenoTree xenoTree;
+		public Gene gene;
 
 		private Vector2 scrollPosition;
 
 		public XenotypeDef selectedXeno;
 
-		public XenotypeDef currentXeno;
+		// public XenotypeDef currentXeno;
 
 		private float rightViewWidth;
 
@@ -28,11 +28,11 @@ namespace WVC_XenotypesAndGenes
 
 		public override Vector2 InitialSize => new(Mathf.Min(900, UI.screenWidth), 650f);
 
-		public Dialog_ChangeXenotype(Thing tree)
+		public Dialog_ChooseXenotype(Gene thisGene)
 		{
-			xenoTree = tree.TryGetComp<CompXenoTree>();
-			currentXeno = xenoTree.chosenXenotype;
-			selectedXeno = currentXeno;
+			gene = thisGene;
+			// currentXeno = xenoTree.chosenXenotype;
+			// selectedXeno = currentXeno;
 			// connectedPawn = xenoTree.ConnectedPawn;
 			forcePause = true;
 			closeOnAccept = false;
@@ -83,7 +83,7 @@ namespace WVC_XenotypesAndGenes
 			Rect rect3 = rect2.ContractedBy(4f);
 			if (selectedXeno == null)
 			{
-				Widgets.Label(rect3, "WVC_XaG_XenoTreeModeChangeDescInitial".Translate());
+				Widgets.Label(rect3, "WVC_XaG_GeneXenoGestator_Desc".Translate());
 				return;
 			}
 			if (selectedXeno.descriptionShort.NullOrEmpty())
@@ -101,32 +101,13 @@ namespace WVC_XenotypesAndGenes
 				Widgets.HyperlinkWithIcon(new Rect(rect3.x, curY, rect3.width, Text.LineHeight), new Dialog_InfoCard.Hyperlink(item));
 				curY += Text.LineHeight;
 			}
+			Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneXenoGestator_GestationTime".Translate((GetGestationTime() * 60000).ToStringTicksToPeriod()).Resolve());
 			curY += 10f;
-			if (Find.TickManager.TicksGame < xenoTree.changeCooldown)
-			{
-				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_XenoTreeXenotypeChangeCooldown".Translate(xenoTree.changeCooldown.ToStringTicksToPeriod()).Colorize(ColorLibrary.RedReadable));
-				curY += 10f;
-			}
-			if (!XenoTreeUtility.XenoTree_ToxResCheck(selectedXeno, xenoTree.parent))
-			{
-				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_XenoTreeModeRequiredPollution".Translate(xenoTree.parent.LabelCap).Colorize(ColorLibrary.RedReadable));
-				curY += 10f;
-			}
-			// if (!XenoTreeUtility.XenoTree_ColdResCheck(selectedXeno, xenoTree.parent))
-			// {
-				// Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_XenoTreeModeRequiredCold".Translate(xenoTree.parent.LabelCap).Colorize(ColorLibrary.RedReadable));
-				// curY += 10f;
-			// }
-			// if (!XenoTreeUtility.XenoTree_HeatResCheck(selectedXeno, xenoTree.parent))
-			// {
-				// Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_XenoTreeModeRequiredHeat".Translate(xenoTree.parent.LabelCap).Colorize(ColorLibrary.RedReadable));
-				// curY += 10f;
-			// }
-			if (MeetsRequirements(selectedXeno) && selectedXeno != currentXeno)
+			if (MeetsRequirements(selectedXeno))
 			{
 				if (Widgets.ButtonText(rect4, "Accept".Translate()))
 				{
-					Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_XenoTreeModeChangeDescFull".Translate(xenoTree.parent.LabelCap), delegate
+					Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_GeneXenoGestator_GestationWarning".Translate(gene.pawn.LabelCap), delegate
 					{
 						StartChange();
 					});
@@ -135,7 +116,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			else
 			{
-				string label = ((selectedXeno == currentXeno) ? ((string)"WVC_XaG_XenoTreeMode_AlreadySelected".Translate()) : ((!MeetsRequirements(selectedXeno)) ? ((string)"WVC_XaG_XenoTreeModeNotMeetsRequirements".Translate()) : ((string)"Locked".Translate())));
+				string label = (!MeetsRequirements(selectedXeno)) ? "WVC_XaG_XenoTreeModeNotMeetsRequirements".Translate() : ((string)"Locked".Translate());
 				Text.Anchor = TextAnchor.MiddleCenter;
 				Widgets.DrawHighlight(rect4);
 				Widgets.Label(rect4.ContractedBy(5f), label);
@@ -143,12 +124,39 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		private int GetGestationTime()
+		{
+			return (int)(XaG_GeneUtility.GetXenotype_Cpx(selectedXeno) * 0.1f) + 3;
+		}
+
 		private void StartChange()
 		{
-			xenoTree.chosenXenotype = selectedXeno;
-			xenoTree.changeCooldown = Find.TickManager.TicksGame + xenoTree.Props.xenotypeChangeCooldown;
-			SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+			// xenoTree.chosenXenotype = selectedXeno;
+			// xenoTree.changeCooldown = Find.TickManager.TicksGame + xenoTree.Props.xenotypeChangeCooldown;
 			// SoundDefOf.GauranlenProductionModeSet.PlayOneShotOnCamera();
+			SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+			HediffDef hediffDef = gene?.def?.GetModExtension<GeneExtension_Giver>()?.hediffDefName;
+			// Log.Error(hediffDef.LabelCap);
+			if (hediffDef != null)
+			{
+				// Log.Error("1");
+				Hediff hediff = HediffMaker.MakeHediff(hediffDef, gene.pawn);
+				HediffComp_XenotypeGestator xeno_Gestator = hediff.TryGetComp<HediffComp_XenotypeGestator>();
+				// Log.Error("2");
+				if (xeno_Gestator != null)
+				{
+					xeno_Gestator.xenotypeDef = selectedXeno;
+					xeno_Gestator.gestationIntervalDays = GetGestationTime() + 3;
+				}
+				HediffComp_RemoveIfGeneIsNotActive hediff_GeneCheck = hediff.TryGetComp<HediffComp_RemoveIfGeneIsNotActive>();
+				if (hediff_GeneCheck != null)
+				{
+					hediff_GeneCheck.geneDef = gene.def;
+				}
+				// Log.Error("3");
+				gene.pawn.health.AddHediff(hediff);
+				// Log.Error("4");
+			}
 			Close(doCloseSound: false);
 		}
 
@@ -187,25 +195,30 @@ namespace WVC_XenotypesAndGenes
 			{
 				return true;
 			}
-			if (Find.TickManager.TicksGame < xenoTree.changeCooldown)
-			{
-				return false;
-			}
-			if (XenoTreeUtility.XenoTree_CanSpawn(mode, xenoTree.parent))
+			// TEST
+			if (mode != null)
 			{
 				return true;
 			}
+			// if (Find.TickManager.TicksGame < xenoTree.changeCooldown)
+			// {
+				// return false;
+			// }
+			// if (XenoTreeUtility.XenoTree_CanSpawn(mode, xenoTree.parent))
+			// {
+				// return true;
+			// }
 			return false;
 		}
 
 		private Color GetBoxColor(XenotypeDef mode)
 		{
 			Color result = TexUI.AvailResearchColor;
-			if (mode == currentXeno)
-			{
-				result = TexUI.ActiveResearchColor;
-			}
-			else if (!MeetsRequirements(mode))
+			// if (mode == currentXeno)
+			// {
+				// result = TexUI.ActiveResearchColor;
+			// }
+			if (!MeetsRequirements(mode))
 			{
 				result = TexUI.LockedResearchColor;
 			}

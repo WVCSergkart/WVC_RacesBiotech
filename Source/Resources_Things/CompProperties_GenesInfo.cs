@@ -149,12 +149,9 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (parent is Pawn pawn)
 				{
-					if (Props.onlyPlayerFaction)
+					if (Props.onlyPlayerFaction && !MiscUtility.PawnIsColonistOrSlave(pawn))
 					{
-						if (pawn.Faction != null && pawn.Faction != Faction.OfPlayer)
-						{
-							return null;
-						}
+						return null;
 					}
 					return Info(pawn);
 				}
