@@ -36,7 +36,7 @@ namespace WVC_XenotypesAndGenes
 				// return;
 				geneDef = Props.geneDef;
 			}
-			if (!MechanoidizationUtility.HasActiveGene(geneDef, parent.pawn))
+			if (!XaG_GeneUtility.HasActiveGene(geneDef, parent.pawn))
 			{
 				base.Pawn.health.RemoveHediff(parent);
 			}

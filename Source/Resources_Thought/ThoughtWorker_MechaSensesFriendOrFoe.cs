@@ -30,7 +30,7 @@ namespace WVC_XenotypesAndGenes
             {
                 return false;
             }
-            if (MechanoidizationUtility.HasActiveGene(WVC_GenesDefOf.WVC_MechaAI_SoftwareNaturalEnemy, other))
+            if (XaG_GeneUtility.HasActiveGene(WVC_GenesDefOf.WVC_MechaAI_SoftwareNaturalEnemy, other))
             {
                 return ThoughtState.ActiveAtStage(0);
             }

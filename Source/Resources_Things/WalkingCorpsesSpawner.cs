@@ -269,7 +269,7 @@ namespace WVC_XenotypesAndGenes
 			};
 			yield return new Command_Action
 			{
-				defaultLabel = "WVC_XaG_AlwaysRandomizeLabel".Translate(MechanoidizationUtility.OnOrOff(alwaysRandomize)),
+				defaultLabel = "WVC_XaG_AlwaysRandomizeLabel".Translate(GeneUiUtility.OnOrOff(alwaysRandomize)),
 				defaultDesc = "WVC_XaG_AlwaysRandomizeDesc".Translate(),
 				icon = ContentFinder<Texture2D>.Get(Props.uiIconRand),
 				shrinkable = true,

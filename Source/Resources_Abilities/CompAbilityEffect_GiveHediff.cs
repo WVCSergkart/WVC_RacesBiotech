@@ -53,7 +53,7 @@ namespace WVC_XenotypesAndGenes
 			if (Props.mechanoidCheck && parent.pawn.RaceProps.IsMechanoid)
 			{
 				Pawn overseer = parent.pawn.GetOverseer();
-				if (Props.overseerShouldHaveGene != null && !MechanoidizationUtility.HasActiveGene(Props.overseerShouldHaveGene, overseer))
+				if (Props.overseerShouldHaveGene != null && !XaG_GeneUtility.HasActiveGene(Props.overseerShouldHaveGene, overseer))
 				{
 					reason = "WVC_XaG_OverseerShouldHaveGene".Translate(Props.overseerShouldHaveGene.label.CapitalizeFirst());
 					return true;

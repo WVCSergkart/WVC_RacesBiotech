@@ -9,6 +9,19 @@ namespace WVC_XenotypesAndGenes
 	public static class ReimplanterUtility
 	{
 
+		public static void ReimplantEndogerm(Pawn caster, Pawn recipient)
+		{
+			if (!ModLister.CheckBiotech("xenogerm reimplantation"))
+			{
+				return;
+			}
+			QuestUtility.SendQuestTargetSignals(caster.questTags, "XenogermReimplanted", caster.Named("SUBJECT"));
+			ReimplanterUtility.ReimplantGenesBase(caster, recipient);
+			GeneUtility.ExtractXenogerm(caster);
+		}
+
+		// ===============================================================
+
 		public static void ReimplantXenogenesFromXenotype(Pawn pawn, XenotypeDef xenotypeDef)
 		{
 			pawn.genes.SetXenotypeDirect(xenotypeDef);

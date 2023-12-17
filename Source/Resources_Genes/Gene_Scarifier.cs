@@ -97,7 +97,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				for (int i = 0; i < genesListForReading.Count; i++)
 				{
-					if (MechanoidizationUtility.HasActiveGene(genesListForReading[i], pawn) && genesListForReading[i].GetModExtension<GeneExtension_Giver>() != null)
+					if (XaG_GeneUtility.HasActiveGene(genesListForReading[i], pawn) && genesListForReading[i].GetModExtension<GeneExtension_Giver>() != null)
 					{
 						scars += genesListForReading[i].GetModExtension<GeneExtension_Giver>().scarsCount;
 					}

@@ -161,7 +161,7 @@ namespace WVC_XenotypesAndGenes
 				// if (item.Faction == Faction.OfPlayer)
 				// {
 				// }
-				if (MechanoidizationUtility.HasActiveGene(Props.geneDef, item) || Props.geneDef == null)
+				if (XaG_GeneUtility.HasActiveGene(Props.geneDef, item) || Props.geneDef == null)
 				{
 					possibleParents.Add(item);
 				}

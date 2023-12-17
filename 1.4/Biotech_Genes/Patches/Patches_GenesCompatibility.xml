@@ -118,6 +118,38 @@
 		<!-- </match> -->
 	<!-- </Operation> -->
 
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+			  <xpath>/Defs/ThingDef[@Name="AnimalThingBase"]/race/willNeverEat</xpath>
+			  <success>Invert</success>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/ThingDef[@Name="AnimalThingBase"]/race</xpath>
+			  <success>Always</success>
+			  <value>
+				<willNeverEat/>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/ThingDef[@Name="AnimalThingBase"]/race/willNeverEat</xpath>
+	  <value>
+		<!-- Plants -->
+		<li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeXenoSpawner</li>
+		<li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_XenoBulb</li>
+		<li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeResurgent</li>
+		<li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeXenoSpawner</li>
+		<!-- Edible Non-Food -->
+		<!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MealDustPack</li> -->
+		<!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MealDustogenicPaste</li> -->
+		<li MayRequire="Ludeon.RimWorld.Biotech">WVC_NutrientsInjector</li>
+		<li MayRequire="Ludeon.RimWorld.Biotech">WVC_UniversalFuel</li>
+	  </value>
+	</Operation>
+
 	<!-- ============================================================ -->
 
 	<Operation Class="PatchOperationFindMod">

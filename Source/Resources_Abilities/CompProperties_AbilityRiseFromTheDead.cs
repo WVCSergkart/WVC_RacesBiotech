@@ -53,7 +53,7 @@ namespace WVC_XenotypesAndGenes
 			// Pawn pawn = target.Pawn;
 			if (innerPawn != null)
 			{
-				MechanoidizationUtility.ReimplantEndogerm(parent.pawn, innerPawn);
+				ReimplanterUtility.ReimplantEndogerm(parent.pawn, innerPawn);
 				FleckMaker.AttachedOverlay(innerPawn, FleckDefOf.FlashHollow, new Vector3(0f, 0f, 0.26f));
 				if (PawnUtility.ShouldSendNotificationAbout(parent.pawn) || PawnUtility.ShouldSendNotificationAbout(innerPawn))
 				{
@@ -77,7 +77,7 @@ namespace WVC_XenotypesAndGenes
 					return false;
 				}
 				Pawn innerPawn = ((Corpse)target.Thing).InnerPawn;
-				if (MechanoidizationUtility.PawnIsAndroid(innerPawn) || MechanoidizationUtility.PawnCannotUseSerums(innerPawn))
+				if (XaG_GeneUtility.PawnIsAndroid(innerPawn) || XaG_GeneUtility.PawnCannotUseSerums(innerPawn))
 				{
 					if (throwMessages)
 					{

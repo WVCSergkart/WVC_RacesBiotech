@@ -12,12 +12,12 @@ namespace WVC_XenotypesAndGenes
             {
                 return false;
             }
-            if (MechanoidizationUtility.IsAngelBeauty(pawn))
+            if (GeneFeaturesUtility.IsAngelBeauty(pawn))
             {
                 return false;
             }
             float psySens = pawn.GetStatValue(StatDefOf.PsychicSensitivity);
-            if (psySens > 0f && MechanoidizationUtility.IsAngelBeauty(other))
+            if (psySens > 0f && GeneFeaturesUtility.IsAngelBeauty(other))
             {
                 return ThoughtState.ActiveAtStage(0);
             }

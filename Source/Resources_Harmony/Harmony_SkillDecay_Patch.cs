@@ -13,7 +13,7 @@ namespace WVC_XenotypesAndGenes
             [HarmonyPrefix]
             public static bool Prefix(Pawn ___pawn)
             {
-                if (MechanoidizationUtility.PawnSkillsNotDecay(___pawn))
+                if (GeneFeaturesUtility.PawnSkillsNotDecay(___pawn))
                 {
                     return false;
                 }

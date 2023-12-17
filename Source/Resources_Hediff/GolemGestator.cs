@@ -74,7 +74,7 @@ namespace WVC_XenotypesAndGenes
             // asexualFissionCounter = 0;
             // return;
             // }
-            if (MechanoidizationUtility.HasActiveGene(Props.geneDef, childOwner))
+            if (XaG_GeneUtility.HasActiveGene(Props.geneDef, childOwner))
             {
                 GestationUtility.GenerateNewBornPawn(childOwner, Props.completeMessage, Props.endogeneTransfer, Props.xenogeneTransfer, spawnPawn: golem);
             }

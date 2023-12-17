@@ -4,12 +4,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
+using RimWorld.QuestGen;
 
 namespace WVC_XenotypesAndGenes
 {
 
 	public static class MechanoidsUtility
 	{
+
+		public static void MechSummonQuest(Pawn pawn, QuestScriptDef quest)
+		{
+			Slate slate = new();
+			slate.Set("points", StorytellerUtility.DefaultThreatPointsNow(pawn.Map));
+			slate.Set("asker", pawn);
+			_ = QuestUtility.GenerateQuestAndMakeAvailable(quest, slate);
+			// QuestUtility.SendLetterQuestAvailable(quest);
+		}
+
+		// ===============================================================
 
 		// public static bool LimitExceedCheck(Pawn mechanitor, StatDef bandwidth)
 		// {

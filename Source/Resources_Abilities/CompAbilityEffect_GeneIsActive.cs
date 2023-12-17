@@ -44,7 +44,7 @@ namespace WVC_XenotypesAndGenes
             {
                 foreach (GeneDef allSelectedItem in Props.eachOfGenes)
                 {
-                    if (!MechanoidizationUtility.HasActiveGene(allSelectedItem, pawn))
+                    if (!XaG_GeneUtility.HasActiveGene(allSelectedItem, pawn))
                     {
                         reason = "WVC_XaG_AbilityGeneIsActive_PawnNotHaveGene".Translate(pawn) + ": " + "\n" + Props.eachOfGenes.Select((GeneDef x) => x.label).ToLineList(" - ", capitalizeItems: true);
                         return true;
@@ -55,7 +55,7 @@ namespace WVC_XenotypesAndGenes
             {
                 foreach (GeneDef allSelectedItem in Props.anyOfGenes)
                 {
-                    if (MechanoidizationUtility.HasActiveGene(allSelectedItem, pawn))
+                    if (XaG_GeneUtility.HasActiveGene(allSelectedItem, pawn))
                     {
                         reason = null;
                         return false;

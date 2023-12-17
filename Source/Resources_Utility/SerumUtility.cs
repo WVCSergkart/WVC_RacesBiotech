@@ -14,7 +14,7 @@ namespace WVC_XenotypesAndGenes
 		// For example, GeneRestoration uses exactly this
 		public static bool PawnIsHuman(Pawn pawn)
 		{
-			if (MechanoidizationUtility.PawnIsAndroid(pawn) || !pawn.RaceProps.Humanlike)
+			if (XaG_GeneUtility.PawnIsAndroid(pawn) || !pawn.RaceProps.Humanlike)
 			{
 				return false;
 			}
@@ -24,7 +24,7 @@ namespace WVC_XenotypesAndGenes
 		// Checking whether serums can be used. Mainly for abilities.
 		public static bool PawnCanUseSerums(Pawn pawn)
 		{
-			if (!PawnIsHuman(pawn) || MechanoidizationUtility.PawnCannotUseSerums(pawn) || ReimplanterUtility.DelayedReimplanterIsActive(pawn))
+			if (!PawnIsHuman(pawn) || XaG_GeneUtility.PawnCannotUseSerums(pawn) || ReimplanterUtility.DelayedReimplanterIsActive(pawn))
 			{
 				return false;
 			}

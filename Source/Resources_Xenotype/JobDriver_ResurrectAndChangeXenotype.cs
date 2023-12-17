@@ -58,7 +58,7 @@ namespace WVC_XenotypesAndGenes
         {
             Pawn innerPawn = Corpse.InnerPawn;
             SoundDefOf.MechSerumUsed.PlayOneShot(SoundInfo.InMap(innerPawn));
-            if (MechanoidizationUtility.PawnIsAndroid(innerPawn) || !innerPawn.RaceProps.Humanlike || MechanoidizationUtility.PawnCannotUseSerums(innerPawn))
+            if (XaG_GeneUtility.PawnIsAndroid(innerPawn) || !innerPawn.RaceProps.Humanlike || XaG_GeneUtility.PawnCannotUseSerums(innerPawn))
             {
                 ResurrectionUtility.ResurrectWithSideEffects(innerPawn);
                 Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);

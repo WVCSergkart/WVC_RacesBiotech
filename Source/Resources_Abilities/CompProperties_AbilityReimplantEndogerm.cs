@@ -32,7 +32,7 @@ namespace WVC_XenotypesAndGenes
             Pawn pawn = target.Pawn;
             if (pawn != null)
             {
-                MechanoidizationUtility.ReimplantEndogerm(parent.pawn, pawn);
+                ReimplanterUtility.ReimplantEndogerm(parent.pawn, pawn);
                 FleckMaker.AttachedOverlay(pawn, FleckDefOf.FlashHollow, new Vector3(0f, 0f, 0.26f));
                 if (PawnUtility.ShouldSendNotificationAbout(parent.pawn) || PawnUtility.ShouldSendNotificationAbout(pawn))
                 {

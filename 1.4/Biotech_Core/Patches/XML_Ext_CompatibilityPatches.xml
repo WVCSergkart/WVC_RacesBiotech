@@ -386,16 +386,16 @@
 	  <!-- </value> -->
 	<!-- </Operation> -->
 
-	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
-	  <xpath>/Defs/ThingDef/race</xpath> 
-	  <safetyDepth>1</safetyDepth>
-	  <value>
-		  <willNeverEat>
-			<li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeResurgent</li>
-			<li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeXenoSpawner</li>
-		  </willNeverEat>
-	  </value>
-	</Operation>
+	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
+	  <!-- <xpath>/Defs/ThingDef/race</xpath>  -->
+	  <!-- <safetyDepth>1</safetyDepth> -->
+	  <!-- <value> -->
+		  <!-- <willNeverEat> -->
+			<!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeResurgent</li> -->
+			<!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeXenoSpawner</li> -->
+		  <!-- </willNeverEat> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
 
 	<!-- Should fix a bug due to which the vanilla FixWorstHealthCondition "cure" these statuses -->
 	<!-- <Operation Class="XmlExtensions.PatchOperationAddOrReplace"> -->

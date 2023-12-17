@@ -154,7 +154,7 @@ namespace WVC_XenotypesAndGenes
 					// gene_Dust.Value -= def.resourceLossPerDay;
 				// }
 				DustUtility.OffsetNeedFood(pawn, -1f * def.resourceLossPerDay);
-				MechanoidizationUtility.MechSummonQuest(pawn, SummonQuest);
+				MechanoidsUtility.MechSummonQuest(pawn, SummonQuest);
 				if (i == 0)
 				{
 					Messages.Message("WVC_RB_Gene_Summoner".Translate(pawn.LabelIndefinite().CapitalizeFirst()), pawn, MessageTypeDefOf.PositiveEvent);
@@ -215,7 +215,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield return new Command_Action
 				{
-					defaultLabel = "WVC_XaG_Gene_DustMechlink".Translate() + ": " + MechanoidizationUtility.OnOrOff(summonMechanoids),
+					defaultLabel = "WVC_XaG_Gene_DustMechlink".Translate() + ": " + GeneUiUtility.OnOrOff(summonMechanoids),
 					defaultDesc = "WVC_XaG_Gene_DustMechlinkDesc".Translate(),
 					icon = ContentFinder<Texture2D>.Get(def.iconPath),
 					action = delegate

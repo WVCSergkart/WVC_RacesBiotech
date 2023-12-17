@@ -15,7 +15,7 @@ namespace WVC_XenotypesAndGenes
             // [HarmonyPostfix]
             public static bool Prefix(ref bool __result, ref Pawn prey)
             {
-                if (prey.RaceProps.Humanlike && MechanoidizationUtility.IsNotAcceptablePrey(prey))
+                if (prey.RaceProps.Humanlike && GeneFeaturesUtility.IsNotAcceptablePrey(prey))
                 {
                     // Log.Error(prey.Name + " is not a prey.");
                     __result = false;

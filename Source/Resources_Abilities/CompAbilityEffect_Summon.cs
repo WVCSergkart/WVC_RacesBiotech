@@ -20,7 +20,7 @@ namespace WVC_XenotypesAndGenes
 			int countSpawn = Props.spawnCountRange.RandomInRange;
 			for (int i = 0; i < countSpawn; i++)
 			{
-				MechanoidizationUtility.MechSummonQuest(parent.pawn, Props.quest);
+				MechanoidsUtility.MechSummonQuest(parent.pawn, Props.quest);
 			}
 			Messages.Message("WVC_RB_Gene_Summoner".Translate(parent.pawn.LabelIndefinite().CapitalizeFirst()), parent.pawn, MessageTypeDefOf.PositiveEvent);
 		}

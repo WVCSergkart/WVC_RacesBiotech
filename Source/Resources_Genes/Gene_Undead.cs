@@ -97,7 +97,7 @@ namespace WVC_XenotypesAndGenes
 				// {
 					// return true;
 				// }
-				else if (!AnyResourceIsActive() && !MechanoidizationUtility.HasAnyHediff(PreventResurrectionHediffs, pawn))
+				else if (!AnyResourceIsActive() && !HediffUtility.HasAnyHediff(PreventResurrectionHediffs, pawn))
 				{
 					return true;
 				}

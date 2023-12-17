@@ -74,7 +74,7 @@ namespace WVC_XenotypesAndGenes
 						{
 							foreach (Ability ability in abilities.AllAbilitiesForReading.ToList())
 							{
-								if (MechanoidizationUtility.AbilityIsGeneAbility(ability))
+								if (XaG_GeneUtility.AbilityIsGeneAbility(ability))
 								{
 									abilities.RemoveAbility(ability.def);
 									abilities.GainAbility(ability.def);

@@ -194,7 +194,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			yield return new Command_Action
 			{
-				defaultLabel = "WVC_XaG_GeneBabyTree_label".Translate() + ": " + MechanoidizationUtility.OnOrOff(spawnerIsActive),
+				defaultLabel = "WVC_XaG_GeneBabyTree_label".Translate() + ": " + GeneUiUtility.OnOrOff(spawnerIsActive),
 				defaultDesc = "WVC_XaG_GeneBabyTree_desc".Translate(),
 				icon = parent.def.uiIcon,
 				action = delegate

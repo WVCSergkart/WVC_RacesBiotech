@@ -22,7 +22,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						for (int i = 0; i < geneDefs.Count; i++)
 						{
-							if (MechanoidizationUtility.HasActiveGene(geneDefs[i], pawn))
+							if (XaG_GeneUtility.HasActiveGene(geneDefs[i], pawn))
 							{
 								stringBuilder.Append(geneDefs[i].label);
 								return stringBuilder.ToString();
@@ -57,7 +57,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						for (int i = 0; i < geneDefs.Count; i++)
 						{
-							if (MechanoidizationUtility.HasActiveGene(geneDefs[i], pawn))
+							if (XaG_GeneUtility.HasActiveGene(geneDefs[i], pawn))
 							{
 								stringBuilder.Append("WVC_XaG_CustomLabeledMechlinkDesc".Translate());
 								return stringBuilder.ToString();

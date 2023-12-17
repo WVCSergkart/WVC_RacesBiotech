@@ -16,10 +16,15 @@ namespace WVC_XenotypesAndGenes
 
 		public int ingestAtOnce = 1;
 
+		// private GeneDef cachedGeneDef;
+
+		// private bool cachedNeedSpecialFood = true;
+
 		public override ThinkNode DeepCopy(bool resolve = true)
 		{
 			JobGiver_GetSpecialFood obj = (JobGiver_GetSpecialFood)base.DeepCopy(resolve);
 			obj.geneDefs = geneDefs;
+			// obj.cachedNeedSpecialFood = cachedNeedSpecialFood;
 			obj.foodDefs = foodDefs;
 			obj.ingestAtOnce = ingestAtOnce;
 			return obj;
@@ -27,19 +32,31 @@ namespace WVC_XenotypesAndGenes
 
 		public override float GetPriority(Pawn pawn)
 		{
-			if (!ModsConfig.BiotechActive)
-			{
-				return 0f;
-			}
+			// if (!ModsConfig.BiotechActive)
+			// {
+				// return 0f;
+			// }
+			// if (!cachedNeedSpecialFood)
+			// {
+				// Log.Error(pawn.Name + " non-food");
+				// return 0f;
+			// }
+			// Log.Error(pawn.Name + " food");
 			Need_Food food = pawn.needs.food;
 			if (food == null)
 			{
 				// Log.Error(pawn.Name + " non-food");
+				// cachedNeedSpecialFood = false;
 				return 0f;
 			}
 			if (!pawn.RaceProps.Humanlike || pawn.genes == null || pawn.genes.Xenotype == XenotypeDefOf.Baseliner)
 			{
 				// Log.Error(pawn.Name + " non-dustogenic");
+				// cachedNeedSpecialFood = false;
+				return 0f;
+			}
+			if (pawn.Downed)
+			{
 				return 0f;
 			}
 			if (food.CurLevelPercentage < pawn.RaceProps.FoodLevelPercentageWantEat)
@@ -52,10 +69,18 @@ namespace WVC_XenotypesAndGenes
 
 		protected override Job TryGiveJob(Pawn pawn)
 		{
-			if (!ModsConfig.BiotechActive)
+			// if (!cachedNeedSpecialFood)
+			// {
+				// return null;
+			// }
+			if (pawn.Downed)
 			{
 				return null;
 			}
+			// if (!ModsConfig.BiotechActive)
+			// {
+				// return null;
+			// }
 			Need_Food food = pawn.needs.food;
 			if (food == null)
 			{
@@ -66,11 +91,7 @@ namespace WVC_XenotypesAndGenes
 			// {
 				// Log.Error(pawn.Name + " geneDefs is null");
 			// }
-			// if (!MechanoidizationUtility.HasAnyActiveGene(geneDefs, pawn))
-			// {
-				// Log.Error(pawn.Name + " no any active genes");
-			// }
-			if (!geneDefs.NullOrEmpty() && MechanoidizationUtility.HasAnyActiveGene(geneDefs, pawn))
+			if (!geneDefs.NullOrEmpty() && XaG_GeneUtility.HasAnyActiveGene(geneDefs, pawn))
 			{
 				// Log.Error(pawn.Name + " try get special food");
 				// int num = Mathf.FloorToInt((food.Max - gene_Hemogen.Value) / HemogenPackHemogenGain);
@@ -92,6 +113,10 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			}
+			// else if (cachedNeedSpecialFood)
+			// {
+				// cachedNeedSpecialFood = false;
+			// }
 			// Log.Error(pawn.Name + " special food is null");
 			return null;
 		}

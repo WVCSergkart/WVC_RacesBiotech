@@ -137,7 +137,7 @@ namespace WVC_XenotypesAndGenes
 			List<XenotypeDef> list = new();
 			foreach (XenotypeDef item in DefDatabase<XenotypeDef>.AllDefsListForReading)
 			{
-				if (!MechanoidizationUtility.XenotypeIsAndroid(item))
+				if (!XaG_GeneUtility.XenotypeIsAndroid(item))
 				{
 					list.Add(item);
 				}

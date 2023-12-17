@@ -10,6 +10,17 @@ namespace WVC_XenotypesAndGenes
     public static class GeneUiUtility
     {
 
+		public static string OnOrOff(bool onOrOff)
+		{
+			if (onOrOff)
+			{
+				return "WVC_XaG_Gene_DustMechlink_On".Translate().Colorize(ColorLibrary.Green);
+			}
+			return "WVC_XaG_Gene_DustMechlink_Off".Translate().Colorize(ColorLibrary.RedReadable);
+		}
+
+		// ===========================
+
 		public static bool ReplaceGeneBackground(GeneDef geneDef)
 		{
 			if (!WVC_Biotech.settings.disableUniqueGeneInterface && (geneDef.defName.Contains("WVC_") || geneDef.GetModExtension<GeneExtension_Background>() != null))
