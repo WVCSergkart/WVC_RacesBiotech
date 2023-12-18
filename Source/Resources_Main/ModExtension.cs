@@ -97,6 +97,14 @@ namespace WVC_XenotypesAndGenes
 		public bool removeRepairComp = false;
 		public bool removeDormantComp = false;
 	}
+
+	// public class FoodExtension_GeneFood : DefModExtension
+	// {
+		// public bool requireAnyGene = false;
+		// public List<GeneDef> geneDefs;
+		// public List<ThingDef> foodDefs;
+	// }
+
 	// public class BlackListedXenotypesDef : Def
 	public class XenotypesAndGenesListDef : Def
 	{

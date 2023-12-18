@@ -1,4 +1,5 @@
 using RimWorld;
+using System.Collections.Generic;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -6,6 +7,7 @@ namespace WVC_XenotypesAndGenes
 
 	public class HediffCompProperties_Gestator : HediffCompProperties
 	{
+
 		public int gestationIntervalDays = -1;
 		public XenotypeDef xenotypeDef;
 
@@ -28,10 +30,12 @@ namespace WVC_XenotypesAndGenes
 		// {
 			// compClass = typeof(HediffComp_Gestator);
 		// }
+
 	}
 
 	public class HediffComp_XenotypeGestator : HediffComp
 	{
+
 		private readonly int ticksInday = 60000;
 
 		private int ticksCounter = 0;
@@ -93,6 +97,11 @@ namespace WVC_XenotypesAndGenes
 				RemoveHediff();
 				return;
 			}
+			EndGestation();
+		}
+
+		private void EndGestation()
+		{
 			// GestationUtility.GenerateNewBornPawn(parent.pawn, Props.completeMessage, Props.endogeneTransfer, Props.xenogeneTransfer);
 			GestationUtility.GenerateNewBornPawn_WithChosenXenotype(Pawn, xenotypeDef, Props.completeLetterLabel, Props.completeLetterDesc, Props.xenogerminationComa);
 			ticksCounter = 0;
@@ -119,6 +128,22 @@ namespace WVC_XenotypesAndGenes
 			}
 			return "";
 		}
+
+		public override IEnumerable<Gizmo> CompGetGizmos()
+		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: Complete gestation",
+					action = delegate
+					{
+						EndGestation();
+					}
+				};
+			}
+		}
+
 	}
 
 }

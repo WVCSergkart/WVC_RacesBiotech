@@ -114,7 +114,8 @@
 	</stages>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_ImmaculateConception">
-		<requiredSeverity>0.90</requiredSeverity>
+		<requiredSeverity>1.0</requiredSeverity>
+		<hediffDef>WVC_XenotypesAndGenes_PostGestationRecovery</hediffDef>
 		<completeMessage>WVC_XaG_Gene_ImmaculateConception</completeMessage>
 	  </li>
 	  <li Class="HediffCompProperties_SeverityPerDay">

@@ -196,7 +196,7 @@
 	<plantsToNotOverwrite_SpawnSubplant>
 	  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeResurgent</li>
 	  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeXenoSpawner</li>
-	  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_XenoBulb</li>
+	  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_XenoBulb</li> -->
 	  <li MayRequire="Ludeon.RimWorld.Ideology">Plant_PodGauranlen</li>
 	  <li MayRequire="Ludeon.RimWorld.Royalty">Plant_GrassAnima</li>
 	  <li MayRequire="Ludeon.RimWorld.Royalty">Plant_TreeAnima</li>

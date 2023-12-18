@@ -184,13 +184,14 @@ namespace WVC_XenotypesAndGenes
 			XenoTreeUtility.SetXenotype_DoubleXenotype(pawnNewBornChild, xenotypeDef);
 			if (PawnUtility.TrySpawnHatchedOrBornPawn(pawnNewBornChild, spawnTarget))
 			{
-				GetBabyName(pawnNewBornChild, null);
+				Pawn pawnParent = spawnTarget is Pawn ? spawnTarget as Pawn : null;
+				GetBabyName(pawnNewBornChild, pawnParent);
 				if (xenogerminationComa)
 				{
 					pawnNewBornChild.health.AddHediff(HediffDefOf.XenogerminationComa);
 					GeneUtility.UpdateXenogermReplication(pawnNewBornChild);
 				}
-				if (spawnTarget is Pawn pawnParent)
+				if (pawnParent != null)
 				{
 					if (pawnNewBornChild.playerSettings != null && pawnParent.playerSettings != null)
 					{

@@ -141,9 +141,13 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool GenesIsMatch(List<Gene> pawnGenes, List<GeneDef> xenotypeGenes, float percent)
 		{
-			if (pawnGenes.NullOrEmpty() || xenotypeGenes.NullOrEmpty())
+			if (pawnGenes.NullOrEmpty())
 			{
 				return false;
+			}
+			if (xenotypeGenes.NullOrEmpty())
+			{
+				return true;
 			}
 			List<GeneDef> matchingGenes = GetMatchingGenesList(pawnGenes, xenotypeGenes);
 			if (matchingGenes.Count >= xenotypeGenes.Count * percent)

@@ -28,9 +28,10 @@
 	  <MaxHitPoints>50</MaxHitPoints>
 	  <MarketValue>0.07</MarketValue>
 	  <Mass>0.0025</Mass>
-	  <Flammability>0.0</Flammability>
+	  <Flammability>0.2</Flammability>
 	  <DeteriorationRate>5.0</DeteriorationRate>
 	  <Nutrition>0.06</Nutrition>
+	  <FoodPoisonChanceFixedHuman>0.04</FoodPoisonChanceFixedHuman>
 	  <!-- <Bulk MayRequire="ceteam.combatextended">0.2</Bulk> -->
 	</statBases>
 	<intricate>true</intricate>
@@ -43,15 +44,16 @@
 	  <foodType>Fluid</foodType>
 	  <preferability>DesperateOnly</preferability>
 	  <!-- <foodType>Processed</foodType> -->
-	  <ateEvent>AteNutrientPaste</ateEvent>
+	  <!-- <ateEvent>WVC_IngestedUltranites</ateEvent> -->
+	  <specialThoughtDirect>WVC_IngestedUltranites</specialThoughtDirect>
 	  <ingestEffect>EatVegetarian</ingestEffect>
 	  <ingestSound>Meal_Eat</ingestSound>
 	  <babiesCanIngest>true</babiesCanIngest>
 	  <canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
 	  <!-- <tableDesired>false</tableDesired> -->
 	  <!-- <ingestHoldUsesTable>false</ingestHoldUsesTable> -->
-	  <!-- <optimalityOffsetHumanlikes>-100</optimalityOffsetHumanlikes> -->
-	  <!-- <optimalityOffsetFeedingAnimals>-100</optimalityOffsetFeedingAnimals> -->
+	  <optimalityOffsetHumanlikes>-1200</optimalityOffsetHumanlikes>
+	  <optimalityOffsetFeedingAnimals>-99999</optimalityOffsetFeedingAnimals>
 	</ingestible>
 	<comps>
 	  <!-- <li Class="CompProperties_Glower"> -->

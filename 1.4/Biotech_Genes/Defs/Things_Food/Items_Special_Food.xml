@@ -36,7 +36,7 @@ Dustogenic pawns will automatically try to use these injectors instead of regula
 	  <DeteriorationRate>5</DeteriorationRate>
 	  <Mass>0.50</Mass>
 	  <Flammability>0.4</Flammability>
-	  <Nutrition>1.0</Nutrition>
+	  <Nutrition>1.2</Nutrition>
 	  <Beauty>0</Beauty>
 	  <MarketValue>35</MarketValue>
 	</statBases>
@@ -61,9 +61,28 @@ Dustogenic pawns will automatically try to use these injectors instead of regula
 		<glowColor>(241, 175, 129, 0)</glowColor>
 	  </li>
 	</comps>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.FoodExtension_GeneFood"> -->
+			<!-- <geneDefs> -->
+			  <!-- <li>WVC_Dustogenic</li> -->
+			<!-- </geneDefs> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </ThingDef>
 
-  <ThingDef ParentName="MealBase">
+  <!-- ========================================================== -->
+
+  <ThingDef ParentName="MealBase" Name="WVC_XenotypesAndGenes_SpecialMeal_Base" Abstract="True">
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.FoodExtension_GeneFood"> -->
+			<!-- <geneDefs> -->
+			  <!-- <li>WVC_Dustogenic</li> -->
+			<!-- </geneDefs> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </ThingDef>
+
+  <ThingDef ParentName="WVC_XenotypesAndGenes_SpecialMeal_Base">
 	<defName>WVC_MealDustPack</defName>
 	<label>packaged dustogenic meal</label>
 	<description>A high-quality packaged meal, manufactured for use by dustogenic pawns. While it never rots, it can still deteriorate if left outside. Great for traveling.</description>
@@ -79,7 +98,7 @@ Dustogenic pawns will automatically try to use these injectors instead of regula
 	  <MarketValue>24</MarketValue>
 	  <Mass>0.3</Mass>
 	  <WorkToMake>450</WorkToMake>
-	  <Nutrition>0.9</Nutrition>
+	  <Nutrition>1.2</Nutrition>
 	</statBases>
 	<ingestible>
 	  <maxNumToIngestAtOnce>1</maxNumToIngestAtOnce>
@@ -94,7 +113,7 @@ Dustogenic pawns will automatically try to use these injectors instead of regula
 	<allowedArchonexusCount>40</allowedArchonexusCount>
   </ThingDef>
 
-  <ThingDef ParentName="MealBase">
+  <ThingDef ParentName="WVC_XenotypesAndGenes_SpecialMeal_Base">
 	<defName>WVC_MealDustogenicPaste</defName>
 	<label>dustogenic paste meal</label>
 	<description>A synthetic mixture of protein, carbohydrates, and vitamins, amino acids, minerals and hemogen. Everything the dustogenic body needs, and absolutely disgusting.</description>
@@ -108,7 +127,7 @@ Dustogenic pawns will automatically try to use these injectors instead of regula
 	  <MarketValue>10</MarketValue>
 	  <Mass>0.3</Mass>
 	  <WorkToMake>450</WorkToMake>
-	  <Nutrition>0.9</Nutrition>
+	  <Nutrition>1.2</Nutrition>
 	</statBases>
 	<ingestible>
 	  <maxNumToIngestAtOnce>1</maxNumToIngestAtOnce>

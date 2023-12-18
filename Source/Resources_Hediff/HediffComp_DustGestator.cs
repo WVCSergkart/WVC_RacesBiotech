@@ -1,4 +1,5 @@
 using RimWorld;
+using System.Collections.Generic;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -6,15 +7,17 @@ namespace WVC_XenotypesAndGenes
 
 	public class HediffCompProperties_ImmaculateConception : HediffCompProperties
 	{
-		public float requiredSeverity = 0.9f;
+		public float requiredSeverity = 1.0f;
 
-		public float removeSeverity = 1.0f;
+		// public float removeSeverity = 1.0f;
 
 		public string completeMessage = "WVC_XaG_Gene_ImmaculateConception";
 
 		public bool endogeneTransfer = true;
 
 		public bool xenogeneTransfer = true;
+
+		public HediffDef hediffDef;
 
 		public HediffCompProperties_ImmaculateConception()
 		{
@@ -24,9 +27,10 @@ namespace WVC_XenotypesAndGenes
 
 	public class HediffComp_ImmaculateConception : HediffComp
 	{
+
 		public HediffCompProperties_ImmaculateConception Props => (HediffCompProperties_ImmaculateConception)props;
 
-		private bool canBirth = true;
+		// private bool canBirth = true;
 
 		// protected int GestationIntervalDays => Props.gestationIntervalDays;
 
@@ -39,43 +43,60 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			Pawn pawn = parent.pawn;
-			if (pawn.Map == null)
+			// Pawn pawn = parent.pawn;
+			if (Pawn.Map == null)
 			{
 				return;
 			}
-			if (pawn.Faction != Faction.OfPlayer)
+			if (!MiscUtility.PawnIsColonistOrSlave(Pawn, true))
 			{
-				base.Pawn.health.RemoveHediff(parent);
+				RemoveHediff();
 				return;
 			}
-			if (canBirth && parent.Severity >= Props.requiredSeverity)
+			if (parent.Severity >= Props.requiredSeverity)
 			{
-				canBirth = false;
-				GestationUtility.GenerateNewBornPawn(parent.pawn, Props.completeMessage, Props.endogeneTransfer, Props.xenogeneTransfer);
-			}
-			if (parent.Severity >= Props.removeSeverity)
-			{
-				base.Pawn.health.RemoveHediff(parent);
+				EndGestation();
 			}
 		}
 
-		public override void CompExposeData()
+		private void RemoveHediff(bool replaceWithOtherHediff = false)
 		{
-			base.CompExposeData();
-			Scribe_Values.Look(ref canBirth, "canBirth");
+			Pawn.health.RemoveHediff(parent);
+			if (replaceWithOtherHediff && Props.hediffDef != null)
+			{
+				Hediff hediff = HediffMaker.MakeHediff(Props.hediffDef, Pawn);
+				Pawn.health.AddHediff(hediff);
+			}
 		}
 
-		// public string GetLabel()
+		private void EndGestation()
+		{
+			// canBirth = false;
+			GestationUtility.GenerateNewBornPawn(parent.pawn, Props.completeMessage, Props.endogeneTransfer, Props.xenogeneTransfer);
+			RemoveHediff(true);
+		}
+
+		// public override void CompExposeData()
 		// {
-		// Pawn pawn = parent.pawn;
-		// if (pawn.Faction == Faction.OfPlayer && pawn.ageTracker.CurLifeStage.reproductive)
-		// {
-		// float percent = (float)ticksCounter / (float)(ticksInday * GestationIntervalDays);
-		// return percent.ToStringPercent();
+			// base.CompExposeData();
+			// Scribe_Values.Look(ref canBirth, "canBirth");
 		// }
-		// return "";
-		// }
+
+		public override IEnumerable<Gizmo> CompGetGizmos()
+		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: Complete pregnancy",
+					action = delegate
+					{
+						EndGestation();
+					}
+				};
+			}
+		}
+
 	}
 
 }

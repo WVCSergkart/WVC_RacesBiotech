@@ -139,7 +139,7 @@
 	  <value>
 		<!-- Plants -->
 		<li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeXenoSpawner</li>
-		<li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_XenoBulb</li>
+		<!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_XenoBulb</li> -->
 		<li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeResurgent</li>
 		<li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeXenoSpawner</li>
 		<!-- Edible Non-Food -->
