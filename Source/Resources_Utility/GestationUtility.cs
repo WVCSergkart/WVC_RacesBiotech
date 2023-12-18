@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using Verse;
 using Verse.AI.Group;
+using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -57,6 +58,7 @@ namespace WVC_XenotypesAndGenes
 			if (pawnTarget.Spawned)
 			{
 				FilthMaker.TryMakeFilth(pawnTarget.Position, pawnTarget.Map, ThingDefOf.Filth_AmnioticFluid, pawnTarget.LabelIndefinite(), 5);
+				SoundDefOf.Hive_Spawn.PlayOneShot(new TargetInfo(pawnTarget));
 				if (pawnTarget.caller != null)
 				{
 					pawnTarget.caller.DoCall();
@@ -153,6 +155,7 @@ namespace WVC_XenotypesAndGenes
 			if (pawnTarget.Spawned)
 			{
 				FilthMaker.TryMakeFilth(pawnTarget.Position, pawnTarget.Map, ThingDefOf.Filth_Slime, 5);
+				SoundDefOf.Hive_Spawn.PlayOneShot(new TargetInfo(pawnTarget));
 				// if (pawn.caller != null)
 				// {
 				// pawn.caller.DoCall();
@@ -210,6 +213,7 @@ namespace WVC_XenotypesAndGenes
 			if (spawnTarget.Spawned)
 			{
 				FilthMaker.TryMakeFilth(spawnTarget.Position, spawnTarget.Map, ThingDefOf.Filth_Slime, 5);
+				SoundDefOf.Hive_Spawn.PlayOneShot(new TargetInfo(spawnTarget));
 				if (pawnNewBornChild.caller != null)
 				{
 					pawnNewBornChild.caller.DoCall();

@@ -349,40 +349,7 @@ namespace WVC_XenotypesAndGenes
 		public static float XenotypeCost(XenotypeDef xenotype)
 		{
 			// float num = 0f;
-			float num = (float)((Archites(xenotype) * 0.6) + (Complexity(xenotype) * 0.2) + (-1 * (Metabolism(xenotype) * 0.3)));
-			return num;
-		}
-
-		public static float Archites(XenotypeDef xenotype)
-		{
-			float num = 0f;
-			List<GeneDef> genesListForReading = xenotype.genes;
-			for (int i = 0; i < genesListForReading.Count; i++)
-			{
-				num += genesListForReading[i].biostatArc;
-			}
-			return num;
-		}
-
-		public static float Complexity(XenotypeDef xenotype)
-		{
-			float num = 0f;
-			List<GeneDef> genesListForReading = xenotype.genes;
-			for (int i = 0; i < genesListForReading.Count; i++)
-			{
-				num += genesListForReading[i].biostatCpx;
-			}
-			return num;
-		}
-
-		public static float Metabolism(XenotypeDef xenotype)
-		{
-			float num = 0f;
-			List<GeneDef> genesListForReading = xenotype.genes;
-			for (int i = 0; i < genesListForReading.Count; i++)
-			{
-				num += genesListForReading[i].biostatMet;
-			}
+			float num = (float)((XaG_GeneUtility.GetXenotype_Arc(xenotype) * 0.6) + (XaG_GeneUtility.GetXenotype_Cpx(xenotype) * 0.2) + (-1 * (XaG_GeneUtility.GetXenotype_Met(xenotype) * 0.3)));
 			return num;
 		}
 
@@ -483,9 +450,9 @@ namespace WVC_XenotypesAndGenes
 			};
 			// float marketValue = StatExtension.GetStatValue(thingDef, StatDefOf.MarketValue);
 			// thingDef.SetStatBaseValue(StatDefOf.MarketValue, template.marketValueOffset + xenotypeCost);
-			float xenotypeArc = Archites(def);
-			float xenotypeCpx = Complexity(def);
-			float xenotypeMet = Metabolism(def);
+			float xenotypeArc = XaG_GeneUtility.GetXenotype_Arc(def);
+			float xenotypeCpx = XaG_GeneUtility.GetXenotype_Cpx(def);
+			float xenotypeMet = XaG_GeneUtility.GetXenotype_Met(def);
 			if (template.costList != null)
 			{
 				if (xenotypeArc > 0)

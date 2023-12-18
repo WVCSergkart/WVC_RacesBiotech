@@ -63,8 +63,20 @@ namespace WVC_XenotypesAndGenes
 		public List<GeneDef> scarGeneDefs;
 		// Rand Hediff
 		// public HediffStatRandDef hediffStatRandDef;
+		// Gestator
+		// public float matchPercent = 0.4f;
+		// public float matchPercent = 0.4f;
 		// Special Food
 		public List<ThingDef> specialFoodDefs;
+	}
+
+	public class GeneExtension_XenotypeGestator : DefModExtension
+	{
+		public HediffDef gestationHediffDef;
+		public HediffDef cooldownHediffDef;
+		public float matchPercent = 0.4f;
+		public int minimumDays = 3;
+		public int cooldownDays = 15;
 	}
 
 	public class XenotypeExtension_SubXenotype : DefModExtension

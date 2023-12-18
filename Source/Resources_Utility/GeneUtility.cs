@@ -139,7 +139,56 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		public static bool GenesIsMatch(List<Gene> pawnGenes, List<GeneDef> xenotypeGenes, float percent)
+		{
+			if (pawnGenes.NullOrEmpty() || xenotypeGenes.NullOrEmpty())
+			{
+				return false;
+			}
+			List<GeneDef> matchingGenes = GetMatchingGenesList(pawnGenes, xenotypeGenes);
+			if (matchingGenes.Count >= xenotypeGenes.Count * percent)
+			{
+				return true;
+			}
+			return false;
+		}
+
 		// ============================= Getter =============================
+
+		public static List<XenotypeDef> GetAllMatchedXenotypes(Pawn pawn, List<XenotypeDef> xenotypeDefs, float percent = 0.6f)
+		{
+			List<Gene> pawnGenes = pawn?.genes?.GenesListForReading;
+			if (pawnGenes.NullOrEmpty() || xenotypeDefs.NullOrEmpty())
+			{
+				return null;
+			}
+			List<XenotypeDef> matched = new();
+			foreach (XenotypeDef item in xenotypeDefs)
+			{
+				if (GenesIsMatch(pawnGenes, item.genes, percent))
+				{
+					matched.Add(item);
+				}
+			}
+			return matched;
+		}
+
+		public static List<GeneDef> GetMatchingGenesList(List<Gene> pawnGenes, List<GeneDef> xenotypeGenes)
+		{
+			if (pawnGenes.NullOrEmpty() || xenotypeGenes.NullOrEmpty())
+			{
+				return null;
+			}
+			List<GeneDef> geneDef = new();
+			foreach (Gene item in pawnGenes)
+			{
+				if (xenotypeGenes.Contains(item.def))
+				{
+					geneDef.Add(item.def);
+				}
+			}
+			return geneDef;
+		}
 
 		public static GeneDef GetAnyActiveGeneFromList(List<GeneDef> geneDefs, Pawn pawn)
 		{
@@ -167,12 +216,42 @@ namespace WVC_XenotypesAndGenes
 			{
 				return 0;
 			}
-			int cpx = 0;
-			foreach (GeneDef item in xenotypeDef.genes)
+			int num = 0;
+			foreach (GeneDef item in genes)
 			{
-				cpx += item.biostatCpx;
+				num += item.biostatCpx;
 			}
-			return cpx;
+			return num;
+		}
+
+		public static int GetXenotype_Met(XenotypeDef xenotypeDef)
+		{
+			List<GeneDef> genes = xenotypeDef.genes;
+			if (genes.NullOrEmpty())
+			{
+				return 0;
+			}
+			int num = 0;
+			foreach (GeneDef item in genes)
+			{
+				num += item.biostatMet;
+			}
+			return num;
+		}
+
+		public static int GetXenotype_Arc(XenotypeDef xenotypeDef)
+		{
+			List<GeneDef> genes = xenotypeDef.genes;
+			if (genes.NullOrEmpty())
+			{
+				return 0;
+			}
+			int num = 0;
+			foreach (GeneDef item in genes)
+			{
+				num += item.biostatArc;
+			}
+			return num;
 		}
 
 	}

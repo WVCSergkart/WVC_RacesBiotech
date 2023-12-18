@@ -66,6 +66,49 @@
 			<compClass>WVC_XenotypesAndGenes.HediffComp_XenotypeGestator</compClass>
 			<gestationIntervalDays>-1</gestationIntervalDays>
 			<xenogerminationComa>true</xenogerminationComa>
+			<hediffDef>WVC_XenotypesAndGenes_PostGestationRecovery</hediffDef>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive"/>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_XenotypesAndGenes_PostGestationRecovery</defName>
+	<label>post gestation recovery</label>
+	<description>The body of the carrier is restored after the end of the gestation process.</description>
+	<hediffClass>HediffWithComps</hediffClass>
+	<stages>
+	  <li>
+		<hungerRateFactorOffset>0.2</hungerRateFactorOffset>
+		<capMods>
+		  <li>
+			<capacity>Moving</capacity>
+			<offset>-0.2</offset>
+		  </li>
+		</capMods>
+	  </li>
+	</stages>
+	<comps>
+		<li Class="HediffCompProperties_Disappears">
+			<disappearsAfterTicks>6000~12000</disappearsAfterTicks>
+			<showRemainingTime>true</showRemainingTime>
+		</li>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_XenotypesAndGenes_GestatorCooldown</defName>
+	<label>gestator cooldown</label>
+	<description>Before this time has expired, the gestator cannot be reused.</description>
+	<hediffClass>HediffWithComps</hediffClass>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveLetter">
+			<letterLabel>WVC_XaG_GeneXenoGestator_CooldownLetterLabel</letterLabel>
+			<letterDesc>WVC_XaG_GeneXenoGestator_CooldownLetterDesc</letterDesc>
+		</li>
+		<li Class="HediffCompProperties_Disappears">
+			<disappearsAfterTicks>6000~12000</disappearsAfterTicks>
+			<showRemainingTime>true</showRemainingTime>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive"/>
 	</comps>

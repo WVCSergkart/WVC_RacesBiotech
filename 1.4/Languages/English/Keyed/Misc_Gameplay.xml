@@ -278,6 +278,11 @@ Each mechanoid costs 0.15 nutrition to summon.</WVC_XaG_Gene_DustMechlinkDesc>
 
 	<WVC_XaG_GeneXenoGestator_GestationTime>Gestation time: {0}</WVC_XaG_GeneXenoGestator_GestationTime>
 
+	<WVC_XaG_GeneXenoGestator_GestationGenesMatch>The minimum matched genes must be at least {0}%</WVC_XaG_GeneXenoGestator_GestationGenesMatch>
+
 	<WVC_XaG_GeneXenoGestator_GestationWarning>The gestation process will take time. During this time, the pawn will experience severe hunger and increased fatigue.</WVC_XaG_GeneXenoGestator_GestationWarning>
+
+	<WVC_XaG_GeneXenoGestator_CooldownLetterLabel>Gestator is ready</WVC_XaG_GeneXenoGestator_CooldownLetterLabel>
+	<WVC_XaG_GeneXenoGestator_CooldownLetterDesc>{0} can reuse the gestator.</WVC_XaG_GeneXenoGestator_CooldownLetterDesc>
 
 </LanguageData>
