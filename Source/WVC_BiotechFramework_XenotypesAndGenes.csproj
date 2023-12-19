@@ -83,7 +83,7 @@
     <Compile Include="Resources_Genes\Gene_ResurgentCellsGain.cs" />
     <Compile Include="Resources_Genes\Gene_Scarifier.cs" />
     <Compile Include="Resources_Genes\Gene_Wings.cs" />
-    <Compile Include="Resources_Genes\Gene_XenotypeShapeShift.cs" />
+    <Compile Include="Resources_Genes\Gene_NonPlayerSpecials.cs" />
     <Compile Include="Resources_Harmony\Harmony.cs" />
     <Compile Include="Resources_Harmony\Harmony_Background_New.cs" />
     <Compile Include="Resources_Harmony\Harmony_DisablePawnRelations.cs" />
@@ -108,7 +108,6 @@
     <Compile Include="Resources_Things\CompProperties_InitialNeed.cs" />
     <Compile Include="Resources_Things\CompProperties_Regeneration.cs" />
     <Compile Include="Resources_Things\CompProperties_UseEffectEatSeed.cs" />
-    <Compile Include="Resources_Things\CompProperties_XenoBulb_New.cs" />
     <Compile Include="Resources_Things\CompProperties_XenoTree.cs" />
     <Compile Include="Resources_Things\CompSpawnOnDeath.cs" />
     <Compile Include="Resources_Things\CompSpawnSubplantDuration.cs" />

@@ -57,6 +57,7 @@
 		<compClass>WVC_XenotypesAndGenes.CompXenoTree</compClass>
 		<ticksBetweenSpawn>480000~720000</ticksBetweenSpawn>
 		<!-- <xenoBulbDef>WVC_Plant_XenoBulb</xenoBulbDef> -->
+		<connectionGeneDef>WVC_XenotypesAndGenes_InfectedMind</connectionGeneDef>
 	  </li>
 	  <li Class="CompProperties_SelfhealHitpoints">
 		<ticksPerHeal>2000</ticksPerHeal>

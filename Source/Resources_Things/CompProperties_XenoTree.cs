@@ -17,9 +17,13 @@ namespace WVC_XenotypesAndGenes
 		public bool xenogerminationComa = true;
 
 		public int xenotypeChangeCooldown = 420000;
-		public int rootsConnectionCooldown = 220000;
+		// public int rootsConnectionCooldown = 220000;
+
+		public int skillShareRefresh = 60000;
 
 		// public ThingDef xenoBulbDef;
+
+		public GeneDef connectionGeneDef;
 
 		// public IntRange geneticMaterial_Cpx = new(4, 12);
 		// public IntRange geneticMaterial_Met = new(3, 7);
@@ -54,10 +58,11 @@ namespace WVC_XenotypesAndGenes
 	public class CompXenoTree : ThingComp
 	{
 		public int tickCounter = 0;
+		public int skillsRefreshTicks = 0;
 
 		public int changeCooldown = 0;
 
-		public List<Thing> connectedBulbs = new();
+		public List<Pawn> connectedPawns = new();
 
 		private bool spawnerIsActive = false;
 
@@ -188,6 +193,33 @@ namespace WVC_XenotypesAndGenes
 					}
 				};
 			}
+			yield return new Command_Action
+			{
+				defaultLabel = "WVC_XaG_XenoTree_PawnConnectionLabel".Translate(),
+				defaultDesc = "WVC_XaG_XenoTree_PawnConnectionDesc".Translate(),
+				icon = parent.def.uiIcon,
+				action = delegate
+				{
+					List<FloatMenuOption> list = new();
+					List<Pawn> freeColonists = parent.Map.mapPawns.FreeColonists;
+					for (int i = 0; i < freeColonists.Count; i++)
+					{
+						Pawn localPawn = freeColonists[i];
+						if (!connectedPawns.Contains(localPawn) && MiscUtility.PawnIsColonistOrSlave(localPawn) && localPawn.GetStatValue(StatDefOf.PsychicSensitivity) > 0f)
+						{
+							list.Add(new FloatMenuOption(localPawn.Name.ToStringFull, delegate
+							{
+								connectedPawns.Add(localPawn);
+								Messages.Message("WVC_XaG_XenoTree_PawnConnectionAssigned".Translate(localPawn.Name.ToStringShort, parent.LabelCap), localPawn, MessageTypeDefOf.NeutralEvent, historical: false);
+							}));
+						}
+					}
+					if (list.Any())
+					{
+						Find.WindowStack.Add(new FloatMenu(list));
+					}
+				}
+			};
 			if (Subplant != null && parent is Plant plant && plant.Growth < Subplant.Props.minGrowthForSpawn)
 			{
 				yield break;
@@ -317,9 +349,9 @@ namespace WVC_XenotypesAndGenes
 
 		public override void PostDrawExtraSelectionOverlays()
 		{
-			if (!connectedBulbs.NullOrEmpty())
+			if (!connectedPawns.NullOrEmpty())
 			{
-				foreach (Thing item in connectedBulbs)
+				foreach (Thing item in connectedPawns)
 				{
 					if (item != null)
 					{
@@ -331,13 +363,24 @@ namespace WVC_XenotypesAndGenes
 
 		public override void PostDestroy(DestroyMode mode, Map previousMap)
 		{
-			if (!connectedBulbs.NullOrEmpty())
+			// if (!connectedBulbs.NullOrEmpty())
+			// {
+				// foreach (Thing item in connectedBulbs)
+				// {
+					// if (item != null && item.TryGetComp<CompXenoBulb>() != null)
+					// {
+						// item.TryGetComp<CompXenoBulb>().mainXenoTree = null;
+					// }
+				// }
+			// }
+			if (!connectedPawns.NullOrEmpty())
 			{
-				foreach (Thing item in connectedBulbs)
+				foreach (Pawn item in connectedPawns)
 				{
-					if (item != null && item.TryGetComp<CompXenoBulb>() != null)
+					Gene_InfectedMind infector = item?.genes?.GetFirstGeneOfType<Gene_InfectedMind>();
+					if (infector != null)
 					{
-						item.TryGetComp<CompXenoBulb>().mainXenoTree = null;
+						infector.xenoTree = null;
 					}
 				}
 			}
@@ -346,17 +389,19 @@ namespace WVC_XenotypesAndGenes
 		public void ResetCounter()
 		{
 			tickCounter = Props.ticksBetweenSpawn.RandomInRange;
+			skillsRefreshTicks = Props.skillShareRefresh;
 		}
 
 		public override void PostExposeData()
 		{
 			base.PostExposeData();
 			Scribe_Values.Look(ref tickCounter, "tickCounterNextBabySpawn_" + Props.uniqueTag, 0);
+			Scribe_Values.Look(ref skillsRefreshTicks, "skillsRefreshTicks_" + Props.uniqueTag, 0);
 			Scribe_Values.Look(ref changeCooldown, "changeCooldown_" + Props.uniqueTag, 0);
 			Scribe_Defs.Look(ref chosenXenotype, "chosenXenotype_" + Props.uniqueTag);
 			Scribe_Values.Look(ref spawnerIsActive, "spawnerIsActive", true);
 			// Bulbs
-			Scribe_Collections.Look(ref connectedBulbs, "connectedBulbs_" + Props.uniqueTag, LookMode.Reference);
+			Scribe_Collections.Look(ref connectedPawns, "connectedPawns_" + Props.uniqueTag, LookMode.Reference);
 			// Bulb Materials
 			// Scribe_Values.Look(ref geneticMaterial_Cpx, "geneticMaterial_Cpx_" + Props.uniqueTag, 0);
 			// Scribe_Values.Look(ref geneticMaterial_Met, "geneticMaterial_Met_" + Props.uniqueTag, 0);

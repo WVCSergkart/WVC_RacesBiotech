@@ -8,10 +8,10 @@ namespace WVC_XenotypesAndGenes
 
 	public class GeneExtension_Background : DefModExtension
 	{
-		// public string backgroundPathEndogenes;
-		// public string backgroundPathXenogenes;
-		// public string backgroundPathArchite;
-		// public bool replaceBackground = true;
+		public string backgroundPathEndogenes;
+		public string backgroundPathXenogenes;
+		public string backgroundPathEndoArchite;
+		public string backgroundPathXenoArchite;
 	}
 
 	public class GeneExtension_Spawner : DefModExtension

@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
@@ -98,6 +99,10 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool HasAnyActiveGene(List<GeneDef> geneDefs, Pawn pawn)
 		{
+			if (geneDefs.NullOrEmpty())
+			{
+				return false;
+			}
 			// for (int i = 0; i < geneDefs.Count; i++)
 			// {
 				// if (geneDefs[i] != null)
@@ -158,6 +163,30 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// ============================= Getter =============================
+
+		public static GeneDef GetFirstGeneDefOfType(List<GeneDef> genes, Type type)
+		{
+			for (int i = 0; i < genes.Count; i++)
+			{
+				if (genes[i].geneClass == type)
+				{
+					return genes[i];
+				}
+			}
+			return null;
+		}
+
+		// public static Gene GetFirstGeneOfType(List<Gene> genes, Type type)
+		// {
+			// for (int i = 0; i < genes.Count; i++)
+			// {
+				// if (genes[i] is type)
+				// {
+					// return genes[i];
+				// }
+			// }
+			// return null;
+		// }
 
 		public static List<XenotypeDef> GetAllMatchedXenotypes(Pawn pawn, List<XenotypeDef> xenotypeDefs, float percent = 0.6f)
 		{

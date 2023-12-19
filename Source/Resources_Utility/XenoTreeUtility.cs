@@ -202,7 +202,7 @@ namespace WVC_XenotypesAndGenes
 			List<XenotypeDef> xenotypes = GetXenotypeAndDoubleXenotypes(xenotypeDef);
 			foreach (XenotypeDef xenotype in xenotypes)
 			{
-				GeneDef geneDef = GetFirstGeneOfType(xenotype.genes, typeof(Gene_Hemogen));
+				GeneDef geneDef = XaG_GeneUtility.GetFirstGeneDefOfType(xenotype.genes, typeof(Gene_Hemogen));
 				if (geneDef != null)
 				{
 					return true;
@@ -221,7 +221,7 @@ namespace WVC_XenotypesAndGenes
 			List<XenotypeDef> xenotypes = GetXenotypeAndDoubleXenotypes(xenotypeDef);
 			foreach (XenotypeDef xenotype in xenotypes)
 			{
-				GeneDef geneDef = GetFirstGeneOfType(xenotype.genes, typeof(Gene_Undead));
+				GeneDef geneDef = XaG_GeneUtility.GetFirstGeneDefOfType(xenotype.genes, typeof(Gene_Undead));
 				if (geneDef != null)
 				{
 					return true;
@@ -255,18 +255,6 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 			return xenotypes;
-		}
-
-		public static GeneDef GetFirstGeneOfType(List<GeneDef> genes, Type type)
-		{
-			for (int i = 0; i < genes.Count; i++)
-			{
-				if (genes[i].geneClass == type)
-				{
-					return genes[i];
-				}
-			}
-			return null;
 		}
 
 		// =============================== Setter ===============================

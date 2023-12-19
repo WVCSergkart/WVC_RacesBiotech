@@ -161,6 +161,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static CachedTexture BackgroundTexture(GeneDef gene, GeneType geneType)
 		{
+			GeneExtension_Background background = gene.GetModExtension<GeneExtension_Background>();
 			CachedTexture cachedTexture = new("WVC/UI/Genes/GeneBackground_Endogene");
 			if (gene.biostatArc == 0)
 			{
@@ -168,9 +169,17 @@ namespace WVC_XenotypesAndGenes
 				{
 				case GeneType.Endogene:
 					cachedTexture = new("WVC/UI/Genes/GeneBackground_Endogene");
+					if (background != null && !background.backgroundPathEndogenes.NullOrEmpty())
+					{
+						cachedTexture = new(background.backgroundPathEndogenes);
+					}
 					break;
 				case GeneType.Xenogene:
 					cachedTexture = new("WVC/UI/Genes/GeneBackground_Xenogene");
+					if (background != null && !background.backgroundPathXenogenes.NullOrEmpty())
+					{
+						cachedTexture = new(background.backgroundPathXenogenes);
+					}
 					break;
 				}
 			}
@@ -180,9 +189,17 @@ namespace WVC_XenotypesAndGenes
 				{
 				case GeneType.Endogene:
 					cachedTexture = new("WVC/UI/Genes/GeneBackground_ArchiteGene");
+					if (background != null && !background.backgroundPathEndoArchite.NullOrEmpty())
+					{
+						cachedTexture = new(background.backgroundPathEndoArchite);
+					}
 					break;
 				case GeneType.Xenogene:
 					cachedTexture = new("WVC/UI/Genes/GeneBackground_XenoArchiteGene");
+					if (background != null && !background.backgroundPathXenoArchite.NullOrEmpty())
+					{
+						cachedTexture = new(background.backgroundPathXenoArchite);
+					}
 					break;
 				}
 			}
