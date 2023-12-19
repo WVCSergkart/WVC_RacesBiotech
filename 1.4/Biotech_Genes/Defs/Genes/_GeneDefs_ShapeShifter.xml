@@ -54,31 +54,31 @@
 
   <!-- ================= -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSpecialPurposes_Base">
-	<defName>WVC_XenotypesAndGenes_InfectedMind</defName>
-	<label>infected mind</label>
-	<description>Carriers of this gene bear the imprint of the xeno-tree. Being connected to the tree they receive a number of useful benefits.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_InfectedMind</geneClass>
-	<iconPath>WVC/UI/Genes/Gene_InfectedMind</iconPath>
-	<iconColor>(179, 147, 145)</iconColor>
-	<customEffectDescriptions>
-		<li>Skills not decay.</li>
-		<li>Skill levels are shared with other carriers of this gene connected to the same tree. The highest level has priority.</li>
-		<li>All carriers connected to the same tree increase the chance of a nervous breakdown by 2%.</li>
-		<li>&lt;color=#ff8585&gt;Useless without xeno-tree.&lt;/color&gt;</li>
-	</customEffectDescriptions>
-	<displayOrderInCategory>0</displayOrderInCategory>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Background">
-			<backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene_Infected</backgroundPathEndogenes>
-			<backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene_Infected</backgroundPathXenogenes>
-			<backgroundPathEndoArchite>WVC/UI/Genes/GeneBackground_ArchiteGene_Infected</backgroundPathEndoArchite>
-			<backgroundPathXenoArchite>WVC/UI/Genes/GeneBackground_ArchiteGene_Infected</backgroundPathXenoArchite>
-		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
-			<noSkillDecay>true</noSkillDecay>
-		</li>
-	</modExtensions>
-  </GeneDef>
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSpecialPurposes_Base"> -->
+	<!-- <defName>WVC_XenotypesAndGenes_InfectedMind</defName> -->
+	<!-- <label>infected mind</label> -->
+	<!-- <description>Carriers of this gene bear the imprint of the xeno-tree. Being connected to the tree they receive a number of useful benefits.</description> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_InfectedMind</geneClass> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_InfectedMind</iconPath> -->
+	<!-- <iconColor>(179, 147, 145)</iconColor> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Skills not decay.</li> -->
+		<!-- <li>Skill levels are shared with other carriers of this gene connected to the same tree. The highest level has priority.</li> -->
+		<!-- <li>All carriers connected to the same tree increase the chance of a nervous breakdown by 2%.</li> -->
+		<!-- <li>&lt;color=#ff8585&gt;Useless without xeno-tree.&lt;/color&gt;</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <displayOrderInCategory>0</displayOrderInCategory> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Background"> -->
+			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene_Infected</backgroundPathEndogenes> -->
+			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene_Infected</backgroundPathXenogenes> -->
+			<!-- <backgroundPathEndoArchite>WVC/UI/Genes/GeneBackground_ArchiteGene_Infected</backgroundPathEndoArchite> -->
+			<!-- <backgroundPathXenoArchite>WVC/UI/Genes/GeneBackground_ArchiteGene_Infected</backgroundPathXenoArchite> -->
+		<!-- </li> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <noSkillDecay>true</noSkillDecay> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
 
 </Defs>

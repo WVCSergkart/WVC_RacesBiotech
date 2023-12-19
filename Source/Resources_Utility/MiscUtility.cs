@@ -7,6 +7,41 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
+	// public class Command_ActionWithCooldown : Command_Action
+	// {
+		// private static readonly Texture2D cooldownBarTex = SolidColorMaterials.NewSolidColorTexture(new Color(Color.grey.r, Color.grey.g, Color.grey.b, 0.6f));
+
+		// private int lastUsedTick;
+
+		// private int cooldownTicks;
+
+		// public Command_ActionWithCooldown(int lastUsedTick, int cooldownTicks)
+		// {
+			// this.lastUsedTick = lastUsedTick;
+			// this.cooldownTicks = cooldownTicks;
+		// }
+
+		// public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
+		// {
+			// Rect rect = new Rect(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
+			// GizmoResult result = base.GizmoOnGUI(topLeft, maxWidth, parms);
+			// if (lastUsedTick > 0)
+			// {
+				// int num = Find.TickManager.TicksGame - lastUsedTick;
+				// if (num < cooldownTicks)
+				// {
+					// float value = Mathf.InverseLerp(cooldownTicks, 0f, num);
+					// Widgets.FillableBar(rect, Mathf.Clamp01(value), cooldownBarTex, null, doBorder: false);
+				// }
+			// }
+			// if (result.State == GizmoState.Interacted)
+			// {
+				// return result;
+			// }
+			// return new GizmoResult(result.State);
+		// }
+	// }
+
 	public static class MiscUtility
 	{
 

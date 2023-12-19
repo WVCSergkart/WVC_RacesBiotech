@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base"> -->
+	<!-- <defName>WVC_XenotypesAndGenes_XenoInfection</defName> -->
+	<!-- <label>xeno-infection</label> -->
+	<!-- <description>Before this time has expired, the gestator cannot be reused.</description> -->
+	<!-- <hediffClass>HediffWithComps</hediffClass> -->
+	<!-- <makesSickThought>true</makesSickThought> -->
+	<!-- <makesAlert>false</makesAlert> -->
+	<!-- <minSeverity>0.001</minSeverity> -->
+	<!-- <maxSeverity>1</maxSeverity> -->
+	<!-- <initialSeverity>0.001</initialSeverity> -->
+	<!-- <tendable>true</tendable> -->
+	<!-- <comps> -->
+	  <!-- <li Class="HediffCompProperties_Disappears"> -->
+		<!-- <disappearsAfterTicks>900000~1800000</disappearsAfterTicks> -->
+	  <!-- </li> -->
+	  <!-- <li Class="HediffCompProperties_TendDuration"> -->
+		<!-- <baseTendDurationHours>48</baseTendDurationHours> -->
+		<!-- <severityPerDayTended>-0.10</severityPerDayTended> -->
+	  <!-- </li> -->
+	  <!-- <li Class="HediffCompProperties_Immunizable"> -->
+		<!-- <severityPerDayNotImmune>1.24</severityPerDayNotImmune> -->
+		<!-- <immunityPerDaySick>0.3441</immunityPerDaySick> -->
+		<!-- <severityPerDayImmune>-0.70</severityPerDayImmune> -->
+		<!-- <immunityPerDayNotSick>-1.42</immunityPerDayNotSick> -->
+	  <!-- </li> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_XenoTreeInfection"/> -->
+	<!-- </comps> -->
+  <!-- </HediffDef> -->
+
+</Defs>

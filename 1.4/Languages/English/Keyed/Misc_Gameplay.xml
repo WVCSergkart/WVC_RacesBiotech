@@ -241,28 +241,29 @@ Each mechanoid costs 0.15 nutrition to summon.</WVC_XaG_Gene_DustMechlinkDesc>
 	<WVC_XaG_XenoTreeXenotypeChooseLabel>Choose xenotype</WVC_XaG_XenoTreeXenotypeChooseLabel>
 	<WVC_XaG_XenoTreeXenotypeChooseDesc>Allows you to select the xenotype of the future baby.</WVC_XaG_XenoTreeXenotypeChooseDesc>
 	<WVC_XaG_XenoTreeXenotypeChooseAssigned>Xenotype "{0}" is assigned.</WVC_XaG_XenoTreeXenotypeChooseAssigned>
+	<WVC_XaG_XenoTreeXenotypeChooseDisabled>{0} must be connected to at least one pawn.</WVC_XaG_XenoTreeXenotypeChooseDisabled>
 
 	<WVC_XaG_CurrentXenotype>Current xenotype</WVC_XaG_CurrentXenotype>
 
-	<WVC_XaG_XenoTreeAllGenesCount>Genes: {0}/{1}</WVC_XaG_XenoTreeAllGenesCount>
+	<!-- <WVC_XaG_XenoTreeAllGenesCount>Genes: {0}/{1}</WVC_XaG_XenoTreeAllGenesCount> -->
 
 	<!-- ========== XENO BULB ========== -->
 
-	<WVC_XaG_XenoTreeXenoBulb_ReqRootConnection>{0} must be connected to the tree by its roots!</WVC_XaG_XenoTreeXenoBulb_ReqRootConnection>
+	<!-- <WVC_XaG_XenoTreeXenoBulb_ReqRootConnection>{0} must be connected to the tree by its roots!</WVC_XaG_XenoTreeXenoBulb_ReqRootConnection> -->
 
-	<WVC_XaG_XenoTreeXenoBulb_CooldownRootConnection>Roots connection cooldown: {0}</WVC_XaG_XenoTreeXenoBulb_CooldownRootConnection>
+	<!-- <WVC_XaG_XenoTreeXenoBulb_CooldownRootConnection>Roots connection cooldown: {0}</WVC_XaG_XenoTreeXenoBulb_CooldownRootConnection> -->
 
-	<WVC_XaG_XenoTreeXenoBulb_NextGenMat>Next genetic material in: {0}</WVC_XaG_XenoTreeXenoBulb_NextGenMat>
+	<!-- <WVC_XaG_XenoTreeXenoBulb_NextGenMat>Next genetic material in: {0}</WVC_XaG_XenoTreeXenoBulb_NextGenMat> -->
 
 	<!-- <WVC_XaG_XenoTreeXenoBulb_Cpx>&lt;color=#8cd7e7&gt;Complexity&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Cpx> -->
 	<!-- <WVC_XaG_XenoTreeXenoBulb_Met>&lt;color=#d679b5&gt;Metabolism&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Met> -->
 	<!-- <WVC_XaG_XenoTreeXenoBulb_Arc>&lt;color=#cbcb94&gt;Archites&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Arc> -->
 	<!-- <WVC_XaG_XenoTreeXenoBulb_Tox>&lt;color=#9fe78c&gt;Toxins&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Tox> -->
 
-	<WVC_XaG_XenoTreeXenoBulb_Cpx>&lt;color=#8cd7e7&gt;Genetic&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Cpx>
-	<WVC_XaG_XenoTreeXenoBulb_Met>&lt;color=#d679b5&gt;Organic&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Met>
-	<WVC_XaG_XenoTreeXenoBulb_Tox>&lt;color=#9fe78c&gt;Mutagen&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Tox>
-	<WVC_XaG_XenoTreeXenoBulb_Arc>&lt;color=#cbcb94&gt;Embryo&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Arc>
+	<!-- <WVC_XaG_XenoTreeXenoBulb_Cpx>&lt;color=#8cd7e7&gt;Genetic&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Cpx> -->
+	<!-- <WVC_XaG_XenoTreeXenoBulb_Met>&lt;color=#d679b5&gt;Organic&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Met> -->
+	<!-- <WVC_XaG_XenoTreeXenoBulb_Tox>&lt;color=#9fe78c&gt;Mutagen&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Tox> -->
+	<!-- <WVC_XaG_XenoTreeXenoBulb_Arc>&lt;color=#cbcb94&gt;Embryo&lt;/color&gt;: {0}/{1}</WVC_XaG_XenoTreeXenoBulb_Arc> -->
 
 	<!-- <WVC_XaG_XenoTreeChooseLabel>Connect roots</WVC_XaG_XenoTreeChooseLabel> -->
 	<!-- <WVC_XaG_XenoTreeChooseDesc>Allows you to select a tree to whose roots the bulb is connected. Re-selection will be available after the cooldown.</WVC_XaG_XenoTreeChooseDesc> -->
@@ -271,14 +272,18 @@ Each mechanoid costs 0.15 nutrition to summon.</WVC_XaG_Gene_DustMechlinkDesc>
 	<!-- <WVC_XaG_XenoTreeCreateBulbLabel>Create bulb</WVC_XaG_XenoTreeCreateBulbLabel> -->
 	<!-- <WVC_XaG_XenoTreeCreateBulbDesc>Creates a xeno-bulb that slowly produces the resources needed to change the xenotype, gestate a baby, or create new bulbs.</WVC_XaG_XenoTreeCreateBulbDesc> -->
 
-	<WVC_XaG_XenoTree_PawnConnectionLabel>Connect pawn</WVC_XaG_XenoTree_PawnConnectionLabel>
-	<WVC_XaG_XenoTree_PawnConnectionDesc>You can connect pawns to the xeno tree. Being connected, pawns share skills among themselves and receive the “Infected mind” gene.</WVC_XaG_XenoTree_PawnConnectionDesc>
-	<WVC_XaG_XenoTree_PawnConnectionAssigned>{0} is connected to {1}.</WVC_XaG_XenoTree_PawnConnectionAssigned>
+	<!-- <WVC_XaG_XenoTree_PawnConnectionLabel>Release spores</WVC_XaG_XenoTree_PawnConnectionLabel> -->
+	<!-- <WVC_XaG_XenoTree_PawnConnectionDesc>{0} releases spores that infect the entire region, infecting psi-sensitive humans. If the disease is not cured as soon as possible, then the infected will be connected to the {0}.</WVC_XaG_XenoTree_PawnConnectionDesc> -->
+	<!-- <WVC_XaG_XenoTree_PawnConnectionAssigned>{0} is connected to {1}.</WVC_XaG_XenoTree_PawnConnectionAssigned> -->
+
+	<!-- <WVC_XaG_XenoTree_PawnInfectedLetterLabel>{0} is infected</WVC_XaG_XenoTree_PawnInfectedLetterLabel> -->
+	<!-- <WVC_XaG_XenoTree_PawnInfectedLetterDesc>{0} was infected with {1} spores. If the disease is not cured as soon as possible, {0}'s mind will be connected to the {1}.</WVC_XaG_XenoTree_PawnInfectedLetterDesc> -->
 
 	<!-- ========== GENE XENO GESTATOR ========== -->
 
 	<WVC_XaG_GeneXenoGestator_Label>Start gestation</WVC_XaG_GeneXenoGestator_Label>
 	<WVC_XaG_GeneXenoGestator_Desc>You can choose any xenotype for gestation. Gestation time directly depends on the complexity of the xenotype. The minimum time that gestation can take is 3 days.</WVC_XaG_GeneXenoGestator_Desc>
+	<WVC_XaG_GeneXenoGestator_Disabled>Cannot be used before cooldown ends.</WVC_XaG_GeneXenoGestator_Disabled>
 
 	<WVC_XaG_GeneXenoGestator_GestationTime>Gestation time: {0}</WVC_XaG_GeneXenoGestator_GestationTime>
 

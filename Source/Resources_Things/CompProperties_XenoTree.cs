@@ -1,5 +1,6 @@
 using RimWorld;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using UnityEngine;
 using Verse;
@@ -14,16 +15,18 @@ namespace WVC_XenotypesAndGenes
 
 		// public GeneDef geneDef = null;
 
+		// public HediffDef infectionHediffDef;
+
 		public bool xenogerminationComa = true;
 
 		public int xenotypeChangeCooldown = 420000;
 		// public int rootsConnectionCooldown = 220000;
 
-		public int skillShareRefresh = 60000;
+		// public int skillShareRefresh = 60000;
 
 		// public ThingDef xenoBulbDef;
 
-		public GeneDef connectionGeneDef;
+		// public GeneDef connectionGeneDef;
 
 		// public IntRange geneticMaterial_Cpx = new(4, 12);
 		// public IntRange geneticMaterial_Met = new(3, 7);
@@ -58,11 +61,13 @@ namespace WVC_XenotypesAndGenes
 	public class CompXenoTree : ThingComp
 	{
 		public int tickCounter = 0;
-		public int skillsRefreshTicks = 0;
+		// public int skillsRefreshTicks = 0;
 
 		public int changeCooldown = 0;
 
-		public List<Pawn> connectedPawns = new();
+		// private List<Pawn> connectedPawns = new();
+
+		// public List<Pawn> AllConnectedPawns => connectedPawns.ToList();
 
 		private bool spawnerIsActive = false;
 
@@ -114,6 +119,10 @@ namespace WVC_XenotypesAndGenes
 		public void Tick(int tick)
 		{
 			tickCounter -= tick;
+			// if (Find.TickManager.TicksGame >= skillsRefreshTicks)
+			// {
+				// RefreshConnectedPawns();
+			// }
 			if (tickCounter > 0 && spawnerIsActive)
 			{
 				return;
@@ -121,6 +130,28 @@ namespace WVC_XenotypesAndGenes
 			TryDoSpawn();
 			ResetCounter();
 		}
+
+		// private void RefreshConnectedPawns()
+		// {
+			// if (!AllConnectedPawns.NullOrEmpty())
+			// {
+				// foreach (Pawn pawn in AllConnectedPawns)
+				// {
+					// if (ConnectionCheck(pawn))
+					// {
+						// foreach (SkillRecord skill in pawn.skills.skills)
+						// {
+							// if (!skill.TotallyDisabled && skill.XpTotalEarned > 0f)
+							// {
+								// float num = skill.XpTotalEarned * 0.2f;
+								// skill.Learn(0f - num, direct: true);
+							// }
+						// }
+					// }
+				// }
+			// }
+			// skillsRefreshTicks = Find.TickManager.TicksGame + Props.skillShareRefresh;
+		// }
 
 		public void TryDoSpawn()
 		{
@@ -193,33 +224,39 @@ namespace WVC_XenotypesAndGenes
 					}
 				};
 			}
-			yield return new Command_Action
-			{
-				defaultLabel = "WVC_XaG_XenoTree_PawnConnectionLabel".Translate(),
-				defaultDesc = "WVC_XaG_XenoTree_PawnConnectionDesc".Translate(),
-				icon = parent.def.uiIcon,
-				action = delegate
-				{
-					List<FloatMenuOption> list = new();
-					List<Pawn> freeColonists = parent.Map.mapPawns.FreeColonists;
-					for (int i = 0; i < freeColonists.Count; i++)
-					{
-						Pawn localPawn = freeColonists[i];
-						if (!connectedPawns.Contains(localPawn) && MiscUtility.PawnIsColonistOrSlave(localPawn) && localPawn.GetStatValue(StatDefOf.PsychicSensitivity) > 0f)
-						{
-							list.Add(new FloatMenuOption(localPawn.Name.ToStringFull, delegate
-							{
-								connectedPawns.Add(localPawn);
-								Messages.Message("WVC_XaG_XenoTree_PawnConnectionAssigned".Translate(localPawn.Name.ToStringShort, parent.LabelCap), localPawn, MessageTypeDefOf.NeutralEvent, historical: false);
-							}));
-						}
-					}
-					if (list.Any())
-					{
-						Find.WindowStack.Add(new FloatMenu(list));
-					}
-				}
-			};
+			// yield return new Command_Action
+			// {
+				// defaultLabel = "WVC_XaG_XenoTree_PawnConnectionLabel".Translate(),
+				// defaultDesc = "WVC_XaG_XenoTree_PawnConnectionDesc".Translate(parent.LabelCap),
+				// icon = parent.def.uiIcon,
+				// action = delegate
+				// {
+					// List<Pawn> freeColonists = parent.Map.mapPawns.FreeColonists;
+					// foreach (Pawn pawn in freeColonists)
+					// {
+						// Gene_InfectedMind infector = pawn?.genes?.GetFirstGeneOfType<Gene_InfectedMind>();
+						// if (infector != null)
+						// {
+							// infector.xenoTree = parent;
+						// }
+						// else if (!pawn.health.hediffSet.HasHediff(Props.infectionHediffDef))
+						// {
+							// Hediff hediff = HediffMaker.MakeHediff(Props.infectionHediffDef, pawn);
+							// HediffComp_XenoTreeInfection xenoTreeInfection = hediff.TryGetComp<HediffComp_XenoTreeInfection>();
+							// if (xenoTreeInfection != null)
+							// {
+								// xenoTreeInfection.geneDef = Props.connectionGeneDef;
+								// xenoTreeInfection.xenoTree = parent;
+							// }
+							// pawn.health.AddHediff(hediff);
+							// if (PawnUtility.ShouldSendNotificationAbout(pawn))
+							// {
+								// Find.LetterStack.ReceiveLetter("WVC_XaG_XenoTree_PawnInfectedLetterLabel".Translate(pawn.LabelShort), "WVC_XaG_XenoTree_PawnInfectedLetterDesc".Translate(pawn.LabelShort, parent.LabelCap), LetterDefOf.NeutralEvent, new LookTargets(pawn));
+							// }
+						// }
+					// }
+				// }
+			// };
 			if (Subplant != null && parent is Plant plant && plant.Growth < Subplant.Props.minGrowthForSpawn)
 			{
 				yield break;
@@ -246,28 +283,9 @@ namespace WVC_XenotypesAndGenes
 			{
 				defaultLabel = "WVC_XaG_XenoTreeXenotypeChooseLabel".Translate(),
 				defaultDesc = "WVC_XaG_XenoTreeXenotypeChooseDesc".Translate(),
+				// disabled = connectedPawns.NullOrEmpty(),
+				disabledReason = "WVC_XaG_XenoTreeXenotypeChooseDisabled".Translate(parent.LabelCap),
 				icon = GetXenotypeIcon(),
-				// action = delegate
-				// {
-					// List<FloatMenuOption> list = new();
-					// List<XenotypeDef> xenotypes = XenotypeFilterUtility.AllXenotypesExceptAndroids();
-					// for (int i = 0; i < xenotypes.Count; i++)
-					// {
-						// XenotypeDef xenotype = xenotypes[i];
-						// if (XenotypeUtility.XenoTree_CanSpawn(xenotype, parent) || DebugSettings.ShowDevGizmos)
-						// {
-							// list.Add(new FloatMenuOption(GetXenotypeLabel(xenotype), delegate
-							// {
-								// chosenXenotype = xenotype;
-								// Messages.Message("WVC_XaG_XenoTreeXenotypeChooseAssigned".Translate(xenotype.label.CapitalizeFirst()), null, MessageTypeDefOf.NeutralEvent, historical: false);
-							// }));
-						// }
-					// }
-					// if (list.Any())
-					// {
-						// Find.WindowStack.Add(new FloatMenu(list));
-					// }
-				// }
 				action = delegate
 				{
 					Find.WindowStack.Add(new Dialog_ChangeXenotype(parent));
@@ -347,61 +365,81 @@ namespace WVC_XenotypesAndGenes
 			// return text;
 		// }
 
-		public override void PostDrawExtraSelectionOverlays()
-		{
-			if (!connectedPawns.NullOrEmpty())
-			{
-				foreach (Thing item in connectedPawns)
-				{
-					if (item != null)
-					{
-						GenDraw.DrawLineBetween(parent.TrueCenter(), item.TrueCenter(), SimpleColor.Yellow);
-					}
-				}
-			}
-		}
-
-		public override void PostDestroy(DestroyMode mode, Map previousMap)
-		{
-			// if (!connectedBulbs.NullOrEmpty())
+		// public bool ConnectionCheck(Pawn pawn)
+		// {
+			// if (pawn != null)
 			// {
-				// foreach (Thing item in connectedBulbs)
+				// Gene_InfectedMind infector = pawn?.genes?.GetFirstGeneOfType<Gene_InfectedMind>();
+				// if (infector != null)
 				// {
-					// if (item != null && item.TryGetComp<CompXenoBulb>() != null)
+					// return true;
+				// }
+			// }
+			// RemoveFromConnectionList(pawn);
+			// return false;
+		// }
+
+		// public void RemoveFromConnectionList(Pawn pawn)
+		// {
+			// if (pawn != null)
+			// {
+				// connectedPawns.Remove(pawn);
+			// }
+		// }
+
+		// public void AddedToConnectionList(Pawn pawn)
+		// {
+			// if (pawn != null)
+			// {
+				// connectedPawns.Add(pawn);
+			// }
+		// }
+
+		// public override void PostDrawExtraSelectionOverlays()
+		// {
+			// if (!AllConnectedPawns.NullOrEmpty())
+			// {
+				// foreach (Pawn item in AllConnectedPawns)
+				// {
+					// if (item != null && ConnectionCheck(item))
 					// {
-						// item.TryGetComp<CompXenoBulb>().mainXenoTree = null;
+						// GenDraw.DrawLineBetween(parent.TrueCenter(), item.TrueCenter(), SimpleColor.Yellow);
 					// }
 				// }
 			// }
-			if (!connectedPawns.NullOrEmpty())
-			{
-				foreach (Pawn item in connectedPawns)
-				{
-					Gene_InfectedMind infector = item?.genes?.GetFirstGeneOfType<Gene_InfectedMind>();
-					if (infector != null)
-					{
-						infector.xenoTree = null;
-					}
-				}
-			}
-		}
+		// }
+
+		// public override void PostDestroy(DestroyMode mode, Map previousMap)
+		// {=
+			// if (!AllConnectedPawns.NullOrEmpty())
+			// {
+				// foreach (Pawn item in AllConnectedPawns)
+				// {
+					// Gene_InfectedMind infector = item?.genes?.GetFirstGeneOfType<Gene_InfectedMind>();
+					// if (infector != null)
+					// {
+						// infector.xenoTree = null;
+					// }
+				// }
+			// }
+		// }
 
 		public void ResetCounter()
 		{
 			tickCounter = Props.ticksBetweenSpawn.RandomInRange;
-			skillsRefreshTicks = Props.skillShareRefresh;
+			// skillsRefreshTicks = Props.skillShareRefresh;
 		}
 
 		public override void PostExposeData()
 		{
 			base.PostExposeData();
 			Scribe_Values.Look(ref tickCounter, "tickCounterNextBabySpawn_" + Props.uniqueTag, 0);
-			Scribe_Values.Look(ref skillsRefreshTicks, "skillsRefreshTicks_" + Props.uniqueTag, 0);
+			// Scribe_Values.Look(ref skillsRefreshTicks, "skillsRefreshTicks_" + Props.uniqueTag, 0);
 			Scribe_Values.Look(ref changeCooldown, "changeCooldown_" + Props.uniqueTag, 0);
 			Scribe_Defs.Look(ref chosenXenotype, "chosenXenotype_" + Props.uniqueTag);
 			Scribe_Values.Look(ref spawnerIsActive, "spawnerIsActive", true);
 			// Bulbs
-			Scribe_Collections.Look(ref connectedPawns, "connectedPawns_" + Props.uniqueTag, LookMode.Reference);
+			// Scribe_Collections.Look(ref connectedPawns, "connectedPawns_" + Props.uniqueTag, LookMode.Reference);
 			// Bulb Materials
 			// Scribe_Values.Look(ref geneticMaterial_Cpx, "geneticMaterial_Cpx_" + Props.uniqueTag, 0);
 			// Scribe_Values.Look(ref geneticMaterial_Met, "geneticMaterial_Met_" + Props.uniqueTag, 0);

@@ -107,7 +107,7 @@ namespace WVC_XenotypesAndGenes
 					}
 				};
 			}
-			if ((cooldownHediffDef != null && pawn.health.hediffSet.HasHediff(cooldownHediffDef)) || Find.Selector.SelectedPawns.Count > 1 || pawn.Drafted || !Active || !MiscUtility.PawnIsColonistOrSlave(pawn, true))
+			if (Find.Selector.SelectedPawns.Count > 1 || pawn.Drafted || !Active || !MiscUtility.PawnIsColonistOrSlave(pawn, true))
 			{
 				yield break;
 			}
@@ -115,6 +115,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				defaultLabel = "WVC_XaG_GeneXenoGestator_Label".Translate(),
 				defaultDesc = "WVC_XaG_GeneXenoGestator_Desc".Translate(),
+				disabled = cooldownHediffDef != null && pawn.health.hediffSet.HasHediff(cooldownHediffDef),
+				disabledReason = "WVC_XaG_GeneXenoGestator_Disabled".Translate(),
 				icon = ContentFinder<Texture2D>.Get(def.iconPath),
 				action = delegate
 				{
