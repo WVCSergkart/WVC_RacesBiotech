@@ -83,10 +83,7 @@
 
   <!-- ================= -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSpecialPurposes_Base">
-	<defName>WVC_Shapeshifter</defName>
-	<label>shapeshifter</label>
-	<description>Carriers of this gene can change their xenotype at will.</description>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSpecialPurposes_Base" Name="WVC_XenotypesAndGenes_GeneSpecialPurposes_Shapeshiftes" Abstract="True">
 	<geneClass>WVC_XenotypesAndGenes.Gene_Shapeshifter</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_XenoForcer_ShapeShifter</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
@@ -94,18 +91,46 @@
 	<canGenerateInGeneSet>true</canGenerateInGeneSet>
 	<biostatCpx>8</biostatCpx>
 	<biostatArc>4</biostatArc>
-	<customEffectDescriptions>
-		<li>Allows you to change the xenotype at any time.</li>
-		<!-- <li MayRequire="ludeon.rimworld.ideology">Increases the number of scars by 3</li> -->
-		<li>&lt;color=#ff8585&gt;Does not support custom xenotypes.&lt;/color&gt;</li>
-	</customEffectDescriptions>
 	<displayOrderInCategory>-25</displayOrderInCategory>
+	<exclusionTags>
+	  <li>WVC_ShapeshifterGene</li>
+	</exclusionTags>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<scarsCount>3</scarsCount>
 			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
 		</li>
 	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSpecialPurposes_Shapeshiftes">
+	<defName>WVC_Shapeshifter</defName>
+	<label>shapeshifter</label>
+	<description>Carriers of this gene can change their xenotype at will.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Shapeshifter</geneClass>
+	<customEffectDescriptions>
+		<li>Allows you to change the xenotype at any time.</li>
+		<!-- <li MayRequire="ludeon.rimworld.ideology">Increases the number of scars by 3</li> -->
+		<li>&lt;color=#ff8585&gt;Does not support custom xenotypes.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<displayOrderInCategory>-25</displayOrderInCategory>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSpecialPurposes_Shapeshiftes">
+	<defName>WVC_Shapeshifter_Rand</defName>
+	<label>spontaneous shapeshifter</label>
+	<description>In carriers of this gene, the xenotype can spontaneously change at any time.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Shapeshifter_Rand</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_XenoForcer_ShapeShifter</iconPath>
+	<selectionWeight>0.00014</selectionWeight>
+	<biostatCpx>4</biostatCpx>
+	<biostatArc>3</biostatArc>
+	<customEffectDescriptions>
+		<li>The xenotype of the carrier can change at any time, to any other.</li>
+		<!-- <li MayRequire="ludeon.rimworld.ideology">Increases the number of scars by 3</li> -->
+		<li>&lt;color=#ff8585&gt;Does not support custom xenotypes.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<displayOrderInCategory>-20</displayOrderInCategory>
   </GeneDef>
 
 </Defs>

@@ -85,8 +85,8 @@
   <GeneCategoryDef>
 	<defName>WVC_XenotypeForcerGenes</defName>
 	<label>xenotype forcers</label>
-	<displayPriorityInXenotype>-1.2886992038</displayPriorityInXenotype>
-	<!-- <displayPriorityInXenotype>-99999</displayPriorityInXenotype> -->
+	<displayPriorityInXenotype>-9999.2886992038</displayPriorityInXenotype>
+	<displayPriorityInGenepack>-9999.2886992038</displayPriorityInGenepack>
   </GeneCategoryDef>
 
   <GeneCategoryDef>

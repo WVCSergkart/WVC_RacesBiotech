@@ -151,21 +151,37 @@
   </XenotypeIconDef>
 
   <!-- Masks -->
-  <!-- <XenotypeIconDef> -->
-	<!-- <defName>WVC_MaskGood1c</defName> -->
-	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno_MasksGood</texPath> -->
-  <!-- </XenotypeIconDef> -->
-  <!-- <XenotypeIconDef> -->
-	<!-- <defName>WVC_MaskNeutral1c</defName> -->
-	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno_MasksNeutral</texPath> -->
-  <!-- </XenotypeIconDef> -->
-  <!-- <XenotypeIconDef> -->
-	<!-- <defName>WVC_MaskEvil1c</defName> -->
-	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno_MasksEvil</texPath> -->
-  <!-- </XenotypeIconDef> -->
-  <!-- <XenotypeIconDef> -->
-	<!-- <defName>WVC_MaskShapeShifter1c</defName> -->
-	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno_MaskShapeShifter1</texPath> -->
-  <!-- </XenotypeIconDef> -->
+  <XenotypeIconDef>
+	<defName>WVC_MaskGood1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Xeno_MasksGood</texPath>
+  </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_MaskNeutral1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Xeno_MasksNeutral</texPath>
+  </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_MaskEvil1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Xeno_MasksEvil</texPath>
+  </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_MaskShapeShifter1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Xeno_MaskShapeShifter1</texPath>
+  </XenotypeIconDef>
+
+  <!-- Shapeshifter -->
+  <XenotypeIconDef>
+	<defName>WVC_ShapeshifterBasic1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Icon_ShapeshifterBasic</texPath>
+  </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_ShapeshifterFur1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Icon_ShapeshifterFur_v0</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_ShapeshifterHorns1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Icon_ShapeshifterHorns</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
 
 </Defs>

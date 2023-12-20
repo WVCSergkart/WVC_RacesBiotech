@@ -208,6 +208,7 @@
 	<shapeShift_IgnoredGeneClasses>
 		<li>WVC_XenotypesAndGenes.Gene_XenotypeShapeshifter</li>
 		<li>WVC_XenotypesAndGenes.Gene_Shapeshifter</li>
+		<li>WVC_XenotypesAndGenes.Gene_Shapeshifter_Rand</li>
 	</shapeShift_IgnoredGeneClasses>
   </WVC_XenotypesAndGenes.XenotypesAndGenesListDef>
 
