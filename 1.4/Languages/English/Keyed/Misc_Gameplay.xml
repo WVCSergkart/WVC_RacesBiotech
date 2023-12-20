@@ -297,6 +297,9 @@ Each mechanoid costs 0.15 nutrition to summon.</WVC_XaG_Gene_DustMechlinkDesc>
 	<WVC_XaG_GeneXenoGestator_CooldownLetterLabel>Gestator is ready</WVC_XaG_GeneXenoGestator_CooldownLetterLabel>
 	<WVC_XaG_GeneXenoGestator_CooldownLetterDesc>{0} can reuse the gestator.</WVC_XaG_GeneXenoGestator_CooldownLetterDesc>
 
+	<WVC_XaG_GeneXenoGestator_GestatorIsOnLetterLabel>Gestator activated</WVC_XaG_GeneXenoGestator_GestatorIsOnLetterLabel>
+	<WVC_XaG_GeneXenoGestator_GestatorIsOnLetterDesc>{TARGET_nameDef} has started the gestation process, it will take some time. During this period, {TARGET_nameDef} will receive a number of debuffs.</WVC_XaG_GeneXenoGestator_GestatorIsOnLetterDesc>
+
 	<!-- ========== GENE XENO SHAPESHIFTER ========== -->
 
 	<WVC_XaG_GeneShapeshifter_Label>Shapeshift</WVC_XaG_GeneShapeshifter_Label>
@@ -308,5 +311,8 @@ Each mechanoid costs 0.15 nutrition to summon.</WVC_XaG_Gene_DustMechlinkDesc>
 	<!-- <WVC_XaG_GeneXenoGestator_GestationGenesMatch>The minimum matched genes must be at least {0}%</WVC_XaG_GeneXenoGestator_GestationGenesMatch> -->
 
 	<WVC_XaG_GeneShapeshifter_ShapeshiftWarning>The xenotype change process will take 2 days, during which time the gene carrier will be downed. Once completed, the carrier will not be able to change xenotype again for some time.</WVC_XaG_GeneShapeshifter_ShapeshiftWarning>
+
+	<WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel>Shapeshift</WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel>
+	<WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>{TARGET_nameDef}'s genes have been altered. {TARGET_nameDef} won't be able to use shapeshift again for a while.</WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>
 
 </LanguageData>

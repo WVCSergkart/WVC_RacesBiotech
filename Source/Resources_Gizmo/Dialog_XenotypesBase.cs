@@ -141,11 +141,11 @@ namespace WVC_XenotypesAndGenes
 		public virtual Color GetBoxColor(XenotypeDef mode)
 		{
 			Color result = TexUI.AvailResearchColor;
-			// if (mode == currentXeno)
-			// {
-				// result = TexUI.ActiveResearchColor;
-			// }
-			if (!MeetsRequirements(mode))
+			if (mode == currentXeno)
+			{
+				result = TexUI.ActiveResearchColor;
+			}
+			else if (!MeetsRequirements(mode))
 			{
 				result = TexUI.LockedResearchColor;
 			}

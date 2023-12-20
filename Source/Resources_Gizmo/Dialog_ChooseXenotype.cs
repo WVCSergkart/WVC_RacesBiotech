@@ -146,6 +146,7 @@ namespace WVC_XenotypesAndGenes
 					}
 					gene.pawn.health.AddHediff(cooldownHediff);
 				}
+				Find.LetterStack.ReceiveLetter("WVC_XaG_GeneXenoGestator_GestatorIsOnLetterLabel".Translate(), "WVC_XaG_GeneXenoGestator_GestatorIsOnLetterDesc".Translate(gene.pawn.Named("TARGET")), LetterDefOf.NeutralEvent, new LookTargets(gene.pawn));
 			}
 			Close(doCloseSound: false);
 		}

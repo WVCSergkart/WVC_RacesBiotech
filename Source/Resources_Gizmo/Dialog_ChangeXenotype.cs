@@ -124,9 +124,9 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			// if (XenoTreeUtility.XenoTree_CanSpawn(mode, xenoTree.parent))
+			// if (selectedXeno == currentXeno)
 			// {
-				// return true;
+				// return false;
 			// }
 			if (XaG_GeneUtility.GenesIsMatchForPawns(allColonists, mode.genes, matchPercent))
 			{

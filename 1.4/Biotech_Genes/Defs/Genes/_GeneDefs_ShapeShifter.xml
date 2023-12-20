@@ -100,11 +100,12 @@
 		<li>&lt;color=#ff8585&gt;Does not support custom xenotypes.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<displayOrderInCategory>-25</displayOrderInCategory>
-	<!-- <modExtensions> -->
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
-			<!-- <scarsCount>3</scarsCount> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<scarsCount>3</scarsCount>
+			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
+		</li>
+	</modExtensions>
   </GeneDef>
 
 </Defs>

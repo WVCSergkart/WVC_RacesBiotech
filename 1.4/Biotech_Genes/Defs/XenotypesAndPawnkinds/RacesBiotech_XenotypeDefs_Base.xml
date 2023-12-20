@@ -11,7 +11,7 @@
 	<iconPath>UI/Icons/Xenotypes/Custom/CustomXenotypeIcon9</iconPath>
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>
 	<combatPowerFactor>2.5</combatPowerFactor>
-	<factionlessGenerationWeight>0.2</factionlessGenerationWeight>
+	<factionlessGenerationWeight>0.05</factionlessGenerationWeight>
 	<inheritable>true</inheritable>
 	<genes>
 	</genes>

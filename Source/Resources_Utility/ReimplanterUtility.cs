@@ -162,10 +162,11 @@ namespace WVC_XenotypesAndGenes
 			Pawn_GeneTracker genes = pawn.genes;
 			foreach (Gene item in genes.Xenogenes.ToList())
 			{
-				if (!dontRemoveGenes.Contains(item.def))
+				if (dontRemoveGenes.Contains(item.def))
 				{
-					pawn.genes?.RemoveGene(item);
+					continue;
 				}
+				pawn.genes?.RemoveGene(item);
 			}
 			if (xenotypeDef.inheritable)
 			{
@@ -178,10 +179,11 @@ namespace WVC_XenotypesAndGenes
 				// }
 				foreach (Gene item in genes.Endogenes.ToList())
 				{
-					if (!dontRemoveGenes.Contains(item.def))
+					if (dontRemoveGenes.Contains(item.def))
 					{
-						pawn.genes?.RemoveGene(item);
+						continue;
 					}
+					pawn.genes?.RemoveGene(item);
 				}
 			}
 			// else
@@ -209,6 +211,10 @@ namespace WVC_XenotypesAndGenes
 			List<GeneDef> xenotypeGenes = xenotypeDef.genes;
 			for (int i = 0; i < xenotypeGenes.Count; i++)
 			{
+				if (dontRemoveGenes.Contains(xenotypeGenes[i]))
+				{
+					continue;
+				}
 				pawn.genes?.AddGene(xenotypeGenes[i], !xenotypeDef.inheritable);
 				if (xenotypeGenes[i].skinColorBase != null || xenotypeGenes[i].skinColorOverride != null)
 				{

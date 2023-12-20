@@ -12,12 +12,14 @@ namespace WVC_XenotypesAndGenes
 	{
 		public Gene gene;
 
+		public SoundDef soundDefOnImplant;
+
 		public Dialog_Shapeshifter(Gene thisGene)
 		{
 			gene = thisGene;
 			currentXeno = thisGene?.pawn?.genes?.Xenotype != null ? thisGene.pawn.genes.Xenotype : null;
 			// selectedXeno = currentXeno;
-			// connectedPawn = xenoTree.ConnectedPawn;
+			soundDefOnImplant = gene?.def?.GetModExtension<GeneExtension_Giver>()?.soundDefOnImplant;
 			forcePause = true;
 			closeOnAccept = false;
 			doCloseX = true;
@@ -47,6 +49,12 @@ namespace WVC_XenotypesAndGenes
 			}
 			curY += 10f;
 			Rect rect4 = new(rect3.x, rect3.yMax - 55f, rect3.width, 55f);
+			foreach (XenotypeDef item in XenoTreeUtility.GetXenotypeAndDoubleXenotypes(selectedXeno))
+			{
+				Widgets.HyperlinkWithIcon(new Rect(rect3.x, curY, rect3.width, Text.LineHeight), new Dialog_InfoCard.Hyperlink(item));
+				curY += Text.LineHeight;
+			}
+			curY += 10f;
 			if (gene.pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
 			{
 				Widgets.Label(rect3.x, ref curY, rect3.width, HediffDefOf.XenogermReplicating.description.Colorize(ColorLibrary.RedReadable));
@@ -80,6 +88,11 @@ namespace WVC_XenotypesAndGenes
 			ReimplanterUtility.SetXenotype_DoubleXenotype(gene.pawn, selectedXeno, dontRemove.ToList());
 			gene.pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
 			GeneUtility.UpdateXenogermReplication(gene.pawn);
+			if (!soundDefOnImplant.NullOrUndefined())
+			{
+				soundDefOnImplant.PlayOneShot(SoundInfo.InMap(gene.pawn));
+			}
+			Find.LetterStack.ReceiveLetter("WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel".Translate(), "WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc".Translate(gene.pawn.Named("TARGET")), LetterDefOf.NeutralEvent, new LookTargets(gene.pawn));
 			Close(doCloseSound: false);
 		}
 
@@ -89,6 +102,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return true;
 			}
+			// if (selectedXeno == currentXeno)
+			// {
+				// return false;
+			// }
 			if (gene.pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
 			{
 				return false;
