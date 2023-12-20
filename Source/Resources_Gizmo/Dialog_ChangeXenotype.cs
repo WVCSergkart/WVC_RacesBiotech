@@ -22,6 +22,10 @@ namespace WVC_XenotypesAndGenes
 
 		public List<XenotypeDef> allXenotypes;
 
+		public List<Pawn> allColonists;
+
+		public float matchPercent;
+
 		private static readonly Vector2 OptionSize = new(190f, 46f);
 
 		private static readonly Vector2 ButSize = new(200f, 40f);
@@ -33,6 +37,8 @@ namespace WVC_XenotypesAndGenes
 			xenoTree = tree.TryGetComp<CompXenoTree>();
 			currentXeno = xenoTree.chosenXenotype;
 			selectedXeno = currentXeno;
+			allColonists = tree.Map.mapPawns.FreeColonistsAndPrisoners.ToList();
+			matchPercent = xenoTree.Props.minMatchingGenes;
 			// connectedPawn = xenoTree.ConnectedPawn;
 			forcePause = true;
 			closeOnAccept = false;
@@ -107,11 +113,16 @@ namespace WVC_XenotypesAndGenes
 				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_XenoTreeXenotypeChangeCooldown".Translate(xenoTree.changeCooldown.ToStringTicksToPeriod()).Colorize(ColorLibrary.RedReadable));
 				curY += 10f;
 			}
-			if (!XenoTreeUtility.XenoTree_ToxResCheck(selectedXeno, xenoTree.parent))
+			if (!XaG_GeneUtility.GenesIsMatchForPawns(allColonists, selectedXeno.genes, matchPercent))
 			{
-				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_XenoTreeModeRequiredPollution".Translate(xenoTree.parent.LabelCap).Colorize(ColorLibrary.RedReadable));
+				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneXenoGestator_GestationGenesMatch".Translate((matchPercent * 100).ToString()).Colorize(ColorLibrary.RedReadable));
 				curY += 10f;
 			}
+			// if (!XenoTreeUtility.XenoTree_ToxResCheck(selectedXeno, xenoTree.parent))
+			// {
+				// Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_XenoTreeModeRequiredPollution".Translate(xenoTree.parent.LabelCap).Colorize(ColorLibrary.RedReadable));
+				// curY += 10f;
+			// }
 			// if (!XenoTreeUtility.XenoTree_ColdResCheck(selectedXeno, xenoTree.parent))
 			// {
 				// Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_XenoTreeModeRequiredCold".Translate(xenoTree.parent.LabelCap).Colorize(ColorLibrary.RedReadable));
@@ -191,7 +202,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (XenoTreeUtility.XenoTree_CanSpawn(mode, xenoTree.parent))
+			// if (XenoTreeUtility.XenoTree_CanSpawn(mode, xenoTree.parent))
+			// {
+				// return true;
+			// }
+			if (XaG_GeneUtility.GenesIsMatchForPawns(allColonists, mode.genes, matchPercent))
 			{
 				return true;
 			}

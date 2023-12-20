@@ -8,15 +8,15 @@
 
 Please note that if the xenotype is (non-)inherited and your geneset is also (non-)inherited, then all genes will be overwritten.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_XenotypeForcer</geneClass>
-	<selectionWeight>0.0</selectionWeight>
-	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<selectionWeight>0.00056</selectionWeight>
+	<canGenerateInGeneSet>true</canGenerateInGeneSet>
 	<displayCategory>WVC_XenotypeForcerGenes</displayCategory>
 	<displayOrderInCategory>-500</displayOrderInCategory>
 	<customEffectDescriptions>
 	  <!-- <li>&lt;color=#ff8585&gt;Cannot spawn in genepacks.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<biostatCpx>0</biostatCpx>
-	<biostatArc>1</biostatArc>
+	<biostatArc>4</biostatArc>
 	<biostatMet>0</biostatMet>
   </GeneDef>
 
@@ -56,12 +56,13 @@ Please note that if the xenotype is (non-)inherited and your geneset is also (no
 	<ignoreIllegalLabelCharacterConfigError>true</ignoreIllegalLabelCharacterConfigError>
 	<displayCategory>WVC_XenotypeForcerGenes</displayCategory>
 	<displayOrderOffset>100</displayOrderOffset>
+	<selectionWeight>0.00032</selectionWeight>
 	<customEffectDescriptions>
 	  <!-- <li>&lt;color=#ff8585&gt;Cannot spawn in genepacks.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<!-- <biostatCpx>0</biostatCpx> -->
 	<!-- <biostatMet>0</biostatMet> -->
-	<!-- <biostatArc>5</biostatArc> -->
+	<biostatArc>6</biostatArc>
 	<exclusionTags>
 	  <!-- For endotypes -->
 	  <!-- <li>WVC_XenotypesAndGenes_XenotypeTemplateCollection_Endo</li> -->

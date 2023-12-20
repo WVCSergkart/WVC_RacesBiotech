@@ -144,6 +144,30 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		public static bool GenesIsMatchForPawns(List<Pawn> pawns, List<GeneDef> xenotypeGenes, float percent)
+		{
+			List<Gene> genes = new();
+			foreach (Pawn pawn in pawns)
+			{
+				List<Gene> genesListForReading = pawn?.genes?.GenesListForReading;
+				if (!genesListForReading.NullOrEmpty())
+				{
+					foreach (Gene gene in pawn.genes.GenesListForReading)
+					{
+						if (!genes.Contains(gene))
+						{
+							genes.Add(gene);
+						}
+					}
+				}
+			}
+			if (GenesIsMatch(genes, xenotypeGenes, percent))
+			{
+				return true;
+			}
+			return false;
+		}
+
 		public static bool GenesIsMatch(List<Gene> pawnGenes, List<GeneDef> xenotypeGenes, float percent)
 		{
 			if (pawnGenes.NullOrEmpty())

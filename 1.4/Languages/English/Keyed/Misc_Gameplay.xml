@@ -241,9 +241,12 @@ Each mechanoid costs 0.15 nutrition to summon.</WVC_XaG_Gene_DustMechlinkDesc>
 	<WVC_XaG_XenoTreeXenotypeChooseLabel>Choose xenotype</WVC_XaG_XenoTreeXenotypeChooseLabel>
 	<WVC_XaG_XenoTreeXenotypeChooseDesc>Allows you to select the xenotype of the future baby.</WVC_XaG_XenoTreeXenotypeChooseDesc>
 	<WVC_XaG_XenoTreeXenotypeChooseAssigned>Xenotype "{0}" is assigned.</WVC_XaG_XenoTreeXenotypeChooseAssigned>
-	<WVC_XaG_XenoTreeXenotypeChooseDisabled>{0} must be connected to at least one pawn.</WVC_XaG_XenoTreeXenotypeChooseDisabled>
+	<WVC_XaG_XenoTreeXenotypeChooseDisabled_OnOrOff>First you need to choose a xenotype.</WVC_XaG_XenoTreeXenotypeChooseDisabled_OnOrOff>
+	<WVC_XaG_XenoTreeXenotypeChooseDisabled_XenotypeMenu>{0} should grow to at least {1}%</WVC_XaG_XenoTreeXenotypeChooseDisabled_XenotypeMenu>
 
 	<WVC_XaG_CurrentXenotype>Current xenotype</WVC_XaG_CurrentXenotype>
+
+	<WVC_XaG_TreeGrowthInPercents>{0} has grown by {1}%</WVC_XaG_TreeGrowthInPercents>
 
 	<!-- <WVC_XaG_XenoTreeAllGenesCount>Genes: {0}/{1}</WVC_XaG_XenoTreeAllGenesCount> -->
 

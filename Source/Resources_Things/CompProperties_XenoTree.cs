@@ -13,6 +13,8 @@ namespace WVC_XenotypesAndGenes
 	{
 		public IntRange ticksBetweenSpawn = new(480000, 720000);
 
+		public float minMatchingGenes = 0.8f;
+
 		// public GeneDef geneDef = null;
 
 		// public HediffDef infectionHediffDef;
@@ -191,6 +193,10 @@ namespace WVC_XenotypesAndGenes
 				stringBuilder.AppendLine(string.Format("{0}: {1}", "WVC_XaG_CurrentXenotype".Translate(), chosenXenotype.label.CapitalizeFirst().Colorize(ColoredText.GeneColor)));
 				stringBuilder.Append(string.Format("{0}", "WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes".Translate(tickCounter.ToStringTicksToPeriod())));
 			}
+			else if (Subplant != null && parent is Plant plant)
+			{
+				stringBuilder.Append(string.Format("{0}", "WVC_XaG_TreeGrowthInPercents".Translate(parent.LabelCap, ((int)(plant.Growth * 100)).ToString())));
+			}
 			return stringBuilder.ToString();
 		}
 
@@ -257,14 +263,16 @@ namespace WVC_XenotypesAndGenes
 					// }
 				// }
 			// };
-			if (Subplant != null && parent is Plant plant && plant.Growth < Subplant.Props.minGrowthForSpawn)
-			{
-				yield break;
-			}
+			// if (Subplant != null && parent is Plant plant && plant.Growth < Subplant.Props.minGrowthForSpawn)
+			// {
+				// yield break;
+			// }
 			yield return new Command_Action
 			{
 				defaultLabel = "WVC_XaG_GeneBabyTree_label".Translate() + ": " + GeneUiUtility.OnOrOff(spawnerIsActive),
 				defaultDesc = "WVC_XaG_GeneBabyTree_desc".Translate(),
+				disabled = chosenXenotype == null,
+				disabledReason = "WVC_XaG_XenoTreeXenotypeChooseDisabled_OnOrOff".Translate(),
 				icon = parent.def.uiIcon,
 				action = delegate
 				{
@@ -283,8 +291,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				defaultLabel = "WVC_XaG_XenoTreeXenotypeChooseLabel".Translate(),
 				defaultDesc = "WVC_XaG_XenoTreeXenotypeChooseDesc".Translate(),
-				// disabled = connectedPawns.NullOrEmpty(),
-				disabledReason = "WVC_XaG_XenoTreeXenotypeChooseDisabled".Translate(parent.LabelCap),
+				disabled = Subplant != null && parent is Plant plant && plant.Growth < Subplant.Props.minGrowthForSpawn,
+				disabledReason = "WVC_XaG_XenoTreeXenotypeChooseDisabled_XenotypeMenu".Translate(parent.LabelCap, Subplant != null ? (Subplant.Props.minGrowthForSpawn * 100f).ToString() : (100).ToString()),
 				icon = GetXenotypeIcon(),
 				action = delegate
 				{

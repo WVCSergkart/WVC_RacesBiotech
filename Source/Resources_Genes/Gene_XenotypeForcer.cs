@@ -19,6 +19,12 @@ namespace WVC_XenotypesAndGenes
 
 		public static void RandomXenotype(Pawn pawn, Gene gene, XenotypeDef xenotype)
 		{
+			if (pawn.genes.IsXenogene(gene))
+			{
+				pawn.genes.RemoveGene(gene);
+				pawn.genes.AddGene(gene.def, false);
+				return;
+			}
 			// bool geneIsXenogene = true;
 			// List<Gene> endogenes = pawn.genes.Endogenes;
 			// if (endogenes.Contains(gene))
@@ -72,7 +78,7 @@ namespace WVC_XenotypesAndGenes
 					pawn.genes?.RemoveGene(genes.Endogenes[numEndogenes]);
 				}
 			}
-			if (pawn.genes?.Xenogenes.Count <= 0)
+			if (pawn.genes.Xenogenes.NullOrEmpty() && xenotype.inheritable || !xenotype.inheritable)
 			{
 				pawn.genes?.SetXenotypeDirect(xenotype);
 				// pawn.genes.xenotypeName = xenotype.label;

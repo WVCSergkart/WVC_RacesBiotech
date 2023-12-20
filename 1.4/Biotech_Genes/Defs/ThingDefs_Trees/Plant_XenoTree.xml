@@ -6,7 +6,11 @@
 	<label>xeno-tree</label>
 	<description>A large mushroom-like tree. It is a hybrid plant-mushroom combined with the human reproductive system. In the trunk of this tree there is a natural organic vat capable of growing xeno-like humans.
 
-&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; Being fully grown, it allows you to spawn babies of any xenotype, with a period of 8-12 days. Some xenotypes may require special conditions. For example, growing xenotypes with tolerance to toxins requires that the tree be located on polluted soil.</description>
+&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; Being fully grown, it allows you to spawn babies of any xenotype, with a period of 8-12 days. Available xenotypes are determined relative to the genes of all pawns on one map with the tree. That is, if you have several pawns in your colony with completely different genes, then you can choose xenotypes that match the set of genes with these pawns by at least 80%.
+
+If you have only baseliners in your colony, you can only choose the baseliner xenotype accordingly.
+
+&lt;color=#ff3333&gt;Only xenotypes created using XML are supported.&lt;/color&gt;</description>
 	<descriptionHyperlinks>
 	  <!-- <ThingDef>WVC_Plant_XenoBulb</ThingDef> -->
 	  <ThingDef>WVC_XenoSpawnerSeed</ThingDef>
@@ -24,6 +28,7 @@
 	  <MaxHitPoints>620</MaxHitPoints>
 	</statBases>
 	<ingestible />
+	<!-- <drawGUIOverlay>True</drawGUIOverlay> -->
 	<preventSkyfallersLandingOn>true</preventSkyfallersLandingOn>
 	<canScatterOver>false</canScatterOver>
 	<!-- <specialDisplayRadius>19.9</specialDisplayRadius> -->
@@ -31,7 +36,7 @@
 	  <interferesWithRoof>false</interferesWithRoof>
 	  <growMinGlow>0</growMinGlow>
 	  <pollution>Any</pollution>
-	  <growDays>4</growDays>
+	  <growDays>6</growDays>
 	  <visualSizeRange>1.5~2.1</visualSizeRange>
 	  <sowMinSkill>0</sowMinSkill>
 	  <sowTags Inherit="False"/>

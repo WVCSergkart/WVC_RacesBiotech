@@ -20,11 +20,11 @@ namespace WVC_XenotypesAndGenes
 
 		public List<XenotypeDef> allXenotypes;
 
-		public HediffDef HediffDefName => gene.def.GetModExtension<GeneExtension_XenotypeGestator>().gestationHediffDef;
-		public HediffDef CooldownHediffDef => gene.def.GetModExtension<GeneExtension_XenotypeGestator>().cooldownHediffDef;
-		public float MatchPercent => gene.def.GetModExtension<GeneExtension_XenotypeGestator>().matchPercent;
-		public int MinimumDays => gene.def.GetModExtension<GeneExtension_XenotypeGestator>().minimumDays;
-		public int CooldownDays => gene.def.GetModExtension<GeneExtension_XenotypeGestator>().cooldownDays;
+		public HediffDef hediffDefName;
+		public HediffDef cooldownHediffDef;
+		public float matchPercent;
+		public int minimumDays;
+		public int cooldownDays;
 
 		private readonly int ticksInDay = 60000;
 
@@ -37,6 +37,11 @@ namespace WVC_XenotypesAndGenes
 		public Dialog_ChooseXenotype(Gene thisGene)
 		{
 			gene = thisGene;
+			hediffDefName = gene?.def?.GetModExtension<GeneExtension_XenotypeGestator>()?.gestationHediffDef;
+			cooldownHediffDef = gene?.def?.GetModExtension<GeneExtension_XenotypeGestator>()?.cooldownHediffDef;
+			matchPercent = gene?.def?.GetModExtension<GeneExtension_XenotypeGestator>() == null ? 1f : gene.def.GetModExtension<GeneExtension_XenotypeGestator>().matchPercent;
+			minimumDays = gene?.def?.GetModExtension<GeneExtension_XenotypeGestator>() == null ? 3 : gene.def.GetModExtension<GeneExtension_XenotypeGestator>().minimumDays;
+			cooldownDays = gene?.def?.GetModExtension<GeneExtension_XenotypeGestator>() == null ? 5 : gene.def.GetModExtension<GeneExtension_XenotypeGestator>().cooldownDays;
 			// currentXeno = xenoTree.chosenXenotype;
 			// selectedXeno = currentXeno;
 			// connectedPawn = xenoTree.ConnectedPawn;
@@ -109,9 +114,9 @@ namespace WVC_XenotypesAndGenes
 			}
 			Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneXenoGestator_GestationTime".Translate((GetGestationTime() * ticksInDay).ToStringTicksToPeriod()).Resolve());
 			curY += 10f;
-			if (!XaG_GeneUtility.GenesIsMatch(gene.pawn.genes.GenesListForReading, selectedXeno.genes, MatchPercent))
+			if (!XaG_GeneUtility.GenesIsMatch(gene.pawn.genes.GenesListForReading, selectedXeno.genes, matchPercent))
 			{
-				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneXenoGestator_GestationGenesMatch".Translate((MatchPercent * 100).ToString()).Colorize(ColorLibrary.RedReadable));
+				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneXenoGestator_GestationGenesMatch".Translate((matchPercent * 100).ToString()).Colorize(ColorLibrary.RedReadable));
 				curY += 10f;
 			}
 			if (MeetsRequirements(selectedXeno))
@@ -137,7 +142,7 @@ namespace WVC_XenotypesAndGenes
 
 		private int GetGestationTime()
 		{
-			return (int)(XaG_GeneUtility.GetXenotype_Cpx(selectedXeno) * 0.1f) + MinimumDays;
+			return (int)(XaG_GeneUtility.GetXenotype_Cpx(selectedXeno) * 0.1f) + minimumDays;
 		}
 
 		private void StartChange()
@@ -150,16 +155,16 @@ namespace WVC_XenotypesAndGenes
 			SoundDefOf.MechGestatorCycle_Started.PlayOneShot(new TargetInfo(gene.pawn));
 			// HediffDef hediffDef = gene?.def?.GetModExtension<GeneExtension_Giver>()?.hediffDefName;
 			// Log.Error(hediffDef.LabelCap);
-			if (HediffDefName != null)
+			if (hediffDefName != null)
 			{
 				// Log.Error("1");
-				Hediff hediff = HediffMaker.MakeHediff(HediffDefName, gene.pawn);
+				Hediff hediff = HediffMaker.MakeHediff(hediffDefName, gene.pawn);
 				HediffComp_XenotypeGestator xeno_Gestator = hediff.TryGetComp<HediffComp_XenotypeGestator>();
 				// Log.Error("2");
 				if (xeno_Gestator != null)
 				{
 					xeno_Gestator.xenotypeDef = selectedXeno;
-					xeno_Gestator.gestationIntervalDays = GetGestationTime() + MinimumDays;
+					xeno_Gestator.gestationIntervalDays = GetGestationTime() + minimumDays;
 				}
 				HediffComp_RemoveIfGeneIsNotActive hediff_GeneCheck = hediff.TryGetComp<HediffComp_RemoveIfGeneIsNotActive>();
 				if (hediff_GeneCheck != null)
@@ -169,17 +174,17 @@ namespace WVC_XenotypesAndGenes
 				// Log.Error("3");
 				gene.pawn.health.AddHediff(hediff);
 				// Log.Error("4");
-				if (CooldownHediffDef != null)
+				if (cooldownHediffDef != null)
 				{
 					if (gene is Gene_XenotypeGestator geneGestator)
 					{
-						geneGestator.cooldownHediffDef = CooldownHediffDef;
+						geneGestator.cooldownHediffDef = cooldownHediffDef;
 					}
-					Hediff cooldownHediff = HediffMaker.MakeHediff(CooldownHediffDef, gene.pawn);
+					Hediff cooldownHediff = HediffMaker.MakeHediff(cooldownHediffDef, gene.pawn);
 					HediffComp_Disappears hediffComp_Disappears = cooldownHediff.TryGetComp<HediffComp_Disappears>();
 					if (hediffComp_Disappears != null)
 					{
-						hediffComp_Disappears.ticksToDisappear = ticksInDay * CooldownDays;
+						hediffComp_Disappears.ticksToDisappear = ticksInDay * cooldownDays;
 					}
 					HediffComp_RemoveIfGeneIsNotActive cooldownHediff_GeneCheck = cooldownHediff.TryGetComp<HediffComp_RemoveIfGeneIsNotActive>();
 					if (cooldownHediff_GeneCheck != null)
@@ -228,7 +233,7 @@ namespace WVC_XenotypesAndGenes
 				return true;
 			}
 			// TEST
-			if (XaG_GeneUtility.GenesIsMatch(gene?.pawn?.genes?.GenesListForReading, mode.genes, MatchPercent))
+			if (XaG_GeneUtility.GenesIsMatch(gene?.pawn?.genes?.GenesListForReading, mode.genes, matchPercent))
 			{
 				return true;
 			}
