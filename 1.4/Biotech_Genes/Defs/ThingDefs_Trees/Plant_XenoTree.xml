@@ -10,7 +10,7 @@
 
 If you have only baseliners in your colony, you can only choose the baseliner xenotype accordingly.
 
-&lt;color=#ff3333&gt;Only xenotypes created using XML are supported.&lt;/color&gt;</description>
+&lt;color=#ff8585&gt;Only xenotypes created using XML are supported.&lt;/color&gt;</description>
 	<descriptionHyperlinks>
 	  <!-- <ThingDef>WVC_Plant_XenoBulb</ThingDef> -->
 	  <ThingDef>WVC_XenoSpawnerSeed</ThingDef>

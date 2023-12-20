@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using Verse;
 
@@ -127,5 +128,6 @@ namespace WVC_XenotypesAndGenes
 		public List<string> mechDefNameShouldNotContain;
 		// public List<GeneDef> xenoTree_PollutionReq_GeneDefs;
 		public List<ThingDef> plantsToNotOverwrite_SpawnSubplant;
+		public List<Type> shapeShift_IgnoredGeneClasses;
 	}
 }

@@ -81,4 +81,30 @@
 	<!-- </modExtensions> -->
   <!-- </GeneDef> -->
 
+  <!-- ================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSpecialPurposes_Base">
+	<defName>WVC_Shapeshifter</defName>
+	<label>shapeshifter</label>
+	<description>Carriers of this gene can change their xenotype at will.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Shapeshifter</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_XenoForcer_ShapeShifter</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<selectionWeight>0.00044</selectionWeight>
+	<canGenerateInGeneSet>true</canGenerateInGeneSet>
+	<biostatCpx>8</biostatCpx>
+	<biostatArc>4</biostatArc>
+	<customEffectDescriptions>
+		<li>Allows you to change the xenotype at any time.</li>
+		<!-- <li MayRequire="ludeon.rimworld.ideology">Increases the number of scars by 3</li> -->
+		<li>&lt;color=#ff8585&gt;Does not support custom xenotypes.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<displayOrderInCategory>-25</displayOrderInCategory>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <scarsCount>3</scarsCount> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+
 </Defs>

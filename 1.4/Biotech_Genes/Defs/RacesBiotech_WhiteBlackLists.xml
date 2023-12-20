@@ -203,6 +203,11 @@
 	  <li MayRequire="Ludeon.RimWorld.Biotech">Plant_TreePolux</li>
 	  <li MayRequire="Ludeon.RimWorld.Ideology">Plant_TreeGauranlen</li>
 	</plantsToNotOverwrite_SpawnSubplant>
+	<!-- Ignored by shapeshifter mechanic. Required gene Types -->
+	<shapeShift_IgnoredGeneClasses>
+		<li>WVC_XenotypesAndGenes.Gene_XenotypeShapeshifter</li>
+		<li>WVC_XenotypesAndGenes.Gene_Shapeshifter</li>
+	</shapeShift_IgnoredGeneClasses>
   </WVC_XenotypesAndGenes.XenotypesAndGenesListDef>
 
   <!-- ======================================================================= -->

@@ -89,8 +89,10 @@
 			<scarsCount>3</scarsCount>
 			<scarGeneDefs>
 			  <li>WVC_PerfectImmunity_DiseaseFree</li>
+			  <li>WVC_ArchitePerfectImmunity_DiseaseFree</li>
 			  <li>WVC_Scarifier_GeneticStability</li>
 			  <li>WVC_Scarifier_Pain</li>
+			  <!-- <li>WVC_Shapeshifter</li> -->
 			</scarGeneDefs>
 		</li>
 	</modExtensions>

@@ -150,11 +150,22 @@
 	<texPath>WVC/UI/Mecha_Icons/Xeno_Undead_v4</texPath>
   </XenotypeIconDef>
 
-  <!-- Used -->
-  <XenotypeIconDef>
-	<defName>WVC_XenoDustAngel0c</defName>
-	<!-- <label>dust angel</label> -->
-	<texPath>WVC/UI/Mecha_Icons/Gene_DustAngel_v0</texPath>
-  </XenotypeIconDef>
+  <!-- Masks -->
+  <!-- <XenotypeIconDef> -->
+	<!-- <defName>WVC_MaskGood1c</defName> -->
+	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno_MasksGood</texPath> -->
+  <!-- </XenotypeIconDef> -->
+  <!-- <XenotypeIconDef> -->
+	<!-- <defName>WVC_MaskNeutral1c</defName> -->
+	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno_MasksNeutral</texPath> -->
+  <!-- </XenotypeIconDef> -->
+  <!-- <XenotypeIconDef> -->
+	<!-- <defName>WVC_MaskEvil1c</defName> -->
+	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno_MasksEvil</texPath> -->
+  <!-- </XenotypeIconDef> -->
+  <!-- <XenotypeIconDef> -->
+	<!-- <defName>WVC_MaskShapeShifter1c</defName> -->
+	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno_MaskShapeShifter1</texPath> -->
+  <!-- </XenotypeIconDef> -->
 
 </Defs>

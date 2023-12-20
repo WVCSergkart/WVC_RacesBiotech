@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using Verse;
 
@@ -117,14 +118,32 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// Random genes
+		// public static bool GeneIsRandom(GeneDef gene)
+		// {
+			// if (gene.geneClass == typeof(Gene_XenotypeShapeshifter))
+			// {
+				// return true;
+			// }
+			// return false;
+		// }
 		public static bool GeneIsRandom(GeneDef gene)
 		{
-			// gene.geneClass == typeof(Gene_Randomizer) || || GeneIsShuffle(gene)
-			if (gene.geneClass == typeof(Gene_XenotypeShapeshifter))
+			List<Type> geneClasses = GetAllShapeShiftGeneClasses();
+			if (geneClasses.Contains(gene.geneClass))
 			{
 				return true;
 			}
 			return false;
+		}
+
+		public static List<Type> GetAllShapeShiftGeneClasses()
+		{
+			List<Type> list = new();
+			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+			{
+				list.AddRange(item.shapeShift_IgnoredGeneClasses);
+			}
+			return list;
 		}
 
 		//public static bool GeneIsShuffle(GeneDef gene)

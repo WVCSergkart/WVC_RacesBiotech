@@ -8,17 +8,9 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Dialog_ChooseXenotype : Window
+	public class Dialog_ChooseXenotype : Dialog_XenotypesBase
 	{
 		public Gene gene;
-
-		private Vector2 scrollPosition;
-
-		public XenotypeDef selectedXeno;
-
-		private float rightViewWidth;
-
-		public List<XenotypeDef> allXenotypes;
 
 		public HediffDef hediffDefName;
 		public HediffDef cooldownHediffDef;
@@ -27,12 +19,6 @@ namespace WVC_XenotypesAndGenes
 		public int cooldownDays;
 
 		private readonly int ticksInDay = 60000;
-
-		private static readonly Vector2 OptionSize = new(190f, 46f);
-
-		private static readonly Vector2 ButSize = new(200f, 40f);
-
-		public override Vector2 InitialSize => new(Mathf.Min(900, UI.screenWidth), 650f);
 
 		public Dialog_ChooseXenotype(Gene thisGene)
 		{
@@ -52,40 +38,7 @@ namespace WVC_XenotypesAndGenes
 			allXenotypes = XenotypeFilterUtility.AllXenotypesExceptAndroids();
 		}
 
-		public override void PreOpen()
-		{
-			base.PreOpen();
-			SetupView();
-		}
-
-		private void SetupView()
-		{
-			int count = 0;
-			foreach (XenotypeDef allXenotype in allXenotypes)
-			{
-				rightViewWidth = Mathf.Max(rightViewWidth, GetPosition(InitialSize.y, count).x + OptionSize.x);
-				count += 1;
-			}
-			nextButtonPositonY = 0f;
-			nextButtonPositonX = 0f;
-			rightViewWidth += 20f;
-		}
-
-		public override void DoWindowContents(Rect inRect)
-		{
-			Text.Font = GameFont.Medium;
-			string label = ((selectedXeno != null) ? selectedXeno.LabelCap : "WVC_XaG_XenoTreeModeChange".Translate());
-			Widgets.Label(new Rect(inRect.x, inRect.y, inRect.width, 35f), label);
-			Text.Font = GameFont.Small;
-			float num = inRect.y + 35f + 10f;
-			float curY = num;
-			float num2 = inRect.height - num;
-			num2 -= ButSize.y + 10f;
-			DrawLeftRect(new Rect(inRect.xMin, num, 400f, num2), ref curY);
-			DrawRightRect(new Rect(inRect.x + 400f + 17f, num, inRect.width - 400f - 17f, num2));
-		}
-
-		private void DrawLeftRect(Rect rect, ref float curY)
+		public override void DrawLeftRect(Rect rect, ref float curY)
 		{
 			Rect rect2 = new(rect.x, curY, rect.width, rect.height)
 			{
@@ -145,7 +98,7 @@ namespace WVC_XenotypesAndGenes
 			return (int)(XaG_GeneUtility.GetXenotype_Cpx(selectedXeno) * 0.1f) + minimumDays;
 		}
 
-		private void StartChange()
+		public override void StartChange()
 		{
 			// xenoTree.chosenXenotype = selectedXeno;
 			// xenoTree.changeCooldown = Find.TickManager.TicksGame + xenoTree.Props.xenotypeChangeCooldown;
@@ -197,36 +150,7 @@ namespace WVC_XenotypesAndGenes
 			Close(doCloseSound: false);
 		}
 
-		private void DrawRightRect(Rect rect)
-		{
-			Widgets.DrawMenuSection(rect);
-			Rect rect2 = new(0f, 0f, rightViewWidth, rect.height - 16f);
-			Rect rect3 = rect2.ContractedBy(10f);
-			Widgets.ScrollHorizontal(rect, ref scrollPosition, rect2);
-			Widgets.BeginScrollView(rect, ref scrollPosition, rect2);
-			Widgets.BeginGroup(rect3);
-			int count = 0;
-			foreach (XenotypeDef allXenotype in allXenotypes)
-			{
-				DrawDryadStage(rect3, allXenotype, count);
-				count += 1;
-			}
-			nextButtonPositonY = 0f;
-			nextButtonPositonX = 0f;
-			Widgets.EndGroup();
-			Widgets.EndScrollView();
-		}
-
-		// private bool MeetsMemeRequirements(XenotypeDef stage)
-		// {
-			// if (XenotypeUtility.XenoTree_CanSpawn(stage, xenoTree.parent) || DebugSettings.ShowDevGizmos)
-			// {
-				// return true;
-			// }
-			// return false;
-		// }
-
-		private bool MeetsRequirements(XenotypeDef mode)
+		public override bool MeetsRequirements(XenotypeDef mode)
 		{
 			if (DebugSettings.ShowDevGizmos)
 			{
@@ -248,100 +172,6 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		private Color GetBoxColor(XenotypeDef mode)
-		{
-			Color result = TexUI.AvailResearchColor;
-			// if (mode == currentXeno)
-			// {
-				// result = TexUI.ActiveResearchColor;
-			// }
-			if (!MeetsRequirements(mode))
-			{
-				result = TexUI.LockedResearchColor;
-			}
-			if (selectedXeno == mode)
-			{
-				result += TexUI.HighlightBgResearchColor;
-			}
-			return result;
-		}
-
-		private Color GetBoxOutlineColor(XenotypeDef mode)
-		{
-			if (selectedXeno != null && selectedXeno == mode)
-			{
-				return TexUI.HighlightBorderResearchColor;
-			}
-			return TexUI.DefaultBorderResearchColor;
-		}
-
-		private Color GetTextColor(XenotypeDef mode)
-		{
-			if (!MeetsRequirements(mode))
-			{
-				return ColorLibrary.RedReadable;
-			}
-			return Color.white;
-		}
-
-		private void DrawDryadStage(Rect rect, XenotypeDef stage, float count)
-		{
-			Vector2 position = GetPosition(rect.height, count);
-			Rect rect2 = new(position.x, position.y, OptionSize.x, OptionSize.y);
-			Widgets.DrawBoxSolidWithOutline(rect2, GetBoxColor(stage), GetBoxOutlineColor(stage));
-			Rect rect3 = new(rect2.x, rect2.y, rect2.height, rect2.height);
-			Widgets.DefIcon(rect3.ContractedBy(4f), stage, color: GetXenotypeColor(stage));
-			GUI.color = GetTextColor(stage);
-			Text.Anchor = TextAnchor.MiddleLeft;
-			Widgets.Label(new Rect(rect3.xMax, rect2.y, rect2.width - rect3.width, rect2.height).ContractedBy(4f), stage.LabelCap);
-			Text.Anchor = TextAnchor.UpperLeft;
-			GUI.color = Color.white;
-			if (Widgets.ButtonInvisible(rect2))
-			{
-				selectedXeno = stage;
-				SoundDefOf.Click.PlayOneShotOnCamera();
-			}
-		}
-
-		public Color GetXenotypeColor(XenotypeDef xenotype)
-		{
-			int allGenesCount = XenoTreeUtility.GetAllGenesCount(xenotype);
-			Color color = ColoredText.SubtleGrayColor;
-			if (allGenesCount >= 7)
-			{
-				color = ColorLibrary.LightGreen;
-			}
-			if (allGenesCount >= 14)
-			{
-				color = ColorLibrary.LightBlue;
-			}
-			if (allGenesCount >= 21)
-			{
-				color = ColorLibrary.LightPurple;
-			}
-			if (allGenesCount >= 28)
-			{
-				color = ColorLibrary.LightOrange;
-			}
-			return color;
-		}
-
-		private float nextButtonPositonY = 0f;
-		private float nextButtonPositonX = 0f;
-
-		private Vector2 GetPosition(float height, float count)
-		{
-			if (count > 0f)
-			{
-				nextButtonPositonY += 0.1665f;
-			}
-			if (nextButtonPositonY > 1.16f)
-			{
-				nextButtonPositonY = 0f;
-				nextButtonPositonX += 0.833f;
-			}
-			return new Vector2(nextButtonPositonX * OptionSize.x + nextButtonPositonX * 52f, (height - OptionSize.y) * nextButtonPositonY);
-		}
 	}
 
 }
