@@ -216,4 +216,41 @@
 	</modExtensions>
   </GeneDef>
 
+  <!-- Shift -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_ShapeshiftSkin</defName>
+	<label>shiftskin</label>
+	<description>Carriers of this gene have unnatural-looking scars all over their bodies, as if they were cut and the wounds healed over and over again.</description>
+	<iconPath>WVC/UI/Genes/Gene_FurskinShift_v0</iconPath>
+	<!-- TEST Color -->
+	<!-- <iconColor>(255, 0, 0)</iconColor> -->
+	<forcedHeadTypes>
+	  <li>WVC_ShiftSkin_Average</li>
+	</forcedHeadTypes>
+	<biostatCpx>2</biostatCpx>
+	<customEffectDescriptions>
+	  <!-- <li MayRequire="ludeon.rimworld.ideology">Increases the number of scars by 3</li> -->
+	</customEffectDescriptions>
+	<graphicData>
+	  <fur>WVC_ShapeshiftSkin</fur>
+	  <tattoosVisible>true</tattoosVisible>
+	  <layer>PostSkin</layer>
+	</graphicData>
+	<missingGeneRomanceChanceFactor>0.60</missingGeneRomanceChanceFactor>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>scar</symbol></li>
+		<li><symbol>shift</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>Jaw</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<scarsCount>2</scarsCount>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
 </Defs>

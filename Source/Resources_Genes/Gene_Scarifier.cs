@@ -64,13 +64,14 @@ namespace WVC_XenotypesAndGenes
 
 		public void ScarifierScarify()
 		{
-			if (Active)
+			if (!Active)
 			{
-				if (MaxScars() > pawn.health.hediffSet.GetHediffCount(HediffDefOf.Scarification))
-				{
-					Scarify(pawn);
-					TimeBeforeScarify();
-				}
+				return;
+			}
+			if (MaxScars() > pawn.health.hediffSet.GetHediffCount(HediffDefOf.Scarification))
+			{
+				Scarify(pawn);
+				TimeBeforeScarify();
 			}
 		}
 
@@ -110,40 +111,46 @@ namespace WVC_XenotypesAndGenes
 
 		public static void Scarify(Pawn pawn)
 		{
-			if (ModLister.CheckIdeology("Scarification"))
+			if (!ModLister.CheckIdeology("Scarification"))
 			{
-				List<BodyPartRecord> bodyparts = new();
-				foreach (BodyPartRecord notMissingPart in pawn.health.hediffSet.GetNotMissingParts())
+				return;
+			}
+			List<BodyPartRecord> bodyparts = new();
+			foreach (BodyPartRecord notMissingPart in pawn.health.hediffSet.GetNotMissingParts())
+			{
+				if (notMissingPart.def.canScarify)
 				{
-					if (notMissingPart.def.canScarify)
-					{
-						bodyparts.Add(notMissingPart);
-						// Log.Error("2");
-					}
+					bodyparts.Add(notMissingPart);
+					// Log.Error("2");
 				}
-				BodyPartRecord part = bodyparts.RandomElement();
-				if (part != null && (!pawn.health.WouldDieAfterAddingHediff(HediffDefOf.Scarification, part, 1f) || !pawn.health.WouldLosePartAfterAddingHediff(HediffDefOf.Scarification, part, 1f)))
+			}
+			BodyPartRecord part = bodyparts.RandomElement();
+			if (part == null || pawn.health.WouldDieAfterAddingHediff(HediffDefOf.Scarification, part, 1f) && pawn.health.WouldLosePartAfterAddingHediff(HediffDefOf.Scarification, part, 1f))
+			{
+				return;
+			}
+			Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.Scarification, pawn, part);
+			HediffComp_GetsPermanent hediffComp_GetsPermanent = hediff.TryGetComp<HediffComp_GetsPermanent>();
+			hediffComp_GetsPermanent.IsPermanent = true;
+			hediffComp_GetsPermanent.permanentDamageThreshold = 0f;
+			// hediffComp_GetsPermanent.SetPainCategory(JobDriver_Scarify.InjuryPainCategories.RandomElementByWeight((HealthTuning.PainCategoryWeighted e) => e.weight).category);
+			hediffComp_GetsPermanent.SetPainCategory(PainCategory.Painless);
+			pawn.health.AddHediff(hediff);
+			// Log.Error("3");
+			if (pawn.RaceProps.BloodDef == null || pawn.Map == null)
+			{
+				return;
+			}
+			SoundDefOf.Execute_Cut.PlayOneShot(pawn);
+			CellRect cellRect = new(pawn.PositionHeld.x - 1, pawn.PositionHeld.z - 1, 3, 3);
+			for (int i = 0; i < 3; i++)
+			{
+				IntVec3 randomCell = cellRect.RandomCell;
+				if (!randomCell.InBounds(pawn.Map) || !GenSight.LineOfSight(randomCell, pawn.PositionHeld, pawn.Map))
 				{
-					Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.Scarification, pawn, part);
-					HediffComp_GetsPermanent hediffComp_GetsPermanent = hediff.TryGetComp<HediffComp_GetsPermanent>();
-					hediffComp_GetsPermanent.IsPermanent = true;
-					hediffComp_GetsPermanent.SetPainCategory(JobDriver_Scarify.InjuryPainCategories.RandomElementByWeight((HealthTuning.PainCategoryWeighted e) => e.weight).category);
-					pawn.health.AddHediff(hediff);
-					// Log.Error("3");
-					if (pawn.RaceProps.BloodDef != null && pawn.Map != null)
-					{
-						SoundDefOf.Execute_Cut.PlayOneShot(pawn);
-						CellRect cellRect = new(pawn.PositionHeld.x - 1, pawn.PositionHeld.z - 1, 3, 3);
-						for (int i = 0; i < 3; i++)
-						{
-							IntVec3 randomCell = cellRect.RandomCell;
-							if (randomCell.InBounds(pawn.Map) && GenSight.LineOfSight(randomCell, pawn.PositionHeld, pawn.Map))
-							{
-								FilthMaker.TryMakeFilth(randomCell, pawn.MapHeld, pawn.RaceProps.BloodDef, pawn.LabelIndefinite());
-							}
-						}
-					}
+					continue;
 				}
+				FilthMaker.TryMakeFilth(randomCell, pawn.MapHeld, pawn.RaceProps.BloodDef, pawn.LabelIndefinite());
 			}
 		}
 

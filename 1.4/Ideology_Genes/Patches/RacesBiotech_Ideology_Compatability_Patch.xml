@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
 
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/ThoughtDef[defName="Disfigured"]/nullifyingGenes</xpath>
+			  <success>Invert</success>
+			  <value>
+				  <li>WVC_Scarifier</li>
+				  <li>WVC_Scarifier_Clotting</li>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/ThoughtDef[defName="Disfigured"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<nullifyingGenes>
+				  <li>WVC_Scarifier</li>
+				  <li>WVC_Scarifier_Clotting</li>
+				</nullifyingGenes>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<!-- <Operation Class="PatchOperationConditional"> -->
+		<!-- <xpath>/Defs/ThoughtDef[defName="Disfigured"]/nullifyingGenes</xpath> -->
+		<!-- <nomatch Class="PatchOperationAdd"> -->
+		  <!-- <xpath>/Defs/ThoughtDef[defName="Disfigured"]</xpath> -->
+		  <!-- <value> -->
+			<!-- <nullifyingGenes /> -->
+		  <!-- </value> -->
+		<!-- </nomatch> -->
+	<!-- </Operation> -->
+
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/ThoughtDef[defName="Disfigured"]/nullifyingGenes</xpath> -->
+	  <!-- <success>Always</success> -->
+	  <!-- <value> -->
+		  <!-- <li>WVC_Scarifier</li> -->
+		  <!-- <li>WVC_Scarifier_Clotting</li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
 	<!-- ============================================================ -->
 
 	<!-- <Operation Class="PatchOperationFindMod"> -->

@@ -52,6 +52,9 @@
 		  </li>
 		</tools>
 	  </li>
+	  <!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive"> -->
+		<!-- <geneDef>WVC_Mecha_ScytheTail</geneDef> -->
+	  <!-- </li> -->
 	</comps>
   </HediffDef>
 
@@ -91,6 +94,9 @@
 		  </li>
 		</tools>
 	  </li>
+	  <!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive"> -->
+		<!-- <geneDef>WVC_MecaBodyParts_Claws</geneDef> -->
+	  <!-- </li> -->
 	</comps>
   </HediffDef>
 
@@ -128,6 +134,9 @@
 		  </li>
 		</tools>
 	  </li>
+	  <!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive"> -->
+		<!-- <geneDef>WVC_NaturalBodyParts_Claws</geneDef> -->
+	  <!-- </li> -->
 	</comps>
   </HediffDef>
 
@@ -407,6 +416,9 @@
 		<minSeverity>0.0</minSeverity>
 	  </li>
 	</stages>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive"/>
+	</comps>
   </HediffDef>
 
   <!-- <HediffDef> -->
@@ -441,6 +453,11 @@
 		<minSeverity>0.0</minSeverity>
 	  </li>
 	</stages>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive">
+		<geneDef>WVC_SleepyStomach</geneDef>
+	  </li>
+	</comps>
   </HediffDef>
 
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
@@ -453,6 +470,11 @@
 		<minSeverity>0.0</minSeverity>
 	  </li>
 	</stages>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive">
+		<geneDef>WVC_StoneStomach</geneDef>
+	  </li>
+	</comps>
   </HediffDef>
 
   <!--=====================================================================-->

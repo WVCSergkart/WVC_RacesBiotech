@@ -1,10 +1,11 @@
+using RimWorld;
 using System.Collections.Generic;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_MechaClotting : Gene
+	public class Gene_MechaClotting : Gene_AddOrRemoveHediff
 	{
 		// private const int ClotCheckInterval = 750;
 
@@ -12,22 +13,24 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Tick()
 		{
-			base.Tick();
 			if (!pawn.IsHashIntervalTick(1500))
 			{
 				return;
 			}
-			if (Active)
+			if (!Active)
 			{
-				List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
-				for (int num = hediffs.Count - 1; num >= 0; num--)
-				{
-					if (hediffs[num].TendableNow() && !hediffs[num].IsTended())
-					{
-						hediffs[num].Tended(TendingQualityRange.RandomInRange, TendingQualityRange.TrueMax, 1);
-					}
-				}
+				return;
 			}
+			List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
+			for (int num = 0; num < hediffs.Count; num++)
+			{
+				if (!hediffs[num].TendableNow() || hediffs[num].IsTended())
+				{
+					continue;
+				}
+				hediffs[num].Tended(TendingQualityRange.RandomInRange, TendingQualityRange.TrueMax, 1);
+			}
+			base.Tick();
 		}
 	}
 
@@ -44,25 +47,24 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (Active)
+			if (!Active)
 			{
-				List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
-				for (int num = hediffs.Count - 1; num >= 0; num--)
+				return;
+			}
+			List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
+			for (int num = 0; num < hediffs.Count; num++)
+			{
+				if (!hediffs[num].TendableNow() || hediffs[num].IsTended() || !DustUtility.PawnInPronePosition(pawn))
 				{
-					if (hediffs[num].TendableNow() && !hediffs[num].IsTended())
-					{
-						if (DustUtility.PawnInPronePosition(pawn))
-						{
-							// Gene_Dust gene_Dust = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
-							// if (gene_Dust != null)
-							// {
-							// }
-							DustUtility.OffsetNeedFood(pawn, -1f * def.resourceLossPerDay);
-							hediffs[num].Tended(TendingQualityRange.RandomInRange, TendingQualityRange.TrueMax, 1);
-						}
-					}
-					// hediffs[num].Heal(TendingQualityRange.RandomInRange * 2);
+					continue;
 				}
+				// Gene_Dust gene_Dust = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
+				// if (gene_Dust != null)
+				// {
+				// }
+				DustUtility.OffsetNeedFood(pawn, -1f * def.resourceLossPerDay);
+				hediffs[num].Tended(TendingQualityRange.RandomInRange, TendingQualityRange.TrueMax, 1);
+				// hediffs[num].Heal(TendingQualityRange.RandomInRange * 2);
 			}
 		}
 	}
@@ -80,27 +82,28 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (Active)
+			if (!Active)
 			{
-				List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
-				for (int num = hediffs.Count - 1; num >= 0; num--)
+				return;
+			}
+			List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
+			for (int num = 0; num < hediffs.Count; num++)
+			{
+				if (!hediffs[num].TendableNow() || hediffs[num].IsTended())
 				{
-					if (hediffs[num].TendableNow() && !hediffs[num].IsTended())
-					{
-						// Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
-						if (cachedResurgentGene != null)
-						{
-							if (cachedResurgentGene.woundClottingAllowed)
-							{
-								if ((cachedResurgentGene.Value - def.resourceLossPerDay) >= 0f)
-								{
-                                    cachedResurgentGene.Value -= def.resourceLossPerDay;
-									hediffs[num].Tended(TendingQualityRange.RandomInRange, TendingQualityRange.TrueMax, 1);
-								}
-							}
-						}
-					}
+					continue;
 				}
+				// Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
+				if (cachedResurgentGene == null)
+				{
+					continue;
+				}
+				if (!cachedResurgentGene.woundClottingAllowed || (cachedResurgentGene.Value - def.resourceLossPerDay) < 0f)
+				{
+					continue;
+				}
+				cachedResurgentGene.Value -= def.resourceLossPerDay;
+				hediffs[num].Tended(TendingQualityRange.RandomInRange, TendingQualityRange.TrueMax, 1);
 			}
 		}
 	}
@@ -118,25 +121,39 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (Active)
+			if (!Active)
 			{
-				List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
-				for (int num = hediffs.Count - 1; num >= 0; num--)
-				{
-					if (hediffs[num].TendableNow() && !hediffs[num].IsTended())
-					{
-						hediffs[num].Tended(TendingQualityRange.RandomInRange, TendingQualityRange.TrueMax, 1);
-						if (Rand.Chance(0.2f))
-						{
-							Gene_Scarifier gene_Scarifier = pawn.genes?.GetFirstGeneOfType<Gene_Scarifier>();
-							if (gene_Scarifier == null || (gene_Scarifier != null && gene_Scarifier.CanScarify))
-							{
-								Gene_Scarifier.Scarify(pawn);
-							}
-						}
-					}
-				}
+				return;
 			}
+			List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
+			for (int num = 0; num < hediffs.Count; num++)
+			{
+				if (!hediffs[num].TendableNow() || hediffs[num].IsTended())
+				{
+					continue;
+				}
+				hediffs[num].Tended(TendingQualityRange.RandomInRange, TendingQualityRange.TrueMax, 1);
+				if (!ShouldScarify())
+				{
+					continue;
+				}
+				Gene_Scarifier gene_Scarifier = pawn.genes?.GetFirstGeneOfType<Gene_Scarifier>();
+				if (gene_Scarifier != null && (gene_Scarifier == null || !gene_Scarifier.CanScarify))
+				{
+					continue;
+				}
+				Gene_Scarifier.Scarify(pawn);
+			}
+		}
+
+		private bool ShouldScarify()
+		{
+			int scars = pawn.health.hediffSet.GetHediffCount(HediffDefOf.Scarification);
+			if (Rand.Chance(scars > 0 ? 0.2f / scars : 0.2f))
+			{
+				return true;
+			}
+			return false;
 		}
 	}
 

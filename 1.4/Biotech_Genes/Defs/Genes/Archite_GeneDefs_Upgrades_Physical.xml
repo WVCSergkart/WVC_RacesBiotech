@@ -67,11 +67,14 @@
 			<customBloodThingDef>Filth_MachineBits</customBloodThingDef>
 			<customBloodIcon>WVC/UI/InvisibleThing</customBloodIcon>
 			<!-- Not necessary -->
-			<hediffToWholeBody>WVC_MechaClotting_PreventBleeding</hediffToWholeBody>
+			<!-- <hediffToWholeBody>WVC_MechaClotting_PreventBleeding</hediffToWholeBody> -->
 		</li>
 		<!-- <li Class="WVC.GeneExtension_MechaClotting"> -->
 			<!-- <preventBleeding>true</preventBleeding> -->
 		<!-- </li> -->
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_MechaClotting_PreventBleeding</hediffDefName>
+		</li>
 	</modExtensions>
   </GeneDef>
 

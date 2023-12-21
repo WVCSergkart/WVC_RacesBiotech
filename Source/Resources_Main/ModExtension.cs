@@ -60,7 +60,7 @@ namespace WVC_XenotypesAndGenes
 		public bool xenotypeIsInheritable = true;
 		public List<HeadTypeDef> headTypeDefs;
 		// Scarifier
-		public int scarsCount = 3;
+		public int scarsCount = 0;
 		public List<GeneDef> scarGeneDefs;
 		// Rand Hediff
 		// public HediffStatRandDef hediffStatRandDef;

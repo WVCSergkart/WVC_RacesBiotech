@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneStomach_Base" Abstract="True">
+	<selectionWeight>0.0025</selectionWeight>
+	<displayCategory>Miscellaneous</displayCategory>
+	<displayOrderInCategory>11</displayOrderInCategory>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>worldeater</symbol></li>
+	  </wholeNameSymbols>
+	  <prefixSymbols>
+		<li><symbol>eater</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>vore</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>WVC_HybridStomach</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneStomach_Base">
+	<defName>WVC_SuperStomach</defName>
+	<label>super stomach</label>
+	<description>Carriers of this gene receive more nutrients when ingesting, and they can get full from almost anything.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_SuperMetabolism</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_SuperStomach_v0</iconPath>
+	<foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+	<dontMindRawFood>true</dontMindRawFood>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>-3</biostatMet>
+	<customEffectDescriptions>
+	  <li>Any ingestible things completely replenish hunger.</li>
+	</customEffectDescriptions>
+	<makeImmuneTo>
+	  <li>GutWorms</li>
+	</makeImmuneTo>
+	<exclusionTags>
+	  <li>WVC_XaG_HungerReplenishStomach</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- ================================================================== -->
+
+
+</Defs>

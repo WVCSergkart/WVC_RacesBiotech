@@ -81,7 +81,7 @@
     <Compile Include="Resources_Gizmo\Gizmo_MaxGolems.cs" />
     <Compile Include="Resources_Genes\Gene_AngelicStability.cs" />
     <Compile Include="Resources_Genes\Gene_BodyParts_Restoration.cs" />
-    <Compile Include="Resources_Genes\Gene_Dust.cs" />
+    <Compile Include="Resources_Genes\Gene_Ingest.cs" />
     <Compile Include="Resources_Genes\Gene_Mechlink.cs" />
     <Compile Include="Resources_Genes\Gene_ResurgentCellsGain.cs" />
     <Compile Include="Resources_Genes\Gene_Scarifier.cs" />
@@ -99,6 +99,7 @@
     <Compile Include="Resources_Hediff\HediffComp_DustGestator.cs" />
     <Compile Include="Resources_Hediff\HediffComp_RemoveIfGeneIsNotActive.cs" />
     <Compile Include="Resources_Hediff\HediffComp_RemoveLetter.cs" />
+    <Compile Include="Resources_Hediff\Hediff_Scarshield.cs" />
     <Compile Include="Resources_Hediff\Hediff_Spores.cs" />
     <Compile Include="Resources_Hediff\OnlyOneOverseer.cs" />
     <Compile Include="Resources_JobGiver\JobGiver_GetSpecialFood.cs" />

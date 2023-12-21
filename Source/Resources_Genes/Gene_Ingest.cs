@@ -13,6 +13,10 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Notify_IngestedThing(Thing thing, int numTaken)
 		{
+			if (!Active)
+			{
+				return;
+			}
 			// if (cachedMaxNutrition <= 0f)
 			// {
 				// cachedMaxNutrition = pawn.GetStatValue(StatDefOf.MaxNutrition);
@@ -52,6 +56,10 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Notify_IngestedThing(Thing thing, int numTaken)
 		{
+			if (!Active)
+			{
+				return;
+			}
 			base.Notify_IngestedThing(thing, numTaken);
 			IngestibleProperties ingestible = thing.def.ingestible;
 			float nutrition = thing.GetStatValue(StatDefOf.Nutrition);
@@ -72,19 +80,24 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	// public class Gene_SuperMetabolism : Gene
-	// {
+	public class Gene_SuperMetabolism : Gene
+	{
 
-		// public override void Notify_IngestedThing(Thing thing, int numTaken)
-		// {
+		public override void Notify_IngestedThing(Thing thing, int numTaken)
+		{
+			if (!Active)
+			{
+				return;
+			}
 			// IngestibleProperties ingestible = thing.def.ingestible;
 			// float nutrition = thing.GetStatValue(StatDefOf.Nutrition);
 			// if (ingestible != null && nutrition >= 1f)
 			// {
 				// DustUtility.OffsetNeedFood(pawn, 10.0f * nutrition * (float)numTaken);
 			// }
-		// }
+			DustUtility.OffsetNeedFood(pawn, 10.0f * (float)numTaken);
+		}
 
-	// }
+	}
 
 }

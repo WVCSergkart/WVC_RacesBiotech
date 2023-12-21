@@ -58,6 +58,17 @@
 	</bodyTypeGraphicPaths>
   </FurDef>
 
+  <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
+	<defName>WVC_ShapeshiftSkin</defName>
+	<bodyTypeGraphicPaths>
+	  <Male>WVC/Bodies/Shapeshifter_Body/Naked_Male</Male>
+	  <Female>WVC/Bodies/Shapeshifter_Body/Naked_Female</Female>
+	  <Hulk>WVC/Bodies/Shapeshifter_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/Bodies/Shapeshifter_Body/Naked_Fat</Fat>
+	  <Thin>WVC/Bodies/Shapeshifter_Body/Naked_Thin</Thin>
+	</bodyTypeGraphicPaths>
+  </FurDef>
+
   <!-- ==================================== -->
 
   <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">

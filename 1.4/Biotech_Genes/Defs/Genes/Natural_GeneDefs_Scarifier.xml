@@ -13,10 +13,10 @@
 	<displayOrderInCategory>5</displayOrderInCategory>
 	<biostatCpx>6</biostatCpx>
 	<customEffectDescriptions>
-		<li MayRequire="ludeon.rimworld.ideology">Increases the number of scars by 2</li>
+		<!-- <li MayRequire="ludeon.rimworld.ideology">Increases the number of scars by 2</li> -->
 	</customEffectDescriptions>
 	<displayCategory>WVC_Scarifier</displayCategory>
-	<selectionWeight>0.0125</selectionWeight>
+	<selectionWeight>0.0025</selectionWeight>
 	<!-- <makeImmuneTo> -->
 	  <!-- <li>GutWorms</li> -->
 	  <!-- <li>MuscleParasites</li> -->
@@ -75,7 +75,7 @@
 	<customEffectDescriptions>
 		<li>Adds a scar every few days</li>
 		<li>Base number of scars 3</li>
-		<li>Some genes can increase or decrease the number of scars.</li>
+		<li>Some genes can change the number of scars.</li>
 		<!-- <li>In the presence of the &lt;color=#8a8ae6&gt;"Undead"&lt;/color&gt; gene, this gene disables the base resurrection mechanic.</li> -->
 	</customEffectDescriptions>
 	<symbolPack>
@@ -92,7 +92,12 @@
 			  <li>WVC_ArchitePerfectImmunity_DiseaseFree</li>
 			  <li>WVC_Scarifier_GeneticStability</li>
 			  <li>WVC_Scarifier_Pain</li>
-			  <!-- <li>WVC_Shapeshifter</li> -->
+			  <li>WVC_ShapeshiftSkin</li>
+			  <li>WVC_Shapeshifter</li>
+			  <li>WVC_Shapeshifter_Rand</li>
+			  <li>WVC_Scarifier_Scarshield</li>
+			  <li>WVC_Scarifier_Scarstomach</li>
+			  <li>WVC_Scarifier_ArchiteScarstomach</li>
 			</scarGeneDefs>
 		</li>
 	</modExtensions>
@@ -108,13 +113,13 @@
 	<biostatArc>0</biostatArc>
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
-	  <li MayRequire="ludeon.rimworld.ideology">Decrease the number of scars by 1</li>
+	  <!-- <li MayRequire="ludeon.rimworld.ideology">Increase the number of scars by 2</li> -->
 	</customEffectDescriptions>
 	<displayCategory>WVC_Scarifier</displayCategory>
 	<displayOrderInCategory>10</displayOrderInCategory>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<scarsCount>-1</scarsCount>
+			<scarsCount>-2</scarsCount>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -132,7 +137,7 @@
 	<biostatMet>0</biostatMet>
 	<painOffset>-0.2</painOffset>
 	<customEffectDescriptions>
-	  <li MayRequire="ludeon.rimworld.ideology">Increase the number of scars by 1</li>
+	  <!-- <li MayRequire="ludeon.rimworld.ideology">Increase the number of scars by 1</li> -->
 	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>
@@ -168,6 +173,96 @@
 		<li><symbol>bleed</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
+  </GeneDef>
+
+  <GeneDef MayRequire="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_GeneScarifier_Base">
+	<defName>WVC_Scarifier_Scarshield</defName>
+	<label>scarshield</label>
+	<description>Carriers of this gene become stronger when they receive scars.</description>
+	<iconPath>WVC/UI/Genes/Gene_Scarshield_v0</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass>
+	<displayOrderInCategory>25</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-4</biostatMet>
+	<customEffectDescriptions>
+	  <li>Incoming damage -15% per scar</li>
+	  <!-- <li>Melee damage +5% per scar</li> -->
+	  <!-- <li MayRequire="ludeon.rimworld.ideology">Increase the number of scars by 2</li> -->
+	  <li>Only &lt;color=#8a8ae6&gt;ideo&lt;/color&gt;logical &lt;color=#8a8ae6&gt;scars&lt;/color&gt; count.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>shield</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>Toughness</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_Scarifier_Scarshield</hediffDefName>
+			<scarsCount>2</scarsCount>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ===================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneScarifier_Base" Name="WVC_XenotypesAndGenes_GeneScarifier_Stomach" Abstract="True">
+	<label>scarstomach</label>
+	<description>Carriers of this gene receive more nutrients when ingesting, and they can get full from almost anything.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_SuperMetabolism</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_ScarStomach_v0</iconPath>
+	<foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+	<dontMindRawFood>true</dontMindRawFood>
+	<selectionWeight>0.0025</selectionWeight>
+	<biostatCpx>-6</biostatCpx>
+	<biostatMet>-5</biostatMet>
+	<customEffectDescriptions>
+	  <li>Any ingestible things completely replenish hunger.</li>
+	  <!-- <li>Hunger rate -5% per scar</li> -->
+	  <!-- <li>Raw nutrition multiplier +5% per scar</li> -->
+	  <!-- <li>Only &lt;color=#8a8ae6&gt;ideo&lt;/color&gt;logical &lt;color=#8a8ae6&gt;scars&lt;/color&gt; count.</li> -->
+	</customEffectDescriptions>
+	<makeImmuneTo>
+	  <li>GutWorms</li>
+	</makeImmuneTo>
+	<exclusionTags>
+	  <li>WVC_HybridStomach</li>
+	  <li>WVC_XaG_HungerReplenishStomach</li>
+	</exclusionTags>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>worldeater</symbol></li>
+	  </wholeNameSymbols>
+	  <prefixSymbols>
+		<li><symbol>eater</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>vore</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<scarsCount>-1</scarsCount>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneScarifier_Stomach">
+	<defName>WVC_Scarifier_Scarstomach</defName>
+	<biostatCpx>-6</biostatCpx>
+	<biostatMet>-6</biostatMet>
+	<biostatArc>0</biostatArc>
+	<displayOrderInCategory>30</displayOrderInCategory>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneScarifier_Stomach">
+	<defName>WVC_Scarifier_ArchiteScarstomach</defName>
+	<biostatCpx>-6</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<biostatArc>2</biostatArc>
+	<displayOrderInCategory>32</displayOrderInCategory>
   </GeneDef>
   
 </Defs>

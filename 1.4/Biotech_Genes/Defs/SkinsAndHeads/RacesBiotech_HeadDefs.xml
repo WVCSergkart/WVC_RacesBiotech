@@ -41,4 +41,12 @@
 	</requiredGenes>
   </HeadTypeDef>
 
+  <HeadTypeDef ParentName="WVC_RacesBiotech_AverageBase">
+	<defName>WVC_ShiftSkin_Average</defName>
+	<graphicPath>WVC/Heads/Shapeshifter_Head/Head</graphicPath>
+	<requiredGenes>
+	  <li>WVC_ShapeshiftSkin</li>
+	</requiredGenes>
+  </HeadTypeDef>
+
 </Defs>

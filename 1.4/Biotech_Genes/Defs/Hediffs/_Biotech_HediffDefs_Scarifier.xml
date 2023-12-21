@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base" Name="WVC_XenotypesAndGenes_Hediffs_Scarifier" Abstract="True">
+	<!-- <label>sca</label> -->
+	<description>Genetic enhancement from scars.</description>
+	<defaultLabelColor>(255, 255, 255)</defaultLabelColor>
+	<hediffClass>HediffWithComps</hediffClass>
+	<initialSeverity>1.0</initialSeverity>
+	<minSeverity>0.01</minSeverity>
+	<maxSeverity>1.0</maxSeverity>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive"/>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Scarifier">
+	<defName>WVC_Scarifier_Scarshield</defName>
+	<label>scarshield</label>
+	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_Scarshield</hediffClass>
+  </HediffDef>
+
+  <!-- <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Scarifier"> -->
+	<!-- <defName>WVC_Scarifier_Scarstomach</defName> -->
+	<!-- <label>scarstomach</label> -->
+	<!-- <hediffClass>WVC_XenotypesAndGenes.HediffWithComps_Scarstomach</hediffClass> -->
+  <!-- </HediffDef> -->
+
+</Defs>

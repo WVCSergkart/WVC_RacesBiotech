@@ -48,7 +48,7 @@
 			<xenotypeDefs>
 			  <li>WVC_Featherdust</li>
 			  <li>WVC_Resurgent</li>
-			  <li>WVC_Ashen</li>
+			  <li MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li>
 			</xenotypeDefs>
 		</li>
 	</modExtensions>

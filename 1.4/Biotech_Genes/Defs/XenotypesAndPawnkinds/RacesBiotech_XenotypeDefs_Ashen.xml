@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <XenotypeDef ParentName="WVC_XenotypesAndGenes_UndeadSubXenotypes_Base">
+  <XenotypeDef ParentName="WVC_XenotypesAndGenes_UndeadSubXenotypes_Base" MayRequire="ludeon.rimworld.ideology">
 	<defName>WVC_Ashen</defName>
 	<label>ashen</label>
+	<!-- Experiments, shapeshift, mysterious origin -->
 	<description>Ashens are an undead sub-xenotype, despite strong genetic differences they still remain within this xenotype.
 
-&lt;color=#f5ffa2&gt;Gameplay Effect (Genes):&lt;/color&gt; If the xenotype is inherited from the "Undead" xenotype, then the set of endogens will be changed.</description>
+&lt;color=#f5ffa2&gt;Gameplay Effect (Genes):&lt;/color&gt; If the xenotype is inherited from the "Undead" xenotype, then the set of endogens will be changed.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Abilities):&lt;/color&gt; The xenotype has a gene that allows you to change the set of genes to any other, depending on the selected xenotype.
+
+&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; The duration of the ability's cooldown depends on the duration of the vanilla "Genes regrowing" hediff. That is, to reduce the cooldown, either use “Gene restoration serum” from this mod, or mods that reduce the cooldown of genes.</description>
 	<descriptionShort>Ashens are an undead sub-xenotype, despite strong genetic differences they still remain within this xenotype.</descriptionShort>
 	<iconPath>WVC/UI/Mecha_Icons/Xeno_Undead_v2</iconPath>
 	<descriptionHyperlinks>
 	  <WVC_XenotypesAndGenes.SubXenotypeDef>WVC_AshDemon</WVC_XenotypesAndGenes.SubXenotypeDef>
 	</descriptionHyperlinks>
+	<generateWithXenogermReplicatingHediffChance>0.2</generateWithXenogermReplicatingHediffChance>
+	<xenogermReplicatingDurationLeftDaysRange>0.1~40</xenogermReplicatingDurationLeftDaysRange>
 	<genes>
 		<li>WVC_Scarifier</li>
 		<li>WVC_Scarifier_Pain</li>
@@ -21,19 +28,30 @@
 		<li>MeleeDamage_Strong</li>
 		<li>LowSleep</li>
 		<li>Unstoppable</li>
+		<!-- <li>WVC_Unbreakable</li> -->
+		<li>WVC_NoLearning</li>
+		<li>DarkVision</li>
 		<!-- = -->
-		<li>WVC_AptitudePerfect_Shooting</li>
-		<li>WVC_AptitudePerfect_Melee</li>
-		<li>WVC_AptitudeImpossible_Construction</li>
-		<li>WVC_AptitudeImpossible_Mining</li>
-		<li>WVC_AptitudeImpossible_Cooking</li>
-		<li>WVC_AptitudeImpossible_Plants</li>
+		<li>WVC_AptitudeArchiteGreat_Shooting</li>
+		<li>WVC_AptitudeArchitePerfect_Melee</li>
+		<li>WVC_AptitudeHopeless_Cooking</li>
+		<li>WVC_AptitudeShameful_Plants</li>
 		<li>WVC_AptitudeImpossible_Animals</li>
-		<li>WVC_AptitudeImpossible_Crafting</li>
-		<li>WVC_AptitudeImpossible_Artistic</li>
-		<li>WVC_AptitudeImpossible_Medicine</li>
-		<li>WVC_AptitudeImpossible_Social</li>
-		<li>WVC_AptitudeImpossible_Intellectual</li>
+		<li>WVC_AptitudeShameful_Artistic</li>
+		<li>WVC_AptitudeShameful_Medicine</li>
+		<li>WVC_AptitudeShameful_Social</li>
+		<!-- <li>WVC_AptitudePerfect_Shooting</li> -->
+		<!-- <li>WVC_AptitudePerfect_Melee</li> -->
+		<!-- <li>WVC_AptitudeImpossible_Construction</li> -->
+		<!-- <li>WVC_AptitudeImpossible_Mining</li> -->
+		<!-- <li>WVC_AptitudeImpossible_Cooking</li> -->
+		<!-- <li>WVC_AptitudeImpossible_Plants</li> -->
+		<!-- <li>WVC_AptitudeImpossible_Animals</li> -->
+		<!-- <li>WVC_AptitudeImpossible_Crafting</li> -->
+		<!-- <li>WVC_AptitudeImpossible_Artistic</li> -->
+		<!-- <li>WVC_AptitudeImpossible_Medicine</li> -->
+		<!-- <li>WVC_AptitudeImpossible_Social</li> -->
+		<!-- <li>WVC_AptitudeImpossible_Intellectual</li> -->
 		<!-- = -->
 		<li>WVC_XenotypesAndGenes_SubXenotypeShapeshifter</li>
 	</genes>
@@ -65,18 +83,27 @@
 		<li>WVC_SkinColor_Undead</li>
 		<li>Hair_Grayless</li>
 		<li>WVC_Fragile</li>
+		<!-- Shapeshifter -->
+		<li>WVC_PatchSkin</li>
+		<li>WVC_ToxResist_Total</li>
+		<li>StrongStomach</li>
 	</removeGenes>
 	<endogenes>
-		<li>DarkVision</li>
-		<li>WVC_Unbreakable</li>
+		<li>WVC_Scarifier_Scarshield</li>
 		<!-- <li>WVC_ToxResist_Total</li> -->
-		<li>WVC_PerfectImmunity_DiseaseFree</li>
+		<!-- <li>WVC_PerfectImmunity_DiseaseFree</li> -->
+		<li>WVC_ArchitePerfectImmunity_DiseaseFree</li>
+		<li>WVC_ToxResist_Archite</li>
 		<li>WVC_NaturalAgeless</li>
 		<li>WVC_SkinColor_Slate</li>
 		<li>WVC_HeadBoneHorns</li>
 		<li>WVC_DemonTailA</li>
-		<li>WVC_NoLearning</li>
 		<li>WVC_Scarifier_GeneticStability</li>
+		<!-- Shapeshifter -->
+		<li>Deathless</li>
+		<li>WVC_ShapeshiftSkin</li>
+		<li>WVC_Shapeshifter</li>
+		<li>WVC_Scarifier_ArchiteScarstomach</li>
 	</endogenes>
 	<!-- Xenogenes currently used for information only. -->
 	<xenogenes>
@@ -88,19 +115,18 @@
 		<li>MeleeDamage_Strong</li>
 		<li>LowSleep</li>
 		<li>Unstoppable</li>
+		<!-- <li>WVC_Unbreakable</li> -->
+		<li>WVC_NoLearning</li>
+		<li>DarkVision</li>
 		<!-- = -->
-		<li>WVC_AptitudePerfect_Shooting</li>
-		<li>WVC_AptitudePerfect_Melee</li>
-		<li>WVC_AptitudeImpossible_Construction</li>
-		<li>WVC_AptitudeImpossible_Mining</li>
-		<li>WVC_AptitudeImpossible_Cooking</li>
-		<li>WVC_AptitudeImpossible_Plants</li>
+		<li>WVC_AptitudeArchitePerfect_Shooting</li>
+		<li>WVC_AptitudeArchitePerfect_Melee</li>
+		<li>WVC_AptitudeHopeless_Cooking</li>
+		<li>WVC_AptitudeShameful_Plants</li>
 		<li>WVC_AptitudeImpossible_Animals</li>
-		<li>WVC_AptitudeImpossible_Crafting</li>
-		<li>WVC_AptitudeImpossible_Artistic</li>
-		<li>WVC_AptitudeImpossible_Medicine</li>
-		<li>WVC_AptitudeImpossible_Social</li>
-		<li>WVC_AptitudeImpossible_Intellectual</li>
+		<li>WVC_AptitudeShameful_Artistic</li>
+		<li>WVC_AptitudeShameful_Medicine</li>
+		<li>WVC_AptitudeShameful_Social</li>
 	</xenogenes>
   </WVC_XenotypesAndGenes.SubXenotypeDef>
 

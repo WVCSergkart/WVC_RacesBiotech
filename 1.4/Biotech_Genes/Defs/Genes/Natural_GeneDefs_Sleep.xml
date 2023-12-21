@@ -46,6 +46,7 @@
 	<label>sleepy stomach</label>
 	<description>Carriers of this gene get tired very quickly due to their slow metabolism, but they require very little food.</description>
 	<iconPath>WVC/UI/Genes/SleepyStomach</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass>
 	<displayOrderInCategory>-5</displayOrderInCategory>
 	<customEffectDescriptions>
 		<li>Hunger rate factor x20%</li>
@@ -68,9 +69,14 @@
 	<exclusionTags>
 	  <li>WVC_HybridStomach</li>
 	</exclusionTags>
-	<modExtensions Inherit="False">
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<hediffToWholeBody>WVC_SleepyStomach_HungerFactor</hediffToWholeBody>
+	<!-- <modExtensions Inherit="False"> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <hediffToWholeBody>WVC_SleepyStomach_HungerFactor</hediffToWholeBody> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_SleepyStomach_HungerFactor</hediffDefName>
 		</li>
 	</modExtensions>
   </GeneDef>

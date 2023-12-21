@@ -26,6 +26,21 @@
 	<exclusionTags>
 		<li>AG_OnlyOnCharacterCreation_WVC_EyesColor</li>
 	</exclusionTags>
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <offsets> -->
+			 <!-- <east> -->
+			  <!-- <bodyTypes> -->
+			   <!-- <Thin>(0.2, 0.20, 0.20)</Thin> -->
+			   <!-- <Fat>(0.2, 0.20, 0.20)</Fat> -->
+			   <!-- <Male>(0.2, 0.20, 0.20)</Male> -->
+			   <!-- <Hulk>(0.2, 0.20, 0.20)</Hulk> -->
+			   <!-- <Female>(0.2, 0.20, 0.20)</Female> -->
+			  <!-- </bodyTypes> -->
+			 <!-- </east> -->
+			<!-- </offsets> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <!-- ============================ -->

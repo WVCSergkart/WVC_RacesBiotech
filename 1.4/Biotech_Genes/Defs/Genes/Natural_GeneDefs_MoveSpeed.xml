@@ -13,6 +13,7 @@
 	<labelShortAdj>very slow</labelShortAdj>
 	<description>Carriers of this gene move extremely slowly, but they require very little food.</description>
 	<iconPath>WVC/UI/Genes/StoneStomach_v0</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass>
 	<iconColor>(105,95,97)</iconColor>
 	<displayOrderInCategory>-5</displayOrderInCategory>
 	<customEffectDescriptions>
@@ -45,9 +46,14 @@
 	<exclusionTags>
 	  <li>WVC_HybridStomach</li>
 	</exclusionTags>
-	<modExtensions Inherit="False">
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<hediffToWholeBody>WVC_StoneStomach_HungerFactor</hediffToWholeBody>
+	<!-- <modExtensions Inherit="False"> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <hediffToWholeBody>WVC_StoneStomach_HungerFactor</hediffToWholeBody> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_StoneStomach_HungerFactor</hediffDefName>
 		</li>
 	</modExtensions>
   </GeneDef>
