@@ -69,11 +69,11 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (def?.GetModExtension<GeneExtension_Giver>() != null)
 			{
-				if (def.GetModExtension<GeneExtension_Giver>().scarsCount != 0)
+				if (ModLister.CheckIdeology("Scarification") && def.GetModExtension<GeneExtension_Giver>().scarsCount != 0)
 				{
 					int scarsCount = def?.GetModExtension<GeneExtension_Giver>() != null ? def.GetModExtension<GeneExtension_Giver>().scarsCount : 0;
 					string scarsLimitText = scarsCount > 0 ? "WVC_XaG_NewBack_GeneIsScarifier_SubGenesIncrease" : "WVC_XaG_NewBack_GeneIsScarifier_SubGenesDecrease";
-					text += "\n\n" + (scarsLimitText.Translate(scarsCount).Colorize(ColoredText.SubtleGrayColor));
+					text += "\n\n" + scarsLimitText.Translate(scarsCount).Colorize(ColoredText.SubtleGrayColor);
 				}
 			}
 			return text;
@@ -104,7 +104,7 @@ namespace WVC_XenotypesAndGenes
 					+ undead.PreventResurrectionHediffs.Select((HediffDef x) => x.label).ToLineList("  - ", capitalizeItems: true);
 				}
 			}
-			if (gene.def.geneClass == typeof(Gene_Scarifier))
+			if (ModLister.CheckIdeology("Scarification") && gene.def.geneClass == typeof(Gene_Scarifier))
 			{
 				Gene_Scarifier scarifier = (Gene_Scarifier)gene;
 				text += "\n\n" + ("WVC_XaG_NewBack_GeneIsScarifier".Translate() + ": " + scarifier.cachedMaxScars.ToString());

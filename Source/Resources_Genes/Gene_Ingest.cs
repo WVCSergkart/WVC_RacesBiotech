@@ -100,4 +100,18 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_SuperMetabolism_AddOrRemoveHediff : Gene_AddOrRemoveHediff
+	{
+
+		public override void Notify_IngestedThing(Thing thing, int numTaken)
+		{
+			if (!Active)
+			{
+				return;
+			}
+			DustUtility.OffsetNeedFood(pawn, 10.0f * (float)numTaken);
+		}
+
+	}
+
 }

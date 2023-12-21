@@ -14,16 +14,22 @@
 	</comps>
   </HediffDef>
 
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Scarifier">
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Scarifier" Class="WVC_XenotypesAndGenes.XaG_HediffDef">
 	<defName>WVC_Scarifier_Scarshield</defName>
 	<label>scarshield</label>
-	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_Scarshield</hediffClass>
+	<!-- <hediffClass>WVC_XenotypesAndGenes.HediffWithComps_Scarshield</hediffClass> -->
+	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_Scars</hediffClass>
+	<statDef>IncomingDamageFactor</statDef>
+	<useFactorInsteadOffset>true</useFactorInsteadOffset>
   </HediffDef>
 
-  <!-- <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Scarifier"> -->
-	<!-- <defName>WVC_Scarifier_Scarstomach</defName> -->
-	<!-- <label>scarstomach</label> -->
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Scarifier" Class="WVC_XenotypesAndGenes.XaG_HediffDef">
+	<defName>WVC_Scarifier_Scarstomach</defName>
+	<label>scarstomach</label>
 	<!-- <hediffClass>WVC_XenotypesAndGenes.HediffWithComps_Scarstomach</hediffClass> -->
-  <!-- </HediffDef> -->
+	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_Scars</hediffClass>
+	<statDef>MaxNutrition</statDef>
+	<useFactorInsteadOffset>false</useFactorInsteadOffset>
+  </HediffDef>
 
 </Defs>

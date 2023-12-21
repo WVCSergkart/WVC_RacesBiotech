@@ -211,7 +211,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneScarifier_Base" Name="WVC_XenotypesAndGenes_GeneScarifier_Stomach" Abstract="True">
 	<label>scarstomach</label>
 	<description>Carriers of this gene receive more nutrients when ingesting, and they can get full from almost anything.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_SuperMetabolism</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_SuperMetabolism_AddOrRemoveHediff</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_ScarStomach_v0</iconPath>
 	<foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
 	<dontMindRawFood>true</dontMindRawFood>
@@ -222,6 +222,7 @@
 	  <li>Any ingestible things completely replenish hunger.</li>
 	  <!-- <li>Hunger rate -5% per scar</li> -->
 	  <!-- <li>Raw nutrition multiplier +5% per scar</li> -->
+	  <li>Max nutrition +0.2 per scar</li>
 	  <!-- <li>Only &lt;color=#8a8ae6&gt;ideo&lt;/color&gt;logical &lt;color=#8a8ae6&gt;scars&lt;/color&gt; count.</li> -->
 	</customEffectDescriptions>
 	<makeImmuneTo>
@@ -244,12 +245,13 @@
 	</symbolPack>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_Scarifier_Scarstomach</hediffDefName>
 			<scarsCount>-1</scarsCount>
 		</li>
 	</modExtensions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneScarifier_Stomach">
+  <GeneDef MayRequire="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_GeneScarifier_Stomach">
 	<defName>WVC_Scarifier_Scarstomach</defName>
 	<biostatCpx>-6</biostatCpx>
 	<biostatMet>-6</biostatMet>
@@ -257,7 +259,7 @@
 	<displayOrderInCategory>30</displayOrderInCategory>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneScarifier_Stomach">
+  <GeneDef MayRequire="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_GeneScarifier_Stomach">
 	<defName>WVC_Scarifier_ArchiteScarstomach</defName>
 	<biostatCpx>-6</biostatCpx>
 	<biostatMet>-1</biostatMet>

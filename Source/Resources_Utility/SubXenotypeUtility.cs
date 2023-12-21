@@ -33,6 +33,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void SetXenotypeGenes(Pawn pawn, SubXenotypeDef xenotype, float xenogermReplicationChance)
 		{
+			RemoveRandomGenes(pawn);
 			// Log.Error(pawn.Name + " genes remove.");
 			if (!xenotype.removeGenes.NullOrEmpty())
 			{
