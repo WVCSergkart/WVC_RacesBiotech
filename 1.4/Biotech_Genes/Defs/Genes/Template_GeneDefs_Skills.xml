@@ -142,6 +142,28 @@
 	<biostatArc>3</biostatArc>
   </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
 
+  <!-- Scarifier -->
+
+  <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_XenotypesAndGenes_GeneAptitude_Archite">
+	<defName>WVC_AptitudeArchiteScarifier</defName>
+	<label>scarifier {0}</label>
+	<description>The carrier's aptitude in {0} is reduced by 6. Aptitude acts like an offset on skill level. Additionally, all passion is removed from {0}.</description>
+	<iconPath>WVC/UI/Genes/Skills/{0}/ScarifierSkills_v0</iconPath>
+	<!-- <displayCategory>WVC_Scarifier</displayCategory> -->
+	<aptitudeOffset>-6</aptitudeOffset>
+	<passionModType>DropAll</passionModType>
+	<displayOrderOffset>125</displayOrderOffset>
+	<selectionWeight>0.00025</selectionWeight>
+	<biostatCpx>-3</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>2</biostatMet>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<scarsCount>1</scarsCount>
+		</li>
+	</modExtensions>
+  </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
+
   <!-- =============================================== -->
 
   <GeneDef>

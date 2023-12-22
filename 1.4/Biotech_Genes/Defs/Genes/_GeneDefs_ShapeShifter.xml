@@ -101,7 +101,7 @@
 	</exclusionTags>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<scarsCount>-2</scarsCount>
+			<scarsCount>-3</scarsCount>
 			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
 		</li>
 	</modExtensions>
@@ -117,7 +117,7 @@
 		<!-- <li MayRequire="ludeon.rimworld.ideology">Increases the number of scars by 3</li> -->
 		<li>&lt;color=#ff8585&gt;Does not support custom xenotypes.&lt;/color&gt;</li>
 	</customEffectDescriptions>
-	<displayOrderInCategory>55</displayOrderInCategory>
+	<displayOrderInCategory>155</displayOrderInCategory>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSpecialPurposes_Shapeshiftes">
@@ -134,7 +134,7 @@
 		<!-- <li MayRequire="ludeon.rimworld.ideology">Increases the number of scars by 3</li> -->
 		<li>&lt;color=#ff8585&gt;Does not support custom xenotypes.&lt;/color&gt;</li>
 	</customEffectDescriptions>
-	<displayOrderInCategory>60</displayOrderInCategory>
+	<displayOrderInCategory>160</displayOrderInCategory>
   </GeneDef>
 
 </Defs>

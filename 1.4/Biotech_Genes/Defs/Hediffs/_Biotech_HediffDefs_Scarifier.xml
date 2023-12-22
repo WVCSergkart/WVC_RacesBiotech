@@ -2,7 +2,7 @@
 <Defs>
 
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base" Name="WVC_XenotypesAndGenes_Hediffs_Scarifier" Abstract="True">
-	<!-- <label>sca</label> -->
+	<label>scarifier</label>
 	<description>Genetic enhancement from scars.</description>
 	<defaultLabelColor>(255, 255, 255)</defaultLabelColor>
 	<hediffClass>HediffWithComps</hediffClass>
@@ -14,22 +14,43 @@
 	</comps>
   </HediffDef>
 
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Scarifier" Class="WVC_XenotypesAndGenes.XaG_HediffDef">
+  <HediffDef MayRequire="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_Hediffs_Scarifier" Class="WVC_XenotypesAndGenes.XaG_HediffDef">
 	<defName>WVC_Scarifier_Scarshield</defName>
-	<label>scarshield</label>
+	<!-- <label>scarshield</label> -->
 	<!-- <hediffClass>WVC_XenotypesAndGenes.HediffWithComps_Scarshield</hediffClass> -->
 	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_Scars</hediffClass>
-	<statDef>IncomingDamageFactor</statDef>
-	<useFactorInsteadOffset>true</useFactorInsteadOffset>
+	<!-- <statDef>IncomingDamageFactor</statDef> -->
+	<statModifiers>
+	  <statFactors>
+		<IncomingDamageFactor>0.15</IncomingDamageFactor>
+	  </statFactors>
+	</statModifiers>
+	<!-- <useFactorInsteadOffset>true</useFactorInsteadOffset> -->
   </HediffDef>
 
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Scarifier" Class="WVC_XenotypesAndGenes.XaG_HediffDef">
+  <HediffDef MayRequire="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_Hediffs_Scarifier" Class="WVC_XenotypesAndGenes.XaG_HediffDef">
 	<defName>WVC_Scarifier_Scarstomach</defName>
-	<label>scarstomach</label>
+	<!-- <label>scarstomach</label> -->
 	<!-- <hediffClass>WVC_XenotypesAndGenes.HediffWithComps_Scarstomach</hediffClass> -->
 	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_Scars</hediffClass>
-	<statDef>MaxNutrition</statDef>
-	<useFactorInsteadOffset>false</useFactorInsteadOffset>
+	<!-- <statDef>MaxNutrition</statDef> -->
+	<statModifiers>
+	  <statOffsets>
+		<MaxNutrition>0.2</MaxNutrition>
+	  </statOffsets>
+	</statModifiers>
+	<!-- <useFactorInsteadOffset>false</useFactorInsteadOffset> -->
+  </HediffDef>
+
+  <HediffDef MayRequire="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_Hediffs_Scarifier" Class="WVC_XenotypesAndGenes.XaG_HediffDef">
+	<defName>WVC_Scarifier_StrongMelee</defName>
+	<!-- <label>scarstomach</label> -->
+	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_Scars</hediffClass>
+	<statModifiers>
+	  <statOffsets>
+		<MeleeDamageFactor>0.05</MeleeDamageFactor>
+	  </statOffsets>
+	</statModifiers>
   </HediffDef>
 
 </Defs>

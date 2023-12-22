@@ -87,21 +87,24 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<scarsCount>3</scarsCount>
-			<scarGeneDefs>
-			  <li>WVC_PerfectImmunity_DiseaseFree</li>
-			  <li>WVC_ArchitePerfectImmunity_DiseaseFree</li>
-			  <li>WVC_Scarifier_GeneticStability</li>
-			  <li>WVC_Scarifier_Pain</li>
-			  <li>WVC_ShapeshiftSkin</li>
-			  <li>WVC_Shapeshifter</li>
-			  <li>WVC_Shapeshifter_Rand</li>
-			  <li>WVC_Scarifier_Scarshield</li>
-			  <li>WVC_Scarifier_Scarstomach</li>
-			  <li>WVC_Scarifier_ArchiteScarstomach</li>
-			</scarGeneDefs>
+			<!-- <scarGeneDefs> -->
+			  <!-- <li>WVC_PerfectImmunity_DiseaseFree</li> -->
+			  <!-- <li>WVC_ArchitePerfectImmunity_DiseaseFree</li> -->
+			  <!-- <li>WVC_Scarifier_GeneticStability</li> -->
+			  <!-- <li>WVC_Scarifier_Pain</li> -->
+			  <!-- <li>WVC_ShapeshiftSkin</li> -->
+			  <!-- <li>WVC_Shapeshifter</li> -->
+			  <!-- <li>WVC_Shapeshifter_Rand</li> -->
+			  <!-- <li>WVC_Scarifier_Scarshield</li> -->
+			  <!-- <li>WVC_Scarifier_Scarstomach</li> -->
+			  <!-- <li>WVC_Scarifier_ArchiteScarstomach</li> -->
+			  <!-- <li>WVC_Scarifier_StrongMelee</li> -->
+			<!-- </scarGeneDefs> -->
 		</li>
 	</modExtensions>
   </GeneDef>
+
+  <!-- ===================================== -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneticInstability_Stability">
 	<defName>WVC_Scarifier_GeneticStability</defName>
@@ -123,6 +126,8 @@
 		</li>
 	</modExtensions>
   </GeneDef>
+
+  <!-- ===================================== -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GenePain_Base">
 	<defName>WVC_Scarifier_Pain</defName>
@@ -151,6 +156,8 @@
 	</modExtensions>
   </GeneDef>
 
+  <!-- ===================================== -->
+
   <GeneDef MayRequire="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_GeneScarifier_Base">
 	<defName>WVC_Scarifier_Clotting</defName>
 	<label>scarifier clotting</label>
@@ -173,7 +180,14 @@
 		<li><symbol>bleed</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<scarsCount>-2</scarsCount>
+		</li>
+	</modExtensions>
   </GeneDef>
+
+  <!-- ===================================== -->
 
   <GeneDef MayRequire="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_GeneScarifier_Base">
 	<defName>WVC_Scarifier_Scarshield</defName>
@@ -201,7 +215,7 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_Scarifier_Scarshield</hediffDefName>
-			<scarsCount>2</scarsCount>
+			<scarsCount>-2</scarsCount>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -246,7 +260,7 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_Scarifier_Scarstomach</hediffDefName>
-			<scarsCount>-1</scarsCount>
+			<scarsCount>-2</scarsCount>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -265,6 +279,34 @@
 	<biostatMet>-1</biostatMet>
 	<biostatArc>2</biostatArc>
 	<displayOrderInCategory>32</displayOrderInCategory>
+  </GeneDef>
+
+  <!-- ===================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneScarifier_Base">
+	<defName>WVC_Scarifier_StrongMelee</defName>
+	<label>scarifier melee</label>
+	<description>Carriers of this gene do more damage in close-quarters combat. Extra-strong fast-twitch muscle fibers make their strikes accurate and powerful. Scars greatly enhance this effect.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_SemiAptitudes_StrongMelee_v0</iconPath>
+	<displayOrderInCategory>40</displayOrderInCategory>
+	<!-- <biostatCpx>2</biostatCpx> -->
+	<biostatMet>-2</biostatMet>
+	<customEffectDescriptions>
+	  <li>Melee damage +5% per scar</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <MeleeDamageFactor>1.5</MeleeDamageFactor>
+	</statFactors>
+	<exclusionTags>
+	  <li>MeleeDamage</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_Scarifier_StrongMelee</hediffDefName>
+			<scarsCount>-2</scarsCount>
+		</li>
+	</modExtensions>
   </GeneDef>
   
 </Defs>

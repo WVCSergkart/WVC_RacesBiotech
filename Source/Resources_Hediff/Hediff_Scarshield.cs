@@ -34,28 +34,35 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-                if (def is XaG_HediffDef newDef && newDef.statDef != null && curStage == null && cachedScarsCount > 0)
-                {
-                    StatModifier statModifier = new();
-                    statModifier.stat = newDef.statDef;
-                    if (newDef.useFactorInsteadOffset)
-                    {
-                        statModifier.value = 1f - (0.15f * cachedScarsCount);
-                        curStage = new HediffStage
-                        {
-                            statFactors = new List<StatModifier> { statModifier }
-                        };
-                    }
-                    else
-                    {
-                        statModifier.value = 0.2f * cachedScarsCount;
-                        curStage = new HediffStage
-                        {
-                            statOffsets = new List<StatModifier> { statModifier }
-                        };
-                    }
-                }
-                return curStage;
+				if (def is XaG_HediffDef newDef && newDef.statModifiers != null && curStage == null && cachedScarsCount > 0)
+				{
+					curStage = new HediffStage
+					{
+						statOffsets = new(),
+						statFactors = new()
+					};
+					if (!newDef.statModifiers.statFactors.NullOrEmpty())
+					{
+						foreach (StatModifier item in newDef.statModifiers.statFactors)
+						{
+							StatModifier statModifier = new();
+							statModifier.stat = item.stat;
+							statModifier.value = 1f - (item.value * cachedScarsCount);
+							curStage.statFactors.Add(statModifier);
+						}
+					}
+					if (!newDef.statModifiers.statOffsets.NullOrEmpty())
+					{
+						foreach (StatModifier item in newDef.statModifiers.statOffsets)
+						{
+							StatModifier statModifier = new();
+							statModifier.stat = item.stat;
+							statModifier.value = item.value * cachedScarsCount;
+							curStage.statOffsets.Add(statModifier);
+						}
+					}
+				}
+				return curStage;
 			}
 		}
 

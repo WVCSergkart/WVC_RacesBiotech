@@ -248,7 +248,7 @@
 	</exclusionTags>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<scarsCount>2</scarsCount>
+			<scarsCount>3</scarsCount>
 		</li>
 	</modExtensions>
   </GeneDef>

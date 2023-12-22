@@ -93,14 +93,25 @@ namespace WVC_XenotypesAndGenes
 		private int MaxScars()
 		{
 			int scars = def.GetModExtension<GeneExtension_Giver>().scarsCount;
-			List<GeneDef> genesListForReading = def.GetModExtension<GeneExtension_Giver>()?.scarGeneDefs;
+			// List<GeneDef> genesListForReading = def.GetModExtension<GeneExtension_Giver>()?.scarGeneDefs;
+			// if (!genesListForReading.NullOrEmpty())
+			// {
+				// for (int i = 0; i < genesListForReading.Count; i++)
+				// {
+					// if (XaG_GeneUtility.HasActiveGene(genesListForReading[i], pawn) && genesListForReading[i].GetModExtension<GeneExtension_Giver>() != null)
+					// {
+						// scars += genesListForReading[i].GetModExtension<GeneExtension_Giver>().scarsCount;
+					// }
+				// }
+			// }
+			List<Gene> genesListForReading = pawn.genes?.GenesListForReading;
 			if (!genesListForReading.NullOrEmpty())
 			{
 				for (int i = 0; i < genesListForReading.Count; i++)
 				{
-					if (XaG_GeneUtility.HasActiveGene(genesListForReading[i], pawn) && genesListForReading[i].GetModExtension<GeneExtension_Giver>() != null)
+					if (genesListForReading[i].Active && genesListForReading[i].def?.GetModExtension<GeneExtension_Giver>() != null)
 					{
-						scars += genesListForReading[i].GetModExtension<GeneExtension_Giver>().scarsCount;
+						scars += genesListForReading[i].def.GetModExtension<GeneExtension_Giver>().scarsCount;
 					}
 				}
 			}
