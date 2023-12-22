@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <!-- Again in beta -->
   <!-- featherdust -->
   <XenotypeDef ParentName="WVC_XenotypesAndGenes_UndeadSubXenotypes_Base">
 	<defName>WVC_Featherdust</defName>

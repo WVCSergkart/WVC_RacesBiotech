@@ -86,7 +86,10 @@ namespace WVC_XenotypesAndGenes
 			List<GeneDef> dontRemove = new();
 			dontRemove.Add(gene.def);
 			ReimplanterUtility.SetXenotype_DoubleXenotype(gene.pawn, selectedXeno, dontRemove.ToList());
-			gene.pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
+			if (!SerumUtility.HasCandidateGene(gene.pawn))
+			{
+				gene.pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
+			}
 			GeneUtility.UpdateXenogermReplication(gene.pawn);
 			if (!soundDefOnImplant.NullOrUndefined())
 			{
