@@ -4,6 +4,27 @@
   <!-- Precepts -->
 
   <PreceptDef>
+	<defName>WVC_MechanoidLabor_Useless</defName>
+	<issue>MechanoidLabor</issue>
+	<label>useless</label>
+	<description>Mechanoids are useless pieces of hardware.</description>
+	<impact>High</impact>
+	<associatedMemes>
+	  <li>WVC_XenotypesSupremacy</li>
+	</associatedMemes>
+	<conflictingMemes>
+	  <li>WVC_Golemist</li>
+	</conflictingMemes>
+	<!-- <requiredMemes> -->
+	  <!-- <li>WVC_Mechaskinist</li> -->
+	<!-- </requiredMemes> -->
+	<statOffsets>
+	  <WorkSpeedGlobalOffsetMech>-0.5</WorkSpeedGlobalOffsetMech>
+	  <WorkSpeedGlobal>0.2</WorkSpeedGlobal>
+	</statOffsets>
+  </PreceptDef>
+
+  <PreceptDef>
 	<defName>WVC_MechanoidLabor_Light</defName>
 	<issue>MechanoidLabor</issue>
 	<label>light</label>
@@ -33,6 +54,9 @@
 	<!-- <requiredMemes> -->
 	  <!-- <li>WVC_Mechaskinist</li> -->
 	<!-- </requiredMemes> -->
+	<conflictingMemes>
+	  <li>WVC_XenotypesSupremacy</li>
+	</conflictingMemes>
 	<statOffsets>
 	  <WorkSpeedGlobalOffsetMech>0.75</WorkSpeedGlobalOffsetMech>
 	  <MechBandwidth>2</MechBandwidth>
@@ -67,6 +91,9 @@
 	<!-- <requiredMemes> -->
 	  <!-- <li>WVC_Mechaskinist</li> -->
 	<!-- </requiredMemes> -->
+	<conflictingMemes>
+	  <li>WVC_XenotypesSupremacy</li>
+	</conflictingMemes>
 	<statOffsets>
 	  <WorkSpeedGlobalOffsetMech>1.5</WorkSpeedGlobalOffsetMech>
 	  <MechBandwidth>4</MechBandwidth>

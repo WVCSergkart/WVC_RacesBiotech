@@ -47,6 +47,66 @@ namespace WVC_XenotypesAndGenes
 
 		// Pawns
 
+		public static float CountAllPlayerXenos()
+		{
+			float mult = 0f;
+			List<XenotypeDef> xenoList = new();
+			List<CustomXenotype> xenoListB = new();
+			List<Map> maps = Find.Maps;
+			for (int i = 0; i < maps.Count; i++)
+			{
+				foreach (Pawn item in maps[i].mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer))
+				{
+					if (item.genes != null && item.genes.Xenotype != null && item.genes.Xenotype != XenotypeDefOf.Baseliner && !xenoList.Contains(item.genes.Xenotype))
+					{
+						mult += 1;
+						xenoList.Add(item.genes.Xenotype);
+					}
+					else if (item.genes != null && item.genes.CustomXenotype != null && !xenoListB.Contains(item.genes.CustomXenotype))
+					{
+						mult += 1;
+						xenoListB.Add(item.genes.CustomXenotype);
+					}
+				}
+			}
+			// Log.Error("Xenos in faction: " + mult.ToString());
+			return mult;
+		}
+
+		public static float CountAllPlayerMechs()
+		{
+			float mult = 0f;
+			List<Map> maps = Find.Maps;
+			for (int i = 0; i < maps.Count; i++)
+			{
+				foreach (Pawn item in maps[i].mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer))
+				{
+					if (item.IsColonyMech)
+					{
+						mult += 1;
+					}
+				}
+			}
+			return mult;
+		}
+
+		public static float CountAllPlayerAnimals()
+		{
+			float mult = 0f;
+			List<Map> maps = Find.Maps;
+			for (int i = 0; i < maps.Count; i++)
+			{
+				foreach (Pawn item in maps[i].mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer))
+				{
+					if (item.RaceProps.Animal)
+					{
+						mult += 1;
+					}
+				}
+			}
+			return mult;
+		}
+
 		public static bool PawnIsColonistOrSlave(Pawn pawn, bool shouldBeAdult = false)
 		{
 			if ((pawn.IsColonist || pawn.IsSlaveOfColony) && (shouldBeAdult || pawn.ageTracker.CurLifeStage.reproductive))

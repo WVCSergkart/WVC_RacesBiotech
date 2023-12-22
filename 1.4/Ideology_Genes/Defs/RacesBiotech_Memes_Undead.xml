@@ -9,6 +9,9 @@
 		<iconPath>WVC/UI/Precepts/Memes_Undead</iconPath>
 		<groupDef>Misc</groupDef>
 		<impact>2</impact>
+		<exclusionTags>
+		  <li>WVC_GeneticSupremacy</li>
+		</exclusionTags>
 		<generalRules>
 		  <rulesStrings>
 			<li>memeAdjective->tombstone</li>
@@ -50,9 +53,9 @@
 		  </li>
 		</symbolPacks>
 		<requireOne>
-		  <li>
-			<li>WVC_MechWalkers_Desired</li>
-		  </li>
+		  <!-- <li> -->
+			<!-- <li>WVC_MechWalkers_Desired</li> -->
+		  <!-- </li> -->
 		  <li>
 			<li>WVC_Undeads_Revered</li>
 		  </li>

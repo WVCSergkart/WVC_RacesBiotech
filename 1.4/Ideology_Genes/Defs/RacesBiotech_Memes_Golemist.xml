@@ -8,9 +8,9 @@
 		<iconPath>WVC/UI/Precepts/Memes_Golemist</iconPath>
 		<groupDef>Misc</groupDef>
 		<impact>2</impact>
-		<!-- <exclusionTags> -->
-		  <!-- <li>FleshAugmentation</li> -->
-		<!-- </exclusionTags> -->
+		<exclusionTags>
+		  <li>WVC_GeneticSupremacy_Shapeshifter</li>
+		</exclusionTags>
 		<generalRules>
 		  <rulesStrings>
 			<li>memeAdjective->stone</li>

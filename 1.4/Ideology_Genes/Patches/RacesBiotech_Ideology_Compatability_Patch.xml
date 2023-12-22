@@ -25,6 +25,50 @@
 		</operations>
 	</Operation>
 
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/MemeDef[defName="Bloodfeeding"]/exclusionTags</xpath>
+			  <success>Invert</success>
+			  <value>
+				  <li>WVC_GeneticSupremacy</li>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/MemeDef[defName="Bloodfeeding"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<exclusionTags>
+				  <li>WVC_GeneticSupremacy</li>
+				</exclusionTags>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<!-- <Operation Class="PatchOperationSequence"> -->
+		<!-- <success>Always</success> -->
+		<!-- <operations> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/MemeDef[defName="TreeConnection"]/exclusionTags</xpath> -->
+			  <!-- <success>Invert</success> -->
+			  <!-- <value> -->
+				  <!-- <li>WVC_GeneticSupremacy_Shapeshifter</li> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/MemeDef[defName="TreeConnection"]</xpath> -->
+			  <!-- <success>Always</success> -->
+			  <!-- <value> -->
+				<!-- <exclusionTags> -->
+				  <!-- <li>WVC_GeneticSupremacy_Shapeshifter</li> -->
+				<!-- </exclusionTags> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+		<!-- </operations> -->
+	<!-- </Operation> -->
+
 	<!-- <Operation Class="PatchOperationConditional"> -->
 		<!-- <xpath>/Defs/ThoughtDef[defName="Disfigured"]/nullifyingGenes</xpath> -->
 		<!-- <nomatch Class="PatchOperationAdd"> -->
@@ -67,6 +111,7 @@
 		<!-- </value> -->
 	<!-- </Operation> -->
 
+	<!-- Golem -->
 	<Operation Class="PatchOperationAdd">
 		<xpath>/Defs/PreceptDef[defName="Temperature_Tough" or defName="RoughLiving_Welcomed"]/requiredMemes</xpath>
 		<value>
@@ -81,6 +126,8 @@
 			<li>WVC_Golemist</li>
 		</value>
 	</Operation>
+
+	<!-- Dead -->
 	<Operation Class="PatchOperationAdd">
 		<xpath>/Defs/PreceptDef[defName="Corpses_DontCare" or defName="Skullspike_Desired"]/associatedMemes</xpath>
 		<value>
@@ -93,6 +140,28 @@
 			<li>WVC_Undeadist</li>
 		</value>
 	</Operation>
+
+	<!-- Shape -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/PreceptDef[defName="Corpses_DontCare"]/associatedMemes</xpath>
+		<value>
+			<li>WVC_XenotypesSupremacy</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/PreceptDef[defName="Corpses_DontCare" or defName="Bonding_Disapproved"]/requiredMemes</xpath>
+		<value>
+			<li>WVC_XenotypesSupremacy</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/MemeDef[defName="NaturePrimacy" or defName="AnimalPersonhood" or defName="FleshPurity" or defName="Rancher"]/exclusionTags</xpath>
+	  <value>
+		  <li>WVC_GeneticSupremacy_Shapeshifter</li>
+	  </value>
+	</Operation>
+
 	<!-- <Operation Class="PatchOperationAdd"> -->
 		<!-- <xpath>/Defs/PreceptDef[defName="Execution_Abhorrent" or defName="Execution_Horrible" or defName="Execution_HorribleIfInnocent"]/conflictingMemes</xpath> -->
 		<!-- <value> -->

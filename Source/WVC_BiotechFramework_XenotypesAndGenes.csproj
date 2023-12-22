@@ -118,6 +118,7 @@
     <Compile Include="Resources_Things\CompSpawnSubplantDuration.cs" />
     <Compile Include="Resources_Things\WalkingCorpsesSpawner.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_HasWalkingCorpses.cs" />
+    <Compile Include="Resources_Thought\ThoughtWorker_Precept_Shapeshifter.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_Undead_Social.cs" />
     <Compile Include="Resources_Utility\AgelessUtility.cs" />
     <Compile Include="Resources_Utility\DustUtility.cs" />

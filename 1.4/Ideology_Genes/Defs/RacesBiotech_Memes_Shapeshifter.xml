@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<MemeDef>
+		<defName>WVC_XenotypesSupremacy</defName>
+		<label>xenotypes supremacy</label>
+		<description>The truth lies in genetic diversity, the only thing in which we should be similar is in our views.</description>
+		<iconPath>WVC/UI/Precepts/Meme_Shapeshifter_v1</iconPath>
+		<groupDef>Misc</groupDef>
+		<impact>3</impact>
+		<!-- Very rare for NPCs -->
+		<randomizationSelectionWeightFactor>0.05</randomizationSelectionWeightFactor>
+		<exclusionTags>
+		  <!-- <li>WVC_GeneticSupremacy</li> -->
+		  <li>WVC_GeneticSupremacy_Shapeshifter</li>
+		  <li>AnimalTreatment</li>
+		</exclusionTags>
+		<generalRules>
+		  <rulesStrings>
+			<li>memeAdjective->lab</li>
+			<li>memeCreed->lab</li>
+			<li>memeCreed->vat</li>
+			<li>memeHyphenPrefix->shape</li>
+			<li>memeConcept->shift</li>
+			<li>memeConcept->shape</li>
+			<li>memeConcept->genetic</li>
+			<li>memeLeaderNoun->shifter</li>
+			<li>memeLeaderNoun->genetic</li>
+			<li>memeLeaderAdjective->shifter</li>
+			<li>memeMoralist->shaper</li>
+			<li>memeMoralist->genetic</li>
+			<li>memeMoralist->shifter</li>
+		  </rulesStrings>
+		</generalRules>
+		<symbolPacks>
+		  <li>
+			<ideoName>Shiftism</ideoName>
+			<theme>shiftism</theme>
+			<adjective>shiftist</adjective>
+			<member>shiftist</member>
+		  </li>
+		  <li>
+			<ideoName>Geneticism</ideoName>
+			<theme>geneticism</theme>
+			<adjective>geneticist</adjective>
+			<member>geneticist</member>
+		  </li>
+		  <li>
+			<ideoName>Genism</ideoName>
+			<theme>genism</theme>
+			<adjective>genist</adjective>
+			<member>genist</member>
+		  </li>
+		  <li>
+			<ideoName>Shapetism</ideoName>
+			<theme>shapetism</theme>
+			<adjective>shapetist</adjective>
+			<member>shapetist</member>
+		  </li>
+		</symbolPacks>
+		<requireOne>
+		  <li>
+			<li>WVC_GeneticSupremacy_Desired</li>
+		  </li>
+		  <li>
+			<li>Corpses_DontCare</li>
+		  </li>
+		  <li>
+			<li>Bonding_Disapproved</li>
+		  </li>
+		  <li>
+			<li>Slavery_Acceptable</li>
+			<li>Slavery_Honorable</li>
+		  </li>
+		  <li>
+			<li>WVC_MechanoidLabor_Useless</li>
+		  </li>
+		</requireOne>
+		<thingStyleCategories>
+		  <li>
+			<category>Techist</category>
+			<priority>2</priority>
+		  </li>
+		  <!-- <li> -->
+			<!-- <category>Animalist</category> -->
+			<!-- <priority>-8</priority> -->
+		  <!-- </li> -->
+		</thingStyleCategories>
+		<!-- <agreeableTraits> -->
+		  <!-- <li>Psychopath</li> -->
+		<!-- </agreeableTraits> -->
+		<disagreeableTraits>
+		  <li>BodyPurist</li>
+		</disagreeableTraits>
+	</MemeDef>
+
+</Defs>
