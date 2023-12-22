@@ -30,8 +30,6 @@
 		<li>LowSleep</li>
 		<li>Unstoppable</li>
 		<!-- <li>WVC_Unbreakable</li> -->
-		<li>WVC_NoLearning</li>
-		<li>DarkVision</li>
 		<!-- = -->
 		<li>WVC_AptitudeArchiteGreat_Shooting</li>
 		<li>WVC_AptitudeArchitePerfect_Melee</li>
@@ -42,6 +40,11 @@
 		<li>WVC_AptitudeArchiteScarifier_Artistic</li>
 		<li>WVC_AptitudeArchiteScarifier_Medicine</li>
 		<li>WVC_AptitudeArchiteScarifier_Social</li>
+		<!-- Additional -->
+		<li>WVC_AptitudeArchiteScarifier_Construction</li>
+		<li>WVC_AptitudeArchiteScarifier_Mining</li>
+		<li>WVC_AptitudeArchiteScarifier_Crafting</li>
+		<li>WVC_AptitudeArchiteScarifier_Intellectual</li>
 		<!-- New -->
 		<!-- <li>WVC_AptitudeHopeless_Cooking</li> -->
 		<!-- <li>WVC_AptitudeShameful_Plants</li> -->
@@ -85,6 +88,7 @@
 		<li>WVC_RandomMoveSpeed</li>
 		<li>WVC_RandomPsychicAbility</li>
 		<!-- = -->
+		<li>WVC_AgeDebuff_Sterile</li>
 		<li>WVC_MildGeneticInstability</li>
 		<li>WVC_NaturalFastAging</li>
 		<li>WVC_NaturalFastGrowing</li>
@@ -108,11 +112,15 @@
 		<li>WVC_HeadBoneHorns</li>
 		<li>WVC_DemonTailA</li>
 		<li>WVC_Scarifier_GeneticStability</li>
+		<!-- <li>WVC_NoLearning</li> -->
+		<li>WVC_Learning_Scarifier</li>
+		<li>DarkVision</li>
 		<!-- Shapeshifter -->
 		<li>Deathless</li>
 		<li>WVC_ShapeshiftSkin</li>
 		<li>WVC_Shapeshifter</li>
 		<li>WVC_Scarifier_ArchiteScarstomach</li>
+		<li>WVC_MinMaxTemp_Scarifier</li>
 	</endogenes>
 	<!-- Xenogenes currently used for information only. -->
 	<xenogenes>
@@ -126,8 +134,6 @@
 		<li>LowSleep</li>
 		<li>Unstoppable</li>
 		<!-- <li>WVC_Unbreakable</li> -->
-		<li>WVC_NoLearning</li>
-		<li>DarkVision</li>
 		<!-- = -->
 		<li>WVC_AptitudeArchiteGreat_Shooting</li>
 		<li>WVC_AptitudeArchitePerfect_Melee</li>
@@ -138,6 +144,11 @@
 		<li>WVC_AptitudeArchiteScarifier_Artistic</li>
 		<li>WVC_AptitudeArchiteScarifier_Medicine</li>
 		<li>WVC_AptitudeArchiteScarifier_Social</li>
+		<!-- Additional -->
+		<li>WVC_AptitudeArchiteScarifier_Construction</li>
+		<li>WVC_AptitudeArchiteScarifier_Mining</li>
+		<li>WVC_AptitudeArchiteScarifier_Crafting</li>
+		<li>WVC_AptitudeArchiteScarifier_Intellectual</li>
 	</xenogenes>
   </WVC_XenotypesAndGenes.SubXenotypeDef>
 

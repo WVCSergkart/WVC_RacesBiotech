@@ -122,4 +122,51 @@
 	</symbolPack>
   </GeneDef>
 
+  <!-- == -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneLearning_ExtremeSlow">
+	<defName>WVC_Learning_Scarifier</defName>
+	<label>scarifier study</label>
+	<description>Carriers of this gene do not remember and understand new ideas well, their memory is like torn flaps, but those fragments that were able to linger in their heads will never be lost.</description>
+	<iconPath>WVC/UI/Genes/Gene_ScarifierLearning_v0</iconPath>
+	<displayOrderInCategory>50</displayOrderInCategory>
+	<displayCategory>WVC_Scarifier</displayCategory>
+	<biostatMet>1</biostatMet>
+	<suppressedTraits>
+	  <li>
+		<def>TooSmart</def>
+	  </li>
+	  <li>
+		<def>FastLearner</def>
+	  </li>
+	  <li>
+		<def>SlowLearner</def>
+	  </li>
+	</suppressedTraits>
+	<statFactors>
+	  <GlobalLearningFactor>0.4</GlobalLearningFactor>
+	</statFactors>
+	<customEffectDescriptions>
+		<li>Skills not decay.</li>
+	</customEffectDescriptions>
+	<hediffGiversCannotGive>
+	  <li>Dementia</li>
+	  <li>Alzheimers</li>
+	</hediffGiversCannotGive>
+	<exclusionTags>
+	  <li>Learning</li>
+	  <li>WVC_ExcellentMemory</li>
+	</exclusionTags>
+	<modExtensions Inherit="False">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<noSkillDecay>true</noSkillDecay>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<childBackstoryDef>WVC_RacesBiotech_Amnesia_Child</childBackstoryDef>
+			<adultBackstoryDef>WVC_RacesBiotech_Amnesia_Adult</adultBackstoryDef>
+			<scarsCount>-2</scarsCount>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
 </Defs>

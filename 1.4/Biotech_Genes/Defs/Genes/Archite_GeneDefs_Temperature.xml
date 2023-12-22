@@ -108,4 +108,26 @@
 	<biostatArc>0</biostatArc>
   </GeneDef>
 
+  <GeneDef ParentName="WVC_GeneMinMaxTemp_Base">
+	<defName>WVC_MinMaxTemp_Scarifier</defName>
+	<label>temperature scarifier-tolerant</label>
+	<description>Carriers of this gene feel comfortable at almost any temperature.</description>
+	<labelShortAdj>scarifier-temp</labelShortAdj>
+	<iconPath>WVC/UI/Genes/Gene_TemperatureScarifier_v0</iconPath>
+	<displayOrderInCategory>45</displayOrderInCategory>
+	<displayCategory>WVC_Scarifier</displayCategory>
+	<selectionWeight>0.0025</selectionWeight>
+	<biostatMet>-2</biostatMet>
+	<biostatArc>0</biostatArc>
+	<statOffsets>
+	  <ComfyTemperatureMax>14</ComfyTemperatureMax>
+	  <ComfyTemperatureMin>-56</ComfyTemperatureMin>
+	</statOffsets>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<scarsCount>-2</scarsCount>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
 </Defs>

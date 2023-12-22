@@ -16,7 +16,7 @@
 
   <HediffDef MayRequire="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_Hediffs_Scarifier" Class="WVC_XenotypesAndGenes.XaG_HediffDef">
 	<defName>WVC_Scarifier_Scarshield</defName>
-	<!-- <label>scarshield</label> -->
+	<label>scarshield</label>
 	<!-- <hediffClass>WVC_XenotypesAndGenes.HediffWithComps_Scarshield</hediffClass> -->
 	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_Scars</hediffClass>
 	<!-- <statDef>IncomingDamageFactor</statDef> -->
@@ -30,7 +30,7 @@
 
   <HediffDef MayRequire="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_Hediffs_Scarifier" Class="WVC_XenotypesAndGenes.XaG_HediffDef">
 	<defName>WVC_Scarifier_Scarstomach</defName>
-	<!-- <label>scarstomach</label> -->
+	<label>scarstomach</label>
 	<!-- <hediffClass>WVC_XenotypesAndGenes.HediffWithComps_Scarstomach</hediffClass> -->
 	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_Scars</hediffClass>
 	<!-- <statDef>MaxNutrition</statDef> -->
@@ -44,7 +44,7 @@
 
   <HediffDef MayRequire="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_Hediffs_Scarifier" Class="WVC_XenotypesAndGenes.XaG_HediffDef">
 	<defName>WVC_Scarifier_StrongMelee</defName>
-	<!-- <label>scarstomach</label> -->
+	<label>scarstrength</label>
 	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_Scars</hediffClass>
 	<statModifiers>
 	  <statOffsets>

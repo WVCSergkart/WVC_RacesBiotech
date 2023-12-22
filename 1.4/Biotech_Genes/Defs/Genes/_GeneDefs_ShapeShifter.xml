@@ -91,11 +91,15 @@
 	<displayCategory>WVC_Scarifier</displayCategory>
 	<canGenerateInGeneSet>true</canGenerateInGeneSet>
 	<biostatCpx>8</biostatCpx>
-	<biostatArc>4</biostatArc>
+	<biostatArc>3</biostatArc>
+	<sterilize>true</sterilize>
 	<displayOrderInCategory>55</displayOrderInCategory>
 	<customEffectDescriptions>
 	  <!-- <li MayRequire="ludeon.rimworld.ideology">Increase the number of scars by 2</li> -->
 	</customEffectDescriptions>
+	<statFactors>
+	  <Fertility>0</Fertility>
+	</statFactors>
 	<exclusionTags>
 	  <li>WVC_ShapeshifterGene</li>
 	</exclusionTags>

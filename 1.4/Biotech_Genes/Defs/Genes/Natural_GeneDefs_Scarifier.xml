@@ -230,7 +230,7 @@
 	<foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
 	<dontMindRawFood>true</dontMindRawFood>
 	<selectionWeight>0.0025</selectionWeight>
-	<biostatCpx>-6</biostatCpx>
+	<biostatCpx>3</biostatCpx>
 	<biostatMet>-5</biostatMet>
 	<customEffectDescriptions>
 	  <li>Any ingestible things completely replenish hunger.</li>
@@ -267,7 +267,7 @@
 
   <GeneDef MayRequire="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_GeneScarifier_Stomach">
 	<defName>WVC_Scarifier_Scarstomach</defName>
-	<biostatCpx>-6</biostatCpx>
+	<!-- <biostatCpx>-6</biostatCpx> -->
 	<biostatMet>-6</biostatMet>
 	<biostatArc>0</biostatArc>
 	<displayOrderInCategory>30</displayOrderInCategory>
@@ -275,9 +275,9 @@
 
   <GeneDef MayRequire="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_GeneScarifier_Stomach">
 	<defName>WVC_Scarifier_ArchiteScarstomach</defName>
-	<biostatCpx>-6</biostatCpx>
+	<!-- <biostatCpx>-6</biostatCpx> -->
 	<biostatMet>-1</biostatMet>
-	<biostatArc>2</biostatArc>
+	<biostatArc>1</biostatArc>
 	<displayOrderInCategory>32</displayOrderInCategory>
   </GeneDef>
 
