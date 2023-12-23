@@ -47,6 +47,50 @@
 		</operations>
 	</Operation>
 
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/PreceptDef[defName="PreferredXenotype"]/conflictingMemes</xpath>
+			  <success>Invert</success>
+			  <value>
+				  <li>WVC_XenotypesSupremacy</li>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/PreceptDef[defName="PreferredXenotype"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<conflictingMemes>
+				  <li>WVC_XenotypesSupremacy</li>
+				</conflictingMemes>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/PreceptDef[defName="AnimalVenerated"]/conflictingMemes</xpath>
+			  <success>Invert</success>
+			  <value>
+				  <li>WVC_XenotypesSupremacy</li>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/PreceptDef[defName="AnimalVenerated"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<conflictingMemes>
+				  <li>WVC_XenotypesSupremacy</li>
+				</conflictingMemes>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
 	<!-- <Operation Class="PatchOperationSequence"> -->
 		<!-- <success>Always</success> -->
 		<!-- <operations> -->
