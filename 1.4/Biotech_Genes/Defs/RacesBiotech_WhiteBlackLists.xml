@@ -102,6 +102,7 @@
 		<li>WVC_StoneSkin</li>
 		<li>WVC_PatchSkin</li>
 		<li>WVC_FeatherSkin</li>
+		<li>WVC_ShapeshiftSkin</li>
 		<li>Furskin</li>
 		<li MayRequire="vanillaracesexpanded.phytokin">VRE_BarkSkin</li>
 		<li MayRequire="vanillaracesexpanded.saurid">VRESaurids_ScaleSkin</li>
@@ -262,6 +263,7 @@
 		<li>WVC_NodeSkin</li>
 		<li>WVC_PatchSkin</li>
 		<li>WVC_FeatherSkin</li>
+		<li>WVC_ShapeshiftSkin</li>
 		<!-- = -->
 		<li>WVC_MecaBodyParts_Claws</li>
 		<li>WVC_NaturalBodyParts_Claws</li>

@@ -34,6 +34,8 @@ namespace WVC_XenotypesAndGenes
 			// }
 			pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(WVC_GenesDefOf.WVC_XenotypesAndGenes_WasResurrected);
 			// Undead
+			XenotypeDef mainXenotype = pawn.genes.CustomXenotype == null ? pawn.genes.Xenotype : null;
+			string letterDesc = "WVC_LetterTextSecondChance_GeneUndead";
 			if (gene.Gene_ResurgentCells == null)
 			{
 				pawn.health.AddHediff(WVC_GenesDefOf.WVC_Resurgent_UndeadResurrectionRecovery);
@@ -47,6 +49,10 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 				SubXenotypeUtility.XenotypeShapeshifter(pawn);
+				if (mainXenotype != null && mainXenotype != pawn.genes.Xenotype)
+				{
+					letterDesc = "WVC_LetterTextSecondChance_GeneUndeadShapeshift";
+				}
 			}
 			else
 			{
@@ -54,7 +60,8 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (PawnUtility.ShouldSendNotificationAbout(pawn))
 			{
-				Find.LetterStack.ReceiveLetter(gene.LabelCap, "WVC_LetterTextSecondChance_GeneUndead".Translate(pawn.Named("PAWN"), gene.LabelCap), LetterDefOf.PositiveEvent, new LookTargets(pawn));
+				string shapeshiftXenotype = pawn?.genes?.Xenotype != null ? pawn.genes.Xenotype.LabelCap : "ERROR";
+				Find.LetterStack.ReceiveLetter(gene.LabelCap, letterDesc.Translate(pawn.Named("PAWN"), gene.LabelCap, shapeshiftXenotype), LetterDefOf.PositiveEvent, new LookTargets(pawn));
 			}
 		}
 
@@ -85,7 +92,7 @@ namespace WVC_XenotypesAndGenes
 						item.Learn(0f - num, direct: true);
 					}
 				}
-				SubXenotypeUtility.XenotypeShapeshifter(pawn);
+                SubXenotypeUtility.XenotypeShapeshifter(pawn);
 			}
 			else
 			{
@@ -175,7 +182,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool GetUndeadGene(this Pawn pawn, out Gene_Undead gene)
 		{
-			gene = pawn?.genes?.GetFirstGeneOfType<Gene_Undead>() != null ? pawn.genes.GetFirstGeneOfType<Gene_Undead>() : null;
+			gene = pawn.RaceProps.Humanlike && pawn?.genes?.GetFirstGeneOfType<Gene_Undead>() != null ? pawn.genes.GetFirstGeneOfType<Gene_Undead>() : null;
 			return gene != null;
 		}
 

@@ -34,7 +34,7 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_EndoXeno">
 	<defName>WVC_EndogermReimplanter</defName>
-	<label>arch-reimplanter</label>
+	<label>archite-reimplanter</label>
 	<iconPath>WVC/UI/Genes/Reimplanter</iconPath>
 	<sterilize>true</sterilize>
 	<statFactors>
@@ -54,7 +54,8 @@
   <!-- ============================================================================== -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_Base" Name="WVC_XenotypesAndGenes_Reimplanters_RiseFromTheDead" Abstract="True">
-	<label>rise from the dead</label>
+	<!-- <label>rise from the dead</label> -->
+	<label>posthumous reimplanter</label>
 	<labelShortAdj>reimplanter</labelShortAdj>
 	<description>Carriers of this gene can reimplant their genes into a corpse through a somewhat gross-looking injector organ. As a result, the dead man comes to life and receives a caster xenotype and a copy of the genes.</description>
 	<iconPath>WVC/UI/Genes/Gene_RiseUp_v0</iconPath>

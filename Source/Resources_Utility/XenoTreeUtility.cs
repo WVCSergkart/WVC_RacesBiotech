@@ -10,6 +10,26 @@ namespace WVC_XenotypesAndGenes
 	public static class XenoTreeUtility
 	{
 
+		public static bool IsXenoTree(this Thing parent)
+		{
+			if (parent.def.plant != null && parent.TryGetComp<CompXenoTree>() != null)
+			{
+				return true;
+			}
+			return false;
+		}
+
+		public static bool IsResurgentTree(this Thing parent)
+		{
+			if (parent.def.plant != null && parent.TryGetComp<CompWalkingCorpsesSpawner>() != null)
+			{
+				return true;
+			}
+			return false;
+		}
+
+		// =================================
+
 		public static bool XenoTree_CanSpawn(XenotypeDef xenotypeDef, Thing parent)
 		{
 			if (xenotypeDef.genes.NullOrEmpty())

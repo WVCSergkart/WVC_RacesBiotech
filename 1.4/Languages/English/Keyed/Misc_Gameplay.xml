@@ -73,7 +73,13 @@
 	<!-- ============================ UNDEAD RESURRECTION ============================ -->
 
 	<WVC_LetterLabelSecondChance_GeneUndead>Second chance</WVC_LetterLabelSecondChance_GeneUndead>
-	<WVC_LetterTextSecondChance_GeneUndead>Thanks to the {1} gene, {PAWN_nameDef} returns to the world of the living. It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies again, it will most likely be permanent.</WVC_LetterTextSecondChance_GeneUndead>
+	<WVC_LetterTextSecondChance_GeneUndead>Thanks to the {1} gene, {PAWN_nameDef} returns to the world of the living.
+
+It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies again, it will most likely be permanent.</WVC_LetterTextSecondChance_GeneUndead>
+
+	<WVC_LetterTextSecondChance_GeneUndeadShapeshift>Thanks to the {1} gene, {PAWN_nameDef} returns to the world of the living. However, this caused a side effect. {PAWN_nameDef}'s genes have been changed and {PAWN_possessive} xenotype is now {2}.
+
+It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies again, it will most likely be permanent.</WVC_LetterTextSecondChance_GeneUndeadShapeshift>
 
 	<WVC_LetterTextSecondChance_GeneUndeadResurgent>{TARGET_nameDef} gets another life.</WVC_LetterTextSecondChance_GeneUndeadResurgent>
 

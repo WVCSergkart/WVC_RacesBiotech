@@ -38,7 +38,7 @@ namespace WVC_XenotypesAndGenes
 			base.PostSpawnSetup(respawningAfterLoad);
 			if (!respawningAfterLoad)
 			{
-				shouldResurrect = parent is Corpse corpse && corpse.InnerPawn.IsUndead();
+				shouldResurrect = parent is Corpse corpse && corpse.InnerPawn.GetUndeadGene(out Gene_Undead gene_undead) && gene_undead.UndeadCanResurrect;
 				ResetCounter();
 			}
 		}
@@ -72,12 +72,17 @@ namespace WVC_XenotypesAndGenes
 
 		public void TryResurrect()
 		{
+			if (parent.Map == null)
+			{
+				return;
+			}
 			Pawn pawn = parent is Corpse corpse ? corpse.InnerPawn : null;
 			if (pawn != null && pawn.RaceProps.Humanlike && pawn.GetUndeadGene(out Gene_Undead gene_undead) && gene_undead.UndeadCanResurrect)
 			{
 				// UndeadUtility.NewUndeadResurrect(pawn, gene_undead.ChildBackstoryDef, gene_undead.AdultBackstoryDef, gene_undead.Gene_ResurgentCells, gene_undead.def.resourceLossPerDay);
 				UndeadUtility.RegenComaOrDeathrest(pawn, gene_undead);
 			}
+			shouldResurrect = false;
 		}
 
 		public void ResetCounter()
