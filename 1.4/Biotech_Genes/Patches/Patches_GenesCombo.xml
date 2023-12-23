@@ -239,6 +239,35 @@
 		</caseTrue>
 	</Operation>
 
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+			  <xpath>/Defs/ThingDef[defName="Human"]/modExtensions</xpath>
+			  <success>Invert</success>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/ThingDef[defName="Human"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<modExtensions/>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/ThingDef[defName="Human"]/modExtensions</xpath>
+	  <success>Always</success>
+	  <value>
+		<li Class="WVC_XenotypesAndGenes.ThingExtension_Undead">
+			<shouldResurrect>true</shouldResurrect>
+			<uniqueTag>XaG_HumanUndead</uniqueTag>
+			<resurrectionDelay>6000~9000</resurrectionDelay>
+		</li>
+	  </value>
+	</Operation>
+
 	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
 		<!-- <settingName>enableGeneUndeadInfo</settingName> -->
 		<!-- <caseTrue Class="PatchOperationAdd"> -->

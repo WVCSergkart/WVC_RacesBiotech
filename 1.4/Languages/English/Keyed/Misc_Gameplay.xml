@@ -21,6 +21,8 @@
 	<WVC_PawnIsAndroidCheck>The target must be human and/or genetically compatible.</WVC_PawnIsAndroidCheck>
 	
 	<WVC_AbilityValidation_ReimplantationCheck>Reimplantation in progress. Wait for the process to finish before starting another one.</WVC_AbilityValidation_ReimplantationCheck>
+	
+	<WVC_XaG_SubXenotypeUnknownXenotypeError>unknown</WVC_XaG_SubXenotypeUnknownXenotypeError>
 
 	<!-- ============================ GENE INFO ============================ -->
 
@@ -71,7 +73,7 @@
 	<!-- ============================ UNDEAD RESURRECTION ============================ -->
 
 	<WVC_LetterLabelSecondChance_GeneUndead>Second chance</WVC_LetterLabelSecondChance_GeneUndead>
-	<WVC_LetterTextSecondChance_GeneUndead>{TARGET_nameDef} gets another life, but at the cost of {COMADURATION} years of life and all the accumulated experience in all skills.</WVC_LetterTextSecondChance_GeneUndead>
+	<WVC_LetterTextSecondChance_GeneUndead>Thanks to the {1} gene, {PAWN_nameDef} returns to the world of the living. It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies again, it will most likely be permanent.</WVC_LetterTextSecondChance_GeneUndead>
 
 	<WVC_LetterTextSecondChance_GeneUndeadResurgent>{TARGET_nameDef} gets another life.</WVC_LetterTextSecondChance_GeneUndeadResurgent>
 

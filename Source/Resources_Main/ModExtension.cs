@@ -100,6 +100,14 @@ namespace WVC_XenotypesAndGenes
 		public bool removeDormantComp = false;
 	}
 
+	public class ThingExtension_Undead : DefModExtension
+	{
+		public bool shouldResurrect = false;
+		// 4-6 hours
+		public IntRange resurrectionDelay = new(6000, 9000);
+		public string uniqueTag = "XaG_Undead";
+	}
+
 	// public class FoodExtension_GeneFood : DefModExtension
 	// {
 		// public bool requireAnyGene = false;

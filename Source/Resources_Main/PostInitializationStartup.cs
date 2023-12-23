@@ -26,27 +26,37 @@ namespace WVC_XenotypesAndGenes
 			foreach (ThingDef thingDef in DefDatabase<ThingDef>.AllDefsListForReading)
 			{
 				ThingExtension_Golems modExtension = thingDef?.GetModExtension<ThingExtension_Golems>();
-				if (modExtension == null)
+				if (modExtension != null)
 				{
-					continue;
+					if (modExtension.removeRepairComp)
+					{
+						thingDef.comps.RemoveAll((CompProperties compProperties) => compProperties is CompProperties_MechRepairable);
+					}
+					if (modExtension.removeDormantComp)
+					{
+						thingDef.comps.RemoveAll((CompProperties compProperties) => compProperties is CompProperties_CanBeDormant);
+						thingDef.comps.RemoveAll((CompProperties compProperties) => compProperties is CompProperties_WakeUpDormant);
+					}
+					ThingDef corpseDef = thingDef.race?.corpseDef;
+					if (corpseDef != null)
+					{
+						if (modExtension.removeButcherRecipes)
+						{
+							corpseDef.thingCategories = new();
+						}
+					}
 				}
-				if (modExtension.removeRepairComp)
+				ThingExtension_Undead deadExtension = thingDef?.GetModExtension<ThingExtension_Undead>();
+				if (deadExtension != null && deadExtension.shouldResurrect)
 				{
-					thingDef.comps.RemoveAll((CompProperties compProperties) => compProperties is CompProperties_MechRepairable);
-				}
-				if (modExtension.removeDormantComp)
-				{
-					thingDef.comps.RemoveAll((CompProperties compProperties) => compProperties is CompProperties_CanBeDormant);
-					thingDef.comps.RemoveAll((CompProperties compProperties) => compProperties is CompProperties_WakeUpDormant);
-				}
-				ThingDef corpseDef = thingDef.race?.corpseDef;
-				if (corpseDef == null)
-				{
-					continue;
-				}
-				if (modExtension.removeButcherRecipes)
-				{
-					corpseDef.thingCategories = new();
+					ThingDef corpseDef = thingDef.race?.corpseDef;
+					if (corpseDef != null)
+					{
+						CompProperties_UndeadCorpse undead_comp = new();
+						undead_comp.resurrectionDelay = deadExtension.resurrectionDelay;
+						undead_comp.uniqueTag = deadExtension.uniqueTag;
+						corpseDef.comps.Add(undead_comp);
+					}
 				}
 			}
 		}

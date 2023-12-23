@@ -25,6 +25,11 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			}
+			else
+			{
+				// Mark xenotype like custom ones
+				ReimplanterUtility.UnknownXenotype(pawn);
+			}
 			if (shapeShiftGene != null)
 			{
 				pawn.genes.RemoveGene(shapeShiftGene);
@@ -192,23 +197,29 @@ namespace WVC_XenotypesAndGenes
 					xenotypeGenes.Add(geneDef);
 				}
 			}
-			List<Gene> pawnGenes = new();
+			List<GeneDef> pawnGenes = new();
 			foreach (Gene gene in pawn.genes?.Endogenes)
 			{
 				if (TestXenotype_TestGene(gene.def))
 				{
 					// Log.Error("Pawn contain " + gene.def);
-					pawnGenes.Add(gene);
+					pawnGenes.Add(gene.def);
 				}
 			}
-			for (int i = 0; i < pawnGenes.Count; i++)
+			// for (int i = 0; i < pawnGenes.Count; i++)
+			// {
+				// if (!xenotypeGenes.Contains(pawnGenes[i].def))
+				// {
+					// return false;
+				// }
+			// }
+			for (int i = 0; i < xenotypeGenes.Count; i++)
 			{
-				// Log.Error("Checked gene " + pawnGenes[i].def + " " + (i + 1) + "/" + pawnGenes.Count);
-				if (!xenotypeGenes.Contains(pawnGenes[i].def))
+				if (pawnGenes.Contains(xenotypeGenes[i]))
 				{
-					// Log.Error("Pawn contain " + pawnGenes[i].def);
-					return false;
+					continue;
 				}
+				return false;
 			}
 			return true;
 		}
@@ -217,29 +228,24 @@ namespace WVC_XenotypesAndGenes
 		public static bool CheckIfXenotypeIsCorrect(Pawn pawn)
 		{
 			Pawn_GeneTracker genes = pawn?.genes;
-			// Skip if xenotype is UniqueXenotype
-			if (genes == null || genes.UniqueXenotype || genes.iconDef != null)
+			// Skip if xenotype is custom
+			if (genes == null || genes.CustomXenotype != null || genes.UniqueXenotype || genes.iconDef != null)
 			{
 				return false;
 			}
 			XenotypeDef pawnXenotype = genes.Xenotype;
-			if (pawnXenotype == null)
+			// Skip if xenotype is not double
+			if (pawnXenotype == null || pawnXenotype.doubleXenotypeChances.NullOrEmpty())
 			{
 				return false;
 			}
-			bool xenotypeIsCorrect = false;
 			foreach (XenotypeChance xenotypeChance in pawnXenotype.doubleXenotypeChances)
 			{
 				if (CheckIfXenotypeIsCorrect_CheckXenoChances(xenotypeChance, pawn))
 				{
-					xenotypeIsCorrect = true;
+					return true;
 				}
 			}
-			if (xenotypeIsCorrect)
-			{
-				return true;
-			}
-			// Log.Error("6");
 			return false;
 		}
 
@@ -259,7 +265,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			// Check that the xenotype can be shapeshifted.
 			XenotypeExtension_SubXenotype modExtension = pawnXenotype.GetModExtension<XenotypeExtension_SubXenotype>();
-			if (modExtension == null && modExtension.xenotypeCanShapeshiftOnDeath)
+			if (modExtension == null || !modExtension.xenotypeCanShapeshiftOnDeath)
 			{
 				return false;
 			}

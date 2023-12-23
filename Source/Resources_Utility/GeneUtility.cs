@@ -12,6 +12,16 @@ namespace WVC_XenotypesAndGenes
 	public static class XaG_GeneUtility
 	{
 
+		public static List<GeneDef> ConvertGenesInGeneDefs(List<Gene> genes)
+		{
+			List<GeneDef> geneDefs = new();
+			foreach (Gene item in genes)
+			{
+				geneDefs.Add(item.def);
+			}
+			return geneDefs;
+		}
+
 		public static bool AbilityIsGeneAbility(Ability ability)
 		{
 			List<GeneDef> genes = DefDatabase<GeneDef>.AllDefsListForReading;

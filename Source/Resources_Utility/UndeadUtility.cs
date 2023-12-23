@@ -9,6 +9,57 @@ namespace WVC_XenotypesAndGenes
 	public static class UndeadUtility
 	{
 
+		// Coma TEST
+
+		public static void ShouldUndeadRegenComaOrDeathrest(bool resurrect, Pawn pawn)
+		{
+			if (resurrect)
+			{
+				Gene_Undead undead = pawn?.genes?.GetFirstGeneOfType<Gene_Undead>();
+				if (undead != null)
+				{
+					RegenComaOrDeathrest(pawn, undead);
+				}
+			}
+		}
+
+		public static void RegenComaOrDeathrest(Pawn pawn, Gene_Undead gene)
+		{
+			// Resurrect
+			ResurrectionUtility.Resurrect(pawn);
+			pawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
+			// for (int i = 0; i < pawn.health.hediffSet.hediffs.Count; i++)
+			// {
+				// HealingUtility.FixWorstHealthCondition(pawn, gene, true);
+			// }
+			pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(WVC_GenesDefOf.WVC_XenotypesAndGenes_WasResurrected);
+			// Undead
+			if (gene.Gene_ResurgentCells == null)
+			{
+				pawn.health.AddHediff(WVC_GenesDefOf.WVC_Resurgent_UndeadResurrectionRecovery);
+				Gene_BackstoryChanger.BackstoryChanger(pawn, gene.ChildBackstoryDef, gene.AdultBackstoryDef);
+				foreach (SkillRecord item in pawn.skills.skills)
+				{
+					if (!item.TotallyDisabled && item.XpTotalEarned > 0f)
+					{
+						float num = item.XpTotalEarned;
+						item.Learn(0f - num, direct: true);
+					}
+				}
+				SubXenotypeUtility.XenotypeShapeshifter(pawn);
+			}
+			else
+			{
+				gene.Gene_ResurgentCells.Value -= gene.def.resourceLossPerDay;
+			}
+			if (PawnUtility.ShouldSendNotificationAbout(pawn))
+			{
+				Find.LetterStack.ReceiveLetter(gene.LabelCap, "WVC_LetterTextSecondChance_GeneUndead".Translate(pawn.Named("PAWN"), gene.LabelCap), LetterDefOf.PositiveEvent, new LookTargets(pawn));
+			}
+		}
+
+		// Resurrection
+
 		public static void ResurrectWithSickness(Pawn pawn, ThoughtDef resurrectThought = null)
 		{
 			ResurrectionUtility.Resurrect(pawn);
@@ -42,7 +93,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (PawnUtility.ShouldSendNotificationAbout(pawn))
 			{
-				Find.LetterStack.ReceiveLetter("WVC_LetterLabelSecondChance_GeneUndead".Translate(), "WVC_LetterTextSecondChance_GeneUndeadResurgent".Translate(pawn.Named("TARGET")), LetterDefOf.NeutralEvent, new LookTargets(pawn));
+				Find.LetterStack.ReceiveLetter("WVC_LetterLabelSecondChance_GeneUndead".Translate(), "WVC_LetterTextSecondChance_GeneUndeadResurgent".Translate(pawn.Named("TARGET")), LetterDefOf.PositiveEvent, new LookTargets(pawn));
 			}
 		}
 
@@ -120,6 +171,12 @@ namespace WVC_XenotypesAndGenes
 				return false;
 			}
 			return XaG_GeneUtility.HasActiveGene(pawn.genes?.GetFirstGeneOfType<Gene_Undead>()?.def, pawn);
+		}
+
+		public static bool GetUndeadGene(this Pawn pawn, out Gene_Undead gene)
+		{
+			gene = pawn?.genes?.GetFirstGeneOfType<Gene_Undead>() != null ? pawn.genes.GetFirstGeneOfType<Gene_Undead>() : null;
+			return gene != null;
 		}
 
 	}

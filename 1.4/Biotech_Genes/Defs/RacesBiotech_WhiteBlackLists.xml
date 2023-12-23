@@ -166,6 +166,7 @@
 	<!-- </gene_PawnSkillsNotDecay> -->
 	<!-- Undead gene does not work in the presence of these hediffs. Required hediff defNames -->
 	<hediffsThatPreventUndeadResurrection>
+		<li>RegenerationComa</li>
 		<li>XenogermReplicating</li>
 		<li>XenogermLossShock</li>
 		<li>XenogerminationComa</li>

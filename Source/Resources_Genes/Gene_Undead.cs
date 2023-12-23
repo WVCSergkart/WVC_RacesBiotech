@@ -53,7 +53,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (PawnCanResurrect())
 			{
-				UndeadUtility.NewUndeadResurrect(pawn, ChildBackstoryDef, AdultBackstoryDef, Gene_ResurgentCells, def.resourceLossPerDay);
+				// UndeadUtility.NewUndeadResurrect(pawn, ChildBackstoryDef, AdultBackstoryDef, Gene_ResurgentCells, def.resourceLossPerDay);
 				// Gene_DustReincarnation.ReincarnationQuest(pawn, ResurrectionQuest);
 				// UndeadUtility.NewUndeadResurrect(pawn, ChildBackstoryDef, AdultBackstoryDef, Gene_ResurgentCells, def.resourceLossPerDay);
 			}

@@ -11,6 +11,7 @@ namespace WVC_XenotypesAndGenes
 		// Xenotype
 		public static GeneDef Hair_SnowWhite;
 		public static GeneDef Skin_SheerWhite;
+		// public static XenotypeIconDef WVC_XenoRandomKindc;
 		// Misc
 		public static GeneDef WVC_MechaAI_SoftwareNaturalEnemy;
 		// public static GeneDef WVC_Dustogenic_AngelBeauty;
