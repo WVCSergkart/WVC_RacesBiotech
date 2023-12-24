@@ -15,7 +15,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostAdd();
 			// SubXenotypeUtility.ShapeShift(pawn, Xenotype, this);
-			SubXenotypeUtility.XenotypeShapeShift(pawn, Xenotype, this);
+			SubXenotypeUtility.XenotypeShapeShift(pawn, this);
 		}
 
 		// public override IEnumerable<Gizmo> GetGizmos()

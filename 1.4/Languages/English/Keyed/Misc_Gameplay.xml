@@ -323,6 +323,7 @@ Each mechanoid costs 0.15 nutrition to summon.</WVC_XaG_Gene_DustMechlinkDesc>
 	<WVC_XaG_GeneShapeshifter_ShapeshiftWarning>The xenotype change process will take 2 days, during which time the gene carrier will be downed. Once completed, the carrier will not be able to change xenotype again for some time.</WVC_XaG_GeneShapeshifter_ShapeshiftWarning>
 
 	<WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel>Shapeshift</WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel>
-	<WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>{TARGET_nameDef}'s genes have been altered. {TARGET_nameDef} won't be able to use shapeshift again for a while.</WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>
+	<!-- <WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>{TARGET_nameDef}'s genes have been altered. {TARGET_nameDef} won't be able to use shapeshift again for a while.</WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc> -->
+	<WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>{TARGET_nameDef}'s genes have been significantly changed, {TARGET_possessive} xenotype is now {1}. {TARGET_nameDef} won't be able to use {2} again for a while.</WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>
 
 </LanguageData>

@@ -1,4 +1,5 @@
 using RimWorld;
+using System.Collections.Generic;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -60,42 +61,6 @@ namespace WVC_XenotypesAndGenes
 				parent.Severity = Dust.CurLevel;
 			}
 		}
-
-	}
-
-	public class HediffCompProperties_AlwaysRemove : HediffCompProperties
-	{
-
-		public HediffCompProperties_AlwaysRemove()
-		{
-			compClass = typeof(HediffComp_AlwaysRemove);
-		}
-
-	}
-	public class HediffComp_AlwaysRemove : HediffComp
-	{
-
-		public HediffCompProperties_AlwaysRemove Props => (HediffCompProperties_AlwaysRemove)props;
-
-		public override bool CompShouldRemove => true;
-
-	}
-
-	public class HediffCompProperties_RemoveIfPawnHasAngelicStabilityGene : HediffCompProperties
-	{
-
-		public HediffCompProperties_RemoveIfPawnHasAngelicStabilityGene()
-		{
-			compClass = typeof(HediffComp_RemoveIfPawnHasAngelicStabilityGene);
-		}
-
-	}
-	public class HediffComp_RemoveIfPawnHasAngelicStabilityGene : HediffComp
-	{
-
-		public HediffCompProperties_RemoveIfPawnHasAngelicStabilityGene Props => (HediffCompProperties_RemoveIfPawnHasAngelicStabilityGene)props;
-
-		public override bool CompShouldRemove => base.Pawn.genes?.GetFirstGeneOfType<Gene_AngelicStability>() != null;
 
 	}
 

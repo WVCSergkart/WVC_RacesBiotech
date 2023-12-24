@@ -48,7 +48,14 @@
 	  <!-- Anti-bug wall -->
 	  <!-- Removes the hediff if it was not applied by mod reimplanters. -->
 	  <!-- For example, the vanilla reimplanter first applies genes, then removes them, and then adds them again. -->
-	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfPawnHasAngelicStabilityGene"/>
+	  <!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfPawnHasAngelicStabilityGene"/> -->
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIf">
+		<anyOf_GeneDef>
+		  <li>WVC_Dustogenic_GeneticStability</li>
+		  <li>WVC_Shapeshifter</li>
+		  <li>WVC_Shapeshifter_Rand</li>
+		</anyOf_GeneDef>
+	  </li>
 	</comps>
   </HediffDef>
 

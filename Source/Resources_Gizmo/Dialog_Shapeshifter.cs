@@ -86,6 +86,10 @@ namespace WVC_XenotypesAndGenes
 			List<GeneDef> dontRemove = new();
 			dontRemove.Add(gene.def);
 			ReimplanterUtility.SetXenotype_DoubleXenotype(gene.pawn, selectedXeno, dontRemove.ToList());
+			if (!gene.pawn.genes.HasGene(gene.def))
+			{
+				gene.pawn.genes.AddGene(gene.def, false);
+			}
 			if (!SerumUtility.HasCandidateGene(gene.pawn))
 			{
 				gene.pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
@@ -95,7 +99,9 @@ namespace WVC_XenotypesAndGenes
 			{
 				soundDefOnImplant.PlayOneShot(SoundInfo.InMap(gene.pawn));
 			}
-			Find.LetterStack.ReceiveLetter("WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel".Translate(), "WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc".Translate(gene.pawn.Named("TARGET")), LetterDefOf.NeutralEvent, new LookTargets(gene.pawn));
+			Find.LetterStack.ReceiveLetter("WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel".Translate(), "WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc".Translate(gene.pawn.Named("TARGET"), selectedXeno.LabelCap, gene.LabelCap)
+				+ "\n\n" + (selectedXeno.descriptionShort.NullOrEmpty() ? selectedXeno.description : selectedXeno.descriptionShort),
+				WVC_GenesDefOf.WVC_XaG_ShapeshiftEvent, new LookTargets(gene.pawn));
 			Close(doCloseSound: false);
 		}
 

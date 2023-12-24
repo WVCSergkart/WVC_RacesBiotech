@@ -55,7 +55,11 @@ namespace WVC_XenotypesAndGenes
 
 		public List<GeneDef> endogenes = new();
 
+		// public List<GeneDef> xenogenes = new();
+
 		public List<GeneDef> removeGenes = new();
+
+		// public List<XenotypeChance> inheritFromXenotypes;
 
 		public float selectionWeight = 1f;
 
@@ -86,10 +90,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				foreach (GeneDef gene in genes)
 				{
-					if (!removeGenes.Contains(gene) && gene != WVC_GenesDefOf.WVC_XenotypesAndGenes_SubXenotypeShapeshifter)
-					{
-						descriptionHyperlinks.Add(new DefHyperlink(gene));
-					}
+					descriptionHyperlinks.Add(new DefHyperlink(gene));
 				}
 			}
 		}
@@ -102,61 +103,36 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (!removeGenes.NullOrEmpty())
 			{
-				yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_XaG_SubXeno_RemovedGenes".Translate().CapitalizeFirst(), removeGenes.Select((GeneDef x) => x.label).ToCommaList().CapitalizeFirst(), "WVC_XaG_SubXeno_RemovedGenes_Desc".Translate() + "\n\n" + removeGenes.Select((GeneDef x) => x.label).ToLineList("  - ", capitalizeItems: true), 1020);
+				yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_XaG_SubXeno_RemovedGenes".Translate().CapitalizeFirst(), removeGenes.Select((GeneDef x) => x.label).ToCommaList().CapitalizeFirst(), "WVC_XaG_SubXeno_RemovedGenes_Desc".Translate() + "\n\n" + removeGenes.Select((GeneDef x) => x.label).ToLineList("  - ", capitalizeItems: true), 1050);
 			}
-			// if (!genes.NullOrEmpty())
+			// if (!xenogenes.NullOrEmpty())
 			// {
-				// yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_XaG_SubXeno_Xenogenes".Translate().CapitalizeFirst(), genes.Select((GeneDef x) => x.label).ToCommaList().CapitalizeFirst(), "GenesDesc".Translate() + "\n\n" + "WVC_XaG_SubXeno_Xenogenes_Desc".Translate() + "\n\n" + genes.Select((GeneDef x) => x.label).ToLineList("  - ", capitalizeItems: true), 1000);
+				// yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_XaG_SubXeno_Xenogenes".Translate().CapitalizeFirst(), xenogenes.Select((GeneDef x) => x.label).ToCommaList().CapitalizeFirst(), "GenesDesc".Translate() + "\n\n" + "WVC_XaG_SubXeno_Xenogenes_Desc".Translate() + "\n\n" + xenogenes.Select((GeneDef x) => x.label).ToLineList("  - ", capitalizeItems: true), 1040);
 			// }
 			if (!endogenes.NullOrEmpty())
 			{
-				yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_XaG_SubXeno_Endogenes".Translate().CapitalizeFirst(), endogenes.Select((GeneDef x) => x.label).ToCommaList().CapitalizeFirst(), "GenesDesc".Translate() + "\n\n" + "WVC_XaG_SubXeno_Endogenes_Desc".Translate() + "\n\n" + endogenes.Select((GeneDef x) => x.label).ToLineList("  - ", capitalizeItems: true), 1010);
+				yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_XaG_SubXeno_Endogenes".Translate().CapitalizeFirst(), endogenes.Select((GeneDef x) => x.label).ToCommaList().CapitalizeFirst(), "GenesDesc".Translate() + "\n\n" + "WVC_XaG_SubXeno_Endogenes_Desc".Translate() + "\n\n" + endogenes.Select((GeneDef x) => x.label).ToLineList("  - ", capitalizeItems: true), 1030);
 			}
-			// if (!randomGenes.NullOrEmpty())
-			// {
-				// foreach (RandomGenes item in randomGenes)
-				// {
-					// yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_XaG_SubXeno_RandomGenes".Translate().CapitalizeFirst(), item.genes.Select((GeneDef x) => x.label).ToCommaList().CapitalizeFirst(), "WVC_XaG_SubXeno_RandomGenes_Desc".Translate() + "\n\n" + item.genes.Select((GeneDef x) => x.label).ToLineList("  - ", capitalizeItems: true), 980);
-				// }
-			// }
+			if (!randomGenes.NullOrEmpty())
+			{
+				foreach (RandomGenes item in randomGenes)
+				{
+					yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_XaG_SubXeno_RandomGenes".Translate().CapitalizeFirst(), item.genes.Select((GeneDef x) => x.label).ToCommaList().CapitalizeFirst(), "WVC_XaG_SubXeno_RandomGenes_Desc".Translate() + "\n\n" + item.genes.Select((GeneDef x) => x.label).ToLineList("  - ", capitalizeItems: true), 1020);
+				}
+			}
 		}
 
-		// public override IEnumerable<string> ConfigErrors()
-		// {
-			// foreach (string item in base.ConfigErrors())
-			// {
-				// yield return item;
-			// }
-			// GeneDef geneticShifter = WVC_GenesDefOf.WVC_XenotypesAndGenes_SubXenotypeShapeshifter;
-			// if (removeGenes.Contains(geneticShifter))
-			// {
-				// removeGenes.Remove(geneticShifter);
-				// yield return defName + " contains " + geneticShifter.defName + " in removeGenes. Fixing..";
-			// }
-			// if (endogenes.Contains(geneticShifter))
-			// {
-				// endogenes.Remove(geneticShifter);
-				// yield return defName + " contains " + geneticShifter.defName + " in endogenes. Fixing..";
-			// }
-			// if (genes.Contains(geneticShifter))
-			// {
-				// genes.Remove(geneticShifter);
-				// yield return defName + " contains " + geneticShifter.defName + " in genes. Fixing..";
-			// }
-			// if (!genes.Contains(geneticShifter))
-			// {
-				// genes.Add(geneticShifter);
-			// }
-			// if (inheritable)
-			// {
-				// inheritable = false;
-				// Log.Warning(defName + " is inheritable. Fixing..");
-			// }
-			// if (doubleXenotypeChances.NullOrEmpty() || doubleXenotypeChances.Sum((XenotypeChance x) => x.chance) == 1f)
-			// {
-				// yield return defName + " has null doubleXenotypeChances. doubleXenotypeChances must contain at least one xenotype with a chance of 1.0";
-			// }
-		// }
+		public override IEnumerable<string> ConfigErrors()
+		{
+			foreach (string item in base.ConfigErrors())
+			{
+				yield return item;
+			}
+			if (doubleXenotypeChances.NullOrEmpty() || doubleXenotypeChances.Sum((XenotypeChance x) => x.chance) != 1f)
+			{
+				 yield return defName + " has null doubleXenotypeChances. doubleXenotypeChances must contain at least one xenotype with a chance 1.0";
+			}
+		}
 
 	}
 }

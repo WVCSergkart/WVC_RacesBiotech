@@ -7,7 +7,7 @@
 	<!-- Experiments, shapeshift, mysterious origin -->
 	<description>Ashens are an undead sub-xenotype, despite strong genetic differences they still remain within this xenotype. Incredibly strong and tough, they are excellent marksmen and incredible fighters. Their body can easily recover from any injuries, and it is almost impossible to kill them. But they are completely incapable of mastering new skills and in all areas except combat they are completely useless. However, their main advantage is not their strength; they can shapeshift into other xenotypes, making Ashen a versatile xenotype.
 
-&lt;color=#f5ffa2&gt;Gameplay Effect (Genes):&lt;/color&gt; If the xenotype is inherited from the "Undead" xenotype, then the set of endogens will be changed.
+&lt;color=#f5ffa2&gt;Gameplay Effect (Genes):&lt;/color&gt; It is a hybrid xenotype that is inherited from the Undead xenotype.
 
 &lt;color=#f5ffa2&gt;Gameplay Effect (Abilities):&lt;/color&gt; The xenotype has a gene that allows you to change the set of genes to any other, depending on the selected xenotype.
 
@@ -17,7 +17,7 @@
 	<!-- <descriptionHyperlinks> -->
 	  <!-- <WVC_XenotypesAndGenes.SubXenotypeDef>WVC_AshDemon</WVC_XenotypesAndGenes.SubXenotypeDef> -->
 	<!-- </descriptionHyperlinks> -->
-	<generateWithXenogermReplicatingHediffChance>0.2</generateWithXenogermReplicatingHediffChance>
+	<generateWithXenogermReplicatingHediffChance>0.1</generateWithXenogermReplicatingHediffChance>
 	<xenogermReplicatingDurationLeftDaysRange>0.1~40</xenogermReplicatingDurationLeftDaysRange>
 	<selectionWeight>0.12</selectionWeight>
 	<removeGenes>

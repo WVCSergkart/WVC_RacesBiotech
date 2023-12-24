@@ -51,6 +51,9 @@ namespace WVC_XenotypesAndGenes
 		// Random Mechanoids Summon
 		public static ThinkTreeDef Mechanoid;
 		public static ThinkTreeDef MechConstant;
+		// Letters
+		public static LetterDef WVC_XaG_ShapeshiftEvent;
+		public static LetterDef WVC_XaG_UndeadResurrectionEvent;
 	}
 
 }

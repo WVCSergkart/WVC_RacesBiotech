@@ -9,28 +9,18 @@ namespace WVC_XenotypesAndGenes
 	public static class SubXenotypeUtility
 	{
 
-		public static void XenotypeShapeShift(Pawn pawn, XenotypeDef mainXenotype, Gene shapeShiftGene, float xenogermReplicationChance = 0.2f)
+		// ========================================================
+
+		public static void XenotypeShapeShift(Pawn pawn, Gene shapeShiftGene, float xenogermReplicationChance = 0.2f)
 		{
-			if (mainXenotype != null && CheckIfXenotypeIsCorrect(pawn))
+			if (XenotypeIsSubXenotype(pawn, out SubXenotypeDef subXenotypeDef))
 			{
-				// Log.Error(pawn.Name + " xenotype not null.");
-				// XenotypeExtension_XenotypeShapeShift modExtension = mainXenotype.GetModExtension<XenotypeExtension_XenotypeShapeShift>();
-				// if (modExtension != null)
-				if (mainXenotype is SubXenotypeDef subXenotypeDef)
-				{
-					// Log.Error(pawn.Name + " xenotype is correct.");
-					if (subXenotypeDef != null)
-					{
-						// Log.Error(pawn.Name + " sub-xenotype is chosen.");
-						SetXenotypeGenes(pawn, subXenotypeDef, xenogermReplicationChance);
-					}
-				}
+				SetXenotypeGenes(pawn, subXenotypeDef, xenogermReplicationChance);
 			}
-			else
-			{
-				// Mark xenotype like custom ones
-				ReimplanterUtility.UnknownXenotype(pawn);
-			}
+			// else
+			// {
+				// ReimplanterUtility.UnknownXenotype(pawn);
+			// }
 			if (shapeShiftGene != null)
 			{
 				pawn.genes.RemoveGene(shapeShiftGene);
@@ -45,15 +35,17 @@ namespace WVC_XenotypesAndGenes
 			{
 				RemoveGenes(pawn, xenotype);
 			}
+			List<GeneDef> endogenes = GetEndogenesFromXenotypes(xenotype);
 			// Log.Error(pawn.Name + " genes add.");
-			if (!xenotype.endogenes.NullOrEmpty())
+			if (!endogenes.NullOrEmpty())
 			{
-				AddGenes(pawn, xenotype.endogenes, true);
+				AddGenes(pawn, endogenes, true, xenotype.removeGenes);
 			}
 			// if (!xenotype.xenogenes.NullOrEmpty())
 			// {
-				// AddGenes(pawn, xenotype.xenogenes, false);
+				// AddGenes(pawn, xenotype.xenogenes, false, xenotype.removeGenes);
 			// }
+			RemoveAllUnnecessaryGenes(pawn, endogenes, xenotype.genes);
 			if (Rand.Chance(xenogermReplicationChance))
 			{
 				GeneUtility.UpdateXenogermReplication(pawn);
@@ -61,6 +53,81 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// ========================================================
+
+		public static void RemoveAllUnnecessaryGenes(Pawn pawn, List<GeneDef> endogenes, List<GeneDef> xenogenes)
+		{
+			List<GeneDef> xenoTypeGenes = new();
+			xenoTypeGenes.AddRange(endogenes);
+			xenoTypeGenes.AddRange(xenogenes);
+			List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+			for (int i = 0; i < genesListForReading.Count; i++)
+			{
+				if (!xenoTypeGenes.Contains(genesListForReading[i].def))
+				{
+					pawn.genes?.RemoveGene(genesListForReading[i]);
+				}
+			}
+		}
+
+		public static List<GeneDef> GetEndogenesFromXenotypes(SubXenotypeDef xenotype)
+		{
+			List<GeneDef> list = new();
+			XenotypeDef xenotypeDef = xenotype.doubleXenotypeChances.RandomElementByWeight((XenotypeChance x) => x.chance).xenotype;
+			foreach (GeneDef item in xenotypeDef.genes)
+			{
+				if (!xenotype.removeGenes.Contains(item))
+				{
+					list.Add(item);
+				}
+			}
+			foreach (GeneDef item in xenotype.endogenes)
+			{
+				if (!xenotype.removeGenes.Contains(item) && !list.Contains(item))
+				{
+					list.Add(item);
+				}
+			}
+			return list;
+		}
+
+		public static void AddGenes(Pawn pawn, List<GeneDef> genes, bool inheritable, List<GeneDef> removeGenes)
+		{
+			List<GeneDef> genesListForReading = XaG_GeneUtility.ConvertGenesInGeneDefs(pawn.genes.GenesListForReading);
+			for (int i = 0; i < genes.Count; i++)
+			{
+				if (!removeGenes.Contains(genes[i]) && !genesListForReading.Contains(genes[i]))
+				{
+					pawn.genes?.AddGene(genes[i], !inheritable);
+				}
+			}
+		}
+
+		public static void RemoveGenes(Pawn pawn, SubXenotypeDef xenotype)
+		{
+			List<GeneDef> geneDefs = xenotype.removeGenes;
+			List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+			for (int i = 0; i < genesListForReading.Count; i++)
+			{
+				if (geneDefs.Contains(genesListForReading[i].def))
+				{
+					pawn.genes?.RemoveGene(genesListForReading[i]);
+				}
+			}
+		}
+
+		// ========================================================
+
+		public static void XenotypeShapeshifter(Pawn pawn)
+		{
+			if (WVC_Biotech.settings.allowShapeshiftAfterDeath)
+			{
+				if (TestXenotype(pawn))
+				{
+					XenotypeDef xenotype = pawn.genes?.Xenotype;
+					ShapeShift(pawn, xenotype, true);
+				}
+			}
+		}
 
 		public static void ShapeShift(Pawn pawn, XenotypeDef mainXenotype, bool removeRandomGenes = false)
 		{
@@ -88,38 +155,40 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void AddGenes(Pawn pawn, List<GeneDef> genes, bool inheritable)
+		// ===============================================
+
+		public static bool XenotypeIsSubXenotype(Pawn pawn, out SubXenotypeDef subXenotypeDef)
 		{
-			// List<GeneDef> geneDefs = genes;
-			for (int i = 0; i < genes.Count; i++)
+			subXenotypeDef = null;
+			Pawn_GeneTracker genes = pawn?.genes;
+			// Skip if xenotype is custom
+			if (genes == null || genes.CustomXenotype != null || genes.UniqueXenotype || genes.iconDef != null)
 			{
-				pawn.genes?.AddGene(genes[i], !inheritable);
+				return false;
 			}
+			XenotypeDef pawnXenotype = genes.Xenotype;
+			// Skip if xenotype is not double
+			if (pawnXenotype == null)
+			{
+				return false;
+			}
+			if (pawnXenotype is SubXenotypeDef sub && !sub.doubleXenotypeChances.NullOrEmpty())
+			{
+				subXenotypeDef = sub;
+				return true;
+			}
+			return false;
 		}
 
-		public static void RemoveGenes(Pawn pawn, SubXenotypeDef xenotype)
+		// Remove genes
+		public static void RemoveRandomGenes(Pawn pawn)
 		{
-			List<GeneDef> geneDefs = xenotype.removeGenes;
 			List<Gene> genesListForReading = pawn.genes.GenesListForReading;
 			for (int i = 0; i < genesListForReading.Count; i++)
 			{
-				if (geneDefs.Contains(genesListForReading[i].def))
+				if (GeneIsRandom(genesListForReading[i].def))
 				{
 					pawn.genes?.RemoveGene(genesListForReading[i]);
-				}
-			}
-		}
-
-		// ===============================================
-
-		public static void XenotypeShapeshifter(Pawn pawn)
-		{
-			if (WVC_Biotech.settings.allowShapeshiftAfterDeath)
-			{
-				if (TestXenotype(pawn))
-				{
-					XenotypeDef xenotype = pawn.genes?.Xenotype;
-					ShapeShift(pawn, xenotype, true);
 				}
 			}
 		}
@@ -162,19 +231,6 @@ namespace WVC_XenotypesAndGenes
 		//	return false;
 		//}
 
-		// Remove genes
-		public static void RemoveRandomGenes(Pawn pawn)
-		{
-			List<Gene> genesListForReading = pawn.genes.GenesListForReading;
-			for (int i = 0; i < genesListForReading.Count; i++)
-			{
-				if (GeneIsRandom(genesListForReading[i].def))
-				{
-					pawn.genes?.RemoveGene(genesListForReading[i]);
-				}
-			}
-		}
-
 		public static bool TestXenotype_TestGene(GeneDef geneDef)
 		{
 			if (!GeneIsRandom(geneDef) && !geneDef.defName.Contains("Skin_Melanin"))
@@ -184,6 +240,7 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		[Obsolete]
 		public static bool CheckIfXenotypeIsCorrect_CheckXenoChances(XenotypeChance xenotypeChance, Pawn pawn)
 		{
 			// Compare the genes of the original xenotype and the current one to make sure that it can be changed without errors.
@@ -225,7 +282,7 @@ namespace WVC_XenotypesAndGenes
 			return true;
 		}
 
-		// Check if xenotype is correct
+		[Obsolete]
 		public static bool CheckIfXenotypeIsCorrect(Pawn pawn)
 		{
 			Pawn_GeneTracker genes = pawn?.genes;
@@ -236,15 +293,14 @@ namespace WVC_XenotypesAndGenes
 			}
 			XenotypeDef pawnXenotype = genes.Xenotype;
 			// Skip if xenotype is not double
-			if (pawnXenotype == null || pawnXenotype.doubleXenotypeChances.NullOrEmpty())
+			if (pawnXenotype != null && pawnXenotype is SubXenotypeDef subXenotypeDef && !subXenotypeDef.doubleXenotypeChances.NullOrEmpty())
 			{
-				return false;
-			}
-			foreach (XenotypeChance xenotypeChance in pawnXenotype.doubleXenotypeChances)
-			{
-				if (CheckIfXenotypeIsCorrect_CheckXenoChances(xenotypeChance, pawn))
+				foreach (XenotypeChance xenotypeChance in subXenotypeDef.doubleXenotypeChances)
 				{
-					return true;
+					if (CheckIfXenotypeIsCorrect_CheckXenoChances(xenotypeChance, pawn))
+					{
+						return true;
+					}
 				}
 			}
 			return false;

@@ -79,8 +79,18 @@ namespace WVC_XenotypesAndGenes
 					subXenotypeDef.genes.Remove(geneticShifter);
 					Log.Warning(subXenotypeDef.defName + " contains " + geneticShifter.defName + " in genes. Fixing..");
 				}
+				// if (!subXenotypeDef.doubleXenotypeChances.NullOrEmpty())
+				// {
+					// subXenotypeDef.doubleXenotypeChances = new();
+					// Log.Warning(subXenotypeDef.defName + " doubleXenotypeChances is not empty. Fixing..");
+				// }
 				// Add if it was not added in XML. This option is desirable, since genes from the list are taken in the order they were added during generation.
-				// In theory, it should help avoid a couple of bugs.
+				// In theory, it should help avoid a couple of bugs. In practice, it has still not been possible to repeat these bugs with non-custom xenotypes.
+				// if (!subXenotypeDef.genes.NullOrEmpty())
+				// {
+					// Log.Warning(subXenotypeDef.defName + " genes is not empty. Fixing..");
+				// }
+				// subXenotypeDef.genes = new();
 				if (!subXenotypeDef.genes.Contains(geneticShifter))
 				{
 					subXenotypeDef.genes.Add(geneticShifter);
@@ -90,10 +100,10 @@ namespace WVC_XenotypesAndGenes
 					subXenotypeDef.inheritable = false;
 					Log.Warning(subXenotypeDef.defName + " is inheritable. Fixing..");
 				}
-				if (subXenotypeDef.doubleXenotypeChances.NullOrEmpty() || subXenotypeDef.doubleXenotypeChances.Sum((XenotypeChance x) => x.chance) != 1f)
-				{
-					Log.Error(subXenotypeDef.defName + " has null doubleXenotypeChances. doubleXenotypeChances must contain at least one xenotype with a chance of 1.0");
-				}
+				// if (subXenotypeDef.doubleXenotypeChances.NullOrEmpty() || subXenotypeDef.doubleXenotypeChances.Sum((XenotypeChance x) => x.chance) != 1f)
+				// {
+					// Log.Error(subXenotypeDef.defName + " has null doubleXenotypeChances. doubleXenotypeChances must contain at least one xenotype with a chance 1.0");
+				// }
 			}
 		}
 	}

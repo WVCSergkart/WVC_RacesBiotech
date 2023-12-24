@@ -1,4 +1,5 @@
 using RimWorld;
+using System.Collections.Generic;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -46,6 +47,68 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.CompExposeData();
 			Scribe_Defs.Look(ref geneDef, "geneDef");
+		}
+
+	}
+
+	public class HediffCompProperties_AlwaysRemove : HediffCompProperties
+	{
+
+		public HediffCompProperties_AlwaysRemove()
+		{
+			compClass = typeof(HediffComp_AlwaysRemove);
+		}
+
+	}
+	public class HediffComp_AlwaysRemove : HediffComp
+	{
+
+		public HediffCompProperties_AlwaysRemove Props => (HediffCompProperties_AlwaysRemove)props;
+
+		public override bool CompShouldRemove => true;
+
+	}
+
+	public class HediffCompProperties_RemoveIf : HediffCompProperties
+	{
+
+		public List<GeneDef> anyOf_GeneDef;
+
+		public HediffCompProperties_RemoveIf()
+		{
+			compClass = typeof(HediffComp_RemoveIf);
+		}
+
+	}
+	public class HediffComp_RemoveIf : HediffComp
+	{
+
+		bool shouldRemove = true;
+
+		public HediffCompProperties_RemoveIf Props => (HediffCompProperties_RemoveIf)props;
+
+		// public override bool CompShouldRemove => base.Pawn.genes?.GetFirstGeneOfType<Gene_AngelicStability>() != null;
+
+		public override bool CompShouldRemove => ShouldRemove;
+
+		public bool ShouldRemove
+		{
+			get
+			{
+				if (shouldRemove)
+				{
+					if (!XaG_GeneUtility.HasAnyActiveGene(Props.anyOf_GeneDef, parent.pawn))
+					{
+						shouldRemove = false;
+						return false;
+					}
+				}
+				if (!shouldRemove)
+				{
+					return false;
+				}
+				return true;
+			}
 		}
 
 	}

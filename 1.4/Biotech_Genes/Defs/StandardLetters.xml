@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <LetterDef>
+	<defName>WVC_XaG_ShapeshiftEvent</defName>
+	<color>(120, 120, 120)</color>
+	<flashColor>(180, 160, 160)</flashColor>
+	<flashInterval>90</flashInterval>
+	<arriveSound>LetterArrive</arriveSound>
+  </LetterDef>
+
+  <LetterDef>
+	<defName>WVC_XaG_UndeadResurrectionEvent</defName>
+	<color>(189, 205, 255)</color>
+	<flashColor>(160, 170, 180)</flashColor>
+	<flashInterval>90</flashInterval>
+	<arriveSound>LetterArrive</arriveSound>
+  </LetterDef>
+
+</Defs>

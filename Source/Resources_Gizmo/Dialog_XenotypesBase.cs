@@ -197,6 +197,10 @@ namespace WVC_XenotypesAndGenes
 		{
 			int allGenesCount = XenoTreeUtility.GetAllGenesCount(xenotype);
 			Color color = ColoredText.SubtleGrayColor;
+			// if (xenotype.genes.Contains(WVC_GenesDefOf.WVC_XenotypesAndGenes_SubXenotypeShapeshifter))
+			// {
+				// color = ColorLibrary.LightOrange;
+			// }
 			if (allGenesCount >= 7)
 			{
 				color = ColorLibrary.LightGreen;
