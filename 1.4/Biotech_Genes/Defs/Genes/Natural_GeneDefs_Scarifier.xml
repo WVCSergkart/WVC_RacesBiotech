@@ -283,7 +283,7 @@
 
   <!-- ===================================== -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneScarifier_Base">
+  <GeneDef MayRequire="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_GeneScarifier_Base">
 	<defName>WVC_Scarifier_StrongMelee</defName>
 	<label>scarifier melee</label>
 	<description>Carriers of this gene do more damage in close-quarters combat. Extra-strong fast-twitch muscle fibers make their strikes accurate and powerful. Scars greatly enhance this effect.</description>

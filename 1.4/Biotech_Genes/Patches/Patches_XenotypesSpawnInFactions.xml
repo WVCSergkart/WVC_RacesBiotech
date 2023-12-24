@@ -46,7 +46,7 @@
 		<!-- <WVC_Undead>0.0014</WVC_Undead> -->
 		<!-- <WVC_Resurgent>0.0006</WVC_Resurgent> -->
 		<!-- <WVC_Featherdust>0.0006</WVC_Featherdust> -->
-		<!-- <WVC_Ashen>0.0004</WVC_Ashen> -->
+		<!-- <WVC_Ashen MayRequire="ludeon.rimworld.ideology">0.0004</WVC_Ashen> -->
 	  <!-- </value> -->
 	<!-- </Operation> -->
 
@@ -140,7 +140,7 @@
 	  <value>
 		<WVC_Meca>0.001</WVC_Meca>
 		<WVC_RogueFormer>0.001</WVC_RogueFormer>
-		<WVC_Ashen>0.0004</WVC_Ashen>
+		<WVC_Ashen MayRequire="ludeon.rimworld.ideology">0.0004</WVC_Ashen>
 	  </value>
 	</Operation>
 	<!-- Factions Patch -->
@@ -155,9 +155,9 @@
 			  <value>
 				<WVC_Blank>0.01</WVC_Blank>
 				<WVC_Undead>0.01</WVC_Undead>
-				<WVC_Resurgent>0.004</WVC_Resurgent>
-				<WVC_Featherdust>0.003</WVC_Featherdust>
-				<WVC_Ashen>0.003</WVC_Ashen>
+				<!-- <WVC_Resurgent>0.004</WVC_Resurgent> -->
+				<!-- <WVC_Featherdust>0.003</WVC_Featherdust> -->
+				<!-- <WVC_Ashen MayRequire="ludeon.rimworld.ideology">0.003</WVC_Ashen> -->
 			  </value>
 			</li>
 			<li Class="PatchOperationAdd">
@@ -167,9 +167,9 @@
 				  <xenotypeChances>
 					<WVC_Blank>0.01</WVC_Blank>
 					<WVC_Undead>0.01</WVC_Undead>
-					<WVC_Resurgent>0.004</WVC_Resurgent>
-					<WVC_Featherdust>0.003</WVC_Featherdust>
-					<WVC_Ashen>0.003</WVC_Ashen>
+					<!-- <WVC_Resurgent>0.004</WVC_Resurgent> -->
+					<!-- <WVC_Featherdust>0.003</WVC_Featherdust> -->
+					<!-- <WVC_Ashen MayRequire="ludeon.rimworld.ideology">0.003</WVC_Ashen> -->
 				  </xenotypeChances>
 			  </value>
 			</li>
@@ -185,9 +185,9 @@
 				  <xenotypeChances>
 					<WVC_Blank>0.01</WVC_Blank>
 					<WVC_Undead>0.01</WVC_Undead>
-					<WVC_Resurgent>0.004</WVC_Resurgent>
-					<WVC_Featherdust>0.003</WVC_Featherdust>
-					<WVC_Ashen>0.003</WVC_Ashen>
+					<!-- <WVC_Resurgent>0.004</WVC_Resurgent> -->
+					<!-- <WVC_Featherdust>0.003</WVC_Featherdust> -->
+					<!-- <WVC_Ashen MayRequire="ludeon.rimworld.ideology">0.003</WVC_Ashen> -->
 				  </xenotypeChances>
 				</xenotypeSet>
 			  </value>

@@ -196,7 +196,7 @@ namespace WVC_XenotypesAndGenes
 				};
 				yield return new Command_Action
 				{
-					defaultLabel = "DEV: Create Mechanoid List",
+					defaultLabel = "DEV: Get mechs list",
 					action = delegate
 					{
 						List<PawnKindDef> pawnKindDefs = DefDatabase<PawnKindDef>.AllDefsListForReading.Where((PawnKindDef randomXenotypeDef) => MechanoidsUtility.MechanoidIsPlayerMechanoid(randomXenotypeDef)).ToList();
