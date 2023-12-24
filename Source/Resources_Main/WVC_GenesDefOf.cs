@@ -52,8 +52,10 @@ namespace WVC_XenotypesAndGenes
 		public static ThinkTreeDef Mechanoid;
 		public static ThinkTreeDef MechConstant;
 		// Letters
-		public static LetterDef WVC_XaG_ShapeshiftEvent;
-		public static LetterDef WVC_XaG_UndeadResurrectionEvent;
+		// public static LetterDef WVC_XaG_ShapeshiftEvent;
+		// public static LetterDef WVC_XaG_UndeadResurrectionEvent;
+		public static LetterDef WVC_XaG_UndeadEvent;
+		public static LetterDef WVC_XaG_GestationEvent;
 	}
 
 }

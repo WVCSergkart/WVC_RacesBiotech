@@ -235,7 +235,7 @@ Each mechanoid costs 0.15 nutrition to summon.</WVC_XaG_Gene_DustMechlinkDesc>
 	<!-- ============================ XENO TREE SPAWNER ============================ -->
 
 	<WVC_XaG_XenoTreeBirthLabel>Gestation complete</WVC_XaG_XenoTreeBirthLabel>
-	<WVC_XaG_XenoTreeBirthDesc>The {0} has completed the gestation process.</WVC_XaG_XenoTreeBirthDesc>
+	<WVC_XaG_XenoTreeBirthDesc>{0} has completed the gestation process.</WVC_XaG_XenoTreeBirthDesc>
 
 	<!-- <WVC_XaG_XenoTreeBirthInspect>Time to next baby spawn: {0}</WVC_XaG_XenoTreeBirthInspect> -->
 

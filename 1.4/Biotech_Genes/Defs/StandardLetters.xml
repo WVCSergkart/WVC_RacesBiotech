@@ -1,20 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <!-- Default flash 6ab3e7 -->
+
+  <!-- 91d878 -->
+  <!-- <LetterDef> -->
+	<!-- <defName>WVC_XaG_ShapeshiftEvent</defName> -->
+	<!-- <color>(145, 216, 120)</color> -->
+	<!-- <flashColor>(145, 231, 120)</flashColor> -->
+	<!-- <flashInterval>90</flashInterval> -->
+	<!-- <arriveSound>LetterArrive</arriveSound> -->
+  <!-- </LetterDef> -->
+
   <LetterDef>
-	<defName>WVC_XaG_ShapeshiftEvent</defName>
-	<color>(120, 120, 120)</color>
-	<flashColor>(180, 160, 160)</flashColor>
+	<defName>WVC_XaG_UndeadEvent</defName>
+	<!-- 7891d8 -->
+	<color>(125, 145, 216)</color>
+	<flashColor>(125, 145, 231)</flashColor>
 	<flashInterval>90</flashInterval>
-	<arriveSound>LetterArrive</arriveSound>
+	<arriveSound>LetterArrive_Good</arriveSound>
   </LetterDef>
 
   <LetterDef>
-	<defName>WVC_XaG_UndeadResurrectionEvent</defName>
-	<color>(189, 205, 255)</color>
-	<flashColor>(160, 170, 180)</flashColor>
-	<flashInterval>90</flashInterval>
-	<arriveSound>LetterArrive</arriveSound>
+	<defName>WVC_XaG_GestationEvent</defName>
+	<!-- d778d8 -->
+	<color>(215, 120, 216)</color>
+	<flashColor>(230, 120, 230)</flashColor>
+	<flashInterval>16</flashInterval>
+	<arriveSound>LetterArrive_Good</arriveSound>
   </LetterDef>
 
 </Defs>

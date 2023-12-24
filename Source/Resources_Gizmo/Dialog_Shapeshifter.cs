@@ -101,7 +101,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			Find.LetterStack.ReceiveLetter("WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel".Translate(), "WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc".Translate(gene.pawn.Named("TARGET"), selectedXeno.LabelCap, gene.LabelCap)
 				+ "\n\n" + (selectedXeno.descriptionShort.NullOrEmpty() ? selectedXeno.description : selectedXeno.descriptionShort),
-				WVC_GenesDefOf.WVC_XaG_ShapeshiftEvent, new LookTargets(gene.pawn));
+				WVC_GenesDefOf.WVC_XaG_UndeadEvent, new LookTargets(gene.pawn));
 			Close(doCloseSound: false);
 		}
 

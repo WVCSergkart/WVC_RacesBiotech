@@ -70,7 +70,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (PawnUtility.ShouldSendNotificationAbout(pawnParent))
 			{
-				Find.LetterStack.ReceiveLetter("WVC_XaG_XenoTreeBirthLabel".Translate(), completeMessage.Translate(pawnParent.LabelShort), LetterDefOf.PositiveEvent, new LookTargets(pawn));
+				Find.LetterStack.ReceiveLetter("WVC_XaG_XenoTreeBirthLabel".Translate(), completeMessage.Translate(pawnParent.LabelShort.Colorize(ColoredText.NameColor)), WVC_GenesDefOf.WVC_XaG_GestationEvent, new LookTargets(pawn));
 			}
 			// Messages.Message(completeMessage.Translate(pawn.LabelIndefinite().CapitalizeFirst()), pawn, MessageTypeDefOf.PositiveEvent);
 		}
@@ -167,7 +167,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (PawnUtility.ShouldSendNotificationAbout(pawnParent))
 			{
-				Find.LetterStack.ReceiveLetter("WVC_XaG_XenoTreeBirthLabel".Translate(), completeMessage.Translate(pawnParent.LabelShort), LetterDefOf.PositiveEvent, new LookTargets(pawn));
+				Find.LetterStack.ReceiveLetter("WVC_XaG_XenoTreeBirthLabel".Translate(), completeMessage.Translate(pawnParent.LabelShort.Colorize(ColoredText.NameColor)), WVC_GenesDefOf.WVC_XaG_GestationEvent, new LookTargets(pawn));
 			}
 		}
 
@@ -222,7 +222,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (PawnUtility.ShouldSendNotificationAbout(pawnNewBornChild))
 			{
-				Find.LetterStack.ReceiveLetter(completeLetterLabel.Translate(), completeLetterDesc.Translate(spawnTarget.def.label.CapitalizeFirst()), LetterDefOf.PositiveEvent, new LookTargets(pawnNewBornChild));
+				Find.LetterStack.ReceiveLetter(completeLetterLabel.Translate(), completeLetterDesc.Translate(spawnTarget.LabelShortCap.Colorize(ColoredText.NameColor)), WVC_GenesDefOf.WVC_XaG_GestationEvent, new LookTargets(pawnNewBornChild));
 			}
 		}
 

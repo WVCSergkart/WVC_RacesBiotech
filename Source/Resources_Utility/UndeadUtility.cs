@@ -61,7 +61,7 @@ namespace WVC_XenotypesAndGenes
 			if (PawnUtility.ShouldSendNotificationAbout(pawn))
 			{
 				string shapeshiftXenotype = pawn?.genes?.Xenotype != null ? pawn.genes.Xenotype.LabelCap : "ERROR";
-				Find.LetterStack.ReceiveLetter(gene.LabelCap, letterDesc.Translate(pawn.Named("PAWN"), gene.LabelCap, shapeshiftXenotype), WVC_GenesDefOf.WVC_XaG_UndeadResurrectionEvent, new LookTargets(pawn));
+				Find.LetterStack.ReceiveLetter(gene.LabelCap, letterDesc.Translate(pawn.Named("PAWN"), gene.LabelCap, shapeshiftXenotype), WVC_GenesDefOf.WVC_XaG_UndeadEvent, new LookTargets(pawn));
 			}
 		}
 
@@ -100,7 +100,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (PawnUtility.ShouldSendNotificationAbout(pawn))
 			{
-				Find.LetterStack.ReceiveLetter("WVC_LetterLabelSecondChance_GeneUndead".Translate(), "WVC_LetterTextSecondChance_GeneUndeadResurgent".Translate(pawn.Named("TARGET")), LetterDefOf.PositiveEvent, new LookTargets(pawn));
+				Find.LetterStack.ReceiveLetter("WVC_LetterLabelSecondChance_GeneUndead".Translate(), "WVC_LetterTextSecondChance_GeneUndeadResurgent".Translate(pawn.Named("TARGET")), WVC_GenesDefOf.WVC_XaG_UndeadEvent, new LookTargets(pawn));
 			}
 		}
 
