@@ -33,11 +33,11 @@
 	<defName>WVC_NaturalBlindness</defName>
 	<label>blindness</label>
 	<iconPath>WVC/UI/Genes/Gene_Blindness_v0</iconPath>
-	<statOffsets>
-	  <PsychicSensitivity>0.6</PsychicSensitivity>
-	  <MeditationFocusGain>0.4</MeditationFocusGain>
-	  <PsychicEntropyRecoveryRate>0.2</PsychicEntropyRecoveryRate>
-	</statOffsets>
+	<!-- <statOffsets> -->
+	  <!-- <PsychicSensitivity>0.3</PsychicSensitivity> -->
+	  <!-- <MeditationFocusGain>0.4</MeditationFocusGain> -->
+	  <!-- <PsychicEntropyRecoveryRate>0.2</PsychicEntropyRecoveryRate> -->
+	<!-- </statOffsets> -->
 	<capMods>
 	  <li>
 		<capacity>Sight</capacity>

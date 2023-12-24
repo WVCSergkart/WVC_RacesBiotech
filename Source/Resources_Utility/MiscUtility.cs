@@ -73,6 +73,23 @@ namespace WVC_XenotypesAndGenes
 			return mult;
 		}
 
+		public static float CountAllPlayerNonHumanlikes()
+		{
+			float mult = 0f;
+			List<Map> maps = Find.Maps;
+			for (int i = 0; i < maps.Count; i++)
+			{
+				foreach (Pawn item in maps[i].mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer))
+				{
+					if (!item.RaceProps.Humanlike)
+					{
+						mult++;
+					}
+				}
+			}
+			return mult;
+		}
+
 		public static float CountAllPlayerMechs()
 		{
 			float mult = 0f;
@@ -109,7 +126,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool PawnIsColonistOrSlave(Pawn pawn, bool shouldBeAdult = false)
 		{
-			if ((pawn.IsColonist || pawn.IsSlaveOfColony) && (shouldBeAdult || pawn.ageTracker.CurLifeStage.reproductive))
+			if ((pawn.IsColonist || pawn.IsSlaveOfColony) && (!shouldBeAdult || pawn.ageTracker.CurLifeStage.reproductive))
 			{
 				return true;
 			}

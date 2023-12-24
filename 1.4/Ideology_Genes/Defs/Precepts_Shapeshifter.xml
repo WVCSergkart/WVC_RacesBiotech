@@ -36,13 +36,17 @@
 		<description>For each xenotype in faction</description>
 	  </li>
 	  <li Class="PreceptComp_SituationalThought">
-		<thought>WVC_GeneticSupremacy_Desired_Animals</thought>
-		<description>For each animal in faction</description>
+		<thought>WVC_GeneticSupremacy_Desired_NonHumanlikes</thought>
+		<description>For each non-human in faction</description>
 	  </li>
-	  <li Class="PreceptComp_SituationalThought">
-		<thought>WVC_GeneticSupremacy_Desired_Mechanoids</thought>
-		<description>For each mechanoid in faction</description>
-	  </li>
+	  <!-- <li Class="PreceptComp_SituationalThought"> -->
+		<!-- <thought>WVC_GeneticSupremacy_Desired_Animals</thought> -->
+		<!-- <description>For each animal in faction</description> -->
+	  <!-- </li> -->
+	  <!-- <li Class="PreceptComp_SituationalThought"> -->
+		<!-- <thought>WVC_GeneticSupremacy_Desired_Mechanoids</thought> -->
+		<!-- <description>For each mechanoid in faction</description> -->
+	  <!-- </li> -->
 	</comps>
   </PreceptDef>
 
@@ -63,31 +67,45 @@
   </ThoughtDef>
 
   <ThoughtDef>
-	<defName>WVC_GeneticSupremacy_Desired_Animals</defName>
+	<defName>WVC_GeneticSupremacy_Desired_NonHumanlikes</defName>
 	<thoughtClass>Thought_Situational</thoughtClass>
-	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_HasAnyAnimalsAndCount</workerClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_HasAnyNonHumanlikeAndCount</workerClass>
 	<validWhileDespawned>true</validWhileDespawned>
 	<stages>
 	  <li>
-		<label>animals in faction</label>
+		<label>non-humanlikes in faction</label>
 		<description>These disgusting lower creatures in our faction.</description>
 		<baseMoodEffect>-8</baseMoodEffect>
 	  </li>
 	</stages>
   </ThoughtDef>
 
-  <ThoughtDef>
-	<defName>WVC_GeneticSupremacy_Desired_Mechanoids</defName>
-	<thoughtClass>Thought_Situational</thoughtClass>
-	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_HasAnyMechanoidsAndCount</workerClass>
-	<validWhileDespawned>true</validWhileDespawned>
-	<stages>
-	  <li>
-		<label>mechanoids in faction</label>
-		<description>These creepy robots are in our faction.</description>
-		<baseMoodEffect>-8</baseMoodEffect>
-	  </li>
-	</stages>
-  </ThoughtDef>
+  <!-- <ThoughtDef> -->
+	<!-- <defName>WVC_GeneticSupremacy_Desired_Animals</defName> -->
+	<!-- <thoughtClass>Thought_Situational</thoughtClass> -->
+	<!-- <workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_HasAnyAnimalsAndCount</workerClass> -->
+	<!-- <validWhileDespawned>true</validWhileDespawned> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <label>animals in faction</label> -->
+		<!-- <description>These disgusting lower creatures in our faction.</description> -->
+		<!-- <baseMoodEffect>-8</baseMoodEffect> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+  <!-- </ThoughtDef> -->
+
+  <!-- <ThoughtDef> -->
+	<!-- <defName>WVC_GeneticSupremacy_Desired_Mechanoids</defName> -->
+	<!-- <thoughtClass>Thought_Situational</thoughtClass> -->
+	<!-- <workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_HasAnyMechanoidsAndCount</workerClass> -->
+	<!-- <validWhileDespawned>true</validWhileDespawned> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <label>mechanoids in faction</label> -->
+		<!-- <description>These creepy robots are in our faction.</description> -->
+		<!-- <baseMoodEffect>-8</baseMoodEffect> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+  <!-- </ThoughtDef> -->
 
 </Defs>

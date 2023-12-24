@@ -18,7 +18,7 @@ namespace WVC_XenotypesAndGenes
 		public float maxRadius;
 		public FloatRange? initialGrowthRange;
 		public bool canSpawnOverPlayerSownPlants = true;
-		public List<ThingDef> plantsToNotOverwrite;
+		// public List<ThingDef> plantsToNotOverwrite;
 
 		// public CompProperties_SpawnOnDeath()
 		// {

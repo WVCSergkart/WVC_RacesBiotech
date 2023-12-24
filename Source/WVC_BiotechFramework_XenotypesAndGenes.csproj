@@ -103,7 +103,7 @@
     <Compile Include="Resources_Hediff\Hediff_Scarshield.cs" />
     <Compile Include="Resources_Hediff\Hediff_Spores.cs" />
     <Compile Include="Resources_Hediff\OnlyOneOverseer.cs" />
-    <Compile Include="Resources_JobGiver\JobGiver_GetSpecialFood.cs" />
+    <Compile Include="Resources_Workers\JobGiver_GetSpecialFood.cs" />
     <Compile Include="Resources_Main\GenesFix.cs" />
     <Compile Include="Resources_Main\PostInitializationStartup.cs" />
     <Compile Include="Resources_StatPart\StatPart_OffsetFromPollutedGraves.cs" />
@@ -124,7 +124,7 @@
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_Undead_Social.cs" />
     <Compile Include="Resources_Utility\AgelessUtility.cs" />
     <Compile Include="Resources_Utility\DustUtility.cs" />
-    <Compile Include="Resources_JobGiver\JobGiver_WanderNearTarget.cs" />
+    <Compile Include="Resources_Workers\TEST_JobGiver_WanderNearTarget.cs" />
     <Compile Include="Resources_Utility\GeneFeaturesUtility.cs" />
     <Compile Include="Resources_Utility\GeneHealUtility.cs" />
     <Compile Include="Resources_Utility\GeneUiUtility.cs" />
@@ -153,7 +153,7 @@
     <Compile Include="Resources_Genes\Gene_Spawner.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_CauseSetting.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_MechanitorUsedBandwidth.cs" />
-    <Compile Include="Resources_GenePacks\GenePacks.cs" />
+    <Compile Include="Resources_Harmony\GenePacks.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityReimplantEndogerm.cs" />
     <Compile Include="Resources_Genes\Gene_XenotypeForcer.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_SeverityFromResurgent.cs" />
@@ -185,7 +185,7 @@
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_BattleIsStarted.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_Genes.cs" />
     <Compile Include="Resources_Main\ModSettings.cs" />
-    <Compile Include="Resources_StatPart\RoleRequirement_Mechanitor.cs" />
+    <Compile Include="Resources_Main\RoleRequirement_Mechanitor.cs" />
     <Compile Include="Resources_StatPart\StatPart_FactorForUniqueKind.cs" />
     <Compile Include="Resources_StatPart\StatPart_ForceTo.cs" />
     <Compile Include="Resources_StatPart\StatPart_OffsetFromBuildingsOnMap.cs" />
@@ -200,30 +200,32 @@
     <Compile Include="Resources_Things\Hive_CompProperties_SpawnInsect.cs" />
     <Compile Include="Resources_Things\Hive_CompSpawnInsect.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_AngelBeauty.cs" />
-    <Compile Include="Resources_Thought\ThoughtWorker_Gender.cs" />
+    <Compile Include="Resources_Thought\TEST_ThoughtWorker_Gender.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_FamilyByBlood.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_MechaSensesFriendOrFoe.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_MechanoidLabor.cs" />
-    <Compile Include="Resources_GenePacks\WorkGiver_HaulToGeneBank.cs" />
+    <Compile Include="Resources_Workers\WorkGiver_HaulToGeneBank.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_SameBloodSameXenotype.cs" />
     <Compile Include="Resources_Utility\XenoTreeUtility.cs" />
-    <Compile Include="Resources_Xenotype\CompProperties_TargetEffectRiseFromTheDead.cs" />
-    <Compile Include="Resources_Xenotype\CompProperties_UseEffect_GeneRestoration.cs" />
-    <Compile Include="Resources_Xenotype\CompProperties_UseEffect_XenotypeForcer.cs" />
-    <Compile Include="Resources_Xenotype\CompProperties_UseEffect_XenotypeForcer_Hybrid.cs" />
-    <Compile Include="Resources_Xenotype\CompProperties_UseEffect_XenotypeForcer_II.cs" />
-    <Compile Include="Resources_Xenotype\CompTargetable_SingleCorpse.cs" />
-    <Compile Include="Resources_Xenotype\CompTargetEffect_RiseFromTheDead.cs" />
-    <Compile Include="Resources_Xenotype\CompUseEffect_GeneRestoration.cs" />
-    <Compile Include="Resources_Xenotype\CompUseEffect_XenotypeForcer.cs" />
-    <Compile Include="Resources_Xenotype\CompUseEffect_XenotypeForcer_Hybrid.cs" />
-    <Compile Include="Resources_Xenotype\CompUseEffect_XenotypeForcer_II.cs" />
-    <Compile Include="Resources_Xenotype\JobDriver_ResurrectAndChangeXenotype.cs" />
-    <Compile Include="Resources_Xenotype\ThingClass_XenotypeSerum.cs" />
+    <Compile Include="Resources_Things\CompProperties_TargetEffectRiseFromTheDead.cs" />
+    <Compile Include="Resources_Things\CompProperties_UseEffect_GeneRestoration.cs" />
+    <Compile Include="Resources_Things\CompProperties_UseEffect_XenotypeForcer.cs" />
+    <Compile Include="Resources_Things\CompProperties_UseEffect_XenotypeForcer_Hybrid.cs" />
+    <Compile Include="Resources_Things\CompProperties_UseEffect_XenotypeForcer_II.cs" />
+    <Compile Include="Resources_Things\CompTargetable_SingleCorpse.cs" />
+    <Compile Include="Resources_Things\CompTargetEffect_RiseFromTheDead.cs" />
+    <Compile Include="Resources_Things\CompUseEffect_GeneRestoration.cs" />
+    <Compile Include="Resources_Things\CompUseEffect_XenotypeForcer.cs" />
+    <Compile Include="Resources_Things\CompUseEffect_XenotypeForcer_Hybrid.cs" />
+    <Compile Include="Resources_Things\CompUseEffect_XenotypeForcer_II.cs" />
+    <Compile Include="Resources_Workers\JobDriver_ResurrectAndChangeXenotype.cs" />
+    <Compile Include="Resources_Things\ThingClass_XenotypeSerum.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Resources_RitualAttachableOutcome\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
