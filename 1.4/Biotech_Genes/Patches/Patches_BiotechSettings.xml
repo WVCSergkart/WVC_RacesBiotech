@@ -69,6 +69,20 @@
 					<xpath>/Defs/XenotypeDef/genes/li[contains(text(),'WVC_AptitudeImpossible') or contains(text(),'WVC_AptitudePerfect') or contains(text(),'WVC_AptitudeArchiteStrong') or contains(text(),'WVC_AptitudeArchiteGreat') or contains(text(),'WVC_AptitudeArchitePerfect') or contains(text(),'WVC_AptitudeShameful') or contains(text(),'WVC_Aptitudes_0_Skill') or contains(text(),'WVC_AptitudeMarvelous') or contains(text(),'WVC_AptitudeHopeless') or contains(text(),'WVC_AptitudeFaultless') or contains(text(),'WVC_AptitudeArchiteScarifier')]</xpath>
 					<success>Always</success>
 				</li>
+				<!-- SubXenotypes -->
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/XenotypeDef/removeGenes/li[contains(text(),'WVC_AptitudeImpossible') or contains(text(),'WVC_AptitudePerfect') or contains(text(),'WVC_AptitudeArchiteStrong') or contains(text(),'WVC_AptitudeArchiteGreat') or contains(text(),'WVC_AptitudeArchitePerfect') or contains(text(),'WVC_AptitudeShameful') or contains(text(),'WVC_Aptitudes_0_Skill') or contains(text(),'WVC_AptitudeMarvelous') or contains(text(),'WVC_AptitudeHopeless') or contains(text(),'WVC_AptitudeFaultless') or contains(text(),'WVC_AptitudeArchiteScarifier')]</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/XenotypeDef/endogenes/li[contains(text(),'WVC_AptitudeImpossible') or contains(text(),'WVC_AptitudePerfect') or contains(text(),'WVC_AptitudeArchiteStrong') or contains(text(),'WVC_AptitudeArchiteGreat') or contains(text(),'WVC_AptitudeArchitePerfect') or contains(text(),'WVC_AptitudeShameful') or contains(text(),'WVC_Aptitudes_0_Skill') or contains(text(),'WVC_AptitudeMarvelous') or contains(text(),'WVC_AptitudeHopeless') or contains(text(),'WVC_AptitudeFaultless') or contains(text(),'WVC_AptitudeArchiteScarifier')]</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/XenotypeDef/randomGenes/li/genes/li[contains(text(),'WVC_AptitudeImpossible') or contains(text(),'WVC_AptitudePerfect') or contains(text(),'WVC_AptitudeArchiteStrong') or contains(text(),'WVC_AptitudeArchiteGreat') or contains(text(),'WVC_AptitudeArchitePerfect') or contains(text(),'WVC_AptitudeShameful') or contains(text(),'WVC_Aptitudes_0_Skill') or contains(text(),'WVC_AptitudeMarvelous') or contains(text(),'WVC_AptitudeHopeless') or contains(text(),'WVC_AptitudeFaultless') or contains(text(),'WVC_AptitudeArchiteScarifier')]</xpath>
+					<success>Always</success>
+				</li>
+				<!-- SubXenotypes -->
 				<li Class="PatchOperationRemove">
 					<xpath>/Defs/WVC_XenotypesAndGenes.SubXenotypeDef/genes/li[contains(text(),'WVC_AptitudeImpossible') or contains(text(),'WVC_AptitudePerfect') or contains(text(),'WVC_AptitudeArchiteStrong') or contains(text(),'WVC_AptitudeArchiteGreat') or contains(text(),'WVC_AptitudeArchitePerfect') or contains(text(),'WVC_AptitudeShameful') or contains(text(),'WVC_Aptitudes_0_Skill') or contains(text(),'WVC_AptitudeMarvelous') or contains(text(),'WVC_AptitudeHopeless') or contains(text(),'WVC_AptitudeFaultless') or contains(text(),'WVC_AptitudeArchiteScarifier')]</xpath>
 					<success>Always</success>
@@ -78,7 +92,7 @@
 					<success>Always</success>
 				</li>
 				<li Class="PatchOperationRemove">
-					<xpath>/Defs/WVC_XenotypesAndGenes.SubXenotypeDef/mainGenes/li[contains(text(),'WVC_AptitudeImpossible') or contains(text(),'WVC_AptitudePerfect') or contains(text(),'WVC_AptitudeArchiteStrong') or contains(text(),'WVC_AptitudeArchiteGreat') or contains(text(),'WVC_AptitudeArchitePerfect') or contains(text(),'WVC_AptitudeShameful') or contains(text(),'WVC_Aptitudes_0_Skill') or contains(text(),'WVC_AptitudeMarvelous') or contains(text(),'WVC_AptitudeHopeless') or contains(text(),'WVC_AptitudeFaultless') or contains(text(),'WVC_AptitudeArchiteScarifier')]</xpath>
+					<xpath>/Defs/WVC_XenotypesAndGenes.SubXenotypeDef/endogenes/li[contains(text(),'WVC_AptitudeImpossible') or contains(text(),'WVC_AptitudePerfect') or contains(text(),'WVC_AptitudeArchiteStrong') or contains(text(),'WVC_AptitudeArchiteGreat') or contains(text(),'WVC_AptitudeArchitePerfect') or contains(text(),'WVC_AptitudeShameful') or contains(text(),'WVC_Aptitudes_0_Skill') or contains(text(),'WVC_AptitudeMarvelous') or contains(text(),'WVC_AptitudeHopeless') or contains(text(),'WVC_AptitudeFaultless') or contains(text(),'WVC_AptitudeArchiteScarifier')]</xpath>
 					<success>Always</success>
 				</li>
 				<li Class="PatchOperationRemove">

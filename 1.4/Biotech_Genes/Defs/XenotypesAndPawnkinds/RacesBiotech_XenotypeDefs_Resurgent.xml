@@ -2,7 +2,7 @@
 <Defs>
 
   <!-- resurgent -->
-  <XenotypeDef ParentName="WVC_XenotypesAndGenes_UndeadSubXenotypes_Base">
+  <XenotypeDef ParentName="WVC_XenotypesAndGenes_UndeadSubXenotypes_Base" Class="WVC_XenotypesAndGenes.SubXenotypeDef">
 	<defName>WVC_Resurgent</defName>
 	<label>resurgent</label>
 	<description>Resurgents are a undead sub-xenotype, despite strong genetic differences they still remain within this xenotype. They are fragile and dependent on resurgent cells. They can regrow lost limbs, never age, and their wounds can close almost instantly. However, their immune system, stomach, blood, disease resistance, their entire body is dependent on these cells. And if the level of the cells is too low, they lose almost all of their special abilities.
@@ -10,42 +10,9 @@
 &lt;color=#f5ffa2&gt;Gameplay Effect (Genes):&lt;/color&gt; If the xenotype is inherited from the "Undead" xenotype, then the set of endogens will be changed.</description>
 	<descriptionShort>Resurgents are a undead sub-xenotype, despite strong genetic differences they still remain within this xenotype. They are fragile and dependent on resurgent cells. They can regrow lost limbs, never age, and their wounds can close almost instantly. However, their immune system, stomach, blood, disease resistance, their entire body is dependent on these cells. And if the level of the cells is too low, they lose almost all of their special abilities.</descriptionShort>
 	<iconPath>WVC/UI/Mecha_Icons/Xeno_Undead_v1</iconPath>
-	<descriptionHyperlinks>
-	  <WVC_XenotypesAndGenes.SubXenotypeDef>WVC_Resurgent</WVC_XenotypesAndGenes.SubXenotypeDef>
-	</descriptionHyperlinks>
-	<genes>
-		<li>WVC_ResurgentCells</li>
-		<li>WVC_ResurgentCells_GeneticStability</li>
-		<li>WVC_ResurgentCellsGain</li>
-		<li>WVC_ResurgentCells_TotalHealing</li>
-		<li>WVC_ResurgentCells_Ageless</li>
-		<li>WVC_ResurgentCells_Clotting</li>
-		<li>WVC_ResurgentCells_Blood</li>
-		<li>WVC_ResurgentCells_Stomach</li>
-		<li>WVC_ResurgentCells_Sleep</li>
-		<li>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</li>
-		<li>WVC_ResurgentImmunity_PerfectImmunity</li>
-		<li>WVC_ResurgentDisease_DiseaseFree</li>
-		<li>WVC_ResurgentCells_Skeleton</li>
-		<li>WVC_MinMaxTemp_Natural</li>
-		<li>UVSensitivity_Intense</li>
-		<li>Aggression_DeadCalm</li>
-		<li>WVC_Pain_Nullified</li>
-		<li>WVC_Hair_TribalOnly</li>
-		<li>DarkVision</li>
-		<!-- = -->
-		<li>WVC_XenotypesAndGenes_SubXenotypeShapeshifter</li>
-	</genes>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.XenotypeExtension_XenotypeShapeShift">
-			<subXenotypeDef>WVC_Resurgent</subXenotypeDef>
-		</li>
-	</modExtensions>
-  </XenotypeDef>
-
-   <!-- Resurgents will work differently. Instead of being a full-fledged xenotype, they will receive randomly as an undead sub-xenotype. -->
-  <WVC_XenotypesAndGenes.SubXenotypeDef ParentName="WVC_XenotypesAndGenes_SubXenotypeDef_Undead">
-	<defName>WVC_Resurgent</defName>
+	<!-- <descriptionHyperlinks> -->
+	  <!-- <WVC_XenotypesAndGenes.SubXenotypeDef>WVC_Resurgent</WVC_XenotypesAndGenes.SubXenotypeDef> -->
+	<!-- </descriptionHyperlinks> -->
 	<selectionWeight>1.0</selectionWeight>
 	<!-- If any genes need to be removed, they can be listed here. -->
 	<!-- The code is run in this order: removeGenes -> endogenes -> xenogenes -->
@@ -69,8 +36,7 @@
 		<!-- <li>WVC_RandomMoveSpeed</li> -->
 		<!-- <li>WVC_RandomPsychicAbility</li> -->
 	</endogenes>
-	<!-- Xenogenes currently used for information only. -->
-	<xenogenes>
+	<genes>
 		<li>WVC_ResurgentCells</li>
 		<li>WVC_ResurgentCells_GeneticStability</li>
 		<li>WVC_ResurgentCellsGain</li>
@@ -90,8 +56,19 @@
 		<li>WVC_Pain_Nullified</li>
 		<li>WVC_Hair_TribalOnly</li>
 		<li>DarkVision</li>
-		<!-- <li>WVC_BodySize_Small</li> -->
-	</xenogenes>
-  </WVC_XenotypesAndGenes.SubXenotypeDef>
+		<!-- = -->
+		<!-- <li>WVC_XenotypesAndGenes_SubXenotypeShapeshifter</li> -->
+	</genes>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.XenotypeExtension_XenotypeShapeShift"> -->
+			<!-- <subXenotypeDef>WVC_Resurgent</subXenotypeDef> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </XenotypeDef>
+
+   <!-- Resurgents will work differently. Instead of being a full-fledged xenotype, they will receive randomly as an undead sub-xenotype. -->
+  <!-- <WVC_XenotypesAndGenes.SubXenotypeDef ParentName="WVC_XenotypesAndGenes_SubXenotypeDef_Undead"> -->
+	<!-- <defName>WVC_Resurgent</defName> -->
+  <!-- </WVC_XenotypesAndGenes.SubXenotypeDef> -->
 
 </Defs>

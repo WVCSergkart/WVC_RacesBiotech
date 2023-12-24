@@ -2,7 +2,7 @@
 <Defs>
 
   <!-- featherdust -->
-  <XenotypeDef ParentName="WVC_XenotypesAndGenes_UndeadSubXenotypes_Base">
+  <XenotypeDef ParentName="WVC_XenotypesAndGenes_UndeadSubXenotypes_Base" Class="WVC_XenotypesAndGenes.SubXenotypeDef">
 	<defName>WVC_Featherdust</defName>
 	<!-- undead necrokind necrokin necromantic -->
 	<label>featherdust</label>
@@ -16,39 +16,10 @@
 	<iconPath>WVC/UI/Mecha_Icons/Gene_DustAngel_v0</iconPath>
 	<descriptionHyperlinks>
 	  <ThingDef>WVC_NutrientsInjector</ThingDef>
-	  <WVC_XenotypesAndGenes.SubXenotypeDef>WVC_DustAngel</WVC_XenotypesAndGenes.SubXenotypeDef>
+	  <!-- <WVC_XenotypesAndGenes.SubXenotypeDef>WVC_DustAngel</WVC_XenotypesAndGenes.SubXenotypeDef> -->
 	</descriptionHyperlinks>
-	<genes>
-		<li>WVC_Dustogenic</li>
-		<li>WVC_Dustogenic_WoundHealing</li>
-		<li>WVC_Dustogenic_Ageless</li>
-		<li>WVC_Dustogenic_Metabolism</li>
-		<li>WVC_Dustogenic_Blesslink</li>
-		<li>WVC_Dustogenic_AngelBeauty</li>
-		<li>WVC_Dustogenic_GeneticStability</li>
-		<li>WVC_Dustogenic_ImmaculateConception</li>
-		<li>WVC_Dustogenic_Clotting</li>
-		<li>WVC_Dustogenic_FeatherBlades</li>
-		<li>WVC_Wings_FeatheredWings</li>
-		<li>WVC_FamilyByBlood_Dustogenic</li>
-		<li>WVC_Hands_Angel</li>
-		<!-- = -->
-		<li>Aggression_HyperAggressive</li>
-		<li>WVC_SlaveSuppression_Unruly</li>
-		<!-- = -->
-		<li>WVC_XenotypesAndGenes_SubXenotypeShapeshifter</li>
-	</genes>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.XenotypeExtension_XenotypeShapeShift">
-			<subXenotypeDef>WVC_DustAngel</subXenotypeDef>
-		</li>
-	</modExtensions>
-  </XenotypeDef>
-
-  <!-- Dust Angel -->
-  <WVC_XenotypesAndGenes.SubXenotypeDef ParentName="WVC_XenotypesAndGenes_SubXenotypeDef_Undead">
-	<defName>WVC_DustAngel</defName>
 	<selectionWeight>0.7</selectionWeight>
+	<!-- <inheritable>true</inheritable> -->
 	<!-- If any genes need to be removed, they can be listed here. -->
 	<!-- The code is run in this order: removeGenes -> endogenes -> xenogenes -->
 	<removeGenes>
@@ -82,7 +53,9 @@
 		<li>WVC_HeadBoneHorns</li>
 	</endogenes>
 	<!-- Xenogenes currently used for information only. -->
-	<xenogenes>
+	<!-- <xenogenes> -->
+	<!-- </xenogenes> -->
+	<genes>
 		<li>WVC_Dustogenic</li>
 		<li>WVC_Dustogenic_WoundHealing</li>
 		<li>WVC_Dustogenic_Ageless</li>
@@ -99,7 +72,19 @@
 		<!-- = -->
 		<li>Aggression_HyperAggressive</li>
 		<li>WVC_SlaveSuppression_Unruly</li>
-	</xenogenes>
-  </WVC_XenotypesAndGenes.SubXenotypeDef>
+		<!-- = -->
+		<!-- <li>WVC_XenotypesAndGenes_SubXenotypeShapeshifter</li> -->
+	</genes>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.XenotypeExtension_XenotypeShapeShift"> -->
+			<!-- <subXenotypeDef>WVC_DustAngel</subXenotypeDef> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </XenotypeDef>
+
+  <!-- Dust Angel -->
+  <!-- <WVC_XenotypesAndGenes.SubXenotypeDef ParentName="WVC_XenotypesAndGenes_SubXenotypeDef_Undead"> -->
+	<!-- <defName>WVC_DustAngel</defName> -->
+  <!-- </WVC_XenotypesAndGenes.SubXenotypeDef> -->
 
 </Defs>

@@ -88,10 +88,10 @@ namespace WVC_XenotypesAndGenes
 		public List<XenotypeDef> xenotypeDefs;
 	}
 
-	public class XenotypeExtension_XenotypeShapeShift : DefModExtension
-	{
-		public SubXenotypeDef subXenotypeDef = null;
-	}
+	// public class XenotypeExtension_XenotypeShapeShift : DefModExtension
+	// {
+		// public SubXenotypeDef subXenotypeDef = null;
+	// }
 
 	public class ThingExtension_Golems : DefModExtension
 	{

@@ -14,14 +14,15 @@ namespace WVC_XenotypesAndGenes
 			if (mainXenotype != null && CheckIfXenotypeIsCorrect(pawn))
 			{
 				// Log.Error(pawn.Name + " xenotype not null.");
-				XenotypeExtension_XenotypeShapeShift modExtension = mainXenotype.GetModExtension<XenotypeExtension_XenotypeShapeShift>();
-				if (modExtension != null)
+				// XenotypeExtension_XenotypeShapeShift modExtension = mainXenotype.GetModExtension<XenotypeExtension_XenotypeShapeShift>();
+				// if (modExtension != null)
+				if (mainXenotype is SubXenotypeDef subXenotypeDef)
 				{
 					// Log.Error(pawn.Name + " xenotype is correct.");
-					if (modExtension.subXenotypeDef != null)
+					if (subXenotypeDef != null)
 					{
 						// Log.Error(pawn.Name + " sub-xenotype is chosen.");
-						SetXenotypeGenes(pawn, modExtension.subXenotypeDef, xenogermReplicationChance);
+						SetXenotypeGenes(pawn, subXenotypeDef, xenogermReplicationChance);
 					}
 				}
 			}
@@ -78,7 +79,7 @@ namespace WVC_XenotypesAndGenes
 							}
 							if (Rand.Chance(modExtension.shapeshiftChance))
 							{
-								XenotypeDef xenotypeDef = modExtension.xenotypeDefs.RandomElementByWeight((XenotypeDef x) => x.GetModExtension<XenotypeExtension_XenotypeShapeShift>().subXenotypeDef.selectionWeight);
+								XenotypeDef xenotypeDef = modExtension.xenotypeDefs.RandomElementByWeight((XenotypeDef x) => x is SubXenotypeDef subXenotypeDef ? subXenotypeDef.selectionWeight : 0f);
 								ReimplanterUtility.SaveReimplantXenogenesFromXenotype(pawn, xenotypeDef);
 							}
 						}

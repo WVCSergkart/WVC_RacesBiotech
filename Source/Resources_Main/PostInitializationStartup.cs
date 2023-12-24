@@ -1,5 +1,6 @@
 using RimWorld;
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 // namespace WVC
@@ -57,6 +58,41 @@ namespace WVC_XenotypesAndGenes
 						undead_comp.uniqueTag = deadExtension.uniqueTag;
 						corpseDef.comps.Add(undead_comp);
 					}
+				}
+			}
+			// SubXenotypes Debug
+			foreach (SubXenotypeDef subXenotypeDef in DefDatabase<SubXenotypeDef>.AllDefsListForReading)
+			{
+				GeneDef geneticShifter = WVC_GenesDefOf.WVC_XenotypesAndGenes_SubXenotypeShapeshifter;
+				if (subXenotypeDef.removeGenes.Contains(geneticShifter))
+				{
+					subXenotypeDef.removeGenes.Remove(geneticShifter);
+					Log.Warning(subXenotypeDef.defName + " contains " + geneticShifter.defName + " in removeGenes. Fixing..");
+				}
+				if (subXenotypeDef.endogenes.Contains(geneticShifter))
+				{
+					subXenotypeDef.endogenes.Remove(geneticShifter);
+					Log.Warning(subXenotypeDef.defName + " contains " + geneticShifter.defName + " in endogenes. Fixing..");
+				}
+				if (subXenotypeDef.genes.Contains(geneticShifter))
+				{
+					subXenotypeDef.genes.Remove(geneticShifter);
+					Log.Warning(subXenotypeDef.defName + " contains " + geneticShifter.defName + " in genes. Fixing..");
+				}
+				// Add if it was not added in XML. This option is desirable, since genes from the list are taken in the order they were added during generation.
+				// In theory, it should help avoid a couple of bugs.
+				if (!subXenotypeDef.genes.Contains(geneticShifter))
+				{
+					subXenotypeDef.genes.Add(geneticShifter);
+				}
+				if (subXenotypeDef.inheritable)
+				{
+					subXenotypeDef.inheritable = false;
+					Log.Warning(subXenotypeDef.defName + " is inheritable. Fixing..");
+				}
+				if (subXenotypeDef.doubleXenotypeChances.NullOrEmpty() || subXenotypeDef.doubleXenotypeChances.Sum((XenotypeChance x) => x.chance) != 1f)
+				{
+					Log.Error(subXenotypeDef.defName + " has null doubleXenotypeChances. doubleXenotypeChances must contain at least one xenotype with a chance of 1.0");
 				}
 			}
 		}
