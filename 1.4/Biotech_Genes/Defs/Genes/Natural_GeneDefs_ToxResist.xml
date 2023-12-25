@@ -28,6 +28,14 @@
 	<exclusionTags>
 	  <li>ToxicEnvironmentResistance</li>
 	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<inheritableGeneDefs>
+			  <!-- Ashlands support -->
+			  <li MayRequire="sirmashedpotato.ashlands">Mashed_Ashlands_AshResistance_Perfect</li>
+			</inheritableGeneDefs>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneToxResist_Super">

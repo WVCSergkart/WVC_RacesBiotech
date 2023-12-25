@@ -25,6 +25,7 @@ namespace WVC_XenotypesAndGenes
 					geneDef.exclusionTags.Add(item);
 				}
 			}
+			// Log.Error("1");
 			// Immunity
 			if (inheritGeneDef.makeImmuneTo != null)
 			{
@@ -40,6 +41,7 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			}
+			// Log.Error("2");
 			if (inheritGeneDef.hediffGiversCannotGive != null)
 			{
 				if (geneDef.hediffGiversCannotGive == null)
@@ -54,6 +56,7 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			}
+			// Log.Error("3");
 			// Traits
 			if (inheritGeneDef.suppressedTraits != null)
 			{
@@ -69,6 +72,7 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			}
+			// Log.Error("4");
 			if (inheritGeneDef.forcedTraits != null)
 			{
 				if (geneDef.forcedTraits == null)
@@ -83,6 +87,7 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			}
+			// Log.Error("5");
 			// Stats
 			if (inheritGeneDef.conditionalStatAffecters != null)
 			{
@@ -95,6 +100,7 @@ namespace WVC_XenotypesAndGenes
 					geneDef.conditionalStatAffecters.Add(item);
 				}
 			}
+			// Log.Error("6");
 			if (inheritGeneDef.statFactors != null)
 			{
 				if (geneDef.statFactors == null)
@@ -109,6 +115,7 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			}
+			// Log.Error("7");
 			if (inheritGeneDef.statOffsets != null)
 			{
 				if (geneDef.statOffsets == null)
@@ -123,40 +130,44 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			}
+			// Log.Error("8");
 			// Symbols
 			if (inheritGeneDef.symbolPack != null)
 			{
 				if (geneDef.symbolPack == null)
 				{
 					geneDef.symbolPack = new();
-					if (geneDef.symbolPack.prefixSymbols == null)
-					{
-						geneDef.symbolPack.prefixSymbols = new();
-					}
-					if (geneDef.symbolPack.suffixSymbols == null)
-					{
-						geneDef.symbolPack.suffixSymbols = new();
-					}
-					if (geneDef.symbolPack.wholeNameSymbols == null)
-					{
-						geneDef.symbolPack.wholeNameSymbols = new();
-					}
 				}
-				if (inheritGeneDef.symbolPack.prefixSymbols == null)
+				if (geneDef.symbolPack.prefixSymbols == null)
+				{
+					geneDef.symbolPack.prefixSymbols = new();
+				}
+				if (geneDef.symbolPack.suffixSymbols == null)
+				{
+					geneDef.symbolPack.suffixSymbols = new();
+				}
+				if (geneDef.symbolPack.wholeNameSymbols == null)
+				{
+					geneDef.symbolPack.wholeNameSymbols = new();
+				}
+				// Log.Error("9");
+				if (inheritGeneDef.symbolPack.prefixSymbols != null)
 				{
 					foreach (WeightedSymbol item in inheritGeneDef.symbolPack.prefixSymbols)
 					{
 						geneDef.symbolPack.prefixSymbols.Add(item);
 					}
 				}
-				if (inheritGeneDef.symbolPack.suffixSymbols == null)
+				// Log.Error("10");
+				if (inheritGeneDef.symbolPack.suffixSymbols != null)
 				{
 					foreach (WeightedSymbol item in inheritGeneDef.symbolPack.suffixSymbols)
 					{
 						geneDef.symbolPack.suffixSymbols.Add(item);
 					}
 				}
-				if (inheritGeneDef.symbolPack.wholeNameSymbols == null)
+				// Log.Error("11");
+				if (inheritGeneDef.symbolPack.wholeNameSymbols != null)
 				{
 					foreach (WeightedSymbol item in inheritGeneDef.symbolPack.wholeNameSymbols)
 					{
