@@ -11,29 +11,29 @@
 	  </value>
 	</Operation>
 
-	<Operation Class="PatchOperationSequence">
-		<success>Always</success>
-		<operations>
-			<li Class="PatchOperationTest">
-			  <xpath>/Defs/FactionDef/xenotypeSet/warnIfTotalAbove1</xpath>
-			  <success>Invert</success>
-			</li>
-			<li Class="PatchOperationAdd">
-			  <xpath>/Defs/FactionDef/xenotypeSet</xpath>
-			  <success>Invert</success>
-			  <value>
-				<warnIfTotalAbove1>false</warnIfTotalAbove1>
-			  </value>
-			</li>
-			<li Class="PatchOperationReplace">
-			  <xpath>/Defs/FactionDef/xenotypeSet/warnIfTotalAbove1</xpath>
-			  <success>Always</success>
-			  <value>
-				<warnIfTotalAbove1>false</warnIfTotalAbove1>
-			  </value>
-			</li>
-		</operations>
-	</Operation>
+	<!-- <Operation Class="PatchOperationSequence"> -->
+		<!-- <success>Always</success> -->
+		<!-- <operations> -->
+			<!-- <li Class="PatchOperationTest"> -->
+			  <!-- <xpath>/Defs/FactionDef/xenotypeSet/warnIfTotalAbove1</xpath> -->
+			  <!-- <success>Invert</success> -->
+			<!-- </li> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/FactionDef/xenotypeSet</xpath> -->
+			  <!-- <success>Invert</success> -->
+			  <!-- <value> -->
+				<!-- <warnIfTotalAbove1>false</warnIfTotalAbove1> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+			<!-- <li Class="PatchOperationReplace"> -->
+			  <!-- <xpath>/Defs/FactionDef/xenotypeSet/warnIfTotalAbove1</xpath> -->
+			  <!-- <success>Always</success> -->
+			  <!-- <value> -->
+				<!-- <warnIfTotalAbove1>false</warnIfTotalAbove1> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+		<!-- </operations> -->
+	<!-- </Operation> -->
 
 	<!-- <Operation Class="PatchOperationAdd"> -->
 	  <!-- <xpath>/Defs/FactionDef/xenotypeSet/xenotypeChances</xpath> -->
@@ -65,7 +65,7 @@
 			  </value>
 			</li>
 			<li Class="PatchOperationAdd">
-			  <xpath>/Defs/PawnKindDef[defName="TribeCivil" or defName="TribeRough"]/xenotypeSet</xpath>
+			  <xpath>/Defs/FactionDef[defName="TribeCivil" or defName="TribeRough"]/xenotypeSet</xpath>
 			  <success>Invert</success>
 			  <value>
 				  <xenotypeChances>
@@ -77,7 +77,7 @@
 			  </value>
 			</li>
 			<li Class="PatchOperationAdd">
-			  <xpath>/Defs/PawnKindDef[defName="TribeCivil" or defName="TribeRough"]</xpath>
+			  <xpath>/Defs/FactionDef[defName="TribeCivil" or defName="TribeRough"]</xpath>
 			  <success>Always</success>
 			  <value>
 				<xenotypeSet>
@@ -105,7 +105,7 @@
 			  </value>
 			</li>
 			<li Class="PatchOperationAdd">
-			  <xpath>/Defs/PawnKindDef[defName="OutlanderCivil" or defName="OutlanderRough"]/xenotypeSet</xpath>
+			  <xpath>/Defs/FactionDef[defName="OutlanderCivil" or defName="OutlanderRough"]/xenotypeSet</xpath>
 			  <success>Invert</success>
 			  <value>
 				  <xenotypeChances>
@@ -115,7 +115,7 @@
 			  </value>
 			</li>
 			<li Class="PatchOperationAdd">
-			  <xpath>/Defs/PawnKindDef[defName="OutlanderCivil" or defName="OutlanderRough"]</xpath>
+			  <xpath>/Defs/FactionDef[defName="OutlanderCivil" or defName="OutlanderRough"]</xpath>
 			  <success>Always</success>
 			  <value>
 				<xenotypeSet>

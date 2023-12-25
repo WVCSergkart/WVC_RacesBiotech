@@ -143,6 +143,9 @@ If you have only baseliners in your colony, you can only choose the baseliner xe
 	  <graphicClass>Graphic_StackCount</graphicClass>
 	  <drawSize>(1.0, 1.0)</drawSize>
 	</graphicData>
+	<tradeTags>
+	  <li>WVC_XaG_TreeSeeds</li>
+	</tradeTags>
 	<thingCategories>
 	  <li>ItemsMisc</li>
 	</thingCategories>
