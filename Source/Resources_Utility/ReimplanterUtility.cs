@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
+using Verse.AI;
 using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
@@ -39,6 +40,44 @@ namespace WVC_XenotypesAndGenes
 			// pawn.genes.iconDef = WVC_GenesDefOf.WVC_XenoRandomKindc;
 			pawn.genes.xenotypeName = GeneUtility.GenerateXenotypeNameFromGenes(XaG_GeneUtility.ConvertGenesInGeneDefs(pawn.genes.GenesListForReading));
 			pawn.genes.iconDef = DefDatabase<XenotypeIconDef>.AllDefsListForReading.RandomElement();
+		}
+
+		public static void GiveReimplantJob(Pawn pawn, Pawn targPawn, JobDef absorbJob)
+		{
+			pawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(absorbJob, targPawn), JobTag.Misc);
+			if (targPawn.HomeFaction != null && !targPawn.HomeFaction.Hidden && targPawn.HomeFaction != pawn.Faction && !targPawn.HomeFaction.HostileTo(Faction.OfPlayer))
+			{
+				Messages.Message("MessageAbsorbingXenogermWillAngerFaction".Translate(targPawn.HomeFaction, targPawn.Named("PAWN")), pawn, MessageTypeDefOf.CautionInput, historical: false);
+			}
+		}
+
+		public static bool CanAbsorbGenogerm(Pawn pawn)
+		{
+			if (pawn?.genes == null)
+			{
+				return false;
+			}
+			// if (!pawn.genes.HasGene(GeneDefOf.XenogermReimplanter))
+			// {
+				// return false;
+			// }
+			if (!pawn.HasReimplanterAbility())
+			{
+				return false;
+			}
+			if (pawn.IsPrisonerOfColony && pawn.guest.PrisonerIsSecure)
+			{
+				return true;
+			}
+			if (!pawn.Downed)
+			{
+				return false;
+			}
+			if (!pawn.genes.GenesListForReading.Any())
+			{
+				return false;
+			}
+			return true;
 		}
 
 		// ===============================================================

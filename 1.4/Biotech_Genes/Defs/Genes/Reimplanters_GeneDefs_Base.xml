@@ -20,7 +20,23 @@
 	<!-- </exclusionTags> -->
   </GeneDef>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_Base" Name="WVC_XenotypesAndGenes_Reimplanters_RiseFromTheDead" Abstract="True">
+	<label>posthumous reimplanter</label>
+	<description>Carriers of this gene can reimplant their genes into a corpse through a somewhat gross-looking injector organ. As a result, the dead man comes to life and receives a caster xenotype and a copy of the genes.</description>
+	<iconPath>WVC/UI/Genes/Gene_PostReimplanter_Hybrid_v0</iconPath>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>The target can only be a human corpse.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
   <!-- ============================================================================== -->
+
+  <!-- <AbilityGroupDef> -->
+	<!-- <defName>WVC_XenotypesAndGenes_ReimplantersGroup</defName> -->
+  <!-- </AbilityGroupDef> -->
 
   <AbilityDef ParentName="AbilityTouchBase"  Name="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base" Abstract="True">
 	<label>reimplant genes</label>
@@ -33,6 +49,8 @@
 	<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
 	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
 	<showWhenDrafted>false</showWhenDrafted>
+	<!-- <groupAbility>true</groupAbility> -->
+	<!-- <groupDef>WVC_XenotypesAndGenes_ReimplantersGroup</groupDef> -->
 	<verbProperties>
 	  <verbClass>Verb_CastAbilityTouch</verbClass>
 	  <drawAimPie>false</drawAimPie>

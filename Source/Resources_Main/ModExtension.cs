@@ -93,6 +93,14 @@ namespace WVC_XenotypesAndGenes
 		// public SubXenotypeDef subXenotypeDef = null;
 	// }
 
+	public class JobExtension_Reimplanter : DefModExtension
+	{
+		public int ticksToAbsorb = 180;
+		public ThingDef warmupMote;
+		public bool reimplantEndogenes = true;
+		public bool reimplantXenogenes = true;
+	}
+
 	public class ThingExtension_Golems : DefModExtension
 	{
 		public bool removeButcherRecipes = false;

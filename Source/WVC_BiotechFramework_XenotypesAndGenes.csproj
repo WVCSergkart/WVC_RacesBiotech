@@ -103,6 +103,7 @@
     <Compile Include="Resources_Hediff\Hediff_Scarshield.cs" />
     <Compile Include="Resources_Hediff\Hediff_Spores.cs" />
     <Compile Include="Resources_Hediff\OnlyOneOverseer.cs" />
+    <Compile Include="Resources_Workers\JobDriver_AbsorbGenogerm.cs" />
     <Compile Include="Resources_Workers\JobGiver_GetSpecialFood.cs" />
     <Compile Include="Resources_Main\GenesFix.cs" />
     <Compile Include="Resources_Main\PostInitializationStartup.cs" />

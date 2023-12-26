@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <JobDef>
+	<defName>WVC_XenotypesAndGenes_ResurrectAndChangeXenotype</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_ResurrectAndChangeXenotype</driverClass>
+	<reportString>resurrecting TargetA.</reportString>
+	<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <!-- <JobDef> -->
+	<!-- <defName>WVC_XenotypesAndGenes_AbsorbXenogerm</defName> -->
+	<!-- <driverClass>WVC_XenotypesAndGenes.JobDriver_AbsorbGenogerm</driverClass> -->
+	<!-- <reportString>absorbing xenogerm from TargetA.</reportString> -->
+	<!-- <allowOpportunisticPrefix>true</allowOpportunisticPrefix> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.JobExtension_Reimplanter"> -->
+			<!-- <reimplantEndogenes>false</reimplantEndogenes> -->
+			<!-- <reimplantXenogenes>true</reimplantXenogenes> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </JobDef> -->
+
+  <!-- <JobDef> -->
+	<!-- <defName>WVC_XenotypesAndGenes_AbsorbEndogerm</defName> -->
+	<!-- <driverClass>WVC_XenotypesAndGenes.JobDriver_AbsorbGenogerm</driverClass> -->
+	<!-- <reportString>absorbing endogerm from TargetA.</reportString> -->
+	<!-- <allowOpportunisticPrefix>true</allowOpportunisticPrefix> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.JobExtension_Reimplanter"> -->
+			<!-- <reimplantEndogenes>true</reimplantEndogenes> -->
+			<!-- <reimplantXenogenes>false</reimplantXenogenes> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </JobDef> -->
+
+  <!-- <JobDef> -->
+	<!-- <defName>WVC_XenotypesAndGenes_AbsorbGenogerm</defName> -->
+	<!-- <driverClass>WVC_XenotypesAndGenes.JobDriver_AbsorbGenogerm</driverClass> -->
+	<!-- <reportString>absorbing endo/xenogerm from TargetA.</reportString> -->
+	<!-- <allowOpportunisticPrefix>true</allowOpportunisticPrefix> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.JobExtension_Reimplanter"> -->
+			<!-- <reimplantEndogenes>true</reimplantEndogenes> -->
+			<!-- <reimplantXenogenes>true</reimplantXenogenes> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </JobDef> -->
+
+</Defs>

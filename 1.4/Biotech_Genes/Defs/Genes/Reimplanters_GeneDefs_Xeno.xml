@@ -8,9 +8,13 @@
 	<biostatArc>0</biostatArc>
 	<biostatMet>0</biostatMet>
 	<iconPath>WVC/UI/Genes/Gene_Reimplanter_Xeno_v0</iconPath>
+	<displayOrderInCategory>-495</displayOrderInCategory>
 	<customEffectDescriptions>
 		<li>Сhanges the xenogenes of the target pawn to the xenogenes of the caster. Does not affect endogenes.</li>
 	</customEffectDescriptions>
+	<exclusionTags>
+		<li>WVC_ReimplanterNatural_Xenogenes</li>
+	</exclusionTags>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_Xenogenes">
@@ -55,6 +59,7 @@
 		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Reimplanter</compClass>
 		<reimplantEndogenes>false</reimplantEndogenes>
 		<reimplantXenogenes>true</reimplantXenogenes>
+		<!-- <absorberJob>WVC_XenotypesAndGenes_AbsorbXenogerm</absorberJob> -->
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityTargetValidation">
 		<humanityCheck>true</humanityCheck>
@@ -74,8 +79,12 @@
   <!-- ================================ -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_RiseFromTheDead" Name="WVC_XenotypesAndGenes_Reimplanters_RiseXenogenes" Abstract="True">
-	<label>posthumous xenogerm implanter</label>
+	<label>post xeno-implanter</label>
 	<iconPath>WVC/UI/Genes/Gene_PostReimplanter_Xeno_v0</iconPath>
+	<displayOrderInCategory>-490</displayOrderInCategory>
+	<exclusionTags>
+		<li>WVC_ReimplanterNatural_RiseXenogenes</li>
+	</exclusionTags>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_RiseXenogenes">

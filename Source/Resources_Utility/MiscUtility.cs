@@ -133,6 +133,22 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		public static bool HasReimplanterAbility(this Pawn pawn)
+		{
+			List<Ability> allAbilitiesForReading = pawn?.abilities?.AllAbilitiesForReading;
+			foreach (Ability ability in allAbilitiesForReading)
+			{
+				foreach (AbilityComp comp in ability.comps)
+				{
+					if (comp is CompAbilityEffect_Reimplanter)
+					{
+						return true;
+					}
+				}
+			}
+			return false;
+		}
+
 		// Plants
 
 		public static void GrowSubplant(ThingWithComps parent, float maxRadius, ThingDef subplant, FloatRange? initialGrowthRange, Map map, bool canSpawnOverPlayerSownPlants = true)

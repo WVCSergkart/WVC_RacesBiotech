@@ -6,9 +6,13 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_Base" Name="WVC_XenotypesAndGenes_Reimplanters_EndoXeno" Abstract="True">
 	<label>reimplanter</label>
 	<iconPath>WVC/UI/Genes/Gene_Reimplanter_Hybrid_v0</iconPath>
+	<displayOrderInCategory>-515</displayOrderInCategory>
 	<customEffectDescriptions>
 		<li>Completely changes the genes of the target pawn to the genes of the caster.</li>
 	</customEffectDescriptions>
+	<exclusionTags>
+		<li>WVC_EndogermReimplanter</li>
+	</exclusionTags>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_EndoXeno">
@@ -44,21 +48,18 @@
 
   <!-- ============================================================================== -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_Base" Name="WVC_XenotypesAndGenes_Reimplanters_RiseFromTheDead" Abstract="True">
-	<!-- <label>rise from the dead</label> -->
-	<label>posthumous reimplanter</label>
-	<labelShortAdj>reimplanter</labelShortAdj>
-	<description>Carriers of this gene can reimplant their genes into a corpse through a somewhat gross-looking injector organ. As a result, the dead man comes to life and receives a caster xenotype and a copy of the genes.</description>
-	<iconPath>WVC/UI/Genes/Gene_PostReimplanter_Hybrid_v0</iconPath>
-	<customEffectDescriptions>
-		<li>The target can only be a human corpse.</li>
-	</customEffectDescriptions>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_RiseFromTheDead" Name="WVC_XenotypesAndGenes_Reimplanters_RiseEndoXenoGenes" Abstract="True">
+	<label>post reimplanter</label>
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<biostatArc>0</biostatArc>
+	<displayOrderInCategory>-520</displayOrderInCategory>
+	<exclusionTags>
+		<li>WVC_Reimplanter_RiseFromTheDead</li>
+	</exclusionTags>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_RiseFromTheDead">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_RiseEndoXenoGenes">
 	<defName>WVC_Reimplanter_RiseFromTheDead</defName>
 	<sterilize>true</sterilize>
 	<biostatArc>1</biostatArc>
@@ -73,7 +74,7 @@
 	</descriptionHyperlinks>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_RiseFromTheDead">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_RiseEndoXenoGenes">
 	<defName>WVC_NaturalReimplanter_RiseFromTheDead</defName>
 	<biostatMet>-2</biostatMet>
 	<abilities>
@@ -98,6 +99,7 @@
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
 		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Reimplanter</compClass>
+		<!-- <absorberJob>WVC_XenotypesAndGenes_AbsorbGenogerm</absorberJob> -->
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityTargetValidation">
 		<humanityCheck>true</humanityCheck>
