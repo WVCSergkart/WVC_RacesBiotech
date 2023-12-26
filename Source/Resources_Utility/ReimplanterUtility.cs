@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
@@ -10,14 +11,15 @@ namespace WVC_XenotypesAndGenes
 	public static class ReimplanterUtility
 	{
 
-		public static void ReimplantEndogerm(Pawn caster, Pawn recipient)
+		public static void Reimplanter(Pawn caster, Pawn recipient, bool endogenes = true, bool xenogenes = true)
 		{
 			if (!ModLister.CheckBiotech("xenogerm reimplantation"))
 			{
 				return;
 			}
 			QuestUtility.SendQuestTargetSignals(caster.questTags, "XenogermReimplanted", caster.Named("SUBJECT"));
-			ReimplanterUtility.ReimplantGenesBase(caster, recipient);
+			// ReimplanterUtility.ReimplantGenesBase(caster, recipient);
+			ReimplanterUtility.ReimplantGenesHybrid(caster, recipient, endogenes, xenogenes);
 			GeneUtility.ExtractXenogerm(caster);
 		}
 
@@ -77,6 +79,50 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public static void ReimplantGenesHybrid(Pawn caster, Pawn recipient, bool endogenes = true, bool xenogenes = true)
+		{
+			Pawn_GeneTracker recipientGenes = recipient.genes;
+			if (recipientGenes.Xenogenes.NullOrEmpty() || xenogenes)
+			{
+				SetXenotypeDirect(caster, recipient);
+			}
+			if (xenogenes && !recipientGenes.Xenogenes.NullOrEmpty())
+			{
+				foreach (Gene item in recipientGenes.Xenogenes.ToList())
+				{
+					recipient.genes?.RemoveGene(item);
+				}
+			}
+			if (endogenes && !recipientGenes.Endogenes.NullOrEmpty())
+			{
+				foreach (Gene item in recipientGenes.Endogenes.ToList())
+				{
+					recipient.genes?.RemoveGene(item);
+				}
+			}
+			if (endogenes)
+			{
+				foreach (Gene endogene in caster.genes.Endogenes)
+				{
+					recipient.genes.AddGene(endogene.def, xenogene: false);
+				}
+			}
+			if (xenogenes)
+			{
+				foreach (Gene xenogene in caster.genes.Xenogenes)
+				{
+					recipient.genes.AddGene(xenogene.def, xenogene: true);
+				}
+			}
+			if (!caster.genes.Xenotype.soundDefOnImplant.NullOrUndefined())
+			{
+				caster.genes.Xenotype.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(recipient));
+			}
+			recipient.health.AddHediff(HediffDefOf.XenogerminationComa);
+			GeneUtility.UpdateXenogermReplication(recipient);
+		}
+
+		[Obsolete]
 		public static void ReimplantGenesBase(Pawn caster, Pawn recipient)
 		{
 			// recipient.genes.SetXenotype(caster.genes.Xenotype);

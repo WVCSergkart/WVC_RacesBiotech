@@ -6,25 +6,25 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-	public class CompProperties_AbilityRiseFromTheDead : CompProperties_AbilityEffect
-	{
+	// public class CompProperties_AbilityRiseFromTheDead : CompProperties_AbilityEffect
+	// {
 
-		public ThoughtDef afterResurrectionThoughtDef;
+		// public ThoughtDef afterResurrectionThoughtDef;
 
-		public ThoughtDef resurrectorThoughtDef;
-		public ThoughtDef resurrectedThoughtDef;
+		// public ThoughtDef resurrectorThoughtDef;
+		// public ThoughtDef resurrectedThoughtDef;
 
-		public CompProperties_AbilityRiseFromTheDead()
-		{
-			compClass = typeof(CompAbilityEffect_RiseFromTheDead);
-		}
-	}
+		// public CompProperties_AbilityRiseFromTheDead()
+		// {
+			// compClass = typeof(CompAbilityEffect_RiseFromTheDead);
+		// }
+	// }
 
 	public class CompAbilityEffect_RiseFromTheDead : CompAbilityEffect
 	{
 		// private static readonly CachedTexture ReimplantIcon = new CachedTexture("WVC/UI/Genes/Reimplanter");
 
-		private new CompProperties_AbilityRiseFromTheDead Props => (CompProperties_AbilityRiseFromTheDead)props;
+		private new CompProperties_AbilityReimplanter Props => (CompProperties_AbilityReimplanter)props;
 
 		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
 		{
@@ -53,7 +53,7 @@ namespace WVC_XenotypesAndGenes
 			// Pawn pawn = target.Pawn;
 			if (innerPawn != null)
 			{
-				ReimplanterUtility.ReimplantEndogerm(parent.pawn, innerPawn);
+				ReimplanterUtility.Reimplanter(parent.pawn, innerPawn, Props.reimplantEndogenes, Props.reimplantXenogenes);
 				FleckMaker.AttachedOverlay(innerPawn, FleckDefOf.FlashHollow, new Vector3(0f, 0f, 0.26f));
 				if (PawnUtility.ShouldSendNotificationAbout(parent.pawn) || PawnUtility.ShouldSendNotificationAbout(innerPawn))
 				{

@@ -49,7 +49,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			ReimplanterUtility.ReimplantGenesBase(caster, recipient);
+			ReimplanterUtility.Reimplanter(caster, recipient);
 			if (PawnUtility.ShouldSendNotificationAbout(recipient))
 			{
 				int max = HediffDefOf.XenogerminationComa.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.max;
