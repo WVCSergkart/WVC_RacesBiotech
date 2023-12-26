@@ -200,6 +200,22 @@ namespace WVC_XenotypesAndGenes
 			// if (listingStandard.ButtonText("WVC_XaG_ResetAllSettings_Label"))
 			// {
 			// }
+			// ===============
+			if (Prefs.DevMode)
+			{
+				if (listingStandard.ButtonText("DEV: Count active WVC_ genes"))
+				{
+					int genesCount = 0;
+					foreach (Def def in Content.AllDefs)
+					{
+						if (def is GeneDef)
+						{
+							genesCount++;
+						}
+					}
+					Log.Error("WVC Genes: " + genesCount.ToString());
+				}
+			}
 			listingStandard.End();
 			Widgets.EndScrollView();
 		}

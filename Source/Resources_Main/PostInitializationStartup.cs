@@ -24,8 +24,13 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			}
+			// Race Patches
 			foreach (ThingDef thingDef in DefDatabase<ThingDef>.AllDefsListForReading)
 			{
+				if (thingDef.race == null)
+				{
+					continue;
+				}
 				ThingExtension_Golems modExtension = thingDef?.GetModExtension<ThingExtension_Golems>();
 				if (modExtension != null)
 				{

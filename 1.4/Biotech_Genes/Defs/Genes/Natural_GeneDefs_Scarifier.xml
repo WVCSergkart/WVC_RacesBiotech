@@ -72,6 +72,7 @@
 	<iconPath>WVC/UI/Genes/Gene_Scarifier_v0</iconPath>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Scarifier</geneClass>
 	<displayOrderInCategory>0</displayOrderInCategory>
+	<!-- <preventPermanentWounds>true</preventPermanentWounds> -->
 	<customEffectDescriptions>
 		<li>Adds a scar every few days</li>
 		<li>Base number of scars 3</li>
