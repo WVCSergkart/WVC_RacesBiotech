@@ -121,7 +121,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (WVC_Biotech.settings.allowShapeshiftAfterDeath)
 			{
-				if (TestXenotype(pawn))
+				if (PawnXenotypeIsNotCustomXenotype(pawn))
 				{
 					XenotypeDef xenotype = pawn.genes?.Xenotype;
 					ShapeShift(pawn, xenotype, true);
@@ -133,22 +133,18 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
 			{
-				if (mainXenotype != null)
+				if (mainXenotype != null && mainXenotype is EvotypeDef evotypeDef)
 				{
-					XenotypeExtension_SubXenotype modExtension = mainXenotype.GetModExtension<XenotypeExtension_SubXenotype>();
-					if (modExtension != null)
+					if (!evotypeDef.subXenotypeDefs.NullOrEmpty() && evotypeDef.xenotypeCanShapeshiftOnDeath)
 					{
-						if (!modExtension.xenotypeDefs.NullOrEmpty() && modExtension.xenotypeCanShapeshiftOnDeath)
+						if (removeRandomGenes)
 						{
-							if (removeRandomGenes)
-							{
-								RemoveRandomGenes(pawn);
-							}
-							if (Rand.Chance(modExtension.shapeshiftChance))
-							{
-								XenotypeDef xenotypeDef = modExtension.xenotypeDefs.RandomElementByWeight((XenotypeDef x) => x is SubXenotypeDef subXenotypeDef ? subXenotypeDef.selectionWeight : 0f);
-								ReimplanterUtility.SaveReimplantXenogenesFromXenotype(pawn, xenotypeDef);
-							}
+							RemoveRandomGenes(pawn);
+						}
+						if (Rand.Chance(evotypeDef.shapeshiftChance))
+						{
+							XenotypeDef xenotypeDef = evotypeDef.subXenotypeDefs.RandomElementByWeight((XenotypeDef x) => x is SubXenotypeDef subXenotypeDef ? subXenotypeDef.selectionWeight : 0.0001f);
+							ReimplanterUtility.SaveReimplantXenogenesFromXenotype(pawn, xenotypeDef);
 						}
 					}
 				}
@@ -307,6 +303,28 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// Checks if xenotype is modified.
+		public static bool PawnXenotypeIsNotCustomXenotype(Pawn pawn)
+		{
+			Pawn_GeneTracker genes = pawn?.genes;
+			if (genes == null || genes.UniqueXenotype || genes.iconDef != null)
+			{
+				return false;
+			}
+			XenotypeDef pawnXenotype = genes.Xenotype;
+			if (pawnXenotype == null || pawnXenotype is not EvotypeDef)
+			{
+				return false;
+			}
+			if (XaG_GeneUtility.GenesIsMatch(genes.GenesListForReading, pawnXenotype.genes, 1.0f))
+			{
+				// Log.Error("match");
+				return true;
+			}
+			// Log.Error("not match");
+			return false;
+		}
+
+		[Obsolete]
 		public static bool TestXenotype(Pawn pawn)
 		{
 			Pawn_GeneTracker genes = pawn?.genes;
@@ -316,25 +334,15 @@ namespace WVC_XenotypesAndGenes
 				return false;
 			}
 			XenotypeDef pawnXenotype = genes.Xenotype;
-			if (pawnXenotype == null)
+			if (pawnXenotype == null || pawnXenotype is not EvotypeDef)
 			{
 				return false;
 			}
-			// Check that the xenotype can be shapeshifted.
-			XenotypeExtension_SubXenotype modExtension = pawnXenotype.GetModExtension<XenotypeExtension_SubXenotype>();
-			if (modExtension == null || !modExtension.xenotypeCanShapeshiftOnDeath)
-			{
-				return false;
-			}
-			// Compare the genes of the original xenotype and the current one to make sure that it can be changed without errors.
 			List<GeneDef> pawnXenotypeGenes = new();
 			foreach (GeneDef geneDef in pawnXenotype.genes)
 			{
-				// The gene is skipped if it is random or self-deleting.
-				// This can be unreliable in some cases, but specifically for Undead it works as it should.
 				if (TestXenotype_TestGene(geneDef))
 				{
-					// Log.Error("Xenotype contain " + geneDef);
 					pawnXenotypeGenes.Add(geneDef);
 				}
 			}
@@ -343,20 +351,16 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (TestXenotype_TestGene(gene.def))
 				{
-					// Log.Error("Pawn contain " + gene.def);
 					pawnGenes.Add(gene);
 				}
 			}
 			for (int i = 0; i < pawnGenes.Count; i++)
 			{
-				// Log.Error("Checked gene " + pawnGenes[i].def + " " + (i + 1) + "/" + pawnGenes.Count);
 				if (!pawnXenotypeGenes.Contains(pawnGenes[i].def))
 				{
-					// Log.Error("Pawn contain " + pawnGenes[i].def);
 					return false;
 				}
 			}
-			// Log.Error("6");
 			return true;
 		}
 

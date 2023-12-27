@@ -66,6 +66,18 @@
 	<WVC_XaG_SubXeno_RandomGenes>Possible genes</WVC_XaG_SubXeno_RandomGenes>
 	<WVC_XaG_SubXeno_RandomGenes_Desc>Some of these genes can be added to a gene set.</WVC_XaG_SubXeno_RandomGenes_Desc>
 
+	<WVC_XaG_SubXeno_SubXenotypes_CanEvolveOnDeath>Evolve on death</WVC_XaG_SubXeno_SubXenotypes_CanEvolveOnDeath>
+	<WVC_XaG_SubXeno_SubXenotypes_CanEvolveOvertime>Evolve overtime</WVC_XaG_SubXeno_SubXenotypes_CanEvolveOvertime>
+
+	<WVC_XaG_SubXeno_SubXenotypes_CanEvolveOnDeath_Desc>Can this xenotype evolve into another xenotype if it dies.</WVC_XaG_SubXeno_SubXenotypes_CanEvolveOnDeath_Desc>
+	<WVC_XaG_SubXeno_SubXenotypes_CanEvolveOvertime_Desc>Can this xenotype evolve into another xenotype over time.</WVC_XaG_SubXeno_SubXenotypes_CanEvolveOvertime_Desc>
+
+	<WVC_XaG_SubXeno_EvolveChance>Chance to evolve/shapeshift</WVC_XaG_SubXeno_EvolveChance>
+	<WVC_XaG_SubXeno_EvolveChance_Desc>The chance with which this xenotype evolves when special conditions are met.</WVC_XaG_SubXeno_EvolveChance_Desc>
+
+	<WVC_XaG_SubXeno_SubXenotypesList>Sub-Xenotypes</WVC_XaG_SubXeno_SubXenotypesList>
+	<WVC_XaG_SubXeno_SubXenotypesList_Desc>Xenotypes into which this xenotype can evolve.</WVC_XaG_SubXeno_SubXenotypesList_Desc>
+
 	<!-- ============================ XENOGERMINATION ============================ -->
 
 	<WVC_LetterTextGenesImplanted>{TARGET_nameDef} will be in a xenogermination coma for the next {COMADURATION} while {TARGET_possessive} body adjusts to the changes.</WVC_LetterTextGenesImplanted>

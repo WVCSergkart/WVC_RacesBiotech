@@ -8,39 +8,74 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	// public class EndotypeDef : XenotypeDef
-	// {
+	public class EvotypeDef : XenotypeDef
+	{
 
-		// public override void ResolveReferences()
-		// {
-			// if (endogenes.NullOrEmpty() || mainXenotypeDef == null)
-			// {
-				// return;
-			// }
-			// if (descriptionHyperlinks == null)
-			// {
-				// descriptionHyperlinks = new List<DefHyperlink>();
-			// }
-			// if (!endogenes.NullOrEmpty())
-			// {
-				// foreach (GeneDef gene in endogenes)
-				// {
-					// descriptionHyperlinks.Add(new DefHyperlink(gene));
-				// }
-			// }
-			// if (mainXenotypeDef != null && !mainXenotypeDef.genes.NullOrEmpty())
-			// {
-				// foreach (GeneDef gene in mainXenotypeDef.genes)
-				// {
-					// if (!removeGenes.Contains(gene))
-					// {
-						// descriptionHyperlinks.Add(new DefHyperlink(gene));
-					// }
-				// }
-			// }
-		// }
+		public float shapeshiftChance = 0.1f;
 
-	// }
+		public bool xenotypeCanShapeshiftOnDeath = false;
+		public bool xenotypeCanEvolveOvertime = false;
+
+		public List<SubXenotypeDef> subXenotypeDefs;
+
+		public override void ResolveReferences()
+		{
+			if (descriptionHyperlinks == null)
+			{
+				descriptionHyperlinks = new List<DefHyperlink>();
+			}
+			if (!subXenotypeDefs.NullOrEmpty())
+			{
+				foreach (SubXenotypeDef subXenotypeDef in subXenotypeDefs)
+				{
+					descriptionHyperlinks.Add(new DefHyperlink(subXenotypeDef));
+				}
+			}
+			if (!genes.NullOrEmpty())
+			{
+				foreach (GeneDef gene in genes)
+				{
+					descriptionHyperlinks.Add(new DefHyperlink(gene));
+				}
+			}
+		}
+
+		public override IEnumerable<StatDrawEntry> SpecialDisplayStats(StatRequest req)
+		{
+			foreach (StatDrawEntry item in base.SpecialDisplayStats(req))
+			{
+				yield return item;
+			}
+			if (!subXenotypeDefs.NullOrEmpty())
+			{
+				yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_XaG_SubXeno_SubXenotypesList".Translate().CapitalizeFirst(), subXenotypeDefs.Select((SubXenotypeDef x) => x.label).ToCommaList().CapitalizeFirst(), "WVC_XaG_SubXeno_SubXenotypesList_Desc".Translate() + "\n\n" + subXenotypeDefs.Select((SubXenotypeDef x) => x.label).ToLineList("  - ", capitalizeItems: true), 810);
+			}
+			yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_XaG_SubXeno_SubXenotypes_CanEvolveOnDeath".Translate(), xenotypeCanShapeshiftOnDeath.ToStringYesNo(), "WVC_XaG_SubXeno_SubXenotypes_CanEvolveOnDeath_Desc".Translate(), 800);
+			yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_XaG_SubXeno_SubXenotypes_CanEvolveOvertime".Translate(), xenotypeCanEvolveOvertime.ToStringYesNo(), "WVC_XaG_SubXeno_SubXenotypes_CanEvolveOvertime_Desc".Translate(), 790);
+			yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_XaG_SubXeno_EvolveChance".Translate(), (shapeshiftChance * 100).ToString() + "%", "WVC_XaG_SubXeno_EvolveChance_Desc".Translate(), 780);
+		}
+
+		public override IEnumerable<string> ConfigErrors()
+		{
+			foreach (string item in base.ConfigErrors())
+			{
+				yield return item;
+			}
+			if (subXenotypeDefs.NullOrEmpty())
+			{
+				 yield return defName + " has null subXenotypeDefs. subXenotypeDefs must contain at least one xenotype.";
+			}
+			if (shapeshiftChance <= 0f)
+			{
+				 yield return defName + " shapeshiftChance must be > 0. If this is intended, then use XenotypeDef or SubXenotypeDef.";
+			}
+			if (!xenotypeCanEvolveOvertime && !xenotypeCanShapeshiftOnDeath)
+			{
+				 yield return defName + " xenotypeCanEvolveOvertime and xenotypeCanShapeshiftOnDeath is false. At least one must be true.";
+			}
+		}
+
+	}
 
 	public class RandomGenes
 	{
@@ -78,6 +113,13 @@ namespace WVC_XenotypesAndGenes
 			if (descriptionHyperlinks == null)
 			{
 				descriptionHyperlinks = new List<DefHyperlink>();
+			}
+			if (!doubleXenotypeChances.NullOrEmpty())
+			{
+				foreach (XenotypeChance xenotypeChance in doubleXenotypeChances)
+				{
+					descriptionHyperlinks.Add(new DefHyperlink(xenotypeChance.xenotype));
+				}
 			}
 			if (!endogenes.NullOrEmpty())
 			{

@@ -2,7 +2,7 @@
 <Defs>
 
   <!-- undead -->
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base">
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" Class="WVC_XenotypesAndGenes.EvotypeDef">
 	<defName>WVC_Undead</defName>
 	<!-- undead necrokind necrokin necromantic -->
 	<label>undead</label>
@@ -14,6 +14,16 @@
 	<displayPriority>-200</displayPriority>
 	<canGenerateAsCombatant>true</canGenerateAsCombatant>
 	<iconPath>WVC/UI/Mecha_Icons/Xeno_Undead_v0</iconPath>
+	<!-- Evolve -->
+	<shapeshiftChance>0.22</shapeshiftChance>
+	<xenotypeCanShapeshiftOnDeath>true</xenotypeCanShapeshiftOnDeath>
+	<xenotypeCanEvolveOvertime>false</xenotypeCanEvolveOvertime>
+	<subXenotypeDefs>
+	  <li>WVC_Featherdust</li>
+	  <li>WVC_Resurgent</li>
+	  <li MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li>
+	</subXenotypeDefs>
+	<!-- Evolve -->
 	<genes>
 		<!-- Base -->
 		<li>WVC_NaturalReimplanter_RiseFromTheDead</li>
@@ -41,17 +51,17 @@
 		<li>WVC_RandomMoveSpeed</li>
 		<li>WVC_RandomPsychicAbility</li>
 	</genes>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.XenotypeExtension_SubXenotype">
-			<shapeshiftChance>0.22</shapeshiftChance>
-			<xenotypeCanShapeshiftOnDeath>true</xenotypeCanShapeshiftOnDeath>
-			<xenotypeDefs>
-			  <li>WVC_Featherdust</li>
-			  <li>WVC_Resurgent</li>
-			  <li MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li>
-			</xenotypeDefs>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.XenotypeExtension_SubXenotype"> -->
+			<!-- <shapeshiftChance>0.22</shapeshiftChance> -->
+			<!-- <xenotypeCanShapeshiftOnDeath>true</xenotypeCanShapeshiftOnDeath> -->
+			<!-- <xenotypeDefs> -->
+			  <!-- <li>WVC_Featherdust</li> -->
+			  <!-- <li>WVC_Resurgent</li> -->
+			  <!-- <li MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li> -->
+			<!-- </xenotypeDefs> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </XenotypeDef>
 
 </Defs>

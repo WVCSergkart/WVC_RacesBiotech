@@ -146,7 +146,10 @@ namespace WVC_XenotypesAndGenes
 					for (int i = 0; i < list2.Count; i++)
 					{
 						Pawn absorber = list2[i];
-						if (absorber.genes != null && absorber.IsColonistPlayerControlled && absorber.CanReach(myPawn, PathEndMode.ClosestTouch, Danger.Deadly))
+						if (absorber.genes != null 
+							&& absorber.IsColonistPlayerControlled 
+							&& absorber.CanReach(myPawn, PathEndMode.ClosestTouch, Danger.Deadly) 
+							&& !XaG_GeneUtility.GenesIsMatch(absorber.genes.GenesListForReading, XaG_GeneUtility.ConvertGenesInGeneDefs(parent.pawn.genes.GenesListForReading), 1.0f))
 						{
 							if (!PawnIdeoCanAcceptReimplant(parent.pawn, absorber))
 							{

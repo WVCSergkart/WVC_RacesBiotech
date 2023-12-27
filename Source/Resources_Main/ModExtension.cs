@@ -81,12 +81,12 @@ namespace WVC_XenotypesAndGenes
 		public int cooldownDays = 15;
 	}
 
-	public class XenotypeExtension_SubXenotype : DefModExtension
-	{
-		public float shapeshiftChance = 0.1f;
-		public bool xenotypeCanShapeshiftOnDeath = false;
-		public List<XenotypeDef> xenotypeDefs;
-	}
+	// public class XenotypeExtension_SubXenotype : DefModExtension
+	// {
+		// public float shapeshiftChance = 0.1f;
+		// public bool xenotypeCanShapeshiftOnDeath = false;
+		// public List<XenotypeDef> xenotypeDefs;
+	// }
 
 	// public class XenotypeExtension_XenotypeShapeShift : DefModExtension
 	// {
