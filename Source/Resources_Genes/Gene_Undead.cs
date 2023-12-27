@@ -28,9 +28,9 @@ namespace WVC_XenotypesAndGenes
 		// public HediffDef HediffDefName => def.GetModExtension<GeneExtension_Giver>().hediffDefName;
 		// public List<BodyPartDef> Bodyparts => def.GetModExtension<GeneExtension_Giver>().bodyparts;
 
-		public Gene_ResurgentCells Gene_ResurgentCells => pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
+		// public Gene_ResurgentCells Gene_ResurgentCells => pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
 		public Gene_Dust Gene_Dust => pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
-		public Gene_Scarifier Gene_Scarifier => pawn.genes?.GetFirstGeneOfType<Gene_Scarifier>();
+		// public Gene_Scarifier Gene_Scarifier => pawn.genes?.GetFirstGeneOfType<Gene_Scarifier>();
 
 		// public Gene_DustReincarnation gene_DustReincarnation;
 		public QuestScriptDef SummonQuest => def.GetModExtension<GeneExtension_Spawner>().summonQuest;
@@ -39,23 +39,16 @@ namespace WVC_XenotypesAndGenes
 
 		public bool UndeadCanResurrect => PawnCanResurrect();
 		public bool UndeadCanReincarnate => DustogenicCanReincarnate();
-		public bool UndeadResourceIsActive => AnyResourceIsActive();
+		// public bool UndeadResourceIsActive => AnyResourceIsActive();
 
 		public List<HediffDef> PreventResurrectionHediffs => XenotypeFilterUtility.HediffsThatPreventUndeadResurrection();
 
 		public override void Notify_PawnDied()
 		{
 			base.Notify_PawnDied();
-			// pawn.health.AddHediff(HediffDefName);
 			if (DustogenicCanReincarnate())
 			{
 				Gene_DustReincarnation.Reincarnate(pawn, SummonQuest);
-			}
-			if (PawnCanResurrect())
-			{
-				// UndeadUtility.NewUndeadResurrect(pawn, ChildBackstoryDef, AdultBackstoryDef, Gene_ResurgentCells, def.resourceLossPerDay);
-				// Gene_DustReincarnation.ReincarnationQuest(pawn, ResurrectionQuest);
-				// UndeadUtility.NewUndeadResurrect(pawn, ChildBackstoryDef, AdultBackstoryDef, Gene_ResurgentCells, def.resourceLossPerDay);
 			}
 		}
 
@@ -78,7 +71,7 @@ namespace WVC_XenotypesAndGenes
 		//For checks
 		private bool GeneIsActive()
 		{
-			if (!Active || Overridden || (!pawn.IsColonist && !WVC_Biotech.settings.canNonPlayerPawnResurrect) || pawn.genes.HasGene(GeneDefOf.Deathless))
+			if (!Active || Overridden || (!pawn.IsColonist && !WVC_Biotech.settings.canNonPlayerPawnResurrect))
 			{
 				return false;
 			}
@@ -89,15 +82,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (GeneIsActive())
 			{
-				if (EnoughResurgentCells())
-				{
-					return true;
-				}
-				// else if (CorrectAge())
-				// {
-					// return true;
-				// }
-				else if (!AnyResourceIsActive() && !HediffUtility.HasAnyHediff(PreventResurrectionHediffs, pawn))
+				if (!HediffUtility.HasAnyHediff(PreventResurrectionHediffs, pawn))
 				{
 					return true;
 				}
@@ -107,24 +92,24 @@ namespace WVC_XenotypesAndGenes
 
 		private bool DustogenicCanReincarnate()
 		{
-			if (GeneIsActive() && Gene_Dust != null)
+			if (!PawnCanResurrect() && Gene_Dust != null)
 			{
 				return Gene_DustReincarnation.CanReincarnate(pawn, this, MinChronoAge);
 			}
 			return false;
 		}
 
-		private bool EnoughResurgentCells()
-		{
-			if (Gene_ResurgentCells != null)
-			{
-				if ((Gene_ResurgentCells.Value - def.resourceLossPerDay) >= 0f)
-				{
-					return true;
-				}
-			}
-			return false;
-		}
+		// private bool EnoughResurgentCells()
+		// {
+			// if (Gene_ResurgentCells != null)
+			// {
+				// if ((Gene_ResurgentCells.Value - def.resourceLossPerDay) >= 0f)
+				// {
+					// return true;
+				// }
+			// }
+			// return false;
+		// }
 
 		// private bool CorrectAge()
 		// {
@@ -139,14 +124,14 @@ namespace WVC_XenotypesAndGenes
 			// return false;
 		// }
 
-		private bool AnyResourceIsActive()
-		{
-			if (Gene_ResurgentCells != null || Gene_Dust != null || Gene_Scarifier != null)
-			{
-				return true;
-			}
-			return false;
-		}
+		// private bool AnyResourceIsActive()
+		// {
+			// if (Gene_ResurgentCells != null || Gene_Dust != null || Gene_Scarifier != null)
+			// {
+				// return true;
+			// }
+			// return false;
+		// }
 
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{

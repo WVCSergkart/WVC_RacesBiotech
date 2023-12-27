@@ -26,19 +26,8 @@ namespace WVC_XenotypesAndGenes
 		public static void RegenComaOrDeathrest(Pawn pawn, Gene_Undead gene)
 		{
 			// Resurrect
-			ResurrectionUtility.Resurrect(pawn);
-			pawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
-			// for (int i = 0; i < pawn.health.hediffSet.hediffs.Count; i++)
-			// {
-				// HealingUtility.FixWorstHealthCondition(pawn, gene, true);
-			// }
-			pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(WVC_GenesDefOf.WVC_XenotypesAndGenes_WasResurrected);
-			// Undead
-			XenotypeDef mainXenotype = pawn.genes.CustomXenotype == null ? pawn.genes.Xenotype : null;
-			string letterDesc = "WVC_LetterTextSecondChance_GeneUndead";
-			if (gene.Gene_ResurgentCells == null)
+			if (pawn?.health?.hediffSet?.GetBrain() == null)
 			{
-				pawn.health.AddHediff(WVC_GenesDefOf.WVC_Resurgent_UndeadResurrectionRecovery);
 				Gene_BackstoryChanger.BackstoryChanger(pawn, gene.ChildBackstoryDef, gene.AdultBackstoryDef);
 				foreach (SkillRecord item in pawn.skills.skills)
 				{
@@ -48,16 +37,21 @@ namespace WVC_XenotypesAndGenes
 						item.Learn(0f - num, direct: true);
 					}
 				}
-				SubXenotypeUtility.XenotypeShapeshifter(pawn);
-				if (mainXenotype != null && mainXenotype != pawn.genes.Xenotype)
-				{
-					letterDesc = "WVC_LetterTextSecondChance_GeneUndeadShapeshift";
-				}
 			}
-			else
+			ResurrectionUtility.Resurrect(pawn);
+			pawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
+			// Undead
+			pawn.health.AddHediff(WVC_GenesDefOf.WVC_Resurgent_UndeadResurrectionRecovery);
+			pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(WVC_GenesDefOf.WVC_XenotypesAndGenes_WasResurrected);
+			// Evolve
+			XenotypeDef mainXenotype = pawn.genes.CustomXenotype == null ? pawn.genes.Xenotype : null;
+			string letterDesc = "WVC_LetterTextSecondChance_GeneUndead";
+			SubXenotypeUtility.XenotypeShapeshifter(pawn);
+			if (mainXenotype != null && mainXenotype != pawn.genes.Xenotype)
 			{
-				gene.Gene_ResurgentCells.Value -= gene.def.resourceLossPerDay;
+				letterDesc = "WVC_LetterTextSecondChance_GeneUndeadShapeshift";
 			}
+			// Letter
 			if (PawnUtility.ShouldSendNotificationAbout(pawn))
 			{
 				string shapeshiftXenotype = pawn?.genes?.Xenotype != null ? pawn.genes.Xenotype.LabelCap : "ERROR";

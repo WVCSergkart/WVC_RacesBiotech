@@ -27,16 +27,17 @@
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
 	  <!-- <li>Can only die from destruction of brain.</li> -->
-	  <li>In the event of death, the carrier is resurrected completely healthy and without damage.</li>
-	  <li>After resurrection, the carrier of the gene loses backstory and all experience in skills.</li>
+	  <li>In case of death, after some time the carrier of the gene will be resurrected, completely healthy and without damage.</li>
+	  <li>If the carrier’s &lt;color=#8a8ae6&gt;brain was destroyed&lt;/color&gt;, then the carrier of the gene &lt;color=#8a8ae6&gt;loses backstory and all experience in skills&lt;/color&gt;.</li>
 	  <li>Recovery will take (*DateTime)2-8 days(/DateTime)</li>
 	  <!-- <li>After resurrection, the carrier of the gene loses 5 years of life, backstory and all experience in skills.</li> -->
 	  <!-- <li>The minimum age to which the carrier can roll back is 14 years. If the carrier does not have enough age, then death is not reversible.</li> -->
 	  <!-- <li>If the &lt;color=#8a8ae6&gt;"Resurgent"&lt;/color&gt; gene is present, instead of age, the resource of the gene will be spent. Also, the carrier will not receive penalties for resurrection. Requires &lt;color=#8a8ae6&gt;37 resurgent cells&lt;/color&gt;.</li> -->
 	  <!-- <li>In the presence of the &lt;color=#8a8ae6&gt;"Dustogenic"&lt;/color&gt; gene, it gives the effect of &lt;color=#8a8ae6&gt;reincarnation&lt;/color&gt;. Disables non-resurgent resurrection.</li> -->
 	  <!-- <li>&lt;color=#8a8ae6&gt;Reincarnation&lt;/color&gt; - In case of death, a pawn will be summoned, which is a descendant of the deceased. The effect will not work if the chronological age of the pawn is less than 40.</li> -->
-	  <li>Genes &lt;color=#8a8ae6&gt;"Deathless", "Resurgent", "Dustogenic" and "Scarifier"&lt;/color&gt; disable resurrection.</li>
+	  <!-- <li>Genes &lt;color=#8a8ae6&gt;"Deathless", "Resurgent", "Dustogenic" and "Scarifier"&lt;/color&gt; disable resurrection.</li> -->
 	  <!-- <li>The gene has no effects if the carrier has the deathless gene.</li> -->
+	  <!-- <li>Gene &lt;color=#8a8ae6&gt;"Dustogenic"&lt;/color&gt; disable resurrection.</li> -->
 	</customEffectDescriptions>
 	<symbolPack>
 	  <wholeNameSymbols>

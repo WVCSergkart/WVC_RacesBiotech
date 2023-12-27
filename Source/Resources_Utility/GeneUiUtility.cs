@@ -85,16 +85,17 @@ namespace WVC_XenotypesAndGenes
 			if (gene.def.geneClass == typeof(Gene_Undead))
 			{
 				Gene_Undead undead = (Gene_Undead)gene;
-				if (undead.UndeadCanReincarnate)
-				{
-					text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive_UndeadReincarnate".Translate();
-				}
+				// if (undead.UndeadCanReincarnate)
+				// {
+					// text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive_UndeadReincarnate".Translate();
+				// }
 				if (undead.UndeadCanResurrect)
 				{
 					text += "\n\n" + "WVC_XaG_NewBack_GeneIsActive_Undead".Translate();
 				}
-				else if (undead.UndeadResourceIsActive)
+				else if (undead.UndeadCanReincarnate)
 				{
+					text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive_UndeadReincarnate".Translate();
 					text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive_Undead".Translate();
 				}
 				else

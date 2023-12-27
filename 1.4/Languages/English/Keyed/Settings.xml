@@ -75,6 +75,11 @@ Activation requires a restart, deactivation does not.</WVC_ToolTip_enableGenesIn
 Does not affect already spawned mechlinks.</WVC_ToolTip_enableCustomMechLinkName>
 
 	<!-- ====================================================================================== -->
+
+	<!-- <WVC_Label_reincarnationBlockUndeadResurrection></WVC_Label_reincarnationBlockUndeadResurrection> -->
+	<!-- <WVC_ToolTip_reincarnationBlockUndeadResurrection></WVC_ToolTip_reincarnationBlockUndeadResurrection> -->
+
+	<!-- ====================================================================================== -->
 	<WVC_Label_minWastepacksPerRecharge>Force minimal waste</WVC_Label_minWastepacksPerRecharge>
 	<WVC_ToolTip_minWastepacksPerRecharge>Force the minimum amount of waste produced by mechanoids, preventing it from dropping below 1.
 
