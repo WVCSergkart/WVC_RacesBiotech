@@ -12,9 +12,9 @@
 	<iconColor>(255, 255, 255)</iconColor>
 	<displayCategory>Ability</displayCategory>
 	<displayOrderInCategory>-523</displayOrderInCategory>
-	<customEffectDescriptions>
-		<li>&lt;color=#ff8585&gt;Can't be absorbed forcly.&lt;/color&gt;</li>
-	</customEffectDescriptions>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>&lt;color=#ff8585&gt;Can't be absorbed forcly.&lt;/color&gt;</li> -->
+	<!-- </customEffectDescriptions> -->
 	<!-- <exclusionTags> -->
 		<!-- <li>WVC_Reimplanter</li> -->
 	<!-- </exclusionTags> -->
@@ -29,6 +29,7 @@
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
 		<li>The target can only be a human corpse.</li>
+		<li>&lt;color=#ff8585&gt;Can't be absorbed forcly.&lt;/color&gt;</li>
 	</customEffectDescriptions>
   </GeneDef>
 

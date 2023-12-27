@@ -97,6 +97,8 @@ namespace WVC_XenotypesAndGenes
 	{
 		public int ticksToAbsorb = 180;
 		public ThingDef warmupMote;
+		public SoundDef warmupStartSound;
+		public EffecterDef warmupEffecter;
 		public bool reimplantEndogenes = true;
 		public bool reimplantXenogenes = true;
 	}

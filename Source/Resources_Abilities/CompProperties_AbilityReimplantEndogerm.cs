@@ -127,70 +127,70 @@ namespace WVC_XenotypesAndGenes
 			yield return MoteMaker.MakeAttachedOverlay(pawn, ThingDefOf.Mote_XenogermImplantation, new Vector3(0f, 0f, 0.3f));
 		}
 
-		// public override IEnumerable<Gizmo> CompGetGizmosExtra()
-		// {
-			// if (!ReimplanterUtility.CanAbsorbGenogerm(parent.pawn) || Props.absorberJob == null)
-			// {
-				// yield break;
-			// }
-			// Pawn myPawn = parent.pawn;
-			// Command_Action command_Action = new()
-            // {
-				// defaultLabel = "ForceXenogermImplantation".Translate(),
-				// defaultDesc = "ForceXenogermImplantationDesc".Translate(),
-				// icon = parent.def.uiIcon,
-				// action = delegate
-				// {
-					// List<FloatMenuOption> list = new();
-					// List<Pawn> list2 = myPawn.MapHeld.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer);
-					// for (int i = 0; i < list2.Count; i++)
-					// {
-						// Pawn absorber = list2[i];
-						// if (absorber.genes != null && absorber.IsColonistPlayerControlled && absorber.CanReach(myPawn, PathEndMode.ClosestTouch, Danger.Deadly))
-						// {
-							// if (!PawnIdeoCanAcceptReimplant(parent.pawn, absorber))
-							// {
-								// list.Add(new FloatMenuOption(absorber.LabelCap + ": " + "IdeoligionForbids".Translate(), null, absorber, Color.white));
-							// }
-							// else
-							// {
-								// list.Add(new FloatMenuOption(absorber.LabelShort, delegate
-								// {
-									// if (GeneUtility.PawnWouldDieFromReimplanting(myPawn))
-									// {
-										// Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WarningPawnWillDieFromReimplanting".Translate(myPawn.Named("PAWN")), delegate
-										// {
-											// ReimplanterUtility.GiveReimplantJob(absorber, myPawn, Props.absorberJob);
-										// }, destructive: true));
-									// }
-									// else
-									// {
-										// ReimplanterUtility.GiveReimplantJob(absorber, myPawn, Props.absorberJob);
-									// }
-								// }, absorber, Color.white));
-							// }
-						// }
-					// }
-					// if (list.Any())
-					// {
-						// Find.WindowStack.Add(new FloatMenu(list));
-					// }
-				// }
-			// };
-			// if (myPawn.IsQuestLodger())
-			// {
-				// command_Action.Disable("TemporaryFactionMember".Translate(myPawn.Named("PAWN")));
-			// }
-			// else if (myPawn.health.hediffSet.HasHediff(HediffDefOf.XenogermLossShock))
-			// {
-				// command_Action.Disable("XenogermLossShockPresent".Translate(myPawn.Named("PAWN")));
-			// }
-			// else if (myPawn.IsPrisonerOfColony && !myPawn.Downed)
-			// {
-				// command_Action.Disable("MessageTargetMustBeDownedToForceReimplant".Translate(myPawn.Named("PAWN")));
-			// }
-			// yield return command_Action;
-		// }
+		public override IEnumerable<Gizmo> CompGetGizmosExtra()
+		{
+			if (Props.absorberJob == null || !ReimplanterUtility.CanAbsorbGenogerm(parent.pawn))
+			{
+				yield break;
+			}
+			Pawn myPawn = parent.pawn;
+			Command_Action command_Action = new()
+            {
+				defaultLabel = "ForceXenogermImplantation".Translate(),
+				defaultDesc = "ForceXenogermImplantationDesc".Translate(),
+				icon = parent.def.uiIcon,
+				action = delegate
+				{
+					List<FloatMenuOption> list = new();
+					List<Pawn> list2 = myPawn.MapHeld.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer);
+					for (int i = 0; i < list2.Count; i++)
+					{
+						Pawn absorber = list2[i];
+						if (absorber.genes != null && absorber.IsColonistPlayerControlled && absorber.CanReach(myPawn, PathEndMode.ClosestTouch, Danger.Deadly))
+						{
+							if (!PawnIdeoCanAcceptReimplant(parent.pawn, absorber))
+							{
+								list.Add(new FloatMenuOption(absorber.LabelCap + ": " + "IdeoligionForbids".Translate(), null, absorber, Color.white));
+							}
+							else
+							{
+								list.Add(new FloatMenuOption(absorber.LabelShort, delegate
+								{
+									if (GeneUtility.PawnWouldDieFromReimplanting(myPawn))
+									{
+										Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WarningPawnWillDieFromReimplanting".Translate(myPawn.Named("PAWN")), delegate
+										{
+											ReimplanterUtility.GiveReimplantJob(absorber, myPawn, Props.absorberJob);
+										}, destructive: true));
+									}
+									else
+									{
+										ReimplanterUtility.GiveReimplantJob(absorber, myPawn, Props.absorberJob);
+									}
+								}, absorber, Color.white));
+							}
+						}
+					}
+					if (list.Any())
+					{
+						Find.WindowStack.Add(new FloatMenu(list));
+					}
+				}
+			};
+			if (myPawn.IsQuestLodger())
+			{
+				command_Action.Disable("TemporaryFactionMember".Translate(myPawn.Named("PAWN")));
+			}
+			else if (myPawn.health.hediffSet.HasHediff(HediffDefOf.XenogermLossShock))
+			{
+				command_Action.Disable("XenogermLossShockPresent".Translate(myPawn.Named("PAWN")));
+			}
+			else if (myPawn.IsPrisonerOfColony && !myPawn.Downed)
+			{
+				command_Action.Disable("MessageTargetMustBeDownedToForceReimplant".Translate(myPawn.Named("PAWN")));
+			}
+			yield return command_Action;
+		}
 
 		public static bool PawnIdeoCanAcceptReimplant(Pawn implanter, Pawn implantee)
 		{

@@ -59,7 +59,7 @@
 		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Reimplanter</compClass>
 		<reimplantEndogenes>true</reimplantEndogenes>
 		<reimplantXenogenes>false</reimplantXenogenes>
-		<!-- <absorberJob>WVC_XenotypesAndGenes_AbsorbEndogerm</absorberJob> -->
+		<absorberJob>WVC_XenotypesAndGenes_AbsorbEndogerm</absorberJob>
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityTargetValidation">
 		<humanityCheck>true</humanityCheck>

@@ -21,7 +21,26 @@ namespace WVC_XenotypesAndGenes
 			QuestUtility.SendQuestTargetSignals(caster.questTags, "XenogermReimplanted", caster.Named("SUBJECT"));
 			// ReimplanterUtility.ReimplantGenesBase(caster, recipient);
 			ReimplanterUtility.ReimplantGenesHybrid(caster, recipient, endogenes, xenogenes);
-			GeneUtility.ExtractXenogerm(caster);
+			// GeneUtility.ExtractXenogerm(caster);
+			ExtractXenogerm(caster);
+		}
+
+		public static void ExtractXenogerm(Pawn pawn, int overrideDurationTicks = -1)
+		{
+			if (ModLister.CheckBiotech("xenogerm extraction"))
+			{
+				pawn.health.AddHediff(HediffDefOf.XenogermLossShock);
+				if (GeneUtility.PawnWouldDieFromReimplanting(pawn))
+				{
+					SetXenotype(pawn, XenotypeDefOf.Baseliner);
+				}
+				Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.XenogermReplicating, pawn);
+				if (overrideDurationTicks > 0)
+				{
+					hediff.TryGetComp<HediffComp_Disappears>().ticksToDisappear = overrideDurationTicks;
+				}
+				pawn.health.AddHediff(hediff);
+			}
 		}
 
 		public static void SetXenotypeDirect(Pawn caster, Pawn recipient, XenotypeDef xenotypeDef = null, bool changeXenotype = true)
@@ -261,7 +280,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				pawn.genes?.RemoveGene(item);
 			}
-			if (xenotypeDef.inheritable)
+			if (xenotypeDef.inheritable || xenotypeDef == XenotypeDefOf.Baseliner)
 			{
 				// for (int numEndogenes = genes.Endogenes.Count - 1; numEndogenes >= 0; numEndogenes--)
 				// {
@@ -318,13 +337,13 @@ namespace WVC_XenotypesAndGenes
 					xenotypeHasHairColor = true;
 				}
 			}
-			if (xenotypeDef.inheritable && (!xenotypeHasSkinColor || xenotypeDef == XenotypeDefOf.Baseliner))
+			if ((xenotypeDef.inheritable || xenotypeDef == XenotypeDefOf.Baseliner) && !xenotypeHasSkinColor)
 			{
-				pawn.genes?.AddGene(WVC_GenesDefOf.Skin_SheerWhite, !xenotypeDef.inheritable);
+				pawn.genes?.AddGene(WVC_GenesDefOf.Skin_SheerWhite, false);
 			}
-			if (xenotypeDef.inheritable && (!xenotypeHasHairColor || xenotypeDef == XenotypeDefOf.Baseliner))
+			if ((xenotypeDef.inheritable || xenotypeDef == XenotypeDefOf.Baseliner) && !xenotypeHasHairColor)
 			{
-				pawn.genes?.AddGene(WVC_GenesDefOf.Hair_SnowWhite, !xenotypeDef.inheritable);
+				pawn.genes?.AddGene(WVC_GenesDefOf.Hair_SnowWhite, false);
 			}
 		}
 
