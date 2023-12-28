@@ -75,6 +75,7 @@
     <Compile Include="Resources_Genes\Gene_Shapeshifter.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ChangeXenotype.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ChooseXenotype.cs" />
+    <Compile Include="Resources_Gizmo\Dialog_RetuneSerum.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Shapeshifter.cs" />
     <Compile Include="Resources_Gizmo\Dialog_XenotypesBase.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_ResurgentSpores.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="Resources_Hediff\Hediff_Spores.cs" />
     <Compile Include="Resources_Hediff\OnlyOneOverseer.cs" />
     <Compile Include="Resources_Workers\JobDriver_AbsorbGenogerm.cs" />
+    <Compile Include="Resources_Workers\JobDriver_RetuneSerum.cs" />
     <Compile Include="Resources_Workers\JobGiver_GetSpecialFood.cs" />
     <Compile Include="Resources_Main\GenesFix.cs" />
     <Compile Include="Resources_Main\PostInitializationStartup.cs" />

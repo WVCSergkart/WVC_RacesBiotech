@@ -11,6 +11,7 @@ namespace WVC_XenotypesAndGenes
 
 		// Coma TEST
 
+		[Obsolete]
 		public static void ShouldUndeadRegenComaOrDeathrest(bool resurrect, Pawn pawn)
 		{
 			if (resurrect)
@@ -71,6 +72,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		[Obsolete]
 		public static void NewUndeadResurrect(Pawn pawn, BackstoryDef childBackstoryDef = null, BackstoryDef adultBackstoryDef = null, Gene_ResurgentCells resurgentGene = null, float resourceLossPerDay = 0f)
 		{
 			ResurrectWithSickness(pawn, WVC_GenesDefOf.WVC_XenotypesAndGenes_WasResurrected);

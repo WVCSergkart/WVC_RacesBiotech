@@ -24,6 +24,15 @@
 	
 	<WVC_XaG_SubXenotypeUnknownXenotypeError>unknown</WVC_XaG_SubXenotypeUnknownXenotypeError>
 
+	<WVC_XaG_GeneralTargetTooFar>No one can reach.</WVC_XaG_GeneralTargetTooFar>
+
+	<!-- ============================ SERUM RETUNE AND OTHER ============================ -->
+	
+	<WVC_XaG_SuremRetuneJob_Label>Retune</WVC_XaG_SuremRetuneJob_Label>
+	<WVC_XaG_SuremRetuneJob_Desc>You can change the xenotype that the serum is tuned to.</WVC_XaG_SuremRetuneJob_Desc>
+	<WVC_XaG_SuremRetuneJob_ChangeDesc>You have chosen the {0} xenotype. Are you sure of your choice?</WVC_XaG_SuremRetuneJob_ChangeDesc>
+	<WVC_XaG_SuremRetuneJob_ResearchPrerequisites>{0} technology is required.</WVC_XaG_SuremRetuneJob_ResearchPrerequisites>
+
 	<!-- ============================ GENE INFO ============================ -->
 
 	<!-- Red -->

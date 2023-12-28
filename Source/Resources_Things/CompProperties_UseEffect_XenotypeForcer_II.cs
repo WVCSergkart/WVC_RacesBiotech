@@ -1,39 +1,44 @@
+using System.Collections.Generic;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class CompProperties_UseEffect_XenotypeForcer_II : CompProperties
-    {
+	public class CompProperties_UseEffect_XenotypeForcer_II : CompProperties
+	{
 
-        // public XenotypeForcerType xenotypeForcerType = (XenotypeForcerType)0;
+		// public XenotypeForcerType xenotypeForcerType = (XenotypeForcerType)0;
 
-        public XenotypeType xenotypeType = (XenotypeType)0;
+		public XenotypeType xenotypeType = (XenotypeType)0;
 
-        // public XenotypeDef xenotypeDef;
+		// public XenotypeDef xenotypeDef;
 
-        public bool removeEndogenes = false;
+		public bool removeEndogenes = false;
 
-        public bool removeXenogenes = true;
+		public bool removeXenogenes = true;
 
-        // public enum XenotypeForcerType
-        // {
-        // Base,
-        // Hybrid,
-        // Custom,
-        // CustomHybrid
-        // }
+		public JobDef retuneJob;
 
-        public enum XenotypeType
-        {
-            Base,
-            Archite
-        }
+		public List<ResearchProjectDef> researchPrerequisites;
 
-        public CompProperties_UseEffect_XenotypeForcer_II()
-        {
-            compClass = typeof(CompUseEffect_XenotypeForcer_II);
-        }
-    }
+		// public enum XenotypeForcerType
+		// {
+		// Base,
+		// Hybrid,
+		// Custom,
+		// CustomHybrid
+		// }
+
+		public enum XenotypeType
+		{
+			Base,
+			Archite
+		}
+
+		public CompProperties_UseEffect_XenotypeForcer_II()
+		{
+			compClass = typeof(CompUseEffect_XenotypeForcer_II);
+		}
+	}
 
 }

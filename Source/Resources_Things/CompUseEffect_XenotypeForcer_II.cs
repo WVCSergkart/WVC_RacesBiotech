@@ -1,7 +1,9 @@
 using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 using Verse;
+using Verse.AI;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -104,6 +106,67 @@ namespace WVC_XenotypesAndGenes
 				int max = HediffDefOf.XenogerminationComa.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.max;
 				Find.LetterStack.ReceiveLetter("LetterLabelGenesImplanted".Translate(), "WVC_LetterTextGenesImplanted".Translate(pawn.Named("TARGET"), max.ToStringTicksToPeriod().Named("COMADURATION")), LetterDefOf.NeutralEvent, new LookTargets(pawn));
 			}
+		}
+
+		public override IEnumerable<Gizmo> CompGetGizmosExtra()
+		{
+			if (Props.retuneJob == null)
+			{
+				yield break;
+			}
+			Command_Action command_Action = new()
+			{
+				defaultLabel = "WVC_XaG_SuremRetuneJob_Label".Translate(),
+				defaultDesc = "WVC_XaG_SuremRetuneJob_Desc".Translate(),
+				icon = parent.def.uiIcon,
+				action = delegate
+				{
+					List<FloatMenuOption> list = new();
+					List<Pawn> list2 = parent.MapHeld.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer);
+					for (int i = 0; i < list2.Count; i++)
+					{
+						Pawn pawn = list2[i];
+						if (pawn.IsColonistPlayerControlled && pawn.CanReach(parent, PathEndMode.ClosestTouch, Danger.Deadly) && !pawn.Downed && !pawn.Dead)
+						{
+							list.Add(new FloatMenuOption(pawn.LabelShort, delegate
+							{
+								pawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(Props.retuneJob, parent), JobTag.Misc);
+							}, pawn, Color.white));
+						}
+					}
+					if (list.Any())
+					{
+						Find.WindowStack.Add(new FloatMenu(list));
+					}
+					if (list.NullOrEmpty())
+					{
+						Messages.Message("WVC_XaG_GeneralTargetTooFar".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
+					}
+				}
+			};
+			if (!AllProjectsFinished(Props.researchPrerequisites, out ResearchProjectDef nonResearched))
+			{
+				command_Action.Disable("WVC_XaG_SuremRetuneJob_ResearchPrerequisites".Translate(nonResearched.LabelCap));
+			}
+			yield return command_Action;
+		}
+
+		public static bool AllProjectsFinished(List<ResearchProjectDef> researchProjects, out ResearchProjectDef nonResearched)
+		{
+			nonResearched = null;
+			if (!researchProjects.NullOrEmpty())
+			{
+				for (int i = 0; i < researchProjects?.Count; i++)
+				{
+					if (researchProjects[i] == null || !researchProjects[i].IsFinished)
+					{
+						nonResearched = researchProjects[i];
+						return false;
+					}
+				}
+				return true;
+			}
+			return true;
 		}
 
 	}
