@@ -172,8 +172,9 @@
 
   <ThoughtDef>
 	<defName>WVC_XenotypesAndGenes_WasResurrected</defName>
-	<durationDays>6</durationDays>
-	<stackLimit>1</stackLimit>
+	<durationDays>12</durationDays>
+	<stackLimit>3</stackLimit>
+	<stackedEffectMultiplier>0.5</stackedEffectMultiplier>
 	<stages>
 	  <li>
 		<label>was resurrected</label>
