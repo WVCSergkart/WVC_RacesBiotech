@@ -4,7 +4,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class HediffCompProperties_ChangeXenotype : HediffCompProperties
+    public class HediffCompProperties_ChangeXenotype : HediffCompProperties
 	{
 		public float requiredSeverity = 1.0f;
 

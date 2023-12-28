@@ -4,7 +4,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_XenotypeShapeshifter : Gene
+    public class Gene_XenotypeShapeshifter : Gene
 	{
 
 		// public bool geneIsXenogene = false;

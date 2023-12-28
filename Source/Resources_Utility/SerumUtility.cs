@@ -7,7 +7,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public static class SerumUtility
+    public static class SerumUtility
 	{
 
 		// Basic check excluding all non-humans

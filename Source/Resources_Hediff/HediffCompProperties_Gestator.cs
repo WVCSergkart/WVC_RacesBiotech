@@ -5,7 +5,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class HediffCompProperties_Gestator : HediffCompProperties
+    public class HediffCompProperties_Gestator : HediffCompProperties
 	{
 
 		public int gestationIntervalDays = -1;

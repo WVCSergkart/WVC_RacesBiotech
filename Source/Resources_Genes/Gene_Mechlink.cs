@@ -9,7 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Mechlink : Gene
+    public class Gene_Mechlink : Gene
 	{
 
 		public override void PostAdd()

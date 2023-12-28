@@ -1,12 +1,11 @@
 using RimWorld;
 using System.Collections.Generic;
-using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public class CompProperties_AbilityPawnNutritionCost : CompProperties_AbilityEffect
+    public class CompProperties_AbilityPawnNutritionCost : CompProperties_AbilityEffect
 	{
 		public float nutritionCost = 0.2f;
 

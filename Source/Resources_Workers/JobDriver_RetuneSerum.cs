@@ -1,14 +1,11 @@
 using System.Collections.Generic;
-using RimWorld;
-using UnityEngine;
 using Verse;
 using Verse.AI;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public class JobDriver_RetuneSerum : JobDriver
+    public class JobDriver_RetuneSerum : JobDriver
 	{
 
 		public int ticksToRetune = 180;

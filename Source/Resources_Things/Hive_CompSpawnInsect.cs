@@ -6,7 +6,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class CompHiveSpawnAnimals : ThingComp
+    public class CompHiveSpawnAnimals : ThingComp
 	{
 		public int tickCounter = 0;
 		public int currentNumberOfSpawns = 0;

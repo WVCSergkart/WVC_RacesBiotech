@@ -8,7 +8,7 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class CompProperties_AbilityReimplanter : CompProperties_AbilityEffect
+    public class CompProperties_AbilityReimplanter : CompProperties_AbilityEffect
 	{
 
 		public ThoughtDef afterResurrectionThoughtDef;

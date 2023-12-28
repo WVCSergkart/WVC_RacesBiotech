@@ -7,7 +7,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Wings : Gene
+    public class Gene_Wings : Gene
 	{
 
 		public HediffDef HediffDefName => def.GetModExtension<GeneExtension_Giver>().hediffDefName;

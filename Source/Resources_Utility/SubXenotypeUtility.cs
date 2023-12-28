@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public static class SubXenotypeUtility
+    public static class SubXenotypeUtility
 	{
 
 		// ========================================================

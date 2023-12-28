@@ -1,6 +1,5 @@
 using RimWorld;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using UnityEngine;
 using Verse;
@@ -9,7 +8,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class CompProperties_XenoTree : CompProperties
+    public class CompProperties_XenoTree : CompProperties
 	{
 		public IntRange ticksBetweenSpawn = new(480000, 720000);
 

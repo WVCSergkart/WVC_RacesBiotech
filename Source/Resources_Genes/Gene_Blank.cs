@@ -4,7 +4,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Blank : Gene
+    public class Gene_Blank : Gene
 	{
 
 		private List<Gene> genesListForReading;

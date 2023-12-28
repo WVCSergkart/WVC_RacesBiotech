@@ -178,6 +178,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 		<xenotypeType>Base</xenotypeType>
 		<removeEndogenes>false</removeEndogenes>
 		<removeXenogenes>true</removeXenogenes>
+		<jobString>Retune</jobString>
 		<retuneJob>WVC_XenotypesAndGenes_RetuneSerum</retuneJob>
 		<researchPrerequisites>
 		  <li>WVC_XenotypesAndGenes_RetuneSerum</li>

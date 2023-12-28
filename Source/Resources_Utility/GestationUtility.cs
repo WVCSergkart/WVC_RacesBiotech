@@ -1,7 +1,6 @@
 using RimWorld;
 using RimWorld.Planet;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using Verse;
 using Verse.AI.Group;
@@ -10,8 +9,8 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	// [StaticConstructorOnStartup]
-	public static class GestationUtility
+    // [StaticConstructorOnStartup]
+    public static class GestationUtility
 	{
 
 		public static void GenerateNewBornPawn(Pawn pawn, string completeMessage = "WVC_RB_Gene_MechaGestator", bool endogeneTransfer = true, bool xenogeneTransfer = true, Pawn spawnPawn = null)

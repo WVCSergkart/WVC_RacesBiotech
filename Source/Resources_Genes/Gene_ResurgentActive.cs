@@ -3,7 +3,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_ResurgentDependent : Gene
+    public class Gene_ResurgentDependent : Gene
 	{
 
 		[Unsaved(false)]

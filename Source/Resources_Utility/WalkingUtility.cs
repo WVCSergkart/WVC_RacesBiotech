@@ -1,14 +1,11 @@
 using RimWorld;
-using System.Linq;
 using System.Collections.Generic;
-using UnityEngine;
 using Verse;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public static class WalkingUtility
+    public static class WalkingUtility
 	{
 
 		public static bool CanChoseMechPawnKindDef(Pawn lich, PawnKindDef golem)

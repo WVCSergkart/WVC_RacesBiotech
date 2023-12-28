@@ -5,7 +5,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Faceless : Gene
+    public class Gene_Faceless : Gene
 	{
 
 		public List<HeadTypeDef> HeadTypeDefs => def.GetModExtension<GeneExtension_Giver>().headTypeDefs;

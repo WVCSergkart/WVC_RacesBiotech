@@ -5,7 +5,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class CompUseEffect_XenotypeForcer : CompUseEffect
+    public class CompUseEffect_XenotypeForcer : CompUseEffect
 	{
 		public CompProperties_UseEffect_XenotypeForcer Props => (CompProperties_UseEffect_XenotypeForcer)props;
 

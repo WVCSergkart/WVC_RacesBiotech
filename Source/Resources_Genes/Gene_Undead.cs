@@ -1,7 +1,7 @@
-using System.Collections.Generic;
-using System.Linq;
 using RimWorld;
 using RimWorld.QuestGen;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Verse;
 // using Verse.AI;
@@ -9,7 +9,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Undead : Gene
+    public class Gene_Undead : Gene
 	{
 		// public readonly int penaltyYears = 5;
 
@@ -94,7 +94,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (!PawnCanResurrect() && Gene_Dust != null)
 			{
-				return Gene_DustReincarnation.CanReincarnate(pawn, this, MinChronoAge);
+				return GeneIsActive() && Gene_DustReincarnation.CanReincarnate(pawn, this, MinChronoAge);
 			}
 			return false;
 		}

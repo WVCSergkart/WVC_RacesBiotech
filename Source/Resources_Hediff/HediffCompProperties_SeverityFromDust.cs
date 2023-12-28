@@ -1,11 +1,10 @@
 using RimWorld;
-using System.Collections.Generic;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public class HediffCompProperties_SeverityFromDust : HediffCompProperties
+    public class HediffCompProperties_SeverityFromDust : HediffCompProperties
 	{
 
 		// public float severityPerHourEmpty;

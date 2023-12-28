@@ -1,13 +1,12 @@
 using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_XenotypeForcer : Gene
+    public class Gene_XenotypeForcer : Gene
 	{
 
 		public XenotypeDef Xenotype => def.GetModExtension<GeneExtension_Giver>()?.xenotypeForcerDef;

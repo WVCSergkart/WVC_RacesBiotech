@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Verse;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	[StaticConstructorOnStartup]
+    [StaticConstructorOnStartup]
 	public class GeneGizmo_ResurgentSpores : Gizmo
 	{
 		public const int InRectPadding = 6;

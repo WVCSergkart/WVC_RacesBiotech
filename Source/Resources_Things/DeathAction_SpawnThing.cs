@@ -4,7 +4,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class DeathActionWorker_SpawnThing : DeathActionWorker
+    public class DeathActionWorker_SpawnThing : DeathActionWorker
 	{
 		public override void PawnDied(Corpse corpse)
 		{

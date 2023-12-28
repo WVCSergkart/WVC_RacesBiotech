@@ -1,15 +1,12 @@
 using RimWorld;
 using System;
-using System.Linq;
 using System.Collections.Generic;
-using UnityEngine;
 using Verse;
-using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public static class XaG_GeneUtility
+    public static class XaG_GeneUtility
 	{
 
 		public static List<GeneDef> ConvertGenesInGeneDefs(List<Gene> genes)

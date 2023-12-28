@@ -1,12 +1,11 @@
 using RimWorld;
 using System.Collections.Generic;
-using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_DustDrain : Gene
+    public class Gene_DustDrain : Gene
 	{
 
 		// private float cachedMaxNutrition = 0f;

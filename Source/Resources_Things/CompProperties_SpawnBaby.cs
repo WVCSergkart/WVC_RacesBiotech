@@ -1,12 +1,11 @@
 using RimWorld;
 using System.Collections.Generic;
-using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public class CompProperties_SpawnBabyPawnAndInheritGenes : CompProperties
+    public class CompProperties_SpawnBabyPawnAndInheritGenes : CompProperties
 	{
 		public IntRange ticksBetweenSpawn = new(60000, 120000);
 

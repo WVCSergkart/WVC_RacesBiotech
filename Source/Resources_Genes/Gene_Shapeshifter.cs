@@ -7,7 +7,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Shapeshifter : Gene
+    public class Gene_Shapeshifter : Gene
 	{
 
 		// public XenotypeDef Xenotype => def.GetModExtension<GeneExtension_Giver>()?.xenotypeForcerDef;

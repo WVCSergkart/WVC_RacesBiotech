@@ -1,6 +1,4 @@
 using RimWorld;
-using System.Linq;
-using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -8,7 +6,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public static class ThoughtUtility
+    public static class ThoughtUtility
 	{
 
 		public static void ThoughtFromThing(Thing parent, ThoughtDef thoughtDef, bool showEffect = true, int radius = 5)

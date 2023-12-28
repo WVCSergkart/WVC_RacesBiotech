@@ -5,7 +5,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	[StaticConstructorOnStartup]
+    [StaticConstructorOnStartup]
 	public static class XenotypesFilterStartup
 	{
 		public static List<string> filterBlackListedXenotypesForSerums = new();

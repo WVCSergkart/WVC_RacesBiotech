@@ -9,7 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public static class ReimplanterUtility
+    public static class ReimplanterUtility
 	{
 
 		public static void Reimplanter(Pawn caster, Pawn recipient, bool endogenes = true, bool xenogenes = true)

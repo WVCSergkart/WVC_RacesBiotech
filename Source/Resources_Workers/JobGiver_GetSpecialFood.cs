@@ -1,13 +1,12 @@
-using System.Collections.Generic;
 using RimWorld;
-using UnityEngine;
+using System.Collections.Generic;
 using Verse;
 using Verse.AI;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public class JobGiver_GetSpecialFood : ThinkNode_JobGiver
+    public class JobGiver_GetSpecialFood : ThinkNode_JobGiver
 	{
 
 		public List<GeneDef> geneDefs;

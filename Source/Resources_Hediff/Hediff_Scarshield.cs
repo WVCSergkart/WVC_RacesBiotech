@@ -1,13 +1,11 @@
 using RimWorld;
-using System.Collections.Generic;
-using System.Text;
 using Verse;
 
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public class HediffWithComps_Scars : HediffWithComps
+    public class HediffWithComps_Scars : HediffWithComps
 	{
 
 		// public XaG_HediffDef def;

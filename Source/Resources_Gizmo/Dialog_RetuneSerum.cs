@@ -1,6 +1,4 @@
 using RimWorld;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -8,7 +6,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Dialog_RetuneSerum : Dialog_XenotypesBase
+    public class Dialog_RetuneSerum : Dialog_XenotypesBase
 	{
 
 		public CompUseEffect_XenotypeForcer_II xenotypeForcer;
@@ -57,11 +55,12 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (Widgets.ButtonText(rect4, "Accept".Translate()))
 				{
-					Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_SuremRetuneJob_ChangeDesc".Translate(selectedXeno.LabelCap), delegate
-					{
-						StartChange();
-					});
-					Find.WindowStack.Add(window);
+					// Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_SuremRetuneJob_ChangeDesc".Translate(selectedXeno.LabelCap), delegate
+					// {
+						// StartChange();
+					// });
+					// Find.WindowStack.Add(window);
+					StartChange();
 				}
 			}
 			else

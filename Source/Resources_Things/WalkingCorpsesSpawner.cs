@@ -8,7 +8,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class CompProperties_WalkingCorpsesSpawner : CompProperties
+    public class CompProperties_WalkingCorpsesSpawner : CompProperties
 	{
 		public IntRange ticksBetweenSpawn = new(60000, 120000);
 

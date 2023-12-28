@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Hediff_LabeledMechlink : Hediff_Mechlink
+    public class Hediff_LabeledMechlink : Hediff_Mechlink
 	{
 
 		public override string LabelBase

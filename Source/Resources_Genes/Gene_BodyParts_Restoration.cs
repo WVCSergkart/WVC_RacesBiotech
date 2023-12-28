@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_RestoreMissingBodyParts : Gene
+    public class Gene_RestoreMissingBodyParts : Gene
 	{
 		private int ticksToHealBodyPart;
 

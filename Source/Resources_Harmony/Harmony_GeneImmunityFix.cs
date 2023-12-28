@@ -5,11 +5,11 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	namespace HarmonyPatches
-	{
+    namespace HarmonyPatches
+    {
 
-		// Replaces the vanilla check (without gene Active check) with a version with gene Active check
-		[HarmonyPatch(typeof(Pawn_GeneTracker), "HediffGiversCanGive")]
+        // Replaces the vanilla check (without gene Active check) with a version with gene Active check
+        [HarmonyPatch(typeof(Pawn_GeneTracker), "HediffGiversCanGive")]
 		public static class WVC_Pawn_GeneTracker_HediffGiversCanGive_Patch
 		{
 

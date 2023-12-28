@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class CompUseEffect_XenotypeForcer_Hybrid : CompUseEffect
+    public class CompUseEffect_XenotypeForcer_Hybrid : CompUseEffect
 	{
 
 		public XenotypeDef endotype = null;

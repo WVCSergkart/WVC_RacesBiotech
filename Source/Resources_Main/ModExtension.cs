@@ -7,7 +7,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class GeneExtension_Background : DefModExtension
+    public class GeneExtension_Background : DefModExtension
 	{
 		public string backgroundPathEndogenes;
 		public string backgroundPathXenogenes;

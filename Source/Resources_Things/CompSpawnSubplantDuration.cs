@@ -2,12 +2,11 @@
 using RimWorld;
 using System.Collections.Generic;
 using Verse;
-using Verse.AI;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public class CompSpawnSubplantDuration : ThingComp
+    public class CompSpawnSubplantDuration : ThingComp
 	{
 		private int nextSubplantTick;
 

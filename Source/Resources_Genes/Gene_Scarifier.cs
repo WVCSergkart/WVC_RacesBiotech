@@ -1,12 +1,12 @@
-using System.Collections.Generic;
 using RimWorld;
+using System.Collections.Generic;
 using Verse;
 using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Scarifier : Gene
+    public class Gene_Scarifier : Gene
 	{
 
 		// For external requests

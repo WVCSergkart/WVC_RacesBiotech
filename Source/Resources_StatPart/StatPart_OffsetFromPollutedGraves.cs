@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class StatPart_OffsetFromPollutedGraves : StatPart
+    public class StatPart_OffsetFromPollutedGraves : StatPart
 	{
 		// public string buildingDefName = "NatureShrine";
 

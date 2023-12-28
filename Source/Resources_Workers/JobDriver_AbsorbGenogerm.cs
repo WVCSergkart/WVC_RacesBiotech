@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using RimWorld;
+using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 using Verse.AI;
@@ -8,7 +8,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class JobDriver_AbsorbGenogerm : JobDriver
+    public class JobDriver_AbsorbGenogerm : JobDriver
 	{
 
 		// public int ticksToAbsorb = 60;

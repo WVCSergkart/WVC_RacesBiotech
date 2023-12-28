@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class CompProperties_GenesDisplayInfo : CompProperties
+    public class CompProperties_GenesDisplayInfo : CompProperties
 	{
 
 		public bool onlyPlayerFaction = true;

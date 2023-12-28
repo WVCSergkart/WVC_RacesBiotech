@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class BuildingBandwidthWeight
+    public class BuildingBandwidthWeight
 	{
 		public ThingDef thingDef;
 		public float bandwidth = 1f;

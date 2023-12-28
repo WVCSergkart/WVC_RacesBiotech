@@ -1,11 +1,10 @@
 using RimWorld;
-using System.Collections.Generic;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public static class DustUtility
+    public static class DustUtility
 	{
 
 		public static void OffsetNeedFood(Pawn pawn, float offset)

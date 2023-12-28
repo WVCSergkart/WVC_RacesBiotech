@@ -1,15 +1,12 @@
 using RimWorld;
-using System.Linq;
-using System.Collections.Generic;
-using UnityEngine;
-using Verse;
-using Verse.Sound;
 using RimWorld.QuestGen;
+using System.Collections.Generic;
+using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public static class MechanoidsUtility
+    public static class MechanoidsUtility
 	{
 
 		public static void MechSummonQuest(Pawn pawn, QuestScriptDef quest)

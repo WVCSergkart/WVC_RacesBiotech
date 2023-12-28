@@ -4,7 +4,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class CompProperties_Summon : CompProperties_AbilityEffect
+    public class CompProperties_Summon : CompProperties_AbilityEffect
 	{
 		public QuestScriptDef quest;
 

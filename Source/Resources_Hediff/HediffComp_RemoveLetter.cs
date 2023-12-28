@@ -4,7 +4,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class HediffCompProperties_RemoveLetter : HediffCompProperties
+    public class HediffCompProperties_RemoveLetter : HediffCompProperties
 	{
 
 		public string letterLabel = "WVC_XaG_GeneXenoGestator_CooldownLetterLabel";

@@ -6,21 +6,21 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-	// public class CompProperties_AbilityRiseFromTheDead : CompProperties_AbilityEffect
-	// {
+    // public class CompProperties_AbilityRiseFromTheDead : CompProperties_AbilityEffect
+    // {
 
-		// public ThoughtDef afterResurrectionThoughtDef;
+    // public ThoughtDef afterResurrectionThoughtDef;
 
-		// public ThoughtDef resurrectorThoughtDef;
-		// public ThoughtDef resurrectedThoughtDef;
+    // public ThoughtDef resurrectorThoughtDef;
+    // public ThoughtDef resurrectedThoughtDef;
 
-		// public CompProperties_AbilityRiseFromTheDead()
-		// {
-			// compClass = typeof(CompAbilityEffect_RiseFromTheDead);
-		// }
-	// }
+    // public CompProperties_AbilityRiseFromTheDead()
+    // {
+    // compClass = typeof(CompAbilityEffect_RiseFromTheDead);
+    // }
+    // }
 
-	public class CompAbilityEffect_RiseFromTheDead : CompAbilityEffect
+    public class CompAbilityEffect_RiseFromTheDead : CompAbilityEffect
 	{
 		// private static readonly CachedTexture ReimplantIcon = new CachedTexture("WVC/UI/Genes/Reimplanter");
 

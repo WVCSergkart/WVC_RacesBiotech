@@ -5,7 +5,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class CompProperties_Regeneration : CompProperties
+    public class CompProperties_Regeneration : CompProperties
 	{
 
 		public bool shouldSendNotification = false;

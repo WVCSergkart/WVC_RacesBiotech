@@ -4,7 +4,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class ThoughtWorker_Precept_Undead_Social : ThoughtWorker_Precept_Social
+    public class ThoughtWorker_Precept_Undead_Social : ThoughtWorker_Precept_Social
 	{
 		protected override ThoughtState ShouldHaveThought(Pawn p, Pawn otherPawn)
 		{

@@ -4,7 +4,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class HediffComp_Gestator : HediffComp
+    public class HediffComp_Gestator : HediffComp
 	{
 		private readonly int ticksInday = 60000;
 

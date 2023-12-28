@@ -4,7 +4,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Ageless : Gene
+    public class Gene_Ageless : Gene
 	{
 
 		public override void PostAdd()

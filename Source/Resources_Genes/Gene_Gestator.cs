@@ -7,7 +7,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Gestator_TestTool : Gene
+    public class Gene_Gestator_TestTool : Gene
 	{
 
 		public override IEnumerable<Gizmo> GetGizmos()

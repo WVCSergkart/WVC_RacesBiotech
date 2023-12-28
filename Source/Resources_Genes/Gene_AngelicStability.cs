@@ -1,10 +1,9 @@
-using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_AngelicStability : Gene_DustDrain
+    public class Gene_AngelicStability : Gene_DustDrain
 	{
 
 		public HediffDef HediffDefName => def.GetModExtension<GeneExtension_Giver>().hediffDefName;

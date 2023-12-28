@@ -8,7 +8,7 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class CompUseEffect_XenotypeForcer_II : CompUseEffect
+    public class CompUseEffect_XenotypeForcer_II : CompUseEffect
 	{
 		public XenotypeDef xenotype = null;
 
@@ -28,22 +28,14 @@ namespace WVC_XenotypesAndGenes
 					case CompProperties_UseEffect_XenotypeForcer_II.XenotypeType.Archite:
 						xenotype = xenotypeDef.Where((XenotypeDef randomXenotypeDef) => SerumUtility.XenotypeHasArchites(randomXenotypeDef)).RandomElement();
 						break;
-						// case CompProperties_UseEffect_XenotypeForcer_II.XenotypeType.Hybrid:
-						// xenotype = xenotypeDef.Where((XenotypeDef randomXenotypeDef) => SerumUtility.XenotypeHasArchites(randomXenotypeDef)).RandomElement();
-						// break;
 				}
 				if (xenotype == null)
 				{
-					// We assign a random xenotype if there are no alternatives.
+					// Assign a random xenotype if there are no alternatives.
 					Log.Error("Generated serum with null xenotype. Choose random.");
 					xenotype = xenotypeDef.RandomElement();
 				}
 			}
-			// descriptionHyperlinks = new List<DefHyperlink> { xenotype };
-			// if (this.DescriptionHyperlinks != null)
-			// {
-			// this.DescriptionHyperlinks.Add(xenotype);
-			// }
 		}
 
 		public override string TransformLabel(string label)
@@ -63,7 +55,6 @@ namespace WVC_XenotypesAndGenes
 
 		public override void DoEffect(Pawn pawn)
 		{
-			// SerumUtility.HumanityCheck(pawn);
 			if (SerumUtility.HumanityCheck(pawn))
 			{
 				return;
@@ -82,20 +73,6 @@ namespace WVC_XenotypesAndGenes
 			bool perfectCandidate = SerumUtility.HasCandidateGene(pawn);
 			List<string> blackListedXenotypes = XenotypeFilterUtility.BlackListedXenotypesForSerums(false);
 			SerumUtility.XenotypeSerum(pawn, blackListedXenotypes, xenotype, Props.removeEndogenes, Props.removeXenogenes);
-			// switch (Props.xenotypeForcerType)
-			// {
-			// case CompProperties_UseEffect_XenotypeForcer_II.XenotypeForcerType.Base:
-			// break;
-			// case CompProperties_UseEffect_XenotypeForcer_II.XenotypeForcerType.Hybrid:
-			// SerumUtility.HybridXenotypeSerum(pawn, blackListedXenotypes, xenotype);
-			// break;
-			// case CompProperties_UseEffect_XenotypeForcer_II.XenotypeForcerType.Custom:
-			// SerumUtility.CustomXenotypeSerum(pawn, blackListedXenotypes);
-			// break;
-			// case CompProperties_UseEffect_XenotypeForcer_II.XenotypeForcerType.CustomHybrid:
-			// SerumUtility.CustomHybridXenotypeSerum(pawn, blackListedXenotypes);
-			// break;
-			// }
 			if (!perfectCandidate)
 			{
 				pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
@@ -149,6 +126,28 @@ namespace WVC_XenotypesAndGenes
 				command_Action.Disable("WVC_XaG_SuremRetuneJob_ResearchPrerequisites".Translate(nonResearched.LabelCap));
 			}
 			yield return command_Action;
+		}
+
+		public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
+		{
+			if (Props.retuneJob == null || Props.jobString.NullOrEmpty())
+			{
+				yield break;
+			}
+			if (!selPawn.CanReach(parent, PathEndMode.ClosestTouch, Danger.Deadly))
+			{
+				yield break;
+			}
+			if (selPawn.CurJob != null && selPawn.CurJob.def == Props.retuneJob && selPawn.CurJob.targetA.Thing == parent && !AllProjectsFinished(Props.researchPrerequisites, out ResearchProjectDef nonResearched))
+			{
+				yield return new FloatMenuOption(Props.jobString + " (" + "WVC_XaG_SuremRetuneJob_ResearchPrerequisites".Translate(nonResearched.LabelCap) + ")", null);
+				yield break;
+			}
+			yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(Props.jobString + " " + parent.LabelShort, delegate
+			{
+				Job job = JobMaker.MakeJob(Props.retuneJob, parent);
+				selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+			}), selPawn, parent);
 		}
 
 		public static bool AllProjectsFinished(List<ResearchProjectDef> researchProjects, out ResearchProjectDef nonResearched)

@@ -5,7 +5,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class HediffCompProperties_SuperRegeneration : HediffCompProperties
+    public class HediffCompProperties_SuperRegeneration : HediffCompProperties
 	{
 
 		public bool shouldSendNotification = false;

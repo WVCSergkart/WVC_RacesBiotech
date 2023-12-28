@@ -1,12 +1,10 @@
-using RimWorld;
-using RimWorld.QuestGen;
 using System.Collections.Generic;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public static class HediffUtility
+    public static class HediffUtility
 	{
 
 		public static bool HasAnyHediff(List<HediffDef> hediffDefs, Pawn pawn)

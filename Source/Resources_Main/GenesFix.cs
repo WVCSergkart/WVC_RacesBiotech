@@ -1,11 +1,10 @@
 ﻿using RimWorld;
-using System.Collections.Generic;
 using System.Linq;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-	public class FixBrokenGenes_GameComponent : GameComponent
+    public class FixBrokenGenes_GameComponent : GameComponent
 	{
 		// public override void StartedNewGame()
 		// {

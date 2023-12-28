@@ -5,7 +5,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class CompProperties_AbilityGiveHediff : CompProperties_AbilityEffectWithDuration
+    public class CompProperties_AbilityGiveHediff : CompProperties_AbilityEffectWithDuration
 	{
 		public HediffDef hediffDef;
 

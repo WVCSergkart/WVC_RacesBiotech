@@ -7,7 +7,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class HediffWithComps_Spores : HediffWithComps
+    public class HediffWithComps_Spores : HediffWithComps
 	{
 		public int cachedSporesCount;
 

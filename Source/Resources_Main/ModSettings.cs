@@ -8,7 +8,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class WVC_BiotechSettings : ModSettings
+    public class WVC_BiotechSettings : ModSettings
 	{
 		// Graphic
 		public bool disableFurGraphic = false;

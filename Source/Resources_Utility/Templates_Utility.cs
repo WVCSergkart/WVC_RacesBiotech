@@ -7,8 +7,8 @@ using static Verse.GeneSymbolPack;
 namespace WVC_XenotypesAndGenes
 {
 
-	// [StaticConstructorOnStartup]
-	public static class TemplatesUtility
+    // [StaticConstructorOnStartup]
+    public static class TemplatesUtility
 	{
 
 		public static void InheritGeneImmunityFrom(GeneDef geneDef, GeneDef inheritGeneDef)

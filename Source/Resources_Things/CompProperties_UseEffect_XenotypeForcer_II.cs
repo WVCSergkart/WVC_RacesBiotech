@@ -4,7 +4,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class CompProperties_UseEffect_XenotypeForcer_II : CompProperties
+    public class CompProperties_UseEffect_XenotypeForcer_II : CompProperties
 	{
 
 		// public XenotypeForcerType xenotypeForcerType = (XenotypeForcerType)0;
@@ -18,6 +18,9 @@ namespace WVC_XenotypesAndGenes
 		public bool removeXenogenes = true;
 
 		public JobDef retuneJob;
+
+		[MustTranslate]
+		public string jobString;
 
 		public List<ResearchProjectDef> researchPrerequisites;
 

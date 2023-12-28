@@ -8,7 +8,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Dialog_Shapeshifter : Dialog_XenotypesBase
+    public class Dialog_Shapeshifter : Dialog_XenotypesBase
 	{
 		public Gene gene;
 

@@ -5,7 +5,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class CompProperties_UseEffectEatSeed : CompProperties_Usable
+    public class CompProperties_UseEffectEatSeed : CompProperties_Usable
 	{
 		public HediffDef hediffDef;
 

@@ -1,13 +1,12 @@
 using RimWorld;
 using System.Collections.Generic;
-using System.Text;
 using Verse;
 
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public class StatModifierList
+    public class StatModifierList
 	{
 		public List<StatModifier> statOffsets;
 		public List<StatModifier> statFactors;

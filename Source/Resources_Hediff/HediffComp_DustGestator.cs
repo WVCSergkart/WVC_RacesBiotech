@@ -1,11 +1,10 @@
-using RimWorld;
 using System.Collections.Generic;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public class HediffCompProperties_ImmaculateConception : HediffCompProperties
+    public class HediffCompProperties_ImmaculateConception : HediffCompProperties
 	{
 		public float requiredSeverity = 1.0f;
 

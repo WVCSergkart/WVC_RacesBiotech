@@ -1,6 +1,4 @@
 using RimWorld;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -8,7 +6,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Dialog_ChooseXenotype : Dialog_XenotypesBase
+    public class Dialog_ChooseXenotype : Dialog_XenotypesBase
 	{
 		public Gene gene;
 

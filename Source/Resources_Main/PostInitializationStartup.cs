@@ -1,13 +1,12 @@
 using RimWorld;
 using System.Collections.Generic;
-using System.Linq;
 using Verse;
 
 // namespace WVC
 namespace WVC_XenotypesAndGenes
 {
 
-	[StaticConstructorOnStartup]
+    [StaticConstructorOnStartup]
 	public static class PostInitializationInheritFromGenes
 	{
 		static PostInitializationInheritFromGenes()

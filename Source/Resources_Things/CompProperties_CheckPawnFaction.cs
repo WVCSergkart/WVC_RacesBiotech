@@ -5,7 +5,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class CompProperties_InitialPawnFaction : CompProperties
+    public class CompProperties_InitialPawnFaction : CompProperties
 	{
 		public CompProperties_InitialPawnFaction()
 		{

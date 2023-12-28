@@ -3,7 +3,7 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-	[DefOf]
+    [DefOf]
 	public static class WVC_GenesDefOf
 	{
 		public static GeneDef WVC_FemaleOnly;
