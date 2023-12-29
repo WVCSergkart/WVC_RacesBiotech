@@ -750,5 +750,101 @@ namespace WVC_XenotypesAndGenes
 			return recipeDef;
 		}
 
+		// ============================ SPAWNER ============================
+
+		public static GeneDef GetFromTemplate_SpawnerGenes_Resources(SpawnerGeneTemplateDef template, ThingDef thingDef, int displayOrderBase)
+		{
+			GeneDef geneDef = new()
+			{
+				defName = template.defName + "_" + thingDef.defName + "_RB",
+				label = template.label.Formatted(thingDef.LabelCap),
+				labelShortAdj = template.labelShortAdj.Formatted(thingDef.label),
+				description = template.description.Formatted(thingDef.label),
+				geneClass = template.geneClass,
+				iconPath = template.iconPath,
+				hairColorOverride = thingDef.stuffProps.color,
+				randomBrightnessFactor = 0f,
+				customEffectDescriptions = new(),
+				selectionWeight = template.selectionWeight,
+				marketValueFactor = template.marketValueFactor,
+				randomChosen = template.randomChosen,
+				exclusionTags = template.exclusionTags,
+				canGenerateInGeneSet = template.canGenerateInGeneSet,
+				biostatCpx = template.biostatCpx,
+				biostatMet = template.biostatMet,
+				biostatArc = template.biostatArc,
+				displayCategory = template.displayCategory,
+				displayOrderInCategory = displayOrderBase + template.displayOrderOffset,
+				minAgeActive = template.minAgeActive,
+				modContentPack = template.modContentPack,
+				modExtensions = new List<DefModExtension>
+				{
+					new GeneExtension_Spawner
+					{
+						thingDefToSpawn = thingDef,
+						stackCount = (int)(thingDef.stackLimit * template.stackCountPercent),
+						spawnIntervalRange = template.spawnIntervalRange
+					}
+				}
+			};
+			if (template.modExtensions != null)
+			{
+				foreach (DefModExtension item in template.modExtensions)
+				{
+					geneDef.modExtensions.Add(item);
+				}
+			}
+			if (template.customEffectDescriptions != null)
+			{
+				foreach (string item in template.customEffectDescriptions)
+				{
+					geneDef.customEffectDescriptions.Add(item.Formatted(thingDef.label, (template.spawnIntervalRange.min / 60000).ToString(), (template.spawnIntervalRange.max / 60000).ToString()));
+				}
+			}
+			return geneDef;
+		}
+
+		// ============================ HAIR AND BODY COLOR OVERRIDE ============================
+
+		public static GeneDef GetFromTemplate_SkinHairColorGenes_FromResources(ColorGeneTemplateDef template, ThingDef thingDef, int displayOrderBase)
+		{
+			GeneDef geneDef = new()
+			{
+				defName = template.defName + "_" + thingDef.defName + "_RB",
+				label = template.label.Formatted(thingDef.label),
+				// labelShortAdj = template.labelShortAdj.Formatted(thingDef.label),
+				description = template.description.Formatted(thingDef.label),
+				iconPath = template.iconPath,
+				geneClass = typeof(Gene),
+				randomBrightnessFactor = 0f,
+				selectionWeight = template.selectionWeight,
+				randomChosen = template.randomChosen,
+				exclusionTags = template.exclusionTags,
+				canGenerateInGeneSet = template.canGenerateInGeneSet,
+				biostatCpx = template.biostatCpx,
+				biostatMet = template.biostatMet,
+				biostatArc = template.biostatArc,
+				displayCategory = template.displayCategory,
+				displayOrderInCategory = displayOrderBase + template.displayOrderOffset,
+				modContentPack = template.modContentPack
+			};
+			if (template.modExtensions != null)
+			{
+				foreach (DefModExtension item in template.modExtensions)
+				{
+					geneDef.modExtensions.Add(item);
+				}
+			}
+			if (template.skinColor)
+			{
+				geneDef.skinColorOverride = thingDef.stuffProps.color;
+			}
+			else
+			{
+				geneDef.hairColorOverride = thingDef.stuffProps.color;
+			}
+			return geneDef;
+		}
+
 	}
 }

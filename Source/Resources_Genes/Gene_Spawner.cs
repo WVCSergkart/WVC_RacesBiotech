@@ -8,9 +8,24 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Spawner : Gene
 	{
 		public ThingDef ThingDefToSpawn => def.GetModExtension<GeneExtension_Spawner>().thingDefToSpawn;
-		public int StackCount => def.GetModExtension<GeneExtension_Spawner>().stackCount;
+
+		private int StackCount => def.GetModExtension<GeneExtension_Spawner>().stackCount;
 
 		public int ticksUntilSpawn;
+
+		// For info
+		public int FinalStackCount => GetStackCount();
+		private int cachedStackCount;
+		// For info
+
+		// public override string Label => GetLabel();
+
+		// public override string LabelCap => GetLabel().CapitalizeFirst();
+
+		// private string GetLabel()
+		// {
+			// return def.label + " (" + ThingDefToSpawn.LabelCap + ")";
+		// }
 
 		public override void PostAdd()
 		{
@@ -26,34 +41,47 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (pawn.Map != null && Active)
 				{
-					SpawnItems(pawn);
+					SpawnItems();
 				}
 				ResetInterval();
 			}
 		}
 
-		private void SpawnItems(Pawn pawn)
+		private void SpawnItems()
 		{
 			Thing thing = ThingMaker.MakeThing(ThingDefToSpawn);
-			int countedStack = (int)(StackCount * GetStackModifier(pawn));
-			thing.stackCount = countedStack <= 1 ? 1 : countedStack;
+			thing.stackCount = GetStackModifier();
 			GenPlace.TryPlaceThing(thing, pawn.Position, pawn.Map, ThingPlaceMode.Near, null, null, default);
 		}
 
-		private float GetStackModifier(Pawn pawn)
+		private int GetStackCount()
+		{
+			if (cachedStackCount != 0)
+			{
+				return cachedStackCount;
+			}
+			// Log.Error("_1");
+			return GetStackModifier();
+		}
+
+		private int GetStackModifier()
 		{
 			float modifier = 1f;
 			List<Gene> genes = pawn?.genes?.GenesListForReading;
 			if (genes.NullOrEmpty())
 			{
-				return modifier;
+				cachedStackCount = (int)modifier;
+				return cachedStackCount;
 			}
 			int met = 0;
 			foreach (Gene item in genes)
 			{
 				met += item.def.biostatMet;
 			}
-			return modifier + (met * 0.1f);
+			modifier += met * 0.1f;
+			int countedStack = (int)(StackCount * modifier);
+			cachedStackCount = countedStack <= 1 ? 1 : countedStack;
+			return cachedStackCount;
 		}
 
 		private void ResetInterval()
@@ -73,7 +101,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						if (pawn.Map != null && Active)
 						{
-							SpawnItems(pawn);
+							SpawnItems();
 						}
 						ResetInterval();
 					}

@@ -98,9 +98,15 @@ A restart is required to apply the setting. Enabled by default.</WVC_ToolTip_val
 	<!-- ====================================================================================== -->
 	<WVC_Label_generateSkillGenes>Enable aptitude genes</WVC_Label_generateSkillGenes>
 	<WVC_Label_generateXenotypeForceGenes>Enable endo/xeno-forcer genes</WVC_Label_generateXenotypeForceGenes>
+	<WVC_Label_generateResourceSpawnerGenes>Enable resource spawner genes</WVC_Label_generateResourceSpawnerGenes>
+	<WVC_Label_generateSkinHairColorGenes>Enable color generated genes</WVC_Label_generateSkinHairColorGenes>
 	<WVC_ToolTip_generateTemplateGenes>If enabled, the corresponding genes will be generated at startup.
 
 A restart is required to apply the setting.</WVC_ToolTip_generateTemplateGenes>
+
+	<WVC_ToolTip_generateSkinHairColorGenes>If enabled, generates genes for hair and skin with colors corresponding to the materials available in the game.
+
+A restart is required to apply the setting.</WVC_ToolTip_generateSkinHairColorGenes>
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_genesRemoveMechlinkUponDeath>Genes remove mechlink upon death</WVC_Label_genesRemoveMechlinkUponDeath>

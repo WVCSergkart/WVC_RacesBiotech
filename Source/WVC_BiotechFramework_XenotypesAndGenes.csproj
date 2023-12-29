@@ -194,9 +194,9 @@
     <Compile Include="Resources_StatPart\StatPart_OffsetFromBuildingsOnMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources_StatPart\StatPart_XenotypeSerum.cs" />
-    <Compile Include="Resources_Templates\Templates.cs" />
+    <Compile Include="Resources_Templates\GeneTemplateDefs.cs" />
     <Compile Include="Resources_Utility\Templates_Utility.cs" />
-    <Compile Include="Resources_Templates\Templates_XenotypesAndGenes.cs" />
+    <Compile Include="Resources_Templates\SerumTemplateDefs.cs" />
     <Compile Include="Resources_Things\CompTargetable_TargetValidation.cs" />
     <Compile Include="Resources_Things\CompToxifier.cs" />
     <Compile Include="Resources_Things\DeathAction_SpawnThing.cs" />

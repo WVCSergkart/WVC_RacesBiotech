@@ -65,6 +65,7 @@
 		<li>Disables spawner genes.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
+	  <li>WVC_ResourceSpawners</li>
 	  <li>WVC_GenepackSpawner</li>
 	  <li>WVC_ChunkSpawner</li>
 	  <li>WVC_TemplateSerumSpawner</li>
