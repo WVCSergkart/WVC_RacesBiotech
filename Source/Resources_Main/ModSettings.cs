@@ -202,12 +202,101 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenHybrid".Translate(), ref settings.serumsForAllXenotypes_GenHybrid, "WVC_ToolTip_serumsForAllXenotypes_GenHybrid".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_Recipes".Translate(), ref settings.serumsForAllXenotypes_Recipes, "WVC_ToolTip_serumsForAllXenotypes_Recipes".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_serumsSpawnersForAllXenotypes".Translate(), ref settings.serumsForAllXenotypes_Spawners, "WVC_ToolTip_serumsSpawnersForAllXenotypes".Translate());
-			listingStandard.Gap();
-			// ===============
-			// if (listingStandard.ButtonText("WVC_XaG_ResetAllSettings_Label"))
-			// {
-			// }
-			// ===============
+			listingStandard.GapLine();
+			// =============== Buttons ===============
+			if (listingStandard.ButtonText("WVC_XaG_ResetButton".Translate()))
+			{
+				Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_ResetButtonWarning".Translate(), delegate
+				{
+					// Graphic
+					settings.disableFurGraphic = false;
+					settings.disableAllGraphic = false;
+					settings.disableUniqueGeneInterface = false;
+					// Genes
+					settings.generateSkillGenes = true;
+					settings.generateXenotypeForceGenes = false;
+					settings.generateResourceSpawnerGenes = false;
+					settings.generateSkinHairColorGenes = false;
+					settings.canNonPlayerPawnResurrect = false;
+					settings.allowShapeshiftAfterDeath = true;
+					settings.totalHealingIgnoreScarification = true;
+					settings.genesRemoveMechlinkUponDeath = false;
+					settings.enableCustomMechLinkName = false;
+					// Fix
+					settings.fixVanillaGeneImmunityCheck = true;
+					settings.minWastepacksPerRecharge = false;
+					settings.validatorAbilitiesPatch = true;
+					settings.spawnXenoForcerSerumsFromTraders = false;
+					// Info
+					settings.enableGenesInfo = true;
+					settings.enableGeneSpawnerGizmo = true;
+					settings.enableGeneWingInfo = false;
+					settings.enableGeneBlesslinkInfo = true;
+					settings.enableGeneUndeadInfo = false;
+					settings.enableGeneScarifierInfo = false;
+					settings.enableGolemsInfo = true;
+					// Serums
+					settings.serumsForAllXenotypes = true;
+					settings.serumsForAllXenotypes_GenBase = true;
+					settings.serumsForAllXenotypes_GenUltra = false;
+					settings.serumsForAllXenotypes_GenHybrid = false;
+					settings.serumsForAllXenotypes_Recipes = true;
+					settings.serumsForAllXenotypes_Spawners = false;
+					// XenotypesSettings
+					cachedXenotypesFilter.Clear();
+					XenotypesFilterStartup.SetValues(XenotypeFilterUtility.WhiteListedXenotypesForFilter());
+					// Message
+					Messages.Message("WVC_XaG_ResetButton_SettingsChanged".Translate(), MessageTypeDefOf.TaskCompletion, historical: false);
+				});
+				Find.WindowStack.Add(window);
+			}
+			if (listingStandard.ButtonText("WVC_XaG_ModDeveloperRecommendationButton".Translate()))
+			{
+				Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_ResetButtonWarning".Translate(), delegate
+				{
+					// Graphic
+					settings.disableFurGraphic = false;
+					settings.disableAllGraphic = false;
+					settings.disableUniqueGeneInterface = false;
+					// Genes
+					settings.generateSkillGenes = true;
+					settings.generateXenotypeForceGenes = false;
+					settings.generateResourceSpawnerGenes = false;
+					settings.generateSkinHairColorGenes = false;
+					settings.canNonPlayerPawnResurrect = false;
+					settings.allowShapeshiftAfterDeath = true;
+					settings.totalHealingIgnoreScarification = true;
+					settings.genesRemoveMechlinkUponDeath = false;
+					settings.enableCustomMechLinkName = true;
+					// Fix
+					settings.fixVanillaGeneImmunityCheck = true;
+					settings.minWastepacksPerRecharge = false;
+					settings.validatorAbilitiesPatch = true;
+					settings.spawnXenoForcerSerumsFromTraders = true;
+					// Info
+					settings.enableGenesInfo = true;
+					settings.enableGeneSpawnerGizmo = true;
+					settings.enableGeneWingInfo = true;
+					settings.enableGeneBlesslinkInfo = true;
+					settings.enableGeneUndeadInfo = true;
+					settings.enableGeneScarifierInfo = true;
+					settings.enableGolemsInfo = true;
+					// Serums
+					settings.serumsForAllXenotypes = false;
+					settings.serumsForAllXenotypes_GenBase = false;
+					settings.serumsForAllXenotypes_GenUltra = false;
+					settings.serumsForAllXenotypes_GenHybrid = false;
+					settings.serumsForAllXenotypes_Recipes = false;
+					settings.serumsForAllXenotypes_Spawners = false;
+					// XenotypesSettings
+					cachedXenotypesFilter.Clear();
+					XenotypesFilterStartup.SetValues(XenotypeFilterUtility.WhiteListedXenotypesForFilter());
+					// Message
+					Messages.Message("WVC_XaG_ResetButton_SettingsChanged".Translate(), MessageTypeDefOf.TaskCompletion, historical: false);
+				});
+				Find.WindowStack.Add(window);
+			}
+			// =============== Dev Mode ===============
 			if (Prefs.DevMode)
 			{
 				if (listingStandard.ButtonText("DEV: Count active WVC_ genes"))

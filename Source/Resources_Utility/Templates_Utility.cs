@@ -762,6 +762,7 @@ namespace WVC_XenotypesAndGenes
 				description = template.description.Formatted(thingDef.label),
 				geneClass = template.geneClass,
 				iconPath = template.iconPath,
+				// Icon = thingDef.uiIcon,
 				hairColorOverride = thingDef.stuffProps.color,
 				randomBrightnessFactor = 0f,
 				customEffectDescriptions = new(),
@@ -801,6 +802,17 @@ namespace WVC_XenotypesAndGenes
 					geneDef.customEffectDescriptions.Add(item.Formatted(thingDef.label, (template.spawnIntervalRange.min / 60000).ToString(), (template.spawnIntervalRange.max / 60000).ToString()));
 				}
 			}
+			// if (thingDef.graphicData != null)
+			// {
+				// if (thingDef.graphicData.graphicClass is Graphic_Single)
+				// {
+					// geneDef.texPath = thingDef.graphicData.texPath;
+				// }
+				// if (thingDef.graphicData.graphicClass is Graphic_StackCount)
+				// {
+					// geneDef.texPath = ContentFinder<string>.Get(thingDef.graphicData.texPath);
+				// }
+			// }
 			return geneDef;
 		}
 

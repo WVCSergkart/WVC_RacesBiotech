@@ -9,6 +9,7 @@
 	<graphicData>
 	  <color>(255, 255, 255)</color>
 	  <layer>PostHeadgear</layer>
+	  <!-- <drawNorthAfterHair>false</drawNorthAfterHair> -->
 	</graphicData>
 	<symbolPack>
 	  <prefixSymbols>

@@ -12,6 +12,12 @@
 	<WVC_BiotechSettings_Label_Other>Other</WVC_BiotechSettings_Label_Other>
 	<WVC_BiotechSettings_Label_Serums>Serums</WVC_BiotechSettings_Label_Serums>
 
+	<WVC_XaG_ResetButton>Reset</WVC_XaG_ResetButton>
+	<WVC_XaG_ModDeveloperRecommendationButton>Dev Recommended Settings</WVC_XaG_ModDeveloperRecommendationButton>
+
+	<WVC_XaG_ResetButtonWarning>The settings will be changed, are you sure?</WVC_XaG_ResetButtonWarning>
+	<WVC_XaG_ResetButton_SettingsChanged>The settings have been changed.</WVC_XaG_ResetButton_SettingsChanged>
+
 	<WVC_BiotechSettings_Tooltip_Graphics>Settings responsible for graphic elements.</WVC_BiotechSettings_Tooltip_Graphics>
 	<WVC_BiotechSettings_Tooltip_Info>Settings responsible for information in the interface.
 
