@@ -7,9 +7,11 @@ namespace WVC_XenotypesAndGenes
 
 	public class Gene_Spawner : Gene
 	{
-		public ThingDef ThingDefToSpawn => def.GetModExtension<GeneExtension_Spawner>().thingDefToSpawn;
+		// public ThingDef ThingDefToSpawn => def.GetModExtension<GeneExtension_Spawner>().thingDefToSpawn;
 
-		private int StackCount => def.GetModExtension<GeneExtension_Spawner>().stackCount;
+		// private int StackCount => def.GetModExtension<GeneExtension_Spawner>().stackCount;
+
+		public GeneExtension_Spawner Props => def.GetModExtension<GeneExtension_Spawner>();
 
 		public int ticksUntilSpawn;
 
@@ -37,21 +39,26 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.Tick();
 			ticksUntilSpawn--;
-			if (ticksUntilSpawn <= 0)
+			if (ticksUntilSpawn > 0)
 			{
-				if (pawn.Map != null && Active)
-				{
-					SpawnItems();
-				}
-				ResetInterval();
+				return;
 			}
+			if (pawn.Map != null && Active && pawn.Faction == Faction.OfPlayer && Props != null)
+			{
+				SpawnItems();
+			}
+			ResetInterval();
 		}
 
 		private void SpawnItems()
 		{
-			Thing thing = ThingMaker.MakeThing(ThingDefToSpawn);
+			Thing thing = ThingMaker.MakeThing(Props.thingDefToSpawn);
 			thing.stackCount = GetStackModifier();
 			GenPlace.TryPlaceThing(thing, pawn.Position, pawn.Map, ThingPlaceMode.Near, null, null, default);
+			if (Props.showMessageIfOwned)
+			{
+				Messages.Message(Props.spawnMessage.Translate(thing.LabelCap), thing, MessageTypeDefOf.PositiveEvent);
+			}
 		}
 
 		private int GetStackCount()
@@ -79,7 +86,7 @@ namespace WVC_XenotypesAndGenes
 				met += item.def.biostatMet;
 			}
 			modifier += met * 0.1f;
-			int countedStack = (int)(StackCount * modifier);
+			int countedStack = (int)(Props.stackCount * modifier);
 			cachedStackCount = countedStack <= 1 ? 1 : countedStack;
 			return cachedStackCount;
 		}
@@ -95,7 +102,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield return new Command_Action
 				{
-					defaultLabel = "DEV: Spawn " + ThingDefToSpawn.label,
+					defaultLabel = "DEV: Spawn " + Props.thingDefToSpawn.label,
 					defaultDesc = "NextSpawnedResourceIn".Translate() + ": " + ticksUntilSpawn.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor),
 					action = delegate
 					{

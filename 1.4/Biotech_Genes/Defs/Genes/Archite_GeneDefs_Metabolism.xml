@@ -127,7 +127,7 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
 			<thingDefToSpawn>Wastepack</thingDefToSpawn>
 			<stackCount>5</stackCount>
-			<!-- <customLabel>Wastepack</customLabel> -->
+			<showMessageIfOwned>false</showMessageIfOwned>
 		</li>
 	</modExtensions>
   </GeneDef>

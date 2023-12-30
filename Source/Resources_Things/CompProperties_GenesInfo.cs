@@ -178,7 +178,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						info += "\n";
 					}
-					info += "NextSpawnedItemIn".Translate(GenLabel.ThingLabel(cachedSpawnerGenes[i].ThingDefToSpawn, null, cachedSpawnerGenes[i].FinalStackCount)).Resolve() + ": " + cachedSpawnerGenes[i].ticksUntilSpawn.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
+					info += "NextSpawnedItemIn".Translate(GenLabel.ThingLabel(cachedSpawnerGenes[i]?.Props?.thingDefToSpawn, null, cachedSpawnerGenes[i].FinalStackCount)).Resolve() + ": " + cachedSpawnerGenes[i].ticksUntilSpawn.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
 				}
 			}
 			if (cachedBlesslinkGene != null && cachedBlesslinkGene.summonMechanoids)

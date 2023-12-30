@@ -48,6 +48,11 @@
 		<!-- <description>For each mechanoid in faction</description> -->
 	  <!-- </li> -->
 	</comps>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.PreceptExtension_General"> -->
+			<!-- <blesslinkCannotSummonMechanoids>true</blesslinkCannotSummonMechanoids> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </PreceptDef>
 
   <!-- ============ -->

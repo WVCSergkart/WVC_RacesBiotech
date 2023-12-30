@@ -26,6 +26,8 @@
 
 	<WVC_XaG_GeneralTargetTooFar>No one can reach.</WVC_XaG_GeneralTargetTooFar>
 
+	<WVC_XaG_General_DisabledIdeo>{PAWN_nameDef}'s ideology prevents {PAWN_objective} from using this ability.</WVC_XaG_General_DisabledIdeo>
+
 	<!-- ============================ SERUM RETUNE AND OTHER ============================ -->
 	
 	<WVC_XaG_SuremRetuneJob_Label>Retune</WVC_XaG_SuremRetuneJob_Label>

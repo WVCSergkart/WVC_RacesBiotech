@@ -108,10 +108,10 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostAdd();
 			ResetInterval();
-			if (pawn.Faction != null && pawn.Faction == Faction.OfPlayer)
-			{
-				summonMechanoids = true;
-			}
+			// if (pawn.Faction != null && pawn.Faction == Faction.OfPlayer)
+			// {
+				// summonMechanoids = true;
+			// }
 		}
 
 		public override void Tick()
@@ -132,6 +132,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
+			// if (!MechanoidsUtility.CanSummonMechanoidsIdeo(pawn))
+			// {
+				// summonMechanoids = false;
+				// return;
+			// }
 			// if ((gene_Dust.Value - def.resourceLossPerDay) >= 0f)
 			// {
 			// }
@@ -213,7 +218,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (Active && Find.Selector.SelectedPawns.Count == 1 && pawn.Faction == Faction.OfPlayer || DebugSettings.ShowDevGizmos)
 			{
-				yield return new Command_Action
+				Command_Action command_Action = new()
 				{
 					defaultLabel = "WVC_XaG_Gene_DustMechlink".Translate() + ": " + GeneUiUtility.OnOrOff(summonMechanoids),
 					defaultDesc = "WVC_XaG_Gene_DustMechlinkDesc".Translate(),
@@ -231,6 +236,11 @@ namespace WVC_XenotypesAndGenes
 						}
 					}
 				};
+				// if (!MechanoidsUtility.CanSummonMechanoidsIdeo(pawn))
+				// {
+					// command_Action.Disable("WVC_XaG_General_DisabledIdeo".Translate(pawn.Named("PAWN")));
+				// }
+				yield return command_Action;
 			}
 		}
 	}

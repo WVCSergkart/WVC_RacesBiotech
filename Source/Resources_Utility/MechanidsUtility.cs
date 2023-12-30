@@ -9,6 +9,30 @@ namespace WVC_XenotypesAndGenes
     public static class MechanoidsUtility
 	{
 
+		// Ideo
+
+		// public static bool CanSummonMechanoidsIdeo(Pawn pawn)
+		// {
+			// if (!ModLister.CheckIdeology("Ideology"))
+			// {
+				// return true;
+			// }
+			// List<Precept> preceptsListForReading = pawn?.ideo?.Ideo?.PreceptsListForReading;
+			// if (preceptsListForReading.NullOrEmpty())
+			// {
+				// return true;
+			// }
+			// foreach (Precept precept in preceptsListForReading)
+			// {
+				// PreceptExtension_General preceptExtension = precept?.def?.GetModExtension<PreceptExtension_General>();
+				// if (preceptExtension != null)
+				// {
+					// return !preceptExtension.blesslinkCannotSummonMechanoids;
+				// }
+			// }
+			// return true;
+		// }
+
 		public static void MechSummonQuest(Pawn pawn, QuestScriptDef quest)
 		{
 			Slate slate = new();

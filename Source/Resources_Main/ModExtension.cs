@@ -25,6 +25,8 @@ namespace WVC_XenotypesAndGenes
 		// public QuestScriptDef resurrectionQuest;
 		// public bool writeTimeLeftToSpawn = true;
 		// public string customLabel = "Resource";
+		public string spawnMessage = "MessageCompSpawnerSpawnedItem";
+		public bool showMessageIfOwned = true;
 	}
 
 	public class GeneExtension_General : DefModExtension
@@ -86,6 +88,11 @@ namespace WVC_XenotypesAndGenes
 		// public float shapeshiftChance = 0.1f;
 		// public bool xenotypeCanShapeshiftOnDeath = false;
 		// public List<XenotypeDef> xenotypeDefs;
+	// }
+
+	// public class PreceptExtension_General : DefModExtension
+	// {
+		// public bool blesslinkCannotSummonMechanoids = false;
 	// }
 
 	// public class XenotypeExtension_XenotypeShapeShift : DefModExtension

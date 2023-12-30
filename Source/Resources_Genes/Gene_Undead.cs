@@ -11,35 +11,21 @@ namespace WVC_XenotypesAndGenes
 
     public class Gene_Undead : Gene
 	{
-		// public readonly int penaltyYears = 5;
 
-		// public readonly float oneYear = 3600000f;
+		public GeneExtension_Giver Giver => def.GetModExtension<GeneExtension_Giver>();
 
-		// public int Penalty => (int)(oneYear * penaltyYears);
-		// public long Limit => (long)(oneYear * MinAge);
-		// public float CurrentAge => pawn.ageTracker.AgeBiologicalTicks;
-		// public float MinAge => pawn.ageTracker.AdultMinAge;
+		public GeneExtension_Spawner Spawner => def.GetModExtension<GeneExtension_Spawner>();
 
-		// public HediffDef HediffDefName => def.GetModExtension<GeneExtension_Giver>().hediffDefName;
+		// public BackstoryDef ChildBackstoryDef => def.GetModExtension<GeneExtension_Giver>()?.childBackstoryDef;
+		// public BackstoryDef AdultBackstoryDef => def.GetModExtension<GeneExtension_Giver>()?.adultBackstoryDef;
 
-		public BackstoryDef ChildBackstoryDef => def.GetModExtension<GeneExtension_Giver>()?.childBackstoryDef;
-		public BackstoryDef AdultBackstoryDef => def.GetModExtension<GeneExtension_Giver>()?.adultBackstoryDef;
-
-		// public HediffDef HediffDefName => def.GetModExtension<GeneExtension_Giver>().hediffDefName;
-		// public List<BodyPartDef> Bodyparts => def.GetModExtension<GeneExtension_Giver>().bodyparts;
-
-		// public Gene_ResurgentCells Gene_ResurgentCells => pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
 		public Gene_Dust Gene_Dust => pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
-		// public Gene_Scarifier Gene_Scarifier => pawn.genes?.GetFirstGeneOfType<Gene_Scarifier>();
 
-		// public Gene_DustReincarnation gene_DustReincarnation;
-		public QuestScriptDef SummonQuest => def.GetModExtension<GeneExtension_Spawner>().summonQuest;
-		// public QuestScriptDef ResurrectionQuest => def.GetModExtension<GeneExtension_Spawner>().resurrectionQuest;
-		public int MinChronoAge => def.GetModExtension<GeneExtension_Spawner>().stackCount;
+		// public QuestScriptDef SummonQuest => def.GetModExtension<GeneExtension_Spawner>().summonQuest;
+		// public int MinChronoAge => def.GetModExtension<GeneExtension_Spawner>().stackCount;
 
 		public bool UndeadCanResurrect => PawnCanResurrect();
 		public bool UndeadCanReincarnate => DustogenicCanReincarnate();
-		// public bool UndeadResourceIsActive => AnyResourceIsActive();
 
 		public List<HediffDef> PreventResurrectionHediffs => XenotypeFilterUtility.HediffsThatPreventUndeadResurrection();
 
@@ -48,7 +34,7 @@ namespace WVC_XenotypesAndGenes
 			base.Notify_PawnDied();
 			if (DustogenicCanReincarnate())
 			{
-				Gene_DustReincarnation.Reincarnate(pawn, SummonQuest);
+				Gene_DustReincarnation.Reincarnate(pawn, Spawner.summonQuest);
 			}
 		}
 
@@ -94,7 +80,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (!PawnCanResurrect() && Gene_Dust != null)
 			{
-				return GeneIsActive() && Gene_DustReincarnation.CanReincarnate(pawn, this, MinChronoAge);
+				return GeneIsActive() && Gene_DustReincarnation.CanReincarnate(pawn, this, Spawner.stackCount);
 			}
 			return false;
 		}

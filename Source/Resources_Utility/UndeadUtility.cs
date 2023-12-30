@@ -29,7 +29,7 @@ namespace WVC_XenotypesAndGenes
 			// Resurrect
 			if (pawn?.health?.hediffSet?.GetBrain() == null)
 			{
-				Gene_BackstoryChanger.BackstoryChanger(pawn, gene.ChildBackstoryDef, gene.AdultBackstoryDef);
+				Gene_BackstoryChanger.BackstoryChanger(pawn, gene.Giver.childBackstoryDef, gene.Giver.adultBackstoryDef);
 				foreach (SkillRecord item in pawn.skills.skills)
 				{
 					if (!item.TotallyDisabled && item.XpTotalEarned > 0f)
