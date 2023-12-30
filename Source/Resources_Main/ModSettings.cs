@@ -301,15 +301,25 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (listingStandard.ButtonText("DEV: Count active WVC_ genes"))
 				{
+					List<GeneDef> genes = new();
 					int genesCount = 0;
 					foreach (Def def in Content.AllDefs)
 					{
-						if (def is GeneDef)
+						if (def is GeneDef geneDef)
 						{
 							genesCount++;
+							genes.Add(geneDef);
 						}
 					}
 					Log.Error("WVC Genes: " + genesCount.ToString());
+					if (!genes.NullOrEmpty())
+					{
+						Log.Error("All genes:" + "\n" + genes.Select((GeneDef x) => x.defName).ToLineList(" - "));
+					}
+					else
+					{
+						Log.Error("Genes list is null");
+					}
 				}
 			}
 			listingStandard.End();

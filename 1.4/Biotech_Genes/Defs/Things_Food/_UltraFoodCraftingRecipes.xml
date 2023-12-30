@@ -65,6 +65,10 @@
 	<soundWorking>Recipe_CookMeal</soundWorking>
 	<allowMixingIngredients>true</allowMixingIngredients>
 	<ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+	<recipeUsers>
+	  <li>ElectricStove</li>
+	  <li>FueledStove</li>
+	</recipeUsers>
 	<skillRequirements>
 	  <Cooking>8</Cooking>
 	</skillRequirements>
