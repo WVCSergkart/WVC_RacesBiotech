@@ -43,7 +43,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (pawn.Map != null && Active && pawn.Faction == Faction.OfPlayer && Props != null)
+			if (pawn.Map != null && Active && pawn.Faction != null && pawn.Faction == Faction.OfPlayer && Props != null)
 			{
 				SpawnItems();
 			}
