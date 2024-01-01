@@ -53,6 +53,12 @@ Dustogenic pawns will automatically try to use these injectors instead of regula
 	  <canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
 	  <specialThoughtDirect>WVC_IngestedNutrientsInjector</specialThoughtDirect>
 	  <ingestSound>HemogenPack_Consume</ingestSound>
+	  <outcomeDoers>
+		<li Class="IngestionOutcomeDoer_GiveHediff">
+		  <hediffDef>WVC_NutrientsInjector_HungerFactor</hediffDef>
+		  <severity>1.0</severity>
+		</li>
+	  </outcomeDoers>
 	</ingestible>
 	<comps>
 	  <li Class="CompProperties_Forbiddable"/>

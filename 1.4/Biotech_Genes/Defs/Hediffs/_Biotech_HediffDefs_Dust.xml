@@ -236,19 +236,41 @@
 
   <!--=====================================================================-->
 
+  <!-- <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base"> -->
+	<!-- <defName>WVC_Dustogenic_HungerFactor</defName> -->
+	<!-- <label>dust in blood</label> -->
+	<!-- <description>The level of dust in the blood.</description> -->
+	<!-- <defaultLabelColor>(255, 248, 133)</defaultLabelColor> -->
+	<!-- <hediffClass>HediffWithComps</hediffClass> -->
+	<!-- <initialSeverity>1.0</initialSeverity> -->
+	<!-- <minSeverity>0.01</minSeverity> -->
+	<!-- <maxSeverity>1.0</maxSeverity> -->
+	<!-- <comps> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_AlwaysRemove"/> -->
+	<!-- </comps> -->
+  <!-- </HediffDef> -->
+
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
-	<defName>WVC_Dustogenic_HungerFactor</defName>
-	<label>dust in blood</label>
-	<description>The level of dust in the blood.</description>
+	<defName>WVC_NutrientsInjector_HungerFactor</defName>
+	<label>super nutrients</label>
+	<description>Saturation with a special dose of nutrients.</description>
 	<defaultLabelColor>(255, 248, 133)</defaultLabelColor>
 	<hediffClass>HediffWithComps</hediffClass>
 	<initialSeverity>1.0</initialSeverity>
 	<minSeverity>0.01</minSeverity>
 	<maxSeverity>1.0</maxSeverity>
+	<stages>
+	  <li>
+		<hungerRateFactor>0.6</hungerRateFactor>
+		<becomeVisible>true</becomeVisible>
+		<minSeverity>0.0</minSeverity>
+	  </li>
+	</stages>
 	<comps>
-		<!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_SeverityFromDust"/> -->
-		<!-- <li Class="HediffCompProperties_DisappearsOnDeath"/> -->
-		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_AlwaysRemove"/>
+		<li Class="HediffCompProperties_Disappears">
+			<disappearsAfterTicks>50000~90000</disappearsAfterTicks>
+			<showRemainingTime>true</showRemainingTime>
+		</li>
 	</comps>
   </HediffDef>
 

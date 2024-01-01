@@ -1,18 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <RecipeDef>
-	<defName>WVC_Make_NutrientsInjector</defName>
-	<label>make nutrients injector</label>
-	<description>Make a nutrients injector from nutrients.</description>
+  <RecipeDef Name="WVC_XenotypesAndGenes_CookMeal_NutrientsInjector"  Abstract="True">
+	<description>Make a nutrients injector from ultranites.</description>
 	<jobString>Making nutrients injector.</jobString>
 	<workAmount>3450</workAmount>
 	<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 	<workSkill>Crafting</workSkill>
 	<effectWorking>Smith</effectWorking>
 	<soundWorking>Recipe_Machining</soundWorking>
-	<allowMixingIngredients>true</allowMixingIngredients>
-	<ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
 	<displayPriority>-9500</displayPriority>
 	<skillRequirements>
 	  <Crafting>4</Crafting>
@@ -21,41 +17,46 @@
 	<recipeUsers>
 	  <li>WVC_SerumCraftingTable</li>
 	</recipeUsers>
+	<researchPrerequisites>
+	  <li>WVC_XenotypesAndGenes_NutrientsInjector</li>
+	</researchPrerequisites>
+  </RecipeDef>
+
+  <!-- Injectors -->
+  <RecipeDef ParentName="WVC_XenotypesAndGenes_CookMeal_NutrientsInjector">
+	<defName>WVC_Make_NutrientsInjector</defName>
+	<label>make nutrients injector</label>
 	<ingredients>
 	  <li>
 		<filter>
-		  <customSummary>nutrients</customSummary>
-		  <categories>
-			<li>MeatRaw</li>
-			<li>AnimalProductRaw</li>
-			<li>PlantFoodRaw</li>
-		  </categories>
+		  <thingDefs>
+			<li>WVC_UniversalFuel</li>
+		  </thingDefs>
 		</filter>
-		<count>2</count>
+		<count>20</count>
 	  </li>
 	</ingredients>
 	<products>
 	  <WVC_NutrientsInjector>1</WVC_NutrientsInjector>
 	</products>
-	<fixedIngredientFilter>
-	  <categories>
-		<li>FoodRaw</li>
-	  </categories>
-	</fixedIngredientFilter>
-	<defaultIngredientFilter>
-	  <categories>
-		<li>Foods</li>
-	  </categories>
-	  <disallowedCategories>
-		<li>EggsFertilized</li>
-	  </disallowedCategories>
-	  <disallowedThingDefs>
-		<li>InsectJelly</li>
-	  </disallowedThingDefs>
-	</defaultIngredientFilter>
-	<researchPrerequisites>
-	  <li>WVC_XenotypesAndGenes_NutrientsInjector</li>
-	</researchPrerequisites>
+  </RecipeDef>
+
+  <RecipeDef ParentName="WVC_XenotypesAndGenes_CookMeal_NutrientsInjector">
+	<defName>WVC_Make_NutrientsInjector_x4c</defName>
+	<label>make nutrients injector x4</label>
+	<ingredients>
+	  <li>
+		<filter>
+		  <thingDefs>
+			<li>WVC_UniversalFuel</li>
+		  </thingDefs>
+		</filter>
+		<count>80</count>
+	  </li>
+	</ingredients>
+	<products>
+	  <WVC_NutrientsInjector>4</WVC_NutrientsInjector>
+	</products>
   </RecipeDef>
 
   <!-- Meals -->
