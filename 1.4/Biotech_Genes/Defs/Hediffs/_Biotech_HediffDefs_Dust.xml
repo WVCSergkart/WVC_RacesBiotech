@@ -46,8 +46,8 @@
 	  </li>
 	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
 	  <!-- Anti-bug wall -->
-	  <!-- Removes the hediff if it was not applied by mod reimplanters. -->
-	  <!-- For example, the vanilla reimplanter first applies genes, then removes them, and then adds them again. -->
+	  <!-- Removes hediff if gene was not added by wvc reimplanter. -->
+	  <!-- For example, the vanilla reimplanter first adds genes, then removes them, and then adds them again. -->
 	  <!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfPawnHasAngelicStabilityGene"/> -->
 	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIf">
 		<anyOf_GeneDef>
@@ -108,16 +108,16 @@
 		  </li>
 		</capMods>
 	  </li>
-	  <li>
-		<label>recovery</label>
-		<minSeverity>0.90</minSeverity>
-		<capMods>
-		  <li>
-			<capacity>Consciousness</capacity>
-			<setMax>0.20</setMax>
-		  </li>
-		</capMods>
-	  </li>
+	  <!-- <li> -->
+		<!-- <label>recovery</label> -->
+		<!-- <minSeverity>0.90</minSeverity> -->
+		<!-- <capMods> -->
+		  <!-- <li> -->
+			<!-- <capacity>Consciousness</capacity> -->
+			<!-- <setMax>0.20</setMax> -->
+		  <!-- </li> -->
+		<!-- </capMods> -->
+	  <!-- </li> -->
 	</stages>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_ImmaculateConception">
@@ -268,7 +268,7 @@
 	</stages>
 	<comps>
 		<li Class="HediffCompProperties_Disappears">
-			<disappearsAfterTicks>50000~90000</disappearsAfterTicks>
+			<disappearsAfterTicks>50000~150000</disappearsAfterTicks>
 			<showRemainingTime>true</showRemainingTime>
 		</li>
 	</comps>
