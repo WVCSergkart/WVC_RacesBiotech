@@ -138,7 +138,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
-			if (selPawn.CurJob != null && selPawn.CurJob.def == Props.retuneJob && selPawn.CurJob.targetA.Thing == parent && !AllProjectsFinished(Props.researchPrerequisites, out ResearchProjectDef nonResearched))
+			if (selPawn.CurJob != null && selPawn.CurJob.def == Props.retuneJob && selPawn.CurJob.targetA.Thing == parent)
+			{
+				yield break;
+			}
+			if (!AllProjectsFinished(Props.researchPrerequisites, out ResearchProjectDef nonResearched))
 			{
 				yield return new FloatMenuOption(Props.jobString + " (" + "WVC_XaG_SuremRetuneJob_ResearchPrerequisites".Translate(nonResearched.LabelCap) + ")", null);
 				yield break;
