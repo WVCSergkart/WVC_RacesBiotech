@@ -42,7 +42,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (xenotype == null)
 			{
-				return parent.def.label + " (" + "ERR" + ")";
+				return parent.def.label + " (ERR)";
 			}
 			return parent.def.label + " (" + xenotype.label + ")";
 		}
@@ -121,7 +121,7 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			};
-			if (!AllProjectsFinished(Props.researchPrerequisites, out ResearchProjectDef nonResearched))
+			if (!MiscUtility.AllProjectsFinished(Props.researchPrerequisites, out ResearchProjectDef nonResearched))
 			{
 				command_Action.Disable("WVC_XaG_SuremRetuneJob_ResearchPrerequisites".Translate(nonResearched.LabelCap));
 			}
@@ -142,7 +142,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
-			if (!AllProjectsFinished(Props.researchPrerequisites, out ResearchProjectDef nonResearched))
+			if (!MiscUtility.AllProjectsFinished(Props.researchPrerequisites, out ResearchProjectDef nonResearched))
 			{
 				yield return new FloatMenuOption(Props.jobString + " (" + "WVC_XaG_SuremRetuneJob_ResearchPrerequisites".Translate(nonResearched.LabelCap) + ")", null);
 				yield break;
@@ -152,24 +152,6 @@ namespace WVC_XenotypesAndGenes
 				Job job = JobMaker.MakeJob(Props.retuneJob, parent);
 				selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
 			}), selPawn, parent);
-		}
-
-		public static bool AllProjectsFinished(List<ResearchProjectDef> researchProjects, out ResearchProjectDef nonResearched)
-		{
-			nonResearched = null;
-			if (!researchProjects.NullOrEmpty())
-			{
-				for (int i = 0; i < researchProjects?.Count; i++)
-				{
-					if (researchProjects[i] == null || !researchProjects[i].IsFinished)
-					{
-						nonResearched = researchProjects[i];
-						return false;
-					}
-				}
-				return true;
-			}
-			return true;
 		}
 
 	}

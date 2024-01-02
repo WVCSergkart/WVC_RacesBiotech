@@ -16,6 +16,8 @@ namespace WVC_XenotypesAndGenes
 
 		public float matchPercent;
 
+		public List<XenotypeDef> allMatchedXenotypes;
+
 		public Dialog_ChangeXenotype(Thing tree)
 		{
 			xenoTree = tree.TryGetComp<CompXenoTree>();
@@ -29,6 +31,7 @@ namespace WVC_XenotypesAndGenes
 			doCloseX = true;
 			doCloseButton = true;
 			allXenotypes = XenotypeFilterUtility.AllXenotypesExceptAndroids();
+			allMatchedXenotypes = XaG_GeneUtility.GetAllMatchedXenotypes_ForPawns(allColonists, allXenotypes, matchPercent);
 		}
 
 		public override void DrawLeftRect(Rect rect, ref float curY)
@@ -64,7 +67,7 @@ namespace WVC_XenotypesAndGenes
 				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_XenoTreeXenotypeChangeCooldown".Translate(xenoTree.changeCooldown.ToStringTicksToPeriod()).Colorize(ColorLibrary.RedReadable));
 				curY += 10f;
 			}
-			if (!XaG_GeneUtility.GenesIsMatchForPawns(allColonists, selectedXeno.genes, matchPercent))
+			if (!allMatchedXenotypes.Contains(selectedXeno))
 			{
 				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneXenoGestator_GestationGenesMatch".Translate((matchPercent * 100).ToString()).Colorize(ColorLibrary.RedReadable));
 				curY += 10f;
@@ -124,14 +127,18 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
+			if (allMatchedXenotypes.Contains(mode))
+			{
+				return true;
+			}
 			// if (selectedXeno == currentXeno)
 			// {
 				// return false;
 			// }
-			if (XaG_GeneUtility.GenesIsMatchForPawns(allColonists, mode.genes, matchPercent))
-			{
-				return true;
-			}
+			// if (XaG_GeneUtility.GenesIsMatchForPawns(allColonists, mode.genes, matchPercent))
+			// {
+				// return true;
+			// }
 			return false;
 		}
 

@@ -1,4 +1,5 @@
 using RimWorld;
+using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -15,6 +16,8 @@ namespace WVC_XenotypesAndGenes
 		public float matchPercent;
 		public int minimumDays;
 		public int cooldownDays;
+
+		public List<XenotypeDef> allMatchedXenotypes;
 
 		private readonly int ticksInDay = 60000;
 
@@ -34,6 +37,7 @@ namespace WVC_XenotypesAndGenes
 			doCloseX = true;
 			doCloseButton = true;
 			allXenotypes = XenotypeFilterUtility.AllXenotypesExceptAndroids();
+			allMatchedXenotypes = XaG_GeneUtility.GetAllMatchedXenotypes(gene?.pawn, allXenotypes, matchPercent);
 		}
 
 		public override void DrawLeftRect(Rect rect, ref float curY)
@@ -65,7 +69,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneXenoGestator_GestationTime".Translate((GetGestationTime() * ticksInDay).ToStringTicksToPeriod()).Resolve());
 			curY += 10f;
-			if (!XaG_GeneUtility.GenesIsMatch(gene.pawn.genes.GenesListForReading, selectedXeno.genes, matchPercent))
+			if (!allMatchedXenotypes.Contains(selectedXeno))
 			{
 				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneXenoGestator_GestationGenesMatch".Translate((matchPercent * 100).ToString()).Colorize(ColorLibrary.RedReadable));
 				curY += 10f;
@@ -155,8 +159,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				return true;
 			}
-			// TEST
-			if (XaG_GeneUtility.GenesIsMatch(gene?.pawn?.genes?.GenesListForReading, mode.genes, matchPercent))
+			// if (XaG_GeneUtility.GenesIsMatch(gene?.pawn?.genes?.GenesListForReading, mode.genes, matchPercent))
+			// {
+				// return true;
+			// }
+			if (allMatchedXenotypes.Contains(mode))
 			{
 				return true;
 			}

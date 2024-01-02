@@ -219,6 +219,52 @@ namespace WVC_XenotypesAndGenes
 			// return null;
 		// }
 
+		public static List<XenotypeDef> GetAllMatchedXenotypes_ForPawns(List<Pawn> pawns, List<XenotypeDef> xenotypeDefs, float percent = 0.6f)
+		{
+			if (pawns.NullOrEmpty() || xenotypeDefs.NullOrEmpty())
+			{
+				return null;
+			}
+			List<XenotypeDef> allMatched = new();
+			// foreach (Pawn item in pawns)
+			// {
+				// List<XenotypeDef> matched = GetAllMatchedXenotypes(item, xenotypeDefs, percent);
+				// foreach (XenotypeDef xeno in matched)
+				// {
+					// if (!allMatched.Contains(xeno))
+					// {
+						// allMatched.Add(xeno);
+					// }
+				// }
+			// }
+			List<Gene> genes = new();
+			foreach (Pawn pawn in pawns)
+			{
+				List<Gene> genesListForReading = pawn?.genes?.GenesListForReading;
+				if (!genesListForReading.NullOrEmpty())
+				{
+					foreach (Gene gene in pawn.genes.GenesListForReading)
+					{
+						if (!genes.Contains(gene))
+						{
+							genes.Add(gene);
+						}
+					}
+				}
+			}
+			foreach (XenotypeDef item in xenotypeDefs)
+			{
+				if (GenesIsMatch(genes, item.genes, percent))
+				{
+					if (!allMatched.Contains(item))
+					{
+						allMatched.Add(item);
+					}
+				}
+			}
+			return allMatched;
+		}
+
 		public static List<XenotypeDef> GetAllMatchedXenotypes(Pawn pawn, List<XenotypeDef> xenotypeDefs, float percent = 0.6f)
 		{
 			List<Gene> pawnGenes = pawn?.genes?.GenesListForReading;

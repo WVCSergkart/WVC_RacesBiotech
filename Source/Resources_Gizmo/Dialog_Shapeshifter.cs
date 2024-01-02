@@ -14,6 +14,8 @@ namespace WVC_XenotypesAndGenes
 
 		public SoundDef soundDefOnImplant;
 
+		public bool genesRegrowing = false;
+
 		public Dialog_Shapeshifter(Gene thisGene)
 		{
 			gene = thisGene;
@@ -25,6 +27,7 @@ namespace WVC_XenotypesAndGenes
 			doCloseX = true;
 			doCloseButton = true;
 			allXenotypes = XenotypeFilterUtility.AllXenotypesExceptAndroids();
+			genesRegrowing = gene.pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating);
 		}
 
 		public override void DrawLeftRect(Rect rect, ref float curY)
@@ -55,7 +58,7 @@ namespace WVC_XenotypesAndGenes
 				curY += Text.LineHeight;
 			}
 			curY += 10f;
-			if (gene.pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
+			if (genesRegrowing)
 			{
 				Widgets.Label(rect3.x, ref curY, rect3.width, HediffDefOf.XenogermReplicating.description.Colorize(ColorLibrary.RedReadable));
 				curY += 10f;
@@ -115,7 +118,7 @@ namespace WVC_XenotypesAndGenes
 			// {
 				// return false;
 			// }
-			if (gene.pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
+			if (genesRegrowing)
 			{
 				return false;
 			}

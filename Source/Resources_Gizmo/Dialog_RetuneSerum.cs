@@ -82,11 +82,18 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool MeetsRequirements(XenotypeDef mode)
 		{
-			if (xenotypeForcer.Props.xenotypeType == CompProperties_UseEffect_XenotypeForcer_II.XenotypeType.Base && !SerumUtility.XenotypeHasArchites(mode))
+			if (SerumUtility.XenotypeHasArchites(mode))
 			{
-				return true;
+				if (xenotypeForcer.Props.xenotypeType == CompProperties_UseEffect_XenotypeForcer_II.XenotypeType.Archite)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
 			}
-			if (xenotypeForcer.Props.xenotypeType == CompProperties_UseEffect_XenotypeForcer_II.XenotypeType.Archite && SerumUtility.XenotypeHasArchites(mode))
+			else if (xenotypeForcer.Props.xenotypeType == CompProperties_UseEffect_XenotypeForcer_II.XenotypeType.Base)
 			{
 				return true;
 			}
