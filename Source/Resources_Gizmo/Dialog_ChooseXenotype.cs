@@ -11,10 +11,14 @@ namespace WVC_XenotypesAndGenes
 	{
 		public Gene gene;
 
+		public GeneExtension_XenotypeGestator geneExtension;
+
 		public HediffDef hediffDefName;
 		public HediffDef cooldownHediffDef;
 		public float matchPercent;
-		public int minimumDays;
+		// public int minimumDays;
+		public int gestationPeriodDays;
+		public float xenotypeComplexityFactor;
 		public int cooldownDays;
 
 		public List<XenotypeDef> allMatchedXenotypes;
@@ -24,11 +28,15 @@ namespace WVC_XenotypesAndGenes
 		public Dialog_ChooseXenotype(Gene thisGene)
 		{
 			gene = thisGene;
-			hediffDefName = gene?.def?.GetModExtension<GeneExtension_XenotypeGestator>()?.gestationHediffDef;
-			cooldownHediffDef = gene?.def?.GetModExtension<GeneExtension_XenotypeGestator>()?.cooldownHediffDef;
-			matchPercent = gene?.def?.GetModExtension<GeneExtension_XenotypeGestator>() == null ? 1f : gene.def.GetModExtension<GeneExtension_XenotypeGestator>().matchPercent;
-			minimumDays = gene?.def?.GetModExtension<GeneExtension_XenotypeGestator>() == null ? 3 : gene.def.GetModExtension<GeneExtension_XenotypeGestator>().minimumDays;
-			cooldownDays = gene?.def?.GetModExtension<GeneExtension_XenotypeGestator>() == null ? 5 : gene.def.GetModExtension<GeneExtension_XenotypeGestator>().cooldownDays;
+			geneExtension = gene?.def?.GetModExtension<GeneExtension_XenotypeGestator>();
+			hediffDefName = geneExtension?.gestationHediffDef;
+			cooldownHediffDef = geneExtension?.cooldownHediffDef;
+			matchPercent = geneExtension == null ? 1f : geneExtension.matchPercent;
+			// minimumDays = geneExtension == null ? 3 : geneExtension.minimumDays;
+			// gestationPeriodFactor = geneExtension == null ? 1f : geneExtension.gestationPeriodFactor;
+			xenotypeComplexityFactor = geneExtension == null ? 0.1f : geneExtension.xenotypeComplexityFactor;
+			cooldownDays = geneExtension == null ? 5 : geneExtension.cooldownDays;
+			gestationPeriodDays = (int)(gene.pawn.RaceProps.gestationPeriodDays * (geneExtension == null ? 1f : geneExtension.gestationPeriodFactor));
 			// currentXeno = xenoTree.chosenXenotype;
 			// selectedXeno = currentXeno;
 			// connectedPawn = xenoTree.ConnectedPawn;
@@ -97,7 +105,7 @@ namespace WVC_XenotypesAndGenes
 
 		private int GetGestationTime()
 		{
-			return (int)(XaG_GeneUtility.GetXenotype_Cpx(selectedXeno) * 0.1f) + minimumDays;
+			return (int)((XaG_GeneUtility.GetXenotype_Cpx(selectedXeno) * xenotypeComplexityFactor) + gestationPeriodDays);
 		}
 
 		public override void StartChange()
@@ -110,7 +118,7 @@ namespace WVC_XenotypesAndGenes
 			SoundDefOf.MechGestatorCycle_Started.PlayOneShot(new TargetInfo(gene.pawn));
 			// HediffDef hediffDef = gene?.def?.GetModExtension<GeneExtension_Giver>()?.hediffDefName;
 			// Log.Error(hediffDef.LabelCap);
-			if (hediffDefName != null)
+			if (hediffDefName != null && !gene.pawn.health.hediffSet.HasHediff(hediffDefName))
 			{
 				// Log.Error("1");
 				Hediff hediff = HediffMaker.MakeHediff(hediffDefName, gene.pawn);
@@ -119,7 +127,7 @@ namespace WVC_XenotypesAndGenes
 				if (xeno_Gestator != null)
 				{
 					xeno_Gestator.xenotypeDef = selectedXeno;
-					xeno_Gestator.gestationIntervalDays = GetGestationTime() + minimumDays;
+					xeno_Gestator.gestationIntervalDays = GetGestationTime();
 				}
 				HediffComp_RemoveIfGeneIsNotActive hediff_GeneCheck = hediff.TryGetComp<HediffComp_RemoveIfGeneIsNotActive>();
 				if (hediff_GeneCheck != null)
@@ -131,15 +139,15 @@ namespace WVC_XenotypesAndGenes
 				// Log.Error("4");
 				if (cooldownHediffDef != null)
 				{
-					if (gene is Gene_XenotypeGestator geneGestator)
-					{
-						geneGestator.cooldownHediffDef = cooldownHediffDef;
-					}
+					// if (gene is Gene_XenotypeGestator geneGestator)
+					// {
+						// geneGestator.cooldownHediffDef = cooldownHediffDef;
+					// }
 					Hediff cooldownHediff = HediffMaker.MakeHediff(cooldownHediffDef, gene.pawn);
 					HediffComp_Disappears hediffComp_Disappears = cooldownHediff.TryGetComp<HediffComp_Disappears>();
 					if (hediffComp_Disappears != null)
 					{
-						hediffComp_Disappears.ticksToDisappear = ticksInDay * cooldownDays;
+						hediffComp_Disappears.ticksToDisappear = ticksInDay * (cooldownDays + GetGestationTime());
 					}
 					HediffComp_RemoveIfGeneIsNotActive cooldownHediff_GeneCheck = cooldownHediff.TryGetComp<HediffComp_RemoveIfGeneIsNotActive>();
 					if (cooldownHediff_GeneCheck != null)

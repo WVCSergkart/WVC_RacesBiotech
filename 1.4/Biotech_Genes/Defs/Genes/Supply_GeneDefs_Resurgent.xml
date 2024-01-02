@@ -36,7 +36,7 @@
 		<li><symbol>resur</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
-	<minAgeActive>3</minAgeActive>
+	<!-- <minAgeActive>3</minAgeActive> -->
 	<resourceLossPerDay>-0.01</resourceLossPerDay>
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>-1</biostatMet>

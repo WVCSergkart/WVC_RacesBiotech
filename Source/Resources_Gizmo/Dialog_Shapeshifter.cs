@@ -20,7 +20,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			gene = thisGene;
 			currentXeno = thisGene?.pawn?.genes?.Xenotype != null ? thisGene.pawn.genes.Xenotype : null;
-			// selectedXeno = currentXeno;
+			selectedXeno = currentXeno;
 			soundDefOnImplant = gene?.def?.GetModExtension<GeneExtension_Giver>()?.soundDefOnImplant;
 			forcePause = true;
 			closeOnAccept = false;

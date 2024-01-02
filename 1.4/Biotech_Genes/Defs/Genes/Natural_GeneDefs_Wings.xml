@@ -87,7 +87,13 @@
 	<exclusionTags Inherit="False">
 		<li>Wing</li>
 		<li>Wings</li>
+		<li>AG_Wings</li>
 	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_Wings_FeatheredWings</hediffDefName>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- ================================================================== -->
@@ -124,11 +130,6 @@
 		<li><symbol>bird</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<hediffDefName>WVC_Wings_FeatheredWings</hediffDefName>
-		</li>
-	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneWings_Base">
@@ -166,11 +167,6 @@
 		<li><symbol>bat</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<hediffDefName>WVC_Wings_FeatheredWings</hediffDefName>
-		</li>
-	</modExtensions>
   </GeneDef>
 
 </Defs>

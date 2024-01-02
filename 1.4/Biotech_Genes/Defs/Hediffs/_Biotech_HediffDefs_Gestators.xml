@@ -77,6 +77,7 @@
 	<label>post gestation recovery</label>
 	<description>The body of the carrier is restored after the end of the gestation process.</description>
 	<hediffClass>HediffWithComps</hediffClass>
+	<preventsPregnancy>true</preventsPregnancy>
 	<stages>
 	  <li>
 		<hungerRateFactorOffset>0.2</hungerRateFactorOffset>
@@ -101,6 +102,7 @@
 	<label>gestator cooldown</label>
 	<description>Before this time has expired, the gestator cannot be reused.</description>
 	<hediffClass>HediffWithComps</hediffClass>
+	<preventsPregnancy>true</preventsPregnancy>
 	<comps>
 		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveLetter">
 			<letterLabel>WVC_XaG_GeneXenoGestator_CooldownLetterLabel</letterLabel>

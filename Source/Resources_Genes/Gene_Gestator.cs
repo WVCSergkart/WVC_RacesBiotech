@@ -61,13 +61,13 @@ namespace WVC_XenotypesAndGenes
 
 		// public int gestatorCooldown = 0;
 
-		public HediffDef cooldownHediffDef;
+		// public override void ExposeData()
+		// {
+			// base.ExposeData();
+			// Scribe_Defs.Look(ref cooldownHediffDef, "cooldownHediffDef");
+		// }
 
-		public override void ExposeData()
-		{
-			base.ExposeData();
-			Scribe_Defs.Look(ref cooldownHediffDef, "cooldownHediffDef");
-		}
+		public Hediff PreventGestation => HediffUtility.GetFirstHediffPreventsPregnancy(pawn.health.hediffSet.hediffs);
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
@@ -111,12 +111,13 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
+			// Log.Error();
 			yield return new Command_Action
 			{
 				defaultLabel = "WVC_XaG_GeneXenoGestator_Label".Translate(),
 				defaultDesc = "WVC_XaG_GeneXenoGestator_Desc".Translate(),
-				disabled = cooldownHediffDef != null && pawn.health.hediffSet.HasHediff(cooldownHediffDef),
-				disabledReason = "WVC_XaG_GeneXenoGestator_Disabled".Translate(),
+				disabled = PreventGestation != null,
+				disabledReason = "WVC_XaG_GeneXenoGestator_Disabled".Translate(PreventGestation != null ? PreventGestation.def.label : "ERR"),
 				icon = ContentFinder<Texture2D>.Get(def.iconPath),
 				action = delegate
 				{

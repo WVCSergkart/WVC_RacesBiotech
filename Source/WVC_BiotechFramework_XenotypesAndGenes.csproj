@@ -64,6 +64,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources_Abilities\CompAbilityEffect_GeneIsActive.cs" />
+    <Compile Include="Resources_Abilities\CompAbilityEffect_HideIfPawnMultiSelected.cs" />
+    <Compile Include="Resources_Abilities\CompAbilityEffect_PawnPregnant.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_ResurgentCost.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_TargetValid.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityDustCost.cs" />

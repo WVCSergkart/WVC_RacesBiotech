@@ -7,6 +7,18 @@ namespace WVC_XenotypesAndGenes
     public static class HediffUtility
 	{
 
+		public static Hediff GetFirstHediffPreventsPregnancy(List<Hediff> hediffs)
+		{
+			for (int i = 0; i < hediffs.Count; i++)
+			{
+				if (hediffs[i].def.preventsPregnancy)
+				{
+					return hediffs[i];
+				}
+			}
+			return null;
+		}
+
 		public static bool HasAnyHediff(List<HediffDef> hediffDefs, Pawn pawn)
 		{
 			List<Hediff> hediffs = pawn.health.hediffSet.hediffs;

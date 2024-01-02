@@ -141,6 +141,7 @@
 	<defName>WVC_StartGestation</defName>
 	<label>gestator</label>
 	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityHideIfPawnMultiSelected"/>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGiveHediff">
 		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_GiveHediff</compClass>
 		<hediffDef>WVC_RB_AbilityMechaGestator</hediffDef>
@@ -153,6 +154,7 @@
 		  <li>WVC_StartGestation</li>
 		</anyOfGenes>
 	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityPawnPregnant"/>
 	</comps>
   </AbilityDef>
 
@@ -185,6 +187,7 @@
 	  <warmupEffecter>Berserk</warmupEffecter>
 	</verbProperties>
 	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityHideIfPawnMultiSelected"/>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityPawnNutritionCost">
 		<nutritionCost>0.92</nutritionCost>
 	  </li>
@@ -195,6 +198,7 @@
 		  <li>WVC_Dustogenic_ImmaculateConception</li>
 		</eachOfGenes>
 	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityPawnPregnant"/>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGiveHediff">
 		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_GiveHediff</compClass>
 		<hediffDef>WVC_Dustogenic_HediffImmaculateConception</hediffDef>

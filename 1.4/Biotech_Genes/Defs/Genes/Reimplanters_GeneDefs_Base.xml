@@ -50,6 +50,8 @@
 	<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
 	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
 	<showWhenDrafted>false</showWhenDrafted>
+	<showGizmoOnWorldView>false</showGizmoOnWorldView>
+	<stunTargetWhileCasting>true</stunTargetWhileCasting>
 	<!-- <groupAbility>true</groupAbility> -->
 	<!-- <groupDef>WVC_XenotypesAndGenes_ReimplantersGroup</groupDef> -->
 	<verbProperties>
@@ -64,6 +66,9 @@
 		<canTargetMechs>false</canTargetMechs>
 	  </targetParams>
 	</verbProperties>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityHideIfPawnMultiSelected"/>
+	</comps>
   </AbilityDef>
 
   <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base" Name="WVC_XenotypesAndGenes_AbilityTouchReimplanter_RiseFromTheDead_Base" Abstract="True">
@@ -77,11 +82,10 @@
 	  </targetParams>
 	</verbProperties>
 	<comps>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityResurgentCost">
-		<resurgentCost>0.2</resurgentCost>
-		<!-- The ability can always be used, regardless of the resurgent gene. -->
-		<skipIfNotResurgent>true</skipIfNotResurgent>
-	  </li>
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityResurgentCost"> -->
+		<!-- <resurgentCost>0.2</resurgentCost> -->
+		<!-- <skipIfNotResurgent>true</skipIfNotResurgent> -->
+	  <!-- </li> -->
 	</comps>
   </AbilityDef>
 

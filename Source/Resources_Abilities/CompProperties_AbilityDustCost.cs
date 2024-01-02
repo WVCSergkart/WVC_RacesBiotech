@@ -25,12 +25,24 @@ namespace WVC_XenotypesAndGenes
 	{
 		public new CompProperties_AbilityPawnNutritionCost Props => (CompProperties_AbilityPawnNutritionCost)props;
 
+		private Need_Food need_Food = null;
+		// private bool cacheResugentGene = true;
+
+		private void Cache()
+		{
+			if (need_Food == null)
+			{
+				need_Food = parent?.pawn?.needs?.food;
+			}
+		}
+
 		private bool HasEnoughDust
 		{
 			get
 			{
 				// Gene_Dust gene_Dust = parent.pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
-				Need_Food need_Food = parent.pawn.needs?.food;
+				// Need_Food need_Food = parent.pawn.needs?.food;
+				Cache();
 				if (need_Food == null || need_Food.CurLevel < Props.nutritionCost)
 				{
 					return false;
@@ -42,8 +54,9 @@ namespace WVC_XenotypesAndGenes
 		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
 		{
 			base.Apply(target, dest);
-			Need_Food need_Food = parent.pawn.needs?.food;
+			// Need_Food need_Food = parent.pawn.needs?.food;
 			// Gene_Dust gene_Dust = parent.pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
+			Cache();
 			if (need_Food != null)
 			{
 				DustUtility.OffsetNeedFood(parent.pawn, 0f - Props.nutritionCost);
@@ -53,7 +66,8 @@ namespace WVC_XenotypesAndGenes
 		public override bool GizmoDisabled(out string reason)
 		{
 			// Gene_Dust gene_Dust = parent.pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
-			Need_Food need_Food = parent.pawn.needs?.food;
+			// Need_Food need_Food = parent.pawn.needs?.food;
+			Cache();
 			if (need_Food == null)
 			{
 				reason = "WVC_XaG_AbilityDisabledNoDustGene".Translate(parent.pawn);

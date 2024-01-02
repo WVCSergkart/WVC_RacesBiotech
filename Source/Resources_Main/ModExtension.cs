@@ -79,7 +79,9 @@ namespace WVC_XenotypesAndGenes
 		public HediffDef gestationHediffDef;
 		public HediffDef cooldownHediffDef;
 		public float matchPercent = 0.4f;
-		public int minimumDays = 3;
+		// public int minimumDays = 3;
+		public float gestationPeriodFactor = 0.5f;
+		public float xenotypeComplexityFactor = 0.1f;
 		public int cooldownDays = 15;
 	}
 
