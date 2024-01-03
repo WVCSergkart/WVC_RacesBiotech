@@ -94,9 +94,9 @@ namespace WVC_XenotypesAndGenes
 			List<Gene> genesListForReading = pawn?.genes?.GenesListForReading;
 			for (int i = 0; i < genesListForReading.Count; i++)
 			{
-				if (genesListForReading[i].Active == true && genesListForReading[i].def.geneClass == typeof(Gene_Spawner))
+				if (genesListForReading[i].Active == true && genesListForReading[i] is Gene_Spawner geneSpawner)
 				{
-					list.Add((Gene_Spawner)genesListForReading[i]);
+					list.Add(geneSpawner);
 				}
 			}
 			// Log.Error("Pawn " + pawn.Name + " ActiveSpawnerGenes cached: " + list.Count);

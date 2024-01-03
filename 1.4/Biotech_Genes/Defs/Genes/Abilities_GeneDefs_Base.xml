@@ -26,7 +26,7 @@
   <AbilityDef>
 	<defName>WVC_Dustogenic_FeatherBlades</defName>
 	<label>hardened feathers</label>
-	<description>Flap your wings and use the dastogenic chemical reactions to separate the hardened feathers at just the right moment to launch them at the target. Given the method of launch, it is surprisingly easy to aim.</description>
+	<description>Flap your wings and use the dustogenic chemical reactions to separate the hardened feathers at just the right moment to launch them at the target. Given the method of launch, it is surprisingly easy to aim.</description>
 	<iconPath>WVC/UI/Genes/Gene_FeatherBlades_v0</iconPath>
 	<cooldownTicksRange>60</cooldownTicksRange>
 	<!-- <category>Sanguophage</category> -->
@@ -42,7 +42,7 @@
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive">
 		<eachOfGenes>
 		  <li>WVC_Dustogenic_FeatherBlades</li>
-		  <li>WVC_Dustogenic_GeneticStability</li>
+		  <!-- <li>WVC_Dustogenic_GeneticStability</li> -->
 		  <li>WVC_Dustogenic</li>
 		</eachOfGenes>
 		<anyOfGenes>

@@ -84,6 +84,18 @@ namespace WVC_XenotypesAndGenes
 			};
 		}
 
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			if (WVC_Biotech.settings.shapeshifterGeneUnremovable)
+			{
+				if (!pawn.genes.HasGene(this.def))
+				{
+					pawn.genes.AddGene(this.def, false);
+				}
+			}
+		}
+
 	}
 
 	public class Gene_Shapeshifter_Rand : Gene_Shapeshifter

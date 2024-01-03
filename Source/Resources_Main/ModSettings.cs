@@ -24,6 +24,7 @@ namespace WVC_XenotypesAndGenes
 		public bool totalHealingIgnoreScarification = true;
 		public bool genesRemoveMechlinkUponDeath = false;
 		public bool enableCustomMechLinkName = false;
+		public bool shapeshifterGeneUnremovable = false;
 		// Fix
 		public bool fixVanillaGeneImmunityCheck = true;
 		public bool minWastepacksPerRecharge = false;
@@ -68,6 +69,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref totalHealingIgnoreScarification, "totalHealingIgnoreScarification", defaultValue: true);
 			Scribe_Values.Look(ref genesRemoveMechlinkUponDeath, "genesRemoveMechlinkUponDeath", defaultValue: false);
 			Scribe_Values.Look(ref enableCustomMechLinkName, "enableCustomMechLinkName", defaultValue: false);
+			Scribe_Values.Look(ref shapeshifterGeneUnremovable, "shapeshifterGeneUnremovable", defaultValue: false);
 			// Fix
 			Scribe_Values.Look(ref fixVanillaGeneImmunityCheck, "fixVanillaGeneImmunityCheck", defaultValue: true);
 			Scribe_Values.Look(ref minWastepacksPerRecharge, "minWastepacksPerRecharge", defaultValue: false);
@@ -152,7 +154,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			Rect outRect = new(inRect.x, inRect.y, inRect.width, inRect.height);
 			// Rect rect = new(0f, 0f, inRect.width, inRect.height);
-			Rect rect = new(0f, 0f, inRect.width - 30f, inRect.height * 2);
+			Rect rect = new(0f, 0f, inRect.width - 30f, inRect.height * 2.1f);
 			Widgets.BeginScrollView(outRect, ref scrollPosition, rect);
 			Listing_Standard listingStandard = new();
 			listingStandard.Begin(rect);
@@ -183,7 +185,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_totalHealingIgnoreScarification".Translate(), ref settings.totalHealingIgnoreScarification, "WVC_ToolTip_totalHealingIgnoreScarification".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_genesRemoveMechlinkUponDeath".Translate(), ref settings.genesRemoveMechlinkUponDeath, "WVC_ToolTip_genesRemoveMechlinkUponDeath".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enableCustomMechLinkName".Translate(), ref settings.enableCustomMechLinkName, "WVC_ToolTip_enableCustomMechLinkName".Translate());
-			// listingStandard.CheckboxLabeled("WVC_Label_reincarnationBlockUndeadResurrection".Translate(), ref settings.enableCustomMechLinkName, "WVC_ToolTip_reincarnationBlockUndeadResurrection".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_ShapeshifterGeneUnremovable".Translate(), ref settings.shapeshifterGeneUnremovable, "WVC_ToolTip_ShapeshifterGeneUnremovable".Translate());
 			listingStandard.Gap();
 			// Fix
 			listingStandard.Label("WVC_BiotechSettings_Label_Other".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Other".Translate());
@@ -222,6 +224,7 @@ namespace WVC_XenotypesAndGenes
 					settings.totalHealingIgnoreScarification = true;
 					settings.genesRemoveMechlinkUponDeath = false;
 					settings.enableCustomMechLinkName = false;
+					settings.shapeshifterGeneUnremovable = false;
 					// Fix
 					settings.fixVanillaGeneImmunityCheck = true;
 					settings.minWastepacksPerRecharge = false;
@@ -268,6 +271,7 @@ namespace WVC_XenotypesAndGenes
 					settings.totalHealingIgnoreScarification = true;
 					settings.genesRemoveMechlinkUponDeath = false;
 					settings.enableCustomMechLinkName = true;
+					settings.shapeshifterGeneUnremovable = true;
 					// Fix
 					settings.fixVanillaGeneImmunityCheck = true;
 					settings.minWastepacksPerRecharge = false;
@@ -276,10 +280,10 @@ namespace WVC_XenotypesAndGenes
 					// Info
 					settings.enableGenesInfo = true;
 					settings.enableGeneSpawnerGizmo = true;
-					settings.enableGeneWingInfo = true;
+					settings.enableGeneWingInfo = false;
 					settings.enableGeneBlesslinkInfo = true;
-					settings.enableGeneUndeadInfo = true;
-					settings.enableGeneScarifierInfo = true;
+					settings.enableGeneUndeadInfo = false;
+					settings.enableGeneScarifierInfo = false;
 					settings.enableGolemsInfo = true;
 					// Serums
 					settings.serumsForAllXenotypes = false;
