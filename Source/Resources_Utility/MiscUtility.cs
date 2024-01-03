@@ -9,6 +9,23 @@ namespace WVC_XenotypesAndGenes
     public static class MiscUtility
 	{
 
+		// Gene Spawner
+
+		public static List<ThingDef> GetAllThingInStuffCategory(StuffCategoryDef stuffCategoryDef)
+		{
+			List<ThingDef> list = new();
+			foreach (ThingDef item in DefDatabase<ThingDef>.AllDefsListForReading)
+			{
+				if (item.stuffProps != null && item.stuffProps.categories.Contains(stuffCategoryDef))
+				{
+					list.Add(item);
+				}
+			}
+			return list;
+		}
+
+		// Researchs
+
 		public static bool AllProjectsFinished(List<ResearchProjectDef> researchProjects, out ResearchProjectDef nonResearched)
 		{
 			nonResearched = null;

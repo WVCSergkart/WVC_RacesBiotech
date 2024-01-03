@@ -27,6 +27,9 @@ namespace WVC_XenotypesAndGenes
 		// public string customLabel = "Resource";
 		public string spawnMessage = "MessageCompSpawnerSpawnedItem";
 		public bool showMessageIfOwned = true;
+		public bool customizable = false;
+		public float stackPercent = 0.1f;
+		public StuffCategoryDef stuffCategoryDef;
 	}
 
 	public class GeneExtension_General : DefModExtension

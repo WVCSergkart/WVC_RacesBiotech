@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- <GeneDef Name="WVC_XenotypesAndGenes_GeneResourceSpawner_Stuff" Abstract="True"> -->
+	<!-- <labelShortAdj>spawner</labelShortAdj> -->
+	<!-- <description>Carriers of this gene have a special secretory organ.</description> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_SpawnerStuff</geneClass> -->
+	<!-- <displayCategory>WVC_XenotypeSerumSpawners</displayCategory> -->
+	<!-- <displayOrderInCategory>-20</displayOrderInCategory> -->
+	<!-- <selectionWeight>0.00032</selectionWeight> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_Spawner</iconPath> -->
+	<!-- <iconColor>(175, 175, 175)</iconColor> -->
+	<!-- <biostatCpx>1</biostatCpx> -->
+	<!-- <biostatArc>1</biostatArc> -->
+	<!-- <biostatMet>-3</biostatMet> -->
+	<!-- <symbolPack> -->
+	  <!-- <prefixSymbols> -->
+		<!-- <li><symbol>reso</symbol></li> -->
+	  <!-- </prefixSymbols> -->
+	  <!-- <suffixSymbols> -->
+		<!-- <li><symbol>stuff</symbol></li> -->
+	  <!-- </suffixSymbols> -->
+	<!-- </symbolPack> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_ResourceSpawners</li> -->
+	<!-- </exclusionTags> -->
+  <!-- </GeneDef> -->
+
+  <!-- ============================= -->
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneResourceSpawner_Stuff"> -->
+	<!-- <defName>WVC_Spawner_CustomizableMetallic</defName> -->
+	<!-- <label>metallic spawner</label> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Spawns choosable metal every (*DateTime)2-3 days(/DateTime).</li> -->
+		<!-- <li>Stack count increases or decreases relative to metabolism.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner"> -->
+			<!-- <thingDefToSpawn>Steel</thingDefToSpawn> -->
+			<!-- <stackCount>22</stackCount> -->
+			<!-- <spawnIntervalRange><min>120000</min><max>360000</max></spawnIntervalRange> -->
+			<!-- <stuffCategoryDef>Metallic</stuffCategoryDef> -->
+			<!-- <customizable>true</customizable> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneResourceSpawner_Stuff"> -->
+	<!-- <defName>WVC_Spawner_CustomizableWoody</defName> -->
+	<!-- <label>woody spawner</label> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Spawns choosable wood every (*DateTime)2-3 days(/DateTime).</li> -->
+		<!-- <li>Stack count increases or decreases relative to metabolism.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner"> -->
+			<!-- <thingDefToSpawn>WoodLog</thingDefToSpawn> -->
+			<!-- <stackCount>22</stackCount> -->
+			<!-- <spawnIntervalRange><min>120000</min><max>360000</max></spawnIntervalRange> -->
+			<!-- <stuffCategoryDef>Woody</stuffCategoryDef> -->
+			<!-- <customizable>true</customizable> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneResourceSpawner_Stuff"> -->
+	<!-- <defName>WVC_Spawner_CustomizableStony</defName> -->
+	<!-- <label>stony spawner</label> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Spawns choosable stone every (*DateTime)2-3 days(/DateTime).</li> -->
+		<!-- <li>Stack count increases or decreases relative to metabolism.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner"> -->
+			<!-- <thingDefToSpawn>Jade</thingDefToSpawn> -->
+			<!-- <stackCount>22</stackCount> -->
+			<!-- <spawnIntervalRange><min>120000</min><max>360000</max></spawnIntervalRange> -->
+			<!-- <stuffCategoryDef>Stony</stuffCategoryDef> -->
+			<!-- <customizable>true</customizable> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneResourceSpawner_Stuff"> -->
+	<!-- <defName>WVC_Spawner_CustomizableFabric</defName> -->
+	<!-- <label>fabric spawner</label> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Spawns choosable fabric every (*DateTime)2-3 days(/DateTime).</li> -->
+		<!-- <li>Stack count increases or decreases relative to metabolism.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner"> -->
+			<!-- <thingDefToSpawn>Cloth</thingDefToSpawn> -->
+			<!-- <stackCount>22</stackCount> -->
+			<!-- <spawnIntervalRange><min>120000</min><max>360000</max></spawnIntervalRange> -->
+			<!-- <stuffCategoryDef>Fabric</stuffCategoryDef> -->
+			<!-- <customizable>true</customizable> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneResourceSpawner_Stuff"> -->
+	<!-- <defName>WVC_Spawner_CustomizableLeathery</defName> -->
+	<!-- <label>leathery spawner</label> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Spawns choosable leather every (*DateTime)2-3 days(/DateTime).</li> -->
+		<!-- <li>Stack count increases or decreases relative to metabolism.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner"> -->
+			<!-- <thingDefToSpawn>Leather_Patch</thingDefToSpawn> -->
+			<!-- <stackCount>22</stackCount> -->
+			<!-- <spawnIntervalRange><min>120000</min><max>360000</max></spawnIntervalRange> -->
+			<!-- <stuffCategoryDef>Leathery</stuffCategoryDef> -->
+			<!-- <customizable>true</customizable> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+
+</Defs>

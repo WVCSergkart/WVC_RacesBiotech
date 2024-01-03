@@ -350,4 +350,10 @@ Each mechanoid costs 0.15 nutrition to summon.</WVC_XaG_Gene_DustMechlinkDesc>
 	<!-- <WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>{TARGET_nameDef}'s genes have been altered. {TARGET_nameDef} won't be able to use shapeshift again for a while.</WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc> -->
 	<WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>{TARGET_nameDef}'s genes have been significantly changed, {TARGET_possessive} xenotype is now {1}. {TARGET_nameDef} won't be able to use {2} again for a while.</WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>
 
+	<!-- ========== GENE SPAWNER ========== -->
+
+	<WVC_XaG_GeneSpawner_CustomButtonLabel>Change product</WVC_XaG_GeneSpawner_CustomButtonLabel>
+	<WVC_XaG_GeneSpawner_CustomButtonDesc>Allows you to select a product for the spawner gene.</WVC_XaG_GeneSpawner_CustomButtonDesc>
+	<WVC_XaG_GeneSpawner_CustomButtonProductChanged>The product {0} spawned has been changed to {1}.</WVC_XaG_GeneSpawner_CustomButtonProductChanged>
+
 </LanguageData>
