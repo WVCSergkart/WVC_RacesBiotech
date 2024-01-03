@@ -94,7 +94,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void ResetInterval()
 		{
-			ticksUntilSpawn = def.GetModExtension<GeneExtension_Spawner>().spawnIntervalRange.RandomInRange;
+			ticksUntilSpawn = Props.spawnIntervalRange.RandomInRange;
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
