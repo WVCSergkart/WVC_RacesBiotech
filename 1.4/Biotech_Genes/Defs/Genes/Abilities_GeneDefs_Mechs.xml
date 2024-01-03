@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_MechanoidizationAbilities">
+	<defName>WVC_LongjumpMech</defName>
+	<label>mech longjump</label>
+	<description>Carriers of this gene have ultrafast muscles which allow them to jump short distances.</description>
+	<iconPath>UI/Abilities/MechLongJump</iconPath>
+	<statOffsets>
+	  <MoveSpeed>0.2</MoveSpeed>
+	</statOffsets>
+	<abilities>
+	  <li>WVC_LongjumpMech</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_LongjumpMech</AbilityDef>
+	</descriptionHyperlinks>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>jump</symbol></li>
+		<li><symbol>jum</symbol></li>
+		<li><symbol>ju</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>er</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_MechanoidizationAbilities">
+	<defName>WVC_SmokepopMech</defName>
+	<label>mech smokepop</label>
+	<description>Carriers of this gene exhale smoke when they breathe and, under certain conditions, can exhale a fairly large cloud of smoke.</description>
+	<iconPath>UI/Abilities/MechSmokepop</iconPath>
+	<capMods>
+	  <li>
+		<capacity>Breathing</capacity>
+		<offset>0.05</offset>
+	  </li>
+	</capMods>
+	<forcedTraits>
+	  <li>
+		<def>CreepyBreathing</def>
+	  </li>
+	</forcedTraits>
+	<abilities>
+	  <li>WVC_SmokepopMech</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_SmokepopMech</AbilityDef>
+	</descriptionHyperlinks>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>smoke</symbol></li>
+		<li><symbol>smok</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>pop</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_MechanoidizationAbilities">
+	<defName>WVC_FirefoampopMech</defName>
+	<label>firefoam pop</label>
+	<description>Carriers of this gene have small accumulations of foam under the skin, they can release some of these accumulations, which will allow them to put out the fire.</description>
+	<iconPath>UI/Abilities/MechFirefoamPop</iconPath>
+	<suppressedTraits>
+	  <li>
+		<def>Pyromaniac</def>
+	  </li>
+	</suppressedTraits>
+	<statFactors>
+	  <Flammability>0.1</Flammability>
+	</statFactors>
+	<abilities>
+	  <li>WVC_FirefoampopMech</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_FirefoampopMech</AbilityDef>
+	</descriptionHyperlinks>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>fire</symbol></li>
+		<li><symbol>foam</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>pop</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_MechanoidizationAbilities">
+	<defName>WVC_ResurrectionMech</defName>
+	<label>resurrect mech</label>
+	<description>Carriers of this gene can affect the self-repair function of severely damaged mechanoids.</description>
+	<iconPath>UI/Abilities/MechResurrection</iconPath>
+	<statOffsets>
+	  <MechRepairSpeed>0.2</MechRepairSpeed>
+	</statOffsets>
+	<abilities>
+	  <li>WVC_ResurrectionMech</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_ResurrectionMech</AbilityDef>
+	</descriptionHyperlinks>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>ressur</symbol></li>
+		<li><symbol>ressu</symbol></li>
+		<li><symbol>ress</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>ect</symbol></li>
+		<li><symbol>ct</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- ====================================== -->
+
+  <AbilityDef>
+	<defName>WVC_LongjumpMech</defName>
+	<label>longjump</label>
+	<description>Jump to a distant location using special ultrafast muscles.</description>
+	<iconPath>UI/Abilities/MechLongJump</iconPath>
+	<cooldownTicksRange>480</cooldownTicksRange>
+	<hostile>false</hostile>
+	<verbProperties>
+	  <verbClass>Verb_CastAbilityJump</verbClass>
+	  <label>jump</label>
+	  <violent>false</violent>
+	  <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+	  <warmupTime>0.5</warmupTime>
+	  <minRange>5.9</minRange>
+	  <range>9.9</range>
+	  <requireLineOfSight>true</requireLineOfSight>
+	  <soundCast>Longjump_Jump</soundCast>
+	  <soundLanding>Longjump_Land</soundLanding>
+	  <flyWithCarriedThing>false</flyWithCarriedThing>
+	  <targetParams>
+		<canTargetLocations>true</canTargetLocations>
+		<canTargetPawns>false</canTargetPawns>
+		<canTargetBuildings>false</canTargetBuildings>
+	  </targetParams>
+	</verbProperties>
+  </AbilityDef>
+
+  <AbilityDef>
+	<defName>WVC_SmokepopMech</defName>
+	<label>smokepop</label>
+	<description>Release compressed smoke from concealed vents. Smoke reduces the accuracy of any shot fired through it, and prevents turrets from locking on entirely.</description>
+	<iconPath>UI/Abilities/MechSmokepop</iconPath>
+	<cooldownTicksRange>900000</cooldownTicksRange><!-- 15 days -->
+	<targetRequired>false</targetRequired>
+	<hostile>false</hostile>
+	<verbProperties>
+	  <verbClass>Verb_CastAbility</verbClass>
+	  <warmupTime>1</warmupTime>
+	  <range>3.9</range>
+	  <drawAimPie>false</drawAimPie>    
+	  <targetParams>
+		<canTargetSelf>true</canTargetSelf>
+	  </targetParams>
+	</verbProperties>
+	<comps>
+	  <li Class="CompProperties_AbilitySmokepop">
+		<smokeRadius>3.5</smokeRadius>
+		<clamorType>Ability</clamorType>
+		<clamorRadius>15</clamorRadius>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+  <AbilityDef>
+	<defName>WVC_FirefoampopMech</defName>
+	<label>firefoam pop</label>
+	<description>Release a fire-retardant foam in a circular area.</description>
+	<iconPath>UI/Abilities/MechFirefoamPop</iconPath>
+	<cooldownTicksRange>300000</cooldownTicksRange><!-- 5 days -->
+	<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>true</disableGizmoWhileUndrafted>
+	<targetRequired>false</targetRequired>
+	<hostile>false</hostile>
+	<verbProperties>
+	  <verbClass>Verb_CastAbility</verbClass>
+	  <warmupTime>0.5</warmupTime>
+	  <requireLineOfSight>false</requireLineOfSight>
+	  <drawAimPie>false</drawAimPie>      
+	  <range>3.9</range>
+	  <targetParams>
+		<canTargetSelf>true</canTargetSelf>
+	  </targetParams>
+	</verbProperties>
+	<comps>
+	  <li Class="CompProperties_AbilityFirefoampop">
+		<firefoamRadius>3.5</firefoamRadius>
+		<clamorType>Ability</clamorType>
+		<clamorRadius>15</clamorRadius>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+  <AbilityDef>
+	<defName>WVC_ResurrectionMech</defName>
+	<label>resurrect mech</label>
+	<description>Resurrect a recently-killed mechanoid by externally supercharging its self-repair processes. The mechanoid will come back with some but not all of its wounds healed.</description>
+	<iconPath>UI/Abilities/MechResurrection</iconPath>
+	<cooldownTicksRange>300000</cooldownTicksRange><!-- 5 days -->
+	<warmupStartSound>MechResurrect_Warmup</warmupStartSound>
+	<warmupEffecter>ApocrionAoeWarmup</warmupEffecter>
+	<!-- <jobDef>CastAbilityGoToThing</jobDef> -->
+	<canUseAoeToGetTargets>true</canUseAoeToGetTargets>
+	<useAverageTargetPositionForWarmupEffecter>true</useAverageTargetPositionForWarmupEffecter>
+	<hostile>false</hostile>
+	<statBases> 
+	  <Ability_EffectRadius>5</Ability_EffectRadius>
+	</statBases>
+	<verbProperties>
+	  <verbClass>Verb_CastAbility</verbClass>
+	  <drawAimPie>true</drawAimPie>
+	  <range>9.9</range>
+	  <warmupTime>4</warmupTime>
+	  <soundCast>MechResurrect_Cast</soundCast>
+	  <requireLineOfSight>false</requireLineOfSight>
+	  <targetParams>
+		<canTargetPawns>false</canTargetPawns>
+		<canTargetBuildings>false</canTargetBuildings>
+		<canTargetCorpses>true</canTargetCorpses>
+		<canTargetAnimals>false</canTargetAnimals>
+		<canTargetHumans>false</canTargetHumans>
+		<canTargetMechs>true</canTargetMechs>
+	  </targetParams>
+	</verbProperties>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_ResurrectMech">
+		<appliedEffecterDef>MechResurrected</appliedEffecterDef>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+</Defs>

@@ -124,9 +124,9 @@ Walking corpses cannot be zoned, but they will try to stay close to the totems. 
 				<thingDefToSpawn>WVC_XenotypesAndGenes_WalkingCorpseTotem</thingDefToSpawn>
 				<!-- <stackCount>1</stackCount> -->
 			</li>
-			<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
-				<shouldSendNotificationAbout>false</shouldSendNotificationAbout>
-			</li>
+			<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+				<!-- <shouldSendNotificationAbout>false</shouldSendNotificationAbout> -->
+			<!-- </li> -->
 			<!-- <li Class="VFECore.ThingDefExtension"> -->
 				<!-- <destroyCorpse>true</destroyCorpse> -->
 			<!-- </li> -->

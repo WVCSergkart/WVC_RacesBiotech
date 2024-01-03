@@ -27,6 +27,7 @@ namespace WVC_XenotypesAndGenes
 		// public string customLabel = "Resource";
 		public string spawnMessage = "MessageCompSpawnerSpawnedItem";
 		public bool showMessageIfOwned = true;
+		// BETA
 		public bool customizable = false;
 		public float stackPercent = 0.1f;
 		public StuffCategoryDef stuffCategoryDef;
@@ -40,7 +41,7 @@ namespace WVC_XenotypesAndGenes
 		// public bool eyesShouldBeInvisble = false;
 		public bool canBePredatorPrey = true;
 		public bool noSkillDecay = false;
-		public bool shouldSendNotificationAbout = true;
+		// public bool shouldSendNotificationAbout = true;
 		public bool geneIsAngelBeauty = false;
 		// public bool geneIsIncestous = false;
 		// public bool perfectImmunity = false;
@@ -56,7 +57,7 @@ namespace WVC_XenotypesAndGenes
 		public List<BodyPartDef> bodyparts;
 		public BackstoryDef childBackstoryDef;
 		public BackstoryDef adultBackstoryDef;
-		public List<GeneDef> randomizerGenesList;
+		// public List<GeneDef> randomizerGenesList;
 		// public string exclusionTag;
 		// public GeneDef randomizerGene;
 		// public bool geneIsRandomized = false;
@@ -66,7 +67,7 @@ namespace WVC_XenotypesAndGenes
 		public List<HeadTypeDef> headTypeDefs;
 		// Scarifier
 		public int scarsCount = 0;
-		public List<GeneDef> scarGeneDefs;
+		// public List<GeneDef> scarGeneDefs;
 		// Rand Hediff
 		// public HediffStatRandDef hediffStatRandDef;
 		// Gestator
