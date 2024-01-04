@@ -35,6 +35,11 @@
 	<WVC_XaG_SuremRetuneJob_ChangeDesc>You have chosen the {0} xenotype. Are you sure of your choice?</WVC_XaG_SuremRetuneJob_ChangeDesc>
 	<WVC_XaG_SuremRetuneJob_ResearchPrerequisites>{0} technology is required.</WVC_XaG_SuremRetuneJob_ResearchPrerequisites>
 
+	<!-- ============================ REIMPLANTER GENE ============================ -->
+
+	<WVC_XaG_ReimplantResurrectionRecruiting>{0_nameDef} decides to join our colony.</WVC_XaG_ReimplantResurrectionRecruiting>
+	<WVC_XaG_ReimplantResurrectionRecruiting_FailWarning>{PAWN_nameDef} belongs to {1} faction, and even if resurrected, it will not join your settlement.</WVC_XaG_ReimplantResurrectionRecruiting_FailWarning>
+
 	<!-- ============================ GENE INFO ============================ -->
 
 	<!-- Red -->

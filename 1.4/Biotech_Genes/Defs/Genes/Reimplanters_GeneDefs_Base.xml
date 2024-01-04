@@ -29,6 +29,7 @@
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
 		<li>The target can only be a human corpse.</li>
+		<li>If the target is recruitable then it will join the colony.</li>
 		<li>&lt;color=#ff8585&gt;Can't be absorbed forcly.&lt;/color&gt;</li>
 	</customEffectDescriptions>
   </GeneDef>

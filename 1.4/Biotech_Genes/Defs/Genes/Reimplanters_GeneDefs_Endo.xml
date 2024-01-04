@@ -82,6 +82,9 @@
 	<label>post endo-implanter</label>
 	<iconPath>WVC/UI/Genes/Gene_PostReimplanter_Endo_v0</iconPath>
 	<displayOrderInCategory>-510</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Сhanges the endogenes of the target pawn to the endogenes of the caster. Does not affect xenogenes.</li>
+	</customEffectDescriptions>
 	<exclusionTags>
 		<li>WVC_ReimplanterNatural_RiseEndogenes</li>
 	</exclusionTags>

@@ -54,6 +54,9 @@
 	<biostatMet>0</biostatMet>
 	<biostatArc>0</biostatArc>
 	<displayOrderInCategory>-520</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Completely changes the genes of the target pawn to the genes of the caster.</li>
+	</customEffectDescriptions>
 	<exclusionTags>
 		<li>WVC_Reimplanter_RiseFromTheDead</li>
 	</exclusionTags>

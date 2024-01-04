@@ -37,6 +37,11 @@ namespace WVC_XenotypesAndGenes
 			base.Apply(target, dest);
 			Pawn innerPawn = ((Corpse)target.Thing).InnerPawn;
 			UndeadUtility.ResurrectWithSickness(innerPawn, Props.afterResurrectionThoughtDef);
+			if ((innerPawn.Faction == null || innerPawn.Faction != Faction.OfPlayer) && innerPawn.guest.Recruitable)
+			{
+				innerPawn.SetFaction(Faction.OfPlayer);
+				Messages.Message("WVC_XaG_ReimplantResurrectionRecruiting".Translate(innerPawn), innerPawn, MessageTypeDefOf.PositiveEvent);
+			}
 			// ResurrectionUtility.Resurrect(innerPawn);
 			// innerPawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
 			// innerPawn.needs?.mood?.thoughts?.memories.TryGainMemory(WVC_GenesDefOf.WVC_XenotypesAndGenes_WasResurrected);
@@ -76,7 +81,7 @@ namespace WVC_XenotypesAndGenes
 					}
 					return false;
 				}
-				Pawn innerPawn = ((Corpse)target.Thing).InnerPawn;
+				Pawn innerPawn = corpse.InnerPawn;
 				if (XaG_GeneUtility.PawnIsAndroid(innerPawn) || XaG_GeneUtility.PawnCannotUseSerums(innerPawn))
 				{
 					if (throwMessages)
@@ -95,13 +100,16 @@ namespace WVC_XenotypesAndGenes
 			{
 				return Dialog_MessageBox.CreateConfirmation("WarningPawnWillDieFromReimplanting".Translate(parent.pawn.Named("PAWN")), confirmAction, destructive: true);
 			}
+			if (target.Thing is Corpse corpse && !corpse.InnerPawn.guest.Recruitable && (corpse.InnerPawn.Faction == null || corpse.InnerPawn.Faction != Faction.OfPlayer))
+			{
+				return Dialog_MessageBox.CreateConfirmation("WVC_XaG_ReimplantResurrectionRecruiting_FailWarning".Translate(corpse.InnerPawn.Named("PAWN"), corpse.InnerPawn.Faction.NameColored.ToString()), confirmAction);
+			}
 			return null;
 		}
 
 		public override IEnumerable<Mote> CustomWarmupMotes(LocalTargetInfo target)
 		{
-			Pawn innerPawn = ((Corpse)target.Thing).InnerPawn;
-			yield return MoteMaker.MakeAttachedOverlay(innerPawn, ThingDefOf.Mote_XenogermImplantation, new Vector3(0f, 0f, 0.3f));
+			yield return MoteMaker.MakeAttachedOverlay(((Corpse)target.Thing).InnerPawn, ThingDefOf.Mote_XenogermImplantation, new Vector3(0f, 0f, 0.3f));
 		}
 	}
 }

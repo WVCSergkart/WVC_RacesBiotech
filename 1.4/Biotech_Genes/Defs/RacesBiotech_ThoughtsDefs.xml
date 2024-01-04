@@ -19,7 +19,7 @@
 	  <li>
 		<label>ingested dust food</label>
 		<description>I ingested a dustogenic food. It may be nutritious, but it is completely tasteless.</description>
-		<baseMoodEffect>-4</baseMoodEffect>
+		<baseMoodEffect>-2</baseMoodEffect>
 	  </li>
 	</stages>
   </ThoughtDef>

@@ -82,6 +82,9 @@
 	<label>post xeno-implanter</label>
 	<iconPath>WVC/UI/Genes/Gene_PostReimplanter_Xeno_v0</iconPath>
 	<displayOrderInCategory>-490</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Сhanges the xenogenes of the target pawn to the xenogenes of the caster. Does not affect endogenes.</li>
+	</customEffectDescriptions>
 	<exclusionTags>
 		<li>WVC_ReimplanterNatural_RiseXenogenes</li>
 	</exclusionTags>

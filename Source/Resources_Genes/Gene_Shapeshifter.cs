@@ -89,10 +89,11 @@ namespace WVC_XenotypesAndGenes
 			base.PostRemove();
 			if (WVC_Biotech.settings.shapeshifterGeneUnremovable)
 			{
-				if (!pawn.genes.HasGene(this.def))
-				{
-					pawn.genes.AddGene(this.def, false);
-				}
+				// if (!pawn.genes.HasGene(this.def))
+				// {
+					// pawn.genes.AddGene(this.def, false);
+				// }
+				pawn.genes.AddGene(this.def, false);
 			}
 		}
 

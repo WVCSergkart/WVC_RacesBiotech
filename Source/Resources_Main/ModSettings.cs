@@ -25,6 +25,7 @@ namespace WVC_XenotypesAndGenes
 		public bool genesRemoveMechlinkUponDeath = false;
 		public bool enableCustomMechLinkName = false;
 		public bool shapeshifterGeneUnremovable = false;
+		// public bool reimplantResurrectionRecruiting = false;
 		// Fix
 		public bool fixVanillaGeneImmunityCheck = true;
 		public bool minWastepacksPerRecharge = false;
@@ -70,6 +71,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref genesRemoveMechlinkUponDeath, "genesRemoveMechlinkUponDeath", defaultValue: false);
 			Scribe_Values.Look(ref enableCustomMechLinkName, "enableCustomMechLinkName", defaultValue: false);
 			Scribe_Values.Look(ref shapeshifterGeneUnremovable, "shapeshifterGeneUnremovable", defaultValue: false);
+			// Scribe_Values.Look(ref reimplantResurrectionRecruiting, "reimplantResurrectionRecruiting", defaultValue: false);
 			// Fix
 			Scribe_Values.Look(ref fixVanillaGeneImmunityCheck, "fixVanillaGeneImmunityCheck", defaultValue: true);
 			Scribe_Values.Look(ref minWastepacksPerRecharge, "minWastepacksPerRecharge", defaultValue: false);
@@ -186,6 +188,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_genesRemoveMechlinkUponDeath".Translate(), ref settings.genesRemoveMechlinkUponDeath, "WVC_ToolTip_genesRemoveMechlinkUponDeath".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enableCustomMechLinkName".Translate(), ref settings.enableCustomMechLinkName, "WVC_ToolTip_enableCustomMechLinkName".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_ShapeshifterGeneUnremovable".Translate(), ref settings.shapeshifterGeneUnremovable, "WVC_ToolTip_ShapeshifterGeneUnremovable".Translate());
+			// listingStandard.CheckboxLabeled("WVC_Label_reimplantResurrectionRecruiting".Translate(), ref settings.reimplantResurrectionRecruiting, "WVC_ToolTip_reimplantResurrectionRecruiting".Translate());
 			listingStandard.Gap();
 			// Fix
 			listingStandard.Label("WVC_BiotechSettings_Label_Other".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Other".Translate());
