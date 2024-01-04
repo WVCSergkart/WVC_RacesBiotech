@@ -212,6 +212,14 @@
 		<li>WVC_XenotypesAndGenes.Gene_Shapeshifter</li>
 		<li>WVC_XenotypesAndGenes.Gene_Shapeshifter_Rand</li>
 	</shapeShift_IgnoredGeneClasses>
+	<!-- Traits that do not allow the use of shapeshift. Required trait defNames -->
+	<!-- <shapeShift_ProhibitedTraits> -->
+		<!-- <li>WVC_ShiftPhob</li> -->
+	<!-- </shapeShift_ProhibitedTraits> -->
+	<!-- Precepts that do not allow the use of shapeshift. Required precept defNames -->
+	<!-- <shapeShift_ProhibitedPrecepts> -->
+		<!-- <li>WVC_ShiftPhob</li> -->
+	<!-- </shapeShift_ProhibitedPrecepts> -->
   </WVC_XenotypesAndGenes.XenotypesAndGenesListDef>
 
   <!-- ======================================================================= -->

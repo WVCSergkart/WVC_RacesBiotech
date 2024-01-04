@@ -15,6 +15,7 @@ namespace WVC_XenotypesAndGenes
 		public SoundDef soundDefOnImplant;
 
 		public bool genesRegrowing = false;
+		public bool canEverUseShapeshift = true;
 
 		public Dialog_Shapeshifter(Gene thisGene)
 		{
@@ -27,7 +28,8 @@ namespace WVC_XenotypesAndGenes
 			doCloseX = true;
 			doCloseButton = true;
 			allXenotypes = XenotypeFilterUtility.AllXenotypesExceptAndroids();
-			genesRegrowing = gene.pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating);
+			genesRegrowing = gene.pawn.health.hediffSet.HasHediff(HediffDefOf.XenogerminationComa) || gene.pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating);
+			canEverUseShapeshift = !gene.pawn.story.traits.HasTrait(WVC_GenesDefOf.WVC_XaG_ShapeshiftPhobia);
 		}
 
 		public override void DrawLeftRect(Rect rect, ref float curY)
@@ -58,9 +60,14 @@ namespace WVC_XenotypesAndGenes
 				curY += Text.LineHeight;
 			}
 			curY += 10f;
-			if (genesRegrowing)
+			if (!canEverUseShapeshift)
 			{
-				Widgets.Label(rect3.x, ref curY, rect3.width, HediffDefOf.XenogermReplicating.description.Colorize(ColorLibrary.RedReadable));
+				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneShapeshifter_DisabledPermanent".Translate().Colorize(ColorLibrary.RedReadable));
+				curY += 10f;
+			}
+			else if (genesRegrowing)
+			{
+				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate().Colorize(ColorLibrary.RedReadable));
 				curY += 10f;
 			}
 			if (MeetsRequirements(selectedXeno) && selectedXeno != currentXeno)
@@ -114,10 +121,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return true;
 			}
-			// if (selectedXeno == currentXeno)
-			// {
-				// return false;
-			// }
+			if (!canEverUseShapeshift)
+			{
+				return false;
+			}
 			if (genesRegrowing)
 			{
 				return false;

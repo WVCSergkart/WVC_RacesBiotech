@@ -9,6 +9,28 @@ namespace WVC_XenotypesAndGenes
     public static class MiscUtility
 	{
 
+		// ShapeShifter
+
+		// public static List<TraitDef> GetAllShiftProhibitedTraits()
+		// {
+			// List<TraitDef> list = new();
+			// foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+			// {
+				// list.AddRange(item.shapeShift_ProhibitedTraits);
+			// }
+			// return list;
+		// }
+
+		// public static List<PreceptDef> GetAllShiftProhibitedPrecepts()
+		// {
+			// List<PreceptDef> list = new();
+			// foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+			// {
+				// list.AddRange(item.shapeShift_ProhibitedPrecepts);
+			// }
+			// return list;
+		// }
+
 		// Gene Spawner
 
 		public static List<ThingDef> GetAllThingInStuffCategory(StuffCategoryDef stuffCategoryDef)

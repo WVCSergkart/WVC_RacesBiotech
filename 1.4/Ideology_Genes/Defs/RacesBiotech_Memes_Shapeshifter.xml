@@ -61,6 +61,7 @@
 		<requireOne>
 		  <li>
 			<li>WVC_GeneticSupremacy_Desired</li>
+			<li>WVC_GeneticSupremacy_Preferred</li>
 		  </li>
 		  <li>
 			<li>Corpses_DontCare</li>

@@ -25,6 +25,8 @@ namespace WVC_XenotypesAndGenes
 
 		private readonly int ticksInDay = 60000;
 
+		public Hediff preventGestation;
+
 		public Dialog_ChooseXenotype(Gene thisGene)
 		{
 			gene = thisGene;
@@ -46,6 +48,7 @@ namespace WVC_XenotypesAndGenes
 			doCloseButton = true;
 			allXenotypes = XenotypeFilterUtility.AllXenotypesExceptAndroids();
 			allMatchedXenotypes = XaG_GeneUtility.GetAllMatchedXenotypes(gene?.pawn, allXenotypes, matchPercent);
+			preventGestation = HediffUtility.GetFirstHediffPreventsPregnancy(gene.pawn.health.hediffSet.hediffs);
 		}
 
 		public override void DrawLeftRect(Rect rect, ref float curY)
@@ -75,9 +78,15 @@ namespace WVC_XenotypesAndGenes
 				Widgets.HyperlinkWithIcon(new Rect(rect3.x, curY, rect3.width, Text.LineHeight), new Dialog_InfoCard.Hyperlink(item));
 				curY += Text.LineHeight;
 			}
+			curY += 10f;
 			Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneXenoGestator_GestationTime".Translate((GetGestationTime() * ticksInDay).ToStringTicksToPeriod()).Resolve());
 			curY += 10f;
-			if (!allMatchedXenotypes.Contains(selectedXeno))
+			if (preventGestation != null)
+			{
+				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneXenoGestator_Disabled".Translate(preventGestation != null ? preventGestation.def.label : "ERR").Colorize(ColorLibrary.RedReadable));
+				curY += 10f;
+			}
+			else if (!allMatchedXenotypes.Contains(selectedXeno))
 			{
 				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneXenoGestator_GestationGenesMatch".Translate((matchPercent * 100).ToString()).Colorize(ColorLibrary.RedReadable));
 				curY += 10f;
@@ -167,10 +176,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return true;
 			}
-			// if (XaG_GeneUtility.GenesIsMatch(gene?.pawn?.genes?.GenesListForReading, mode.genes, matchPercent))
-			// {
-				// return true;
-			// }
+			if (preventGestation != null)
+			{
+				return false;
+			}
 			if (allMatchedXenotypes.Contains(mode))
 			{
 				return true;

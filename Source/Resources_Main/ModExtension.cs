@@ -161,5 +161,7 @@ namespace WVC_XenotypesAndGenes
 		// public List<GeneDef> xenoTree_PollutionReq_GeneDefs;
 		public List<ThingDef> plantsToNotOverwrite_SpawnSubplant;
 		public List<Type> shapeShift_IgnoredGeneClasses;
+		// public List<TraitDef> shapeShift_ProhibitedTraits;
+		// public List<PreceptDef> shapeShift_ProhibitedPrecepts;
 	}
 }

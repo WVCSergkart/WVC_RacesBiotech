@@ -10,13 +10,45 @@ namespace WVC_XenotypesAndGenes
     public class Gene_Shapeshifter : Gene
 	{
 
-		// public XenotypeDef Xenotype => def.GetModExtension<GeneExtension_Giver>()?.xenotypeForcerDef;
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (Find.Selector.SelectedPawns.Count > 1 || pawn.Drafted || !Active || !MiscUtility.PawnIsColonistOrSlave(pawn, true))
+			{
+				yield break;
+			}
+			yield return new Command_Action
+			{
+				defaultLabel = "WVC_XaG_GeneShapeshifter_Label".Translate(),
+				defaultDesc = "WVC_XaG_GeneShapeshifter_Desc".Translate(),
+				// disabled = pawn.health.hediffSet.HasHediff(HediffDefOf.XenogerminationComa) || pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating),
+				// disabledReason = HediffDefOf.XenogermReplicating.description,
+				icon = ContentFinder<Texture2D>.Get(def.iconPath),
+				action = delegate
+				{
+					Find.WindowStack.Add(new Dialog_Shapeshifter(this));
+				}
+			};
+		}
 
-		// public override void PostAdd()
-		// {
-			// base.PostAdd();
-			// Shapeshift();
-		// }
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			if (WVC_Biotech.settings.shapeshifterGeneUnremovable)
+			{
+				pawn.genes.AddGene(this.def, false);
+			}
+		}
+
+	}
+
+	public class Gene_Shapeshifter_Rand : Gene_Shapeshifter
+	{
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			Shapeshift();
+		}
 
 		public void Shapeshift(float chance = 0.2f)
 		{
@@ -61,51 +93,6 @@ namespace WVC_XenotypesAndGenes
 			List<GeneDef> dontRemove = new();
 			dontRemove.Add(gene.def);
 			ReimplanterUtility.SetXenotype_DoubleXenotype(pawn, xenotype, dontRemove.ToList());
-		}
-
-		public override IEnumerable<Gizmo> GetGizmos()
-		{
-			// DEV
-			if (Find.Selector.SelectedPawns.Count > 1 || pawn.Drafted || !Active || !MiscUtility.PawnIsColonistOrSlave(pawn, true))
-			{
-				yield break;
-			}
-			yield return new Command_Action
-			{
-				defaultLabel = "WVC_XaG_GeneShapeshifter_Label".Translate(),
-				defaultDesc = "WVC_XaG_GeneShapeshifter_Desc".Translate(),
-				disabled = pawn.health.hediffSet.HasHediff(HediffDefOf.XenogerminationComa) || pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating),
-				disabledReason = HediffDefOf.XenogermReplicating.description,
-				icon = ContentFinder<Texture2D>.Get(def.iconPath),
-				action = delegate
-				{
-					Find.WindowStack.Add(new Dialog_Shapeshifter(this));
-				}
-			};
-		}
-
-		public override void PostRemove()
-		{
-			base.PostRemove();
-			if (WVC_Biotech.settings.shapeshifterGeneUnremovable)
-			{
-				// if (!pawn.genes.HasGene(this.def))
-				// {
-					// pawn.genes.AddGene(this.def, false);
-				// }
-				pawn.genes.AddGene(this.def, false);
-			}
-		}
-
-	}
-
-	public class Gene_Shapeshifter_Rand : Gene_Shapeshifter
-	{
-
-		public override void PostAdd()
-		{
-			base.PostAdd();
-			Shapeshift();
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
