@@ -18,6 +18,7 @@ namespace WVC_XenotypesAndGenes
 		public bool genesRegrowing = false;
 		public bool canEverUseShapeshift = true;
 		// public bool duplicateMode = false;
+		public List<XenotypeDef> preferredXenotypes;
 
 		public Dialog_Shapeshifter(Gene thisGene)
 		{
@@ -29,6 +30,7 @@ namespace WVC_XenotypesAndGenes
 			doCloseX = true;
 			doCloseButton = true;
 			allXenotypes = XenotypeFilterUtility.AllXenotypesExceptAndroids();
+			preferredXenotypes = ModLister.IdeologyInstalled ? gene.pawn?.ideo?.Ideo?.PreferredXenotypes : null;
 			shiftExtension = gene?.def?.GetModExtension<GeneExtension_Shapeshifter>();
 			soundDefOnImplant = shiftExtension?.soundDefOnImplant;
 			// genesRegrowing = gene.pawn.health.hediffSet.HasHediff(HediffDefOf.XenogerminationComa) || gene.pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating);
@@ -74,6 +76,11 @@ namespace WVC_XenotypesAndGenes
 			else if (genesRegrowing)
 			{
 				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate().Colorize(ColorLibrary.RedReadable));
+				curY += 10f;
+			}
+			else if (!preferredXenotypes.NullOrEmpty() && !preferredXenotypes.Contains(selectedXeno))
+			{
+				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneShapeshifter_NotPreferredXenotype".Translate().Colorize(ColorLibrary.RedReadable));
 				curY += 10f;
 			}
 			// else if (duplicateMode)
@@ -144,6 +151,10 @@ namespace WVC_XenotypesAndGenes
 				return false;
 			}
 			if (genesRegrowing)
+			{
+				return false;
+			}
+			if (!preferredXenotypes.NullOrEmpty() && !preferredXenotypes.Contains(mode))
 			{
 				return false;
 			}

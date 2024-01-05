@@ -9,6 +9,19 @@ namespace WVC_XenotypesAndGenes
     public static class MiscUtility
 	{
 
+		// Precepts
+
+		// public static List<XenotypeDef> GetAllPreferredXenotypes(Pawn pawn)
+		// {
+			// if (!ModLister.CheckIdeology("Precepts"))
+			// {
+				// return null;
+			// }
+			// return pawn?.ideo?.Ideo?.PreferredXenotypes;
+		// }
+
+		// IntRange
+
 		public static bool Includes(this IntRange range, int val)
 		{
 			if (val >= range.min)
