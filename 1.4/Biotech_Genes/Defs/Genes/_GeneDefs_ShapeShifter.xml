@@ -83,7 +83,7 @@
 
   <!-- ================= -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSpecialPurposes_Base" Name="WVC_XenotypesAndGenes_GeneSpecialPurposes_Shapeshiftes" Abstract="True">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSpecialPurposes_Base" Name="WVC_XenotypesAndGenes_GeneSpecialPurposes_Shapeshifter" Abstract="True">
 	<geneClass>WVC_XenotypesAndGenes.Gene_Shapeshifter</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_XenoForcer_ShapeShifter</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
@@ -110,7 +110,7 @@
 	</modExtensions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSpecialPurposes_Shapeshiftes">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSpecialPurposes_Shapeshifter">
 	<defName>WVC_Shapeshifter</defName>
 	<label>shapeshifter</label>
 	<description>Carriers of this gene can change their xenotype at will.</description>
@@ -131,6 +131,8 @@
 				<li>XenogermReplicating</li>
 				<li>XenogerminationComa</li>
 				<li>XenogermLossShock</li>
+				<!-- <li>ResurrectionSickness</li> -->
+				<!-- <li>RegenerationComa</li> -->
 			</blockingHediffs>
 			<blockingTraits>
 				<li>WVC_XaG_ShapeshiftPhobia</li>
@@ -139,13 +141,13 @@
 	</modExtensions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSpecialPurposes_Shapeshiftes">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSpecialPurposes_Shapeshifter">
 	<defName>WVC_Shapeshifter_Rand</defName>
 	<label>spontaneous shapeshifter</label>
 	<description>In carriers of this gene, the xenotype can spontaneously change at any time.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Shapeshifter_Rand</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_XenoForcer_ShapeShifter</iconPath>
-	<selectionWeight>0.00014</selectionWeight>
+	<selectionWeight>0.00001</selectionWeight>
 	<biostatCpx>4</biostatCpx>
 	<biostatArc>3</biostatArc>
 	<customEffectDescriptions>

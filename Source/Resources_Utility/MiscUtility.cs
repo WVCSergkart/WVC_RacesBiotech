@@ -9,6 +9,15 @@ namespace WVC_XenotypesAndGenes
     public static class MiscUtility
 	{
 
+		public static bool Includes(this IntRange range, int val)
+		{
+			if (val >= range.min)
+			{
+				return val <= range.max;
+			}
+			return false;
+		}
+
 		// Traits
 
 		public static bool HasAnyTraits(List<TraitDef> traitDefs, Pawn pawn)

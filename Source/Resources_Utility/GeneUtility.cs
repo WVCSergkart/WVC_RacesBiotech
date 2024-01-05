@@ -53,11 +53,11 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool XenotypeIsAndroid(XenotypeDef xenotypeDef)
 		{
-			if (xenotypeDef?.genes == null)
+			List<GeneDef> genesListForReading = xenotypeDef?.genes;
+			if (genesListForReading.NullOrEmpty())
 			{
 				return false;
 			}
-			List<GeneDef> genesListForReading = xenotypeDef.genes;
 			for (int i = 0; i < genesListForReading.Count; i++)
 			{
 				if (genesListForReading[i].defName.Contains("VREA_SyntheticBody"))
