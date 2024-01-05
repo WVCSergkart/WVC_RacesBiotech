@@ -11,25 +11,31 @@ namespace WVC_XenotypesAndGenes
     public class Dialog_Shapeshifter : Dialog_XenotypesBase
 	{
 		public Gene gene;
+		public GeneExtension_Shapeshifter shiftExtension;
 
 		public SoundDef soundDefOnImplant;
 
 		public bool genesRegrowing = false;
 		public bool canEverUseShapeshift = true;
+		// public bool duplicateMode = false;
 
 		public Dialog_Shapeshifter(Gene thisGene)
 		{
 			gene = thisGene;
 			currentXeno = thisGene?.pawn?.genes?.Xenotype != null ? thisGene.pawn.genes.Xenotype : null;
 			selectedXeno = currentXeno;
-			soundDefOnImplant = gene?.def?.GetModExtension<GeneExtension_Giver>()?.soundDefOnImplant;
 			forcePause = true;
 			closeOnAccept = false;
 			doCloseX = true;
 			doCloseButton = true;
 			allXenotypes = XenotypeFilterUtility.AllXenotypesExceptAndroids();
-			genesRegrowing = gene.pawn.health.hediffSet.HasHediff(HediffDefOf.XenogerminationComa) || gene.pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating);
-			canEverUseShapeshift = !gene.pawn.story.traits.HasTrait(WVC_GenesDefOf.WVC_XaG_ShapeshiftPhobia);
+			shiftExtension = gene?.def?.GetModExtension<GeneExtension_Shapeshifter>();
+			soundDefOnImplant = shiftExtension?.soundDefOnImplant;
+			// genesRegrowing = gene.pawn.health.hediffSet.HasHediff(HediffDefOf.XenogerminationComa) || gene.pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating);
+			// canEverUseShapeshift = !gene.pawn.story.traits.HasTrait(WVC_GenesDefOf.WVC_XaG_ShapeshiftPhobia);
+			genesRegrowing = HediffUtility.HasAnyHediff(shiftExtension?.blockingHediffs, gene.pawn);
+			canEverUseShapeshift = !MiscUtility.HasAnyTraits(shiftExtension?.blockingTraits, gene.pawn);
+			// duplicateMode = HediffUtility.HasAnyHediff(shiftExtension?.duplicateHediffs, gene.pawn);
 		}
 
 		public override void DrawLeftRect(Rect rect, ref float curY)
@@ -70,6 +76,11 @@ namespace WVC_XenotypesAndGenes
 				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate().Colorize(ColorLibrary.RedReadable));
 				curY += 10f;
 			}
+			// else if (duplicateMode)
+			// {
+				// Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneShapeshifter_DuplicateMode".Translate().Colorize(ColorLibrary.LightBlue));
+				// curY += 10f;
+			// }
 			if (MeetsRequirements(selectedXeno) && selectedXeno != currentXeno)
 			{
 				if (Widgets.ButtonText(rect4, "Accept".Translate()))
@@ -93,9 +104,16 @@ namespace WVC_XenotypesAndGenes
 
 		public override void StartChange()
 		{
-			List<GeneDef> dontRemove = new();
-			dontRemove.Add(gene.def);
-			ReimplanterUtility.SetXenotype_DoubleXenotype(gene.pawn, selectedXeno, dontRemove.ToList());
+			// if (duplicateMode)
+			// {
+				// GestationUtility.DuplicatePawn_WithChosenXenotype(gene, selectedXeno);
+			// }
+			// else
+			// {
+			// }
+			// List<GeneDef> dontRemove = new() { gene.def };
+			// dontRemove.Add(gene.def);
+			ReimplanterUtility.SetXenotype_DoubleXenotype(gene.pawn, selectedXeno, new() { gene.def });
 			if (!gene.pawn.genes.HasGene(gene.def))
 			{
 				gene.pawn.genes.AddGene(gene.def, false);

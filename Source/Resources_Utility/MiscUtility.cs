@@ -9,7 +9,29 @@ namespace WVC_XenotypesAndGenes
     public static class MiscUtility
 	{
 
-		// ShapeShifter
+		// Traits
+
+		public static bool HasAnyTraits(List<TraitDef> traitDefs, Pawn pawn)
+		{
+			List<Trait> traits = pawn?.story?.traits?.allTraits;
+			if (traits.NullOrEmpty() || traitDefs.NullOrEmpty())
+			{
+				return false;
+			}
+			for (int i = 0; i < traitDefs.Count; i++)
+			{
+				for (int j = 0; j < traits.Count; j++)
+				{
+					if (traits[j].def == traitDefs[i])
+					{
+						return true;
+					}
+				}
+			}
+			return false;
+		}
+
+		// Shape
 
 		// public static List<TraitDef> GetAllShiftProhibitedTraits()
 		// {

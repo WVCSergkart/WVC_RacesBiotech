@@ -106,7 +106,6 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<scarsCount>-3</scarsCount>
-			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -122,6 +121,22 @@
 		<li>&lt;color=#ff8585&gt;Does not support custom xenotypes.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<displayOrderInCategory>155</displayOrderInCategory>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Shapeshifter">
+			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
+			<!-- <duplicateHediffs> -->
+				<!-- <li>WVC_Shapeshifter_DuplicateMode</li> -->
+			<!-- </duplicateHediffs> -->
+			<blockingHediffs>
+				<li>XenogermReplicating</li>
+				<li>XenogerminationComa</li>
+				<li>XenogermLossShock</li>
+			</blockingHediffs>
+			<blockingTraits>
+				<li>WVC_XaG_ShapeshiftPhobia</li>
+			</blockingTraits>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSpecialPurposes_Shapeshiftes">
@@ -137,6 +152,7 @@
 		<li>The xenotype of the carrier can change at any time, to any other.</li>
 		<!-- <li MayRequire="ludeon.rimworld.ideology">Increases the number of scars by 3</li> -->
 		<li>&lt;color=#ff8585&gt;Does not support custom xenotypes.&lt;/color&gt;</li>
+		<li>&lt;color=#ff8585&gt;Might be a little buggy.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<displayOrderInCategory>160</displayOrderInCategory>
   </GeneDef>

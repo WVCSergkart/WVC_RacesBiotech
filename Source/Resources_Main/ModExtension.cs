@@ -75,7 +75,15 @@ namespace WVC_XenotypesAndGenes
 		// public float matchPercent = 0.4f;
 		// Special Food
 		public List<ThingDef> specialFoodDefs;
+		// public SoundDef soundDefOnImplant;
+	}
+
+	public class GeneExtension_Shapeshifter : DefModExtension
+	{
 		public SoundDef soundDefOnImplant;
+		// public List<HediffDef> duplicateHediffs;
+		public List<HediffDef> blockingHediffs;
+		public List<TraitDef> blockingTraits;
 	}
 
 	public class GeneExtension_XenotypeGestator : DefModExtension

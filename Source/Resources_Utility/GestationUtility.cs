@@ -246,5 +246,102 @@ namespace WVC_XenotypesAndGenes
 			return null;
 		}
 
+		// Shapeshifter Overclock
+
+		// public static void DuplicatePawn_WithChosenXenotype(Gene gene, XenotypeDef xenotypeDef)
+		// {
+			// if (gene == null || gene.pawn == null || xenotypeDef == null)
+			// {
+				// return;
+			// }
+			// PawnGenerationRequest generateNewBornPawn = new(gene.pawn.kindDef, Faction.OfPlayer, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: true, canGeneratePawnRelations: false, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: false, allowAddictions: false, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, gene.pawn.DevelopmentalStage);
+			// Pawn clone = PawnGenerator.GeneratePawn(generateNewBornPawn);
+			// if (PawnUtility.TrySpawnHatchedOrBornPawn(clone, gene.pawn))
+			// {
+				// if (!SerumUtility.HasCandidateGene(clone))
+				// {
+					// clone.health.AddHediff(HediffDefOf.XenogerminationComa);
+				// }
+				// GeneUtility.UpdateXenogermReplication(clone);
+				// ReimplanterUtility.ExtractXenogerm(gene.pawn);
+				// if (gene.pawn != null)
+				// {
+					// clone.ageTracker.AgeBiologicalTicks = gene.pawn.ageTracker.AgeBiologicalTicks;
+					// clone.ageTracker.AgeChronologicalTicks = 0L;
+					// clone.gender = gene.pawn.gender;
+					// clone.story.Childhood = gene.pawn.story.Childhood;
+					// clone.story.Adulthood = gene.pawn.story.Adulthood;
+					// clone.story.traits.allTraits = gene.pawn.story.traits.allTraits;
+					// clone.story.headType = gene.pawn.story.headType;
+					// clone.story.bodyType = gene.pawn.story.bodyType;
+					// clone.story.hairDef = gene.pawn.story.hairDef;
+					// clone.story.favoriteColor = gene.pawn.story.favoriteColor;
+					// clone.Name = gene.pawn.Name;
+					// if (clone.skills != null && clone.skills.skills.NullOrEmpty())
+					// {
+						// List<SkillRecord> cloneSkills = clone.skills.skills;
+						// List<SkillRecord> sourceSkills = gene.pawn.skills.skills;
+						// for (int i = 0; i < cloneSkills.Count; i++)
+						// {
+							// if (cloneSkills[i].TotallyDisabled)
+							// {
+								// continue;
+							// }
+							// for (int j = 0; j < sourceSkills.Count; j++)
+							// {
+								// if (sourceSkills[j].TotallyDisabled)
+								// {
+									// continue;
+								// }
+								// if (cloneSkills[i].def == sourceSkills[j].def)
+								// {
+									// cloneSkills[i].passion = sourceSkills[j].passion;
+									// cloneSkills[i].levelInt = sourceSkills[j].levelInt;
+								// }
+							// }
+						// }
+						// clone.skills.skills = gene.pawn.skills.skills;
+					// }
+					// if (clone.ideo != null)
+					// {
+						// clone.ideo.SetIdeo(gene.pawn.ideo.Ideo);
+					// }
+					// if (clone.playerSettings != null && gene.pawn.playerSettings != null)
+					// {
+						// clone.playerSettings.AreaRestriction = gene.pawn.playerSettings.AreaRestriction;
+					// }
+					// if (clone.RaceProps.IsFlesh && gene.pawn.RaceProps.IsFlesh)
+					// {
+						// clone.relations.AddDirectRelation(PawnRelationDefOf.Sibling, gene.pawn);
+						// gene.pawn.relations.AddDirectRelation(PawnRelationDefOf.Sibling, clone);
+					// }
+					// if (gene.pawn.Spawned)
+					// {
+						// gene.pawn.GetLord()?.AddPawn(clone);
+					// }
+				// }
+			// }
+			// else
+			// {
+				// Find.WorldPawns.PassToWorld(clone, PawnDiscardDecideMode.Discard);
+			// }
+			// ReimplanterUtility.SetXenotype_DoubleXenotype(clone, xenotypeDef);
+			// if (gene.pawn.Spawned)
+			// {
+				// FilthMaker.TryMakeFilth(gene.pawn.Position, gene.pawn.Map, ThingDefOf.Filth_Slime, 5);
+				// SoundDefOf.Hive_Spawn.PlayOneShot(new TargetInfo(gene.pawn));
+				// if (clone.caller != null)
+				// {
+					// clone.caller.DoCall();
+				// }
+			// }
+			// if (PawnUtility.ShouldSendNotificationAbout(clone))
+			// {
+				// Find.LetterStack.ReceiveLetter("WVC_XaG_GeneShapeshifter_DuplicateLetterLabel".Translate(), "WVC_XaG_GeneShapeshifter_DuplicateLetterDesc".Translate(gene.pawn.Named("TARGET"), xenotypeDef.LabelCap, gene.LabelCap)
+				// + "\n\n" + (xenotypeDef.descriptionShort.NullOrEmpty() ? xenotypeDef.description : xenotypeDef.descriptionShort),
+				// WVC_GenesDefOf.WVC_XaG_UndeadEvent, new LookTargets(gene.pawn));
+			// }
+		// }
+
 	}
 }

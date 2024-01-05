@@ -14,6 +14,19 @@
 	</comps>
   </HediffDef>
 
+  <!-- <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base"> -->
+	<!-- <defName>WVC_Shapeshifter_DuplicateMode</defName> -->
+	<!-- <label>shiftover</label> -->
+	<!-- <description>Some error caused the shapeshift mechanites to overclock. In the overclocked state, they are not able to change the xenotype of the carrier; instead, they clone.</description> -->
+	<!-- <defaultLabelColor>(125, 145, 231)</defaultLabelColor> -->
+	<!-- <hediffClass>HediffWithComps</hediffClass> -->
+	<!-- <comps> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive"> -->
+		<!-- <geneDef>WVC_Shapeshifter</geneDef> -->
+	  <!-- </li> -->
+	<!-- </comps> -->
+  <!-- </HediffDef> -->
+
   <HediffDef MayRequire="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_Hediffs_Scarifier" Class="WVC_XenotypesAndGenes.XaG_HediffDef">
 	<defName>WVC_Scarifier_Scarshield</defName>
 	<label>scarshield</label>

@@ -57,7 +57,7 @@ namespace WVC_XenotypesAndGenes
 		public static LetterDef WVC_XaG_UndeadEvent;
 		public static LetterDef WVC_XaG_GestationEvent;
 		// Traits
-		public static TraitDef WVC_XaG_ShapeshiftPhobia;
+		// public static TraitDef WVC_XaG_ShapeshiftPhobia;
 	}
 
 }

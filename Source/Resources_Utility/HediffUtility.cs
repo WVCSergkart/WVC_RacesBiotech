@@ -21,7 +21,11 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool HasAnyHediff(List<HediffDef> hediffDefs, Pawn pawn)
 		{
-			List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
+			List<Hediff> hediffs = pawn?.health?.hediffSet?.hediffs;
+			if (hediffs.NullOrEmpty() || hediffDefs.NullOrEmpty())
+			{
+				return false;
+			}
 			for (int i = 0; i < hediffDefs.Count; i++)
 			{
 				for (int j = 0; j < hediffs.Count; j++)
