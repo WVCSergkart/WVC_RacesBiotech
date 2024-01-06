@@ -136,11 +136,11 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool HasActiveGene(GeneDef geneDef, Pawn pawn)
 		{
-			if (geneDef == null)
+			if (geneDef == null || pawn.genes == null)
 			{
 				return false;
 			}
-			List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+			List<Gene> genesListForReading = pawn?.genes?.GenesListForReading;
 			for (int i = 0; i < genesListForReading.Count; i++)
 			{
 				if (genesListForReading[i].Active == true && genesListForReading[i].def == geneDef)

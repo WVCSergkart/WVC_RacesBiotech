@@ -5,11 +5,17 @@
 	<!-- <displayCategory>Reproduction</displayCategory> -->
 	<!-- <displayOrderInCategory>0</displayOrderInCategory> -->
 	<description>Carriers of this gene have a special relationship with blood ties.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Opinion</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_FamilyByBlood_v0</iconPath>
 	<selectionWeight>0.011</selectionWeight>
 	<biostatCpx>1</biostatCpx>
+	<customEffectDescriptions>
+	  <li>Opinion updated every day and lasts 20 days.</li>
+	  <li>Opinion can stack up to 10 times.</li>
+	  <li>Only affects colony pawns and prisoners.</li>
+	</customEffectDescriptions>
 	<exclusionTags>
-	  <li>FamilyByBlood</li>
+	  <!-- <li>FamilyByBlood</li> -->
 	  <li>WVC_FamilyByBlood</li>
 	</exclusionTags>
   </GeneDef>
@@ -19,8 +25,15 @@
 	<label>by blood</label>
 	<iconColor>(206, 125, 123)</iconColor>
 	<customEffectDescriptions>
-	  <li>Family by blood opinion +20</li>
+	  <li>Cumulative +5 opinion about family members.</li>
 	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
+			<MeAboutThoughtDef>WVC_XenotypesAndGenes_FamilyByBloodBasic</MeAboutThoughtDef>
+			<ignoreIfHasGene>false</ignoreIfHasGene>
+			<targetShouldBeFamily>true</targetShouldBeFamily>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneByBlood_Base">
@@ -33,8 +46,15 @@
 	<!-- <prerequisite>WVC_Dustogenic</prerequisite> -->
 	<marketValueFactor>1.5</marketValueFactor>
 	<customEffectDescriptions>
-	  <li>Family by blood opinion +100</li>
+	  <li>Cumulative +20 opinion about family members.</li>
 	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
+			<MeAboutThoughtDef>WVC_XenotypesAndGenes_FamilyByBloodDust</MeAboutThoughtDef>
+			<ignoreIfHasGene>false</ignoreIfHasGene>
+			<targetShouldBeFamily>true</targetShouldBeFamily>
+		</li>
+	</modExtensions>
   </GeneDef>
   
 </Defs>

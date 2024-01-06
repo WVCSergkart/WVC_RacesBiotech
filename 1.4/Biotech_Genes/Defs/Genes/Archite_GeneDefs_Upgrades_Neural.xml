@@ -357,6 +357,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
 	<defName>WVC_MechaAI_SoftwareNaturalEnemy</defName>
 	<label>hard-minded</label>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Opinion</geneClass>
 	<iconPath>WVC/UI/Genes/NaturalEnemy_v0</iconPath>
 	<!-- <biostatCpx>3</biostatCpx> -->
 	<displayCategory>Violence</displayCategory>
@@ -366,9 +367,18 @@
 	  <BondAnimalChanceFactor>0.0</BondAnimalChanceFactor>
 	</statFactors>
 	<customEffectDescriptions>
-		<li>Opinion about pawns with this gene is +20</li>
-		<li>Opinion about pawns without this gene is -500</li>
+	  <li>The carrier of the gene accumulates a -20 opinion about others. If they don't have this gene.</li>
+	  <li>Opinion updated every day and lasts 20 days.</li>
+	  <li>Opinion can stack up to 10 times.</li>
+	  <li>Only affects colony pawns and prisoners.</li>
+	  <!-- <li>Does not affect babies and children.</li> -->
 	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
+			<MeAboutThoughtDef>WVC_XenotypesAndGenes_Hater</MeAboutThoughtDef>
+			<ignoreIfHasGene>true</ignoreIfHasGene>
+		</li>
+	</modExtensions>
   </GeneDef>
 
 </Defs>

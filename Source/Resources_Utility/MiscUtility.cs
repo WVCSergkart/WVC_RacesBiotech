@@ -9,6 +9,11 @@ namespace WVC_XenotypesAndGenes
     public static class MiscUtility
 	{
 
+		public static bool PawnPsychicSensitive(this Pawn pawn)
+		{
+			return pawn?.GetStatValue(StatDefOf.PsychicSensitivity) > 0f;
+		}
+
 		// Precepts
 
 		// public static List<XenotypeDef> GetAllPreferredXenotypes(Pawn pawn)

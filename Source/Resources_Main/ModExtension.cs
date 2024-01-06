@@ -33,6 +33,15 @@ namespace WVC_XenotypesAndGenes
 		public StuffCategoryDef stuffCategoryDef;
 	}
 
+	public class GeneExtension_Opinion : DefModExtension
+	{
+		public ThoughtDef AboutMeThoughtDef;
+		public ThoughtDef MeAboutThoughtDef;
+		public bool targetShouldBePsySensitive = false;
+		public bool targetShouldBeFamily = false;
+		public bool ignoreIfHasGene = false;
+	}
+
 	public class GeneExtension_General : DefModExtension
 	{
 		// public bool geneIsMechaskin = false;
@@ -42,7 +51,7 @@ namespace WVC_XenotypesAndGenes
 		public bool canBePredatorPrey = true;
 		public bool noSkillDecay = false;
 		// public bool shouldSendNotificationAbout = true;
-		public bool geneIsAngelBeauty = false;
+		// public bool geneIsAngelBeauty = false;
 		// public bool geneIsIncestous = false;
 		// public bool perfectImmunity = false;
 		// public bool diseaseFree = false;
@@ -76,6 +85,7 @@ namespace WVC_XenotypesAndGenes
 		// Special Food
 		public List<ThingDef> specialFoodDefs;
 		// public SoundDef soundDefOnImplant;
+		// public ThoughtDef geneOpinion_thoughtDef;
 	}
 
 	public class GeneExtension_Shapeshifter : DefModExtension

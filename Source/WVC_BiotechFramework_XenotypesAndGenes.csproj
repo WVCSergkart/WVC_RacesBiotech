@@ -75,6 +75,7 @@
     <Compile Include="Resources_Abilities\CompProperties_AbilitySpawn.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilitySpawnOnCell.cs" />
     <Compile Include="Resources_Abilities\QuestNode_Root_Reincarnation.cs" />
+    <Compile Include="Resources_Genes\Gene_Opinion.cs" />
     <Compile Include="Resources_Genes\Gene_Shapeshifter.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ChangeXenotype.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ChooseXenotype.cs" />
@@ -205,10 +206,8 @@
     <Compile Include="Resources_Things\DeathAction_SpawnThing.cs" />
     <Compile Include="Resources_Things\Hive_CompProperties_SpawnInsect.cs" />
     <Compile Include="Resources_Things\Hive_CompSpawnInsect.cs" />
-    <Compile Include="Resources_Thought\ThoughtWorker_AngelBeauty.cs" />
     <Compile Include="Resources_Thought\TEST_ThoughtWorker_Gender.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_FamilyByBlood.cs" />
-    <Compile Include="Resources_Thought\ThoughtWorker_MechaSensesFriendOrFoe.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_MechanoidLabor.cs" />
     <Compile Include="Resources_Workers\WorkGiver_HaulToGeneBank.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_SameBloodSameXenotype.cs" />

@@ -1,4 +1,6 @@
+using RimWorld;
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -6,6 +8,76 @@ namespace WVC_XenotypesAndGenes
 
     public static class GeneFeaturesUtility
 	{
+
+		// ============================= GENE OPINION =============================
+
+		public static void MyOpinionAboutPawnMap(Pawn pawn, Gene gene, ThoughtDef thoughtDef, bool shouldBePsySensitive = false, bool shouldBeFamily = false, bool ignoreIfHasGene = false)
+		{
+			if (pawn?.genes == null)
+			{
+				return;
+			}
+			List<Pawn> pawns = pawn.Map?.mapPawns?.FreeColonistsAndPrisoners;
+			if (pawns.NullOrEmpty())
+			{
+				return;
+			}
+			for (int i = 0; i < pawns.Count; i++)
+			{
+				if (!CanSetOpinion(pawn, pawns[i], gene, shouldBePsySensitive, shouldBeFamily, ignoreIfHasGene))
+				{
+					continue;
+				}
+				// Log.Error(pawn.Name.ToString() + " hate " + pawns[i].Name.ToString());
+				pawn.needs?.mood?.thoughts?.memories.TryGainMemory(thoughtDef, pawns[i]);
+			}
+		}
+
+		public static void PawnMapOpinionAboutMe(Pawn pawn, Gene gene, ThoughtDef thoughtDef, bool shouldBePsySensitive = false, bool shouldBeFamily = false, bool ignoreIfHasGene = false)
+		{
+			if (pawn?.genes == null)
+			{
+				return;
+			}
+			List<Pawn> pawns = pawn.Map?.mapPawns?.FreeColonistsAndPrisoners;
+			if (pawns.NullOrEmpty())
+			{
+				return;
+			}
+			for (int i = 0; i < pawns.Count; i++)
+			{
+				if (!CanSetOpinion(pawn, pawns[i], gene, shouldBePsySensitive, shouldBeFamily, ignoreIfHasGene))
+				{
+					continue;
+				}
+				pawns[i].needs?.mood?.thoughts?.memories.TryGainMemory(thoughtDef, pawn);
+			}
+		}
+
+		public static bool CanSetOpinion(Pawn pawn, Pawn other, Gene gene, bool shouldBePsySensitive = false, bool shouldBeFamily = false, bool ignoreIfHasGene = false)
+		{
+			if (!other.RaceProps.Humanlike)
+			{
+				return false;
+			}
+			if (other == pawn)
+			{
+				return false;
+			}
+			if (shouldBeFamily && !pawn.relations.FamilyByBlood.Contains(other))
+			{
+				return false;
+			}
+			if (ignoreIfHasGene && XaG_GeneUtility.HasActiveGene(gene.def, other))
+			{
+				return false;
+			}
+			if (shouldBePsySensitive && !other.PawnPsychicSensitive())
+			{
+				return false;
+			}
+			return true;
+		}
 
 		// ============================= Checker Gene Features =============================
 
@@ -78,29 +150,29 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public static bool IsAngelBeauty(Pawn pawn)
-		{
-			if (pawn?.genes == null)
-			{
-				return false;
-			}
-			List<Gene> genesListForReading = pawn.genes.GenesListForReading;
-			for (int i = 0; i < genesListForReading.Count; i++)
-			{
-				if (genesListForReading[i].Active == true)
-				{
-					GeneExtension_General modExtension = genesListForReading[i].def.GetModExtension<GeneExtension_General>();
-					if (modExtension != null)
-					{
-						if (modExtension.geneIsAngelBeauty)
-						{
-							return true;
-						}
-					}
-				}
-			}
-			return false;
-		}
+		// public static bool IsAngelBeauty(Pawn pawn)
+		// {
+			// if (pawn?.genes == null)
+			// {
+				// return false;
+			// }
+			// List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+			// for (int i = 0; i < genesListForReading.Count; i++)
+			// {
+				// if (genesListForReading[i].Active == true)
+				// {
+					// GeneExtension_General modExtension = genesListForReading[i].def.GetModExtension<GeneExtension_General>();
+					// if (modExtension != null)
+					// {
+						// if (modExtension.geneIsAngelBeauty)
+						// {
+							// return true;
+						// }
+					// }
+				// }
+			// }
+			// return false;
+		// }
 
 		public static bool EyesShouldBeInvisble(Pawn pawn)
 		{

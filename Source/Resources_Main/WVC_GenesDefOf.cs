@@ -23,6 +23,8 @@ namespace WVC_XenotypesAndGenes
 		// public static GeneDef DiseaseFree;
 		// Resurrection
 		public static ThoughtDef WVC_XenotypesAndGenes_WasResurrected;
+		// public static ThoughtDef WVC_XenotypesAndGenes_AngelBeauty;
+		// public static ThoughtDef WVC_XenotypesAndGenes_Hater;
 		// public static ThoughtDef WVC_XenotypesAndGenes_ResurrectedMe;
 		// public static ThoughtDef WVC_XenotypesAndGenes_ResurrectedByMe;
 		// Golems
