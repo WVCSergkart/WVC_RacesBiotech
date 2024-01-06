@@ -11,7 +11,7 @@ namespace WVC_XenotypesAndGenes
 
 		// ============================= GENE OPINION =============================
 
-		public static void MyOpinionAboutPawnMap(Pawn pawn, Gene gene, ThoughtDef thoughtDef, bool shouldBePsySensitive = false, bool shouldBeFamily = false, bool ignoreIfHasGene = false)
+		public static void MyOpinionAboutPawnMap(Pawn pawn, Gene gene, ThoughtDef thoughtDef, bool shouldBePsySensitive = false, bool shouldBeFamily = false, bool ignoreIfHasGene = false, bool onlySameXenotype = false)
 		{
 			if (pawn?.genes == null)
 			{
@@ -24,7 +24,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			for (int i = 0; i < pawns.Count; i++)
 			{
-				if (!CanSetOpinion(pawn, pawns[i], gene, shouldBePsySensitive, shouldBeFamily, ignoreIfHasGene))
+				if (!CanSetOpinion(pawn, pawns[i], gene, shouldBePsySensitive, shouldBeFamily, ignoreIfHasGene, onlySameXenotype))
 				{
 					continue;
 				}
@@ -33,7 +33,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void PawnMapOpinionAboutMe(Pawn pawn, Gene gene, ThoughtDef thoughtDef, bool shouldBePsySensitive = false, bool shouldBeFamily = false, bool ignoreIfHasGene = false)
+		public static void PawnMapOpinionAboutMe(Pawn pawn, Gene gene, ThoughtDef thoughtDef, bool shouldBePsySensitive = false, bool shouldBeFamily = false, bool ignoreIfHasGene = false, bool onlySameXenotype = false)
 		{
 			if (pawn?.genes == null)
 			{
@@ -46,7 +46,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			for (int i = 0; i < pawns.Count; i++)
 			{
-				if (!CanSetOpinion(pawn, pawns[i], gene, shouldBePsySensitive, shouldBeFamily, ignoreIfHasGene))
+				if (!CanSetOpinion(pawn, pawns[i], gene, shouldBePsySensitive, shouldBeFamily, ignoreIfHasGene, onlySameXenotype))
 				{
 					continue;
 				}
@@ -54,7 +54,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static bool CanSetOpinion(Pawn pawn, Pawn other, Gene gene, bool shouldBePsySensitive = false, bool shouldBeFamily = false, bool ignoreIfHasGene = false)
+		public static bool CanSetOpinion(Pawn pawn, Pawn other, Gene gene, bool shouldBePsySensitive = false, bool shouldBeFamily = false, bool ignoreIfHasGene = false, bool onlySameXenotype = false)
 		{
 			if (!other.RaceProps.Humanlike)
 			{
@@ -76,7 +76,26 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			return true;
+			if (!onlySameXenotype)
+			{
+				return true;
+			}
+			if (pawn.genes?.CustomXenotype != null)
+			{
+				if (other.genes?.CustomXenotype != null && pawn.genes?.CustomXenotype == other.genes?.CustomXenotype)
+				{
+					return true;
+				}
+				return false;
+			}
+			else if (pawn.genes?.Xenotype != null && pawn.genes?.Xenotype != XenotypeDefOf.Baseliner)
+			{
+				if (other.genes?.Xenotype != null && other.genes?.Xenotype != XenotypeDefOf.Baseliner && pawn.genes?.Xenotype == other.genes?.Xenotype)
+				{
+					return true;
+				}
+			}
+			return false;
 		}
 
 		// ============================= Checker Gene Features =============================

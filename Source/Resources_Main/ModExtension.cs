@@ -40,6 +40,7 @@ namespace WVC_XenotypesAndGenes
 		public bool targetShouldBePsySensitive = false;
 		public bool targetShouldBeFamily = false;
 		public bool ignoreIfHasGene = false;
+		public bool onlySameXenotype = false;
 	}
 
 	public class GeneExtension_General : DefModExtension

@@ -207,10 +207,8 @@
     <Compile Include="Resources_Things\Hive_CompProperties_SpawnInsect.cs" />
     <Compile Include="Resources_Things\Hive_CompSpawnInsect.cs" />
     <Compile Include="Resources_Thought\TEST_ThoughtWorker_Gender.cs" />
-    <Compile Include="Resources_Thought\ThoughtWorker_FamilyByBlood.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_MechanoidLabor.cs" />
     <Compile Include="Resources_Workers\WorkGiver_HaulToGeneBank.cs" />
-    <Compile Include="Resources_Thought\ThoughtWorker_SameBloodSameXenotype.cs" />
     <Compile Include="Resources_Utility\XenoTreeUtility.cs" />
     <Compile Include="Resources_Things\CompProperties_TargetEffectRiseFromTheDead.cs" />
     <Compile Include="Resources_Things\CompProperties_UseEffect_GeneRestoration.cs" />
