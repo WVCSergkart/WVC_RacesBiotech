@@ -106,7 +106,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool HasAnyActiveGene(List<GeneDef> geneDefs, Pawn pawn)
 		{
-			if (geneDefs.NullOrEmpty())
+			if (geneDefs.NullOrEmpty() || pawn.genes == null)
 			{
 				return false;
 			}

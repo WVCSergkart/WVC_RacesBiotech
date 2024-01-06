@@ -30,6 +30,43 @@ namespace WVC_XenotypesAndGenes
 
 		public static void Apply()
 		{
+			if (WVC_Biotech.settings.fixGeneTypesOnLoad)
+			{
+				foreach (Pawn item in Current.Game.CurrentMap.mapPawns.AllPawns.ToList())
+				{
+					if (item != null && item.RaceProps.Humanlike && item.genes != null)
+					{
+						Pawn_GeneTracker genes = item.genes;
+						if (!genes.Endogenes.NullOrEmpty())
+						{
+							foreach (Gene gene in genes.Endogenes.ToList())
+							{
+								if (gene.GetType() == gene.def.geneClass)
+								{
+									continue;
+								}
+								genes.RemoveGene(gene);
+								genes.AddGene(gene.def, xenogene: false);
+								Log.Message(item.Name + ": ENDOGENE TYPE FIXED: " + gene.def.defName);
+							}
+						}
+						if (!genes.Xenogenes.NullOrEmpty())
+						{
+							foreach (Gene gene in genes.Xenogenes.ToList())
+							{
+								if (gene.GetType() == gene.def.geneClass)
+								{
+									continue;
+								}
+								genes.RemoveGene(gene);
+								genes.AddGene(gene.def, xenogene: true);
+								Log.Message(item.Name + ": XENOGENE TYPE FIXED: " + gene.def.defName);
+							}
+						}
+					}
+				}
+				WVC_Biotech.settings.fixGeneTypesOnLoad = false;
+			}
 			if (WVC_Biotech.settings.fixGenesOnLoad)
 			{
 				// foreach (Pawn item in Current.Game.World.worldPawns.AllPawnsAliveOrDead)

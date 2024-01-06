@@ -33,6 +33,7 @@ namespace WVC_XenotypesAndGenes
 		public bool spawnXenoForcerSerumsFromTraders = false;
 		public bool fixGenesOnLoad = false;
 		public bool fixGeneAbilitiesOnLoad = false;
+		public bool fixGeneTypesOnLoad = false;
 		// Info
 		public bool enableGenesInfo = true;
 		public bool enableGeneSpawnerGizmo = true;
@@ -198,6 +199,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_spawnXenoForcerSerumsFromTraders".Translate(), ref settings.spawnXenoForcerSerumsFromTraders, "WVC_ToolTip_spawnXenoForcerSerumsFromTraders".Translate());
 			listingStandard.CheckboxLabeled("DEV: " + "WVC_Label_fixGenesOnLoad".Translate(), ref settings.fixGenesOnLoad, "WVC_ToolTip_fixGenesOnLoad".Translate() + "\n\n" + "WVC_Alert_fixBrokenShit".Translate());
 			listingStandard.CheckboxLabeled("DEV: " + "WVC_Label_fixGeneAbilitiesOnLoad".Translate(), ref settings.fixGeneAbilitiesOnLoad, "WVC_ToolTip_fixGeneAbilitiesOnLoad".Translate() + "\n\n" + "WVC_Alert_fixBrokenShit".Translate());
+			listingStandard.CheckboxLabeled("DEV: " + "WVC_Label_fixGeneTypesOnLoad".Translate(), ref settings.fixGeneTypesOnLoad, "WVC_ToolTip_fixGeneTypesOnLoad".Translate() + "\n\n" + "WVC_Alert_fixBrokenShit".Translate());
 			listingStandard.Gap();
 			// Serums
 			listingStandard.Label("WVC_BiotechSettings_Label_Serums".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Serums".Translate());

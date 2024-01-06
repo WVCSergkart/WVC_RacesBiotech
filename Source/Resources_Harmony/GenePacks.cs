@@ -160,12 +160,12 @@ namespace WVC_XenotypesAndGenes
 				{
 					Rand.PopState();
 				}
-				if (newGeneSet.Empty)
+				if (!newGeneSet.Empty)
 				{
-					Log.Error("Generated genepack with no genes.");
+					newGeneSet.SortGenes();
+					___geneSet = newGeneSet;
+					// Log.Error("Generated genepack with no genes.");
 				}
-				newGeneSet.SortGenes();
-				___geneSet = newGeneSet;
 			}
 		}
 

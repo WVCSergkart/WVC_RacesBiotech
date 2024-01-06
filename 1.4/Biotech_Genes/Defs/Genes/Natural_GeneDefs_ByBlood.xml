@@ -4,13 +4,13 @@
   <GeneDef Name="WVC_XenotypesAndGenes_GeneByBlood_Base" Abstract="True">
 	<!-- <displayCategory>Reproduction</displayCategory> -->
 	<!-- <displayOrderInCategory>0</displayOrderInCategory> -->
-	<description>Carriers of this gene have a special relationship with blood ties.</description>
+	<description>Carriers of this gene become more attached to blood relatives.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Opinion</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_FamilyByBlood_v0</iconPath>
 	<selectionWeight>0.011</selectionWeight>
 	<biostatCpx>1</biostatCpx>
 	<customEffectDescriptions>
-	  <li>Opinion updated every day and lasts 20 days.</li>
+	  <li>Opinion updated every day and lasts 6 days.</li>
 	  <li>Opinion can stack up to 10 times.</li>
 	  <li>Only affects colony pawns and prisoners.</li>
 	</customEffectDescriptions>
