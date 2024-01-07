@@ -136,8 +136,8 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
   <ThingDef ParentName="WVC_XenotypeResurrectorSerum_Craftable">
 	<defName>WVC_XenotypeResurrectorSerum_Undead</defName>
 	<label>xenotype resurrector</label>
-	<stackLimit>1</stackLimit>
-	<drawGUIOverlay>false</drawGUIOverlay>
+	<!-- <stackLimit>1</stackLimit> -->
+	<!-- <drawGUIOverlay>false</drawGUIOverlay> -->
 	<!-- <descriptionHyperlinks> -->
 	  <!-- <XenotypeDef>WVC_Undead</XenotypeDef> -->
 	<!-- </descriptionHyperlinks> -->
@@ -167,8 +167,8 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
   <ThingDef ParentName="WVC_XenotypeSerum_Craftable" WVC_XaG_EasyPatch="ThingDefSerumXenotypeForcerII">
 	<defName>WVC_XenotypeSerum_Base</defName>
 	<label>basetype serum</label>
-	<stackLimit>1</stackLimit>
-	<drawGUIOverlay>false</drawGUIOverlay>
+	<!-- <stackLimit>1</stackLimit> -->
+	<!-- <drawGUIOverlay>false</drawGUIOverlay> -->
 	<tradeTags Inherit="False">
 	  <li>WVC_XenotypeSerums</li>
 	  <li>WVC_All_XenotypeSerums</li>

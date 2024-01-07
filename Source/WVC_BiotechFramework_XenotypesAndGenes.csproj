@@ -108,6 +108,7 @@
     <Compile Include="Resources_Hediff\Hediff_Scarshield.cs" />
     <Compile Include="Resources_Hediff\Hediff_Spores.cs" />
     <Compile Include="Resources_Hediff\OnlyOneOverseer.cs" />
+    <Compile Include="Resources_Things\ThingClass_XenotypeSerum.cs" />
     <Compile Include="Resources_Workers\JobDriver_AbsorbGenogerm.cs" />
     <Compile Include="Resources_Workers\JobDriver_RetuneSerum.cs" />
     <Compile Include="Resources_Workers\JobGiver_GetSpecialFood.cs" />
@@ -222,7 +223,6 @@
     <Compile Include="Resources_Things\CompUseEffect_XenotypeForcer_Hybrid.cs" />
     <Compile Include="Resources_Things\CompUseEffect_XenotypeForcer_II.cs" />
     <Compile Include="Resources_Workers\JobDriver_ResurrectAndChangeXenotype.cs" />
-    <Compile Include="Resources_Things\ThingClass_XenotypeSerum.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

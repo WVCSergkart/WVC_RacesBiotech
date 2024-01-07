@@ -57,6 +57,16 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Defs.Look(ref xenotype, "xenotypeDef");
 		}
 
+		public override bool AllowStackWith(Thing other)
+		{
+			CompUseEffect_XenotypeForcer_Hybrid otherXeno = other.TryGetComp<CompUseEffect_XenotypeForcer_Hybrid>();
+			if (otherXeno != null && otherXeno.xenotype != null && otherXeno.xenotype == xenotype && otherXeno.endotype != null && otherXeno.endotype == endotype)
+			{
+				return true;
+			}
+			return false;
+		}
+
 		public override void DoEffect(Pawn pawn)
 		{
 			// SerumUtility.HumanityCheck(pawn);

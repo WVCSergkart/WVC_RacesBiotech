@@ -128,6 +128,16 @@ namespace WVC_XenotypesAndGenes
 			yield return command_Action;
 		}
 
+		public override bool AllowStackWith(Thing other)
+		{
+			CompUseEffect_XenotypeForcer_II otherXeno = other.TryGetComp<CompUseEffect_XenotypeForcer_II>();
+			if (otherXeno != null && otherXeno.xenotype != null && otherXeno.xenotype == xenotype)
+			{
+				return true;
+			}
+			return false;
+		}
+
 		public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
 		{
 			if (Props.retuneJob == null || Props.jobString.NullOrEmpty())

@@ -1,43 +1,80 @@
 using RimWorld;
+using System.Collections.Generic;
 using Verse;
 using WVC_XenotypesAndGenes;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public class RecipeWorkerCounter_SerumRetune : RecipeWorkerCounter
+	public class Recipe_AdministerSerum : Recipe_AdministerUsableItem
 	{
 
-		public new bool CountValidThing(Thing thing, Bill_Production bill, ThingDef def)
+		// public override bool AvailableOnNow(Thing thing, BodyPartRecord part = null)
+		// {
+			// if (!base.AvailableOnNow(thing, part))
+			// {
+				// return false;
+			// }
+			// if (!ModsConfig.BiotechActive)
+			// {
+				// return false;
+			// }
+			// if (thing is not Pawn pawn || !pawn.Spawned)
+			// {
+				// return false;
+			// }
+			// List<XenotypeSerum> list = new();
+			// List<Thing> listerThings = pawn.Map.listerThings.AllThings;
+			// foreach (Thing item in listerThings)
+			// {
+				// if (item is XenotypeSerum xenotypeSerum)
+				// {
+					// list.Add(xenotypeSerum);
+				// }
+			// }
+			// if (list.Any())
+			// {
+				// foreach (Thing item in list)
+				// {
+					// if (!item.IsForbidden(pawn) && !item.Position.Fogged(pawn.Map))
+					// {
+						// return true;
+					// }
+				// }
+			// }
+			// return false;
+		// }
+
+		public override void ApplyOnPawn(Pawn pawn, BodyPartRecord part, Pawn billDoer, List<Thing> ingredients, Bill bill)
 		{
-			ThingDef def2 = thing.def;
-			if (def2 != def)
+			ingredients[0].TryGetComp<CompUsable>().UsedBy(pawn);
+			if (ModLister.CheckBiotech("xenogerm implanting"))
 			{
-				return false;
+				if (IsViolationOnPawn(pawn, part, Faction.OfPlayer))
+				{
+					ReportViolation(pawn, billDoer, pawn.HomeFaction, -70);
+				}
+				if (ModsConfig.IdeologyActive)
+				{
+					Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.InstalledProsthetic, billDoer.Named(HistoryEventArgsNames.Doer)));
+				}
 			}
-			if (!bill.includeTainted && def2.IsApparel && ((Apparel)thing).WornByCorpse)
-			{
-				return false;
-			}
-			if (thing.def.useHitPoints && !bill.hpRange.IncludesEpsilon((float)thing.HitPoints / (float)thing.MaxHitPoints))
-			{
-				return false;
-			}
-			CompQuality compQuality = thing.TryGetComp<CompQuality>();
-			if (compQuality != null && !bill.qualityRange.Includes(compQuality.Quality))
-			{
-				return false;
-			}
-			if (bill.limitToAllowedStuff && !bill.ingredientFilter.Allows(thing.Stuff))
-			{
-				return false;
-			}
-			if (thing.SpawnedOrAnyParentSpawned && thing.PositionHeld.Fogged(thing.MapHeld))
-			{
-				return false;
-			}
-			return true;
 		}
+
+		// public override string LabelFromUniqueIngredients(Bill bill)
+		// {
+			// if (bill.ingredientFilter.AnyAllowedDef?.TryGetComp<CompUseEffect_XenotypeForcer_II>()?.xenotype != null)
+			// {
+				// CompUseEffect_XenotypeForcer_II xeno = bill.ingredientFilter.AnyAllowedDef.TryGetComp<CompUseEffect_XenotypeForcer_II>();
+				// return bill.ingredientFilter.AnyAllowedDef.label + " (" + xeno.xenotype.label + ")";
+			// }
+			// if (bill.ingredientFilter.AnyAllowedDef?.TryGetComp<CompUseEffect_XenotypeForcer_Hybrid>() != null)
+			// {
+				// CompUseEffect_XenotypeForcer_Hybrid hybrid = bill.ingredientFilter.AnyAllowedDef.TryGetComp<CompUseEffect_XenotypeForcer_Hybrid>();
+				// return bill.ingredientFilter.AnyAllowedDef.label + " (" + hybrid.endotype.label + " + " + hybrid.xenotype.label + ")";
+			// }
+			// return null;
+		// }
 
 	}
 

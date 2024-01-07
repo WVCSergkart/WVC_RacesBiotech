@@ -87,8 +87,8 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
   <ThingDef ParentName="WVC_XenotypeSerum_HybridNonCraftable" WVC_XaG_EasyPatch="ThingDefSerumXenotypeForcerII">
 	<defName>WVC_XenotypeSerum_Hybrid</defName>
 	<label>hybridtype serum</label>
-	<stackLimit>1</stackLimit>
-	<drawGUIOverlay>false</drawGUIOverlay>
+	<!-- <stackLimit>1</stackLimit> -->
+	<!-- <drawGUIOverlay>false</drawGUIOverlay> -->
 	<tradeTags Inherit="False">
 	  <li>WVC_XenotypeSerums</li>
 	  <li>WVC_All_XenotypeSerums</li>

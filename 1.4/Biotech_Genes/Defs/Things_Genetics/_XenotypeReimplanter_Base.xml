@@ -74,10 +74,15 @@
 	<anesthetize>false</anesthetize>
 	<workAmount>600</workAmount>
 	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+	<allowedForQuestLodgers>false</allowedForQuestLodgers>
 	<surgeryOutcomeEffect IsNull="True"/>
 	<recipeUsers>
 	  <li>Human</li>
 	</recipeUsers>
   </RecipeDef>
+  
+  <!-- <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base" Name="WVC_AdministerXenotypeSerum_NewType" Abstract="True"> -->
+	<!-- <workerClass>WVC_XenotypesAndGenes.Recipe_AdministerSerum</workerClass> -->
+  <!-- </RecipeDef> -->
 
 </Defs>
