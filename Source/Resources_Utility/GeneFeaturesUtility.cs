@@ -101,26 +101,26 @@ namespace WVC_XenotypesAndGenes
 
 		// ============================= Checker Gene Features =============================
 
-		public static bool PawnIsExoskinned(Pawn pawn)
-		{
-			if (pawn?.genes == null)
-			{
-				return false;
-			}
-			List<GeneDef> whiteListedGenes = new();
-			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
-			{
-				whiteListedGenes.AddRange(item.whiteListedExoskinGenes);
-			}
-			for (int i = 0; i < whiteListedGenes.Count; i++)
-			{
-				if (XaG_GeneUtility.HasActiveGene(whiteListedGenes[i], pawn))
-				{
-					return true;
-				}
-			}
-			return false;
-		}
+		// public static bool PawnIsExoskinned(Pawn pawn)
+		// {
+			// if (pawn?.genes == null)
+			// {
+				// return false;
+			// }
+			// List<GeneDef> whiteListedGenes = new();
+			// foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+			// {
+				// whiteListedGenes.AddRange(item.whiteListedExoskinGenes);
+			// }
+			// for (int i = 0; i < whiteListedGenes.Count; i++)
+			// {
+				// if (XaG_GeneUtility.HasActiveGene(whiteListedGenes[i], pawn))
+				// {
+					// return true;
+				// }
+			// }
+			// return false;
+		// }
 
 		public static bool IsNotAcceptablePrey(Pawn pawn)
 		{

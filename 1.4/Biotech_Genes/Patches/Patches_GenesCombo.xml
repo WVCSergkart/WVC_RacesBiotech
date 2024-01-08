@@ -162,7 +162,7 @@
 			<operations>
 				<li Class="PatchOperationAdd">
 				   <!-- or defName="AG_ParasiticStinger" or defName="AG_ParasiticStingerEndogenes" -->
-				  <xpath>/Defs/AbilityDef[defName="ReimplantXenogerm" or defName="AG_InsectStinger" or defName="AG_InsectStingerEndogenes"]/comps</xpath>
+				  <xpath>/Defs/AbilityDef[defName="ReimplantXenogerm" or defName="AG_InsectStinger" or defName="AG_InsectStingerEndogenes" or defName="VRE_ReimplantGermline"]/comps</xpath>
 				  <success>Always</success>
 				  <value>
 					<li Class="WVC_XenotypesAndGenes.CompProperties_AbilityTargetValidation">

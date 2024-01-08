@@ -168,7 +168,7 @@ namespace WVC_XenotypesAndGenes
 		public List<ThingDef> blackListedDefsForSerums;
 		public List<GeneDef> perfectCandidatesForSerums;
 		public List<GeneDef> nonCandidatesForSerums;
-		public List<GeneDef> whiteListedExoskinGenes;
+		// public List<GeneDef> whiteListedExoskinGenes;
 		public List<BackstoryDef> blackListedBackstoryForChanger;
 		public List<HediffDef> blackListedHediffDefForReimplanter;
 		public List<HediffDef> hediffsThatPreventUndeadResurrection;

@@ -95,25 +95,25 @@
 		<li>WVC_Dustogenic_DelayedReimplanter</li>
 	</blackListedHediffDefForReimplanter>
 	<!-- List of genes that are (exo)skins. Used for ideology. Required gene defNames -->
-	<whiteListedExoskinGenes>
-		<li>WVC_MechaSkin</li>
-		<li>WVC_NodeSkin</li>
-		<li>WVC_RuneSkin</li>
-		<li>WVC_StoneSkin</li>
-		<li>WVC_PatchSkin</li>
-		<li>WVC_FeatherSkin</li>
-		<li>WVC_ShapeshiftSkin</li>
-		<li>Furskin</li>
-		<li MayRequire="vanillaracesexpanded.phytokin">VRE_BarkSkin</li>
-		<li MayRequire="vanillaracesexpanded.saurid">VRESaurids_ScaleSkin</li>
-		<li MayRequire="vanillaracesexpanded.android">VREA_SyntheticBody</li>
-		<li MayRequire="sarg.alphagenes,vanillaracesexpanded.android">AG_RoboticBodySkeletal</li>
-		<li MayRequire="sarg.alphagenes,vanillaracesexpanded.android">AG_RoboticBodyPlastic</li>
-		<li MayRequire="sarg.alphagenes">AG_RockyBody</li>
-		<li MayRequire="sarg.alphagenes">AG_ScalyBody</li>
-		<li MayRequire="sarg.alphagenes">AG_SlugBody</li>
-		<li MayRequire="sarg.alphagenes">AG_SlimeBody</li>
-	</whiteListedExoskinGenes>
+	<!-- <whiteListedExoskinGenes> -->
+		<!-- <li>WVC_MechaSkin</li> -->
+		<!-- <li>WVC_NodeSkin</li> -->
+		<!-- <li>WVC_RuneSkin</li> -->
+		<!-- <li>WVC_StoneSkin</li> -->
+		<!-- <li>WVC_PatchSkin</li> -->
+		<!-- <li>WVC_FeatherSkin</li> -->
+		<!-- <li>WVC_ShapeshiftSkin</li> -->
+		<!-- <li>Furskin</li> -->
+		<!-- <li MayRequire="vanillaracesexpanded.phytokin">VRE_BarkSkin</li> -->
+		<!-- <li MayRequire="vanillaracesexpanded.saurid">VRESaurids_ScaleSkin</li> -->
+		<!-- <li MayRequire="vanillaracesexpanded.android">VREA_SyntheticBody</li> -->
+		<!-- <li MayRequire="sarg.alphagenes,vanillaracesexpanded.android">AG_RoboticBodySkeletal</li> -->
+		<!-- <li MayRequire="sarg.alphagenes,vanillaracesexpanded.android">AG_RoboticBodyPlastic</li> -->
+		<!-- <li MayRequire="sarg.alphagenes">AG_RockyBody</li> -->
+		<!-- <li MayRequire="sarg.alphagenes">AG_ScalyBody</li> -->
+		<!-- <li MayRequire="sarg.alphagenes">AG_SlugBody</li> -->
+		<!-- <li MayRequire="sarg.alphagenes">AG_SlimeBody</li> -->
+	<!-- </whiteListedExoskinGenes> -->
 	<!-- List of backstories that will not be overridden by the backstory changer. Required backstory defNames -->
 	<blackListedBackstoryForChanger>
 		<li>Newborn79</li>
