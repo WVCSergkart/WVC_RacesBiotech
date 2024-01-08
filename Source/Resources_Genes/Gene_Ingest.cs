@@ -22,7 +22,7 @@ namespace WVC_XenotypesAndGenes
 			// }
 			IngestibleProperties ingestible = thing.def.ingestible;
 			float nutrition = thing.GetStatValue(StatDefOf.Nutrition);
-			if (ingestible != null && nutrition > 0f)
+			if (ingestible != null && nutrition > 0f && pawn.Map != null)
 			{
 				DustUtility.OffsetNeedFood(pawn, (-1f * def.resourceLossPerDay) * nutrition * (float)numTaken);
 				// Log.Error(def.defName + " " + ((-1f * def.resourceLossPerDay) * nutrition * (float)numTaken) + " nutrition gain");
@@ -69,7 +69,7 @@ namespace WVC_XenotypesAndGenes
 					// It is necessary to ensure that the food bar is filled
 					DustUtility.OffsetNeedFood(pawn, 10.0f);
 				}
-				else
+				else if (pawn.Map != null)
 				{
 					// DustUtility.OffsetNeedFood(pawn, 0.3f);
 					DustUtility.OffsetNeedFood(pawn, -0.1f * nutrition * (float)numTaken);

@@ -86,6 +86,16 @@ Dustogenic pawns will automatically try to use these injectors instead of regula
 			<!-- </geneDefs> -->
 		<!-- </li> -->
 	<!-- </modExtensions> -->
+	<ingestible>
+	  <maxNumToIngestAtOnce>1</maxNumToIngestAtOnce>
+	  <preferability>DesperateOnly</preferability>
+	  <optimalityOffsetHumanlikes>-9999</optimalityOffsetHumanlikes>
+	  <optimalityOffsetFeedingAnimals>-99999</optimalityOffsetFeedingAnimals>
+	  <ingestEffect>EatVegetarian</ingestEffect>
+	  <canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
+	  <specialThoughtDirect>WVC_IngestedNutrientsInjector</specialThoughtDirect>
+	  <ingestSound>Meal_Eat</ingestSound>
+	</ingestible>
   </ThingDef>
 
   <ThingDef ParentName="WVC_XenotypesAndGenes_SpecialMeal_Base">
@@ -107,14 +117,6 @@ Dustogenic pawns will automatically try to use these injectors instead of regula
 	  <Nutrition>1.2</Nutrition>
 	</statBases>
 	<ingestible>
-	  <maxNumToIngestAtOnce>1</maxNumToIngestAtOnce>
-	  <preferability>DesperateOnly</preferability>
-	  <optimalityOffsetHumanlikes>-9999</optimalityOffsetHumanlikes>
-	  <optimalityOffsetFeedingAnimals>-99999</optimalityOffsetFeedingAnimals>
-	  <ingestEffect>EatVegetarian</ingestEffect>
-	  <canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
-	  <specialThoughtDirect>WVC_IngestedNutrientsInjector</specialThoughtDirect>
-	  <ingestSound>Meal_Eat</ingestSound>
 	</ingestible>
 	<allowedArchonexusCount>40</allowedArchonexusCount>
   </ThingDef>
@@ -136,14 +138,6 @@ Dustogenic pawns will automatically try to use these injectors instead of regula
 	  <Nutrition>1.2</Nutrition>
 	</statBases>
 	<ingestible>
-	  <maxNumToIngestAtOnce>1</maxNumToIngestAtOnce>
-	  <preferability>DesperateOnly</preferability>
-	  <optimalityOffsetHumanlikes>-9999</optimalityOffsetHumanlikes>
-	  <optimalityOffsetFeedingAnimals>-99999</optimalityOffsetFeedingAnimals>
-	  <!-- <ateEvent>AteNutrientPaste</ateEvent> -->
-	  <specialThoughtDirect>WVC_IngestedNutrientsInjector</specialThoughtDirect>
-	  <ingestEffect>EatVegetarian</ingestEffect>
-	  <ingestSound>Meal_Eat</ingestSound>
 	  <outcomeDoers>
 		<li Class="IngestionOutcomeDoer_OffsetHemogen">
 		  <offset>0.4</offset>
