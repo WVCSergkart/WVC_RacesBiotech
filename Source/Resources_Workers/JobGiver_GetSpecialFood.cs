@@ -48,7 +48,7 @@ namespace WVC_XenotypesAndGenes
 				// cachedNeedSpecialFood = false;
 				return 0f;
 			}
-			if (!pawn.RaceProps.Humanlike || pawn.genes == null || pawn.genes.Xenotype == XenotypeDefOf.Baseliner)
+			if (!pawn.RaceProps.Humanlike || pawn.genes == null || (pawn.genes.Xenotype == XenotypeDefOf.Baseliner && pawn.genes.CustomXenotype == null))
 			{
 				// Log.Error(pawn.Name + " non-dustogenic");
 				// cachedNeedSpecialFood = false;

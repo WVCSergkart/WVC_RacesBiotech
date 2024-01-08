@@ -80,10 +80,14 @@ namespace WVC_XenotypesAndGenes
 			// {
 				// return false;
 			// }
-			if (!pawn.HasReimplanterAbility())
-			{
-				return false;
-			}
+			// if (!MiscUtility.HasReimplanterAbility(pawn))
+			// {
+				// return false;
+			// }
+			// if (!XaG_GeneUtility.HasActiveGene(gene.def, pawn))
+			// {
+				// return false;
+			// }
 			if (pawn.IsPrisonerOfColony && pawn.guest.PrisonerIsSecure)
 			{
 				return true;

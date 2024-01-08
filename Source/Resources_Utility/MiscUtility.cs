@@ -203,21 +203,21 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public static bool HasReimplanterAbility(this Pawn pawn)
-		{
-			List<Ability> allAbilitiesForReading = pawn?.abilities?.AllAbilitiesForReading;
-			foreach (Ability ability in allAbilitiesForReading)
-			{
-				foreach (AbilityComp comp in ability.comps)
-				{
-					if (comp is CompAbilityEffect_Reimplanter)
-					{
-						return true;
-					}
-				}
-			}
-			return false;
-		}
+		// public static bool HasReimplanterAbility(Pawn pawn)
+		// {
+			// List<Ability> allAbilitiesForReading = pawn?.abilities?.AllAbilitiesForReading;
+			// foreach (Ability ability in allAbilitiesForReading)
+			// {
+				// foreach (AbilityComp comp in ability.comps)
+				// {
+					// if (comp is CompAbilityEffect_Reimplanter)
+					// {
+						// return true;
+					// }
+				// }
+			// }
+			// return false;
+		// }
 
 		// Plants
 
