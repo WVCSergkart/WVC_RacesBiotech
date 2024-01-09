@@ -41,6 +41,10 @@ namespace WVC_XenotypesAndGenes
 			}
 			ResurrectionUtility.Resurrect(pawn);
 			pawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
+			if (ModLister.IdeologyInstalled)
+			{
+				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_GenesDefOf.WVC_UndeadResurrection, pawn.Named(HistoryEventArgsNames.Doer)));
+			}
 			// Undead
 			pawn.health.AddHediff(WVC_GenesDefOf.WVC_Resurgent_UndeadResurrectionRecovery);
 			pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(WVC_GenesDefOf.WVC_XenotypesAndGenes_WasResurrected);

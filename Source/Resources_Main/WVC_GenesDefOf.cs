@@ -60,6 +60,11 @@ namespace WVC_XenotypesAndGenes
 		public static LetterDef WVC_XaG_GestationEvent;
 		// Traits
 		// public static TraitDef WVC_XaG_ShapeshiftPhobia;
+		// History
+		public static HistoryEventDef WVC_ReimplanterResurrection;
+		public static HistoryEventDef WVC_UndeadResurrection;
+		public static HistoryEventDef WVC_Shapeshift;
+		public static HistoryEventDef WVC_XenotypeSerumUsed;
 	}
 
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Intense ideos -->
+
+  <IdeoPresetDef>
+	<defName>WVC_XenoFanatics</defName>
+	<label>xeno fanatics</label>
+	<description>There is no place in the world for anything other than humanity and its endless incarnations.\n\nGuarantees &lt;color=#ff8585&gt;debuffs&lt;/color&gt; for using any animals and mechanoids.</description>
+	<categoryDef>Intense</categoryDef>
+	<memes>
+	  <li>WVC_XenotypesSupremacy</li>
+	  <li>Transhumanist</li>
+	  <li>HumanPrimacy</li>
+	</memes>
+  </IdeoPresetDef>
+
+</Defs>

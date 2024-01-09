@@ -10,6 +10,18 @@ namespace WVC_XenotypesAndGenes
     public static class SerumUtility
 	{
 
+		// Ideology Hook
+
+		public static void PostSerumUsedHook(Pawn pawn)
+		{
+			if (ModLister.IdeologyInstalled)
+			{
+				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_GenesDefOf.WVC_XenotypeSerumUsed, pawn.Named(HistoryEventArgsNames.Doer)));
+			}
+		}
+
+		// Checks
+
 		// Basic check excluding all non-humans
 		// For example, GeneRestoration uses exactly this
 		public static bool PawnIsHuman(Pawn pawn)

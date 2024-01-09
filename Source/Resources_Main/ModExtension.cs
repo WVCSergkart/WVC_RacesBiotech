@@ -45,6 +45,8 @@ namespace WVC_XenotypesAndGenes
 
 	public class GeneExtension_General : DefModExtension
 	{
+		public PawnKindDef pawnKindDef;
+		public float recruitChance = 0.5f;
 		// public bool geneIsMechaskin = false;
 		// public bool geneIsPowerSource = false;
 		// public bool geneIsSubcore = false;

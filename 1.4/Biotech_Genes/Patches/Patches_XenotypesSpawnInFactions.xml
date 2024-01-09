@@ -3,13 +3,13 @@
 
 	<!-- [defName="FPC" or defName="Feral" or defName="TribeSavage" or defName="SettlerCivil" or defName="SettlerRough" or defName="SettlerSavage" or defName="VFEV_VikingsClan" or defName="VFEV_VikingsSlaver" or defName="VFEM_KingdomCivil" or defName="VFEM_KingdomRough" or defName="VFEM_KingdomSavage" or defName="Pirate" or defName="OutlanderRough" or defName="PirateWaster" or defName="OutlanderRoughPig" or defName="TribeSavageImpid" or defName="PirateYttakin" or defName="TribeRoughNeanderthal"] -->
 
-	<Operation Class="PatchOperationReplace">
-	  <xpath>/Defs/FactionDef/xenotypeSet/warnIfTotalAbove1</xpath>
-	  <success>Always</success>
-	  <value>
-		  <warnIfTotalAbove1>false</warnIfTotalAbove1>
-	  </value>
-	</Operation>
+	<!-- <Operation Class="PatchOperationReplace"> -->
+	  <!-- <xpath>/Defs/FactionDef/xenotypeSet/warnIfTotalAbove1</xpath> -->
+	  <!-- <success>Always</success> -->
+	  <!-- <value> -->
+		  <!-- <warnIfTotalAbove1>false</warnIfTotalAbove1> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
 
 	<!-- <Operation Class="PatchOperationSequence"> -->
 		<!-- <success>Always</success> -->

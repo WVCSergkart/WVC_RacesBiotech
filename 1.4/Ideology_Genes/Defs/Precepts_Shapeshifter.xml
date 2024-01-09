@@ -9,6 +9,16 @@
 	<iconPath>WVC/UI/Precepts/Precept_GeneticSupremacy_v0</iconPath>
   </IssueDef>
 
+  <HistoryEventDef>
+	<defName>WVC_Shapeshift</defName>
+	<label>shapeshift</label>
+  </HistoryEventDef>
+
+  <HistoryEventDef>
+	<defName>WVC_XenotypeSerumUsed</defName>
+	<label>xenotype serum used</label>
+  </HistoryEventDef>
+
   <!-- Precepts -->
 
   <PreceptDef>
@@ -38,6 +48,16 @@
 		<thought>WVC_GeneticSupremacy_Desired_NonHumanlikes</thought>
 		<description>For each non-human in faction</description>
 	  </li>
+	  <li Class="PreceptComp_DevelopmentPoints">
+		<eventDef>WVC_Shapeshift</eventDef>
+		<eventLabel>shapeshift</eventLabel>
+		<points>3</points>
+	  </li>
+	  <li Class="PreceptComp_DevelopmentPoints">
+		<eventDef>WVC_XenotypeSerumUsed</eventDef>
+		<eventLabel>xenotype serum used</eventLabel>
+		<points>1</points>
+	  </li>
 	</comps>
   </PreceptDef>
 
@@ -66,7 +86,7 @@
 	  <li>
 		<label>non-humanlikes in faction</label>
 		<description>These disgusting lower creatures in our faction.</description>
-		<baseMoodEffect>-8</baseMoodEffect>
+		<baseMoodEffect>-6</baseMoodEffect>
 	  </li>
 	</stages>
   </ThoughtDef>
@@ -96,6 +116,11 @@
 		<thought>WVC_GeneticSupremacy_Preferred_NonHumanlikes</thought>
 		<description>For each non-human in faction</description>
 	  </li>
+	  <li Class="PreceptComp_DevelopmentPoints">
+		<eventDef>WVC_Shapeshift</eventDef>
+		<eventLabel>shapeshift</eventLabel>
+		<points>2</points>
+	  </li>
 	</comps>
   </PreceptDef>
 
@@ -110,7 +135,7 @@
 	  <li>
 		<label>non-humanlikes in faction</label>
 		<description>These disgusting lower creatures in our faction.</description>
-		<baseMoodEffect>-2</baseMoodEffect>
+		<baseMoodEffect>-3</baseMoodEffect>
 	  </li>
 	</stages>
   </ThoughtDef>

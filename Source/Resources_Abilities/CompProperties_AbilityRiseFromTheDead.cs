@@ -42,6 +42,10 @@ namespace WVC_XenotypesAndGenes
 				innerPawn.SetFaction(Faction.OfPlayer);
 				Messages.Message("WVC_XaG_ReimplantResurrectionRecruiting".Translate(innerPawn), innerPawn, MessageTypeDefOf.PositiveEvent);
 			}
+			if (ModLister.IdeologyInstalled)
+			{
+				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_GenesDefOf.WVC_ReimplanterResurrection, parent.pawn.Named(HistoryEventArgsNames.Doer)));
+			}
 			// ResurrectionUtility.Resurrect(innerPawn);
 			// innerPawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
 			// innerPawn.needs?.mood?.thoughts?.memories.TryGainMemory(WVC_GenesDefOf.WVC_XenotypesAndGenes_WasResurrected);

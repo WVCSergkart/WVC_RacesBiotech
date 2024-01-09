@@ -12,7 +12,7 @@
 	<apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
 	<apparelColor>(58,58,58)</apparelColor>
 	<chronologicalAgeRange>300~2000</chronologicalAgeRange>
-	<initialResistanceRange>10~80</initialResistanceRange>
+	<initialResistanceRange>10~25</initialResistanceRange>
 	<initialWillRange>5~15</initialWillRange>
 	<defaultFactionType>PlayerColony</defaultFactionType>
 	<apparelMoney>80~120</apparelMoney>

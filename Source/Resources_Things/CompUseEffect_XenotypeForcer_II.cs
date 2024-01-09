@@ -83,6 +83,7 @@ namespace WVC_XenotypesAndGenes
 				int max = HediffDefOf.XenogerminationComa.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.max;
 				Find.LetterStack.ReceiveLetter("LetterLabelGenesImplanted".Translate(), "WVC_LetterTextGenesImplanted".Translate(pawn.Named("TARGET"), max.ToStringTicksToPeriod().Named("COMADURATION")), LetterDefOf.NeutralEvent, new LookTargets(pawn));
 			}
+			SerumUtility.PostSerumUsedHook(pawn);
 		}
 
 		public override IEnumerable<Gizmo> CompGetGizmosExtra()
