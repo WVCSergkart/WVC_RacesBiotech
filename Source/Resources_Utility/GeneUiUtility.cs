@@ -22,7 +22,16 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool ReplaceGeneBackground(GeneDef geneDef)
 		{
-			if (!WVC_Biotech.settings.disableUniqueGeneInterface && (geneDef.defName.Contains("WVC_") || geneDef.GetModExtension<GeneExtension_Background>() != null))
+			// geneDef.defName.Contains("WVC_")
+			if (WVC_Biotech.settings.disableUniqueGeneInterface)
+			{
+				return false;
+			}
+			if (geneDef.modContentPack != null && geneDef.modContentPack.PackageId.Contains("wvc.sergkart.races.biotech"))
+			{
+				return true;
+			}
+			if (geneDef.GetModExtension<GeneExtension_Background>() != null)
 			{
 				return true;
 			}

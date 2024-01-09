@@ -19,6 +19,11 @@
 	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_PawnHaveWings"/>
 	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
 	</comps>
+	<modExtensions>
+	  <li MayRequire="pathfinding.framework" Class="PathfindingFramework.MovementExtension">
+		<movementDef>PF_Movement_Flying</movementDef>
+	  </li>
+	</modExtensions>
   </HediffDef>
 
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
