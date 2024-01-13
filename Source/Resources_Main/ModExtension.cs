@@ -108,6 +108,7 @@ namespace WVC_XenotypesAndGenes
 		public float gestationPeriodFactor = 0.5f;
 		public float xenotypeComplexityFactor = 0.1f;
 		public int cooldownDays = 15;
+		public List<GeneDef> canGestateAnyIfHas;
 	}
 
 	// public class XenotypeExtension_SubXenotype : DefModExtension

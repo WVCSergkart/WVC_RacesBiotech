@@ -20,6 +20,7 @@ namespace WVC_XenotypesAndGenes
 		public int gestationPeriodDays;
 		public float xenotypeComplexityFactor;
 		public int cooldownDays;
+		public bool canGestateAny = false;
 
 		public List<XenotypeDef> allMatchedXenotypes;
 
@@ -39,6 +40,7 @@ namespace WVC_XenotypesAndGenes
 			xenotypeComplexityFactor = geneExtension == null ? 0.1f : geneExtension.xenotypeComplexityFactor;
 			cooldownDays = geneExtension == null ? 5 : geneExtension.cooldownDays;
 			gestationPeriodDays = (int)(gene.pawn.RaceProps.gestationPeriodDays * (geneExtension == null ? 1f : geneExtension.gestationPeriodFactor));
+			canGestateAny = geneExtension != null && XaG_GeneUtility.HasAnyActiveGene(geneExtension?.canGestateAnyIfHas, gene.pawn);
 			// currentXeno = xenoTree.chosenXenotype;
 			// selectedXeno = currentXeno;
 			// connectedPawn = xenoTree.ConnectedPawn;
@@ -84,6 +86,11 @@ namespace WVC_XenotypesAndGenes
 			if (preventGestation != null)
 			{
 				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneXenoGestator_Disabled".Translate(preventGestation != null ? preventGestation.def.label : "ERR").Colorize(ColorLibrary.RedReadable));
+				curY += 10f;
+			}
+			else if (canGestateAny)
+			{
+				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneXenoGestator_GestationGenesShapeshifter".Translate().Colorize(ColorLibrary.LightBlue));
 				curY += 10f;
 			}
 			else if (!allMatchedXenotypes.Contains(selectedXeno))
@@ -179,6 +186,10 @@ namespace WVC_XenotypesAndGenes
 			if (preventGestation != null)
 			{
 				return false;
+			}
+			if (canGestateAny)
+			{
+				return true;
 			}
 			if (allMatchedXenotypes.Contains(mode))
 			{

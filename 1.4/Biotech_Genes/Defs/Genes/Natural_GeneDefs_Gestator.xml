@@ -68,6 +68,9 @@
 			<gestationPeriodFactor>0.5</gestationPeriodFactor>
 			<xenotypeComplexityFactor>0.2</xenotypeComplexityFactor>
 			<cooldownDays>12</cooldownDays>
+			<canGestateAnyIfHas>
+				<li>WVC_Shapeshifter</li>
+			</canGestateAnyIfHas>
 		</li>
 	</modExtensions>
   </GeneDef>
