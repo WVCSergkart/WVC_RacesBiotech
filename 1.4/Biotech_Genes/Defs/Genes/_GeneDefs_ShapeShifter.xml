@@ -117,7 +117,7 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_Shapeshifter</geneClass>
 	<customEffectDescriptions>
 		<li>Allows you to change the xenotype at any time.</li>
-		<!-- <li MayRequire="ludeon.rimworld.ideology">Increases the number of scars by 3</li> -->
+		<li>This gene removes the limit of the &lt;color=#8a8ae6&gt;"Xenotype gestator"&lt;/color&gt; gene.</li>
 		<li>&lt;color=#ff8585&gt;Does not support custom xenotypes.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<displayOrderInCategory>155</displayOrderInCategory>
