@@ -184,7 +184,7 @@
 		<li>Refresh time (*DateTime)~1 day(/DateTime).</li>
 	</customEffectDescriptions>
 	<makeImmuneTo>
-	  <li>BloodRot</li>
+	  <li MayRequire="ludeon.rimworld.royalty">BloodRot</li>
 	</makeImmuneTo>
 	<exclusionTags>
 	  <li>AG_Bleeding</li>
