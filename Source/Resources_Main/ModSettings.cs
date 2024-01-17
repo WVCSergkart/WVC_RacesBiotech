@@ -88,7 +88,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref enableGeneScarifierInfo, "enableGeneScarifierInfo", defaultValue: false);
 			Scribe_Values.Look(ref enableGolemsInfo, "enableGolemsInfo", defaultValue: true);
 			// Serums
-			Scribe_Values.Look(ref serumsForAllXenotypes, "serumsForAllXenotypes", defaultValue: true);
+			Scribe_Values.Look(ref serumsForAllXenotypes, "serumsForAllXenotypes", defaultValue: true, forceSave: true);
 			Scribe_Values.Look(ref serumsForAllXenotypes_GenBase, "serumsForAllXenotypes_GenBase", defaultValue: true);
 			Scribe_Values.Look(ref serumsForAllXenotypes_GenUltra, "serumsForAllXenotypes_GenUltra", defaultValue: false);
 			Scribe_Values.Look(ref serumsForAllXenotypes_GenHybrid, "serumsForAllXenotypes_GenHybrid", defaultValue: false);
