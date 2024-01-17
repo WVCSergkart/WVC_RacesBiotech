@@ -8,7 +8,7 @@ namespace WVC_XenotypesAndGenes
     [StaticConstructorOnStartup]
 	public static class XenotypesFilterStartup
 	{
-		public static List<string> filterBlackListedXenotypesForSerums = new();
+		// public static List<string> filterBlackListedXenotypesForSerums = new();
 		// public static bool anyShieldItemPresent;
 		static XenotypesFilterStartup()
 		{
@@ -133,10 +133,10 @@ namespace WVC_XenotypesAndGenes
 				// {
 				// filterBlackListedXenotypesForSerums.Add(thingDef.defName);
 				// }
-				if (WVC_Biotech.cachedXenotypesFilter[thingDef.defName] == false)
-				{
-					filterBlackListedXenotypesForSerums.Add(thingDef.defName);
-				}
+				// if (WVC_Biotech.cachedXenotypesFilter[thingDef.defName] == false)
+				// {
+					// filterBlackListedXenotypesForSerums.Add(thingDef.defName);
+				// }
 			}
 		}
 	}

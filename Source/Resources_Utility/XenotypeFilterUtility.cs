@@ -39,24 +39,13 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (addFromFilter)
 			{
-				foreach (string item in XenotypesFilterStartup.filterBlackListedXenotypesForSerums)
+				foreach (var item in WVC_Biotech.cachedXenotypesFilter)
 				{
-					list.Add(item);
+					if (item.Value == false)
+					{
+						list.Add(item.Key);
+					}
 				}
-				// foreach (XenotypeDef thingDef in WVC_Biotech.allXenotypes)
-				// {
-					// if (WVC_Biotech.cachedXenotypesFilter[thingDef.defName] == false)
-					// {
-						// list.Add(thingDef.defName);
-					// }
-				// }
-				// if (!WVC_Biotech.cachedXenotypeDefNames.NullOrEmpty())
-				// {
-					// foreach (XenotypeDef thingDef in WVC_Biotech.cachedXenotypeDefNames)
-					// {
-						// list.Add(thingDef.defName);
-					// }
-				// }
 			}
 			return list;
 		}
