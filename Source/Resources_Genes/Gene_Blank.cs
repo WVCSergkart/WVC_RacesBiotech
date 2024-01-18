@@ -7,28 +7,22 @@ namespace WVC_XenotypesAndGenes
     public class Gene_Blank : Gene
 	{
 
-		private List<Gene> genesListForReading;
+		// private bool cachedResult = false;
+		// private int nextRecache = -1;
 
 		public override bool Active
 		{
 			get
 			{
-				// if (Overridden)
-				// {
-				// return false;
-				// }
-				// Log.Error("Active");
 				if (base.Active && pawn?.genes != null)
 				{
-					if (genesListForReading.NullOrEmpty())
-					{
-						// Log.Error("Active");
-						genesListForReading = pawn.genes.Xenogenes;
-					}
-					if (genesListForReading.Count > 0)
-					{
-						return false;
-					}
+					// if (Find.TickManager.TicksGame < nextRecache)
+					// {
+						// return cachedResult;
+					// }
+					// cachedResult = !pawn.genes.Xenogenes.NullOrEmpty();
+					// nextRecache = Find.TickManager.TicksGame + 60000;
+					return !pawn.genes.Xenogenes.Any();
 				}
 				return base.Active;
 			}

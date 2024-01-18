@@ -6,6 +6,7 @@
 	<label>runeskin</label>
 	<labelShortAdj>runeskin</labelShortAdj>
 	<description>TEST DESC</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Exoskin</geneClass>
 	<!-- <displayCategory>WVC_MechaBody</displayCategory> -->
 	<!-- <displayCategory>Miscellaneous</displayCategory> -->
 	<displayCategory>WVC_Cosmetic</displayCategory>
@@ -25,11 +26,10 @@
 	<missingGeneRomanceChanceFactor>0.35</missingGeneRomanceChanceFactor>
 	<minAgeActive>0</minAgeActive>
 	<!-- <minAgeActive>13</minAgeActive> -->
-	<!-- <graphicData> -->
-	  <!-- <drawOffsetNorth>(0.0, -1.2, 0.0)</drawOffsetNorth> -->
-	  <!-- <drawOffsetSouth>(0.0, -1.2, 0.0)</drawOffsetSouth> -->
-	  <!-- <drawOffsetEast>(0.0, -1.2, 0.0)</drawOffsetEast> -->
-	<!-- </graphicData> -->
+	<graphicData>
+	  <skinIsHairColor>false</skinIsHairColor>
+	  <tattoosVisible>true</tattoosVisible>
+	</graphicData>
 	<exclusionTags>
 	  <li>AG_Bodies</li>
 	  <li>Bodies</li>
@@ -39,12 +39,10 @@
 	</exclusionTags>
 	<!-- = -->
 	<modExtensions Inherit="False">
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<furHidesBody>True</furHidesBody>
-			<useSkinColorForFur>True</useSkinColorForFur>
-			<!-- <customWoundsFromFleshtype>Mechanoid</customWoundsFromFleshtype> -->
-			<!-- <customBloodEffect>Damage_HitMechanoid</customBloodEffect> -->
-		</li>
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <furHidesBody>True</furHidesBody> -->
+			<!-- <useSkinColorForFur>True</useSkinColorForFur> -->
+		<!-- </li> -->
 		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Background"> -->
 			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite> -->
 		<!-- </li> -->
@@ -78,7 +76,7 @@
 	<graphicData>
 	  <fur>WVC_RuneSkin</fur>
 	  <tattoosVisible>true</tattoosVisible>
-	  <layer>PostSkin</layer>
+	  <!-- <layer>PostSkin</layer> -->
 	</graphicData>
 	<symbolPack>
 	  <prefixSymbols>
@@ -95,6 +93,12 @@
 	<exclusionTags>
 	  <li>Jaw</li>
 	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<furIsSkin>true</furIsSkin>
+			<!-- <furDef>WVC_RuneSkin</furDef> -->
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- Stone -->
@@ -126,7 +130,7 @@
 	<graphicData>
 	  <fur>WVC_StoneSkin</fur>
 	  <tattoosVisible>true</tattoosVisible>
-	  <layer>PostSkin</layer>
+	  <!-- <layer>PostSkin</layer> -->
 	</graphicData>
 	<symbolPack>
 	  <prefixSymbols>
@@ -144,6 +148,12 @@
 	<exclusionTags>
 	  <li>Jaw</li>
 	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<furIsSkin>true</furIsSkin>
+			<!-- <furDef>WVC_StoneSkin</furDef> -->
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- Patch -->
@@ -159,7 +169,7 @@
 	<graphicData>
 	  <fur>WVC_PatchSkin</fur>
 	  <tattoosVisible>true</tattoosVisible>
-	  <layer>PostSkin</layer>
+	  <!-- <layer>PostSkin</layer> -->
 	</graphicData>
 	<missingGeneRomanceChanceFactor>0.85</missingGeneRomanceChanceFactor>
 	<symbolPack>
@@ -174,6 +184,12 @@
 	<exclusionTags>
 	  <li>Jaw</li>
 	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<furIsSkin>true</furIsSkin>
+			<!-- <furDef>WVC_PatchSkin</furDef> -->
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- Feathered -->
@@ -197,7 +213,7 @@
 	<graphicData>
 	  <fur>WVC_FeatheredSkin</fur>
 	  <tattoosVisible>true</tattoosVisible>
-	  <layer>PostSkin</layer>
+	  <!-- <layer>PostSkin</layer> -->
 	</graphicData>
 	<missingGeneRomanceChanceFactor>0.75</missingGeneRomanceChanceFactor>
 	<symbolPack>
@@ -208,10 +224,16 @@
 		<li><symbol>bird</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
-	<modExtensions Inherit="False">
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<furHidesBody>True</furHidesBody>
-			<useSkinAndHairColorsForFur>True</useSkinAndHairColorsForFur>
+	<!-- <modExtensions Inherit="False"> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <furHidesBody>True</furHidesBody> -->
+			<!-- <useSkinAndHairColorsForFur>True</useSkinAndHairColorsForFur> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<furIsSkinWithHair>true</furIsSkinWithHair>
+			<!-- <furDef>WVC_FeatheredSkin</furDef> -->
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -234,7 +256,7 @@
 	<graphicData>
 	  <fur>WVC_ShapeshiftSkin</fur>
 	  <tattoosVisible>true</tattoosVisible>
-	  <layer>PostSkin</layer>
+	  <!-- <layer>PostSkin</layer> -->
 	</graphicData>
 	<missingGeneRomanceChanceFactor>0.60</missingGeneRomanceChanceFactor>
 	<symbolPack>
@@ -249,6 +271,10 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<scarsCount>3</scarsCount>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<furIsSkin>true</furIsSkin>
+			<!-- <furDef>WVC_ShapeshiftSkin</furDef> -->
 		</li>
 	</modExtensions>
   </GeneDef>

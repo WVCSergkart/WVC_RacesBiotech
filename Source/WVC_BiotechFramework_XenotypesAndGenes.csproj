@@ -75,6 +75,7 @@
     <Compile Include="Resources_Abilities\CompProperties_AbilitySpawn.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilitySpawnOnCell.cs" />
     <Compile Include="Resources_Abilities\QuestNode_Root_Reincarnation.cs" />
+    <Compile Include="Resources_Genes\Gene_Furskin.cs" />
     <Compile Include="Resources_Genes\Gene_Gender.cs" />
     <Compile Include="Resources_Genes\Gene_Learning.cs" />
     <Compile Include="Resources_Genes\Gene_Opinion.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="Resources_Harmony\Harmony_Background_New.cs" />
     <Compile Include="Resources_Harmony\Harmony_DisablePawnRelations.cs" />
     <Compile Include="Resources_Harmony\Harmony_GeneImmunityFix.cs" />
+    <Compile Include="Resources_Harmony\Harmony_PawnBodyGraphic.cs" />
     <Compile Include="Resources_Hediff\CustomMechlinkLabel.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_PawnHaveWings.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_SeverityFromDust.cs" />

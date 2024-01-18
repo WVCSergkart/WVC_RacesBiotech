@@ -61,6 +61,13 @@ namespace WVC_XenotypesAndGenes
 		public List<GeneDef> inheritableGeneDefs;
 	}
 
+	public class GeneExtension_Graphic : DefModExtension
+	{
+		// public FurDef furDef;
+		public bool furIsSkinWithHair = false;
+		public bool furIsSkin = false;
+	}
+
 	public class GeneExtension_Giver : DefModExtension
 	{
 		public HediffDef hediffDefName;

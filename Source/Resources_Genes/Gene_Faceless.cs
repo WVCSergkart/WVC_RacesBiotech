@@ -8,7 +8,10 @@ namespace WVC_XenotypesAndGenes
     public class Gene_Faceless : Gene
 	{
 
-		public List<HeadTypeDef> HeadTypeDefs => def.GetModExtension<GeneExtension_Giver>().headTypeDefs;
+		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
+
+		private bool cachedResult = true;
+		private int nextRecache = 0;
 
 		public override bool Active
 		{
@@ -16,6 +19,14 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (base.Active)
 				{
+					if (Find.TickManager.TicksGame < nextRecache)
+					{
+						return cachedResult;
+					}
+					cachedResult = HeadTypeIsCorrect(pawn);
+					nextRecache = Find.TickManager.TicksGame + 12000;
+					// Log.Error("Check head");
+					pawn.Drawer.renderer.graphics.SetAllGraphicsDirty();
 					return HeadTypeIsCorrect(pawn);
 				}
 				return base.Active;
@@ -28,7 +39,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (HeadTypeDefs.Contains(pawn.story.headType))
+			if (Props.headTypeDefs.Contains(pawn.story.headType))
 			{
 				if (pawn?.health != null && pawn?.health?.hediffSet != null)
 				{
@@ -66,6 +77,13 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 			return false;
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref cachedResult, "faceplateIsVisible", true);
+			Scribe_Values.Look(ref nextRecache, "nextRecache", 0);
 		}
 
 	}

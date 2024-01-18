@@ -1,5 +1,6 @@
 using RimWorld;
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -49,6 +50,33 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_General General => def?.GetModExtension<GeneExtension_General>();
 
+		// public override bool Active
+		// {
+			// get
+			// {
+				// if (pawn != null)
+				// {
+					// if (!Overridden)
+					// {
+						// if (General != null && General.noSkillDecay)
+						// {
+							// StaticCollectionsClass.AddSkillDecayGenePawnToList(pawn);
+							// Log.Error("Skills not decay");
+						// }
+					// }
+					// else
+					// {
+						// if (General != null && General.noSkillDecay)
+						// {
+							// StaticCollectionsClass.RemoveSkillDecayGenePawnFromList(pawn);
+							// Log.Error("Skills decay");
+						// }
+					// }
+				// }
+				// return base.Active;
+			// }
+		// }
+
 		public override void PostAdd()
 		{
 			base.PostAdd();
@@ -64,6 +92,30 @@ namespace WVC_XenotypesAndGenes
 			if (!GeneFeaturesUtility.PawnSkillsNotDecay(pawn))
 			{
 				StaticCollectionsClass.RemoveSkillDecayGenePawnFromList(pawn);
+			}
+		}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: Get no skill decay pawns",
+					action = delegate
+					{
+						Log.Error("All no skill decay pawns:" + "\n" + StaticCollectionsClass.skillsNotDecayPawns.Select((Pawn x) => x.Name.ToString()).ToLineList(" - "));
+					}
+				};
+			}
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			if (pawn != null && !PawnGenerator.IsBeingGenerated(pawn) && General != null && General.noSkillDecay)
+			{
+				StaticCollectionsClass.AddSkillDecayGenePawnToList(pawn);
 			}
 		}
 

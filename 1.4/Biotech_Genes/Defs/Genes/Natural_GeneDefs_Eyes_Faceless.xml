@@ -22,10 +22,9 @@
 	</forcedHeadTypes>
 	<graphicData>
 	  <fur>WVC_NodeSkin</fur>
+	  <skinIsHairColor>false</skinIsHairColor>
 	  <tattoosVisible>true</tattoosVisible>
-	  <useSkinShader>false</useSkinShader>
-	  <!-- <skinIsHairColor>true</skinIsHairColor> -->
-	  <layer>PostSkin</layer>
+	  <!-- <layer>PostSkin</layer> -->
 	</graphicData>
 	<!-- <beardTagFilter> -->
 	  <!-- <whitelist>true</whitelist> -->
@@ -56,11 +55,12 @@
 	<exclusionTags>
 	  <li>Jaw</li>
 	</exclusionTags>
-	<!-- <modExtensions> -->
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
-			<!-- <eyesShouldBeInvisble>true</eyesShouldBeInvisble> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<furIsSkin>true</furIsSkin>
+			<!-- <furDef>WVC_NodeSkin</furDef> -->
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- ============================================= -->
