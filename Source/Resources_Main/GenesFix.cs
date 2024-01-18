@@ -4,7 +4,7 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class FixBrokenGenes_GameComponent : GameComponent
+    public class XaG_GameComponent : GameComponent
 	{
 		// public override void StartedNewGame()
 		// {
@@ -12,27 +12,25 @@ namespace WVC_XenotypesAndGenes
 			// Apply();
 		// }
 
+		public Game currentGame;
+
 		public override void LoadedGame()
 		{
 			base.LoadedGame();
-			Apply();
+			// StaticCollectionsClass.skillsNotDecayPawns.Clear();
+			DevFixes();
 		}
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "<Pending>")]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0079:Remove unnecessary suppression", Justification = "<Pending>")]
-        public FixBrokenGenes_GameComponent(Game game)
-        {
-        }
+		public XaG_GameComponent(Game game)
+		{
+			currentGame = game;
+		}
 
-		// public FixBrokenGenes_GameComponent()
-		// {
-		// }
-
-		public static void Apply()
+		public void DevFixes()
 		{
 			if (WVC_Biotech.settings.fixGeneTypesOnLoad)
 			{
-				foreach (Pawn item in Current.Game.CurrentMap.mapPawns.AllPawns.ToList())
+				foreach (Pawn item in currentGame.CurrentMap.mapPawns.AllPawns.ToList())
 				{
 					if (item != null && item.RaceProps.Humanlike && item.genes != null)
 					{
@@ -69,10 +67,10 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (WVC_Biotech.settings.fixGenesOnLoad)
 			{
-				// foreach (Pawn item in Current.Game.World.worldPawns.AllPawnsAliveOrDead)
-				// List<Pawn> pawns = Current.Game.CurrentMap.mapPawns.AllPawns;
+				// foreach (Pawn item in currentGame.World.worldPawns.AllPawnsAliveOrDead)
+				// List<Pawn> pawns = currentGame.CurrentMap.mapPawns.AllPawns;
 				// Log.Error("1");
-				foreach (Pawn item in Current.Game.CurrentMap.mapPawns.AllPawns.ToList())
+				foreach (Pawn item in currentGame.CurrentMap.mapPawns.AllPawns.ToList())
 				{
 					if (item != null && item.RaceProps.Humanlike && item.genes != null)
 					{
@@ -101,7 +99,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (WVC_Biotech.settings.fixGeneAbilitiesOnLoad)
 			{
-				foreach (Pawn item in Current.Game.CurrentMap.mapPawns.AllPawns.ToList())
+				foreach (Pawn item in currentGame.CurrentMap.mapPawns.AllPawns.ToList())
 				{
 					if (item != null && item.RaceProps.Humanlike && item.genes != null)
 					{
