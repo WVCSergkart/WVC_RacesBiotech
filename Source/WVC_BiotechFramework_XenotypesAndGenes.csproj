@@ -75,6 +75,8 @@
     <Compile Include="Resources_Abilities\CompProperties_AbilitySpawn.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilitySpawnOnCell.cs" />
     <Compile Include="Resources_Abilities\QuestNode_Root_Reincarnation.cs" />
+    <Compile Include="Resources_Genes\Gene_Gender.cs" />
+    <Compile Include="Resources_Genes\Gene_Learning.cs" />
     <Compile Include="Resources_Genes\Gene_Opinion.cs" />
     <Compile Include="Resources_Genes\Gene_Shapeshifter.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ChangeXenotype.cs" />
@@ -108,6 +110,7 @@
     <Compile Include="Resources_Hediff\Hediff_Scarshield.cs" />
     <Compile Include="Resources_Hediff\Hediff_Spores.cs" />
     <Compile Include="Resources_Hediff\OnlyOneOverseer.cs" />
+    <Compile Include="Resources_Main\StaticCollection.cs" />
     <Compile Include="Resources_RitualAttachableOutcome\OutcomeWorker_ShapeshifterJoin.cs" />
     <Compile Include="Resources_Things\ThingClass_XenotypeSerum.cs" />
     <Compile Include="Resources_Workers\JobDriver_AbsorbGenogerm.cs" />
@@ -151,7 +154,6 @@
     <Compile Include="Resources_Gizmo\GeneGizmo_ResurgentCells.cs" />
     <Compile Include="Resources_Genes\Gene_AddOrRemoveHediff.cs" />
     <Compile Include="Resources_Genes\Gene_Ageless.cs" />
-    <Compile Include="Resources_Genes\Gene_Amnesia.cs" />
     <Compile Include="Resources_Genes\Gene_Blank.cs" />
     <Compile Include="Resources_Genes\Gene_ResurgentActive.cs" />
     <Compile Include="Resources_Genes\Gene_ResurgentCells.cs" />

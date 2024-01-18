@@ -2,6 +2,7 @@
 <Defs>
 
   <GeneDef ParentName="GeneLearningBase" Name="WVC_XenotypesAndGenes_GeneLearning_Base" Abstract="True">
+	<geneClass>WVC_XenotypesAndGenes.Gene_Learning</geneClass>
 	<selectionWeight>0.0172</selectionWeight>
   </GeneDef>
 
@@ -29,11 +30,47 @@
 	  <GlobalLearningFactor>0.4</GlobalLearningFactor>
 	</statFactors>
 	<customEffectDescriptions>
-		<li>Skills not decay.</li>
+		<li>Skills not decay. Even if the gene is not active.</li>
 	</customEffectDescriptions>
 	<hediffGiversCannotGive>
 	  <li>Dementia</li>
 	  <li>Alzheimers</li>
+	</hediffGiversCannotGive>
+	<exclusionTags>
+	  <li>WVC_ExcellentMemory</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<noSkillDecay>true</noSkillDecay>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
+	<defName>WVC_MechaAI_Base</defName>
+	<label>excellent memory</label> 
+	<description>Carriers of this gene never forget their skills.</description>
+	<iconColor>(184, 198, 203)</iconColor>
+	<iconPath>WVC/UI/Genes/MechanoidizationSoftware</iconPath>
+	<displayCategory>Miscellaneous</displayCategory>
+	<displayOrderInCategory>29</displayOrderInCategory>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Learning</geneClass>
+	<customEffectDescriptions>
+		<li>Skills not decay. Even if the gene is not active.</li>
+	</customEffectDescriptions>
+	<capMods>
+	  <li>
+		<capacity>Consciousness</capacity>
+		<offset>0.05</offset>
+	  </li>
+	</capMods>
+	<statFactors>
+	  <SocialImpact>0.8</SocialImpact>
+	</statFactors>
+	<hediffGiversCannotGive>
+	  <li>Dementia</li>
+	  <li>Alzheimers</li>
+	  <li>TraumaSavant</li>
 	</hediffGiversCannotGive>
 	<exclusionTags>
 	  <li>WVC_ExcellentMemory</li>
@@ -52,7 +89,7 @@
 	<!-- <labelShortAdj>blindness</labelShortAdj> -->
 	<!-- <description>TEST</description> -->
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_PermanentHediff</geneClass> -->
-	<geneClass>WVC_XenotypesAndGenes.Gene_BackstoryChanger</geneClass>
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_BackstoryChanger</geneClass> -->
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Amnesia</geneClass> -->
 	<customEffectDescriptions>
 	  <li>Childhood and adulthood background will be &lt;color=#8a8ae6&gt;amnesiac&lt;/color&gt;. Does not work if the carrier is a native colonist.</li>
@@ -147,7 +184,7 @@
 	  <GlobalLearningFactor>0.4</GlobalLearningFactor>
 	</statFactors>
 	<customEffectDescriptions>
-		<li>Skills not decay.</li>
+		<li>Skills not decay. Even if the gene is not active.</li>
 	</customEffectDescriptions>
 	<hediffGiversCannotGive>
 	  <li>Dementia</li>

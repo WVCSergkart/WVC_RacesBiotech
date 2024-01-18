@@ -89,6 +89,7 @@ namespace WVC_XenotypesAndGenes
 		public List<ThingDef> specialFoodDefs;
 		// public SoundDef soundDefOnImplant;
 		// public ThoughtDef geneOpinion_thoughtDef;
+		public Gender gender = Gender.None;
 	}
 
 	public class GeneExtension_Shapeshifter : DefModExtension

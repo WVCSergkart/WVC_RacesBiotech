@@ -10,15 +10,27 @@ namespace WVC_XenotypesAndGenes
 		[HarmonyPatch(typeof(SkillRecord), "Interval")]
 		public class WVC_SkillRecord_Interval_Patch
 		{
+
+			// [HarmonyPrefix]
+			// public static bool Prefix(Pawn ___pawn)
+			// {
+				// if (GeneFeaturesUtility.PawnSkillsNotDecay(___pawn))
+				// {
+					// return false;
+				// }
+				// return true;
+			// }
+
 			[HarmonyPrefix]
 			public static bool Prefix(Pawn ___pawn)
 			{
-				if (GeneFeaturesUtility.PawnSkillsNotDecay(___pawn))
+				if (StaticCollectionsClass.skillsNotDecayPawns.Contains(___pawn))
 				{
 					return false;
 				}
 				return true;
 			}
+
 		}
 
 		// public static bool Prefix(ref float xp, bool direct, SkillRecord __instance)
