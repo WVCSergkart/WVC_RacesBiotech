@@ -70,7 +70,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool PawnCannotUseSerums(Pawn pawn)
 		{
-			if (!pawn.RaceProps.Humanlike)
+			if (pawn?.RaceProps?.Humanlike == false)
 			{
 				return true;
 			}
@@ -106,37 +106,34 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool HasAnyActiveGene(List<GeneDef> geneDefs, Pawn pawn)
 		{
-			if (geneDefs.NullOrEmpty() || pawn.genes == null)
+			if (geneDefs.NullOrEmpty() || pawn?.genes == null)
 			{
 				return false;
 			}
-			// for (int i = 0; i < geneDefs.Count; i++)
-			// {
-				// if (geneDefs[i] != null)
-				// {
-					// List<Gene> genesListForReading = pawn.genes.GenesListForReading;
-					// for (int j = 0; j < genesListForReading.Count; j++)
-					// {
-						// if (genesListForReading[j].Active == true && genesListForReading[j].def == geneDefs[i])
-						// {
-							// return true;
-						// }
-					// }
-				// }
-			// }
 			for (int i = 0; i < geneDefs.Count; i++)
 			{
-				if (HasActiveGene(geneDefs[i], pawn))
+				List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+				for (int j = 0; j < genesListForReading.Count; j++)
 				{
-					return true;
+					if (genesListForReading[j].Active == true && genesListForReading[j].def == geneDefs[i])
+					{
+						return true;
+					}
 				}
 			}
+			// for (int i = 0; i < geneDefs.Count; i++)
+			// {
+				// if (HasActiveGene(geneDefs[i], pawn))
+				// {
+					// return true;
+				// }
+			// }
 			return false;
 		}
 
 		public static bool HasActiveGene(GeneDef geneDef, Pawn pawn)
 		{
-			if (geneDef == null || pawn.genes == null)
+			if (geneDef == null || pawn?.genes == null)
 			{
 				return false;
 			}
@@ -153,6 +150,10 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool GenesIsMatchForPawns(List<Pawn> pawns, List<GeneDef> xenotypeGenes, float percent)
 		{
+			if (xenotypeGenes.NullOrEmpty() || percent <= 0f)
+			{
+				return true;
+			}
 			List<Gene> genes = new();
 			foreach (Pawn pawn in pawns)
 			{
@@ -177,13 +178,13 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool GenesIsMatch(List<Gene> pawnGenes, List<GeneDef> xenotypeGenes, float percent)
 		{
+			if (xenotypeGenes.NullOrEmpty() || percent <= 0f)
+			{
+				return true;
+			}
 			if (pawnGenes.NullOrEmpty())
 			{
 				return false;
-			}
-			if (xenotypeGenes.NullOrEmpty())
-			{
-				return true;
 			}
 			List<GeneDef> matchingGenes = GetMatchingGenesList(pawnGenes, xenotypeGenes);
 			if (matchingGenes.Count >= xenotypeGenes.Count * percent)
@@ -197,6 +198,10 @@ namespace WVC_XenotypesAndGenes
 
 		public static GeneDef GetFirstGeneDefOfType(List<GeneDef> genes, Type type)
 		{
+			if (genes.NullOrEmpty())
+			{
+				return null;
+			}
 			for (int i = 0; i < genes.Count; i++)
 			{
 				if (genes[i].geneClass == type)
@@ -321,7 +326,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static int GetXenotype_Cpx(XenotypeDef xenotypeDef)
 		{
-			List<GeneDef> genes = xenotypeDef.genes;
+			List<GeneDef> genes = xenotypeDef?.genes;
 			if (genes.NullOrEmpty())
 			{
 				return 0;
@@ -336,7 +341,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static int GetXenotype_Met(XenotypeDef xenotypeDef)
 		{
-			List<GeneDef> genes = xenotypeDef.genes;
+			List<GeneDef> genes = xenotypeDef?.genes;
 			if (genes.NullOrEmpty())
 			{
 				return 0;
@@ -351,7 +356,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static int GetXenotype_Arc(XenotypeDef xenotypeDef)
 		{
-			List<GeneDef> genes = xenotypeDef.genes;
+			List<GeneDef> genes = xenotypeDef?.genes;
 			if (genes.NullOrEmpty())
 			{
 				return 0;

@@ -1,9 +1,12 @@
 // RimWorld.ThoughtWorker_Pretty
 using RimWorld;
+using System;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
+
+    [Obsolete]
     public class ThoughtWorker_GenderMale : ThoughtWorker
     {
         protected override ThoughtState CurrentSocialStateInternal(Pawn p, Pawn other)
@@ -27,6 +30,8 @@ namespace WVC_XenotypesAndGenes
             return true;
         }
     }
+
+    [Obsolete]
     public class ThoughtWorker_GenderFemale : ThoughtWorker
     {
         protected override ThoughtState CurrentSocialStateInternal(Pawn p, Pawn other)

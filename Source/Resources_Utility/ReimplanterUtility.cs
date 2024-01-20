@@ -135,7 +135,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void SaveReimplantXenogenesFromXenotype(Pawn pawn, XenotypeDef xenotypeDef)
 		{
-			if (pawn.genes != null && pawn.genes.Xenogenes.Count <= 0)
+			if (pawn.genes != null && !pawn.genes.Xenogenes.NullOrEmpty())
 			{
 				ReimplantXenogenesFromXenotype(pawn, xenotypeDef);
 			}

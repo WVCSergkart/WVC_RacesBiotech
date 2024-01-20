@@ -2,12 +2,15 @@
 // using System.Reflection;
 // using System.Collections.Generic;
 using RimWorld;
+using System;
 using System.Linq;
 using Verse;
 // using UnityEngine;
 
 namespace WVC_XenotypesAndGenes
 {
+
+    [Obsolete]
     public class ConditionalStatAffecter_CauseSetting : ConditionalStatAffecter
     {
         public string settingName;

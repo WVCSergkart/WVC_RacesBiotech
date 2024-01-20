@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
@@ -76,6 +77,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete]
 	public class RandomGenes
 	{
 		public bool inheritable = false;
@@ -101,6 +103,7 @@ namespace WVC_XenotypesAndGenes
 
 		// public XenotypeIconDef xenotypeIconDef = null;
 
+		[Obsolete]
 		public List<RandomGenes> randomGenes = new();
 
 		public override void ResolveReferences()
@@ -154,13 +157,13 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_XaG_SubXeno_Endogenes".Translate().CapitalizeFirst(), endogenes.Select((GeneDef x) => x.label).ToCommaList().CapitalizeFirst(), "GenesDesc".Translate() + "\n\n" + "WVC_XaG_SubXeno_Endogenes_Desc".Translate() + "\n\n" + endogenes.Select((GeneDef x) => x.label).ToLineList("  - ", capitalizeItems: true), 1030);
 			}
-			if (!randomGenes.NullOrEmpty())
-			{
-				foreach (RandomGenes item in randomGenes)
-				{
-					yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_XaG_SubXeno_RandomGenes".Translate().CapitalizeFirst(), item.genes.Select((GeneDef x) => x.label).ToCommaList().CapitalizeFirst(), "WVC_XaG_SubXeno_RandomGenes_Desc".Translate() + "\n\n" + item.genes.Select((GeneDef x) => x.label).ToLineList("  - ", capitalizeItems: true), 1020);
-				}
-			}
+			// if (!randomGenes.NullOrEmpty())
+			// {
+				// foreach (RandomGenes item in randomGenes)
+				// {
+					// yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_XaG_SubXeno_RandomGenes".Translate().CapitalizeFirst(), item.genes.Select((GeneDef x) => x.label).ToCommaList().CapitalizeFirst(), "WVC_XaG_SubXeno_RandomGenes_Desc".Translate() + "\n\n" + item.genes.Select((GeneDef x) => x.label).ToLineList("  - ", capitalizeItems: true), 1020);
+				// }
+			// }
 		}
 
 		public override IEnumerable<string> ConfigErrors()

@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using Verse;
 
@@ -28,6 +29,8 @@ namespace WVC_XenotypesAndGenes
 
 		// =================================
 
+
+		[Obsolete]
 		public static bool XenoTree_CanSpawn(XenotypeDef xenotypeDef, Thing parent)
 		{
 			if (xenotypeDef.genes.NullOrEmpty())
@@ -41,6 +44,8 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+
+		[Obsolete]
 		public static bool XenoTree_ToxResCheck(XenotypeDef xenotypeDef, Thing parent)
 		{
 			if (!XenotypeHasToxResistance(xenotypeDef) || parent.Position.IsPolluted(parent.Map))
@@ -71,6 +76,8 @@ namespace WVC_XenotypesAndGenes
 		// =============================== ToxResistance ===============================
 
 		// Tox
+
+		[Obsolete]
 		public static bool XenotypeHasToxResistance(XenotypeDef xenotypeDef)
 		{
 			List<GeneDef> genes = xenotypeDef.genes;
@@ -109,6 +116,8 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// Heat
+
+		[Obsolete]
 		public static bool XenotypeHasHeatResistance(XenotypeDef xenotypeDef)
 		{
 			List<GeneDef> genes = xenotypeDef.genes;
@@ -138,6 +147,8 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// Cold
+
+		[Obsolete]
 		public static bool XenotypeHasColdResistance(XenotypeDef xenotypeDef)
 		{
 			List<GeneDef> genes = xenotypeDef.genes;
@@ -168,6 +179,8 @@ namespace WVC_XenotypesAndGenes
 
 		// =============================== Other ===============================
 
+
+		[Obsolete]
 		public static bool XenotypeIsFurskin(XenotypeDef xenotypeDef)
 		{
 			List<GeneDef> genes = xenotypeDef.genes;
@@ -189,6 +202,7 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		[Obsolete]
 		public static bool XenotypeIsArchite(XenotypeDef xenotypeDef)
 		{
 			List<GeneDef> genes = xenotypeDef.genes;
@@ -210,6 +224,7 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		[Obsolete]
 		public static bool XenotypeIsBloodfeeder(XenotypeDef xenotypeDef)
 		{
 			List<GeneDef> genes = xenotypeDef.genes;
@@ -229,6 +244,7 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		[Obsolete]
 		public static bool XenotypeIsUndead(XenotypeDef xenotypeDef)
 		{
 			List<GeneDef> genes = xenotypeDef.genes;

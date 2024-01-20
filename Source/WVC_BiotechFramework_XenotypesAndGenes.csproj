@@ -118,7 +118,7 @@
     <Compile Include="Resources_Workers\JobDriver_AbsorbGenogerm.cs" />
     <Compile Include="Resources_Workers\JobDriver_RetuneSerum.cs" />
     <Compile Include="Resources_Workers\JobGiver_GetSpecialFood.cs" />
-    <Compile Include="Resources_Main\GenesFix.cs" />
+    <Compile Include="Resources_Main\GameComponents.cs" />
     <Compile Include="Resources_Main\PostInitializationStartup.cs" />
     <Compile Include="Resources_StatPart\StatPart_OffsetFromPollutedGraves.cs" />
     <Compile Include="Resources_Main\SubXenotypeDefs.cs" />
@@ -144,7 +144,7 @@
     <Compile Include="Resources_Utility\GeneUiUtility.cs" />
     <Compile Include="Resources_Utility\GeneUtility.cs" />
     <Compile Include="Resources_Utility\GolemsUtility.cs" />
-    <Compile Include="Resources_Utility\MechanidsUtility.cs" />
+    <Compile Include="Resources_Utility\MechanoidsUtility.cs" />
     <Compile Include="Resources_Utility\MiscUtility.cs" />
     <Compile Include="Resources_Utility\ReimplanterUtility.cs" />
     <Compile Include="Resources_Things\CompProperties_InitialHediff.cs" />

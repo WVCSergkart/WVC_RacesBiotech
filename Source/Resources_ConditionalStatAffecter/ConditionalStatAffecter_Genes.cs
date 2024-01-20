@@ -1,8 +1,11 @@
 using RimWorld;
+using System;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
+
+    [Obsolete]
     public class ConditionalStatAffecter_Genes : ConditionalStatAffecter
     {
         public GeneDef geneDef;

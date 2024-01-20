@@ -1,5 +1,6 @@
 // Verse.AI.JobGiver_WanderNearConnectedTree
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using Verse;
 using Verse.AI;
@@ -7,6 +8,7 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
+    [Obsolete]
     public class ThinkNode_ConditionalAnyEnemyInMap : ThinkNode_Conditional
     {
         protected override bool Satisfied(Pawn pawn)
@@ -24,6 +26,7 @@ namespace WVC_XenotypesAndGenes
         }
     }
 
+    [Obsolete]
     public class JobGiver_WanderNearTarget : JobGiver_Wander
     {
         public ThingDef targetDefName;
