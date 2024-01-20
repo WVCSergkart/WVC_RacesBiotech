@@ -10,7 +10,7 @@ namespace WVC_XenotypesAndGenes
 
         // Replaces the vanilla check (without gene Active check) with a version with gene Active check
         [HarmonyPatch(typeof(Pawn_GeneTracker), "HediffGiversCanGive")]
-		public static class WVC_Pawn_GeneTracker_HediffGiversCanGive_Patch
+		public static class Patch_Pawn_GeneTracker_HediffGiversCanGive
 		{
 
 			public static bool Prefix(ref bool __result, ref HediffDef hediff, Pawn_GeneTracker __instance)
@@ -40,7 +40,7 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		[HarmonyPatch(typeof(ImmunityHandler), "AnyGeneMakesFullyImmuneTo")]
-		public static class WVC_ImmunityHandler_AnyGeneMakesFullyImmuneTo_Patch
+		public static class Patch_ImmunityHandler_AnyGeneMakesFullyImmuneTo
 		{
 
 			public static bool Prefix(ref bool __result, ref HediffDef def, ImmunityHandler __instance)

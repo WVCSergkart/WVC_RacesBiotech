@@ -8,7 +8,7 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		[HarmonyPatch(typeof(SkillRecord), "Interval")]
-		public class WVC_SkillRecord_Interval_Patch
+		public class Patch_SkillRecord_Interval
 		{
 
 			// [HarmonyPrefix]

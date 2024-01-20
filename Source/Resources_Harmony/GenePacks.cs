@@ -12,7 +12,7 @@ namespace WVC_XenotypesAndGenes
 
 	[HarmonyPatch(typeof(Genepack))]
 	[HarmonyPatch("PostMake")]
-	public static class WVC_Genepack_PostMake_Patch
+	public static class Patch_Genepack_PostMake
 	{
 		private struct WVC_GenesCount
 		{
@@ -36,7 +36,7 @@ namespace WVC_XenotypesAndGenes
 		private static readonly WVC_GenesCount[] WVC_UltraGenesCountProbabilities;
 		private static readonly WVC_GenesCount[] WVC_MechaGenesCountProbabilities;
 
-		static WVC_Genepack_PostMake_Patch()
+		static Patch_Genepack_PostMake()
 		{
 			WVC_BaseGenesCountProbabilities = new WVC_GenesCount[4]
 			{

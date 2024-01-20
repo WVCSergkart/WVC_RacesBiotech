@@ -17,6 +17,13 @@ namespace WVC_XenotypesAndGenes
 		public override void LoadedGame()
 		{
 			base.LoadedGame();
+			// foreach (Pawn item in StaticCollectionsClass.skillsNotDecayPawns.ToList())
+			// {
+				// if (item == null || item.Discarded || item.Destroyed)
+				// {
+					// StaticCollectionsClass.RemoveSkillDecayGenePawnFromList(item);
+				// }
+			// }
 			// StaticCollectionsClass.skillsNotDecayPawns.Clear();
 			DevFixes();
 		}

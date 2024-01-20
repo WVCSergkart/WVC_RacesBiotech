@@ -10,7 +10,7 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		[HarmonyPatch(typeof(PawnGraphicSet), "ResolveAllGraphics")]
-		public static class PawnGraphicSet_ResolveAllGraphics_Patch
+		public static class Patch_PawnGraphicSet_ResolveAllGraphics
 		{
 			[HarmonyPostfix]
 			public static void Postfix(PawnGraphicSet __instance)
@@ -24,49 +24,33 @@ namespace WVC_XenotypesAndGenes
 				{
 					return;
 				}
-				// List<Gene> genesListForReading = pawn.genes.GenesListForReading;
-				// foreach (Gene item in genesListForReading)
-				// {
-					// if (!item.Active)
-					// {
-						// continue;
-					// }
-					// GeneExtension_Graphic modExtension = item.def.GetModExtension<GeneExtension_Graphic>();
-					// if (modExtension == null || modExtension.furDef == null)
-					// {
-						// continue;
-					// }
-					// __instance.furCoveredGraphic = null;
-					// if (modExtension.furIsSkinWithHair)
-					// {
-						// __instance.nakedGraphic = GraphicDatabase.Get<Graphic_Multi>(modExtension.furDef.GetFurBodyGraphicPath(pawn), ShaderDatabase.CutoutComplex, Vector2.one, pawn.story.SkinColor, pawn.story.HairColor);
-					// }
-					// else if (modExtension.furIsSkin)
-					// {
-						// __instance.nakedGraphic = GraphicDatabase.Get<Graphic_Multi>(modExtension.furDef.GetFurBodyGraphicPath(pawn), ShaderUtility.GetSkinShader(pawn.story.SkinColorOverriden), Vector2.one, pawn.story.SkinColor);
-					// }
-				// }
 				if (pawn.story?.furDef == null)
 				{
 					return;
 				}
 				Gene_Exoskin gene_Exoskin = pawn.genes.GetFirstGeneOfType<Gene_Exoskin>();
-				if (gene_Exoskin != null)
+				if (gene_Exoskin == null)
 				{
-					GeneExtension_Graphic modExtension = gene_Exoskin.def.GetModExtension<GeneExtension_Graphic>();
-					if (modExtension == null)
-					{
-						return;
-					}
-					__instance.furCoveredGraphic = null;
-					if (modExtension.furIsSkinWithHair)
-					{
-						__instance.nakedGraphic = GraphicDatabase.Get<Graphic_Multi>(pawn.story.furDef.GetFurBodyGraphicPath(pawn), ShaderDatabase.CutoutComplex, Vector2.one, pawn.story.SkinColor, pawn.story.HairColor);
-					}
-					else if (modExtension.furIsSkin)
-					{
-						__instance.nakedGraphic = GraphicDatabase.Get<Graphic_Multi>(pawn.story.furDef.GetFurBodyGraphicPath(pawn), ShaderUtility.GetSkinShader(pawn.story.SkinColorOverriden), Vector2.one, pawn.story.SkinColor);
-					}
+					return;
+				}
+				GeneExtension_Graphic modExtension = gene_Exoskin.def.GetModExtension<GeneExtension_Graphic>();
+				if (modExtension == null)
+				{
+					return;
+				}
+				__instance.furCoveredGraphic = null;
+				string bodyPath = pawn.story.furDef.GetFurBodyGraphicPath(pawn);
+				if (modExtension.furIsSkinWithHair)
+				{
+					__instance.nakedGraphic = GraphicDatabase.Get<Graphic_Multi>(bodyPath, ShaderDatabase.CutoutComplex, Vector2.one, pawn.story.SkinColor, pawn.story.HairColor);
+				}
+				else if (modExtension.furIsSkin)
+				{
+					__instance.nakedGraphic = GraphicDatabase.Get<Graphic_Multi>(bodyPath, ShaderUtility.GetSkinShader(pawn.story.SkinColorOverriden), Vector2.one, pawn.story.SkinColor);
+				}
+				if (modExtension.furCanRot)
+				{
+					__instance.rottingGraphic = GraphicDatabase.Get<Graphic_Multi>(bodyPath, ShaderUtility.GetSkinShader(pawn.story.SkinColorOverriden), Vector2.one, pawn.story.SkinColorOverriden ? (PawnGraphicSet.RottingColorDefault * pawn.story.SkinColor) : PawnGraphicSet.RottingColorDefault);
 				}
 			}
 		}

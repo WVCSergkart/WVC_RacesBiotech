@@ -104,7 +104,7 @@ namespace WVC_XenotypesAndGenes
 					defaultLabel = "DEV: Get no skill decay pawns",
 					action = delegate
 					{
-						Log.Error("All no skill decay pawns:" + "\n" + StaticCollectionsClass.skillsNotDecayPawns.Select((Pawn x) => x.Name.ToString()).ToLineList(" - "));
+						Log.Error("All no skill decay pawns:" + "\n" + StaticCollectionsClass.skillsNotDecayPawns.Select((Pawn x) => x.Name.ToString() + " : " + x.def.defName + " : " + x.kindDef.defName + " : " + x.thingIDNumber.ToString()).ToLineList(" - "));
 					}
 				};
 			}

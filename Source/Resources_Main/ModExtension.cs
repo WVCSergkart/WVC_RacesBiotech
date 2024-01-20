@@ -66,6 +66,7 @@ namespace WVC_XenotypesAndGenes
 		// public FurDef furDef;
 		public bool furIsSkinWithHair = false;
 		public bool furIsSkin = false;
+		public bool furCanRot = true;
 	}
 
 	public class GeneExtension_Giver : DefModExtension

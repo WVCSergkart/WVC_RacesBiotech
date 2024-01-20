@@ -10,7 +10,7 @@ namespace WVC_XenotypesAndGenes
 
         [HarmonyPatch(typeof(PawnGenerator))]
         [HarmonyPatch("GeneratePawnRelations")]
-        public static class WVC_PawnGenerator_GeneratePawnRelations_Patch
+        public static class Patch_PawnGenerator_GeneratePawnRelations
         {
             [HarmonyPrefix]
             public static bool DisablePawnRelations(Pawn pawn)

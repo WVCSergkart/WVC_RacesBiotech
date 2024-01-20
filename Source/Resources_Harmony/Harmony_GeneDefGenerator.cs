@@ -11,7 +11,7 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		[HarmonyPatch(typeof(GeneDefGenerator), "ImpliedGeneDefs")]
-		public static class WVC_Genes_GeneDefGenerator_ImpliedGeneDefs_Patch
+		public static class Patch_GeneDefGenerator_ImpliedGeneDefs
 		{
 			[HarmonyPostfix]
 			public static IEnumerable<GeneDef> Postfix(IEnumerable<GeneDef> values)

@@ -13,7 +13,7 @@ namespace WVC_XenotypesAndGenes
     {
 
         [HarmonyPatch(typeof(ThingDefGenerator_Neurotrainer), "ImpliedThingDefs")]
-        public static class WVC_ThingDefGenerator_Neurotrainer_ImpliedThingDefs_Patch
+        public static class Patch_ThingDefGenerator_Neurotrainer_ImpliedThingDefs
         {
             [HarmonyPostfix]
             public static IEnumerable<ThingDef> Postfix(IEnumerable<ThingDef> values)
