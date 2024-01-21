@@ -61,6 +61,7 @@
 	<alwaysHide>false</alwaysHide>
 	<category>Mechanitor</category>
 	<displayPriorityInCategory>2005</displayPriorityInCategory>
+	<toStringStyle>FloatOne</toStringStyle>
 	<parts>
 	  <li Class="WVC_XenotypesAndGenes.StatPart_OffsetFromBuildingsOnMap">
 		<label>WVC_StatPart_GenesCombo_OffsetFromShrines</label>
@@ -90,6 +91,7 @@
 	<minValue>0</minValue>
 	<displayPriorityInCategory>2005</displayPriorityInCategory>
 	<showIfUndefined>false</showIfUndefined>
+	<toStringStyle>FloatOne</toStringStyle>
   </StatDef>
 
   <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
@@ -101,6 +103,7 @@
 	<alwaysHide>false</alwaysHide>
 	<category>Mechanitor</category>
 	<displayPriorityInCategory>2010</displayPriorityInCategory>
+	<toStringStyle>FloatOne</toStringStyle>
 	<parts>
 	  <!-- <li Class="WVC_XenotypesAndGenes.StatPart_OffsetFromBuildingsOnMap"> -->
 		<!-- <label>WVC_XaG_StatPart_OffsetFromSkullspikes</label> -->
@@ -124,6 +127,7 @@
 	<minValue>0</minValue>
 	<displayPriorityInCategory>2010</displayPriorityInCategory>
 	<showIfUndefined>false</showIfUndefined>
+	<toStringStyle>FloatOne</toStringStyle>
   </StatDef>
 
 </Defs>

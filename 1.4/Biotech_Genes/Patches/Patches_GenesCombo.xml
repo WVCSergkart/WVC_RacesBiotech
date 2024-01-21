@@ -425,6 +425,46 @@
 	<Operation Class="PatchOperationSequence">
 		<success>Always</success>
 		<operations>
+			<li Class="PatchOperationReplace">
+			  <xpath>/Defs/StatDef[defName="MechBandwidth"]/toStringStyle</xpath>
+			  <success>Invert</success>
+			  <value>
+				<toStringStyle>FloatOne</toStringStyle>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/StatDef[defName="MechBandwidth"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<toStringStyle>FloatOne</toStringStyle>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+			  <xpath>/Defs/StatDef[defName="BandwidthCost"]/toStringStyle</xpath>
+			  <success>Invert</success>
+			  <value>
+				<toStringStyle>FloatOne</toStringStyle>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/StatDef[defName="BandwidthCost"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<toStringStyle>FloatOne</toStringStyle>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
 			<li Class="PatchOperationAdd">
 			  <xpath>/Defs/StatDef[defName="BandwidthCost"]/parts</xpath>
 			  <success>Invert</success>

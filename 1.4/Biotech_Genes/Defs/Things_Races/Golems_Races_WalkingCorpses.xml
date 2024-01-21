@@ -157,7 +157,9 @@
 	<!-- =================================================================== -->
 
 	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Base" Name="WVC_XenotypesAndGenes_Golemlike_Bones" Abstract="True">
-		<description>A pile of bones animated by archotech-created archites in a toxic fungus. This “mechanoid” requires  a lot of energy, but very little bandwidth.</description>
+		<description>A pile of bones animated by archotech-created archites in a toxic fungus. This “mechanoid” requires  a lot of energy, but very little bandwidth.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; Golem control requires bandwidth and resurgent spores. The standard bandwidth-to-golem ratio is 1 to 5.</description>
 		<soundImpactDefault>BulletImpact_Flesh</soundImpactDefault>
 		<descriptionHyperlinks>
 		  <ThingDef>WVC_Plant_TreeResurgent</ThingDef>
