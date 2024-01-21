@@ -176,6 +176,21 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		public static bool PawnXenotypeIsEvotype(Pawn pawn)
+		{
+			Pawn_GeneTracker genes = pawn?.genes;
+			if (genes == null || genes.UniqueXenotype || genes.iconDef != null)
+			{
+				return false;
+			}
+			XenotypeDef pawnXenotype = genes.Xenotype;
+			if (pawnXenotype == null || pawnXenotype is not EvotypeDef)
+			{
+				return false;
+			}
+			return true;
+		}
+
 		// Remove genes
 		public static void RemoveRandomGenes(Pawn pawn)
 		{

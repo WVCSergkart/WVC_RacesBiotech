@@ -119,6 +119,28 @@ namespace WVC_XenotypesAndGenes
 			// return false;
 		// }
 
+		// public override IEnumerable<Gizmo> GetGizmos()
+		// {
+			// if (DebugSettings.ShowDevGizmos)
+			// {
+				// yield return new Command_Action
+				// {
+					// defaultLabel = "DEV: GeneSet Modification Check",
+					// action = delegate
+					// {
+						// if (SubXenotypeUtility.PawnXenotypeIsNotCustomXenotype(pawn))
+						// {
+							// Log.Error("Pawn is xenotype");
+						// }
+						// else
+						// {
+							// Log.Error("Pawn genes modified");
+						// }
+					// }
+				// };
+			// }
+		// }
+
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{
 			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, 
