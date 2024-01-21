@@ -124,6 +124,7 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Shapeshifter">
 			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
+			<!-- <shapeshiftEffect>CocoonWakingUp</shapeshiftEffect> -->
 			<!-- <duplicateHediffs> -->
 				<!-- <li>WVC_Shapeshifter_DuplicateMode</li> -->
 			<!-- </duplicateHediffs> -->
