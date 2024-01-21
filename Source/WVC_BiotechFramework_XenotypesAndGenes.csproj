@@ -79,6 +79,7 @@
     <Compile Include="Resources_Genes\Gene_Gender.cs" />
     <Compile Include="Resources_Genes\Gene_Learning.cs" />
     <Compile Include="Resources_Genes\Gene_Opinion.cs" />
+    <Compile Include="Resources_Genes\Gene_Psylink.cs" />
     <Compile Include="Resources_Genes\Gene_Shapeshifter.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ChangeXenotype.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ChooseXenotype.cs" />

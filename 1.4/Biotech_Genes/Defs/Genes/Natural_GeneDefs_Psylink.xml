@@ -1,35 +1,24 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <!-- Mechlink -->
-
   <!-- Psylink -->
 
-  <GeneDef MayRequireAnyOf="ludeon.rimworld.royalty">
-	<defName>WVC_NaturalPsylink</defName>
-	<label>natural psylink</label> 
+  <GeneDef Name="WVC_XenotypesAndGenes_GenePsylink_Base" MayRequire="ludeon.rimworld.royalty" Abstract="True">
 	<labelShortAdj>psylink</labelShortAdj>
 	<description>Carriers of this gene have natural psionic abilities.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_PermanentHediff</geneClass>
-	<iconPath>WVC/UI/Genes/Psylink</iconPath>
+	<iconPath>WVC/UI/Genes/Gene_Psylink_v0</iconPath>
 	<displayCategory>Ability</displayCategory>
 	<!-- <displayCategory>Archite</displayCategory> -->
 	<displayOrderInCategory>1115</displayOrderInCategory>
 	<selectionWeight>0.03</selectionWeight>
-	<!-- <statOffsets> -->
-	<!-- </statOffsets> -->
-	<biostatCpx>3</biostatCpx>
-	<biostatMet>-3</biostatMet>
-	<!-- <prerequisite>PsychicAbility_Extreme</prerequisite> -->
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
 		<li>Carriers of this gene get &lt;color=#8a8ae6&gt;psylink&lt;/color&gt; permanently.</li>
-		<!-- <li>Permanent &lt;color=#8a8ae6&gt;psylink&lt;/color&gt;.</li> -->
 	</customEffectDescriptions>
 	<suppressedTraits>
-	  <!-- <li> -->
-		<!-- <def>PsychicSensitivity</def> -->
-		<!-- <degree>-1</degree> -->
-	  <!-- </li> -->
 	  <li>
 		<def>PsychicSensitivity</def>
 		<degree>-2</degree>
@@ -50,16 +39,6 @@
 	  <li>AbilityPsylink</li>
 	</exclusionTags>
 	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
-			<!-- <hediffsToBodyParts> -->
-				<!-- <li> -->
-					<!-- <hediff>PsychicAmplifier</hediff> -->
-					<!-- <bodyparts> -->
-						<!-- <li>Brain</li> -->
-					<!-- </bodyparts> -->
-				<!-- </li> -->
-			<!-- </hediffsToBodyParts> -->
-		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>PsychicAmplifier</hediffDefName>
 			<bodyparts>
@@ -67,6 +46,21 @@
 			</bodyparts>
 		</li>
 	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GenePsylink_Base" MayRequire="ludeon.rimworld.royalty">
+	<defName>WVC_NaturalPsylink</defName>
+	<label>natural psylink</label>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>-3</biostatMet>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GenePsylink_Base" MayRequire="ludeon.rimworld.royalty">
+	<defName>WVC_ArchitePsylink</defName>
+	<label>archite psylink</label>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<selectionWeight>0.0125</selectionWeight>
   </GeneDef>
 
 </Defs>

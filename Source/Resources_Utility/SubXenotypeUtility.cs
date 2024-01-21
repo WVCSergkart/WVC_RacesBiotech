@@ -330,7 +330,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (GenesIsMatch(genes.GenesListForReading, pawnXenotype.genes))
+			if (XaG_GeneUtility.GenesIsMatch(genes.GenesListForReading, pawnXenotype.genes, 1.0f))
 			{
 				// Log.Error("match");
 				return true;
@@ -339,19 +339,19 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public static bool GenesIsMatch(List<Gene> pawnGenes, List<GeneDef> xenotypeGenes)
-		{
-			if (pawnGenes.NullOrEmpty() || xenotypeGenes.NullOrEmpty())
-			{
-				return false;
-			}
-			List<GeneDef> matchingGenes = XaG_GeneUtility.GetMatchingGenesList(pawnGenes, xenotypeGenes);
-			if (matchingGenes.Count == xenotypeGenes.Count)
-			{
-				return true;
-			}
-			return false;
-		}
+		// public static bool GenesIsMatch(List<Gene> pawnGenes, List<GeneDef> xenotypeGenes)
+		// {
+			// if (pawnGenes.NullOrEmpty() || xenotypeGenes.NullOrEmpty())
+			// {
+				// return false;
+			// }
+			// List<GeneDef> matchingGenes = XaG_GeneUtility.GetMatchingGenesList(pawnGenes, xenotypeGenes);
+			// if (matchingGenes.Count == xenotypeGenes.Count)
+			// {
+				// return true;
+			// }
+			// return false;
+		// }
 
 		[Obsolete]
 		public static bool TestXenotype(Pawn pawn)
