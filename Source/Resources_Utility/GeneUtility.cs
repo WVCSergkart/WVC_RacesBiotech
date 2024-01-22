@@ -110,24 +110,21 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			for (int i = 0; i < geneDefs.Count; i++)
+			List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+			for (int j = 0; j < genesListForReading.Count; j++)
 			{
-				List<Gene> genesListForReading = pawn.genes.GenesListForReading;
-				for (int j = 0; j < genesListForReading.Count; j++)
+				if (!genesListForReading[j].Active)
 				{
-					if (genesListForReading[j].Active == true && genesListForReading[j].def == geneDefs[i])
+					continue;
+				}
+				for (int i = 0; i < geneDefs.Count; i++)
+				{
+					if (genesListForReading[j].def == geneDefs[i])
 					{
 						return true;
 					}
 				}
 			}
-			// for (int i = 0; i < geneDefs.Count; i++)
-			// {
-				// if (HasActiveGene(geneDefs[i], pawn))
-				// {
-					// return true;
-				// }
-			// }
 			return false;
 		}
 

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -8,6 +9,109 @@ namespace WVC_XenotypesAndGenes
 
     public static class ThoughtUtility
 	{
+
+		public static bool TryInteractRandomly(Pawn pawn)
+		{
+			// if (Pawn_InteractionsTracker.InteractedTooRecentlyToInteract())
+			// {
+				// return false;
+			// }
+			if (pawn.Map == null)
+			{
+				return false;
+			}
+			if (!InteractionUtility.CanInitiateRandomInteraction(pawn))
+			{
+				return false;
+			}
+			List<Pawn> workingList = pawn.Map.mapPawns.SpawnedPawnsInFaction(pawn.Faction);
+			workingList.Shuffle();
+			List<InteractionDef> allDefsListForReading = DefDatabase<InteractionDef>.AllDefsListForReading;
+			for (int i = 0; i < workingList.Count; i++)
+			{
+				Pawn p = workingList[i];
+				if (!p.RaceProps.Humanlike)
+				{
+					continue;
+				}
+				if (!p.PawnPsychicSensitive())
+				{
+					continue;
+				}
+				if (p != pawn && CanInteractNowWith(pawn, p) && InteractionUtility.CanReceiveRandomInteraction(p) && !pawn.HostileTo(p) && allDefsListForReading.TryRandomElementByWeight((InteractionDef x) => (!CanInteractNowWith(pawn, p, x)) ? 0f : x.Worker.RandomSelectionWeight(pawn, p), out var result))
+				{
+					if (TryInteractWith(pawn, p, result))
+					{
+						return true;
+					}
+					Log.Error(string.Concat(pawn, " failed to interact with ", p));
+				}
+			}
+			return false;
+		}
+
+		public static bool CanInteractNowWith(Pawn pawn, Pawn recipient, InteractionDef interactionDef = null)
+		{
+			if (!pawn.IsCarryingPawn(recipient))
+			{
+				if (!recipient.Spawned)
+				{
+					return false;
+				}
+			}
+			if (!InteractionUtility.CanInitiateInteraction(pawn, interactionDef) || !InteractionUtility.CanReceiveInteraction(recipient, interactionDef))
+			{
+				return false;
+			}
+			return true;
+		}
+
+		public static bool TryInteractWith(Pawn pawn, Pawn recipient, InteractionDef intDef)
+		{
+			if (pawn == recipient)
+			{
+				return false;
+			}
+			if (!CanInteractNowWith(pawn, recipient, intDef))
+			{
+				return false;
+			}
+			List<RulePackDef> list = new();
+			if (intDef.initiatorThought != null)
+			{
+				Pawn_InteractionsTracker.AddInteractionThought(pawn, recipient, intDef.initiatorThought);
+			}
+			if (intDef.recipientThought != null && recipient.needs.mood != null)
+			{
+				Pawn_InteractionsTracker.AddInteractionThought(recipient, pawn, intDef.recipientThought);
+			}
+			if (intDef.initiatorXpGainSkill != null)
+			{
+				pawn.skills.Learn(intDef.initiatorXpGainSkill, intDef.initiatorXpGainAmount);
+			}
+			if (intDef.recipientXpGainSkill != null && recipient.RaceProps.Humanlike)
+			{
+				recipient.skills.Learn(intDef.recipientXpGainSkill, intDef.recipientXpGainAmount);
+			}
+			recipient.ideo?.IncreaseIdeoExposureIfBaby(pawn.Ideo, 0.5f);
+			intDef.Worker.Interacted(pawn, recipient, list, out string letterText, out string letterLabel, out LetterDef letterDef, out LookTargets lookTargets);
+			MoteMaker.MakeInteractionBubble(pawn, recipient, intDef.interactionMote, intDef.GetSymbol(pawn.Faction, pawn.Ideo), intDef.GetSymbolColor(pawn.Faction));
+			PlayLogEntry_Interaction playLogEntry_Interaction = new(intDef, pawn, recipient, list);
+			Find.PlayLog.Add(playLogEntry_Interaction);
+			if (letterDef != null)
+			{
+				string text = playLogEntry_Interaction.ToGameStringFromPOV(pawn);
+				if (!letterText.NullOrEmpty())
+				{
+					text = text + "\n\n" + letterText;
+				}
+				Find.LetterStack.ReceiveLetter(letterLabel, text, letterDef, lookTargets ?? ((LookTargets)pawn));
+			}
+			FleckMaker.AttachedOverlay(pawn, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
+			return true;
+		}
+
+		// ==================
 
 		public static void ThoughtFromThing(Thing parent, ThoughtDef thoughtDef, bool showEffect = true, int radius = 5)
 		{

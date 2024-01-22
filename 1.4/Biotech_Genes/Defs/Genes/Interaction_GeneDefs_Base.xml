@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneTelepathy_Base" Abstract="True">
+	<label>telepath</label>
+	<description>Carriers of this gene can communicate with others over a distance through psychic telepathy.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Telepathy</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Telepathy_v0</iconPath>
+	<selectionWeight>0.012</selectionWeight>
+	<displayCategory>Psychic</displayCategory>
+	<displayOrderInCategory>355</displayOrderInCategory>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Carrier can enter into social interaction with any psi-sensitive pawn on the map, at any distance.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>tele</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>path</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>WVC_Telepathy</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneTelepathy_Base">
+	<defName>WVC_NaturalTelepathy</defName>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-2</biostatMet>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneTelepathy_Base">
+	<defName>WVC_ArchiteTelepathy</defName>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+  </GeneDef>
+
+</Defs>

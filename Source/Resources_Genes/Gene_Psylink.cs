@@ -28,7 +28,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			pawn.psychicEntropy.OffsetPsyfocusDirectly(0.05f);
+			pawn.psychicEntropy.OffsetPsyfocusDirectly(0.01f * pawn.GetPsylinkLevel());
 		}
 
 		public override void Reset()
