@@ -148,7 +148,8 @@
 	<description>In carriers of this gene, the xenotype can spontaneously change at any time.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Shapeshifter_Rand</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_XenoForcer_ShapeShifter</iconPath>
-	<selectionWeight>0.00001</selectionWeight>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<biostatCpx>4</biostatCpx>
 	<biostatArc>3</biostatArc>
 	<customEffectDescriptions>

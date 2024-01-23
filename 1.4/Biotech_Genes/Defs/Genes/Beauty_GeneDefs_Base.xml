@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="GeneBeautyBase" Name="WVC_XenotypesAndGenes_GeneBeauty_Base" Abstract="True">
+	<selectionWeight>0.011</selectionWeight>
+	<displayOrderInCategory>40</displayOrderInCategory>
+	<!-- <biostatCpx>1</biostatCpx> -->
+	<!-- <biostatArc>0</biostatArc> -->
+	<!-- <biostatMet>0</biostatMet> -->
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneBeauty_Base">
+	<defName>WVC_AngelBeauty</defName>
+	<label>angel beauty</label>
+	<description>Carriers of this gene can unconsciously influence how others see them. Their brain emits neuronal psychic waves that cause those around them who are susceptible to psychic influence to deify them.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Opinion</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Angel_v0</iconPath>
+	<iconColor>(120, 173, 112)</iconColor>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<customEffectDescriptions>
+	  <li>All psychic sensitivity pawns get +40 opinion towards gene carrier.</li>
+	  <li>Opinion updated every day and lasts 20 days.</li>
+	  <li>Opinion can stack up to 10 times.</li>
+	  <li>Only affects colony pawns and prisoners.</li>
+	</customEffectDescriptions>
+	<suppressedTraits>
+	  <li>
+		<def>Beauty</def>
+		<degree>-1</degree>
+	  </li>
+	  <li>
+		<def>Beauty</def>
+		<degree>-2</degree>
+	  </li>
+	</suppressedTraits>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>angel</symbol></li>
+		<li><symbol>beauty</symbol></li>
+		<li><symbol>cute</symbol></li>
+		<li><symbol>deity</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
+			<AboutMeThoughtDef>WVC_XenotypesAndGenes_AngelBeauty</AboutMeThoughtDef>
+			<targetShouldBePsySensitive>true</targetShouldBePsySensitive>
+			<ignoreIfHasGene>false</ignoreIfHasGene>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>
