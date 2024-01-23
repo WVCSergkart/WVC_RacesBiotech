@@ -10,6 +10,13 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
 
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			cachedResult = true;
+			nextRecache = Find.TickManager.TicksGame + 120;
+		}
+
 		private bool cachedResult = true;
 		private int nextRecache = 0;
 

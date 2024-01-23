@@ -45,7 +45,33 @@
 	</symbolPack>
   </GeneDef>
 
-  <!-- Old tail -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneTails_Base">
+	<defName>WVC_CatTailA</defName>
+	<label>cat-like tail</label>
+	<description>Carriers of this gene grow a catlike tail.</description>
+	<iconPath>WVC/UI/Genes/Gene_CatTail_v0</iconPath>
+	<minAgeActive>3</minAgeActive>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
+	<graphicData>
+	  <graphicPaths>
+		<li>WVC/BodyParts/MecaGene_ScytheTail/CatTailA</li>
+	  </graphicPaths>
+	  <colorType>Hair</colorType>
+	  <drawScale>1.25</drawScale>
+	  <drawOffsetNorth>(0.0, 0.2, 0.0)</drawOffsetNorth>
+	  <drawOffsetSouth>(0.0, -0.1, 0.0)</drawOffsetSouth>
+	  <drawOffsetEast>(-0.06, -0.1, 0.02)</drawOffsetEast>
+	</graphicData>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>cat</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- Old tails -->
 
   <GeneDef ParentName="GeneTailBase" Name="WVC_XenotypesAndGenes_GeneTails_OldBase" Abstract="True">
 	<label>connector tail</label>

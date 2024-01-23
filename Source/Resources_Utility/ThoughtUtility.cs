@@ -16,7 +16,7 @@ namespace WVC_XenotypesAndGenes
 			// {
 				// return false;
 			// }
-			if (pawn.Map == null)
+			if (pawn.Map == null || pawn.Downed)
 			{
 				return false;
 			}
@@ -76,7 +76,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			List<RulePackDef> list = new();
+			// List<RulePackDef> list = new();
 			if (intDef.initiatorThought != null)
 			{
 				Pawn_InteractionsTracker.AddInteractionThought(pawn, recipient, intDef.initiatorThought);
@@ -94,9 +94,9 @@ namespace WVC_XenotypesAndGenes
 				recipient.skills.Learn(intDef.recipientXpGainSkill, intDef.recipientXpGainAmount);
 			}
 			recipient.ideo?.IncreaseIdeoExposureIfBaby(pawn.Ideo, 0.5f);
-			intDef.Worker.Interacted(pawn, recipient, list, out string letterText, out string letterLabel, out LetterDef letterDef, out LookTargets lookTargets);
+			intDef.Worker.Interacted(pawn, recipient, null, out string letterText, out string letterLabel, out LetterDef letterDef, out LookTargets lookTargets);
 			MoteMaker.MakeInteractionBubble(pawn, recipient, intDef.interactionMote, intDef.GetSymbol(pawn.Faction, pawn.Ideo), intDef.GetSymbolColor(pawn.Faction));
-			PlayLogEntry_Interaction playLogEntry_Interaction = new(intDef, pawn, recipient, list);
+			PlayLogEntry_Interaction playLogEntry_Interaction = new(intDef, pawn, recipient, null);
 			Find.PlayLog.Add(playLogEntry_Interaction);
 			if (letterDef != null)
 			{

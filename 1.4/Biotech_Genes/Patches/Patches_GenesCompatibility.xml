@@ -74,6 +74,13 @@
 	  </value>
 	</Operation>
 
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/RulePackDef[defName="TalkTopicsUtility"]/rulePack/rulesStrings</xpath> -->
+	  <!-- <value> -->
+		  <!-- <displayCategory>WVC_CosmeticVoices</displayCategory> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
 	<!-- <Operation Class="PatchOperationFindMod"> -->
 		<!-- <mods> -->
 			<!-- <li>Royalty</li> -->
