@@ -300,4 +300,41 @@
 	</exclusionTags>
   </GeneDef>
 
+  <!-- ============================= -->
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells" MayRequire="ludeon.rimworld.royalty"> -->
+	<!-- <defName>WVC_ResurgentPsylink</defName> -->
+	<!-- <label>resurgent psylink</label> -->
+	<!-- <description>Carriers of this gene gain psionic power from the hemogen.</description> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_HemogenDrain_Psylink</geneClass> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_Psylink_Hemogen_v0</iconPath> -->
+	<!-- <displayOrderInCategory>60</displayOrderInCategory> -->
+	<!-- <minAgeActive>3</minAgeActive> -->
+	<!-- <resourceLabel>cells</resourceLabel> -->
+	<!-- <resourceLossPerDay>0.02</resourceLossPerDay> -->
+	<!-- <biostatCpx>1</biostatCpx> -->
+	<!-- <biostatArc>1</biostatArc> -->
+	<!-- <biostatMet>-3</biostatMet> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Carriers of this gene get &lt;color=#8a8ae6&gt;psylink&lt;/color&gt; permanently.</li> -->
+		<!-- <li>&lt;color=#8a8ae6&gt;Psyfocus&lt;/color&gt; is passively &lt;color=#8a8ae6&gt;replenished&lt;/color&gt; relative to the psylink's level.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <suppressedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>PsychicSensitivity</def> -->
+		<!-- <degree>-2</degree> -->
+	  <!-- </li> -->
+	<!-- </suppressedTraits> -->
+	<!-- <symbolPack> -->
+	  <!-- <prefixSymbols> -->
+		<!-- <li><symbol>psy</symbol></li> -->
+		<!-- <li><symbol>focus</symbol></li> -->
+	  <!-- </prefixSymbols> -->
+	<!-- </symbolPack> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>Psylink</li> -->
+	  <!-- <li>AbilityPsylink</li> -->
+	<!-- </exclusionTags> -->
+  <!-- </GeneDef> -->
+
 </Defs>

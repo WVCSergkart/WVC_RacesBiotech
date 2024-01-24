@@ -130,21 +130,21 @@
 	<!-- </Operation> -->
 
 	 <!-- or defName="PsychicDrone" -->
-	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
-	  <xpath>/Defs/ThoughtDef[defName="Expectations"]</xpath>
-	  <success>Always</success>
-	  <safetyDepth>1</safetyDepth>
-	  <value>
-		<nullifyingGenes>
-		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaAI_FirmwareCreatorMachine</li>
-		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaAI_FirmwareGreenMachine</li>
-		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaAI_FirmwareWarMachine</li>
-		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaAI_FirmwareRogueMachine</li>
-		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaAI_FirmwarePropagandaMachine</li>
-		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaAI_FirmwareMechanitorMachine</li>
-		</nullifyingGenes>
-	  </value>
-	</Operation>
+	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
+	  <!-- <xpath>/Defs/ThoughtDef[defName="Expectations"]</xpath> -->
+	  <!-- <success>Always</success> -->
+	  <!-- <safetyDepth>1</safetyDepth> -->
+	  <!-- <value> -->
+		<!-- <nullifyingGenes> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaAI_FirmwareCreatorMachine</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaAI_FirmwareGreenMachine</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaAI_FirmwareWarMachine</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaAI_FirmwareRogueMachine</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaAI_FirmwarePropagandaMachine</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaAI_FirmwareMechanitorMachine</li> -->
+		<!-- </nullifyingGenes> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
 	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
 	  <xpath>/Defs/ThoughtDef[defName="PsychicDrone"]</xpath>
 	  <success>Always</success>

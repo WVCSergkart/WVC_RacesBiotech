@@ -23,7 +23,7 @@
 	<label>blood psylink</label>
 	<description>Carriers of this gene gain psionic power from the hemogen.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_HemogenDrain_Psylink</geneClass>
-	<iconPath>WVC/UI/Genes/Gene_HemogenPsylink_v0</iconPath>
+	<iconPath>WVC/UI/Genes/Gene_Psylink_Hemogen_v0</iconPath>
 	<displayOrderInCategory>60</displayOrderInCategory>
 	<resourceLossPerDay>0.10</resourceLossPerDay>
 	<biostatCpx>1</biostatCpx>

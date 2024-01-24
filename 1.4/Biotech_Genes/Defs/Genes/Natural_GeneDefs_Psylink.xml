@@ -58,9 +58,13 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GenePsylink_Base" MayRequire="ludeon.rimworld.royalty">
 	<defName>WVC_ArchitePsylink</defName>
 	<label>archite psylink</label>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Psylink</geneClass>
 	<biostatCpx>3</biostatCpx>
-	<biostatArc>1</biostatArc>
+	<biostatArc>2</biostatArc>
 	<selectionWeight>0.00125</selectionWeight>
+	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Psyfocus&lt;/color&gt; is passively &lt;color=#8a8ae6&gt;replenished&lt;/color&gt; relative to the psylink's level.</li>
+	</customEffectDescriptions>
   </GeneDef>
 
 </Defs>

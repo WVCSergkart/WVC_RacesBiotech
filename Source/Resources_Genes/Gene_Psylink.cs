@@ -17,12 +17,27 @@ namespace WVC_XenotypesAndGenes
 			{
 				pawn.health.AddHediff(HediffDefOf.PsychicAmplifier, pawn.health.hediffSet.GetBrain());
 			}
+			ChangePsylinkLevel(pawn);
+		}
+
+		public static void ChangePsylinkLevel(Pawn pawn)
+		{
+			if (pawn.Map != null)
+			{
+				return;
+			}
+			Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.PsychicAmplifier);
+			if (Rand.Chance(0.34f) && firstHediffOfDef != null)
+			{
+				IntRange level = new(1, 5);
+				((Hediff_Level)firstHediffOfDef).ChangeLevel(level.RandomInRange);
+			}
 		}
 
 		public override void Tick()
 		{
 			base.Tick();
-			if (!pawn.IsHashIntervalTick(150))
+			if (!pawn.IsHashIntervalTick(750))
 			{
 				return;
 			}
@@ -70,12 +85,13 @@ namespace WVC_XenotypesAndGenes
 			{
 				pawn.health.AddHediff(HediffDefOf.PsychicAmplifier, pawn.health.hediffSet.GetBrain());
 			}
+			Gene_Psylink.ChangePsylinkLevel(pawn);
 		}
 
 		public override void Tick()
 		{
 			base.Tick();
-			if (!pawn.IsHashIntervalTick(150))
+			if (!pawn.IsHashIntervalTick(750))
 			{
 				return;
 			}
