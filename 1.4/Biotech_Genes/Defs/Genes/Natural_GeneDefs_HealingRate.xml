@@ -2,7 +2,7 @@
 <Defs>
 
   <GeneDef ParentName="GeneHealingRateBase" Name="WVC_XenotypesAndGenes_GeneHealingRate_Base" Abstract="True">
-	<selectionWeight>0.022</selectionWeight>
+	<selectionWeight>0.0022</selectionWeight>
 	<iconColor>(151, 203, 222)</iconColor>
 	<symbolPack>
 	  <prefixSymbols>

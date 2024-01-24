@@ -2,7 +2,7 @@
 <Defs>
 
   <GeneDef ParentName="GeneMoveSpeedBase" Name="WVC_XenotypesAndGenes_GeneMoveSpeed_Base" Abstract="True">
-	<selectionWeight>0.025</selectionWeight>
+	<selectionWeight>0.0025</selectionWeight>
   </GeneDef>
 
   <!-- ============================= -->

@@ -11,7 +11,7 @@
 	<biostatArc>0</biostatArc>
 	<biostatMet>0</biostatMet>
 	<minAgeActive>0</minAgeActive>
-	<selectionWeight>0.022</selectionWeight>
+	<selectionWeight>0.0022</selectionWeight>
   </GeneDef>
 
   <!-- Tail -->
@@ -86,7 +86,7 @@
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
 	<minAgeActive>0</minAgeActive>
-	<selectionWeight>0.0125</selectionWeight>
+	<selectionWeight>0.00125</selectionWeight>
 	<graphicData>
 	  <graphicPath>WVC/BodyParts/MecaGene_ScytheTail/NodeTail</graphicPath>
 	  <colorType>Skin</colorType>

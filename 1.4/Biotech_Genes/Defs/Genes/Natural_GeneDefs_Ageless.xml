@@ -6,7 +6,7 @@
 	<!-- <labelShortAdj>blindness</labelShortAdj> -->
 	<description>TEST</description>
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_PermanentHediff</geneClass> -->
-	<selectionWeight>0.022</selectionWeight>
+	<selectionWeight>0.0022</selectionWeight>
 	<!-- <displayCategory>Ability</displayCategory> -->
 	<!-- <displayCategory>Archite</displayCategory> -->
 	<displayCategory>Healing</displayCategory>

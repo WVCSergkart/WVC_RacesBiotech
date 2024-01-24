@@ -7,7 +7,7 @@
 	<prerequisite>WVC_Dustogenic</prerequisite>
 	<!-- <prerequisite>WVC_Dustogenic_GeneticStability</prerequisite> -->
 	<marketValueFactor>1.5</marketValueFactor>
-	<selectionWeight>0.009</selectionWeight>
+	<selectionWeight>0.0009</selectionWeight>
 	<minAgeActive>3</minAgeActive>
 	<!-- <resourceLabel>dust</resourceLabel> -->
 	<!-- <resourceLossPerDay>0.02</resourceLossPerDay> -->

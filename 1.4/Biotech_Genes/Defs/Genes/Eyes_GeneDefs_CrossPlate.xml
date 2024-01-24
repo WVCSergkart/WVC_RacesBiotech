@@ -29,7 +29,7 @@
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>0</biostatMet>
-	<selectionWeight>0.0</selectionWeight>
+	<selectionWeight>0.00</selectionWeight>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<exclusionTags>
 	  <li>EyeColor</li>

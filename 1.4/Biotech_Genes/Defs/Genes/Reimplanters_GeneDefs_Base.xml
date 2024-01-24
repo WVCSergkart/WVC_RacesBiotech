@@ -5,7 +5,7 @@
 	<labelShortAdj>reimplanter</labelShortAdj>
 	<description>Carriers of this gene can implant a copy of their endo/xenogerm into another person through a somewhat gross-looking injector organ. Their own genetic material will then regrow very slowly. If they implant while their genes are regrowing, they will die.</description>
 	<minAgeActive>3</minAgeActive>
-	<selectionWeight>0.012</selectionWeight>
+	<selectionWeight>0.0012</selectionWeight>
 	<biostatCpx>3</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>

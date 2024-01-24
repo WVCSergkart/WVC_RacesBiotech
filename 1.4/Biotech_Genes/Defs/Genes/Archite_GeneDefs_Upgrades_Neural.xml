@@ -148,7 +148,7 @@
 	<iconPath>WVC/UI/Genes/DisableTalking_v0</iconPath>
 	<displayCategory>Miscellaneous</displayCategory>
 	<displayOrderInCategory>21</displayOrderInCategory>
-	<selectionWeight>0.002</selectionWeight>
+	<selectionWeight>0.0002</selectionWeight>
 	<exclusionTags>
 	  <li>WVC_MechaAI_SoftwareDisableTalking</li>
 	</exclusionTags>

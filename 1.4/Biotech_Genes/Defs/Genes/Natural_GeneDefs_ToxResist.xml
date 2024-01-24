@@ -5,7 +5,7 @@
 
   <GeneDef ParentName="GeneToxResistBase" Name="WVC_XenotypesAndGenes_GeneToxResist_Super" Abstract="True">
 	<description>Carriers of this gene are totally immune to toxic buildup from all sources including polluted terrain, toxic fallout, tox gas, and direct attacks with venom or injected poison. They are also not bothered by acidic smog.\n\nThe carrier's biochemical pathways are modified to route around interference from nearly all known toxins. Along with enhancements to the kidneys and liver, this keeps carriers comfortable in even the most toxic of environments.</description>
-	<selectionWeight>0.015</selectionWeight>
+	<selectionWeight>0.0015</selectionWeight>
 	<displayOrderInCategory>15</displayOrderInCategory>
 	<iconColor>(255, 255, 255)</iconColor>
 	<iconPath>WVC/UI/Genes/Gene_TotalToxicityResistance_v0</iconPath>

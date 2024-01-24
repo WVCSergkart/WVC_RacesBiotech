@@ -17,7 +17,7 @@
 	<biostatCpx>0</biostatCpx>
 	<randomChosen>true</randomChosen>
 	<canGenerateInGeneSet>true</canGenerateInGeneSet>
-	<selectionWeight>0.0075</selectionWeight>
+	<selectionWeight>0.00075</selectionWeight>
 	<!-- <statOffsets> -->
 	  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
 	<!-- </statOffsets> -->

@@ -7,7 +7,7 @@
 	  <!-- <li>PsychicAbility</li> -->
 	<!-- </exclusionTags> -->
 	<iconColor>(137, 136, 90)</iconColor>
-	<selectionWeight>0.025</selectionWeight>
+	<selectionWeight>0.0025</selectionWeight>
   </GeneDef>
 
   <!-- ============================= -->
@@ -80,7 +80,7 @@
 	<iconPath>WVC/UI/Genes/Tough_v3</iconPath>
 	<displayOrderInCategory>17</displayOrderInCategory>
 	<!-- <iconColor>(79, 80, 81)</iconColor> -->
-	<selectionWeight>0.0035</selectionWeight>
+	<selectionWeight>0.00035</selectionWeight>
 	<statFactors>
 	  <IncomingDamageFactor>0.1</IncomingDamageFactor>
 	</statFactors>

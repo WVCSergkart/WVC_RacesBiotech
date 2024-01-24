@@ -5,7 +5,7 @@
   <!-- Temperature -->
 
   <GeneDef ParentName="GeneMinTempBase" Name="WVC_GeneMinTemp_Base" Abstract="True">
-	<selectionWeight>0.0125</selectionWeight>
+	<selectionWeight>0.00125</selectionWeight>
 	<biostatMet>0</biostatMet>
 	<biostatArc>1</biostatArc>
 	<!-- <displayCategory>Temperature</displayCategory> -->
@@ -32,7 +32,7 @@
   </GeneDef>
 
   <GeneDef ParentName="GeneMaxTempBase" Name="WVC_GeneMaxTemp_Base" Abstract="True">
-	<selectionWeight>0.0125</selectionWeight>
+	<selectionWeight>0.00125</selectionWeight>
 	<biostatMet>0</biostatMet>
 	<biostatArc>1</biostatArc>
 	<!-- <displayCategory>Temperature</displayCategory> -->
@@ -66,7 +66,7 @@
 
   <GeneDef Name="WVC_GeneMinMaxTemp_Base" Abstract="True">
 	<description>Carriers of this gene feel comfortable in any temperature.</description>
-	<selectionWeight>0.0125</selectionWeight>
+	<selectionWeight>0.00125</selectionWeight>
 	<biostatMet>-2</biostatMet>
 	<biostatArc>1</biostatArc>
 	<displayCategory>Temperature</displayCategory>
@@ -116,7 +116,7 @@
 	<iconPath>WVC/UI/Genes/Gene_TemperatureScarifier_v0</iconPath>
 	<displayOrderInCategory>45</displayOrderInCategory>
 	<displayCategory>WVC_Scarifier</displayCategory>
-	<selectionWeight>0.0025</selectionWeight>
+	<selectionWeight>0.00025</selectionWeight>
 	<biostatMet>-2</biostatMet>
 	<biostatArc>0</biostatArc>
 	<statOffsets>

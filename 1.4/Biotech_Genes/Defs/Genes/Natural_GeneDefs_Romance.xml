@@ -4,7 +4,7 @@
   <!-- <GeneDef Name="WVC_XenotypesAndGenes_GeneIncestous_Base" Abstract="True"> -->
 	<!-- <displayCategory>Reproduction</displayCategory> -->
 	<!-- <displayOrderInCategory>0</displayOrderInCategory> -->
-	<!-- <selectionWeight>0.011</selectionWeight> -->
+	<!-- <selectionWeight>0.0011</selectionWeight> -->
 	<!-- <biostatCpx>1</biostatCpx> -->
 	<!-- <exclusionTags> -->
 	  <!-- <li>WVC_RomanceChance_A</li> -->
@@ -44,7 +44,7 @@
 	<displayOrderInCategory>553</displayOrderInCategory>
 	<iconPath>WVC/UI/Genes/RomanceChance</iconPath>
 	<missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
-	<selectionWeight>0.005</selectionWeight>
+	<selectionWeight>0.0005</selectionWeight>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>phero</symbol></li>
@@ -121,7 +121,7 @@
 
   <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRomanceChanceBase" Name="WVC_RomanceChance_Encode" Abstract="True"> -->
 	<!-- <displayOrderInCategory>555</displayOrderInCategory> -->
-	<!-- <selectionWeight>0.0035</selectionWeight> -->
+	<!-- <selectionWeight>0.00035</selectionWeight> -->
 	<!-- <iconColor>(255, 255, 255)</iconColor> -->
   <!-- </GeneDef> -->
 

@@ -8,7 +8,7 @@
 	<displayOrderInCategory>90</displayOrderInCategory>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>-1</biostatMet>
-	<selectionWeight>0.03</selectionWeight>
+	<selectionWeight>0.003</selectionWeight>
 	<suppressedTraits>
 	  <li>
 		<def>PsychicSensitivity</def>
@@ -89,7 +89,7 @@
   <GeneDef Name="WVC_XenotypesAndGenes_SunPhobiaSensitivity_Base" Abstract="True">
 	<displayCategory>Psychic</displayCategory>
 	<displayOrderInCategory>190</displayOrderInCategory>
-	<selectionWeight>0.03</selectionWeight>
+	<selectionWeight>0.003</selectionWeight>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>night</symbol></li>
@@ -238,7 +238,7 @@
 	<displayOrderInCategory>70</displayOrderInCategory>
 	<!-- <biostatCpx>1</biostatCpx> -->
 	<biostatMet>-1</biostatMet>
-	<selectionWeight>0.03</selectionWeight>
+	<selectionWeight>0.003</selectionWeight>
 	<conditionalStatAffecters>
 	  <li Class="ConditionalStatAffecter_InSunlight">
 		<statOffsets>
@@ -269,7 +269,7 @@
 	<dislikesSunlight>true</dislikesSunlight>
 	<!-- <biostatCpx>1</biostatCpx> -->
 	<biostatMet>-1</biostatMet>
-	<selectionWeight>0.03</selectionWeight>
+	<selectionWeight>0.003</selectionWeight>
 	<conditionalStatAffecters>
 	  <li Class="ConditionalStatAffecter_InSunlight">
 		<statOffsets>

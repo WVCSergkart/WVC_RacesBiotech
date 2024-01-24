@@ -8,7 +8,7 @@
 	<iconPath>WVC/UI/Genes/PunkHaired</iconPath>
 	<displayOrderInCategory>57</displayOrderInCategory>
 	<displayCategory>WVC_Cosmetic</displayCategory>
-	<selectionWeight>0.022</selectionWeight>
+	<selectionWeight>0.0022</selectionWeight>
   </GeneDef>
 
   <!-- Punk -->

@@ -6,7 +6,7 @@
 	<!-- <labelShortAdj>blindness</labelShortAdj> -->
 	<description>Carriers of this gene have a serious genetic instability. It affects health, fertility and metabolic efficiency.</description>
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_PermanentHediff</geneClass> -->
-	<selectionWeight>0.0012</selectionWeight>
+	<selectionWeight>0.00012</selectionWeight>
 	<!-- <displayCategory>Ability</displayCategory> -->
 	<!-- <displayCategory>Archite</displayCategory> -->
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Ageless</geneClass> -->

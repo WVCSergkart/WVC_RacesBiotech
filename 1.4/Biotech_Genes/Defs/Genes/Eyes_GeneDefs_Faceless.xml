@@ -132,7 +132,7 @@
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>0</biostatMet>
-	<selectionWeight>0.0</selectionWeight>
+	<selectionWeight>0.00</selectionWeight>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>&lt;color=#ff8585&gt;This gene is activated only in the presence of the "Faceless" gene.&lt;/color&gt;</li> -->

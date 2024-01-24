@@ -6,7 +6,7 @@
 	<description>Carriers of this gene can communicate with others over a distance through psychic telepathy.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Telepathy</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_Telepathy_v0</iconPath>
-	<selectionWeight>0.012</selectionWeight>
+	<selectionWeight>0.0012</selectionWeight>
 	<displayCategory>Psychic</displayCategory>
 	<displayOrderInCategory>355</displayOrderInCategory>
 	<biostatCpx>0</biostatCpx>

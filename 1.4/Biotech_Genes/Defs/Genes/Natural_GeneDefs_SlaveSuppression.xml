@@ -6,7 +6,7 @@
   <GeneDef Name="WVC_XenotypesAndGenes_GeneSlaveSuppression_Base" Abstract="True">
 	<displayCategory>Violence</displayCategory>
 	<biostatCpx>1</biostatCpx>
-	<selectionWeight>0.015</selectionWeight>
+	<selectionWeight>0.0015</selectionWeight>
 	<displayOrderInCategory>5015</displayOrderInCategory>
 	<!-- <iconColor>(200, 200, 200)</iconColor> -->
     <iconColor>(0.75, 0.75, 0.75)</iconColor>

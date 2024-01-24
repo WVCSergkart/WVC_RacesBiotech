@@ -3,7 +3,7 @@
 
   <GeneDef ParentName="GeneLearningBase" Name="WVC_XenotypesAndGenes_GeneLearning_Base" Abstract="True">
 	<geneClass>WVC_XenotypesAndGenes.Gene_Learning</geneClass>
-	<selectionWeight>0.0172</selectionWeight>
+	<selectionWeight>0.00172</selectionWeight>
   </GeneDef>
 
   <!-- ============================= -->

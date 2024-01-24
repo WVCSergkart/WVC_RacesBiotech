@@ -11,7 +11,7 @@
 	<!-- <displayCategory>Miscellaneous</displayCategory> -->
 	<displayCategory>WVC_Cosmetic</displayCategory>
 	<displayOrderInCategory>400</displayOrderInCategory>
-	<selectionWeight>0.0185</selectionWeight>
+	<selectionWeight>0.00185</selectionWeight>
 	<iconColor>(0.75, 0.75, 0.75)</iconColor>
 	<!-- <marketValueFactor>1.5</marketValueFactor> -->
 	<randomChosen>false</randomChosen>

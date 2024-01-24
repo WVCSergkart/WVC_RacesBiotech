@@ -15,7 +15,7 @@
 	<biostatArc>0</biostatArc>
 	<displayOrderInCategory>552</displayOrderInCategory>
 	<iconPath>WVC/UI/Genes/Orientation</iconPath>
-	<selectionWeight>0.005</selectionWeight>
+	<selectionWeight>0.0005</selectionWeight>
 	<!-- <forcedTraits> -->
 	  <!-- <li> -->
 		<!-- <def>Bisexual</def> -->

@@ -19,7 +19,7 @@
 	<!-- <iconPath>WVC/UI/Genes/AgeDebuff_ToxSens</iconPath> -->
 	<!-- <displayOrderInCategory>11</displayOrderInCategory> -->
 	<!-- <minAgeActive>25</minAgeActive> -->
-	<!-- <selectionWeight>0.002</selectionWeight> -->
+	<!-- <selectionWeight>0.0002</selectionWeight> -->
 	<!-- <statOffsets> -->
 	  <!-- <ToxicResistance>-1</ToxicResistance> -->
 	<!-- </statOffsets> -->
@@ -56,7 +56,7 @@
 	<biostatMet>1</biostatMet>
 	<!-- <displayCategory>WVC_AgeDebuffs</displayCategory> -->
 	<displayOrderInCategory>102</displayOrderInCategory>
-	<selectionWeight>0.002</selectionWeight>
+	<selectionWeight>0.0002</selectionWeight>
 	<exclusionTags>
 	  <li>Fertility</li>
 	</exclusionTags>
@@ -88,7 +88,7 @@
 	<!-- <biostatCpx>1</biostatCpx> -->
 	<!-- <biostatMet>1</biostatMet> -->
 	<lovinMTBFactor>7</lovinMTBFactor>
-	<selectionWeight>0.002</selectionWeight>
+	<selectionWeight>0.0002</selectionWeight>
   </GeneDef>
 
   <!-- ============== -->
@@ -107,7 +107,7 @@
 	<!-- <displayCategory>Beauty</displayCategory> -->
 	<!-- <displayOrderInCategory>10</displayOrderInCategory> -->
 	<!-- <minAgeActive>25</minAgeActive> -->
-	<!-- <selectionWeight>0.002</selectionWeight> -->
+	<!-- <selectionWeight>0.0002</selectionWeight> -->
 	<!-- <statOffsets> -->
 	  <!-- <PawnBeauty>-2</PawnBeauty> -->
 	<!-- </statOffsets> -->
@@ -137,7 +137,7 @@
 	<iconPath>WVC/UI/Genes/Gene_MajorCellInstability_v0</iconPath>
 	<!-- <displayCategory>Miscellaneous</displayCategory> -->
 	<displayOrderInCategory>137</displayOrderInCategory>
-	<selectionWeight>0.002</selectionWeight>
+	<selectionWeight>0.0002</selectionWeight>
 	<biostatMet>6</biostatMet>
 	<statFactors>
 	  <LifespanFactor>0.4</LifespanFactor>

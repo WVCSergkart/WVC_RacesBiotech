@@ -6,9 +6,9 @@
 	<!-- <defName>WVC_Pearler</defName> -->
 	<!-- <label>pearler</label> -->
 	<!-- Temporary description -->
-	<description>A unique human variant with a set of xenogenes that do not fall into any known xenotype.</description>
-	<descriptionShort>A unique human variant with a set of xenogenes that do not fall into any known xenotype.</descriptionShort>
-	<iconPath>UI/Icons/Xenotypes/Custom/CustomXenotypeIcon9</iconPath>
+	<description>A unique xenohuman variant with a set of xenogenes that do not fall into any known xenotype.</description>
+	<!-- <descriptionShort>A unique human variant with a set of xenogenes that do not fall into any known xenotype.</descriptionShort> -->
+	<iconPath>WVC/UI/Mecha_Icons/Icon_ShapeshifterBasic</iconPath>
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>
 	<combatPowerFactor>2.5</combatPowerFactor>
 	<factionlessGenerationWeight>0.05</factionlessGenerationWeight>

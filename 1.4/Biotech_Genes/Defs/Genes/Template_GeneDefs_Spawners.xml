@@ -10,7 +10,7 @@
 	<ignoreIllegalLabelCharacterConfigError>true</ignoreIllegalLabelCharacterConfigError>
 	<displayCategory>WVC_XenotypeSerumSpawners</displayCategory>
 	<displayOrderOffset>200</displayOrderOffset>
-	<selectionWeight>0.00032</selectionWeight>
+	<selectionWeight>0.000032</selectionWeight>
 	<iconPath>WVC/UI/Genes/Gene_Spawner</iconPath>
 	<customEffectDescriptions>
 		<li>Spawns {0} every (*DateTime){1}-{2} days(/DateTime).</li>

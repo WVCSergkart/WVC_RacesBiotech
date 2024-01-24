@@ -6,7 +6,7 @@
 	<labelShortAdj>mechlink</labelShortAdj>
 	<description>Carriers of the gene have archites that form a mechlink in the brain, which allows them to control the mechanoids.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Mechlink</geneClass>
-	<selectionWeight>0.03</selectionWeight>
+	<selectionWeight>0.003</selectionWeight>
 	<!-- <displayCategory>Ability</displayCategory> -->
 	<!-- <displayCategory>Archite</displayCategory> -->
 	<displayCategory>Ability</displayCategory>
@@ -53,7 +53,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Base">
 	<defName>WVC_ArchiteMechlink</defName>
 	<iconPath>WVC/UI/Genes/Mechlink</iconPath>
-	<selectionWeight>0.0125</selectionWeight>
+	<selectionWeight>0.00125</selectionWeight>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
   </GeneDef>

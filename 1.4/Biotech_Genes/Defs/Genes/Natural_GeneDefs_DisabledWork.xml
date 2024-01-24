@@ -6,7 +6,7 @@
 	<!-- <labelShortAdj>blindness</labelShortAdj> -->
 	<description>Carriers of this gene are completely and irreversibly useless. They are unable to perform even the dumb work.</description>
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_PermanentHediff</geneClass> -->
-	<selectionWeight>0.012</selectionWeight>
+	<selectionWeight>0.0012</selectionWeight>
 	<iconPath>WVC/UI/Genes/Gene_Blankind_v0</iconPath>
 	<!-- <displayCategory>Ability</displayCategory> -->
 	<!-- <displayCategory>Archite</displayCategory> -->
@@ -37,7 +37,7 @@
 	<defName>WVC_DisabledAllWork_Blank</defName>
 	<label>blank</label>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Blank</geneClass>
-	<!-- <selectionWeight>0.0</selectionWeight> -->
+	<!-- <selectionWeight>0.00</selectionWeight> -->
 	<!-- <canGenerateInGeneSet>false</canGenerateInGeneSet> -->
 	<customEffectDescriptions>
 	  <li>The gene can only be active if the carrier does not have any &lt;color=#8a8ae6&gt;xenogenes&lt;/color&gt;.</li>

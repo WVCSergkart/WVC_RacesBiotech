@@ -15,7 +15,7 @@
 	<biostatArc>1</biostatArc>
 	<biostatCpx>3</biostatCpx>
 	<marketValueFactor>2</marketValueFactor>
-	<selectionWeight>0.0085</selectionWeight>
+	<selectionWeight>0.00085</selectionWeight>
 	<minAgeActive>13</minAgeActive>
 	<customEffectDescriptions>
 		<li>Spawns genepack every (*DateTime)5-15 days(/DateTime).</li>
@@ -159,7 +159,7 @@
 	<defName>WVC_GenePackSpawner_Disable</defName>
 	<label>disabled thrower</label>
 	<iconPath>WVC/UI/Genes/Genepack_Disable</iconPath>
-	<selectionWeight>0.001</selectionWeight>
+	<selectionWeight>0.0001</selectionWeight>
 	<geneClass>Gene</geneClass>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>

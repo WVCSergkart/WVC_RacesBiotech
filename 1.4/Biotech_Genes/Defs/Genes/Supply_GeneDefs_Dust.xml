@@ -4,7 +4,7 @@
   <GeneDef Name="WVC_XenotypesAndGenes_GeneDustSupply_Base" Abstract="True">
 	<iconPath>WVC/UI/Genes/Gene_Deathless_v0</iconPath>
 	<marketValueFactor>0.8</marketValueFactor>
-	<selectionWeight>0.012</selectionWeight>
+	<selectionWeight>0.0012</selectionWeight>
 	<displayCategory>WVC_Dustogenic</displayCategory>
 	<displayOrderInCategory>1275</displayOrderInCategory>
 	<biostatArc>0</biostatArc>
@@ -88,7 +88,7 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_DustDrain</geneClass>
 	<prerequisite>WVC_Dustogenic</prerequisite>
 	<marketValueFactor>1.2</marketValueFactor>
-	<selectionWeight>0.009</selectionWeight>
+	<selectionWeight>0.0009</selectionWeight>
 	<minAgeActive>3</minAgeActive>
 	<!-- <resourceLabel>nutrition from food</resourceLabel> -->
 	<!-- <resourceLossPerDay>0.01</resourceLossPerDay> -->

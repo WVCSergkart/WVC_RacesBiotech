@@ -16,7 +16,7 @@
 	<!-- <biostatArc>1</biostatArc> -->
 	<biostatCpx>2</biostatCpx>
 	<marketValueFactor>0.8</marketValueFactor>
-	<selectionWeight>0.041</selectionWeight>
+	<selectionWeight>0.0041</selectionWeight>
 	<minAgeActive>3</minAgeActive>
 	<customEffectDescriptions>
 		<li>Spawns stonechunk every (*DateTime)10-15 days(/DateTime).</li>
@@ -42,7 +42,7 @@
 	<label>disabled stone molt</label>
 	<iconPath>WVC/UI/Genes/Genepack_Disable</iconPath>
 	<geneClass>Gene</geneClass>
-	<selectionWeight>0.001</selectionWeight>
+	<selectionWeight>0.0001</selectionWeight>
 	<biostatCpx>0</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<biostatArc>0</biostatArc>
@@ -56,7 +56,7 @@
 	<label>disabled spawner</label>
 	<description>Disables spawner genes.</description>
 	<iconPath>WVC/UI/Genes/Genepack_Disable</iconPath>
-	<selectionWeight>0.001</selectionWeight>
+	<selectionWeight>0.0001</selectionWeight>
 	<geneClass>Gene</geneClass>
 	<biostatCpx>0</biostatCpx>
 	<biostatMet>0</biostatMet>

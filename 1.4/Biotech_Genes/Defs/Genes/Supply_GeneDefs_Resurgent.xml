@@ -24,7 +24,7 @@
 	<!-- \n\nIf cells reaches zero, {PAWN_nameDef} will become very unhappy. -->
 	<iconPath>WVC/UI/Genes/Gene_ResurgentCells_v0</iconPath>
 	<iconColor>(93, 101, 126)</iconColor>
-	<selectionWeight>0.011</selectionWeight>
+	<selectionWeight>0.0011</selectionWeight>
 	<displayOrderInCategory>1230</displayOrderInCategory>
 	<customEffectDescriptions>
 	  <li>Gives resurgent supply.</li>
@@ -46,7 +46,7 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Base" Name="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells" Abstract="True">
 	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentDependent</geneClass>
-	<selectionWeight>0.009</selectionWeight>
+	<selectionWeight>0.0009</selectionWeight>
 	<prerequisite>WVC_ResurgentCells</prerequisite>
 	<marketValueFactor>1.7</marketValueFactor>
 	<minAgeActive>3</minAgeActive>

@@ -11,7 +11,7 @@
 	<displayCategory>Ability</displayCategory>
 	<!-- <displayCategory>Archite</displayCategory> -->
 	<displayOrderInCategory>1115</displayOrderInCategory>
-	<selectionWeight>0.03</selectionWeight>
+	<selectionWeight>0.003</selectionWeight>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>0</biostatMet>
@@ -60,7 +60,7 @@
 	<label>archite psylink</label>
 	<biostatCpx>3</biostatCpx>
 	<biostatArc>1</biostatArc>
-	<selectionWeight>0.0125</selectionWeight>
+	<selectionWeight>0.00125</selectionWeight>
   </GeneDef>
 
 </Defs>

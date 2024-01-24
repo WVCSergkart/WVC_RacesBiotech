@@ -8,7 +8,7 @@
 	<iconPath>WVC/UI/Genes/Emotionless</iconPath>
 	<displayCategory>Mood</displayCategory>
 	<displayOrderInCategory>15</displayOrderInCategory>
-	<selectionWeight>0.03</selectionWeight>
+	<selectionWeight>0.003</selectionWeight>
 	<statFactors>
 	  <MentalBreakThreshold>0</MentalBreakThreshold>
 	  <BondAnimalChanceFactor>0</BondAnimalChanceFactor>
@@ -97,7 +97,7 @@
 	<iconPath>WVC/UI/Genes/EmotionReset</iconPath>
 	<displayCategory>Mood</displayCategory>
 	<displayOrderInCategory>1245</displayOrderInCategory>
-	<selectionWeight>0.025</selectionWeight>
+	<selectionWeight>0.0025</selectionWeight>
 	<biostatCpx>0</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions Inherit="False">
@@ -115,7 +115,7 @@
 	<iconPath>WVC/UI/Genes/Emotionless_Unshakable</iconPath>
 	<displayCategory>Mood</displayCategory>
 	<displayOrderInCategory>1245</displayOrderInCategory>
-	<selectionWeight>0.0105</selectionWeight>
+	<selectionWeight>0.00105</selectionWeight>
 	<statFactors>
 	  <MentalBreakThreshold>0</MentalBreakThreshold>
 	</statFactors>
@@ -139,7 +139,7 @@
   <GeneDef Name="WVC_XenotypesAndGenes_GeneNaturalHunterBase" Abstract="True">
 	<displayCategory>Violence</displayCategory>
 	<biostatCpx>1</biostatCpx>
-	<selectionWeight>0.015</selectionWeight>
+	<selectionWeight>0.0015</selectionWeight>
 	<exclusionTags>
 	  <li>WVC_NaturalHunter</li>
 	</exclusionTags>

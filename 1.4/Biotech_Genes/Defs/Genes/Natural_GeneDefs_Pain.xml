@@ -2,7 +2,7 @@
 <Defs>
 
   <GeneDef ParentName="GenePainBase" Name="WVC_XenotypesAndGenes_GenePain_Base" Abstract="True">
-	<selectionWeight>0.022</selectionWeight>
+	<selectionWeight>0.0022</selectionWeight>
   </GeneDef>
 
   <!-- ============================= -->

@@ -7,7 +7,7 @@
 	<description>Carriers of this gene become more attached to blood relatives.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Opinion</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_FamilyByBlood_v0</iconPath>
-	<selectionWeight>0.011</selectionWeight>
+	<selectionWeight>0.0011</selectionWeight>
 	<biostatCpx>1</biostatCpx>
 	<customEffectDescriptions>
 	  <li>Opinion updated every day and lasts 6 days.</li>
@@ -42,7 +42,7 @@
 	<iconColor>(249, 241, 148)</iconColor>
 	<displayCategory>WVC_Dustogenic</displayCategory>
 	<displayOrderInCategory>100</displayOrderInCategory>
-	<selectionWeight>0.006</selectionWeight>
+	<selectionWeight>0.0006</selectionWeight>
 	<!-- <prerequisite>WVC_Dustogenic</prerequisite> -->
 	<marketValueFactor>1.5</marketValueFactor>
 	<customEffectDescriptions>

@@ -2,7 +2,7 @@
 <Defs>
 
   <GeneDef Name="WVC_XenotypesAndGenes_GeneStomach_Base" Abstract="True">
-	<selectionWeight>0.0025</selectionWeight>
+	<selectionWeight>0.00025</selectionWeight>
 	<displayCategory>Miscellaneous</displayCategory>
 	<displayOrderInCategory>11</displayOrderInCategory>
 	<symbolPack>

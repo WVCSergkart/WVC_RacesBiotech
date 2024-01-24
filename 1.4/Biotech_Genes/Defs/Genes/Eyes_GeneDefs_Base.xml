@@ -11,8 +11,8 @@
 	<iconPath>WVC/UI/Genes/GeneEyesIcon_v0</iconPath>
 	<displayCategory>WVC_Cosmetic</displayCategory>
 	<displayOrderInCategory>2</displayOrderInCategory>
-	<!-- <selectionWeight>0.0085</selectionWeight> -->
-	<selectionWeight>0.0</selectionWeight>
+	<!-- <selectionWeight>0.00085</selectionWeight> -->
+	<selectionWeight>0.00</selectionWeight>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<customEffectDescriptions>
 		<li>Eyes have no outline.</li>

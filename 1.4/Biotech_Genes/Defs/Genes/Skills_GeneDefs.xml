@@ -3,7 +3,7 @@
 
   <!-- <GeneDef Name="WVC_XenotypesAndGenes_GeneAptitudes_Base" Abstract="True"> -->
 	<!-- <displayCategory>WVC_Aptitudes</displayCategory> -->
-	<!-- <selectionWeight>0.008</selectionWeight> -->
+	<!-- <selectionWeight>0.0008</selectionWeight> -->
 	<!-- <iconColor>(255, 255, 255)</iconColor> -->
 	<!-- <displayOrderInCategory>-200</displayOrderInCategory> -->
 	<!-- <biostatCpx>0</biostatCpx> -->

@@ -2,7 +2,7 @@
 <Defs>
 
   <GeneDef ParentName="GeneSleepBase" Name="WVC_XenotypesAndGenes_GeneSleep_Base" Abstract="True">
-	<selectionWeight>0.025</selectionWeight>
+	<selectionWeight>0.0025</selectionWeight>
   </GeneDef>
 
   <!-- ============================= -->
@@ -15,7 +15,7 @@
 	<iconPath>WVC/UI/Genes/Gene_NeverRest_v0</iconPath>
 	<marketValueFactor>1.5</marketValueFactor>
 	<displayOrderInCategory>31</displayOrderInCategory>
-	<selectionWeight>0.0125</selectionWeight>
+	<selectionWeight>0.00125</selectionWeight>
 	<disablesNeeds>
 	  <li>Rest</li>
 	  <li>Comfort</li>
@@ -88,12 +88,12 @@
 	<!-- <biostatArc>1</biostatArc> -->
 	<iconPath>WVC/UI/Genes/HealthySleep_v0</iconPath>
 	<displayOrderInCategory>-10</displayOrderInCategory>
-	<selectionWeight>0.0125</selectionWeight>
+	<selectionWeight>0.00125</selectionWeight>
 	<!-- <biostatCpx>3</biostatCpx> -->
 	<biostatMet>5</biostatMet>
 	<biostatCpx>3</biostatCpx>
 	<biostatArc>1</biostatArc>
-	<!-- <selectionWeight>0.005</selectionWeight> -->
+	<!-- <selectionWeight>0.0005</selectionWeight> -->
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>The hunger bar does not decrease while the pawn is on the bed.</li> -->
 	<!-- </customEffectDescriptions> -->

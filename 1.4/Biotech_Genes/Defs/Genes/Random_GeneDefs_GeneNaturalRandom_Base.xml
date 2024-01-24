@@ -6,7 +6,7 @@
 	<!-- <displayCategory>WVC_RandomGenes</displayCategory> -->
 	<!-- <displayOrderInCategory>-537</displayOrderInCategory> -->
 	<!-- <randomChosen>false</randomChosen> -->
-	<!-- <selectionWeight>0.0</selectionWeight> -->
+	<!-- <selectionWeight>0.00</selectionWeight> -->
 	<!-- <canGenerateInGeneSet>false</canGenerateInGeneSet> -->
 	<!-- <biostatCpx>0</biostatCpx> -->
 	<!-- <biostatArc>0</biostatArc> -->
@@ -21,7 +21,7 @@
   <GeneDef Name="WVC_XenotypesAndGenes_GeneNaturalRandom_Base" Abstract="True">
 	<!-- <iconColor>(93, 101, 126)</iconColor> -->
     <iconColor>(0.75, 0.75, 0.75)</iconColor>
-	<selectionWeight>0.012</selectionWeight>
+	<selectionWeight>0.0012</selectionWeight>
 	<displayCategory>WVC_RandomGenes</displayCategory>
 	<displayOrderInCategory>-537</displayOrderInCategory>
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Randomizer</geneClass> -->
@@ -42,7 +42,7 @@
 	<labelShortAdj>metabolism</labelShortAdj>
 	<description>Carriers of this gene have an unstable metabolism, which can either improve or worsen over generations.</description>
 	<iconPath>WVC/UI/Genes/Gene_RandomBuff_Skill_v0</iconPath>
-	<selectionWeight>0.012</selectionWeight>
+	<selectionWeight>0.0012</selectionWeight>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<customEffectDescriptions>

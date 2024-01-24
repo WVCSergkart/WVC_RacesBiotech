@@ -63,7 +63,7 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_Wings</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_FeatheredWings_v0</iconPath>
 	<marketValueFactor>1.7</marketValueFactor>
-	<selectionWeight>0.012</selectionWeight>
+	<selectionWeight>0.0012</selectionWeight>
 	<displayCategory>WVC_Cosmetic</displayCategory>
 	<!-- <displayCategory>WVC_ResurgentCells</displayCategory> -->
 	<displayOrderInCategory>25</displayOrderInCategory>

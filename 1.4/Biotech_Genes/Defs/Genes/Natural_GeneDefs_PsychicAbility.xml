@@ -6,7 +6,7 @@
 	<!-- <exclusionTags> -->
 	  <!-- <li>PsychicAbility</li> -->
 	<!-- </exclusionTags> -->
-	<selectionWeight>0.025</selectionWeight>
+	<selectionWeight>0.0025</selectionWeight>
 	<suppressedTraits>
 	  <li>
 		<def>PsychicSensitivity</def>
@@ -81,7 +81,7 @@
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>2</biostatMet>
-	<selectionWeight>0.0125</selectionWeight>
+	<selectionWeight>0.00125</selectionWeight>
 	<statFactors>
 	  <PsychicSensitivity>0.5</PsychicSensitivity>
 	  <BondAnimalChanceFactor>0.0</BondAnimalChanceFactor>

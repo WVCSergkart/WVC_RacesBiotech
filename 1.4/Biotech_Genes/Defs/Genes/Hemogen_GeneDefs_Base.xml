@@ -6,9 +6,9 @@
 	<displayCategory>Hemogen</displayCategory>
 	<displayOrderInCategory>55</displayOrderInCategory>
 	<iconColor>(255, 255, 255)</iconColor>
-	<!-- <selectionWeight>0.011</selectionWeight> -->
+	<!-- <selectionWeight>0.0011</selectionWeight> -->
 	<!-- Cause Vanilla -->
-	<selectionWeight>0.0</selectionWeight>
+	<selectionWeight>0.00</selectionWeight>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>0</biostatArc>

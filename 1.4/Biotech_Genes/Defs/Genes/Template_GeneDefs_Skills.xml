@@ -7,7 +7,7 @@
 	<exclusionTagPrefix>Aptitude</exclusionTagPrefix>
 	<!-- <displayCategory>Aptitudes</displayCategory> -->
 	<displayCategory>WVC_Aptitudes</displayCategory>
-	<selectionWeight>0.008</selectionWeight>
+	<selectionWeight>0.0008</selectionWeight>
 	<biostatCpx>0</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<biostatArc>0</biostatArc>
@@ -60,7 +60,7 @@
 	<displayOrderOffset>15</displayOrderOffset>
 	<biostatCpx>0</biostatCpx>
 	<biostatMet>0</biostatMet>
-	<selectionWeight>0.005</selectionWeight>
+	<selectionWeight>0.0005</selectionWeight>
   </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
 
   <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_XenotypesAndGenes_GeneAptitude_Base">
@@ -106,7 +106,7 @@
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
-	<selectionWeight>0.00125</selectionWeight>
+	<selectionWeight>0.000125</selectionWeight>
   </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
 
   <WVC_XenotypesAndGenes.SkillsGeneTemplateDef ParentName="WVC_XenotypesAndGenes_GeneAptitude_Archite">
@@ -153,7 +153,7 @@
 	<aptitudeOffset>-6</aptitudeOffset>
 	<passionModType>DropAll</passionModType>
 	<displayOrderOffset>125</displayOrderOffset>
-	<selectionWeight>0.00025</selectionWeight>
+	<selectionWeight>0.000025</selectionWeight>
 	<biostatCpx>-3</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>2</biostatMet>
@@ -174,7 +174,7 @@
 	<biostatCpx>0</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<biostatArc>1</biostatArc>
-	<selectionWeight>0.0025</selectionWeight>
+	<selectionWeight>0.00025</selectionWeight>
 	<displayCategory>WVC_Aptitudes</displayCategory>
 	<displayOrderInCategory>-999</displayOrderInCategory>
 	<customEffectDescriptions Inherit="False">

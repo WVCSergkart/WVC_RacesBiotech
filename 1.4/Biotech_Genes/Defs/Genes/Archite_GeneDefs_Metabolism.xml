@@ -16,7 +16,7 @@
 	<!-- <biostatCpx>0</biostatCpx> -->
 	<biostatArc>2</biostatArc>
 	<marketValueFactor>3</marketValueFactor>
-	<selectionWeight>0.0075</selectionWeight>
+	<selectionWeight>0.00075</selectionWeight>
 	<randomChosen>true</randomChosen>
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>Disable mechaskin's 5x hunger rate multiplier.</li> -->

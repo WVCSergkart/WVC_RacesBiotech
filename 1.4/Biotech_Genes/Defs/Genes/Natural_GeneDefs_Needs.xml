@@ -2,7 +2,7 @@
 <Defs>
 
   <GeneDef Name="WVC_XenotypesAndGenes_GeneDisableNeeds_Base" Abstract="True">
-	<selectionWeight>0.002</selectionWeight>
+	<selectionWeight>0.0002</selectionWeight>
 	<displayCategory>Miscellaneous</displayCategory>
 	<displayOrderInCategory>63</displayOrderInCategory>
 	<biostatCpx>3</biostatCpx>
@@ -11,7 +11,7 @@
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDisableNeeds_Base" Name="WVC_XenotypesAndGenes_GeneDisableNeeds_Archite" Abstract="True">
-	<selectionWeight>0.0015</selectionWeight>
+	<selectionWeight>0.00015</selectionWeight>
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
   </GeneDef>

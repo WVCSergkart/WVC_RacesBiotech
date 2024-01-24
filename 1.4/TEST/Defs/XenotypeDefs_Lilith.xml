@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_TEST">
+	<defName>WVC_Lilith</defName>
+	<label>lilith</label>
+	<inheritable>true</inheritable>
+	<genes>
+		<li>WVC_ReimplanterNatural_Endogenes</li>
+		<li>Hemogenic</li>
+		<li>HemogenDrain</li>
+		<li>LongjumpLegs</li>
+		<li>WVC_HemogenPsylink</li>
+		<li>WVC_NaturalImmunity_PerfectImmunity</li>
+		<li>WVC_NaturalAgeless</li>
+		<li>PsychicAbility_Extreme</li>
+		<li>WVC_ArchiteTelepathy</li>
+		<li>WVC_Neversleep</li>
+		<li>WVC_Glass</li>
+		<li>WVC_FemaleOnly</li>
+		<li>WVC_AngelBeauty</li>
+		<li>WVC_HeadBoneHorns</li>
+		<li>WVC_NodeSkin</li>
+		<li>WVC_DemonTailA</li>
+		<li>Body_Standard</li>
+		<li>WVC_BodySize_Small</li>
+		<li>WVC_HairColor_Slate</li>
+		<li>WVC_SkinColor_ffb4b4_HEX</li>
+		<li>WVC_NaturalBlindness</li>
+		<li>WVC_AptitudeArchiteGreat_Social</li>
+	</genes>
+  </XenotypeDef>
+
+</Defs>

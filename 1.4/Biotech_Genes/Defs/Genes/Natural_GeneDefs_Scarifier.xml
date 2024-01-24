@@ -16,7 +16,7 @@
 		<!-- <li MayRequire="ludeon.rimworld.ideology">Increases the number of scars by 2</li> -->
 	</customEffectDescriptions>
 	<displayCategory>WVC_Scarifier</displayCategory>
-	<selectionWeight>0.0025</selectionWeight>
+	<selectionWeight>0.00025</selectionWeight>
 	<!-- <makeImmuneTo> -->
 	  <!-- <li>GutWorms</li> -->
 	  <!-- <li>MuscleParasites</li> -->
@@ -54,7 +54,7 @@
   <!-- ============================= -->
 
   <GeneDef Name="WVC_XenotypesAndGenes_GeneScarifier_Base" Abstract="True">
-	<selectionWeight>0.0125</selectionWeight>
+	<selectionWeight>0.00125</selectionWeight>
 	<displayCategory>WVC_Scarifier</displayCategory>
 	<displayOrderInCategory>15</displayOrderInCategory>
 	<iconColor>(255, 255, 255)</iconColor>
@@ -112,7 +112,7 @@
 	<label>scarifier stability</label>
 	<iconPath>WVC/UI/Genes/Gene_GeneticStability_v0</iconPath>
 	<iconColor>(60, 60, 60)</iconColor>
-	<selectionWeight>0.0125</selectionWeight>
+	<selectionWeight>0.00125</selectionWeight>
 	<biostatCpx>-6</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>0</biostatMet>
@@ -136,7 +136,7 @@
 	<labelShortAdj>habity</labelShortAdj>
 	<description>Carriers of this gene are less susceptible to mild pain, and pain itself is nothing more than a signal for them.</description>
 	<iconPath>WVC/UI/Genes/Gene_Pain_Scarifier_v0</iconPath>
-	<selectionWeight>0.0125</selectionWeight>
+	<selectionWeight>0.00125</selectionWeight>
 	<displayCategory>WVC_Scarifier</displayCategory>
 	<displayOrderInCategory>15</displayOrderInCategory>
 	<biostatCpx>2</biostatCpx>
@@ -230,7 +230,7 @@
 	<iconPath>WVC/UI/Genes/Gene_ScarStomach_v0</iconPath>
 	<foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
 	<dontMindRawFood>true</dontMindRawFood>
-	<selectionWeight>0.0025</selectionWeight>
+	<selectionWeight>0.00025</selectionWeight>
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>-5</biostatMet>
 	<customEffectDescriptions>

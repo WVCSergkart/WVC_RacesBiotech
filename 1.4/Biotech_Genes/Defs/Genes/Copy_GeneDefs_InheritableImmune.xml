@@ -5,7 +5,7 @@
 	<displayCategory>Healing</displayCategory>
 	<displayOrderInCategory>720</displayOrderInCategory>
 	<!-- <ignoreIllegalLabelCharacterConfigError>true</ignoreIllegalLabelCharacterConfigError> -->
-	<selectionWeight>0.022</selectionWeight>
+	<selectionWeight>0.0022</selectionWeight>
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>-6</biostatMet>
 	<biostatArc>0</biostatArc>
@@ -16,7 +16,7 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentCellsGain</geneClass>
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass> -->
 	<!-- <ignoreIllegalLabelCharacterConfigError>true</ignoreIllegalLabelCharacterConfigError> -->
-	<selectionWeight>0.0005</selectionWeight>
+	<selectionWeight>0.00005</selectionWeight>
 	<displayCategory>WVC_ResurgentCells</displayCategory>
 	<displayOrderInCategory>1275</displayOrderInCategory>
 	<prerequisite>WVC_ResurgentCells</prerequisite>

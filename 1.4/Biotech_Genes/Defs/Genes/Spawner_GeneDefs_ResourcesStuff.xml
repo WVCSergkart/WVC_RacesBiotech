@@ -7,7 +7,7 @@
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_SpawnerStuff</geneClass> -->
 	<!-- <displayCategory>WVC_XenotypeSerumSpawners</displayCategory> -->
 	<!-- <displayOrderInCategory>-20</displayOrderInCategory> -->
-	<!-- <selectionWeight>0.00032</selectionWeight> -->
+	<!-- <selectionWeight>0.000032</selectionWeight> -->
 	<!-- <iconPath>WVC/UI/Genes/Gene_Spawner</iconPath> -->
 	<!-- <iconColor>(175, 175, 175)</iconColor> -->
 	<!-- <biostatCpx>1</biostatCpx> -->

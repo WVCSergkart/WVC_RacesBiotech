@@ -4,7 +4,7 @@
   <GeneDef Name="WVC_XenotypesAndGenes_GeneMonogenderBase" Abstract="True">
 	<displayCategory>Reproduction</displayCategory>
 	<displayOrderInCategory>-100</displayOrderInCategory>
-	<selectionWeight>0.05</selectionWeight>
+	<selectionWeight>0.005</selectionWeight>
 	<!-- <randomChosen>true</randomChosen> -->
 	<exclusionTags>
 	  <li>WVC_Monogender</li>
@@ -91,7 +91,7 @@
 	<iconPath>WVC/UI/Genes/Monogender_Disabled_v0</iconPath>
 	<biostatCpx>0</biostatCpx>
 	<biostatMet>0</biostatMet>
-	<selectionWeight>0.01</selectionWeight>
+	<selectionWeight>0.001</selectionWeight>
 	<customEffectDescriptions>
 		<li>Disable monogender genes.</li>
 		<li>In some cases, this gene may have no effect.</li>

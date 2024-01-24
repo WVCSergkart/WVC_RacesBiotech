@@ -12,7 +12,7 @@
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
-	<!-- <selectionWeight>0.075</selectionWeight> -->
+	<!-- <selectionWeight>0.0075</selectionWeight> -->
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>Recommended to be combined with the "Fleet connected" gene.</li> -->
 	<!-- </customEffectDescriptions> -->
