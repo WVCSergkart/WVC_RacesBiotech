@@ -9,7 +9,7 @@ namespace WVC_XenotypesAndGenes
     public class CompProperties_GenesDisplayInfo : CompProperties
 	{
 
-		public bool onlyPlayerFaction = true;
+		// public bool onlyPlayerFaction = true;
 
 		public int recacheFrequency = 60000;
 
@@ -44,6 +44,8 @@ namespace WVC_XenotypesAndGenes
 				// }
 			// }
 		// }
+
+		// =================
 
 		public List<Gene_Spawner> cachedSpawnerGenes = null;
 		public Gene_Wings cachedWingGene = null;
@@ -86,6 +88,8 @@ namespace WVC_XenotypesAndGenes
 			}
 			nextRecache = Find.TickManager.TicksGame + Props.recacheFrequency;
 		}
+
+		// =================
 
 		public List<Gene_Spawner> ActiveSpawnerGenes(Pawn pawn)
 		{
@@ -143,16 +147,18 @@ namespace WVC_XenotypesAndGenes
 			return null;
 		}
 
+		// =================
+
 		public override string CompInspectStringExtra()
 		{
+			if (parent.Faction == null || !parent.Faction.IsPlayer)
+			{
+				return null;
+			}
 			if (WVC_Biotech.settings.enableGenesInfo)
 			{
 				if (parent is Pawn pawn)
 				{
-					if (Props.onlyPlayerFaction && !MiscUtility.PawnIsColonistOrSlave(pawn))
-					{
-						return null;
-					}
 					return Info(pawn);
 				}
 			}
@@ -208,10 +214,16 @@ namespace WVC_XenotypesAndGenes
 			return info;
 		}
 
+		// =================
+
 		private Gizmo_MaxGolems gizmo;
 
 		public override IEnumerable<Gizmo> CompGetGizmosExtra()
 		{
+			if (parent.Faction == null || !parent.Faction.IsPlayer)
+			{
+				yield break;
+			}
 			base.CompGetGizmosExtra();
 			// if (!WVC_Biotech.settings.enableGolemsInfo)
 			// {

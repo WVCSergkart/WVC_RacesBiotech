@@ -40,7 +40,7 @@ namespace WVC_XenotypesAndGenes
 			xenotypeComplexityFactor = geneExtension == null ? 0.1f : geneExtension.xenotypeComplexityFactor;
 			cooldownDays = geneExtension == null ? 5 : geneExtension.cooldownDays;
 			gestationPeriodDays = (int)(gene.pawn.RaceProps.gestationPeriodDays * (geneExtension == null ? 1f : geneExtension.gestationPeriodFactor));
-			canGestateAny = geneExtension != null && XaG_GeneUtility.HasAnyActiveGene(geneExtension?.canGestateAnyIfHas, gene.pawn);
+			canGestateAny = XaG_GeneUtility.HasAnyActiveGene(geneExtension?.canGestateAnyIfHas, gene.pawn);
 			// currentXeno = xenoTree.chosenXenotype;
 			// selectedXeno = currentXeno;
 			// connectedPawn = xenoTree.ConnectedPawn;

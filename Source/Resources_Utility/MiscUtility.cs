@@ -9,6 +9,23 @@ namespace WVC_XenotypesAndGenes
     public static class MiscUtility
 	{
 
+		public static Thing GetSpecialFood(Pawn pawn, ThingDef foodDef)
+		{
+			Thing carriedThing = pawn.carryTracker.CarriedThing;
+			if (carriedThing != null && carriedThing.def == foodDef)
+			{
+				return carriedThing;
+			}
+			for (int i = 0; i < pawn.inventory.innerContainer.Count; i++)
+			{
+				if (pawn.inventory.innerContainer[i].def == foodDef)
+				{
+					return pawn.inventory.innerContainer[i];
+				}
+			}
+			return GenClosest.ClosestThing_Global_Reachable(pawn.Position, pawn.Map, pawn.Map.listerThings.ThingsOfDef(foodDef), PathEndMode.OnCell, TraverseParms.For(pawn), 9999f, (Thing t) => pawn.CanReserve(t) && !t.IsForbidden(pawn));
+		}
+
 		public static bool PawnPsychicSensitive(this Pawn pawn)
 		{
 			return pawn?.GetStatValue(StatDefOf.PsychicSensitivity) > 0f;

@@ -6,7 +6,7 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class JobGiver_GetSpecialFood : ThinkNode_JobGiver
+	public class JobGiver_GetSpecialFood : ThinkNode_JobGiver
 	{
 
 		public List<GeneDef> geneDefs;
@@ -90,7 +90,7 @@ namespace WVC_XenotypesAndGenes
 			// {
 				// Log.Error(pawn.Name + " geneDefs is null");
 			// }
-			if (!geneDefs.NullOrEmpty() && XaG_GeneUtility.HasAnyActiveGene(geneDefs, pawn))
+			if (XaG_GeneUtility.HasAnyActiveGene(geneDefs, pawn))
 			{
 				// Log.Error(pawn.Name + " try get special food");
 				// int num = Mathf.FloorToInt((food.Max - gene_Hemogen.Value) / HemogenPackHemogenGain);
@@ -98,7 +98,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					for (int j = 0; j < foodDefs.Count; j++)
 					{
-						Thing specialFood = GetSpecialFood(pawn, foodDefs[j]);
+						Thing specialFood = MiscUtility.GetSpecialFood(pawn, foodDefs[j]);
 						if (specialFood != null)
 						{
 							Job job = JobMaker.MakeJob(JobDefOf.Ingest, specialFood);
@@ -118,23 +118,6 @@ namespace WVC_XenotypesAndGenes
 			// }
 			// Log.Error(pawn.Name + " special food is null");
 			return null;
-		}
-
-		private Thing GetSpecialFood(Pawn pawn, ThingDef foodDef)
-		{
-			Thing carriedThing = pawn.carryTracker.CarriedThing;
-			if (carriedThing != null && carriedThing.def == foodDef)
-			{
-				return carriedThing;
-			}
-			for (int i = 0; i < pawn.inventory.innerContainer.Count; i++)
-			{
-				if (pawn.inventory.innerContainer[i].def == foodDef)
-				{
-					return pawn.inventory.innerContainer[i];
-				}
-			}
-			return GenClosest.ClosestThing_Global_Reachable(pawn.Position, pawn.Map, pawn.Map.listerThings.ThingsOfDef(foodDef), PathEndMode.OnCell, TraverseParms.For(pawn), 9999f, (Thing t) => pawn.CanReserve(t) && !t.IsForbidden(pawn));
 		}
 
 	}
