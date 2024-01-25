@@ -66,6 +66,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.CompExposeData();
 			Scribe_Values.Look(ref ticksCounter, "ticksCounter_" + Props.uniqueTag, 0);
+			Scribe_Values.Look(ref gestationIntervalDays, "gestationIntervalDays_" + Props.uniqueTag, 0);
 			Scribe_Defs.Look(ref xenotypeDef, "xenotypeDef_" + Props.uniqueTag);
 		}
 
