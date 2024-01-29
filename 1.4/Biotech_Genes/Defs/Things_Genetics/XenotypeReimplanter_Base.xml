@@ -37,7 +37,9 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
   <!-- ============Auto Generation Base============ -->
   <ThingDef ParentName="WVC_XenotypeSerum_Base" Name="WVC_XenotypeSerum_Craftable" Abstract="True">
 	<graphicData>
-	  <texPath>WVC/Things/XaG_Items/XenotypeSerum</texPath>
+	  <!-- <texPath>WVC/Things/XaG_Items/XenotypeSerum</texPath> -->
+	  <!-- <shaderType>CutoutComplex</shaderType> -->
+	  <color>(133,202,255)</color>
 	</graphicData>
 	<recipeMaker>
 	  <displayPriority>-20</displayPriority>
@@ -96,7 +98,9 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <WVC_XenotypeSerumCapsule>1</WVC_XenotypeSerumCapsule>
 	</costList>
 	<graphicData>
-	  <texPath>WVC/Things/XaG_Items/XenotypeSerum_Ultra</texPath>
+	  <!-- <texPath>WVC/Things/XaG_Items/XenotypeSerum_Ultra</texPath> -->
+	  <!-- <shaderType>CutoutComplex</shaderType> -->
+	  <color>(255,248,133)</color>
 	</graphicData>
 	<tradeTags>
 	  <li>WVC_XenotypeSerums</li>
@@ -134,7 +138,9 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <WVC_XenotypeSerumUltraCapsule>2</WVC_XenotypeSerumUltraCapsule>
 	</costList>
 	<graphicData>
-	  <texPath>WVC/Things/XaG_Items/XenotypeSerum_Mecha</texPath>
+	  <!-- <texPath>WVC/Things/XaG_Items/XenotypeSerum_Mecha</texPath> -->
+	  <!-- <shaderType>CutoutComplex</shaderType> -->
+	  <color>(162,180,255)</color>
 	</graphicData>
 	<tradeTags>
 	  <li>WVC_XenotypeSerums_NonCraftable</li>

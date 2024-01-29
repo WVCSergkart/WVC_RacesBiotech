@@ -27,7 +27,7 @@
   <!-- ============Auto Generation Base============ -->
   <ThingDef ParentName="WVC_XenotypeResurrectorSerum_Base" Name="WVC_XenotypeResurrectorSerum_Craftable" Abstract="True">
 	<graphicData>
-	  <texPath>WVC/Things/XaG_Items/XenotypeSerum</texPath>
+	  <color>(133,202,255)</color>
 	</graphicData>
 	<recipeMaker>
 	  <displayPriority>-15</displayPriority>
@@ -80,7 +80,7 @@
 	  <DeteriorationRate>1.0</DeteriorationRate>
 	</statBases>
 	<graphicData>
-	  <texPath>WVC/Things/XaG_Items/XenotypeSerum_Ultra</texPath>
+	  <color>(255,248,133)</color>
 	</graphicData>
 	<tradeTags>
 	  <li>WVC_XenotypeSerums</li>
@@ -104,7 +104,7 @@
 	  <DeteriorationRate>0.5</DeteriorationRate>
 	</statBases>
 	<graphicData>
-	  <texPath>WVC/Things/XaG_Items/XenotypeSerum_Mecha</texPath>
+	  <color>(162,180,255)</color>
 	</graphicData>
 	<tradeTags>
 	  <li>WVC_XenotypeSerums_NonCraftable</li>

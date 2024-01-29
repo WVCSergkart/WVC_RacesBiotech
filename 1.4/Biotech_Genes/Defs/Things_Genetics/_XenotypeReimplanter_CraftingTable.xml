@@ -483,7 +483,7 @@
 	  <ThingDef>WVC_XenotypeSerum_Hybrid</ThingDef>
 	</descriptionHyperlinks>
 	<graphicData>
-	  <texPath>WVC/Things/XaG_Items/XenotypeSerum_Empty</texPath>
+	  <texPath>WVC/Things/XaG_Items/Serums_Empty</texPath>
 	</graphicData>
 	<statBases>
 	  <MaxHitPoints>120</MaxHitPoints>
