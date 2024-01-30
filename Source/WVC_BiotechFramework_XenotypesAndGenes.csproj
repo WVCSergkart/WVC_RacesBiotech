@@ -116,6 +116,7 @@
     <Compile Include="Resources_Hediff\OnlyOneOverseer.cs" />
     <Compile Include="Resources_Main\StaticCollection.cs" />
     <Compile Include="Resources_RitualAttachableOutcome\OutcomeWorker_ShapeshifterJoin.cs" />
+    <Compile Include="Resources_Things\CompUseEffect_GeneGiver.cs" />
     <Compile Include="Resources_Things\ThingClass_XenotypeSerum.cs" />
     <Compile Include="Resources_Utility\Templates_Utility.cs" />
     <Compile Include="Resources_Workers\JobDriver_AbsorbGenogerm.cs" />
@@ -222,7 +223,6 @@
     <Compile Include="Resources_Things\CompProperties_TargetEffectRiseFromTheDead.cs" />
     <Compile Include="Resources_Things\CompProperties_UseEffect_GeneRestoration.cs" />
     <Compile Include="Resources_Things\CompProperties_UseEffect_XenotypeForcer.cs" />
-    <Compile Include="Resources_Things\CompProperties_UseEffect_XenotypeForcer_Hybrid.cs" />
     <Compile Include="Resources_Things\CompProperties_UseEffect_XenotypeForcer_II.cs" />
     <Compile Include="Resources_Things\CompTargetable_SingleCorpse.cs" />
     <Compile Include="Resources_Things\CompTargetEffect_RiseFromTheDead.cs" />

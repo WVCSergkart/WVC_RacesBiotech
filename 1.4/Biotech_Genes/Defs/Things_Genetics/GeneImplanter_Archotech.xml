@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- =========== -->
+
+  <ThingDef ParentName="WVC_XenotypeSerum_Base">
+	<defName>WVC_ArchotechGeneGiver</defName>
+	<label>gene giver</label>
+	<description>A one-use super-dose of mechanites tuned to add the user a new gene. After using the serum, users' genes will be regrowing.</description>
+	<descriptionHyperlinks Inherit="False"/>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/ShiftSerumB_v0</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+	<statBases>
+	  <MarketValue>9200</MarketValue>
+	</statBases>
+	<tradeTags Inherit="False">
+	  <li>WVC_All_XenotypeSerums</li>
+	</tradeTags>
+	<thingSetMakerTags Inherit="False">
+	  <li>RewardStandardQualitySuper</li>
+	</thingSetMakerTags>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenotypeForcer_II">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneGiver</compClass>
+		<possibleGenes>
+		  <li>WVC_Shapeshifter</li>
+		  <li>WVC_ArchitePerfectImmunity_DiseaseFree</li>
+		  <!-- <li>WVC_ToxResist_Archite</li> -->
+		  <li>Deathless</li>
+		</possibleGenes>
+	  </li>
+	  <li Class="CompProperties_Glower">
+		<glowRadius>1</glowRadius>
+		<glowColor>(214,221,60, 0)</glowColor>
+	  </li>
+	</comps>
+  </ThingDef>
+
+</Defs>

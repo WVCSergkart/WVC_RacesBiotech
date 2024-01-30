@@ -1,3 +1,4 @@
+using RimWorld;
 using System.Collections.Generic;
 using Verse;
 
@@ -7,11 +8,12 @@ namespace WVC_XenotypesAndGenes
     public class CompProperties_UseEffect_XenotypeForcer_II : CompProperties
 	{
 
-		// public XenotypeForcerType xenotypeForcerType = (XenotypeForcerType)0;
+		public XenotypeDef endotypeDef = null;
+		public XenotypeDef xenotypeDef = null;
+
+		public List<GeneDef> possibleGenes;
 
 		public XenotypeType xenotypeType = (XenotypeType)0;
-
-		// public XenotypeDef xenotypeDef;
 
 		public bool removeEndogenes = false;
 
@@ -24,24 +26,29 @@ namespace WVC_XenotypesAndGenes
 
 		public List<ResearchProjectDef> researchPrerequisites;
 
-		// public enum XenotypeForcerType
-		// {
-		// Base,
-		// Hybrid,
-		// Custom,
-		// CustomHybrid
-		// }
-
 		public enum XenotypeType
 		{
 			Base,
 			Archite
 		}
 
-		public CompProperties_UseEffect_XenotypeForcer_II()
+		public override void ResolveReferences(ThingDef parentDef)
 		{
-			compClass = typeof(CompUseEffect_XenotypeForcer_II);
+			if (compClass == typeof(ThingComp))
+			{
+				Log.Error(parentDef.defName + " has CompProperties_UseEffect_XenotypeForcer_II with ThingComp compClass. Will be used CompUseEffect_XenotypeForcer_II instead.");
+				compClass = typeof(CompUseEffect_XenotypeForcer_II);
+			}
+			if (compClass == typeof(CompUseEffect_GeneGiver) && possibleGenes.NullOrEmpty())
+			{
+				Log.Error(parentDef.defName + " has CompUseEffect_GeneGiver compClass with null possibleGenes.");
+			}
 		}
+
+		// public CompProperties_UseEffect_XenotypeForcer_II()
+		// {
+			// compClass = typeof(CompUseEffect_XenotypeForcer_II);
+		// }
 	}
 
 }

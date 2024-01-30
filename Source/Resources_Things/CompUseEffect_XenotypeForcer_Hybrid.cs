@@ -13,7 +13,7 @@ namespace WVC_XenotypesAndGenes
 
 		public XenotypeDef xenotype = null;
 
-		public CompProperties_UseEffect_XenotypeForcer_Hybrid Props => (CompProperties_UseEffect_XenotypeForcer_Hybrid)props;
+		public CompProperties_UseEffect_XenotypeForcer_II Props => (CompProperties_UseEffect_XenotypeForcer_II)props;
 
 		public override void PostPostMake()
 		{

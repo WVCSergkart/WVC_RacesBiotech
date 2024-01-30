@@ -18,7 +18,7 @@
 	
 	<WVC_RoleRequirementShouldBeMechanitor>Must be a Mechanitor</WVC_RoleRequirementShouldBeMechanitor>
 	
-	<WVC_PawnIsAndroidCheck>The target must be human and/or genetically compatible.</WVC_PawnIsAndroidCheck>
+	<WVC_PawnIsAndroidCheck>User must be human and/or genetically compatible.</WVC_PawnIsAndroidCheck>
 	
 	<WVC_AbilityValidation_ReimplantationCheck>Reimplantation in progress. Wait for the process to finish before starting another one.</WVC_AbilityValidation_ReimplantationCheck>
 	
@@ -38,6 +38,11 @@
 	<WVC_XaG_SuremRetuneShouldBeTunedWarn_Label>Should be tuned</WVC_XaG_SuremRetuneShouldBeTunedWarn_Label>
 	
 	<WVC_XaG_SuremRetuneUntuned_Label>Untuned</WVC_XaG_SuremRetuneUntuned_Label>
+	
+	<WVC_XaG_GeneGiverPawnHasGene_Label>{0} already has this gene.</WVC_XaG_GeneGiverPawnHasGene_Label>
+	
+	<WVC_XaG_GeneGiverImplanted_Label>Gene implanted</WVC_XaG_GeneGiverImplanted_Label>
+	<WVC_XaG_GeneGiverImplanted_Desc>{0} received the "{1}" gene, due to this {0}'s genes will be regrowing.</WVC_XaG_GeneGiverImplanted_Desc>
 
 	<!-- ============================ REIMPLANTER GENE ============================ -->
 

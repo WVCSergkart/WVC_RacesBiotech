@@ -7,6 +7,10 @@
 	<defName>WVC_GeneRestorationSerum_Base</defName>
 	<label>gene restoration serum</label>
 	<description>A one-use super-dose of mechanites tuned to restore the user's genes. After using the serum, it removes from the user the effect associated with the reimplantation of genes.</description>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/GeneResorationSerum_v0</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
 	<descriptionHyperlinks Inherit="False">
 	  <HediffDef>XenogermReplicating</HediffDef>
 	  <HediffDef>XenogerminationComa</HediffDef>
@@ -175,6 +179,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	</tradeTags>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenotypeForcer_II">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_XenotypeForcer_II</compClass>
 		<xenotypeType>Base</xenotypeType>
 		<removeEndogenes>false</removeEndogenes>
 		<removeXenogenes>true</removeXenogenes>
