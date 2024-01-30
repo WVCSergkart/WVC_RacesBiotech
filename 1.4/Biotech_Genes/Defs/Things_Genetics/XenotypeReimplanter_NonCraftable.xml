@@ -16,7 +16,7 @@
   
   <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
 	<defName>WVC_AdministerXenotypeSerum_Random</defName>
-	<label>administer xenotype serum</label>
+	<label>administer xenotype serum (random)</label>
 	<description>Administer a xenotype serum.</description>
 	<jobString>Administering xenotype serum.</jobString>
 	<ingredients>
@@ -60,7 +60,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
   
   <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
 	<defName>WVC_AdministerXenotypeSerum_CustomRandom</defName>
-	<label>administer custom xenotype serum</label>
+	<label>administer custom xenotype serum (random)</label>
 	<description>Administer a custom xenotype serum.</description>
 	<jobString>Administering custom xenotype serum.</jobString>
 	<ingredients>

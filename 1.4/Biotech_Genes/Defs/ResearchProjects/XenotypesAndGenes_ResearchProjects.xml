@@ -89,7 +89,7 @@
 
   <ResearchProjectDef Abstract="True" ParentName="WVC_XenotypesAndGenesResearchProjectDefs_AfterSerumLab" Name="WVC_XenotypesAndGenesResearchProjectDefs_AfterAfterSerumLab">
 	<baseCost>2700</baseCost>
-	<prerequisites>
+	<prerequisites Inherit="False">
 	  <li>GeneProcessor</li>
 	</prerequisites>
 	<requiredResearchFacilities>
@@ -104,6 +104,10 @@
 	<baseCost>1900</baseCost>
 	<researchViewX>2.00</researchViewX>
 	<researchViewY>4.50</researchViewY>
+	<prerequisites>
+	  <li>WVC_XenotypesAndGenes_RetuneSerum</li>
+	  <li>WVC_XenotypesAndGenes_DisassembleSerum</li>
+	</prerequisites>
   </ResearchProjectDef>
 
   <ResearchProjectDef ParentName="WVC_XenotypesAndGenesResearchProjectDefs_AfterAfterSerumLab">
@@ -113,6 +117,10 @@
 	<baseCost>2200</baseCost>
 	<researchViewX>2.00</researchViewX>
 	<researchViewY>5.00</researchViewY>
+	<prerequisites>
+	  <li>WVC_XenotypesAndGenes_GeneRestoration</li>
+	  <li>WVC_XenotypesAndGenes_DisassembleSerum</li>
+	</prerequisites>
   </ResearchProjectDef>
 
 </Defs>

@@ -67,18 +67,39 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		public override bool CanBeUsedBy(Pawn p, out string failReason)
+		{
+			failReason = null;
+			if (xenotype == null || endotype == null)
+			{
+				failReason = "WVC_XaG_SuremRetuneShouldBeTunedWarn_Label".Translate();
+				return false;
+			}
+			if (!SerumUtility.PawnCanUseSerums(p))
+			{
+				failReason = "WVC_PawnIsAndroidCheck".Translate();
+				return false;
+			}
+			if (p.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
+			{
+				failReason = "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate();
+				return false;
+			}
+			return true;
+		}
+
 		public override void DoEffect(Pawn pawn)
 		{
 			// SerumUtility.HumanityCheck(pawn);
-			if (SerumUtility.HumanityCheck(pawn))
-			{
-				return;
-			}
-			if (pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
-			{
-				pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));
-				return;
-			}
+			// if (SerumUtility.HumanityCheck(pawn))
+			// {
+				// return;
+			// }
+			// if (pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
+			// {
+				// pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));
+				// return;
+			// }
 			if (xenotype == null || endotype == null)
 			{
 				Log.Error("Xeno/endotype is still null. Do not report this to the developer, you yourself created this creepy world filled with bugs. To fix the situation, reset the filter in the " + "WVC_BiotechSettings".Translate() + " mod settings and restart the game.");

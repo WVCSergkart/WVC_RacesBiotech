@@ -117,6 +117,7 @@
     <Compile Include="Resources_Main\StaticCollection.cs" />
     <Compile Include="Resources_RitualAttachableOutcome\OutcomeWorker_ShapeshifterJoin.cs" />
     <Compile Include="Resources_Things\ThingClass_XenotypeSerum.cs" />
+    <Compile Include="Resources_Utility\Templates_Utility.cs" />
     <Compile Include="Resources_Workers\JobDriver_AbsorbGenogerm.cs" />
     <Compile Include="Resources_Workers\JobDriver_RetuneSerum.cs" />
     <Compile Include="Resources_Workers\JobGiver_GetSpecialFood.cs" />
@@ -185,7 +186,7 @@
     <Compile Include="Resources_Utility\XenotypeFilterUtility.cs" />
     <Compile Include="Resources_Main\XenotypesModSettings.cs" />
     <Compile Include="Resources_StatPart\StatPart_FactorForGolems.cs" />
-    <Compile Include="Resources_Harmony\Harmony_DefGenerator_Serums.cs" />
+    <Compile Include="Resources_Generator\Harmony_DefGenerator_Serums.cs" />
     <Compile Include="Resources_Harmony\Harmony_GeneDefGenerator.cs" />
     <Compile Include="Resources_Harmony\Harmony_PredatorPrey.cs" />
     <Compile Include="Resources_Harmony\Harmony_SkillDecay_Patch.cs" />
@@ -206,9 +207,9 @@
     <Compile Include="Resources_StatPart\StatPart_OffsetFromBuildingsOnMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources_StatPart\StatPart_XenotypeSerum.cs" />
-    <Compile Include="Resources_Templates\GeneTemplateDefs.cs" />
-    <Compile Include="Resources_Utility\Templates_Utility.cs" />
-    <Compile Include="Resources_Templates\SerumTemplateDefs.cs" />
+    <Compile Include="Resources_Main\GeneTemplateDefs.cs" />
+    <Compile Include="Resources_Generator\Templates_Utility.cs" />
+    <Compile Include="Resources_Generator\SerumTemplateDefs.cs" />
     <Compile Include="Resources_Things\CompTargetable_TargetValidation.cs" />
     <Compile Include="Resources_Things\CompToxifier.cs" />
     <Compile Include="Resources_Things\DeathAction_SpawnThing.cs" />

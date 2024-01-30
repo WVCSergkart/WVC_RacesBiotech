@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using RimWorld;
+using System;
 using System.Collections.Generic;
 // using System.Collections.IEnumerable;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace WVC_XenotypesAndGenes
     namespace HarmonyPatches
     {
 
+        [Obsolete]
         [HarmonyPatch(typeof(ThingDefGenerator_Neurotrainer), "ImpliedThingDefs")]
         public static class Patch_ThingDefGenerator_Neurotrainer_ImpliedThingDefs
         {

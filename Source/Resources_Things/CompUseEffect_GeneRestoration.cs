@@ -38,6 +38,17 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public override bool CanBeUsedBy(Pawn p, out string failReason)
+		{
+			failReason = null;
+			if (!SerumUtility.PawnIsHuman(p))
+			{
+				failReason = "WVC_PawnIsAndroidCheck".Translate();
+				return false;
+			}
+			return true;
+		}
+
 	}
 
 }

@@ -24,7 +24,7 @@ namespace WVC_XenotypesAndGenes
 						List<SkillDef> skillDefs = DefDatabase<SkillDef>.AllDefsListForReading;
 						foreach (SkillDef skillDef in skillDefs)
 						{
-							geneDefList.Add(TemplatesUtility.GetFromTemplate_Skills(template, skillDef, skillDef.index * 1000));
+							geneDefList.Add(GeneratorUtility.GetFromTemplate_Skills(template, skillDef, skillDef.index * 1000));
 						}
 					}
 				}
@@ -38,7 +38,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						foreach (XenotypeDef allDef in XenotypeFilterUtility.WhiteListedXenotypes(true, true))
 						{
-							geneDefList.Add(TemplatesUtility.GetFromTemplate_XenotypeForcer(template, allDef, allDef.index * 1000));
+							geneDefList.Add(GeneratorUtility.GetFromTemplate_XenotypeForcer(template, allDef, allDef.index * 1000));
 						}
 					}
 				}
@@ -50,7 +50,7 @@ namespace WVC_XenotypesAndGenes
 						{
 							if (allDef.stuffProps != null && allDef.stackLimit > 0)
 							{
-								geneDefList.Add(TemplatesUtility.GetFromTemplate_SpawnerGenes_Resources(template, allDef, allDef.index * 1000));
+								geneDefList.Add(GeneratorUtility.GetFromTemplate_SpawnerGenes_Resources(template, allDef, allDef.index * 1000));
 							}
 						}
 					}
@@ -63,7 +63,7 @@ namespace WVC_XenotypesAndGenes
 						{
 							if (allDef.stuffProps != null && allDef.stuffProps.color != null)
 							{
-								geneDefList.Add(TemplatesUtility.GetFromTemplate_SkinHairColorGenes_FromResources(template, allDef, allDef.index * 1000));
+								geneDefList.Add(GeneratorUtility.GetFromTemplate_SkinHairColorGenes_FromResources(template, allDef, allDef.index * 1000));
 							}
 						}
 					}

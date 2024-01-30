@@ -1,11 +1,12 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class CompUseEffect_XenotypeForcer : CompUseEffect
+	public class CompUseEffect_XenotypeForcer : CompUseEffect
 	{
 		public CompProperties_UseEffect_XenotypeForcer Props => (CompProperties_UseEffect_XenotypeForcer)props;
 
@@ -51,6 +52,23 @@ namespace WVC_XenotypesAndGenes
 			}
 			SerumUtility.PostSerumUsedHook(pawn);
 		}
+
+		public override bool CanBeUsedBy(Pawn p, out string failReason)
+		{
+			failReason = null;
+			if (!SerumUtility.PawnCanUseSerums(p))
+			{
+				failReason = "WVC_PawnIsAndroidCheck".Translate();
+				return false;
+			}
+			if (p.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
+			{
+				failReason = "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate();
+				return false;
+			}
+			return true;
+		}
+
 	}
 
 }

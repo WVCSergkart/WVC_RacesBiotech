@@ -2,12 +2,183 @@ using RimWorld;
 using System.Collections.Generic;
 using Verse;
 using Verse.AI;
+using static Verse.GeneSymbolPack;
 
 namespace WVC_XenotypesAndGenes
 {
 
     public static class MiscUtility
 	{
+
+		// Inherit
+
+		public static void InheritGeneImmunityFrom(GeneDef geneDef, GeneDef inheritGeneDef)
+		{
+			// Tags
+			if (inheritGeneDef.exclusionTags != null)
+			{
+				if (geneDef.exclusionTags == null)
+				{
+					geneDef.exclusionTags = new();
+				}
+				foreach (string item in inheritGeneDef.exclusionTags)
+				{
+					geneDef.exclusionTags.Add(item);
+				}
+			}
+			// Log.Error("1");
+			// Immunity
+			if (inheritGeneDef.makeImmuneTo != null)
+			{
+				if (geneDef.makeImmuneTo == null)
+				{
+					geneDef.makeImmuneTo = new();
+				}
+				foreach (HediffDef item in inheritGeneDef.makeImmuneTo)
+				{
+					if (!geneDef.makeImmuneTo.Contains(item))
+					{
+						geneDef.makeImmuneTo.Add(item);
+					}
+				}
+			}
+			// Log.Error("2");
+			if (inheritGeneDef.hediffGiversCannotGive != null)
+			{
+				if (geneDef.hediffGiversCannotGive == null)
+				{
+					geneDef.hediffGiversCannotGive = new();
+				}
+				foreach (HediffDef item in inheritGeneDef.hediffGiversCannotGive)
+				{
+					if (!geneDef.hediffGiversCannotGive.Contains(item))
+					{
+						geneDef.hediffGiversCannotGive.Add(item);
+					}
+				}
+			}
+			// Log.Error("3");
+			// Traits
+			if (inheritGeneDef.suppressedTraits != null)
+			{
+				if (geneDef.suppressedTraits == null)
+				{
+					geneDef.suppressedTraits = new();
+				}
+				foreach (GeneticTraitData item in inheritGeneDef.suppressedTraits)
+				{
+					if (!geneDef.suppressedTraits.Contains(item))
+					{
+						geneDef.suppressedTraits.Add(item);
+					}
+				}
+			}
+			// Log.Error("4");
+			if (inheritGeneDef.forcedTraits != null)
+			{
+				if (geneDef.forcedTraits == null)
+				{
+					geneDef.forcedTraits = new();
+				}
+				foreach (GeneticTraitData item in inheritGeneDef.forcedTraits)
+				{
+					if (!geneDef.forcedTraits.Contains(item))
+					{
+						geneDef.forcedTraits.Add(item);
+					}
+				}
+			}
+			// Log.Error("5");
+			// Stats
+			if (inheritGeneDef.conditionalStatAffecters != null)
+			{
+				if (geneDef.conditionalStatAffecters == null)
+				{
+					geneDef.conditionalStatAffecters = new();
+				}
+				foreach (ConditionalStatAffecter item in inheritGeneDef.conditionalStatAffecters)
+				{
+					geneDef.conditionalStatAffecters.Add(item);
+				}
+			}
+			// Log.Error("6");
+			if (inheritGeneDef.statFactors != null)
+			{
+				if (geneDef.statFactors == null)
+				{
+					geneDef.statFactors = new();
+				}
+				foreach (StatModifier item in inheritGeneDef.statFactors)
+				{
+					if (!geneDef.statFactors.Contains(item))
+					{
+						geneDef.statFactors.Add(item);
+					}
+				}
+			}
+			// Log.Error("7");
+			if (inheritGeneDef.statOffsets != null)
+			{
+				if (geneDef.statOffsets == null)
+				{
+					geneDef.statOffsets = new();
+				}
+				foreach (StatModifier item in inheritGeneDef.statOffsets)
+				{
+					if (!geneDef.statOffsets.Contains(item))
+					{
+						geneDef.statOffsets.Add(item);
+					}
+				}
+			}
+			// Log.Error("8");
+			// Symbols
+			if (inheritGeneDef.symbolPack != null)
+			{
+				if (geneDef.symbolPack == null)
+				{
+					geneDef.symbolPack = new();
+				}
+				if (geneDef.symbolPack.prefixSymbols == null)
+				{
+					geneDef.symbolPack.prefixSymbols = new();
+				}
+				if (geneDef.symbolPack.suffixSymbols == null)
+				{
+					geneDef.symbolPack.suffixSymbols = new();
+				}
+				if (geneDef.symbolPack.wholeNameSymbols == null)
+				{
+					geneDef.symbolPack.wholeNameSymbols = new();
+				}
+				// Log.Error("9");
+				if (inheritGeneDef.symbolPack.prefixSymbols != null)
+				{
+					foreach (WeightedSymbol item in inheritGeneDef.symbolPack.prefixSymbols)
+					{
+						geneDef.symbolPack.prefixSymbols.Add(item);
+					}
+				}
+				// Log.Error("10");
+				if (inheritGeneDef.symbolPack.suffixSymbols != null)
+				{
+					foreach (WeightedSymbol item in inheritGeneDef.symbolPack.suffixSymbols)
+					{
+						geneDef.symbolPack.suffixSymbols.Add(item);
+					}
+				}
+				// Log.Error("11");
+				if (inheritGeneDef.symbolPack.wholeNameSymbols != null)
+				{
+					foreach (WeightedSymbol item in inheritGeneDef.symbolPack.wholeNameSymbols)
+					{
+						geneDef.symbolPack.wholeNameSymbols.Add(item);
+					}
+				}
+			}
+		}
+
+		// Food
 
 		public static Thing GetSpecialFood(Pawn pawn, ThingDef foodDef)
 		{

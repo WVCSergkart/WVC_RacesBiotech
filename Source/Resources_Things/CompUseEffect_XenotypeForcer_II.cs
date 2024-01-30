@@ -31,18 +31,29 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (xenotype == null)
 				{
-					// Assign a random xenotype if there are no alternatives.
 					Log.Error("Generated serum with null xenotype. Choose random.");
 					xenotype = xenotypeDef.RandomElement();
 				}
 			}
 		}
 
+		// public override void PostSpawnSetup(bool respawningAfterLoad)
+		// {
+			// if (!respawningAfterLoad)
+			// {
+				// return;
+			// }
+			// if (parent.Map != null)
+			// {
+				// xenotype = null;
+			// }
+		// }
+
 		public override string TransformLabel(string label)
 		{
 			if (xenotype == null)
 			{
-				return parent.def.label + " (ERR)";
+				return parent.def.label + " " + "WVC_XaG_SuremRetuneUntuned_Label".Translate();
 			}
 			return parent.def.label + " (" + xenotype.label + ")";
 		}
@@ -137,6 +148,27 @@ namespace WVC_XenotypesAndGenes
 				return true;
 			}
 			return false;
+		}
+
+		public override bool CanBeUsedBy(Pawn p, out string failReason)
+		{
+			failReason = null;
+			if (xenotype == null)
+			{
+				failReason = "WVC_XaG_SuremRetuneShouldBeTunedWarn_Label".Translate();
+				return false;
+			}
+			if (!SerumUtility.PawnCanUseSerums(p))
+			{
+				failReason = "WVC_PawnIsAndroidCheck".Translate();
+				return false;
+			}
+			if (p.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
+			{
+				failReason = "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate();
+				return false;
+			}
+			return true;
 		}
 
 		public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)

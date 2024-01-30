@@ -334,6 +334,13 @@ namespace WVC_XenotypesAndGenes
 			return null;
 		}
 
+		// Xenotype Cost
+
+		public static float XenotypeCost(XenotypeDef xenotype)
+		{
+			return (float)((GetXenotype_Arc(xenotype) * 0.6) + (GetXenotype_Cpx(xenotype) * 0.2) + (-1 * (GetXenotype_Met(xenotype) * 0.3)));
+		}
+
 		public static int GetXenotype_Cpx(XenotypeDef xenotypeDef)
 		{
 			List<GeneDef> genes = xenotypeDef?.genes;

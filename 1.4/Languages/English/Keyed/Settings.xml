@@ -10,7 +10,7 @@
 	<WVC_BiotechSettings_Label_Info>Info</WVC_BiotechSettings_Label_Info>
 	<WVC_BiotechSettings_Label_Genes>Genes</WVC_BiotechSettings_Label_Genes>
 	<WVC_BiotechSettings_Label_Other>Other</WVC_BiotechSettings_Label_Other>
-	<WVC_BiotechSettings_Label_Serums>Serums</WVC_BiotechSettings_Label_Serums>
+	<WVC_BiotechSettings_Label_Serums>Serums (Outdated)</WVC_BiotechSettings_Label_Serums>
 
 	<WVC_XaG_ResetButton>Reset</WVC_XaG_ResetButton>
 	<WVC_XaG_ModDeveloperRecommendationButton>Dev Recommended Settings</WVC_XaG_ModDeveloperRecommendationButton>
@@ -140,7 +140,9 @@ Please note that resurrecting a pawn will not bring back a disappeared mechlink.
 	<WVC_Label_serumsForAllXenotypes>Generate xenotypes serums</WVC_Label_serumsForAllXenotypes>
 	<WVC_ToolTip_serumsForAllXenotypes>Affects whether serums for all possible xenotypes will be generated. Does not affect custom ones. Restart required.
 
-May affect startup speed on modlists with a lot of mods that add xenotypes.</WVC_ToolTip_serumsForAllXenotypes>
+May affect startup speed on modlists with a lot of mods that add xenotypes.
+
+Outdated. Use at your own risk.</WVC_ToolTip_serumsForAllXenotypes>
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_serumsForAllXenotypes_GenBase>Generate base xenotypes serums</WVC_Label_serumsForAllXenotypes_GenBase>

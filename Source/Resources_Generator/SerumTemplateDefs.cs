@@ -8,6 +8,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
+	[Obsolete]
 	public class SerumGeneTemplateDef : Def
 	{
 
@@ -79,6 +80,7 @@ namespace WVC_XenotypesAndGenes
 		}
 	}
 
+	[Obsolete]
 	public class SerumRecipeTemplateDef : Def
 	{
 
@@ -112,6 +114,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete]
 	public class SerumTemplateDef : Def
 	{
 

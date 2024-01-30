@@ -19,7 +19,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					foreach (GeneDef inheritableGeneDef in inheritableGeneDefs)
 					{
-						TemplatesUtility.InheritGeneImmunityFrom(geneDef, inheritableGeneDef);
+						MiscUtility.InheritGeneImmunityFrom(geneDef, inheritableGeneDef);
 					}
 				}
 			}

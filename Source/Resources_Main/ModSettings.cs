@@ -43,7 +43,7 @@ namespace WVC_XenotypesAndGenes
 		public bool enableGeneScarifierInfo = false;
 		public bool enableGolemsInfo = true;
 		// Serums
-		public bool serumsForAllXenotypes = true;
+		public bool serumsForAllXenotypes = false;
 		public bool serumsForAllXenotypes_GenBase = true;
 		public bool serumsForAllXenotypes_GenUltra = false;
 		public bool serumsForAllXenotypes_GenHybrid = false;
@@ -88,7 +88,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref enableGeneScarifierInfo, "enableGeneScarifierInfo", defaultValue: false);
 			Scribe_Values.Look(ref enableGolemsInfo, "enableGolemsInfo", defaultValue: true);
 			// Serums
-			Scribe_Values.Look(ref serumsForAllXenotypes, "serumsForAllXenotypes", defaultValue: true, forceSave: true);
+			Scribe_Values.Look(ref serumsForAllXenotypes, "serumsForAllXenotypes", defaultValue: false, forceSave: true);
 			Scribe_Values.Look(ref serumsForAllXenotypes_GenBase, "serumsForAllXenotypes_GenBase", defaultValue: true);
 			Scribe_Values.Look(ref serumsForAllXenotypes_GenUltra, "serumsForAllXenotypes_GenUltra", defaultValue: false);
 			Scribe_Values.Look(ref serumsForAllXenotypes_GenHybrid, "serumsForAllXenotypes_GenHybrid", defaultValue: false);
@@ -202,13 +202,13 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("DEV: " + "WVC_Label_fixGeneTypesOnLoad".Translate(), ref settings.fixGeneTypesOnLoad, "WVC_ToolTip_fixGeneTypesOnLoad".Translate() + "\n\n" + "WVC_Alert_fixBrokenShit".Translate());
 			listingStandard.Gap();
 			// Serums
-			listingStandard.Label("WVC_BiotechSettings_Label_Serums".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Serums".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes".Translate(), ref settings.serumsForAllXenotypes, "WVC_ToolTip_serumsForAllXenotypes".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenBase".Translate(), ref settings.serumsForAllXenotypes_GenBase, "WVC_ToolTip_serumsForAllXenotypes_GenBase".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenUltra".Translate(), ref settings.serumsForAllXenotypes_GenUltra, "WVC_ToolTip_serumsForAllXenotypes_GenUltra".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenHybrid".Translate(), ref settings.serumsForAllXenotypes_GenHybrid, "WVC_ToolTip_serumsForAllXenotypes_GenHybrid".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_Recipes".Translate(), ref settings.serumsForAllXenotypes_Recipes, "WVC_ToolTip_serumsForAllXenotypes_Recipes".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_serumsSpawnersForAllXenotypes".Translate(), ref settings.serumsForAllXenotypes_Spawners, "WVC_ToolTip_serumsSpawnersForAllXenotypes".Translate());
+			listingStandard.Label("WVC_BiotechSettings_Label_Serums".Translate().Colorize(ColorLibrary.RedReadable) + ":", -1, "WVC_BiotechSettings_Tooltip_Serums".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes".Translate().Colorize(ColorLibrary.RedReadable), ref settings.serumsForAllXenotypes, "WVC_ToolTip_serumsForAllXenotypes".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenBase".Translate().Colorize(ColorLibrary.RedReadable), ref settings.serumsForAllXenotypes_GenBase, "WVC_ToolTip_serumsForAllXenotypes_GenBase".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenUltra".Translate().Colorize(ColorLibrary.RedReadable), ref settings.serumsForAllXenotypes_GenUltra, "WVC_ToolTip_serumsForAllXenotypes_GenUltra".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenHybrid".Translate().Colorize(ColorLibrary.RedReadable), ref settings.serumsForAllXenotypes_GenHybrid, "WVC_ToolTip_serumsForAllXenotypes_GenHybrid".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_Recipes".Translate().Colorize(ColorLibrary.RedReadable), ref settings.serumsForAllXenotypes_Recipes, "WVC_ToolTip_serumsForAllXenotypes_Recipes".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_serumsSpawnersForAllXenotypes".Translate().Colorize(ColorLibrary.RedReadable), ref settings.serumsForAllXenotypes_Spawners, "WVC_ToolTip_serumsSpawnersForAllXenotypes".Translate());
 			listingStandard.GapLine();
 			// =============== Buttons ===============
 			if (listingStandard.ButtonText("WVC_XaG_ResetButton".Translate()))
@@ -244,7 +244,7 @@ namespace WVC_XenotypesAndGenes
 					settings.enableGeneScarifierInfo = false;
 					settings.enableGolemsInfo = true;
 					// Serums
-					settings.serumsForAllXenotypes = true;
+					settings.serumsForAllXenotypes = false;
 					settings.serumsForAllXenotypes_GenBase = true;
 					settings.serumsForAllXenotypes_GenUltra = false;
 					settings.serumsForAllXenotypes_GenHybrid = false;

@@ -34,6 +34,10 @@
 	<WVC_XaG_SuremRetuneJob_Desc>You can change the xenotype that the serum is tuned to.</WVC_XaG_SuremRetuneJob_Desc>
 	<WVC_XaG_SuremRetuneJob_ChangeDesc>You have chosen the {0} xenotype. Are you sure of your choice?</WVC_XaG_SuremRetuneJob_ChangeDesc>
 	<WVC_XaG_SuremRetuneJob_ResearchPrerequisites>{0} technology is required.</WVC_XaG_SuremRetuneJob_ResearchPrerequisites>
+	
+	<WVC_XaG_SuremRetuneShouldBeTunedWarn_Label>Should be tuned</WVC_XaG_SuremRetuneShouldBeTunedWarn_Label>
+	
+	<WVC_XaG_SuremRetuneUntuned_Label>Untuned</WVC_XaG_SuremRetuneUntuned_Label>
 
 	<!-- ============================ REIMPLANTER GENE ============================ -->
 
