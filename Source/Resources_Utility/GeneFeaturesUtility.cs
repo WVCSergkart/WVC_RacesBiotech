@@ -77,26 +77,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (!onlySameXenotype)
+			if (onlySameXenotype && !GeneUtility.SameXenotype(pawn, other))
 			{
-				return true;
-			}
-			if (pawn.genes?.CustomXenotype != null)
-			{
-				if (other.genes?.CustomXenotype != null && pawn.genes?.CustomXenotype == other.genes?.CustomXenotype)
-				{
-					return true;
-				}
 				return false;
 			}
-			else if (pawn.genes?.Xenotype != null && pawn.genes?.Xenotype != XenotypeDefOf.Baseliner)
-			{
-				if (other.genes?.Xenotype != null && other.genes?.Xenotype != XenotypeDefOf.Baseliner && pawn.genes?.Xenotype == other.genes?.Xenotype)
-				{
-					return true;
-				}
-			}
-			return false;
+			return true;
 		}
 
 		// ============================= Checker Gene Features =============================

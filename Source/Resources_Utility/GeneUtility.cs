@@ -191,6 +191,23 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		// public static bool PawnIsBaseliner(Pawn pawn)
+		// {
+			// if (pawn.genes == null)
+			// {
+				// return true;
+			// }
+			// if (pawn.genes.CustomXenotype != null)
+			// {
+				// return false;
+			// }
+			// if (pawn.genes.Xenotype == XenotypeDefOf.Baseliner)
+			// {
+				// return true;
+			// }
+			// return false;
+		// }
+
 		// ============================= Getter =============================
 
 		public static GeneDef GetFirstGeneDefOfType(List<GeneDef> genes, Type type)

@@ -315,14 +315,22 @@ namespace WVC_XenotypesAndGenes
 			{
 				foreach (Pawn item in maps[i].mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer))
 				{
-					if (item.genes != null && item.genes.Xenotype != null && item.genes.Xenotype != XenotypeDefOf.Baseliner && !xenoList.Contains(item.genes.Xenotype))
+					if (!item.RaceProps.Humanlike)
 					{
-						mult += 1;
+						continue;
+					}
+					if (item.IsBaseliner())
+					{
+						continue;
+					}
+					if (item.genes.Xenotype != XenotypeDefOf.Baseliner && !xenoList.Contains(item.genes.Xenotype))
+					{
+						mult++;
 						xenoList.Add(item.genes.Xenotype);
 					}
-					else if (item.genes != null && item.genes.CustomXenotype != null && !xenoListB.Contains(item.genes.CustomXenotype))
+					else if (item.genes.CustomXenotype != null && !xenoListB.Contains(item.genes.CustomXenotype))
 					{
-						mult += 1;
+						mult++;
 						xenoListB.Add(item.genes.CustomXenotype);
 					}
 				}

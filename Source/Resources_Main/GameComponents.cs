@@ -4,7 +4,8 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    public class XaG_GameComponent : GameComponent
+
+	public class XaG_GameComponent : GameComponent
 	{
 		// public override void StartedNewGame()
 		// {
@@ -14,9 +15,14 @@ namespace WVC_XenotypesAndGenes
 
 		public Game currentGame;
 
+		public XaG_GameComponent(Game game)
+		{
+			currentGame = game;
+		}
+
 		public override void LoadedGame()
 		{
-			base.LoadedGame();
+			// base.LoadedGame();
 			// foreach (Pawn item in StaticCollectionsClass.skillsNotDecayPawns.ToList())
 			// {
 				// if (item == null || item.Discarded || item.Destroyed)
@@ -28,10 +34,13 @@ namespace WVC_XenotypesAndGenes
 			DevFixes();
 		}
 
-		public XaG_GameComponent(Game game)
-		{
-			currentGame = game;
-		}
+		// public virtual void GameComponentTick()
+		// {
+		// }
+
+		// public void Ideology()
+		// {
+		// }
 
 		public void DevFixes()
 		{
@@ -128,5 +137,7 @@ namespace WVC_XenotypesAndGenes
 				WVC_Biotech.settings.fixGeneAbilitiesOnLoad = false;
 			}
 		}
+
 	}
+
 }

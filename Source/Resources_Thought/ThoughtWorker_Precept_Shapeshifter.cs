@@ -19,7 +19,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				foreach (Pawn item in maps[i].mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer))
 				{
-					if (item.genes != null && item.genes.Xenotype != null && item.genes.Xenotype != XenotypeDefOf.Baseliner)
+					if (!item.IsBaseliner())
 					{
 						return ThoughtState.ActiveDefault;
 					}

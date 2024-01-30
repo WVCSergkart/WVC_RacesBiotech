@@ -31,36 +31,25 @@ namespace WVC_XenotypesAndGenes
 
 		public override float GetPriority(Pawn pawn)
 		{
-			// if (!ModsConfig.BiotechActive)
-			// {
-				// return 0f;
-			// }
-			// if (!cachedNeedSpecialFood)
-			// {
-				// Log.Error(pawn.Name + " non-food");
-				// return 0f;
-			// }
-			// Log.Error(pawn.Name + " food");
-			Need_Food food = pawn.needs.food;
-			if (food == null)
+			if (!pawn.RaceProps.Humanlike)
 			{
-				// Log.Error(pawn.Name + " non-food");
-				// cachedNeedSpecialFood = false;
 				return 0f;
 			}
-			if (!pawn.RaceProps.Humanlike || pawn.genes == null || (pawn.genes.Xenotype == XenotypeDefOf.Baseliner && pawn.genes.CustomXenotype == null))
+			if (pawn.IsBaseliner())
 			{
-				// Log.Error(pawn.Name + " non-dustogenic");
-				// cachedNeedSpecialFood = false;
 				return 0f;
 			}
 			if (pawn.Downed)
 			{
 				return 0f;
 			}
+			Need_Food food = pawn.needs.food;
+			if (food == null)
+			{
+				return 0f;
+			}
 			if (food.CurLevelPercentage < pawn.RaceProps.FoodLevelPercentageWantEat)
 			{
-				// Log.Error(pawn.Name + " get special food priority");
 				return 9.6f;
 			}
 			return 0f;
