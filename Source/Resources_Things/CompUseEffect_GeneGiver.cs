@@ -59,6 +59,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			pawn.genes.AddGene(geneDef, false);
+			ReimplanterUtility.UnknownXenotype(pawn);
 			GeneUtility.UpdateXenogermReplication(pawn);
 			if (PawnUtility.ShouldSendNotificationAbout(pawn))
 			{

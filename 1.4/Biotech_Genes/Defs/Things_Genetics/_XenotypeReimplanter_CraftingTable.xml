@@ -471,32 +471,31 @@
 
 
   <!-- Serums -->
-  <ThingDef ParentName="WVC_XenotypesAndGenes_SerumComponents_Base">
-	<defName>WVC_EmptyXenotypeSerum</defName>
-	<label>empty serum case</label>
-	<description>Empty super dose injection device. Only suitable for certain types of injections.</description>
-	<descriptionHyperlinks>
-	  <ThingDef>WVC_XenotypeSerumCapsule</ThingDef>
-	  <ThingDef>WVC_XenotypeSerumUltraCapsule</ThingDef>
-	  <ThingDef>WVC_XenotypeSerum_Base</ThingDef>
-	  <ThingDef>WVC_XenotypeSerum_Ultra</ThingDef>
-	  <ThingDef>WVC_XenotypeSerum_Hybrid</ThingDef>
-	</descriptionHyperlinks>
-	<graphicData>
-	  <texPath>WVC/Things/XaG_Items/Serums_Empty</texPath>
-	</graphicData>
-	<statBases>
-	  <MaxHitPoints>120</MaxHitPoints>
-	  <MarketValue>220</MarketValue>
-	  <Mass>0.7</Mass>
-	  <Flammability>0.5</Flammability>
-	</statBases>
-	<stackLimit>5</stackLimit>
-	<costList>
-	  <Steel>25</Steel>
-	  <ComponentIndustrial>2</ComponentIndustrial>
-	  <!-- <ComponentSpacer>2</ComponentSpacer> -->
-	</costList>
-  </ThingDef>
+  <!-- <ThingDef ParentName="WVC_XenotypesAndGenes_SerumComponents_Base"> -->
+	<!-- <defName>WVC_EmptyXenotypeSerum</defName> -->
+	<!-- <label>serum case components</label> -->
+	<!-- <description>Empty super dose injection device. Only suitable for certain types of injections.</description> -->
+	<!-- <descriptionHyperlinks> -->
+	  <!-- <ThingDef>WVC_XenotypeSerumCapsule</ThingDef> -->
+	  <!-- <ThingDef>WVC_XenotypeSerumUltraCapsule</ThingDef> -->
+	  <!-- <ThingDef>WVC_XenotypeSerum_Base</ThingDef> -->
+	  <!-- <ThingDef>WVC_XenotypeSerum_Ultra</ThingDef> -->
+	  <!-- <ThingDef>WVC_XenotypeSerum_Hybrid</ThingDef> -->
+	<!-- </descriptionHyperlinks> -->
+	<!-- <graphicData> -->
+	  <!-- <texPath>WVC/Things/XaG_Items/Serums_Empty</texPath> -->
+	<!-- </graphicData> -->
+	<!-- <statBases> -->
+	  <!-- <MaxHitPoints>120</MaxHitPoints> -->
+	  <!-- <MarketValue>220</MarketValue> -->
+	  <!-- <Mass>0.7</Mass> -->
+	  <!-- <Flammability>0.5</Flammability> -->
+	<!-- </statBases> -->
+	<!-- <stackLimit>5</stackLimit> -->
+	<!-- <costList> -->
+	  <!-- <Steel>25</Steel> -->
+	  <!-- <ComponentIndustrial>2</ComponentIndustrial> -->
+	<!-- </costList> -->
+  <!-- </ThingDef> -->
 
 </Defs>
