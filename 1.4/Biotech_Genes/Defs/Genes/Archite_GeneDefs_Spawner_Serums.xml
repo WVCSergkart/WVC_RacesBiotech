@@ -6,7 +6,7 @@
 	<defName>WVC_XenotypeSerumSpawner_Random</defName>
 	<label>serum thrower</label>
 	<labelShortAdj>serum thrower</labelShortAdj>
-	<iconPath>WVC/Things/XaG_Items/Serums/NewSerumA</iconPath>
+	<iconPath>WVC/Things/XaG_Items/Serums_Single/NewSerum_v2</iconPath>
 	<biostatArc>2</biostatArc>
 	<customEffectDescriptions Inherit="False">
 		<li>Spawns xenotype serum every (*DateTime)15-45 days(/DateTime).</li>
@@ -34,7 +34,7 @@
 	<defName>WVC_XenotypeSerumSpawner_HybridRandom</defName>
 	<label>hybrid serum thrower</label>
 	<labelShortAdj>serum thrower</labelShortAdj>
-	<iconPath>WVC/Things/XaG_Items/Serums/NewSerumB</iconPath>
+	<iconPath>WVC/Things/XaG_Items/Serums_Single/NewSerumB_v1</iconPath>
 	<biostatArc>2</biostatArc>
 	<customEffectDescriptions Inherit="False">
 		<li>Spawns hybrid serum every (*DateTime)15-45 days(/DateTime).</li>

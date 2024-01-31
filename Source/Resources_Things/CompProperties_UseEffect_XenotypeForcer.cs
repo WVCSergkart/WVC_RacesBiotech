@@ -22,6 +22,8 @@ namespace WVC_XenotypesAndGenes
 
 		public bool removeXenogenes = true;
 
+		public bool removeSkinColor = true;
+
 		// public bool useCustomXenotype = false;
 
 		public CompProperties_UseEffect_XenotypeForcer()

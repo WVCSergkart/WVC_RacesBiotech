@@ -38,9 +38,9 @@
 	<useHitPoints>true</useHitPoints>
 	<graphicData>
 	  <!-- <texPath>WVC/Things/XaG_Items/XenotypeSerum</texPath> -->
-	  <texPath>WVC/Things/XaG_Items/Serums</texPath>
-	  <graphicClass>Graphic_Random</graphicClass>
-	  <shaderType>CutoutComplex</shaderType>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/NewSerum_v2</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	  <!-- <shaderType>CutoutComplex</shaderType> -->
 	</graphicData>
 	<costList>
 	  <WVC_EmptyXenotypeSerum>1</WVC_EmptyXenotypeSerum>

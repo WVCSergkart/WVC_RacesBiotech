@@ -85,15 +85,18 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
   <ThingDef ParentName="WVC_XenotypeSerum_NonCraftable">
 	<defName>WVC_XenotypeSerum_Baseliner</defName>
 	<label>xenotype nullifier serum</label>
-	<description>A one-use super-dose of mechanites tuned to nullify the user's xenotype. After applying the serum, the &lt;color=#f5ffa2&gt;user's skin and hair will lose color&lt;/color&gt;, and the user himself will fall into a two-day coma.
+	<description>A one-use super-dose of mechanites tuned to nullify the user's xenotype. After using the serum, the &lt;color=#f5ffa2&gt;user's melanin will be randomized&lt;/color&gt;, and the user himself will fall into a two-day coma.
 
 If the user's genes are regrowing, then instead of applying the xenotype, the gene regeneration timer will be reset.</description>
 	<descriptionHyperlinks Inherit="False"/>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/NullSerumB_v0</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenotypeForcer">
-		<xenotypeDef>Baseliner</xenotypeDef>
-		<removeEndogenes>true</removeEndogenes>
-		<removeXenogenes>true</removeXenogenes>
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_XenotypeNullifier</compClass>
+		<removeSkinColor>false</removeSkinColor>
 	  </li>
 	</comps>
   </ThingDef>
@@ -195,6 +198,9 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	<label>xenotype resurrector</label>
 	<!-- <stackLimit>1</stackLimit> -->
 	<!-- <drawGUIOverlay>false</drawGUIOverlay> -->
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/ResurrectSerumB_v0</texPath>
+	</graphicData>
 	<tradeTags Inherit="False">
 	  <li>WVC_XenotypeSerums</li>
 	  <li>WVC_All_XenotypeSerums</li>

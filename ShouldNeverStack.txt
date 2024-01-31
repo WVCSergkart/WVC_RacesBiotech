@@ -2,10 +2,3 @@ Genepacks:
 <li>WVC_MechaGenepack</li>
 <li>WVC_UltraGenepack</li>
 <li>WVC_Genepack</li>
-
-Serums:
-<li>WVC_XenotypeSerum_Base</li>
-<li>WVC_XenotypeSerum_Hybrid</li>
-<li>WVC_XenotypeSerum_Ultra</li>
-<li>WVC_XenotypeResurrectorSerum_Ultra</li>
-<li>WVC_XenotypeResurrectorSerum_Undead</li>
