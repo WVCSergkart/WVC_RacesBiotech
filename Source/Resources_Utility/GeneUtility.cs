@@ -355,7 +355,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static float XenotypeCost(XenotypeDef xenotype)
 		{
-			return (float)((GetXenotype_Arc(xenotype) * 0.6) + (GetXenotype_Cpx(xenotype) * 0.2) + (-1 * (GetXenotype_Met(xenotype) * 0.3)));
+			return (float)((GetXenotype_Arc(xenotype) * 1.2) + (GetXenotype_Cpx(xenotype) * 0.2) + (-1 * (GetXenotype_Met(xenotype) * 0.4)));
 		}
 
 		public static int GetXenotype_Cpx(XenotypeDef xenotypeDef)

@@ -17,6 +17,10 @@ namespace WVC_XenotypesAndGenes
 		public override void PostPostMake()
 		{
 			base.PostPostMake();
+			if (!Props.possibleXenotypes.NullOrEmpty())
+			{
+				xenotype = Props.possibleXenotypes.RandomElement();
+			}
 			if (xenotype == null)
 			{
 				List<XenotypeDef> xenotypeDef = XenotypeFilterUtility.WhiteListedXenotypes(true);

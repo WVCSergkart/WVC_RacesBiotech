@@ -13,6 +13,8 @@ namespace WVC_XenotypesAndGenes
 
 		public List<GeneDef> possibleGenes;
 
+		public List<XenotypeDef> possibleXenotypes;
+
 		public XenotypeType xenotypeType = (XenotypeType)0;
 
 		public bool removeEndogenes = false;

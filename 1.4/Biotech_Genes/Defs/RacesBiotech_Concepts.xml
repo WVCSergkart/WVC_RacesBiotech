@@ -91,9 +91,7 @@ Hybridtype serum (_name_ + _name_) - contain any two xenotypes. Same as basetype
 	<label>supported xenotypes</label>
 	<priority>-1000</priority>
 	<needsOpportunity>false</needsOpportunity>
-	<description>Below is a list of xenotypes supported by serums. These xenotypes can be randomly found in serums or their serums can be crafted.
-
-The list also includes xenotypes available for serums with alternative mechanics. These xenotypes may not spawn in regular serums.</description>
+	<description>Below is a list of xenotypes supported by serums. These xenotypes can be randomly found in serums or their serums can be crafted.</description>
 	<descriptionHyperlinks>
 	</descriptionHyperlinks>
 	<helpText>Should be never displayed.</helpText>
