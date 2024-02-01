@@ -21,6 +21,8 @@ namespace WVC_XenotypesAndGenes
 
 		public List<XenotypeDef> allXenotypes;
 
+		// public Dictionary<XenotypeDef, Color> allXenotypes;
+
 		public static readonly Vector2 OptionSize = new(190f, 46f);
 
 		public static readonly Vector2 ButSize = new(200f, 40f);
@@ -194,27 +196,28 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual Color GetXenotypeColor(XenotypeDef xenotype)
 		{
-			int allGenesCount = XenoTreeUtility.GetAllGenesCount(xenotype);
+			if (xenotype.GetType() != typeof(XenotypeDef))
+			{
+				return ColorLibrary.LightPink;
+			}
+			// int allGenesCount = XenoTreeUtility.GetAllGenesCount(xenotype);
+			int allGenesCount = xenotype.AllGenes.Count;
 			Color color = ColoredText.SubtleGrayColor;
-			// if (xenotype.genes.Contains(WVC_GenesDefOf.WVC_XenotypesAndGenes_SubXenotypeShapeshifter))
-			// {
-				// color = ColorLibrary.LightOrange;
-			// }
-			if (allGenesCount >= 7)
-			{
-				color = ColorLibrary.LightGreen;
-			}
-			if (allGenesCount >= 14)
-			{
-				color = ColorLibrary.LightBlue;
-			}
-			if (allGenesCount >= 21)
-			{
-				color = ColorLibrary.LightPurple;
-			}
 			if (allGenesCount >= 28)
 			{
 				color = ColorLibrary.LightOrange;
+			}
+			else if (allGenesCount >= 21)
+			{
+				color = ColorLibrary.LightPurple;
+			}
+			else if (allGenesCount >= 14)
+			{
+				color = ColorLibrary.LightBlue;
+			}
+			else if (allGenesCount >= 7)
+			{
+				color = ColorLibrary.LightGreen;
 			}
 			return color;
 		}
