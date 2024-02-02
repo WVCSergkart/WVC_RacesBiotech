@@ -57,6 +57,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			// pawn.genes.xenotypeName = "WVC_XaG_SubXenotypeUnknownXenotypeError".Translate();
 			// pawn.genes.iconDef = WVC_GenesDefOf.WVC_XenoRandomKindc;
+			pawn.genes?.SetXenotypeDirect(XenotypeDefOf.Baseliner);
 			pawn.genes.xenotypeName = GeneUtility.GenerateXenotypeNameFromGenes(XaG_GeneUtility.ConvertGenesInGeneDefs(pawn.genes.GenesListForReading));
 			pawn.genes.iconDef = DefDatabase<XenotypeIconDef>.AllDefsListForReading.RandomElement();
 		}
