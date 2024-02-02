@@ -103,5 +103,17 @@
 		</caseFalse>
 	</Operation>
 
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
+		<!-- <settingName>hideXaGGenes</settingName> -->
+		<!-- <caseFalse Class="PatchOperationSequence"> -->
+			<!-- <operations> -->
+				<!-- <li Class="PatchOperationRemove"> -->
+					<!-- <xpath>/Defs/GeneDef/defName[contains(text(),'WVC_')]/displayCategory</xpath> -->
+					<!-- <success>Always</success> -->
+				<!-- </li> -->
+			<!-- </operations> -->
+		<!-- </caseFalse> -->
+	<!-- </Operation> -->
+
 
 </Patch>

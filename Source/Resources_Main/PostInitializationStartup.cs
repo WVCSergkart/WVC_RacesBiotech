@@ -22,6 +22,21 @@ namespace WVC_XenotypesAndGenes
 						MiscUtility.InheritGeneImmunityFrom(geneDef, inheritableGeneDef);
 					}
 				}
+				if (!WVC_Biotech.settings.hideXaGGenes)
+				{
+					continue;
+				}
+				if (geneDef.modContentPack != null && geneDef.modContentPack.PackageId.Contains("wvc.sergkart.races.biotech"))
+				{
+					if (geneDef.biostatArc != 0)
+					{
+						geneDef.displayCategory = GeneCategoryDefOf.Archite;
+					}
+					else
+					{
+						geneDef.displayCategory = GeneCategoryDefOf.Miscellaneous;
+					}
+				}
 			}
 			// Race Patches
 			foreach (ThingDef thingDef in DefDatabase<ThingDef>.AllDefsListForReading)

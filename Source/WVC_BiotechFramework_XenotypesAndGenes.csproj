@@ -101,6 +101,7 @@
     <Compile Include="Resources_Harmony\Harmony_Background_New.cs" />
     <Compile Include="Resources_Harmony\Harmony_DisablePawnRelations.cs" />
     <Compile Include="Resources_Harmony\Harmony_GeneImmunityFix.cs" />
+    <Compile Include="Resources_Harmony\Harmony_GeneVisibility.cs" />
     <Compile Include="Resources_Harmony\Harmony_PawnBodyGraphic.cs" />
     <Compile Include="Resources_Hediff\CustomMechlinkLabel.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_PawnHaveWings.cs" />

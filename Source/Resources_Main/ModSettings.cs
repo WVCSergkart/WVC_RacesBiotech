@@ -11,6 +11,7 @@ namespace WVC_XenotypesAndGenes
     public class WVC_BiotechSettings : ModSettings
 	{
 		// Graphic
+		public bool hideXaGGenes = false;
 		public bool disableFurGraphic = false;
 		public bool disableAllGraphic = false;
 		public bool disableUniqueGeneInterface = false;
@@ -58,6 +59,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.ExposeData();
 			// Graphic
+			Scribe_Values.Look(ref hideXaGGenes, "hideXaGGenes", defaultValue: false);
 			Scribe_Values.Look(ref disableFurGraphic, "disableFurGraphic", defaultValue: false);
 			Scribe_Values.Look(ref disableAllGraphic, "disableAllGraphic", defaultValue: false);
 			Scribe_Values.Look(ref disableUniqueGeneInterface, "disableUniqueGeneInterface", defaultValue: false);
@@ -157,12 +159,13 @@ namespace WVC_XenotypesAndGenes
 		{
 			Rect outRect = new(inRect.x, inRect.y, inRect.width, inRect.height);
 			// Rect rect = new(0f, 0f, inRect.width, inRect.height);
-			Rect rect = new(0f, 0f, inRect.width - 30f, inRect.height * 2.1f);
+			Rect rect = new(0f, 0f, inRect.width - 30f, inRect.height * 2.2f);
 			Widgets.BeginScrollView(outRect, ref scrollPosition, rect);
 			Listing_Standard listingStandard = new();
 			listingStandard.Begin(rect);
 			// Graphic
 			listingStandard.Label("WVC_BiotechSettings_Label_Graphics".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Graphics".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_hideXaGGenes".Translate(), ref settings.hideXaGGenes, "WVC_ToolTip_hideXaGGenes".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableFurGraphic".Translate(), ref settings.disableFurGraphic, "WVC_ToolTip_disableFurGraphic".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableAllGraphic".Translate(), ref settings.disableAllGraphic, "WVC_ToolTip_disableAllGraphic".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableUniqueGeneInterface".Translate(), ref settings.disableUniqueGeneInterface, "WVC_ToolTip_disableUniqueGeneInterface".Translate());
@@ -216,6 +219,7 @@ namespace WVC_XenotypesAndGenes
 				Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_ResetButtonWarning".Translate(), delegate
 				{
 					// Graphic
+					settings.hideXaGGenes = false;
 					settings.disableFurGraphic = false;
 					settings.disableAllGraphic = false;
 					settings.disableUniqueGeneInterface = false;
@@ -263,6 +267,7 @@ namespace WVC_XenotypesAndGenes
 				Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_ResetButtonWarning".Translate(), delegate
 				{
 					// Graphic
+					settings.hideXaGGenes = true;
 					settings.disableFurGraphic = false;
 					settings.disableAllGraphic = false;
 					settings.disableUniqueGeneInterface = false;

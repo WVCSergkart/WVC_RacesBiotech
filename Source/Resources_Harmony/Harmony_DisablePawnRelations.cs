@@ -8,8 +8,7 @@ namespace WVC_XenotypesAndGenes
 	namespace HarmonyPatches
 	{
 
-		[HarmonyPatch(typeof(PawnGenerator))]
-		[HarmonyPatch("GeneratePawnRelations")]
+		[HarmonyPatch(typeof(PawnGenerator), "GeneratePawnRelations")]
 		public static class Patch_PawnGenerator_GeneratePawnRelations
 		{
 			[HarmonyPrefix]

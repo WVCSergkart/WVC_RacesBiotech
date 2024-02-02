@@ -31,6 +31,12 @@ It is recommended to enable all settings for the first acquaintance with the mod
 	<WVC_BiotechSettings_XenotypesFilter_Search>Search:</WVC_BiotechSettings_XenotypesFilter_Search>
 
 	<!-- ====================================================================================== -->
+	<WVC_Label_hideXaGGenes>Hide mod genes</WVC_Label_hideXaGGenes>
+	<WVC_ToolTip_hideXaGGenes>If enabled, genes from the mod will not be displayed in the editor.
+
+A restart is recommended to correct the categories.</WVC_ToolTip_hideXaGGenes>
+
+	<!-- ====================================================================================== -->
 
 	<!-- <WVC_BiotechSettings_XenotypesFilter_Checkbox_Serums>Serums</WVC_BiotechSettings_XenotypesFilter_Checkbox_Serums> -->
 	<!-- <WVC_BiotechSettings_XenotypesFilter_Checkbox_XenoForcers>Xeno-forcers</WVC_BiotechSettings_XenotypesFilter_Checkbox_XenoForcers> -->
