@@ -43,7 +43,7 @@
 	  <!-- <shaderType>CutoutComplex</shaderType> -->
 	</graphicData>
 	<costList>
-	  <Steel>30</Steel>
+	  <Plasteel>30</Plasteel>
 	  <WVC_EmptyXenotypeSerum>1</WVC_EmptyXenotypeSerum>
 	  <ComponentIndustrial>3</ComponentIndustrial>
 	  <!-- <ComponentSpacer>1</ComponentSpacer> -->

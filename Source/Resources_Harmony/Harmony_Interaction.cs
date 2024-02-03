@@ -10,11 +10,11 @@ namespace WVC_XenotypesAndGenes
 	namespace HarmonyPatches
 	{
 
-		[HarmonyPatch(typeof(InteractionUtility), "IsGoodPositionForInteraction", new Type[] {typeof(Pawn), typeof(Pawn)} )]
+		// [HarmonyPatch(typeof(InteractionUtility), "IsGoodPositionForInteraction", new Type[] {typeof(Pawn), typeof(Pawn)} )]
 		public static class Patch_InteractionUtility_IsGoodPositionForInteraction
 		{
 
-			[HarmonyPostfix]
+			// [HarmonyPostfix]
 			public static void Postfix(ref bool __result, Pawn p, Pawn recipient)
 			{
 				if (__result)

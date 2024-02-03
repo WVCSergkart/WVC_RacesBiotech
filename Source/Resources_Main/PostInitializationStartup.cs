@@ -6,12 +6,24 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    [StaticConstructorOnStartup]
+	[StaticConstructorOnStartup]
 	public static class PostInitializationInheritFromGenes
 	{
+
 		static PostInitializationInheritFromGenes()
 		{
 			// List<string> filter = UltraFilterUtility.BlackListedTerrainDefs();
+			Genes();
+			// Race Patches
+			GolemsAndMechs();
+			// SubXenotypes Debug
+			SubXenotypes();
+			// Patches
+			HarmonyPatches.HarmonyUtility.PostInitialPatches();
+		}
+
+		public static void Genes()
+		{
 			foreach (GeneDef geneDef in DefDatabase<GeneDef>.AllDefsListForReading)
 			{
 				List<GeneDef> inheritableGeneDefs = geneDef?.GetModExtension<GeneExtension_General>()?.inheritableGeneDefs;
@@ -38,7 +50,10 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			}
-			// Race Patches
+		}
+
+		public static void GolemsAndMechs()
+		{
 			foreach (ThingDef thingDef in DefDatabase<ThingDef>.AllDefsListForReading)
 			{
 				if (thingDef.race == null)
@@ -79,7 +94,10 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			}
-			// SubXenotypes Debug
+		}
+
+		public static void SubXenotypes()
+		{
 			foreach (SubXenotypeDef subXenotypeDef in DefDatabase<SubXenotypeDef>.AllDefsListForReading)
 			{
 				GeneDef geneticShifter = WVC_GenesDefOf.WVC_XenotypesAndGenes_SubXenotypeShapeshifter;
@@ -100,14 +118,14 @@ namespace WVC_XenotypesAndGenes
 				}
 				// if (!subXenotypeDef.doubleXenotypeChances.NullOrEmpty())
 				// {
-					// subXenotypeDef.doubleXenotypeChances = new();
-					// Log.Warning(subXenotypeDef.defName + " doubleXenotypeChances is not empty. Fixing..");
+				// subXenotypeDef.doubleXenotypeChances = new();
+				// Log.Warning(subXenotypeDef.defName + " doubleXenotypeChances is not empty. Fixing..");
 				// }
 				// Add if it was not added in XML. This option is desirable, since genes from the list are taken in the order they were added during generation.
 				// In theory, it should help avoid a couple of bugs. In practice, it has still not been possible to repeat these bugs with non-custom xenotypes.
 				// if (!subXenotypeDef.genes.NullOrEmpty())
 				// {
-					// Log.Warning(subXenotypeDef.defName + " genes is not empty. Fixing..");
+				// Log.Warning(subXenotypeDef.defName + " genes is not empty. Fixing..");
 				// }
 				// subXenotypeDef.genes = new();
 				if (!subXenotypeDef.genes.Contains(geneticShifter))
@@ -121,10 +139,11 @@ namespace WVC_XenotypesAndGenes
 				}
 				// if (subXenotypeDef.doubleXenotypeChances.NullOrEmpty() || subXenotypeDef.doubleXenotypeChances.Sum((XenotypeChance x) => x.chance) != 1f)
 				// {
-					// Log.Error(subXenotypeDef.defName + " has null doubleXenotypeChances. doubleXenotypeChances must contain at least one xenotype with a chance 1.0");
+				// Log.Error(subXenotypeDef.defName + " has null doubleXenotypeChances. doubleXenotypeChances must contain at least one xenotype with a chance 1.0");
 				// }
 			}
 		}
+
 	}
 
 }

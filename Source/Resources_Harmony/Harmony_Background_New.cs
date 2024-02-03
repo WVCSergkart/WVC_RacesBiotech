@@ -7,11 +7,11 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    namespace HarmonyPatches
-    {
+	namespace HarmonyPatches
+	{
 
-        // This is a rather sloppy way, but unlike the transpiler, it is less conflicting.
-        [HarmonyPatch(typeof(GeneUIUtility), "DrawGene")]
+		// This is a rather sloppy way, but unlike the transpiler, it is less conflicting.
+		[HarmonyPatch(typeof(GeneUIUtility), "DrawGene")]
 		public static class Patch_GeneUIUtility_DrawGene
 		{
 

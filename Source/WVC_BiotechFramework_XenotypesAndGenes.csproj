@@ -98,11 +98,8 @@
     <Compile Include="Resources_Genes\Gene_Wings.cs" />
     <Compile Include="Resources_Genes\Gene_NonPlayerSpecials.cs" />
     <Compile Include="Resources_Harmony\Harmony.cs" />
-    <Compile Include="Resources_Harmony\Harmony_Background_New.cs" />
     <Compile Include="Resources_Harmony\Harmony_DisablePawnRelations.cs" />
     <Compile Include="Resources_Harmony\Harmony_GeneImmunityFix.cs" />
-    <Compile Include="Resources_Harmony\Harmony_GeneVisibility.cs" />
-    <Compile Include="Resources_Harmony\Harmony_PawnBodyGraphic.cs" />
     <Compile Include="Resources_Hediff\CustomMechlinkLabel.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_PawnHaveWings.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_SeverityFromDust.cs" />

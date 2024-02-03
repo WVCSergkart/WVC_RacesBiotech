@@ -34,7 +34,7 @@ It is recommended to enable all settings for the first acquaintance with the mod
 	<WVC_Label_hideXaGGenes>Hide mod genes</WVC_Label_hideXaGGenes>
 	<WVC_ToolTip_hideXaGGenes>If enabled, genes from the mod will not be displayed in the editor.
 
-A restart is recommended to correct the categories.</WVC_ToolTip_hideXaGGenes>
+A restart is required to correct the categories and apply patches.</WVC_ToolTip_hideXaGGenes>
 
 	<!-- ====================================================================================== -->
 
@@ -60,7 +60,9 @@ Requires a restart, a new game and that the previous setting is enabled.</WVC_To
 	<WVC_Label_disableUniqueGeneInterface>Disable unique gene interface</WVC_Label_disableUniqueGeneInterface>
 	<WVC_ToolTip_disableUniqueGeneInterface>Responsible for displaying the unique background and additional information of the gene.
 
-If enabled, then all genes of the mod will have a vanilla interface.</WVC_ToolTip_disableUniqueGeneInterface>
+If enabled, then all genes of the mod will have a vanilla interface.
+
+A restart is required to apply patches.</WVC_ToolTip_disableUniqueGeneInterface>
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_enableGenesInfo>Enable genes info display (All)</WVC_Label_enableGenesInfo>
