@@ -311,14 +311,18 @@ namespace WVC_XenotypesAndGenes
 			List<Gene> genes = new();
 			foreach (Gene item in pawnGenes)
 			{
-				if (item.def.minMelanin >= 0f)
+				if (item.def.endogeneCategory == EndogeneCategory.Melanin)
 				{
 					continue;
 				}
-				if (item.def.defName.Contains("Skin_Melanin"))
-				{
-					continue;
-				}
+				// if (item.def.minMelanin >= 0f)
+				// {
+					// continue;
+				// }
+				// if (item.def.defName.Contains("Skin_Melanin"))
+				// {
+					// continue;
+				// }
 				genes.Add(item);
 			}
 			List<GeneDef> geneDef = new();

@@ -77,13 +77,6 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	[Obsolete]
-	public class RandomGenes
-	{
-		public bool inheritable = false;
-		public List<GeneDef> genes = new();
-	}
-
 	public class SubXenotypeDef : XenotypeDef
 	{
 
@@ -105,6 +98,13 @@ namespace WVC_XenotypesAndGenes
 
 		[Obsolete]
 		public List<RandomGenes> randomGenes = new();
+
+		[Obsolete]
+		public class RandomGenes
+		{
+			public bool inheritable = false;
+			public List<GeneDef> genes = new();
+		}
 
 		public override void ResolveReferences()
 		{
