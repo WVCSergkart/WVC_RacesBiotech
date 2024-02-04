@@ -12,7 +12,7 @@ namespace WVC_XenotypesAndGenes
 
 		// Inherit
 
-		public static void InheritGeneImmunityFrom(GeneDef geneDef, GeneDef inheritGeneDef)
+		public static void InheritGeneDefFrom(GeneDef geneDef, GeneDef inheritGeneDef)
 		{
 			// Tags
 			if (inheritGeneDef.exclusionTags != null)

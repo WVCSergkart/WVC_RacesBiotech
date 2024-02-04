@@ -9,6 +9,7 @@
 	<WVC_BiotechSettings_Label_Graphics>Graphics</WVC_BiotechSettings_Label_Graphics>
 	<WVC_BiotechSettings_Label_Info>Info</WVC_BiotechSettings_Label_Info>
 	<WVC_BiotechSettings_Label_Genes>Genes</WVC_BiotechSettings_Label_Genes>
+	<WVC_BiotechSettings_Label_Generators>Generator</WVC_BiotechSettings_Label_Generators>
 	<WVC_BiotechSettings_Label_Other>Other</WVC_BiotechSettings_Label_Other>
 	<WVC_BiotechSettings_Label_Serums>Serums (Outdated)</WVC_BiotechSettings_Label_Serums>
 
@@ -23,6 +24,9 @@
 
 It is recommended to enable all settings for the first acquaintance with the mod. Or disable all settings for a very small performance boost.</WVC_BiotechSettings_Tooltip_Info>
 	<WVC_BiotechSettings_Tooltip_Genes>Settings responsible for the special effects of genes.</WVC_BiotechSettings_Tooltip_Genes>
+	<WVC_BiotechSettings_Tooltip_Generators>Settings responsible for generation. For example, skill genes, they are created when the game starts.
+
+If you have problems launching the game, it is recommended to disable all generation options.</WVC_BiotechSettings_Tooltip_Generators>
 	<WVC_BiotechSettings_Tooltip_Other>Settings not related to anything specific.</WVC_BiotechSettings_Tooltip_Other>
 	<WVC_BiotechSettings_Tooltip_Serums>Settings responsible for the generation of serums. If game launch too long, it is recommended to disable all.</WVC_BiotechSettings_Tooltip_Serums>
 
@@ -87,6 +91,13 @@ Activation requires a restart, deactivation does not.</WVC_ToolTip_enableGenesIn
 	<WVC_ToolTip_enableCustomMechLinkName>If enabled, the name of the mechlink will be replaced with the name of the gene that this mechlink gives. Works only with genes from the mod.
 
 Does not affect already spawned mechlinks.</WVC_ToolTip_enableCustomMechLinkName>
+
+	<!-- ====================================================================================== -->
+
+	<WVC_Label_enableIncestLoverGene>Enable incest lover gene mechanic</WVC_Label_enableIncestLoverGene>
+	<WVC_ToolTip_enableIncestLoverGene>Responsible for the mechanics of the "incest lover" gene. The mechanics of this gene are based on the harmony patch. If there are mod conflicts with this gene, it is recommended to disable it.
+
+A restart is required.</WVC_ToolTip_enableIncestLoverGene>
 
 	<!-- ====================================================================================== -->
 

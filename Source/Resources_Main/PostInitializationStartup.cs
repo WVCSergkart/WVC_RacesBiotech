@@ -31,7 +31,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					foreach (GeneDef inheritableGeneDef in inheritableGeneDefs)
 					{
-						MiscUtility.InheritGeneImmunityFrom(geneDef, inheritableGeneDef);
+						MiscUtility.InheritGeneDefFrom(geneDef, inheritableGeneDef);
 					}
 				}
 				if (!WVC_Biotech.settings.hideXaGGenes)

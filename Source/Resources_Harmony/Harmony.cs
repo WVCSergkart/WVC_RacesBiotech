@@ -1,6 +1,7 @@
 using HarmonyLib;
 using RimWorld;
 using System;
+using System.Linq;
 using UnityEngine;
 using Verse;
 using WVC_XenotypesAndGenes.HarmonyPatches;
@@ -48,6 +49,11 @@ namespace WVC_XenotypesAndGenes
 				if (!WVC_Biotech.settings.disableFurGraphic)
 				{
 					harmony.Patch(AccessTools.Method(typeof(PawnGraphicSet), "ResolveAllGraphics"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("FurskinIsSkin")));
+				}
+				if (WVC_Biotech.settings.enableIncestLoverGene)
+				{
+					harmony.Patch(AccessTools.Method(typeof(RelationsUtility), "Incestuous"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Incestuous_Relations")));
+					harmony.Patch(AccessTools.Method(typeof(Pawn_RelationsTracker), "SecondaryLovinChanceFactor"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Incestuous_LovinChanceFactor")));
 				}
 			}
 
@@ -182,6 +188,26 @@ namespace WVC_XenotypesAndGenes
 				if (modExtension.furCanRot)
 				{
 					__instance.rottingGraphic = GraphicDatabase.Get<Graphic_Multi>(bodyPath, ShaderUtility.GetSkinShader(pawn.story.SkinColorOverriden), Vector2.one, pawn.story.SkinColorOverriden ? (PawnGraphicSet.RottingColorDefault * pawn.story.SkinColor) : PawnGraphicSet.RottingColorDefault);
+				}
+			}
+
+			// Romance
+
+			public static bool Incestuous_Relations(ref bool __result, ref Pawn one)
+			{
+				if (one?.genes?.GetFirstGeneOfType<Gene_IncestLover>() != null)
+				{
+					__result = false;
+					return false;
+				}
+				return true;
+			}
+
+			public static void Incestuous_LovinChanceFactor(ref float __result, Pawn ___pawn, ref Pawn otherPawn, Pawn_RelationsTracker __instance)
+			{
+				if ( __instance.FamilyByBlood.Contains(otherPawn) && ___pawn?.genes?.GetFirstGeneOfType<Gene_IncestLover>() != null)
+				{
+					__result *= 100f;
 				}
 			}
 

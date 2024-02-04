@@ -122,4 +122,11 @@ namespace WVC_XenotypesAndGenes
 
 	// }
 
+	// WIP
+	public class Gene_IncestLover : Gene
+	{
+
+
+	}
+
 }

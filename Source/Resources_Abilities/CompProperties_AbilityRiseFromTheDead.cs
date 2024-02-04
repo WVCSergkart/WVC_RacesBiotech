@@ -39,7 +39,8 @@ namespace WVC_XenotypesAndGenes
 			UndeadUtility.ResurrectWithSickness(innerPawn, Props.afterResurrectionThoughtDef);
 			if ((innerPawn.Faction == null || innerPawn.Faction != Faction.OfPlayer) && innerPawn.guest.Recruitable)
 			{
-				innerPawn.SetFaction(Faction.OfPlayer);
+				RecruitUtility.Recruit(innerPawn, Faction.OfPlayer, parent.pawn);
+				// innerPawn.SetFaction(Faction.OfPlayer);
 				Messages.Message("WVC_XaG_ReimplantResurrectionRecruiting".Translate(innerPawn), innerPawn, MessageTypeDefOf.PositiveEvent);
 			}
 			if (ModLister.IdeologyInstalled)

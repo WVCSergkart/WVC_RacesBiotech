@@ -26,6 +26,7 @@ namespace WVC_XenotypesAndGenes
 		public bool genesRemoveMechlinkUponDeath = false;
 		public bool enableCustomMechLinkName = false;
 		public bool shapeshifterGeneUnremovable = false;
+		public bool enableIncestLoverGene = true;
 		// public bool reimplantResurrectionRecruiting = false;
 		// Fix
 		public bool fixVanillaGeneImmunityCheck = true;
@@ -63,17 +64,19 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref disableFurGraphic, "disableFurGraphic", defaultValue: false);
 			Scribe_Values.Look(ref disableAllGraphic, "disableAllGraphic", defaultValue: false);
 			Scribe_Values.Look(ref disableUniqueGeneInterface, "disableUniqueGeneInterface", defaultValue: false);
-			// Genes
+			// Generator
 			Scribe_Values.Look(ref generateSkillGenes, "generateSkillGenes", defaultValue: true);
 			Scribe_Values.Look(ref generateXenotypeForceGenes, "generateXenotypeForceGenes", defaultValue: false);
 			Scribe_Values.Look(ref generateResourceSpawnerGenes, "generateResourceSpawnerGenes", defaultValue: false);
 			Scribe_Values.Look(ref generateSkinHairColorGenes, "generateSkinHairColorGenes", defaultValue: false);
+			// Genes
 			Scribe_Values.Look(ref canNonPlayerPawnResurrect, "canNonPlayerPawnResurrect", defaultValue: false);
 			Scribe_Values.Look(ref allowShapeshiftAfterDeath, "allowShapeshiftAfterDeath", defaultValue: true);
 			Scribe_Values.Look(ref totalHealingIgnoreScarification, "totalHealingIgnoreScarification", defaultValue: true);
 			Scribe_Values.Look(ref genesRemoveMechlinkUponDeath, "genesRemoveMechlinkUponDeath", defaultValue: false);
 			Scribe_Values.Look(ref enableCustomMechLinkName, "enableCustomMechLinkName", defaultValue: false);
 			Scribe_Values.Look(ref shapeshifterGeneUnremovable, "shapeshifterGeneUnremovable", defaultValue: false);
+			Scribe_Values.Look(ref enableIncestLoverGene, "enableIncestLoverGene", defaultValue: true);
 			// Scribe_Values.Look(ref reimplantResurrectionRecruiting, "reimplantResurrectionRecruiting", defaultValue: false);
 			// Fix
 			Scribe_Values.Look(ref fixVanillaGeneImmunityCheck, "fixVanillaGeneImmunityCheck", defaultValue: true);
@@ -159,20 +162,20 @@ namespace WVC_XenotypesAndGenes
 		{
 			Rect outRect = new(inRect.x, inRect.y, inRect.width, inRect.height);
 			// Rect rect = new(0f, 0f, inRect.width, inRect.height);
-			Rect rect = new(0f, 0f, inRect.width - 30f, inRect.height * 2.2f);
+			Rect rect = new(0f, 0f, inRect.width - 30f, inRect.height * 2.3f);
 			Widgets.BeginScrollView(outRect, ref scrollPosition, rect);
 			Listing_Standard listingStandard = new();
 			listingStandard.Begin(rect);
 			// Graphic
 			listingStandard.Label("WVC_BiotechSettings_Label_Graphics".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Graphics".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_hideXaGGenes".Translate(), ref settings.hideXaGGenes, "WVC_ToolTip_hideXaGGenes".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_disableFurGraphic".Translate(), ref settings.disableFurGraphic, "WVC_ToolTip_disableFurGraphic".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_hideXaGGenes".Translate().Colorize(ColorLibrary.LightPurple), ref settings.hideXaGGenes, "WVC_ToolTip_hideXaGGenes".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_disableFurGraphic".Translate().Colorize(ColorLibrary.LightPurple), ref settings.disableFurGraphic, "WVC_ToolTip_disableFurGraphic".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableAllGraphic".Translate(), ref settings.disableAllGraphic, "WVC_ToolTip_disableAllGraphic".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_disableUniqueGeneInterface".Translate(), ref settings.disableUniqueGeneInterface, "WVC_ToolTip_disableUniqueGeneInterface".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_disableUniqueGeneInterface".Translate().Colorize(ColorLibrary.LightPurple), ref settings.disableUniqueGeneInterface, "WVC_ToolTip_disableUniqueGeneInterface".Translate());
 			// Info
 			listingStandard.Gap();
 			listingStandard.Label("WVC_BiotechSettings_Label_Info".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Info".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_enableGenesInfo".Translate(), ref settings.enableGenesInfo, "WVC_ToolTip_enableGenesInfo".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_enableGenesInfo".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enableGenesInfo, "WVC_ToolTip_enableGenesInfo".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enableGeneSpawnerGizmo".Translate(), ref settings.enableGeneSpawnerGizmo, "WVC_ToolTip_enableGenesInfo".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enableGeneWingInfo".Translate(), ref settings.enableGeneWingInfo, "WVC_ToolTip_enableGenesInfo".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enableGeneBlesslinkInfo".Translate(), ref settings.enableGeneBlesslinkInfo, "WVC_ToolTip_enableGenesInfo".Translate());
@@ -180,38 +183,42 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_enableGeneScarifierInfo".Translate(), ref settings.enableGeneScarifierInfo, "WVC_ToolTip_enableGenesInfo".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enableGolemsInfo".Translate(), ref settings.enableGolemsInfo, "WVC_ToolTip_enableGenesInfo".Translate());
 			listingStandard.Gap();
+			// Generator
+			listingStandard.Label("WVC_BiotechSettings_Label_Generators".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Generators".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_generateSkillGenes".Translate().Colorize(ColorLibrary.LightOrange), ref settings.generateSkillGenes, "WVC_ToolTip_generateTemplateGenes".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_generateXenotypeForceGenes".Translate().Colorize(ColorLibrary.LightOrange), ref settings.generateXenotypeForceGenes, "WVC_ToolTip_generateTemplateGenes".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_generateResourceSpawnerGenes".Translate().Colorize(ColorLibrary.LightOrange), ref settings.generateResourceSpawnerGenes, "WVC_ToolTip_generateTemplateGenes".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_generateSkinHairColorGenes".Translate().Colorize(ColorLibrary.LightOrange), ref settings.generateSkinHairColorGenes, "WVC_ToolTip_generateSkinHairColorGenes".Translate());
+			listingStandard.Gap();
 			// Genes
 			listingStandard.Label("WVC_BiotechSettings_Label_Genes".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Genes".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_generateSkillGenes".Translate(), ref settings.generateSkillGenes, "WVC_ToolTip_generateTemplateGenes".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_generateXenotypeForceGenes".Translate(), ref settings.generateXenotypeForceGenes, "WVC_ToolTip_generateTemplateGenes".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_generateResourceSpawnerGenes".Translate(), ref settings.generateResourceSpawnerGenes, "WVC_ToolTip_generateTemplateGenes".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_generateSkinHairColorGenes".Translate(), ref settings.generateSkinHairColorGenes, "WVC_ToolTip_generateSkinHairColorGenes".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_canNonPlayerPawnResurrect".Translate(), ref settings.canNonPlayerPawnResurrect, "WVC_ToolTip_canNonPlayerPawnResurrect".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_allowShapeshiftAfterDeath".Translate(), ref settings.allowShapeshiftAfterDeath, "WVC_ToolTip_allowShapeshiftAfterDeath".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_totalHealingIgnoreScarification".Translate(), ref settings.totalHealingIgnoreScarification, "WVC_ToolTip_totalHealingIgnoreScarification".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_canNonPlayerPawnResurrect".Translate().Colorize(ColorLibrary.LightBlue), ref settings.canNonPlayerPawnResurrect, "WVC_ToolTip_canNonPlayerPawnResurrect".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_allowShapeshiftAfterDeath".Translate().Colorize(ColorLibrary.LightBlue), ref settings.allowShapeshiftAfterDeath, "WVC_ToolTip_allowShapeshiftAfterDeath".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_totalHealingIgnoreScarification".Translate().Colorize(ColorLibrary.LightBlue), ref settings.totalHealingIgnoreScarification, "WVC_ToolTip_totalHealingIgnoreScarification".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_genesRemoveMechlinkUponDeath".Translate(), ref settings.genesRemoveMechlinkUponDeath, "WVC_ToolTip_genesRemoveMechlinkUponDeath".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enableCustomMechLinkName".Translate(), ref settings.enableCustomMechLinkName, "WVC_ToolTip_enableCustomMechLinkName".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_ShapeshifterGeneUnremovable".Translate(), ref settings.shapeshifterGeneUnremovable, "WVC_ToolTip_ShapeshifterGeneUnremovable".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_ShapeshifterGeneUnremovable".Translate().Colorize(ColorLibrary.LightBlue), ref settings.shapeshifterGeneUnremovable, "WVC_ToolTip_ShapeshifterGeneUnremovable".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_enableIncestLoverGene".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enableIncestLoverGene, "WVC_ToolTip_enableIncestLoverGene".Translate());
 			// listingStandard.CheckboxLabeled("WVC_Label_reimplantResurrectionRecruiting".Translate(), ref settings.reimplantResurrectionRecruiting, "WVC_ToolTip_reimplantResurrectionRecruiting".Translate());
 			listingStandard.Gap();
 			// Fix
 			listingStandard.Label("WVC_BiotechSettings_Label_Other".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Other".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_fixVanillaGeneImmunityCheck".Translate(), ref settings.fixVanillaGeneImmunityCheck, "WVC_ToolTip_fixVanillaGeneImmunityCheck".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_fixVanillaGeneImmunityCheck".Translate().Colorize(ColorLibrary.LightPurple), ref settings.fixVanillaGeneImmunityCheck, "WVC_ToolTip_fixVanillaGeneImmunityCheck".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_minWastepacksPerRecharge".Translate(), ref settings.minWastepacksPerRecharge, "WVC_ToolTip_minWastepacksPerRecharge".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_validatorAbilitiesPatch".Translate(), ref settings.validatorAbilitiesPatch, "WVC_ToolTip_validatorAbilitiesPatch".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_validatorAbilitiesPatch".Translate().Colorize(ColorLibrary.LightBlue), ref settings.validatorAbilitiesPatch, "WVC_ToolTip_validatorAbilitiesPatch".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_spawnXenoForcerSerumsFromTraders".Translate(), ref settings.spawnXenoForcerSerumsFromTraders, "WVC_ToolTip_spawnXenoForcerSerumsFromTraders".Translate());
-			listingStandard.CheckboxLabeled("DEV: " + "WVC_Label_fixGenesOnLoad".Translate(), ref settings.fixGenesOnLoad, "WVC_ToolTip_fixGenesOnLoad".Translate() + "\n\n" + "WVC_Alert_fixBrokenShit".Translate());
-			listingStandard.CheckboxLabeled("DEV: " + "WVC_Label_fixGeneAbilitiesOnLoad".Translate(), ref settings.fixGeneAbilitiesOnLoad, "WVC_ToolTip_fixGeneAbilitiesOnLoad".Translate() + "\n\n" + "WVC_Alert_fixBrokenShit".Translate());
-			listingStandard.CheckboxLabeled("DEV: " + "WVC_Label_fixGeneTypesOnLoad".Translate(), ref settings.fixGeneTypesOnLoad, "WVC_ToolTip_fixGeneTypesOnLoad".Translate() + "\n\n" + "WVC_Alert_fixBrokenShit".Translate());
+			listingStandard.CheckboxLabeled("DEV: ".Colorize(ColorLibrary.RedReadable) + "WVC_Label_fixGenesOnLoad".Translate().Colorize(ColorLibrary.LightPink), ref settings.fixGenesOnLoad, "WVC_ToolTip_fixGenesOnLoad".Translate() + "\n\n" + "WVC_Alert_fixBrokenShit".Translate());
+			listingStandard.CheckboxLabeled("DEV: ".Colorize(ColorLibrary.RedReadable) + "WVC_Label_fixGeneAbilitiesOnLoad".Translate().Colorize(ColorLibrary.LightPink), ref settings.fixGeneAbilitiesOnLoad, "WVC_ToolTip_fixGeneAbilitiesOnLoad".Translate() + "\n\n" + "WVC_Alert_fixBrokenShit".Translate());
+			listingStandard.CheckboxLabeled("DEV: ".Colorize(ColorLibrary.RedReadable) + "WVC_Label_fixGeneTypesOnLoad".Translate().Colorize(ColorLibrary.LightPink), ref settings.fixGeneTypesOnLoad, "WVC_ToolTip_fixGeneTypesOnLoad".Translate() + "\n\n" + "WVC_Alert_fixBrokenShit".Translate());
 			listingStandard.Gap();
 			// Serums
-			listingStandard.Label("WVC_BiotechSettings_Label_Serums".Translate().Colorize(ColorLibrary.RedReadable) + ":", -1, "WVC_BiotechSettings_Tooltip_Serums".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes".Translate().Colorize(ColorLibrary.RedReadable), ref settings.serumsForAllXenotypes, "WVC_ToolTip_serumsForAllXenotypes".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenBase".Translate().Colorize(ColorLibrary.RedReadable), ref settings.serumsForAllXenotypes_GenBase, "WVC_ToolTip_serumsForAllXenotypes_GenBase".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenUltra".Translate().Colorize(ColorLibrary.RedReadable), ref settings.serumsForAllXenotypes_GenUltra, "WVC_ToolTip_serumsForAllXenotypes_GenUltra".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenHybrid".Translate().Colorize(ColorLibrary.RedReadable), ref settings.serumsForAllXenotypes_GenHybrid, "WVC_ToolTip_serumsForAllXenotypes_GenHybrid".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_Recipes".Translate().Colorize(ColorLibrary.RedReadable), ref settings.serumsForAllXenotypes_Recipes, "WVC_ToolTip_serumsForAllXenotypes_Recipes".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_serumsSpawnersForAllXenotypes".Translate().Colorize(ColorLibrary.RedReadable), ref settings.serumsForAllXenotypes_Spawners, "WVC_ToolTip_serumsSpawnersForAllXenotypes".Translate());
+			listingStandard.Label("WVC_BiotechSettings_Label_Serums".Translate().Colorize(ColoredText.SubtleGrayColor) + ":", -1, "WVC_BiotechSettings_Tooltip_Serums".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.serumsForAllXenotypes, "WVC_ToolTip_serumsForAllXenotypes".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenBase".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.serumsForAllXenotypes_GenBase, "WVC_ToolTip_serumsForAllXenotypes_GenBase".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenUltra".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.serumsForAllXenotypes_GenUltra, "WVC_ToolTip_serumsForAllXenotypes_GenUltra".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenHybrid".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.serumsForAllXenotypes_GenHybrid, "WVC_ToolTip_serumsForAllXenotypes_GenHybrid".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_Recipes".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.serumsForAllXenotypes_Recipes, "WVC_ToolTip_serumsForAllXenotypes_Recipes".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_serumsSpawnersForAllXenotypes".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.serumsForAllXenotypes_Spawners, "WVC_ToolTip_serumsSpawnersForAllXenotypes".Translate());
 			listingStandard.GapLine();
 			// =============== Buttons ===============
 			if (listingStandard.ButtonText("WVC_XaG_ResetButton".Translate()))
@@ -223,17 +230,19 @@ namespace WVC_XenotypesAndGenes
 					settings.disableFurGraphic = false;
 					settings.disableAllGraphic = false;
 					settings.disableUniqueGeneInterface = false;
-					// Genes
+					// Generator
 					settings.generateSkillGenes = true;
 					settings.generateXenotypeForceGenes = false;
 					settings.generateResourceSpawnerGenes = false;
 					settings.generateSkinHairColorGenes = false;
+					// Genes
 					settings.canNonPlayerPawnResurrect = false;
 					settings.allowShapeshiftAfterDeath = true;
 					settings.totalHealingIgnoreScarification = true;
 					settings.genesRemoveMechlinkUponDeath = false;
 					settings.enableCustomMechLinkName = false;
 					settings.shapeshifterGeneUnremovable = false;
+					settings.enableIncestLoverGene = true;
 					// Fix
 					settings.fixVanillaGeneImmunityCheck = true;
 					settings.minWastepacksPerRecharge = false;
@@ -271,17 +280,19 @@ namespace WVC_XenotypesAndGenes
 					settings.disableFurGraphic = false;
 					settings.disableAllGraphic = false;
 					settings.disableUniqueGeneInterface = false;
-					// Genes
+					// Generator
 					settings.generateSkillGenes = true;
 					settings.generateXenotypeForceGenes = false;
 					settings.generateResourceSpawnerGenes = false;
 					settings.generateSkinHairColorGenes = false;
+					// Genes
 					settings.canNonPlayerPawnResurrect = false;
 					settings.allowShapeshiftAfterDeath = true;
 					settings.totalHealingIgnoreScarification = true;
 					settings.genesRemoveMechlinkUponDeath = false;
 					settings.enableCustomMechLinkName = true;
 					settings.shapeshifterGeneUnremovable = true;
+					settings.enableIncestLoverGene = true;
 					// Fix
 					settings.fixVanillaGeneImmunityCheck = true;
 					settings.minWastepacksPerRecharge = false;
