@@ -31,22 +31,23 @@ namespace WVC_XenotypesAndGenes
 
 			public static void PostInitialPatches()
 			{
+				var harmony = new Harmony("wvc.sergkart.races.biotech");
 				if (WVC_Biotech.settings.hideXaGGenes)
 				{
-					new Harmony("wvc.sergkart.races.biotech.hidegenes").Patch(AccessTools.Method(typeof(Dialog_CreateXenotype), "DrawGene"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Patch_HideGenes")));
+					harmony.Patch(AccessTools.Method(typeof(Dialog_CreateXenotype), "DrawGene"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Patch_HideGenes")));
 				}
 				if (!WVC_Biotech.settings.disableUniqueGeneInterface)
 				{
-					new Harmony("wvc.sergkart.races.biotech.geneback").Patch(AccessTools.Method(typeof(GeneUIUtility), "DrawGene"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Xag_DrawGene")));
-					new Harmony("wvc.sergkart.races.biotech.geneback").Patch(AccessTools.Method(typeof(GeneUIUtility), "DrawGeneDef_NewTemp"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Xag_DrawGeneDef")));
+					harmony.Patch(AccessTools.Method(typeof(GeneUIUtility), "DrawGene"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Xag_DrawGene")));
+					harmony.Patch(AccessTools.Method(typeof(GeneUIUtility), "DrawGeneDef_NewTemp"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Xag_DrawGeneDef")));
 				}
 				// if (WVC_Biotech.settings.harmonyTelepathy)
 				// {
-					// new Harmony("wvc.sergkart.races.biotech.telepathy").Patch(AccessTools.Method(typeof(IsGoodPositionForInteraction), "IsGoodPositionForInteraction", new Type[] {typeof(Pawn), typeof(Pawn)} ), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("TelepathyGene")));
+					// harmony.Patch(AccessTools.Method(typeof(IsGoodPositionForInteraction), "IsGoodPositionForInteraction", new Type[] {typeof(Pawn), typeof(Pawn)} ), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("TelepathyGene")));
 				// }
 				if (!WVC_Biotech.settings.disableFurGraphic)
 				{
-					new Harmony("wvc.sergkart.races.biotech.bodygraphic").Patch(AccessTools.Method(typeof(PawnGraphicSet), "ResolveAllGraphics"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("FurskinIsSkin")));
+					harmony.Patch(AccessTools.Method(typeof(PawnGraphicSet), "ResolveAllGraphics"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("FurskinIsSkin")));
 				}
 			}
 
@@ -150,11 +151,11 @@ namespace WVC_XenotypesAndGenes
 			public static void FurskinIsSkin(PawnGraphicSet __instance)
 			{
 				Pawn pawn = __instance.pawn;
-				if (!ModsConfig.BiotechActive || pawn == null || pawn.RaceProps?.Humanlike != true || pawn?.genes == null)
-				{
-					return;
-				}
-				if (pawn.story?.furDef == null)
+				// if (!ModsConfig.BiotechActive || pawn == null || pawn.RaceProps?.Humanlike != true || pawn?.genes == null)
+				// {
+					// return;
+				// }
+				if (pawn?.genes == null || pawn?.story?.furDef == null)
 				{
 					return;
 				}
