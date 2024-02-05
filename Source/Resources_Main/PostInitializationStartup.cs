@@ -38,7 +38,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				if (geneDef.modContentPack != null && geneDef.modContentPack.PackageId.Contains("wvc.sergkart.races.biotech"))
+				if (geneDef.IsXenoGenesGene())
 				{
 					if (geneDef.biostatArc != 0)
 					{

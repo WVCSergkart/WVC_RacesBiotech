@@ -42,6 +42,11 @@ namespace WVC_XenotypesAndGenes
 					harmony.Patch(AccessTools.Method(typeof(GeneUIUtility), "DrawGene"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Xag_DrawGene")));
 					harmony.Patch(AccessTools.Method(typeof(GeneUIUtility), "DrawGeneDef_NewTemp"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Xag_DrawGeneDef")));
 				}
+				if (WVC_Biotech.settings.fixVanillaGeneImmunityCheck)
+				{
+					harmony.Patch(AccessTools.Method(typeof(Pawn_GeneTracker), "HediffGiversCanGive"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Immunity_hediffGivers")));
+					harmony.Patch(AccessTools.Method(typeof(ImmunityHandler), "AnyGeneMakesFullyImmuneTo"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Immunity_makeImmuneTo")));
+				}
 				if (WVC_Biotech.settings.enableHarmonyTelepathyGene)
 				{
 					harmony.Patch(AccessTools.Method(typeof(InteractionUtility), "IsGoodPositionForInteraction", new Type[] {typeof(Pawn), typeof(Pawn)} ), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("TelepathyGene")));
@@ -52,7 +57,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (WVC_Biotech.settings.enableIncestLoverGene)
 				{
-					harmony.Patch(AccessTools.Method(typeof(RelationsUtility), "Incestuous"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Incestuous_Relations")));
+					harmony.Patch(AccessTools.Method(typeof(RelationsUtility), "Incestuous"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Incestuous_Relations")));
 					harmony.Patch(AccessTools.Method(typeof(Pawn_RelationsTracker), "SecondaryLovinChanceFactor"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Incestuous_LovinChanceFactor")));
 				}
 			}
@@ -63,7 +68,7 @@ namespace WVC_XenotypesAndGenes
 
 			public static bool Patch_HideGenes(GeneDef geneDef, ref bool __result)
 			{
-				if (geneDef.modContentPack != null && geneDef.modContentPack.PackageId.Contains("wvc.sergkart.races.biotech"))
+				if (geneDef.IsXenoGenesGene())
 				{
 					__result = false;
 					return false;
@@ -193,14 +198,16 @@ namespace WVC_XenotypesAndGenes
 
 			// Romance
 
-			public static bool Incestuous_Relations(ref bool __result, ref Pawn one)
+			public static void Incestuous_Relations(ref bool __result, ref Pawn one)
 			{
+				if (!__result)
+				{
+					return;
+				}
 				if (one?.genes?.GetFirstGeneOfType<Gene_IncestLover>() != null)
 				{
 					__result = false;
-					return false;
 				}
-				return true;
 			}
 
 			public static void Incestuous_LovinChanceFactor(ref float __result, Pawn ___pawn, ref Pawn otherPawn, Pawn_RelationsTracker __instance)
@@ -209,6 +216,56 @@ namespace WVC_XenotypesAndGenes
 				{
 					__result *= 100f;
 				}
+			}
+
+			// Immunity: Replaces the vanilla check (without gene Active check) with a version with gene Active check
+
+			public static bool Immunity_hediffGivers(ref bool __result, ref HediffDef hediff, Pawn_GeneTracker __instance)
+			{
+				if (!ModLister.BiotechInstalled)
+				{
+					__result = true;
+					return false;
+				}
+				for (int i = 0; i < __instance.GenesListForReading.Count; i++)
+				{
+					Gene gene = __instance.GenesListForReading[i];
+					if (gene?.Active != true || gene?.def?.hediffGiversCannotGive == null)
+					{
+						continue;
+					}
+					if (gene.def.hediffGiversCannotGive.Contains(hediff))
+					{
+						__result = false;
+						return false;
+					}
+				}
+				__result = true;
+				return false;
+			}
+
+			public static bool Immunity_makeImmuneTo(ref bool __result, ref HediffDef def, ImmunityHandler __instance)
+			{
+				if (!ModsConfig.BiotechActive || __instance?.pawn?.genes == null)
+				{
+					__result = false;
+					return false;
+				}
+				for (int i = 0; i < __instance.pawn.genes.GenesListForReading.Count; i++)
+				{
+					Gene gene = __instance.pawn.genes.GenesListForReading[i];
+					if (gene?.Active != true || gene?.def?.makeImmuneTo == null)
+					{
+						continue;
+					}
+					if (gene.def.makeImmuneTo.Contains(def))
+					{
+						__result = true;
+						return false;
+					}
+				}
+				__result = false;
+				return false;
 			}
 
 		}

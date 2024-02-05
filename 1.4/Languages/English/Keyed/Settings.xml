@@ -85,7 +85,11 @@ Activation requires a restart, deactivation does not.</WVC_ToolTip_enableGenesIn
 	<!-- ====================================================================================== -->
 
 	<WVC_Label_fixVanillaGeneImmunityCheck>Fix vanilla genes immunity check</WVC_Label_fixVanillaGeneImmunityCheck>
-	<WVC_ToolTip_fixVanillaGeneImmunityCheck>If enabled, it fix the gene check for disease immunity by adding a check for gene activity. Thus, genes that add immunity will not provide immunity when overridden by other genes.</WVC_ToolTip_fixVanillaGeneImmunityCheck>
+	<WVC_ToolTip_fixVanillaGeneImmunityCheck>If enabled, it fix the gene check for disease immunity by adding a check for gene activity. Thus, genes that add immunity will not provide immunity when overridden by other genes.
+
+If there are mods that affect vanilla immunity checks, it is recommended to disable this option.
+
+A restart is required.</WVC_ToolTip_fixVanillaGeneImmunityCheck>
 
 	<!-- ====================================================================================== -->
 

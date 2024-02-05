@@ -407,5 +407,12 @@ namespace WVC_XenotypesAndGenes
 			return num;
 		}
 
+		// XaG test
+
+		public static bool IsXenoGenesGene(this GeneDef geneDef)
+		{
+			return geneDef?.modContentPack != null && geneDef.modContentPack.PackageId.Contains("wvc.sergkart.races.biotech");
+		}
+
 	}
 }

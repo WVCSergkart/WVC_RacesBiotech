@@ -27,7 +27,7 @@ namespace WVC_XenotypesAndGenes
 			// {
 				// return false;
 			// }
-			if (geneDef.modContentPack != null && geneDef.modContentPack.PackageId.Contains("wvc.sergkart.races.biotech"))
+			if (geneDef.IsXenoGenesGene())
 			{
 				return true;
 			}

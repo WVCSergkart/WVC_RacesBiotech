@@ -345,7 +345,7 @@ namespace WVC_XenotypesAndGenes
 					Log.Error("WVC Genes: " + genesCount.ToString());
 					if (!genes.NullOrEmpty())
 					{
-						Log.Error("All genes:" + "\n" + genes.Select((GeneDef x) => x.defName).ToLineList(" - "));
+						Log.Error("All active XaG genes:" + "\n" + genes.Select((GeneDef x) => x.defName).ToLineList(" - "));
 					}
 					else
 					{
