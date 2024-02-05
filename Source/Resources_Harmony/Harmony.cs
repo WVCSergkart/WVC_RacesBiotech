@@ -42,10 +42,10 @@ namespace WVC_XenotypesAndGenes
 					harmony.Patch(AccessTools.Method(typeof(GeneUIUtility), "DrawGene"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Xag_DrawGene")));
 					harmony.Patch(AccessTools.Method(typeof(GeneUIUtility), "DrawGeneDef_NewTemp"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Xag_DrawGeneDef")));
 				}
-				// if (WVC_Biotech.settings.harmonyTelepathy)
-				// {
-					// harmony.Patch(AccessTools.Method(typeof(IsGoodPositionForInteraction), "IsGoodPositionForInteraction", new Type[] {typeof(Pawn), typeof(Pawn)} ), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("TelepathyGene")));
-				// }
+				if (WVC_Biotech.settings.enableHarmonyTelepathyGene)
+				{
+					harmony.Patch(AccessTools.Method(typeof(InteractionUtility), "IsGoodPositionForInteraction", new Type[] {typeof(Pawn), typeof(Pawn)} ), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("TelepathyGene")));
+				}
 				if (!WVC_Biotech.settings.disableFurGraphic)
 				{
 					harmony.Patch(AccessTools.Method(typeof(PawnGraphicSet), "ResolveAllGraphics"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("FurskinIsSkin")));

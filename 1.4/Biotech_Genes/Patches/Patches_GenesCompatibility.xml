@@ -302,7 +302,7 @@
 		<xpath>/Defs/StatDef[defName="IncomingDamageFactor"]/minValue</xpath>
 		<success>Always</success>
 		<value>
-			<minValue>0.1</minValue>
+			<minValue>0.02</minValue>
 		</value>
 	</Operation>
 

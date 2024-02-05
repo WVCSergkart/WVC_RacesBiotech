@@ -26,7 +26,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			ThoughtUtility.TryInteractRandomly(pawn);
+			if (!WVC_Biotech.settings.enableHarmonyTelepathyGene)
+			{
+				ThoughtUtility.TryInteractRandomly(pawn);
+			}
 			ResetInterval();
 		}
 

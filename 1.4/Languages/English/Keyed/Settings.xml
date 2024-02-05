@@ -38,6 +38,8 @@ If you have problems launching the game, it is recommended to disable all genera
 	<WVC_Label_hideXaGGenes>Hide mod genes</WVC_Label_hideXaGGenes>
 	<WVC_ToolTip_hideXaGGenes>If enabled, genes from the mod will not be displayed in the editor.
 
+This option is recommended if there are performance problems in the xenotype editor, or if it is heavily loaded with mods that add genes. Genes from the mod can still be found in genepacks.
+
 A restart is required to correct the categories and apply patches.</WVC_ToolTip_hideXaGGenes>
 
 	<!-- ====================================================================================== -->
@@ -64,7 +66,7 @@ Requires a restart, a new game and that the previous setting is enabled.</WVC_To
 	<WVC_Label_disableUniqueGeneInterface>Disable unique gene interface</WVC_Label_disableUniqueGeneInterface>
 	<WVC_ToolTip_disableUniqueGeneInterface>Responsible for displaying the unique background and additional information of the gene.
 
-If enabled, then all genes of the mod will have a vanilla interface.
+If enabled, then all genes of the mod will have a vanilla background without additional info.
 
 A restart is required to apply patches.</WVC_ToolTip_disableUniqueGeneInterface>
 
@@ -101,6 +103,15 @@ A restart is required.</WVC_ToolTip_enableIncestLoverGene>
 
 	<!-- ====================================================================================== -->
 
+	<WVC_Label_enableHarmonyTelepathyGene>Telepathy gene use harmony</WVC_Label_enableHarmonyTelepathyGene>
+	<WVC_ToolTip_enableHarmonyTelepathyGene>If enabled, the "Telepath" gene will work like a similar gene from the VE series, through the harmony patch. However, this can have a negative impact on performance, since the code for this gene will be called on EVERY interaction.
+
+For any performance issues and if you have VE series mods, it is recommended to leave this option disabled.
+
+A restart is required.</WVC_ToolTip_enableHarmonyTelepathyGene>
+
+	<!-- ====================================================================================== -->
+
 	<!-- <WVC_Label_reincarnationBlockUndeadResurrection></WVC_Label_reincarnationBlockUndeadResurrection> -->
 	<!-- <WVC_ToolTip_reincarnationBlockUndeadResurrection></WVC_ToolTip_reincarnationBlockUndeadResurrection> -->
 
@@ -129,7 +140,7 @@ A restart is required to apply the setting. Enabled by default.</WVC_ToolTip_val
 
 A restart is required to apply the setting.</WVC_ToolTip_generateTemplateGenes>
 
-	<WVC_ToolTip_generateSkinHairColorGenes>If enabled, generates genes for hair and skin with colors corresponding to the materials available in the game.
+	<WVC_ToolTip_generateSkinHairColorGenes>If enabled, generates genes for hair and skin with colors corresponding to the materials available in the game. Support all possible mods.
 
 A restart is required to apply the setting.</WVC_ToolTip_generateSkinHairColorGenes>
 
@@ -141,15 +152,17 @@ Please note that resurrecting a pawn will not bring back a disappeared mechlink.
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_canNonPlayerPawnResurrect>Can non-player pawns be resurrected</WVC_Label_canNonPlayerPawnResurrect>
-	<WVC_ToolTip_canNonPlayerPawnResurrect>Gene "Undead" allows pawns to be resurrected instantly upon death. If disabled, pawns not controlled by the player will always die. This affects prisoners, rebellious slaves, guests and enemies.</WVC_ToolTip_canNonPlayerPawnResurrect>
+	<WVC_ToolTip_canNonPlayerPawnResurrect>Gene "Undead" allows pawns to be resurrected some time after death. If disabled, pawns not controlled by the player will always die. This affects prisoners, rebellious slaves, guests and enemies.</WVC_ToolTip_canNonPlayerPawnResurrect>
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_allowShapeshiftAfterDeath>Allow afterdeath shapeshifting</WVC_Label_allowShapeshiftAfterDeath>
-	<WVC_ToolTip_allowShapeshiftAfterDeath>Xenotype "Undead" after death being resurrected by gene "Undead" changes the set of genes.</WVC_ToolTip_allowShapeshiftAfterDeath>
+	<WVC_ToolTip_allowShapeshiftAfterDeath>Xenotype "Undead" after death being resurrected by gene "Undead", with small chance, can changes the set of genes.</WVC_ToolTip_allowShapeshiftAfterDeath>
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_ShapeshifterGeneUnremovable>Shapeshifter gene unremovable</WVC_Label_ShapeshifterGeneUnremovable>
-	<WVC_ToolTip_ShapeshifterGeneUnremovable>If enabled, then if the "Shapeshifter" gene is removed, it will add itself back.</WVC_ToolTip_ShapeshifterGeneUnremovable>
+	<WVC_ToolTip_ShapeshifterGeneUnremovable>If enabled, then if the "Shapeshifter" gene is removed, it will add itself back.
+
+It is recommended to disable it in case of bugs associated with mods that add gene implanters.</WVC_ToolTip_ShapeshifterGeneUnremovable>
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_spawnXenoForcerSerumsFromTraders>Traders sell basetype serums</WVC_Label_spawnXenoForcerSerumsFromTraders>

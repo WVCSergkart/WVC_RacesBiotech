@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public static class UndeadUtility
+	public static class UndeadUtility
 	{
 
 		// Coma TEST
@@ -26,7 +26,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void RegenComaOrDeathrest(Pawn pawn, Gene_Undead gene)
 		{
-			// Resurrect
+			// Brain test
 			if (pawn?.health?.hediffSet?.GetBrain() == null)
 			{
 				Gene_BackstoryChanger.BackstoryChanger(pawn, gene.Giver.childBackstoryDef, gene.Giver.adultBackstoryDef);
@@ -39,15 +39,16 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			}
-			ResurrectionUtility.Resurrect(pawn);
-			pawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
+			// Undead Resurrect
+			ResurrectWithSickness(pawn, WVC_GenesDefOf.WVC_XenotypesAndGenes_WasResurrected);
+			// ResurrectionUtility.Resurrect(pawn);
+			// pawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
+			pawn.health.AddHediff(WVC_GenesDefOf.WVC_Resurgent_UndeadResurrectionRecovery);
+			// pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(WVC_GenesDefOf.WVC_XenotypesAndGenes_WasResurrected);
 			if (ModLister.IdeologyInstalled)
 			{
 				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_GenesDefOf.WVC_UndeadResurrection, pawn.Named(HistoryEventArgsNames.Doer)));
 			}
-			// Undead
-			pawn.health.AddHediff(WVC_GenesDefOf.WVC_Resurgent_UndeadResurrectionRecovery);
-			pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(WVC_GenesDefOf.WVC_XenotypesAndGenes_WasResurrected);
 			// Evolve
 			XenotypeDef mainXenotype = pawn.genes.CustomXenotype == null ? pawn.genes.Xenotype : null;
 			string letterDesc = "WVC_LetterTextSecondChance_GeneUndead";
@@ -92,7 +93,7 @@ namespace WVC_XenotypesAndGenes
 						item.Learn(0f - num, direct: true);
 					}
 				}
-                SubXenotypeUtility.XenotypeShapeshifter(pawn);
+				SubXenotypeUtility.XenotypeShapeshifter(pawn);
 			}
 			else
 			{
@@ -173,16 +174,16 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool IsUndead(this Pawn pawn)
 		{
-			if (!ModsConfig.BiotechActive || pawn.genes == null)
+			if (!ModsConfig.BiotechActive)
 			{
 				return false;
 			}
-			return XaG_GeneUtility.HasActiveGene(pawn.genes?.GetFirstGeneOfType<Gene_Undead>()?.def, pawn);
+			return pawn?.genes?.GetFirstGeneOfType<Gene_Undead>() != null;
 		}
 
 		public static bool GetUndeadGene(this Pawn pawn, out Gene_Undead gene)
 		{
-			gene = pawn.RaceProps.Humanlike && pawn?.genes?.GetFirstGeneOfType<Gene_Undead>() != null ? pawn.genes.GetFirstGeneOfType<Gene_Undead>() : null;
+			gene = pawn?.genes?.GetFirstGeneOfType<Gene_Undead>();
 			return gene != null;
 		}
 

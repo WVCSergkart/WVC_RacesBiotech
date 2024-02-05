@@ -263,7 +263,7 @@
 		<li Class="WVC_XenotypesAndGenes.ThingExtension_Undead">
 			<shouldResurrect>true</shouldResurrect>
 			<uniqueTag>XaG_HumanUndead</uniqueTag>
-			<resurrectionDelay>6000~9000</resurrectionDelay>
+			<resurrectionDelay>6000~19000</resurrectionDelay>
 		</li>
 	  </value>
 	</Operation>
