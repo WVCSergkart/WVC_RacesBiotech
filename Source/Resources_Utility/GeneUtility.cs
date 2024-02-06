@@ -11,21 +11,15 @@ namespace WVC_XenotypesAndGenes
 
 		// Gene Restoration
 
-		public static void XenogermRestoration(Pawn pawn)
-		{
-			if (pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
-			{
-				pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));
-			}
-			if (pawn.health.hediffSet.HasHediff(HediffDefOf.XenogerminationComa))
-			{
-				pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogerminationComa));
-			}
-			if (pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermLossShock))
-			{
-				pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermLossShock));
-			}
-		}
+		// public static void XenogermRestoration(Pawn pawn)
+		// {
+			// List<HediffDef> list = new();
+			// foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+			// {
+				// list.AddRange(item.hediffsRemovedByGenesRestorationSerum);
+			// }
+			// HediffUtility.RemoveHediffsFromList(pawn, list);
+		// }
 
 		// Misc
 

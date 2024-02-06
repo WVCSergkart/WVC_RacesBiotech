@@ -44,7 +44,7 @@
 	<biostatMet>2</biostatMet>
 	<displayOrderInCategory>1250</displayOrderInCategory>
 	<customEffectDescriptions Inherit="False">
-	  <li>Occasionally removes the xenogerm replication effect from the carrier.</li>
+	  <li>Occasionally removes the xenogerm replication effects from the carrier.</li>
 	  <!-- <li>Abilities "Rise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li> -->
 	</customEffectDescriptions>
 	<modExtensions>

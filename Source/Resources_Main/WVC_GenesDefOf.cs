@@ -44,6 +44,8 @@ namespace WVC_XenotypesAndGenes
 		// Capsule
 		public static ThingDef WVC_XenotypeSerumCapsule;
 		public static ThingDef WVC_XenotypeSerumUltraCapsule;
+		// Serums
+		// public static ThingDef WVC_GeneRestorationSerum_Base;
 		// Special Hediffs
 		public static HediffDef WVC_IncompatibilityComa;
 		// public static HediffDef WVC_XenotypesAndGenes_GeneticStabilityDebuff;

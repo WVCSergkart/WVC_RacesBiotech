@@ -33,7 +33,7 @@ namespace WVC_XenotypesAndGenes
 		// Fix
 		public bool fixVanillaGeneImmunityCheck = true;
 		public bool minWastepacksPerRecharge = false;
-		public bool validatorAbilitiesPatch = true;
+		// public bool validatorAbilitiesPatch = true;
 		public bool spawnXenoForcerSerumsFromTraders = false;
 		public bool fixGenesOnLoad = false;
 		public bool fixGeneAbilitiesOnLoad = false;
@@ -84,7 +84,7 @@ namespace WVC_XenotypesAndGenes
 			// Fix
 			Scribe_Values.Look(ref fixVanillaGeneImmunityCheck, "fixVanillaGeneImmunityCheck", defaultValue: true);
 			Scribe_Values.Look(ref minWastepacksPerRecharge, "minWastepacksPerRecharge", defaultValue: false);
-			Scribe_Values.Look(ref validatorAbilitiesPatch, "validatorAbilitiesPatch", defaultValue: true);
+			// Scribe_Values.Look(ref validatorAbilitiesPatch, "validatorAbilitiesPatch", defaultValue: true);
 			Scribe_Values.Look(ref spawnXenoForcerSerumsFromTraders, "spawnXenoForcerSerumsFromTraders", defaultValue: false);
 			// Scribe_Values.Look(ref fixGenesOnLoad, "fixGenesOnLoad", defaultValue: false);
 			// Info
@@ -209,7 +209,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.Label("WVC_BiotechSettings_Label_Other".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Other".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_fixVanillaGeneImmunityCheck".Translate().Colorize(ColorLibrary.LightPurple), ref settings.fixVanillaGeneImmunityCheck, "WVC_ToolTip_fixVanillaGeneImmunityCheck".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_minWastepacksPerRecharge".Translate(), ref settings.minWastepacksPerRecharge, "WVC_ToolTip_minWastepacksPerRecharge".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_validatorAbilitiesPatch".Translate().Colorize(ColorLibrary.LightBlue), ref settings.validatorAbilitiesPatch, "WVC_ToolTip_validatorAbilitiesPatch".Translate());
+			// listingStandard.CheckboxLabeled("WVC_Label_validatorAbilitiesPatch".Translate().Colorize(ColorLibrary.LightBlue), ref settings.validatorAbilitiesPatch, "WVC_ToolTip_validatorAbilitiesPatch".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_spawnXenoForcerSerumsFromTraders".Translate(), ref settings.spawnXenoForcerSerumsFromTraders, "WVC_ToolTip_spawnXenoForcerSerumsFromTraders".Translate());
 			listingStandard.CheckboxLabeled("DEV: ".Colorize(ColorLibrary.RedReadable) + "WVC_Label_fixGenesOnLoad".Translate().Colorize(ColorLibrary.LightPink), ref settings.fixGenesOnLoad, "WVC_ToolTip_fixGenesOnLoad".Translate() + "\n\n" + "WVC_Alert_fixBrokenShit".Translate());
 			listingStandard.CheckboxLabeled("DEV: ".Colorize(ColorLibrary.RedReadable) + "WVC_Label_fixGeneAbilitiesOnLoad".Translate().Colorize(ColorLibrary.LightPink), ref settings.fixGeneAbilitiesOnLoad, "WVC_ToolTip_fixGeneAbilitiesOnLoad".Translate() + "\n\n" + "WVC_Alert_fixBrokenShit".Translate());
@@ -251,7 +251,7 @@ namespace WVC_XenotypesAndGenes
 					// Fix
 					settings.fixVanillaGeneImmunityCheck = true;
 					settings.minWastepacksPerRecharge = false;
-					settings.validatorAbilitiesPatch = true;
+					// settings.validatorAbilitiesPatch = true;
 					settings.spawnXenoForcerSerumsFromTraders = false;
 					// Info
 					settings.enableGenesInfo = true;
@@ -302,7 +302,7 @@ namespace WVC_XenotypesAndGenes
 					// Fix
 					settings.fixVanillaGeneImmunityCheck = true;
 					settings.minWastepacksPerRecharge = false;
-					settings.validatorAbilitiesPatch = true;
+					// settings.validatorAbilitiesPatch = true;
 					settings.spawnXenoForcerSerumsFromTraders = true;
 					// Info
 					settings.enableGenesInfo = true;

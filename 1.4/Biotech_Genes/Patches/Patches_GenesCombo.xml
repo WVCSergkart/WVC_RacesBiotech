@@ -156,24 +156,23 @@
 		</caseTrue>
 	</Operation>
 
-	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
-		<settingName>validatorAbilitiesPatch</settingName>
-		<caseTrue Class="PatchOperationSequence">
-			<operations>
-				<li Class="PatchOperationAdd">
-				   <!-- or defName="AG_ParasiticStinger" or defName="AG_ParasiticStingerEndogenes" -->
-				  <xpath>/Defs/AbilityDef[defName="ReimplantXenogerm" or defName="AG_InsectStinger" or defName="AG_InsectStingerEndogenes" or defName="VRE_ReimplantGermline"]/comps</xpath>
-				  <success>Always</success>
-				  <value>
-					<li Class="WVC_XenotypesAndGenes.CompProperties_AbilityTargetValidation">
-					  <humanityCheck>true</humanityCheck>
-					  <serumsCheck>true</serumsCheck>
-					</li>
-				  </value>
-				</li>
-			</operations>
-		</caseTrue>
-	</Operation>
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
+		<!-- <settingName>validatorAbilitiesPatch</settingName> -->
+		<!-- <caseTrue Class="PatchOperationSequence"> -->
+			<!-- <operations> -->
+				<!-- <li Class="PatchOperationAdd"> -->
+				  <!-- <xpath>/Defs/AbilityDef[defName="ReimplantXenogerm" or defName="AG_InsectStinger" or defName="AG_InsectStingerEndogenes" or defName="VRE_ReimplantGermline"]/comps</xpath> -->
+				  <!-- <success>Always</success> -->
+				  <!-- <value> -->
+					<!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityTargetValidation"> -->
+					  <!-- <humanityCheck>true</humanityCheck> -->
+					  <!-- <serumsCheck>true</serumsCheck> -->
+					<!-- </li> -->
+				  <!-- </value> -->
+				<!-- </li> -->
+			<!-- </operations> -->
+		<!-- </caseTrue> -->
+	<!-- </Operation> -->
 
 	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
 		<settingName>spawnXenoForcerSerumsFromTraders</settingName>

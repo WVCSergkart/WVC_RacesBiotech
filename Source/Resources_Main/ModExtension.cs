@@ -191,6 +191,7 @@ namespace WVC_XenotypesAndGenes
 		public List<Type> shapeShift_IgnoredGeneClasses;
 		// public List<TraitDef> shapeShift_ProhibitedTraits;
 		// public List<PreceptDef> shapeShift_ProhibitedPrecepts;
+		// public List<HediffDef> hediffsRemovedByGenesRestorationSerum;
 
 		[Obsolete]
 		public List<HediffDef> blackListedHediffDefForReimplanter;

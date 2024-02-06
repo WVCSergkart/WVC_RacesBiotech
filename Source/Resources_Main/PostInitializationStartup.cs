@@ -54,9 +54,33 @@ namespace WVC_XenotypesAndGenes
 
 		public static void GolemsAndMechs()
 		{
+			// List<HediffDef> hediffsRemovedByGenesRestorationSerum = new();
+			// foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+			// {
+				// hediffsRemovedByGenesRestorationSerum.AddRange(item.hediffsRemovedByGenesRestorationSerum);
+			// }
 			foreach (ThingDef thingDef in DefDatabase<ThingDef>.AllDefsListForReading)
 			{
-				if (thingDef.race == null)
+				// if (thingDef == null)
+				// {
+					// continue;
+				// }
+				// if (thingDef.thingClass == typeof(XenotypeSerum))
+				// {
+					// if (thingDef.GetCompProperties<CompProperties_UseEffect_GeneRestoration>() == null)
+					// {
+						// continue;
+					// }
+					// if (thingDef.descriptionHyperlinks == null)
+					// {
+						// thingDef.descriptionHyperlinks = new();
+					// }
+					// foreach (HediffDef item in hediffsRemovedByGenesRestorationSerum)
+					// {
+						// thingDef.descriptionHyperlinks.Add(item);
+					// }
+				// }
+				if (thingDef?.race == null)
 				{
 					continue;
 				}

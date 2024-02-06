@@ -70,7 +70,7 @@
 	<biostatMet>-1</biostatMet>
 	<resourceLossPerDay>-0.02</resourceLossPerDay>
 	<customEffectDescriptions>
-	  <li>Occasionally removes the xenogerm replication effect from the carrier.</li>
+	  <li>Occasionally removes the xenogerm replication effects from the carrier.</li>
 	  <!-- <li>Carriers of this gene cannot use xenotype serums.</li> -->
 	  <!-- <li>Abilities "Rise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li> -->
 	  <!-- <li>Some time after receiving the gene, it creates a backup of all carrier genes.</li> -->

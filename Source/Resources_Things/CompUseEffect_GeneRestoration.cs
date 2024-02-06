@@ -24,7 +24,8 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			// Main
-			XaG_GeneUtility.XenogermRestoration(pawn);
+			// XaG_GeneUtility.XenogermRestoration(pawn);
+			HediffUtility.RemoveHediffsFromList(pawn, Props.hediffsToRemove);
 		}
 
 		public override bool CanBeUsedBy(Pawn p, out string failReason)
