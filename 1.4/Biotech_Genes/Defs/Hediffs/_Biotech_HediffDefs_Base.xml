@@ -260,4 +260,79 @@
 	</comps>
   </HediffDef>
 
+  <!--=====================================================================-->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_XenotypesAndGenes_GeneticStabilityDebuff</defName>
+	<label>genetic damage</label>
+	<description>Due to the removal of the stability gene, the carrier's immune system was damaged. It will take some time to recover.</description>
+	<hediffClass>HediffWithComps</hediffClass>
+	<stages>
+	  <li>
+		<!-- <becomeVisible>false</becomeVisible> -->
+		<becomeVisible>true</becomeVisible>
+		<minSeverity>0.0</minSeverity>
+		<statFactors>
+		  <ImmunityGainSpeed>0.80</ImmunityGainSpeed>
+		  <InjuryHealingFactor>0.80</InjuryHealingFactor>
+		</statFactors>
+	  </li>
+	</stages>
+	<comps>
+		<li Class="HediffCompProperties_Disappears">
+			<disappearsAfterTicks>0~1234000</disappearsAfterTicks>
+			<showRemainingTime>true</showRemainingTime>
+		</li>
+		<li Class="HediffCompProperties_DisappearsOnDeath"/>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIf">
+			<anyOf_GeneDef>
+				<li>WVC_GeneticStability</li>
+				<li>WVC_ResurgentCells_GeneticStability</li>
+				<li>WVC_Dustogenic_GeneticStability</li>
+				<li>WVC_Scarifier_GeneticStability</li>
+				<!-- Shapeshifter -->
+				<!-- <li>WVC_Shapeshifter</li> -->
+				<!-- <li>WVC_Shapeshifter_Rand</li> -->
+			</anyOf_GeneDef>
+		</li>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_XenotypesAndGenes_GeneticInStabilityBuff</defName>
+	<label>genetic boost</label>
+	<description>Due to the removal of the instability gene, the carrier's genes received a boost to regrowing. The host will recover very quickly from effects such as xenogermination coma.</description>
+	<hediffClass>HediffWithComps</hediffClass>
+	<stages>
+	  <li>
+		<!-- <becomeVisible>false</becomeVisible> -->
+	  </li>
+	</stages>
+	<comps>
+		<li Class="HediffCompProperties_Disappears">
+			<disappearsAfterTicks>0~1234000</disappearsAfterTicks>
+			<showRemainingTime>true</showRemainingTime>
+		</li>
+		<li Class="HediffCompProperties_DisappearsOnDeath"/>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIf">
+			<anyOf_GeneDef>
+				<li>WVC_MildGeneticInstability</li>
+				<li>WVC_MajorGeneticInstability</li>
+				<li>WVC_ExtremeGeneticInstability</li>
+				<!-- Shapeshifter -->
+				<!-- <li>WVC_Shapeshifter</li> -->
+				<!-- <li>WVC_Shapeshifter_Rand</li> -->
+			</anyOf_GeneDef>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveHediffFromList">
+			<refreshTicks>22000</refreshTicks>
+			<hediffs>
+				<!-- <li>XenogermReplicating</li> -->
+				<li>XenogerminationComa</li>
+				<li>XenogermLossShock</li>
+			</hediffs>
+		</li>
+	</comps>
+  </HediffDef>
+
 </Defs>

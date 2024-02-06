@@ -24,7 +24,6 @@ namespace WVC_XenotypesAndGenes
 				pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));
 				return;
 			}
-			bool perfectCandidate = SerumUtility.HasCandidateGene(pawn);
 			List<string> blackListedXenotypes = XenotypeFilterUtility.BlackListedXenotypesForSerums(false);
 			switch (Props.xenotypeForcerType)
 			{
@@ -41,10 +40,7 @@ namespace WVC_XenotypesAndGenes
 					SerumUtility.CustomHybridXenotypeSerum(pawn, blackListedXenotypes);
 					break;
 			}
-			if (!perfectCandidate)
-			{
-				pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
-			}
+			pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
 			GeneUtility.UpdateXenogermReplication(pawn);
 			if (PawnUtility.ShouldSendNotificationAbout(pawn))
 			{
@@ -57,7 +53,7 @@ namespace WVC_XenotypesAndGenes
 		public override bool CanBeUsedBy(Pawn p, out string failReason)
 		{
 			failReason = null;
-			if (!SerumUtility.PawnCanUseSerums(p))
+			if (!SerumUtility.PawnIsHuman(p))
 			{
 				failReason = "WVC_PawnIsAndroidCheck".Translate();
 				return false;
@@ -110,7 +106,7 @@ namespace WVC_XenotypesAndGenes
 		public override bool CanBeUsedBy(Pawn p, out string failReason)
 		{
 			failReason = null;
-			if (!SerumUtility.PawnCanUseSerums(p))
+			if (!SerumUtility.PawnIsHuman(p))
 			{
 				failReason = "WVC_PawnIsAndroidCheck".Translate();
 				return false;

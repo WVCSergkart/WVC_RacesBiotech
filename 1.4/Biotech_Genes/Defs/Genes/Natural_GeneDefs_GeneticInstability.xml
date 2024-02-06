@@ -6,6 +6,7 @@
 	<!-- <labelShortAdj>blindness</labelShortAdj> -->
 	<description>Carriers of this gene have a serious genetic instability. It affects health, fertility and metabolic efficiency.</description>
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_PermanentHediff</geneClass> -->
+	<geneClass>WVC_XenotypesAndGenes.Gene_GeneticInstability</geneClass>
 	<selectionWeight>0.00012</selectionWeight>
 	<!-- <displayCategory>Ability</displayCategory> -->
 	<!-- <displayCategory>Archite</displayCategory> -->
@@ -37,6 +38,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneticInstability_Base" Name="WVC_XenotypesAndGenes_GeneGeneticInstability_Stability" Abstract="True">
 	<iconPath>WVC/UI/Genes/Gene_Inbred3_v0</iconPath>
 	<description>Carriers of this gene have a remarkably stable genetic code. In this connection, some methods of gene manipulation do not work on them.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_GeneticStability</geneClass>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>2</biostatMet>

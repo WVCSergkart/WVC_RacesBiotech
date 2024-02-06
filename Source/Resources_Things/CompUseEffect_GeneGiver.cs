@@ -91,7 +91,7 @@ namespace WVC_XenotypesAndGenes
 				failReason = "WVC_XaG_GeneGiverPawnHasGene_Label".Translate(p.Name.ToString());
 				return false;
 			}
-			if (!SerumUtility.PawnCanUseSerums(p))
+			if (!SerumUtility.PawnIsHuman(p))
 			{
 				failReason = "WVC_PawnIsAndroidCheck".Translate();
 				return false;

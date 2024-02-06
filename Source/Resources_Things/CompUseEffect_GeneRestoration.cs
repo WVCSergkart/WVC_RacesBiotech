@@ -24,18 +24,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			// Main
-			if (pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
-			{
-				pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));
-			}
-			if (pawn.health.hediffSet.HasHediff(HediffDefOf.XenogerminationComa))
-			{
-				pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogerminationComa));
-			}
-			if (pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermLossShock))
-			{
-				pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermLossShock));
-			}
+			XaG_GeneUtility.XenogermRestoration(pawn);
 		}
 
 		public override bool CanBeUsedBy(Pawn p, out string failReason)

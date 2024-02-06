@@ -7,6 +7,7 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_Telepathy</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_Telepathy_v0</iconPath>
 	<selectionWeight>0.0012</selectionWeight>
+	<minAgeActive>3</minAgeActive>
 	<displayCategory>Psychic</displayCategory>
 	<displayOrderInCategory>355</displayOrderInCategory>
 	<biostatCpx>0</biostatCpx>

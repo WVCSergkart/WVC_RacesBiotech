@@ -65,8 +65,11 @@
 	<WVC_XaG_NewBack_GeneIsScarifier>Current max scars</WVC_XaG_NewBack_GeneIsScarifier>
 	<WVC_XaG_NewBack_GeneIsScarifier_SubGenesIncrease>Increases scars limit by {0}</WVC_XaG_NewBack_GeneIsScarifier_SubGenesIncrease>
 	<WVC_XaG_NewBack_GeneIsScarifier_SubGenesDecrease>Decreases scars limit by {0}</WVC_XaG_NewBack_GeneIsScarifier_SubGenesDecrease>
-	<WVC_XaG_NewBack_GeneIsNonCandidatesForSerum>Some gene re-implanters will not work for carriers of this gene.</WVC_XaG_NewBack_GeneIsNonCandidatesForSerum>
-	<WVC_XaG_NewBack_GeneIsPerfectCandidatesForSerum>Carriers of this gene do not lose consciousness after using xenotype sera.</WVC_XaG_NewBack_GeneIsPerfectCandidatesForSerum>
+	<!-- <WVC_XaG_NewBack_GeneIsNonCandidatesForSerum>Some gene re-implanters will not work for carriers of this gene.</WVC_XaG_NewBack_GeneIsNonCandidatesForSerum> -->
+	<WVC_XaG_NewBack_GeneIsAngelicStability>Removing this gene is guaranteed to kill the carrier.</WVC_XaG_NewBack_GeneIsAngelicStability>
+	<WVC_XaG_NewBack_GeneIsGeneticStability>Removing this gene causes temporary damage to the host's immune system.</WVC_XaG_NewBack_GeneIsGeneticStability>
+	<WVC_XaG_NewBack_GeneIsGeneticInStability>Removing this gene will temporarily speed up gene regrowing.</WVC_XaG_NewBack_GeneIsGeneticInStability>
+	<!-- <WVC_XaG_NewBack_GeneIsPerfectCandidatesForSerum>Carriers of this gene do not lose consciousness after using xenotype serums.</WVC_XaG_NewBack_GeneIsPerfectCandidatesForSerum> -->
 	<!-- <WVC_XaG_NewBack_GeneIsNotActive_Undead_WrongFaction>The pawn does not belong to the player's faction.</WVC_XaG_NewBack_GeneIsNotActive_Undead_WrongFaction> -->
 	<!-- <WVC_XaG_NewBack_GeneIsNotActive_Undead_TooYoung>The age of the pawn does not meet the requirements.</WVC_XaG_NewBack_GeneIsNotActive_Undead_TooYoung> -->
 	<!-- <WVC_XaG_NewBack_GeneIsNotActive_Undead_NotEnoughCells>There are not enough resurgent cells.</WVC_XaG_NewBack_GeneIsNotActive_Undead_NotEnoughCells> -->

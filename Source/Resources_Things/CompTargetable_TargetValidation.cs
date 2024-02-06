@@ -26,7 +26,7 @@ namespace WVC_XenotypesAndGenes
                 canTargetPawns = true,
                 canTargetItems = false,
                 canTargetBuildings = false,
-                validator = (TargetInfo x) => BaseTargetValidator(x.Thing) && x.Thing is Pawn pawn && SerumUtility.PawnCanUseSerums(pawn)
+                validator = (TargetInfo x) => BaseTargetValidator(x.Thing) && x.Thing is Pawn pawn && SerumUtility.PawnIsHuman(pawn)
             };
         }
 

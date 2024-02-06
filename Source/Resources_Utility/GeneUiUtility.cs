@@ -41,7 +41,7 @@ namespace WVC_XenotypesAndGenes
 		public static string AdditionalInfo_GeneDef(GeneDef def)
 		{
 			string text = "";
-			if (def.graphicData != null && def.graphicData.fur != null)
+			if (def?.graphicData?.fur != null)
 			{
 				text += "\n\n" + "WVC_XaG_NewBack_GeneIsFurskin".Translate().Colorize(ColoredText.TipSectionTitleColor);
 				if (!def.forcedHeadTypes.NullOrEmpty())
@@ -51,13 +51,17 @@ namespace WVC_XenotypesAndGenes
 				// text += ".".Colorize(ColoredText.TipSectionTitleColor);
 				text += "\n\n" + "WVC_XaG_NewBack_GeneIsFurskin_CanBeDisabled".Translate().Colorize(ColoredText.SubtleGrayColor);
 			}
-			if (ReimplanterUtility.GenesNonCandidatesForSerums().Contains(def))
+			if (def.geneClass == typeof(Gene_AngelicStability))
 			{
-				text += "\n\n" + "WVC_XaG_NewBack_GeneIsNonCandidatesForSerum".Translate().Colorize(ColoredText.SubtleGrayColor);
+				text += "\n\n" + "WVC_XaG_NewBack_GeneIsAngelicStability".Translate().Colorize(ColoredText.SubtleGrayColor);
 			}
-			else if (ReimplanterUtility.GenesPerfectCandidatesForSerums().Contains(def))
+			else if (def.geneClass == typeof(Gene_GeneticStability) || def.geneClass == typeof(Gene_ResurgentStability))
 			{
-				text += "\n\n" + "WVC_XaG_NewBack_GeneIsPerfectCandidatesForSerum".Translate().Colorize(ColoredText.SubtleGrayColor);
+				text += "\n\n" + "WVC_XaG_NewBack_GeneIsGeneticStability".Translate().Colorize(ColoredText.SubtleGrayColor);
+			}
+			else if (def.geneClass == typeof(Gene_GeneticInstability))
+			{
+				text += "\n\n" + "WVC_XaG_NewBack_GeneIsGeneticInStability".Translate().Colorize(ColoredText.SubtleGrayColor);
 			}
 			//if (SubXenotypeUtility.GeneIsRandom(def))
 			//{
@@ -71,7 +75,7 @@ namespace WVC_XenotypesAndGenes
 				//}
 				//text += "\n\n" + "WVC_XaG_NewBack_GeneIsRandom".Translate().Colorize(ColoredText.SubtleGrayColor);
 			//}
-			if (def.selectionWeight == 0 && !def.canGenerateInGeneSet)
+			if (def.selectionWeight == 0 || !def.canGenerateInGeneSet)
 			{
 				text += "\n\n" + "WVC_XaG_NewBack_GeneCannotSpawnInGenepacks".Translate().Colorize(ColoredText.SubtleGrayColor);
 			}

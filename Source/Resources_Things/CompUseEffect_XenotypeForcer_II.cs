@@ -85,13 +85,13 @@ namespace WVC_XenotypesAndGenes
 				Log.Error("Xenotype is still null. Do not report this to the developer, you yourself created this creepy world filled with bugs. To fix the situation, reset the filter in the " + "WVC_BiotechSettings".Translate() + " mod settings and restart the game.");
 				// The following code will try a few more times to try to assign the xenotype, and if it doesn't work, it will spam everything with errors.
 			}
-			bool perfectCandidate = SerumUtility.HasCandidateGene(pawn);
+			//bool perfectCandidate = SerumUtility.HasCandidateGene(pawn);
 			List<string> blackListedXenotypes = XenotypeFilterUtility.BlackListedXenotypesForSerums(false);
 			SerumUtility.XenotypeSerum(pawn, blackListedXenotypes, xenotype, Props.removeEndogenes, Props.removeXenogenes);
-			if (!perfectCandidate)
-			{
-				pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
-			}
+			//if (!perfectCandidate)
+			//{
+			//}
+			pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
 			GeneUtility.UpdateXenogermReplication(pawn);
 			if (PawnUtility.ShouldSendNotificationAbout(pawn))
 			{
@@ -162,7 +162,7 @@ namespace WVC_XenotypesAndGenes
 				failReason = "WVC_XaG_SuremRetuneShouldBeTunedWarn_Label".Translate();
 				return false;
 			}
-			if (!SerumUtility.PawnCanUseSerums(p))
+			if (!SerumUtility.PawnIsHuman(p))
 			{
 				failReason = "WVC_PawnIsAndroidCheck".Translate();
 				return false;

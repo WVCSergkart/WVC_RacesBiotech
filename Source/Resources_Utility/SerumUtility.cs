@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -26,7 +27,7 @@ namespace WVC_XenotypesAndGenes
 		// For example, GeneRestoration uses exactly this
 		public static bool PawnIsHuman(Pawn pawn)
 		{
-			if (XaG_GeneUtility.PawnIsAndroid(pawn) || !pawn.RaceProps.Humanlike)
+			if (pawn?.RaceProps?.Humanlike != true || XaG_GeneUtility.PawnIsAndroid(pawn))
 			{
 				return false;
 			}
@@ -34,20 +35,17 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// Checking whether serums can be used. Mainly for abilities.
+		[Obsolete]
 		public static bool PawnCanUseSerums(Pawn pawn)
 		{
-			if (!PawnIsHuman(pawn) || XaG_GeneUtility.PawnCannotUseSerums(pawn) || ReimplanterUtility.DelayedReimplanterIsActive(pawn))
-			{
-				return false;
-			}
-			return true;
+			return PawnIsHuman(pawn);
 		}
 
 		// HumanityCheck is serums use only
 		// I already forgot why it is separate
 		public static bool HumanityCheck(Pawn pawn)
 		{
-			if (!PawnCanUseSerums(pawn))
+			if (!PawnIsHuman(pawn))
 			{
 				pawn.health.AddHediff(WVC_GenesDefOf.WVC_IncompatibilityComa);
 				Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
@@ -56,6 +54,7 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		[Obsolete]
 		public static bool HasCandidateGene(Pawn pawn)
 		{
 			if (pawn?.genes == null)

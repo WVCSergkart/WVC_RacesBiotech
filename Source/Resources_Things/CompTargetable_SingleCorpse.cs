@@ -17,7 +17,7 @@ namespace WVC_XenotypesAndGenes
                 canTargetBuildings = false,
                 canTargetItems = true,
                 mapObjectTargetsMustBeAutoAttackable = false,
-                validator = (TargetInfo x) => x.Thing is Corpse corpse && BaseTargetValidator(x.Thing) && SerumUtility.PawnCanUseSerums(corpse.InnerPawn)
+                validator = (TargetInfo x) => x.Thing is Corpse corpse && BaseTargetValidator(x.Thing) && SerumUtility.PawnIsHuman(corpse.InnerPawn)
             };
         }
 

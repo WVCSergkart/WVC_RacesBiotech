@@ -46,6 +46,8 @@ namespace WVC_XenotypesAndGenes
 		public static ThingDef WVC_XenotypeSerumUltraCapsule;
 		// Special Hediffs
 		public static HediffDef WVC_IncompatibilityComa;
+		public static HediffDef WVC_XenotypesAndGenes_GeneticStabilityDebuff;
+		public static HediffDef WVC_XenotypesAndGenes_GeneticInStabilityBuff;
 		public static HediffDef WVC_SelfPopulationRegulation_Golems;
 		public static HediffDef WVC_SelfPopulationRegulation_BoneGolems;
 		public static HediffDef WVC_Resurgent_UndeadResurrectionRecovery;

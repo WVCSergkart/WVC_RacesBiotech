@@ -75,7 +75,7 @@ namespace WVC_XenotypesAndGenes
 				failReason = "WVC_XaG_SuremRetuneShouldBeTunedWarn_Label".Translate();
 				return false;
 			}
-			if (!SerumUtility.PawnCanUseSerums(p))
+			if (!SerumUtility.PawnIsHuman(p))
 			{
 				failReason = "WVC_PawnIsAndroidCheck".Translate();
 				return false;
@@ -105,12 +105,8 @@ namespace WVC_XenotypesAndGenes
 				Log.Error("Xeno/endotype is still null. Do not report this to the developer, you yourself created this creepy world filled with bugs. To fix the situation, reset the filter in the " + "WVC_BiotechSettings".Translate() + " mod settings and restart the game.");
 				return;
 			}
-			bool perfectCandidate = SerumUtility.HasCandidateGene(pawn);
 			SerumUtility.DoubleXenotypeSerum(pawn, endotype, xenotype);
-			if (!perfectCandidate)
-			{
-				pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
-			}
+			pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
 			GeneUtility.UpdateXenogermReplication(pawn);
 			if (PawnUtility.ShouldSendNotificationAbout(pawn))
 			{

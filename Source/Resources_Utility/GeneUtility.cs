@@ -9,6 +9,26 @@ namespace WVC_XenotypesAndGenes
     public static class XaG_GeneUtility
 	{
 
+		// Gene Restoration
+
+		public static void XenogermRestoration(Pawn pawn)
+		{
+			if (pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
+			{
+				pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));
+			}
+			if (pawn.health.hediffSet.HasHediff(HediffDefOf.XenogerminationComa))
+			{
+				pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogerminationComa));
+			}
+			if (pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermLossShock))
+			{
+				pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermLossShock));
+			}
+		}
+
+		// Misc
+
 		public static List<GeneDef> ConvertGenesInGeneDefs(List<Gene> genes)
 		{
 			List<GeneDef> geneDefs = new();
@@ -68,9 +88,14 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		[Obsolete]
 		public static bool PawnCannotUseSerums(Pawn pawn)
 		{
-			if (pawn?.RaceProps?.Humanlike == false)
+			// if (pawn?.RaceProps?.Humanlike == false)
+			// {
+				// return true;
+			// }
+			if (pawn?.genes == null)
 			{
 				return true;
 			}
@@ -82,10 +107,6 @@ namespace WVC_XenotypesAndGenes
 			if (blackListedThings.Contains(pawn.def))
 			{
 				return true;
-			}
-			if (pawn?.genes == null)
-			{
-				return false;
 			}
 			List<GeneDef> nonCandidates = ReimplanterUtility.GenesNonCandidatesForSerums();
 			// foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)

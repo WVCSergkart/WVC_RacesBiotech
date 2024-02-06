@@ -177,12 +177,8 @@ namespace WVC_XenotypesAndGenes
 		// public List<XenotypeDef> blackListedXenotypesForHybridSerums;
 		public List<XenotypeDef> whiteListedXenotypesForResurrectorSerums;
 		public List<string> whiteListedXenotypesForFilter;
-		public List<ThingDef> blackListedDefsForSerums;
-		public List<GeneDef> perfectCandidatesForSerums;
-		public List<GeneDef> nonCandidatesForSerums;
 		// public List<GeneDef> whiteListedExoskinGenes;
 		public List<BackstoryDef> blackListedBackstoryForChanger;
-		public List<HediffDef> blackListedHediffDefForReimplanter;
 		public List<HediffDef> hediffsThatPreventUndeadResurrection;
 		// public List<ThingDef> listedGolems;
 		// public List<GeneDef> gene_IsNotAcceptablePrey;
@@ -194,5 +190,14 @@ namespace WVC_XenotypesAndGenes
 		public List<Type> shapeShift_IgnoredGeneClasses;
 		// public List<TraitDef> shapeShift_ProhibitedTraits;
 		// public List<PreceptDef> shapeShift_ProhibitedPrecepts;
+
+		[Obsolete]
+		public List<HediffDef> blackListedHediffDefForReimplanter;
+		[Obsolete]
+		public List<ThingDef> blackListedDefsForSerums;
+		[Obsolete]
+		public List<GeneDef> perfectCandidatesForSerums;
+		[Obsolete]
+		public List<GeneDef> nonCandidatesForSerums;
 	}
 }

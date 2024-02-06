@@ -125,10 +125,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				gene.pawn.genes.AddGene(gene.def, false);
 			}
-			if (!SerumUtility.HasCandidateGene(gene.pawn))
-			{
-				gene.pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
-			}
+			gene.pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
 			GeneUtility.UpdateXenogermReplication(gene.pawn);
 			if (!soundDefOnImplant.NullOrUndefined())
 			{

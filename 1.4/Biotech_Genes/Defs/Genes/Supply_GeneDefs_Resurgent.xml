@@ -61,7 +61,7 @@
 	<description>Carriers of this gene have special resurgent cells that protect their genetic code from most influences.</description>
 	<!-- <resourceLabel>resurgent cells</resourceLabel> -->
 	<resourceLabel>cells</resourceLabel>
-	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentCellsGain</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentStability</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_ResurgentGeneticStability_v0</iconPath>
 	<iconColor>(93, 101, 126)</iconColor>
 	<displayOrderInCategory>1231</displayOrderInCategory>
