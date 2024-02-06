@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -6,6 +7,39 @@ namespace WVC_XenotypesAndGenes
 
     public static class HediffUtility
 	{
+
+		public static void AddHediffsFromList(Pawn pawn, List<HediffDef> hediffDefs)
+		{
+			if (hediffDefs.NullOrEmpty() || pawn?.health?.hediffSet == null)
+			{
+				return;
+			}
+			foreach (HediffDef item in hediffDefs.ToList())
+			{
+				if (pawn.health.hediffSet.HasHediff(item))
+				{
+					continue;
+				}
+				pawn.health.AddHediff(item);
+			}
+		}
+
+		public static void RemoveHediffsFromList(Pawn pawn, List<HediffDef> hediffDefs)
+		{
+			List<Hediff> hediffs = pawn?.health?.hediffSet?.hediffs;
+			if (hediffs.NullOrEmpty() || hediffDefs.NullOrEmpty())
+			{
+				return;
+			}
+			foreach (Hediff item in hediffs.ToList())
+			{
+				if (!hediffDefs.Contains(item.def))
+				{
+					continue;
+				}
+				pawn.health.RemoveHediff(item);
+			}
+		}
 
 		public static Hediff GetFirstHediffPreventsPregnancy(List<Hediff> hediffs)
 		{

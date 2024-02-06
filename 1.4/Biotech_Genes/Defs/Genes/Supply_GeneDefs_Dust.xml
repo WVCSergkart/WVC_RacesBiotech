@@ -419,6 +419,7 @@
 	<biostatMet>6</biostatMet>
 	<!-- <resourceLabel></resourceLabel> -->
 	<customEffectDescriptions>
+	  <li>Occasionally removes the xenogerm replication effect from the carrier.</li>
 	  <!-- <li>Carriers of this gene cannot use xenotype serums.</li> -->
 	  <!-- <li>Abilities "Rise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li> -->
 	  <li>If this gene is removed, the carrier will die.</li>
@@ -435,6 +436,12 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_Dustogenic_KillAfterTime</hediffDefName>
+			<intervalRange>222000~440000</intervalRange>
+			<hediffDefs>
+				<li>XenogermReplicating</li>
+				<li>XenogerminationComa</li>
+				<li>XenogermLossShock</li>
+			</hediffDefs>
 		</li>
 	</modExtensions>
   </GeneDef>

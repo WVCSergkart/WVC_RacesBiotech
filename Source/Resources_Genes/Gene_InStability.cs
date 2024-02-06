@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -6,24 +8,49 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_AngelicStability : Gene_DustDrain
 	{
 
-		public HediffDef HediffDefName => def.GetModExtension<GeneExtension_Giver>().hediffDefName;
+		public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
+
+		public int nextTick = 60000;
 
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			if (pawn.health.hediffSet.HasHediff(HediffDefName))
+			if (pawn.health.hediffSet.HasHediff(Props.hediffDefName))
 			{
-				Gene_AddOrRemoveHediff.RemoveHediff(HediffDefName, pawn);
+				Gene_AddOrRemoveHediff.RemoveHediff(Props.hediffDefName, pawn);
 			}
+			ResetInterval();
+		}
+
+		public override void Tick()
+		{
+			base.Tick();
+			if (!pawn.IsHashIntervalTick(nextTick))
+			{
+				return;
+			}
+			HediffUtility.RemoveHediffsFromList(pawn, Props.hediffDefs);
+			ResetInterval();
+		}
+
+		private void ResetInterval()
+		{
+			nextTick = Props.intervalRange.RandomInRange;
 		}
 
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			if (!pawn.health.hediffSet.HasHediff(HediffDefName))
+			if (!pawn.health.hediffSet.HasHediff(Props.hediffDefName))
 			{
-				pawn.health.AddHediff(HediffDefName);
+				pawn.health.AddHediff(Props.hediffDefName);
 			}
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref nextTick, "nextGenesRegrowUpdate", 60000);
 		}
 
 	}
@@ -31,22 +58,54 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_ResurgentStability : Gene_ResurgentCellsGain
 	{
 
+		public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
+
+		public int nextTick = 60000;
+
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			if (pawn.health.hediffSet.HasHediff(WVC_GenesDefOf.WVC_XenotypesAndGenes_GeneticStabilityDebuff))
-			{
-				Gene_AddOrRemoveHediff.RemoveHediff(WVC_GenesDefOf.WVC_XenotypesAndGenes_GeneticStabilityDebuff, pawn);
-			}
+			ResetInterval();
 		}
 
-		public override void PostRemove()
+		public override void Tick()
 		{
-			base.PostRemove();
-			if (!pawn.health.hediffSet.HasHediff(WVC_GenesDefOf.WVC_XenotypesAndGenes_GeneticStabilityDebuff))
+			base.Tick();
+			if (!pawn.IsHashIntervalTick(nextTick))
 			{
-				pawn.health.AddHediff(WVC_GenesDefOf.WVC_XenotypesAndGenes_GeneticStabilityDebuff);
+				return;
 			}
+			HediffUtility.RemoveHediffsFromList(pawn, Props.hediffDefs);
+			ResetInterval();
+		}
+
+		private void ResetInterval()
+		{
+			nextTick = Props.intervalRange.RandomInRange;
+		}
+
+		// public override void PostAdd()
+		// {
+			// base.PostAdd();
+			// if (pawn.health.hediffSet.HasHediff(WVC_GenesDefOf.WVC_XenotypesAndGenes_GeneticStabilityDebuff))
+			// {
+				// Gene_AddOrRemoveHediff.RemoveHediff(WVC_GenesDefOf.WVC_XenotypesAndGenes_GeneticStabilityDebuff, pawn);
+			// }
+		// }
+
+		// public override void PostRemove()
+		// {
+			// base.PostRemove();
+			// if (!pawn.health.hediffSet.HasHediff(WVC_GenesDefOf.WVC_XenotypesAndGenes_GeneticStabilityDebuff))
+			// {
+				// pawn.health.AddHediff(WVC_GenesDefOf.WVC_XenotypesAndGenes_GeneticStabilityDebuff);
+			// }
+		// }
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref nextTick, "nextGenesRegrowUpdate", 60000);
 		}
 
 	}
@@ -54,62 +113,73 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_GeneticStability : Gene
 	{
 
+		public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
+
+		public int nextTick = 60000;
+
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			if (pawn.health.hediffSet.HasHediff(WVC_GenesDefOf.WVC_XenotypesAndGenes_GeneticStabilityDebuff))
-			{
-				Gene_AddOrRemoveHediff.RemoveHediff(WVC_GenesDefOf.WVC_XenotypesAndGenes_GeneticStabilityDebuff, pawn);
-			}
+			ResetInterval();
 		}
 
-		public override void PostRemove()
+		public override void Tick()
 		{
-			base.PostRemove();
-			// if (CheckShapeshift(pawn))
-			// {
-				// pawn.health.AddHediff(WVC_GenesDefOf.WVC_XenotypesAndGenes_GeneticStabilityDebuff);
-			// }
-			if (!pawn.health.hediffSet.HasHediff(WVC_GenesDefOf.WVC_XenotypesAndGenes_GeneticStabilityDebuff))
+			base.Tick();
+			if (!pawn.IsHashIntervalTick(nextTick))
 			{
-				pawn.health.AddHediff(WVC_GenesDefOf.WVC_XenotypesAndGenes_GeneticStabilityDebuff);
+				return;
 			}
+			HediffUtility.RemoveHediffsFromList(pawn, Props.hediffDefs);
+			ResetInterval();
 		}
 
-		// public static bool CheckShapeshift(Pawn pawn)
-		// {
-			// List<Gene> genesListForReading = pawn?.genes?.GenesListForReading;
-			// for (int i = 0; i < genesListForReading.Count; i++)
-			// {
-				// if (GetAllShapeShiftGeneClasses().Contains(gene.def.geneClass))
-				// {
-					// return true;
-				// }
-			// }
-			// return false;
-		// }
+		private void ResetInterval()
+		{
+			nextTick = Props.intervalRange.RandomInRange;
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref nextTick, "nextGenesRegrowUpdate", 60000);
+		}
 
 	}
 
 	public class Gene_GeneticInstability : Gene
 	{
 
+		public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
+
+		public int nextTick = 60000;
+
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			if (pawn.health.hediffSet.HasHediff(WVC_GenesDefOf.WVC_XenotypesAndGenes_GeneticInStabilityBuff))
-			{
-				Gene_AddOrRemoveHediff.RemoveHediff(WVC_GenesDefOf.WVC_XenotypesAndGenes_GeneticInStabilityBuff, pawn);
-			}
+			ResetInterval();
 		}
 
-		public override void PostRemove()
+		public override void Tick()
 		{
-			base.PostRemove();
-			if (!pawn.health.hediffSet.HasHediff(WVC_GenesDefOf.WVC_XenotypesAndGenes_GeneticInStabilityBuff))
+			base.Tick();
+			if (!pawn.IsHashIntervalTick(nextTick))
 			{
-				pawn.health.AddHediff(WVC_GenesDefOf.WVC_XenotypesAndGenes_GeneticInStabilityBuff);
+				return;
 			}
+			HediffUtility.AddHediffsFromList(pawn, Props.hediffDefs);
+			ResetInterval();
+		}
+
+		private void ResetInterval()
+		{
+			nextTick = Props.intervalRange.RandomInRange;
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref nextTick, "nextGenesRegrowUpdate", 60000);
 		}
 
 	}

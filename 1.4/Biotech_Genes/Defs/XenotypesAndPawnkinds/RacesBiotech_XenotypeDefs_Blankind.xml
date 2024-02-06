@@ -6,7 +6,9 @@
 	<defName>WVC_Blank</defName>
 	<label>blankind</label>
 	<!-- Experiments, garbage, template, by-product. -->
-	<description>Created for the purpose of experimentation, Blankinds are nothing more than a template from which something more can turn out. They are weak, incredibly stupid, and their immunity is practically unable to cope with any disease. However, they do not age and very quickly become adults.</description>
+	<description>Created for the purpose of experimentation, Blankinds are nothing more than a template from which something more can turn out. They are weak, incredibly stupid, and their immunity is practically unable to cope with any disease. However, they do not age and very quickly become adults.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Genes):&lt;/color&gt; Pawns with this xenotype &lt;color=#8a8ae6&gt;fall unconscious&lt;/color&gt; from time to time.</description>
 	<descriptionShort>Created for the purpose of experimentation, Blankinds are nothing more than a template from which something more can turn out. They are weak, incredibly stupid, and their immunity is practically unable to cope with any disease. However, they do not age and very quickly become adults.</descriptionShort>
 	<iconPath>WVC/UI/Xeno2Icons/Xeno10</iconPath>
 	<genes>

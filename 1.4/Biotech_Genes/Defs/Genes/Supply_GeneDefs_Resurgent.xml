@@ -69,16 +69,27 @@
 	<biostatArc>0</biostatArc>
 	<biostatMet>-1</biostatMet>
 	<resourceLossPerDay>-0.02</resourceLossPerDay>
-	<!-- <customEffectDescriptions> -->
+	<customEffectDescriptions>
+	  <li>Occasionally removes the xenogerm replication effect from the carrier.</li>
 	  <!-- <li>Carriers of this gene cannot use xenotype serums.</li> -->
 	  <!-- <li>Abilities "Rise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li> -->
 	  <!-- <li>Some time after receiving the gene, it creates a backup of all carrier genes.</li> -->
 	  <!-- <li>When you try to change the genes of the carrier, the gene removes all genes and restores the backup.</li> -->
 	 <!-- <li> Also, the gene checks the backup every few days and removes the wrong genes.</li> -->
-	<!-- </customEffectDescriptions> -->
+	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>WVC_GeneticInstabilityGenes</li>
 	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<intervalRange>222000~440000</intervalRange>
+			<hediffDefs>
+				<li>XenogermReplicating</li>
+				<li>XenogerminationComa</li>
+				<li>XenogermLossShock</li>
+			</hediffDefs>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells">

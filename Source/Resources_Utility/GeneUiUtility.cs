@@ -51,18 +51,18 @@ namespace WVC_XenotypesAndGenes
 				// text += ".".Colorize(ColoredText.TipSectionTitleColor);
 				text += "\n\n" + "WVC_XaG_NewBack_GeneIsFurskin_CanBeDisabled".Translate().Colorize(ColoredText.SubtleGrayColor);
 			}
-			if (def.geneClass == typeof(Gene_AngelicStability))
-			{
-				text += "\n\n" + "WVC_XaG_NewBack_GeneIsAngelicStability".Translate().Colorize(ColoredText.SubtleGrayColor);
-			}
-			else if (def.geneClass == typeof(Gene_GeneticStability) || def.geneClass == typeof(Gene_ResurgentStability))
-			{
-				text += "\n\n" + "WVC_XaG_NewBack_GeneIsGeneticStability".Translate().Colorize(ColoredText.SubtleGrayColor);
-			}
-			else if (def.geneClass == typeof(Gene_GeneticInstability))
-			{
-				text += "\n\n" + "WVC_XaG_NewBack_GeneIsGeneticInStability".Translate().Colorize(ColoredText.SubtleGrayColor);
-			}
+			// if (def.geneClass == typeof(Gene_AngelicStability))
+			// {
+				// text += "\n\n" + "WVC_XaG_NewBack_GeneIsAngelicStability".Translate().Colorize(ColoredText.SubtleGrayColor);
+			// }
+			// else if (def.geneClass == typeof(Gene_GeneticStability) || def.geneClass == typeof(Gene_ResurgentStability))
+			// {
+				// text += "\n\n" + "WVC_XaG_NewBack_GeneIsGeneticStability".Translate().Colorize(ColoredText.SubtleGrayColor);
+			// }
+			// else if (def.geneClass == typeof(Gene_GeneticInstability))
+			// {
+				// text += "\n\n" + "WVC_XaG_NewBack_GeneIsGeneticInStability".Translate().Colorize(ColoredText.SubtleGrayColor);
+			// }
 			//if (SubXenotypeUtility.GeneIsRandom(def))
 			//{
 				//if (!SubXenotypeUtility.GeneIsShuffle(def))
