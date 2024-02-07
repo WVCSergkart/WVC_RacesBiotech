@@ -196,20 +196,28 @@ namespace WVC_XenotypesAndGenes
 
 			public static void SpecialGeneGraphic(PawnGraphicSet __instance)
 			{
-				foreach (Gene item in __instance.pawn.genes.GenesListForReading)
+				// foreach (Gene item in __instance.pawn.genes.GenesListForReading)
+				// {
+					// if (!item.Active || item is not Gene_Faceless faceless || faceless.drawGraphic)
+					// {
+						// continue;
+					// }
+					// foreach (GeneGraphicRecord graphicRecord in __instance.geneGraphics.ToList())
+					// {
+						// if (graphicRecord.sourceGene != item)
+						// {
+							// continue;
+						// }
+						// __instance.geneGraphics.Remove(graphicRecord);
+					// }
+				// }
+				foreach (GeneGraphicRecord graphicRecord in __instance.geneGraphics.ToList())
 				{
-					if (!item.Active || item is not Gene_Faceless faceless || faceless.drawGraphic)
+					if (graphicRecord.sourceGene is not Gene_Faceless faceless || faceless.drawGraphic)
 					{
 						continue;
 					}
-					foreach (GeneGraphicRecord graphicRecord in __instance.geneGraphics.ToList())
-					{
-						if (graphicRecord.sourceGene != item)
-						{
-							continue;
-						}
-						__instance.geneGraphics.Remove(graphicRecord);
-					}
+					__instance.geneGraphics.Remove(graphicRecord);
 				}
 			}
 
