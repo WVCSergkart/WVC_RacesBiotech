@@ -49,7 +49,7 @@
 	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<intervalRange>622000~840000</intervalRange>
+			<intervalRange>122000~840000</intervalRange>
 			<hediffDefs>
 				<li>XenogermReplicating</li>
 				<li>XenogerminationComa</li>

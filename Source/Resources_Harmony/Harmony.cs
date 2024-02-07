@@ -54,6 +54,7 @@ namespace WVC_XenotypesAndGenes
 				if (!WVC_Biotech.settings.disableFurGraphic)
 				{
 					harmony.Patch(AccessTools.Method(typeof(PawnGraphicSet), "ResolveAllGraphics"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("FurskinIsSkin")));
+					harmony.Patch(AccessTools.Method(typeof(PawnGraphicSet), "ResolveGeneGraphics"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("SpecialGeneGraphic")));
 				}
 				if (WVC_Biotech.settings.enableIncestLoverGene)
 				{
@@ -95,14 +96,11 @@ namespace WVC_XenotypesAndGenes
 						}
 						else if (!gene.Active)
 						{
-							if (gene.def.geneClass == typeof(Gene_Faceless))
-							{
-								text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive_WrongFace".Translate().Colorize(ColorLibrary.RedReadable);
-							}
-							else
-							{
-								text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive".Translate().Colorize(ColorLibrary.RedReadable);
-							}
+							text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive".Translate().Colorize(ColorLibrary.RedReadable);
+						}
+						if (Prefs.DevMode)
+						{
+							text += "\n\n" + gene.GetType().ToString().Colorize(ColoredText.TipSectionTitleColor);
 						}
 						if (clickable)
 						{
@@ -196,6 +194,25 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 
+			public static void SpecialGeneGraphic(PawnGraphicSet __instance)
+			{
+				foreach (Gene item in __instance.pawn.genes.GenesListForReading)
+				{
+					if (!item.Active || item is not Gene_Faceless faceless || faceless.drawGraphic)
+					{
+						continue;
+					}
+					foreach (GeneGraphicRecord graphicRecord in __instance.geneGraphics.ToList())
+					{
+						if (graphicRecord.sourceGene != item)
+						{
+							continue;
+						}
+						__instance.geneGraphics.Remove(graphicRecord);
+					}
+				}
+			}
+
 			// Romance
 
 			public static void Incestuous_Relations(ref bool __result, ref Pawn one)
@@ -222,11 +239,11 @@ namespace WVC_XenotypesAndGenes
 
 			public static bool Immunity_hediffGivers(ref bool __result, ref HediffDef hediff, Pawn_GeneTracker __instance)
 			{
-				if (!ModLister.BiotechInstalled)
-				{
-					__result = true;
-					return false;
-				}
+				// if (!ModLister.BiotechInstalled)
+				// {
+					// __result = true;
+					// return false;
+				// }
 				for (int i = 0; i < __instance.GenesListForReading.Count; i++)
 				{
 					Gene gene = __instance.GenesListForReading[i];
@@ -246,7 +263,12 @@ namespace WVC_XenotypesAndGenes
 
 			public static bool Immunity_makeImmuneTo(ref bool __result, ref HediffDef def, ImmunityHandler __instance)
 			{
-				if (!ModsConfig.BiotechActive || __instance?.pawn?.genes == null)
+				// if (!ModsConfig.BiotechActive || __instance?.pawn?.genes == null)
+				// {
+					// __result = false;
+					// return false;
+				// }
+				if (__instance?.pawn?.genes == null)
 				{
 					__result = false;
 					return false;
@@ -267,6 +289,37 @@ namespace WVC_XenotypesAndGenes
 				__result = false;
 				return false;
 			}
+
+			// Rottable
+
+			// public static bool CompRottable_RotProgress(CompRottable __instance)
+			// {
+				// if (__instance.parent is Pawn pawn && pawn.IsNotRottable())
+				// {
+					// return false;
+				// }
+				// return true;
+			// }
+
+			// public static bool CompRottable_CompInspectStringExtra(CompRottable __instance, ref string __result)
+			// {
+				// if (__instance.parent is Corpse corpse && corpse.InnerPawn.IsNotRottable())
+				// {
+					// __result = null;
+					// return false;
+				// }
+				// return true;
+			// }
+
+			// public static bool CompRottable_Active(CompRottable __instance, ref bool __result)
+			// {
+				// if (__instance.parent is Corpse corpse && corpse.InnerPawn.IsNotRottable())
+				// {
+					// __result = false;
+					// return false;
+				// }
+				// return true;
+			// }
 
 		}
 

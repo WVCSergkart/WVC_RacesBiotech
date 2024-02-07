@@ -25,7 +25,12 @@ namespace WVC_XenotypesAndGenes
 		public override void Tick()
 		{
 			base.Tick();
-			if (!pawn.IsHashIntervalTick(nextTick))
+			// if (!pawn.IsHashIntervalTick(nextTick))
+			// {
+				// return;
+			// }
+			nextTick--;
+			if (nextTick > 0)
 			{
 				return;
 			}
@@ -71,7 +76,12 @@ namespace WVC_XenotypesAndGenes
 		public override void Tick()
 		{
 			base.Tick();
-			if (!pawn.IsHashIntervalTick(nextTick))
+			// if (!pawn.IsHashIntervalTick(nextTick))
+			// {
+				// return;
+			// }
+			nextTick--;
+			if (nextTick > 0)
 			{
 				return;
 			}
@@ -83,24 +93,6 @@ namespace WVC_XenotypesAndGenes
 		{
 			nextTick = Props.intervalRange.RandomInRange;
 		}
-
-		// public override void PostAdd()
-		// {
-			// base.PostAdd();
-			// if (pawn.health.hediffSet.HasHediff(WVC_GenesDefOf.WVC_XenotypesAndGenes_GeneticStabilityDebuff))
-			// {
-				// Gene_AddOrRemoveHediff.RemoveHediff(WVC_GenesDefOf.WVC_XenotypesAndGenes_GeneticStabilityDebuff, pawn);
-			// }
-		// }
-
-		// public override void PostRemove()
-		// {
-			// base.PostRemove();
-			// if (!pawn.health.hediffSet.HasHediff(WVC_GenesDefOf.WVC_XenotypesAndGenes_GeneticStabilityDebuff))
-			// {
-				// pawn.health.AddHediff(WVC_GenesDefOf.WVC_XenotypesAndGenes_GeneticStabilityDebuff);
-			// }
-		// }
 
 		public override void ExposeData()
 		{
@@ -126,7 +118,12 @@ namespace WVC_XenotypesAndGenes
 		public override void Tick()
 		{
 			base.Tick();
-			if (!pawn.IsHashIntervalTick(nextTick))
+			// if (!pawn.IsHashIntervalTick(nextTick))
+			// {
+				// return;
+			// }
+			nextTick--;
+			if (nextTick > 0)
 			{
 				return;
 			}
@@ -163,7 +160,12 @@ namespace WVC_XenotypesAndGenes
 		public override void Tick()
 		{
 			base.Tick();
-			if (!pawn.IsHashIntervalTick(nextTick))
+			// if (!pawn.IsHashIntervalTick(nextTick))
+			// {
+				// return;
+			// }
+			nextTick--;
+			if (nextTick > 0)
 			{
 				return;
 			}

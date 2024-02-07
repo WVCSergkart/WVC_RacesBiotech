@@ -122,6 +122,10 @@ namespace WVC_XenotypesAndGenes
 				Gene_Scarifier scarifier = (Gene_Scarifier)gene;
 				text += "\n\n" + ("WVC_XaG_NewBack_GeneIsScarifier".Translate() + ": " + scarifier.cachedMaxScars.ToString());
 			}
+			if (gene is Gene_Faceless faceless && !faceless.drawGraphic)
+			{
+				text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive_WrongFace".Translate().Colorize(ColorLibrary.RedReadable);
+			}
 			// if (gene.def?.GetModExtension<GeneExtension_Giver>() != null)
 			// {
 				// if (gene.def.GetModExtension<GeneExtension_Giver>().scarsCount != 0)

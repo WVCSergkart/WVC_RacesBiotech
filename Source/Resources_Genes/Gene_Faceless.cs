@@ -10,33 +10,59 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
 
-		public override void PostAdd()
-		{
-			base.PostAdd();
-			cachedResult = true;
-			nextRecache = Find.TickManager.TicksGame + 120;
-		}
+		// public override void PostAdd()
+		// {
+			// base.PostAdd();
+			// cachedResult = true;
+			// nextRecache = Find.TickManager.TicksGame + 120;
+		// }
 
-		private bool cachedResult = true;
-		private int nextRecache = 0;
+		public bool drawGraphic = true;
+		// private int nextRecache = 0;
 
-		public override bool Active
+		// public override bool Active
+		// {
+			// get
+			// {
+				// if (base.Active)
+				// {
+					// if (Find.TickManager.TicksGame < nextRecache)
+					// {
+						// return cachedResult;
+					// }
+					// cachedResult = HeadTypeIsCorrect(pawn);
+					// nextRecache = Find.TickManager.TicksGame + 12000;
+					// pawn.Drawer.renderer.graphics.SetAllGraphicsDirty();
+					// return HeadTypeIsCorrect(pawn);
+				// }
+				// return base.Active;
+			// }
+		// }
+
+		// public override bool Active
+		// {
+			// get
+			// {
+				// return base.Active && cachedResult;
+			// }
+		// }
+
+		public override void Tick()
 		{
-			get
+			base.Tick();
+			if (!pawn.IsHashIntervalTick(12000))
 			{
-				if (base.Active)
-				{
-					if (Find.TickManager.TicksGame < nextRecache)
-					{
-						return cachedResult;
-					}
-					cachedResult = HeadTypeIsCorrect(pawn);
-					nextRecache = Find.TickManager.TicksGame + 12000;
-					// Log.Error("Check head");
-					pawn.Drawer.renderer.graphics.SetAllGraphicsDirty();
-					return HeadTypeIsCorrect(pawn);
-				}
-				return base.Active;
+				return;
+			}
+			if (pawn.Map == null)
+			{
+				return;
+			}
+			bool active = HeadTypeIsCorrect(pawn);
+			if (drawGraphic != active)
+			{
+				drawGraphic = active;
+				pawn.Drawer.renderer.graphics.SetAllGraphicsDirty();
 			}
 		}
 
@@ -89,8 +115,9 @@ namespace WVC_XenotypesAndGenes
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Values.Look(ref cachedResult, "faceplateIsVisible", true);
-			Scribe_Values.Look(ref nextRecache, "nextRecache", 0);
+			// Scribe_Values.Look(ref cachedResult, "faceplateIsVisible", true);
+			// Scribe_Values.Look(ref nextRecache, "nextRecache", 0);
+			drawGraphic = HeadTypeIsCorrect(pawn);
 		}
 
 	}
