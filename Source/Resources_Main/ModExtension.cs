@@ -99,6 +99,8 @@ namespace WVC_XenotypesAndGenes
 		// public ThoughtDef geneOpinion_thoughtDef;
 		public Gender gender = Gender.None;
 		public IntRange intervalRange = new(120000, 300000);
+		public bool showMessageIfOwned = false;
+		public string message = "WVC_XaG_Extreme_GeneticInstabilityMessage";
 	}
 
 	public class GeneExtension_Shapeshifter : DefModExtension

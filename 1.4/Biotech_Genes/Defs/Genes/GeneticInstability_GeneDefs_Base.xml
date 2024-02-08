@@ -153,6 +153,7 @@
 	</statFactors>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<showMessageIfOwned>true</showMessageIfOwned>
 			<intervalRange>522000~840000</intervalRange>
 			<hediffDefs>
 				<li>XenogermReplicating</li>

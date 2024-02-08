@@ -1,3 +1,4 @@
+using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
@@ -118,10 +119,6 @@ namespace WVC_XenotypesAndGenes
 		public override void Tick()
 		{
 			base.Tick();
-			// if (!pawn.IsHashIntervalTick(nextTick))
-			// {
-				// return;
-			// }
 			nextTick--;
 			if (nextTick > 0)
 			{
@@ -134,6 +131,21 @@ namespace WVC_XenotypesAndGenes
 		private void ResetInterval()
 		{
 			nextTick = Props.intervalRange.RandomInRange;
+		}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: GeneticStability",
+					action = delegate
+					{
+						HediffUtility.RemoveHediffsFromList(pawn, Props.hediffDefs);
+					}
+				};
+			}
 		}
 
 		public override void ExposeData()
@@ -160,22 +172,42 @@ namespace WVC_XenotypesAndGenes
 		public override void Tick()
 		{
 			base.Tick();
-			// if (!pawn.IsHashIntervalTick(nextTick))
-			// {
-				// return;
-			// }
 			nextTick--;
 			if (nextTick > 0)
 			{
 				return;
 			}
+			GeneticStuff();
+		}
+
+		public void GeneticStuff()
+		{
 			HediffUtility.AddHediffsFromList(pawn, Props.hediffDefs);
+			if (Props.showMessageIfOwned && pawn.Faction == Faction.OfPlayer)
+			{
+				Messages.Message(Props.message.Translate(pawn.Name.ToString()), pawn, MessageTypeDefOf.NeutralEvent);
+			}
 			ResetInterval();
 		}
 
 		private void ResetInterval()
 		{
 			nextTick = Props.intervalRange.RandomInRange;
+		}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: GeneticInstability",
+					action = delegate
+					{
+						GeneticStuff();
+					}
+				};
+			}
 		}
 
 		public override void ExposeData()

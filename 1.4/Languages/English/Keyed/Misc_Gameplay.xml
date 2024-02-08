@@ -110,6 +110,8 @@
 
 	<WVC_LetterTextGenesImplanted>{TARGET_nameDef} will be in a xenogermination coma for the next {COMADURATION} while {TARGET_possessive} body adjusts to the changes.</WVC_LetterTextGenesImplanted>
 
+	<WVC_XaG_Extreme_GeneticInstabilityMessage>Due to genetic instability, {0} lost consciousness.</WVC_XaG_Extreme_GeneticInstabilityMessage>
+
 	<!-- ============================ UNDEAD RESURRECTION ============================ -->
 
 	<WVC_LetterLabelSecondChance_GeneUndead>Second chance</WVC_LetterLabelSecondChance_GeneUndead>

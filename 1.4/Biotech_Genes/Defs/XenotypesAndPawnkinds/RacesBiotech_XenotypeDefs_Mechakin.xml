@@ -16,6 +16,8 @@
 	<inheritable>false</inheritable>
 	<canGenerateAsCombatant>true</canGenerateAsCombatant>
 	<displayPriority>-1100</displayPriority>
+	<generateWithXenogermReplicatingHediffChance>0.1</generateWithXenogermReplicatingHediffChance>
+	<xenogermReplicatingDurationLeftDaysRange>0.1~19</xenogermReplicatingDurationLeftDaysRange>
 	<doubleXenotypeChances>
 		<WVC_Blank>1.0</WVC_Blank>
 	</doubleXenotypeChances>

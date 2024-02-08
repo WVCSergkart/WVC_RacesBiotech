@@ -124,32 +124,54 @@ namespace WVC_XenotypesAndGenes
 				if (PawnXenotypeIsNotCustomXenotype(pawn))
 				{
 					XenotypeDef xenotype = pawn.genes?.Xenotype;
-					ShapeShift(pawn, xenotype, true);
+					ShapeShiftOnDeath(pawn, xenotype);
 				}
 			}
 		}
 
-		public static void ShapeShift(Pawn pawn, XenotypeDef mainXenotype, bool removeRandomGenes = false)
+		public static void ShapeShiftOnDeath(Pawn pawn, XenotypeDef mainXenotype)
 		{
-			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
+			if (pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
 			{
-				if (mainXenotype != null && mainXenotype is EvotypeDef evotypeDef)
-				{
-					if (!evotypeDef.subXenotypeDefs.NullOrEmpty() && evotypeDef.xenotypeCanShapeshiftOnDeath)
-					{
-						if (removeRandomGenes)
-						{
-							RemoveRandomGenes(pawn);
-						}
-						if (Rand.Chance(evotypeDef.shapeshiftChance))
-						{
-							XenotypeDef xenotypeDef = evotypeDef.subXenotypeDefs.RandomElementByWeight((XenotypeDef x) => x is SubXenotypeDef subXenotypeDef ? subXenotypeDef.selectionWeight : 0.0001f);
-							ReimplanterUtility.SaveReimplantXenogenesFromXenotype(pawn, xenotypeDef);
-						}
-					}
-				}
+				return;
+			}
+			if (mainXenotype == null || mainXenotype is not EvotypeDef evotypeDef)
+			{
+				return;
+			}
+			if (evotypeDef.subXenotypeDefs.NullOrEmpty() || !evotypeDef.xenotypeCanShapeshiftOnDeath)
+			{
+				return;
+			}
+			// if (removeRandomGenes)
+			// {
+				// RemoveRandomGenes(pawn);
+			// }
+			if (Rand.Chance(evotypeDef.shapeshiftChance))
+			{
+				XenotypeDef xenotypeDef = evotypeDef.subXenotypeDefs.RandomElementByWeight((XenotypeDef x) => x is SubXenotypeDef subXenotypeDef ? subXenotypeDef.selectionWeight : 0.0001f);
+				ReimplanterUtility.SaveReimplantXenogenesFromXenotype(pawn, xenotypeDef);
 			}
 		}
+
+		// public static bool ShapeShift_Evolve(Pawn pawn, XenotypeDef mainXenotype)
+		// {
+			// if (mainXenotype == null || mainXenotype is not EvotypeDef evotypeDef)
+			// {
+				// return false;
+			// }
+			// if (evotypeDef.subXenotypeDefs.NullOrEmpty() || !evotypeDef.xenotypeCanEvolveOvertime)
+			// {
+				// return false;
+			// }
+			// if (Rand.Chance(evotypeDef.shapeshiftChance))
+			// {
+				// XenotypeDef xenotypeDef = evotypeDef.subXenotypeDefs.RandomElementByWeight((XenotypeDef x) => x is SubXenotypeDef subXenotypeDef ? subXenotypeDef.selectionWeight : 0.0001f);
+				// ReimplanterUtility.SaveReimplantXenogenesFromXenotype(pawn, xenotypeDef);
+				// return true;
+			// }
+			// return false;
+		// }
 
 		// ===============================================
 
@@ -175,6 +197,25 @@ namespace WVC_XenotypesAndGenes
 			}
 			return false;
 		}
+
+		// public static bool PawnCanEvolve(Pawn pawn)
+		// {
+			// Pawn_GeneTracker genes = pawn?.genes;
+			// if (genes == null || genes.UniqueXenotype || genes.iconDef != null)
+			// {
+				// return false;
+			// }
+			// XenotypeDef pawnXenotype = genes.Xenotype;
+			// if (pawnXenotype == null || pawnXenotype is not EvotypeDef evotypeDef)
+			// {
+				// return false;
+			// }
+			// if (evotypeDef.xenotypeCanEvolveOvertime)
+			// {
+				// return true;
+			// }
+			// return false;
+		// }
 
 		public static bool PawnXenotypeIsEvotype(Pawn pawn)
 		{

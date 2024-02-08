@@ -18,7 +18,7 @@
 	  <!-- <WVC_XenotypesAndGenes.SubXenotypeDef>WVC_AshDemon</WVC_XenotypesAndGenes.SubXenotypeDef> -->
 	<!-- </descriptionHyperlinks> -->
 	<generateWithXenogermReplicatingHediffChance>0.1</generateWithXenogermReplicatingHediffChance>
-	<xenogermReplicatingDurationLeftDaysRange>0.1~40</xenogermReplicatingDurationLeftDaysRange>
+	<xenogermReplicatingDurationLeftDaysRange>0.1~25</xenogermReplicatingDurationLeftDaysRange>
 	<selectionWeight>0.12</selectionWeight>
 	<removeGenes>
 		<li>WVC_RandomLearning</li>
