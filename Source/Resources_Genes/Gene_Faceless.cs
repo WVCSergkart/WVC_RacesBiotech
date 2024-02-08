@@ -10,14 +10,17 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
 
-		// public override void PostAdd()
-		// {
-			// base.PostAdd();
-			// cachedResult = true;
-			// nextRecache = Find.TickManager.TicksGame + 120;
-		// }
-
 		public bool drawGraphic = true;
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			if (!Active)
+			{
+				return;
+			}
+			drawGraphic = HeadTypeIsCorrect(pawn);
+		}
 		// private int nextRecache = 0;
 
 		// public override bool Active
@@ -117,7 +120,10 @@ namespace WVC_XenotypesAndGenes
 			base.ExposeData();
 			// Scribe_Values.Look(ref cachedResult, "faceplateIsVisible", true);
 			// Scribe_Values.Look(ref nextRecache, "nextRecache", 0);
-			drawGraphic = HeadTypeIsCorrect(pawn);
+			if (Active)
+			{
+				drawGraphic = HeadTypeIsCorrect(pawn);
+			}
 		}
 
 	}
