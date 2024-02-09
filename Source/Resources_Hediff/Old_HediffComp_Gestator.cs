@@ -25,7 +25,7 @@ namespace WVC_XenotypesAndGenes
 		public override void CompExposeData()
 		{
 			base.CompExposeData();
-			Scribe_Values.Look(ref ticksCounter, "asexualFissionCounter", 0);
+			Scribe_Values.Look(ref ticksCounter, "ticksCounter", 0);
 		}
 
 		public override void CompPostTick(ref float severityAdjustment)
@@ -36,8 +36,9 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (!pawn.IsColonist || !pawn.IsSlaveOfColony || !pawn.ageTracker.CurLifeStage.reproductive)
+			if (pawn.Faction != Faction.OfPlayer || !pawn.ageTracker.CurLifeStage.reproductive)
 			{
+				base.Pawn.health.RemoveHediff(parent);
 				return;
 			}
 			ticksCounter++;
