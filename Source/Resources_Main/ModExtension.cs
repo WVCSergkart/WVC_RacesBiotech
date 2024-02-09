@@ -109,6 +109,7 @@ namespace WVC_XenotypesAndGenes
 		// public List<HediffDef> duplicateHediffs;
 		public List<HediffDef> blockingHediffs;
 		public List<TraitDef> blockingTraits;
+		public List<string> trustedXenotypes;
 	}
 
 	public class GeneExtension_XenotypeGestator : DefModExtension

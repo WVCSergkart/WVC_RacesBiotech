@@ -169,13 +169,15 @@
 	<!-- </gene_PawnSkillsNotDecay> -->
 	<!-- Undead gene does not work in the presence of these hediffs. Required hediff defNames -->
 	<hediffsThatPreventUndeadResurrection>
-		<li>RegenerationComa</li>
-		<li>XenogermReplicating</li>
-		<li>XenogermLossShock</li>
-		<li>XenogerminationComa</li>
-		<li>ResurrectionSickness</li>
 		<li>WVC_Resurgent_UndeadResurrectionRecovery</li>
-		<li>WVC_Dustogenic_KillAfterTime</li>
+		<!-- <li>RegenerationComa</li> -->
+		<!-- <li>ResurrectionSickness</li> -->
+		<!-- Disappears upon death, so useless -->
+		<!-- <li>WVC_Dustogenic_KillAfterTime</li> -->
+		<!-- Undeads will not be able to resurrect if this is left -->
+		<!-- <li>XenogermReplicating</li> -->
+		<!-- <li>XenogermLossShock</li> -->
+		<!-- <li>XenogerminationComa</li> -->
 	</hediffsThatPreventUndeadResurrection>
 	<!-- Words that should not be in the defName of Mechanoids. Used to random summon mechanoids. Required any string -->
 	<mechDefNameShouldNotContain>

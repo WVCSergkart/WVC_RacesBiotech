@@ -19,6 +19,7 @@ namespace WVC_XenotypesAndGenes
 		public bool canEverUseShapeshift = true;
 		// public bool duplicateMode = false;
 		public List<XenotypeDef> preferredXenotypes;
+		public List<string> trustedXenotypes;
 
 		public Dialog_Shapeshifter(Gene thisGene)
 		{
@@ -38,6 +39,7 @@ namespace WVC_XenotypesAndGenes
 			genesRegrowing = HediffUtility.HasAnyHediff(shiftExtension?.blockingHediffs, gene.pawn);
 			canEverUseShapeshift = !MiscUtility.HasAnyTraits(shiftExtension?.blockingTraits, gene.pawn);
 			// duplicateMode = HediffUtility.HasAnyHediff(shiftExtension?.duplicateHediffs, gene.pawn);
+			trustedXenotypes = shiftExtension?.trustedXenotypes != null ? shiftExtension.trustedXenotypes : new();
 		}
 
 		public override void DrawLeftRect(Rect rect, ref float curY)
@@ -88,6 +90,16 @@ namespace WVC_XenotypesAndGenes
 				// Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneShapeshifter_DuplicateMode".Translate().Colorize(ColorLibrary.LightBlue));
 				// curY += 10f;
 			// }
+			if (trustedXenotypes.Contains(selectedXeno.defName))
+			{
+				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneShapeshifter_TrustedXenotypes".Translate().Colorize(ColoredText.SubtleGrayColor));
+				curY += 10f;
+			}
+			else
+			{
+				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneShapeshifter_UnknownXenotypes".Translate().Colorize(ColoredText.SubtleGrayColor));
+				curY += 10f;
+			}
 			if (MeetsRequirements(selectedXeno) && selectedXeno != currentXeno)
 			{
 				if (Widgets.ButtonText(rect4, "Accept".Translate()))

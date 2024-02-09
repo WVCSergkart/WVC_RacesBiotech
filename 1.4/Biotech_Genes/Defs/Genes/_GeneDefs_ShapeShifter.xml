@@ -138,6 +138,39 @@
 			<blockingTraits>
 				<li>WVC_XaG_ShapeshiftPhobia</li>
 			</blockingTraits>
+			<!-- Xenotypes with which this gene works correctly. Any string -->
+			<trustedXenotypes>
+				<!-- Vanilla -->
+				<li>Baseliner</li>
+				<li>Dirtmole</li>
+				<li>Genie</li>
+				<li>Hussar</li>
+				<li>Sanguophage</li>
+				<li>Neanderthal</li>
+				<li>Pigskin</li>
+				<li>Impid</li>
+				<li>Waster</li>
+				<li>Yttakin</li>
+				<li>Highmate</li>
+				<!-- WVC -->
+				<li>WVC_Undead</li>
+				<li>WVC_Featherdust</li>
+				<li>WVC_Resurgent</li>
+				<li>WVC_Ashen</li>
+				<li>WVC_CatDeity</li>
+				<li>WVC_Lilith</li>
+				<li>WVC_Blank</li>
+				<li>WVC_Golemkind</li>
+				<li>WVC_Meca</li>
+				<li>WVC_RogueFormer</li>
+				<li>WVC_RuneDryad</li>
+				<li>WVC_GeneThrower</li>
+				<!-- VE -->
+				<li>VRE_Bruxa</li>
+				<li>VRE_Gauranlenkin</li>
+				<li>VRE_Animakin</li>
+				<li>VRE_Poluxkin</li>
+			</trustedXenotypes>
 		</li>
 	</modExtensions>
   </GeneDef>
