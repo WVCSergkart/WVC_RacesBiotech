@@ -121,12 +121,13 @@ namespace WVC_XenotypesAndGenes
 
 		public static void XenotypeSerum(Pawn pawn, List<string> blackListedXenotypes, XenotypeDef xenotypeDef, bool removeEndogenes, bool removeXenogenes)
 		{
-			Pawn_GeneTracker genes = pawn.genes;
 			XenotypeDef xenotype = DefDatabase<XenotypeDef>.AllDefs.Where((XenotypeDef randomXenotypeDef) => randomXenotypeDef != pawn.genes.Xenotype && !blackListedXenotypes.Contains(randomXenotypeDef.defName)).RandomElement();
 			if (xenotypeDef != null)
 			{
 				xenotype = xenotypeDef;
 			}
+			// ReimplanterUtility.SetXenotype(pawn, xenotype);
+			Pawn_GeneTracker genes = pawn.genes;
 			if (removeXenogenes || xenotypeDef == null)
 			{
 				for (int numXenogenes = genes.Xenogenes.Count - 1; numXenogenes >= 0; numXenogenes--)

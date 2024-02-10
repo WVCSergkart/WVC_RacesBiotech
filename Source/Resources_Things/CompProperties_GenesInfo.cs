@@ -52,6 +52,7 @@ namespace WVC_XenotypesAndGenes
 		public Gene_Undead cachedUndeadGene = null;
 		public Gene_DustMechlink cachedBlesslinkGene = null;
 		public Gene_Scarifier cachedScarifierGene = null;
+		public Gene_GeneticInstability cachedGeneticInstabilityGene = null;
 
 		private bool cachedShouldShowGolemsInfo = false;
 
@@ -59,26 +60,31 @@ namespace WVC_XenotypesAndGenes
 
 		public void CacheInfoGenes(Pawn pawn)
 		{
-			if (WVC_Biotech.settings.enableGeneSpawnerGizmo)
-			{
-				cachedSpawnerGenes = ActiveSpawnerGenes(pawn);
-			}
-			if (WVC_Biotech.settings.enableGeneWingInfo)
-			{
-				cachedWingGene = HaveWings(pawn);
-			}
-			if (WVC_Biotech.settings.enableGeneUndeadInfo)
-			{
-				cachedUndeadGene = Undead(pawn);
-			}
-			if (WVC_Biotech.settings.enableGeneBlesslinkInfo)
-			{
-				cachedBlesslinkGene = HaveBlesslink(pawn);
-			}
-			if (WVC_Biotech.settings.enableGeneBlesslinkInfo)
-			{
-				cachedScarifierGene = HaveScarifier(pawn);
-			}
+			GetAllGenesOfTypes(pawn);
+			// if (WVC_Biotech.settings.enableGeneSpawnerGizmo)
+			// {
+				// cachedSpawnerGenes = GetSpawnerGenes(pawn);
+			// }
+			// if (WVC_Biotech.settings.enableGeneWingInfo)
+			// {
+				// cachedWingGene = pawn?.genes?.GetFirstGeneOfType<Gene_Wings>();
+			// }
+			// if (WVC_Biotech.settings.enableGeneUndeadInfo)
+			// {
+				// cachedUndeadGene = pawn?.genes?.GetFirstGeneOfType<Gene_Undead>();
+			// }
+			// if (WVC_Biotech.settings.enableGeneBlesslinkInfo)
+			// {
+				// cachedBlesslinkGene = pawn?.genes?.GetFirstGeneOfType<Gene_DustMechlink>();
+			// }
+			// if (WVC_Biotech.settings.enableGeneScarifierInfo)
+			// {
+				// cachedScarifierGene = pawn?.genes?.GetFirstGeneOfType<Gene_Scarifier>();
+			// }
+			// if (WVC_Biotech.settings.enableGeneInstabilityInfo)
+			// {
+				// cachedGeneticInstabilityGene = pawn?.genes?.GetFirstGeneOfType<Gene_GeneticInstability>();
+			// }
 			if (WVC_Biotech.settings.enableGolemsInfo)
 			{
 				if (MechanitorUtility.IsMechanitor(pawn) && GolemsUtility.MechanitorHasAnyGolems(pawn))
@@ -91,67 +97,70 @@ namespace WVC_XenotypesAndGenes
 
 		// =================
 
-		public List<Gene_Spawner> ActiveSpawnerGenes(Pawn pawn)
+		// public List<Gene_Spawner> GetSpawnerGenes(Pawn pawn)
+		// {
+			// List<Gene> genesListForReading = pawn?.genes?.GenesListForReading;
+			// if (genesListForReading.NullOrEmpty())
+			// {
+				// return null;
+			// }
+			// for (int i = 0; i < genesListForReading.Count; i++)
+			// {
+				// if (genesListForReading[i].Active == true && genesListForReading[i] is Gene_Spawner geneSpawner)
+				// {
+					// list.Add(geneSpawner);
+				// }
+			// }
+			// return list;
+		// }
+
+		public void GetAllGenesOfTypes(Pawn pawn)
 		{
-			List<Gene_Spawner> list = new();
-			// Pawn pawn = parent as Pawn;
 			List<Gene> genesListForReading = pawn?.genes?.GenesListForReading;
-			for (int i = 0; i < genesListForReading.Count; i++)
+			if (genesListForReading.NullOrEmpty())
 			{
-				if (genesListForReading[i].Active == true && genesListForReading[i] is Gene_Spawner geneSpawner)
+				return;
+			}
+			List<Gene_Spawner> spawners = new();
+			foreach (Gene item in genesListForReading)
+			{
+				if (!item.Active)
 				{
-					list.Add(geneSpawner);
+					continue;
+				}
+				if (WVC_Biotech.settings.enableGeneSpawnerGizmo && item is Gene_Spawner geneSpawner)
+				{
+					spawners.Add(geneSpawner);
+				}
+				if (WVC_Biotech.settings.enableGeneWingInfo && item is Gene_Wings gene_Wings)
+				{
+					cachedWingGene = gene_Wings;
+				}
+				if (WVC_Biotech.settings.enableGeneUndeadInfo && item is Gene_Undead gene_Undead)
+				{
+					cachedUndeadGene = gene_Undead;
+				}
+				if (WVC_Biotech.settings.enableGeneBlesslinkInfo && item is Gene_DustMechlink gene_DustMechlink)
+				{
+					cachedBlesslinkGene = gene_DustMechlink;
+				}
+				if (WVC_Biotech.settings.enableGeneScarifierInfo && item is Gene_Scarifier gene_Scarifier)
+				{
+					cachedScarifierGene = gene_Scarifier;
+				}
+				if (WVC_Biotech.settings.enableGeneInstabilityInfo && item is Gene_GeneticInstability gene_GeneticInstability)
+				{
+					cachedGeneticInstabilityGene = gene_GeneticInstability;
 				}
 			}
-			// Log.Error("Pawn " + pawn.Name + " ActiveSpawnerGenes cached: " + list.Count);
-			return list;
-		}
-
-		public Gene_Undead Undead(Pawn pawn)
-		{
-			Gene_Undead canResurrect = pawn.genes?.GetFirstGeneOfType<Gene_Undead>();
-			if (canResurrect != null)
-			{
-				return canResurrect;
-			}
-			return null;
-		}
-
-		public Gene_Wings HaveWings(Pawn pawn)
-		{
-			Gene_Wings wings = pawn.genes?.GetFirstGeneOfType<Gene_Wings>();
-			if (wings != null)
-			{
-				return wings;
-			}
-			return null;
-		}
-
-		public Gene_DustMechlink HaveBlesslink(Pawn pawn)
-		{
-			Gene_DustMechlink blesslink = pawn.genes?.GetFirstGeneOfType<Gene_DustMechlink>();
-			if (blesslink != null)
-			{
-				return blesslink;
-			}
-			return null;
-		}
-
-		public Gene_Scarifier HaveScarifier(Pawn pawn)
-		{
-			Gene_Scarifier scarifier = pawn.genes?.GetFirstGeneOfType<Gene_Scarifier>();
-			if (scarifier != null)
-			{
-				return scarifier;
-			}
-			return null;
+			cachedSpawnerGenes = spawners;
 		}
 
 		// =================
 
 		public override string CompInspectStringExtra()
 		{
-			if (parent.Faction == null || !parent.Faction.IsPlayer)
+			if (parent.Faction != Faction.OfPlayer)
 			{
 				return null;
 			}
@@ -172,7 +181,19 @@ namespace WVC_XenotypesAndGenes
 			{
 				info += "WVC_XaG_Gene_Undead_On_Info".Translate().Resolve();
 			}
-			if (!pawn.Drafted && !cachedSpawnerGenes.NullOrEmpty())
+			if (cachedBlesslinkGene != null && cachedBlesslinkGene.summonMechanoids)
+			{
+				if (!info.NullOrEmpty())
+				{
+					info += "\n";
+				}
+				info += "WVC_XaG_Gene_Blesslin_On_Info".Translate().Resolve() + ": " + cachedBlesslinkGene.timeForNextSummon.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
+			}
+			if (pawn.Drafted)
+			{
+				return info;
+			}
+			if (!cachedSpawnerGenes.NullOrEmpty())
 			{
 				for (int i = 0; i < cachedSpawnerGenes.Count; i++)
 				{
@@ -187,15 +208,15 @@ namespace WVC_XenotypesAndGenes
 					info += "NextSpawnedItemIn".Translate(GenLabel.ThingLabel(cachedSpawnerGenes[i]?.Props?.thingDefToSpawn, null, cachedSpawnerGenes[i].FinalStackCount)).Resolve() + ": " + cachedSpawnerGenes[i].ticksUntilSpawn.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
 				}
 			}
-			if (cachedBlesslinkGene != null && cachedBlesslinkGene.summonMechanoids)
+			if (cachedGeneticInstabilityGene != null)
 			{
 				if (!info.NullOrEmpty())
 				{
 					info += "\n";
 				}
-				info += "WVC_XaG_Gene_Blesslin_On_Info".Translate().Resolve() + ": " + cachedBlesslinkGene.timeForNextSummon.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
+				info += "WVC_XaG_Gene_GeneticInstability_On_Info".Translate().Resolve() + ": " + cachedGeneticInstabilityGene.nextTick.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
 			}
-			if (!pawn.Drafted && cachedScarifierGene != null && cachedScarifierGene.CanScarify)
+			if (cachedScarifierGene != null && cachedScarifierGene.CanScarify)
 			{
 				if (!info.NullOrEmpty())
 				{
@@ -220,11 +241,11 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> CompGetGizmosExtra()
 		{
-			if (parent.Faction == null || !parent.Faction.IsPlayer)
+			if (parent.Faction != Faction.OfPlayer)
 			{
 				yield break;
 			}
-			base.CompGetGizmosExtra();
+			// base.CompGetGizmosExtra();
 			// if (!WVC_Biotech.settings.enableGolemsInfo)
 			// {
 				// yield break;

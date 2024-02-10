@@ -7,7 +7,7 @@ namespace WVC_XenotypesAndGenes
 	public class CompProperties_UseEffect_GeneRestoration : CompProperties
 	{
 
-		// public bool hybrid = false;
+		public int daysDelay = 8;
 
 		public List<HediffDef> hediffsToRemove;
 
@@ -15,6 +15,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			compClass = typeof(CompUseEffect_GeneRestoration);
 		}
+
 	}
 
 }

@@ -45,6 +45,7 @@ namespace WVC_XenotypesAndGenes
 		public bool enableGeneBlesslinkInfo = true;
 		public bool enableGeneUndeadInfo = false;
 		public bool enableGeneScarifierInfo = false;
+		public bool enableGeneInstabilityInfo = true;
 		public bool enableGolemsInfo = true;
 		// Serums
 		public bool serumsForAllXenotypes = false;
@@ -94,6 +95,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref enableGeneBlesslinkInfo, "enableGeneBlesslinkInfo", defaultValue: true);
 			Scribe_Values.Look(ref enableGeneUndeadInfo, "enableGeneUndeadInfo", defaultValue: false);
 			Scribe_Values.Look(ref enableGeneScarifierInfo, "enableGeneScarifierInfo", defaultValue: false);
+			Scribe_Values.Look(ref enableGeneInstabilityInfo, "enableGeneInstabilityInfo", defaultValue: true);
 			Scribe_Values.Look(ref enableGolemsInfo, "enableGolemsInfo", defaultValue: true);
 			// Serums
 			Scribe_Values.Look(ref serumsForAllXenotypes, "serumsForAllXenotypes", defaultValue: false, forceSave: true);
@@ -184,6 +186,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_enableGeneBlesslinkInfo".Translate(), ref settings.enableGeneBlesslinkInfo, "WVC_ToolTip_enableGenesInfo".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enableGeneUndeadInfo".Translate(), ref settings.enableGeneUndeadInfo, "WVC_ToolTip_enableGenesInfo".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enableGeneScarifierInfo".Translate(), ref settings.enableGeneScarifierInfo, "WVC_ToolTip_enableGenesInfo".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_enableGeneInstabilityInfo".Translate(), ref settings.enableGeneInstabilityInfo, "WVC_ToolTip_enableGenesInfo".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enableGolemsInfo".Translate(), ref settings.enableGolemsInfo, "WVC_ToolTip_enableGenesInfo".Translate());
 			listingStandard.Gap();
 			// Generator
@@ -260,6 +263,7 @@ namespace WVC_XenotypesAndGenes
 					settings.enableGeneBlesslinkInfo = true;
 					settings.enableGeneUndeadInfo = false;
 					settings.enableGeneScarifierInfo = false;
+					settings.enableGeneInstabilityInfo = true;
 					settings.enableGolemsInfo = true;
 					// Serums
 					settings.serumsForAllXenotypes = false;
@@ -311,6 +315,7 @@ namespace WVC_XenotypesAndGenes
 					settings.enableGeneBlesslinkInfo = true;
 					settings.enableGeneUndeadInfo = false;
 					settings.enableGeneScarifierInfo = false;
+					settings.enableGeneInstabilityInfo = true;
 					settings.enableGolemsInfo = true;
 					// Serums
 					settings.serumsForAllXenotypes = false;
