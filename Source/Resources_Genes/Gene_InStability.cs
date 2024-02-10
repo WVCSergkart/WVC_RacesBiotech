@@ -202,6 +202,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (pawn.Map == null)
 			{
+				// In caravan use
 				return;
 			}
 			if (pawn.Downed || pawn.Drafted)

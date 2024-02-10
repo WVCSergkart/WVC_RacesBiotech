@@ -1,5 +1,6 @@
 using RimWorld;
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 using Verse.AI;
 
@@ -35,41 +36,22 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Dust : Gene
 	{
 
-		// public List<ThingDef> SpecialFoodDefs => def.GetModExtension<GeneExtension_Giver>().specialFoodDefs;
-
 		public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
-
-		// private float cachedMaxNutrition = 0f;
-
-		// public override void Notify_IngestedThing(Thing thing, int numTaken)
-		// {
-			// if (cachedMaxNutrition <= 0f)
-			// {
-				// cachedMaxNutrition = pawn.GetStatValue(StatDefOf.MaxNutrition);
-			// }
-			// IngestibleProperties ingestible = thing.def.ingestible;
-			// float nutrition = thing.GetStatValue(StatDefOf.Nutrition);
-			// if (ingestible != null && nutrition > 0f)
-			// {
-				// DustUtility.OffsetNeedFood(pawn, nutrition * (float)numTaken * cachedMaxNutrition);
-				// Log.Error(def.defName + " " + (nutrition * (float)numTaken * cachedMaxNutrition) + " nutrition gain");
-			// }
-		// }
 
 		public override void Tick()
 		{
 			base.Tick();
-			if (!pawn.IsHashIntervalTick(360))
+			if (!pawn.IsHashIntervalTick(540))
 			{
 				return;
 			}
-			// Log.Error("TEST");
 			if (!WVC_Biotech.settings.useAlternativeDustogenicFoodJob)
 			{
 				return;
 			}
 			if (pawn.Map == null)
 			{
+				// In caravan use
 				return;
 			}
 			Need_Food food = pawn?.needs?.food;
@@ -92,7 +74,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				if (pawn.jobs.curJob.def != JobDefOf.Ingest)
+				if (!PawnHaveIngestJob(pawn))
 				{
 					Job job = JobMaker.MakeJob(JobDefOf.Ingest, specialFood);
 					job.count = 1;
@@ -100,6 +82,19 @@ namespace WVC_XenotypesAndGenes
 				}
 				break;
 			}
+		}
+
+		public bool PawnHaveIngestJob(Pawn pawn)
+		{
+			foreach (Job item in pawn.jobs.AllJobs().ToList())
+			{
+				if (item.def != JobDefOf.Ingest)
+				{
+					continue;
+				}
+				return true;
+			}
+			return false;
 		}
 
 		public override void Notify_IngestedThing(Thing thing, int numTaken)
@@ -115,12 +110,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (Props.specialFoodDefs.Contains(thing.def) || DustUtility.PawnInPronePosition(pawn))
 				{
-					// It is necessary to ensure that the food bar is filled
 					DustUtility.OffsetNeedFood(pawn, 10.0f);
 				}
 				else if (pawn.Map != null)
 				{
-					// DustUtility.OffsetNeedFood(pawn, 0.3f);
 					DustUtility.OffsetNeedFood(pawn, -0.1f * nutrition * (float)numTaken);
 				}
 			}
