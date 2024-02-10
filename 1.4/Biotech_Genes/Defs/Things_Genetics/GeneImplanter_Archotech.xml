@@ -33,7 +33,7 @@
 
   <ThingDef ParentName="WVC_XenotypeSerum_ArchotechNonCraftable">
 	<defName>WVC_ArchotechGeneGiver</defName>
-	<label>archotech gene giver</label>
+	<label>gene giver</label>
 	<description>A one-use super-dose of mechanites tuned to add the user a new gene. After using the serum, users' genes will be regrowing.
 
 &lt;color=#f5ffa2&gt;Note:&lt;/color&gt; Xenotype will be randomized.</description>
@@ -60,7 +60,7 @@
 
   <ThingDef ParentName="WVC_XenotypeSerum_ArchotechNonCraftable">
 	<defName>WVC_SubXenotypeSerum_Undead</defName>
-	<label>archotech sub-xenotype serum</label>
+	<label>sub-xenotype serum</label>
 	<description>A one-use super-dose of mechanites tuned to change the user's xenotype. After using the serum, the user will fall into a two-day coma.
 
 If the user's genes are regrowing, then instead of applying the xenotype, the gene regeneration timer will be reset.

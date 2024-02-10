@@ -44,6 +44,11 @@
 	<WVC_XaG_GeneGiverImplanted_Label>Gene implanted</WVC_XaG_GeneGiverImplanted_Label>
 	<WVC_XaG_GeneGiverImplanted_Desc>{0} received the "{1}" gene, due to this {0}'s genes will be regrowing.</WVC_XaG_GeneGiverImplanted_Desc>
 
+	<WVC_XaG_Gene_GeneticInstability>Use stabilizer</WVC_XaG_Gene_GeneticInstability>
+	<WVC_XaG_Gene_GeneticInstabilityDesc>Pawn will automatically try to use the stabilizer when there are less than 3 days left.
+
+Please note that the pawn will interrupt its current work.</WVC_XaG_Gene_GeneticInstabilityDesc>
+
 	<!-- ============================ REIMPLANTER GENE ============================ -->
 
 	<WVC_XaG_ReimplantResurrectionRecruiting>{0_nameDef} decides to join our colony.</WVC_XaG_ReimplantResurrectionRecruiting>

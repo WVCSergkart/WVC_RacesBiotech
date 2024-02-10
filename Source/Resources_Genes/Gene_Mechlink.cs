@@ -185,6 +185,10 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
+			if (!Active || Find.Selector.SelectedPawns.Count != 1 || pawn.Faction != Faction.OfPlayer)
+			{
+				yield break;
+			}
 			if (DebugSettings.ShowDevGizmos)
 			{
 				yield return new Command_Action
@@ -216,32 +220,25 @@ namespace WVC_XenotypesAndGenes
 					}
 				};
 			}
-			if (Active && Find.Selector.SelectedPawns.Count == 1 && pawn.Faction == Faction.OfPlayer || DebugSettings.ShowDevGizmos)
+			Command_Action command_Action = new()
 			{
-				Command_Action command_Action = new()
+				defaultLabel = "WVC_XaG_Gene_DustMechlink".Translate() + ": " + GeneUiUtility.OnOrOff(summonMechanoids),
+				defaultDesc = "WVC_XaG_Gene_DustMechlinkDesc".Translate(),
+				icon = ContentFinder<Texture2D>.Get(def.iconPath),
+				action = delegate
 				{
-					defaultLabel = "WVC_XaG_Gene_DustMechlink".Translate() + ": " + GeneUiUtility.OnOrOff(summonMechanoids),
-					defaultDesc = "WVC_XaG_Gene_DustMechlinkDesc".Translate(),
-					icon = ContentFinder<Texture2D>.Get(def.iconPath),
-					action = delegate
+					summonMechanoids = !summonMechanoids;
+					if (summonMechanoids)
 					{
-						summonMechanoids = !summonMechanoids;
-						if (summonMechanoids)
-						{
-							SoundDefOf.Tick_High.PlayOneShotOnCamera();
-						}
-						else
-						{
-							SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-						}
+						SoundDefOf.Tick_High.PlayOneShotOnCamera();
 					}
-				};
-				// if (!MechanoidsUtility.CanSummonMechanoidsIdeo(pawn))
-				// {
-					// command_Action.Disable("WVC_XaG_General_DisabledIdeo".Translate(pawn.Named("PAWN")));
-				// }
-				yield return command_Action;
-			}
+					else
+					{
+						SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+					}
+				}
+			};
+			yield return command_Action;
 		}
 	}
 

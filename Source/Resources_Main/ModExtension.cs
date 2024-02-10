@@ -101,6 +101,9 @@ namespace WVC_XenotypesAndGenes
 		public IntRange intervalRange = new(120000, 300000);
 		public bool showMessageIfOwned = false;
 		public string message = "WVC_XaG_Extreme_GeneticInstabilityMessage";
+		public JobDef jobDef;
+		public bool defaultBoolValue = false;
+		// public ThingDef jobTarget;
 	}
 
 	public class GeneExtension_Shapeshifter : DefModExtension

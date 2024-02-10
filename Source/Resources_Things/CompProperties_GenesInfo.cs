@@ -132,23 +132,23 @@ namespace WVC_XenotypesAndGenes
 				{
 					spawners.Add(geneSpawner);
 				}
-				if (WVC_Biotech.settings.enableGeneWingInfo && item is Gene_Wings gene_Wings)
+				else if (WVC_Biotech.settings.enableGeneWingInfo && item is Gene_Wings gene_Wings)
 				{
 					cachedWingGene = gene_Wings;
 				}
-				if (WVC_Biotech.settings.enableGeneUndeadInfo && item is Gene_Undead gene_Undead)
+				else if (WVC_Biotech.settings.enableGeneUndeadInfo && item is Gene_Undead gene_Undead)
 				{
 					cachedUndeadGene = gene_Undead;
 				}
-				if (WVC_Biotech.settings.enableGeneBlesslinkInfo && item is Gene_DustMechlink gene_DustMechlink)
+				else if (WVC_Biotech.settings.enableGeneBlesslinkInfo && item is Gene_DustMechlink gene_DustMechlink)
 				{
 					cachedBlesslinkGene = gene_DustMechlink;
 				}
-				if (WVC_Biotech.settings.enableGeneScarifierInfo && item is Gene_Scarifier gene_Scarifier)
+				else if (WVC_Biotech.settings.enableGeneScarifierInfo && item is Gene_Scarifier gene_Scarifier)
 				{
 					cachedScarifierGene = gene_Scarifier;
 				}
-				if (WVC_Biotech.settings.enableGeneInstabilityInfo && item is Gene_GeneticInstability gene_GeneticInstability)
+				else if (WVC_Biotech.settings.enableGeneInstabilityInfo && item is Gene_GeneticInstability gene_GeneticInstability)
 				{
 					cachedGeneticInstabilityGene = gene_GeneticInstability;
 				}

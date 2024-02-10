@@ -99,6 +99,10 @@
 	</statFactors>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<jobDef>UseItem</jobDef>
+			<specialFoodDefs>
+				<li>WVC_GeneticStabilizerSerum_Base</li>
+			</specialFoodDefs>
 			<intervalRange>522000~1240000</intervalRange>
 			<hediffDefs>
 				<li>XenogermReplicating</li>
@@ -126,6 +130,10 @@
 	</statFactors>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<jobDef>UseItem</jobDef>
+			<specialFoodDefs>
+				<li>WVC_GeneticStabilizerSerum_Base</li>
+			</specialFoodDefs>
 			<intervalRange>522000~1240000</intervalRange>
 			<hediffDefs>
 				<li>XenogermReplicating</li>
@@ -153,7 +161,12 @@
 	</statFactors>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<jobDef>UseItem</jobDef>
+			<specialFoodDefs>
+				<li>WVC_GeneticStabilizerSerum_Base</li>
+			</specialFoodDefs>
 			<showMessageIfOwned>true</showMessageIfOwned>
+			<defaultBoolValue>true</defaultBoolValue>
 			<intervalRange>522000~840000</intervalRange>
 			<hediffDefs>
 				<li>XenogermReplicating</li>
