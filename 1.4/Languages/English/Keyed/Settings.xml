@@ -117,6 +117,17 @@ A restart is required.</WVC_ToolTip_enableHarmonyTelepathyGene>
 
 	<!-- ====================================================================================== -->
 
+	<WVC_Label_useAlternativeDustogenicFoodJob>Use alternative dustogenic food job</WVC_Label_useAlternativeDustogenicFoodJob>
+	<WVC_ToolTip_useAlternativeDustogenicFoodJob>If enabled, the job giver that forces the pawn to eat dustogenic food instead of normal food will be triggered through the gene, rather than being built into thinkTree.
+
+This should improve performance, but may cause the pawns to sometimes eat regular food rather than dustogenic ones.
+
+Use this option only if you are not using dust genes or have any performance issues.
+
+A restart is required.</WVC_ToolTip_useAlternativeDustogenicFoodJob>
+
+	<!-- ====================================================================================== -->
+
 	<!-- <WVC_Label_reincarnationBlockUndeadResurrection></WVC_Label_reincarnationBlockUndeadResurrection> -->
 	<!-- <WVC_ToolTip_reincarnationBlockUndeadResurrection></WVC_ToolTip_reincarnationBlockUndeadResurrection> -->
 

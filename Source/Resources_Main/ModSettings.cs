@@ -29,6 +29,7 @@ namespace WVC_XenotypesAndGenes
 		public bool shapeshifterGeneUnremovable = false;
 		public bool enableIncestLoverGene = true;
 		public bool enableHarmonyTelepathyGene = false;
+		public bool useAlternativeDustogenicFoodJob = false;
 		// public bool reimplantResurrectionRecruiting = false;
 		// Fix
 		public bool fixVanillaGeneImmunityCheck = true;
@@ -81,6 +82,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref shapeshifterGeneUnremovable, "shapeshifterGeneUnremovable", defaultValue: false);
 			Scribe_Values.Look(ref enableIncestLoverGene, "enableIncestLoverGene", defaultValue: true);
 			Scribe_Values.Look(ref enableHarmonyTelepathyGene, "enableHarmonyTelepathyGene", defaultValue: false);
+			Scribe_Values.Look(ref useAlternativeDustogenicFoodJob, "useAlternativeDustogenicFoodJob", defaultValue: false);
 			// Scribe_Values.Look(ref reimplantResurrectionRecruiting, "reimplantResurrectionRecruiting", defaultValue: false);
 			// Fix
 			Scribe_Values.Look(ref fixVanillaGeneImmunityCheck, "fixVanillaGeneImmunityCheck", defaultValue: true);
@@ -167,7 +169,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			Rect outRect = new(inRect.x, inRect.y, inRect.width, inRect.height);
 			// Rect rect = new(0f, 0f, inRect.width, inRect.height);
-			Rect rect = new(0f, 0f, inRect.width - 30f, inRect.height * 2.3f);
+			Rect rect = new(0f, 0f, inRect.width - 30f, inRect.height * 2.4f);
 			Widgets.BeginScrollView(outRect, ref scrollPosition, rect);
 			Listing_Standard listingStandard = new();
 			listingStandard.Begin(rect);
@@ -206,6 +208,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_ShapeshifterGeneUnremovable".Translate().Colorize(ColorLibrary.LightBlue), ref settings.shapeshifterGeneUnremovable, "WVC_ToolTip_ShapeshifterGeneUnremovable".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enableIncestLoverGene".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enableIncestLoverGene, "WVC_ToolTip_enableIncestLoverGene".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enableHarmonyTelepathyGene".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enableHarmonyTelepathyGene, "WVC_ToolTip_enableHarmonyTelepathyGene".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_useAlternativeDustogenicFoodJob".Translate().Colorize(ColorLibrary.LightBlue), ref settings.useAlternativeDustogenicFoodJob, "WVC_ToolTip_useAlternativeDustogenicFoodJob".Translate());
 			// listingStandard.CheckboxLabeled("WVC_Label_reimplantResurrectionRecruiting".Translate(), ref settings.reimplantResurrectionRecruiting, "WVC_ToolTip_reimplantResurrectionRecruiting".Translate());
 			listingStandard.Gap();
 			// Fix
@@ -251,6 +254,7 @@ namespace WVC_XenotypesAndGenes
 					settings.shapeshifterGeneUnremovable = false;
 					settings.enableIncestLoverGene = true;
 					settings.enableHarmonyTelepathyGene = false;
+					settings.useAlternativeDustogenicFoodJob = false;
 					// Fix
 					settings.fixVanillaGeneImmunityCheck = true;
 					settings.minWastepacksPerRecharge = false;
@@ -303,6 +307,7 @@ namespace WVC_XenotypesAndGenes
 					settings.shapeshifterGeneUnremovable = true;
 					settings.enableIncestLoverGene = true;
 					settings.enableHarmonyTelepathyGene = false;
+					settings.useAlternativeDustogenicFoodJob = false;
 					// Fix
 					settings.fixVanillaGeneImmunityCheck = true;
 					settings.minWastepacksPerRecharge = false;

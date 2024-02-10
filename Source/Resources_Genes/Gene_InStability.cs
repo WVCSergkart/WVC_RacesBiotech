@@ -200,8 +200,17 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (pawn.Drafted)
+			if (pawn.Map == null)
 			{
+				return;
+			}
+			if (pawn.Downed || pawn.Drafted)
+			{
+				return;
+			}
+			if (pawn.Faction != Faction.OfPlayer)
+			{
+				useStabilizerAuto = false;
 				return;
 			}
 			if (Props.jobDef == null || Props.specialFoodDefs.NullOrEmpty())

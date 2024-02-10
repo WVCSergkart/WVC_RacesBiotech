@@ -45,9 +45,7 @@
 	<WVC_XaG_GeneGiverImplanted_Desc>{0} received the "{1}" gene, due to this {0}'s genes will be regrowing.</WVC_XaG_GeneGiverImplanted_Desc>
 
 	<WVC_XaG_Gene_GeneticInstability>Use stabilizer</WVC_XaG_Gene_GeneticInstability>
-	<WVC_XaG_Gene_GeneticInstabilityDesc>Pawn will automatically try to use the stabilizer when there are less than 3 days left.
-
-Please note that the pawn will interrupt its current work.</WVC_XaG_Gene_GeneticInstabilityDesc>
+	<WVC_XaG_Gene_GeneticInstabilityDesc>Pawn will automatically try to use the stabilizer when there are less than 3 days left until the next instabilization.</WVC_XaG_Gene_GeneticInstabilityDesc>
 
 	<!-- ============================ REIMPLANTER GENE ============================ -->
 

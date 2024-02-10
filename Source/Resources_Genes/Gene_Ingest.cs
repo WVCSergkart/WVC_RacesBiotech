@@ -1,6 +1,7 @@
 using RimWorld;
 using System.Collections.Generic;
 using Verse;
+using Verse.AI;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -34,7 +35,9 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Dust : Gene
 	{
 
-		public List<ThingDef> SpecialFoodDefs => def.GetModExtension<GeneExtension_Giver>().specialFoodDefs;
+		// public List<ThingDef> SpecialFoodDefs => def.GetModExtension<GeneExtension_Giver>().specialFoodDefs;
+
+		public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
 
 		// private float cachedMaxNutrition = 0f;
 
@@ -53,6 +56,52 @@ namespace WVC_XenotypesAndGenes
 			// }
 		// }
 
+		public override void Tick()
+		{
+			base.Tick();
+			if (!pawn.IsHashIntervalTick(360))
+			{
+				return;
+			}
+			// Log.Error("TEST");
+			if (!WVC_Biotech.settings.useAlternativeDustogenicFoodJob)
+			{
+				return;
+			}
+			if (pawn.Map == null)
+			{
+				return;
+			}
+			Need_Food food = pawn?.needs?.food;
+			if (food == null)
+			{
+				return;
+			}
+			if (food.CurLevelPercentage >= pawn.RaceProps.FoodLevelPercentageWantEat + 0.12f)
+			{
+				return;
+			}
+			if (pawn.Downed || pawn.Drafted)
+			{
+				return;
+			}
+			for (int j = 0; j < Props.specialFoodDefs.Count; j++)
+			{
+				Thing specialFood = MiscUtility.GetSpecialFood(pawn, Props.specialFoodDefs[j]);
+				if (specialFood == null)
+				{
+					continue;
+				}
+				if (pawn.jobs.curJob.def != JobDefOf.Ingest)
+				{
+					Job job = JobMaker.MakeJob(JobDefOf.Ingest, specialFood);
+					job.count = 1;
+					pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);
+				}
+				break;
+			}
+		}
+
 		public override void Notify_IngestedThing(Thing thing, int numTaken)
 		{
 			if (!Active)
@@ -64,7 +113,7 @@ namespace WVC_XenotypesAndGenes
 			float nutrition = thing.GetStatValue(StatDefOf.Nutrition);
 			if (ingestible != null && nutrition > 0f)
 			{
-				if (SpecialFoodDefs.Contains(thing.def) || DustUtility.PawnInPronePosition(pawn))
+				if (Props.specialFoodDefs.Contains(thing.def) || DustUtility.PawnInPronePosition(pawn))
 				{
 					// It is necessary to ensure that the food bar is filled
 					DustUtility.OffsetNeedFood(pawn, 10.0f);
