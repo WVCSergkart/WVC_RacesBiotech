@@ -55,6 +55,8 @@ namespace WVC_XenotypesAndGenes
 		public bool serumsForAllXenotypes_GenHybrid = false;
 		public bool serumsForAllXenotypes_Recipes = true;
 		public bool serumsForAllXenotypes_Spawners = false;
+		// ExtraSettings
+		public bool genesCanTickOnlyOnMap = false;
 
 		public IEnumerable<string> GetEnabledSettings => from specificSetting in GetType().GetFields()
 														 where specificSetting.FieldType == typeof(bool) && (bool)specificSetting.GetValue(this)
@@ -106,6 +108,8 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref serumsForAllXenotypes_GenHybrid, "serumsForAllXenotypes_GenHybrid", defaultValue: false);
 			Scribe_Values.Look(ref serumsForAllXenotypes_Recipes, "serumsForAllXenotypes_Recipes", defaultValue: true);
 			Scribe_Values.Look(ref serumsForAllXenotypes_Spawners, "serumsForAllXenotypes_Spawners", defaultValue: false);
+			// ExtraSettings
+			Scribe_Values.Look(ref genesCanTickOnlyOnMap, "genesCanTickOnlyOnMap", defaultValue: false);
 			// End
 			Scribe_Collections.Look(ref WVC_Biotech.cachedXenotypesFilter, "cachedXenotypesFilter", LookMode.Value, LookMode.Value);
 		}
@@ -147,7 +151,12 @@ namespace WVC_XenotypesAndGenes
 				{
 					PageIndex = 1;
 					WriteSettings();
-				}, PageIndex == 1)
+				}, PageIndex == 1),
+				new TabRecord("WVC_BiotechSettings_Tab_ExtraSettings".Translate(), delegate
+				{
+					PageIndex = 2;
+					WriteSettings();
+				}, PageIndex == 2)
 			};
 			TabDrawer.DrawTabs(baseRect, tabs);
 			switch (PageIndex)
@@ -158,7 +167,15 @@ namespace WVC_XenotypesAndGenes
 				case 1:
 					XenotypeFilterSettings(rect2.ContractedBy(15f));
 					break;
+				case 2:
+					ExtraSettings(rect2.ContractedBy(15f));
+					break;
 			}
+		}
+
+		public override string SettingsCategory()
+		{
+			return "WVC - " + "WVC_BiotechSettings".Translate();
 		}
 
 		// General Settings
@@ -169,7 +186,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			Rect outRect = new(inRect.x, inRect.y, inRect.width, inRect.height);
 			// Rect rect = new(0f, 0f, inRect.width, inRect.height);
-			Rect rect = new(0f, 0f, inRect.width - 30f, inRect.height * 2.4f);
+			Rect rect = new(0f, 0f, inRect.width - 30f, inRect.height * 2.2f);
 			Widgets.BeginScrollView(outRect, ref scrollPosition, rect);
 			Listing_Standard listingStandard = new();
 			listingStandard.Begin(rect);
@@ -217,9 +234,6 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_minWastepacksPerRecharge".Translate(), ref settings.minWastepacksPerRecharge, "WVC_ToolTip_minWastepacksPerRecharge".Translate());
 			// listingStandard.CheckboxLabeled("WVC_Label_validatorAbilitiesPatch".Translate().Colorize(ColorLibrary.LightBlue), ref settings.validatorAbilitiesPatch, "WVC_ToolTip_validatorAbilitiesPatch".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_spawnXenoForcerSerumsFromTraders".Translate(), ref settings.spawnXenoForcerSerumsFromTraders, "WVC_ToolTip_spawnXenoForcerSerumsFromTraders".Translate());
-			listingStandard.CheckboxLabeled("DEV: ".Colorize(ColorLibrary.RedReadable) + "WVC_Label_fixGenesOnLoad".Translate().Colorize(ColorLibrary.LightPink), ref settings.fixGenesOnLoad, "WVC_ToolTip_fixGenesOnLoad".Translate() + "\n\n" + "WVC_Alert_fixBrokenShit".Translate());
-			listingStandard.CheckboxLabeled("DEV: ".Colorize(ColorLibrary.RedReadable) + "WVC_Label_fixGeneAbilitiesOnLoad".Translate().Colorize(ColorLibrary.LightPink), ref settings.fixGeneAbilitiesOnLoad, "WVC_ToolTip_fixGeneAbilitiesOnLoad".Translate() + "\n\n" + "WVC_Alert_fixBrokenShit".Translate());
-			listingStandard.CheckboxLabeled("DEV: ".Colorize(ColorLibrary.RedReadable) + "WVC_Label_fixGeneTypesOnLoad".Translate().Colorize(ColorLibrary.LightPink), ref settings.fixGeneTypesOnLoad, "WVC_ToolTip_fixGeneTypesOnLoad".Translate() + "\n\n" + "WVC_Alert_fixBrokenShit".Translate());
 			listingStandard.Gap();
 			// Serums
 			listingStandard.Label("WVC_BiotechSettings_Label_Serums".Translate().Colorize(ColoredText.SubtleGrayColor) + ":", -1, "WVC_BiotechSettings_Tooltip_Serums".Translate());
@@ -466,10 +480,43 @@ namespace WVC_XenotypesAndGenes
 			return num + 5;
 		}
 
-		public override string SettingsCategory()
+		// Extra Settings
+		// Extra Settings
+		// Extra Settings
+
+		public void ExtraSettings(Rect inRect)
 		{
-			return "WVC - " + "WVC_BiotechSettings".Translate();
+			Rect outRect = new(inRect.x, inRect.y, inRect.width, inRect.height);
+			// Rect rect = new(0f, 0f, inRect.width, inRect.height);
+			Rect rect = new(0f, 0f, inRect.width - 30f, inRect.height * 2.0f);
+			Widgets.BeginScrollView(outRect, ref scrollPosition, rect);
+			Listing_Standard listingStandard = new();
+			listingStandard.Begin(rect);
+			// Extra
+			listingStandard.Label("WVC_BiotechSettings_Label_Genes".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Genes".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_genesCanTickOnlyOnMap".Translate().Colorize(ColorLibrary.LightPurple), ref settings.genesCanTickOnlyOnMap, "WVC_ToolTip_genesCanTickOnlyOnMap".Translate());
+			listingStandard.Gap();
+			// =============== Dev ===============
+			listingStandard.CheckboxLabeled("DEV: ".Colorize(ColorLibrary.RedReadable) + "WVC_Label_fixGenesOnLoad".Translate().Colorize(ColorLibrary.LightPink), ref settings.fixGenesOnLoad, "WVC_ToolTip_fixGenesOnLoad".Translate() + "\n\n" + "WVC_Alert_fixBrokenShit".Translate());
+			listingStandard.CheckboxLabeled("DEV: ".Colorize(ColorLibrary.RedReadable) + "WVC_Label_fixGeneAbilitiesOnLoad".Translate().Colorize(ColorLibrary.LightPink), ref settings.fixGeneAbilitiesOnLoad, "WVC_ToolTip_fixGeneAbilitiesOnLoad".Translate() + "\n\n" + "WVC_Alert_fixBrokenShit".Translate());
+			listingStandard.CheckboxLabeled("DEV: ".Colorize(ColorLibrary.RedReadable) + "WVC_Label_fixGeneTypesOnLoad".Translate().Colorize(ColorLibrary.LightPink), ref settings.fixGeneTypesOnLoad, "WVC_ToolTip_fixGeneTypesOnLoad".Translate() + "\n\n" + "WVC_Alert_fixBrokenShit".Translate());
+			listingStandard.GapLine();
+			// =============== Buttons ===============
+			if (listingStandard.ButtonText("WVC_XaG_ResetButton".Translate()))
+			{
+				Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_ResetButtonWarning".Translate(), delegate
+				{
+					// Extra
+					settings.genesCanTickOnlyOnMap = false;
+					// Message
+					Messages.Message("WVC_XaG_ResetButton_SettingsChanged".Translate(), MessageTypeDefOf.TaskCompletion, historical: false);
+				});
+				Find.WindowStack.Add(window);
+			}
+			listingStandard.End();
+			Widgets.EndScrollView();
 		}
+
 	}
 
 	public class PatchOperationOptional : PatchOperation

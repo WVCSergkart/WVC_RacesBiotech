@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+	<!-- <WVC_BiotechSettings_Label_ExtraGenes>Info</WVC_BiotechSettings_Label_Extra> -->
+
+	<WVC_BiotechSettings_Tab_ExtraSettings>Extra</WVC_BiotechSettings_Tab_ExtraSettings>
+
+	<WVC_Label_genesCanTickOnlyOnMap>Genes tick only on map</WVC_Label_genesCanTickOnlyOnMap>
+	<WVC_ToolTip_genesCanTickOnlyOnMap>If enabled, genes cannot tick outside the map, which should improve performance. However, this may break some gene mechanics that are designed to work outside of the map.
+
+Use this option only if you are sure of what you are doing.
+
+A restart is required.</WVC_ToolTip_genesCanTickOnlyOnMap>
+
+</LanguageData>

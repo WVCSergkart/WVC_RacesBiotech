@@ -33,6 +33,10 @@ namespace WVC_XenotypesAndGenes
 			public static void PostInitialPatches()
 			{
 				var harmony = new Harmony("wvc.sergkart.races.biotech");
+				if (WVC_Biotech.settings.genesCanTickOnlyOnMap)
+				{
+					harmony.Patch(AccessTools.Method(typeof(Pawn_GeneTracker), "GeneTrackerTick"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("GeneTickOptimization")));
+				}
 				if (WVC_Biotech.settings.hideXaGGenes)
 				{
 					harmony.Patch(AccessTools.Method(typeof(Dialog_CreateXenotype), "DrawGene"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Patch_HideGenes")));
@@ -328,6 +332,17 @@ namespace WVC_XenotypesAndGenes
 				// }
 				// return true;
 			// }
+
+			// Dev TESTS
+
+			public static bool GeneTickOptimization(Pawn_GeneTracker __instance)
+			{
+				if (__instance.pawn.Map == null)
+				{
+					return false;
+				}
+				return true;
+			}
 
 		}
 
