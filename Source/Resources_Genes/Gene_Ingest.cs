@@ -78,7 +78,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					Job job = JobMaker.MakeJob(JobDefOf.Ingest, specialFood);
 					job.count = 1;
-					pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);
+					pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, pawn.jobs.curJob.def != JobDefOf.Ingest);
 				}
 				break;
 			}
@@ -92,7 +92,12 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				return true;
+				if (item.targetA.Thing != null && Props.specialFoodDefs.Contains(item.targetA.Thing.def))
+				{
+					// continue;
+					return true;
+				}
+				// return true;
 			}
 			return false;
 		}
