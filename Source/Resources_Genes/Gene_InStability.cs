@@ -1,4 +1,5 @@
 using RimWorld;
+using RimWorld.Planet;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -200,11 +201,6 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (pawn.Map == null)
-			{
-				// In caravan use
-				return;
-			}
 			if (pawn.Downed || pawn.Drafted)
 			{
 				return;
@@ -212,6 +208,12 @@ namespace WVC_XenotypesAndGenes
 			if (pawn.Faction != Faction.OfPlayer)
 			{
 				useStabilizerAuto = false;
+				return;
+			}
+			if (pawn.Map == null)
+			{
+				// In caravan use
+				InCaravan();
 				return;
 			}
 			if (Props.jobDef == null || Props.specialFoodDefs.NullOrEmpty())
@@ -226,6 +228,35 @@ namespace WVC_XenotypesAndGenes
 					continue;
 				}
 				pawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(Props.jobDef, serum), JobTag.Misc, true);
+			}
+		}
+
+		private void InCaravan()
+		{
+			Caravan caravan = pawn.GetCaravan();
+			if (caravan == null)
+			{
+				return;
+			}
+			List<Thing> things = caravan.AllThings.ToList();
+			if (things.NullOrEmpty())
+			{
+				return;
+			}
+			for (int j = 0; j < things.Count; j++)
+			{
+				if (!Props.specialFoodDefs.Contains(things[j].def))
+				{
+					continue;
+				}
+				CompUseEffect_GeneticStabilizer stabilizer = things[j].TryGetComp<CompUseEffect_GeneticStabilizer>();
+				if (stabilizer?.Props?.canBeUsedInCaravan != true)
+				{
+					continue;
+				}
+				nextTick += 60000 * stabilizer.Props.daysDelay;
+				things[j].Destroy();
+				break;
 			}
 		}
 

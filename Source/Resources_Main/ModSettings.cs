@@ -307,7 +307,7 @@ namespace WVC_XenotypesAndGenes
 					settings.shapeshifterGeneUnremovable = true;
 					settings.enableIncestLoverGene = true;
 					settings.enableHarmonyTelepathyGene = false;
-					settings.useAlternativeDustogenicFoodJob = false;
+					settings.useAlternativeDustogenicFoodJob = true;
 					// Fix
 					settings.fixVanillaGeneImmunityCheck = true;
 					settings.minWastepacksPerRecharge = false;

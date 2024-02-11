@@ -1,4 +1,5 @@
 using RimWorld;
+using RimWorld.Planet;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
@@ -24,7 +25,7 @@ namespace WVC_XenotypesAndGenes
 			// }
 			IngestibleProperties ingestible = thing.def.ingestible;
 			float nutrition = thing.GetStatValue(StatDefOf.Nutrition);
-			if (ingestible != null && nutrition > 0f && pawn.Map != null)
+			if (ingestible != null && nutrition > 0f)
 			{
 				DustUtility.OffsetNeedFood(pawn, (-1f * def.resourceLossPerDay) * nutrition * (float)numTaken);
 				// Log.Error(def.defName + " " + ((-1f * def.resourceLossPerDay) * nutrition * (float)numTaken) + " nutrition gain");
@@ -49,9 +50,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (pawn.Map == null)
+			if (pawn.Downed || pawn.Drafted)
 			{
-				// In caravan use
 				return;
 			}
 			Need_Food food = pawn?.needs?.food;
@@ -63,8 +63,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (pawn.Downed || pawn.Drafted)
+			if (pawn.Map == null)
 			{
+				// In caravan use
+				InCaravan();
 				return;
 			}
 			for (int j = 0; j < Props.specialFoodDefs.Count; j++)
@@ -102,6 +104,33 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		private void InCaravan()
+		{
+			Caravan caravan = pawn.GetCaravan();
+			if (caravan == null)
+			{
+				return;
+			}
+			List<Thing> things = caravan.AllThings.ToList();
+			if (things.NullOrEmpty())
+			{
+				return;
+			}
+			for (int j = 0; j < things.Count; j++)
+			{
+				if (!Props.specialFoodDefs.Contains(things[j].def))
+				{
+					continue;
+				}
+				Notify_IngestedThing(things[j], 1);
+				if (things[j] != null)
+				{
+					things[j].Destroy();
+				}
+				break;
+			}
+		}
+
 		public override void Notify_IngestedThing(Thing thing, int numTaken)
 		{
 			if (!Active)
@@ -117,7 +146,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					DustUtility.OffsetNeedFood(pawn, 10.0f);
 				}
-				else if (pawn.Map != null)
+				else
 				{
 					DustUtility.OffsetNeedFood(pawn, -0.1f * nutrition * (float)numTaken);
 				}

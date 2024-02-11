@@ -9,6 +9,8 @@ namespace WVC_XenotypesAndGenes
 
 		public int daysDelay = 8;
 
+		public bool canBeUsedInCaravan = false;
+
 		public List<HediffDef> hediffsToRemove;
 
 		public CompProperties_UseEffect_GeneRestoration()
