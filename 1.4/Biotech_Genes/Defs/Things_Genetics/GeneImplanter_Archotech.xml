@@ -105,6 +105,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_GeneRestoration">
 		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneticStabilizer</compClass>
+		<!-- 288 000 000 ticks = 4800 days = 80 years -->
 		<daysDelay>4800</daysDelay>
 	  </li>
 	</comps>

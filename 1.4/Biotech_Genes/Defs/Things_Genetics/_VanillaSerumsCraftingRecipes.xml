@@ -24,10 +24,10 @@
 	  <li>
 		<filter>
 		  <thingDefs>
-			<li>WVC_EmptyXenotypeSerum</li>
+			<li>Plasteel</li>
 		  </thingDefs>
 		</filter>
-		<count>1</count>
+		<count>30</count>
 	  </li>
 	  <!-- <li> -->
 		<!-- <filter> -->
@@ -93,6 +93,14 @@
 	  <li>
 		<filter>
 		  <thingDefs>
+			<li>WVC_EmptyXenotypeSerum</li>
+		  </thingDefs>
+		</filter>
+		<count>2</count>
+	  </li>
+	  <li>
+		<filter>
+		  <thingDefs>
 			<li>ComponentSpacer</li>
 		  </thingDefs>
 		</filter>
@@ -104,32 +112,8 @@
 			<li>WVC_XenotypeSerumCapsule</li>
 		  </thingDefs>
 		</filter>
-		<count>2</count>
+		<count>1</count>
 	  </li>
-	  <!-- <li> -->
-		<!-- <filter> -->
-		  <!-- <thingDefs> -->
-			<!-- <li>Gold</li> -->
-		  <!-- </thingDefs> -->
-		<!-- </filter> -->
-		<!-- <count>16</count> -->
-	  <!-- </li> -->
-	  <!-- <li> -->
-		<!-- <filter> -->
-		  <!-- <thingDefs> -->
-			<!-- <li>Silver</li> -->
-		  <!-- </thingDefs> -->
-		<!-- </filter> -->
-		<!-- <count>22</count> -->
-	  <!-- </li> -->
-	  <!-- <li> -->
-		<!-- <filter> -->
-		  <!-- <thingDefs> -->
-			<!-- <li>ArchiteCapsule</li> -->
-		  <!-- </thingDefs> -->
-		<!-- </filter> -->
-		<!-- <count>2</count> -->
-	  <!-- </li> -->
 	</ingredients>
   </RecipeDef>
 
@@ -149,22 +133,14 @@
 	  <MechSerumResurrector>1</MechSerumResurrector>
 	</products>
 	<ingredients>
-	  <!-- <li> -->
-		<!-- <filter> -->
-		  <!-- <thingDefs> -->
-			<!-- <li>Gold</li> -->
-		  <!-- </thingDefs> -->
-		<!-- </filter> -->
-		<!-- <count>22</count> -->
-	  <!-- </li> -->
-	  <!-- <li> -->
-		<!-- <filter> -->
-		  <!-- <thingDefs> -->
-			<!-- <li>Silver</li> -->
-		  <!-- </thingDefs> -->
-		<!-- </filter> -->
-		<!-- <count>32</count> -->
-	  <!-- </li> -->
+	  <li>
+		<filter>
+		  <thingDefs>
+			<li>WVC_EmptyXenotypeSerum</li>
+		  </thingDefs>
+		</filter>
+		<count>2</count>
+	  </li>
 	  <li>
 		<filter>
 		  <thingDefs>
@@ -188,6 +164,41 @@
 		  </thingDefs>
 		</filter>
 		<count>1</count>
+	  </li>
+	</ingredients>
+  </RecipeDef>
+
+  <RecipeDef ParentName="WVC_XenotypesAndGenes_VanillaSerumCrafting_Base">
+	<defName>WVC_RacesBiotech_DeathrestCapacitySerum</defName>
+	<label>make deathrest capacity serum</label>
+	<description>Make a deathrest capacity serum.</description>
+	<jobString>Making deathrest capacity serum.</jobString>
+	<skillRequirements>
+	  <Crafting>12</Crafting>
+	  <Intellectual>8</Intellectual>
+	</skillRequirements>
+	<researchPrerequisites>
+	  <li>Deathrest</li>
+	</researchPrerequisites>
+	<products>
+	  <DeathrestCapacitySerum>1</DeathrestCapacitySerum>
+	</products>
+	<ingredients>
+	  <li>
+		<filter>
+		  <thingDefs>
+			<li>WVC_EmptyXenotypeSerum</li>
+		  </thingDefs>
+		</filter>
+		<count>3</count>
+	  </li>
+	  <li>
+		<filter>
+		  <thingDefs>
+			<li>ComponentSpacer</li>
+		  </thingDefs>
+		</filter>
+		<count>3</count>
 	  </li>
 	</ingredients>
   </RecipeDef>
