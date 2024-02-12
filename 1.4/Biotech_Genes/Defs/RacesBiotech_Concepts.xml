@@ -7,11 +7,13 @@
 	<!-- <priority>-1000</priority> -->
 	<priority>121</priority>
 	<needsOpportunity>false</needsOpportunity>
-	<helpText>In total, the mod contains 4 types of possible serums. Basic, hybrid, custom and hybrid custom.
+	<helpText>In total, the mod contains 4 types of possible serums. Basic, ultra, hybrid and custom.
 
-Xenotype serum (_name_) - This is a basic serum, it changes the xenotype in accordance with the one indicated in the name. If the xenotype is not inherited, then the germline is not overwritten and you can thus create a hybrid xenotype.
+Basetype serum (_name_) - contains only non-archite xenotypes. May be crafted. When crafting, as well as when generating, it always contains a random xenotype. The xenotype can be changed for free with the retuning technology.
 
-Hybrid serum (_name_) - This is a hybrid serum, hybrid serum give 2 xenotypes, for germline and xeno respectively. The name indicates a guaranteed xenotype.</helpText>
+Ultratype serum (_name_) - contains only archite xenotypes. Same as basetype serum.
+
+Hybridtype serum (_name_ + _name_) - contain any two xenotypes. Same as basetype serum. But with two xenotypes.</helpText>
   </ConceptDef>
 
   <ConceptDef>
@@ -46,11 +48,11 @@ Please note that the filter does not display xenotypes that the mod developer co
 	<!-- <priority>-1000</priority> -->
 	<priority>124</priority>
 	<needsOpportunity>false</needsOpportunity>
-	<helpText>Basetype serum (_name_) - contains only non-archite xenotypes. May be crafted. When crafting, as well as when generating, it always contains a random xenotype. The xenotype can be changed for free with the retuning technology.
+	<helpText>Old serum generation mechanic. No longer used, but can be enabled in settings. Generatable serums:
 
-Ultratype serum (_name_) - contains only archite xenotypes. Same as basetype serum.
+Xenotype serum (_name_) - This is a basic serum, it changes the xenotype in accordance with the one indicated in the name. If the xenotype is not inherited, then the germline is not overwritten and you can thus create a hybrid xenotype.
 
-Hybridtype serum (_name_ + _name_) - contain any two xenotypes. Same as basetype serum. But with two xenotypes.</helpText>
+Hybrid serum (_name_) - This is a hybrid serum, hybrid serum give 2 xenotypes, for germline and xeno respectively. The name indicates a guaranteed xenotype.</helpText>
   </ConceptDef>
 
   <ConceptDef>
@@ -58,11 +60,13 @@ Hybridtype serum (_name_ + _name_) - contain any two xenotypes. Same as basetype
 	<label>Xenotype Serums Guide</label>
 	<priority>-1000</priority>
 	<needsOpportunity>false</needsOpportunity>
-	<description>In total, the mod contains 4 types of possible serums. Basic, hybrid, custom and hybrid custom.
+	<description>In total, the mod contains 4 types of possible serums. Basic, ultra, hybrid and custom.
 
-Xenotype serum (_name_) - This is a basic serum, it changes the xenotype in accordance with the one indicated in the name. If the xenotype is not inherited, then the germline is not overwritten and you can thus create a hybrid xenotype.
+Basetype serum (_name_) - contains only non-archite xenotypes. May be crafted. When crafting, as well as when generating, it always contains a random xenotype. The xenotype can be changed for free with the retuning technology.
 
-Hybrid serum (_name_) - This is a hybrid serum, hybrid serum give 2 xenotypes, for germline and xeno respectively. The name indicates a guaranteed xenotype.
+Ultratype serum (_name_) - contains only archite xenotypes. Same as basetype serum.
+
+Hybridtype serum (_name_ + _name_) - contain any two xenotypes. Same as basetype serum. But with two xenotypes.
 
 Xenotype serum (custom) - This is a custom serum that gives a random xenotype that you have created yourself. Note that if there is no suitable xenotype, then the base serum rule will be used.
 
@@ -74,15 +78,12 @@ Xenotype filter settings.
 
 Everything is very simple here. Open the mod settings and go to the Xenotypes Filter tab.
 Allowed xnotypes are marked with a green checkmark, prohibited ones with a red cross.
-Please note that the filter does not display xenotypes that the mod developer considered prohibited.
 
-_Name_type serums:
+Old serum generation mechanic. No longer used, but can be enabled in settings. Generatable serums:
 
-Basetype serum (_name_) - contains only non-archite xenotypes. May be crafted. When crafting, as well as when generating, it always contains a random xenotype. The xenotype can be changed for free with the retuning technology.
+Xenotype serum (_name_) - This is a basic serum, it changes the xenotype in accordance with the one indicated in the name. If the xenotype is not inherited, then the germline is not overwritten and you can thus create a hybrid xenotype.
 
-Ultratype serum (_name_) - contains only archite xenotypes. Same as basetype serum.
-
-Hybridtype serum (_name_ + _name_) - contain any two xenotypes. Same as basetype serum. But with two xenotypes.</description>
+Hybrid serum (_name_) - This is a hybrid serum, hybrid serum give 2 xenotypes, for germline and xeno respectively. The name indicates a guaranteed xenotype.</description>
 	<helpText>Should be never displayed.</helpText>
   </ConceptDef>
 
