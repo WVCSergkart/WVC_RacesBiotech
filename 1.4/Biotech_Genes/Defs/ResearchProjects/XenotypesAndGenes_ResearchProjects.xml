@@ -79,7 +79,7 @@
   <ResearchProjectDef ParentName="WVC_XenotypesAndGenesResearchProjectDefs_AfterSerumLab">
 	<defName>WVC_XenotypesAndGenes_RetuneSerum</defName>
 	<label>serum retune</label>
-	<description>The technology needed for the serum retuning.</description>
+	<description>The technology needed for the serum retuning. Allows you to change the xenotype in the serum.</description>
 	<baseCost>900</baseCost>
 	<researchViewX>1.00</researchViewX>
 	<researchViewY>4.00</researchViewY>
@@ -100,7 +100,7 @@
   <ResearchProjectDef ParentName="WVC_XenotypesAndGenesResearchProjectDefs_AfterAfterSerumLab">
 	<defName>WVC_XenotypesAndGenes_XenotypeSerumCrafting</defName>
 	<label>serum crafting</label>
-	<description>Advanced injector technology to quickly overwrite the genetic code.</description>
+	<description>Advanced injector technology to quickly overwrite the genetic code. Allows you to craft xenotype serums. To assign a xenotype, retune technology is needed.</description>
 	<baseCost>1900</baseCost>
 	<researchViewX>2.00</researchViewX>
 	<researchViewY>4.50</researchViewY>
