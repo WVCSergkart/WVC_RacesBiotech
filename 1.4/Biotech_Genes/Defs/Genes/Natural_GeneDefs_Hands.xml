@@ -26,7 +26,7 @@
 	<customEffectDescriptions>
 		<li>Changes the target's genes to the caster's genes some time after the ability is used.</li>
 		<li>To use the ability, genes are needed: Dustogenic, Dustogenic genetic.</li>
-		<li>&lt;color=#ff8585&gt;Ignores genetic stability.&lt;/color&gt;</li>
+		<!-- <li>&lt;color=#ff8585&gt;Ignores genetic stability.&lt;/color&gt;</li> -->
 		<!-- <li>&lt;color=#ff8585&gt;Can't be absorbed forcly.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<abilities>
