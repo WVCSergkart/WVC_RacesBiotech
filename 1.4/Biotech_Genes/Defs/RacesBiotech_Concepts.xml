@@ -60,7 +60,7 @@ Hybrid serum (_name_) - This is a hybrid serum, hybrid serum give 2 xenotypes, f
 	<label>Xenotype Serums Guide</label>
 	<priority>-1000</priority>
 	<needsOpportunity>false</needsOpportunity>
-	<description>In total, the mod contains 4 types of possible serums. Basic, ultra, hybrid and custom.
+	<description>In total, the mod contains 4 types of possible serums. Base, ultra, hybrid and custom.
 
 Basetype serum (_name_) - contains only non-archite xenotypes. Can be crafted. When crafting, as well as when generating, it always contains a random xenotype. The xenotype can be changed for free with the retuning technology.
 

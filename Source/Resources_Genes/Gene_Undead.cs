@@ -9,7 +9,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_Undead : Gene
+	public class Gene_Undead : Gene
 	{
 
 		public GeneExtension_Giver Giver => def.GetModExtension<GeneExtension_Giver>();
@@ -19,7 +19,10 @@ namespace WVC_XenotypesAndGenes
 		// public BackstoryDef ChildBackstoryDef => def.GetModExtension<GeneExtension_Giver>()?.childBackstoryDef;
 		// public BackstoryDef AdultBackstoryDef => def.GetModExtension<GeneExtension_Giver>()?.adultBackstoryDef;
 
-		public Gene_Dust Gene_Dust => pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
+		private List<HediffDef> cachedPreventiveHediffs;
+		// private Gene_Dust cachedDustogenicGene = null;
+		// private bool recacheDustogenicGene = true;
+			// Gene_Dust gene_Dust = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
 
 		// public QuestScriptDef SummonQuest => def.GetModExtension<GeneExtension_Spawner>().summonQuest;
 		// public int MinChronoAge => def.GetModExtension<GeneExtension_Spawner>().stackCount;
@@ -27,8 +30,32 @@ namespace WVC_XenotypesAndGenes
 		public bool UndeadCanResurrect => PawnCanResurrect();
 		public bool UndeadCanReincarnate => DustogenicCanReincarnate();
 
-		public List<HediffDef> PreventResurrectionHediffs => XenotypeFilterUtility.HediffsThatPreventUndeadResurrection();
+		// Getter
+		public List<HediffDef> PreventResurrectionHediffs
+		{
+			get
+			{
+				if (cachedPreventiveHediffs == null)
+				{
+					cachedPreventiveHediffs = XenotypeFilterUtility.HediffsThatPreventUndeadResurrection();
+				}
+				return cachedPreventiveHediffs;
+			}
+		}
 
+		public Gene_Dust Gene_Dust => pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
+		// {
+			// get
+			// {
+				// if (cachedDustogenicGene == null)
+				// {
+					// cachedDustogenicGene = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
+				// }
+				// return cachedDustogenicGene;
+			// }
+		// }
+
+		// Misc
 		public override void Notify_PawnDied()
 		{
 			base.Notify_PawnDied();
@@ -38,23 +65,6 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		// public static void ResurrectionQuest(Pawn pawn, QuestScriptDef quest)
-		// {
-			// Slate slate = new();
-			// slate.Set("asker", pawn);
-			// _ = QuestUtility.GenerateQuestAndMakeAvailable(quest, slate);
-		// }
-
-		// public bool PawnCanResurrect()
-		// {
-			// if ((CanResurrect() && !DustogenicCanReincarnate()) || EnoughResurgentCells())
-			// {
-				// return true;
-			// }
-			// return false;
-		// }
-
-		//For checks
 		private bool GeneIsActive()
 		{
 			if (!Active || Overridden || (!pawn.IsColonist && !WVC_Biotech.settings.canNonPlayerPawnResurrect))
@@ -85,62 +95,6 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		// private bool EnoughResurgentCells()
-		// {
-			// if (Gene_ResurgentCells != null)
-			// {
-				// if ((Gene_ResurgentCells.Value - def.resourceLossPerDay) >= 0f)
-				// {
-					// return true;
-				// }
-			// }
-			// return false;
-		// }
-
-		// private bool CorrectAge()
-		// {
-			// if (AnyResourceIsActive())
-			// {
-				// return false;
-			// }
-			// if ((CurrentAge - Penalty) > Limit)
-			// {
-				// return true;
-			// }
-			// return false;
-		// }
-
-		// private bool AnyResourceIsActive()
-		// {
-			// if (Gene_ResurgentCells != null || Gene_Dust != null || Gene_Scarifier != null)
-			// {
-				// return true;
-			// }
-			// return false;
-		// }
-
-		// public override IEnumerable<Gizmo> GetGizmos()
-		// {
-			// if (DebugSettings.ShowDevGizmos)
-			// {
-				// yield return new Command_Action
-				// {
-					// defaultLabel = "DEV: GeneSet Modification Check",
-					// action = delegate
-					// {
-						// if (SubXenotypeUtility.PawnXenotypeIsNotCustomXenotype(pawn))
-						// {
-							// Log.Error("Pawn is xenotype");
-						// }
-						// else
-						// {
-							// Log.Error("Pawn genes modified");
-						// }
-					// }
-				// };
-			// }
-		// }
-
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{
 			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, 
@@ -156,22 +110,30 @@ namespace WVC_XenotypesAndGenes
 			// yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_Gene_DisplayStats_Undead_CanShapeshift".Translate().CapitalizeFirst(), SubXenotypeUtility.TestXenotype(pawn).ToString(), "WVC_XaG_Gene_DisplayStats_Undead_CanShapeshift_Desc".Translate(), 150);
 		}
 
+		// public override void ExposeData()
+		// {
+			// base.ExposeData();
+			// dustogenicGene = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
+		// }
+
 	}
 
 	public class Gene_DustReincarnation : Gene
 	{
-		public QuestScriptDef SummonQuest => def.GetModExtension<GeneExtension_Spawner>().summonQuest;
-		public int MinChronoAge => def.GetModExtension<GeneExtension_Spawner>().stackCount;
+		// public QuestScriptDef SummonQuest => def.GetModExtension<GeneExtension_Spawner>().summonQuest;
+		// public int MinChronoAge => def.GetModExtension<GeneExtension_Spawner>().stackCount;
+
+		public GeneExtension_Spawner Spawner => def.GetModExtension<GeneExtension_Spawner>();
 
 		public override void Notify_PawnDied()
 		{
 			base.Notify_PawnDied();
 			// Gene_Dust gene_Dust = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
-			if (CanReincarnate(pawn, this, MinChronoAge))
+			if (CanReincarnate(pawn, this, Spawner.stackCount))
 			{
 				return;
 			}
-			Reincarnate(pawn, SummonQuest);
+			Reincarnate(pawn, Spawner.summonQuest);
 		}
 
 		public static bool CanReincarnate(Pawn pawn, Gene gene, int minChronoAge)
@@ -207,7 +169,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{
-			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate".Translate().CapitalizeFirst(), CanReincarnate(pawn, this, MinChronoAge).ToString(), "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate_Desc".Translate(), 1090);
+			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate".Translate().CapitalizeFirst(), CanReincarnate(pawn, this, Spawner.stackCount).ToString(), "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate_Desc".Translate(), 1090);
 		}
 
 	}
