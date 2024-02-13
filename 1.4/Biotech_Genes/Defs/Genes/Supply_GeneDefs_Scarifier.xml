@@ -124,6 +124,12 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<scarsCount>-2</scarsCount>
+			<intervalRange>122000~840000</intervalRange>
+			<hediffDefs>
+				<li>XenogermReplicating</li>
+				<li>XenogerminationComa</li>
+				<li>XenogermLossShock</li>
+			</hediffDefs>
 		</li>
 	</modExtensions>
   </GeneDef>

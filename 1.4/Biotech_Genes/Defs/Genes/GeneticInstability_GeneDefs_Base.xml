@@ -47,16 +47,6 @@
 	  <li>Occasionally removes the xenogerm replication effects from the carrier.</li>
 	  <!-- <li>Abilities "Rise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li> -->
 	</customEffectDescriptions>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<intervalRange>122000~840000</intervalRange>
-			<hediffDefs>
-				<li>XenogermReplicating</li>
-				<li>XenogerminationComa</li>
-				<li>XenogermLossShock</li>
-			</hediffDefs>
-		</li>
-	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneticInstability_Stability">
@@ -67,6 +57,16 @@
 	<biostatArc>0</biostatArc>
 	<biostatMet>2</biostatMet>
 	<displayOrderInCategory>1251</displayOrderInCategory>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<intervalRange>122000~840000</intervalRange>
+			<hediffDefs>
+				<li>XenogermReplicating</li>
+				<li>XenogerminationComa</li>
+				<li>XenogermLossShock</li>
+			</hediffDefs>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneticInstability_Stability"> -->

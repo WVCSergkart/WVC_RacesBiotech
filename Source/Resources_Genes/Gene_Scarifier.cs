@@ -6,7 +6,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_Scarifier : Gene
+	public class Gene_Scarifier : Gene
 	{
 
 		// For external requests
@@ -30,12 +30,15 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			IntRange range = new(1,5);
-			for (int i = 0; i < range.RandomInRange; i++)
+			if (Active)
 			{
-				// Log.Error("1");
-				ScarifierScarify();
+				IntRange range = new(0,3);
+				for (int i = 0; i < range.RandomInRange; i++)
+				{
+					Scarify(pawn);
+				}
 			}
+			TimeBeforeScarify();
 		}
 
 		public override void Tick()
@@ -71,8 +74,8 @@ namespace WVC_XenotypesAndGenes
 			if (MaxScars() > pawn.health.hediffSet.GetHediffCount(HediffDefOf.Scarification))
 			{
 				Scarify(pawn);
-				TimeBeforeScarify();
 			}
+			TimeBeforeScarify();
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -93,30 +96,22 @@ namespace WVC_XenotypesAndGenes
 		private int MaxScars()
 		{
 			int scars = def.GetModExtension<GeneExtension_Giver>().scarsCount;
-			// List<GeneDef> genesListForReading = def.GetModExtension<GeneExtension_Giver>()?.scarGeneDefs;
-			// if (!genesListForReading.NullOrEmpty())
-			// {
-				// for (int i = 0; i < genesListForReading.Count; i++)
-				// {
-					// if (XaG_GeneUtility.HasActiveGene(genesListForReading[i], pawn) && genesListForReading[i].GetModExtension<GeneExtension_Giver>() != null)
-					// {
-						// scars += genesListForReading[i].GetModExtension<GeneExtension_Giver>().scarsCount;
-					// }
-				// }
-			// }
 			List<Gene> genesListForReading = pawn.genes?.GenesListForReading;
-			if (!genesListForReading.NullOrEmpty())
+			if (genesListForReading.NullOrEmpty())
 			{
-				for (int i = 0; i < genesListForReading.Count; i++)
+				cachedMaxScars = scars;
+				return scars;
+			}
+			foreach (Gene item in genesListForReading)
+			{
+				GeneExtension_Giver modExtension = item?.def?.GetModExtension<GeneExtension_Giver>();
+				if (item?.Active != true || modExtension == null || modExtension.scarsCount == 0)
 				{
-					if (genesListForReading[i].Active && genesListForReading[i].def?.GetModExtension<GeneExtension_Giver>() != null)
-					{
-						scars += genesListForReading[i].def.GetModExtension<GeneExtension_Giver>().scarsCount;
-					}
+					continue;
 				}
+				scars += modExtension.scarsCount;
 			}
 			cachedMaxScars = scars;
-			// Log.Error("Max scars " + scars);
 			return scars;
 		}
 
