@@ -104,7 +104,9 @@ namespace WVC_XenotypesAndGenes
 						}
 						if (Prefs.DevMode)
 						{
-							text += "\n\n" + gene.GetType().ToString().Colorize(ColoredText.TipSectionTitleColor);
+							text += "\n\n DevMode:".Colorize(ColoredText.TipSectionTitleColor);
+							text += "\n - defName: " + gene.def.defName.ToString();
+							text += "\n - geneClass: " + gene.GetType().ToString();
 						}
 						if (clickable)
 						{
