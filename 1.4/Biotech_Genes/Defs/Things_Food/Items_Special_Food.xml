@@ -4,7 +4,7 @@
   <ThingDef>
 	<defName>WVC_NutrientsInjector</defName>
 	<label>nutrients injector</label>
-	<description>A dose of specific nutrients in a convenient injector. It is for those who have problems digesting food. Can be taken orally or by injection.
+	<description>A dose of special nutrients in a convenient injector. It is for those who have problems digesting food. Can be taken orally or by injection.
 
 Dustogenic pawns will automatically try to use these injectors instead of regular food.</description>
 	<descriptionHyperlinks>
@@ -17,19 +17,21 @@ Dustogenic pawns will automatically try to use these injectors instead of regula
 	<useHitPoints>true</useHitPoints>
 	<healthAffectsPrice>false</healthAffectsPrice>
 	<selectable>true</selectable>
-	<stackLimit>10</stackLimit>
+	<stackLimit>25</stackLimit>
 	<tickerType>Rare</tickerType>
 	<possessionCount>5</possessionCount>
 	<socialPropernessMatters>true</socialPropernessMatters>
 	<alwaysHaulable>true</alwaysHaulable>
 	<pathCost>14</pathCost>
-	<allowedArchonexusCount>5</allowedArchonexusCount>
+	<allowedArchonexusCount>40</allowedArchonexusCount>
 	<resourceReadoutPriority>Last</resourceReadoutPriority>
 	<drawGUIOverlay>true</drawGUIOverlay>
 	<graphicData>
-	  <texPath>WVC/Things/XaG_Items/DustNutrients</texPath>
-	  <graphicClass>Graphic_StackCount</graphicClass>
-	  <drawSize>0.85</drawSize>
+	  <!-- <texPath>WVC/Things/XaG_Items/DustNutrients</texPath> -->
+	  <!-- <graphicClass>Graphic_StackCount</graphicClass> -->
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/DustInjector_v0</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	  <!-- <drawSize>0.85</drawSize> -->
 	</graphicData>
 	<statBases>
 	  <MaxHitPoints>60</MaxHitPoints>
@@ -62,10 +64,10 @@ Dustogenic pawns will automatically try to use these injectors instead of regula
 	</ingestible>
 	<comps>
 	  <li Class="CompProperties_Forbiddable"/>
-	  <li Class="CompProperties_Glower">
-		<glowRadius>1</glowRadius>
-		<glowColor>(241, 175, 129, 0)</glowColor>
-	  </li>
+	  <!-- <li Class="CompProperties_Glower"> -->
+		<!-- <glowRadius>1</glowRadius> -->
+		<!-- <glowColor>(241, 175, 129, 0)</glowColor> -->
+	  <!-- </li> -->
 	</comps>
 	<!-- <modExtensions> -->
 		<!-- <li Class="WVC_XenotypesAndGenes.FoodExtension_GeneFood"> -->
@@ -96,6 +98,7 @@ Dustogenic pawns will automatically try to use these injectors instead of regula
 	  <specialThoughtDirect>WVC_IngestedNutrientsInjector</specialThoughtDirect>
 	  <ingestSound>Meal_Eat</ingestSound>
 	</ingestible>
+	<allowedArchonexusCount>40</allowedArchonexusCount>
   </ThingDef>
 
   <ThingDef ParentName="WVC_XenotypesAndGenes_SpecialMeal_Base">
@@ -118,7 +121,6 @@ Dustogenic pawns will automatically try to use these injectors instead of regula
 	</statBases>
 	<ingestible>
 	</ingestible>
-	<allowedArchonexusCount>40</allowedArchonexusCount>
   </ThingDef>
 
   <ThingDef ParentName="WVC_XenotypesAndGenes_SpecialMeal_Base">
