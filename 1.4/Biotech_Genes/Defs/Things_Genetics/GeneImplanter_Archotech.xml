@@ -22,10 +22,10 @@
 	  <li>RewardStandardQualitySuper</li>
 	</thingSetMakerTags>
 	<comps>
-	  <li Class="CompProperties_Glower">
-		<glowRadius>1</glowRadius>
-		<glowColor>(214,221,60, 0)</glowColor>
-	  </li>
+	  <!-- <li Class="CompProperties_Glower"> -->
+		<!-- <glowRadius>1</glowRadius> -->
+		<!-- <glowColor>(214,221,60, 0)</glowColor> -->
+	  <!-- </li> -->
 	</comps>
   </ThingDef>
 

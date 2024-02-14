@@ -74,10 +74,10 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <li>WVC_XenotypeSerums_Base</li>
 	</thingCategories>
 	<comps>
-	  <li Class="CompProperties_Glower">
-		<glowRadius>1</glowRadius>
-		<glowColor>(133,202,255, 0)</glowColor>
-	  </li>
+	  <!-- <li Class="CompProperties_Glower"> -->
+		<!-- <glowRadius>1</glowRadius> -->
+		<!-- <glowColor>(133,202,255, 0)</glowColor> -->
+	  <!-- </li> -->
 	</comps>
   </ThingDef>
 
@@ -115,10 +115,10 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <li>WVC_XenotypeSerums_Ultra</li>
 	</thingCategories>
 	<comps>
-	  <li Class="CompProperties_Glower">
-		<glowRadius>1</glowRadius>
-		<glowColor>(255,248,133, 0)</glowColor>
-	  </li>
+	  <!-- <li Class="CompProperties_Glower"> -->
+		<!-- <glowRadius>1</glowRadius> -->
+		<!-- <glowColor>(255,248,133, 0)</glowColor> -->
+	  <!-- </li> -->
 	</comps>
   </ThingDef>
 
@@ -155,10 +155,10 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <li>WVC_XenotypeSerums_Mecha</li>
 	</thingCategories>
 	<comps>
-	  <li Class="CompProperties_Glower">
-		<glowRadius>1</glowRadius>
-		<glowColor>(133,167,255, 0)</glowColor>
-	  </li>
+	  <!-- <li Class="CompProperties_Glower"> -->
+		<!-- <glowRadius>1</glowRadius> -->
+		<!-- <glowColor>(133,167,255, 0)</glowColor> -->
+	  <!-- </li> -->
 	</comps>
   </ThingDef>
   <!-- ============Auto Generation Base============ -->

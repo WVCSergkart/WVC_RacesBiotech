@@ -46,10 +46,10 @@
 	  <texPath>WVC/Things/XaG_Items/W_Genepack</texPath>
 	</graphicData>
 	<comps>
-	  <li Class="CompProperties_Glower">
-		<glowRadius>1</glowRadius>
-		<glowColor>(133,202,255, 0)</glowColor>
-	  </li>
+	  <!-- <li Class="CompProperties_Glower"> -->
+		<!-- <glowRadius>1</glowRadius> -->
+		<!-- <glowColor>(133,202,255, 0)</glowColor> -->
+	  <!-- </li> -->
 	</comps>
   </ThingDef>
 
@@ -64,10 +64,10 @@
 	  <texPath>WVC/Things/XaG_Items/Ultra_Genepack</texPath>
 	</graphicData>
 	<comps>
-	  <li Class="CompProperties_Glower">
-		<glowRadius>1</glowRadius>
-		<glowColor>(255,248,133, 0)</glowColor>
-	  </li>
+	  <!-- <li Class="CompProperties_Glower"> -->
+		<!-- <glowRadius>1</glowRadius> -->
+		<!-- <glowColor>(255,248,133, 0)</glowColor> -->
+	  <!-- </li> -->
 	</comps>
   </ThingDef>
 
@@ -83,10 +83,10 @@
 	  <graphicClass>Graphic_Random</graphicClass>
 	</graphicData>
 	<comps>
-	  <li Class="CompProperties_Glower">
-		<glowRadius>1</glowRadius>
-		<glowColor>(133,167,255, 0)</glowColor>
-	  </li>
+	  <!-- <li Class="CompProperties_Glower"> -->
+		<!-- <glowRadius>1</glowRadius> -->
+		<!-- <glowColor>(133,167,255, 0)</glowColor> -->
+	  <!-- </li> -->
 	</comps>
   </ThingDef>
 
