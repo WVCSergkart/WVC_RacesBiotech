@@ -18,8 +18,8 @@
 	  <drawSize>(0.75, 0.75)</drawSize>
 	</graphicData>
 	<statBases>
-	  <MarketValue>150</MarketValue>
-	  <DeteriorationRate>2</DeteriorationRate>
+	  <MarketValue>100</MarketValue>
+	  <DeteriorationRate>5</DeteriorationRate>
 	</statBases>
 	<descriptionHyperlinks>
 	  <ThingDef>Xenogerm</ThingDef>
@@ -39,8 +39,8 @@
 	<defName>WVC_Genepack</defName>
 	<label>w-pack</label>
 	<statBases>
-	  <MarketValue>100</MarketValue>
-	  <DeteriorationRate>3</DeteriorationRate>
+	  <!-- <MarketValue>100</MarketValue> -->
+	  <!-- <DeteriorationRate>3</DeteriorationRate> -->
 	</statBases>
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Items/W_Genepack</texPath>
@@ -57,8 +57,8 @@
 	<defName>WVC_UltraGenepack</defName>
 	<label>ultrapack</label>
 	<statBases>
-	  <MarketValue>120</MarketValue>
-	  <DeteriorationRate>2</DeteriorationRate>
+	  <!-- <MarketValue>120</MarketValue> -->
+	  <!-- <DeteriorationRate>2</DeteriorationRate> -->
 	</statBases>
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Items/Ultra_Genepack</texPath>
@@ -75,8 +75,8 @@
 	<defName>WVC_MechaGenepack</defName>
 	<label>mechapack</label>
 	<statBases>
-	  <MarketValue>150</MarketValue>
-	  <DeteriorationRate>1</DeteriorationRate>
+	  <!-- <MarketValue>150</MarketValue> -->
+	  <!-- <DeteriorationRate>1</DeteriorationRate> -->
 	</statBases>
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Items/Mecha_Genepack</texPath>

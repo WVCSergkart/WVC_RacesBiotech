@@ -89,7 +89,7 @@
 	</graphicData>
 	<statBases>
 	  <MaxHitPoints>70</MaxHitPoints>
-	  <MarketValue>75</MarketValue>
+	  <MarketValue>225</MarketValue>
 	  <Mass>0.5</Mass>
 	  <Flammability>0.2</Flammability>
 	  <WorkToMake>14000</WorkToMake>
