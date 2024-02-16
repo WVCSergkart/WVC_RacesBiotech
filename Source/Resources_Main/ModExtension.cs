@@ -104,6 +104,7 @@ namespace WVC_XenotypesAndGenes
 		public JobDef jobDef;
 		public bool defaultBoolValue = false;
 		// public ThingDef jobTarget;
+		public SimpleCurve curve;
 	}
 
 	public class GeneExtension_Shapeshifter : DefModExtension

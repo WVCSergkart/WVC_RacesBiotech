@@ -8,6 +8,8 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Psylink : Gene
 	{
 
+		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
+
 		public float recoveryRate = 0.01f;
 
 		public override void PostAdd()
@@ -52,16 +54,18 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (pawn.HasPsylink)
 			{
-				recoveryRate = 0.01f * pawn.GetPsylinkLevel();
+				recoveryRate = GetRecoveryRate(pawn, Props);
 			}
 		}
 
-		// public static float GetRecoveryRate(Pawn pawn)
-		// {
-			// float rate = 0.002f;
-			// rate *= pawn.GetPsylinkLevel();
-			// return rate;
-		// }
+		public static float GetRecoveryRate(Pawn pawn, GeneExtension_Giver giver)
+		{
+			if (giver == null)
+			{
+				return 0.01f * pawn.GetPsylinkLevel();
+			}
+			return giver.curve.Evaluate(pawn.GetPsylinkLevel());
+		}
 
 		public override void Reset()
 		{
@@ -82,6 +86,8 @@ namespace WVC_XenotypesAndGenes
 
 	public class Gene_HemogenDrain_Psylink : Gene_HemogenDrain
 	{
+
+		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
 
 		public float recoveryRate = 0.01f;
 
@@ -113,7 +119,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (pawn.HasPsylink)
 			{
-				recoveryRate = 0.01f * pawn.GetPsylinkLevel();
+				recoveryRate = Gene_Psylink.GetRecoveryRate(pawn, Props);
 			}
 		}
 

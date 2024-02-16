@@ -38,6 +38,13 @@
 	  <li>Psylink</li>
 	  <li>AbilityPsylink</li>
 	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GenePsylink_Base" MayRequire="ludeon.rimworld.royalty">
+	<defName>WVC_NaturalPsylink</defName>
+	<label>natural psylink</label>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>-3</biostatMet>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>PsychicAmplifier</hediffDefName>
@@ -46,13 +53,6 @@
 			</bodyparts>
 		</li>
 	</modExtensions>
-  </GeneDef>
-
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GenePsylink_Base" MayRequire="ludeon.rimworld.royalty">
-	<defName>WVC_NaturalPsylink</defName>
-	<label>natural psylink</label>
-	<biostatCpx>3</biostatCpx>
-	<biostatMet>-3</biostatMet>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GenePsylink_Base" MayRequire="ludeon.rimworld.royalty">
@@ -65,6 +65,21 @@
 	<customEffectDescriptions>
 		<li>&lt;color=#8a8ae6&gt;Psyfocus&lt;/color&gt; is passively &lt;color=#8a8ae6&gt;replenished&lt;/color&gt; relative to the psylink's level.</li>
 	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<curve>
+			  <points>
+				<!-- Vanilla -->
+				<li>(0,0.01)</li>
+				<li>(6,0.04)</li>
+				<!-- VPE -->
+				<li>(12,0.05)</li>
+				<li>(30,0.06)</li>
+				<li>(100,0.10)</li>
+			  </points>
+			</curve>
+		</li>
+	</modExtensions>
   </GeneDef>
 
 </Defs>

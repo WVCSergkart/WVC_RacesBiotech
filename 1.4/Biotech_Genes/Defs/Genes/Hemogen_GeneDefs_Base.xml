@@ -2,14 +2,14 @@
 <Defs>
 
   <GeneDef Name="WVC_XenotypesAndGenes_GeneHemogen_Base" Abstract="True">
-	<resourceLabel>hemogen</resourceLabel>
+	<prerequisite>Hemogenic</prerequisite>
 	<displayCategory>Hemogen</displayCategory>
 	<displayOrderInCategory>55</displayOrderInCategory>
 	<iconColor>(255, 255, 255)</iconColor>
 	<!-- <selectionWeight>0.0011</selectionWeight> -->
 	<!-- Cause Vanilla -->
-	<selectionWeight>0.00</selectionWeight>
-	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<selectionWeight>0.0007</selectionWeight>
+	<!-- <canGenerateInGeneSet>false</canGenerateInGeneSet> -->
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>0</biostatMet>
@@ -25,6 +25,7 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_HemogenDrain_Psylink</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_Psylink_Hemogen_v0</iconPath>
 	<displayOrderInCategory>60</displayOrderInCategory>
+	<resourceLabel>hemogen</resourceLabel>
 	<resourceLossPerDay>0.10</resourceLossPerDay>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
@@ -49,6 +50,47 @@
 	  <li>Psylink</li>
 	  <li>AbilityPsylink</li>
 	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<curve>
+			  <points>
+				<!-- Vanilla -->
+				<li>(0,0.01)</li>
+				<li>(6,0.04)</li>
+				<!-- VPE -->
+				<li>(12,0.05)</li>
+				<li>(30,0.06)</li>
+				<li>(100,0.10)</li>
+			  </points>
+			</curve>
+		</li>
+	</modExtensions>
   </GeneDef>
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Base" MayRequire="ludeon.rimworld.royalty"> -->
+	<!-- <defName>WVC_Psyfeeder</defName> -->
+	<!-- <label>psyfeeder</label> -->
+	<!-- <description>Carriers of this gene can draw hemogen from the psychic field. However, it affects others, causing them to experience minor blood loss.</description> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Psyfeeder</geneClass> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_PsychicBloodfeeder_v0</iconPath> -->
+	<!-- <displayOrderInCategory>65</displayOrderInCategory> -->
+	<!-- <prerequisite>Bloodfeeder</prerequisite> -->
+	<!-- <biostatCpx>3</biostatCpx> -->
+	<!-- <biostatArc>1</biostatArc> -->
+	<!-- <biostatMet>0</biostatMet> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Carriers of the gene can &lt;color=#8a8ae6&gt;automatically&lt;/color&gt;, at any distance on the map, &lt;color=#8a8ae6&gt;draw hemogen&lt;/color&gt; from other pawns in the colony.</li> -->
+		<!-- <li>It does &lt;color=#8a8ae6&gt;not provoke negative&lt;/color&gt; thoughts, opinions or consequences with factions.</li> -->
+		<!-- <li>The target can only be a &lt;color=#8a8ae6&gt;non-hemogenic&lt;/color&gt; pawn without &lt;color=#8a8ae6&gt;blood loss&lt;/color&gt;.</li> -->
+		<!-- <li>The ability is &lt;color=#8a8ae6&gt;triggered automatically&lt;/color&gt; if there is a lack of hemogen (less than 20%).</li> -->
+		<!-- <li>&lt;color=#ff8585&gt;Cannot be disabled.&lt;/color&gt;</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <symbolPack> -->
+	  <!-- <prefixSymbols> -->
+		<!-- <li><symbol>psychi</symbol></li> -->
+		<!-- <li><symbol>feeder</symbol></li> -->
+	  <!-- </prefixSymbols> -->
+	<!-- </symbolPack> -->
+  <!-- </GeneDef> -->
 
 </Defs>
