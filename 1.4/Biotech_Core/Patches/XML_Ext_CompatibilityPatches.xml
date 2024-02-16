@@ -12,26 +12,6 @@
 	  </value>
 	</Operation>
 
-	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
-	  <!-- <xpath>/Defs/ThoughtDef[defName="AB_ForsakenThunderstorm" or defName="AB_ForsakenRain" or defName="AB_ForsakenNight" or defName="EnvironmentDark"]</xpath> -->
-	  <!-- <safetyDepth>1</safetyDepth> -->
-	  <!-- <value> -->
-		<!-- <nullifyingGenes> -->
-		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MecaBodyParts_Eye</li> -->
-		<!-- </nullifyingGenes> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-
-	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
-	  <!-- <xpath>/Defs/ThoughtDef</xpath> -->
-	  <!-- <safetyDepth>1</safetyDepth> -->
-	  <!-- <value> -->
-		<!-- <nullifyingGenes> -->
-		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_Emotionless</li> -->
-		<!-- </nullifyingGenes> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-
 	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
 	  <xpath>/Defs/ThoughtDef[defName="CreepyBreathing"]</xpath>
 	  <success>Always</success>
@@ -43,108 +23,6 @@
 	  </value>
 	</Operation>
 
-	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
-	  <!-- <xpath>/Defs/ThoughtDef[defName="ProsthophobeUnhappy" or defName="BodyPuristDisgust"]</xpath> -->
-	  <!-- <success>Always</success> -->
-	  <!-- <safetyDepth>1</safetyDepth> -->
-	  <!-- <value> -->
-		<!-- <nullifyingGenes> -->
-		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaSkin</li> -->
-		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Blue</li> -->
-		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Red</li> -->
-		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Green</li> -->
-		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Violet</li> -->
-		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Yellow</li> -->
-		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_AltBlue</li> -->
-		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Orange</li> -->
-		<!-- </nullifyingGenes> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-
-	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
-	  <!-- <xpath>/Defs/ThoughtDef[defName="EnvironmentCold" or defName="EnvironmentHot" or defName="SleptInHeat" or defName="SleptInCold"]</xpath> -->
-	  <!-- <success>Always</success> -->
-	  <!-- <safetyDepth>1</safetyDepth> -->
-	  <!-- <value> -->
-		<!-- <nullifyingGenes> -->
-		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaSkin</li> -->
-		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Blue</li> -->
-		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Red</li> -->
-		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Green</li> -->
-		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Violet</li> -->
-		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Yellow</li> -->
-		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_AltBlue</li> -->
-		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_NodeSkin_Orange</li> -->
-		<!-- </nullifyingGenes> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-
-	<!-- <Operation Class="XmlExtensions.FindMod"> -->
-		<!-- <mods> -->
-			<!-- <li>wvc.wvcmod.wvcspecific</li> -->
-		<!-- </mods> -->
-		<!-- <packageId>true</packageId> -->
-		<!-- <logic>and</logic> -->
-		<!-- <caseTrue> -->
-
-			<!-- <Operation Class="PatchOperationAdd"> -->
-			  <!-- <xpath>/Defs/StatDef[defName="ComfyTemperatureMin"]/parts</xpath> -->
-			  <!-- <success>Always</success> -->
-			  <!-- <value> -->
-				  <!-- <li Class="WVC.StatPart_GenesCombo"> -->
-					<!-- <useMechaskinInsteadSubcore>true</useMechaskinInsteadSubcore> -->
-					<!-- <useStaticValue>true</useStaticValue> -->
-					<!-- <staticValue>-100</staticValue> -->
-				  <!-- </li> -->
-			  <!-- </value> -->
-			<!-- </Operation> -->
-			<!-- <Operation Class="PatchOperationAdd"> -->
-			  <!-- <xpath>/Defs/StatDef[defName="ComfyTemperatureMax"]/parts</xpath> -->
-			  <!-- <success>Always</success> -->
-			  <!-- <value> -->
-				  <!-- <li Class="WVC.StatPart_GenesCombo"> -->
-					<!-- <useMechaskinInsteadSubcore>true</useMechaskinInsteadSubcore> -->
-					<!-- <useStaticValue>true</useStaticValue> -->
-					<!-- <staticValue>250</staticValue> -->
-				  <!-- </li> -->
-			  <!-- </value> -->
-			<!-- </Operation> -->
-
-		<!-- </caseTrue> -->
-	<!-- </Operation> -->
-
-	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
-	  <!-- <xpath>/Defs/ThoughtDef[defName="Ugly" or defName="Pretty"]</xpath>  -->
-	  <!-- <safetyDepth>1</safetyDepth> -->
-	  <!-- <value> -->
-		<!-- <nullifyingGenes> -->
-		  <!-- <li>WVC_NodeSkin_Blue</li> -->
-		  <!-- <li>WVC_NodeSkin_Red</li> -->
-		  <!-- <li>WVC_NodeSkin_Green</li> -->
-		  <!-- <li>WVC_NodeSkin_Violet</li> -->
-		  <!-- <li>WVC_NodeSkin_Yellow</li> -->
-		  <!-- <li>WVC_NodeSkin_AltBlue</li> -->
-		  <!-- <li>WVC_NodeSkin_Orange</li> -->
-		<!-- </nullifyingGenes> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-
-	 <!-- or defName="PsychicDrone" -->
-	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
-	  <!-- <xpath>/Defs/ThoughtDef[defName="Expectations"]</xpath> -->
-	  <!-- <success>Always</success> -->
-	  <!-- <safetyDepth>1</safetyDepth> -->
-	  <!-- <value> -->
-		<!-- <nullifyingGenes> -->
-		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaAI_FirmwareCreatorMachine</li> -->
-		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaAI_FirmwareGreenMachine</li> -->
-		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaAI_FirmwareWarMachine</li> -->
-		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaAI_FirmwareRogueMachine</li> -->
-		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaAI_FirmwarePropagandaMachine</li> -->
-		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaAI_FirmwareMechanitorMachine</li> -->
-		<!-- </nullifyingGenes> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
 	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
 	  <xpath>/Defs/ThoughtDef[defName="PsychicDrone"]</xpath>
 	  <success>Always</success>
@@ -169,30 +47,6 @@
 
 	<!-- ================================================= -->
 
-	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
-	  <!-- <xpath>/Defs/GeneDef[defName="VRESaurids_SauridClaws"]</xpath> -->
-	  <!-- <success>Always</success> -->
-	  <!-- <safetyDepth>1</safetyDepth> -->
-	  <!-- <value> -->
-		<!-- <exclusionTags> -->
-		  <!-- <li>BodyPartHands</li> -->
-		  <!-- <li>BodyPartHand</li> -->
-		<!-- </exclusionTags> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-
-	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
-	  <!-- <xpath>/Defs/GeneDef[defName="Superclotting"]</xpath> -->
-	  <!-- <success>Always</success> -->
-	  <!-- <safetyDepth>1</safetyDepth> -->
-	  <!-- <value> -->
-		<!-- <exclusionTags> -->
-		  <!-- <li>AG_Bleeding</li> -->
-		  <!-- <li>Bleeding</li> -->
-		<!-- </exclusionTags> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-
 	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
 	  <xpath>/Defs/GeneDef[defName="VRE_Slow_Diseases"]</xpath>
 	  <success>Always</success>
@@ -206,204 +60,7 @@
 
 	<!-- ================================================= -->
 
-	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
-	  <!-- <xpath>/Defs/GeneDef[defName="TotalHealing" or defName="Ageless" or defName="Deathless" or defName="DiseaseFree" or defName="PerfectImmunity"]</xpath> -->
-	  <!-- <success>Always</success> -->
-	  <!-- <safetyDepth>1</safetyDepth> -->
-	  <!-- <value> -->
-		<!-- <customEffectDescriptions> -->
-			<!-- <li>&lt;color=#85a7ff&gt;Immortal:&lt;/color&gt; It is considered one of the immortality genes. A pawn that possesses all five immortality genes is considered immortal.</li> -->
-		<!-- </customEffectDescriptions> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-
-	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
-	  <!-- <xpath>/Defs/GeneDef[defName="ArchiteMetabolism"]</xpath> -->
-	  <!-- <safetyDepth>1</safetyDepth> -->
-	  <!-- <value> -->
-		<!-- <customEffectDescriptions> -->
-			<!-- <li>Disable mechaskin's 5x hunger rate multiplier.</li> -->
-		<!-- </customEffectDescriptions> -->
-		<!-- <modExtensions> -->
-			<!-- <li Class="WVC.GeneExtension_General"> -->
-				<!-- <geneIsPowerSource>true</geneIsPowerSource> -->
-			<!-- </li> -->
-		<!-- </modExtensions> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-
-	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
-		<!-- <settingName>mechaskinTemperatureAdaptability</settingName> -->
-		<!-- <caseTrue Class="PatchOperationSequence"> -->
-			<!-- <operations> -->
-
-				<!-- <li Class="XmlExtensions.PatchOperationSafeAdd"> -->
-				  <!-- <xpath>/Defs/GeneDef[@Name="WVC_MechanoidBody_Base"]</xpath> -->
-				  <!-- <success>Always</success> -->
-				  <!-- <safetyDepth>1</safetyDepth> -->
-				  <!-- <value> -->
-					<!-- <customEffectDescriptions> -->
-						<!-- <li>&lt;color=#85a7ff&gt;Immortal:&lt;/color&gt; Gives immunity to temperatures when combined with immortality genes.</li> -->
-					<!-- </customEffectDescriptions> -->
-				  <!-- </value> -->
-				<!-- </li> -->
-
-			<!-- </operations> -->
-		<!-- </caseTrue> -->
-	<!-- </Operation> -->
-
-	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
-	  <!-- <xpath>/Defs/GeneDef[defName="Neversleep" or defName="AG_Painless"]</xpath> -->
-	  <!-- <success>Always</success> -->
-	  <!-- <safetyDepth>1</safetyDepth> -->
-	  <!-- <value> -->
-		<!-- <conditionalStatAffecters> -->
-		  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
-			<!-- <statOffsets> -->
-			  <!-- <WVC_PawnMechanoidization>3</WVC_PawnMechanoidization> -->
-			<!-- </statOffsets> -->
-		  <!-- </li> -->
-		<!-- </conditionalStatAffecters> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
-	  <!-- <xpath>/Defs/GeneDef[defName="Deathless" or defName="Ageless" or defName="ToxResist_Total"]</xpath> -->
-	  <!-- <success>Always</success> -->
-	  <!-- <safetyDepth>1</safetyDepth> -->
-	  <!-- <value> -->
-		<!-- <conditionalStatAffecters> -->
-		  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
-			<!-- <statOffsets> -->
-			  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
-			<!-- </statOffsets> -->
-		  <!-- </li> -->
-		<!-- </conditionalStatAffecters> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
-	  <!-- <xpath>/Defs/GeneDef[defName="ArchiteMetabolism" or defName="PerfectImmunity" or defName="DiseaseFree" or defName="ToxResist_Partial" or defName="LowSleep" or defName="Pain_Reduced" or defName="AG_ArmourMinor" or defName="AG_ArmourMedium" or defName="AG_ArmourMajor"]</xpath> -->
-	  <!-- <success>Always</success> -->
-	  <!-- <safetyDepth>1</safetyDepth> -->
-	  <!-- <value> -->
-		<!-- <conditionalStatAffecters> -->
-		  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
-			<!-- <statOffsets> -->
-			  <!-- <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization> -->
-			<!-- </statOffsets> -->
-		  <!-- </li> -->
-		<!-- </conditionalStatAffecters> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
-	  <!-- <xpath>/Defs/GeneDef[defName="Sleepy" or defName="AG_FungalSkin" or defName="AG_FrailSkin"]</xpath> -->
-	  <!-- <success>Always</success> -->
-	  <!-- <safetyDepth>1</safetyDepth> -->
-	  <!-- <value> -->
-		<!-- <conditionalStatAffecters> -->
-		  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
-			<!-- <statOffsets> -->
-			  <!-- <WVC_PawnMechanoidization>-1</WVC_PawnMechanoidization> -->
-			<!-- </statOffsets> -->
-		  <!-- </li> -->
-		<!-- </conditionalStatAffecters> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
-	  <!-- <xpath>/Defs/GeneDef[defName="Hemogenic" or defName="VerySleepy" or defName="Pain_Extra"]</xpath> -->
-	  <!-- <success>Always</success> -->
-	  <!-- <safetyDepth>1</safetyDepth> -->
-	  <!-- <value> -->
-		<!-- <conditionalStatAffecters> -->
-		  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
-			<!-- <statOffsets> -->
-			  <!-- <WVC_PawnMechanoidization>-2</WVC_PawnMechanoidization> -->
-			<!-- </statOffsets> -->
-		  <!-- </li> -->
-		<!-- </conditionalStatAffecters> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
-	  <!-- <xpath>/Defs/GeneDef[defName="HemogenDrain" or defName="AG_BrittleBones"]</xpath> -->
-	  <!-- <success>Always</success> -->
-	  <!-- <safetyDepth>1</safetyDepth> -->
-	  <!-- <value> -->
-		<!-- <conditionalStatAffecters> -->
-		  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
-			<!-- <statOffsets> -->
-			  <!-- <WVC_PawnMechanoidization>-3</WVC_PawnMechanoidization> -->
-			<!-- </statOffsets> -->
-		  <!-- </li> -->
-		<!-- </conditionalStatAffecters> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-
-	<!-- ================================================= -->
-
-
-	<!-- <Operation Class="XmlExtensions.FindMod"> -->
-		<!-- <mods> -->
-			<!-- <li>ludeon.rimworld.ideology</li> -->
-			<!-- <li>ludeon.rimworld.royalty</li> -->
-		<!-- </mods> -->
-		<!-- <packageId>true</packageId> -->
-		<!-- <logic>and</logic> -->
-		<!-- <caseTrue> -->
-
-		<!-- </caseTrue> -->
-	<!-- </Operation> -->
-
-	<!-- <Operation Class="XmlExtensions.FindMod"> -->
-		<!-- <mods> -->
-			<!-- <li>ludeon.rimworld.ideology</li> -->
-		<!-- </mods> -->
-		<!-- <packageId>true</packageId> -->
-		<!-- <logic>and</logic> -->
-		<!-- <caseTrue> -->
-
-			<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
-			  <!-- <xpath>/Defs/PreceptDef[defName="MechanoidLabor_Enhanced"]</xpath> -->
-			  <!-- <success>Always</success> -->
-			  <!-- <safetyDepth>1</safetyDepth> -->
-			  <!-- <value> -->
-				<!-- <associatedMemes> -->
-				  <!-- <li>WVC_Mechaskinist</li> -->
-				<!-- </associatedMemes> -->
-			  <!-- </value> -->
-			<!-- </Operation> -->
-
-		<!-- </caseTrue> -->
-	<!-- </Operation> -->
-
 	<!-- =TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST= -->
-
-	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
-	  <!-- <xpath>/Defs/ThingDef[defName="Mech_Constructoid"]</xpath> -->
-	  <!-- <safetyDepth>1</safetyDepth> -->
-	  <!-- <value> -->
-		  <!-- <abilities> -->
-			<!-- <li>WVC_MechanoidAbility_ActivateGestator</li> -->
-		  <!-- </abilities> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-
-	<!-- <Operation Class="XmlExtensions.PatchOperationSafeAdd"> -->
-	  <!-- <xpath>/Defs/ThingDef/race</xpath>  -->
-	  <!-- <safetyDepth>1</safetyDepth> -->
-	  <!-- <value> -->
-		  <!-- <willNeverEat> -->
-			<!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeResurgent</li> -->
-			<!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeXenoSpawner</li> -->
-		  <!-- </willNeverEat> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-
-	<!-- Should fix a bug due to which the vanilla FixWorstHealthCondition "cure" these statuses -->
-	<!-- <Operation Class="XmlExtensions.PatchOperationAddOrReplace"> -->
-	  <!-- <xpath>/Defs/HediffDef[defName="Malnutrition" or defName="Heatstroke" or defName="Hypothermia"]</xpath> -->
-	  <!-- <value> -->
-		<!-- <isBad>false</isBad> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
 
 	<Operation Class="XmlExtensions.FindMod">
 		<mods>
@@ -413,64 +70,19 @@
 		<logic>and</logic>
 		<caseTrue>
 
-			<!-- <Operation Class="PatchOperationAdd"> -->
-			  <!-- <xpath>/Defs/StatDef[defName="ComfyTemperatureMin"]/parts</xpath> -->
-			  <!-- <success>Always</success> -->
-			  <!-- <value> -->
-				  <!-- <li Class="WVC.StatPart_GenesCombo"> -->
-					<!-- <useMechaskinInsteadSubcore>true</useMechaskinInsteadSubcore> -->
-					<!-- <useStaticValue>true</useStaticValue> -->
-					<!-- <staticValue>-100</staticValue> -->
-				  <!-- </li> -->
-			  <!-- </value> -->
-			<!-- </Operation> -->
-			<!-- <Operation Class="PatchOperationAdd"> -->
-			  <!-- <xpath>/Defs/StatDef[defName="ComfyTemperatureMax"]/parts</xpath> -->
-			  <!-- <success>Always</success> -->
-			  <!-- <value> -->
-				  <!-- <li Class="WVC.StatPart_GenesCombo"> -->
-					<!-- <useMechaskinInsteadSubcore>true</useMechaskinInsteadSubcore> -->
-					<!-- <useStaticValue>true</useStaticValue> -->
-					<!-- <staticValue>250</staticValue> -->
-				  <!-- </li> -->
-			  <!-- </value> -->
-			<!-- </Operation> -->
-
-			<!-- <Operation Class="PatchOperationAdd"> -->
-			  <!-- <xpath>/Defs/HediffGiverSetDef[defName="Human"]/hediffGivers</xpath> -->
-			  <!-- <value> -->
-				  <!-- <li Class="WVC.HediffGiver_RandomByGene"> -->
-					<!-- <geneDef>WVC_NodeSkin_Blue</geneDef> -->
-					<!-- <hediff>MechlinkImplant</hediff> -->
-					<!-- <mtbDays>30</mtbDays> -->
-					<!-- <partsToAffect> -->
-					  <!-- <li>Brain</li> -->
-					<!-- </partsToAffect> -->
-				  <!-- </li> -->
-				  <!-- <li Class="WVC.HediffGiver_RandomByGene"> -->
-					<!-- <geneDef>WVC_NodeSkin_AltBlue</geneDef> -->
-					<!-- <hediff>MechlinkImplant</hediff> -->
-					<!-- <mtbDays>30</mtbDays> -->
-					<!-- <partsToAffect> -->
-					  <!-- <li>Brain</li> -->
-					<!-- </partsToAffect> -->
-				  <!-- </li> -->
-				  <!-- <li MayRequireAnyOf="ludeon.rimworld.royalty" Class="WVC.HediffGiver_RandomByGene"> -->
-					<!-- <geneDef>WVC_NodeSkin_Yellow</geneDef> -->
-					<!-- <hediff>PsychicAmplifier</hediff> -->
-					<!-- <mtbDays>30</mtbDays> -->
-					<!-- <partsToAffect> -->
-					  <!-- <li>Brain</li> -->
-					<!-- </partsToAffect> -->
-				  <!-- </li> -->
-			  <!-- </value> -->
-			<!-- </Operation> -->
-
 			<Operation Class="PatchOperationReplace">
 				<xpath>/Defs/GeneDef[defName="WVC_MecaUpgrades_PerfectShape"]/statOffsets/PawnBeauty</xpath>
 				<success>Always</success>
 				<value>
 					<PawnBeauty>6</PawnBeauty>
+				</value>
+			</Operation>
+
+			<Operation Class="PatchOperationAdd">
+				<xpath>/Defs/GeneDef[defName="WVC_Dustogenic"]/modExtensions/li/specialFoodDefs</xpath>
+				<success>Always</success>
+				<value>
+				  <li>MealNutrientPaste</li>
 				</value>
 			</Operation>
 
