@@ -56,6 +56,13 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		// public static float GetRecoveryRate(Pawn pawn)
+		// {
+			// float rate = 0.002f;
+			// rate *= pawn.GetPsylinkLevel();
+			// return rate;
+		// }
+
 		public override void Reset()
 		{
 			base.Reset();

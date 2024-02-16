@@ -387,7 +387,9 @@
 	<Operation Class="PatchOperationAdd">
 	  <xpath>/Defs/StatDef[@Name="MarketValueBase"]/parts</xpath>
 	  <value>
-		  <li Class="WVC_XenotypesAndGenes.StatPart_XenotypeSerum" MayRequire="Ludeon.RimWorld.Biotech"/>
+		  <li Class="WVC_XenotypesAndGenes.StatPart_XenotypeSerum" MayRequire="Ludeon.RimWorld.Biotech">
+			<xenotypeCostMult>220</xenotypeCostMult>
+		  </li>
 	  </value>
 	</Operation>
 

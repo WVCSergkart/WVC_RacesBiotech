@@ -7,6 +7,9 @@ namespace WVC_XenotypesAndGenes
 
 	public class StatPart_XenotypeSerum : StatPart
 	{
+
+		public int xenotypeCostMult = 100;
+
 		public override void TransformValue(StatRequest req, ref float val)
 		{
 			if (ModsConfig.BiotechActive && req.HasThing && req.Thing is XenotypeSerum xenotypeSerum)
@@ -28,7 +31,7 @@ namespace WVC_XenotypesAndGenes
 					XenotypeDef xenotypeB = xenotypeSerum.TryGetComp<CompUseEffect_XenotypeForcer_Hybrid>().xenotype;
 					num = XaG_GeneUtility.XenotypeCost(xenotypeA) + XaG_GeneUtility.XenotypeCost(xenotypeB);
 				}
-				val += (100 * num);
+				val += (xenotypeCostMult * num);
 			}
 			// Log.Error("StatPart_XenotypeSerum call");
 		}
