@@ -3,8 +3,6 @@
 
   <GeneDef Name="WVC_XenotypesAndGenes_GeneBlindness_Base" Abstract="True">
 	<!-- <label>mechlink</label>  -->
-	<labelShortAdj>blindness</labelShortAdj>
-	<description>Carriers of this gene are completely and irreversibly blind.</description>
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_PermanentHediff</geneClass> -->
 	<selectionWeight>0.0022</selectionWeight>
 	<!-- <displayCategory>Ability</displayCategory> -->
@@ -32,12 +30,14 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneBlindness_Base">
 	<defName>WVC_NaturalBlindness</defName>
 	<label>blindness</label>
+	<labelShortAdj>blindness</labelShortAdj>
+	<description>Carriers of this gene are completely and irreversibly blind.</description>
 	<iconPath>WVC/UI/Genes/Gene_Blindness_v0</iconPath>
-	<!-- <statOffsets> -->
-	  <!-- <PsychicSensitivity>0.3</PsychicSensitivity> -->
+	<statOffsets>
+	  <PsychicSensitivity>0.2</PsychicSensitivity>
 	  <!-- <MeditationFocusGain>0.4</MeditationFocusGain> -->
 	  <!-- <PsychicEntropyRecoveryRate>0.2</PsychicEntropyRecoveryRate> -->
-	<!-- </statOffsets> -->
+	</statOffsets>
 	<capMods>
 	  <li>
 		<capacity>Sight</capacity>

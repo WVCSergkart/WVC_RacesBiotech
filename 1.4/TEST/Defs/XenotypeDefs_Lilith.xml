@@ -17,7 +17,8 @@
 		<li>WVC_EternalHunger</li>
 		<li>WVC_NaturalImmunity_PerfectImmunity</li>
 		<li>WVC_NaturalAgeless</li>
-		<li>PsychicAbility_Extreme</li>
+		<!-- <li>PsychicAbility_Extreme</li> -->
+		<li>WVC_PsychicAbility_Archite</li>
 		<li>WVC_ArchiteTelepathy</li>
 		<li>WVC_Neversleep</li>
 		<li>WVC_Glass</li>

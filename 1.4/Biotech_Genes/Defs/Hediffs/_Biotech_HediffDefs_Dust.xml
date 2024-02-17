@@ -2,31 +2,6 @@
 <Defs>
 
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
-	<defName>WVC_Wings_FeatheredWings</defName>
-	<label>flying</label>
-	<!-- <label>feathered wings</label> -->
-	<description>The pawn uses wings for ease of movement.</description>
-	<stages>
-	  <li>
-		<!-- <becomeVisible>false</becomeVisible> -->
-		<minSeverity>0.0</minSeverity>
-	  </li>
-	</stages>
-	<comps>
-	  <li Class="AnimalBehaviours.HediffCompProperties_Floating">
-		<checkingInterval>1500</checkingInterval>
-	  </li>
-	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_PawnHaveWings"/>
-	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
-	</comps>
-	<modExtensions>
-	  <li MayRequire="pathfinding.framework" Class="PathfindingFramework.MovementExtension">
-		<movementDef>PF_Movement_Flying</movementDef>
-	  </li>
-	</modExtensions>
-  </HediffDef>
-
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
 	<defName>WVC_Dustogenic_KillAfterTime</defName>
 	<label>genetic collapse</label>
 	<description>Remains of dust in the blood cause genetic collapse, this process is not reversible and will definitely lead to imminent death.</description>

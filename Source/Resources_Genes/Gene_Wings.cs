@@ -7,26 +7,10 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_Wings : Gene
+	public class Gene_Wings : Gene
 	{
 
-		public HediffDef HediffDefName => def.GetModExtension<GeneExtension_Giver>().hediffDefName;
-
-		// public override void PostAdd()
-		// {
-		// base.PostAdd();
-		// AddOrRemoveHediff();
-		// }
-
-		// public override void Tick()
-		// {
-		// base.Tick();
-		// if (!pawn.IsHashIntervalTick(60000))
-		// {
-		// return;
-		// }
-		// AddOrRemoveHediff();
-		// }
+		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
 
 		public override void PostRemove()
 		{
@@ -38,9 +22,9 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (Active)
 			{
-				if (!pawn.health.hediffSet.HasHediff(HediffDefName))
+				if (!pawn.health.hediffSet.HasHediff(Props.hediffDefName))
 				{
-					pawn.health.AddHediff(HediffDefName);
+					pawn.health.AddHediff(Props.hediffDefName);
 				}
 				else
 				{
@@ -55,9 +39,9 @@ namespace WVC_XenotypesAndGenes
 
 		public void RemoveHediff()
 		{
-			if (pawn.health.hediffSet.HasHediff(HediffDefName))
+			if (pawn.health.hediffSet.HasHediff(Props.hediffDefName))
 			{
-				Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefName);
+				Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(Props.hediffDefName);
 				if (firstHediffOfDef != null)
 				{
 					pawn.health.RemoveHediff(firstHediffOfDef);
@@ -67,7 +51,7 @@ namespace WVC_XenotypesAndGenes
 
 		private string FlyOrWalk()
 		{
-			if (pawn.health.hediffSet.HasHediff(HediffDefName))
+			if (pawn.health.hediffSet.HasHediff(Props.hediffDefName))
 			{
 				return "WVC_XaG_Gene_Wings_On".Translate();
 			}
@@ -76,41 +60,28 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			// if (DebugSettings.ShowDevGizmos)
-			// {
-			// yield return new Command_Action
-			// {
-			// defaultLabel = "DEV: Add Or Remove Hediff",
-			// action = delegate
-			// {
-			// if (Active)
-			// {
-			// AddOrRemoveHediff();
-			// }
-			// }
-			// };
-			// }
-			if (Active && Find.Selector.SelectedPawns.Count == 1 && pawn.Faction == Faction.OfPlayer || DebugSettings.ShowDevGizmos)
+			if (!Active || Find.Selector.SelectedPawns.Count != 1 || pawn.Faction != Faction.OfPlayer)
 			{
-				yield return new Command_Action
-				{
-					defaultLabel = "WVC_XaG_Gene_Wings".Translate() + ": " + FlyOrWalk(),
-					defaultDesc = "WVC_XaG_Gene_WingsDesc".Translate(),
-					icon = ContentFinder<Texture2D>.Get(def.iconPath),
-					action = delegate
-					{
-						AddOrRemoveHediff();
-						if (!pawn.health.hediffSet.HasHediff(HediffDefName))
-						{
-							SoundDefOf.Tick_High.PlayOneShotOnCamera();
-						}
-						else
-						{
-							SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-						}
-					}
-				};
+				yield break;
 			}
+			yield return new Command_Action
+			{
+				defaultLabel = "WVC_XaG_Gene_Wings".Translate() + ": " + FlyOrWalk(),
+				defaultDesc = "WVC_XaG_Gene_WingsDesc".Translate(),
+				icon = ContentFinder<Texture2D>.Get(def.iconPath),
+				action = delegate
+				{
+					AddOrRemoveHediff();
+					if (!pawn.health.hediffSet.HasHediff(Props.hediffDefName))
+					{
+						SoundDefOf.Tick_High.PlayOneShotOnCamera();
+					}
+					else
+					{
+						SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+					}
+				}
+			};
 		}
 
 	}
