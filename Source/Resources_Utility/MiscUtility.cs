@@ -40,10 +40,9 @@ namespace WVC_XenotypesAndGenes
 				if (GeneFeaturesUtility.CanPsyFeedNowWith(pawn, p))
 				{
 					DoPsychicHarvest(pawn, p, thingDef, stackCount, targetBloodLoss, new (1, 2));
-					return true;
 				}
 			}
-			return false;
+			return true;
 		}
 
 		public static void DoPsychicHarvest(Pawn biter, Pawn victim, ThingDef thingDef, int stackCount, float targetBloodLoss, IntRange bloodFilthToSpawnRange)
