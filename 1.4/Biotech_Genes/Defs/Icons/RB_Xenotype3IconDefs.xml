@@ -184,4 +184,12 @@
   </XenotypeIconDef>
   <!-- Used -->
 
+  <!-- Faceless -->
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_FacelessHorns1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Icon_Lilith_v0</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+
 </Defs>

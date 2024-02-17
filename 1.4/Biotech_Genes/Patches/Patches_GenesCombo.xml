@@ -188,10 +188,13 @@
 		<caseTrue Class="PatchOperationSequence">
 			<operations>
 				<li Class="PatchOperationAdd">
-				  <xpath>/Defs/ThingDef[@WVC_XaG_EasyPatch="ThingDefSerumXenotypeForcerII"]/tradeTags</xpath>
-				  <success>Always</success>
+				  <xpath>/Defs/TraderKindDef/stockGenerators[li[thingDef="Genepack"]]</xpath>
 				  <value>
-					<li>WVC_XenotypeSerums_NonCraftable</li>
+					  <li Class="StockGenerator_Tag">
+						<tradeTag>WVC_XenotypeSerums_NonCraftable</tradeTag>
+						<thingDefCountRange>0~2</thingDefCountRange>
+						<countRange>1~1</countRange>
+					  </li>
 				  </value>
 				</li>
 			</operations>
@@ -315,36 +318,31 @@
 
 	<!-- ================== -->
 
-	<Operation Class="PatchOperationSequence">
-		<success>Always</success>
-		<operations>
-			<li Class="PatchOperationAdd">
-			  <xpath>/Defs/StatDef[defName="MechBandwidth"]/parts</xpath>
-			  <success>Invert</success>
-			  <value>
-				  <!-- <li Class="WVC.StatPart_GenesCombo"> -->
-					<!-- <useGeneDefNameInsteadSubcore>WVC_NodeSkin_AltBlue</useGeneDefNameInsteadSubcore> -->
-					<!-- <useStaticValue>true</useStaticValue> -->
-					<!-- <staticValue>2</staticValue> -->
+	<!-- <Operation Class="PatchOperationSequence"> -->
+		<!-- <success>Always</success> -->
+		<!-- <operations> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/StatDef[defName="MechBandwidth"]/parts</xpath> -->
+			  <!-- <success>Invert</success> -->
+			  <!-- <value> -->
+				  <!-- <li Class="WVC_XenotypesAndGenes.StatPart_ForceTo"> -->
+					<!-- <statDefName>WVC_ForceTo_MechBandwidth</statDefName> -->
 				  <!-- </li> -->
-				  <li Class="WVC_XenotypesAndGenes.StatPart_ForceTo">
-					<statDefName>WVC_ForceTo_MechBandwidth</statDefName>
-				  </li>
-			  </value>
-			</li>
-			<li Class="PatchOperationAdd">
-			  <xpath>/Defs/StatDef[defName="MechBandwidth"]</xpath>
-			  <success>Always</success>
-			  <value>
-				<parts>
-				  <li Class="WVC_XenotypesAndGenes.StatPart_ForceTo">
-					<statDefName>WVC_ForceTo_MechBandwidth</statDefName>
-				  </li>
-				</parts>
-			  </value>
-			</li>
-		</operations>
-	</Operation>
+			  <!-- </value> -->
+			<!-- </li> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/StatDef[defName="MechBandwidth"]</xpath> -->
+			  <!-- <success>Always</success> -->
+			  <!-- <value> -->
+				<!-- <parts> -->
+				  <!-- <li Class="WVC_XenotypesAndGenes.StatPart_ForceTo"> -->
+					<!-- <statDefName>WVC_ForceTo_MechBandwidth</statDefName> -->
+				  <!-- </li> -->
+				<!-- </parts> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+		<!-- </operations> -->
+	<!-- </Operation> -->
 
 	<!-- ================== -->
 
@@ -388,7 +386,7 @@
 	  <xpath>/Defs/StatDef[@Name="MarketValueBase"]/parts</xpath>
 	  <value>
 		  <li Class="WVC_XenotypesAndGenes.StatPart_XenotypeSerum" MayRequire="Ludeon.RimWorld.Biotech">
-			<xenotypeCostMult>220</xenotypeCostMult>
+			<xenotypeCostMult>320</xenotypeCostMult>
 		  </li>
 	  </value>
 	</Operation>
@@ -472,60 +470,60 @@
 		</operations>
 	</Operation>
 
-	<Operation Class="PatchOperationSequence">
-		<success>Always</success>
-		<operations>
-			<li Class="PatchOperationAdd">
-			  <xpath>/Defs/StatDef[defName="BandwidthCost"]/parts</xpath>
-			  <success>Invert</success>
-			  <value>
-				  <li Class="StatPart_OverseerStatOffset" MayRequire="Ludeon.RimWorld.Biotech">
-					<stat>WVC_BandwidthCostOffsetMech</stat>
-					<label>Offset from mechanitor</label>
-				  </li>
-			  </value>
-			</li>
-			<li Class="PatchOperationAdd">
-			  <xpath>/Defs/StatDef[defName="BandwidthCost"]</xpath>
-			  <success>Always</success>
-			  <value>
-				<parts>
-				  <li Class="StatPart_OverseerStatOffset" MayRequire="Ludeon.RimWorld.Biotech">
-					<stat>WVC_BandwidthCostOffsetMech</stat>
-					<label>Offset from mechanitor</label>
-				  </li>
-				</parts>
-			  </value>
-			</li>
-		</operations>
-	</Operation>
+	<!-- <Operation Class="PatchOperationSequence"> -->
+		<!-- <success>Always</success> -->
+		<!-- <operations> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/StatDef[defName="BandwidthCost"]/parts</xpath> -->
+			  <!-- <success>Invert</success> -->
+			  <!-- <value> -->
+				  <!-- <li Class="StatPart_OverseerStatOffset" MayRequire="Ludeon.RimWorld.Biotech"> -->
+					<!-- <stat>WVC_BandwidthCostOffsetMech</stat> -->
+					<!-- <label>Offset from mechanitor</label> -->
+				  <!-- </li> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/StatDef[defName="BandwidthCost"]</xpath> -->
+			  <!-- <success>Always</success> -->
+			  <!-- <value> -->
+				<!-- <parts> -->
+				  <!-- <li Class="StatPart_OverseerStatOffset" MayRequire="Ludeon.RimWorld.Biotech"> -->
+					<!-- <stat>WVC_BandwidthCostOffsetMech</stat> -->
+					<!-- <label>Offset from mechanitor</label> -->
+				  <!-- </li> -->
+				<!-- </parts> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+		<!-- </operations> -->
+	<!-- </Operation> -->
 
-	<Operation Class="PatchOperationSequence">
-		<success>Always</success>
-		<operations>
-			<li Class="PatchOperationAdd">
-			  <xpath>/Defs/StatDef[defName="MechEnergyUsageFactor"]/parts</xpath>
-			  <success>Invert</success>
-			  <value>
-				  <li Class="StatPart_OverseerStatOffset" MayRequire="Ludeon.RimWorld.Biotech">
-					<stat>WVC_MechEnergyUsageOffset</stat>
-					<label>Offset from mechanitor</label>
-				  </li>
-			  </value>
-			</li>
-			<li Class="PatchOperationAdd">
-			  <xpath>/Defs/StatDef[defName="MechEnergyUsageFactor"]</xpath>
-			  <success>Always</success>
-			  <value>
-				<parts>
-				  <li Class="StatPart_OverseerStatOffset" MayRequire="Ludeon.RimWorld.Biotech">
-					<stat>WVC_MechEnergyUsageOffset</stat>
-					<label>Offset from mechanitor</label>
-				  </li>
-				</parts>
-			  </value>
-			</li>
-		</operations>
-	</Operation>
+	<!-- <Operation Class="PatchOperationSequence"> -->
+		<!-- <success>Always</success> -->
+		<!-- <operations> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/StatDef[defName="MechEnergyUsageFactor"]/parts</xpath> -->
+			  <!-- <success>Invert</success> -->
+			  <!-- <value> -->
+				  <!-- <li Class="StatPart_OverseerStatOffset" MayRequire="Ludeon.RimWorld.Biotech"> -->
+					<!-- <stat>WVC_MechEnergyUsageOffset</stat> -->
+					<!-- <label>Offset from mechanitor</label> -->
+				  <!-- </li> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/StatDef[defName="MechEnergyUsageFactor"]</xpath> -->
+			  <!-- <success>Always</success> -->
+			  <!-- <value> -->
+				<!-- <parts> -->
+				  <!-- <li Class="StatPart_OverseerStatOffset" MayRequire="Ludeon.RimWorld.Biotech"> -->
+					<!-- <stat>WVC_MechEnergyUsageOffset</stat> -->
+					<!-- <label>Offset from mechanitor</label> -->
+				  <!-- </li> -->
+				<!-- </parts> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+		<!-- </operations> -->
+	<!-- </Operation> -->
 
 </Patch>

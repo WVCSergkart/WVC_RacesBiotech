@@ -57,7 +57,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				if (cachedHemogenGene == null)
+				if (cachedHemogenGene == null || !cachedHemogenGene.Active)
 				{
 					cachedHemogenGene = pawn.genes?.GetFirstGeneOfType<Gene_Hemogen>();
 				}

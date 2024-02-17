@@ -33,6 +33,10 @@ namespace WVC_XenotypesAndGenes
 
 		public static void AddOrRemoveHediff(HediffDef hediffDef, Pawn pawn, Gene gene)
 		{
+			if (hediffDef == null)
+			{
+				return;
+			}
 			if (gene.Active)
 			{
 				if (!pawn.health.hediffSet.HasHediff(hediffDef))
@@ -55,6 +59,10 @@ namespace WVC_XenotypesAndGenes
 
 		public static void RemoveHediff(HediffDef hediffDef, Pawn pawn)
 		{
+			if (hediffDef == null)
+			{
+				return;
+			}
 			if (pawn.health.hediffSet.HasHediff(hediffDef))
 			{
 				Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(hediffDef);

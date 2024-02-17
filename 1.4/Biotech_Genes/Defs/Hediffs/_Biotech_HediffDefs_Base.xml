@@ -241,6 +241,21 @@
 	</comps>
   </HediffDef>
 
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_EternalHunger_HungerFactor</defName>
+	<label>eternal hunger</label>
+	<stages>
+	  <li>
+		<hungerRateFactor>0.1</hungerRateFactor>
+		<becomeVisible>false</becomeVisible>
+		<minSeverity>0.0</minSeverity>
+	  </li>
+	</stages>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive"/>
+	</comps>
+  </HediffDef>
+
   <!--=====================================================================-->
 
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">

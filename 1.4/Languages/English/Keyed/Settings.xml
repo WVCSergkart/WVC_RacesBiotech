@@ -179,8 +179,8 @@ Please note that resurrecting a pawn will not bring back a disappeared mechlink.
 It is recommended to disable it in case of bugs associated with mods that add gene implanters.</WVC_ToolTip_ShapeshifterGeneUnremovable>
 
 	<!-- ====================================================================================== -->
-	<WVC_Label_spawnXenoForcerSerumsFromTraders>Traders sell basetype serums</WVC_Label_spawnXenoForcerSerumsFromTraders>
-	<WVC_ToolTip_spawnXenoForcerSerumsFromTraders>If enabled, traders will sell basetype, ultratype and hybridtype serums. Restart required.</WVC_ToolTip_spawnXenoForcerSerumsFromTraders>
+	<WVC_Label_spawnXenoForcerSerumsFromTraders>Traders sell serums</WVC_Label_spawnXenoForcerSerumsFromTraders>
+	<WVC_ToolTip_spawnXenoForcerSerumsFromTraders>If enabled, traders will sell serums. Does not affect orbital xenogenes trader.</WVC_ToolTip_spawnXenoForcerSerumsFromTraders>
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_serumsForAllXenotypes>Generate xenotypes serums</WVC_Label_serumsForAllXenotypes>

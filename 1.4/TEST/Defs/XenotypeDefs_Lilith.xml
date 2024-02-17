@@ -5,20 +5,23 @@
 	<defName>WVC_Lilith</defName>
 	<label>lilith</label>
 	<inheritable>true</inheritable>
+	<iconPath>WVC/UI/Mecha_Icons/Icon_Lilith_v0</iconPath>
 	<genes>
 		<li>WVC_ReimplanterNatural_Endogenes</li>
 		<li>Hemogenic</li>
 		<li>HemogenDrain</li>
 		<li>LongjumpLegs</li>
 		<li>WVC_HemogenPsylink</li>
+		<li>Bloodfeeder</li>
 		<li>WVC_Psyfeeder</li>
+		<li>WVC_EternalHunger</li>
 		<li>WVC_NaturalImmunity_PerfectImmunity</li>
 		<li>WVC_NaturalAgeless</li>
 		<li>PsychicAbility_Extreme</li>
 		<li>WVC_ArchiteTelepathy</li>
 		<li>WVC_Neversleep</li>
 		<li>WVC_Glass</li>
-		<!-- <li>WVC_FemaleOnly</li> -->
+		<li>WVC_FemaleOnly</li>
 		<li>WVC_AngelBeauty</li>
 		<li>WVC_HeadBoneHorns</li>
 		<li>WVC_NodeSkin</li>

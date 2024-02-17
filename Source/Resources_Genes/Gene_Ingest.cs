@@ -189,4 +189,130 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_EternalHunger : Gene_HemogenDrain
+	{
+
+		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
+
+		// Gene
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			Gene_AddOrRemoveHediff.AddOrRemoveHediff(Props?.hediffDefName, pawn, this);
+		}
+
+		public override void Tick()
+		{
+			base.Tick();
+			if (!pawn.IsHashIntervalTick(6000))
+			{
+				return;
+			}
+			if (pawn.IsHashIntervalTick(60000))
+			{
+				Gene_AddOrRemoveHediff.AddOrRemoveHediff(Props?.hediffDefName, pawn, this);
+			}
+			if (pawn.Downed || pawn.Drafted)
+			{
+				return;
+			}
+			if (Resource is not Gene_Hemogen gene_hemogen || !gene_hemogen.ShouldConsumeHemogenNow())
+			{
+				return;
+			}
+			if (pawn.Map == null)
+			{
+				return;
+			}
+			GetFood();
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			Gene_AddOrRemoveHediff.RemoveHediff(Props?.hediffDefName, pawn);
+		}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: Add Or Remove Hediff",
+					action = delegate
+					{
+						if (Active)
+						{
+							Gene_AddOrRemoveHediff.AddOrRemoveHediff(Props?.hediffDefName, pawn, this);
+						}
+					}
+				};
+			}
+		}
+
+		public override void Notify_IngestedThing(Thing thing, int numTaken)
+		{
+			if (!Active)
+			{
+				return;
+			}
+			if (thing.def.IsMeat)
+			{
+				IngestibleProperties ingestible = thing.def.ingestible;
+				if (ingestible != null)
+				{
+					GeneUtility.OffsetHemogen(pawn, GetHomegenCountFromFood(thing) * (float)numTaken);
+				}
+			}
+		}
+
+		// Misc
+
+		public void GetFood()
+		{
+			List<Thing> meatFood = new();
+			foreach (Thing item in pawn.Map.listerThings.AllThings.ToList())
+			{
+				if (item.def.ingestible != null && item.def.IsMeat)
+				{
+					meatFood.Add(item);
+				}
+			}
+			for (int j = 0; j < meatFood.Count; j++)
+			{
+				Thing specialFood = MiscUtility.GetSpecialFood(pawn, meatFood[j].def);
+				if (specialFood == null)
+				{
+					continue;
+				}
+				Job job = JobMaker.MakeJob(JobDefOf.Ingest, specialFood);
+				job.count = GetFoodCount(specialFood);
+				pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);
+				break;
+			}
+		}
+
+		public int GetFoodCount(Thing thing)
+		{
+			int foodCount = 0;
+			float hemogen = GetHomegenCountFromFood(thing);
+			float currentHemogenLvl = Resource.Value;
+			float targetHemogenLvl = Resource.targetValue;
+			while (currentHemogenLvl < targetHemogenLvl)
+			{
+				foodCount++;
+				currentHemogenLvl += hemogen;
+			}
+			return foodCount;
+		}
+
+		public float GetHomegenCountFromFood(Thing thing)
+		{
+			return 0.0375f * thing.GetStatValue(StatDefOf.Nutrition);
+		}
+
+	}
+
 }

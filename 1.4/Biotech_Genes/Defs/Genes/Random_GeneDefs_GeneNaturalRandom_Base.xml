@@ -47,9 +47,10 @@
 	<biostatArc>1</biostatArc>
 	<customEffectDescriptions>
 		<!-- <li>Enhance the pawn's stats, such as psi sensitivity, immunity, regeneration, armor, survivability, etc.</li> -->
-		<li>Mech bandwidth +6</li>
+		<!-- <li>Mech bandwidth +6</li> -->
 		<li>Mech control groups +1</li>
-		<li>Mech bandwidth cost offset -1</li>
+		<li>Mech bandwidth x2</li>
+		<!-- <li>Mech bandwidth cost offset -1</li> -->
 		<li>-or-</li>
 		<li>Immunity gain speed +50%</li>
 		<li>Injury healing factor +50%</li>

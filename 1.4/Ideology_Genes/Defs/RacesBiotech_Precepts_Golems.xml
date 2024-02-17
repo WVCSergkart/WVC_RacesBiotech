@@ -45,7 +45,8 @@
 	  <li>WVC_Golemist</li>
 	</requiredMemes>
 	<statOffsets>
-	  <WVC_BandwidthCostOffsetMech>0.2</WVC_BandwidthCostOffsetMech>
+	  <!-- <WVC_BandwidthCostOffsetMech>0.2</WVC_BandwidthCostOffsetMech> -->
+	  <MechBandwidth>-2</MechBandwidth>
 	  <WVC_OverseerMaxGolems>8</WVC_OverseerMaxGolems>
 	</statOffsets>
   </PreceptDef>

@@ -38,10 +38,13 @@
 	  <li>
 		<label>overclocked</label>
 		<minSeverity>0.0</minSeverity>
+		<statFactors>
+		  <MechBandwidth>2</MechBandwidth>
+		</statFactors>
 		<statOffsets>
-		  <MechBandwidth>6</MechBandwidth>
-		  <MechControlGroups>1</MechControlGroups>
-		  <WVC_BandwidthCostOffsetMech>-1</WVC_BandwidthCostOffsetMech>
+		  <!-- <MechBandwidth>6</MechBandwidth> -->
+		  <MechControlGroups>2</MechControlGroups>
+		  <!-- <WVC_BandwidthCostOffsetMech>-1</WVC_BandwidthCostOffsetMech> -->
 		</statOffsets>
 	  </li>
 	  <li>

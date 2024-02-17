@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Verse;
+using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -42,67 +43,87 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (CanPsyFeedNowWith(pawn, p))
 				{
-					DoPsychicBite(pawn, p, 0.2f, 0.4499f);
+					DoPsychicBite(pawn, p, 0.1f, 0.2f, 0.4499f, new (1, 2));
 					return true;
 				}
 			}
 			return false;
 		}
 
-		public static bool CanPsyFeedNowWith(Pawn parent, Pawn pawn)
+		public static bool CanPsyFeedNowWith(Pawn biter, Pawn victim)
 		{
-			if (pawn == null)
+			if (victim == null)
 			{
 				return false;
 			}
-			if (pawn.health.hediffSet.HasHediff(HediffDefOf.BloodLoss))
+			if (victim.health.hediffSet.HasHediff(HediffDefOf.BloodLoss))
 			{
 				return false;
 			}
-			if (pawn.genes?.GetFirstGeneOfType<Gene_Hemogen>() != null)
+			if (victim.genes?.GetFirstGeneOfType<Gene_Hemogen>() != null)
 			{
 				return false;
 			}
-			if (pawn.Faction != null && !pawn.IsSlaveOfColony && !pawn.IsPrisonerOfColony)
+			if (victim.Faction != null && !victim.IsSlaveOfColony && !victim.IsPrisonerOfColony)
 			{
-				if (pawn.Faction.HostileTo(parent.Faction))
+				if (victim.Faction.HostileTo(biter.Faction))
 				{
-					if (!pawn.Downed)
+					if (!victim.Downed)
 					{
 						return false;
 					}
 				}
-				else if (pawn.IsQuestLodger() || pawn.Faction != parent.Faction)
+				else if (victim.IsQuestLodger() || victim.Faction != biter.Faction)
 				{
 					return false;
 				}
 			}
-			if (pawn.IsWildMan() && !pawn.IsPrisonerOfColony && !pawn.Downed)
+			if (victim.IsWildMan() && !victim.IsPrisonerOfColony && !victim.Downed)
 			{
 				return false;
 			}
-			if (pawn.InMentalState)
+			if (victim.InMentalState)
 			{
 				return false;
 			}
 			return true;
 		}
 
-		public static void DoPsychicBite(Pawn biter, Pawn victim, float targetHemogenGain, float targetBloodLoss)
+		public static void DoPsychicBite(Pawn biter, Pawn victim, float nutritionGain, float targetHemogenGain, float targetBloodLoss, IntRange bloodFilthToSpawnRange)
 		{
 			float num = SanguophageUtility.HemogenGainBloodlossFactor(victim, targetBloodLoss);
 			float num2 = targetHemogenGain * victim.BodySize * num;
 			GeneUtility.OffsetHemogen(biter, num2);
 			GeneUtility.OffsetHemogen(victim, 0f - num2);
+			if (biter.needs?.food != null)
+			{
+				biter.needs.food.CurLevel += nutritionGain * num;
+			}
 			if (targetBloodLoss > 0f)
 			{
 				Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.BloodLoss, victim);
 				hediff.Severity = targetBloodLoss;
 				victim.health.AddHediff(hediff);
 			}
-			FleckDef fleckDef = DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect");
-			FleckMaker.AttachedOverlay(biter, fleckDef, Vector3.zero);
-			FleckMaker.AttachedOverlay(victim, fleckDef, Vector3.zero);
+			if (victim.Map == null)
+			{
+				return;
+			}
+			SoundDefOf.Execute_Cut.PlayOneShot(victim);
+			int randomInRange = bloodFilthToSpawnRange.RandomInRange;
+			for (int i = 0; i < randomInRange; i++)
+			{
+				IntVec3 c = victim.Position;
+				if (randomInRange > 1 && Rand.Chance(0.8888f))
+				{
+					c = victim.Position.RandomAdjacentCell8Way();
+				}
+				if (c.InBounds(victim.MapHeld))
+				{
+					FilthMaker.TryMakeFilth(c, victim.MapHeld, victim.RaceProps.BloodDef, victim.LabelShort);
+				}
+			}
+			FleckMaker.AttachedOverlay(biter, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
 		}
 
 		// ============================= GENE OPINION =============================

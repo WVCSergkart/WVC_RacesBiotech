@@ -254,9 +254,10 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	<label>basetype serum</label>
 	<!-- <stackLimit>1</stackLimit> -->
 	<!-- <drawGUIOverlay>false</drawGUIOverlay> -->
-	<tradeTags Inherit="False">
+	<tradeTags>
 	  <li>WVC_XenotypeSerums</li>
 	  <li>WVC_All_XenotypeSerums</li>
+	  <li>WVC_XenotypeSerums_NonCraftable</li>
 	</tradeTags>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenotypeForcer_II">
