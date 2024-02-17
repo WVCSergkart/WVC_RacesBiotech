@@ -70,7 +70,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Base">
 	<defName>WVC_Psyfeeder</defName>
 	<label>psyfeeder</label>
-	<description>Carriers of this gene can draw hemogen from the psychic field. However, it affects others, causing them to experience blood loss.</description>
+	<description>Carriers of this gene can drain hemogen from the psychic field. However, it affects others, causing them to experience blood loss.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Psyfeeder</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_PsychicBloodfeeder_v0</iconPath>
 	<displayOrderInCategory>65</displayOrderInCategory>
@@ -125,5 +125,33 @@
 		</li>
 	</modExtensions>
   </GeneDef>
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Base"> -->
+	<!-- <defName>WVC_BloodHarvester</defName> -->
+	<!-- <label>blood harvester</label> -->
+	<!-- <description>Carriers of this gene have a strong psychic influence on others. Non-hemogenic pawns regularly suffer from blood loss.</description> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_BloodHarvester</geneClass> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_BloodHarvester_v0</iconPath> -->
+	<!-- <displayOrderInCategory>75</displayOrderInCategory> -->
+	<!-- <biostatCpx>4</biostatCpx> -->
+	<!-- <biostatArc>2</biostatArc> -->
+	<!-- <biostatMet>0</biostatMet> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>All &lt;color=#8a8ae6&gt;psi-sensitive non-hemogene&lt;/color&gt; pawns that are on the same map as the carrier spawns 1 &lt;color=#8a8ae6&gt;hemogen pack&lt;/color&gt; every (*DateTime)3-5 days(/DateTime).</li> -->
+		<!-- <li>The effect is &lt;color=#8a8ae6&gt;triggered automatically&lt;/color&gt; if hemogen &lt;color=#8a8ae6&gt;auto ingestion enabled&lt;/color&gt;.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <symbolPack> -->
+	  <!-- <prefixSymbols> -->
+		<!-- <li><symbol>harvest</symbol></li> -->
+	  <!-- </prefixSymbols> -->
+	<!-- </symbolPack> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner"> -->
+			<!-- <thingDefToSpawn>HemogenPack</thingDefToSpawn> -->
+			<!-- <stackCount>1</stackCount> -->
+			<!-- <spawnIntervalRange><min>180000</min><max>300000</max></spawnIntervalRange> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
 
 </Defs>

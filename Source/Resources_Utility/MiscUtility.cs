@@ -1,14 +1,93 @@
 using RimWorld;
 using System.Collections.Generic;
+using UnityEngine;
 using Verse;
 using Verse.AI;
+using Verse.Sound;
 using static Verse.GeneSymbolPack;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public static class MiscUtility
+	public static class MiscUtility
 	{
+
+		// Spawner
+
+		public static bool TryHarvest(Pawn pawn, ThingDef thingDef, int stackCount, float targetBloodLoss = 0.4499f)
+		{
+			if (pawn?.Map == null || pawn.Downed)
+			{
+				return false;
+			}
+			List<Pawn> workingList = pawn.Map.mapPawns.SpawnedPawnsInFaction(pawn.Faction);
+			workingList.Shuffle();
+			for (int i = 0; i < workingList.Count; i++)
+			{
+				Pawn p = workingList[i];
+				if (!p.RaceProps.Humanlike)
+				{
+					continue;
+				}
+				if (!p.PawnPsychicSensitive())
+				{
+					continue;
+				}
+				if (p == pawn)
+				{
+					continue;
+				}
+				if (GeneFeaturesUtility.CanPsyFeedNowWith(pawn, p))
+				{
+					DoPsychicHarvest(pawn, p, thingDef, stackCount, targetBloodLoss, new (1, 2));
+					return true;
+				}
+			}
+			return false;
+		}
+
+		public static void DoPsychicHarvest(Pawn biter, Pawn victim, ThingDef thingDef, int stackCount, float targetBloodLoss, IntRange bloodFilthToSpawnRange)
+		{
+			if (victim.Map == null)
+			{
+				return;
+			}
+			float num = SanguophageUtility.HemogenGainBloodlossFactor(victim, targetBloodLoss);
+			int finalStack = (int)(stackCount * victim.BodySize * num);
+			SpawnItems(victim, thingDef, finalStack);
+			if (targetBloodLoss > 0f)
+			{
+				Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.BloodLoss, victim);
+				hediff.Severity = targetBloodLoss;
+				victim.health.AddHediff(hediff);
+				SoundDefOf.Execute_Cut.PlayOneShot(victim);
+				int randomInRange = bloodFilthToSpawnRange.RandomInRange;
+				for (int i = 0; i < randomInRange; i++)
+				{
+					IntVec3 c = victim.Position;
+					if (randomInRange > 1 && Rand.Chance(0.8888f))
+					{
+						c = victim.Position.RandomAdjacentCell8Way();
+					}
+					if (c.InBounds(victim.MapHeld))
+					{
+						FilthMaker.TryMakeFilth(c, victim.MapHeld, victim.RaceProps.BloodDef, victim.LabelShort);
+					}
+				}
+			}
+			FleckMaker.AttachedOverlay(biter, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
+		}
+
+		public static void SpawnItems(Pawn pawn, ThingDef thingDef, int stack, bool showMessage = false, string message = "MessageCompSpawnerSpawnedItem")
+		{
+			Thing thing = ThingMaker.MakeThing(thingDef);
+			thing.stackCount = stack;
+			GenPlace.TryPlaceThing(thing, pawn.Position, pawn.Map, ThingPlaceMode.Near, null, null, default);
+			if (showMessage)
+			{
+				Messages.Message(message.Translate(thing.LabelCap), thing, MessageTypeDefOf.PositiveEvent);
+			}
+		}
 
 		// Inherit
 

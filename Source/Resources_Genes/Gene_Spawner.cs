@@ -17,18 +17,20 @@ namespace WVC_XenotypesAndGenes
 		public int ticksUntilSpawn;
 
 		// For info
-		public int FinalStackCount => GetStackCount();
 		private int cachedStackCount;
+
+		public int FinalStackCount
+		{
+			get
+			{
+				if (cachedStackCount != 0)
+				{
+					return cachedStackCount;
+				}
+				return GetStackModifier();
+			}
+		}
 		// For info
-
-		// public override string Label => GetLabel();
-
-		// public override string LabelCap => GetLabel().CapitalizeFirst();
-
-		// private string GetLabel()
-		// {
-			// return def.label + " (" + ThingDefToSpawn.LabelCap + ")";
-		// }
 
 		public override void PostAdd()
 		{
@@ -53,23 +55,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void SpawnItems()
 		{
-			Thing thing = ThingMaker.MakeThing(Props.thingDefToSpawn);
-			thing.stackCount = GetStackModifier();
-			GenPlace.TryPlaceThing(thing, pawn.Position, pawn.Map, ThingPlaceMode.Near, null, null, default);
-			if (Props.showMessageIfOwned)
-			{
-				Messages.Message(Props.spawnMessage.Translate(thing.LabelCap), thing, MessageTypeDefOf.PositiveEvent);
-			}
-		}
-
-		private int GetStackCount()
-		{
-			if (cachedStackCount != 0)
-			{
-				return cachedStackCount;
-			}
-			// Log.Error("_1");
-			return GetStackModifier();
+			MiscUtility.SpawnItems(pawn, Props.thingDefToSpawn, GetStackModifier(), Props.showMessageIfOwned, Props.spawnMessage);
 		}
 
 		private int GetStackModifier()
@@ -296,5 +282,81 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Defs.Look(ref productDef, "productDef");
 		}
 	}
+
+	// Harvester
+
+	// public class Gene_Harvester : Gene
+	// {
+
+		// public GeneExtension_Spawner Props => def.GetModExtension<GeneExtension_Spawner>();
+
+		// public int ticksUntilSpawn;
+
+		// private int cachedStackCount;
+
+		// public int FinalStackCount
+		// {
+			// get
+			// {
+				// if (cachedStackCount != 0)
+				// {
+					// return cachedStackCount;
+				// }
+				// return GetStackModifier();
+			// }
+		// }
+
+		// public override void PostAdd()
+		// {
+			// base.PostAdd();
+			// ResetInterval();
+		// }
+
+		// public override void Tick()
+		// {
+			// base.Tick();
+			// ticksUntilSpawn--;
+			// if (ticksUntilSpawn > 0)
+			// {
+				// return;
+			// }
+			// if (pawn.Map != null && Active && pawn.Faction != null && pawn.Faction == Faction.OfPlayer && Props != null)
+			// {
+				// SpawnItems();
+			// }
+			// ResetInterval();
+		// }
+
+		// private void ResetInterval()
+		// {
+			// ticksUntilSpawn = Props.spawnIntervalRange.RandomInRange;
+		// }
+
+		// public override IEnumerable<Gizmo> GetGizmos()
+		// {
+			// if (DebugSettings.ShowDevGizmos)
+			// {
+				// yield return new Command_Action
+				// {
+					// defaultLabel = "DEV: Harvest " + Props.thingDefToSpawn.label,
+					// defaultDesc = "NextSpawnedResourceIn".Translate() + ": " + ticksUntilSpawn.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor),
+					// action = delegate
+					// {
+						// if (pawn.Map != null && Active)
+						// {
+							// SpawnItems();
+						// }
+						// ResetInterval();
+					// }
+				// };
+			// }
+		// }
+
+		// public override void ExposeData()
+		// {
+			// base.ExposeData();
+			// Scribe_Values.Look(ref ticksUntilSpawn, "ticksToSpawnThing", 0);
+		// }
+	// }
 
 }
