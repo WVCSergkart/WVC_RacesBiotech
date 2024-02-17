@@ -2,6 +2,7 @@ using RimWorld;
 using RimWorld.Planet;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -9,6 +10,100 @@ namespace WVC_XenotypesAndGenes
 
     public static class GeneFeaturesUtility
 	{
+
+		// ============================= GENE PSY BLOODFEEDER =============================
+
+		public static bool TryPsyFeedRandomly(Pawn pawn, Gene_Hemogen gene_Hemogen)
+		{
+			if (pawn?.Map == null || gene_Hemogen == null || pawn.Downed)
+			{
+				return false;
+			}
+			if (gene_Hemogen.hemogenPacksAllowed || !gene_Hemogen.ShouldConsumeHemogenNow())
+			{
+				return false;
+			}
+			List<Pawn> workingList = pawn.Map.mapPawns.SpawnedPawnsInFaction(pawn.Faction);
+			workingList.Shuffle();
+			for (int i = 0; i < workingList.Count; i++)
+			{
+				Pawn p = workingList[i];
+				if (!p.RaceProps.Humanlike)
+				{
+					continue;
+				}
+				if (!p.PawnPsychicSensitive())
+				{
+					continue;
+				}
+				if (p == pawn)
+				{
+					continue;
+				}
+				if (CanPsyFeedNowWith(pawn, p))
+				{
+					DoPsychicBite(pawn, p, 0.2f, 0.4499f);
+					return true;
+				}
+			}
+			return false;
+		}
+
+		public static bool CanPsyFeedNowWith(Pawn parent, Pawn pawn)
+		{
+			if (pawn == null)
+			{
+				return false;
+			}
+			if (pawn.health.hediffSet.HasHediff(HediffDefOf.BloodLoss))
+			{
+				return false;
+			}
+			if (pawn.genes?.GetFirstGeneOfType<Gene_Hemogen>() != null)
+			{
+				return false;
+			}
+			if (pawn.Faction != null && !pawn.IsSlaveOfColony && !pawn.IsPrisonerOfColony)
+			{
+				if (pawn.Faction.HostileTo(parent.Faction))
+				{
+					if (!pawn.Downed)
+					{
+						return false;
+					}
+				}
+				else if (pawn.IsQuestLodger() || pawn.Faction != parent.Faction)
+				{
+					return false;
+				}
+			}
+			if (pawn.IsWildMan() && !pawn.IsPrisonerOfColony && !pawn.Downed)
+			{
+				return false;
+			}
+			if (pawn.InMentalState)
+			{
+				return false;
+			}
+			return true;
+		}
+
+		public static void DoPsychicBite(Pawn biter, Pawn victim, float targetHemogenGain, float targetBloodLoss)
+		{
+			float num = SanguophageUtility.HemogenGainBloodlossFactor(victim, targetBloodLoss);
+			float num2 = targetHemogenGain * victim.BodySize * num;
+			GeneUtility.OffsetHemogen(biter, num2);
+			GeneUtility.OffsetHemogen(victim, 0f - num2);
+			if (targetBloodLoss > 0f)
+			{
+				Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.BloodLoss, victim);
+				hediff.Severity = targetBloodLoss;
+				victim.health.AddHediff(hediff);
+			}
+			FleckDef fleckDef = DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect");
+			FleckMaker.AttachedOverlay(biter, fleckDef, Vector3.zero);
+			FleckMaker.AttachedOverlay(victim, fleckDef, Vector3.zero);
+		}
 
 		// ============================= GENE OPINION =============================
 

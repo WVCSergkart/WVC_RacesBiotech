@@ -35,7 +35,7 @@ namespace WVC_XenotypesAndGenes
 		public bool fixVanillaGeneImmunityCheck = true;
 		public bool minWastepacksPerRecharge = false;
 		// public bool validatorAbilitiesPatch = true;
-		public bool spawnXenoForcerSerumsFromTraders = false;
+		public bool spawnXenoForcerSerumsFromTraders = true;
 		public bool fixGenesOnLoad = false;
 		public bool fixGeneAbilitiesOnLoad = false;
 		public bool fixGeneTypesOnLoad = false;
@@ -90,7 +90,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref fixVanillaGeneImmunityCheck, "fixVanillaGeneImmunityCheck", defaultValue: true);
 			Scribe_Values.Look(ref minWastepacksPerRecharge, "minWastepacksPerRecharge", defaultValue: false);
 			// Scribe_Values.Look(ref validatorAbilitiesPatch, "validatorAbilitiesPatch", defaultValue: true);
-			Scribe_Values.Look(ref spawnXenoForcerSerumsFromTraders, "spawnXenoForcerSerumsFromTraders", defaultValue: false);
+			Scribe_Values.Look(ref spawnXenoForcerSerumsFromTraders, "spawnXenoForcerSerumsFromTraders", defaultValue: true);
 			// Scribe_Values.Look(ref fixGenesOnLoad, "fixGenesOnLoad", defaultValue: false);
 			// Info
 			Scribe_Values.Look(ref enableGenesInfo, "enableGenesInfo", defaultValue: true);
@@ -273,7 +273,7 @@ namespace WVC_XenotypesAndGenes
 					settings.fixVanillaGeneImmunityCheck = true;
 					settings.minWastepacksPerRecharge = false;
 					// settings.validatorAbilitiesPatch = true;
-					settings.spawnXenoForcerSerumsFromTraders = false;
+					settings.spawnXenoForcerSerumsFromTraders = true;
 					// Info
 					settings.enableGenesInfo = true;
 					settings.enableGeneSpawnerGizmo = true;
