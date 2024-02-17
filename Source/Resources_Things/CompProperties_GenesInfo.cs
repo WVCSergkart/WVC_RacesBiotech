@@ -116,6 +116,14 @@ namespace WVC_XenotypesAndGenes
 
 		public void GetAllGenesOfTypes(Pawn pawn)
 		{
+			// Nullify
+			cachedSpawnerGenes = null;
+			cachedWingGene = null;
+			cachedUndeadGene = null;
+			cachedBlesslinkGene = null;
+			cachedScarifierGene = null;
+			cachedGeneticInstabilityGene = null;
+			// Cache
 			List<Gene> genesListForReading = pawn?.genes?.GenesListForReading;
 			if (genesListForReading.NullOrEmpty())
 			{
@@ -224,7 +232,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				info += "WVC_XaG_Gene_Scarifier_On_Info".Translate().Resolve() + ": " + cachedScarifierGene.scarifyInterval.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
 			}
-			if (cachedWingGene != null && pawn.health.hediffSet.HasHediff(cachedWingGene.HediffDefName))
+			if (cachedWingGene != null && cachedWingGene.Flying)
 			{
 				if (!info.NullOrEmpty())
 				{

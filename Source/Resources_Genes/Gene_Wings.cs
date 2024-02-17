@@ -12,6 +12,8 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
 
+		public bool Flying => pawn.health.hediffSet.HasHediff(Props.hediffDefName);
+
 		public override void PostRemove()
 		{
 			base.PostRemove();
@@ -66,7 +68,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			yield return new Command_Action
 			{
-				defaultLabel = "WVC_XaG_Gene_Wings".Translate() + ": " + FlyOrWalk(),
+				defaultLabel = def.LabelCap + ": " + FlyOrWalk(),
 				defaultDesc = "WVC_XaG_Gene_WingsDesc".Translate(),
 				icon = ContentFinder<Texture2D>.Get(def.iconPath),
 				action = delegate

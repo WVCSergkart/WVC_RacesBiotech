@@ -192,7 +192,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<!-- ============================ WINGS ============================ -->
 
-	<WVC_XaG_Gene_Wings>Use wings</WVC_XaG_Gene_Wings>
+	<WVC_XaG_Gene_Wings>Terrain ignore</WVC_XaG_Gene_Wings>
 	<WVC_XaG_Gene_WingsDesc>Allows you to switch between walking and flying.</WVC_XaG_Gene_WingsDesc>
 	<WVC_XaG_Gene_Wings_On>Fly</WVC_XaG_Gene_Wings_On>
 	<WVC_XaG_Gene_Wings_Off>Walk</WVC_XaG_Gene_Wings_Off>
