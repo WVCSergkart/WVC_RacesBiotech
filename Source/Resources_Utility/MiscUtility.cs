@@ -53,7 +53,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			float num = SanguophageUtility.HemogenGainBloodlossFactor(victim, targetBloodLoss);
 			int finalStack = (int)(stackCount * victim.BodySize * num);
-			SpawnItems(victim, thingDef, finalStack);
+			SpawnItems(victim, thingDef, finalStack > 1 ? finalStack : 1);
 			if (targetBloodLoss > 0f)
 			{
 				Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.BloodLoss, victim);

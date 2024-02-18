@@ -109,10 +109,14 @@
 	<customEffectDescriptions>
 		<li>Hunger rate factor x10%</li>
 		<li>&lt;color=#8a8ae6&gt;Raw meat&lt;/color&gt; replenishes &lt;color=#8a8ae6&gt;hemogen&lt;/color&gt;. Carrier will try to &lt;color=#8a8ae6&gt;automatically&lt;/color&gt; eat meat if there is a lack of hemogen.</li>
+		<li>Hunger will decrease depending on the hemogen's thirst.</li>
 	</customEffectDescriptions>
 	<statFactors>
 	  <RawNutritionFactor>3.0</RawNutritionFactor>
 	</statFactors>
+	<statOffsets>
+	  <MaxNutrition>5.0</MaxNutrition>
+	</statOffsets>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>eternal</symbol></li>

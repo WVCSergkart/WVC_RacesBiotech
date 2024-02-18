@@ -263,7 +263,8 @@ namespace WVC_XenotypesAndGenes
 				IngestibleProperties ingestible = thing.def.ingestible;
 				if (ingestible != null)
 				{
-					GeneUtility.OffsetHemogen(pawn, GetHomegenCountFromFood(thing) * (float)numTaken);
+					GeneUtility.OffsetHemogen(pawn, GetHomegenCountFromFood(thing) * (float)numTaken * 1.2f);
+					// Resource.Value += GetHomegenCountFromFood(thing) * (float)numTaken;
 				}
 			}
 		}
@@ -272,6 +273,11 @@ namespace WVC_XenotypesAndGenes
 
 		public void GetFood()
 		{
+			Need_Food need_Food = pawn.needs?.food;
+			if (need_Food == null)
+			{
+				return;
+			}
 			List<Thing> meatFood = new();
 			foreach (Thing item in pawn.Map.listerThings.AllThings.ToList())
 			{
@@ -287,11 +293,27 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
+				int stack = GetFoodCount(specialFood) > 1 ? GetFoodCount(specialFood) : 1;
+				DustUtility.OffsetNeedFood(pawn, GetHunger(stack, specialFood, need_Food));
 				Job job = JobMaker.MakeJob(JobDefOf.Ingest, specialFood);
-				job.count = GetFoodCount(specialFood);
+				job.count = stack + 3;
 				pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);
 				break;
 			}
+		}
+
+		public float GetHunger(int stack, Thing thing, Need_Food need_Food)
+		{
+			float nutrition = stack * thing.GetStatValue(StatDefOf.Nutrition) * pawn.GetStatValue(StatDefOf.RawNutritionFactor);
+			float currentNeedFood = need_Food.CurLevel;
+			float maxNeedFood = need_Food.MaxLevel;
+			float targetFoodLevel = maxNeedFood - nutrition;
+			float offset = -1 * (currentNeedFood - targetFoodLevel);
+			if (offset > 0f)
+			{
+				offset = 0f;
+			}
+			return offset;
 		}
 
 		public int GetFoodCount(Thing thing)
@@ -310,7 +332,7 @@ namespace WVC_XenotypesAndGenes
 
 		public float GetHomegenCountFromFood(Thing thing)
 		{
-			return 0.0375f * thing.GetStatValue(StatDefOf.Nutrition);
+			return 0.175f * thing.GetStatValue(StatDefOf.Nutrition) * pawn.GetStatValue(StatDefOf.RawNutritionFactor) * pawn.GetStatValue(StatDefOf.HemogenGainFactor);
 		}
 
 	}
