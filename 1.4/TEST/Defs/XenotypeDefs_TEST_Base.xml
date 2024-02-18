@@ -4,7 +4,7 @@
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" Name="WVC_RB_Xenotypes_TEST" Abstract="True">
 	<inheritable>true</inheritable>
 	<displayPriority>-9000</displayPriority>
-	<genes Inherit="False"/>
+	<!-- <genes Inherit="False"/> -->
   </XenotypeDef>
 
 </Defs>

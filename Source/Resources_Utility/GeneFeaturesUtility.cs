@@ -75,9 +75,9 @@ namespace WVC_XenotypesAndGenes
 						if (WVC_Biotech.settings.learningTelepathWorkForBothSides)
 						{
 							teacherSkill.Learn(skill.XpTotalEarned * learnPercent, true);
-							break;
+							// Log.Error(skill.def.LabelCap + " teached exp " + (teacherSkill.XpTotalEarned * learnPercent).ToString());
 						}
-						continue;
+						break;
 					}
 					if (teacherSkill.GetLevel(false) > skill.GetLevel())
 					{

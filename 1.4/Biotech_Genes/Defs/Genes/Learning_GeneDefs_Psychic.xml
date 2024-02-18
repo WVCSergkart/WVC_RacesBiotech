@@ -11,7 +11,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneLearning_Psychic">
 	<defName>WVC_Learning_Telepath</defName>
 	<label>telepath study</label>
-	<description>Carriers of this gene are unable to learn on their own; instead, they draw skills from the experiences of those around them.</description>
+	<description>Carriers of this gene are unable to learn on their own; instead, they gain skills from the experiences of those around them.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_LearningTelepath</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_TelepathLearning_v0</iconPath>
 	<displayOrderInCategory>32</displayOrderInCategory>
