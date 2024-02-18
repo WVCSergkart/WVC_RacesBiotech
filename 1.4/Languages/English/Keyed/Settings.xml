@@ -136,10 +136,10 @@ A restart is required.</WVC_ToolTip_useAlternativeDustogenicFoodJob>
 A restart is required to apply the setting.</WVC_ToolTip_minWastepacksPerRecharge>
 
 	<!-- ====================================================================================== -->
-	<WVC_Label_validatorAbilitiesPatch>Abilities target validation</WVC_Label_validatorAbilitiesPatch>
-	<WVC_ToolTip_validatorAbilitiesPatch>A patch that adds checks to non-mod reimplanters. This is to make genes like "genetic stability" work properly with other reimplanters. For example, for the vanilla gene implanter.
+	<!-- <WVC_Label_validatorAbilitiesPatch>Abilities target validation</WVC_Label_validatorAbilitiesPatch> -->
+	<!-- <WVC_ToolTip_validatorAbilitiesPatch>A patch that adds checks to non-mod reimplanters. This is to make genes like "genetic stability" work properly with other reimplanters. For example, for the vanilla gene implanter. -->
 
-A restart is required to apply the setting. Enabled by default.</WVC_ToolTip_validatorAbilitiesPatch>
+<!-- A restart is required to apply the setting. Enabled by default.</WVC_ToolTip_validatorAbilitiesPatch> -->
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_totalHealingIgnoreScarification>Total healing genes ignore scarification</WVC_Label_totalHealingIgnoreScarification>
@@ -177,6 +177,12 @@ Please note that resurrecting a pawn will not bring back a disappeared mechlink.
 	<WVC_ToolTip_ShapeshifterGeneUnremovable>If enabled, then if the "Shapeshifter" gene is removed, it will add itself back.
 
 It is recommended to disable it in case of bugs associated with mods that add gene implanters.</WVC_ToolTip_ShapeshifterGeneUnremovable>
+
+	<!-- ====================================================================================== -->
+	<WVC_Label_learningTelepathWorkForBothSides>Learning telepath work for both sides</WVC_Label_learningTelepathWorkForBothSides>
+	<WVC_ToolTip_learningTelepathWorkForBothSides>If enabled, the "telepath study" gene will work in both directions. Draw experience from higher levels and share experience with lower ones.
+
+This is exactly how this gene was originally intended, but this can greatly skew the balance.</WVC_ToolTip_learningTelepathWorkForBothSides>
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_spawnXenoForcerSerumsFromTraders>Traders sell serums</WVC_Label_spawnXenoForcerSerumsFromTraders>

@@ -154,16 +154,16 @@
 
 	<!-- ================== -->
 
-	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
-		<settingName>minWastepacksPerRecharge</settingName>
-		<caseTrue Class="PatchOperationReplace">
-		  <xpath>/Defs/StatDef[defName="WastepacksPerRecharge"]/minValue</xpath>
-		  <success>Always</success>
-		  <value>
-			  <minValue>1</minValue>
-		  </value>
-		</caseTrue>
-	</Operation>
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
+		<!-- <settingName>minWastepacksPerRecharge</settingName> -->
+		<!-- <caseTrue Class="PatchOperationReplace"> -->
+		  <!-- <xpath>/Defs/StatDef[defName="WastepacksPerRecharge"]/minValue</xpath> -->
+		  <!-- <success>Always</success> -->
+		  <!-- <value> -->
+			  <!-- <minValue>1</minValue> -->
+		  <!-- </value> -->
+		<!-- </caseTrue> -->
+	<!-- </Operation> -->
 
 	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
 		<!-- <settingName>validatorAbilitiesPatch</settingName> -->

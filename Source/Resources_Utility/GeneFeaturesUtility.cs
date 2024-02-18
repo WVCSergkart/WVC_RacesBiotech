@@ -48,7 +48,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void TryGetSkillsFromPawn(Pawn student, Pawn teacher, float learnPercent)
 		{
-			List<SkillRecord> teacherSkills = teacher?.skills?.skills.ToList();
+			List<SkillRecord> teacherSkills = teacher?.skills?.skills;
 			if (teacherSkills == null || student?.skills?.skills == null)
 			{
 				return;
@@ -60,22 +60,31 @@ namespace WVC_XenotypesAndGenes
 					continue;
 				}
 				// Log.Error(skill.def.LabelCap + " try learn");
-				foreach (SkillRecord teacherSkill in teacherSkills.ToList())
+				foreach (SkillRecord teacherSkill in teacherSkills)
 				{
 					if (teacherSkill.TotallyDisabled || teacherSkill.PermanentlyDisabled)
 					{
 						continue;
 					}
-					if (teacherSkill.GetLevel(false) <= skill.GetLevel())
+					if (skill.def != teacherSkill.def)
 					{
 						continue;
 					}
-					if (skill.def == teacherSkill.def)
+					if (teacherSkill.GetLevel(false) < skill.GetLevel(false))
+					{
+						if (WVC_Biotech.settings.learningTelepathWorkForBothSides)
+						{
+							teacherSkill.Learn(skill.XpTotalEarned * learnPercent, true);
+							break;
+						}
+						continue;
+					}
+					if (teacherSkill.GetLevel(false) > skill.GetLevel())
 					{
 						skill.Learn(teacherSkill.XpTotalEarned * learnPercent, true);
 						// Log.Error(skill.def.LabelCap + " learned exp " + (teacherSkill.XpTotalEarned * learnPercent).ToString());
-						break;
 					}
+					break;
 				}
 			}
 		}

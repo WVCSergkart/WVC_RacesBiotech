@@ -8,7 +8,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class WVC_BiotechSettings : ModSettings
+	public class WVC_BiotechSettings : ModSettings
 	{
 		// Graphic
 		public bool hideXaGGenes = false;
@@ -30,10 +30,11 @@ namespace WVC_XenotypesAndGenes
 		public bool enableIncestLoverGene = true;
 		public bool enableHarmonyTelepathyGene = false;
 		public bool useAlternativeDustogenicFoodJob = false;
+		public bool learningTelepathWorkForBothSides = false;
 		// public bool reimplantResurrectionRecruiting = false;
 		// Fix
 		public bool fixVanillaGeneImmunityCheck = true;
-		public bool minWastepacksPerRecharge = false;
+		// public bool minWastepacksPerRecharge = false;
 		// public bool validatorAbilitiesPatch = true;
 		public bool spawnXenoForcerSerumsFromTraders = true;
 		public bool fixGenesOnLoad = false;
@@ -85,10 +86,11 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref enableIncestLoverGene, "enableIncestLoverGene", defaultValue: true);
 			Scribe_Values.Look(ref enableHarmonyTelepathyGene, "enableHarmonyTelepathyGene", defaultValue: false);
 			Scribe_Values.Look(ref useAlternativeDustogenicFoodJob, "useAlternativeDustogenicFoodJob", defaultValue: false);
+			Scribe_Values.Look(ref learningTelepathWorkForBothSides, "learningTelepathWorkForBothSides", defaultValue: false);
 			// Scribe_Values.Look(ref reimplantResurrectionRecruiting, "reimplantResurrectionRecruiting", defaultValue: false);
 			// Fix
 			Scribe_Values.Look(ref fixVanillaGeneImmunityCheck, "fixVanillaGeneImmunityCheck", defaultValue: true);
-			Scribe_Values.Look(ref minWastepacksPerRecharge, "minWastepacksPerRecharge", defaultValue: false);
+			// Scribe_Values.Look(ref minWastepacksPerRecharge, "minWastepacksPerRecharge", defaultValue: false);
 			// Scribe_Values.Look(ref validatorAbilitiesPatch, "validatorAbilitiesPatch", defaultValue: true);
 			Scribe_Values.Look(ref spawnXenoForcerSerumsFromTraders, "spawnXenoForcerSerumsFromTraders", defaultValue: true);
 			// Scribe_Values.Look(ref fixGenesOnLoad, "fixGenesOnLoad", defaultValue: false);
@@ -226,12 +228,13 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_enableIncestLoverGene".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enableIncestLoverGene, "WVC_ToolTip_enableIncestLoverGene".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enableHarmonyTelepathyGene".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enableHarmonyTelepathyGene, "WVC_ToolTip_enableHarmonyTelepathyGene".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_useAlternativeDustogenicFoodJob".Translate().Colorize(ColorLibrary.LightBlue), ref settings.useAlternativeDustogenicFoodJob, "WVC_ToolTip_useAlternativeDustogenicFoodJob".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_learningTelepathWorkForBothSides".Translate().Colorize(ColorLibrary.LightBlue), ref settings.learningTelepathWorkForBothSides, "WVC_ToolTip_learningTelepathWorkForBothSides".Translate());
 			// listingStandard.CheckboxLabeled("WVC_Label_reimplantResurrectionRecruiting".Translate(), ref settings.reimplantResurrectionRecruiting, "WVC_ToolTip_reimplantResurrectionRecruiting".Translate());
 			listingStandard.Gap();
 			// Fix
 			listingStandard.Label("WVC_BiotechSettings_Label_Other".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Other".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_fixVanillaGeneImmunityCheck".Translate().Colorize(ColorLibrary.LightPurple), ref settings.fixVanillaGeneImmunityCheck, "WVC_ToolTip_fixVanillaGeneImmunityCheck".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_minWastepacksPerRecharge".Translate(), ref settings.minWastepacksPerRecharge, "WVC_ToolTip_minWastepacksPerRecharge".Translate());
+			// listingStandard.CheckboxLabeled("WVC_Label_minWastepacksPerRecharge".Translate(), ref settings.minWastepacksPerRecharge, "WVC_ToolTip_minWastepacksPerRecharge".Translate());
 			// listingStandard.CheckboxLabeled("WVC_Label_validatorAbilitiesPatch".Translate().Colorize(ColorLibrary.LightBlue), ref settings.validatorAbilitiesPatch, "WVC_ToolTip_validatorAbilitiesPatch".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_spawnXenoForcerSerumsFromTraders".Translate(), ref settings.spawnXenoForcerSerumsFromTraders, "WVC_ToolTip_spawnXenoForcerSerumsFromTraders".Translate());
 			listingStandard.Gap();
@@ -269,9 +272,10 @@ namespace WVC_XenotypesAndGenes
 					settings.enableIncestLoverGene = true;
 					settings.enableHarmonyTelepathyGene = false;
 					settings.useAlternativeDustogenicFoodJob = false;
+					settings.learningTelepathWorkForBothSides = false;
 					// Fix
 					settings.fixVanillaGeneImmunityCheck = true;
-					settings.minWastepacksPerRecharge = false;
+					// settings.minWastepacksPerRecharge = false;
 					// settings.validatorAbilitiesPatch = true;
 					settings.spawnXenoForcerSerumsFromTraders = true;
 					// Info
@@ -322,9 +326,10 @@ namespace WVC_XenotypesAndGenes
 					settings.enableIncestLoverGene = true;
 					settings.enableHarmonyTelepathyGene = false;
 					settings.useAlternativeDustogenicFoodJob = true;
+					settings.learningTelepathWorkForBothSides = true;
 					// Fix
 					settings.fixVanillaGeneImmunityCheck = true;
-					settings.minWastepacksPerRecharge = false;
+					// settings.minWastepacksPerRecharge = false;
 					// settings.validatorAbilitiesPatch = true;
 					settings.spawnXenoForcerSerumsFromTraders = true;
 					// Info
