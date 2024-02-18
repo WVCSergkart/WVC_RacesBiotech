@@ -56,7 +56,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			MiscUtility.TryHarvest(pawn, Props.thingDefToSpawn, Props.stackCount);
+			GeneFeaturesUtility.TryHarvest(pawn, Props.thingDefToSpawn, Props.stackCount);
 		}
 
 		private void ResetInterval()

@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public static class XaG_GeneUtility
+	public static class XaG_GeneUtility
 	{
 
 		// Gene Restoration

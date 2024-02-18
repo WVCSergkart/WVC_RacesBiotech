@@ -50,33 +50,6 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_General General => def?.GetModExtension<GeneExtension_General>();
 
-		// public override bool Active
-		// {
-			// get
-			// {
-				// if (pawn != null)
-				// {
-					// if (!Overridden)
-					// {
-						// if (General != null && General.noSkillDecay)
-						// {
-							// StaticCollectionsClass.AddSkillDecayGenePawnToList(pawn);
-							// Log.Error("Skills not decay");
-						// }
-					// }
-					// else
-					// {
-						// if (General != null && General.noSkillDecay)
-						// {
-							// StaticCollectionsClass.RemoveSkillDecayGenePawnFromList(pawn);
-							// Log.Error("Skills decay");
-						// }
-					// }
-				// }
-				// return base.Active;
-			// }
-		// }
-
 		public override void PostAdd()
 		{
 			base.PostAdd();
@@ -117,6 +90,66 @@ namespace WVC_XenotypesAndGenes
 			{
 				StaticCollectionsClass.AddSkillDecayGenePawnToList(pawn);
 			}
+		}
+
+	}
+
+	public class Gene_LearningTelepath : Gene_BackstoryChanger
+	{
+
+		private int hashIntervalTick = 6000;
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			ResetInterval();
+		}
+
+		public override void Tick()
+		{
+			base.Tick();
+			if (!pawn.IsHashIntervalTick(hashIntervalTick))
+			{
+				return;
+			}
+			if (!Active)
+			{
+				return;
+			}
+			TryLearning();
+			ResetInterval();
+		}
+
+		public void TryLearning()
+		{
+			GeneFeaturesUtility.TryLearning(pawn, 0.2f);
+		}
+
+		private void ResetInterval()
+		{
+			IntRange range = new(42000, 90000);
+			hashIntervalTick = range.RandomInRange;
+		}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: Learn skills from colony",
+					action = delegate
+					{
+						TryLearning();
+					}
+				};
+			}
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref hashIntervalTick, "hashIntervalTick", 6000);
 		}
 
 	}

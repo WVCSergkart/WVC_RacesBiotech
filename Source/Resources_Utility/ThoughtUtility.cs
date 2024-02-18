@@ -16,7 +16,7 @@ namespace WVC_XenotypesAndGenes
 			// {
 				// return false;
 			// }
-			if (pawn.Map == null || pawn.Downed)
+			if (pawn?.Map == null || pawn.Downed)
 			{
 				return false;
 			}

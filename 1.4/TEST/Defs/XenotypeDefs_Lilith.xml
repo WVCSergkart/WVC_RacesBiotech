@@ -34,7 +34,8 @@
 		<li>WVC_HairColor_Slate</li>
 		<li>WVC_SkinColor_ffb4b4_HEX</li>
 		<li>WVC_NaturalBlindness</li>
-		<li>WVC_AptitudeArchiteGreat_Social</li>
+		<!-- <li>WVC_AptitudeArchiteGreat_Social</li> -->
+		<li>WVC_Learning_Telepath</li>
 	</genes>
   </XenotypeDef>
 
