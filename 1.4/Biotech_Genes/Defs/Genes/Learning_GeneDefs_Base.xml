@@ -30,7 +30,8 @@
 	  <GlobalLearningFactor>0.4</GlobalLearningFactor>
 	</statFactors>
 	<customEffectDescriptions>
-		<li>Skills not decay. Even if the gene is not active.</li>
+		<li>&lt;color=#8a8ae6&gt;Skills do not lose levels.&lt;/color&gt;</li>
+		<!-- <li>&lt;color=#8a8ae6&gt;Skills do not lose levels.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<hediffGiversCannotGive>
 	  <li>Dementia</li>
@@ -56,7 +57,7 @@
 	<displayOrderInCategory>29</displayOrderInCategory>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Learning</geneClass>
 	<customEffectDescriptions>
-		<li>Skills not decay. Even if the gene is not active.</li>
+		<li>&lt;color=#8a8ae6&gt;Skills do not lose levels.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<capMods>
 	  <li>
@@ -184,14 +185,14 @@
 	  <GlobalLearningFactor>0.4</GlobalLearningFactor>
 	</statFactors>
 	<customEffectDescriptions>
-		<li>Skills not decay. Even if the gene is not active.</li>
+		<li>&lt;color=#8a8ae6&gt;Skills do not lose levels.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<hediffGiversCannotGive>
 	  <li>Dementia</li>
 	  <li>Alzheimers</li>
 	</hediffGiversCannotGive>
 	<exclusionTags>
-	  <li>Learning</li>
+	  <!-- <li>Learning</li> -->
 	  <li>WVC_ExcellentMemory</li>
 	</exclusionTags>
 	<modExtensions Inherit="False">

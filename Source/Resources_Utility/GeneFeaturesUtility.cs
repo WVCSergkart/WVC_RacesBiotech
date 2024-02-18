@@ -12,6 +12,8 @@ namespace WVC_XenotypesAndGenes
 	public static class GeneFeaturesUtility
 	{
 
+		// ============================= GENE Skill Decay =============================
+
 		// ============================= GENE Learning Telepath =============================
 
 		public static bool TryLearning(Pawn pawn, float learnPercent = 0.2f)

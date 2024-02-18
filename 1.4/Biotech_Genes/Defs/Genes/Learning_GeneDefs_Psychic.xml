@@ -38,9 +38,9 @@
 	<statFactors>
 	  <GlobalLearningFactor>0.01</GlobalLearningFactor>
 	</statFactors>
-	<exclusionTags>
-	  <li>Learning</li>
-	</exclusionTags>
+	<!-- <exclusionTags> -->
+	  <!-- <li>Learning</li> -->
+	<!-- </exclusionTags> -->
   </GeneDef>
 
 </Defs>

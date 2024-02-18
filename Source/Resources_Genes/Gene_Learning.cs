@@ -50,22 +50,23 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_General General => def?.GetModExtension<GeneExtension_General>();
 
-		public override void PostAdd()
-		{
-			base.PostAdd();
-			if (General != null && General.noSkillDecay)
-			{
-				StaticCollectionsClass.AddSkillDecayGenePawnToList(pawn);
-			}
-		}
+		// public override void PostAdd()
+		// {
+			// base.PostAdd();
+			// if (General != null && General.noSkillDecay)
+			// {
+				// StaticCollectionsClass.AddSkillDecayGenePawnToList(pawn);
+			// }
+		// }
 
-		public override void PostRemove()
+		public override void Tick()
 		{
-			base.PostRemove();
-			if (!GeneFeaturesUtility.PawnSkillsNotDecay(pawn))
+			base.Tick();
+			if (!pawn.IsHashIntervalTick(2000))
 			{
-				StaticCollectionsClass.RemoveSkillDecayGenePawnFromList(pawn);
+				return;
 			}
+			UnDecaySkills(pawn, 100, 0);
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -74,23 +75,76 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield return new Command_Action
 				{
-					defaultLabel = "DEV: Get no skill decay pawns",
+					defaultLabel = "DEV: Flat skills exp",
 					action = delegate
 					{
-						Log.Error("All no skill decay pawns:" + "\n" + StaticCollectionsClass.skillsNotDecayPawns.Select((Pawn x) => x.Name.ToString() + " : " + x.def.defName + " : " + x.kindDef.defName + " : " + x.thingIDNumber.ToString()).ToLineList(" - "));
+						FlatAllSkillsExp(pawn);
 					}
 				};
 			}
 		}
 
-		public override void ExposeData()
+		public void UnDecaySkills(Pawn pawn, int reserve = 500, int minExp = 0)
 		{
-			base.ExposeData();
-			if (pawn != null && !PawnGenerator.IsBeingGenerated(pawn) && General != null && General.noSkillDecay)
+			foreach (SkillRecord skill in pawn.skills.skills)
 			{
-				StaticCollectionsClass.AddSkillDecayGenePawnToList(pawn);
+				if (skill.TotallyDisabled || skill.PermanentlyDisabled)
+				{
+					continue;
+				}
+				int reservedExp = reserve * skill.GetLevel(false);
+				if (skill.xpSinceLastLevel - reservedExp > minExp)
+				{
+					continue;
+				}
+				skill.xpSinceLastLevel = (float)reservedExp;
 			}
 		}
+
+		public void FlatAllSkillsExp(Pawn pawn)
+		{
+			foreach (SkillRecord skill in pawn.skills.skills)
+			{
+				if (skill.TotallyDisabled || skill.PermanentlyDisabled)
+				{
+					continue;
+				}
+				skill.xpSinceLastLevel = 0f;
+			}
+		}
+
+		// public override void PostRemove()
+		// {
+			// base.PostRemove();
+			// if (!GeneFeaturesUtility.PawnSkillsNotDecay(pawn))
+			// {
+				// StaticCollectionsClass.RemoveSkillDecayGenePawnFromList(pawn);
+			// }
+		// }
+
+		// public override IEnumerable<Gizmo> GetGizmos()
+		// {
+			// if (DebugSettings.ShowDevGizmos)
+			// {
+				// yield return new Command_Action
+				// {
+					// defaultLabel = "DEV: Get no skill decay pawns",
+					// action = delegate
+					// {
+						// Log.Error("All no skill decay pawns:" + "\n" + StaticCollectionsClass.skillsNotDecayPawns.Select((Pawn x) => x.Name.ToString() + " : " + x.def.defName + " : " + x.kindDef.defName + " : " + x.thingIDNumber.ToString()).ToLineList(" - "));
+					// }
+				// };
+			// }
+		// }
+
+		// public override void ExposeData()
+		// {
+			// base.ExposeData();
+			// if (pawn != null && !PawnGenerator.IsBeingGenerated(pawn) && General != null && General.noSkillDecay)
+			// {
+				// StaticCollectionsClass.AddSkillDecayGenePawnToList(pawn);
+			// }
+		// }
 
 	}
 
