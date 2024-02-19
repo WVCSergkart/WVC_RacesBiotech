@@ -64,13 +64,13 @@ namespace WVC_XenotypesAndGenes
 				// Log.Error(skill.def.LabelCap + " try learn");
 				foreach (SkillRecord teacherSkill in teacherSkills)
 				{
-					if (teacherSkill.TotallyDisabled || teacherSkill.PermanentlyDisabled)
-					{
-						continue;
-					}
 					if (skill.def != teacherSkill.def)
 					{
 						continue;
+					}
+					if (teacherSkill.TotallyDisabled || teacherSkill.PermanentlyDisabled)
+					{
+						break;
 					}
 					if (teacherSkill.GetLevel(false) < skill.GetLevel(false))
 					{

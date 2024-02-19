@@ -1,5 +1,6 @@
 using RimWorld;
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -37,9 +38,10 @@ namespace WVC_XenotypesAndGenes
 				{
 					pawn.story.bodyType = BodyTypeDefOf.Male;
 				}
-				if (pawn.Map == null)
+				if (!pawn.Spawned)
 				{
 					GestationUtility.GetBabyName(pawn, pawn.GetMother() ?? pawn.GetFather() ?? null);
+					// Log.Error("Rename with gender");
 				}
 				pawn.Drawer.renderer.graphics.SetAllGraphicsDirty();
 			}

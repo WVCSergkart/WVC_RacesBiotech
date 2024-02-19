@@ -16,7 +16,7 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGender_BodyType">
 	<defName>WVC_Feminine</defName>
-	<label>feminine</label>
+	<label>feminine body</label>
 	<description>Carriers of this gene are all very feminine.</description>
 	<iconPath>WVC/UI/Genes/Gene_BodyFeminine_v0</iconPath>
 	<iconColor>(0.75, 0.75, 0.75)</iconColor>
