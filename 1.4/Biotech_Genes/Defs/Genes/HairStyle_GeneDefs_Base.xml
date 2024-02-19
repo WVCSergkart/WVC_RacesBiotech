@@ -59,5 +59,22 @@
 	  </prefixSymbols>
 	</symbolPack>
   </GeneDef>
+
+  <!-- NonBald -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHairStyle_Base">
+	<defName>WVC_Hair_NonBald</defName>
+	<label>never bald</label>
+	<description>Carriers of this gene never go bald.</description>
+	<iconPath>WVC/UI/Genes/Gene_HairNonBald_v0</iconPath>
+	<hairTagFilter>
+	  <whitelist>false</whitelist>
+	  <tags>
+		<li>Bald</li>
+		<li>Shaved</li>
+		<li>Balding</li>
+	  </tags>
+	</hairTagFilter>
+  </GeneDef>
   
 </Defs>

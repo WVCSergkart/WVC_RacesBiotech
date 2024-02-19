@@ -13,7 +13,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			if (Overridden)
+			if (!Active)
 			{
 				return;
 			}
@@ -43,6 +43,45 @@ namespace WVC_XenotypesAndGenes
 				}
 				pawn.Drawer.renderer.graphics.SetAllGraphicsDirty();
 			}
+		}
+
+	}
+
+	public class Gene_Feminine : Gene
+	{
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			ChangeBodyType();
+		}
+
+		public void ChangeBodyType()
+		{
+			if (!Active)
+			{
+				return;
+			}
+			// if (pawn.story?.bodyType == BodyTypeDefOf.Male)
+			// {
+				// pawn.story.bodyType = BodyTypeDefOf.Female;
+			// }
+			pawn.story.bodyType = BodyTypeDefOf.Female;
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			if (pawn.gender == Gender.Male && pawn.story?.bodyType == BodyTypeDefOf.Female)
+			{
+				pawn.story.bodyType = BodyTypeDefOf.Male;
+			}
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			ChangeBodyType();
 		}
 
 	}

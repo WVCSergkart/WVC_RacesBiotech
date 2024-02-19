@@ -9,7 +9,8 @@
 		<!-- <displayCategory>Miscellaneous</displayCategory> -->
 		<displayCategory>Cosmetic_Body</displayCategory>
 		<displayOrderInCategory>2162</displayOrderInCategory>
-		<iconColor>(255, 255, 255)</iconColor>
+		<!-- <iconColor>(255, 255, 255)</iconColor> -->
+		<iconColor>(0.75, 0.75, 0.75)</iconColor>
 		<selectionWeight>0.003</selectionWeight>
 		<exclusionTags>
 			<li>BodySize</li>

@@ -5,7 +5,7 @@
 	<displayCategory>Reproduction</displayCategory>
 	<displayOrderInCategory>-100</displayOrderInCategory>
 	<selectionWeight>0.005</selectionWeight>
-	<!-- <randomChosen>true</randomChosen> -->
+	<randomChosen>true</randomChosen>
 	<exclusionTags>
 	  <li>WVC_Monogender</li>
 	  <li>AG_Gender</li>

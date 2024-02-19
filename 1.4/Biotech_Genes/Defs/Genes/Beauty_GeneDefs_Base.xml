@@ -37,6 +37,9 @@
 		<degree>-2</degree>
 	  </li>
 	</suppressedTraits>
+	<statOffsets>
+	  <PawnBeauty>2</PawnBeauty>
+	</statOffsets>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>angel</symbol></li>

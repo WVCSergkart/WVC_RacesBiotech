@@ -286,6 +286,7 @@
 	<biostatArc>1</biostatArc>
 	<resourceLossPerDay>0.08</resourceLossPerDay>
 	<statOffsets>
+	  <PawnBeauty>2</PawnBeauty>
 	  <MaxNutrition>0.2</MaxNutrition>
 	</statOffsets>
 	<suppressedTraits>

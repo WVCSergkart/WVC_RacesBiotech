@@ -121,6 +121,29 @@
 	  </value>
 	</Operation>
 
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+			  <xpath>/Defs/ThoughtDef[defName="WrongApparelGender"]/nullifyingGenes</xpath>
+			  <success>Invert</success>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/ThoughtDef[defName="WrongApparelGender"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<nullifyingGenes/>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/ThoughtDef[defName="WrongApparelGender"]/nullifyingGenes</xpath>
+	  <value>
+		  <li>WVC_Feminine</li>
+	  </value>
+	</Operation>
+
 	<!-- ============================================================ -->
 
 	<Operation Class="PatchOperationFindMod">

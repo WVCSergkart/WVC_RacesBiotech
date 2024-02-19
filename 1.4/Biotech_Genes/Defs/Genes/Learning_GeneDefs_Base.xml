@@ -2,7 +2,7 @@
 <Defs>
 
   <GeneDef ParentName="GeneLearningBase" Name="WVC_XenotypesAndGenes_GeneLearning_Base" Abstract="True">
-	<geneClass>WVC_XenotypesAndGenes.Gene_Learning</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_BackstoryChanger</geneClass>
 	<selectionWeight>0.00172</selectionWeight>
   </GeneDef>
 
@@ -12,6 +12,7 @@
 	<defName>WVC_Learning_SlowNoSkillDecay</defName>
 	<label>stubborn study</label>
 	<description>Carriers of this gene have deficient long-term memories and don't understand new ideas. But if they manage to learn something, they do not forget it.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Learning</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_StubbornLearning_v0</iconPath>
 	<displayOrderInCategory>28</displayOrderInCategory>
 	<biostatMet>1</biostatMet>
@@ -51,11 +52,11 @@
 	<defName>WVC_MechaAI_Base</defName>
 	<label>excellent memory</label> 
 	<description>Carriers of this gene never forget their skills.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Learning</geneClass>
 	<iconColor>(184, 198, 203)</iconColor>
 	<iconPath>WVC/UI/Genes/MechanoidizationSoftware</iconPath>
 	<displayCategory>Miscellaneous</displayCategory>
 	<displayOrderInCategory>29</displayOrderInCategory>
-	<geneClass>WVC_XenotypesAndGenes.Gene_Learning</geneClass>
 	<customEffectDescriptions>
 		<li>&lt;color=#8a8ae6&gt;Skills do not lose levels.&lt;/color&gt;</li>
 	</customEffectDescriptions>
@@ -166,6 +167,7 @@
 	<defName>WVC_Learning_Scarifier</defName>
 	<label>scarifier study</label>
 	<description>Carriers of this gene do not remember and understand new ideas well, their memory is like torn flaps, but those fragments that were able to linger in their heads will never be lost.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Learning</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_ScarifierLearning_v0</iconPath>
 	<displayOrderInCategory>50</displayOrderInCategory>
 	<displayCategory>WVC_Scarifier</displayCategory>

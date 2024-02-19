@@ -180,7 +180,7 @@ It is recommended to disable it in case of bugs associated with mods that add ge
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_learningTelepathWorkForBothSides>Learning telepath work for both sides</WVC_Label_learningTelepathWorkForBothSides>
-	<WVC_ToolTip_learningTelepathWorkForBothSides>If enabled, the "telepath study" gene will work in both directions. Draw experience from higher levels and share experience with lower ones.
+	<WVC_ToolTip_learningTelepathWorkForBothSides>If enabled, the "telepath study" gene will work in both directions. Gain experience from higher levels and share experience with lower ones.
 
 This is exactly how this gene was originally intended, but this can greatly skew the balance.</WVC_ToolTip_learningTelepathWorkForBothSides>
 

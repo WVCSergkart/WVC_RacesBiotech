@@ -66,6 +66,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
+			if (pawn.Faction != Faction.OfPlayer)
+			{
+				return;
+			}
 			UnDecaySkills(pawn, 100, 0);
 		}
 
