@@ -50,18 +50,18 @@
   <!-- ================================================ -->
 
   <PawnKindDef ParentName="WVC_RB_XenoBase">
-	<label>mechalike</label>
 	<defName>WVC_Meca_Player</defName>
+	<label>mechalike</label>
 	<!-- <forcedHair>Scrapper</forcedHair> -->
 	<!-- <favoriteColor>(245,245,245)</favoriteColor> -->
 	<xenotypeSet>
 	  <xenotypeChances>
 		<!-- <WVC_RogueFormer>999</WVC_RogueFormer> -->
 		<!-- Meca -->
-		<WVC_Meca>0.35</WVC_Meca>
-		<WVC_GeneThrower>0.25</WVC_GeneThrower>
+		<WVC_Meca>35</WVC_Meca>
+		<WVC_GeneThrower>25</WVC_GeneThrower>
 		<!-- Former -->
-		<WVC_RogueFormer>0.4</WVC_RogueFormer>
+		<WVC_RogueFormer>4</WVC_RogueFormer>
 	  </xenotypeChances>
 	</xenotypeSet>
 	<apparelRequired>
@@ -76,6 +76,7 @@
   <PawnKindDef ParentName="WVC_RB_XenoBase">
 	<defName>WVC_Blank_Player</defName>
 	<label>subject</label>
+	<backstoryCryptosleepCommonality>1.0</backstoryCryptosleepCommonality>
 	<backstoryFiltersOverride>
 	  <li>
 		<categories>
@@ -85,8 +86,8 @@
 	</backstoryFiltersOverride>
 	<xenotypeSet>
 	  <xenotypeChances>
-		<WVC_Lilith>0.87</WVC_Lilith>
-		<WVC_Blank>0.13</WVC_Blank>
+		<WVC_Lilith MayRequire="ludeon.rimworld.royalty">87</WVC_Lilith>
+		<WVC_Blank>13</WVC_Blank>
 	  </xenotypeChances>
 	</xenotypeSet>
 	<apparelTags>
@@ -153,8 +154,8 @@
 	</forcedTraits>
 	<xenotypeSet>
 	  <xenotypeChances>
-		<WVC_RuneDryad>0.75</WVC_RuneDryad>
-		<WVC_Golemkind>0.25</WVC_Golemkind>
+		<WVC_RuneDryad>75</WVC_RuneDryad>
+		<WVC_Golemkind>25</WVC_Golemkind>
 	  </xenotypeChances>
 	</xenotypeSet>
 	<apparelTags>
@@ -189,10 +190,10 @@
 	<label>undead</label>
 	<xenotypeSet>
 	  <xenotypeChances>
-		<WVC_Undead>0.60</WVC_Undead>
-		<WVC_Featherdust>0.16</WVC_Featherdust>
-		<WVC_Resurgent>0.17</WVC_Resurgent>
-		<WVC_Ashen MayRequire="ludeon.rimworld.ideology">0.07</WVC_Ashen>
+		<WVC_Undead>60</WVC_Undead>
+		<WVC_Featherdust>16</WVC_Featherdust>
+		<WVC_Resurgent>17</WVC_Resurgent>
+		<WVC_Ashen MayRequire="ludeon.rimworld.ideology">7</WVC_Ashen>
 	  </xenotypeChances>
 	</xenotypeSet>
 	<apparelTags>
