@@ -102,14 +102,24 @@
 	<iconPath>WVC/UI/Genes/Gene_ExtremePsychicAbility_v0</iconPath>
 	<!-- 35 40 45 50 55 60 -->
 	<displayOrderInCategory>50</displayOrderInCategory>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<biostatArc>1</biostatArc>
 	<statOffsets>
 	  <PsychicSensitivity>1.2</PsychicSensitivity>
 	  <MeditationFocusGain>0.6</MeditationFocusGain>
 	  <PsychicEntropyRecoveryRate>0.6</PsychicEntropyRecoveryRate>
 	</statOffsets>
-	<biostatCpx>3</biostatCpx>
-	<biostatMet>0</biostatMet>
-	<biostatArc>1</biostatArc>
+	<suppressedTraits Inherit="False">
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-1</degree>
+	  </li>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-2</degree>
+	  </li>
+	</suppressedTraits>
 	<symbolPack>
 	  <prefixSymbols>
 		<li>

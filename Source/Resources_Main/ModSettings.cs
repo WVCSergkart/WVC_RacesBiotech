@@ -31,15 +31,8 @@ namespace WVC_XenotypesAndGenes
 		public bool enableHarmonyTelepathyGene = false;
 		public bool useAlternativeDustogenicFoodJob = false;
 		public bool learningTelepathWorkForBothSides = false;
+		public bool disableUniqueXenotypeScenarios = false;
 		// public bool reimplantResurrectionRecruiting = false;
-		// Fix
-		public bool fixVanillaGeneImmunityCheck = true;
-		// public bool minWastepacksPerRecharge = false;
-		// public bool validatorAbilitiesPatch = true;
-		public bool spawnXenoForcerSerumsFromTraders = true;
-		public bool fixGenesOnLoad = false;
-		public bool fixGeneAbilitiesOnLoad = false;
-		public bool fixGeneTypesOnLoad = false;
 		// Info
 		public bool enableGenesInfo = true;
 		public bool enableGeneSpawnerGizmo = true;
@@ -58,6 +51,12 @@ namespace WVC_XenotypesAndGenes
 		public bool serumsForAllXenotypes_Spawners = false;
 		// ExtraSettings
 		public bool genesCanTickOnlyOnMap = false;
+		// Fix
+		public bool fixVanillaGeneImmunityCheck = true;
+		public bool spawnXenoForcerSerumsFromTraders = true;
+		public bool fixGenesOnLoad = false;
+		public bool fixGeneAbilitiesOnLoad = false;
+		public bool fixGeneTypesOnLoad = false;
 
 		public IEnumerable<string> GetEnabledSettings => from specificSetting in GetType().GetFields()
 														 where specificSetting.FieldType == typeof(bool) && (bool)specificSetting.GetValue(this)
@@ -94,6 +93,7 @@ namespace WVC_XenotypesAndGenes
 			// Scribe_Values.Look(ref validatorAbilitiesPatch, "validatorAbilitiesPatch", defaultValue: true);
 			Scribe_Values.Look(ref spawnXenoForcerSerumsFromTraders, "spawnXenoForcerSerumsFromTraders", defaultValue: true);
 			// Scribe_Values.Look(ref fixGenesOnLoad, "fixGenesOnLoad", defaultValue: false);
+			Scribe_Values.Look(ref disableUniqueXenotypeScenarios, "disableUniqueXenotypeScenarios", defaultValue: false);
 			// Info
 			Scribe_Values.Look(ref enableGenesInfo, "enableGenesInfo", defaultValue: true);
 			Scribe_Values.Look(ref enableGeneSpawnerGizmo, "enableGeneSpawnerGizmo", defaultValue: true);
@@ -188,7 +188,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			Rect outRect = new(inRect.x, inRect.y, inRect.width, inRect.height);
 			// Rect rect = new(0f, 0f, inRect.width, inRect.height);
-			Rect rect = new(0f, 0f, inRect.width - 30f, inRect.height * 2.2f);
+			Rect rect = new(0f, 0f, inRect.width - 30f, inRect.height * 2.3f);
 			Widgets.BeginScrollView(outRect, ref scrollPosition, rect);
 			Listing_Standard listingStandard = new();
 			listingStandard.Begin(rect);
@@ -237,6 +237,7 @@ namespace WVC_XenotypesAndGenes
 			// listingStandard.CheckboxLabeled("WVC_Label_minWastepacksPerRecharge".Translate(), ref settings.minWastepacksPerRecharge, "WVC_ToolTip_minWastepacksPerRecharge".Translate());
 			// listingStandard.CheckboxLabeled("WVC_Label_validatorAbilitiesPatch".Translate().Colorize(ColorLibrary.LightBlue), ref settings.validatorAbilitiesPatch, "WVC_ToolTip_validatorAbilitiesPatch".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_spawnXenoForcerSerumsFromTraders".Translate(), ref settings.spawnXenoForcerSerumsFromTraders, "WVC_ToolTip_spawnXenoForcerSerumsFromTraders".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_disableUniqueXenotypeScenarios".Translate(), ref settings.disableUniqueXenotypeScenarios, "WVC_ToolTip_disableUniqueXenotypeScenarios".Translate());
 			listingStandard.Gap();
 			// Serums
 			listingStandard.Label("WVC_BiotechSettings_Label_Serums".Translate().Colorize(ColoredText.SubtleGrayColor) + ":", -1, "WVC_BiotechSettings_Tooltip_Serums".Translate());
@@ -273,6 +274,7 @@ namespace WVC_XenotypesAndGenes
 					settings.enableHarmonyTelepathyGene = false;
 					settings.useAlternativeDustogenicFoodJob = false;
 					settings.learningTelepathWorkForBothSides = false;
+					settings.disableUniqueXenotypeScenarios = false;
 					// Fix
 					settings.fixVanillaGeneImmunityCheck = true;
 					// settings.minWastepacksPerRecharge = false;
@@ -327,6 +329,7 @@ namespace WVC_XenotypesAndGenes
 					settings.enableHarmonyTelepathyGene = false;
 					settings.useAlternativeDustogenicFoodJob = true;
 					settings.learningTelepathWorkForBothSides = true;
+					settings.disableUniqueXenotypeScenarios = false;
 					// Fix
 					settings.fixVanillaGeneImmunityCheck = true;
 					// settings.minWastepacksPerRecharge = false;

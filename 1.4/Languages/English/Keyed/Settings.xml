@@ -35,6 +35,12 @@ If you have problems launching the game, it is recommended to disable all genera
 	<WVC_BiotechSettings_XenotypesFilter_Search>Search:</WVC_BiotechSettings_XenotypesFilter_Search>
 
 	<!-- ====================================================================================== -->
+	<WVC_Label_disableUniqueXenotypeScenarios>Disable scenarios</WVC_Label_disableUniqueXenotypeScenarios>
+	<WVC_ToolTip_disableUniqueXenotypeScenarios>If enabled, disables all unique scenarios added by the mod.
+
+A restart is required.</WVC_ToolTip_disableUniqueXenotypeScenarios>
+
+	<!-- ====================================================================================== -->
 	<WVC_Label_hideXaGGenes>Hide mod genes</WVC_Label_hideXaGGenes>
 	<WVC_ToolTip_hideXaGGenes>If enabled, genes from the mod will not be displayed in the editor.
 

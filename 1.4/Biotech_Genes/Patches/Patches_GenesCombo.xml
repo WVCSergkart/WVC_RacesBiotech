@@ -201,6 +201,18 @@
 		</caseTrue>
 	</Operation>
 
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>disableUniqueXenotypeScenarios</settingName>
+		<caseTrue Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationRemove">
+				  <xpath>/Defs/ScenarioDef[@WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook"]</xpath>
+				  <success>Always</success>
+				</li>
+			</operations>
+		</caseTrue>
+	</Operation>
+
 	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
 		<!-- <settingName>hideEncodingGenes</settingName> -->
 		<!-- <caseFalse Class="PatchOperationRemove"> -->

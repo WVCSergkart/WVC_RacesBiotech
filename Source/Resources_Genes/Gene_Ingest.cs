@@ -289,12 +289,12 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				if (!MiscUtility.TryGetAbilityJob(pawn, colonist, AbilityDefOf.Bloodfeed, out Job job))
+				if (MiscUtility.TryGetAbilityJob(pawn, colonist, AbilityDefOf.Bloodfeed, out Job job))
 				{
-					continue;
+					pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);
+					return true;
 				}
-				pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);
-				return true;
+				return false;
 			}
 			return false;
 		}

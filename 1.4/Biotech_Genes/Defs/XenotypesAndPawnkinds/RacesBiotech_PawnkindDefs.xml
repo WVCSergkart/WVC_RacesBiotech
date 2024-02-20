@@ -17,7 +17,7 @@
 	<defaultFactionType>PlayerColony</defaultFactionType>
 	<apparelMoney>80~120</apparelMoney>
 	<!-- <maxGenerationAge>23</maxGenerationAge> -->
-	<apparelIgnorePollution MayRequire="Ludeon.RimWorld.Biotech">true</apparelIgnorePollution>
+	<apparelIgnorePollution>true</apparelIgnorePollution>
 	<!-- <backstoryFiltersOverride> -->
 	  <!-- <li> -->
 		<!-- <categories> -->
@@ -90,6 +90,43 @@
 	</xenotypeSet>
 	<apparelTags>
 	  <li>IndustrialBasic</li>
+	</apparelTags>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="WVC_RB_XenoBase" MayRequire="ludeon.rimworld.royalty">
+	<defName>WVC_Lilith_Player</defName>
+	<label>lilith</label>
+	<backstoryFiltersOverride>
+	  <li>
+		<categories>
+		  <li>ImperialCommon</li>
+		  <li>ImperialRoyal</li>
+		</categories>
+	  </li>
+	</backstoryFiltersOverride>
+	<xenotypeSet>
+	  <xenotypeChances>
+		<WVC_Lilith>999</WVC_Lilith>
+	  </xenotypeChances>
+	</xenotypeSet>
+	<!-- <backstoryCryptosleepCommonality>1.0</backstoryCryptosleepCommonality> -->
+	<!-- <apparelMoney>3780~5120</apparelMoney> -->
+	<!-- <apparelRequired> -->
+	  <!-- <li>Apparel_PsyfocusShirt</li> -->
+	  <!-- <li>Apparel_Pants</li> -->
+	<!-- </apparelRequired> -->
+	<!-- <forcedTraits> -->
+	  <!-- <Psychopath>0</Psychopath> -->
+	<!-- </forcedTraits> -->
+	<!-- <weaponMoney>10000~12000</weaponMoney> -->
+	<!-- <weaponTags> -->
+	  <!-- <li>Bladelink</li> -->
+	<!-- </weaponTags> -->
+	<!-- <forceWeaponQuality>Masterwork</forceWeaponQuality> -->
+	<apparelTags>
+	  <!-- <li>Royal</li> -->
+	  <li>IndustrialBasic</li>
+	  <!-- <li>Psychic</li> -->
 	</apparelTags>
   </PawnKindDef>
 
