@@ -212,4 +212,44 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_Blank : Gene
+	{
+
+		public override void Tick()
+		{
+			base.Tick();
+			if (!pawn.IsHashIntervalTick(12000))
+			{
+				return;
+			}
+			if (!Active)
+			{
+				return;
+			}
+			SkillLose();
+		}
+
+		public void SkillLose()
+		{
+			foreach (SkillRecord skill in pawn.skills.skills)
+			{
+				if (skill.TotallyDisabled || skill.PermanentlyDisabled)
+				{
+					continue;
+				}
+				int level = skill.GetLevel(false);
+				if (level <= 0)
+				{
+					continue;
+				}
+				if (level < 6)
+				{
+					skill.passion = Passion.None;
+				}
+				skill.Learn(-120 * level, true);
+			}
+		}
+
+	}
+
 }

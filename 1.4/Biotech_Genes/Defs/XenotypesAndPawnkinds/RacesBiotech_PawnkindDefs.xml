@@ -74,8 +74,8 @@
   </PawnKindDef>
 
   <PawnKindDef ParentName="WVC_RB_XenoBase">
-	<label>blankind</label>
 	<defName>WVC_Blank_Player</defName>
+	<label>subject</label>
 	<backstoryFiltersOverride>
 	  <li>
 		<categories>
@@ -85,50 +85,36 @@
 	</backstoryFiltersOverride>
 	<xenotypeSet>
 	  <xenotypeChances>
-		<WVC_Blank>999</WVC_Blank>
+		<WVC_Lilith>0.87</WVC_Lilith>
+		<WVC_Blank>0.13</WVC_Blank>
 	  </xenotypeChances>
 	</xenotypeSet>
 	<apparelTags>
 	  <li>IndustrialBasic</li>
 	</apparelTags>
+	<requiredWorkTags Inherit="False"/>
   </PawnKindDef>
 
-  <PawnKindDef ParentName="WVC_RB_XenoBase" MayRequire="ludeon.rimworld.royalty">
-	<defName>WVC_Lilith_Player</defName>
-	<label>lilith</label>
-	<backstoryFiltersOverride>
-	  <li>
-		<categories>
-		  <li>ImperialCommon</li>
-		  <li>ImperialRoyal</li>
-		</categories>
-	  </li>
-	</backstoryFiltersOverride>
-	<xenotypeSet>
-	  <xenotypeChances>
-		<WVC_Lilith>999</WVC_Lilith>
-	  </xenotypeChances>
-	</xenotypeSet>
-	<!-- <backstoryCryptosleepCommonality>1.0</backstoryCryptosleepCommonality> -->
-	<!-- <apparelMoney>3780~5120</apparelMoney> -->
-	<!-- <apparelRequired> -->
-	  <!-- <li>Apparel_PsyfocusShirt</li> -->
-	  <!-- <li>Apparel_Pants</li> -->
-	<!-- </apparelRequired> -->
-	<!-- <forcedTraits> -->
-	  <!-- <Psychopath>0</Psychopath> -->
-	<!-- </forcedTraits> -->
-	<!-- <weaponMoney>10000~12000</weaponMoney> -->
-	<!-- <weaponTags> -->
-	  <!-- <li>Bladelink</li> -->
-	<!-- </weaponTags> -->
-	<!-- <forceWeaponQuality>Masterwork</forceWeaponQuality> -->
-	<apparelTags>
-	  <!-- <li>Royal</li> -->
-	  <li>IndustrialBasic</li>
-	  <!-- <li>Psychic</li> -->
-	</apparelTags>
-  </PawnKindDef>
+  <!-- <PawnKindDef ParentName="WVC_RB_XenoBase" MayRequire="ludeon.rimworld.royalty"> -->
+	<!-- <defName>WVC_Lilith_Player</defName> -->
+	<!-- <label>lilith</label> -->
+	<!-- <backstoryFiltersOverride> -->
+	  <!-- <li> -->
+		<!-- <categories> -->
+		  <!-- <li>ImperialCommon</li> -->
+		  <!-- <li>ImperialRoyal</li> -->
+		<!-- </categories> -->
+	  <!-- </li> -->
+	<!-- </backstoryFiltersOverride> -->
+	<!-- <xenotypeSet> -->
+	  <!-- <xenotypeChances> -->
+		<!-- <WVC_Lilith>999</WVC_Lilith> -->
+	  <!-- </xenotypeChances> -->
+	<!-- </xenotypeSet> -->
+	<!-- <apparelTags> -->
+	  <!-- <li>IndustrialBasic</li> -->
+	<!-- </apparelTags> -->
+  <!-- </PawnKindDef> -->
 
   <!-- <PawnKindDef ParentName="WVC_RB_XenoBase"> -->
 	<!-- <label>former</label> -->

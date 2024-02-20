@@ -57,8 +57,8 @@
 
   <RitualAttachableOutcomeEffectDef>
 	<defName>WVC_BlankindRecruit</defName>
-	<label>blankind recruit</label>
-	<effectDesc>100% chance of blankind recruit of the same ideoligion joining your colony.</effectDesc>
+	<label>subject recruit</label>
+	<effectDesc>100% chance of blankind or lilith recruit of the same ideoligion joining your colony.</effectDesc>
 	<letterInfoText>A wanderer has arrived and wants to join your colony.</letterInfoText>
 	<workerClass>WVC_XenotypesAndGenes.RitualAttachableOutcomeEffectWorker_XenotypeRecruit</workerClass>
 	<requiredMemeAny>
@@ -69,9 +69,9 @@
 	  <!-- <li>FuneralNoCorpse</li> -->
 	<!-- </disallowedRituals> -->
 	<onlyBestOutcome>false</onlyBestOutcome>
-	<onlyNegativeOutcomes>true</onlyNegativeOutcomes>
+	<onlyNegativeOutcomes>false</onlyNegativeOutcomes>
 	<onlyPositiveOutcomes>false</onlyPositiveOutcomes>
-	<onlyWorstOutcome>false</onlyWorstOutcome>
+	<onlyWorstOutcome>true</onlyWorstOutcome>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
 			<pawnKindDef>WVC_Blank_Player</pawnKindDef>

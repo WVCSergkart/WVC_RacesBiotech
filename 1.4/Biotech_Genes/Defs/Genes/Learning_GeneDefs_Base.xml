@@ -41,11 +41,11 @@
 	<exclusionTags>
 	  <li>WVC_ExcellentMemory</li>
 	</exclusionTags>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
-			<noSkillDecay>true</noSkillDecay>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <noSkillDecay>true</noSkillDecay> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
@@ -77,11 +77,11 @@
 	<exclusionTags>
 	  <li>WVC_ExcellentMemory</li>
 	</exclusionTags>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
-			<noSkillDecay>true</noSkillDecay>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <noSkillDecay>true</noSkillDecay> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <!-- ============================= -->
@@ -198,9 +198,9 @@
 	  <li>WVC_ExcellentMemory</li>
 	</exclusionTags>
 	<modExtensions Inherit="False">
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
-			<noSkillDecay>true</noSkillDecay>
-		</li>
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <noSkillDecay>true</noSkillDecay> -->
+		<!-- </li> -->
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<childBackstoryDef>WVC_RacesBiotech_Amnesia_Child</childBackstoryDef>
 			<adultBackstoryDef>WVC_RacesBiotech_Amnesia_Adult</adultBackstoryDef>

@@ -23,31 +23,35 @@
 		<li><symbol>less</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
-	<disabledWorkTags>
-	  <li>AllWork</li>
-	</disabledWorkTags>
-	<exclusionTags>
-	  <li>WVC_DisabledWork_AllWork</li>
-	</exclusionTags>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_DisabledWork_AllWork</li> -->
+	<!-- </exclusionTags> -->
   </GeneDef>
 
   <!-- ============================= -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDisabledWork_AllWork">
 	<defName>WVC_DisabledAllWork_Blank</defName>
-	<label>blank</label>
+	<label>blank memory</label>
+	<description>Carriers of this gene very quickly lose interest and forget skills. It is incredibly difficult for them to learn new things.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Blank</geneClass>
-	<!-- <selectionWeight>0.00</selectionWeight> -->
-	<!-- <canGenerateInGeneSet>false</canGenerateInGeneSet> -->
 	<customEffectDescriptions>
-	  <li>The gene can only be active if the carrier does not have any &lt;color=#8a8ae6&gt;xenogenes&lt;/color&gt;.</li>
-	  <!-- <li>&lt;color=#ff8585&gt;Cannot spawn in genepacks.&lt;/color&gt;</li> -->
+	  <!-- <li>The gene can only be active if the carrier does not have any &lt;color=#8a8ae6&gt;xenogenes&lt;/color&gt;.</li> -->
+	  <li>If the skill level is below 6, then it &lt;color=#ff8585&gt;lose passion&lt;/color&gt;.</li>
+	  <li>&lt;color=#ff8585&gt;Skills, regardless of level, very quickly lose exp.&lt;/color&gt;</li>
+	  <!-- <li>When generated, the pawn loses all skills. If the gene was added, then the skills will degrade gradually.</li> -->
 	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_ExcellentMemory</li>
+	</exclusionTags>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDisabledWork_AllWork">
 	<defName>WVC_DisabledAllWork_Useless</defName>
 	<label>useless</label>
+	<disabledWorkTags>
+	  <li>AllWork</li>
+	</disabledWorkTags>
   </GeneDef>
 
 </Defs>

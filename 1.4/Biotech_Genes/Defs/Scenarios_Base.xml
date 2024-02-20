@@ -4,9 +4,9 @@
   <ScenarioDef WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
 	<defName>WVC_XenotypesAndGenes_Blank</defName>
 	<label>Long running joke</label>
-	<description>All your life you have had a strange, eerie feeling that someone is watching you from the shadows. Each of your actions seemed to be a point in some prepared scenario. And the icing on the cake was the fact that your health was deteriorating very quickly. And then when there was almost no hope left, people who were hiding in the shadows came for you and promised to cure all your ailments.\n\nWhen the experiment was over, you were placed in a cryopod, which is the last thing you remember before the drop pod hits the ground.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; Blankinds can't do anything. You have been warned.</description>
+	<description>All your life you have had a strange, eerie feeling that someone is watching you from the shadows. Each of your actions seemed to be a point in some prepared scenario. And the icing on the cake was the fact that your health was deteriorating very quickly. And then when there was almost no hope left, people who were hiding in the shadows came for you and promised to cure all your ailments.\n\nWhen the experiment was over, you were placed in a cryopod, which is the last thing you remember before the drop pod hits the ground.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; The starting pawn in this scenario will not be able to cope with most challenges on its own, this is a difficult scenario.</description>
 	<scenario>
-	  <summary>One crashlanded blank with no supplies. &lt;color=#ee2a23&gt;Unreal&lt;/color&gt; difficulty.</summary>
+	  <summary>One subject with no supplies. &lt;color=#ee2a23&gt;Very hard&lt;/color&gt; difficulty.</summary>
 	  <playerFaction>
 		<def>PlayerFaction</def>
 		<factionDef>PlayerColony</factionDef>
@@ -14,25 +14,35 @@
 	  <parts>
 
 		<!-- Config pages -->
-		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_Xenotypes">
-		  <def>ConfigurePawnsXenotypes</def>
-		  <pawnChoiceCount>1</pawnChoiceCount>
-		  <customSummary>Start with one adult blank with no supplies.</customSummary>
-		  <overrideKinds>
-			<li>
-			  <xenotype>WVC_Blank</xenotype>
-			  <pawnKind>WVC_Blank_Player</pawnKind>
-			</li>
-		  </overrideKinds>
-		  <xenotypeCounts>
-			<li>
-			  <xenotype>WVC_Blank</xenotype>
-			  <count>1</count>
-			  <description>non-child blankind</description>
-			  <requiredAtStart>true</requiredAtStart>
-			  <allowedDevelopmentalStages>Adult</allowedDevelopmentalStages>
-			</li>
-		  </xenotypeCounts>
+		<!-- <li Class="ScenPart_ConfigPage_ConfigureStartingPawns_Xenotypes"> -->
+		  <!-- <def>ConfigurePawnsXenotypes</def> -->
+		  <!-- <pawnChoiceCount>1</pawnChoiceCount> -->
+		  <!-- <customSummary>Start with one adult blank with no supplies.</customSummary> -->
+		  <!-- <overrideKinds> -->
+			<!-- <li> -->
+			  <!-- <xenotype>WVC_Blank</xenotype> -->
+			  <!-- <pawnKind>WVC_Blank_Player</pawnKind> -->
+			<!-- </li> -->
+		  <!-- </overrideKinds> -->
+		  <!-- <xenotypeCounts> -->
+			<!-- <li> -->
+			  <!-- <xenotype>WVC_Blank</xenotype> -->
+			  <!-- <count>1</count> -->
+			  <!-- <description>non-child blankind</description> -->
+			  <!-- <requiredAtStart>true</requiredAtStart> -->
+			  <!-- <allowedDevelopmentalStages>Adult</allowedDevelopmentalStages> -->
+			<!-- </li> -->
+		  <!-- </xenotypeCounts> -->
+		<!-- </li> -->
+		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_KindDefs">
+			<def>ConfigurePawnsKindDefs</def>
+			<pawnChoiceCount>1</pawnChoiceCount>
+			<kindCounts>
+				<li>
+					<count>1</count>
+					<kindDef>WVC_Blank_Player</kindDef>
+				</li>
+			</kindCounts>
 		</li>
 
 		<!-- Player starting stuff spawn method-->
@@ -60,11 +70,11 @@
 		  <count>50</count>
 		</li>
 
-		<li Class="ScenPart_StartingThing_Defined">
-		  <def>ScatterThingsAnywhere</def>
-		  <thingDef>WVC_XenoSpawnerSeed</thingDef>
-		  <count>1</count>
-		</li>
+		<!-- <li Class="ScenPart_StartingThing_Defined"> -->
+		  <!-- <def>ScatterThingsAnywhere</def> -->
+		  <!-- <thingDef>WVC_XenoSpawnerSeed</thingDef> -->
+		  <!-- <count>1</count> -->
+		<!-- </li> -->
 
 		<li MayRequireAnyOf="ludeon.rimworld.ideology" Class="KCSG.ScenPart_AddStartingStructure">
 			<def>VFEC_AddStartingStructure</def>
@@ -90,7 +100,7 @@
 	<description>All your life you have had a strange, eerie feeling that someone is watching you from the shadows. Each of your actions seemed to be a point in some prepared scenario. And the icing on the cake was the fact that your health was deteriorating very quickly. And then when there was almost no hope left, people who were hiding in the shadows came for you and promised to cure all your ailments.\n\nWhen the experiment was over, you were placed in a cryopod, which is the last thing you remember before the drop pod hits the ground.</description>
 	<!-- \n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; The main disadvantage of mechakins is the learning speed, they are very slow to learn new skills, and also have a serious debuff on farming and social skills. However, they have a significant boost in intelligence and crafting. -->
 	<scenario>
-	  <summary>One crashlanded mechalike pawn with no supplies. &lt;color=#a1ff95&gt;Easy-medium&lt;/color&gt; difficulty.</summary>
+	  <summary>One mechalike pawn with no supplies. &lt;color=#a1ff95&gt;Easy-medium&lt;/color&gt; difficulty.</summary>
 	  <playerFaction>
 		<def>PlayerFaction</def>
 		<factionDef>PlayerColony</factionDef>
