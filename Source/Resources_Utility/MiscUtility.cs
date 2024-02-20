@@ -12,6 +12,29 @@ namespace WVC_XenotypesAndGenes
 	public static class MiscUtility
 	{
 
+		// Job Misc
+
+		public static bool TryGetAbilityJob(Pawn biter, Pawn victim, AbilityDef abilityDef, out Job job)
+		{
+			job = null;
+			if (biter.CurJobDef == abilityDef.jobDef)
+			{
+				return false;
+			}
+			Ability ability = biter.abilities?.GetAbility(abilityDef);
+			if (ability == null || !ability.CanCast)
+			{
+				return false;
+			}
+			LocalTargetInfo target = victim;
+			if (!target.IsValid)
+			{
+				return false;
+			}
+			job = ability.GetJob(target, target);
+			return true;
+		}
+
 		// Spawner
 
 		public static void SpawnItems(Pawn pawn, ThingDef thingDef, int stack, bool showMessage = false, string message = "MessageCompSpawnerSpawnedItem")

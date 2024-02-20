@@ -4,7 +4,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneWings_Base">
 	<defName>WVC_Wings_Levitation</defName>
 	<label>levitation</label>
-	<description>Carriers of this gene have a strong psychophysical connection with the psychic field. Their bodies weigh absolutely nothing, which allows them to levitate.</description>
+	<description>Carriers of this gene have a strong psychophysical connection with the psychic field. They can psychically influence their weight, which allows them to levitate.</description>
 	<iconColor>(255, 255, 255)</iconColor>
 	<iconPath>WVC/UI/Genes/Gene_Levitation_v0</iconPath>
 	<biostatCpx>0</biostatCpx>
@@ -20,7 +20,7 @@
 	</statFactors>
 	<symbolPack>
 	  <prefixSymbols>
-		<li><symbol>levit</symbol></li>
+		<li><symbol>levi</symbol></li>
 	  </prefixSymbols>
 	  <suffixSymbols>
 		<li><symbol>tate</symbol></li>

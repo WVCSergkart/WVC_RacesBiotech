@@ -213,6 +213,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				Gene_AddOrRemoveHediff.AddOrRemoveHediff(Props?.hediffDefName, pawn, this);
 			}
+			if (pawn.Map == null)
+			{
+				return;
+			}
 			if (pawn.Downed || pawn.Drafted)
 			{
 				return;
@@ -221,11 +225,14 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (pawn.Map == null)
+			if (TryGetFood())
 			{
 				return;
 			}
-			GetFood();
+			if (TryHuntForFood())
+			{
+				Messages.Message("WVC_XaG_Gene_EternalHunger_HuntWarning".Translate(pawn.NameShortColored.ToString()), pawn, MessageTypeDefOf.NeutralEvent);
+			}
 		}
 
 		public override void PostRemove()
@@ -271,12 +278,33 @@ namespace WVC_XenotypesAndGenes
 
 		// Misc
 
-		public void GetFood()
+		public bool TryHuntForFood()
+		{
+			List<Pawn> colonists = pawn.Map.mapPawns.SpawnedPawnsInFaction(pawn.Faction);
+			colonists.Shuffle();
+			for (int j = 0; j < colonists.Count; j++)
+			{
+				Pawn colonist = colonists[j];
+				if (!GeneFeaturesUtility.CanBloodFeedNowWith(pawn, colonist))
+				{
+					continue;
+				}
+				if (!MiscUtility.TryGetAbilityJob(pawn, colonist, AbilityDefOf.Bloodfeed, out Job job))
+				{
+					continue;
+				}
+				pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);
+				return true;
+			}
+			return false;
+		}
+
+		public bool TryGetFood()
 		{
 			Need_Food need_Food = pawn.needs?.food;
 			if (need_Food == null)
 			{
-				return;
+				return false;
 			}
 			List<Thing> meatFood = new();
 			foreach (Thing item in pawn.Map.listerThings.AllThings.ToList())
@@ -298,8 +326,9 @@ namespace WVC_XenotypesAndGenes
 				Job job = JobMaker.MakeJob(JobDefOf.Ingest, specialFood);
 				job.count = stack + 3;
 				pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);
-				break;
+				return true;
 			}
+			return false;
 		}
 
 		public float GetHunger(int stack, Thing thing, Need_Food need_Food)

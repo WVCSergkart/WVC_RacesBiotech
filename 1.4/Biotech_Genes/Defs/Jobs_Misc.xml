@@ -1,6 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <!-- <JobDef> -->
+	<!-- <defName>WVC_XenotypesAndGenes_EternalHungerBite</defName> -->
+	<!-- <driverClass>WVC_XenotypesAndGenes.JobDriver_BiteTarget</driverClass> -->
+	<!-- <reportString>trying bite TargetA.</reportString> -->
+	<!-- <allowOpportunisticPrefix>true</allowOpportunisticPrefix> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.JobExtension_Reimplanter"> -->
+			<!-- <warmupStartSound>Bloodfeed_Cast</warmupStartSound> -->
+			<!-- <warmupEffecter>Bloodfeed_Warmup</warmupEffecter> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </JobDef> -->
+
   <JobDef>
 	<defName>WVC_XenotypesAndGenes_ResurrectAndChangeXenotype</defName>
 	<driverClass>WVC_XenotypesAndGenes.JobDriver_ResurrectAndChangeXenotype</driverClass>

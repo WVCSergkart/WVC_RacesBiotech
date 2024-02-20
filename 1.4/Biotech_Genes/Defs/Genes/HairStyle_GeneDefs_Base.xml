@@ -67,6 +67,9 @@
 	<label>never bald</label>
 	<description>Carriers of this gene never go bald.</description>
 	<iconPath>WVC/UI/Genes/Gene_HairNonBald_v0</iconPath>
+	<customEffectDescriptions>
+		<li>Pawn can have any hairstyle except bald and balding.</li>
+	</customEffectDescriptions>
 	<hairTagFilter>
 	  <whitelist>false</whitelist>
 	  <tags>
@@ -76,5 +79,5 @@
 	  </tags>
 	</hairTagFilter>
   </GeneDef>
-  
+
 </Defs>

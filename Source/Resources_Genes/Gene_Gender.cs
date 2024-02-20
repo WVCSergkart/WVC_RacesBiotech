@@ -64,11 +64,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			// if (pawn.story?.bodyType == BodyTypeDefOf.Male)
-			// {
-				// pawn.story.bodyType = BodyTypeDefOf.Female;
-			// }
-			pawn.story.bodyType = BodyTypeDefOf.Female;
+			if (pawn?.story?.bodyType != BodyTypeDefOf.Female)
+			{
+				pawn.story.bodyType = BodyTypeDefOf.Female;
+			}
 		}
 
 		public override void PostRemove()
@@ -80,11 +79,11 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void ExposeData()
-		{
-			base.ExposeData();
-			ChangeBodyType();
-		}
+		// public override void ExposeData()
+		// {
+			// base.ExposeData();
+			// ChangeBodyType();
+		// }
 
 	}
 

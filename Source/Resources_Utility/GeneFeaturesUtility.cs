@@ -104,7 +104,7 @@ namespace WVC_XenotypesAndGenes
 			for (int i = 0; i < workingList.Count; i++)
 			{
 				Pawn p = workingList[i];
-				if (!SerumUtility.PawnIsHuman(p))
+				if (!p.RaceProps.Humanlike)
 				{
 					continue;
 				}
@@ -116,7 +116,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				if (GeneFeaturesUtility.CanPsyFeedNowWith(pawn, p))
+				if (CanBloodFeedNowWith(pawn, p))
 				{
 					DoPsychicHarvest(pawn, p, thingDef, stackCount, targetBloodLoss, new (1, 2));
 				}
@@ -189,7 +189,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				if (CanPsyFeedNowWith(pawn, p))
+				if (CanBloodFeedNowWith(pawn, p))
 				{
 					DoPsychicBite(pawn, p, 0.1f, 0.2f, 0.4499f, new (1, 2));
 					return true;
@@ -198,9 +198,13 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public static bool CanPsyFeedNowWith(Pawn biter, Pawn victim)
+		public static bool CanBloodFeedNowWith(Pawn biter, Pawn victim)
 		{
-			if (victim == null)
+			if (victim == null || biter == null)
+			{
+				return false;
+			}
+			if (!SerumUtility.PawnIsHuman(victim))
 			{
 				return false;
 			}

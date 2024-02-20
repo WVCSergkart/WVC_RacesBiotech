@@ -98,7 +98,7 @@
 	<defName>WVC_PsychicAbility_Archite</defName>
 	<label>archite psy-sensitive</label>
 	<labelShortAdj>psy-archite</labelShortAdj>
-	<description>Carriers of this gene are very much more psychically-sensitive than most.</description>
+	<description>Carriers of this gene are significantly more psychically-sensitive than most.</description>
 	<iconPath>WVC/UI/Genes/Gene_ExtremePsychicAbility_v0</iconPath>
 	<!-- 35 40 45 50 55 60 -->
 	<displayOrderInCategory>50</displayOrderInCategory>

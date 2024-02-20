@@ -3,7 +3,7 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    [DefOf]
+	[DefOf]
 	public static class WVC_GenesDefOf
 	{
 		public static GeneDef WVC_FemaleOnly;
@@ -74,6 +74,8 @@ namespace WVC_XenotypesAndGenes
 		public static HistoryEventDef WVC_Shapeshift;
 		[MayRequireIdeology]
 		public static HistoryEventDef WVC_XenotypeSerumUsed;
+		// Job
+		// public static JobDef WVC_XenotypesAndGenes_EternalHungerBite;
 	}
 
 }
