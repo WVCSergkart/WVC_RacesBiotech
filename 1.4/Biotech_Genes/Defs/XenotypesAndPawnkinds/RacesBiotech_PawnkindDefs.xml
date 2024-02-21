@@ -10,7 +10,7 @@
 	<isFighter>false</isFighter>
 	<weaponMoney>0</weaponMoney>
 	<apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
-	<apparelColor>(58,58,58)</apparelColor>
+	<apparelColor>(60,60,60)</apparelColor>
 	<chronologicalAgeRange>300~2000</chronologicalAgeRange>
 	<initialResistanceRange>10~25</initialResistanceRange>
 	<initialWillRange>5~15</initialWillRange>
@@ -86,8 +86,8 @@
 	</backstoryFiltersOverride>
 	<xenotypeSet>
 	  <xenotypeChances>
-		<WVC_Lilith MayRequire="ludeon.rimworld.royalty">87</WVC_Lilith>
-		<WVC_Blank>13</WVC_Blank>
+		<WVC_Lilith MayRequire="ludeon.rimworld.royalty">70</WVC_Lilith>
+		<WVC_Blank>30</WVC_Blank>
 	  </xenotypeChances>
 	</xenotypeSet>
 	<apparelTags>

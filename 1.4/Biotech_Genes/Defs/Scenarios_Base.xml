@@ -56,6 +56,12 @@
 		  <!-- <count>1</count> -->
 		<!-- </li> -->
 
+		<li Class="ScenPart_Naked">
+			<def>Naked</def>
+			<chance>1.0</chance>
+			<context>PlayerStarter</context>
+		</li>
+
 		<li MayRequireAnyOf="ludeon.rimworld.ideology" Class="KCSG.ScenPart_AddStartingStructure">
 			<def>VFEC_AddStartingStructure</def>
 			<structureLabel>Junkyard</structureLabel>
@@ -289,52 +295,6 @@
 			<def>Naked</def>
 			<chance>1.0</chance>
 			<context>PlayerStarter</context>
-		</li>
-
-	  </parts>
-	</scenario>
-  </ScenarioDef>
-
-  <!-- ========================================================= -->
-
-  <!-- Royal version -->
-  <!-- This version doesn't fit in main idea. Lilith should have "Royalty" background, but not royal background. Imperial psycaster? -->
-  <ScenarioDef MayRequire="ludeon.rimworld.royalty" WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook" Abstract="True">
-	<defName>WVC_XenotypesAndGenes_Lilith</defName>
-	<label>Parasite</label>
-	<description>You are the pride of the empire. At least that's what you thought. All your life you have been a parasite tightly embedded in the flesh of your subordinates. You never treated your servants as people - they were your things. Those who are weak - food, those who are strong - weapons, those who are smart - skills. They idolized you, despite all the cruelty and cold-bloodedness with which you treated them.\n\nA riot has broken out on your ship. Those who are deaf to your perfection decided to get rid of the bloodsucker. The hidden grievances of your envious people have poured out. When you realized that it was impossible to suppress the riot, you left the ship in the rescue droppod.\n\nNow you have nothing left, no title, no subordinates. You will have to start all over again.</description>
-	<scenario>
-	  <summary>One pawn with no supplies. &lt;color=#fff695&gt;Medium-hard&lt;/color&gt; difficulty.</summary>
-	  <playerFaction>
-		<def>PlayerFaction</def>
-		<factionDef>PlayerColony</factionDef>
-	  </playerFaction>
-	  <parts>
-
-		<!-- Config pages -->
-		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_KindDefs">
-			<def>ConfigurePawnsKindDefs</def>
-			<pawnChoiceCount>1</pawnChoiceCount>
-			<kindCounts>
-				<li>
-					<count>1</count>
-					<kindDef>WVC_Lilith_Player</kindDef>
-				</li>
-			</kindCounts>
-		</li>
-
-		<!-- Player starting stuff spawn method-->
-		<li Class="ScenPart_PlayerPawnsArriveMethod">
-			<def>PlayerPawnsArriveMethod</def>
-			<visible>false</visible>
-			<method>DropPods</method>
-		</li>
-
-		<!-- Game start dialog -->
-		<li Class="ScenPart_GameStartDialog">
-		  <def>GameStartDialog</def>
-		  <text>You are the pride of the empire. At least that's what you thought. All your life you have been a parasite tightly embedded in the flesh of your subordinates. You never treated your servants as people - they were your things. Those who are weak - food, those who are strong - weapons, those who are smart - skills. They idolized you, despite all the cruelty and cold-bloodedness with which you treated them.\n\nA riot has broken out on your ship. Those who are deaf to your perfection decided to get rid of the bloodsucker. The hidden grievances of your envious people have poured out. When you realized that it was impossible to suppress the riot, you left the ship in the rescue droppod.\n\nNow you have nothing left, no title, no subordinates. You will have to start all over again.</text>
-		  <closeSound>GameStartSting</closeSound>
 		</li>
 
 	  </parts>
