@@ -114,6 +114,13 @@ namespace WVC_XenotypesAndGenes
 		public List<HediffDef> blockingHediffs;
 		public List<TraitDef> blockingTraits;
 		public List<string> trustedXenotypes;
+		public List<TraitDefWithWeight> possibleTraits;
+
+		public class TraitDefWithWeight
+		{
+			public TraitDef traitDef;
+			public float weight = 1f;
+		}
 	}
 
 	public class GeneExtension_XenotypeGestator : DefModExtension

@@ -7,8 +7,36 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_Shapeshifter : Gene
+	public class Gene_Shapeshifter : Gene
 	{
+
+		public GeneExtension_Shapeshifter Props => def?.GetModExtension<GeneExtension_Shapeshifter>();
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			if (!pawn.Spawned)
+			{
+				AddRandomTraitFromListWithChance(pawn, Props);
+			}
+		}
+
+		public void AddRandomTraitFromListWithChance(Pawn pawn, GeneExtension_Shapeshifter geneExtension)
+		{
+			TraitSet traitSet = pawn.story.traits;
+			if (geneExtension == null || traitSet.allTraits.Count > 1)
+			{
+				return;
+			}
+			GeneExtension_Shapeshifter.TraitDefWithWeight traitDefWithWeight = geneExtension.possibleTraits.RandomElementByWeight((GeneExtension_Shapeshifter.TraitDefWithWeight x) => x.weight);
+			float chance = traitDefWithWeight.weight;
+			// TraitDef trait = traitDefWithWeight.traitDef;
+			Trait trait = new(traitDefWithWeight.traitDef);
+			if (Rand.Chance(chance))
+			{
+				traitSet.GainTrait(trait);
+			}
+		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{

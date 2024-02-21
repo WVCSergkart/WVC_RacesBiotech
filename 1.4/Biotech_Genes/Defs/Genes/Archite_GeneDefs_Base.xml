@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <TraitDef>
-	<defName>WVC_RB_FriendOrFoeTrait</defName>
-	<commonality>0.001</commonality>
-	<disableHostilityFromFaction>Mechanoid</disableHostilityFromFaction>
-	<degreeDatas>
-	  <li>
-		<label>Techno-Ghost</label>
-		<description>For some strange reason, {PAWN_nameDef} is not touched by ancient mechanoids, they constantly ignore [PAWN_objective] no matter what {PAWN_nameDef} takes against them.</description>
-	  </li>
-	</degreeDatas>
-  </TraitDef>
-
   <GeneDef Name="WVC_XenotypesAndGenes_Archites" Abstract="True">
 	<displayCategory>Archite</displayCategory>
 	<selectionWeight>0.00125</selectionWeight>

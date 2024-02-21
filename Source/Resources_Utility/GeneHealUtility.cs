@@ -1,11 +1,12 @@
 using RimWorld;
+using System.Collections.Generic;
 using System.Linq;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public static class HealingUtility
+	public static class HealingUtility
 	{
 
 		// General
@@ -94,6 +95,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		// Regrow
 		public static void SetPartWith1HP(Pawn pawn, BodyPartRecord part)
 		{
 			if (part != null)
@@ -126,6 +128,30 @@ namespace WVC_XenotypesAndGenes
 				hediff_Injury.sourceHediffDef = null;
 				hediff_Injury.Severity = num;
 				pawn.health.AddHediff(hediff_Injury);
+			}
+		}
+
+		// Special
+		public static void RegrowAllBodyParts(Pawn pawn)
+		{
+			List<BodyPartRecord> bodyParts = pawn.health.hediffSet.GetNotMissingParts().ToList();
+			List<BodyPartRecord> missingBodyParts = new();
+			foreach (Hediff_MissingPart missingPartsCommonAncestor in pawn.health.hediffSet.GetMissingPartsCommonAncestors())
+			{
+				BodyPartRecord bodyPart = missingPartsCommonAncestor.Part;
+				if (pawn.health.hediffSet.PartOrAnyAncestorHasDirectlyAddedParts(bodyPart))
+				{
+					continue;
+				}
+				missingBodyParts.Add(bodyPart);
+			}
+			foreach (BodyPartRecord part in missingBodyParts)
+			{
+				RestorePartWith1HP(pawn, part);
+			}
+			foreach (BodyPartRecord part in bodyParts)
+			{
+				SetPartWith1HP(pawn, part);
 			}
 		}
 

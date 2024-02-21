@@ -132,6 +132,8 @@ namespace WVC_XenotypesAndGenes
 			// }
 			// List<GeneDef> dontRemove = new() { gene.def };
 			// dontRemove.Add(gene.def);
+			// PostSelect(gene.pawn, gene);
+			// Shapeshift START
 			ReimplanterUtility.SetXenotype_DoubleXenotype(gene.pawn, selectedXeno, new() { gene.def });
 			if (!gene.pawn.genes.HasGene(gene.def))
 			{
@@ -143,10 +145,9 @@ namespace WVC_XenotypesAndGenes
 			{
 				soundDefOnImplant.PlayOneShot(SoundInfo.InMap(gene.pawn));
 			}
-			if (ModLister.IdeologyInstalled)
-			{
-				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_GenesDefOf.WVC_Shapeshift, gene.pawn.Named(HistoryEventArgsNames.Doer)));
-			}
+			// Shapeshift END
+			PostShapeshift(gene);
+			// Letter
 			Find.LetterStack.ReceiveLetter("WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel".Translate(), "WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc".Translate(gene.pawn.Named("TARGET"), selectedXeno.LabelCap, gene.LabelCap)
 				+ "\n\n" + (selectedXeno.descriptionShort.NullOrEmpty() ? selectedXeno.description : selectedXeno.descriptionShort),
 				WVC_GenesDefOf.WVC_XaG_UndeadEvent, new LookTargets(gene.pawn));
@@ -173,6 +174,19 @@ namespace WVC_XenotypesAndGenes
 			}
 			return true;
 		}
+
+		// Misc
+		public void PostShapeshift(Gene gene)
+		{
+			if (ModLister.IdeologyInstalled)
+			{
+				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_GenesDefOf.WVC_Shapeshift, gene.pawn.Named(HistoryEventArgsNames.Doer)));
+			}
+		}
+
+		// public void PostSelect(Pawn pawn, Gene gene)
+		// {
+		// }
 
 	}
 

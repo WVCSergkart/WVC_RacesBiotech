@@ -32,15 +32,4 @@
 <!-- [PAWN_possessive] his/her -->
 <!-- [PAWN_objective] him/her -->
 
-  <TraitDef>
-	<defName>WVC_XaG_ShapeshiftPhobia</defName>
-	<commonality>0.02</commonality>
-	<degreeDatas>
-	  <li>
-		<label>shiftphobe</label>
-		<description>[PAWN_nameDef] is afraid of shapeshift; just the thought of a sudden and complete transformation gives [PAWN_objective] goosebumps. [PAWN_pronoun] will never use shapeshifting.</description>
-	  </li>
-	</degreeDatas>
-  </TraitDef>
-
 </Defs>
