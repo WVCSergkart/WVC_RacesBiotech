@@ -94,15 +94,15 @@ namespace WVC_XenotypesAndGenes
 					continue;
 				}
 				// Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
-				if (cachedResurgentGene == null)
+				if (Resurgent == null)
 				{
 					continue;
 				}
-				if (!cachedResurgentGene.woundClottingAllowed || (cachedResurgentGene.Value - def.resourceLossPerDay) < 0f)
+				if (!Resurgent.woundClottingAllowed || (Resurgent.Value - def.resourceLossPerDay) < 0f)
 				{
 					continue;
 				}
-				cachedResurgentGene.Value -= def.resourceLossPerDay;
+				Resurgent.Value -= def.resourceLossPerDay;
 				hediffs[num].Tended(TendingQualityRange.RandomInRange, TendingQualityRange.TrueMax, 1);
 			}
 		}

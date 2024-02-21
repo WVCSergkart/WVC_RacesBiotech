@@ -55,7 +55,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			ResetInterval();
-			if (!pawn.IsColonist || !pawn.IsPrisonerOfColony || !Active)
+			if (!Active || (!pawn.IsColonist && pawn.Map == null))
 			{
 				return;
 			}
@@ -122,7 +122,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			// Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
-			if (cachedResurgentGene != null)
+			if (Resurgent != null)
 			{
 				// if ((oneYear * humanAdultAge) <= pawn.ageTracker.AgeBiologicalTicks)
 				// {
@@ -142,7 +142,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			ResetInterval();
-			if (!pawn.IsColonist || !pawn.IsPrisonerOfColony || !Active)
+			if (!Active || (!pawn.IsColonist && pawn.Map == null))
 			{
 				return;
 			}
@@ -157,13 +157,13 @@ namespace WVC_XenotypesAndGenes
 			if (AgelessUtility.CanAgeReverse(pawn))
 			{
 				// Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
-				if (cachedResurgentGene != null)
+				if (Resurgent != null)
 				{
-					if (cachedResurgentGene.ageReversionAllowed)
+					if (Resurgent.ageReversionAllowed)
 					{
-						if ((cachedResurgentGene.Value - def.resourceLossPerDay) >= 0f)
+						if ((Resurgent.Value - def.resourceLossPerDay) >= 0f)
 						{
-							cachedResurgentGene.Value -= def.resourceLossPerDay;
+							Resurgent.Value -= def.resourceLossPerDay;
 							AgelessUtility.AgeReverse(pawn);
 						}
 					}

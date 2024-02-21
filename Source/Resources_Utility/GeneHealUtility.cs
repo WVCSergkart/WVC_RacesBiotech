@@ -43,7 +43,8 @@ namespace WVC_XenotypesAndGenes
 		// Body parts
 		public static TaggedString Cure(BodyPartRecord part, Pawn pawn)
 		{
-			pawn.health.RestorePart(part);
+			// pawn.health.RestorePart(part);
+			RestorePartWith1HP(pawn, part, WVC_Biotech.settings.restoreBodyPartsWithFullHP);
 			return "HealingRestoreBodyPart".Translate(pawn, part.Label);
 		}
 
@@ -73,6 +74,60 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		// RestorePart
+		public static void RestorePartWith1HP(Pawn pawn, BodyPartRecord part, bool restoreWithFullHP = false)
+		{
+			if (part != null)
+			{
+				pawn.health.RestorePart(part);
+				if (restoreWithFullHP)
+				{
+					return;
+				}
+				// WVC_GenesDefOf.WVC_RegrowingPart
+				// DamageDefOf.Cut
+				TakeDamage(pawn, part);
+				for (int i = 0; i < part.parts.Count; i++)
+				{
+					SetPartWith1HP(pawn, part.parts[i]);
+				}
+			}
+		}
+
+		public static void SetPartWith1HP(Pawn pawn, BodyPartRecord part)
+		{
+			if (part != null)
+			{
+				TakeDamage(pawn, part);
+				for (int i = 0; i < part.parts.Count; i++)
+				{
+					SetPartWith1HP(pawn, part.parts[i]);
+				}
+			}
+		}
+
+		public static void TakeDamage(Pawn pawn, BodyPartRecord part, DamageDef damageDef = null)
+		{
+			int num = (int)pawn.health.hediffSet.GetPartHealth(part) - 1;
+			if (damageDef != null)
+			{
+				// Too buggy
+				DamageInfo damageInfo = new(damageDef, num, 999f, -1f, null, part, null, DamageInfo.SourceCategory.ThingOrUnknown, null, false, false);
+				damageInfo.SetAllowDamagePropagation(false);
+				pawn.TakeDamage(damageInfo);
+			}
+			else
+			{
+				// Less buggy
+				Hediff_Injury hediff_Injury = (Hediff_Injury)HediffMaker.MakeHediff(WVC_GenesDefOf.WVC_RegrowingPart, pawn);
+				hediff_Injury.Part = part;
+				hediff_Injury.source = null;
+				hediff_Injury.sourceBodyPartGroup = null;
+				hediff_Injury.sourceHediffDef = null;
+				hediff_Injury.Severity = num;
+				pawn.health.AddHediff(hediff_Injury);
+			}
+		}
 
 	}
 }

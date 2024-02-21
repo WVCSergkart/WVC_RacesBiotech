@@ -132,6 +132,11 @@ A restart is required.</WVC_ToolTip_useAlternativeDustogenicFoodJob>
 
 	<!-- ====================================================================================== -->
 
+	<WVC_Label_restoreBodyPartsWithFullHP>Restore body parts with full HP</WVC_Label_restoreBodyPartsWithFullHP>
+	<WVC_ToolTip_restoreBodyPartsWithFullHP>If enabled, genes that restore body parts will restore them to full HP.</WVC_ToolTip_restoreBodyPartsWithFullHP>
+
+	<!-- ====================================================================================== -->
+
 	<!-- <WVC_Label_reincarnationBlockUndeadResurrection></WVC_Label_reincarnationBlockUndeadResurrection> -->
 	<!-- <WVC_ToolTip_reincarnationBlockUndeadResurrection></WVC_ToolTip_reincarnationBlockUndeadResurrection> -->
 

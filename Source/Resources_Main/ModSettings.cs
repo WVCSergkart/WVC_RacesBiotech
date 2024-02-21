@@ -32,6 +32,7 @@ namespace WVC_XenotypesAndGenes
 		public bool useAlternativeDustogenicFoodJob = false;
 		public bool learningTelepathWorkForBothSides = false;
 		public bool disableUniqueXenotypeScenarios = false;
+		public bool restoreBodyPartsWithFullHP = false;
 		// public bool reimplantResurrectionRecruiting = false;
 		// Info
 		public bool enableGenesInfo = true;
@@ -86,6 +87,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref enableHarmonyTelepathyGene, "enableHarmonyTelepathyGene", defaultValue: false);
 			Scribe_Values.Look(ref useAlternativeDustogenicFoodJob, "useAlternativeDustogenicFoodJob", defaultValue: false);
 			Scribe_Values.Look(ref learningTelepathWorkForBothSides, "learningTelepathWorkForBothSides", defaultValue: false);
+			Scribe_Values.Look(ref restoreBodyPartsWithFullHP, "restoreBodyPartsWithFullHP", defaultValue: false);
 			// Scribe_Values.Look(ref reimplantResurrectionRecruiting, "reimplantResurrectionRecruiting", defaultValue: false);
 			// Fix
 			Scribe_Values.Look(ref fixVanillaGeneImmunityCheck, "fixVanillaGeneImmunityCheck", defaultValue: true);
@@ -229,6 +231,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_enableHarmonyTelepathyGene".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enableHarmonyTelepathyGene, "WVC_ToolTip_enableHarmonyTelepathyGene".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_useAlternativeDustogenicFoodJob".Translate().Colorize(ColorLibrary.LightBlue), ref settings.useAlternativeDustogenicFoodJob, "WVC_ToolTip_useAlternativeDustogenicFoodJob".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_learningTelepathWorkForBothSides".Translate().Colorize(ColorLibrary.LightBlue), ref settings.learningTelepathWorkForBothSides, "WVC_ToolTip_learningTelepathWorkForBothSides".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_restoreBodyPartsWithFullHP".Translate().Colorize(ColorLibrary.LightBlue), ref settings.restoreBodyPartsWithFullHP, "WVC_ToolTip_restoreBodyPartsWithFullHP".Translate());
 			// listingStandard.CheckboxLabeled("WVC_Label_reimplantResurrectionRecruiting".Translate(), ref settings.reimplantResurrectionRecruiting, "WVC_ToolTip_reimplantResurrectionRecruiting".Translate());
 			listingStandard.Gap();
 			// Fix
@@ -275,6 +278,7 @@ namespace WVC_XenotypesAndGenes
 					settings.useAlternativeDustogenicFoodJob = false;
 					settings.learningTelepathWorkForBothSides = false;
 					settings.disableUniqueXenotypeScenarios = false;
+					settings.restoreBodyPartsWithFullHP = false;
 					// Fix
 					settings.fixVanillaGeneImmunityCheck = true;
 					// settings.minWastepacksPerRecharge = false;
@@ -330,6 +334,7 @@ namespace WVC_XenotypesAndGenes
 					settings.useAlternativeDustogenicFoodJob = true;
 					settings.learningTelepathWorkForBothSides = true;
 					settings.disableUniqueXenotypeScenarios = false;
+					settings.restoreBodyPartsWithFullHP = false;
 					// Fix
 					settings.fixVanillaGeneImmunityCheck = true;
 					// settings.minWastepacksPerRecharge = false;

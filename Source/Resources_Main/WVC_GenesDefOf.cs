@@ -76,6 +76,9 @@ namespace WVC_XenotypesAndGenes
 		public static HistoryEventDef WVC_XenotypeSerumUsed;
 		// Job
 		// public static JobDef WVC_XenotypesAndGenes_EternalHungerBite;
+		// Damage
+		// public static DamageDef WVC_RegrowingPart;
+		public static HediffDef WVC_RegrowingPart;
 	}
 
 }

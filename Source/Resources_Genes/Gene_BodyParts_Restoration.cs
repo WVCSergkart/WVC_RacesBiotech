@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_RestoreMissingBodyParts : Gene
+	public class Gene_RestoreMissingBodyParts : Gene
 	{
 		private int ticksToHealBodyPart;
 
@@ -217,16 +217,16 @@ namespace WVC_XenotypesAndGenes
 		private void TryHealRandomPermanentWound(Pawn pawn, Gene gene)
 		{
 			// Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
-			if (cachedResurgentGene != null)
+			if (Resurgent != null)
 			{
-				if (cachedResurgentGene.totalHealingAllowed)
+				if (Resurgent.totalHealingAllowed)
 				{
-					if ((cachedResurgentGene.Value - gene.def.resourceLossPerDay) >= 0f)
+					if ((Resurgent.Value - gene.def.resourceLossPerDay) >= 0f)
 					{
 						TaggedString taggedString = HealingUtility.FixWorstHealthCondition(pawn, gene, true);
 						if (taggedString != null)
 						{
-							cachedResurgentGene.Value -= gene.def.resourceLossPerDay;
+							Resurgent.Value -= gene.def.resourceLossPerDay;
 						}
 						if (PawnUtility.ShouldSendNotificationAbout(pawn))
 						{
