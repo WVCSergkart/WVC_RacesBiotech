@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<KCSG.StructureLayoutDef>
+	<KCSG.StructureLayoutDef Abstract="True">
 	  <defName>WVC_DilapidatedTempleA</defName>
 	  <spawnConduits>false</spawnConduits>
 	  <layouts>
