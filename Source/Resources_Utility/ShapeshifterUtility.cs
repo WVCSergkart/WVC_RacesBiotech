@@ -43,7 +43,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			PawnGenerationRequest generateNewBornPawn = new(progenitor.kindDef, progenitor.Faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: true, canGeneratePawnRelations: false, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: false, allowAddictions: false, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, forceNoIdeo: false, forceNoBackstory: true, forbidAnyTitle: true, forceDead: false, null, null, null, null, null, 0f, progenitor.DevelopmentalStage);
+			PawnGenerationRequest generateNewBornPawn = new(progenitor.kindDef, progenitor.Faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: true, canGeneratePawnRelations: false, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: false, allowAddictions: false, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, fixedChronologicalAge: 0, fixedGender: progenitor.gender, fixedBiologicalAge: progenitor.ageTracker.AgeBiologicalTicks, forceNoIdeo: false, forceNoBackstory: true, forbidAnyTitle: true, forceDead: false, forcedXenotype: progenitor.genes.Xenotype, developmentalStages: progenitor.DevelopmentalStage);
 			Pawn clone = PawnGenerator.GeneratePawn(generateNewBornPawn);
 			if (PawnUtility.TrySpawnHatchedOrBornPawn(clone, progenitor))
 			{
@@ -52,7 +52,7 @@ namespace WVC_XenotypesAndGenes
 				ReimplanterUtility.ExtractXenogerm(progenitor);
 				clone.ageTracker.AgeBiologicalTicks = progenitor.ageTracker.AgeBiologicalTicks;
 				clone.ageTracker.AgeChronologicalTicks = 0L;
-				clone.gender = progenitor.gender;
+				// clone.gender = progenitor.gender;
 				clone.story.Childhood = WVC_GenesDefOf.WVC_XaG_Shapeshifter0_Child;
 				// if (clone.story.Adulthood != null)
 				// {
@@ -63,7 +63,8 @@ namespace WVC_XenotypesAndGenes
 				clone.story.bodyType = progenitor.story.bodyType;
 				clone.story.hairDef = progenitor.story.hairDef;
 				clone.story.favoriteColor = progenitor.story.favoriteColor;
-				GeneFeaturesUtility.TryGetSkillsFromPawn(clone, progenitor, 1.0f, false);
+				// GeneFeaturesUtility.TryGetSkillsFromPawn(clone, progenitor, 1.0f, false);
+				MiscUtility.TransferSkills(clone, progenitor);
 				if (clone.ideo != null)
 				{
 					clone.ideo.SetIdeo(progenitor.ideo.Ideo);

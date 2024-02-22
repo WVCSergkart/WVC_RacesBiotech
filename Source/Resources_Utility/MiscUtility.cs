@@ -13,6 +13,39 @@ namespace WVC_XenotypesAndGenes
 	public static class MiscUtility
 	{
 
+		// Skills
+
+		public static void TransferSkills(Pawn student, Pawn teacher)
+		{
+			List<SkillRecord> teacherSkills = teacher?.skills?.skills;
+			if (teacherSkills == null || student?.skills?.skills == null)
+			{
+				return;
+			}
+			foreach (SkillRecord skill in student.skills.skills)
+			{
+				while (skill.levelInt > 0)
+				{
+					skill.Learn(-9999999, true);
+				}
+				skill.xpSinceLastLevel = 0;
+			}
+			foreach (SkillRecord skill in student.skills.skills)
+			{
+				foreach (SkillRecord teacherSkill in teacherSkills)
+				{
+					if (skill.def != teacherSkill.def)
+					{
+						continue;
+					}
+					// skill.Learn(teacherSkill.XpTotalEarned, true);
+					skill.levelInt = teacherSkill.levelInt;
+					skill.xpSinceLastLevel = 0;
+					break;
+				}
+			}
+		}
+
 		// Job Misc
 
 		public static bool TryGetAbilityJob(Pawn biter, Pawn victim, AbilityDef abilityDef, out Job job)
@@ -290,6 +323,10 @@ namespace WVC_XenotypesAndGenes
 			foreach (Trait trait in target.story.traits.allTraits.ToList())
 			{
 				target.story.traits.RemoveTrait(trait, true);
+				if (target.story.traits.allTraits.Contains(trait) && trait.def.GetGenderSpecificCommonality(target.gender) > 0f)
+				{
+					target.story.traits.allTraits.Remove(trait);
+				}
 			}
 			foreach (Trait trait in source.story.traits.allTraits.ToList())
 			{

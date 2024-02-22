@@ -90,6 +90,8 @@
 	<selectionWeight>0.000044</selectionWeight>
 	<displayCategory>WVC_Scarifier</displayCategory>
 	<canGenerateInGeneSet>true</canGenerateInGeneSet>
+	<!-- <minAgeActive>13</minAgeActive> -->
+	<marketValueFactor>3</marketValueFactor>
 	<biostatCpx>8</biostatCpx>
 	<biostatArc>3</biostatArc>
 	<sterilize>true</sterilize>
