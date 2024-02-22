@@ -16,7 +16,7 @@ namespace WVC_XenotypesAndGenes
 
 		// ============================= GENE Learning Telepath =============================
 
-		public static bool TryLearning(Pawn pawn, float learnPercent = 0.2f)
+		public static bool TryLearning(Pawn pawn, float learnPercent = 0.2f, bool shareSkills = false)
 		{
 			if (pawn?.Map == null || pawn.Downed)
 			{
@@ -42,13 +42,13 @@ namespace WVC_XenotypesAndGenes
 				// if (GeneFeaturesUtility.CanPsyFeedNowWith(pawn, p))
 				// {
 				// }
-				TryGetSkillsFromPawn(pawn, p, learnPercent);
+				TryGetSkillsFromPawn(pawn, p, learnPercent, shareSkills);
 			}
 			FleckMaker.AttachedOverlay(pawn, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
 			return true;
 		}
 
-		public static void TryGetSkillsFromPawn(Pawn student, Pawn teacher, float learnPercent)
+		public static void TryGetSkillsFromPawn(Pawn student, Pawn teacher, float learnPercent, bool shareSkills = false)
 		{
 			List<SkillRecord> teacherSkills = teacher?.skills?.skills;
 			if (teacherSkills == null || student?.skills?.skills == null)
@@ -74,7 +74,7 @@ namespace WVC_XenotypesAndGenes
 					}
 					if (teacherSkill.GetLevel(false) < skill.GetLevel(false))
 					{
-						if (WVC_Biotech.settings.learningTelepathWorkForBothSides)
+						if (shareSkills)
 						{
 							teacherSkill.Learn(skill.XpTotalEarned * learnPercent, true);
 							// Log.Error(skill.def.LabelCap + " teached exp " + (teacherSkill.XpTotalEarned * learnPercent).ToString());

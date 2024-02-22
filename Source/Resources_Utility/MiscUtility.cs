@@ -1,5 +1,6 @@
 using RimWorld;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Verse;
 using Verse.AI;
@@ -282,6 +283,22 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 			return false;
+		}
+
+		public static void TransferTraits(Pawn target, Pawn source)
+		{
+			foreach (Trait trait in target.story.traits.allTraits.ToList())
+			{
+				target.story.traits.RemoveTrait(trait, true);
+			}
+			foreach (Trait trait in source.story.traits.allTraits.ToList())
+			{
+				if (trait.suppressedByGene != null || trait.sourceGene != null || trait.def.GetGenderSpecificCommonality(target.gender) <= 0f)
+				{
+					continue;
+				}
+				target.story.traits.GainTrait(trait, true);
+			}
 		}
 
 		// Shape

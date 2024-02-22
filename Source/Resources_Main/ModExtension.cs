@@ -110,7 +110,8 @@ namespace WVC_XenotypesAndGenes
 	public class GeneExtension_Shapeshifter : DefModExtension
 	{
 		public SoundDef soundDefOnImplant;
-		// public List<HediffDef> duplicateHediffs;
+		public List<HediffDef> duplicateHediffs;
+		public List<TraitDef> duplicateTraits;
 		public List<HediffDef> blockingHediffs;
 		public List<TraitDef> blockingTraits;
 		public List<string> trustedXenotypes;

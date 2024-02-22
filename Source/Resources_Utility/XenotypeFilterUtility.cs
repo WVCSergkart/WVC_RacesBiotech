@@ -6,8 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    // [StaticConstructorOnStartup]
-    public static class XenotypeFilterUtility
+	public static class XenotypeFilterUtility
 	{
 
 		public static List<BackstoryDef> BlackListedBackstoryForChanger()

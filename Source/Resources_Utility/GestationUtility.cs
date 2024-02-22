@@ -10,7 +10,7 @@ namespace WVC_XenotypesAndGenes
 {
 
     // [StaticConstructorOnStartup]
-    public static class GestationUtility
+	public static class GestationUtility
 	{
 
 		public static void GenerateNewBornPawn(Pawn pawn, string completeMessage = "WVC_RB_Gene_MechaGestator", bool endogeneTransfer = true, bool xenogeneTransfer = true, Pawn spawnPawn = null)

@@ -79,6 +79,11 @@ namespace WVC_XenotypesAndGenes
 		// Damage
 		// public static DamageDef WVC_RegrowingPart;
 		public static HediffDef WVC_RegrowingPart;
+		// Backstory
+		public static BackstoryDef WVC_XaG_Shapeshifter0_Child;
+		// public static BackstoryDef ColonyChild59;
+		// public static BackstoryDef Colonist97;
+		// public static BackstoryDef Child27;
 	}
 
 }

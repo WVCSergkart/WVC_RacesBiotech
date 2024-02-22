@@ -385,7 +385,7 @@ Each mechanoid costs 0.15 nutrition to summon.</WVC_XaG_Gene_DustMechlinkDesc>
 	<WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>{TARGET_nameDef}'s genes have been significantly changed, {TARGET_possessive} xenotype is now {1}. {TARGET_nameDef} won't be able to use {2} again for a while.</WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>
 
 	<WVC_XaG_GeneShapeshifter_DuplicateLetterLabel>Duplicate</WVC_XaG_GeneShapeshifter_DuplicateLetterLabel>
-	<WVC_XaG_GeneShapeshifter_DuplicateLetterDesc>Due to the shapeshift mechanites overclocking, {TARGET_nameDef} was cloned. {TARGET_nameDef}'s clone inherited most of {TARGET_possessive} features, including {TARGET_possessive} backstory and traits.</WVC_XaG_GeneShapeshifter_DuplicateLetterDesc>
+	<WVC_XaG_GeneShapeshifter_DuplicateLetterDesc>Due to the shapeshift mechanites overclocking, {TARGET_nameDef} was cloned. {TARGET_nameDef}'s clone inherited most of {TARGET_possessive} skills and traits.</WVC_XaG_GeneShapeshifter_DuplicateLetterDesc>
 
 	<WVC_XaG_GeneShapeshifter_TrustedXenotypes>This xenotype has been verified by the mod developer.</WVC_XaG_GeneShapeshifter_TrustedXenotypes>
 	<WVC_XaG_GeneShapeshifter_UnknownXenotypes>This xenotype has not been tested, use at your own risk.</WVC_XaG_GeneShapeshifter_UnknownXenotypes>

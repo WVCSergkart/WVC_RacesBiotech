@@ -128,6 +128,9 @@
 			<!-- <duplicateHediffs> -->
 				<!-- <li>WVC_Shapeshifter_DuplicateMode</li> -->
 			<!-- </duplicateHediffs> -->
+			<!-- <duplicateTraits> -->
+				<!-- <li>WVC_Shapeshifter_DuplicateMode</li> -->
+			<!-- </duplicateTraits> -->
 			<blockingHediffs>
 				<li>XenogermReplicating</li>
 				<li>XenogerminationComa</li>

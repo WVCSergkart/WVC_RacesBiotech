@@ -3,13 +3,15 @@
 
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" MayRequire="ludeon.rimworld.royalty">
 	<defName>WVC_Lilith</defName>
-	<label>lilith</label>
-	<description>Liliths are ageless, psy-gifted super-humans powered by archotech-created archites in the bloodstream. They are divinely beautiful, can communicate with the power of thought, never suffer from disease and learn the skills of exploring the memories of others. But their endless hemogen thirst, incredible fragility and genetic blindness makes them dependent. They cannot exist on their own and greatly need others, because those around them mean protection, food and knowledge.
+	<!-- To-Do: Replace xenotype name -->
+	<!-- harvkinX bloodkinX feedkindX demobloodX bloodversterX lilif? -->
+	<label>lilif</label>
+	<description>Lilifs are ageless, psy-gifted super-humans powered by archotech-created archites in the bloodstream. They are divinely beautiful, can communicate with the power of thought, never suffer from disease and learn the skills of exploring the memories of others. But their endless hemogen thirst, incredible fragility and genetic blindness makes them dependent. They cannot exist on their own and greatly need others, because those around them mean protection, food and knowledge.
 
-&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; Liliths cannot learn skills on their own; they copy the skills of other colonists. Also, their dependence on hemogen is very strong, they cannot restrain their hunger and the colonists will be food for them one way or another.
+&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; Lilifs cannot learn skills on their own; they copy the skills of other colonists. Also, their dependence on hemogen is very strong, they cannot restrain their hunger and the colonists will be food for them one way or another.
 
 They are irreversibly blind and very fragile, any stray bullet can kill them instantly. But their psionic potential is limitless, as they passively restore psyfocus.</description>
-	<descriptionShort>Liliths are ageless, psy-gifted super-humans powered by archotech-created archites in the bloodstream. They are divinely beautiful, can communicate with the power of thought, never suffer from disease and learn the skills of exploring the memories of others. But their endless hemogen thirst, incredible fragility and genetic blindness makes them dependent. They cannot exist on their own and greatly need others, because those around them mean protection, food and knowledge.</descriptionShort>
+	<descriptionShort>Lilifs are ageless, psy-gifted super-humans powered by archotech-created archites in the bloodstream. They are divinely beautiful, can communicate with the power of thought, never suffer from disease and learn the skills of exploring the memories of others. But their endless hemogen thirst, incredible fragility and genetic blindness makes them dependent. They cannot exist on their own and greatly need others, because those around them mean protection, food and knowledge.</descriptionShort>
 	<inheritable>true</inheritable>
 	<iconPath>WVC/UI/Mecha_Icons/Icon_Lilith_v0</iconPath>
 	<displayPriority>-190</displayPriority>
