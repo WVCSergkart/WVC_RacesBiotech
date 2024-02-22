@@ -71,7 +71,7 @@
 			<def>VFEC_AddStartingStructure</def>
 			<structureLabel>Dilapidated temple</structureLabel>
 			<nearMapCenter>True</nearMapCenter>
-			<fullClear>True</fullClear>
+			<fullClear>false</fullClear>
 			<spawnTheStartingPawn>True</spawnTheStartingPawn>
 			<method>Standing</method>
 			<chooseFrom>
