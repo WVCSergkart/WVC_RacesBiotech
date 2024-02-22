@@ -296,4 +296,44 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	</fixedIngredientFilter>
   </RecipeDef>
 
+  <!-- ==================================== -->
+
+  <ThingDef ParentName="WVC_XenotypeSerum_Craftable">
+	<defName>WVC_ShapeshifterOverclockerSerum_Base</defName>
+	<label>shiftover serum</label>
+	<description>A one-use super-dose of mechanites tuned to disstabilize the influence of the psychic field on the shapeshifter. As a result, shapeshift mechanites go into overclocking mode, which allows the carrier of the shapeshift genes to duplicate themselves.</description>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/ShiftInjector_v0</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+	<descriptionHyperlinks Inherit="False">
+	  <GeneDef>WVC_Shapeshifter</GeneDef>
+	</descriptionHyperlinks>
+	<statBases>
+	  <MarketValue>670</MarketValue>
+	  <DeteriorationRate>0.5</DeteriorationRate>
+	</statBases>
+	<tradeTags>
+	  <!-- <li>WVC_XenotypeSerums_NonCraftable</li> -->
+	</tradeTags>
+	<recipeMaker>
+	  <researchPrerequisite>WVC_XenotypesAndGenes_NutrientsInjector</researchPrerequisite>
+	  <skillRequirements>
+		<Crafting>8</Crafting>
+		<Intellectual>8</Intellectual>
+	  </skillRequirements>
+	</recipeMaker>
+	<costList>
+	  <WVC_EmptyXenotypeSerum>2</WVC_EmptyXenotypeSerum>
+	  <WVC_UniversalFuel>45</WVC_UniversalFuel>
+	</costList>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_GeneRestoration">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GiveHediffIfHasGene</compClass>
+		<hediffDef>WVC_Scarifier_ShapeshifterDuplicateMode</hediffDef>
+		<geneDef>WVC_Shapeshifter</geneDef>
+	  </li>
+	</comps>
+  </ThingDef>
+
 </Defs>

@@ -69,4 +69,44 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class CompUseEffect_GiveHediffIfHasGene : CompUseEffect
+	{
+		public CompProperties_UseEffect_GeneRestoration Props => (CompProperties_UseEffect_GeneRestoration)props;
+
+		public override void DoEffect(Pawn pawn)
+		{
+			if (!SerumUtility.PawnIsHuman(pawn) || !XaG_GeneUtility.HasActiveGene(Props.geneDef, pawn))
+			{
+				pawn.health.AddHediff(WVC_GenesDefOf.WVC_IncompatibilityComa);
+				Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+				return;
+			}
+			if (!pawn.health.hediffSet.HasHediff(Props.hediffDef))
+			{
+				pawn.health.AddHediff(Props.hediffDef);
+			}
+			else
+			{
+				Hediff hediff = pawn.health.hediffSet.GetFirstHediffOfDef(Props.hediffDef);
+				HediffComp_Disappears hediffComp_Disappears = hediff.TryGetComp<HediffComp_Disappears>();
+				if (hediffComp_Disappears != null)
+				{
+					hediffComp_Disappears.ticksToDisappear += hediffComp_Disappears.Props.disappearsAfterTicks.RandomInRange;
+				}
+			}
+		}
+
+		public override bool CanBeUsedBy(Pawn p, out string failReason)
+		{
+			failReason = null;
+			if (!SerumUtility.PawnIsHuman(p) || !XaG_GeneUtility.HasActiveGene(Props.geneDef, p))
+			{
+				failReason = "WVC_PawnIsAndroidCheck".Translate();
+				return false;
+			}
+			return true;
+		}
+
+	}
+
 }

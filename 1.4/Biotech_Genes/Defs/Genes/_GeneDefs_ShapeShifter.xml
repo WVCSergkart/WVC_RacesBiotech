@@ -125,18 +125,16 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Shapeshifter">
 			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
 			<!-- <shapeshiftEffect>CocoonWakingUp</shapeshiftEffect> -->
-			<!-- <duplicateHediffs> -->
-				<!-- <li>WVC_Shapeshifter_DuplicateMode</li> -->
-			<!-- </duplicateHediffs> -->
-			<!-- <duplicateTraits> -->
-				<!-- <li>WVC_Shapeshifter_DuplicateMode</li> -->
-			<!-- </duplicateTraits> -->
+			<duplicateHediffs>
+				<li>WVC_Scarifier_ShapeshifterDuplicateMode</li>
+			</duplicateHediffs>
+			<duplicateTraits>
+				<li>WVC_XaG_ShapeshiftOverclock</li>
+			</duplicateTraits>
 			<blockingHediffs>
 				<li>XenogermReplicating</li>
 				<li>XenogerminationComa</li>
 				<li>XenogermLossShock</li>
-				<!-- <li>ResurrectionSickness</li> -->
-				<!-- <li>RegenerationComa</li> -->
 			</blockingHediffs>
 			<blockingTraits>
 				<li>WVC_XaG_ShapeshiftPhobia</li>
@@ -146,6 +144,10 @@
 				<li>
 					<traitDef>WVC_XaG_ShapeshiftPhobia</traitDef>
 					<weight>0.09</weight>
+				</li>
+				<li>
+					<traitDef>WVC_XaG_ShapeshiftOverclock</traitDef>
+					<weight>0.07</weight>
 				</li>
 			</possibleTraits>
 			<!-- Xenotypes with which this gene works correctly. Any string -->

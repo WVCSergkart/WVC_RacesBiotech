@@ -11,6 +11,10 @@ namespace WVC_XenotypesAndGenes
 
 		public bool canBeUsedInCaravan = false;
 
+		public GeneDef geneDef;
+
+		public HediffDef hediffDef;
+
 		public List<HediffDef> hediffsToRemove;
 
 		public CompProperties_UseEffect_GeneRestoration()

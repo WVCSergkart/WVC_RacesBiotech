@@ -51,8 +51,8 @@
 
   <ResearchProjectDef ParentName="WVC_XenotypesAndGenesResearchProjectDefs_AfterSerumLab">
 	<defName>WVC_XenotypesAndGenes_NutrientsInjector</defName>
-	<label>dustogenic nutrients</label>
-	<description>Emergency methods of obtaining nutrients.</description>
+	<label>special serums</label>
+	<description>Special serums that directly interact with genes.</description>
 	<baseCost>700</baseCost>
 	<researchViewX>1.00</researchViewX>
 	<researchViewY>5.50</researchViewY>

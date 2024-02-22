@@ -43,7 +43,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			PawnGenerationRequest generateNewBornPawn = new(progenitor.kindDef, Faction.OfPlayer, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: true, canGeneratePawnRelations: false, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: false, allowAddictions: false, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, forceNoIdeo: false, forceNoBackstory: true, forbidAnyTitle: true, forceDead: false, null, null, null, null, null, 0f, progenitor.DevelopmentalStage);
+			PawnGenerationRequest generateNewBornPawn = new(progenitor.kindDef, progenitor.Faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: true, canGeneratePawnRelations: false, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: false, allowAddictions: false, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, forceNoIdeo: false, forceNoBackstory: true, forbidAnyTitle: true, forceDead: false, null, null, null, null, null, 0f, progenitor.DevelopmentalStage);
 			Pawn clone = PawnGenerator.GeneratePawn(generateNewBornPawn);
 			if (PawnUtility.TrySpawnHatchedOrBornPawn(clone, progenitor))
 			{
