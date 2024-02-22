@@ -36,10 +36,7 @@
 	<degreeDatas>
 	  <li>
 		<label>psychic shift</label>
-		<description>[PAWN_nameDef] has a special psychic sensitivity, [PAWN_pronoun] is a little nervous and is especially susceptible to archites. This susceptibility may have unexpected effects on some genes.
-
-&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; [PAWN_nameDef] cannot use the shapeshift ability of the gene of the same name. However, [PAWN_nameDef] can create clones of [PAWN_objective]self.</description>
-		<!-- <description>[PAWN_nameDef] has trouble focusing and is constantly stressed about [PAWN_possessive] physical and genetic health. This nervousness has a psychic effect, which may affect the archite genes, if [PAWN_nameDef] has any.</description> -->
+		<description>[PAWN_nameDef] has a special psychic sensitivity, [PAWN_pronoun] is a little nervous and is especially susceptible to archites. This susceptibility may have unexpected effects on some genes.</description>
 		<statOffsets>
 		  <WorkSpeedGlobal>-0.10</WorkSpeedGlobal>
 		  <MentalBreakThreshold>0.12</MentalBreakThreshold>

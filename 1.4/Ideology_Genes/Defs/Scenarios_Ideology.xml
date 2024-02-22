@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ScenarioDef MayRequire="ludeon.rimworld.royalty" WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
+	<defName>WVC_XenotypesAndGenes_ShapeShiftOver</defName>
+	<label>Shiftover</label>
+	<description>You woke up on an altar in an ancient, dilapidated temple. You don’t remember how you got here, or where all your things are. There was no one nearby, nor any hints as to how you ended up here. You are not even sure that you are the same person as you remember, all your memories are cloudy and fragmented.</description>
+	<scenario>
+	  <summary>One pawn with no supplies. &lt;color=#a1ff95&gt;Very easy&lt;/color&gt; difficulty.</summary>
+	  <playerFaction>
+		<def>PlayerFaction</def>
+		<factionDef>PlayerTribe</factionDef>
+	  </playerFaction>
+	  <parts>
+
+		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_KindDefs">
+			<def>ConfigurePawnsKindDefs</def>
+			<pawnChoiceCount>1</pawnChoiceCount>
+			<leftBehindPawnKind>WVC_Ashen_Player</leftBehindPawnKind>
+			<kindCounts>
+				<li>
+					<kindDef>WVC_Ashen_Player</kindDef>
+				</li>
+			</kindCounts>
+		</li>
+		<!-- <li Class="ScenPart_ConfigPage_ConfigureStartingPawns_Xenotypes"> -->
+		  <!-- <def>ConfigurePawnsXenotypes</def> -->
+		  <!-- <pawnChoiceCount>8</pawnChoiceCount> -->
+		  <!-- <customSummary>Start with one adult or child ashen.</customSummary> -->
+		  <!-- <overrideKinds> -->
+			<!-- <li> -->
+			  <!-- <xenotype>WVC_Ashen</xenotype> -->
+			  <!-- <pawnKind>WVC_Ashen_Player</pawnKind> -->
+			<!-- </li> -->
+		  <!-- </overrideKinds> -->
+		  <!-- <xenotypeCounts> -->
+			<!-- <li> -->
+			  <!-- <xenotype>WVC_Ashen</xenotype> -->
+			  <!-- <count>1</count> -->
+			  <!-- <description>ashen</description> -->
+			  <!-- <requiredAtStart>true</requiredAtStart> -->
+			  <!-- <allowedDevelopmentalStages>Adult, Child</allowedDevelopmentalStages> -->
+			<!-- </li> -->
+		  <!-- </xenotypeCounts> -->
+		<!-- </li> -->
+
+		<!-- <li Class="ScenPart_PlayerPawnsArriveMethod"> -->
+			<!-- <def>PlayerPawnsArriveMethod</def> -->
+		<!-- </li> -->
+
+		<li Class="ScenPart_GameStartDialog">
+			<def>GameStartDialog</def>
+			<text>You woke up on an altar in an ancient, dilapidated temple. You don’t remember how you got here, or where all your things are. There was no one nearby, nor any hints as to how you ended up here. You are not even sure that you are the same person as you remember, all your memories are cloudy and fragmented.</text>
+			<closeSound>GameStartSting</closeSound>
+		</li>
+
+		<li Class="ScenPart_Naked">
+			<def>Naked</def>
+			<chance>1</chance>
+			<context>PlayerStarter</context>
+		</li>
+
+		<li Class="ScenPart_ForcedTrait">
+			<def>ForcedTrait</def>
+			<chance>1</chance>
+			<context>PlayerStarter</context>
+			<trait>WVC_XaG_ShapeshiftOverclock</trait>
+		</li>
+
+		<li Class="KCSG.ScenPart_AddStartingStructure">
+			<def>VFEC_AddStartingStructure</def>
+			<structureLabel>Dilapidated temple</structureLabel>
+			<nearMapCenter>True</nearMapCenter>
+			<fullClear>True</fullClear>
+			<spawnTheStartingPawn>True</spawnTheStartingPawn>
+			<method>Standing</method>
+			<chooseFrom>
+				<li>WVC_DilapidatedTempleA</li>
+			</chooseFrom>
+		</li>
+
+	  </parts>
+	</scenario>
+  </ScenarioDef>
+
+  <!-- ========================================================= -->
+
+</Defs>
