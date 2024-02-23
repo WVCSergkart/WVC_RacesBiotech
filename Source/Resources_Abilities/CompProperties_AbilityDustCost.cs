@@ -59,7 +59,7 @@ namespace WVC_XenotypesAndGenes
 			Cache();
 			if (need_Food != null)
 			{
-				DustUtility.OffsetNeedFood(parent.pawn, 0f - Props.nutritionCost);
+				UndeadUtility.OffsetNeedFood(parent.pawn, 0f - Props.nutritionCost);
 			}
 		}
 

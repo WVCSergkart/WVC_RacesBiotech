@@ -5,122 +5,68 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class ThoughtWorker_Precept_HasAnyXenotypesAndCount : ThoughtWorker_Precept
+	public abstract class ThoughtWorker_PreceptWithXaGComponent : ThoughtWorker_Precept
 	{
 
-		protected override ThoughtState ShouldHaveThought(Pawn p)
-		{
-			if (p.Faction == null || p.IsSlave)
-			{
-				return false;
-			}
-			List<Map> maps = Find.Maps;
-			for (int i = 0; i < maps.Count; i++)
-			{
-				foreach (Pawn item in maps[i].mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer))
-				{
-					if (!item.IsBaseliner())
-					{
-						return ThoughtState.ActiveDefault;
-					}
-				}
-			}
-			return ThoughtState.Inactive;
-		}
+		[Unsaved(false)]
+		private XaG_GameComponent cachedGameComponent;
 
-		public override float MoodMultiplier(Pawn p)
+		public XaG_GameComponent GameComponent
 		{
-			return MiscUtility.CountAllPlayerXenos();
+			get
+			{
+				if (cachedGameComponent == null)
+				{
+					cachedGameComponent = Current.Game.GetComponent<XaG_GameComponent>();
+				}
+				return cachedGameComponent;
+			}
 		}
 
 	}
 
-	public class ThoughtWorker_Precept_HasAnyNonHumanlikeAndCount : ThoughtWorker_Precept
+	public class ThoughtWorker_Precept_HasAnyXenotypesAndCount : ThoughtWorker_PreceptWithXaGComponent
 	{
 
 		protected override ThoughtState ShouldHaveThought(Pawn p)
 		{
-			if (p.Faction == null || p.IsSlave)
+			if (p.Faction != Faction.OfPlayer)
 			{
 				return false;
 			}
-			List<Map> maps = Find.Maps;
-			for (int i = 0; i < maps.Count; i++)
+			if (GameComponent.cachedXenotypesCount > 0)
 			{
-				foreach (Pawn item in maps[i].mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer))
-				{
-					if (!item.RaceProps.Humanlike)
-					{
-						return ThoughtState.ActiveDefault;
-					}
-				}
+				return ThoughtState.ActiveDefault;
 			}
 			return ThoughtState.Inactive;
 		}
 
 		public override float MoodMultiplier(Pawn p)
 		{
-			return MiscUtility.CountAllPlayerNonHumanlikes();
+			return GameComponent.cachedXenotypesCount;
 		}
 
 	}
 
-	public class ThoughtWorker_Precept_HasAnyMechanoidsAndCount : ThoughtWorker_Precept
+	public class ThoughtWorker_Precept_HasAnyNonHumanlikeAndCount : ThoughtWorker_PreceptWithXaGComponent
 	{
 
 		protected override ThoughtState ShouldHaveThought(Pawn p)
 		{
-			if (p.Faction == null || p.IsSlave)
+			if (p.Faction != Faction.OfPlayer)
 			{
 				return false;
 			}
-			List<Map> maps = Find.Maps;
-			for (int i = 0; i < maps.Count; i++)
+			if (GameComponent.cachedNonHumansCount > 0)
 			{
-				foreach (Pawn item in maps[i].mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer))
-				{
-					if (item.IsColonyMechPlayerControlled)
-					{
-						return ThoughtState.ActiveDefault;
-					}
-				}
+				return ThoughtState.ActiveDefault;
 			}
 			return ThoughtState.Inactive;
 		}
 
 		public override float MoodMultiplier(Pawn p)
 		{
-			return MiscUtility.CountAllPlayerMechs();
-		}
-
-	}
-
-	public class ThoughtWorker_Precept_HasAnyAnimalsAndCount : ThoughtWorker_Precept
-	{
-
-		protected override ThoughtState ShouldHaveThought(Pawn p)
-		{
-			if (p.Faction == null || p.IsSlave)
-			{
-				return false;
-			}
-			List<Map> maps = Find.Maps;
-			for (int i = 0; i < maps.Count; i++)
-			{
-				foreach (Pawn item in maps[i].mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer))
-				{
-					if (item.RaceProps.Animal)
-					{
-						return ThoughtState.ActiveDefault;
-					}
-				}
-			}
-			return ThoughtState.Inactive;
-		}
-
-		public override float MoodMultiplier(Pawn p)
-		{
-			return MiscUtility.CountAllPlayerAnimals();
+			return GameComponent.cachedNonHumansCount;
 		}
 
 	}

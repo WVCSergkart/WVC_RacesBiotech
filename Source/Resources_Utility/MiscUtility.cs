@@ -397,9 +397,9 @@ namespace WVC_XenotypesAndGenes
 
 		// Pawns
 
-		public static float CountAllPlayerXenos()
+		public static int CountAllPlayerXenos()
 		{
-			float mult = 0f;
+			int mult = 0;
 			List<XenotypeDef> xenoList = new();
 			List<CustomXenotype> xenoListB = new();
 			List<Map> maps = Find.Maps;
@@ -412,6 +412,10 @@ namespace WVC_XenotypesAndGenes
 						continue;
 					}
 					if (item.IsBaseliner())
+					{
+						continue;
+					}
+					if (XaG_GeneUtility.PawnIsAndroid(item))
 					{
 						continue;
 					}
@@ -431,9 +435,9 @@ namespace WVC_XenotypesAndGenes
 			return mult;
 		}
 
-		public static float CountAllPlayerNonHumanlikes()
+		public static int CountAllPlayerNonHumanlikes()
 		{
-			float mult = 0f;
+			int mult = 0;
 			List<Map> maps = Find.Maps;
 			for (int i = 0; i < maps.Count; i++)
 			{
@@ -448,9 +452,9 @@ namespace WVC_XenotypesAndGenes
 			return mult;
 		}
 
-		public static float CountAllPlayerMechs()
+		public static int CountAllPlayerMechs()
 		{
-			float mult = 0f;
+			int mult = 0;
 			List<Map> maps = Find.Maps;
 			for (int i = 0; i < maps.Count; i++)
 			{
@@ -465,9 +469,9 @@ namespace WVC_XenotypesAndGenes
 			return mult;
 		}
 
-		public static float CountAllPlayerAnimals()
+		public static int CountAllPlayerAnimals()
 		{
-			float mult = 0f;
+			int mult = 0;
 			List<Map> maps = Find.Maps;
 			for (int i = 0; i < maps.Count; i++)
 			{

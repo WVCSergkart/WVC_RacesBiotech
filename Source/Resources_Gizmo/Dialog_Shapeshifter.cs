@@ -124,7 +124,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void StartChange()
 		{
-			if (ShapeshifterUtility.TryDuplicatePawn(gene.pawn, gene, selectedXeno, duplicateMode))
+			if (UndeadUtility.TryDuplicatePawn(gene.pawn, gene, selectedXeno, duplicateMode))
 			{
 				Close(doCloseSound: false);
 				return;

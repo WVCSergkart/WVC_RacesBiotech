@@ -156,9 +156,9 @@ namespace WVC_XenotypesAndGenes
 			{
 				// if ((gene_Dust.Value - def.resourceLossPerDay) >= 0f)
 				// {
-					// gene_Dust.Value -= def.resourceLossPerDay;
+				// gene_Dust.Value -= def.resourceLossPerDay;
 				// }
-				DustUtility.OffsetNeedFood(pawn, -1f * def.resourceLossPerDay);
+				UndeadUtility.OffsetNeedFood(pawn, -1f * def.resourceLossPerDay);
 				MechanoidsUtility.MechSummonQuest(pawn, SummonQuest);
 				if (i == 0)
 				{

@@ -17,7 +17,7 @@ namespace WVC_XenotypesAndGenes
 			base.PostAdd();
 			if (!pawn.Spawned)
 			{
-				ShapeshifterUtility.AddRandomTraitFromListWithChance(pawn, Props);
+				UndeadUtility.AddRandomTraitFromListWithChance(pawn, Props);
 			}
 		}
 

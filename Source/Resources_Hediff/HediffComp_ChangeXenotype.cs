@@ -53,7 +53,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void End()
 		{
-			DustUtility.ReimplantGenes(genesOwner, Pawn);
+			UndeadUtility.ReimplantGenes(genesOwner, Pawn);
 			Pawn.health.RemoveHediff(parent);
 		}
 

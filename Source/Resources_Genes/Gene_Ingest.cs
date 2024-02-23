@@ -8,7 +8,7 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_DustDrain : Gene
+	public class Gene_DustDrain : Gene
 	{
 
 		// private float cachedMaxNutrition = 0f;
@@ -27,7 +27,7 @@ namespace WVC_XenotypesAndGenes
 			float nutrition = thing.GetStatValue(StatDefOf.Nutrition);
 			if (ingestible != null && nutrition > 0f)
 			{
-				DustUtility.OffsetNeedFood(pawn, (-1f * def.resourceLossPerDay) * nutrition * (float)numTaken);
+				UndeadUtility.OffsetNeedFood(pawn, (-1f * def.resourceLossPerDay) * nutrition * (float)numTaken);
 				// Log.Error(def.defName + " " + ((-1f * def.resourceLossPerDay) * nutrition * (float)numTaken) + " nutrition gain");
 			}
 		}
@@ -142,13 +142,13 @@ namespace WVC_XenotypesAndGenes
 			float nutrition = thing.GetStatValue(StatDefOf.Nutrition);
 			if (ingestible != null && nutrition > 0f)
 			{
-				if (Props.specialFoodDefs.Contains(thing.def) || DustUtility.PawnInPronePosition(pawn))
+				if (Props.specialFoodDefs.Contains(thing.def) || UndeadUtility.PawnDowned(pawn))
 				{
-					DustUtility.OffsetNeedFood(pawn, 10.0f);
+					UndeadUtility.OffsetNeedFood(pawn, 10.0f);
 				}
 				else
 				{
-					DustUtility.OffsetNeedFood(pawn, -0.1f * nutrition * (float)numTaken);
+					UndeadUtility.OffsetNeedFood(pawn, -0.1f * nutrition * (float)numTaken);
 				}
 			}
 		}
@@ -168,9 +168,9 @@ namespace WVC_XenotypesAndGenes
 			// float nutrition = thing.GetStatValue(StatDefOf.Nutrition);
 			// if (ingestible != null && nutrition >= 1f)
 			// {
-				// DustUtility.OffsetNeedFood(pawn, 10.0f * nutrition * (float)numTaken);
+			// DustUtility.OffsetNeedFood(pawn, 10.0f * nutrition * (float)numTaken);
 			// }
-			DustUtility.OffsetNeedFood(pawn, 10.0f * (float)numTaken);
+			UndeadUtility.OffsetNeedFood(pawn, 10.0f * (float)numTaken);
 		}
 
 	}
@@ -184,7 +184,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			DustUtility.OffsetNeedFood(pawn, 10.0f * (float)numTaken);
+			UndeadUtility.OffsetNeedFood(pawn, 10.0f * (float)numTaken);
 		}
 
 	}
@@ -322,7 +322,7 @@ namespace WVC_XenotypesAndGenes
 					continue;
 				}
 				int stack = GetFoodCount(specialFood) > 1 ? GetFoodCount(specialFood) : 1;
-				DustUtility.OffsetNeedFood(pawn, GetHunger(stack, specialFood, need_Food));
+				UndeadUtility.OffsetNeedFood(pawn, GetHunger(stack, specialFood, need_Food));
 				Job job = JobMaker.MakeJob(JobDefOf.Ingest, specialFood);
 				job.count = stack + 3;
 				pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);

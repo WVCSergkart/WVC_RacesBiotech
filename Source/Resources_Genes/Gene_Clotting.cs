@@ -54,7 +54,7 @@ namespace WVC_XenotypesAndGenes
 			List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
 			for (int num = 0; num < hediffs.Count; num++)
 			{
-				if (!hediffs[num].TendableNow() || hediffs[num].IsTended() || !DustUtility.PawnInPronePosition(pawn))
+				if (!hediffs[num].TendableNow() || hediffs[num].IsTended() || !UndeadUtility.PawnDowned(pawn))
 				{
 					continue;
 				}
@@ -62,7 +62,7 @@ namespace WVC_XenotypesAndGenes
 				// if (gene_Dust != null)
 				// {
 				// }
-				DustUtility.OffsetNeedFood(pawn, -1f * def.resourceLossPerDay);
+				UndeadUtility.OffsetNeedFood(pawn, -1f * def.resourceLossPerDay);
 				hediffs[num].Tended(TendingQualityRange.RandomInRange, TendingQualityRange.TrueMax, 1);
 				// hediffs[num].Heal(TendingQualityRange.RandomInRange * 2);
 			}

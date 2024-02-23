@@ -116,7 +116,6 @@
     <Compile Include="Resources_RitualAttachableOutcome\OutcomeWorker_ShapeshifterJoin.cs" />
     <Compile Include="Resources_Things\CompUseEffect_GeneGiver.cs" />
     <Compile Include="Resources_Things\ThingClass_XenotypeSerum.cs" />
-    <Compile Include="Resources_Utility\ShapeshifterUtility.cs" />
     <Compile Include="Resources_Utility\Templates_Utility.cs" />
     <Compile Include="Resources_Workers\JobDriver_AbsorbGenogerm.cs" />
     <Compile Include="Resources_Workers\JobDriver_RetuneSerum.cs" />

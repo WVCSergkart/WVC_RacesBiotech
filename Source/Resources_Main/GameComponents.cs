@@ -7,11 +7,17 @@ namespace WVC_XenotypesAndGenes
 
 	public class XaG_GameComponent : GameComponent
 	{
+
 		// public override void StartedNewGame()
 		// {
 			// base.StartedNewGame();
 			// Apply();
 		// }
+
+		private int nextRecache = 60000;
+
+		public int cachedXenotypesCount = 0;
+		public int cachedNonHumansCount = 0;
 
 		public Game currentGame;
 
@@ -22,25 +28,36 @@ namespace WVC_XenotypesAndGenes
 
 		public override void LoadedGame()
 		{
-			// base.LoadedGame();
-			// foreach (Pawn item in StaticCollectionsClass.skillsNotDecayPawns.ToList())
-			// {
-				// if (item == null || item.Discarded || item.Destroyed)
-				// {
-					// StaticCollectionsClass.RemoveSkillDecayGenePawnFromList(item);
-				// }
-			// }
-			// StaticCollectionsClass.skillsNotDecayPawns.Clear();
 			DevFixes();
+			XaG_General();
+			// ResetCounter();
 		}
 
-		// public virtual void GameComponentTick()
-		// {
-		// }
+		public override void GameComponentTick()
+		{
+			nextRecache--;
+			if (nextRecache > 0)
+			{
+				return;
+			}
+			XaG_General();
+			ResetCounter();
+		}
 
-		// public void Ideology()
-		// {
-		// }
+		public void XaG_General()
+		{
+			if (ModLister.IdeologyInstalled)
+			{
+				cachedXenotypesCount = MiscUtility.CountAllPlayerXenos();
+				cachedNonHumansCount = MiscUtility.CountAllPlayerNonHumanlikes();
+			}
+		}
+
+		public override void ExposeData()
+		{
+			Scribe_Values.Look(ref cachedXenotypesCount, "cachedXenotypesCount", 0);
+			Scribe_Values.Look(ref cachedNonHumansCount, "cachedNonHumansCount", 0);
+		}
 
 		public void DevFixes()
 		{
@@ -136,6 +153,11 @@ namespace WVC_XenotypesAndGenes
 				}
 				WVC_Biotech.settings.fixGeneAbilitiesOnLoad = false;
 			}
+		}
+
+		public void ResetCounter()
+		{
+			nextRecache = 60000;
 		}
 
 	}
