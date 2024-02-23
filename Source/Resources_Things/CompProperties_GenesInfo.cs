@@ -26,25 +26,6 @@ namespace WVC_XenotypesAndGenes
 
 		private CompProperties_GenesDisplayInfo Props => (CompProperties_GenesDisplayInfo)props;
 
-		// public override void PostSpawnSetup(bool respawningAfterLoad)
-		// {
-			// base.PostSpawnSetup(respawningAfterLoad);
-			// if (parent is Pawn pawn)
-			// {
-				// if (Props.onlyPlayerFaction)
-				// {
-					// if (pawn.IsColonist)
-					// {
-						// CacheInfoGenes(pawn);
-					// }
-				// }
-				// else
-				// {
-					// CacheInfoGenes(pawn);
-				// }
-			// }
-		// }
-
 		// =================
 
 		public List<Gene_Spawner> cachedSpawnerGenes = null;
@@ -61,30 +42,6 @@ namespace WVC_XenotypesAndGenes
 		public void CacheInfoGenes(Pawn pawn)
 		{
 			GetAllGenesOfTypes(pawn);
-			// if (WVC_Biotech.settings.enableGeneSpawnerGizmo)
-			// {
-				// cachedSpawnerGenes = GetSpawnerGenes(pawn);
-			// }
-			// if (WVC_Biotech.settings.enableGeneWingInfo)
-			// {
-				// cachedWingGene = pawn?.genes?.GetFirstGeneOfType<Gene_Wings>();
-			// }
-			// if (WVC_Biotech.settings.enableGeneUndeadInfo)
-			// {
-				// cachedUndeadGene = pawn?.genes?.GetFirstGeneOfType<Gene_Undead>();
-			// }
-			// if (WVC_Biotech.settings.enableGeneBlesslinkInfo)
-			// {
-				// cachedBlesslinkGene = pawn?.genes?.GetFirstGeneOfType<Gene_DustMechlink>();
-			// }
-			// if (WVC_Biotech.settings.enableGeneScarifierInfo)
-			// {
-				// cachedScarifierGene = pawn?.genes?.GetFirstGeneOfType<Gene_Scarifier>();
-			// }
-			// if (WVC_Biotech.settings.enableGeneInstabilityInfo)
-			// {
-				// cachedGeneticInstabilityGene = pawn?.genes?.GetFirstGeneOfType<Gene_GeneticInstability>();
-			// }
 			if (WVC_Biotech.settings.enableGolemsInfo)
 			{
 				if (MechanitorUtility.IsMechanitor(pawn) && GolemsUtility.MechanitorHasAnyGolems(pawn))
@@ -95,24 +52,7 @@ namespace WVC_XenotypesAndGenes
 			nextRecache = Find.TickManager.TicksGame + Props.recacheFrequency;
 		}
 
-		// =================
-
-		// public List<Gene_Spawner> GetSpawnerGenes(Pawn pawn)
-		// {
-			// List<Gene> genesListForReading = pawn?.genes?.GenesListForReading;
-			// if (genesListForReading.NullOrEmpty())
-			// {
-				// return null;
-			// }
-			// for (int i = 0; i < genesListForReading.Count; i++)
-			// {
-				// if (genesListForReading[i].Active == true && genesListForReading[i] is Gene_Spawner geneSpawner)
-				// {
-					// list.Add(geneSpawner);
-				// }
-			// }
-			// return list;
-		// }
+		// ==================
 
 		public void GetAllGenesOfTypes(Pawn pawn)
 		{

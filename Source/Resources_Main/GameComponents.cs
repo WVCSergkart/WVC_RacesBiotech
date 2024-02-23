@@ -14,7 +14,7 @@ namespace WVC_XenotypesAndGenes
 			// Apply();
 		// }
 
-		private int nextRecache = 60000;
+		private int nextRecache = 1500;
 
 		public int cachedXenotypesCount = 0;
 		public int cachedNonHumansCount = 0;
@@ -29,8 +29,9 @@ namespace WVC_XenotypesAndGenes
 		public override void LoadedGame()
 		{
 			DevFixes();
-			XaG_General();
+			// XaG_General();
 			// ResetCounter();
+			// ResetCounter(1500);
 		}
 
 		public override void GameComponentTick()
@@ -155,9 +156,9 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public void ResetCounter()
+		public void ResetCounter(int frequency = 60000)
 		{
-			nextRecache = 60000;
+			nextRecache = frequency;
 		}
 
 	}

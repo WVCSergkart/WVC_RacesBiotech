@@ -15,13 +15,15 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				if (cachedGameComponent == null)
+				if (cachedGameComponent == null || Current.Game != cachedGameComponent.currentGame)
 				{
 					cachedGameComponent = Current.Game.GetComponent<XaG_GameComponent>();
 				}
 				return cachedGameComponent;
 			}
 		}
+
+		// public XaG_GameComponent GameComponent => Current.Game.GetComponent<XaG_GameComponent>();
 
 	}
 

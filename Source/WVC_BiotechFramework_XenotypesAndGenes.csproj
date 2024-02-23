@@ -139,7 +139,6 @@
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_Trees.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_Undead_Social.cs" />
     <Compile Include="Resources_Utility\AgelessUtility.cs" />
-    <Compile Include="Resources_Utility\DustUtility.cs" />
     <Compile Include="Resources_Workers\TEST_JobGiver_WanderNearTarget.cs" />
     <Compile Include="Resources_Utility\GeneFeaturesUtility.cs" />
     <Compile Include="Resources_Utility\GeneHealUtility.cs" />
