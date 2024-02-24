@@ -73,7 +73,7 @@ namespace WVC_XenotypesAndGenes
 		public override void Tick()
 		{
 			base.Tick();
-			if (!pawn.IsHashIntervalTick(12000))
+			if (!pawn.IsHashIntervalTick(8000))
 			{
 				return;
 			}
