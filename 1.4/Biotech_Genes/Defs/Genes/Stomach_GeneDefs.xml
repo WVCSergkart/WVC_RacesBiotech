@@ -44,6 +44,20 @@
 	</exclusionTags>
   </GeneDef>
 
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneStomach_Base"> -->
+	<!-- <defName>WVC_HealthStomach</defName> -->
+	<!-- <label>health stomach</label> -->
+	<!-- <description>Carriers of this gene regenerate wounds and recover from diseases when they eat.</description> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_HealthStomach</geneClass> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_StomachHealth_v0</iconPath> -->
+	<!-- <biostatCpx>2</biostatCpx> -->
+	<!-- <biostatMet>-6</biostatMet> -->
+	<!-- <biostatArc>1</biostatArc> -->
+	<!-- <customEffectDescriptions> -->
+	  <!-- <li>Food heal wounds and immunizes diseases.</li> -->
+	<!-- </customEffectDescriptions> -->
+  <!-- </GeneDef> -->
+
   <!-- ================================================================== -->
 
 

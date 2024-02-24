@@ -279,4 +279,37 @@
 	</modExtensions>
   </GeneDef>
 
+  <!-- Transparent -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_TransparentSkin</defName>
+	<label>transkin</label>
+	<description>Carriers of this gene have a translucent body. Their insides and skeleton can be easily seen, which looks somewhat repulsive.</description>
+	<iconPath>WVC/UI/Genes/Gene_TransparentSkin_v0</iconPath>
+	<forcedHeadTypes>
+	  <li>WVC_TransparentSkin_Average</li>
+	</forcedHeadTypes>
+	<biostatCpx>1</biostatCpx>
+	<customEffectDescriptions>
+	</customEffectDescriptions>
+	<graphicData>
+	  <fur>WVC_TransparentSkin</fur>
+	  <tattoosVisible>true</tattoosVisible>
+	</graphicData>
+	<missingGeneRomanceChanceFactor>0.10</missingGeneRomanceChanceFactor>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>trans</symbol></li>
+		<li><symbol>lucent</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>Jaw</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<furIsSkin>true</furIsSkin>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
 </Defs>

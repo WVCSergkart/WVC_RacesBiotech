@@ -15,6 +15,21 @@
   <!-- ============================= -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHealingRate_Base">
+	<defName>WVC_WoundHealing_NoHealing</defName>
+	<label>no wound healing</label>
+	<labelShortAdj>no-heal</labelShortAdj>
+	<description>Carriers of this gene can die from any injury, as their wounds do not heal.</description>
+	<iconPath>WVC/UI/Genes/Gene_NoWoundHealing_v0</iconPath>
+	<displayOrderInCategory>25</displayOrderInCategory>
+	<marketValueFactor>0.4</marketValueFactor>
+	<biostatMet>6</biostatMet>
+	<iconColor>(255, 255, 255)</iconColor>
+	<statFactors>
+	  <InjuryHealingFactor>0</InjuryHealingFactor>
+	</statFactors>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHealingRate_Base">
 	<defName>WVC_WoundHealing_ExtremeFast</defName>
 	<label>extremefast wound healing</label>
 	<labelShortAdj>extr-heal</labelShortAdj>

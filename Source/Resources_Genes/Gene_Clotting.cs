@@ -5,7 +5,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_MechaClotting : Gene_AddOrRemoveHediff
+	public class Gene_MechaClotting : Gene_AddOrRemoveHediff
 	{
 		// private const int ClotCheckInterval = 750;
 

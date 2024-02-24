@@ -3,41 +3,39 @@
 
   <XenotypeDef ParentName="WVC_RB_Xenotypes_TEST">
 	<defName>WVC_CatDeity</defName>
-	<label>cat deity</label>
-	<inheritable>false</inheritable>
-	<doubleXenotypeChances>
-		<Dirtmole>0.1</Dirtmole>
-		<Yttakin>0.1</Yttakin>
-		<Waster>0.1</Waster>
-		<Impid>0.1</Impid>
-		<Pigskin>0.1</Pigskin>
-		<!-- = -->
-		<WVC_Undead>0.1</WVC_Undead>
-		<WVC_GeneThrower>0.1</WVC_GeneThrower>
-		<WVC_RuneDryad>0.1</WVC_RuneDryad>
-		<WVC_RogueFormer>0.1</WVC_RogueFormer>
-		<WVC_Lilith>0.1</WVC_Lilith>
-	</doubleXenotypeChances>
+	<label>deadcat</label>
+	<inheritable>true</inheritable>
 	<genes>
-		<!-- <li>WVC_NaturalPsylink</li> -->
-		<!-- <li>WVC_NaturalTelepathy</li> -->
-		<li>WVC_SleepyStomach</li>
-		<li>WVC_Delicate</li>
-		<!-- <li>WVC_FemaleOnly</li> -->
-		<li>WVC_CrossPlate_Yellow</li>
+		<li>WVC_ReimplanterArchite_Endogenes</li>
+		<li>WVC_ArchitePsylink</li>
+		<li>WVC_Undead</li>
+		<li>WVC_NaturalAgeless</li>
+		<li>WVC_NaturalFastGrowing</li>
+		<li>WVC_ExtremeGeneticInstability</li>
+		<li>WVC_PsychicAbility_Archite</li>
+		<li>WVC_NaturalTelepathy</li>
+		<li>WVC_MinMaxTemp_Natural</li>
+		<li>VerySleepy</li>
+		<li>WVC_Hair_NonBald</li>
 		<li>WVC_CatEarsA</li>
-		<li>WVC_NodeSkin</li>
+		<li>WVC_TransparentSkin</li>
 		<li>WVC_CatTailA</li>
-		<li>Hair_LongOnly</li>
-		<li>Body_Standard</li>
-		<!-- <li>WVC_BodySize_Small</li> -->
-		<li>WVC_HairColor_Slate</li>
-		<li>WVC_SkinColor_Slate</li>
-		<!-- <li>WVC_NaturalBlindness</li> -->
-		<li>Hair_Grayless</li>
-		<li>WVC_VoiceAnimals_Cat</li>
-		<li>Headbone_Human</li>
 		<li>Beard_NoBeardOnly</li>
+		<li>WVC_VoiceAnimals_BigCat</li>
+		<li>WVC_Feminine</li>
+		<li>WVC_BodySize_Small</li>
+		<li>WVC_HairColor_b4c8ff_HEX</li>
+		<li>WVC_SkinColor_Slate</li>
+		<!-- <li>WVC_SuperStomach</li> -->
+		<li>WVC_Learning_Telepath</li>
+		<li>DarkVision</li>
+		<li>WVC_AgeDebuff_Timeless</li>
+		<li>Hair_Grayless</li>
+		<!-- = -->
+		<!-- <li>WVC_HealthStomach</li> -->
+		<li>WVC_WoundHealing_NoHealing</li>
+		<li>WVC_Immunity_Non</li>
+		<li>WVC_IncrediblyFragile</li>
 	</genes>
   </XenotypeDef>
 

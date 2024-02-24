@@ -69,6 +69,17 @@
 	</bodyTypeGraphicPaths>
   </FurDef>
 
+  <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
+	<defName>WVC_TransparentSkin</defName>
+	<bodyTypeGraphicPaths>
+	  <Male>WVC/Bodies/Transparent_Body/Naked_Male</Male>
+	  <Female>WVC/Bodies/Transparent_Body/Naked_Female</Female>
+	  <Hulk>WVC/Bodies/Transparent_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/Bodies/Transparent_Body/Naked_Fat</Fat>
+	  <Thin>WVC/Bodies/Transparent_Body/Naked_Thin</Thin>
+	</bodyTypeGraphicPaths>
+  </FurDef>
+
   <!-- ==================================== -->
 
   <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">

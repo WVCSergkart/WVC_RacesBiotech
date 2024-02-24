@@ -49,4 +49,12 @@
 	</requiredGenes>
   </HeadTypeDef>
 
+  <HeadTypeDef ParentName="WVC_RacesBiotech_AverageBase">
+	<defName>WVC_TransparentSkin_Average</defName>
+	<graphicPath>WVC/Heads/Transparent_Head/Head</graphicPath>
+	<requiredGenes>
+	  <li>WVC_TransparentSkin</li>
+	</requiredGenes>
+  </HeadTypeDef>
+
 </Defs>
