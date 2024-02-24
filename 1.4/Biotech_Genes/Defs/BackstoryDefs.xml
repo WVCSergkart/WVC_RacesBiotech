@@ -34,7 +34,7 @@
 
   <BackstoryDef ParentName="WVC_XenotypesAndGenes_BackstoryShapeshifter_Base">
 	<defName>WVC_XaG_Shapeshifter0_Child</defName>
-	<title>shapeshifter clone</title>
+	<title>shiftclone</title>
 	<titleShort>shiftclone</titleShort>
 	<baseDesc>[PAWN_nameDef] was “born” as a result of shapeshift mechanites overclocking. [PAWN_pronoun] inherited many skills and traits from [PAWN_possessive] original.</baseDesc>
 	<slot>Childhood</slot>

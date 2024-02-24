@@ -1,20 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<MemeDef>
-		<defName>WVC_XenotypesSupremacy</defName>
-		<label>xenotypes supremacy</label>
-		<description>The truth lies in genetic diversity, the only thing in which we should be similar is in our views.</description>
+	<MemeDef Name="WVC_XenotypesAndGenes_Shapeshifters_Base" Abstract="True">
 		<iconPath>WVC/UI/Precepts/Meme_Shapeshifter_v1</iconPath>
-		<groupDef>Misc</groupDef>
-		<impact>3</impact>
 		<!-- Very rare for NPCs -->
-		<randomizationSelectionWeightFactor>0.05</randomizationSelectionWeightFactor>
-		<exclusionTags>
-		  <!-- <li>WVC_GeneticSupremacy</li> -->
-		  <li>WVC_GeneticSupremacy_Shapeshifter</li>
-		  <li>AnimalTreatment</li>
-		</exclusionTags>
+		<randomizationSelectionWeightFactor>0.02</randomizationSelectionWeightFactor>
 		<generalRules>
 		  <rulesStrings>
 			<li>memeAdjective->lab</li>
@@ -58,6 +48,29 @@
 			<member>shapetist</member>
 		  </li>
 		</symbolPacks>
+		<thingStyleCategories>
+		  <li>
+			<category>Techist</category>
+			<priority>2</priority>
+		  </li>
+		</thingStyleCategories>
+		<disagreeableTraits>
+		  <li>BodyPurist</li>
+		</disagreeableTraits>
+	</MemeDef>
+
+	<MemeDef ParentName="WVC_XenotypesAndGenes_Shapeshifters_Base">
+		<defName>WVC_XenotypesSupremacy</defName>
+		<label>xenotypes supremacy</label>
+		<description>The truth lies in genetic diversity, the only thing in which we should be similar is in our views.</description>
+		<iconPath>WVC/UI/Precepts/Meme_Shapeshifter_v1</iconPath>
+		<groupDef>Misc</groupDef>
+		<impact>3</impact>
+		<exclusionTags>
+		  <!-- <li>WVC_GeneticSupremacy</li> -->
+		  <li>WVC_GeneticSupremacy_Shapeshifter</li>
+		  <li>AnimalTreatment</li>
+		</exclusionTags>
 		<requireOne>
 		  <li>
 			<li>WVC_GeneticSupremacy_Desired</li>
@@ -77,22 +90,6 @@
 			<li>WVC_MechanoidLabor_Useless</li>
 		  </li>
 		</requireOne>
-		<thingStyleCategories>
-		  <li>
-			<category>Techist</category>
-			<priority>2</priority>
-		  </li>
-		  <!-- <li> -->
-			<!-- <category>Animalist</category> -->
-			<!-- <priority>-8</priority> -->
-		  <!-- </li> -->
-		</thingStyleCategories>
-		<!-- <agreeableTraits> -->
-		  <!-- <li>Psychopath</li> -->
-		<!-- </agreeableTraits> -->
-		<disagreeableTraits>
-		  <li>BodyPurist</li>
-		</disagreeableTraits>
 	</MemeDef>
 
 </Defs>

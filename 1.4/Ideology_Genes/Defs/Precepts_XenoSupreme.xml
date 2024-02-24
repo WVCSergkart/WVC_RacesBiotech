@@ -51,7 +51,7 @@
 	  <li Class="PreceptComp_DevelopmentPoints">
 		<eventDef>WVC_Shapeshift</eventDef>
 		<eventLabel>shapeshift</eventLabel>
-		<points>3</points>
+		<points>1</points>
 	  </li>
 	  <li Class="PreceptComp_DevelopmentPoints">
 		<eventDef>WVC_XenotypeSerumUsed</eventDef>
@@ -116,10 +116,15 @@
 		<thought>WVC_GeneticSupremacy_Preferred_NonHumanlikes</thought>
 		<description>For each non-human in faction</description>
 	  </li>
+	  <!-- <li Class="PreceptComp_DevelopmentPoints"> -->
+		<!-- <eventDef>WVC_Shapeshift</eventDef> -->
+		<!-- <eventLabel>shapeshift</eventLabel> -->
+		<!-- <points>1</points> -->
+	  <!-- </li> -->
 	  <li Class="PreceptComp_DevelopmentPoints">
-		<eventDef>WVC_Shapeshift</eventDef>
-		<eventLabel>shapeshift</eventLabel>
-		<points>2</points>
+		<eventDef>WVC_XenotypeSerumUsed</eventDef>
+		<eventLabel>xenotype serum used</eventLabel>
+		<points>1</points>
 	  </li>
 	</comps>
   </PreceptDef>
