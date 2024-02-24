@@ -5,12 +5,14 @@
 	<defName>WVC_CatDeity</defName>
 	<label>deadcat</label>
 	<inheritable>true</inheritable>
+	<iconPath>WVC/UI/Mecha_Icons/Gene_DeadCat_v0</iconPath>
+	<displayPriority>-195</displayPriority>
 	<genes>
-		<li>WVC_ReimplanterArchite_Endogenes</li>
+		<!-- <li>WVC_ReimplanterArchite_Endogenes</li> -->
 		<li>WVC_ArchitePsylink</li>
-		<li>WVC_Undead</li>
+		<li>WVC_DeadCat</li>
 		<li>WVC_NaturalAgeless</li>
-		<li>WVC_NaturalFastGrowing</li>
+		<!-- <li>WVC_NaturalFastGrowing</li> -->
 		<li>WVC_ExtremeGeneticInstability</li>
 		<li>WVC_PsychicAbility_Archite</li>
 		<li>WVC_NaturalTelepathy</li>
@@ -29,13 +31,15 @@
 		<!-- <li>WVC_SuperStomach</li> -->
 		<li>WVC_Learning_Telepath</li>
 		<li>DarkVision</li>
-		<li>WVC_AgeDebuff_Timeless</li>
-		<li>Hair_Grayless</li>
+		<!-- <li>WVC_AgeDebuff_Timeless</li> -->
+		<!-- <li>Hair_Grayless</li> -->
 		<!-- = -->
+		<li>WVC_DeadStomach</li>
 		<!-- <li>WVC_HealthStomach</li> -->
 		<li>WVC_WoundHealing_NoHealing</li>
 		<li>WVC_Immunity_Non</li>
-		<li>WVC_IncrediblyFragile</li>
+		<li>WVC_Glass</li>
+		<li>WVC_XenotypeGestator</li>
 	</genes>
   </XenotypeDef>
 

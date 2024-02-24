@@ -14,21 +14,9 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Giver Giver => def.GetModExtension<GeneExtension_Giver>();
 
-		public GeneExtension_Spawner Spawner => def.GetModExtension<GeneExtension_Spawner>();
-
-		// public BackstoryDef ChildBackstoryDef => def.GetModExtension<GeneExtension_Giver>()?.childBackstoryDef;
-		// public BackstoryDef AdultBackstoryDef => def.GetModExtension<GeneExtension_Giver>()?.adultBackstoryDef;
-
 		private List<HediffDef> cachedPreventiveHediffs;
-		// private Gene_Dust cachedDustogenicGene = null;
-		// private bool recacheDustogenicGene = true;
-			// Gene_Dust gene_Dust = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
-
-		// public QuestScriptDef SummonQuest => def.GetModExtension<GeneExtension_Spawner>().summonQuest;
-		// public int MinChronoAge => def.GetModExtension<GeneExtension_Spawner>().stackCount;
 
 		public bool UndeadCanResurrect => PawnCanResurrect();
-		public bool UndeadCanReincarnate => DustogenicCanReincarnate();
 
 		// Getter
 		public List<HediffDef> PreventResurrectionHediffs
@@ -37,31 +25,9 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedPreventiveHediffs == null)
 				{
-					cachedPreventiveHediffs = XenotypeFilterUtility.HediffsThatPreventUndeadResurrection();
+					cachedPreventiveHediffs = Giver.hediffDefs;
 				}
 				return cachedPreventiveHediffs;
-			}
-		}
-
-		public Gene_Dust Gene_Dust => pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
-		// {
-			// get
-			// {
-				// if (cachedDustogenicGene == null)
-				// {
-					// cachedDustogenicGene = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
-				// }
-				// return cachedDustogenicGene;
-			// }
-		// }
-
-		// Misc
-		public override void Notify_PawnDied()
-		{
-			base.Notify_PawnDied();
-			if (DustogenicCanReincarnate())
-			{
-				Gene_DustReincarnation.Reincarnate(pawn, Spawner.summonQuest);
 			}
 		}
 
@@ -86,15 +52,6 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		private bool DustogenicCanReincarnate()
-		{
-			if (!PawnCanResurrect() && Gene_Dust != null)
-			{
-				return GeneIsActive() && Gene_DustReincarnation.CanReincarnate(pawn, this, Spawner.stackCount);
-			}
-			return false;
-		}
-
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{
 			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, 
@@ -102,38 +59,32 @@ namespace WVC_XenotypesAndGenes
 			PawnCanResurrect().ToString(), 
 			"WVC_XaG_Gene_DisplayStats_Undead_CanResurrect_Desc".Translate()
 			+ "\n\n"
-			+ "WVC_XaG_Gene_DisplayStats_Undead_CanResurrectHediffs_Desc".Translate() + ":"
+			+ (PreventResurrectionHediffs != null ? ("WVC_XaG_Gene_DisplayStats_Undead_CanResurrectHediffs_Desc".Translate() + ":"
 			+ "\n"
-			+ PreventResurrectionHediffs.Select((HediffDef x) => x.label).ToLineList("  - ", capitalizeItems: true),
+			+  PreventResurrectionHediffs.Select((HediffDef x) => x.label).ToLineList("  - ", capitalizeItems: true)) : "WVC_XaG_Gene_DisplayStats_Undead_AlwaysResurrect_Desc".Translate()),
 			1100);
-			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate".Translate().CapitalizeFirst(), DustogenicCanReincarnate().ToString(), "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate_Desc".Translate(), 1090);
-			// yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_Gene_DisplayStats_Undead_CanShapeshift".Translate().CapitalizeFirst(), SubXenotypeUtility.TestXenotype(pawn).ToString(), "WVC_XaG_Gene_DisplayStats_Undead_CanShapeshift_Desc".Translate(), 150);
 		}
-
-		// public override void ExposeData()
-		// {
-			// base.ExposeData();
-			// dustogenicGene = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
-		// }
 
 	}
 
 	public class Gene_DustReincarnation : Gene
 	{
-		// public QuestScriptDef SummonQuest => def.GetModExtension<GeneExtension_Spawner>().summonQuest;
-		// public int MinChronoAge => def.GetModExtension<GeneExtension_Spawner>().stackCount;
 
 		public GeneExtension_Spawner Spawner => def.GetModExtension<GeneExtension_Spawner>();
 
 		public override void Notify_PawnDied()
 		{
 			base.Notify_PawnDied();
-			// Gene_Dust gene_Dust = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
-			if (CanReincarnate(pawn, this, Spawner.stackCount))
+			if (ReincarnationActive())
 			{
 				return;
 			}
 			Reincarnate(pawn, Spawner.summonQuest);
+		}
+
+		public bool ReincarnationActive()
+		{
+			return CanReincarnate(pawn, this, Spawner.stackCount);
 		}
 
 		public static bool CanReincarnate(Pawn pawn, Gene gene, int minChronoAge)
@@ -161,10 +112,8 @@ namespace WVC_XenotypesAndGenes
 		public static void ReincarnationQuest(Pawn pawn, QuestScriptDef quest)
 		{
 			Slate slate = new();
-			// slate.Set("points", StorytellerUtility.DefaultThreatPointsNow(pawn.Map));
 			slate.Set("asker", pawn);
 			_ = QuestUtility.GenerateQuestAndMakeAvailable(quest, slate);
-			// QuestUtility.SendLetterQuestAvailable(quest);
 		}
 
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()

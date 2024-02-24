@@ -216,37 +216,37 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneToughness_Base">
-	<defName>WVC_IncrediblyFragile</defName>
-	<label>incredibly fragile</label>
-	<description>Carriers of this gene are incredibly fragile. Any blow is fatal to them.</description>
-	<iconPath>WVC/UI/Genes/Gene_ToughCriticalFragility_v0</iconPath>
-	<iconColor>(255, 255, 255)</iconColor>
-	<displayOrderInCategory>-10</displayOrderInCategory>
-	<statFactors>
-	  <IncomingDamageFactor>10.0</IncomingDamageFactor>
-	</statFactors>
-	<biostatCpx>-6</biostatCpx>
-	<biostatMet>6</biostatMet>
-	<suppressedTraits>
-	  <li>
-		<def>Delicate</def>
-	  </li>
-	  <li>
-		<def>Tough</def>
-	  </li>
-	</suppressedTraits>
-	<symbolPack>
-	  <prefixSymbols>
-		<li><symbol>frail</symbol></li>
-		<li><symbol>thin</symbol></li>
-		<li><symbol>deli</symbol></li>
-		<li><symbol>snap</symbol></li>
-		<li><symbol>ail</symbol></li>
-		<li><symbol>feeb</symbol></li>
-		<li><symbol>fragi</symbol></li>
-	  </prefixSymbols>
-	</symbolPack>
-  </GeneDef>
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneToughness_Base"> -->
+	<!-- <defName>WVC_IncrediblyFragile</defName> -->
+	<!-- <label>incredibly fragile</label> -->
+	<!-- <description>Carriers of this gene are incredibly fragile. Any blow is fatal to them.</description> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_ToughCriticalFragility_v0</iconPath> -->
+	<!-- <iconColor>(255, 255, 255)</iconColor> -->
+	<!-- <displayOrderInCategory>-10</displayOrderInCategory> -->
+	<!-- <statFactors> -->
+	  <!-- <IncomingDamageFactor>10.0</IncomingDamageFactor> -->
+	<!-- </statFactors> -->
+	<!-- <biostatCpx>-6</biostatCpx> -->
+	<!-- <biostatMet>6</biostatMet> -->
+	<!-- <suppressedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>Delicate</def> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <def>Tough</def> -->
+	  <!-- </li> -->
+	<!-- </suppressedTraits> -->
+	<!-- <symbolPack> -->
+	  <!-- <prefixSymbols> -->
+		<!-- <li><symbol>frail</symbol></li> -->
+		<!-- <li><symbol>thin</symbol></li> -->
+		<!-- <li><symbol>deli</symbol></li> -->
+		<!-- <li><symbol>snap</symbol></li> -->
+		<!-- <li><symbol>ail</symbol></li> -->
+		<!-- <li><symbol>feeb</symbol></li> -->
+		<!-- <li><symbol>fragi</symbol></li> -->
+	  <!-- </prefixSymbols> -->
+	<!-- </symbolPack> -->
+  <!-- </GeneDef> -->
 
 </Defs>

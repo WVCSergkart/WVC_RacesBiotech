@@ -423,4 +423,24 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_HungerlessStomach : Gene_AddOrRemoveHediff
+	{
+
+		public override void Tick()
+		{
+			base.Tick();
+			if (!pawn.IsHashIntervalTick(6000))
+			{
+				return;
+			}
+			Need_Food food = pawn?.needs?.food;
+			if (food == null)
+			{
+				return;
+			}
+			UndeadUtility.OffsetNeedFood(pawn, 1f);
+		}
+
+	}
+
 }

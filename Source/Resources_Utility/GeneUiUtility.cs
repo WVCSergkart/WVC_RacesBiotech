@@ -94,27 +94,24 @@ namespace WVC_XenotypesAndGenes
 		public static string AdditionalInfo_Gene(Gene gene)
 		{
 			string text = "";
-			if (gene.def.geneClass == typeof(Gene_Undead))
+			if (gene is Gene_Undead undead)
 			{
-				Gene_Undead undead = (Gene_Undead)gene;
-				// if (undead.UndeadCanReincarnate)
-				// {
-					// text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive_UndeadReincarnate".Translate();
-				// }
 				if (undead.UndeadCanResurrect)
 				{
 					text += "\n\n" + "WVC_XaG_NewBack_GeneIsActive_Undead".Translate();
 				}
-				else if (undead.UndeadCanReincarnate)
-				{
-					text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive_UndeadReincarnate".Translate();
-					text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive_Undead".Translate();
-				}
-				else
+				else if (undead.PreventResurrectionHediffs != null)
 				{
 					text += "\n\n" + "WVC_XaG_Gene_DisplayStats_Undead_CanResurrectHediffs_Desc".Translate() + ":"
 					+ "\n"
 					+ undead.PreventResurrectionHediffs.Select((HediffDef x) => x.label).ToLineList("  - ", capitalizeItems: true);
+				}
+			}
+			else if (gene is Gene_DustReincarnation reincarnation)
+			{
+				if (reincarnation.ReincarnationActive())
+				{
+					text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive_UndeadReincarnate".Translate();
 				}
 			}
 			if (ModLister.CheckIdeology("Scarification") && gene.def.geneClass == typeof(Gene_Scarifier))

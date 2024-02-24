@@ -52,8 +52,8 @@
 	  <!-- <li>Any ingested thing is guaranteed to provide 0.3 nutrition. If the pawn cannot move at this moment (downed or in bed), then this bonus increases significantly.</li> -->
 	  <!-- <li>Increases the nutritional value of consumed food by 20%</li> -->
 	  <li>If the pawn ingest &lt;color=#8a8ae6&gt;nutrients injector&lt;/color&gt; or at the time of eating food is &lt;color=#8a8ae6&gt;downed&lt;/color&gt;, then the hunger bar is completely filled.</li>
-	  <li>In the presence of the &lt;color=#8a8ae6&gt;"Undead"&lt;/color&gt; gene, it gives the effect of &lt;color=#8a8ae6&gt;reincarnation&lt;/color&gt;.</li>
-	  <li>&lt;color=#8a8ae6&gt;Reincarnation&lt;/color&gt; - In case of death, a pawn will be summoned, which is a descendant of the deceased. The effect will not work if the chronological age of the pawn is less than 40.</li>
+	  <!-- <li>In the presence of the &lt;color=#8a8ae6&gt;"Undead"&lt;/color&gt; gene, it gives the effect of &lt;color=#8a8ae6&gt;reincarnation&lt;/color&gt;.</li> -->
+	  <!-- <li>&lt;color=#8a8ae6&gt;Reincarnation&lt;/color&gt; - In case of death, a pawn will be summoned, which is a descendant of the deceased. The effect will not work if the chronological age of the pawn is less than 40.</li> -->
 	</customEffectDescriptions>
 	<statOffsets>
 	  <MaxNutrition>1.0</MaxNutrition>
@@ -347,7 +347,7 @@
 	<!-- <resourceLabel></resourceLabel> -->
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>0</biostatMet>
-	<biostatArc>2</biostatArc>
+	<biostatArc>1</biostatArc>
 	<customEffectDescriptions>
 		<li>In case of death, a pawn will be summoned, which is a descendant of the deceased.</li>
 		<!-- <li>Such a pawn inherits all genes and all skills, without passions.</li> -->
@@ -359,7 +359,7 @@
 	  <!-- <MaxNutrition>0.5</MaxNutrition> -->
 	<!-- </statOffsets> -->
 	<exclusionTags>
-	  <li>WVC_XenotypesAndGenes_GeneDeathless_Undead</li>
+	  <li>WVC_XenotypesAndGenes_GeneDeathless_Reincarnation</li>
 	</exclusionTags>
 	<symbolPack>
 	  <prefixSymbols>

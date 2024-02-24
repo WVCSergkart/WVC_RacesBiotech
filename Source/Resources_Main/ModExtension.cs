@@ -107,6 +107,7 @@ namespace WVC_XenotypesAndGenes
 		public bool defaultBoolValue = false;
 		// public ThingDef jobTarget;
 		public SimpleCurve curve;
+		// public List<HediffDef> hediffsThatPreventUndeadResurrection;
 	}
 
 	public class GeneExtension_Shapeshifter : DefModExtension
@@ -197,7 +198,6 @@ namespace WVC_XenotypesAndGenes
 		public List<string> whiteListedXenotypesForFilter;
 		// public List<GeneDef> whiteListedExoskinGenes;
 		public List<BackstoryDef> blackListedBackstoryForChanger;
-		public List<HediffDef> hediffsThatPreventUndeadResurrection;
 		// public List<ThingDef> listedGolems;
 		// public List<GeneDef> gene_IsNotAcceptablePrey;
 		// public List<GeneDef> gene_IsAngelBeauty;
@@ -210,6 +210,8 @@ namespace WVC_XenotypesAndGenes
 		// public List<PreceptDef> shapeShift_ProhibitedPrecepts;
 		// public List<HediffDef> hediffsRemovedByGenesRestorationSerum;
 
+		[Obsolete]
+		public List<HediffDef> hediffsThatPreventUndeadResurrection;
 		[Obsolete]
 		public List<HediffDef> blackListedHediffDefForReimplanter;
 		[Obsolete]

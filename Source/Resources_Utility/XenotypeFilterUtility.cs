@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using Verse;
 
@@ -78,6 +79,7 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
+		[Obsolete]
 		public static List<HediffDef> HediffsThatPreventUndeadResurrection()
 		{
 			List<HediffDef> list = new();

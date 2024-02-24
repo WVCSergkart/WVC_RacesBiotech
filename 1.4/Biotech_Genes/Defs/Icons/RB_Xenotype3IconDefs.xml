@@ -149,6 +149,12 @@
 	<defName>WVC_XenoUndead5c</defName>
 	<texPath>WVC/UI/Mecha_Icons/Xeno_Undead_v4</texPath>
   </XenotypeIconDef>
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_XenoDeadCat0c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Gene_DeadCat_v0</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
 
   <!-- Masks -->
   <XenotypeIconDef>

@@ -25,7 +25,7 @@
 	<biostatMet>6</biostatMet>
 	<iconColor>(255, 255, 255)</iconColor>
 	<statFactors>
-	  <InjuryHealingFactor>0</InjuryHealingFactor>
+	  <InjuryHealingFactor>0.01</InjuryHealingFactor>
 	</statFactors>
   </GeneDef>
 

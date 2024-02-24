@@ -217,6 +217,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_Gene_DisplayStats_Undead_CanResurrect>resurrection</WVC_XaG_Gene_DisplayStats_Undead_CanResurrect>
 	<WVC_XaG_Gene_DisplayStats_Undead_CanResurrect_Desc>Responsible for whether the pawn can be auto-resurrected after death.</WVC_XaG_Gene_DisplayStats_Undead_CanResurrect_Desc>
 	<WVC_XaG_Gene_DisplayStats_Undead_CanResurrectHediffs_Desc>Any of prevent resurrection</WVC_XaG_Gene_DisplayStats_Undead_CanResurrectHediffs_Desc>
+	<WVC_XaG_Gene_DisplayStats_Undead_AlwaysResurrect_Desc>The only way to kill is to destroy the body.</WVC_XaG_Gene_DisplayStats_Undead_AlwaysResurrect_Desc>
 
 	<!-- ============================ REINCARNATION ============================ -->
 

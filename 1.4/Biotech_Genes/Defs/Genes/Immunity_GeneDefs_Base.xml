@@ -26,7 +26,7 @@
 	<displayOrderInCategory>-5</displayOrderInCategory>
 	<marketValueFactor>0.4</marketValueFactor>
 	<statFactors>
-	  <ImmunityGainSpeed>0.0</ImmunityGainSpeed>
+	  <ImmunityGainSpeed>0.01</ImmunityGainSpeed>
 	</statFactors>
 	<biostatMet>6</biostatMet>
   </GeneDef>
