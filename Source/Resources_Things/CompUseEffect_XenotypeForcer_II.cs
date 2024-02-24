@@ -38,6 +38,10 @@ namespace WVC_XenotypesAndGenes
 					Log.Error("Generated serum with null xenotype. Choose random.");
 					xenotype = xenotypeDef.RandomElement();
 				}
+				if (xenotype == null)
+				{
+					Log.Error("Xenotype is still null. Do not report this to the developer, you yourself created this creepy world filled with bugs. To fix the situation, reset the filter in the " + "WVC_BiotechSettings".Translate() + " mod settings and restart the game.");
+				}
 			}
 		}
 
@@ -57,7 +61,9 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (xenotype == null)
 			{
-				return parent.def.label + " " + "WVC_XaG_SuremRetuneUntuned_Label".Translate();
+				// return parent.def.label + " " + "WVC_XaG_SuremRetuneUntuned_Label".Translate();
+				return parent.def.label + " (ERR)";
+				// return "(ERROR: XENOTYPES LIST IS NULL)";
 			}
 			return parent.def.label + " (" + xenotype.label + ")";
 		}

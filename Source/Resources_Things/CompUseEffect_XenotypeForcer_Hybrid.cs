@@ -39,6 +39,10 @@ namespace WVC_XenotypesAndGenes
 					xenotype = xenotypeDefs.RandomElement();
 				}
 			}
+			if (xenotype == null || endotype == null)
+			{
+				Log.Error("Xeno/endotype is still null. Do not report this to the developer, you yourself created this creepy world filled with bugs. To fix the situation, reset the filter in the " + "WVC_BiotechSettings".Translate() + " mod settings and restart the game.");
+			}
 		}
 
 		public override string TransformLabel(string label)
