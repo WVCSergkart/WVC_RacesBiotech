@@ -262,10 +262,17 @@ namespace WVC_XenotypesAndGenes
 
 		public void GeneticStuff()
 		{
-			HediffUtility.AddHediffsFromList(pawn, Props.hediffDefs);
-			if (Props.showMessageIfOwned && pawn.Faction == Faction.OfPlayer)
+			if (!Props.hediffDefs.NullOrEmpty())
 			{
-				Messages.Message(Props.message.Translate(pawn.Name.ToString()), pawn, MessageTypeDefOf.NeutralEvent);
+				HediffUtility.AddHediffsFromList(pawn, Props.hediffDefs);
+				if (Props.showMessageIfOwned && pawn.Faction == Faction.OfPlayer)
+				{
+					Messages.Message(Props.message.Translate(pawn.Name.ToString()), pawn, MessageTypeDefOf.NeutralEvent);
+				}
+			}
+			else
+			{
+				pawn.Kill(null, null);
 			}
 			ResetInterval();
 		}

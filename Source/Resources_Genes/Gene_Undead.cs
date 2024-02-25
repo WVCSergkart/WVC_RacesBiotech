@@ -33,7 +33,7 @@ namespace WVC_XenotypesAndGenes
 
 		private bool GeneIsActive()
 		{
-			if (!Active || Overridden || (!pawn.IsColonist && !WVC_Biotech.settings.canNonPlayerPawnResurrect))
+			if (!Active || Overridden)
 			{
 				return false;
 			}

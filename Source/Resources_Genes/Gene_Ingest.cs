@@ -429,16 +429,11 @@ namespace WVC_XenotypesAndGenes
 		public override void Tick()
 		{
 			base.Tick();
-			if (!pawn.IsHashIntervalTick(6000))
+			if (!pawn.IsHashIntervalTick(900))
 			{
 				return;
 			}
-			Need_Food food = pawn?.needs?.food;
-			if (food == null)
-			{
-				return;
-			}
-			UndeadUtility.OffsetNeedFood(pawn, 1f);
+			UndeadUtility.OffsetNeedFood(pawn, 0.1f);
 		}
 
 	}

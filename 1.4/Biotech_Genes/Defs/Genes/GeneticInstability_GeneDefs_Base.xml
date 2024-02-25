@@ -177,4 +177,33 @@
 	</modExtensions>
   </GeneDef>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneticInstability_Base">
+	<defName>WVC_DeadlyGeneticInstability</defName>
+	<label>deadly genetic instability</label>
+	<iconPath>WVC/UI/Genes/Gene_DeadlyInstability_v0</iconPath>
+	<biostatCpx>-8</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-8</biostatMet>
+	<displayOrderInCategory>1260</displayOrderInCategory>
+	<customEffectDescriptions>
+	  <li>Carrier must regularly use &lt;color=#8a8ae6&gt;genetic stabilizer&lt;/color&gt; serums or it &lt;color=#ff8585&gt;will die&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <Fertility>0.05</Fertility>
+	  <ImmunityGainSpeed>0.50</ImmunityGainSpeed>
+	</statFactors>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<jobDef>UseItem</jobDef>
+			<specialFoodDefs>
+				<li>WVC_GeneticStabilizerSerum_Base</li>
+			</specialFoodDefs>
+			<showMessageIfOwned>true</showMessageIfOwned>
+			<defaultBoolValue>true</defaultBoolValue>
+			<intervalRange>622000~940000</intervalRange>
+			<hediffDefs/>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
 </Defs>

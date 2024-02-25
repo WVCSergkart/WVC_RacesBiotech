@@ -1,3 +1,4 @@
+using RimWorld;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -24,8 +25,6 @@ namespace WVC_XenotypesAndGenes
 
 		private CompProperties_UndeadCorpse Props => (CompProperties_UndeadCorpse)props;
 
-		// private Corpse Corpse => parent as Corpse;
-
 		public override void Initialize(CompProperties props)
 		{
 			base.Initialize(props);
@@ -37,7 +36,7 @@ namespace WVC_XenotypesAndGenes
 			base.PostSpawnSetup(respawningAfterLoad);
 			if (!respawningAfterLoad)
 			{
-				shouldResurrect = parent is Corpse corpse && corpse.InnerPawn.GetUndeadGene(out Gene_Undead gene_undead) && gene_undead.UndeadCanResurrect;
+				shouldResurrect = parent is Corpse corpse && corpse.InnerPawn.GetUndeadGene(out Gene_Undead gene_undead) && gene_undead.UndeadCanResurrect && (corpse.InnerPawn.IsColonist || WVC_Biotech.settings.canNonPlayerPawnResurrect);
 				ResetCounter();
 			}
 		}
@@ -78,7 +77,6 @@ namespace WVC_XenotypesAndGenes
 			Pawn pawn = parent is Corpse corpse ? corpse.InnerPawn : null;
 			if (pawn != null && pawn.RaceProps.Humanlike && pawn.GetUndeadGene(out Gene_Undead gene_undead) && gene_undead.UndeadCanResurrect)
 			{
-				// UndeadUtility.NewUndeadResurrect(pawn, gene_undead.ChildBackstoryDef, gene_undead.AdultBackstoryDef, gene_undead.Gene_ResurgentCells, gene_undead.def.resourceLossPerDay);
 				UndeadUtility.RegenComaOrDeathrest(pawn, gene_undead);
 			}
 			shouldResurrect = false;
@@ -86,7 +84,6 @@ namespace WVC_XenotypesAndGenes
 
 		public void ResetCounter()
 		{
-			// shouldResurrect = parent is Corpse corpse && corpse.InnerPawn.IsUndead();
 			resurrectionDelay = Find.TickManager.TicksGame + Props.resurrectionDelay.RandomInRange;
 		}
 
@@ -95,6 +92,17 @@ namespace WVC_XenotypesAndGenes
 			base.PostExposeData();
 			Scribe_Values.Look(ref resurrectionDelay, "resurrectionDelay_" + Props.uniqueTag, 0);
 			Scribe_Values.Look(ref shouldResurrect, "shouldResurrect_" + Props.uniqueTag, false);
+		}
+
+		// =================
+
+		public override string CompInspectStringExtra()
+		{
+			if (shouldResurrect)
+			{
+				return "WVC_XaG_Gene_UndeadResurrectionCorpse_Info".Translate().Resolve() + ": " + (resurrectionDelay - Find.TickManager.TicksGame).ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
+			}
+			return null;
 		}
 
 	}

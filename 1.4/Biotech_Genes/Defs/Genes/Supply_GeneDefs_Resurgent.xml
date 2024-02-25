@@ -348,4 +348,34 @@
 	<!-- </exclusionTags> -->
   <!-- </GeneDef> -->
 
+  <!-- ================================================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Base">
+	<defName>WVC_ResurgentCells_Skeleton</defName>
+	<label>skeleton</label>
+	<description>Carriers of this gene have very weak bones.</description>
+	<iconPath>WVC/UI/Genes/Gene_Skeleton_v0</iconPath>
+	<biostatCpx>0</biostatCpx>
+	<biostatMet>6</biostatMet>
+	<displayOrderInCategory>1351</displayOrderInCategory>
+	<statFactors>
+	  <IncomingDamageFactor>1.5</IncomingDamageFactor>
+	</statFactors>
+	<capMods>
+	  <li>
+		<capacity>Manipulation</capacity>
+		<setMax>1.0</setMax>
+	  </li>
+	  <li>
+		<capacity>Moving</capacity>
+		<setMax>1.0</setMax>
+	  </li>
+	</capMods>
+	<exclusionTags>
+	  <li>MoveSpeed</li>
+	  <li>Hands</li>
+	  <li>Toughness</li>
+	</exclusionTags>
+  </GeneDef>
+
 </Defs>
