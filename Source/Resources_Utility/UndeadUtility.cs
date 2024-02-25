@@ -116,6 +116,10 @@ namespace WVC_XenotypesAndGenes
 			clone.story.bodyType = progenitor.story.bodyType;
 			clone.story.hairDef = progenitor.story.hairDef;
 			clone.story.favoriteColor = progenitor.story.favoriteColor;
+			clone.style.beardDef = progenitor.style.beardDef;
+			// clone.style.FaceTattoo = null;
+			// clone.style.BodyTattoo = null;
+			clone.style.SetupTattoos_NoIdeology();
 			MiscUtility.TransferTraits(clone, progenitor);
 			MiscUtility.TransferSkills(clone, progenitor);
 			if (clone.ideo != null)

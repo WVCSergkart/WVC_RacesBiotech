@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_TEST">
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_TEST" MayRequire="ludeon.rimworld.royalty">
 	<defName>WVC_CatDeity</defName>
 	<label>deadcat</label>
 	<inheritable>true</inheritable>
