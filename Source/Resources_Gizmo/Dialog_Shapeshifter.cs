@@ -101,7 +101,7 @@ namespace WVC_XenotypesAndGenes
 				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneShapeshifter_UnknownXenotypes".Translate().Colorize(ColoredText.SubtleGrayColor));
 				curY += 10f;
 			}
-			if (MeetsRequirements(selectedXeno) && selectedXeno != currentXeno)
+			if (MeetsRequirements(selectedXeno))
 			{
 				if (Widgets.ButtonText(rect4, "Accept".Translate()))
 				{
@@ -114,10 +114,9 @@ namespace WVC_XenotypesAndGenes
 			}
 			else
 			{
-				string label = (!MeetsRequirements(selectedXeno)) ? "WVC_XaG_XenoTreeModeNotMeetsRequirements".Translate() : ((string)"Locked".Translate());
 				Text.Anchor = TextAnchor.MiddleCenter;
 				Widgets.DrawHighlight(rect4);
-				Widgets.Label(rect4.ContractedBy(5f), label);
+				Widgets.Label(rect4.ContractedBy(5f), "WVC_XaG_XenoTreeModeNotMeetsRequirements".Translate());
 				Text.Anchor = TextAnchor.UpperLeft;
 			}
 		}
@@ -143,6 +142,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			gene.pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
 			GeneUtility.UpdateXenogermReplication(gene.pawn);
+			WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(gene.pawn, gene.pawn.Map).Trigger(gene.pawn, null);
 			if (!soundDefOnImplant.NullOrUndefined())
 			{
 				soundDefOnImplant.PlayOneShot(SoundInfo.InMap(gene.pawn));

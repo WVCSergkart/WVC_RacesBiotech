@@ -91,6 +91,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				FilthMaker.TryMakeFilth(progenitor.Position, progenitor.Map, ThingDefOf.Filth_Slime, 5);
 				SoundDefOf.Hive_Spawn.PlayOneShot(new TargetInfo(progenitor));
+				// WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(progenitor, progenitor.Map).Trigger(progenitor, null);
+				WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(clone, clone.Map).Trigger(clone, null);
 				if (clone.caller != null)
 				{
 					clone.caller.DoCall();

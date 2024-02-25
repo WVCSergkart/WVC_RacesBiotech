@@ -84,6 +84,8 @@ namespace WVC_XenotypesAndGenes
 		// public static BackstoryDef ColonyChild59;
 		// public static BackstoryDef Colonist97;
 		// public static BackstoryDef Child27;
+		// Effects
+		public static EffecterDef CocoonDestroyed;
 	}
 
 }
