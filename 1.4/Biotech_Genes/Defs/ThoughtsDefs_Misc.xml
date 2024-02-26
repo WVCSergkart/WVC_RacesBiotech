@@ -47,7 +47,7 @@
 	<stackLimit>800</stackLimit>
 	<maxCumulatedOpinionOffset>30</maxCumulatedOpinionOffset>
 	<stackLimitForSameOtherPawn>4</stackLimitForSameOtherPawn>
-	<stackedEffectMultiplier>1.0</stackedEffectMultiplier>
+	<stackedEffectMultiplier>0.9</stackedEffectMultiplier>
 	<stages>
 	  <li>
 		<label>same xenotype</label>
@@ -63,7 +63,7 @@
 	<stackLimit>800</stackLimit>
 	<maxCumulatedOpinionOffset>20</maxCumulatedOpinionOffset>
 	<stackLimitForSameOtherPawn>4</stackLimitForSameOtherPawn>
-	<stackedEffectMultiplier>0.75</stackedEffectMultiplier>
+	<stackedEffectMultiplier>0.92</stackedEffectMultiplier>
 	<stages>
 	  <li>
 		<label>family by blood</label>
