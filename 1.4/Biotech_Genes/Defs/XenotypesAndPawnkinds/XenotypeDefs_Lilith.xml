@@ -3,7 +3,6 @@
 
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" MayRequire="ludeon.rimworld.royalty">
 	<defName>WVC_Lilith</defName>
-	<!-- To-Do: Replace xenotype name -->
 	<!-- harvkinX bloodkinX feedkindX demobloodX bloodversterX lilif? -->
 	<label>lilif</label>
 	<description>Lilifs are ageless, psy-gifted super-humans powered by archotech-created archites in the bloodstream. They are divinely beautiful, can communicate with the power of thought, never suffer from disease and learn the skills of exploring the memories of others. But their endless hemogen thirst, incredible fragility and genetic blindness makes them dependent. They cannot exist on their own and greatly need others, because those around them mean protection, food and knowledge.

@@ -58,7 +58,7 @@
   <RitualAttachableOutcomeEffectDef>
 	<defName>WVC_BlankindRecruit</defName>
 	<label>subject recruit</label>
-	<effectDesc>100% chance of blankind or lilith recruit of the same ideoligion joining your colony.</effectDesc>
+	<effectDesc>100% chance of blankind, lilif or deadcat recruit of the same ideoligion joining your colony.</effectDesc>
 	<letterInfoText>A wanderer has arrived and wants to join your colony.</letterInfoText>
 	<workerClass>WVC_XenotypesAndGenes.RitualAttachableOutcomeEffectWorker_XenotypeRecruit</workerClass>
 	<requiredMemeAny>

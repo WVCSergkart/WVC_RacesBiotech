@@ -86,7 +86,8 @@
 	</backstoryFiltersOverride>
 	<xenotypeSet>
 	  <xenotypeChances>
-		<WVC_Lilith MayRequire="ludeon.rimworld.royalty">70</WVC_Lilith>
+		<WVC_Lilith MayRequire="ludeon.rimworld.royalty">35</WVC_Lilith>
+		<WVC_CatDeity MayRequire="ludeon.rimworld.royalty">35</WVC_CatDeity>
 		<WVC_Blank>30</WVC_Blank>
 	  </xenotypeChances>
 	</xenotypeSet>
