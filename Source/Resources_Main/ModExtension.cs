@@ -41,6 +41,7 @@ namespace WVC_XenotypesAndGenes
 		public bool targetShouldBeFamily = false;
 		public bool ignoreIfHasGene = false;
 		public bool onlySameXenotype = false;
+		public ThoughtDef sameAsMe_AboutMeThoughtDef;
 	}
 
 	public class GeneExtension_General : DefModExtension

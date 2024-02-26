@@ -295,6 +295,9 @@
 	  <fur>WVC_TransparentSkin</fur>
 	  <tattoosVisible>true</tattoosVisible>
 	</graphicData>
+	<statOffsets>
+	  <PawnBeauty>-1</PawnBeauty>
+	</statOffsets>
 	<missingGeneRomanceChanceFactor>0.10</missingGeneRomanceChanceFactor>
 	<symbolPack>
 	  <prefixSymbols>

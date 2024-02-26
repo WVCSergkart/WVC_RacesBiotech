@@ -6,7 +6,7 @@
 	<!-- <description>Carriers of this gene have weird vocal chords.</description> -->
 	<iconPath>WVC/UI/Genes/Gene_VoicesAnimals_v0</iconPath>
 	<iconColor>(0.75, 0.75, 0.75)</iconColor>
-    <displayOrderInCategory>200</displayOrderInCategory>
+	<displayOrderInCategory>200</displayOrderInCategory>
 	<selectionWeight>0.00015</selectionWeight>
 	<symbolPack>
 	  <wholeNameSymbols>

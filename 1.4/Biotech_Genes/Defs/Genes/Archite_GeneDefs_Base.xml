@@ -35,7 +35,8 @@
 	<description>Carriers of this gene can psychically influence the minds of others, becoming completely invisible to them.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Flickable</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_Invisibility_v0</iconPath>
-	<biostatArc>2</biostatArc>
+	<biostatCpx>4</biostatCpx>
+	<biostatArc>1</biostatArc>
 	<customEffectDescriptions>
 		<li>In invisibility, the carrier &lt;color=#8a8ae6&gt;cannot attack enemies&lt;/color&gt;, and also gets &lt;color=#8a8ae6&gt;tired and hungry&lt;/color&gt; very quickly.</li>
 		<li>&lt;color=#8a8ae6&gt;Allows you to toggle invisibility.&lt;/color&gt;</li>

@@ -46,11 +46,11 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (props.AboutMeThoughtDef != null)
 			{
-				GeneFeaturesUtility.PawnMapOpinionAboutMe(pawn, gene, props.AboutMeThoughtDef, props.targetShouldBePsySensitive, props.targetShouldBeFamily, props.ignoreIfHasGene, props.onlySameXenotype);
+				ThoughtUtility.PawnMapOpinionAboutMe(pawn, gene, props.AboutMeThoughtDef, props.targetShouldBePsySensitive, props.targetShouldBeFamily, props.ignoreIfHasGene, props.onlySameXenotype);
 			}
 			if (props.MeAboutThoughtDef != null)
 			{
-				GeneFeaturesUtility.MyOpinionAboutPawnMap(pawn, gene, props.MeAboutThoughtDef, props.targetShouldBePsySensitive, props.targetShouldBeFamily, props.ignoreIfHasGene, props.onlySameXenotype);
+				ThoughtUtility.MyOpinionAboutPawnMap(pawn, gene, props.MeAboutThoughtDef, props.targetShouldBePsySensitive, props.targetShouldBeFamily, props.ignoreIfHasGene, props.onlySameXenotype);
 			}
 		}
 
@@ -126,6 +126,58 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_IncestLover : Gene
 	{
 
+
+	}
+
+	public class Gene_DemonBeauty : Gene
+	{
+
+		public GeneExtension_Opinion Props => def?.GetModExtension<GeneExtension_Opinion>();
+
+		public override void Tick()
+		{
+			base.Tick();
+			if (!pawn.IsHashIntervalTick(60000))
+			{
+				return;
+			}
+			if (!Active)
+			{
+				return;
+			}
+			SetOpinion(pawn, this, Props);
+		}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: SetOpinion",
+					action = delegate
+					{
+						SetOpinion(pawn, this, Props);
+					}
+				};
+			}
+		}
+
+		public void SetOpinion(Pawn pawn, Gene gene, GeneExtension_Opinion props)
+		{
+			if (props == null)
+			{
+				return;
+			}
+			if (props.AboutMeThoughtDef != null)
+			{
+				ThoughtUtility.PawnMapOpinionAboutMe(pawn, gene, props.AboutMeThoughtDef, true, false, true, false);
+			}
+			if (props.sameAsMe_AboutMeThoughtDef != null)
+			{
+				ThoughtUtility.PawnMapOpinionAboutMe(pawn, gene, props.sameAsMe_AboutMeThoughtDef, true, false, false, true);
+			}
+		}
 
 	}
 

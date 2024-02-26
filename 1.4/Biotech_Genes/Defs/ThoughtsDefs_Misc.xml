@@ -202,6 +202,38 @@
 	</stages>
   </ThoughtDef>
 
+  <ThoughtDef>
+	<defName>WVC_XenotypesAndGenes_DemonBeauty_Others</defName>
+	<thoughtClass>Thought_MemorySocial</thoughtClass>
+	<durationDays>20</durationDays>
+	<stackLimit>10</stackLimit>
+	<stackedEffectMultiplier>1.0</stackedEffectMultiplier>
+	<developmentalStageFilter>Child, Adult</developmentalStageFilter>
+	<socialTargetDevelopmentalStageFilter>Child, Adult</socialTargetDevelopmentalStageFilter>
+	<stages>
+	  <li>
+		<label>demon beauty</label>
+		<baseOpinionOffset>-40</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_XenotypesAndGenes_DemonBeauty</defName>
+	<thoughtClass>Thought_MemorySocial</thoughtClass>
+	<durationDays>20</durationDays>
+	<stackLimit>10</stackLimit>
+	<stackedEffectMultiplier>1.0</stackedEffectMultiplier>
+	<developmentalStageFilter>Child, Adult</developmentalStageFilter>
+	<socialTargetDevelopmentalStageFilter>Child, Adult</socialTargetDevelopmentalStageFilter>
+	<stages>
+	  <li>
+		<label>demon beauty</label>
+		<baseOpinionOffset>40</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
   <!-- ===================== -->
 
   <ThoughtDef>
