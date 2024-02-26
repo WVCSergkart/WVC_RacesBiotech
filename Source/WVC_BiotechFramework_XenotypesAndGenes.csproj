@@ -96,7 +96,7 @@
     <Compile Include="Resources_Genes\Gene_Mechlink.cs" />
     <Compile Include="Resources_Genes\Gene_ResurgentCellsGain.cs" />
     <Compile Include="Resources_Genes\Gene_Scarifier.cs" />
-    <Compile Include="Resources_Genes\Gene_Wings.cs" />
+    <Compile Include="Resources_Genes\Gene_Flickable.cs" />
     <Compile Include="Resources_Genes\Gene_NonPlayerSpecials.cs" />
     <Compile Include="Resources_Harmony\Harmony.cs" />
     <Compile Include="Resources_Harmony\Harmony_DisablePawnRelations.cs" />

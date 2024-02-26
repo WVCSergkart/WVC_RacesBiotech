@@ -92,6 +92,7 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_Wings_FeatheredWings</hediffDefName>
+			<message>WVC_XaG_Gene_WingsDesc</message>
 		</li>
 	</modExtensions>
   </GeneDef>

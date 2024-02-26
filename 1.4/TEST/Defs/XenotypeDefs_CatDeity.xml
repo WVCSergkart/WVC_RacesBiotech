@@ -16,7 +16,7 @@
 		<li>WVC_DeadlyGeneticInstability</li>
 		<li>WVC_PsychicAbility_Archite</li>
 		<li>WVC_NaturalTelepathy</li>
-		<li>WVC_MinMaxTemp_Natural</li>
+		<li>WVC_MinMaxTemp_Archite</li>
 		<li>VerySleepy</li>
 		<li>WVC_Hair_NonBald</li>
 		<li>WVC_CatEarsA</li>
@@ -40,6 +40,7 @@
 		<li>WVC_Immunity_Non</li>
 		<li>WVC_Glass</li>
 		<li>WVC_XenotypeGestator</li>
+		<li>WVC_Invisibility</li>
 	</genes>
   </XenotypeDef>
 

@@ -254,4 +254,31 @@
 	</modExtensions>
   </HediffDef>
 
+  <!-- ================== -->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base" MayRequire="ludeon.rimworld.royalty">
+	<defName>WVC_XaG_GeneInvisibility</defName>
+	<label>invisibility</label>
+	<description>The pawn is completely hidden from the eyes of enemies.</description>
+	<stages>
+	  <li>
+		<hungerRateFactorOffset>2.2</hungerRateFactorOffset>
+		<statOffsets>
+		  <RestFallRateFactor>2.2</RestFallRateFactor>
+		</statOffsets>
+		<disabledWorkTags>Violent</disabledWorkTags>
+		<minSeverity>0.0</minSeverity>
+	  </li>
+	</stages>
+	<comps>
+	  <li Class="HediffCompProperties">
+		<compClass>HediffComp_Invisibility</compClass>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive">
+		<geneDef>WVC_Invisibility</geneDef>
+	  </li>
+	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+	</comps>
+  </HediffDef>
+
 </Defs>

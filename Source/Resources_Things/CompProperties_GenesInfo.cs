@@ -172,7 +172,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				info += "WVC_XaG_Gene_Scarifier_On_Info".Translate().Resolve() + ": " + cachedScarifierGene.scarifyInterval.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
 			}
-			if (cachedWingGene != null && cachedWingGene.Flying)
+			if (cachedWingGene != null && cachedWingGene.OnOrOff)
 			{
 				if (!info.NullOrEmpty())
 				{

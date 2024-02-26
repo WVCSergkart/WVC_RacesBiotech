@@ -22,11 +22,6 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool ReplaceGeneBackground(GeneDef geneDef)
 		{
-			// geneDef.defName.Contains("WVC_")
-			// if (WVC_Biotech.settings.disableUniqueGeneInterface)
-			// {
-				// return false;
-			// }
 			if (geneDef.IsXenoGenesGene())
 			{
 				return true;
@@ -48,33 +43,8 @@ namespace WVC_XenotypesAndGenes
 				{
 					text += " " + "WVC_XaG_NewBack_GeneIsFurskin_HeadOverride".Translate().Colorize(ColoredText.TipSectionTitleColor);
 				}
-				// text += ".".Colorize(ColoredText.TipSectionTitleColor);
 				text += "\n\n" + "WVC_XaG_NewBack_GeneIsFurskin_CanBeDisabled".Translate().Colorize(ColoredText.SubtleGrayColor);
 			}
-			// if (def.geneClass == typeof(Gene_AngelicStability))
-			// {
-				// text += "\n\n" + "WVC_XaG_NewBack_GeneIsAngelicStability".Translate().Colorize(ColoredText.SubtleGrayColor);
-			// }
-			// else if (def.geneClass == typeof(Gene_GeneticStability) || def.geneClass == typeof(Gene_ResurgentStability))
-			// {
-				// text += "\n\n" + "WVC_XaG_NewBack_GeneIsGeneticStability".Translate().Colorize(ColoredText.SubtleGrayColor);
-			// }
-			// else if (def.geneClass == typeof(Gene_GeneticInstability))
-			// {
-				// text += "\n\n" + "WVC_XaG_NewBack_GeneIsGeneticInStability".Translate().Colorize(ColoredText.SubtleGrayColor);
-			// }
-			//if (SubXenotypeUtility.GeneIsRandom(def))
-			//{
-				//if (!SubXenotypeUtility.GeneIsShuffle(def))
-				//{
-				//	text += "\n\n" + "WVC_XaG_NewBack_GeneIsRandom".Translate().Colorize(ColoredText.SubtleGrayColor);
-				//}
-				//else
-				//{
-				//	text += "\n\n" + "WVC_XaG_NewBack_GeneIsShuffle".Translate().Colorize(ColoredText.SubtleGrayColor);
-				//}
-				//text += "\n\n" + "WVC_XaG_NewBack_GeneIsRandom".Translate().Colorize(ColoredText.SubtleGrayColor);
-			//}
 			if (def.selectionWeight == 0 || !def.canGenerateInGeneSet)
 			{
 				text += "\n\n" + "WVC_XaG_NewBack_GeneCannotSpawnInGenepacks".Translate().Colorize(ColoredText.SubtleGrayColor);
@@ -114,24 +84,14 @@ namespace WVC_XenotypesAndGenes
 					text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive_UndeadReincarnate".Translate();
 				}
 			}
-			if (ModLister.CheckIdeology("Scarification") && gene.def.geneClass == typeof(Gene_Scarifier))
+			if (ModLister.CheckIdeology("Scarification") && gene is Gene_Scarifier scarifier)
 			{
-				Gene_Scarifier scarifier = (Gene_Scarifier)gene;
 				text += "\n\n" + ("WVC_XaG_NewBack_GeneIsScarifier".Translate() + ": " + scarifier.cachedMaxScars.ToString());
 			}
 			if (gene is Gene_Faceless faceless && !faceless.drawGraphic)
 			{
 				text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive_WrongFace".Translate().Colorize(ColorLibrary.RedReadable);
 			}
-			// if (gene.def?.GetModExtension<GeneExtension_Giver>() != null)
-			// {
-				// if (gene.def.GetModExtension<GeneExtension_Giver>().scarsCount != 0)
-				// {
-					// int scarsCount = gene.def?.GetModExtension<GeneExtension_Giver>() != null ? gene.def.GetModExtension<GeneExtension_Giver>().scarsCount : 0;
-					// string scarsLimitText = scarsCount > 0 ? "WVC_XaG_NewBack_GeneIsScarifier_SubGenesIncrease" : "WVC_XaG_NewBack_GeneIsScarifier_SubGenesDecrease";
-					// text += "\n\n" + (scarsLimitText.Translate(scarsCount));
-				// }
-			// }
 			return text.Colorize(ColoredText.SubtleGrayColor);
 		}
 

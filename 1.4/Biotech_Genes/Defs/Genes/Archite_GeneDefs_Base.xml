@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <!-- Old -->
+  <!-- Used by old genes. DONT TOUCH, YOU, FUCKING BASTARD -->
+
   <GeneDef Name="WVC_XenotypesAndGenes_Archites" Abstract="True">
 	<displayCategory>Archite</displayCategory>
 	<selectionWeight>0.00125</selectionWeight>
@@ -10,16 +13,39 @@
 	<canGenerateInGeneSet>true</canGenerateInGeneSet>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
-	<!-- <statOffsets> -->
-	  <!-- <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization> -->
-	<!-- </statOffsets> -->
-	<!-- <conditionalStatAffecters> -->
-	  <!-- <li Class="WVC.ConditionalStatAffecter_Mechalike"> -->
-		<!-- <statOffsets> -->
-		  <!-- <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization> -->
-		<!-- </statOffsets> -->
-	  <!-- </li> -->
-	<!-- </conditionalStatAffecters> -->
+  </GeneDef>
+
+  <!-- New -->
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneArchiteMisc_Base" Abstract="True">
+	<description>Carriers of this gene have...</description>
+	<displayCategory>Archite</displayCategory>
+	<selectionWeight>0.00025</selectionWeight>
+	<marketValueFactor>1.5</marketValueFactor>
+	<minAgeActive>0</minAgeActive>
+	<randomChosen>false</randomChosen>
+	<canGenerateInGeneSet>true</canGenerateInGeneSet>
+	<biostatCpx>4</biostatCpx>
+	<biostatArc>1</biostatArc>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Base" MayRequire="ludeon.rimworld.royalty">
+	<defName>WVC_Invisibility</defName>
+	<label>invisibility</label>
+	<description>Carriers of this gene can psychically influence the minds of others, becoming completely invisible to them.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Flickable</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Invisibility_v0</iconPath>
+	<biostatArc>2</biostatArc>
+	<customEffectDescriptions>
+		<li>In invisibility, the carrier &lt;color=#8a8ae6&gt;cannot attack enemies&lt;/color&gt;, and also gets &lt;color=#8a8ae6&gt;tired and hungry&lt;/color&gt; very quickly.</li>
+		<li>&lt;color=#8a8ae6&gt;Allows you to toggle invisibility.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_XaG_GeneInvisibility</hediffDefName>
+			<message>WVC_XaG_Gene_InvisibilityDesc</message>
+		</li>
+	</modExtensions>
   </GeneDef>
 
 </Defs>

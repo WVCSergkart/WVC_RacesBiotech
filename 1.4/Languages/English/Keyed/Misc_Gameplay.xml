@@ -243,6 +243,10 @@ Each mechanoid costs 0.15 nutrition to summon.</WVC_XaG_Gene_DustMechlinkDesc>
 
 	<WVC_XaG_Gene_EternalHunger_HuntWarning>{0} is going to bite one of the colonists!</WVC_XaG_Gene_EternalHunger_HuntWarning>
 
+	<!-- ============================ INVISIBILITY ============================ -->
+
+	<WVC_XaG_Gene_InvisibilityDesc>Allows you to turn invisibility on and off.</WVC_XaG_Gene_InvisibilityDesc>
+
 	<!-- ============================ GOLEMS ============================ -->
 	<!-- ============================ GOLEMS ============================ -->
 	<!-- ============================ GOLEMS ============================ -->
