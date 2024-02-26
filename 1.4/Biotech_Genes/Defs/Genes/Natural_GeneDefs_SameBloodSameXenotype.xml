@@ -11,7 +11,7 @@
 	<biostatMet>-1</biostatMet>
 	<customEffectDescriptions>
 	  <li>Opinion updated every day and lasts 5 days.</li>
-	  <li>Opinion can stack up to 10 times.</li>
+	  <li>Opinion can stack up to 4 times.</li>
 	  <li>Only affects colony pawns and prisoners.</li>
 	</customEffectDescriptions>
 	<!-- <exclusionTags> -->

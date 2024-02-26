@@ -276,8 +276,8 @@
 	<displayOrderInCategory>25</displayOrderInCategory>
 	<customEffectDescriptions>
 	  <li>All psychic sensitivity pawns get +40 opinion towards gene carrier.</li>
-	  <li>Opinion updated every day and lasts 20 days.</li>
-	  <li>Opinion can stack up to 10 times.</li>
+	  <li>Opinion updated every day and lasts 5 days.</li>
+	  <li>Opinion can stack up to 4 times.</li>
 	  <li>Only affects colony pawns and prisoners.</li>
 	  <!-- <li>Does not affect babies.</li> -->
 	  <li>Decreases the nutritional value of consumed food by 8%</li>

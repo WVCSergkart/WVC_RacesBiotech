@@ -119,7 +119,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			foreach (Thing item in GenRadial.RadialDistinctThingsAround(parent.Position, parent.Map, radius, useCenter: true))
 			{
-				if (item is not Pawn pawn || pawn.AnimalOrWildMan() || !pawn.RaceProps.IsFlesh || pawn == parent || pawn.Dead || pawn.Downed || !(pawn.GetStatValue(StatDefOf.PsychicSensitivity) > 0f))
+				if (item is not Pawn pawn || pawn.AnimalOrWildMan() || !pawn.RaceProps.IsFlesh || pawn == parent || pawn.Dead || pawn.Downed || !pawn.PawnPsychicSensitive())
 				{
 					continue;
 				}
@@ -176,6 +176,10 @@ namespace WVC_XenotypesAndGenes
 					continue;
 				}
 				pawns[i].needs?.mood?.thoughts?.memories.TryGainMemory(thoughtDef, pawn);
+			}
+			if (shouldBePsySensitive && pawn.Map != null)
+			{
+				FleckMaker.AttachedOverlay(pawn, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
 			}
 		}
 

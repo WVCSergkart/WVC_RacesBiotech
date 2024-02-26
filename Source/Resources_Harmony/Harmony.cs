@@ -157,6 +157,10 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (recipient.PawnPsychicSensitive() && p?.genes?.GetFirstGeneOfType<Gene_Telepathy>() != null)
 				{
+					if (p.Map != null)
+					{
+						FleckMaker.AttachedOverlay(p, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
+					}
 					__result = true;
 				}
 			}

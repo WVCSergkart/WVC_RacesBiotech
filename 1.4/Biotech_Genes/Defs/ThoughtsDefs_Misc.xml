@@ -38,96 +38,6 @@
 	</stages>
   </ThoughtDef>
 
-  <!-- <ThoughtDef> -->
-	<!-- <defName>WVC_MechaAI_MechaSensesFriendOrFoe</defName> -->
-	<!-- <thoughtClass>Thought_SituationalSocial</thoughtClass> -->
-	<!-- <workerClass>WVC_XenotypesAndGenes.ThoughtWorker_MechaSensesFriendOrFoe</workerClass> -->
-	<!-- <validWhileDespawned>false</validWhileDespawned> -->
-	<!-- <requiredGenes> -->
-	  <!-- <li>WVC_MechaAI_SoftwareNaturalEnemy</li> -->
-	<!-- </requiredGenes> -->
-	<!-- <stages> -->
-	  <!-- <li> -->
-		<!-- <label>same as me</label> -->
-		<!-- <baseOpinionOffset>20</baseOpinionOffset> -->
-	  <!-- </li> -->
-	  <!-- <li> -->
-		<!-- <label>not like me</label> -->
-		<!-- <baseOpinionOffset>-500</baseOpinionOffset> -->
-	  <!-- </li> -->
-	<!-- </stages> -->
-  <!-- </ThoughtDef> -->
-
-  <!-- <ThoughtDef> -->
-	<!-- <defName>WVC_Dustogenic_AngelBeauty</defName> -->
-	<!-- <thoughtClass>Thought_SituationalSocial</thoughtClass> -->
-	<!-- <workerClass>WVC_XenotypesAndGenes.ThoughtWorker_AngelBeauty</workerClass> -->
-	<!-- <validWhileDespawned>false</validWhileDespawned> -->
-	<!-- <nullifyingGenes> -->
-	  <!-- <li>WVC_MechaAI_SoftwareNaturalEnemy</li> -->
-	  <!-- <li>WVC_MechaAI_PsychicDull</li> -->
-	<!-- </nullifyingGenes> -->
-	<!-- <stages> -->
-	  <!-- <li> -->
-		<!-- <label>angel</label> -->
-		<!-- <baseOpinionOffset>500</baseOpinionOffset> -->
-	  <!-- </li> -->
-	<!-- </stages> -->
-  <!-- </ThoughtDef> -->
-
-  <!-- <ThoughtDef> -->
-	<!-- <defName>WVC_Social_SameBloodSameXenotype</defName> -->
-	<!-- <thoughtClass>Thought_SituationalSocial</thoughtClass> -->
-	<!-- <workerClass>WVC_XenotypesAndGenes.ThoughtWorker_SameBloodSameXenotype</workerClass> -->
-	<!-- <validWhileDespawned>false</validWhileDespawned> -->
-	<!-- <requiredGenes> -->
-	  <!-- <li>WVC_SameBloodSameXenotype</li> -->
-	<!-- </requiredGenes> -->
-	<!-- <stages> -->
-	  <!-- <li> -->
-		<!-- <label>other xenotype</label> -->
-		<!-- <visible>false</visible> -->
-		<!-- <baseOpinionOffset>0</baseOpinionOffset> -->
-	  <!-- </li> -->
-	  <!-- <li> -->
-		<!-- <label>same xenotype</label> -->
-		<!-- <baseOpinionOffset>30</baseOpinionOffset> -->
-	  <!-- </li> -->
-	<!-- </stages> -->
-  <!-- </ThoughtDef> -->
-
-  <!-- <ThoughtDef> -->
-	<!-- <defName>WVC_Social_GeneFamilyByBlood_Basic</defName> -->
-	<!-- <thoughtClass>Thought_SituationalSocial</thoughtClass> -->
-	<!-- <workerClass>WVC_XenotypesAndGenes.ThoughtWorker_FamilyByBlood</workerClass> -->
-	<!-- <validWhileDespawned>false</validWhileDespawned> -->
-	<!-- <requiredGenes> -->
-	  <!-- <li>WVC_FamilyByBlood_Basic</li> -->
-	<!-- </requiredGenes> -->
-	<!-- <stages> -->
-	  <!-- <li> -->
-		<!-- <label>family by blood</label> -->
-		<!-- <baseOpinionOffset>20</baseOpinionOffset> -->
-	  <!-- </li> -->
-	<!-- </stages> -->
-  <!-- </ThoughtDef> -->
-
-  <!-- <ThoughtDef> -->
-	<!-- <defName>WVC_Social_GeneFamilyByBlood_Dustogenic</defName> -->
-	<!-- <thoughtClass>Thought_SituationalSocial</thoughtClass> -->
-	<!-- <workerClass>WVC_XenotypesAndGenes.ThoughtWorker_FamilyByBlood</workerClass> -->
-	<!-- <validWhileDespawned>false</validWhileDespawned> -->
-	<!-- <requiredGenes> -->
-	  <!-- <li>WVC_FamilyByBlood_Dustogenic</li> -->
-	<!-- </requiredGenes> -->
-	<!-- <stages> -->
-	  <!-- <li> -->
-		<!-- <label>family by blood</label> -->
-		<!-- <baseOpinionOffset>100</baseOpinionOffset> -->
-	  <!-- </li> -->
-	<!-- </stages> -->
-  <!-- </ThoughtDef> -->
-
   <!-- ========================================================== -->
 
   <ThoughtDef>
@@ -136,7 +46,7 @@
 	<durationDays>5</durationDays>
 	<stackLimit>800</stackLimit>
 	<maxCumulatedOpinionOffset>30</maxCumulatedOpinionOffset>
-	<stackLimitForSameOtherPawn>10</stackLimitForSameOtherPawn>
+	<stackLimitForSameOtherPawn>4</stackLimitForSameOtherPawn>
 	<stackedEffectMultiplier>1.0</stackedEffectMultiplier>
 	<stages>
 	  <li>
@@ -152,7 +62,7 @@
 	<durationDays>6</durationDays>
 	<stackLimit>800</stackLimit>
 	<maxCumulatedOpinionOffset>20</maxCumulatedOpinionOffset>
-	<stackLimitForSameOtherPawn>10</stackLimitForSameOtherPawn>
+	<stackLimitForSameOtherPawn>4</stackLimitForSameOtherPawn>
 	<stackedEffectMultiplier>0.75</stackedEffectMultiplier>
 	<stages>
 	  <li>
@@ -168,7 +78,7 @@
 	<durationDays>6</durationDays>
 	<stackLimit>800</stackLimit>
 	<maxCumulatedOpinionOffset>200</maxCumulatedOpinionOffset>
-	<stackLimitForSameOtherPawn>10</stackLimitForSameOtherPawn>
+	<stackLimitForSameOtherPawn>4</stackLimitForSameOtherPawn>
 	<stackedEffectMultiplier>1.0</stackedEffectMultiplier>
 	<stages>
 	  <li>
@@ -182,18 +92,14 @@
 
   <ThoughtDef>
 	<defName>WVC_XenotypesAndGenes_AngelBeauty</defName>
+	<!-- <thoughtClass>WVC_XenotypesAndGenes.Thought_MemorySocial_WithStat</thoughtClass> -->
 	<thoughtClass>Thought_MemorySocial</thoughtClass>
-	<durationDays>20</durationDays>
-	<stackLimit>10</stackLimit>
-	<!-- <maxCumulatedOpinionOffset>500</maxCumulatedOpinionOffset> -->
-	<!-- <stackLimitForSameOtherPawn>10</stackLimitForSameOtherPawn> -->
+	<durationDays>5</durationDays>
+	<stackLimit>4</stackLimit>
 	<stackedEffectMultiplier>1.0</stackedEffectMultiplier>
 	<developmentalStageFilter>Child, Adult</developmentalStageFilter>
 	<socialTargetDevelopmentalStageFilter>Child, Adult</socialTargetDevelopmentalStageFilter>
-	<!-- <nullifyingGenes> -->
-	  <!-- <li>WVC_MechaAI_SoftwareNaturalEnemy</li> -->
-	  <!-- <li>WVC_MechaAI_PsychicDull</li> -->
-	<!-- </nullifyingGenes> -->
+	<!-- <effectMultiplyingStat>PsychicSensitivity</effectMultiplyingStat> -->
 	<stages>
 	  <li>
 		<label>angel beauty</label>
@@ -204,12 +110,14 @@
 
   <ThoughtDef>
 	<defName>WVC_XenotypesAndGenes_DemonBeauty_Others</defName>
+	<!-- <thoughtClass>WVC_XenotypesAndGenes.Thought_MemorySocial_WithStat</thoughtClass> -->
 	<thoughtClass>Thought_MemorySocial</thoughtClass>
-	<durationDays>20</durationDays>
-	<stackLimit>10</stackLimit>
+	<durationDays>5</durationDays>
+	<stackLimit>4</stackLimit>
 	<stackedEffectMultiplier>1.0</stackedEffectMultiplier>
 	<developmentalStageFilter>Child, Adult</developmentalStageFilter>
 	<socialTargetDevelopmentalStageFilter>Child, Adult</socialTargetDevelopmentalStageFilter>
+	<!-- <effectMultiplyingStat>PsychicSensitivity</effectMultiplyingStat> -->
 	<stages>
 	  <li>
 		<label>demon beauty</label>
@@ -220,12 +128,14 @@
 
   <ThoughtDef>
 	<defName>WVC_XenotypesAndGenes_DemonBeauty</defName>
+	<!-- <thoughtClass>WVC_XenotypesAndGenes.Thought_MemorySocial_WithStat</thoughtClass> -->
 	<thoughtClass>Thought_MemorySocial</thoughtClass>
-	<durationDays>20</durationDays>
-	<stackLimit>10</stackLimit>
+	<durationDays>5</durationDays>
+	<stackLimit>4</stackLimit>
 	<stackedEffectMultiplier>1.0</stackedEffectMultiplier>
 	<developmentalStageFilter>Child, Adult</developmentalStageFilter>
 	<socialTargetDevelopmentalStageFilter>Child, Adult</socialTargetDevelopmentalStageFilter>
+	<!-- <effectMultiplyingStat>PsychicSensitivity</effectMultiplyingStat> -->
 	<stages>
 	  <li>
 		<label>demon beauty</label>
@@ -239,17 +149,17 @@
   <ThoughtDef>
 	<defName>WVC_XenotypesAndGenes_Hater</defName>
 	<thoughtClass>Thought_MemorySocial</thoughtClass>
-	<durationDays>20</durationDays>
+	<durationDays>5</durationDays>
 	<stackLimit>800</stackLimit>
 	<!-- <stackLimit>10</stackLimit> -->
-	<stackLimitForSameOtherPawn>10</stackLimitForSameOtherPawn>
+	<stackLimitForSameOtherPawn>4</stackLimitForSameOtherPawn>
 	<stackedEffectMultiplier>1.0</stackedEffectMultiplier>
 	<!-- <developmentalStageFilter>Adult</developmentalStageFilter> -->
 	<!-- <socialTargetDevelopmentalStageFilter>Adult</socialTargetDevelopmentalStageFilter> -->
 	<stages>
 	  <li>
 		<label>not like me</label>
-		<baseOpinionOffset>-20</baseOpinionOffset>
+		<baseOpinionOffset>-25</baseOpinionOffset>
 	  </li>
 	</stages>
   </ThoughtDef>

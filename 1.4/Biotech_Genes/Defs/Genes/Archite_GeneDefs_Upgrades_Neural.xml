@@ -323,9 +323,9 @@
 	  <BondAnimalChanceFactor>0.0</BondAnimalChanceFactor>
 	</statFactors>
 	<customEffectDescriptions>
-	  <li>The carrier of the gene accumulates a -20 opinion about others. If they don't have this gene.</li>
-	  <li>Opinion updated every day and lasts 20 days.</li>
-	  <li>Opinion can stack up to 10 times.</li>
+	  <li>The carrier of the gene accumulates a -25 opinion about others. If they don't have this gene.</li>
+	  <li>Opinion updated every day and lasts 5 days.</li>
+	  <li>Opinion can stack up to 4 times.</li>
 	  <li>Only affects colony pawns and prisoners.</li>
 	  <!-- <li>Does not affect babies and children.</li> -->
 	</customEffectDescriptions>
