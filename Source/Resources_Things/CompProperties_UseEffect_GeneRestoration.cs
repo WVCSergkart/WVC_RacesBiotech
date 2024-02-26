@@ -17,6 +17,8 @@ namespace WVC_XenotypesAndGenes
 
 		public List<HediffDef> hediffsToRemove;
 
+		public bool disableShapeshiftComaAfterUse = false;
+
 		public CompProperties_UseEffect_GeneRestoration()
 		{
 			compClass = typeof(CompUseEffect_GeneRestoration);

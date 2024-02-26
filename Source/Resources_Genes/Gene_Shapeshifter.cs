@@ -12,6 +12,8 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Shapeshifter Props => def?.GetModExtension<GeneExtension_Shapeshifter>();
 
+		public bool xenogermComaAfterShapeshift = true;
+
 		public override void PostAdd()
 		{
 			base.PostAdd();
@@ -29,7 +31,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			yield return new Command_Action
 			{
-				defaultLabel = "WVC_XaG_GeneShapeshifter_Label".Translate(),
+				defaultLabel = def.LabelCap,
 				defaultDesc = "WVC_XaG_GeneShapeshifter_Desc".Translate(),
 				// disabled = pawn.health.hediffSet.HasHediff(HediffDefOf.XenogerminationComa) || pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating),
 				// disabledReason = HediffDefOf.XenogermReplicating.description,
@@ -48,6 +50,17 @@ namespace WVC_XenotypesAndGenes
 			{
 				pawn.genes.AddGene(this.def, false);
 			}
+		}
+
+		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
+		{
+			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Label".Translate(), xenogermComaAfterShapeshift.ToStringYesNo(), "WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Desc".Translate(), 200);
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref xenogermComaAfterShapeshift, "xenogerminationComaAfterShapeshift", defaultValue: true);
 		}
 
 	}

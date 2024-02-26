@@ -18,6 +18,7 @@ namespace WVC_XenotypesAndGenes
 		public bool genesRegrowing = false;
 		public bool canEverUseShapeshift = true;
 		public bool duplicateMode = false;
+		// public bool shouldBeDowned = true;
 		public List<XenotypeDef> preferredXenotypes;
 		public List<string> trustedXenotypes;
 
@@ -140,7 +141,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				gene.pawn.genes.AddGene(gene.def, false);
 			}
-			gene.pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
+			if (gene is not Gene_Shapeshifter shapeshifter || shapeshifter.xenogermComaAfterShapeshift)
+			{
+				gene.pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
+			}
 			GeneUtility.UpdateXenogermReplication(gene.pawn);
 			WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(gene.pawn, gene.pawn.Map).Trigger(gene.pawn, null);
 			if (!soundDefOnImplant.NullOrUndefined())

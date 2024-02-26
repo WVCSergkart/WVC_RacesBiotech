@@ -382,6 +382,9 @@ Each mechanoid costs 0.15 nutrition to summon.</WVC_XaG_Gene_DustMechlinkDesc>
 
 	<!-- <WVC_XaG_GeneXenoGestator_GestationTime>Gestation time: {0}</WVC_XaG_GeneXenoGestator_GestationTime> -->
 
+	<WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Label>Shapeshift coma</WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Label>
+	<WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Desc>Does a pawn fall into a xenogermination coma after a shapeshift. This can be changed with a special serum or under certain conditions.</WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Desc>
+
 	<!-- <WVC_XaG_GeneXenoGestator_GestationGenesMatch>The minimum matched genes must be at least {0}%</WVC_XaG_GeneXenoGestator_GestationGenesMatch> -->
 
 	<WVC_XaG_GeneShapeshifter_ShapeshiftWarning>The xenotype change process will take 2 days, during which time the gene carrier will be downed. Once completed, the carrier will not be able to change xenotype again for some time.</WVC_XaG_GeneShapeshifter_ShapeshiftWarning>

@@ -53,13 +53,38 @@ namespace WVC_XenotypesAndGenes
 			}
 			GeneExtension_Shapeshifter.TraitDefWithWeight traitDefWithWeight = geneExtension.possibleTraits.RandomElementByWeight((GeneExtension_Shapeshifter.TraitDefWithWeight x) => x.weight);
 			float chance = traitDefWithWeight.weight;
-			// TraitDef trait = traitDefWithWeight.traitDef;
 			Trait trait = new(traitDefWithWeight.traitDef);
+			if (traitSet.allTraits.Contains(trait) || MiscUtility.TraitHasAnyConflicts(traitSet.allTraits, trait))
+			{
+				return;
+			}
 			if (Rand.Chance(chance))
 			{
 				traitSet.GainTrait(trait);
 			}
 		}
+
+		// public static bool TraitDefWithWeight_HasAnyConflicts(List<TraitDef> traitDefs, List<Trait> traits)
+		// {
+			// foreach (TraitDef item in traitDefs)
+			// {
+				// if (MiscUtility.TraitHasAnyConflicts(traits, item))
+				// {
+					// return true;
+				// }
+			// }
+			// return false;
+		// }
+
+		// public static List<TraitDef> GetAllTraitsFrom_TraitDefWithWeight(GeneExtension_Shapeshifter geneExtension)
+		// {
+			// List<TraitDef> traits = new();
+			// foreach (GeneExtension_Shapeshifter.TraitDefWithWeight traitDefWithWeight in geneExtension.possibleTraits)
+			// {
+				// traits.Add(traitDefWithWeight.traitDef);
+			// }
+			// return traits;
+		// }
 
 		// Clone
 		public static bool TryDuplicatePawn(Pawn progenitor, Gene gene = null, XenotypeDef xenotypeDef = null, bool duplicateMode = false)

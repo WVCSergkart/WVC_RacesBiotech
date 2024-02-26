@@ -109,4 +109,36 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class CompUseEffect_GeneShapeshifterChanger : CompUseEffect
+	{
+		public CompProperties_UseEffect_GeneRestoration Props => (CompProperties_UseEffect_GeneRestoration)props;
+
+		public override void DoEffect(Pawn pawn)
+		{
+			Gene_Shapeshifter shapeshifter = pawn?.genes?.GetFirstGeneOfType<Gene_Shapeshifter>();
+			if (!SerumUtility.PawnIsHuman(pawn) || shapeshifter == null)
+			{
+				pawn.health.AddHediff(WVC_GenesDefOf.WVC_IncompatibilityComa);
+				Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+				return;
+			}
+			if (Props.disableShapeshiftComaAfterUse)
+			{
+				shapeshifter.xenogermComaAfterShapeshift = false;
+			}
+		}
+
+		public override bool CanBeUsedBy(Pawn p, out string failReason)
+		{
+			failReason = null;
+			if (!SerumUtility.PawnIsHuman(p) || !p.IsShapeshifter())
+			{
+				failReason = "WVC_PawnIsAndroidCheck".Translate();
+				return false;
+			}
+			return true;
+		}
+
+	}
+
 }
