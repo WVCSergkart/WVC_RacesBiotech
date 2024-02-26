@@ -265,16 +265,17 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
 	<defName>WVC_Dustogenic_AngelBeauty</defName>
-	<label>angel beauty</label>
+	<label>dust beauty</label>
 	<description>Carriers of this gene can unconsciously influence how others see them. Their brain emits neuronal psychic waves that cause those around them who are susceptible to psychic influence to deify them.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_AngelBeauty</geneClass>
-	<iconPath>WVC/UI/Genes/Gene_Angel_v0</iconPath>
+	<iconPath>WVC/UI/Genes/Gene_DustAngel_v0</iconPath>
 	<!-- <iconColor>(255, 248, 133)</iconColor> -->
 	<!-- <iconColor>(173, 142, 112)</iconColor> -->
-	<iconColor>(249, 241, 148)</iconColor>
+	<!-- <iconColor>(249, 241, 148)</iconColor> -->
+	<iconColor>(255, 255, 255)</iconColor>
 	<displayOrderInCategory>25</displayOrderInCategory>
 	<customEffectDescriptions>
-	  <li>All psychic sensitivity pawns that don't have this gene get +40 opinion towards gene carrier.</li>
+	  <li>All psychic sensitivity pawns get +40 opinion towards gene carrier.</li>
 	  <li>Opinion updated every day and lasts 20 days.</li>
 	  <li>Opinion can stack up to 10 times.</li>
 	  <li>Only affects colony pawns and prisoners.</li>
@@ -326,7 +327,7 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
 			<AboutMeThoughtDef>WVC_XenotypesAndGenes_AngelBeauty</AboutMeThoughtDef>
 			<targetShouldBePsySensitive>true</targetShouldBePsySensitive>
-			<ignoreIfHasGene>true</ignoreIfHasGene>
+			<ignoreIfHasGene>false</ignoreIfHasGene>
 		</li>
 	</modExtensions>
   </GeneDef>

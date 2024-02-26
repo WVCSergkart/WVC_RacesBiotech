@@ -18,6 +18,7 @@
 	</symbolPack>
 	<exclusionTags>
 	  <li>WVC_HybridStomach</li>
+	  <!-- <li>AG_StrongStomachAndWeakStomach</li> -->
 	</exclusionTags>
   </GeneDef>
 
@@ -73,6 +74,12 @@
 	  <li>Hunger rate factor x1%</li>
 	  <li>&lt;color=#8a8ae6&gt;Hunger bar is replenished over time.&lt;/color&gt;</li>
 	</customEffectDescriptions>
+	<makeImmuneTo>
+	  <li>GutWorms</li>
+	</makeImmuneTo>
+	<exclusionTags>
+	  <li>WVC_XaG_HungerReplenishStomach</li>
+	</exclusionTags>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_DeadStomach_HungerFactor</hediffDefName>
