@@ -31,6 +31,37 @@
   <!-- ======================================================================= -->
 
   <RecipeDef ParentName="WVC_XenotypesAndGenes_DisassembleSerumCrafting_Base">
+	<defName>WVC_XaG_DisassembleSerums</defName>
+	<label>disassemble serums</label>
+	<description>Disassemble serums.</description>
+	<workAmount>2200</workAmount>
+	<products Inherit="False"/>
+	<skillRequirements Inherit="False">
+	  <Crafting>3</Crafting>
+	</skillRequirements>
+	<displayPriority>-900</displayPriority>
+	<specialProducts>
+	  <li>Butchery</li>
+	  <li>Smelted</li>
+	</specialProducts>
+	<ingredients>
+	  <li>
+		<filter>
+		  <categories>
+			<li>WVC_XenotypeSerums</li>
+		  </categories>
+		</filter>
+		<count>1</count>
+	  </li>
+	</ingredients>
+	<fixedIngredientFilter>
+	  <categories>
+		<li>WVC_XenotypeSerums</li>
+	  </categories>
+	</fixedIngredientFilter>
+  </RecipeDef>
+
+  <RecipeDef ParentName="WVC_XenotypesAndGenes_DisassembleSerumCrafting_Base">
 	<defName>WVC_RacesBiotech_DisassembleSerumBase</defName>
 	<label>disassemble base serum</label>
 	<description>Disassemble base serum.</description>

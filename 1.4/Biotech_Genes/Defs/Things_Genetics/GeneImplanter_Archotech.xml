@@ -21,6 +21,12 @@
 	<thingSetMakerTags Inherit="False">
 	  <li>RewardStandardQualitySuper</li>
 	</thingSetMakerTags>
+	<costList>
+	  <Plasteel>46</Plasteel>
+	  <WVC_EmptyXenotypeSerum>4</WVC_EmptyXenotypeSerum>
+	  <ComponentSpacer>6</ComponentSpacer>
+	  <WVC_XenotypeSerumUltraCapsule>6</WVC_XenotypeSerumUltraCapsule>
+	</costList>
 	<comps>
 	  <!-- <li Class="CompProperties_Glower"> -->
 		<!-- <glowRadius>1</glowRadius> -->

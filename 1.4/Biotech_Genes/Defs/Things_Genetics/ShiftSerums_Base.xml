@@ -22,10 +22,11 @@
 		<Intellectual>8</Intellectual>
 	  </skillRequirements>
 	</recipeMaker>
-	<!-- <costList> -->
+	<costList>
+	  <WVC_XenotypeSerumCapsule>3</WVC_XenotypeSerumCapsule>
 	  <!-- <WVC_EmptyXenotypeSerum>2</WVC_EmptyXenotypeSerum> -->
 	  <!-- <WVC_UniversalFuel>45</WVC_UniversalFuel> -->
-	<!-- </costList> -->
+	</costList>
   </ThingDef>
 
   <!-- ==================================== -->
@@ -41,8 +42,8 @@
 	  <GeneDef>WVC_Shapeshifter</GeneDef>
 	</descriptionHyperlinks>
 	<costList>
+	  <WVC_XenotypeSerumCapsule>2</WVC_XenotypeSerumCapsule>
 	  <WVC_EmptyXenotypeSerum>2</WVC_EmptyXenotypeSerum>
-	  <WVC_UniversalFuel>45</WVC_UniversalFuel>
 	</costList>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_GeneRestoration">
@@ -69,7 +70,6 @@
 	<costList>
 	  <WVC_EmptyXenotypeSerum>2</WVC_EmptyXenotypeSerum>
 	  <ComponentSpacer>3</ComponentSpacer>
-	  <WVC_UniversalFuel>80</WVC_UniversalFuel>
 	</costList>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_GeneRestoration">
