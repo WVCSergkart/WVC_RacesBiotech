@@ -7,10 +7,14 @@
 	<defName>WVC_RegrowingPart</defName>
 	<label>regrowing</label>
 	<labelNoun>a regrowing</labelNoun>
-	<description>The body part grows back. This is accompanied by a strong analgesic effect, which can be dangerous.</description>
+	<!-- <description>The body part grows back. This is accompanied by a strong analgesic effect, which can be dangerous.</description> -->
+	<description>A regrowing part.</description>
 	<hediffClass>Hediff_Injury</hediffClass>
 	<tendable>true</tendable>
 	<displayWound>true</displayWound>
+	<isBad>true</isBad>
+	<everCurableByItem>true</everCurableByItem>
+	<keepOnBodyPartRestoration>false</keepOnBodyPartRestoration>
 	<comps>
 	  <li Class="HediffCompProperties_TendDuration">
 		<labelTendedWell>bandaged</labelTendedWell>
@@ -25,7 +29,7 @@
 	  </li>
 	</comps>
 	<injuryProps>
-	  <painPerSeverity>-0.0125</painPerSeverity>
+	  <painPerSeverity>-0.0025</painPerSeverity>
 	  <averagePainPerSeverityPermanent>0</averagePainPerSeverityPermanent>
 	  <bleedRate>0</bleedRate>
 	  <canMerge>false</canMerge>
