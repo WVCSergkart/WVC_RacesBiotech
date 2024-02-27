@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="WVC_XenotypeSerum_Craftable" Abstract="True" Name="WVC_XenotypeSerum_ShiftSerumsTech">
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/ShiftInjector_v0</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+	<statBases>
+	  <MarketValue>670</MarketValue>
+	  <DeteriorationRate>0.5</DeteriorationRate>
+	</statBases>
+	<tradeTags>
+	  <!-- <li>WVC_XenotypeSerums_NonCraftable</li> -->
+	</tradeTags>
+	<recipeMaker>
+	  <researchPrerequisites>
+		<li>WVC_XenotypesAndGenes_ShapeshifterSerums</li>
+	  </researchPrerequisites>
+	  <skillRequirements>
+		<Crafting>8</Crafting>
+		<Intellectual>8</Intellectual>
+	  </skillRequirements>
+	</recipeMaker>
+	<!-- <costList> -->
+	  <!-- <WVC_EmptyXenotypeSerum>2</WVC_EmptyXenotypeSerum> -->
+	  <!-- <WVC_UniversalFuel>45</WVC_UniversalFuel> -->
+	<!-- </costList> -->
+  </ThingDef>
+
+  <!-- ==================================== -->
+
+  <ThingDef ParentName="WVC_XenotypeSerum_ShiftSerumsTech">
+	<defName>WVC_ShapeshifterOverclockerSerum_Base</defName>
+	<label>shiftover serum</label>
+	<description>A one-use super-dose of mechanites tuned to disstabilize the influence of the psychic field on the shapeshifter. As a result, shapeshift mechanites go into overclocking mode, which allows the carrier of the shapeshift genes to duplicate themselves.</description>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/ShiftInjector_v0</texPath>
+	</graphicData>
+	<descriptionHyperlinks Inherit="False">
+	  <GeneDef>WVC_Shapeshifter</GeneDef>
+	</descriptionHyperlinks>
+	<costList>
+	  <WVC_EmptyXenotypeSerum>2</WVC_EmptyXenotypeSerum>
+	  <WVC_UniversalFuel>45</WVC_UniversalFuel>
+	</costList>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_GeneRestoration">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GiveHediffIfHasGene</compClass>
+		<hediffDef>WVC_Scarifier_ShapeshifterDuplicateMode</hediffDef>
+		<geneDef>WVC_Shapeshifter</geneDef>
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <ThingDef ParentName="WVC_XenotypeSerum_ShiftSerumsTech">
+	<defName>WVC_GeneShapeshifterSerum_Coma</defName>
+	<label>shift serum (coma)</label>
+	<description>A one-use super-dose of mechanites tuned to optimize the genetic transformation of the shapeshifter. Once used, the user will no longer fall into a coma after shapeshifting.</description>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/ShiftSerum_Coma_v0</texPath>
+	</graphicData>
+	<descriptionHyperlinks Inherit="False">
+	  <GeneDef>WVC_Shapeshifter</GeneDef>
+	</descriptionHyperlinks>
+	<statBases>
+	  <MarketValue>1670</MarketValue>
+	</statBases>
+	<costList>
+	  <WVC_EmptyXenotypeSerum>2</WVC_EmptyXenotypeSerum>
+	  <ComponentSpacer>3</ComponentSpacer>
+	  <WVC_UniversalFuel>80</WVC_UniversalFuel>
+	</costList>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_GeneRestoration">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneShapeshifterChanger</compClass>
+		<disableShapeshiftComaAfterUse>true</disableShapeshiftComaAfterUse>
+	  </li>
+	</comps>
+  </ThingDef>
+
+</Defs>

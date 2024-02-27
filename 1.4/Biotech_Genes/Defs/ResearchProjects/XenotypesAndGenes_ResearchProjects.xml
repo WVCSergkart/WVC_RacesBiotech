@@ -52,7 +52,7 @@
   <ResearchProjectDef ParentName="WVC_XenotypesAndGenesResearchProjectDefs_AfterSerumLab">
 	<defName>WVC_XenotypesAndGenes_NutrientsInjector</defName>
 	<label>special serums</label>
-	<description>Special serums that directly interact with genes.</description>
+	<description>Serums that are partially or directly related to certain genes.</description>
 	<baseCost>700</baseCost>
 	<researchViewX>1.00</researchViewX>
 	<researchViewY>5.50</researchViewY>
@@ -89,9 +89,10 @@
 
   <ResearchProjectDef Abstract="True" ParentName="WVC_XenotypesAndGenesResearchProjectDefs_AfterSerumLab" Name="WVC_XenotypesAndGenesResearchProjectDefs_AfterAfterSerumLab">
 	<baseCost>2700</baseCost>
-	<prerequisites Inherit="False">
+	<prerequisites Inherit="False"/>
+	<hiddenPrerequisites Inherit="False">
 	  <li>GeneProcessor</li>
-	</prerequisites>
+	</hiddenPrerequisites>
 	<requiredResearchFacilities>
 	  <li>MultiAnalyzer</li>
 	</requiredResearchFacilities>
@@ -99,7 +100,7 @@
 
   <ResearchProjectDef ParentName="WVC_XenotypesAndGenesResearchProjectDefs_AfterAfterSerumLab">
 	<defName>WVC_XenotypesAndGenes_XenotypeSerumCrafting</defName>
-	<label>serum crafting</label>
+	<label>xenotype serums</label>
 	<description>Advanced injector technology to quickly overwrite the genetic code. Allows you to craft xenotype serums. To assign a xenotype, retune technology is needed.</description>
 	<baseCost>1900</baseCost>
 	<researchViewX>2.00</researchViewX>
@@ -121,6 +122,22 @@
 	  <li>WVC_XenotypesAndGenes_GeneRestoration</li>
 	  <li>WVC_XenotypesAndGenes_DisassembleSerum</li>
 	</prerequisites>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef ParentName="WVC_XenotypesAndGenesResearchProjectDefs_AfterSerumLab">
+	<defName>WVC_XenotypesAndGenes_ShapeshifterSerums</defName>
+	<label>shift serums</label>
+	<description>Complex serums for gene manipulation. For example, some of them allow you to get rid of shapeshift coma.</description>
+	<baseCost>1700</baseCost>
+	<researchViewX>2.00</researchViewX>
+	<researchViewY>5.50</researchViewY>
+	<prerequisites>
+	  <li>WVC_XenotypesAndGenes_NutrientsInjector</li>
+	  <li>WVC_XenotypesAndGenes_GeneRestoration</li>
+	</prerequisites>
+	<hiddenPrerequisites Inherit="False">
+	  <li>Archogenetics</li>
+	</hiddenPrerequisites>
   </ResearchProjectDef>
 
 </Defs>
