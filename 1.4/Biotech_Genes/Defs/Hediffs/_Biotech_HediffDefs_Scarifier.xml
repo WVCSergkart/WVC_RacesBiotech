@@ -90,4 +90,21 @@
 	</comps>
   </HediffDef>
 
+  <!-- <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base"> -->
+	<!-- <defName>WVC_Scarifier_ShapeshifterNoXenogermComa</defName> -->
+	<!-- <label>shapeshift optimizer</label> -->
+	<!-- <description>Metabolic and genetic pathways have been optimized, the user should no longer be subject to shapeshift coma.</description> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <becomeVisible>false</becomeVisible> -->
+		<!-- <minSeverity>0.0</minSeverity> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+	<!-- <comps> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive"> -->
+		<!-- <geneDef>WVC_Shapeshifter</geneDef> -->
+	  <!-- </li> -->
+	<!-- </comps> -->
+  <!-- </HediffDef> -->
+
 </Defs>

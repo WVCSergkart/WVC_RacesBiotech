@@ -124,6 +124,11 @@ namespace WVC_XenotypesAndGenes
 			yield break;
 		}
 
+		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
+		{
+			yield break;
+		}
+
 		public override void Tick()
 		{
 			base.Tick();

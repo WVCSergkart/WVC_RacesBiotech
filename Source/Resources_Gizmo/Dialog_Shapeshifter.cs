@@ -22,26 +22,33 @@ namespace WVC_XenotypesAndGenes
 		public List<XenotypeDef> preferredXenotypes;
 		public List<string> trustedXenotypes;
 
+		public bool xenogermComaAfterShapeshift = true;
+
 		public Dialog_Shapeshifter(Gene thisGene)
 		{
+			// Init
 			gene = thisGene;
-			currentXeno = thisGene?.pawn?.genes?.Xenotype != null ? thisGene.pawn.genes.Xenotype : null;
+			currentXeno = gene?.pawn?.genes?.Xenotype;
 			selectedXeno = currentXeno;
+			// Settings
 			forcePause = true;
 			closeOnAccept = false;
 			doCloseX = true;
 			doCloseButton = true;
+			// Xenos
 			allXenotypes = XenotypeFilterUtility.AllXenotypesExceptAndroids();
+			// Ideo
 			preferredXenotypes = ModLister.IdeologyInstalled ? gene.pawn?.ideo?.Ideo?.PreferredXenotypes : null;
+			// Extension
 			shiftExtension = gene?.def?.GetModExtension<GeneExtension_Shapeshifter>();
 			soundDefOnImplant = shiftExtension?.soundDefOnImplant;
-			// genesRegrowing = gene.pawn.health.hediffSet.HasHediff(HediffDefOf.XenogerminationComa) || gene.pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating);
-			// canEverUseShapeshift = !gene.pawn.story.traits.HasTrait(WVC_GenesDefOf.WVC_XaG_ShapeshiftPhobia);
+			// Info
 			genesRegrowing = HediffUtility.HasAnyHediff(shiftExtension?.blockingHediffs, gene.pawn);
 			canEverUseShapeshift = !MiscUtility.HasAnyTraits(shiftExtension?.blockingTraits, gene.pawn);
-			// duplicateMode = HediffUtility.HasAnyHediff(shiftExtension?.duplicateHediffs, gene.pawn);
 			duplicateMode = MiscUtility.HasAnyTraits(shiftExtension?.duplicateTraits, gene.pawn) || HediffUtility.HasAnyHediff(shiftExtension?.duplicateHediffs, gene.pawn);
 			trustedXenotypes = shiftExtension?.trustedXenotypes != null ? shiftExtension.trustedXenotypes : new();
+			// Gene stats
+			xenogermComaAfterShapeshift = gene is not Gene_Shapeshifter shapeshifter || shapeshifter.xenogermComaAfterShapeshift;
 		}
 
 		public override void DrawLeftRect(Rect rect, ref float curY)
@@ -129,19 +136,13 @@ namespace WVC_XenotypesAndGenes
 				Close(doCloseSound: false);
 				return;
 			}
-			// else
-			// {
-			// }
-			// List<GeneDef> dontRemove = new() { gene.def };
-			// dontRemove.Add(gene.def);
-			// PostSelect(gene.pawn, gene);
 			// Shapeshift START
 			ReimplanterUtility.SetXenotype_DoubleXenotype(gene.pawn, selectedXeno, new() { gene.def });
 			if (!gene.pawn.genes.HasGene(gene.def))
 			{
 				gene.pawn.genes.AddGene(gene.def, false);
 			}
-			if (gene is not Gene_Shapeshifter shapeshifter || shapeshifter.xenogermComaAfterShapeshift)
+			if (xenogermComaAfterShapeshift)
 			{
 				gene.pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
 			}
@@ -151,6 +152,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				soundDefOnImplant.PlayOneShot(SoundInfo.InMap(gene.pawn));
 			}
+			TransferGeneStats(gene.pawn?.genes?.GetFirstGeneOfType<Gene_Shapeshifter>());
 			// Shapeshift END
 			PostShapeshift(gene);
 			// Letter
@@ -188,6 +190,16 @@ namespace WVC_XenotypesAndGenes
 			{
 				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_GenesDefOf.WVC_Shapeshift, gene.pawn.Named(HistoryEventArgsNames.Doer)));
 			}
+		}
+
+		public void TransferGeneStats(Gene_Shapeshifter shapeshifter)
+		{
+			if (shapeshifter == null)
+			{
+				Log.Error(gene.pawn.Name.ToString() + " pawn used shapeshift, but it is not a shapeshifter. " + gene.LabelCap + " | " + gene.def.defName);
+				return;
+			}
+			shapeshifter.xenogermComaAfterShapeshift = xenogermComaAfterShapeshift;
 		}
 
 		// public void PostSelect(Pawn pawn, Gene gene)
