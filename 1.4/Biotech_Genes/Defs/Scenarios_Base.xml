@@ -62,7 +62,7 @@
 			<context>PlayerStarter</context>
 		</li>
 
-		<li MayRequireAnyOf="ludeon.rimworld.ideology" Class="KCSG.ScenPart_AddStartingStructure">
+		<li MayRequire="oskarpotocki.vanillafactionsexpanded.core,ludeon.rimworld.ideology" Class="KCSG.ScenPart_AddStartingStructure">
 			<def>VFEC_AddStartingStructure</def>
 			<structureLabel>Junkyard</structureLabel>
 			<nearMapCenter>True</nearMapCenter>
@@ -143,7 +143,7 @@
 		  <count>250</count>
 		</li>
 
-		<li MayRequireAnyOf="ludeon.rimworld.ideology" Class="KCSG.ScenPart_AddStartingStructure">
+		<li MayRequire="oskarpotocki.vanillafactionsexpanded.core,ludeon.rimworld.ideology" Class="KCSG.ScenPart_AddStartingStructure">
 			<def>VFEC_AddStartingStructure</def>
 			<structureLabel>Junkyard</structureLabel>
 			<nearMapCenter>True</nearMapCenter>
@@ -236,7 +236,7 @@
 		  <overseenByPlayerPawnChance>1</overseenByPlayerPawnChance>
 		</li>
 
-		<li MayRequireAnyOf="ludeon.rimworld.royalty" Class="KCSG.ScenPart_AddStartingStructure">
+		<li MayRequire="oskarpotocki.vanillafactionsexpanded.core,ludeon.rimworld.royalty" Class="KCSG.ScenPart_AddStartingStructure">
 			<def>VFEC_AddStartingStructure</def>
 			<structureLabel>Stone Altar</structureLabel>
 			<nearMapCenter>True</nearMapCenter>

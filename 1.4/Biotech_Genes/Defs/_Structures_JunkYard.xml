@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<KCSG.StructureLayoutDef>
+	<KCSG.StructureLayoutDef MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 	  <defName>WVC_JunkYard_A</defName>
 	  <spawnConduits>false</spawnConduits>
 	  <layouts>
@@ -47,7 +47,7 @@
 	  </modRequirements>
 	</KCSG.StructureLayoutDef>
 
-	<KCSG.StructureLayoutDef>
+	<KCSG.StructureLayoutDef MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 	  <defName>WVC_JunkYard_B</defName>
 	  <spawnConduits>false</spawnConduits>
 	  <layouts>
@@ -93,7 +93,7 @@
 	  </modRequirements>
 	</KCSG.StructureLayoutDef>
 
-	<KCSG.StructureLayoutDef>
+	<KCSG.StructureLayoutDef MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 	  <defName>WVC_JunkYard_C</defName>
 	  <spawnConduits>false</spawnConduits>
 	  <layouts>

@@ -46,7 +46,7 @@
 		<li>Prevent bleeding.</li>
 		<!-- <li>Bleeding wounds close very quickly.</li> -->
 		<li>Treat wounds from time to time.</li>
-		<li>Changes blood filth into machine bits.</li>
+		<li MayRequire="oskarpotocki.vanillafactionsexpanded.core">Changes blood filth into machine bits.</li>
 	</customEffectDescriptions>
 	<!-- <statFactors> -->
 	  <!-- <WVC_BleedingFactor>0</WVC_BleedingFactor> -->
@@ -63,7 +63,7 @@
 	  <li>SuperClotting</li>
 	</exclusionTags>
 	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
+		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 			<customBloodThingDef>Filth_MachineBits</customBloodThingDef>
 			<customBloodIcon>WVC/UI/InvisibleThing</customBloodIcon>
 			<!-- Not necessary -->
@@ -94,7 +94,7 @@
 	  <ArmorRating_Blunt>0.15</ArmorRating_Blunt>
 	</statOffsets>
 	<customEffectDescriptions>
-		<li>Carrying capacity on the map increased to 50%.</li>
+		<li MayRequire="oskarpotocki.vanillafactionsexpanded.core">Carrying capacity on the map increased to 50%.</li>
 	</customEffectDescriptions>
 	<!-- <capMods> -->
 	  <!-- <li> -->
@@ -106,7 +106,7 @@
 	  <li>WVC_LightFrameSuperSpine</li>
 	</exclusionTags>
 	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
+		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 			<caravanCarryingFactor>1.5</caravanCarryingFactor>
 		</li>
 	</modExtensions>
@@ -183,7 +183,7 @@
 	<displayCategory>Healing</displayCategory>
 	<customEffectDescriptions>
 		<!-- <li>&lt;color=#b8c6ff&gt;Increases toxic resistance.&lt;/color&gt;</li> -->
-		<li>Slowdown the progression of diseases.</li>
+		<li MayRequire="oskarpotocki.vanillafactionsexpanded.core">Slowdown the progression of diseases.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <!-- <li>Immunity</li> -->
@@ -194,7 +194,7 @@
 	  <ImmunityGainSpeed>1</ImmunityGainSpeed>
 	</statOffsets>
 	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
+		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 			<diseaseProgressionFactor>0.5</diseaseProgressionFactor>
 		</li>
 	</modExtensions>

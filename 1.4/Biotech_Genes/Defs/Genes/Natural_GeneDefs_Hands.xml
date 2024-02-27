@@ -131,7 +131,7 @@
 
   <!-- Upgrades -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneHands_Claws">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneHands_Claws" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 	<defName>WVC_MecaBodyParts_Claws</defName>
 	<label>foldable claws</label> 
 	<description>Carriers of this gene have foldable claws that serve as natural weapons.</description>
@@ -149,7 +149,7 @@
 	  <!-- <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization> -->
 	<!-- </statOffsets> -->
 	<modExtensions Inherit="False">
-		<li Class="VanillaGenesExpanded.GeneExtension">
+		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes> -->
 			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes> -->
 			<hediffsToBodyParts>
@@ -165,7 +165,7 @@
 	</modExtensions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneHands_Claws">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneHands_Claws" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 	<defName>WVC_NaturalBodyParts_Claws</defName>
 	<label>claws</label> 
 	<description>Carriers of this gene grow very sharp claws that serve as natural weapons.</description>
@@ -176,7 +176,7 @@
 	<biostatArc>0</biostatArc>
 	<biostatMet>-3</biostatMet>
 	<modExtensions Inherit="False">
-		<li Class="VanillaGenesExpanded.GeneExtension">
+		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 			<hediffsToBodyParts>
 				<li>
 					<hediff>WVC_RB_NaturalClaws</hediff>

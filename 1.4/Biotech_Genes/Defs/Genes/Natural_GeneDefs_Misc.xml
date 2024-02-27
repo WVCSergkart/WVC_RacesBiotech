@@ -312,14 +312,14 @@
 	</exclusionTags>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFurskinInstincts">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFurskinInstincts" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 	<defName>WVC_FurskinInstincts_NightHunter</defName>
 	<label>night hunter</label>
 	<description>Carriers of this gene are excellent night hunters. They easily navigate in the dark and always know when the enemy is most vulnerable.</description>
 	<iconColor>(200, 230, 255)</iconColor>
 	<biostatMet>-3</biostatMet>
 	<conditionalStatAffecters>
-	  <li Class="VanillaGenesExpanded.ConditionalStatAffecter_NoSunlight">
+	  <li Class="VanillaGenesExpanded.ConditionalStatAffecter_NoSunlight" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 		<statOffsets>
 		  <MeleeHitChance>15</MeleeHitChance>
 		  <MeleeDodgeChance>5</MeleeDodgeChance>

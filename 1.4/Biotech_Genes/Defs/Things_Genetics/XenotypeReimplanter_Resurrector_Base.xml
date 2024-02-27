@@ -63,9 +63,6 @@
 	<tradeTags>
 	  <li>WVC_XenotypeSerums</li>
 	</tradeTags>
-	<thingCategories>
-	  <li>WVC_XenotypeSerums_Base</li>
-	</thingCategories>
 	<comps>
 	  <!-- <li Class="CompProperties_Glower"> -->
 		<!-- <glowRadius>1</glowRadius> -->
@@ -88,9 +85,6 @@
 	  <li>WVC_XenotypeSerums_NonCraftable</li>
 	  <li>WVC_XenotypeSerums_Ultra</li>
 	</tradeTags>
-	<thingCategories>
-	  <li>WVC_XenotypeSerums_Ultra</li>
-	</thingCategories>
 	<comps>
 	  <!-- <li Class="CompProperties_Glower"> -->
 		<!-- <glowRadius>1</glowRadius> -->
@@ -115,9 +109,9 @@
 	<thingSetMakerTags Inherit="False">
 	  <li>RewardStandardLowFreq</li>
 	</thingSetMakerTags>
-	<thingCategories>
-	  <li>WVC_XenotypeSerums_Mecha</li>
-	</thingCategories>
+	<!-- <thingCategories> -->
+	  <!-- <li>WVC_XenotypeSerums_Mecha</li> -->
+	<!-- </thingCategories> -->
 	<comps>
 	  <!-- <li Class="CompProperties_Glower"> -->
 		<!-- <glowRadius>1</glowRadius> -->

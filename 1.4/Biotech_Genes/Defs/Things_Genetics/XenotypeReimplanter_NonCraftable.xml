@@ -155,6 +155,9 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 		<Intellectual>14</Intellectual>
 	  </skillRequirements>
 	</recipeMaker>
+	<thingCategories>
+	  <li>WVC_XenotypeSerums_Ultra</li>
+	</thingCategories>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenotypeForcer_II">
 		<compClass>WVC_XenotypesAndGenes.CompUseEffect_XenotypeForcer_II</compClass>
@@ -207,6 +210,9 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <li>WVC_All_XenotypeSerums</li>
 	  <li>WVC_XenotypeSerums_NonCraftable</li>
 	</tradeTags>
+	<thingCategories>
+	  <li>WVC_XenotypeSerums_Ultra</li>
+	</thingCategories>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_TargetEffect_DoJobOnTarget">
 		<moteDef>Mote_ResurrectFlash</moteDef>

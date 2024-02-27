@@ -46,7 +46,7 @@
 	  <!-- <li>WVC_GeneticInstabilityGenes</li> -->
 	<!-- </exclusionTags> -->
 	<modExtensions Inherit="False">
-		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core"> -->
 			<!-- <hideGene>true</hideGene> -->
 		<!-- </li> -->
 	</modExtensions>

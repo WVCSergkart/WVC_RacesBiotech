@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<KCSG.StructureLayoutDef>
+	<KCSG.StructureLayoutDef MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 	  <defName>WVC_Biotech_Altar_Slate</defName>
 	  <spawnConduits>false</spawnConduits>
 	  <layouts>
@@ -56,7 +56,7 @@
 	  </modRequirements>
 	</KCSG.StructureLayoutDef>
 
-	<KCSG.StructureLayoutDef>
+	<KCSG.StructureLayoutDef MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 	  <defName>WVC_Biotech_Altar_Sandstone</defName>
 	  <spawnConduits>false</spawnConduits>
 	  <layouts>
@@ -115,7 +115,7 @@
 	  </modRequirements>
 	</KCSG.StructureLayoutDef>
 
-	<KCSG.StructureLayoutDef>
+	<KCSG.StructureLayoutDef MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 	  <defName>WVC_Biotech_Altar_Marble</defName>
 	  <spawnConduits>false</spawnConduits>
 	  <layouts>
@@ -168,7 +168,7 @@
 	  </modRequirements>
 	</KCSG.StructureLayoutDef>
 
-	<KCSG.StructureLayoutDef>
+	<KCSG.StructureLayoutDef MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 	  <defName>WVC_Biotech_Altar_Limestone</defName>
 	  <spawnConduits>false</spawnConduits>
 	  <layouts>
@@ -217,7 +217,7 @@
 	  </modRequirements>
 	</KCSG.StructureLayoutDef>
 
-	<KCSG.StructureLayoutDef>
+	<KCSG.StructureLayoutDef MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 	  <defName>WVC_Biotech_Altar_Granite</defName>
 	  <spawnConduits>false</spawnConduits>
 	  <layouts>

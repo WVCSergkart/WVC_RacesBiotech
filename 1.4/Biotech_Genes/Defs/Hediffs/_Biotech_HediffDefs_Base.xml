@@ -241,7 +241,7 @@
 	  </li>
 	</stages>
 	<comps>
-	  <li Class="AnimalBehaviours.HediffCompProperties_Floating">
+	  <li Class="AnimalBehaviours.HediffCompProperties_Floating" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 		<checkingInterval>1500</checkingInterval>
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_PawnHaveWings"/>

@@ -97,11 +97,12 @@ A: Add - yes. Remove - no.</description>
 			<packageId>Ludeon.RimWorld.Biotech</packageId>
 			<displayName>Biotech</displayName>
 		</li>
-		<li>
-			<packageId>OskarPotocki.VanillaFactionsExpanded.Core</packageId>
-			<displayName>Vanilla Expanded Framework</displayName>
-			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=1854607105</steamWorkshopUrl>
-		</li>
+		<!-- Optional. Slightly more than 10 genes use VEF. -->
+		<!-- <li> -->
+			<!-- <packageId>OskarPotocki.VanillaFactionsExpanded.Core</packageId> -->
+			<!-- <displayName>Vanilla Expanded Framework</displayName> -->
+			<!-- <steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=1854607105</steamWorkshopUrl> -->
+		<!-- </li> -->
 	</modDependencies>
 	<loadAfter>
 		<li>Ludeon.RimWorld</li>

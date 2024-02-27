@@ -70,9 +70,6 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	<tradeTags>
 	  <li>WVC_XenotypeSerums</li>
 	</tradeTags>
-	<thingCategories>
-	  <li>WVC_XenotypeSerums_Base</li>
-	</thingCategories>
 	<comps>
 	  <!-- <li Class="CompProperties_Glower"> -->
 		<!-- <glowRadius>1</glowRadius> -->
@@ -111,9 +108,6 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	<thingSetMakerTags Inherit="False">
 	  <li>RewardStandardLowFreq</li>
 	</thingSetMakerTags>
-	<thingCategories>
-	  <li>WVC_XenotypeSerums_Ultra</li>
-	</thingCategories>
 	<comps>
 	  <!-- <li Class="CompProperties_Glower"> -->
 		<!-- <glowRadius>1</glowRadius> -->
@@ -151,9 +145,6 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	<thingSetMakerTags Inherit="False">
 	  <li>RewardStandardLowFreq</li>
 	</thingSetMakerTags>
-	<thingCategories>
-	  <li>WVC_XenotypeSerums_Mecha</li>
-	</thingCategories>
 	<comps>
 	  <!-- <li Class="CompProperties_Glower"> -->
 		<!-- <glowRadius>1</glowRadius> -->

@@ -44,7 +44,7 @@
 			<trait>WVC_XaG_ShapeshiftOverclock</trait>
 		</li>
 
-		<li Class="KCSG.ScenPart_AddStartingStructure">
+		<li Class="KCSG.ScenPart_AddStartingStructure" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 			<def>VFEC_AddStartingStructure</def>
 			<structureLabel>Dilapidated temple</structureLabel>
 			<nearMapCenter>True</nearMapCenter>

@@ -132,7 +132,7 @@
 	  </suffixSymbols>
 	</symbolPack>
 	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
+		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 			<hediffsToBodyParts>
 				<li>
 					<hediff>WVC_RB_Mecha_ScytheTail</hediff>
@@ -180,7 +180,7 @@
 	  </suffixSymbols>
 	</symbolPack>
 	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
+		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 			<offsets>
 			 <east>
 			  <bodyTypes>
@@ -214,7 +214,7 @@
 	  </suffixSymbols>
 	</symbolPack>
 	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension">
+		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 			<offsets>
 			 <east>
 			  <bodyTypes>

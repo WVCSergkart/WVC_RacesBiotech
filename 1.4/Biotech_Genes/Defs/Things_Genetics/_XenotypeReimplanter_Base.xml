@@ -69,6 +69,9 @@
 	<thingSetMakerTags>
 	  <li>RewardStandardMidFreq</li>
 	</thingSetMakerTags>
+	<thingCategories>
+	  <li>WVC_XenotypeSerums</li>
+	</thingCategories>
   </ThingDef>
   
   <RecipeDef Name="WVC_AdministerXenotypeSerum_Base" Abstract="True">

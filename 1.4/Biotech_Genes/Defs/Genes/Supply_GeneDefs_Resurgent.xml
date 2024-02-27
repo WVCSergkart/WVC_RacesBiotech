@@ -205,7 +205,7 @@
 	  <li>Blood</li>
 	</exclusionTags>
 	<modExtensions Inherit="False">
-		<li Class="VanillaGenesExpanded.GeneExtension">
+		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 			<!-- blood -->
 			<customBloodThingDef>WVC_ResurgentBlood</customBloodThingDef>
 			<customBloodIcon>WVC/UI/BloodIcon/Gene_ResurgentBloodIcon_v0</customBloodIcon>

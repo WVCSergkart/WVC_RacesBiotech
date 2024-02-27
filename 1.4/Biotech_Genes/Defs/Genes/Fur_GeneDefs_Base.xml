@@ -86,7 +86,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	</symbolPack>
 	<!-- = -->
 	<modExtensions Inherit="False">
-		<li Class="VanillaGenesExpanded.GeneExtension">
+		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 			<!-- <furHidesBody>True</furHidesBody> -->
 			<!-- <useSkinColorForFur>True</useSkinColorForFur> -->
 			<customWoundsFromFleshtype>Mechanoid</customWoundsFromFleshtype>
