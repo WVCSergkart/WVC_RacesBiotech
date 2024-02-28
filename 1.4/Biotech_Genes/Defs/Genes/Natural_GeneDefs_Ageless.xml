@@ -67,10 +67,14 @@
 	<biologicalAgeTickFactorFromAgeCurve>
 	  <points>
 		<li>(0, 4)</li>
+		<li>(13, 4)</li>
 		<li>(13.5, 1)</li>
 		<!-- <li>(18.5, 0)</li> -->
 	  </points>
 	</biologicalAgeTickFactorFromAgeCurve>
+	<statFactors>
+		<LearningRateFactor>4.0</LearningRateFactor>
+	</statFactors>
   </GeneDef>
 
   <!-- ==== -->
@@ -88,6 +92,9 @@
 		<li>(0, 2)</li>
 	  </points>
 	</biologicalAgeTickFactorFromAgeCurve>
+	<statFactors>
+		<LearningRateFactor>2.0</LearningRateFactor>
+	</statFactors>
 	<exclusionTags>
 	  <li>WVC_Ageless_FastSlowAging</li>
 	  <li>AG_Aging</li>
@@ -108,6 +115,9 @@
 		<li>(0, 0.5)</li>
 	  </points>
 	</biologicalAgeTickFactorFromAgeCurve>
+	<statFactors>
+		<LearningRateFactor>0.5</LearningRateFactor>
+	</statFactors>
 	<exclusionTags>
 	  <li>WVC_Ageless_FastSlowAging</li>
 	  <li>AG_Aging</li>
@@ -128,6 +138,9 @@
 		<li>(0, 0.2)</li>
 	  </points>
 	</biologicalAgeTickFactorFromAgeCurve>
+	<statFactors>
+		<LearningRateFactor>0.2</LearningRateFactor>
+	</statFactors>
 	<symbolPack>
 	  <wholeNameSymbols>
 		<li><symbol>young</symbol></li>
