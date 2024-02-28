@@ -41,6 +41,7 @@
 	</removeGenes>
 	<!-- endogenes are always added to the germline of the main xenotype. -->
 	<endogenes>
+		<li>WVC_Dustogenic_Reincarnation</li>
 		<!-- <li>WVC_ToxResist_Total</li> -->
 		<li>WVC_FeatherSkin</li>
 		<li>WVC_BodySize_Small</li>
@@ -74,7 +75,6 @@
 		<li>WVC_SlaveSuppression_Unruly</li>
 		<li>WVC_IncestLover</li>
 		<!-- = -->
-		<li>WVC_Dustogenic_Reincarnation</li>
 		<!-- <li>WVC_XenotypesAndGenes_SubXenotypeShapeshifter</li> -->
 	</genes>
 	<!-- <modExtensions> -->

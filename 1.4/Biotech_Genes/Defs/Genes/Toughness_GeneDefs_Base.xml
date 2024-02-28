@@ -186,7 +186,7 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneToughness_Base">
 	<defName>WVC_Glass</defName>
-	<label>glass</label>
+	<label>very fragile</label>
 	<description>Carriers of this gene take greater injuries than others from the same damage. They have thin, brittle bones and less binding molecules in joints and flesh.</description>
 	<iconPath>WVC/UI/Genes/Wimp_C</iconPath>
 	<iconColor>(175, 175, 175)</iconColor>
@@ -218,7 +218,7 @@
 
   <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneToughness_Base"> -->
 	<!-- <defName>WVC_IncrediblyFragile</defName> -->
-	<!-- <label>incredibly fragile</label> -->
+	<!-- <label>extreme fragile</label> -->
 	<!-- <description>Carriers of this gene are incredibly fragile. Any blow is fatal to them.</description> -->
 	<!-- <iconPath>WVC/UI/Genes/Gene_ToughCriticalFragility_v0</iconPath> -->
 	<!-- <iconColor>(255, 255, 255)</iconColor> -->

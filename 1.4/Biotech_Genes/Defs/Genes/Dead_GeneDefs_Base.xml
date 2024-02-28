@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef Name="WVC_XenotypesAndGenes_GeneDeathless_Base" Abstract="True">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Base" Name="WVC_XenotypesAndGenes_GeneDeathless_Base" Abstract="True">
 	<iconPath>WVC/UI/Genes/Gene_Deathless_v0</iconPath>
-	<marketValueFactor>1.5</marketValueFactor>
-	<selectionWeight>0.0012</selectionWeight>
-	<displayCategory>WVC_ResurgentCells</displayCategory>
-	<displayOrderInCategory>1275</displayOrderInCategory>
+	<marketValueFactor>2.0</marketValueFactor>
+	<selectionWeight>0.00032</selectionWeight>
 	<biostatArc>0</biostatArc>
 	<iconColor>(255, 255, 255)</iconColor>
   </GeneDef>
@@ -17,15 +15,15 @@
 	<labelShortAdj>undead</labelShortAdj>
 	<description>Carriers of this gene accumulate resurgent cells with age. In the event of death, these cells are immediately activated and, in a fairly short time, completely restore damaged or even destroyed tissues.</description>
 	<iconPath>WVC/UI/Genes/Gene_Deathless_v0</iconPath>
-	<selectionWeight>0.0022</selectionWeight>
-	<displayOrderInCategory>1275</displayOrderInCategory>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Undead</geneClass>
+	<displayOrderInCategory>-120</displayOrderInCategory>
+	<iconColor>(93, 101, 126)</iconColor>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
-	  <li>In case of death, after some time the carrier of the gene will be resurrected, completely healthy and without damage.</li>
-	  <li>If the carrier’s &lt;color=#8a8ae6&gt;brain was destroyed&lt;/color&gt;, then the carrier of the gene &lt;color=#8a8ae6&gt;loses backstory and all experience in skills&lt;/color&gt;.</li>
+	  <li>In case of death, after some time the carrier will be resurrected, completely healthy and without damage.</li>
+	  <li>If the carrier’s &lt;color=#8a8ae6&gt;brain was destroyed&lt;/color&gt;, then the carrier &lt;color=#8a8ae6&gt;loses backstory and all experience in skills&lt;/color&gt;.</li>
 	  <li>Recovery will take (*DateTime)2-8 days(/DateTime)</li>
 	</customEffectDescriptions>
 	<symbolPack>
@@ -43,7 +41,6 @@
 		<li><symbol>mortal</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
-	<resourceLossPerDay>0.41</resourceLossPerDay>
 	<exclusionTags>
 	  <li>WVC_XenotypesAndGenes_GeneDeathless_Undead</li>
 	</exclusionTags>
@@ -63,9 +60,6 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Undead">
 	<defName>WVC_Undead</defName>
 	<label>undead</label>
-	<displayOrderInCategory>1270</displayOrderInCategory>
-	<iconColor>(93, 101, 126)</iconColor>
-	<selectionWeight>0.00125</selectionWeight>
 	<biostatCpx>7</biostatCpx>
 	<biostatArc>2</biostatArc>
 	<biostatMet>0</biostatMet>
@@ -74,8 +68,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Undead">
 	<defName>WVC_NaturalUndead</defName>
 	<label>undead</label>
-	<displayOrderInCategory>1271</displayOrderInCategory>
-	<iconColor>(93, 101, 126)</iconColor>
+	<displayCategory>Healing</displayCategory>
 	<biostatCpx>7</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>-6</biostatMet>
@@ -87,7 +80,7 @@
 	<description>Carriers of this gene cannot die. No matter how severe their wounds are, they always rise from the dead. The only way to kill them is to destroy their entire body.</description>
 	<iconColor>(60, 60, 60)</iconColor>
 	<iconPath>WVC/UI/Genes/Gene_DeadCat_v0</iconPath>
-	<displayOrderInCategory>1272</displayOrderInCategory>
+	<displayOrderInCategory>-125</displayOrderInCategory>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Undead</geneClass>
 	<biostatCpx>7</biostatCpx>
 	<biostatArc>2</biostatArc>
@@ -104,6 +97,45 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<childBackstoryDef>WVC_RacesBiotech_Amnesia_Child</childBackstoryDef>
 			<adultBackstoryDef>WVC_RacesBiotech_Amnesia_Adult</adultBackstoryDef>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Base">
+	<defName>WVC_Dustogenic_Reincarnation</defName>
+	<!-- <label>reincarnation</label> -->
+	<label>destined dead</label>
+	<description>Carriers of this gene have a strong connection with the psychic field. Their death never happens by accident, this event is part of their destiny. And when fate takes its toll and death overtakes them, descendants will surely come to replace them.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DustReincarnation</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Reincarnation_v0</iconPath>
+	<displayOrderInCategory>-115</displayOrderInCategory>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<biostatArc>1</biostatArc>
+	<customEffectDescriptions>
+		<li>In case of death, &lt;color=#8a8ae6&gt;summons a descendant&lt;/color&gt;.</li>
+		<li>Descendant inherits &lt;color=#8a8ae6&gt;only xenotype and genes&lt;/color&gt; of the carrier.</li>
+		<li>&lt;color=#ff8585&gt;Chronological age must be above 54 years.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_XenotypesAndGenes_GeneDeathless_Reincarnation</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>dead</symbol></li>
+		<li><symbol>rein</symbol></li>
+		<li><symbol>dest</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>dead</symbol></li>
+		<li><symbol>nated</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<summonQuest>WVC_Dustogenic_QuestUndeadReincarnation</summonQuest>
+			<!-- In the context of reincarnation, this line is responsible for the minimum chrono age. -->
+			<stackCount>54</stackCount>
 		</li>
 	</modExtensions>
   </GeneDef>

@@ -65,7 +65,7 @@
 	<description>Carriers of this gene never experience hunger. They get the vitamins and nutrients the body needs differently.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_HungerlessStomach</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_DeadStomach_v0</iconPath>
-	<displayCategory>WVC_ResurgentCells</displayCategory>
+	<displayCategory>Archite</displayCategory>
 	<displayOrderInCategory>2005</displayOrderInCategory>
 	<biostatCpx>7</biostatCpx>
 	<biostatMet>-8</biostatMet>
