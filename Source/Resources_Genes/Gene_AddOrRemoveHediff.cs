@@ -25,7 +25,7 @@ namespace WVC_XenotypesAndGenes
 		public override void Tick()
 		{
 			base.Tick();
-			if (!pawn.IsHashIntervalTick(60000))
+			if (!pawn.IsHashIntervalTick(67200))
 			{
 				return;
 			}
@@ -180,7 +180,7 @@ namespace WVC_XenotypesAndGenes
 		public override void Tick()
 		{
 			base.Tick();
-			if (!pawn.IsHashIntervalTick(60000))
+			if (!pawn.IsHashIntervalTick(67200))
 			{
 				return;
 			}
@@ -248,7 +248,7 @@ namespace WVC_XenotypesAndGenes
 		public override void Tick()
 		{
 			base.Tick();
-			if (!pawn.IsHashIntervalTick(60000))
+			if (!pawn.IsHashIntervalTick(67200))
 			{
 				return;
 			}

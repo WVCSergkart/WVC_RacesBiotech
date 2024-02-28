@@ -9,10 +9,12 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Opinion Props => def?.GetModExtension<GeneExtension_Opinion>();
 
+		// public int nextTick = 1500;
+
 		public override void Tick()
 		{
 			base.Tick();
-			if (!pawn.IsHashIntervalTick(60000))
+			if (!pawn.IsHashIntervalTick(57250))
 			{
 				return;
 			}
@@ -21,6 +23,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			SetOpinion(pawn, this, Props);
+			// ResetCounter();
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -54,6 +57,12 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		// public void ResetCounter()
+		// {
+			// IntRange range = new(42000, 72000);
+			// nextTick = range.RandomInRange();
+		// }
+
 	}
 
 	public class Gene_AngelBeauty : Gene_DustDrain
@@ -64,7 +73,7 @@ namespace WVC_XenotypesAndGenes
 		public override void Tick()
 		{
 			base.Tick();
-			if (!pawn.IsHashIntervalTick(60000))
+			if (!pawn.IsHashIntervalTick(57250))
 			{
 				return;
 			}
@@ -81,7 +90,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield return new Command_Action
 				{
-					defaultLabel = "DEV: AngelBeauty Opinion",
+					defaultLabel = "DEV: SetOpinion",
 					action = delegate
 					{
 						Gene_Opinion.SetOpinion(pawn, this, Props);
@@ -107,7 +116,7 @@ namespace WVC_XenotypesAndGenes
 		public override void Tick()
 		{
 			base.Tick();
-			if (!pawn.IsHashIntervalTick(60000))
+			if (!pawn.IsHashIntervalTick(57250))
 			{
 				return;
 			}

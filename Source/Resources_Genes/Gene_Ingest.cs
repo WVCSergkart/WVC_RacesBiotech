@@ -213,7 +213,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (pawn.IsHashIntervalTick(60000))
+			if (pawn.IsHashIntervalTick(66000))
 			{
 				Gene_AddOrRemoveHediff.AddOrRemoveHediff(Props?.hediffDefName, pawn, this);
 			}

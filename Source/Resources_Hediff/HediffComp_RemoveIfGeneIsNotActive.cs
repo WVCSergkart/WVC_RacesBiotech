@@ -1,32 +1,42 @@
+using System;
 using System.Collections.Generic;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class HediffCompProperties_RemoveIfGeneIsNotActive : HediffCompProperties
+	public class HediffCompProperties_RemoveIfGeneIsNotActive : HediffCompProperties
 	{
+
 		public GeneDef geneDef;
 
-		// 1 day
-		public int checkInterval = 60000;
+		// ~1 day
+		public int checkInterval = 56720;
 
 		public HediffCompProperties_RemoveIfGeneIsNotActive()
 		{
 			compClass = typeof(HediffComp_RemoveIfGeneIsNotActive);
 		}
+
 	}
 
 	public class HediffComp_RemoveIfGeneIsNotActive : HediffComp
 	{
+
 		public GeneDef geneDef;
 
 		public HediffCompProperties_RemoveIfGeneIsNotActive Props => (HediffCompProperties_RemoveIfGeneIsNotActive)props;
 
+		public int nextTick = 60000;
+
+		public override void CompPostPostAdd(DamageInfo? dinfo)
+		{
+			nextTick = Props.checkInterval;
+		}
+
 		public override void CompPostTick(ref float severityAdjustment)
 		{
-			base.CompPostTick(ref severityAdjustment);
-			if (!Pawn.IsHashIntervalTick(Props.checkInterval))
+			if (!Pawn.IsHashIntervalTick(nextTick))
 			{
 				return;
 			}
@@ -44,12 +54,15 @@ namespace WVC_XenotypesAndGenes
 
 		public override void CompExposeData()
 		{
-			base.CompExposeData();
 			Scribe_Defs.Look(ref geneDef, "geneDef");
+			Scribe_Values.Look(ref nextTick, "nextTick", 60000);
 		}
 
 	}
 
+	// ========================================
+
+	[Obsolete]
 	public class HediffCompProperties_AlwaysRemove : HediffCompProperties
 	{
 
@@ -59,6 +72,8 @@ namespace WVC_XenotypesAndGenes
 		}
 
 	}
+
+	[Obsolete]
 	public class HediffComp_AlwaysRemove : HediffComp
 	{
 
@@ -68,10 +83,16 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	// ========================================
+
 	public class HediffCompProperties_RemoveIf : HediffCompProperties
 	{
 
+		public int checkInterval = 5220;
+
 		public List<GeneDef> anyOf_GeneDef;
+
+		public bool alwaysRemove = false;
 
 		public HediffCompProperties_RemoveIf()
 		{
@@ -82,32 +103,41 @@ namespace WVC_XenotypesAndGenes
 	public class HediffComp_RemoveIf : HediffComp
 	{
 
-		bool shouldRemove = true;
+		public bool shouldRemove = false;
 
 		public HediffCompProperties_RemoveIf Props => (HediffCompProperties_RemoveIf)props;
 
-		// public override bool CompShouldRemove => base.Pawn.genes?.GetFirstGeneOfType<Gene_AngelicStability>() != null;
+		public int nextTick = 60000;
 
-		public override bool CompShouldRemove => ShouldRemove;
+		public override bool CompShouldRemove => shouldRemove;
 
-		public bool ShouldRemove
+		public override void CompPostPostAdd(DamageInfo? dinfo)
 		{
-			get
+			nextTick = Props.checkInterval;
+			shouldRemove = Props.alwaysRemove;
+			RemoveIf();
+		}
+
+		public override void CompPostTick(ref float severityAdjustment)
+		{
+			if (!Pawn.IsHashIntervalTick(nextTick))
 			{
-				if (shouldRemove)
-				{
-					if (!XaG_GeneUtility.HasAnyActiveGene(Props.anyOf_GeneDef, parent.pawn))
-					{
-						shouldRemove = false;
-						return false;
-					}
-				}
-				if (!shouldRemove)
-				{
-					return false;
-				}
-				return true;
+				return;
 			}
+			RemoveIf();
+		}
+
+		public void RemoveIf()
+		{
+			if (XaG_GeneUtility.HasAnyActiveGene(Props.anyOf_GeneDef, parent.pawn))
+			{
+				shouldRemove = true;
+			}
+		}
+
+		public override void CompExposeData()
+		{
+			Scribe_Values.Look(ref nextTick, "nextTick", 60000);
 		}
 
 	}
