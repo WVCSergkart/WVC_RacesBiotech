@@ -87,7 +87,8 @@
   <!-- Upgrades -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneHands_Base" Name="WVC_XenotypesAndGenes_GeneGeneHands_Claws" Abstract="True">
-	<description>Carriers of this gene have...</description>
+	<description>Carriers of this gene grow very sharp claws that serve as natural weapons.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass>
 	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
 	<!-- <displayCategory>Violence</displayCategory> -->
 	<!-- <displayOrderInCategory>320</displayOrderInCategory> -->
@@ -100,7 +101,7 @@
 	<displayOrderInCategory>300.0001101</displayOrderInCategory>
 	<symbolPack>
 		<wholeNameSymbols>
-			<li><symbol>claws</symbol></li>
+			<li><symbol>predator</symbol></li>
 		</wholeNameSymbols>
 		<prefixSymbols>
 			<li><symbol>claw</symbol></li>
@@ -113,80 +114,72 @@
 			<li><symbol>predator</symbol></li>
 		</suffixSymbols>
 	</symbolPack>
-	<!-- <exclusionTags> -->
-	  <!-- <li>BodyPartHands</li> -->
-	  <!-- <li>BodyPartHand</li> -->
-	  <!-- <li>AG_BodyPartHand</li> -->
-	  <!-- <li>AG_BodyPartHands</li> -->
-	  <!-- <li>BodyPartArms</li> -->
-	  <!-- <li>BodyPartArm</li> -->
-	  <!-- <li>AG_BodyPartArm</li> -->
-	  <!-- <li>AG_BodyPartArms</li> -->
-	  <!-- <li>BodyPartShoulder</li> -->
-	  <!-- <li>AG_BodyPartShoulder</li> -->
-	  <!-- <li>BodyPartShoulders</li> -->
-	  <!-- <li>AG_BodyPartShoulders</li> -->
-	<!-- </exclusionTags> -->
   </GeneDef>
 
   <!-- Upgrades -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneHands_Claws" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneHands_Claws">
 	<defName>WVC_MecaBodyParts_Claws</defName>
-	<label>foldable claws</label> 
-	<description>Carriers of this gene have foldable claws that serve as natural weapons.</description>
+	<label>archite claws</label>
 	<iconColor>(184, 198, 203)</iconColor>
 	<iconPath>WVC/UI/Genes/Claws</iconPath>
-	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
-	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
-	<selectionWeight>0.00005</selectionWeight>
+	<selectionWeight>0.0005</selectionWeight>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>-2</biostatMet>
 	<displayOrderInCategory>300.0001101</displayOrderInCategory>
-	<!-- <minAgeActive>13</minAgeActive> -->
-	<!-- <statOffsets> -->
-	  <!-- <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization> -->
-	<!-- </statOffsets> -->
-	<modExtensions Inherit="False">
-		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
-			<!-- <backgroundPathEndogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathEndogenes> -->
-			<!-- <backgroundPathXenogenes>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathXenogenes> -->
-			<hediffsToBodyParts>
-				<li>
-					<hediff>WVC_RB_MechaClaws</hediff>
-					<bodyparts>
-						<li>Hand</li>
-						<li>Hand</li>
-					</bodyparts>
-				</li>
-			</hediffsToBodyParts>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_XaG_ArchiteClaws</hediffDefName>
+			<bodyparts>
+			  <!-- <li>Torso</li> -->
+			  <li>Hand</li>
+			  <li>Hand</li>
+			</bodyparts>
 		</li>
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core"> -->
+			<!-- <hediffsToBodyParts> -->
+				<!-- <li> -->
+					<!-- <hediff>WVC_RB_MechaClaws</hediff> -->
+					<!-- <bodyparts> -->
+						<!-- <li>Hand</li> -->
+						<!-- <li>Hand</li> -->
+					<!-- </bodyparts> -->
+				<!-- </li> -->
+			<!-- </hediffsToBodyParts> -->
+		<!-- </li> -->
 	</modExtensions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneHands_Claws" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneHands_Claws">
 	<defName>WVC_NaturalBodyParts_Claws</defName>
-	<label>claws</label> 
-	<description>Carriers of this gene grow very sharp claws that serve as natural weapons.</description>
+	<label>natural claws</label>
 	<iconPath>WVC/UI/Genes/Claws</iconPath>
 	<iconColor>(181, 93, 99)</iconColor>
 	<displayOrderInCategory>300.0001102</displayOrderInCategory>
 	<biostatCpx>3</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>-3</biostatMet>
-	<modExtensions Inherit="False">
-		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
-			<hediffsToBodyParts>
-				<li>
-					<hediff>WVC_RB_NaturalClaws</hediff>
-					<bodyparts>
-						<li>Hand</li>
-						<li>Hand</li>
-					</bodyparts>
-				</li>
-			</hediffsToBodyParts>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_XaG_NaturalClaws</hediffDefName>
+			<bodyparts>
+			  <!-- <li>Torso</li> -->
+			  <li>Hand</li>
+			  <li>Hand</li>
+			</bodyparts>
 		</li>
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core"> -->
+			<!-- <hediffsToBodyParts> -->
+				<!-- <li> -->
+					<!-- <hediff>WVC_RB_NaturalClaws</hediff> -->
+					<!-- <bodyparts> -->
+						<!-- <li>Hand</li> -->
+						<!-- <li>Hand</li> -->
+					<!-- </bodyparts> -->
+				<!-- </li> -->
+			<!-- </hediffsToBodyParts> -->
+		<!-- </li> -->
 	</modExtensions>
   </GeneDef>
   

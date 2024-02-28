@@ -109,6 +109,7 @@
     <Compile Include="Resources_Hediff\HediffComp_GenesRegrowing.cs" />
     <Compile Include="Resources_Hediff\HediffComp_RemoveIfGeneIsNotActive.cs" />
     <Compile Include="Resources_Hediff\HediffComp_RemoveLetter.cs" />
+    <Compile Include="Resources_Hediff\HediffComp_ReplaceWithHediff.cs" />
     <Compile Include="Resources_Hediff\HediffDef.cs" />
     <Compile Include="Resources_Hediff\Hediff_Scarshield.cs" />
     <Compile Include="Resources_Hediff\Hediff_Spores.cs" />

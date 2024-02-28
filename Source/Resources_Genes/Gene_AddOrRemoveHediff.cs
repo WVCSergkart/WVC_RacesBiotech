@@ -7,12 +7,19 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_AddOrRemoveHediff : Gene
 	{
 
-		public HediffDef HediffDefName => def.GetModExtension<GeneExtension_Giver>().hediffDefName;
+		// public HediffDef HediffDefName => def.GetModExtension<GeneExtension_Giver>().hediffDefName;
+
+		public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
 
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			AddOrRemoveHediff(HediffDefName, pawn, this);
+			Local_AddOrRemoveHediff();
+		}
+
+		public void Local_AddOrRemoveHediff()
+		{
+			AddOrRemoveHediff(Props.hediffDefName, pawn, this, Props.bodyparts);
 		}
 
 		public override void Tick()
@@ -22,16 +29,17 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			AddOrRemoveHediff(HediffDefName, pawn, this);
+			Local_AddOrRemoveHediff();
 		}
 
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			RemoveHediff(HediffDefName, pawn);
+			RemoveHediff(Props.hediffDefName, pawn);
 		}
 
-		public static void AddOrRemoveHediff(HediffDef hediffDef, Pawn pawn, Gene gene)
+		// Static
+		public static void AddOrRemoveHediff(HediffDef hediffDef, Pawn pawn, Gene gene, List<BodyPartDef> bodyparts = null)
 		{
 			if (hediffDef == null)
 			{
@@ -41,6 +49,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (!pawn.health.hediffSet.HasHediff(hediffDef))
 				{
+					if (!bodyparts.NullOrEmpty())
+					{
+						Gene_PermanentHediff.BodyPartsGiver(bodyparts, pawn, hediffDef, gene);
+						return;
+					}
 					// pawn.health.AddHediff(hediffDef);
 					Hediff hediff = HediffMaker.MakeHediff(hediffDef, pawn);
 					HediffComp_RemoveIfGeneIsNotActive hediff_GeneCheck = hediff.TryGetComp<HediffComp_RemoveIfGeneIsNotActive>();
@@ -72,6 +85,7 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 		}
+		// Static
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
@@ -84,7 +98,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						if (Active)
 						{
-							AddOrRemoveHediff(HediffDefName, pawn, this);
+							Local_AddOrRemoveHediff();
 						}
 					}
 				};
@@ -93,68 +107,59 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_HediffGiver : Gene
-	{
+	// public class Gene_HediffGiver : Gene
+	// {
 
-		// public HediffDef HediffDefName => def.GetModExtension<GeneExtension_Giver>().hediffDefName;
-		public List<HediffDef> HediffDefs => def.GetModExtension<GeneExtension_Giver>().hediffDefs;
-		public List<BodyPartDef> Bodyparts => def.GetModExtension<GeneExtension_Giver>().bodyparts;
+		// public List<HediffDef> HediffDefs => def.GetModExtension<GeneExtension_Giver>().hediffDefs;
+		// public List<BodyPartDef> Bodyparts => def.GetModExtension<GeneExtension_Giver>().bodyparts;
 
-		public override void PostAdd()
-		{
-			base.PostAdd();
-			foreach (HediffDef hediffDef in HediffDefs)
-			{
-				if (!pawn.health.hediffSet.HasHediff(hediffDef))
-				{
-					Gene_PermanentHediff.BodyPartsGiver(Bodyparts, pawn, hediffDef);
-				}
-			}
-		}
-	}
+		// public override void PostAdd()
+		// {
+			// base.PostAdd();
+			// foreach (HediffDef hediffDef in HediffDefs)
+			// {
+				// if (!pawn.health.hediffSet.HasHediff(hediffDef))
+				// {
+					// Gene_PermanentHediff.BodyPartsGiver(Bodyparts, pawn, hediffDef);
+				// }
+			// }
+		// }
+
+	// }
 
 	public class Gene_PermanentHediff : Gene
 	{
 
-		public HediffDef HediffDefName => def.GetModExtension<GeneExtension_Giver>().hediffDefName;
-		public List<BodyPartDef> Bodyparts => def.GetModExtension<GeneExtension_Giver>().bodyparts;
+		public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
 
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			// ResetChance();
-			// Log.Error("Ролим шанс. Шанс = " + chanceRange);
-			// if (Active && chanceRange == 3)
-			// {
-			// }
-			if (!pawn.health.hediffSet.HasHediff(HediffDefName))
+			if (!pawn.health.hediffSet.HasHediff(Props.hediffDefName))
 			{
-				// Gene_RandomHediffFromTime.HediffGiver(def.GetModExtension<GeneExtension_Giver>().bodyparts, HediffDefName, pawn);
-				// int num = 0;
-				// foreach (BodyPartDef bodypart in def.GetModExtension<GeneExtension_Giver>().bodyparts)
-				// {
-				// if (!pawn.RaceProps.body.GetPartsWithDef(bodypart).EnumerableNullOrEmpty() && num <= pawn.RaceProps.body.GetPartsWithDef(bodypart).Count)
-				// {
-				// pawn.health.AddHediff(HediffDefName, pawn.RaceProps.body.GetPartsWithDef(bodypart).ToArray()[num]);
-				// num++;
-				// }
-				// }
-				BodyPartsGiver(Bodyparts, pawn, HediffDefName);
+				BodyPartsGiver(Props.bodyparts, pawn, Props.hediffDefName, this);
 			}
 		}
 
-		public static void BodyPartsGiver(List<BodyPartDef> bodyparts, Pawn pawn, HediffDef hediffDefName)
+		public static void BodyPartsGiver(List<BodyPartDef> bodyparts, Pawn pawn, HediffDef hediffDef, Gene gene)
 		{
 			int num = 0;
 			foreach (BodyPartDef bodypart in bodyparts)
 			{
 				if (!pawn.RaceProps.body.GetPartsWithDef(bodypart).EnumerableNullOrEmpty() && num <= pawn.RaceProps.body.GetPartsWithDef(bodypart).Count)
 				{
-					pawn.health.AddHediff(hediffDefName, pawn.RaceProps.body.GetPartsWithDef(bodypart).ToArray()[num]);
+					Hediff hediff = HediffMaker.MakeHediff(hediffDef, pawn);
+					HediffComp_RemoveIfGeneIsNotActive hediff_GeneCheck = hediff.TryGetComp<HediffComp_RemoveIfGeneIsNotActive>();
+					if (hediff_GeneCheck != null)
+					{
+						hediff_GeneCheck.geneDef = gene.def;
+					}
+					pawn.health.AddHediff(hediff, pawn.RaceProps.body.GetPartsWithDef(bodypart).ToArray()[num]);
 					num++;
 				}
 			}
 		}
+
 	}
 
 	public class Gene_GenerateHediffWithRandomSeverity : Gene

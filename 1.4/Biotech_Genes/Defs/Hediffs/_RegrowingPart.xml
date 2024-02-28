@@ -15,11 +15,13 @@
 	<isBad>true</isBad>
 	<everCurableByItem>true</everCurableByItem>
 	<keepOnBodyPartRestoration>false</keepOnBodyPartRestoration>
+	<defaultLabelColor>(0.5, 0.5, 0.5)</defaultLabelColor>
 	<comps>
 	  <li Class="HediffCompProperties_TendDuration">
 		<labelTendedWell>bandaged</labelTendedWell>
 		<labelTendedWellInner>sutured</labelTendedWellInner>
 		<labelSolidTendedWell>set</labelSolidTendedWell>
+		<showTendQuality>false</showTendQuality>
 	  </li>
 	  <li Class="HediffCompProperties_Infecter">
 		<infectionChance>0.02</infectionChance>
@@ -29,7 +31,7 @@
 	  </li>
 	</comps>
 	<injuryProps>
-	  <painPerSeverity>-0.0025</painPerSeverity>
+	  <painPerSeverity>0.0025</painPerSeverity>
 	  <averagePainPerSeverityPermanent>0</averagePainPerSeverityPermanent>
 	  <bleedRate>0</bleedRate>
 	  <canMerge>false</canMerge>

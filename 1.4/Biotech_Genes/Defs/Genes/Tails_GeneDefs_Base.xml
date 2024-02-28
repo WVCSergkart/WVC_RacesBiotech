@@ -103,6 +103,7 @@
 	<label>scythe tail</label>
 	<description>Carriers of this gene grow two tails with scythe-like blades at the end.</description>
 	<iconPath>WVC/BodyParts/MecaGene_ScytheTail/ScytheTail_east</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<!-- <biostatMet>-1</biostatMet> -->
@@ -132,15 +133,13 @@
 	  </suffixSymbols>
 	</symbolPack>
 	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_RB_Mecha_ScytheTail</hediffDefName>
+			<bodyparts>
+			  <li>Torso</li>
+			</bodyparts>
+		</li>
 		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
-			<hediffsToBodyParts>
-				<li>
-					<hediff>WVC_RB_Mecha_ScytheTail</hediff>
-					<bodyparts>
-						<li>Torso</li>
-					</bodyparts>
-				</li>
-			</hediffsToBodyParts>
 			<offsets>
 			 <east>
 			  <bodyTypes>
