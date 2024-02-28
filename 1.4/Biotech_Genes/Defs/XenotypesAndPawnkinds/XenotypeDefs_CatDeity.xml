@@ -14,7 +14,7 @@
 	<genes>
 		<!-- <li>WVC_ReimplanterArchite_Endogenes</li> -->
 		<li>WVC_ArchitePsylink</li>
-		<li>WVC_DeadCat</li>
+		<li>WVC_NeverDead</li>
 		<li>WVC_NaturalAgeless</li>
 		<!-- <li>WVC_NaturalFastGrowing</li> -->
 		<li>WVC_DeadlyGeneticInstability</li>
