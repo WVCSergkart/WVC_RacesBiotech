@@ -92,36 +92,6 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	// public class Gene_Family : Gene_DustDrain
-	// {
-
-		// public override void Tick()
-		// {
-			// base.Tick();
-			// if (!pawn.IsHashIntervalTick(60000))
-			// {
-				// return;
-			// }
-			// GeneFeaturesUtility.PawnMapOpinionAboutMe(pawn, this, WVC_GenesDefOf.WVC_XenotypesAndGenes_AngelBeauty, true);
-		// }
-
-		// public override IEnumerable<Gizmo> GetGizmos()
-		// {
-			// if (DebugSettings.ShowDevGizmos)
-			// {
-				// yield return new Command_Action
-				// {
-					// defaultLabel = "DEV: AngelBeauty Opinion",
-					// action = delegate
-					// {
-						// GeneFeaturesUtility.PawnMapOpinionAboutMe(pawn, this, WVC_GenesDefOf.WVC_XenotypesAndGenes_AngelBeauty, true);
-					// }
-				// };
-			// }
-		// }
-
-	// }
-
 	// WIP
 	public class Gene_IncestLover : Gene
 	{

@@ -183,7 +183,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					return;
 				}
-				GeneExtension_Graphic modExtension = gene_Exoskin.def.GetModExtension<GeneExtension_Graphic>();
+				GeneExtension_Graphic modExtension = gene_Exoskin.Graphic;
 				if (modExtension == null)
 				{
 					return;
@@ -247,7 +247,7 @@ namespace WVC_XenotypesAndGenes
 
 			public static void Incestuous_LovinChanceFactor(ref float __result, Pawn ___pawn, ref Pawn otherPawn, Pawn_RelationsTracker __instance)
 			{
-				if ( __instance.FamilyByBlood.Contains(otherPawn) && ___pawn?.genes?.GetFirstGeneOfType<Gene_IncestLover>() != null)
+				if (__instance.FamilyByBlood.Contains(otherPawn) && ___pawn?.genes?.GetFirstGeneOfType<Gene_IncestLover>() != null)
 				{
 					__result *= 100f;
 				}

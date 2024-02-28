@@ -269,9 +269,6 @@
 	<description>Carriers of this gene can unconsciously influence how others see them. Their brain emits neuronal psychic waves that cause those around them who are susceptible to psychic influence to deify them.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_AngelBeauty</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_DustAngel_v0</iconPath>
-	<!-- <iconColor>(255, 248, 133)</iconColor> -->
-	<!-- <iconColor>(173, 142, 112)</iconColor> -->
-	<!-- <iconColor>(249, 241, 148)</iconColor> -->
 	<iconColor>(255, 255, 255)</iconColor>
 	<displayOrderInCategory>25</displayOrderInCategory>
 	<customEffectDescriptions>
@@ -279,7 +276,6 @@
 	  <li>Opinion updated every day and lasts 5 days.</li>
 	  <li>Opinion can stack up to 4 times.</li>
 	  <li>Only affects colony pawns and prisoners.</li>
-	  <!-- <li>Does not affect babies.</li> -->
 	  <li>Decreases the nutritional value of consumed food by 8%</li>
 	</customEffectDescriptions>
 	<biostatCpx>2</biostatCpx>
@@ -290,30 +286,8 @@
 	  <PawnBeauty>2</PawnBeauty>
 	  <MaxNutrition>0.2</MaxNutrition>
 	</statOffsets>
-	<suppressedTraits>
-	  <!-- <li> -->
-		<!-- <def>Beauty</def> -->
-		<!-- <degree>2</degree> -->
-	  <!-- </li> -->
-	  <!-- <li> -->
-		<!-- <def>Beauty</def> -->
-		<!-- <degree>1</degree> -->
-	  <!-- </li> -->
-	  <li>
-		<def>Beauty</def>
-		<degree>-1</degree>
-	  </li>
-	  <li>
-		<def>Beauty</def>
-		<degree>-2</degree>
-	  </li>
-	</suppressedTraits>
-	<!-- <statOffsets> -->
-	  <!-- <PawnBeauty>2</PawnBeauty> -->
-	<!-- </statOffsets> -->
 	<exclusionTags>
 	  <li>Beauty</li>
-	  <!-- <li>PsychicAbility</li> -->
 	</exclusionTags>
 	<symbolPack>
 	  <prefixSymbols>

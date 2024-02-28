@@ -32,16 +32,16 @@
 	  <li>All psychic sensitivity pawns without this gene get -40 opinion towards gene carrier.</li>
 	  <li>All psychic sensitivity pawns with same xenotype get +40 opinion towards gene carrier.</li>
 	</customEffectDescriptions>
-	<suppressedTraits>
-	  <li>
-		<def>Beauty</def>
-		<degree>-1</degree>
-	  </li>
-	  <li>
-		<def>Beauty</def>
-		<degree>-2</degree>
-	  </li>
-	</suppressedTraits>
+	<!-- <suppressedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>Beauty</def> -->
+		<!-- <degree>-1</degree> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <def>Beauty</def> -->
+		<!-- <degree>-2</degree> -->
+	  <!-- </li> -->
+	<!-- </suppressedTraits> -->
 	<statOffsets>
 	  <PawnBeauty>2</PawnBeauty>
 	</statOffsets>
@@ -73,16 +73,16 @@
 	<customEffectDescriptions>
 	  <li>All psychic sensitivity pawns get +40 opinion towards gene carrier.</li>
 	</customEffectDescriptions>
-	<suppressedTraits>
-	  <li>
-		<def>Beauty</def>
-		<degree>-1</degree>
-	  </li>
-	  <li>
-		<def>Beauty</def>
-		<degree>-2</degree>
-	  </li>
-	</suppressedTraits>
+	<!-- <suppressedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>Beauty</def> -->
+		<!-- <degree>-1</degree> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <def>Beauty</def> -->
+		<!-- <degree>-2</degree> -->
+	  <!-- </li> -->
+	<!-- </suppressedTraits> -->
 	<statOffsets>
 	  <PawnBeauty>2</PawnBeauty>
 	</statOffsets>
