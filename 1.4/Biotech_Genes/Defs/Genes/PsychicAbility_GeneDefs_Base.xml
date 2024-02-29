@@ -7,24 +7,6 @@
 	  <!-- <li>PsychicAbility</li> -->
 	<!-- </exclusionTags> -->
 	<selectionWeight>0.0025</selectionWeight>
-	<suppressedTraits>
-	  <li>
-		<def>PsychicSensitivity</def>
-		<degree>-1</degree>
-	  </li>
-	  <li>
-		<def>PsychicSensitivity</def>
-		<degree>-2</degree>
-	  </li>
-	  <li>
-		<def>PsychicSensitivity</def>
-		<degree>1</degree>
-	  </li>
-	  <li>
-		<def>PsychicSensitivity</def>
-		<degree>2</degree>
-	  </li>
-	</suppressedTraits>
   </GeneDef>
 
   <!-- ============================================ -->
@@ -89,6 +71,24 @@
 	  <PsychicSensitivity>0.5</PsychicSensitivity>
 	  <BondAnimalChanceFactor>0.0</BondAnimalChanceFactor>
 	</statFactors>
+	<suppressedTraits>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-1</degree>
+	  </li>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-2</degree>
+	  </li>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>1</degree>
+	  </li>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>2</degree>
+	  </li>
+	</suppressedTraits>
 	<!-- <exclusionTags Inherit="False"/> -->
   </GeneDef>
 
@@ -110,7 +110,7 @@
 	  <MeditationFocusGain>0.6</MeditationFocusGain>
 	  <PsychicEntropyRecoveryRate>0.6</PsychicEntropyRecoveryRate>
 	</statOffsets>
-	<suppressedTraits Inherit="False">
+	<suppressedTraits>
 	  <li>
 		<def>PsychicSensitivity</def>
 		<degree>-1</degree>

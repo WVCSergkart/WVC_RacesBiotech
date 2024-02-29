@@ -84,7 +84,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 		<possibleXenotypes>
 		  <li>WVC_Featherdust</li>
 		  <li>WVC_Resurgent</li>
-		  <li>WVC_Ashen</li>
+		  <li MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li>
 		</possibleXenotypes>
 	  </li>
 	</comps>
