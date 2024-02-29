@@ -84,6 +84,7 @@
 	<!-- <resourceLossPerDay>0.15</resourceLossPerDay> -->
 	<iconPath>WVC/UI/Genes/Gene_Blessedlink_v0</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
+	<minAgeActive>3</minAgeActive>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>

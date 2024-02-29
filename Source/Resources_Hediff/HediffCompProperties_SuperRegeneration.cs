@@ -1,11 +1,13 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class HediffCompProperties_SuperRegeneration : HediffCompProperties
+	[Obsolete]
+	public class HediffCompProperties_SuperRegeneration : HediffCompProperties
 	{
 
 		public bool shouldSendNotification = false;
@@ -20,6 +22,7 @@ namespace WVC_XenotypesAndGenes
 		}
 	}
 
+	[Obsolete]
 	public class HediffCompSuperRegeneration : HediffComp
 	{
 

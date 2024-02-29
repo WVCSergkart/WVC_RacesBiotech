@@ -10,11 +10,10 @@ namespace WVC_XenotypesAndGenes
 		public new CompProperties_AbilityResurgentCost Props => (CompProperties_AbilityResurgentCost)props;
 
 		private Gene_ResurgentCells cachedResugentGene = null;
-		// private bool cacheResugentGene = true;
 
 		private void Cache()
 		{
-			if (cachedResugentGene == null)
+			if (cachedResugentGene == null || !cachedResugentGene.Active)
 			{
 				cachedResugentGene = parent.pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
 			}

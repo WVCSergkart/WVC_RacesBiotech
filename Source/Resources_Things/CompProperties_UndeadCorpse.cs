@@ -33,7 +33,6 @@ namespace WVC_XenotypesAndGenes
 
 		public override void PostSpawnSetup(bool respawningAfterLoad)
 		{
-			// base.PostSpawnSetup(respawningAfterLoad);
 			if (!respawningAfterLoad)
 			{
 				shouldResurrect = parent is Corpse corpse && corpse.InnerPawn.GetUndeadGene(out Gene_Undead gene_undead) && gene_undead.UndeadCanResurrect && (corpse.InnerPawn.IsColonist || WVC_Biotech.settings.canNonPlayerPawnResurrect);
@@ -43,19 +42,16 @@ namespace WVC_XenotypesAndGenes
 
 		public override void CompTick()
 		{
-			// base.CompTick();
 			Tick();
 		}
 
 		public override void CompTickRare()
 		{
-			// base.CompTickRare();
 			Tick();
 		}
 
 		public override void CompTickLong()
 		{
-			// base.CompTickRare();
 			Tick();
 		}
 
@@ -94,7 +90,6 @@ namespace WVC_XenotypesAndGenes
 
 		public override void PostExposeData()
 		{
-			// base.PostExposeData();
 			Scribe_Values.Look(ref resurrectionDelay, "resurrectionDelay_" + Props.uniqueTag, 0);
 			Scribe_Values.Look(ref shouldResurrect, "shouldResurrect_" + Props.uniqueTag, false);
 		}

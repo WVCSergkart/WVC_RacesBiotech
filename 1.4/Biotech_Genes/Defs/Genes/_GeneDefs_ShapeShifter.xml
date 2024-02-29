@@ -15,7 +15,6 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSpecialPurposes_Base">
 	<defName>WVC_XenotypesAndGenes_SubXenotypeShapeshifter</defName>
-	<!-- <label>random sub-xenotype</label> -->
 	<label>genetic shapeshifter</label>
 	<!-- For modders only -->
 	<!-- This gene is just an initializer. -->
@@ -27,29 +26,14 @@
 	<iconPath>WVC/UI/Genes/Gene_ShapeShifter_v0</iconPath>
 	<selectionWeight>0.00</selectionWeight>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
-	<biostatCpx>6</biostatCpx>
-	<biostatMet>-6</biostatMet>
-	<biostatArc>3</biostatArc>
+	<biostatCpx>0</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<biostatArc>1</biostatArc>
 	<customEffectDescriptions Inherit="False">
-	  <!-- <li>Has a chance to significantly alter the owner's gene set. Triggered by generation, undead resurrection and gene reimplantation.</li> -->
-	  <!-- <li>&lt;color=#ff8585&gt;Cannot spawn in genepacks.&lt;/color&gt;</li> -->
 	  <li>&lt;color=#ff8585&gt;For modders only. Useless for players.&lt;/color&gt;</li>
 	</customEffectDescriptions>
-	<!-- <customEffectDescriptions> -->
-	  <!-- <li>Has a chance to significantly alter the owner's gene set. Triggered by generation, undead resurrection and gene reimplantation.</li> -->
-	  <!-- <li>&lt;color=#ff8585&gt;For modders only.&lt;/color&gt;</li> -->
-	<!-- </customEffectDescriptions> -->
 	<displayOrderInCategory>99999</displayOrderInCategory>
-	<!-- <displayOrderInCategory>1255</displayOrderInCategory> -->
-	<!-- <displayOrderInCategory>99999</displayOrderInCategory> -->
-	<!-- <exclusionTags Inherit="False"> -->
-	  <!-- <li>WVC_GeneticInstabilityGenes</li> -->
-	<!-- </exclusionTags> -->
-	<modExtensions Inherit="False">
-		<!-- <li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core"> -->
-			<!-- <hideGene>true</hideGene> -->
-		<!-- </li> -->
-	</modExtensions>
+	<modExtensions Inherit="False"/>
   </GeneDef>
 
   <!-- ================= -->
@@ -96,9 +80,6 @@
 	<biostatArc>3</biostatArc>
 	<sterilize>true</sterilize>
 	<displayOrderInCategory>55</displayOrderInCategory>
-	<customEffectDescriptions>
-	  <!-- <li MayRequire="ludeon.rimworld.ideology">Increase the number of scars by 2</li> -->
-	</customEffectDescriptions>
 	<statFactors>
 	  <Fertility>0</Fertility>
 	</statFactors>
@@ -201,7 +182,6 @@
 	<biostatArc>3</biostatArc>
 	<customEffectDescriptions>
 		<li>The xenotype of the carrier can change at any time, to any other.</li>
-		<!-- <li MayRequire="ludeon.rimworld.ideology">Increases the number of scars by 3</li> -->
 		<li>&lt;color=#ff8585&gt;Does not support custom xenotypes.&lt;/color&gt;</li>
 		<li>&lt;color=#ff8585&gt;Might be a little buggy.&lt;/color&gt;</li>
 	</customEffectDescriptions>

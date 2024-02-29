@@ -6,10 +6,8 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class CompProperties_GenesDisplayInfo : CompProperties
+	public class CompProperties_GenesDisplayInfo : CompProperties
 	{
-
-		// public bool onlyPlayerFaction = true;
 
 		public int recacheFrequency = 60000;
 
@@ -19,6 +17,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			compClass = typeof(CompGenesDisplayInfo);
 		}
+
 	}
 
 	public class CompGenesDisplayInfo : ThingComp
@@ -193,11 +192,6 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
-			// base.CompGetGizmosExtra();
-			// if (!WVC_Biotech.settings.enableGolemsInfo)
-			// {
-				// yield break;
-			// }
 			Pawn pawn = parent as Pawn;
 			if (Find.TickManager.TicksGame >= nextRecache)
 			{
@@ -215,6 +209,7 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 		}
+
 	}
 
 }

@@ -1,11 +1,13 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class CompProperties_SpawnBabyPawnAndInheritGenes : CompProperties
+	[Obsolete]
+	public class CompProperties_SpawnBabyPawnAndInheritGenes : CompProperties
 	{
 		public IntRange ticksBetweenSpawn = new(60000, 120000);
 
@@ -21,6 +23,7 @@ namespace WVC_XenotypesAndGenes
 		}
 	}
 
+	[Obsolete]
 	public class CompSpawnBabyPawnAndInheritGenes : ThingComp
 	{
 		public int tickCounter = 0;

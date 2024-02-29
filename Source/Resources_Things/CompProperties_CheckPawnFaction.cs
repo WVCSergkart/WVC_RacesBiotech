@@ -5,7 +5,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class CompProperties_InitialPawnFaction : CompProperties
+	public class CompProperties_InitialPawnFaction : CompProperties
 	{
 		public CompProperties_InitialPawnFaction()
 		{
@@ -37,10 +37,6 @@ namespace WVC_XenotypesAndGenes
 					pawn.SetFaction(Faction.OfPlayer);
 					mechanitors.RandomElement().relations.AddDirectRelation(PawnRelationDefOf.Overseer, pawn);
 				}
-				// else
-				// {
-					// pawn.Kill(null, null);
-				// }
 			}
 		}
 	}

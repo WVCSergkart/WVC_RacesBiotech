@@ -63,12 +63,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Resources_Abilities\CompAbilityEffect_GeneIsActive.cs" />
-    <Compile Include="Resources_Abilities\CompAbilityEffect_HideIfPawnMultiSelected.cs" />
-    <Compile Include="Resources_Abilities\CompAbilityEffect_PawnPregnant.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_ResurgentCost.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_ResurrectMech.cs" />
-    <Compile Include="Resources_Abilities\CompAbilityEffect_TargetValid.cs" />
+    <Compile Include="Resources_Abilities\CompAbility_Validators.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityDustCost.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityResurgentCost.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityRiseFromTheDead.cs" />
@@ -142,7 +139,7 @@
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_Trees.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_Undead_Social.cs" />
     <Compile Include="Resources_Utility\AgelessUtility.cs" />
-    <Compile Include="Resources_Workers\TEST_JobGiver_WanderNearTarget.cs" />
+    <Compile Include="Resources_TEST\TEST_JobGiver_WanderNearTarget.cs" />
     <Compile Include="Resources_Utility\GeneFeaturesUtility.cs" />
     <Compile Include="Resources_Utility\GeneHealUtility.cs" />
     <Compile Include="Resources_Utility\GeneUiUtility.cs" />
@@ -172,7 +169,6 @@
     <Compile Include="Resources_Harmony\GenePacks.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityReimplantEndogerm.cs" />
     <Compile Include="Resources_Genes\Gene_XenotypeForcer.cs" />
-    <Compile Include="Resources_Hediff\HediffCompProperties_SeverityFromResurgent.cs" />
     <Compile Include="Resources_Hediff\HediffComp_SeverityFromResurgent.cs" />
     <Compile Include="Resources_Utility\GestationUtility.cs" />
     <Compile Include="Resources_Utility\HediffUtility.cs" />
@@ -212,9 +208,8 @@
     <Compile Include="Resources_Things\CompTargetable_TargetValidation.cs" />
     <Compile Include="Resources_Things\CompToxifier.cs" />
     <Compile Include="Resources_Things\DeathAction_SpawnThing.cs" />
-    <Compile Include="Resources_Things\Hive_CompProperties_SpawnInsect.cs" />
-    <Compile Include="Resources_Things\Hive_CompSpawnInsect.cs" />
-    <Compile Include="Resources_Thought\TEST_ThoughtWorker_Gender.cs" />
+    <Compile Include="Resources_TEST\USED_IN_TEST_CompSpawnInsect.cs" />
+    <Compile Include="Resources_TEST\TEST_ThoughtWorker_Gender.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_MechanoidLabor.cs" />
     <Compile Include="Resources_Workers\WorkGiver_HaulToGeneBank.cs" />
     <Compile Include="Resources_Utility\XenoTreeUtility.cs" />

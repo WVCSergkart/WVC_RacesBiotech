@@ -9,7 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_Mechlink : Gene
+	public class Gene_Mechlink : Gene
 	{
 
 		public override void PostAdd()
@@ -21,14 +21,14 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void Notify_PawnDied()
-		{
-			base.Notify_PawnDied();
-			if (WVC_Biotech.settings.genesRemoveMechlinkUponDeath && pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
-			{
-				Gene_AddOrRemoveHediff.RemoveHediff(HediffDefOf.MechlinkImplant, pawn);
-			}
-		}
+		// public override void Notify_PawnDied()
+		// {
+			// base.Notify_PawnDied();
+			// if (WVC_Biotech.settings.genesRemoveMechlinkUponDeath && pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
+			// {
+				// Gene_AddOrRemoveHediff.RemoveHediff(HediffDefOf.MechlinkImplant, pawn);
+			// }
+		// }
 
 		public override void Reset()
 		{
@@ -143,7 +143,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield return new Command_Action
 				{
-					defaultLabel = "DEV: Summon mech",
+					defaultLabel = "DEV: Summon mechs",
 					action = delegate
 					{
 						SummonRandomMech();

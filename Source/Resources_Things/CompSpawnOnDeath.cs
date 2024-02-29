@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class CompProperties_SpawnOnDeath : CompProperties
+	public class CompProperties_SpawnOnDeath : CompProperties
 	{
 
 		public int filthCount = 5;

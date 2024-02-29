@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
@@ -6,6 +7,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
+	[Obsolete]
 	public class HediffCompProperties_RemoveHediffFromList : HediffCompProperties
 	{
 
@@ -19,6 +21,7 @@ namespace WVC_XenotypesAndGenes
 		}
 	}
 
+	[Obsolete]
 	public class HediffComp_RemoveHediffFromList : HediffComp
 	{
 

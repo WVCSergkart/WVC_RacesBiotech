@@ -14,22 +14,42 @@
 	<generateWithXenogermReplicatingHediffChance>0.35</generateWithXenogermReplicatingHediffChance>
 	<xenogermReplicatingDurationLeftDaysRange>0.1~24</xenogermReplicatingDurationLeftDaysRange>
 	<genes>
+		<!-- Old +9 met -->
+		<!-- <li>WVC_NaturalAgeless</li> -->
+		<!-- <li>WVC_NaturalFastGrowing</li> -->
+		<!-- <li>WVC_Emotionless</li> -->
+		<!-- <li>WVC_DisabledAllWork_Blank</li> -->
+		<!-- <li>WVC_SleepyStomach</li> -->
+		<!-- <li>Libido_Low</li> -->
+		<!-- <li>WVC_ExtremeGeneticInstability</li> -->
+		<!-- <li>WVC_Orientation_Asexual</li> -->
+		<!-- <li>WVC_Hair_PunkOnly</li> -->
+		<!-- <li>Beard_NoBeardOnly</li> -->
+		<!-- <li>Body_Standard</li> -->
+		<!-- <li>Hair_SnowWhite</li> -->
+		<!-- <li>Skin_SheerWhite</li> -->
+		<!-- <li>WVC_Learning_ExtremeSlow</li> -->
+		<!-- <li>WVC_AgeDebuff_Timeless</li> -->
+		<!-- <li>WVC_BodySize_Small</li> -->
+		<!-- New 0 met -->
+		<li>WVC_WoundHealing_ExtremeFast</li>
 		<li>WVC_NaturalAgeless</li>
 		<li>WVC_NaturalFastGrowing</li>
+		<li>WVC_ExtremeGeneticInstability</li>
+		<li>PsychicAbility_Extreme</li>
 		<li>WVC_Emotionless</li>
 		<li>WVC_DisabledAllWork_Blank</li>
 		<li>WVC_SleepyStomach</li>
 		<li>Libido_Low</li>
-		<li>WVC_ExtremeGeneticInstability</li>
 		<li>WVC_Orientation_Asexual</li>
 		<li>WVC_Hair_PunkOnly</li>
 		<li>Beard_NoBeardOnly</li>
 		<li>Body_Standard</li>
+		<li>WVC_BodySize_Small</li>
 		<li>Hair_SnowWhite</li>
 		<li>Skin_SheerWhite</li>
 		<li>WVC_Learning_ExtremeSlow</li>
 		<li>WVC_AgeDebuff_Timeless</li>
-		<li>WVC_BodySize_Small</li>
 	</genes>
   </XenotypeDef>
 

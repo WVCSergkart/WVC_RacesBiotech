@@ -10,6 +10,7 @@ namespace WVC_XenotypesAndGenes
 
 	public class QuestNode_Root_UndeadReincarnation : QuestNode
 	{
+
 		public int delayTicks = 150;
 
 		public List<HediffDef> hediffDefs;
@@ -57,6 +58,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			return false;
 		}
+
 	}
 
 }

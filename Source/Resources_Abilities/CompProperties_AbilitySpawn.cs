@@ -4,7 +4,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class CompProperties_AbilitySpawn : CompProperties_AbilityEffect
+	public class CompProperties_AbilitySpawn : CompProperties_AbilityEffect
 	{
 		public ThingDef thingDef;
 

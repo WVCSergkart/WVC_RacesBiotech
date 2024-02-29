@@ -33,8 +33,6 @@ namespace WVC_XenotypesAndGenes
 			{
 				defaultLabel = def.LabelCap,
 				defaultDesc = "WVC_XaG_GeneShapeshifter_Desc".Translate(),
-				// disabled = pawn.health.hediffSet.HasHediff(HediffDefOf.XenogerminationComa) || pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating),
-				// disabledReason = HediffDefOf.XenogermReplicating.description,
 				icon = ContentFinder<Texture2D>.Get(def.iconPath),
 				action = delegate
 				{
@@ -65,7 +63,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Shapeshifter_Rand : Gene_Shapeshifter
+	public class Gene_Shapeshifter_Rand : Gene
 	{
 
 		public override void PostAdd()
@@ -84,15 +82,8 @@ namespace WVC_XenotypesAndGenes
 
 		public void RandomXenotype(Pawn pawn, Gene gene, XenotypeDef xenotype)
 		{
-			// if (pawn.genes.IsXenogene(gene))
-			// {
-				// pawn.genes.RemoveGene(gene);
-				// pawn.genes.AddGene(gene.def, false);
-				// return;
-			// }
 			if (xenotype == null)
 			{
-				// List<XenotypeDef> xenotypeDef = XenotypeFilterUtility.WhiteListedXenotypes(true, true);
 				List<XenotypeDef> xenotypeDef = XenotypeFilterUtility.AllXenotypesExceptAndroids();
 				if (gene.def.GetModExtension<GeneExtension_Giver>() != null && gene.def.GetModExtension<GeneExtension_Giver>().xenotypeIsInheritable)
 				{
@@ -119,20 +110,10 @@ namespace WVC_XenotypesAndGenes
 			ReimplanterUtility.SetXenotype_DoubleXenotype(pawn, xenotype, dontRemove.ToList());
 		}
 
-		public override IEnumerable<Gizmo> GetGizmos()
-		{
-			yield break;
-		}
-
-		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
-		{
-			yield break;
-		}
-
 		public override void Tick()
 		{
 			base.Tick();
-			if (!pawn.IsHashIntervalTick(120000))
+			if (!pawn.IsHashIntervalTick(132520))
 			{
 				return;
 			}

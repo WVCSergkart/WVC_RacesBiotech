@@ -24,7 +24,7 @@ namespace WVC_XenotypesAndGenes
 		public bool canNonPlayerPawnResurrect = false;
 		public bool allowShapeshiftAfterDeath = true;
 		public bool totalHealingIgnoreScarification = true;
-		public bool genesRemoveMechlinkUponDeath = false;
+		// public bool genesRemoveMechlinkUponDeath = false;
 		// public bool enableCustomMechLinkName = false;
 		public bool shapeshifterGeneUnremovable = false;
 		public bool enableIncestLoverGene = true;
@@ -80,7 +80,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref canNonPlayerPawnResurrect, "canNonPlayerPawnResurrect", defaultValue: false);
 			Scribe_Values.Look(ref allowShapeshiftAfterDeath, "allowShapeshiftAfterDeath", defaultValue: true);
 			Scribe_Values.Look(ref totalHealingIgnoreScarification, "totalHealingIgnoreScarification", defaultValue: true);
-			Scribe_Values.Look(ref genesRemoveMechlinkUponDeath, "genesRemoveMechlinkUponDeath", defaultValue: false);
+			// Scribe_Values.Look(ref genesRemoveMechlinkUponDeath, "genesRemoveMechlinkUponDeath", defaultValue: false);
 			// Scribe_Values.Look(ref enableCustomMechLinkName, "enableCustomMechLinkName", defaultValue: false);
 			Scribe_Values.Look(ref shapeshifterGeneUnremovable, "shapeshifterGeneUnremovable", defaultValue: false);
 			Scribe_Values.Look(ref enableIncestLoverGene, "enableIncestLoverGene", defaultValue: true);
@@ -190,7 +190,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			Rect outRect = new(inRect.x, inRect.y, inRect.width, inRect.height);
 			// Rect rect = new(0f, 0f, inRect.width, inRect.height);
-			Rect rect = new(0f, 0f, inRect.width - 30f, inRect.height * 2.3f);
+			Rect rect = new(0f, 0f, inRect.width - 30f, inRect.height * 2.2f);
 			Widgets.BeginScrollView(outRect, ref scrollPosition, rect);
 			Listing_Standard listingStandard = new();
 			listingStandard.Begin(rect);
@@ -224,7 +224,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_canNonPlayerPawnResurrect".Translate().Colorize(ColorLibrary.LightBlue), ref settings.canNonPlayerPawnResurrect, "WVC_ToolTip_canNonPlayerPawnResurrect".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_allowShapeshiftAfterDeath".Translate().Colorize(ColorLibrary.LightBlue), ref settings.allowShapeshiftAfterDeath, "WVC_ToolTip_allowShapeshiftAfterDeath".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_totalHealingIgnoreScarification".Translate().Colorize(ColorLibrary.LightBlue), ref settings.totalHealingIgnoreScarification, "WVC_ToolTip_totalHealingIgnoreScarification".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_genesRemoveMechlinkUponDeath".Translate(), ref settings.genesRemoveMechlinkUponDeath, "WVC_ToolTip_genesRemoveMechlinkUponDeath".Translate());
+			// listingStandard.CheckboxLabeled("WVC_Label_genesRemoveMechlinkUponDeath".Translate(), ref settings.genesRemoveMechlinkUponDeath, "WVC_ToolTip_genesRemoveMechlinkUponDeath".Translate());
 			// listingStandard.CheckboxLabeled("WVC_Label_enableCustomMechLinkName".Translate(), ref settings.enableCustomMechLinkName, "WVC_ToolTip_enableCustomMechLinkName".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_ShapeshifterGeneUnremovable".Translate().Colorize(ColorLibrary.LightBlue), ref settings.shapeshifterGeneUnremovable, "WVC_ToolTip_ShapeshifterGeneUnremovable".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enableIncestLoverGene".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enableIncestLoverGene, "WVC_ToolTip_enableIncestLoverGene".Translate());
@@ -270,7 +270,7 @@ namespace WVC_XenotypesAndGenes
 					settings.canNonPlayerPawnResurrect = false;
 					settings.allowShapeshiftAfterDeath = true;
 					settings.totalHealingIgnoreScarification = true;
-					settings.genesRemoveMechlinkUponDeath = false;
+					// settings.genesRemoveMechlinkUponDeath = false;
 					// settings.enableCustomMechLinkName = false;
 					settings.shapeshifterGeneUnremovable = false;
 					settings.enableIncestLoverGene = true;
@@ -326,7 +326,7 @@ namespace WVC_XenotypesAndGenes
 					settings.canNonPlayerPawnResurrect = false;
 					settings.allowShapeshiftAfterDeath = true;
 					settings.totalHealingIgnoreScarification = true;
-					settings.genesRemoveMechlinkUponDeath = false;
+					// settings.genesRemoveMechlinkUponDeath = false;
 					// settings.enableCustomMechLinkName = true;
 					settings.shapeshifterGeneUnremovable = true;
 					settings.enableIncestLoverGene = true;
@@ -363,32 +363,6 @@ namespace WVC_XenotypesAndGenes
 					Messages.Message("WVC_XaG_ResetButton_SettingsChanged".Translate(), MessageTypeDefOf.TaskCompletion, historical: false);
 				});
 				Find.WindowStack.Add(window);
-			}
-			// =============== Dev Mode ===============
-			if (Prefs.DevMode)
-			{
-				if (listingStandard.ButtonText("DEV: Count active WVC_ genes"))
-				{
-					List<GeneDef> genes = new();
-					int genesCount = 0;
-					foreach (Def def in Content.AllDefs)
-					{
-						if (def is GeneDef geneDef)
-						{
-							genesCount++;
-							genes.Add(geneDef);
-						}
-					}
-					Log.Error("WVC Genes: " + genesCount.ToString());
-					if (!genes.NullOrEmpty())
-					{
-						Log.Error("All active XaG genes:" + "\n" + genes.Select((GeneDef x) => x.defName).ToLineList(" - "));
-					}
-					else
-					{
-						Log.Error("Genes list is null");
-					}
-				}
 			}
 			listingStandard.End();
 			Widgets.EndScrollView();
@@ -525,6 +499,32 @@ namespace WVC_XenotypesAndGenes
 					Messages.Message("WVC_XaG_ResetButton_SettingsChanged".Translate(), MessageTypeDefOf.TaskCompletion, historical: false);
 				});
 				Find.WindowStack.Add(window);
+			}
+			// =============== Dev Mode ===============
+			if (Prefs.DevMode)
+			{
+				if (listingStandard.ButtonText("DEV: Count active WVC_ genes"))
+				{
+					List<GeneDef> genes = new();
+					int genesCount = 0;
+					foreach (Def def in Content.AllDefs)
+					{
+						if (def is GeneDef geneDef)
+						{
+							genesCount++;
+							genes.Add(geneDef);
+						}
+					}
+					Log.Error("WVC Genes: " + genesCount.ToString());
+					if (!genes.NullOrEmpty())
+					{
+						Log.Error("All active XaG genes:" + "\n" + genes.Select((GeneDef x) => x.defName).ToLineList(" - "));
+					}
+					else
+					{
+						Log.Error("Genes list is null");
+					}
+				}
 			}
 			listingStandard.End();
 			Widgets.EndScrollView();

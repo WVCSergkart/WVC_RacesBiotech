@@ -1,10 +1,12 @@
 using RimWorld;
+using System;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class CompProperties_AbilitySpawnOnCell : CompProperties_AbilityEffect
+	[Obsolete]
+	public class CompProperties_AbilitySpawnOnCell : CompProperties_AbilityEffect
 	{
 		public ThingDef thingDef;
 
@@ -18,6 +20,7 @@ namespace WVC_XenotypesAndGenes
 		}
 	}
 
+	[Obsolete]
 	public class CompAbilityEffect_SpawnOnCell : CompAbilityEffect
 	{
 		public new CompProperties_AbilitySpawnOnCell Props => (CompProperties_AbilitySpawnOnCell)props;
@@ -26,10 +29,6 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.Apply(target, dest);
 			GenSpawn.Spawn(Props.thingDef, target.Cell, parent.pawn.Map);
-			// if (Props.sendSkipSignal)
-			// {
-			// CompAbilityEffect_Teleport.SendSkipUsedSignal(target, parent.pawn);
-			// }
 		}
 
 		public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
