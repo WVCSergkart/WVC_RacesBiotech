@@ -21,33 +21,33 @@
 
 	<!-- Patch for mechlink label -->
 
-	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
-		<settingName>enableCustomMechLinkName</settingName>
-		<caseTrue Class="PatchOperationSequence">
-			<operations>
-				<li Class="PatchOperationReplace">
-				  <xpath>/Defs/HediffDef[defName="MechlinkImplant"]/hediffClass</xpath>
-				  <value>
-					<hediffClass>WVC_XenotypesAndGenes.Hediff_LabeledMechlink</hediffClass>
-				  </value>
-				</li>
-				<li Class="PatchOperationAdd">
-				  <xpath>/Defs/HediffDef[defName="MechlinkImplant"]/comps</xpath>
-				  <value>
-					<li Class="WVC_XenotypesAndGenes.HediffCompProperties_LabelFromGene">
-					  <geneDefs>
-						<li>WVC_SwarmConnection_Golems</li>
-						<li>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</li>
-						<li>WVC_Dustogenic_Blesslink</li>
-						<li>WVC_NaturalMechlink</li>
-						<li>WVC_ArchiteMechlink</li>
-					  </geneDefs>
-					</li>
-				  </value>
-				</li>
-			</operations>
-		</caseTrue>
-	</Operation>
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
+		<!-- <settingName>enableCustomMechLinkName</settingName> -->
+		<!-- <caseTrue Class="PatchOperationSequence"> -->
+			<!-- <operations> -->
+				<!-- <li Class="PatchOperationReplace"> -->
+				  <!-- <xpath>/Defs/HediffDef[defName="MechlinkImplant"]/hediffClass</xpath> -->
+				  <!-- <value> -->
+					<!-- <hediffClass>WVC_XenotypesAndGenes.Hediff_LabeledMechlink</hediffClass> -->
+				  <!-- </value> -->
+				<!-- </li> -->
+				<!-- <li Class="PatchOperationAdd"> -->
+				  <!-- <xpath>/Defs/HediffDef[defName="MechlinkImplant"]/comps</xpath> -->
+				  <!-- <value> -->
+					<!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_LabelFromGene"> -->
+					  <!-- <geneDefs> -->
+						<!-- <li>WVC_SwarmConnection_Golems</li> -->
+						<!-- <li>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</li> -->
+						<!-- <li>WVC_Dustogenic_Blesslink</li> -->
+						<!-- <li>WVC_NaturalMechlink</li> -->
+						<!-- <li>WVC_ArchiteMechlink</li> -->
+					  <!-- </geneDefs> -->
+					<!-- </li> -->
+				  <!-- </value> -->
+				<!-- </li> -->
+			<!-- </operations> -->
+		<!-- </caseTrue> -->
+	<!-- </Operation> -->
 
 	<!-- Patch for special food for dustogenics -->
 

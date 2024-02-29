@@ -25,7 +25,7 @@ namespace WVC_XenotypesAndGenes
 		public bool allowShapeshiftAfterDeath = true;
 		public bool totalHealingIgnoreScarification = true;
 		public bool genesRemoveMechlinkUponDeath = false;
-		public bool enableCustomMechLinkName = false;
+		// public bool enableCustomMechLinkName = false;
 		public bool shapeshifterGeneUnremovable = false;
 		public bool enableIncestLoverGene = true;
 		public bool enableHarmonyTelepathyGene = false;
@@ -81,7 +81,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref allowShapeshiftAfterDeath, "allowShapeshiftAfterDeath", defaultValue: true);
 			Scribe_Values.Look(ref totalHealingIgnoreScarification, "totalHealingIgnoreScarification", defaultValue: true);
 			Scribe_Values.Look(ref genesRemoveMechlinkUponDeath, "genesRemoveMechlinkUponDeath", defaultValue: false);
-			Scribe_Values.Look(ref enableCustomMechLinkName, "enableCustomMechLinkName", defaultValue: false);
+			// Scribe_Values.Look(ref enableCustomMechLinkName, "enableCustomMechLinkName", defaultValue: false);
 			Scribe_Values.Look(ref shapeshifterGeneUnremovable, "shapeshifterGeneUnremovable", defaultValue: false);
 			Scribe_Values.Look(ref enableIncestLoverGene, "enableIncestLoverGene", defaultValue: true);
 			Scribe_Values.Look(ref enableHarmonyTelepathyGene, "enableHarmonyTelepathyGene", defaultValue: false);
@@ -225,7 +225,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_allowShapeshiftAfterDeath".Translate().Colorize(ColorLibrary.LightBlue), ref settings.allowShapeshiftAfterDeath, "WVC_ToolTip_allowShapeshiftAfterDeath".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_totalHealingIgnoreScarification".Translate().Colorize(ColorLibrary.LightBlue), ref settings.totalHealingIgnoreScarification, "WVC_ToolTip_totalHealingIgnoreScarification".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_genesRemoveMechlinkUponDeath".Translate(), ref settings.genesRemoveMechlinkUponDeath, "WVC_ToolTip_genesRemoveMechlinkUponDeath".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_enableCustomMechLinkName".Translate(), ref settings.enableCustomMechLinkName, "WVC_ToolTip_enableCustomMechLinkName".Translate());
+			// listingStandard.CheckboxLabeled("WVC_Label_enableCustomMechLinkName".Translate(), ref settings.enableCustomMechLinkName, "WVC_ToolTip_enableCustomMechLinkName".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_ShapeshifterGeneUnremovable".Translate().Colorize(ColorLibrary.LightBlue), ref settings.shapeshifterGeneUnremovable, "WVC_ToolTip_ShapeshifterGeneUnremovable".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enableIncestLoverGene".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enableIncestLoverGene, "WVC_ToolTip_enableIncestLoverGene".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enableHarmonyTelepathyGene".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enableHarmonyTelepathyGene, "WVC_ToolTip_enableHarmonyTelepathyGene".Translate());
@@ -271,7 +271,7 @@ namespace WVC_XenotypesAndGenes
 					settings.allowShapeshiftAfterDeath = true;
 					settings.totalHealingIgnoreScarification = true;
 					settings.genesRemoveMechlinkUponDeath = false;
-					settings.enableCustomMechLinkName = false;
+					// settings.enableCustomMechLinkName = false;
 					settings.shapeshifterGeneUnremovable = false;
 					settings.enableIncestLoverGene = true;
 					settings.enableHarmonyTelepathyGene = false;
@@ -327,7 +327,7 @@ namespace WVC_XenotypesAndGenes
 					settings.allowShapeshiftAfterDeath = true;
 					settings.totalHealingIgnoreScarification = true;
 					settings.genesRemoveMechlinkUponDeath = false;
-					settings.enableCustomMechLinkName = true;
+					// settings.enableCustomMechLinkName = true;
 					settings.shapeshifterGeneUnremovable = true;
 					settings.enableIncestLoverGene = true;
 					settings.enableHarmonyTelepathyGene = false;

@@ -195,59 +195,6 @@
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
-	<defName>WVC_Dustogenic_Blesslink</defName>
-	<label>falselink</label>
-	<description>Carriers of this gene have a psychic signature that misleads mechanoids. They can take control of malfunctioning mechanoids and call upon their aid. However, because of this, they are completely unable to create new mechanoids.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_DustMechlink</geneClass>
-	<displayOrderInCategory>15</displayOrderInCategory>
-	<resourceLossPerDay>0.15</resourceLossPerDay>
-	<iconPath>WVC/UI/Genes/Gene_Blessedlink_v0</iconPath>
-	<iconColor>(255, 255, 255)</iconColor>
-	<biostatArc>1</biostatArc>
-	<prerequisite></prerequisite>
-	<marketValueFactor>1.8</marketValueFactor>
-	<customEffectDescriptions>
-		<li>Carriers of this gene get &lt;color=#8a8ae6&gt;mechlink&lt;/color&gt; permanently.</li>
-		<li>&lt;color=#8a8ae6&gt;Allows you to toggle mechanoid summoning.&lt;/color&gt;</li>
-		<li>Mechanoids are &lt;color=#8a8ae6&gt;summoned automatically&lt;/color&gt; from &lt;color=#8a8ae6&gt;1 to 6&lt;/color&gt; every (*DateTime)8-16 days(/DateTime).</li>
-		<li>&lt;color=#ff8585&gt;A carrier of this gene cannot craft or resurrect mechanoids.&lt;/color&gt;</li>
-	</customEffectDescriptions>
-	<statFactors>
-	  <MechBandwidth>0</MechBandwidth>
-	</statFactors>
-	<statOffsets>
-	  <MechControlGroups>2</MechControlGroups>
-	</statOffsets>
-	<exclusionTags>
-	  <li>WVC_MechanitorNetwork</li>
-	  <li>AbilityMechlink</li>
-	  <li>Mechlink</li>
-	  <li>WVC_GeneMechlink</li>
-	</exclusionTags>
-	<symbolPack>
-	  <prefixSymbols>
-		<li><symbol>mecha</symbol></li>
-		<li><symbol>nitor</symbol></li>
-	  </prefixSymbols>
-	</symbolPack>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<hediffDefs>
-			  <li>MechlinkImplant</li>
-			</hediffDefs>
-			<bodyparts>
-			  <li>Brain</li>
-			</bodyparts>
-		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
-			<spawnIntervalRange>480000~960000</spawnIntervalRange>
-			<summonRange>1~6</summonRange>
-			<summonQuest>WVC_MechanitorSummon_DustLinkRandomMechanoid</summonQuest>
-		</li>
-	</modExtensions>
-  </GeneDef>
-
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
 	<defName>WVC_Dustogenic_AngelBeauty</defName>
 	<label>dust beauty</label>
 	<description>Carriers of this gene can unconsciously influence how others see them. Their brain emits neuronal psychic waves that cause those around them who are susceptible to psychic influence to deify them.</description>

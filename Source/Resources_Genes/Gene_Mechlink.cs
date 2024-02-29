@@ -27,8 +27,6 @@ namespace WVC_XenotypesAndGenes
 			if (WVC_Biotech.settings.genesRemoveMechlinkUponDeath && pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
 			{
 				Gene_AddOrRemoveHediff.RemoveHediff(HediffDefOf.MechlinkImplant, pawn);
-				// DamageInfo dinfo = new(DamageDefOf.ExecutionCut, 9999f, 999f, -1f, null, pawn.health.hediffSet.GetBrain());
-				// pawn.TakeDamage(dinfo);
 			}
 		}
 
@@ -102,6 +100,11 @@ namespace WVC_XenotypesAndGenes
 				summonMechanoids = false;
 				return;
 			}
+			if (!MechanitorUtility.IsMechanitor(pawn))
+			{
+				summonMechanoids = false;
+				return;
+			}
 			SummonRandomMech();
 		}
 
@@ -112,14 +115,9 @@ namespace WVC_XenotypesAndGenes
 
 		private void SummonRandomMech()
 		{
-			// Gene_Dust gene_Dust = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
 			int countSpawn = Props.summonRange.RandomInRange;
 			for (int i = 0; i < countSpawn; i++)
 			{
-				// if (gene_Dust != null)
-				// {
-					// UndeadUtility.OffsetNeedFood(pawn, -1f * def.resourceLossPerDay);
-				// }
 				MechanoidsUtility.MechSummonQuest(pawn, Props.summonQuest);
 				if (i == 0)
 				{
@@ -148,10 +146,7 @@ namespace WVC_XenotypesAndGenes
 					defaultLabel = "DEV: Summon mech",
 					action = delegate
 					{
-						if (Active)
-						{
-							SummonRandomMech();
-						}
+						SummonRandomMech();
 						ResetInterval();
 					}
 				};
@@ -192,6 +187,7 @@ namespace WVC_XenotypesAndGenes
 			};
 			yield return command_Action;
 		}
+
 	}
 
 }
