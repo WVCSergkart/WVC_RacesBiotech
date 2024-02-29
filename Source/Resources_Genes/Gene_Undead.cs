@@ -12,7 +12,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Undead : Gene
 	{
 
-		public GeneExtension_Giver Giver => def.GetModExtension<GeneExtension_Giver>();
+		public GeneExtension_Undead Giver => def.GetModExtension<GeneExtension_Undead>();
 
 		private List<HediffDef> cachedPreventiveHediffs;
 
@@ -31,23 +31,15 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private bool GeneIsActive()
-		{
-			if (!Active || Overridden)
-			{
-				return false;
-			}
-			return true;
-		}
-
 		private bool PawnCanResurrect()
 		{
-			if (GeneIsActive())
+			if (Giver.ignoreHediffs)
 			{
-				if (!HediffUtility.HasAnyHediff(PreventResurrectionHediffs, pawn))
-				{
-					return true;
-				}
+				return base.Active;
+			}
+			if (!HediffUtility.HasAnyHediff(PreventResurrectionHediffs, pawn))
+			{
+				return base.Active;
 			}
 			return false;
 		}
@@ -70,7 +62,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_DustReincarnation : Gene
 	{
 
-		public GeneExtension_Spawner Spawner => def.GetModExtension<GeneExtension_Spawner>();
+		public GeneExtension_Undead Spawner => def.GetModExtension<GeneExtension_Undead>();
 
 		public override void Notify_PawnDied()
 		{
@@ -84,7 +76,7 @@ namespace WVC_XenotypesAndGenes
 
 		public bool ReincarnationActive()
 		{
-			return CanReincarnate(pawn, this, Spawner.stackCount);
+			return CanReincarnate(pawn, this, Spawner.minChronoAge);
 		}
 
 		public static bool CanReincarnate(Pawn pawn, Gene gene, int minChronoAge)
@@ -118,7 +110,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{
-			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate".Translate().CapitalizeFirst(), CanReincarnate(pawn, this, Spawner.stackCount).ToString(), "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate_Desc".Translate(), 1090);
+			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate".Translate().CapitalizeFirst(), CanReincarnate(pawn, this, Spawner.minChronoAge).ToString(), "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate_Desc".Translate(), 1090);
 		}
 
 	}

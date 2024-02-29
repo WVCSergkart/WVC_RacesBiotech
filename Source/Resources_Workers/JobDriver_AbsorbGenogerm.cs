@@ -32,7 +32,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
-			JobExtension_Reimplanter jobExtension = job.def?.GetModExtension<JobExtension_Reimplanter>();
+			GeneExtension_General jobExtension = job.def?.GetModExtension<GeneExtension_General>();
 			if (jobExtension == null)
 			{
 				yield break;

@@ -10,7 +10,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Shapeshifter : Gene
 	{
 
-		public GeneExtension_Shapeshifter Props => def?.GetModExtension<GeneExtension_Shapeshifter>();
+		public GeneExtension_Undead Props => def?.GetModExtension<GeneExtension_Undead>();
 
 		public bool xenogermComaAfterShapeshift = true;
 

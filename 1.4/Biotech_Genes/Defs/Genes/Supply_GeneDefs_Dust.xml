@@ -196,49 +196,33 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
 	<defName>WVC_Dustogenic_Blesslink</defName>
-	<label>blesslink</label>
-	<description>Carriers of this gene have dust that alters their psychic signature, causing mechanoids to sometimes connect to the gene carrier mechanitor's network.</description>
+	<label>falselink</label>
+	<description>Carriers of this gene have a psychic signature that misleads mechanoids. They can take control of malfunctioning mechanoids and call upon their aid. However, because of this, they are completely unable to create new mechanoids.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_DustMechlink</geneClass>
 	<displayOrderInCategory>15</displayOrderInCategory>
 	<resourceLossPerDay>0.15</resourceLossPerDay>
 	<iconPath>WVC/UI/Genes/Gene_Blessedlink_v0</iconPath>
-	<!-- <iconColor>(255, 248, 133)</iconColor> -->
-	<!-- <iconColor>(173, 142, 112)</iconColor> -->
+	<iconColor>(255, 255, 255)</iconColor>
 	<biostatArc>1</biostatArc>
+	<prerequisite></prerequisite>
+	<marketValueFactor>1.8</marketValueFactor>
 	<customEffectDescriptions>
-		<!-- <li>Carriers of this gene get &lt;color=#8a8ae6&gt;mechlink&lt;/color&gt; and &lt;color=#8a8ae6&gt;psylink&lt;/color&gt; permanently.</li> -->
 		<li>Carriers of this gene get &lt;color=#8a8ae6&gt;mechlink&lt;/color&gt; permanently.</li>
-		<li>Allows to enable or disable the automatic summoning of mechanoids every (*DateTime)8-16 days(/DateTime).</li>
-		<li>A carrier of this gene cannot craft or resurrect mechanoids.</li>
-		<!-- <li>Each summoned mechanoid costs 3 dust.</li> -->
-		<li>Each mechanoid costs 0.15 nutrition to summon</li>
+		<li>&lt;color=#8a8ae6&gt;Allows you to toggle mechanoid summoning.&lt;/color&gt;</li>
+		<li>Mechanoids are &lt;color=#8a8ae6&gt;summoned automatically&lt;/color&gt; from &lt;color=#8a8ae6&gt;1 to 6&lt;/color&gt; every (*DateTime)8-16 days(/DateTime).</li>
+		<li>&lt;color=#ff8585&gt;A carrier of this gene cannot craft or resurrect mechanoids.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<statFactors>
 	  <MechBandwidth>0</MechBandwidth>
-	  <WVC_OverseerMaxGolems>0</WVC_OverseerMaxGolems>
 	</statFactors>
 	<statOffsets>
 	  <MechControlGroups>2</MechControlGroups>
-	  <!-- <MeditationFocusGain>0.5</MeditationFocusGain> -->
 	</statOffsets>
-	<!-- <suppressedTraits> -->
-	  <!-- <li> -->
-		<!-- <def>PsychicSensitivity</def> -->
-		<!-- <degree>-1</degree> -->
-	  <!-- </li> -->
-	  <!-- <li> -->
-		<!-- <def>PsychicSensitivity</def> -->
-		<!-- <degree>-2</degree> -->
-	  <!-- </li> -->
-	<!-- </suppressedTraits> -->
 	<exclusionTags>
-	  <!-- <li>PsychicAbility</li> -->
 	  <li>WVC_MechanitorNetwork</li>
 	  <li>AbilityMechlink</li>
 	  <li>Mechlink</li>
 	  <li>WVC_GeneMechlink</li>
-	  <!-- <li>Psylink</li> -->
-	  <!-- <li>AbilityPsylink</li> -->
 	</exclusionTags>
 	<symbolPack>
 	  <prefixSymbols>
@@ -250,7 +234,6 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefs>
 			  <li>MechlinkImplant</li>
-			  <!-- <li MayRequire="ludeon.rimworld.royalty">PsychicAmplifier</li> -->
 			</hediffDefs>
 			<bodyparts>
 			  <li>Brain</li>
@@ -258,6 +241,7 @@
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
 			<spawnIntervalRange>480000~960000</spawnIntervalRange>
+			<summonRange>1~6</summonRange>
 			<summonQuest>WVC_MechanitorSummon_DustLinkRandomMechanoid</summonQuest>
 		</li>
 	</modExtensions>

@@ -20,20 +20,20 @@ namespace WVC_XenotypesAndGenes
 	public class CompUndeadCorpse : ThingComp
 	{
 
-		public int resurrectionDelay;
+		public int resurrectionDelay = 12000;
 		public bool shouldResurrect = false;
 
 		private CompProperties_UndeadCorpse Props => (CompProperties_UndeadCorpse)props;
 
-		public override void Initialize(CompProperties props)
-		{
-			base.Initialize(props);
-			ResetCounter();
-		}
+		// public override void Initialize(CompProperties props)
+		// {
+			// base.Initialize(props);
+			// ResetCounter();
+		// }
 
 		public override void PostSpawnSetup(bool respawningAfterLoad)
 		{
-			base.PostSpawnSetup(respawningAfterLoad);
+			// base.PostSpawnSetup(respawningAfterLoad);
 			if (!respawningAfterLoad)
 			{
 				shouldResurrect = parent is Corpse corpse && corpse.InnerPawn.GetUndeadGene(out Gene_Undead gene_undead) && gene_undead.UndeadCanResurrect && (corpse.InnerPawn.IsColonist || WVC_Biotech.settings.canNonPlayerPawnResurrect);
@@ -43,19 +43,19 @@ namespace WVC_XenotypesAndGenes
 
 		public override void CompTick()
 		{
-			base.CompTick();
+			// base.CompTick();
 			Tick();
 		}
 
 		public override void CompTickRare()
 		{
-			base.CompTickRare();
+			// base.CompTickRare();
 			Tick();
 		}
 
 		public override void CompTickLong()
 		{
-			base.CompTickRare();
+			// base.CompTickRare();
 			Tick();
 		}
 
@@ -84,12 +84,17 @@ namespace WVC_XenotypesAndGenes
 
 		public void ResetCounter()
 		{
-			resurrectionDelay = Find.TickManager.TicksGame + Props.resurrectionDelay.RandomInRange;
+			int delay = Props.resurrectionDelay.RandomInRange;
+			if (parent is Corpse corpse && corpse.InnerPawn.GetUndeadGene(out Gene_Undead gene_undead) && gene_undead != null)
+			{
+				delay += gene_undead.Giver.additionalDelay.RandomInRange;
+			}
+			resurrectionDelay = Find.TickManager.TicksGame + delay;
 		}
 
 		public override void PostExposeData()
 		{
-			base.PostExposeData();
+			// base.PostExposeData();
 			Scribe_Values.Look(ref resurrectionDelay, "resurrectionDelay_" + Props.uniqueTag, 0);
 			Scribe_Values.Look(ref shouldResurrect, "shouldResurrect_" + Props.uniqueTag, false);
 		}

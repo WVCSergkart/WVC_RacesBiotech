@@ -7,7 +7,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class GeneExtension_Background : DefModExtension
+	public class GeneExtension_Background : DefModExtension
 	{
 		public string backgroundPathEndogenes;
 		public string backgroundPathXenogenes;
@@ -17,20 +17,54 @@ namespace WVC_XenotypesAndGenes
 
 	public class GeneExtension_Spawner : DefModExtension
 	{
+		// Thing Spawner
 		public ThingDef thingDefToSpawn;
 		public List<ThingDef> thingDefsToSpawn;
 		public int stackCount = 1;
 		public IntRange spawnIntervalRange = new(120000, 300000);
-		public QuestScriptDef summonQuest;
-		// public QuestScriptDef resurrectionQuest;
-		// public bool writeTimeLeftToSpawn = true;
-		// public string customLabel = "Resource";
 		public string spawnMessage = "MessageCompSpawnerSpawnedItem";
 		public bool showMessageIfOwned = true;
-		// BETA
+		// WIP
 		public bool customizable = false;
 		public float stackPercent = 0.1f;
 		public StuffCategoryDef stuffCategoryDef;
+		// Pawn Spawner
+		public QuestScriptDef summonQuest;
+		public IntRange summonRange = new(1, 5);
+		public HediffDef gestationHediffDef;
+		public HediffDef cooldownHediffDef;
+		public float matchPercent = 0.4f;
+		public float gestationPeriodFactor = 0.5f;
+		public float xenotypeComplexityFactor = 0.1f;
+		public int cooldownDays = 15;
+		public List<GeneDef> canGestateAnyIfHas;
+	}
+
+	public class GeneExtension_Undead : DefModExtension
+	{
+		// Undead
+		public List<HediffDef> hediffDefs;
+		public BackstoryDef childhoodDef;
+		public BackstoryDef adulthoodDef;
+		public bool ignoreHediffs = false;
+		public IntRange additionalDelay = new(6000, 9000);
+		// Reincarnation
+		public QuestScriptDef summonQuest;
+		public int minChronoAge = 54;
+		// Shapeshifter
+		public SoundDef soundDefOnImplant;
+		public List<HediffDef> duplicateHediffs;
+		public List<TraitDef> duplicateTraits;
+		public List<HediffDef> blockingHediffs;
+		public List<TraitDef> blockingTraits;
+		public List<string> trustedXenotypes;
+		public List<TraitDefWithWeight> possibleTraits;
+
+		public class TraitDefWithWeight
+		{
+			public TraitDef traitDef;
+			public float weight = 1f;
+		}
 	}
 
 	public class GeneExtension_Opinion : DefModExtension
@@ -48,20 +82,24 @@ namespace WVC_XenotypesAndGenes
 	{
 		public PawnKindDef pawnKindDef;
 		public float recruitChance = 0.5f;
-		// public bool geneIsMechaskin = false;
-		// public bool geneIsPowerSource = false;
-		// public bool geneIsSubcore = false;
-		// public bool eyesShouldBeInvisble = false;
 		public bool canBePredatorPrey = true;
-		// public bool shouldSendNotificationAbout = true;
-		// public bool geneIsAngelBeauty = false;
-		// public bool geneIsIncestous = false;
-		// public bool perfectImmunity = false;
-		// public bool diseaseFree = false;
 		public List<GeneDef> inheritableGeneDefs;
-
-		[Obsolete]
-		public bool noSkillDecay = false;
+		// Undead Resurrection Component
+		public bool shouldResurrect = false;
+		// 4-6 hours
+		public IntRange resurrectionDelay = new(6000, 9000);
+		public string uniqueTag = "XaG_Undead";
+		// Golems Component
+		public bool removeButcherRecipes = false;
+		public bool removeRepairComp = false;
+		public bool removeDormantComp = false;
+		// Job Components
+		public int ticksToAbsorb = 180;
+		public ThingDef warmupMote;
+		public SoundDef warmupStartSound;
+		public EffecterDef warmupEffecter;
+		public bool reimplantEndogenes = true;
+		public bool reimplantXenogenes = true;
 	}
 
 	public class GeneExtension_Graphic : DefModExtension
@@ -111,34 +149,33 @@ namespace WVC_XenotypesAndGenes
 		// public List<HediffDef> hediffsThatPreventUndeadResurrection;
 	}
 
-	public class GeneExtension_Shapeshifter : DefModExtension
-	{
-		public SoundDef soundDefOnImplant;
-		public List<HediffDef> duplicateHediffs;
-		public List<TraitDef> duplicateTraits;
-		public List<HediffDef> blockingHediffs;
-		public List<TraitDef> blockingTraits;
-		public List<string> trustedXenotypes;
-		public List<TraitDefWithWeight> possibleTraits;
+	// public class GeneExtension_Shapeshifter : DefModExtension
+	// {
+		// public SoundDef soundDefOnImplant;
+		// public List<HediffDef> duplicateHediffs;
+		// public List<TraitDef> duplicateTraits;
+		// public List<HediffDef> blockingHediffs;
+		// public List<TraitDef> blockingTraits;
+		// public List<string> trustedXenotypes;
+		// public List<TraitDefWithWeight> possibleTraits;
 
-		public class TraitDefWithWeight
-		{
-			public TraitDef traitDef;
-			public float weight = 1f;
-		}
-	}
+		// public class TraitDefWithWeight
+		// {
+			// public TraitDef traitDef;
+			// public float weight = 1f;
+		// }
+	// }
 
-	public class GeneExtension_XenotypeGestator : DefModExtension
-	{
-		public HediffDef gestationHediffDef;
-		public HediffDef cooldownHediffDef;
-		public float matchPercent = 0.4f;
-		// public int minimumDays = 3;
-		public float gestationPeriodFactor = 0.5f;
-		public float xenotypeComplexityFactor = 0.1f;
-		public int cooldownDays = 15;
-		public List<GeneDef> canGestateAnyIfHas;
-	}
+	// public class GeneExtension_XenotypeGestator : DefModExtension
+	// {
+		// public HediffDef gestationHediffDef;
+		// public HediffDef cooldownHediffDef;
+		// public float matchPercent = 0.4f;
+		// public float gestationPeriodFactor = 0.5f;
+		// public float xenotypeComplexityFactor = 0.1f;
+		// public int cooldownDays = 15;
+		// public List<GeneDef> canGestateAnyIfHas;
+	// }
 
 	// public class XenotypeExtension_SubXenotype : DefModExtension
 	// {
@@ -157,30 +194,29 @@ namespace WVC_XenotypesAndGenes
 		// public SubXenotypeDef subXenotypeDef = null;
 	// }
 
-	public class JobExtension_Reimplanter : DefModExtension
-	{
-		public int ticksToAbsorb = 180;
-		public ThingDef warmupMote;
-		public SoundDef warmupStartSound;
-		public EffecterDef warmupEffecter;
-		public bool reimplantEndogenes = true;
-		public bool reimplantXenogenes = true;
-	}
+	// public class JobExtension_Reimplanter : DefModExtension
+	// {
+		// public int ticksToAbsorb = 180;
+		// public ThingDef warmupMote;
+		// public SoundDef warmupStartSound;
+		// public EffecterDef warmupEffecter;
+		// public bool reimplantEndogenes = true;
+		// public bool reimplantXenogenes = true;
+	// }
 
-	public class ThingExtension_Golems : DefModExtension
-	{
-		public bool removeButcherRecipes = false;
-		public bool removeRepairComp = false;
-		public bool removeDormantComp = false;
-	}
+	// public class ThingExtension_Golems : DefModExtension
+	// {
+		// public bool removeButcherRecipes = false;
+		// public bool removeRepairComp = false;
+		// public bool removeDormantComp = false;
+	// }
 
-	public class ThingExtension_Undead : DefModExtension
-	{
-		public bool shouldResurrect = false;
-		// 4-6 hours
-		public IntRange resurrectionDelay = new(6000, 9000);
-		public string uniqueTag = "XaG_Undead";
-	}
+	// public class ThingExtension_Undead : DefModExtension
+	// {
+		// public bool shouldResurrect = false;
+		// public IntRange resurrectionDelay = new(6000, 9000);
+		// public string uniqueTag = "XaG_Undead";
+	// }
 
 	// public class FoodExtension_GeneFood : DefModExtension
 	// {

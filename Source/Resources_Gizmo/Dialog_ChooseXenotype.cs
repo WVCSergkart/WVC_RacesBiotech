@@ -11,7 +11,7 @@ namespace WVC_XenotypesAndGenes
 	{
 		public Gene gene;
 
-		public GeneExtension_XenotypeGestator geneExtension;
+		public GeneExtension_Spawner geneExtension;
 
 		public HediffDef hediffDefName;
 		public HediffDef cooldownHediffDef;
@@ -31,7 +31,7 @@ namespace WVC_XenotypesAndGenes
 		public Dialog_ChooseXenotype(Gene thisGene)
 		{
 			gene = thisGene;
-			geneExtension = gene?.def?.GetModExtension<GeneExtension_XenotypeGestator>();
+			geneExtension = gene?.def?.GetModExtension<GeneExtension_Spawner>();
 			hediffDefName = geneExtension?.gestationHediffDef;
 			cooldownHediffDef = geneExtension?.cooldownHediffDef;
 			matchPercent = geneExtension == null ? 1f : geneExtension.matchPercent;

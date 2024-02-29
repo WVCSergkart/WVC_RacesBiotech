@@ -283,10 +283,10 @@
 	  <xpath>/Defs/ThingDef[defName="Human"]/modExtensions</xpath>
 	  <success>Always</success>
 	  <value>
-		<li Class="WVC_XenotypesAndGenes.ThingExtension_Undead">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
 			<shouldResurrect>true</shouldResurrect>
 			<uniqueTag>XaG_HumanUndead</uniqueTag>
-			<resurrectionDelay>6000~19000</resurrectionDelay>
+			<resurrectionDelay>8200~39000</resurrectionDelay>
 		</li>
 	  </value>
 	</Operation>

@@ -46,16 +46,18 @@
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Undead" Name="WVC_XenotypesAndGenes_GeneDeathless_UndeadWithSickness" Abstract="True">
+	<label>undead</label>
 	<customEffectDescriptions>
 	  <li>Cooldown will take (*DateTime)2-8 days(/DateTime)</li>
 	</customEffectDescriptions>
 	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<childBackstoryDef>WVC_RacesBiotech_Amnesia_Child</childBackstoryDef>
-			<adultBackstoryDef>WVC_RacesBiotech_Amnesia_Adult</adultBackstoryDef>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<childhoodDef>WVC_RacesBiotech_Amnesia_Child</childhoodDef>
+			<adulthoodDef>WVC_RacesBiotech_Amnesia_Adult</adulthoodDef>
 			<hediffDefs>
 				<li>WVC_Resurgent_UndeadResurrectionRecovery</li>
 			</hediffDefs>
+			<additionalDelay>1120~2450</additionalDelay>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -64,7 +66,6 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_UndeadWithSickness">
 	<defName>WVC_Undead</defName>
-	<label>undead</label>
 	<biostatCpx>7</biostatCpx>
 	<biostatArc>2</biostatArc>
 	<biostatMet>0</biostatMet>
@@ -72,7 +73,6 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_UndeadWithSickness">
 	<defName>WVC_NaturalUndead</defName>
-	<label>undead</label>
 	<displayCategory>Healing</displayCategory>
 	<biostatCpx>7</biostatCpx>
 	<biostatArc>0</biostatArc>
@@ -92,9 +92,11 @@
 	  <li>&lt;color=#ff8585&gt;The only way to kill the carrier is to destroy the body.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<childBackstoryDef>WVC_RacesBiotech_Amnesia_Child</childBackstoryDef>
-			<adultBackstoryDef>WVC_RacesBiotech_Amnesia_Adult</adultBackstoryDef>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<childhoodDef>WVC_RacesBiotech_Amnesia_Child</childhoodDef>
+			<adulthoodDef>WVC_RacesBiotech_Amnesia_Adult</adulthoodDef>
+			<ignoreHediffs>true</ignoreHediffs>
+			<additionalDelay>11200~24500</additionalDelay>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -130,10 +132,9 @@
 	  </suffixSymbols>
 	</symbolPack>
 	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
 			<summonQuest>WVC_Dustogenic_QuestUndeadReincarnation</summonQuest>
-			<!-- In the context of reincarnation, this line is responsible for the minimum chrono age. -->
-			<stackCount>54</stackCount>
+			<minChronoAge>54</minChronoAge>
 		</li>
 	</modExtensions>
   </GeneDef>

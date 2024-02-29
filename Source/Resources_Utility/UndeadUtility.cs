@@ -44,14 +44,14 @@ namespace WVC_XenotypesAndGenes
 
 		// Shape
 
-		public static void AddRandomTraitFromListWithChance(Pawn pawn, GeneExtension_Shapeshifter geneExtension)
+		public static void AddRandomTraitFromListWithChance(Pawn pawn, GeneExtension_Undead geneExtension)
 		{
 			TraitSet traitSet = pawn.story.traits;
 			if (geneExtension == null || traitSet.allTraits.Count > 1)
 			{
 				return;
 			}
-			GeneExtension_Shapeshifter.TraitDefWithWeight traitDefWithWeight = geneExtension.possibleTraits.RandomElementByWeight((GeneExtension_Shapeshifter.TraitDefWithWeight x) => x.weight);
+			GeneExtension_Undead.TraitDefWithWeight traitDefWithWeight = geneExtension.possibleTraits.RandomElementByWeight((GeneExtension_Undead.TraitDefWithWeight x) => x.weight);
 			float chance = traitDefWithWeight.weight;
 			Trait trait = new(traitDefWithWeight.traitDef);
 			if (traitSet.allTraits.Contains(trait) || MiscUtility.TraitHasAnyConflicts(traitSet.allTraits, trait))
@@ -188,7 +188,7 @@ namespace WVC_XenotypesAndGenes
 			// Brain test
 			if (pawn?.health?.hediffSet?.GetBrain() == null)
 			{
-				Gene_BackstoryChanger.BackstoryChanger(pawn, gene.Giver.childBackstoryDef, gene.Giver.adultBackstoryDef);
+				Gene_BackstoryChanger.BackstoryChanger(pawn, gene.Giver.childhoodDef, gene.Giver.adulthoodDef);
 				foreach (SkillRecord item in pawn.skills.skills)
 				{
 					if (!item.TotallyDisabled && item.XpTotalEarned > 0f)

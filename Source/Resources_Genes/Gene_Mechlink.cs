@@ -46,39 +46,11 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_ResurgentMechlink : Gene_Mechlink
 	{
 
-		// public override void PostAdd()
-		// {
-			// base.PostAdd();
-			// if (!pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
-			// {
-				// pawn.health.AddHediff(HediffDefOf.MechlinkImplant, pawn.health.hediffSet.GetBrain());
-			// }
-		// }
-
-		// public override void Notify_PawnDied()
-		// {
-			// base.Notify_PawnDied();
-			// if (WVC_Biotech.settings.genesRemoveMechlinkUponDeath && pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
-			// {
-				// Gene_AddOrRemoveHediff.RemoveHediff(HediffDefOf.MechlinkImplant, pawn);
-			// }
-		// }
-
-		// public override void Reset()
-		// {
-			// base.Reset();
-			// if (!pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
-			// {
-				// pawn.health.AddHediff(HediffDefOf.MechlinkImplant, pawn.health.hediffSet.GetBrain());
-			// }
-		// }
-
 		private Gizmo gizmo;
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
 			base.GetGizmos();
-			// Pawn pawn = parent as Pawn;
 			if (pawn.IsColonist && MechanitorUtility.IsMechanitor(pawn))
 			{
 				if (gizmo == null)
@@ -89,7 +61,6 @@ namespace WVC_XenotypesAndGenes
 				{
 					yield return gizmo;
 				}
-				// yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "DeathrestCapacity".Translate().CapitalizeFirst(), deathrestCapacity.ToString(), "DeathrestCapacityDesc".Translate(), 1010);
 			}
 		}
 
@@ -98,8 +69,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_DustMechlink : Gene_Mechlink
 	{
 
-		public IntRange SpawnIntervalRange => def.GetModExtension<GeneExtension_Spawner>().spawnIntervalRange;
-		public QuestScriptDef SummonQuest => def.GetModExtension<GeneExtension_Spawner>().summonQuest;
+		public GeneExtension_Spawner Props => def?.GetModExtension<GeneExtension_Spawner>();
 
 		public int timeForNextSummon = 60000;
 		public bool summonMechanoids = false;
@@ -108,10 +78,6 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostAdd();
 			ResetInterval();
-			// if (pawn.Faction != null && pawn.Faction == Faction.OfPlayer)
-			// {
-				// summonMechanoids = true;
-			// }
 		}
 
 		public override void Tick()
@@ -127,39 +93,34 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			Gene_Dust gene_Dust = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
-			if (pawn.Faction != Faction.OfPlayer || !Active || pawn.Map == null || !pawn.ageTracker.Adult || gene_Dust == null)
+			if (pawn.Map == null)
 			{
 				return;
 			}
-			// if (!MechanoidsUtility.CanSummonMechanoidsIdeo(pawn))
-			// {
-				// summonMechanoids = false;
-				// return;
-			// }
-			// if ((gene_Dust.Value - def.resourceLossPerDay) >= 0f)
-			// {
-			// }
+			if (pawn.Faction != Faction.OfPlayer)
+			{
+				summonMechanoids = false;
+				return;
+			}
 			SummonRandomMech();
 		}
 
 		private void ResetInterval()
 		{
-			timeForNextSummon = SpawnIntervalRange.RandomInRange;
+			timeForNextSummon = Props.spawnIntervalRange.RandomInRange;
 		}
 
 		private void SummonRandomMech()
 		{
 			// Gene_Dust gene_Dust = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
-			IntRange countSpawn = new(1, 5);
-			for (int i = 0; i < countSpawn.RandomInRange; i++)
+			int countSpawn = Props.summonRange.RandomInRange;
+			for (int i = 0; i < countSpawn; i++)
 			{
-				// if ((gene_Dust.Value - def.resourceLossPerDay) >= 0f)
+				// if (gene_Dust != null)
 				// {
-				// gene_Dust.Value -= def.resourceLossPerDay;
+					// UndeadUtility.OffsetNeedFood(pawn, -1f * def.resourceLossPerDay);
 				// }
-				UndeadUtility.OffsetNeedFood(pawn, -1f * def.resourceLossPerDay);
-				MechanoidsUtility.MechSummonQuest(pawn, SummonQuest);
+				MechanoidsUtility.MechSummonQuest(pawn, Props.summonQuest);
 				if (i == 0)
 				{
 					Messages.Message("WVC_RB_Gene_Summoner".Translate(pawn.LabelIndefinite().CapitalizeFirst()), pawn, MessageTypeDefOf.PositiveEvent);
@@ -171,17 +132,8 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref timeForNextSummon, "timeForNextSummon", 0);
-			Scribe_Values.Look(ref summonMechanoids, "summonMechanoids");
+			Scribe_Values.Look(ref summonMechanoids, "summonMechanoids", false);
 		}
-
-		// private string OnOrOff()
-		// {
-			// if (summonMechanoids)
-			// {
-				// return "WVC_XaG_Gene_DustMechlink_On".Translate();
-			// }
-			// return "WVC_XaG_Gene_DustMechlink_Off".Translate();
-		// }
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{

@@ -124,7 +124,7 @@
 	</customEffectDescriptions>
 	<displayOrderInCategory>155</displayOrderInCategory>
 	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Shapeshifter">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
 			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
 			<!-- <shapeshiftEffect>CocoonWakingUp</shapeshiftEffect> -->
 			<duplicateHediffs>

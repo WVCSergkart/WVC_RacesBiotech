@@ -54,66 +54,38 @@ namespace WVC_XenotypesAndGenes
 
 		public static void GolemsAndMechs()
 		{
-			// List<HediffDef> hediffsRemovedByGenesRestorationSerum = new();
-			// foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
-			// {
-				// hediffsRemovedByGenesRestorationSerum.AddRange(item.hediffsRemovedByGenesRestorationSerum);
-			// }
 			foreach (ThingDef thingDef in DefDatabase<ThingDef>.AllDefsListForReading)
 			{
-				// if (thingDef == null)
-				// {
-					// continue;
-				// }
-				// if (thingDef.thingClass == typeof(XenotypeSerum))
-				// {
-					// if (thingDef.GetCompProperties<CompProperties_UseEffect_GeneRestoration>() == null)
-					// {
-						// continue;
-					// }
-					// if (thingDef.descriptionHyperlinks == null)
-					// {
-						// thingDef.descriptionHyperlinks = new();
-					// }
-					// foreach (HediffDef item in hediffsRemovedByGenesRestorationSerum)
-					// {
-						// thingDef.descriptionHyperlinks.Add(item);
-					// }
-				// }
 				if (thingDef?.race == null)
 				{
 					continue;
 				}
-				ThingExtension_Golems modExtension = thingDef?.GetModExtension<ThingExtension_Golems>();
-				if (modExtension != null)
+				GeneExtension_General modExtension = thingDef?.GetModExtension<GeneExtension_General>();
+				if (modExtension == null)
 				{
-					if (modExtension.removeRepairComp)
-					{
-						thingDef.comps.RemoveAll((CompProperties compProperties) => compProperties is CompProperties_MechRepairable);
-					}
-					if (modExtension.removeDormantComp)
-					{
-						thingDef.comps.RemoveAll((CompProperties compProperties) => compProperties is CompProperties_CanBeDormant);
-						thingDef.comps.RemoveAll((CompProperties compProperties) => compProperties is CompProperties_WakeUpDormant);
-					}
-					ThingDef corpseDef = thingDef.race?.corpseDef;
-					if (corpseDef != null)
-					{
-						if (modExtension.removeButcherRecipes)
-						{
-							corpseDef.thingCategories = new();
-						}
-					}
+					continue;
 				}
-				ThingExtension_Undead deadExtension = thingDef?.GetModExtension<ThingExtension_Undead>();
-				if (deadExtension != null && deadExtension.shouldResurrect)
+				if (modExtension.removeRepairComp)
 				{
-					ThingDef corpseDef = thingDef.race?.corpseDef;
-					if (corpseDef != null)
+					thingDef.comps.RemoveAll((CompProperties compProperties) => compProperties is CompProperties_MechRepairable);
+				}
+				if (modExtension.removeDormantComp)
+				{
+					thingDef.comps.RemoveAll((CompProperties compProperties) => compProperties is CompProperties_CanBeDormant);
+					thingDef.comps.RemoveAll((CompProperties compProperties) => compProperties is CompProperties_WakeUpDormant);
+				}
+				ThingDef corpseDef = thingDef.race?.corpseDef;
+				if (corpseDef != null)
+				{
+					if (modExtension.removeButcherRecipes)
+					{
+						corpseDef.thingCategories = new();
+					}
+					if (modExtension.shouldResurrect)
 					{
 						CompProperties_UndeadCorpse undead_comp = new();
-						undead_comp.resurrectionDelay = deadExtension.resurrectionDelay;
-						undead_comp.uniqueTag = deadExtension.uniqueTag;
+						undead_comp.resurrectionDelay = modExtension.resurrectionDelay;
+						undead_comp.uniqueTag = modExtension.uniqueTag;
 						corpseDef.comps.Add(undead_comp);
 					}
 				}
@@ -140,18 +112,6 @@ namespace WVC_XenotypesAndGenes
 					subXenotypeDef.genes.Remove(geneticShifter);
 					Log.Warning(subXenotypeDef.defName + " contains " + geneticShifter.defName + " in genes. Fixing..");
 				}
-				// if (!subXenotypeDef.doubleXenotypeChances.NullOrEmpty())
-				// {
-				// subXenotypeDef.doubleXenotypeChances = new();
-				// Log.Warning(subXenotypeDef.defName + " doubleXenotypeChances is not empty. Fixing..");
-				// }
-				// Add if it was not added in XML. This option is desirable, since genes from the list are taken in the order they were added during generation.
-				// In theory, it should help avoid a couple of bugs. In practice, it has still not been possible to repeat these bugs with non-custom xenotypes.
-				// if (!subXenotypeDef.genes.NullOrEmpty())
-				// {
-				// Log.Warning(subXenotypeDef.defName + " genes is not empty. Fixing..");
-				// }
-				// subXenotypeDef.genes = new();
 				if (!subXenotypeDef.genes.Contains(geneticShifter))
 				{
 					subXenotypeDef.genes.Add(geneticShifter);
@@ -161,10 +121,6 @@ namespace WVC_XenotypesAndGenes
 					subXenotypeDef.inheritable = false;
 					Log.Warning(subXenotypeDef.defName + " is inheritable. Fixing..");
 				}
-				// if (subXenotypeDef.doubleXenotypeChances.NullOrEmpty() || subXenotypeDef.doubleXenotypeChances.Sum((XenotypeChance x) => x.chance) != 1f)
-				// {
-				// Log.Error(subXenotypeDef.defName + " has null doubleXenotypeChances. doubleXenotypeChances must contain at least one xenotype with a chance 1.0");
-				// }
 			}
 		}
 

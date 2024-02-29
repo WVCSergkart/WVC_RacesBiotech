@@ -326,29 +326,9 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		[Obsolete]
 		public static bool PawnSkillsNotDecay(Pawn pawn)
 		{
-			if (pawn?.genes == null)
-			{
-				return false;
-			}
-			List<Gene> genesListForReading = pawn.genes.GenesListForReading;
-			for (int i = 0; i < genesListForReading.Count; i++)
-			{
-				if (genesListForReading[i].Active == true)
-				{
-					GeneExtension_General modExtension = genesListForReading[i].def.GetModExtension<GeneExtension_General>();
-					if (modExtension != null)
-					{
-						if (modExtension.noSkillDecay)
-						{
-							return true;
-						}
-					}
-				}
-			}
-			return false;
+			return pawn?.genes?.GetFirstGeneOfType<Gene_Learning>() != null;
 		}
 
 		// public static bool IsAngelBeauty(Pawn pawn)

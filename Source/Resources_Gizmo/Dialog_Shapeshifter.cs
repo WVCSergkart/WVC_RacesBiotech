@@ -11,7 +11,7 @@ namespace WVC_XenotypesAndGenes
 	public class Dialog_Shapeshifter : Dialog_XenotypesBase
 	{
 		public Gene gene;
-		public GeneExtension_Shapeshifter shiftExtension;
+		public GeneExtension_Undead shiftExtension;
 
 		public SoundDef soundDefOnImplant;
 
@@ -40,7 +40,7 @@ namespace WVC_XenotypesAndGenes
 			// Ideo
 			preferredXenotypes = ModLister.IdeologyInstalled ? gene.pawn?.ideo?.Ideo?.PreferredXenotypes : null;
 			// Extension
-			shiftExtension = gene?.def?.GetModExtension<GeneExtension_Shapeshifter>();
+			shiftExtension = gene?.def?.GetModExtension<GeneExtension_Undead>();
 			soundDefOnImplant = shiftExtension?.soundDefOnImplant;
 			// Info
 			genesRegrowing = HediffUtility.HasAnyHediff(shiftExtension?.blockingHediffs, gene.pawn);

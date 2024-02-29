@@ -59,7 +59,7 @@
 		<li>&lt;color=#ff8585&gt;Does not support custom xenotypes.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_XenotypeGestator">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
 			<gestationHediffDef>WVC_XenotypesAndGenes_XenotypeGestator</gestationHediffDef>
 			<cooldownHediffDef>WVC_XenotypesAndGenes_GestatorCooldown</cooldownHediffDef>
 			<matchPercent>0.4</matchPercent>

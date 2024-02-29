@@ -51,7 +51,7 @@
 			</li>
 		</comps>
 		<modExtensions>
-			<li Class="WVC_XenotypesAndGenes.ThingExtension_Golems">
+			<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
 				<removeButcherRecipes>true</removeButcherRecipes>
 			</li>
 		</modExtensions>

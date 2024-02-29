@@ -27,7 +27,7 @@
 	<reportString>absorbing xenogerm from TargetA.</reportString>
 	<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
 	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.JobExtension_Reimplanter">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
 			<warmupStartSound>ReimplantXenogerm_Cast</warmupStartSound>
 			<warmupEffecter>Implant_Xenogerm</warmupEffecter>
 			<reimplantEndogenes>false</reimplantEndogenes>
@@ -42,7 +42,7 @@
 	<reportString>absorbing endogerm from TargetA.</reportString>
 	<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
 	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.JobExtension_Reimplanter">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
 			<warmupStartSound>ReimplantXenogerm_Cast</warmupStartSound>
 			<warmupEffecter>Implant_Xenogerm</warmupEffecter>
 			<reimplantEndogenes>true</reimplantEndogenes>
@@ -57,7 +57,7 @@
 	<reportString>absorbing endo/xenogerm from TargetA.</reportString>
 	<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
 	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.JobExtension_Reimplanter">
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
 			<warmupStartSound>ReimplantXenogerm_Cast</warmupStartSound>
 			<warmupEffecter>Implant_Xenogerm</warmupEffecter>
 			<reimplantEndogenes>true</reimplantEndogenes>
