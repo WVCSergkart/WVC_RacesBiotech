@@ -11,7 +11,7 @@
 	<iconPath>WVC/UI/Mecha_Icons/Icon_ShapeshifterBasic</iconPath>
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>
 	<combatPowerFactor>2.5</combatPowerFactor>
-	<factionlessGenerationWeight>0.05</factionlessGenerationWeight>
+	<factionlessGenerationWeight>0.07</factionlessGenerationWeight>
 	<inheritable>true</inheritable>
 	<genes>
 	</genes>
@@ -28,7 +28,7 @@
 	</doubleXenotypeChances>
 	<canGenerateAsCombatant>true</canGenerateAsCombatant>
 	<combatPowerFactor>2.5</combatPowerFactor>
-	<factionlessGenerationWeight>0.15</factionlessGenerationWeight>
+	<factionlessGenerationWeight>0.06</factionlessGenerationWeight>
 	<inheritable>false</inheritable>
   </XenotypeDef>
 

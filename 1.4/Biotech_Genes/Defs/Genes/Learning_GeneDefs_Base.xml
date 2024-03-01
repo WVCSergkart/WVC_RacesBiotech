@@ -2,7 +2,6 @@
 <Defs>
 
   <GeneDef ParentName="GeneLearningBase" Name="WVC_XenotypesAndGenes_GeneLearning_Base" Abstract="True">
-	<geneClass>WVC_XenotypesAndGenes.Gene_BackstoryChanger</geneClass>
 	<selectionWeight>0.00172</selectionWeight>
   </GeneDef>
 
@@ -48,6 +47,8 @@
 	<!-- </modExtensions> -->
   </GeneDef>
 
+  <!-- ============================= -->
+
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
 	<defName>WVC_MechaAI_Base</defName>
 	<label>excellent memory</label> 
@@ -77,32 +78,31 @@
 	<exclusionTags>
 	  <li>WVC_ExcellentMemory</li>
 	</exclusionTags>
-	<!-- <modExtensions> -->
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
-			<!-- <noSkillDecay>true</noSkillDecay> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDisabledWork_AllWork">
+	<defName>WVC_DisabledAllWork_Blank</defName>
+	<label>blank memory</label>
+	<description>Carriers of this gene very quickly lose interest and forget skills.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Blank</geneClass>
+	<displayCategory>Miscellaneous</displayCategory>
+	<displayOrderInCategory>29.02</displayOrderInCategory>
+	<customEffectDescriptions>
+	  <!-- <li>If the skill level is below 6, then it &lt;color=#ff8585&gt;lose passion&lt;/color&gt;.</li> -->
+	  <li>&lt;color=#ff8585&gt;Skills, regardless of level, lose exp.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_ExcellentMemory</li>
+	</exclusionTags>
   </GeneDef>
 
   <!-- ============================= -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneLearning_Base" Name="WVC_XenotypesAndGenes_GeneLearning_ExtremeSlow" Abstract="True">
-	<!-- <label>mechlink</label>  -->
-	<!-- <labelShortAdj>blindness</labelShortAdj> -->
-	<!-- <description>TEST</description> -->
-	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_PermanentHediff</geneClass> -->
-	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_BackstoryChanger</geneClass> -->
-	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Amnesia</geneClass> -->
+	<geneClass>WVC_XenotypesAndGenes.Gene_BackstoryChanger</geneClass>
 	<customEffectDescriptions>
 	  <li>Childhood and adulthood background will be &lt;color=#8a8ae6&gt;amnesiac&lt;/color&gt;. Does not work if the carrier is a native colonist.</li>
 	</customEffectDescriptions>
-	<!-- <displayCategory>Ability</displayCategory> -->
-	<!-- <displayCategory>Archite</displayCategory> -->
-	<!-- <displayCategory>Violence</displayCategory> -->
-	<!-- <displayOrderInCategory>2220</displayOrderInCategory> -->
-	<!-- <biostatCpx>0</biostatCpx> -->
-	<!-- <biostatArc>0</biostatArc> -->
-	<!-- <biostatMet>0</biostatMet> -->
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<childBackstoryDef>WVC_RacesBiotech_Amnesia_Child</childBackstoryDef>
