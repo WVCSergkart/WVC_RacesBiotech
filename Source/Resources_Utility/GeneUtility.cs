@@ -424,9 +424,9 @@ namespace WVC_XenotypesAndGenes
 
 		// XaG test
 
-		public static bool IsXenoGenesGene(this GeneDef geneDef)
+		public static bool IsFromXenoGenes(this Def def)
 		{
-			return geneDef?.modContentPack != null && geneDef.modContentPack.PackageId.Contains("wvc.sergkart.races.biotech");
+			return def?.modContentPack != null && def.modContentPack.PackageId.Contains("wvc.sergkart.races.biotech");
 		}
 
 	}

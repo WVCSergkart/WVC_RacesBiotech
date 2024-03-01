@@ -38,9 +38,9 @@ namespace WVC_XenotypesAndGenes
 		public static ThingDef WVC_Genepack;
 		public static ThingDef WVC_UltraGenepack;
 		public static ThingDef WVC_MechaGenepack;
-		public static RulePackDef WVC_NamerGenepack;
-		public static RulePackDef WVC_NamerUltraGenepack;
-		public static RulePackDef WVC_NamerMechaGenepack;
+		// public static RulePackDef WVC_NamerGenepack;
+		// public static RulePackDef WVC_NamerUltraGenepack;
+		// public static RulePackDef WVC_NamerMechaGenepack;
 		// Capsule
 		public static ThingDef WVC_XenotypeSerumCapsule;
 		public static ThingDef WVC_XenotypeSerumUltraCapsule;

@@ -73,7 +73,7 @@ namespace WVC_XenotypesAndGenes
 
 			public static bool Patch_HideGenes(GeneDef geneDef, ref bool __result)
 			{
-				if (geneDef.IsXenoGenesGene())
+				if (geneDef.IsFromXenoGenes())
 				{
 					__result = false;
 					return false;

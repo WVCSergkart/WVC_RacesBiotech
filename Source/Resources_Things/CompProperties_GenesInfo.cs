@@ -9,7 +9,7 @@ namespace WVC_XenotypesAndGenes
 	public class CompProperties_GenesDisplayInfo : CompProperties
 	{
 
-		public int recacheFrequency = 60000;
+		public int recacheFrequency = 11435;
 
 		public Type golemGizmoType = typeof(Gizmo_MaxGolems);
 

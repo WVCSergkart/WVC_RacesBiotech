@@ -187,7 +187,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			foreach (SkillRecord skill in pawn.skills.skills)
 			{
-				skill.Learn(-0.05f * skill.GetLevel(false), true);
+				skill.Learn(-1f * skill.GetLevel(false), true);
 			}
 		}
 

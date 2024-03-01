@@ -7,6 +7,19 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
+	public class XaG_CountWithChance
+	{
+		// GenePacks
+		public int genesCount = 0;
+		public int architeCount = 0;
+		public float chance = 1.0f;
+		// Tratis
+		public TraitDef traitDef;
+		public float weight = 1f;
+	}
+
+	// Exten
+
 	public class GeneExtension_Background : DefModExtension
 	{
 		public string backgroundPathEndogenes;
@@ -58,13 +71,7 @@ namespace WVC_XenotypesAndGenes
 		public List<HediffDef> blockingHediffs;
 		public List<TraitDef> blockingTraits;
 		public List<string> trustedXenotypes;
-		public List<TraitDefWithWeight> possibleTraits;
-
-		public class TraitDefWithWeight
-		{
-			public TraitDef traitDef;
-			public float weight = 1f;
-		}
+		public List<XaG_CountWithChance> possibleTraits;
 	}
 
 	public class GeneExtension_Opinion : DefModExtension
@@ -100,6 +107,9 @@ namespace WVC_XenotypesAndGenes
 		public EffecterDef warmupEffecter;
 		public bool reimplantEndogenes = true;
 		public bool reimplantXenogenes = true;
+		// Genepack Components
+		public List<XaG_CountWithChance> genesCountProbabilities;
+		public RulePackDef genepackNamer;
 	}
 
 	public class GeneExtension_Graphic : DefModExtension

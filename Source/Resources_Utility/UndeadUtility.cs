@@ -51,7 +51,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			GeneExtension_Undead.TraitDefWithWeight traitDefWithWeight = geneExtension.possibleTraits.RandomElementByWeight((GeneExtension_Undead.TraitDefWithWeight x) => x.weight);
+			XaG_CountWithChance traitDefWithWeight = geneExtension.possibleTraits.RandomElementByWeight((XaG_CountWithChance x) => x.weight);
 			float chance = traitDefWithWeight.weight;
 			Trait trait = new(traitDefWithWeight.traitDef);
 			if (traitSet.allTraits.Contains(trait) || MiscUtility.TraitHasAnyConflicts(traitSet.allTraits, trait))

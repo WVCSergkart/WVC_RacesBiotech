@@ -22,7 +22,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool ReplaceGeneBackground(GeneDef geneDef)
 		{
-			if (geneDef.IsXenoGenesGene())
+			if (geneDef.IsFromXenoGenes())
 			{
 				return true;
 			}

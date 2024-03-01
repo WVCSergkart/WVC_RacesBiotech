@@ -38,56 +38,123 @@
   <ThingDef ParentName="WVC_GeneSetHolderBase">
 	<defName>WVC_Genepack</defName>
 	<label>w-pack</label>
-	<statBases>
-	  <!-- <MarketValue>100</MarketValue> -->
-	  <!-- <DeteriorationRate>3</DeteriorationRate> -->
-	</statBases>
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Items/W_Genepack</texPath>
 	</graphicData>
-	<comps>
-	  <!-- <li Class="CompProperties_Glower"> -->
-		<!-- <glowRadius>1</glowRadius> -->
-		<!-- <glowColor>(133,202,255, 0)</glowColor> -->
-	  <!-- </li> -->
-	</comps>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<genepackNamer>WVC_NamerGenepack</genepackNamer>
+			<genesCountProbabilities>
+			  <li>
+				<architeCount>0</architeCount>
+				<genesCount>1</genesCount>
+				<chance>0.71</chance>
+			  </li>
+			  <li>
+				<architeCount>0</architeCount>
+				<genesCount>2</genesCount>
+				<chance>0.22</chance>
+			  </li>
+			  <li>
+				<architeCount>0</architeCount>
+				<genesCount>3</genesCount>
+				<chance>0.11</chance>
+			  </li>
+			  <li>
+				<architeCount>0</architeCount>
+				<genesCount>4</genesCount>
+				<chance>0.08</chance>
+			  </li>
+			</genesCountProbabilities>
+		</li>
+	</modExtensions>
   </ThingDef>
 
   <ThingDef ParentName="WVC_GeneSetHolderBase">
 	<defName>WVC_UltraGenepack</defName>
 	<label>ultrapack</label>
-	<statBases>
-	  <!-- <MarketValue>120</MarketValue> -->
-	  <!-- <DeteriorationRate>2</DeteriorationRate> -->
-	</statBases>
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Items/Ultra_Genepack</texPath>
 	</graphicData>
-	<comps>
-	  <!-- <li Class="CompProperties_Glower"> -->
-		<!-- <glowRadius>1</glowRadius> -->
-		<!-- <glowColor>(255,248,133, 0)</glowColor> -->
-	  <!-- </li> -->
-	</comps>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<genepackNamer>WVC_NamerUltraGenepack</genepackNamer>
+			<genesCountProbabilities>
+			  <li>
+				<architeCount>0</architeCount>
+				<genesCount>1</genesCount>
+				<chance>0.71</chance>
+			  </li>
+			  <li>
+				<architeCount>0</architeCount>
+				<genesCount>2</genesCount>
+				<chance>0.22</chance>
+			  </li>
+			  <li>
+				<architeCount>0</architeCount>
+				<genesCount>3</genesCount>
+				<chance>0.11</chance>
+			  </li>
+			  <li>
+				<architeCount>0</architeCount>
+				<genesCount>4</genesCount>
+				<chance>0.08</chance>
+			  </li>
+			  <!-- Arc -->
+			  <li>
+				<architeCount>1</architeCount>
+				<genesCount>0</genesCount>
+				<chance>0.33</chance>
+			  </li>
+			  <li>
+				<architeCount>1</architeCount>
+				<genesCount>1</genesCount>
+				<chance>0.11</chance>
+			  </li>
+			  <li>
+				<architeCount>2</architeCount>
+				<genesCount>2</genesCount>
+				<chance>0.08</chance>
+			  </li>
+			</genesCountProbabilities>
+		</li>
+	</modExtensions>
   </ThingDef>
 
   <ThingDef ParentName="WVC_GeneSetHolderBase">
 	<defName>WVC_MechaGenepack</defName>
 	<label>mechapack</label>
-	<statBases>
-	  <!-- <MarketValue>150</MarketValue> -->
-	  <!-- <DeteriorationRate>1</DeteriorationRate> -->
-	</statBases>
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Items/Mecha_Genepack</texPath>
 	  <graphicClass>Graphic_Random</graphicClass>
 	</graphicData>
-	<comps>
-	  <!-- <li Class="CompProperties_Glower"> -->
-		<!-- <glowRadius>1</glowRadius> -->
-		<!-- <glowColor>(133,167,255, 0)</glowColor> -->
-	  <!-- </li> -->
-	</comps>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<genepackNamer>WVC_NamerMechaGenepack</genepackNamer>
+			<genesCountProbabilities>
+			  <li>
+				<architeCount>1</architeCount>
+				<genesCount>0</genesCount>
+				<chance>0.74</chance>
+			  </li>
+			  <li>
+				<architeCount>2</architeCount>
+				<genesCount>0</genesCount>
+				<chance>0.22</chance>
+			  </li>
+			  <li>
+				<architeCount>3</architeCount>
+				<genesCount>0</genesCount>
+				<chance>0.11</chance>
+			  </li>
+			  <li>
+				<architeCount>4</architeCount>
+				<genesCount>0</genesCount>
+				<chance>0.08</chance>
+			  </li>
+			</genesCountProbabilities>
+		</li>
+	</modExtensions>
   </ThingDef>
 
   <!-- ======================================================= -->
