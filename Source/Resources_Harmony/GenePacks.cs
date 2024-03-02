@@ -106,10 +106,6 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			// if (gene.prerequisite != null && !genes.Contains(gene.prerequisite))
-			// {
-				// return false;
-			// }
 			for (int i = 0; i < genes.Count; i++)
 			{
 				if (gene.ConflictsWith(genes[i]))
@@ -119,6 +115,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			return true;
 		}
+
 	}
 
 }

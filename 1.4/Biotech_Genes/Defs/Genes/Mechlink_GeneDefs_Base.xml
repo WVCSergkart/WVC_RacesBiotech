@@ -87,7 +87,7 @@
 	<minAgeActive>3</minAgeActive>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
-	<biostatMet>0</biostatMet>
+	<biostatMet>-3</biostatMet>
 	<customEffectDescriptions>
 		<li>&lt;color=#8a8ae6&gt;Allows you to toggle mechanoid summoning.&lt;/color&gt;</li>
 		<li>Mechanoids are &lt;color=#8a8ae6&gt;summoned automatically&lt;/color&gt; from &lt;color=#8a8ae6&gt;1 to 6&lt;/color&gt; every (*DateTime)8-16 days(/DateTime).</li>
