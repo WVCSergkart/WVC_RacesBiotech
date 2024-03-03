@@ -67,7 +67,7 @@ namespace WVC_XenotypesAndGenes
 		public override void Notify_PawnDied()
 		{
 			base.Notify_PawnDied();
-			if (ReincarnationActive())
+			if (!ReincarnationActive())
 			{
 				return;
 			}
