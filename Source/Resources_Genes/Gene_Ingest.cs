@@ -233,7 +233,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (TryHuntForFood())
+			if (TryHuntForFood(pawn))
 			{
 				Messages.Message("WVC_XaG_Gene_EternalHunger_HuntWarning".Translate(pawn.NameShortColored.ToString()), pawn, MessageTypeDefOf.NeutralEvent);
 			}
@@ -283,7 +283,7 @@ namespace WVC_XenotypesAndGenes
 
 		// Misc
 
-		public bool TryHuntForFood()
+		public static bool TryHuntForFood(Pawn pawn)
 		{
 			List<Pawn> colonists = pawn.Map.mapPawns.SpawnedPawnsInFaction(pawn.Faction);
 			colonists.Shuffle();
@@ -434,6 +434,81 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			UndeadUtility.OffsetNeedFood(pawn, 0.1f);
+		}
+
+	}
+
+	public class Gene_Bloodeater : Gene
+	{
+
+		// public override void PostAdd()
+		// {
+			// base.PostAdd();
+			// pawn.foodRestriction;
+		// }
+
+		public override void Tick()
+		{
+			base.Tick();
+			if (!pawn.IsHashIntervalTick(2210))
+			{
+				return;
+			}
+			Need_Food food = pawn?.needs?.food;
+			if (food == null)
+			{
+				return;
+			}
+			if (food.CurLevelPercentage >= pawn.RaceProps.FoodLevelPercentageWantEat + 0.09f)
+			{
+				return;
+			}
+			if (pawn.Map == null)
+			{
+				// In caravan use
+				InCaravan();
+				return;
+			}
+			if (pawn.Downed || pawn.Drafted)
+			{
+				return;
+			}
+			Gene_EternalHunger.TryHuntForFood(pawn);
+		}
+
+		private void InCaravan()
+		{
+			Caravan caravan = pawn.GetCaravan();
+			if (caravan == null)
+			{
+				return;
+			}
+			List<Pawn> pawns = caravan.PawnsListForReading;
+			if (pawns.NullOrEmpty())
+			{
+				return;
+			}
+			pawns.Shuffle();
+			for (int j = 0; j < pawns.Count; j++)
+			{
+				if (!GeneFeaturesUtility.CanBloodFeedNowWith(pawn, pawns[j]))
+				{
+					continue;
+				}
+				SanguophageUtility.DoBite(pawn, pawns[j], 0.2f, 0.9f * pawn.GetStatValue(StatDefOf.RawNutritionFactor) * pawn.GetStatValue(StatDefOf.HemogenGainFactor), 0.4f, 1f, new (0, 0), ThoughtDefOf.FedOn, ThoughtDefOf.FedOn_Social);
+				break;
+			}
+		}
+
+		public override void Notify_IngestedThing(Thing thing, int numTaken)
+		{
+			base.Notify_IngestedThing(thing, numTaken);
+			IngestibleProperties ingestible = thing.def.ingestible;
+			float nutrition = thing.GetStatValue(StatDefOf.Nutrition);
+			if (ingestible != null && nutrition > 0f)
+			{
+				FoodUtility.AddFoodPoisoningHediff(pawn, thing, FoodPoisonCause.DangerousFoodType);
+			}
 		}
 
 	}

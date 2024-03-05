@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
 
+	<!-- Bloodfeeder patch -->
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/AbilityDef[defName="Bloodfeed"]/comps</xpath>
+	  <value>
+		  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityBloodeater"/>
+	  </value>
+	</Operation>
+
 	<!-- Patch for special food for dustogenics -->
 
 	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">

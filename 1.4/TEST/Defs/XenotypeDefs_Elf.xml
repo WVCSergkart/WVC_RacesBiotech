@@ -6,11 +6,14 @@
 	<label>elf</label>
 	<inheritable>true</inheritable>
 	<genes>
+		<li>Hemogenic</li>
+		<li>WVC_HemogenGain</li>
+		<li>Bloodfeeder</li>
+		<li>WVC_Bloodeater</li>
 		<li>WVC_NaturalAgeless</li>
 		<li>WVC_Delicate</li>
 		<li>Beauty_Pretty</li>
 		<li>WVC_Eyes_69a2ce_HEX</li>
-		<!-- <li>WVC_Hair_NonBald</li> -->
 		<li>Hair_LongOnly</li>
 		<li>Beard_NoBeardOnly</li>
 		<li>Ears_Pointed</li>

@@ -139,6 +139,9 @@
 		<li><symbol>stomach</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_EternalHunger</li> -->
+	<!-- </exclusionTags> -->
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_EternalHunger_HungerFactor</hediffDefName>
@@ -178,6 +181,48 @@
 			<spawnIntervalRange><min>180000</min><max>300000</max></spawnIntervalRange>
 		</li>
 	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Base">
+	<defName>WVC_Bloodeater</defName>
+	<label>bloodeater</label>
+	<description>Carriers of this gene cannot eat food; the only way for them to satisfy their hunger is to drink blood.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Bloodeater</geneClass>
+	<prerequisite>Bloodfeeder</prerequisite>
+	<iconPath>WVC/UI/Genes/Gene_Bloodeater_v0</iconPath>
+	<displayOrderInCategory>80</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>4</biostatMet>
+	<customEffectDescriptions>
+		<li>Carrier &lt;color=#8a8ae6&gt;automatically&lt;/color&gt; uses the &lt;color=#8a8ae6&gt;bloodfeeder&lt;/color&gt; ability when hungry.</li>
+		<li>Carrier &lt;color=#8a8ae6&gt;gain more nutrients&lt;/color&gt; using the &lt;color=#8a8ae6&gt;bloodfeeder&lt;/color&gt; ability.</li>
+		<li>&lt;color=#ff8585&gt;Carrier gets food poisoning from any food sources.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>blood</symbol></li>
+		<li><symbol>hunger</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>eater</symbol></li>
+		<li><symbol>stomach</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Base">
+	<defName>WVC_HemogenGain</defName>
+	<label>hemogen gain</label>
+	<labelShortAdj>gaining</labelShortAdj>
+	<description>Carriers gain an 12 hemogen per day from biological recovery.</description>
+	<geneClass>Gene_HemogenDrain</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_HemogenicGain_v0</iconPath>
+	<prerequisite>Hemogenic</prerequisite>
+	<resourceLossPerDay>-0.12</resourceLossPerDay>
+	<displayOrderInCategory>0</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-4</biostatMet>
   </GeneDef>
 
 </Defs>
