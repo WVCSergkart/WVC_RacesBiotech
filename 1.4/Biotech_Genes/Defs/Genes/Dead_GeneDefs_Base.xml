@@ -107,6 +107,7 @@
 	<label>destined dead</label>
 	<description>Carriers of this gene have a strong connection with the psychic field. Their death never happens by accident, this event is part of their destiny. And when fate takes its toll and death overtakes them, descendants will surely come to replace them.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_DustReincarnation</geneClass>
+	<minAgeActive>16</minAgeActive>
 	<iconPath>WVC/UI/Genes/Gene_Reincarnation_v0</iconPath>
 	<displayOrderInCategory>-115</displayOrderInCategory>
 	<biostatCpx>3</biostatCpx>

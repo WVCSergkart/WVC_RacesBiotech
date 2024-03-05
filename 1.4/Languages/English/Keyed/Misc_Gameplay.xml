@@ -372,7 +372,7 @@ Each mechanoid costs 0.15 nutrition to summon.</WVC_XaG_Gene_DustMechlinkDesc>
 	<!-- ========== GENE XENO SHAPESHIFTER ========== -->
 
 	<WVC_XaG_GeneShapeshifter_Label>Shapeshift</WVC_XaG_GeneShapeshifter_Label>
-	<WVC_XaG_GeneShapeshifter_Desc>You can choose any xenotype. The genes of this xenotype will replace the current genes of the gene carrier.</WVC_XaG_GeneShapeshifter_Desc>
+	<WVC_XaG_GeneShapeshifter_Desc>Opens a menu in which you can select any xenotype available in the game. The exceptions are androids and custom xenotypes.</WVC_XaG_GeneShapeshifter_Desc>
 	<WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing>This person's genetic material is regrowing.</WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing>
 	<WVC_XaG_GeneShapeshifter_DisabledPermanent>This person will never be able to use shapeshift.</WVC_XaG_GeneShapeshifter_DisabledPermanent>
 

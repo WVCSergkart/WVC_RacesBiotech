@@ -60,7 +60,12 @@ namespace WVC_XenotypesAndGenes
 			Rect rect3 = rect2.ContractedBy(4f);
 			if (selectedXeno == null)
 			{
-				Widgets.Label(rect3, "WVC_XaG_GeneShapeshifter_Desc".Translate());
+				if (allXenotypes.NullOrEmpty())
+				{
+					Log.Error("Non android xenotypes is null. This error has nothing to do with the mod, do not report it to the developer.");
+					return;
+				}
+				selectedXeno = allXenotypes.RandomElement();
 				return;
 			}
 			if (selectedXeno.descriptionShort.NullOrEmpty())
