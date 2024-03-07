@@ -4,36 +4,36 @@
   <!-- ============================================================================== -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_Base">
-	<defName>WVC_ReimplanterShapeshifter</defName>
+	<defName>WVC_ReimplanterXenotype</defName>
 	<label>xenotype reimplanter</label>
 	<description>Carriers of this gene can implant a copy of choosen xenogerm into another person through a somewhat gross-looking injector organ. Their own genetic material will then regrow very slowly. If they implant while their genes are regrowing, they will die.</description>
 	<iconPath>WVC/UI/Genes/Gene_ReimplanterXenotypes_v0</iconPath>
 	<displayOrderInCategory>-530</displayOrderInCategory>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Reimplanter</geneClass>
-	<sterilize>true</sterilize>
-	<prerequisite>WVC_Shapeshifter</prerequisite>
-	<statFactors>
-	  <Fertility>0</Fertility>
-	</statFactors>
+	<!-- <sterilize>true</sterilize> -->
+	<!-- <prerequisite>WVC_Shapeshifter</prerequisite> -->
+	<!-- <statFactors> -->
+	  <!-- <Fertility>0</Fertility> -->
+	<!-- </statFactors> -->
 	<abilities>
-	  <li>WVC_ReimplanterShapeshifter</li>
+	  <li>WVC_ReimplanterXenotype</li>
 	</abilities>
 	<descriptionHyperlinks>
-	  <AbilityDef>WVC_ReimplanterShapeshifter</AbilityDef>
+	  <AbilityDef>WVC_ReimplanterXenotype</AbilityDef>
 	</descriptionHyperlinks>
 	<customEffectDescriptions>
 		<li>Completely changes the genes of the target pawn to the genes of the choosen xenotype.</li>
 		<li>&lt;color=#ff8585&gt;Can't be absorbed forcly.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<exclusionTags>
-		<li>WVC_ReimplanterShapeshifter</li>
+		<li>WVC_ReimplanterXenotype</li>
 	</exclusionTags>
   </GeneDef>
 
   <!-- ============================================================================== -->
 
   <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base">
-	<defName>WVC_ReimplanterShapeshifter</defName>
+	<defName>WVC_ReimplanterXenotype</defName>
 	<label>implant xenotype</label>
 	<iconPath>WVC/UI/Genes/Gene_ReimplanterXenotypes_v0</iconPath>
 	<comps>

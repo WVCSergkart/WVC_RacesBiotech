@@ -229,6 +229,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
+			if (pawn.Faction != Faction.OfPlayer)
+			{
+				return;
+			}
 			if (TryGetFood())
 			{
 				return;
@@ -460,6 +464,10 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			if (food.CurLevelPercentage >= pawn.RaceProps.FoodLevelPercentageWantEat + 0.09f)
+			{
+				return;
+			}
+			if (pawn.Faction != Faction.OfPlayer)
 			{
 				return;
 			}

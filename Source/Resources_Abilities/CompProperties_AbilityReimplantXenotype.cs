@@ -71,14 +71,14 @@ namespace WVC_XenotypesAndGenes
 				}
 				return false;
 			}
-			// if (!PawnIdeoCanAcceptReimplant(parent.pawn, pawn))
-			// {
-				// if (throwMessages)
-				// {
-					// Messages.Message("MessageCannotBecomeNonPreferredXenotype".Translate(pawn), pawn, MessageTypeDefOf.RejectInput, historical: false);
-				// }
-				// return false;
-			// }
+			if (!PawnIdeoCanAcceptReimplant(pawn))
+			{
+				if (throwMessages)
+				{
+					Messages.Message("MessageCannotBecomeNonPreferredXenotype".Translate(pawn), pawn, MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return false;
+			}
 			if (ReimplanterGene == null)
 			{
 				if (throwMessages)
@@ -105,18 +105,18 @@ namespace WVC_XenotypesAndGenes
 			yield return MoteMaker.MakeAttachedOverlay(pawn, ThingDefOf.Mote_XenogermImplantation, new Vector3(0f, 0f, 0.3f));
 		}
 
-		// public bool PawnIdeoCanAcceptReimplant(Pawn implanter, Pawn implantee)
-		// {
-			// if (!ModsConfig.IdeologyActive)
-			// {
-				// return true;
-			// }
-			// if (!IdeoUtility.DoerWillingToDo(HistoryEventDefOf.BecomeNonPreferredXenotype, implantee) && !implantee.Ideo.IsPreferredXenotype(ReimplanterGene.xenotypeDef))
-			// {
-				// return false;
-			// }
-			// return true;
-		// }
+		public bool PawnIdeoCanAcceptReimplant(Pawn implantee)
+		{
+			if (!ModsConfig.IdeologyActive)
+			{
+				return true;
+			}
+			if (!IdeoUtility.DoerWillingToDo(HistoryEventDefOf.BecomeNonPreferredXenotype, implantee) && !implantee.Ideo.PreferredXenotypes.Contains(ReimplanterGene.xenotypeDef))
+			{
+				return false;
+			}
+			return true;
+		}
 
 	}
 }

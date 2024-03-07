@@ -144,7 +144,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			yield return new Command_Action
 			{
-				defaultLabel = def.LabelCap,
+				defaultLabel = def.LabelCap + ": " + xenotypeDef.LabelCap,
 				defaultDesc = "WVC_XaG_GeneShapeshifter_Desc".Translate(),
 				icon = ContentFinder<Texture2D>.Get(def.iconPath),
 				action = delegate
