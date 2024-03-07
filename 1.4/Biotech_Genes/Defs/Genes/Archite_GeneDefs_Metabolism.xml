@@ -15,7 +15,7 @@
 	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
 	<!-- <biostatCpx>0</biostatCpx> -->
 	<biostatArc>2</biostatArc>
-	<marketValueFactor>3</marketValueFactor>
+	<marketValueFactor>1.1</marketValueFactor>
 	<selectionWeight>0.00075</selectionWeight>
 	<randomChosen>true</randomChosen>
 	<!-- <customEffectDescriptions> -->

@@ -24,6 +24,8 @@ namespace WVC_XenotypesAndGenes
 
 		public bool xenogermComaAfterShapeshift = true;
 
+		public bool doubleXenotypeReimplantation = true;
+
 		public Dialog_Shapeshifter(Gene thisGene)
 		{
 			// Init
@@ -68,6 +70,7 @@ namespace WVC_XenotypesAndGenes
 				selectedXeno = allXenotypes.RandomElement();
 				return;
 			}
+			// Main Info
 			if (selectedXeno.descriptionShort.NullOrEmpty())
 			{
 				Widgets.Label(rect3.x, ref curY, rect3.width, selectedXeno.description);
@@ -77,13 +80,24 @@ namespace WVC_XenotypesAndGenes
 				Widgets.Label(rect3.x, ref curY, rect3.width, selectedXeno.descriptionShort);
 			}
 			curY += 10f;
-			Rect rect4 = new(rect3.x, rect3.yMax - 55f, rect3.width, 55f);
-			foreach (XenotypeDef item in XenoTreeUtility.GetXenotypeAndDoubleXenotypes(selectedXeno))
+			// foreach (XenotypeDef item in XenoTreeUtility.GetXenotypeAndDoubleXenotypes(selectedXeno))
+			// {
+				// Widgets.HyperlinkWithIcon(new Rect(rect3.x, curY, rect3.width, Text.LineHeight), new Dialog_InfoCard.Hyperlink(item));
+				// curY += Text.LineHeight;
+			// }
+			List<XenotypeDef> doubleXenotypes = XenoTreeUtility.GetXenotypeAndDoubleXenotypes(selectedXeno);
+			for (int i = 0; i < doubleXenotypes.Count; i++)
 			{
-				Widgets.HyperlinkWithIcon(new Rect(rect3.x, curY, rect3.width, Text.LineHeight), new Dialog_InfoCard.Hyperlink(item));
+				Widgets.HyperlinkWithIcon(new Rect(rect3.x, curY, rect3.width, Text.LineHeight), new Dialog_InfoCard.Hyperlink(doubleXenotypes[i]));
 				curY += Text.LineHeight;
+				if (i > 2)
+				{
+					Widgets.Label(rect3.x, ref curY, rect3.width, ("+" + (doubleXenotypes.Count - i).ToString()).Colorize(ColoredText.SubtleGrayColor));
+					break;
+				}
 			}
 			curY += 10f;
+			// Info
 			if (!canEverUseShapeshift)
 			{
 				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneShapeshifter_DisabledPermanent".Translate().Colorize(ColorLibrary.RedReadable));
@@ -114,6 +128,9 @@ namespace WVC_XenotypesAndGenes
 				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneShapeshifter_UnknownXenotypes".Translate().Colorize(ColoredText.SubtleGrayColor));
 				curY += 10f;
 			}
+			// Accept Button
+			// Widgets.CheckboxLabeled(rect3, "TEST: Checkbox", ref doubleXenotypeReimplantation);
+			Rect rect4 = new(rect3.x, rect3.yMax - 55f, rect3.width, 55f);
 			if (MeetsRequirements(selectedXeno))
 			{
 				if (Widgets.ButtonText(rect4, "Accept".Translate()))
@@ -132,7 +149,35 @@ namespace WVC_XenotypesAndGenes
 				Widgets.Label(rect4.ContractedBy(5f), "WVC_XaG_XenoTreeModeNotMeetsRequirements".Translate());
 				Text.Anchor = TextAnchor.UpperLeft;
 			}
+			// Checkbox
+			Rect rectCheckbox = new(rect4.x, rect4.yMax + 10f, rect4.width / 2f, 24f);
+			if (selectedXeno?.doubleXenotypeChances != null)
+			{
+				Widgets.DrawHighlightIfMouseover(rectCheckbox);
+				Widgets.CheckboxLabeled(rectCheckbox, "WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype".Translate(), ref doubleXenotypeReimplantation);
+			}
+			// Duplicate mode
+			// Rect rectCheckbox = new(rect4.x, rect4.yMax + 10f, rect4.width / 2f, 24f);
+			// if (selectedXeno?.doubleXenotypeChances == null)
+			// {
+				// Widgets.DrawHighlightIfMouseover(rectCheckbox);
+				// Widgets.CheckboxLabeled(rectCheckbox, "WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype".Translate(), ref doubleXenotypeReimplantation);
+			// }
 		}
+
+		// public override void DoWindowContents(Rect inRect)
+		// {
+			// Text.Font = GameFont.Medium;
+			// string label = ((selectedXeno != null) ? selectedXeno.LabelCap : "WVC_XaG_XenoTreeModeChange".Translate());
+			// Widgets.Label(new Rect(inRect.x, inRect.y, inRect.width, 35f), label);
+			// Text.Font = GameFont.Small;
+			// float num = inRect.y + 35f + 10f;
+			// float curY = num;
+			// float num2 = inRect.height - num;
+			// num2 -= ButSize.y + 10f;
+			// DrawLeftRect(new Rect(inRect.xMin, num, 400f, num2), ref curY);
+			// DrawRightRect(new Rect(inRect.x + 400f + 17f, num, inRect.width - 400f - 17f, num2));
+		// }
 
 		public override void StartChange()
 		{
@@ -142,7 +187,14 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			// Shapeshift START
-			ReimplanterUtility.SetXenotype_DoubleXenotype(gene.pawn, selectedXeno, new() { gene.def });
+			if (doubleXenotypeReimplantation)
+			{
+				ReimplanterUtility.SetXenotype_DoubleXenotype(gene.pawn, selectedXeno, new() { gene.def });
+			}
+			else
+			{
+				ReimplanterUtility.SetXenotype(gene.pawn, selectedXeno, new() { gene.def });
+			}
 			if (!gene.pawn.genes.HasGene(gene.def))
 			{
 				gene.pawn.genes.AddGene(gene.def, false);

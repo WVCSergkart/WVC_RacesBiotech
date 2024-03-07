@@ -7,9 +7,8 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Dialog_XenotypesBase : Window
+	public class Dialog_XenotypesBase : Window
 	{
-		// public Gene gene;
 
 		public Vector2 scrollPosition;
 

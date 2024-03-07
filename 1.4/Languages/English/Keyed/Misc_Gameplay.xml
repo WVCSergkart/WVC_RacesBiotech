@@ -380,6 +380,8 @@ Each mechanoid costs 0.15 nutrition to summon.</WVC_XaG_Gene_DustMechlinkDesc>
 
 	<WVC_XaG_GeneShapeshifter_NotPreferredXenotype>Xenotype does not correspond to beliefs.</WVC_XaG_GeneShapeshifter_NotPreferredXenotype>
 
+	<WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype>Implant double xenotypes</WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype>
+
 	<!-- <WVC_XaG_GeneXenoGestator_GestationTime>Gestation time: {0}</WVC_XaG_GeneXenoGestator_GestationTime> -->
 
 	<WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Label>Shapeshift coma</WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Label>
