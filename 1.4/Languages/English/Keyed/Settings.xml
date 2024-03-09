@@ -225,17 +225,5 @@ Outdated. Use at your own risk.</WVC_ToolTip_serumsForAllXenotypes>
 	<WVC_ToolTip_serumsSpawnersForAllXenotypes>If enabled, a spawner gene will be added for each serum. Restart required.</WVC_ToolTip_serumsSpawnersForAllXenotypes>
 
 	<!-- ====================================================================================== -->
-	<WVC_Label_fixGenesOnLoad>Fix broken genes on load</WVC_Label_fixGenesOnLoad>
-	<WVC_ToolTip_fixGenesOnLoad>If enabled, it should fix all potentially broken genes. Please note that this will reset the cumulative effects of genes, such as deathrest (deathrest capacity serums).</WVC_ToolTip_fixGenesOnLoad>
-
-	<WVC_Label_fixGeneAbilitiesOnLoad>Fix broken gene abilities on load</WVC_Label_fixGeneAbilitiesOnLoad>
-	<WVC_ToolTip_fixGeneAbilitiesOnLoad>If enabled, it should fix all potentially broken abilities. Please note that this will reset all gene abilities.</WVC_ToolTip_fixGeneAbilitiesOnLoad>
-
-	<WVC_Label_fixGeneTypesOnLoad>Fix broken gene types on load</WVC_Label_fixGeneTypesOnLoad>
-	<WVC_ToolTip_fixGeneTypesOnLoad>If enabled, it should fix all potentially broken gene types (classes). Safe version of "Fix broken genes". Since it only affects genes with wrong classes. If any genes have an incorrect class, messages will appear in the log.</WVC_ToolTip_fixGeneTypesOnLoad>
-
-	<WVC_Alert_fixBrokenShit>How to use: Enable and load any save. The option only applies to the map on which the player is currently located.
-
-It is not recommended to use more than one DEV-fix at a time. It might break something.</WVC_Alert_fixBrokenShit>
 
 </LanguageData>

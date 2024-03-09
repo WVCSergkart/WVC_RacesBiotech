@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -12,6 +13,27 @@ namespace WVC_XenotypesAndGenes
 
 	public static class MiscUtility
 	{
+
+		// Settings
+
+		public static void SliderLabeledWithRef(this Listing_Standard ls, string label, ref float val, float min = 0f, float max = 1f, string tooltip = null, int round = 2)
+		{
+			Rect rect = ls.GetRect(Text.LineHeight);
+			Rect rect2 = rect.LeftPart(0.5f).Rounded();
+			Rect rect3 = rect.RightPart(0.62f).Rounded().LeftPart(0.97f).Rounded();
+			TextAnchor anchor = Text.Anchor;
+			Text.Anchor = TextAnchor.MiddleLeft;
+			Widgets.Label(rect2, label);
+			float _ = (val = Widgets.HorizontalSlider_NewTemp(rect3, val, min, max, middleAlignment: true));
+			val = (float)Math.Round(val, round);
+			Text.Anchor = TextAnchor.MiddleRight;
+			if (!tooltip.NullOrEmpty())
+			{
+				TooltipHandler.TipRegion(rect, tooltip);
+			}
+			Text.Anchor = anchor;
+			ls.Gap(ls.verticalSpacing);
+		}
 
 		// Skills
 

@@ -58,6 +58,8 @@ namespace WVC_XenotypesAndGenes
 		public bool fixGenesOnLoad = false;
 		public bool fixGeneAbilitiesOnLoad = false;
 		public bool fixGeneTypesOnLoad = false;
+		// Gestator
+		// public float xenotypeGestator_GestationTimeFactor = 1f;
 
 		public IEnumerable<string> GetEnabledSettings => from specificSetting in GetType().GetFields()
 														 where specificSetting.FieldType == typeof(bool) && (bool)specificSetting.GetValue(this)
@@ -114,6 +116,8 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref serumsForAllXenotypes_Spawners, "serumsForAllXenotypes_Spawners", defaultValue: false);
 			// ExtraSettings
 			Scribe_Values.Look(ref genesCanTickOnlyOnMap, "genesCanTickOnlyOnMap", defaultValue: false);
+			// Gestator
+			// Scribe_Values.Look(ref xenotypeGestator_GestationTimeFactor, "xenotypeGestator_GestationTimeFactor", defaultValue: 1f);
 			// End
 			Scribe_Collections.Look(ref WVC_Biotech.cachedXenotypesFilter, "cachedXenotypesFilter", LookMode.Value, LookMode.Value);
 		}
@@ -161,6 +165,11 @@ namespace WVC_XenotypesAndGenes
 					PageIndex = 2;
 					WriteSettings();
 				}, PageIndex == 2)
+				// new TabRecord("WVC_BiotechSettings_Tab_XenotypeGestatorSettings".Translate(), delegate
+				// {
+					// PageIndex = 3;
+					// WriteSettings();
+				// }, PageIndex == 3)
 			};
 			TabDrawer.DrawTabs(baseRect, tabs);
 			switch (PageIndex)
@@ -174,6 +183,9 @@ namespace WVC_XenotypesAndGenes
 				case 2:
 					ExtraSettings(rect2.ContractedBy(15f));
 					break;
+				// case 3:
+					// XenotypeGestatorSettings(rect2.ContractedBy(15f));
+					// break;
 			}
 		}
 
@@ -530,25 +542,33 @@ namespace WVC_XenotypesAndGenes
 			Widgets.EndScrollView();
 		}
 
+		// Gestator Settings
+		// Gestator Settings
+		// Gestator Settings
+
+		// public void XenotypeGestatorSettings(Rect inRect)
+		// {
+			// Rect outRect = new(inRect.x, inRect.y, inRect.width, inRect.height);
+			// Rect rect = new(0f, 0f, inRect.width - 30f, inRect.height * 2.0f);
+			// Widgets.BeginScrollView(outRect, ref scrollPosition, rect);
+			// Listing_Standard listingStandard = new();
+			// listingStandard.Begin(rect);
+			// listingStandard.Label("WVC_BiotechSettings_Label_Genes".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Genes".Translate());
+			// listingStandard.SliderLabeledWithRef("WVC_Label_xenotypeGestator_GestationTimeFactor".Translate(settings.xenotypeGestator_GestationTimeFactor.ToString()), ref settings.xenotypeGestator_GestationTimeFactor, 0f, 2f);
+			// listingStandard.GapLine();
+			// if (listingStandard.ButtonText("WVC_XaG_ResetButton".Translate()))
+			// {
+				// Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_ResetButtonWarning".Translate(), delegate
+				// {
+					// settings.xenotypeGestator_GestationTimeFactor = 1f;
+					// Messages.Message("WVC_XaG_ResetButton_SettingsChanged".Translate(), MessageTypeDefOf.TaskCompletion, historical: false);
+				// });
+				// Find.WindowStack.Add(window);
+			// }
+			// listingStandard.End();
+			// Widgets.EndScrollView();
+		// }
+
 	}
 
-	public class PatchOperationOptional : PatchOperation
-	{
-		public string settingName;
-		public PatchOperation caseTrue;
-		public PatchOperation caseFalse;
-
-		protected override bool ApplyWorker(XmlDocument xml)
-		{
-			if (WVC_Biotech.settings.GetEnabledSettings.Contains(settingName) && caseTrue != null)
-			{
-				return caseTrue.Apply(xml);
-			}
-			else if (WVC_Biotech.settings.GetEnabledSettings.Contains(settingName) != true && caseFalse != null)
-			{
-				return caseFalse.Apply(xml);
-			}
-			return true;
-		}
-	}
 }

@@ -121,6 +121,7 @@ namespace WVC_XenotypesAndGenes
 
 		private int GetGestationTime()
 		{
+			// return (int)(((XaG_GeneUtility.GetXenotype_Cpx(selectedXeno) * xenotypeComplexityFactor) + gestationPeriodDays) * WVC_Biotech.settings.xenotypeGestator_GestationTimeFactor);
 			return (int)((XaG_GeneUtility.GetXenotype_Cpx(selectedXeno) * xenotypeComplexityFactor) + gestationPeriodDays);
 		}
 

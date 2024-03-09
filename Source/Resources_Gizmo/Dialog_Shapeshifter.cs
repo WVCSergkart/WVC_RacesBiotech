@@ -151,11 +151,8 @@ namespace WVC_XenotypesAndGenes
 			}
 			// Checkbox
 			Rect rectCheckbox = new(rect4.x, rect4.yMax + 10f, rect4.width / 2f, 24f);
-			if (selectedXeno?.doubleXenotypeChances != null)
-			{
-				Widgets.DrawHighlightIfMouseover(rectCheckbox);
-				Widgets.CheckboxLabeled(rectCheckbox, "WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype".Translate(), ref doubleXenotypeReimplantation);
-			}
+			Widgets.DrawHighlightIfMouseover(rectCheckbox);
+			Widgets.CheckboxLabeled(rectCheckbox, "WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype".Translate(), ref doubleXenotypeReimplantation);
 			// Duplicate mode
 			// Rect rectCheckbox = new(rect4.x, rect4.yMax + 10f, rect4.width / 2f, 24f);
 			// if (selectedXeno?.doubleXenotypeChances == null)
