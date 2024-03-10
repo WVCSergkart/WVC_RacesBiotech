@@ -49,28 +49,27 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	// Finally Gene-Gestator
+	// Gene-Gestator
 	public class Gene_XenotypeGestator : Gene
 	{
 
-		// public HediffDef HediffDefName => def.GetModExtension<GeneExtension_XenotypeGestator>().hediffDefName;
-
-		// public float MatchPercent => def.GetModExtension<GeneExtension_XenotypeGestator>().matchPercent;
-
-		// public int MinimumDays => def.GetModExtension<GeneExtension_XenotypeGestator>().minimumDays;
-
-		// public int gestatorCooldown = 0;
-
-		// public override void ExposeData()
-		// {
-			// base.ExposeData();
-			// Scribe_Defs.Look(ref cooldownHediffDef, "cooldownHediffDef");
-		// }
-
-		// public Hediff PreventGestation => HediffUtility.GetFirstHediffPreventsPregnancy(pawn.health.hediffSet.hediffs);
-
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
+			if (Find.Selector.SelectedPawns.Count > 1 || pawn.Drafted || !Active || pawn.Faction != Faction.OfPlayer)
+			{
+				yield break;
+			}
+			// Log.Error();
+			yield return new Command_Action
+			{
+				defaultLabel = "WVC_XaG_GeneXenoGestator_Label".Translate(),
+				defaultDesc = "WVC_XaG_GeneXenoGestator_Desc".Translate(),
+				icon = ContentFinder<Texture2D>.Get(def.iconPath),
+				action = delegate
+				{
+					Find.WindowStack.Add(new Dialog_ChooseXenotype(this));
+				}
+			};
 			// DEV
 			if (DebugSettings.ShowDevGizmos)
 			{
@@ -84,46 +83,13 @@ namespace WVC_XenotypesAndGenes
 				};
 				yield return new Command_Action
 				{
-					defaultLabel = "DEV: Get matching list 60%",
+					defaultLabel = "DEV: Get matching list",
 					action = delegate
 					{
-						DevGetMatchingList(0.6f);
-					}
-				};
-				yield return new Command_Action
-				{
-					defaultLabel = "DEV: Get matching list 40%",
-					action = delegate
-					{
-						DevGetMatchingList(0.4f);
-					}
-				};
-				yield return new Command_Action
-				{
-					defaultLabel = "DEV: Get matching list 20%",
-					action = delegate
-					{
-						DevGetMatchingList(0.2f);
+						DevGetMatchingList(WVC_Biotech.settings.xenotypeGestator_GestationMatchPercent);
 					}
 				};
 			}
-			if (Find.Selector.SelectedPawns.Count > 1 || pawn.Drafted || !Active || !MiscUtility.PawnIsColonistOrSlave(pawn, true))
-			{
-				yield break;
-			}
-			// Log.Error();
-			yield return new Command_Action
-			{
-				defaultLabel = "WVC_XaG_GeneXenoGestator_Label".Translate(),
-				defaultDesc = "WVC_XaG_GeneXenoGestator_Desc".Translate(),
-				// disabled = PreventGestation != null,
-				// disabledReason = "WVC_XaG_GeneXenoGestator_Disabled".Translate(PreventGestation != null ? PreventGestation.def.label : "ERR"),
-				icon = ContentFinder<Texture2D>.Get(def.iconPath),
-				action = delegate
-				{
-					Find.WindowStack.Add(new Dialog_ChooseXenotype(this));
-				}
-			};
 		}
 
 		private void DevGetMatchingList(float percent = 0.6f)

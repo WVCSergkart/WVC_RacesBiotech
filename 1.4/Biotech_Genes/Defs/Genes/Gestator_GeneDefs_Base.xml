@@ -47,7 +47,7 @@
 	<label>xenotype gestator</label>
 	<geneClass>WVC_XenotypesAndGenes.Gene_XenotypeGestator</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_XenoGestator</iconPath>
-	<!-- <iconColor>(189, 205, 255)</iconColor> -->
+	<minAgeActive>13</minAgeActive>
 	<iconColor>(255, 255, 255)</iconColor>
 	<biostatCpx>3</biostatCpx>
 	<biostatArc>1</biostatArc>
@@ -63,11 +63,12 @@
 			<gestationHediffDef>WVC_XenotypesAndGenes_XenotypeGestator</gestationHediffDef>
 			<cooldownHediffDef>WVC_XenotypesAndGenes_GestatorCooldown</cooldownHediffDef>
 			<matchPercent>0.4</matchPercent>
+			<useMatchPercentFromSettings>true</useMatchPercentFromSettings>
 			<!-- <minimumDays>3</minimumDays> -->
 			<!-- Half of vanilla gestation (18 * 0.5) -->
 			<gestationPeriodFactor>0.5</gestationPeriodFactor>
 			<xenotypeComplexityFactor>0.2</xenotypeComplexityFactor>
-			<cooldownDays>12</cooldownDays>
+			<cooldownDays>7</cooldownDays>
 			<canGestateAnyIfHas>
 				<li>WVC_Shapeshifter</li>
 			</canGestateAnyIfHas>

@@ -68,7 +68,9 @@
 			<xenogerminationComa>true</xenogerminationComa>
 			<hediffDef>WVC_XenotypesAndGenes_PostGestationRecovery</hediffDef>
 		</li>
-		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive"/>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive">
+			<checkInterval>11430</checkInterval>
+		</li>
 	</comps>
   </HediffDef>
 
@@ -112,7 +114,9 @@
 			<disappearsAfterTicks>6000~12000</disappearsAfterTicks>
 			<showRemainingTime>true</showRemainingTime>
 		</li>
-		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive"/>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive">
+			<checkInterval>83231</checkInterval>
+		</li>
 	</comps>
   </HediffDef>
 

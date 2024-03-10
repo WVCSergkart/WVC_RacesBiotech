@@ -7,7 +7,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Dialog_ChooseXenotype : Dialog_XenotypesBase
+	public class Dialog_ChooseXenotype : Dialog_XenotypesBase
 	{
 		public Gene gene;
 
@@ -34,7 +34,8 @@ namespace WVC_XenotypesAndGenes
 			geneExtension = gene?.def?.GetModExtension<GeneExtension_Spawner>();
 			hediffDefName = geneExtension?.gestationHediffDef;
 			cooldownHediffDef = geneExtension?.cooldownHediffDef;
-			matchPercent = geneExtension == null ? 1f : geneExtension.matchPercent;
+			// matchPercent = geneExtension == null ? 1f : geneExtension.matchPercent;
+			matchPercent = geneExtension == null || geneExtension.useMatchPercentFromSettings ? WVC_Biotech.settings.xenotypeGestator_GestationMatchPercent : geneExtension.matchPercent;
 			// minimumDays = geneExtension == null ? 3 : geneExtension.minimumDays;
 			// gestationPeriodFactor = geneExtension == null ? 1f : geneExtension.gestationPeriodFactor;
 			xenotypeComplexityFactor = geneExtension == null ? 0.1f : geneExtension.xenotypeComplexityFactor;
@@ -121,8 +122,8 @@ namespace WVC_XenotypesAndGenes
 
 		private int GetGestationTime()
 		{
-			// return (int)(((XaG_GeneUtility.GetXenotype_Cpx(selectedXeno) * xenotypeComplexityFactor) + gestationPeriodDays) * WVC_Biotech.settings.xenotypeGestator_GestationTimeFactor);
-			return (int)((XaG_GeneUtility.GetXenotype_Cpx(selectedXeno) * xenotypeComplexityFactor) + gestationPeriodDays);
+			return (int)(((XaG_GeneUtility.GetXenotype_Cpx(selectedXeno) * xenotypeComplexityFactor) + gestationPeriodDays) * WVC_Biotech.settings.xenotypeGestator_GestationTimeFactor);
+			// return (int)((XaG_GeneUtility.GetXenotype_Cpx(selectedXeno) * xenotypeComplexityFactor) + gestationPeriodDays);
 		}
 
 		public override void StartChange()
@@ -150,6 +151,7 @@ namespace WVC_XenotypesAndGenes
 				if (hediff_GeneCheck != null)
 				{
 					hediff_GeneCheck.geneDef = gene.def;
+					// hediff_GeneCheck.checkInterval = 11430;
 				}
 				// Log.Error("3");
 				gene.pawn.health.AddHediff(hediff);
@@ -170,6 +172,7 @@ namespace WVC_XenotypesAndGenes
 					if (cooldownHediff_GeneCheck != null)
 					{
 						cooldownHediff_GeneCheck.geneDef = gene.def;
+						// hediff_GeneCheck.checkInterval = 83231;
 					}
 					gene.pawn.health.AddHediff(cooldownHediff);
 				}

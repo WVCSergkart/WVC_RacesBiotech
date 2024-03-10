@@ -3,9 +3,18 @@
 
 	<!-- <WVC_BiotechSettings_Label_ExtraGenes>Info</WVC_BiotechSettings_Label_Extra> -->
 
-	<WVC_BiotechSettings_Tab_XenotypeGestatorSettings>Xenotype Gestator</WVC_BiotechSettings_Tab_XenotypeGestatorSettings>
+	<!-- <WVC_BiotechSettings_Tab_XenotypeGestatorSettings>Xenotype Gestator</WVC_BiotechSettings_Tab_XenotypeGestatorSettings> -->
 
 	<WVC_BiotechSettings_Tab_ExtraSettings>Extra</WVC_BiotechSettings_Tab_ExtraSettings>
+
+	<WVC_XaGGeneSettings_XenotypeGestator>Xenotype gestator</WVC_XaGGeneSettings_XenotypeGestator>
+	<WVC_XaGGeneSettings_Undead>Undead</WVC_XaGGeneSettings_Undead>
+	<WVC_XaGGeneSettings_Shapeshifer>Shapeshifer</WVC_XaGGeneSettings_Shapeshifer>
+	<WVC_XaGGeneSettings_TotalHealing>Total healing and similar</WVC_XaGGeneSettings_TotalHealing>
+	<WVC_XaGGeneSettings_IncestLover>Incest lover</WVC_XaGGeneSettings_IncestLover>
+	<WVC_XaGGeneSettings_Telepath>Telepath</WVC_XaGGeneSettings_Telepath>
+	<WVC_XaGGeneSettings_Dustogenic>Dustogenic</WVC_XaGGeneSettings_Dustogenic>
+	<WVC_XaGGeneSettings_TelepathStudy>Telepath study</WVC_XaGGeneSettings_TelepathStudy>
 
 	<!-- ================================== -->
 
@@ -33,6 +42,7 @@ It is not recommended to use more than one DEV-fix at a time. It might break som
 
 	<!-- ================================== -->
 
-	<WVC_Label_xenotypeGestator_GestationTimeFactor>Gestation period factor x{0}</WVC_Label_xenotypeGestator_GestationTimeFactor>
+	<WVC_Label_xenotypeGestator_GestationTimeFactor>Gestation period factor x{0}%</WVC_Label_xenotypeGestator_GestationTimeFactor>
+	<WVC_Label_xenotypeGestator_GestationMatchPercent>Min xenotype match {0}%</WVC_Label_xenotypeGestator_GestationMatchPercent>
 
 </LanguageData>

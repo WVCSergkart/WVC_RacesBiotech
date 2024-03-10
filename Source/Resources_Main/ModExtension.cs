@@ -51,6 +51,7 @@ namespace WVC_XenotypesAndGenes
 		public float xenotypeComplexityFactor = 0.1f;
 		public int cooldownDays = 15;
 		public List<GeneDef> canGestateAnyIfHas;
+		public bool useMatchPercentFromSettings = false;
 	}
 
 	public class GeneExtension_Undead : DefModExtension

@@ -11,7 +11,7 @@ namespace WVC_XenotypesAndGenes
 		public GeneDef geneDef;
 
 		// ~1 day
-		public int checkInterval = 56720;
+		public IntRange checkInterval = new (56720, 72032);
 
 		public HediffCompProperties_RemoveIfGeneIsNotActive()
 		{
@@ -31,7 +31,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void CompPostPostAdd(DamageInfo? dinfo)
 		{
-			nextTick = Props.checkInterval;
+			nextTick = Props.checkInterval.RandomInRange;
 		}
 
 		public override void CompPostTick(ref float severityAdjustment)
