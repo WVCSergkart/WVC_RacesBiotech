@@ -7,12 +7,14 @@ namespace WVC_XenotypesAndGenes
 {
 
 	[StaticConstructorOnStartup]
-	public static class PostInitializationInheritFromGenes
+	public static class XaG_PostInitialization
 	{
 
-		static PostInitializationInheritFromGenes()
+		static XaG_PostInitialization()
 		{
-			// List<string> filter = UltraFilterUtility.BlackListedTerrainDefs();
+			// Initial
+			InitializeModSettings();
+			// Genes
 			Genes();
 			// Race Patches
 			GolemsAndMechs();
@@ -121,6 +123,96 @@ namespace WVC_XenotypesAndGenes
 					subXenotypeDef.inheritable = false;
 					Log.Warning(subXenotypeDef.defName + " is inheritable. Fixing..");
 				}
+			}
+		}
+
+		public static void InitializeModSettings()
+		{
+			if (WVC_Biotech.settings.firstModLaunch)
+			{
+				WVC_Biotech.cachedXenotypesFilter ??= new Dictionary<string, bool>();
+				WVC_Biotech.allXenotypes = XenotypeFilterUtility.WhiteListedXenotypes(false);
+				SetValues(XenotypeFilterUtility.WhiteListedXenotypesForFilter());
+				WVC_Biotech.settings.firstModLaunch = false;
+				WVC_Biotech.settings.Write();
+			}
+			foreach (XenotypeDef item in XenotypeFilterUtility.WhiteListedXenotypes(true, true))
+			{
+				WVC_GenesDefOf.WVC_XenotypeSerums_SupportedXenotypesList.descriptionHyperlinks.Add(item);
+			}
+		}
+
+		public static void SetValues(List<string> whiteListedXenotypesFromDef)
+		{
+			foreach (XenotypeDef thingDef in WVC_Biotech.allXenotypes)
+			{
+
+				if (!WVC_Biotech.settings.serumsForAllXenotypes)
+				{
+					if (!WVC_Biotech.cachedXenotypesFilter.TryGetValue(thingDef.defName, out _))
+					{
+						WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = true;
+					}
+				}
+				else
+				{
+					if (!WVC_Biotech.cachedXenotypesFilter.TryGetValue(thingDef.defName, out _))
+					{
+						float metabol = 0f;
+						foreach (GeneDef item in thingDef.genes)
+						{
+							metabol += item.biostatMet;
+						}
+						if (whiteListedXenotypesFromDef.Contains(thingDef.defName))
+						{
+							WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = true;
+						}
+						else if (thingDef.defName.Contains("VREA_") || thingDef.defName.Contains("Android") || thingDef.defName.Contains("Random") || thingDef.defName.Contains("WVC_"))
+						{
+							WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = false;
+						}
+						else if (metabol < -5 && metabol > 5)
+						{
+							WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = false;
+						}
+						else if (!thingDef.inheritable)
+						{
+							if (thingDef.genes.Count > 14)
+							{
+								WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = true;
+							}
+							else
+							{
+								WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = false;
+							}
+						}
+						else if (thingDef.inheritable)
+						{
+							float archites = 0f;
+							foreach (GeneDef item in thingDef.genes)
+							{
+								archites += item.biostatArc;
+							}
+							if (archites > 0 && thingDef.genes.Count > 14)
+							{
+								WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = true;
+							}
+							else if (thingDef.genes.Count > 21)
+							{
+								WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = true;
+							}
+							else
+							{
+								WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = false;
+							}
+						}
+						else
+						{
+							WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = false;
+						}
+					}
+				}
+
 			}
 		}
 

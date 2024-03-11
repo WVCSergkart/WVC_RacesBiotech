@@ -15,12 +15,6 @@ namespace WVC_XenotypesAndGenes
 			: base(content)
 		{
 			new Harmony("wvc.sergkart.races.biotech").PatchAll();
-			// var harmony = new Harmony("wvc.sergkart.races.biotech");
-			// harmony.PatchAll();
-			// if (WVC_Biotech.settings.hideXaGGenes)
-			// {
-				// new Harmony("wvc.sergkart.races.biotech").Patch(typeof(Dialog_CreateXenotype).GetMethod("DrawGene"), prefix: new HarmonyMethod(typeof(Patch_Dialog_CreateXenotype_DrawGene).GetMethod("Prefix")));
-			// }
 		}
 	}
 

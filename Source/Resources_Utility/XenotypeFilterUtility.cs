@@ -39,14 +39,15 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (addFromFilter)
 			{
-				if (!WVC_Biotech.cachedXenotypesFilter.NullOrEmpty())
+				if (WVC_Biotech.cachedXenotypesFilter.NullOrEmpty())
 				{
-					foreach (var item in WVC_Biotech.cachedXenotypesFilter)
+					return list;
+				}
+				foreach (var item in WVC_Biotech.cachedXenotypesFilter)
+				{
+					if (item.Value == false)
 					{
-						if (item.Value == false)
-						{
-							list.Add(item.Key);
-						}
+						list.Add(item.Key);
 					}
 				}
 			}
