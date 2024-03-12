@@ -128,7 +128,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void InitializeModSettings()
 		{
-			if (WVC_Biotech.settings.firstModLaunch)
+			if (WVC_Biotech.settings.firstModLaunch || WVC_Biotech.settings.serumsForAllXenotypes)
 			{
 				WVC_Biotech.cachedXenotypesFilter ??= new Dictionary<string, bool>();
 				WVC_Biotech.allXenotypes = XenotypeFilterUtility.WhiteListedXenotypes(false);
