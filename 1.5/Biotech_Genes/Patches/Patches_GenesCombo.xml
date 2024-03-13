@@ -267,14 +267,14 @@
 
 	<!-- ================== -->
 
-	<Operation Class="PatchOperationAdd">
-	  <xpath>/Defs/StatDef[defName="WorkSpeedGlobal"]/parts</xpath>
-	  <value>
-		  <li Class="WVC_XenotypesAndGenes.StatPart_FactorForGolems" MayRequire="Ludeon.RimWorld.Biotech">
-			<stat>PsychicSensitivity</stat>
-		  </li>
-	  </value>
-	</Operation>
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/StatDef[defName="WorkSpeedGlobal"]/parts</xpath> -->
+	  <!-- <value> -->
+		  <!-- <li Class="WVC_XenotypesAndGenes.StatPart_FactorForGolems" MayRequire="Ludeon.RimWorld.Biotech"> -->
+			<!-- <stat>PsychicSensitivity</stat> -->
+		  <!-- </li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
 
 	<Operation Class="PatchOperationSequence">
 		<success>Always</success>

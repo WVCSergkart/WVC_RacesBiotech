@@ -116,6 +116,7 @@
     <Compile Include="Resources_Hediff\OnlyOneOverseer.cs" />
     <Compile Include="Resources_Main\Misc.cs" />
     <Compile Include="Resources_RitualAttachableOutcome\OutcomeWorker_ShapeshifterJoin.cs" />
+    <Compile Include="Resources_Things\CompProperties_Golem.cs" />
     <Compile Include="Resources_Things\CompUseEffect_GeneGiver.cs" />
     <Compile Include="Resources_Things\ThingClass_XenotypeSerum.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_Shapeshifter_Social.cs" />
@@ -138,9 +139,7 @@
     <Compile Include="Resources_Things\CompSpawnOnDeath.cs" />
     <Compile Include="Resources_Things\CompSpawnSubplantDuration.cs" />
     <Compile Include="Resources_Things\WalkingCorpsesSpawner.cs" />
-    <Compile Include="Resources_Thought\ThoughtWorker_Precept_HasWalkingCorpses.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_WithXaGComponent.cs" />
-    <Compile Include="Resources_Thought\ThoughtWorker_Precept_Trees.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_Undead_Social.cs" />
     <Compile Include="Resources_Utility\AgelessUtility.cs" />
     <Compile Include="Resources_TEST\TEST_JobGiver_WanderNearTarget.cs" />
@@ -184,7 +183,6 @@
     <Compile Include="Resources_Main\WVC_GenesDefOf.cs" />
     <Compile Include="Resources_Utility\WalkingUtility.cs" />
     <Compile Include="Resources_Utility\XenotypeFilterUtility.cs" />
-    <Compile Include="Resources_StatPart\StatPart_FactorForGolems.cs" />
     <Compile Include="Resources_Generator\Harmony_DefGenerator_Serums.cs" />
     <Compile Include="Resources_Harmony\Harmony_GeneDefGenerator.cs" />
     <Compile Include="Resources_Harmony\Harmony_PredatorPrey.cs" />
@@ -200,8 +198,6 @@
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_Genes.cs" />
     <Compile Include="Resources_Main\ModSettings.cs" />
     <Compile Include="Resources_Main\RoleRequirement_Mechanitor.cs" />
-    <Compile Include="Resources_StatPart\StatPart_FactorForUniqueKind.cs" />
-    <Compile Include="Resources_StatPart\StatPart_ForceTo.cs" />
     <Compile Include="Resources_StatPart\StatPart_OffsetFromBuildingsOnMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources_StatPart\StatPart_XenotypeSerum.cs" />

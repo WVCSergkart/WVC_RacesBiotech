@@ -343,8 +343,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool GetUndeadGene(this Pawn pawn, out Gene_Undead gene)
 		{
-			gene = pawn?.genes?.GetFirstGeneOfType<Gene_Undead>();
-			return gene != null;
+			return (gene = pawn?.genes?.GetFirstGeneOfType<Gene_Undead>()) != null;
 		}
 
 	}

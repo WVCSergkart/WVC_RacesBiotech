@@ -50,8 +50,8 @@ namespace WVC_XenotypesAndGenes
 		public static HediffDef WVC_IncompatibilityComa;
 		// public static HediffDef WVC_XenotypesAndGenes_GeneticStabilityDebuff;
 		// public static HediffDef WVC_XenotypesAndGenes_GeneticInStabilityBuff;
-		public static HediffDef WVC_SelfPopulationRegulation_Golems;
-		public static HediffDef WVC_SelfPopulationRegulation_BoneGolems;
+		// public static HediffDef WVC_SelfPopulationRegulation_Golems;
+		// public static HediffDef WVC_SelfPopulationRegulation_BoneGolems;
 		public static HediffDef WVC_Resurgent_UndeadResurrectionRecovery;
 		// Supported Xenotypes List
 		public static ConceptDef WVC_XenotypeSerums_SupportedXenotypesList;

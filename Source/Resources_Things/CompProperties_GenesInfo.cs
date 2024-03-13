@@ -11,7 +11,7 @@ namespace WVC_XenotypesAndGenes
 
 		public int recacheFrequency = 11435;
 
-		public Type golemGizmoType = typeof(Gizmo_MaxGolems);
+		//public Type golemGizmoType = typeof(GeneGizmo_Golems);
 
 		public CompProperties_GenesDisplayInfo()
 		{

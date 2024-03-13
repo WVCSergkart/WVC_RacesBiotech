@@ -12,6 +12,11 @@ namespace WVC_XenotypesAndGenes
 
 		// Golems
 
+		public static bool HasEnoughGolembond(Pawn mechanitor)
+		{
+			return TotalGolembond(mechanitor) >= GetConsumedGolembond(mechanitor);
+		}
+
 		public static List<Pawn> GetAllControlledGolems(Pawn mechanitor)
 		{
 			List<Pawn> mechs = mechanitor?.mechanitor?.ControlledPawns;
@@ -71,7 +76,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			// Log.Error("TEST is Golem Master");
 			Gene_MechlinkWithGizmo gene = mechanitor.genes?.GetFirstGeneOfType<Gene_MechlinkWithGizmo>();
-			if (gene?.def?.resourceGizmoType == typeof(GeneGizmo_ResurgentSpores))
+			if (gene?.def?.resourceGizmoType == typeof(GeneGizmo_BoneGolems))
 			{
 				return true;
 			}
@@ -86,7 +91,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			// Log.Error("TEST is Golem Master");
 			Gene_MechlinkWithGizmo gene = mechanitor.genes?.GetFirstGeneOfType<Gene_MechlinkWithGizmo>();
-			if (gene?.def?.resourceGizmoType == typeof(Gizmo_MaxGolems))
+			if (gene?.def?.resourceGizmoType == typeof(GeneGizmo_Golems))
 			{
 				return true;
 			}

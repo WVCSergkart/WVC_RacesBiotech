@@ -123,7 +123,7 @@
 	<label>spore mechlink</label>
 	<description>The carrier of this gene has architis, which has greatly changed neural connections. The carrier acquired special sensitivity and the ability to control resurgent spores. Due to this, the carrier has a natural mechlink.</description>
 	<iconPath>WVC/UI/Genes/Gene_ResurgentTree_v0</iconPath>
-	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_ResurgentSpores</resourceGizmoType>
+	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_BoneGolems</resourceGizmoType>
 	<displayCategory>WVC_ResurgentCells</displayCategory>
 	<displayOrderInCategory>1260</displayOrderInCategory>
 	<minAgeActive>3</minAgeActive>
@@ -149,7 +149,7 @@
 	<defName>WVC_SwarmConnection_Golems</defName>
 	<label>stone mechlink</label>
 	<description>Carriers of this gene have the ability to control orbital mining mechanites; these microscopic machines are ready at any moment to animate a stone chunk and begin serving the mechanitor again.</description>
-	<resourceGizmoType>WVC_XenotypesAndGenes.Gizmo_MaxGolems</resourceGizmoType>
+	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Golems</resourceGizmoType>
 	<iconPath>WVC/UI/Genes/Gene_Golemlink_v0</iconPath>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>1</biostatArc>
@@ -157,7 +157,7 @@
 	<displayOrderInCategory>1130</displayOrderInCategory>
 	<customEffectDescriptions>
 		<li>After activating the ability, summons from 1 to 5 golems.</li>
-		<li>&lt;color=#8a8ae6&gt;Global work speed&lt;/color&gt; of the golems depends on the &lt;color=#8a8ae6&gt;psychic sensitivity&lt;/color&gt; of the overseer.</li>
+		<!-- <li>&lt;color=#8a8ae6&gt;Global work speed&lt;/color&gt; of the golems depends on the &lt;color=#8a8ae6&gt;psychic sensitivity&lt;/color&gt; of the overseer.</li> -->
 		<li>A overseer can reproduce with the help of &lt;color=#8a8ae6&gt;golems&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<statOffsets>

@@ -31,11 +31,18 @@
 			<Steel>5</Steel>
 		</butcherProducts>
 		<comps>
-			<li Class="WVC_XenotypesAndGenes.CompProperties_InitialHediff">
-				<hediffDefs>
-				  <li>WVC_SelfPopulationRegulation_Golems</li>
-				</hediffDefs>
+			<li Class="WVC_XenotypesAndGenes.CompProperties_Golem">
+				<refreshHours>2</refreshHours>
+				<shutdownEnergyReplenish>3.0</shutdownEnergyReplenish>
+				<anyGeneDefs>
+				  <li>WVC_SwarmConnection_Golems</li>
+				</anyGeneDefs>
 			</li>
+			<!-- <li Class="WVC_XenotypesAndGenes.CompProperties_InitialHediff"> -->
+				<!-- <hediffDefs> -->
+				  <!-- <li>WVC_SelfPopulationRegulation_Golems</li> -->
+				<!-- </hediffDefs> -->
+			<!-- </li> -->
 			<li Class="WVC_XenotypesAndGenes.CompProperties_SpawnOnDeath">
 				<compClass>WVC_XenotypesAndGenes.CompSpawnOnDeath_GetColor</compClass>
 				<filthDefToSpawn>Filth_RubbleRock</filthDefToSpawn>

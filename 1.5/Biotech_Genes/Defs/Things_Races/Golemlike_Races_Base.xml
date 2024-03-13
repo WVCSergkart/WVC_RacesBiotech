@@ -63,13 +63,10 @@
 			<Steel>5</Steel>
 		</butcherProducts>
 		<comps>
-			<li Class="WVC_XenotypesAndGenes.CompProperties_InitialEnergyNeed">
-				<!-- mechEnergy = currentEnergy + (energyReplenish * hours) -->
-				<refreshHours>2</refreshHours>
-				<!-- 6% every 2 hours -->
-				<!-- 72% each day in shutdown mode. Not much but balanced. -->
-				<shutdownEnergyReplenish>3.0</shutdownEnergyReplenish>
-			</li>
+			<!-- <li Class="WVC_XenotypesAndGenes.CompProperties_InitialEnergyNeed"> -->
+				<!-- <refreshHours>2</refreshHours> -->
+				<!-- <shutdownEnergyReplenish>3.0</shutdownEnergyReplenish> -->
+			<!-- </li> -->
 			<li Class="WVC_XenotypesAndGenes.CompProperties_InitialPawnFaction"/>
 		</comps>
 		<modExtensions>
@@ -93,7 +90,6 @@
 	<AbilityDef ParentName="WVC_GestationAbilities_Base">
 		<defName>WVC_XenotypesAndGenes_GolemlikeInstantKill</defName>
 		<label>permanent shutdown</label>
-		<!-- <description>Order this golem to permanently shut down.</description> -->
 		<description>Order the mechanites to disperse, which will result in the instant death of the golem.</description>
 		<iconPath>WVC/UI/XaG_General/Ui_InstantKill</iconPath>
 		<comps>

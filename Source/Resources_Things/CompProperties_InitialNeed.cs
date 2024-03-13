@@ -3,7 +3,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class CompProperties_InitialEnergyNeed : CompProperties
+	public class CompProperties_InitialEnergyNeed : CompProperties
 	{
 
 		// public List<HediffDef> hediffDefs;

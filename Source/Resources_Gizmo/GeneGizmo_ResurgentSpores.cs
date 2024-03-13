@@ -7,8 +7,8 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	[StaticConstructorOnStartup]
-	public class GeneGizmo_ResurgentSpores : Gizmo
+	// [StaticConstructorOnStartup]
+	public class GeneGizmo_BoneGolems : Gizmo
 	{
 		public const int InRectPadding = 6;
 
@@ -30,7 +30,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool Visible => Find.Selector.SelectedPawns.Count == 1;
 
-		public GeneGizmo_ResurgentSpores(Pawn mechanitor)
+		public GeneGizmo_BoneGolems(Pawn mechanitor)
 			: base()
 		{
 			this.mechanitor = mechanitor;
@@ -47,7 +47,7 @@ namespace WVC_XenotypesAndGenes
 				totalBandwidth = (int)MechanoidsUtility.TotalGolembond(mechanitor);
 				usedBandwidth = (int)MechanoidsUtility.GetConsumedGolembond(mechanitor);
 				allControlledGolems = MechanoidsUtility.GetAllControlledGolems(mechanitor);
-				nextRecache = Find.TickManager.TicksGame + 2734;
+				nextRecache = Find.TickManager.TicksGame + 734;
 			}
 			// Log.Error("totalBandwidth: " + totalBandwidth + ", usedBandwidth: " + usedBandwidth);
 			string text = usedBandwidth.ToString("F0") + " / " + totalBandwidth.ToString("F0");

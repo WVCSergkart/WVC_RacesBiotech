@@ -48,7 +48,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			if (pawn.Faction != Faction.OfPlayer || Find.Selector.SelectedPawns.Count != 1)
+			if (pawn.Faction != Faction.OfPlayer)
 			{
 				yield break;
 			}

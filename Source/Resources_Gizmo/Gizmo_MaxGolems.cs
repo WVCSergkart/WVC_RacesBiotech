@@ -7,8 +7,8 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	[StaticConstructorOnStartup]
-	public class Gizmo_MaxGolems : Gizmo
+	// [StaticConstructorOnStartup]
+	public class GeneGizmo_Golems : Gizmo
 	{
 		public const int InRectPadding = 6;
 
@@ -29,7 +29,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool Visible => Find.Selector.SelectedPawns.Count == 1;
 
-		public Gizmo_MaxGolems(Pawn mechanitor)
+		public GeneGizmo_Golems(Pawn mechanitor)
 			: base()
 		{
 			this.mechanitor = mechanitor;
@@ -46,7 +46,7 @@ namespace WVC_XenotypesAndGenes
 				totalBandwidth = (int)MechanoidsUtility.TotalGolembond(mechanitor);
 				usedBandwidth = (int)MechanoidsUtility.GetConsumedGolembond(mechanitor);
 				allControlledGolems = MechanoidsUtility.GetAllControlledGolems(mechanitor);
-				nextRecache = Find.TickManager.TicksGame + 2734;
+				nextRecache = Find.TickManager.TicksGame + 734;
 			}
 			string text = usedBandwidth.ToString("F0") + " / " + totalBandwidth.ToString("F0");
 			TaggedString taggedString = "WVC_XaG_GolemBandwidth".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + text + "\n\n" + "WVC_XaG_GolemBandwidthGizmoTip".Translate();

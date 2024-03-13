@@ -191,10 +191,17 @@
 				<regenAmount>1</regenAmount>
 				<shouldSendNotification>false</shouldSendNotification>
 			</li>
-			<li Class="WVC_XenotypesAndGenes.CompProperties_InitialHediff">
-				<hediffDefs>
-				  <li>WVC_SelfPopulationRegulation_BoneGolems</li>
-				</hediffDefs>
+			<!-- <li Class="WVC_XenotypesAndGenes.CompProperties_InitialHediff"> -->
+				<!-- <hediffDefs> -->
+				  <!-- <li>WVC_SelfPopulationRegulation_BoneGolems</li> -->
+				<!-- </hediffDefs> -->
+			<!-- </li> -->
+			<li Class="WVC_XenotypesAndGenes.CompProperties_Golem">
+				<refreshHours>2</refreshHours>
+				<shutdownEnergyReplenish>4.0</shutdownEnergyReplenish>
+				<anyGeneDefs>
+				  <li>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</li>
+				</anyGeneDefs>
 			</li>
 			<li Class="WVC_XenotypesAndGenes.CompProperties_SpawnOnDeath">
 				<!-- Totem -->

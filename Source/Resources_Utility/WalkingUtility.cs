@@ -99,16 +99,16 @@ namespace WVC_XenotypesAndGenes
 			return mechanitor.GetStatValue(WVC_GenesDefOf.WVC_GolemBond);
 		}
 
-		[Obsolete]
-		public static bool MechanitorHasAnyWalkingCorpses(Pawn mechanitor)
-		{
-			List<Pawn> list = GetControlledWalkingCorpses(mechanitor);
-			if (list.NullOrEmpty())
-			{
-				return false;
-			}
-			return true;
-		}
+		// [Obsolete]
+		// public static bool MechanitorHasAnyWalkingCorpses(Pawn mechanitor)
+		// {
+			// List<Pawn> list = GetControlledWalkingCorpses(mechanitor);
+			// if (list.NullOrEmpty())
+			// {
+				// return false;
+			// }
+			// return true;
+		// }
 
 		public static bool LimitExceedCheck(Pawn mechanitor)
 		{
@@ -125,51 +125,50 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		[Obsolete]
-		public static float GetConsumedBandwidth(Pawn mechanitor)
-		{
-			float result = 0;
-			List <Pawn> golems = GetControlledWalkingCorpses(mechanitor);
-			if (golems.NullOrEmpty())
-			{
-				return result;
-			}
-			foreach (Pawn golem in golems)
-			{
-				float golemBand = golem.GetStatValue(WVC_GenesDefOf.WVC_GolemBondCost);
-				if (golemBand > 0)
-				{
-					result += golemBand;
-				}
-			}
-			// Log.Error("GetConsumedBandwidth: " + result);
-			return result;
-		}
-
-		[Obsolete]
-		public static List<Pawn> GetControlledWalkingCorpses(Pawn mechanitor)
-		{
-			List<Pawn> list = new();
-			List<Pawn> mechs = mechanitor.mechanitor.ControlledPawns;
-			foreach (Pawn item in mechs)
-			{
-				if (PawnIsBoneGolem(item) && !item.health.Dead)
-				{
-					list.Add(item);
-				}
-			}
-			return list;
-		}
+		// [Obsolete]
+		// public static float GetConsumedBandwidth(Pawn mechanitor)
+		// {
+			// float result = 0;
+			// List <Pawn> golems = GetControlledWalkingCorpses(mechanitor);
+			// if (golems.NullOrEmpty())
+			// {
+				// return result;
+			// }
+			// foreach (Pawn golem in golems)
+			// {
+				// float golemBand = golem.GetStatValue(WVC_GenesDefOf.WVC_GolemBondCost);
+				// if (golemBand > 0)
+				// {
+					// result += golemBand;
+				// }
+			// }
+			// return result;
+		// }
 
 		// [Obsolete]
-		public static bool PawnIsBoneGolem(Pawn pawn)
-		{
-			if (pawn.RaceProps.IsMechanoid)
-			{
-				return pawn.health.hediffSet.HasHediff(WVC_GenesDefOf.WVC_SelfPopulationRegulation_BoneGolems);
-			}
-			return false;
-		}
+		// public static List<Pawn> GetControlledWalkingCorpses(Pawn mechanitor)
+		// {
+			// List<Pawn> list = new();
+			// List<Pawn> mechs = mechanitor.mechanitor.ControlledPawns;
+			// foreach (Pawn item in mechs)
+			// {
+				// if (PawnIsBoneGolem(item) && !item.health.Dead)
+				// {
+					// list.Add(item);
+				// }
+			// }
+			// return list;
+		// }
+
+		// [Obsolete]
+		// public static bool PawnIsBoneGolem(Pawn pawn)
+		// {
+			// if (pawn.RaceProps.IsMechanoid)
+			// {
+				// return pawn.health.hediffSet.HasHediff(WVC_GenesDefOf.WVC_SelfPopulationRegulation_BoneGolems);
+			// }
+			// return false;
+		// }
 
 
 	}
