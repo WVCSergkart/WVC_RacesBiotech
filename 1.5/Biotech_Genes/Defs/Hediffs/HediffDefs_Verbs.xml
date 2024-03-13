@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base" Name="WVC_XenotypesAndGenes_Hediffs_VerbWeapon" Abstract="True">
+	<stages>
+	  <li>
+		<becomeVisible>false</becomeVisible>
+	  </li>
+	</stages>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive"/>
+	</comps>
+  </HediffDef>
+
+  <!--=====================================================================-->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_VerbWeapon">
+	<defName>WVC_RB_Mecha_ScytheTail</defName>
+	<label>scythe tail</label>
+	<comps>
+	  <li Class="HediffCompProperties_VerbGiver">
+		<tools>
+		  <li>
+			<label>scythe tail</label>
+			<capacities>
+			  <li>Cut</li>
+			  <li>Stab</li>
+			</capacities>
+			<power>20</power>
+			<cooldownTime>1.5</cooldownTime>
+			<armorPenetration>0.8</armorPenetration>
+			<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+			<soundMeleeHit>Pawn_Melee_MechanoidSlash_HitPawn</soundMeleeHit>
+			<soundMeleeMiss>Pawn_Melee_MechanoidSlash_Miss</soundMeleeMiss>
+			<surpriseAttack>
+			  <extraMeleeDamages>
+				<li>
+				  <def>Stun</def>
+				  <amount>14</amount>
+				</li>
+			  </extraMeleeDamages>
+			</surpriseAttack>
+		  </li>
+		</tools>
+	  </li>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_VerbWeapon">
+	<defName>WVC_XaG_ArchiteClaws</defName>
+	<label>archite claws</label>
+	<comps>
+	  <li Class="HediffCompProperties_VerbGiver">
+		<tools>
+		  <li>
+			<label>claw</label>
+			<capacities>
+			  <li>Cut</li>
+			  <li>Stab</li>
+			</capacities>
+			<power>20</power>
+			<cooldownTime>1.6</cooldownTime>
+			<armorPenetration>0.8</armorPenetration>
+			<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+			<soundMeleeHit>Pawn_Melee_MechanoidSlash_HitPawn</soundMeleeHit>
+			<soundMeleeMiss>Pawn_Melee_MechanoidSlash_Miss</soundMeleeMiss>
+			<surpriseAttack>
+			  <extraMeleeDamages>
+				<li>
+				  <def>Stun</def>
+				  <amount>14</amount>
+				</li>
+			  </extraMeleeDamages>
+			</surpriseAttack>
+		  </li>
+		</tools>
+	  </li>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_VerbWeapon">
+	<defName>WVC_XaG_NaturalClaws</defName>
+	<label>natural claws</label>
+	<comps>
+	  <li Class="HediffCompProperties_VerbGiver">
+		<tools>
+		  <li>
+			<label>claw</label>
+			<capacities>
+			  <li>Cut</li>
+			  <li>Stab</li>
+			</capacities>
+			<power>17</power>
+			<cooldownTime>1.6</cooldownTime>
+			<armorPenetration>0.6</armorPenetration>
+			<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+			<surpriseAttack>
+			  <extraMeleeDamages>
+				<li>
+				  <def>Stun</def>
+				  <amount>12</amount>
+				</li>
+			  </extraMeleeDamages>
+			</surpriseAttack>
+		  </li>
+		</tools>
+	  </li>
+	</comps>
+  </HediffDef>
+
+</Defs>

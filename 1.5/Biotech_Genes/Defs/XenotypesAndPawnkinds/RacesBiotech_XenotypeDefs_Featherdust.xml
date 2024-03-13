@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- featherdust -->
+  <XenotypeDef ParentName="WVC_XenotypesAndGenes_UndeadSubXenotypes_Base" Class="WVC_XenotypesAndGenes.SubXenotypeDef">
+	<defName>WVC_Featherdust</defName>
+	<!-- undead necrokind necrokin necromantic -->
+	<label>featherdust</label>
+	<!-- Experiments, eternal youth, critical failure, side effect -->
+	<description>Featherdusts are an undead sub-xenotype, despite strong genetic differences they still remain within this xenotype. They are very willful and aggressive, but despite this they are very fragile. Their wounds heal much faster when they are unconscious, and lost limbs can grow back. They are immune to most diseases and can reimplant their genes. However, they vitally need special food, since they can hardly get enough from ordinary food.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Genes):&lt;/color&gt; It is a hybrid xenotype that is inherited from the Undead xenotype.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Food):&lt;/color&gt; The nutritional efficiency of food consumed by the xenotype is reduced by 60%; to compensate for this effect, the pawn must eat a special food (&lt;color=#8a8ae6&gt;nutrients injector&lt;/color&gt;) or be &lt;color=#8a8ae6&gt;downed&lt;/color&gt; at the time of food consumption.</description>
+	<descriptionShort>Featherdusts are an undead sub-xenotype, despite strong genetic differences they still remain within this xenotype. They are very willful and aggressive, but despite this they are very fragile. Their wounds heal much faster when they are unconscious, and lost limbs can grow back. They are immune to most diseases and can reimplant their genes. However, they vitally need special food, since they can hardly get enough from ordinary food.</descriptionShort>
+	<iconPath>WVC/UI/Mecha_Icons/Gene_DustAngel_v0</iconPath>
+	<descriptionHyperlinks>
+	  <ThingDef>WVC_NutrientsInjector</ThingDef>
+	  <!-- <WVC_XenotypesAndGenes.SubXenotypeDef>WVC_DustAngel</WVC_XenotypesAndGenes.SubXenotypeDef> -->
+	</descriptionHyperlinks>
+	<selectionWeight>0.7</selectionWeight>
+	<!-- <inheritable>true</inheritable> -->
+	<!-- If any genes need to be removed, they can be listed here. -->
+	<!-- The code is run in this order: removeGenes -> endogenes -> xenogenes -->
+	<removeGenes>
+		<li>WVC_RandomLearning</li>
+		<li>WVC_RandomHands</li>
+		<li>WVC_RandomWoundHealing</li>
+		<li>WVC_RandomImmunity</li>
+		<li>WVC_RandomMetabolism</li>
+		<li>WVC_RandomMoveSpeed</li>
+		<li>WVC_RandomPsychicAbility</li>
+		<!-- = -->
+		<li>StrongStomach</li>
+		<!-- <li>ToxResist_Total</li> -->
+		<li>WVC_MildGeneticInstability</li>
+		<li>WVC_AgeDebuff_Sterile</li>
+		<li>WVC_SkinColor_Undead</li>
+		<li>Hair_Grayless</li>
+		<li>WVC_PatchSkin</li>
+	</removeGenes>
+	<!-- endogenes are always added to the germline of the main xenotype. -->
+	<endogenes>
+		<li>WVC_Dustogenic_Reincarnation</li>
+		<!-- <li>WVC_ToxResist_Total</li> -->
+		<li>WVC_FeatherSkin</li>
+		<li>WVC_BodySize_Small</li>
+		<!-- <li>WVC_SameBloodSameXenotype</li> -->
+		<li>WVC_Pain_Extra</li>
+		<li>WVC_Learning_SlowNoSkillDecay</li>
+		<li>Skin_SheerWhite</li>
+		<li>WVC_NaturalDisease_DiseaseFree</li>
+		<li>WVC_NaturalImmunity_PerfectImmunity</li>
+		<li>WVC_HeadBoneHorns</li>
+	</endogenes>
+	<!-- Xenogenes currently used for information only. -->
+	<!-- <xenogenes> -->
+	<!-- </xenogenes> -->
+	<genes>
+		<li>WVC_Dustogenic</li>
+		<li>WVC_Dustogenic_WoundHealing</li>
+		<li>WVC_Dustogenic_Ageless</li>
+		<li>WVC_Dustogenic_Metabolism</li>
+		<li>WVC_Dustogenic_Blesslink</li>
+		<li>WVC_Dustogenic_AngelBeauty</li>
+		<li>WVC_Dustogenic_GeneticStability</li>
+		<li>WVC_Dustogenic_ImmaculateConception</li>
+		<li>WVC_Dustogenic_Clotting</li>
+		<li>WVC_Dustogenic_FeatherBlades</li>
+		<li>WVC_Wings_FeatheredWings</li>
+		<li>WVC_FamilyByBlood_Dustogenic</li>
+		<li>WVC_Hands_Angel</li>
+		<!-- = -->
+		<li>Aggression_HyperAggressive</li>
+		<li>WVC_SlaveSuppression_Unruly</li>
+		<li>WVC_IncestLover</li>
+		<!-- = -->
+		<!-- <li>WVC_XenotypesAndGenes_SubXenotypeShapeshifter</li> -->
+	</genes>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.XenotypeExtension_XenotypeShapeShift"> -->
+			<!-- <subXenotypeDef>WVC_DustAngel</subXenotypeDef> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </XenotypeDef>
+
+  <!-- Dust Angel -->
+  <!-- <WVC_XenotypesAndGenes.SubXenotypeDef ParentName="WVC_XenotypesAndGenes_SubXenotypeDef_Undead"> -->
+	<!-- <defName>WVC_DustAngel</defName> -->
+  <!-- </WVC_XenotypesAndGenes.SubXenotypeDef> -->
+
+</Defs>

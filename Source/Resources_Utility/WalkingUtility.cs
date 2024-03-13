@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using Verse;
 
@@ -65,7 +66,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				foreach (Pawn colonist in colonists)
 				{
-					if (MechanitorIsLich(colonist))
+					if (MechanoidsUtility.MechanitorIsLich(colonist))
 					{
 						list.Add(colonist);
 					}
@@ -75,6 +76,7 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
+		[Obsolete]
 		public static bool MechanitorIsLich(Pawn mechanitor)
 		{
 			if (!MechanitorUtility.IsMechanitor(mechanitor))

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Psylink -->
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GenePsylink_Base" MayRequire="ludeon.rimworld.royalty" Abstract="True">
+	<labelShortAdj>psylink</labelShortAdj>
+	<description>Carriers of this gene have natural psionic abilities.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_PermanentHediff</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Psylink_v0</iconPath>
+	<displayCategory>Ability</displayCategory>
+	<!-- <displayCategory>Archite</displayCategory> -->
+	<displayOrderInCategory>1115</displayOrderInCategory>
+	<selectionWeight>0.003</selectionWeight>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Carriers of this gene get &lt;color=#8a8ae6&gt;psylink&lt;/color&gt; permanently.</li>
+	</customEffectDescriptions>
+	<suppressedTraits>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-2</degree>
+	  </li>
+	</suppressedTraits>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>psy</symbol></li>
+		<li><symbol>psyc</symbol></li>
+		<li><symbol>psion</symbol></li>
+		<li><symbol>super</symbol></li>
+		<li><symbol>wiz</symbol></li>
+		<li><symbol>wiza</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>Psylink</li>
+	  <li>AbilityPsylink</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GenePsylink_Base" MayRequire="ludeon.rimworld.royalty">
+	<defName>WVC_NaturalPsylink</defName>
+	<label>natural psylink</label>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>-3</biostatMet>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>PsychicAmplifier</hediffDefName>
+			<bodyparts>
+			  <li>Brain</li>
+			</bodyparts>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GenePsylink_Base" MayRequire="ludeon.rimworld.royalty">
+	<defName>WVC_ArchitePsylink</defName>
+	<label>archite psylink</label>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Psylink</geneClass>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<selectionWeight>0.00125</selectionWeight>
+	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Psyfocus&lt;/color&gt; is passively &lt;color=#8a8ae6&gt;replenished&lt;/color&gt; relative to the psylink's level.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<curve>
+			  <points>
+				<!-- Vanilla -->
+				<li>(0,0.01)</li>
+				<li>(6,0.04)</li>
+				<!-- VPE -->
+				<li>(12,0.05)</li>
+				<li>(30,0.06)</li>
+				<li>(100,0.10)</li>
+			  </points>
+			</curve>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

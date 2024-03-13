@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Genepack spawner -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Archites" Name="WVC_Mechanoidization_GenepackSpawnerBase" Abstract="True">
+	<labelShortAdj>genepack thrower</labelShortAdj>
+	<description>Carriers of this gene have archites that constantly generate genes and separate them from the carrier.</description>
+	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<!-- <displayCategory>WVC_MechaBody</displayCategory> -->
+	<displayCategory>WVC_XenotypeSerumSpawners</displayCategory>
+	<displayOrderInCategory>957</displayOrderInCategory>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Spawner</geneClass>
+	<biostatArc>1</biostatArc>
+	<biostatCpx>3</biostatCpx>
+	<marketValueFactor>2</marketValueFactor>
+	<selectionWeight>0.00085</selectionWeight>
+	<minAgeActive>13</minAgeActive>
+	<customEffectDescriptions>
+		<li>Spawns genepack every (*DateTime)5-15 days(/DateTime).</li>
+	</customEffectDescriptions>
+	<randomChosen>true</randomChosen>
+	<exclusionTags>
+	  <li>WVC_GenepackSpawner</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>gene</symbol></li>
+		<li><symbol>pack</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>gene</symbol></li>
+		<li><symbol>pack</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- Vanilla -->
+  <GeneDef ParentName="WVC_Mechanoidization_GenepackSpawnerBase">
+	<defName>WVC_GenePackSpawner_Vanilla</defName>
+	<label>genepack thrower</label>
+	<iconPath>Things/Item/Special/Genepack/Genepack_e</iconPath>
+	<biostatArc>1</biostatArc>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<thingDefToSpawn>Genepack</thingDefToSpawn>
+			<stackCount>1</stackCount>
+			<spawnIntervalRange><min>300000</min><max>900000</max></spawnIntervalRange>
+		</li>
+		<!-- <li Class="WVC.GeneExtension_Conditions"> -->
+			<!-- <pawnShouldHaveSubcore>true</pawnShouldHaveSubcore> -->
+			<!-- <pawnShouldBeMechaskinned>false</pawnShouldBeMechaskinned> -->
+			<!-- <pawnShouldBeImmortal>false</pawnShouldBeImmortal> -->
+		<!-- </li> -->
+	</modExtensions>
+  </GeneDef>
+
+  <!-- WVC -->
+  <GeneDef ParentName="WVC_Mechanoidization_GenepackSpawnerBase">
+	<defName>WVC_GenePackSpawner_Base</defName>
+	<label>w-pack thrower</label>
+	<iconPath>WVC/Things/XaG_Items/W_Genepack/Genepack_e</iconPath>
+	<biostatArc>1</biostatArc>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>w-</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<thingDefToSpawn>WVC_Genepack</thingDefToSpawn>
+			<stackCount>1</stackCount>
+			<spawnIntervalRange><min>300000</min><max>900000</max></spawnIntervalRange>
+		</li>
+	</modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Mechanoidization_GenepackSpawnerBase">
+	<defName>WVC_GenePackSpawner_Ultra</defName>
+	<label>ultrapack thrower</label>
+	<iconPath>WVC/Things/XaG_Items/Ultra_Genepack/Miscpack_e</iconPath>
+	<biostatArc>2</biostatArc>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>ultra-</symbol></li>
+		<li><symbol>ultra</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<thingDefToSpawn>WVC_UltraGenepack</thingDefToSpawn>
+			<stackCount>1</stackCount>
+			<spawnIntervalRange><min>300000</min><max>900000</max></spawnIntervalRange>
+		</li>
+	</modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="WVC_Mechanoidization_GenepackSpawnerBase">
+	<defName>WVC_GenePackSpawner_Mecha</defName>
+	<label>mechapack thrower</label>
+	<iconPath>WVC/Things/XaG_Items/Mecha_Genepack/Archopack_a</iconPath>
+	<biostatArc>2</biostatArc>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>mecha-</symbol></li>
+		<li><symbol>mecha</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<thingDefToSpawn>WVC_MechaGenepack</thingDefToSpawn>
+			<stackCount>1</stackCount>
+			<spawnIntervalRange><min>300000</min><max>900000</max></spawnIntervalRange>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- Alpha Genes -->
+  <GeneDef MayRequireAnyOf="sarg.alphagenes" ParentName="WVC_Mechanoidization_GenepackSpawnerBase">
+	<defName>WVC_GenePackSpawner_AlphaBase</defName>
+	<label>alphapack thrower</label>
+	<iconPath>Things/Item/AG_Alphapack/AG_Alphapack_e</iconPath>
+	<biostatArc>1</biostatArc>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>alpha-</symbol></li>
+		<li><symbol>alpha</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<thingDefToSpawn>AG_Alphapack</thingDefToSpawn>
+			<stackCount>1</stackCount>
+			<spawnIntervalRange><min>300000</min><max>900000</max></spawnIntervalRange>
+		</li>
+	</modExtensions>
+  </GeneDef>
+  <GeneDef MayRequireAnyOf="sarg.alphagenes" ParentName="WVC_Mechanoidization_GenepackSpawnerBase">
+	<defName>WVC_GenePackSpawner_AlphaMixed</defName>
+	<label>mixedpack thrower</label>
+	<iconPath>Things/Item/AG_Mixedpack/AG_Mixedpack_e</iconPath>
+	<biostatArc>2</biostatArc>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>mixed-</symbol></li>
+		<li><symbol>mixed</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<thingDefToSpawn>AG_Mixedpack</thingDefToSpawn>
+			<stackCount>1</stackCount>
+			<spawnIntervalRange><min>300000</min><max>900000</max></spawnIntervalRange>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- Disable -->
+  <GeneDef ParentName="WVC_Mechanoidization_GenepackSpawnerBase">
+	<defName>WVC_GenePackSpawner_Disable</defName>
+	<label>disabled thrower</label>
+	<iconPath>WVC/UI/Genes/Genepack_Disable</iconPath>
+	<selectionWeight>0.0001</selectionWeight>
+	<geneClass>Gene</geneClass>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<customEffectDescriptions Inherit="False">
+		<li>Disables genepack thrower genes.</li>
+	</customEffectDescriptions>
+	<statOffsets>
+	  <InjuryHealingFactor>0.25</InjuryHealingFactor>
+	</statOffsets>
+  </GeneDef>
+
+</Defs>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<MemeDef ParentName="WVC_XenotypesAndGenes_Shapeshifters_Base">
+		<defName>WVC_Shapeshifterist</defName>
+		<label>shapeshifter</label>
+		<description>There is no greater good than being who you want.</description>
+		<iconPath>WVC/UI/Precepts/Meme_Shapeshifter2_v0</iconPath>
+		<groupDef>Misc</groupDef>
+		<impact>2</impact>
+		<exclusionTags>
+		  <li>WVC_GeneticSupremacy</li>
+		</exclusionTags>
+		<requireOne>
+		  <li>
+			<li>WVC_Shapeshifters_Revered</li>
+		  </li>
+		</requireOne>
+	</MemeDef>
+
+</Defs>

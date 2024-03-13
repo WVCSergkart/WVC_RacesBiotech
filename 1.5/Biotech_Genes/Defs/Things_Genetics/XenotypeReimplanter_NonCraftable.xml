@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ==================================== -->
+
+  <ThingDef ParentName="WVC_XenotypeSerum_NonCraftable">
+	<defName>WVC_XenotypeSerum_Random</defName>
+	<label>xenotype serum (random)</label>
+	<tradeTags Inherit="False">
+	  <li>WVC_All_XenotypeSerums</li>
+	</tradeTags>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenotypeForcer"/>
+	</comps>
+  </ThingDef>
+  
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+	<defName>WVC_AdministerXenotypeSerum_Random</defName>
+	<label>administer xenotype serum (random)</label>
+	<description>Administer a xenotype serum.</description>
+	<jobString>Administering xenotype serum.</jobString>
+	<ingredients>
+	  <li>
+		<filter>
+		  <thingDefs>
+			<li>WVC_XenotypeSerum_Random</li>
+		  </thingDefs>
+		</filter>
+		<count>1</count>
+	  </li>
+	</ingredients>
+	<fixedIngredientFilter>
+	  <thingDefs>
+		<li>WVC_XenotypeSerum_Random</li>
+	  </thingDefs>
+	</fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- ==================================== -->
+
+  <ThingDef ParentName="WVC_XenotypeSerum_NonCraftable">
+	<defName>WVC_XenotypeSerum_CustomRandom</defName>
+	<label>xenotype serum (custom)</label>
+	<description>A one-use super-dose of mechanites tuned to change the user's xenotype. After using the serum, the user will fall into a two-day coma.
+
+If the user's genes are regrowing, then instead of applying the xenotype, the gene regeneration timer will be reset.
+
+&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; If the xenotype is inheritable and has no skin/hair color, then a white skin/hair gene will be added.
+
+&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; If there are no &lt;color=#f5ffa2&gt;custom xenotypes&lt;/color&gt;, then the pawn will receive a random &lt;color=#f5ffa2&gt;normal xenotype&lt;/color&gt;.</description>
+	<tradeTags Inherit="False">
+	  <li>WVC_All_XenotypeSerums</li>
+	</tradeTags>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenotypeForcer">
+		<xenotypeForcerType>Custom</xenotypeForcerType>
+	  </li>
+	</comps>
+  </ThingDef>
+  
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+	<defName>WVC_AdministerXenotypeSerum_CustomRandom</defName>
+	<label>administer custom xenotype serum (random)</label>
+	<description>Administer a custom xenotype serum.</description>
+	<jobString>Administering custom xenotype serum.</jobString>
+	<ingredients>
+	  <li>
+		<filter>
+		  <thingDefs>
+			<li>WVC_XenotypeSerum_CustomRandom</li>
+		  </thingDefs>
+		</filter>
+		<count>1</count>
+	  </li>
+	</ingredients>
+	<fixedIngredientFilter>
+	  <thingDefs>
+		<li>WVC_XenotypeSerum_CustomRandom</li>
+	  </thingDefs>
+	</fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- ==================================== -->
+
+  <ThingDef ParentName="WVC_XenotypeSerum_NonCraftable">
+	<defName>WVC_XenotypeSerum_Baseliner</defName>
+	<label>xenotype nullifier serum</label>
+	<description>A one-use super-dose of mechanites tuned to nullify the user's xenotype. After using the serum, the &lt;color=#f5ffa2&gt;user's melanin will be randomized&lt;/color&gt;, and the user himself will fall into a two-day coma.
+
+If the user's genes are regrowing, then instead of applying the xenotype, the gene regeneration timer will be reset.</description>
+	<descriptionHyperlinks Inherit="False"/>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/NullSerumB_v0</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenotypeForcer">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_XenotypeNullifier</compClass>
+		<removeSkinColor>false</removeSkinColor>
+	  </li>
+	</comps>
+  </ThingDef>
+  
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+	<defName>WVC_AdministerXenotypeSerum_Baseliner</defName>
+	<label>administer xenotype nullifier serum</label>
+	<description>Administer a xenotype nullifier serum.</description>
+	<jobString>Administering xenotype nullifier serum.</jobString>
+	<ingredients>
+	  <li>
+		<filter>
+		  <thingDefs>
+			<li>WVC_XenotypeSerum_Baseliner</li>
+		  </thingDefs>
+		</filter>
+		<count>1</count>
+	  </li>
+	</ingredients>
+	<fixedIngredientFilter>
+	  <thingDefs>
+		<li>WVC_XenotypeSerum_Baseliner</li>
+	  </thingDefs>
+	</fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- =================================================================================== -->
+
+  <ThingDef ParentName="WVC_XenotypeSerum_NonCraftable" WVC_XaG_EasyPatch="ThingDefSerumXenotypeForcerII">
+	<defName>WVC_XenotypeSerum_Ultra</defName>
+	<label>ultratype serum</label>
+	<!-- <stackLimit>1</stackLimit> -->
+	<!-- <drawGUIOverlay>false</drawGUIOverlay> -->
+	<tradeTags>
+	  <li>WVC_XenotypeSerums</li>
+	  <li>WVC_All_XenotypeSerums</li>
+	  <li>WVC_XenotypeSerums_NonCraftable</li>
+	</tradeTags>
+	<recipeMaker>
+	  <displayPriority>-19</displayPriority>
+	  <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
+	  <researchPrerequisites>
+		<li>Archogenetics</li>
+		<li>WVC_XenotypesAndGenes_XenotypeSerumCrafting</li>
+	  </researchPrerequisites>
+	  <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+	  <workSkill>Crafting</workSkill>
+	  <effectWorking>Smith</effectWorking>
+	  <soundWorking>Recipe_Machining</soundWorking>
+	  <recipeUsers>
+		<li>WVC_SerumCraftingTable</li>
+	  </recipeUsers>
+	  <useIngredientsForColor>false</useIngredientsForColor>
+	  <skillRequirements>
+		<Crafting>14</Crafting>
+		<Intellectual>14</Intellectual>
+	  </skillRequirements>
+	</recipeMaker>
+	<thingCategories>
+	  <li>WVC_XenotypeSerums_Ultra</li>
+	</thingCategories>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenotypeForcer_II">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_XenotypeForcer_II</compClass>
+		<xenotypeType>Archite</xenotypeType>
+		<removeEndogenes>false</removeEndogenes>
+		<removeXenogenes>true</removeXenogenes>
+		<jobString>Retune</jobString>
+		<retuneJob>WVC_XenotypesAndGenes_RetuneSerum</retuneJob>
+		<researchPrerequisites>
+		  <li>WVC_XenotypesAndGenes_RetuneSerum</li>
+		</researchPrerequisites>
+	  </li>
+	</comps>
+  </ThingDef>
+  
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+	<defName>WVC_AdministerXenotypeSerum_Ultra</defName>
+	<label>administer ultratype serum</label>
+	<description>Administer a ultratype serum.</description>
+	<jobString>Administering ultratype serum.</jobString>
+	<ingredients>
+	  <li>
+		<filter>
+		  <thingDefs>
+			<li>WVC_XenotypeSerum_Ultra</li>
+		  </thingDefs>
+		</filter>
+		<count>1</count>
+	  </li>
+	</ingredients>
+	<fixedIngredientFilter>
+	  <thingDefs>
+		<li>WVC_XenotypeSerum_Ultra</li>
+	  </thingDefs>
+	</fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- =========== -->
+
+  <ThingDef ParentName="WVC_XenotypeResurrectorSerum_NonCraftable" WVC_XaG_EasyPatch="ThingDefSerumXenotypeForcerII">
+	<defName>WVC_XenotypeResurrectorSerum_Ultra</defName>
+	<label>xenotype resurrector</label>
+	<!-- <stackLimit>1</stackLimit> -->
+	<!-- <drawGUIOverlay>false</drawGUIOverlay> -->
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/ResurrectSerumB_v0</texPath>
+	</graphicData>
+	<tradeTags>
+	  <li>WVC_XenotypeSerums</li>
+	  <li>WVC_All_XenotypeSerums</li>
+	  <li>WVC_XenotypeSerums_NonCraftable</li>
+	</tradeTags>
+	<thingCategories>
+	  <li>WVC_XenotypeSerums_Ultra</li>
+	</thingCategories>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_TargetEffect_DoJobOnTarget">
+		<moteDef>Mote_ResurrectFlash</moteDef>
+		<jobDef>WVC_XenotypesAndGenes_ResurrectAndChangeXenotype</jobDef>
+	  </li>
+	</comps>
+  </ThingDef>
+
+</Defs>

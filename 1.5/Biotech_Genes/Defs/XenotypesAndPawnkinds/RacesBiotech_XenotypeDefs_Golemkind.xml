@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- golemkind -->
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base">
+	<defName>WVC_Golemkind</defName>
+	<label>golemkind</label>
+	<!-- Modification, side effect, enhanced features -->
+	<description>Golemkinds are ageless super-humans powered by archotech-created archites in the bloodstream. They are extremely slow, have poor psychic sensitivity, are very slow to learn, and their wounds take a very long time to heal. However, they are immune to most diseases, have excellent fire resistance, are very durable, and require very little food.</description>
+	<descriptionShort>Golemkinds are ageless super-humans powered by archotech-created archites in the bloodstream. They are extremely slow, have poor psychic sensitivity, are very slow to learn, and their wounds take a very long time to heal. However, they are immune to most diseases, have excellent fire resistance, are very durable, and require very little food.</descriptionShort>
+	<iconPath>WVC/UI/Xeno2Icons/Xeno25</iconPath>
+	<inheritable>false</inheritable>
+	<!-- <canGenerateAsCombatant>true</canGenerateAsCombatant> -->
+	<doubleXenotypeChances>
+		<WVC_RuneDryad>1.0</WVC_RuneDryad>
+	</doubleXenotypeChances>
+	<genes>
+		<!-- <li>Ageless</li> -->
+		<li>DiseaseFree</li>
+		<li>PerfectImmunity</li>
+		<li>WoundHealing_Slow</li>
+		<!-- <li>MoveSpeed_Slow</li> -->
+		<!-- <li>NakedSpeed</li> -->
+		<li>WVC_GolemSensetivity_Extreme</li>
+		<li>ToxicEnvironmentResistance_Total</li>
+		<!-- <li>WVC_ArmoredSkin_Stone</li> -->
+		<li>WVC_ArmoredSkin_Plasteel</li>
+		<!-- <li>WVC_SleepyStomach</li> -->
+		<li>WVC_StoneStomach</li>
+		<li>WVC_PsychicAbility_Dull</li>
+		<li>WVC_MechaPowerSource_Stable</li>
+		<!-- <li>Robust</li> -->
+		<li>WVC_ForeverYoung</li>
+		<li>WVC_NaturalFastGrowing</li>
+		<li>WVC_Tough</li>
+		<li>Pain_Reduced</li>
+		<!-- <li>Sterile</li> -->
+		<li>Hair_BaldOnly</li>
+		<li>Beard_NoBeardOnly</li>
+		<li>WVC_SkinColor_Granite</li>
+		<li>WVC_SkinColor_Limestone</li>
+		<li>WVC_SkinColor_Marble</li>
+		<li>WVC_SkinColor_Sandstone</li>
+		<li>WVC_SkinColor_Slate</li>
+		<!-- <li>WVC_SkinColor_Coral</li> -->
+		<li>StrongStomach</li>
+		<li>Learning_Slow</li>
+		<li>WVC_StoneSkin</li>
+		<li>Unstoppable</li>
+		<li>AptitudeStrong_Mining</li>
+		<!-- = -->
+		<li>WVC_PredatorPrey_NotTasty</li>
+	</genes>
+  </XenotypeDef>
+
+</Defs>

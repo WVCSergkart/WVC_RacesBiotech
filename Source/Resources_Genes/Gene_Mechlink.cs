@@ -41,7 +41,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_ResurgentMechlink : Gene_Mechlink
+	public class Gene_MechlinkWithGizmo : Gene_Mechlink
 	{
 
 		private Gizmo gizmo;
@@ -61,6 +61,13 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 		}
+
+	}
+
+	[Obsolete]
+	public class Gene_ResurgentMechlink : Gene_MechlinkWithGizmo
+	{
+
 
 	}
 

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Stone" Name="WVC_XenotypesAndGenes_Golemlike_StoneHeavy" Abstract="True">
+		<statBases>
+			<ArmorRating_Sharp>0.55</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.65</ArmorRating_Blunt>
+			<MoveSpeed>1.6</MoveSpeed>
+			<WVC_GolemBandwidthCost>3</WVC_GolemBandwidthCost>
+			<Mass>126</Mass>
+			<!-- Work -->
+			<MiningSpeed>0.5</MiningSpeed>
+			<PlantWorkSpeed>0.5</PlantWorkSpeed>
+			<ConstructionSpeed>0.5</ConstructionSpeed>
+			<SmoothingSpeed>0.5</SmoothingSpeed>
+			<GeneralLaborSpeed>0.5</GeneralLaborSpeed>
+			<MedicalTendSpeed>0.5</MedicalTendSpeed>
+			<MedicalOperationSpeed>0.5</MedicalOperationSpeed>
+			<CookSpeed>0.5</CookSpeed>
+			<SmeltingSpeed>0.5</SmeltingSpeed>
+			<DrugSynthesisSpeed>0.5</DrugSynthesisSpeed>
+			<ButcheryFleshSpeed>0.5</ButcheryFleshSpeed>
+			<ButcheryMechanoidSpeed>0.5</ButcheryMechanoidSpeed>
+		</statBases>
+		<uiIconScale>1.5</uiIconScale>
+		<tools Inherit="False">
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>24</power>
+				<cooldownTime>1.8</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+			</li>
+		</tools>
+		<race>
+			<!-- <body>Mech_Tunneler</body> -->
+			<!-- <mechWeightClass>Heavy</mechWeightClass> -->
+			<baseBodySize>1.2</baseBodySize>
+			<baseHealthScale>1.8</baseHealthScale>
+		</race>
+		<butcherProducts Inherit="False">
+			<Steel>30</Steel>
+		</butcherProducts>
+	</ThingDef>
+
+	<!-- =================================================================== -->
+
+	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_StoneHeavy">
+		<defName>WVC_Golem_Behemoth</defName>
+		<label>golem behemoth</label>
+		<statBases>
+			<ArmorRating_Sharp>0.63</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.82</ArmorRating_Blunt>
+			<MoveSpeed>2.2</MoveSpeed>
+		</statBases>
+		<race>
+			<mechEnabledWorkTypes>
+			  <li>Mining</li>
+			</mechEnabledWorkTypes>
+		</race>
+	</ThingDef>
+	<PawnKindDef ParentName="WVC_XenotypesAndGenes_NonCombatGolemKind">
+		<defName>WVC_Golem_Behemoth</defName>
+		<label>golem behemoth</label>
+		<controlGroupPortraitZoom>1.35</controlGroupPortraitZoom>
+		<race>WVC_Golem_Behemoth</race>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>WVC/Things/XaG_Pawns/Mechanoids_Golems/GolemBehemoth</texPath>
+					<drawSize>2</drawSize>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+
+</Defs>

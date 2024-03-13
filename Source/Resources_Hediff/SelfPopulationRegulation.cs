@@ -25,25 +25,26 @@ namespace WVC_XenotypesAndGenes
 	public class HediffCompProperties_GolemLimit : HediffCompProperties
 	{
 
-		public int checkInterval = 60000;
+		public IntRange checkInterval = new(45000, 85000);
 
-		// public StatDef statDef;
-
-		// public HediffCompProperties_GolemPopulationRegulation()
-		// {
-			// compClass = typeof(HediffComp_GolemPopulationRegulation);
-		// }
 	}
 
 	public class HediffComp_GolemLimit_Stone : HediffComp
 	{
 
+		public int checkInterval = 0;
+
 		public HediffCompProperties_GolemLimit Props => (HediffCompProperties_GolemLimit)props;
+
+		public override void CompPostMake()
+		{
+			checkInterval = Props.checkInterval.RandomInRange;
+		}
 
 		public override void CompPostTick(ref float severityAdjustment)
 		{
 			base.CompPostTick(ref severityAdjustment);
-			if (!Pawn.IsHashIntervalTick(Props.checkInterval))
+			if (!Pawn.IsHashIntervalTick(checkInterval))
 			{
 				return;
 			}
@@ -57,37 +58,29 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			// if (!Pawn.IsHashIntervalTick(120000))
-			// {
-				// return;
-			// }
 			Pawn overseer = golem.GetOverseer();
-			// int connectedThingsCount = 0;
-			// List<Pawn> connectedThingThing = overseer.mechanitor.ControlledPawns;
-			// foreach (Pawn item in connectedThingThing)
-			// {
-				// if (!item.health.Downed && !item.health.Dead && item.kindDef.defName.Contains(golem.kindDef.defName))
-				// {
-					// connectedThingsCount++;
-				// }
-			// }
-			if (!GolemsUtility.LimitExceedCheck(overseer))
+			if (!GolemsUtility.LimitExceedCheck(overseer) || !MechanoidsUtility.MechanitorIsGolemist(overseer))
 			{
 				base.Pawn.Kill(null, parent);
 			}
+			checkInterval = Props.checkInterval.RandomInRange;
+		}
+
+		public override void CompExposeData()
+		{
+			base.CompExposeData();
+			Scribe_Values.Look(ref checkInterval, "checkInterval", 0);
 		}
 
 	}
 
-	public class HediffComp_GolemLimit_Bone : HediffComp
+	public class HediffComp_GolemLimit_Bone : HediffComp_GolemLimit_Stone
 	{
-
-		public HediffCompProperties_GolemLimit Props => (HediffCompProperties_GolemLimit)props;
 
 		public override void CompPostTick(ref float severityAdjustment)
 		{
 			base.CompPostTick(ref severityAdjustment);
-			if (!Pawn.IsHashIntervalTick(Props.checkInterval))
+			if (!Pawn.IsHashIntervalTick(checkInterval))
 			{
 				return;
 			}
@@ -102,7 +95,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			Pawn overseer = golem.GetOverseer();
-			if (!WalkingUtility.LimitExceedCheck(overseer))
+			if (!WalkingUtility.LimitExceedCheck(overseer) || !MechanoidsUtility.MechanitorIsLich(overseer))
 			{
 				base.Pawn.Kill(null, parent);
 			}

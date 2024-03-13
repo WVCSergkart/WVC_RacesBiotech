@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ConceptDef>
+	<defName>WVC_Tutorial_XenotypeSerums_I</defName>
+	<label>WVC - Xenotype Serums I</label>
+	<!-- <priority>-1000</priority> -->
+	<priority>121</priority>
+	<needsOpportunity>false</needsOpportunity>
+	<helpText>In total, the mod contains 4 types of possible serums. Basic, ultra, hybrid and custom.
+
+Basetype serum (_name_) - contains only non-archite xenotypes. May be crafted. When crafting, as well as when generating, it always contains a random xenotype. The xenotype can be changed for free with the retuning technology.
+
+Ultratype serum (_name_) - contains only archite xenotypes. Same as basetype serum.
+
+Hybridtype serum (_name_ + _name_) - contain any two xenotypes. Same as basetype serum. But with two xenotypes.</helpText>
+  </ConceptDef>
+
+  <ConceptDef>
+	<defName>WVC_Tutorial_XenotypeSerums_II</defName>
+	<label>WVC - Xenotype Serums II</label>
+	<!-- <priority>-1000</priority> -->
+	<priority>122</priority>
+	<needsOpportunity>false</needsOpportunity>
+	<helpText>Xenotype serum (custom) - This is a custom serum that gives a random xenotype that you have created yourself. Note that if there is no suitable xenotype, then the base serum rule will be used.
+
+Hybrid serum (custom) - This is a hybrid serum that gives two xenotypes, for germline and for xenogenes. Xenotypes are selected from those that were created by you. Please note that two suitable xenotypes must exist at the same time. One is inheritable, the other is not.
+
+Whether a xenotype is considered suitable is affected by the modlist and game version. Please note that when you change the modlist or update the game, be sure to re-save custom xenotypes.</helpText>
+  </ConceptDef>
+
+  <ConceptDef>
+	<defName>WVC_Tutorial_XenotypeSerums_III</defName>
+	<label>WVC - Xenotype Serums III</label>
+	<!-- <priority>-1000</priority> -->
+	<priority>123</priority>
+	<needsOpportunity>false</needsOpportunity>
+	<helpText>Xenotype filter settings.
+
+Everything is very simple here. Open the mod settings and go to the Xenotypes Filter tab.
+Allowed xnotypes are marked with a green checkmark, prohibited ones with a red cross.
+Please note that the filter does not display xenotypes that the mod developer considered prohibited.</helpText>
+  </ConceptDef>
+
+  <ConceptDef>
+	<defName>WVC_Tutorial_XenotypeSerums_IV</defName>
+	<label>WVC - Xenotype Serums IV</label>
+	<!-- <priority>-1000</priority> -->
+	<priority>124</priority>
+	<needsOpportunity>false</needsOpportunity>
+	<helpText>Old serum generation mechanic. No longer used, but can be enabled in settings. Generatable serums:
+
+Xenotype serum (_name_) - This is a basic serum, it changes the xenotype in accordance with the one indicated in the name. If the xenotype is not inherited, then the germline is not overwritten and you can thus create a hybrid xenotype.
+
+Hybrid serum (_name_) - This is a hybrid serum, hybrid serum give 2 xenotypes, for germline and xeno respectively. The name indicates a guaranteed xenotype.</helpText>
+  </ConceptDef>
+
+  <ConceptDef>
+	<defName>WVC_Tutorial_XenotypeSerums_Desc</defName>
+	<label>Xenotype Serums Guide</label>
+	<priority>-1000</priority>
+	<needsOpportunity>false</needsOpportunity>
+	<description>In total, the mod contains 4 types of possible serums. Base, ultra, hybrid and custom.
+
+Basetype serum (_name_) - contains only non-archite xenotypes. Can be crafted. When crafting, as well as when generating, it always contains a random xenotype. The xenotype can be changed for free with the retuning technology.
+
+Ultratype serum (_name_) - contains only archite xenotypes. Same as basetype serum.
+
+Hybridtype serum (_name_ + _name_) - contain any two xenotypes. Same as basetype serum. But with two xenotypes.
+
+Xenotype serum (custom) - This is a custom serum that gives a random xenotype that you have created yourself. Note that if there is no suitable xenotype, then the base serum rule will be used.
+
+Hybrid serum (custom) - This is a hybrid serum that gives two xenotypes, for germline and for xenogenes. Xenotypes are selected from those that were created by you. Please note that two suitable xenotypes must exist at the same time. One is inheritable, the other is not.
+
+Whether a xenotype is considered suitable is affected by the modlist and game version. Please note that when you change the modlist or update the game, be sure to re-save custom xenotypes.
+
+Xenotype filter settings.
+
+Everything is very simple here. Open the mod settings and go to the Xenotypes Filter tab.
+Allowed xnotypes are marked with a green checkmark, prohibited ones with a red cross.
+
+Old serum generation mechanic. No longer used, but can be enabled in settings. Generatable serums:
+
+Xenotype serum (_name_) - This is a basic serum, it changes the xenotype in accordance with the one indicated in the name. If the xenotype is not inherited, then the germline is not overwritten and you can thus create a hybrid xenotype.
+
+Hybrid serum (_name_) - This is a hybrid serum, hybrid serum give 2 xenotypes, for germline and xeno respectively. The name indicates a guaranteed xenotype.</description>
+	<helpText>Should be never displayed.</helpText>
+  </ConceptDef>
+
+  <ConceptDef>
+	<defName>WVC_XenotypeSerums_SupportedXenotypesList</defName>
+	<label>supported xenotypes</label>
+	<priority>-1000</priority>
+	<needsOpportunity>false</needsOpportunity>
+	<description>Below is a list of xenotypes supported by serums. These xenotypes can be randomly found in serums or their serums can be crafted.</description>
+	<descriptionHyperlinks>
+	</descriptionHyperlinks>
+	<helpText>Should be never displayed.</helpText>
+  </ConceptDef>
+
+
+</Defs>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <PawnKindDef ParentName="WVC_RB_XenoBase">
+	<defName>WVC_Ashen_Player</defName>
+	<label>shapeshifter</label>
+	<xenotypeSet>
+	  <xenotypeChances>
+		<WVC_Ashen MayRequire="ludeon.rimworld.ideology">999</WVC_Ashen>
+	  </xenotypeChances>
+	</xenotypeSet>
+	<apparelTags>
+	  <li>Neolithic</li>
+	</apparelTags>
+	<extraSkillLevels>6</extraSkillLevels>
+  </PawnKindDef>
+
+</Defs>

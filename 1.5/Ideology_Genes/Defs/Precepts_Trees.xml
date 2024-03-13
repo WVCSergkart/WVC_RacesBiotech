@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ============================== -->
+
+  <PreceptDef>
+	<defName>WVC_XenoTrees_Desired</defName>
+	<issue>Trees</issue>
+	<label>xeno-tree</label>
+	<description>It is a blessing to have one of these rare trees.</description>
+	<impact>High</impact>
+	<displayOrderInImpact>40</displayOrderInImpact>
+	<requiredMemes>
+	  <li>WVC_XenotypesSupremacy</li>
+	</requiredMemes>
+	<associatedMemes>
+	  <li>WVC_XenotypesSupremacy</li>
+	</associatedMemes>
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_Trees_Desired_XenoTree</thought>
+		<description>Xeno-tree in any home map</description>
+	  </li>
+	</comps>
+  </PreceptDef>
+
+  <!-- == -->
+
+  <ThoughtDef>
+	<defName>WVC_Trees_Desired_XenoTree</defName>
+	<thoughtClass>Thought_Situational</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_HasXenoTreeAnyHomeMap</workerClass>
+	<validWhileDespawned>true</validWhileDespawned>
+	<stages>
+	  <li>
+		<label>xeno-tree</label>
+		<description>It is a blessing to have one of these rare trees.</description>
+		<baseMoodEffect>8</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <!-- ======================================================== -->
+
+  <PreceptDef>
+	<defName>WVC_ResurgentTrees_Desired</defName>
+	<issue>Trees</issue>
+	<label>resurgent tree</label>
+	<description>It is a blessing to have one of these rare trees.</description>
+	<impact>High</impact>
+	<displayOrderInImpact>40</displayOrderInImpact>
+	<requiredMemes>
+	  <li>WVC_Undeadist</li>
+	</requiredMemes>
+	<associatedMemes>
+	  <li>WVC_Undeadist</li>
+	</associatedMemes>
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_Trees_Desired_ResurgentTree</thought>
+		<description>Resurgent tree in any home map</description>
+	  </li>
+	</comps>
+  </PreceptDef>
+
+  <!-- == -->
+
+  <ThoughtDef>
+	<defName>WVC_Trees_Desired_ResurgentTree</defName>
+	<thoughtClass>Thought_Situational</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_HasResurgentTreeAnyHomeMap</workerClass>
+	<validWhileDespawned>true</validWhileDespawned>
+	<stages>
+	  <li>
+		<label>resurgent tree</label>
+		<description>It is a blessing to have one of these rare trees.</description>
+		<baseMoodEffect>8</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <!-- ======================================================== -->
+
+</Defs>

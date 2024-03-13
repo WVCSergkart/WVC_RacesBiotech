@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneResurgent_Base" Abstract="True">
+	<iconPath>WVC/UI/Genes/Gene_Deathless_v0</iconPath>
+	<marketValueFactor>1.5</marketValueFactor>
+	<selectionWeight>0.0012</selectionWeight>
+	<displayCategory>WVC_ResurgentCells</displayCategory>
+	<displayOrderInCategory>1275</displayOrderInCategory>
+	<biostatArc>0</biostatArc>
+	<iconColor>(255, 255, 255)</iconColor>
+  </GeneDef>
+
+  <!-- ================================================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneResurgent_Base">
+	<defName>WVC_ResurgentCells</defName>
+	<label>resurgent</label>
+	<description>Carriers of this gene accumulate resurgent cells over time. With the help of these cells, the host can resurrect or resurrect others.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentCells</geneClass>
+	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_ResourceResurgentCells</resourceGizmoType>
+	<!-- <resourceLabel>resurgent cells</resourceLabel> -->
+	<resourceLabel>cells</resourceLabel>
+	<resourceGizmoThresholds>
+	  <li>0.05</li>
+	  <li>0.25</li>
+	  <li>0.50</li>
+	  <li>0.75</li>
+	  <li>0.95</li>
+	</resourceGizmoThresholds>
+	<showGizmoOnWorldView>true</showGizmoOnWorldView>
+	<showGizmoWhenDrafted>true</showGizmoWhenDrafted>
+	<resourceDescription>A reserve of dormant cells that can be spent for various purposes.\n\nResurgent cells cannot be increased by any means, they regenerate themselves depending on genes and some external factors.\n\nIf the number of cells falls below 5, then most of the resurgent genes will be deactivated.</resourceDescription>
+	<!-- \n\nIf cells reaches zero, {PAWN_nameDef} will become very unhappy. -->
+	<iconPath>WVC/UI/Genes/Gene_ResurgentCells_v0</iconPath>
+	<iconColor>(93, 101, 126)</iconColor>
+	<selectionWeight>0.0011</selectionWeight>
+	<displayOrderInCategory>1230</displayOrderInCategory>
+	<customEffectDescriptions>
+	  <li>Gives resurgent supply.</li>
+	  <!-- <li>In the presence of the &lt;color=#8a8ae6&gt;"Undead"&lt;/color&gt; gene, this gene changes the resurrection mechanics. Instead of age, resurgent cells will be spent. Requires &lt;color=#8a8ae6&gt;37 resurgent cells&lt;/color&gt;.</li> -->
+	  <!-- <li>If the carrier has the &lt;color=#8a8ae6&gt;"Undead"&lt;/color&gt; gene, then the carrier will be resurrected instantly after death. Requires &lt;color=#8a8ae6&gt;41 resurgent cells&lt;/color&gt;.</li> -->
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>resur</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<!-- <minAgeActive>3</minAgeActive> -->
+	<resourceLossPerDay>-0.01</resourceLossPerDay>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-1</biostatMet>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneResurgent_Base" Name="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells" Abstract="True">
+	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentDependent</geneClass>
+	<selectionWeight>0.0009</selectionWeight>
+	<prerequisite>WVC_ResurgentCells</prerequisite>
+	<marketValueFactor>1.7</marketValueFactor>
+	<minAgeActive>3</minAgeActive>
+	<resourceLossPerDay>0.02</resourceLossPerDay>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-3</biostatMet>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells">
+	<defName>WVC_ResurgentCells_GeneticStability</defName>
+	<label>resurgent genetic</label>
+	<description>Carriers of this gene have special resurgent cells that protect their genetic code from most influences.</description>
+	<!-- <resourceLabel>resurgent cells</resourceLabel> -->
+	<resourceLabel>cells</resourceLabel>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentStability</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_ResurgentGeneticStability_v0</iconPath>
+	<iconColor>(93, 101, 126)</iconColor>
+	<displayOrderInCategory>1231</displayOrderInCategory>
+	<biostatCpx>-3</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<resourceLossPerDay>-0.02</resourceLossPerDay>
+	<customEffectDescriptions>
+	  <li>Occasionally removes the xenogerm replication effects from the carrier.</li>
+	  <!-- <li>Carriers of this gene cannot use xenotype serums.</li> -->
+	  <!-- <li>Abilities "Rise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li> -->
+	  <!-- <li>Some time after receiving the gene, it creates a backup of all carrier genes.</li> -->
+	  <!-- <li>When you try to change the genes of the carrier, the gene removes all genes and restores the backup.</li> -->
+	 <!-- <li> Also, the gene checks the backup every few days and removes the wrong genes.</li> -->
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_GeneticInstabilityGenes</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<intervalRange>222000~440000</intervalRange>
+			<hediffDefs>
+				<li>XenogermReplicating</li>
+				<li>XenogerminationComa</li>
+				<li>XenogermLossShock</li>
+			</hediffDefs>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells">
+	<defName>WVC_ResurgentCellsGain</defName>
+	<label>resurgent fungus</label>
+	<description>Carriers of this gene have a symbiotic parasitic fungus. This fungus does not have a noticeable effect on the host but significantly increases the production of resurgent cells.</description>
+	<iconPath>WVC/UI/Genes/Gene_ResurgentFungus_v0</iconPath>
+	<iconColor>(93, 101, 126)</iconColor>
+	<!-- <resourceLabel>resurgent cells</resourceLabel> -->
+	<resourceLabel>cells</resourceLabel>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentCellsGain</geneClass>
+	<displayOrderInCategory>1232</displayOrderInCategory>
+	<resourceLossPerDay>-0.02</resourceLossPerDay>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>3</biostatMet>
+	<biostatArc>1</biostatArc>
+	<makeImmuneTo>
+	  <li>LungRot</li>
+	</makeImmuneTo>
+  </GeneDef>
+
+  <!-- =============================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells">
+	<defName>WVC_ResurgentCells_TotalHealing</defName>
+	<label>resurgent healing</label>
+	<description>In carriers of this gene, resurgent cells can regenerate lost limbs or heal scars.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentTotalHealing</geneClass>
+	<!-- <marketValueFactor>3</marketValueFactor> -->
+	<iconPath>WVC/UI/Genes/Gene_ResurgentTotalHealing_v0</iconPath>
+	<displayOrderInCategory>1235</displayOrderInCategory>
+	<preventPermanentWounds>true</preventPermanentWounds>
+	<resourceLossPerDay>0.22</resourceLossPerDay>
+	<biostatCpx>4</biostatCpx>
+	<customEffectDescriptions>
+		<li>Restores a lost limb or heals scars every (*DateTime)5-15 days(/DateTime).</li>
+		<li>Requires &lt;color=#8a8ae6&gt;22 resurgent cells&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells">
+	<defName>WVC_ResurgentCells_Ageless</defName>
+	<label>resurgent ageless</label>
+	<labelShortAdj>ageless</labelShortAdj>
+	<description>Carriers of this gene completely stop aging after reaching the age of 18.</description>
+	<iconPath>WVC/UI/Genes/Gene_ResurgentAgeless_v0</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentAgeless</geneClass>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<displayOrderInCategory>1240</displayOrderInCategory>
+	<resourceLossPerDay>0.06</resourceLossPerDay>
+	<customEffectDescriptions>
+		<li>Carriers of the gene always spawn with age within 18.</li>
+		<li>The age of the gene carrier decreases by 1 year every (*DateTime)5-15 days(/DateTime), this continues until the resurgent cells run out or the carrier reaches the minimum adult age.</li>
+		<li>Requires &lt;color=#8a8ae6&gt;6 resurgent cells&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<biologicalAgeTickFactorFromAgeCurve>
+	  <points>
+		<li>(13, 1)</li>
+		<li>(18.5, 0)</li>
+	  </points>
+	</biologicalAgeTickFactorFromAgeCurve>
+	<exclusionTags>
+	  <li>WVC_Ageless</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells">
+	<defName>WVC_ResurgentCells_Clotting</defName>
+	<label>resurgent clotting</label>
+	<description>In carriers of this gene, resurgent cells can quickly stop bleeding and treat wounds.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentClotting</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_ResurgentClotting_v0</iconPath>
+	<iconColor>(93, 101, 126)</iconColor>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<displayOrderInCategory>1245</displayOrderInCategory>
+	<resourceLossPerDay>0.01</resourceLossPerDay>
+	<customEffectDescriptions>
+		<li>Treat wounds from time to time.</li>
+		<li>Requires &lt;color=#8a8ae6&gt;1 resurgent cell&lt;/color&gt; for each wound.</li>
+	</customEffectDescriptions>
+	<makeImmuneTo>
+	  <li>WoundInfection</li>
+	</makeImmuneTo>
+	<exclusionTags>
+	  <li>SuperClotting</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells">
+	<defName>WVC_ResurgentCells_Blood</defName>
+	<label>resurgent blood</label>
+	<description>In carriers of this gene, resurgent cells with sufficient saturation completely stop bleeding.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_ResurgentBlood_v0</iconPath>
+	<biostatMet>2</biostatMet>
+	<displayOrderInCategory>1250</displayOrderInCategory>
+	<!-- <resourceLossPerDay>0.70</resourceLossPerDay> -->
+	<customEffectDescriptions>
+		<li>Bleeding depends on the amount of accumulated resurgent cells.</li>
+		<li>Changes blood filth color to dark blue.</li>
+		<li>Refresh time (*DateTime)~1 day(/DateTime).</li>
+	</customEffectDescriptions>
+	<makeImmuneTo>
+	  <li MayRequire="ludeon.rimworld.royalty">BloodRot</li>
+	</makeImmuneTo>
+	<exclusionTags>
+	  <li>AG_Bleeding</li>
+	  <li>Bleeding</li>
+	  <li>AG_BloodType</li>
+	  <li>BloodType</li>
+	  <li>Blood</li>
+	</exclusionTags>
+	<modExtensions Inherit="False">
+		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+			<!-- blood -->
+			<customBloodThingDef>WVC_ResurgentBlood</customBloodThingDef>
+			<customBloodIcon>WVC/UI/BloodIcon/Gene_ResurgentBloodIcon_v0</customBloodIcon>
+			<customBloodEffect>WVC_Damage_Hit_Resurgent</customBloodEffect>
+			<customWoundsFromFleshtype>WVC_ResurgentWounds</customWoundsFromFleshtype>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_ResurgentBlood_Bleeding</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells">
+	<defName>WVC_ResurgentCells_Stomach</defName>
+	<label>resurgent stomach</label>
+	<description>In carriers of this gene, resurgent cells significantly improve digestion.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_ResurgentStomach_v0</iconPath>
+	<biostatMet>3</biostatMet>
+	<displayOrderInCategory>1252</displayOrderInCategory>
+	<!-- <resourceLossPerDay>0.50</resourceLossPerDay> -->
+	<customEffectDescriptions>
+		<li>Hunger rate factor depends on the amount of accumulated resurgent cells.</li>
+		<li>Refresh time (*DateTime)~1 day(/DateTime).</li>
+	</customEffectDescriptions>
+	<makeImmuneTo>
+	  <li>GutWorms</li>
+	</makeImmuneTo>
+	<exclusionTags>
+	  <li>WVC_HybridStomach</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_ResurgentStomach_HungerFactor</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells">
+	<defName>WVC_ResurgentCells_Sleep</defName>
+	<label>resurgent sleep</label>
+	<description>In carriers of this gene, resurgent cells optimize metabolic processes and reduce the load on neuronal clusters, which reduces the need for sleep.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_ResurgentSleep_v0</iconPath>
+	<iconColor>(93, 101, 126)</iconColor>
+	<biostatMet>3</biostatMet>
+	<displayOrderInCategory>1254</displayOrderInCategory>
+	<!-- <resourceLossPerDay>0.50</resourceLossPerDay> -->
+	<customEffectDescriptions>
+		<li>Rest fall rate factor depends on the amount of accumulated resurgent cells.</li>
+		<li>Refresh time (*DateTime)~1 day(/DateTime).</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>Sleep</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_ResurgentSleep_RestFallRateFactor</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells" MayRequire="ludeon.rimworld.royalty"> -->
+	<!-- <defName>WVC_ResurgentPsylink</defName> -->
+	<!-- <label>resurgent psylink</label> -->
+	<!-- <description>Carriers of this gene gain psionic power from the hemogen.</description> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_HemogenDrain_Psylink</geneClass> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_Psylink_Hemogen_v0</iconPath> -->
+	<!-- <displayOrderInCategory>60</displayOrderInCategory> -->
+	<!-- <minAgeActive>3</minAgeActive> -->
+	<!-- <resourceLabel>cells</resourceLabel> -->
+	<!-- <resourceLossPerDay>0.02</resourceLossPerDay> -->
+	<!-- <biostatCpx>1</biostatCpx> -->
+	<!-- <biostatArc>1</biostatArc> -->
+	<!-- <biostatMet>-3</biostatMet> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Carriers of this gene get &lt;color=#8a8ae6&gt;psylink&lt;/color&gt; permanently.</li> -->
+		<!-- <li>&lt;color=#8a8ae6&gt;Psyfocus&lt;/color&gt; is passively &lt;color=#8a8ae6&gt;replenished&lt;/color&gt; relative to the psylink's level.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <suppressedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>PsychicSensitivity</def> -->
+		<!-- <degree>-2</degree> -->
+	  <!-- </li> -->
+	<!-- </suppressedTraits> -->
+	<!-- <symbolPack> -->
+	  <!-- <prefixSymbols> -->
+		<!-- <li><symbol>psy</symbol></li> -->
+		<!-- <li><symbol>focus</symbol></li> -->
+	  <!-- </prefixSymbols> -->
+	<!-- </symbolPack> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>Psylink</li> -->
+	  <!-- <li>AbilityPsylink</li> -->
+	<!-- </exclusionTags> -->
+  <!-- </GeneDef> -->
+
+  <!-- ================================================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneResurgent_Base">
+	<defName>WVC_ResurgentCells_Skeleton</defName>
+	<label>skeleton</label>
+	<description>Carriers of this gene have very weak bones.</description>
+	<iconPath>WVC/UI/Genes/Gene_Skeleton_v0</iconPath>
+	<biostatCpx>0</biostatCpx>
+	<biostatMet>6</biostatMet>
+	<displayOrderInCategory>1351</displayOrderInCategory>
+	<statFactors>
+	  <IncomingDamageFactor>1.5</IncomingDamageFactor>
+	</statFactors>
+	<capMods>
+	  <li>
+		<capacity>Manipulation</capacity>
+		<setMax>1.0</setMax>
+	  </li>
+	  <li>
+		<capacity>Moving</capacity>
+		<setMax>1.0</setMax>
+	  </li>
+	</capMods>
+	<exclusionTags>
+	  <li>MoveSpeed</li>
+	  <li>Hands</li>
+	  <li>Toughness</li>
+	</exclusionTags>
+  </GeneDef>
+
+</Defs>

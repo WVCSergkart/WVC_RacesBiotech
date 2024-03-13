@@ -6,10 +6,38 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public static class MechanoidsUtility
+	public static class MechanoidsUtility
 	{
 
 		// Ideo
+
+		public static bool MechanitorIsLich(Pawn mechanitor)
+		{
+			if (!MechanitorUtility.IsMechanitor(mechanitor))
+			{
+				return false;
+			}
+			Gene_MechlinkWithGizmo gene = mechanitor.genes?.GetFirstGeneOfType<Gene_MechlinkWithGizmo>();
+			if (gene != null && gene.def.resourceGizmoType == typeof(GeneGizmo_ResurgentSpores))
+			{
+				return true;
+			}
+			return false;
+		}
+
+		public static bool MechanitorIsGolemist(Pawn mechanitor)
+		{
+			if (!MechanitorUtility.IsMechanitor(mechanitor))
+			{
+				return false;
+			}
+			Gene_MechlinkWithGizmo gene = mechanitor.genes?.GetFirstGeneOfType<Gene_MechlinkWithGizmo>();
+			if (gene != null && gene.def.resourceGizmoType == typeof(Gizmo_MaxGolems))
+			{
+				return true;
+			}
+			return false;
+		}
 
 		// public static bool CanSummonMechanoidsIdeo(Pawn pawn)
 		// {

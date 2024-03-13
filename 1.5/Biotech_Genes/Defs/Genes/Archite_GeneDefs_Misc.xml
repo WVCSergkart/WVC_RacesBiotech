@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Connected -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Archites">
+	<defName>WVC_ArchiteFleetConnected</defName>
+	<label>fleet connected</label> 
+	<labelShortAdj>connected</labelShortAdj>
+	<description>Carriers of this gene have archites that amplify the mechlink's signal, allowing the bearer to establish a stable link with a nearby fleet of mechanoids and use their systems. This link opens up access to the almost endless possibilities of mechanoid control.</description>
+	<iconPath>WVC/UI/Genes/FleetConnection</iconPath>
+	<iconColor>(184, 198, 203)</iconColor>
+	<!-- <iconColor>(255, 230, 215)</iconColor> -->
+	<!-- <iconColor>(79, 80, 81)</iconColor> -->
+	<!-- <displayCategory>Archite</displayCategory> -->
+	<displayCategory>Ability</displayCategory>
+	<displayOrderInCategory>234</displayOrderInCategory>
+	<!-- <prerequisite>WVC_ArchiteMechlink</prerequisite> -->
+	<marketValueFactor>3</marketValueFactor>
+	<!-- <selectionWeight>0.00125</selectionWeight> -->
+	<suppressedTraits>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-1</degree>
+	  </li>
+	  <li>
+		<def>PsychicSensitivity</def>
+		<degree>-2</degree>
+	  </li>
+	</suppressedTraits>
+	<statOffsets>
+		<!-- <WVC_PawnMechanoidization>3</WVC_PawnMechanoidization> -->
+		<MechBandwidth>74</MechBandwidth>
+		<MechControlGroups>6</MechControlGroups>
+		<WorkSpeedGlobalOffsetMech>1.0</WorkSpeedGlobalOffsetMech>
+		<MechFormingSpeed>1</MechFormingSpeed>
+		<MechRepairSpeed>1</MechRepairSpeed>
+	</statOffsets>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<exclusionTags>
+	  <li>WVC_MechanitorNetwork</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>connect</symbol></li>
+		<li><symbol>con</symbol></li>
+		<li><symbol>connec</symbol></li>
+		<li><symbol>meca</symbol></li>
+		<li><symbol>mec</symbol></li>
+		<li><symbol>meh</symbol></li>
+		<li><symbol>mech</symbol></li>
+		<li><symbol>mecha</symbol></li>
+		<li><symbol>machi</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<!-- <abilities> -->
+	  <!-- <li>WVC_MechSummon_Light</li> -->
+	  <!-- <li>WVC_MechSummon_Medium</li> -->
+	  <!-- <li>WVC_MechSummon_Heavy</li> -->
+	<!-- </abilities> -->
+	<!-- <descriptionHyperlinks> -->
+	  <!-- <AbilityDef>WVC_MechSummon_Light</AbilityDef> -->
+	  <!-- <AbilityDef>WVC_MechSummon_Medium</AbilityDef> -->
+	  <!-- <AbilityDef>WVC_MechSummon_Heavy</AbilityDef> -->
+	<!-- </descriptionHyperlinks> -->
+  </GeneDef>
+
+  <!-- Hidden -->
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_Archites" Name="WVC_Mechanoidization_HiddenBase" Abstract="True"> -->
+	<!-- <description>Carriers of this gene have archites that are capable of self-replication. This significantly reduces complexity and reduces the need for archites capsules.</description> -->
+	<!-- <iconPath>WVC/UI/Genes/Gear</iconPath> -->
+	<!-- <iconColor>(255, 150, 150)</iconColor> -->
+	<!-- <displayOrderInCategory>0</displayOrderInCategory> -->
+	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <hideGene>true</hideGene> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Archites">
+	<defName>WVC_MechaHidden_ArchiteForge</defName>
+	<label>total healing</label>
+	<!-- <label>archite-forge</label> -->
+	<description>Carriers of this gene have archites that regenerate lost limbs or heal scars.</description>
+	<!-- <selectionWeight>0.001</selectionWeight> -->
+	<geneClass>WVC_XenotypesAndGenes.Gene_RestoreMissingBodyParts</geneClass>
+	<iconColor>(255, 255, 255)</iconColor>
+	<marketValueFactor>3</marketValueFactor>
+	<iconPath>WVC/UI/Genes/Gene_TotalHealing_v0</iconPath>
+	<displayCategory>Archite</displayCategory>
+	<displayOrderInCategory>0</displayOrderInCategory>
+	<preventPermanentWounds>true</preventPermanentWounds>
+	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
+	<biostatCpx>4</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>0</biostatMet>
+	<!-- <selectionWeight>0.00125</selectionWeight> -->
+	<customEffectDescriptions>
+		<li>Restores a lost limb or heals scars every (*DateTime)15-30 days(/DateTime).</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <!-- ================================================================== -->
+
+  <!-- Obsolete. Too buggy and crooked, there is already a better solution. -->
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_Archites" Name="WVC_PassivePawnGestator_Base" Abstract="True"> -->
+	<!-- <description>Carriers of this gene have archites that replace the carrier's reproductive system with a gestator.</description> -->
+	<!-- <biostatCpx>3</biostatCpx> -->
+	<!-- <biostatMet>0</biostatMet> -->
+	<!-- <biostatArc>2</biostatArc> -->
+	<!-- <displayCategory>Reproduction</displayCategory> -->
+	<!-- <displayOrderInCategory>-552</displayOrderInCategory> -->
+	<!-- <minAgeActive>13</minAgeActive> -->
+	<!-- <sterilize>true</sterilize> -->
+	<!-- <selectionWeight>0.000125</selectionWeight> -->
+	<!-- <statFactors> -->
+	  <!-- <Fertility>0</Fertility> -->
+	<!-- </statFactors> -->
+	<!-- <exclusionTags> -->
+		<!-- <li>Fertility</li> -->
+		<!-- <li>Egglaying</li> -->
+		<!-- <li>AG_Egglaying</li> -->
+		<!-- <li>AG_Gestation</li> -->
+		<!-- <li>AG_Fertility</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <symbolPack> -->
+	  <!-- <prefixSymbols> -->
+		<!-- <li><symbol>gesta</symbol></li> -->
+		<!-- <li><symbol>gest</symbol></li> -->
+		<!-- <li><symbol>ges</symbol></li> -->
+		<!-- <li><symbol>mech</symbol></li> -->
+	  <!-- </prefixSymbols> -->
+	  <!-- <suffixSymbols> -->
+		<!-- <li><symbol>gesta</symbol></li> -->
+		<!-- <li><symbol>gest</symbol></li> -->
+		<!-- <li><symbol>ges</symbol></li> -->
+		<!-- <li><symbol>tor</symbol></li> -->
+		<!-- <li><symbol>or</symbol></li> -->
+	  <!-- </suffixSymbols> -->
+	<!-- </symbolPack> -->
+	<!-- <modExtensions Inherit="False"> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Background"> -->
+			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+
+  <!-- <GeneDef ParentName="WVC_PassivePawnGestator_Base"> -->
+	<!-- <defName>WVC_UrchinGestator</defName> -->
+	<!-- <label>urchin gestator</label> -->
+	<!-- <iconPath>Things/Pawn/Mechanoid/WarUrchin_south</iconPath> -->
+	<!-- <iconColor>(184, 198, 203)</iconColor> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Every 10 days will spawn urchins.</li> -->
+		<!-- <li>Urchins are not bound to a mechanitor and can run wild if ignored.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <hediffToWholeBody>WVC_Genes_UrchinGestator</hediffToWholeBody> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+
+  <!-- <GeneDef ParentName="WVC_PassivePawnGestator_Base"> -->
+	<!-- <defName>WVC_MechaGestator</defName> -->
+	<!-- <label>gestator</label> -->
+	<!-- <iconPath>WVC/UI/Genes/Gestator</iconPath> -->
+	<!-- <iconColor>(255, 255, 255)</iconColor> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Spawns a baby-pawn with similar genes every 2 years.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <hediffToWholeBody>WVC_MechaGestator</hediffToWholeBody> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
+
+</Defs>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_RB_MechaClaws</defName>
+	<label>outdated</label>
+	<description>Outdated.</description>
+	<hediffClass>HediffWithComps</hediffClass>
+	<stages>
+	  <li>
+		<becomeVisible>false</becomeVisible>
+	  </li>
+	</stages>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_ReplaceWithHediff">
+		<geneDef>WVC_MecaBodyParts_Claws</geneDef>
+		<hediffDef>WVC_XaG_ArchiteClaws</hediffDef>
+		<bodyparts>
+		  <!-- <li>Torso</li> -->
+		  <li>Hand</li>
+		  <li>Hand</li>
+		</bodyparts>
+	  </li>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_RB_NaturalClaws</defName>
+	<label>outdated</label>
+	<description>Outdated.</description>
+	<hediffClass>HediffWithComps</hediffClass>
+	<stages>
+	  <li>
+		<becomeVisible>false</becomeVisible>
+	  </li>
+	</stages>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_ReplaceWithHediff">
+		<geneDef>WVC_NaturalBodyParts_Claws</geneDef>
+		<hediffDef>WVC_XaG_NaturalClaws</hediffDef>
+		<bodyparts>
+		  <!-- <li>Torso</li> -->
+		  <li>Hand</li>
+		  <li>Hand</li>
+		</bodyparts>
+	  </li>
+	</comps>
+  </HediffDef>
+
+</Defs>

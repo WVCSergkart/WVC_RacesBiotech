@@ -34,20 +34,20 @@ namespace WVC_XenotypesAndGenes
 		public Gene_Scarifier cachedScarifierGene = null;
 		public Gene_GeneticInstability cachedGeneticInstabilityGene = null;
 
-		private bool cachedShouldShowGolemsInfo = false;
+		// private bool cachedShouldShowGolemsInfo = false;
 
 		private int nextRecache = -1;
 
 		public void CacheInfoGenes(Pawn pawn)
 		{
 			GetAllGenesOfTypes(pawn);
-			if (WVC_Biotech.settings.enableGolemsInfo)
-			{
-				if (MechanitorUtility.IsMechanitor(pawn) && GolemsUtility.MechanitorHasAnyGolems(pawn))
-				{
-					cachedShouldShowGolemsInfo = true;
-				}
-			}
+			// if (WVC_Biotech.settings.enableGolemsInfo)
+			// {
+				// if (MechanitorUtility.IsMechanitor(pawn) && GolemsUtility.MechanitorHasAnyGolems(pawn))
+				// {
+					// cachedShouldShowGolemsInfo = true;
+				// }
+			// }
 			nextRecache = Find.TickManager.TicksGame + Props.recacheFrequency;
 		}
 
@@ -184,7 +184,7 @@ namespace WVC_XenotypesAndGenes
 
 		// =================
 
-		private Gizmo_MaxGolems gizmo;
+		// private Gizmo_MaxGolems gizmo;
 
 		public override IEnumerable<Gizmo> CompGetGizmosExtra()
 		{
@@ -197,17 +197,17 @@ namespace WVC_XenotypesAndGenes
 			{
 				CacheInfoGenes(pawn);
 			}
-			if (cachedShouldShowGolemsInfo && WVC_Biotech.settings.enableGolemsInfo)
-			{
-				if (gizmo == null)
-				{
-					gizmo = (Gizmo_MaxGolems)Activator.CreateInstance(Props.golemGizmoType, pawn);
-				}
-				if (Find.Selector.SelectedPawns.Count == 1)
-				{
-					yield return gizmo;
-				}
-			}
+			// if (cachedShouldShowGolemsInfo && WVC_Biotech.settings.enableGolemsInfo)
+			// {
+				// if (gizmo == null)
+				// {
+					// gizmo = (Gizmo_MaxGolems)Activator.CreateInstance(Props.golemGizmoType, pawn);
+				// }
+				// if (Find.Selector.SelectedPawns.Count == 1)
+				// {
+					// yield return gizmo;
+				// }
+			// }
 		}
 
 	}

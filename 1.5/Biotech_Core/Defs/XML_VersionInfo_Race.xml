@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<XmlExtensions.SettingsMenuDef>
+		<defName>VersionInfo_RaceBiotech_WVC</defName>
+		<modId>honkai.girls.sergkart</modId>
+		<settings>
+			<li Class="XmlExtensions.Setting.Text">
+				<text>BIO v1.17.57</text>
+				<anchor>Middle</anchor>
+			</li>
+		</settings>
+	</XmlExtensions.SettingsMenuDef>
+</Defs>

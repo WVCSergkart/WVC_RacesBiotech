@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- shapeshifter -->
+  <XenotypeDef MayRequire="ludeon.rimworld.ideology" ParentName="WVC_RB_Xenotypes_Base" Abstract="True">
+	<!-- Experiments, shapeshift, mysterious origin -->
+	<description>Shapeshifter isn't exactly a xenotype. This is a modification of the xenotype powered by archotech-created archites in the bloodstream. Shapeshifters can be of any xenotype and their strengths and weaknesses depend entirely on this.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; The xenotype has a gene that allows you to change the set of genes to any other, depending on the selected xenotype.
+
+&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; The duration of the ability's cooldown depends on the duration of the vanilla "Genes regrowing" hediff. That is, to reduce the cooldown, either use “Gene restoration serum” from this mod, or mods that reduce the cooldown of genes.</description>
+	<descriptionShort>Shapeshifter isn't exactly a xenotype. This is a modification of the xenotype powered by archotech-created archites in the bloodstream. Shapeshifters can be of any xenotype and their strengths and weaknesses depend entirely on this.</descriptionShort>
+	<displayPriority>-2000</displayPriority>
+	<canGenerateAsCombatant>true</canGenerateAsCombatant>
+	<iconPath>WVC/UI/Mecha_Icons/Icon_ShapeshifterHorns</iconPath>
+	<generateWithXenogermReplicatingHediffChance>0.2</generateWithXenogermReplicatingHediffChance>
+	<xenogermReplicatingDurationLeftDaysRange>0.1~40</xenogermReplicatingDurationLeftDaysRange>
+	<genes>
+		<!-- Base -->
+		<li>Deathless</li>
+		<li>WVC_ArchitePerfectImmunity_DiseaseFree</li>
+		<li>WVC_Scarifier_Clotting</li>
+		<li>WVC_WoundHealing_UnrealFast</li>
+		<li>WVC_NaturalAgeless</li>
+		<li>WVC_ForeverYoung</li>
+		<li>WVC_ExtremeGeneticInstability</li>
+		<li>PsychicAbility_Extreme</li>
+		<li>WVC_ToxResist_Archite</li>
+		<li>Sterile</li>
+		<li>WVC_HeadBoneHorns</li>
+		<!-- <li>WVC_NodeSkin</li> -->
+		<li>WVC_ShapeshiftSkin</li>
+		<li>WVC_DemonTailA</li>
+		<li>Body_Standard</li>
+		<li>WVC_BodySize_Small</li>
+		<li>Hair_SnowWhite</li>
+		<li>WVC_SkinColor_Slate</li>
+		<li>WVC_Learning_SlowNoSkillDecay</li>
+		<li>WVC_NaturalBlindness</li>
+		<li>WVC_AptitudeArchiteGreat_Artistic</li>
+		<li>WVC_AptitudeShameful_Medicine</li>
+		<li>WVC_AptitudeArchiteStrong_Social</li>
+		<li>WVC_AptitudeArchiteStrong_Intellectual</li>
+		<!-- Shapeshift Gene -->
+		<li>WVC_Shapeshifter</li>
+	</genes>
+  </XenotypeDef>
+
+</Defs>

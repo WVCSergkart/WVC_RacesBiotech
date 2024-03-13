@@ -59,7 +59,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool CanBeUsedBy(Pawn p, out string failReason)
 		{
-			if (!WalkingUtility.MechanitorIsLich(p))
+			if (!MechanoidsUtility.MechanitorIsLich(p))
 			{
 				failReason = "WVC_XaG_MechanitorShouldBeLich".Translate();
 				return false;

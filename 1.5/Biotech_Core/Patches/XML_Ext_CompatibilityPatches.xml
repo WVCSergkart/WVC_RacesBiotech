@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="AB_ForsakenThunderstorm" or defName="AB_ForsakenRain" or defName="AB_ForsakenNight" or defName="EnvironmentDark"]</xpath>
+	  <success>Always</success>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MecaBodyParts_Eye</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
+	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="CreepyBreathing"]</xpath>
+	  <success>Always</success>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_SmokepopMech</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
+	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="PsychicDrone"]</xpath>
+	  <success>Always</success>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MechaAI_PsychicDull</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
+	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="Sick"]</xpath>
+	  <success>Always</success>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MecaBodyParts_Liver</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
+	<!-- ================================================= -->
+
+	<Operation Class="XmlExtensions.PatchOperationSafeAdd">
+	  <xpath>/Defs/GeneDef[defName="VRE_Slow_Diseases"]</xpath>
+	  <success>Always</success>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<exclusionTags>
+		  <li>WVC_DiseaseProgression</li>
+		</exclusionTags>
+	  </value>
+	</Operation>
+
+	<!-- ================================================= -->
+
+	<!-- =TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST= -->
+
+	<Operation Class="XmlExtensions.FindMod">
+		<mods>
+			<li>wvc.wvcmod.wvcspecific</li>
+		</mods>
+		<packageId>true</packageId>
+		<logic>and</logic>
+		<caseTrue>
+
+			<Operation Class="PatchOperationReplace">
+				<xpath>/Defs/GeneDef[defName="WVC_MecaUpgrades_PerfectShape"]/statOffsets/PawnBeauty</xpath>
+				<success>Always</success>
+				<value>
+					<PawnBeauty>6</PawnBeauty>
+				</value>
+			</Operation>
+
+			<Operation Class="PatchOperationAdd">
+				<xpath>/Defs/GeneDef[defName="WVC_Dustogenic"]/modExtensions/li/specialFoodDefs</xpath>
+				<success>Always</success>
+				<value>
+				  <li>MealNutrientPaste</li>
+				</value>
+			</Operation>
+
+		</caseTrue>
+	</Operation>
+
+</Patch>

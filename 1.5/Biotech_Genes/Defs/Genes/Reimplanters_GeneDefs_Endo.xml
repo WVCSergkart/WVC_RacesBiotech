@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_Base" Name="WVC_XenotypesAndGenes_Reimplanters_Endogenes" Abstract="True">
+	<label>endogerm implanter</label>
+	<description>Carriers of this gene can implant a copy of their endogerm into another person through a somewhat gross-looking injector organ. Their own genetic material will then regrow very slowly. If they implant while their genes are regrowing, they will die. Germline genes will be unaffected.</description>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
+	<iconPath>WVC/UI/Genes/Gene_Reimplanter_Endo_v0</iconPath>
+	<displayOrderInCategory>-505</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Сhanges the endogenes of the target pawn to the endogenes of the caster. Does not affect xenogenes.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+		<li>WVC_ReimplanterNatural_Endogenes</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_Endogenes">
+	<defName>WVC_ReimplanterNatural_Endogenes</defName>
+	<biostatMet>-2</biostatMet>
+	<abilities>
+	  <li>WVC_ReimplanterNatural_Endogenes</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_ReimplanterNatural_Endogenes</AbilityDef>
+	</descriptionHyperlinks>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_Endogenes">
+	<defName>WVC_ReimplanterArchite_Endogenes</defName>
+	<biostatArc>1</biostatArc>
+	<sterilize>true</sterilize>
+	<statFactors>
+	  <Fertility>0</Fertility>
+	</statFactors>
+	<abilities>
+	  <li>WVC_ReimplanterArchite_Endogenes</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_ReimplanterArchite_Endogenes</AbilityDef>
+	</descriptionHyperlinks>
+  </GeneDef>
+
+  <!-- AbilityDef -->
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base" Name="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Endogenes" Abstract="True">
+	<label>implant endogenes</label>
+	<iconPath>WVC/UI/Genes/Gene_Reimplanter_Endo_v0</iconPath>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive">
+		<anyOfGenes>
+		  <li>WVC_ReimplanterNatural_Endogenes</li>
+		  <li>WVC_ReimplanterArchite_Endogenes</li>
+		</anyOfGenes>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Reimplanter</compClass>
+		<reimplantEndogenes>true</reimplantEndogenes>
+		<reimplantXenogenes>false</reimplantXenogenes>
+		<absorberJob>WVC_XenotypesAndGenes_AbsorbEndogerm</absorberJob>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityTargetValidation">
+		<humanityCheck>true</humanityCheck>
+		<serumsCheck>true</serumsCheck>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Endogenes">
+	<defName>WVC_ReimplanterNatural_Endogenes</defName>
+  </AbilityDef>
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Endogenes">
+	<defName>WVC_ReimplanterArchite_Endogenes</defName>
+  </AbilityDef>
+
+  <!-- ================================ -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_RiseFromTheDead" Name="WVC_XenotypesAndGenes_Reimplanters_RiseEndogenes" Abstract="True">
+	<label>post endo-implanter</label>
+	<iconPath>WVC/UI/Genes/Gene_PostReimplanter_Endo_v0</iconPath>
+	<displayOrderInCategory>-510</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Сhanges the endogenes of the target pawn to the endogenes of the caster. Does not affect xenogenes.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+		<li>WVC_ReimplanterNatural_RiseEndogenes</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_RiseEndogenes">
+	<defName>WVC_ReimplanterNatural_RiseEndogenes</defName>
+	<biostatMet>-2</biostatMet>
+	<abilities>
+	  <li>WVC_ReimplanterNatural_RiseEndogenes</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_ReimplanterNatural_RiseEndogenes</AbilityDef>
+	</descriptionHyperlinks>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_RiseEndogenes">
+	<defName>WVC_ReimplanterArchite_RiseEndogenes</defName>
+	<sterilize>true</sterilize>
+	<biostatArc>1</biostatArc>
+	<statFactors>
+	  <Fertility>0</Fertility>
+	</statFactors>
+	<abilities>
+	  <li>WVC_ReimplanterArchite_RiseEndogenes</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_ReimplanterArchite_RiseEndogenes</AbilityDef>
+	</descriptionHyperlinks>
+  </GeneDef>
+
+  <!-- AbilityDef -->
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_RiseFromTheDead_Base" Name="WVC_XenotypesAndGenes_AbilityTouchReimplanter_RiseEndogenes" Abstract="True">
+	<label>implant endogenes (corpse)</label>
+	<iconPath>WVC/UI/Genes/Gene_PostReimplanter_Endo_v0</iconPath>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive">
+		<anyOfGenes>
+		  <li>WVC_ReimplanterNatural_RiseEndogenes</li>
+		  <li>WVC_ReimplanterArchite_RiseEndogenes</li>
+		</anyOfGenes>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_RiseFromTheDead</compClass>
+		<afterResurrectionThoughtDef>WVC_XenotypesAndGenes_WasResurrected</afterResurrectionThoughtDef>
+		<resurrectedThoughtDef>WVC_XenotypesAndGenes_ResurrectedMe</resurrectedThoughtDef>
+		<resurrectorThoughtDef>WVC_XenotypesAndGenes_ResurrectedByMe</resurrectorThoughtDef>
+		<reimplantEndogenes>true</reimplantEndogenes>
+		<reimplantXenogenes>false</reimplantXenogenes>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_RiseEndogenes">
+	<defName>WVC_ReimplanterNatural_RiseEndogenes</defName>
+  </AbilityDef>
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_RiseEndogenes">
+	<defName>WVC_ReimplanterArchite_RiseEndogenes</defName>
+  </AbilityDef>
+
+</Defs>

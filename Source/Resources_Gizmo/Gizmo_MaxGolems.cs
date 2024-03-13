@@ -7,30 +7,30 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    [StaticConstructorOnStartup]
-    public class Gizmo_MaxGolems : Gizmo
-    {
+	[StaticConstructorOnStartup]
+	public class Gizmo_MaxGolems : Gizmo
+	{
 		public const int InRectPadding = 6;
 
-        private static readonly Color EmptyBlockColor = new(0.3f, 0.3f, 0.3f, 1f);
+		private static readonly Color EmptyBlockColor = new(0.3f, 0.3f, 0.3f, 1f);
 
 		private static readonly Color FilledBlockColor = ColorLibrary.Orange;
 
 		private static readonly Color ExcessBlockColor = ColorLibrary.Red;
 
-        private readonly Pawn mechanitor;
+		private readonly Pawn mechanitor;
 
 		public override bool Visible => Find.Selector.SelectedPawns.Count == 1;
 
-        public Gizmo_MaxGolems(Pawn mechanitor)
-            : base()
-        {
+		public Gizmo_MaxGolems(Pawn mechanitor)
+			: base()
+		{
 			this.mechanitor = mechanitor;
 			Order = -90f;
-        }
+		}
 
-        public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
-        {
+		public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
+		{
 			Rect rect = new(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
 			Rect rect2 = rect.ContractedBy(6f);
 			Widgets.DrawWindowBackground(rect);
@@ -117,13 +117,13 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 			return new GizmoResult(GizmoState.Clear);
-        }
+		}
 
 		public override float GetWidth(float maxWidth)
 		{
 			return 136f;
 		}
 
-    }
+	}
 
 }

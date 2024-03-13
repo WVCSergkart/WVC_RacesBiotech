@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- <GeneCategoryDef> -->
+	<!-- <defName>WVC_MechaBody</defName> -->
+	<!-- <label>archite - Misc</label> -->
+	<!-- <displayPriorityInXenotype>3926</displayPriorityInXenotype> -->
+  <!-- </GeneCategoryDef> -->
+  <!-- <GeneCategoryDef> -->
+	<!-- <defName>WVC_MechaBodyWare</defName> -->
+	<!-- <label>archite - Brain</label> -->
+	<!-- <displayPriorityInXenotype>3925</displayPriorityInXenotype> -->
+  <!-- </GeneCategoryDef> -->
+  <!-- <GeneCategoryDef> -->
+	<!-- <defName>WVC_MechaBodyEncoding</defName> -->
+	<!-- <label>archite - Encode</label> -->
+	<!-- <displayPriorityInXenotype>3924</displayPriorityInXenotype> -->
+  <!-- </GeneCategoryDef> -->
+  <!-- <GeneCategoryDef> -->
+	<!-- <defName>WVC_MechaBodyWare</defName> -->
+	<!-- <label>archite - Firmware</label> -->
+	<!-- <displayPriorityInXenotype>3925</displayPriorityInXenotype> -->
+  <!-- </GeneCategoryDef> -->
+  <!-- <GeneCategoryDef> -->
+	<!-- <defName>WVC_MechaBodyWare</defName> -->
+	<!-- <label>archite - Software</label> -->
+	<!-- <displayPriorityInXenotype>3924</displayPriorityInXenotype> -->
+  <!-- </GeneCategoryDef> -->
+  <!-- <GeneCategoryDef> -->
+	<!-- <defName>WVC_MechaBodyParts</defName> -->
+	<!-- <label>archite - Body</label> -->
+	<!-- <displayPriorityInXenotype>3923</displayPriorityInXenotype> -->
+  <!-- </GeneCategoryDef> -->
+  <!-- <GeneCategoryDef> -->
+	<!-- <defName>WVC_MechaBodyParts</defName> -->
+	<!-- <label>archite - Other</label> -->
+	<!-- <displayPriorityInXenotype>3921</displayPriorityInXenotype> -->
+  <!-- </GeneCategoryDef> -->
+  <!-- <GeneCategoryDef> -->
+	<!-- <defName>WVC_MechaBodyVoices</defName> -->
+	<!-- <label>archite - Voices</label> -->
+	<!-- <displayPriorityInXenotype>3919</displayPriorityInXenotype> -->
+  <!-- </GeneCategoryDef> -->
+  <GeneCategoryDef>
+	<defName>WVC_XenotypeSerumSpawners</defName>
+	<label>spawners</label>
+	<!-- <displayPriorityInXenotype>3917</displayPriorityInXenotype> -->
+	<displayPriorityInXenotype>400.2886992038</displayPriorityInXenotype>
+  </GeneCategoryDef>
+
+  <GeneCategoryDef>
+	<defName>WVC_Scarifier</defName>
+	<label>scarifier</label>
+	<displayPriorityInXenotype>512.2886992038</displayPriorityInXenotype>
+  </GeneCategoryDef>
+  <GeneCategoryDef>
+	<defName>WVC_Dustogenic</defName>
+	<label>dustogenic</label>
+	<displayPriorityInXenotype>511.2886992038</displayPriorityInXenotype>
+  </GeneCategoryDef>
+  <GeneCategoryDef>
+	<defName>WVC_ResurgentCells</defName>
+	<label>resurgent</label>
+	<displayPriorityInXenotype>510.2886992038</displayPriorityInXenotype>
+  </GeneCategoryDef>
+
+  <GeneCategoryDef>
+	<defName>WVC_RandomGenes</defName>
+	<label>random</label>
+	<displayPriorityInXenotype>430.2886992038</displayPriorityInXenotype>
+  </GeneCategoryDef>
+
+  <GeneCategoryDef>
+	<defName>WVC_Aptitudes</defName>
+	<label>aptitudes - archite and overbalanced</label>
+	<displayPriorityInXenotype>199.2886992038</displayPriorityInXenotype>
+  </GeneCategoryDef>
+
+  <!-- <GeneCategoryDef> -->
+	<!-- <defName>WVC_Miscellaneous</defName> -->
+	<!-- <label>miscellaneous:</label> -->
+	<!-- <displayPriorityInXenotype>270.2886992038</displayPriorityInXenotype> -->
+  <!-- </GeneCategoryDef> -->
+
+  <GeneCategoryDef>
+	<defName>WVC_XenotypeForcerGenes</defName>
+	<label>xenotype forcers</label>
+	<displayPriorityInXenotype>-9999.2886992038</displayPriorityInXenotype>
+	<displayPriorityInGenepack>-9999.2886992038</displayPriorityInGenepack>
+  </GeneCategoryDef>
+
+  <GeneCategoryDef>
+	<defName>WVC_Cosmetic</defName>
+	<label>cosmetic - xenotypes and genes</label>
+	<displayPriorityInXenotype>300.2886992038</displayPriorityInXenotype>
+	<displayPriorityInGenepack>-100</displayPriorityInGenepack>
+  </GeneCategoryDef>
+
+  <GeneCategoryDef>
+	<defName>WVC_CosmeticVoices</defName>
+	<label>cosmetic - voices</label>
+	<displayPriorityInXenotype>299.2886992038</displayPriorityInXenotype>
+	<displayPriorityInGenepack>-100</displayPriorityInGenepack>
+  </GeneCategoryDef>
+
+  <!-- https://steamcommunity.com/sharedfiles/filedetails/?id=2886992038 -->
+  <!-- ================================================================== -->
+
+</Defs>

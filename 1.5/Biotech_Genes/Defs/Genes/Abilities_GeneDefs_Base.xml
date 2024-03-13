@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Archites" Name="WVC_XenotypesAndGenes_MechanoidizationAbilities" Abstract="True">
+	<displayCategory>Ability</displayCategory>
+	<marketValueFactor>1.2</marketValueFactor>
+	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
+	<minAgeActive>3</minAgeActive>
+	<!-- <selectionWeight>0.15</selectionWeight> -->
+	<displayOrderInCategory>-100</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<!-- <statOffsets> -->
+	  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
+	<!-- </statOffsets> -->
+	<modExtensions>
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Background"> -->
+			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite> -->
+		<!-- </li> -->
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ====================================== -->
+
+  <AbilityDef>
+	<defName>WVC_Dustogenic_FeatherBlades</defName>
+	<label>hardened feathers</label>
+	<description>Flap your wings and use the dustogenic chemical reactions to separate the hardened feathers at just the right moment to launch them at the target. Given the method of launch, it is surprisingly easy to aim.</description>
+	<iconPath>WVC/UI/Genes/Gene_FeatherBlades_v0</iconPath>
+	<cooldownTicksRange>60</cooldownTicksRange>
+	<!-- <category>Sanguophage</category> -->
+	<displayOrder>200</displayOrder>
+	<aiCanUse>true</aiCanUse>
+	<verbProperties>
+	  <verbClass>Verb_CastAbility</verbClass>
+	  <range>7.9</range>
+	  <warmupTime>0.5</warmupTime>
+	  <soundCast>PiercingSpine_Launch</soundCast>
+	</verbProperties>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive">
+		<eachOfGenes>
+		  <li>WVC_Dustogenic_FeatherBlades</li>
+		  <!-- <li>WVC_Dustogenic_GeneticStability</li> -->
+		  <li>WVC_Dustogenic</li>
+		</eachOfGenes>
+		<anyOfGenes>
+		  <li>WVC_Wings_FeatheredWings</li>
+		</anyOfGenes>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityPawnNutritionCost">
+		<nutritionCost>0.3</nutritionCost>
+	  </li>
+	  <li Class="CompProperties_AbilityLaunchProjectile">
+		<projectileDef>WVC_Dustogenic_HardenedFeathers</projectileDef>
+	  </li>
+	</comps>
+  </AbilityDef>
+  <ThingDef ParentName="BaseBullet">
+	<defName>WVC_Dustogenic_HardenedFeathers</defName>
+	<label>hardened feather</label>
+	<graphicData>
+	  <texPath>Things/Projectile/PiercingSpine</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+	<projectile>
+	  <damageDef>RangedStab</damageDef>
+	  <damageAmountBase>30</damageAmountBase>
+	  <armorPenetrationBase>1</armorPenetrationBase>
+	  <stoppingPower>1</stoppingPower>
+	  <speed>55</speed>
+	</projectile>
+  </ThingDef>
+
+</Defs>

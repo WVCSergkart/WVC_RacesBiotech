@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="GeneBeautyBase" Name="WVC_XenotypesAndGenes_GeneBeauty_Base" Abstract="True">
+	<selectionWeight>0.0022</selectionWeight>
+	<displayOrderInCategory>40</displayOrderInCategory>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneBeauty_Base" Name="WVC_XenotypesAndGenes_GeneBeauty_PsychicBeauty" Abstract="True">
+	<selectionWeight>0.0011</selectionWeight>
+	<customEffectDescriptions>
+	  <li>Opinion updated every day and lasts 5 days.</li>
+	  <li>Opinion can stack up to 4 times.</li>
+	  <li>Only affects colony pawns and prisoners.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneBeauty_PsychicBeauty">
+	<defName>WVC_DemonBeauty</defName>
+	<label>demon beauty</label>
+	<description>Carriers of this gene can unconsciously influence how others see them. Their brain emits neuronal psychic waves that cause those around them who are susceptible to psychic influence to hate them.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DemonBeauty</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_DemonBeauty_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<displayOrderInCategory>-40</displayOrderInCategory>
+	<customEffectDescriptions>
+	  <li>All psychic sensitivity pawns without this gene get -40 opinion towards gene carrier.</li>
+	  <li>All psychic sensitivity pawns with same xenotype get +40 opinion towards gene carrier.</li>
+	</customEffectDescriptions>
+	<!-- <suppressedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>Beauty</def> -->
+		<!-- <degree>-1</degree> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <def>Beauty</def> -->
+		<!-- <degree>-2</degree> -->
+	  <!-- </li> -->
+	<!-- </suppressedTraits> -->
+	<statOffsets>
+	  <PawnBeauty>2</PawnBeauty>
+	</statOffsets>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>demon</symbol></li>
+		<li><symbol>beauty</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
+			<sameAsMe_AboutMeThoughtDef>WVC_XenotypesAndGenes_DemonBeauty</sameAsMe_AboutMeThoughtDef>
+			<AboutMeThoughtDef>WVC_XenotypesAndGenes_DemonBeauty_Others</AboutMeThoughtDef>
+			<targetShouldBePsySensitive>true</targetShouldBePsySensitive>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneBeauty_PsychicBeauty">
+	<defName>WVC_AngelBeauty</defName>
+	<label>angel beauty</label>
+	<description>Carriers of this gene can unconsciously influence how others see them. Their brain emits neuronal psychic waves that cause those around them who are susceptible to psychic influence to deify them.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Opinion</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Angel_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<customEffectDescriptions>
+	  <li>All psychic sensitivity pawns get +40 opinion towards gene carrier.</li>
+	</customEffectDescriptions>
+	<!-- <suppressedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>Beauty</def> -->
+		<!-- <degree>-1</degree> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <def>Beauty</def> -->
+		<!-- <degree>-2</degree> -->
+	  <!-- </li> -->
+	<!-- </suppressedTraits> -->
+	<statOffsets>
+	  <PawnBeauty>2</PawnBeauty>
+	</statOffsets>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>angel</symbol></li>
+		<li><symbol>beauty</symbol></li>
+		<li><symbol>cute</symbol></li>
+		<li><symbol>deity</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
+			<AboutMeThoughtDef>WVC_XenotypesAndGenes_AngelBeauty</AboutMeThoughtDef>
+			<targetShouldBePsySensitive>true</targetShouldBePsySensitive>
+			<ignoreIfHasGene>false</ignoreIfHasGene>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

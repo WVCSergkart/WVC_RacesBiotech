@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- f4e776 -->
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base" Name="WVC_XenotypesAndGenes_Hediffs_Golems" Abstract="True">
+	<label>golem</label>
+	<hediffClass>HediffWithComps</hediffClass>
+	<scenarioCanAdd>false</scenarioCanAdd>
+	<isBad>false</isBad>
+	<!-- <disablesNeeds> -->
+		<!-- <li>MechEnergy</li> -->
+	<!-- </disablesNeeds> -->
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Golems">
+	<defName>WVC_SelfPopulationRegulation_Golems</defName>
+	<description>This creature is a pile of stones animated by the mechanites. If connection with the overseer controlling the mechanites is lost or disturbed, the golem will turn back into a stone chunk.</description>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GolemLimit">
+			<compClass>WVC_XenotypesAndGenes.HediffComp_GolemLimit_Stone</compClass>
+			<!-- <checkInterval>60000</checkInterval> -->
+		</li>
+	</comps>
+  </HediffDef>
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Golems">
+	<defName>WVC_SelfPopulationRegulation_BoneGolems</defName>
+	<description>This creature is a pile of bones animated by archotech-created archites in a toxic fungus. It requires no repair or medical attention, it regenerates by "reassembling parts of itself" from the surface. If connection with the overseer controlling the archites is lost or disturbed, the golem will turn into a bonepile.</description>
+	<comps>
+		<!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_SuperRegeneration"> -->
+			<!-- <refreshTicks>6000</refreshTicks> -->
+			<!-- <shouldSendNotification>false</shouldSendNotification> -->
+		<!-- </li> -->
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GolemLimit">
+			<compClass>WVC_XenotypesAndGenes.HediffComp_GolemLimit_Bone</compClass>
+			<!-- <checkInterval>60000</checkInterval> -->
+		</li>
+	</comps>
+  </HediffDef>
+
+  <!-- ============================================= -->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_ResurgentSporeBandwidth</defName>
+	<label>resurgent spores</label>
+	<defaultLabelColor>(150, 249, 123)</defaultLabelColor>
+	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_Spores</hediffClass>
+	<description>Additional spores from eating resurgent seeds.</description>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive">
+			<geneDef>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</geneDef>
+		</li>
+	</comps>
+  </HediffDef>
+
+  <!-- ============================================= -->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_DustMechanoid_OnlyOneOverseer</defName>
+	<label>bonded</label>
+	<description>Mechanoid's operational sub-core is malfunctioning. Changing the connection network can lead to a critical failure and subsequent self-destruction of the mechanoid.
+
+&lt;color=#f5ffa2&gt;Gameplay effect:&lt;/color&gt; Mechanoid does not require bandwidth, but if you change the overseer, then after a while mechanoid will die.</description>
+	<defaultLabelColor>(255, 248, 133)</defaultLabelColor>
+	<hediffClass>HediffWithComps</hediffClass>
+	<priceImpact>true</priceImpact>
+	<priceOffset>-350</priceOffset>
+	<stages>
+	  <li>
+		<statFactors>
+		  <BandwidthCost>0</BandwidthCost>
+		  <!-- <ArmorRating_Blunt>0.75</ArmorRating_Blunt> -->
+		  <!-- <ArmorRating_Sharp>0.75</ArmorRating_Sharp> -->
+		  <!-- <ArmorRating_Heat>0.8</ArmorRating_Heat> -->
+		</statFactors>
+		<statOffsets>
+		  <BandwidthCost>-999</BandwidthCost>
+		  <MechEnergyUsageFactor>0.50</MechEnergyUsageFactor>
+		  <MechEnergyLossPerHP>0.44</MechEnergyLossPerHP>
+		  <!-- <WorkSpeedGlobal>0.20</WorkSpeedGlobal> -->
+		  <ControlTakingTime>188</ControlTakingTime>
+		</statOffsets>
+		<capMods>
+		  <li>
+			<capacity>Consciousness</capacity>
+			<setMax>1.0</setMax>
+		  </li>
+		</capMods>
+	  </li>
+	</stages>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_OnlyOneOverseer"/>
+		<li Class="HediffCompProperties_DisappearsOnDeath"/>
+	</comps>
+  </HediffDef>
+
+</Defs>

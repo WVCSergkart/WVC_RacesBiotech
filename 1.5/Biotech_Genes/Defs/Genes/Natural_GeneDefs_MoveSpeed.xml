@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="GeneMoveSpeedBase" Name="WVC_XenotypesAndGenes_GeneMoveSpeed_Base" Abstract="True">
+	<selectionWeight>0.0025</selectionWeight>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMoveSpeed_Base">
+	<defName>WVC_StoneStomach</defName>
+	<label>stone stomach</label> 
+	<labelShortAdj>very slow</labelShortAdj>
+	<description>Carriers of this gene move extremely slowly, but they require very little food.</description>
+	<iconPath>WVC/UI/Genes/StoneStomach_v0</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass>
+	<iconColor>(105,95,97)</iconColor>
+	<displayOrderInCategory>-5</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Hunger rate factor x20%</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <MoveSpeed>0.4</MoveSpeed>
+	</statFactors>
+	<capMods>
+	  <li>
+		<capacity>Moving</capacity>
+		<setMax>1.0</setMax>
+	  </li>
+	</capMods>
+	<biostatMet>1</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>slow</symbol></li>
+		<li><symbol>plod</symbol></li>
+		<li><symbol>grado</symbol></li>
+		<li><symbol>letho</symbol></li>
+		<li><symbol>slug</symbol></li>
+		<li><symbol>slack</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>slug</symbol></li>
+		<li><symbol>plodder</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>WVC_HybridStomach</li>
+	</exclusionTags>
+	<!-- <modExtensions Inherit="False"> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
+			<!-- <hediffToWholeBody>WVC_StoneStomach_HungerFactor</hediffToWholeBody> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_StoneStomach_HungerFactor</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMoveSpeed_Base">
+	<defName>WVC_AgeDebuff_MoveSpeed</defName>
+	<label>extreme slow runner</label> 
+	<labelShortAdj>slow</labelShortAdj>
+	<description>Carriers of this gene move more very slowly than normal.</description>
+	<iconPath>WVC/UI/Genes/Gene_ExtremlySlowRunner_v0</iconPath>
+	<!-- <displayCategory>WVC_AgeDebuffs</displayCategory> -->
+	<displayOrderInCategory>-3</displayOrderInCategory>
+	<biostatMet>5</biostatMet>
+	<statOffsets>
+	  <MoveSpeed>-0.8</MoveSpeed>
+	</statOffsets>
+  </GeneDef>
+
+</Defs>

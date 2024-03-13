@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="WVC_XenotypesAndGenes_XenotypeSerumsBase" Name="WVC_XenotypeSerum_Base" Abstract="True">
+	<label>xenotype serum</label>
+	<description>A one-use super-dose of mechanites tuned to change the user's xenotype. After using the serum, the user will fall into a two-day coma.
+
+If the user's genes are regrowing, then instead of applying the xenotype, the gene regeneration timer will be reset.
+
+&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; If the xenotype is inheritable and has no skin/hair color, then a white skin/hair gene will be added.</description>
+	<!-- <descriptionHyperlinks> -->
+	  <!-- <ConceptDef>WVC_XenotypeSerums_SupportedXenotypesList</ConceptDef> -->
+	<!-- </descriptionHyperlinks> -->
+	<!-- <recipeMaker> -->
+	  <!-- <researchPrerequisite>Xenogermination</researchPrerequisite> -->
+	  <!-- <skillRequirements> -->
+		<!-- <Crafting>12</Crafting> -->
+		<!-- <Intellectual>12</Intellectual> -->
+	  <!-- </skillRequirements> -->
+	<!-- </recipeMaker> -->
+	<comps>
+	  <li Class="CompProperties_Usable">
+		<useJob>UseItem</useJob>
+		<useLabel>Use {0_label}</useLabel>
+		<useDuration>600</useDuration>
+	  </li>
+	  <!-- <li Class="CompProperties_UseEffect"> -->
+		<!-- <compClass>CompUseEffect_FixWorstHealthCondition</compClass> -->
+	  <!-- </li> -->
+	  <li Class="CompProperties_UseEffectPlaySound">
+		<soundOnUsed>MechSerumUsed</soundOnUsed>
+	  </li>
+	  <li Class="CompProperties_UseEffectDestroySelf" />
+	</comps>
+  </ThingDef>
+
+  <!-- ============Auto Generation Base============ -->
+  <ThingDef ParentName="WVC_XenotypeSerum_Base" Name="WVC_XenotypeSerum_Craftable" Abstract="True">
+	<graphicData>
+	  <!-- <texPath>WVC/Things/XaG_Items/XenotypeSerum</texPath> -->
+	  <!-- <shaderType>CutoutComplex</shaderType> -->
+	  <!-- <color>(133,202,255)</color> -->
+	</graphicData>
+	<recipeMaker>
+	  <displayPriority>-20</displayPriority>
+	  <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
+	  <!-- <researchPrerequisite>Xenogermination</researchPrerequisite> -->
+	  <researchPrerequisite>WVC_XenotypesAndGenes_XenotypeSerumCrafting</researchPrerequisite>
+	  <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+	  <workSkill>Crafting</workSkill>
+	  <effectWorking>Smith</effectWorking>
+	  <soundWorking>Recipe_Machining</soundWorking>
+	  <recipeUsers>
+		<li>WVC_SerumCraftingTable</li>
+	  </recipeUsers>
+	  <useIngredientsForColor>false</useIngredientsForColor>
+	  <skillRequirements>
+		<Crafting>12</Crafting>
+		<Intellectual>12</Intellectual>
+	  </skillRequirements>
+	</recipeMaker>
+	<costList>
+	  <!-- <ArchiteCapsule>1</ArchiteCapsule> -->
+	  <WVC_XenotypeSerumCapsule>1</WVC_XenotypeSerumCapsule>
+	  <!-- <Plasteel>50</Plasteel> -->
+	  <!-- <Uranium>35</Uranium> -->
+	  <!-- <Gold>8</Gold> -->
+	  <!-- <Silver>22</Silver> -->
+	</costList>
+	<tradeTags>
+	  <li>WVC_XenotypeSerums</li>
+	</tradeTags>
+	<comps>
+	  <!-- <li Class="CompProperties_Glower"> -->
+		<!-- <glowRadius>1</glowRadius> -->
+		<!-- <glowColor>(133,202,255, 0)</glowColor> -->
+	  <!-- </li> -->
+	</comps>
+  </ThingDef>
+
+  <ThingDef ParentName="WVC_XenotypeSerum_Base" Name="WVC_XenotypeSerum_NonCraftable" Abstract="True">
+	<statBases>
+	  <MarketValue>2700</MarketValue>
+	  <DeteriorationRate>1.0</DeteriorationRate>
+	</statBases>
+	<!-- <recipeMaker> -->
+	  <!-- <researchPrerequisite>Archogenetics</researchPrerequisite> -->
+	  <!-- <skillRequirements> -->
+		<!-- <Crafting>14</Crafting> -->
+		<!-- <Intellectual>14</Intellectual> -->
+	  <!-- </skillRequirements> -->
+	<!-- </recipeMaker> -->
+	<costList>
+	  <WVC_XenotypeSerumUltraCapsule>1</WVC_XenotypeSerumUltraCapsule>
+	  <WVC_XenotypeSerumCapsule>1</WVC_XenotypeSerumCapsule>
+	</costList>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/ArchiteSerum_v1</texPath>
+	  <!-- <texPath>WVC/Things/XaG_Items/XenotypeSerum_Ultra</texPath> -->
+	  <!-- <shaderType>CutoutComplex</shaderType> -->
+	  <!-- <color>(255,248,133)</color> -->
+	</graphicData>
+	<tradeTags>
+	  <li>WVC_XenotypeSerums</li>
+	  <li>WVC_XenotypeSerums_NonCraftable</li>
+	  <li>WVC_XenotypeSerums_Ultra</li>
+	</tradeTags>
+	<thingSetMakerTags Inherit="False">
+	  <li>RewardStandardLowFreq</li>
+	</thingSetMakerTags>
+	<comps>
+	  <!-- <li Class="CompProperties_Glower"> -->
+		<!-- <glowRadius>1</glowRadius> -->
+		<!-- <glowColor>(255,248,133, 0)</glowColor> -->
+	  <!-- </li> -->
+	</comps>
+  </ThingDef>
+
+  <ThingDef ParentName="WVC_XenotypeSerum_Base" Name="WVC_XenotypeSerum_HybridNonCraftable" Abstract="True">
+	<statBases>
+	  <MarketValue>2750</MarketValue>
+	  <DeteriorationRate>0.5</DeteriorationRate>
+	</statBases>
+	<!-- <recipeMaker> -->
+	  <!-- <researchPrerequisite>Archogenetics</researchPrerequisite> -->
+	  <!-- <skillRequirements> -->
+		<!-- <Crafting>16</Crafting> -->
+		<!-- <Intellectual>16</Intellectual> -->
+	  <!-- </skillRequirements> -->
+	<!-- </recipeMaker> -->
+	<costList>
+	  <WVC_XenotypeSerumCapsule>2</WVC_XenotypeSerumCapsule>
+	  <WVC_XenotypeSerumUltraCapsule>2</WVC_XenotypeSerumUltraCapsule>
+	</costList>
+	<graphicData>
+	  <!-- <texPath>WVC/Things/XaG_Items/XenotypeSerum_Mecha</texPath> -->
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/NewSerumB_v1</texPath>
+	  <!-- <shaderType>CutoutComplex</shaderType> -->
+	  <!-- <color>(162,180,255)</color> -->
+	</graphicData>
+	<tradeTags>
+	  <li>WVC_XenotypeSerums_NonCraftable</li>
+	  <li>WVC_XenotypeSerums_HybridNonCraftable</li>
+	</tradeTags>
+	<thingSetMakerTags Inherit="False">
+	  <li>RewardStandardLowFreq</li>
+	</thingSetMakerTags>
+	<comps>
+	  <!-- <li Class="CompProperties_Glower"> -->
+		<!-- <glowRadius>1</glowRadius> -->
+		<!-- <glowColor>(133,167,255, 0)</glowColor> -->
+	  <!-- </li> -->
+	</comps>
+  </ThingDef>
+  <!-- ============Auto Generation Base============ -->
+
+</Defs>

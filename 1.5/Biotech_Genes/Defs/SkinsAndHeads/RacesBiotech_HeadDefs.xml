@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <HeadTypeDef Name="WVC_RacesBiotech_AverageBase" ParentName="AverageBase" Abstract="True">
+	<randomChosen>false</randomChosen>
+	<gender>None</gender>
+	<selectionWeight>99999</selectionWeight>
+  </HeadTypeDef>
+
+  <!-- ==================================== -->
+
+  <HeadTypeDef ParentName="WVC_RacesBiotech_AverageBase">
+	<defName>WVC_Faceless_NodeSkin</defName>
+	<graphicPath>WVC/Heads/NodeGene_FacelessHead/Head</graphicPath>
+	<requiredGenes>
+	  <li>WVC_NodeSkin</li>
+	</requiredGenes>
+  </HeadTypeDef>
+
+  <HeadTypeDef ParentName="WVC_RacesBiotech_AverageBase">
+	<defName>WVC_RuneSkin_Average</defName>
+	<graphicPath>WVC/Heads/RunicGene_Head/Head</graphicPath>
+	<requiredGenes>
+	  <li>WVC_RuneSkin</li>
+	</requiredGenes>
+  </HeadTypeDef>
+
+  <HeadTypeDef ParentName="WVC_RacesBiotech_AverageBase">
+	<defName>WVC_StoneSkin_Average</defName>
+	<graphicPath>WVC/Heads/StoneGene_Head/Head</graphicPath>
+	<requiredGenes>
+	  <li>WVC_StoneSkin</li>
+	</requiredGenes>
+  </HeadTypeDef>
+
+  <HeadTypeDef ParentName="WVC_RacesBiotech_AverageBase">
+	<defName>WVC_PatchSkin_Average</defName>
+	<graphicPath>WVC/Heads/UndeadGene_Head/Head</graphicPath>
+	<requiredGenes>
+	  <li>WVC_PatchSkin</li>
+	</requiredGenes>
+  </HeadTypeDef>
+
+  <HeadTypeDef ParentName="WVC_RacesBiotech_AverageBase">
+	<defName>WVC_ShiftSkin_Average</defName>
+	<graphicPath>WVC/Heads/Shapeshifter_Head/Head</graphicPath>
+	<requiredGenes>
+	  <li>WVC_ShapeshiftSkin</li>
+	</requiredGenes>
+  </HeadTypeDef>
+
+  <HeadTypeDef ParentName="WVC_RacesBiotech_AverageBase">
+	<defName>WVC_TransparentSkin_Average</defName>
+	<graphicPath>WVC/Heads/Transparent_Head/Head</graphicPath>
+	<requiredGenes>
+	  <li>WVC_TransparentSkin</li>
+	</requiredGenes>
+  </HeadTypeDef>
+
+</Defs>

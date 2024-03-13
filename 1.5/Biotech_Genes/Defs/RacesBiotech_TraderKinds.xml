@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <TraderKindDef>
+	<defName>WVC_Orbital_GenePackTrader</defName>
+	<label>xenogenes trader</label>
+	<orbital>true</orbital>
+	<commonality>0.08</commonality>
+	<stockGenerators>
+	  
+	  <!-- Resources -->
+	  <li Class="StockGenerator_SingleDef">
+		<thingDef>Silver</thingDef>
+		<countRange>7000~12000</countRange>
+	  </li>
+	  <li Class="StockGenerator_SingleDef">
+		<thingDef>MedicineIndustrial</thingDef>
+		<countRange>4~9</countRange>
+	  </li>
+	  <li Class="StockGenerator_SingleDef">
+		<thingDef>MedicineUltratech</thingDef>
+		<countRange>2~6</countRange>
+	  </li>
+	  <li Class="StockGenerator_Tag">
+		<tradeTag>WVC_SerumComponents_AllCraftable</tradeTag>
+		<thingDefCountRange>0~4</thingDefCountRange>
+		<countRange>1~3</countRange>
+	  </li>
+	  <li Class="StockGenerator_SingleDef">
+		<thingDef>ArchiteCapsule</thingDef>
+		<countRange>0~2</countRange>
+	  </li>
+	  <li Class="StockGenerator_SingleDef">
+		<thingDef>WVC_NutrientsInjector</thingDef>
+		<countRange>0~15</countRange>
+	  </li>
+	  <li MayRequire="Ludeon.RimWorld.Biotech" Class="StockGenerator_SingleDef">
+		<thingDef>Genepack</thingDef>
+		<countRange>4~12</countRange>
+	  </li>
+	  <li Class="StockGenerator_Tag">
+		<tradeTag>WVC_GenePacks</tradeTag>
+		<thingDefCountRange>4~12</thingDefCountRange>
+		<countRange>1~1</countRange>
+	  </li>
+	  <li MayRequire="sarg.alphagenes" Class="StockGenerator_SingleDef">
+		<thingDef>AG_Alphapack</thingDef>
+		<countRange>0~2</countRange>
+	  </li>
+	  <li MayRequire="sarg.alphagenes" Class="StockGenerator_SingleDef">
+		<thingDef>AG_Mixedpack</thingDef>
+		<countRange>0~2</countRange>
+	  </li>
+
+	  <li Class="StockGenerator_Tag">
+		<tradeTag>WVC_XenotypeSerums_NonCraftable</tradeTag>
+		<thingDefCountRange>0~5</thingDefCountRange>
+		<countRange>1~1</countRange>
+	  </li>
+
+	  <!-- Buying -->
+	  <li Class="StockGenerator_BuyTradeTag">
+		<tag>WVC_All_XenotypeSerums</tag>
+	  </li>
+	  <li Class="StockGenerator_BuyTradeTag">
+		<tag>WVC_SerumComponents_AllCraftable</tag>
+	  </li>
+	  <li Class="StockGenerator_BuyTradeTag">
+		<tag>WVC_GenePacks</tag>
+	  </li>
+	  <li Class="StockGenerator_BuySingleDef">
+		<thingDef>Genepack</thingDef>
+	  </li>
+	  <li Class="StockGenerator_BuySingleDef" MayRequire="sarg.alphagenes">
+		<thingDef>AG_Alphapack</thingDef>
+	  </li>
+	  <li Class="StockGenerator_BuySingleDef" MayRequire="sarg.alphagenes">
+		<thingDef>AG_Mixedpack</thingDef>
+	  </li>
+	  <li Class="StockGenerator_BuySingleDef">
+		<thingDef>ArchiteCapsule</thingDef>
+	  </li>
+	  
+	</stockGenerators>
+  </TraderKindDef>
+
+</Defs>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_MechanoidizationAbilities" Name="WVC_GeneGestationAbilities_Base" Abstract="True">
+	<label>gestator</label>
+	<description>Carriers of this gene have a built-in gestator that can produce new life.</description>
+	<iconPath>WVC/UI/Genes/Gestator</iconPath>
+	<minAgeActive>13</minAgeActive>
+	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
+	<sterilize>true</sterilize>
+	<!-- <selectionWeight>0.125</selectionWeight> -->
+	<!-- <selectionWeight>0.00045</selectionWeight> -->
+	<biostatMet>0</biostatMet>
+	<statFactors>
+	  <Fertility>0</Fertility>
+	</statFactors>
+	<exclusionTags>
+		<li>Fertility</li>
+		<li>Egglaying</li>
+		<li>AG_Egglaying</li>
+		<li>AG_Gestation</li>
+		<li>AG_Fertility</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>gesta</symbol></li>
+		<li><symbol>gest</symbol></li>
+		<li><symbol>ges</symbol></li>
+		<li><symbol>mech</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>gesta</symbol></li>
+		<li><symbol>gest</symbol></li>
+		<li><symbol>ges</symbol></li>
+		<li><symbol>tor</symbol></li>
+		<li><symbol>or</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<!-- <modExtensions Inherit="False"> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Background"> -->
+			<!-- <backgroundPathArchite>WVC/UI/Genes/GeneBackground_ArchiteGene</backgroundPathArchite> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+
+  <!-- ============================================== -->
+
+  <GeneDef ParentName="WVC_GeneGestationAbilities_Base">
+	<defName>WVC_StartGestation</defName>
+	<label>gestator</label>
+	<iconPath>WVC/UI/Genes/Gestator</iconPath>
+	<customEffectDescriptions>
+		<li>Spawns a baby-pawn with similar genes 5 days after the ability is activated.</li>
+	</customEffectDescriptions>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Gestator_TestTool</geneClass>
+	<!-- <conditionalStatAffecters> -->
+	  <!-- <li Class="WVC.ConditionalStatAffecter_GestatorIsOn"> -->
+		<!-- <geneDef>WVC_StartGestation</geneDef> -->
+		<!-- <statFactors> -->
+		  <!-- <WVC_HungerRateFactor>2.0</WVC_HungerRateFactor> -->
+		  <!-- <MoveSpeed>0.5</MoveSpeed> -->
+		  <!-- <WorkSpeedGlobal>0.7</WorkSpeedGlobal> -->
+		<!-- </statFactors> -->
+	  <!-- </li> -->
+	<!-- </conditionalStatAffecters> -->
+	<abilities>
+	  <li>WVC_StartGestation</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_StartGestation</AbilityDef>
+	</descriptionHyperlinks>
+  </GeneDef>
+
+  <!-- <GeneDef ParentName="WVC_GeneGestationAbilities_Base"> -->
+	<!-- <defName>WVC_StartUrchinGestation</defName> -->
+	<!-- <label>urchin gestator</label> -->
+	<!-- <iconPath>Things/Pawn/Mechanoid/WarUrchin_south</iconPath> -->
+	<!-- <selectionWeight>0.00015</selectionWeight> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Spawns a urchin 5 days after the ability is activated.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <abilities> -->
+	  <!-- <li>WVC_StartUrchinGestation</li> -->
+	<!-- </abilities> -->
+	<!-- <descriptionHyperlinks> -->
+	  <!-- <AbilityDef>WVC_StartUrchinGestation</AbilityDef> -->
+	<!-- </descriptionHyperlinks> -->
+  <!-- </GeneDef> -->
+
+  <!-- ============================================================================================ -->
+
+  <!-- <AbilityGroupDef> -->
+	<!-- <defName>WVC_MechaGestator</defName> -->
+	<!-- <cooldownTicks>900000</cooldownTicks> -->
+  <!-- </AbilityGroupDef> -->
+
+  <AbilityDef Name="WVC_GestationAbilities_Base" Abstract="True">
+	<label>gestator</label>
+	<description>Carriers of this gene have a built-in gestator that can produce semi-organic life.</description>
+	<iconPath>WVC/UI/Genes/Gestator</iconPath>
+	<cooldownTicksRange>900000</cooldownTicksRange><!-- 15 days -->
+	<canUseAoeToGetTargets>false</canUseAoeToGetTargets>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+	<showPsycastEffects>False</showPsycastEffects>
+	<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+	<showWhenDrafted>false</showWhenDrafted>
+	<hostile>false</hostile>
+	<targetRequired>False</targetRequired>
+	<showCastingProgressBar>True</showCastingProgressBar>
+	<!-- <category>WVC_Mechalike</category> -->
+	<!-- <groupDef>WVC_MechaGestator</groupDef> -->
+	<sendLetterOnCooldownComplete>True</sendLetterOnCooldownComplete>
+	<overrideGroupCooldown>True</overrideGroupCooldown>
+	<groupAbility>True</groupAbility>
+	<statBases>
+	  <Ability_Duration>5010</Ability_Duration>
+	</statBases>
+	<verbProperties>
+	  <verbClass>Verb_CastAbility</verbClass>
+	  <label>start gestation</label>
+	  <warmupTime>3</warmupTime>
+	  <range>0</range>
+	  <drawAimPie>False</drawAimPie>
+	  <requireLineOfSight>False</requireLineOfSight>
+	  <warmupEffecter>ControlMech</warmupEffecter>
+	  <targetParams>
+		<canTargetSelf>True</canTargetSelf>
+		<canTargetBuildings>False</canTargetBuildings>
+		<canTargetAnimals>False</canTargetAnimals>
+		<!-- <thingCategory>Item</thingCategory> -->
+		<!-- <mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable> -->
+	  </targetParams>
+	</verbProperties>
+	<confirmationDialogText>After activating the ability, the pawn will receive a moving and manipulation debuff, as well as increased hunger. The process cannot be interrupted.\n\nDo you still need a new pawn?</confirmationDialogText>
+  </AbilityDef>
+
+  <!-- ============================================== -->
+
+  <AbilityDef ParentName="WVC_GestationAbilities_Base">
+	<defName>WVC_StartGestation</defName>
+	<label>gestator</label>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityHideIfPawnMultiSelected"/>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGiveHediff">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_GiveHediff</compClass>
+		<hediffDef>WVC_RB_AbilityMechaGestator</hediffDef>
+		<onlyApplyToSelf>true</onlyApplyToSelf>
+		<onlyReproductive>true</onlyReproductive>
+		<!-- <onlyBrain>true</onlyBrain> -->
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive">
+		<anyOfGenes>
+		  <li>WVC_StartGestation</li>
+		</anyOfGenes>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityPawnPregnant"/>
+	</comps>
+  </AbilityDef>
+
+  <!-- <AbilityDef ParentName="WVC_GestationAbilities_Base"> -->
+	<!-- <defName>WVC_StartUrchinGestation</defName> -->
+	<!-- <label>urchin gestator</label> -->
+	<!-- <comps> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGiveHediff"> -->
+		<!-- <compClass>WVC_XenotypesAndGenes.CompAbilityEffect_GiveHediff</compClass> -->
+		<!-- <hediffDef>WVC_RB_AbilityUrchinGestator</hediffDef> -->
+		<!-- <onlyApplyToSelf>true</onlyApplyToSelf> -->
+		<!-- <onlyReproductive>true</onlyReproductive> -->
+	  <!-- </li> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive"> -->
+		<!-- <anyOfGenes> -->
+		  <!-- <li>WVC_StartUrchinGestation</li> -->
+		<!-- </anyOfGenes> -->
+	  <!-- </li> -->
+	<!-- </comps> -->
+  <!-- </AbilityDef> -->
+
+  <!-- ============================================================================== -->
+
+  <AbilityDef ParentName="WVC_GestationAbilities_Base">
+	<defName>WVC_Dustogenic_AbilityImmaculateConception</defName>
+	<label>immaculate conception</label>
+	<description>With a sufficient level of dust, it allows you to start the pregnancy process.</description>
+	<iconPath>WVC/UI/Genes/Gene_ImmaculateConception_v0</iconPath>
+	<verbProperties>
+	  <warmupEffecter>Berserk</warmupEffecter>
+	</verbProperties>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityHideIfPawnMultiSelected"/>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityPawnNutritionCost">
+		<nutritionCost>0.92</nutritionCost>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive">
+		<gender>Female</gender>
+		<eachOfGenes>
+		  <li>WVC_Dustogenic</li>
+		  <li>WVC_Dustogenic_ImmaculateConception</li>
+		</eachOfGenes>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityPawnPregnant"/>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGiveHediff">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_GiveHediff</compClass>
+		<hediffDef>WVC_Dustogenic_HediffImmaculateConception</hediffDef>
+		<onlyApplyToSelf>true</onlyApplyToSelf>
+		<onlyReproductive>false</onlyReproductive>
+	  </li>
+	</comps>
+	<confirmationDialogText>After using the ability, the pawn will gain a progressive debuff to consciousness and rest fall factor. The process cannot be interrupted.\n\nDo you still need a new pawn?</confirmationDialogText>
+  </AbilityDef>
+
+
+</Defs>

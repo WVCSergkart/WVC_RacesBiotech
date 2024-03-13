@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="GeneLearningBase" Name="WVC_XenotypesAndGenes_GeneLearning_Base" Abstract="True">
+	<selectionWeight>0.00172</selectionWeight>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneLearning_Base">
+	<defName>WVC_Learning_SlowNoSkillDecay</defName>
+	<label>stubborn study</label>
+	<description>Carriers of this gene have deficient long-term memories and don't understand new ideas. But if they manage to learn something, they do not forget it.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Learning</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_StubbornLearning_v0</iconPath>
+	<displayOrderInCategory>28</displayOrderInCategory>
+	<biostatMet>1</biostatMet>
+	<suppressedTraits>
+	  <li>
+		<def>TooSmart</def>
+	  </li>
+	  <li>
+		<def>FastLearner</def>
+	  </li>
+	  <li>
+		<def>SlowLearner</def>
+	  </li>
+	</suppressedTraits>
+	<statFactors>
+	  <GlobalLearningFactor>0.4</GlobalLearningFactor>
+	</statFactors>
+	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Skills do not lose levels.&lt;/color&gt;</li>
+		<!-- <li>&lt;color=#8a8ae6&gt;Skills do not lose levels.&lt;/color&gt;</li> -->
+	</customEffectDescriptions>
+	<hediffGiversCannotGive>
+	  <li>Dementia</li>
+	  <li>Alzheimers</li>
+	</hediffGiversCannotGive>
+	<exclusionTags>
+	  <li>WVC_ExcellentMemory</li>
+	</exclusionTags>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <noSkillDecay>true</noSkillDecay> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
+	<defName>WVC_MechaAI_Base</defName>
+	<label>excellent memory</label> 
+	<description>Carriers of this gene never forget their skills.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Learning</geneClass>
+	<iconColor>(184, 198, 203)</iconColor>
+	<iconPath>WVC/UI/Genes/MechanoidizationSoftware</iconPath>
+	<displayCategory>Miscellaneous</displayCategory>
+	<displayOrderInCategory>29</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Skills do not lose levels.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<capMods>
+	  <li>
+		<capacity>Consciousness</capacity>
+		<offset>0.05</offset>
+	  </li>
+	</capMods>
+	<statFactors>
+	  <SocialImpact>0.8</SocialImpact>
+	</statFactors>
+	<hediffGiversCannotGive>
+	  <li>Dementia</li>
+	  <li>Alzheimers</li>
+	  <li>TraumaSavant</li>
+	</hediffGiversCannotGive>
+	<exclusionTags>
+	  <li>WVC_ExcellentMemory</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDisabledWork_AllWork">
+	<defName>WVC_DisabledAllWork_Blank</defName>
+	<label>blank memory</label>
+	<description>Carriers of this gene very quickly lose interest and forget skills.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Blank</geneClass>
+	<displayCategory>Miscellaneous</displayCategory>
+	<displayOrderInCategory>29.02</displayOrderInCategory>
+	<customEffectDescriptions>
+	  <!-- <li>If the skill level is below 6, then it &lt;color=#ff8585&gt;lose passion&lt;/color&gt;.</li> -->
+	  <li>&lt;color=#ff8585&gt;Skills, regardless of level, lose exp.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_ExcellentMemory</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneLearning_Base" Name="WVC_XenotypesAndGenes_GeneLearning_ExtremeSlow" Abstract="True">
+	<geneClass>WVC_XenotypesAndGenes.Gene_BackstoryChanger</geneClass>
+	<customEffectDescriptions>
+	  <li>Childhood and adulthood background will be &lt;color=#8a8ae6&gt;amnesiac&lt;/color&gt;. Does not work if the carrier is a native colonist.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<childBackstoryDef>WVC_RacesBiotech_Amnesia_Child</childBackstoryDef>
+			<adultBackstoryDef>WVC_RacesBiotech_Amnesia_Adult</adultBackstoryDef>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneLearning_ExtremeSlow">
+	<defName>WVC_Learning_ExtremeSlow</defName>
+	<label>meaningless study</label>
+	<description>Carriers of this gene have deficient long-term memories and don't understand new ideas. They practically cannot learn new skills and knowledge.</description>
+	<iconPath>WVC/UI/Genes/Gene_SlowLearning_v0</iconPath>
+	<displayOrderInCategory>27</displayOrderInCategory>
+	<statFactors>
+	  <GlobalLearningFactor>0.2</GlobalLearningFactor>
+	</statFactors>
+	<biostatMet>4</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>thag</symbol></li>
+		<li><symbol>grunt</symbol></li>
+		<li><symbol>slow</symbol></li>
+		<li><symbol>dull</symbol></li>
+		<li><symbol>dumb</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>grunt</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneLearning_ExtremeSlow">
+	<defName>WVC_NoLearning</defName>
+	<label>arrested study</label>
+	<description>Carriers of this gene have deficient long-term memories and don't understand new ideas. They cannot learn new skills and knowledge.</description>
+	<iconPath>WVC/UI/Genes/Gene_ExtremeSlowLearning_v0</iconPath>
+	<displayOrderInCategory>26</displayOrderInCategory>
+	<statFactors>
+	  <GlobalLearningFactor>0.01</GlobalLearningFactor>
+	</statFactors>
+	<biostatMet>6</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>stup</symbol></li>
+		<li><symbol>dumb</symbol></li>
+		<li><symbol>dove</symbol></li>
+		<li><symbol>usl</symbol></li>
+		<li><symbol>weak</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>bad</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- == -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneLearning_ExtremeSlow">
+	<defName>WVC_Learning_Scarifier</defName>
+	<label>scarifier study</label>
+	<description>Carriers of this gene do not remember and understand new ideas well, their memory is like torn flaps, but those fragments that were able to linger in their heads will never be lost.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Learning</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_ScarifierLearning_v0</iconPath>
+	<displayOrderInCategory>50</displayOrderInCategory>
+	<displayCategory>WVC_Scarifier</displayCategory>
+	<biostatMet>1</biostatMet>
+	<suppressedTraits>
+	  <li>
+		<def>TooSmart</def>
+	  </li>
+	  <li>
+		<def>FastLearner</def>
+	  </li>
+	  <li>
+		<def>SlowLearner</def>
+	  </li>
+	</suppressedTraits>
+	<statFactors>
+	  <GlobalLearningFactor>0.4</GlobalLearningFactor>
+	</statFactors>
+	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Skills do not lose levels.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<hediffGiversCannotGive>
+	  <li>Dementia</li>
+	  <li>Alzheimers</li>
+	</hediffGiversCannotGive>
+	<exclusionTags>
+	  <!-- <li>Learning</li> -->
+	  <li>WVC_ExcellentMemory</li>
+	</exclusionTags>
+	<modExtensions Inherit="False">
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <noSkillDecay>true</noSkillDecay> -->
+		<!-- </li> -->
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<childBackstoryDef>WVC_RacesBiotech_Amnesia_Child</childBackstoryDef>
+			<adultBackstoryDef>WVC_RacesBiotech_Amnesia_Adult</adultBackstoryDef>
+			<scarsCount>-2</scarsCount>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

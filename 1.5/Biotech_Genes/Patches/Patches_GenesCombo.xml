@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<!-- Bloodfeeder patch -->
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/AbilityDef[defName="Bloodfeed"]/comps</xpath>
+	  <value>
+		  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityBloodeater"/>
+	  </value>
+	</Operation>
+
+	<!-- Patch for special food for dustogenics -->
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>useAlternativeDustogenicFoodJob</settingName>
+		<caseFalse Class="PatchOperationSequence">
+			<operations>
+
+				<!-- Starving -->
+				<li Class="PatchOperationInsert">
+					<xpath>/Defs/ThinkTreeDef[defName="Humanlike"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalColonist"]/subNodes/li[@Class="ThinkNode_ConditionalStarving"]/subNodes/li/subNodes/li[@Class="JobGiver_GetFood"]</xpath>
+					<order>Prepend</order>
+					<value>
+					  <li Class="WVC_XenotypesAndGenes.JobGiver_GetSpecialFood">
+						<geneDefs>
+							<li>WVC_Dustogenic</li>
+						</geneDefs>
+						<foodDefs>
+							<li>WVC_NutrientsInjector</li>
+							<li>WVC_MealDustPack</li>
+							<li>WVC_MealDustogenicPaste</li>
+						</foodDefs>
+						<ingestAtOnce>1</ingestAtOnce>
+					  </li>
+					</value>
+				</li>
+
+				<!-- Prisoners -->
+				<li Class="PatchOperationInsert">
+					<xpath>/Defs/ThinkTreeDef[defName="Humanlike"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalPrisoner"]/subNodes/li/subNodes/li/subNodes/li[@Class="JobGiver_GetFood"]</xpath>
+					<order>Prepend</order>
+					<value>
+					  <li Class="WVC_XenotypesAndGenes.JobGiver_GetSpecialFood">
+						<geneDefs>
+							<li>WVC_Dustogenic</li>
+						</geneDefs>
+						<foodDefs>
+							<li>WVC_NutrientsInjector</li>
+							<li>WVC_MealDustPack</li>
+							<li>WVC_MealDustogenicPaste</li>
+						</foodDefs>
+						<ingestAtOnce>1</ingestAtOnce>
+					  </li>
+					</value>
+				</li>
+
+				<!-- General -->
+				<li Class="PatchOperationInsert">
+					<xpath>/Defs/ThinkTreeDef[defName="MainColonistBehaviorCore"]/thinkRoot/subNodes/li[@Class="ThinkNode_PrioritySorter"]/subNodes/li[@Class="JobGiver_GetFood"]</xpath>
+					<order>Prepend</order>
+					<value>
+					  <li Class="WVC_XenotypesAndGenes.JobGiver_GetSpecialFood">
+						<geneDefs>
+							<li>WVC_Dustogenic</li>
+						</geneDefs>
+						<foodDefs>
+							<li>WVC_NutrientsInjector</li>
+							<li>WVC_MealDustPack</li>
+							<li>WVC_MealDustogenicPaste</li>
+						</foodDefs>
+						<ingestAtOnce>1</ingestAtOnce>
+					  </li>
+					</value>
+				</li>
+
+			</operations>
+		</caseFalse>
+	</Operation>
+
+	<!-- ================== -->
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+			  <xpath>/Defs/GeneDef[defName="Ageless"]/geneClass</xpath>
+			  <success>Invert</success>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/GeneDef[defName="Ageless"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<geneClass>WVC_XenotypesAndGenes.Gene_Ageless</geneClass>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/GeneDef[defName="Ageless"]/customEffectDescriptions</xpath>
+			  <success>Invert</success>
+			  <value>
+				<li>If the gene is heritable, then the age of the pawn cannot be more than 18.</li>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/GeneDef[defName="Ageless"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<customEffectDescriptions>
+					<li>If the gene is heritable, then the age of the pawn cannot be more than 18.</li>
+				</customEffectDescriptions>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<!-- ================== -->
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>spawnXenoForcerSerumsFromTraders</settingName>
+		<caseTrue Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAdd">
+				  <xpath>/Defs/TraderKindDef/stockGenerators[li[thingDef="Genepack"]]</xpath>
+				  <value>
+					  <li Class="StockGenerator_Tag">
+						<tradeTag>WVC_XenotypeSerums_NonCraftable</tradeTag>
+						<thingDefCountRange>0~2</thingDefCountRange>
+						<countRange>1~1</countRange>
+					  </li>
+				  </value>
+				</li>
+			</operations>
+		</caseTrue>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>disableUniqueXenotypeScenarios</settingName>
+		<caseTrue Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationRemove">
+				  <xpath>/Defs/ScenarioDef[@WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook"]</xpath>
+				  <success>Always</success>
+				</li>
+			</operations>
+		</caseTrue>
+	</Operation>
+
+	<!-- ================== -->
+
+	<!-- The new way of displaying information is designed only for humans. Patches for HAR need to be added separately. -->
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+			  <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath>
+			  <success>Invert</success>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/ThingDef[defName="Human"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<comps/>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>enableGenesInfo</settingName>
+		<caseTrue Class="PatchOperationAdd">
+		  <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath>
+		  <value>
+			  <li Class="WVC_XenotypesAndGenes.CompProperties_GenesDisplayInfo"/>
+		  </value>
+		</caseTrue>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+			  <xpath>/Defs/ThingDef[defName="Human"]/modExtensions</xpath>
+			  <success>Invert</success>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/ThingDef[defName="Human"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<modExtensions/>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/ThingDef[defName="Human"]/modExtensions</xpath>
+	  <success>Always</success>
+	  <value>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<shouldResurrect>true</shouldResurrect>
+			<uniqueTag>XaG_HumanUndead</uniqueTag>
+			<resurrectionDelay>8200~39000</resurrectionDelay>
+		</li>
+	  </value>
+	</Operation>
+
+	<!-- ================== -->
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+			  <xpath>/Defs/GeneDef[defName="DiseaseFree"]/exclusionTags</xpath>
+			  <success>Invert</success>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/GeneDef[defName="DiseaseFree"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<exclusionTags/>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+			  <xpath>/Defs/GeneDef[defName="Ageless"]/exclusionTags</xpath>
+			  <success>Invert</success>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/GeneDef[defName="Ageless"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<exclusionTags/>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<!-- ================== -->
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/StatDef[@Name="MarketValueBase"]/parts</xpath>
+	  <value>
+		  <li Class="WVC_XenotypesAndGenes.StatPart_XenotypeSerum" MayRequire="Ludeon.RimWorld.Biotech">
+			<xenotypeCostMult>320</xenotypeCostMult>
+		  </li>
+	  </value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/GeneDef[defName="DiseaseFree"]/exclusionTags</xpath>
+	  <value>
+		<li>WVC_DiseaseFree</li>
+	  </value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/GeneDef[defName="Ageless"]/exclusionTags</xpath>
+	  <value>
+		<li>WVC_Ageless</li>
+	  </value>
+	</Operation>
+
+	<!-- ================== -->
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/StatDef[defName="WorkSpeedGlobal"]/parts</xpath>
+	  <value>
+		  <li Class="WVC_XenotypesAndGenes.StatPart_FactorForGolems" MayRequire="Ludeon.RimWorld.Biotech">
+			<stat>PsychicSensitivity</stat>
+		  </li>
+	  </value>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+			  <xpath>/Defs/StatDef[defName="MechBandwidth"]/toStringStyle</xpath>
+			  <success>Invert</success>
+			  <value>
+				<toStringStyle>FloatOne</toStringStyle>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/StatDef[defName="MechBandwidth"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<toStringStyle>FloatOne</toStringStyle>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+			  <xpath>/Defs/StatDef[defName="BandwidthCost"]/toStringStyle</xpath>
+			  <success>Invert</success>
+			  <value>
+				<toStringStyle>FloatOne</toStringStyle>
+			  </value>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/StatDef[defName="BandwidthCost"]</xpath>
+			  <success>Always</success>
+			  <value>
+				<toStringStyle>FloatOne</toStringStyle>
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

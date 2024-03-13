@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WorkGiverDef Name="WVC_HaulToGeneBank_Base" Abstract="True">
+	<!-- <defName>WVC_HaulToGeneBank_BasePack</defName> -->
+	<!-- <label>bank w-pack</label> -->
+	<!-- <giverClass>WVC.WorkGiver_HaulToGeneBank_BasePack</giverClass> -->
+	<workType>Hauling</workType>
+	<verb>bank</verb>
+	<gerund>banking</gerund>
+	<priorityInType>111</priorityInType>
+	<requiredCapacities>
+	  <li>Manipulation</li>
+	</requiredCapacities>
+  </WorkGiverDef>
+
+  <!-- Genetics -->
+
+  <WorkGiverDef ParentName="WVC_HaulToGeneBank_Base">
+	<defName>WVC_HaulToGeneBank_BasePack</defName>
+	<label>bank w-pack</label>
+	<giverClass>WVC_XenotypesAndGenes.WorkGiver_HaulToGeneBank_BasePack</giverClass>
+  </WorkGiverDef>
+
+   <WorkGiverDef ParentName="WVC_HaulToGeneBank_Base">
+	<defName>WVC_HaulToGeneBank_UltraPack</defName>
+	<label>bank ultrapack</label>
+	<giverClass>WVC_XenotypesAndGenes.WorkGiver_HaulToGeneBank_UltraPack</giverClass>
+  </WorkGiverDef>
+
+   <WorkGiverDef ParentName="WVC_HaulToGeneBank_Base">
+	<defName>WVC_HaulToGeneBank_MechaPack</defName>
+	<label>bank mechapack</label>
+	<giverClass>WVC_XenotypesAndGenes.WorkGiver_HaulToGeneBank_MechaPack</giverClass>
+  </WorkGiverDef>
+
+  <!-- <WorkGiverDef ParentName="HaulToBase"> -->
+	<!-- <defName>WVC_XenotypesAndGenes_HaulToUltraniteRecycler</defName> -->
+	<!-- <label>haul resources to ultranite recycler</label> -->
+	<!-- <giverClass>WVC_XenotypesAndGenes.WorkGiver_HaulToRecycler</giverClass> -->
+  <!-- </WorkGiverDef> -->
+
+  <!-- <JobDef> -->
+	<!-- <defName>WVC_XenotypesAndGenes_HaulToRecycler</defName> -->
+	<!-- <driverClass>WVC_XenotypesAndGenes.JobDriver_HaulToRecycler</driverClass> -->
+	<!-- <reportString>hauling TargetA.</reportString> -->
+  <!-- </JobDef> -->
+
+</Defs>

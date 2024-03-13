@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<MemeDef>
+		<!-- "ist" needed for more unique defName -->
+		<defName>WVC_Undeadist</defName>
+		<label>undead</label>
+		<description>The meaning is revealed only when the gaze is directed beyond the screen of deception built by our perception and those who have known death are able to know this.</description>
+		<iconPath>WVC/UI/Precepts/Memes_Undead</iconPath>
+		<groupDef>Misc</groupDef>
+		<impact>2</impact>
+		<exclusionTags>
+		  <li>WVC_GeneticSupremacy</li>
+		</exclusionTags>
+		<generalRules>
+		  <rulesStrings>
+			<li>memeAdjective->tombstone</li>
+			<li>memeCreed->tomb</li>
+			<li>memeCreed->grave</li>
+			<li>memeCreed->graveyard</li>
+			<li>memeHyphenPrefix->stone</li>
+			<li>memeHyphenPrefix->tomb</li>
+			<li>memeConcept->undead</li>
+			<li>memeConcept->dead</li>
+			<li>memeLeaderNoun->undead</li>
+			<li>memeLeaderNoun->dead</li>
+			<li>memeLeaderAdjective->undead</li>
+			<li>memeLeaderAdjective->dead</li>
+			<li>memeLeaderAdjective->keeper</li>
+			<li>memeMoralist->undead</li>
+			<li>memeMoralist->dead</li>
+			<li>memeMoralist->keeper</li>
+		  </rulesStrings>
+		</generalRules>
+		<symbolPacks>
+		  <li>
+			<ideoName>Undeadism</ideoName>
+			<theme>undeadism</theme>
+			<adjective>undeadist</adjective>
+			<member>undeadist</member>
+		  </li>
+		  <li>
+			<ideoName>Deathism</ideoName>
+			<theme>deathism</theme>
+			<adjective>deathist</adjective>
+			<member>deathist</member>
+		  </li>
+		  <li>
+			<ideoName>Graverism</ideoName>
+			<theme>graverism</theme>
+			<adjective>graverist</adjective>
+			<member>graverist</member>
+		  </li>
+		</symbolPacks>
+		<requireOne>
+		  <!-- <li> -->
+			<!-- <li>WVC_MechWalkers_Desired</li> -->
+		  <!-- </li> -->
+		  <li>
+			<li>WVC_Undeads_Revered</li>
+		  </li>
+		  <li>
+			<li>Comfort_Ignored</li>
+		  </li>
+		  <li>
+			<li>Corpses_DontCare</li>
+		  </li>
+		  <!-- <li> -->
+			<!-- <li>Scarification_Extreme</li> -->
+			<!-- <li>Scarification_Heavy</li> -->
+			<!-- <li>Scarification_Minor</li> -->
+			<!-- <li>WVC_Scarification_DontCare</li> -->
+		  <!-- </li> -->
+		  <li>
+			<!-- <li>WVC_Pain_DontCare</li> -->
+			<li>Pain_Idealized</li>
+		  </li>
+		  <li>
+			<li>Execution_DontCare</li>
+			<!-- <li>Execution_RespectedIfGuilty</li> -->
+			<!-- <li>Execution_Required</li> -->
+		  </li>
+		  <!-- <li> -->
+			<!-- <li>Bonding_Disapproved</li> -->
+		  <!-- </li> -->
+		</requireOne>
+		<thingStyleCategories>
+		  <li>
+			<category>Morbid</category>
+			<priority>12</priority>
+		  </li>
+		</thingStyleCategories>
+		<agreeableTraits>
+		  <li>Psychopath</li>
+		</agreeableTraits>
+		<!-- <disagreeableTraits> -->
+		  <!-- <li>BodyPurist</li> -->
+		<!-- </disagreeableTraits> -->
+	</MemeDef>
+
+</Defs>

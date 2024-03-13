@@ -7,31 +7,31 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    [StaticConstructorOnStartup]
+	[StaticConstructorOnStartup]
 	public class GeneGizmo_ResurgentSpores : Gizmo
 	{
 		public const int InRectPadding = 6;
 
-        private static readonly Color EmptyBlockColor = new(0.3f, 0.3f, 0.3f, 1f);
+		private static readonly Color EmptyBlockColor = new(0.3f, 0.3f, 0.3f, 1f);
 
 		// private static readonly Color FilledBlockColor = ColorLibrary.LightBlue;
 		private static readonly Color FilledBlockColor = ColorLibrary.LightGreen;
 
 		private static readonly Color ExcessBlockColor = ColorLibrary.Red;
 
-        private readonly Pawn mechanitor;
+		private readonly Pawn mechanitor;
 
 		public override bool Visible => Find.Selector.SelectedPawns.Count == 1;
 
-        public GeneGizmo_ResurgentSpores(Pawn mechanitor)
-            : base()
-        {
+		public GeneGizmo_ResurgentSpores(Pawn mechanitor)
+			: base()
+		{
 			this.mechanitor = mechanitor;
 			Order = -90f;
-        }
+		}
 
-        public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
-        {
+		public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
+		{
 			Rect rect = new(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
 			Rect rect2 = rect.ContractedBy(6f);
 			Widgets.DrawWindowBackground(rect);
@@ -118,7 +118,7 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 			return new GizmoResult(GizmoState.Clear);
-        }
+		}
 
 		public override float GetWidth(float maxWidth)
 		{

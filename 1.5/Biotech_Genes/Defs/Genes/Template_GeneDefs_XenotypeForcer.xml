@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneXenotypeForcer_Base" Abstract="True">
+	<!-- <label>mechlink</label>  -->
+	<label>xeno-forcer</label>
+	<description>Adds random xenotype genes in addition to the existing ones. Allows you to make hybrid xenotypes.
+
+Please note that if the xenotype is (non-)inherited and your geneset is also (non-)inherited, then all genes will be overwritten.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_XenotypeForcer</geneClass>
+	<selectionWeight>0.000056</selectionWeight>
+	<canGenerateInGeneSet>true</canGenerateInGeneSet>
+	<displayCategory>WVC_XenotypeForcerGenes</displayCategory>
+	<displayOrderInCategory>-500</displayOrderInCategory>
+	<customEffectDescriptions>
+	  <!-- <li>&lt;color=#ff8585&gt;Cannot spawn in genepacks.&lt;/color&gt;</li> -->
+	</customEffectDescriptions>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>4</biostatArc>
+	<biostatMet>0</biostatMet>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneXenotypeForcer_Base">
+	<defName>WVC_XenotypesAndGenes_RandomEndotypeForcer</defName>
+	<label>endo-forcer (random)</label>
+	<iconPath>WVC/UI/Genes/Gene_RandomEndo_v0</iconPath>
+	<exclusionTags>
+	  <li>WVC_XenotypesAndGenes_XenotypeTemplateCollection_Endo</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<xenotypeIsInheritable>true</xenotypeIsInheritable>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneXenotypeForcer_Base">
+	<defName>WVC_XenotypesAndGenes_RandomXenotypeForcer</defName>
+	<label>xeno-forcer (random)</label>
+	<iconPath>WVC/UI/Genes/Gene_RandomXeno_v0</iconPath>
+	<exclusionTags>
+	  <li>WVC_XenotypesAndGenes_XenotypeTemplateCollection_Xeno</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<xenotypeIsInheritable>false</xenotypeIsInheritable>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <WVC_XenotypesAndGenes.XenotypeForcerGeneTemplateDef Name="WVC_XenotypesAndGenes_XenotypeForcerGeneTemplateDef_Base" Abstract="True">
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_ResurgentActive</geneClass> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass> -->
+	<ignoreIllegalLabelCharacterConfigError>true</ignoreIllegalLabelCharacterConfigError>
+	<displayCategory>WVC_XenotypeForcerGenes</displayCategory>
+	<displayOrderOffset>100</displayOrderOffset>
+	<selectionWeight>0.000032</selectionWeight>
+	<customEffectDescriptions>
+	  <!-- <li>&lt;color=#ff8585&gt;Cannot spawn in genepacks.&lt;/color&gt;</li> -->
+	</customEffectDescriptions>
+	<!-- <biostatCpx>0</biostatCpx> -->
+	<!-- <biostatMet>0</biostatMet> -->
+	<biostatArc>6</biostatArc>
+	<exclusionTags>
+	  <!-- For endotypes -->
+	  <!-- <li>WVC_XenotypesAndGenes_XenotypeTemplateCollection_Endo</li> -->
+	  <!-- For xenotypes -->
+	  <!-- <li>WVC_XenotypesAndGenes_XenotypeTemplateCollection_Xeno</li> -->
+	</exclusionTags>
+  </WVC_XenotypesAndGenes.XenotypeForcerGeneTemplateDef>
+
+  <!-- Base -->
+
+  <WVC_XenotypesAndGenes.XenotypeForcerGeneTemplateDef ParentName="WVC_XenotypesAndGenes_XenotypeForcerGeneTemplateDef_Base">
+	<defName>WVC_XenotypeForcer</defName>
+	<label>xeno-forcer ({0})</label>
+	<description>Adds "{0}" xenotype genes in addition to the existing ones. Allows you to make hybrid xenotypes.
+
+Please note that if the xenotype is (non-)inherited and your geneset is also (non-)inherited, then all genes will be overwritten.</description>
+  </WVC_XenotypesAndGenes.XenotypeForcerGeneTemplateDef>
+
+</Defs>

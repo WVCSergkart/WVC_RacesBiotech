@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<LanguageData>
+
+  <!-- <StatsReport_Genes>Relevant genes</StatsReport_Genes> -->
+  <!-- <StatsReport_InSunlight>in sunlight</StatsReport_InSunlight> -->
+  <!-- <StatsReport_Clothed>clothed</StatsReport_Clothed> -->
+  <!-- <WVC_StatsReport_Drafted>drafted</WVC_StatsReport_Drafted> -->
+  <!-- <WVC_StatsReport_Mechalike>mechalike</WVC_StatsReport_Mechalike> -->
+  <!-- <WVC_StatsReport_Humanlike>humanlike</WVC_StatsReport_Humanlike> -->
+  <!-- <WVC_StatsReport_PawnIsExoskinned>exoskinned</WVC_StatsReport_PawnIsExoskinned> -->
+  <!-- <WVC_StatsReport_Mechalike>mechaskinned</WVC_StatsReport_Mechalike> -->
+  <!-- <WVC_StatsReport_Humanlike>non-mechaskinned</WVC_StatsReport_Humanlike> -->
+  <!-- <WVC_StatsReport_Immortal>deathless</WVC_StatsReport_Immortal> -->
+  <!-- <WVC_StatsReport_Immortal>immortal</WVC_StatsReport_Immortal> -->
+  <!-- <WVC_StatsReport_Furskinned>furskin</WVC_StatsReport_Furskinned> -->
+  <!-- <WVC_StatsReport_NonFurskinned>non-furskin</WVC_StatsReport_NonFurskinned> -->
+  <!-- <WVC_StatsReport_OperatingSystem>operating system</WVC_StatsReport_OperatingSystem> -->
+  <!-- <WVC_StatsReport_NonOperatingSystem>non-operating system</WVC_StatsReport_NonOperatingSystem> -->
+  <WVC_StatsReport_NonGenes>non-</WVC_StatsReport_NonGenes>
+  <!-- <WVC_StatsReport_MechanitorUsedBandwidth>used bandwidth</WVC_StatsReport_MechanitorUsedBandwidth> -->
+  <WVC_StatsReport_MechanitorTotalBandwidth>controlled mechs</WVC_StatsReport_MechanitorTotalBandwidth>
+  <!-- <WVC_StatsReport_UnknownXenotype>unknown xenotype</WVC_StatsReport_UnknownXenotype> -->
+  <WVC_StatsReport_CauseSetting_On>enabled</WVC_StatsReport_CauseSetting_On>
+  <WVC_StatsReport_CauseSetting_Off>disabled</WVC_StatsReport_CauseSetting_Off>
+  <!-- <WVC_StatsReport_PowerSource>powered</WVC_StatsReport_PowerSource> -->
+
+  <WVC_GeneSpawner_GizmoTitle>Resource spawner</WVC_GeneSpawner_GizmoTitle>
+  <WVC_GeneSpawner_GizmoSpawn>Spawn</WVC_GeneSpawner_GizmoSpawn>
+  <WVC_GeneSpawner_GizmoNextIn>Next in</WVC_GeneSpawner_GizmoNextIn>
+  <WVC_GeneSpawner_GizmoCountSpawn>in count</WVC_GeneSpawner_GizmoCountSpawn>
+  <WVC_GeneSpawner_GizmoTooltip>Gizmo can be disabled in the settings.</WVC_GeneSpawner_GizmoTooltip>
+
+  <!-- <WVC_GeneSpawner_GizmoTitle>Resource spawner</WVC_GeneSpawner_GizmoTitle> -->
+  <!-- <WVC_GeneGestator_GizmoLabel>Gestator</WVC_GeneGestator_GizmoLabel> -->
+  <!-- <WVC_GeneGestator_GizmoOn>On</WVC_GeneGestator_GizmoOn> -->
+  <!-- <WVC_GeneGestator_GizmoOff>Off</WVC_GeneGestator_GizmoOff> -->
+  <!-- <WVC_GeneGestator_GizmoComplete>Time until the end of the process</WVC_GeneGestator_GizmoComplete> -->
+  <!-- <WVC_GeneGestator_GizmoCondition_GestatorOn>Gestator is On</WVC_GeneGestator_GizmoCondition_GestatorOn> -->
+  <!-- <WVC_GeneGestator_GizmoCondition_GestatorOff>Gestator is Off</WVC_GeneGestator_GizmoCondition_GestatorOff> -->
+  <!-- <WVC_GeneGestator_GizmoCondition_LimitForCancel>After a day after starting, the process cannot be interrupted.</WVC_GeneGestator_GizmoCondition_LimitForCancel> -->
+  <!-- <WVC_GeneGestator_GizmoCondition_Ready>Ready</WVC_GeneGestator_GizmoCondition_Ready> -->
+  <!-- <WVC_GeneGestator_GizmoCondition_NotReady>Charging</WVC_GeneGestator_GizmoCondition_NotReady> -->
+  <!-- <WVC_GeneGestator_GizmoCondition_UntilFullCharge>Until fully charged</WVC_GeneGestator_GizmoCondition_UntilFullCharge> -->
+  <!-- <WVC_GeneGestator_GizmoGestation>On</WVC_GeneGestator_GizmoGestation> -->
+  <!-- <WVC_GeneGestator_GizmoConfirmationDialog>After activating the ability, the pawn will receive a moving and manipulation debuff, as well as increased hunger. The process cannot be interrupted.\n\nDo you still need a new mecha-pawn?</WVC_GeneGestator_GizmoConfirmationDialog> -->
+
+  <!-- <WVC_StatsReport_GestatorIsOn>during gestation</WVC_StatsReport_GestatorIsOn> -->
+  <WVC_StatsReport_Drafted>drafted</WVC_StatsReport_Drafted>
+
+	<!-- ====================================================================================== -->
+
+	<!-- <WVC_StatPart_Mechanoidization>Mechanoidization</WVC_StatPart_Mechanoidization> -->
+	<!-- <WVC_StatPart_ArchitesInBloodstream>Archites in bloodstream</WVC_StatPart_ArchitesInBloodstream> -->
+
+	<!-- <WVC_StatPart_GenesCombo_Cause>Mecha-genes</WVC_StatPart_GenesCombo_Cause> -->
+	<WVC_StatPart_GenesCombo_Static>Forced to</WVC_StatPart_GenesCombo_Static>
+	<WVC_StatPart_GenesCombo_OffsetFromBuildings>Offset from buildings</WVC_StatPart_GenesCombo_OffsetFromBuildings>
+	<WVC_StatPart_GenesCombo_OffsetFromShrines>Offset from shrines</WVC_StatPart_GenesCombo_OffsetFromShrines>
+	<WVC_XaG_StatPart_OffsetFromPollutedGraves>Offset from polluted graves</WVC_XaG_StatPart_OffsetFromPollutedGraves>
+	<WVC_XaG_StatPart_OffsetFromSkullspikes>Offset from skullspikes</WVC_XaG_StatPart_OffsetFromSkullspikes>
+	<WVC_XaG_StatPart_OffsetFromPollutedCages>Offset from polluted cages</WVC_XaG_StatPart_OffsetFromPollutedCages>
+	<!-- <WVC_StatPart_GenesCombo_ForcedByStat>Forced by</WVC_StatPart_GenesCombo_ForcedByStat> -->
+
+	<!-- XENO TREE DIALOG -->
+
+	<WVC_XaG_XenoTreeModeChange>Choose xenotype</WVC_XaG_XenoTreeModeChange>
+	<WVC_XaG_XenoTreeModeRequiredPollution>{0} must be located on polluted soil</WVC_XaG_XenoTreeModeRequiredPollution>
+	<WVC_XaG_XenoTreeModeRequiredCold>{0} must be located in cold biome</WVC_XaG_XenoTreeModeRequiredCold>
+	<WVC_XaG_XenoTreeModeRequiredHeat>{0} must be located in hot biome</WVC_XaG_XenoTreeModeRequiredHeat>
+	<!-- <RequiredMemes>Required memes</RequiredMemes> -->
+	<!-- <RequiredStage>Required caste</RequiredStage> -->
+	<WVC_XaG_XenoTreeModeNotMeetsRequirements>Conditions are not met</WVC_XaG_XenoTreeModeNotMeetsRequirements>
+	<WVC_XaG_XenoTreeMode_AlreadySelected>Already selected</WVC_XaG_XenoTreeMode_AlreadySelected>
+	<WVC_XaG_XenoTreeModeChangeDescInitial>Here you can choose any xenotype of your future baby. Some xenotypes require special conditions to be used.</WVC_XaG_XenoTreeModeChangeDescInitial>
+	<WVC_XaG_XenoTreeModeChangeDescFull>{0} will need time to reconfigure the genetic code in the xeno-vats. During this time it will be impossible to change the xenotype. Are you sure about the selected xenotype?</WVC_XaG_XenoTreeModeChangeDescFull>
+
+	<!-- SERUM RETUNE DIALOG -->
+
+</LanguageData>

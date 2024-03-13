@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- <ThingDef ParentName="TreeBase" Name="WVC_XenotypesAndGenes_XenoTreeBulb_Base"> -->
+	<!-- <defName>WVC_Plant_XenoBulb</defName> -->
+	<!-- <label>xeno-bulb</label> -->
+	<!-- <description>A small bulb with genetic material. Being planted close to a xeno-tree increases the number of xenotypes available.</description> -->
+	<!-- <descriptionHyperlinks> -->
+	  <!-- <ThingDef>WVC_Plant_TreeXenoSpawner</ThingDef> -->
+	<!-- </descriptionHyperlinks> -->
+	<!-- <graphicData> -->
+	  <!-- <texPath>WVC/Things/XaG_Buildings/XenoTree_Bulb</texPath> -->
+	  <!-- <graphicClass>Graphic_Random</graphicClass> -->
+	  <!-- <shadowData> -->
+		<!-- <volume>(0.55, 0.2, 0.2)</volume> -->
+		<!-- <offset>(0,0,0)</offset> -->
+	  <!-- </shadowData> -->
+	<!-- </graphicData> -->
+	<!-- <tickerType>Long</tickerType> -->
+	<!-- <statBases> -->
+	  <!-- <Beauty>6</Beauty> -->
+	  <!-- <BeautyOutdoors>8</BeautyOutdoors> -->
+	  <!-- <Flammability>0.6</Flammability> -->
+	  <!-- <MaxHitPoints>120</MaxHitPoints> -->
+	<!-- </statBases> -->
+	<!-- <ingestible /> -->
+	<!-- <preventSkyfallersLandingOn>true</preventSkyfallersLandingOn> -->
+	<!-- <canScatterOver>false</canScatterOver> -->
+	<!-- <plant> -->
+	  <!-- <interferesWithRoof>false</interferesWithRoof> -->
+	  <!-- <growMinGlow>0</growMinGlow> -->
+	  <!-- <pollution>Any</pollution> -->
+	  <!-- <growDays>4</growDays> -->
+	  <!-- <visualSizeRange>1.2~1.3</visualSizeRange> -->
+	  <!-- <sowMinSkill>0</sowMinSkill> -->
+	  <!-- <sowTags Inherit="False"/> -->
+	  <!-- <lifespanDaysPerGrowDays>0</lifespanDaysPerGrowDays> -->
+	  <!-- <fertilityMin>0.05</fertilityMin> -->
+	  <!-- <fertilitySensitivity>0</fertilitySensitivity> -->
+	  <!-- <wildClusterWeight>0</wildClusterWeight> -->
+	  <!-- <sowWork>400</sowWork> -->
+	  <!-- <harvestYield>17</harvestYield> -->
+	  <!-- <treeCategory>Super</treeCategory> -->
+	  <!-- <dieIfNoSunlight>false</dieIfNoSunlight> -->
+	  <!-- <sowResearchPrerequisites Inherit="False" /> -->
+	  <!-- <dieFromToxicFallout>False</dieFromToxicFallout> -->
+	  <!-- <showGrowthInInspectPane>false</showGrowthInInspectPane> -->
+	  <!-- <minSpacingBetweenSamePlant>4.9</minSpacingBetweenSamePlant> -->
+	  <!-- <warnIfMarkedForCut>true</warnIfMarkedForCut> -->
+	  <!-- <harvestWork>1000</harvestWork> -->
+	  <!-- <topWindExposure>0</topWindExposure> -->
+	<!-- </plant> -->
+	<!-- <comps> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_XenoTree"> -->
+		<!-- <compClass>WVC_XenotypesAndGenes.CompXenoBulb</compClass> -->
+		<!-- <uniqueTag>XenoBulb</uniqueTag> -->
+	  <!-- </li> -->
+	  <!-- <li Class="CompProperties_Glower"> -->
+		<!-- <glowRadius>3.5</glowRadius> -->
+		<!-- <glowColor>(142,108,108, 0)</glowColor> -->
+	  <!-- </li> -->
+	  <!-- <li Class="CompProperties_SpawnSubplant"> -->
+		<!-- <compClass>WVC_XenotypesAndGenes.CompSpawnSubplantDuration</compClass> -->
+		<!-- <subplant>WVC_Plant_MossXenoTree</subplant> -->
+		<!-- <maxRadius>4.9</maxRadius> -->
+		<!-- <subplantSpawnDays>1</subplantSpawnDays> -->
+		<!-- <minGrowthForSpawn>0.6</minGrowthForSpawn> -->
+		<!-- <initialGrowthRange>0.2~0.8</initialGrowthRange> -->
+		<!-- <canSpawnOverPlayerSownPlants>false</canSpawnOverPlayerSownPlants> -->
+	  <!-- </li> -->
+	<!-- </comps> -->
+  <!-- </ThingDef> -->
+
+  <!-- <ThingDef ParentName="ResourceBase" Name="WVC_XenotypesAndGenes_XenoBulbSeed_Base"> -->
+	<!-- <defName>WVC_XenoBulbSeed</defName> -->
+	<!-- <label>xeno-bulb spore</label> -->
+	<!-- <description>The spore of a xeno-tree. It can be planted to create a new xeno-bulb which increases the number of xenotypes available.</description> -->
+	<!-- <descriptionHyperlinks> -->
+	  <!-- <ThingDef>WVC_Plant_XenoBulb</ThingDef> -->
+	<!-- </descriptionHyperlinks> -->
+	<!-- <stackLimit>5</stackLimit> -->
+	<!-- <statBases> -->
+	  <!-- <MaxHitPoints>50</MaxHitPoints> -->
+	  <!-- <Mass>0.3</Mass> -->
+	  <!-- <Beauty>0</Beauty> -->
+	  <!-- <MarketValue>420</MarketValue> -->
+	<!-- </statBases> -->
+	<!-- <graphicData> -->
+	  <!-- <texPath>WVC/Things/XaG_Items/XenoTree_Seed</texPath> -->
+	  <!-- <graphicClass>Graphic_StackCount</graphicClass> -->
+	  <!-- <drawSize>(1.0, 1.0)</drawSize> -->
+	<!-- </graphicData> -->
+	<!-- <thingCategories> -->
+	  <!-- <li>ItemsMisc</li> -->
+	<!-- </thingCategories> -->
+	<!-- <comps> -->
+	  <!-- <li Class="CompProperties_Plantable"> -->
+		<!-- <plantDefToSpawn>WVC_Plant_XenoBulb</plantDefToSpawn> -->
+	  <!-- </li> -->
+	<!-- </comps> -->
+  <!-- </ThingDef> -->
+
+</Defs>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="GeneImmunityBase" Name="WVC_XenotypesAndGenes_GeneImmunity_Base" Abstract="True">
+	<selectionWeight>0.0022</selectionWeight>
+	<iconColor>(255, 255, 255)</iconColor>
+	<symbolPack>
+	  <prefixSymbols>
+		<li>
+		  <symbol>sick</symbol>
+		  <weight>3</weight>
+		</li>
+		<li><symbol>frail</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneImmunity_Base">
+	<defName>WVC_Immunity_Non</defName>
+	<label>no immunity</label>
+	<labelShortAdj>no-immunity</labelShortAdj>
+	<description>Carriers of this gene have no immunity at all.</description>
+	<iconPath>WVC/UI/Genes/Gene_NoImmunity_v0</iconPath>
+	<displayOrderInCategory>-5</displayOrderInCategory>
+	<marketValueFactor>0.4</marketValueFactor>
+	<statFactors>
+	  <ImmunityGainSpeed>0.01</ImmunityGainSpeed>
+	</statFactors>
+	<biostatMet>6</biostatMet>
+  </GeneDef>
+
+</Defs>
