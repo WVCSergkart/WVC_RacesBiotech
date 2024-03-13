@@ -34,7 +34,7 @@ namespace WVC_XenotypesAndGenes
 				if (curStage == null && cachedSporesCount > 0)
 				{
 					StatModifier statModifier = new();
-					statModifier.stat = WVC_GenesDefOf.WVC_SporesBandwidth;
+					statModifier.stat = WVC_GenesDefOf.WVC_GolemBond;
 					statModifier.value = cachedSporesCount;
 					curStage = new HediffStage
 					{

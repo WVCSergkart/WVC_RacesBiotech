@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using Verse;
 
@@ -12,7 +13,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (MechanoidsUtility.CanSpawnMoreMechanoids(lich, golem))
 			{
-				float weight = TotalGolemBandwidth(lich) - GetConsumedBandwidth(lich) - golem.GetStatValue(WVC_GenesDefOf.WVC_GolemBandwidthCost);
+				float weight = TotalGolemBandwidth(lich) - MechanoidsUtility.GetConsumedGolembond(lich) - golem.GetStatValue(WVC_GenesDefOf.WVC_GolemBondCost);
 				if (weight < 0f)
 				{
 					return false;
@@ -26,9 +27,10 @@ namespace WVC_XenotypesAndGenes
 
 		public static float TotalGolemBandwidth(Pawn mechanitor)
 		{
-			return mechanitor.GetStatValue(WVC_GenesDefOf.WVC_OverseerMaxGolems);
+			return mechanitor.GetStatValue(WVC_GenesDefOf.WVC_GolemBond);
 		}
 
+		[Obsolete]
 		public static bool MechanitorHasAnyGolems(Pawn mechanitor)
 		{
 			List<Pawn> list = GetControlledGolems(mechanitor);
@@ -46,7 +48,7 @@ namespace WVC_XenotypesAndGenes
 			// {
 				// return false;
 			// }
-			float bandwidthCost = GetConsumedBandwidth(mechanitor);
+			float bandwidthCost = MechanoidsUtility.GetConsumedGolembond(mechanitor);
 			if (maxGolems >= bandwidthCost)
 			{
 				return true;
@@ -54,6 +56,7 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		[Obsolete]
 		public static float GetConsumedBandwidth(Pawn mechanitor)
 		{
 			float result = 0;
@@ -64,7 +67,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			foreach (Pawn golem in golems)
 			{
-				float golemBand = golem.GetStatValue(WVC_GenesDefOf.WVC_GolemBandwidthCost);
+				float golemBand = golem.GetStatValue(WVC_GenesDefOf.WVC_GolemBondCost);
 				if (golemBand > 0)
 				{
 					result += golemBand;
@@ -74,6 +77,7 @@ namespace WVC_XenotypesAndGenes
 			return result;
 		}
 
+		[Obsolete]
 		public static List<Pawn> GetControlledGolems(Pawn mechanitor)
 		{
 			List<Pawn> list = new();
@@ -88,6 +92,7 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
+		// [Obsolete]
 		public static bool PawnIsGolem(Pawn pawn)
 		{
 			if (pawn.RaceProps.IsMechanoid)

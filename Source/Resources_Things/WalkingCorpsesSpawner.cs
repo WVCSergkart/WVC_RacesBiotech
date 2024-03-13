@@ -254,7 +254,7 @@ namespace WVC_XenotypesAndGenes
 						PawnKindDef walker = walkers[i];
 						if (WalkingUtility.CanChoseMechPawnKindDef(chosenMechanitor, walker))
 						{
-							list.Add(new FloatMenuOption(walker.label.CapitalizeFirst() + " | " + "WVC_XaG_WalkerCost".Translate(walker.race.statBases.GetStatValueFromList(WVC_GenesDefOf.WVC_SporesBandwidthCost, 1f).ToString()).Colorize(ColorLibrary.LightGreen), delegate
+							list.Add(new FloatMenuOption(walker.label.CapitalizeFirst() + " | " + "WVC_XaG_WalkerCost".Translate(walker.race.statBases.GetStatValueFromList(WVC_GenesDefOf.WVC_GolemBondCost, 1f).ToString()).Colorize(ColorLibrary.LightGreen), delegate
 							{
 								chosenWalker = walker;
 								Messages.Message("WVC_XaG_WalkerIsChosen".Translate(parent.def.label.CapitalizeFirst(), walker.label.CapitalizeFirst()), null, MessageTypeDefOf.NeutralEvent, historical: false);

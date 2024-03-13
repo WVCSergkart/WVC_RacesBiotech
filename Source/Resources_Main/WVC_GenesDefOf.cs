@@ -29,11 +29,11 @@ namespace WVC_XenotypesAndGenes
 		// public static ThoughtDef WVC_XenotypesAndGenes_ResurrectedMe;
 		// public static ThoughtDef WVC_XenotypesAndGenes_ResurrectedByMe;
 		// Golems
-		public static StatDef WVC_OverseerMaxGolems;
-		public static StatDef WVC_GolemBandwidthCost;
+		public static StatDef WVC_GolemBond;
+		public static StatDef WVC_GolemBondCost;
 		// Walking Corpses
-		public static StatDef WVC_SporesBandwidth;
-		public static StatDef WVC_SporesBandwidthCost;
+		// public static StatDef WVC_SporesBandwidth;
+		// public static StatDef WVC_SporesBandwidthCost;
 		// Genepack
 		public static ThingDef WVC_Genepack;
 		public static ThingDef WVC_UltraGenepack;

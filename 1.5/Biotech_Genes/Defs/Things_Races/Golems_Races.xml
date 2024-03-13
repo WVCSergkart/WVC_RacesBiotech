@@ -17,11 +17,9 @@
 	<!-- </HediffGiverSetDef> -->
 
 	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Base" Name="WVC_XenotypesAndGenes_Golemlike_Stone" Abstract="True">
-		<description>A piece of rock chunk, animated by mechanites. This “mechanoid” requires a lot of energy, but very little bandwidth.
-
-&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; Golem control requires bandwidth and golem bandwidth. The standard bandwidth-to-golem ratio is 1 to 5.</description>
+		<!-- <description>A piece of rock chunk, animated by mechanites. This “mechanoid” requires a lot of energy, but very little bandwidth.\n\n&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; Golem control requires bandwidth and golem bandwidth. The standard bandwidth-to-golem ratio is 1 to 5.</description> -->
 		<statBases>
-			<WVC_GolemBandwidthCost>1</WVC_GolemBandwidthCost>
+			<WVC_GolemBondCost>1</WVC_GolemBondCost>
 			<ArmorRating_Blunt>0.6</ArmorRating_Blunt>
 			<MoveSpeed>3.6</MoveSpeed>
 			<Mass>80</Mass>
@@ -141,7 +139,7 @@
 		<defName>WVC_Golem_Crafter</defName>
 		<label>golem craftoid</label>
 		<statBases>
-			<WVC_GolemBandwidthCost>2</WVC_GolemBandwidthCost>
+			<WVC_GolemBondCost>2</WVC_GolemBondCost>
 			<ArmorRating_Sharp>0.2</ArmorRating_Sharp>
 			<ArmorRating_Blunt>0.4</ArmorRating_Blunt>
 			<MoveSpeed>2.2</MoveSpeed>
@@ -224,7 +222,7 @@
 		<defName>WVC_Golem_Hunter</defName>
 		<label>golem hunteroid</label>
 		<statBases>
-			<WVC_GolemBandwidthCost>2</WVC_GolemBandwidthCost>
+			<WVC_GolemBondCost>2</WVC_GolemBondCost>
 			<ArmorRating_Sharp>0.1</ArmorRating_Sharp>
 			<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
 			<MoveSpeed>3.8</MoveSpeed>

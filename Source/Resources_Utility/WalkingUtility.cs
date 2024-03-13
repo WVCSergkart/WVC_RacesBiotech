@@ -16,7 +16,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			weight = TotalSporesBandwidth(lich) - GetConsumedBandwidth(lich) - golem.race.statBases.GetStatValueFromList(WVC_GenesDefOf.WVC_SporesBandwidthCost, 100f);
+			weight = TotalSporesBandwidth(lich) - MechanoidsUtility.GetConsumedGolembond(lich) - golem.race.statBases.GetStatValueFromList(WVC_GenesDefOf.WVC_GolemBondCost, 100f);
 			if (weight < 0f)
 			{
 				return false;
@@ -37,7 +37,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (MechanoidsUtility.CanSpawnMoreMechanoids(lich, golem))
 			{
-				float weight = TotalSporesBandwidth(lich) - GetConsumedBandwidth(lich) - golem.GetStatValue(WVC_GenesDefOf.WVC_SporesBandwidthCost);
+				float weight = TotalSporesBandwidth(lich) - MechanoidsUtility.GetConsumedGolembond(lich) - golem.GetStatValue(WVC_GenesDefOf.WVC_GolemBondCost);
 				if (weight < 0f)
 				{
 					return false;
@@ -49,7 +49,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static float GetLichWeight(Pawn lich)
 		{
-			float weight = TotalSporesBandwidth(lich) - GetConsumedBandwidth(lich);
+			float weight = TotalSporesBandwidth(lich) - MechanoidsUtility.GetConsumedGolembond(lich);
 			if (weight <= 0f)
 			{
 				weight = 0.001f;
@@ -96,9 +96,10 @@ namespace WVC_XenotypesAndGenes
 
 		public static float TotalSporesBandwidth(Pawn mechanitor)
 		{
-			return mechanitor.GetStatValue(WVC_GenesDefOf.WVC_SporesBandwidth);
+			return mechanitor.GetStatValue(WVC_GenesDefOf.WVC_GolemBond);
 		}
 
+		[Obsolete]
 		public static bool MechanitorHasAnyWalkingCorpses(Pawn mechanitor)
 		{
 			List<Pawn> list = GetControlledWalkingCorpses(mechanitor);
@@ -116,7 +117,7 @@ namespace WVC_XenotypesAndGenes
 			// {
 				// return false;
 			// }
-			float bandwidthCost = GetConsumedBandwidth(mechanitor);
+			float bandwidthCost = MechanoidsUtility.GetConsumedGolembond(mechanitor);
 			if (maxGolems >= bandwidthCost)
 			{
 				return true;
@@ -124,6 +125,7 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		[Obsolete]
 		public static float GetConsumedBandwidth(Pawn mechanitor)
 		{
 			float result = 0;
@@ -134,7 +136,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			foreach (Pawn golem in golems)
 			{
-				float golemBand = golem.GetStatValue(WVC_GenesDefOf.WVC_SporesBandwidthCost);
+				float golemBand = golem.GetStatValue(WVC_GenesDefOf.WVC_GolemBondCost);
 				if (golemBand > 0)
 				{
 					result += golemBand;
@@ -144,6 +146,7 @@ namespace WVC_XenotypesAndGenes
 			return result;
 		}
 
+		[Obsolete]
 		public static List<Pawn> GetControlledWalkingCorpses(Pawn mechanitor)
 		{
 			List<Pawn> list = new();
@@ -158,6 +161,7 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
+		// [Obsolete]
 		public static bool PawnIsBoneGolem(Pawn pawn)
 		{
 			if (pawn.RaceProps.IsMechanoid)

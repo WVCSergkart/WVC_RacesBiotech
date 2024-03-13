@@ -6,7 +6,7 @@
 			<ArmorRating_Sharp>0.55</ArmorRating_Sharp>
 			<ArmorRating_Blunt>0.65</ArmorRating_Blunt>
 			<MoveSpeed>1.6</MoveSpeed>
-			<WVC_GolemBandwidthCost>3</WVC_GolemBandwidthCost>
+			<WVC_GolemBondCost>3</WVC_GolemBondCost>
 			<Mass>126</Mass>
 			<!-- Work -->
 			<MiningSpeed>0.5</MiningSpeed>

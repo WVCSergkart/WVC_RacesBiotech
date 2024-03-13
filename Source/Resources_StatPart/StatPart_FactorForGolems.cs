@@ -1,9 +1,11 @@
 // RimWorld.StatPart_Age
 using RimWorld;
+using System;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
+    [Obsolete]
     public class StatPart_FactorForGolems : StatPart
     {
         // public string pawnKindDef;

@@ -157,9 +157,7 @@
 	<!-- =================================================================== -->
 
 	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Base" Name="WVC_XenotypesAndGenes_Golemlike_Bones" Abstract="True">
-		<description>A pile of bones animated by archotech-created archites in a toxic fungus. This “mechanoid” requires  a lot of energy, but very little bandwidth.
-
-&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; Golem control requires bandwidth and resurgent spores. The standard bandwidth-to-golem ratio is 1 to 5.</description>
+		<!-- <description>A pile of bones animated by archotech-created archites in a toxic fungus. This “mechanoid” requires  a lot of energy, but very little bandwidth.\n\n&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; Golem control requires bandwidth and resurgent spores. The standard bandwidth-to-golem ratio is 1 to 5.</description> -->
 		<soundImpactDefault>BulletImpact_Flesh</soundImpactDefault>
 		<descriptionHyperlinks>
 		  <ThingDef>WVC_Plant_TreeResurgent</ThingDef>
@@ -172,7 +170,7 @@
 			<ArmorRating_Heat>0.4</ArmorRating_Heat>
 			<MoveSpeed>3.6</MoveSpeed>
 			<Mass>43</Mass>
-			<WVC_SporesBandwidthCost>1</WVC_SporesBandwidthCost>
+			<WVC_GolemBondCost>1</WVC_GolemBondCost>
 		</statBases>
 		<uiIconScale>1.4</uiIconScale>
 		<race>
@@ -358,7 +356,7 @@
 		<defName>WVC_Golem_Funghead</defName>
 		<label>walking funghead</label>
 		<statBases>
-			<WVC_SporesBandwidthCost>2</WVC_SporesBandwidthCost>
+			<WVC_GolemBondCost>2</WVC_GolemBondCost>
 			<ArmorRating_Sharp>0.5</ArmorRating_Sharp>
 			<ArmorRating_Blunt>0.3</ArmorRating_Blunt>
 			<ArmorRating_Heat>0.1</ArmorRating_Heat>
@@ -432,7 +430,7 @@
 		<defName>WVC_Golem_Aberration</defName>
 		<label>walking aberration</label>
 		<statBases>
-			<WVC_SporesBandwidthCost>3</WVC_SporesBandwidthCost>
+			<WVC_GolemBondCost>3</WVC_GolemBondCost>
 			<ArmorRating_Sharp>0.85</ArmorRating_Sharp>
 			<ArmorRating_Blunt>0.44</ArmorRating_Blunt>
 			<ArmorRating_Heat>0.6</ArmorRating_Heat>

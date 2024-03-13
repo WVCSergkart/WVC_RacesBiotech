@@ -118,8 +118,8 @@
 	  <li>WVC_StoneSkin_Average</li>
 	</forcedHeadTypes>
 	<statOffsets>
-	  <!-- <WVC_OverseerMaxGolems>1</WVC_OverseerMaxGolems> -->
-	  <WVC_OverseerMaxGolems>6</WVC_OverseerMaxGolems>
+	  <!-- <WVC_GolemBond>1</WVC_GolemBond> -->
+	  <WVC_GolemBond>6</WVC_GolemBond>
 	  <ArmorRating_Blunt>0.22</ArmorRating_Blunt>
 	  <ArmorRating_Sharp>0.12</ArmorRating_Sharp>
 	  <ArmorRating_Heat>0.11</ArmorRating_Heat>

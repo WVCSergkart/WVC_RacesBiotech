@@ -51,7 +51,7 @@
 	  <li>Decreases the nutritional value of consumed food by 10%</li>
 	  <!-- <li>Any ingested thing is guaranteed to provide 0.3 nutrition. If the pawn cannot move at this moment (downed or in bed), then this bonus increases significantly.</li> -->
 	  <!-- <li>Increases the nutritional value of consumed food by 20%</li> -->
-	  <li>If the pawn ingest &lt;color=#8a8ae6&gt;nutrients injector&lt;/color&gt; or at the time of eating food is &lt;color=#8a8ae6&gt;downed&lt;/color&gt;, then the hunger bar is completely filled.</li>
+	  <li>If the pawn ingest &lt;color=#8a8ae6&gt;dustogenic food&lt;/color&gt; or at the time of eating food is &lt;color=#8a8ae6&gt;downed&lt;/color&gt;, then the hunger bar is completely filled.</li>
 	  <!-- <li>In the presence of the &lt;color=#8a8ae6&gt;"Undead"&lt;/color&gt; gene, it gives the effect of &lt;color=#8a8ae6&gt;reincarnation&lt;/color&gt;.</li> -->
 	  <!-- <li>&lt;color=#8a8ae6&gt;Reincarnation&lt;/color&gt; - In case of death, a pawn will be summoned, which is a descendant of the deceased. The effect will not work if the chronological age of the pawn is less than 40.</li> -->
 	</customEffectDescriptions>

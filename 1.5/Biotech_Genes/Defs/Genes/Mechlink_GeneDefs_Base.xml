@@ -66,7 +66,7 @@
 	<description>Carriers of this gene have naturally strong psionic formations in the brain allowing them to partially control mechanoids.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; Since a mechlink is required for the mechanitor's abilities to work, the natural mechlink gene gives the pawn a vanilla mechlink with a permanent debuff.</description>
 	<iconPath>WVC/UI/Genes/NaturalMechlink</iconPath>
 	<statOffsets>
-	  <WVC_OverseerMaxGolems>4</WVC_OverseerMaxGolems>
+	  <WVC_GolemBond>4</WVC_GolemBond>
 	  <MechBandwidth>-4</MechBandwidth>
 	  <MechControlGroups>-1</MechControlGroups>
 	</statOffsets>
@@ -108,13 +108,21 @@
 	</modExtensions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Base">
+  <!-- Golemlink -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Base" Name="WVC_XenotypesAndGenes_GeneMechlink_Golems" Abstract="True">
+	<geneClass>WVC_XenotypesAndGenes.Gene_MechlinkWithGizmo</geneClass>
+	<customEffectDescriptions>
+		<li>Allows the &lt;color=#8a8ae6&gt;mechanitor&lt;/color&gt; to control &lt;color=#8a8ae6&gt;golems&lt;/color&gt;.</li>
+		<!-- <li>&lt;color=#8a8ae6&gt;Golembond&lt;/color&gt; is a special limit unique to &lt;color=#8a8ae6&gt;golems&lt;/color&gt;. Most &lt;color=#8a8ae6&gt;sources&lt;/color&gt; that increase &lt;color=#8a8ae6&gt;golembond&lt;/color&gt; only work within &lt;color=#8a8ae6&gt;one map&lt;/color&gt;.</li> -->
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Golems">
 	<defName>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</defName>
 	<label>spore mechlink</label>
 	<description>The carrier of this gene has architis, which has greatly changed neural connections. The carrier acquired special sensitivity and the ability to control resurgent spores. Due to this, the carrier has a natural mechlink.</description>
 	<iconPath>WVC/UI/Genes/Gene_ResurgentTree_v0</iconPath>
-	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_ResurgentMechlink</geneClass> -->
-	<geneClass>WVC_XenotypesAndGenes.Gene_MechlinkWithGizmo</geneClass>
 	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_ResurgentSpores</resourceGizmoType>
 	<displayCategory>WVC_ResurgentCells</displayCategory>
 	<displayOrderInCategory>1260</displayOrderInCategory>
@@ -125,11 +133,10 @@
 	<biostatArc>1</biostatArc>
 	<customEffectDescriptions>
 		<li>Makes it possible to plant a &lt;color=#8a8ae6&gt;resurgent tree&lt;/color&gt; at the cost of &lt;color=#8a8ae6&gt;66 cells&lt;/color&gt;.</li>
-		<li>The &lt;color=#8a8ae6&gt;resurgent tree&lt;/color&gt; slowly pollutes the soil around it and raises &lt;color=#8a8ae6&gt;walking corpses&lt;/color&gt;.</li>
-		<li>&lt;color=#8a8ae6&gt;Walking corpses&lt;/color&gt; are aberrations that can be controlled by mechanitors who have this gene. &lt;color=#8a8ae6&gt;Resurgent spores&lt;/color&gt; are needed to control these creatures.</li>
+		<li>The &lt;color=#8a8ae6&gt;resurgent tree&lt;/color&gt; slowly pollutes the soil around it and raises &lt;color=#8a8ae6&gt;bone golems&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<statOffsets>
-	  <WVC_SporesBandwidth>6</WVC_SporesBandwidth>
+	  <WVC_GolemBond>6</WVC_GolemBond>
 	  <MechBandwidth>-2</MechBandwidth>
 	  <!-- <MechControlGroups>1</MechControlGroups> -->
 	</statOffsets>
@@ -138,13 +145,10 @@
 	</abilities>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Golems">
 	<defName>WVC_SwarmConnection_Golems</defName>
-	<label>golem mechlink</label>
-	<description>Carriers of this gene have the ability to control mining mechanites; these microscopic machines are ready at any moment to animate a stone chunk and begin serving the mechanitor again.
-
-&lt;color=#ff8585&gt;Note:&lt;/color&gt; Golems are mechanoid-like creatures that also require a mechlink to control.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_MechlinkWithGizmo</geneClass>
+	<label>stone mechlink</label>
+	<description>Carriers of this gene have the ability to control orbital mining mechanites; these microscopic machines are ready at any moment to animate a stone chunk and begin serving the mechanitor again.</description>
 	<resourceGizmoType>WVC_XenotypesAndGenes.Gizmo_MaxGolems</resourceGizmoType>
 	<iconPath>WVC/UI/Genes/Gene_Golemlink_v0</iconPath>
 	<biostatCpx>2</biostatCpx>
@@ -154,10 +158,10 @@
 	<customEffectDescriptions>
 		<li>After activating the ability, summons from 1 to 5 golems.</li>
 		<li>&lt;color=#8a8ae6&gt;Global work speed&lt;/color&gt; of the golems depends on the &lt;color=#8a8ae6&gt;psychic sensitivity&lt;/color&gt; of the overseer.</li>
-		<li>A overseer can reproduce with the help of golems.</li>
+		<li>A overseer can reproduce with the help of &lt;color=#8a8ae6&gt;golems&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<statOffsets>
-	  <WVC_OverseerMaxGolems>2</WVC_OverseerMaxGolems>
+	  <WVC_GolemBond>2</WVC_GolemBond>
 	  <MechBandwidth>2</MechBandwidth>
 	  <MechControlGroups>1</MechControlGroups>
 	</statOffsets>

@@ -21,6 +21,13 @@ namespace WVC_XenotypesAndGenes
 
 		private readonly Pawn mechanitor;
 
+		private int totalBandwidth;
+		private int usedBandwidth;
+
+		private int nextRecache = -1;
+
+		private List<Pawn> allControlledGolems;
+
 		public override bool Visible => Find.Selector.SelectedPawns.Count == 1;
 
 		public GeneGizmo_ResurgentSpores(Pawn mechanitor)
@@ -35,19 +42,24 @@ namespace WVC_XenotypesAndGenes
 			Rect rect = new(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
 			Rect rect2 = rect.ContractedBy(6f);
 			Widgets.DrawWindowBackground(rect);
-			int totalBandwidth = (int)WalkingUtility.TotalSporesBandwidth(mechanitor);
-			int usedBandwidth = (int)WalkingUtility.GetConsumedBandwidth(mechanitor);
+			if (Find.TickManager.TicksGame > nextRecache)
+			{
+				totalBandwidth = (int)MechanoidsUtility.TotalGolembond(mechanitor);
+				usedBandwidth = (int)MechanoidsUtility.GetConsumedGolembond(mechanitor);
+				allControlledGolems = MechanoidsUtility.GetAllControlledGolems(mechanitor);
+				nextRecache = Find.TickManager.TicksGame + 2734;
+			}
 			// Log.Error("totalBandwidth: " + totalBandwidth + ", usedBandwidth: " + usedBandwidth);
 			string text = usedBandwidth.ToString("F0") + " / " + totalBandwidth.ToString("F0");
 			TaggedString taggedString = "WVC_XaG_SporesBandwidth".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + text + "\n\n" + "WVC_XaG_SporesBandwidthGizmoTip".Translate();
 			// int usedBandwidthFromSubjects = tracker.UsedBandwidthFromSubjects;
 			if (usedBandwidth > 0)
 			{
-				taggedString += (string)("\n\n" + ("WVC_XaG_SporesBandwidthUsage".Translate() + ": ")) + usedBandwidth;
-				IEnumerable<string> entries = from p in WalkingUtility.GetControlledWalkingCorpses(mechanitor)
+				taggedString += (string)("\n\n" + ("WVC_XaG_GolemBandwidthUsage".Translate() + ": ")) + usedBandwidth;
+				IEnumerable<string> entries = from p in allControlledGolems
 					where !p.IsGestating()
 					group p by p.kindDef into p
-					select (string)(p.Key.LabelCap + " x") + p.Count() + " (+" + p.Sum((Pawn mech) => mech.GetStatValue(WVC_GenesDefOf.WVC_SporesBandwidthCost)) + ")";
+					select (string)(p.Key.LabelCap + " x") + p.Count() + " (+" + p.Sum((Pawn mech) => mech.GetStatValue(WVC_GenesDefOf.WVC_GolemBondCost)) + ")";
 				taggedString += "\n\n" + entries.ToLineList(" - ");
 			}
 			// int usedBandwidthFromGestation = tracker.UsedBandwidthFromGestation;
@@ -64,7 +76,7 @@ namespace WVC_XenotypesAndGenes
 			Text.Font = GameFont.Small;
 			Text.Anchor = TextAnchor.UpperLeft;
 			Rect rect3 = new(rect2.x, rect2.y, rect2.width, 20f);
-			Widgets.Label(rect3, "WVC_XaG_SporesBandwidth".Translate());
+			Widgets.Label(rect3, "WVC_XaG_GolemBandwidth".Translate());
 			Text.Font = GameFont.Small;
 			Text.Anchor = TextAnchor.UpperRight;
 			Widgets.Label(rect3, text);

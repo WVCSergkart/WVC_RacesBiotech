@@ -21,7 +21,7 @@
 	<displayOrderInIssue>20</displayOrderInIssue>
 	<displayOrderInImpact>100</displayOrderInImpact>
 	<statOffsets>
-	  <WVC_SporesBandwidth>2</WVC_SporesBandwidth>
+	  <WVC_GolemBond>8</WVC_GolemBond>
 	</statOffsets>
 	<associatedMemes>
 	  <li>WVC_Golemist</li>

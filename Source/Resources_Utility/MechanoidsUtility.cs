@@ -1,5 +1,6 @@
 using RimWorld;
 using RimWorld.QuestGen;
+using System;
 using System.Collections.Generic;
 using Verse;
 
@@ -9,7 +10,58 @@ namespace WVC_XenotypesAndGenes
 	public static class MechanoidsUtility
 	{
 
-		// Ideo
+		// Golems
+
+		public static List<Pawn> GetAllControlledGolems(Pawn mechanitor)
+		{
+			List<Pawn> mechs = mechanitor?.mechanitor?.ControlledPawns;
+			if (mechs.NullOrEmpty())
+			{
+				return null;
+			}
+			List<Pawn> list = new();
+			foreach (Pawn item in mechs)
+			{
+				if (item.health.Dead)
+				{
+					continue;
+				}
+				if (item.IsGolemlike() && !item.health.Dead)
+				{
+					list.Add(item);
+				}
+			}
+			return list;
+		}
+
+		public static bool IsGolemlike(this Pawn pawn)
+		{
+			if (pawn.RaceProps.IsMechanoid)
+			{
+				return pawn.GetStatValue(WVC_GenesDefOf.WVC_GolemBondCost) > 0;
+			}
+			return false;
+		}
+
+		public static float TotalGolembond(Pawn mechanitor)
+		{
+			return mechanitor.GetStatValue(WVC_GenesDefOf.WVC_GolemBond);
+		}
+
+		public static float GetConsumedGolembond(Pawn mechanitor)
+		{
+			float result = 0;
+			List <Pawn> golems = mechanitor?.mechanitor?.ControlledPawns;
+			if (golems.NullOrEmpty())
+			{
+				return result;
+			}
+			foreach (Pawn golem in golems)
+			{
+				result += golem.GetStatValue(WVC_GenesDefOf.WVC_GolemBondCost);
+			}
+			return result;
+		}
 
 		public static bool MechanitorIsLich(Pawn mechanitor)
 		{
@@ -17,8 +69,9 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
+			// Log.Error("TEST is Golem Master");
 			Gene_MechlinkWithGizmo gene = mechanitor.genes?.GetFirstGeneOfType<Gene_MechlinkWithGizmo>();
-			if (gene != null && gene.def.resourceGizmoType == typeof(GeneGizmo_ResurgentSpores))
+			if (gene?.def?.resourceGizmoType == typeof(GeneGizmo_ResurgentSpores))
 			{
 				return true;
 			}
@@ -31,13 +84,16 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
+			// Log.Error("TEST is Golem Master");
 			Gene_MechlinkWithGizmo gene = mechanitor.genes?.GetFirstGeneOfType<Gene_MechlinkWithGizmo>();
-			if (gene != null && gene.def.resourceGizmoType == typeof(Gizmo_MaxGolems))
+			if (gene?.def?.resourceGizmoType == typeof(Gizmo_MaxGolems))
 			{
 				return true;
 			}
 			return false;
 		}
+
+		// Ideo
 
 		// public static bool CanSummonMechanoidsIdeo(Pawn pawn)
 		// {
@@ -166,14 +222,15 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static bool MechanoidIsGolemlike(Pawn mech)
-		{
-			if (WalkingUtility.PawnIsBoneGolem(mech) || GolemsUtility.PawnIsGolem(mech))
-			{
-				return true;
-			}
-			return false;
-		}
+		// [Obsolete]
+		// public static bool MechanoidIsGolemlike(Pawn mech)
+		// {
+			// if (WalkingUtility.PawnIsBoneGolem(mech) || GolemsUtility.PawnIsGolem(mech))
+			// {
+				// return true;
+			// }
+			// return false;
+		// }
 
 		// Mecha summon
 		public static bool MechanoidIsPlayerMechanoid(PawnKindDef mech)

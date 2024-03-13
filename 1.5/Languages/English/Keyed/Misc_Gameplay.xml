@@ -251,10 +251,10 @@ Each mechanoid costs 0.15 nutrition to summon.</WVC_XaG_Gene_DustMechlinkDesc>
 	<!-- ============================ GOLEMS ============================ -->
 	<!-- ============================ GOLEMS ============================ -->
 
-	<WVC_XaG_GolemBandwidth>Golems</WVC_XaG_GolemBandwidth>
-	<WVC_XaG_GolemBandwidthGizmoTip>A mechanitor can only oversee a golem if there is enough bandwidth to do so. Each golem consumes a different amount of bandwidth.\n\nGain more bandwidth by constructing &lt;color=#f4e776&gt;natural shrines&lt;/color&gt; and &lt;color=#f4e776&gt;animus stones&lt;/color&gt; or with help of &lt;color=#6bb6bb&gt;genes&lt;/color&gt;.</WVC_XaG_GolemBandwidthGizmoTip>
+	<WVC_XaG_GolemBandwidth>Golembond</WVC_XaG_GolemBandwidth>
+	<WVC_XaG_GolemBandwidthGizmoTip>A mechanitor can only oversee a golem if there is enough golembond to do so. Each golem consumes a different amount of golembond.\n\nGain more golembond by constructing &lt;color=#f4e776&gt;natural shrines&lt;/color&gt; and &lt;color=#f4e776&gt;animus stones&lt;/color&gt; or with help of &lt;color=#6bb6bb&gt;genes&lt;/color&gt;.</WVC_XaG_GolemBandwidthGizmoTip>
 
-	<WVC_XaG_GolemBandwidthUsage>Golem bandwidth usage</WVC_XaG_GolemBandwidthUsage>
+	<WVC_XaG_GolemBandwidthUsage>Golembond usage</WVC_XaG_GolemBandwidthUsage>
 	<!-- <WVC_XaG_GolemGestationBandwidthUsed>Golem gestation bandwidth</WVC_XaG_GolemGestationBandwidthUsed> -->
 
 	<!-- ============================ WALKING CORPSES ============================ -->
@@ -262,7 +262,7 @@ Each mechanoid costs 0.15 nutrition to summon.</WVC_XaG_Gene_DustMechlinkDesc>
 	<!-- ============================ WALKING CORPSES ============================ -->
 
 	<WVC_XaG_SporesBandwidth>Spores</WVC_XaG_SporesBandwidth>
-	<WVC_XaG_SporesBandwidthGizmoTip>A mechanitor can only oversee a walking corpses if there is enough spores to do so. Each corpse consumes a different amount of spores.\n\nGain more spores by digging graves in &lt;color=#6bb6bb&gt;polluted soil&lt;/color&gt; and burying creatures in them, or building &lt;color=#f76d6b&gt;skullspikes&lt;/color&gt; and &lt;color=#f76d6b&gt;gibbet cages&lt;/color&gt;.</WVC_XaG_SporesBandwidthGizmoTip>
+	<WVC_XaG_SporesBandwidthGizmoTip>A mechanitor can only oversee a walking corpses if there is enough golembond to do so. Each corpse consumes a different amount of golembond.\n\nGain more golembond by digging graves in &lt;color=#6bb6bb&gt;polluted soil&lt;/color&gt; and burying creatures in them, or building &lt;color=#f76d6b&gt;skullspikes&lt;/color&gt; and &lt;color=#f76d6b&gt;gibbet cages&lt;/color&gt; or with help of &lt;color=#6bb6bb&gt;genes&lt;/color&gt;.</WVC_XaG_SporesBandwidthGizmoTip>
 
 	<WVC_XaG_SporesBandwidthUsage>Resurgent spores usage</WVC_XaG_SporesBandwidthUsage>
 	<!-- <WVC_XaG_SporesGestationBandwidthUsed>Resurgent spores gestation bandwidth</WVC_XaG_SporesGestationBandwidthUsed> -->

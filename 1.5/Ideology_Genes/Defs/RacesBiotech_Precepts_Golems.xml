@@ -27,7 +27,7 @@
 	</requiredMemes>
 	<statOffsets>
 	  <!-- <WVC_BandwidthCostOffsetMech>1</WVC_BandwidthCostOffsetMech> -->
-	  <WVC_OverseerMaxGolems>4</WVC_OverseerMaxGolems>
+	  <WVC_GolemBond>4</WVC_GolemBond>
 	</statOffsets>
   </PreceptDef>
 
@@ -47,7 +47,7 @@
 	<statOffsets>
 	  <!-- <WVC_BandwidthCostOffsetMech>0.2</WVC_BandwidthCostOffsetMech> -->
 	  <MechBandwidth>-2</MechBandwidth>
-	  <WVC_OverseerMaxGolems>8</WVC_OverseerMaxGolems>
+	  <WVC_GolemBond>8</WVC_GolemBond>
 	</statOffsets>
   </PreceptDef>
 
@@ -76,7 +76,7 @@
 	</requiredMemes>
 	<roleEffects>
 	  <li Class="RoleEffect_PawnStatOffset">
-		<statDef>WVC_OverseerMaxGolems</statDef>
+		<statDef>WVC_GolemBond</statDef>
 		<modifier>16</modifier>
 	  </li>
 	</roleEffects>

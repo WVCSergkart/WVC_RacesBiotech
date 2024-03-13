@@ -48,18 +48,18 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			base.GetGizmos();
-			if (pawn.IsColonist && MechanitorUtility.IsMechanitor(pawn))
+			if (pawn.Faction != Faction.OfPlayer || Find.Selector.SelectedPawns.Count != 1)
 			{
-				if (gizmo == null)
-				{
-					gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, pawn);
-				}
-				if (Find.Selector.SelectedPawns.Count == 1)
-				{
-					yield return gizmo;
-				}
+				yield break;
 			}
+			// if (MechanitorUtility.IsMechanitor(pawn))
+			// {
+			// }
+			if (gizmo == null)
+			{
+				gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, pawn);
+			}
+			yield return gizmo;
 		}
 
 	}
