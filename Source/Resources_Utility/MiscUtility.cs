@@ -14,6 +14,38 @@ namespace WVC_XenotypesAndGenes
 	public static class MiscUtility
 	{
 
+		// Faceplate
+
+		// public static bool HeadTypeIsCorrect(Pawn pawn, List<HeadTypeDef> headTypeDefs)
+		// {
+			// if (pawn?.genes == null || pawn?.story == null)
+			// {
+				// return false;
+			// }
+			// if (headTypeDefs.Contains(pawn.story.headType))
+			// {
+				// if (HasAnyFaceGraphic(pawn))
+				// {
+					// return false;
+				// }
+				// return true;
+			// }
+			// return false;
+		// }
+
+		// public static bool HasAnyFaceGraphic(Pawn pawn)
+		// {
+			// pawn.Drawer.renderer.renderTree.
+			// for (int i = 0; i < missingPart.Count; i++)
+			// {
+				// if (missingPart[i].Part.def.tags.Contains(BodyPartTagDefOf.SightSource))
+				// {
+					// return true;
+				// }
+			// }
+			// return false;
+		// }
+
 		// Settings
 
 		public static void SliderLabeledWithRef(this Listing_Standard ls, string label, ref float val, float min = 0f, float max = 1f, string tooltip = null, int round = 2)
