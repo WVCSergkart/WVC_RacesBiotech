@@ -60,12 +60,12 @@ namespace WVC_XenotypesAndGenes
 			SoundDefOf.MechSerumUsed.PlayOneShot(SoundInfo.InMap(innerPawn));
 			if (XaG_GeneUtility.PawnIsAndroid(innerPawn) || !innerPawn.RaceProps.Humanlike)
 			{
-				ResurrectionUtility.ResurrectWithSideEffects(innerPawn);
+				ResurrectionUtility.TryResurrectWithSideEffects(innerPawn);
 				Messages.Message("WVC_PawnIsAndroidCheck".Translate(), innerPawn, MessageTypeDefOf.RejectInput, historical: false);
 			}
 			else
 			{
-				ResurrectionUtility.Resurrect(innerPawn);
+				ResurrectionUtility.TryResurrect(innerPawn);
 				innerPawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
 				XenotypeDef xenotypeDef = Item?.TryGetComp<CompTargetEffect_DoJobOnTarget>()?.xenotypeDef;
 				SerumUtility.XenotypeSerum(innerPawn, XenotypeFilterUtility.BlackListedXenotypesForSerums(false), xenotypeDef, false, false);

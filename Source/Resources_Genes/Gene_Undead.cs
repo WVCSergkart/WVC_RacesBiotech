@@ -64,9 +64,9 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Undead Spawner => def.GetModExtension<GeneExtension_Undead>();
 
-		public override void Notify_PawnDied()
+		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
 		{
-			base.Notify_PawnDied();
+			base.Notify_PawnDied(dinfo, culprit);
 			if (!ReincarnationActive())
 			{
 				return;

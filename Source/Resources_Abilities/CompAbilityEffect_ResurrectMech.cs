@@ -65,7 +65,7 @@ namespace WVC_XenotypesAndGenes
 			if (CanResurrect(corpse))
 			{
 				Pawn innerPawn = corpse.InnerPawn;
-				ResurrectionUtility.Resurrect(innerPawn);
+				ResurrectionUtility.TryResurrect(innerPawn);
 				if (Props.appliedEffecterDef != null)
 				{
 					Effecter effecter = Props.appliedEffecterDef.SpawnAttached(innerPawn, innerPawn.MapHeld);

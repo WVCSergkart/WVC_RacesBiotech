@@ -43,7 +43,7 @@ namespace WVC_XenotypesAndGenes
 					GestationUtility.GetBabyName(pawn, pawn.GetMother() ?? pawn.GetFather() ?? null);
 					// Log.Error("Rename with gender");
 				}
-				pawn.Drawer.renderer.graphics.SetAllGraphicsDirty();
+				pawn.Drawer.renderer.SetAllGraphicsDirty();
 			}
 		}
 

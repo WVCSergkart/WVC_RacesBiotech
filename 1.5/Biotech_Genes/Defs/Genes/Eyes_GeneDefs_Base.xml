@@ -18,11 +18,11 @@
 		<li>Eyes have no outline.</li>
 		<!-- <li>&lt;color=#ff8585&gt;Cannot spawn in genepacks.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
-	<graphicData>
-	  <drawScale>0.28</drawScale>
-	  <graphicPath>WVC/BodyParts/Eyes/Eye_v0</graphicPath>
-	  <graphicPathFemale>WVC/BodyParts/Eyes/Eye_v0</graphicPathFemale>
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <drawScale>0.28</drawScale> -->
+	  <!-- <graphicPath>WVC/BodyParts/Eyes/Eye_v0</graphicPath> -->
+	  <!-- <graphicPathFemale>WVC/BodyParts/Eyes/Eye_v0</graphicPathFemale> -->
+	<!-- </graphicData> -->
 	<exclusionTags>
 		<li>AG_OnlyOnCharacterCreation_WVC_EyesColor</li>
 	</exclusionTags>
@@ -50,9 +50,44 @@
 	<label>white eyes</label>
 	<labelShortAdj>white-eyed</labelShortAdj>
 	<iconColor>(255, 255, 255)</iconColor>
-	<graphicData>
-	  <color>(255, 255, 255)</color>
-	</graphicData>
+	<renderNodeProperties>
+	  <li Class="PawnRenderNodeProperties_Eye">
+		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<color>(255, 255, 255)</color>
+		<anchorTag>RightEye</anchorTag>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<parentTagDef>Head</parentTagDef>
+		<drawSize>0.2</drawSize>
+		<side>Right</side>
+		<drawData>
+		  <defaultData>
+			<layer>54</layer>
+			<offset>(0, 0, -0.25)</offset>
+		  </defaultData>
+		</drawData>
+	  </li>
+	  <li Class="PawnRenderNodeProperties_Eye">
+		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<color>(255, 255, 255)</color>
+		<anchorTag>LeftEye</anchorTag>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<parentTagDef>Head</parentTagDef>
+		<drawSize>0.2</drawSize>
+		<side>Left</side>
+		<drawData>
+		  <defaultData>
+			<layer>54</layer>
+			<offset>(0, 0, -0.25)</offset>
+			<flip>true</flip>
+		  </defaultData>
+		  <dataWest>
+			<flip>false</flip>
+		  </dataWest>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase">
@@ -60,9 +95,44 @@
 	<label>gray eyes</label>
 	<labelShortAdj>gray-eyed</labelShortAdj>
 	<iconColor>(175, 175, 175)</iconColor>
-	<graphicData>
-	  <color>(175, 175, 175)</color>
-	</graphicData>
+	<renderNodeProperties>
+	  <li Class="PawnRenderNodeProperties_Eye">
+		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<color>(175, 175, 175)</color>
+		<anchorTag>RightEye</anchorTag>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<parentTagDef>Head</parentTagDef>
+		<drawSize>0.2</drawSize>
+		<side>Right</side>
+		<drawData>
+		  <defaultData>
+			<layer>54</layer>
+			<offset>(0, 0, -0.25)</offset>
+		  </defaultData>
+		</drawData>
+	  </li>
+	  <li Class="PawnRenderNodeProperties_Eye">
+		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<color>(175, 175, 175)</color>
+		<anchorTag>LeftEye</anchorTag>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<parentTagDef>Head</parentTagDef>
+		<drawSize>0.2</drawSize>
+		<side>Left</side>
+		<drawData>
+		  <defaultData>
+			<layer>54</layer>
+			<offset>(0, 0, -0.25)</offset>
+			<flip>true</flip>
+		  </defaultData>
+		  <dataWest>
+			<flip>false</flip>
+		  </dataWest>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase">
@@ -70,9 +140,47 @@
 	<label>purple eyes</label>
 	<labelShortAdj>purple-eyed</labelShortAdj>
 	<iconColor>(155, 133, 255)</iconColor>
-	<graphicData>
-	  <color>(155, 133, 255)</color>
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <color>(155, 133, 255)</color> -->
+	<!-- </graphicData> -->
+	<renderNodeProperties>
+	  <li Class="PawnRenderNodeProperties_Eye">
+		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<color>(155, 133, 255)</color>
+		<anchorTag>RightEye</anchorTag>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<parentTagDef>Head</parentTagDef>
+		<drawSize>0.2</drawSize>
+		<side>Right</side>
+		<drawData>
+		  <defaultData>
+			<layer>54</layer>
+			<offset>(0, 0, -0.25)</offset>
+		  </defaultData>
+		</drawData>
+	  </li>
+	  <li Class="PawnRenderNodeProperties_Eye">
+		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<color>(155, 133, 255)</color>
+		<anchorTag>LeftEye</anchorTag>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<parentTagDef>Head</parentTagDef>
+		<drawSize>0.2</drawSize>
+		<side>Left</side>
+		<drawData>
+		  <defaultData>
+			<layer>54</layer>
+			<offset>(0, 0, -0.25)</offset>
+			<flip>true</flip>
+		  </defaultData>
+		  <dataWest>
+			<flip>false</flip>
+		  </dataWest>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase">
@@ -80,9 +188,47 @@
 	<label>blue eyes</label>
 	<labelShortAdj>blue-eyed</labelShortAdj>
 	<iconColor>(133, 202, 255)</iconColor>
-	<graphicData>
-	  <color>(133, 202, 255)</color>
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <color>(133, 202, 255)</color> -->
+	<!-- </graphicData> -->
+	<renderNodeProperties>
+	  <li Class="PawnRenderNodeProperties_Eye">
+		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<color>(155, 133, 255)</color>
+		<anchorTag>RightEye</anchorTag>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<parentTagDef>Head</parentTagDef>
+		<drawSize>0.2</drawSize>
+		<side>Right</side>
+		<drawData>
+		  <defaultData>
+			<layer>54</layer>
+			<offset>(0, 0, -0.25)</offset>
+		  </defaultData>
+		</drawData>
+	  </li>
+	  <li Class="PawnRenderNodeProperties_Eye">
+		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<color>(155, 133, 255)</color>
+		<anchorTag>LeftEye</anchorTag>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<parentTagDef>Head</parentTagDef>
+		<drawSize>0.2</drawSize>
+		<side>Left</side>
+		<drawData>
+		  <defaultData>
+			<layer>54</layer>
+			<offset>(0, 0, -0.25)</offset>
+			<flip>true</flip>
+		  </defaultData>
+		  <dataWest>
+			<flip>false</flip>
+		  </dataWest>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase">
@@ -90,9 +236,47 @@
 	<label>green eyes</label>
 	<labelShortAdj>green-eyed</labelShortAdj>
 	<iconColor>(133, 255, 153)</iconColor>
-	<graphicData>
-	  <color>(133, 255, 153)</color>
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <color>(133, 255, 153)</color> -->
+	<!-- </graphicData> -->
+	<renderNodeProperties>
+	  <li Class="PawnRenderNodeProperties_Eye">
+		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<color>(133, 255, 153)</color>
+		<anchorTag>RightEye</anchorTag>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<parentTagDef>Head</parentTagDef>
+		<drawSize>0.2</drawSize>
+		<side>Right</side>
+		<drawData>
+		  <defaultData>
+			<layer>54</layer>
+			<offset>(0, 0, -0.25)</offset>
+		  </defaultData>
+		</drawData>
+	  </li>
+	  <li Class="PawnRenderNodeProperties_Eye">
+		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<color>(133, 255, 153)</color>
+		<anchorTag>LeftEye</anchorTag>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<parentTagDef>Head</parentTagDef>
+		<drawSize>0.2</drawSize>
+		<side>Left</side>
+		<drawData>
+		  <defaultData>
+			<layer>54</layer>
+			<offset>(0, 0, -0.25)</offset>
+			<flip>true</flip>
+		  </defaultData>
+		  <dataWest>
+			<flip>false</flip>
+		  </dataWest>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase">
@@ -100,9 +284,47 @@
 	<label>yellow eyes</label>
 	<labelShortAdj>yellow-eyed</labelShortAdj>
 	<iconColor>(247, 255, 133)</iconColor>
-	<graphicData>
-	  <color>(247, 255, 133)</color>
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <color>(247, 255, 133)</color> -->
+	<!-- </graphicData> -->
+	<renderNodeProperties>
+	  <li Class="PawnRenderNodeProperties_Eye">
+		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<color>(133, 255, 153)</color>
+		<anchorTag>RightEye</anchorTag>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<parentTagDef>Head</parentTagDef>
+		<drawSize>0.2</drawSize>
+		<side>Right</side>
+		<drawData>
+		  <defaultData>
+			<layer>54</layer>
+			<offset>(0, 0, -0.25)</offset>
+		  </defaultData>
+		</drawData>
+	  </li>
+	  <li Class="PawnRenderNodeProperties_Eye">
+		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<color>(133, 255, 153)</color>
+		<anchorTag>LeftEye</anchorTag>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<parentTagDef>Head</parentTagDef>
+		<drawSize>0.2</drawSize>
+		<side>Left</side>
+		<drawData>
+		  <defaultData>
+			<layer>54</layer>
+			<offset>(0, 0, -0.25)</offset>
+			<flip>true</flip>
+		  </defaultData>
+		  <dataWest>
+			<flip>false</flip>
+		  </dataWest>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase">
@@ -110,9 +332,47 @@
 	<label>pink eyes</label>
 	<labelShortAdj>pink-eyed</labelShortAdj>
 	<iconColor>(255, 133, 243)</iconColor>
-	<graphicData>
-	  <color>(255, 133, 243)</color>
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <color>(255, 133, 243)</color> -->
+	<!-- </graphicData> -->
+	<renderNodeProperties>
+	  <li Class="PawnRenderNodeProperties_Eye">
+		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<color>(255, 133, 243)</color>
+		<anchorTag>RightEye</anchorTag>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<parentTagDef>Head</parentTagDef>
+		<drawSize>0.2</drawSize>
+		<side>Right</side>
+		<drawData>
+		  <defaultData>
+			<layer>54</layer>
+			<offset>(0, 0, -0.25)</offset>
+		  </defaultData>
+		</drawData>
+	  </li>
+	  <li Class="PawnRenderNodeProperties_Eye">
+		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<color>(255, 133, 243)</color>
+		<anchorTag>LeftEye</anchorTag>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<parentTagDef>Head</parentTagDef>
+		<drawSize>0.2</drawSize>
+		<side>Left</side>
+		<drawData>
+		  <defaultData>
+			<layer>54</layer>
+			<offset>(0, 0, -0.25)</offset>
+			<flip>true</flip>
+		  </defaultData>
+		  <dataWest>
+			<flip>false</flip>
+		  </dataWest>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase">
@@ -120,9 +380,47 @@
 	<label>red eyes</label>
 	<labelShortAdj>red-eyed</labelShortAdj>
 	<iconColor>(255, 133, 133)</iconColor>
-	<graphicData>
-	  <color>(255, 133, 133)</color>
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <color>(255, 133, 133)</color> -->
+	<!-- </graphicData> -->
+	<renderNodeProperties>
+	  <li Class="PawnRenderNodeProperties_Eye">
+		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<color>(255, 133, 133)</color>
+		<anchorTag>RightEye</anchorTag>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<parentTagDef>Head</parentTagDef>
+		<drawSize>0.2</drawSize>
+		<side>Right</side>
+		<drawData>
+		  <defaultData>
+			<layer>54</layer>
+			<offset>(0, 0, -0.25)</offset>
+		  </defaultData>
+		</drawData>
+	  </li>
+	  <li Class="PawnRenderNodeProperties_Eye">
+		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<color>(255, 133, 133)</color>
+		<anchorTag>LeftEye</anchorTag>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<parentTagDef>Head</parentTagDef>
+		<drawSize>0.2</drawSize>
+		<side>Left</side>
+		<drawData>
+		  <defaultData>
+			<layer>54</layer>
+			<offset>(0, 0, -0.25)</offset>
+			<flip>true</flip>
+		  </defaultData>
+		  <dataWest>
+			<flip>false</flip>
+		  </dataWest>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase">
@@ -130,9 +428,47 @@
 	<label>orange eyes</label>
 	<labelShortAdj>orange-eyed</labelShortAdj>
 	<iconColor>(255, 216, 133)</iconColor>
-	<graphicData>
-	  <color>(255, 216, 133)</color>
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <color>(255, 216, 133)</color> -->
+	<!-- </graphicData> -->
+	<renderNodeProperties>
+	  <li Class="PawnRenderNodeProperties_Eye">
+		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<color>(255, 216, 133)</color>
+		<anchorTag>RightEye</anchorTag>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<parentTagDef>Head</parentTagDef>
+		<drawSize>0.2</drawSize>
+		<side>Right</side>
+		<drawData>
+		  <defaultData>
+			<layer>54</layer>
+			<offset>(0, 0, -0.25)</offset>
+		  </defaultData>
+		</drawData>
+	  </li>
+	  <li Class="PawnRenderNodeProperties_Eye">
+		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<color>(255, 216, 133)</color>
+		<anchorTag>LeftEye</anchorTag>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<parentTagDef>Head</parentTagDef>
+		<drawSize>0.2</drawSize>
+		<side>Left</side>
+		<drawData>
+		  <defaultData>
+			<layer>54</layer>
+			<offset>(0, 0, -0.25)</offset>
+			<flip>true</flip>
+		  </defaultData>
+		  <dataWest>
+			<flip>false</flip>
+		  </dataWest>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase">
@@ -140,9 +476,47 @@
 	<label>cyan eyes</label>
 	<labelShortAdj>cyan-eyed</labelShortAdj>
 	<iconColor>(133, 255, 245)</iconColor>
-	<graphicData>
-	  <color>(133, 255, 245)</color>
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <color>(133, 255, 245)</color> -->
+	<!-- </graphicData> -->
+	<renderNodeProperties>
+	  <li Class="PawnRenderNodeProperties_Eye">
+		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<color>(133, 255, 245)</color>
+		<anchorTag>RightEye</anchorTag>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<parentTagDef>Head</parentTagDef>
+		<drawSize>0.2</drawSize>
+		<side>Right</side>
+		<drawData>
+		  <defaultData>
+			<layer>54</layer>
+			<offset>(0, 0, -0.25)</offset>
+		  </defaultData>
+		</drawData>
+	  </li>
+	  <li Class="PawnRenderNodeProperties_Eye">
+		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<color>(133, 255, 245)</color>
+		<anchorTag>LeftEye</anchorTag>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<parentTagDef>Head</parentTagDef>
+		<drawSize>0.2</drawSize>
+		<side>Left</side>
+		<drawData>
+		  <defaultData>
+			<layer>54</layer>
+			<offset>(0, 0, -0.25)</offset>
+			<flip>true</flip>
+		  </defaultData>
+		  <dataWest>
+			<flip>false</flip>
+		  </dataWest>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
   </GeneDef>
 
 </Defs>

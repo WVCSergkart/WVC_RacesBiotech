@@ -28,13 +28,11 @@ namespace WVC_XenotypesAndGenes
 			HediffUtility.RemoveHediffsFromList(pawn, Props.hediffsToRemove);
 		}
 
-		public override bool CanBeUsedBy(Pawn p, out string failReason)
+		public override AcceptanceReport CanBeUsedBy(Pawn p)
 		{
-			failReason = null;
 			if (!SerumUtility.PawnIsHuman(p))
 			{
-				failReason = "WVC_PawnIsAndroidCheck".Translate();
-				return false;
+				return "WVC_PawnIsAndroidCheck".Translate();
 			}
 			return true;
 		}
@@ -56,13 +54,11 @@ namespace WVC_XenotypesAndGenes
 			geneticInstability.nextTick += 60000 * Props.daysDelay;
 		}
 
-		public override bool CanBeUsedBy(Pawn p, out string failReason)
+		public override AcceptanceReport CanBeUsedBy(Pawn p)
 		{
-			failReason = null;
 			if (!SerumUtility.PawnIsHuman(p) || p?.genes?.GetFirstGeneOfType<Gene_GeneticInstability>() == null)
 			{
-				failReason = "WVC_PawnIsAndroidCheck".Translate();
-				return false;
+				return "WVC_PawnIsAndroidCheck".Translate();
 			}
 			return true;
 		}
@@ -96,13 +92,11 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override bool CanBeUsedBy(Pawn p, out string failReason)
+		public override AcceptanceReport CanBeUsedBy(Pawn p)
 		{
-			failReason = null;
 			if (!SerumUtility.PawnIsHuman(p) || !XaG_GeneUtility.HasActiveGene(Props.geneDef, p))
 			{
-				failReason = "WVC_PawnIsAndroidCheck".Translate();
-				return false;
+				return "WVC_PawnIsAndroidCheck".Translate();
 			}
 			return true;
 		}
@@ -128,13 +122,11 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override bool CanBeUsedBy(Pawn p, out string failReason)
+		public override AcceptanceReport CanBeUsedBy(Pawn p)
 		{
-			failReason = null;
 			if (!SerumUtility.PawnIsHuman(p) || !p.IsShapeshifter())
 			{
-				failReason = "WVC_PawnIsAndroidCheck".Translate();
-				return false;
+				return "WVC_PawnIsAndroidCheck".Translate();
 			}
 			return true;
 		}

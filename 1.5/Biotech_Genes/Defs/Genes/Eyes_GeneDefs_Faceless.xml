@@ -20,12 +20,20 @@
 	<forcedHeadTypes>
 	  <li>WVC_Faceless_NodeSkin</li>
 	</forcedHeadTypes>
-	<graphicData>
-	  <fur>WVC_NodeSkin</fur>
-	  <skinIsHairColor>false</skinIsHairColor>
-	  <tattoosVisible>true</tattoosVisible>
-	  <!-- <layer>PostSkin</layer> -->
-	</graphicData>
+	<fur>WVC_NodeSkin</fur>
+	<skinIsHairColor>false</skinIsHairColor>
+	<tattoosVisible>true</tattoosVisible>
+	<renderNodeProperties>
+	  <li>
+		<debugLabel>Fur</debugLabel>
+		<nodeClass>WVC_XenotypesAndGenes.PawnRenderNode_FurIsSkin</nodeClass>
+		<workerClass>PawnRenderNodeWorker_Fur</workerClass>
+		<baseLayer>5</baseLayer>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<colorType>Skin</colorType>
+		<parentTagDef>Body</parentTagDef>
+	  </li>
+	</renderNodeProperties>
 	<!-- <beardTagFilter> -->
 	  <!-- <whitelist>true</whitelist> -->
 	  <!-- <tags> -->
@@ -74,48 +82,6 @@
 	<iconPath>WVC/UI/Genes/Gene_Faceplate</iconPath>
 	<prerequisite>WVC_NodeSkin</prerequisite>
 	<iconColor>(0.75, 0.75, 0.75)</iconColor>
-	<graphicData>
-	  <graphicPaths>
-		<li>WVC/BodyParts/Eyes/FaceplateA</li>
-		<li>WVC/BodyParts/Eyes/FaceplateB</li>
-		
-		<li>WVC/BodyParts/Eyes/FaceplateC</li>
-		<li>WVC/BodyParts/Eyes/FaceplateD</li>
-		<li>WVC/BodyParts/Eyes/FaceplateE</li>
-		
-		<li>WVC/BodyParts/Eyes/FaceplateF</li>
-		<li>WVC/BodyParts/Eyes/FaceplateG</li>
-		<li>WVC/BodyParts/Eyes/FaceplateH</li>
-		
-		<li>WVC/BodyParts/Eyes/FaceplateV</li>
-		<li>WVC/BodyParts/Eyes/FaceplateY</li>
-		<li>WVC/BodyParts/Eyes/FaceplateU</li>
-
-		<!-- <li>WVC/Heads/NodeGene_Head/HeadBlue</li> -->
-		<!-- <li>WVC/Heads/NodeGene_Head/HeadRed</li> -->
-		
-		<!-- <li>WVC/Heads/NodeGene_Head/HeadGreen</li> -->
-		<!-- <li>WVC/Heads/NodeGene_Head/HeadViolet</li> -->
-		<!-- <li>WVC/Heads/NodeGene_Head/HeadYellow</li> -->
-		
-		<!-- <li>WVC/Heads/NodeGene_Head/HeadAltBlue</li> -->
-		<!-- <li>WVC/Heads/NodeGene_Head/HeadOrange</li> -->
-		<!-- <li>WVC/Heads/NodeGene_Head/HeadAltBlue_B</li> -->
-		
-		<!-- <li>WVC/Heads/NodeGene_Head/HeadRed_A</li> -->
-		<!-- <li>WVC/Heads/NodeGene_Head/HeadBlue_A</li> -->
-		<!-- <li>WVC/Heads/NodeGene_Head/HeadYellow_A</li> -->
-	  </graphicPaths>
-	  <!-- <drawScale>0.42</drawScale> -->
-	  <!-- <colorType>Skin</colorType> -->
-	  <colorType>Custom</colorType>
-	  <color>(255, 255, 255)</color>
-	  <layer>PostTattoo</layer>
-	  <!-- <drawOnEyes>true</drawOnEyes> -->
-	  <useSkinShader>false</useSkinShader>
-	  <visibleNorth>false</visibleNorth>
-	  <drawIfFaceCovered>true</drawIfFaceCovered>
-	</graphicData>
 	<!-- <statOffsets> -->
 	  <!-- <ArmorRating_Blunt>0.17</ArmorRating_Blunt> -->
 	<!-- </statOffsets> -->
@@ -162,9 +128,42 @@
 	<label>white faceplate</label>
 	<labelShortAdj>white-plated</labelShortAdj>
 	<iconColor>(255, 255, 255)</iconColor>
-	<graphicData>
-	  <color>(255, 255, 255)</color>
-	</graphicData>
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<parentTagDef>Head</parentTagDef>
+		<colorType>Custom</colorType>
+		<color>(255, 255, 255)</color>
+		<useRottenColor>true</useRottenColor>
+		<useSkinShader>true</useSkinShader>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<texPaths>
+			<li>WVC/BodyParts/Eyes/FaceplateA</li>
+			<li>WVC/BodyParts/Eyes/FaceplateB</li>
+			<li>WVC/BodyParts/Eyes/FaceplateC</li>
+			<li>WVC/BodyParts/Eyes/FaceplateD</li>
+			<li>WVC/BodyParts/Eyes/FaceplateE</li>
+			<li>WVC/BodyParts/Eyes/FaceplateF</li>
+			<li>WVC/BodyParts/Eyes/FaceplateG</li>
+			<li>WVC/BodyParts/Eyes/FaceplateH</li>
+			<li>WVC/BodyParts/Eyes/FaceplateV</li>
+			<li>WVC/BodyParts/Eyes/FaceplateY</li>
+			<li>WVC/BodyParts/Eyes/FaceplateU</li>
+		</texPaths>
+		<visibleFacing>
+		  <li>East</li>
+		  <li>South</li>
+		  <li>West</li>
+		</visibleFacing>
+		<narrowCrownHorizontalOffset>0.03</narrowCrownHorizontalOffset>
+		<drawData>
+		  <defaultData>
+			<layer>52</layer>
+		  </defaultData>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" WVC_Tag="MechaAndNodeSkins_EasyPatch">
@@ -172,9 +171,42 @@
 	<label>gray faceplate</label>
 	<labelShortAdj>gray-plated</labelShortAdj>
 	<iconColor>(175, 175, 175)</iconColor>
-	<graphicData>
-	  <color>(175, 175, 175)</color>
-	</graphicData>
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<parentTagDef>Head</parentTagDef>
+		<colorType>Custom</colorType>
+		<color>(175, 175, 175)</color>
+		<useRottenColor>true</useRottenColor>
+		<useSkinShader>true</useSkinShader>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<texPaths>
+			<li>WVC/BodyParts/Eyes/FaceplateA</li>
+			<li>WVC/BodyParts/Eyes/FaceplateB</li>
+			<li>WVC/BodyParts/Eyes/FaceplateC</li>
+			<li>WVC/BodyParts/Eyes/FaceplateD</li>
+			<li>WVC/BodyParts/Eyes/FaceplateE</li>
+			<li>WVC/BodyParts/Eyes/FaceplateF</li>
+			<li>WVC/BodyParts/Eyes/FaceplateG</li>
+			<li>WVC/BodyParts/Eyes/FaceplateH</li>
+			<li>WVC/BodyParts/Eyes/FaceplateV</li>
+			<li>WVC/BodyParts/Eyes/FaceplateY</li>
+			<li>WVC/BodyParts/Eyes/FaceplateU</li>
+		</texPaths>
+		<visibleFacing>
+		  <li>East</li>
+		  <li>South</li>
+		  <li>West</li>
+		</visibleFacing>
+		<narrowCrownHorizontalOffset>0.03</narrowCrownHorizontalOffset>
+		<drawData>
+		  <defaultData>
+			<layer>52</layer>
+		  </defaultData>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" WVC_Tag="MechaAndNodeSkins_EasyPatch">
@@ -182,9 +214,42 @@
 	<label>purple faceplate</label>
 	<labelShortAdj>purple-plated</labelShortAdj>
 	<iconColor>(155, 133, 255)</iconColor>
-	<graphicData>
-	  <color>(155, 133, 255)</color>
-	</graphicData>
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<parentTagDef>Head</parentTagDef>
+		<colorType>Custom</colorType>
+		<color>(155, 133, 255)</color>
+		<useRottenColor>true</useRottenColor>
+		<useSkinShader>true</useSkinShader>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<texPaths>
+			<li>WVC/BodyParts/Eyes/FaceplateA</li>
+			<li>WVC/BodyParts/Eyes/FaceplateB</li>
+			<li>WVC/BodyParts/Eyes/FaceplateC</li>
+			<li>WVC/BodyParts/Eyes/FaceplateD</li>
+			<li>WVC/BodyParts/Eyes/FaceplateE</li>
+			<li>WVC/BodyParts/Eyes/FaceplateF</li>
+			<li>WVC/BodyParts/Eyes/FaceplateG</li>
+			<li>WVC/BodyParts/Eyes/FaceplateH</li>
+			<li>WVC/BodyParts/Eyes/FaceplateV</li>
+			<li>WVC/BodyParts/Eyes/FaceplateY</li>
+			<li>WVC/BodyParts/Eyes/FaceplateU</li>
+		</texPaths>
+		<visibleFacing>
+		  <li>East</li>
+		  <li>South</li>
+		  <li>West</li>
+		</visibleFacing>
+		<narrowCrownHorizontalOffset>0.03</narrowCrownHorizontalOffset>
+		<drawData>
+		  <defaultData>
+			<layer>52</layer>
+		  </defaultData>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" WVC_Tag="MechaAndNodeSkins_EasyPatch">
@@ -192,9 +257,42 @@
 	<label>blue faceplate</label>
 	<labelShortAdj>blue-plated</labelShortAdj>
 	<iconColor>(133, 202, 255)</iconColor>
-	<graphicData>
-	  <color>(133, 202, 255)</color>
-	</graphicData>
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<parentTagDef>Head</parentTagDef>
+		<colorType>Custom</colorType>
+		<color>(133, 202, 255)</color>
+		<useRottenColor>true</useRottenColor>
+		<useSkinShader>true</useSkinShader>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<texPaths>
+			<li>WVC/BodyParts/Eyes/FaceplateA</li>
+			<li>WVC/BodyParts/Eyes/FaceplateB</li>
+			<li>WVC/BodyParts/Eyes/FaceplateC</li>
+			<li>WVC/BodyParts/Eyes/FaceplateD</li>
+			<li>WVC/BodyParts/Eyes/FaceplateE</li>
+			<li>WVC/BodyParts/Eyes/FaceplateF</li>
+			<li>WVC/BodyParts/Eyes/FaceplateG</li>
+			<li>WVC/BodyParts/Eyes/FaceplateH</li>
+			<li>WVC/BodyParts/Eyes/FaceplateV</li>
+			<li>WVC/BodyParts/Eyes/FaceplateY</li>
+			<li>WVC/BodyParts/Eyes/FaceplateU</li>
+		</texPaths>
+		<visibleFacing>
+		  <li>East</li>
+		  <li>South</li>
+		  <li>West</li>
+		</visibleFacing>
+		<narrowCrownHorizontalOffset>0.03</narrowCrownHorizontalOffset>
+		<drawData>
+		  <defaultData>
+			<layer>52</layer>
+		  </defaultData>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" WVC_Tag="MechaAndNodeSkins_EasyPatch">
@@ -202,9 +300,42 @@
 	<label>green faceplate</label>
 	<labelShortAdj>green-plated</labelShortAdj>
 	<iconColor>(133, 255, 153)</iconColor>
-	<graphicData>
-	  <color>(133, 255, 153)</color>
-	</graphicData>
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<parentTagDef>Head</parentTagDef>
+		<colorType>Custom</colorType>
+		<color>(133, 255, 153)</color>
+		<useRottenColor>true</useRottenColor>
+		<useSkinShader>true</useSkinShader>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<texPaths>
+			<li>WVC/BodyParts/Eyes/FaceplateA</li>
+			<li>WVC/BodyParts/Eyes/FaceplateB</li>
+			<li>WVC/BodyParts/Eyes/FaceplateC</li>
+			<li>WVC/BodyParts/Eyes/FaceplateD</li>
+			<li>WVC/BodyParts/Eyes/FaceplateE</li>
+			<li>WVC/BodyParts/Eyes/FaceplateF</li>
+			<li>WVC/BodyParts/Eyes/FaceplateG</li>
+			<li>WVC/BodyParts/Eyes/FaceplateH</li>
+			<li>WVC/BodyParts/Eyes/FaceplateV</li>
+			<li>WVC/BodyParts/Eyes/FaceplateY</li>
+			<li>WVC/BodyParts/Eyes/FaceplateU</li>
+		</texPaths>
+		<visibleFacing>
+		  <li>East</li>
+		  <li>South</li>
+		  <li>West</li>
+		</visibleFacing>
+		<narrowCrownHorizontalOffset>0.03</narrowCrownHorizontalOffset>
+		<drawData>
+		  <defaultData>
+			<layer>52</layer>
+		  </defaultData>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" WVC_Tag="MechaAndNodeSkins_EasyPatch">
@@ -212,9 +343,42 @@
 	<label>yellow faceplate</label>
 	<labelShortAdj>yellow-plated</labelShortAdj>
 	<iconColor>(247, 255, 133)</iconColor>
-	<graphicData>
-	  <color>(247, 255, 133)</color>
-	</graphicData>
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<parentTagDef>Head</parentTagDef>
+		<colorType>Custom</colorType>
+		<color>(247, 255, 133)</color>
+		<useRottenColor>true</useRottenColor>
+		<useSkinShader>true</useSkinShader>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<texPaths>
+			<li>WVC/BodyParts/Eyes/FaceplateA</li>
+			<li>WVC/BodyParts/Eyes/FaceplateB</li>
+			<li>WVC/BodyParts/Eyes/FaceplateC</li>
+			<li>WVC/BodyParts/Eyes/FaceplateD</li>
+			<li>WVC/BodyParts/Eyes/FaceplateE</li>
+			<li>WVC/BodyParts/Eyes/FaceplateF</li>
+			<li>WVC/BodyParts/Eyes/FaceplateG</li>
+			<li>WVC/BodyParts/Eyes/FaceplateH</li>
+			<li>WVC/BodyParts/Eyes/FaceplateV</li>
+			<li>WVC/BodyParts/Eyes/FaceplateY</li>
+			<li>WVC/BodyParts/Eyes/FaceplateU</li>
+		</texPaths>
+		<visibleFacing>
+		  <li>East</li>
+		  <li>South</li>
+		  <li>West</li>
+		</visibleFacing>
+		<narrowCrownHorizontalOffset>0.03</narrowCrownHorizontalOffset>
+		<drawData>
+		  <defaultData>
+			<layer>52</layer>
+		  </defaultData>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" WVC_Tag="MechaAndNodeSkins_EasyPatch">
@@ -222,9 +386,42 @@
 	<label>pink faceplate</label>
 	<labelShortAdj>pink-plated</labelShortAdj>
 	<iconColor>(255, 133, 243)</iconColor>
-	<graphicData>
-	  <color>(255, 133, 243)</color>
-	</graphicData>
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<parentTagDef>Head</parentTagDef>
+		<colorType>Custom</colorType>
+		<color>(255, 133, 243)</color>
+		<useRottenColor>true</useRottenColor>
+		<useSkinShader>true</useSkinShader>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<texPaths>
+			<li>WVC/BodyParts/Eyes/FaceplateA</li>
+			<li>WVC/BodyParts/Eyes/FaceplateB</li>
+			<li>WVC/BodyParts/Eyes/FaceplateC</li>
+			<li>WVC/BodyParts/Eyes/FaceplateD</li>
+			<li>WVC/BodyParts/Eyes/FaceplateE</li>
+			<li>WVC/BodyParts/Eyes/FaceplateF</li>
+			<li>WVC/BodyParts/Eyes/FaceplateG</li>
+			<li>WVC/BodyParts/Eyes/FaceplateH</li>
+			<li>WVC/BodyParts/Eyes/FaceplateV</li>
+			<li>WVC/BodyParts/Eyes/FaceplateY</li>
+			<li>WVC/BodyParts/Eyes/FaceplateU</li>
+		</texPaths>
+		<visibleFacing>
+		  <li>East</li>
+		  <li>South</li>
+		  <li>West</li>
+		</visibleFacing>
+		<narrowCrownHorizontalOffset>0.03</narrowCrownHorizontalOffset>
+		<drawData>
+		  <defaultData>
+			<layer>52</layer>
+		  </defaultData>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" WVC_Tag="MechaAndNodeSkins_EasyPatch">
@@ -232,9 +429,42 @@
 	<label>red faceplate</label>
 	<labelShortAdj>red-plated</labelShortAdj>
 	<iconColor>(255, 133, 133)</iconColor>
-	<graphicData>
-	  <color>(255, 133, 133)</color>
-	</graphicData>
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<parentTagDef>Head</parentTagDef>
+		<colorType>Custom</colorType>
+		<color>(255, 133, 133)</color>
+		<useRottenColor>true</useRottenColor>
+		<useSkinShader>true</useSkinShader>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<texPaths>
+			<li>WVC/BodyParts/Eyes/FaceplateA</li>
+			<li>WVC/BodyParts/Eyes/FaceplateB</li>
+			<li>WVC/BodyParts/Eyes/FaceplateC</li>
+			<li>WVC/BodyParts/Eyes/FaceplateD</li>
+			<li>WVC/BodyParts/Eyes/FaceplateE</li>
+			<li>WVC/BodyParts/Eyes/FaceplateF</li>
+			<li>WVC/BodyParts/Eyes/FaceplateG</li>
+			<li>WVC/BodyParts/Eyes/FaceplateH</li>
+			<li>WVC/BodyParts/Eyes/FaceplateV</li>
+			<li>WVC/BodyParts/Eyes/FaceplateY</li>
+			<li>WVC/BodyParts/Eyes/FaceplateU</li>
+		</texPaths>
+		<visibleFacing>
+		  <li>East</li>
+		  <li>South</li>
+		  <li>West</li>
+		</visibleFacing>
+		<narrowCrownHorizontalOffset>0.03</narrowCrownHorizontalOffset>
+		<drawData>
+		  <defaultData>
+			<layer>52</layer>
+		  </defaultData>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" WVC_Tag="MechaAndNodeSkins_EasyPatch">
@@ -242,9 +472,42 @@
 	<label>orange faceplate</label>
 	<labelShortAdj>orange-plated</labelShortAdj>
 	<iconColor>(255, 216, 133)</iconColor>
-	<graphicData>
-	  <color>(255, 216, 133)</color>
-	</graphicData>
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<parentTagDef>Head</parentTagDef>
+		<colorType>Custom</colorType>
+		<color>(255, 216, 133)</color>
+		<useRottenColor>true</useRottenColor>
+		<useSkinShader>true</useSkinShader>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<texPaths>
+			<li>WVC/BodyParts/Eyes/FaceplateA</li>
+			<li>WVC/BodyParts/Eyes/FaceplateB</li>
+			<li>WVC/BodyParts/Eyes/FaceplateC</li>
+			<li>WVC/BodyParts/Eyes/FaceplateD</li>
+			<li>WVC/BodyParts/Eyes/FaceplateE</li>
+			<li>WVC/BodyParts/Eyes/FaceplateF</li>
+			<li>WVC/BodyParts/Eyes/FaceplateG</li>
+			<li>WVC/BodyParts/Eyes/FaceplateH</li>
+			<li>WVC/BodyParts/Eyes/FaceplateV</li>
+			<li>WVC/BodyParts/Eyes/FaceplateY</li>
+			<li>WVC/BodyParts/Eyes/FaceplateU</li>
+		</texPaths>
+		<visibleFacing>
+		  <li>East</li>
+		  <li>South</li>
+		  <li>West</li>
+		</visibleFacing>
+		<narrowCrownHorizontalOffset>0.03</narrowCrownHorizontalOffset>
+		<drawData>
+		  <defaultData>
+			<layer>52</layer>
+		  </defaultData>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" WVC_Tag="MechaAndNodeSkins_EasyPatch">
@@ -252,9 +515,42 @@
 	<label>cyan faceplate</label>
 	<labelShortAdj>cyan-plated</labelShortAdj>
 	<iconColor>(133, 255, 245)</iconColor>
-	<graphicData>
-	  <color>(133, 255, 245)</color>
-	</graphicData>
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<parentTagDef>Head</parentTagDef>
+		<colorType>Custom</colorType>
+		<color>(133, 255, 245)</color>
+		<useRottenColor>true</useRottenColor>
+		<useSkinShader>true</useSkinShader>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<texPaths>
+			<li>WVC/BodyParts/Eyes/FaceplateA</li>
+			<li>WVC/BodyParts/Eyes/FaceplateB</li>
+			<li>WVC/BodyParts/Eyes/FaceplateC</li>
+			<li>WVC/BodyParts/Eyes/FaceplateD</li>
+			<li>WVC/BodyParts/Eyes/FaceplateE</li>
+			<li>WVC/BodyParts/Eyes/FaceplateF</li>
+			<li>WVC/BodyParts/Eyes/FaceplateG</li>
+			<li>WVC/BodyParts/Eyes/FaceplateH</li>
+			<li>WVC/BodyParts/Eyes/FaceplateV</li>
+			<li>WVC/BodyParts/Eyes/FaceplateY</li>
+			<li>WVC/BodyParts/Eyes/FaceplateU</li>
+		</texPaths>
+		<visibleFacing>
+		  <li>East</li>
+		  <li>South</li>
+		  <li>West</li>
+		</visibleFacing>
+		<narrowCrownHorizontalOffset>0.03</narrowCrownHorizontalOffset>
+		<drawData>
+		  <defaultData>
+			<layer>52</layer>
+		  </defaultData>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
   </GeneDef>
 
 </Defs>

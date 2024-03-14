@@ -36,7 +36,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					if (pawnNewBornChild.playerSettings != null && pawnParent.playerSettings != null)
 					{
-						pawnNewBornChild.playerSettings.AreaRestriction = pawnParent.playerSettings.AreaRestriction;
+						pawnNewBornChild.playerSettings.AreaRestrictionInPawnCurrentMap = pawnParent.playerSettings.AreaRestrictionInPawnCurrentMap;
 					}
 					if (pawnNewBornChild.RaceProps.IsFlesh)
 					{
@@ -57,7 +57,7 @@ namespace WVC_XenotypesAndGenes
 			if (pawnTarget.Spawned)
 			{
 				FilthMaker.TryMakeFilth(pawnTarget.Position, pawnTarget.Map, ThingDefOf.Filth_AmnioticFluid, pawnTarget.LabelIndefinite(), 5);
-				SoundDefOf.Hive_Spawn.PlayOneShot(new TargetInfo(pawnTarget));
+				WVC_GenesDefOf.Hive_Spawn.PlayOneShot(new TargetInfo(pawnTarget));
 				if (pawnTarget.caller != null)
 				{
 					pawnTarget.caller.DoCall();
@@ -133,7 +133,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					if (pawnNewBornChild.playerSettings != null && pawnParent.playerSettings != null)
 					{
-						pawnNewBornChild.playerSettings.AreaRestriction = pawnParent.playerSettings.AreaRestriction;
+						pawnNewBornChild.playerSettings.AreaRestrictionInPawnCurrentMap = pawnParent.playerSettings.AreaRestrictionInPawnCurrentMap;
 					}
 					if (pawnNewBornChild.RaceProps.IsFlesh)
 					{
@@ -154,7 +154,7 @@ namespace WVC_XenotypesAndGenes
 			if (pawnTarget.Spawned)
 			{
 				FilthMaker.TryMakeFilth(pawnTarget.Position, pawnTarget.Map, ThingDefOf.Filth_Slime, 5);
-				SoundDefOf.Hive_Spawn.PlayOneShot(new TargetInfo(pawnTarget));
+				WVC_GenesDefOf.Hive_Spawn.PlayOneShot(new TargetInfo(pawnTarget));
 				// if (pawn.caller != null)
 				// {
 				// pawn.caller.DoCall();
@@ -194,7 +194,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					if (pawnNewBornChild.playerSettings != null && pawnParent.playerSettings != null)
 					{
-						pawnNewBornChild.playerSettings.AreaRestriction = pawnParent.playerSettings.AreaRestriction;
+						pawnNewBornChild.playerSettings.AreaRestrictionInPawnCurrentMap = pawnParent.playerSettings.AreaRestrictionInPawnCurrentMap;
 					}
 					if (pawnNewBornChild.RaceProps.IsFlesh)
 					{
@@ -213,7 +213,7 @@ namespace WVC_XenotypesAndGenes
 			if (spawnTarget.Spawned)
 			{
 				FilthMaker.TryMakeFilth(spawnTarget.Position, spawnTarget.Map, ThingDefOf.Filth_Slime, 5);
-				SoundDefOf.Hive_Spawn.PlayOneShot(new TargetInfo(spawnTarget));
+				WVC_GenesDefOf.Hive_Spawn.PlayOneShot(new TargetInfo(spawnTarget));
 				if (pawnNewBornChild.caller != null)
 				{
 					pawnNewBornChild.caller.DoCall();
@@ -227,7 +227,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void GetBabyName(Pawn baby, Pawn parent)
 		{
-			baby.Name = PawnBioAndNameGenerator.GenerateFullPawnName(baby.def, baby.kindDef.GetNameMaker(baby.gender), baby.story, null, baby.RaceProps.GetNameGenerator(baby.gender), baby.Faction?.ideos?.PrimaryCulture, baby.gender, baby.RaceProps.nameCategory, GetParentLastName(parent), false);
+			baby.Name = PawnBioAndNameGenerator.GenerateFullPawnName(baby.def, baby.kindDef.GetNameMaker(baby.gender), baby.story, null, baby.RaceProps.GetNameGenerator(baby.gender), baby.Faction?.ideos?.PrimaryCulture, false, gender: baby.gender, nameCategory: baby.RaceProps.nameCategory, forcedLastName: GetParentLastName(parent), false);
 			// if (baby.Name is NameTriple nameTriple)
 			// {
 				// if (parent != null && parent.Name is NameTriple parentNameTriple)

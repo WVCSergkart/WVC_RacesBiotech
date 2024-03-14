@@ -50,18 +50,15 @@ namespace WVC_XenotypesAndGenes
 			SerumUtility.PostSerumUsedHook(pawn);
 		}
 
-		public override bool CanBeUsedBy(Pawn p, out string failReason)
+		public override AcceptanceReport CanBeUsedBy(Pawn p)
 		{
-			failReason = null;
 			if (!SerumUtility.PawnIsHuman(p))
 			{
-				failReason = "WVC_PawnIsAndroidCheck".Translate();
-				return false;
+				return "WVC_PawnIsAndroidCheck".Translate();
 			}
 			if (p.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
 			{
-				failReason = "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate();
-				return false;
+				return "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate();
 			}
 			return true;
 		}
@@ -103,18 +100,15 @@ namespace WVC_XenotypesAndGenes
 			SerumUtility.PostSerumUsedHook(pawn);
 		}
 
-		public override bool CanBeUsedBy(Pawn p, out string failReason)
+		public override AcceptanceReport CanBeUsedBy(Pawn p)
 		{
-			failReason = null;
 			if (!SerumUtility.PawnIsHuman(p))
 			{
-				failReason = "WVC_PawnIsAndroidCheck".Translate();
-				return false;
+				return "WVC_PawnIsAndroidCheck".Translate();
 			}
 			if (p.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
 			{
-				failReason = "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate();
-				return false;
+				return "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate();
 			}
 			return true;
 		}

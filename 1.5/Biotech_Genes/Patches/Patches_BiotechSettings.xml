@@ -10,11 +10,11 @@
 					<success>Always</success>
 				</li>
 				<li Class="PatchOperationRemove">
-					<xpath>/Defs/GeneDef[@WVC_Tag="MechaAndNodeSkins_EasyPatch"]/graphicData/fur</xpath>
+					<xpath>/Defs/GeneDef[@WVC_Tag="MechaAndNodeSkins_EasyPatch"]/fur</xpath>
 					<success>Always</success>
 				</li>
 				<li Class="PatchOperationRemove">
-					<xpath>/Defs/GeneDef[@WVC_Tag="MechaAndNodeSkins_EasyPatch"]/graphicData</xpath>
+					<xpath>/Defs/GeneDef[@WVC_Tag="MechaAndNodeSkins_EasyPatch"]/renderNodeProperties</xpath>
 					<success>Always</success>
 				</li>
 				<li Class="PatchOperationRemove">

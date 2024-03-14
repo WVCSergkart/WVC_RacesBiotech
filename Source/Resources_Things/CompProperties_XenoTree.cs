@@ -147,7 +147,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				defaultLabel = "WVC_XaG_GeneBabyTree_label".Translate() + ": " + GeneUiUtility.OnOrOff(spawnerIsActive),
 				defaultDesc = "WVC_XaG_GeneBabyTree_desc".Translate(),
-				disabled = chosenXenotype == null,
+				Disabled = chosenXenotype == null,
 				disabledReason = "WVC_XaG_XenoTreeXenotypeChooseDisabled_OnOrOff".Translate(),
 				icon = parent.def.uiIcon,
 				action = delegate
@@ -167,7 +167,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				defaultLabel = "WVC_XaG_XenoTreeXenotypeChooseLabel".Translate(),
 				defaultDesc = "WVC_XaG_XenoTreeXenotypeChooseDesc".Translate(),
-				disabled = Subplant != null && parent is Plant plant && plant.Growth < Subplant.Props.minGrowthForSpawn,
+				Disabled = Subplant != null && parent is Plant plant && plant.Growth < Subplant.Props.minGrowthForSpawn,
 				disabledReason = "WVC_XaG_XenoTreeXenotypeChooseDisabled_XenotypeMenu".Translate(parent.LabelCap, Subplant != null ? (Subplant.Props.minGrowthForSpawn * 100f).ToString() : (100).ToString()),
 				icon = GetXenotypeIcon(),
 				action = delegate

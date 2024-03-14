@@ -115,7 +115,7 @@ namespace WVC_XenotypesAndGenes
 			if (progenitor.Spawned)
 			{
 				FilthMaker.TryMakeFilth(progenitor.Position, progenitor.Map, ThingDefOf.Filth_Slime, 5);
-				SoundDefOf.Hive_Spawn.PlayOneShot(new TargetInfo(progenitor));
+				WVC_GenesDefOf.Hive_Spawn.PlayOneShot(new TargetInfo(progenitor));
 				// WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(progenitor, progenitor.Map).Trigger(progenitor, null);
 				WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(clone, clone.Map).Trigger(clone, null);
 				if (clone.caller != null)
@@ -155,7 +155,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (clone.playerSettings != null && progenitor.playerSettings != null)
 			{
-				clone.playerSettings.AreaRestriction = progenitor.playerSettings.AreaRestriction;
+				clone.playerSettings.AreaRestrictionInPawnCurrentMap = progenitor.playerSettings.AreaRestrictionInPawnCurrentMap;
 			}
 			if (clone.RaceProps.IsFlesh && progenitor.RaceProps.IsFlesh)
 			{
@@ -228,7 +228,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void ResurrectWithSickness(Pawn pawn, ThoughtDef resurrectThought = null)
 		{
-			ResurrectionUtility.Resurrect(pawn);
+			ResurrectionUtility.TryResurrect(pawn);
 			pawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
 			if (resurrectThought != null)
 			{

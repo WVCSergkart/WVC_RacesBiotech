@@ -14,7 +14,7 @@ namespace WVC_XenotypesAndGenes
 		public float recruitChance = 0.5f;
 		public PawnKindDef pawnKindDef;
 
-		public override void Apply(Dictionary<Pawn, int> totalPresence, LordJob_Ritual jobRitual, OutcomeChance outcome, out string extraOutcomeDesc, ref LookTargets letterLookTargets)
+		public override void Apply(Dictionary<Pawn, int> totalPresence, LordJob_Ritual jobRitual, RitualOutcomePossibility outcome, out string extraOutcomeDesc, ref LookTargets letterLookTargets)
 		{
 			extension = def?.GetModExtension<GeneExtension_General>();
 			if (extension != null)

@@ -77,13 +77,12 @@
 		<li>&lt;color=#8a8ae6&gt;Allows you to toggle terrain ignore.&lt;/color&gt;</li>
 		<!-- <li>Refresh time (*DateTime)~1 hour(/DateTime).</li> -->
 	</customEffectDescriptions>
-	<graphicData>
-		<drawLoc>Tailbone</drawLoc>
-		<!-- <color>(255, 255, 255)</color> -->
-		<drawOffsetNorth>(0, 0.4, -0.05)</drawOffsetNorth>
-		<drawOffsetSouth>(0, -0.4, -0.05)</drawOffsetSouth>
-		<drawOffsetEast>(-0.08, -0.4, -0.04)</drawOffsetEast>
-	</graphicData>
+	<!-- <graphicData> -->
+		<!-- <drawLoc>Tailbone</drawLoc> -->
+		<!-- <drawOffsetNorth>(0, 0.4, -0.05)</drawOffsetNorth> -->
+		<!-- <drawOffsetSouth>(0, -0.4, -0.05)</drawOffsetSouth> -->
+		<!-- <drawOffsetEast>(-0.08, -0.4, -0.04)</drawOffsetEast> -->
+	<!-- </graphicData> -->
 	<exclusionTags Inherit="False">
 		<li>Wing</li>
 		<li>Wings</li>
@@ -108,11 +107,43 @@
 	  <MoveSpeed>0.15</MoveSpeed>
 	  <ComfyTemperatureMin>-12</ComfyTemperatureMin>
 	</statOffsets>
-	<graphicData>
-		<graphicPath>WVC/BodyParts/BodyParts_Wings/FeatheredWings</graphicPath>
-		<drawScale>1.5</drawScale>
+	<!-- <graphicData> -->
+		<!-- <graphicPath>WVC/BodyParts/BodyParts_Wings/FeatheredWings</graphicPath> -->
+		<!-- <drawScale>1.5</drawScale> -->
+		<!-- <colorType>Hair</colorType> -->
+	<!-- </graphicData> -->
+	<renderNodeProperties>
+	  <li>
+		<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+		<texPaths>
+		  <li>WVC/BodyParts/BodyParts_Wings/FeatheredWings</li>
+		</texPaths>
 		<colorType>Hair</colorType>
-	</graphicData>
+		<overrideMeshSize>(1.0, 1.0)</overrideMeshSize>
+		<parentTagDef>Body</parentTagDef>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<drawSize>1.5</drawSize>
+		<drawData>
+		  <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+		  <defaultData>
+			<layer>-2</layer>
+		  </defaultData>
+		  <dataNorth>
+			<offset>(0, 0.4, -0.05)</offset>
+			<layer>90</layer>
+		  </dataNorth>
+		  <dataSouth>
+			<offset>(0, -0.4, -0.05)</offset>
+		  </dataSouth>
+		  <dataEast>
+			<offset>(-0.08, -0.4, -0.04)</offset>
+		  </dataEast>
+		  <dataWest>
+			<offset>(0.08, -0.4, -0.04)</offset>
+		  </dataWest>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
 	<abilities>
 	  <li>WVC_XenotypesAndGenes_FeatheredWingsJump</li>
 	</abilities>
@@ -145,11 +176,43 @@
 	  <ComfyTemperatureMax>4</ComfyTemperatureMax>
 	  <ComfyTemperatureMin>-4</ComfyTemperatureMin>
 	</statOffsets>
-	<graphicData>
-		<graphicPath>WVC/BodyParts/BodyParts_Wings/MembranousWings</graphicPath>
-		<drawScale>1.5</drawScale>
+	<!-- <graphicData> -->
+		<!-- <graphicPath>WVC/BodyParts/BodyParts_Wings/MembranousWings</graphicPath> -->
+		<!-- <drawScale>1.5</drawScale> -->
+		<!-- <colorType>Skin</colorType> -->
+	<!-- </graphicData> -->
+	<renderNodeProperties>
+	  <li>
+		<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+		<texPaths>
+		  <li>WVC/BodyParts/BodyParts_Wings/MembranousWings</li>
+		</texPaths>
 		<colorType>Skin</colorType>
-	</graphicData>
+		<overrideMeshSize>(1.0, 1.0)</overrideMeshSize>
+		<parentTagDef>Body</parentTagDef>
+		<drawSize>1.5</drawSize>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<drawData>
+		  <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+		  <defaultData>
+			<layer>-2</layer>
+		  </defaultData>
+		  <dataNorth>
+			<offset>(0, 0.4, -0.05)</offset>
+			<layer>90</layer>
+		  </dataNorth>
+		  <dataSouth>
+			<offset>(0, -0.4, -0.05)</offset>
+		  </dataSouth>
+		  <dataEast>
+			<offset>(-0.08, -0.4, -0.04)</offset>
+		  </dataEast>
+		  <dataWest>
+			<offset>(0.08, -0.4, -0.04)</offset>
+		  </dataWest>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
 	<abilities>
 	  <li>WVC_XenotypesAndGenes_MembranousWingsJump</li>
 	</abilities>

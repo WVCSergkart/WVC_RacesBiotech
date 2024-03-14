@@ -38,7 +38,7 @@ namespace WVC_XenotypesAndGenes
 				if (!WVC_Biotech.settings.disableUniqueGeneInterface)
 				{
 					harmony.Patch(AccessTools.Method(typeof(GeneUIUtility), "DrawGene"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Xag_DrawGene")));
-					harmony.Patch(AccessTools.Method(typeof(GeneUIUtility), "DrawGeneDef_NewTemp"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Xag_DrawGeneDef")));
+					harmony.Patch(AccessTools.Method(typeof(GeneUIUtility), "DrawGeneDef"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Xag_DrawGeneDef")));
 				}
 				if (WVC_Biotech.settings.fixVanillaGeneImmunityCheck)
 				{
@@ -49,11 +49,11 @@ namespace WVC_XenotypesAndGenes
 				{
 					harmony.Patch(AccessTools.Method(typeof(InteractionUtility), "IsGoodPositionForInteraction", new Type[] {typeof(Pawn), typeof(Pawn)} ), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("TelepathyGene")));
 				}
-				if (!WVC_Biotech.settings.disableFurGraphic)
-				{
-					harmony.Patch(AccessTools.Method(typeof(PawnGraphicSet), "ResolveAllGraphics"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("FurskinIsSkin")));
-					harmony.Patch(AccessTools.Method(typeof(PawnGraphicSet), "ResolveGeneGraphics"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("SpecialGeneGraphic")));
-				}
+				// if (!WVC_Biotech.settings.disableFurGraphic)
+				// {
+					// harmony.Patch(AccessTools.Method(typeof(PawnGraphicSet), "ResolveAllGraphics"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("FurskinIsSkin")));
+					// harmony.Patch(AccessTools.Method(typeof(PawnGraphicSet), "ResolveGeneGraphics"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("SpecialGeneGraphic")));
+				// }
 				if (WVC_Biotech.settings.enableIncestLoverGene)
 				{
 					harmony.Patch(AccessTools.Method(typeof(RelationsUtility), "Incestuous"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Incestuous_Relations")));
@@ -161,69 +161,50 @@ namespace WVC_XenotypesAndGenes
 
 			// Body graphic
 
-			public static void FurskinIsSkin(PawnGraphicSet __instance)
-			{
-				Pawn pawn = __instance.pawn;
-				// if (!ModsConfig.BiotechActive || pawn == null || pawn.RaceProps?.Humanlike != true || pawn?.genes == null)
+			// public static void FurskinIsSkin(PawnGraphicSet __instance)
+			// {
+				// Pawn pawn = __instance.pawn;
+				// if (pawn?.genes == null || pawn?.story?.furDef == null)
 				// {
 					// return;
 				// }
-				if (pawn?.genes == null || pawn?.story?.furDef == null)
-				{
-					return;
-				}
-				Gene_Exoskin gene_Exoskin = pawn.genes.GetFirstGeneOfType<Gene_Exoskin>();
-				if (gene_Exoskin == null)
-				{
-					return;
-				}
-				GeneExtension_Graphic modExtension = gene_Exoskin.Graphic;
-				if (modExtension == null)
-				{
-					return;
-				}
-				__instance.furCoveredGraphic = null;
-				string bodyPath = pawn.story.furDef.GetFurBodyGraphicPath(pawn);
-				if (modExtension.furIsSkinWithHair)
-				{
-					__instance.nakedGraphic = GraphicDatabase.Get<Graphic_Multi>(bodyPath, ShaderDatabase.CutoutComplex, Vector2.one, pawn.story.SkinColor, pawn.story.HairColor);
-				}
-				else if (modExtension.furIsSkin)
-				{
-					__instance.nakedGraphic = GraphicDatabase.Get<Graphic_Multi>(bodyPath, ShaderUtility.GetSkinShader(pawn.story.SkinColorOverriden), Vector2.one, pawn.story.SkinColor);
-				}
-				if (modExtension.furCanRot)
-				{
-					__instance.rottingGraphic = GraphicDatabase.Get<Graphic_Multi>(bodyPath, ShaderUtility.GetSkinShader(pawn.story.SkinColorOverriden), Vector2.one, pawn.story.SkinColorOverriden ? (PawnGraphicSet.RottingColorDefault * pawn.story.SkinColor) : PawnGraphicSet.RottingColorDefault);
-				}
-			}
-
-			public static void SpecialGeneGraphic(PawnGraphicSet __instance)
-			{
-				// foreach (Gene item in __instance.pawn.genes.GenesListForReading)
+				// Gene_Exoskin gene_Exoskin = pawn.genes.GetFirstGeneOfType<Gene_Exoskin>();
+				// if (gene_Exoskin == null)
 				// {
-					// if (!item.Active || item is not Gene_Faceless faceless || faceless.drawGraphic)
+					// return;
+				// }
+				// GeneExtension_Graphic modExtension = gene_Exoskin.Graphic;
+				// if (modExtension == null)
+				// {
+					// return;
+				// }
+				// __instance.furCoveredGraphic = null;
+				// string bodyPath = pawn.story.furDef.GetFurBodyGraphicPath(pawn);
+				// if (modExtension.furIsSkinWithHair)
+				// {
+					// __instance.nakedGraphic = GraphicDatabase.Get<Graphic_Multi>(bodyPath, ShaderDatabase.CutoutComplex, Vector2.one, pawn.story.SkinColor, pawn.story.HairColor);
+				// }
+				// else if (modExtension.furIsSkin)
+				// {
+					// __instance.nakedGraphic = GraphicDatabase.Get<Graphic_Multi>(bodyPath, ShaderUtility.GetSkinShader(pawn.story.skinColorOverride), Vector2.one, pawn.story.SkinColor);
+				// }
+				// if (modExtension.furCanRot)
+				// {
+					// __instance.rottingGraphic = GraphicDatabase.Get<Graphic_Multi>(bodyPath, ShaderUtility.GetSkinShader(pawn.story.skinColorOverride), Vector2.one, pawn.story.SkinColorOverriden ? (PawnGraphicSet.RottingColorDefault * pawn.story.SkinColor) : PawnGraphicSet.RottingColorDefault);
+				// }
+			// }
+
+			// public static void SpecialGeneGraphic(PawnGraphicSet __instance)
+			// {
+				// foreach (GeneGraphicRecord graphicRecord in __instance.geneGraphics.ToList())
+				// {
+					// if (graphicRecord.sourceGene is not Gene_Faceless faceless || faceless.drawGraphic)
 					// {
 						// continue;
 					// }
-					// foreach (GeneGraphicRecord graphicRecord in __instance.geneGraphics.ToList())
-					// {
-						// if (graphicRecord.sourceGene != item)
-						// {
-							// continue;
-						// }
-						// __instance.geneGraphics.Remove(graphicRecord);
-					// }
+					// __instance.geneGraphics.Remove(graphicRecord);
 				// }
-				foreach (GeneGraphicRecord graphicRecord in __instance.geneGraphics.ToList())
-				{
-					if (graphicRecord.sourceGene is not Gene_Faceless faceless || faceless.drawGraphic)
-					{
-						continue;
-					}
-					__instance.geneGraphics.Remove(graphicRecord);
-				}
-			}
+			// }
 
 			// Romance
 

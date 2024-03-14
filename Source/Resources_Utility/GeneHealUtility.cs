@@ -127,7 +127,7 @@ namespace WVC_XenotypesAndGenes
 				// Less buggy
 				Hediff_Injury hediff_Injury = (Hediff_Injury)HediffMaker.MakeHediff(WVC_GenesDefOf.WVC_RegrowingPart, pawn);
 				hediff_Injury.Part = part;
-				hediff_Injury.source = null;
+				hediff_Injury.sourceDef = null;
 				hediff_Injury.sourceBodyPartGroup = null;
 				hediff_Injury.sourceHediffDef = null;
 				hediff_Injury.Severity = num;

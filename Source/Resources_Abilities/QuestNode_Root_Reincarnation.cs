@@ -27,7 +27,7 @@ namespace WVC_XenotypesAndGenes
 			slate.Set("mechanitor", pawn);
 			slate.Set("reincarnated", reincarnated);
 			GestationUtility.GeneTransfer(reincarnated, pawn, true, true);
-			reincarnated.playerSettings.AreaRestriction = pawn.playerSettings.AreaRestriction;
+			reincarnated.playerSettings.AreaRestrictionInPawnCurrentMap = pawn.playerSettings.AreaRestrictionInPawnCurrentMap;
 			reincarnated.relations.AddDirectRelation(PawnRelationDefOf.Parent, pawn);
 			AgelessUtility.ChronoCorrection(reincarnated, pawn);
 			AgelessUtility.Rejuvenation(reincarnated);

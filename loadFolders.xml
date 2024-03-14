@@ -1,15 +1,15 @@
 <loadFolders>
-	<!-- <v1.4> -->
-		<!-- <li>/</li> -->
-		<!-- <li>1.4</li> -->
-		<!-- <li IfModActive="imranfish.xmlextensions">1.4/Biotech_Core</li> -->
-		<!-- <li IfModActive="ludeon.rimworld.biotech">1.4/Biotech_Genes</li> -->
-		<!-- <li IfModActive="ludeon.rimworld.ideology">1.4/Ideology_Genes</li> -->
-		<!-- <li IfModActive="wvc.sergkart.test.tools">1.4/TEST</li> -->
-		<!-- <li IfModActive="wvc.wvcmod.wvcspecific">1.4/TEST</li> -->
-	<!-- </v1.4> -->
-	<!-- Preparing for 1.5 -->
 	<v1.4>
+		<li>/</li>
+		<li>1.4</li>
+		<li IfModActive="imranfish.xmlextensions">1.4/Biotech_Core</li>
+		<li IfModActive="ludeon.rimworld.biotech">1.4/Biotech_Genes</li>
+		<li IfModActive="ludeon.rimworld.ideology">1.4/Ideology_Genes</li>
+		<li IfModActive="wvc.sergkart.test.tools">1.4/TEST</li>
+		<li IfModActive="wvc.wvcmod.wvcspecific">1.4/TEST</li>
+	</v1.4>
+	<!-- Preparing for 1.5 -->
+	<v1.5>
 		<li>/</li>
 		<li>1.5</li>
 		<li IfModActive="imranfish.xmlextensions">1.5/Biotech_Core</li>
@@ -17,7 +17,7 @@
 		<li IfModActive="ludeon.rimworld.ideology">1.5/Ideology_Genes</li>
 		<li IfModActive="wvc.sergkart.test.tools">1.5/TEST</li>
 		<li IfModActive="wvc.wvcmod.wvcspecific">1.5/TEST</li>
-	</v1.4>
+	</v1.5>
 </loadFolders>
 
 

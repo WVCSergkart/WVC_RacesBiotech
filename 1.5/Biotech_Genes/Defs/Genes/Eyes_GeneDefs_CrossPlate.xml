@@ -10,18 +10,45 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_Faceless</geneClass>
 	<prerequisite>WVC_NodeSkin</prerequisite>
 	<iconColor>(255, 249, 181)</iconColor>
-	<graphicData>
-	  <graphicPaths>
-		<li>WVC/BodyParts/Eyes/CrossplateA</li>
-		<li>WVC/BodyParts/Eyes/CrossplateB</li>
-	  </graphicPaths>
-	  <colorType>Custom</colorType>
-	  <color>(255, 249, 181)</color>
-	  <layer>PostTattoo</layer>
-	  <useSkinShader>false</useSkinShader>
-	  <visibleNorth>false</visibleNorth>
-	  <drawIfFaceCovered>true</drawIfFaceCovered>
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <graphicPaths> -->
+		<!-- <li>WVC/BodyParts/Eyes/CrossplateA</li> -->
+		<!-- <li>WVC/BodyParts/Eyes/CrossplateB</li> -->
+	  <!-- </graphicPaths> -->
+	  <!-- <colorType>Custom</colorType> -->
+	  <!-- <color>(255, 249, 181)</color> -->
+	  <!-- <layer>PostTattoo</layer> -->
+	  <!-- <useSkinShader>false</useSkinShader> -->
+	  <!-- <visibleNorth>false</visibleNorth> -->
+	  <!-- <drawIfFaceCovered>true</drawIfFaceCovered> -->
+	<!-- </graphicData> -->
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<parentTagDef>Head</parentTagDef>
+		<colorType>Custom</colorType>
+		<color>(255, 249, 181)</color>
+		<useRottenColor>true</useRottenColor>
+		<useSkinShader>true</useSkinShader>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<texPaths>
+		  <li>WVC/BodyParts/Eyes/CrossplateA</li>
+		  <li>WVC/BodyParts/Eyes/CrossplateB</li>
+		</texPaths>
+		<visibleFacing>
+		  <li>East</li>
+		  <li>South</li>
+		  <li>West</li>
+		</visibleFacing>
+		<narrowCrownHorizontalOffset>0.03</narrowCrownHorizontalOffset>
+		<drawData>
+		  <defaultData>
+			<layer>52</layer>
+		  </defaultData>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
 	<minAgeActive>0</minAgeActive>
 	<displayCategory>WVC_Cosmetic</displayCategory>
 	<displayOrderInCategory>5</displayOrderInCategory>

@@ -180,89 +180,89 @@ namespace WVC_XenotypesAndGenes
 		// =============================== Other ===============================
 
 
-		[Obsolete]
-		public static bool XenotypeIsFurskin(XenotypeDef xenotypeDef)
-		{
-			List<GeneDef> genes = xenotypeDef.genes;
-			if (genes.NullOrEmpty())
-			{
-				return false;
-			}
-			List<XenotypeDef> xenotypes = GetXenotypeAndDoubleXenotypes(xenotypeDef);
-			foreach (XenotypeDef xenotype in xenotypes)
-			{
-				foreach (GeneDef item in xenotype.genes)
-				{
-					if (item.graphicData != null && item.graphicData.fur != null)
-					{
-						return true;
-					}
-				}
-			}
-			return false;
-		}
+		// [Obsolete]
+		// public static bool XenotypeIsFurskin(XenotypeDef xenotypeDef)
+		// {
+			// List<GeneDef> genes = xenotypeDef.genes;
+			// if (genes.NullOrEmpty())
+			// {
+				// return false;
+			// }
+			// List<XenotypeDef> xenotypes = GetXenotypeAndDoubleXenotypes(xenotypeDef);
+			// foreach (XenotypeDef xenotype in xenotypes)
+			// {
+				// foreach (GeneDef item in xenotype.genes)
+				// {
+					// if (item.graphicData != null && item.graphicData.fur != null)
+					// {
+						// return true;
+					// }
+				// }
+			// }
+			// return false;
+		// }
 
-		[Obsolete]
-		public static bool XenotypeIsArchite(XenotypeDef xenotypeDef)
-		{
-			List<GeneDef> genes = xenotypeDef.genes;
-			if (genes.NullOrEmpty())
-			{
-				return false;
-			}
-			List<XenotypeDef> xenotypes = GetXenotypeAndDoubleXenotypes(xenotypeDef);
-			foreach (XenotypeDef xenotype in xenotypes)
-			{
-				foreach (GeneDef item in xenotype.genes)
-				{
-					if (item.biostatArc > 0)
-					{
-						return false;
-					}
-				}
-			}
-			return false;
-		}
+		// [Obsolete]
+		// public static bool XenotypeIsArchite(XenotypeDef xenotypeDef)
+		// {
+			// List<GeneDef> genes = xenotypeDef.genes;
+			// if (genes.NullOrEmpty())
+			// {
+				// return false;
+			// }
+			// List<XenotypeDef> xenotypes = GetXenotypeAndDoubleXenotypes(xenotypeDef);
+			// foreach (XenotypeDef xenotype in xenotypes)
+			// {
+				// foreach (GeneDef item in xenotype.genes)
+				// {
+					// if (item.biostatArc > 0)
+					// {
+						// return false;
+					// }
+				// }
+			// }
+			// return false;
+		// }
 
-		[Obsolete]
-		public static bool XenotypeIsBloodfeeder(XenotypeDef xenotypeDef)
-		{
-			List<GeneDef> genes = xenotypeDef.genes;
-			if (genes.NullOrEmpty())
-			{
-				return false;
-			}
-			List<XenotypeDef> xenotypes = GetXenotypeAndDoubleXenotypes(xenotypeDef);
-			foreach (XenotypeDef xenotype in xenotypes)
-			{
-				GeneDef geneDef = XaG_GeneUtility.GetFirstGeneDefOfType(xenotype.genes, typeof(Gene_Hemogen));
-				if (geneDef != null)
-				{
-					return true;
-				}
-			}
-			return false;
-		}
+		// [Obsolete]
+		// public static bool XenotypeIsBloodfeeder(XenotypeDef xenotypeDef)
+		// {
+			// List<GeneDef> genes = xenotypeDef.genes;
+			// if (genes.NullOrEmpty())
+			// {
+				// return false;
+			// }
+			// List<XenotypeDef> xenotypes = GetXenotypeAndDoubleXenotypes(xenotypeDef);
+			// foreach (XenotypeDef xenotype in xenotypes)
+			// {
+				// GeneDef geneDef = XaG_GeneUtility.GetFirstGeneDefOfType(xenotype.genes, typeof(Gene_Hemogen));
+				// if (geneDef != null)
+				// {
+					// return true;
+				// }
+			// }
+			// return false;
+		// }
 
-		[Obsolete]
-		public static bool XenotypeIsUndead(XenotypeDef xenotypeDef)
-		{
-			List<GeneDef> genes = xenotypeDef.genes;
-			if (genes.NullOrEmpty())
-			{
-				return false;
-			}
-			List<XenotypeDef> xenotypes = GetXenotypeAndDoubleXenotypes(xenotypeDef);
-			foreach (XenotypeDef xenotype in xenotypes)
-			{
-				GeneDef geneDef = XaG_GeneUtility.GetFirstGeneDefOfType(xenotype.genes, typeof(Gene_Undead));
-				if (geneDef != null)
-				{
-					return true;
-				}
-			}
-			return false;
-		}
+		// [Obsolete]
+		// public static bool XenotypeIsUndead(XenotypeDef xenotypeDef)
+		// {
+			// List<GeneDef> genes = xenotypeDef.genes;
+			// if (genes.NullOrEmpty())
+			// {
+				// return false;
+			// }
+			// List<XenotypeDef> xenotypes = GetXenotypeAndDoubleXenotypes(xenotypeDef);
+			// foreach (XenotypeDef xenotype in xenotypes)
+			// {
+				// GeneDef geneDef = XaG_GeneUtility.GetFirstGeneDefOfType(xenotype.genes, typeof(Gene_Undead));
+				// if (geneDef != null)
+				// {
+					// return true;
+				// }
+			// }
+			// return false;
+		// }
 
 		// =============================== Getter ===============================
 

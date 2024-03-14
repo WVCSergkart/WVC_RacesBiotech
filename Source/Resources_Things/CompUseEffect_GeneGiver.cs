@@ -78,28 +78,23 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public override bool CanBeUsedBy(Pawn p, out string failReason)
+		public override AcceptanceReport CanBeUsedBy(Pawn p)
 		{
-			failReason = null;
 			if (geneDef == null)
 			{
-				failReason = "ERROR geneDef is null";
-				return false;
+				return "ERROR geneDef is null";
 			}
 			if (p.genes.HasGene(geneDef))
 			{
-				failReason = "WVC_XaG_GeneGiverPawnHasGene_Label".Translate(p.Name.ToString());
-				return false;
+				return "WVC_XaG_GeneGiverPawnHasGene_Label".Translate(p.Name.ToString());
 			}
 			if (!SerumUtility.PawnIsHuman(p))
 			{
-				failReason = "WVC_PawnIsAndroidCheck".Translate();
-				return false;
+				return "WVC_PawnIsAndroidCheck".Translate();
 			}
 			if (p.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
 			{
-				failReason = "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate();
-				return false;
+				return "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate();
 			}
 			return true;
 		}

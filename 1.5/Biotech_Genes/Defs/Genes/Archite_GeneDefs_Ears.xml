@@ -21,11 +21,10 @@
 	<!-- <statOffsets> -->
 	  <!-- <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization> -->
 	<!-- </statOffsets> -->
-	<graphicData>
-	  <!-- <graphicPath>WVC/BodyParts/MecaGene_Ears/CatEars</graphicPath> -->
-	  <colorType>Hair</colorType>
-	  <useSkinShader>false</useSkinShader>
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <colorType>Hair</colorType> -->
+	  <!-- <useSkinShader>false</useSkinShader> -->
+	<!-- </graphicData> -->
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>cat</symbol></li>
@@ -51,11 +50,23 @@
 	<iconPath>WVC/BodyParts/MecaGene_Ears/CatEars_icon</iconPath>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>0</biostatArc>
-	<graphicData>
-	  <graphicPath>WVC/BodyParts/MecaGene_Ears/NaturalCatEars</graphicPath>
-	  <colorType>Hair</colorType>
-	  <useSkinShader>false</useSkinShader>
-	</graphicData>
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<texPath>WVC/BodyParts/MecaGene_Ears/NaturalCatEars</texPath>
+		<colorType>Hair</colorType>
+		<parentTagDef>Head</parentTagDef>
+		<useSkinShader>false</useSkinShader>
+		<useRottenColor>true</useRottenColor>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<drawData>
+		  <defaultData>
+			<layer>70</layer>
+		  </defaultData>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
 	<capMods>
 	  <li>
 		<capacity>Hearing</capacity>
@@ -71,11 +82,28 @@
 	<iconPath>WVC/BodyParts/MecaGene_Ears/RedFormerEarsDouble_icon</iconPath>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>0</biostatArc>
-	<graphicData>
-	  <graphicPath>WVC/BodyParts/MecaGene_Ears/FoxEars</graphicPath>
-	  <colorType>Hair</colorType>
-	  <useSkinShader>false</useSkinShader>
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <graphicPath>WVC/BodyParts/MecaGene_Ears/FoxEars</graphicPath> -->
+	  <!-- <colorType>Hair</colorType> -->
+	  <!-- <useSkinShader>false</useSkinShader> -->
+	<!-- </graphicData> -->
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<texPath>WVC/BodyParts/MecaGene_Ears/FoxEars</texPath>
+		<colorType>Hair</colorType>
+		<parentTagDef>Head</parentTagDef>
+		<useSkinShader>false</useSkinShader>
+		<useRottenColor>true</useRottenColor>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<drawData>
+		  <defaultData>
+			<layer>70</layer>
+		  </defaultData>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
 	<capMods>
 	  <li>
 		<capacity>Hearing</capacity>
@@ -88,15 +116,34 @@
 	<defName>WVC_Mecha_EarsCat</defName>
 	<label>cat ears</label>
 	<iconPath>WVC/BodyParts/MecaGene_Ears/CatEars_icon</iconPath>
-	<graphicData>
-	  <!-- <graphicPath>WVC/BodyParts/MecaGene_Ears/CatEars</graphicPath> -->
-	  <graphicPaths>
-		<li>WVC/BodyParts/MecaGene_Ears/CatEars</li>
-		<li>WVC/BodyParts/MecaGene_Ears/FourCatEars</li>
-	  </graphicPaths>
-	  <colorType>Hair</colorType>
-	  <useSkinShader>false</useSkinShader>
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <graphicPaths> -->
+		<!-- <li>WVC/BodyParts/MecaGene_Ears/CatEars</li> -->
+		<!-- <li>WVC/BodyParts/MecaGene_Ears/FourCatEars</li> -->
+	  <!-- </graphicPaths> -->
+	  <!-- <colorType>Hair</colorType> -->
+	  <!-- <useSkinShader>false</useSkinShader> -->
+	<!-- </graphicData> -->
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<texPaths>
+			<li>WVC/BodyParts/MecaGene_Ears/CatEars</li>
+			<li>WVC/BodyParts/MecaGene_Ears/FourCatEars</li>
+		</texPaths>
+		<colorType>Hair</colorType>
+		<parentTagDef>Head</parentTagDef>
+		<useSkinShader>false</useSkinShader>
+		<useRottenColor>true</useRottenColor>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<drawData>
+		  <defaultData>
+			<layer>70</layer>
+		  </defaultData>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
 	<capMods>
 	  <li>
 		<capacity>Hearing</capacity>
@@ -126,15 +173,34 @@
 	<label>spikelike ears</label>
 	<description>Carriers of this gene have mechanoid spike-like ears. Additional audio sensors in the ears improve hearing.</description>
 	<iconPath>WVC/BodyParts/MecaGene_Ears/RedFormerEarsDouble_icon</iconPath>
-	<graphicData>
-	  <!-- <graphicPath>WVC/BodyParts/MecaGene_Ears/RedFormerEarsDouble</graphicPath> -->
-	  <graphicPaths>
-		<li>WVC/BodyParts/MecaGene_Ears/RedFormerEarsDouble</li>
-		<li>WVC/BodyParts/MecaGene_Ears/RedFormerEarsQuad</li>
-	  </graphicPaths>
-	  <colorType>Hair</colorType>
-	  <useSkinShader>false</useSkinShader>
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <graphicPaths> -->
+		<!-- <li>WVC/BodyParts/MecaGene_Ears/RedFormerEarsDouble</li> -->
+		<!-- <li>WVC/BodyParts/MecaGene_Ears/RedFormerEarsQuad</li> -->
+	  <!-- </graphicPaths> -->
+	  <!-- <colorType>Hair</colorType> -->
+	  <!-- <useSkinShader>false</useSkinShader> -->
+	<!-- </graphicData> -->
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<texPaths>
+			<li>WVC/BodyParts/MecaGene_Ears/RedFormerEarsDouble</li>
+			<li>WVC/BodyParts/MecaGene_Ears/RedFormerEarsQuad</li>
+		</texPaths>
+		<colorType>Hair</colorType>
+		<parentTagDef>Head</parentTagDef>
+		<useSkinShader>false</useSkinShader>
+		<useRottenColor>true</useRottenColor>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<drawData>
+		  <defaultData>
+			<layer>70</layer>
+		  </defaultData>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
 	<capMods>
 	  <li>
 		<capacity>Hearing</capacity>
@@ -166,15 +232,32 @@
 	<description>Carriers of this gene have mechanoid spikes.</description>
 	<iconPath>WVC/BodyParts/MecaGene_Ears/RedFormerSpikesDouble_icon</iconPath>
 	<minAgeActive>13</minAgeActive>
-	<graphicData>
-	  <!-- <graphicPath>WVC/BodyParts/MecaGene_Ears/RedFormerSpikesDouble</graphicPath> -->
-	  <graphicPaths>
-		<li>WVC/BodyParts/MecaGene_Ears/RedFormerSpikesDouble</li>
-		<li>WVC/BodyParts/MecaGene_Ears/RedFormerSpikesQuad</li>
-	  </graphicPaths>
-	  <colorType>Hair</colorType>
-	  <useSkinShader>false</useSkinShader>
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <graphicPaths> -->
+	  <!-- </graphicPaths> -->
+	  <!-- <colorType>Hair</colorType> -->
+	  <!-- <useSkinShader>false</useSkinShader> -->
+	<!-- </graphicData> -->
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<texPaths>
+			<li>WVC/BodyParts/MecaGene_Ears/RedFormerSpikesDouble</li>
+			<li>WVC/BodyParts/MecaGene_Ears/RedFormerSpikesQuad</li>
+		</texPaths>
+		<colorType>Hair</colorType>
+		<parentTagDef>Head</parentTagDef>
+		<useSkinShader>false</useSkinShader>
+		<useRottenColor>true</useRottenColor>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<drawData>
+		  <defaultData>
+			<layer>70</layer>
+		  </defaultData>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
 	<statOffsets>
 	  <ArmorRating_Heat>0.27</ArmorRating_Heat>
 	</statOffsets>
@@ -201,15 +284,34 @@
 	<description>Carriers of this gene have mechanoid antenna.</description>
 	<iconPath>WVC/BodyParts/MecaGene_Ears/YellowFormerAntennaDouble_icon</iconPath>
 	<minAgeActive>13</minAgeActive>
-	<graphicData>
-	  <!-- <graphicPath>WVC/BodyParts/MecaGene_Ears/YellowFormerAntennaDouble</graphicPath> -->
-	  <graphicPaths>
-		<li>WVC/BodyParts/MecaGene_Ears/YellowFormerAntenna</li>
-		<li>WVC/BodyParts/MecaGene_Ears/YellowFormerAntennaDouble</li>
-	  </graphicPaths>
-	  <colorType>Hair</colorType>
-	  <useSkinShader>false</useSkinShader>
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <graphicPaths> -->
+		<!-- <li>WVC/BodyParts/MecaGene_Ears/YellowFormerAntenna</li> -->
+		<!-- <li>WVC/BodyParts/MecaGene_Ears/YellowFormerAntennaDouble</li> -->
+	  <!-- </graphicPaths> -->
+	  <!-- <colorType>Hair</colorType> -->
+	  <!-- <useSkinShader>false</useSkinShader> -->
+	<!-- </graphicData> -->
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<texPaths>
+			<li>WVC/BodyParts/MecaGene_Ears/YellowFormerAntenna</li>
+			<li>WVC/BodyParts/MecaGene_Ears/YellowFormerAntennaDouble</li>
+		</texPaths>
+		<colorType>Hair</colorType>
+		<parentTagDef>Head</parentTagDef>
+		<useSkinShader>false</useSkinShader>
+		<useRottenColor>true</useRottenColor>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<drawData>
+		  <defaultData>
+			<layer>70</layer>
+		  </defaultData>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
 	<statOffsets>
 	  <MechControlGroups>4</MechControlGroups>
 	</statOffsets>
@@ -240,7 +342,7 @@
 	<customEffectDescriptions>
 		<li>Disable ears.</li>
 	</customEffectDescriptions>
-	<graphicData Inherit="False"/>
+	<renderNodeProperties Inherit="False"/>
 	<statOffsets>
 	  <ArmorRating_Blunt>0.12</ArmorRating_Blunt>
 	</statOffsets>

@@ -36,7 +36,7 @@ namespace WVC_XenotypesAndGenes
 		public static string AdditionalInfo_GeneDef(GeneDef def)
 		{
 			string text = "";
-			if (def?.graphicData?.fur != null)
+			if (def?.fur != null)
 			{
 				text += "\n\n" + "WVC_XaG_NewBack_GeneIsFurskin".Translate().Colorize(ColoredText.TipSectionTitleColor);
 				if (!def.forcedHeadTypes.NullOrEmpty())

@@ -20,6 +20,8 @@ namespace WVC_XenotypesAndGenes
 		public bool canSpawnOverPlayerSownPlants = true;
 		// public List<ThingDef> plantsToNotOverwrite;
 
+		public string uniqueTag = "XaG_Golems";
+
 		// public CompProperties_SpawnOnDeath()
 		// {
 			// compClass = typeof(CompSpawnOnDeath);
@@ -109,21 +111,21 @@ namespace WVC_XenotypesAndGenes
 
 		private void Apply()
 		{
-			if (parent is Pawn pawn)
-			{
-				PawnRenderer renderer = pawn.Drawer.renderer;
-				Color color = rockDef.graphic.data.color;
-				GraphicData graphicData = new();
-				graphicData.CopyFrom(pawn.ageTracker.CurKindLifeStage.bodyGraphicData);
-				graphicData.color = color;
-				graphicData.colorTwo = color;
-				if (!renderer.graphics.AllResolved)
-				{
-					renderer.graphics.ResolveAllGraphics();
-				}
-				renderer.graphics.nakedGraphic = graphicData.Graphic;
-				renderer.graphics.ClearCache();
-			}
+			//if (parent is Pawn pawn)
+			//{
+				//PawnRenderer renderer = pawn.Drawer.renderer;
+				//Color color = rockDef.graphic.data.color;
+				//GraphicData graphicData = new();
+				//graphicData.CopyFrom(pawn.ageTracker.CurKindLifeStage.bodyGraphicData);
+				//graphicData.color = color;
+				//graphicData.colorTwo = color;
+				//if (!renderer.graphics.AllResolved)
+				//{
+				//	renderer.graphics.ResolveAllGraphics();
+				//}
+				//renderer.graphics.nakedGraphic = graphicData.Graphic;
+				//renderer.graphics.ClearCache();
+			//}
 		}
 
 		public void SetStoneColour(ThingDef thingDef)
@@ -135,7 +137,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostExposeData()
 		{
 			base.PostExposeData();
-			Scribe_Defs.Look(ref rockDef, "rockDef");
+			Scribe_Defs.Look(ref rockDef, "rockDef_" + Props.uniqueTag);
 		}
 
 	}

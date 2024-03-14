@@ -62,7 +62,20 @@
 		</modExtensions>
 	</ThingDef>
 	<PawnKindDef ParentName="WVC_XenotypesAndGenes_NonCombatGolemlikeKind_Base" Name="WVC_XenotypesAndGenes_NonCombatGolemKind" Abstract="True">
-		<alternateGraphicChance>0.0</alternateGraphicChance>
+		<alternateGraphicChance>1.0</alternateGraphicChance>
+		<!-- To-Do: Repair rock graphic setter -->
+		<alternateGraphics>
+			<!-- slate -->
+			<li><color>(70,70,70)</color></li>
+			<!-- limestone -->
+			<li><color>(158,153,135)</color></li>
+			<!-- granite -->
+			<li><color>(105,95,97)</color></li>
+			<!-- sandstone -->
+			<li><color>(126,104,94)</color></li>
+			<!-- marble -->
+			<li><color>(132,135,132)</color></li>
+		</alternateGraphics>
 		<abilities>
 			<li>WVC_MechanoidAbility_ActivateGestator</li>
 		</abilities>

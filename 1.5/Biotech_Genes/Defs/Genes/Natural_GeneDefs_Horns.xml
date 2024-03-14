@@ -6,11 +6,10 @@
 	<selectionWeight>0.0012</selectionWeight>
 	<minAgeActive>3</minAgeActive>
 	<displayCategory>WVC_Cosmetic</displayCategory>
-	<graphicData>
-	  <color>(255, 255, 255)</color>
-	  <layer>PostHeadgear</layer>
-	  <!-- <drawNorthAfterHair>false</drawNorthAfterHair> -->
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <color>(255, 255, 255)</color> -->
+	  <!-- <layer>PostHeadgear</layer> -->
+	<!-- </graphicData> -->
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>horn</symbol></li>
@@ -47,26 +46,72 @@
 	<defName>WVC_HeadBoneHorns</defName>
 	<label>horns</label>
 	<iconPath>WVC/UI/Genes/HornsA_Icon_v0</iconPath>
-	<graphicData>
-	  <graphicPaths>
-		<li>WVC/BodyParts/Horns/HornsA</li>
-		<!-- <li>WVC/BodyParts/Horns/HornsB</li> -->
-		<li>WVC/BodyParts/Horns/HornsC</li>
-	  </graphicPaths>
-	  <drawOffsetNorth>(0, 0, -0.04)</drawOffsetNorth>
-	  <drawOffsetSouth>(0, 0, -0.13)</drawOffsetSouth>
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <graphicPaths> -->
+		<!-- <li>WVC/BodyParts/Horns/HornsA</li> -->
+		<!-- <li>WVC/BodyParts/Horns/HornsC</li> -->
+	  <!-- </graphicPaths> -->
+	  <!-- <drawOffsetNorth>(0, 0, -0.04)</drawOffsetNorth> -->
+	  <!-- <drawOffsetSouth>(0, 0, -0.13)</drawOffsetSouth> -->
+	<!-- </graphicData> -->
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<texPaths>
+		  <li>WVC/BodyParts/Horns/HornsA</li>
+		  <li>WVC/BodyParts/Horns/HornsC</li>
+		</texPaths>
+		<color>(255, 255, 255)</color>
+		<parentTagDef>Head</parentTagDef>
+		<drawData>
+		  <defaultData>
+			<layer>80</layer>
+		  </defaultData>
+		  <dataNorth>
+			<offset>(0, 0, -0.04)</offset>
+			<layer>10</layer>
+		  </dataNorth>
+		  <dataSouth>
+			<offset>(0, 0, -0.13)</offset>
+		  </dataSouth>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHeadbone_Base">
 	<defName>WVC_HeadBoneDoubleHorn</defName>
 	<label>double horn</label>
 	<iconPath>WVC/UI/Genes/HornsB_Icon_v0</iconPath>
-	<graphicData>
-	  <graphicPath>WVC/BodyParts/Horns/HornsB</graphicPath>
-	  <drawOffsetNorth>(0, 0, -0.04)</drawOffsetNorth>
-	  <drawOffsetSouth>(0, 0, -0.13)</drawOffsetSouth>
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <graphicPath>WVC/BodyParts/Horns/HornsB</graphicPath> -->
+	  <!-- <drawOffsetNorth>(0, 0, -0.04)</drawOffsetNorth> -->
+	  <!-- <drawOffsetSouth>(0, 0, -0.13)</drawOffsetSouth> -->
+	<!-- </graphicData> -->
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<texPaths>
+		  <li>WVC/BodyParts/Horns/HornsB</li>
+		</texPaths>
+		<color>(255, 255, 255)</color>
+		<parentTagDef>Head</parentTagDef>
+		<drawData>
+		  <defaultData>
+			<layer>80</layer>
+		  </defaultData>
+		  <dataNorth>
+			<offset>(0, 0, -0.04)</offset>
+			<layer>10</layer>
+		  </dataNorth>
+		  <dataSouth>
+			<offset>(0, 0, -0.13)</offset>
+		  </dataSouth>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
   </GeneDef>
 
 </Defs>

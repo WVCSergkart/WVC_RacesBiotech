@@ -49,7 +49,7 @@ namespace WVC_XenotypesAndGenes
 			List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
 			for (int i = 0; i < hediffs.Count; i++)
 			{
-				if (hediffs[i].def.eyeGraphicSouth != null || hediffs[i].def.eyeGraphicEast != null)
+				if (hediffs[i].def.RenderNodeProperties != null || hediffs[i].def.RenderNodeProperties != null)
 				{
 					return true;
 				}

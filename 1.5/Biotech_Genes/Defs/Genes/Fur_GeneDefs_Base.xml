@@ -24,12 +24,25 @@ Most of the internal organs remain intact, but there are enough external changes
 	<geneClass>WVC_XenotypesAndGenes.Gene_Exoskin</geneClass>
 	<!-- = -->
 	<iconPath>WVC/UI/Genes/Gene_FurskinD_v0</iconPath>
-	<graphicData>
-	  <fur>WVC_MechaSkin</fur>
-	  <skinIsHairColor>false</skinIsHairColor>
-	  <tattoosVisible>true</tattoosVisible>
-	  <!-- <layer>PostSkin</layer> -->
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <fur>WVC_MechaSkin</fur> -->
+	  <!-- <skinIsHairColor>false</skinIsHairColor> -->
+	  <!-- <tattoosVisible>true</tattoosVisible> -->
+	<!-- </graphicData> -->
+	<fur>WVC_MechaSkin</fur>
+	<skinIsHairColor>false</skinIsHairColor>
+	<tattoosVisible>true</tattoosVisible>
+	<renderNodeProperties>
+	  <li>
+		<debugLabel>Fur</debugLabel>
+		<nodeClass>WVC_XenotypesAndGenes.PawnRenderNode_FurIsSkin</nodeClass>
+		<workerClass>PawnRenderNodeWorker_Fur</workerClass>
+		<baseLayer>5</baseLayer>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<colorType>Skin</colorType>
+		<parentTagDef>Body</parentTagDef>
+	  </li>
+	</renderNodeProperties>
 	<forcedHeadTypes>
 	  <li>Male_AverageNormal</li>
 	  <li>Male_AveragePointy</li>

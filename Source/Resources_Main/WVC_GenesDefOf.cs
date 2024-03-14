@@ -86,6 +86,9 @@ namespace WVC_XenotypesAndGenes
 		// public static BackstoryDef Child27;
 		// Effects
 		public static EffecterDef CocoonDestroyed;
+		// 1.5 Update
+		public static AbilityDef Bloodfeed;
+		public static SoundDef Hive_Spawn;
 	}
 
 }

@@ -298,7 +298,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				if (MiscUtility.TryGetAbilityJob(pawn, colonist, AbilityDefOf.Bloodfeed, out Job job))
+				if (MiscUtility.TryGetAbilityJob(pawn, colonist, WVC_GenesDefOf.Bloodfeed, out Job job))
 				{
 					pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);
 					return true;

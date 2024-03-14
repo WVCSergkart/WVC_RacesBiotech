@@ -26,10 +26,23 @@
 	<missingGeneRomanceChanceFactor>0.35</missingGeneRomanceChanceFactor>
 	<minAgeActive>0</minAgeActive>
 	<!-- <minAgeActive>13</minAgeActive> -->
-	<graphicData>
-	  <skinIsHairColor>false</skinIsHairColor>
-	  <tattoosVisible>true</tattoosVisible>
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <skinIsHairColor>false</skinIsHairColor> -->
+	  <!-- <tattoosVisible>true</tattoosVisible> -->
+	<!-- </graphicData> -->
+	<skinIsHairColor>false</skinIsHairColor>
+	<tattoosVisible>true</tattoosVisible>
+	<renderNodeProperties>
+	  <li>
+		<debugLabel>Fur</debugLabel>
+		<nodeClass>WVC_XenotypesAndGenes.PawnRenderNode_FurIsSkin</nodeClass>
+		<workerClass>PawnRenderNodeWorker_Fur</workerClass>
+		<baseLayer>5</baseLayer>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<colorType>Skin</colorType>
+		<parentTagDef>Body</parentTagDef>
+	  </li>
+	</renderNodeProperties>
 	<exclusionTags>
 	  <li>AG_Bodies</li>
 	  <li>Bodies</li>
@@ -73,11 +86,11 @@
 	<!-- <statFactors> -->
 	  <!-- <Flammability>0.5</Flammability> -->
 	<!-- </statFactors> -->
-	<graphicData>
-	  <fur>WVC_RuneSkin</fur>
-	  <tattoosVisible>true</tattoosVisible>
-	  <!-- <layer>PostSkin</layer> -->
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <fur>WVC_RuneSkin</fur> -->
+	  <!-- <tattoosVisible>true</tattoosVisible> -->
+	<!-- </graphicData> -->
+	<fur>WVC_RuneSkin</fur>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>rune</symbol></li>
@@ -127,11 +140,11 @@
 	<statFactors>
 	  <Flammability>0.2</Flammability>
 	</statFactors>
-	<graphicData>
-	  <fur>WVC_StoneSkin</fur>
-	  <tattoosVisible>true</tattoosVisible>
-	  <!-- <layer>PostSkin</layer> -->
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <fur>WVC_StoneSkin</fur> -->
+	  <!-- <tattoosVisible>true</tattoosVisible> -->
+	<!-- </graphicData> -->
+	<fur>WVC_StoneSkin</fur>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>stone</symbol></li>
@@ -166,11 +179,11 @@
 	<forcedHeadTypes>
 	  <li>WVC_PatchSkin_Average</li>
 	</forcedHeadTypes>
-	<graphicData>
-	  <fur>WVC_PatchSkin</fur>
-	  <tattoosVisible>true</tattoosVisible>
-	  <!-- <layer>PostSkin</layer> -->
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <fur>WVC_PatchSkin</fur> -->
+	  <!-- <tattoosVisible>true</tattoosVisible> -->
+	<!-- </graphicData> -->
+	<fur>WVC_PatchSkin</fur>
 	<missingGeneRomanceChanceFactor>0.85</missingGeneRomanceChanceFactor>
 	<symbolPack>
 	  <prefixSymbols>
@@ -210,11 +223,11 @@
 	<statOffsets>
 	  <ComfyTemperatureMin>-4</ComfyTemperatureMin>
 	</statOffsets>
-	<graphicData>
-	  <fur>WVC_FeatheredSkin</fur>
-	  <tattoosVisible>true</tattoosVisible>
-	  <!-- <layer>PostSkin</layer> -->
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <fur>WVC_FeatheredSkin</fur> -->
+	  <!-- <tattoosVisible>true</tattoosVisible> -->
+	<!-- </graphicData> -->
+	<fur>WVC_FeatheredSkin</fur>
 	<missingGeneRomanceChanceFactor>0.75</missingGeneRomanceChanceFactor>
 	<symbolPack>
 	  <prefixSymbols>
@@ -253,11 +266,11 @@
 	<customEffectDescriptions>
 	  <!-- <li MayRequire="ludeon.rimworld.ideology">Increases the number of scars by 3</li> -->
 	</customEffectDescriptions>
-	<graphicData>
-	  <fur>WVC_ShapeshiftSkin</fur>
-	  <tattoosVisible>true</tattoosVisible>
-	  <!-- <layer>PostSkin</layer> -->
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <fur>WVC_ShapeshiftSkin</fur> -->
+	  <!-- <tattoosVisible>true</tattoosVisible> -->
+	<!-- </graphicData> -->
+	<fur>WVC_ShapeshiftSkin</fur>
 	<missingGeneRomanceChanceFactor>0.60</missingGeneRomanceChanceFactor>
 	<symbolPack>
 	  <prefixSymbols>
@@ -291,10 +304,11 @@
 	<biostatCpx>1</biostatCpx>
 	<customEffectDescriptions>
 	</customEffectDescriptions>
-	<graphicData>
-	  <fur>WVC_TransparentSkin</fur>
-	  <tattoosVisible>true</tattoosVisible>
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <fur>WVC_TransparentSkin</fur> -->
+	  <!-- <tattoosVisible>true</tattoosVisible> -->
+	<!-- </graphicData> -->
+	<fur>WVC_TransparentSkin</fur>
 	<statOffsets>
 	  <PawnBeauty>-1</PawnBeauty>
 	</statOffsets>

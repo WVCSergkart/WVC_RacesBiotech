@@ -32,7 +32,7 @@ namespace WVC_XenotypesAndGenes
 		public bool shapeshifterGeneUnremovable = false;
 		public bool enableIncestLoverGene = true;
 		public bool enableHarmonyTelepathyGene = false;
-		public bool useAlternativeDustogenicFoodJob = false;
+		public bool useAlternativeDustogenicFoodJob = true;
 		public bool learningTelepathWorkForBothSides = false;
 		public bool disableUniqueXenotypeScenarios = false;
 		public bool restoreBodyPartsWithFullHP = false;
@@ -92,7 +92,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref shapeshifterGeneUnremovable, "shapeshifterGeneUnremovable", defaultValue: false);
 			Scribe_Values.Look(ref enableIncestLoverGene, "enableIncestLoverGene", defaultValue: true);
 			Scribe_Values.Look(ref enableHarmonyTelepathyGene, "enableHarmonyTelepathyGene", defaultValue: false);
-			Scribe_Values.Look(ref useAlternativeDustogenicFoodJob, "useAlternativeDustogenicFoodJob", defaultValue: false);
+			Scribe_Values.Look(ref useAlternativeDustogenicFoodJob, "useAlternativeDustogenicFoodJob", defaultValue: true);
 			Scribe_Values.Look(ref learningTelepathWorkForBothSides, "learningTelepathWorkForBothSides", defaultValue: false);
 			Scribe_Values.Look(ref restoreBodyPartsWithFullHP, "restoreBodyPartsWithFullHP", defaultValue: false);
 			// Scribe_Values.Look(ref reimplantResurrectionRecruiting, "reimplantResurrectionRecruiting", defaultValue: false);
@@ -568,7 +568,7 @@ namespace WVC_XenotypesAndGenes
 			// =
 			WVC_Biotech.settings.enableHarmonyTelepathyGene = false;
 			// =
-			WVC_Biotech.settings.useAlternativeDustogenicFoodJob = false;
+			WVC_Biotech.settings.useAlternativeDustogenicFoodJob = true;
 			// =
 			WVC_Biotech.settings.learningTelepathWorkForBothSides = false;
 			// =

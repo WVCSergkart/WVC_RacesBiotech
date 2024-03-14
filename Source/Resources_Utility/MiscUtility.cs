@@ -24,7 +24,7 @@ namespace WVC_XenotypesAndGenes
 			TextAnchor anchor = Text.Anchor;
 			Text.Anchor = TextAnchor.MiddleLeft;
 			Widgets.Label(rect2, label);
-			float _ = (val = Widgets.HorizontalSlider_NewTemp(rect3, val, min, max, middleAlignment: true));
+			float _ = (val = Widgets.HorizontalSlider(rect3, val, min, max, middleAlignment: true));
 			val = (float)Math.Round(val, round);
 			Text.Anchor = TextAnchor.MiddleRight;
 			if (!tooltip.NullOrEmpty())

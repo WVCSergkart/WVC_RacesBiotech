@@ -143,7 +143,7 @@ namespace WVC_XenotypesAndGenes
 						newThing.ageTracker.AgeChronologicalTicks = 0;
 						newThing.ageTracker.PostResolveLifeStageChange();
 						FilthMaker.TryMakeFilth(parent.Position, parent.Map, ThingDefOf.Filth_Slime);
-						SoundDefOf.Hive_Spawn.PlayOneShot(new TargetInfo(parent));
+						WVC_GenesDefOf.Hive_Spawn.PlayOneShot(new TargetInfo(parent));
 					}
 					currentNumberOfSpawns--;
 				}

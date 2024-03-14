@@ -148,7 +148,7 @@ namespace WVC_XenotypesAndGenes
 						chosenMechanitor.relations.AddDirectRelation(PawnRelationDefOf.Overseer, summon);
 						GenSpawn.Spawn(summon, intVec, parent.Map);
 						FilthMaker.TryMakeFilth(parent.Position, parent.Map, Props.filthDef);
-						SoundDefOf.Hive_Spawn.PlayOneShot(new TargetInfo(parent));
+						WVC_GenesDefOf.Hive_Spawn.PlayOneShot(new TargetInfo(parent));
 						if (Toxifier != null)
 						{
 							Toxifier.PolluteNextCell();

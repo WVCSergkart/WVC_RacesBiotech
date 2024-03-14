@@ -19,7 +19,6 @@ namespace WVC_XenotypesAndGenes
         public GeneGizmo_ResourceResurgentCells(Gene_Resource gene, List<IGeneResourceDrain> drainGenes, Color barColor, Color barhighlightColor)
             : base(gene, drainGenes, barColor, barhighlightColor)
         {
-            draggableBar = false;
         }
 
         public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
@@ -57,15 +56,15 @@ namespace WVC_XenotypesAndGenes
             return result;
         }
 
-        protected override void DrawLabel(Rect labelRect, ref bool mouseOverAnyHighlightableElement)
+        protected override void DrawHeader(Rect headerRect, ref bool mouseOverElement)
         {
             if ((gene.pawn.IsColonistPlayerControlled || gene.pawn.IsPrisonerOfColony) && gene is Gene_ResurgentCells hemogenGene)
             {
                 Gene_ResurgentTotalHealing totalHealingGene = hemogenGene.pawn.genes?.GetFirstGeneOfType<Gene_ResurgentTotalHealing>();
                 if (totalHealingGene != null)
                 {
-                    labelRect.xMax -= 24f;
-                    Rect rect = new(labelRect.xMax, labelRect.y, 24f, 24f);
+                    headerRect.xMax -= 24f;
+                    Rect rect = new(headerRect.xMax, headerRect.y, 24f, 24f);
                     Widgets.DefIcon(rect, totalHealingGene.def);
                     GUI.DrawTexture(new Rect(rect.center.x, rect.y, rect.width / 2f, rect.height / 2f), hemogenGene.totalHealingAllowed ? Widgets.CheckboxOnTex : Widgets.CheckboxOffTex);
                     if (Widgets.ButtonInvisible(rect))
@@ -85,15 +84,15 @@ namespace WVC_XenotypesAndGenes
                         Widgets.DrawHighlight(rect);
                         string onOff = (hemogenGene.totalHealingAllowed ? "On" : "Off").Translate().ToString().UncapitalizeFirst();
                         TooltipHandler.TipRegion(rect, () => "WVC_XaG_AutoBaseDesc".Translate() + "WVC_XaG_AutoTotalHealingDesc".Translate(onOff.Named("ONOFF")), 1001);
-                        mouseOverAnyHighlightableElement = true;
+                        mouseOverElement = true;
                     }
                     // DrawButton(labelRect, mouseOverAnyHighlightableElement, totalHealingGene.def, hemogenGene.totalHealingAllowed, "WVC_XaG_AutoTotalHealingDesc", 37f);
                 }
                 Gene_ResurgentAgeless ageReversionGene = hemogenGene.pawn.genes?.GetFirstGeneOfType<Gene_ResurgentAgeless>();
                 if (ageReversionGene != null)
                 {
-                    labelRect.xMax -= 24f;
-                    Rect rect = new(labelRect.xMax, labelRect.y, 24f, 24f);
+                    headerRect.xMax -= 24f;
+                    Rect rect = new(headerRect.xMax, headerRect.y, 24f, 24f);
                     Widgets.DefIcon(rect, ageReversionGene.def);
                     GUI.DrawTexture(new Rect(rect.center.x, rect.y, rect.width / 2f, rect.height / 2f), hemogenGene.ageReversionAllowed ? Widgets.CheckboxOnTex : Widgets.CheckboxOffTex);
                     if (Widgets.ButtonInvisible(rect))
@@ -113,15 +112,15 @@ namespace WVC_XenotypesAndGenes
                         Widgets.DrawHighlight(rect);
                         string onOff = (hemogenGene.ageReversionAllowed ? "On" : "Off").Translate().ToString().UncapitalizeFirst();
                         TooltipHandler.TipRegion(rect, () => "WVC_XaG_AutoBaseDesc".Translate() + "WVC_XaG_AutoAgeReversionDesc".Translate(onOff.Named("ONOFF")), 1001);
-                        mouseOverAnyHighlightableElement = true;
+                        mouseOverElement = true;
                     }
                     // DrawButton(labelRect, mouseOverAnyHighlightableElement, ageReversionGene.def, hemogenGene.ageReversionAllowed, "WVC_XaG_AutoAgeReversionDesc", 37f);
                 }
                 Gene_ResurgentClotting woundClottingGene = hemogenGene.pawn.genes?.GetFirstGeneOfType<Gene_ResurgentClotting>();
                 if (woundClottingGene != null)
                 {
-                    labelRect.xMax -= 24f;
-                    Rect rect = new(labelRect.xMax, labelRect.y, 24f, 24f);
+                    headerRect.xMax -= 24f;
+                    Rect rect = new(headerRect.xMax, headerRect.y, 24f, 24f);
                     Widgets.DefIcon(rect, woundClottingGene.def);
                     GUI.DrawTexture(new Rect(rect.center.x, rect.y, rect.width / 2f, rect.height / 2f), hemogenGene.woundClottingAllowed ? Widgets.CheckboxOnTex : Widgets.CheckboxOffTex);
                     if (Widgets.ButtonInvisible(rect))
@@ -141,12 +140,12 @@ namespace WVC_XenotypesAndGenes
                         Widgets.DrawHighlight(rect);
                         string onOff = (hemogenGene.woundClottingAllowed ? "On" : "Off").Translate().ToString().UncapitalizeFirst();
                         TooltipHandler.TipRegion(rect, () => "WVC_XaG_AutoBaseDesc".Translate() + "WVC_XaG_AutoWoundClottingDesc".Translate(onOff.Named("ONOFF")), 1001);
-                        mouseOverAnyHighlightableElement = true;
+                        mouseOverElement = true;
                     }
                     // DrawButton(labelRect, mouseOverAnyHighlightableElement, woundClottingGene.def, hemogenGene.woundClottingAllowed, "WVC_XaG_AutoWoundClottingDesc", 74f);
                 }
             }
-            base.DrawLabel(labelRect, ref mouseOverAnyHighlightableElement);
+            base.DrawHeader(headerRect, ref mouseOverElement);
             // Button(labelRect, mouseOverAnyHighlightableElement, hemogenGene.ageReversionAllowed, 40f);
             // Button(labelRect, mouseOverAnyHighlightableElement, hemogenGene.totalHealingAllowed, 80f);
         }

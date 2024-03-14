@@ -25,19 +25,47 @@
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>0</biostatMet>
-	<graphicData>
-	  <!-- <graphicPath>WVC/BodyParts/MecaGene_ScytheTail/DemonTail</graphicPath> -->
-	  <graphicPaths>
-		<li>WVC/BodyParts/MecaGene_ScytheTail/DemonTail</li>
-		<li>WVC/BodyParts/MecaGene_ScytheTail/DemonTailB</li>
-		<li>WVC/BodyParts/MecaGene_ScytheTail/DemonTailC</li>
-	  </graphicPaths>
-	  <colorType>Skin</colorType>
-	  <drawScale>1.25</drawScale>
-	  <drawOffsetNorth>(0.0, 0.2, 0.0)</drawOffsetNorth>
-	  <drawOffsetSouth>(0.0, -0.1, 0.0)</drawOffsetSouth>
-	  <drawOffsetEast>(-0.06, -0.1, 0.02)</drawOffsetEast>
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <colorType>Skin</colorType> -->
+	  <!-- <drawScale>1.25</drawScale> -->
+	  <!-- <drawOffsetNorth>(0.0, 0.2, 0.0)</drawOffsetNorth> -->
+	  <!-- <drawOffsetSouth>(0.0, -0.1, 0.0)</drawOffsetSouth> -->
+	  <!-- <drawOffsetEast>(-0.06, -0.1, 0.02)</drawOffsetEast> -->
+	<!-- </graphicData> -->
+	<renderNodeProperties>
+	  <li>
+		<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+		<texPaths>
+		  <li>WVC/BodyParts/MecaGene_ScytheTail/DemonTail</li>
+		  <li>WVC/BodyParts/MecaGene_ScytheTail/DemonTailB</li>
+		  <li>WVC/BodyParts/MecaGene_ScytheTail/DemonTailC</li>
+		</texPaths>
+		<colorType>Skin</colorType>
+		<overrideMeshSize>(1.0, 1.0)</overrideMeshSize>
+		<drawSize>1.25</drawSize>
+		<parentTagDef>Body</parentTagDef>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<drawData>
+		  <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+		  <defaultData>
+			<layer>-2</layer>
+		  </defaultData>
+		  <dataNorth>
+			<offset>(0.0, 0.2, 0.0)</offset>
+			<layer>90</layer>
+		  </dataNorth>
+		  <dataSouth>
+			<offset>(0.0, -0.1, 0.0)</offset>
+		  </dataSouth>
+		  <dataEast>
+			<offset>(-0.06, -0.1, 0.02)</offset>
+		  </dataEast>
+		  <dataWest>
+			<offset>(0.06, -0.1, 0.02)</offset>
+		  </dataWest>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>demon</symbol></li>
@@ -54,16 +82,48 @@
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>0</biostatMet>
-	<graphicData>
-	  <graphicPaths>
-		<li>WVC/BodyParts/MecaGene_ScytheTail/CatTailA</li>
-	  </graphicPaths>
-	  <colorType>Hair</colorType>
-	  <drawScale>1.25</drawScale>
-	  <drawOffsetNorth>(0.0, 0.2, 0.0)</drawOffsetNorth>
-	  <drawOffsetSouth>(0.0, -0.1, 0.0)</drawOffsetSouth>
-	  <drawOffsetEast>(-0.06, -0.1, 0.02)</drawOffsetEast>
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <graphicPaths> -->
+		<!-- <li>WVC/BodyParts/MecaGene_ScytheTail/CatTailA</li> -->
+	  <!-- </graphicPaths> -->
+	  <!-- <colorType>Hair</colorType> -->
+	  <!-- <drawScale>1.25</drawScale> -->
+	  <!-- <drawOffsetNorth>(0.0, 0.2, 0.0)</drawOffsetNorth> -->
+	  <!-- <drawOffsetSouth>(0.0, -0.1, 0.0)</drawOffsetSouth> -->
+	  <!-- <drawOffsetEast>(-0.06, -0.1, 0.02)</drawOffsetEast> -->
+	<!-- </graphicData> -->
+	<renderNodeProperties>
+	  <li>
+		<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+		<texPaths>
+		  <li>WVC/BodyParts/MecaGene_ScytheTail/CatTailA</li>
+		</texPaths>
+		<colorType>Hair</colorType>
+		<overrideMeshSize>(1.0, 1.0)</overrideMeshSize>
+		<drawSize>1.25</drawSize>
+		<parentTagDef>Body</parentTagDef>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<drawData>
+		  <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+		  <defaultData>
+			<layer>-2</layer>
+		  </defaultData>
+		  <dataNorth>
+			<offset>(0.0, 0.2, 0.0)</offset>
+			<layer>90</layer>
+		  </dataNorth>
+		  <dataSouth>
+			<offset>(0.0, -0.1, 0.0)</offset>
+		  </dataSouth>
+		  <dataEast>
+			<offset>(-0.06, -0.1, 0.02)</offset>
+		  </dataEast>
+		  <dataWest>
+			<offset>(0.06, -0.1, 0.02)</offset>
+		  </dataWest>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>cat</symbol></li>
@@ -87,13 +147,44 @@
 	<biostatMet>0</biostatMet>
 	<minAgeActive>0</minAgeActive>
 	<selectionWeight>0.00125</selectionWeight>
-	<graphicData>
-	  <graphicPath>WVC/BodyParts/MecaGene_ScytheTail/NodeTail</graphicPath>
-	  <colorType>Skin</colorType>
-	  <drawOffsetNorth>(0, 0.2, -0.15)</drawOffsetNorth>
-	  <drawOffsetSouth>(0, -0.1, -0.15)</drawOffsetSouth>
-	  <drawOffsetEast>(-0.5, -0.1, -0.15)</drawOffsetEast>
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <graphicPath>WVC/BodyParts/MecaGene_ScytheTail/NodeTail</graphicPath> -->
+	  <!-- <colorType>Skin</colorType> -->
+	  <!-- <drawOffsetNorth>(0, 0.2, -0.15)</drawOffsetNorth> -->
+	  <!-- <drawOffsetSouth>(0, -0.1, -0.15)</drawOffsetSouth> -->
+	  <!-- <drawOffsetEast>(-0.5, -0.1, -0.15)</drawOffsetEast> -->
+	<!-- </graphicData> -->
+	<!-- <renderNodeProperties> -->
+	  <!-- <li> -->
+		<!-- <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass> -->
+		<!-- <texPaths> -->
+		  <!-- <li>WVC/BodyParts/MecaGene_ScytheTail/NodeTail</li> -->
+		<!-- </texPaths> -->
+		<!-- <colorType>Skin</colorType> -->
+		<!-- <overrideMeshSize>(1, 1)</overrideMeshSize> -->
+		<!-- <parentTagDef>Body</parentTagDef> -->
+		<!-- <rotDrawMode>Fresh, Rotting</rotDrawMode> -->
+		<!-- <drawData> -->
+		  <!-- <scaleOffsetByBodySize>true</scaleOffsetByBodySize> -->
+		  <!-- <defaultData> -->
+			<!-- <layer>-2</layer> -->
+		  <!-- </defaultData> -->
+		  <!-- <dataNorth> -->
+			<!-- <offset>(0.0, 0.2, -0.15)</offset> -->
+			<!-- <layer>90</layer> -->
+		  <!-- </dataNorth> -->
+		  <!-- <dataSouth> -->
+			<!-- <offset>(0.0, -0.1, -0.15)</offset> -->
+		  <!-- </dataSouth> -->
+		  <!-- <dataEast> -->
+			<!-- <offset>(-0.5, -0.1, -0.15)</offset> -->
+		  <!-- </dataEast> -->
+		  <!-- <dataWest> -->
+			<!-- <offset>(-0.5, -0.1, -0.15)</offset> -->
+		  <!-- </dataWest> -->
+		<!-- </drawData> -->
+	  <!-- </li> -->
+	<!-- </renderNodeProperties> -->
   </GeneDef>
 
   <!-- ======================== -->
@@ -117,10 +208,42 @@
 	<statOffsets>
 	  <PlantWorkSpeed>0.5</PlantWorkSpeed>
 	</statOffsets>
-	<graphicData>
-	  <graphicPath>WVC/BodyParts/MecaGene_ScytheTail/ScytheTail</graphicPath>
-	  <colorType>Hair</colorType>
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <graphicPath>WVC/BodyParts/MecaGene_ScytheTail/ScytheTail</graphicPath> -->
+	  <!-- <colorType>Hair</colorType> -->
+	<!-- </graphicData> -->
+	<renderNodeProperties>
+	  <li>
+		<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+		<texPaths>
+		  <li>WVC/BodyParts/MecaGene_ScytheTail/ScytheTail</li>
+		</texPaths>
+		<colorType>Skin</colorType>
+		<overrideMeshSize>(1, 1)</overrideMeshSize>
+		<drawSize>1.0</drawSize>
+		<parentTagDef>Body</parentTagDef>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<drawData>
+		  <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+		  <defaultData>
+			<layer>-2</layer>
+		  </defaultData>
+		  <dataNorth>
+			<offset>(0.0, 0.2, -0.15)</offset>
+			<layer>90</layer>
+		  </dataNorth>
+		  <dataSouth>
+			<offset>(0.0, -0.1, -0.15)</offset>
+		  </dataSouth>
+		  <dataEast>
+			<offset>(-0.5, -0.1, -0.15)</offset>
+		  </dataEast>
+		  <dataWest>
+			<offset>(0.5, -0.1, -0.15)</offset>
+		  </dataWest>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>scythe</symbol></li>
@@ -139,15 +262,15 @@
 			  <li>Torso</li>
 			</bodyparts>
 		</li>
-		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
-			<offsets>
-			 <east>
-			  <bodyTypes>
-			   <Thin>(0.2, 0.0, 0.0)</Thin>
-			  </bodyTypes>
-			 </east>
-			</offsets>
-		</li>
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core"> -->
+			<!-- <offsets> -->
+			 <!-- <east> -->
+			  <!-- <bodyTypes> -->
+			   <!-- <Thin>(0.2, 0.0, 0.0)</Thin> -->
+			  <!-- </bodyTypes> -->
+			 <!-- </east> -->
+			<!-- </offsets> -->
+		<!-- </li> -->
 	</modExtensions>
   </GeneDef>
 
@@ -164,9 +287,41 @@
 	<aptitudes>
 	  <Crafting>3</Crafting>
 	</aptitudes>
-	<graphicData>
-	  <graphicPath>WVC/BodyParts/MecaGene_ScytheTail/NodeTail</graphicPath>
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <graphicPath>WVC/BodyParts/MecaGene_ScytheTail/NodeTail</graphicPath> -->
+	<!-- </graphicData> -->
+	<renderNodeProperties>
+	  <li>
+		<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+		<texPaths>
+		  <li>WVC/BodyParts/MecaGene_ScytheTail/NodeTail</li>
+		</texPaths>
+		<colorType>Skin</colorType>
+		<overrideMeshSize>(1, 1)</overrideMeshSize>
+		<drawSize>1.0</drawSize>
+		<parentTagDef>Body</parentTagDef>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<drawData>
+		  <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+		  <defaultData>
+			<layer>-2</layer>
+		  </defaultData>
+		  <dataNorth>
+			<offset>(0.0, 0.2, -0.15)</offset>
+			<layer>90</layer>
+		  </dataNorth>
+		  <dataSouth>
+			<offset>(0.0, -0.1, -0.15)</offset>
+		  </dataSouth>
+		  <dataEast>
+			<offset>(-0.5, -0.1, -0.15)</offset>
+		  </dataEast>
+		  <dataWest>
+			<offset>(0.5, -0.1, -0.15)</offset>
+		  </dataWest>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>conn</symbol></li>
@@ -179,15 +334,15 @@
 	  </suffixSymbols>
 	</symbolPack>
 	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
-			<offsets>
-			 <east>
-			  <bodyTypes>
-			   <Thin>(0.22, 0.0, 0.0)</Thin>
-			  </bodyTypes>
-			 </east>
-			</offsets>
-		</li>
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core"> -->
+			<!-- <offsets> -->
+			 <!-- <east> -->
+			  <!-- <bodyTypes> -->
+			   <!-- <Thin>(0.22, 0.0, 0.0)</Thin> -->
+			  <!-- </bodyTypes> -->
+			 <!-- </east> -->
+			<!-- </offsets> -->
+		<!-- </li> -->
 	</modExtensions>
   </GeneDef>
 
@@ -200,9 +355,41 @@
 	<statOffsets>
 		<MechBandwidth>12</MechBandwidth>
 	</statOffsets>
-	<graphicData>
-	  <graphicPath>WVC/BodyParts/MecaGene_ScytheTail/AntennaTail</graphicPath>
-	</graphicData>
+	<!-- <graphicData> -->
+	  <!-- <graphicPath>WVC/BodyParts/MecaGene_ScytheTail/AntennaTail</graphicPath> -->
+	<!-- </graphicData> -->
+	<renderNodeProperties>
+	  <li>
+		<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+		<texPaths>
+		  <li>WVC/BodyParts/MecaGene_ScytheTail/AntennaTail</li>
+		</texPaths>
+		<colorType>Skin</colorType>
+		<overrideMeshSize>(1, 1)</overrideMeshSize>
+		<drawSize>1.0</drawSize>
+		<parentTagDef>Body</parentTagDef>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<drawData>
+		  <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+		  <defaultData>
+			<layer>-2</layer>
+		  </defaultData>
+		  <dataNorth>
+			<offset>(0.0, 0.2, -0.15)</offset>
+			<layer>90</layer>
+		  </dataNorth>
+		  <dataSouth>
+			<offset>(0.0, -0.1, -0.15)</offset>
+		  </dataSouth>
+		  <dataEast>
+			<offset>(-0.5, -0.1, -0.15)</offset>
+		  </dataEast>
+		  <dataWest>
+			<offset>(0.5, -0.1, -0.15)</offset>
+		  </dataWest>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>antenna</symbol></li>
@@ -213,16 +400,16 @@
 	  </suffixSymbols>
 	</symbolPack>
 	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
-			<offsets>
-			 <east>
-			  <bodyTypes>
-			   <Thin>(0.22, 0.0, 0.0)</Thin>
-			   <Male>(-0.02, 0.0, 0.0)</Male>
-			  </bodyTypes>
-			 </east>
-			</offsets>
-		</li>
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core"> -->
+			<!-- <offsets> -->
+			 <!-- <east> -->
+			  <!-- <bodyTypes> -->
+			   <!-- <Thin>(0.22, 0.0, 0.0)</Thin> -->
+			   <!-- <Male>(-0.02, 0.0, 0.0)</Male> -->
+			  <!-- </bodyTypes> -->
+			 <!-- </east> -->
+			<!-- </offsets> -->
+		<!-- </li> -->
 	</modExtensions>
   </GeneDef>
 
@@ -235,7 +422,7 @@
 	<customEffectDescriptions>
 		<li>Disable tail.</li>
 	</customEffectDescriptions>
-	<graphicData Inherit="False"/>
+	<renderNodeProperties Inherit="False"/>
 	<statOffsets>
 	  <ArmorRating_Blunt>0.20</ArmorRating_Blunt>
 	</statOffsets>

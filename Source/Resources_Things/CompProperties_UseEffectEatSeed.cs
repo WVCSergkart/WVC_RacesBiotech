@@ -57,19 +57,16 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override bool CanBeUsedBy(Pawn p, out string failReason)
+		public override AcceptanceReport CanBeUsedBy(Pawn p)
 		{
 			if (!MechanoidsUtility.MechanitorIsLich(p))
 			{
-				failReason = "WVC_XaG_MechanitorShouldBeLich".Translate();
-				return false;
+				return "WVC_XaG_MechanitorShouldBeLich".Translate();
 			}
 			if (!p.IsFreeColonist || p.HasExtraHomeFaction())
 			{
-				failReason = "InstallImplantNotAllowedForNonColonists".Translate();
-				return false;
+				return "InstallImplantNotAllowedForNonColonists".Translate();
 			}
-			failReason = null;
 			return true;
 		}
 
