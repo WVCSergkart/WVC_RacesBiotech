@@ -40,7 +40,9 @@
 		<baseLayer>5</baseLayer>
 		<rotDrawMode>Fresh, Rotting</rotDrawMode>
 		<colorType>Skin</colorType>
+		<!-- <tagDef>Body</tagDef> -->
 		<parentTagDef>Body</parentTagDef>
+		<!-- <overlayLayer>Body</overlayLayer> -->
 	  </li>
 	</renderNodeProperties>
 	<exclusionTags>

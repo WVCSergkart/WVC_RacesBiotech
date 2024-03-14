@@ -20,7 +20,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<biostatArc>1</biostatArc>
 	<neverGrayHair>true</neverGrayHair>
 	<marketValueFactor>3</marketValueFactor>
-	<minAgeActive>13</minAgeActive>
+	<minAgeActive>0</minAgeActive>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Exoskin</geneClass>
 	<!-- = -->
 	<iconPath>WVC/UI/Genes/Gene_FurskinD_v0</iconPath>

@@ -55,6 +55,7 @@ namespace WVC_XenotypesAndGenes
 		public bool serumsForAllXenotypes_Spawners = false;
 		// ExtraSettings
 		public bool genesCanTickOnlyOnMap = false;
+		public bool enableBodySizeGenes = false;
 		// Fix
 		public bool fixVanillaGeneImmunityCheck = true;
 		public bool spawnXenoForcerSerumsFromTraders = true;
@@ -121,6 +122,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref serumsForAllXenotypes_Spawners, "serumsForAllXenotypes_Spawners", defaultValue: false);
 			// ExtraSettings
 			Scribe_Values.Look(ref genesCanTickOnlyOnMap, "genesCanTickOnlyOnMap", defaultValue: false);
+			Scribe_Values.Look(ref enableBodySizeGenes, "enableBodySizeGenes", defaultValue: false);
 			// Gestator
 			Scribe_Values.Look(ref xenotypeGestator_GestationTimeFactor, "xenotypeGestator_GestationTimeFactor", defaultValue: 1f);
 			Scribe_Values.Look(ref xenotypeGestator_GestationMatchPercent, "xenotypeGestator_GestationMatchPercent", defaultValue: 0.4f);
@@ -394,6 +396,7 @@ namespace WVC_XenotypesAndGenes
 			// Extra
 			listingStandard.Label("WVC_BiotechSettings_Label_Genes".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Genes".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_genesCanTickOnlyOnMap".Translate().Colorize(ColorLibrary.LightPurple), ref settings.genesCanTickOnlyOnMap, "WVC_ToolTip_genesCanTickOnlyOnMap".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_enableBodySizeGenes".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enableBodySizeGenes, "WVC_ToolTip_enableBodySizeGenes".Translate());
 			listingStandard.Gap();
 			// =============== Dev ===============
 			listingStandard.CheckboxLabeled("DEV: ".Colorize(ColorLibrary.RedReadable) + "WVC_Label_fixGenesOnLoad".Translate().Colorize(ColorLibrary.LightPink), ref settings.fixGenesOnLoad, "WVC_ToolTip_fixGenesOnLoad".Translate() + "\n\n" + "WVC_Alert_fixBrokenShit".Translate());
@@ -576,6 +579,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.xenotypeGestator_GestationMatchPercent = 0.4f;
 			// Extra
 			WVC_Biotech.settings.genesCanTickOnlyOnMap = false;
+			WVC_Biotech.settings.enableBodySizeGenes = false;
 			// XenotypesSettings
 			WVC_Biotech.cachedXenotypesFilter.Clear();
 			XaG_PostInitialization.SetValues(XenotypeFilterUtility.WhiteListedXenotypesForFilter());
@@ -638,6 +642,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.xenotypeGestator_GestationMatchPercent = 0.4f;
 			// Extra
 			WVC_Biotech.settings.genesCanTickOnlyOnMap = false;
+			WVC_Biotech.settings.enableBodySizeGenes = false;
 			// XenotypesSettings
 			WVC_Biotech.cachedXenotypesFilter.Clear();
 			XaG_PostInitialization.SetValues(XenotypeFilterUtility.WhiteListedXenotypesForFilter());

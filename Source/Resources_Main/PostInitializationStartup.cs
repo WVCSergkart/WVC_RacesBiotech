@@ -82,6 +82,7 @@ namespace WVC_XenotypesAndGenes
 					if (modExtension.removeButcherRecipes)
 					{
 						corpseDef.thingCategories = new();
+						// thingDef.race.corpseDef = null;
 					}
 					if (modExtension.shouldResurrect)
 					{

@@ -40,16 +40,16 @@ namespace WVC_XenotypesAndGenes
 
 		public override Graphic GraphicFor(Pawn pawn)
 		{
-			string bodyPath = pawn?.story?.furDef?.GetFurBodyGraphicPath(pawn);
+			string bodyPath = TexPathFor(pawn);
 			if (bodyPath == null)
 			{
 				return null;
 			}
-            if (gene is not Gene_Exoskin gene_Exoskin)
-            {
-                return DefaultGraphic(pawn, bodyPath);
-            }
-            GeneExtension_Graphic modExtension = gene_Exoskin.Graphic;
+			if (gene is not Gene_Exoskin gene_Exoskin)
+			{
+				return DefaultGraphic(pawn, bodyPath);
+			}
+			GeneExtension_Graphic modExtension = gene_Exoskin.Graphic;
 			if (modExtension == null)
 			{
 				return DefaultGraphic(pawn, bodyPath);
@@ -59,6 +59,11 @@ namespace WVC_XenotypesAndGenes
 				return GraphicDatabase.Get<Graphic_Multi>(bodyPath, ShaderDatabase.CutoutComplex, Vector2.one, pawn.story.SkinColor, pawn.story.HairColor);
 			}
 			return DefaultGraphic(pawn, bodyPath);
+		}
+
+		protected override string TexPathFor(Pawn pawn)
+		{
+			return pawn?.story?.furDef?.GetFurBodyGraphicPath(pawn);
 		}
 
 		public override Color ColorFor(Pawn pawn)

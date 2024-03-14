@@ -25,6 +25,13 @@ Use this option only if you are sure of what you are doing.
 
 A restart is required.</WVC_ToolTip_genesCanTickOnlyOnMap>
 
+	<WVC_Label_enableBodySizeGenes>Enable dody size genes</WVC_Label_enableBodySizeGenes>
+	<WVC_ToolTip_enableBodySizeGenes>If enabled, genes with the Gene_BodySize class will visually change the size of the pawn.
+
+This is an experimental feature and may result in visual bugs since pawns in the vanilla game are of a fixed size.
+
+A restart is required.</WVC_ToolTip_enableBodySizeGenes>
+
 	<!-- ================================== -->
 
 	<WVC_Label_fixGenesOnLoad>Fix broken genes on load</WVC_Label_fixGenesOnLoad>

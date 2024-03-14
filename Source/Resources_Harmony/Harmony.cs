@@ -51,9 +51,14 @@ namespace WVC_XenotypesAndGenes
 				}
 				// if (!WVC_Biotech.settings.disableFurGraphic)
 				// {
-					// harmony.Patch(AccessTools.Method(typeof(PawnGraphicSet), "ResolveAllGraphics"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("FurskinIsSkin")));
+					// harmony.Patch(AccessTools.Method(typeof(PawnRenderNode_Body), "GraphicFor"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("FurskinIsSkin")));
 					// harmony.Patch(AccessTools.Method(typeof(PawnGraphicSet), "ResolveGeneGraphics"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("SpecialGeneGraphic")));
 				// }
+				if (WVC_Biotech.settings.enableBodySizeGenes)
+				{
+					harmony.Patch(AccessTools.Method(typeof(HumanlikeMeshPoolUtility), "HumanlikeBodyWidthForPawn"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("BodyGraphicSize")));
+					harmony.Patch(AccessTools.Method(typeof(HumanlikeMeshPoolUtility), "HumanlikeHeadWidthForPawn"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("HeadGraphicSize")));
+				}
 				if (WVC_Biotech.settings.enableIncestLoverGene)
 				{
 					harmony.Patch(AccessTools.Method(typeof(RelationsUtility), "Incestuous"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Incestuous_Relations")));
@@ -161,7 +166,39 @@ namespace WVC_XenotypesAndGenes
 
 			// Body graphic
 
-			// public static void FurskinIsSkin(PawnGraphicSet __instance)
+			public static void BodyGraphicSize(ref float __result, ref Pawn pawn)
+			{
+				// Log.Error("BodySize TEST");
+				Gene_BodySize gene = pawn?.genes?.GetFirstGeneOfType<Gene_BodySize>();
+				if (gene == null)
+				{
+					return;
+				}
+				GeneExtension_Graphic modExtension = gene.Graphic;
+				if (modExtension == null)
+				{
+					return;
+				}
+				__result *= modExtension.bodyScaleFactor;
+			}
+
+			public static void HeadGraphicSize(ref float __result, ref Pawn pawn)
+			{
+				// Log.Error("HeadSize TEST");
+				Gene_BodySize gene = pawn?.genes?.GetFirstGeneOfType<Gene_BodySize>();
+				if (gene == null)
+				{
+					return;
+				}
+				GeneExtension_Graphic modExtension = gene.Graphic;
+				if (modExtension == null)
+				{
+					return;
+				}
+				__result *= modExtension.headScaleFactor;
+			}
+
+			// public static void FurskinIsSkin(ref Graphic __result, ref Pawn pawn, Gene ___gene)
 			// {
 				// Pawn pawn = __instance.pawn;
 				// if (pawn?.genes == null || pawn?.story?.furDef == null)

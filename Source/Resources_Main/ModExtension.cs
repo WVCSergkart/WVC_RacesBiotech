@@ -20,13 +20,13 @@ namespace WVC_XenotypesAndGenes
 
 	// Exten
 
-	public class GeneExtension_Background : DefModExtension
-	{
-		public string backgroundPathEndogenes;
-		public string backgroundPathXenogenes;
-		public string backgroundPathEndoArchite;
-		public string backgroundPathXenoArchite;
-	}
+	// public class GeneExtension_Background : DefModExtension
+	// {
+		// public string backgroundPathEndogenes;
+		// public string backgroundPathXenogenes;
+		// public string backgroundPathEndoArchite;
+		// public string backgroundPathXenoArchite;
+	// }
 
 	public class GeneExtension_Spawner : DefModExtension
 	{
@@ -115,10 +115,19 @@ namespace WVC_XenotypesAndGenes
 
 	public class GeneExtension_Graphic : DefModExtension
 	{
-		// public FurDef furDef;
+		public string backgroundPathEndogenes = "WVC/UI/Genes/GeneBackground_Endogene";
+		public string backgroundPathXenogenes = "WVC/UI/Genes/GeneBackground_Xenogene";
+		public string backgroundPathEndoArchite = "WVC/UI/Genes/GeneBackground_ArchiteGene";
+		public string backgroundPathXenoArchite = "WVC/UI/Genes/GeneBackground_XenoArchiteGene";
+		// BodySkin
 		public bool furIsSkinWithHair = false;
+		[Obsolete]
 		public bool furIsSkin = false;
+		[Obsolete]
 		public bool furCanRot = true;
+		// BodySize
+		public float bodyScaleFactor = 1f;
+		public float headScaleFactor = 1f;
 	}
 
 	public class GeneExtension_Giver : DefModExtension

@@ -26,7 +26,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return true;
 			}
-			if (geneDef.GetModExtension<GeneExtension_Background>() != null)
+			if (geneDef.GetModExtension<GeneExtension_Graphic>() != null)
 			{
 				return true;
 			}
@@ -153,7 +153,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static CachedTexture BackgroundTexture(GeneDef gene, GeneType geneType)
 		{
-			GeneExtension_Background background = gene.GetModExtension<GeneExtension_Background>();
+			GeneExtension_Graphic background = gene.GetModExtension<GeneExtension_Graphic>();
 			CachedTexture cachedTexture = new("WVC/UI/Genes/GeneBackground_Endogene");
 			if (gene.biostatArc == 0)
 			{

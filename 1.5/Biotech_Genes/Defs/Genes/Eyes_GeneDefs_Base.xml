@@ -195,7 +195,7 @@
 	  <li Class="PawnRenderNodeProperties_Eye">
 		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
 		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
-		<color>(155, 133, 255)</color>
+		<color>(133, 202, 255)</color>
 		<anchorTag>RightEye</anchorTag>
 		<rotDrawMode>Fresh, Rotting</rotDrawMode>
 		<parentTagDef>Head</parentTagDef>
@@ -211,7 +211,7 @@
 	  <li Class="PawnRenderNodeProperties_Eye">
 		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
 		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
-		<color>(155, 133, 255)</color>
+		<color>(133, 202, 255)</color>
 		<anchorTag>LeftEye</anchorTag>
 		<rotDrawMode>Fresh, Rotting</rotDrawMode>
 		<parentTagDef>Head</parentTagDef>

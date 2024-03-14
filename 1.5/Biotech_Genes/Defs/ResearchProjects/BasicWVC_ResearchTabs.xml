@@ -4,9 +4,6 @@
   <ResearchTabDef>
 	<defName>WVC_TechTab</defName>
 	<label>WVC</label>
-	<generalTitle>WVC research projects</generalTitle>
-	<generalDescription>Unlock new technologies by researching at a research bench. You can only have one active project at a time.</generalDescription>
-	<minMonolithLevelVisible>0</minMonolithLevelVisible>
   </ResearchTabDef>
 
 </Defs>

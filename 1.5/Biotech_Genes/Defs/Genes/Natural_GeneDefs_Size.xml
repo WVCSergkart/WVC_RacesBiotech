@@ -4,6 +4,7 @@
 	<!-- Body size -->
 
 	<GeneDef Name="WVC_XenotypesAndGenes_BodySize_Base" Abstract="True">
+		<geneClass>WVC_XenotypesAndGenes.Gene_BodySize</geneClass>
 		<biostatCpx>1</biostatCpx>
 		<biostatMet>-2</biostatMet>
 		<!-- <displayCategory>Miscellaneous</displayCategory> -->
@@ -28,7 +29,7 @@
 		<biostatMet>2</biostatMet>
 		<!-- <geneClass>WVC_XenotypesAndGenes.Gene_BodySize</geneClass> -->
 		<customEffectDescriptions>
-			<li MayRequire="oskarpotocki.vanillafactionsexpanded.core">Slightly reduces the pawn visually.</li>
+			<!-- <li MayRequire="oskarpotocki.vanillafactionsexpanded.core">Slightly reduces the pawn visually.</li> -->
 		</customEffectDescriptions>
 		<statFactors>
 		  <MeleeDamageFactor>0.8</MeleeDamageFactor>
@@ -52,9 +53,13 @@
 		  </suffixSymbols>
 		</symbolPack>
 		<modExtensions>
-			<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
-				<bodyScaleFactor>(0.9, 0.9)</bodyScaleFactor>
-				<headScaleFactor>(0.9, 0.9)</headScaleFactor>
+			<!-- <li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core"> -->
+				<!-- <bodyScaleFactor>(0.9, 0.9)</bodyScaleFactor> -->
+				<!-- <headScaleFactor>(0.9, 0.9)</headScaleFactor> -->
+			<!-- </li> -->
+			<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+				<bodyScaleFactor>0.9</bodyScaleFactor>
+				<headScaleFactor>0.9</headScaleFactor>
 			</li>
 		</modExtensions>
 	</GeneDef>
@@ -67,9 +72,9 @@
 		<iconPath>WVC/UI/Genes/BodySize_Average</iconPath>
 		<biostatCpx>0</biostatCpx>
 		<biostatMet>0</biostatMet>
-		<customEffectDescriptions>
-			<li>Returns the normal pawn size.</li>
-		</customEffectDescriptions>
+		<!-- <customEffectDescriptions> -->
+			<!-- <li>Returns the normal pawn size.</li> -->
+		<!-- </customEffectDescriptions> -->
 	</GeneDef>
 
 	<GeneDef ParentName="WVC_XenotypesAndGenes_BodySize_Base">
@@ -81,7 +86,7 @@
 		<biostatCpx>1</biostatCpx>
 		<biostatMet>-2</biostatMet>
 		<customEffectDescriptions>
-			<li MayRequire="oskarpotocki.vanillafactionsexpanded.core">Slightly enlarges the pawn visually.</li>
+			<!-- <li MayRequire="oskarpotocki.vanillafactionsexpanded.core">Slightly enlarges the pawn visually.</li> -->
 		</customEffectDescriptions>
 		<statFactors>
 		  <MeleeDamageFactor>1.2</MeleeDamageFactor>
@@ -105,9 +110,13 @@
 		  </suffixSymbols>
 		</symbolPack>
 		<modExtensions>
-			<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
-				<bodyScaleFactor>(1.1, 1.1)</bodyScaleFactor>
-				<headScaleFactor>(1.1, 1.1)</headScaleFactor>
+			<!-- <li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core"> -->
+				<!-- <bodyScaleFactor>(1.1, 1.1)</bodyScaleFactor> -->
+				<!-- <headScaleFactor>(1.1, 1.1)</headScaleFactor> -->
+			<!-- </li> -->
+			<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+				<bodyScaleFactor>1.1</bodyScaleFactor>
+				<headScaleFactor>1.1</headScaleFactor>
 			</li>
 		</modExtensions>
 	</GeneDef>
