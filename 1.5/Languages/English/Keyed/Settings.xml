@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
 
-	<WVC_BiotechSettings>Xenotypes and Genes</WVC_BiotechSettings>
+	<WVC_BiotechSettings>XenoGenes</WVC_BiotechSettings>
 
 	<WVC_BiotechSettings_Tab_General>General</WVC_BiotechSettings_Tab_General>
 	<WVC_BiotechSettings_Tab_XenotypesFilter>Xenotypes Filter</WVC_BiotechSettings_Tab_XenotypesFilter>

@@ -53,6 +53,20 @@
 				  <li>ChunkGranite</li>
 				  <li>ChunkSandstone</li>
 				</thingDefsToSpawn>
+				<renderNodeProperties>
+				  <li>
+					<nodeClass>WVC_XenotypesAndGenes.PawnRenderNode_ColorFromGetColorComp</nodeClass>
+					<workerClass>PawnRenderNodeWorker</workerClass>
+					<parentTagDef>Body</parentTagDef>
+					<baseLayer>2</baseLayer>
+					<pawnType>Any</pawnType>
+					<overrideMeshSize>(1, 1)</overrideMeshSize>
+					<drawSize>2</drawSize>
+					<!-- <drawData> -->
+					  <!-- <scaleOffsetByBodySize>true</scaleOffsetByBodySize> -->
+					<!-- </drawData> -->
+				  </li>
+				</renderNodeProperties>
 			</li>
 		</comps>
 		<modExtensions>

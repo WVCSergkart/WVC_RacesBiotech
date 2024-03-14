@@ -64,12 +64,12 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	[Obsolete]
-	public class Gene_ResurgentMechlink : Gene_MechlinkWithGizmo
-	{
+	// [Obsolete]
+	// public class Gene_ResurgentMechlink : Gene_MechlinkWithGizmo
+	// {
 
 
-	}
+	// }
 
 	public class Gene_DustMechlink : Gene_Mechlink
 	{

@@ -5,6 +5,7 @@
 		<settingName>disableFurGraphic</settingName>
 		<caseTrue Class="PatchOperationSequence">
 			<operations>
+
 				<li Class="PatchOperationRemove">
 					<xpath>/Defs/GeneDef[@WVC_Tag="MechaAndNodeSkins_EasyPatch"]/forcedHeadTypes</xpath>
 					<success>Always</success>
@@ -18,27 +19,15 @@
 					<success>Always</success>
 				</li>
 				<li Class="PatchOperationRemove">
-					<xpath>/Defs/GeneDef[@WVC_Tag="MechaAndNodeSkins_EasyPatch"]/modExtensions/li/furHidesBody</xpath>
-					<success>Always</success>
-				</li>
-				<li Class="PatchOperationRemove">
-					<xpath>/Defs/GeneDef[@WVC_Tag="MechaAndNodeSkins_EasyPatch"]/modExtensions/li/useSkinColorForFur</xpath>
-					<success>Always</success>
-				</li>
-				<li Class="PatchOperationRemove">
-					<xpath>/Defs/GeneDef[@WVC_Tag="MechaAndNodeSkins_EasyPatch"]/modExtensions/li/dontColourFur</xpath>
-					<success>Always</success>
-				</li>
-				<li Class="PatchOperationRemove">
-					<xpath>/Defs/GeneDef[@WVC_Tag="MechaAndNodeSkins_EasyPatch"]/modExtensions/li[@Class="WVC_XenotypesAndGenes.GeneExtension_General"]/eyesShouldBeInvisble</xpath>
-					<success>Always</success>
-				</li>
-				<li Class="PatchOperationRemove">
 					<xpath>/Defs/GeneDef[@WVC_Tag="MechaAndNodeSkins_EasyPatch"]/geneClass[contains(text(),'WVC.Gene_Faceless')]</xpath>
 					<success>Always</success>
 				</li>
 				<li Class="PatchOperationRemove">
 					<xpath>/Defs/GeneDef[@WVC_Tag="MechaAndNodeSkins_EasyPatch"]/geneClass[contains(text(),'WVC_XenotypesAndGenes.Gene_Faceless')]</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/GeneDef[@WVC_Tag="MechaAndNodeSkins_EasyPatch"]/geneClass[contains(text(),'WVC_XenotypesAndGenes.Gene_Exoskin')]</xpath>
 					<success>Always</success>
 				</li>
 
@@ -47,18 +36,15 @@
 					<caseTrue Class="PatchOperationSequence">
 						<operations>
 							<li Class="PatchOperationRemove">
-								<xpath>/Defs/GeneDef[defName[contains(text(),'WVC_')]]/graphicData</xpath>
+								<xpath>/Defs/GeneDef[defName[contains(text(),'WVC_')]]/renderNodeProperties</xpath>
 								<success>Always</success>
 							</li>
 						</operations>
 					</caseTrue>
 				</li>
+
 			</operations>
 		</caseTrue>
-		<!-- <caseFalse Class="PatchOperationSequence"> -->
-			<!-- <operations> -->
-			<!-- </operations> -->
-		<!-- </caseFalse> -->
 	</Operation>
 
 	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">

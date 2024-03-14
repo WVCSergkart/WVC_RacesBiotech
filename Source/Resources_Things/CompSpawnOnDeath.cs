@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Verse;
@@ -21,6 +22,8 @@ namespace WVC_XenotypesAndGenes
 		// public List<ThingDef> plantsToNotOverwrite;
 
 		public string uniqueTag = "XaG_Golems";
+
+		public List<PawnRenderNodeProperties> renderNodeProperties;
 
 		// public CompProperties_SpawnOnDeath()
 		// {
@@ -84,7 +87,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostSpawnSetup(bool respawningAfterLoad)
 		{
 			base.PostSpawnSetup(respawningAfterLoad);
-			if (respawningAfterLoad || rockDef == null)
+			if (rockDef == null)
 			{
 				Reset();
 			}
@@ -93,7 +96,7 @@ namespace WVC_XenotypesAndGenes
 		private void Reset()
 		{
 			rockDef = Props.thingDefsToSpawn.RandomElement();
-			LongEventHandler.ExecuteWhenFinished(Apply);
+			// LongEventHandler.ExecuteWhenFinished(Apply);
 		}
 
 		public override void PostDestroy(DestroyMode mode, Map previousMap)
@@ -109,30 +112,50 @@ namespace WVC_XenotypesAndGenes
 			GenPlace.TryPlaceThing(thing, pawn.Position, previousMap, ThingPlaceMode.Near, null, null, default);
 		}
 
-		private void Apply()
+		public override List<PawnRenderNode> CompRenderNodes()
 		{
-			//if (parent is Pawn pawn)
-			//{
-				//PawnRenderer renderer = pawn.Drawer.renderer;
-				//Color color = rockDef.graphic.data.color;
-				//GraphicData graphicData = new();
-				//graphicData.CopyFrom(pawn.ageTracker.CurKindLifeStage.bodyGraphicData);
-				//graphicData.color = color;
-				//graphicData.colorTwo = color;
-				//if (!renderer.graphics.AllResolved)
-				//{
-				//	renderer.graphics.ResolveAllGraphics();
-				//}
-				//renderer.graphics.nakedGraphic = graphicData.Graphic;
-				//renderer.graphics.ClearCache();
-			//}
+			if (!Props.renderNodeProperties.NullOrEmpty() && parent is Pawn pawn)
+			{
+				List<PawnRenderNode> list = new();
+				{
+					foreach (PawnRenderNodeProperties renderNodeProperty in Props.renderNodeProperties)
+					{
+						PawnRenderNode_ColorFromGetColorComp pawnRenderNode_ColorFromGetColorComp = (PawnRenderNode_ColorFromGetColorComp)Activator.CreateInstance(renderNodeProperty.nodeClass, pawn, renderNodeProperty, pawn.Drawer.renderer.renderTree);
+						pawnRenderNode_ColorFromGetColorComp.colorComp = this;
+						list.Add(pawnRenderNode_ColorFromGetColorComp);
+					}
+					return list;
+				}
+			}
+			return base.CompRenderNodes();
 		}
 
-		public void SetStoneColour(ThingDef thingDef)
-		{
-			rockDef = thingDef;
-			LongEventHandler.ExecuteWhenFinished(Apply);
-		}
+		// private void Apply()
+		// {
+			// if (parent is Pawn pawn)
+			// {
+				// Graphic graphic = pawn.Drawer.renderer.BodyGraphic;
+				// PawnRenderer renderer = pawn.Drawer.renderer;
+				// Color color = rockDef.graphic.data.color;
+				// GraphicData graphicData = new();
+				// graphicData.CopyFrom(pawn.ageTracker.CurKindLifeStage.bodyGraphicData);
+				// graphic.color = color;
+				// graphic.colorTwo = color;
+				// if (!renderer.graphics.AllResolved)
+				// {
+					// renderer.graphics.ResolveAllGraphics();
+				// }
+				// renderer.graphics.nakedGraphic = graphicData.Graphic;
+				// renderer.graphics.ClearCache();
+				// pawn.Drawer.renderer.BodyGraphic = GraphicDatabase.Get<Graphic_Multi>(graphic.path, ShaderDatabase.Cutout, graphic.drawSize, rockDef.graphic.data.color);
+			// }
+		// }
+
+		// public void SetStoneColour(ThingDef thingDef)
+		// {
+			// rockDef = thingDef;
+			// LongEventHandler.ExecuteWhenFinished(Apply);
+		// }
 
 		public override void PostExposeData()
 		{

@@ -88,10 +88,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				text += "\n\n" + ("WVC_XaG_NewBack_GeneIsScarifier".Translate() + ": " + scarifier.cachedMaxScars.ToString());
 			}
-			if (gene is Gene_Faceless faceless && !faceless.drawGraphic)
-			{
-				text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive_WrongFace".Translate().Colorize(ColorLibrary.RedReadable);
-			}
+			//if (gene is Gene_Faceless faceless && !faceless.drawGraphic)
+			//{
+			//	text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive_WrongFace".Translate().Colorize(ColorLibrary.RedReadable);
+			//}
 			return text.Colorize(ColoredText.SubtleGrayColor);
 		}
 

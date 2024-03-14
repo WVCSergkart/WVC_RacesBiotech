@@ -76,23 +76,23 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
-		[Obsolete]
-		public static bool MechanitorIsLich(Pawn mechanitor)
-		{
-			if (!MechanitorUtility.IsMechanitor(mechanitor))
-			{
-				return false;
-			}
-			Gene_ResurgentMechlink gene_ResurgentMechlink = mechanitor.genes?.GetFirstGeneOfType<Gene_ResurgentMechlink>();
-			if (gene_ResurgentMechlink != null && XaG_GeneUtility.HasActiveGene(gene_ResurgentMechlink.def, mechanitor))
-			{
-				if (TotalSporesBandwidth(mechanitor) > 0)
-				{
-					return true;
-				}
-			}
-			return false;
-		}
+		// [Obsolete]
+		// public static bool MechanitorIsLich(Pawn mechanitor)
+		// {
+			// if (!MechanitorUtility.IsMechanitor(mechanitor))
+			// {
+				// return false;
+			// }
+			// Gene_ResurgentMechlink gene_ResurgentMechlink = mechanitor.genes?.GetFirstGeneOfType<Gene_ResurgentMechlink>();
+			// if (gene_ResurgentMechlink != null && XaG_GeneUtility.HasActiveGene(gene_ResurgentMechlink.def, mechanitor))
+			// {
+				// if (TotalSporesBandwidth(mechanitor) > 0)
+				// {
+					// return true;
+				// }
+			// }
+			// return false;
+		// }
 
 		public static float TotalSporesBandwidth(Pawn mechanitor)
 		{

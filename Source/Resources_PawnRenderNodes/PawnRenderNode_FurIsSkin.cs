@@ -25,21 +25,22 @@ namespace WVC_XenotypesAndGenes
 			{
 				return null;
 			}
-			if (gene is not Gene_Exoskin gene_Exoskin)
+			GeneExtension_Graphic modExtension = pawn?.story?.furDef?.GetModExtension<GeneExtension_Graphic>();
+			if (modExtension == null || modExtension.furIsSkin)
 			{
-				return DefaultGraphic(pawn, bodyPath);
+				return GraphicDatabase.Get<Graphic_Multi>(bodyPath, ShaderFor(pawn), Vector2.one, ColorFor(pawn));
 			}
-			GeneExtension_Graphic modExtension = gene_Exoskin.Graphic;
-			if (modExtension == null)
-			{
-				return DefaultGraphic(pawn, bodyPath);
-			}
-			if (modExtension.furIsSkinWithHair)
+			else if (modExtension.furIsSkinWithHair)
 			{
 				return GraphicDatabase.Get<Graphic_Multi>(bodyPath, ShaderDatabase.CutoutComplex, Vector2.one, pawn.story.SkinColor, pawn.story.HairColor);
 			}
-			return DefaultGraphic(pawn, bodyPath);
+			return null;
 		}
+
+		// public Graphic DefaultGraphic(Pawn pawn, string bodyPath)
+		// {
+			// return GraphicDatabase.Get<Graphic_Multi>(bodyPath, ShaderFor(pawn), Vector2.one, ColorFor(pawn));
+		// }
 
 		protected override string TexPathFor(Pawn pawn)
 		{
@@ -49,11 +50,6 @@ namespace WVC_XenotypesAndGenes
 		public override Color ColorFor(Pawn pawn)
 		{
 			return pawn.story.SkinColor;
-		}
-
-		public Graphic DefaultGraphic(Pawn pawn, string bodyPath)
-		{
-			return GraphicDatabase.Get<Graphic_Multi>(bodyPath, ShaderFor(pawn), Vector2.one, ColorFor(pawn));
 		}
 
 	}

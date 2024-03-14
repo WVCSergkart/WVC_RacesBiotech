@@ -121,7 +121,6 @@ namespace WVC_XenotypesAndGenes
 		public string backgroundPathXenoArchite = "WVC/UI/Genes/GeneBackground_XenoArchiteGene";
 		// BodySkin
 		public bool furIsSkinWithHair = false;
-		[Obsolete]
 		public bool furIsSkin = false;
 		[Obsolete]
 		public bool furCanRot = true;
