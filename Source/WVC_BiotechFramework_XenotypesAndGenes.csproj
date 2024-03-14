@@ -115,6 +115,7 @@
     <Compile Include="Resources_Hediff\Hediff_Spores.cs" />
     <Compile Include="Resources_Hediff\OnlyOneOverseer.cs" />
     <Compile Include="Resources_Main\Misc.cs" />
+    <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_FurIsSkin.cs" />
     <Compile Include="Resources_RitualAttachableOutcome\OutcomeWorker_ShapeshifterJoin.cs" />
     <Compile Include="Resources_Things\CompProperties_Golem.cs" />
     <Compile Include="Resources_Things\CompUseEffect_GeneGiver.cs" />
