@@ -16,7 +16,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneResurgent_Base">
 	<defName>WVC_ResurgentCells</defName>
 	<label>resurgent</label>
-	<description>Carriers of this gene, over time, accumulate a neural cellular resource called resugent cells. This resource can be used for rapid regeneration, rejuvenation, strengthening immunity, etc.</description>
+	<description>Carriers of this gene, over time, accumulate a neural cellular resource called resurgent cells. This resource can be used for rapid regeneration, rejuvenation, strengthening immunity, etc.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentCells</geneClass>
 	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_ResourceResurgentCells</resourceGizmoType>
 	<!-- <resourceLabel>resurgent cells</resourceLabel> -->
