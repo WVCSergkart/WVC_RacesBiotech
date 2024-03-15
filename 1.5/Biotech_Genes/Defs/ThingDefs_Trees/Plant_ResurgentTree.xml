@@ -176,6 +176,7 @@ To control walkers, the mechanitor needs the "Sporelink" gene.</description>
 	  <harvestWork>1000</harvestWork>
 	  <choppedThingDef>ChoppedStump_Polluted</choppedThingDef>
 	  <smashedThingDef>SmashedStump_Polluted</smashedThingDef>
+	  <immatureGraphicPath>WVC/Things/XaG_Buildings/MushroomTreeBulbs/Bulb_A</immatureGraphicPath>
 	</plant>
 	<comps>
 	  <li Class="CompProperties_SelfhealHitpoints">
