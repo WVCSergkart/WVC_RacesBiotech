@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -7,7 +8,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	// [StaticConstructorOnStartup]
+	[Obsolete]
 	public class GeneGizmo_BoneGolems : Gizmo
 	{
 		public const int InRectPadding = 6;

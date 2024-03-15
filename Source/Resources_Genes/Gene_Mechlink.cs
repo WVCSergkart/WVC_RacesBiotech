@@ -44,6 +44,8 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_MechlinkWithGizmo : Gene_Mechlink
 	{
 
+		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
+
 		private Gizmo gizmo;
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -57,7 +59,7 @@ namespace WVC_XenotypesAndGenes
 			// }
 			if (gizmo == null)
 			{
-				gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, pawn);
+				gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, this);
 			}
 			yield return gizmo;
 		}

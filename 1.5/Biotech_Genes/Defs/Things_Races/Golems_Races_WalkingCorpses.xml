@@ -199,9 +199,7 @@
 			<li Class="WVC_XenotypesAndGenes.CompProperties_Golem">
 				<refreshHours>2</refreshHours>
 				<shutdownEnergyReplenish>4.0</shutdownEnergyReplenish>
-				<anyGeneDefs>
-				  <li>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</li>
-				</anyGeneDefs>
+				<golemIndex>1</golemIndex>
 			</li>
 			<li Class="WVC_XenotypesAndGenes.CompProperties_SpawnOnDeath">
 				<!-- Totem -->

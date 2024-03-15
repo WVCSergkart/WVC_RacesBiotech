@@ -31,7 +31,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				if (item.IsGolemlike() && !item.health.Dead)
+				if (item.IsGolemlike())
 				{
 					list.Add(item);
 				}
@@ -47,6 +47,12 @@ namespace WVC_XenotypesAndGenes
 			}
 			return false;
 		}
+
+		public static bool GetGolemistGene(this Pawn pawn, out Gene_MechlinkWithGizmo mechlinkWithGizmo)
+		{
+			return (mechlinkWithGizmo = pawn?.genes?.GetFirstGeneOfType<Gene_MechlinkWithGizmo>())?.def?.resourceGizmoType == typeof(GeneGizmo_Golems);
+		}
+
 
 		public static float TotalGolembond(Pawn mechanitor)
 		{
@@ -68,34 +74,23 @@ namespace WVC_XenotypesAndGenes
 			return result;
 		}
 
-		public static bool MechanitorIsLich(Pawn mechanitor)
+		public static bool IsGolemistOfIndex(this Pawn mechanitor, int golemsIndex)
 		{
-			if (!MechanitorUtility.IsMechanitor(mechanitor))
+			if (MechanitorUtility.IsMechanitor(mechanitor))
 			{
-				return false;
-			}
-			// Log.Error("TEST is Golem Master");
-			Gene_MechlinkWithGizmo gene = mechanitor.genes?.GetFirstGeneOfType<Gene_MechlinkWithGizmo>();
-			if (gene?.def?.resourceGizmoType == typeof(GeneGizmo_BoneGolems))
-			{
-				return true;
+				return mechanitor.GetGolemistGene(out Gene_MechlinkWithGizmo mechlinkWithGizmo) && mechlinkWithGizmo?.Giver?.golemistTypeIndex == golemsIndex;
 			}
 			return false;
 		}
 
+		public static bool MechanitorIsLich(Pawn mechanitor)
+		{
+			return mechanitor.IsGolemistOfIndex(1);
+		}
+
 		public static bool MechanitorIsGolemist(Pawn mechanitor)
 		{
-			if (!MechanitorUtility.IsMechanitor(mechanitor))
-			{
-				return false;
-			}
-			// Log.Error("TEST is Golem Master");
-			Gene_MechlinkWithGizmo gene = mechanitor.genes?.GetFirstGeneOfType<Gene_MechlinkWithGizmo>();
-			if (gene?.def?.resourceGizmoType == typeof(GeneGizmo_Golems))
-			{
-				return true;
-			}
-			return false;
+			return mechanitor.IsGolemistOfIndex(0);
 		}
 
 		// Ideo

@@ -34,9 +34,7 @@
 			<li Class="WVC_XenotypesAndGenes.CompProperties_Golem">
 				<refreshHours>2</refreshHours>
 				<shutdownEnergyReplenish>3.0</shutdownEnergyReplenish>
-				<anyGeneDefs>
-				  <li>WVC_SwarmConnection_Golems</li>
-				</anyGeneDefs>
+				<golemIndex>0</golemIndex>
 			</li>
 			<!-- <li Class="WVC_XenotypesAndGenes.CompProperties_InitialHediff"> -->
 				<!-- <hediffDefs> -->

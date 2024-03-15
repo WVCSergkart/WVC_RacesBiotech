@@ -11,6 +11,8 @@ namespace WVC_XenotypesAndGenes
 
 		public string label = "WVC_StatPart_GenesCombo_OffsetFromBuildings";
 
+		public GeneDef reqGeneDef;
+
 		public List<BuildingBandwidthWeight> buildings;
 
 		public class BuildingBandwidthWeight
@@ -43,7 +45,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (MechanoidsUtility.MechanitorIsGolemist(pawn))
+			if (XaG_GeneUtility.HasActiveGene(reqGeneDef, pawn))
 			{
 				if (buildings.NullOrEmpty())
 				{

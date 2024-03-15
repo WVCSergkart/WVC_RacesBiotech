@@ -11,6 +11,8 @@ namespace WVC_XenotypesAndGenes
 
 		public string label = "WVC_XaG_StatPart_OffsetFromPollutedGraves";
 
+		public GeneDef reqGeneDef;
+
 		public override void TransformValue(StatRequest req, ref float val)
 		{
 			if (TryGetOffset(req, out var offset))
@@ -35,9 +37,9 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (MechanoidsUtility.MechanitorIsLich(pawn))
+			if (XaG_GeneUtility.HasActiveGene(reqGeneDef, pawn))
 			{
-				List<Building> allBuildingsColonist = pawn.Map.listerBuildings.allBuildingsColonist;
+				List<Building> allBuildingsColonist = pawn?.Map?.listerBuildings?.allBuildingsColonist;
 				if (allBuildingsColonist.NullOrEmpty())
 				{
 					return false;

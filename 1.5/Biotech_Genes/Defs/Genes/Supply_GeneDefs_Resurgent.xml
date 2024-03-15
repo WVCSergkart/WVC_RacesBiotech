@@ -16,7 +16,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneResurgent_Base">
 	<defName>WVC_ResurgentCells</defName>
 	<label>resurgent</label>
-	<description>Carriers of this gene accumulate resurgent cells over time. With the help of these cells, the host can resurrect or resurrect others.</description>
+	<description>Carriers of this gene, over time, accumulate a neural cellular resource called resugent cells. This resource can be used for rapid regeneration, rejuvenation, strengthening immunity, etc.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentCells</geneClass>
 	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_ResourceResurgentCells</resourceGizmoType>
 	<!-- <resourceLabel>resurgent cells</resourceLabel> -->
@@ -30,16 +30,14 @@
 	</resourceGizmoThresholds>
 	<showGizmoOnWorldView>true</showGizmoOnWorldView>
 	<showGizmoWhenDrafted>true</showGizmoWhenDrafted>
-	<resourceDescription>A reserve of dormant cells that can be spent for various purposes.\n\nResurgent cells cannot be increased by any means, they regenerate themselves depending on genes and some external factors.\n\nIf the number of cells falls below 5, then most of the resurgent genes will be deactivated.</resourceDescription>
+	<resourceDescription>Energy efficiency of resurgent neuronal cells.\n\nResurgent cells cannot be increased by any means, they regenerate themselves depending on genes and some external factors.\n\nToo low values of neural efficiency greatly weaken the dependent genes.</resourceDescription>
 	<!-- \n\nIf cells reaches zero, {PAWN_nameDef} will become very unhappy. -->
 	<iconPath>WVC/UI/Genes/Gene_ResurgentCells_v0</iconPath>
 	<iconColor>(93, 101, 126)</iconColor>
 	<selectionWeight>0.0011</selectionWeight>
 	<displayOrderInCategory>1230</displayOrderInCategory>
 	<customEffectDescriptions>
-	  <li>Gives resurgent supply.</li>
-	  <!-- <li>In the presence of the &lt;color=#8a8ae6&gt;"Undead"&lt;/color&gt; gene, this gene changes the resurrection mechanics. Instead of age, resurgent cells will be spent. Requires &lt;color=#8a8ae6&gt;37 resurgent cells&lt;/color&gt;.</li> -->
-	  <!-- <li>If the carrier has the &lt;color=#8a8ae6&gt;"Undead"&lt;/color&gt; gene, then the carrier will be resurrected instantly after death. Requires &lt;color=#8a8ae6&gt;41 resurgent cells&lt;/color&gt;.</li> -->
+	  <li>Gives resurgent cells supply.</li>
 	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>

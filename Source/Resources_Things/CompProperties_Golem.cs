@@ -11,7 +11,9 @@ namespace WVC_XenotypesAndGenes
 
 		// public GeneDef reqGeneDef;
 
-		public List<GeneDef> anyGeneDefs;
+		// public List<GeneDef> anyGeneDefs;
+
+		public int golemIndex = -1;
 
 		public int refreshHours = 2;
 
@@ -77,7 +79,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (!XaG_GeneUtility.HasAnyActiveGene(Props.anyGeneDefs, overseer) || !MechanoidsUtility.HasEnoughGolembond(overseer))
+			if (!overseer.IsGolemistOfIndex(Props.golemIndex) || !MechanoidsUtility.HasEnoughGolembond(overseer))
 			{
 				golem.Kill(null, null);
 			}

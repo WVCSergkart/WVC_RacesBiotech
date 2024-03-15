@@ -37,14 +37,6 @@
 	  <li>Mechlink</li>
 	  <li>WVC_GeneMechlink</li>
 	</exclusionTags>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<hediffDefName>MechlinkImplant</hediffDefName>
-			<bodyparts>
-			  <li>Brain</li>
-			</bodyparts>
-		</li>
-	</modExtensions>
   </GeneDef>
 
   <!-- ============================= -->
@@ -112,6 +104,7 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Base" Name="WVC_XenotypesAndGenes_GeneMechlink_Golems" Abstract="True">
 	<geneClass>WVC_XenotypesAndGenes.Gene_MechlinkWithGizmo</geneClass>
+	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Golems</resourceGizmoType>
 	<customEffectDescriptions>
 		<li>Allows the &lt;color=#8a8ae6&gt;mechanitor&lt;/color&gt; to control &lt;color=#8a8ae6&gt;golems&lt;/color&gt;.</li>
 		<!-- <li>&lt;color=#8a8ae6&gt;Golembond&lt;/color&gt; is a special limit unique to &lt;color=#8a8ae6&gt;golems&lt;/color&gt;. Most &lt;color=#8a8ae6&gt;sources&lt;/color&gt; that increase &lt;color=#8a8ae6&gt;golembond&lt;/color&gt; only work within &lt;color=#8a8ae6&gt;one map&lt;/color&gt;.</li> -->
@@ -123,7 +116,7 @@
 	<label>spore mechlink</label>
 	<description>The carrier of this gene has architis, which has greatly changed neural connections. The carrier acquired special sensitivity and the ability to control resurgent spores. Due to this, the carrier has a natural mechlink.</description>
 	<iconPath>WVC/UI/Genes/Gene_ResurgentTree_v0</iconPath>
-	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_BoneGolems</resourceGizmoType>
+	<!-- <resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_BoneGolems</resourceGizmoType> -->
 	<displayCategory>WVC_ResurgentCells</displayCategory>
 	<displayOrderInCategory>1260</displayOrderInCategory>
 	<minAgeActive>3</minAgeActive>
@@ -143,13 +136,21 @@
 	<abilities>
 	  <li>WVC_AbilitySpawn_ResurgentTree</li>
 	</abilities>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<filledBlockColor>(150, 249, 123)</filledBlockColor>
+			<tipSectionTitle>WVC_XaG_GolemBandwidth</tipSectionTitle>
+			<tipSectionTip>WVC_XaG_SporesBandwidthGizmoTip</tipSectionTip>
+			<!-- IndexTag: Base - 0, Resurgent - 1 -->
+			<golemistTypeIndex>1</golemistTypeIndex>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Golems">
 	<defName>WVC_SwarmConnection_Golems</defName>
 	<label>stone mechlink</label>
 	<description>Carriers of this gene have the ability to control orbital mining mechanites; these microscopic machines are ready at any moment to animate a stone chunk and begin serving the mechanitor again.</description>
-	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Golems</resourceGizmoType>
 	<iconPath>WVC/UI/Genes/Gene_Golemlink_v0</iconPath>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>1</biostatArc>
@@ -171,6 +172,14 @@
 	<descriptionHyperlinks>
 	  <AbilityDef>WVC_MechSummon_Golems</AbilityDef>
 	</descriptionHyperlinks>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<filledBlockColor>(249, 115, 6)</filledBlockColor>
+			<tipSectionTitle>WVC_XaG_GolemBandwidth</tipSectionTitle>
+			<tipSectionTip>WVC_XaG_GolemBandwidthGizmoTip</tipSectionTip>
+			<golemistTypeIndex>0</golemistTypeIndex>
+		</li>
+	</modExtensions>
   </GeneDef>
 
 </Defs>

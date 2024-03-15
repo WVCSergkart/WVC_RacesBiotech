@@ -13,6 +13,9 @@
 	<keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
 	<countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
 	<allowMothballIfLowPriorityWorldPawn>true</allowMothballIfLowPriorityWorldPawn>
+	<canAffectBionicOrImplant>false</canAffectBionicOrImplant>
+	<duplicationAllowed>false</duplicationAllowed>
+	<isInfection>false</isInfection>
   </HediffDef>
 
   <!--=====================================================================-->
@@ -21,10 +24,6 @@
 	<defName>WVC_IncompatibilityComa</defName>
 	<label>incompatibility coma</label>
 	<description>The pawn was rendered unconscious by a dose of incompatible mechanites.</description>
-	<hediffClass>HediffWithComps</hediffClass>
-	<scenarioCanAdd>false</scenarioCanAdd>
-	<isBad>false</isBad>
-	<allowMothballIfLowPriorityWorldPawn>true</allowMothballIfLowPriorityWorldPawn>
 	<stages>
 	  <li>
 		<becomeVisible>true</becomeVisible>

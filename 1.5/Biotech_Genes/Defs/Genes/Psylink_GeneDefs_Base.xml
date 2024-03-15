@@ -6,7 +6,6 @@
   <GeneDef Name="WVC_XenotypesAndGenes_GenePsylink_Base" MayRequire="ludeon.rimworld.royalty" Abstract="True">
 	<labelShortAdj>psylink</labelShortAdj>
 	<description>Carriers of this gene have natural psionic abilities.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_PermanentHediff</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_Psylink_v0</iconPath>
 	<displayCategory>Ability</displayCategory>
 	<!-- <displayCategory>Archite</displayCategory> -->
@@ -43,6 +42,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GenePsylink_Base" MayRequire="ludeon.rimworld.royalty">
 	<defName>WVC_NaturalPsylink</defName>
 	<label>natural psylink</label>
+	<geneClass>WVC_XenotypesAndGenes.Gene_PermanentHediff</geneClass>
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>-3</biostatMet>
 	<modExtensions>

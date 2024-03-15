@@ -7,33 +7,52 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	// [StaticConstructorOnStartup]
 	public class GeneGizmo_Golems : Gizmo
 	{
 		public const int InRectPadding = 6;
 
 		private static readonly Color EmptyBlockColor = new(0.3f, 0.3f, 0.3f, 1f);
 
-		private static readonly Color FilledBlockColor = ColorLibrary.Orange;
+		// private static readonly Color FilledBlockColor = ColorLibrary.Orange;
 
-		private static readonly Color ExcessBlockColor = ColorLibrary.Red;
+		// private static readonly Color ExcessBlockColor = ColorLibrary.Red;
 
-		private readonly Pawn mechanitor;
+		public Color filledBlockColor = ColorLibrary.Orange;
+		public Color excessBlockColor = ColorLibrary.Red;
+
+		public Pawn mechanitor;
+
+		public Gene_MechlinkWithGizmo gene;
+		public GeneExtension_Giver extension;
 
 		private int totalBandwidth;
 		private int usedBandwidth;
 
 		private int nextRecache = -1;
+		public int recacheFrequency = 734;
+
+		public string tipSectionTitle = "WVC_XaG_GolemBandwidth";
+		public string tipSectionTip = "WVC_XaG_GolemBandwidthGizmoTip";
 
 		private List<Pawn> allControlledGolems;
 
 		public override bool Visible => Find.Selector.SelectedPawns.Count == 1;
 
-		public GeneGizmo_Golems(Pawn mechanitor)
+		public GeneGizmo_Golems(Gene_MechlinkWithGizmo geneMechlink)
 			: base()
 		{
-			this.mechanitor = mechanitor;
-			Order = -90f;
+			gene = geneMechlink;
+			mechanitor = gene?.pawn;
+			extension = gene?.def?.GetModExtension<GeneExtension_Giver>();
+			if (extension != null)
+			{
+				Order = extension.gizmoOrder;
+				filledBlockColor = extension.filledBlockColor;
+				excessBlockColor = extension.excessBlockColor;
+				recacheFrequency = extension.recacheFrequency;
+				tipSectionTitle = extension.tipSectionTitle;
+				tipSectionTip = extension.tipSectionTip;
+			}
 		}
 
 		public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
@@ -46,10 +65,10 @@ namespace WVC_XenotypesAndGenes
 				totalBandwidth = (int)MechanoidsUtility.TotalGolembond(mechanitor);
 				usedBandwidth = (int)MechanoidsUtility.GetConsumedGolembond(mechanitor);
 				allControlledGolems = MechanoidsUtility.GetAllControlledGolems(mechanitor);
-				nextRecache = Find.TickManager.TicksGame + 734;
+				nextRecache = Find.TickManager.TicksGame + recacheFrequency;
 			}
 			string text = usedBandwidth.ToString("F0") + " / " + totalBandwidth.ToString("F0");
-			TaggedString taggedString = "WVC_XaG_GolemBandwidth".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + text + "\n\n" + "WVC_XaG_GolemBandwidthGizmoTip".Translate();
+			TaggedString taggedString = tipSectionTitle.Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + text + "\n\n" + tipSectionTip.Translate();
 			if (usedBandwidth > 0)
 			{
 				taggedString += (string)("\n\n" + ("WVC_XaG_GolemBandwidthUsage".Translate() + ": ")) + usedBandwidth;
@@ -100,7 +119,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						if (num9 <= usedBandwidth)
 						{
-							Widgets.DrawRectFast(rect5, (num9 <= totalBandwidth) ? FilledBlockColor : ExcessBlockColor);
+							Widgets.DrawRectFast(rect5, (num9 <= totalBandwidth) ? filledBlockColor : excessBlockColor);
 						}
 						else
 						{

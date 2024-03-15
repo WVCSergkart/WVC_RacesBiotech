@@ -1,6 +1,7 @@
 using RimWorld;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 using Verse;
 
 // namespace WVC
@@ -133,39 +134,31 @@ namespace WVC_XenotypesAndGenes
 	{
 		public HediffDef hediffDefName;
 		public List<HediffDef> hediffDefs;
-		// public BodyPartDef bodypart;
 		public List<BodyPartDef> bodyparts;
 		public BackstoryDef childBackstoryDef;
 		public BackstoryDef adultBackstoryDef;
-		// public List<GeneDef> randomizerGenesList;
-		// public string exclusionTag;
-		// public GeneDef randomizerGene;
-		// public bool geneIsRandomized = false;
-		// public IntRange intRange = new IntRange(1, 1);
 		public XenotypeDef xenotypeForcerDef = null;
 		public bool xenotypeIsInheritable = true;
 		public List<HeadTypeDef> headTypeDefs;
 		// Scarifier
 		public int scarsCount = 0;
-		// public List<GeneDef> scarGeneDefs;
-		// Rand Hediff
-		// public HediffStatRandDef hediffStatRandDef;
-		// Gestator
-		// public float matchPercent = 0.4f;
-		// public float matchPercent = 0.4f;
 		// Special Food
 		public List<ThingDef> specialFoodDefs;
-		// public SoundDef soundDefOnImplant;
-		// public ThoughtDef geneOpinion_thoughtDef;
 		public Gender gender = Gender.None;
 		public IntRange intervalRange = new(120000, 300000);
 		public bool showMessageIfOwned = false;
 		public string message = "WVC_XaG_Extreme_GeneticInstabilityMessage";
 		public JobDef jobDef;
 		public bool defaultBoolValue = false;
-		// public ThingDef jobTarget;
 		public SimpleCurve curve;
-		// public List<HediffDef> hediffsThatPreventUndeadResurrection;
+		// Golems Gizmo
+		public Color filledBlockColor = ColorLibrary.Orange;
+		public Color excessBlockColor = ColorLibrary.Red;
+		public float gizmoOrder = -90f;
+		public int recacheFrequency = 231;
+		public string tipSectionTitle = "WVC_XaG_GolemBandwidth";
+		public string tipSectionTip = "WVC_XaG_GolemBandwidthGizmoTip";
+		public int golemistTypeIndex = -1;
 	}
 
 	// public class GeneExtension_Shapeshifter : DefModExtension

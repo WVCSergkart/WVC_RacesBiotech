@@ -59,6 +59,7 @@
 	<parts>
 	  <li Class="WVC_XenotypesAndGenes.StatPart_OffsetFromBuildingsOnMap">
 		<label>WVC_StatPart_GenesCombo_OffsetFromShrines</label>
+		<reqGeneDef>WVC_SwarmConnection_Golems</reqGeneDef>
 		<buildings>
 		  <li MayRequire="Ludeon.RimWorld.Royalty">
 			<thingDef>NatureShrine_Small</thingDef>
@@ -74,7 +75,9 @@
 		  </li>
 		</buildings>
 	  </li>
-	  <li Class="WVC_XenotypesAndGenes.StatPart_OffsetFromPollutedGraves"/>
+	  <li Class="WVC_XenotypesAndGenes.StatPart_OffsetFromPollutedGraves">
+		<reqGeneDef>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</reqGeneDef>
+	  </li>
 	</parts>
   </StatDef>
 

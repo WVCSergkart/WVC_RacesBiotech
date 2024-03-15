@@ -183,7 +183,9 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<!-- <WVC_XenotypeSerumThing_XenotypeLabel>xenotype</WVC_XenotypeSerumThing_XenotypeLabel> -->
 	<!-- <WVC_XenotypeSerumThing_XenotypeDesc>xenotype contained in the serum</WVC_XenotypeSerumThing_XenotypeDesc> -->
 
-	<WVC_XaG_MechanitorShouldBeLich>The user must be a mechanitor and have the "Sporelink" gene.</WVC_XaG_MechanitorShouldBeLich>
+	<WVC_XaG_MechanitorShouldBeLich>The user must be a mechanitor and have the "Spore mechlink" gene.</WVC_XaG_MechanitorShouldBeLich>
+
+	<WVC_XaG_PercentPerDay>{0}% / day</WVC_XaG_PercentPerDay>
 
 	<!-- ============================ BABY SPAWNER ============================ -->
 
@@ -256,10 +258,6 @@ Each mechanoid costs 0.15 nutrition to summon.</WVC_XaG_Gene_DustMechlinkDesc>
 
 	<WVC_XaG_GolemBandwidthUsage>Golembond usage</WVC_XaG_GolemBandwidthUsage>
 	<!-- <WVC_XaG_GolemGestationBandwidthUsed>Golem gestation bandwidth</WVC_XaG_GolemGestationBandwidthUsed> -->
-
-	<!-- ============================ WALKING CORPSES ============================ -->
-	<!-- ============================ WALKING CORPSES ============================ -->
-	<!-- ============================ WALKING CORPSES ============================ -->
 
 	<WVC_XaG_SporesBandwidth>Spores</WVC_XaG_SporesBandwidth>
 	<WVC_XaG_SporesBandwidthGizmoTip>A mechanitor can only oversee a walking corpses if there is enough golembond to do so. Each corpse consumes a different amount of golembond.\n\nGain more golembond by digging graves in &lt;color=#6bb6bb&gt;polluted soil&lt;/color&gt; and burying creatures in them, or building &lt;color=#f76d6b&gt;skullspikes&lt;/color&gt; and &lt;color=#f76d6b&gt;gibbet cages&lt;/color&gt; or with help of &lt;color=#6bb6bb&gt;genes&lt;/color&gt;.</WVC_XaG_SporesBandwidthGizmoTip>
