@@ -49,7 +49,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static float GetLichWeight(Pawn lich)
 		{
-			float weight = TotalSporesBandwidth(lich) - MechanoidsUtility.GetConsumedGolembond(lich);
+			float weight = MechanoidsUtility.TotalGolembond(lich) - MechanoidsUtility.GetConsumedGolembond(lich);
 			if (weight <= 0f)
 			{
 				weight = 0.001f;
@@ -60,19 +60,23 @@ namespace WVC_XenotypesAndGenes
 		public static List<Pawn> GetAllLichs(Map map)
 		{
 			List<Pawn> list = new();
-			List<Pawn> colonists = map.mapPawns.FreeColonists;
-			// Log.Error("colonists: " + colonists.Count);
+			List<Pawn> colonists = map?.mapPawns?.FreeColonists;
 			if (!colonists.NullOrEmpty())
 			{
 				foreach (Pawn colonist in colonists)
 				{
-					if (MechanoidsUtility.MechanitorIsLich(colonist))
+					Gene_Sporelink sporelink = colonist?.genes?.GetFirstGeneOfType<Gene_Sporelink>();
+					if (sporelink == null)
 					{
-						list.Add(colonist);
+						continue;
 					}
+					if (!sporelink.summonMechanoids)
+					{
+						continue;
+					}
+					list.Add(colonist);
 				}
 			}
-			// Log.Error("lichs: " + list.Count);
 			return list;
 		}
 

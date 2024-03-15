@@ -12,6 +12,11 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Mechlink : Gene
 	{
 
+		public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
+
+		public int timeForNextSummon = -1;
+		public bool summonMechanoids = false;
+
 		public override void PostAdd()
 		{
 			base.PostAdd();
@@ -19,6 +24,16 @@ namespace WVC_XenotypesAndGenes
 			{
 				pawn.health.AddHediff(HediffDefOf.MechlinkImplant, pawn.health.hediffSet.GetBrain());
 			}
+			ResetSummonInterval();
+		}
+
+		public void ResetSummonInterval()
+		{
+			if (Spawner == null)
+			{
+				return;
+			}
+			timeForNextSummon = Spawner.spawnIntervalRange.RandomInRange;
 		}
 
 		// public override void Notify_PawnDied()
@@ -37,6 +52,13 @@ namespace WVC_XenotypesAndGenes
 			{
 				pawn.health.AddHediff(HediffDefOf.MechlinkImplant, pawn.health.hediffSet.GetBrain());
 			}
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref timeForNextSummon, "timeForNextSummon", -1);
+			Scribe_Values.Look(ref summonMechanoids, "summonMechanoids", false);
 		}
 
 	}
@@ -66,26 +88,44 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	// [Obsolete]
-	// public class Gene_ResurgentMechlink : Gene_MechlinkWithGizmo
-	// {
-
-
-	// }
-
-	public class Gene_DustMechlink : Gene_Mechlink
+	public class Gene_Sporelink : Gene_MechlinkWithGizmo
 	{
 
-		public GeneExtension_Spawner Props => def?.GetModExtension<GeneExtension_Spawner>();
-
-		public int timeForNextSummon = 60000;
-		public bool summonMechanoids = false;
-
-		public override void PostAdd()
+		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			base.PostAdd();
-			ResetInterval();
+			if (!Active || Find.Selector.SelectedPawns.Count != 1 || pawn.Faction != Faction.OfPlayer)
+			{
+				yield break;
+			}
+			foreach (Gizmo item in base.GetGizmos())
+			{
+				yield return item;
+			}
+			Command_Action command_Action = new()
+			{
+				defaultLabel = "WVC_XaG_Gene_Sporelink_ConnectWithResurgentTrees".Translate() + ": " + GeneUiUtility.OnOrOff(summonMechanoids),
+				defaultDesc = "WVC_XaG_Gene_Sporelink_ConnectWithResurgentTreesDesc".Translate(),
+				icon = ContentFinder<Texture2D>.Get(def.iconPath),
+				action = delegate
+				{
+					summonMechanoids = !summonMechanoids;
+					if (summonMechanoids)
+					{
+						SoundDefOf.Tick_High.PlayOneShotOnCamera();
+					}
+					else
+					{
+						SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+					}
+				}
+			};
+			yield return command_Action;
 		}
+
+	}
+
+	public class Gene_Stonelink : Gene_MechlinkWithGizmo
+	{
 
 		public override void Tick()
 		{
@@ -95,12 +135,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			ResetInterval();
+			ResetSummonInterval();
 			if (!summonMechanoids)
-			{
-				return;
-			}
-			if (pawn.Map == null)
 			{
 				return;
 			}
@@ -109,37 +145,126 @@ namespace WVC_XenotypesAndGenes
 				summonMechanoids = false;
 				return;
 			}
+			if (pawn.Map == null)
+			{
+				return;
+			}
 			if (!MechanitorUtility.IsMechanitor(pawn))
 			{
 				summonMechanoids = false;
+				Reset();
 				return;
 			}
 			SummonRandomMech();
 		}
 
-		private void ResetInterval()
+		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			timeForNextSummon = Props.spawnIntervalRange.RandomInRange;
+			if (!Active || Find.Selector.SelectedPawns.Count != 1 || pawn.Faction != Faction.OfPlayer)
+			{
+				yield break;
+			}
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: Summon golems",
+					action = delegate
+					{
+						SummonRandomMech();
+						ResetSummonInterval();
+					}
+				};
+			}
+			foreach (Gizmo item in base.GetGizmos())
+			{
+				yield return item;
+			}
+			Command_Action command_Action = new()
+			{
+				defaultLabel = "WVC_XaG_Gene_DustMechlink".Translate() + ": " + GeneUiUtility.OnOrOff(summonMechanoids),
+				defaultDesc = "WVC_XaG_Gene_DustMechlinkDesc".Translate(),
+				icon = ContentFinder<Texture2D>.Get(def.iconPath),
+				action = delegate
+				{
+					summonMechanoids = !summonMechanoids;
+					if (summonMechanoids)
+					{
+						SoundDefOf.Tick_High.PlayOneShotOnCamera();
+					}
+					else
+					{
+						SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+					}
+				}
+			};
+			yield return command_Action;
 		}
 
 		private void SummonRandomMech()
 		{
-			int countSpawn = Props.summonRange.RandomInRange;
+			int countSpawn = Spawner.summonRange.RandomInRange;
 			for (int i = 0; i < countSpawn; i++)
 			{
-				MechanoidsUtility.MechSummonQuest(pawn, Props.summonQuest);
+				if (!MechanoidsUtility.HasEnoughGolembond(pawn))
+				{
+					break;
+				}
+				MechanoidsUtility.MechSummonQuest(pawn, Spawner.summonQuest);
 				if (i == 0)
 				{
-					Messages.Message("WVC_RB_Gene_Summoner".Translate(pawn.LabelIndefinite().CapitalizeFirst()), pawn, MessageTypeDefOf.PositiveEvent);
+					Messages.Message("WVC_RB_Gene_Summoner".Translate(), pawn, MessageTypeDefOf.PositiveEvent);
 				}
 			}
 		}
 
-		public override void ExposeData()
+	}
+
+	public class Gene_Falselink : Gene_Mechlink
+	{
+
+		public override void Tick()
 		{
-			base.ExposeData();
-			Scribe_Values.Look(ref timeForNextSummon, "timeForNextSummon", 0);
-			Scribe_Values.Look(ref summonMechanoids, "summonMechanoids", false);
+			base.Tick();
+			timeForNextSummon--;
+			if (timeForNextSummon > 0)
+			{
+				return;
+			}
+			ResetSummonInterval();
+			if (!summonMechanoids)
+			{
+				return;
+			}
+			if (pawn.Faction != Faction.OfPlayer)
+			{
+				summonMechanoids = false;
+				return;
+			}
+			if (pawn.Map == null)
+			{
+				return;
+			}
+			if (!MechanitorUtility.IsMechanitor(pawn))
+			{
+				summonMechanoids = false;
+				Reset();
+				return;
+			}
+			SummonRandomMech();
+		}
+
+		private void SummonRandomMech()
+		{
+			int countSpawn = Spawner.summonRange.RandomInRange;
+			for (int i = 0; i < countSpawn; i++)
+			{
+				MechanoidsUtility.MechSummonQuest(pawn, Spawner.summonQuest);
+				if (i == 0)
+				{
+					Messages.Message("WVC_RB_Gene_Summoner".Translate(), pawn, MessageTypeDefOf.PositiveEvent);
+				}
+			}
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -156,7 +281,7 @@ namespace WVC_XenotypesAndGenes
 					action = delegate
 					{
 						SummonRandomMech();
-						ResetInterval();
+						ResetSummonInterval();
 					}
 				};
 				yield return new Command_Action

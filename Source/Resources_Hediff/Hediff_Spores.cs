@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Verse;
@@ -7,7 +8,8 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class HediffWithComps_Spores : HediffWithComps
+	[Obsolete]
+	public class HediffWithComps_Spores : HediffWithComps
 	{
 		public int cachedSporesCount;
 

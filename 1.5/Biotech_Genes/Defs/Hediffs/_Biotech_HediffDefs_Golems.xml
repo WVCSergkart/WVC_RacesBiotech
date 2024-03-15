@@ -30,18 +30,18 @@
 
   <!-- ============================================= -->
 
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
-	<defName>WVC_ResurgentSporeBandwidth</defName>
-	<label>golembond</label>
-	<defaultLabelColor>(150, 249, 123)</defaultLabelColor>
-	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_Spores</hediffClass>
-	<description>Additional golembond from eating resurgent seeds.</description>
-	<comps>
-		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive">
-			<geneDef>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</geneDef>
-		</li>
-	</comps>
-  </HediffDef>
+  <!-- <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base"> -->
+	<!-- <defName>WVC_ResurgentSporeBandwidth</defName> -->
+	<!-- <label>golembond</label> -->
+	<!-- <defaultLabelColor>(150, 249, 123)</defaultLabelColor> -->
+	<!-- <hediffClass>WVC_XenotypesAndGenes.HediffWithComps_Spores</hediffClass> -->
+	<!-- <description>Additional golembond from eating resurgent seeds.</description> -->
+	<!-- <comps> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive"> -->
+			<!-- <geneDef>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</geneDef> -->
+		<!-- </li> -->
+	<!-- </comps> -->
+  <!-- </HediffDef> -->
 
   <!-- ============================================= -->
 

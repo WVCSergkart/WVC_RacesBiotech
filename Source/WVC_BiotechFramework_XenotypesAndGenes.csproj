@@ -88,7 +88,6 @@
     <Compile Include="Resources_Gizmo\Dialog_RetuneSerum.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Shapeshifter.cs" />
     <Compile Include="Resources_Gizmo\Dialog_XenotypesBase.cs" />
-    <Compile Include="Resources_Gizmo\GeneGizmo_ResurgentSpores.cs" />
     <Compile Include="Resources_Gizmo\Gizmo_MaxGolems.cs" />
     <Compile Include="Resources_Genes\Gene_InStability.cs" />
     <Compile Include="Resources_Genes\Gene_BodyParts_Restoration.cs" />
@@ -211,6 +210,7 @@
     <Compile Include="Resources_TEST\USED_IN_TEST_CompSpawnInsect.cs" />
     <Compile Include="Resources_TEST\TEST_ThoughtWorker_Gender.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_MechanoidLabor.cs" />
+    <Compile Include="Resources_Workers\SpecialTrees.cs" />
     <Compile Include="Resources_Workers\WorkGiver_HaulToGeneBank.cs" />
     <Compile Include="Resources_Utility\XenoTreeUtility.cs" />
     <Compile Include="Resources_Things\CompProperties_TargetEffectRiseFromTheDead.cs" />

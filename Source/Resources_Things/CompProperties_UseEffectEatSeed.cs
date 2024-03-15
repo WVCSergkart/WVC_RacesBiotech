@@ -1,11 +1,13 @@
 // RimWorld.CompProperties_Toxifier
 using RimWorld;
+using System;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public class CompProperties_UseEffectEatSeed : CompProperties_Usable
+	[Obsolete]
+	public class CompProperties_UseEffectEatSeed : CompProperties_Usable
 	{
 		public HediffDef hediffDef;
 
@@ -17,6 +19,7 @@ namespace WVC_XenotypesAndGenes
 		}
 	}
 
+	[Obsolete]
 	public class CompUseEffect_EatSeed : CompUseEffect
 	{
 		public CompProperties_UseEffectEatSeed Props => (CompProperties_UseEffectEatSeed)props;

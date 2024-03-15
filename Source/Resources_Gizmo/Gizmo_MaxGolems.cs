@@ -31,6 +31,8 @@ namespace WVC_XenotypesAndGenes
 		private int nextRecache = -1;
 		public int recacheFrequency = 734;
 
+		public int golemIndex = -1;
+
 		public string tipSectionTitle = "WVC_XaG_GolemBandwidth";
 		public string tipSectionTip = "WVC_XaG_GolemBandwidthGizmoTip";
 
@@ -52,6 +54,7 @@ namespace WVC_XenotypesAndGenes
 				recacheFrequency = extension.recacheFrequency;
 				tipSectionTitle = extension.tipSectionTitle;
 				tipSectionTip = extension.tipSectionTip;
+				golemIndex = extension.golemistTypeIndex;
 			}
 		}
 
@@ -64,7 +67,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				totalBandwidth = (int)MechanoidsUtility.TotalGolembond(mechanitor);
 				usedBandwidth = (int)MechanoidsUtility.GetConsumedGolembond(mechanitor);
-				allControlledGolems = MechanoidsUtility.GetAllControlledGolems(mechanitor);
+				allControlledGolems = MechanoidsUtility.GetAllControlledGolemsOfIndex(mechanitor, golemIndex);
 				nextRecache = Find.TickManager.TicksGame + recacheFrequency;
 			}
 			string text = usedBandwidth.ToString("F0") + " / " + totalBandwidth.ToString("F0");

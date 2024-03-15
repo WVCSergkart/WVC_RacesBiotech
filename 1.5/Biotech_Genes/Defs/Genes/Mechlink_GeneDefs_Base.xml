@@ -70,7 +70,7 @@
 	<defName>WVC_Dustogenic_Blesslink</defName>
 	<label>false mechlink</label>
 	<description>Carriers of this gene have a psychic signature that misleads mechanoids. They can take control of malfunctioning mechanoids and call upon their aid. However, because of this, they are completely unable to create new mechanoids.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_DustMechlink</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Falselink</geneClass>
 	<displayCategory>WVC_Dustogenic</displayCategory>
 	<displayOrderInCategory>15</displayOrderInCategory>
 	<!-- <resourceLossPerDay>0.15</resourceLossPerDay> -->
@@ -116,7 +116,7 @@
 	<label>spore mechlink</label>
 	<description>The carrier of this gene has architis, which has greatly changed neural connections. The carrier acquired special sensitivity and the ability to control resurgent spores. Due to this, the carrier has a natural mechlink.</description>
 	<iconPath>WVC/UI/Genes/Gene_ResurgentTree_v0</iconPath>
-	<!-- <resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_BoneGolems</resourceGizmoType> -->
+	<geneClass>WVC_XenotypesAndGenes.Gene_Sporelink</geneClass>
 	<displayCategory>WVC_ResurgentCells</displayCategory>
 	<displayOrderInCategory>1260</displayOrderInCategory>
 	<minAgeActive>3</minAgeActive>
@@ -125,7 +125,8 @@
 	<biostatMet>0</biostatMet>
 	<biostatArc>1</biostatArc>
 	<customEffectDescriptions>
-		<li>Makes it possible to plant a &lt;color=#8a8ae6&gt;resurgent tree&lt;/color&gt; at the cost of &lt;color=#8a8ae6&gt;66 cells&lt;/color&gt;.</li>
+		<li>Allows the carrier to establish a &lt;color=#8a8ae6&gt;connection&lt;/color&gt; with &lt;color=#8a8ae6&gt;resurgent trees&lt;/color&gt;.</li>
+		<!-- <li>Makes it possible to plant a &lt;color=#8a8ae6&gt;resurgent tree&lt;/color&gt; at the cost of &lt;color=#8a8ae6&gt;66 cells&lt;/color&gt;.</li> -->
 		<li>The &lt;color=#8a8ae6&gt;resurgent tree&lt;/color&gt; slowly pollutes the soil around it and raises &lt;color=#8a8ae6&gt;bone golems&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<statOffsets>
@@ -133,9 +134,9 @@
 	  <MechBandwidth>-2</MechBandwidth>
 	  <!-- <MechControlGroups>1</MechControlGroups> -->
 	</statOffsets>
-	<abilities>
-	  <li>WVC_AbilitySpawn_ResurgentTree</li>
-	</abilities>
+	<!-- <abilities> -->
+	  <!-- <li>WVC_AbilitySpawn_ResurgentTree</li> -->
+	<!-- </abilities> -->
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<filledBlockColor>(150, 249, 123)</filledBlockColor>
@@ -152,12 +153,14 @@
 	<label>stone mechlink</label>
 	<description>Carriers of this gene have the ability to control orbital mining mechanites; these microscopic machines are ready at any moment to animate a stone chunk and begin serving the mechanitor again.</description>
 	<iconPath>WVC/UI/Genes/Gene_Golemlink_v0</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Stonelink</geneClass>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>-3</biostatMet>
 	<displayOrderInCategory>1130</displayOrderInCategory>
 	<customEffectDescriptions>
-		<li>After activating the ability, summons from 1 to 5 golems.</li>
+		<!-- <li>After activating the ability, summons from 1 to 5 golems.</li> -->
+		<li>Golems are &lt;color=#8a8ae6&gt;summoned automatically&lt;/color&gt; from &lt;color=#8a8ae6&gt;1 to 6&lt;/color&gt; every (*DateTime)8-30 days(/DateTime).</li>
 		<!-- <li>&lt;color=#8a8ae6&gt;Global work speed&lt;/color&gt; of the golems depends on the &lt;color=#8a8ae6&gt;psychic sensitivity&lt;/color&gt; of the overseer.</li> -->
 		<li>A overseer can reproduce with the help of &lt;color=#8a8ae6&gt;golems&lt;/color&gt;.</li>
 	</customEffectDescriptions>
@@ -166,18 +169,23 @@
 	  <MechBandwidth>2</MechBandwidth>
 	  <MechControlGroups>1</MechControlGroups>
 	</statOffsets>
-	<abilities>
-	  <li>WVC_MechSummon_Golems</li>
-	</abilities>
-	<descriptionHyperlinks>
-	  <AbilityDef>WVC_MechSummon_Golems</AbilityDef>
-	</descriptionHyperlinks>
+	<!-- <abilities> -->
+	  <!-- <li>WVC_MechSummon_Golems</li> -->
+	<!-- </abilities> -->
+	<!-- <descriptionHyperlinks> -->
+	  <!-- <AbilityDef>WVC_MechSummon_Golems</AbilityDef> -->
+	<!-- </descriptionHyperlinks> -->
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<filledBlockColor>(249, 115, 6)</filledBlockColor>
 			<tipSectionTitle>WVC_XaG_GolemBandwidth</tipSectionTitle>
 			<tipSectionTip>WVC_XaG_GolemBandwidthGizmoTip</tipSectionTip>
 			<golemistTypeIndex>0</golemistTypeIndex>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<spawnIntervalRange>480000~1800000</spawnIntervalRange>
+			<summonRange>1~6</summonRange>
+			<summonQuest>WVC_MechanitorSummonGolems</summonQuest>
 		</li>
 	</modExtensions>
   </GeneDef>

@@ -235,11 +235,12 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<!-- ============================ BLESSLINK SUMMON ============================ -->
 
 	<WVC_XaG_Gene_DustMechlink>Summon</WVC_XaG_Gene_DustMechlink>
-	<WVC_XaG_Gene_DustMechlinkDesc>Automatically summons a random mechanoid every few days.
-
-Each mechanoid costs 0.15 nutrition to summon.</WVC_XaG_Gene_DustMechlinkDesc>
+	<WVC_XaG_Gene_DustMechlinkDesc>Allows you to toggle the automatic summoning of mechanoids. Mechanoids summoned in this way land in drop pods at a random location on the map.</WVC_XaG_Gene_DustMechlinkDesc>
 	<WVC_XaG_Gene_DustMechlink_On>On</WVC_XaG_Gene_DustMechlink_On>
 	<WVC_XaG_Gene_DustMechlink_Off>Off</WVC_XaG_Gene_DustMechlink_Off>
+
+	<WVC_XaG_Gene_Sporelink_ConnectWithResurgentTrees>Resurgent trees connection</WVC_XaG_Gene_Sporelink_ConnectWithResurgentTrees>
+	<WVC_XaG_Gene_Sporelink_ConnectWithResurgentTreesDesc>Affects whether resurgent trees will react to the psionic presence of the gene carrier. Resurgent trees only animate golems if they can find at least one psionic presence.</WVC_XaG_Gene_Sporelink_ConnectWithResurgentTreesDesc>
 
 	<!-- ============================ ETERNAL HUNGER ============================ -->
 
@@ -278,10 +279,11 @@ Each mechanoid costs 0.15 nutrition to summon.</WVC_XaG_Gene_DustMechlinkDesc>
 	<WVC_XaG_ChosenWalkerLabel>Assign golem</WVC_XaG_ChosenWalkerLabel>
 	<WVC_XaG_ChosenWalkerDesc>Allows you to select the type of walker that will spawn the tree.</WVC_XaG_ChosenWalkerDesc>
 	<WVC_XaG_WalkerIsChosen>{0} now spawns {1}.</WVC_XaG_WalkerIsChosen>
-	<WVC_XaG_WalkerCost>Spores cost: {0}</WVC_XaG_WalkerCost>
+	<WVC_XaG_WalkerCost>Golembond cost: {0}</WVC_XaG_WalkerCost>
 
 	<WVC_XaG_LichTreeCurrentOwnerLabel>Current owner</WVC_XaG_LichTreeCurrentOwnerLabel>
 	<WVC_XaG_LichTreeCurrentSpawnLabel>Current spawn</WVC_XaG_LichTreeCurrentSpawnLabel>
+	<WVC_XaG_ResurgentTreeIsDormantLabel>Dormant.</WVC_XaG_ResurgentTreeIsDormantLabel>
 
 	<WVC_XaG_AlwaysRandomizeLabel>Randomize: \n{0}</WVC_XaG_AlwaysRandomizeLabel>
 	<WVC_XaG_AlwaysRandomizeDesc>If enabled, after each spawn, the mechanitor and the next spawn are randomized.</WVC_XaG_AlwaysRandomizeDesc>

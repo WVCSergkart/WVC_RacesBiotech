@@ -159,6 +159,7 @@ namespace WVC_XenotypesAndGenes
 		public string tipSectionTitle = "WVC_XaG_GolemBandwidth";
 		public string tipSectionTip = "WVC_XaG_GolemBandwidthGizmoTip";
 		public int golemistTypeIndex = -1;
+		public QuestScriptDef summonQuest;
 	}
 
 	// public class GeneExtension_Shapeshifter : DefModExtension

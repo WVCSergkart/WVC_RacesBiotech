@@ -14,10 +14,10 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool HasEnoughGolembond(Pawn mechanitor)
 		{
-			return TotalGolembond(mechanitor) >= GetConsumedGolembond(mechanitor);
+			return TotalGolembond(mechanitor) > GetConsumedGolembond(mechanitor);
 		}
 
-		public static List<Pawn> GetAllControlledGolems(Pawn mechanitor)
+		public static List<Pawn> GetAllControlledGolemsOfIndex(Pawn mechanitor, int golemIndex)
 		{
 			List<Pawn> mechs = mechanitor?.mechanitor?.ControlledPawns;
 			if (mechs.NullOrEmpty())
@@ -31,7 +31,16 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				if (item.IsGolemlike())
+				if (!item.IsGolemlike())
+				{
+					continue;
+				}
+				CompGolem compGolem = item.GetComp<CompGolem>();
+				if (compGolem == null)
+				{
+					continue;
+				}
+				if (compGolem.Props.golemIndex == golemIndex)
 				{
 					list.Add(item);
 				}
@@ -85,12 +94,14 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool MechanitorIsLich(Pawn mechanitor)
 		{
-			return mechanitor.IsGolemistOfIndex(1);
+			// return mechanitor.IsGolemistOfIndex(1);
+			return mechanitor?.genes?.GetFirstGeneOfType<Gene_Sporelink>() != null;
 		}
 
 		public static bool MechanitorIsGolemist(Pawn mechanitor)
 		{
-			return mechanitor.IsGolemistOfIndex(0);
+			// return mechanitor.IsGolemistOfIndex(0);
+			return mechanitor?.genes?.GetFirstGeneOfType<Gene_Stonelink>() != null;
 		}
 
 		// Ideo

@@ -103,17 +103,20 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells">
 	<defName>WVC_ResurgentCellsGain</defName>
 	<label>resurgent fungus</label>
-	<description>Carriers of this gene have a symbiotic parasitic fungus. This fungus does not have a noticeable effect on the host but significantly increases the production of resurgent cells.</description>
+	<description>Carriers of this gene have a symbiotic resurgent fungus, which improves metabolic efficiency and accumulation of resurgent cells. However, the carriers become passive sources of resurgent spores, which can trigger the emergence of resurgent trees.</description>
 	<iconPath>WVC/UI/Genes/Gene_ResurgentFungus_v0</iconPath>
 	<iconColor>(93, 101, 126)</iconColor>
 	<!-- <resourceLabel>resurgent cells</resourceLabel> -->
 	<resourceLabel>cells</resourceLabel>
-	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentCellsGain</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentFungus</geneClass>
 	<displayOrderInCategory>1232</displayOrderInCategory>
 	<resourceLossPerDay>-0.02</resourceLossPerDay>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>3</biostatMet>
 	<biostatArc>1</biostatArc>
+	<customEffectDescriptions>
+		<li>&lt;color=#ff8585&gt;Significantly increases&lt;/color&gt; the chance of &lt;color=#8a8ae6&gt;resurgent trees&lt;/color&gt; appearing.</li>
+	</customEffectDescriptions>
 	<makeImmuneTo>
 	  <li>LungRot</li>
 	</makeImmuneTo>

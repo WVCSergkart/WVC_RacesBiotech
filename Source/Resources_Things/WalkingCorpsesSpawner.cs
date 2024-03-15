@@ -51,6 +51,8 @@ namespace WVC_XenotypesAndGenes
 
 		public List<Pawn> cachedMechanitors = new();
 
+		public int nextRecache = -1;
+
 		public Pawn chosenMechanitor;
 
 		public PawnKindDef chosenWalker;
@@ -76,12 +78,16 @@ namespace WVC_XenotypesAndGenes
 			{
 				ResetCounter();
 			}
-			ResetMechanitors();
+			// ResetMechanitors();
 		}
 
 		public void ResetMechanitors()
 		{
-			cachedMechanitors = WalkingUtility.GetAllLichs(parent.Map);
+			if (Find.TickManager.TicksGame >= nextRecache)
+			{
+				cachedMechanitors = WalkingUtility.GetAllLichs(parent.Map);
+				nextRecache = Find.TickManager.TicksGame + 326;
+			}
 			if (!cachedMechanitors.NullOrEmpty())
 			{
 				if (chosenMechanitor == null || !Props.canBeCustomized)
@@ -122,6 +128,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			TryDoSpawn();
 			ResetCounter();
+			ResetMechanitors();
 		}
 
 		public void TryDoSpawn()
@@ -169,8 +176,11 @@ namespace WVC_XenotypesAndGenes
 
 		public override string CompInspectStringExtra()
 		{
+			if (cachedMechanitors.NullOrEmpty() || (Subplant != null && parent is Plant plant && plant.Growth < Subplant.Props.minGrowthForSpawn))
+			{
+				return "WVC_XaG_ResurgentTreeIsDormantLabel".Translate();
+			}
 			StringBuilder stringBuilder = new();
-			// stringBuilder.AppendLine();
 			if (chosenMechanitor != null && Props.canBeCustomized)
 			{
 				stringBuilder.AppendLine(string.Format("{0}: {1}", "WVC_XaG_LichTreeCurrentOwnerLabel".Translate().Resolve(), chosenMechanitor.Name.ToStringFull.Colorize(ColoredText.NameColor)));
@@ -181,7 +191,6 @@ namespace WVC_XenotypesAndGenes
 			}
 			stringBuilder.Append(string.Format("{0}", Props.inspectString.Translate((tickCounter).ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor))));
 			return stringBuilder.ToString();
-			// return Props.inspectString.Translate((tickCounter).ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor));
 		}
 
 		public override IEnumerable<Gizmo> CompGetGizmosExtra()
@@ -205,6 +214,10 @@ namespace WVC_XenotypesAndGenes
 			}
 			ResetMechanitors();
 			if (cachedMechanitors.NullOrEmpty())
+			{
+				yield break;
+			}
+			if (Subplant != null && parent is Plant plant && plant.Growth < Subplant.Props.minGrowthForSpawn)
 			{
 				yield break;
 			}

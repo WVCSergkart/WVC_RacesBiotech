@@ -80,7 +80,7 @@ namespace WVC_XenotypesAndGenes
 	public class CompSpawnOnDeath_GetColor : ThingComp
 	{
 
-		public ThingDef rockDef;
+		private ThingDef rockDef;
 
 		private CompProperties_SpawnOnDeath Props => (CompProperties_SpawnOnDeath)props;
 
@@ -89,14 +89,25 @@ namespace WVC_XenotypesAndGenes
 			base.PostSpawnSetup(respawningAfterLoad);
 			if (rockDef == null)
 			{
-				Reset();
+				SetStoneChunk();
 			}
 		}
 
-		private void Reset()
+		public ThingDef StoneChunk
 		{
-			rockDef = Props.thingDefsToSpawn.RandomElement();
-			// LongEventHandler.ExecuteWhenFinished(Apply);
+			get
+			{
+				if (rockDef == null)
+				{
+					SetStoneChunk();
+				}
+				return rockDef;
+			}
+		}
+
+		public void SetStoneChunk(ThingDef chunkDef = null)
+		{
+			rockDef = chunkDef ?? Props.thingDefsToSpawn.RandomElement();
 		}
 
 		public override void PostDestroy(DestroyMode mode, Map previousMap)
@@ -127,35 +138,8 @@ namespace WVC_XenotypesAndGenes
 					return list;
 				}
 			}
-			return base.CompRenderNodes();
+			return null;
 		}
-
-		// private void Apply()
-		// {
-			// if (parent is Pawn pawn)
-			// {
-				// Graphic graphic = pawn.Drawer.renderer.BodyGraphic;
-				// PawnRenderer renderer = pawn.Drawer.renderer;
-				// Color color = rockDef.graphic.data.color;
-				// GraphicData graphicData = new();
-				// graphicData.CopyFrom(pawn.ageTracker.CurKindLifeStage.bodyGraphicData);
-				// graphic.color = color;
-				// graphic.colorTwo = color;
-				// if (!renderer.graphics.AllResolved)
-				// {
-					// renderer.graphics.ResolveAllGraphics();
-				// }
-				// renderer.graphics.nakedGraphic = graphicData.Graphic;
-				// renderer.graphics.ClearCache();
-				// pawn.Drawer.renderer.BodyGraphic = GraphicDatabase.Get<Graphic_Multi>(graphic.path, ShaderDatabase.Cutout, graphic.drawSize, rockDef.graphic.data.color);
-			// }
-		// }
-
-		// public void SetStoneColour(ThingDef thingDef)
-		// {
-			// rockDef = thingDef;
-			// LongEventHandler.ExecuteWhenFinished(Apply);
-		// }
 
 		public override void PostExposeData()
 		{

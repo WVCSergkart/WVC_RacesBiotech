@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <IncidentDef>
+	<defName>WVC_XaG_ResurgentTreeSpawn</defName>
+	<label>resurgent tree</label>
+	<category>Special</category>
+	<targetTags>
+	  <li>Map_PlayerHome</li>
+	</targetTags>
+	<workerClass>WVC_XenotypesAndGenes.IncidentWorker_XenoGenesTreeSpawn</workerClass>
+	<treeDef>WVC_Plant_TreeResurgent</treeDef>
+	<treeGenStepDef>WVC_XaG_ResurgentTrees</treeGenStepDef>
+	<treeGrowth>0.15</treeGrowth>
+	<letterLabel>Resurgent tree sprout</letterLabel>
+	<letterText>A resurgent tree has sprouted nearby!\n\nResurgent trees are toxic mushroom trees, genetically modified and powered by archotech-created archites in the root system. They slowly pollute the soil and spread to the remains buried deep in the ground, animating them.\n\nThese trees only react to the psionic presence of pawns with a certain genetic makeup, the rest of the time they are passive and almost harmless, with the exception of pollution.</letterText>
+	<letterDef>NeutralEvent</letterDef>
+  </IncidentDef>
+
+  <GenStepDef>
+	<defName>WVC_XaG_ResurgentTrees</defName>
+	<order>1200</order>
+	<genStep Class="WVC_XenotypesAndGenes.GenStep_XenoGenesTrees">
+	  <treeDef>WVC_Plant_TreeResurgent</treeDef>
+	  <minProximityToSameTree>16</minProximityToSameTree>
+	  <pollutionNone>2</pollutionNone>
+	  <pollutionLight>3</pollutionLight>
+	  <pollutionModerate>1</pollutionModerate>
+	  <pollutionExtreme>1</pollutionExtreme>
+	</genStep>
+  </GenStepDef>
+
+  <IncidentDef>
+	<defName>WVC_XaG_XenoTreeSpawn</defName>
+	<label>xeno-tree</label>
+	<category>Special</category>
+	<targetTags>
+	  <li>Map_PlayerHome</li>
+	</targetTags>
+	<workerClass>WVC_XenotypesAndGenes.IncidentWorker_XenoGenesTreeSpawn</workerClass>
+	<treeDef>WVC_Plant_TreeXenoSpawner</treeDef>
+	<treeGenStepDef>WVC_XaG_XenoTrees</treeGenStepDef>
+	<treeGrowth>0.15</treeGrowth>
+	<letterLabel>Xeno-tree sprout</letterLabel>
+	<letterText>A xeno-tree has sprouted nearby!\n\nXeno trees are an uninterrupted source of babies of different xenotypes; they can spawn any xenotype based on the gene pool of pawns living in the colony.</letterText>
+	<letterDef>PositiveEvent</letterDef>
+  </IncidentDef>
+
+  <GenStepDef>
+	<defName>WVC_XaG_XenoTrees</defName>
+	<order>1200</order>
+	<genStep Class="WVC_XenotypesAndGenes.GenStep_XenoGenesTrees">
+	  <treeDef>WVC_Plant_TreeXenoSpawner</treeDef>
+	  <minProximityToSameTree>22</minProximityToSameTree>
+	  <pollutionNone>3</pollutionNone>
+	  <pollutionLight>2</pollutionLight>
+	  <pollutionModerate>1</pollutionModerate>
+	  <pollutionExtreme>0</pollutionExtreme>
+	</genStep>
+  </GenStepDef>
+
+</Defs>

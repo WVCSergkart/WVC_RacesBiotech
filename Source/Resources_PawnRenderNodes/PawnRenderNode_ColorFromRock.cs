@@ -20,12 +20,22 @@ namespace WVC_XenotypesAndGenes
 
 		public override Graphic GraphicFor(Pawn pawn)
 		{
-			return GraphicDatabase.Get<Graphic_Multi>(TexPathFor(pawn), DefaultShader, Vector2.one, ColorFor(pawn));
+			string body = TexPathFor(pawn);
+			if (body.NullOrEmpty())
+			{
+				return null;
+			}
+			return GraphicDatabase.Get<Graphic_Multi>(body, DefaultShader, Vector2.one, ColorFor(pawn));
 		}
 
 		public override Color ColorFor(Pawn pawn)
 		{
-			return colorComp.rockDef.graphic.data.color;
+			ThingDef rockDef = colorComp?.StoneChunk;
+			if (rockDef == null)
+			{
+				return Color.white;
+			}
+			return rockDef.graphic.data.color;
 		}
 
 		protected override string TexPathFor(Pawn pawn)
