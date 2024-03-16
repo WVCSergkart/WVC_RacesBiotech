@@ -176,9 +176,9 @@ namespace WVC_XenotypesAndGenes
 
 		public override string CompInspectStringExtra()
 		{
-			if (cachedMechanitors.NullOrEmpty() || (Subplant != null && parent is Plant plant && plant.Growth < Subplant.Props.minGrowthForSpawn))
+			if (parent is Plant plant && (cachedMechanitors.NullOrEmpty() || (Subplant != null && plant.Growth < Subplant.Props.minGrowthForSpawn)))
 			{
-				return "WVC_XaG_ResurgentTreeIsDormantLabel".Translate();
+				return "WVC_XaG_TreeGrowthInPercents".Translate(parent.LabelCap, ((int)(plant.Growth * 100)).ToString());
 			}
 			StringBuilder stringBuilder = new();
 			if (chosenMechanitor != null && Props.canBeCustomized)

@@ -14,12 +14,12 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool HasEnoughGolembond(Pawn mechanitor)
 		{
-			return TotalGolembond(mechanitor) > GetConsumedGolembond(mechanitor);
+			return TotalGolembond(mechanitor) >= GetConsumedGolembond(mechanitor);
 		}
 
 		public static List<Pawn> GetAllControlledGolemsOfIndex(Pawn mechanitor, int golemIndex)
 		{
-			List<Pawn> mechs = mechanitor?.mechanitor?.ControlledPawns;
+			List<Pawn> mechs = mechanitor?.mechanitor?.OverseenPawns;
 			if (mechs.NullOrEmpty())
 			{
 				return null;
@@ -71,13 +71,17 @@ namespace WVC_XenotypesAndGenes
 		public static float GetConsumedGolembond(Pawn mechanitor)
 		{
 			float result = 0;
-			List <Pawn> golems = mechanitor?.mechanitor?.ControlledPawns;
+			List <Pawn> golems = mechanitor?.mechanitor?.OverseenPawns;
 			if (golems.NullOrEmpty())
 			{
 				return result;
 			}
 			foreach (Pawn golem in golems)
 			{
+				if (golem.health.Dead)
+				{
+					continue;
+				}
 				result += golem.GetStatValue(WVC_GenesDefOf.WVC_GolemBondCost);
 			}
 			return result;

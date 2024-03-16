@@ -17,6 +17,8 @@ namespace WVC_XenotypesAndGenes
 
 		// private static readonly Color ExcessBlockColor = ColorLibrary.Red;
 
+		public bool cached = false;
+
 		public Color filledBlockColor = ColorLibrary.Orange;
 		public Color excessBlockColor = ColorLibrary.Red;
 

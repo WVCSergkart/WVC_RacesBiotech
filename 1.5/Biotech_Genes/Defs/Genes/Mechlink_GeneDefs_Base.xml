@@ -114,7 +114,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Golems">
 	<defName>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</defName>
 	<label>spore mechlink</label>
-	<description>The carrier of this gene has architis, which has greatly changed neural connections. The carrier acquired special sensitivity and the ability to control resurgent spores. Due to this, the carrier has a natural mechlink.</description>
+	<description>Carriers of the gene have a natural mechlink and the ability to psionically control resurgent trees.</description>
 	<iconPath>WVC/UI/Genes/Gene_ResurgentTree_v0</iconPath>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Sporelink</geneClass>
 	<displayCategory>WVC_ResurgentCells</displayCategory>

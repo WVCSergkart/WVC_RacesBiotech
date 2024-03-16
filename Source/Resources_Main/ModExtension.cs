@@ -53,6 +53,12 @@ namespace WVC_XenotypesAndGenes
 		public int cooldownDays = 15;
 		public List<GeneDef> canGestateAnyIfHas;
 		public bool useMatchPercentFromSettings = false;
+		//incidents
+		public IncidentDef incidentDef;
+		// public ThingDef specialTree;
+		public int specialTreesMax = 3;
+		public int specialTreesMin = 1;
+		// public float skipChance = 0.5f;
 	}
 
 	public class GeneExtension_Undead : DefModExtension

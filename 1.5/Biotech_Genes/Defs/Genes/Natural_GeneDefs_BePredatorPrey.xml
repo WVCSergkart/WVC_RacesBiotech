@@ -25,12 +25,15 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneBePredatorPrey_Base">
 	<defName>WVC_PredatorPrey_NotTasty</defName>
 	<label>not tasty</label>
-	<description>Predators do not prey on carriers of this gene.</description>
+	<description>Carriers of this gene have very unnutritious and tasteless flesh, and the almost imperceptible smell repels most predators.</description>
 	<iconPath>WVC/UI/Genes/Prey_B</iconPath>
 	<displayOrderInCategory>-120</displayOrderInCategory>
 	<customEffectDescriptions>
 		<li>Predators do not prey on carriers of this gene.</li>
 	</customEffectDescriptions>
+	<statFactors>
+	  <MeatAmount>0.2</MeatAmount>
+	</statFactors>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
 			<canBePredatorPrey>false</canBePredatorPrey>
@@ -41,13 +44,13 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneBePredatorPrey_Base">
 	<defName>WVC_PredatorPrey_Tasty</defName>
 	<label>tasty</label>
-	<description>Predators do prey on carriers of this gene.</description>
+	<description>Carriers of this gene have very nutritious flesh.</description>
 	<iconPath>WVC/UI/Genes/Prey_A</iconPath>
 	<displayOrderInCategory>-115</displayOrderInCategory>
 	<biostatCpx>0</biostatCpx>
-	<customEffectDescriptions>
-		<li>Disable "not tasty" gene.</li>
-	</customEffectDescriptions>
+	<statFactors>
+	  <MeatAmount>1.6</MeatAmount>
+	</statFactors>
   </GeneDef>
 
 </Defs>

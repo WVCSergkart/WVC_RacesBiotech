@@ -25,8 +25,8 @@
 	  <minProximityToSameTree>16</minProximityToSameTree>
 	  <pollutionNone>2</pollutionNone>
 	  <pollutionLight>3</pollutionLight>
-	  <pollutionModerate>1</pollutionModerate>
-	  <pollutionExtreme>1</pollutionExtreme>
+	  <pollutionModerate>4</pollutionModerate>
+	  <pollutionExtreme>5</pollutionExtreme>
 	</genStep>
   </GenStepDef>
 

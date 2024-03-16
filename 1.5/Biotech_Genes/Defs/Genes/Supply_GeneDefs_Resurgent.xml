@@ -120,6 +120,14 @@
 	<makeImmuneTo>
 	  <li>LungRot</li>
 	</makeImmuneTo>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<spawnIntervalRange>1222000~1440000</spawnIntervalRange>
+			<incidentDef>WVC_XaG_ResurgentTreeSpawn</incidentDef>
+			<specialTreesMax>5</specialTreesMax>
+			<specialTreesMin>1</specialTreesMin>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- =============================================== -->
