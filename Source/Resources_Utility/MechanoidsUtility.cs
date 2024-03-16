@@ -96,6 +96,7 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		[Obsolete]
 		public static bool MechanitorIsLich(Pawn mechanitor)
 		{
 			// return mechanitor.IsGolemistOfIndex(1);

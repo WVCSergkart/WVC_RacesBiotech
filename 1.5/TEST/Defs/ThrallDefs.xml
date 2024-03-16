@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WVC_XenotypesAndGenes.ThrallDef>
+	<defName>WVC_Worker</defName>
+	<label>thrall worker</label>
+	<description>Work thrall</description>
+	<xenotypeIconDef>WVC_Xeno18c</xenotypeIconDef>
+	<genes>
+		<li>WVC_WoundHealing_ExtremeFast</li>
+	</genes>
+  </WVC_XenotypesAndGenes.ThrallDef>
+
+  <WVC_XenotypesAndGenes.ThrallDef>
+	<defName>WVC_Combatant</defName>
+	<label>thrall combatant</label>
+	<description>Combat thrall</description>
+	<xenotypeIconDef>WVC_XenoSecond4c</xenotypeIconDef>
+	<genes>
+		<li>WVC_WoundHealing_ExtremeFast</li>
+	</genes>
+  </WVC_XenotypesAndGenes.ThrallDef>
+
+</Defs>

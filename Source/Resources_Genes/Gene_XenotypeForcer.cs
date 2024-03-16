@@ -1,6 +1,7 @@
 using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -106,6 +107,86 @@ namespace WVC_XenotypesAndGenes
 			{
 				pawn.genes?.AddGene(WVC_GenesDefOf.Hair_SnowWhite, xenogene: false);
 			}
+		}
+
+	}
+
+	public class Gene_Reimplanter : Gene
+	{
+
+		public XenotypeDef xenotypeDef = null;
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			if (xenotypeDef == null)
+			{
+				xenotypeDef = pawn.genes.Xenotype;
+			}
+		}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (Find.Selector.SelectedPawns.Count > 1 || pawn.Drafted || !Active || pawn.Faction != Faction.OfPlayer)
+			{
+				yield break;
+			}
+			yield return new Command_Action
+			{
+				defaultLabel = def.LabelCap + ": " + xenotypeDef.LabelCap,
+				defaultDesc = "WVC_XaG_GeneShapeshifter_Desc".Translate(),
+				icon = ContentFinder<Texture2D>.Get(def.iconPath),
+				action = delegate
+				{
+					Find.WindowStack.Add(new Dialog_ReimplanterXenotype(this));
+				}
+			};
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref xenotypeDef, "xenotypeDef");
+		}
+
+	}
+
+	public class Gene_ThrallMaker : Gene
+	{
+
+		public ThrallDef thrallDef = null;
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			if (thrallDef == null)
+			{
+				thrallDef = DefDatabase<ThrallDef>.AllDefsListForReading.RandomElement();
+			}
+		}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (Find.Selector.SelectedPawns.Count > 1 || pawn.Drafted || !Active || pawn.Faction != Faction.OfPlayer)
+			{
+				yield break;
+			}
+			yield return new Command_Action
+			{
+				defaultLabel = def.LabelCap + ": " + thrallDef.LabelCap,
+				defaultDesc = "WVC_XaG_GeneThrallMaker_ButtonDesc".Translate(),
+				icon = ContentFinder<Texture2D>.Get(def.iconPath),
+				action = delegate
+				{
+					Find.WindowStack.Add(new Dialog_ThrallMaker(this));
+				}
+			};
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref thrallDef, "thrallDef");
 		}
 
 	}

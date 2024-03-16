@@ -18,6 +18,7 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		[Obsolete]
 		public static bool IsResurgentTree(this Thing parent)
 		{
 			if (parent.def.plant != null && parent.TryGetComp<CompWalkingCorpsesSpawner>() != null)

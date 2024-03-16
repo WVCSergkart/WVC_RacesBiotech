@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ============================================================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_Base">
+	<defName>WVC_ReimplanterThrallMaker</defName>
+	<label>thrall maker</label>
+	<description>Carriers of this gene can implant a copy of choosen xenogerm into another person through a somewhat gross-looking injector organ. Their own genetic material will then regrow very slowly. If they implant while their genes are regrowing, they will die.</description>
+	<iconPath>WVC/UI/Genes/Gene_ThrallMaker_v0</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ThrallMaker</geneClass>
+	<displayCategory>WVC_ResurgentCells</displayCategory>
+	<displayOrderInCategory>-490</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<biostatArc>1</biostatArc>
+	<abilities>
+	  <li>WVC_ReimplanterThrallMaker</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_ReimplanterThrallMaker</AbilityDef>
+	</descriptionHyperlinks>
+	<customEffectDescriptions>
+		<li>The target can only be a human corpse.</li>
+		<li>Gives the target the &lt;color=#8a8ae6&gt;selected set of genes&lt;/color&gt; and turns into a &lt;color=#8a8ae6&gt;thrall&lt;/color&gt;.</li>
+		<li>Carrier can control a limited number of &lt;color=#8a8ae6&gt;thralls&lt;/color&gt; at the same time.</li>
+		<li>&lt;color=#ff8585&gt;Can't be absorbed forcly.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+		<li>WVC_ReimplanterThrallMaker</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- ============================================================================== -->
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_RiseFromTheDead_Base">
+	<defName>WVC_ReimplanterThrallMaker</defName>
+	<label>thrall maker</label>
+	<iconPath>WVC/UI/Genes/Gene_ThrallMaker_v0</iconPath>
+	<comps>
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive"> -->
+		<!-- <anyOfGenes> -->
+		  <!-- <li>WVC_ReimplanterNatural_Endogenes</li> -->
+		<!-- </anyOfGenes> -->
+	  <!-- </li> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter"> -->
+		<!-- <compClass>WVC_XenotypesAndGenes.CompAbilityEffect_ReimplanterThrallMaker</compClass> -->
+	  <!-- </li> -->
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityTargetValidation">
+		<humanityCheck>true</humanityCheck>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+</Defs>

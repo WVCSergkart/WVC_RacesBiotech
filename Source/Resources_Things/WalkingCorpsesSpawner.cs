@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
@@ -8,6 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
+	[Obsolete]
 	public class CompProperties_WalkingCorpsesSpawner : CompProperties
 	{
 		public IntRange ticksBetweenSpawn = new(60000, 120000);
@@ -45,6 +47,7 @@ namespace WVC_XenotypesAndGenes
 		}
 	}
 
+	[Obsolete]
 	public class CompWalkingCorpsesSpawner : ThingComp
 	{
 		public int tickCounter = 0;

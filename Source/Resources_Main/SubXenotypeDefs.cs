@@ -8,7 +8,16 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class EvotypeDef : XenotypeDef
+	public class ThrallDef : Def
+	{
+
+		public XenotypeIconDef xenotypeIconDef;
+
+		public List<GeneDef> genes;
+
+	}
+
+	public class EvotypeDef : XenotypeDef
 	{
 
 		public float shapeshiftChance = 0.1f;

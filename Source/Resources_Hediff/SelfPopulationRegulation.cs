@@ -1,3 +1,4 @@
+using System;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -22,6 +23,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete]
 	public class HediffCompProperties_GolemLimit : HediffCompProperties
 	{
 
@@ -29,6 +31,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete]
 	public class HediffComp_GolemLimit_Stone : HediffComp
 	{
 
@@ -74,6 +77,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete]
 	public class HediffComp_GolemLimit_Bone : HediffComp_GolemLimit_Stone
 	{
 

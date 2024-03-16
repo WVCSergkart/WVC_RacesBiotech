@@ -116,6 +116,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete]
 	public class Gene_Sporelink : Gene_MechlinkWithGizmo
 	{
 

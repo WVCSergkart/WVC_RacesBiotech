@@ -28,13 +28,6 @@
 	<!-- endogenes are always added to the germline of the main xenotype. -->
 	<endogenes>
 		<li>WVC_ForeverYoung</li>
-		<!-- <li>WVC_RandomLearning</li> -->
-		<!-- <li>WVC_RandomHands</li> -->
-		<!-- <li>WVC_RandomWoundHealing</li> -->
-		<!-- <li>WVC_RandomImmunity</li> -->
-		<!-- <li>WVC_RandomMetabolism</li> -->
-		<!-- <li>WVC_RandomMoveSpeed</li> -->
-		<!-- <li>WVC_RandomPsychicAbility</li> -->
 	</endogenes>
 	<genes>
 		<li>WVC_ResurgentCells</li>
@@ -46,7 +39,8 @@
 		<li>WVC_ResurgentCells_Blood</li>
 		<li>WVC_ResurgentCells_Stomach</li>
 		<li>WVC_ResurgentCells_Sleep</li>
-		<li>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</li>
+		<!-- <li>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</li> -->
+		<li MayRequire="wvc.sergkart.test.tools">WVC_ReimplanterThrallMaker</li>
 		<li>WVC_ResurgentImmunity_PerfectImmunity</li>
 		<li>WVC_ResurgentDisease_DiseaseFree</li>
 		<li>WVC_ResurgentCells_Skeleton</li>
@@ -56,8 +50,6 @@
 		<li>WVC_Pain_Nullified</li>
 		<li>WVC_Hair_TribalOnly</li>
 		<li>DarkVision</li>
-		<!-- = -->
-		<!-- <li>WVC_XenotypesAndGenes_SubXenotypeShapeshifter</li> -->
 	</genes>
 	<!-- <modExtensions> -->
 		<!-- <li Class="WVC_XenotypesAndGenes.XenotypeExtension_XenotypeShapeShift"> -->

@@ -104,6 +104,9 @@
 	<defName>WVC_ResurgentCellsGain</defName>
 	<label>resurgent fungus</label>
 	<description>Carriers of this gene have a symbiotic resurgent fungus, which improves metabolic efficiency and accumulation of resurgent cells. However, the carriers become passive sources of resurgent spores, which can trigger the emergence of resurgent trees.</description>
+	<descriptionHyperlinks>
+	  <ThingDef>WVC_Plant_TreeResurgent</ThingDef>
+	</descriptionHyperlinks>
 	<iconPath>WVC/UI/Genes/Gene_ResurgentFungus_v0</iconPath>
 	<iconColor>(93, 101, 126)</iconColor>
 	<!-- <resourceLabel>resurgent cells</resourceLabel> -->

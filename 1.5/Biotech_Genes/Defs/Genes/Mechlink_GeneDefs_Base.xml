@@ -73,7 +73,6 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_Falselink</geneClass>
 	<displayCategory>WVC_Dustogenic</displayCategory>
 	<displayOrderInCategory>15</displayOrderInCategory>
-	<!-- <resourceLossPerDay>0.15</resourceLossPerDay> -->
 	<iconPath>WVC/UI/Genes/Gene_Blessedlink_v0</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
 	<minAgeActive>3</minAgeActive>
@@ -111,42 +110,36 @@
 	</customEffectDescriptions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Golems">
-	<defName>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</defName>
-	<label>spore mechlink</label>
-	<description>Carriers of the gene have a natural mechlink and the ability to psionically control resurgent trees.</description>
-	<iconPath>WVC/UI/Genes/Gene_ResurgentTree_v0</iconPath>
-	<geneClass>WVC_XenotypesAndGenes.Gene_Sporelink</geneClass>
-	<displayCategory>WVC_ResurgentCells</displayCategory>
-	<displayOrderInCategory>1260</displayOrderInCategory>
-	<minAgeActive>3</minAgeActive>
-	<prerequisite>WVC_ResurgentCellsGain</prerequisite>
-	<biostatCpx>2</biostatCpx>
-	<biostatMet>0</biostatMet>
-	<biostatArc>1</biostatArc>
-	<customEffectDescriptions>
-		<li>Allows the carrier to establish a &lt;color=#8a8ae6&gt;connection&lt;/color&gt; with &lt;color=#8a8ae6&gt;resurgent trees&lt;/color&gt;.</li>
-		<!-- <li>Makes it possible to plant a &lt;color=#8a8ae6&gt;resurgent tree&lt;/color&gt; at the cost of &lt;color=#8a8ae6&gt;66 cells&lt;/color&gt;.</li> -->
-		<li>The &lt;color=#8a8ae6&gt;resurgent tree&lt;/color&gt; slowly pollutes the soil around it and raises &lt;color=#8a8ae6&gt;bone golems&lt;/color&gt;.</li>
-	</customEffectDescriptions>
-	<statOffsets>
-	  <WVC_GolemBond>6</WVC_GolemBond>
-	  <MechBandwidth>-2</MechBandwidth>
-	  <!-- <MechControlGroups>1</MechControlGroups> -->
-	</statOffsets>
-	<!-- <abilities> -->
-	  <!-- <li>WVC_AbilitySpawn_ResurgentTree</li> -->
-	<!-- </abilities> -->
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<filledBlockColor>(150, 249, 123)</filledBlockColor>
-			<tipSectionTitle>WVC_XaG_GolemBandwidth</tipSectionTitle>
-			<tipSectionTip>WVC_XaG_SporesBandwidthGizmoTip</tipSectionTip>
-			<!-- IndexTag: Base - 0, Resurgent - 1 -->
-			<golemistTypeIndex>1</golemistTypeIndex>
-		</li>
-	</modExtensions>
-  </GeneDef>
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Golems"> -->
+	<!-- <defName>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</defName> -->
+	<!-- <label>spore mechlink</label> -->
+	<!-- <description>Carriers of the gene have a natural mechlink and the ability to psionically control resurgent trees.</description> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_ResurgentTree_v0</iconPath> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Sporelink</geneClass> -->
+	<!-- <displayCategory>WVC_ResurgentCells</displayCategory> -->
+	<!-- <displayOrderInCategory>1260</displayOrderInCategory> -->
+	<!-- <minAgeActive>3</minAgeActive> -->
+	<!-- <prerequisite>WVC_ResurgentCellsGain</prerequisite> -->
+	<!-- <biostatCpx>2</biostatCpx> -->
+	<!-- <biostatMet>0</biostatMet> -->
+	<!-- <biostatArc>1</biostatArc> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Allows the carrier to establish a &lt;color=#8a8ae6&gt;connection&lt;/color&gt; with &lt;color=#8a8ae6&gt;resurgent trees&lt;/color&gt;.</li> -->
+		<!-- <li>The &lt;color=#8a8ae6&gt;resurgent tree&lt;/color&gt; slowly pollutes the soil around it and raises &lt;color=#8a8ae6&gt;bone golems&lt;/color&gt;.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <statOffsets> -->
+	  <!-- <WVC_GolemBond>6</WVC_GolemBond> -->
+	  <!-- <MechBandwidth>-2</MechBandwidth> -->
+	<!-- </statOffsets> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <filledBlockColor>(150, 249, 123)</filledBlockColor> -->
+			<!-- <tipSectionTitle>WVC_XaG_GolemBandwidth</tipSectionTitle> -->
+			<!-- <tipSectionTip>WVC_XaG_SporesBandwidthGizmoTip</tipSectionTip> -->
+			<!-- <golemistTypeIndex>1</golemistTypeIndex> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Golems">
 	<defName>WVC_SwarmConnection_Golems</defName>

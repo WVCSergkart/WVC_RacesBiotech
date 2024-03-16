@@ -75,9 +75,9 @@
 		  </li>
 		</buildings>
 	  </li>
-	  <li Class="WVC_XenotypesAndGenes.StatPart_OffsetFromPollutedGraves">
-		<reqGeneDef>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</reqGeneDef>
-	  </li>
+	  <!-- <li Class="WVC_XenotypesAndGenes.StatPart_OffsetFromPollutedGraves"> -->
+		<!-- <reqGeneDef>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</reqGeneDef> -->
+	  <!-- </li> -->
 	</parts>
   </StatDef>
 

@@ -13,7 +13,7 @@
 	<treeGenStepDef>WVC_XaG_ResurgentTrees</treeGenStepDef>
 	<treeGrowth>0.15</treeGrowth>
 	<letterLabel>Resurgent tree sprout</letterLabel>
-	<letterText>A resurgent tree has sprouted nearby!\n\nResurgent trees are toxic mushroom trees, genetically modified and powered by archotech-created archites in the root system. They slowly pollute the soil and spread to the remains buried deep in the ground, animating them.\n\nThese trees only react to the psionic presence of pawns with a certain genetic makeup, the rest of the time they are passive and almost harmless, with the exception of pollution.</letterText>
+	<letterText>A resurgent tree has sprouted nearby!\n\nResurgent trees are toxic mushroom trees, genetically modified and powered by archotech-created archites in the root system. They slowly pollute the soil and spread small fungi. These trees are largely harmless, except for pollution.</letterText>
 	<letterDef>NeutralEvent</letterDef>
   </IncidentDef>
 

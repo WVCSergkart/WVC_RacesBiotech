@@ -109,6 +109,8 @@
 	<WVC_XaG_SubXeno_SubXenotypesList>Sub-Xenotypes</WVC_XaG_SubXeno_SubXenotypesList>
 	<WVC_XaG_SubXeno_SubXenotypesList_Desc>Xenotypes into which this xenotype can evolve.</WVC_XaG_SubXeno_SubXenotypesList_Desc>
 
+	<WVC_XaG_GeneThrallMaker_ButtonDesc>Opens a menu where you can select the type of thrall for the implanter.</WVC_XaG_GeneThrallMaker_ButtonDesc>
+
 	<!-- ============================ XENOGERMINATION ============================ -->
 
 	<WVC_LetterTextGenesImplanted>{TARGET_nameDef} will be in a xenogermination coma for the next {COMADURATION} while {TARGET_possessive} body adjusts to the changes.</WVC_LetterTextGenesImplanted>
@@ -232,9 +234,10 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_Gene_DisplayStats_Undead_CanShapeshift>shapeshift</WVC_XaG_Gene_DisplayStats_Undead_CanShapeshift>
 	<WVC_XaG_Gene_DisplayStats_Undead_CanShapeshift_Desc>Responsible for whether the pawn's genes will change after auto-resurrection. This is influenced by the set of genes and xenotype.</WVC_XaG_Gene_DisplayStats_Undead_CanShapeshift_Desc>
 
-	<!-- ============================ BLESSLINK SUMMON ============================ -->
+	<!-- ============================ MECHLINK SUMMONING ============================ -->
 
 	<WVC_XaG_Gene_DustMechlink>Summon</WVC_XaG_Gene_DustMechlink>
+	<!-- To summon, it is required that there be at least one powered comm console on the same map as the mechanitor. -->
 	<WVC_XaG_Gene_DustMechlinkDesc>Allows you to toggle the automatic mechs summoning. Mechanoids summoned in this way land in drop pods at a random cell on the map.</WVC_XaG_Gene_DustMechlinkDesc>
 	<WVC_XaG_Gene_DustMechlink_On>On</WVC_XaG_Gene_DustMechlink_On>
 	<WVC_XaG_Gene_DustMechlink_Off>Off</WVC_XaG_Gene_DustMechlink_Off>

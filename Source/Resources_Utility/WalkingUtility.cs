@@ -6,9 +6,11 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public static class WalkingUtility
+	[Obsolete]
+	public static class WalkingUtility
 	{
 
+		[Obsolete]
 		public static bool CanChoseMechPawnKindDef(Pawn lich, PawnKindDef golem)
 		{
 			float weight = lich.mechanitor.TotalBandwidth - (lich.mechanitor.UsedBandwidth + golem.race.statBases.GetStatValueFromList(StatDefOf.BandwidthCost, 100f));
@@ -33,6 +35,7 @@ namespace WVC_XenotypesAndGenes
 			// return false;
 		// }
 
+		[Obsolete]
 		public static bool CanSpawnMoreCorpses(Pawn lich, Pawn golem)
 		{
 			if (MechanoidsUtility.CanSpawnMoreMechanoids(lich, golem))
@@ -47,6 +50,7 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		[Obsolete]
 		public static float GetLichWeight(Pawn lich)
 		{
 			float weight = MechanoidsUtility.TotalGolembond(lich) - MechanoidsUtility.GetConsumedGolembond(lich);
@@ -57,6 +61,7 @@ namespace WVC_XenotypesAndGenes
 			return weight;
 		}
 
+		[Obsolete]
 		public static List<Pawn> GetAllLichs(Map map)
 		{
 			List<Pawn> list = new();
@@ -98,6 +103,7 @@ namespace WVC_XenotypesAndGenes
 			// return false;
 		// }
 
+		[Obsolete]
 		public static float TotalSporesBandwidth(Pawn mechanitor)
 		{
 			return mechanitor.GetStatValue(WVC_GenesDefOf.WVC_GolemBond);
@@ -114,6 +120,7 @@ namespace WVC_XenotypesAndGenes
 			// return true;
 		// }
 
+		[Obsolete]
 		public static bool LimitExceedCheck(Pawn mechanitor)
 		{
 			float maxGolems = TotalSporesBandwidth(mechanitor);

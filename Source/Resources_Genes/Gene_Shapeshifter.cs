@@ -122,44 +122,4 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Reimplanter : Gene
-	{
-
-		public XenotypeDef xenotypeDef = null;
-
-		public override void PostAdd()
-		{
-			base.PostAdd();
-			if (xenotypeDef == null)
-			{
-				xenotypeDef = pawn.genes.Xenotype;
-			}
-		}
-
-		public override IEnumerable<Gizmo> GetGizmos()
-		{
-			if (Find.Selector.SelectedPawns.Count > 1 || pawn.Drafted || !Active || pawn.Faction != Faction.OfPlayer)
-			{
-				yield break;
-			}
-			yield return new Command_Action
-			{
-				defaultLabel = def.LabelCap + ": " + xenotypeDef.LabelCap,
-				defaultDesc = "WVC_XaG_GeneShapeshifter_Desc".Translate(),
-				icon = ContentFinder<Texture2D>.Get(def.iconPath),
-				action = delegate
-				{
-					Find.WindowStack.Add(new Dialog_ReimplanterXenotype(this));
-				}
-			};
-		}
-
-		public override void ExposeData()
-		{
-			base.ExposeData();
-			Scribe_Values.Look(ref xenotypeDef, "xenotypeDef");
-		}
-
-	}
-
 }
