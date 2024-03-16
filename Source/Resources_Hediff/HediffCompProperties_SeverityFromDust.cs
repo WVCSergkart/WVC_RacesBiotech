@@ -28,8 +28,6 @@ namespace WVC_XenotypesAndGenes
 
 		public HediffCompProperties_SeverityFromDust Props => (HediffCompProperties_SeverityFromDust)props;
 
-		public override bool CompShouldRemove => base.Pawn.genes?.GetFirstGeneOfType<Gene_Dust>() == null;
-
 		private Need_Food Dust
 		{
 			get

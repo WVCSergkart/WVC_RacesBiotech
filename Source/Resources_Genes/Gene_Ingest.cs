@@ -35,7 +35,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Dust : Gene
+	public class Gene_Dustogenic : Gene
 	{
 
 		public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
@@ -145,7 +145,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (Props.specialFoodDefs.Contains(thing.def) || UndeadUtility.PawnDowned(pawn))
 				{
-					UndeadUtility.OffsetNeedFood(pawn, 10.0f);
+					UndeadUtility.OffsetNeedFood(pawn, 10.0f, true);
 				}
 				else
 				{
@@ -172,7 +172,7 @@ namespace WVC_XenotypesAndGenes
 			// {
 			// DustUtility.OffsetNeedFood(pawn, 10.0f * nutrition * (float)numTaken);
 			// }
-			UndeadUtility.OffsetNeedFood(pawn, 10.0f * (float)numTaken);
+			UndeadUtility.OffsetNeedFood(pawn, 10.0f, true);
 		}
 
 	}
@@ -187,7 +187,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			UndeadUtility.OffsetNeedFood(pawn, 10.0f * (float)numTaken);
+			UndeadUtility.OffsetNeedFood(pawn, 10.0f, true);
 		}
 
 	}

@@ -14,12 +14,19 @@ namespace WVC_XenotypesAndGenes
 
 		// Dust
 
-		public static void OffsetNeedFood(Pawn pawn, float offset)
+		public static void OffsetNeedFood(Pawn pawn, float offset, bool alwaysMaxValue = false)
 		{
 			Need_Food need_Food = pawn.needs?.food;
 			if (need_Food != null)
 			{
-				need_Food.CurLevel += offset;
+				if (alwaysMaxValue)
+				{
+					need_Food.CurLevel = need_Food.MaxLevel;
+				}
+				else
+				{
+					need_Food.CurLevel += offset;
+				}
 			}
 		}
 

@@ -34,7 +34,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			Gene_Dust gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
+			Gene_Dustogenic gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_Dustogenic>();
 			if (gene_Resurgent != null)
 			{
 				// if ((oneYear * humanAdultAge) <= pawn.ageTracker.AgeBiologicalTicks)
@@ -66,7 +66,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (AgelessUtility.CanAgeReverse(pawn))
 			{
-				Gene_Dust gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
+				Gene_Dustogenic gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_Dustogenic>();
 				if (gene_Resurgent != null)
 				{
 					AgelessUtility.AgeReverse(pawn);

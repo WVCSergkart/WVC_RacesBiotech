@@ -19,7 +19,7 @@
 	<defName>WVC_Dustogenic</defName>
 	<label>dustogenic</label>
 	<description>Carriers of this gene have special blood cells called dust. These cells decreases the amount of nutrients available from food sources.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_Dust</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Dustogenic</geneClass>
 	<!-- <resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Dust</resourceGizmoType> -->
 	<!-- <resourceLabel>dust</resourceLabel> -->
 	<foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
