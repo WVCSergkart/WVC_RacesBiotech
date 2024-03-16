@@ -14,6 +14,17 @@ namespace WVC_XenotypesAndGenes
 	public static class MiscUtility
 	{
 
+		// Map
+
+		public static bool IsUnderground(this Map map)
+		{
+			if (map?.generatorDef?.isUnderground == true)
+			{
+				return true;
+			}
+			return false;
+		}
+
 		// Faceplate
 
 		// public static bool HeadTypeIsCorrect(Pawn pawn, List<HeadTypeDef> headTypeDefs)

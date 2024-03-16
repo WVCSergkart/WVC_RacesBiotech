@@ -134,6 +134,10 @@ namespace WVC_XenotypesAndGenes
 
 		public static void MechSummonQuest(Pawn pawn, QuestScriptDef quest)
 		{
+			if (pawn.Map.IsUnderground())
+			{
+				return;
+			}
 			Slate slate = new();
 			slate.Set("points", StorytellerUtility.DefaultThreatPointsNow(pawn.Map));
 			slate.Set("asker", pawn);

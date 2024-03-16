@@ -235,7 +235,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<!-- ============================ BLESSLINK SUMMON ============================ -->
 
 	<WVC_XaG_Gene_DustMechlink>Summon</WVC_XaG_Gene_DustMechlink>
-	<WVC_XaG_Gene_DustMechlinkDesc>Allows you to toggle the automatic summoning of mechanoids. Mechanoids summoned in this way land in drop pods at a random location on the map.</WVC_XaG_Gene_DustMechlinkDesc>
+	<WVC_XaG_Gene_DustMechlinkDesc>Allows you to toggle the automatic mechs summoning. Mechanoids summoned in this way land in drop pods at a random cell on the map.</WVC_XaG_Gene_DustMechlinkDesc>
 	<WVC_XaG_Gene_DustMechlink_On>On</WVC_XaG_Gene_DustMechlink_On>
 	<WVC_XaG_Gene_DustMechlink_Off>Off</WVC_XaG_Gene_DustMechlink_Off>
 

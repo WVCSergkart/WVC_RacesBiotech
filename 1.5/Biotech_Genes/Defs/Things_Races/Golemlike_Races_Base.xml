@@ -44,7 +44,9 @@
 		</tools>
 		<race>
 			<body>Mech_Light</body>
-			<!-- <deathActionWorkerClass>WVC_XenotypesAndGenes.DeathActionWorker_SpawnRandomThingFromList</deathActionWorkerClass> -->
+			<deathAction Class="WVC_XenotypesAndGenes.DeathActionProperties_DestroyCorpse">
+				<deSpawn>false</deSpawn>
+			</deathAction>
 			<!-- <maxMechEnergy>1</maxMechEnergy> -->
 			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
 			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>

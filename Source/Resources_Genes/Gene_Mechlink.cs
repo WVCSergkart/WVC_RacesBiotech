@@ -36,6 +36,34 @@ namespace WVC_XenotypesAndGenes
 			timeForNextSummon = Spawner.spawnIntervalRange.RandomInRange;
 		}
 
+		public bool CanDoOrbitalSummon()
+		{
+			if (!summonMechanoids)
+			{
+				return false;
+			}
+			if (pawn.Faction != Faction.OfPlayer)
+			{
+				summonMechanoids = false;
+				return false;
+			}
+			if (pawn.Map == null)
+			{
+				return false;
+			}
+			// if (!CommsConsoleUtility.PlayerHasPoweredCommsConsole(pawn.Map))
+			// {
+				// return false;
+			// }
+			if (!MechanitorUtility.IsMechanitor(pawn))
+			{
+				summonMechanoids = false;
+				Reset();
+				return false;
+			}
+			return true;
+		}
+
 		// public override void Notify_PawnDied()
 		// {
 			// base.Notify_PawnDied();
@@ -135,27 +163,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
+			if (CanDoOrbitalSummon())
+			{
+				SummonRandomMech();
+			}
 			ResetSummonInterval();
-			if (!summonMechanoids)
-			{
-				return;
-			}
-			if (pawn.Faction != Faction.OfPlayer)
-			{
-				summonMechanoids = false;
-				return;
-			}
-			if (pawn.Map == null)
-			{
-				return;
-			}
-			if (!MechanitorUtility.IsMechanitor(pawn))
-			{
-				summonMechanoids = false;
-				Reset();
-				return;
-			}
-			SummonRandomMech();
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -231,27 +243,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
+			if (CanDoOrbitalSummon())
+			{
+				SummonRandomMech();
+			}
 			ResetSummonInterval();
-			if (!summonMechanoids)
-			{
-				return;
-			}
-			if (pawn.Faction != Faction.OfPlayer)
-			{
-				summonMechanoids = false;
-				return;
-			}
-			if (pawn.Map == null)
-			{
-				return;
-			}
-			if (!MechanitorUtility.IsMechanitor(pawn))
-			{
-				summonMechanoids = false;
-				Reset();
-				return;
-			}
-			SummonRandomMech();
 		}
 
 		private void SummonRandomMech()
