@@ -11,7 +11,7 @@
 	<labelShortAdj>pattern aptitude</labelShortAdj>
 	<description>Carriers of this gene have a predetermined pattern aptitude. Pattern aptitude acts like an offset on all skills, giving significant advantages in some skills and disadvantages in others. Does not affect passion.</description>
 	<iconPath>WVC/UI/Genes/Gene_AptitudesFarmer_v0</iconPath>
-	<marketValueFactor>2</marketValueFactor>
+	<marketValueFactor>1.2</marketValueFactor>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
@@ -40,14 +40,14 @@
 	<defName>WVC_MechaAI_FirmwareCreatorMachine</defName>
 	<label>pattern aptitude (creator)</label>
 	<iconPath>WVC/UI/Genes/Gene_AptitudesCreator_v0</iconPath>
-	<socialFightChanceFactor>0.5</socialFightChanceFactor>
-	<aggroMentalBreakSelectionChanceFactor>1.2</aggroMentalBreakSelectionChanceFactor>
-	<prisonBreakMTBFactor>1.2</prisonBreakMTBFactor>
-	<statFactors>
-	  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.2</ConversionPower>
-	  <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">1.2</SocialIdeoSpreadFrequencyFactor>
-	  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">0.8</CertaintyLossFactor>
-	</statFactors>
+	<!-- <socialFightChanceFactor>0.5</socialFightChanceFactor> -->
+	<!-- <aggroMentalBreakSelectionChanceFactor>1.2</aggroMentalBreakSelectionChanceFactor> -->
+	<!-- <prisonBreakMTBFactor>1.2</prisonBreakMTBFactor> -->
+	<!-- <statFactors> -->
+	  <!-- <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.2</ConversionPower> -->
+	  <!-- <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">1.2</SocialIdeoSpreadFrequencyFactor> -->
+	  <!-- <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">0.8</CertaintyLossFactor> -->
+	<!-- </statFactors> -->
 	<aptitudes>
 	  <!-- -30 -->
 	  <!-- creator 42 -->
@@ -73,14 +73,14 @@
 	<defName>WVC_MechaAI_FirmwareWarMachine</defName>
 	<label>pattern aptitude (war)</label>
 	<iconPath>WVC/UI/Genes/Gene_AptitudesWar_v0</iconPath>
-	<socialFightChanceFactor>2</socialFightChanceFactor>
-	<aggroMentalBreakSelectionChanceFactor>2</aggroMentalBreakSelectionChanceFactor>
-	<prisonBreakMTBFactor>0.6</prisonBreakMTBFactor>
-	<statFactors>
-	  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">1.5</ConversionPower>
-	  <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">0.4</SocialIdeoSpreadFrequencyFactor>
-	  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">1.0</CertaintyLossFactor>
-	</statFactors>
+	<!-- <socialFightChanceFactor>2</socialFightChanceFactor> -->
+	<!-- <aggroMentalBreakSelectionChanceFactor>2</aggroMentalBreakSelectionChanceFactor> -->
+	<!-- <prisonBreakMTBFactor>0.6</prisonBreakMTBFactor> -->
+	<!-- <statFactors> -->
+	  <!-- <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">1.5</ConversionPower> -->
+	  <!-- <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">0.4</SocialIdeoSpreadFrequencyFactor> -->
+	  <!-- <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">1.0</CertaintyLossFactor> -->
+	<!-- </statFactors> -->
 	<aptitudes>
 	  <!-- -30 -->
 	  <!-- creator -54 -->
@@ -106,14 +106,14 @@
 	<defName>WVC_MechaAI_FirmwareGreenMachine</defName>
 	<label>pattern aptitude (green)</label>
 	<iconPath>WVC/UI/Genes/Gene_AptitudesFarmer_v0</iconPath>
-	<socialFightChanceFactor>0.5</socialFightChanceFactor>
-	<aggroMentalBreakSelectionChanceFactor>0.8</aggroMentalBreakSelectionChanceFactor>
-	<prisonBreakMTBFactor>1.5</prisonBreakMTBFactor>
-	<statFactors>
-	  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.8</ConversionPower>
-	  <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">0.6</SocialIdeoSpreadFrequencyFactor>
-	  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">1.2</CertaintyLossFactor>
-	</statFactors>
+	<!-- <socialFightChanceFactor>0.5</socialFightChanceFactor> -->
+	<!-- <aggroMentalBreakSelectionChanceFactor>0.8</aggroMentalBreakSelectionChanceFactor> -->
+	<!-- <prisonBreakMTBFactor>1.5</prisonBreakMTBFactor> -->
+	<!-- <statFactors> -->
+	  <!-- <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.8</ConversionPower> -->
+	  <!-- <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">0.6</SocialIdeoSpreadFrequencyFactor> -->
+	  <!-- <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">1.2</CertaintyLossFactor> -->
+	<!-- </statFactors> -->
 	<aptitudes>
 	  <!-- -30 -->
 	  <!-- creator -50 -->
@@ -139,14 +139,14 @@
 	<defName>WVC_MechaAI_FirmwareRogueMachine</defName>
 	<label>pattern aptitude (rogue)</label>
 	<iconPath>WVC/UI/Genes/Gene_AptitudesRogue_v0</iconPath>
-	<socialFightChanceFactor>0.5</socialFightChanceFactor>
-	<aggroMentalBreakSelectionChanceFactor>0.8</aggroMentalBreakSelectionChanceFactor>
-	<prisonBreakMTBFactor>0.5</prisonBreakMTBFactor>
-	<statFactors>
-	  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.5</ConversionPower>
-	  <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">2</SocialIdeoSpreadFrequencyFactor>
-	  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">2.0</CertaintyLossFactor>
-	</statFactors>
+	<!-- <socialFightChanceFactor>0.5</socialFightChanceFactor> -->
+	<!-- <aggroMentalBreakSelectionChanceFactor>0.8</aggroMentalBreakSelectionChanceFactor> -->
+	<!-- <prisonBreakMTBFactor>0.5</prisonBreakMTBFactor> -->
+	<!-- <statFactors> -->
+	  <!-- <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.5</ConversionPower> -->
+	  <!-- <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">2</SocialIdeoSpreadFrequencyFactor> -->
+	  <!-- <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">2.0</CertaintyLossFactor> -->
+	<!-- </statFactors> -->
 	<aptitudes>
 	  <!-- -30 -->
 	  <!-- creator -24 -->
@@ -172,14 +172,14 @@
 	<defName>WVC_MechaAI_FirmwarePropagandaMachine</defName>
 	<label>pattern aptitude (propaganda)</label>
 	<iconPath>WVC/UI/Genes/Gene_AptitudesPropaganda_v0</iconPath>
-	<socialFightChanceFactor>2</socialFightChanceFactor>
-	<aggroMentalBreakSelectionChanceFactor>0.2</aggroMentalBreakSelectionChanceFactor>
-	<prisonBreakMTBFactor>1.5</prisonBreakMTBFactor>
-	<statFactors>
-	  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">2</ConversionPower>
-	  <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">2</SocialIdeoSpreadFrequencyFactor>
-	  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">0.5</CertaintyLossFactor>
-	</statFactors>
+	<!-- <socialFightChanceFactor>2</socialFightChanceFactor> -->
+	<!-- <aggroMentalBreakSelectionChanceFactor>0.2</aggroMentalBreakSelectionChanceFactor> -->
+	<!-- <prisonBreakMTBFactor>1.5</prisonBreakMTBFactor> -->
+	<!-- <statFactors> -->
+	  <!-- <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">2</ConversionPower> -->
+	  <!-- <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">2</SocialIdeoSpreadFrequencyFactor> -->
+	  <!-- <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">0.5</CertaintyLossFactor> -->
+	<!-- </statFactors> -->
 	<aptitudes>
 	  <!-- -30 -->
 	  <!-- creator -26 -->
@@ -205,14 +205,14 @@
 	<defName>WVC_MechaAI_FirmwareMechanitorMachine</defName>
 	<label>pattern aptitude (mechanitor)</label>
 	<iconPath>WVC/UI/Genes/Gene_AptitudesMechanitor_v0</iconPath>
-	<socialFightChanceFactor>1.2</socialFightChanceFactor>
-	<aggroMentalBreakSelectionChanceFactor>0.5</aggroMentalBreakSelectionChanceFactor>
-	<prisonBreakMTBFactor>1.5</prisonBreakMTBFactor>
-	<statFactors>
-	  <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.2</ConversionPower>
-	  <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">0.5</SocialIdeoSpreadFrequencyFactor>
-	  <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">0.5</CertaintyLossFactor>
-	</statFactors>
+	<!-- <socialFightChanceFactor>1.2</socialFightChanceFactor> -->
+	<!-- <aggroMentalBreakSelectionChanceFactor>0.5</aggroMentalBreakSelectionChanceFactor> -->
+	<!-- <prisonBreakMTBFactor>1.5</prisonBreakMTBFactor> -->
+	<!-- <statFactors> -->
+	  <!-- <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.2</ConversionPower> -->
+	  <!-- <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">0.5</SocialIdeoSpreadFrequencyFactor> -->
+	  <!-- <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">0.5</CertaintyLossFactor> -->
+	<!-- </statFactors> -->
 	<aptitudes>
 	  <!-- -30 -->
 	  <!-- creator 22 -->

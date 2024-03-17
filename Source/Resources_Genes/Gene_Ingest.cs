@@ -511,6 +511,10 @@ namespace WVC_XenotypesAndGenes
 		public override void Notify_IngestedThing(Thing thing, int numTaken)
 		{
 			base.Notify_IngestedThing(thing, numTaken);
+			if (thing.def == ThingDefOf.HemogenPack)
+			{
+				return;
+			}
 			IngestibleProperties ingestible = thing.def.ingestible;
 			float nutrition = thing.GetStatValue(StatDefOf.Nutrition);
 			if (ingestible != null && nutrition > 0f)

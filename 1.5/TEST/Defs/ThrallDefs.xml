@@ -10,20 +10,21 @@
 		<li>Aggression_DeadCalm</li>
 		<!-- <li>Beauty_VeryUgly</li> -->
 		<li>WVC_Learning_ExtremeSlow</li>
-		<li>Neversleep</li>
+		<!-- <li>Neversleep</li> -->
+		<li>WVC_PredatorPrey_NotTasty</li>
 		<!-- = Pawn Appearance = -->
 		<li>WVC_TransparentSkin</li>
 		<li>Ears_Pointed</li>
 		<li>Body_Standard</li>
-		<!-- <li>Hair_SnowWhite</li> -->
+		<li>Hair_SnowWhite</li>
 		<li>WVC_HairColor_ffdcb4_HEX</li>
 		<li>Skin_Melanin1</li>
 		<!-- = Vampirism = -->
 		<li>Hemogenic</li>
-		<li>WVC_HemogenGain</li>
+		<!-- <li>WVC_HemogenGain</li> -->
 		<li>Bloodfeeder</li>
 		<li>WVC_Bloodeater</li>
-		<li>WVC_NaturalAgeless</li>
+		<!-- <li>WVC_NaturalAgeless</li> -->
 	</genes>
   </WVC_XenotypesAndGenes.ThrallDef>
 
