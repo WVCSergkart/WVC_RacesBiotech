@@ -3,7 +3,7 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneticInstability_Base">
 	<defName>WVC_ThrallGeneticInstability</defName>
-	<label>thrall genetic</label>
+	<label>thrall genetic instability</label>
 	<description>Carriers of this gene are critically dependent on resurgent cells. They regularly need to receive fresh cells from living hosts.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_GeneticThrall</geneClass>
 	<descriptionHyperlinks>
@@ -12,12 +12,18 @@
 	<iconPath>WVC/UI/Genes/Gene_Thrall_v0</iconPath>
 	<selectionWeight>0.00</selectionWeight>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
-	<displayOrderInCategory>1260</displayOrderInCategory>
+	<displayCategory>WVC_ResurgentCells</displayCategory>
+	<displayOrderInCategory>1500</displayOrderInCategory>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>8</biostatMet>
+	<sterilize>true</sterilize>
+	<statFactors>
+	  <Fertility>0</Fertility>
+	</statFactors>
 	<customEffectDescriptions Inherit="False">
 	  <li>Carrier must regularly bite &lt;color=#8a8ae6&gt;resurgent&lt;/color&gt; pawns or it &lt;color=#ff8585&gt;will die&lt;/color&gt;.</li>
+	  <!-- <li>&lt;color=#ff8585&gt;This gene cannot be removed.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<abilities>
 	  <li>WVC_XaG_Cellsfeed</li>
@@ -28,6 +34,10 @@
 	</exclusionTags>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<jobDef>UseItem</jobDef>
+			<specialFoodDefs>
+				<li>WVC_GeneticStabilizerSerum_Base</li>
+			</specialFoodDefs>
 			<showMessageIfOwned>true</showMessageIfOwned>
 			<defaultBoolValue>true</defaultBoolValue>
 			<intervalRange>622000~940000</intervalRange>

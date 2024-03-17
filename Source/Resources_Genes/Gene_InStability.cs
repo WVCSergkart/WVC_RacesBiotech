@@ -184,14 +184,14 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (nextTick < 180000)
 				{
-					GetSerumJob();
+					GetDelayJob();
 				}
 				return;
 			}
 			GeneticStuff();
 		}
 
-		public virtual void GetSerumJob()
+		public virtual void GetDelayJob()
 		{
 			if (!pawn.IsHashIntervalTick(12000))
 			{
@@ -216,6 +216,11 @@ namespace WVC_XenotypesAndGenes
 				InCaravan();
 				return;
 			}
+			DelayJob();
+		}
+
+		public virtual void DelayJob()
+		{
 			if (Props.jobDef == null || Props.specialFoodDefs.NullOrEmpty())
 			{
 				return;
@@ -260,7 +265,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public void GeneticStuff()
+		public virtual void GeneticStuff()
 		{
 			if (!Props.hediffDefs.NullOrEmpty())
 			{
@@ -343,32 +348,13 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_GeneticThrall : Gene_GeneticInstability
 	{
 
-		public override void GetSerumJob()
+		public override void DelayJob()
 		{
-			if (!pawn.IsHashIntervalTick(12000))
+			if (TryHuntForCells(pawn))
 			{
 				return;
 			}
-			if (!useStabilizerAuto)
-			{
-				return;
-			}
-			if (pawn.Downed || pawn.Drafted)
-			{
-				return;
-			}
-			if (pawn.Faction != Faction.OfPlayer)
-			{
-				useStabilizerAuto = false;
-				return;
-			}
-			if (pawn.Map == null)
-			{
-				// In caravan use
-				InCaravan();
-				return;
-			}
-			TryHuntForCells(pawn);
+			base.DelayJob();
 		}
 
 		public static bool TryHuntForCells(Pawn pawn)
@@ -414,6 +400,7 @@ namespace WVC_XenotypesAndGenes
 				GeneFeaturesUtility.DoCellsBite(pawn, pawns[j], 10f, 0.2f, new (0, 0));
 				break;
 			}
+			base.InCaravan();
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -460,6 +447,12 @@ namespace WVC_XenotypesAndGenes
 				}
 			};
 		}
+
+		// public override void PostRemove()
+		// {
+			// base.PostRemove();
+			// pawn.genes.AddGene(this.def, false);
+		// }
 
 	}
 

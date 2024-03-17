@@ -3,39 +3,42 @@
 
   <WVC_XenotypesAndGenes.ThrallDef Name="WVC_XenotypesAndGenes_ThrallDefs_Base" Abstract="True">
 	<label>thrall</label>
-	<description>Should be invisible.</description>
+	<description>In general thralls are rare xenohumans with a set of genes that does not fall into any known xenotype. Thralls are created from fresh corpses and usually cannot exist without the support of a master, since their genetic instabilization inevitably leads to death.</description>
 	<xenotypeIconDef>WVC_Xeno18c</xenotypeIconDef>
 	<genes>
-		<li>WVC_DeadStomach</li>
-		<li>WVC_ArchitePerfectImmunity_DiseaseFree</li>
-		<li>WVC_ThrallGeneticInstability</li>
-		<li>WVC_MinTemp_ArchiteDecrease</li>
-		<li>WVC_MaxTemp_ArchiteIncrease</li>
-		<li>WVC_ToxResist_Archite</li>
+		<li>ToxicEnvironmentResistance_Total</li>
 		<li>Aggression_DeadCalm</li>
-		<li>WVC_Neversleep</li>
-		<li>Beauty_Ugly</li>
+		<!-- <li>Beauty_VeryUgly</li> -->
+		<li>WVC_Learning_ExtremeSlow</li>
+		<li>Neversleep</li>
+		<!-- = Pawn Appearance = -->
+		<li>WVC_TransparentSkin</li>
+		<li>Ears_Pointed</li>
+		<li>Body_Standard</li>
+		<!-- <li>Hair_SnowWhite</li> -->
+		<li>WVC_HairColor_ffdcb4_HEX</li>
+		<li>Skin_Melanin1</li>
+		<!-- = Vampirism = -->
+		<li>Hemogenic</li>
+		<li>WVC_HemogenGain</li>
+		<li>Bloodfeeder</li>
+		<li>WVC_Bloodeater</li>
+		<li>WVC_NaturalAgeless</li>
 	</genes>
   </WVC_XenotypesAndGenes.ThrallDef>
 
   <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Base">
 	<defName>WVC_Fielder</defName>
-	<label>thrall fielder</label>
-	<description>Basic working thrall. This thrall is an excellent builder, miner and gardener. He can move quickly and easily learns new skills, but he is a poor fighter and his intellectual abilities leave much to be desired.</description>
+	<label>fielder</label>
+	<description>Field modification of the thrall. These thralls are excellent builders, gardeners, and miners. They have a bonus to speed and can easily recover from cutting wounds, but they are absolutely unsuitable for combat.\n\nIn general thralls are rare xenohumans with a set of genes that does not fall into any known xenotype. Thralls are created from fresh corpses and usually cannot exist without the support of a master, since their genetic instabilization inevitably leads to death.</description>
 	<xenotypeIconDef>WVC_XenoSecond18c</xenotypeIconDef>
 	<genes>
-		<!-- <li>WVC_WoundHealing_UnrealFast</li> -->
 		<li>Superclotting</li>
 		<li>WVC_PsychicAbility_Deaf</li>
 		<li>MoveSpeed_VeryQuick</li>
-		<li>WVC_TransparentSkin</li>
 		<li>WVC_DemonTailA</li>
-		<li>Hair_LongOnly</li>
-		<li>Ears_Pointed</li>
-		<li>Body_Standard</li>
-		<li>Hair_Gray</li>
-		<li>Skin_Green</li>
-		<li>Learning_Fast</li>
+		<li>WVC_BodySize_Small</li>
+		<!-- = -->
 		<li>WVC_AptitudeShameful_Shooting</li>
 		<li>WVC_AptitudeShameful_Melee</li>
 		<li>WVC_AptitudeMarvelous_Construction</li>
@@ -53,8 +56,8 @@
 
   <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Base">
 	<defName>WVC_Striker</defName>
-	<label>thrall striker</label>
-	<description>Basic combat thrall. This thrall is entirely born for fighting. He is an absolutely useless worker, but he is irreplaceable in battle, he is fast, tenacious and incredibly quickly recovers from wounds.</description>
+	<label>striker</label>
+	<description>Combat modification of the thrall. These thralls are excellent fighters, they can take a lot of damage and put up a serious fight against superior opponents, but they are completely useless otherwise.\n\nIn general thralls are rare xenohumans with a set of genes that does not fall into any known xenotype. Thralls are created from fresh corpses and usually cannot exist without the support of a master, since their genetic instabilization inevitably leads to death.</description>
 	<xenotypeIconDef>WVC_Xeno30c</xenotypeIconDef>
 	<genes>
 		<li>WoundHealing_SuperFast</li>
@@ -62,15 +65,8 @@
 		<li>MoveSpeed_VeryQuick</li>
 		<li>MeleeDamage_Strong</li>
 		<li>WVC_Tough</li>
-		<li>WVC_PatchSkin</li>
-		<li>Hair_BaldOnly</li>
-		<li>Beard_Always</li>
-		<li>Headbone_MiniHorns</li>
-		<li>Body_Standard</li>
-		<li>Body_Hulk</li>
-		<li>Hair_MidBlack</li>
-		<li>Skin_DeepRed</li>
-		<li>Learning_Slow</li>
+		<li>WVC_BodySize_Large</li>
+		<!-- = -->
 		<li>WVC_AptitudeMarvelous_Shooting</li>
 		<li>WVC_AptitudeMarvelous_Melee</li>
 		<li>WVC_AptitudeShameful_Construction</li>
@@ -82,6 +78,35 @@
 		<li>WVC_AptitudeShameful_Artistic</li>
 		<li>WVC_AptitudeShameful_Medicine</li>
 		<li>WVC_AptitudeShameful_Social</li>
+		<li>WVC_AptitudeShameful_Intellectual</li>
+	</genes>
+  </WVC_XenotypesAndGenes.ThrallDef>
+
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Base">
+	<defName>WVC_Artister</defName>
+	<label>artister</label>
+	<description>Crafter modification of the thrall. These thralls are excellent artists and crafters, they are also quite charismatic and will be able to entertain with dialogue in any situation. They do not require much food, but they are very slow and weak.\n\nIn general thralls are rare xenohumans with a set of genes that does not fall into any known xenotype. Thralls are created from fresh corpses and usually cannot exist without the support of a master, since their genetic instabilization inevitably leads to death.</description>
+	<xenotypeIconDef>WVC_XenoSecond21c</xenotypeIconDef>
+	<genes>
+		<li>WVC_NaturalTelepathy</li>
+		<li>WVC_StoneStomach</li>
+		<li>WVC_Delicate</li>
+		<li>WVC_CatEarsA</li>
+		<li>DarkVision</li>
+		<li>ElongatedFingers</li>
+		<li>WVC_BodySize_Small</li>
+		<!-- = -->
+		<li>WVC_AptitudeShameful_Shooting</li>
+		<li>WVC_AptitudeShameful_Melee</li>
+		<li>WVC_AptitudeShameful_Construction</li>
+		<li>WVC_AptitudeShameful_Mining</li>
+		<li>WVC_AptitudeShameful_Cooking</li>
+		<li>WVC_AptitudeShameful_Plants</li>
+		<li>WVC_AptitudeShameful_Animals</li>
+		<li>WVC_AptitudeMarvelous_Crafting</li>
+		<li>WVC_AptitudeMarvelous_Artistic</li>
+		<li>WVC_AptitudeShameful_Medicine</li>
+		<li>WVC_AptitudeMarvelous_Social</li>
 		<li>WVC_AptitudeShameful_Intellectual</li>
 	</genes>
   </WVC_XenotypesAndGenes.ThrallDef>

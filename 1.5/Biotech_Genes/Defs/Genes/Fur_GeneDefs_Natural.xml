@@ -27,6 +27,7 @@
 		<rotDrawMode>Fresh, Rotting</rotDrawMode>
 		<colorType>Skin</colorType>
 		<parentTagDef>Body</parentTagDef>
+		<useSkinShader>true</useSkinShader>
 	  </li>
 	</renderNodeProperties>
 	<exclusionTags>

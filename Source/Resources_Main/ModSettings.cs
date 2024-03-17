@@ -18,6 +18,7 @@ namespace WVC_XenotypesAndGenes
 		public bool disableFurGraphic = false;
 		public bool disableAllGraphic = false;
 		public bool disableUniqueGeneInterface = false;
+		public bool enableBodySizeGenes = false;
 		// Generator
 		public bool generateSkillGenes = true;
 		public bool generateXenotypeForceGenes = false;
@@ -29,7 +30,7 @@ namespace WVC_XenotypesAndGenes
 		public bool totalHealingIgnoreScarification = true;
 		// public bool genesRemoveMechlinkUponDeath = false;
 		// public bool enableCustomMechLinkName = false;
-		public bool shapeshifterGeneUnremovable = false;
+		public bool shapeshifterGeneUnremovable = true;
 		public bool enableIncestLoverGene = true;
 		public bool enableHarmonyTelepathyGene = false;
 		public bool useAlternativeDustogenicFoodJob = true;
@@ -55,7 +56,6 @@ namespace WVC_XenotypesAndGenes
 		public bool serumsForAllXenotypes_Spawners = false;
 		// ExtraSettings
 		public bool genesCanTickOnlyOnMap = false;
-		public bool enableBodySizeGenes = false;
 		// Fix
 		public bool fixVanillaGeneImmunityCheck = true;
 		public bool spawnXenoForcerSerumsFromTraders = true;
@@ -79,6 +79,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref disableFurGraphic, "disableFurGraphic", defaultValue: false);
 			Scribe_Values.Look(ref disableAllGraphic, "disableAllGraphic", defaultValue: false);
 			Scribe_Values.Look(ref disableUniqueGeneInterface, "disableUniqueGeneInterface", defaultValue: false);
+			Scribe_Values.Look(ref enableBodySizeGenes, "enableBodySizeGenes", defaultValue: false);
 			// Generator
 			Scribe_Values.Look(ref generateSkillGenes, "generateSkillGenes", defaultValue: true);
 			Scribe_Values.Look(ref generateXenotypeForceGenes, "generateXenotypeForceGenes", defaultValue: false);
@@ -90,7 +91,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref totalHealingIgnoreScarification, "totalHealingIgnoreScarification", defaultValue: true);
 			// Scribe_Values.Look(ref genesRemoveMechlinkUponDeath, "genesRemoveMechlinkUponDeath", defaultValue: false);
 			// Scribe_Values.Look(ref enableCustomMechLinkName, "enableCustomMechLinkName", defaultValue: false);
-			Scribe_Values.Look(ref shapeshifterGeneUnremovable, "shapeshifterGeneUnremovable", defaultValue: false);
+			Scribe_Values.Look(ref shapeshifterGeneUnremovable, "shapeshifterGeneUnremovable", defaultValue: true);
 			Scribe_Values.Look(ref enableIncestLoverGene, "enableIncestLoverGene", defaultValue: true);
 			Scribe_Values.Look(ref enableHarmonyTelepathyGene, "enableHarmonyTelepathyGene", defaultValue: false);
 			Scribe_Values.Look(ref useAlternativeDustogenicFoodJob, "useAlternativeDustogenicFoodJob", defaultValue: true);
@@ -122,7 +123,6 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref serumsForAllXenotypes_Spawners, "serumsForAllXenotypes_Spawners", defaultValue: false);
 			// ExtraSettings
 			Scribe_Values.Look(ref genesCanTickOnlyOnMap, "genesCanTickOnlyOnMap", defaultValue: false);
-			Scribe_Values.Look(ref enableBodySizeGenes, "enableBodySizeGenes", defaultValue: false);
 			// Gestator
 			Scribe_Values.Look(ref xenotypeGestator_GestationTimeFactor, "xenotypeGestator_GestationTimeFactor", defaultValue: 1f);
 			Scribe_Values.Look(ref xenotypeGestator_GestationMatchPercent, "xenotypeGestator_GestationMatchPercent", defaultValue: 0.4f);
@@ -220,6 +220,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_disableFurGraphic".Translate().Colorize(ColorLibrary.LightPurple), ref settings.disableFurGraphic, "WVC_ToolTip_disableFurGraphic".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableAllGraphic".Translate(), ref settings.disableAllGraphic, "WVC_ToolTip_disableAllGraphic".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableUniqueGeneInterface".Translate().Colorize(ColorLibrary.LightPurple), ref settings.disableUniqueGeneInterface, "WVC_ToolTip_disableUniqueGeneInterface".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_enableBodySizeGenes".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enableBodySizeGenes, "WVC_ToolTip_enableBodySizeGenes".Translate());
 			// Info
 			listingStandard.Gap();
 			listingStandard.Label("WVC_BiotechSettings_Label_Info".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Info".Translate());
@@ -396,7 +397,6 @@ namespace WVC_XenotypesAndGenes
 			// Extra
 			listingStandard.Label("WVC_BiotechSettings_Label_Genes".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Genes".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_genesCanTickOnlyOnMap".Translate().Colorize(ColorLibrary.LightPurple), ref settings.genesCanTickOnlyOnMap, "WVC_ToolTip_genesCanTickOnlyOnMap".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_enableBodySizeGenes".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enableBodySizeGenes, "WVC_ToolTip_enableBodySizeGenes".Translate());
 			listingStandard.Gap();
 			// =============== Dev ===============
 			listingStandard.CheckboxLabeled("DEV: ".Colorize(ColorLibrary.RedReadable) + "WVC_Label_fixGenesOnLoad".Translate().Colorize(ColorLibrary.LightPink), ref settings.fixGenesOnLoad, "WVC_ToolTip_fixGenesOnLoad".Translate() + "\n\n" + "WVC_Alert_fixBrokenShit".Translate());
@@ -565,7 +565,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.totalHealingIgnoreScarification = true;
 			WVC_Biotech.settings.restoreBodyPartsWithFullHP = false;
 			// =
-			WVC_Biotech.settings.shapeshifterGeneUnremovable = false;
+			WVC_Biotech.settings.shapeshifterGeneUnremovable = true;
 			// =
 			WVC_Biotech.settings.enableIncestLoverGene = true;
 			// =

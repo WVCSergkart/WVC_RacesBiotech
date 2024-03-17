@@ -102,6 +102,7 @@
 		<li>Allows you to change the xenotype at any time.</li>
 		<li>This gene removes the limit of the &lt;color=#8a8ae6&gt;"Xenotype gestator"&lt;/color&gt; gene.</li>
 		<li>&lt;color=#ff8585&gt;Does not support custom xenotypes.&lt;/color&gt;</li>
+		<li>&lt;color=#ff8585&gt;This gene cannot be removed.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<displayOrderInCategory>155</displayOrderInCategory>
 	<modExtensions>
