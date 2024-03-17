@@ -273,14 +273,10 @@ namespace WVC_XenotypesAndGenes
 
 		public static void OffsetResurgentCells(Pawn pawn, float offset)
 		{
-			if (!ModsConfig.BiotechActive)
-			{
-				return;
-			}
-			Gene_ResurgentCells gene_Hemogen = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
+			Gene_ResurgentCells gene_Hemogen = pawn?.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
 			if (gene_Hemogen != null)
 			{
-				gene_Hemogen.Value += offset;
+				OffsetResource(gene_Hemogen, offset);
 			}
 		}
 
@@ -292,6 +288,7 @@ namespace WVC_XenotypesAndGenes
 				OffsetResource(drain, (0f - drain.ResourceLossPerDay) / 60000f);
 			}
 		}
+
 
 		public static void OffsetResource(IGeneResourceDrain drain, float amnt)
 		{

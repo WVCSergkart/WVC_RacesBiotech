@@ -78,6 +78,8 @@ namespace WVC_XenotypesAndGenes
 			}
 			Widgets.Label(rect3.x, ref curY, rect3.width, selectedXeno.description);
 			curY += 10f;
+			Widgets.HyperlinkWithIcon(new Rect(rect3.x, curY, rect3.width, Text.LineHeight), new Dialog_InfoCard.Hyperlink(selectedXeno));
+			curY += 10f;
 			Rect rect4 = new(rect3.x, rect3.yMax - 55f, rect3.width, 55f);
 			if (MeetsRequirements(selectedXeno))
 			{

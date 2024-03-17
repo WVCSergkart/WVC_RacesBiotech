@@ -18,6 +18,8 @@ namespace WVC_XenotypesAndGenes
 
 		public JobDef absorberJob;
 
+		public List<GeneDef> geneDefs;
+
 		public bool reimplantEndogenes = true;
 		public bool reimplantXenogenes = true;
 

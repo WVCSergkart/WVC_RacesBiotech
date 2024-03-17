@@ -244,6 +244,8 @@
 		<!-- <li>WVC_DisabledAllWork_</li> -->
 		<li>WVC_DisabledAllWork_Useless</li>
 		<li>WVC_DisabledAllWork_Blank</li>
+		<li>WVC_ThrallGeneticInstability</li>
+		<li>WVC_DeadlyGeneticInstability</li>
 		<!-- For future -->
 		<!-- <li>WVC_NodeEyes_</li> -->
 		<!-- <li>WVC_NodeEyes_A</li> -->

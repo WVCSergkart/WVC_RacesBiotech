@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneticInstability_Base">
+	<defName>WVC_ThrallGeneticInstability</defName>
+	<label>thrall genetic</label>
+	<description>Carriers of this gene are critically dependent on resurgent cells. They regularly need to receive fresh cells from living hosts.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_GeneticThrall</geneClass>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_XaG_Cellsfeed</AbilityDef>
+	</descriptionHyperlinks>
+	<iconPath>WVC/UI/Genes/Gene_Thrall_v0</iconPath>
+	<selectionWeight>0.00</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<displayOrderInCategory>1260</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>8</biostatMet>
+	<customEffectDescriptions Inherit="False">
+	  <li>Carrier must regularly bite &lt;color=#8a8ae6&gt;resurgent&lt;/color&gt; pawns or it &lt;color=#ff8585&gt;will die&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<abilities>
+	  <li>WVC_XaG_Cellsfeed</li>
+	</abilities>
+	<exclusionTags>
+		<li>WVC_ReimplanterThrallMaker</li>
+		<li>WVC_ThrallGeneticInstability</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<showMessageIfOwned>true</showMessageIfOwned>
+			<defaultBoolValue>true</defaultBoolValue>
+			<intervalRange>622000~940000</intervalRange>
+			<hediffDefs/>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <AbilityDef ParentName="AbilityTouchBase">
+	<defName>WVC_XaG_Cellsfeed</defName>
+	<label>cellsfeed</label>
+	<description>Bite the target and extract resurgent cells directly from their blood. A fast-acting coagulant will seal the wound to prevent bleeding.\n\nCan only target resurgent humans. Delay gain is affected by the target's body size.</description>
+	<iconPath>WVC/UI/Genes/Gene_Thrall_v0</iconPath>
+	<displayOrder>100</displayOrder>
+	<warmupEffecter>Bloodfeed_Warmup</warmupEffecter>
+	<warmupStartSound>Bloodfeed_Cast</warmupStartSound>
+	<hostile>false</hostile>
+	<verbProperties>
+	  <verbClass>Verb_CastAbilityTouch</verbClass>
+	  <drawAimPie>false</drawAimPie>
+	  <range>-1</range>
+	  <warmupTime>2</warmupTime>
+	  <targetParams>
+		<canTargetSelf>false</canTargetSelf>
+		<canTargetBuildings>false</canTargetBuildings>
+		<canTargetMechs>false</canTargetMechs>
+		<canTargetBloodfeeders>false</canTargetBloodfeeders>
+	  </targetParams>
+	</verbProperties>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityCellsfeederBite">
+		<daysGain>10</daysGain>
+	  </li>
+	  <li Class="CompProperties_AbilityFleckOnTarget">
+		<fleckDef>BloodSplash</fleckDef>
+	  </li>
+	  <li Class="CompProperties_AbilityRequiresCapacity">
+		<capacity>Eating</capacity>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+</Defs>

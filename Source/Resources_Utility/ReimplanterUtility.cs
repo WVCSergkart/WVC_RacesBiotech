@@ -53,13 +53,13 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void UnknownXenotype(Pawn pawn)
+		public static void UnknownXenotype(Pawn pawn, string xenotypeName = null, XenotypeIconDef xenotypeIconDef = null)
 		{
 			// pawn.genes.xenotypeName = "WVC_XaG_SubXenotypeUnknownXenotypeError".Translate();
 			// pawn.genes.iconDef = WVC_GenesDefOf.WVC_XenoRandomKindc;
 			pawn.genes?.SetXenotypeDirect(XenotypeDefOf.Baseliner);
-			pawn.genes.xenotypeName = GeneUtility.GenerateXenotypeNameFromGenes(XaG_GeneUtility.ConvertGenesInGeneDefs(pawn.genes.GenesListForReading));
-			pawn.genes.iconDef = DefDatabase<XenotypeIconDef>.AllDefsListForReading.RandomElement();
+			pawn.genes.xenotypeName = xenotypeName ?? GeneUtility.GenerateXenotypeNameFromGenes(XaG_GeneUtility.ConvertGenesInGeneDefs(pawn.genes.GenesListForReading));
+			pawn.genes.iconDef = xenotypeIconDef ?? DefDatabase<XenotypeIconDef>.AllDefsListForReading.RandomElement();
 		}
 
 		public static void GiveReimplantJob(Pawn pawn, Pawn targPawn, JobDef absorbJob)

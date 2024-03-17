@@ -48,6 +48,9 @@
 	<resourceLossPerDay>-0.01</resourceLossPerDay>
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>-1</biostatMet>
+	<exclusionTags>
+		<li>WVC_ThrallGeneticInstability</li>
+	</exclusionTags>
   </GeneDef>
 
   <!-- ============================= -->

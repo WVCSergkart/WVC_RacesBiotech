@@ -6,50 +6,26 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
-    // public class CompProperties_AbilityRiseFromTheDead : CompProperties_AbilityEffect
-    // {
 
-    // public ThoughtDef afterResurrectionThoughtDef;
-
-    // public ThoughtDef resurrectorThoughtDef;
-    // public ThoughtDef resurrectedThoughtDef;
-
-    // public CompProperties_AbilityRiseFromTheDead()
-    // {
-    // compClass = typeof(CompAbilityEffect_RiseFromTheDead);
-    // }
-    // }
-
-    public class CompAbilityEffect_RiseFromTheDead : CompAbilityEffect
+	public class CompAbilityEffect_RiseFromTheDead : CompAbilityEffect
 	{
-		// private static readonly CachedTexture ReimplantIcon = new CachedTexture("WVC/UI/Genes/Reimplanter");
 
 		private new CompProperties_AbilityReimplanter Props => (CompProperties_AbilityReimplanter)props;
 
 		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
 		{
-			if (!ModLister.CheckBiotech("xenogerm reimplantation"))
-			{
-				return;
-			}
-			// base.Apply(target, dest);
-			// ResurrectionUtility.Resurrect(target);
 			base.Apply(target, dest);
 			Pawn innerPawn = ((Corpse)target.Thing).InnerPawn;
 			UndeadUtility.ResurrectWithSickness(innerPawn, Props.afterResurrectionThoughtDef);
 			if ((innerPawn.Faction == null || innerPawn.Faction != Faction.OfPlayer) && innerPawn.guest.Recruitable)
 			{
 				RecruitUtility.Recruit(innerPawn, Faction.OfPlayer, parent.pawn);
-				// innerPawn.SetFaction(Faction.OfPlayer);
 				Messages.Message("WVC_XaG_ReimplantResurrectionRecruiting".Translate(innerPawn), innerPawn, MessageTypeDefOf.PositiveEvent);
 			}
 			if (ModLister.IdeologyInstalled)
 			{
 				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_GenesDefOf.WVC_ReimplanterResurrection, parent.pawn.Named(HistoryEventArgsNames.Doer)));
 			}
-			// ResurrectionUtility.Resurrect(innerPawn);
-			// innerPawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
-			// innerPawn.needs?.mood?.thoughts?.memories.TryGainMemory(WVC_GenesDefOf.WVC_XenotypesAndGenes_WasResurrected);
 			if (Props.resurrectedThoughtDef != null)
 			{
 				innerPawn.needs?.mood?.thoughts?.memories.TryGainMemory(Props.resurrectedThoughtDef, parent.pawn);
@@ -60,7 +36,6 @@ namespace WVC_XenotypesAndGenes
 			}
 			Messages.Message("MessagePawnResurrected".Translate(innerPawn), innerPawn, MessageTypeDefOf.PositiveEvent);
 			MoteMaker.MakeAttachedOverlay(innerPawn, ThingDefOf.Mote_ResurrectFlash, Vector3.zero);
-			// Pawn pawn = target.Pawn;
 			if (innerPawn != null)
 			{
 				ReimplanterUtility.Reimplanter(parent.pawn, innerPawn, Props.reimplantEndogenes, Props.reimplantXenogenes);

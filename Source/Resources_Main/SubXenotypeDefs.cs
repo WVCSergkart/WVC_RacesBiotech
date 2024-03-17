@@ -15,6 +15,31 @@ namespace WVC_XenotypesAndGenes
 
 		public List<GeneDef> genes;
 
+		public override void ResolveReferences()
+		{
+			if (genes.NullOrEmpty())
+			{
+				return;
+			}
+			if (descriptionHyperlinks == null)
+			{
+				descriptionHyperlinks = new List<DefHyperlink>();
+			}
+			foreach (GeneDef gene in genes)
+			{
+				descriptionHyperlinks.Add(new DefHyperlink(gene));
+			}
+		}
+
+		public override IEnumerable<StatDrawEntry> SpecialDisplayStats(StatRequest req)
+		{
+			foreach (StatDrawEntry item in base.SpecialDisplayStats(req))
+			{
+				yield return item;
+			}
+			yield return new StatDrawEntry(StatCategoryDefOf.Basics, "Genes".Translate().CapitalizeFirst(), genes.Select((GeneDef x) => x.label).ToCommaList().CapitalizeFirst(), "GenesDesc".Translate() + "\n\n" + genes.Select((GeneDef x) => x.label).ToLineList("  - ", capitalizeItems: true), 1000);
+		}
+
 	}
 
 	public class EvotypeDef : XenotypeDef

@@ -289,7 +289,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool TryHuntForFood(Pawn pawn)
 		{
-			List<Pawn> colonists = pawn.Map.mapPawns.SpawnedPawnsInFaction(pawn.Faction);
+			List<Pawn> colonists = pawn?.Map?.mapPawns?.SpawnedPawnsInFaction(pawn.Faction);
 			colonists.Shuffle();
 			for (int j = 0; j < colonists.Count; j++)
 			{

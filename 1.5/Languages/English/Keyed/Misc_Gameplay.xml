@@ -46,6 +46,16 @@
 
 	<WVC_XaG_Gene_GeneticInstability>Use stabilizer</WVC_XaG_Gene_GeneticInstability>
 	<WVC_XaG_Gene_GeneticInstabilityDesc>Pawn will automatically try to use the stabilizer when there are less than 3 days left until the next instabilization.</WVC_XaG_Gene_GeneticInstabilityDesc>
+	
+	<WVC_XaG_DaysGainFromBite>Instability delay</WVC_XaG_DaysGainFromBite>
+	
+	<WVC_XaG_Gene_GeneticThrallLabel>Bite resurgents</WVC_XaG_Gene_GeneticThrallLabel>
+	<WVC_XaG_Gene_GeneticThrallDesc>Pawn will automatically try to bite resurgents when there are less than 3 days left until the next instabilization.</WVC_XaG_Gene_GeneticThrallDesc>
+
+	<WVC_XaG_LetterLabelThrallImplanted>thrall created</WVC_XaG_LetterLabelThrallImplanted>
+	<WVC_XaG_LetterTextThrallIImplanted>{CASTER_nameDef} has implanted a xenogerm into {TARGET_nameDef}, passing choosed genes onto {TARGET_objective}.\n\n{TARGET_nameDef} no longer requires food or sleep, but {CASTER_pronoun} urgently needs to regularly replenish the lack of resurgent cells. If {TARGET_nameDef} doesn't get enough resurgent cells, {CASTER_pronoun} will die.</WVC_XaG_LetterTextThrallIImplanted>
+
+  <!-- <LetterTextGenesImplanted>{CASTER_nameDef} has implanted a copy of {CASTER_possessive} xenogerm into {TARGET_nameDef}, passing all xenogenes onto {TARGET_objective}.\n\n{TARGET_nameDef} will be in a xenogermination coma for the next {COMADURATION} while {TARGET_possessive} body adjusts to the changes.\n\n{CASTER_nameDef} will suffer from gene loss shock for the next {SHOCKDURATION}. {CASTER_possessive} genes will also need to regrow. This process takes time. If {CASTER_nameDef} implants {CASTER_possessive} xenogerm again before {CASTER_possessive} genes have regrown, {CASTER_pronoun} will die.</LetterTextGenesImplanted> -->
 
 	<!-- ============================ REIMPLANTER GENE ============================ -->
 

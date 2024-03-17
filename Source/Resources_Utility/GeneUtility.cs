@@ -21,6 +21,17 @@ namespace WVC_XenotypesAndGenes
 			// HediffUtility.RemoveHediffsFromList(pawn, list);
 		// }
 
+		// Instability
+
+		public static void OffsetInstabilityTick(Pawn pawn, int ticks)
+		{
+			Gene_GeneticInstability gene = pawn?.genes?.GetFirstGeneOfType<Gene_GeneticInstability>();
+			if (gene != null)
+			{
+				gene.nextTick += ticks;
+			}
+		}
+
 		// Misc
 
 		public static bool IsBloodeater(this Pawn pawn)

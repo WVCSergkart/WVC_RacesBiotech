@@ -38,16 +38,11 @@
 	<label>thrall maker</label>
 	<iconPath>WVC/UI/Genes/Gene_ThrallMaker_v0</iconPath>
 	<comps>
-	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive"> -->
-		<!-- <anyOfGenes> -->
-		  <!-- <li>WVC_ReimplanterNatural_Endogenes</li> -->
-		<!-- </anyOfGenes> -->
-	  <!-- </li> -->
-	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter"> -->
-		<!-- <compClass>WVC_XenotypesAndGenes.CompAbilityEffect_ReimplanterThrallMaker</compClass> -->
-	  <!-- </li> -->
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityTargetValidation">
-		<humanityCheck>true</humanityCheck>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_ReimplanterThrallMaker</compClass>
+		<geneDefs>
+		  <!-- <li>WVC_ThrallGeneticInstability</li> -->
+		</geneDefs>
 	  </li>
 	</comps>
   </AbilityDef>

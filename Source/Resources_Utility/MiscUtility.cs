@@ -426,6 +426,48 @@ namespace WVC_XenotypesAndGenes
 			// return false;
 		// }
 
+		public static bool BasicTargetValidation(Pawn biter, Pawn victim, bool canBleed = true)
+		{
+			if (victim == null || biter == null)
+			{
+				return false;
+			}
+			if (canBleed)
+			{
+				if (ModsConfig.AnomalyActive && victim.IsMutant && !victim.mutant.Def.canBleed)
+				{
+					return false;
+				}
+			}
+			if (!SerumUtility.PawnIsHuman(victim))
+			{
+				return false;
+			}
+			if (victim.Faction != null && !victim.IsSlaveOfColony && !victim.IsPrisonerOfColony)
+			{
+				if (victim.Faction.HostileTo(biter.Faction))
+				{
+					if (!victim.Downed)
+					{
+						return false;
+					}
+				}
+				else if (victim.IsQuestLodger() || victim.Faction != biter.Faction)
+				{
+					return false;
+				}
+			}
+			if (victim.IsWildMan() && !victim.IsPrisonerOfColony && !victim.Downed)
+			{
+				return false;
+			}
+			if (victim.InMentalState)
+			{
+				return false;
+			}
+			return true;
+		}
+
 		// Plants
 
 		public static void GrowSubplant(ThingWithComps parent, float maxRadius, ThingDef subplant, FloatRange? initialGrowthRange, Map map, bool canSpawnOverPlayerSownPlants = true)

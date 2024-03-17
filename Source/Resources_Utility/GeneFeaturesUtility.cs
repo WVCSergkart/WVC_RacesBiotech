@@ -13,7 +13,45 @@ namespace WVC_XenotypesAndGenes
 	public static class GeneFeaturesUtility
 	{
 
-		// ============================= GENE Skill Decay =============================
+		// ============================= GENE THRALL =============================
+
+		public static bool CanCellsFeedNowWith(Pawn biter, Pawn victim)
+		{
+			if (MiscUtility.BasicTargetValidation(biter, victim))
+			{
+				if (victim.genes?.GetFirstGeneOfType<Gene_ResurgentCells>() == null)
+				{
+					return false;
+				}
+				return true;
+			}
+			return false;
+		}
+
+		public static void DoCellsBite(Pawn biter, Pawn victim, float daysGain, float nutritionGain, IntRange bloodFilthToSpawnRange)
+		{
+			float cells = daysGain * 0.5f;
+			int ticks = (int)(daysGain * (victim.BodySize * 60000));
+			XaG_GeneUtility.OffsetInstabilityTick(biter, ticks);
+			UndeadUtility.OffsetResurgentCells(victim, 0f - (cells * 0.01f));
+			if (biter.needs?.food != null)
+			{
+				biter.needs.food.CurLevel += nutritionGain * cells;
+			}
+			int randomInRange = bloodFilthToSpawnRange.RandomInRange;
+			for (int i = 0; i < randomInRange; i++)
+			{
+				IntVec3 c = victim.Position;
+				if (randomInRange > 1 && Rand.Chance(0.8888f))
+				{
+					c = victim.Position.RandomAdjacentCell8Way();
+				}
+				if (c.InBounds(victim.MapHeld))
+				{
+					FilthMaker.TryMakeFilth(c, victim.MapHeld, victim.RaceProps.BloodDef, victim.LabelShort);
+				}
+			}
+		}
 
 		// ============================= GENE Learning Telepath =============================
 
@@ -201,45 +239,19 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool CanBloodFeedNowWith(Pawn biter, Pawn victim)
 		{
-			if (victim == null || biter == null)
+			if (MiscUtility.BasicTargetValidation(biter, victim))
 			{
-				return false;
-			}
-			if (!SerumUtility.PawnIsHuman(victim))
-			{
-				return false;
-			}
-			if (victim.health.hediffSet.HasHediff(HediffDefOf.BloodLoss))
-			{
-				return false;
-			}
-			if (victim.genes?.GetFirstGeneOfType<Gene_Hemogen>() != null)
-			{
-				return false;
-			}
-			if (victim.Faction != null && !victim.IsSlaveOfColony && !victim.IsPrisonerOfColony)
-			{
-				if (victim.Faction.HostileTo(biter.Faction))
-				{
-					if (!victim.Downed)
-					{
-						return false;
-					}
-				}
-				else if (victim.IsQuestLodger() || victim.Faction != biter.Faction)
+				if (victim.health.hediffSet.HasHediff(HediffDefOf.BloodLoss))
 				{
 					return false;
 				}
+				if (victim.genes?.GetFirstGeneOfType<Gene_Hemogen>() != null)
+				{
+					return false;
+				}
+				return true;
 			}
-			if (victim.IsWildMan() && !victim.IsPrisonerOfColony && !victim.Downed)
-			{
-				return false;
-			}
-			if (victim.InMentalState)
-			{
-				return false;
-			}
-			return true;
+			return false;
 		}
 
 		public static void DoPsychicBite(Pawn biter, Pawn victim, float nutritionGain, float targetHemogenGain, float targetBloodLoss, IntRange bloodFilthToSpawnRange)

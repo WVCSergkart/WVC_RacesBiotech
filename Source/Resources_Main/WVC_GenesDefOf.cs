@@ -88,6 +88,7 @@ namespace WVC_XenotypesAndGenes
 		public static EffecterDef CocoonDestroyed;
 		// 1.5 Update
 		public static AbilityDef Bloodfeed;
+		public static AbilityDef WVC_XaG_Cellsfeed;
 		public static SoundDef Hive_Spawn;
 	}
 

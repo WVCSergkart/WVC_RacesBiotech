@@ -163,7 +163,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_GeneticInstability : Gene
 	{
 
-		public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
+		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
 
 		public int nextTick = 60000;
 
@@ -191,7 +191,7 @@ namespace WVC_XenotypesAndGenes
 			GeneticStuff();
 		}
 
-		private void GetSerumJob()
+		public virtual void GetSerumJob()
 		{
 			if (!pawn.IsHashIntervalTick(12000))
 			{
@@ -231,7 +231,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private void InCaravan()
+		public virtual void InCaravan()
 		{
 			Caravan caravan = pawn.GetCaravan();
 			if (caravan == null)
@@ -336,6 +336,129 @@ namespace WVC_XenotypesAndGenes
 			base.ExposeData();
 			Scribe_Values.Look(ref nextTick, "nextGenesRegrowUpdate", 60000);
 			Scribe_Values.Look(ref useStabilizerAuto, "useStabilizerAutomatic", true);
+		}
+
+	}
+
+	public class Gene_GeneticThrall : Gene_GeneticInstability
+	{
+
+		public override void GetSerumJob()
+		{
+			if (!pawn.IsHashIntervalTick(12000))
+			{
+				return;
+			}
+			if (!useStabilizerAuto)
+			{
+				return;
+			}
+			if (pawn.Downed || pawn.Drafted)
+			{
+				return;
+			}
+			if (pawn.Faction != Faction.OfPlayer)
+			{
+				useStabilizerAuto = false;
+				return;
+			}
+			if (pawn.Map == null)
+			{
+				// In caravan use
+				InCaravan();
+				return;
+			}
+			TryHuntForCells(pawn);
+		}
+
+		public static bool TryHuntForCells(Pawn pawn)
+		{
+			List<Pawn> colonists = pawn?.Map?.mapPawns?.SpawnedPawnsInFaction(pawn.Faction);
+			colonists.Shuffle();
+			for (int j = 0; j < colonists.Count; j++)
+			{
+				Pawn colonist = colonists[j];
+				if (!GeneFeaturesUtility.CanCellsFeedNowWith(pawn, colonist))
+				{
+					continue;
+				}
+				if (MiscUtility.TryGetAbilityJob(pawn, colonist, WVC_GenesDefOf.WVC_XaG_Cellsfeed, out Job job))
+				{
+					pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);
+					return true;
+				}
+				return false;
+			}
+			return false;
+		}
+
+		public override void InCaravan()
+		{
+			Caravan caravan = pawn.GetCaravan();
+			if (caravan == null)
+			{
+				return;
+			}
+			List<Pawn> pawns = caravan.PawnsListForReading;
+			if (pawns.NullOrEmpty())
+			{
+				return;
+			}
+			pawns.Shuffle();
+			for (int j = 0; j < pawns.Count; j++)
+			{
+				if (!GeneFeaturesUtility.CanCellsFeedNowWith(pawn, pawns[j]))
+				{
+					continue;
+				}
+				GeneFeaturesUtility.DoCellsBite(pawn, pawns[j], 10f, 0.2f, new (0, 0));
+				break;
+			}
+		}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (!Active || Find.Selector.SelectedPawns.Count != 1 || pawn.Faction != Faction.OfPlayer)
+			{
+				yield break;
+			}
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: GeneticInstability",
+					action = delegate
+					{
+						GeneticStuff();
+					}
+				};
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: Reduce instability ticker",
+					action = delegate
+					{
+						nextTick -= 30000;
+					}
+				};
+			}
+			yield return new Command_Action
+			{
+				defaultLabel = "WVC_XaG_Gene_GeneticThrallLabel".Translate() + ": " + GeneUiUtility.OnOrOff(useStabilizerAuto),
+				defaultDesc = "WVC_XaG_Gene_GeneticThrallDesc".Translate(),
+				icon = ContentFinder<Texture2D>.Get(def.iconPath),
+				action = delegate
+				{
+					useStabilizerAuto = !useStabilizerAuto;
+					if (useStabilizerAuto)
+					{
+						SoundDefOf.Tick_High.PlayOneShotOnCamera();
+					}
+					else
+					{
+						SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+					}
+				}
+			};
 		}
 
 	}

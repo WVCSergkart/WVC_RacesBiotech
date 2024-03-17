@@ -1,23 +1,88 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <WVC_XenotypesAndGenes.ThrallDef>
-	<defName>WVC_Worker</defName>
-	<label>thrall worker</label>
-	<description>Work thrall</description>
+  <WVC_XenotypesAndGenes.ThrallDef Name="WVC_XenotypesAndGenes_ThrallDefs_Base" Abstract="True">
+	<label>thrall</label>
+	<description>Should be invisible.</description>
 	<xenotypeIconDef>WVC_Xeno18c</xenotypeIconDef>
 	<genes>
-		<li>WVC_WoundHealing_ExtremeFast</li>
+		<li>WVC_DeadStomach</li>
+		<li>WVC_ArchitePerfectImmunity_DiseaseFree</li>
+		<li>WVC_ThrallGeneticInstability</li>
+		<li>WVC_MinTemp_ArchiteDecrease</li>
+		<li>WVC_MaxTemp_ArchiteIncrease</li>
+		<li>WVC_ToxResist_Archite</li>
+		<li>Aggression_DeadCalm</li>
+		<li>WVC_Neversleep</li>
+		<li>Beauty_Ugly</li>
 	</genes>
   </WVC_XenotypesAndGenes.ThrallDef>
 
-  <WVC_XenotypesAndGenes.ThrallDef>
-	<defName>WVC_Combatant</defName>
-	<label>thrall combatant</label>
-	<description>Combat thrall</description>
-	<xenotypeIconDef>WVC_XenoSecond4c</xenotypeIconDef>
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Base">
+	<defName>WVC_Fielder</defName>
+	<label>thrall fielder</label>
+	<description>Basic working thrall. This thrall is an excellent builder, miner and gardener. He can move quickly and easily learns new skills, but he is a poor fighter and his intellectual abilities leave much to be desired.</description>
+	<xenotypeIconDef>WVC_XenoSecond18c</xenotypeIconDef>
 	<genes>
-		<li>WVC_WoundHealing_ExtremeFast</li>
+		<!-- <li>WVC_WoundHealing_UnrealFast</li> -->
+		<li>Superclotting</li>
+		<li>WVC_PsychicAbility_Deaf</li>
+		<li>MoveSpeed_VeryQuick</li>
+		<li>WVC_TransparentSkin</li>
+		<li>WVC_DemonTailA</li>
+		<li>Hair_LongOnly</li>
+		<li>Ears_Pointed</li>
+		<li>Body_Standard</li>
+		<li>Hair_Gray</li>
+		<li>Skin_Green</li>
+		<li>Learning_Fast</li>
+		<li>WVC_AptitudeShameful_Shooting</li>
+		<li>WVC_AptitudeShameful_Melee</li>
+		<li>WVC_AptitudeMarvelous_Construction</li>
+		<li>WVC_AptitudeMarvelous_Mining</li>
+		<li>WVC_AptitudeShameful_Cooking</li>
+		<li>WVC_AptitudeMarvelous_Plants</li>
+		<li>WVC_AptitudeShameful_Animals</li>
+		<li>WVC_AptitudeShameful_Crafting</li>
+		<li>WVC_AptitudeShameful_Artistic</li>
+		<li>WVC_AptitudeShameful_Medicine</li>
+		<li>WVC_AptitudeShameful_Social</li>
+		<li>WVC_AptitudeShameful_Intellectual</li>
+	</genes>
+  </WVC_XenotypesAndGenes.ThrallDef>
+
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Base">
+	<defName>WVC_Striker</defName>
+	<label>thrall striker</label>
+	<description>Basic combat thrall. This thrall is entirely born for fighting. He is an absolutely useless worker, but he is irreplaceable in battle, he is fast, tenacious and incredibly quickly recovers from wounds.</description>
+	<xenotypeIconDef>WVC_Xeno30c</xenotypeIconDef>
+	<genes>
+		<li>WoundHealing_SuperFast</li>
+		<li>Superclotting</li>
+		<li>MoveSpeed_VeryQuick</li>
+		<li>MeleeDamage_Strong</li>
+		<li>WVC_Tough</li>
+		<li>WVC_PatchSkin</li>
+		<li>Hair_BaldOnly</li>
+		<li>Beard_Always</li>
+		<li>Headbone_MiniHorns</li>
+		<li>Body_Standard</li>
+		<li>Body_Hulk</li>
+		<li>Hair_MidBlack</li>
+		<li>Skin_DeepRed</li>
+		<li>Learning_Slow</li>
+		<li>WVC_AptitudeMarvelous_Shooting</li>
+		<li>WVC_AptitudeMarvelous_Melee</li>
+		<li>WVC_AptitudeShameful_Construction</li>
+		<li>WVC_AptitudeMarvelous_Mining</li>
+		<li>WVC_AptitudeShameful_Cooking</li>
+		<li>WVC_AptitudeShameful_Plants</li>
+		<li>WVC_AptitudeShameful_Animals</li>
+		<li>WVC_AptitudeShameful_Crafting</li>
+		<li>WVC_AptitudeShameful_Artistic</li>
+		<li>WVC_AptitudeShameful_Medicine</li>
+		<li>WVC_AptitudeShameful_Social</li>
+		<li>WVC_AptitudeShameful_Intellectual</li>
 	</genes>
   </WVC_XenotypesAndGenes.ThrallDef>
 
