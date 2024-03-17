@@ -135,7 +135,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return true;
 			}
-			if (mode == selectedXeno)
+			if (mode == currentXeno)
 			{
 				return false;
 			}
@@ -190,8 +190,8 @@ namespace WVC_XenotypesAndGenes
 			Rect rect2 = new(position.x, position.y, OptionSize.x, OptionSize.y);
 			Widgets.DrawBoxSolidWithOutline(rect2, GetBoxColor(stage), GetBoxOutlineColor(stage));
 			Rect rect3 = new(rect2.x, rect2.y, rect2.height, rect2.height);
-			// Widgets.DefIcon(rect3.ContractedBy(4f), stage.xenotypeIconDef, color: Color.white);
-			Widgets.LabelWithIcon(rect3.ContractedBy(4f), "", stage.xenotypeIconDef.Icon);
+			MiscUtility.XaG_DefIcon(rect3.ContractedBy(4f), stage);
+			// Widgets.LabelWithIcon(rect3.ContractedBy(4f), "", stage.xenotypeIconDef.Icon);
 			GUI.color = GetTextColor(stage);
 			Text.Anchor = TextAnchor.MiddleLeft;
 			Widgets.Label(new Rect(rect3.xMax, rect2.y, rect2.width - rect3.width, rect2.height).ContractedBy(4f), stage.LabelCap);

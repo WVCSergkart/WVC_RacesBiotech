@@ -427,6 +427,21 @@ namespace WVC_XenotypesAndGenes
 			return num;
 		}
 
+		public static int GetPawn_Arc(Pawn pawn)
+		{
+			List<Gene> genes = pawn?.genes?.GenesListForReading;
+			if (genes.NullOrEmpty())
+			{
+				return 0;
+			}
+			int num = 0;
+			foreach (Gene item in genes)
+			{
+				num += item.def.biostatArc;
+			}
+			return num;
+		}
+
 		// XaG test
 
 		public static bool IsFromXenoGenes(this Def def)
