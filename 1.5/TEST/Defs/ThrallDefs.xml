@@ -13,12 +13,19 @@
 		<!-- <li>Neversleep</li> -->
 		<li>WVC_PredatorPrey_NotTasty</li>
 		<!-- = Pawn Appearance = -->
-		<li>WVC_TransparentSkin</li>
-		<li>Ears_Pointed</li>
+		<!-- <li>WVC_TransparentSkin</li> -->
+		<!-- <li>Body_Standard</li> -->
+		<!-- <li>Hair_SnowWhite</li> -->
+		<!-- <li>WVC_HairColor_ffdcb4_HEX</li> -->
+		<!-- <li>Skin_Melanin1</li> -->
+		<!-- = -->
+		<li>WVC_GauntSkin</li>
 		<li>Body_Standard</li>
-		<li>Hair_SnowWhite</li>
-		<li>WVC_HairColor_ffdcb4_HEX</li>
-		<li>Skin_Melanin1</li>
+		<li>Hair_DarkBlack</li>
+		<li>WVC_SkinColor_Granite</li>
+		<li>WVC_SkinColor_Limestone</li>
+		<li>WVC_SkinColor_Marble</li>
+		<li>WVC_SkinColor_Slate</li>
 		<!-- = Vampirism = -->
 		<li>Hemogenic</li>
 		<!-- <li>WVC_HemogenGain</li> -->
@@ -38,6 +45,7 @@
 		<li>WVC_PsychicAbility_Deaf</li>
 		<li>MoveSpeed_VeryQuick</li>
 		<li>WVC_DemonTailA</li>
+		<li>Ears_Pointed</li>
 		<li>WVC_BodySize_Small</li>
 		<!-- = -->
 		<li>WVC_AptitudeShameful_Shooting</li>

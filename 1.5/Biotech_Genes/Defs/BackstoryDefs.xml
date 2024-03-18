@@ -26,19 +26,19 @@
 	<slot>Adulthood</slot>
   </BackstoryDef>
 
-  <BackstoryDef Name="WVC_XenotypesAndGenes_BackstoryShapeshifter_Base" Abstract="True">
-	<spawnCategories>
-	  <li>WVC_Shapeshifter</li>
-	</spawnCategories>
-  </BackstoryDef>
+  <!-- <BackstoryDef Name="WVC_XenotypesAndGenes_BackstoryShapeshifter_Base" Abstract="True"> -->
+	<!-- <spawnCategories> -->
+	  <!-- <li>WVC_Shapeshifter</li> -->
+	<!-- </spawnCategories> -->
+  <!-- </BackstoryDef> -->
 
-  <BackstoryDef ParentName="WVC_XenotypesAndGenes_BackstoryShapeshifter_Base">
-	<defName>WVC_XaG_Shapeshifter0_Child</defName>
-	<title>shiftclone</title>
-	<titleShort>shiftclone</titleShort>
-	<baseDesc>[PAWN_nameDef] was “born” as a result of shapeshift mechanites overclocking. [PAWN_pronoun] inherited many skills and traits from [PAWN_possessive] original.</baseDesc>
-	<slot>Childhood</slot>
-  </BackstoryDef>
+  <!-- <BackstoryDef ParentName="WVC_XenotypesAndGenes_BackstoryShapeshifter_Base"> -->
+	<!-- <defName>WVC_XaG_Shapeshifter0_Child</defName> -->
+	<!-- <title>shiftclone</title> -->
+	<!-- <titleShort>shiftclone</titleShort> -->
+	<!-- <baseDesc>[PAWN_nameDef] was “born” as a result of shapeshift mechanites overclocking. [PAWN_pronoun] inherited many skills and traits from [PAWN_possessive] original.</baseDesc> -->
+	<!-- <slot>Childhood</slot> -->
+  <!-- </BackstoryDef> -->
 
 <!-- [PAWN_nameDef] Bobby -->
 <!-- [PAWN_nameFull] Juan Bobby Fisher -->

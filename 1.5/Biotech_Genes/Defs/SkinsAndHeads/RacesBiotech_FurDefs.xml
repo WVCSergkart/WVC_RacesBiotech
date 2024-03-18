@@ -110,6 +110,23 @@
 	</modExtensions>
   </FurDef>
 
+  <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
+	<defName>WVC_GauntSkin</defName>
+	<bodyTypeGraphicPaths>
+	  <Male>WVC/Bodies/Gauntskin_Body/Naked_Male</Male>
+	  <Female>WVC/Bodies/Gauntskin_Body/Naked_Female</Female>
+	  <Thin>WVC/Bodies/Gauntskin_Body/Naked_Thin</Thin>
+	  <!-- A fat and a hulk cannot be anorexic thin.. -->
+	  <Hulk>Things/Pawn/Humanlike/Bodies/Naked_Hulk</Hulk>
+	  <Fat>Things/Pawn/Humanlike/Bodies/Naked_Fat</Fat>
+	</bodyTypeGraphicPaths>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<furIsSkin>true</furIsSkin>
+		</li>
+	</modExtensions>
+  </FurDef>
+
   <!-- ==================================== -->
 
   <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">

@@ -209,11 +209,12 @@
 	  <prefixSymbols>
 		<li><symbol>trans</symbol></li>
 		<li><symbol>lucent</symbol></li>
+		<li><symbol>bony</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
   </GeneDef>
 
-  <!-- = -->
+  <!-- Eyeless -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_NodeSkin</defName>
 	<label>eyeless</label>
@@ -244,6 +245,35 @@
 	<exclusionTags Inherit="False">
 	  <li>Jaw</li>
 	</exclusionTags>
+  </GeneDef>
+
+  <!-- Gauntskin -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_GauntSkin</defName>
+	<label>gauntskin</label>
+	<description>Carriers of this gene do not store body fat well, which is why their bodies are very thin and anorexic.</description>
+	<iconPath>WVC/UI/Genes/Gene_GauntSkin_v0</iconPath>
+	<forcedHeadTypes>
+	  <li>WVC_GauntSkin_Gaunt</li>
+	</forcedHeadTypes>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<statFactors>
+	  <MeatAmount>0.4</MeatAmount>
+	</statFactors>
+	<fur>WVC_GauntSkin</fur>
+	<missingGeneRomanceChanceFactor>0.80</missingGeneRomanceChanceFactor>
+	<customEffectDescriptions>
+		<li>&lt;color=#ff8585&gt;Does not support fat and hulk bodies.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>gaunt</symbol></li>
+		<li><symbol>anore</symbol></li>
+		<li><symbol>thin</symbol></li>
+		<li><symbol>bony</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
   </GeneDef>
 
 </Defs>

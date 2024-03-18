@@ -55,6 +55,13 @@
 	  </value>
 	</Operation>
 
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/HeadTypeDef[defName="Gaunt"]/requiredGenes</xpath> -->
+	  <!-- <value> -->
+		  <!-- <li>WVC_GauntSkin</li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
 	<Operation Class="PatchOperationAdd">
 	  <xpath>/Defs/ThoughtDef[nullifyingGenes[li[contains(text(),'RobustDigestion')]]]/nullifyingGenes</xpath>
 	  <value>

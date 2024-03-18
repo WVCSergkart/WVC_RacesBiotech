@@ -57,4 +57,13 @@
 	</requiredGenes>
   </HeadTypeDef>
 
+  <HeadTypeDef ParentName="WVC_RacesBiotech_AverageBase">
+	<defName>WVC_GauntSkin_Gaunt</defName>
+	<graphicPath>Things/Pawn/Humanlike/Heads/Genes/None_Gaunt_Average</graphicPath>
+	<requiredGenes>
+	  <li>WVC_GauntSkin</li>
+	</requiredGenes>
+	<eyeOffsetEastWest>(0.15, 0, 0.175)</eyeOffsetEastWest>
+  </HeadTypeDef>
+
 </Defs>
