@@ -59,7 +59,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_DustReincarnation : Gene
+	public class Gene_Reincarnation : Gene
 	{
 
 		public GeneExtension_Undead Spawner => def.GetModExtension<GeneExtension_Undead>();

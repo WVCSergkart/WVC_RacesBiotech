@@ -106,7 +106,7 @@
 	<!-- <label>reincarnation</label> -->
 	<label>destined dead</label>
 	<description>Carriers of this gene have a strong connection with the psychic field. Their death never happens by accident, this event is part of their destiny. And when fate takes its toll and death overtakes them, descendants will surely come to replace them.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_DustReincarnation</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Reincarnation</geneClass>
 	<minAgeActive>13</minAgeActive>
 	<iconPath>WVC/UI/Genes/Gene_Reincarnation_v0</iconPath>
 	<displayOrderInCategory>-115</displayOrderInCategory>
@@ -115,7 +115,7 @@
 	<biostatArc>1</biostatArc>
 	<customEffectDescriptions>
 		<li>In case of death, &lt;color=#8a8ae6&gt;summons a descendant&lt;/color&gt;.</li>
-		<li>Descendant inherits &lt;color=#8a8ae6&gt;only xenotype and genes&lt;/color&gt; of the carrier.</li>
+		<li>Descendant inherits &lt;color=#8a8ae6&gt;xenotype, genes, backstory, skills, traits and apperance&lt;/color&gt; of the carrier.</li>
 		<li>&lt;color=#ff8585&gt;Chrono age must be above 54 years.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<exclusionTags>

@@ -127,6 +127,7 @@
     <Compile Include="Resources_Things\ThingClass_XenotypeSerum.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_Shapeshifter_Social.cs" />
     <Compile Include="Resources_Thought\Thought_MemorySocial_Psychic.cs" />
+    <Compile Include="Resources_Utility\DuplicateUtility.cs" />
     <Compile Include="Resources_Utility\Templates_Utility.cs" />
     <Compile Include="Resources_Workers\JobDriver_AbsorbGenogerm.cs" />
     <Compile Include="Resources_Workers\JobDriver_RetuneSerum.cs" />

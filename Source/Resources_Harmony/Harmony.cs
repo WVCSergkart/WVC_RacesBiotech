@@ -42,7 +42,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (WVC_Biotech.settings.fixVanillaGeneImmunityCheck)
 				{
-					harmony.Patch(AccessTools.Method(typeof(Pawn_GeneTracker), "HediffGiversCanGive"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Immunity_hediffGivers")));
+					// harmony.Patch(AccessTools.Method(typeof(Pawn_GeneTracker), "HediffGiversCanGive"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Immunity_hediffGivers")));
 					harmony.Patch(AccessTools.Method(typeof(ImmunityHandler), "AnyGeneMakesFullyImmuneTo"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Immunity_makeImmuneTo")));
 				}
 				if (WVC_Biotech.settings.enableHarmonyTelepathyGene)
@@ -73,7 +73,7 @@ namespace WVC_XenotypesAndGenes
 
 			public static bool Patch_HideGenes(GeneDef geneDef, ref bool __result)
 			{
-				if (geneDef.IsFromXenoGenes())
+				if (geneDef.IsXenoGenesDef())
 				{
 					__result = false;
 					return false;
@@ -217,15 +217,30 @@ namespace WVC_XenotypesAndGenes
 
 			public static void FurskinIsSkin(Pawn pawn, ref Graphic __result)
 			{
-				if (pawn.Drawer?.renderer?.CurRotDrawMode == RotDrawMode.Dessicated)
-				{
-					return;
-				}
+				// if (pawn?.genes == null)
+				// {
+					// return;
+				// }
 				FurDef furDef = pawn?.story?.furDef;
 				if (furDef == null)
 				{
 					return;
 				}
+				if (pawn.Drawer?.renderer?.CurRotDrawMode == RotDrawMode.Dessicated)
+				{
+					return;
+				}
+				// if (ModsConfig.AnomalyActive)
+				// {
+					// if (pawn.IsMutant && !pawn.mutant.Def.bodyTypeGraphicPaths.NullOrEmpty())
+					// {
+						// return;
+					// }
+					// if (pawn.IsCreepJoiner && pawn.story.bodyType != null && !pawn.creepjoiner.form.bodyTypeGraphicPaths.NullOrEmpty())
+					// {
+						// return;
+					// }
+				// }
 				GeneExtension_Graphic modExtension = furDef?.GetModExtension<GeneExtension_Graphic>();
 				if (modExtension == null)
 				{

@@ -22,13 +22,16 @@ namespace WVC_XenotypesAndGenes
 			Pawn pawn = slate.Get<Pawn>("asker");
 			List<Map> maps = Find.Maps;
 			Map map = maps.Where((Map homeMape) => homeMape.IsPlayerHome).RandomElement();
-			PawnGenerationRequest request = new(pawn.kindDef, pawn.Faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: true, canGeneratePawnRelations: true, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: true, allowAddictions: false, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Adult);
+			// PawnGenerationRequest request = new(pawn.kindDef, pawn.Faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: true, canGeneratePawnRelations: true, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: true, allowAddictions: false, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Adult);
+			PawnGenerationRequest request = DuplicateUtility.RequestCopy(pawn);
 			Pawn reincarnated = quest.GeneratePawn(request);
 			slate.Set("mechanitor", pawn);
 			slate.Set("reincarnated", reincarnated);
-			GestationUtility.GeneTransfer(reincarnated, pawn, true, true);
-			reincarnated.playerSettings.AreaRestrictionInPawnCurrentMap = pawn.playerSettings.AreaRestrictionInPawnCurrentMap;
-			reincarnated.relations.AddDirectRelation(PawnRelationDefOf.Parent, pawn);
+			// GestationUtility.GeneTransfer(reincarnated, pawn, true, true);
+			// reincarnated.playerSettings.AreaRestrictionInPawnCurrentMap = pawn.playerSettings.AreaRestrictionInPawnCurrentMap;
+			// reincarnated.relations.AddDirectRelation(PawnRelationDefOf.Parent, pawn);
+			// DuplicateUtility.CopySkills(pawn, reincarnated);
+			DuplicateUtility.DuplicatePawn(pawn, reincarnated);
 			AgelessUtility.ChronoCorrection(reincarnated, pawn);
 			AgelessUtility.Rejuvenation(reincarnated);
 			if (hediffDefs != null)

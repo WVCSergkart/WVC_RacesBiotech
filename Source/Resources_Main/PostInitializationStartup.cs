@@ -40,7 +40,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				if (geneDef.IsFromXenoGenes())
+				if (geneDef.IsXenoGenesDef())
 				{
 					if (geneDef.biostatArc != 0)
 					{

@@ -1,0 +1,193 @@
+using RimWorld;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using Verse;
+using Verse.AI;
+using Verse.Sound;
+using static Verse.GeneSymbolPack;
+
+namespace WVC_XenotypesAndGenes
+{
+
+	public static class DuplicateUtility
+	{
+
+		public static PawnGenerationRequest RequestCopy(Pawn pawn)
+		{
+			float ageBiologicalYearsFloat = pawn.ageTracker.AgeBiologicalYearsFloat;
+			float num = pawn.ageTracker.AgeChronologicalYearsFloat;
+			if (num > ageBiologicalYearsFloat)
+			{
+				num = ageBiologicalYearsFloat;
+			}
+			PawnGenerationRequest request = new (pawn.kindDef, pawn.Faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: true, allowDead: false, allowDowned: false, canGeneratePawnRelations: false, mustBeCapableOfViolence: false, 0f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: true, allowAddictions: true, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 0f, null, null, null, null, null, fixedGender: pawn.gender, fixedIdeo: pawn.Ideo, fixedBiologicalAge: ageBiologicalYearsFloat, fixedChronologicalAge: num, fixedLastName: null, fixedBirthName: null, fixedTitle: null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, forcedXenogenes: null, forcedEndogenes: null, forcedXenotype: pawn.genes.Xenotype, forcedCustomXenotype: pawn.genes.CustomXenotype, allowedXenotypes: null, forceBaselinerChance: 0f, developmentalStages: DevelopmentalStage.Adult, pawnKindDefGetter: null, excludeBiologicalAgeRange: null, biologicalAgeRange: null, forceRecruitable: false, dontGiveWeapon: false, onlyUseForcedBackstories: false, maximumAgeTraits: -1, minimumAgeTraits: 0, forceNoGear: true);
+			request.IsCreepJoiner = pawn.IsCreepJoiner;
+			request.ForceNoIdeoGear = true;
+			return request;
+		}
+
+		public static void DuplicatePawn(Pawn progenitor, Pawn clone, XenotypeDef xenotypeDef = null)
+		{
+			clone.apparel.DestroyAll();
+			// clone.ageTracker.AgeBiologicalTicks = progenitor.ageTracker.AgeBiologicalTicks;
+			// clone.ageTracker.AgeChronologicalTicks = 0L;
+			// clone.gender = progenitor.gender;
+			// clone.story.Childhood = WVC_GenesDefOf.WVC_XaG_Shapeshifter0_Child;
+			DuplicateUtility.CopyStory(progenitor, clone);
+			DuplicateUtility.CopyApperance(progenitor, clone);
+			DuplicateUtility.CopyTraits(progenitor, clone);
+			DuplicateUtility.CopyGenes(progenitor, clone);
+			DuplicateUtility.CopySkills(progenitor, clone);
+			// DuplicateUtility.CopyNeeds(progenitor, clone);
+			// if (ModsConfig.IdeologyActive)
+			// {
+				// clone.ideo.SetIdeo(progenitor.ideo.Ideo);
+			// }
+			if (clone.playerSettings != null && progenitor.playerSettings != null)
+			{
+				clone.playerSettings.AreaRestrictionInPawnCurrentMap = progenitor.playerSettings.AreaRestrictionInPawnCurrentMap;
+			}
+			if (clone.RaceProps.IsFlesh && progenitor.RaceProps.IsFlesh)
+			{
+				clone.relations.AddDirectRelation(PawnRelationDefOf.Parent, progenitor);
+			}
+			if (xenotypeDef != null)
+			{
+				clone.health.AddHediff(HediffDefOf.XenogerminationComa);
+				GeneUtility.UpdateXenogermReplication(clone);
+				ReimplanterUtility.ExtractXenogerm(progenitor);
+				ReimplanterUtility.SetXenotype_DoubleXenotype(clone, xenotypeDef);
+			}
+			// GestationUtility.GetBabyName(clone, progenitor);
+		}
+
+		public static void CopyGenes(Pawn pawn, Pawn newPawn)
+		{
+			newPawn.genes.Endogenes.Clear();
+			List<Gene> sourceEndogenes = pawn.genes.Endogenes;
+			foreach (Gene item in sourceEndogenes)
+			{
+				newPawn.genes.AddGene(item.def, xenogene: false);
+			}
+			int j;
+			for (j = 0; j < sourceEndogenes.Count; j++)
+			{
+				Gene gene = newPawn.genes.Endogenes[j];
+				if (sourceEndogenes[j].Overridden)
+				{
+					gene.overriddenByGene = newPawn.genes.Endogenes.First((Gene e) => e.def == sourceEndogenes[j].overriddenByGene.def);
+				}
+				else
+				{
+					gene.overriddenByGene = null;
+				}
+			}
+			newPawn.genes.Xenogenes.Clear();
+			List<Gene> sourceXenogenes = pawn.genes.Xenogenes;
+			foreach (Gene item2 in sourceXenogenes)
+			{
+				newPawn.genes.AddGene(item2.def, xenogene: true);
+			}
+			int i;
+			for (i = 0; i < sourceXenogenes.Count; i++)
+			{
+				Gene gene2 = newPawn.genes.Xenogenes[i];
+				if (sourceXenogenes[i].Overridden)
+				{
+					gene2.overriddenByGene = newPawn.genes.Xenogenes.First((Gene e) => e.def == sourceXenogenes[i].overriddenByGene.def);
+				}
+				else
+				{
+					gene2.overriddenByGene = null;
+				}
+			}
+			ReimplanterUtility.SetXenotypeDirect(pawn, newPawn);
+		}
+
+		// Broke stuff
+		public static void CopyNeeds(Pawn pawn, Pawn newPawn)
+		{
+			newPawn.needs.AllNeeds.Clear();
+			foreach (Need allNeed in pawn.needs.AllNeeds)
+			{
+				Need need = (Need)Activator.CreateInstance(allNeed.def.needClass, newPawn);
+				need.def = allNeed.def;
+				newPawn.needs.AllNeeds.Add(need);
+				need.SetInitialLevel();
+				need.CurLevel = allNeed.CurLevel;
+				newPawn.needs.BindDirectNeedFields();
+			}
+			if (pawn.needs.mood == null)
+			{
+				return;
+			}
+			List<Thought_Memory> memories = newPawn.needs.mood.thoughts.memories.Memories;
+			memories.Clear();
+			foreach (Thought_Memory memory in pawn.needs.mood.thoughts.memories.Memories)
+			{
+				Thought_Memory thought_Memory = (Thought_Memory)ThoughtMaker.MakeThought(memory.def);
+				thought_Memory.CopyFrom(memory);
+				thought_Memory.pawn = newPawn;
+				memories.Add(thought_Memory);
+			}
+		}
+
+		public static void CopyStory(Pawn pawn, Pawn newPawn)
+		{
+			newPawn.gender = pawn.gender;
+			// newPawn.Name = NameTriple.FromString(pawn.Name.ToString());
+			newPawn.story.favoriteColor = pawn.story.favoriteColor;
+			newPawn.story.Childhood = pawn.story.Childhood;
+			newPawn.story.Adulthood = pawn.story.Adulthood;
+			GestationUtility.GetBabyName(newPawn, pawn);
+		}
+
+		public static void CopyTraits(Pawn pawn, Pawn newPawn)
+		{
+			newPawn.story.traits.allTraits.Clear();
+			foreach (Trait allTrait in pawn.story.traits.allTraits)
+			{
+				if (allTrait.sourceGene == null || allTrait.def.GetGenderSpecificCommonality(newPawn.gender) > 0f)
+				{
+					newPawn.story.traits.GainTrait(new Trait(allTrait.def, allTrait.Degree, allTrait.ScenForced));
+				}
+			}
+		}
+
+		public static void CopyApperance(Pawn pawn, Pawn newPawn)
+		{
+			newPawn.story.headType = pawn.story.headType;
+			newPawn.story.bodyType = pawn.story.bodyType;
+			newPawn.story.hairDef = pawn.story.hairDef;
+			newPawn.story.HairColor = pawn.story.HairColor;
+			newPawn.story.SkinColorBase = pawn.story.SkinColorBase;
+			newPawn.story.skinColorOverride = pawn.story.skinColorOverride;
+			newPawn.story.furDef = pawn.story.furDef;
+			newPawn.style.beardDef = pawn.style.beardDef;
+			if (ModsConfig.IdeologyActive)
+			{
+				newPawn.style.BodyTattoo = pawn.style.BodyTattoo;
+				newPawn.style.FaceTattoo = pawn.style.FaceTattoo;
+			}
+		}
+
+		public static void CopySkills(Pawn pawn, Pawn newPawn)
+		{
+			newPawn.skills.skills.Clear();
+			foreach (SkillRecord skill in pawn.skills.skills)
+			{
+				SkillRecord item = new(newPawn, skill.def)
+				{
+					levelInt = skill.levelInt,
+					passion = skill.passion,
+					xpSinceLastLevel = skill.xpSinceLastLevel,
+					xpSinceMidnight = skill.xpSinceMidnight
+				};
+				newPawn.skills.skills.Add(item);
+			}
+		}
+
+	}
+}

@@ -19,7 +19,7 @@ namespace WVC_XenotypesAndGenes
 		public static void ChangeGenesInPack(Genepack __instance, ref GeneSet ___geneSet)
 		{
 			ThingDef thingDef = __instance.def;
-			if (thingDef.IsFromXenoGenes())
+			if (thingDef.IsXenoGenesDef())
 			{
 				GeneSet newGeneSet = new();
 				int? seed = null;
@@ -32,6 +32,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					XaG_CountWithChance geneCount = geneExtension.genesCountProbabilities.RandomElementByWeight((XaG_CountWithChance x) => x.chance);
 					SetGenesInPack(geneCount, newGeneSet);
+					newGeneSet.SortGenes();
 					GenerateName(newGeneSet, geneExtension.genepackNamer);
 				}
 				if (seed.HasValue)
@@ -40,7 +41,6 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (!newGeneSet.Empty)
 				{
-					newGeneSet.SortGenes();
 					___geneSet = newGeneSet;
 				}
 				else
@@ -54,7 +54,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (rule == null)
 			{
-				return;
+				rule = RulePackDefOf.NamerGenepack;
 			}
 			if (geneSet.GenesListForReading.Any())
 			{
@@ -73,14 +73,14 @@ namespace WVC_XenotypesAndGenes
 		{
 			for (int j = 0; j < geneCount.genesCount; j++)
 			{
-				if (DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.biostatArc == 0 && x.IsFromXenoGenes() && CanAddGeneDuringGeneration(x, geneSet)).TryRandomElementByWeight((GeneDef x) => x.selectionWeight, out var result))
+				if (DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.biostatArc == 0 && x.IsXenoGenesDef() && CanAddGeneDuringGeneration(x, geneSet)).TryRandomElementByWeight((GeneDef x) => x.selectionWeight, out var result))
 				{
 					geneSet.AddGene(result);
 				}
 			}
 			for (int i = 0; i < geneCount.architeCount; i++)
 			{
-				if (DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.biostatArc != 0 && x.IsFromXenoGenes() && CanAddGeneDuringGeneration(x, geneSet)).TryRandomElementByWeight((GeneDef x) => x.selectionWeight, out var result))
+				if (DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.biostatArc != 0 && x.IsXenoGenesDef() && CanAddGeneDuringGeneration(x, geneSet)).TryRandomElementByWeight((GeneDef x) => x.selectionWeight, out var result))
 				{
 					geneSet.AddGene(result);
 				}
@@ -89,15 +89,11 @@ namespace WVC_XenotypesAndGenes
 
 		private static bool CanAddGeneDuringGeneration(GeneDef gene, GeneSet geneSet)
 		{
-			List<GeneDef> genes = geneSet.GenesListForReading;
-			if (!ModsConfig.BiotechActive)
-			{
-				return false;
-			}
 			if (!gene.canGenerateInGeneSet || gene.selectionWeight <= 0f)
 			{
 				return false;
 			}
+			List<GeneDef> genes = geneSet.GenesListForReading;
 			if (genes.Contains(gene))
 			{
 				return false;

@@ -100,15 +100,12 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			PawnGenerationRequest generateNewBornPawn = new(progenitor.kindDef, progenitor.Faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: true, canGeneratePawnRelations: false, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: false, allowAddictions: false, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, fixedChronologicalAge: progenitor.ageTracker.AgeBiologicalTicks, fixedGender: progenitor.gender, fixedBiologicalAge: progenitor.ageTracker.AgeBiologicalTicks, forceNoIdeo: false, forceNoBackstory: true, forbidAnyTitle: true, forceDead: false, forcedXenotype: progenitor.genes.Xenotype, developmentalStages: progenitor.DevelopmentalStage);
-			Pawn clone = PawnGenerator.GeneratePawn(generateNewBornPawn);
+			PawnGenerationRequest request = DuplicateUtility.RequestCopy(progenitor);
+			// PawnGenerationRequest generateNewBornPawn = new(progenitor.kindDef, progenitor.Faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: true, canGeneratePawnRelations: false, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: false, allowAddictions: false, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, fixedChronologicalAge: progenitor.ageTracker.AgeBiologicalTicks, fixedGender: progenitor.gender, fixedBiologicalAge: progenitor.ageTracker.AgeBiologicalTicks, forceNoIdeo: false, forceNoBackstory: true, forbidAnyTitle: true, forceDead: false, forcedXenotype: progenitor.genes.Xenotype, developmentalStages: progenitor.DevelopmentalStage);
+			Pawn clone = PawnGenerator.GeneratePawn(request);
 			if (PawnUtility.TrySpawnHatchedOrBornPawn(clone, progenitor))
 			{
-				Shapeshift_ClonePawn(progenitor, clone);
-				clone.health.AddHediff(HediffDefOf.XenogerminationComa);
-				GeneUtility.UpdateXenogermReplication(clone);
-				ReimplanterUtility.ExtractXenogerm(progenitor);
-				ReimplanterUtility.SetXenotype_DoubleXenotype(clone, xenotypeDef);
+				DuplicateUtility.DuplicatePawn(progenitor, clone, xenotypeDef);
 				if (!clone.genes.HasGene(gene.def))
 				{
 					clone.genes.AddGene(gene.def, false);
@@ -137,42 +134,6 @@ namespace WVC_XenotypesAndGenes
 				WVC_GenesDefOf.WVC_XaG_UndeadEvent, new LookTargets(progenitor));
 			}
 			return true;
-		}
-
-		public static void Shapeshift_ClonePawn(Pawn progenitor, Pawn clone)
-		{
-			clone.apparel.DestroyAll();
-			clone.ageTracker.AgeBiologicalTicks = progenitor.ageTracker.AgeBiologicalTicks;
-			clone.ageTracker.AgeChronologicalTicks = 0L;
-			clone.gender = progenitor.gender;
-			clone.story.Childhood = WVC_GenesDefOf.WVC_XaG_Shapeshifter0_Child;
-			clone.story.headType = progenitor.story.headType;
-			clone.story.bodyType = progenitor.story.bodyType;
-			clone.story.hairDef = progenitor.story.hairDef;
-			clone.story.favoriteColor = progenitor.story.favoriteColor;
-			clone.style.beardDef = progenitor.style.beardDef;
-			// clone.style.FaceTattoo = null;
-			// clone.style.BodyTattoo = null;
-			clone.style.SetupTattoos_NoIdeology();
-			MiscUtility.TransferTraits(clone, progenitor);
-			MiscUtility.TransferSkills(clone, progenitor);
-			if (clone.ideo != null)
-			{
-				clone.ideo.SetIdeo(progenitor.ideo.Ideo);
-			}
-			if (clone.playerSettings != null && progenitor.playerSettings != null)
-			{
-				clone.playerSettings.AreaRestrictionInPawnCurrentMap = progenitor.playerSettings.AreaRestrictionInPawnCurrentMap;
-			}
-			if (clone.RaceProps.IsFlesh && progenitor.RaceProps.IsFlesh)
-			{
-				clone.relations.AddDirectRelation(PawnRelationDefOf.Parent, progenitor);
-			}
-			if (progenitor.Spawned)
-			{
-				progenitor.GetLord()?.AddPawn(clone);
-			}
-			GestationUtility.GetBabyName(clone, progenitor);
 		}
 
 		// Coma TEST

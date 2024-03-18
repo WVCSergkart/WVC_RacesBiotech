@@ -455,7 +455,7 @@ namespace WVC_XenotypesAndGenes
 
 		// XaG test
 
-		public static bool IsFromXenoGenes(this Def def)
+		public static bool IsXenoGenesDef(this Def def)
 		{
 			return def?.modContentPack != null && def.modContentPack.PackageId.Contains("wvc.sergkart.races.biotech");
 		}

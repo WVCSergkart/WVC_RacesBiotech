@@ -22,7 +22,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool ReplaceGeneBackground(GeneDef geneDef)
 		{
-			if (geneDef.IsFromXenoGenes())
+			if (geneDef.IsXenoGenesDef())
 			{
 				return true;
 			}
@@ -77,14 +77,14 @@ namespace WVC_XenotypesAndGenes
 					+ undead.PreventResurrectionHediffs.Select((HediffDef x) => x.label).ToLineList("  - ", capitalizeItems: true);
 				}
 			}
-			else if (gene is Gene_DustReincarnation reincarnation)
+			else if (gene is Gene_Reincarnation reincarnation)
 			{
 				if (reincarnation.ReincarnationActive())
 				{
 					text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive_UndeadReincarnate".Translate();
 				}
 			}
-			if (ModLister.CheckIdeology("Scarification") && gene is Gene_Scarifier scarifier)
+			else if (gene is Gene_Scarifier scarifier)
 			{
 				text += "\n\n" + ("WVC_XaG_NewBack_GeneIsScarifier".Translate() + ": " + scarifier.cachedMaxScars.ToString());
 			}
