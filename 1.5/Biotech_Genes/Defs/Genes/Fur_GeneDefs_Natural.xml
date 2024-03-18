@@ -18,18 +18,18 @@
 	<minAgeActive>0</minAgeActive>
 	<skinIsHairColor>false</skinIsHairColor>
 	<tattoosVisible>true</tattoosVisible>
-	<renderNodeProperties>
-	  <li>
-		<debugLabel>Fur</debugLabel>
-		<nodeClass>WVC_XenotypesAndGenes.PawnRenderNode_FurIsSkin</nodeClass>
-		<workerClass>PawnRenderNodeWorker_Fur</workerClass>
-		<baseLayer>5</baseLayer>
-		<rotDrawMode>Fresh, Rotting</rotDrawMode>
-		<colorType>Skin</colorType>
-		<parentTagDef>Body</parentTagDef>
-		<useSkinShader>true</useSkinShader>
-	  </li>
-	</renderNodeProperties>
+	<!-- <renderNodeProperties> -->
+	  <!-- <li> -->
+		<!-- <debugLabel>Fur</debugLabel> -->
+		<!-- <nodeClass>WVC_XenotypesAndGenes.PawnRenderNode_FurIsSkin</nodeClass> -->
+		<!-- <workerClass>PawnRenderNodeWorker_Fur</workerClass> -->
+		<!-- <baseLayer>5</baseLayer> -->
+		<!-- <rotDrawMode>Fresh, Rotting</rotDrawMode> -->
+		<!-- <colorType>Skin</colorType> -->
+		<!-- <parentTagDef>Body</parentTagDef> -->
+		<!-- <useSkinShader>true</useSkinShader> -->
+	  <!-- </li> -->
+	<!-- </renderNodeProperties> -->
 	<exclusionTags>
 	  <li>AG_Bodies</li>
 	  <li>Bodies</li>

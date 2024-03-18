@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <BodyDef>
+	<defName>WVC_XenotypesAndGenes_WalkingCorpse</defName>
+	<label>golem</label>
+	<corePart>
+	  <def>Torso</def>
+	  <customLabel>bone pile</customLabel>
+	  <height>Middle</height>
+	  <depth>Outside</depth>
+	  <groups>
+		<li>Torso</li>
+	  </groups>
+	  <parts>
+		<li>
+		  <def>Spine</def>
+		  <customLabel>base of the bone pile</customLabel>
+		  <coverage>0.025</coverage>
+		  <depth>Inside</depth>
+		  <groups>
+			<li>Torso</li>
+		  </groups>
+		</li>
+		<li>
+		  <def>Stomach</def>
+		  <customLabel>acid-active fungus</customLabel>
+		  <coverage>0.025</coverage>
+		  <depth>Inside</depth>
+		  <groups>
+			<li>Torso</li>
+		  </groups>
+		</li>
+		<li>
+		  <def>Heart</def>
+		  <customLabel>fungi electro pulsator</customLabel>
+		  <coverage>0.020</coverage>
+		  <depth>Inside</depth>
+		  <groups>
+			<li>Torso</li>
+		  </groups>
+		</li>
+		<li>
+		  <def>Neck</def>
+		  <coverage>0.075</coverage>
+		  <height>Top</height>
+		  <groups>
+			<li>Neck</li>
+		  </groups>
+		  <parts>
+			<li>
+			  <def>Head</def>
+			  <coverage>0.80</coverage>
+			  <groups>
+				<li>UpperHead</li>
+				<li>FullHead</li>
+				<li>HeadAttackTool</li>
+			  </groups>
+			  <parts>
+				<li>
+				  <def>Skull</def>
+				  <coverage>0.18</coverage>
+				  <depth>Inside</depth>
+				  <groups>
+					<li>UpperHead</li>
+					<li>Eyes</li>
+					<li>FullHead</li>
+				  </groups>
+				  <parts>
+					<li>
+					  <def>Brain</def>
+					  <customLabel>fungal nerve center</customLabel>
+					  <coverage>0.8</coverage>
+					  <groups>
+						<li>UpperHead</li>
+						<li>Eyes</li>
+						<li>FullHead</li>
+					  </groups>
+					</li>
+				  </parts>
+				</li>
+				<li>
+				  <def>Ear</def>
+				  <customLabel>fungal thin membrane</customLabel>
+				  <coverage>0.07</coverage>
+				  <groups>
+					<li>UpperHead</li>
+					<li>FullHead</li>
+				  </groups>
+				</li>
+				<li>
+				  <def>Eye</def>
+				  <customLabel>photosensitive fungus</customLabel>
+				  <coverage>0.07</coverage>
+				  <groups>
+					<li>UpperHead</li>
+					<li>FullHead</li>
+				  </groups>
+				</li>
+				<li>
+				  <def>Jaw</def>
+				  <coverage>0.15</coverage>
+				  <groups>
+					<li>Teeth</li>
+					<li>FullHead</li>
+					<li>Mouth</li>
+				  </groups>
+				</li>
+			  </parts>
+			</li>
+		  </parts>
+		</li>
+		<li>
+		  <def>Arm</def>
+		  <customLabel>left manipulator</customLabel>
+		  <coverage>0.12</coverage>
+		  <woundAnchorTag>LeftShoulder</woundAnchorTag>
+		  <groups>
+			<li>Shoulders</li>
+			<li>LeftHand</li>
+		  </groups>
+		</li>
+		<li>
+		  <def>Arm</def>
+		  <customLabel>right manipulator</customLabel>
+		  <coverage>0.12</coverage>
+		  <woundAnchorTag>RightShoulder</woundAnchorTag>
+		  <groups>
+			<li>Shoulders</li>
+			<li>RightHand</li>
+		  </groups>
+		</li>
+		<li>
+		  <def>Leg</def>
+		  <customLabel>left supporting limb</customLabel>
+		  <coverage>0.14</coverage>
+		  <height>Bottom</height>
+		  <groups>
+			<li>Legs</li>
+		  </groups>
+		  <woundAnchorTag>LeftLeg</woundAnchorTag>
+		</li>
+		<li>
+		  <def>Leg</def>
+		  <customLabel>right supporting limb</customLabel>
+		  <coverage>0.14</coverage>
+		  <height>Bottom</height>
+		  <groups>
+			<li>Legs</li>
+		  </groups>
+		  <woundAnchorTag>RightLeg</woundAnchorTag>
+		</li>
+	  </parts>
+	</corePart>
+  </BodyDef>
+
+	<!-- =================================================================== -->
+
+	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Base" Name="WVC_XenotypesAndGenes_Golemlike_Bones" Abstract="True">
+		<!-- <description>A pile of bones animated by archotech-created archites in a toxic fungus. This “mechanoid” requires  a lot of energy, but very little bandwidth.\n\n&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; Golem control requires bandwidth and resurgent spores. The standard bandwidth-to-golem ratio is 1 to 5.</description> -->
+		<soundImpactDefault>BulletImpact_Flesh</soundImpactDefault>
+		<descriptionHyperlinks>
+		  <ThingDef>WVC_Plant_TreeResurgent</ThingDef>
+		  <ThingDef>WVC_XenotypesAndGenes_WalkingCorpseTotem</ThingDef>
+		</descriptionHyperlinks>
+		<statBases>
+			<MechEnergyUsageFactor>3.0</MechEnergyUsageFactor>
+			<ArmorRating_Sharp>0.3</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+			<ArmorRating_Heat>0.4</ArmorRating_Heat>
+			<MoveSpeed>3.6</MoveSpeed>
+			<Mass>43</Mass>
+			<WVC_GolemBondCost>1</WVC_GolemBondCost>
+		</statBases>
+		<uiIconScale>1.4</uiIconScale>
+		<race>
+			<!-- <deathActionWorkerClass>WVC_XenotypesAndGenes.DeathActionWorker_SpawnThing</deathActionWorkerClass> -->
+			<body>WVC_XenotypesAndGenes_WalkingCorpse</body>
+			<bloodDef>Filth_CorpseBile</bloodDef>
+			<specificMeatDef>RawFungus</specificMeatDef>
+			<leatherDef>RawFungus</leatherDef>
+			<baseHealthScale>0.6</baseHealthScale>
+			<baseBodySize>1.0</baseBodySize>
+		</race>
+		<butcherProducts>
+			<RawFungus>5</RawFungus>
+		</butcherProducts>
+		<comps>
+			<li Class="WVC_XenotypesAndGenes.CompProperties_Regeneration">
+				<refreshTicks>3000</refreshTicks>
+				<regenAmount>1</regenAmount>
+				<shouldSendNotification>false</shouldSendNotification>
+			</li>
+			<!-- <li Class="WVC_XenotypesAndGenes.CompProperties_InitialHediff"> -->
+				<!-- <hediffDefs> -->
+				  <!-- <li>WVC_SelfPopulationRegulation_BoneGolems</li> -->
+				<!-- </hediffDefs> -->
+			<!-- </li> -->
+			<li Class="WVC_XenotypesAndGenes.CompProperties_Golem">
+				<refreshHours>2</refreshHours>
+				<shutdownEnergyReplenish>4.0</shutdownEnergyReplenish>
+				<golemIndex>1</golemIndex>
+			</li>
+			<li Class="WVC_XenotypesAndGenes.CompProperties_SpawnOnDeath">
+				<!-- Totem -->
+				<compClass>WVC_XenotypesAndGenes.CompSpawnOnDeath_Subplants</compClass>
+				<filthDefToSpawn>Filth_CorpseBile</filthDefToSpawn>
+				<thingDefsToSpawn>
+				  <li>WVC_XenotypesAndGenes_WalkingCorpseTotem</li>
+				</thingDefsToSpawn>
+				<!-- Subplant -->
+				<subplant>WVC_Plant_MossResurgent</subplant>
+				<subplantCount>3</subplantCount>
+				<maxRadius>2.9</maxRadius>
+				<initialGrowthRange>0.2~0.8</initialGrowthRange>
+				<canSpawnOverPlayerSownPlants>false</canSpawnOverPlayerSownPlants>
+				<!-- <plantsToNotOverwrite> -->
+				  <!-- <li>Plant_PodGauranlen</li> -->
+				  <!-- <li>WVC_Plant_TreeResurgent</li> -->
+				  <!-- <li MayRequire="Ludeon.RimWorld.Royalty">Plant_GrassAnima</li> -->
+				  <!-- <li MayRequire="Ludeon.RimWorld.Royalty">Plant_TreeAnima</li> -->
+				  <!-- <li MayRequire="Ludeon.RimWorld.Ideology">Plant_TreeGauranlen</li> -->
+				<!-- </plantsToNotOverwrite> -->
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+				<removeDormantComp>true</removeDormantComp>
+				<removeRepairComp>true</removeRepairComp>
+				<removeButcherRecipes>true</removeButcherRecipes>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<PawnKindDef ParentName="WVC_XenotypesAndGenes_NonCombatGolemlikeKind_Base" Name="WVC_XenotypesAndGenes_ResurgentSporesPawnkind_Base" Abstract="True">
+		<alternateGraphicChance>1.0</alternateGraphicChance>
+		<alternateGraphics>
+			<!-- white -->
+			<li><color>(190,190,190)</color></li>
+			<!-- rot -->
+			<li><color>(198,180,129)</color><weight>0.01</weight></li>
+			<!-- slate -->
+			<li><color>(70,70,70)</color><weight>0.15</weight></li>
+			<!-- limestone -->
+			<li><color>(158,153,135)</color><weight>0.06</weight></li>
+			<!-- granite -->
+			<li><color>(105,95,97)</color><weight>0.04</weight></li>
+			<!-- sandstone -->
+			<li><color>(126,104,94)</color><weight>0.08</weight></li>
+			<!-- marble -->
+			<li><color>(132,135,132)</color><weight>0.02</weight></li>
+		</alternateGraphics>
+	</PawnKindDef>
+
+	<!-- =================================================================== -->
+
+	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Bones">
+		<defName>WVC_Golem_Bonepile</defName>
+		<label>walking bonepile</label>
+		<statBases>
+			<ArmorRating_Sharp>0.2</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+			<MoveSpeed>3.8</MoveSpeed>
+		</statBases>
+		<race>
+			<mechEnabledWorkTypes>
+			  <li>Hauling</li>
+			</mechEnabledWorkTypes>
+		</race>
+	</ThingDef>
+	<PawnKindDef ParentName="WVC_XenotypesAndGenes_ResurgentSporesPawnkind_Base">
+		<defName>WVC_Golem_Bonepile</defName>
+		<label>walking bonepile</label>
+		<race>WVC_Golem_Bonepile</race>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>WVC/Things/XaG_Pawns/Mechanoids_Golems/BoneGolem</texPath>
+					<shaderType>CutoutComplex</shaderType>
+					<drawSize>1.2</drawSize>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+
+	<!-- =================================================================== -->
+
+	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Bones">
+		<defName>WVC_Golem_Skeleton</defName>
+		<label>walking skeleton</label>
+		<statBases>
+			<ArmorRating_Sharp>0.5</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.0</ArmorRating_Blunt>
+			<!-- <ArmorRating_Heat>0.0</ArmorRating_Heat> -->
+			<MoveSpeed>4.8</MoveSpeed>
+			<Mass>37</Mass>
+		</statBases>
+		<tools>
+			<li>
+				<label>left fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8.2</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>9</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+			</li>
+			<li>
+				<label>right fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8.2</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>9</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+			</li>
+		</tools>
+		<race>
+			<mechEnabledWorkTypes>
+			  <li>Cleaning</li>
+			</mechEnabledWorkTypes>
+			<!-- <baseHungerRate>2.0</baseHungerRate> -->
+			<baseHealthScale>0.8</baseHealthScale>
+		</race>
+	</ThingDef>
+	<PawnKindDef ParentName="WVC_XenotypesAndGenes_ResurgentSporesPawnkind_Base">
+		<defName>WVC_Golem_Skeleton</defName>
+		<label>walking skeleton</label>
+		<race>WVC_Golem_Skeleton</race>
+		<!-- <controlGroupPortraitZoom>1.48</controlGroupPortraitZoom> -->
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>WVC/Things/XaG_Pawns/Mechanoids_Golems/Skeleton</texPath>
+					<shaderType>CutoutComplex</shaderType>
+					<drawSize>1.5</drawSize>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+
+	<!-- =================================================================== -->
+
+	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Bones">
+		<defName>WVC_Golem_Funghead</defName>
+		<label>walking funghead</label>
+		<statBases>
+			<WVC_GolemBondCost>2</WVC_GolemBondCost>
+			<ArmorRating_Sharp>0.5</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.3</ArmorRating_Blunt>
+			<ArmorRating_Heat>0.1</ArmorRating_Heat>
+			<!-- <Flammability>0.6</Flammability> -->
+			<MoveSpeed>4.2</MoveSpeed>
+			<Mass>39</Mass>
+		</statBases>
+		<tools>
+			<li>
+				<label>left fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>7.4</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>8</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+			</li>
+			<li>
+				<label>right fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>7.4</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>8</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+			</li>
+		</tools>
+		<race>
+			<mechEnabledWorkTypes>
+			  <li>PlantCutting</li>
+			  <li>Growing</li>
+			</mechEnabledWorkTypes>
+			<!-- <baseHungerRate>2.0</baseHungerRate> -->
+			<baseHealthScale>1.2</baseHealthScale>
+		</race>
+	</ThingDef>
+	<PawnKindDef ParentName="WVC_XenotypesAndGenes_ResurgentSporesPawnkind_Base">
+		<defName>WVC_Golem_Funghead</defName>
+		<label>walking funghead</label>
+		<race>WVC_Golem_Funghead</race>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>WVC/Things/XaG_Pawns/Mechanoids_Golems/SkeletonHeadless</texPath>
+					<shaderType>CutoutComplex</shaderType>
+					<drawSize>1.5</drawSize>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+
+	<!-- =================================================================== -->
+
+	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Bones">
+		<defName>WVC_Golem_Aberration</defName>
+		<label>walking aberration</label>
+		<statBases>
+			<WVC_GolemBondCost>3</WVC_GolemBondCost>
+			<ArmorRating_Sharp>0.85</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.44</ArmorRating_Blunt>
+			<ArmorRating_Heat>0.6</ArmorRating_Heat>
+			<!-- <Flammability>0.4</Flammability> -->
+			<MoveSpeed>2.8</MoveSpeed>
+			<Mass>54</Mass>
+		</statBases>
+		<tools>
+			<li>
+				<label>left fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>19</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>9</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+			</li>
+			<li>
+				<label>right fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>19</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>9</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+			</li>
+		</tools>
+		<race>
+			<mechEnabledWorkTypes>
+			  <li>Mining</li>
+			  <!-- <li>Construction</li> -->
+			</mechEnabledWorkTypes>
+			<baseHealthScale>1.8</baseHealthScale>
+		</race>
+	</ThingDef>
+	<PawnKindDef ParentName="WVC_XenotypesAndGenes_ResurgentSporesPawnkind_Base">
+		<defName>WVC_Golem_Aberration</defName>
+		<label>walking aberration</label>
+		<race>WVC_Golem_Aberration</race>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>WVC/Things/XaG_Pawns/Mechanoids_Golems/SkeletonAberration</texPath>
+					<shaderType>CutoutComplex</shaderType>
+					<drawSize>1.5</drawSize>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+
+</Defs>

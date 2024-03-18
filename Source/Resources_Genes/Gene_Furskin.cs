@@ -17,6 +17,7 @@ namespace WVC_XenotypesAndGenes
 	}
 
 	// WIP
+	// [Obsolete]
 	public class Gene_BodySize : Gene
 	{
 

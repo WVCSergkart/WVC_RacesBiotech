@@ -29,7 +29,7 @@
 		<biostatMet>2</biostatMet>
 		<!-- <geneClass>WVC_XenotypesAndGenes.Gene_BodySize</geneClass> -->
 		<customEffectDescriptions>
-			<!-- <li MayRequire="oskarpotocki.vanillafactionsexpanded.core">Slightly reduces the pawn visually.</li> -->
+			<li>Slightly reduces the pawn visually.</li>
 		</customEffectDescriptions>
 		<statFactors>
 		  <MeleeDamageFactor>0.8</MeleeDamageFactor>
@@ -42,6 +42,12 @@
 		<statOffsets>
 		  <MoveSpeed>0.1</MoveSpeed>
 		</statOffsets>
+		<!-- <renderNodeProperties> -->
+		  <!-- <li Class="WVC_XenotypesAndGenes.PawnRenderNodeProperties_Size"> -->
+			<!-- <bodyScaleFactor>0.9</bodyScaleFactor> -->
+			<!-- <headScaleFactor>0.9</headScaleFactor> -->
+		  <!-- </li> -->
+		<!-- </renderNodeProperties> -->
 		<symbolPack>
 		  <prefixSymbols>
 			<li><symbol>chibi</symbol></li>
@@ -86,7 +92,7 @@
 		<biostatCpx>1</biostatCpx>
 		<biostatMet>-2</biostatMet>
 		<customEffectDescriptions>
-			<!-- <li MayRequire="oskarpotocki.vanillafactionsexpanded.core">Slightly enlarges the pawn visually.</li> -->
+			<li>Slightly enlarges the pawn visually.</li>
 		</customEffectDescriptions>
 		<statFactors>
 		  <MeleeDamageFactor>1.2</MeleeDamageFactor>
@@ -99,6 +105,12 @@
 		<statOffsets>
 		  <MoveSpeed>-0.1</MoveSpeed>
 		</statOffsets>
+		<!-- <renderNodeProperties> -->
+		  <!-- <li Class="WVC_XenotypesAndGenes.PawnRenderNodeProperties_Size"> -->
+			<!-- <bodyScaleFactor>1.1</bodyScaleFactor> -->
+			<!-- <headScaleFactor>1.1</headScaleFactor> -->
+		  <!-- </li> -->
+		<!-- </renderNodeProperties> -->
 		<symbolPack>
 		  <prefixSymbols>
 			<li><symbol>giant</symbol></li>

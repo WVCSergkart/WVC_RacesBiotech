@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BuildingBase">
+	<defName>WVC_XenotypesAndGenes_WalkingCorpseTotem</defName>
+	<label>walking corpse totem</label>
+	<description>A pile of remains infected with a resurgent fungus. The fungus is very toxic and will slowly pollute the soil.</description>
+	<descriptionHyperlinks>
+	  <ThingDef>WVC_Plant_TreeResurgent</ThingDef>
+	  <!-- <ThingDef>WVC_Golem_Skeleton</ThingDef> -->
+	  <!-- <ThingDef>WVC_Golem_Bonepile</ThingDef> -->
+	</descriptionHyperlinks>
+	<soundImpactDefault>MeleeHit_Wood</soundImpactDefault>
+	<statBases>
+	  <MaxHitPoints>30</MaxHitPoints>
+	  <WorkToBuild>750</WorkToBuild>
+	  <Mass>10</Mass>
+	  <Flammability>0.2</Flammability>
+	  <Beauty>1</Beauty>
+	  <StyleDominance MayRequire="Ludeon.RimWorld.Ideology">10</StyleDominance>
+	</statBases>
+	<graphicData>
+	  <drawOffset>(0,0,0.2)</drawOffset>
+	  <texPath>WVC/Things/XaG_Buildings/WalkingCorpseTotem</texPath>
+	  <graphicClass>Graphic_Random</graphicClass>
+	  <shaderType>CutoutComplex</shaderType>
+	  <drawSize>(1.2,1.2)</drawSize>
+	  <color>(190,190,190)</color>
+	  <!-- <color>(5,5,5)</color> -->
+	  <!-- <colorTwo>(5,5,5)</colorTwo> -->
+	  <drawRotated>false</drawRotated>
+	  <allowFlip>true</allowFlip>
+	  <shadowData>
+		<volume>(0.3, 0.5, 0.3)</volume>
+		<offset>(0,0,-0.23)</offset>
+	  </shadowData>
+	  <damageData>
+		<rect>(0.2,0.2,0.6,0.6)</rect>
+	  </damageData>
+	</graphicData>
+	<!-- <uiOrder>2040</uiOrder> -->
+	<altitudeLayer>Building</altitudeLayer>
+	<passability>PassThroughOnly</passability>
+	<fillPercent>0.15</fillPercent>
+	<pathCost>0.35</pathCost>
+	<!-- <tickerType>Rare</tickerType> -->
+	<tickerType>Long</tickerType>
+	<costList>
+	  <RawFungus>5</RawFungus>
+	  <!-- <ComponentSpacer>1</ComponentSpacer> -->
+	</costList>
+	<designationCategory></designationCategory>
+	<!-- <designationCategory>Power</designationCategory> -->
+	<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+	<!-- <stuffCategories> -->
+	  <!-- <li>Metallic</li> -->
+	  <!-- <li>Woody</li> -->
+	  <!-- <li>Stony</li> -->
+	<!-- </stuffCategories> -->
+	<!-- <costStuffCount>20</costStuffCount> -->
+	<!-- <holdsRoof>true</holdsRoof> -->
+	<canOverlapZones>false</canOverlapZones>
+	<rotatable>false</rotatable>
+	<!-- <fertility>0</fertility> -->
+	<specialDisplayRadius>12.9</specialDisplayRadius>
+	<building>
+	  <destroySound>Harvest_Tree_Finish</destroySound>
+	  <isInert>true</isInert>
+	  <ai_chillDestination>false</ai_chillDestination>
+	  <paintable>true</paintable>
+	  <deconstructible>true</deconstructible>
+	  <alwaysDeconstructible>true</alwaysDeconstructible>
+	  <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+	  <claimable>false</claimable>
+	</building>
+	<comps>
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_HiveSpawnAnimals"> -->
+		<!-- <ticksBetweenSpawn>60000~300000</ticksBetweenSpawn> -->
+		<!-- <maxLivingThings>20</maxLivingThings> -->
+		<!-- <maxNumberOfSpawns>5</maxNumberOfSpawns> -->
+		<!-- <pawnsList> -->
+		  <!-- <li>WVC_XenotypesAndGenes_WalkingCorpse</li> -->
+		  <!-- <li>WVC_XenotypesAndGenes_WalkingSkeleton</li> -->
+		<!-- </pawnsList> -->
+	  <!-- </li> -->
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_WalkingCorpsesSpawner">
+		<ticksBetweenSpawn>600000~3600000</ticksBetweenSpawn>
+		<filthDef>Filth_CorpseBile</filthDef>
+		<summonsList>
+		  <li>WVC_Golem_Skeleton</li>
+		  <li>WVC_Golem_Bonepile</li>
+		  <li>WVC_Golem_Funghead</li>
+		  <li>WVC_Golem_Aberration</li>
+		</summonsList>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_Toxifier">
+		<pollutionIntervalTicks>360000~720000</pollutionIntervalTicks>
+		<cellsToPollute>6</cellsToPollute>
+		<radius>12.9</radius>
+	  </li>
+	  <li Class="CompProperties_Styleable" />
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_RandomName">
+		<nameMaker>WVC_XenotypesAndGenes_TotemNames</nameMaker>
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <ThingDef ParentName="TreeBase">
+	<defName>WVC_Plant_TreeResurgent</defName>
+	<label>resurgent tree</label>
+	<description>Resurgent trees are toxic mushroom trees, genetically modified and powered by archotech-created archites in the root system. They slowly pollute the soil and spread to the remains buried deep in the ground, animating them.\n\nThese trees only react to the psionic presence of pawns with a certain genetic makeup, the rest of the time they are passive and almost harmless, with the exception of pollution.</description>
+	<descriptionHyperlinks>
+	  <ThingDef>WVC_XenotypesAndGenes_WalkingCorpseTotem</ThingDef>
+	  <GeneDef>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</GeneDef>
+	  <!-- <ThingDef>WVC_Golem_Skeleton</ThingDef> -->
+	  <!-- <ThingDef>WVC_Golem_Bonepile</ThingDef> -->
+	</descriptionHyperlinks>
+	<graphicData>
+	  <!-- <drawOffset>(10,1.5,5)</drawOffset> -->
+	  <texPath>WVC/Things/XaG_Buildings/ResurgentTree</texPath>
+	  <graphicClass>Graphic_Random</graphicClass>
+	  <!-- <shadowData> -->
+		<!-- <volume>(0.35, 0.3, 0.35)</volume> -->
+		<!-- <offset>(0,0,0.05)</offset> -->
+	  <!-- </shadowData> -->
+	</graphicData>
+	<tickerType>Long</tickerType>
+	<!-- <minifiedDef IsNull="True" /> -->
+	<statBases>
+	  <Beauty>12</Beauty>
+	  <BeautyOutdoors>6</BeautyOutdoors>
+	  <Flammability>0.5</Flammability>
+	  <MaxHitPoints>850</MaxHitPoints>
+	  <!-- <MaxHitPoints>300</MaxHitPoints> -->
+	</statBases>
+	<ingestible />
+	<preventSkyfallersLandingOn>true</preventSkyfallersLandingOn>
+	<canScatterOver>false</canScatterOver>
+	<specialDisplayRadius>19.9</specialDisplayRadius>
+	<plant>
+	  <interferesWithRoof>false</interferesWithRoof>
+	  <growMinGlow>0</growMinGlow>
+	  <pollution>Any</pollution>
+	  <growDays>10</growDays>
+	  <visualSizeRange>1.5~2.1</visualSizeRange>
+	  <!-- <visualSizeRange>2.5~3.1</visualSizeRange> -->
+	  <sowMinSkill>0</sowMinSkill>
+	  <sowTags Inherit="False"/>
+	  <lifespanDaysPerGrowDays>0</lifespanDaysPerGrowDays>
+	  <fertilityMin>0.05</fertilityMin>
+	  <fertilitySensitivity>0</fertilitySensitivity>
+	  <wildClusterWeight>0</wildClusterWeight>
+	  <sowWork>400</sowWork>
+	  <harvestYield>30</harvestYield>
+	  <treeCategory>Super</treeCategory>
+	  <dieIfNoSunlight>false</dieIfNoSunlight>
+	  <sowResearchPrerequisites Inherit="False" />
+	  <dieFromToxicFallout>False</dieFromToxicFallout>
+	  <showGrowthInInspectPane>false</showGrowthInInspectPane>
+	  <minSpacingBetweenSamePlant>4.9</minSpacingBetweenSamePlant>
+	  <warnIfMarkedForCut>true</warnIfMarkedForCut>
+	  <harvestWork>1000</harvestWork>
+	  <choppedThingDef>ChoppedStump_Polluted</choppedThingDef>
+	  <smashedThingDef>SmashedStump_Polluted</smashedThingDef>
+	  <immatureGraphicPath>WVC/Things/XaG_Buildings/MushroomTreeBulbs/Bulb_A</immatureGraphicPath>
+	</plant>
+	<comps>
+	  <li Class="CompProperties_SelfhealHitpoints">
+		<ticksPerHeal>2000</ticksPerHeal> <!-- 30 hp per day, must be a multiple of 2000, since plants have Long ticker -->
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_WalkingCorpsesSpawner">
+		<ticksBetweenSpawn>120000~900000</ticksBetweenSpawn>
+		<canBeCustomized>true</canBeCustomized>
+		<filthDef>Filth_CorpseBile</filthDef>
+		<summonsList>
+		  <li>WVC_Golem_Skeleton</li>
+		  <li>WVC_Golem_Bonepile</li>
+		  <li>WVC_Golem_Funghead</li>
+		  <li>WVC_Golem_Aberration</li>
+		</summonsList>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_Toxifier">
+		<pollutionIntervalTicks>360000~720000</pollutionIntervalTicks>
+		<cellsToPollute>12</cellsToPollute>
+		<radius>19.9</radius>
+	  </li>
+	  <!-- <li Class="CompProperties_Glower"> -->
+		<!-- <glowRadius>3.5</glowRadius> -->
+		<!-- <glowColor>(189,205,255, 0)</glowColor> -->
+	  <!-- </li> -->
+	  <li Class="CompProperties_Glower">
+		<glowRadius>5.5</glowRadius>
+		<glowColor>(125,150,125, 0)</glowColor>
+	  </li>
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_SpawnBabyPawnAndInheritGenes"> -->
+		<!-- <ticksBetweenSpawn>2400000~3600000</ticksBetweenSpawn> -->
+		<!-- <geneDef>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</geneDef> -->
+	  <!-- </li> -->
+	  <li Class="CompProperties_SpawnSubplant">
+		<compClass>WVC_XenotypesAndGenes.CompSpawnSubplantDuration</compClass>
+		<subplant>WVC_Plant_MossResurgent</subplant>
+		<maxRadius>7.9</maxRadius>
+		<subplantSpawnDays>1</subplantSpawnDays>
+		<minGrowthForSpawn>0.6</minGrowthForSpawn>
+		<initialGrowthRange>0.2~0.8</initialGrowthRange>
+		<canSpawnOverPlayerSownPlants>false</canSpawnOverPlayerSownPlants>
+		<!-- <plantsToNotOverwrite> -->
+		  <!-- <li>Plant_PodGauranlen</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Royalty">Plant_GrassAnima</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Royalty">Plant_TreeAnima</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">Plant_TreePolux</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeXenoSpawner</li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Ideology">Plant_TreeGauranlen</li> -->
+		<!-- </plantsToNotOverwrite> -->
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_RandomName">
+		<nameMaker>WVC_XenotypesAndGenes_MushroomTreeNames</nameMaker>
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <ThingDef ParentName="PlantBaseNonEdible">
+	<defName>WVC_Plant_MossResurgent</defName>
+	<label>resurgent moss</label>
+	<description>Symbiotic moss that grows near Resurgent trees.</description>
+	<statBases>
+	  <MaxHitPoints>100</MaxHitPoints>
+	  <Beauty>4</Beauty>
+	  <BeautyOutdoors>4</BeautyOutdoors>
+	</statBases>
+	<descriptionHyperlinks>
+	  <ThingDef>WVC_Plant_TreeResurgent</ThingDef>
+	</descriptionHyperlinks>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Buildings/ResurgentTree_Moss</texPath>
+	  <graphicClass>Graphic_Random</graphicClass>
+	  <drawSize>(0.75, 0.75)</drawSize>
+	</graphicData>
+	<plant>
+	  <growMinGlow>0</growMinGlow>
+	  <pollution>Any</pollution>
+	  <fertilityMin>0.05</fertilityMin>
+	  <fertilitySensitivity>0</fertilitySensitivity>
+	  <sowMinSkill>0</sowMinSkill>
+	  <growDays>5</growDays>
+	  <visualSizeRange>0.5~0.7</visualSizeRange>
+	  <topWindExposure>0</topWindExposure>
+	  <allowAutoCut>false</allowAutoCut>
+	  <wildClusterWeight>0</wildClusterWeight>
+	  <maxMeshCount>4</maxMeshCount>
+	</plant>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+	<defName>WVC_ResurgentSeed</defName>
+	<label>resurgent spore</label>
+	<description>The spore of a resurgent tree. It can be planted to create a new resurgent tree which will pollute nearby terrain.</description>
+	<descriptionHyperlinks>
+	  <ThingDef>WVC_Plant_TreeResurgent</ThingDef>
+	</descriptionHyperlinks>
+	<stackLimit>5</stackLimit>
+	<statBases>
+	  <MaxHitPoints>50</MaxHitPoints>
+	  <Mass>0.3</Mass>
+	  <Beauty>0</Beauty>
+	  <MarketValue>1200</MarketValue>
+	  <!-- <MaxInstallCount>12</MaxInstallCount> -->
+	</statBases>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/ResurgentSeed</texPath>
+	  <graphicClass>Graphic_StackCount</graphicClass>
+	  <drawSize>(1.0, 1.0)</drawSize>
+	</graphicData>
+	<tradeTags>
+	  <li>WVC_XaG_TreeSeeds</li>
+	</tradeTags>
+	<thingCategories>
+	  <li>ItemsMisc</li>
+	</thingCategories>
+	<thingSetMakerTags>
+	  <li>RewardStandardLowFreq</li>
+	</thingSetMakerTags>
+	<comps>
+	  <!-- <li Class="CompProperties_Usable"> -->
+		<!-- <compClass>CompUsable</compClass> -->
+		<!-- <useJob>UseItem</useJob> -->
+		<!-- <useLabel>Eat resurgent spore</useLabel> -->
+		<!-- <userMustHaveHediff>MechlinkImplant</userMustHaveHediff> -->
+	  <!-- </li> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffectEatSeed"> -->
+		<!-- <hediffDef>WVC_ResurgentSporeBandwidth</hediffDef> -->
+		<!-- <bandwidthGain>1</bandwidthGain> -->
+	  <!-- </li> -->
+	  <!-- <li Class="CompProperties_UseEffectPlaySound"> -->
+		<!-- <soundOnUsed>MechSerumUsed</soundOnUsed> -->
+	  <!-- </li> -->
+	  <!-- <li Class="CompProperties_UseEffectDestroySelf" /> -->
+	  <li Class="CompProperties_Plantable">
+		<plantDefToSpawn>WVC_Plant_TreeResurgent</plantDefToSpawn>
+	  </li>
+	</comps>
+  </ThingDef>
+
+</Defs>

@@ -49,13 +49,14 @@ namespace WVC_XenotypesAndGenes
 				{
 					harmony.Patch(AccessTools.Method(typeof(InteractionUtility), "IsGoodPositionForInteraction", new Type[] {typeof(Pawn), typeof(Pawn)} ), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("TelepathyGene")));
 				}
-				// if (!WVC_Biotech.settings.disableFurGraphic)
-				// {
-					// harmony.Patch(AccessTools.Method(typeof(PawnRenderNode_Body), "GraphicFor"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("FurskinIsSkin")));
+				if (!WVC_Biotech.settings.disableFurGraphic)
+				{
+					harmony.Patch(AccessTools.Method(typeof(PawnRenderNode_Body), "GraphicFor"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("FurskinIsSkin")));
 					// harmony.Patch(AccessTools.Method(typeof(PawnGraphicSet), "ResolveGeneGraphics"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("SpecialGeneGraphic")));
-				// }
+				}
 				if (WVC_Biotech.settings.enableBodySizeGenes)
 				{
+					// harmony.Patch(AccessTools.Method(typeof(PawnRenderNodeWorker), "ScaleFor"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("GraphicSize")));
 					harmony.Patch(AccessTools.Method(typeof(HumanlikeMeshPoolUtility), "HumanlikeBodyWidthForPawn"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("BodyGraphicSize")));
 					harmony.Patch(AccessTools.Method(typeof(HumanlikeMeshPoolUtility), "HumanlikeHeadWidthForPawn"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("HeadGraphicSize")));
 				}
@@ -166,9 +167,26 @@ namespace WVC_XenotypesAndGenes
 
 			// Body graphic
 
+			// public static void GraphicSize(ref Vector3 __result, PawnRenderNode node)
+			// {
+				// if (node is PawnRenderNode_Body)
+				// {
+					// if (node.Props is PawnRenderNodeProperties_Size size)
+					// {
+						// __result *= size.bodyScaleFactor;
+					// }
+				// }
+				// else if (node is PawnRenderNode_Head)
+				// {
+					// if (node.Props is PawnRenderNodeProperties_Size size)
+					// {
+						// __result *= size.headScaleFactor;
+					// }
+				// }
+			// }
+
 			public static void BodyGraphicSize(ref float __result, ref Pawn pawn)
 			{
-				// Log.Error("BodySize TEST");
 				Gene_BodySize gene = pawn?.genes?.GetFirstGeneOfType<Gene_BodySize>();
 				if (gene == null)
 				{
@@ -184,7 +202,6 @@ namespace WVC_XenotypesAndGenes
 
 			public static void HeadGraphicSize(ref float __result, ref Pawn pawn)
 			{
-				// Log.Error("HeadSize TEST");
 				Gene_BodySize gene = pawn?.genes?.GetFirstGeneOfType<Gene_BodySize>();
 				if (gene == null)
 				{
@@ -198,38 +215,28 @@ namespace WVC_XenotypesAndGenes
 				__result *= modExtension.headScaleFactor;
 			}
 
-			// public static void FurskinIsSkin(ref Graphic __result, ref Pawn pawn, Gene ___gene)
-			// {
-				// Pawn pawn = __instance.pawn;
-				// if (pawn?.genes == null || pawn?.story?.furDef == null)
-				// {
-					// return;
-				// }
-				// Gene_Exoskin gene_Exoskin = pawn.genes.GetFirstGeneOfType<Gene_Exoskin>();
-				// if (gene_Exoskin == null)
-				// {
-					// return;
-				// }
-				// GeneExtension_Graphic modExtension = gene_Exoskin.Graphic;
-				// if (modExtension == null)
-				// {
-					// return;
-				// }
-				// __instance.furCoveredGraphic = null;
-				// string bodyPath = pawn.story.furDef.GetFurBodyGraphicPath(pawn);
-				// if (modExtension.furIsSkinWithHair)
-				// {
-					// __instance.nakedGraphic = GraphicDatabase.Get<Graphic_Multi>(bodyPath, ShaderDatabase.CutoutComplex, Vector2.one, pawn.story.SkinColor, pawn.story.HairColor);
-				// }
-				// else if (modExtension.furIsSkin)
-				// {
-					// __instance.nakedGraphic = GraphicDatabase.Get<Graphic_Multi>(bodyPath, ShaderUtility.GetSkinShader(pawn.story.skinColorOverride), Vector2.one, pawn.story.SkinColor);
-				// }
-				// if (modExtension.furCanRot)
-				// {
-					// __instance.rottingGraphic = GraphicDatabase.Get<Graphic_Multi>(bodyPath, ShaderUtility.GetSkinShader(pawn.story.skinColorOverride), Vector2.one, pawn.story.SkinColorOverriden ? (PawnGraphicSet.RottingColorDefault * pawn.story.SkinColor) : PawnGraphicSet.RottingColorDefault);
-				// }
-			// }
+			public static void FurskinIsSkin(Pawn pawn, ref Graphic __result)
+			{
+				FurDef furDef = pawn?.story?.furDef;
+				if (furDef == null)
+				{
+					return;
+				}
+				GeneExtension_Graphic modExtension = furDef?.GetModExtension<GeneExtension_Graphic>();
+				if (modExtension == null)
+				{
+					return;
+				}
+				string bodyPath = furDef?.GetFurBodyGraphicPath(pawn);
+				if (modExtension.furIsSkinWithHair)
+				{
+					__result = GraphicDatabase.Get<Graphic_Multi>(bodyPath, ShaderDatabase.CutoutComplex, Vector2.one, pawn.story.SkinColor, pawn.story.HairColor);
+				}
+				else if (modExtension.furIsSkin)
+				{
+					__result = GraphicDatabase.Get<Graphic_Multi>(bodyPath, ShaderUtility.GetSkinShader(pawn), Vector2.one, pawn.story.SkinColor);
+				}
+			}
 
 			// public static void SpecialGeneGraphic(PawnGraphicSet __instance)
 			// {
