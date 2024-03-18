@@ -32,6 +32,9 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <ArmorRating_Heat>0.21</ArmorRating_Heat>
 	  <ToxicEnvironmentResistance MayRequireAnyOf="wvc.wvcmod.wvcspecific">2.0</ToxicEnvironmentResistance>
 	</statOffsets>
+	<customEffectDescriptions>
+		<li>&lt;color=#ff8585&gt;Disable tattoos.&lt;/color&gt;</li>
+	</customEffectDescriptions>
 	<makeImmuneTo>
 	  <li>MuscleParasites</li>
 	</makeImmuneTo>

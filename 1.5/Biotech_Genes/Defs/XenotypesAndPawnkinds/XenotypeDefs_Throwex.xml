@@ -36,7 +36,8 @@
 		<li>WVC_MinMaxTemp_Archite</li>
 		<li>Neversleep</li>
 		<li>Body_Standard</li>
-		<li>Hair_InkBlack</li>
+		<!-- <li>Hair_InkBlack</li> -->
+		<li>WVC_HairColor_Slate</li>
 		<li>WVC_SkinColor_b4c8ff_HEX</li>
 		<li>WVC_SkinColor_c8b4ff_HEX</li>
 		<li>WVC_BodySize_Small</li>

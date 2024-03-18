@@ -4,9 +4,9 @@
   <!-- Firmware -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_Archites" Name="WVC_Mechanoidization_FirmwareBase" Abstract="True">
-	<displayOrderInCategory>-1000</displayOrderInCategory>
+	<displayOrderInCategory>0</displayOrderInCategory>
 	<iconColor>(255, 255, 255)</iconColor>
-	<displayCategory>WVC_Aptitudes</displayCategory>
+	<displayCategory>WVC_PatternAptitudes</displayCategory>
 	<label>pattern aptitude</label>
 	<labelShortAdj>pattern aptitude</labelShortAdj>
 	<description>Carriers of this gene have a predetermined pattern aptitude. Pattern aptitude acts like an offset on all skills, giving significant advantages in some skills and disadvantages in others. Does not affect passion.</description>

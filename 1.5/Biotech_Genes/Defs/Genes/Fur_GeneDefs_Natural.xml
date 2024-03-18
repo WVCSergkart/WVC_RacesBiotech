@@ -96,6 +96,9 @@
 	</statFactors>
 	<fur>WVC_StoneSkin</fur>
 	<tattoosVisible>false</tattoosVisible>
+	<customEffectDescriptions>
+		<li>&lt;color=#ff8585&gt;Disable tattoos.&lt;/color&gt;</li>
+	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>stone</symbol></li>

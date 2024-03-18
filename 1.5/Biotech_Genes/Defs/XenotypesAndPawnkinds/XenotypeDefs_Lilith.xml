@@ -40,7 +40,8 @@ They are irreversibly blind and very fragile, any stray bullet can kill them ins
 		<li>WVC_Feminine</li>
 		<!-- <li>WVC_FemaleOnly</li> -->
 		<li>WVC_BodySize_Small</li>
-		<li>Hair_InkBlack</li>
+		<!-- <li>Hair_InkBlack</li> -->
+		<li>WVC_HairColor_Slate</li>
 		<li>WVC_SkinColor_ffb4b4_HEX</li>
 		<li>WVC_Learning_Telepath</li>
 		<li>WVC_NaturalBlindness</li>

@@ -217,6 +217,10 @@ namespace WVC_XenotypesAndGenes
 
 			public static void FurskinIsSkin(Pawn pawn, ref Graphic __result)
 			{
+				if (pawn.Drawer?.renderer?.CurRotDrawMode == RotDrawMode.Dessicated)
+				{
+					return;
+				}
 				FurDef furDef = pawn?.story?.furDef;
 				if (furDef == null)
 				{
@@ -228,13 +232,14 @@ namespace WVC_XenotypesAndGenes
 					return;
 				}
 				string bodyPath = furDef?.GetFurBodyGraphicPath(pawn);
+				Color skinColor = pawn.Drawer?.renderer?.CurRotDrawMode == RotDrawMode.Rotting ? PawnRenderUtility.GetRottenColor(pawn.story.SkinColor) : pawn.story.SkinColor;
 				if (modExtension.furIsSkinWithHair)
 				{
-					__result = GraphicDatabase.Get<Graphic_Multi>(bodyPath, ShaderDatabase.CutoutComplex, Vector2.one, pawn.story.SkinColor, pawn.story.HairColor);
+					__result = GraphicDatabase.Get<Graphic_Multi>(bodyPath, ShaderDatabase.CutoutComplex, Vector2.one, skinColor, pawn.story.HairColor);
 				}
 				else if (modExtension.furIsSkin)
 				{
-					__result = GraphicDatabase.Get<Graphic_Multi>(bodyPath, ShaderUtility.GetSkinShader(pawn), Vector2.one, pawn.story.SkinColor);
+					__result = GraphicDatabase.Get<Graphic_Multi>(bodyPath, ShaderUtility.GetSkinShader(pawn), Vector2.one, skinColor);
 				}
 			}
 

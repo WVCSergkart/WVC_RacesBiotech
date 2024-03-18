@@ -76,6 +76,12 @@
 	<displayPriorityInXenotype>199.2886992038</displayPriorityInXenotype>
   </GeneCategoryDef>
 
+  <GeneCategoryDef>
+	<defName>WVC_PatternAptitudes</defName>
+	<label>aptitudes - pattern</label>
+	<displayPriorityInXenotype>198.2886992038</displayPriorityInXenotype>
+  </GeneCategoryDef>
+
   <!-- <GeneCategoryDef> -->
 	<!-- <defName>WVC_Miscellaneous</defName> -->
 	<!-- <label>miscellaneous:</label> -->
@@ -91,7 +97,7 @@
 
   <GeneCategoryDef>
 	<defName>WVC_Cosmetic</defName>
-	<label>cosmetic - xenotypes and genes</label>
+	<label>cosmetic - Xenotypes and Genes</label>
 	<displayPriorityInXenotype>300.2886992038</displayPriorityInXenotype>
 	<displayPriorityInGenepack>-100</displayPriorityInGenepack>
   </GeneCategoryDef>
