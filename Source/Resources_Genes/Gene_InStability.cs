@@ -397,10 +397,26 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				GeneFeaturesUtility.DoCellsBite(pawn, pawns[j], 10f, 0.2f, new (0, 0));
+				CompProperties_AbilityCellsfeederBite cellsfeederComponent = GetAbilityCompProperties_CellsFeeder(WVC_GenesDefOf.WVC_XaG_Cellsfeed);
+				GeneFeaturesUtility.DoCellsBite(pawn, pawns[j], cellsfeederComponent.daysGain, cellsfeederComponent.cellsConsumeFactor, cellsfeederComponent.nutritionGain, new(0, 0), cellsfeederComponent.targetBloodLoss);
 				break;
 			}
 			base.InCaravan();
+		}
+
+		public static CompProperties_AbilityCellsfeederBite GetAbilityCompProperties_CellsFeeder(AbilityDef abilityDef)
+		{
+			if (abilityDef?.comps != null)
+			{
+				foreach (AbilityCompProperties comp in abilityDef.comps)
+				{
+					if (comp is CompProperties_AbilityCellsfeederBite cellsFeeder)
+					{
+						return cellsFeeder;
+					}
+				}
+			}
+			return null;
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()

@@ -19,7 +19,9 @@ namespace WVC_XenotypesAndGenes
 
 		public float nutritionGain = 0.2f;
 
-		// public float targetBloodLoss = 0.4499f;
+		public float targetBloodLoss = 0.03f;
+
+		public float cellsConsumeFactor = 0.5f;
 
 		public IntRange bloodFilthToSpawnRange = new(1, 1);
 
@@ -46,7 +48,7 @@ namespace WVC_XenotypesAndGenes
 			Pawn pawn = target.Pawn;
 			if (pawn != null)
 			{
-				GeneFeaturesUtility.DoCellsBite(parent.pawn, pawn, Props.daysGain, Props.nutritionGain, Props.bloodFilthToSpawnRange);
+				GeneFeaturesUtility.DoCellsBite(parent.pawn, pawn, Props.daysGain, Props.cellsConsumeFactor, Props.nutritionGain, Props.bloodFilthToSpawnRange, Props.targetBloodLoss);
 			}
 		}
 

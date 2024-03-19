@@ -14,15 +14,7 @@ namespace WVC_XenotypesAndGenes
 	public static class MiscUtility
 	{
 
-		public static void XaG_DefIcon(Rect rect, Def def, float scale = 1f, Color? color = null, Material material = null)
-		{
-			if (def is ThrallDef thrallDef)
-			{
-				GUI.color = color ?? Color.white;
-				Widgets.DrawTextureFitted(rect, thrallDef.xenotypeIconDef.Icon, scale, material);
-				GUI.color = Color.white;
-			}
-		}
+		// Abilities
 
 		// Map
 
@@ -82,6 +74,16 @@ namespace WVC_XenotypesAndGenes
 			}
 			Text.Anchor = anchor;
 			ls.Gap(ls.verticalSpacing);
+		}
+
+		public static void XaG_DefIcon(Rect rect, Def def, float scale = 1f, Color? color = null, Material material = null)
+		{
+			if (def is ThrallDef thrallDef)
+			{
+				GUI.color = color ?? Color.white;
+				Widgets.DrawTextureFitted(rect, thrallDef.xenotypeIconDef.Icon, scale, material);
+				GUI.color = Color.white;
+			}
 		}
 
 		// Skills

@@ -279,6 +279,13 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_SporesBandwidthUsage>Resurgent spores usage</WVC_XaG_SporesBandwidthUsage>
 	<!-- <WVC_XaG_SporesGestationBandwidthUsed>Resurgent spores gestation bandwidth</WVC_XaG_SporesGestationBandwidthUsed> -->
 
+	<WVC_XaG_ThrallsBandwidthGizmoLabel>Thralls</WVC_XaG_ThrallsBandwidthGizmoLabel>
+	<WVC_XaG_ThrallsBandwidthGizmoGizmoTip>Thrall master can create an unlimited number of thralls. But each thrall requires a source of resurgent cells for its existence. If the thralls are unable to &lt;color=#95d0fc&gt;cellsfeed&lt;/color&gt; for too long, they will begin to die.\n\nThe main source of resurgent cells for thralls are resurgent pawns; the more &lt;color=#6bb6bb&gt;resurgent pawns&lt;/color&gt;, the more thralls can be kept alive. &lt;color=#6bb6bb&gt;Genetic stabilizers&lt;/color&gt; can also be used as an alternative.\n\nThralls cannot &lt;color=#95d0fc&gt;cellsfeed&lt;/color&gt; on pawns with cells level below 20%.</WVC_XaG_ThrallsBandwidthGizmoGizmoTip>
+
+	<WVC_XaG_ThrallsBandwidthUsage>Thralls in colony</WVC_XaG_ThrallsBandwidthUsage>
+
+	<WVC_XaG_ThrallsBandwidth_NextFeeding>cellsfeed in</WVC_XaG_ThrallsBandwidth_NextFeeding>
+
 	<!-- ============================ MECHLINK CUSTOM LABEL ============================ -->
 
 	<WVC_XaG_CustomLabeledMechlinkDesc>A neural formation resulting from genetic evolution or modification, similar to what can be obtained by implanting a mechlink.</WVC_XaG_CustomLabeledMechlinkDesc>

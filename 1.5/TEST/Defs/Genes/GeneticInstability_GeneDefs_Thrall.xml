@@ -22,7 +22,7 @@
 	  <Fertility>0</Fertility>
 	</statFactors>
 	<customEffectDescriptions Inherit="False">
-	  <li>Carrier must regularly bite &lt;color=#8a8ae6&gt;resurgent&lt;/color&gt; pawns or it &lt;color=#ff8585&gt;will die&lt;/color&gt;.</li>
+	  <li>Carrier must regularly cellsfeed on &lt;color=#8a8ae6&gt;resurgent&lt;/color&gt; pawns or it &lt;color=#ff8585&gt;will die&lt;/color&gt;.</li>
 	  <!-- <li>&lt;color=#ff8585&gt;This gene cannot be removed.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<abilities>

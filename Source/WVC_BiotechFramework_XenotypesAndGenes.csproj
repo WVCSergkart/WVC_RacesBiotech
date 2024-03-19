@@ -92,6 +92,7 @@
     <Compile Include="Resources_Gizmo\Dialog_Shapeshifter.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ThrallMaker.cs" />
     <Compile Include="Resources_Gizmo\Dialog_XenotypesBase.cs" />
+    <Compile Include="Resources_Gizmo\GeneGizmo_Thralls.cs" />
     <Compile Include="Resources_Gizmo\Gizmo_MaxGolems.cs" />
     <Compile Include="Resources_Genes\Gene_InStability.cs" />
     <Compile Include="Resources_Genes\Gene_BodyParts_Restoration.cs" />

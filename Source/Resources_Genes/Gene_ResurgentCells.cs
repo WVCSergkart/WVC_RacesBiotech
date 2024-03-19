@@ -43,6 +43,35 @@ namespace WVC_XenotypesAndGenes
 
 		protected override Color BarHighlightColor => new ColorInt(123, 131, 156).ToColor;
 
+		[Unsaved(false)]
+		private List<IGeneResourceDrain> cachedDrainGenes = new();
+
+		public List<IGeneResourceDrain> GetDrainGenes
+		{
+			get
+			{
+				if (!cachedDrainGenes.NullOrEmpty())
+				{
+					return cachedDrainGenes;
+				}
+				cachedDrainGenes = new();
+				List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+				for (int i = 0; i < genesListForReading.Count; i++)
+				{
+					Gene gene = genesListForReading[i];
+					if (!gene.Active)
+					{
+						continue;
+					}
+					if (gene is IGeneResourceDrain geneResourceDrain && geneResourceDrain.Resource == Resource)
+					{
+						cachedDrainGenes.Add(geneResourceDrain);
+					}
+				}
+				return cachedDrainGenes;
+			}
+		}
+
 		public override void PostAdd()
 		{
 			base.PostAdd();

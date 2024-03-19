@@ -19,7 +19,12 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (MiscUtility.BasicTargetValidation(biter, victim))
 			{
-				if (victim.genes?.GetFirstGeneOfType<Gene_ResurgentCells>() == null)
+				Gene_ResurgentCells cells = victim.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
+				if (cells == null)
+				{
+					return false;
+				}
+				if (cells.ValuePercent > 0.20f)
 				{
 					return false;
 				}
@@ -28,15 +33,22 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public static void DoCellsBite(Pawn biter, Pawn victim, float daysGain, float nutritionGain, IntRange bloodFilthToSpawnRange)
+		public static void DoCellsBite(Pawn biter, Pawn victim, float daysGain, float cellsConsumeFactor, float nutritionGain, IntRange bloodFilthToSpawnRange, float targetBloodLoss = 0.03f)
 		{
-			float cells = daysGain * 0.5f;
+			float cells = daysGain * cellsConsumeFactor;
 			int ticks = (int)(daysGain * (victim.BodySize * 60000));
 			XaG_GeneUtility.OffsetInstabilityTick(biter, ticks);
 			UndeadUtility.OffsetResurgentCells(victim, 0f - (cells * 0.01f));
 			if (biter.needs?.food != null)
 			{
 				biter.needs.food.CurLevel += nutritionGain * cells;
+			}
+			if (targetBloodLoss > 0f)
+			{
+				victim.health.AddHediff(HediffDefOf.BloodfeederMark, ExecutionUtility.ExecuteCutPart(victim));
+				Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.BloodLoss, victim);
+				hediff.Severity = targetBloodLoss;
+				victim.health.AddHediff(hediff);
 			}
 			int randomInRange = bloodFilthToSpawnRange.RandomInRange;
 			for (int i = 0; i < randomInRange; i++)
