@@ -2,8 +2,8 @@
 <Defs>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneticInstability_Base">
-	<defName>WVC_ThrallGeneticInstability</defName>
-	<label>thrall genetic instability</label>
+	<defName>WVC_Thrall</defName>
+	<label>thrall</label>
 	<description>Carriers of this gene are critically dependent on resurgent cells. They regularly need to receive fresh cells from living hosts.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_GeneticThrall</geneClass>
 	<descriptionHyperlinks>
@@ -17,6 +17,7 @@
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>8</biostatMet>
+	<minAgeActive>3</minAgeActive>
 	<sterilize>true</sterilize>
 	<statFactors>
 	  <Fertility>0</Fertility>
