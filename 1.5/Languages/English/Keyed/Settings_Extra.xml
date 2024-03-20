@@ -51,6 +51,11 @@ It is not recommended to use more than one DEV-fix at a time. It might break som
 	<WVC_Label_xenotypeGestator_GestationTimeFactor>Gestation period factor x{0}%</WVC_Label_xenotypeGestator_GestationTimeFactor>
 	<WVC_Label_xenotypeGestator_GestationMatchPercent>Min xenotype match {0}%</WVC_Label_xenotypeGestator_GestationMatchPercent>
 
+	<!-- ================================== -->
+
+	<WVC_Label_reincarnation_EnableMechanic>Enable mechanic</WVC_Label_reincarnation_EnableMechanic>
+	<WVC_ToolTip_reincarnation_EnableMechanic>If enabled, the mechanics will work as intended.</WVC_ToolTip_reincarnation_EnableMechanic>
+
 	<WVC_Label_Reincarnation_MinChronoAge>Reincarnation min chrono age {0} years</WVC_Label_Reincarnation_MinChronoAge>
 
 </LanguageData>

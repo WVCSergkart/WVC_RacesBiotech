@@ -253,6 +253,7 @@
 	<label>gauntskin</label>
 	<description>Carriers of this gene do not store body fat well, which is why their bodies are very thin and anorexic.</description>
 	<iconPath>WVC/UI/Genes/Gene_GauntSkin_v0</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_GauntSkin</geneClass>
 	<forcedHeadTypes>
 	  <li>WVC_GauntSkin_Gaunt</li>
 	</forcedHeadTypes>

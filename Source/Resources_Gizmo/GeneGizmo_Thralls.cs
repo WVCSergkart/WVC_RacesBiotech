@@ -153,7 +153,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			int limit = 0;
 			List<Pawn> colonists = mechanitor?.Map?.mapPawns?.SpawnedPawnsInFaction(mechanitor.Faction);
-			colonists.Shuffle();
+			// colonists.Shuffle();
 			foreach (Pawn colonist in colonists)
 			{
 				Gene_ResurgentCells gene = colonist?.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
@@ -173,7 +173,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return 0;
 			}
-			limit = (int)(limit / (cellsPerDay > 0f ? cellsPerDay : 1));
+			limit = (int)(limit / (cellsPerDay > 0f ? cellsPerDay : 0.01f));
 			return limit;
 		}
 
@@ -181,11 +181,15 @@ namespace WVC_XenotypesAndGenes
 		{
 			List<Gene_GeneticThrall> list = new();
 			List<Pawn> colonists = pawn?.Map?.mapPawns?.SpawnedPawnsInFaction(pawn.Faction);
-			colonists.Shuffle();
+			// colonists.Shuffle();
 			if (!colonists.NullOrEmpty())
 			{
 				foreach (Pawn colonist in colonists)
 				{
+					if (colonist.Dead)
+					{
+						continue;
+					}
 					Gene_GeneticThrall thralls = colonist?.genes?.GetFirstGeneOfType<Gene_GeneticThrall>();
 					if (thralls == null)
 					{

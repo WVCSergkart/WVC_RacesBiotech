@@ -33,6 +33,7 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<filledBlockColor>(149, 208, 252)</filledBlockColor>
+			<recacheFrequency>329</recacheFrequency>
 		</li>
 	</modExtensions>
   </GeneDef>

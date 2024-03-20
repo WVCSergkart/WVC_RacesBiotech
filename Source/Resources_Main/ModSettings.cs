@@ -66,6 +66,7 @@ namespace WVC_XenotypesAndGenes
 		public float xenotypeGestator_GestationTimeFactor = 1f;
 		public float xenotypeGestator_GestationMatchPercent = 0.4f;
 		// Reincarnation
+		public bool reincarnation_EnableMechanic = true;
 		public float reincarnation_MinChronoAge = 200f;
 
 		public IEnumerable<string> GetEnabledSettings => from specificSetting in GetType().GetFields()
@@ -129,6 +130,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref xenotypeGestator_GestationTimeFactor, "xenotypeGestator_GestationTimeFactor", defaultValue: 1f);
 			Scribe_Values.Look(ref xenotypeGestator_GestationMatchPercent, "xenotypeGestator_GestationMatchPercent", defaultValue: 0.4f);
 			// Reincarnation
+			Scribe_Values.Look(ref reincarnation_EnableMechanic, "reincarnation_EnableMechanic", defaultValue: true);
 			Scribe_Values.Look(ref reincarnation_MinChronoAge, "reincarnation_MinChronoAge", defaultValue: 200f);
 			// End
 			Scribe_Collections.Look(ref WVC_Biotech.cachedXenotypesFilter, "cachedXenotypesFilter", LookMode.Value, LookMode.Value);
@@ -479,7 +481,8 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.Gap();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_Reincarnation".Translate() + ":", -1);
-			listingStandard.SliderLabeledWithRef("WVC_Label_Reincarnation_MinChronoAge".Translate((settings.reincarnation_MinChronoAge).ToString()), ref settings.reincarnation_MinChronoAge, 50f, 9999f, round: 0);
+			listingStandard.CheckboxLabeled("WVC_Label_reincarnation_EnableMechanic".Translate().Colorize(ColorLibrary.LightBlue), ref settings.reincarnation_EnableMechanic, "WVC_ToolTip_reincarnation_EnableMechanic".Translate());
+			listingStandard.SliderLabeledWithRef("WVC_Label_Reincarnation_MinChronoAge".Translate((settings.reincarnation_MinChronoAge).ToString()), ref settings.reincarnation_MinChronoAge, 50f, 2000f, round: 0);
 			listingStandard.Gap();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_TotalHealing".Translate() + ":", -1);
@@ -587,6 +590,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.xenotypeGestator_GestationTimeFactor = 1f;
 			WVC_Biotech.settings.xenotypeGestator_GestationMatchPercent = 0.4f;
 			// =
+			WVC_Biotech.settings.reincarnation_EnableMechanic = true;
 			WVC_Biotech.settings.reincarnation_MinChronoAge = 200f;
 			// Extra
 			WVC_Biotech.settings.genesCanTickOnlyOnMap = false;
@@ -652,6 +656,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.xenotypeGestator_GestationTimeFactor = 1f;
 			WVC_Biotech.settings.xenotypeGestator_GestationMatchPercent = 0.4f;
 			// =
+			WVC_Biotech.settings.reincarnation_EnableMechanic = true;
 			WVC_Biotech.settings.reincarnation_MinChronoAge = 200f;
 			// Extra
 			WVC_Biotech.settings.genesCanTickOnlyOnMap = false;
