@@ -65,6 +65,8 @@ namespace WVC_XenotypesAndGenes
 		// Gestator
 		public float xenotypeGestator_GestationTimeFactor = 1f;
 		public float xenotypeGestator_GestationMatchPercent = 0.4f;
+		// Reincarnation
+		public float reincarnation_MinChronoAge = 200f;
 
 		public IEnumerable<string> GetEnabledSettings => from specificSetting in GetType().GetFields()
 														 where specificSetting.FieldType == typeof(bool) && (bool)specificSetting.GetValue(this)
@@ -126,6 +128,8 @@ namespace WVC_XenotypesAndGenes
 			// Gestator
 			Scribe_Values.Look(ref xenotypeGestator_GestationTimeFactor, "xenotypeGestator_GestationTimeFactor", defaultValue: 1f);
 			Scribe_Values.Look(ref xenotypeGestator_GestationMatchPercent, "xenotypeGestator_GestationMatchPercent", defaultValue: 0.4f);
+			// Reincarnation
+			Scribe_Values.Look(ref reincarnation_MinChronoAge, "reincarnation_MinChronoAge", defaultValue: 200f);
 			// End
 			Scribe_Collections.Look(ref WVC_Biotech.cachedXenotypesFilter, "cachedXenotypesFilter", LookMode.Value, LookMode.Value);
 		}
@@ -474,6 +478,10 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_allowShapeshiftAfterDeath".Translate().Colorize(ColorLibrary.LightBlue), ref settings.allowShapeshiftAfterDeath, "WVC_ToolTip_allowShapeshiftAfterDeath".Translate());
 			listingStandard.Gap();
 			// =
+			listingStandard.Label("WVC_XaGGeneSettings_Reincarnation".Translate() + ":", -1);
+			listingStandard.SliderLabeledWithRef("WVC_Label_Reincarnation_MinChronoAge".Translate((settings.reincarnation_MinChronoAge).ToString()), ref settings.reincarnation_MinChronoAge, 50f, 9999f, round: 0);
+			listingStandard.Gap();
+			// =
 			listingStandard.Label("WVC_XaGGeneSettings_TotalHealing".Translate() + ":", -1);
 			listingStandard.CheckboxLabeled("WVC_Label_restoreBodyPartsWithFullHP".Translate().Colorize(ColorLibrary.LightBlue), ref settings.restoreBodyPartsWithFullHP, "WVC_ToolTip_restoreBodyPartsWithFullHP".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_totalHealingIgnoreScarification".Translate().Colorize(ColorLibrary.LightBlue), ref settings.totalHealingIgnoreScarification, "WVC_ToolTip_totalHealingIgnoreScarification".Translate());
@@ -578,6 +586,8 @@ namespace WVC_XenotypesAndGenes
 			// =
 			WVC_Biotech.settings.xenotypeGestator_GestationTimeFactor = 1f;
 			WVC_Biotech.settings.xenotypeGestator_GestationMatchPercent = 0.4f;
+			// =
+			WVC_Biotech.settings.reincarnation_MinChronoAge = 200f;
 			// Extra
 			WVC_Biotech.settings.genesCanTickOnlyOnMap = false;
 			// XenotypesSettings
@@ -641,6 +651,8 @@ namespace WVC_XenotypesAndGenes
 			// =
 			WVC_Biotech.settings.xenotypeGestator_GestationTimeFactor = 1f;
 			WVC_Biotech.settings.xenotypeGestator_GestationMatchPercent = 0.4f;
+			// =
+			WVC_Biotech.settings.reincarnation_MinChronoAge = 200f;
 			// Extra
 			WVC_Biotech.settings.genesCanTickOnlyOnMap = false;
 			// XenotypesSettings

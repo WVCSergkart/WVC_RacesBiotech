@@ -116,7 +116,7 @@
 	<customEffectDescriptions>
 		<li>In case of death, &lt;color=#8a8ae6&gt;summons a descendant&lt;/color&gt;.</li>
 		<li>Descendant inherits &lt;color=#8a8ae6&gt;xenotype, genes, backstory, skills, traits and apperance&lt;/color&gt; of the carrier.</li>
-		<li>&lt;color=#ff8585&gt;Chrono age must be above 54 years.&lt;/color&gt;</li>
+		<li>&lt;color=#ff8585&gt;Chrono age must be above 200 years.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>WVC_XenotypesAndGenes_GeneDeathless_Reincarnation</li>
@@ -135,7 +135,7 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
 			<summonQuest>WVC_Dustogenic_QuestUndeadReincarnation</summonQuest>
-			<minChronoAge>54</minChronoAge>
+			<minChronoAge>200</minChronoAge>
 		</li>
 	</modExtensions>
   </GeneDef>

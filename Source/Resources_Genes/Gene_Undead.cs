@@ -76,10 +76,10 @@ namespace WVC_XenotypesAndGenes
 
 		public bool ReincarnationActive()
 		{
-			return CanReincarnate(pawn, this, Spawner.minChronoAge);
+			return CanReincarnate(pawn, this, WVC_Biotech.settings.reincarnation_MinChronoAge);
 		}
 
-		public static bool CanReincarnate(Pawn pawn, Gene gene, int minChronoAge)
+		public static bool CanReincarnate(Pawn pawn, Gene gene, float minChronoAge)
 		{
 			if (gene.Active && pawn.Faction != null && pawn.Faction == Faction.OfPlayer && pawn.ageTracker.AgeChronologicalYears > minChronoAge)
 			{
@@ -110,7 +110,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{
-			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate".Translate().CapitalizeFirst(), CanReincarnate(pawn, this, Spawner.minChronoAge).ToString(), "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate_Desc".Translate(), 1090);
+			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate".Translate().CapitalizeFirst(), CanReincarnate(pawn, this, WVC_Biotech.settings.reincarnation_MinChronoAge).ToString(), "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate_Desc".Translate(WVC_Biotech.settings.reincarnation_MinChronoAge.ToString()), 1090);
 		}
 
 	}
