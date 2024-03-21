@@ -196,41 +196,30 @@ namespace WVC_XenotypesAndGenes
 
 		public static void ResurrectWithSickness(Pawn pawn, ThoughtDef resurrectThought = null)
 		{
-			ResurrectionUtility.TryResurrect(pawn);
-			pawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
-			if (resurrectThought != null)
+			ResurrectionParams resurrectionParams = new();
+			resurrectionParams.restoreMissingParts = true;
+			resurrectionParams.noLord = true;
+			resurrectionParams.removeDiedThoughts = true;
+			resurrectionParams.canPickUpOpportunisticWeapons = false;
+			resurrectionParams.gettingScarsChance = 0.2f;
+			resurrectionParams.canKidnap = false;
+			resurrectionParams.canSteal = false;
+			resurrectionParams.breachers = false;
+			if (ResurrectionUtility.TryResurrect(pawn, resurrectionParams) == true)
 			{
-				pawn.needs?.mood?.thoughts?.memories.TryGainMemory(resurrectThought);
-			}
-		}
-
-		[Obsolete]
-		public static void NewUndeadResurrect(Pawn pawn, BackstoryDef childBackstoryDef = null, BackstoryDef adultBackstoryDef = null, Gene_ResurgentCells resurgentGene = null, float resourceLossPerDay = 0f)
-		{
-			ResurrectWithSickness(pawn, WVC_GenesDefOf.WVC_XenotypesAndGenes_WasResurrected);
-			if (resurgentGene == null)
-			{
-				pawn.health.AddHediff(WVC_GenesDefOf.WVC_Resurgent_UndeadResurrectionRecovery);
-				Gene_BackstoryChanger.BackstoryChanger(pawn, childBackstoryDef, adultBackstoryDef);
-				foreach (SkillRecord item in pawn.skills.skills)
+				pawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
+				if (resurrectThought != null)
 				{
-					if (!item.TotallyDisabled && item.XpTotalEarned > 0f)
-					{
-						float num = item.XpTotalEarned;
-						item.Learn(0f - num, direct: true);
-					}
+					pawn.needs?.mood?.thoughts?.memories.TryGainMemory(resurrectThought);
 				}
-				SubXenotypeUtility.XenotypeShapeshifter(pawn);
 			}
 			else
 			{
-				resurgentGene.Value -= resourceLossPerDay;
-			}
-			if (PawnUtility.ShouldSendNotificationAbout(pawn))
-			{
-				Find.LetterStack.ReceiveLetter("WVC_LetterLabelSecondChance_GeneUndead".Translate(), "WVC_LetterTextSecondChance_GeneUndeadResurgent".Translate(pawn.Named("TARGET")), WVC_GenesDefOf.WVC_XaG_UndeadEvent, new LookTargets(pawn));
+				Log.Error("Failed resurrect " + pawn.Name.ToString());
 			}
 		}
+
+		// Resource
 
 		public static void OffsetResurgentCells(Pawn pawn, float offset)
 		{

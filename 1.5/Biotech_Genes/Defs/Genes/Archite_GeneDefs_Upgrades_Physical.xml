@@ -4,29 +4,11 @@
   <!-- Upgrades -->
 
   <GeneDef Name="WVC_MechanoidizationUpgrades" ParentName="WVC_XenotypesAndGenes_Archites" Abstract="True">
-	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_WithConditions</geneClass> -->
-	<!-- <displayCategory>WVC_MechaBodyParts</displayCategory> -->
-	<description>Carriers of this gene have archites..</description>
 	<displayOrderInCategory>-33</displayOrderInCategory>
-	<!-- <prerequisite>WVC_MechaSkin</prerequisite> -->
-	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
 	<iconPath>WVC/UI/Genes/Mechanoidization</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
-	<!-- <selectionWeight>0.2</selectionWeight> -->
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
-	<!-- <selectionWeight>0.8</selectionWeight> -->
-	<!-- <customEffectDescriptions> -->
-		<!-- <li>&lt;color=#ff8585&gt;Activation of the gene requires either the "mecha-subcore" gene or any of the mechaskins.&lt;/color&gt;</li> -->
-	<!-- </customEffectDescriptions> -->
-	<!-- <modExtensions> -->
-		<!-- <li Class="WVC.GeneExtension_Conditions"> -->
-			<!-- <pawnShouldBeMechalike>true</pawnShouldBeMechalike> -->
-			<!-- <pawnShouldHaveSubcore>false</pawnShouldHaveSubcore> -->
-			<!-- <pawnShouldBeMechaskinned>false</pawnShouldBeMechaskinned> -->
-			<!-- <pawnShouldBeImmortal>false</pawnShouldBeImmortal> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
   </GeneDef>
 
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
@@ -81,20 +63,22 @@
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
 	<defName>WVC_MecaBodyParts_Spine</defName>
 	<label>super endurance</label>
-	<description>Archites greatly enhance the carrier's skeletal structure.</description>
-	<biostatMet>-1</biostatMet>
+	<description>Carriers of this gene have strong skeletal structure.</description>
 	<iconPath>WVC/UI/Genes/Endurance_v0</iconPath>
 	<displayCategory>Miscellaneous</displayCategory>
 	<displayOrderInCategory>164</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<biostatArc>0</biostatArc>
 	<statFactors>
-	  <CarryingCapacity>2.0</CarryingCapacity>
+	  <CarryingCapacity>1.50</CarryingCapacity>
 	</statFactors>
 	<statOffsets>
 	  <!-- <MoveSpeed>0.5</MoveSpeed> -->
 	  <ArmorRating_Blunt>0.15</ArmorRating_Blunt>
 	</statOffsets>
 	<customEffectDescriptions>
-		<li MayRequire="oskarpotocki.vanillafactionsexpanded.core">Carrying capacity on the map increased to 100%.</li>
+		<li MayRequire="oskarpotocki.vanillafactionsexpanded.core">Carrying capacity on the map increased to 50%.</li>
 	</customEffectDescriptions>
 	<!-- <capMods> -->
 	  <!-- <li> -->
@@ -107,16 +91,18 @@
 	</exclusionTags>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
-			<caravanCarryingFactor>2.0</caravanCarryingFactor>
+			<caravanCarryingFactor>1.50</caravanCarryingFactor>
 		</li>
 	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
 	<defName>WVC_MecaBodyParts_Leg</defName>
-	<label>light frame</label>
-	<description>Archites lighten the body of the carrier by optimizing the amount of fat and muscle mass, without losing the efficiency of the body.</description>
+	<label>lightweight</label>
+	<description>Carriers of this gene have a fairly light athletic body.</description>
+	<biostatCpx>2</biostatCpx>
 	<biostatMet>-1</biostatMet>
+	<biostatArc>0</biostatArc>
 	<iconPath>WVC/UI/Genes/LightFrame_v0</iconPath>
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Reduces the amount of meat and leather.</li> -->
@@ -129,7 +115,7 @@
 	  <Mass>0.8</Mass>
 	</statFactors>
 	<statOffsets>
-	  <MoveSpeed>0.5</MoveSpeed>
+	  <MoveSpeed>0.1</MoveSpeed>
 	</statOffsets>
 	<exclusionTags>
 	  <li>WVC_LightFrameSuperSpine</li>
@@ -139,13 +125,15 @@
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
 	<defName>WVC_MecaBodyParts_Stomach</defName>
 	<label>mechabolism</label>
-	<description>Carriers of this gene have archites which significantly improve the digestive system.</description>
+	<description>Carriers of this gene have a strong stomach and can accumulate nutrients much better.</description>
 	<foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
 	<!-- <overdoseChanceFactor>0</overdoseChanceFactor> -->
 	<!-- <toleranceBuildupFactor>0</toleranceBuildupFactor> -->
 	<!-- <addictionChanceFactor>0</addictionChanceFactor> -->
 	<iconPath>WVC/UI/Genes/ArchiteStomach_v0</iconPath>
 	<dontMindRawFood>true</dontMindRawFood>
+	<!-- <biostatCpx>4</biostatCpx> -->
+	<!-- <biostatArc>0</biostatArc> -->
 	<biostatMet>1</biostatMet>
 	<displayCategory>Miscellaneous</displayCategory>
 	<displayOrderInCategory>9</displayOrderInCategory>
@@ -226,7 +214,9 @@
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
 	<defName>WVC_MecaBodyParts_Lung</defName>
 	<label>improved T-adaptation</label>
-	<description>Archites significantly enhance the temperature adaptability of the carrier.</description>
+	<description>Carriers of this gene adapt better in a hostile environment.</description>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>0</biostatArc>
 	<biostatMet>-2</biostatMet>
 	<iconPath>WVC/UI/Genes/Gene_TemperatureAdaptation_v0</iconPath>
 	<!-- <biostatArc>2</biostatArc> -->
@@ -239,7 +229,7 @@
 	  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
 	  <ComfyTemperatureMax>25</ComfyTemperatureMax>
 	  <ComfyTemperatureMin>-25</ComfyTemperatureMin>
-	  <ArmorRating_Heat>0.10</ArmorRating_Heat>
+	  <!-- <ArmorRating_Heat>0.10</ArmorRating_Heat> -->
 	</statOffsets>
 	<makeImmuneTo>
 	  <li>LungRot</li>

@@ -453,6 +453,62 @@ namespace WVC_XenotypesAndGenes
 						Log.Error("Genes list is null");
 					}
 				}
+				if (listingStandard.ButtonText("DEV: Count used in xenotypes genes"))
+				{
+					List<GeneDef> genes = new();
+					int genesCount = 0;
+					foreach (Def def in Content.AllDefs)
+					{
+						if (def is XenotypeDef xenotypeDef)
+						{
+							foreach (GeneDef geneDef in xenotypeDef.genes)
+							{
+								if (geneDef.IsXenoGenesDef() && !genes.Contains(geneDef))
+								{
+									genesCount ++;
+									genes.Add(geneDef);
+								}
+							}
+						}
+					}
+					Log.Error("WVC Genes: " + genesCount.ToString());
+					if (!genes.NullOrEmpty())
+					{
+						Log.Error("All xenotype genes:" + "\n" + genes.Select((GeneDef x) => x.defName).ToLineList(" - "));
+					}
+					else
+					{
+						Log.Error("Genes list is null");
+					}
+				}
+				if (listingStandard.ButtonText("DEV: Count used in thrallDefs genes"))
+				{
+					List<GeneDef> genes = new();
+					int genesCount = 0;
+					foreach (Def def in Content.AllDefs)
+					{
+						if (def is ThrallDef xenotypeDef)
+						{
+							foreach (GeneDef geneDef in xenotypeDef.genes)
+							{
+								if (geneDef.IsXenoGenesDef() && !genes.Contains(geneDef))
+								{
+									genesCount ++;
+									genes.Add(geneDef);
+								}
+							}
+						}
+					}
+					Log.Error("WVC Genes: " + genesCount.ToString());
+					if (!genes.NullOrEmpty())
+					{
+						Log.Error("All thrall genes:" + "\n" + genes.Select((GeneDef x) => x.defName).ToLineList(" - "));
+					}
+					else
+					{
+						Log.Error("Genes list is null");
+					}
+				}
 			}
 			listingStandard.End();
 			Widgets.EndScrollView();

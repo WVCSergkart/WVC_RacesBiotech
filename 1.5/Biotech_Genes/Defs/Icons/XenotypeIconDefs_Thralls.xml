@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <XenotypeIconDef>
+	<defName>WVC_Thrall_x1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Icon_Thrall_x1c_v0</texPath>
+  </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_Thrall_Elf1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Icon_Thrall_Elf1c_v0</texPath>
+  </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_Thrall_Cat1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Icon_Thrall_Cat1c_v0</texPath>
+  </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_Thrall_Demon1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Icon_Thrall_Demon1c_v0</texPath>
+  </XenotypeIconDef>
+
+</Defs>
