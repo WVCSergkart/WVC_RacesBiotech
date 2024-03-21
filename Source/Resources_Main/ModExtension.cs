@@ -266,15 +266,15 @@ namespace WVC_XenotypesAndGenes
 		// public List<PreceptDef> shapeShift_ProhibitedPrecepts;
 		// public List<HediffDef> hediffsRemovedByGenesRestorationSerum;
 
-		[Obsolete]
-		public List<HediffDef> hediffsThatPreventUndeadResurrection;
-		[Obsolete]
-		public List<HediffDef> blackListedHediffDefForReimplanter;
-		[Obsolete]
-		public List<ThingDef> blackListedDefsForSerums;
-		[Obsolete]
-		public List<GeneDef> perfectCandidatesForSerums;
-		[Obsolete]
-		public List<GeneDef> nonCandidatesForSerums;
+		// [Obsolete]
+		// public List<HediffDef> hediffsThatPreventUndeadResurrection;
+		// [Obsolete]
+		// public List<HediffDef> blackListedHediffDefForReimplanter;
+		// [Obsolete]
+		// public List<ThingDef> blackListedDefsForSerums;
+		// [Obsolete]
+		// public List<GeneDef> perfectCandidatesForSerums;
+		// [Obsolete]
+		// public List<GeneDef> nonCandidatesForSerums;
 	}
 }

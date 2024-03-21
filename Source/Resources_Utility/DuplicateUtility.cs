@@ -65,7 +65,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void CopyGenes(Pawn pawn, Pawn newPawn)
 		{
-			newPawn.genes.Endogenes.Clear();
+			newPawn.genes.Endogenes.RemoveAllGenes();
 			List<Gene> sourceEndogenes = pawn.genes.Endogenes;
 			foreach (Gene item in sourceEndogenes)
 			{
@@ -84,7 +84,7 @@ namespace WVC_XenotypesAndGenes
 					gene.overriddenByGene = null;
 				}
 			}
-			newPawn.genes.Xenogenes.Clear();
+			newPawn.genes.Xenogenes.RemoveAllGenes();
 			List<Gene> sourceXenogenes = pawn.genes.Xenogenes;
 			foreach (Gene item2 in sourceXenogenes)
 			{
@@ -186,6 +186,14 @@ namespace WVC_XenotypesAndGenes
 					xpSinceMidnight = skill.xpSinceMidnight
 				};
 				newPawn.skills.skills.Add(item);
+			}
+		}
+
+		public static void RemoveAllGenes(this List<Gene> genes)
+		{
+			foreach (Gene gene in genes.ToList())
+			{
+				gene.pawn?.genes?.RemoveGene(gene);
 			}
 		}
 

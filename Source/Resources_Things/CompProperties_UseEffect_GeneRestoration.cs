@@ -1,10 +1,11 @@
+using RimWorld;
 using System.Collections.Generic;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public class CompProperties_UseEffect_GeneRestoration : CompProperties
+	public class CompProperties_UseEffect_GeneRestoration : CompProperties_UseEffect
 	{
 
 		public int daysDelay = 8;

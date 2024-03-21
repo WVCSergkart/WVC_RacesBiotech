@@ -5,7 +5,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class CompProperties_UseEffect_XenotypeForcer : CompProperties
+	public class CompProperties_UseEffect_XenotypeForcer : CompProperties_UseEffect
 	{
 
 		// public bool hybrid = false;

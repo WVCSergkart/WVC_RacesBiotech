@@ -7,8 +7,8 @@
 	<selectionWeight>0.0022</selectionWeight>
 	<!-- <displayCategory>Ability</displayCategory> -->
 	<!-- <displayCategory>Archite</displayCategory> -->
-	<displayCategory>Miscellaneous</displayCategory>
-	<displayOrderInCategory>62</displayOrderInCategory>
+	<displayCategory>Healing</displayCategory>
+	<displayOrderInCategory>130</displayOrderInCategory>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>2</biostatMet>

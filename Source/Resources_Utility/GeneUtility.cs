@@ -98,41 +98,6 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		[Obsolete]
-		public static bool PawnCannotUseSerums(Pawn pawn)
-		{
-			// if (pawn?.RaceProps?.Humanlike == false)
-			// {
-				// return true;
-			// }
-			if (pawn?.genes == null)
-			{
-				return true;
-			}
-			List<Def> blackListedThings = new();
-			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
-			{
-				blackListedThings.AddRange(item.blackListedDefsForSerums);
-			}
-			if (blackListedThings.Contains(pawn.def))
-			{
-				return true;
-			}
-			List<GeneDef> nonCandidates = ReimplanterUtility.GenesNonCandidatesForSerums();
-			// foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
-			// {
-				// nonCandidates.AddRange(item.nonCandidatesForSerums);
-			// }
-			for (int i = 0; i < nonCandidates.Count; i++)
-			{
-				if (HasActiveGene(nonCandidates[i], pawn))
-				{
-					return true;
-				}
-			}
-			return false;
-		}
-
 		// ============================= Checker =============================
 
 		public static bool HasAnyActiveGene(List<GeneDef> geneDefs, Pawn pawn)

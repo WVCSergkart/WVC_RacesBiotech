@@ -186,11 +186,11 @@ namespace WVC_XenotypesAndGenes
 			// Shapeshift START
 			if (doubleXenotypeReimplantation)
 			{
-				ReimplanterUtility.SetXenotype_DoubleXenotype(gene.pawn, selectedXeno, new() { gene.def });
+				ReimplanterUtility.SetXenotype_DoubleXenotype(gene.pawn, selectedXeno);
 			}
 			else
 			{
-				ReimplanterUtility.SetXenotype(gene.pawn, selectedXeno, new() { gene.def });
+				ReimplanterUtility.SetXenotype(gene.pawn, selectedXeno);
 			}
 			if (!gene.pawn.genes.HasGene(gene.def))
 			{

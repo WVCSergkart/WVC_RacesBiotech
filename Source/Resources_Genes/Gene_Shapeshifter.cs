@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -63,62 +64,63 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Shapeshifter_Rand : Gene
+	[Obsolete]
+	public class Gene_Shapeshifter_Rand : Gene_Shapeshifter
 	{
 
-		public override void PostAdd()
-		{
-			base.PostAdd();
-			Shapeshift();
-		}
+		// public override void PostAdd()
+		// {
+			// base.PostAdd();
+			// Shapeshift();
+		// }
 
-		public void Shapeshift(float chance = 0.2f)
-		{
-			if (Active && Rand.Chance(chance))
-			{
-				RandomXenotype(pawn, this, null);
-			}
-		}
+		// public void Shapeshift(float chance = 0.2f)
+		// {
+			// if (Active && Rand.Chance(chance))
+			// {
+				// RandomXenotype(pawn, this, null);
+			// }
+		// }
 
-		public void RandomXenotype(Pawn pawn, Gene gene, XenotypeDef xenotype)
-		{
-			if (xenotype == null)
-			{
-				List<XenotypeDef> xenotypeDef = XenotypeFilterUtility.AllXenotypesExceptAndroids();
-				if (gene.def.GetModExtension<GeneExtension_Giver>() != null && gene.def.GetModExtension<GeneExtension_Giver>().xenotypeIsInheritable)
-				{
-					xenotype = xenotypeDef.Where((XenotypeDef randomXenotypeDef) => randomXenotypeDef.inheritable).RandomElement();
-				}
-				else
-				{
-					xenotype = xenotypeDef.Where((XenotypeDef randomXenotypeDef) => !randomXenotypeDef.inheritable).RandomElement();
-				}
-				if (xenotype == null)
-				{
-					Log.Error("Generated gene with null xenotype. Choose random.");
-					xenotype = xenotypeDef.RandomElement();
-				}
-			}
-			if (xenotype == null)
-			{
-				pawn.genes.RemoveGene(gene);
-				Log.Error("Xenotype is null. Do not report this to the developer, you yourself created this creepy world filled with bugs. To fix the situation, reset the filter in the " + "WVC_BiotechSettings".Translate() + " mod settings and restart the game.");
-				return;
-			}
-			List<GeneDef> dontRemove = new();
-			dontRemove.Add(gene.def);
-			ReimplanterUtility.SetXenotype_DoubleXenotype(pawn, xenotype, dontRemove.ToList());
-		}
+		// public void RandomXenotype(Pawn pawn, Gene gene, XenotypeDef xenotype)
+		// {
+			// if (xenotype == null)
+			// {
+				// List<XenotypeDef> xenotypeDef = XenotypeFilterUtility.AllXenotypesExceptAndroids();
+				// if (gene.def.GetModExtension<GeneExtension_Giver>() != null && gene.def.GetModExtension<GeneExtension_Giver>().xenotypeIsInheritable)
+				// {
+					// xenotype = xenotypeDef.Where((XenotypeDef randomXenotypeDef) => randomXenotypeDef.inheritable).RandomElement();
+				// }
+				// else
+				// {
+					// xenotype = xenotypeDef.Where((XenotypeDef randomXenotypeDef) => !randomXenotypeDef.inheritable).RandomElement();
+				// }
+				// if (xenotype == null)
+				// {
+					// Log.Error("Generated gene with null xenotype. Choose random.");
+					// xenotype = xenotypeDef.RandomElement();
+				// }
+			// }
+			// if (xenotype == null)
+			// {
+				// pawn.genes.RemoveGene(gene);
+				// Log.Error("Xenotype is null. Do not report this to the developer, you yourself created this creepy world filled with bugs. To fix the situation, reset the filter in the " + "WVC_BiotechSettings".Translate() + " mod settings and restart the game.");
+				// return;
+			// }
+			// List<GeneDef> dontRemove = new();
+			// dontRemove.Add(gene.def);
+			// ReimplanterUtility.SetXenotype_DoubleXenotype(pawn, xenotype);
+		// }
 
-		public override void Tick()
-		{
-			base.Tick();
-			if (!pawn.IsHashIntervalTick(132520))
-			{
-				return;
-			}
-			Shapeshift(0.1f);
-		}
+		// public override void Tick()
+		// {
+			// base.Tick();
+			// if (!pawn.IsHashIntervalTick(132520))
+			// {
+				// return;
+			// }
+			// Shapeshift(0.1f);
+		// }
 
 	}
 

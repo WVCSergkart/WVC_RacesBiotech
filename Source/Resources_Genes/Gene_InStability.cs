@@ -20,10 +20,10 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			if (pawn.health.hediffSet.HasHediff(Props.hediffDefName))
-			{
-				Gene_AddOrRemoveHediff.RemoveHediff(Props.hediffDefName, pawn);
-			}
+			// if (pawn.health.hediffSet.HasHediff(Props.hediffDefName))
+			// {
+				// Gene_AddOrRemoveHediff.RemoveHediff(Props.hediffDefName, pawn);
+			// }
 			ResetInterval();
 		}
 
@@ -48,14 +48,14 @@ namespace WVC_XenotypesAndGenes
 			nextTick = Props.intervalRange.RandomInRange;
 		}
 
-		public override void PostRemove()
-		{
-			base.PostRemove();
-			if (!pawn.health.hediffSet.HasHediff(Props.hediffDefName))
-			{
-				pawn.health.AddHediff(Props.hediffDefName);
-			}
-		}
+		// public override void PostRemove()
+		// {
+			// base.PostRemove();
+			// if (!pawn.health.hediffSet.HasHediff(Props.hediffDefName))
+			// {
+				// pawn.health.AddHediff(Props.hediffDefName);
+			// }
+		// }
 
 		public override void ExposeData()
 		{

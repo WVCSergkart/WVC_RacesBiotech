@@ -5,7 +5,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class CompProperties_UseEffect_XenotypeForcer_II : CompProperties
+    public class CompProperties_UseEffect_XenotypeForcer_II : CompProperties_UseEffect
 	{
 
 		public XenotypeDef endotypeDef = null;

@@ -285,7 +285,7 @@
 	  <li>Occasionally removes the xenogerm replication effects from the carrier.</li>
 	  <!-- <li>Carriers of this gene cannot use xenotype serums.</li> -->
 	  <!-- <li>Abilities "Rise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li> -->
-	  <li>If this gene is removed, the carrier will die.</li>
+	  <!-- <li>If this gene is removed, the carrier will die.</li> -->
 	  <!-- <li>The amount of dust is no longer subject to biological entropy.</li> -->
 	  <li>Decreases the nutritional value of consumed food by 15%</li>
 	</customEffectDescriptions>
@@ -298,7 +298,7 @@
 	</exclusionTags>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<hediffDefName>WVC_Dustogenic_KillAfterTime</hediffDefName>
+			<!-- <hediffDefName>WVC_Dustogenic_KillAfterTime</hediffDefName> -->
 			<intervalRange>122000~440000</intervalRange>
 			<hediffDefs>
 				<li>XenogermReplicating</li>

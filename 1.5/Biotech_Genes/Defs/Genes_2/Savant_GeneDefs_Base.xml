@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneTraumaSavant_Base" Abstract="True">
+	<selectionWeight>0.0022</selectionWeight>
+	<displayCategory>Healing</displayCategory>
+	<displayOrderInCategory>125</displayOrderInCategory>
+	<exclusionTags>
+	  <li>TraumaSavant</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneTraumaSavant_Base">
+	<defName>WVC_GeneSavant</defName>
+	<label>savant</label>
+	<description>Carriers of this gene has an exceptional condition. The brain has developed extreme abilities in some areas, while losing the ability to speak.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Savant_v0</iconPath>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>2</biostatMet>
+	<capMods>
+	  <li>
+		<capacity>Talking</capacity>
+		<setMax>0</setMax>
+	  </li>
+	  <li>
+		<capacity>Hearing</capacity>
+		<setMax>0</setMax>
+	  </li>
+	  <li>
+		<capacity>Manipulation</capacity>
+		<offset>0.5</offset>
+	  </li>
+	</capMods>
+	<hediffGiversCannotGive>
+	  <li>TraumaSavant</li>
+	</hediffGiversCannotGive>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>savant</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_GeneSavant</hediffDefName>
+			<bodyparts>
+			  <li>Brain</li>
+			</bodyparts>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

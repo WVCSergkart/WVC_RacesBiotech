@@ -54,32 +54,6 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		[Obsolete]
-		public static bool HasCandidateGene(Pawn pawn)
-		{
-			if (pawn?.genes == null)
-			{
-				return false;
-			}
-			List<GeneDef> perfectCandidates = ReimplanterUtility.GenesPerfectCandidatesForSerums();
-			// foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
-			// {
-				// perfectCandidates.AddRange(item.perfectCandidatesForSerums);
-			// }
-			List<Gene> genesListForReading = pawn.genes.GenesListForReading;
-			for (int i = 0; i < genesListForReading.Count; i++)
-			{
-				if (genesListForReading[i].Active)
-				{
-					if (perfectCandidates.Contains(genesListForReading[i].def))
-					{
-						return true;
-					}
-				}
-			}
-			return false;
-		}
-
 		public static bool XenotypeHasArchites(XenotypeDef xenotypeDef)
 		{
 			List<GeneDef> genesListForReading = xenotypeDef.genes;

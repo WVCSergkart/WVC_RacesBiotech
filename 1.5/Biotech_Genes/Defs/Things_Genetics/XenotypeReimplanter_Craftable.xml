@@ -48,7 +48,7 @@
 		  <li>XenogermLossShock</li>
 		  <!-- Dustogenic -->
 		  <li>WVC_Dustogenic_DelayedReimplanter</li>
-		  <li>WVC_Dustogenic_KillAfterTime</li>
+		  <!-- <li>WVC_Dustogenic_KillAfterTime</li> -->
 		</hediffsToRemove>
 	  </li>
 	</comps>

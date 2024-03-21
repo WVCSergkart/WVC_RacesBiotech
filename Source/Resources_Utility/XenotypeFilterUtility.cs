@@ -80,52 +80,6 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
-		[Obsolete]
-		public static List<HediffDef> HediffsThatPreventUndeadResurrection()
-		{
-			List<HediffDef> list = new();
-			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
-			{
-				list.AddRange(item.hediffsThatPreventUndeadResurrection);
-			}
-			return list;
-		}
-
-		// public static List<XenotypeDef> WhiteListedXenotypes_Filtered()
-		// {
-		// List<string> blackListedXenotypesForSerums = XenotypeFilterUtility.BlackListedXenotypesForSerums();
-		// List<XenotypeDef> genesListForReading = DefDatabase<XenotypeDef>.AllDefsListForReading;
-		// List<XenotypeDef> whiteListedXenotypes = new();
-		// for (int i = 0; i < genesListForReading.Count; i++)
-		// {
-		// if (!blackListedXenotypesForSerums.Contains(genesListForReading[i].defName))
-		// {
-		// whiteListedXenotypes.Add(genesListForReading[i]);
-		// }
-		// }
-		// return whiteListedXenotypes;
-		// }
-
-		// public static List<XenotypeDef> BlackListedXenotypesForHybridSerums()
-		// {
-		// List<XenotypeDef> list = new();
-		// foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
-		// {
-		// list.AddRange(item.blackListedXenotypesForHybridSerums);
-		// }
-		// return list;
-		// }
-
-		// public static List<XenotypeDef> BlackListedXenotypesForSingleSerums()
-		// {
-		// List<XenotypeDef> list = new();
-		// foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
-		// {
-		// list.AddRange(item.blackListedXenotypesForSingleSerums);
-		// }
-		// return list;
-		// }
-
 		public static List<XenotypeDef> AllXenotypesExceptAndroids()
 		{
 			List<XenotypeDef> list = new();
