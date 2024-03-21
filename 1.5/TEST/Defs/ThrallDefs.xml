@@ -8,7 +8,7 @@
 	<genes>
 		<li>ToxicEnvironmentResistance_Total</li>
 		<li>Aggression_DeadCalm</li>
-		<li>WVC_Learning_ExtremeSlow</li>
+		<li>WVC_NoLearning</li>
 		<li>WVC_PredatorPrey_NotTasty</li>
 		<!-- = Pawn Appearance = -->
 		<li>WVC_GauntSkin</li>

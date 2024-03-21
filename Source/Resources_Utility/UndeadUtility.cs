@@ -156,15 +156,17 @@ namespace WVC_XenotypesAndGenes
 			// Brain test
 			if (pawn?.health?.hediffSet?.GetBrain() == null)
 			{
-				Gene_BackstoryChanger.BackstoryChanger(pawn, gene.Giver.childhoodDef, gene.Giver.adulthoodDef);
-				foreach (SkillRecord item in pawn.skills.skills)
-				{
-					if (!item.TotallyDisabled && item.XpTotalEarned > 0f)
-					{
-						float num = item.XpTotalEarned;
-						item.Learn(0f - num, direct: true);
-					}
-				}
+				// Gene_BackstoryChanger.BackstoryChanger(pawn, gene.Giver.childhoodDef, gene.Giver.adulthoodDef);
+				// foreach (SkillRecord item in pawn.skills.skills)
+				// {
+					// if (!item.TotallyDisabled && item.XpTotalEarned > 0f)
+					// {
+						// float num = item.XpTotalEarned;
+						// item.Learn(0f - num, direct: true);
+					// }
+				// }
+				DuplicateUtility.NullifyBackstory(pawn);
+				DuplicateUtility.NullifySkills(pawn);
 			}
 			// Undead Resurrect
 			ResurrectWithSickness(pawn, WVC_GenesDefOf.WVC_XenotypesAndGenes_WasResurrected);

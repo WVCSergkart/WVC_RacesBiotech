@@ -40,6 +40,8 @@ namespace WVC_XenotypesAndGenes
 				{
 					RecruitUtility.Recruit(innerPawn, Faction.OfPlayer, parent.pawn);
 				}
+				DuplicateUtility.NullifyBackstory(innerPawn);
+				DuplicateUtility.NullifySkills(innerPawn);
 				ThrallMaker(innerPawn, ReimplanterGene.thrallDef);
 				foreach (GeneDef item in Props.geneDefs)
 				{
