@@ -150,7 +150,7 @@
 	<label>bad hunter</label> 
 	<labelShortAdj>hunter</labelShortAdj>
 	<description>Carriers of this gene are bad hunters.</description>
-	<iconPath>WVC/UI/Genes/BadHunter</iconPath>
+	<iconPath>WVC/UI/Genes/Gene_HunterA_v0</iconPath>
 	<displayOrderInCategory>1085</displayOrderInCategory>
 	<biostatMet>1</biostatMet>
 	<statOffsets>
@@ -171,7 +171,7 @@
 	<label>silent hunter</label> 
 	<labelShortAdj>hunter</labelShortAdj>
 	<description>Carriers of this gene are born hunters.</description>
-	<iconPath>WVC/UI/Genes/SilentHunter</iconPath>
+	<iconPath>WVC/UI/Genes/Gene_HunterB_v0</iconPath>
 	<displayOrderInCategory>1090</displayOrderInCategory>
 	<biostatMet>-1</biostatMet>
 	<statOffsets>

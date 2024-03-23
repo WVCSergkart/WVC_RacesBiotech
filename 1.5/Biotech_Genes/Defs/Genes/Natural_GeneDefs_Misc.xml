@@ -191,7 +191,7 @@
 	<defName>WVC_FurskinInstincts_LightWildness</defName>
 	<label>slightly wild</label>
 	<biostatMet>2</biostatMet>
-	<iconColor>(255, 220, 220)</iconColor>
+	<iconPath>WVC/UI/Genes/Gene_WildnessA_v0</iconPath>
 	<missingGeneRomanceChanceFactor>1</missingGeneRomanceChanceFactor>
 	<statFactors>
 	  <MentalBreakThreshold>1.1</MentalBreakThreshold>
@@ -204,7 +204,7 @@
 	<label>medium wild</label>
 	<biostatMet>4</biostatMet>
 	<displayOrderInCategory>26</displayOrderInCategory>
-	<iconColor>(255, 180, 180)</iconColor>
+	<iconPath>WVC/UI/Genes/Gene_WildnessB_v0</iconPath>
 	<missingGeneRomanceChanceFactor>0.8</missingGeneRomanceChanceFactor>
 	<statFactors>
 	  <MentalBreakThreshold>1.2</MentalBreakThreshold>
@@ -217,7 +217,7 @@
 	<label>very wild</label>
 	<biostatMet>6</biostatMet>
 	<displayOrderInCategory>27</displayOrderInCategory>
-	<iconColor>(255, 150, 150)</iconColor>
+	<iconPath>WVC/UI/Genes/Gene_WildnessC_v0</iconPath>
 	<missingGeneRomanceChanceFactor>0.6</missingGeneRomanceChanceFactor>
 	<statFactors>
 	  <MentalBreakThreshold>1.3</MentalBreakThreshold>
@@ -230,7 +230,7 @@
 	<label>animal-like wild</label>
 	<biostatMet>8</biostatMet>
 	<displayOrderInCategory>28</displayOrderInCategory>
-	<iconColor>(255, 120, 120)</iconColor>
+	<iconPath>WVC/UI/Genes/Gene_WildnessD_v0</iconPath>
 	<missingGeneRomanceChanceFactor>0.4</missingGeneRomanceChanceFactor>
 	<statFactors>
 	  <MentalBreakThreshold>1.5</MentalBreakThreshold>
@@ -276,7 +276,8 @@
 	<label>natural instincts</label>
 	<description>Carriers of this gene have natural animal-like instincts that help them.</description>
 	<!-- <iconPath>WVC/UI/Genes/FurInstinctsBase</iconPath> -->
-	<iconColor>(184, 198, 203)</iconColor>
+	<iconColor>(255, 255, 255)</iconColor>
+	<iconPath>WVC/UI/Genes/Gene_NaturalInstincts_v0</iconPath>
 	<displayOrderInCategory>35</displayOrderInCategory>
 	<!-- <prerequisite>Furskin</prerequisite> -->
 	<aptitudes>
@@ -316,7 +317,8 @@
 	<defName>WVC_FurskinInstincts_NightHunter</defName>
 	<label>night hunter</label>
 	<description>Carriers of this gene are excellent night hunters. They easily navigate in the dark and always know when the enemy is most vulnerable.</description>
-	<iconColor>(200, 230, 255)</iconColor>
+	<iconColor>(255, 255, 255)</iconColor>
+	<iconPath>WVC/UI/Genes/Gene_HunterNight_v0</iconPath>
 	<biostatMet>-3</biostatMet>
 	<conditionalStatAffecters>
 	  <li Class="VanillaGenesExpanded.ConditionalStatAffecter_NoSunlight" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
@@ -348,7 +350,8 @@
 	<defName>WVC_FurskinInstincts_PredatorSense</defName>
 	<label>predator sense</label>
 	<description>Carriers of this gene have an excellent sense of smell.</description>
-	<iconColor>(150, 230, 255)</iconColor>
+	<iconColor>(255, 255, 255)</iconColor>
+	<iconPath>WVC/UI/Genes/Gene_PredatorSense_v0</iconPath>
 	<biostatMet>-2</biostatMet>
 	<statFactors>
 	  <PawnTrapSpringChance>0.5</PawnTrapSpringChance>
@@ -360,7 +363,8 @@
 	<defName>WVC_FurskinInstincts_KeenEye</defName>
 	<label>keen eye</label>
 	<description>Carriers of this gene are very attentive.</description>
-	<iconColor>(200, 255, 200)</iconColor>
+	<iconColor>(255, 255, 255)</iconColor>
+	<iconPath>WVC/UI/Genes/Gene_KeenEye_v0</iconPath>
 	<biostatMet>-2</biostatMet>
 	<statOffsets>
 	  <ShootingAccuracyPawn>0.2</ShootingAccuracyPawn>
@@ -372,7 +376,8 @@
 	<defName>WVC_FurskinInstincts_Restlessness</defName>
 	<label>restlessness</label>
 	<description>Carriers of this gene concentrate poorly and are constantly distracted by something.</description>
-	<iconColor>(255, 230, 255)</iconColor>
+	<iconColor>(255, 255, 255)</iconColor>
+	<iconPath>WVC/UI/Genes/Gene_Restlessness_v0</iconPath>
 	<biostatMet>-2</biostatMet>
 	<statOffsets>
 	  <MoveSpeed>4</MoveSpeed>
