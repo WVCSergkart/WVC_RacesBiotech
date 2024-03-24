@@ -25,7 +25,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				else
 				{
-					need_Food.CurLevel += offset;
+					need_Food.CurLevel += need_Food.MaxLevel >= (need_Food.CurLevel + offset) ? offset : (need_Food.MaxLevel - need_Food.CurLevel);
 				}
 			}
 		}
