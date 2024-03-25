@@ -15,6 +15,9 @@ namespace WVC_XenotypesAndGenes
 
 		public List<GeneDef> genes;
 
+		[MustTranslate]
+		public string generalDesc;
+
 		public override void ResolveReferences()
 		{
 			if (genes.NullOrEmpty())

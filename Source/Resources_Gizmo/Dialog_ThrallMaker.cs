@@ -76,7 +76,7 @@ namespace WVC_XenotypesAndGenes
 				selectedXeno = allXenotypes.RandomElement();
 				return;
 			}
-			Widgets.Label(rect3.x, ref curY, rect3.width, selectedXeno.description);
+			Widgets.Label(rect3.x, ref curY, rect3.width, selectedXeno.description + "\n\n" + selectedXeno.generalDesc);
 			curY += 10f;
 			Widgets.HyperlinkWithIcon(new Rect(rect3.x, curY, rect3.width, Text.LineHeight), new Dialog_InfoCard.Hyperlink(selectedXeno));
 			curY += 10f;

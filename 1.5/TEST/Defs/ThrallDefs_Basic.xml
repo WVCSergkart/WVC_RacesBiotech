@@ -1,39 +1,44 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <!-- Base thrall appearance -->
+
   <WVC_XenotypesAndGenes.ThrallDef Name="WVC_XenotypesAndGenes_ThrallDefs_Base" Abstract="True">
 	<label>thrall</label>
-	<description>In general thralls are rare xenohumans with a set of genes that does not fall into any known xenotype. Thralls are created from fresh corpses and usually cannot exist without the support of a master, since their genetic instabilization inevitably leads to death.</description>
+	<description>An ordinary thrall with its own strengths and weaknesses.</description>
+	<generalDesc>In general thralls are rare xenohumans with a set of genes that does not fall into any known xenotype. Thralls are created from fresh corpses and usually cannot exist without the support of a master, since their genetic instabilization inevitably leads to death.</generalDesc>
 	<xenotypeIconDef>WVC_Thrall_x1c</xenotypeIconDef>
 	<genes>
-		<li>ToxicEnvironmentResistance_Total</li>
-		<li>Aggression_DeadCalm</li>
-		<li>WVC_NoLearning</li>
-		<li>WVC_PredatorPrey_NotTasty</li>
-		<!-- = Pawn Appearance = -->
 		<li>WVC_GauntSkin</li>
-		<li>WVC_GeneSavant</li>
 		<li>Hair_DarkBlack</li>
 		<li>WVC_SkinColor_Granite</li>
 		<li>WVC_SkinColor_Limestone</li>
 		<li>WVC_SkinColor_Marble</li>
 		<li>WVC_SkinColor_Slate</li>
-		<!-- = Vampirism = -->
-		<!-- <li>Hemogenic</li> -->
-		<!-- <li>WVC_HemogenGain</li> -->
-		<!-- <li>Bloodfeeder</li> -->
-		<!-- <li>WVC_Bloodeater</li> -->
-		<!-- <li>WVC_NaturalAgeless</li> -->
-		<li>WVC_AptitudeShameful_Social</li>
-		<!-- <li>WVC_AptitudeMarvelous_Social</li> -->
 	</genes>
   </WVC_XenotypesAndGenes.ThrallDef>
 
-  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Base">
+  <!-- Basic corpse-like thralls -->
+
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Base" Name="WVC_XenotypesAndGenes_ThrallDefs_Undead" Abstract="True">
+	<genes>
+		<li>WVC_GeneSavant</li>
+		<li>ToxicEnvironmentResistance_Total</li>
+		<li>Aggression_DeadCalm</li>
+		<li>WVC_NoLearning</li>
+		<li>WVC_PredatorPrey_NotTasty</li>
+		<li>WVC_AptitudeShameful_Social</li>
+	</genes>
+  </WVC_XenotypesAndGenes.ThrallDef>
+
+  <!-- ================================ -->
+
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Undead">
 	<defName>WVC_Fielder</defName>
 	<label>fielder</label>
-	<description>Field modification of the thrall. These thralls are excellent builders, gardeners, and miners. They have a bonus to speed and can easily recover from cutting wounds, but they are absolutely unsuitable for combat.\n\nIn general thralls are rare xenohumans with a set of genes that does not fall into any known xenotype. Thralls are created from fresh corpses and usually cannot exist without the support of a master, since their genetic instabilization inevitably leads to death.</description>
+	<description>Field modification of the thrall. These thralls are excellent builders, gardeners, and miners. They have a bonus to speed and can easily recover from cutting wounds, but they are absolutely unsuitable for combat.</description>
 	<xenotypeIconDef>WVC_Thrall_Elf1c</xenotypeIconDef>
+	<!-- <recommendedRole>Work</recommendedRole> -->
 	<genes>
 		<li>Superclotting</li>
 		<li>WVC_PsychicAbility_Deaf</li>
@@ -56,11 +61,12 @@
 	</genes>
   </WVC_XenotypesAndGenes.ThrallDef>
 
-  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Base">
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Undead">
 	<defName>WVC_Striker</defName>
 	<label>striker</label>
-	<description>Combat modification of the thrall. These thralls are excellent fighters, they can take a lot of damage and put up a serious fight against superior opponents, but they are completely useless otherwise.\n\nIn general thralls are rare xenohumans with a set of genes that does not fall into any known xenotype. Thralls are created from fresh corpses and usually cannot exist without the support of a master, since their genetic instabilization inevitably leads to death.</description>
+	<description>Combat modification of the thrall. These thralls are excellent fighters, they can take a lot of damage and put up a serious fight against superior opponents, but they are completely useless otherwise.</description>
 	<!-- <xenotypeIconDef>WVC_Xeno30c</xenotypeIconDef> -->
+	<!-- <recommendedRole>Combat</recommendedRole> -->
 	<genes>
 		<li>WoundHealing_SuperFast</li>
 		<li>Superclotting</li>
@@ -83,13 +89,14 @@
 	</genes>
   </WVC_XenotypesAndGenes.ThrallDef>
 
-  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Base">
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Undead">
 	<defName>WVC_Artister</defName>
 	<label>artister</label>
-	<description>Crafter modification of the thrall. These thralls are excellent artists and crafters. They do not require much food, but they are very slow and weak.\n\nIn general thralls are rare xenohumans with a set of genes that does not fall into any known xenotype. Thralls are created from fresh corpses and usually cannot exist without the support of a master, since their genetic instabilization inevitably leads to death.</description>
+	<description>Crafter modification of the thrall. These thralls are excellent artists and crafters. They do not require much food, but they are very slow and weak.</description>
 	<xenotypeIconDef>WVC_Thrall_Cat1c</xenotypeIconDef>
+	<!-- <recommendedRole>Work</recommendedRole> -->
 	<genes>
-		<li>WVC_NaturalTelepathy</li>
+		<!-- <li>WVC_NaturalTelepathy</li> -->
 		<li>WVC_StoneStomach</li>
 		<li>WVC_Delicate</li>
 		<li>WVC_CatEarsA</li>
@@ -111,11 +118,12 @@
 	</genes>
   </WVC_XenotypesAndGenes.ThrallDef>
 
-  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Base">
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Undead">
 	<defName>WVC_Smartkin</defName>
 	<label>smartkin</label>
 	<!-- <description>Combat modification of the thrall. These thralls are excellent fighters, they can take a lot of damage and put up a serious fight against superior opponents, but they are completely useless otherwise.\n\nIn general thralls are rare xenohumans with a set of genes that does not fall into any known xenotype. Thralls are created from fresh corpses and usually cannot exist without the support of a master, since their genetic instabilization inevitably leads to death.</description> -->
 	<xenotypeIconDef>WVC_Thrall_Demon1c</xenotypeIconDef>
+	<!-- <recommendedRole>Work</recommendedRole> -->
 	<genes>
 		<li>WVC_ClothedArmor</li>
 		<li>WVC_Hair_PunkOnly</li>
@@ -138,11 +146,12 @@
 	</genes>
   </WVC_XenotypesAndGenes.ThrallDef>
 
-  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Base">
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Undead">
 	<defName>WVC_Gardernkind</defName>
 	<label>gardernkind</label>
 	<!-- <description>Combat modification of the thrall. These thralls are excellent fighters, they can take a lot of damage and put up a serious fight against superior opponents, but they are completely useless otherwise.\n\nIn general thralls are rare xenohumans with a set of genes that does not fall into any known xenotype. Thralls are created from fresh corpses and usually cannot exist without the support of a master, since their genetic instabilization inevitably leads to death.</description> -->
 	<xenotypeIconDef>WVC_Thrall_Demon1c</xenotypeIconDef>
+	<!-- <recommendedRole>Work, Tank</recommendedRole> -->
 	<genes>
 		<li>WVC_ArmoredSkin_Stone</li>
 		<li>WVC_Hair_TribalOnly</li>
@@ -165,11 +174,12 @@
 	</genes>
   </WVC_XenotypesAndGenes.ThrallDef>
 
-  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Base">
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Undead">
 	<defName>WVC_Molekin</defName>
 	<label>molekin</label>
 	<!-- <description>Combat modification of the thrall. These thralls are excellent fighters, they can take a lot of damage and put up a serious fight against superior opponents, but they are completely useless otherwise.\n\nIn general thralls are rare xenohumans with a set of genes that does not fall into any known xenotype. Thralls are created from fresh corpses and usually cannot exist without the support of a master, since their genetic instabilization inevitably leads to death.</description> -->
 	<!-- <xenotypeIconDef>WVC_Thrall_Demon1c</xenotypeIconDef> -->
+	<!-- <recommendedRole>Work</recommendedRole> -->
 	<genes>
 		<li>WVC_UnClothedArmor</li>
 		<li>WVC_Hair_TribalOnly</li>
@@ -192,11 +202,12 @@
 	</genes>
   </WVC_XenotypesAndGenes.ThrallDef>
 
-  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Base">
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Undead">
 	<defName>WVC_Carrier</defName>
 	<label>carrier</label>
 	<!-- <description>Combat modification of the thrall. These thralls are excellent fighters, they can take a lot of damage and put up a serious fight against superior opponents, but they are completely useless otherwise.\n\nIn general thralls are rare xenohumans with a set of genes that does not fall into any known xenotype. Thralls are created from fresh corpses and usually cannot exist without the support of a master, since their genetic instabilization inevitably leads to death.</description> -->
 	<!-- <xenotypeIconDef>WVC_Thrall_Demon1c</xenotypeIconDef> -->
+	<!-- <recommendedRole>Tamer, Carrier</recommendedRole> -->
 	<genes>
 		<li>WVC_ArmoredSkin_Plasteel</li>
 		<li>WVC_Hair_NonBald</li>
@@ -219,11 +230,12 @@
 	</genes>
   </WVC_XenotypesAndGenes.ThrallDef>
 
-  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Base">
+  <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Undead">
 	<defName>WVC_Fortkind</defName>
 	<label>fortkind</label>
 	<!-- <description>Combat modification of the thrall. These thralls are excellent fighters, they can take a lot of damage and put up a serious fight against superior opponents, but they are completely useless otherwise.\n\nIn general thralls are rare xenohumans with a set of genes that does not fall into any known xenotype. Thralls are created from fresh corpses and usually cannot exist without the support of a master, since their genetic instabilization inevitably leads to death.</description> -->
 	<!-- <xenotypeIconDef>WVC_Thrall_Demon1c</xenotypeIconDef> -->
+	<!-- <recommendedRole>Combat, Tank</recommendedRole> -->
 	<genes>
 		<li>WVC_ArmoredSkin_Fortress</li>
 		<li>WVC_Unbreakable</li>

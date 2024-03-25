@@ -183,6 +183,10 @@ namespace WVC_XenotypesAndGenes
 				return 0;
 			}
 			limit = (int)(limit / (cellsPerDay > 0f ? cellsPerDay : 0.01f));
+			if (limit >= 1000)
+			{
+				return 999;
+			}
 			return limit;
 		}
 
