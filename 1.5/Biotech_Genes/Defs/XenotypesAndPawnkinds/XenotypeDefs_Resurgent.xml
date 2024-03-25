@@ -40,7 +40,7 @@
 		<li>WVC_ResurgentCells_Stomach</li>
 		<li>WVC_ResurgentCells_Sleep</li>
 		<!-- <li>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</li> -->
-		<li MayRequire="wvc.sergkart.test.tools">WVC_ReimplanterThrallMaker</li>
+		<li>WVC_ReimplanterThrallMaker</li>
 		<li>WVC_ResurgentImmunity_PerfectImmunity</li>
 		<li>WVC_ResurgentDisease_DiseaseFree</li>
 		<li>WVC_ResurgentCells_Skeleton</li>

@@ -28,7 +28,7 @@
 
 	<WVC_XaG_General_DisabledIdeo>{PAWN_nameDef}'s ideology prevents {PAWN_objective} from using this ability.</WVC_XaG_General_DisabledIdeo>
 
-	<WVC_XaG_RecommendedRole>Recommended role</WVC_XaG_RecommendedRole>
+	<!-- <WVC_XaG_RecommendedRole>Recommended role</WVC_XaG_RecommendedRole> -->
 
 	<!-- ============================ SERUM RETUNE AND OTHER ============================ -->
 	

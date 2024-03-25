@@ -27,8 +27,8 @@
 
   <GeneDef Name="WVC_XenotypesAndGenes_GeneRomanceChanceBase" Abstract="True">
 	<displayCategory>Reproduction</displayCategory>
-	<description>Carriers of this gene secrete special pheromones with the help of which they choose a partner.</description>
-	<biostatCpx>1</biostatCpx>
+	<description>Carriers of this gene have certain habits that help them identify and choose the best partner.</description>
+	<biostatCpx>0</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<biostatArc>0</biostatArc>
 	<displayOrderInCategory>553</displayOrderInCategory>
@@ -47,113 +47,48 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRomanceChanceBase">
 	<defName>WVC_RomanceChanceA</defName>
-	<label>pheromones A</label>
-	<iconColor>(133, 202, 255)</iconColor>
+	<label>picky A</label>
+	<iconColor>(255, 255, 255)</iconColor>
+	<iconPath>WVC/UI/Genes/Gene_RomanceChanceA_v0</iconPath>
 	<exclusionTags>
 	  <li>WVC_RomanceChance_A</li>
 	</exclusionTags>
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRomanceChanceBase">
 	<defName>WVC_RomanceChanceB</defName>
-	<label>pheromones B</label>
-	<iconColor>(133, 255, 136)</iconColor>
+	<label>picky B</label>
+	<iconColor>(255, 255, 255)</iconColor>
+	<iconPath>WVC/UI/Genes/Gene_RomanceChanceB_v0</iconPath>
 	<exclusionTags>
 	  <li>WVC_RomanceChance_B</li>
 	</exclusionTags>
   </GeneDef>
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRomanceChanceBase">
 	<defName>WVC_RomanceChanceC</defName>
-	<label>pheromones C</label>
-	<iconColor>(255, 133, 133)</iconColor>
+	<label>picky C</label>
+	<iconColor>(255, 255, 255)</iconColor>
+	<iconPath>WVC/UI/Genes/Gene_RomanceChanceC_v0</iconPath>
 	<exclusionTags>
 	  <li>WVC_RomanceChance_C</li>
 	</exclusionTags>
   </GeneDef>
-  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRomanceChanceBase"> -->
-	<!-- <defName>WVC_RomanceChanceD</defName> -->
-	<!-- <label>pheromones D</label> -->
-	<!-- <iconColor>(142, 133, 255)</iconColor> -->
-	<!-- <exclusionTags> -->
-	  <!-- <li>WVC_RomanceChance_D</li> -->
-	<!-- </exclusionTags> -->
-  <!-- </GeneDef> -->
-  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRomanceChanceBase"> -->
-	<!-- <defName>WVC_RomanceChanceE</defName> -->
-	<!-- <label>pheromones E</label> -->
-	<!-- <iconColor>(255, 248, 133)</iconColor> -->
-	<!-- <exclusionTags> -->
-	  <!-- <li>WVC_RomanceChance_E</li> -->
-	<!-- </exclusionTags> -->
-  <!-- </GeneDef> -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRomanceChanceBase">
 	<defName>WVC_RomanceChanceNeutralized</defName>
-	<label>dull taste</label>
-	<description>This gene completely neutralizes the effects of pheromones, making the carrier of the gene less picky.</description>
+	<label>not picky</label>
+	<description>Carriers of this gene are common in their preferences when choosing a partner.</description>
 	<missingGeneRomanceChanceFactor>1</missingGeneRomanceChanceFactor>
 	<displayOrderInCategory>554</displayOrderInCategory>
-	<iconColor>(175, 175, 175)</iconColor>
-	<biostatCpx>2</biostatCpx>
+	<iconColor>(255, 255, 255)</iconColor>
+	<iconPath>WVC/UI/Genes/Gene_RomanceChanceDull_v0</iconPath>
+	<biostatCpx>0</biostatCpx>
 	<exclusionTags>
 	  <li>WVC_RomanceChance_A</li>
 	  <li>WVC_RomanceChance_B</li>
 	  <li>WVC_RomanceChance_C</li>
 	  <li>WVC_RomanceChance_D</li>
 	  <li>WVC_RomanceChance_E</li>
-	  <!-- = -->
-	  <!-- <li>WVC_Mecha_RomanceChance_WR</li> -->
-	  <!-- <li>WVC_Mecha_RomanceChance_CV</li> -->
-	  <!-- <li>WVC_Mecha_RomanceChance_HJ</li> -->
-	  <!-- <li>WVC_Mecha_RomanceChance_GB</li> -->
-	  <!-- <li>WVC_Mecha_RomanceChance_SX</li> -->
 	</exclusionTags>
   </GeneDef>
-
-  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRomanceChanceBase" Name="WVC_RomanceChance_Encode" Abstract="True"> -->
-	<!-- <displayOrderInCategory>555</displayOrderInCategory> -->
-	<!-- <selectionWeight>0.00035</selectionWeight> -->
-	<!-- <iconColor>(255, 255, 255)</iconColor> -->
-  <!-- </GeneDef> -->
-
-  <!-- <GeneDef ParentName="WVC_RomanceChance_Encode"> -->
-	<!-- <defName>WVC_MechaAI_RomanceChanceA</defName> -->
-	<!-- <label>pheromones F</label> -->
-	<!-- <iconColor>(255, 255, 133)</iconColor> -->
-	<!-- <exclusionTags> -->
-	  <!-- <li>WVC_Mecha_RomanceChance_SX</li> -->
-	<!-- </exclusionTags> -->
-  <!-- </GeneDef> -->
-  <!-- <GeneDef ParentName="WVC_RomanceChance_Encode"> -->
-	<!-- <defName>WVC_MechaAI_RomanceChanceB</defName> -->
-	<!-- <label>pheromones G</label> -->
-	<!-- <iconColor>(133, 255, 255)</iconColor> -->
-	<!-- <exclusionTags> -->
-	  <!-- <li>WVC_Mecha_RomanceChance_GB</li> -->
-	<!-- </exclusionTags> -->
-  <!-- </GeneDef> -->
-  <!-- <GeneDef ParentName="WVC_RomanceChance_Encode"> -->
-	<!-- <defName>WVC_MechaAI_RomanceChanceC</defName> -->
-	<!-- <label>pheromones H</label> -->
-	<!-- <iconColor>(255, 133, 255)</iconColor> -->
-	<!-- <exclusionTags> -->
-	  <!-- <li>WVC_Mecha_RomanceChance_HJ</li> -->
-	<!-- </exclusionTags> -->
-  <!-- </GeneDef> -->
-  <!-- <GeneDef ParentName="WVC_RomanceChance_Encode"> -->
-	<!-- <defName>WVC_MechaAI_RomanceChanceD</defName> -->
-	<!-- <label>pheromones I</label> -->
-	<!-- <iconColor>(133, 255, 133)</iconColor> -->
-	<!-- <exclusionTags> -->
-	  <!-- <li>WVC_Mecha_RomanceChance_CV</li> -->
-	<!-- </exclusionTags> -->
-  <!-- </GeneDef> -->
-  <!-- <GeneDef ParentName="WVC_RomanceChance_Encode"> -->
-	<!-- <defName>WVC_MechaAI_RomanceChanceE</defName> -->
-	<!-- <label>pheromones J</label> -->
-	<!-- <iconColor>(133, 255, 153)</iconColor> -->
-	<!-- <exclusionTags> -->
-	  <!-- <li>WVC_Mecha_RomanceChance_WR</li> -->
-	<!-- </exclusionTags> -->
-  <!-- </GeneDef> -->
 
 </Defs>
