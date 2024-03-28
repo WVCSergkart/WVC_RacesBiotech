@@ -1,3 +1,4 @@
+using RimWorld;
 using System.Collections.Generic;
 using Verse;
 
@@ -35,8 +36,8 @@ namespace WVC_XenotypesAndGenes
 
 		public CompProperties_Golem Props => (CompProperties_Golem)props;
 
-		public int nextEnergyTick = 1500;
-		public int nextOverseerTick = 27371;
+		private int nextEnergyTick = 1500;
+		private int nextOverseerTick = 27371;
 
 		public override void CompTick()
 		{
@@ -68,7 +69,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public void HasEnoughGolembond(Pawn golem, Pawn overseer)
+		private void HasEnoughGolembond(Pawn golem, Pawn overseer)
 		{
 			if (overseer == null)
 			{
@@ -85,9 +86,26 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public void ResetOverseerTick()
+		private void ResetOverseerTick()
 		{
 			nextOverseerTick = Props.checkOverseerInterval.RandomInRange;
+		}
+
+		public override string CompInspectStringExtra()
+		{
+			if (parent.Faction != Faction.OfPlayer)
+			{
+				return null;
+			}
+			if (parent is Pawn pawn)
+			{
+				Need_MechEnergy energy = pawn?.needs?.energy;
+				if (energy?.IsSelfShutdown == true)
+				{
+					return "WVC_XaG_GolemEnergyRecovery_Info".Translate((energy.CurLevelPercentage).ToStringPercent(), ((24f * Props.shutdownEnergyReplenish) / 100f / (energy.MaxLevel / 100)).ToStringPercent());
+				}
+			}
+			return null;
 		}
 
 		public override void PostExposeData()

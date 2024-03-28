@@ -229,16 +229,10 @@ namespace WVC_XenotypesAndGenes
 
 		public static void OffsetNeedEnergy(Pawn pawn, float offset, int hours)
 		{
-			if (!ModsConfig.BiotechActive)
-			{
-				return;
-			}
-			// Log.Error("2");
 			Need_MechEnergy energy = pawn?.needs?.energy;
-			if (energy != null && (energy.IsSelfShutdown || energy.IsLowEnergySelfShutdown))
+			if (energy?.IsSelfShutdown == true)
 			{
 				energy.CurLevel += offset * hours;
-				// Log.Error("3: " + energy.CurLevel);
 			}
 		}
 

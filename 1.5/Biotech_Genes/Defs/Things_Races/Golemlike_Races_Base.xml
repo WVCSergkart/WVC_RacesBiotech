@@ -12,18 +12,18 @@
 			<MarketValue>220</MarketValue>
 			<!-- Work -->
 			<FoodPoisonChance>0</FoodPoisonChance>
-			<MiningSpeed>0.25</MiningSpeed>
-			<PlantWorkSpeed>0.25</PlantWorkSpeed>
-			<ConstructionSpeed>0.25</ConstructionSpeed>
-			<SmoothingSpeed>0.25</SmoothingSpeed>
-			<GeneralLaborSpeed>0.25</GeneralLaborSpeed>
-			<MedicalTendSpeed>0.25</MedicalTendSpeed>
-			<MedicalOperationSpeed>0.25</MedicalOperationSpeed>
-			<CookSpeed>0.25</CookSpeed>
-			<SmeltingSpeed>0.25</SmeltingSpeed>
-			<DrugSynthesisSpeed>0.25</DrugSynthesisSpeed>
-			<ButcheryFleshSpeed>0.25</ButcheryFleshSpeed>
-			<ButcheryMechanoidSpeed>0.25</ButcheryMechanoidSpeed>
+			<MiningSpeed>0.50</MiningSpeed>
+			<PlantWorkSpeed>0.50</PlantWorkSpeed>
+			<ConstructionSpeed>0.50</ConstructionSpeed>
+			<SmoothingSpeed>0.50</SmoothingSpeed>
+			<GeneralLaborSpeed>0.50</GeneralLaborSpeed>
+			<MedicalTendSpeed>0.50</MedicalTendSpeed>
+			<MedicalOperationSpeed>0.50</MedicalOperationSpeed>
+			<CookSpeed>0.50</CookSpeed>
+			<SmeltingSpeed>0.50</SmeltingSpeed>
+			<DrugSynthesisSpeed>0.50</DrugSynthesisSpeed>
+			<ButcheryFleshSpeed>0.50</ButcheryFleshSpeed>
+			<ButcheryMechanoidSpeed>0.50</ButcheryMechanoidSpeed>
 			<!-- Other -->
 			<MedicalSurgerySuccessChance>2.0</MedicalSurgerySuccessChance>
 			<ConstructSuccessChance>2.0</ConstructSuccessChance>
@@ -44,6 +44,7 @@
 		</tools>
 		<race>
 			<body>Mech_Light</body>
+			<maxMechEnergy>100</maxMechEnergy>
 			<deathAction Class="WVC_XenotypesAndGenes.DeathActionProperties_DestroyCorpse">
 				<deSpawn>false</deSpawn>
 			</deathAction>

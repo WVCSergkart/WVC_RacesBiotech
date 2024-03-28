@@ -25,7 +25,7 @@
 			<Mass>80</Mass>
 		</statBases>
 		<race>
-			<!-- <deathActionWorkerClass>WVC_XenotypesAndGenes.DeathActionWorker_SpawnRandomThingFromList</deathActionWorkerClass> -->
+			<!-- <maxMechEnergy>100</maxMechEnergy> -->
 		</race>
 		<butcherProducts>
 			<Steel>5</Steel>
@@ -33,7 +33,7 @@
 		<comps>
 			<li Class="WVC_XenotypesAndGenes.CompProperties_Golem">
 				<refreshHours>2</refreshHours>
-				<shutdownEnergyReplenish>3.0</shutdownEnergyReplenish>
+				<shutdownEnergyReplenish>4.0</shutdownEnergyReplenish>
 				<golemIndex>0</golemIndex>
 			</li>
 			<!-- <li Class="WVC_XenotypesAndGenes.CompProperties_InitialHediff"> -->

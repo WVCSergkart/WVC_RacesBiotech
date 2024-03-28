@@ -109,7 +109,7 @@
 	<biostatArc>0</biostatArc>
 	<biostatMet>-2</biostatMet>
 	<customEffectDescriptions>
-	  <li>Restores a lost limb every (*DateTime)5-15 days(/DateTime).</li>
+	  <li>Restores a lost body parts every (*DateTime)5-15 days(/DateTime).</li>
 	  <li>Decreases the nutritional value of consumed food by 11%</li>
 	</customEffectDescriptions>
 	<statFactors>
