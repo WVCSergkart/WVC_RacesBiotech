@@ -76,6 +76,7 @@
     <Compile Include="Resources_Abilities\CompProperties_AbilityThrallMaker.cs" />
     <Compile Include="Resources_Abilities\CompProperties_Bloodeater.cs" />
     <Compile Include="Resources_Abilities\QuestNode_Root_Reincarnation.cs" />
+    <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_NoSunlight.cs" />
     <Compile Include="Resources_Genes\Gene_Furskin.cs" />
     <Compile Include="Resources_Genes\Gene_Gender.cs" />
     <Compile Include="Resources_Genes\Gene_Harvester.cs" />

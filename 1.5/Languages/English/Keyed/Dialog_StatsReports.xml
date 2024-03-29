@@ -31,6 +31,8 @@
   <WVC_GeneSpawner_GizmoCountSpawn>in count</WVC_GeneSpawner_GizmoCountSpawn>
   <WVC_GeneSpawner_GizmoTooltip>Gizmo can be disabled in the settings.</WVC_GeneSpawner_GizmoTooltip>
 
+  <WVC_XaG_StatsReport_NoSunlight>no sunlight</WVC_XaG_StatsReport_NoSunlight>
+
   <!-- <WVC_GeneSpawner_GizmoTitle>Resource spawner</WVC_GeneSpawner_GizmoTitle> -->
   <!-- <WVC_GeneGestator_GizmoLabel>Gestator</WVC_GeneGestator_GizmoLabel> -->
   <!-- <WVC_GeneGestator_GizmoOn>On</WVC_GeneGestator_GizmoOn> -->

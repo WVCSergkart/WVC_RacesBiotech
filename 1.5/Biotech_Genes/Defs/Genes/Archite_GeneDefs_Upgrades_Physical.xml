@@ -72,13 +72,14 @@
 	<biostatArc>0</biostatArc>
 	<statFactors>
 	  <CarryingCapacity>1.50</CarryingCapacity>
+	  <VEF_MassCarryCapacity MayRequire="oskarpotocki.vanillafactionsexpanded.core">1.50</VEF_MassCarryCapacity>
 	</statFactors>
 	<statOffsets>
 	  <!-- <MoveSpeed>0.5</MoveSpeed> -->
 	  <ArmorRating_Blunt>0.15</ArmorRating_Blunt>
 	</statOffsets>
 	<customEffectDescriptions>
-		<li MayRequire="oskarpotocki.vanillafactionsexpanded.core">Carrying capacity on the map increased to 50%.</li>
+		<!-- <li MayRequire="oskarpotocki.vanillafactionsexpanded.core">Carrying capacity on the map increased to 50%.</li> -->
 	</customEffectDescriptions>
 	<!-- <capMods> -->
 	  <!-- <li> -->
@@ -86,20 +87,20 @@
 		<!-- <offset>0.1</offset> -->
 	  <!-- </li> -->
 	<!-- </capMods> -->
-	<exclusionTags>
-	  <li>WVC_LightFrameSuperSpine</li>
-	</exclusionTags>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_LightFrameSuperSpine</li> -->
+	<!-- </exclusionTags> -->
 	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
-			<caravanCarryingFactor>1.50</caravanCarryingFactor>
-		</li>
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core"> -->
+			<!-- <caravanCarryingFactor>1.50</caravanCarryingFactor> -->
+		<!-- </li> -->
 	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
 	<defName>WVC_MecaBodyParts_Leg</defName>
 	<label>lightweight</label>
-	<description>Carriers of this gene have a fairly light athletic body.</description>
+	<description>Carriers of this gene have a fairly light body.</description>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>-1</biostatMet>
 	<biostatArc>0</biostatArc>
@@ -117,9 +118,9 @@
 	<statOffsets>
 	  <MoveSpeed>0.1</MoveSpeed>
 	</statOffsets>
-	<exclusionTags>
-	  <li>WVC_LightFrameSuperSpine</li>
-	</exclusionTags>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_LightFrameSuperSpine</li> -->
+	<!-- </exclusionTags> -->
   </GeneDef>
 
   <GeneDef ParentName="WVC_MechanoidizationUpgrades">
