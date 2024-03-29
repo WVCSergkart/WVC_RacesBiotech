@@ -24,7 +24,7 @@
   <!-- Serums -->
   <ThingDef ParentName="BenchBase">
 	<defName>WVC_SerumCraftingTable</defName>
-	<label>serum lab</label>
+	<label>xenogenes serum lab</label>
 	<description>A high-tech workbench for the production of serums.</description>
 	<descriptionHyperlinks>
 	  <ThingDef>WVC_EmptyXenotypeSerum</ThingDef>
