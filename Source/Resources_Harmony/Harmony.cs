@@ -226,28 +226,29 @@ namespace WVC_XenotypesAndGenes
 				{
 					return;
 				}
-				if (pawn.Drawer?.renderer?.CurRotDrawMode == RotDrawMode.Dessicated)
-				{
-					return;
-				}
-				// if (ModsConfig.AnomalyActive)
-				// {
-					// if (pawn.IsMutant && !pawn.mutant.Def.bodyTypeGraphicPaths.NullOrEmpty())
-					// {
-						// return;
-					// }
-					// if (pawn.IsCreepJoiner && pawn.story.bodyType != null && !pawn.creepjoiner.form.bodyTypeGraphicPaths.NullOrEmpty())
-					// {
-						// return;
-					// }
-				// }
 				GeneExtension_Graphic modExtension = furDef?.GetModExtension<GeneExtension_Graphic>();
 				if (modExtension == null)
 				{
 					return;
 				}
+				RotDrawMode curRotDrawMode = pawn.Drawer?.renderer != null ? pawn.Drawer.renderer.CurRotDrawMode : RotDrawMode.Fresh;
+				if (curRotDrawMode == RotDrawMode.Dessicated)
+				{
+					return;
+				}
+				if (ModsConfig.AnomalyActive)
+				{
+					if (pawn.IsMutant && !pawn.mutant.Def.bodyTypeGraphicPaths.NullOrEmpty())
+					{
+						return;
+					}
+					if (pawn.IsCreepJoiner && pawn.story.bodyType != null && !pawn.creepjoiner.form.bodyTypeGraphicPaths.NullOrEmpty())
+					{
+						return;
+					}
+				}
 				string bodyPath = furDef?.GetFurBodyGraphicPath(pawn);
-				Color skinColor = pawn.Drawer?.renderer?.CurRotDrawMode == RotDrawMode.Rotting ? PawnRenderUtility.GetRottenColor(pawn.story.SkinColor) : pawn.story.SkinColor;
+				Color skinColor = curRotDrawMode == RotDrawMode.Rotting ? PawnRenderUtility.GetRottenColor(pawn.story.SkinColor) : pawn.story.SkinColor;
 				if (modExtension.furIsSkinWithHair)
 				{
 					__result = GraphicDatabase.Get<Graphic_Multi>(bodyPath, ShaderDatabase.CutoutComplex, Vector2.one, skinColor, pawn.story.HairColor);
