@@ -57,11 +57,20 @@
 		<inheritableGenes>
 		  <!-- Undead -->
 		  <li>WVC_Undead</li>
-		  <li>WVC_NaturalUndead</li>
+		  <!-- <li>WVC_NaturalUndead</li> -->
 		  <li>WVC_NeverDead</li>
 		  <li>Deathless</li>
 		  <!-- Special -->
 		  <li>DarkVision</li>
+		  <!-- Rare Super -->
+		  <li>DiseaseFree</li>
+		  <li>PerfectImmunity</li>
+		  <li>WVC_DeadStomach</li>
+		  <!-- <li>WVC_NaturalDisease_DiseaseFree</li> -->
+		  <!-- <li>WVC_NaturalImmunity_PerfectImmunity</li> -->
+		  <!-- Vampire Thralls -->
+		  <li>Bloodfeeder</li>
+		  <li>WVC_Bloodeater</li>
 		</inheritableGenes>
 	  </li>
 	</comps>

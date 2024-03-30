@@ -55,6 +55,10 @@ namespace WVC_XenotypesAndGenes
 						{
 							continue;
 						}
+						if (item.prerequisite != null && !innerPawn.genes.HasGene(item.prerequisite))
+						{
+							continue;
+						}
 						if (!innerPawn.genes.HasGene(item))
 						{
 							innerPawn.genes?.AddGene(item, false);
