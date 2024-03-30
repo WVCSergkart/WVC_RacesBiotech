@@ -47,6 +47,8 @@
 	</modExtensions>
   </GeneDef>
 
+  <!-- Abilities -->
+
   <AbilityDef ParentName="AbilityTouchBase">
 	<defName>WVC_XaG_Cellsfeed</defName>
 	<label>cellsfeed</label>

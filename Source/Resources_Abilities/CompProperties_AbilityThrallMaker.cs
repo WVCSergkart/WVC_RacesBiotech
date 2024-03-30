@@ -47,6 +47,21 @@ namespace WVC_XenotypesAndGenes
 				{
 					innerPawn.genes?.AddGene(item, false);
 				}
+				if (WVC_Biotech.settings.thrallMaker_ThrallsInheritMasterGenes)
+				{
+					foreach (GeneDef item in Props.inheritableGenes)
+					{
+						if (!parent.pawn.genes.HasGene(item))
+						{
+							continue;
+						}
+						if (!innerPawn.genes.HasGene(item))
+						{
+							innerPawn.genes?.AddGene(item, false);
+						}
+					}
+				}
+				DuplicateUtility.RemoveAllGenes_Overridden(innerPawn);
 				GeneUtility.UpdateXenogermReplication(innerPawn);
 				FleckMaker.AttachedOverlay(innerPawn, FleckDefOf.FlashHollow, new Vector3(0f, 0f, 0.26f));
 				if (PawnUtility.ShouldSendNotificationAbout(parent.pawn) || PawnUtility.ShouldSendNotificationAbout(innerPawn))

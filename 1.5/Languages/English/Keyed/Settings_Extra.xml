@@ -9,6 +9,7 @@
 
 	<WVC_XaGGeneSettings_XenotypeGestator>Xenotype gestator</WVC_XaGGeneSettings_XenotypeGestator>
 	<WVC_XaGGeneSettings_Undead>Undead</WVC_XaGGeneSettings_Undead>
+	<WVC_XaGGeneSettings_Thralls>Thralls</WVC_XaGGeneSettings_Thralls>
 	<WVC_XaGGeneSettings_Reincarnation>Destined dead</WVC_XaGGeneSettings_Reincarnation>
 	<WVC_XaGGeneSettings_Shapeshifer>Shapeshifer</WVC_XaGGeneSettings_Shapeshifer>
 	<WVC_XaGGeneSettings_TotalHealing>Total healing and similar</WVC_XaGGeneSettings_TotalHealing>
@@ -57,5 +58,10 @@ It is not recommended to use more than one DEV-fix at a time. It might break som
 	<WVC_ToolTip_reincarnation_EnableMechanic>If enabled, the mechanics will work as intended.</WVC_ToolTip_reincarnation_EnableMechanic>
 
 	<WVC_Label_Reincarnation_MinChronoAge>Reincarnation min chrono age {0} years</WVC_Label_Reincarnation_MinChronoAge>
+
+	<!-- ================================== -->
+
+	<WVC_Label_ThrallMaker_ThrallsInheritMasterGenes>Thralls inherit master unique genes</WVC_Label_ThrallMaker_ThrallsInheritMasterGenes>
+	<WVC_ToolTip_ThrallMaker_ThrallsInheritMasterGenes>If enabled, thralls will, in addition to the basic set of genes, receive some rare master genes.</WVC_ToolTip_ThrallMaker_ThrallsInheritMasterGenes>
 
 </LanguageData>

@@ -26,6 +26,7 @@
 		<!-- <li>Gives the target the &lt;color=#8a8ae6&gt;selected set of genes&lt;/color&gt; and turns into a &lt;color=#8a8ae6&gt;thrall&lt;/color&gt;.</li> -->
 		<li>Target receives the &lt;color=#8a8ae6&gt;selected&lt;/color&gt; set of &lt;color=#8a8ae6&gt;genes&lt;/color&gt;, loses all &lt;color=#8a8ae6&gt;skills&lt;/color&gt; and &lt;color=#8a8ae6&gt;backstory&lt;/color&gt;, and also receives the &lt;color=#8a8ae6&gt;Thrall&lt;/color&gt; gene.</li>
 		<!-- <li>Carrier can control a limited number of &lt;color=#8a8ae6&gt;thralls&lt;/color&gt; at the same time.</li> -->
+		<li>The target &lt;color=#8a8ae6&gt;may inherit&lt;/color&gt; some &lt;color=#8a8ae6&gt;unique&lt;/color&gt; carrier genes.</li>
 		<li>&lt;color=#ff8585&gt;Can't be absorbed forcly.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<exclusionTags>
@@ -53,6 +54,15 @@
 		  <!-- <li>WVC_DeadStomach</li> -->
 		  <!-- <li>WVC_Neversleep</li> -->
 		</geneDefs>
+		<inheritableGenes>
+		  <!-- Undead -->
+		  <li>WVC_Undead</li>
+		  <li>WVC_NaturalUndead</li>
+		  <li>WVC_NeverDead</li>
+		  <li>Deathless</li>
+		  <!-- Special -->
+		  <li>DarkVision</li>
+		</inheritableGenes>
 	  </li>
 	</comps>
   </AbilityDef>

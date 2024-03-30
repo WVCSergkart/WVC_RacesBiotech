@@ -217,6 +217,17 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public static void RemoveAllGenes_Overridden(Pawn pawn)
+		{
+			foreach (Gene gene in pawn.genes.GenesListForReading)
+			{
+				if (gene.Overridden)
+				{
+					pawn.genes?.RemoveGene(gene);
+				}
+			}
+		}
+
 		public static void RemoveAllTraits(this List<Trait> traits)
 		{
 			foreach (Trait trait in traits.ToList())

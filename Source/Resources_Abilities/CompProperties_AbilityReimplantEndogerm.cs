@@ -20,6 +20,8 @@ namespace WVC_XenotypesAndGenes
 
 		public List<GeneDef> geneDefs;
 
+		public List<GeneDef> inheritableGenes;
+
 		public bool reimplantEndogenes = true;
 		public bool reimplantXenogenes = true;
 

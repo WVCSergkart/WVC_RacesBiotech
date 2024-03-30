@@ -38,6 +38,7 @@ namespace WVC_XenotypesAndGenes
 		public bool disableUniqueXenotypeScenarios = false;
 		public bool restoreBodyPartsWithFullHP = false;
 		// public bool reimplantResurrectionRecruiting = false;
+		public bool thrallMaker_ThrallsInheritMasterGenes = true;
 		// Info
 		public bool enableGenesInfo = true;
 		public bool enableGeneSpawnerGizmo = true;
@@ -101,6 +102,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref learningTelepathWorkForBothSides, "learningTelepathWorkForBothSides", defaultValue: false);
 			Scribe_Values.Look(ref restoreBodyPartsWithFullHP, "restoreBodyPartsWithFullHP", defaultValue: false);
 			// Scribe_Values.Look(ref reimplantResurrectionRecruiting, "reimplantResurrectionRecruiting", defaultValue: false);
+			Scribe_Values.Look(ref thrallMaker_ThrallsInheritMasterGenes, "thrallMaker_ThrallsInheritMasterGenes", defaultValue: true);
 			// Fix
 			Scribe_Values.Look(ref fixVanillaGeneImmunityCheck, "fixVanillaGeneImmunityCheck", defaultValue: true);
 			// Scribe_Values.Look(ref minWastepacksPerRecharge, "minWastepacksPerRecharge", defaultValue: false);
@@ -536,6 +538,10 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_allowShapeshiftAfterDeath".Translate().Colorize(ColorLibrary.LightBlue), ref settings.allowShapeshiftAfterDeath, "WVC_ToolTip_allowShapeshiftAfterDeath".Translate());
 			listingStandard.Gap();
 			// =
+			listingStandard.Label("WVC_XaGGeneSettings_Thralls".Translate() + ":", -1);
+			listingStandard.CheckboxLabeled("WVC_Label_ThrallMaker_ThrallsInheritMasterGenes".Translate().Colorize(ColorLibrary.LightBlue), ref settings.thrallMaker_ThrallsInheritMasterGenes, "WVC_ToolTip_ThrallMaker_ThrallsInheritMasterGenes".Translate());
+			listingStandard.Gap();
+			// =
 			listingStandard.Label("WVC_XaGGeneSettings_Reincarnation".Translate() + ":", -1);
 			listingStandard.CheckboxLabeled("WVC_Label_reincarnation_EnableMechanic".Translate().Colorize(ColorLibrary.LightBlue), ref settings.reincarnation_EnableMechanic, "WVC_ToolTip_reincarnation_EnableMechanic".Translate());
 			listingStandard.SliderLabeledWithRef("WVC_Label_Reincarnation_MinChronoAge".Translate((settings.reincarnation_MinChronoAge).ToString()), ref settings.reincarnation_MinChronoAge, 50f, 2000f, round: 0);
@@ -630,6 +636,8 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.canNonPlayerPawnResurrect = false;
 			WVC_Biotech.settings.allowShapeshiftAfterDeath = true;
 			// =
+			WVC_Biotech.settings.thrallMaker_ThrallsInheritMasterGenes = true;
+			// =
 			WVC_Biotech.settings.totalHealingIgnoreScarification = true;
 			WVC_Biotech.settings.restoreBodyPartsWithFullHP = false;
 			// =
@@ -695,6 +703,8 @@ namespace WVC_XenotypesAndGenes
 			// =
 			WVC_Biotech.settings.canNonPlayerPawnResurrect = false;
 			WVC_Biotech.settings.allowShapeshiftAfterDeath = true;
+			// =
+			WVC_Biotech.settings.thrallMaker_ThrallsInheritMasterGenes = true;
 			// =
 			WVC_Biotech.settings.totalHealingIgnoreScarification = true;
 			WVC_Biotech.settings.restoreBodyPartsWithFullHP = false;
