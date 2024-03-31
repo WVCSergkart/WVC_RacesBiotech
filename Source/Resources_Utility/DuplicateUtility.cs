@@ -197,6 +197,25 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public static void NullifyXenotype(Pawn pawn)
+		{
+			// remove all genes
+			Pawn_GeneTracker genes = pawn.genes;
+			genes.Xenogenes.RemoveAllGenes();
+			genes.Endogenes.RemoveAllGenes();
+			// foreach (Gene item in genes.Xenogenes.ToList())
+			// {
+				// pawn.genes?.RemoveGene(item);
+			// }
+			// foreach (Gene item in genes.Endogenes.ToList())
+			// {
+				// pawn.genes?.RemoveGene(item);
+			// }
+			ReimplanterUtility.SetXenotypeDirect(null, pawn, XenotypeDefOf.Baseliner, true);
+			FloatRange floatRange = new(0f, 1f);
+			pawn.genes.InitializeGenesFromOldSave(floatRange.RandomInRange);
+		}
+
 		public static void NullifyBackstory(Pawn pawn)
 		{
 			if (pawn.story.Childhood != null)

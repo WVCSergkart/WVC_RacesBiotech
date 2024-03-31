@@ -160,18 +160,19 @@
 
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
 	<defName>WVC_Resurgent_UndeadResurrectionRecovery</defName>
-	<label>undead resurrection sickness</label>
-	<description>The process of recovery after genetic resurrection. Repeated resurrection is not possible.</description>
-	<hediffClass>HediffWithComps</hediffClass>
+	<label>undead sickness</label>
+	<description>The process of restoring the host's body after natural resurrection. It has no negative consequences, but can prevent re-resurrection.</description>
 	<stages>
 	  <li>
-		<becomeVisible>false</becomeVisible>
+		<hungerRateFactor>1.10</hungerRateFactor>
+		<totalBleedFactor>0.90</totalBleedFactor>
+		<becomeVisible>true</becomeVisible>
 		<minSeverity>0.0</minSeverity>
 	  </li>
 	</stages>
 	<comps>
 		<li Class="HediffCompProperties_Disappears">
-			<disappearsAfterTicks>120000~480000</disappearsAfterTicks>
+			<disappearsAfterTicks>120000~720000</disappearsAfterTicks>
 			<showRemainingTime>true</showRemainingTime>
 		</li>
 		<!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_UndeadResurrection"/> -->

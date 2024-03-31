@@ -323,15 +323,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				foreach (Pawn item in maps[i].mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer))
 				{
-					if (!item.RaceProps.Humanlike)
+					if (!item.IsHuman())
 					{
 						continue;
 					}
 					if (item.IsBaseliner())
-					{
-						continue;
-					}
-					if (XaG_GeneUtility.PawnIsAndroid(item))
 					{
 						continue;
 					}
@@ -440,7 +436,7 @@ namespace WVC_XenotypesAndGenes
 					return false;
 				}
 			}
-			if (!SerumUtility.PawnIsHuman(victim))
+			if (!SerumUtility.IsHuman(victim))
 			{
 				return false;
 			}

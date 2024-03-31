@@ -52,7 +52,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override AcceptanceReport CanBeUsedBy(Pawn p)
 		{
-			if (!SerumUtility.PawnIsHuman(p))
+			if (!SerumUtility.IsHuman(p))
 			{
 				return "WVC_PawnIsAndroidCheck".Translate();
 			}
@@ -88,7 +88,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			else
 			{
-				NullifyXenotype(pawn);
+				DuplicateUtility.NullifyXenotype(pawn);
 			}
 			pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
 			GeneUtility.UpdateXenogermReplication(pawn);
@@ -102,7 +102,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override AcceptanceReport CanBeUsedBy(Pawn p)
 		{
-			if (!SerumUtility.PawnIsHuman(p))
+			if (!SerumUtility.IsHuman(p))
 			{
 				return "WVC_PawnIsAndroidCheck".Translate();
 			}
@@ -111,23 +111,6 @@ namespace WVC_XenotypesAndGenes
 				return "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate();
 			}
 			return true;
-		}
-
-		public static void NullifyXenotype(Pawn pawn)
-		{
-			// remove all genes
-			Pawn_GeneTracker genes = pawn.genes;
-			foreach (Gene item in genes.Xenogenes.ToList())
-			{
-				pawn.genes?.RemoveGene(item);
-			}
-			foreach (Gene item in genes.Endogenes.ToList())
-			{
-				pawn.genes?.RemoveGene(item);
-			}
-			ReimplanterUtility.SetXenotypeDirect(null, pawn, XenotypeDefOf.Baseliner, true);
-			FloatRange floatRange = new(0f, 1f);
-			pawn.genes.InitializeGenesFromOldSave(floatRange.RandomInRange);
 		}
 
 	}

@@ -95,7 +95,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (Props.humanityCheck && !SerumUtility.PawnIsHuman(pawn))
+			if (Props.humanityCheck && !SerumUtility.IsHuman(pawn))
 			{
 				if (throwMessages)
 				{

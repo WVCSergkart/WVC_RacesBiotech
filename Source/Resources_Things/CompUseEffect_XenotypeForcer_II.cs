@@ -166,7 +166,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return "WVC_XaG_SuremRetuneShouldBeTunedWarn_Label".Translate();
 			}
-			if (!SerumUtility.PawnIsHuman(p))
+			if (!SerumUtility.IsHuman(p))
 			{
 				return "WVC_PawnIsAndroidCheck".Translate();
 			}

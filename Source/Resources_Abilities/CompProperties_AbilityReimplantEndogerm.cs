@@ -8,7 +8,7 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class CompProperties_AbilityReimplanter : CompProperties_AbilityEffect
+	public class CompProperties_AbilityReimplanter : CompProperties_AbilityEffect
 	{
 
 		public ThoughtDef afterResurrectionThoughtDef;
@@ -25,10 +25,11 @@ namespace WVC_XenotypesAndGenes
 		public bool reimplantEndogenes = true;
 		public bool reimplantXenogenes = true;
 
-		// public CompProperties_AbilityReimplantEndogerm()
-		// {
-			// compClass = typeof(CompAbilityEffect_ReimplantEndogerm);
-		// }
+		public CompProperties_AbilityReimplanter()
+		{
+			compClass = typeof(CompAbilityEffect_Reimplanter);
+		}
+
 	}
 
 	public class CompAbilityEffect_Reimplanter : CompAbilityEffect

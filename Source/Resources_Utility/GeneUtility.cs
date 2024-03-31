@@ -64,7 +64,25 @@ namespace WVC_XenotypesAndGenes
 
 		// ============================= Anti-Bug =============================
 
+		[Obsolete]
 		public static bool PawnIsAndroid(Pawn pawn)
+		{
+			// if (pawn?.genes == null)
+			// {
+				// return false;
+			// }
+			// List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+			// for (int i = 0; i < genesListForReading.Count; i++)
+			// {
+				// if (genesListForReading[i].def.defName.Contains("VREA_SyntheticBody"))
+				// {
+					// return true;
+				// }
+			// }
+			return pawn.IsAndroid();
+		}
+
+		public static bool IsAndroid(this Pawn pawn)
 		{
 			if (pawn?.genes == null)
 			{

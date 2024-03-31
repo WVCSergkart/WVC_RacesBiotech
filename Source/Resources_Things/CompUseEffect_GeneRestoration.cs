@@ -17,7 +17,7 @@ namespace WVC_XenotypesAndGenes
 			// Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
 			// return;
 			// }
-			if (!SerumUtility.PawnIsHuman(pawn))
+			if (!SerumUtility.IsHuman(pawn))
 			{
 				pawn.health.AddHediff(WVC_GenesDefOf.WVC_IncompatibilityComa);
 				Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
@@ -30,7 +30,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override AcceptanceReport CanBeUsedBy(Pawn p)
 		{
-			if (!SerumUtility.PawnIsHuman(p))
+			if (!SerumUtility.IsHuman(p))
 			{
 				return "WVC_PawnIsAndroidCheck".Translate();
 			}
@@ -45,7 +45,7 @@ namespace WVC_XenotypesAndGenes
 		public override void DoEffect(Pawn pawn)
 		{
 			Gene_GeneticInstability geneticInstability = pawn?.genes?.GetFirstGeneOfType<Gene_GeneticInstability>();
-			if (!SerumUtility.PawnIsHuman(pawn) || geneticInstability == null)
+			if (!SerumUtility.IsHuman(pawn) || geneticInstability == null)
 			{
 				pawn.health.AddHediff(WVC_GenesDefOf.WVC_IncompatibilityComa);
 				Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
@@ -56,7 +56,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override AcceptanceReport CanBeUsedBy(Pawn p)
 		{
-			if (!SerumUtility.PawnIsHuman(p) || p?.genes?.GetFirstGeneOfType<Gene_GeneticInstability>() == null)
+			if (!SerumUtility.IsHuman(p) || p?.genes?.GetFirstGeneOfType<Gene_GeneticInstability>() == null)
 			{
 				return "WVC_PawnIsAndroidCheck".Translate();
 			}
@@ -71,7 +71,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void DoEffect(Pawn pawn)
 		{
-			if (!SerumUtility.PawnIsHuman(pawn) || !XaG_GeneUtility.HasActiveGene(Props.geneDef, pawn))
+			if (!SerumUtility.IsHuman(pawn) || !XaG_GeneUtility.HasActiveGene(Props.geneDef, pawn))
 			{
 				pawn.health.AddHediff(WVC_GenesDefOf.WVC_IncompatibilityComa);
 				Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
@@ -94,7 +94,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override AcceptanceReport CanBeUsedBy(Pawn p)
 		{
-			if (!SerumUtility.PawnIsHuman(p) || !XaG_GeneUtility.HasActiveGene(Props.geneDef, p))
+			if (!SerumUtility.IsHuman(p) || !XaG_GeneUtility.HasActiveGene(Props.geneDef, p))
 			{
 				return "WVC_PawnIsAndroidCheck".Translate();
 			}
@@ -110,7 +110,7 @@ namespace WVC_XenotypesAndGenes
 		public override void DoEffect(Pawn pawn)
 		{
 			Gene_Shapeshifter shapeshifter = pawn?.genes?.GetFirstGeneOfType<Gene_Shapeshifter>();
-			if (!SerumUtility.PawnIsHuman(pawn) || shapeshifter == null)
+			if (!SerumUtility.IsHuman(pawn) || shapeshifter == null)
 			{
 				pawn.health.AddHediff(WVC_GenesDefOf.WVC_IncompatibilityComa);
 				Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
@@ -124,7 +124,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override AcceptanceReport CanBeUsedBy(Pawn p)
 		{
-			if (!SerumUtility.PawnIsHuman(p) || !p.IsShapeshifter())
+			if (!SerumUtility.IsHuman(p) || !p.IsShapeshifter())
 			{
 				return "WVC_PawnIsAndroidCheck".Translate();
 			}

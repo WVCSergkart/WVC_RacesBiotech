@@ -25,27 +25,38 @@ namespace WVC_XenotypesAndGenes
 
 		// Basic check excluding all non-humans
 		// For example, GeneRestoration uses exactly this
+		[Obsolete]
 		public static bool PawnIsHuman(Pawn pawn)
 		{
-			if (pawn?.RaceProps?.Humanlike != true || XaG_GeneUtility.PawnIsAndroid(pawn))
+			return pawn.IsHuman();
+		}
+
+		public static bool IsHuman(this Pawn pawn)
+		{
+			if (pawn?.RaceProps?.Humanlike != true || pawn.IsAndroid())
 			{
 				return false;
 			}
 			return true;
 		}
 
-		// Checking whether serums can be used. Mainly for abilities.
-		[Obsolete]
-		public static bool PawnCanUseSerums(Pawn pawn)
+		public static bool IsAnomaly(this Pawn pawn)
 		{
-			return PawnIsHuman(pawn);
+			if (ModsConfig.AnomalyActive)
+			{
+				if (pawn.IsMutant || pawn.IsCreepJoiner)
+				{
+					return true;
+				}
+			}
+			return false;
 		}
 
 		// HumanityCheck is serums use only
 		// I already forgot why it is separate
 		public static bool HumanityCheck(Pawn pawn)
 		{
-			if (!PawnIsHuman(pawn))
+			if (!IsHuman(pawn))
 			{
 				pawn.health.AddHediff(WVC_GenesDefOf.WVC_IncompatibilityComa);
 				Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
@@ -66,30 +77,6 @@ namespace WVC_XenotypesAndGenes
 			}
 			return false;
 		}
-
-		// private static bool PawnIsAndroid(Pawn pawn)
-		// {
-		// List<Gene> genesListForReading = pawn.genes.GenesListForReading;
-		// for (int i = 0; i < genesListForReading.Count; i++)
-		// {
-		// if (genesListForReading[i].def.defName.Contains("VREA_SyntheticBody"))
-		// {
-		// return true;
-		// }
-		// }
-		// return false;
-		// }
-
-		// private static string FolderUnderSaveData(string folderName)
-		// {
-		// string text = Path.Combine(GenFilePaths.SaveDataFolderPath, folderName);
-		// DirectoryInfo directoryInfo = new DirectoryInfo(text);
-		// if (!directoryInfo.Exists)
-		// {
-		// directoryInfo.Create();
-		// }
-		// return text;
-		// }
 
 		// ============================================
 

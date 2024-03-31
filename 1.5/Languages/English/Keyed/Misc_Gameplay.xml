@@ -18,7 +18,7 @@
 	
 	<WVC_RoleRequirementShouldBeMechanitor>Must be a Mechanitor</WVC_RoleRequirementShouldBeMechanitor>
 	
-	<WVC_PawnIsAndroidCheck>User must be human and/or genetically compatible.</WVC_PawnIsAndroidCheck>
+	<WVC_PawnIsAndroidCheck>User and target must be humans and genetically compatible.</WVC_PawnIsAndroidCheck>
 	
 	<WVC_AbilityValidation_ReimplantationCheck>Reimplantation in progress. Wait for the process to finish before starting another one.</WVC_AbilityValidation_ReimplantationCheck>
 	
@@ -239,7 +239,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<!-- ============================ REINCARNATION ============================ -->
 
 	<WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate>reincarnation</WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate>
-	<WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate_Desc>Responsible for whether the descendant of the pawn will appear in case of death. The minimum chronological age must be greater than {0}.</WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate_Desc>
+	<WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate_Desc>Responsible for whether the descendant of the pawn will appear in case of death. The minimum chronological age must be greater than {0} years.</WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate_Desc>
 
 	<!-- ============================ SHAPESHIFT ============================ -->
 

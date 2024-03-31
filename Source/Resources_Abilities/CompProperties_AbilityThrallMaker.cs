@@ -129,7 +129,7 @@ namespace WVC_XenotypesAndGenes
 					return false;
 				}
 				Pawn innerPawn = corpse.InnerPawn;
-				if (XaG_GeneUtility.PawnIsAndroid(innerPawn) || ReimplanterGene == null)
+				if (!innerPawn.IsHuman() || ReimplanterGene == null)
 				{
 					if (throwMessages)
 					{
@@ -145,6 +145,11 @@ namespace WVC_XenotypesAndGenes
 		{
 			yield return MoteMaker.MakeAttachedOverlay(((Corpse)target.Thing).InnerPawn, ThingDefOf.Mote_XenogermImplantation, new Vector3(0f, 0f, 0.3f));
 		}
+
+		// public override string CompInspectStringExtra()
+		// {
+			// return null;
+		// }
 
 	}
 }

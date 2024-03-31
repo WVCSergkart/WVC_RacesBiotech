@@ -62,7 +62,7 @@ namespace WVC_XenotypesAndGenes
 					return false;
 				}
 				Pawn innerPawn = corpse.InnerPawn;
-				if (XaG_GeneUtility.PawnIsAndroid(innerPawn))
+				if (!innerPawn.IsHuman())
 				{
 					if (throwMessages)
 					{

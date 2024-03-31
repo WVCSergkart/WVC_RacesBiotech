@@ -48,7 +48,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Undead" Name="WVC_XenotypesAndGenes_GeneDeathless_UndeadWithSickness" Abstract="True">
 	<label>undead</label>
 	<customEffectDescriptions>
-	  <li>Cooldown will take (*DateTime)2-8 days(/DateTime)</li>
+	  <li>Cooldown will take (*DateTime)2-12 days(/DateTime).</li>
 	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
@@ -96,7 +96,7 @@
 			<childhoodDef>WVC_RacesBiotech_Amnesia_Child</childhoodDef>
 			<adulthoodDef>WVC_RacesBiotech_Amnesia_Adult</adulthoodDef>
 			<ignoreHediffs>true</ignoreHediffs>
-			<additionalDelay>11200~24500</additionalDelay>
+			<additionalDelay>21200~44500</additionalDelay>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -135,6 +135,7 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
 			<summonQuest>WVC_Dustogenic_QuestUndeadReincarnation</summonQuest>
+			<!-- unused -->
 			<minChronoAge>200</minChronoAge>
 		</li>
 	</modExtensions>

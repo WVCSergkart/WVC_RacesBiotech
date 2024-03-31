@@ -74,6 +74,7 @@
 	  </targetParams>
 	</verbProperties>
 	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityHideIfPawnMultiSelected"/>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityCellsfeederBite">
 		<daysGain>10</daysGain>
 	  </li>
