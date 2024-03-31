@@ -72,12 +72,12 @@
 		  <li>Bloodfeeder</li>
 		  <li>WVC_Bloodeater</li>
 		  <!-- Golem Thralls -->
-		  <li>WVC_StoneSkin</li>
-		  <li>WVC_SkinColor_Granite</li>
-		  <li>WVC_SkinColor_Limestone</li>
-		  <li>WVC_SkinColor_Marble</li>
-		  <li>WVC_SkinColor_Sandstone</li>
-		  <li>WVC_SkinColor_Slate</li>
+		  <!-- <li>WVC_StoneSkin</li> -->
+		  <!-- <li>WVC_SkinColor_Granite</li> -->
+		  <!-- <li>WVC_SkinColor_Limestone</li> -->
+		  <!-- <li>WVC_SkinColor_Marble</li> -->
+		  <!-- <li>WVC_SkinColor_Sandstone</li> -->
+		  <!-- <li>WVC_SkinColor_Slate</li> -->
 		</inheritableGenes>
 	  </li>
 	</comps>

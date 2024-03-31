@@ -21,6 +21,9 @@
 	<sterilize>true</sterilize>
 	<statFactors>
 	  <Fertility>0</Fertility>
+	  <!-- <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0</ConversionPower> -->
+	  <!-- <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">0</SocialIdeoSpreadFrequencyFactor> -->
+	  <!-- <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">4.0</CertaintyLossFactor> -->
 	</statFactors>
 	<customEffectDescriptions Inherit="False">
 	  <li>Carrier must regularly cellsfeed on &lt;color=#8a8ae6&gt;resurgent&lt;/color&gt; pawns or it &lt;color=#ff8585&gt;will die&lt;/color&gt;.</li>

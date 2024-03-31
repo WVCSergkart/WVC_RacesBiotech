@@ -42,6 +42,10 @@ namespace WVC_XenotypesAndGenes
 				}
 				DuplicateUtility.NullifyBackstory(innerPawn);
 				DuplicateUtility.NullifySkills(innerPawn);
+				if (ModsConfig.IdeologyActive)
+				{
+					innerPawn.ideo.SetIdeo(parent.pawn.ideo.Ideo);
+				}
 				ThrallMaker(innerPawn, ReimplanterGene.thrallDef);
 				foreach (GeneDef item in Props.geneDefs)
 				{
