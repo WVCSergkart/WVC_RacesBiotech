@@ -12,6 +12,7 @@
 	<treeDef>WVC_Plant_TreeResurgent</treeDef>
 	<treeGenStepDef>WVC_XaG_ResurgentTrees</treeGenStepDef>
 	<treeGrowth>0.15</treeGrowth>
+	<baseChance>0</baseChance>
 	<letterLabel>Resurgent tree sprout</letterLabel>
 	<letterText>A resurgent tree has sprouted nearby!\n\nResurgent trees are toxic mushroom trees, genetically modified and powered by archotech-created archites in the root system. They slowly pollute the soil and spread small fungi. These trees are largely harmless, except for pollution.</letterText>
 	<letterDef>NeutralEvent</letterDef>
@@ -41,6 +42,7 @@
 	<treeDef>WVC_Plant_TreeXenoSpawner</treeDef>
 	<treeGenStepDef>WVC_XaG_XenoTrees</treeGenStepDef>
 	<treeGrowth>0.15</treeGrowth>
+	<baseChance>0</baseChance>
 	<letterLabel>Xeno-tree sprout</letterLabel>
 	<letterText>A xeno-tree has sprouted nearby!\n\nXeno trees are an uninterrupted source of babies of different xenotypes; they can spawn any xenotype based on the gene pool of pawns living in the colony.</letterText>
 	<letterDef>PositiveEvent</letterDef>
