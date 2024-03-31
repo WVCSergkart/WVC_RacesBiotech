@@ -1,4 +1,4 @@
-# WVC_XenotypesAndGenes v1.73.47
+# WVC_XenotypesAndGenes v1.73.50
  
 Pre-release versions require resetting the mod settings.
 
