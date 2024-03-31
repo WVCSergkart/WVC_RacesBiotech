@@ -244,7 +244,7 @@
 		<!-- <li>WVC_DisabledAllWork_</li> -->
 		<li>WVC_DisabledAllWork_Useless</li>
 		<li>WVC_DisabledAllWork_Blank</li>
-		<li>WVC_ThrallGeneticInstability</li>
+		<li>WVC_Thrall</li>
 		<li>WVC_DeadlyGeneticInstability</li>
 		<!-- For future -->
 		<!-- <li>WVC_NodeEyes_</li> -->
@@ -284,7 +284,7 @@
 		<li>WVC_ResurgentCells_Blood</li>
 		<li>WVC_ResurgentCells_Stomach</li>
 		<li>WVC_ResurgentCells_Sleep</li>
-		<li>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</li>
+		<li>WVC_ReimplanterThrallMaker</li>
 		<li>WVC_ResurgentImmunity_PerfectImmunity</li>
 		<li>WVC_ResurgentDisease_DiseaseFree</li>
 		<!-- = -->
