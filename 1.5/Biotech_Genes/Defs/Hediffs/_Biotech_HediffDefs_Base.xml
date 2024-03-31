@@ -161,7 +161,7 @@
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
 	<defName>WVC_Resurgent_UndeadResurrectionRecovery</defName>
 	<label>undead sickness</label>
-	<description>The process of restoring the host's body after natural resurrection. It has no negative consequences, but can prevent re-resurrection.</description>
+	<description>The process of recovery after natural resurrection. It has no negative consequences, but can prevent re-resurrection.</description>
 	<stages>
 	  <li>
 		<hungerRateFactor>1.10</hungerRateFactor>
