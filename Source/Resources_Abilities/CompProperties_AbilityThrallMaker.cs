@@ -69,7 +69,7 @@ namespace WVC_XenotypesAndGenes
 						}
 					}
 				}
-				DuplicateUtility.RemoveAllGenes_Overridden(innerPawn);
+				// DuplicateUtility.RemoveAllGenes_Overridden(innerPawn);
 				GeneUtility.UpdateXenogermReplication(innerPawn);
 				FleckMaker.AttachedOverlay(innerPawn, FleckDefOf.FlashHollow, new Vector3(0f, 0f, 0.26f));
 				if (PawnUtility.ShouldSendNotificationAbout(parent.pawn) || PawnUtility.ShouldSendNotificationAbout(innerPawn))
