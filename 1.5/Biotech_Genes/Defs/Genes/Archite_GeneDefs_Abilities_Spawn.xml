@@ -36,6 +36,7 @@
 	<targetRequired>False</targetRequired>
 	<showCastingProgressBar>True</showCastingProgressBar>
 	<sendLetterOnCooldownComplete>True</sendLetterOnCooldownComplete>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
 	<verbProperties>
 	  <verbClass>Verb_CastAbility</verbClass>
 	  <label>spawn thing</label>
@@ -44,6 +45,7 @@
 	  <drawAimPie>False</drawAimPie>
 	  <requireLineOfSight>False</requireLineOfSight>
 	  <warmupEffecter>Implant_Xenogerm</warmupEffecter>
+	  <violent>false</violent>
 	  <targetParams>
 		<canTargetSelf>True</canTargetSelf>
 		<canTargetBuildings>False</canTargetBuildings>

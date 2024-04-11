@@ -155,6 +155,10 @@
 	<label>blessed touch</label>
 	<description>Infects the target with a mutagen poison that, after a few days, completely overwrites the target's genes with the caster's genes.</description>
 	<iconPath>WVC/UI/Genes/Gene_HandsAngels_v0</iconPath>
+	<casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
+	<verbProperties>
+	  <violent>true</violent>
+	</verbProperties>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGiveHediff">
 		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_GiveHediff</compClass>

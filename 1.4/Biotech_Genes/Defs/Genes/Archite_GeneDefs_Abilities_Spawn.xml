@@ -44,6 +44,7 @@
 	  <drawAimPie>False</drawAimPie>
 	  <requireLineOfSight>False</requireLineOfSight>
 	  <warmupEffecter>Implant_Xenogerm</warmupEffecter>
+	  <violent>false</violent>
 	  <targetParams>
 		<canTargetSelf>True</canTargetSelf>
 		<canTargetBuildings>False</canTargetBuildings>

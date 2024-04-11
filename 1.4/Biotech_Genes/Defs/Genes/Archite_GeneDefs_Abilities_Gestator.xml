@@ -124,6 +124,7 @@
 	  <drawAimPie>False</drawAimPie>
 	  <requireLineOfSight>False</requireLineOfSight>
 	  <warmupEffecter>ControlMech</warmupEffecter>
+	  <violent>false</violent>
 	  <targetParams>
 		<canTargetSelf>True</canTargetSelf>
 		<canTargetBuildings>False</canTargetBuildings>

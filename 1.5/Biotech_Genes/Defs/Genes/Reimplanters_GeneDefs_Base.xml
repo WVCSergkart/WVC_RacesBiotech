@@ -53,6 +53,7 @@
 	<showWhenDrafted>false</showWhenDrafted>
 	<showGizmoOnWorldView>false</showGizmoOnWorldView>
 	<stunTargetWhileCasting>true</stunTargetWhileCasting>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
 	<!-- <groupAbility>true</groupAbility> -->
 	<!-- <groupDef>WVC_XenotypesAndGenes_ReimplantersGroup</groupDef> -->
 	<verbProperties>
@@ -60,6 +61,7 @@
 	  <drawAimPie>false</drawAimPie>
 	  <range>-1</range>
 	  <warmupTime>4</warmupTime>
+	  <violent>false</violent>
 	  <targetParams>
 		<canTargetAnimals>false</canTargetAnimals>
 		<canTargetSelf>false</canTargetSelf>

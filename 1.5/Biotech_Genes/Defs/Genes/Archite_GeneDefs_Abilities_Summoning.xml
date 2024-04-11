@@ -121,6 +121,7 @@
 	<sendLetterOnCooldownComplete>True</sendLetterOnCooldownComplete>
 	<overrideGroupCooldown>True</overrideGroupCooldown>
 	<groupAbility>True</groupAbility>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
 	<statBases>
 	  <Ability_Duration>5010</Ability_Duration>
 	</statBases>
@@ -132,6 +133,7 @@
 	  <drawAimPie>False</drawAimPie>
 	  <requireLineOfSight>False</requireLineOfSight>
 	  <warmupEffecter>ControlMech</warmupEffecter>
+	  <violent>false</violent>
 	  <targetParams>
 		<canTargetSelf>True</canTargetSelf>
 		<canTargetBuildings>False</canTargetBuildings>

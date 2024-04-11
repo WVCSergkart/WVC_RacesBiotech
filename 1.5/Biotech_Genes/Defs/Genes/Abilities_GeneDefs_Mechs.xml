@@ -126,6 +126,7 @@
 	<iconPath>UI/Abilities/MechLongJump</iconPath>
 	<cooldownTicksRange>480</cooldownTicksRange>
 	<hostile>false</hostile>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
 	<verbProperties>
 	  <verbClass>Verb_CastAbilityJump</verbClass>
 	  <label>jump</label>
@@ -154,11 +155,13 @@
 	<cooldownTicksRange>900000</cooldownTicksRange><!-- 15 days -->
 	<targetRequired>false</targetRequired>
 	<hostile>false</hostile>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
 	<verbProperties>
 	  <verbClass>Verb_CastAbility</verbClass>
 	  <warmupTime>1</warmupTime>
 	  <range>3.9</range>
 	  <drawAimPie>false</drawAimPie>    
+	  <violent>false</violent>
 	  <targetParams>
 		<canTargetSelf>true</canTargetSelf>
 	  </targetParams>
@@ -182,12 +185,14 @@
 	<disableGizmoWhileUndrafted>true</disableGizmoWhileUndrafted>
 	<targetRequired>false</targetRequired>
 	<hostile>false</hostile>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
 	<verbProperties>
 	  <verbClass>Verb_CastAbility</verbClass>
 	  <warmupTime>0.5</warmupTime>
 	  <requireLineOfSight>false</requireLineOfSight>
 	  <drawAimPie>false</drawAimPie>      
 	  <range>3.9</range>
+	  <violent>false</violent>
 	  <targetParams>
 		<canTargetSelf>true</canTargetSelf>
 	  </targetParams>
@@ -213,6 +218,7 @@
 	<canUseAoeToGetTargets>true</canUseAoeToGetTargets>
 	<useAverageTargetPositionForWarmupEffecter>true</useAverageTargetPositionForWarmupEffecter>
 	<hostile>false</hostile>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
 	<statBases> 
 	  <Ability_EffectRadius>5</Ability_EffectRadius>
 	</statBases>
@@ -223,6 +229,7 @@
 	  <warmupTime>4</warmupTime>
 	  <soundCast>MechResurrect_Cast</soundCast>
 	  <requireLineOfSight>false</requireLineOfSight>
+	  <violent>false</violent>
 	  <targetParams>
 		<canTargetPawns>false</canTargetPawns>
 		<canTargetBuildings>false</canTargetBuildings>

@@ -104,6 +104,7 @@
 	<showPsycastEffects>False</showPsycastEffects>
 	<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
 	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
 	<showWhenDrafted>false</showWhenDrafted>
 	<hostile>false</hostile>
 	<targetRequired>False</targetRequired>
@@ -124,6 +125,7 @@
 	  <drawAimPie>False</drawAimPie>
 	  <requireLineOfSight>False</requireLineOfSight>
 	  <warmupEffecter>ControlMech</warmupEffecter>
+	  <violent>false</violent>
 	  <targetParams>
 		<canTargetSelf>True</canTargetSelf>
 		<canTargetBuildings>False</canTargetBuildings>
