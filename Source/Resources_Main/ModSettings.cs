@@ -13,6 +13,7 @@ namespace WVC_XenotypesAndGenes
 
 		public bool firstModLaunch = true;
 
+		// Main
 		// Graphic
 		public bool hideXaGGenes = false;
 		public bool disableFurGraphic = false;
@@ -25,6 +26,7 @@ namespace WVC_XenotypesAndGenes
 		public bool generateResourceSpawnerGenes = false;
 		public bool generateSkinHairColorGenes = false;
 		// Genes
+		public bool onlyXenotypesMode = false;
 		public bool canNonPlayerPawnResurrect = false;
 		public bool allowShapeshiftAfterDeath = true;
 		public bool totalHealingIgnoreScarification = true;
@@ -78,6 +80,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref firstModLaunch, "firstModLaunch", defaultValue: true, forceSave: true);
+			// Main
 			// Graphic
 			Scribe_Values.Look(ref hideXaGGenes, "hideXaGGenes", defaultValue: false);
 			Scribe_Values.Look(ref disableFurGraphic, "disableFurGraphic", defaultValue: false);
@@ -90,6 +93,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref generateResourceSpawnerGenes, "generateResourceSpawnerGenes", defaultValue: false);
 			Scribe_Values.Look(ref generateSkinHairColorGenes, "generateSkinHairColorGenes", defaultValue: false);
 			// Genes
+			Scribe_Values.Look(ref onlyXenotypesMode, "onlyXenotypesMode", defaultValue: false);
 			Scribe_Values.Look(ref canNonPlayerPawnResurrect, "canNonPlayerPawnResurrect", defaultValue: false);
 			Scribe_Values.Look(ref allowShapeshiftAfterDeath, "allowShapeshiftAfterDeath", defaultValue: true);
 			Scribe_Values.Look(ref totalHealingIgnoreScarification, "totalHealingIgnoreScarification", defaultValue: true);
@@ -222,6 +226,8 @@ namespace WVC_XenotypesAndGenes
 			Widgets.BeginScrollView(outRect, ref scrollPosition, rect);
 			Listing_Standard listingStandard = new();
 			listingStandard.Begin(rect);
+			// Main
+			// listingStandard.Label("WVC_BiotechSettings_Label_Graphics".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Graphics".Translate());
 			// Graphic
 			listingStandard.Label("WVC_BiotechSettings_Label_Graphics".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Graphics".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_hideXaGGenes".Translate().Colorize(ColorLibrary.LightPurple), ref settings.hideXaGGenes, "WVC_ToolTip_hideXaGGenes".Translate());
@@ -250,6 +256,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.Gap();
 			// Fix
 			listingStandard.Label("WVC_BiotechSettings_Label_Other".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Other".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_onlyXenotypesMode".Translate(), ref settings.onlyXenotypesMode, "WVC_ToolTip_onlyXenotypesMode".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_fixVanillaGeneImmunityCheck".Translate().Colorize(ColorLibrary.LightPurple), ref settings.fixVanillaGeneImmunityCheck, "WVC_ToolTip_fixVanillaGeneImmunityCheck".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_spawnXenoForcerSerumsFromTraders".Translate(), ref settings.spawnXenoForcerSerumsFromTraders, "WVC_ToolTip_spawnXenoForcerSerumsFromTraders".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableUniqueXenotypeScenarios".Translate(), ref settings.disableUniqueXenotypeScenarios, "WVC_ToolTip_disableUniqueXenotypeScenarios".Translate());
@@ -600,6 +607,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void ResetSettings_Default()
 		{
+			WVC_Biotech.settings.onlyXenotypesMode = false;
 			// Graphic
 			WVC_Biotech.settings.hideXaGGenes = false;
 			WVC_Biotech.settings.disableFurGraphic = false;
@@ -668,6 +676,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void ResetSettings_MyChoice()
 		{
+			WVC_Biotech.settings.onlyXenotypesMode = false;
 			// Graphic
 			WVC_Biotech.settings.hideXaGGenes = true;
 			WVC_Biotech.settings.disableFurGraphic = false;

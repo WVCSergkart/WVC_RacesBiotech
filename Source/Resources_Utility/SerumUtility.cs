@@ -44,7 +44,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (ModsConfig.AnomalyActive)
 			{
-				if (pawn.IsMutant || pawn.IsCreepJoiner)
+				if (pawn.IsMutant)
 				{
 					return true;
 				}

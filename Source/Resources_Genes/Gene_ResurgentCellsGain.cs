@@ -22,6 +22,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+
 		public bool CanOffset
 		{
 			get

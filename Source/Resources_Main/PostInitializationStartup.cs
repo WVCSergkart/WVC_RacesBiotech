@@ -26,6 +26,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void Genes()
 		{
+			List<GeneDef> xenogenesGenes = new();
 			foreach (GeneDef geneDef in DefDatabase<GeneDef>.AllDefsListForReading)
 			{
 				List<GeneDef> inheritableGeneDefs = geneDef?.GetModExtension<GeneExtension_General>()?.inheritableGeneDefs;
@@ -36,19 +37,62 @@ namespace WVC_XenotypesAndGenes
 						MiscUtility.InheritGeneDefFrom(geneDef, inheritableGeneDef);
 					}
 				}
+				if (!geneDef.IsXenoGenesDef())
+				{
+					continue;
+				}
+				xenogenesGenes.Add(geneDef);
 				if (!WVC_Biotech.settings.hideXaGGenes)
 				{
 					continue;
 				}
-				if (geneDef.IsXenoGenesDef())
+				if (geneDef.biostatArc != 0)
 				{
-					if (geneDef.biostatArc != 0)
+					geneDef.displayCategory = GeneCategoryDefOf.Archite;
+				}
+				else
+				{
+					geneDef.displayCategory = GeneCategoryDefOf.Miscellaneous;
+				}
+			}
+			if (ModsConfig.AnomalyActive)
+			{
+				List<GeneDef> exceptions = XenotypeFilterUtility.AnomalyExceptions();
+				foreach (MutantDef mutantDef in DefDatabase<MutantDef>.AllDefsListForReading)
+				{
+					if (mutantDef == null)
 					{
-						geneDef.displayCategory = GeneCategoryDefOf.Archite;
+						continue;
 					}
-					else
+					if (mutantDef.disablesGenes.NullOrEmpty())
 					{
-						geneDef.displayCategory = GeneCategoryDefOf.Miscellaneous;
+						mutantDef.disablesGenes = new();
+					}
+					foreach (GeneDef geneDef in xenogenesGenes)
+					{
+						// if (geneDef.fur != null && !mutantDef.bodyTypeGraphicPaths.NullOrEmpty())
+						// {
+							// continue;
+						// }
+						GeneExtension_General modExtension = geneDef?.GetModExtension<GeneExtension_General>();
+						if (modExtension?.supportMutants == false)
+						{
+							mutantDef.disablesGenes.Add(geneDef);
+							continue;
+						}
+						if (modExtension?.supportedMutantDefs?.Contains(mutantDef) == true)
+						{
+							continue;
+						}
+						if (exceptions.Contains(geneDef))
+						{
+							continue;
+						}
+						if (geneDef.geneClass == typeof(Gene))
+						{
+							continue;
+						}
+						mutantDef.disablesGenes.Add(geneDef);
 					}
 				}
 			}

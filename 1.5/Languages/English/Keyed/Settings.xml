@@ -226,4 +226,12 @@ Outdated. Use at your own risk.</WVC_ToolTip_serumsForAllXenotypes>
 
 	<!-- ====================================================================================== -->
 
+	<!-- ====================================================================================== -->
+	<WVC_Label_onlyXenotypesMode>Xenotypes only mode</WVC_Label_onlyXenotypesMode>
+	<WVC_ToolTip_onlyXenotypesMode>If enabled, genepacks and orbital trader will not spawn. Also, the quests will not contain serums or other things related to the mod.
+
+Technologies, buildings and crafting will still be available.
+
+A restart is required.</WVC_ToolTip_onlyXenotypesMode>
+
 </LanguageData>

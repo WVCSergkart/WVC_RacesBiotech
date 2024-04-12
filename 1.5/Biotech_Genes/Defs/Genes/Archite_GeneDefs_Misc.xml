@@ -100,7 +100,7 @@
 	<biostatMet>0</biostatMet>
 	<!-- <selectionWeight>0.00125</selectionWeight> -->
 	<customEffectDescriptions>
-		<li>Restores a lost limb or heals scars every (*DateTime)15-30 days(/DateTime).</li>
+		<li>Restores a missing body part or heals scars every (*DateTime)15-30 days(/DateTime).</li>
 	</customEffectDescriptions>
   </GeneDef>
 

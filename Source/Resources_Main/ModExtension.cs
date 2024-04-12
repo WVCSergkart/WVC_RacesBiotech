@@ -118,6 +118,8 @@ namespace WVC_XenotypesAndGenes
 		// Genepack Components
 		public List<XaG_CountWithChance> genesCountProbabilities;
 		public RulePackDef genepackNamer;
+		public bool supportMutants = true;
+		public List<MutantDef> supportedMutantDefs;
 	}
 
 	public class GeneExtension_Graphic : DefModExtension
@@ -265,6 +267,7 @@ namespace WVC_XenotypesAndGenes
 		// public List<TraitDef> shapeShift_ProhibitedTraits;
 		// public List<PreceptDef> shapeShift_ProhibitedPrecepts;
 		// public List<HediffDef> hediffsRemovedByGenesRestorationSerum;
+		public List<GeneDef> anomalyXenoGenesExceptions;
 
 		// [Obsolete]
 		// public List<HediffDef> hediffsThatPreventUndeadResurrection;

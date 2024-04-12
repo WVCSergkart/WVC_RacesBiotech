@@ -92,12 +92,63 @@
 	  <li MayRequire="Ludeon.RimWorld.Biotech">Plant_TreePolux</li>
 	  <li MayRequire="Ludeon.RimWorld.Ideology">Plant_TreeGauranlen</li>
 	</plantsToNotOverwrite_SpawnSubplant>
-	<!-- Ignored by shapeshifter mechanic. Required gene Types -->
+	<!-- Ignored by shapeshifter mechanic. Required gene Types. Obsolete -->
 	<shapeShift_IgnoredGeneClasses>
 		<li>WVC_XenotypesAndGenes.Gene_XenotypeShapeshifter</li>
 		<li>WVC_XenotypesAndGenes.Gene_Shapeshifter</li>
 		<li>WVC_XenotypesAndGenes.Gene_Shapeshifter_Rand</li>
 	</shapeShift_IgnoredGeneClasses>
+	<!-- XaG genes that will work in mutants. Required any GeneDefs -->
+	<anomalyXenoGenesExceptions>
+		<li>WVC_GeneSavant</li>
+		<li>WVC_NaturalAgeless</li>
+		<li>WVC_Wings_Levitation</li>
+		<li>WVC_Wings_MembranousWings</li>
+		<li>WVC_Wings_FeatheredWings</li>
+		<!-- = -->
+		<li MayRequire="ludeon.rimworld.ideology">WVC_Scarifier</li>
+		<li>WVC_Scarifier_Clotting</li>
+		<li MayRequire="ludeon.rimworld.ideology">WVC_Scarifier_Scarshield</li>
+		<li MayRequire="ludeon.rimworld.ideology">WVC_Scarifier_Scarstomach</li>
+		<li MayRequire="ludeon.rimworld.ideology">WVC_Scarifier_ArchiteScarstomach</li>
+		<li MayRequire="ludeon.rimworld.ideology">WVC_Scarifier_StrongMelee</li>
+		<!-- = -->
+		<li>WVC_WoundHealing_UnrealFast</li>
+		<!-- = -->
+		<li>WVC_Feminine</li>
+		<!-- = -->
+		<li>WVC_RandomGeneticSpeciality</li>
+		<li>WVC_RandomLearning</li>
+		<li>WVC_RandomHands</li>
+		<li>WVC_RandomWoundHealing</li>
+		<li>WVC_RandomImmunity</li>
+		<li>WVC_RandomMetabolism</li>
+		<li>WVC_RandomMoveSpeed</li>
+		<li>WVC_RandomPsychicAbility</li>
+		<!-- = -->
+		<li>WVC_Undead</li>
+		<li>WVC_NeverDead</li>
+		<li>WVC_NaturalUndead</li>
+		<!-- = -->
+		<li>WVC_BodySize_Large</li>
+		<li>WVC_BodySize_Average</li>
+		<li>WVC_BodySize_Small</li>
+		<!-- = -->
+		<li>WVC_Invisibility</li>
+		<!-- = -->
+		<li>WVC_StoneStomach</li>
+		<li>WVC_SleepyStomach</li>
+		<li>WVC_DeadStomach</li>
+		<li>WVC_SuperStomach</li>
+		<!-- = -->
+		<li>WVC_Mecha_ScytheTail</li>
+		<li>WVC_MechaHidden_ArchiteForge</li>
+		<li>WVC_MecaBodyParts_Heart</li>
+		<li>WVC_MechaPowerSource_Tox</li>
+		<!-- = -->
+		<li>WVC_NoLearning</li>
+		<li>WVC_Learning_ExtremeSlow</li>
+	</anomalyXenoGenesExceptions>
   </WVC_XenotypesAndGenes.XenotypesAndGenesListDef>
 
   <!-- ======================================================================= -->
@@ -136,6 +187,8 @@
 		<li>WVC_PatchSkin</li>
 		<li>WVC_FeatherSkin</li>
 		<li>WVC_ShapeshiftSkin</li>
+		<li>WVC_TransparentSkin</li>
+		<li>WVC_GauntSkin</li>
 		<!-- = -->
 		<li>WVC_MecaBodyParts_Claws</li>
 		<li>WVC_NaturalBodyParts_Claws</li>

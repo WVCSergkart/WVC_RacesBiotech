@@ -15,6 +15,10 @@ namespace WVC_XenotypesAndGenes
 			List<BackstoryDef> list = new();
 			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
 			{
+				if (item.blackListedBackstoryForChanger.NullOrEmpty())
+				{
+					continue;
+				}
 				list.AddRange(item.blackListedBackstoryForChanger);
 			}
 			return list;
@@ -25,6 +29,10 @@ namespace WVC_XenotypesAndGenes
 			List<string> whiteListedXenotypesFromDef = new();
 			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
 			{
+				if (item.whiteListedXenotypesForFilter.NullOrEmpty())
+				{
+					continue;
+				}
 				whiteListedXenotypesFromDef.AddRange(item.whiteListedXenotypesForFilter);
 			}
 			return whiteListedXenotypesFromDef;
@@ -35,6 +43,10 @@ namespace WVC_XenotypesAndGenes
 			List<string> list = new();
 			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
 			{
+				if (item.blackListedXenotypesForSerums.NullOrEmpty())
+				{
+					continue;
+				}
 				list.AddRange(item.blackListedXenotypesForSerums);
 			}
 			if (addFromFilter)
@@ -74,6 +86,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
 				{
+					if (item.whiteListedXenotypesForResurrectorSerums.NullOrEmpty())
+					{
+						continue;
+					}
 					list.AddRange(item.whiteListedXenotypesForResurrectorSerums);
 				}
 			}
@@ -89,6 +105,20 @@ namespace WVC_XenotypesAndGenes
 				{
 					list.Add(item);
 				}
+			}
+			return list;
+		}
+
+		public static List<GeneDef> AnomalyExceptions()
+		{
+			List<GeneDef> list = new();
+			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+			{
+				if (item.anomalyXenoGenesExceptions.NullOrEmpty())
+				{
+					continue;
+				}
+				list.AddRange(item.anomalyXenoGenesExceptions);
 			}
 			return list;
 		}
