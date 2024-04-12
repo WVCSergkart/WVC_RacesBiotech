@@ -94,7 +94,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref generateSkinHairColorGenes, "generateSkinHairColorGenes", defaultValue: false);
 			// Genes
 			Scribe_Values.Look(ref onlyXenotypesMode, "onlyXenotypesMode", defaultValue: false);
-			Scribe_Values.Look(ref canNonPlayerPawnResurrect, "canNonPlayerPawnResurrect", defaultValue: false);
+			Scribe_Values.Look(ref canNonPlayerPawnResurrect, "canNonPlayerPawnResurrect", defaultValue: true);
 			Scribe_Values.Look(ref allowShapeshiftAfterDeath, "allowShapeshiftAfterDeath", defaultValue: true);
 			Scribe_Values.Look(ref totalHealingIgnoreScarification, "totalHealingIgnoreScarification", defaultValue: true);
 			// Scribe_Values.Look(ref genesRemoveMechlinkUponDeath, "genesRemoveMechlinkUponDeath", defaultValue: false);
@@ -641,7 +641,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.serumsForAllXenotypes_Recipes = true;
 			WVC_Biotech.settings.serumsForAllXenotypes_Spawners = false;
 			// =
-			WVC_Biotech.settings.canNonPlayerPawnResurrect = false;
+			WVC_Biotech.settings.canNonPlayerPawnResurrect = true;
 			WVC_Biotech.settings.allowShapeshiftAfterDeath = true;
 			// =
 			WVC_Biotech.settings.thrallMaker_ThrallsInheritMasterGenes = true;
@@ -710,7 +710,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.serumsForAllXenotypes_Recipes = false;
 			WVC_Biotech.settings.serumsForAllXenotypes_Spawners = false;
 			// =
-			WVC_Biotech.settings.canNonPlayerPawnResurrect = false;
+			WVC_Biotech.settings.canNonPlayerPawnResurrect = true;
 			WVC_Biotech.settings.allowShapeshiftAfterDeath = true;
 			// =
 			WVC_Biotech.settings.thrallMaker_ThrallsInheritMasterGenes = true;

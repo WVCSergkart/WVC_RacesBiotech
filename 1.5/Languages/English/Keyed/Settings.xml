@@ -176,8 +176,8 @@ A restart is required to apply the setting.</WVC_ToolTip_generateSkinHairColorGe
 Please note that resurrecting a pawn will not bring back a disappeared mechlink.</WVC_ToolTip_genesRemoveMechlinkUponDeath>
 
 	<!-- ====================================================================================== -->
-	<WVC_Label_canNonPlayerPawnResurrect>Can non-player pawns be resurrected</WVC_Label_canNonPlayerPawnResurrect>
-	<WVC_ToolTip_canNonPlayerPawnResurrect>Gene "Undead" allows pawns to be resurrected some time after death. If disabled, pawns not controlled by the player will always die. This affects prisoners, rebellious slaves, guests and enemies.</WVC_ToolTip_canNonPlayerPawnResurrect>
+	<WVC_Label_canNonPlayerPawnResurrect>Can non-colonist pawns be resurrected</WVC_Label_canNonPlayerPawnResurrect>
+	<WVC_ToolTip_canNonPlayerPawnResurrect>Gene "Undead" allows pawns to be resurrected some time after death. If disabled, non-colonist pawns will always die. This affects prisoners, rebellious slaves, mutants, guests and enemies.</WVC_ToolTip_canNonPlayerPawnResurrect>
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_allowShapeshiftAfterDeath>Allow afterdeath shapeshifting</WVC_Label_allowShapeshiftAfterDeath>
