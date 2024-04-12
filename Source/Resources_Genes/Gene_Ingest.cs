@@ -300,10 +300,25 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (MiscUtility.TryGetAbilityJob(pawn, colonist, WVC_GenesDefOf.Bloodfeed, out Job job))
 				{
-					pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);
-					return true;
+					if (!PawnHaveBloodHuntJob(pawn, job))
+					{
+						pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);
+						return true;
+					}
 				}
 				return false;
+			}
+			return false;
+		}
+
+		public static bool PawnHaveBloodHuntJob(Pawn pawn, Job job)
+		{
+			foreach (Job item in pawn.jobs.AllJobs().ToList())
+			{
+				if (item.def == job.def && item.ability == job.ability)
+				{
+					return true;
+				}
 			}
 			return false;
 		}

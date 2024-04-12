@@ -84,8 +84,11 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (MiscUtility.TryGetAbilityJob(pawn, colonist, WVC_GenesDefOf.WVC_XaG_Cellsfeed, out Job job))
 				{
-					pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);
-					return true;
+					if (!Gene_EternalHunger.PawnHaveBloodHuntJob(pawn, job))
+					{
+						pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);
+						return true;
+					}
 				}
 				return false;
 			}

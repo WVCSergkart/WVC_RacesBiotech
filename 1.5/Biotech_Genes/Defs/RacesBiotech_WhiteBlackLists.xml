@@ -148,6 +148,9 @@
 		<!-- = -->
 		<li>WVC_NoLearning</li>
 		<li>WVC_Learning_ExtremeSlow</li>
+		<!-- = -->
+		<li>WVC_NaturalBodyParts_Claws</li>
+		<li>WVC_MecaBodyParts_Claws</li>
 	</anomalyXenoGenesExceptions>
   </WVC_XenotypesAndGenes.XenotypesAndGenesListDef>
 
