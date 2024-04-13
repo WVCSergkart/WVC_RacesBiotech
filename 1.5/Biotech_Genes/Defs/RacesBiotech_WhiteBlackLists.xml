@@ -152,6 +152,10 @@
 		<li>WVC_NaturalBodyParts_Claws</li>
 		<li>WVC_MecaBodyParts_Claws</li>
 	</anomalyXenoGenesExceptions>
+	<!-- Ignored mutants. Required any MutantDefs -->
+	<xenoGenesMutantsExceptions>
+		<!-- <li MayRequire="ludeon.rimworld.anomaly">WVC_Thrall</li> -->
+	</xenoGenesMutantsExceptions>
   </WVC_XenotypesAndGenes.XenotypesAndGenesListDef>
 
   <!-- ======================================================================= -->

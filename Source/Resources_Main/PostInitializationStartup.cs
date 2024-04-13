@@ -57,10 +57,15 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (ModsConfig.AnomalyActive)
 			{
+				List<MutantDef> exceptions_Mutants = XenotypeFilterUtility.MutantsExceptions();
 				List<GeneDef> exceptions = XenotypeFilterUtility.AnomalyExceptions();
 				foreach (MutantDef mutantDef in DefDatabase<MutantDef>.AllDefsListForReading)
 				{
 					if (mutantDef == null)
+					{
+						continue;
+					}
+					if (exceptions_Mutants.Contains(mutantDef))
 					{
 						continue;
 					}

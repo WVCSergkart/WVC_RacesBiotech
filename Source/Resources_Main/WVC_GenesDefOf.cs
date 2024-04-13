@@ -92,6 +92,8 @@ namespace WVC_XenotypesAndGenes
 		public static AbilityDef Bloodfeed;
 		public static AbilityDef WVC_XaG_Cellsfeed;
 		public static SoundDef Hive_Spawn;
+		// [MayRequireAnomaly]
+		// public static MutantDef WVC_Thrall;
 	}
 
 }

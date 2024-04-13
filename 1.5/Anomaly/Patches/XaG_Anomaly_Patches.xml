@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/MutantDef[disablesGenes[li[contains(text(),'Hemogenic')]]]/disablesGenes</xpath> -->
+	  <!-- <value> -->
+		<!-- <li>WVC_Dustogenic</li> -->
+		<!-- <li>WVC_ResurgentCells</li> -->
+		<!-- <li>WVC_Shapeshifter</li> -->
+		<!-- <li>WVC_Thrall</li> -->
+		<!-- <li>WVC_DeadlyGeneticInstability</li> -->
+		<!-- <li>WVC_MildGeneticInstability</li> -->
+		<!-- <li>WVC_MajorGeneticInstability</li> -->
+		<!-- <li>WVC_ExtremeGeneticInstability</li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/MutantDef[disablesGenes[li[contains(text(),'Furskin')]]]/disablesGenes</xpath>
+	  <value>
+		<li>WVC_MechaSkin</li>
+		<li>WVC_RuneSkin</li>
+		<li>WVC_StoneSkin</li>
+		<li>WVC_NodeSkin</li>
+		<li>WVC_PatchSkin</li>
+		<li>WVC_FeatherSkin</li>
+		<li>WVC_ShapeshiftSkin</li>
+		<li>WVC_TransparentSkin</li>
+		<li>WVC_GauntSkin</li>
+	  </value>
+	</Operation>
+
+</Patch>

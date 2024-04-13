@@ -123,5 +123,19 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
+		public static List<MutantDef> MutantsExceptions()
+		{
+			List<MutantDef> list = new();
+			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+			{
+				if (item.xenoGenesMutantsExceptions.NullOrEmpty())
+				{
+					continue;
+				}
+				list.AddRange(item.xenoGenesMutantsExceptions);
+			}
+			return list;
+		}
+
 	}
 }

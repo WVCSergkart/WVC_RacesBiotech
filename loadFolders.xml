@@ -13,6 +13,7 @@
 		<li IfModActive="imranfish.xmlextensions">1.5/Biotech_Core</li>
 		<li IfModActive="ludeon.rimworld.biotech">1.5/Biotech_Genes</li>
 		<li IfModActive="ludeon.rimworld.ideology">1.5/Ideology_Genes</li>
+		<li IfModActive="ludeon.rimworld.anomaly">1.5/Anomaly</li>
 		<li IfModActive="wvc.sergkart.test.tools">1.5/TEST</li>
 		<li IfModActive="wvc.wvcmod.wvcspecific">1.5/TEST</li>
 	</v1.5>
