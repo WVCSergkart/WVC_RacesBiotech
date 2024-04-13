@@ -35,20 +35,19 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (pawn?.gender == Gender.Female)
 			{
-				if (pawn?.story?.bodyType != BodyTypeDefOf.Hulk || pawn?.story?.bodyType != BodyTypeDefOf.Fat)
+				if (pawn?.story?.bodyType == BodyTypeDefOf.Hulk || pawn?.story?.bodyType == BodyTypeDefOf.Fat)
 				{
 					pawn.story.bodyType = BodyTypeDefOf.Female;
 				}
 			}
 			else if (pawn?.gender == Gender.Male)
 			{
-				if (pawn?.story?.bodyType != BodyTypeDefOf.Hulk || pawn?.story?.bodyType != BodyTypeDefOf.Fat)
+				if (pawn?.story?.bodyType == BodyTypeDefOf.Hulk || pawn?.story?.bodyType == BodyTypeDefOf.Fat)
 				{
 					pawn.story.bodyType = BodyTypeDefOf.Male;
 				}
 			}
 		}
-
 
 	}
 

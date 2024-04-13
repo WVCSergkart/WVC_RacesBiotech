@@ -146,11 +146,21 @@ namespace WVC_XenotypesAndGenes
 					return false;
 				}
 				Pawn innerPawn = corpse.InnerPawn;
-				if (!innerPawn.IsHuman() || ReimplanterGene == null)
+				ThrallDef thrallDef = ReimplanterGene?.thrallDef;
+				if (!innerPawn.IsHuman() || thrallDef == null)
 				{
 					if (throwMessages)
 					{
 						Messages.Message("WVC_PawnIsAndroidCheck".Translate(), innerPawn, MessageTypeDefOf.RejectInput, historical: false);
+					}
+					return false;
+				}
+				MutantDef mutantDef = thrallDef?.mutantDef;
+				if (mutantDef != null && mutantDef.allowedDevelopmentalStages != innerPawn.DevelopmentalStage)
+				{
+					if (throwMessages)
+					{
+						Messages.Message("WVC_XaG_WrongDevelopmentalStage".Translate(), innerPawn, MessageTypeDefOf.RejectInput, historical: false);
 					}
 					return false;
 				}
