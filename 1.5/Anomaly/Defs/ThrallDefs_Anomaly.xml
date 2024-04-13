@@ -22,7 +22,6 @@
 		<li>DarkVision</li>
 		<li>WVC_DemonTailA</li>
 		<li>WVC_HeadBoneHorns</li>
-		<li>MoveSpeed_VeryQuick</li>
 		<li>MeleeDamage_Strong</li>
 		<li>WVC_MecaBodyParts_Spine</li>
 		<li>WVC_Tough</li>
@@ -32,6 +31,9 @@
 		<li>WVC_ToxResist_Total</li>
 		<li>WVC_BodySize_Large</li>
 		<li>WVC_Learning_ExtremeSlow</li>
+		<!-- = -->
+		<!-- <li>MoveSpeed_VeryQuick</li> -->
+		<li>WVC_AgeDebuff_MoveSpeed</li>
 	</genes>
   </WVC_XenotypesAndGenes.ThrallDef>
 
