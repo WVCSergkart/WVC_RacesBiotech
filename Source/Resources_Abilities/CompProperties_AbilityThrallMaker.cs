@@ -32,6 +32,12 @@ namespace WVC_XenotypesAndGenes
 		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
 		{
 			base.Apply(target, dest);
+			ThrallDef thrallDef = ReimplanterGene?.thrallDef;
+			if (thrallDef == null)
+			{
+				Log.Warning("Thrall maker has null thrallDef.");
+				return;
+			}
 			Pawn innerPawn = ((Corpse)target.Thing).InnerPawn;
 			if (innerPawn != null)
 			{
@@ -46,12 +52,15 @@ namespace WVC_XenotypesAndGenes
 				{
 					innerPawn.ideo.SetIdeo(parent.pawn.ideo.Ideo);
 				}
-				ThrallMaker(innerPawn, ReimplanterGene.thrallDef);
-				foreach (GeneDef item in Props.geneDefs)
+				ThrallMaker(innerPawn, thrallDef);
+				if (thrallDef.addGenesFromAbility)
 				{
-					innerPawn.genes?.AddGene(item, false);
+					foreach (GeneDef item in Props.geneDefs)
+					{
+						innerPawn.genes?.AddGene(item, false);
+					}
 				}
-				if (WVC_Biotech.settings.thrallMaker_ThrallsInheritMasterGenes)
+				if (thrallDef.addGenesFromMaster && WVC_Biotech.settings.thrallMaker_ThrallsInheritMasterGenes)
 				{
 					foreach (GeneDef item in Props.inheritableGenes)
 					{
@@ -69,14 +78,15 @@ namespace WVC_XenotypesAndGenes
 						}
 					}
 				}
-				// if (ModsConfig.AnomalyActive)
-				// {
-					// MutantUtility.SetPawnAsMutantInstantly(innerPawn, WVC_GenesDefOf.WVC_Thrall);
-				// }
-				// else
-				// {
-				// }
 				GeneUtility.UpdateXenogermReplication(innerPawn);
+				if (ModsConfig.AnomalyActive)
+				{
+					MutantDef mutantDef = thrallDef?.mutantDef;
+					if (mutantDef != null)
+					{
+						MutantUtility.SetPawnAsMutantInstantly(innerPawn, mutantDef);
+					}
+				}
 				// DuplicateUtility.RemoveAllGenes_Overridden(innerPawn);
 				FleckMaker.AttachedOverlay(innerPawn, FleckDefOf.FlashHollow, new Vector3(0f, 0f, 0.26f));
 				if (PawnUtility.ShouldSendNotificationAbout(parent.pawn) || PawnUtility.ShouldSendNotificationAbout(innerPawn))

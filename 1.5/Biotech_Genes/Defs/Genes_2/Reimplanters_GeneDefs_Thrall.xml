@@ -46,6 +46,7 @@
 	<defName>WVC_ReimplanterThrallMaker</defName>
 	<label>thrall maker</label>
 	<iconPath>WVC/UI/Genes/Gene_ThrallMaker_v0</iconPath>
+	<cooldownTicksRange>540000</cooldownTicksRange><!-- 9 days -->
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
 		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_ReimplanterThrallMaker</compClass>

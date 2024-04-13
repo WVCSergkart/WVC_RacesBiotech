@@ -98,7 +98,7 @@
 		<li>WVC_XenotypesAndGenes.Gene_Shapeshifter</li>
 		<li>WVC_XenotypesAndGenes.Gene_Shapeshifter_Rand</li>
 	</shapeShift_IgnoredGeneClasses>
-	<!-- XaG genes that will work in mutants. Required any GeneDefs -->
+	<!-- XaG genes that will work with mutants. Required any GeneDefs -->
 	<anomalyXenoGenesExceptions>
 		<li>WVC_GeneSavant</li>
 		<li>WVC_NaturalAgeless</li>

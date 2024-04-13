@@ -15,6 +15,12 @@ namespace WVC_XenotypesAndGenes
 
 		public List<GeneDef> genes;
 
+		public MutantDef mutantDef = null;
+
+		public bool addGenesFromAbility = true;
+
+		public bool addGenesFromMaster = true;
+
 		[MustTranslate]
 		public string generalDesc;
 

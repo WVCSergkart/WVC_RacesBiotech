@@ -17,5 +17,9 @@
 	<defName>WVC_Thrall_Demon1c</defName>
 	<texPath>WVC/UI/Mecha_Icons/Icon_Thrall_Demon1c_v0</texPath>
   </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_Thrall_Ghoul1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Icon_Thrall_Ghoul_x1c_v0</texPath>
+  </XenotypeIconDef>
 
 </Defs>
