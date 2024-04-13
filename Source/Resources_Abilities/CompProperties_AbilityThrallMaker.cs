@@ -147,7 +147,8 @@ namespace WVC_XenotypesAndGenes
 				}
 				Pawn innerPawn = corpse.InnerPawn;
 				ThrallDef thrallDef = ReimplanterGene?.thrallDef;
-				if (!innerPawn.IsHuman() || thrallDef == null)
+				MutantDef mutantDef = thrallDef?.mutantDef;
+				if (!innerPawn.IsHuman() || thrallDef == null || innerPawn.IsMutant && !innerPawn.IsMutantOfDef(mutantDef))
 				{
 					if (throwMessages)
 					{
@@ -155,7 +156,6 @@ namespace WVC_XenotypesAndGenes
 					}
 					return false;
 				}
-				MutantDef mutantDef = thrallDef?.mutantDef;
 				if (mutantDef != null && mutantDef.allowedDevelopmentalStages != innerPawn.DevelopmentalStage)
 				{
 					if (throwMessages)

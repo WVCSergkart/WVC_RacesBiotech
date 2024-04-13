@@ -40,9 +40,9 @@
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
 		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_ReimplanterFromGeneReimplanter</compClass>
 	  </li>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityTargetValidation">
-		<humanityCheck>true</humanityCheck>
-	  </li>
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityTargetValidation"> -->
+		<!-- <humanityCheck>true</humanityCheck> -->
+	  <!-- </li> -->
 	</comps>
   </AbilityDef>
 

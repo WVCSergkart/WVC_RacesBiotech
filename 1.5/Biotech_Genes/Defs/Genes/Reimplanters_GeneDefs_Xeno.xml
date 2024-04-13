@@ -61,10 +61,10 @@
 		<reimplantXenogenes>true</reimplantXenogenes>
 		<absorberJob>WVC_XenotypesAndGenes_AbsorbXenogerm</absorberJob>
 	  </li>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityTargetValidation">
-		<humanityCheck>true</humanityCheck>
-		<serumsCheck>true</serumsCheck>
-	  </li>
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityTargetValidation"> -->
+		<!-- <humanityCheck>true</humanityCheck> -->
+		<!-- <serumsCheck>true</serumsCheck> -->
+	  <!-- </li> -->
 	</comps>
   </AbilityDef>
 

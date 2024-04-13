@@ -104,10 +104,10 @@
 		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Reimplanter</compClass>
 		<absorberJob>WVC_XenotypesAndGenes_AbsorbGenogerm</absorberJob>
 	  </li>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityTargetValidation">
-		<humanityCheck>true</humanityCheck>
-		<serumsCheck>true</serumsCheck>
-	  </li>
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityTargetValidation"> -->
+		<!-- <humanityCheck>true</humanityCheck> -->
+		<!-- <serumsCheck>true</serumsCheck> -->
+	  <!-- </li> -->
 	</comps>
   </AbilityDef>
 

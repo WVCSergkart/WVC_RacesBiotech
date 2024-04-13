@@ -17,8 +17,11 @@
 	<description>A special genetic modification of a thrall that will turn him into a ghoul. These thralls have greatly enhanced strength and durability, making them ultimate killing machines.</description>
 	<genes>
 		<li>WVC_GeneSavant</li>
-		<li>WVC_AptitudeMarvelous_Shooting</li>
-		<li>WVC_AptitudeMarvelous_Melee</li>
+		<!-- <li>WVC_AptitudeMarvelous_Shooting</li> -->
+		<!-- <li>WVC_AptitudeMarvelous_Melee</li> -->
+		<!-- <li>WVC_AptitudeArchiteGreat_Shooting</li> -->
+		<!-- <li>WVC_AptitudeArchitePerfect_Melee</li> -->
+		<li>WVC_AptitudeArchiteGreat_Melee</li>
 		<li>DarkVision</li>
 		<li>WVC_DemonTailA</li>
 		<li>WVC_HeadBoneHorns</li>
@@ -31,7 +34,9 @@
 		<li>WVC_ToxResist_Total</li>
 		<li>WVC_BodySize_Large</li>
 		<li>WVC_Learning_ExtremeSlow</li>
+		<li>Unstoppable</li>
 		<!-- = -->
+		<!-- <li>WVC_FurskinInstincts_ExtremeWildness</li> -->
 		<!-- <li>MoveSpeed_VeryQuick</li> -->
 		<li>WVC_AgeDebuff_MoveSpeed</li>
 	</genes>

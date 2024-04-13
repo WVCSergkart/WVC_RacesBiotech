@@ -52,6 +52,15 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		public static bool IsMutantOfDef(this Pawn pawn, MutantDef mutantDef)
+		{
+			if (mutantDef == null || pawn.mutant == null)
+			{
+				return false;
+			}
+			return mutantDef == pawn.mutant.Def;
+		}
+
 		// HumanityCheck is serums use only
 		// I already forgot why it is separate
 		public static bool HumanityCheck(Pawn pawn)

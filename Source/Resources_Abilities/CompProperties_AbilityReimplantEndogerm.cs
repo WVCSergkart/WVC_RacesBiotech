@@ -40,10 +40,6 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
 		{
-			if (!ModLister.CheckBiotech("xenogerm reimplantation"))
-			{
-				return;
-			}
 			base.Apply(target, dest);
 			Pawn pawn = target.Pawn;
 			if (pawn != null)
@@ -82,35 +78,19 @@ namespace WVC_XenotypesAndGenes
 				}
 				return false;
 			}
-			// if (MechanoidizationUtility.PawnIsAndroid(pawn) || MechanoidizationUtility.PawnCannotUseSerums(pawn))
-			// {
-			// if (throwMessages)
-			// {
-			// Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
-			// }
-			// return false;
-			// }
-			// if (GeneUtility.SameXenotype(pawn, parent.pawn))
-			// {
-			// if (throwMessages)
-			// {
-			// Messages.Message("MessageCannotUseOnSameXenotype".Translate(pawn), pawn, MessageTypeDefOf.RejectInput, historical: false);
-			// }
-			// return false;
-			// }
-			// if (!PawnIdeoCanAcceptReimplant(parent.pawn, pawn))
-			// {
-			// if (throwMessages)
-			// {
-			// Messages.Message("MessageCannotBecomeNonPreferredXenotype".Translate(pawn), pawn, MessageTypeDefOf.RejectInput, historical: false);
-			// }
-			// return false;
-			// }
 			if (!PawnIdeoCanAcceptReimplant(parent.pawn, pawn))
 			{
 				if (throwMessages)
 				{
 					Messages.Message("MessageCannotBecomeNonPreferredXenotype".Translate(pawn), pawn, MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return false;
+			}
+			if (!pawn.IsHuman())
+			{
+				if (throwMessages)
+				{
+					Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
 				}
 				return false;
 			}

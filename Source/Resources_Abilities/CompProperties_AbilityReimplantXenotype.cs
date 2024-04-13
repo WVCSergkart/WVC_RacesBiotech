@@ -79,7 +79,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				return false;
 			}
-			if (ReimplanterGene == null)
+			if (ReimplanterGene == null || !pawn.IsHuman())
 			{
 				if (throwMessages)
 				{
