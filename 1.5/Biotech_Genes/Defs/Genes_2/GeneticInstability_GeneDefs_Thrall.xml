@@ -4,7 +4,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneticInstability_Base">
 	<defName>WVC_Thrall</defName>
 	<label>thrall</label>
-	<description>Carriers of this gene are critically dependent on resurgent cells. They regularly need to receive fresh cells from living hosts.</description>
+	<description>Carriers of this gene have archites that strongly instabilize genetic integrity and lead to a number of mutations that can lead to critical consequences. To stabilize, archites require a neural cellular resource called resurgent cells, which can be obtained from the fresh blood of resurgent pawns.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_GeneticThrall</geneClass>
 	<descriptionHyperlinks>
 	  <AbilityDef>WVC_XaG_Cellsfeed</AbilityDef>
@@ -44,7 +44,7 @@
 			</specialFoodDefs>
 			<showMessageIfOwned>true</showMessageIfOwned>
 			<defaultBoolValue>true</defaultBoolValue>
-			<intervalRange>622000~940000</intervalRange>
+			<intervalRange>299000~444000</intervalRange>
 			<hediffDefs/>
 		</li>
 	</modExtensions>

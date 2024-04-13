@@ -58,6 +58,9 @@
 	<WVC_XaG_LetterLabelThrallImplanted>thrall created</WVC_XaG_LetterLabelThrallImplanted>
 	<WVC_XaG_LetterTextThrallIImplanted>{CASTER_nameDef} has implanted a xenogerm into {TARGET_nameDef}, passing choosed genes onto {TARGET_objective}.\n\n{TARGET_nameDef} became a genetic thrall, thralls have their own strengths and weaknesses, but the main drawback of thralls is that in order to survive they need to regularly delay instabilization by absorbing the resurgent cells of living resurgent pawns.</WVC_XaG_LetterTextThrallIImplanted>
 
+	<WVC_XaG_LetterLabelThrallTransformedIntoGhoul>thrall transformed</WVC_XaG_LetterLabelThrallTransformedIntoGhoul>
+	<WVC_XaG_LetterDescThrallTransformedIntoGhoul>Due to instabilization, {0_nameDef}'s archites got out of control. {0_possessive} body was irreversibly changed, and {0_possessive} consciousness lost any clarity. Now {0_nameDef} is an eternally hungry, brainless monster.</WVC_XaG_LetterDescThrallTransformedIntoGhoul>
+
   <!-- <LetterTextGenesImplanted>{CASTER_nameDef} has implanted a copy of {CASTER_possessive} xenogerm into {TARGET_nameDef}, passing all xenogenes onto {TARGET_objective}.\n\n{TARGET_nameDef} will be in a xenogermination coma for the next {COMADURATION} while {TARGET_possessive} body adjusts to the changes.\n\n{CASTER_nameDef} will suffer from gene loss shock for the next {SHOCKDURATION}. {CASTER_possessive} genes will also need to regrow. This process takes time. If {CASTER_nameDef} implants {CASTER_possessive} xenogerm again before {CASTER_possessive} genes have regrown, {CASTER_pronoun} will die.</LetterTextGenesImplanted> -->
 
 	<!-- ============================ REIMPLANTER GENE ============================ -->

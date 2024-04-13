@@ -121,6 +121,21 @@ namespace WVC_XenotypesAndGenes
 			base.InCaravan();
 		}
 
+		public override void GeneticStuff()
+		{
+			MutantDef mutantDef = MutantDefOf.Ghoul;
+			if (ModsConfig.AnomalyActive && mutantDef.allowedDevelopmentalStages == pawn.DevelopmentalStage)
+			{
+				MutantUtility.SetPawnAsMutantInstantly(pawn, mutantDef);
+				WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(pawn, pawn.Map).Trigger(pawn, null);
+				Find.LetterStack.ReceiveLetter("WVC_XaG_LetterLabelThrallTransformedIntoGhoul".Translate(), "WVC_XaG_LetterDescThrallTransformedIntoGhoul".Translate(pawn), LetterDefOf.NegativeEvent, new LookTargets(pawn));
+			}
+			else
+			{
+				base.GeneticStuff();
+			}
+		}
+
 		public static CompProperties_AbilityCellsfeederBite GetAbilityCompProperties_CellsFeeder(AbilityDef abilityDef)
 		{
 			if (abilityDef?.comps != null)
