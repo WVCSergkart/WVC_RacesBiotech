@@ -24,7 +24,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					return false;
 				}
-				if (cells.ValuePercent > 0.20f)
+				if (cells.ValuePercent < 0.20f)
 				{
 					return false;
 				}

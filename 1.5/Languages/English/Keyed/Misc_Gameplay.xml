@@ -20,6 +20,8 @@
 	
 	<WVC_PawnIsAndroidCheck>User and target must be humans and genetically compatible.</WVC_PawnIsAndroidCheck>
 	<WVC_XaG_WrongDevelopmentalStage>The target has an incorrect developmental stage.</WVC_XaG_WrongDevelopmentalStage>
+
+	<WVC_XaG_GeneralWrongTarget>Wrong target.</WVC_XaG_GeneralWrongTarget>
 	
 	<WVC_AbilityValidation_ReimplantationCheck>Reimplantation in progress. Wait for the process to finish before starting another one.</WVC_AbilityValidation_ReimplantationCheck>
 	

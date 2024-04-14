@@ -64,8 +64,12 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (!GeneFeaturesUtility.CanCellsFeedNowWith(pawn, parent.pawn))
+			if (!GeneFeaturesUtility.CanCellsFeedNowWith(parent.pawn, pawn))
 			{
+				if (throwMessages)
+				{
+					Messages.Message("WVC_XaG_GeneralWrongTarget".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+				}
 				return false;
 			}
 			return true;
