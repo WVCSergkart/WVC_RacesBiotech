@@ -44,7 +44,7 @@
 			</specialFoodDefs>
 			<showMessageIfOwned>true</showMessageIfOwned>
 			<defaultBoolValue>true</defaultBoolValue>
-			<intervalRange>299000~444000</intervalRange>
+			<intervalRange>622000~940000</intervalRange>
 			<hediffDefs/>
 		</li>
 	</modExtensions>
