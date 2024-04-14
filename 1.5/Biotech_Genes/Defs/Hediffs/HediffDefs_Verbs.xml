@@ -80,7 +80,7 @@
 
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_VerbWeapon">
 	<defName>WVC_XaG_NaturalClaws</defName>
-	<label>natural claws</label>
+	<label>claws</label>
 	<comps>
 	  <li Class="HediffCompProperties_VerbGiver">
 		<tools>
@@ -92,7 +92,7 @@
 			</capacities>
 			<power>17</power>
 			<cooldownTime>1.6</cooldownTime>
-			<armorPenetration>0.6</armorPenetration>
+			<armorPenetration>0.2</armorPenetration>
 			<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
 			<surpriseAttack>
 			  <extraMeleeDamages>

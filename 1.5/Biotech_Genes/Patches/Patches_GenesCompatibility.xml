@@ -52,6 +52,8 @@
 		</caseFalse>
 	</Operation>
 
+	<!-- ======================================================== -->
+
 	<!-- <Operation Class="PatchOperationAdd"> -->
 	  <!-- <xpath>/Defs/FactionDef/caravanTraderKinds[li="Caravan_Outlander_Exotic"]</xpath> -->
 	  <!-- <value> -->
@@ -84,6 +86,15 @@
 		  <li>WVC_MecaBodyParts_Stomach</li>
 	  </value>
 	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/ThoughtDef[nullifyingGenes[li[contains(text(),'Furskin')]]]/nullifyingGenes</xpath>
+	  <value>
+		  <li>WVC_SemifurSkin</li>
+	  </value>
+	</Operation>
+
+	<!-- ======================================================== -->
 
 	<Operation Class="PatchOperationSequence">
 		<success>Always</success>

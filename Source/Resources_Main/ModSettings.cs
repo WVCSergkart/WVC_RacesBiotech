@@ -307,7 +307,9 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (allXenotypes.NullOrEmpty())
 			{
+				// XaG_PostInitialization.SetValues(XenotypeFilterUtility.WhiteListedXenotypesForFilter());
 				allXenotypes = XenotypeFilterUtility.WhiteListedXenotypes(false);
+				return;
 			}
 			var rect = new Rect(inRect.x, inRect.y, inRect.width, inRect.height);
 			Text.Anchor = TextAnchor.MiddleLeft;
@@ -371,7 +373,8 @@ namespace WVC_XenotypesAndGenes
 					// Log.Error("3");
 					// var pos = new Vector2(viewArea.width - 40, labelRect.y);
 					// Log.Error("4");
-					bool value = cachedXenotypesFilter[def.defName];
+					bool value = !cachedXenotypesFilter.Keys.Contains(def.defName) || cachedXenotypesFilter[def.defName];
+					// bool value = cachedXenotypesFilter[def.defName];
 					Widgets.CheckboxLabeled(labelRect, def.LabelCap, ref value);
 					// Widgets.InfoCardButton(pos, def);
 					// bool value = true;

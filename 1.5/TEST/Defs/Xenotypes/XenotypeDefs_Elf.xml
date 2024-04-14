@@ -7,7 +7,7 @@
 	<inheritable>true</inheritable>
 	<genes>
 		<li>Hemogenic</li>
-		<li>WVC_HemogenGain</li>
+		<!-- <li>WVC_HemogenGain</li> -->
 		<li>Bloodfeeder</li>
 		<li>WVC_Bloodeater</li>
 		<li>WVC_NaturalAgeless</li>
@@ -23,6 +23,10 @@
 		<li>WVC_HairColor_ffdcb4_HEX</li>
 		<li>Skin_Melanin1</li>
 		<li>DarkVision</li>
+		<!-- = -->
+		<li>LongjumpLegs</li>
+		<li>PiercingSpine</li>
+		<li>Coagulate</li>
 	</genes>
   </XenotypeDef>
 

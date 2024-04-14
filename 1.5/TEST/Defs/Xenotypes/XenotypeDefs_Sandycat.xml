@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_TEST">
+	<defName>WVC_Sandycat</defName>
+	<label>sandycat</label>
+	<!-- <description>TEST</description> -->
+	<!-- <descriptionShort>TEST</descriptionShort> -->
+	<inheritable>true</inheritable>
+	<iconPath>WVC/UI/Mecha_Icons/Icon_Bloodeater_v1</iconPath>
+	<displayPriority>-190</displayPriority>
+	<genes>
+		<li>WVC_Hair_NonBald</li>
+		<li>WVC_CatEarsA</li>
+		<li>WVC_CatTailA</li>
+		<li>Beard_NoBeardOnly</li>
+		<li>WVC_VoiceAnimals_BigCat</li>
+		<!-- <li>WVC_Feminine</li> -->
+		<li>Body_Standard</li>
+		<li>WVC_BodySize_Small</li>
+		<!-- <li>WVC_HairColor_b4c8ff_HEX</li> -->
+		<!-- <li>WVC_Eyes_69a2ce_HEX</li> -->
+		<li>Hair_SnowWhite</li>
+		<li>WVC_HairColor_ffdcb4_HEX</li>
+		<li>WVC_SkinColor_Slate</li>
+		<li>Beauty_Pretty</li>
+		<li>WVC_SemifurSkin</li>
+		<li>DarkVision</li>
+		<!-- Vampire -->
+		<li>Hemogenic</li>
+		<!-- <li>WVC_HemogenGain</li> -->
+		<li>Bloodfeeder</li>
+		<li>WVC_Bloodeater</li>
+		<li>WVC_NaturalAgeless</li>
+		<li>LongjumpLegs</li>
+		<li>PiercingSpine</li>
+		<li>Coagulate</li>
+		<!-- Kitty -->
+		<li>WVC_NaturalBodyParts_Claws</li>
+		<li>WVC_FurskinInstincts_NightHunter</li>
+		<li>WVC_UnClothedArmor</li>
+		<li>NakedSpeed</li>
+		<!-- <li>AnimalWarcall</li> -->
+		<!-- lich -->
+		<li>WVC_ReimplanterArchite_Endogenes</li>
+		<li>WVC_ArchiteTelepathy</li>
+		<li>WVC_NeverDead</li>
+		<li>WVC_ReimplanterThrallMaker</li>
+		<li>WVC_Delicate</li>
+		<!-- Sandy -->
+		<li>MaxTemp_LargeIncrease</li>
+		<li>WVC_MinTemp_LargeIncrease</li>
+	</genes>
+  </XenotypeDef>
+
+</Defs>

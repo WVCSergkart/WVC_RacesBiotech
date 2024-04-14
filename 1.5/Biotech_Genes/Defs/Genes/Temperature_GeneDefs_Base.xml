@@ -15,6 +15,25 @@
   </GeneDef>
 
   <GeneDef ParentName="WVC_GeneMinTemp_Base">
+	<defName>WVC_MinTemp_LargeIncrease</defName>
+	<label>cold super-weakness</label>
+	<labelShortAdj>super-warm</labelShortAdj>
+	<description>Carriers of this gene are significantly less comfortable in cold temperatures.</description>
+	<iconPath>WVC/UI/Genes/Gene_Temperature_Cold_v0</iconPath>
+	<displayOrderInCategory>-20</displayOrderInCategory>
+	<statOffsets>
+	  <ComfyTemperatureMin>20</ComfyTemperatureMin>
+	</statOffsets>
+	<biostatMet>4</biostatMet>
+	<biostatArc>0</biostatArc>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>warm</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_GeneMinTemp_Base">
 	<defName>WVC_MinTemp_ArchiteDecrease</defName>
 	<label>cold archite-tolerant</label>
 	<labelShortAdj>cold</labelShortAdj>

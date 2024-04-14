@@ -20,16 +20,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			// if (cachedMaxNutrition <= 0f)
-			// {
-				// cachedMaxNutrition = pawn.GetStatValue(StatDefOf.MaxNutrition);
-			// }
 			IngestibleProperties ingestible = thing.def.ingestible;
 			float nutrition = thing.GetStatValue(StatDefOf.Nutrition);
 			if (ingestible != null && nutrition > 0f)
 			{
 				UndeadUtility.OffsetNeedFood(pawn, (-1f * def.resourceLossPerDay) * nutrition * (float)numTaken);
-				// Log.Error(def.defName + " " + ((-1f * def.resourceLossPerDay) * nutrition * (float)numTaken) + " nutrition gain");
 			}
 		}
 
@@ -457,8 +452,10 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Bloodeater : Gene
+	public class Gene_Bloodeater : Gene_HemogenDrain
 	{
+
+		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
 
 		// public override void PostAdd()
 		// {
@@ -526,7 +523,7 @@ namespace WVC_XenotypesAndGenes
 		public override void Notify_IngestedThing(Thing thing, int numTaken)
 		{
 			base.Notify_IngestedThing(thing, numTaken);
-			if (thing.def == ThingDefOf.HemogenPack)
+			if (Props.specialFoodDefs.Contains(thing.def))
 			{
 				return;
 			}

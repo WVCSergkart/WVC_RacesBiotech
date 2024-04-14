@@ -277,4 +277,37 @@
 	</symbolPack>
   </GeneDef>
 
+  <!-- Semifur -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_SemifurSkin</defName>
+	<label>semifurskin</label>
+	<description>Carriers of this gene have short fur covering most of the body.</description>
+	<iconPath>WVC/UI/Genes/Gene_SemifurSkin_v0</iconPath>
+	<forcedHeadTypes>
+	  <li>Male_AverageNormal</li>
+	  <li>Male_AveragePointy</li>
+	  <li>Female_AverageNormal</li>
+	  <li>Female_AveragePointy</li>
+	</forcedHeadTypes>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<statOffsets>
+	  <ComfyTemperatureMin>-6</ComfyTemperatureMin>
+	</statOffsets>
+	<fur>WVC_SemifurSkin</fur>
+	<tattoosVisible>false</tattoosVisible>
+	<customEffectDescriptions>
+		<li>&lt;color=#ff8585&gt;Disable tattoos.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<missingGeneRomanceChanceFactor>0.80</missingGeneRomanceChanceFactor>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>cat</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>fur</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
 </Defs>

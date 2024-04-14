@@ -63,22 +63,6 @@
   </FurDef>
 
   <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
-	<defName>WVC_FeatheredSkin</defName>
-	<bodyTypeGraphicPaths>
-	  <Male>WVC/Bodies/Feathered_Body/Naked_Male</Male>
-	  <Female>WVC/Bodies/Feathered_Body/Naked_Female</Female>
-	  <Hulk>WVC/Bodies/Feathered_Body/Naked_Hulk</Hulk>
-	  <Fat>WVC/Bodies/Feathered_Body/Naked_Fat</Fat>
-	  <Thin>WVC/Bodies/Feathered_Body/Naked_Thin</Thin>
-	</bodyTypeGraphicPaths>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
-			<furIsSkinWithHair>true</furIsSkinWithHair>
-		</li>
-	</modExtensions>
-  </FurDef>
-
-  <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
 	<defName>WVC_ShapeshiftSkin</defName>
 	<bodyTypeGraphicPaths>
 	  <Male>WVC/Bodies/Shapeshifter_Body/Naked_Male</Male>
@@ -127,8 +111,6 @@
 	</modExtensions>
   </FurDef>
 
-  <!-- ==================================== -->
-
   <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
 	<defName>WVC_MechaSkin</defName>
 	<bodyTypeGraphicPaths>
@@ -155,5 +137,39 @@
 	  <!-- <Thin>WVC/Bodies/NodeGene_Body/Naked_Thin</Thin> -->
 	<!-- </bodyTypeGraphicPaths> -->
   <!-- </FurDef> -->
+
+  <!-- ==================================== -->
+
+  <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
+	<defName>WVC_FeatheredSkin</defName>
+	<bodyTypeGraphicPaths>
+	  <Male>WVC/Bodies/Feathered_Body/Naked_Male</Male>
+	  <Female>WVC/Bodies/Feathered_Body/Naked_Female</Female>
+	  <Hulk>WVC/Bodies/Feathered_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/Bodies/Feathered_Body/Naked_Fat</Fat>
+	  <Thin>WVC/Bodies/Feathered_Body/Naked_Thin</Thin>
+	</bodyTypeGraphicPaths>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<furIsSkinWithHair>true</furIsSkinWithHair>
+		</li>
+	</modExtensions>
+  </FurDef>
+
+  <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
+	<defName>WVC_SemifurSkin</defName>
+	<bodyTypeGraphicPaths>
+	  <Male>WVC/Bodies/Semifur_Body/Naked_Male</Male>
+	  <Female>WVC/Bodies/Semifur_Body/Naked_Female</Female>
+	  <Hulk>WVC/Bodies/Semifur_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/Bodies/Semifur_Body/Naked_Fat</Fat>
+	  <Thin>WVC/Bodies/Semifur_Body/Naked_Thin</Thin>
+	</bodyTypeGraphicPaths>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<furIsSkinWithHair>true</furIsSkinWithHair>
+		</li>
+	</modExtensions>
+  </FurDef>
 
 </Defs>

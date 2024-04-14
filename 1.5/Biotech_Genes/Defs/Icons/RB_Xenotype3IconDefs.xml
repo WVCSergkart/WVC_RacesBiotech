@@ -154,6 +154,10 @@
 	<defName>WVC_XenoDeadCat0c</defName>
 	<texPath>WVC/UI/Mecha_Icons/Gene_DeadCat_v0</texPath>
   </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_XenoBloodeaterCat0c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Icon_Bloodeater_v1</texPath>
+  </XenotypeIconDef>
   <!-- Used -->
 
   <!-- Masks -->

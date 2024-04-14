@@ -86,7 +86,7 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_Base" Name="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent" Abstract="True">
 	<geneClass>WVC_XenotypesAndGenes.Gene_DustDrain</geneClass>
-	<prerequisite>WVC_Dustogenic</prerequisite>
+	<!-- <prerequisite>WVC_Dustogenic</prerequisite> -->
 	<marketValueFactor>1.2</marketValueFactor>
 	<selectionWeight>0.0009</selectionWeight>
 	<minAgeActive>3</minAgeActive>
@@ -188,10 +188,10 @@
 	<statOffsets>
 	  <MaxNutrition>0.3</MaxNutrition>
 	</statOffsets>
-	<exclusionTags>
-	  <li>WVC_XenotypesAndGenes_ArchitesRandomEncode_GeneTagRandomizer_Pattern</li>
-	  <li>WVC_XenotypesAndGenes_GeneNaturalRandom_Metabolism</li>
-	</exclusionTags>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_XenotypesAndGenes_ArchitesRandomEncode_GeneTagRandomizer_Pattern</li> -->
+	  <!-- <li>WVC_XenotypesAndGenes_GeneNaturalRandom_Metabolism</li> -->
+	<!-- </exclusionTags> -->
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">

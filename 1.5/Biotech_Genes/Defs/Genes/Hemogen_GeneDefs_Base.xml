@@ -191,6 +191,7 @@
 	<prerequisite>Bloodfeeder</prerequisite>
 	<iconPath>WVC/UI/Genes/Gene_Bloodeater_v0</iconPath>
 	<displayOrderInCategory>80</displayOrderInCategory>
+	<resourceLossPerDay>-0.04</resourceLossPerDay>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>4</biostatMet>
@@ -209,6 +210,19 @@
 		<li><symbol>stomach</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
+	<exclusionTags>
+	  <li>WVC_XaG_HungerReplenishStomach</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<specialFoodDefs>
+			  <li>HemogenPack</li>
+			  <li MayRequire="vanillaracesexpanded.sanguophage">VRE_HemogenPack_Sanguophage</li>
+			  <li MayRequire="vanillaracesexpanded.sanguophage">VRE_HemogenPack_Corpse</li>
+			  <li MayRequire="vanillaracesexpanded.sanguophage">VRE_HemogenPack_Animal</li>
+			</specialFoodDefs>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Base">
