@@ -62,7 +62,7 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_Bloodeater</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_Bloodeater_v0</iconPath>
 	<displayOrderInCategory>80</displayOrderInCategory>
-	<resourceLossPerDay>-0.04</resourceLossPerDay>
+	<resourceLossPerDay>-0.06</resourceLossPerDay>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>4</biostatMet>
 	<customEffectDescriptions>
@@ -104,7 +104,7 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_Bloodcells</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_CellsFromBlood_v0</iconPath>
 	<displayOrderInCategory>85</displayOrderInCategory>
-	<resourceLossPerDay>0.01</resourceLossPerDay>
+	<resourceLossPerDay>0.08</resourceLossPerDay>
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>-1</biostatMet>
 	<customEffectDescriptions>
@@ -121,7 +121,7 @@
 	</symbolPack>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<nutritionPerBite>0.06</nutritionPerBite>
+			<nutritionPerBite>0.08</nutritionPerBite>
 			<specialFoodDefs>
 			  <li>HemogenPack</li>
 			  <li MayRequire="vanillaracesexpanded.sanguophage">VRE_HemogenPack_Sanguophage</li>
@@ -139,12 +139,12 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_ImplanterFang</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_Reimplanter_Bloodfeeder_v0</iconPath>
 	<displayOrderInCategory>90</displayOrderInCategory>
-	<resourceLossPerDay>-0.02</resourceLossPerDay>
+	<resourceLossPerDay>-0.07</resourceLossPerDay>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>1</biostatMet>
 	<customEffectDescriptions>
-		<li>Using the &lt;color=#8a8ae6&gt;bloodfeed&lt;/color&gt; ability has some chance of &lt;color=#8a8ae6&gt;implanting endogenes&lt;/color&gt; into the target.</li>
+		<li>Using the &lt;color=#8a8ae6&gt;bloodfeed&lt;/color&gt; ability has some chance of &lt;color=#8a8ae6&gt;implanting genes&lt;/color&gt; into the target.</li>
 		<li>The target's &lt;color=#8a8ae6&gt;immunity&lt;/color&gt; directly affects the chance of &lt;color=#8a8ae6&gt;gene implantation&lt;/color&gt;. The higher the immunity, the lower the chance.</li>
 	</customEffectDescriptions>
 	<makeImmuneTo>
@@ -162,7 +162,7 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
 			<reimplantEndogenes>true</reimplantEndogenes>
-			<reimplantXenogenes>false</reimplantXenogenes>
+			<reimplantXenogenes>true</reimplantXenogenes>
 			<reimplantChance>0.03</reimplantChance>
 		</li>
 	</modExtensions>

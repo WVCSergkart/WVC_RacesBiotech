@@ -198,7 +198,7 @@ namespace WVC_XenotypesAndGenes
 
 		// Resurrection
 
-		public static void ResurrectWithSickness(Pawn pawn, ThoughtDef resurrectThought = null)
+		public static bool TryResurrectWithSickness(Pawn pawn, ThoughtDef resurrectThought = null)
 		{
 			ResurrectionParams resurrectionParams = new();
 			resurrectionParams.restoreMissingParts = true;
@@ -216,11 +216,18 @@ namespace WVC_XenotypesAndGenes
 				{
 					pawn.needs?.mood?.thoughts?.memories.TryGainMemory(resurrectThought);
 				}
+				return true;
 			}
 			else
 			{
 				Log.Error("Failed resurrect " + pawn.Name.ToString());
 			}
+			return false;
+		}
+
+		public static void ResurrectWithSickness(Pawn pawn, ThoughtDef resurrectThought = null)
+		{
+			TryResurrectWithSickness(pawn, resurrectThought);
 		}
 
 		// Resource

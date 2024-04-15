@@ -100,13 +100,14 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			if (pawn.Faction != Faction.OfPlayer)
+			// if (!Active || Find.Selector.SelectedPawns.Count != 1 || pawn.Faction != Faction.OfPlayer)
+			// {
+				// yield break;
+			// }
+			if (pawn?.Map != null)
 			{
 				yield break;
 			}
-			// if (MechanitorUtility.IsMechanitor(pawn))
-			// {
-			// }
 			if (gizmo == null)
 			{
 				gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, this);

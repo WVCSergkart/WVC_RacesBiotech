@@ -170,7 +170,6 @@
     <Compile Include="Resources_Gizmo\GeneGizmo_ResurgentCells.cs" />
     <Compile Include="Resources_Genes\Gene_AddOrRemoveHediff.cs" />
     <Compile Include="Resources_Genes\Gene_Ageless.cs" />
-    <Compile Include="Resources_Genes\Gene_ResurgentActive.cs" />
     <Compile Include="Resources_Genes\Gene_ResurgentCells.cs" />
     <Compile Include="Resources_Genes\Gene_Undead.cs" />
     <Compile Include="Resources_Genes\Gene_Faceless.cs" />

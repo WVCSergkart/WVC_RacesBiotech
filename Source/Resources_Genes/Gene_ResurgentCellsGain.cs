@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using Verse;
 
@@ -44,6 +45,26 @@ namespace WVC_XenotypesAndGenes
 			if (Cells != null)
 			{
 				UndeadUtility.OffsetResource(Cells, Props.nutritionPerBite * victim.BodySize * pawn.GetStatValue(StatDefOf.HemogenGainFactor));
+			}
+		}
+
+	}
+
+	public class Gene_ResurgentDependent : Gene
+	{
+
+		[Unsaved(false)]
+		private Gene_ResurgentCells cachedResurgentGene;
+
+		public Gene_ResurgentCells Resurgent
+		{
+			get
+			{
+				if (cachedResurgentGene == null || !cachedResurgentGene.Active)
+				{
+					cachedResurgentGene = pawn.genes.GetFirstGeneOfType<Gene_ResurgentCells>();
+				}
+				return cachedResurgentGene;
 			}
 		}
 

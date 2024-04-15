@@ -49,10 +49,10 @@
 		<!-- = -->
 		<li>WVC_AptitudeShameful_Shooting</li>
 		<li>WVC_AptitudeShameful_Melee</li>
-		<li>WVC_AptitudeMarvelous_Construction</li>
-		<li>WVC_AptitudeMarvelous_Mining</li>
+		<li>AptitudeRemarkable_Construction</li>
+		<li>AptitudeRemarkable_Mining</li>
 		<li>WVC_AptitudeShameful_Cooking</li>
-		<li>WVC_AptitudeMarvelous_Plants</li>
+		<li>AptitudeRemarkable_Plants</li>
 		<li>WVC_AptitudeShameful_Animals</li>
 		<li>WVC_AptitudeShameful_Crafting</li>
 		<li>WVC_AptitudeShameful_Artistic</li>
@@ -222,7 +222,7 @@
 		<li>WVC_AptitudeShameful_Mining</li>
 		<li>WVC_AptitudeShameful_Cooking</li>
 		<li>WVC_AptitudeShameful_Plants</li>
-		<li>WVC_AptitudeMarvelous_Animals</li>
+		<li>WVC_AptitudeFaultless_Animals</li>
 		<li>WVC_AptitudeShameful_Crafting</li>
 		<li>WVC_AptitudeShameful_Artistic</li>
 		<li>WVC_AptitudeShameful_Medicine</li>

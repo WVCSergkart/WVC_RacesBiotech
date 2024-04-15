@@ -107,6 +107,28 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_AnomalyStability : Gene_ResurgentStability
+	{
+
+		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
+		{
+			base.Notify_PawnDied(dinfo, culprit);
+			if (ModsConfig.AnomalyActive && MutantDefOf.Ghoul.allowedDevelopmentalStages == pawn.DevelopmentalStage)
+			{
+				if (UndeadUtility.TryResurrectWithSickness(pawn))
+				{
+					MutantUtility.SetPawnAsMutantInstantly(pawn, MutantDefOf.Ghoul);
+					if (pawn.Map != null)
+					{
+						WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(pawn, pawn.Map).Trigger(pawn, null);
+					}
+					// Find.LetterStack.ReceiveLetter("WVC_XaG_LetterLabelThrallTransformedIntoGhoul".Translate(), "WVC_XaG_LetterDescThrallTransformedIntoGhoul".Translate(pawn), LetterDefOf.NegativeEvent, new LookTargets(pawn));
+				}
+			}
+		}
+
+	}
+
 	public class Gene_GeneticStability : Gene
 	{
 

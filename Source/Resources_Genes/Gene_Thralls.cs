@@ -34,6 +34,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
+			if (pawn?.Map == null)
+			{
+				yield break;
+			}
 			yield return new Command_Action
 			{
 				defaultLabel = def.LabelCap + ": " + (thrallDef != null ? thrallDef.LabelCap.ToString() : "ERR"),

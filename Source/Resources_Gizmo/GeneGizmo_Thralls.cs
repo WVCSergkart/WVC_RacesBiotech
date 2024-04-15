@@ -160,7 +160,7 @@ namespace WVC_XenotypesAndGenes
 
 		public int GetThrallsLimit()
 		{
-			int limit = 0;
+			float limit = 0f;
 			List<Pawn> colonists = mechanitor?.Map?.mapPawns?.SpawnedPawnsInFaction(mechanitor.Faction);
 			// colonists.Shuffle();
 			foreach (Pawn colonist in colonists)
@@ -174,20 +174,24 @@ namespace WVC_XenotypesAndGenes
 				{
 					if (drainGene.CanOffset)
 					{
-						limit += (int)(drainGene.ResourceLossPerDay * -100);
+						// Log.Error("drainGene.ResourceLossPerDay: " + drainGene.ResourceLossPerDay.ToString());
+						// limit += (int)(drainGene.ResourceLossPerDay * -100);
+						limit += drainGene.ResourceLossPerDay * -1;
 					}
 				}
 			}
-			if (limit <= 0)
+			// Log.Error("Limit v0: " + limit.ToString());
+			if (limit <= 0f)
 			{
 				return 0;
 			}
-			limit = (int)(limit / (cellsPerDay > 0f ? cellsPerDay : 0.01f));
-			if (limit >= 1000)
+			limit = (int)((limit / (cellsPerDay > 0f ? cellsPerDay : 0.01f)) * 100);
+			// Log.Error("Limit v1: " + limit.ToString());
+			if (limit >= 1000f)
 			{
 				return 999;
 			}
-			return limit;
+			return (int)limit;
 		}
 
 		public static List<Gene_GeneticThrall> GetAllThralls(Pawn pawn)

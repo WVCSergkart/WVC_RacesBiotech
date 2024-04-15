@@ -59,19 +59,24 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentDependent</geneClass>
 	<selectionWeight>0.0009</selectionWeight>
 	<prerequisite>WVC_ResurgentCells</prerequisite>
-	<marketValueFactor>1.7</marketValueFactor>
+	<marketValueFactor>1.3</marketValueFactor>
 	<minAgeActive>3</minAgeActive>
 	<resourceLossPerDay>0.02</resourceLossPerDay>
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>-3</biostatMet>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells" Name="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCellsGain" Abstract="True">
+	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentCellsGain</geneClass>
+	<resourceLabel>cells</resourceLabel>
+	<resourceLossPerDay>0.02</resourceLossPerDay>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCellsGain">
 	<defName>WVC_ResurgentCells_GeneticStability</defName>
 	<label>resurgent genetic</label>
 	<description>Carriers of this gene have special resurgent cells that protect their genetic code from most influences.</description>
 	<!-- <resourceLabel>resurgent cells</resourceLabel> -->
-	<resourceLabel>cells</resourceLabel>
 	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentStability</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_ResurgentGeneticStability_v0</iconPath>
 	<iconColor>(93, 101, 126)</iconColor>
@@ -103,7 +108,7 @@
 	</modExtensions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCells">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCellsGain">
 	<defName>WVC_ResurgentCellsGain</defName>
 	<label>resurgent fungus</label>
 	<description>Carriers of this gene have a symbiotic resurgent fungus, which improves metabolic efficiency and accumulation of resurgent cells. However, the carriers become passive sources of resurgent spores, which can trigger the emergence of resurgent trees.</description>
@@ -113,7 +118,6 @@
 	<iconPath>WVC/UI/Genes/Gene_ResurgentFungus_v0</iconPath>
 	<iconColor>(93, 101, 126)</iconColor>
 	<!-- <resourceLabel>resurgent cells</resourceLabel> -->
-	<resourceLabel>cells</resourceLabel>
 	<geneClass>WVC_XenotypesAndGenes.Gene_ResurgentFungus</geneClass>
 	<displayOrderInCategory>1232</displayOrderInCategory>
 	<resourceLossPerDay>-0.02</resourceLossPerDay>
@@ -147,6 +151,7 @@
 	<iconPath>WVC/UI/Genes/Gene_ResurgentTotalHealing_v0</iconPath>
 	<displayOrderInCategory>1235</displayOrderInCategory>
 	<preventPermanentWounds>true</preventPermanentWounds>
+	<resourceLabel></resourceLabel>
 	<resourceLossPerDay>0.22</resourceLossPerDay>
 	<biostatCpx>4</biostatCpx>
 	<customEffectDescriptions>
@@ -165,6 +170,7 @@
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>-1</biostatMet>
 	<displayOrderInCategory>1240</displayOrderInCategory>
+	<resourceLabel></resourceLabel>
 	<resourceLossPerDay>0.06</resourceLossPerDay>
 	<customEffectDescriptions>
 		<li>Carriers of the gene always spawn with age within 18.</li>
@@ -192,6 +198,7 @@
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>-1</biostatMet>
 	<displayOrderInCategory>1245</displayOrderInCategory>
+	<resourceLabel></resourceLabel>
 	<resourceLossPerDay>0.01</resourceLossPerDay>
 	<customEffectDescriptions>
 		<li>Treat wounds from time to time.</li>
@@ -214,6 +221,7 @@
 	<biostatMet>2</biostatMet>
 	<displayOrderInCategory>1250</displayOrderInCategory>
 	<!-- <resourceLossPerDay>0.70</resourceLossPerDay> -->
+	<resourceLabel></resourceLabel>
 	<customEffectDescriptions>
 		<li>Bleeding depends on the amount of accumulated resurgent cells.</li>
 		<li>Changes blood filth color to dark blue.</li>
@@ -251,6 +259,7 @@
 	<iconPath>WVC/UI/Genes/Gene_ResurgentStomach_v0</iconPath>
 	<biostatMet>3</biostatMet>
 	<displayOrderInCategory>1252</displayOrderInCategory>
+	<resourceLabel></resourceLabel>
 	<!-- <resourceLossPerDay>0.50</resourceLossPerDay> -->
 	<customEffectDescriptions>
 		<li>Hunger rate factor depends on the amount of accumulated resurgent cells.</li>
@@ -278,6 +287,7 @@
 	<iconColor>(93, 101, 126)</iconColor>
 	<biostatMet>3</biostatMet>
 	<displayOrderInCategory>1254</displayOrderInCategory>
+	<resourceLabel></resourceLabel>
 	<!-- <resourceLossPerDay>0.50</resourceLossPerDay> -->
 	<customEffectDescriptions>
 		<li>Rest fall rate factor depends on the amount of accumulated resurgent cells.</li>
@@ -303,7 +313,6 @@
 	<!-- <iconPath>WVC/UI/Genes/Gene_Psylink_Hemogen_v0</iconPath> -->
 	<!-- <displayOrderInCategory>60</displayOrderInCategory> -->
 	<!-- <minAgeActive>3</minAgeActive> -->
-	<!-- <resourceLabel>cells</resourceLabel> -->
 	<!-- <resourceLossPerDay>0.02</resourceLossPerDay> -->
 	<!-- <biostatCpx>1</biostatCpx> -->
 	<!-- <biostatArc>1</biostatArc> -->
@@ -332,14 +341,15 @@
 
   <!-- ================================================================== -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneResurgent_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_ResurgentCellsGain">
 	<defName>WVC_ResurgentCells_Skeleton</defName>
-	<label>skeleton</label>
+	<label>resurgent skeleton</label>
 	<description>Carriers of this gene have very weak bones.</description>
 	<iconPath>WVC/UI/Genes/Gene_Skeleton_v0</iconPath>
 	<biostatCpx>0</biostatCpx>
 	<biostatMet>6</biostatMet>
 	<displayOrderInCategory>1351</displayOrderInCategory>
+	<resourceLossPerDay>-0.02</resourceLossPerDay>
 	<statFactors>
 	  <IncomingDamageFactor>1.5</IncomingDamageFactor>
 	</statFactors>
@@ -353,11 +363,11 @@
 		<setMax>1.0</setMax>
 	  </li>
 	</capMods>
-	<exclusionTags>
-	  <li>MoveSpeed</li>
-	  <li>Hands</li>
-	  <li>Toughness</li>
-	</exclusionTags>
+	<!-- <exclusionTags> -->
+	  <!-- <li>MoveSpeed</li> -->
+	  <!-- <li>Hands</li> -->
+	  <!-- <li>Toughness</li> -->
+	<!-- </exclusionTags> -->
   </GeneDef>
 
 </Defs>

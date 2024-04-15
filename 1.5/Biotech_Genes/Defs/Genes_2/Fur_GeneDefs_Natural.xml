@@ -294,12 +294,23 @@
 	<statOffsets>
 	  <ComfyTemperatureMin>-6</ComfyTemperatureMin>
 	</statOffsets>
+	<hairTagFilter>
+	  <whitelist>false</whitelist>
+	  <tags>
+		<li>Bald</li>
+		<li>Shaved</li>
+		<li>Balding</li>
+	  </tags>
+	</hairTagFilter>
 	<fur>WVC_SemifurSkin</fur>
 	<tattoosVisible>false</tattoosVisible>
 	<customEffectDescriptions>
 		<li>&lt;color=#ff8585&gt;Disable tattoos.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<missingGeneRomanceChanceFactor>0.80</missingGeneRomanceChanceFactor>
+	<exclusionTags>
+	  <li>HairStyle</li>
+	</exclusionTags>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>cat</symbol></li>
