@@ -188,7 +188,7 @@ namespace WVC_XenotypesAndGenes
 	}
 
 	// Hemogen
-	public class Gene_EternalHunger : Gene_HemogenDrain
+	public class Gene_EternalHunger : Gene_HemogenOffset
 	{
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
@@ -452,7 +452,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Bloodeater : Gene_HemogenDrain
+	public class Gene_Bloodeater : Gene_Bloodfeeder
 	{
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
@@ -533,6 +533,12 @@ namespace WVC_XenotypesAndGenes
 			{
 				FoodUtility.AddFoodPoisoningHediff(pawn, thing, FoodPoisonCause.DangerousFoodType);
 			}
+		}
+
+		public override void Notify_Bloodfeed(Pawn victim)
+		{
+			base.Notify_Bloodfeed(victim);
+			UndeadUtility.OffsetNeedFood(pawn, Props.nutritionPerBite * victim.BodySize * pawn.GetStatValue(StatDefOf.RawNutritionFactor) * pawn.GetStatValue(StatDefOf.HemogenGainFactor));
 		}
 
 	}

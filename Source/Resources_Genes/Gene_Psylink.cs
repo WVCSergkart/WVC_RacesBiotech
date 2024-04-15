@@ -84,7 +84,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_HemogenDrain_Psylink : Gene_HemogenDrain
+	public class Gene_HemogenDrain_Psylink : Gene_HemogenOffset
 	{
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();

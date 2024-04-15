@@ -5,19 +5,65 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
+	public class Gene_Bloodcells : Gene_Bloodfeeder
+	{
+
+		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
+
+		[Unsaved(false)]
+		private Gene_ResurgentCells cachedHemogenGene;
+
+		public Gene_ResurgentCells Cells
+		{
+			get
+			{
+				if (cachedHemogenGene == null || !cachedHemogenGene.Active)
+				{
+					cachedHemogenGene = pawn?.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
+				}
+				return cachedHemogenGene;
+			}
+		}
+
+		public override void Notify_IngestedThing(Thing thing, int numTaken)
+		{
+			if (Props.specialFoodDefs.Contains(thing.def) && Cells != null)
+			{
+				IngestibleProperties ingestible = thing.def.ingestible;
+				float nutrition = thing.GetStatValue(StatDefOf.Nutrition);
+				if (ingestible != null && nutrition > 0f)
+				{
+					UndeadUtility.OffsetResource(Cells, nutrition);
+				}
+			}
+		}
+
+		public override void Notify_Bloodfeed(Pawn victim)
+		{
+			base.Notify_Bloodfeed(victim);
+			if (Cells != null)
+			{
+				UndeadUtility.OffsetResource(Cells, Props.nutritionPerBite * victim.BodySize * pawn.GetStatValue(StatDefOf.HemogenGainFactor));
+			}
+		}
+
+	}
+
 	public class Gene_ResurgentCellsGain : Gene, IGeneResourceDrain
 	{
 
 		[Unsaved(false)]
 		private Gene_ResurgentCells cachedHemogenGene;
 
-		public Gene_Resource Resource
+		public Gene_Resource Resource => Cells;
+
+		public Gene_ResurgentCells Cells
 		{
 			get
 			{
 				if (cachedHemogenGene == null || !cachedHemogenGene.Active)
 				{
-					cachedHemogenGene = pawn.genes.GetFirstGeneOfType<Gene_ResurgentCells>();
+					cachedHemogenGene = pawn?.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
 				}
 				return cachedHemogenGene;
 			}
@@ -28,11 +74,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				if (Active)
-				{
-					return true;
-				}
-				return false;
+				return Cells?.CanOffset == true;
 			}
 		}
 

@@ -196,7 +196,7 @@
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive">
 		<gender>Female</gender>
 		<eachOfGenes>
-		  <li>WVC_Dustogenic</li>
+		  <!-- <li>WVC_Dustogenic</li> -->
 		  <li>WVC_Dustogenic_ImmaculateConception</li>
 		</eachOfGenes>
 	  </li>

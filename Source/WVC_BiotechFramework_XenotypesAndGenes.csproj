@@ -86,6 +86,7 @@
     <Compile Include="Resources_Genes\Gene_Shapeshifter.cs" />
     <Compile Include="Resources_Genes\Gene_Telepathy.cs" />
     <Compile Include="Resources_Genes\Gene_Thralls.cs" />
+    <Compile Include="Resources_Genes\Gene_Hemogen.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ChangeXenotype.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ChooseXenotype.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Reimplanter.cs" />

@@ -168,6 +168,8 @@ namespace WVC_XenotypesAndGenes
 		public string tipSectionTip = "WVC_XaG_GolemBandwidthGizmoTip";
 		public int golemistTypeIndex = -1;
 		public QuestScriptDef summonQuest;
+		// Bloodeater
+		public float nutritionPerBite = 0.8f;
 	}
 
 	// public class GeneExtension_Shapeshifter : DefModExtension
