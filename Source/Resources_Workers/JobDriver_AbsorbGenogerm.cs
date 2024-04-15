@@ -76,22 +76,17 @@ namespace WVC_XenotypesAndGenes
 			yield return toil;
 			yield return Toils_General.Do(delegate
 			{
-				if (jobExtension.warmupStartSound != null)
+				if (ReimplanterUtility.TryReimplant(Target, pawn, jobExtension.reimplantEndogenes, jobExtension.reimplantXenogenes))
 				{
-					jobExtension.warmupStartSound.PlayOneShot(new TargetInfo(pawn.Position, pawn.Map));
+					if (jobExtension.warmupStartSound != null)
+					{
+						jobExtension.warmupStartSound.PlayOneShot(new TargetInfo(pawn.Position, pawn.Map));
+					}
+					if (Target.HomeFaction != null && pawn.Faction == Faction.OfPlayer)
+					{
+						Faction.OfPlayer.TryAffectGoodwillWith(Target.HomeFaction, -50, canSendMessage: true, !Target.HomeFaction.temporary, HistoryEventDefOf.AbsorbedXenogerm);
+					}
 				}
-				if (Target.HomeFaction != null && pawn.Faction == Faction.OfPlayer)
-				{
-					Faction.OfPlayer.TryAffectGoodwillWith(Target.HomeFaction, -50, canSendMessage: true, !Target.HomeFaction.temporary, HistoryEventDefOf.AbsorbedXenogerm);
-				}
-				QuestUtility.SendQuestTargetSignals(Target.questTags, "XenogermAbsorbed", Target.Named("SUBJECT"));
-				ReimplanterUtility.Reimplanter(Target, pawn, jobExtension.reimplantEndogenes, jobExtension.reimplantXenogenes);
-				// if (PawnUtility.ShouldSendNotificationAbout(pawn))
-				// {
-					// int max = HediffDefOf.XenogerminationComa.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.max;
-					// int max2 = HediffDefOf.XenogermLossShock.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.max;
-					// Find.LetterStack.ReceiveLetter("LetterLabelGenesImplanted".Translate(), "LetterTextGenesImplanted".Translate(Target.Named("CASTER"), pawn.Named("TARGET"), max.ToStringTicksToPeriod().Named("COMADURATION"), max2.ToStringTicksToPeriod().Named("SHOCKDURATION")), LetterDefOf.NeutralEvent, new LookTargets(pawn));
-				// }
 			});
 		}
 

@@ -10,6 +10,13 @@
 	  </value>
 	</Operation>
 
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/GeneDef[defName="PerfectImmunity"]/makeImmuneTo</xpath>
+	  <value>
+		<li>WVC_XaG_ImplanterFangsMark</li>
+	  </value>
+	</Operation>
+
 	<!-- Patch for special food for dustogenics -->
 
 	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">

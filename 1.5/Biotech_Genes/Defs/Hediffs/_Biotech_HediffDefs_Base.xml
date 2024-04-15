@@ -198,4 +198,24 @@
 	</comps>
   </HediffDef>
 
+  <!-- ================== -->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_XaG_ImplanterFangsMark</defName>
+	<label>implanter fangs mark</label>
+	<labelNoun>a implanter fangs mark</labelNoun>
+	<description>Two small puncture wounds.</description>
+	<tendable>false</tendable>
+	<stages>
+	  <li>
+		<painOffset>0.0125</painOffset>
+	  </li>
+	</stages>
+	<comps>
+	  <li Class="HediffCompProperties_Disappears">
+		<disappearsAfterTicks>15000~45000</disappearsAfterTicks><!-- 6-18 hours -->
+	  </li>
+	</comps>
+  </HediffDef>
+
 </Defs>

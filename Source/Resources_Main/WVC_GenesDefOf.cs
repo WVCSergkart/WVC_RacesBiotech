@@ -53,6 +53,7 @@ namespace WVC_XenotypesAndGenes
 		// public static HediffDef WVC_SelfPopulationRegulation_Golems;
 		// public static HediffDef WVC_SelfPopulationRegulation_BoneGolems;
 		public static HediffDef WVC_Resurgent_UndeadResurrectionRecovery;
+		public static HediffDef WVC_XaG_ImplanterFangsMark;
 		// Supported Xenotypes List
 		public static ConceptDef WVC_XenotypeSerums_SupportedXenotypesList;
 		// Random Mechanoids Summon

@@ -41,11 +41,13 @@ namespace WVC_XenotypesAndGenes
 
 		public static void ReimplantGenes(Pawn caster, Pawn recipient)
 		{
-			ReimplanterUtility.Reimplanter(caster, recipient);
-			if (PawnUtility.ShouldSendNotificationAbout(recipient))
+			if (ReimplanterUtility.TryReimplant(caster, recipient))
 			{
-				int max = HediffDefOf.XenogerminationComa.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.max;
-				Find.LetterStack.ReceiveLetter("LetterLabelGenesImplanted".Translate(), "WVC_LetterTextGenesImplanted".Translate(recipient.Named("TARGET"), max.ToStringTicksToPeriod().Named("COMADURATION")), LetterDefOf.NeutralEvent, new LookTargets(recipient));
+				if (PawnUtility.ShouldSendNotificationAbout(recipient))
+				{
+					int max = HediffDefOf.XenogerminationComa.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.max;
+					Find.LetterStack.ReceiveLetter("LetterLabelGenesImplanted".Translate(), "WVC_LetterTextGenesImplanted".Translate(recipient.Named("TARGET"), max.ToStringTicksToPeriod().Named("COMADURATION")), LetterDefOf.NeutralEvent, new LookTargets(recipient));
+				}
 			}
 		}
 

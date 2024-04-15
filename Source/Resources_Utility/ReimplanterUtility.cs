@@ -9,38 +9,40 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-    public static class ReimplanterUtility
+	public static class ReimplanterUtility
 	{
 
-		public static void Reimplanter(Pawn caster, Pawn recipient, bool endogenes = true, bool xenogenes = true)
+		public static bool TryReimplant(Pawn caster, Pawn recipient, bool endogenes = true, bool xenogenes = true)
 		{
-			if (!ModLister.CheckBiotech("xenogerm reimplantation"))
+			if (!recipient.IsHuman() || !caster.IsHuman())
 			{
-				return;
+				return false;
 			}
 			QuestUtility.SendQuestTargetSignals(caster.questTags, "XenogermReimplanted", caster.Named("SUBJECT"));
-			// ReimplanterUtility.ReimplantGenesBase(caster, recipient);
 			ReimplanterUtility.ReimplantGenesHybrid(caster, recipient, endogenes, xenogenes);
-			// GeneUtility.ExtractXenogerm(caster);
 			ExtractXenogerm(caster);
+			return true;
+		}
+
+		[Obsolete]
+		public static void Reimplanter(Pawn caster, Pawn recipient, bool endogenes = true, bool xenogenes = true)
+		{
+			TryReimplant(caster, recipient, endogenes, xenogenes);
 		}
 
 		public static void ExtractXenogerm(Pawn pawn, int overrideDurationTicks = -1)
 		{
-			if (ModLister.CheckBiotech("xenogerm extraction"))
+			pawn.health.AddHediff(HediffDefOf.XenogermLossShock);
+			if (GeneUtility.PawnWouldDieFromReimplanting(pawn))
 			{
-				pawn.health.AddHediff(HediffDefOf.XenogermLossShock);
-				if (GeneUtility.PawnWouldDieFromReimplanting(pawn))
-				{
-					SetXenotype(pawn, XenotypeDefOf.Baseliner);
-				}
-				Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.XenogermReplicating, pawn);
-				if (overrideDurationTicks > 0)
-				{
-					hediff.TryGetComp<HediffComp_Disappears>().ticksToDisappear = overrideDurationTicks;
-				}
-				pawn.health.AddHediff(hediff);
+				SetXenotype(pawn, XenotypeDefOf.Baseliner);
 			}
+			Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.XenogermReplicating, pawn);
+			if (overrideDurationTicks > 0)
+			{
+				hediff.TryGetComp<HediffComp_Disappears>().ticksToDisappear = overrideDurationTicks;
+			}
+			pawn.health.AddHediff(hediff);
 		}
 
 		public static void SetXenotypeDirect(Pawn caster, Pawn recipient, XenotypeDef xenotypeDef = null, bool changeXenotype = true)

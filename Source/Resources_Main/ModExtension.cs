@@ -120,6 +120,8 @@ namespace WVC_XenotypesAndGenes
 		public RulePackDef genepackNamer;
 		public bool supportMutants = true;
 		public List<MutantDef> supportedMutantDefs;
+		// implanter
+		public float reimplantChance = 0.02f;
 	}
 
 	public class GeneExtension_Graphic : DefModExtension

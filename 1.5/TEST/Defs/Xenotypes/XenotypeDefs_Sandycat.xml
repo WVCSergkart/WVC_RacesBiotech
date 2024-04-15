@@ -32,6 +32,7 @@
 		<li>Bloodfeeder</li>
 		<li>WVC_Bloodeater</li>
 		<li>WVC_Bloodcells</li>
+		<li>WVC_ImplanterFangs</li>
 		<li>WVC_NaturalAgeless</li>
 		<li>LongjumpLegs</li>
 		<li>PiercingSpine</li>
@@ -44,12 +45,13 @@
 		<!-- <li>AnimalWarcall</li> -->
 		<!-- lich -->
 		<li>WVC_ResurgentCells</li>
-		<li>WVC_ReimplanterArchite_RiseEndogenes</li>
+		<!-- <li>WVC_ReimplanterArchite_RiseEndogenes</li> -->
 		<!-- <li>WVC_ArchiteTelepathy</li> -->
 		<!-- <li>WVC_NeverDead</li> -->
 		<li>Deathless</li>
 		<li>WVC_ReimplanterThrallMaker</li>
 		<li>WVC_Delicate</li>
+		<li>WVC_AgeDebuff_Sterile</li>
 		<!-- Sandy -->
 		<li>MaxTemp_LargeIncrease</li>
 		<li>WVC_MinTemp_LargeIncrease</li>
