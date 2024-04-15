@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Ghoulskin -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_GhoulSkin</defName>
+	<label>ghoulskin</label>
+	<description>Carriers of this gene have a withered, corpse-like body.</description>
+	<iconPath>WVC/UI/Genes/Gene_GhoulSkin_v0</iconPath>
+	<forcedHeadTypes>
+	  <!-- <li>WVC_Ghoul_Normal</li> -->
+	  <!-- <li>WVC_Ghoul_Narrow</li> -->
+	  <!-- <li>WVC_Ghoul_Heavy</li> -->
+	  <!-- <li>WVC_Ghoul_Wide</li> -->
+	  <li>Ghoul_Normal</li>
+	  <li>Ghoul_Heavy</li>
+	  <li>Ghoul_Narrow</li>
+	  <li MayRequire="Ludeon.RimWorld.Biotech">Ghoul_Wide</li>
+	</forcedHeadTypes>
+	<!-- <biostatCpx>1</biostatCpx> -->
+	<!-- <biostatMet>0</biostatMet> -->
+	<statFactors>
+	  <MeatAmount>0.8</MeatAmount>
+	</statFactors>
+	<!-- <statOffsets> -->
+	  <!-- <PawnBeauty>-1</PawnBeauty> -->
+	<!-- </statOffsets> -->
+	<fur>WVC_GhoulSkin</fur>
+	<missingGeneRomanceChanceFactor>0.40</missingGeneRomanceChanceFactor>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>ghoul</symbol></li>
+		<li><symbol>dead</symbol></li>
+		<li><symbol>zombie</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>

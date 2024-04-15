@@ -34,10 +34,10 @@ namespace WVC_XenotypesAndGenes
 
 		// Misc
 
-		public static bool IsBloodeater(this Pawn pawn)
-		{
-			return pawn?.genes?.GetFirstGeneOfType<Gene_Bloodeater>() != null;
-		}
+		// public static bool IsBloodeater(this Pawn pawn)
+		// {
+			// return pawn?.genes?.GetFirstGeneOfType<Gene_Bloodeater>() != null;
+		// }
 
 		public static List<GeneDef> ConvertGenesInGeneDefs(List<Gene> genes)
 		{

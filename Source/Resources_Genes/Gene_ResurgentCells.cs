@@ -29,6 +29,51 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		// ===========================
+
+		[Unsaved(false)]
+		private Gene_ResurgentTotalHealing cachedResurgentTotalHealing;
+		[Unsaved(false)]
+		private Gene_ResurgentClotting cachedResurgentClotting;
+		[Unsaved(false)]
+		private Gene_ResurgentAgeless cachedResurgentAgeless;
+
+		public Gene_ResurgentTotalHealing ResurgentTotalHealing
+		{
+			get
+			{
+				if (cachedResurgentTotalHealing == null || !cachedResurgentTotalHealing.Active)
+				{
+					cachedResurgentTotalHealing = pawn?.genes?.GetFirstGeneOfType<Gene_ResurgentTotalHealing>();
+				}
+				return cachedResurgentTotalHealing;
+			}
+		}
+		public Gene_ResurgentClotting ResurgentClotting
+		{
+			get
+			{
+				if (cachedResurgentClotting == null || !cachedResurgentClotting.Active)
+				{
+					cachedResurgentClotting = pawn?.genes?.GetFirstGeneOfType<Gene_ResurgentClotting>();
+				}
+				return cachedResurgentClotting;
+			}
+		}
+		public Gene_ResurgentAgeless ResurgentAgeless
+		{
+			get
+			{
+				if (cachedResurgentAgeless == null || !cachedResurgentAgeless.Active)
+				{
+					cachedResurgentAgeless = pawn?.genes?.GetFirstGeneOfType<Gene_ResurgentAgeless>();
+				}
+				return cachedResurgentAgeless;
+			}
+		}
+
+		// ===========================
+
 		public string DisplayLabel => Label + " (" + "Gene".Translate() + ")";
 
 		public float ResourceLossPerDay => def.resourceLossPerDay;
@@ -88,7 +133,10 @@ namespace WVC_XenotypesAndGenes
 		public override void Tick()
 		{
 			base.Tick();
-			UndeadUtility.TickResourceDrain(this);
+			if (pawn.IsHashIntervalTick(120))
+			{
+				UndeadUtility.TickResourceDrain(this, 120);
+			}
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()

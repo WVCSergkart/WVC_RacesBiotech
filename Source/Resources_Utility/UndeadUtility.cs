@@ -233,11 +233,11 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// ResourceUtility
-		public static void TickResourceDrain(IGeneResourceDrain drain)
+		public static void TickResourceDrain(IGeneResourceDrain drain, int tick = 1)
 		{
-			if (drain.CanOffset && drain.Resource != null)
+			if (drain?.Resource != null && drain.CanOffset)
 			{
-				OffsetResource(drain, (0f - drain.ResourceLossPerDay) / 60000f);
+				OffsetResource(drain, ((0f - drain.ResourceLossPerDay) / 60000f) * tick);
 			}
 		}
 

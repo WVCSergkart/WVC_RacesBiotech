@@ -7,6 +7,7 @@ namespace WVC_XenotypesAndGenes
 
 	public class Gene_ResurgentCellsGain : Gene, IGeneResourceDrain
 	{
+
 		[Unsaved(false)]
 		private Gene_ResurgentCells cachedHemogenGene;
 
@@ -44,7 +45,11 @@ namespace WVC_XenotypesAndGenes
 		public override void Tick()
 		{
 			base.Tick();
-			UndeadUtility.TickResourceDrain(this);
+			if (pawn.IsHashIntervalTick(120))
+			{
+				UndeadUtility.TickResourceDrain(this, 120);
+			}
+			// UndeadUtility.TickResourceDrain(this);
 		}
 
 	}

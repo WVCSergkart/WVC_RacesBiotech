@@ -28,6 +28,7 @@
 		<li>WVC_TransparentSkin</li>
 		<li>WVC_GauntSkin</li>
 		<li>WVC_SemifurSkin</li>
+		<li>WVC_GhoulSkin</li>
 	  </value>
 	</Operation>
 
@@ -44,13 +45,32 @@
 		<description>Carriers of this gene have archites that strongly instabilize genetic integrity and lead to a number of mutations that can lead to critical consequences. To stabilize, archites require a neural cellular resource called resurgent cells, which can be obtained from the fresh blood of resurgent pawns.\n\nDue to their strong sensitivity to dark psychic influences, archites slowly transform the owner into a mindless, eerie creature and instabilization will make these changes permanent.</description>
 	  </value>
 	</Operation>
-
 	<Operation Class="PatchOperationReplace">
 	  <xpath>/Defs/GeneDef[defName="WVC_Thrall"]/customEffectDescriptions</xpath>
 	  <value>
 		<customEffectDescriptions Inherit="False">
 		  <li>Carrier must regularly cellsfeed on &lt;color=#8a8ae6&gt;resurgent&lt;/color&gt; pawns or it &lt;color=#ff8585&gt;will transform into a ghoul&lt;/color&gt;.</li>
 		</customEffectDescriptions>
+	  </value>
+	</Operation>
+
+	<!-- <Operation Class="PatchOperationReplace"> -->
+	  <!-- <xpath>/Defs/WVC_XenotypesAndGenes.ThrallDef[@Name="WVC_XenotypesAndGenes_ThrallDefs_Undead"]/genes/li[contains(text(),'WVC_GauntSkin')]</xpath> -->
+	  <!-- <value> -->
+		<!-- <li>WVC_GhoulSkin</li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/XenotypeDef[defName="WVC_Resurgent"]/removeGenes</xpath>
+	  <value>
+		<li>WVC_PatchSkin</li>
+	  </value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/XenotypeDef[defName="WVC_Resurgent"]/endogenes</xpath>
+	  <value>
+		<li>WVC_GhoulSkin</li>
 	  </value>
 	</Operation>
 

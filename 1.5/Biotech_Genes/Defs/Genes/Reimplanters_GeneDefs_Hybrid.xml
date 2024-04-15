@@ -169,8 +169,8 @@
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive">
 		<eachOfGenes>
-		  <li>WVC_Dustogenic</li>
-		  <li>WVC_Dustogenic_GeneticStability</li>
+		  <!-- <li>WVC_Dustogenic</li> -->
+		  <!-- <li>WVC_Dustogenic_GeneticStability</li> -->
 		  <li>WVC_Hands_Angel</li>
 		</eachOfGenes>
 	  </li>

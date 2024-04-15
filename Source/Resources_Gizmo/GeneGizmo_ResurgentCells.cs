@@ -21,16 +21,19 @@ namespace WVC_XenotypesAndGenes
 
 		protected override string BarLabel => $"{gene.ValueForDisplay}" + "%";
 
-		public Gene_ResurgentTotalHealing totalHealingGene;
-		public Gene_ResurgentAgeless ageReversionGene;
-		public Gene_ResurgentClotting woundClottingGene;
+		public Gene_ResurgentTotalHealing totalHealingGene = null;
+		public Gene_ResurgentAgeless ageReversionGene = null;
+		public Gene_ResurgentClotting woundClottingGene = null;
 
 		public GeneGizmo_ResourceResurgentCells(Gene_Resource gene, List<IGeneResourceDrain> drainGenes, Color barColor, Color barhighlightColor)
 			: base(gene, drainGenes, barColor, barhighlightColor)
 		{
-			ageReversionGene = gene?.pawn?.genes?.GetFirstGeneOfType<Gene_ResurgentAgeless>();
-			woundClottingGene = gene?.pawn?.genes?.GetFirstGeneOfType<Gene_ResurgentClotting>();
-			totalHealingGene = gene?.pawn?.genes?.GetFirstGeneOfType<Gene_ResurgentTotalHealing>();
+			if (gene is Gene_ResurgentCells cells)
+			{
+				ageReversionGene = cells?.ResurgentAgeless;
+				woundClottingGene = cells?.ResurgentClotting;
+				totalHealingGene = cells?.ResurgentTotalHealing;
+			}
 		}
 
 		public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)

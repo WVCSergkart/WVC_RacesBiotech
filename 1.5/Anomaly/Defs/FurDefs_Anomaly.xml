@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
+	<defName>WVC_GhoulSkin</defName>
+	<bodyTypeGraphicPaths>
+	  <Male>Things/Pawn/Ghoul/Bodies/Ghoulskin_Male</Male>
+	  <Female>Things/Pawn/Ghoul/Bodies/Ghoulskin_Female</Female>
+	  <Hulk>Things/Pawn/Ghoul/Bodies/Ghoulskin_Hulk</Hulk>
+	  <Fat>Things/Pawn/Ghoul/Bodies/Ghoulskin_Fat</Fat>
+	  <Thin>Things/Pawn/Ghoul/Bodies/Ghoulskin_Thin</Thin>
+	</bodyTypeGraphicPaths>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<furIsSkin>true</furIsSkin>
+		</li>
+	</modExtensions>
+  </FurDef>
+
+  <!-- <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base"> -->
+	<!-- <defName>WVC_CultSkin</defName> -->
+	<!-- <bodyTypeGraphicPaths> -->
+	  <!-- <Male>Things/Pawn/Humanlike/Bodies/CultEscapee_Male</Male> -->
+	  <!-- <Female>Things/Pawn/Humanlike/Bodies/CultEscapee_Female</Female> -->
+	  <!-- <Hulk>Things/Pawn/Humanlike/Bodies/CultEscapee_Hulk</Hulk> -->
+	  <!-- <Fat>Things/Pawn/Humanlike/Bodies/CultEscapee_Fat</Fat> -->
+	  <!-- <Thin>Things/Pawn/Humanlike/Bodies/CultEscapee_Thin</Thin> -->
+	<!-- </bodyTypeGraphicPaths> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic"> -->
+			<!-- <furIsSkin>true</furIsSkin> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </FurDef> -->
+
+</Defs>
