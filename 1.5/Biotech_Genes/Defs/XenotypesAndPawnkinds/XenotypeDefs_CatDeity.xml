@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" MayRequire="ludeon.rimworld.royalty">
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" MayRequire="ludeon.rimworld.royalty" WVC_XaG_XenotypeRemoveTag="Psycasters">
 	<defName>WVC_CatDeity</defName>
 	<label>deadcat</label>
 	<description>Deadcats are ageless, partially immortal, psy-gifted super-humans powered by archotech-created archites in the bloodstream. They can communicate with the power of thought, learn the skills of exploring the memories of others, and they don't need food at all. However, they completely lack immunity, do not regenerate wounds, and due to genetic instability, they can die at any time. They are dependent and cannot safely survive alone, and although death is only a temporary difficulty for them, without techs and the help of others they are weak and useless.

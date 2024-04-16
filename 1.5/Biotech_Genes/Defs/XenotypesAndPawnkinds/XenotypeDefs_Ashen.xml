@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <XenotypeDef ParentName="WVC_XenotypesAndGenes_UndeadSubXenotypes_Base" MayRequire="ludeon.rimworld.ideology" Class="WVC_XenotypesAndGenes.SubXenotypeDef">
+  <XenotypeDef ParentName="WVC_XenotypesAndGenes_UndeadSubXenotypes_Base" MayRequire="ludeon.rimworld.ideology" Class="WVC_XenotypesAndGenes.SubXenotypeDef" WVC_XaG_XenotypeRemoveTag="Undeads">
 	<defName>WVC_Ashen</defName>
 	<label>ashen</label>
 	<!-- Experiments, shapeshift, mysterious origin -->

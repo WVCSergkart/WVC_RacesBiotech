@@ -2,7 +2,7 @@
 <Defs>
 
   <!-- undead -->
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" Class="WVC_XenotypesAndGenes.EvotypeDef">
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" Class="WVC_XenotypesAndGenes.EvotypeDef" WVC_XaG_XenotypeRemoveTag="Undeads">
 	<defName>WVC_Undead</defName>
 	<!-- undead necrokind necrokin necromantic -->
 	<label>undead</label>

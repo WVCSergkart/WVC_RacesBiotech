@@ -2,7 +2,7 @@
 <Defs>
 
   <!-- blank -->
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base">
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="Mechalike">
 	<defName>WVC_Blank</defName>
 	<label>blankind</label>
 	<!-- Experiments, garbage, template, by-product. -->

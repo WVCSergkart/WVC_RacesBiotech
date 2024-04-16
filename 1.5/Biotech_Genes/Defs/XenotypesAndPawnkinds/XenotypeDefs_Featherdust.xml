@@ -2,7 +2,7 @@
 <Defs>
 
   <!-- featherdust -->
-  <XenotypeDef ParentName="WVC_XenotypesAndGenes_UndeadSubXenotypes_Base" Class="WVC_XenotypesAndGenes.SubXenotypeDef">
+  <XenotypeDef ParentName="WVC_XenotypesAndGenes_UndeadSubXenotypes_Base" Class="WVC_XenotypesAndGenes.SubXenotypeDef" WVC_XaG_XenotypeRemoveTag="Undeads">
 	<defName>WVC_Featherdust</defName>
 	<!-- undead necrokind necrokin necromantic -->
 	<label>featherdust</label>

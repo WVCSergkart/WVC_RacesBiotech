@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <RitualAttachableOutcomeEffectDef>
+  <RitualAttachableOutcomeEffectDef WVC_XaG_XenotypeRemoveTag="General">
 	<defName>WVC_ShapeshifterRecruit</defName>
 	<label>shapeshifter recruit</label>
 	<effectDesc>70% chance of shapeshifter recruit of the same ideoligion joining your colony.</effectDesc>
@@ -26,7 +26,7 @@
 	</modExtensions>
   </RitualAttachableOutcomeEffectDef>
 
-  <RitualAttachableOutcomeEffectDef>
+  <RitualAttachableOutcomeEffectDef WVC_XaG_XenotypeRemoveTag="General">
 	<defName>WVC_UndeadRecruit</defName>
 	<label>undead recruit</label>
 	<effectDesc>60% chance of undead recruit of the same ideoligion joining your colony.</effectDesc>
@@ -55,7 +55,7 @@
 	</modExtensions>
   </RitualAttachableOutcomeEffectDef>
 
-  <RitualAttachableOutcomeEffectDef>
+  <RitualAttachableOutcomeEffectDef WVC_XaG_XenotypeRemoveTag="General">
 	<defName>WVC_BlankindRecruit</defName>
 	<label>subject recruit</label>
 	<effectDesc>100% chance of blankind, lilif or deadcat recruit of the same ideoligion joining your colony.</effectDesc>

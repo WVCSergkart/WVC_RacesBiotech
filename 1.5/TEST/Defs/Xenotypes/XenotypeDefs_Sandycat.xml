@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_TEST">
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_TEST" WVC_XaG_XenotypeRemoveTag="Bloodeaters">
 	<defName>WVC_Sandycat</defName>
 	<label>sandycat</label>
 	<!-- <description>TEST</description> -->

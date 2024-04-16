@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" MayRequire="ludeon.rimworld.royalty">
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" MayRequire="ludeon.rimworld.royalty" WVC_XaG_XenotypeRemoveTag="Psycasters">
 	<defName>WVC_Lilith</defName>
 	<!-- harvkinX bloodkinX feedkindX demobloodX bloodversterX lilif? -->
 	<label>lilif</label>

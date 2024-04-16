@@ -2,7 +2,7 @@
 <Defs>
 
   <!-- throwex -->
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base">
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="Mechalike">
 	<defName>WVC_GeneThrower</defName>
 	<label>throwex</label>
 	<!-- Experiments with archites, side effect, unplanned strengths and weaknesses -->

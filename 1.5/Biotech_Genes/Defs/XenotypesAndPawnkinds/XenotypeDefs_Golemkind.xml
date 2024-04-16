@@ -2,7 +2,7 @@
 <Defs>
 
   <!-- golemkind -->
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base">
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="GolemMasters">
 	<defName>WVC_Golemkind</defName>
 	<label>golemkind</label>
 	<!-- Modification, side effect, enhanced features -->

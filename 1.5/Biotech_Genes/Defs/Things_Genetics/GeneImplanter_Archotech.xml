@@ -64,7 +64,7 @@
 
   <!-- =========== -->
 
-  <ThingDef ParentName="WVC_XenotypeSerum_ArchotechNonCraftable">
+  <ThingDef ParentName="WVC_XenotypeSerum_ArchotechNonCraftable" WVC_XaG_XenotypeRemoveTag="General">
 	<defName>WVC_SubXenotypeSerum_Undead</defName>
 	<label>sub-xenotype serum</label>
 	<description>A one-use super-dose of mechanites tuned to change the user's xenotype. After using the serum, the user will fall into a two-day coma.

@@ -71,6 +71,13 @@ namespace WVC_XenotypesAndGenes
 		// Reincarnation
 		public bool reincarnation_EnableMechanic = true;
 		public float reincarnation_MinChronoAge = 200f;
+		// Xenotypes
+		public bool disableXenotypes_MainSwitch = false;
+		public bool disableXenotypes_Undeads = false;
+		public bool disableXenotypes_Psycasters = false;
+		public bool disableXenotypes_Mechalike = false;
+		public bool disableXenotypes_GolemMasters = false;
+		public bool disableXenotypes_Bloodeaters = false;
 
 		public IEnumerable<string> GetEnabledSettings => from specificSetting in GetType().GetFields()
 														 where specificSetting.FieldType == typeof(bool) && (bool)specificSetting.GetValue(this)
@@ -138,6 +145,13 @@ namespace WVC_XenotypesAndGenes
 			// Reincarnation
 			Scribe_Values.Look(ref reincarnation_EnableMechanic, "reincarnation_EnableMechanic", defaultValue: true);
 			Scribe_Values.Look(ref reincarnation_MinChronoAge, "reincarnation_MinChronoAge", defaultValue: 200f);
+			// Reincarnation
+			Scribe_Values.Look(ref disableXenotypes_MainSwitch, "disableXenotypes_MainSwitch", defaultValue: false);
+			Scribe_Values.Look(ref disableXenotypes_Undeads, "disableXenotypes_Undeads", defaultValue: false);
+			Scribe_Values.Look(ref disableXenotypes_Psycasters, "disableXenotypes_Psycasters", defaultValue: false);
+			Scribe_Values.Look(ref disableXenotypes_Mechalike, "disableXenotypes_Mechalike", defaultValue: false);
+			Scribe_Values.Look(ref disableXenotypes_GolemMasters, "disableXenotypes_GolemMasters", defaultValue: false);
+			Scribe_Values.Look(ref disableXenotypes_Bloodeaters, "disableXenotypes_Bloodeaters", defaultValue: false);
 			// End
 			Scribe_Collections.Look(ref WVC_Biotech.cachedXenotypesFilter, "cachedXenotypesFilter", LookMode.Value, LookMode.Value);
 		}
@@ -175,21 +189,26 @@ namespace WVC_XenotypesAndGenes
 					PageIndex = 0;
 					WriteSettings();
 				}, PageIndex == 0),
-				new TabRecord("WVC_BiotechSettings_Tab_XenotypesFilter".Translate(), delegate
+				new TabRecord("WVC_BiotechSettings_Label_Genes".Translate(), delegate
 				{
 					PageIndex = 1;
 					WriteSettings();
 				}, PageIndex == 1),
-				new TabRecord("WVC_BiotechSettings_Tab_ExtraSettings".Translate(), delegate
+				new TabRecord("WVC_BiotechSettings_Tab_XenotypesSettings".Translate(), delegate
 				{
 					PageIndex = 2;
 					WriteSettings();
 				}, PageIndex == 2),
-				new TabRecord("WVC_BiotechSettings_Label_Genes".Translate(), delegate
+				new TabRecord("WVC_BiotechSettings_Tab_XenotypesFilter".Translate(), delegate
 				{
 					PageIndex = 3;
 					WriteSettings();
-				}, PageIndex == 3)
+				}, PageIndex == 3),
+				new TabRecord("WVC_BiotechSettings_Tab_ExtraSettings".Translate(), delegate
+				{
+					PageIndex = 4;
+					WriteSettings();
+				}, PageIndex == 4)
 			};
 			TabDrawer.DrawTabs(rect, tabs);
 			switch (PageIndex)
@@ -198,13 +217,16 @@ namespace WVC_XenotypesAndGenes
 					GeneralSettings(rect.ContractedBy(15f));
 					break;
 				case 1:
-					XenotypeFilterSettings(rect.ContractedBy(15f));
+					GenesSettings(rect.ContractedBy(15f));
 					break;
 				case 2:
-					ExtraSettings(rect.ContractedBy(15f));
+					XenotypesSettings(rect.ContractedBy(15f));
 					break;
 				case 3:
-					GenesSettings(rect.ContractedBy(15f));
+					XenotypeFilterSettings(rect.ContractedBy(15f));
+					break;
+				case 4:
+					ExtraSettings(rect.ContractedBy(15f));
 					break;
 			}
 		}
@@ -606,6 +628,49 @@ namespace WVC_XenotypesAndGenes
 			Widgets.EndScrollView();
 		}
 
+		// Xenotypes Settings
+		// Xenotypes Settings
+		// Xenotypes Settings
+
+		public void XenotypesSettings(Rect inRect)
+		{
+			Rect outRect = new(inRect.x, inRect.y, inRect.width, inRect.height);
+			Rect rect = new(0f, 0f, inRect.width - 30f, inRect.height * 2.0f);
+			Widgets.BeginScrollView(outRect, ref scrollPosition, rect);
+			Listing_Standard listingStandard = new();
+			listingStandard.Begin(rect);
+			// =
+			listingStandard.CheckboxLabeled("WVC_Label_disableXenotypes_MainSwitch".Translate(), ref settings.disableXenotypes_MainSwitch, "WVC_ToolTip_disableXenotypes_MainSwitch".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_disableXenotypes_Undeads".Translate(), ref settings.disableXenotypes_Undeads, "WVC_ToolTip_disableXenotypes_Undeads".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_disableXenotypes_Psycasters".Translate(), ref settings.disableXenotypes_Psycasters, "WVC_ToolTip_disableXenotypes_Psycasters".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_disableXenotypes_Mechalike".Translate(), ref settings.disableXenotypes_Mechalike, "WVC_ToolTip_disableXenotypes_Mechalike".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_disableXenotypes_GolemMasters".Translate(), ref settings.disableXenotypes_GolemMasters, "WVC_ToolTip_disableXenotypes_GolemMasters".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_disableXenotypes_Bloodeaters".Translate(), ref settings.disableXenotypes_Bloodeaters, "WVC_ToolTip_disableXenotypes_Bloodeaters".Translate());
+			listingStandard.GapLine();
+			// =============== Buttons ===============
+			if (listingStandard.ButtonText("WVC_XaG_ResetButton".Translate()))
+			{
+				Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_ResetButtonWarning".Translate(), delegate
+				{
+					ResetSettings_Default();
+					Messages.Message("WVC_XaG_ResetButton_SettingsChanged".Translate(), MessageTypeDefOf.TaskCompletion, historical: false);
+				});
+				Find.WindowStack.Add(window);
+			}
+			if (listingStandard.ButtonText("WVC_XaG_ModDeveloperRecommendationButton".Translate()))
+			{
+				Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_ResetButtonWarning".Translate(), delegate
+				{
+					ResetSettings_MyChoice();
+					Messages.Message("WVC_XaG_ResetButton_SettingsChanged".Translate(), MessageTypeDefOf.TaskCompletion, historical: false);
+				});
+				Find.WindowStack.Add(window);
+			}
+			// =============== Buttons ===============
+			listingStandard.End();
+			Widgets.EndScrollView();
+		}
+
 		// Reset
 
 		public static void ResetSettings_Default()
@@ -669,6 +734,13 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.reincarnation_MinChronoAge = 200f;
 			// Extra
 			WVC_Biotech.settings.genesCanTickOnlyOnMap = false;
+			// Xenotypes
+			WVC_Biotech.settings.disableXenotypes_MainSwitch = false;
+			WVC_Biotech.settings.disableXenotypes_Undeads = false;
+			WVC_Biotech.settings.disableXenotypes_Psycasters = false;
+			WVC_Biotech.settings.disableXenotypes_Mechalike = false;
+			WVC_Biotech.settings.disableXenotypes_GolemMasters = false;
+			WVC_Biotech.settings.disableXenotypes_Bloodeaters = false;
 			// XenotypesSettings
 			WVC_Biotech.cachedXenotypesFilter.Clear();
 			XaG_PostInitialization.SetValues(XenotypeFilterUtility.WhiteListedXenotypesForFilter());
@@ -738,6 +810,13 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.reincarnation_MinChronoAge = 200f;
 			// Extra
 			WVC_Biotech.settings.genesCanTickOnlyOnMap = false;
+			// Xenotypes
+			WVC_Biotech.settings.disableXenotypes_MainSwitch = false;
+			WVC_Biotech.settings.disableXenotypes_Undeads = false;
+			WVC_Biotech.settings.disableXenotypes_Psycasters = false;
+			WVC_Biotech.settings.disableXenotypes_Mechalike = false;
+			WVC_Biotech.settings.disableXenotypes_GolemMasters = false;
+			WVC_Biotech.settings.disableXenotypes_Bloodeaters = false;
 			// XenotypesSettings
 			WVC_Biotech.cachedXenotypesFilter.Clear();
 			XaG_PostInitialization.SetValues(XenotypeFilterUtility.WhiteListedXenotypesForFilter());

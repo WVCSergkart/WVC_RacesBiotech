@@ -2,7 +2,7 @@
 <Defs>
 
   <!-- resurgent -->
-  <XenotypeDef ParentName="WVC_XenotypesAndGenes_UndeadSubXenotypes_Base" Class="WVC_XenotypesAndGenes.SubXenotypeDef">
+  <XenotypeDef ParentName="WVC_XenotypesAndGenes_UndeadSubXenotypes_Base" Class="WVC_XenotypesAndGenes.SubXenotypeDef" WVC_XaG_XenotypeRemoveTag="Undeads">
 	<defName>WVC_Resurgent</defName>
 	<label>resurgent</label>
 	<description>Resurgents are a undead sub-xenotype, despite strong genetic differences they still remain within this xenotype. They are fragile and dependent on resurgent cells. They can regrow lost limbs, never age, and their wounds can close almost instantly. However, their immune system, stomach, blood, disease resistance, their entire body is dependent on these cells. And if the level of the cells is too low, they lose almost all of their special abilities.

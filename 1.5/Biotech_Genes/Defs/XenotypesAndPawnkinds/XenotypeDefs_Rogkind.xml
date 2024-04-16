@@ -2,7 +2,7 @@
 <Defs>
 
   <!-- Former -->
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base">
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="Mechalike">
 	<defName>WVC_RogueFormer</defName>
 	<label>rogkind</label>
 	<!-- Mysterious origins, strange appearance, unstable genes, natural hatred for anything different -->

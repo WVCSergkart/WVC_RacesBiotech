@@ -2,7 +2,7 @@
 <Defs>
 
   <!-- runeex -->
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base">
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="GolemMasters">
 	<defName>WVC_RuneDryad</defName>
 	<label>runeex</label>
 	<!-- A successful experiment, not the most useful aspects, "and so it will do" conclusion -->
