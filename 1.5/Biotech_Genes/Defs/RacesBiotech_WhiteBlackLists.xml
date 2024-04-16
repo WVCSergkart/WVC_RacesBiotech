@@ -107,7 +107,7 @@
 		<li>WVC_Wings_FeatheredWings</li>
 		<!-- = -->
 		<li MayRequire="ludeon.rimworld.ideology">WVC_Scarifier</li>
-		<li>WVC_Scarifier_Clotting</li>
+		<!-- <li>WVC_Scarifier_Clotting</li> -->
 		<li MayRequire="ludeon.rimworld.ideology">WVC_Scarifier_Scarshield</li>
 		<li MayRequire="ludeon.rimworld.ideology">WVC_Scarifier_Scarstomach</li>
 		<li MayRequire="ludeon.rimworld.ideology">WVC_Scarifier_ArchiteScarstomach</li>
@@ -143,7 +143,7 @@
 		<!-- = -->
 		<li>WVC_Mecha_ScytheTail</li>
 		<li>WVC_MechaHidden_ArchiteForge</li>
-		<li>WVC_MecaBodyParts_Heart</li>
+		<!-- <li>WVC_MecaBodyParts_Heart</li> -->
 		<li>WVC_MechaPowerSource_Tox</li>
 		<!-- = -->
 		<li>WVC_NoLearning</li>
