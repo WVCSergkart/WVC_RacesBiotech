@@ -96,7 +96,7 @@ namespace WVC_XenotypesAndGenes
 				recipient.skills.Learn(intDef.recipientXpGainSkill, intDef.recipientXpGainAmount);
 			}
 			recipient.ideo?.IncreaseIdeoExposureIfBaby(pawn.Ideo, 0.5f);
-			intDef.Worker.Interacted(pawn, recipient, null, out string letterText, out string letterLabel, out LetterDef letterDef, out LookTargets lookTargets);
+			intDef.Worker.Interacted(pawn, recipient, new List<RulePackDef>(), out string letterText, out string letterLabel, out LetterDef letterDef, out LookTargets lookTargets);
 			MoteMaker.MakeInteractionBubble(pawn, recipient, intDef.interactionMote, intDef.GetSymbol(pawn.Faction, pawn.Ideo), intDef.GetSymbolColor(pawn.Faction));
 			PlayLogEntry_Interaction playLogEntry_Interaction = new(intDef, pawn, recipient, null);
 			Find.PlayLog.Add(playLogEntry_Interaction);
