@@ -28,6 +28,26 @@ namespace WVC_XenotypesAndGenes
 		}
 	}
 
+	// public class PatchOperationRemove_XenoGenes : PatchOperationPathed
+	// {
+
+		// protected override bool ApplyWorker(XmlDocument xml)
+		// {
+			// bool result = false;
+			// XmlNode[] array = xml.SelectNodes(xpath).Cast<XmlNode>().ToArray();
+			// foreach (XmlNode xmlNode in array)
+			// {
+				// if (xmlNode)
+				// {
+					// result = true;
+					// xmlNode.ParentNode.RemoveChild(xmlNode);
+				// }
+			// }
+			// return result;
+		// }
+
+	// }
+
 	// public class PawnRenderNode_FurIsSkin : PawnRenderNode
 	// {
 

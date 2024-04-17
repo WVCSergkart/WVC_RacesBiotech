@@ -70,9 +70,10 @@
 	<displayOrderInCategory>110</displayOrderInCategory>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>-1</biostatMet>
+	<prerequisite>WVC_Wings_FeatheredWings</prerequisite>
 	<customEffectDescriptions>
 		<!-- <li>Allows melee and range attacks with feathers.</li> -->
-		<li>To use the ability, the &lt;color=#8a8ae6&gt;"Feathered wings"&lt;/color&gt; gene is required.</li>
+		<li>To use the ability, the &lt;color=#8a8ae6&gt;feathered wings&lt;/color&gt; gene is required.</li>
 		<!-- <li>Refresh time (*DateTime)~1 day(/DateTime).</li> -->
 	</customEffectDescriptions>
 	<abilities>

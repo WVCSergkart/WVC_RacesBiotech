@@ -42,8 +42,6 @@
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive">
 		<eachOfGenes>
 		  <li>WVC_Dustogenic_FeatherBlades</li>
-		  <!-- <li>WVC_Dustogenic_GeneticStability</li> -->
-		  <li>WVC_Dustogenic</li>
 		</eachOfGenes>
 		<anyOfGenes>
 		  <li>WVC_Wings_FeatheredWings</li>
