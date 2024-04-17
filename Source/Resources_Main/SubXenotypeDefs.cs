@@ -155,6 +155,19 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
+			GeneDef geneticShifter = WVC_GenesDefOf.WVC_XenotypesAndGenes_SubXenotypeShapeshifter;
+			if (removeGenes.Contains(geneticShifter))
+			{
+				removeGenes.Remove(geneticShifter);
+			}
+			if (endogenes.Contains(geneticShifter))
+			{
+				endogenes.Remove(geneticShifter);
+			}
+			if (genes.Contains(geneticShifter))
+			{
+				genes.Remove(geneticShifter);
+			}
 			if (descriptionHyperlinks == null)
 			{
 				descriptionHyperlinks = new List<DefHyperlink>();
@@ -164,6 +177,13 @@ namespace WVC_XenotypesAndGenes
 				foreach (XenotypeChance xenotypeChance in doubleXenotypeChances)
 				{
 					descriptionHyperlinks.Add(new DefHyperlink(xenotypeChance.xenotype));
+					foreach (GeneDef xenotype_gene in xenotypeChance.xenotype.genes)
+					{
+						if (!removeGenes.Contains(xenotype_gene))
+						{
+							descriptionHyperlinks.Add(new DefHyperlink(xenotype_gene));
+						}
+					}
 				}
 			}
 			if (!endogenes.NullOrEmpty())
@@ -180,6 +200,8 @@ namespace WVC_XenotypesAndGenes
 					descriptionHyperlinks.Add(new DefHyperlink(gene));
 				}
 			}
+			inheritable = false;
+			genes.Add(geneticShifter);
 		}
 
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats(StatRequest req)
@@ -217,7 +239,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (doubleXenotypeChances.NullOrEmpty() || doubleXenotypeChances.Sum((XenotypeChance x) => x.chance) != 1f)
 			{
-				 yield return defName + " has null doubleXenotypeChances. doubleXenotypeChances must contain at least one xenotype with a chance 1.0";
+				yield return defName + " has null doubleXenotypeChances. doubleXenotypeChances must contain at least one xenotype with a chance 1.0";
 			}
 		}
 

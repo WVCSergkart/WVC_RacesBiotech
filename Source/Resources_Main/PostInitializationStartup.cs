@@ -19,7 +19,7 @@ namespace WVC_XenotypesAndGenes
 			// Race Patches
 			GolemsAndMechs();
 			// SubXenotypes Debug
-			SubXenotypes();
+			// SubXenotypes();
 			// Patches
 			HarmonyPatches.HarmonyUtility.PostInitialPatches();
 		}
@@ -144,37 +144,37 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void SubXenotypes()
-		{
-			foreach (SubXenotypeDef subXenotypeDef in DefDatabase<SubXenotypeDef>.AllDefsListForReading)
-			{
-				GeneDef geneticShifter = WVC_GenesDefOf.WVC_XenotypesAndGenes_SubXenotypeShapeshifter;
-				if (subXenotypeDef.removeGenes.Contains(geneticShifter))
-				{
-					subXenotypeDef.removeGenes.Remove(geneticShifter);
-					Log.Warning(subXenotypeDef.defName + " contains " + geneticShifter.defName + " in removeGenes. Fixing..");
-				}
-				if (subXenotypeDef.endogenes.Contains(geneticShifter))
-				{
-					subXenotypeDef.endogenes.Remove(geneticShifter);
-					Log.Warning(subXenotypeDef.defName + " contains " + geneticShifter.defName + " in endogenes. Fixing..");
-				}
-				if (subXenotypeDef.genes.Contains(geneticShifter))
-				{
-					subXenotypeDef.genes.Remove(geneticShifter);
-					Log.Warning(subXenotypeDef.defName + " contains " + geneticShifter.defName + " in genes. Fixing..");
-				}
-				if (!subXenotypeDef.genes.Contains(geneticShifter))
-				{
-					subXenotypeDef.genes.Add(geneticShifter);
-				}
-				if (subXenotypeDef.inheritable)
-				{
-					subXenotypeDef.inheritable = false;
-					Log.Warning(subXenotypeDef.defName + " is inheritable. Fixing..");
-				}
-			}
-		}
+		// public static void SubXenotypes()
+		// {
+			// foreach (SubXenotypeDef subXenotypeDef in DefDatabase<SubXenotypeDef>.AllDefsListForReading)
+			// {
+				// GeneDef geneticShifter = WVC_GenesDefOf.WVC_XenotypesAndGenes_SubXenotypeShapeshifter;
+				// if (subXenotypeDef.removeGenes.Contains(geneticShifter))
+				// {
+					// subXenotypeDef.removeGenes.Remove(geneticShifter);
+					// Log.Warning(subXenotypeDef.defName + " contains " + geneticShifter.defName + " in removeGenes. Fixing..");
+				// }
+				// if (subXenotypeDef.endogenes.Contains(geneticShifter))
+				// {
+					// subXenotypeDef.endogenes.Remove(geneticShifter);
+					// Log.Warning(subXenotypeDef.defName + " contains " + geneticShifter.defName + " in endogenes. Fixing..");
+				// }
+				// if (subXenotypeDef.genes.Contains(geneticShifter))
+				// {
+					// subXenotypeDef.genes.Remove(geneticShifter);
+					// Log.Warning(subXenotypeDef.defName + " contains " + geneticShifter.defName + " in genes. Fixing..");
+				// }
+				// if (!subXenotypeDef.genes.Contains(geneticShifter))
+				// {
+					// subXenotypeDef.genes.Add(geneticShifter);
+				// }
+				// if (subXenotypeDef.inheritable)
+				// {
+					// subXenotypeDef.inheritable = false;
+					// Log.Warning(subXenotypeDef.defName + " is inheritable. Fixing..");
+				// }
+			// }
+		// }
 
 		public static void InitializeModSettings()
 		{

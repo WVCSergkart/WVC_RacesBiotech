@@ -88,6 +88,7 @@
 	  <xenotypeChances>
 		<WVC_Lilith MayRequire="ludeon.rimworld.royalty">35</WVC_Lilith>
 		<WVC_CatDeity MayRequire="ludeon.rimworld.royalty">35</WVC_CatDeity>
+		<WVC_Sandycat>35</WVC_Sandycat>
 		<WVC_Blank>30</WVC_Blank>
 	  </xenotypeChances>
 	</xenotypeSet>

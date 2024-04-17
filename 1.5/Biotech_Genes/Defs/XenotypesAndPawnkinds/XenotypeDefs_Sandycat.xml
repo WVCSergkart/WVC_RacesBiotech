@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="Bloodeaters">
+	<defName>WVC_Sandycat</defName>
+	<label>sandycat</label>
+	<description>Sandycats are ageless, deathless super-humans powered by archotech-created archites in the bloodstream. They are beautiful and tolerate high temperatures well. They can raise the dead to serve them, whether through work or battle. But they are incredibly bloodthirsty, in the literal sense. They cannot eat regular food; they need blood to survive.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; Sandycats get poisoned from any food. They need non-hemogenic pawns for nutrition. For 1 cat you need at least 2 non-hemogenic ones. They feed automatically.
+
+Cats spread through their bite; anyone they bite can turn into a sandycat. Pawns with low immunity have an increased chance of mutation.</description>
+	<descriptionShort>Sandycats are ageless, deathless super-humans powered by archotech-created archites in the bloodstream. They are beautiful and tolerate high temperatures well. They can raise the dead to serve them, whether through work or battle. But they are incredibly bloodthirsty, in the literal sense. They cannot eat regular food; they need blood to survive.</descriptionShort>
+	<inheritable>true</inheritable>
+	<iconPath>WVC/UI/Mecha_Icons/Icon_Bloodeater_v1</iconPath>
+	<displayPriority>-190</displayPriority>
+	<genes>
+		<!-- base -->
+		<li>WVC_CatEarsA</li>
+		<li>WVC_CatTailA</li>
+		<li>WVC_VoiceAnimals_BigCat</li>
+		<li>Body_Standard</li>
+		<li>WVC_BodySize_Small</li>
+		<li>Hair_SnowWhite</li>
+		<li>WVC_HairColor_ffdcb4_HEX</li>
+		<li>WVC_SkinColor_Slate</li>
+		<li>Beauty_Pretty</li>
+		<li>WVC_SemifurSkin</li>
+		<li>DarkVision</li>
+		<!-- Vampire -->
+		<li>Hemogenic</li>
+		<li>Bloodfeeder</li>
+		<li>WVC_Bloodeater</li>
+		<li>WVC_Bloodcells</li>
+		<li>WVC_ImplanterFangs</li>
+		<li>WVC_NaturalAgeless</li>
+		<li>LongjumpLegs</li>
+		<li>Coagulate</li>
+		<!-- Kitty -->
+		<li>WVC_NaturalBodyParts_Claws</li>
+		<li>MaxTemp_LargeIncrease</li>
+		<li>WVC_MinTemp_LargeIncrease</li>
+		<!-- lich -->
+		<li>WVC_ResurgentCells</li>
+		<li>Deathless</li>
+		<li>WVC_ReimplanterThrallMaker</li>
+		<li>WVC_ResurgentCells_AnomalyStability</li>
+		<li>WVC_AgeDebuff_Sterile</li>
+	</genes>
+  </XenotypeDef>
+
+</Defs>

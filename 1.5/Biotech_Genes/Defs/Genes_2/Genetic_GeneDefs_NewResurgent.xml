@@ -17,7 +17,12 @@
 	<customEffectDescriptions>
 	  <li>Occasionally removes the &lt;color=#8a8ae6&gt;xenogerm&lt;/color&gt; replication effects from the carrier.</li>
 	  <li>Carriers of this gene &lt;color=#8a8ae6&gt;turn into ghouls upon death.&lt;/color&gt;</li>
+	  <li>&lt;color=#ff8585&gt;Some gene features require the Anomaly DLC&lt;/color&gt;</li>
 	</customEffectDescriptions>
+	<statFactors>
+	  <Fertility>1.2</Fertility>
+	  <ImmunityGainSpeed>1.2</ImmunityGainSpeed>
+	</statFactors>
 	<exclusionTags>
 	  <li>WVC_GeneticInstabilityGenes</li>
 	</exclusionTags>

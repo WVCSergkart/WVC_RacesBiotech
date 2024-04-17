@@ -84,7 +84,7 @@
 	<biostatCpx>-3</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>-1</biostatMet>
-	<resourceLossPerDay>-0.02</resourceLossPerDay>
+	<resourceLossPerDay>-0.01</resourceLossPerDay>
 	<customEffectDescriptions>
 	  <li>Occasionally removes the xenogerm replication effects from the carrier.</li>
 	  <!-- <li>Carriers of this gene cannot use xenotype serums.</li> -->
