@@ -1,0 +1,109 @@
+using RimWorld;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using Verse;
+using Verse.AI;
+
+namespace WVC_XenotypesAndGenes
+{
+
+    public class CompUseEffect_GeneGiver : CompUseEffect
+	{
+		public GeneDef geneDef = null;
+
+		public CompProperties_UseEffect_XenotypeForcer_II Props => (CompProperties_UseEffect_XenotypeForcer_II)props;
+
+		public override void PostPostMake()
+		{
+			base.PostPostMake();
+			if (geneDef == null)
+			{
+				if (Props.possibleGenes.NullOrEmpty())
+				{
+					Log.Error("Generated serum (gene giver) with null possibleGenes.");
+					return;
+				}
+				geneDef = Props.possibleGenes.RandomElement();
+			}
+		}
+
+		public override string TransformLabel(string label)
+		{
+			if (geneDef == null)
+			{
+				return parent.def.label + " (ERR)";
+			}
+			return parent.def.label + " (" + geneDef.label + ")";
+		}
+
+		public override void PostExposeData()
+		{
+			base.PostExposeData();
+			Scribe_Defs.Look(ref geneDef, "containedGeneDef");
+		}
+
+		public override void DoEffect(Pawn pawn)
+		{
+			if (SerumUtility.HumanityCheck(pawn))
+			{
+				return;
+			}
+			if (pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
+			{
+				pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));
+				return;
+			}
+			if (pawn.genes.HasGene(geneDef))
+			{
+				return;
+			}
+			pawn.genes.AddGene(geneDef, false);
+			ReimplanterUtility.UnknownXenotype(pawn);
+			GeneUtility.UpdateXenogermReplication(pawn);
+			if (PawnUtility.ShouldSendNotificationAbout(pawn))
+			{
+				Find.LetterStack.ReceiveLetter("WVC_XaG_GeneGiverImplanted_Label".Translate(), "WVC_XaG_GeneGiverImplanted_Desc".Translate(pawn.Name.ToString(), geneDef.LabelCap), LetterDefOf.NeutralEvent, new LookTargets(pawn));
+			}
+			SerumUtility.PostSerumUsedHook(pawn);
+		}
+
+		public override bool AllowStackWith(Thing other)
+		{
+			CompUseEffect_GeneGiver otherXeno = other.TryGetComp<CompUseEffect_GeneGiver>();
+			if (otherXeno != null && otherXeno.geneDef != null && otherXeno.geneDef == geneDef)
+			{
+				return true;
+			}
+			return false;
+		}
+
+		public override bool CanBeUsedBy(Pawn p, out string failReason)
+		{
+			failReason = null;
+			if (geneDef == null)
+			{
+				failReason = "ERROR geneDef is null";
+				return false;
+			}
+			if (p.genes.HasGene(geneDef))
+			{
+				failReason = "WVC_XaG_GeneGiverPawnHasGene_Label".Translate(p.Name.ToString());
+				return false;
+			}
+			if (!SerumUtility.PawnIsHuman(p))
+			{
+				failReason = "WVC_PawnIsAndroidCheck".Translate();
+				return false;
+			}
+			if (p.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
+			{
+				failReason = "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate();
+				return false;
+			}
+			return true;
+		}
+
+	}
+
+}

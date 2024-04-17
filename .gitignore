@@ -6,3 +6,10 @@ Source/obj
 Source/bin
 
 *.suo
+/Source_1.4/_ForUpdates
+Source_1.4/_Outdated
+Source_1.4/obj/Debug
+Source_1.4/bin/Debug
+Source_1.4/packages
+Source_1.4/obj
+Source_1.4/bin

@@ -1,0 +1,125 @@
+using RimWorld;
+using System.Collections.Generic;
+using System.Linq;
+using Verse;
+
+namespace WVC_XenotypesAndGenes
+{
+
+    public class CompUseEffect_XenotypeForcer_Hybrid : CompUseEffect
+	{
+
+		public XenotypeDef endotype = null;
+
+		public XenotypeDef xenotype = null;
+
+		public CompProperties_UseEffect_XenotypeForcer_II Props => (CompProperties_UseEffect_XenotypeForcer_II)props;
+
+		public override void PostPostMake()
+		{
+			base.PostPostMake();
+			List<XenotypeDef> xenotypeDefs = XenotypeFilterUtility.WhiteListedXenotypes(true);
+			endotype = Props.endotypeDef;
+			xenotype = Props.xenotypeDef;
+			if (endotype == null)
+			{
+				endotype = xenotypeDefs.Where((XenotypeDef randomXenotypeDef) => randomXenotypeDef.inheritable).RandomElement();
+				if (endotype == null)
+				{
+					Log.Error("Generated serum with null endotype. Choose random.");
+					endotype = xenotypeDefs.RandomElement();
+				}
+			}
+			if (xenotype == null)
+			{
+				xenotype = xenotypeDefs.Where((XenotypeDef randomXenotypeDef) => !randomXenotypeDef.inheritable).RandomElement();
+				if (xenotype == null)
+				{
+					Log.Error("Generated serum with null xenotype. Choose random.");
+					xenotype = xenotypeDefs.RandomElement();
+				}
+			}
+			if (xenotype == null || endotype == null)
+			{
+				Log.Error("Xeno/endotype is still null. Do not report this to the developer, you yourself created this creepy world filled with bugs. To fix the situation, reset the filter in the " + "WVC_BiotechSettings".Translate() + " mod settings and restart the game.");
+			}
+		}
+
+		public override string TransformLabel(string label)
+		{
+			if (xenotype == null || endotype == null)
+			{
+				return parent.def.label + " (" + "ERR" + ")";
+			}
+			return parent.def.label + " (" + endotype.label + " + " + xenotype.label + ")";
+		}
+
+		public override void PostExposeData()
+		{
+			base.PostExposeData();
+			Scribe_Defs.Look(ref endotype, "endotypeDef");
+			Scribe_Defs.Look(ref xenotype, "xenotypeDef");
+		}
+
+		public override bool AllowStackWith(Thing other)
+		{
+			CompUseEffect_XenotypeForcer_Hybrid otherXeno = other.TryGetComp<CompUseEffect_XenotypeForcer_Hybrid>();
+			if (otherXeno != null && otherXeno.xenotype != null && otherXeno.xenotype == xenotype && otherXeno.endotype != null && otherXeno.endotype == endotype)
+			{
+				return true;
+			}
+			return false;
+		}
+
+		public override bool CanBeUsedBy(Pawn p, out string failReason)
+		{
+			failReason = null;
+			if (xenotype == null || endotype == null)
+			{
+				failReason = "WVC_XaG_SuremRetuneShouldBeTunedWarn_Label".Translate();
+				return false;
+			}
+			if (!SerumUtility.PawnIsHuman(p))
+			{
+				failReason = "WVC_PawnIsAndroidCheck".Translate();
+				return false;
+			}
+			if (p.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
+			{
+				failReason = "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate();
+				return false;
+			}
+			return true;
+		}
+
+		public override void DoEffect(Pawn pawn)
+		{
+			// SerumUtility.HumanityCheck(pawn);
+			// if (SerumUtility.HumanityCheck(pawn))
+			// {
+				// return;
+			// }
+			// if (pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
+			// {
+				// pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));
+				// return;
+			// }
+			if (xenotype == null || endotype == null)
+			{
+				Log.Error("Xeno/endotype is still null. Do not report this to the developer, you yourself created this creepy world filled with bugs. To fix the situation, reset the filter in the " + "WVC_BiotechSettings".Translate() + " mod settings and restart the game.");
+				return;
+			}
+			SerumUtility.DoubleXenotypeSerum(pawn, endotype, xenotype);
+			pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
+			GeneUtility.UpdateXenogermReplication(pawn);
+			if (PawnUtility.ShouldSendNotificationAbout(pawn))
+			{
+				int max = HediffDefOf.XenogerminationComa.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.max;
+				Find.LetterStack.ReceiveLetter("LetterLabelGenesImplanted".Translate(), "WVC_LetterTextGenesImplanted".Translate(pawn.Named("TARGET"), max.ToStringTicksToPeriod().Named("COMADURATION")), LetterDefOf.NeutralEvent, new LookTargets(pawn));
+			}
+			SerumUtility.PostSerumUsedHook(pawn);
+		}
+
+	}
+
+}
