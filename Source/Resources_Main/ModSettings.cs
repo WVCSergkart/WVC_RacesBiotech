@@ -72,6 +72,7 @@ namespace WVC_XenotypesAndGenes
 		public bool reincarnation_EnableMechanic = true;
 		public float reincarnation_MinChronoAge = 200f;
 		// Xenotypes
+		// public bool increasedXenotypesFactionlessGenerationWeight_MainSwitch = false;
 		public bool disableXenotypes_MainSwitch = false;
 		public bool disableXenotypes_Undeads = false;
 		public bool disableXenotypes_Psycasters = false;
@@ -395,7 +396,7 @@ namespace WVC_XenotypesAndGenes
 					// Log.Error("3");
 					// var pos = new Vector2(viewArea.width - 40, labelRect.y);
 					// Log.Error("4");
-					bool value = !cachedXenotypesFilter.Keys.Contains(def.defName) || cachedXenotypesFilter[def.defName];
+					bool value = !cachedXenotypesFilter.TryGetValue(def.defName, out bool canSpawn) || canSpawn;
 					// bool value = cachedXenotypesFilter[def.defName];
 					Widgets.CheckboxLabeled(labelRect, def.LabelCap, ref value);
 					// Widgets.InfoCardButton(pos, def);
@@ -647,6 +648,8 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_disableXenotypes_GolemMasters".Translate(), ref settings.disableXenotypes_GolemMasters, "WVC_ToolTip_disableXenotypes_GolemMasters".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableXenotypes_Bloodeaters".Translate(), ref settings.disableXenotypes_Bloodeaters, "WVC_ToolTip_disableXenotypes_Bloodeaters".Translate());
 			listingStandard.GapLine();
+			// =============== Xenotypes Chance Settings ===============
+			// listingStandard.GapLine();
 			// =============== Buttons ===============
 			if (listingStandard.ButtonText("WVC_XaG_ResetButton".Translate()))
 			{

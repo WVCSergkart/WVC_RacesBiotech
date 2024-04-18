@@ -12,19 +12,14 @@ namespace WVC_XenotypesAndGenes
 
 		static XaG_PostInitialization()
 		{
-			// Initial
 			InitializeModSettings();
-			// Genes
-			Genes();
-			// Race Patches
-			GolemsAndMechs();
-			// SubXenotypes Debug
-			// SubXenotypes();
-			// Patches
+			GeneDefs();
+			ThingDefs();
+			// XenotypeDefs();
 			HarmonyPatches.HarmonyUtility.PostInitialPatches();
 		}
 
-		public static void Genes()
+		public static void GeneDefs()
 		{
 			List<GeneDef> xenogenesGenes = new();
 			foreach (GeneDef geneDef in DefDatabase<GeneDef>.AllDefsListForReading)
@@ -103,7 +98,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void GolemsAndMechs()
+		public static void ThingDefs()
 		{
 			foreach (ThingDef thingDef in DefDatabase<ThingDef>.AllDefsListForReading)
 			{
@@ -143,6 +138,13 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 		}
+
+		// public static void XenotypeDefs()
+		// {
+			// foreach (XenotypeDef xenotypeDef in DefDatabase<XenotypeDef>.AllDefsListForReading)
+			// {
+			// }
+		// }
 
 		// public static void SubXenotypes()
 		// {
