@@ -77,7 +77,10 @@ namespace WVC_XenotypesAndGenes
 						GeneExtension_General modExtension = geneDef?.GetModExtension<GeneExtension_General>();
 						if (modExtension?.supportMutants == false)
 						{
-							mutantDef.disablesGenes.Add(geneDef);
+							if (!mutantDef.disablesGenes.Contains(geneDef))
+							{
+								mutantDef.disablesGenes.Add(geneDef);
+							}
 							continue;
 						}
 						if (modExtension?.supportedMutantDefs?.Contains(mutantDef) == true)
@@ -92,7 +95,10 @@ namespace WVC_XenotypesAndGenes
 						{
 							continue;
 						}
-						mutantDef.disablesGenes.Add(geneDef);
+						if (!mutantDef.disablesGenes.Contains(geneDef))
+						{
+							mutantDef.disablesGenes.Add(geneDef);
+						}
 					}
 				}
 			}
@@ -130,6 +136,10 @@ namespace WVC_XenotypesAndGenes
 					}
 					if (modExtension.shouldResurrect)
 					{
+						if (corpseDef.GetCompProperties<CompProperties_UndeadCorpse>() != null)
+						{
+							continue;
+						}
 						CompProperties_UndeadCorpse undead_comp = new();
 						undead_comp.resurrectionDelay = modExtension.resurrectionDelay;
 						undead_comp.uniqueTag = modExtension.uniqueTag;

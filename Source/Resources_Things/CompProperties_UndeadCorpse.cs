@@ -4,7 +4,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class CompProperties_UndeadCorpse : CompProperties
+	public class CompProperties_UndeadCorpse : CompProperties
 	{
 
 		public IntRange resurrectionDelay = new(6000, 9000);
@@ -15,6 +15,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			compClass = typeof(CompUndeadCorpse);
 		}
+
 	}
 
 	public class CompUndeadCorpse : ThingComp

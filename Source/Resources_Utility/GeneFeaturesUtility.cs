@@ -265,7 +265,7 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public static void TryPsychicBite(Pawn biter, Pawn victim)
+		public static bool TryPsychicBite(Pawn biter, Pawn victim)
 		{
 			Ability ability = biter.abilities?.GetAbility(WVC_GenesDefOf.Bloodfeed);
 			if (ability == null)
