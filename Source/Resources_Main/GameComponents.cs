@@ -1,4 +1,5 @@
 ﻿using RimWorld;
+using System.Collections.Generic;
 using System.Linq;
 using Verse;
 
@@ -18,6 +19,8 @@ namespace WVC_XenotypesAndGenes
 
 		public int cachedXenotypesCount = 0;
 		public int cachedNonHumansCount = 0;
+
+		// public List<Pawn> cachedBloodHunters;
 
 		public Game currentGame;
 
@@ -47,6 +50,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void XaG_General()
 		{
+			// cachedBloodHunters = XaG_GeneUtility.GetAllBloodHunters();
 			if (ModLister.IdeologyInstalled)
 			{
 				cachedXenotypesCount = MiscUtility.CountAllPlayerXenos();
@@ -58,6 +62,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			Scribe_Values.Look(ref cachedXenotypesCount, "cachedXenotypesCount", 0);
 			Scribe_Values.Look(ref cachedNonHumansCount, "cachedNonHumansCount", 0);
+			// Scribe_Collections.Look(ref cachedBloodHunters, "cachedBloodHunters", LookMode.Reference);
 		}
 
 		public void DevFixes()

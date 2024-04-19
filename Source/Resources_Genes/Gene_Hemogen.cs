@@ -1,6 +1,8 @@
 using RimWorld;
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
+using Verse.AI;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -68,6 +70,85 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_BloodHunter : Gene_Bloodfeeder
+	{
+
+		public static bool TryHuntForFood(Pawn pawn)
+		{
+			List<Pawn> colonists = pawn?.Map?.mapPawns?.SpawnedPawnsInFaction(pawn.Faction);
+			colonists.Shuffle();
+			for (int j = 0; j < colonists.Count; j++)
+			{
+				Pawn colonist = colonists[j];
+				if (!GeneFeaturesUtility.CanBloodFeedNowWith(pawn, colonist))
+				{
+					continue;
+				}
+				if (PawnReserved(colonist, pawn))
+				{
+					continue;
+				}
+				if (MiscUtility.TryGetAbilityJob(pawn, colonist, WVC_GenesDefOf.Bloodfeed, out Job job))
+				{
+					if (!PawnHaveBloodHuntJob(pawn, job))
+					{
+						pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);
+						return true;
+					}
+				}
+				return false;
+			}
+			return false;
+		}
+
+		public static bool PawnHaveBloodHuntJob(Pawn pawn, Job job)
+		{
+			foreach (Job item in pawn.jobs.AllJobs().ToList())
+			{
+				if (item.def == job.def && item.ability == job.ability)
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
+		public static bool PawnReserved(Pawn victim, Pawn biter)
+		{
+			List<Pawn> biters = GetAllBloodHunters(biter);
+			foreach (Pawn item in biters)
+			{
+				if (item.Map != victim.Map || item == biter)
+				{
+					continue;
+				}
+				foreach (Job job in item.jobs.AllJobs().ToList())
+				{
+					if (job?.targetA.Pawn != null && job.targetA.Pawn == victim)
+					{
+						return true;
+					}
+				}
+			}
+			return false;
+		}
+
+		public static List<Pawn> GetAllBloodHunters(Pawn pawn)
+		{
+			List<Pawn> hunters = new();
+			foreach (Pawn item in pawn.Map.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer))
+			{
+				if (item?.genes?.GetFirstGeneOfType<Gene_BloodHunter>() == null)
+				{
+					continue;
+				}
+				hunters.Add(item);
+			}
+			return hunters;
+		}
+
+	}
+
 	public class Gene_ImplanterFang : Gene_Bloodfeeder
 	{
 
@@ -93,7 +174,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			// Log.Error("3");
-			if (GeneUtility.PawnWouldDieFromReimplanting(pawn))
+			if (GeneUtility.PawnWouldDieFromReimplanting(pawn) || GeneUtility.PawnWouldDieFromReimplanting(victim))
 			{
 				return;
 			}

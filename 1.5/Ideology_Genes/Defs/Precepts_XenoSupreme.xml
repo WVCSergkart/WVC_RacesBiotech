@@ -42,7 +42,7 @@
 	<comps>
 	  <li Class="PreceptComp_SituationalThought">
 		<thought>WVC_GeneticSupremacy_Desired_Xenotypes</thought>
-		<description>For each xenotype in faction</description>
+		<description>For each xenohuman in faction</description>
 	  </li>
 	  <li Class="PreceptComp_SituationalThought">
 		<thought>WVC_GeneticSupremacy_Desired_NonHumanlikes</thought>
@@ -70,9 +70,9 @@
 	<validWhileDespawned>true</validWhileDespawned>
 	<stages>
 	  <li>
-		<label>xenotypes in faction</label>
+		<label>xenohumans in faction</label>
 		<description>Genetic diversity is encouraging.</description>
-		<baseMoodEffect>2</baseMoodEffect>
+		<baseMoodEffect>1</baseMoodEffect>
 	  </li>
 	</stages>
   </ThoughtDef>

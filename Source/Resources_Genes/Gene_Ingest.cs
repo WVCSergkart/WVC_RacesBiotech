@@ -188,7 +188,7 @@ namespace WVC_XenotypesAndGenes
 	}
 
 	// Hemogen
-	public class Gene_EternalHunger : Gene_HemogenOffset
+	public class Gene_EternalHunger : Gene_BloodHunter
 	{
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
@@ -281,42 +281,6 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// Misc
-
-		public static bool TryHuntForFood(Pawn pawn)
-		{
-			List<Pawn> colonists = pawn?.Map?.mapPawns?.SpawnedPawnsInFaction(pawn.Faction);
-			colonists.Shuffle();
-			for (int j = 0; j < colonists.Count; j++)
-			{
-				Pawn colonist = colonists[j];
-				if (!GeneFeaturesUtility.CanBloodFeedNowWith(pawn, colonist))
-				{
-					continue;
-				}
-				if (MiscUtility.TryGetAbilityJob(pawn, colonist, WVC_GenesDefOf.Bloodfeed, out Job job))
-				{
-					if (!PawnHaveBloodHuntJob(pawn, job))
-					{
-						pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);
-						return true;
-					}
-				}
-				return false;
-			}
-			return false;
-		}
-
-		public static bool PawnHaveBloodHuntJob(Pawn pawn, Job job)
-		{
-			foreach (Job item in pawn.jobs.AllJobs().ToList())
-			{
-				if (item.def == job.def && item.ability == job.ability)
-				{
-					return true;
-				}
-			}
-			return false;
-		}
 
 		public bool TryGetFood()
 		{
@@ -452,7 +416,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Bloodeater : Gene_Bloodfeeder
+	public class Gene_Bloodeater : Gene_BloodHunter
 	{
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
@@ -493,7 +457,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			Gene_EternalHunger.TryHuntForFood(pawn);
+			TryHuntForFood(pawn);
 		}
 
 		private void InCaravan()

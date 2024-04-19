@@ -316,8 +316,8 @@ namespace WVC_XenotypesAndGenes
 		public static int CountAllPlayerXenos()
 		{
 			int mult = 0;
-			List<XenotypeDef> xenoList = new();
-			List<CustomXenotype> xenoListB = new();
+			// List<XenotypeDef> xenoList = new();
+			// List<CustomXenotype> xenoListB = new();
 			List<Map> maps = Find.Maps;
 			for (int i = 0; i < maps.Count; i++)
 			{
@@ -331,16 +331,17 @@ namespace WVC_XenotypesAndGenes
 					{
 						continue;
 					}
-					if (item.genes.Xenotype != XenotypeDefOf.Baseliner && !xenoList.Contains(item.genes.Xenotype))
-					{
-						mult++;
-						xenoList.Add(item.genes.Xenotype);
-					}
-					else if (item.genes.CustomXenotype != null && !xenoListB.Contains(item.genes.CustomXenotype))
-					{
-						mult++;
-						xenoListB.Add(item.genes.CustomXenotype);
-					}
+					mult++;
+					// if (item.genes.Xenotype != XenotypeDefOf.Baseliner && !xenoList.Contains(item.genes.Xenotype))
+					// {
+						// mult++;
+						// xenoList.Add(item.genes.Xenotype);
+					// }
+					// else if (item.genes.CustomXenotype != null && !xenoListB.Contains(item.genes.CustomXenotype))
+					// {
+						// mult++;
+						// xenoListB.Add(item.genes.CustomXenotype);
+					// }
 				}
 			}
 			// Log.Error("Xenos in faction: " + mult.ToString());
