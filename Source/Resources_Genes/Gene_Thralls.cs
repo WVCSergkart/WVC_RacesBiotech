@@ -78,25 +78,43 @@ namespace WVC_XenotypesAndGenes
 		public static bool TryHuntForCells(Pawn pawn)
 		{
 			List<Pawn> colonists = pawn?.Map?.mapPawns?.SpawnedPawnsInFaction(pawn.Faction);
+			List<Pawn> biters = GetAllThrallsFromList(colonists);
 			colonists.Shuffle();
-			for (int j = 0; j < colonists.Count; j++)
+			foreach (Pawn colonist in colonists)
 			{
-				Pawn colonist = colonists[j];
 				if (!GeneFeaturesUtility.CanCellsFeedNowWith(pawn, colonist))
 				{
 					continue;
 				}
-				if (MiscUtility.TryGetAbilityJob(pawn, colonist, WVC_GenesDefOf.WVC_XaG_Cellsfeed, out Job job))
+				if (!MiscUtility.TryGetAbilityJob(pawn, colonist, WVC_GenesDefOf.WVC_XaG_Cellsfeed, out Job job))
 				{
-					if (!Gene_EternalHunger.PawnHaveBloodHuntJob(pawn, job))
-					{
-						pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);
-						return true;
-					}
+					continue;
 				}
-				return false;
+				if (Gene_BloodHunter.PawnReserved(biters, colonist, pawn))
+				{
+					continue;
+				}
+				if (!Gene_BloodHunter.PawnHaveBloodHuntJob(pawn, job))
+				{
+					pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);
+					return true;
+				}
 			}
 			return false;
+		}
+
+		public static List<Pawn> GetAllThrallsFromList(List<Pawn> pawns)
+		{
+			List<Pawn> hunters = new();
+			foreach (Pawn item in pawns)
+			{
+				if (item?.genes?.GetFirstGeneOfType<Gene_GeneticThrall>() == null)
+				{
+					continue;
+				}
+				hunters.Add(item);
+			}
+			return hunters;
 		}
 
 		public override void InCaravan()
