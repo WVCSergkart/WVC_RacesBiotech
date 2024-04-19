@@ -123,6 +123,10 @@ namespace WVC_XenotypesAndGenes
 		public static bool TryGetAbilityJob(Pawn biter, Pawn victim, AbilityDef abilityDef, out Job job)
 		{
 			job = null;
+			if (biter == victim)
+			{
+				return false;
+			}
 			if (biter.CurJobDef == abilityDef.jobDef)
 			{
 				return false;
@@ -430,16 +434,16 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
+			if (!SerumUtility.IsHuman(victim))
+			{
+				return false;
+			}
 			if (canBleed)
 			{
 				if (ModsConfig.AnomalyActive && victim.IsMutant && !victim.mutant.Def.canBleed)
 				{
 					return false;
 				}
-			}
-			if (!SerumUtility.IsHuman(victim))
-			{
-				return false;
 			}
 			if (victim.Faction != null && !victim.IsSlaveOfColony && !victim.IsPrisonerOfColony)
 			{

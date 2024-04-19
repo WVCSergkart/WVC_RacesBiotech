@@ -73,30 +73,49 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_BloodHunter : Gene_Bloodfeeder
 	{
 
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: TryHuntForFood",
+					action = delegate
+					{
+						if (!TryHuntForFood(pawn))
+						{
+							Log.Error("Target is null");
+						}
+					}
+				};
+			}
+		}
+
 		public static bool TryHuntForFood(Pawn pawn)
 		{
 			List<Pawn> colonists = pawn?.Map?.mapPawns?.SpawnedPawnsInFaction(pawn.Faction);
+			List<Pawn> biters = GetAllBloodHuntersFromList(colonists);
 			colonists.Shuffle();
-			for (int j = 0; j < colonists.Count; j++)
+			foreach (Pawn colonist in colonists)
 			{
-				Pawn colonist = colonists[j];
 				if (!GeneFeaturesUtility.CanBloodFeedNowWith(pawn, colonist))
 				{
 					continue;
 				}
-				if (PawnReserved(colonist, pawn))
+				if (!MiscUtility.TryGetAbilityJob(pawn, colonist, WVC_GenesDefOf.Bloodfeed, out Job job))
 				{
 					continue;
 				}
-				if (MiscUtility.TryGetAbilityJob(pawn, colonist, WVC_GenesDefOf.Bloodfeed, out Job job))
+				if (PawnReserved(biters, colonist, pawn))
 				{
-					if (!PawnHaveBloodHuntJob(pawn, job))
-					{
-						pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);
-						return true;
-					}
+					continue;
 				}
-				return false;
+				if (!PawnHaveBloodHuntJob(pawn, job))
+				{
+					pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);
+					// Log.Error("Target: " + colonist.Name.ToString());
+					return true;
+				}
 			}
 			return false;
 		}
@@ -113,12 +132,11 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public static bool PawnReserved(Pawn victim, Pawn biter)
+		public static bool PawnReserved(List<Pawn> biters, Pawn victim, Pawn biter)
 		{
-			List<Pawn> biters = GetAllBloodHunters(biter);
 			foreach (Pawn item in biters)
 			{
-				if (item.Map != victim.Map || item == biter)
+				if (item == biter)
 				{
 					continue;
 				}
@@ -133,10 +151,10 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public static List<Pawn> GetAllBloodHunters(Pawn pawn)
+		public static List<Pawn> GetAllBloodHuntersFromList(List<Pawn> pawns)
 		{
 			List<Pawn> hunters = new();
-			foreach (Pawn item in pawn.Map.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer))
+			foreach (Pawn item in pawns)
 			{
 				if (item?.genes?.GetFirstGeneOfType<Gene_BloodHunter>() == null)
 				{
