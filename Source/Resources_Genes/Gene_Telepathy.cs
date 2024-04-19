@@ -84,6 +84,21 @@ namespace WVC_XenotypesAndGenes
 			GeneFeaturesUtility.TryPsyFeedRandomly(pawn, Gene_Hemogen);
 		}
 
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: TryPsyFeed",
+					action = delegate
+					{
+						GeneFeaturesUtility.TryPsyFeedRandomly(pawn, Gene_Hemogen);
+					}
+				};
+			}
+		}
+
 	}
 
 }

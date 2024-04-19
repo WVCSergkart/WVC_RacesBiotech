@@ -9,6 +9,38 @@
   <!-- ================================================= -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Bloodfeeder">
+	<defName>WVC_Psyfeeder</defName>
+	<label>psyfeeder</label>
+	<description>Carriers of this gene can drain hemogen from the psychic field. However, it affects others, causing them to experience blood loss.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Psyfeeder</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_PsychicBloodfeeder_v0</iconPath>
+	<displayOrderInCategory>65</displayOrderInCategory>
+	<!-- <prerequisite>Bloodfeeder</prerequisite> -->
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Carriers can &lt;color=#8a8ae6&gt;automatically&lt;/color&gt;, at any distance on the map, &lt;color=#8a8ae6&gt;bloodfeed&lt;/color&gt; from other pawns in the colony.</li>
+		<li>Does not provoke negative thoughts, opinions or consequences with factions.</li>
+		<li>The target can only be a &lt;color=#8a8ae6&gt;non-hemogenic&lt;/color&gt; colony pawn without &lt;color=#8a8ae6&gt;blood loss&lt;/color&gt; and with &lt;color=#8a8ae6&gt;psychic sensitivity&lt;/color&gt;.</li>
+		<li>The effect is &lt;color=#8a8ae6&gt;triggered automatically&lt;/color&gt; if the carrier lacks hemogen and if hemogen &lt;color=#8a8ae6&gt;auto ingestion disabled&lt;/color&gt;.</li>
+		<!-- <li>&lt;color=#ff8585&gt;Cannot be disabled.&lt;/color&gt;</li> -->
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>psychi</symbol></li>
+		<li><symbol>feeder</symbol></li>
+		<li><symbol>draw</symbol></li>
+		<li><symbol>gain</symbol></li>
+		<li><symbol>feed</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>feed</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Bloodfeeder">
 	<defName>WVC_EternalHunger</defName>
 	<label>eternal hunger</label>
 	<description>Carriers of this gene very quickly lose hemogen, but are able to replenish it from any meat sources.</description>
@@ -45,9 +77,9 @@
 		<li><symbol>stomach</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
-	<!-- <exclusionTags> -->
-	  <!-- <li>WVC_XaG_EternalHunger</li> -->
-	<!-- </exclusionTags> -->
+	<exclusionTags>
+	  <li>WVC_XaG_EternalHunger</li>
+	</exclusionTags>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_EternalHunger_HungerFactor</hediffDefName>
@@ -81,7 +113,7 @@
 	  </suffixSymbols>
 	</symbolPack>
 	<exclusionTags>
-	  <!-- <li>WVC_XaG_EternalHunger</li> -->
+	  <li>WVC_XaG_EternalHunger</li>
 	  <li>WVC_XaG_HungerReplenishStomach</li>
 	</exclusionTags>
 	<modExtensions>
