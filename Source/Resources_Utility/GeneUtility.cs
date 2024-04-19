@@ -116,6 +116,23 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		public static bool PawnIsBaseliner(Pawn pawn)
+		{
+			if (pawn?.genes == null)
+			{
+				return true;
+			}
+			if (pawn.IsBaseliner())
+			{
+				if (pawn.genes.UniqueXenotype)
+				{
+					return false;
+				}
+				return true;
+			}
+			return false;
+		}
+
 		// ============================= Checker =============================
 
 		public static bool HasAnyActiveGene(List<GeneDef> geneDefs, Pawn pawn)

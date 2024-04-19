@@ -104,7 +104,7 @@ namespace WVC_XenotypesAndGenes
 			// {
 				// yield break;
 			// }
-			if (pawn?.Map != null)
+			if (pawn?.Map == null)
 			{
 				yield break;
 			}

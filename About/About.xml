@@ -113,16 +113,10 @@ A: Add - yes. Remove - no.</description>
 		<!-- - -->
 		<li>OskarPotocki.VanillaFactionsExpanded.Core</li>
 		<!-- - -->
-		<!-- <li>vanillaracesexpanded.saurid</li> -->
-		<!-- <li>vanillaracesexpanded.hussar</li> -->
-		<!-- <li>vanillaracesexpanded.genie</li> -->
-		<!-- <li>sarg.alphagenes</li> -->
-		<!-- - -->
-		<li>wvc.sergkart.core</li>
 		<li>wvc.sergkart.ultraexpansion</li>
 	</loadAfter>
 	<loadBefore>
-		<!-- <li>honkai.girls.sergkart</li> -->
+		<!-- <li>modid</li> -->
 	</loadBefore>
 	<incompatibleWith>
 	</incompatibleWith>

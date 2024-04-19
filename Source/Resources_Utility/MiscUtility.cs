@@ -331,7 +331,11 @@ namespace WVC_XenotypesAndGenes
 					{
 						continue;
 					}
-					if (item.IsBaseliner())
+					// if (item.IsBaseliner())
+					// {
+						// continue;
+					// }
+					if (XaG_GeneUtility.PawnIsBaseliner(item))
 					{
 						continue;
 					}
