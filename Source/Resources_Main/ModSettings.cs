@@ -71,6 +71,8 @@ namespace WVC_XenotypesAndGenes
 		// Reincarnation
 		public bool reincarnation_EnableMechanic = true;
 		public float reincarnation_MinChronoAge = 200f;
+		// Hemogenic
+		public float hemogenic_ImplanterFangsChanceFactor = 1f;
 		// Xenotypes
 		// public bool increasedXenotypesFactionlessGenerationWeight_MainSwitch = false;
 		public bool disableXenotypes_MainSwitch = false;
@@ -146,6 +148,8 @@ namespace WVC_XenotypesAndGenes
 			// Reincarnation
 			Scribe_Values.Look(ref reincarnation_EnableMechanic, "reincarnation_EnableMechanic", defaultValue: true);
 			Scribe_Values.Look(ref reincarnation_MinChronoAge, "reincarnation_MinChronoAge", defaultValue: 200f);
+			// Hemogenic
+			Scribe_Values.Look(ref hemogenic_ImplanterFangsChanceFactor, "hemogenic_ImplanterFangsChanceFactor", defaultValue: 1f);
 			// Reincarnation
 			Scribe_Values.Look(ref disableXenotypes_MainSwitch, "disableXenotypes_MainSwitch", defaultValue: false);
 			Scribe_Values.Look(ref disableXenotypes_Undeads, "disableXenotypes_Undeads", defaultValue: false);
@@ -279,10 +283,8 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.Gap();
 			// Fix
 			listingStandard.Label("WVC_BiotechSettings_Label_Other".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Other".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_onlyXenotypesMode".Translate(), ref settings.onlyXenotypesMode, "WVC_ToolTip_onlyXenotypesMode".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_fixVanillaGeneImmunityCheck".Translate().Colorize(ColorLibrary.LightPurple), ref settings.fixVanillaGeneImmunityCheck, "WVC_ToolTip_fixVanillaGeneImmunityCheck".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_spawnXenoForcerSerumsFromTraders".Translate(), ref settings.spawnXenoForcerSerumsFromTraders, "WVC_ToolTip_spawnXenoForcerSerumsFromTraders".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_disableUniqueXenotypeScenarios".Translate(), ref settings.disableUniqueXenotypeScenarios, "WVC_ToolTip_disableUniqueXenotypeScenarios".Translate());
 			listingStandard.Gap();
 			// Serums
 			listingStandard.Label("WVC_BiotechSettings_Label_Serums".Translate().Colorize(ColoredText.SubtleGrayColor) + ":", -1, "WVC_BiotechSettings_Tooltip_Serums".Translate());
@@ -561,45 +563,49 @@ namespace WVC_XenotypesAndGenes
 			Listing_Standard listingStandard = new();
 			listingStandard.Begin(rect);
 			// =
+			listingStandard.Label("WVC_XaGGeneSettings_Hemogenic".Translate() + ":", -1);
+			listingStandard.SliderLabeledWithRef("WVC_Label_hemogenic_ImplanterFangsChanceFactor".Translate((settings.hemogenic_ImplanterFangsChanceFactor * 100f).ToString()), ref settings.hemogenic_ImplanterFangsChanceFactor, 0f, 10f, null, 2);
+			listingStandard.GapLine();
+			// =
 			listingStandard.Label("WVC_XaGGeneSettings_XenotypeGestator".Translate() + ":", -1);
 			listingStandard.SliderLabeledWithRef("WVC_Label_xenotypeGestator_GestationTimeFactor".Translate((settings.xenotypeGestator_GestationTimeFactor * 100f).ToString()), ref settings.xenotypeGestator_GestationTimeFactor, 0f, 2f);
 			listingStandard.SliderLabeledWithRef("WVC_Label_xenotypeGestator_GestationMatchPercent".Translate((settings.xenotypeGestator_GestationMatchPercent * 100f).ToString()), ref settings.xenotypeGestator_GestationMatchPercent, 0f, 1f);
-			listingStandard.Gap();
+			listingStandard.GapLine();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_Undead".Translate() + ":", -1);
 			listingStandard.CheckboxLabeled("WVC_Label_canNonPlayerPawnResurrect".Translate().Colorize(ColorLibrary.LightBlue), ref settings.canNonPlayerPawnResurrect, "WVC_ToolTip_canNonPlayerPawnResurrect".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_allowShapeshiftAfterDeath".Translate().Colorize(ColorLibrary.LightBlue), ref settings.allowShapeshiftAfterDeath, "WVC_ToolTip_allowShapeshiftAfterDeath".Translate());
-			listingStandard.Gap();
+			listingStandard.GapLine();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_Thralls".Translate() + ":", -1);
 			listingStandard.CheckboxLabeled("WVC_Label_ThrallMaker_ThrallsInheritMasterGenes".Translate().Colorize(ColorLibrary.LightBlue), ref settings.thrallMaker_ThrallsInheritMasterGenes, "WVC_ToolTip_ThrallMaker_ThrallsInheritMasterGenes".Translate());
-			listingStandard.Gap();
+			listingStandard.GapLine();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_Reincarnation".Translate() + ":", -1);
 			listingStandard.CheckboxLabeled("WVC_Label_reincarnation_EnableMechanic".Translate().Colorize(ColorLibrary.LightBlue), ref settings.reincarnation_EnableMechanic, "WVC_ToolTip_reincarnation_EnableMechanic".Translate());
 			listingStandard.SliderLabeledWithRef("WVC_Label_Reincarnation_MinChronoAge".Translate((settings.reincarnation_MinChronoAge).ToString()), ref settings.reincarnation_MinChronoAge, 50f, 2000f, round: 0);
-			listingStandard.Gap();
+			listingStandard.GapLine();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_TotalHealing".Translate() + ":", -1);
 			listingStandard.CheckboxLabeled("WVC_Label_restoreBodyPartsWithFullHP".Translate().Colorize(ColorLibrary.LightBlue), ref settings.restoreBodyPartsWithFullHP, "WVC_ToolTip_restoreBodyPartsWithFullHP".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_totalHealingIgnoreScarification".Translate().Colorize(ColorLibrary.LightBlue), ref settings.totalHealingIgnoreScarification, "WVC_ToolTip_totalHealingIgnoreScarification".Translate());
-			listingStandard.Gap();
+			listingStandard.GapLine();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_Shapeshifer".Translate() + ":", -1);
 			listingStandard.CheckboxLabeled("WVC_Label_ShapeshifterGeneUnremovable".Translate().Colorize(ColorLibrary.LightBlue), ref settings.shapeshifterGeneUnremovable, "WVC_ToolTip_ShapeshifterGeneUnremovable".Translate());
-			listingStandard.Gap();
+			listingStandard.GapLine();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_IncestLover".Translate() + ":", -1);
 			listingStandard.CheckboxLabeled("WVC_Label_enableIncestLoverGene".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enableIncestLoverGene, "WVC_ToolTip_enableIncestLoverGene".Translate());
-			listingStandard.Gap();
+			listingStandard.GapLine();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_Telepath".Translate() + ":", -1);
 			listingStandard.CheckboxLabeled("WVC_Label_enableHarmonyTelepathyGene".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enableHarmonyTelepathyGene, "WVC_ToolTip_enableHarmonyTelepathyGene".Translate());
-			listingStandard.Gap();
+			listingStandard.GapLine();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_Dustogenic".Translate() + ":", -1);
 			listingStandard.CheckboxLabeled("WVC_Label_useAlternativeDustogenicFoodJob".Translate().Colorize(ColorLibrary.LightBlue), ref settings.useAlternativeDustogenicFoodJob, "WVC_ToolTip_useAlternativeDustogenicFoodJob".Translate());
-			listingStandard.Gap();
+			listingStandard.GapLine();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_TelepathStudy".Translate() + ":", -1);
 			listingStandard.CheckboxLabeled("WVC_Label_learningTelepathWorkForBothSides".Translate().Colorize(ColorLibrary.LightBlue), ref settings.learningTelepathWorkForBothSides, "WVC_ToolTip_learningTelepathWorkForBothSides".Translate());
@@ -641,6 +647,8 @@ namespace WVC_XenotypesAndGenes
 			Listing_Standard listingStandard = new();
 			listingStandard.Begin(rect);
 			// =
+			listingStandard.CheckboxLabeled("WVC_Label_onlyXenotypesMode".Translate(), ref settings.onlyXenotypesMode, "WVC_ToolTip_onlyXenotypesMode".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_disableUniqueXenotypeScenarios".Translate(), ref settings.disableUniqueXenotypeScenarios, "WVC_ToolTip_disableUniqueXenotypeScenarios".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableXenotypes_MainSwitch".Translate(), ref settings.disableXenotypes_MainSwitch, "WVC_ToolTip_disableXenotypes_MainSwitch".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableXenotypes_Undeads".Translate(), ref settings.disableXenotypes_Undeads, "WVC_ToolTip_disableXenotypes_Undeads".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableXenotypes_Psycasters".Translate(), ref settings.disableXenotypes_Psycasters, "WVC_ToolTip_disableXenotypes_Psycasters".Translate());
@@ -735,6 +743,8 @@ namespace WVC_XenotypesAndGenes
 			// =
 			WVC_Biotech.settings.reincarnation_EnableMechanic = true;
 			WVC_Biotech.settings.reincarnation_MinChronoAge = 200f;
+			// =
+			WVC_Biotech.settings.hemogenic_ImplanterFangsChanceFactor = 1f;
 			// Extra
 			WVC_Biotech.settings.genesCanTickOnlyOnMap = false;
 			// Xenotypes
@@ -811,6 +821,8 @@ namespace WVC_XenotypesAndGenes
 			// =
 			WVC_Biotech.settings.reincarnation_EnableMechanic = true;
 			WVC_Biotech.settings.reincarnation_MinChronoAge = 200f;
+			// =
+			WVC_Biotech.settings.hemogenic_ImplanterFangsChanceFactor = 1f;
 			// Extra
 			WVC_Biotech.settings.genesCanTickOnlyOnMap = false;
 			// Xenotypes

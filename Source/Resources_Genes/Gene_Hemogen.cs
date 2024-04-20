@@ -186,7 +186,8 @@ namespace WVC_XenotypesAndGenes
 			}
 			// Log.Error("2");
 			float immunity = victim.GetStatValue(StatDefOf.ImmunityGainSpeed);
-			if (!Rand.Chance(General.reimplantChance / (immunity > 0.01f ? immunity : 0.01f)))
+			float chance = (General.reimplantChance / (immunity > 0.01f ? immunity : 0.01f)) * WVC_Biotech.settings.hemogenic_ImplanterFangsChanceFactor;
+			if (!Rand.Chance(chance))
 			{
 				// Log.Error("2 Chance: " + (General.reimplantChance / (immunity > 0.01f ? immunity : 0.01f)).ToString());
 				return;
