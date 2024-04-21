@@ -108,6 +108,13 @@ namespace WVC_XenotypesAndGenes
 		{
 			foreach (ThingDef thingDef in DefDatabase<ThingDef>.AllDefsListForReading)
 			{
+				if (thingDef.IsXenoGenesDef())
+				{
+					if (WVC_Biotech.settings.onlyXenotypesMode)
+					{
+						thingDef.thingSetMakerTags = new();
+					}
+				}
 				if (thingDef?.race == null)
 				{
 					continue;

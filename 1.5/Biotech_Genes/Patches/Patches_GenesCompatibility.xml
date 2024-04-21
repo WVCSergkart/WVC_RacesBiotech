@@ -11,10 +11,10 @@
 					<success>Always</success>
 				</li>
 
-				<li Class="PatchOperationRemove">
-					<xpath>/Defs/ThingDef[defName[contains(text(),'WVC_')]]/thingSetMakerTags</xpath>
-					<success>Always</success>
-				</li>
+				<!-- <li Class="PatchOperationRemove"> -->
+					<!-- <xpath>/Defs/ThingDef[defName[contains(text(),'WVC_')]]/thingSetMakerTags</xpath> -->
+					<!-- <success>Always</success> -->
+				<!-- </li> -->
 
 			</operations>
 		</caseTrue>
