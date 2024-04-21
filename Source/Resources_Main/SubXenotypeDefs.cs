@@ -18,8 +18,9 @@ namespace WVC_XenotypesAndGenes
 		public MutantDef mutantDef = null;
 
 		public bool addGenesFromAbility = true;
-
 		public bool addGenesFromMaster = true;
+
+		public bool resurrectAsShambler = false;
 
 		[MustTranslate]
 		public string generalDesc;

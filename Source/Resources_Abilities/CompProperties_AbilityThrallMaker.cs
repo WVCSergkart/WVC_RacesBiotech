@@ -41,51 +41,13 @@ namespace WVC_XenotypesAndGenes
 			Pawn innerPawn = ((Corpse)target.Thing).InnerPawn;
 			if (innerPawn != null)
 			{
-				UndeadUtility.ResurrectWithSickness(innerPawn, null);
-				if ((innerPawn.Faction == null || innerPawn.Faction != Faction.OfPlayer))
-				{
-					RecruitUtility.Recruit(innerPawn, Faction.OfPlayer, parent.pawn);
-				}
-				DuplicateUtility.NullifyBackstory(innerPawn);
-				DuplicateUtility.NullifySkills(innerPawn);
-				if (ModsConfig.IdeologyActive)
-				{
-					innerPawn.ideo.SetIdeo(parent.pawn.ideo.Ideo);
-				}
-				ThrallMaker(innerPawn, thrallDef);
-				if (thrallDef.addGenesFromAbility)
-				{
-					foreach (GeneDef item in Props.geneDefs)
-					{
-						innerPawn.genes?.AddGene(item, false);
-					}
-				}
-				if (thrallDef.addGenesFromMaster && WVC_Biotech.settings.thrallMaker_ThrallsInheritMasterGenes)
-				{
-					foreach (GeneDef item in Props.inheritableGenes)
-					{
-						if (!parent.pawn.genes.HasGene(item))
-						{
-							continue;
-						}
-						if (item.prerequisite != null && !innerPawn.genes.HasGene(item.prerequisite))
-						{
-							continue;
-						}
-						if (!innerPawn.genes.HasGene(item))
-						{
-							innerPawn.genes?.AddGene(item, false);
-						}
-					}
-				}
-				GeneUtility.UpdateXenogermReplication(innerPawn);
 				if (ModsConfig.AnomalyActive)
 				{
-					MutantDef mutantDef = thrallDef?.mutantDef;
-					if (mutantDef != null)
-					{
-						MutantUtility.SetPawnAsMutantInstantly(innerPawn, mutantDef);
-					}
+					Anomaly(thrallDef, innerPawn);
+				}
+				else
+				{
+					NonAnomaly(thrallDef, innerPawn);
 				}
 				// DuplicateUtility.RemoveAllGenes_Overridden(innerPawn);
 				FleckMaker.AttachedOverlay(innerPawn, FleckDefOf.FlashHollow, new Vector3(0f, 0f, 0.26f));
@@ -95,6 +57,83 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 		}
+
+		// =================
+
+		private void NonAnomaly(ThrallDef thrallDef, Pawn innerPawn)
+		{
+			UndeadUtility.ResurrectWithSickness(innerPawn, null);
+			SetStory(innerPawn);
+			ReimplantGenes(thrallDef, innerPawn);
+		}
+
+		private void Anomaly(ThrallDef thrallDef, Pawn innerPawn)
+		{
+			MutantDef mutantDef = thrallDef?.mutantDef;
+			// if (thrallDef.resurrectAsShambler)
+			// {
+				// MutantUtility.ResurrectAsShambler(innerPawn, -1, Faction.OfPlayer)
+			// }
+			// else
+			// {
+			// }
+			UndeadUtility.ResurrectWithSickness(innerPawn, null);
+			SetStory(innerPawn);
+			ReimplantGenes(thrallDef, innerPawn);
+			if (mutantDef != null)
+			{
+				MutantUtility.SetPawnAsMutantInstantly(innerPawn, mutantDef);
+			}
+		}
+
+		// =================
+
+		private void SetStory(Pawn innerPawn)
+		{
+			if ((innerPawn.Faction == null || innerPawn.Faction != Faction.OfPlayer))
+			{
+				RecruitUtility.Recruit(innerPawn, Faction.OfPlayer, parent.pawn);
+			}
+			DuplicateUtility.NullifyBackstory(innerPawn);
+			DuplicateUtility.NullifySkills(innerPawn);
+			if (ModsConfig.IdeologyActive)
+			{
+				innerPawn.ideo.SetIdeo(parent.pawn.ideo.Ideo);
+			}
+		}
+
+		private void ReimplantGenes(ThrallDef thrallDef, Pawn innerPawn)
+		{
+			ThrallMaker(innerPawn, thrallDef);
+			if (thrallDef.addGenesFromAbility)
+			{
+				foreach (GeneDef item in Props.geneDefs)
+				{
+					innerPawn.genes?.AddGene(item, false);
+				}
+			}
+			if (thrallDef.addGenesFromMaster && WVC_Biotech.settings.thrallMaker_ThrallsInheritMasterGenes)
+			{
+				foreach (GeneDef item in Props.inheritableGenes)
+				{
+					if (!parent.pawn.genes.HasGene(item))
+					{
+						continue;
+					}
+					if (item.prerequisite != null && !innerPawn.genes.HasGene(item.prerequisite))
+					{
+						continue;
+					}
+					if (!innerPawn.genes.HasGene(item))
+					{
+						innerPawn.genes?.AddGene(item, false);
+					}
+				}
+			}
+			GeneUtility.UpdateXenogermReplication(innerPawn);
+		}
+
+		// =================
 
 		public static void ThrallMaker(Pawn pawn, ThrallDef thrallDef)
 		{
@@ -133,10 +172,24 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		// =================
+
 		public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
 		{
 			if (target.HasThing && target.Thing is Corpse corpse)
 			{
+				// if (ModsConfig.AnomalyActive && thrallDef.resurrectAsShambler)
+				// {
+					// if (!MutantUtility.CanResurrectAsShambler(corpse))
+					// {
+						// if (throwMessages)
+						// {
+							// Messages.Message("MessageCannotResurrectDessicatedCorpse".Translate(), corpse, MessageTypeDefOf.RejectInput, historical: false);
+						// }
+						// return false;
+					// }
+					// return true;
+				// }
 				if (corpse.GetRotStage() == RotStage.Dessicated)
 				{
 					if (throwMessages)
@@ -170,7 +223,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Mote> CustomWarmupMotes(LocalTargetInfo target)
 		{
-			yield return MoteMaker.MakeAttachedOverlay(((Corpse)target.Thing).InnerPawn, ThingDefOf.Mote_XenogermImplantation, new Vector3(0f, 0f, 0.3f));
+			yield return MoteMaker.MakeAttachedOverlay((Corpse)target.Thing, ThingDefOf.Mote_XenogermImplantation, new Vector3(0f, 0f, 0.3f));
 		}
 
 		// public override string CompInspectStringExtra()

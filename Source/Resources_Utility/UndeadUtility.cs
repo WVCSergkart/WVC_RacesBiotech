@@ -198,7 +198,7 @@ namespace WVC_XenotypesAndGenes
 
 		// Resurrection
 
-		public static bool TryResurrectWithSickness(Pawn pawn, ThoughtDef resurrectThought = null)
+		public static bool TryResurrectWithSickness(Pawn pawn, ThoughtDef resurrectThought = null, bool resurrectionSickness = true)
 		{
 			ResurrectionParams resurrectionParams = new();
 			resurrectionParams.restoreMissingParts = true;
@@ -211,7 +211,10 @@ namespace WVC_XenotypesAndGenes
 			resurrectionParams.breachers = false;
 			if (ResurrectionUtility.TryResurrect(pawn, resurrectionParams) == true)
 			{
-				pawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
+				if (resurrectionSickness)
+				{
+					pawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
+				}
 				if (resurrectThought != null)
 				{
 					pawn.needs?.mood?.thoughts?.memories.TryGainMemory(resurrectThought);

@@ -91,7 +91,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Mote> CustomWarmupMotes(LocalTargetInfo target)
 		{
-			yield return MoteMaker.MakeAttachedOverlay(((Corpse)target.Thing).InnerPawn, ThingDefOf.Mote_XenogermImplantation, new Vector3(0f, 0f, 0.3f));
+			yield return MoteMaker.MakeAttachedOverlay((Corpse)target.Thing, ThingDefOf.Mote_XenogermImplantation, new Vector3(0f, 0f, 0.3f));
 		}
 	}
 }
