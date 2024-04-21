@@ -24,6 +24,9 @@
 	  <!-- <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0</ConversionPower> -->
 	  <!-- <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">0</SocialIdeoSpreadFrequencyFactor> -->
 	  <!-- <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">4.0</CertaintyLossFactor> -->
+	  <MentalBreakThreshold>0.6</MentalBreakThreshold>
+	  <SocialImpact>0.8</SocialImpact>
+	  <RestRateMultiplier>1.5</RestRateMultiplier>
 	</statFactors>
 	<customEffectDescriptions Inherit="False">
 	  <li>Carrier must regularly cellsfeed on &lt;color=#8a8ae6&gt;resurgent&lt;/color&gt; pawns or it &lt;color=#ff8585&gt;will die&lt;/color&gt;.</li>
@@ -32,6 +35,12 @@
 	<abilities>
 	  <li>WVC_XaG_Cellsfeed</li>
 	</abilities>
+	<disablesNeeds>
+	  <li>Beauty</li>
+	  <li>Outdoors</li>
+	  <li>Indoors</li>
+	  <li>Comfort</li>
+	</disablesNeeds>
 	<exclusionTags>
 		<li>WVC_ReimplanterThrallMaker</li>
 		<li>WVC_ThrallGeneticInstability</li>
@@ -70,13 +79,14 @@
 		<canTargetSelf>false</canTargetSelf>
 		<canTargetBuildings>false</canTargetBuildings>
 		<canTargetMechs>false</canTargetMechs>
-		<canTargetBloodfeeders>false</canTargetBloodfeeders>
+		<!-- <canTargetBloodfeeders>true</canTargetBloodfeeders> -->
 	  </targetParams>
 	</verbProperties>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityHideIfPawnMultiSelected"/>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityCellsfeederBite">
-		<daysGain>10</daysGain>
+		<daysGain>12</daysGain>
+		<cellsConsumeFactor>0.8</cellsConsumeFactor>
 	  </li>
 	  <li Class="CompProperties_AbilityFleckOnTarget">
 		<fleckDef>BloodSplash</fleckDef>

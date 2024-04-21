@@ -33,6 +33,10 @@
 
 	<!-- <WVC_XaG_RecommendedRole>Recommended role</WVC_XaG_RecommendedRole> -->
 
+	<WVC_XaG_MessageWrongRottingStage>Wrong rotting stage.</WVC_XaG_MessageWrongRottingStage>
+
+	<WVC_XaG_AcceptableRotStages>Acceptable rot stages</WVC_XaG_AcceptableRotStages>
+
 	<!-- ============================ SERUM RETUNE AND OTHER ============================ -->
 	
 	<WVC_XaG_SuremRetuneJob_Label>Retune</WVC_XaG_SuremRetuneJob_Label>

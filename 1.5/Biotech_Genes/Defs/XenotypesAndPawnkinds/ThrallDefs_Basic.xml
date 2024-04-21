@@ -8,6 +8,10 @@
 	<description>An ordinary thrall with its own strengths and weaknesses.</description>
 	<generalDesc>In general thralls are rare xenohumans with a set of genes that does not fall into any known xenotype. Thralls are created from fresh corpses and usually cannot exist without the support of a master, since their genetic instabilization inevitably leads to death.</generalDesc>
 	<xenotypeIconDef>WVC_Thrall_x1c</xenotypeIconDef>
+	<acceptableRotStages>
+		<li>Fresh</li>
+		<li>Rotting</li>
+	</acceptableRotStages>
 	<genes>
 		<li>WVC_GeneSavant</li>
 		<li>ToxicEnvironmentResistance_Total</li>
@@ -157,7 +161,7 @@
 		<li>WVC_Hair_TribalOnly</li>
 		<li>WVC_Pain_Nullified</li>
 		<li>WVC_SlaveSuppression_Submissive</li>
-		<li MayRequire="oskarpotocki.vanillafactionsexpanded.core">WVC_DebuffNoUV_ExtremePsychicSensitivity</li>
+		<li>WVC_DebuffNoUV_ExtremePsychicSensitivity</li>
 		<li>WVC_HeadBoneHorns</li>
 		<!-- = -->
 		<li>WVC_AptitudeShameful_Shooting</li>

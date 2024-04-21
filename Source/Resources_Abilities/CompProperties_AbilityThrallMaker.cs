@@ -178,6 +178,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (target.HasThing && target.Thing is Corpse corpse)
 			{
+				ThrallDef thrallDef = ReimplanterGene?.thrallDef;
 				// if (ModsConfig.AnomalyActive && thrallDef.resurrectAsShambler)
 				// {
 					// if (!MutantUtility.CanResurrectAsShambler(corpse))
@@ -190,16 +191,7 @@ namespace WVC_XenotypesAndGenes
 					// }
 					// return true;
 				// }
-				if (corpse.GetRotStage() == RotStage.Dessicated)
-				{
-					if (throwMessages)
-					{
-						Messages.Message("MessageCannotResurrectDessicatedCorpse".Translate(), corpse, MessageTypeDefOf.RejectInput, historical: false);
-					}
-					return false;
-				}
 				Pawn innerPawn = corpse.InnerPawn;
-				ThrallDef thrallDef = ReimplanterGene?.thrallDef;
 				MutantDef mutantDef = thrallDef?.mutantDef;
 				if (!innerPawn.IsHuman() || thrallDef == null || innerPawn.IsMutant && !innerPawn.IsMutantOfDef(mutantDef))
 				{
@@ -214,6 +206,14 @@ namespace WVC_XenotypesAndGenes
 					if (throwMessages)
 					{
 						Messages.Message("WVC_XaG_WrongDevelopmentalStage".Translate(), innerPawn, MessageTypeDefOf.RejectInput, historical: false);
+					}
+					return false;
+				}
+				if (!thrallDef.acceptableRotStages.Contains(corpse.GetRotStage()))
+				{
+					if (throwMessages)
+					{
+						Messages.Message("WVC_XaG_MessageWrongRottingStage".Translate(), corpse, MessageTypeDefOf.RejectInput, historical: false);
 					}
 					return false;
 				}

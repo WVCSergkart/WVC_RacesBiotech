@@ -78,6 +78,13 @@ namespace WVC_XenotypesAndGenes
 			}
 			Widgets.Label(rect3.x, ref curY, rect3.width, selectedXeno.description + "\n\n" + selectedXeno.generalDesc);
 			curY += 10f;
+			List<RotStage> rotStages = selectedXeno.acceptableRotStages;
+			Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_AcceptableRotStages".Translate() + ": " + 
+			((string)(rotStages.Contains(RotStage.Fresh) ? "RotStateFresh".Translate() : ".")) + 
+			((string)(rotStages.Contains(RotStage.Rotting) ? (", " + "RotStateRotting".Translate()) : ".")) + 
+			((string)(rotStages.Contains(RotStage.Dessicated) ? (", " + "RotStateDessicated".Translate()) : "."))
+			);
+			curY += 10f;
 			Widgets.HyperlinkWithIcon(new Rect(rect3.x, curY, rect3.width, Text.LineHeight), new Dialog_InfoCard.Hyperlink(selectedXeno));
 			curY += 10f;
 			Rect rect4 = new(rect3.x, rect3.yMax - 55f, rect3.width, 55f);

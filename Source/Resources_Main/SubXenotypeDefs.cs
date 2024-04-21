@@ -22,6 +22,8 @@ namespace WVC_XenotypesAndGenes
 
 		public bool resurrectAsShambler = false;
 
+		public List<RotStage> acceptableRotStages = new() { RotStage.Fresh, RotStage.Rotting };
+
 		[MustTranslate]
 		public string generalDesc;
 
