@@ -21,7 +21,7 @@
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
 		<li>Carriers can &lt;color=#8a8ae6&gt;automatically&lt;/color&gt;, at any distance on the map, &lt;color=#8a8ae6&gt;bloodfeed&lt;/color&gt; from other pawns in the colony.</li>
-		<li>Does not provoke negative thoughts, opinions or consequences with factions.</li>
+		<li>Inherits &lt;color=#8a8ae6&gt;all&lt;/color&gt; effects of the &lt;color=#8a8ae6&gt;bloodfeed&lt;/color&gt; ability.</li>
 		<li>The target can only be a &lt;color=#8a8ae6&gt;non-hemogenic&lt;/color&gt; colony pawn without &lt;color=#8a8ae6&gt;blood loss&lt;/color&gt; and with &lt;color=#8a8ae6&gt;psychic sensitivity&lt;/color&gt;.</li>
 		<li>The effect is &lt;color=#8a8ae6&gt;triggered automatically&lt;/color&gt; if the carrier lacks hemogen and if hemogen &lt;color=#8a8ae6&gt;auto ingestion disabled&lt;/color&gt;.</li>
 		<!-- <li>&lt;color=#ff8585&gt;Cannot be disabled.&lt;/color&gt;</li> -->
