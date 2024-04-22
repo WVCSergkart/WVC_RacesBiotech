@@ -7,9 +7,18 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
+	public class Gene_LifeStageStarted : Gene
+	{
+
+		public virtual void Notify_LifeStageStarted()
+		{
+		}
+
+	}
+
 	// WIP
 
-	public class Gene_Exoskin : Gene
+	public class Gene_Exoskin : Gene_LifeStageStarted
 	{
 
 		public GeneExtension_Graphic Graphic => def?.GetModExtension<GeneExtension_Graphic>();
@@ -47,6 +56,12 @@ namespace WVC_XenotypesAndGenes
 					pawn.story.bodyType = BodyTypeDefOf.Male;
 				}
 			}
+		}
+
+		public override void Notify_LifeStageStarted()
+		{
+			base.Notify_LifeStageStarted();
+			ChangeBodyType();
 		}
 
 	}

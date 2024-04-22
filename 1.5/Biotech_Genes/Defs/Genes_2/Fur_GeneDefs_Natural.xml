@@ -321,4 +321,45 @@
 	</symbolPack>
   </GeneDef>
 
+  <!-- Dryadskin -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_DryadSkin</defName>
+	<label>dryadskin</label>
+	<description>Carriers of this gene always have very feminine appearance, and their skin resembles that of dryads.</description>
+	<iconPath>WVC/UI/Genes/Gene_DryadSkin_v0</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Feminine</geneClass>
+	<forcedHeadTypes>
+	  <li>WVC_DryadSkin_Average</li>
+	</forcedHeadTypes>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-3</biostatMet>
+	<beardTagFilter>
+	  <whitelist>true</whitelist>
+	  <tags>
+		<li>NoBeard</li>
+	  </tags>
+	</beardTagFilter>
+	<statOffsets>
+	  <PawnBeauty>1</PawnBeauty>
+	  <ArmorRating_Blunt>0.10</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.20</ArmorRating_Sharp>
+	</statOffsets>
+	<fur>WVC_DryadSkin</fur>
+	<missingGeneRomanceChanceFactor>0.90</missingGeneRomanceChanceFactor>
+	<customEffectDescriptions>
+		<li>&lt;color=#ff8585&gt;Female body only.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>BeardStyle</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>dryad</symbol></li>
+		<li><symbol>beauty</symbol></li>
+		<li><symbol>girly</symbol></li>
+		<li><symbol>fem</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
 </Defs>

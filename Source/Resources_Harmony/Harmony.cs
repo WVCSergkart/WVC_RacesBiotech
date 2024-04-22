@@ -53,6 +53,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					harmony.Patch(AccessTools.Method(typeof(PawnRenderNode_Body), "GraphicFor"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("FurskinIsSkin")));
 					// harmony.Patch(AccessTools.Method(typeof(PawnGraphicSet), "ResolveGeneGraphics"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("SpecialGeneGraphic")));
+					harmony.Patch(AccessTools.Method(typeof(LifeStageWorker_HumanlikeAdult), "Notify_LifeStageStarted"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Notify_LifeStageStarted")));
 				}
 				// if (WVC_Biotech.settings.enableBodySizeGenes)
 				// {
@@ -256,6 +257,21 @@ namespace WVC_XenotypesAndGenes
 				else if (modExtension.furIsSkin)
 				{
 					__result = GraphicDatabase.Get<Graphic_Multi>(bodyPath, ShaderUtility.GetSkinShader(pawn), Vector2.one, skinColor);
+				}
+			}
+
+			public static void Notify_LifeStageStarted(ref Pawn pawn)
+			{
+				if (pawn?.genes == null)
+				{
+					return;
+				}
+				foreach (Gene gene in pawn.genes.GenesListForReading)
+				{
+					if (gene is Gene_LifeStageStarted gene_LifeStageStarted && gene_LifeStageStarted.Active)
+					{
+						gene_LifeStageStarted.Notify_LifeStageStarted();
+					}
 				}
 			}
 

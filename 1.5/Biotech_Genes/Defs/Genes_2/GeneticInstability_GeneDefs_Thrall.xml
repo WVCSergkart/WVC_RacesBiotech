@@ -86,7 +86,7 @@
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityHideIfPawnMultiSelected"/>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityCellsfeederBite">
 		<daysGain>12</daysGain>
-		<cellsConsumeFactor>0.8</cellsConsumeFactor>
+		<cellsConsumeFactor>1.0</cellsConsumeFactor>
 	  </li>
 	  <li Class="CompProperties_AbilityFleckOnTarget">
 		<fleckDef>BloodSplash</fleckDef>

@@ -22,7 +22,8 @@
 	<iconColor>(0.75, 0.75, 0.75)</iconColor>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Feminine</geneClass>
 	<customEffectDescriptions>
-		<li>Replace all bodies with female one.</li>
+		<!-- <li>Replace all bodies with female one.</li> -->
+		<li>&lt;color=#ff8585&gt;Female body only.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>

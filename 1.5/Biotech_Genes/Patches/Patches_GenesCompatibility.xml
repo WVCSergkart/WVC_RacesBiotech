@@ -32,20 +32,20 @@
 				  </value>
 				</li>
 
-				<li Class="WVC_XenotypesAndGenes.PatchOperationOptional">
-					<settingName>hideXaGGenes</settingName>
-					<caseFalse Class="PatchOperationSequence">
-						<operations>
+			</operations>
+		</caseFalse>
+	</Operation>
 
-							<li Class="PatchOperationReplace">
-							  <xpath>/Defs/GeneDef[@Name="GeneVoiceBase"]/displayCategory</xpath>
-							  <value>
-								  <displayCategory>WVC_CosmeticVoices</displayCategory>
-							  </value>
-							</li>
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>hideXaGGenes</settingName>
+		<caseFalse Class="PatchOperationSequence">
+			<operations>
 
-						</operations>
-					</caseFalse>
+				<li Class="PatchOperationReplace">
+				  <xpath>/Defs/GeneDef[@Name="GeneVoiceBase"]/displayCategory</xpath>
+				  <value>
+					  <displayCategory>WVC_CosmeticVoices</displayCategory>
+				  </value>
 				</li>
 
 			</operations>

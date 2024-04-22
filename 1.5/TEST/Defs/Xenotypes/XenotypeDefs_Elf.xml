@@ -5,6 +5,7 @@
 	<defName>WVC_Elf</defName>
 	<label>elf</label>
 	<inheritable>true</inheritable>
+	<iconPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_v0</iconPath>
 	<genes>
 		<li>Hemogenic</li>
 		<!-- <li>WVC_HemogenGain</li> -->
@@ -12,21 +13,28 @@
 		<li>WVC_Bloodeater</li>
 		<li>WVC_NaturalAgeless</li>
 		<li>WVC_Delicate</li>
-		<li>Beauty_Pretty</li>
+		<!-- <li>Beauty_Pretty</li> -->
 		<li>WVC_Eyes_69a2ce_HEX</li>
 		<li>Hair_LongOnly</li>
-		<li>Beard_NoBeardOnly</li>
+		<!-- <li>Beard_NoBeardOnly</li> -->
 		<li>Ears_Pointed</li>
-		<li>Body_Standard</li>
+		<!-- <li>Body_Standard</li> -->
+		<li>WVC_DryadSkin</li>
 		<li>WVC_BodySize_Small</li>
 		<li>Hair_SnowWhite</li>
 		<li>WVC_HairColor_ffdcb4_HEX</li>
 		<li>Skin_Melanin1</li>
+		<!-- <li>Skin_SheerWhite</li> -->
 		<li>DarkVision</li>
 		<!-- = -->
 		<li>LongjumpLegs</li>
 		<li>PiercingSpine</li>
 		<li>Coagulate</li>
+		<li>Deathrest</li>
+		<!-- = -->
+		<li>Neversleep</li>
+		<li>WVC_NaturalImmunity_PerfectImmunity</li>
+		<li>WVC_NaturalDisease_DiseaseFree</li>
 	</genes>
   </XenotypeDef>
 

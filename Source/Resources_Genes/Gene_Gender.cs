@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Gender : Gene
+	public class Gene_Gender : Gene_LifeStageStarted
 	{
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
@@ -49,7 +49,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Feminine : Gene
+	public class Gene_Feminine : Gene_LifeStageStarted
 	{
 
 		public override void PostAdd()
@@ -64,6 +64,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
+			if (pawn.DevelopmentalStage != DevelopmentalStage.Adult)
+			{
+				return;
+			}
 			if (pawn?.story?.bodyType != BodyTypeDefOf.Female)
 			{
 				pawn.story.bodyType = BodyTypeDefOf.Female;
@@ -73,6 +77,10 @@ namespace WVC_XenotypesAndGenes
 		public override void PostRemove()
 		{
 			base.PostRemove();
+			if (pawn.DevelopmentalStage != DevelopmentalStage.Adult)
+			{
+				return;
+			}
 			if (pawn.gender == Gender.Male && pawn.story?.bodyType == BodyTypeDefOf.Female)
 			{
 				pawn.story.bodyType = BodyTypeDefOf.Male;
@@ -84,6 +92,12 @@ namespace WVC_XenotypesAndGenes
 			// base.ExposeData();
 			// ChangeBodyType();
 		// }
+
+		public override void Notify_LifeStageStarted()
+		{
+			base.Notify_LifeStageStarted();
+			ChangeBodyType();
+		}
 
 	}
 

@@ -4,11 +4,15 @@
   <FurDef Name="WVC_XenotypesAndGenes_FurDef_Base" Abstract="True">
 	<noGraphic>true</noGraphic>
 	<!-- <requiredGene>WVC_MechaSkin</requiredGene> -->
+	<!-- Default bodies paths -->
 	<bodyTypeGraphicPaths>
-	  <!-- Never -->
+	  <Male>Things/Pawn/Humanlike/Bodies/Naked_Male</Male>
+	  <Female>Things/Pawn/Humanlike/Bodies/Naked_Female</Female>
+	  <Hulk>Things/Pawn/Humanlike/Bodies/Naked_Hulk</Hulk>
+	  <Fat>Things/Pawn/Humanlike/Bodies/Naked_Fat</Fat>
+	  <Thin>Things/Pawn/Humanlike/Bodies/Naked_Thin</Thin>
 	  <Child>Things/Pawn/Humanlike/Bodies/Naked_Child</Child>
 	  <Baby>Things/Pawn/Humanlike/Bodies/Naked_Child</Baby>
-	  <!-- Never -->
 	</bodyTypeGraphicPaths>
   </FurDef>
 
@@ -101,8 +105,6 @@
 	  <Female>WVC/Bodies/Gauntskin_Body/Naked_Female</Female>
 	  <Thin>WVC/Bodies/Gauntskin_Body/Naked_Thin</Thin>
 	  <!-- A fat and a hulk cannot be anorexic thin.. -->
-	  <Hulk>Things/Pawn/Humanlike/Bodies/Naked_Hulk</Hulk>
-	  <Fat>Things/Pawn/Humanlike/Bodies/Naked_Fat</Fat>
 	</bodyTypeGraphicPaths>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
@@ -119,6 +121,19 @@
 	  <Hulk>WVC/Bodies/MecaGene_Body/Naked_Hulk</Hulk>
 	  <Fat>WVC/Bodies/MecaGene_Body/Naked_Fat</Fat>
 	  <Thin>WVC/Bodies/MecaGene_Body/Naked_Thin</Thin>
+	</bodyTypeGraphicPaths>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<furIsSkin>true</furIsSkin>
+		</li>
+	</modExtensions>
+  </FurDef>
+
+  <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
+	<defName>WVC_DryadSkin</defName>
+	<bodyTypeGraphicPaths>
+	  <!-- Only Female -->
+	  <Female>WVC/Bodies/Dryad_Body/Naked_Female</Female>
 	</bodyTypeGraphicPaths>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
