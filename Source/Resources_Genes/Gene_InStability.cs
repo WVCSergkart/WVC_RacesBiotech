@@ -225,6 +225,11 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (pawn.Downed || pawn.Drafted)
 			{
+				// Last Chance Mechanic
+				if (WVC_Biotech.settings.enableInstabilityLastChanceMechanic)
+				{
+					nextTick += 9000;
+				}
 				return;
 			}
 			if (pawn.Faction != Faction.OfPlayer)

@@ -67,4 +67,11 @@ It is not recommended to use more than one DEV-fix at a time. It might break som
 	<WVC_Label_ThrallMaker_ThrallsInheritMasterGenes>Thralls inherit master unique genes</WVC_Label_ThrallMaker_ThrallsInheritMasterGenes>
 	<WVC_ToolTip_ThrallMaker_ThrallsInheritMasterGenes>If enabled, thralls will, in addition to the basic set of genes, receive some rare master genes.</WVC_ToolTip_ThrallMaker_ThrallsInheritMasterGenes>
 
+	<!-- ================================== -->
+
+	<WVC_Label_enableInstabilityLastChanceMechanic>Enbale instability last chance</WVC_Label_enableInstabilityLastChanceMechanic>
+	<WVC_ToolTip_enableInstabilityLastChanceMechanic>If enabled, then instabilization, having reached a critical point, will give a small head start to the pawn, provided that the pawn is not able to take care of itself.
+
+It is recommended to leave this option enabled.</WVC_ToolTip_enableInstabilityLastChanceMechanic>
+
 </LanguageData>

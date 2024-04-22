@@ -73,6 +73,8 @@ namespace WVC_XenotypesAndGenes
 		public float reincarnation_MinChronoAge = 200f;
 		// Hemogenic
 		public float hemogenic_ImplanterFangsChanceFactor = 1f;
+		// Thralls
+		public bool enableInstabilityLastChanceMechanic = true;
 		// Xenotypes
 		// public bool increasedXenotypesFactionlessGenerationWeight_MainSwitch = false;
 		public bool disableXenotypes_MainSwitch = false;
@@ -150,6 +152,8 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref reincarnation_MinChronoAge, "reincarnation_MinChronoAge", defaultValue: 200f);
 			// Hemogenic
 			Scribe_Values.Look(ref hemogenic_ImplanterFangsChanceFactor, "hemogenic_ImplanterFangsChanceFactor", defaultValue: 1f);
+			// Thralls
+			Scribe_Values.Look(ref enableInstabilityLastChanceMechanic, "enableInstabilityLastChanceMechanic", defaultValue: true);
 			// Reincarnation
 			Scribe_Values.Look(ref disableXenotypes_MainSwitch, "disableXenotypes_MainSwitch", defaultValue: false);
 			Scribe_Values.Look(ref disableXenotypes_Undeads, "disableXenotypes_Undeads", defaultValue: false);
@@ -579,6 +583,7 @@ namespace WVC_XenotypesAndGenes
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_Thralls".Translate() + ":", -1);
 			listingStandard.CheckboxLabeled("WVC_Label_ThrallMaker_ThrallsInheritMasterGenes".Translate().Colorize(ColorLibrary.LightBlue), ref settings.thrallMaker_ThrallsInheritMasterGenes, "WVC_ToolTip_ThrallMaker_ThrallsInheritMasterGenes".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_enableInstabilityLastChanceMechanic".Translate(), ref settings.enableInstabilityLastChanceMechanic, "WVC_ToolTip_enableInstabilityLastChanceMechanic".Translate());
 			listingStandard.GapLine();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_Reincarnation".Translate() + ":", -1);
@@ -745,6 +750,8 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.reincarnation_MinChronoAge = 200f;
 			// =
 			WVC_Biotech.settings.hemogenic_ImplanterFangsChanceFactor = 1f;
+			// =
+			WVC_Biotech.settings.enableInstabilityLastChanceMechanic = true;
 			// Extra
 			WVC_Biotech.settings.genesCanTickOnlyOnMap = false;
 			// Xenotypes
@@ -823,6 +830,8 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.reincarnation_MinChronoAge = 200f;
 			// =
 			WVC_Biotech.settings.hemogenic_ImplanterFangsChanceFactor = 1f;
+			// =
+			WVC_Biotech.settings.enableInstabilityLastChanceMechanic = true;
 			// Extra
 			WVC_Biotech.settings.genesCanTickOnlyOnMap = false;
 			// Xenotypes
