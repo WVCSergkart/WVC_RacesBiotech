@@ -65,7 +65,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_AngelBeauty : Gene_DustDrain
+	public class Gene_AngelBeauty : Gene_FoodEfficiency
 	{
 
 		public GeneExtension_Opinion Props => def?.GetModExtension<GeneExtension_Opinion>();

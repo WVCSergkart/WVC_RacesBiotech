@@ -18,42 +18,16 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_Base">
 	<defName>WVC_Dustogenic</defName>
 	<label>dustogenic</label>
-	<description>Carriers of this gene have special blood cells called dust. These cells decreases the amount of nutrients available from food sources.</description>
+	<description>Carriers of this gene have a special resource in their blood called dust. Thanks to dust, under certain conditions, their body can receive significantly more nutrients from food.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Dustogenic</geneClass>
-	<!-- <resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Dust</resourceGizmoType> -->
-	<!-- <resourceLabel>dust</resourceLabel> -->
 	<foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
 	<descriptionHyperlinks>
 	  <ThingDef>WVC_NutrientsInjector</ThingDef>
 	</descriptionHyperlinks>
-	<!-- <resourceLabel>nutrition from food</resourceLabel> -->
-	<!-- <resourceGizmoThresholds> -->
-	  <!-- <li>0.10</li> -->
-	  <!-- <li>0.20</li> -->
-	  <!-- <li>0.30</li> -->
-	  <!-- <li>0.40</li> -->
-	  <!-- <li>0.50</li> -->
-	  <!-- <li>0.60</li> -->
-	  <!-- <li>0.70</li> -->
-	  <!-- <li>0.80</li> -->
-	  <!-- <li>0.90</li> -->
-	<!-- </resourceGizmoThresholds> -->
-	<!-- <showGizmoOnWorldView>true</showGizmoOnWorldView> -->
-	<!-- <showGizmoWhenDrafted>true</showGizmoWhenDrafted> -->
-	<!-- <resourceDescription>The reserve of biological enhancement in the carrier's blood. Dust supply is spent on different abilities or genetic traits.\n\nIt can be replenished with any food. Also, the dust level is replenished automatically while the carrier is sleeping or unconscious.\n\nIf the dust level drops below 40, then the carrier will experience severe hunger and from time to time catch a "food binge" nervous breakdown.</resourceDescription> -->
 	<iconPath>WVC/UI/Genes/Gene_Dust_v0</iconPath>
-	<!-- <iconColor>(255, 248, 133)</iconColor> -->
-	<!-- <iconColor>(173, 142, 112)</iconColor> -->
 	<displayOrderInCategory>0</displayOrderInCategory>
 	<customEffectDescriptions>
-	  <!-- <li>Gives dust supply.</li> -->
-	  <!-- <li>Refresh time (*DateTime)~1 day(/DateTime).</li> -->
-	  <li>Decreases the nutritional value of consumed food by 10%</li>
-	  <!-- <li>Any ingested thing is guaranteed to provide 0.3 nutrition. If the pawn cannot move at this moment (downed or in bed), then this bonus increases significantly.</li> -->
-	  <!-- <li>Increases the nutritional value of consumed food by 20%</li> -->
 	  <li>If the pawn ingest &lt;color=#8a8ae6&gt;dustogenic food&lt;/color&gt; or at the time of eating food is &lt;color=#8a8ae6&gt;downed&lt;/color&gt;, then the hunger bar is completely filled.</li>
-	  <!-- <li>In the presence of the &lt;color=#8a8ae6&gt;"Undead"&lt;/color&gt; gene, it gives the effect of &lt;color=#8a8ae6&gt;reincarnation&lt;/color&gt;.</li> -->
-	  <!-- <li>&lt;color=#8a8ae6&gt;Reincarnation&lt;/color&gt; - In case of death, a pawn will be summoned, which is a descendant of the deceased. The effect will not work if the chronological age of the pawn is less than 40.</li> -->
 	</customEffectDescriptions>
 	<statOffsets>
 	  <MaxNutrition>1.0</MaxNutrition>
@@ -64,15 +38,13 @@
 	  </prefixSymbols>
 	</symbolPack>
 	<minAgeActive>3</minAgeActive>
-	<!-- <resourceLossPerDay>0.1</resourceLossPerDay> -->
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>2</biostatMet>
 	<exclusionTags>
 	  <li>WVC_XaG_HungerReplenishStomach</li>
 	</exclusionTags>
 	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<!-- <hediffDefName>WVC_Dustogenic_HungerFactor</hediffDefName> -->
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
 			<specialFoodDefs>
 			  <li>WVC_NutrientsInjector</li>
 			  <li>WVC_MealDustPack</li>
@@ -85,22 +57,29 @@
   <!-- ============================= -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_Base" Name="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent" Abstract="True">
-	<geneClass>WVC_XenotypesAndGenes.Gene_DustDrain</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_FoodEfficiency</geneClass>
 	<!-- <prerequisite>WVC_Dustogenic</prerequisite> -->
 	<marketValueFactor>1.2</marketValueFactor>
 	<selectionWeight>0.0009</selectionWeight>
 	<minAgeActive>3</minAgeActive>
-	<!-- <resourceLabel>nutrition from food</resourceLabel> -->
-	<!-- <resourceLossPerDay>0.01</resourceLossPerDay> -->
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>-3</biostatMet>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<specialFoodDefs>
+			  <li>WVC_NutrientsInjector</li>
+			  <li>WVC_MealDustPack</li>
+			  <li>WVC_MealDustogenicPaste</li>
+			</specialFoodDefs>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
 	<defName>WVC_Dustogenic_WoundHealing</defName>
 	<label>dustogenic wound healing</label>
 	<labelShortAdj>dust-heal</labelShortAdj>
-	<description>Carriers of this gene heal from wounds eight times as fast as normal.</description>
+	<description>Carriers of this gene heal from wounds eight times as fast as normal. But their body receives less nutrients from food.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_DustBodyPartsRestoration</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_WoundHealingRateSuperfast_v0</iconPath>
 	<iconColor>(249, 241, 148)</iconColor>
@@ -134,7 +113,7 @@
 	<defName>WVC_Dustogenic_Ageless</defName>
 	<label>blessed ageless</label>
 	<labelShortAdj>ageless</labelShortAdj>
-	<description>Carriers of this gene completely stop aging after reaching the age of 18.</description>
+	<description>Carriers of this gene completely stop aging after reaching the age of 18. But their body receives less nutrients from food.</description>
 	<iconPath>WVC/UI/Genes/Gene_AgelessAngel_v0</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
 	<geneClass>WVC_XenotypesAndGenes.Gene_DustAgeless</geneClass>
@@ -172,18 +151,18 @@
 	<label>dustogenic metabolism</label>
 	<labelShortAdj>dust-metabolic</labelShortAdj>
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_DustogenicMetabolism</geneClass> -->
-	<description>Carriers of this gene have dust in their cells that facilitate and optimize metabolism. This improves overall genetic and metabolic quality.</description>
+	<description>Carriers of this gene have dust in their cells that facilitate and optimize metabolism. This improves overall genetic and metabolic quality, but their body receives significantly less nutrients from food.</description>
 	<iconPath>WVC/UI/Genes/Gene_ArchiteMetabolism_v0</iconPath>
 	<!-- <iconColor>(255, 248, 133)</iconColor> -->
 	<!-- <iconColor>(173, 142, 112)</iconColor> -->
 	<displayOrderInCategory>10</displayOrderInCategory>
-	<resourceLossPerDay>0.07</resourceLossPerDay>
+	<resourceLossPerDay>0.17</resourceLossPerDay>
 	<marketValueFactor>1.5</marketValueFactor>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>6</biostatMet>
 	<biostatArc>0</biostatArc>
 	<customEffectDescriptions>
-	  <li>Decreases the nutritional value of consumed food by 7%</li>
+	  <li>Decreases the nutritional value of consumed food by 17%</li>
 	</customEffectDescriptions>
 	<statOffsets>
 	  <MaxNutrition>0.3</MaxNutrition>

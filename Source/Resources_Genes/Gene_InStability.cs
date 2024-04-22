@@ -10,7 +10,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_AngelicStability : Gene_DustDrain
+	public class Gene_AngelicStability : Gene_FoodEfficiency
 	{
 
 		public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();

@@ -1,5 +1,6 @@
 using RimWorld;
 using RimWorld.Planet;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
@@ -8,15 +9,19 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_DustDrain : Gene
+	public class Gene_FoodEfficiency : Gene
 	{
 
-		// private float cachedMaxNutrition = 0f;
+		public GeneExtension_Undead Undead => def?.GetModExtension<GeneExtension_Undead>();
 
 		public override void Notify_IngestedThing(Thing thing, int numTaken)
 		{
-			base.Notify_IngestedThing(thing, numTaken);
 			if (!Active)
+			{
+				return;
+			}
+			base.Notify_IngestedThing(thing, numTaken);
+			if (Undead != null && Undead.specialFoodDefs.Contains(thing.def))
 			{
 				return;
 			}
@@ -30,10 +35,17 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete]
+	public class Gene_DustDrain : Gene_FoodEfficiency
+	{
+
+
+	}
+
 	public class Gene_Dustogenic : Gene
 	{
 
-		public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
+		public GeneExtension_Undead Undead => def?.GetModExtension<GeneExtension_Undead>();
 
 		public override void Tick()
 		{
@@ -65,9 +77,9 @@ namespace WVC_XenotypesAndGenes
 				InCaravan();
 				return;
 			}
-			for (int j = 0; j < Props.specialFoodDefs.Count; j++)
+			for (int j = 0; j < Undead.specialFoodDefs.Count; j++)
 			{
-				Thing specialFood = MiscUtility.GetSpecialFood(pawn, Props.specialFoodDefs[j]);
+				Thing specialFood = MiscUtility.GetSpecialFood(pawn, Undead.specialFoodDefs[j]);
 				if (specialFood == null)
 				{
 					continue;
@@ -90,7 +102,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				if (item.targetA.Thing != null && Props.specialFoodDefs.Contains(item.targetA.Thing.def))
+				if (item.targetA.Thing != null && Undead.specialFoodDefs.Contains(item.targetA.Thing.def))
 				{
 					// continue;
 					return true;
@@ -114,7 +126,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			for (int j = 0; j < things.Count; j++)
 			{
-				if (!Props.specialFoodDefs.Contains(things[j].def))
+				if (!Undead.specialFoodDefs.Contains(things[j].def))
 				{
 					continue;
 				}
@@ -134,18 +146,9 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			base.Notify_IngestedThing(thing, numTaken);
-			IngestibleProperties ingestible = thing.def.ingestible;
-			float nutrition = thing.GetStatValue(StatDefOf.Nutrition);
-			if (ingestible != null && nutrition > 0f)
+			if (Undead.specialFoodDefs.Contains(thing.def) || UndeadUtility.PawnDowned(pawn))
 			{
-				if (Props.specialFoodDefs.Contains(thing.def) || UndeadUtility.PawnDowned(pawn))
-				{
-					UndeadUtility.OffsetNeedFood(pawn, 10.0f, true);
-				}
-				else
-				{
-					UndeadUtility.OffsetNeedFood(pawn, -0.1f * nutrition * (float)numTaken);
-				}
+				UndeadUtility.OffsetNeedFood(pawn, 10.0f, true);
 			}
 		}
 

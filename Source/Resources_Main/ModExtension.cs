@@ -80,6 +80,8 @@ namespace WVC_XenotypesAndGenes
 		public List<TraitDef> blockingTraits;
 		public List<string> trustedXenotypes;
 		public List<XaG_CountWithChance> possibleTraits;
+		// Special Food
+		public List<ThingDef> specialFoodDefs;
 	}
 
 	public class GeneExtension_Opinion : DefModExtension

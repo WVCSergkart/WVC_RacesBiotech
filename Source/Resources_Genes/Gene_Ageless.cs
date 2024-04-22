@@ -19,7 +19,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_DustAgeless : Gene_DustDrain
+	public class Gene_DustAgeless : Gene_FoodEfficiency
 	{
 		public readonly long oneYear = 3600000L;
 

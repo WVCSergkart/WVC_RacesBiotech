@@ -130,7 +130,7 @@ namespace WVC_XenotypesAndGenes
 		}
 	}
 
-	public class Gene_DustBodyPartsRestoration : Gene_DustDrain
+	public class Gene_DustBodyPartsRestoration : Gene_FoodEfficiency
 	{
 		private int ticksToHealBodyPart;
 

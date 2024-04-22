@@ -19,7 +19,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			drawGraphic = CheckHead();
+			// drawGraphic = CheckHead();
 		}
 
 		public override void Tick()
@@ -46,16 +46,14 @@ namespace WVC_XenotypesAndGenes
 			return HediffUtility.HeadTypeIsCorrect(pawn, Props.headTypeDefs);
 		}
 
-		public override void ExposeData()
-		{
-			base.ExposeData();
-			// Scribe_Values.Look(ref cachedResult, "faceplateIsVisible", true);
-			// Scribe_Values.Look(ref nextRecache, "nextRecache", 0);
-			if (Active)
-			{
-				drawGraphic = CheckHead();
-			}
-		}
+		// public override void ExposeData()
+		// {
+			// base.ExposeData();
+			// if (Active)
+			// {
+				// drawGraphic = CheckHead();
+			// }
+		// }
 
 	}
 }

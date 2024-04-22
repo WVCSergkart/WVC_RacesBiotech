@@ -28,7 +28,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_DustGestator_TestTool : Gene_DustDrain
+	public class Gene_DustGestator_TestTool : Gene_FoodEfficiency
 	{
 
 		public override IEnumerable<Gizmo> GetGizmos()
