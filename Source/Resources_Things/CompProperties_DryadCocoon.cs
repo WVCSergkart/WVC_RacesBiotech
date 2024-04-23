@@ -1,0 +1,368 @@
+// RimWorld.CompProperties_Toxifier
+using RimWorld;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using Verse;
+using Verse.Sound;
+
+namespace WVC_XenotypesAndGenes
+{
+
+	public class CompProperties_GauranlenDryad : CompProperties
+	{
+
+		public PawnKindDef defaultDryadPawnKindDef;
+
+		public string uniqueTag = "XaG_Dryads";
+
+		public CompProperties_GauranlenDryad()
+		{
+			compClass = typeof(CompGauranlenDryad);
+		}
+
+	}
+
+	public class CompGauranlenDryad : ThingComp
+	{
+
+		public CompProperties_GauranlenDryad Props => (CompProperties_GauranlenDryad)props;
+
+		public GauranlenGeneModeDef currentMode = null;
+
+		public PawnKindDef DryadKind => currentMode?.pawnKindDef ?? Props?.defaultDryadPawnKindDef;
+
+		// private Pawn dryadMaster;
+
+		[Unsaved(false)]
+		private Pawn cachedConnectedPawn;
+
+		public Pawn Master
+		{
+			get
+			{
+				if (parent is Pawn pawn && (cachedConnectedPawn == null || pawn.Faction != cachedConnectedPawn.Faction))
+				{
+					cachedConnectedPawn = pawn?.connections?.ConnectedThings.FirstOrDefault() is Pawn master ? master : null;
+				}
+				return cachedConnectedPawn;
+			}
+		}
+
+		[Unsaved(false)]
+		private Gene_GauranlenConnection cachedGauranlenConnectionGene;
+
+		public Gene_GauranlenConnection Gene_GauranlenConnection
+		{
+			get
+			{
+				if (cachedGauranlenConnectionGene == null || !cachedGauranlenConnectionGene.Active)
+				{
+					cachedGauranlenConnectionGene = Master?.genes?.GetFirstGeneOfType<Gene_GauranlenConnection>();
+				}
+				return cachedGauranlenConnectionGene;
+			}
+		}
+
+		public override void PostSpawnSetup(bool respawningAfterLoad)
+		{
+			base.PostSpawnSetup(respawningAfterLoad);
+			if (!respawningAfterLoad)
+			{
+				Pawn pawn = parent as Pawn;
+				if (pawn?.needs?.rest != null)
+				{
+					pawn.needs.rest.CurLevel = pawn.needs.rest.MaxLevel;
+				}
+				// ResetOverseerTick();
+			}
+		}
+
+		public override IEnumerable<Gizmo> CompGetGizmosExtra()
+		{
+			Pawn pawn = parent as Pawn;
+			if (Find.Selector.SelectedPawns.Count > 1 || Gene_GauranlenConnection == null || pawn.Faction != Faction.OfPlayer)
+			{
+				yield break;
+			}
+			yield return new Command_Action
+			{
+				defaultLabel = "ChangeMode".Translate(),
+				defaultDesc = "ChangeModeDesc".Translate(),
+				icon = currentMode?.pawnKindDef != null ? Widgets.GetIconFor(currentMode.pawnKindDef.race) : Widgets.GetIconFor(pawn.def),
+				action = delegate
+				{
+					Find.WindowStack.Add(new Dialog_ChangeDryadCaste(Gene_GauranlenConnection, this));
+				}
+			};
+		}
+
+		// public void SetMaster(Pawn master)
+		// {
+			// dryadMaster = master;
+		// }
+
+		public override void PostExposeData()
+		{
+			base.PostExposeData();
+			Scribe_Defs.Look(ref currentMode, "currentMode_" + Props.uniqueTag);
+			// Scribe_References.Look(ref dryadMaster, "dryadMaster_" + Props.uniqueTag);
+		}
+
+	}
+
+	// ============================Cocoon=Cocoon============================
+
+	public class CompDryadHolder_WithGene : CompDryadHolder
+	{
+
+		[Unsaved(false)]
+		private Pawn cachedDryadPawn;
+
+		public Pawn Dryad
+		{
+			get
+			{
+				if (cachedDryadPawn == null)
+				{
+					cachedDryadPawn = GetDirectlyHeldThings().FirstOrDefault() is Pawn pawn ? pawn : null;
+				}
+				return cachedDryadPawn;
+			}
+		}
+
+		[Unsaved(false)]
+		private CompGauranlenDryad cachedDryadComp;
+
+		public CompGauranlenDryad DryadComp
+		{
+			get
+			{
+				if (cachedDryadComp == null)
+				{
+					cachedDryadComp = Dryad?.TryGetComp<CompGauranlenDryad>();
+				}
+				return cachedDryadComp;
+			}
+		}
+
+		public override void CompTick()
+		{
+			innerContainer.ThingOwnerTick();
+			if (tickComplete >= 0)
+			{
+				if (DryadComp?.Gene_GauranlenConnection == null)
+				{
+					parent.Destroy();
+				}
+				else if (Dryad.Dead)
+				{
+					parent.Destroy();
+				}
+				else if (Find.TickManager.TicksGame >= tickComplete)
+				{
+					Complete();
+				}
+			}
+		}
+
+		public override void TryAcceptPawn(Pawn p)
+		{
+			bool num = p.DeSpawnOrDeselect();
+			innerContainer.TryAddOrTransfer(p, 1);
+			if (num)
+			{
+				Find.Selector.Select(p, playSound: false, forceDesignatorDeselect: false);
+			}
+			SoundDefOf.Pawn_EnterDryadPod.PlayOneShot(SoundInfo.InMap(parent));
+		}
+
+		protected override void Complete()
+		{
+		}
+
+	}
+
+	// Cocoon
+
+	public class CompDryadCocoon_WithGene : CompDryadHolder_WithGene
+	{
+		private int tickExpire = -1;
+
+		private PawnKindDef dryadKind;
+
+		public override void PostSpawnSetup(bool respawningAfterLoad)
+		{
+			if (!respawningAfterLoad)
+			{
+				innerContainer = new ThingOwner<Thing>(this, oneStackOnly: false);
+				tickExpire = Find.TickManager.TicksGame + 600;
+			}
+		}
+
+		public override void TryAcceptPawn(Pawn p)
+		{
+			base.TryAcceptPawn(p);
+			p.Rotation = Rot4.South;
+			tickComplete = Find.TickManager.TicksGame + (int)(60000f * base.Props.daysToComplete);
+			tickExpire = -1;
+			dryadKind = DryadComp.DryadKind;
+		}
+
+		protected override void Complete()
+		{
+			tickComplete = Find.TickManager.TicksGame;
+			// CompTreeConnection treeComp = base.TreeComp;
+			if (DryadComp != null && innerContainer.Count > 0)
+			{
+				Pawn pawn = (Pawn)innerContainer[0];
+				long ageBiologicalTicks = pawn.ageTracker.AgeBiologicalTicks;
+				DryadComp.Gene_GauranlenConnection.RemoveDryad(pawn);
+				Pawn pawn2 = DryadComp.Gene_GauranlenConnection.GenerateNewDryad(dryadKind);
+				pawn2.ageTracker.AgeBiologicalTicks = ageBiologicalTicks;
+				if (!pawn.Name.Numerical)
+				{
+					pawn2.Name = pawn.Name;
+				}
+				CompGauranlenDryad newPawnComp = pawn2.TryGetComp<CompGauranlenDryad>();
+				newPawnComp.currentMode = DryadComp.currentMode;
+				pawn.Destroy();
+				innerContainer.TryAddOrTransfer(pawn2, 1);
+				EffecterDefOf.DryadEmergeFromCocoon.Spawn(parent.Position, parent.Map).Cleanup();
+			}
+			parent.Destroy();
+		}
+
+		public override void PostDeSpawn(Map map)
+		{
+			innerContainer.TryDropAll(parent.Position, map, ThingPlaceMode.Near, delegate(Thing t, int c)
+			{
+				t.Rotation = Rot4.South;
+				SoundDefOf.Pawn_Dryad_Spawn.PlayOneShot(parent);
+			}, null, playDropSound: false);
+		}
+
+		public override void CompTick()
+		{
+			base.CompTick();
+			if (!parent.Destroyed)
+			{
+				if (dryadKind != null && dryadKind != DryadComp?.DryadKind)
+				{
+					parent.Destroy();
+				}
+				else if (innerContainer.Count > 0 && DryadComp == null)
+				{
+					parent.Destroy();
+				}
+				else if (tickExpire >= 0 && Find.TickManager.TicksGame >= tickExpire)
+				{
+					tickExpire = -1;
+					parent.Destroy();
+				}
+			}
+		}
+
+		public override string CompInspectStringExtra()
+		{
+			string text = base.CompInspectStringExtra();
+			if (!innerContainer.NullOrEmpty() && dryadKind != null)
+			{
+				if (!text.NullOrEmpty())
+				{
+					text += "\n";
+				}
+				text += "ChangingDryadIntoType".Translate(innerContainer[0].Named("DRYAD"), NamedArgumentUtility.Named(dryadKind, "TYPE")).Resolve();
+			}
+			return text;
+		}
+
+		public override void PostExposeData()
+		{
+			base.PostExposeData();
+			Scribe_Values.Look(ref tickExpire, "tickExpire", -1);
+			Scribe_Defs.Look(ref dryadKind, "dryadKind");
+		}
+	}
+
+	public class CompDryadHealingPod_WithGene : CompDryadHolder_WithGene
+	{
+		private int tickExpire = -1;
+
+		public override void PostSpawnSetup(bool respawningAfterLoad)
+		{
+			if (!respawningAfterLoad)
+			{
+				innerContainer = new ThingOwner<Thing>(this, oneStackOnly: false);
+				tickExpire = Find.TickManager.TicksGame + 600;
+			}
+		}
+
+		public override void PostDeSpawn(Map map)
+		{
+			innerContainer.TryDropAll(parent.Position, map, ThingPlaceMode.Near, delegate(Thing t, int c)
+			{
+				if (t is Pawn pawn && pawn.mindState != null)
+				{
+					pawn.mindState.returnToHealingPod = false;
+				}
+				t.Rotation = Rot4.South;
+				SoundDefOf.Pawn_Dryad_Spawn.PlayOneShot(parent);
+			}, null, playDropSound: false);
+		}
+
+		public override void CompTick()
+		{
+			base.CompTick();
+			if (!parent.Destroyed)
+			{
+				if (innerContainer.Count > 0 && DryadComp == null)
+				{
+					parent.Destroy();
+				}
+				else if (tickExpire >= 0 && Find.TickManager.TicksGame >= tickExpire)
+				{
+					tickExpire = -1;
+					parent.Destroy();
+				}
+			}
+		}
+
+		public override void TryAcceptPawn(Pawn p)
+		{
+			base.TryAcceptPawn(p);
+			p.Rotation = Rot4.South;
+			tickComplete = Find.TickManager.TicksGame + (int)(60000f * base.Props.daysToComplete);
+			tickExpire = -1;
+		}
+
+		protected override void Complete()
+		{
+			tickComplete = Find.TickManager.TicksGame;
+			EffecterDefOf.DryadEmergeFromCocoon.Spawn(parent.Position, parent.Map).Cleanup();
+			foreach (Thing item in (IEnumerable<Thing>)innerContainer)
+			{
+				if (item is not Pawn pawn)
+				{
+					continue;
+				}
+				pawn.mindState.returnToHealingPod = false;
+				int num = 1000;
+				while (num > 0 && HealthUtility.TryGetWorstHealthCondition(pawn, out Hediff hediff, out BodyPartRecord part))
+				{
+					if (hediff != null)
+					{
+						pawn.health.RemoveHediff(hediff);
+					}
+					else if (part != null)
+					{
+						pawn.health.RestorePart(part);
+					}
+					num--;
+				}
+			}
+			parent.Destroy();
+		}
+	}
+
+}

@@ -1,4 +1,5 @@
 using RimWorld;
+using RimWorld.QuestGen;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,17 +19,17 @@ namespace WVC_XenotypesAndGenes
 
 		// private PawnKindDef choosedDryadCast = null;
 
-		public PawnKindDef DryadKind => currentMode?.pawnKindDef ?? Props?.defaultDryadPawnKindDef;
-
-		public GauranlenGeneModeDef currentMode = null;
+		public List<Pawn> AllDryads => dryads.ToList();
 
 		public int nextTick = 60000;
 
-		public override void PostAdd()
-		{
-			base.PostAdd();
+		public bool spawnDryads = true;
+
+		// public override void PostAdd()
+		// {
+			// base.PostAdd();
 			// choosedDryadCast = Props?.defaultDryadPawnKindDef;
-		}
+		// }
 
 		public override void Tick()
 		{
@@ -38,31 +39,42 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (!ModsConfig.IdeologyActive)
+			if (ModsConfig.IdeologyActive)
 			{
-				return;
+				SpawnDryad();
 			}
-			SpawnDryad();
 			ResetInterval();
 		}
 
 		private void SpawnDryad()
 		{
-			foreach (Pawn item in dryads.ToList())
+			foreach (Pawn item in AllDryads)
 			{
 				if (item.Dead)
 				{
 					dryads.Remove(item);
 				}
 			}
-			if (Props?.defaultDryadPawnKindDef == null || dryads.Count >= Props.connectedDryadsLimit || pawn.Map == null)
+			if (pawn.Faction != Faction.OfPlayer)
+			{
+				spawnDryads = false;
+			}
+			if (Props?.defaultDryadPawnKindDef == null || dryads.Count >= pawn.GetStatValue(Props.dryadsStatLimit) || pawn.Map == null || !spawnDryads)
 			{
 				return;
 			}
 			Pawn dryad = GenerateNewDryad(Props.defaultDryadPawnKindDef);
+			// CompGauranlenDryad newPawnComp = dryad.TryGetComp<CompGauranlenDryad>();
+			// newPawnComp.SetMaster(pawn);
 			GenSpawn.Spawn(dryad, pawn.Position, pawn.Map).Rotation = Rot4.South;
 			EffecterDefOf.DryadSpawn.Spawn(pawn.Position, pawn.Map).Cleanup();
 			SoundDefOf.Pawn_Dryad_Spawn.PlayOneShot(SoundInfo.InMap(dryad));
+			// Post Spawn Sickness
+			if (Props.postGestationSickness != null)
+			{
+				Hediff hediff = HediffMaker.MakeHediff(Props.postGestationSickness, pawn);
+				pawn.health.AddHediff(hediff);
+			}
 		}
 
 		public Pawn GenerateNewDryad(PawnKindDef dryadCaste)
@@ -98,10 +110,17 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public void RemoveDryad(Pawn oldDryad)
+		{
+			dryads.Remove(oldDryad);
+		}
+
 		private void ResetInterval()
 		{
 			nextTick = Props.spawnIntervalRange.RandomInRange;
 		}
+
+		private Gizmo gizmo;
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
@@ -109,10 +128,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
-			if (!ModsConfig.IdeologyActive)
-			{
-				yield break;
-			}
+			// if (!ModsConfig.IdeologyActive)
+			// {
+				// yield break;
+			// }
 			if (DebugSettings.ShowDevGizmos)
 			{
 				yield return new Command_Action
@@ -125,16 +144,44 @@ namespace WVC_XenotypesAndGenes
 					}
 				};
 			}
-			yield return new Command_Action
+			// yield return new Command_Action
+			// {
+				// defaultLabel = def.LabelCap,
+				// defaultDesc = "ChangeModeDesc".Translate(),
+				// icon = currentMode?.pawnKindDef != null ? Widgets.GetIconFor(currentMode.pawnKindDef.race) : ContentFinder<Texture2D>.Get(def.iconPath),
+				// action = delegate
+				// {
+					// Find.WindowStack.Add(new Dialog_ChangeDryadCaste(this));
+				// }
+			// };
+			if (pawn?.Map == null)
 			{
-				defaultLabel = def.LabelCap,
-				defaultDesc = "ChangeModeDesc".Translate(),
-				icon = currentMode?.pawnKindDef != null ? Widgets.GetIconFor(currentMode.pawnKindDef.race) : ContentFinder<Texture2D>.Get(def.iconPath),
+				yield break;
+			}
+			if (gizmo == null)
+			{
+				gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, this);
+			}
+			yield return gizmo;
+			Command_Action command_Action = new()
+			{
+				defaultLabel = "WVC_XaG_Gene_GauranlenConnection_SpawnOnOff".Translate() + ": " + GeneUiUtility.OnOrOff(spawnDryads),
+				defaultDesc = "WVC_XaG_Gene_GauranlenConnection_SpawnOnOffDesc".Translate(),
+				icon = ContentFinder<Texture2D>.Get(def.iconPath),
 				action = delegate
 				{
-					Find.WindowStack.Add(new Dialog_ChangeDryadCaste(this));
+					spawnDryads = !spawnDryads;
+					if (spawnDryads)
+					{
+						SoundDefOf.Tick_High.PlayOneShotOnCamera();
+					}
+					else
+					{
+						SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+					}
 				}
 			};
+			yield return command_Action;
 		}
 
 		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
@@ -160,9 +207,17 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
+		{
+			StatDef stat = Props.dryadsStatLimit;
+			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, stat.LabelCap, pawn.GetStatValue(stat).ToString(), stat.description, 200);
+		}
+
 		public override void ExposeData()
 		{
 			base.ExposeData();
+			Scribe_Values.Look(ref nextTick, "nextDryad", 0);
+			Scribe_Values.Look(ref spawnDryads, "spawnDryads", true);
 			Scribe_Collections.Look(ref dryads, "connectedDryads", LookMode.Reference);
 		}
 

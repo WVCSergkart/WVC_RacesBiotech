@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef>
+	<defName>WVC_XaG_DryadCocoon</defName>
+	<label>dryad cocoon</label>
+	<thingClass>ThingWithComps</thingClass>
+	<category>Building</category>
+	<description>A sphere of fibrous plant matter. A dryad inside is slowly morphing into a new form. Gauranlen trees grow these spheres to help protect the dryads as they morph.</description>
+	<drawerType>MapMeshAndRealTime</drawerType>
+	<altitudeLayer>Building</altitudeLayer>
+	<tickerType>Normal</tickerType>
+	<graphicData>
+	  <texPath>Things/Building/Misc/DryadSphere/DryadSphereBack</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	  <drawSize>(1.3, 1.3)</drawSize>
+	</graphicData>
+	<statBases>
+	  <MaxHitPoints>150</MaxHitPoints>
+	  <Flammability>1.25</Flammability>
+	</statBases>
+	<fillPercent>0.5</fillPercent>
+	<selectable>true</selectable>
+	<building>
+	  <deconstructible>false</deconstructible>
+	</building>
+	<comps>
+	  <li Class="CompProperties_DryadCocoon">
+		<compClass>WVC_XenotypesAndGenes.CompDryadCocoon_WithGene</compClass>
+		<daysToComplete>5</daysToComplete>
+		<drawContents>true</drawContents>
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <ThingDef>
+	<defName>WVC_XaG_DryadHealingPod</defName>
+	<label>dryad healing pod</label>
+	<thingClass>ThingWithComps</thingClass>
+	<category>Building</category>
+	<description>A sphere of fibrous plant matter. A dryad inside is slowly healing its wounds.</description>
+	<drawerType>MapMeshAndRealTime</drawerType>
+	<altitudeLayer>Building</altitudeLayer>
+	<tickerType>Normal</tickerType>
+	<building>
+	  <deconstructible>false</deconstructible>
+	</building>
+	<graphicData>
+	  <texPath>Things/Building/Misc/DryadSphere/DryadSphereBack</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	  <drawSize>(1.3, 1.3)</drawSize>
+	</graphicData>
+	<statBases>
+	  <MaxHitPoints>150</MaxHitPoints>
+	  <Flammability>1.25</Flammability>
+	</statBases>
+	<fillPercent>0.5</fillPercent>
+	<selectable>true</selectable>
+	<comps>
+	  <li Class="CompProperties_DryadCocoon">
+		<compClass>WVC_XenotypesAndGenes.CompDryadHealingPod_WithGene</compClass>
+		<daysToComplete>3</daysToComplete>
+		<drawContents>true</drawContents>
+	  </li>
+	</comps>
+  </ThingDef>
+
+</Defs>

@@ -10,6 +10,8 @@ namespace WVC_XenotypesAndGenes
 	public class Dialog_ChangeDryadCaste : Window
 	{
 
+		public CompGauranlenDryad comp;
+
 		public Gene_GauranlenConnection gene;
 
 		public Pawn connectedPawn;
@@ -38,12 +40,13 @@ namespace WVC_XenotypesAndGenes
 
 		// Interface
 
-		public Dialog_ChangeDryadCaste(Gene_GauranlenConnection thisGene)
+		public Dialog_ChangeDryadCaste(Gene_GauranlenConnection thisGene, CompGauranlenDryad thisComp)
 		{
 			// Init
 			gene = thisGene;
+			comp = thisComp;
 			connectedPawn = gene?.pawn;
-			currentMode = gene?.currentMode;
+			currentMode = comp?.currentMode;
 			selectedMode = currentMode;
 			// Settings
 			forcePause = true;
@@ -231,7 +234,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void StartChange()
 		{
-			gene.currentMode = selectedMode;
+			comp.currentMode = selectedMode;
 			Close(doCloseSound: false);
 		}
 

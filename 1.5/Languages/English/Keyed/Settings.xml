@@ -85,6 +85,7 @@ A restart is required to apply patches.</WVC_ToolTip_disableUniqueGeneInterface>
 	<WVC_Label_enableGeneScarifierInfo>Enable scarifier info</WVC_Label_enableGeneScarifierInfo>
 	<WVC_Label_enableGeneInstabilityInfo>Enable genetic instability info</WVC_Label_enableGeneInstabilityInfo>
 	<WVC_Label_enableGolemsInfo>Enable golem bandwidth info</WVC_Label_enableGolemsInfo>
+	<WVC_Label_enableGeneGauranlenConnectionInfo>Enable gauranlen dryad info</WVC_Label_enableGeneGauranlenConnectionInfo>
 
 	<WVC_ToolTip_enableGenesInfo>Responsible for displaying gene information. For example, for spawner genes: time, name and count.
 

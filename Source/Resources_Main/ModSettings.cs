@@ -49,7 +49,7 @@ namespace WVC_XenotypesAndGenes
 		public bool enableGeneUndeadInfo = false;
 		public bool enableGeneScarifierInfo = false;
 		public bool enableGeneInstabilityInfo = true;
-		// public bool enableGolemsInfo = true;
+		public bool enableGeneGauranlenConnectionInfo = true;
 		// Serums
 		public bool serumsForAllXenotypes = false;
 		public bool serumsForAllXenotypes_GenBase = true;
@@ -134,7 +134,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref enableGeneUndeadInfo, "enableGeneUndeadInfo", defaultValue: false);
 			Scribe_Values.Look(ref enableGeneScarifierInfo, "enableGeneScarifierInfo", defaultValue: false);
 			Scribe_Values.Look(ref enableGeneInstabilityInfo, "enableGeneInstabilityInfo", defaultValue: true);
-			// Scribe_Values.Look(ref enableGolemsInfo, "enableGolemsInfo", defaultValue: true);
+			Scribe_Values.Look(ref enableGeneGauranlenConnectionInfo, "enableGeneGauranlenConnectionInfo", defaultValue: true);
 			// Serums
 			Scribe_Values.Look(ref serumsForAllXenotypes, "serumsForAllXenotypes", defaultValue: false, forceSave: true);
 			Scribe_Values.Look(ref serumsForAllXenotypes_GenBase, "serumsForAllXenotypes_GenBase", defaultValue: true);
@@ -276,7 +276,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_enableGeneUndeadInfo".Translate(), ref settings.enableGeneUndeadInfo, "WVC_ToolTip_enableGenesInfo".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enableGeneScarifierInfo".Translate(), ref settings.enableGeneScarifierInfo, "WVC_ToolTip_enableGenesInfo".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enableGeneInstabilityInfo".Translate(), ref settings.enableGeneInstabilityInfo, "WVC_ToolTip_enableGenesInfo".Translate());
-			// listingStandard.CheckboxLabeled("WVC_Label_enableGolemsInfo".Translate(), ref settings.enableGolemsInfo, "WVC_ToolTip_enableGenesInfo".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_enableGeneGauranlenConnectionInfo".Translate(), ref settings.enableGeneGauranlenConnectionInfo, "WVC_ToolTip_enableGenesInfo".Translate());
 			listingStandard.Gap();
 			// Generator
 			listingStandard.Label("WVC_BiotechSettings_Label_Generators".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Generators".Translate());
@@ -716,7 +716,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.enableGeneUndeadInfo = false;
 			WVC_Biotech.settings.enableGeneScarifierInfo = false;
 			WVC_Biotech.settings.enableGeneInstabilityInfo = true;
-			// WVC_Biotech.settings.enableGolemsInfo = true;
+			WVC_Biotech.settings.enableGeneGauranlenConnectionInfo = true;
 			// Serums
 			WVC_Biotech.settings.serumsForAllXenotypes = false;
 			WVC_Biotech.settings.serumsForAllXenotypes_GenBase = true;
@@ -796,7 +796,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.enableGeneUndeadInfo = false;
 			WVC_Biotech.settings.enableGeneScarifierInfo = false;
 			WVC_Biotech.settings.enableGeneInstabilityInfo = true;
-			// WVC_Biotech.settings.enableGolemsInfo = true;
+			WVC_Biotech.settings.enableGeneGauranlenConnectionInfo = true;
 			// Serums
 			WVC_Biotech.settings.serumsForAllXenotypes = false;
 			WVC_Biotech.settings.serumsForAllXenotypes_GenBase = false;

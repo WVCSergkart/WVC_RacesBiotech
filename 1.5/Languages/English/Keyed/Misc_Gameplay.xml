@@ -300,6 +300,20 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_GolemEnergyRecovery_Info>Self-charge: {0} (+{1} / day)</WVC_XaG_GolemEnergyRecovery_Info>
 
+	<!-- ============================ DRYADS ============================ -->
+	<!-- ============================ DRYADS ============================ -->
+	<!-- ============================ DRYADS ============================ -->
+
+	<WVC_XaG_BroodmindLimit>Dryadbond</WVC_XaG_BroodmindLimit>
+	<WVC_XaG_BroodmindLimitGizmoTip>The dryad queen can partially control an unlimited number of dryads, but dryadbond is required to gestate new ones.\n\nEach dryad, regardless of type, consumes 1 dryadbond. Gain more dryadbond by planting &lt;color=#f76d6b&gt;special trees&lt;/color&gt; or with help of &lt;color=#6bb6bb&gt;genes&lt;/color&gt;.\n\nThe bonus from &lt;color=#f76d6b&gt;special trees&lt;/color&gt; only applies within the map.</WVC_XaG_BroodmindLimitGizmoTip>
+
+	<WVC_XaG_BroodmindUsage>Dryadbond usage</WVC_XaG_BroodmindUsage>
+
+	<WVC_XaG_Gene_GauranlenConnection_NextDryad_Info>Next dryad in</WVC_XaG_Gene_GauranlenConnection_NextDryad_Info>
+
+	<WVC_XaG_Gene_GauranlenConnection_SpawnOnOff>Dryad gestation</WVC_XaG_Gene_GauranlenConnection_SpawnOnOff>
+	<WVC_XaG_Gene_GauranlenConnection_SpawnOnOffDesc>Allows you to enable or disable the gestation of new dryads.</WVC_XaG_Gene_GauranlenConnection_SpawnOnOffDesc>
+
 	<!-- ============================ MECHLINK CUSTOM LABEL ============================ -->
 
 	<WVC_XaG_CustomLabeledMechlinkDesc>A neural formation resulting from genetic evolution or modification, similar to what can be obtained by implanting a mechlink.</WVC_XaG_CustomLabeledMechlinkDesc>

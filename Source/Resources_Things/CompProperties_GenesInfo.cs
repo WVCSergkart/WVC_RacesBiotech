@@ -31,7 +31,7 @@ namespace WVC_XenotypesAndGenes
 		public List<Gene_Mechlink> cachedMechlinkGenes = null;
 		public Gene_Wings cachedWingGene = null;
 		public Gene_Undead cachedUndeadGene = null;
-		// public Gene_DustMechlink cachedBlesslinkGene = null;
+		public Gene_GauranlenConnection cachedGauranlenConnectionGene = null;
 		public Gene_Scarifier cachedScarifierGene = null;
 		public Gene_GeneticInstability cachedGeneticInstabilityGene = null;
 
@@ -60,7 +60,7 @@ namespace WVC_XenotypesAndGenes
 			cachedSpawnerGenes = null;
 			cachedWingGene = null;
 			cachedUndeadGene = null;
-			// cachedBlesslinkGene = null;
+			cachedGauranlenConnectionGene = null;
 			cachedScarifierGene = null;
 			cachedGeneticInstabilityGene = null;
 			// Cache
@@ -85,10 +85,10 @@ namespace WVC_XenotypesAndGenes
 				{
 					mechlinks.Add(geneMechlink);
 				}
-				// else if (WVC_Biotech.settings.enableGeneBlesslinkInfo && item is Gene_DustMechlink gene_DustMechlink)
-				// {
-					// cachedBlesslinkGene = gene_DustMechlink;
-				// }
+				else if (WVC_Biotech.settings.enableGeneGauranlenConnectionInfo && item is Gene_GauranlenConnection gene_GauranlenConnection)
+				{
+					cachedGauranlenConnectionGene = gene_GauranlenConnection;
+				}
 				else if (WVC_Biotech.settings.enableGeneWingInfo && item is Gene_Wings gene_Wings)
 				{
 					cachedWingGene = gene_Wings;
@@ -188,6 +188,14 @@ namespace WVC_XenotypesAndGenes
 					info += "\n";
 				}
 				info += "WVC_XaG_Gene_GeneticInstability_On_Info".Translate().Resolve() + ": " + cachedGeneticInstabilityGene.nextTick.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
+			}
+			if (cachedGauranlenConnectionGene != null)
+			{
+				if (!info.NullOrEmpty())
+				{
+					info += "\n";
+				}
+				info += "WVC_XaG_Gene_GauranlenConnection_NextDryad_Info".Translate().Resolve() + ": " + cachedGauranlenConnectionGene.nextTick.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
 			}
 			if (cachedScarifierGene != null && cachedScarifierGene.CanScarify)
 			{

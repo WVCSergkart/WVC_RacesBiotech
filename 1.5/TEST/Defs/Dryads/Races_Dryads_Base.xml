@@ -21,6 +21,11 @@
 	  <showTrainables>false</showTrainables>
 	  <disableAreaControl>false</disableAreaControl>
 	</race>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_GauranlenDryad">
+		<defaultDryadPawnKindDef>WVC_XaG_Dryad_Basic</defaultDryadPawnKindDef>
+	  </li>
+	</comps>
 	<modExtensions>
 		<!-- <li Class="VFECore.ThingDefExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core"> -->
 			<!-- <destroyCorpse>true</destroyCorpse> -->

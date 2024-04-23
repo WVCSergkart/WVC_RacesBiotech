@@ -60,10 +60,12 @@
 		  <subNodes>
 			<!-- Dryad mode changed, return to cocoon and change type. -->
 			<li Class="WVC_XenotypesAndGenes.JobGiver_CreateAndEnterCocoon_Gene">
+			  <cocoonJobDef>WVC_XaG_CreateAndEnterCocoon</cocoonJobDef>
 			  <leaveJoinableLordIfIssuesJob>true</leaveJoinableLordIfIssuesJob>
 			</li>
 			<!-- Ordered to return to a healing pod to tend wounds. -->
 			<li Class="WVC_XenotypesAndGenes.JobGiver_CreateAndEnterHealingPod_Gene">
+			  <cocoonJobDef>WVC_XaG_CreateAndEnterHealingPod</cocoonJobDef>
 			  <leaveJoinableLordIfIssuesJob>true</leaveJoinableLordIfIssuesJob>
 			</li>
 			<!-- Create gauranlen pod -->

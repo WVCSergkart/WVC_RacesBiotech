@@ -96,6 +96,7 @@
     <Compile Include="Resources_Gizmo\Dialog_Shapeshifter.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ThrallMaker.cs" />
     <Compile Include="Resources_Gizmo\Dialog_XenotypesBase.cs" />
+    <Compile Include="Resources_Gizmo\GeneGizmo_Dryads.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Thralls.cs" />
     <Compile Include="Resources_Gizmo\Gizmo_MaxGolems.cs" />
     <Compile Include="Resources_Genes\Gene_InStability.cs" />
@@ -126,6 +127,7 @@
     <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_ColorFromRock.cs" />
     <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_FurIsSkin.cs" />
     <Compile Include="Resources_RitualAttachableOutcome\OutcomeWorker_ShapeshifterJoin.cs" />
+    <Compile Include="Resources_Things\CompProperties_DryadCocoon.cs" />
     <Compile Include="Resources_Things\CompProperties_Golem.cs" />
     <Compile Include="Resources_Things\CompUseEffect_GeneGiver.cs" />
     <Compile Include="Resources_Things\DeathActionWorker_DestroyCorpse.cs" />

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
+	<defName>WVC_DryadsLimit</defName>
+	<label>dryadbond</label>
+	<description>How many dryads can be gestated. More dryadbond means more dryads.\n\nDryads have a mild dependence on this limit. Exceeding it will not kill existing dryads, but will not to gestate new ones.</description>
+	<defaultBaseValue>0</defaultBaseValue>
+	<hideAtValue>0</hideAtValue>
+	<alwaysHide>true</alwaysHide>
+	<!-- <category>Genetics</category> -->
+	<!-- <displayPriorityInCategory>2005</displayPriorityInCategory> -->
+	<!-- <toStringStyle>FloatOne</toStringStyle> -->
+	<parts>
+	  <!-- Temp -->
+	  <li Class="WVC_XenotypesAndGenes.StatPart_OffsetFromTreesOnMap">
+		<label>WVC_StatPart_GenesCombo_OffsetFromShrines</label>
+		<buildings>
+		  <li MayRequire="Ludeon.RimWorld.Ideology">
+			<thingDef>Plant_TreeGauranlen</thingDef>
+			<bandwidth>2</bandwidth>
+		  </li>
+		  <li MayRequire="Ludeon.RimWorld.Biotech">
+			<thingDef>Plant_TreePolux</thingDef>
+			<bandwidth>2</bandwidth>
+		  </li>
+		  <li MayRequire="Ludeon.RimWorld.Royalty">
+			<thingDef>Plant_TreeAnima</thingDef>
+			<bandwidth>3</bandwidth>
+		  </li>
+		  <li MayRequire="Ludeon.RimWorld.Anomaly">
+			<thingDef>Plant_TreeHarbinger</thingDef>
+			<bandwidth>1</bandwidth>
+		  </li>
+		</buildings>
+	  </li>
+	</parts>
+  </StatDef>
+
+</Defs>

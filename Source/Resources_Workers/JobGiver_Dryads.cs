@@ -8,46 +8,47 @@ namespace WVC_XenotypesAndGenes
 
 	public abstract class JobGiver_CreateAndEnterDryadHolder_Gene : ThinkNode_JobGiver
 	{
-		public const int SquareRadius = 4;
+
+		public int squareRadius = 4;
 
 		public abstract JobDef JobDef { get; }
 
-		public virtual bool ExtraValidator(Pawn pawn, Gene_GauranlenConnection connectionComp)
+		public virtual bool ExtraValidator(Pawn pawn, CompGauranlenDryad connectionComp)
 		{
 			return false;
 		}
 
 		protected override Job TryGiveJob(Pawn pawn)
 		{
-			if (!ModsConfig.IdeologyActive)
-			{
-				return null;
-			}
 			if (pawn.connections == null || pawn.connections.ConnectedThings.NullOrEmpty())
 			{
 				return null;
 			}
+			CompGauranlenDryad compTreeConnection = pawn.TryGetComp<CompGauranlenDryad>();
 			foreach (Thing connectedThing in pawn.connections.ConnectedThings)
 			{
 				if (connectedThing is not Pawn master)
 				{
 					continue;
 				}
-				Gene_GauranlenConnection compTreeConnection = master?.genes?.GetFirstGeneOfType<Gene_GauranlenConnection>();
-				if (compTreeConnection != null && ExtraValidator(pawn, compTreeConnection) && !connectedThing.IsForbidden(pawn) && pawn.CanReach(connectedThing, PathEndMode.Touch, Danger.Deadly) && CellFinder.TryFindRandomCellNear(connectedThing.Position, pawn.Map, 4, (IntVec3 c) => GauranlenUtility.CocoonAndPodCellValidator(c, pawn.Map), out var _))
+				if (compTreeConnection != null && ExtraValidator(pawn, compTreeConnection) && !master.IsForbidden(pawn) && pawn.CanReach(master, PathEndMode.Touch, Danger.Deadly) && CellFinder.TryFindRandomCellNear(master.Position, pawn.Map, squareRadius, (IntVec3 c) => GauranlenUtility.CocoonAndPodCellValidator(c, pawn.Map), out var _))
 				{
-					return JobMaker.MakeJob(JobDef, connectedThing);
+					return JobMaker.MakeJob(JobDef, master);
 				}
 			}
 			return null;
 		}
+
 	}
 
 	public class JobGiver_CreateAndEnterCocoon_Gene : JobGiver_CreateAndEnterDryadHolder_Gene
 	{
-		public override JobDef JobDef => JobDefOf.CreateAndEnterCocoon;
 
-		public override bool ExtraValidator(Pawn pawn, Gene_GauranlenConnection connectionComp)
+		public JobDef cocoonJobDef;
+
+		public override JobDef JobDef => cocoonJobDef;
+
+		public override bool ExtraValidator(Pawn pawn, CompGauranlenDryad connectionComp)
 		{
 			if (connectionComp.DryadKind != pawn.kindDef)
 			{
@@ -59,9 +60,12 @@ namespace WVC_XenotypesAndGenes
 
 	public class JobGiver_CreateAndEnterHealingPod_Gene : JobGiver_CreateAndEnterDryadHolder_Gene
 	{
-		public override JobDef JobDef => JobDefOf.CreateAndEnterHealingPod;
 
-		public override bool ExtraValidator(Pawn pawn, Gene_GauranlenConnection connectionComp)
+		public JobDef cocoonJobDef;
+
+		public override JobDef JobDef => cocoonJobDef;
+
+		public override bool ExtraValidator(Pawn pawn, CompGauranlenDryad connectionComp)
 		{
 			if (pawn.mindState != null && pawn.mindState.returnToHealingPod)
 			{
@@ -83,6 +87,8 @@ namespace WVC_XenotypesAndGenes
 	public abstract class JobDriver_CreateAndEnterDryadHolder_Gene : JobDriver
 	{
 
+		public GeneExtension_Spawner Props => job?.def?.GetModExtension<GeneExtension_Spawner>();
+
 		public const int ticksToCreate = 200;
 
 		// private CompTreeConnection TreeComp => job.targetA.Thing.TryGetComp<CompTreeConnection>();
@@ -99,7 +105,7 @@ namespace WVC_XenotypesAndGenes
 			yield return Toils_General.Do(delegate
 			{
 				// IntVec3 result = null;
-				if (!CellFinder.TryFindRandomCellNear(job.GetTarget(TargetIndex.A).Cell, pawn.Map, 4, (IntVec3 c) => GauranlenUtility.CocoonAndPodCellValidator(c, pawn.Map), out var near))
+				if (CellFinder.TryFindRandomCellNear(job.GetTarget(TargetIndex.A).Cell, pawn.Map, 4, (IntVec3 c) => GauranlenUtility.CocoonAndPodCellValidator(c, pawn.Map), out var near))
 				{
 					job.targetB = near;
 				}
@@ -123,7 +129,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			return Toils_General.Do(delegate
 			{
-				GenSpawn.Spawn(ThingDefOf.DryadHealingPod, job.targetB.Cell, pawn.Map).TryGetComp<CompDryadHealingPod>().TryAcceptPawn(pawn);
+				GenSpawn.Spawn(Props.thingDefToSpawn, job.targetB.Cell, pawn.Map).TryGetComp<CompDryadHealingPod_WithGene>().TryAcceptPawn(pawn);
 			});
 		}
 	}
@@ -134,7 +140,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			return Toils_General.Do(delegate
 			{
-				GenSpawn.Spawn(ThingDefOf.DryadCocoon, job.targetB.Cell, pawn.Map).TryGetComp<CompDryadCocoon>().TryAcceptPawn(pawn);
+				GenSpawn.Spawn(Props.thingDefToSpawn, job.targetB.Cell, pawn.Map).TryGetComp<CompDryadCocoon_WithGene>().TryAcceptPawn(pawn);
 			});
 		}
 	}

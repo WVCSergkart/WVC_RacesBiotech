@@ -91,6 +91,7 @@
 	  <li MayRequire="Ludeon.RimWorld.Royalty">Plant_TreeAnima</li>
 	  <li MayRequire="Ludeon.RimWorld.Biotech">Plant_TreePolux</li>
 	  <li MayRequire="Ludeon.RimWorld.Ideology">Plant_TreeGauranlen</li>
+	  <li MayRequire="Ludeon.RimWorld.Anomaly">Plant_TreeHarbinger</li>
 	</plantsToNotOverwrite_SpawnSubplant>
 	<!-- Ignored by shapeshifter mechanic. Required gene Types. Obsolete -->
 	<shapeShift_IgnoredGeneClasses>

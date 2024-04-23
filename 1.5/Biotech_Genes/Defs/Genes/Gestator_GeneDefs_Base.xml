@@ -15,6 +15,7 @@
 	<biostatCpx>3</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>-2</biostatMet>
+	<sterilize>true</sterilize>
 	<statFactors>
 	  <Fertility>0</Fertility>
 	</statFactors>

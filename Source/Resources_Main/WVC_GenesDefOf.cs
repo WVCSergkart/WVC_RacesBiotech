@@ -75,6 +75,8 @@ namespace WVC_XenotypesAndGenes
 		public static HistoryEventDef WVC_Shapeshift;
 		[MayRequireIdeology]
 		public static HistoryEventDef WVC_XenotypeSerumUsed;
+		// [MayRequireIdeology]
+		// public static StatDef WVC_DryadsLimit;
 		// Job
 		// public static JobDef WVC_XenotypesAndGenes_EternalHungerBite;
 		// Damage
