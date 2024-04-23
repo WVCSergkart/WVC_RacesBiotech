@@ -27,7 +27,7 @@ namespace WVC_XenotypesAndGenes
 
 		// =================
 
-		public List<Gene_InspectInfo> cachedInfoGenes = new();
+		public List<IGeneInspectInfo> cachedInfoGenes = new();
 
 		private int nextRecache = -1;
 
@@ -57,7 +57,7 @@ namespace WVC_XenotypesAndGenes
 				cachedInfoGenes = new();
 				foreach (Gene gene in pawn.genes.GenesListForReading)
 				{
-					if (gene is Gene_InspectInfo geneInspectInfo && geneInspectInfo.Active)
+					if (gene is IGeneInspectInfo geneInspectInfo && gene.Active)
 					{
 						cachedInfoGenes.Add(geneInspectInfo);
 					}
@@ -66,9 +66,9 @@ namespace WVC_XenotypesAndGenes
 			}
 			string info = null;
 			int count = 0;
-			foreach (Gene_InspectInfo gene in cachedInfoGenes)
+			foreach (IGeneInspectInfo gene in cachedInfoGenes)
 			{
-				string geneText = gene.GetInspectInfo();
+				string geneText = gene.GetInspectInfo;
 				if (geneText.NullOrEmpty())
 				{
 					continue;

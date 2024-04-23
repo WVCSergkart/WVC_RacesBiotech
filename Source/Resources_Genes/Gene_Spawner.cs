@@ -7,7 +7,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Spawner : Gene_InspectInfo
+	public class Gene_Spawner : Gene, IGeneInspectInfo
 	{
 		// public ThingDef ThingDefToSpawn => def.GetModExtension<GeneExtension_Spawner>().thingDefToSpawn;
 
@@ -110,9 +110,12 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref ticksUntilSpawn, "ticksToSpawnThing", 0);
 		}
 
-		public override string GetInspectInfo()
+		public string GetInspectInfo
 		{
-			return "NextSpawnedItemIn".Translate(GenLabel.ThingLabel(Props?.thingDefToSpawn, null, FinalStackCount)).Resolve() + ": " + ticksUntilSpawn.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
+			get
+			{
+				return "NextSpawnedItemIn".Translate(GenLabel.ThingLabel(Props?.thingDefToSpawn, null, FinalStackCount)).Resolve() + ": " + ticksUntilSpawn.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
+			}
 		}
 
 	}

@@ -182,7 +182,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_GeneticInstability : Gene_InspectInfo
+	public class Gene_GeneticInstability : Gene, IGeneInspectInfo
 	{
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
@@ -370,9 +370,12 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref useStabilizerAuto, "useStabilizerAutomatic", true);
 		}
 
-		public override string GetInspectInfo()
+		public string GetInspectInfo
 		{
-			return "WVC_XaG_Gene_GeneticInstability_On_Info".Translate().Resolve() + ": " + nextTick.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
+			get
+			{
+				return "WVC_XaG_Gene_GeneticInstability_On_Info".Translate().Resolve() + ": " + nextTick.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
+			}
 		}
 
 	}

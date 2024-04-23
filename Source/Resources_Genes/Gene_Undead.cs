@@ -9,7 +9,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Undead : Gene_InspectInfo
+	public class Gene_Undead : Gene, IGeneInspectInfo
 	{
 
 		public GeneExtension_Undead Giver => def.GetModExtension<GeneExtension_Undead>();
@@ -57,14 +57,17 @@ namespace WVC_XenotypesAndGenes
 			1100);
 		}
 
-		public override string GetInspectInfo()
-		{
-			if (UndeadCanResurrect)
-			{
-				return "WVC_XaG_Gene_Undead_On_Info".Translate().Resolve();
-			}
-			return null;
-		}
+		public string GetInspectInfo
+        {
+            get
+            {
+                if (UndeadCanResurrect)
+                {
+                    return "WVC_XaG_Gene_Undead_On_Info".Translate().Resolve();
+                }
+                return null;
+            }
+        }
 
 	}
 

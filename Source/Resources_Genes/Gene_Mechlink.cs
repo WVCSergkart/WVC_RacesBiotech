@@ -9,7 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Mechlink : Gene_InspectInfo
+	public class Gene_Mechlink : Gene, IGeneInspectInfo
 	{
 
 		public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
@@ -89,13 +89,16 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref summonMechanoids, "summonMechanoids", false);
 		}
 
-		public override string GetInspectInfo()
+		public string GetInspectInfo
 		{
-			if (summonMechanoids && timeForNextSummon > 0)
+			get
 			{
-				return "WVC_XaG_Gene_Blesslin_On_Info".Translate().Resolve() + ": " + timeForNextSummon.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
+				if (summonMechanoids && timeForNextSummon > 0)
+				{
+					return "WVC_XaG_Gene_Blesslin_On_Info".Translate().Resolve() + ": " + timeForNextSummon.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
+				}
+				return null;
 			}
-			return null;
 		}
 
 	}

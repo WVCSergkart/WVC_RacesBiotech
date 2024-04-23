@@ -10,13 +10,10 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_InspectInfo : Gene
+	public interface IGeneInspectInfo
 	{
 
-		public virtual string GetInspectInfo()
-		{
-			return null;
-		}
+		string GetInspectInfo { get; }
 
 	}
 
