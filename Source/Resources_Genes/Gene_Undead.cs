@@ -53,21 +53,21 @@ namespace WVC_XenotypesAndGenes
 			+ "\n\n"
 			+ (PreventResurrectionHediffs != null ? ("WVC_XaG_Gene_DisplayStats_Undead_CanResurrectHediffs_Desc".Translate() + ":"
 			+ "\n"
-			+  PreventResurrectionHediffs.Select((HediffDef x) => x.label).ToLineList("  - ", capitalizeItems: true)) : "WVC_XaG_Gene_DisplayStats_Undead_AlwaysResurrect_Desc".Translate()),
+			+  PreventResurrectionHediffs.Select((HediffDef x) => x.label).ToLineList("	 - ", capitalizeItems: true)) : "WVC_XaG_Gene_DisplayStats_Undead_AlwaysResurrect_Desc".Translate()),
 			1100);
 		}
 
 		public string GetInspectInfo
-        {
-            get
-            {
-                if (UndeadCanResurrect)
-                {
-                    return "WVC_XaG_Gene_Undead_On_Info".Translate().Resolve();
-                }
-                return null;
-            }
-        }
+		{
+			get
+			{
+				if (UndeadCanResurrect)
+				{
+					return "WVC_XaG_Gene_Undead_On_Info".Translate().Resolve();
+				}
+				return null;
+			}
+		}
 
 	}
 
@@ -83,7 +83,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			Reincarnate(pawn, Spawner.summonQuest);
+			TryReincarnate(pawn, Spawner.summonQuest, WVC_Biotech.settings.reincarnation_Chance);
 		}
 
 		public bool ReincarnationActive()
@@ -104,8 +104,12 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public static void Reincarnate(Pawn pawn, QuestScriptDef summonQuest)
+		public static bool TryReincarnate(Pawn pawn, QuestScriptDef summonQuest, float reincarnationChance = 0.01f)
 		{
+			if (!Rand.Chance(reincarnationChance))
+			{
+				return false;
+			}
 			int litterSize = ((pawn.RaceProps.litterSizeCurve == null) ? 1 : Mathf.RoundToInt(Rand.ByCurve(pawn.RaceProps.litterSizeCurve)));
 			if (litterSize < 1)
 			{
@@ -115,6 +119,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				ReincarnationQuest(pawn, summonQuest);
 			}
+			return true;
 		}
 
 		public static void ReincarnationQuest(Pawn pawn, QuestScriptDef quest)

@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Bloodcells : Gene_Bloodfeeder
+	public class Gene_Bloodcells : Gene_HemogenOffset, IGeneBloodfeeder
 	{
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
@@ -39,9 +39,8 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void Notify_Bloodfeed(Pawn victim)
+		public void Notify_Bloodfeed(Pawn victim)
 		{
-			base.Notify_Bloodfeed(victim);
 			if (Cells != null)
 			{
 				UndeadUtility.OffsetResource(Cells, Props.nutritionPerBite * victim.BodySize * pawn.GetStatValue(StatDefOf.HemogenGainFactor));

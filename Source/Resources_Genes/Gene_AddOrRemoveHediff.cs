@@ -19,7 +19,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void Local_AddOrRemoveHediff()
 		{
-			AddOrRemoveHediff(Props.hediffDefName, pawn, this, Props.bodyparts);
+			HediffUtility.TryAddOrRemoveHediff(Props.hediffDefName, pawn, this, Props.bodyparts);
 		}
 
 		public override void Tick()
@@ -35,57 +35,8 @@ namespace WVC_XenotypesAndGenes
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			RemoveHediff(Props.hediffDefName, pawn);
+			HediffUtility.TryRemoveHediff(Props.hediffDefName, pawn);
 		}
-
-		// Static
-		public static void AddOrRemoveHediff(HediffDef hediffDef, Pawn pawn, Gene gene, List<BodyPartDef> bodyparts = null)
-		{
-			if (hediffDef == null)
-			{
-				return;
-			}
-			if (gene.Active)
-			{
-				if (!pawn.health.hediffSet.HasHediff(hediffDef))
-				{
-					if (!bodyparts.NullOrEmpty())
-					{
-						Gene_PermanentHediff.BodyPartsGiver(bodyparts, pawn, hediffDef, gene);
-						return;
-					}
-					// pawn.health.AddHediff(hediffDef);
-					Hediff hediff = HediffMaker.MakeHediff(hediffDef, pawn);
-					HediffComp_RemoveIfGeneIsNotActive hediff_GeneCheck = hediff.TryGetComp<HediffComp_RemoveIfGeneIsNotActive>();
-					if (hediff_GeneCheck != null)
-					{
-						hediff_GeneCheck.geneDef = gene.def;
-					}
-					pawn.health.AddHediff(hediff);
-				}
-			}
-			else
-			{
-				RemoveHediff(hediffDef, pawn);
-			}
-		}
-
-		public static void RemoveHediff(HediffDef hediffDef, Pawn pawn)
-		{
-			if (hediffDef == null)
-			{
-				return;
-			}
-			if (pawn.health.hediffSet.HasHediff(hediffDef))
-			{
-				Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(hediffDef);
-				if (firstHediffOfDef != null)
-				{
-					pawn.health.RemoveHediff(firstHediffOfDef);
-				}
-			}
-		}
-		// Static
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
@@ -187,7 +138,7 @@ namespace WVC_XenotypesAndGenes
 			AddOrRemoveHediff(HediffDef, pawn, this);
 		}
 
-		public static void AddOrRemoveHediff(HediffDef hediffDef, Pawn pawn, Gene gene)
+		public void AddOrRemoveHediff(HediffDef hediffDef, Pawn pawn, Gene gene)
 		{
 			if (gene.Active)
 			{
@@ -207,14 +158,15 @@ namespace WVC_XenotypesAndGenes
 			}
 			else
 			{
-				Gene_AddOrRemoveHediff.RemoveHediff(hediffDef, pawn);
+				HediffUtility.TryRemoveHediff(hediffDef, pawn);
 			}
 		}
+
 
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			Gene_AddOrRemoveHediff.RemoveHediff(HediffDef, pawn);
+			HediffUtility.TryRemoveHediff(HediffDef, pawn);
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()

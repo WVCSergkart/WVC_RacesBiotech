@@ -114,7 +114,7 @@
 	<biostatMet>0</biostatMet>
 	<biostatArc>1</biostatArc>
 	<customEffectDescriptions>
-		<li>In case of death, &lt;color=#8a8ae6&gt;summons a descendant&lt;/color&gt;.</li>
+		<li>In case of death, with some chance &lt;color=#8a8ae6&gt;summons a descendant&lt;/color&gt;.</li>
 		<li>Descendant inherits &lt;color=#8a8ae6&gt;xenotype, genes, backstory, skills, traits and apperance&lt;/color&gt; of the carrier.</li>
 		<li>&lt;color=#ff8585&gt;Chrono age must be above 200 years.&lt;/color&gt;</li>
 	</customEffectDescriptions>
@@ -136,6 +136,7 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
 			<summonQuest>WVC_Dustogenic_QuestUndeadReincarnation</summonQuest>
 			<!-- unused -->
+			<chance>0.22</chance>
 			<minChronoAge>200</minChronoAge>
 		</li>
 	</modExtensions>

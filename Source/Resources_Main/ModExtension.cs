@@ -78,6 +78,7 @@ namespace WVC_XenotypesAndGenes
 		// Reincarnation
 		public QuestScriptDef summonQuest;
 		public int minChronoAge = 54;
+		public float chance = 0.37f;
 		// Shapeshifter
 		public SoundDef soundDefOnImplant;
 		public List<HediffDef> duplicateHediffs;
@@ -182,6 +183,8 @@ namespace WVC_XenotypesAndGenes
 		public QuestScriptDef summonQuest;
 		// Bloodeater
 		public float nutritionPerBite = 0.8f;
+		// Photosynthesis
+		public float passivelyReplenishedNutrition = 0.04f;
 	}
 
 	// public class GeneExtension_Shapeshifter : DefModExtension

@@ -89,7 +89,8 @@
 	<biostatMet>-2</biostatMet>
 	<customEffectDescriptions>
 	  <li>Restores a lost body parts every (*DateTime)5-15 days(/DateTime).</li>
-	  <li>Decreases the nutritional value of consumed food by 11%</li>
+	  <!-- <li>Decreases the nutritional value of consumed food by 16%</li> -->
+	  <li>&lt;color=#ff8585&gt;Decreases the nutritional value of consumed food by 16%&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<statFactors>
 	  <InjuryHealingFactor>8</InjuryHealingFactor>
@@ -98,7 +99,7 @@
 	  <MaxNutrition>0.3</MaxNutrition>
 	</statOffsets>
 	<displayOrderInCategory>2</displayOrderInCategory>
-	<resourceLossPerDay>0.11</resourceLossPerDay>
+	<resourceLossPerDay>0.16</resourceLossPerDay>
 	<exclusionTags>
 	  <li>WoundHealingRate</li>
 	</exclusionTags>
@@ -125,7 +126,8 @@
 	<customEffectDescriptions>
 		<li>Carriers of the gene always spawn with age within 18.</li>
 		<li>The age of the gene carrier decreases by 1 year every (*DateTime)5-15 days(/DateTime), this continues until the carrier reaches the minimum adult age.</li>
-		<li>Decreases the nutritional value of consumed food by 9%</li>
+		<!-- <li>Decreases the nutritional value of consumed food by 9%</li> -->
+		<li>&lt;color=#ff8585&gt;Decreases the nutritional value of consumed food by 9%&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<statOffsets>
 	  <MaxNutrition>0.2</MaxNutrition>
@@ -148,29 +150,32 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
 	<defName>WVC_Dustogenic_Metabolism</defName>
-	<label>dustogenic metabolism</label>
-	<labelShortAdj>dust-metabolic</labelShortAdj>
-	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_DustogenicMetabolism</geneClass> -->
-	<description>Carriers of this gene have dust in their cells that facilitate and optimize metabolism. This improves overall genetic and metabolic quality, but their body receives significantly less nutrients from food.</description>
+	<label>photosynthetic metabolism</label>
+	<labelShortAdj>photosynthesis</labelShortAdj>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Photosynthesis</geneClass>
+	<description>Carriers of this gene can photosynthesize nutrients from sunlight, but obtain significantly less nutrients from food.</description>
 	<iconPath>WVC/UI/Genes/Gene_ArchiteMetabolism_v0</iconPath>
-	<!-- <iconColor>(255, 248, 133)</iconColor> -->
-	<!-- <iconColor>(173, 142, 112)</iconColor> -->
+	<iconColor>(255, 255, 255)</iconColor>
 	<displayOrderInCategory>10</displayOrderInCategory>
-	<resourceLossPerDay>0.17</resourceLossPerDay>
+	<resourceLossPerDay>0.23</resourceLossPerDay>
 	<marketValueFactor>1.5</marketValueFactor>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>6</biostatMet>
 	<biostatArc>0</biostatArc>
 	<customEffectDescriptions>
-	  <li>Decreases the nutritional value of consumed food by 17%</li>
+	  <!-- <li>TEXT &lt;color=#8a8ae6&gt;WORD&lt;/color&gt; TEXT &lt;color=#ff8585&gt;WARNING&lt;/color&gt;.</li> -->
+	  <li>While &lt;color=#8a8ae6&gt;in sunlight&lt;/color&gt;, slowly &lt;color=#8a8ae6&gt;replenishes hunger&lt;/color&gt; bar.</li>
+	  <li>Any non-nudist &lt;color=#ff8585&gt;clothing blocks this effect&lt;/color&gt;.</li>
+	  <li>&lt;color=#ff8585&gt;Decreases the nutritional value of consumed food by 23%&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<statOffsets>
 	  <MaxNutrition>0.3</MaxNutrition>
 	</statOffsets>
-	<!-- <exclusionTags> -->
-	  <!-- <li>WVC_XenotypesAndGenes_ArchitesRandomEncode_GeneTagRandomizer_Pattern</li> -->
-	  <!-- <li>WVC_XenotypesAndGenes_GeneNaturalRandom_Metabolism</li> -->
-	<!-- </exclusionTags> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<passivelyReplenishedNutrition>0.04</passivelyReplenishedNutrition>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
@@ -186,7 +191,8 @@
 	  <li>Opinion updated every day and lasts 5 days.</li>
 	  <li>Opinion can stack up to 4 times.</li>
 	  <li>Only affects colony pawns and prisoners.</li>
-	  <li>Decreases the nutritional value of consumed food by 8%</li>
+	  <!-- <li>Decreases the nutritional value of consumed food by 8%</li> -->
+	  <li>&lt;color=#ff8585&gt;Decreases the nutritional value of consumed food by 8%&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>-1</biostatMet>
@@ -266,7 +272,8 @@
 	  <!-- <li>Abilities "Rise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li> -->
 	  <!-- <li>If this gene is removed, the carrier will die.</li> -->
 	  <!-- <li>The amount of dust is no longer subject to biological entropy.</li> -->
-	  <li>Decreases the nutritional value of consumed food by 15%</li>
+	  <!-- <li>Decreases the nutritional value of consumed food by 15%</li> -->
+	  <li>&lt;color=#ff8585&gt;Decreases the nutritional value of consumed food by 15%&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<resourceLossPerDay>0.15</resourceLossPerDay>
 	<statOffsets>

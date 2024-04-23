@@ -71,6 +71,7 @@ namespace WVC_XenotypesAndGenes
 		// Reincarnation
 		public bool reincarnation_EnableMechanic = true;
 		public float reincarnation_MinChronoAge = 200f;
+		public float reincarnation_Chance = 0.08f;
 		// Hemogenic
 		public float hemogenic_ImplanterFangsChanceFactor = 1f;
 		// Thralls
@@ -150,6 +151,7 @@ namespace WVC_XenotypesAndGenes
 			// Reincarnation
 			Scribe_Values.Look(ref reincarnation_EnableMechanic, "reincarnation_EnableMechanic", defaultValue: true);
 			Scribe_Values.Look(ref reincarnation_MinChronoAge, "reincarnation_MinChronoAge", defaultValue: 200f);
+			Scribe_Values.Look(ref reincarnation_Chance, "reincarnation_Chance", defaultValue: 0.08f);
 			// Hemogenic
 			Scribe_Values.Look(ref hemogenic_ImplanterFangsChanceFactor, "hemogenic_ImplanterFangsChanceFactor", defaultValue: 1f);
 			// Thralls
@@ -591,6 +593,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.Label("WVC_XaGGeneSettings_Reincarnation".Translate() + ":", -1);
 			listingStandard.CheckboxLabeled("WVC_Label_reincarnation_EnableMechanic".Translate().Colorize(ColorLibrary.LightBlue), ref settings.reincarnation_EnableMechanic, "WVC_ToolTip_reincarnation_EnableMechanic".Translate());
 			listingStandard.SliderLabeledWithRef("WVC_Label_Reincarnation_MinChronoAge".Translate((settings.reincarnation_MinChronoAge).ToString()), ref settings.reincarnation_MinChronoAge, 50f, 2000f, round: 0);
+			listingStandard.SliderLabeledWithRef("WVC_Label_reincarnation_Chance".Translate((settings.reincarnation_Chance * 100f).ToString()), ref settings.reincarnation_Chance, 0f, 1f, round: 2);
 			listingStandard.GapLine();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_TotalHealing".Translate() + ":", -1);
@@ -750,6 +753,7 @@ namespace WVC_XenotypesAndGenes
 			// =
 			WVC_Biotech.settings.reincarnation_EnableMechanic = true;
 			WVC_Biotech.settings.reincarnation_MinChronoAge = 200f;
+			WVC_Biotech.settings.reincarnation_Chance = 0.08f;
 			// =
 			WVC_Biotech.settings.hemogenic_ImplanterFangsChanceFactor = 1f;
 			// =
@@ -830,6 +834,7 @@ namespace WVC_XenotypesAndGenes
 			// =
 			WVC_Biotech.settings.reincarnation_EnableMechanic = true;
 			WVC_Biotech.settings.reincarnation_MinChronoAge = 200f;
+			WVC_Biotech.settings.reincarnation_Chance = 0.08f;
 			// =
 			WVC_Biotech.settings.hemogenic_ImplanterFangsChanceFactor = 1f;
 			// =

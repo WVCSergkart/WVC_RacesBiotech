@@ -9,6 +9,57 @@ namespace WVC_XenotypesAndGenes
 	public static class HediffUtility
 	{
 
+		public static bool TryAddOrRemoveHediff(HediffDef hediffDef, Pawn pawn, Gene gene, List<BodyPartDef> bodyparts = null)
+		{
+			if (hediffDef == null)
+			{
+				return false;
+			}
+			if (gene.Active)
+			{
+				if (!pawn.health.hediffSet.HasHediff(hediffDef))
+				{
+					if (!bodyparts.NullOrEmpty())
+					{
+						Gene_PermanentHediff.BodyPartsGiver(bodyparts, pawn, hediffDef, gene);
+						return true;
+					}
+					// pawn.health.AddHediff(hediffDef);
+					Hediff hediff = HediffMaker.MakeHediff(hediffDef, pawn);
+					HediffComp_RemoveIfGeneIsNotActive hediff_GeneCheck = hediff.TryGetComp<HediffComp_RemoveIfGeneIsNotActive>();
+					if (hediff_GeneCheck != null)
+					{
+						hediff_GeneCheck.geneDef = gene.def;
+					}
+					pawn.health.AddHediff(hediff);
+					return true;
+				}
+			}
+			else
+			{
+				TryRemoveHediff(hediffDef, pawn);
+			}
+			return false;
+		}
+
+		public static bool TryRemoveHediff(HediffDef hediffDef, Pawn pawn)
+		{
+			if (hediffDef == null)
+			{
+				return false;
+			}
+			if (pawn.health.hediffSet.HasHediff(hediffDef))
+			{
+				Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(hediffDef);
+				if (firstHediffOfDef != null)
+				{
+					pawn.health.RemoveHediff(firstHediffOfDef);
+				}
+				return true;
+			}
+			return false;
+		}
+
 		// Heads
 
 		public static bool HeadTypeIsCorrect(Pawn pawn, List<HeadTypeDef> headTypeDefs)

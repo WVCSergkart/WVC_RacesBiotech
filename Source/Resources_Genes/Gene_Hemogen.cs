@@ -61,16 +61,16 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Bloodfeeder : Gene_HemogenOffset
-	{
+	// public class Gene_Bloodfeeder : Gene_HemogenOffset
+	// {
 
-		public virtual void Notify_Bloodfeed(Pawn victim)
-		{
-		}
+		// public virtual void Notify_Bloodfeed(Pawn victim)
+		// {
+		// }
 
-	}
+	// }
 
-	public class Gene_BloodHunter : Gene_Bloodfeeder
+	public class Gene_BloodHunter : Gene_HemogenOffset
 	{
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -167,12 +167,12 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_ImplanterFang : Gene_Bloodfeeder
+	public class Gene_ImplanterFang : Gene_HemogenOffset, IGeneBloodfeeder
 	{
 
 		public GeneExtension_General General => def?.GetModExtension<GeneExtension_General>();
 
-		public override void Notify_Bloodfeed(Pawn victim)
+		public void Notify_Bloodfeed(Pawn victim)
 		{
 			// Log.Error("0");
 			if (General == null)

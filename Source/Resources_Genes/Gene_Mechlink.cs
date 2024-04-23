@@ -9,7 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Mechlink : Gene, IGeneInspectInfo
+	public class Gene_Mechlink : Gene
 	{
 
 		public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
@@ -89,18 +89,6 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref summonMechanoids, "summonMechanoids", false);
 		}
 
-		public string GetInspectInfo
-		{
-			get
-			{
-				if (summonMechanoids && timeForNextSummon > 0)
-				{
-					return "WVC_XaG_Gene_Blesslin_On_Info".Translate().Resolve() + ": " + timeForNextSummon.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
-				}
-				return null;
-			}
-		}
-
 	}
 
 	public class Gene_MechlinkWithGizmo : Gene_Mechlink
@@ -166,7 +154,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Stonelink : Gene_MechlinkWithGizmo
+	public class Gene_Stonelink : Gene_MechlinkWithGizmo, IGeneInspectInfo
 	{
 
 		public override void Tick()
@@ -244,9 +232,21 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public string GetInspectInfo
+		{
+			get
+			{
+				if (summonMechanoids)
+				{
+					return "WVC_XaG_Gene_Blesslin_On_Info".Translate().Resolve() + ": " + timeForNextSummon.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
+				}
+				return null;
+			}
+		}
+
 	}
 
-	public class Gene_Falselink : Gene_Mechlink
+	public class Gene_Falselink : Gene_Mechlink, IGeneInspectInfo
 	{
 
 		public override void Tick()
@@ -330,6 +330,18 @@ namespace WVC_XenotypesAndGenes
 				}
 			};
 			yield return command_Action;
+		}
+
+		public string GetInspectInfo
+		{
+			get
+			{
+				if (summonMechanoids)
+				{
+					return "WVC_XaG_Gene_Blesslin_On_Info".Translate().Resolve() + ": " + timeForNextSummon.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
+				}
+				return null;
+			}
 		}
 
 	}

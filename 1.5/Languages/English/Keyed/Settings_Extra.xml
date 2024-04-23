@@ -62,6 +62,8 @@ It is not recommended to use more than one DEV-fix at a time. It might break som
 
 	<WVC_Label_Reincarnation_MinChronoAge>Reincarnation min chrono age {0} years</WVC_Label_Reincarnation_MinChronoAge>
 
+	<WVC_Label_reincarnation_Chance>Reincarnation chance {0}%</WVC_Label_reincarnation_Chance>
+
 	<!-- ================================== -->
 
 	<WVC_Label_ThrallMaker_ThrallsInheritMasterGenes>Thralls inherit master unique genes</WVC_Label_ThrallMaker_ThrallsInheritMasterGenes>

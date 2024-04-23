@@ -29,7 +29,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			foreach (Gene gene in pawn.genes.GenesListForReading)
 			{
-				if (gene is Gene_Bloodfeeder geneBloodfeeder && geneBloodfeeder.Active)
+				if (gene is IGeneBloodfeeder geneBloodfeeder && gene.Active)
 				{
 					geneBloodfeeder.Notify_Bloodfeed(target.Pawn);
 				}

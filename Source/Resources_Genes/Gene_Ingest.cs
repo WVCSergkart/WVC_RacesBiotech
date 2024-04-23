@@ -50,7 +50,7 @@ namespace WVC_XenotypesAndGenes
 		public override void Tick()
 		{
 			base.Tick();
-			if (!pawn.IsHashIntervalTick(540))
+			if (!pawn.IsHashIntervalTick(539))
 			{
 				return;
 			}
@@ -201,8 +201,14 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			Gene_AddOrRemoveHediff.AddOrRemoveHediff(Props?.hediffDefName, pawn, this);
+			AddOrRemoveHediff();
 		}
+
+		public void AddOrRemoveHediff()
+		{
+			HediffUtility.TryAddOrRemoveHediff(Props?.hediffDefName, pawn, this);
+		}
+
 
 		public override void Tick()
 		{
@@ -213,7 +219,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (pawn.IsHashIntervalTick(66000))
 			{
-				Gene_AddOrRemoveHediff.AddOrRemoveHediff(Props?.hediffDefName, pawn, this);
+				AddOrRemoveHediff();
 			}
 			if (pawn.Map == null)
 			{
@@ -244,7 +250,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			Gene_AddOrRemoveHediff.RemoveHediff(Props?.hediffDefName, pawn);
+			HediffUtility.TryRemoveHediff(Props?.hediffDefName, pawn);
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -258,7 +264,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						if (Active)
 						{
-							Gene_AddOrRemoveHediff.AddOrRemoveHediff(Props?.hediffDefName, pawn, this);
+							AddOrRemoveHediff();
 						}
 					}
 				};
@@ -419,7 +425,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Bloodeater : Gene_BloodHunter
+	public class Gene_Bloodeater : Gene_BloodHunter, IGeneBloodfeeder
 	{
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
@@ -502,9 +508,8 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void Notify_Bloodfeed(Pawn victim)
+		public void Notify_Bloodfeed(Pawn victim)
 		{
-			base.Notify_Bloodfeed(victim);
 			UndeadUtility.OffsetNeedFood(pawn, Props.nutritionPerBite * victim.BodySize * pawn.GetStatValue(StatDefOf.RawNutritionFactor) * pawn.GetStatValue(StatDefOf.HemogenGainFactor));
 		}
 

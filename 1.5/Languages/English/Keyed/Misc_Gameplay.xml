@@ -233,6 +233,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_Gene_Scarifier_On_Info>Next scarification in</WVC_XaG_Gene_Scarifier_On_Info>
 	<WVC_XaG_Gene_GeneticInstability_On_Info>Next genetic instabilization in</WVC_XaG_Gene_GeneticInstability_On_Info>
 	<WVC_XaG_Gene_UndeadResurrectionCorpse_Info>Will be resurrected in</WVC_XaG_Gene_UndeadResurrectionCorpse_Info>
+	<!-- <WVC_XaG_Gene_GeneticStability_On_Info>Next genetic stabilization in</WVC_XaG_Gene_GeneticStability_On_Info> -->
 
 	<!-- ============================ SCARS ============================ -->
 
