@@ -169,7 +169,7 @@
 	  <li>&lt;color=#ff8585&gt;Decreases the nutritional value of consumed food by 23%&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<statOffsets>
-	  <MaxNutrition>0.3</MaxNutrition>
+	  <MaxNutrition>0.5</MaxNutrition>
 	</statOffsets>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
@@ -178,48 +178,20 @@
 	</modExtensions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneBeauty_PsychicBeauty_AngelBeauty">
 	<defName>WVC_Dustogenic_AngelBeauty</defName>
 	<label>dust beauty</label>
-	<description>Carriers of this gene can unconsciously influence how others see them. Their brain emits neuronal psychic waves that cause those around them who are susceptible to psychic influence to deify them.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_AngelBeauty</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_DustAngel_v0</iconPath>
-	<iconColor>(255, 255, 255)</iconColor>
+	<displayCategory>WVC_Dustogenic</displayCategory>
 	<displayOrderInCategory>25</displayOrderInCategory>
 	<customEffectDescriptions>
-	  <li>All psychic sensitivity pawns get +40 opinion towards gene carrier.</li>
-	  <li>Opinion updated every day and lasts 5 days.</li>
-	  <li>Opinion can stack up to 4 times.</li>
-	  <li>Only affects colony pawns and prisoners.</li>
-	  <!-- <li>Decreases the nutritional value of consumed food by 8%</li> -->
-	  <li>&lt;color=#ff8585&gt;Decreases the nutritional value of consumed food by 8%&lt;/color&gt;</li>
+	  <li>&lt;color=#ff8585&gt;Decreases the nutritional value of consumed food by 18%&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>-1</biostatMet>
-	<biostatArc>1</biostatArc>
-	<resourceLossPerDay>0.08</resourceLossPerDay>
-	<statOffsets>
-	  <PawnBeauty>2</PawnBeauty>
-	  <MaxNutrition>0.2</MaxNutrition>
-	</statOffsets>
-	<exclusionTags>
-	  <li>Beauty</li>
-	</exclusionTags>
-	<symbolPack>
-	  <prefixSymbols>
-		<li><symbol>angel</symbol></li>
-		<li><symbol>beauty</symbol></li>
-		<li><symbol>cute</symbol></li>
-		<li><symbol>deity</symbol></li>
-	  </prefixSymbols>
-	</symbolPack>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
-			<AboutMeThoughtDef>WVC_XenotypesAndGenes_AngelBeauty</AboutMeThoughtDef>
-			<targetShouldBePsySensitive>true</targetShouldBePsySensitive>
-			<ignoreIfHasGene>false</ignoreIfHasGene>
-		</li>
-	</modExtensions>
+	<biostatArc>0</biostatArc>
+	<resourceLossPerDay>0.18</resourceLossPerDay>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
