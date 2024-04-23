@@ -59,6 +59,10 @@ namespace WVC_XenotypesAndGenes
 		public int specialTreesMax = 3;
 		public int specialTreesMin = 1;
 		// public float skipChance = 0.5f;
+		// Gauranlen
+		// public List<GauranlenTreeModeDef> blacklistedGauranlenTreeModeDefs;
+		public int connectedDryadsLimit = 6;
+		public PawnKindDef defaultDryadPawnKindDef;
 	}
 
 	public class GeneExtension_Undead : DefModExtension
@@ -101,6 +105,7 @@ namespace WVC_XenotypesAndGenes
 		public float recruitChance = 0.5f;
 		public bool canBePredatorPrey = true;
 		public List<GeneDef> inheritableGeneDefs;
+		// public PawnKindDef inheritFromPawnKind;
 		// Undead Resurrection Component
 		public bool shouldResurrect = false;
 		// 4-6 hours
@@ -110,6 +115,7 @@ namespace WVC_XenotypesAndGenes
 		public bool removeButcherRecipes = false;
 		public bool removeRepairComp = false;
 		public bool removeDormantComp = false;
+		public bool generateCorpse = true;
 		// Job Components
 		public int ticksToAbsorb = 180;
 		public ThingDef warmupMote;

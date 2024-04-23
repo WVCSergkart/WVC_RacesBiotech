@@ -8,6 +8,88 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
+	public class DryadKindDef : PawnKindDef
+	{
+
+		public PawnKindDef sourceDryadDef;
+
+		public override void ResolveReferences()
+		{
+			if (sourceDryadDef != null)
+			{
+				label = sourceDryadDef.label;
+				lifeStages = sourceDryadDef.lifeStages;
+				// race.race.corpseDef = sourceDryadDef.race.race.corpseDef;
+				race.statBases = sourceDryadDef.race.statBases;
+				race.race.trainability = sourceDryadDef.race.race.trainability;
+				race.race.lifeStageAges = sourceDryadDef.race.race.lifeStageAges;
+				race.race.headPosPerRotation = sourceDryadDef.race.race.headPosPerRotation;
+				race.race.trainableTags = sourceDryadDef.race.race.trainableTags;
+				race.race.untrainableTags = sourceDryadDef.race.race.untrainableTags;
+				race.race.baseBodySize = sourceDryadDef.race.race.baseBodySize;
+				race.race.baseHealthScale = sourceDryadDef.race.race.baseHealthScale;
+				race.tools = sourceDryadDef.race.tools;
+				race.label = sourceDryadDef.race.label;
+				race.description = sourceDryadDef.race.description;
+			}
+			base.ResolveReferences();
+		}
+
+	}
+
+	public class GauranlenGeneModeDef : Def
+	{
+
+		public GauranlenTreeModeDef useDescriptionFromDef = null;
+
+		public GauranlenGeneModeDef previousStage;
+
+		public PawnKindDef pawnKindDef;
+
+		public List<MemeDef> requiredMemes;
+
+		public List<GeneDef> requiredGenes;
+
+		public List<StatDef> displayedStats;
+
+		public List<DefHyperlink> hyperlinks = new();
+
+		private string cachedDescription;
+
+		public string Description
+		{
+			get
+			{
+				if (cachedDescription == null)
+				{
+					cachedDescription = description;
+					CompProperties_Spawner compProperties_Spawner = pawnKindDef?.race.GetCompProperties<CompProperties_Spawner>();
+					if (compProperties_Spawner != null)
+					{
+						cachedDescription = cachedDescription + "\n\n" + "DryadProducesResourcesDesc".Translate(NamedArgumentUtility.Named(pawnKindDef, "DRYAD"), GenLabel.ThingLabel(compProperties_Spawner.thingToSpawn, null, compProperties_Spawner.spawnCount).Named("RESOURCES"), compProperties_Spawner.spawnIntervalRange.max.ToStringTicksToPeriod().Named("DURATION")).Resolve().CapitalizeFirst();
+					}
+				}
+				return cachedDescription;
+			}
+		}
+
+		public override void ResolveReferences()
+		{
+			base.ResolveReferences();
+			if (useDescriptionFromDef != null)
+			{
+				description = useDescriptionFromDef.description;
+			}
+			hyperlinks.Add(new DefHyperlink(pawnKindDef.race));
+			CompProperties_Spawner compProperties_Spawner = pawnKindDef?.race?.GetCompProperties<CompProperties_Spawner>();
+			if (compProperties_Spawner != null)
+			{
+				hyperlinks.Add(new DefHyperlink(compProperties_Spawner.thingToSpawn));
+			}
+		}
+
+	}
+
 	public class ThrallDef : Def
 	{
 
@@ -29,6 +111,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void ResolveReferences()
 		{
+			base.ResolveReferences();
 			if (genes.NullOrEmpty())
 			{
 				return;

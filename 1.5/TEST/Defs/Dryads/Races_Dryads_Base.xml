@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Dryad base -->
+
+  <ThingDef ParentName="DryadBase" Name="WVC_XenotypesAndGenes_Dryads_Base" Abstract="True">
+	<statBases>
+	</statBases>
+	<descriptionHyperlinks Inherit="False">
+	  <GeneDef>WVC_GauranlenConnection</GeneDef>
+	</descriptionHyperlinks>
+	<tradeTags>
+	  <li>AnimalDryad</li>
+	</tradeTags>
+	<race>
+	  <linkedCorpseKind>Dryad_Basic</linkedCorpseKind>
+	  <useMeatFrom>Dryad_Basic</useMeatFrom>
+	  <thinkTreeMain>WVC_XaG_Dryad</thinkTreeMain>
+	  <allowedOnCaravan>true</allowedOnCaravan>
+	  <trainability>None</trainability>
+	  <showTrainables>false</showTrainables>
+	  <disableAreaControl>false</disableAreaControl>
+	</race>
+	<modExtensions>
+		<!-- <li Class="VFECore.ThingDefExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core"> -->
+			<!-- <destroyCorpse>true</destroyCorpse> -->
+		<!-- </li> -->
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<generateCorpse>false</generateCorpse>
+		</li>
+	</modExtensions>
+  </ThingDef>
+
+  <PawnKindDef Name="WVC_XenotypesAndGenes_DryadsKind_Base" ParentName="DryadKindBase" Abstract="True">
+	<combatPower>60</combatPower>
+	<ecoSystemWeight>0</ecoSystemWeight>
+	<canArriveManhunter>false</canArriveManhunter>
+  </PawnKindDef>
+
+  <!-- Basic -->
+
+  <ThingDef ParentName="WVC_XenotypesAndGenes_Dryads_Base">
+	<defName>WVC_XaG_Dryad_Basic</defName>
+	<race>
+	  <linkedCorpseKind>Dryad_Basic</linkedCorpseKind>
+	</race>
+  </ThingDef>
+
+  <WVC_XenotypesAndGenes.DryadKindDef ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
+	<defName>WVC_XaG_Dryad_Basic</defName>
+	<label>immature dryad</label>
+	<race>WVC_XaG_Dryad_Basic</race>
+	<sourceDryadDef>Dryad_Basic</sourceDryadDef>
+  </WVC_XenotypesAndGenes.DryadKindDef>
+
+  <!-- Woodmaker -->
+
+  <ThingDef ParentName="WVC_XenotypesAndGenes_Dryads_Base">
+	<defName>WVC_XaG_Dryad_Woodmaker</defName>
+	<descriptionHyperlinks>
+	  <ThingDef>WoodLog</ThingDef>
+	</descriptionHyperlinks>
+	<race>
+	  <linkedCorpseKind>Dryad_Woodmaker</linkedCorpseKind>
+	</race>
+	<comps>
+	  <li Class="CompProperties_Spawner">
+		<thingToSpawn>WoodLog</thingToSpawn>
+		<spawnCount>32</spawnCount>
+		<spawnIntervalRange>120000</spawnIntervalRange>
+		<writeTimeLeftToSpawn>true</writeTimeLeftToSpawn>
+		<showMessageIfOwned>false</showMessageIfOwned>
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <WVC_XenotypesAndGenes.DryadKindDef ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
+	<defName>WVC_XaG_Dryad_Woodmaker</defName>
+	<label>woodmaker dryad</label>
+	<race>WVC_XaG_Dryad_Woodmaker</race>
+	<sourceDryadDef>Dryad_Woodmaker</sourceDryadDef>
+  </WVC_XenotypesAndGenes.DryadKindDef>
+
+  <!-- Berrymaker -->
+
+  <ThingDef ParentName="WVC_XenotypesAndGenes_Dryads_Base">
+	<defName>WVC_XaG_Dryad_Berrymaker</defName>
+	<descriptionHyperlinks>
+	  <ThingDef>RawBerries</ThingDef>
+	</descriptionHyperlinks>
+	<race>
+	  <linkedCorpseKind>Dryad_Berrymaker</linkedCorpseKind>
+	</race>
+	<comps>
+	  <li Class="CompProperties_Spawner">
+		<thingToSpawn>RawBerries</thingToSpawn>
+		<spawnCount>40</spawnCount>
+		<spawnIntervalRange>120000</spawnIntervalRange>
+		<writeTimeLeftToSpawn>true</writeTimeLeftToSpawn>
+		<showMessageIfOwned>false</showMessageIfOwned>
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <WVC_XenotypesAndGenes.DryadKindDef ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
+	<defName>WVC_XaG_Dryad_Berrymaker</defName>
+	<label>berrymaker dryad</label>
+	<race>WVC_XaG_Dryad_Berrymaker</race>
+	<sourceDryadDef>Dryad_Berrymaker</sourceDryadDef>
+  </WVC_XenotypesAndGenes.DryadKindDef>
+
+  <!-- Medicinemaker -->
+
+  <ThingDef ParentName="WVC_XenotypesAndGenes_Dryads_Base">
+	<defName>WVC_XaG_Dryad_Medicinemaker</defName>
+	<descriptionHyperlinks>
+	  <ThingDef>MedicineHerbal</ThingDef>
+	</descriptionHyperlinks>
+	<race>
+	  <linkedCorpseKind>Dryad_Medicinemaker</linkedCorpseKind>
+	</race>
+	<comps>
+	  <li Class="CompProperties_Spawner">
+		<thingToSpawn>MedicineHerbal</thingToSpawn>
+		<spawnCount>4</spawnCount>
+		<spawnIntervalRange>120000</spawnIntervalRange>
+		<writeTimeLeftToSpawn>true</writeTimeLeftToSpawn>
+		<showMessageIfOwned>false</showMessageIfOwned>
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <WVC_XenotypesAndGenes.DryadKindDef ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
+	<defName>WVC_XaG_Dryad_Medicinemaker</defName>
+	<label>medicinemaker dryad</label>
+	<race>WVC_XaG_Dryad_Medicinemaker</race>
+	<sourceDryadDef>Dryad_Medicinemaker</sourceDryadDef>
+  </WVC_XenotypesAndGenes.DryadKindDef>
+
+  <!-- Carrier -->
+
+  <ThingDef ParentName="WVC_XenotypesAndGenes_Dryads_Base">
+	<defName>WVC_XaG_Dryad_Carrier</defName>
+	<race>
+	  <linkedCorpseKind>Dryad_Carrier</linkedCorpseKind>
+	</race>
+  </ThingDef>
+
+  <WVC_XenotypesAndGenes.DryadKindDef ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
+	<defName>WVC_XaG_Dryad_Carrier</defName>
+	<label>carrier dryad</label>
+	<race>WVC_XaG_Dryad_Carrier</race>
+	<sourceDryadDef>Dryad_Carrier</sourceDryadDef>
+  </WVC_XenotypesAndGenes.DryadKindDef>
+
+  <!-- Clawer -->
+
+  <ThingDef ParentName="WVC_XenotypesAndGenes_Dryads_Base">
+	<defName>WVC_XaG_Dryad_Clawer</defName>
+	<race>
+	  <linkedCorpseKind>Dryad_Clawer</linkedCorpseKind>
+	</race>
+  </ThingDef>
+
+  <WVC_XenotypesAndGenes.DryadKindDef ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
+	<defName>WVC_XaG_Dryad_Clawer</defName>
+	<label>clawer dryad</label>
+	<race>WVC_XaG_Dryad_Clawer</race>
+	<sourceDryadDef>Dryad_Clawer</sourceDryadDef>
+  </WVC_XenotypesAndGenes.DryadKindDef>
+
+  <!-- Barkskin -->
+
+  <ThingDef ParentName="WVC_XenotypesAndGenes_Dryads_Base">
+	<defName>WVC_XaG_Dryad_Barkskin</defName>
+	<race>
+	  <linkedCorpseKind>Dryad_Barkskin</linkedCorpseKind>
+	</race>
+  </ThingDef>
+
+  <WVC_XenotypesAndGenes.DryadKindDef ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
+	<defName>WVC_XaG_Dryad_Barkskin</defName>
+	<label>barkskin dryad</label>
+	<race>WVC_XaG_Dryad_Barkskin</race>
+	<sourceDryadDef>Dryad_Barkskin</sourceDryadDef>
+  </WVC_XenotypesAndGenes.DryadKindDef>
+
+</Defs>

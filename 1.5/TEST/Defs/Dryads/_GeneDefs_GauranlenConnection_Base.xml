@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneGauranlen_Base" Abstract="True">
+	<selectionWeight>0.0002</selectionWeight>
+	<displayCategory>Archite</displayCategory>
+	<displayOrderInCategory>125</displayOrderInCategory>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGauranlen_Base">
+	<defName>WVC_GauranlenConnection</defName>
+	<label>gauranlen connection</label>
+	<description>Carriers of this gene have gauranlen brood mother abilities. They can produce new dryads and control them through psychic influence.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_GauranlenConnection</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Savant_v0</iconPath>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>7</biostatMet>
+	<statFactors>
+	  <PruningSpeed>2.0</PruningSpeed>
+	</statFactors>
+	<aptitudes>
+	  <Plants>8</Plants>
+	</aptitudes>
+	<customEffectDescriptions>
+	  <li>TEXT &lt;color=#8a8ae6&gt;WORD&lt;/color&gt; TEXT &lt;color=#ff8585&gt;WARNING&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>gauranlen</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<defaultDryadPawnKindDef>WVC_XaG_Dryad_Basic</defaultDryadPawnKindDef>
+			<connectedDryadsLimit>6</connectedDryadsLimit>
+			<spawnIntervalRange>622000~940000</spawnIntervalRange>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>
