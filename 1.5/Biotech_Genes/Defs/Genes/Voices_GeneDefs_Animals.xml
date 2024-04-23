@@ -7,7 +7,7 @@
 	<iconPath>WVC/UI/Genes/Gene_VoicesAnimals_v0</iconPath>
 	<iconColor>(0.75, 0.75, 0.75)</iconColor>
 	<displayOrderInCategory>200</displayOrderInCategory>
-	<selectionWeight>0.00015</selectionWeight>
+	<selectionWeight>0.00003</selectionWeight>
 	<symbolPack>
 	  <wholeNameSymbols>
 		<li><symbol>animal</symbol></li>

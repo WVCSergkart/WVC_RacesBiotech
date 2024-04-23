@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGestator_Base" Name="WVC_XenotypesAndGenes_GeneGauranlen_Base" Abstract="True"> -->
-	<!-- <selectionWeight>0.0001</selectionWeight> -->
-	<!-- <biostatCpx>0</biostatCpx> -->
-	<!-- <biostatArc>1</biostatArc> -->
-	<!-- <biostatMet>0</biostatMet> -->
-  <!-- </GeneDef> -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGestator_Base" Name="WVC_XenotypesAndGenes_GeneGauranlen_Gestator" Abstract="True">
+	<selectionWeight>0.0001</selectionWeight>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+  </GeneDef>
 
   <!-- ============================= -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGestator_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGauranlen_Gestator">
 	<defName>WVC_GauranlenConnection</defName>
-	<label>gauranlen dryad</label>
+	<label>dryad</label>
 	<description>Carriers of this gene have gauranlen brood-mother abilities. They can produce new dryads and control them through psychic influence.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_GauranlenConnection</geneClass>
 	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Dryads</resourceGizmoType>
-	<iconPath>WVC/UI/Genes/Gene_GestatorGauranlen_v0</iconPath>
+	<!-- <iconPath>WVC/UI/Genes/Gene_GestatorGauranlen_v0</iconPath> -->
+	<iconPath>WVC/UI/Genes/Gene_Dryad_v0</iconPath>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>2</biostatArc>
 	<biostatMet>7</biostatMet>
@@ -25,7 +26,7 @@
 	  <PruningSpeed>2.0</PruningSpeed>
 	</statFactors>
 	<statOffsets>
-	  <MaxNutrition>0.4</MaxNutrition>
+	  <!-- <MaxNutrition>0.4</MaxNutrition> -->
 	  <WVC_DryadsLimit>6</WVC_DryadsLimit>
 	</statOffsets>
 	<aptitudes>
@@ -35,9 +36,9 @@
 	  <!-- <li>TEXT &lt;color=#8a8ae6&gt;WORD&lt;/color&gt; TEXT &lt;color=#ff8585&gt;WARNING&lt;/color&gt;.</li> -->
 	  <li>Carrier &lt;color=#8a8ae6&gt;spawns dryads&lt;/color&gt; every (*DateTime)8-10 days(/DateTime).</li>
 	  <li>Each &lt;color=#8a8ae6&gt;dryad's caste&lt;/color&gt; is chosen &lt;color=#ff8585&gt;manually, separately&lt;/color&gt;.</li>
-	  <li>&lt;color=#8a8ae6&gt;Dryads&lt;/color&gt; do not need food, but each dryad &lt;color=#ff8585&gt;increases hunger rate&lt;/color&gt; of the carrier.</li>
+	  <!-- <li>&lt;color=#8a8ae6&gt;Dryads&lt;/color&gt; do not need food, but each dryad &lt;color=#ff8585&gt;increases hunger rate&lt;/color&gt; of the carrier.</li> -->
 	  <li>&lt;color=#8a8ae6&gt;Dryads can travel in a caravan.&lt;/color&gt;</li>
-	  <li>Carrier can &lt;color=#8a8ae6&gt;reproduce&lt;/color&gt; with the help of &lt;color=#8a8ae6&gt;gaumaker&lt;/color&gt; dryads.</li>
+	  <!-- <li>Carrier can &lt;color=#8a8ae6&gt;reproduce&lt;/color&gt; with the help of &lt;color=#8a8ae6&gt;gaumaker&lt;/color&gt; dryads.</li> -->
 	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>
