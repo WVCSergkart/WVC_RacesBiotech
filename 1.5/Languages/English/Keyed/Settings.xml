@@ -77,7 +77,7 @@ If enabled, then all genes of the mod will have a vanilla background without add
 A restart is required to apply patches.</WVC_ToolTip_disableUniqueGeneInterface>
 
 	<!-- ====================================================================================== -->
-	<WVC_Label_enableGenesInfo>Enable genes info display (All)</WVC_Label_enableGenesInfo>
+	<WVC_Label_enableGenesInfo>Enable genes info display</WVC_Label_enableGenesInfo>
 	<WVC_Label_enableGeneSpawnerGizmo>Enable gene-spawner info</WVC_Label_enableGeneSpawnerGizmo>
 	<WVC_Label_enableGeneWingInfo>Enable gene-wing info</WVC_Label_enableGeneWingInfo>
 	<WVC_Label_enableGeneBlesslinkInfo>Enable blesslink summon info</WVC_Label_enableGeneBlesslinkInfo>
@@ -89,7 +89,7 @@ A restart is required to apply patches.</WVC_ToolTip_disableUniqueGeneInterface>
 
 	<WVC_ToolTip_enableGenesInfo>Responsible for displaying gene information. For example, for spawner genes: time, name and count.
 
-Activation requires a restart, deactivation does not.</WVC_ToolTip_enableGenesInfo>
+A restart is required.</WVC_ToolTip_enableGenesInfo>
 	<!-- ====================================================================================== -->
 
 	<WVC_Label_fixVanillaGeneImmunityCheck>Fix vanilla genes immunity check</WVC_Label_fixVanillaGeneImmunityCheck>

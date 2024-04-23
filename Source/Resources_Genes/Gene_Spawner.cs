@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Verse;
@@ -6,7 +7,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Spawner : Gene
+	public class Gene_Spawner : Gene_InspectInfo
 	{
 		// public ThingDef ThingDefToSpawn => def.GetModExtension<GeneExtension_Spawner>().thingDefToSpawn;
 
@@ -108,8 +109,15 @@ namespace WVC_XenotypesAndGenes
 			base.ExposeData();
 			Scribe_Values.Look(ref ticksUntilSpawn, "ticksToSpawnThing", 0);
 		}
+
+		public override string GetInspectInfo()
+		{
+			return "NextSpawnedItemIn".Translate(GenLabel.ThingLabel(Props?.thingDefToSpawn, null, FinalStackCount)).Resolve() + ": " + ticksUntilSpawn.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
+		}
+
 	}
 
+	[Obsolete]
 	public class Gene_SpawnerStuff : Gene
 	{
 

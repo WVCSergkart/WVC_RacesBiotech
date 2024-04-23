@@ -10,7 +10,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_GauranlenConnection : Gene
+	public class Gene_GauranlenConnection : Gene_InspectInfo
 	{
 
 		public GeneExtension_Spawner Props => def?.GetModExtension<GeneExtension_Spawner>();
@@ -219,6 +219,15 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref nextTick, "nextDryad", 0);
 			Scribe_Values.Look(ref spawnDryads, "spawnDryads", true);
 			Scribe_Collections.Look(ref dryads, "connectedDryads", LookMode.Reference);
+		}
+
+		public override string GetInspectInfo()
+		{
+			if (spawnDryads && dryads.Count < pawn.GetStatValue(Props.dryadsStatLimit))
+			{
+				return "WVC_XaG_Gene_GauranlenConnection_NextDryad_Info".Translate().Resolve() + ": " + nextTick.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
+			}
+			return null;
 		}
 
 	}

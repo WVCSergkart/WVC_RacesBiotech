@@ -177,7 +177,9 @@
 		<caseTrue Class="PatchOperationAdd">
 		  <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath>
 		  <value>
-			  <li Class="WVC_XenotypesAndGenes.CompProperties_GenesDisplayInfo"/>
+			  <li Class="WVC_XenotypesAndGenes.CompProperties_GenesDisplayInfo">
+				<compClass>WVC_XenotypesAndGenes.CompDisplayInfoFromGenes</compClass>
+			  </li>
 		  </value>
 		</caseTrue>
 	</Operation>

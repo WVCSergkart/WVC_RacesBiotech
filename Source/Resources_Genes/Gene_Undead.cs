@@ -9,7 +9,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Undead : Gene
+	public class Gene_Undead : Gene_InspectInfo
 	{
 
 		public GeneExtension_Undead Giver => def.GetModExtension<GeneExtension_Undead>();
@@ -55,6 +55,15 @@ namespace WVC_XenotypesAndGenes
 			+ "\n"
 			+  PreventResurrectionHediffs.Select((HediffDef x) => x.label).ToLineList("  - ", capitalizeItems: true)) : "WVC_XaG_Gene_DisplayStats_Undead_AlwaysResurrect_Desc".Translate()),
 			1100);
+		}
+
+		public override string GetInspectInfo()
+		{
+			if (UndeadCanResurrect)
+			{
+				return "WVC_XaG_Gene_Undead_On_Info".Translate().Resolve();
+			}
+			return null;
 		}
 
 	}

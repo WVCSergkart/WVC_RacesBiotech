@@ -6,7 +6,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Scarifier : Gene
+	public class Gene_Scarifier : Gene_InspectInfo
 	{
 
 		// For external requests
@@ -163,6 +163,15 @@ namespace WVC_XenotypesAndGenes
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{
 			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars".Translate().CapitalizeFirst(), MaxScars().ToString(), "WVC_XaG_Gene_DisplayStats_Scarifier_MaxScars_Desc".Translate(), 500);
+		}
+
+		public override string GetInspectInfo()
+		{
+			if (CanScarify)
+			{
+				return "WVC_XaG_Gene_Scarifier_On_Info".Translate().Resolve() + ": " + scarifyInterval.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
+			}
+			return null;
 		}
 
 	}

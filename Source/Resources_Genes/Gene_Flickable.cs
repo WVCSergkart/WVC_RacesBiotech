@@ -7,7 +7,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Flickable : Gene
+	public class Gene_Flickable : Gene_InspectInfo
 	{
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
@@ -124,6 +124,15 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			};
+		}
+
+		public override string GetInspectInfo()
+		{
+			if (OnOrOff)
+			{
+				return "WVC_XaG_Gene_Wings_On_Info".Translate().Resolve();
+			}
+			return null;
 		}
 
 	}
