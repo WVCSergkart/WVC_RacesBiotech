@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Body size -->
+
+	<GeneDef ParentName="WVC_XenotypesAndGenes_BodySize_Base">
+		<defName>WVC_BodySize_ChildlikeSmall</defName>
+		<label>childlike size</label>
+		<description>Carriers of this gene are significantly smaller than baseline humans.</description>
+		<displayOrderInCategory>220</displayOrderInCategory>
+		<iconPath>WVC/UI/Genes/BodySize_ChildlikeSmall_v0</iconPath>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>4</biostatMet>
+		<statFactors>
+		  <MaxNutrition>2.7777777777777777777777777777778</MaxNutrition>
+		  <VEF_BodySize_Multiplier MayRequire="oskarpotocki.vanillafactionsexpanded.core">0.6</VEF_BodySize_Multiplier>
+		</statFactors>
+		<symbolPack>
+		  <prefixSymbols>
+			<li><symbol>chibi</symbol></li>
+			<li><symbol>small</symbol></li>
+			<li><symbol>child</symbol></li>
+		  </prefixSymbols>
+		  <suffixSymbols>
+			<li><symbol>chibi</symbol></li>
+			<li><symbol>small</symbol></li>
+		  </suffixSymbols>
+		</symbolPack>
+	</GeneDef>
+
+  <!-- ======================================================= -->
+
+
+</Defs>

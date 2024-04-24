@@ -3,6 +3,7 @@
 
   <GeneDef Name="WVC_XenotypesAndGenes_GeneGauranlen_Base" Abstract="True">
 	<selectionWeight>0.0001</selectionWeight>
+	<minAgeActive>3</minAgeActive>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>-3</biostatMet>

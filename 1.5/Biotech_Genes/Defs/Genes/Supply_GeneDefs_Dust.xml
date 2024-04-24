@@ -192,6 +192,15 @@
 	<biostatMet>-1</biostatMet>
 	<biostatArc>0</biostatArc>
 	<resourceLossPerDay>0.18</resourceLossPerDay>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<specialFoodDefs>
+			  <li>WVC_NutrientsInjector</li>
+			  <li>WVC_MealDustPack</li>
+			  <li>WVC_MealDustogenicPaste</li>
+			</specialFoodDefs>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustDependent">
