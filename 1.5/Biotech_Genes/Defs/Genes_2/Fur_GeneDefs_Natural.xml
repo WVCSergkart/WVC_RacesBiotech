@@ -350,6 +350,8 @@
 		<li>&lt;color=#ff8585&gt;Female body only.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<exclusionTags>
+	  <li>BodyType</li>
+	  <li>WVC_BodyChanger</li>
 	  <li>BeardStyle</li>
 	</exclusionTags>
 	<symbolPack>
