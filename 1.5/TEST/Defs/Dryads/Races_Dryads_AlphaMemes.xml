@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Ocular -->
+	<ThingDef MayRequire="sarg.alphamemes" ParentName="WVC_XenotypesAndGenes_Dryads_Base">
+		<defName>WVC_XaG_AM_Dryad_Ocular</defName>
+		<descriptionHyperlinks>
+		  <ThingDef>GU_RedWood</ThingDef>
+		</descriptionHyperlinks>
+		<race>
+		  <linkedCorpseKind>AM_Dryad_Ocular</linkedCorpseKind>
+		</race>
+		<comps>
+			<li Class="CompProperties_Spawner">
+				<thingToSpawn>GU_RedWood</thingToSpawn>
+				<spawnCount>40</spawnCount>
+				<spawnIntervalRange>120000</spawnIntervalRange>
+				<writeTimeLeftToSpawn>true</writeTimeLeftToSpawn>
+				<showMessageIfOwned>false</showMessageIfOwned>
+			</li>
+		</comps>
+	</ThingDef>
+	<WVC_XenotypesAndGenes.DryadKindDef MayRequire="sarg.alphamemes" ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
+		<defName>WVC_XaG_AM_Dryad_Ocular</defName>
+		<label>ocular dryad</label>
+		<race>WVC_XaG_AM_Dryad_Ocular</race>
+		<sourceDryadDef>AM_Dryad_Ocular</sourceDryadDef>
+	</WVC_XenotypesAndGenes.DryadKindDef>
+
+	<!-- Spitter -->
+	<ThingDef MayRequire="sarg.alphamemes" ParentName="WVC_XenotypesAndGenes_Dryads_Base">
+		<defName>WVC_XaG_AM_Dryad_Spitter</defName>
+		<race>
+		  <linkedCorpseKind>AM_Dryad_Spitter</linkedCorpseKind>
+		</race>
+	</ThingDef>
+	<WVC_XenotypesAndGenes.DryadKindDef MayRequire="sarg.alphamemes" ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
+		<defName>WVC_XaG_AM_Dryad_Spitter</defName>
+		<label>spitter dryad</label>
+		<race>WVC_XaG_AM_Dryad_Spitter</race>
+		<sourceDryadDef>AM_Dryad_Spitter</sourceDryadDef>
+	</WVC_XenotypesAndGenes.DryadKindDef>
+
+	<!-- Corruptor -->
+	<!-- <ThingDef MayRequire="sarg.alphamemes" ParentName="WVC_XenotypesAndGenes_Dryads_Base"> -->
+		<!-- <defName>WVC_XaG_AM_Dryad_Corruptor</defName> -->
+		<!-- <label>corruptor dryad</label> -->
+		<!-- <race> -->
+		  <!-- <linkedCorpseKind>AM_Dryad_Corruptor</linkedCorpseKind> -->
+		<!-- </race> -->
+	<!-- </ThingDef> -->
+	<!-- <WVC_XenotypesAndGenes.DryadKindDef MayRequire="sarg.alphamemes" ParentName="WVC_XenotypesAndGenes_DryadsKind_Base"> -->
+		<!-- <defName>WVC_XaG_AM_Dryad_Corruptor</defName> -->
+		<!-- <label>corruptor dryad</label> -->
+		<!-- <race>WVC_XaG_AM_Dryad_Corruptor</race> -->
+		<!-- <sourceDryadDef>AM_Dryad_Corruptor</sourceDryadDef> -->
+	<!-- </WVC_XenotypesAndGenes.DryadKindDef> -->
+
+	<!-- Unstable -->
+	<ThingDef MayRequire="sarg.alphamemes" ParentName="WVC_XenotypesAndGenes_Dryads_Base">
+		<defName>WVC_XaG_AM_Dryad_Unstable</defName>
+		<descriptionHyperlinks>
+		  <ThingDef>Chemfuel</ThingDef>
+		</descriptionHyperlinks>
+		<thingClass>AlphaMemes.Pawn_Detonator</thingClass>
+		<race>
+			<deathAction>
+				<workerClass>AlphaMemes.DeathActionWorker_RedAcidExplosion</workerClass>
+			</deathAction>
+			<executionRange>6</executionRange>
+			<linkedCorpseKind>AM_Dryad_Unstable</linkedCorpseKind>
+		</race>
+		<comps>
+			<li Class="CompProperties_Spawner">
+				<thingToSpawn>Chemfuel</thingToSpawn>
+				<spawnCount>6</spawnCount>
+				<spawnIntervalRange>120000</spawnIntervalRange>
+				<writeTimeLeftToSpawn>true</writeTimeLeftToSpawn>
+				<showMessageIfOwned>false</showMessageIfOwned>
+			</li>
+		</comps>
+	</ThingDef>
+	<WVC_XenotypesAndGenes.DryadKindDef MayRequire="sarg.alphamemes" ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
+		<defName>WVC_XaG_AM_Dryad_Unstable</defName>
+		<label>unstable dryad</label>
+		<race>WVC_XaG_AM_Dryad_Unstable</race>
+		<sourceDryadDef>AM_Dryad_Unstable</sourceDryadDef>
+	</WVC_XenotypesAndGenes.DryadKindDef>
+
+	<!-- Tumorous -->
+	<ThingDef MayRequire="sarg.alphamemes" ParentName="WVC_XenotypesAndGenes_Dryads_Base">
+		<defName>WVC_XaG_AM_Dryad_Tumorous</defName>
+		<descriptionHyperlinks>
+		  <ThingDef>Meat_Dryad_Basic</ThingDef>
+		</descriptionHyperlinks>
+		<race>
+		  <linkedCorpseKind>AM_Dryad_Tumorous</linkedCorpseKind>
+		</race>
+		<comps>
+			<li Class="CompProperties_Spawner">
+				<thingToSpawn>Meat_Dryad_Basic</thingToSpawn>
+				<spawnCount>40</spawnCount>
+				<spawnIntervalRange>120000</spawnIntervalRange>
+				<writeTimeLeftToSpawn>true</writeTimeLeftToSpawn>
+				<showMessageIfOwned>false</showMessageIfOwned>
+			</li>
+		</comps>
+	</ThingDef>
+	<WVC_XenotypesAndGenes.DryadKindDef MayRequire="sarg.alphamemes" ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
+		<defName>WVC_XaG_AM_Dryad_Tumorous</defName>
+		<label>tumorous dryad</label>
+		<race>WVC_XaG_AM_Dryad_Tumorous</race>
+		<sourceDryadDef>AM_Dryad_Tumorous</sourceDryadDef>
+	</WVC_XenotypesAndGenes.DryadKindDef>
+
+</Defs>

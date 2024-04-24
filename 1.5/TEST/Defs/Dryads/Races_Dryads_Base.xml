@@ -7,7 +7,7 @@
 	<statBases>
 	</statBases>
 	<descriptionHyperlinks Inherit="False">
-	  <GeneDef>WVC_GauranlenConnection</GeneDef>
+	  <GeneDef>WVC_GauranlenDryad</GeneDef>
 	</descriptionHyperlinks>
 	<tradeTags>
 	  <li>AnimalDryad</li>

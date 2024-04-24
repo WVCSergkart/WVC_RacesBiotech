@@ -136,9 +136,9 @@ namespace WVC_XenotypesAndGenes
 				Widgets.Label(rect3.x, ref curY, rect3.width, text);
 				curY += 10f;
 			}
-			if (selectedMode.previousStage != null)
+			if (selectedMode.previousStage != null && selectedMode.previousStage != currentMode)
 			{
-				Widgets.Label(rect3.x, ref curY, rect3.width, string.Concat("RequiredStage".Translate(), ": ", selectedMode.previousStage.pawnKindDef.LabelCap.ToString().Colorize(Color.white)));
+				Widgets.Label(rect3.x, ref curY, rect3.width, string.Concat(("RequiredStage".Translate() + ": " + selectedMode.previousStage.pawnKindDef.LabelCap).ToString().Colorize(ColorLibrary.RedReadable)));
 				curY += 10f;
 			}
 			if (selectedMode.displayedStats != null)
@@ -160,7 +160,7 @@ namespace WVC_XenotypesAndGenes
 				curY += 10f;
 			}
 			Rect rect4 = new(rect3.x, rect3.yMax - 55f, rect3.width, 55f);
-			if (MeetsRequirements(selectedMode) && selectedMode != currentMode)
+			if (MeetsRequirements(selectedMode) && selectedMode != currentMode && (selectedMode.previousStage == null || currentMode == selectedMode.previousStage))
 			{
 				if (Widgets.ButtonText(rect4, "Accept".Translate()))
 				{
@@ -173,10 +173,10 @@ namespace WVC_XenotypesAndGenes
 			}
 			else
 			{
-				string label = ((selectedMode == currentMode) ? ((string)"AlreadySelected".Translate()) : ((!MeetsRequirements(selectedMode)) ? ((string)"MissingRequiredMemes".Translate()) : ((selectedMode.previousStage == null || currentMode == selectedMode.previousStage) ? ((string)"Locked".Translate()) : ((string)("Locked".Translate() + ": " + "MissingRequiredCaste".Translate())))));
+				// string label = ((selectedMode == currentMode) ? ((string)"AlreadySelected".Translate()) : ((!MeetsRequirements(selectedMode)) ? ((string)"MissingRequiredMemes".Translate()) : ((selectedMode.previousStage == null || currentMode == selectedMode.previousStage) ? ((string)"Locked".Translate()) : ((string)("Locked".Translate() + ": " + "MissingRequiredCaste".Translate())))));
 				Text.Anchor = TextAnchor.MiddleCenter;
 				Widgets.DrawHighlight(rect4);
-				Widgets.Label(rect4.ContractedBy(5f), label);
+				Widgets.Label(rect4.ContractedBy(5f), "Locked".Translate());
 				Text.Anchor = TextAnchor.UpperLeft;
 			}
 		}
@@ -222,6 +222,10 @@ namespace WVC_XenotypesAndGenes
 				return true;
 			}
 			if (mode == currentMode)
+			{
+				return false;
+			}
+			if (mode.previousStage != null && mode.previousStage != currentMode)
 			{
 				return false;
 			}

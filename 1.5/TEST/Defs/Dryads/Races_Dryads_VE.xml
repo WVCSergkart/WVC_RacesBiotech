@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Stonedigger -->
+	<ThingDef MayRequire="vanillaexpanded.ideo.dryads" ParentName="WVC_XenotypesAndGenes_Dryads_Base">
+		<defName>WVC_XaG_VDE_Dryad_Stonedigger</defName>
+		<race>
+		  <linkedCorpseKind>VDE_Dryad_Stonedigger</linkedCorpseKind>
+		</race>
+		<comps>
+			<li Class="AnimalBehaviours.CompProperties_DigPeriodically">
+				<ticksToDig>120000</ticksToDig>
+				<onlyWhenTamed>true</onlyWhenTamed>
+				<digBiomeRocks>true</digBiomeRocks>
+			</li>
+		</comps>
+	</ThingDef>
+	<WVC_XenotypesAndGenes.DryadKindDef MayRequire="vanillaexpanded.ideo.dryads" ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
+		<defName>WVC_XaG_VDE_Dryad_Stonedigger</defName>
+		<label>stonedigger dryad</label>
+		<race>WVC_XaG_VDE_Dryad_Stonedigger</race>
+		<sourceDryadDef>VDE_Dryad_Stonedigger</sourceDryadDef>
+	</WVC_XenotypesAndGenes.DryadKindDef>
+
+	<!-- Spitter -->
+	<ThingDef MayRequire="vanillaexpanded.ideo.dryads" ParentName="WVC_XenotypesAndGenes_Dryads_Base">
+		<defName>WVC_XaG_VDE_Dryad_Spitter</defName>
+		<race>
+		  <linkedCorpseKind>VDE_Dryad_Spitter</linkedCorpseKind>
+		</race>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<accuracyTouch>1</accuracyTouch>
+				<accuracyShort>.8</accuracyShort>
+				<accuracyMedium>.75</accuracyMedium>
+				<accuracyLong>.5</accuracyLong>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>VDE_AcidBolt</defaultProjectile>
+				<warmupTime>2.2</warmupTime>
+				<burstShotCount>1</burstShotCount>
+				<minRange>2</minRange>
+				<range>19.9</range>
+				<soundCast>VDE_AcidBolt</soundCast>
+				<muzzleFlashScale>0</muzzleFlashScale>
+				<label>acidic spit</label>
+				<commonality>.8</commonality>
+			</li>
+		</verbs>
+	</ThingDef>
+	<WVC_XenotypesAndGenes.DryadKindDef MayRequire="vanillaexpanded.ideo.dryads" ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
+		<defName>WVC_XaG_VDE_Dryad_Spitter</defName>
+		<label>spitter dryad</label>
+		<race>WVC_XaG_VDE_Dryad_Spitter</race>
+		<sourceDryadDef>VDE_Dryad_Spitter</sourceDryadDef>
+	</WVC_XenotypesAndGenes.DryadKindDef>
+
+	<!-- Gaubricmaker -->
+	<ThingDef MayRequire="vanillaexpanded.ideo.dryads" ParentName="WVC_XenotypesAndGenes_Dryads_Base">
+		<defName>WVC_XaG_VDE_Dryad_Gaubricmaker</defName>
+		<descriptionHyperlinks>
+		  <ThingDef>VDE_Gaubric</ThingDef>
+		</descriptionHyperlinks>
+		<race>
+		  <linkedCorpseKind>VDE_Dryad_Gaubricmaker</linkedCorpseKind>
+		</race>
+		<comps>
+			<!-- <li Class="AnimalBehaviours.CompProperties_AnimalProduct"> -->
+				<!-- <resourceDef>VDE_Gaubric</resourceDef> -->
+				<!-- <gatheringIntervalDays>10</gatheringIntervalDays> -->
+				<!-- <resourceAmount>45</resourceAmount> -->
+				<!-- <customResourceString>VDE_GaubricDesc</customResourceString> -->
+			<!-- </li> -->
+			<li Class="CompProperties_Spawner">
+				<thingToSpawn>VDE_Gaubric</thingToSpawn>
+				<spawnCount>9</spawnCount>
+				<spawnIntervalRange>120000</spawnIntervalRange>
+				<writeTimeLeftToSpawn>true</writeTimeLeftToSpawn>
+				<showMessageIfOwned>false</showMessageIfOwned>
+			</li>
+		</comps>
+	</ThingDef>
+	<WVC_XenotypesAndGenes.DryadKindDef MayRequire="vanillaexpanded.ideo.dryads" ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
+		<defName>WVC_XaG_VDE_Dryad_Gaubricmaker</defName>
+		<label>gaubricmaker dryad</label>
+		<race>WVC_XaG_VDE_Dryad_Gaubricmaker</race>
+		<sourceDryadDef>VDE_Dryad_Gaubricmaker</sourceDryadDef>
+	</WVC_XenotypesAndGenes.DryadKindDef>
+
+	<!-- Nectarmaker -->
+	<ThingDef MayRequire="vanillaexpanded.ideo.dryads" ParentName="WVC_XenotypesAndGenes_Dryads_Base">
+		<defName>WVC_XaG_VDE_Dryad_Nectarmaker</defName>
+		<descriptionHyperlinks>
+		  <ThingDef>Ambrosia</ThingDef>
+		</descriptionHyperlinks>
+		<race>
+		  <linkedCorpseKind>VDE_Dryad_Nectarmaker</linkedCorpseKind>
+		</race>
+		<comps>
+			<li Class="CompProperties_Spawner">
+				<thingToSpawn>Ambrosia</thingToSpawn>
+				<spawnCount>10</spawnCount>
+				<spawnIntervalRange>120000</spawnIntervalRange>
+				<writeTimeLeftToSpawn>true</writeTimeLeftToSpawn>
+				<showMessageIfOwned>false</showMessageIfOwned>
+			</li>
+		</comps>
+	</ThingDef>
+	<WVC_XenotypesAndGenes.DryadKindDef MayRequire="vanillaexpanded.ideo.dryads" ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
+		<defName>WVC_XaG_VDE_Dryad_Nectarmaker</defName>
+		<label>nectarmaker dryad</label>
+		<race>WVC_XaG_VDE_Dryad_Nectarmaker</race>
+		<sourceDryadDef>VDE_Dryad_Nectarmaker</sourceDryadDef>
+	</WVC_XenotypesAndGenes.DryadKindDef>
+
+</Defs>
