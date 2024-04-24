@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneCategoryDef>
+	<defName>WVC_Gauranlen</defName>
+	<label>gauranlen</label>
+	<displayPriorityInXenotype>509.2886992038</displayPriorityInXenotype>
+  </GeneCategoryDef>
+
+  <!-- https://steamcommunity.com/sharedfiles/filedetails/?id=2886992038 -->
+  <!-- ================================================================== -->
+
+</Defs>

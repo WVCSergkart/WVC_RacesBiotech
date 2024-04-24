@@ -17,6 +17,13 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public interface IGeneLifeStageStarted
+	{
+
+		void Notify_LifeStageStarted();
+
+	}
+
 	// public interface IGeneAddOrRemoveHediff
 	// {
 

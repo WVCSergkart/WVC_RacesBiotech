@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneGauranlen_Base" Abstract="True">
+	<selectionWeight>0.0001</selectionWeight>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-3</biostatMet>
+	<displayCategory>WVC_Gauranlen</displayCategory>
+	<displayOrderInCategory>10</displayOrderInCategory>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGauranlen_Base">
+	<defName>WVC_GauranlenConnection</defName>
+	<label>gauranlen connection</label>
+	<description>Carriers of this gene can passively strengthen their connection with gauranlen trees.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_GauranlenConnection</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_GauranlenConnection_v0</iconPath>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-3</biostatMet>
+	<iconColor>(255, 255, 255)</iconColor>
+	<statOffsets>
+	  <PruningSpeed>0.1</PruningSpeed>
+	  <WVC_DryadsLimit>2</WVC_DryadsLimit>
+	</statOffsets>
+	<aptitudes>
+	  <Plants>2</Plants>
+	</aptitudes>
+	<customEffectDescriptions>
+	  <!-- <li>TEXT &lt;color=#8a8ae6&gt;WORD&lt;/color&gt; TEXT &lt;color=#ff8585&gt;WARNING&lt;/color&gt;.</li> -->
+	  <li>Passively &lt;color=#8a8ae6&gt;replenishes&lt;/color&gt; the &lt;color=#8a8ae6&gt;connection&lt;/color&gt; level with all connected &lt;color=#8a8ae6&gt;gauranlen trees&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>gauranlen</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>

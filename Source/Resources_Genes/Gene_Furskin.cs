@@ -7,18 +7,18 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_LifeStageStarted : Gene
-	{
+	// public class Gene_LifeStageStarted : Gene
+	// {
 
-		public virtual void Notify_LifeStageStarted()
-		{
-		}
+		// public virtual void Notify_LifeStageStarted()
+		// {
+		// }
 
-	}
+	// }
 
 	// WIP
 
-	public class Gene_Exoskin : Gene_LifeStageStarted
+	public class Gene_Exoskin : Gene
 	{
 
 		public GeneExtension_Graphic Graphic => def?.GetModExtension<GeneExtension_Graphic>();
@@ -27,7 +27,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_GauntSkin : Gene_Exoskin
+	public class Gene_GauntSkin : Gene_Exoskin, IGeneLifeStageStarted
 	{
 
 		public override void PostAdd()
@@ -58,9 +58,8 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void Notify_LifeStageStarted()
+		public void Notify_LifeStageStarted()
 		{
-			base.Notify_LifeStageStarted();
 			ChangeBodyType();
 		}
 

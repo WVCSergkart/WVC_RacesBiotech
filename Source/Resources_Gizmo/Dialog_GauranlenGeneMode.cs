@@ -12,7 +12,7 @@ namespace WVC_XenotypesAndGenes
 
 		public CompGauranlenDryad comp;
 
-		public Gene_GauranlenConnection gene;
+		public Gene_GauranlenDryad gene;
 
 		public Pawn connectedPawn;
 
@@ -40,7 +40,7 @@ namespace WVC_XenotypesAndGenes
 
 		// Interface
 
-		public Dialog_ChangeDryadCaste(Gene_GauranlenConnection thisGene, CompGauranlenDryad thisComp)
+		public Dialog_ChangeDryadCaste(Gene_GauranlenDryad thisGene, CompGauranlenDryad thisComp)
 		{
 			// Init
 			gene = thisGene;
@@ -115,7 +115,7 @@ namespace WVC_XenotypesAndGenes
 			Rect rect3 = rect2.ContractedBy(4f);
 			if (selectedMode == null)
 			{
-				Widgets.Label(rect3, "ChooseProductionModeInitialDesc".Translate(connectedPawn.Named("PAWN"), connectedPawn.Named("TREE"), ThingDefOf.DryadCocoon.GetCompProperties<CompProperties_DryadCocoon>().daysToComplete.Named("UPGRADEDURATION")));
+				Widgets.Label(rect3, "WVC_XaG_ChooseDryadCasteModeInitialDesc".Translate(comp.parent as Pawn));
 				return;
 			}
 			Widgets.Label(rect3.x, ref curY, rect3.width, selectedMode.Description);
@@ -164,7 +164,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (Widgets.ButtonText(rect4, "Accept".Translate()))
 				{
-					Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("GauranlenModeChangeDescFull".Translate(connectedPawn.Named("TREE"), connectedPawn.Named("CONNECTEDPAWN"), ThingDefOf.DryadCocoon.GetCompProperties<CompProperties_DryadCocoon>().daysToComplete.Named("DURATION")), delegate
+					Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_ChangeDreadCasteDescFull".Translate(), delegate
 					{
 						StartChange();
 					});

@@ -268,7 +268,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				foreach (Gene gene in pawn.genes.GenesListForReading)
 				{
-					if (gene is Gene_LifeStageStarted gene_LifeStageStarted && gene_LifeStageStarted.Active)
+					if (gene is IGeneLifeStageStarted gene_LifeStageStarted && gene.Active)
 					{
 						gene_LifeStageStarted.Notify_LifeStageStarted();
 					}

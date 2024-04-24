@@ -18,7 +18,7 @@ namespace WVC_XenotypesAndGenes
 
 		public Pawn mechanitor;
 
-		public Gene_GauranlenConnection gene;
+		public Gene_GauranlenDryad gene;
 
 		public float totalBandwidth = 6;
 
@@ -31,7 +31,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool Visible => Find.Selector.SelectedPawns.Count == 1;
 
-		public GeneGizmo_Dryads(Gene_GauranlenConnection geneMechlink)
+		public GeneGizmo_Dryads(Gene_GauranlenDryad geneMechlink)
 			: base()
 		{
 			gene = geneMechlink;

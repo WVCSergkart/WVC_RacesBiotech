@@ -13,25 +13,25 @@
 	<!-- <toStringStyle>FloatOne</toStringStyle> -->
 	<parts>
 	  <!-- Temp -->
-	  <li Class="WVC_XenotypesAndGenes.StatPart_OffsetFromTreesOnMap">
-		<label>WVC_StatPart_GenesCombo_OffsetFromShrines</label>
+	  <li Class="WVC_XenotypesAndGenes.StatPart_OffsetFromConnectedThings">
+		<label>WVC_StatPart_GenesCombo_OffsetFromConnectedThings</label>
 		<buildings>
 		  <li MayRequire="Ludeon.RimWorld.Ideology">
 			<thingDef>Plant_TreeGauranlen</thingDef>
 			<bandwidth>2</bandwidth>
 		  </li>
-		  <li MayRequire="Ludeon.RimWorld.Biotech">
-			<thingDef>Plant_TreePolux</thingDef>
-			<bandwidth>2</bandwidth>
-		  </li>
-		  <li MayRequire="Ludeon.RimWorld.Royalty">
-			<thingDef>Plant_TreeAnima</thingDef>
-			<bandwidth>3</bandwidth>
-		  </li>
-		  <li MayRequire="Ludeon.RimWorld.Anomaly">
-			<thingDef>Plant_TreeHarbinger</thingDef>
-			<bandwidth>1</bandwidth>
-		  </li>
+		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech"> -->
+			<!-- <thingDef>Plant_TreePolux</thingDef> -->
+			<!-- <bandwidth>2</bandwidth> -->
+		  <!-- </li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Royalty"> -->
+			<!-- <thingDef>Plant_TreeAnima</thingDef> -->
+			<!-- <bandwidth>3</bandwidth> -->
+		  <!-- </li> -->
+		  <!-- <li MayRequire="Ludeon.RimWorld.Anomaly"> -->
+			<!-- <thingDef>Plant_TreeHarbinger</thingDef> -->
+			<!-- <bandwidth>1</bandwidth> -->
+		  <!-- </li> -->
 		</buildings>
 	  </li>
 	</parts>

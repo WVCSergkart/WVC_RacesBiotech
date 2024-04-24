@@ -17,6 +17,9 @@ namespace WVC_XenotypesAndGenes
 		// Tratis
 		public TraitDef traitDef;
 		public float weight = 1f;
+		// StatPart
+		public ThingDef thingDef;
+		public float bandwidth = 1f;
 	}
 
 	// Exten

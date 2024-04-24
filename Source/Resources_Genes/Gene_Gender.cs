@@ -6,7 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Gender : Gene_LifeStageStarted
+	public class Gene_Gender : Gene
 	{
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
@@ -49,7 +49,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Feminine : Gene_LifeStageStarted
+	public class Gene_Feminine : Gene, IGeneLifeStageStarted
 	{
 
 		public override void PostAdd()
@@ -93,9 +93,8 @@ namespace WVC_XenotypesAndGenes
 			// ChangeBodyType();
 		// }
 
-		public override void Notify_LifeStageStarted()
+		public void Notify_LifeStageStarted()
 		{
-			base.Notify_LifeStageStarted();
 			ChangeBodyType();
 		}
 

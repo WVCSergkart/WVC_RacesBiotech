@@ -6,15 +6,17 @@
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
+	<displayCategory>WVC_Gauranlen</displayCategory>
+	<displayOrderInCategory>-5</displayOrderInCategory>
   </GeneDef>
 
   <!-- ============================= -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGauranlen_Gestator">
-	<defName>WVC_GauranlenConnection</defName>
+	<defName>WVC_GauranlenDryad</defName>
 	<label>dryad</label>
 	<description>Carriers of this gene have gauranlen brood-mother abilities. They can produce new dryads and control them through psychic influence.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_GauranlenConnection</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_GauranlenDryad</geneClass>
 	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Dryads</resourceGizmoType>
 	<!-- <iconPath>WVC/UI/Genes/Gene_GestatorGauranlen_v0</iconPath> -->
 	<iconPath>WVC/UI/Genes/Gene_Dryad_v0</iconPath>
