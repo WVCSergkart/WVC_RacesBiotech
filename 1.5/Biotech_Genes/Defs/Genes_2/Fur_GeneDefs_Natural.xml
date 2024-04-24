@@ -342,7 +342,7 @@
 	<statOffsets>
 	  <PawnBeauty>1</PawnBeauty>
 	  <ArmorRating_Blunt>0.10</ArmorRating_Blunt>
-	  <ArmorRating_Sharp>0.20</ArmorRating_Sharp>
+	  <ArmorRating_Sharp>0.10</ArmorRating_Sharp>
 	</statOffsets>
 	<fur>WVC_DryadSkin</fur>
 	<missingGeneRomanceChanceFactor>0.90</missingGeneRomanceChanceFactor>
@@ -350,8 +350,8 @@
 		<li>&lt;color=#ff8585&gt;Female body only.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<exclusionTags>
-	  <li>BodyType</li>
-	  <li>WVC_BodyChanger</li>
+	  <!-- <li>BodyType</li> -->
+	  <!-- <li>WVC_BodyChanger</li> -->
 	  <li>BeardStyle</li>
 	</exclusionTags>
 	<symbolPack>
