@@ -68,6 +68,7 @@ namespace WVC_XenotypesAndGenes
 		public PawnKindDef defaultDryadPawnKindDef;
 		public StatDef dryadsStatLimit;
 		public HediffDef postGestationSickness;
+		public ThoughtDef dryadDiedMemoryDef;
 	}
 
 	public class GeneExtension_Undead : DefModExtension

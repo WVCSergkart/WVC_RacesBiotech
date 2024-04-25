@@ -15,7 +15,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGauranlen_Gestator">
 	<defName>WVC_DryadQueen</defName>
 	<label>dryad queen</label>
-	<description>Carriers of this gene have gauranlen dryad queen abilities. They can gestate new dryads and control them through psychic influence.</description>
+	<description>Carriers of this gene have archites which transform them into a symbiotic organism similar to the dryad queen. The body of gene carriers undergoes a number of changes so that they can gestate dryads and maintain a brood. They lose the ability to reproduce, and they develop a special organ that accumulates nutrients for the brood. With the help of a psychic connection that is formed with each gestated dryad, they can partially control them.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_DryadQueen</geneClass>
 	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Dryads</resourceGizmoType>
 	<!-- <iconPath>WVC/UI/Genes/Gene_GestatorGauranlen_v0</iconPath> -->
@@ -39,9 +39,9 @@
 	  <!-- <li>TEXT &lt;color=#8a8ae6&gt;WORD&lt;/color&gt; TEXT &lt;color=#ff8585&gt;WARNING&lt;/color&gt;.</li> -->
 	  <li>Carrier &lt;color=#8a8ae6&gt;spawns dryads&lt;/color&gt; every (*DateTime)8-10 days(/DateTime).</li>
 	  <li>Each &lt;color=#8a8ae6&gt;dryad's caste&lt;/color&gt; is chosen &lt;color=#ff8585&gt;manually, separately&lt;/color&gt;.</li>
-	  <!-- <li>&lt;color=#8a8ae6&gt;Dryads&lt;/color&gt; do not need food, but each dryad &lt;color=#ff8585&gt;increases hunger rate&lt;/color&gt; of the carrier.</li> -->
+	  <li>&lt;color=#8a8ae6&gt;Dryads do not require food&lt;/color&gt;, and each dryad &lt;color=#8a8ae6&gt;increases max nutrition&lt;/color&gt; by 0.4</li>
 	  <li>&lt;color=#8a8ae6&gt;Dryads can travel in a caravan.&lt;/color&gt;</li>
-	  <!-- <li>Carrier can &lt;color=#8a8ae6&gt;reproduce&lt;/color&gt; with the help of &lt;color=#8a8ae6&gt;gaumaker&lt;/color&gt; dryads.</li> -->
+	  <li>&lt;color=#ff8585&gt;Dryads always follow their queen.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>
@@ -55,6 +55,10 @@
 			<dryadsStatLimit>WVC_DryadsLimit</dryadsStatLimit>
 			<connectedDryadsLimit>6</connectedDryadsLimit>
 			<spawnIntervalRange>480000~600000</spawnIntervalRange>
+			<dryadDiedMemoryDef>DryadDied</dryadDiedMemoryDef>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_DryadQueen_MaxNutrition</hediffDefName>
 		</li>
 	</modExtensions>
   </GeneDef>

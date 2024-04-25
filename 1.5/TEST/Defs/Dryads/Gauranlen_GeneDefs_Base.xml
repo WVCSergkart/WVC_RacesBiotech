@@ -47,7 +47,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGauranlen_Base" Name="WVC_XenotypesAndGenes_GeneGauranlen_DryadGestatorDependant" Abstract="True">
 	<minAgeActive>13</minAgeActive>
 	<displayOrderInCategory>30</displayOrderInCategory>
-	<prerequisite>WVC_GauranlenDryad</prerequisite>
+	<prerequisite>WVC_DryadQueen</prerequisite>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>0</biostatMet>

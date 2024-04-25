@@ -10,10 +10,10 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_DryadQueen : Gene, IGeneInspectInfo
+	public class Gene_DryadQueen : Gene_AddOrRemoveHediff, IGeneInspectInfo
 	{
 
-		public GeneExtension_Spawner Props => def?.GetModExtension<GeneExtension_Spawner>();
+		public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
 
 		private List<Pawn> dryads = new();
 
@@ -59,20 +59,20 @@ namespace WVC_XenotypesAndGenes
 			{
 				spawnDryads = false;
 			}
-			if (Props?.defaultDryadPawnKindDef == null || dryads.Count >= pawn.GetStatValue(Props.dryadsStatLimit) || pawn.Map == null || !spawnDryads)
+			if (Spawner?.defaultDryadPawnKindDef == null || dryads.Count >= pawn.GetStatValue(Spawner.dryadsStatLimit) || pawn.Map == null || !spawnDryads)
 			{
 				return;
 			}
-			Pawn dryad = GenerateNewDryad(Props.defaultDryadPawnKindDef);
-			// CompGauranlenDryad newPawnComp = dryad.TryGetComp<CompGauranlenDryad>();
-			// newPawnComp.SetMaster(pawn);
+			Pawn dryad = GenerateNewDryad(Spawner.defaultDryadPawnKindDef);
+			CompGauranlenDryad newPawnComp = dryad.TryGetComp<CompGauranlenDryad>();
+			newPawnComp.SetMaster(pawn);
 			GenSpawn.Spawn(dryad, pawn.Position, pawn.Map).Rotation = Rot4.South;
 			EffecterDefOf.DryadSpawn.Spawn(pawn.Position, pawn.Map).Cleanup();
 			SoundDefOf.Pawn_Dryad_Spawn.PlayOneShot(SoundInfo.InMap(dryad));
 			// Post Spawn Sickness
-			if (Props.postGestationSickness != null)
+			if (Spawner.postGestationSickness != null)
 			{
-				Hediff hediff = HediffMaker.MakeHediff(Props.postGestationSickness, pawn);
+				Hediff hediff = HediffMaker.MakeHediff(Spawner.postGestationSickness, pawn);
 				pawn.health.AddHediff(hediff);
 			}
 		}
@@ -115,9 +115,22 @@ namespace WVC_XenotypesAndGenes
 			dryads.Remove(oldDryad);
 		}
 
+		public void Notify_DryadKilled(Pawn oldDryad, bool gainMemory = false)
+		{
+			if (pawn.Dead)
+			{
+				return;
+			}
+			if (gainMemory && Spawner.dryadDiedMemoryDef != null)
+			{
+				pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Spawner.dryadDiedMemoryDef);
+			}
+			RemoveDryad(oldDryad);
+		}
+
 		private void ResetInterval()
 		{
-			nextTick = Props.spawnIntervalRange.RandomInRange;
+			nextTick = Spawner.spawnIntervalRange.RandomInRange;
 		}
 
 		private Gizmo gizmo;
@@ -144,16 +157,6 @@ namespace WVC_XenotypesAndGenes
 					}
 				};
 			}
-			// yield return new Command_Action
-			// {
-				// defaultLabel = def.LabelCap,
-				// defaultDesc = "ChangeModeDesc".Translate(),
-				// icon = currentMode?.pawnKindDef != null ? Widgets.GetIconFor(currentMode.pawnKindDef.race) : ContentFinder<Texture2D>.Get(def.iconPath),
-				// action = delegate
-				// {
-					// Find.WindowStack.Add(new Dialog_ChangeDryadCaste(this));
-				// }
-			// };
 			if (pawn?.Map == null)
 			{
 				yield break;
@@ -209,7 +212,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{
-			StatDef stat = Props.dryadsStatLimit;
+			StatDef stat = Spawner.dryadsStatLimit;
 			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, stat.LabelCap, pawn.GetStatValue(stat).ToString(), stat.description, 200);
 		}
 
@@ -225,7 +228,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				if (spawnDryads && dryads.Count < pawn.GetStatValue(Props.dryadsStatLimit))
+				if (spawnDryads && dryads.Count < pawn.GetStatValue(Spawner.dryadsStatLimit))
 				{
 					return "WVC_XaG_Gene_GauranlenConnection_NextDryad_Info".Translate().Resolve() + ": " + nextTick.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
 				}

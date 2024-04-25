@@ -26,8 +26,8 @@ namespace WVC_XenotypesAndGenes
 
 		public List<Pawn> allDryads = new();
 
-		private int nextRecache = -1;
-		public int recacheFrequency = 734;
+		// private int nextRecache = -1;
+		// public int recacheFrequency = 734;
 
 		public override bool Visible => Find.Selector.SelectedPawns.Count == 1;
 
@@ -46,13 +46,16 @@ namespace WVC_XenotypesAndGenes
 			Rect rect = new(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
 			Rect rect2 = rect.ContractedBy(6f);
 			Widgets.DrawWindowBackground(rect);
-			if (Find.TickManager.TicksGame > nextRecache)
+			if (mechanitor.IsHashIntervalTick(20))
 			{
 				allDryads = gene.AllDryads;
-				totalBandwidth = mechanitor.GetStatValue(gene.Props.dryadsStatLimit);
+				totalBandwidth = mechanitor.GetStatValue(gene.Spawner.dryadsStatLimit);
 				usedBandwidth = allDryads.Count;
-				nextRecache = Find.TickManager.TicksGame + recacheFrequency;
 			}
+			// if (Find.TickManager.TicksGame > nextRecache)
+			// {
+				// nextRecache = Find.TickManager.TicksGame + recacheFrequency;
+			// }
 			string text = usedBandwidth.ToString("F0") + " / " + totalBandwidth.ToString("F0");
 			TaggedString taggedString = "WVC_XaG_BroodmindLimit".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + text + "\n\n" + "WVC_XaG_BroodmindLimitGizmoTip".Translate();
 			if (usedBandwidth > 0)

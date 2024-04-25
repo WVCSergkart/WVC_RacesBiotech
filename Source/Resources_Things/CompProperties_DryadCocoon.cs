@@ -32,20 +32,32 @@ namespace WVC_XenotypesAndGenes
 
 		public PawnKindDef DryadKind => currentMode?.pawnKindDef ?? Props?.defaultDryadPawnKindDef;
 
-		// private Pawn dryadMaster;
+		private Pawn dryadMaster;
 
-		[Unsaved(false)]
-		private Pawn cachedConnectedPawn;
+		// [Unsaved(false)]
+		// private Pawn cachedConnectedPawn;
+
+		// public Pawn Master
+		// {
+			// get
+			// {
+				// if (parent is Pawn pawn && (cachedConnectedPawn == null || pawn.Faction != cachedConnectedPawn.Faction))
+				// {
+					// cachedConnectedPawn = pawn?.connections?.ConnectedThings.FirstOrDefault() is Pawn master ? master : null;
+				// }
+				// return cachedConnectedPawn;
+			// }
+		// }
 
 		public Pawn Master
 		{
 			get
 			{
-				if (parent is Pawn pawn && (cachedConnectedPawn == null || pawn.Faction != cachedConnectedPawn.Faction))
+				if (dryadMaster == null && parent is Pawn dryad)
 				{
-					cachedConnectedPawn = pawn?.connections?.ConnectedThings.FirstOrDefault() is Pawn master ? master : null;
+					dryadMaster = dryad?.connections?.ConnectedThings.FirstOrDefault() is Pawn master ? master : null;
 				}
-				return cachedConnectedPawn;
+				return dryadMaster;
 			}
 		}
 
@@ -78,6 +90,22 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		// public override void PostDestroy(DestroyMode mode, Map previousMap)
+		// {
+			// RemoveThisDryad();
+		// }
+
+		public override void Notify_Killed(Map prevMap, DamageInfo? dinfo = null)
+		{
+			RemoveThisDryad(true);
+		}
+
+		public void RemoveThisDryad(bool gainMemory = false)
+		{
+			Pawn pawn = parent as Pawn;
+			Gene_GauranlenConnection.Notify_DryadKilled(pawn, gainMemory);
+		}
+
 		public override IEnumerable<Gizmo> CompGetGizmosExtra()
 		{
 			Pawn pawn = parent as Pawn;
@@ -97,16 +125,16 @@ namespace WVC_XenotypesAndGenes
 			};
 		}
 
-		// public void SetMaster(Pawn master)
-		// {
-			// dryadMaster = master;
-		// }
+		public void SetMaster(Pawn master)
+		{
+			dryadMaster = master;
+		}
 
 		public override void PostExposeData()
 		{
 			base.PostExposeData();
 			Scribe_Defs.Look(ref currentMode, "currentMode_" + Props.uniqueTag);
-			// Scribe_References.Look(ref dryadMaster, "dryadMaster_" + Props.uniqueTag);
+			Scribe_References.Look(ref dryadMaster, "dryadMaster_" + Props.uniqueTag);
 		}
 
 	}
