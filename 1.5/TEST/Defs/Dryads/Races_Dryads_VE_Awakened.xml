@@ -89,7 +89,7 @@
 			</li>
 		</tools>
 	</ThingDef>
-	<PawnKindDef MayRequire="vanillaexpanded.ideo.dryads"  ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
+	<WVC_XenotypesAndGenes.DryadKindDef MayRequire="vanillaexpanded.ideo.dryads"  ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
 		<defName>WVC_XaG_VDE_AwakenedDryad_Carrier</defName>
 		<label>awakened carrier dryad</label>
 		<race>WVC_XaG_VDE_AwakenedDryad_Carrier</race>
@@ -109,7 +109,7 @@
 				</dessicatedBodyGraphicData>
 			</li>
 		</lifeStages>
-	</PawnKindDef>
+	</WVC_XenotypesAndGenes.DryadKindDef>
 	<!-- Clawer -->
 	<ThingDef MayRequire="vanillaexpanded.ideo.dryads"  ParentName="WVC_XenotypesAndGenes_Dryads_Base">
 		<defName>WVC_XaG_VDE_AwakenedDryad_Clawer</defName>
@@ -204,7 +204,7 @@
 			</li>
 		</tools>
 	</ThingDef>
-	<PawnKindDef MayRequire="vanillaexpanded.ideo.dryads"  ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
+	<WVC_XenotypesAndGenes.DryadKindDef MayRequire="vanillaexpanded.ideo.dryads"  ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
 		<defName>WVC_XaG_VDE_AwakenedDryad_Clawer</defName>
 		<label>awakened clawer dryad</label>
 		<race>WVC_XaG_VDE_AwakenedDryad_Clawer</race>
@@ -224,7 +224,7 @@
 				</dessicatedBodyGraphicData>
 			</li>
 		</lifeStages>
-	</PawnKindDef>
+	</WVC_XenotypesAndGenes.DryadKindDef>
 	<!-- Barkskin -->
 	<ThingDef MayRequire="vanillaexpanded.ideo.dryads"  ParentName="WVC_XenotypesAndGenes_Dryads_Base">
 		<defName>WVC_XaG_VDE_AwakenedDryad_Barkskin</defName>
@@ -322,7 +322,7 @@
 			</li>
 		</tools>
 	</ThingDef>
-	<PawnKindDef MayRequire="vanillaexpanded.ideo.dryads"  ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
+	<WVC_XenotypesAndGenes.DryadKindDef MayRequire="vanillaexpanded.ideo.dryads"  ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
 		<defName>WVC_XaG_VDE_AwakenedDryad_Barkskin</defName>
 		<label>awakened barkskin dryad</label>
 		<race>WVC_XaG_VDE_AwakenedDryad_Barkskin</race>
@@ -342,7 +342,7 @@
 				</dessicatedBodyGraphicData>
 			</li>
 		</lifeStages>
-	</PawnKindDef>
+	</WVC_XenotypesAndGenes.DryadKindDef>
 	<!-- Woodmaker -->
 	<ThingDef MayRequire="vanillaexpanded.ideo.dryads"  ParentName="WVC_XenotypesAndGenes_Dryads_Base">
 		<defName>WVC_XaG_VDE_AwakenedDryad_Woodmaker</defName>
@@ -440,7 +440,7 @@
 			</li>
 		</tools>
 	</ThingDef>
-	<PawnKindDef MayRequire="vanillaexpanded.ideo.dryads"  ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
+	<WVC_XenotypesAndGenes.DryadKindDef MayRequire="vanillaexpanded.ideo.dryads"  ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
 		<defName>WVC_XaG_VDE_AwakenedDryad_Woodmaker</defName>
 		<label>awakened woodmaker dryad</label>
 		<race>WVC_XaG_VDE_AwakenedDryad_Woodmaker</race>
@@ -460,7 +460,7 @@
 				</dessicatedBodyGraphicData>
 			</li>
 		</lifeStages>
-	</PawnKindDef>
+	</WVC_XenotypesAndGenes.DryadKindDef>
 	<!-- Medicinemaker -->
 	<ThingDef MayRequire="vanillaexpanded.ideo.dryads"  ParentName="WVC_XenotypesAndGenes_Dryads_Base">
 		<defName>WVC_XaG_VDE_AwakenedDryad_Medicinemaker</defName>
@@ -571,7 +571,7 @@
 			</li>
 		</tools>
 	</ThingDef>
-	<PawnKindDef MayRequire="vanillaexpanded.ideo.dryads"  ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
+	<WVC_XenotypesAndGenes.DryadKindDef MayRequire="vanillaexpanded.ideo.dryads"  ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
 		<defName>WVC_XaG_VDE_AwakenedDryad_Medicinemaker</defName>
 		<label>awakened medicinemaker dryad</label>
 		<race>WVC_XaG_VDE_AwakenedDryad_Medicinemaker</race>
@@ -591,7 +591,7 @@
 				</dessicatedBodyGraphicData>
 			</li>
 		</lifeStages>
-	</PawnKindDef>
+	</WVC_XenotypesAndGenes.DryadKindDef>
 	<!-- Berrymaker -->
 	<ThingDef MayRequire="vanillaexpanded.ideo.dryads"  ParentName="WVC_XenotypesAndGenes_Dryads_Base">
 		<defName>WVC_XaG_VDE_AwakenedDryad_Berrymaker</defName>
@@ -689,7 +689,7 @@
 			</li>
 		</tools>
 	</ThingDef>
-	<PawnKindDef MayRequire="vanillaexpanded.ideo.dryads"  ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
+	<WVC_XenotypesAndGenes.DryadKindDef MayRequire="vanillaexpanded.ideo.dryads"  ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
 		<defName>WVC_XaG_VDE_AwakenedDryad_Berrymaker</defName>
 		<label>awakened berrymaker dryad</label>
 		<race>WVC_XaG_VDE_AwakenedDryad_Berrymaker</race>
@@ -709,7 +709,7 @@
 				</dessicatedBodyGraphicData>
 			</li>
 		</lifeStages>
-	</PawnKindDef>
+	</WVC_XenotypesAndGenes.DryadKindDef>
 	<!-- Stonedigger -->
 	<ThingDef MayRequire="vanillaexpanded.ideo.dryads"  ParentName="WVC_XenotypesAndGenes_Dryads_Base">
 		<defName>WVC_XaG_VDE_AwakenedDryad_Stonedigger</defName>
@@ -808,7 +808,7 @@
 			</li>
 		</tools>
 	</ThingDef>
-	<PawnKindDef MayRequire="vanillaexpanded.ideo.dryads"  ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
+	<WVC_XenotypesAndGenes.DryadKindDef MayRequire="vanillaexpanded.ideo.dryads"  ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
 		<defName>WVC_XaG_VDE_AwakenedDryad_Stonedigger</defName>
 		<label>awakened stonedigger dryad</label>
 		<race>WVC_XaG_VDE_AwakenedDryad_Stonedigger</race>
@@ -828,7 +828,7 @@
 				</dessicatedBodyGraphicData>
 			</li>
 		</lifeStages>
-	</PawnKindDef>
+	</WVC_XenotypesAndGenes.DryadKindDef>
 	<!-- Nectarmaker -->
 	<ThingDef MayRequire="vanillaexpanded.ideo.dryads"  ParentName="WVC_XenotypesAndGenes_Dryads_Base">
 		<defName>WVC_XaG_VDE_AwakenedDryad_Nectarmaker</defName>
@@ -926,7 +926,7 @@
 			</li>
 		</tools>
 	</ThingDef>
-	<PawnKindDef MayRequire="vanillaexpanded.ideo.dryads"  ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
+	<WVC_XenotypesAndGenes.DryadKindDef MayRequire="vanillaexpanded.ideo.dryads"  ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
 		<defName>WVC_XaG_VDE_AwakenedDryad_Nectarmaker</defName>
 		<label>awakened nectarmaker dryad</label>
 		<race>WVC_XaG_VDE_AwakenedDryad_Nectarmaker</race>
@@ -946,7 +946,7 @@
 				</dessicatedBodyGraphicData>
 			</li>
 		</lifeStages>
-	</PawnKindDef>
+	</WVC_XenotypesAndGenes.DryadKindDef>
 	<!-- Spitter -->
 	<ThingDef MayRequire="vanillaexpanded.ideo.dryads"  ParentName="WVC_XenotypesAndGenes_Dryads_Base">
 		<defName>WVC_XaG_VDE_AwakenedDryad_Spitter</defName>
@@ -1059,7 +1059,7 @@
 			</li>
 		</tools>
 	</ThingDef>
-	<PawnKindDef MayRequire="vanillaexpanded.ideo.dryads"  ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
+	<WVC_XenotypesAndGenes.DryadKindDef MayRequire="vanillaexpanded.ideo.dryads"  ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
 		<defName>WVC_XaG_VDE_AwakenedDryad_Spitter</defName>
 		<label>awakened spitter dryad</label>
 		<race>WVC_XaG_VDE_AwakenedDryad_Spitter</race>
@@ -1079,7 +1079,7 @@
 				</dessicatedBodyGraphicData>
 			</li>
 		</lifeStages>
-	</PawnKindDef>
+	</WVC_XenotypesAndGenes.DryadKindDef>
 	<!-- Gaubricmaker -->
 	<ThingDef MayRequire="vanillaexpanded.ideo.dryads"  ParentName="WVC_XenotypesAndGenes_Dryads_Base">
 		<defName>WVC_XaG_VDE_AwakenedDryad_Gaubricmaker</defName>
@@ -1179,7 +1179,7 @@
 			</li>
 		</tools>
 	</ThingDef>
-	<PawnKindDef MayRequire="vanillaexpanded.ideo.dryads"  ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
+	<WVC_XenotypesAndGenes.DryadKindDef MayRequire="vanillaexpanded.ideo.dryads"  ParentName="WVC_XenotypesAndGenes_DryadsKind_Base">
 		<defName>WVC_XaG_VDE_AwakenedDryad_Gaubricmaker</defName>
 		<label>awakened gaubricmaker dryad</label>
 		<race>WVC_XaG_VDE_AwakenedDryad_Gaubricmaker</race>
@@ -1199,5 +1199,5 @@
 				</dessicatedBodyGraphicData>
 			</li>
 		</lifeStages>
-	</PawnKindDef>
+	</WVC_XenotypesAndGenes.DryadKindDef>
 </Defs>

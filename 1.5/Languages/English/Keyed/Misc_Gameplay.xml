@@ -37,6 +37,10 @@
 
 	<WVC_XaG_AcceptableRotStages>Acceptable rot stages</WVC_XaG_AcceptableRotStages>
 
+	<WVC_XaG_GestatedDryad>gestated</WVC_XaG_GestatedDryad>
+
+	<WVC_XaG_GestatedDryadDescription>Being separated from the Gauranlen tree and gestated by the owner of a special gene, dryads are somewhat different from their more natural relatives. They exist in a symbiotic relationship directly with the connected person, and their queen is the same person.</WVC_XaG_GestatedDryadDescription>
+
 	<!-- ============================ SERUM RETUNE AND OTHER ============================ -->
 	
 	<WVC_XaG_SuremRetuneJob_Label>Retune</WVC_XaG_SuremRetuneJob_Label>

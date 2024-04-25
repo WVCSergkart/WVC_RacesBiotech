@@ -9,7 +9,7 @@ namespace WVC_XenotypesAndGenes
 	{
 		// private const int ClotCheckInterval = 750;
 
-		private static readonly FloatRange TendingQualityRange = new(0.5f, 1.0f);
+		// private static readonly FloatRange TendingQualityRange = new(0.5f, 1.0f);
 
 		public override void Tick()
 		{
@@ -21,6 +21,12 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
+			WoundsClotting(pawn, new(0.5f, 1.0f));
+			base.Tick();
+		}
+
+		public static void WoundsClotting(Pawn pawn, FloatRange tendingQualityRange)
+		{
 			List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
 			for (int num = 0; num < hediffs.Count; num++)
 			{
@@ -28,10 +34,10 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				hediffs[num].Tended(TendingQualityRange.RandomInRange, TendingQualityRange.TrueMax, 1);
+				hediffs[num].Tended(tendingQualityRange.RandomInRange, tendingQualityRange.TrueMax, 1);
 			}
-			base.Tick();
 		}
+
 	}
 
 	public class Gene_DustClotting : Gene
@@ -155,6 +161,25 @@ namespace WVC_XenotypesAndGenes
 			}
 			return false;
 		}
+	}
+
+	public class Gene_GauranlenDryads_Clotting : Gene_DryadQueen_Dependant
+	{
+
+		public override void Tick()
+		{
+			base.Tick();
+			if (!pawn.IsHashIntervalTick(2789))
+			{
+				return;
+			}
+			List<Pawn> connectedThings = Gauranlen?.AllDryads;
+			foreach (Pawn dryad in connectedThings)
+			{
+				Gene_MechaClotting.WoundsClotting(dryad, new(0.4f, 0.8f));
+			}
+		}
+
 	}
 
 }

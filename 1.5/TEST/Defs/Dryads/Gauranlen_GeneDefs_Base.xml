@@ -3,12 +3,19 @@
 
   <GeneDef Name="WVC_XenotypesAndGenes_GeneGauranlen_Base" Abstract="True">
 	<selectionWeight>0.0001</selectionWeight>
-	<minAgeActive>3</minAgeActive>
+	<minAgeActive>13</minAgeActive>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>-3</biostatMet>
 	<displayCategory>WVC_Gauranlen</displayCategory>
 	<displayOrderInCategory>10</displayOrderInCategory>
+	<statOffsets>
+	  <PruningSpeed>0.1</PruningSpeed>
+	  <WVC_DryadsLimit>1</WVC_DryadsLimit>
+	</statOffsets>
+	<aptitudes>
+	  <Plants>2</Plants>
+	</aptitudes>
   </GeneDef>
 
   <!-- ============================= -->
@@ -23,13 +30,7 @@
 	<biostatArc>0</biostatArc>
 	<biostatMet>-3</biostatMet>
 	<iconColor>(255, 255, 255)</iconColor>
-	<statOffsets>
-	  <PruningSpeed>0.1</PruningSpeed>
-	  <WVC_DryadsLimit>2</WVC_DryadsLimit>
-	</statOffsets>
-	<aptitudes>
-	  <Plants>2</Plants>
-	</aptitudes>
+	<displayOrderInCategory>10</displayOrderInCategory>
 	<customEffectDescriptions>
 	  <!-- <li>TEXT &lt;color=#8a8ae6&gt;WORD&lt;/color&gt; TEXT &lt;color=#ff8585&gt;WARNING&lt;/color&gt;.</li> -->
 	  <li>Passively &lt;color=#8a8ae6&gt;replenishes&lt;/color&gt; the &lt;color=#8a8ae6&gt;connection&lt;/color&gt; level with all connected &lt;color=#8a8ae6&gt;gauranlen trees&lt;/color&gt;.</li>
@@ -39,6 +40,58 @@
 		<li><symbol>gauranlen</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGauranlen_Base" Name="WVC_XenotypesAndGenes_GeneGauranlen_DryadGestatorDependant" Abstract="True">
+	<minAgeActive>13</minAgeActive>
+	<displayOrderInCategory>30</displayOrderInCategory>
+	<prerequisite>WVC_GauranlenDryad</prerequisite>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGauranlen_DryadGestatorDependant">
+	<defName>WVC_GauranlenDryads_Clotting</defName>
+	<label>dryads clotting</label>
+	<description>Carriers of this gene, with the help of psychic influences, accelerate blood clotting and healing of the wounds of their dryads.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_GauranlenDryads_Clotting</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_DryadsClotting_v0</iconPath>
+	<iconColor>(206, 154, 90)</iconColor>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>-1</biostatMet>
+	<displayOrderInCategory>35</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Dryad wounds&lt;/color&gt; are &lt;color=#8a8ae6&gt;treated automatically&lt;/color&gt; every couple of hours.</li>
+		<li>&lt;color=#ff8585&gt;Affects only gestated dryads.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<!-- <exclusionTags> -->
+	  <!-- <li>SuperClotting</li> -->
+	<!-- </exclusionTags> -->
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>bleed</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGauranlen_DryadGestatorDependant">
+	<defName>WVC_GauranlenDryads_TotalHealing</defName>
+	<label>dryads healing</label>
+	<description>Carriers of this gene, with the help of psychic influence, can force the restoration of lost organs and limbs of their dryads.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_GauranlenDryads_TotalHealing</geneClass>
+	<iconColor>(255, 255, 255)</iconColor>
+	<iconPath>WVC/UI/Genes/Gene_DryadsTotalHealing_v0</iconPath>
+	<displayOrderInCategory>40</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-3</biostatMet>
+	<customEffectDescriptions>
+		<li>Restores a &lt;color=#8a8ae6&gt;missing body parts&lt;/color&gt; or &lt;color=#8a8ae6&gt;heals scars&lt;/color&gt; every (*DateTime)2-5 days(/DateTime).</li>
+		<li>&lt;color=#ff8585&gt;Affects only gestated dryads.&lt;/color&gt;</li>
+	</customEffectDescriptions>
   </GeneDef>
 
 </Defs>

@@ -12,7 +12,7 @@ namespace WVC_XenotypesAndGenes
 
 		public CompGauranlenDryad comp;
 
-		public Gene_GauranlenDryad gene;
+		public Gene_DryadQueen gene;
 
 		public Pawn connectedPawn;
 
@@ -40,7 +40,7 @@ namespace WVC_XenotypesAndGenes
 
 		// Interface
 
-		public Dialog_ChangeDryadCaste(Gene_GauranlenDryad thisGene, CompGauranlenDryad thisComp)
+		public Dialog_ChangeDryadCaste(Gene_DryadQueen thisGene, CompGauranlenDryad thisComp)
 		{
 			// Init
 			gene = thisGene;

@@ -50,15 +50,15 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		[Unsaved(false)]
-		private Gene_GauranlenDryad cachedGauranlenConnectionGene;
+		private Gene_DryadQueen cachedGauranlenConnectionGene;
 
-		public Gene_GauranlenDryad Gene_GauranlenConnection
+		public Gene_DryadQueen Gene_GauranlenConnection
 		{
 			get
 			{
 				if (cachedGauranlenConnectionGene == null || !cachedGauranlenConnectionGene.Active)
 				{
-					cachedGauranlenConnectionGene = Master?.genes?.GetFirstGeneOfType<Gene_GauranlenDryad>();
+					cachedGauranlenConnectionGene = Master?.genes?.GetFirstGeneOfType<Gene_DryadQueen>();
 				}
 				return cachedGauranlenConnectionGene;
 			}

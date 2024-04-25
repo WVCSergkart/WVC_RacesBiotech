@@ -10,7 +10,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_GauranlenDryad : Gene, IGeneInspectInfo
+	public class Gene_DryadQueen : Gene, IGeneInspectInfo
 	{
 
 		public GeneExtension_Spawner Props => def?.GetModExtension<GeneExtension_Spawner>();

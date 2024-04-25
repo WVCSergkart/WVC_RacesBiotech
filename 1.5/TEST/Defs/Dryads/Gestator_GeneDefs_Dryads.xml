@@ -13,10 +13,10 @@
   <!-- ============================= -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGauranlen_Gestator">
-	<defName>WVC_GauranlenDryad</defName>
-	<label>dryad</label>
-	<description>Carriers of this gene have gauranlen brood-mother abilities. They can produce new dryads and control them through psychic influence.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_GauranlenDryad</geneClass>
+	<defName>WVC_DryadQueen</defName>
+	<label>dryad queen</label>
+	<description>Carriers of this gene have gauranlen dryad queen abilities. They can gestate new dryads and control them through psychic influence.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DryadQueen</geneClass>
 	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Dryads</resourceGizmoType>
 	<!-- <iconPath>WVC/UI/Genes/Gene_GestatorGauranlen_v0</iconPath> -->
 	<iconPath>WVC/UI/Genes/Gene_Dryad_v0</iconPath>
@@ -24,6 +24,7 @@
 	<biostatArc>2</biostatArc>
 	<biostatMet>7</biostatMet>
 	<iconColor>(255, 255, 255)</iconColor>
+	<minAgeActive>13</minAgeActive>
 	<statFactors>
 	  <PruningSpeed>2.0</PruningSpeed>
 	</statFactors>

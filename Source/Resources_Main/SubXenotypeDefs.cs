@@ -32,6 +32,9 @@ namespace WVC_XenotypesAndGenes
 				race.label = sourceDryadDef.race.label;
 				race.description = sourceDryadDef.race.description;
 			}
+			label = "WVC_XaG_GestatedDryad".Translate() + " " + label;
+			race.label = "WVC_XaG_GestatedDryad".Translate() + " " + race.label;
+			race.description = race.description + "\n\n" + "WVC_XaG_GestatedDryadDescription".Translate();
 			base.ResolveReferences();
 		}
 

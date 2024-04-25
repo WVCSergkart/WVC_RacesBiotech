@@ -18,7 +18,7 @@
 		<buildings>
 		  <li MayRequire="Ludeon.RimWorld.Ideology">
 			<thingDef>Plant_TreeGauranlen</thingDef>
-			<bandwidth>2</bandwidth>
+			<bandwidth>1</bandwidth>
 		  </li>
 		  <!-- <li MayRequire="Ludeon.RimWorld.Biotech"> -->
 			<!-- <thingDef>Plant_TreePolux</thingDef> -->

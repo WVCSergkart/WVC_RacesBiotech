@@ -10,6 +10,26 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
+	public class Gene_DryadQueen_Dependant : Gene
+	{
+
+		[Unsaved(false)]
+		private Gene_DryadQueen cachedDryadsQueenGene;
+
+		public Gene_DryadQueen Gauranlen
+		{
+			get
+			{
+				if (cachedDryadsQueenGene == null || !cachedDryadsQueenGene.Active)
+				{
+					cachedDryadsQueenGene = pawn?.genes?.GetFirstGeneOfType<Gene_DryadQueen>();
+				}
+				return cachedDryadsQueenGene;
+			}
+		}
+
+	}
+
 	public class Gene_GauranlenConnection : Gene
 	{
 

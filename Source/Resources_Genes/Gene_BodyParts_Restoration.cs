@@ -267,4 +267,67 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref ticksToHealBodyPart, "ticksToHealBodyPart", 0);
 		}
 	}
+
+	public class Gene_GauranlenDryads_TotalHealing : Gene_DryadQueen_Dependant
+	{
+
+		private int ticksToHealDryads;
+
+		public IntRange healingIntervalTicksRange = new(120000, 1800000);
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			ResetInterval();
+		}
+
+		public override void Tick()
+		{
+			base.Tick();
+			ticksToHealDryads--;
+			if (ticksToHealDryads > 0)
+			{
+				return;
+			}
+			HealDryads();
+		}
+
+		public void HealDryads()
+		{
+			List<Pawn> connectedThings = Gauranlen?.AllDryads;
+			foreach (Pawn dryad in connectedThings)
+			{
+				HealingUtility.TryHealRandomPermanentWound(dryad, this, true);
+			}
+			ResetInterval();
+		}
+
+		private void ResetInterval()
+		{
+			ticksToHealDryads = healingIntervalTicksRange.RandomInRange;
+		}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: TotalHealDryads",
+					action = delegate
+					{
+						HealDryads();
+					}
+				};
+			}
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref ticksToHealDryads, "ticksToHealDryads", 0);
+		}
+
+	}
+
 }
