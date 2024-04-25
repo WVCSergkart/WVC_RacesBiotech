@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_TEST" WVC_XaG_XenotypeRemoveTag="Bloodeaters">
+	<defName>WVC_DryadQueen</defName>
+	<label>dryad queen</label>
+	<inheritable>false</inheritable>
+	<iconPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_v0</iconPath>
+	<doubleXenotypeChances>
+		<WVC_Elf>1.0</WVC_Elf>
+	</doubleXenotypeChances>
+	<genes>
+		<li>WVC_DryadQueen</li>
+		<li>WVC_GauranlenConnection</li>
+		<li>WVC_GauranlenDryads_Clotting</li>
+		<li>WVC_GauranlenDryads_TotalHealing</li>
+	</genes>
+  </XenotypeDef>
+
+</Defs>

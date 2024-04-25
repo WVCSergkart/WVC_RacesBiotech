@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_TEST">
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_TEST" WVC_XaG_XenotypeRemoveTag="Bloodeaters">
 	<defName>WVC_Elf</defName>
 	<label>elf</label>
 	<inheritable>true</inheritable>
 	<iconPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_v0</iconPath>
 	<genes>
 		<li>Hemogenic</li>
-		<!-- <li>WVC_HemogenGain</li> -->
 		<li>Bloodfeeder</li>
 		<li>WVC_Bloodeater</li>
 		<li>WVC_NaturalAgeless</li>
@@ -35,6 +34,9 @@
 		<li>Neversleep</li>
 		<li>WVC_NaturalImmunity_PerfectImmunity</li>
 		<li>WVC_NaturalDisease_DiseaseFree</li>
+		<li>WVC_Dustogenic_Metabolism</li>
+		<li>FireWeakness</li>
+		<li>FireTerror</li>
 	</genes>
   </XenotypeDef>
 

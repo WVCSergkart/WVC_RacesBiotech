@@ -15,6 +15,8 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool ShouldRemove => false;
 
+		public override bool Visible => false;
+
 		[Unsaved(false)]
 		private Gene_DryadQueen cachedDryadsQueenGene;
 
@@ -44,7 +46,6 @@ namespace WVC_XenotypesAndGenes
 				{
 					curStage = new HediffStage
 					{
-						becomeVisible = false,
 						statOffsets = new(),
 						statFactors = new()
 					};

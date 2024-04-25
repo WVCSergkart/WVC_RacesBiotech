@@ -16,6 +16,8 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
+		private float cachedNutritionPerTick = -1f;
+
 		public override void Tick()
 		{
 			base.Tick();
@@ -51,7 +53,11 @@ namespace WVC_XenotypesAndGenes
 
 		public void ReplenishHunger()
 		{
-			UndeadUtility.OffsetNeedFood(pawn, Giver.passivelyReplenishedNutrition);
+			if (cachedNutritionPerTick <= 0f)
+			{
+				cachedNutritionPerTick = Giver.passivelyReplenishedNutrition + (pawn.needs?.food != null ? pawn.needs.food.FoodFallPerTick : 0f);
+			}
+			UndeadUtility.OffsetNeedFood(pawn, cachedNutritionPerTick);
 		}
 
 	}

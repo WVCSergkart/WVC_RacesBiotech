@@ -19,7 +19,7 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_DryadQueen</geneClass>
 	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Dryads</resourceGizmoType>
 	<!-- <iconPath>WVC/UI/Genes/Gene_GestatorGauranlen_v0</iconPath> -->
-	<iconPath>WVC/UI/Genes/Gene_Dryad_v0</iconPath>
+	<iconPath>WVC/UI/Genes/Gene_DryadQueen_v0</iconPath>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>2</biostatArc>
 	<biostatMet>7</biostatMet>
