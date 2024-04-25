@@ -59,12 +59,12 @@
 		<li Class="ThinkNode_ConditionalOfPlayerFaction">
 		  <subNodes>
 			<!-- Dryad mode changed, return to cocoon and change type. -->
-			<li Class="WVC_XenotypesAndGenes.JobGiver_CreateAndEnterCocoon_Gene">
+			<li Class="WVC_XenotypesAndGenes.JobGiver_NewDryads_CreateAndEnterCocoon">
 			  <cocoonJobDef>WVC_XaG_CreateAndEnterCocoon</cocoonJobDef>
 			  <leaveJoinableLordIfIssuesJob>true</leaveJoinableLordIfIssuesJob>
 			</li>
 			<!-- Ordered to return to a healing pod to tend wounds. -->
-			<li Class="WVC_XenotypesAndGenes.JobGiver_CreateAndEnterHealingPod_Gene">
+			<li Class="WVC_XenotypesAndGenes.JobGiver_NewDryads_CreateAndEnterHealingPod">
 			  <cocoonJobDef>WVC_XaG_CreateAndEnterHealingPod</cocoonJobDef>
 			  <leaveJoinableLordIfIssuesJob>true</leaveJoinableLordIfIssuesJob>
 			</li>
@@ -82,18 +82,18 @@
 			  <tagToGive>TrainedAnimalBehavior</tagToGive>
 			  <subNodes>
 				<!-- Trained behavior: obedience: Follow and defend master -->
-				<li Class="ThinkNode_ConditionalTrainableCompleted">
-				  <trainable>Obedience</trainable>
+				<!-- <li Class="ThinkNode_ConditionalTrainableCompleted"> -->
+				  <!-- <trainable>Obedience</trainable> -->
+				  <!-- <subNodes> -->
+				  <!-- </subNodes> -->
+				<!-- </li> -->
+				<li Class="WVC_XenotypesAndGenes.ThinkNode_ConditionalShouldFollowConnectedPawn" >
 				  <subNodes>
-					<li Class="ThinkNode_ConditionalShouldFollowMaster" >
-					  <subNodes>
-						<li Class="JobGiver_AIDefendMaster">
-						  <attackMeleeThreatEvenIfNotHostile>true</attackMeleeThreatEvenIfNotHostile>
-						</li>
-						<li Class="JobGiver_AIFollowMaster"/>
-						<li Class="JobGiver_WanderNearMaster" />
-					  </subNodes>
+					<li Class="WVC_XenotypesAndGenes.JobGiver_AIDefendConnectedPawn">
+					  <attackMeleeThreatEvenIfNotHostile>true</attackMeleeThreatEvenIfNotHostile>
 					</li>
+					<li Class="WVC_XenotypesAndGenes.JobGiver_AIFollowConnectedPawn"/>
+					<li Class="WVC_XenotypesAndGenes.JobGiver_WanderNearConnectedPawn"/>
 				  </subNodes>
 				</li>
 			  </subNodes>

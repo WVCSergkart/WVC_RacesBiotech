@@ -3,7 +3,7 @@
 
   <JobDef>
 	<defName>WVC_XaG_CreateAndEnterCocoon</defName>
-	<driverClass>WVC_XenotypesAndGenes.JobDriver_CreateAndEnterCocoon_Gene</driverClass>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_NewDryads_CreateAndEnterCocoon</driverClass>
 	<reportString>creating cocoon.</reportString>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
@@ -14,7 +14,7 @@
 
   <JobDef>
 	<defName>WVC_XaG_CreateAndEnterHealingPod</defName>
-	<driverClass>WVC_XenotypesAndGenes.JobDriver_CreateAndEnterHealingPod_Gene</driverClass>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_NewDryads_CreateAndEnterHealingPod</driverClass>
 	<reportString>creating healing pod.</reportString>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
