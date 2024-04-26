@@ -317,6 +317,32 @@ namespace WVC_XenotypesAndGenes
 
 		// Pawns
 
+		public static Pawn GetFirstConnectedPawn(Pawn slave)
+		{
+			if (slave.RaceProps.Dryad)
+			{
+				return GetDryadQueen(slave);
+			}
+			List<Thing> things = slave?.connections?.ConnectedThings;
+			if (things.NullOrEmpty())
+			{
+				return null;
+			}
+			foreach (Thing thing in things)
+			{
+				if (thing is Pawn master)
+				{
+					return master;
+				}
+			}
+			return null;
+		}
+
+		public static Pawn GetDryadQueen(Pawn dryad)
+		{
+			return dryad?.TryGetComp<CompGauranlenDryad>()?.Master;
+		}
+
 		public static int CountAllPlayerXenos()
 		{
 			int mult = 0;

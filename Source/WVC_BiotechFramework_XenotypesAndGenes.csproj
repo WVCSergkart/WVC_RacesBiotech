@@ -142,7 +142,7 @@
     <Compile Include="Resources_Utility\Templates_Utility.cs" />
     <Compile Include="Resources_Workers\JobDriver_AbsorbGenogerm.cs" />
     <Compile Include="Resources_Workers\JobDriver_RetuneSerum.cs" />
-    <Compile Include="Resources_Workers\JobGiver_Dryads.cs" />
+    <Compile Include="Resources_Workers\JobGiver_DryadCocoon.cs" />
     <Compile Include="Resources_Workers\JobGiver_GetSpecialFood.cs" />
     <Compile Include="Resources_Main\GameComponents.cs" />
     <Compile Include="Resources_Main\PostInitializationStartup.cs" />
@@ -227,6 +227,7 @@
     <Compile Include="Resources_TEST\USED_IN_TEST_CompSpawnInsect.cs" />
     <Compile Include="Resources_TEST\TEST_ThoughtWorker_Gender.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_MechanoidLabor.cs" />
+    <Compile Include="Resources_Workers\JobGiver_DryadWork.cs" />
     <Compile Include="Resources_Workers\SpecialTrees.cs" />
     <Compile Include="Resources_Workers\WorkGiver_HaulToGeneBank.cs" />
     <Compile Include="Resources_Utility\XenoTreeUtility.cs" />
