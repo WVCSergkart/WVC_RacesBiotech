@@ -1,5 +1,5 @@
 # WVC_XenotypesAndGenes v1.78.70
- 
-Pre-release versions require resetting the mod settings.
 
-Versions above 1.00.96 require (when migrating from earlier versions of the mod) a new game.
+The mod wiki is updated relative to the version in the repository, not in the release.
+
+Latest stable version: [Release](https://github.com/WVCSergkart/WVC_RacesBiotech/releases)
