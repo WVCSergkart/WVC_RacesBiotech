@@ -113,6 +113,9 @@ namespace WVC_XenotypesAndGenes
 					if (WVC_Biotech.settings.onlyXenotypesMode)
 					{
 						thingDef.thingSetMakerTags = new();
+						thingDef.techHediffsTags = new();
+						thingDef.tradeTags = new() { "ExoticMisc" };
+						thingDef.tradeability = Tradeability.Sellable;
 					}
 				}
 				if (thingDef?.race == null)
