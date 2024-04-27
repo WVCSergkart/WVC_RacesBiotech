@@ -40,4 +40,11 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public interface IGeneCellsfeeder
+	{
+
+		void Notify_Cellsfeed(Pawn victim);
+
+	}
+
 }

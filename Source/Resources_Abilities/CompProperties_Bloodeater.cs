@@ -38,4 +38,27 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class CompAbilityEffect_Cellseater : CompAbilityEffect
+	{
+
+		public new CompProperties_AbilityBloodeater Props => (CompProperties_AbilityBloodeater)props;
+
+		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+		{
+			Pawn pawn = parent.pawn;
+			if (pawn?.genes == null)
+			{
+				return;
+			}
+			foreach (Gene gene in pawn.genes.GenesListForReading)
+			{
+				if (gene is IGeneCellsfeeder geneBloodfeeder && gene.Active)
+				{
+					geneBloodfeeder.Notify_Cellsfeed(target.Pawn);
+				}
+			}
+		}
+
+	}
+
 }

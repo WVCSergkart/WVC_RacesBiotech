@@ -94,6 +94,9 @@
 	  <li Class="CompProperties_AbilityRequiresCapacity">
 		<capacity>Eating</capacity>
 	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityBloodeater">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Cellseater</compClass>
+	  </li>
 	</comps>
   </AbilityDef>
 
