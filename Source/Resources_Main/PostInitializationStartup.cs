@@ -112,10 +112,17 @@ namespace WVC_XenotypesAndGenes
 				{
 					if (WVC_Biotech.settings.onlyXenotypesMode)
 					{
-						thingDef.thingSetMakerTags = new();
-						thingDef.techHediffsTags = new();
-						thingDef.tradeTags = new() { "ExoticMisc" };
-						thingDef.tradeability = Tradeability.Sellable;
+						if (thingDef.thingSetMakerTags != null)
+						{
+							// Log.Error(thingDef.LabelCap + " patched.");
+							thingDef.thingSetMakerTags = null;
+							thingDef.tradeTags = new() { "ExoticMisc" };
+							thingDef.tradeability = Tradeability.Sellable;
+						}
+						if (thingDef.techHediffsTags != null)
+						{
+							thingDef.techHediffsTags = null;
+						}
 					}
 				}
 				if (thingDef?.race == null)
