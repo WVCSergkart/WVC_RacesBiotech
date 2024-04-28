@@ -27,6 +27,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
+			// if (pawn.Dead)
+			// {
+				// return;
+			// }
 			foreach (Gene gene in pawn.genes.GenesListForReading)
 			{
 				if (gene is IGeneBloodfeeder geneBloodfeeder && gene.Active)
@@ -50,6 +54,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
+			// if (pawn.Dead)
+			// {
+				// return;
+			// }
 			foreach (Gene gene in pawn.genes.GenesListForReading)
 			{
 				if (gene is IGeneCellsfeeder geneBloodfeeder && gene.Active)

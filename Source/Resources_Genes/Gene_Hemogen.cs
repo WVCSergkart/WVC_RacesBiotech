@@ -93,6 +93,10 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool TryHuntForFood(Pawn pawn)
 		{
+			if (WVC_Biotech.settings.bloodeater_disableAutoFeed)
+			{
+				return false;
+			}
 			List<Pawn> colonists = pawn?.Map?.mapPawns?.SpawnedPawnsInFaction(pawn.Faction);
 			List<Pawn> biters = GetAllBloodHuntersFromList(colonists);
 			colonists.Shuffle();
@@ -175,7 +179,11 @@ namespace WVC_XenotypesAndGenes
 		public void Notify_Bloodfeed(Pawn victim)
 		{
 			// Log.Error("0");
-			if (General == null)
+			if (General == null || victim == null)
+			{
+				return;
+			}
+			if (victim.Dead)
 			{
 				return;
 			}
@@ -185,8 +193,8 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			// Log.Error("2");
-			float immunity = victim.GetStatValue(StatDefOf.ImmunityGainSpeed);
-			float chance = (General.reimplantChance / (immunity > 0.01f ? immunity : 0.01f)) * WVC_Biotech.settings.hemogenic_ImplanterFangsChanceFactor;
+			float? immunity = victim?.GetStatValue(StatDefOf.ImmunityGainSpeed);
+			float chance = (General.reimplantChance / (immunity.HasValue && immunity.Value > 0.01f ? immunity.Value : 0.01f)) * WVC_Biotech.settings.hemogenic_ImplanterFangsChanceFactor;
 			if (!Rand.Chance(chance))
 			{
 				// Log.Error("2 Chance: " + (General.reimplantChance / (immunity > 0.01f ? immunity : 0.01f)).ToString());

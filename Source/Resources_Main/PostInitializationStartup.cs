@@ -116,6 +116,9 @@ namespace WVC_XenotypesAndGenes
 						{
 							// Log.Error(thingDef.LabelCap + " patched.");
 							thingDef.thingSetMakerTags = null;
+						}
+						if (thingDef.tradeTags != null)
+						{
 							thingDef.tradeTags = new() { "ExoticMisc" };
 							thingDef.tradeability = Tradeability.Sellable;
 						}

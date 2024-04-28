@@ -79,4 +79,16 @@ It is not recommended to use more than one DEV-fix at a time. It might break som
 
 It is recommended to leave this option enabled.</WVC_ToolTip_enableInstabilityLastChanceMechanic>
 
+	<!-- ================================== -->
+
+	<WVC_Label_bloodeater_disableAutoFeed>Disable bloodeater auto-feed</WVC_Label_bloodeater_disableAutoFeed>
+	<WVC_ToolTip_bloodeater_disableAutoFeed>If enabled, then pawns with the bloodeater gene (and similar) WILL NOT automatically bite colonists.</WVC_ToolTip_bloodeater_disableAutoFeed>
+
+	<WVC_Label_bloodeater_SafeBloodfeed>Safe bloodfeed</WVC_Label_bloodeater_SafeBloodfeed>
+	<WVC_ToolTip_bloodeater_SafeBloodfeed>If enabled, using the bloodfeed ability will not kill pawns if there is not enough blood. Instead, the blood loss value will drop to the minimum non-fatal level.
+
+It is recommended to disable it only if you are looking for a challenge.
+
+A restart is required.</WVC_ToolTip_bloodeater_SafeBloodfeed>
+
 </LanguageData>
