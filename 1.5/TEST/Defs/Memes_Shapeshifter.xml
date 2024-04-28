@@ -8,9 +8,9 @@
 		<iconPath>WVC/UI/Precepts/Meme_Shapeshifter2_v0</iconPath>
 		<groupDef>Misc</groupDef>
 		<impact>2</impact>
-		<exclusionTags>
-		  <li>WVC_GeneticSupremacy</li>
-		</exclusionTags>
+		<!-- <exclusionTags> -->
+		  <!-- <li>WVC_GeneticSupremacy</li> -->
+		<!-- </exclusionTags> -->
 		<requireOne>
 		  <li>
 			<li>WVC_Shapeshifters_Revered</li>

@@ -9,9 +9,9 @@
 		<iconPath>WVC/UI/Precepts/Memes_Undead</iconPath>
 		<groupDef>Misc</groupDef>
 		<impact>2</impact>
-		<exclusionTags>
-		  <li>WVC_GeneticSupremacy</li>
-		</exclusionTags>
+		<!-- <exclusionTags> -->
+		  <!-- <li>WVC_GeneticSupremacy</li> -->
+		<!-- </exclusionTags> -->
 		<generalRules>
 		  <rulesStrings>
 			<li>memeAdjective->tombstone</li>

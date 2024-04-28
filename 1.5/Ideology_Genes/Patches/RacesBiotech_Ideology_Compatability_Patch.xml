@@ -25,27 +25,27 @@
 		</operations>
 	</Operation>
 
-	<Operation Class="PatchOperationSequence">
-		<success>Always</success>
-		<operations>
-			<li Class="PatchOperationAdd">
-			  <xpath>/Defs/MemeDef[defName="Bloodfeeding"]/exclusionTags</xpath>
-			  <success>Invert</success>
-			  <value>
-				  <li>WVC_GeneticSupremacy</li>
-			  </value>
-			</li>
-			<li Class="PatchOperationAdd">
-			  <xpath>/Defs/MemeDef[defName="Bloodfeeding"]</xpath>
-			  <success>Always</success>
-			  <value>
-				<exclusionTags>
-				  <li>WVC_GeneticSupremacy</li>
-				</exclusionTags>
-			  </value>
-			</li>
-		</operations>
-	</Operation>
+	<!-- <Operation Class="PatchOperationSequence"> -->
+		<!-- <success>Always</success> -->
+		<!-- <operations> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/MemeDef[defName="Bloodfeeding"]/exclusionTags</xpath> -->
+			  <!-- <success>Invert</success> -->
+			  <!-- <value> -->
+				  <!-- <li>WVC_GeneticSupremacy</li> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/MemeDef[defName="Bloodfeeding"]</xpath> -->
+			  <!-- <success>Always</success> -->
+			  <!-- <value> -->
+				<!-- <exclusionTags> -->
+				  <!-- <li>WVC_GeneticSupremacy</li> -->
+				<!-- </exclusionTags> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+		<!-- </operations> -->
+	<!-- </Operation> -->
 
 	<Operation Class="PatchOperationSequence">
 		<success>Always</success>
@@ -132,49 +132,49 @@
 	  <!-- </value> -->
 	<!-- </Operation> -->
 
-	<Operation Class="PatchOperationSequence">
-		<success>Always</success>
-		<operations>
-			<li Class="PatchOperationAdd">
-			  <xpath>/Defs/PreceptDef[defName="Bloodfeeders_Revered"]/exclusionTags</xpath>
-			  <success>Invert</success>
-			  <value>
-				  <li>WVC_ReveredAndReviledPrecepts_Revered</li>
-			  </value>
-			</li>
-			<li Class="PatchOperationAdd">
-			  <xpath>/Defs/PreceptDef[defName="Bloodfeeders_Revered"]</xpath>
-			  <success>Always</success>
-			  <value>
-				<exclusionTags>
-				  <li>WVC_ReveredAndReviledPrecepts_Revered</li>
-				</exclusionTags>
-			  </value>
-			</li>
-		</operations>
-	</Operation>
+	<!-- <Operation Class="PatchOperationSequence"> -->
+		<!-- <success>Always</success> -->
+		<!-- <operations> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/PreceptDef[defName="Bloodfeeders_Revered"]/exclusionTags</xpath> -->
+			  <!-- <success>Invert</success> -->
+			  <!-- <value> -->
+				  <!-- <li>WVC_ReveredAndReviledPrecepts_Revered</li> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/PreceptDef[defName="Bloodfeeders_Revered"]</xpath> -->
+			  <!-- <success>Always</success> -->
+			  <!-- <value> -->
+				<!-- <exclusionTags> -->
+				  <!-- <li>WVC_ReveredAndReviledPrecepts_Revered</li> -->
+				<!-- </exclusionTags> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+		<!-- </operations> -->
+	<!-- </Operation> -->
 
-	<Operation Class="PatchOperationSequence">
-		<success>Always</success>
-		<operations>
-			<li Class="PatchOperationAdd">
-			  <xpath>/Defs/PreceptDef[defName="Bloodfeeders_Reviled"]/exclusionTags</xpath>
-			  <success>Invert</success>
-			  <value>
-				  <li>WVC_ReveredAndReviledPrecepts_Reviled</li>
-			  </value>
-			</li>
-			<li Class="PatchOperationAdd">
-			  <xpath>/Defs/PreceptDef[defName="Bloodfeeders_Reviled"]</xpath>
-			  <success>Always</success>
-			  <value>
-				<exclusionTags>
-				  <li>WVC_ReveredAndReviledPrecepts_Reviled</li>
-				</exclusionTags>
-			  </value>
-			</li>
-		</operations>
-	</Operation>
+	<!-- <Operation Class="PatchOperationSequence"> -->
+		<!-- <success>Always</success> -->
+		<!-- <operations> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/PreceptDef[defName="Bloodfeeders_Reviled"]/exclusionTags</xpath> -->
+			  <!-- <success>Invert</success> -->
+			  <!-- <value> -->
+				  <!-- <li>WVC_ReveredAndReviledPrecepts_Reviled</li> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/PreceptDef[defName="Bloodfeeders_Reviled"]</xpath> -->
+			  <!-- <success>Always</success> -->
+			  <!-- <value> -->
+				<!-- <exclusionTags> -->
+				  <!-- <li>WVC_ReveredAndReviledPrecepts_Reviled</li> -->
+				<!-- </exclusionTags> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+		<!-- </operations> -->
+	<!-- </Operation> -->
 
 	<!-- ============================================================ -->
 

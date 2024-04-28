@@ -14,11 +14,11 @@
 		</value>
 	</Operation>
 
-	<Operation Class="PatchOperationAdd">
-		<xpath>/Defs/ThoughtDef[nullifyingPrecepts[li[contains(text(),'Bloodfeeders_Revered')]]]/nullifyingPrecepts</xpath>
-		<value>
-			<li>WVC_Shapeshifters_Revered</li>
-		</value>
-	</Operation>
+	<!-- <Operation Class="PatchOperationAdd"> -->
+		<!-- <xpath>/Defs/ThoughtDef[nullifyingPrecepts[li[contains(text(),'Bloodfeeders_Revered')]]]/nullifyingPrecepts</xpath> -->
+		<!-- <value> -->
+			<!-- <li>WVC_Shapeshifters_Revered</li> -->
+		<!-- </value> -->
+	<!-- </Operation> -->
 
 </Patch>

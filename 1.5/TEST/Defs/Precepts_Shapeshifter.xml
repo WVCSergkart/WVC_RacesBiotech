@@ -39,9 +39,9 @@
 		<points>3</points>
 	  </li>
 	</comps>
-	<exclusionTags>
-	  <li>WVC_ReveredAndReviledPrecepts_Revered</li>
-	</exclusionTags>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_ReveredAndReviledPrecepts_Revered</li> -->
+	<!-- </exclusionTags> -->
   </PreceptDef>
 
   <!-- <PreceptDef> -->
