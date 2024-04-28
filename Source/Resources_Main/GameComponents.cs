@@ -159,6 +159,16 @@ namespace WVC_XenotypesAndGenes
 				}
 				WVC_Biotech.settings.fixGeneAbilitiesOnLoad = false;
 			}
+			// if (WVC_Biotech.settings.fixThrallTypesOnLoad)
+			// {
+				// foreach (Pawn item in currentGame.CurrentMap.mapPawns.AllPawns.ToList())
+				// {
+					// if (item != null && item.RaceProps.Humanlike && item.genes != null)
+					// {
+					// }
+				// }
+				// WVC_Biotech.settings.fixGeneAbilitiesOnLoad = false;
+			// }
 		}
 
 		public void ResetCounter(int frequency = 60000)

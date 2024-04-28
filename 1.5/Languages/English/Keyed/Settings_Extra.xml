@@ -48,6 +48,9 @@ A restart is required.</WVC_ToolTip_enableBodySizeGenes>
 
 It is not recommended to use more than one DEV-fix at a time. It might break something.</WVC_Alert_fixBrokenShit>
 
+	<!-- <WVC_Label_fixThrallTypesOnLoad>Fix thrall desc link</WVC_Label_fixThrallTypesOnLoad> -->
+	<!-- <WVC_ToolTip_fixThrallTypesOnLoad>If enabled, it should fix all potentially broken genes. Please note that this will reset the cumulative effects of genes, such as deathrest (deathrest capacity serums).</WVC_ToolTip_fixThrallTypesOnLoad> -->
+
 	<!-- ================================== -->
 
 	<WVC_Label_xenotypeGestator_GestationTimeFactor>Gestation period factor x{0}%</WVC_Label_xenotypeGestator_GestationTimeFactor>

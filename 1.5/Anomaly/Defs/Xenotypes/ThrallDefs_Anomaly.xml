@@ -23,8 +23,8 @@
 		<!-- <li>WVC_AptitudeArchitePerfect_Melee</li> -->
 		<li>WVC_AptitudeArchiteGreat_Melee</li>
 		<li>DarkVision</li>
-		<li>WVC_DemonTailA</li>
-		<li>WVC_HeadBoneHorns</li>
+		<!-- <li>WVC_DemonTailA</li> -->
+		<!-- <li>WVC_HeadBoneHorns</li> -->
 		<li>MeleeDamage_Strong</li>
 		<li>WVC_MecaBodyParts_Spine</li>
 		<li>WVC_Tough</li>

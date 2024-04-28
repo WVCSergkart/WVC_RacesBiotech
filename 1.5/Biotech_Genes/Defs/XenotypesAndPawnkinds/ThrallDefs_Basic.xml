@@ -8,6 +8,7 @@
 	<description>An ordinary thrall with its own strengths and weaknesses.</description>
 	<generalDesc>In general thralls are rare xenohumans with a set of genes that does not fall into any known xenotype. Thralls are created from fresh corpses and usually cannot exist without the support of a master, since their genetic instabilization inevitably leads to death.</generalDesc>
 	<xenotypeIconDef>WVC_Thrall_x1c</xenotypeIconDef>
+	<xenotypeDef>WVC_Thrall</xenotypeDef>
 	<acceptableRotStages>
 		<li>Fresh</li>
 		<li>Rotting</li>
@@ -25,6 +26,7 @@
   <!-- Base thrall appearance -->
 
   <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Base" Name="WVC_XenotypesAndGenes_ThrallDefs_Undead" Abstract="True">
+	<selectionWeight>0.33</selectionWeight>
 	<genes>
 		<li>WVC_GauntSkin</li>
 		<li>Hair_DarkBlack</li>
@@ -41,15 +43,16 @@
 	<defName>WVC_Fielder</defName>
 	<label>fielder</label>
 	<description>Field modification of the thrall. These thralls are excellent builders, gardeners, and miners. They have a bonus to speed and can easily recover from cutting wounds, but they are absolutely unsuitable for combat.</description>
-	<xenotypeIconDef>WVC_Thrall_Elf1c</xenotypeIconDef>
+	<!-- <xenotypeIconDef>WVC_Thrall_Elf1c</xenotypeIconDef> -->
 	<!-- <recommendedRole>Work</recommendedRole> -->
+	<selectionWeight>1.1</selectionWeight>
 	<genes>
 		<li>Superclotting</li>
 		<li>WVC_PsychicAbility_Deaf</li>
 		<li>MoveSpeed_VeryQuick</li>
-		<li>WVC_DemonTailA</li>
-		<li>Ears_Pointed</li>
-		<li>WVC_BodySize_Small</li>
+		<!-- <li>WVC_DemonTailA</li> -->
+		<!-- <li>Ears_Pointed</li> -->
+		<!-- <li>WVC_BodySize_Small</li> -->
 		<!-- = -->
 		<li>WVC_AptitudeShameful_Shooting</li>
 		<li>WVC_AptitudeShameful_Melee</li>
@@ -71,13 +74,14 @@
 	<description>Combat modification of the thrall. These thralls are excellent fighters, they can take a lot of damage and put up a serious fight against superior opponents, but they are completely useless otherwise.</description>
 	<!-- <xenotypeIconDef>WVC_Xeno30c</xenotypeIconDef> -->
 	<!-- <recommendedRole>Combat</recommendedRole> -->
+	<selectionWeight>1.1</selectionWeight>
 	<genes>
 		<li>WoundHealing_SuperFast</li>
 		<li>Superclotting</li>
 		<li>MoveSpeed_VeryQuick</li>
 		<li>MeleeDamage_Strong</li>
 		<li>WVC_Tough</li>
-		<li>WVC_BodySize_Large</li>
+		<!-- <li>WVC_BodySize_Large</li> -->
 		<!-- = -->
 		<li>WVC_AptitudeMarvelous_Shooting</li>
 		<li>WVC_AptitudeMarvelous_Melee</li>
@@ -97,16 +101,17 @@
 	<defName>WVC_Artister</defName>
 	<label>artister</label>
 	<description>Crafter modification of the thrall. These thralls are excellent artists and crafters. They do not require much food, but they are very slow and weak.</description>
-	<xenotypeIconDef>WVC_Thrall_Cat1c</xenotypeIconDef>
+	<!-- <xenotypeIconDef>WVC_Thrall_Cat1c</xenotypeIconDef> -->
 	<!-- <recommendedRole>Work</recommendedRole> -->
+	<selectionWeight>0.6</selectionWeight>
 	<genes>
 		<!-- <li>WVC_NaturalTelepathy</li> -->
 		<li>WVC_StoneStomach</li>
 		<li>WVC_Delicate</li>
-		<li>WVC_CatEarsA</li>
+		<!-- <li>WVC_CatEarsA</li> -->
 		<li>DarkVision</li>
 		<li>ElongatedFingers</li>
-		<li>WVC_BodySize_Small</li>
+		<!-- <li>WVC_BodySize_Small</li> -->
 		<!-- = -->
 		<li>WVC_AptitudeShameful_Shooting</li>
 		<li>WVC_AptitudeShameful_Melee</li>
@@ -126,15 +131,16 @@
 	<defName>WVC_Smartkin</defName>
 	<label>smartkin</label>
 	<description>Research modification of the thrall. These thralls are excellent doctors and researchers. They require little food, but are very slow and fragile, so it is recommended to keep them within the base.</description>
-	<xenotypeIconDef>WVC_Thrall_Demon1c</xenotypeIconDef>
+	<!-- <xenotypeIconDef>WVC_Thrall_Demon1c</xenotypeIconDef> -->
 	<!-- <recommendedRole>Work</recommendedRole> -->
+	<selectionWeight>1.0</selectionWeight>
 	<genes>
 		<li>WVC_ClothedArmor</li>
-		<li>WVC_Hair_PunkOnly</li>
+		<!-- <li>WVC_Hair_PunkOnly</li> -->
 		<li>WVC_SleepyStomach</li>
 		<li>WVC_PsychicAbility_Dull</li>
 		<li>WVC_Fragile</li>
-		<li>WVC_HeadBoneDoubleHorn</li>
+		<!-- <li>WVC_HeadBoneDoubleHorn</li> -->
 		<!-- = -->
 		<li>WVC_AptitudeShameful_Shooting</li>
 		<li>WVC_AptitudeShameful_Melee</li>
@@ -154,15 +160,15 @@
 	<defName>WVC_Gardernkind</defName>
 	<label>gardernkind</label>
 	<description>Green modification of the thrall. These thralls are excellent gardeners and tamers. They also have excellent innate armor and do not feel pain.</description>
-	<xenotypeIconDef>WVC_Thrall_Demon1c</xenotypeIconDef>
+	<!-- <xenotypeIconDef>WVC_Thrall_Demon1c</xenotypeIconDef> -->
 	<!-- <recommendedRole>Work, Tank</recommendedRole> -->
 	<genes>
 		<li>WVC_ArmoredSkin_Stone</li>
-		<li>WVC_Hair_TribalOnly</li>
+		<!-- <li>WVC_Hair_TribalOnly</li> -->
 		<li>WVC_Pain_Nullified</li>
 		<li>WVC_SlaveSuppression_Submissive</li>
 		<li>WVC_DebuffNoUV_ExtremePsychicSensitivity</li>
-		<li>WVC_HeadBoneHorns</li>
+		<!-- <li>WVC_HeadBoneHorns</li> -->
 		<!-- = -->
 		<li>WVC_AptitudeShameful_Shooting</li>
 		<li>WVC_AptitudeShameful_Melee</li>
@@ -186,7 +192,7 @@
 	<!-- <recommendedRole>Work</recommendedRole> -->
 	<genes>
 		<li>WVC_UnClothedArmor</li>
-		<li>WVC_Hair_TribalOnly</li>
+		<!-- <li>WVC_Hair_TribalOnly</li> -->
 		<li>WVC_Pain_Extra</li>
 		<li>WVC_SlaveSuppression_Unruly</li>
 		<li>WVC_FurskinInstincts_MediumWildness</li>
@@ -214,7 +220,7 @@
 	<!-- <recommendedRole>Tamer, Carrier</recommendedRole> -->
 	<genes>
 		<li>WVC_ArmoredSkin_Plasteel</li>
-		<li>WVC_Hair_NonBald</li>
+		<!-- <li>WVC_Hair_NonBald</li> -->
 		<li>WVC_Pain_Extra</li>
 		<li>WVC_MecaBodyParts_Spine</li>
 		<li>WVC_FurskinInstincts_HighWildness</li>
@@ -245,7 +251,7 @@
 		<li>WVC_Unbreakable</li>
 		<li>WVC_AgeDebuff_MoveSpeed</li>
 		<li>WVC_MecaBodyParts_Spine</li>
-		<li>WVC_BodySize_Large</li>
+		<!-- <li>WVC_BodySize_Large</li> -->
 		<li>WVC_Pain_Nullified</li>
 		<!-- = -->
 		<li>WVC_AptitudeShameful_Shooting</li>

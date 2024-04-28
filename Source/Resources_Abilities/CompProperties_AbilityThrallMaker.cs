@@ -146,7 +146,14 @@ namespace WVC_XenotypesAndGenes
 			{
 				pawn.genes?.RemoveGene(item);
 			}
-			ReimplanterUtility.UnknownXenotype(pawn, thrallDef.label, thrallDef.xenotypeIconDef);
+			if (thrallDef.xenotypeDef != null)
+			{
+				ReimplanterUtility.SetXenotypeDirect(null, pawn, thrallDef.xenotypeDef);
+			}
+			else
+			{
+				ReimplanterUtility.UnknownXenotype(pawn, thrallDef.label, thrallDef.xenotypeIconDef);
+			}
 			bool xenotypeHasSkinColor = false;
 			bool xenotypeHasHairColor = false;
 			List<GeneDef> xenotypeGenes = thrallDef.genes;

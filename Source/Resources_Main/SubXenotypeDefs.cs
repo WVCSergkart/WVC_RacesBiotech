@@ -93,6 +93,51 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class ThralltypeDef : XenotypeDef
+	{
+
+		public List<ThrallDef> thrallDefs = new();
+
+		public List<GeneDef> guaranteedGenes;
+
+		public override void ResolveReferences()
+		{
+			if (genes.NullOrEmpty())
+			{
+				genes = new();
+			}
+			GeneDef geneticShifter = WVC_GenesDefOf.WVC_XenotypesAndGenes_SubXenotypeShapeshifter;
+			if (genes.Contains(geneticShifter))
+			{
+				genes.Remove(geneticShifter);
+			}
+			if (guaranteedGenes.NullOrEmpty())
+			{
+				guaranteedGenes = genes;
+			}
+			if (descriptionHyperlinks == null)
+			{
+				descriptionHyperlinks = new List<DefHyperlink>();
+			}
+			foreach (GeneDef gene in guaranteedGenes)
+			{
+				descriptionHyperlinks.Add(new DefHyperlink(gene));
+			}
+			foreach (ThrallDef thrallDef in thrallDefs)
+			{
+				if (thrallDef.mutantDef != null)
+				{
+					continue;
+				}
+				descriptionHyperlinks.Add(new DefHyperlink(thrallDef));
+			}
+			inheritable = true;
+			doubleXenotypeChances = null;
+			genes.Add(geneticShifter);
+		}
+
+	}
+
 	public class ThrallDef : Def
 	{
 
@@ -107,7 +152,11 @@ namespace WVC_XenotypesAndGenes
 
 		public bool resurrectAsShambler = false;
 
+		public XenotypeDef xenotypeDef;
+
 		public List<RotStage> acceptableRotStages = new() { RotStage.Fresh, RotStage.Rotting };
+
+		public float selectionWeight = 1f;
 
 		[MustTranslate]
 		public string generalDesc;

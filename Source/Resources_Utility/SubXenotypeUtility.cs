@@ -1,21 +1,29 @@
 using RimWorld;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-    public static class SubXenotypeUtility
+	public static class SubXenotypeUtility
 	{
 
 		// ========================================================
 
 		public static void XenotypeShapeShift(Pawn pawn, Gene shapeShiftGene, float xenogermReplicationChance = 0.2f)
 		{
-			if (XenotypeIsSubXenotype(pawn, out SubXenotypeDef subXenotypeDef))
+			if (TryGetXenotypeDef(pawn, out XenotypeDef subXenotypeDef))
 			{
-				SetXenotypeGenes(pawn, subXenotypeDef, xenogermReplicationChance);
+				if (subXenotypeDef is SubXenotypeDef sub && !sub.doubleXenotypeChances.NullOrEmpty())
+				{
+					SetXenotypeGenes(pawn, sub, xenogermReplicationChance);
+				}
+				if (subXenotypeDef is ThralltypeDef thrall)
+				{
+					SetThrallGenes(pawn, thrall);
+				}
 			}
 			// else
 			// {
@@ -25,6 +33,15 @@ namespace WVC_XenotypesAndGenes
 			{
 				pawn.genes.RemoveGene(shapeShiftGene);
 			}
+		}
+
+		public static void SetThrallGenes(Pawn pawn, ThralltypeDef xenotype)
+		{
+			if (xenotype.thrallDefs.Where((ThrallDef x) => x.mutantDef == null).TryRandomElementByWeight((ThrallDef x) => x.selectionWeight, out var result))
+			{
+				CompAbilityEffect_ReimplanterThrallMaker.ThrallMaker(pawn, result);
+			}
+			AddGenes(pawn, xenotype.guaranteedGenes, true, new());
 		}
 
 		public static void SetXenotypeGenes(Pawn pawn, SubXenotypeDef xenotype, float xenogermReplicationChance)
@@ -175,7 +192,28 @@ namespace WVC_XenotypesAndGenes
 
 		// ===============================================
 
-		public static bool XenotypeIsSubXenotype(Pawn pawn, out SubXenotypeDef subXenotypeDef)
+		// public static bool XenotypeIsSubXenotype(Pawn pawn, out SubXenotypeDef subXenotypeDef)
+		// {
+			// subXenotypeDef = null;
+			// Pawn_GeneTracker genes = pawn?.genes;
+			// if (genes == null || genes.CustomXenotype != null || genes.UniqueXenotype || genes.iconDef != null)
+			// {
+				// return false;
+			// }
+			// XenotypeDef pawnXenotype = genes.Xenotype;
+			// if (pawnXenotype == null)
+			// {
+				// return false;
+			// }
+			// if (pawnXenotype is SubXenotypeDef sub && !sub.doubleXenotypeChances.NullOrEmpty())
+			// {
+				// subXenotypeDef = sub;
+				// return true;
+			// }
+			// return false;
+		// }
+
+		public static bool TryGetXenotypeDef(Pawn pawn, out XenotypeDef subXenotypeDef)
 		{
 			subXenotypeDef = null;
 			Pawn_GeneTracker genes = pawn?.genes;
@@ -184,18 +222,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			XenotypeDef pawnXenotype = genes.Xenotype;
-			// Skip if xenotype is not double
-			if (pawnXenotype == null)
-			{
-				return false;
-			}
-			if (pawnXenotype is SubXenotypeDef sub && !sub.doubleXenotypeChances.NullOrEmpty())
-			{
-				subXenotypeDef = sub;
-				return true;
-			}
-			return false;
+			return (subXenotypeDef = genes.Xenotype) != null;
 		}
 
 		// public static bool PawnCanEvolve(Pawn pawn)
