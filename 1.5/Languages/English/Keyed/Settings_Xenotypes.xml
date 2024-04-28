@@ -26,7 +26,7 @@
 A restart is required.</WVC_ToolTip_disableXenotypes_MainSwitch>
 
 	<WVC_Label_disableXenotypes_Undeads>Disable undeads</WVC_Label_disableXenotypes_Undeads>
-	<WVC_ToolTip_disableXenotypes_Undeads>Undead, Ashen, Featherdust, Resurgent, Thrall.</WVC_ToolTip_disableXenotypes_Undeads>
+	<WVC_ToolTip_disableXenotypes_Undeads>Undead, Ashen, Featherdust, Resurgent.</WVC_ToolTip_disableXenotypes_Undeads>
 
 	<WVC_Label_disableXenotypes_Psycasters>Disable psycasters</WVC_Label_disableXenotypes_Psycasters>
 	<WVC_ToolTip_disableXenotypes_Psycasters>Lilif, Deadcat.</WVC_ToolTip_disableXenotypes_Psycasters>
@@ -39,5 +39,8 @@ A restart is required.</WVC_ToolTip_disableXenotypes_MainSwitch>
 
 	<WVC_Label_disableXenotypes_Bloodeaters>Disable bloodeaters</WVC_Label_disableXenotypes_Bloodeaters>
 	<WVC_ToolTip_disableXenotypes_Bloodeaters>Sandycat.</WVC_ToolTip_disableXenotypes_Bloodeaters>
+
+	<WVC_Label_disableXenotypes_Misc>Disable misc</WVC_Label_disableXenotypes_Misc>
+	<WVC_ToolTip_disableXenotypes_Misc>Thrall.</WVC_ToolTip_disableXenotypes_Misc>
 
 </LanguageData>

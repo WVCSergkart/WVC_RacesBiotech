@@ -56,7 +56,7 @@ It is not recommended to use more than one DEV-fix at a time. It might break som
 	<WVC_Label_xenotypeGestator_GestationTimeFactor>Gestation period factor x{0}%</WVC_Label_xenotypeGestator_GestationTimeFactor>
 	<WVC_Label_xenotypeGestator_GestationMatchPercent>Min xenotype match {0}%</WVC_Label_xenotypeGestator_GestationMatchPercent>
 
-	<WVC_Label_hemogenic_ImplanterFangsChanceFactor>Bloodfeed genes reimplant factor x{0}%</WVC_Label_hemogenic_ImplanterFangsChanceFactor>
+	<WVC_Label_hemogenic_ImplanterFangsChanceFactor>Bloodfeed: Genes reimplant factor x{0}%</WVC_Label_hemogenic_ImplanterFangsChanceFactor>
 
 	<!-- ================================== -->
 

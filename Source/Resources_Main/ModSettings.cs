@@ -87,6 +87,7 @@ namespace WVC_XenotypesAndGenes
 		public bool disableXenotypes_Mechalike = false;
 		public bool disableXenotypes_GolemMasters = false;
 		public bool disableXenotypes_Bloodeaters = false;
+		public bool disableXenotypes_Misc = false;
 
 		public IEnumerable<string> GetEnabledSettings => from specificSetting in GetType().GetFields()
 														 where specificSetting.FieldType == typeof(bool) && (bool)specificSetting.GetValue(this)
@@ -168,6 +169,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref disableXenotypes_Mechalike, "disableXenotypes_Mechalike", defaultValue: false);
 			Scribe_Values.Look(ref disableXenotypes_GolemMasters, "disableXenotypes_GolemMasters", defaultValue: false);
 			Scribe_Values.Look(ref disableXenotypes_Bloodeaters, "disableXenotypes_Bloodeaters", defaultValue: false);
+			Scribe_Values.Look(ref disableXenotypes_Misc, "disableXenotypes_Misc", defaultValue: false);
 			// End
 			Scribe_Collections.Look(ref WVC_Biotech.cachedXenotypesFilter, "cachedXenotypesFilter", LookMode.Value, LookMode.Value);
 		}
@@ -673,6 +675,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_disableXenotypes_Mechalike".Translate(), ref settings.disableXenotypes_Mechalike, "WVC_ToolTip_disableXenotypes_Mechalike".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableXenotypes_GolemMasters".Translate(), ref settings.disableXenotypes_GolemMasters, "WVC_ToolTip_disableXenotypes_GolemMasters".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableXenotypes_Bloodeaters".Translate(), ref settings.disableXenotypes_Bloodeaters, "WVC_ToolTip_disableXenotypes_Bloodeaters".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_disableXenotypes_Misc".Translate(), ref settings.disableXenotypes_Misc, "WVC_ToolTip_disableXenotypes_Misc".Translate());
 			listingStandard.GapLine();
 			// =============== Xenotypes Chance Settings ===============
 			// listingStandard.GapLine();
@@ -777,6 +780,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.disableXenotypes_Mechalike = false;
 			WVC_Biotech.settings.disableXenotypes_GolemMasters = false;
 			WVC_Biotech.settings.disableXenotypes_Bloodeaters = false;
+			WVC_Biotech.settings.disableXenotypes_Misc = false;
 			// XenotypesSettings
 			WVC_Biotech.cachedXenotypesFilter.Clear();
 			XaG_PostInitialization.SetValues(XenotypeFilterUtility.WhiteListedXenotypesForFilter());
@@ -860,6 +864,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.disableXenotypes_Mechalike = false;
 			WVC_Biotech.settings.disableXenotypes_GolemMasters = false;
 			WVC_Biotech.settings.disableXenotypes_Bloodeaters = false;
+			WVC_Biotech.settings.disableXenotypes_Misc = false;
 			// XenotypesSettings
 			WVC_Biotech.cachedXenotypesFilter.Clear();
 			XaG_PostInitialization.SetValues(XenotypeFilterUtility.WhiteListedXenotypesForFilter());

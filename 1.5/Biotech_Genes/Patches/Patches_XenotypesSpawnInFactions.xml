@@ -141,6 +141,23 @@
 						</operations>
 					</caseTrue>
 				</li>
+				<li Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+					<settingName>disableXenotypes_Misc</settingName>
+					<caseTrue Class="PatchOperationSequence">
+						<operations>
+
+							<li Class="PatchOperationRemove">
+								<xpath>/Defs/WVC_XenotypesAndGenes.ThrallDef[@WVC_XaG_XenotypeRemoveTag="NonSpecificOrMisc"]/xenotypeDef</xpath>
+								<success>Always</success>
+							</li>
+							<li Class="PatchOperationRemove">
+								<xpath>/Defs/XenotypeDef[@WVC_XaG_XenotypeRemoveTag="NonSpecificOrMisc"]</xpath>
+								<success>Always</success>
+							</li>
+
+						</operations>
+					</caseTrue>
+				</li>
 
 				<!-- ============================ -->
 
