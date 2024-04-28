@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<MemeDef Name="WVC_XenotypesAndGenes_Shapeshifters_Base" Abstract="True">
+	<MemeDef Name="WVC_XenotypesAndGenes_MemeDefs_Shapeshifters" Abstract="True">
 		<iconPath>WVC/UI/Precepts/Meme_Shapeshifter_v1</iconPath>
 		<!-- Very rare for NPCs -->
 		<randomizationSelectionWeightFactor>0.02</randomizationSelectionWeightFactor>
@@ -59,7 +59,7 @@
 		</disagreeableTraits>
 	</MemeDef>
 
-	<MemeDef ParentName="WVC_XenotypesAndGenes_Shapeshifters_Base">
+	<MemeDef ParentName="WVC_XenotypesAndGenes_MemeDefs_Shapeshifters">
 		<defName>WVC_XenotypesSupremacy</defName>
 		<label>xenotypes supremacy</label>
 		<description>The truth lies in genetic diversity, the only thing in which we should be similar is in our views.</description>

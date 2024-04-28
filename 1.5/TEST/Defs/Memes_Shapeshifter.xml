@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<MemeDef ParentName="WVC_XenotypesAndGenes_Shapeshifters_Base">
+	<MemeDef ParentName="WVC_XenotypesAndGenes_MemeDefs_Shapeshifters">
 		<defName>WVC_Shapeshifterist</defName>
 		<label>shapeshifter</label>
 		<description>There is no greater good than being who you want.</description>
@@ -14,6 +14,30 @@
 		<requireOne>
 		  <li>
 			<li>WVC_Shapeshifters_Revered</li>
+		  </li>
+		  <li>
+			<li>Cannibalism_Acceptable</li>
+		  </li>
+		  <li>
+			<li>Corpses_DontCare</li>
+		  </li>
+		  <li>
+			<li>NutrientPasteEating_DontMind</li>
+		  </li>
+		  <li>
+			<li>Slavery_Acceptable</li>
+		  </li>
+		  <li>
+			<li>Lovin_Free</li>
+		  </li>
+		  <li>
+			<li>Nudity_Male_NoRules</li>
+		  </li>
+		  <li>
+			<li>Nudity_Female_NoRules</li>
+		  </li>
+		  <li>
+			<li>OrganUse_Acceptable</li>
 		  </li>
 		</requireOne>
 	</MemeDef>

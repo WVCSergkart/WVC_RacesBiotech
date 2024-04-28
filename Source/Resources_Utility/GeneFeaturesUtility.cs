@@ -43,7 +43,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				biter.needs.food.CurLevel += nutritionGain * cells;
 			}
-			if (targetBloodLoss > 0f)
+			if (!victim.WouldDieFromAdditionalBloodLoss(targetBloodLoss) && targetBloodLoss > 0f)
 			{
 				victim.health.AddHediff(HediffDefOf.BloodfeederMark, ExecutionUtility.ExecuteCutPart(victim));
 				Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.BloodLoss, victim);

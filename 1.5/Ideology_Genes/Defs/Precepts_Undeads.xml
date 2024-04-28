@@ -56,6 +56,9 @@
 		<points>3</points>
 	  </li>
 	</comps>
+	<exclusionTags>
+	  <li>WVC_ReveredAndReviledPrecepts_Revered</li>
+	</exclusionTags>
   </PreceptDef>
 
   <PreceptDef>
@@ -78,6 +81,9 @@
 		<description>Undead among us</description>
 	  </li>
 	</comps>
+	<exclusionTags>
+	  <li>WVC_ReveredAndReviledPrecepts_Reviled</li>
+	</exclusionTags>
   </PreceptDef>
 
 
