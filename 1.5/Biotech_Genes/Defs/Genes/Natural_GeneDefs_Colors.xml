@@ -161,14 +161,6 @@
 	<skinColorOverride>(93,101,126)</skinColorOverride>
   </GeneDef>
 
-  <!-- =============== -->
-
-  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride"> -->
-	<!-- <defName>WVC_SkinColor_Dryad</defName> -->
-	<!-- <label>dryad skin</label> -->
-	<!-- <skinColorOverride>(255,203,139)</skinColorOverride> -->
-  <!-- </GeneDef> -->
-
   <!-- ======================================================== -->
 
   <GeneDef ParentName="GeneHairColorBase" Name="WVC_XenotypesAndGenes_GeneHairColorBase" Abstract="True">

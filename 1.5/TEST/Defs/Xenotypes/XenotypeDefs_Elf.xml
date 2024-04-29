@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_TEST" WVC_XaG_XenotypeRemoveTag="Bloodeaters">
-	<defName>WVC_Elf</defName>
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_TEST" Name="WVC_RB_Xenotypes_TEST_Elfs" WVC_XaG_XenotypeRemoveTag="Bloodeaters" Abstract="True">
 	<label>elf</label>
 	<inheritable>true</inheritable>
 	<iconPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_v0</iconPath>
@@ -13,7 +12,7 @@
 		<li>WVC_NaturalAgeless</li>
 		<li>WVC_Delicate</li>
 		<!-- <li>Beauty_Pretty</li> -->
-		<li>WVC_Eyes_69a2ce_HEX</li>
+		<!-- <li>WVC_Eyes_69a2ce_HEX</li> -->
 		<li>Hair_LongOnly</li>
 		<!-- <li>Beard_NoBeardOnly</li> -->
 		<li>Ears_Pointed</li>
@@ -22,7 +21,9 @@
 		<li>WVC_BodySize_Small</li>
 		<li>Hair_SnowWhite</li>
 		<li>WVC_HairColor_ffdcb4_HEX</li>
-		<li>Skin_Melanin1</li>
+		<!-- <li>Skin_Melanin1</li> -->
+		<!-- <li>WVC_SkinColor_DarkBlue</li> -->
+		<!-- <li>Eyes_Red</li> -->
 		<!-- <li>Skin_SheerWhite</li> -->
 		<li>DarkVision</li>
 		<!-- = -->
@@ -37,6 +38,29 @@
 		<li>WVC_Dustogenic_Metabolism</li>
 		<li>FireWeakness</li>
 		<li>FireTerror</li>
+	</genes>
+  </XenotypeDef>
+
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_TEST_Elfs" WVC_XaG_XenotypeRemoveTag="Bloodeaters">
+	<defName>WVC_Elf</defName>
+	<label>elf</label>
+	<inheritable>true</inheritable>
+	<iconPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_v0</iconPath>
+	<genes>
+		<li>WVC_Eyes_69a2ce_HEX</li>
+		<li>Skin_Melanin1</li>
+	</genes>
+  </XenotypeDef>
+
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_TEST_Elfs" WVC_XaG_XenotypeRemoveTag="Bloodeaters">
+	<defName>WVC_DarkElf</defName>
+	<label>dark elf</label>
+	<inheritable>true</inheritable>
+	<iconPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_v0</iconPath>
+	<genes>
+		<li>WVC_SkinColor_DarkBlue</li>
+		<!-- <li>Eyes_Red</li> -->
+		<li>WVC_Eyes_ce6969_HEX</li>
 	</genes>
   </XenotypeDef>
 

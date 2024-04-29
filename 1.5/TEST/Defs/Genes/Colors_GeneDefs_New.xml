@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- =============== -->
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride"> -->
+	<!-- <defName>WVC_SkinColor_Dryad</defName> -->
+	<!-- <label>dryad skin</label> -->
+	<!-- <skinColorOverride>(255,203,139)</skinColorOverride> -->
+  <!-- </GeneDef> -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
+	<defName>WVC_SkinColor_DarkBlue</defName>
+	<label>dark blue skin</label>
+	<skinColorOverride>(60,65,82)</skinColorOverride>
+  </GeneDef>
+
+</Defs>

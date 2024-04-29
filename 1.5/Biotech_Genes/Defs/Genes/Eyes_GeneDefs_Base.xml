@@ -14,10 +14,9 @@
 	<!-- <selectionWeight>0.00085</selectionWeight> -->
 	<selectionWeight>0.00</selectionWeight>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
-	<customEffectDescriptions>
-		<li>Eyes have no outline.</li>
-		<!-- <li>&lt;color=#ff8585&gt;Cannot spawn in genepacks.&lt;/color&gt;</li> -->
-	</customEffectDescriptions>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Eyes have no outline.</li> -->
+	<!-- </customEffectDescriptions> -->
 	<!-- <graphicData> -->
 	  <!-- <drawScale>0.28</drawScale> -->
 	  <!-- <graphicPath>WVC/BodyParts/Eyes/Eye_v0</graphicPath> -->
@@ -52,8 +51,8 @@
 	<iconColor>(255, 255, 255)</iconColor>
 	<renderNodeProperties>
 	  <li Class="PawnRenderNodeProperties_Eye">
-		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
-		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<texPath>WVC/BodyParts/Eyes/Male_Eye_Smaller_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Female_Eye_v0</texPathFemale>
 		<color>(255, 255, 255)</color>
 		<anchorTag>RightEye</anchorTag>
 		<rotDrawMode>Fresh, Rotting</rotDrawMode>
@@ -68,8 +67,8 @@
 		</drawData>
 	  </li>
 	  <li Class="PawnRenderNodeProperties_Eye">
-		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
-		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<texPath>WVC/BodyParts/Eyes/Male_Eye_Smaller_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Female_Eye_v0</texPathFemale>
 		<color>(255, 255, 255)</color>
 		<anchorTag>LeftEye</anchorTag>
 		<rotDrawMode>Fresh, Rotting</rotDrawMode>
@@ -97,8 +96,8 @@
 	<iconColor>(175, 175, 175)</iconColor>
 	<renderNodeProperties>
 	  <li Class="PawnRenderNodeProperties_Eye">
-		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
-		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<texPath>WVC/BodyParts/Eyes/Male_Eye_Smaller_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Female_Eye_v0</texPathFemale>
 		<color>(175, 175, 175)</color>
 		<anchorTag>RightEye</anchorTag>
 		<rotDrawMode>Fresh, Rotting</rotDrawMode>
@@ -113,8 +112,8 @@
 		</drawData>
 	  </li>
 	  <li Class="PawnRenderNodeProperties_Eye">
-		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
-		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<texPath>WVC/BodyParts/Eyes/Male_Eye_Smaller_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Female_Eye_v0</texPathFemale>
 		<color>(175, 175, 175)</color>
 		<anchorTag>LeftEye</anchorTag>
 		<rotDrawMode>Fresh, Rotting</rotDrawMode>
@@ -145,8 +144,8 @@
 	<!-- </graphicData> -->
 	<renderNodeProperties>
 	  <li Class="PawnRenderNodeProperties_Eye">
-		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
-		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<texPath>WVC/BodyParts/Eyes/Male_Eye_Smaller_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Female_Eye_v0</texPathFemale>
 		<color>(155, 133, 255)</color>
 		<anchorTag>RightEye</anchorTag>
 		<rotDrawMode>Fresh, Rotting</rotDrawMode>
@@ -161,8 +160,8 @@
 		</drawData>
 	  </li>
 	  <li Class="PawnRenderNodeProperties_Eye">
-		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
-		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<texPath>WVC/BodyParts/Eyes/Male_Eye_Smaller_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Female_Eye_v0</texPathFemale>
 		<color>(155, 133, 255)</color>
 		<anchorTag>LeftEye</anchorTag>
 		<rotDrawMode>Fresh, Rotting</rotDrawMode>
@@ -193,8 +192,8 @@
 	<!-- </graphicData> -->
 	<renderNodeProperties>
 	  <li Class="PawnRenderNodeProperties_Eye">
-		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
-		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<texPath>WVC/BodyParts/Eyes/Male_Eye_Smaller_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Female_Eye_v0</texPathFemale>
 		<color>(133, 202, 255)</color>
 		<anchorTag>RightEye</anchorTag>
 		<rotDrawMode>Fresh, Rotting</rotDrawMode>
@@ -209,8 +208,8 @@
 		</drawData>
 	  </li>
 	  <li Class="PawnRenderNodeProperties_Eye">
-		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
-		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<texPath>WVC/BodyParts/Eyes/Male_Eye_Smaller_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Female_Eye_v0</texPathFemale>
 		<color>(133, 202, 255)</color>
 		<anchorTag>LeftEye</anchorTag>
 		<rotDrawMode>Fresh, Rotting</rotDrawMode>
@@ -241,8 +240,8 @@
 	<!-- </graphicData> -->
 	<renderNodeProperties>
 	  <li Class="PawnRenderNodeProperties_Eye">
-		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
-		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<texPath>WVC/BodyParts/Eyes/Male_Eye_Smaller_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Female_Eye_v0</texPathFemale>
 		<color>(133, 255, 153)</color>
 		<anchorTag>RightEye</anchorTag>
 		<rotDrawMode>Fresh, Rotting</rotDrawMode>
@@ -257,8 +256,8 @@
 		</drawData>
 	  </li>
 	  <li Class="PawnRenderNodeProperties_Eye">
-		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
-		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<texPath>WVC/BodyParts/Eyes/Male_Eye_Smaller_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Female_Eye_v0</texPathFemale>
 		<color>(133, 255, 153)</color>
 		<anchorTag>LeftEye</anchorTag>
 		<rotDrawMode>Fresh, Rotting</rotDrawMode>
@@ -289,8 +288,8 @@
 	<!-- </graphicData> -->
 	<renderNodeProperties>
 	  <li Class="PawnRenderNodeProperties_Eye">
-		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
-		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<texPath>WVC/BodyParts/Eyes/Male_Eye_Smaller_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Female_Eye_v0</texPathFemale>
 		<color>(133, 255, 153)</color>
 		<anchorTag>RightEye</anchorTag>
 		<rotDrawMode>Fresh, Rotting</rotDrawMode>
@@ -305,8 +304,8 @@
 		</drawData>
 	  </li>
 	  <li Class="PawnRenderNodeProperties_Eye">
-		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
-		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<texPath>WVC/BodyParts/Eyes/Male_Eye_Smaller_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Female_Eye_v0</texPathFemale>
 		<color>(133, 255, 153)</color>
 		<anchorTag>LeftEye</anchorTag>
 		<rotDrawMode>Fresh, Rotting</rotDrawMode>
@@ -337,8 +336,8 @@
 	<!-- </graphicData> -->
 	<renderNodeProperties>
 	  <li Class="PawnRenderNodeProperties_Eye">
-		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
-		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<texPath>WVC/BodyParts/Eyes/Male_Eye_Smaller_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Female_Eye_v0</texPathFemale>
 		<color>(255, 133, 243)</color>
 		<anchorTag>RightEye</anchorTag>
 		<rotDrawMode>Fresh, Rotting</rotDrawMode>
@@ -353,8 +352,8 @@
 		</drawData>
 	  </li>
 	  <li Class="PawnRenderNodeProperties_Eye">
-		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
-		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<texPath>WVC/BodyParts/Eyes/Male_Eye_Smaller_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Female_Eye_v0</texPathFemale>
 		<color>(255, 133, 243)</color>
 		<anchorTag>LeftEye</anchorTag>
 		<rotDrawMode>Fresh, Rotting</rotDrawMode>
@@ -385,8 +384,8 @@
 	<!-- </graphicData> -->
 	<renderNodeProperties>
 	  <li Class="PawnRenderNodeProperties_Eye">
-		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
-		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<texPath>WVC/BodyParts/Eyes/Male_Eye_Smaller_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Female_Eye_v0</texPathFemale>
 		<color>(255, 133, 133)</color>
 		<anchorTag>RightEye</anchorTag>
 		<rotDrawMode>Fresh, Rotting</rotDrawMode>
@@ -401,8 +400,8 @@
 		</drawData>
 	  </li>
 	  <li Class="PawnRenderNodeProperties_Eye">
-		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
-		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<texPath>WVC/BodyParts/Eyes/Male_Eye_Smaller_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Female_Eye_v0</texPathFemale>
 		<color>(255, 133, 133)</color>
 		<anchorTag>LeftEye</anchorTag>
 		<rotDrawMode>Fresh, Rotting</rotDrawMode>
@@ -433,8 +432,8 @@
 	<!-- </graphicData> -->
 	<renderNodeProperties>
 	  <li Class="PawnRenderNodeProperties_Eye">
-		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
-		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<texPath>WVC/BodyParts/Eyes/Male_Eye_Smaller_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Female_Eye_v0</texPathFemale>
 		<color>(255, 216, 133)</color>
 		<anchorTag>RightEye</anchorTag>
 		<rotDrawMode>Fresh, Rotting</rotDrawMode>
@@ -449,8 +448,8 @@
 		</drawData>
 	  </li>
 	  <li Class="PawnRenderNodeProperties_Eye">
-		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
-		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<texPath>WVC/BodyParts/Eyes/Male_Eye_Smaller_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Female_Eye_v0</texPathFemale>
 		<color>(255, 216, 133)</color>
 		<anchorTag>LeftEye</anchorTag>
 		<rotDrawMode>Fresh, Rotting</rotDrawMode>
@@ -481,8 +480,8 @@
 	<!-- </graphicData> -->
 	<renderNodeProperties>
 	  <li Class="PawnRenderNodeProperties_Eye">
-		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
-		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<texPath>WVC/BodyParts/Eyes/Male_Eye_Smaller_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Female_Eye_v0</texPathFemale>
 		<color>(133, 255, 245)</color>
 		<anchorTag>RightEye</anchorTag>
 		<rotDrawMode>Fresh, Rotting</rotDrawMode>
@@ -497,8 +496,8 @@
 		</drawData>
 	  </li>
 	  <li Class="PawnRenderNodeProperties_Eye">
-		<texPath>WVC/BodyParts/Eyes/Eye_v0</texPath>
-		<texPathFemale>WVC/BodyParts/Eyes/Eye_v0</texPathFemale>
+		<texPath>WVC/BodyParts/Eyes/Male_Eye_Smaller_v0</texPath>
+		<texPathFemale>WVC/BodyParts/Eyes/Female_Eye_v0</texPathFemale>
 		<color>(133, 255, 245)</color>
 		<anchorTag>LeftEye</anchorTag>
 		<rotDrawMode>Fresh, Rotting</rotDrawMode>
