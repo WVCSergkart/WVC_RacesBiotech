@@ -77,10 +77,21 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool TryHuntForCells(Pawn pawn)
 		{
-			List<Pawn> colonists = pawn?.Map?.mapPawns?.SpawnedPawnsInFaction(pawn.Faction);
-			List<Pawn> biters = GetAllThrallsFromList(colonists);
+			List<Pawn> targets = new();
+			// =
+			List<Pawn> prisoners = Gene_BloodHunter.GetAndSortPrisoners(pawn);
+			targets.AddRange(prisoners);
+			// =
+			List<Pawn> slaves = pawn?.Map?.mapPawns?.SlavesOfColonySpawned;
+			slaves.Shuffle();
+			targets.AddRange(slaves);
+			// =
+			List<Pawn> colonists = pawn?.Map?.mapPawns?.FreeColonists;
 			colonists.Shuffle();
-			foreach (Pawn colonist in colonists)
+			targets.AddRange(colonists);
+			colonists.Shuffle();
+			// =
+			foreach (Pawn colonist in targets)
 			{
 				if (!GeneFeaturesUtility.CanCellsFeedNowWith(pawn, colonist))
 				{
