@@ -24,7 +24,7 @@
 	  <!-- <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0</ConversionPower> -->
 	  <!-- <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">0</SocialIdeoSpreadFrequencyFactor> -->
 	  <!-- <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">4.0</CertaintyLossFactor> -->
-	  <MentalBreakThreshold>0.6</MentalBreakThreshold>
+	  <MentalBreakThreshold>0.8</MentalBreakThreshold>
 	  <SocialImpact>0.8</SocialImpact>
 	  <RestRateMultiplier>1.5</RestRateMultiplier>
 	</statFactors>

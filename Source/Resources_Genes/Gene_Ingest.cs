@@ -241,7 +241,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (TryHuntForFood(pawn))
+			if (TryHuntForFood())
 			{
 				Messages.Message("WVC_XaG_Gene_EternalHunger_HuntWarning".Translate(pawn.NameShortColored.ToString()), pawn, MessageTypeDefOf.NeutralEvent);
 			}
@@ -466,7 +466,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			TryHuntForFood(pawn);
+			TryHuntForFood();
 		}
 
 		private void InCaravan()

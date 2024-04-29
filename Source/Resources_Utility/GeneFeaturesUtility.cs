@@ -252,6 +252,10 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (MiscUtility.BasicTargetValidation(biter, victim))
 			{
+				// if (victim.guest?.IsInteractionDisabled(PrisonerInteractionModeDefOf.Bloodfeed) == true)
+				// {
+					// return false;
+				// }
 				if (victim.health.hediffSet.HasHediff(HediffDefOf.BloodLoss))
 				{
 					return false;

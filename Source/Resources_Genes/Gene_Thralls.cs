@@ -86,6 +86,10 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
+				if (colonist.IsForbidden(pawn) || !pawn.CanReserveAndReach(colonist, PathEndMode.OnCell, pawn.NormalMaxDanger()))
+				{
+					continue;
+				}
 				if (!MiscUtility.TryGetAbilityJob(pawn, colonist, WVC_GenesDefOf.WVC_XaG_Cellsfeed, out Job job))
 				{
 					continue;

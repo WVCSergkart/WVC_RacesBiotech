@@ -82,7 +82,7 @@ namespace WVC_XenotypesAndGenes
 					defaultLabel = "DEV: TryHuntForFood",
 					action = delegate
 					{
-						if (!TryHuntForFood(pawn))
+						if (!TryHuntForFood())
 						{
 							Log.Error("Target is null");
 						}
@@ -91,18 +91,24 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static bool TryHuntForFood(Pawn pawn)
+		public virtual bool TryHuntForFood()
 		{
 			if (WVC_Biotech.settings.bloodeater_disableAutoFeed)
 			{
 				return false;
 			}
+			// List<Pawn> colonists = new();
 			List<Pawn> colonists = pawn?.Map?.mapPawns?.SpawnedPawnsInFaction(pawn.Faction);
+			// colonists.AddRange(pawn?.Map?.mapPawns?.SpawnedPawnsInFaction(pawn.Faction));
 			List<Pawn> biters = GetAllBloodHuntersFromList(colonists);
 			colonists.Shuffle();
 			foreach (Pawn colonist in colonists)
 			{
 				if (!GeneFeaturesUtility.CanBloodFeedNowWith(pawn, colonist))
+				{
+					continue;
+				}
+				if (colonist.IsForbidden(pawn) || !pawn.CanReserveAndReach(colonist, PathEndMode.OnCell, pawn.NormalMaxDanger()))
 				{
 					continue;
 				}
@@ -158,7 +164,7 @@ namespace WVC_XenotypesAndGenes
 		public static List<Pawn> GetAllBloodHuntersFromList(List<Pawn> pawns)
 		{
 			List<Pawn> hunters = new();
-			foreach (Pawn item in pawns)
+			foreach (Pawn item in pawns.ToList())
 			{
 				if (item?.genes?.GetFirstGeneOfType<Gene_BloodHunter>() == null)
 				{
@@ -168,6 +174,20 @@ namespace WVC_XenotypesAndGenes
 			}
 			return hunters;
 		}
+
+		// public static List<Pawn> GetAllBloodfeedPrisonersFromList(List<Pawn> pawns, bool removeFromList = true)
+		// {
+			// List<Pawn> hunters = new();
+			// foreach (Pawn item in pawns.ToList())
+			// {
+				// if (item?.guest?.IsInteractionDisabled(PrisonerInteractionModeDefOf.Bloodfeed))
+				// {
+					// continue;
+				// }
+				// hunters.Add(item);
+			// }
+			// return hunters;
+		// }
 
 	}
 

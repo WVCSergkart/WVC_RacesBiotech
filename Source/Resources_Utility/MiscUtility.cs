@@ -346,39 +346,34 @@ namespace WVC_XenotypesAndGenes
 		public static int CountAllPlayerXenos()
 		{
 			int mult = 0;
-			// List<XenotypeDef> xenoList = new();
-			// List<CustomXenotype> xenoListB = new();
-			List<Map> maps = Find.Maps;
-			for (int i = 0; i < maps.Count; i++)
-			{
-				foreach (Pawn item in maps[i].mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer))
-				{
-					if (!item.IsHuman())
-					{
-						continue;
-					}
-					// if (item.IsBaseliner())
+			// List<Map> maps = Find.Maps;
+			// for (int i = 0; i < maps.Count; i++)
+			// {
+				// foreach (Pawn item in maps[i].mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer))
+				// {
+					// if (!item.IsHuman())
 					// {
 						// continue;
 					// }
-					if (XaG_GeneUtility.PawnIsBaseliner(item))
-					{
-						continue;
-					}
-					mult++;
-					// if (item.genes.Xenotype != XenotypeDefOf.Baseliner && !xenoList.Contains(item.genes.Xenotype))
+					// if (XaG_GeneUtility.PawnIsBaseliner(item))
 					// {
-						// mult++;
-						// xenoList.Add(item.genes.Xenotype);
+						// continue;
 					// }
-					// else if (item.genes.CustomXenotype != null && !xenoListB.Contains(item.genes.CustomXenotype))
-					// {
-						// mult++;
-						// xenoListB.Add(item.genes.CustomXenotype);
-					// }
+					// mult++;
+				// }
+			// }
+			foreach (Pawn item in PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_Colonists)
+			{
+				if (!item.IsHuman())
+				{
+					continue;
 				}
+				if (XaG_GeneUtility.PawnIsBaseliner(item))
+				{
+					continue;
+				}
+				mult++;
 			}
-			// Log.Error("Xenos in faction: " + mult.ToString());
 			return mult;
 		}
 
