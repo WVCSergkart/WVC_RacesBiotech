@@ -62,4 +62,45 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_DeadlyUVSensitivity : Gene
+	{
+
+		public GeneExtension_Opinion Opinion => def?.GetModExtension<GeneExtension_Opinion>();
+
+		public override void Tick()
+		{
+			base.Tick();
+			if (!pawn.IsHashIntervalTick(1523))
+			{
+				return;
+			}
+			if (pawn.Map == null)
+			{
+				return;
+			}
+			if (!pawn.Position.InSunlight(pawn.Map))
+			{
+				return;
+			}
+			if (!ThoughtWorker_Precept_GroinChestHairOrFaceUncovered.HasUncoveredGroinChestHairOrFace(pawn))
+			{
+				return;
+			}
+			InSunlight();
+		}
+
+		private void InSunlight()
+		{
+			SoundDefOf.Interact_BeatFire.PlayOneShot(pawn);
+			BattleLogEntry_DamageTaken battleLogEntry_DamageTaken = new(pawn, RulePackDefOf.DamageEvent_Fire);
+			Find.BattleLog.Add(battleLogEntry_DamageTaken);
+			pawn.TakeDamage(new DamageInfo(DamageDefOf.Burn, new FloatRange(2.5f, 5.5f).RandomInRange)).AssociateWithLog(battleLogEntry_DamageTaken);
+			if (Opinion?.MeAboutThoughtDef != null)
+			{
+				pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Opinion.MeAboutThoughtDef);
+			}
+		}
+
+	}
+
 }

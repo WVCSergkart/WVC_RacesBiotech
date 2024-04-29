@@ -89,7 +89,6 @@ namespace WVC_XenotypesAndGenes
 			List<Pawn> colonists = pawn?.Map?.mapPawns?.FreeColonists;
 			colonists.Shuffle();
 			targets.AddRange(colonists);
-			colonists.Shuffle();
 			// =
 			foreach (Pawn colonist in targets)
 			{

@@ -358,58 +358,6 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	// Health
-	public class Gene_HealthStomach : Gene
-	{
-
-		public override void Notify_IngestedThing(Thing thing, int numTaken)
-		{
-			base.Notify_IngestedThing(thing, numTaken);
-			if (!Active)
-			{
-				return;
-			}
-			IngestibleProperties ingestible = thing.def.ingestible;
-			float nutrition = thing.GetStatValue(StatDefOf.Nutrition);
-			if (ingestible != null && nutrition > 0f)
-			{
-				int count = GetCount(nutrition, numTaken, 0.05f);
-				for (int num = 0; num < count; num++)
-				{
-					HealingUtility.TryHealRandomPermanentWound(pawn, this, true);
-					// HealWounds();
-				}
-			}
-		}
-
-		public int GetCount(float nutrition, int numTaken, float percent = 0.05f)
-		{
-			int count = 0;
-			float nutritionTaken = nutrition * numTaken;
-			while (nutritionTaken > 0f)
-			{
-				nutritionTaken -= percent;
-				count++;
-			}
-			return count;
-		}
-
-		// public void HealWounds()
-		// {
-			// List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
-			// for (int num = 0; num < hediffs.Count; num++)
-			// {
-				// if (!hediffs[num].TendableNow())
-				// {
-					// continue;
-				// }
-				// hediffs[num].Tended(TendingQualityRange.RandomInRange, TendingQualityRange.TrueMax, 1);
-				// break;
-			// }
-		// }
-
-	}
-
 	public class Gene_HungerlessStomach : Gene_AddOrRemoveHediff
 	{
 

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneStomach_Base">
+	<defName>WVC_HealingStomach</defName>
+	<label>healing stomach</label>
+	<description>Carriers of this gene have archites that synthesize nutrients during the regeneration.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_HealingStomach</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_StomachHealth_v0</iconPath>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<biostatArc>1</biostatArc>
+	<customEffectDescriptions>
+	  <!-- <li>TEXT &lt;color=#8a8ae6&gt;WORD&lt;/color&gt; TEXT &lt;color=#ff8585&gt;WARNING&lt;/color&gt;.</li> -->
+	  <li>Slowly &lt;color=#8a8ae6&gt;regenerates wounds&lt;/color&gt; regardless of the pawn's healing factor.</li>
+	  <li>For &lt;color=#8a8ae6&gt;each wound&lt;/color&gt; and &lt;color=#8a8ae6&gt;each regenerated point&lt;/color&gt;, &lt;color=#8a8ae6&gt;replenishes&lt;/color&gt; the &lt;color=#8a8ae6&gt;hunger&lt;/color&gt; bar by 0.01</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+</Defs>

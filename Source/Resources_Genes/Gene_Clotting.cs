@@ -5,6 +5,38 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
+	// Health
+	public class Gene_HealingStomach : Gene
+	{
+
+		public override void Tick()
+		{
+			base.Tick();
+			if (!pawn.IsHashIntervalTick(2317))
+			{
+				return;
+			}
+			EatWounds();
+		}
+
+		public void EatWounds()
+		{
+			List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
+			float eatedDamage = 0f;
+			foreach (Hediff hediff in hediffs)
+			{
+				if (hediff is not Hediff_Injury injury)
+				{
+					continue;
+				}
+				eatedDamage += 0.005f;
+				injury.Heal(0.5f);
+			}
+			UndeadUtility.OffsetNeedFood(pawn, eatedDamage * pawn.GetStatValue(StatDefOf.RawNutritionFactor));
+		}
+
+	}
+
 	public class Gene_MechaClotting : Gene_AddOrRemoveHediff
 	{
 		// private const int ClotCheckInterval = 750;

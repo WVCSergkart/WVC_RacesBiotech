@@ -5,6 +5,7 @@
 	<inheritable>true</inheritable>
 	<displayPriority>-9000</displayPriority>
 	<!-- <genes Inherit="False"/> -->
+	<factionlessGenerationWeight>1.5</factionlessGenerationWeight>
   </XenotypeDef>
 
 </Defs>

@@ -204,4 +204,18 @@
 
   <!-- ========================================================== -->
 
+  <ThoughtDef>
+	<defName>WVC_XaG_DeadlyUVSensitivity</defName>
+	<durationDays>0.4</durationDays>
+	<stackLimit>6</stackLimit>
+	<stackedEffectMultiplier>0.5</stackedEffectMultiplier>
+	<stages>
+	  <li>
+		<label>sunburn</label>
+		<description>Ahhh.. The sun is burning!!</description>
+		<baseMoodEffect>-12</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
 </Defs>

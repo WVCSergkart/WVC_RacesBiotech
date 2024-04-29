@@ -11,20 +11,11 @@
 		<li>WVC_Bloodeater</li>
 		<li>WVC_NaturalAgeless</li>
 		<li>WVC_Delicate</li>
-		<!-- <li>Beauty_Pretty</li> -->
-		<!-- <li>WVC_Eyes_69a2ce_HEX</li> -->
 		<li>Hair_LongOnly</li>
-		<!-- <li>Beard_NoBeardOnly</li> -->
 		<li>Ears_Pointed</li>
-		<!-- <li>Body_Standard</li> -->
 		<li>WVC_DryadSkin</li>
 		<li>WVC_BodySize_Small</li>
 		<li>Hair_SnowWhite</li>
-		<li>WVC_HairColor_ffdcb4_HEX</li>
-		<!-- <li>Skin_Melanin1</li> -->
-		<!-- <li>WVC_SkinColor_DarkBlue</li> -->
-		<!-- <li>Eyes_Red</li> -->
-		<!-- <li>Skin_SheerWhite</li> -->
 		<li>DarkVision</li>
 		<!-- = -->
 		<li>LongjumpLegs</li>
@@ -35,32 +26,45 @@
 		<li>Neversleep</li>
 		<li>WVC_NaturalImmunity_PerfectImmunity</li>
 		<li>WVC_NaturalDisease_DiseaseFree</li>
-		<li>WVC_Dustogenic_Metabolism</li>
 		<li>FireWeakness</li>
 		<li>FireTerror</li>
+		<!-- = -->
+		<li>WVC_ImplanterFangs</li>
 	</genes>
   </XenotypeDef>
 
   <XenotypeDef ParentName="WVC_RB_Xenotypes_TEST_Elfs" WVC_XaG_XenotypeRemoveTag="Bloodeaters">
-	<defName>WVC_Elf</defName>
-	<label>elf</label>
+	<defName>WVC_Bloodeater</defName>
+	<label>bloodeater</label>
 	<inheritable>true</inheritable>
 	<iconPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_v0</iconPath>
 	<genes>
+		<!-- Graphic -->
 		<li>WVC_Eyes_69a2ce_HEX</li>
 		<li>Skin_Melanin1</li>
+		<li>WVC_HairColor_ffdcb4_HEX</li>
+		<!-- Set -->
+		<li>WVC_Dustogenic_Metabolism</li>
 	</genes>
   </XenotypeDef>
 
   <XenotypeDef ParentName="WVC_RB_Xenotypes_TEST_Elfs" WVC_XaG_XenotypeRemoveTag="Bloodeaters">
-	<defName>WVC_DarkElf</defName>
-	<label>dark elf</label>
+	<defName>WVC_Shadoweater</defName>
+	<label>shadoweater</label>
 	<inheritable>true</inheritable>
-	<iconPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_v0</iconPath>
+	<iconPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_Horns_v0</iconPath>
 	<genes>
-		<li>WVC_SkinColor_DarkBlue</li>
+		<!-- Graphic -->
 		<!-- <li>Eyes_Red</li> -->
+		<li>WVC_SkinColor_DarkBlue</li>
 		<li>WVC_Eyes_ce6969_HEX</li>
+		<li>WVC_HeadBoneHorns</li>
+		<li>WVC_DemonTailA</li>
+		<!-- Set -->
+		<!-- <li>WVC_DebuffUV_StrongInjuryHealing</li> -->
+		<li>WVC_UVSensitivity_Deadly</li>
+		<li>WVC_HealingStomach</li>
+		<li>WVC_WoundHealing_NoHealing</li>
 	</genes>
   </XenotypeDef>
 

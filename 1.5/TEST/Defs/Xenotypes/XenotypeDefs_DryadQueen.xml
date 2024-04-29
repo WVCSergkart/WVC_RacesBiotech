@@ -6,8 +6,9 @@
 	<label>dryad queen</label>
 	<inheritable>false</inheritable>
 	<iconPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_v0</iconPath>
+	<factionlessGenerationWeight>0.0</factionlessGenerationWeight>
 	<doubleXenotypeChances>
-		<WVC_Elf>1.0</WVC_Elf>
+		<WVC_Bloodeater>1.0</WVC_Bloodeater>
 	</doubleXenotypeChances>
 	<genes>
 		<li>WVC_DryadQueen</li>
