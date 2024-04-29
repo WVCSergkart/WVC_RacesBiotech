@@ -90,7 +90,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Bloodfeeder">
 	<defName>WVC_Bloodeater</defName>
 	<label>bloodeater</label>
-	<description>Carriers of this gene cannot eat food; the only way for them to satisfy their hunger is to drink blood.</description>
+	<description>Carriers of this gene cannot eat food; the only way for them to satisfy their hunger is to drink fresh blood.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Bloodeater</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_Bloodeater_v0</iconPath>
 	<displayOrderInCategory>80</displayOrderInCategory>

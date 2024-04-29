@@ -94,10 +94,11 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				if (Gene_BloodHunter.PawnReserved(biters, colonist, pawn))
-				{
-					continue;
-				}
+				// if (Gene_BloodHunter.PawnReserved(biters, colonist, pawn))
+				// {
+					// continue;
+				// }
+				job.def = WVC_GenesDefOf.WVC_XaG_CastCellsfeedOnPawnMelee;
 				if (!Gene_BloodHunter.PawnHaveBloodHuntJob(pawn, job))
 				{
 					pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);

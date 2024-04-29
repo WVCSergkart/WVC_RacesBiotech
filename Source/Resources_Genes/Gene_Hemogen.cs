@@ -100,7 +100,7 @@ namespace WVC_XenotypesAndGenes
 			// List<Pawn> colonists = new();
 			List<Pawn> colonists = pawn?.Map?.mapPawns?.SpawnedPawnsInFaction(pawn.Faction);
 			// colonists.AddRange(pawn?.Map?.mapPawns?.SpawnedPawnsInFaction(pawn.Faction));
-			List<Pawn> biters = GetAllBloodHuntersFromList(colonists);
+			// List<Pawn> biters = GetAllBloodHuntersFromList(colonists);
 			colonists.Shuffle();
 			foreach (Pawn colonist in colonists)
 			{
@@ -116,10 +116,12 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				if (PawnReserved(biters, colonist, pawn))
-				{
-					continue;
-				}
+				// if (PawnReserved(biters, colonist, pawn))
+				// {
+					// continue;
+				// }
+				job.def = WVC_GenesDefOf.WVC_XaG_CastBloodfeedOnPawnMelee;
+				// job.MakeDriver(pawn);
 				if (!PawnHaveBloodHuntJob(pawn, job))
 				{
 					pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);

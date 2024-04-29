@@ -97,6 +97,8 @@ namespace WVC_XenotypesAndGenes
 		public static SoundDef Hive_Spawn;
 		// [MayRequireAnomaly]
 		// public static MutantDef WVC_Thrall;
+		public static JobDef WVC_XaG_CastBloodfeedOnPawnMelee;
+		public static JobDef WVC_XaG_CastCellsfeedOnPawnMelee;
 	}
 
 }
