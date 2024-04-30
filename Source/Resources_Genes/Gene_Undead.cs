@@ -78,6 +78,10 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
 		{
+			if (!Active)
+			{
+				return;
+			}
 			base.Notify_PawnDied(dinfo, culprit);
 			if (!ReincarnationActive())
 			{
