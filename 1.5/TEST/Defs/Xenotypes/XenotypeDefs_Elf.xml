@@ -28,8 +28,6 @@
 		<li>WVC_NaturalDisease_DiseaseFree</li>
 		<li>FireWeakness</li>
 		<li>FireTerror</li>
-		<!-- = -->
-		<li>WVC_ImplanterFangs</li>
 	</genes>
   </XenotypeDef>
 
@@ -65,6 +63,8 @@
 		<li>WVC_UVSensitivity_Deadly</li>
 		<li>WVC_HealingStomach</li>
 		<li>WVC_WoundHealing_NoHealing</li>
+		<!-- = -->
+		<li>WVC_ImplanterFangs</li>
 	</genes>
   </XenotypeDef>
 

@@ -171,7 +171,10 @@ namespace WVC_XenotypesAndGenes
 				DuplicateUtility.NullifySkills(pawn);
 			}
 			// Undead Resurrect
-			ResurrectWithSickness(pawn, WVC_GenesDefOf.WVC_XenotypesAndGenes_WasResurrected);
+			if (!TryResurrectWithSickness(pawn, WVC_GenesDefOf.WVC_XenotypesAndGenes_WasResurrected, true, 0.77f))
+			{
+				return;
+			}
 			// ResurrectionUtility.Resurrect(pawn);
 			// pawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
 			pawn.health.AddHediff(WVC_GenesDefOf.WVC_Resurgent_UndeadResurrectionRecovery);
@@ -198,14 +201,14 @@ namespace WVC_XenotypesAndGenes
 
 		// Resurrection
 
-		public static bool TryResurrectWithSickness(Pawn pawn, ThoughtDef resurrectThought = null, bool resurrectionSickness = true)
+		public static bool TryResurrectWithSickness(Pawn pawn, ThoughtDef resurrectThought = null, bool resurrectionSickness = true, float scarsChance = 0.2f)
 		{
 			ResurrectionParams resurrectionParams = new();
 			resurrectionParams.restoreMissingParts = true;
 			resurrectionParams.noLord = true;
 			resurrectionParams.removeDiedThoughts = true;
 			resurrectionParams.canPickUpOpportunisticWeapons = false;
-			resurrectionParams.gettingScarsChance = 0.2f;
+			resurrectionParams.gettingScarsChance = scarsChance;
 			resurrectionParams.canKidnap = false;
 			resurrectionParams.canSteal = false;
 			resurrectionParams.breachers = false;
