@@ -64,14 +64,14 @@ namespace WVC_XenotypesAndGenes
 			return true;
 		}
 
-		// public override void Notify_PawnDied()
-		// {
-			// base.Notify_PawnDied();
-			// if (WVC_Biotech.settings.genesRemoveMechlinkUponDeath && pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
-			// {
-				// Gene_AddOrRemoveHediff.RemoveHediff(HediffDefOf.MechlinkImplant, pawn);
-			// }
-		// }
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			if (WVC_Biotech.settings.link_removeMechlinkWithGene)
+			{
+				HediffUtility.TryRemoveHediff(HediffDefOf.MechlinkImplant, pawn);
+			}
+		}
 
 		public override void Reset()
 		{

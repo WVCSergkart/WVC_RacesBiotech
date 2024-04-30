@@ -5,12 +5,8 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Psylink : Gene
+	public class Gene_SimplePsylink : Gene
 	{
-
-		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
-
-		public float recoveryRate = 0.01f;
 
 		public override void PostAdd()
 		{
@@ -24,7 +20,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void ChangePsylinkLevel(Pawn pawn)
 		{
-			if (pawn.Map != null)
+			if (pawn.Spawned)
 			{
 				return;
 			}
@@ -35,6 +31,33 @@ namespace WVC_XenotypesAndGenes
 				((Hediff_Level)firstHediffOfDef).ChangeLevel(level.RandomInRange);
 			}
 		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			if (WVC_Biotech.settings.link_removePsylinkWithGene)
+			{
+				HediffUtility.TryRemoveHediff(HediffDefOf.PsychicAmplifier, pawn);
+			}
+		}
+
+		public override void Reset()
+		{
+			base.Reset();
+			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.PsychicAmplifier))
+			{
+				pawn.health.AddHediff(HediffDefOf.PsychicAmplifier, pawn.health.hediffSet.GetBrain());
+			}
+		}
+
+	}
+
+	public class Gene_Psylink : Gene_SimplePsylink
+	{
+
+		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
+
+		public float recoveryRate = 0.01f;
 
 		public override void Tick()
 		{
@@ -67,15 +90,6 @@ namespace WVC_XenotypesAndGenes
 			return giver.curve.Evaluate(pawn.GetPsylinkLevel());
 		}
 
-		public override void Reset()
-		{
-			base.Reset();
-			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.PsychicAmplifier))
-			{
-				pawn.health.AddHediff(HediffDefOf.PsychicAmplifier, pawn.health.hediffSet.GetBrain());
-			}
-		}
-
 		public override void ExposeData()
 		{
 			base.ExposeData();
@@ -98,7 +112,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				pawn.health.AddHediff(HediffDefOf.PsychicAmplifier, pawn.health.hediffSet.GetBrain());
 			}
-			Gene_Psylink.ChangePsylinkLevel(pawn);
+			Gene_SimplePsylink.ChangePsylinkLevel(pawn);
 		}
 
 		public override void Tick()
@@ -129,6 +143,15 @@ namespace WVC_XenotypesAndGenes
 			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.PsychicAmplifier))
 			{
 				pawn.health.AddHediff(HediffDefOf.PsychicAmplifier, pawn.health.hediffSet.GetBrain());
+			}
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			if (WVC_Biotech.settings.link_removePsylinkWithGene)
+			{
+				HediffUtility.TryRemoveHediff(HediffDefOf.PsychicAmplifier, pawn);
 			}
 		}
 

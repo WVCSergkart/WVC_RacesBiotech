@@ -18,6 +18,7 @@
 	<WVC_XaGGeneSettings_Dustogenic>Dustogenic</WVC_XaGGeneSettings_Dustogenic>
 	<WVC_XaGGeneSettings_TelepathStudy>Telepath study</WVC_XaGGeneSettings_TelepathStudy>
 	<WVC_XaGGeneSettings_Hemogenic>Hemogenic</WVC_XaGGeneSettings_Hemogenic>
+	<WVC_XaGGeneSettings_MechAndPsyLinks>Mechlink and Psylink</WVC_XaGGeneSettings_MechAndPsyLinks>
 
 	<!-- ================================== -->
 
@@ -90,5 +91,17 @@ It is recommended to leave this option enabled.</WVC_ToolTip_enableInstabilityLa
 It is recommended to disable it only if you are looking for a challenge.
 
 A restart is required.</WVC_ToolTip_bloodeater_SafeBloodfeed>
+
+	<!-- ================================== -->
+
+	<WVC_Label_link_removeMechlinkWithGene>Remove mechlink with gene</WVC_Label_link_removeMechlinkWithGene>
+	<WVC_ToolTip_link_removeMechlinkWithGene>If enabled, when the corresponding gene is removed, the mechlink is removed too.
+
+Removing a mechlink or psylink is guaranteed to lead to bugs. Use at your own risk.</WVC_ToolTip_link_removeMechlinkWithGene>
+
+	<WVC_Label_link_removePsylinkWithGene>Remove psylink with gene</WVC_Label_link_removePsylinkWithGene>
+	<WVC_ToolTip_link_removePsylinkWithGene>If enabled, when the corresponding gene is removed, the psylink is removed too.
+
+Removing a mechlink or psylink is guaranteed to lead to bugs. Use at your own risk.</WVC_ToolTip_link_removePsylinkWithGene>
 
 </LanguageData>

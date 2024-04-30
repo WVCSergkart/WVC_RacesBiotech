@@ -42,7 +42,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GenePsylink_Base" MayRequire="ludeon.rimworld.royalty">
 	<defName>WVC_NaturalPsylink</defName>
 	<label>natural psylink</label>
-	<geneClass>WVC_XenotypesAndGenes.Gene_PermanentHediff</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_SimplePsylink</geneClass>
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>-3</biostatMet>
 	<modExtensions>

@@ -74,11 +74,14 @@ namespace WVC_XenotypesAndGenes
 		public float reincarnation_MinChronoAge = 200f;
 		public float reincarnation_Chance = 0.08f;
 		// Hemogenic
-		public bool bloodeater_SafeBloodfeed = true;
+		public bool bloodeater_SafeBloodfeed = false;
 		public bool bloodeater_disableAutoFeed = false;
 		public float hemogenic_ImplanterFangsChanceFactor = 1f;
 		// Thralls
 		public bool enableInstabilityLastChanceMechanic = true;
+		// Links
+		public bool link_removeMechlinkWithGene = false;
+		public bool link_removePsylinkWithGene = false;
 		// Xenotypes
 		// public bool increasedXenotypesFactionlessGenerationWeight_MainSwitch = false;
 		public bool disableXenotypes_MainSwitch = false;
@@ -157,11 +160,14 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref reincarnation_MinChronoAge, "reincarnation_MinChronoAge", defaultValue: 200f);
 			Scribe_Values.Look(ref reincarnation_Chance, "reincarnation_Chance", defaultValue: 0.08f);
 			// Hemogenic
-			Scribe_Values.Look(ref bloodeater_SafeBloodfeed, "bloodeater_SafeBloodfeed", defaultValue: true);
+			Scribe_Values.Look(ref bloodeater_SafeBloodfeed, "bloodeater_SafeBloodfeed", defaultValue: false);
 			Scribe_Values.Look(ref bloodeater_disableAutoFeed, "bloodeater_disableAutoFeed", defaultValue: false);
 			Scribe_Values.Look(ref hemogenic_ImplanterFangsChanceFactor, "hemogenic_ImplanterFangsChanceFactor", defaultValue: 1f);
 			// Thralls
 			Scribe_Values.Look(ref enableInstabilityLastChanceMechanic, "enableInstabilityLastChanceMechanic", defaultValue: true);
+			// Links
+			Scribe_Values.Look(ref link_removeMechlinkWithGene, "link_removeMechlinkWithGene", defaultValue: false);
+			Scribe_Values.Look(ref link_removePsylinkWithGene, "link_removePsylinkWithGene", defaultValue: false);
 			// Reincarnation
 			Scribe_Values.Look(ref disableXenotypes_MainSwitch, "disableXenotypes_MainSwitch", defaultValue: false);
 			Scribe_Values.Look(ref disableXenotypes_Undeads, "disableXenotypes_Undeads", defaultValue: false);
@@ -579,6 +585,11 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_enableGenesInfo".Translate(), ref settings.enableGenesInfo, "WVC_ToolTip_enableGenesInfo".Translate());
 			listingStandard.GapLine();
 			// =
+			listingStandard.Label("WVC_XaGGeneSettings_MechAndPsyLinks".Translate() + ":", -1);
+			listingStandard.CheckboxLabeled("WVC_Label_link_removeMechlinkWithGene".Translate(), ref settings.link_removeMechlinkWithGene, "WVC_ToolTip_link_removeMechlinkWithGene".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_link_removePsylinkWithGene".Translate(), ref settings.link_removePsylinkWithGene, "WVC_ToolTip_link_removePsylinkWithGene".Translate());
+			listingStandard.GapLine();
+			// =
 			listingStandard.Label("WVC_XaGGeneSettings_Hemogenic".Translate() + ":", -1);
 			listingStandard.CheckboxLabeled("WVC_Label_bloodeater_SafeBloodfeed".Translate(), ref settings.bloodeater_SafeBloodfeed, "WVC_ToolTip_bloodeater_SafeBloodfeed".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_bloodeater_disableAutoFeed".Translate(), ref settings.bloodeater_disableAutoFeed, "WVC_ToolTip_bloodeater_disableAutoFeed".Translate());
@@ -766,11 +777,14 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.reincarnation_MinChronoAge = 200f;
 			WVC_Biotech.settings.reincarnation_Chance = 0.08f;
 			// =
-			WVC_Biotech.settings.bloodeater_SafeBloodfeed = true;
+			WVC_Biotech.settings.bloodeater_SafeBloodfeed = false;
 			WVC_Biotech.settings.bloodeater_disableAutoFeed = false;
 			WVC_Biotech.settings.hemogenic_ImplanterFangsChanceFactor = 1f;
 			// =
 			WVC_Biotech.settings.enableInstabilityLastChanceMechanic = true;
+			// =
+			WVC_Biotech.settings.link_removeMechlinkWithGene = false;
+			WVC_Biotech.settings.link_removePsylinkWithGene = false;
 			// Extra
 			WVC_Biotech.settings.genesCanTickOnlyOnMap = false;
 			// Xenotypes
@@ -855,6 +869,9 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.hemogenic_ImplanterFangsChanceFactor = 1f;
 			// =
 			WVC_Biotech.settings.enableInstabilityLastChanceMechanic = true;
+			// =
+			WVC_Biotech.settings.link_removeMechlinkWithGene = false;
+			WVC_Biotech.settings.link_removePsylinkWithGene = false;
 			// Extra
 			WVC_Biotech.settings.genesCanTickOnlyOnMap = false;
 			// Xenotypes
