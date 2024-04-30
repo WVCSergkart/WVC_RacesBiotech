@@ -40,6 +40,19 @@ namespace WVC_XenotypesAndGenes
 					Find.WindowStack.Add(new Dialog_Shapeshifter(this));
 				}
 			};
+			if (ModLister.CheckIdeology("Styling station") && WVC_Biotech.settings.shapeshifter_enableStyleButton)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "WVC_XaG_GeneShapeshifterStyles_Label".Translate(),
+					defaultDesc = "WVC_XaG_GeneShapeshifterStyles_Desc".Translate(),
+					icon = ContentFinder<Texture2D>.Get(def.iconPath),
+					action = delegate
+					{
+						Find.WindowStack.Add(new Dialog_StylingShift(pawn, this));
+					}
+				};
+			}
 		}
 
 		public override void PostRemove()

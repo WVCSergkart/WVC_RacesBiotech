@@ -432,6 +432,9 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing>This person's genetic material is regrowing.</WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing>
 	<WVC_XaG_GeneShapeshifter_DisabledPermanent>This person will never be able to use shapeshift.</WVC_XaG_GeneShapeshifter_DisabledPermanent>
 
+	<WVC_XaG_GeneShapeshifterStyles_Label>Change style</WVC_XaG_GeneShapeshifterStyles_Label>
+	<WVC_XaG_GeneShapeshifterStyles_Desc>Opens a menu where you can change the style of the pawn. Including hairstyle and its color, as well as tattoos, both for the face and body.</WVC_XaG_GeneShapeshifterStyles_Desc>
+
 	<WVC_XaG_GeneShapeshifter_DuplicateMode>This person shapeshift mechanites are in overclocking mode. The carrier's genes will not be changed, but instead a copy of the carrier will be created with the set of genes of the selected xenotype.</WVC_XaG_GeneShapeshifter_DuplicateMode>
 
 	<WVC_XaG_GeneShapeshifter_NotPreferredXenotype>Xenotype does not correspond to beliefs.</WVC_XaG_GeneShapeshifter_NotPreferredXenotype>

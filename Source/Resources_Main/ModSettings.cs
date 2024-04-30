@@ -82,6 +82,8 @@ namespace WVC_XenotypesAndGenes
 		// Links
 		public bool link_removeMechlinkWithGene = false;
 		public bool link_removePsylinkWithGene = false;
+		// Shapeshifter
+		public bool shapeshifter_enableStyleButton = true;
 		// Xenotypes
 		// public bool increasedXenotypesFactionlessGenerationWeight_MainSwitch = false;
 		public bool disableXenotypes_MainSwitch = false;
@@ -168,6 +170,8 @@ namespace WVC_XenotypesAndGenes
 			// Links
 			Scribe_Values.Look(ref link_removeMechlinkWithGene, "link_removeMechlinkWithGene", defaultValue: false);
 			Scribe_Values.Look(ref link_removePsylinkWithGene, "link_removePsylinkWithGene", defaultValue: false);
+			// shapeshifter
+			Scribe_Values.Look(ref shapeshifter_enableStyleButton, "shapeshifter_enableStyleButton", defaultValue: true);
 			// Reincarnation
 			Scribe_Values.Look(ref disableXenotypes_MainSwitch, "disableXenotypes_MainSwitch", defaultValue: false);
 			Scribe_Values.Look(ref disableXenotypes_Undeads, "disableXenotypes_Undeads", defaultValue: false);
@@ -586,13 +590,13 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.GapLine();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_MechAndPsyLinks".Translate() + ":", -1);
-			listingStandard.CheckboxLabeled("WVC_Label_link_removeMechlinkWithGene".Translate(), ref settings.link_removeMechlinkWithGene, "WVC_ToolTip_link_removeMechlinkWithGene".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_link_removePsylinkWithGene".Translate(), ref settings.link_removePsylinkWithGene, "WVC_ToolTip_link_removePsylinkWithGene".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_link_removeMechlinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_removeMechlinkWithGene, "WVC_ToolTip_link_removeMechlinkWithGene".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_link_removePsylinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_removePsylinkWithGene, "WVC_ToolTip_link_removePsylinkWithGene".Translate());
 			listingStandard.GapLine();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_Hemogenic".Translate() + ":", -1);
 			listingStandard.CheckboxLabeled("WVC_Label_bloodeater_SafeBloodfeed".Translate(), ref settings.bloodeater_SafeBloodfeed, "WVC_ToolTip_bloodeater_SafeBloodfeed".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_bloodeater_disableAutoFeed".Translate(), ref settings.bloodeater_disableAutoFeed, "WVC_ToolTip_bloodeater_disableAutoFeed".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_bloodeater_disableAutoFeed".Translate().Colorize(ColorLibrary.LightBlue), ref settings.bloodeater_disableAutoFeed, "WVC_ToolTip_bloodeater_disableAutoFeed".Translate());
 			listingStandard.SliderLabeledWithRef("WVC_Label_hemogenic_ImplanterFangsChanceFactor".Translate((settings.hemogenic_ImplanterFangsChanceFactor * 100f).ToString()), ref settings.hemogenic_ImplanterFangsChanceFactor, 0f, 10f, null, 2);
 			listingStandard.GapLine();
 			// =
@@ -604,6 +608,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.Label("WVC_XaGGeneSettings_Undead".Translate() + ":", -1);
 			listingStandard.CheckboxLabeled("WVC_Label_canNonPlayerPawnResurrect".Translate().Colorize(ColorLibrary.LightBlue), ref settings.canNonPlayerPawnResurrect, "WVC_ToolTip_canNonPlayerPawnResurrect".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_allowShapeshiftAfterDeath".Translate().Colorize(ColorLibrary.LightBlue), ref settings.allowShapeshiftAfterDeath, "WVC_ToolTip_allowShapeshiftAfterDeath".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_shapeshifter_enableStyleButton".Translate().Colorize(ColorLibrary.LightBlue), ref settings.shapeshifter_enableStyleButton, "WVC_ToolTip_shapeshifter_enableStyleButton".Translate());
 			listingStandard.GapLine();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_Thralls".Translate() + ":", -1);
@@ -754,6 +759,7 @@ namespace WVC_XenotypesAndGenes
 			// =
 			WVC_Biotech.settings.canNonPlayerPawnResurrect = true;
 			WVC_Biotech.settings.allowShapeshiftAfterDeath = true;
+			WVC_Biotech.settings.shapeshifter_enableStyleButton = true;
 			// =
 			WVC_Biotech.settings.thrallMaker_ThrallsInheritMasterGenes = true;
 			// =
@@ -841,6 +847,7 @@ namespace WVC_XenotypesAndGenes
 			// =
 			WVC_Biotech.settings.canNonPlayerPawnResurrect = true;
 			WVC_Biotech.settings.allowShapeshiftAfterDeath = true;
+			WVC_Biotech.settings.shapeshifter_enableStyleButton = true;
 			// =
 			WVC_Biotech.settings.thrallMaker_ThrallsInheritMasterGenes = true;
 			// =
@@ -872,6 +879,7 @@ namespace WVC_XenotypesAndGenes
 			// =
 			WVC_Biotech.settings.link_removeMechlinkWithGene = false;
 			WVC_Biotech.settings.link_removePsylinkWithGene = false;
+			// =
 			// Extra
 			WVC_Biotech.settings.genesCanTickOnlyOnMap = false;
 			// Xenotypes

@@ -10,7 +10,7 @@ namespace WVC_XenotypesAndGenes
 
 	public class Dialog_Shapeshifter : Dialog_XenotypesBase
 	{
-		public Gene gene;
+		public Gene_Shapeshifter gene;
 		public GeneExtension_Undead shiftExtension;
 
 		public SoundDef soundDefOnImplant;
@@ -26,7 +26,7 @@ namespace WVC_XenotypesAndGenes
 
 		public bool doubleXenotypeReimplantation = true;
 
-		public Dialog_Shapeshifter(Gene thisGene)
+		public Dialog_Shapeshifter(Gene_Shapeshifter thisGene)
 		{
 			// Init
 			gene = thisGene;
@@ -50,7 +50,7 @@ namespace WVC_XenotypesAndGenes
 			duplicateMode = MiscUtility.HasAnyTraits(shiftExtension?.duplicateTraits, gene.pawn) || HediffUtility.HasAnyHediff(shiftExtension?.duplicateHediffs, gene.pawn);
 			trustedXenotypes = shiftExtension?.trustedXenotypes != null ? shiftExtension.trustedXenotypes : new();
 			// Gene stats
-			xenogermComaAfterShapeshift = gene is not Gene_Shapeshifter shapeshifter || shapeshifter.xenogermComaAfterShapeshift;
+			xenogermComaAfterShapeshift = gene.xenogermComaAfterShapeshift;
 		}
 
 		public override void DrawLeftRect(Rect rect, ref float curY)
