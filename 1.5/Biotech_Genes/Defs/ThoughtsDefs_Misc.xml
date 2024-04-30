@@ -209,6 +209,9 @@
 	<durationDays>0.4</durationDays>
 	<stackLimit>6</stackLimit>
 	<stackedEffectMultiplier>0.5</stackedEffectMultiplier>
+	<nullifyingTraits>
+	  <li>Masochist</li>
+	</nullifyingTraits>
 	<stages>
 	  <li>
 		<label>sunburn</label>

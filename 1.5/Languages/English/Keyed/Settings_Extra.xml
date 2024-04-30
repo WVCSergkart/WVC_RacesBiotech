@@ -106,7 +106,7 @@ Removing a mechlink or psylink is guaranteed to lead to bugs. Use at your own ri
 
 	<!-- ================================== -->
 
-	<WVC_Label_shapeshifter_enableStyleButton>Shapeshifter: Enable style button.</WVC_Label_shapeshifter_enableStyleButton>
+	<WVC_Label_shapeshifter_enableStyleButton>Enable style button.</WVC_Label_shapeshifter_enableStyleButton>
 	<WVC_ToolTip_shapeshifter_enableStyleButton>If enabled, the shapeshifter gene will also allow you to change the style of the pawn at any time. This option allows you to change the hairstyle and its color, the beard and its color, tattoos for the face and body.
 
 Acts the same as the styling station from ideology, but does not allow you to dye clothes.

@@ -608,7 +608,6 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.Label("WVC_XaGGeneSettings_Undead".Translate() + ":", -1);
 			listingStandard.CheckboxLabeled("WVC_Label_canNonPlayerPawnResurrect".Translate().Colorize(ColorLibrary.LightBlue), ref settings.canNonPlayerPawnResurrect, "WVC_ToolTip_canNonPlayerPawnResurrect".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_allowShapeshiftAfterDeath".Translate().Colorize(ColorLibrary.LightBlue), ref settings.allowShapeshiftAfterDeath, "WVC_ToolTip_allowShapeshiftAfterDeath".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_shapeshifter_enableStyleButton".Translate().Colorize(ColorLibrary.LightBlue), ref settings.shapeshifter_enableStyleButton, "WVC_ToolTip_shapeshifter_enableStyleButton".Translate());
 			listingStandard.GapLine();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_Thralls".Translate() + ":", -1);
@@ -629,6 +628,7 @@ namespace WVC_XenotypesAndGenes
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_Shapeshifer".Translate() + ":", -1);
 			listingStandard.CheckboxLabeled("WVC_Label_ShapeshifterGeneUnremovable".Translate().Colorize(ColorLibrary.LightBlue), ref settings.shapeshifterGeneUnremovable, "WVC_ToolTip_ShapeshifterGeneUnremovable".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_shapeshifter_enableStyleButton".Translate().Colorize(ColorLibrary.LightBlue), ref settings.shapeshifter_enableStyleButton, "WVC_ToolTip_shapeshifter_enableStyleButton".Translate());
 			listingStandard.GapLine();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_IncestLover".Translate() + ":", -1);

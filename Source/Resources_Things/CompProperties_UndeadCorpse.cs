@@ -32,11 +32,15 @@ namespace WVC_XenotypesAndGenes
 			// ResetCounter();
 		// }
 
+		public Pawn InnerPawn => parent is Corpse corpse ? corpse.InnerPawn : null;
+
+		public Gene_Undead Gene_Undead => InnerPawn.GetUndeadGene(out Gene_Undead gene_undead) ? gene_undead : null;
+
 		public override void PostSpawnSetup(bool respawningAfterLoad)
 		{
 			if (!respawningAfterLoad)
 			{
-				shouldResurrect = parent is Corpse corpse && corpse.InnerPawn.GetUndeadGene(out Gene_Undead gene_undead) && gene_undead.UndeadCanResurrect && (corpse.InnerPawn.IsColonist || WVC_Biotech.settings.canNonPlayerPawnResurrect);
+				shouldResurrect = Gene_Undead?.UndeadCanResurrect == true && (InnerPawn.IsColonist || WVC_Biotech.settings.canNonPlayerPawnResurrect);
 				ResetCounter();
 			}
 		}
@@ -58,7 +62,11 @@ namespace WVC_XenotypesAndGenes
 
 		public void Tick()
 		{
-			if (!shouldResurrect || Find.TickManager.TicksGame < resurrectionDelay)
+			if (!shouldResurrect)
+			{
+				return;
+			}
+			if (Find.TickManager.TicksGame < resurrectionDelay)
 			{
 				return;
 			}
@@ -71,10 +79,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			Pawn pawn = parent is Corpse corpse ? corpse.InnerPawn : null;
-			if (pawn != null && pawn.RaceProps.Humanlike && pawn.GetUndeadGene(out Gene_Undead gene_undead) && gene_undead.UndeadCanResurrect)
+			// Pawn pawn = parent is Corpse corpse ? corpse.InnerPawn : null;
+			if (InnerPawn?.RaceProps?.Humanlike == true && Gene_Undead?.UndeadCanResurrect == true)
 			{
-				UndeadUtility.RegenComaOrDeathrest(pawn, gene_undead);
+				UndeadUtility.RegenComaOrDeathrest(InnerPawn, Gene_Undead);
 			}
 			shouldResurrect = false;
 		}
@@ -82,9 +90,9 @@ namespace WVC_XenotypesAndGenes
 		public void ResetCounter()
 		{
 			int delay = Props.resurrectionDelay.RandomInRange;
-			if (parent is Corpse corpse && corpse.InnerPawn.GetUndeadGene(out Gene_Undead gene_undead) && gene_undead != null)
+			if (Gene_Undead != null)
 			{
-				delay += gene_undead.Giver.additionalDelay.RandomInRange;
+				delay += Gene_Undead.Giver.additionalDelay.RandomInRange;
 			}
 			resurrectionDelay = Find.TickManager.TicksGame + delay;
 		}
