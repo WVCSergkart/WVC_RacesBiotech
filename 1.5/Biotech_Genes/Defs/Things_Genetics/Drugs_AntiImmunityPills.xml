@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="MakeableDrugPillBase">
+	<defName>WVC_AntiImmunityPills</defName>
+	<label>anti-immunity pills</label>
+	<description>A drug for temporary neutralization of the immune system. It is usually used for ideological or experimental purposes. The effect lasts a little longer than a day.</description>
+	<possessionCount>10</possessionCount>
+	<descriptionHyperlinks><HediffDef>WVC_AntiImmunityPillsHigh</HediffDef></descriptionHyperlinks>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Drugs/AntiImmunityPills</texPath>
+	  <graphicClass>Graphic_StackCount</graphicClass>
+	</graphicData>
+	<socialPropernessMatters>false</socialPropernessMatters>
+	<rotatable>false</rotatable>
+	<statBases>
+	  <WorkToMake>820</WorkToMake>
+	  <MarketValue>12</MarketValue>
+	  <Mass>0.005</Mass>
+	  <Flammability>0.7</Flammability>
+	</statBases>
+	<techLevel>Industrial</techLevel>
+	<ingestible>
+	  <drugCategory>Medical</drugCategory>
+	  <outcomeDoers>
+		<li Class="IngestionOutcomeDoer_GiveHediff">
+		  <hediffDef>WVC_AntiImmunityPillsHigh</hediffDef>
+		  <severity>1.0</severity>
+		</li>
+	  </outcomeDoers>
+	</ingestible>
+	<recipeMaker>
+	  <researchPrerequisites>
+		<li>PenoxycylineProduction</li>
+		<!-- <li>Deathrest</li> -->
+	  </researchPrerequisites>
+	  <recipeUsers>
+		<li>DrugLab</li>
+	  </recipeUsers>
+	  <displayPriority>2100</displayPriority>
+	</recipeMaker>
+	<costList>
+	  <PsychoidLeaves>3</PsychoidLeaves>
+	  <Neutroamine>1</Neutroamine>
+	</costList>
+	<comps>
+	  <li Class="CompProperties_Drug">
+		<listOrder>1000</listOrder>
+		<overdoseSeverityOffset>0.08~0.14</overdoseSeverityOffset>
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <HediffDef>
+	<defName>WVC_AntiImmunityPillsHigh</defName>
+	<hediffClass>Hediff_High</hediffClass>
+	<label>anti-immunity pills</label>
+	<description>Anti-immunity pills induced effect during which the immune system has a reduced response to diseases. Great for short term experiments.</description>
+	<defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+	<scenarioCanAdd>false</scenarioCanAdd>
+	<maxSeverity>1.0</maxSeverity>
+	<isBad>false</isBad>
+	<comps>
+	  <li Class="HediffCompProperties_SeverityPerDay">
+		<severityPerDay>-0.66</severityPerDay>
+		<showHoursToRecover>true</showHoursToRecover>
+	  </li>
+	</comps>
+	  <stages>
+		<li>
+		  <statFactors>
+			<ImmunityGainSpeed>0.01</ImmunityGainSpeed>
+		  </statFactors>
+		</li>
+	  </stages>
+  </HediffDef>
+
+</Defs>
