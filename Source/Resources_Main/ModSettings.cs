@@ -80,6 +80,8 @@ namespace WVC_XenotypesAndGenes
 		// Thralls
 		public bool enableInstabilityLastChanceMechanic = true;
 		// Links
+		public bool link_addedMechlinkWithGene = true;
+		public bool link_addedPsylinkWithGene = true;
 		public bool link_removeMechlinkWithGene = false;
 		public bool link_removePsylinkWithGene = false;
 		// Shapeshifter
@@ -168,6 +170,8 @@ namespace WVC_XenotypesAndGenes
 			// Thralls
 			Scribe_Values.Look(ref enableInstabilityLastChanceMechanic, "enableInstabilityLastChanceMechanic", defaultValue: true);
 			// Links
+			Scribe_Values.Look(ref link_addedMechlinkWithGene, "link_addedMechlinkWithGene", defaultValue: true);
+			Scribe_Values.Look(ref link_addedPsylinkWithGene, "link_addedPsylinkWithGene", defaultValue: true);
 			Scribe_Values.Look(ref link_removeMechlinkWithGene, "link_removeMechlinkWithGene", defaultValue: false);
 			Scribe_Values.Look(ref link_removePsylinkWithGene, "link_removePsylinkWithGene", defaultValue: false);
 			// shapeshifter
@@ -590,6 +594,8 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.GapLine();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_MechAndPsyLinks".Translate() + ":", -1);
+			listingStandard.CheckboxLabeled("WVC_Label_link_addedMechlinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_addedMechlinkWithGene, "WVC_ToolTip_link_addedMechlinkWithGene".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_link_addedPsylinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_addedPsylinkWithGene, "WVC_ToolTip_link_addedPsylinkWithGene".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_link_removeMechlinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_removeMechlinkWithGene, "WVC_ToolTip_link_removeMechlinkWithGene".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_link_removePsylinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_removePsylinkWithGene, "WVC_ToolTip_link_removePsylinkWithGene".Translate());
 			listingStandard.GapLine();
@@ -789,6 +795,8 @@ namespace WVC_XenotypesAndGenes
 			// =
 			WVC_Biotech.settings.enableInstabilityLastChanceMechanic = true;
 			// =
+			WVC_Biotech.settings.link_addedMechlinkWithGene = true;
+			WVC_Biotech.settings.link_addedPsylinkWithGene = true;
 			WVC_Biotech.settings.link_removeMechlinkWithGene = false;
 			WVC_Biotech.settings.link_removePsylinkWithGene = false;
 			// Extra
@@ -877,6 +885,8 @@ namespace WVC_XenotypesAndGenes
 			// =
 			WVC_Biotech.settings.enableInstabilityLastChanceMechanic = true;
 			// =
+			WVC_Biotech.settings.link_addedMechlinkWithGene = true;
+			WVC_Biotech.settings.link_addedPsylinkWithGene = true;
 			WVC_Biotech.settings.link_removeMechlinkWithGene = false;
 			WVC_Biotech.settings.link_removePsylinkWithGene = false;
 			// =

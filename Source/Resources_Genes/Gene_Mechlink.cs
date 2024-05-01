@@ -20,6 +20,10 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
+			if (!WVC_Biotech.settings.link_addedMechlinkWithGene)
+			{
+				return;
+			}
 			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
 			{
 				pawn.health.AddHediff(HediffDefOf.MechlinkImplant, pawn.health.hediffSet.GetBrain());
@@ -58,7 +62,7 @@ namespace WVC_XenotypesAndGenes
 			if (!MechanitorUtility.IsMechanitor(pawn))
 			{
 				summonMechanoids = false;
-				Reset();
+				// Reset();
 				return false;
 			}
 			return true;
@@ -73,14 +77,14 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void Reset()
-		{
-			base.Reset();
-			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
-			{
-				pawn.health.AddHediff(HediffDefOf.MechlinkImplant, pawn.health.hediffSet.GetBrain());
-			}
-		}
+		// public override void Reset()
+		// {
+			// base.Reset();
+			// if (!pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
+			// {
+				// pawn.health.AddHediff(HediffDefOf.MechlinkImplant, pawn.health.hediffSet.GetBrain());
+			// }
+		// }
 
 		public override void ExposeData()
 		{

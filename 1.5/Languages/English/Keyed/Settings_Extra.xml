@@ -45,7 +45,7 @@ A restart is required.</WVC_ToolTip_enableBodySizeGenes>
 	<WVC_Label_fixGeneTypesOnLoad>Fix broken gene types on load</WVC_Label_fixGeneTypesOnLoad>
 	<WVC_ToolTip_fixGeneTypesOnLoad>If enabled, it should fix all potentially broken gene types (classes). Safe version of "Fix broken genes". Since it only affects genes with wrong classes. If any genes have an incorrect class, messages will appear in the log.</WVC_ToolTip_fixGeneTypesOnLoad>
 
-	<WVC_Alert_fixBrokenShit>How to use: Enable and load any save. The option only applies to the map on which the player is currently located.
+	<WVC_Alert_fixBrokenShit>How to use: Enable and load any save. The effect must affect all pawns owned by the player.
 
 It is not recommended to use more than one DEV-fix at a time. It might break something.</WVC_Alert_fixBrokenShit>
 
@@ -93,6 +93,12 @@ It is recommended to disable it only if you are looking for a challenge.
 A restart is required.</WVC_ToolTip_bloodeater_SafeBloodfeed>
 
 	<!-- ================================== -->
+
+	<WVC_Label_link_addedMechlinkWithGene>Added mechlink with gene</WVC_Label_link_addedMechlinkWithGene>
+	<WVC_ToolTip_link_addedMechlinkWithGene>If enabled, then the corresponding genes, when added, will give the pawn a mechlink.</WVC_ToolTip_link_addedMechlinkWithGene>
+
+	<WVC_Label_link_addedPsylinkWithGene>Added psylink with gene</WVC_Label_link_addedPsylinkWithGene>
+	<WVC_ToolTip_link_addedPsylinkWithGene>If enabled, then the corresponding genes, when added, will give the pawn a psylink.</WVC_ToolTip_link_addedPsylinkWithGene>
 
 	<WVC_Label_link_removeMechlinkWithGene>Remove mechlink with gene</WVC_Label_link_removeMechlinkWithGene>
 	<WVC_ToolTip_link_removeMechlinkWithGene>If enabled, when the corresponding gene is removed, the mechlink is removed too.

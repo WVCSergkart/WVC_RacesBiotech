@@ -17,6 +17,7 @@ namespace WVC_XenotypesAndGenes
 
 		private int nextRecache = 1500;
 
+		public int cachedPawnsCount = 0;
 		public int cachedXenotypesCount = 0;
 		public int cachedNonHumansCount = 0;
 
@@ -45,7 +46,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			XaG_General();
-			ResetCounter();
+			ResetCounter(new(50000, 70000));
 		}
 
 		public void XaG_General()
@@ -53,6 +54,7 @@ namespace WVC_XenotypesAndGenes
 			// cachedBloodHunters = XaG_GeneUtility.GetAllBloodHunters();
 			if (ModLister.IdeologyInstalled)
 			{
+				cachedPawnsCount = PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_Colonists.Count;
 				cachedXenotypesCount = MiscUtility.CountAllPlayerXenos();
 				cachedNonHumansCount = MiscUtility.CountAllPlayerNonHumanlikes();
 			}
@@ -60,6 +62,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void ExposeData()
 		{
+			Scribe_Values.Look(ref cachedPawnsCount, "cachedPawnsCount", 0);
 			Scribe_Values.Look(ref cachedXenotypesCount, "cachedXenotypesCount", 0);
 			Scribe_Values.Look(ref cachedNonHumansCount, "cachedNonHumansCount", 0);
 			// Scribe_Collections.Look(ref cachedBloodHunters, "cachedBloodHunters", LookMode.Reference);
@@ -69,7 +72,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (WVC_Biotech.settings.fixGeneTypesOnLoad)
 			{
-				foreach (Pawn item in currentGame.CurrentMap.mapPawns.AllPawns.ToList())
+				foreach (Pawn item in PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_Colonists.ToList())
 				{
 					if (item != null && item.RaceProps.Humanlike && item.genes != null)
 					{
@@ -109,7 +112,7 @@ namespace WVC_XenotypesAndGenes
 				// foreach (Pawn item in currentGame.World.worldPawns.AllPawnsAliveOrDead)
 				// List<Pawn> pawns = currentGame.CurrentMap.mapPawns.AllPawns;
 				// Log.Error("1");
-				foreach (Pawn item in currentGame.CurrentMap.mapPawns.AllPawns.ToList())
+				foreach (Pawn item in PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_Colonists.ToList())
 				{
 					if (item != null && item.RaceProps.Humanlike && item.genes != null)
 					{
@@ -138,7 +141,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (WVC_Biotech.settings.fixGeneAbilitiesOnLoad)
 			{
-				foreach (Pawn item in currentGame.CurrentMap.mapPawns.AllPawns.ToList())
+				foreach (Pawn item in PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_Colonists.ToList())
 				{
 					if (item != null && item.RaceProps.Humanlike && item.genes != null)
 					{
@@ -171,9 +174,9 @@ namespace WVC_XenotypesAndGenes
 			// }
 		}
 
-		public void ResetCounter(int frequency = 60000)
+		public void ResetCounter(IntRange interval)
 		{
-			nextRecache = frequency;
+			nextRecache = interval.RandomInRange;
 		}
 
 	}

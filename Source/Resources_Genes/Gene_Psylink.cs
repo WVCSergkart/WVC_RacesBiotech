@@ -11,6 +11,10 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
+			if (!WVC_Biotech.settings.link_addedPsylinkWithGene)
+			{
+				return;
+			}
 			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.PsychicAmplifier))
 			{
 				pawn.health.AddHediff(HediffDefOf.PsychicAmplifier, pawn.health.hediffSet.GetBrain());
@@ -41,14 +45,14 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void Reset()
-		{
-			base.Reset();
-			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.PsychicAmplifier))
-			{
-				pawn.health.AddHediff(HediffDefOf.PsychicAmplifier, pawn.health.hediffSet.GetBrain());
-			}
-		}
+		// public override void Reset()
+		// {
+			// base.Reset();
+			// if (!pawn.health.hediffSet.HasHediff(HediffDefOf.PsychicAmplifier))
+			// {
+				// pawn.health.AddHediff(HediffDefOf.PsychicAmplifier, pawn.health.hediffSet.GetBrain());
+			// }
+		// }
 
 	}
 
@@ -108,6 +112,10 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
+			if (!WVC_Biotech.settings.link_addedPsylinkWithGene)
+			{
+				return;
+			}
 			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.PsychicAmplifier))
 			{
 				pawn.health.AddHediff(HediffDefOf.PsychicAmplifier, pawn.health.hediffSet.GetBrain());
@@ -137,14 +145,14 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void Reset()
-		{
-			base.Reset();
-			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.PsychicAmplifier))
-			{
-				pawn.health.AddHediff(HediffDefOf.PsychicAmplifier, pawn.health.hediffSet.GetBrain());
-			}
-		}
+		// public override void Reset()
+		// {
+			// base.Reset();
+			// if (!pawn.health.hediffSet.HasHediff(HediffDefOf.PsychicAmplifier))
+			// {
+				// pawn.health.AddHediff(HediffDefOf.PsychicAmplifier, pawn.health.hediffSet.GetBrain());
+			// }
+		// }
 
 		public override void PostRemove()
 		{
