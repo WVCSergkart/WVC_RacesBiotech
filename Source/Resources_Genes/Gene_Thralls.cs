@@ -77,18 +77,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool TryHuntForCells(Pawn pawn)
 		{
-			List<Pawn> targets = new();
-			// =
-			List<Pawn> prisoners = Gene_BloodHunter.GetAndSortPrisoners(pawn);
-			targets.AddRange(prisoners);
-			// =
-			List<Pawn> slaves = pawn?.Map?.mapPawns?.SlavesOfColonySpawned;
-			slaves.Shuffle();
-			targets.AddRange(slaves);
-			// =
-			List<Pawn> colonists = pawn?.Map?.mapPawns?.FreeColonists;
-			colonists.Shuffle();
-			targets.AddRange(colonists);
+			List<Pawn> targets = MiscUtility.GetAllPlayerControlledMapPawns_ForBloodfeed(pawn);
 			// =
 			foreach (Pawn colonist in targets)
 			{

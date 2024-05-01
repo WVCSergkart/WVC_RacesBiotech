@@ -317,6 +317,47 @@ namespace WVC_XenotypesAndGenes
 
 		// Pawns
 
+		public static List<Pawn> GetAllPlayerControlledMapPawns_ForBloodfeed(Pawn pawn)
+		{
+			List<Pawn> targets = new();
+			// =
+			List<Pawn> prisoners = GetAndSortPrisoners(pawn);
+			targets.AddRange(prisoners);
+			// =
+			List<Pawn> slaves = pawn?.Map?.mapPawns?.SlavesOfColonySpawned;
+			slaves.Shuffle();
+			targets.AddRange(slaves);
+			// =
+			List<Pawn> colonists = pawn?.Map?.mapPawns?.FreeColonists;
+			colonists.Shuffle();
+			targets.AddRange(colonists);
+			return targets;
+		}
+
+		public static List<Pawn> GetAndSortPrisoners(Pawn pawn)
+		{
+			List<Pawn> allPawns = new();
+			List<Pawn> prisoners = pawn?.Map?.mapPawns?.PrisonersOfColony;
+			List<Pawn> nonBloodfeedPrisoners = new();
+			List<Pawn> bloodfeedPrisoners = new();
+			foreach (Pawn prisoner in prisoners)
+			{
+				if (prisoner.guest.IsInteractionDisabled(PrisonerInteractionModeDefOf.Bloodfeed))
+				{
+					nonBloodfeedPrisoners.Add(prisoner);
+				}
+				else
+				{
+					bloodfeedPrisoners.Add(prisoner);
+				}
+			}
+			bloodfeedPrisoners.Shuffle();
+			allPawns.AddRange(bloodfeedPrisoners);
+			nonBloodfeedPrisoners.Shuffle();
+			allPawns.AddRange(nonBloodfeedPrisoners);
+			return allPawns;
+		}
+
 		public static Pawn GetFirstConnectedPawn(Pawn slave)
 		{
 			if (slave.RaceProps.Dryad)

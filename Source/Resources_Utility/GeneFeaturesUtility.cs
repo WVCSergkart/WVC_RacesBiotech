@@ -160,8 +160,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			List<Pawn> workingList = pawn.Map.mapPawns.SpawnedPawnsInFaction(pawn.Faction);
-			workingList.Shuffle();
+			List<Pawn> workingList = MiscUtility.GetAllPlayerControlledMapPawns_ForBloodfeed(pawn);
+			// workingList.Shuffle();
 			for (int i = 0; i < workingList.Count; i++)
 			{
 				Pawn p = workingList[i];
@@ -221,8 +221,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			List<Pawn> workingList = pawn.Map.mapPawns.SpawnedPawnsInFaction(pawn.Faction);
-			workingList.Shuffle();
+			List<Pawn> workingList = MiscUtility.GetAllPlayerControlledMapPawns_ForBloodfeed(pawn);
+			// workingList.Shuffle();
 			for (int i = 0; i < workingList.Count; i++)
 			{
 				Pawn p = workingList[i];

@@ -97,21 +97,9 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			List<Pawn> targets = new();
-			// List<Pawn> colonists = pawn?.Map?.mapPawns?.SpawnedPawnsInFaction(pawn.Faction);
 			// =
-			List<Pawn> prisoners = GetAndSortPrisoners(pawn);
-			targets.AddRange(prisoners);
+			List<Pawn> targets = MiscUtility.GetAllPlayerControlledMapPawns_ForBloodfeed(pawn);
 			// =
-			List<Pawn> slaves = pawn?.Map?.mapPawns?.SlavesOfColonySpawned;
-			slaves.Shuffle();
-			targets.AddRange(slaves);
-			// =
-			List<Pawn> colonists = pawn?.Map?.mapPawns?.FreeColonists;
-			colonists.Shuffle();
-			targets.AddRange(colonists);
-			// =
-			// List<Pawn> biters = GetAllBloodHuntersFromList(colonists);
 			foreach (Pawn colonist in targets)
 			{
 				if (!GeneFeaturesUtility.CanBloodFeedNowWith(pawn, colonist))
@@ -140,30 +128,6 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 			return false;
-		}
-
-		public static List<Pawn> GetAndSortPrisoners(Pawn pawn)
-		{
-			List<Pawn> allPawns = new();
-			List<Pawn> prisoners = pawn?.Map?.mapPawns?.PrisonersOfColony;
-			List<Pawn> nonBloodfeedPrisoners = new();
-			List<Pawn> bloodfeedPrisoners = new();
-			foreach (Pawn prisoner in prisoners)
-			{
-				if (prisoner.guest.IsInteractionDisabled(PrisonerInteractionModeDefOf.Bloodfeed))
-				{
-					nonBloodfeedPrisoners.Add(prisoner);
-				}
-				else
-				{
-					bloodfeedPrisoners.Add(prisoner);
-				}
-			}
-			bloodfeedPrisoners.Shuffle();
-			allPawns.AddRange(bloodfeedPrisoners);
-			nonBloodfeedPrisoners.Shuffle();
-			allPawns.AddRange(nonBloodfeedPrisoners);
-			return allPawns;
 		}
 
 		public static bool PawnHaveBloodHuntJob(Pawn pawn, Job job)
