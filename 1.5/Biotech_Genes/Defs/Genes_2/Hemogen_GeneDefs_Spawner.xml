@@ -4,7 +4,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Base">
 	<defName>WVC_BloodyGrowths</defName>
 	<label>bloody growths</label>
-	<description>Carriers of this gene have special sac-like growths in some parts of the body. If the amount of hemogen reaches a limit value, these growths begin to fill with hemogen and separate.</description>
+	<description>Carriers of this gene have special sac-like growths in some parts of the body. If the amount of hemogen reaches a limit value, these growths are filled with hemogen, crystallize, and then separate.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_BloodyGrowths</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_BloodyGrowths_v0</iconPath>
 	<displayOrderInCategory>80</displayOrderInCategory>
@@ -33,6 +33,7 @@
 			<stackCount>1</stackCount>
 			<hemogenPerThing>0.16</hemogenPerThing>
 			<matchPercent>0.92</matchPercent>
+			<styleDef MayRequire="ludeon.rimworld.ideology">WVC_XaG_HemogenCrystal</styleDef>
 		</li>
 	</modExtensions>
   </GeneDef>

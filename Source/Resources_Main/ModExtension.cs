@@ -71,6 +71,7 @@ namespace WVC_XenotypesAndGenes
 		public ThoughtDef dryadDiedMemoryDef;
 		//BloodyGrowths
 		public float hemogenPerThing = 0.2f;
+		public ThingStyleDef styleDef = null;
 	}
 
 	public class GeneExtension_Undead : DefModExtension

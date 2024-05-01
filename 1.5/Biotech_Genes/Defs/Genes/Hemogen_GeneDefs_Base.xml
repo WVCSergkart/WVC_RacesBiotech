@@ -72,7 +72,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Base">
 	<defName>WVC_BloodHarvester</defName>
 	<label>blood harvester</label>
-	<description>Carriers of this gene have a strong psychic influence on others. Non-hemogenic pawns regularly suffer from blood loss.</description>
+	<description>Carriers of this gene can, using psychic influence, extract hemogen from those around them. They crystallize hemogen in the target's blood and then use microscopic skip gates to extract it. This causes blood loss to the targets, but does not threaten their life.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_BloodHarvester</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_BloodHarvester_v0</iconPath>
 	<displayOrderInCategory>75</displayOrderInCategory>
@@ -99,6 +99,7 @@
 			<thingDefToSpawn>HemogenPack</thingDefToSpawn>
 			<stackCount>1</stackCount>
 			<spawnIntervalRange><min>180000</min><max>300000</max></spawnIntervalRange>
+			<styleDef MayRequire="ludeon.rimworld.ideology">WVC_XaG_HemogenCrystal</styleDef>
 		</li>
 	</modExtensions>
   </GeneDef>

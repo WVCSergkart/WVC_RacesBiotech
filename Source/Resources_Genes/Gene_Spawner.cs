@@ -394,13 +394,28 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (Hemogen.Value >= (Hemogen.Max * Props.matchPercent))
 			{
-				MiscUtility.SpawnItems(pawn, Props.thingDefToSpawn, Props.stackCount);
+				SpawnItems(pawn, Props.thingDefToSpawn, Props.stackCount, styleDef: Props.styleDef);
 				Hemogen.Value -= Props.hemogenPerThing * Props.stackCount;
 				SoundDefOf.Execute_Cut.PlayOneShot(pawn);
 				GeneFeaturesUtility.TrySpawnBloodFilth(pawn, new(1,2));
 				return true;
 			}
 			return false;
+		}
+
+		public static void SpawnItems(Pawn pawn, ThingDef thingDef, int stack, bool showMessage = false, string message = "MessageCompSpawnerSpawnedItem", ThingStyleDef styleDef = null)
+		{
+			Thing thing = ThingMaker.MakeThing(thingDef);
+			thing.stackCount = stack;
+			if (styleDef != null)
+			{
+				thing.SetStyleDef(styleDef);
+			}
+			GenPlace.TryPlaceThing(thing, pawn.Position, pawn.Map, ThingPlaceMode.Near, null, null, default);
+			if (showMessage)
+			{
+				Messages.Message(message.Translate(thing.LabelCap), thing, MessageTypeDefOf.PositiveEvent);
+			}
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()

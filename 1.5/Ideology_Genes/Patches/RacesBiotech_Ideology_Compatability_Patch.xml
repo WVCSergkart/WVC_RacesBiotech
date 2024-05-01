@@ -4,6 +4,23 @@
 	<Operation Class="PatchOperationSequence">
 		<success>Always</success>
 		<operations>
+			<li Class="PatchOperationTest">
+			  <xpath>/Defs/ThingDef[defName="HemogenPack"]/comps/li[@Class="CompProperties_Styleable"]</xpath>
+			  <success>Invert</success>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/ThingDef[defName="HemogenPack"]/comps</xpath>
+			  <success>Always</success>
+			  <value>
+				<li Class="CompProperties_Styleable" />
+			  </value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
 			<li Class="PatchOperationAdd">
 			  <xpath>/Defs/ThoughtDef[defName="Disfigured"]/nullifyingGenes</xpath>
 			  <success>Invert</success>

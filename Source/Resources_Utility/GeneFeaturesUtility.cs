@@ -154,7 +154,7 @@ namespace WVC_XenotypesAndGenes
 
 		// ============================= GENE PSY HARVESTER =============================
 
-		public static bool TryHarvest(Pawn pawn, ThingDef thingDef, int stackCount, float targetBloodLoss = 0.4499f)
+		public static bool TryHarvest(Pawn pawn, ThingDef thingDef, int stackCount, float targetBloodLoss = 0.4499f, ThingStyleDef styleDef = null)
 		{
 			if (pawn?.Map == null || pawn.Downed)
 			{
@@ -179,14 +179,14 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (CanBloodFeedNowWith(pawn, p))
 				{
-					DoPsychicHarvest(pawn, p, thingDef, stackCount, targetBloodLoss, new (1, 2));
+					DoPsychicHarvest(pawn, p, thingDef, stackCount, targetBloodLoss, new (1, 2), styleDef: styleDef);
 				}
 			}
 			FleckMaker.AttachedOverlay(pawn, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
 			return true;
 		}
 
-		public static void DoPsychicHarvest(Pawn biter, Pawn victim, ThingDef thingDef, int stackCount, float targetBloodLoss, IntRange bloodFilthToSpawnRange)
+		public static void DoPsychicHarvest(Pawn biter, Pawn victim, ThingDef thingDef, int stackCount, float targetBloodLoss, IntRange bloodFilthToSpawnRange, ThingStyleDef styleDef = null)
 		{
 			if (victim?.Map == null || biter?.Map == null)
 			{
@@ -198,12 +198,13 @@ namespace WVC_XenotypesAndGenes
 			// {
 				// return;
 			// }
-			MiscUtility.SpawnItems(victim, thingDef, finalStack > 1 ? finalStack : 1);
+			Gene_BloodyGrowths.SpawnItems(victim, thingDef, finalStack > 1 ? finalStack : 1, styleDef: styleDef);
 			if (targetBloodLoss > 0f)
 			{
 				Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.BloodLoss, victim);
 				hediff.Severity = targetBloodLoss;
 				victim.health.AddHediff(hediff);
+				SoundDefOf.Execute_Cut.PlayOneShot(victim);
 				TrySpawnBloodFilth(victim, bloodFilthToSpawnRange);
 			}
 		}

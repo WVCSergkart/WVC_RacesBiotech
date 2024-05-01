@@ -135,7 +135,7 @@
 		<li>WVC_BodySize_Average</li>
 		<li>WVC_BodySize_Small</li>
 		<!-- = -->
-		<li>WVC_Invisibility</li>
+		<li MayRequire="ludeon.rimworld.royalty">WVC_Invisibility</li>
 		<!-- = -->
 		<li>WVC_StoneStomach</li>
 		<li>WVC_SleepyStomach</li>
