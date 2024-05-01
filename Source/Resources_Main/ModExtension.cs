@@ -69,6 +69,8 @@ namespace WVC_XenotypesAndGenes
 		public StatDef dryadsStatLimit;
 		public HediffDef postGestationSickness;
 		public ThoughtDef dryadDiedMemoryDef;
+		//BloodyGrowths
+		public float hemogenPerThing = 0.2f;
 	}
 
 	public class GeneExtension_Undead : DefModExtension

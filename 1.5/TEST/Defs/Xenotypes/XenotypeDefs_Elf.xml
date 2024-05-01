@@ -12,7 +12,8 @@
 		<li>WVC_NaturalAgeless</li>
 		<li>WVC_Delicate</li>
 		<li>Hair_LongOnly</li>
-		<li>Ears_Pointed</li>
+		<!-- <li>Ears_Pointed</li> -->
+		<li>WVC_Ears_PointedA</li>
 		<li>WVC_DryadSkin</li>
 		<li>WVC_BodySize_Small</li>
 		<li>Hair_SnowWhite</li>
@@ -43,6 +44,7 @@
 		<li>WVC_HairColor_ffdcb4_HEX</li>
 		<!-- Set -->
 		<li>WVC_Dustogenic_Metabolism</li>
+		<li>WVC_BloodyGrowths</li>
 	</genes>
   </XenotypeDef>
 

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Verse;
+using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -369,5 +370,57 @@ namespace WVC_XenotypesAndGenes
 			// Scribe_Values.Look(ref ticksUntilSpawn, "ticksToSpawnThing", 0);
 		// }
 	// }
+
+	public class Gene_BloodyGrowths : Gene_HemogenOffset
+	{
+
+		public GeneExtension_Spawner Props => def?.GetModExtension<GeneExtension_Spawner>();
+
+		public override void Tick()
+		{
+			base.Tick();
+			if (!pawn.IsHashIntervalTick(54623))
+			{
+				return;
+			}
+			if (Hemogen == null || Props == null)
+			{
+				return;
+			}
+			TrySpawnHemogenPack();
+		}
+
+		private bool TrySpawnHemogenPack()
+		{
+			if (Hemogen.Value >= (Hemogen.Max * Props.matchPercent))
+			{
+				MiscUtility.SpawnItems(pawn, Props.thingDefToSpawn, Props.stackCount);
+				Hemogen.Value -= Props.hemogenPerThing * Props.stackCount;
+				SoundDefOf.Execute_Cut.PlayOneShot(pawn);
+				GeneFeaturesUtility.TrySpawnBloodFilth(pawn, new(1,2));
+				return true;
+			}
+			return false;
+		}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: ForceSpawn " + Props.thingDefToSpawn.label,
+					action = delegate
+					{
+						if (!TrySpawnHemogenPack())
+						{
+							Log.Error("Failed spawn hemogen pack. Current hemogen level: " + Hemogen.Value.ToString());
+						}
+					}
+				};
+			}
+		}
+
+	}
 
 }

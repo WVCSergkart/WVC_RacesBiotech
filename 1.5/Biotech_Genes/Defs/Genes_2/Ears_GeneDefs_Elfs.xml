@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_Base">
+	<defName>WVC_Ears_PointedA</defName>
+	<label>elf ears</label>
+	<description>Carriers of this gene have elf ears.</description>
+	<iconPath>UI/Icons/Genes/Gene_EarPointed</iconPath>
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<texPaths>
+			<li>WVC/BodyParts/ElfEars/PointedEars</li>
+			<li>WVC/BodyParts/ElfEars/PointedEarsB</li>
+			<li>WVC/BodyParts/ElfEars/PointedEarsC</li>
+		</texPaths>
+		<colorType>Skin</colorType>
+		<parentTagDef>Head</parentTagDef>
+		<useSkinShader>true</useSkinShader>
+		<useRottenColor>true</useRottenColor>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<drawData>
+		  <defaultData>
+			<layer>70</layer>
+		  </defaultData>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>point</symbol></li>
+		<li><symbol>sharp</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>ear</symbol></li>
+		<li><symbol>point</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- ================================================================== -->
+
+</Defs>

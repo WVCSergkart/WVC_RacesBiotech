@@ -1,30 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <GeneDef ParentName="GeneEarsBase" Name="WVC_XenotypesAndGenes_GeneEars_Base" Abstract="True">
+	<displayCategory>WVC_Cosmetic</displayCategory>
+	<selectionWeight>0.00125</selectionWeight>
+  </GeneDef>
+
   <!-- Ears -->
 
-  <GeneDef ParentName="GeneEarsBase" Name="WVC_XenotypesAndGenes_GeneEars_Base" Abstract="True">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_Base" Name="WVC_XenotypesAndGenes_GeneEars_KittyEars" Abstract="True">
 	<!-- <defName>WVC_Mecha_EarsCat</defName> -->
 	<label>mecha-cat ears</label>
 	<description>Carriers of this gene have mechanoid cat-like ears. Additional audio sensors in the ears improve hearing.</description>
 	<iconPath>UI/Icons/Genes/Gene_EarCat</iconPath>
-	<displayCategory>WVC_Cosmetic</displayCategory>
-	<!-- <displayOrderInCategory>1200</displayOrderInCategory> -->
-	<!-- <displayOrderInCategory>250</displayOrderInCategory> -->
-	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
-	<!-- <prerequisite>WVC_MechaAI_Base</prerequisite> -->
 	<selectionWeight>0.00125</selectionWeight>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
-	<!-- <biostatMet>-1</biostatMet> -->
 	<minAgeActive>0</minAgeActive>
-	<!-- <statOffsets> -->
-	  <!-- <WVC_PawnMechanoidization>1</WVC_PawnMechanoidization> -->
-	<!-- </statOffsets> -->
-	<!-- <graphicData> -->
-	  <!-- <colorType>Hair</colorType> -->
-	  <!-- <useSkinShader>false</useSkinShader> -->
-	<!-- </graphicData> -->
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>cat</symbol></li>
@@ -43,7 +35,7 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_KittyEars">
 	<defName>WVC_CatEarsA</defName>
 	<label>cat ears</label>
 	<description>Carriers of this gene have cat-like ears.</description>
@@ -75,7 +67,7 @@
 	</capMods>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_KittyEars">
 	<defName>WVC_FoxEarsA</defName>
 	<label>spikelike ears</label>
 	<description>Carriers of this gene have spike-like ears.</description>
@@ -112,7 +104,7 @@
 	</capMods>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_KittyEars">
 	<defName>WVC_Mecha_EarsCat</defName>
 	<label>cat ears</label>
 	<iconPath>WVC/BodyParts/MecaGene_Ears/CatEars_icon</iconPath>
@@ -151,7 +143,7 @@
 	  </li>
 	</capMods>
   </GeneDef>
-  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_Base"> -->
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_KittyEars"> -->
 	<!-- <defName>WVC_Mecha_QuadEarsCat</defName> -->
 	<!-- <label>quad-cat ears</label> -->
 	<!-- <iconPath>WVC/BodyParts/MecaGene_Ears/FourCatEars_icon</iconPath> -->
@@ -168,7 +160,7 @@
 	<!-- </capMods> -->
   <!-- </GeneDef> -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_KittyEars">
 	<defName>WVC_Mecha_RedFormerEarsDouble</defName>
 	<label>spikelike ears</label>
 	<description>Carriers of this gene have mechanoid spike-like ears. Additional audio sensors in the ears improve hearing.</description>
@@ -208,7 +200,7 @@
 	  </li>
 	</capMods>
   </GeneDef>
-  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_Base"> -->
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_KittyEars"> -->
 	<!-- <defName>WVC_Mecha_RedFormerEarsQuad</defName> -->
 	<!-- <label>quad-spikelike ears</label> -->
 	<!-- <description>Carriers of this gene have mechanoid spike-like ears. Additional audio sensors in the ears improve hearing.</description> -->
@@ -226,7 +218,7 @@
 	<!-- </capMods> -->
   <!-- </GeneDef> -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_KittyEars">
 	<defName>WVC_Mecha_RedFormerSpikesDouble</defName>
 	<label>spikes</label>
 	<description>Carriers of this gene have mechanoid spikes.</description>
@@ -262,7 +254,7 @@
 	  <ArmorRating_Heat>0.27</ArmorRating_Heat>
 	</statOffsets>
   </GeneDef>
-  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_Base"> -->
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_KittyEars"> -->
 	<!-- <defName>WVC_Mecha_RedFormerSpikesQuad</defName> -->
 	<!-- <label>quad spikes</label> -->
 	<!-- <description>Carriers of this gene have mechanoid spikes.</description> -->
@@ -278,7 +270,7 @@
 	<!-- </statOffsets> -->
   <!-- </GeneDef> -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_KittyEars">
 	<defName>WVC_Mecha_YellowFormerAntennaDouble</defName>
 	<label>antenna</label>
 	<description>Carriers of this gene have mechanoid antenna.</description>
@@ -316,7 +308,7 @@
 	  <MechControlGroups>4</MechControlGroups>
 	</statOffsets>
   </GeneDef>
-  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_Base"> -->
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_KittyEars"> -->
 	<!-- <defName>WVC_Mecha_YellowFormerAntennaQuad</defName> -->
 	<!-- <label>quad-antenna</label> -->
 	<!-- <description>Carriers of this gene have mechanoid antenna.</description> -->
@@ -333,7 +325,7 @@
 	<!-- </statOffsets> -->
   <!-- </GeneDef> -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_KittyEars">
 	<defName>WVC_Mecha_NoEars</defName>
 	<label>protective plate</label>
 	<description>Carriers of this gene have additional head protection.</description>

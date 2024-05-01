@@ -50,6 +50,15 @@ namespace WVC_XenotypesAndGenes
 				hediff.Severity = targetBloodLoss;
 				victim.health.AddHediff(hediff);
 			}
+			TrySpawnBloodFilth(victim, bloodFilthToSpawnRange);
+		}
+
+		public static bool TrySpawnBloodFilth(Pawn victim, IntRange bloodFilthToSpawnRange)
+		{
+			if (victim?.Map == null)
+			{
+				return false;
+			}
 			int randomInRange = bloodFilthToSpawnRange.RandomInRange;
 			for (int i = 0; i < randomInRange; i++)
 			{
@@ -63,6 +72,7 @@ namespace WVC_XenotypesAndGenes
 					FilthMaker.TryMakeFilth(c, victim.MapHeld, victim.RaceProps.BloodDef, victim.LabelShort);
 				}
 			}
+			return true;
 		}
 
 		// ============================= GENE Learning Telepath =============================
@@ -194,20 +204,7 @@ namespace WVC_XenotypesAndGenes
 				Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.BloodLoss, victim);
 				hediff.Severity = targetBloodLoss;
 				victim.health.AddHediff(hediff);
-				SoundDefOf.Execute_Cut.PlayOneShot(victim);
-				int randomInRange = bloodFilthToSpawnRange.RandomInRange;
-				for (int i = 0; i < randomInRange; i++)
-				{
-					IntVec3 c = victim.Position;
-					if (randomInRange > 1 && Rand.Chance(0.8888f))
-					{
-						c = victim.Position.RandomAdjacentCell8Way();
-					}
-					if (c.InBounds(victim.MapHeld))
-					{
-						FilthMaker.TryMakeFilth(c, victim.MapHeld, victim.RaceProps.BloodDef, victim.LabelShort);
-					}
-				}
+				TrySpawnBloodFilth(victim, bloodFilthToSpawnRange);
 			}
 		}
 
