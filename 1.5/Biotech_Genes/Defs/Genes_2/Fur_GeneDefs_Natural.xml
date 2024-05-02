@@ -3,7 +3,7 @@
 
   <GeneDef Name="WVC_XenotypesAndGenes_FurskinNatural" Abstract="True" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<description>TEST DESC</description>
-	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Exoskin</geneClass> -->
+	<geneClass>WVC_XenotypesAndGenes.Gene_Exoskin</geneClass>
 	<displayCategory>WVC_Cosmetic</displayCategory>
 	<displayOrderInCategory>400</displayOrderInCategory>
 	<selectionWeight>0.00185</selectionWeight>

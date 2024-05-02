@@ -49,7 +49,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Feminine : Gene, IGeneLifeStageStarted
+	public class Gene_Feminine : Gene_Exoskin, IGeneLifeStageStarted
 	{
 
 		public override void PostAdd()

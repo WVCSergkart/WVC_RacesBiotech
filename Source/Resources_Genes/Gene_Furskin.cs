@@ -7,23 +7,43 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	// public class Gene_LifeStageStarted : Gene
-	// {
-
-		// public virtual void Notify_LifeStageStarted()
-		// {
-		// }
-
-	// }
-
-	// WIP
-
 	public class Gene_Exoskin : Gene
 	{
 
 		public GeneExtension_Graphic Graphic => def?.GetModExtension<GeneExtension_Graphic>();
 
 		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			CreepJoiner();
+		}
+
+		public void CreepJoiner()
+		{
+			if (!Active)
+			{
+				return;
+			}
+			if (!ModsConfig.AnomalyActive)
+			{
+				return;
+			}
+			CreepJoinerFormKindDef formKindDef = pawn?.creepjoiner?.form;
+			if (formKindDef != null)
+			{
+				if (formKindDef.forcedHeadTypes.NullOrEmpty())
+				{
+					return;
+				}
+				if (formKindDef.forcedHeadTypes.Contains(pawn.story.headType))
+				{
+					return;
+				}
+				pawn.story.TryGetRandomHeadFromSet(formKindDef.forcedHeadTypes);
+			}
+		}
 
 	}
 
