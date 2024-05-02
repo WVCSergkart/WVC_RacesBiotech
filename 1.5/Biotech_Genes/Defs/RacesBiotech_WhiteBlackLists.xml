@@ -66,6 +66,8 @@
 		<li>TribeChild19</li>
 		<li>TribeMember57</li>
 		<li>VatgrownChild11</li>
+		<li MayRequire="ludeon.rimworld.anomaly">UnknownChildhood</li>
+		<li MayRequire="ludeon.rimworld.anomaly">UnknownAdulthood</li>
 	</blackListedBackstoryForChanger>
 	<!-- Words that should not be in the defName of Mechanoids. Used to random summon mechanoids. Required any string -->
 	<mechDefNameShouldNotContain>
