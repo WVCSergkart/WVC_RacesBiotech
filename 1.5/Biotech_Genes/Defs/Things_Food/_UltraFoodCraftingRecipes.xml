@@ -95,7 +95,16 @@
 			<li>PlantFoodRaw</li>
 		  </categories>
 		</filter>
-		<count>0.60</count>
+		<count>0.50</count>
+	  </li>
+	  <li>
+		<filter>
+		  <customSummary>psychoid leaves</customSummary>
+		  <thingDefs>
+			<li>PsychoidLeaves</li>
+		  </thingDefs>
+		</filter>
+		<count>0.10</count>
 	  </li>
 	</ingredients>
 	<products>
@@ -119,7 +128,16 @@
 			<li>PlantFoodRaw</li>
 		  </categories>
 		</filter>
-		<count>2.40</count>
+		<count>2.00</count>
+	  </li>
+	  <li>
+		<filter>
+		  <customSummary>psychoid leaves</customSummary>
+		  <thingDefs>
+			<li>PsychoidLeaves</li>
+		  </thingDefs>
+		</filter>
+		<count>0.40</count>
 	  </li>
 	</ingredients>
 	<products>
@@ -143,7 +161,7 @@
 			<li>PlantFoodRaw</li>
 		  </categories>
 		</filter>
-		<count>0.40</count>
+		<count>0.30</count>
 	  </li>
 	  <li>
 		<filter>
@@ -153,6 +171,15 @@
 		  </thingDefs>
 		</filter>
 		<count>0.20</count>
+	  </li>
+	  <li>
+		<filter>
+		  <customSummary>psychoid leaves</customSummary>
+		  <thingDefs>
+			<li>PsychoidLeaves</li>
+		  </thingDefs>
+		</filter>
+		<count>0.10</count>
 	  </li>
 	</ingredients>
 	<products>
@@ -179,7 +206,7 @@
 			<li>PlantFoodRaw</li>
 		  </categories>
 		</filter>
-		<count>1.60</count>
+		<count>1.20</count>
 	  </li>
 	  <li>
 		<filter>
@@ -189,6 +216,15 @@
 		  </thingDefs>
 		</filter>
 		<count>0.80</count>
+	  </li>
+	  <li>
+		<filter>
+		  <customSummary>psychoid leaves</customSummary>
+		  <thingDefs>
+			<li>PsychoidLeaves</li>
+		  </thingDefs>
+		</filter>
+		<count>0.40</count>
 	  </li>
 	</ingredients>
 	<products>

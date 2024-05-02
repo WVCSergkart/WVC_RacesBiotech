@@ -1,4 +1,4 @@
-# WVC_XenotypesAndGenes v1.80.00
+# WVC_XenotypesAndGenes v1.80.02
 
 The mod wiki is updated relative to the version in the repository, not in the release.
 

@@ -31,7 +31,7 @@
 	  <Flammability>0.2</Flammability>
 	  <DeteriorationRate>5.0</DeteriorationRate>
 	  <Nutrition>0.06</Nutrition>
-	  <FoodPoisonChanceFixedHuman>0.04</FoodPoisonChanceFixedHuman>
+	  <FoodPoisonChanceFixedHuman>0.09</FoodPoisonChanceFixedHuman>
 	  <!-- <Bulk MayRequire="ceteam.combatextended">0.2</Bulk> -->
 	</statBases>
 	<intricate>true</intricate>

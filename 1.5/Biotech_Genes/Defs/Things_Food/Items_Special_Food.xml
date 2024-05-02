@@ -4,7 +4,7 @@
   <ThingDef>
 	<defName>WVC_NutrientsInjector</defName>
 	<label>nutrients injector</label>
-	<description>A dose of special nutrients in a convenient injector. It is for those who have problems digesting food. Can be taken orally or by injection. Dustogenic pawns will automatically try to use these injectors instead of regular food.
+	<description>A dose of special nutrients in a convenient injector. It is for those who have problems digesting food. Can be taken orally or by injection. Dustogenic pawns will try to use these injectors instead of regular food.
 
 Poisonous for non-dustogenic pawns.</description>
 	<descriptionHyperlinks>
@@ -111,6 +111,7 @@ Poisonous for non-dustogenic pawns.</description>
   <ThingDef ParentName="WVC_XenotypesAndGenes_SpecialMeal_Base">
 	<defName>WVC_MealDustPack</defName>
 	<label>packaged dustogenic meal</label>
+	<!-- Dust food provokes the nerve areas of the dustogenic pawn, which causes dust cells to become active, so that the food does not lose its effectiveness. -->
 	<description>A high-quality packaged meal, manufactured for use by dustogenic pawns. While it never rots, it can still deteriorate if left outside. Great for traveling.
 
 Poisonous for non-dustogenic pawns.</description>
