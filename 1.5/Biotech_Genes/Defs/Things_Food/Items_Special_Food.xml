@@ -4,9 +4,9 @@
   <ThingDef>
 	<defName>WVC_NutrientsInjector</defName>
 	<label>nutrients injector</label>
-	<description>A dose of special nutrients in a convenient injector. It is for those who have problems digesting food. Can be taken orally or by injection.
+	<description>A dose of special nutrients in a convenient injector. It is for those who have problems digesting food. Can be taken orally or by injection. Dustogenic pawns will automatically try to use these injectors instead of regular food.
 
-Dustogenic pawns will automatically try to use these injectors instead of regular food.</description>
+Poisonous for non-dustogenic pawns.</description>
 	<descriptionHyperlinks>
 	  <GeneDef>WVC_Dustogenic</GeneDef>
 	</descriptionHyperlinks>
@@ -89,6 +89,9 @@ Dustogenic pawns will automatically try to use these injectors instead of regula
 			<!-- </geneDefs> -->
 		<!-- </li> -->
 	<!-- </modExtensions> -->
+	<descriptionHyperlinks>
+	  <GeneDef>WVC_Dustogenic</GeneDef>
+	</descriptionHyperlinks>
 	<statBases>
 	  <FoodPoisonChanceFixedHuman>0.16</FoodPoisonChanceFixedHuman>
 	</statBases>
@@ -108,7 +111,9 @@ Dustogenic pawns will automatically try to use these injectors instead of regula
   <ThingDef ParentName="WVC_XenotypesAndGenes_SpecialMeal_Base">
 	<defName>WVC_MealDustPack</defName>
 	<label>packaged dustogenic meal</label>
-	<description>A high-quality packaged meal, manufactured for use by dustogenic pawns. While it never rots, it can still deteriorate if left outside. Great for traveling.</description>
+	<description>A high-quality packaged meal, manufactured for use by dustogenic pawns. While it never rots, it can still deteriorate if left outside. Great for traveling.
+
+Poisonous for non-dustogenic pawns.</description>
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Items/DustPack</texPath>
 	  <!-- <graphicClass>Graphic_MealVariants</graphicClass> -->
@@ -130,7 +135,9 @@ Dustogenic pawns will automatically try to use these injectors instead of regula
   <ThingDef ParentName="WVC_XenotypesAndGenes_SpecialMeal_Base">
 	<defName>WVC_MealDustogenicPaste</defName>
 	<label>dustogenic paste meal</label>
-	<description>A synthetic mixture of protein, carbohydrates, and vitamins, amino acids, minerals and hemogen. Everything the dustogenic body needs, and absolutely disgusting.</description>
+	<description>A synthetic mixture of protein, carbohydrates, and vitamins, amino acids, minerals and hemogen. Everything the dustogenic body needs, and absolutely disgusting.
+
+Poisonous for non-dustogenic pawns.</description>
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Items/NutrientPaste</texPath>
 	  <graphicClass>Graphic_StackCount</graphicClass>
