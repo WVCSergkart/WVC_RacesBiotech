@@ -41,6 +41,7 @@ Dustogenic pawns will automatically try to use these injectors instead of regula
 	  <Nutrition>1.2</Nutrition>
 	  <Beauty>0</Beauty>
 	  <MarketValue>35</MarketValue>
+	  <FoodPoisonChanceFixedHuman>0.22</FoodPoisonChanceFixedHuman>
 	</statBases>
 	<thingCategories>
 	  <li>Foods</li>
@@ -88,6 +89,9 @@ Dustogenic pawns will automatically try to use these injectors instead of regula
 			<!-- </geneDefs> -->
 		<!-- </li> -->
 	<!-- </modExtensions> -->
+	<statBases>
+	  <FoodPoisonChanceFixedHuman>0.16</FoodPoisonChanceFixedHuman>
+	</statBases>
 	<ingestible>
 	  <maxNumToIngestAtOnce>1</maxNumToIngestAtOnce>
 	  <preferability>DesperateOnly</preferability>
