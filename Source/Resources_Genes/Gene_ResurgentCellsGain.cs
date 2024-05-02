@@ -61,7 +61,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedResurgentGene == null || !cachedResurgentGene.Active)
 				{
-					cachedResurgentGene = pawn.genes.GetFirstGeneOfType<Gene_ResurgentCells>();
+					cachedResurgentGene = pawn?.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
 				}
 				return cachedResurgentGene;
 			}

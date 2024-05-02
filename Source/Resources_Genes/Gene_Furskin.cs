@@ -17,10 +17,10 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			CreepJoiner();
+			AnomalyHeadsFix();
 		}
 
-		public void CreepJoiner()
+		public void AnomalyHeadsFix()
 		{
 			if (!Active)
 			{
@@ -42,6 +42,19 @@ namespace WVC_XenotypesAndGenes
 					return;
 				}
 				pawn.story.TryGetRandomHeadFromSet(formKindDef.forcedHeadTypes);
+			}
+			MutantDef mutantDef = pawn?.mutant?.Def;
+			if (mutantDef != null)
+			{
+				if (mutantDef.forcedHeadTypes.NullOrEmpty())
+				{
+					return;
+				}
+				if (mutantDef.forcedHeadTypes.Contains(pawn.story.headType))
+				{
+					return;
+				}
+				pawn.story.TryGetRandomHeadFromSet(mutantDef.forcedHeadTypes);
 			}
 		}
 
