@@ -45,6 +45,7 @@
 		<!-- Set -->
 		<li>WVC_Dustogenic_Metabolism</li>
 		<li>WVC_BloodyGrowths</li>
+		<li>WVC_HemogenicMetabolism</li>
 	</genes>
   </XenotypeDef>
 

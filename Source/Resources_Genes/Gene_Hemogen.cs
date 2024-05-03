@@ -2,8 +2,10 @@ using RimWorld;
 using RimWorld.Planet;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 using Verse;
 using Verse.AI;
+using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -294,6 +296,80 @@ namespace WVC_XenotypesAndGenes
 				SanguophageUtility.DoBite(pawn, pawns[j], 0.2f, 0.1f, 0.4f, 1f, new (0, 0), ThoughtDefOf.FedOn, ThoughtDefOf.FedOn_Social);
 				break;
 			}
+		}
+
+	}
+
+	public class Gene_HemogenicMetabolism : Gene_HemogenOffset
+	{
+
+		public bool consumeHemogen = false;
+
+		// public new float ResourceLossPerDay
+		// {
+			// get
+			// {
+				// if (consumeHemogen)
+				// {
+					// return def.resourceLossPerDay;
+				// }
+				// return 0f;
+			// }
+		// }
+
+		public override void Tick()
+		{
+			if (!consumeHemogen)
+			{
+				return;
+			}
+			base.Tick();
+			if (!pawn.IsHashIntervalTick(527))
+			{
+				return;
+			}
+			UndeadUtility.OffsetNeedFood(pawn, 0.02f);
+		}
+
+		public string Flick()
+		{
+			if (consumeHemogen)
+			{
+				return "WVC_XaG_Gene_DustMechlink_On".Translate().Colorize(ColorLibrary.Green);
+			}
+			return "WVC_XaG_Gene_DustMechlink_Off".Translate().Colorize(ColorLibrary.RedReadable);
+		}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (!Active || Find.Selector.SelectedPawns.Count != 1 || pawn.Faction != Faction.OfPlayer)
+			{
+				yield break;
+			}
+			yield return new Command_Action
+			{
+				defaultLabel = def.LabelCap + ": " + Flick(),
+				defaultDesc = "WVC_XaG_Gene_HemogenicMetabolismDesc".Translate(),
+				icon = ContentFinder<Texture2D>.Get(def.iconPath),
+				action = delegate
+				{
+					consumeHemogen = !consumeHemogen;
+					if (!consumeHemogen)
+					{
+						SoundDefOf.Tick_High.PlayOneShotOnCamera();
+					}
+					else
+					{
+						SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+					}
+				}
+			};
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref consumeHemogen, "consumeHemogen", false);
 		}
 
 	}
