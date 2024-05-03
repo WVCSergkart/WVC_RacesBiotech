@@ -134,6 +134,19 @@
 	</stages>
   </ThoughtDef>
 
+  <ThoughtDef ParentName="WVC_XenotypesAndGenes_Thought_MemorySocial_Base">
+	<defName>WVC_XenotypesAndGenes_BloodfeederBeauty</defName>
+	<stackedEffectMultiplier>1.0</stackedEffectMultiplier>
+	<developmentalStageFilter>Child, Adult</developmentalStageFilter>
+	<socialTargetDevelopmentalStageFilter>Child, Adult</socialTargetDevelopmentalStageFilter>
+	<stages>
+	  <li>
+		<label>bloodfeeder charm</label>
+		<baseOpinionOffset>10</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
   <!-- ===================== -->
 
   <ThoughtDef ParentName="WVC_XenotypesAndGenes_Thought_MemorySocial_Base">

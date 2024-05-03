@@ -160,4 +160,23 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_BloodfeederBeauty : Gene, IGeneBloodfeeder
+	{
+
+		public GeneExtension_Opinion Props => def?.GetModExtension<GeneExtension_Opinion>();
+
+		public void Notify_Bloodfeed(Pawn victim)
+		{
+			if (Props == null)
+			{
+				return;
+			}
+			if (Props.AboutMeThoughtDef != null)
+			{
+				victim.needs?.mood?.thoughts?.memories.TryGainMemory(Props.AboutMeThoughtDef, pawn);
+			}
+		}
+
+	}
+
 }

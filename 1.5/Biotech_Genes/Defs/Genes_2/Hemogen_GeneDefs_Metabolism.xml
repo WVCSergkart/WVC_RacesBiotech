@@ -11,7 +11,7 @@
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>4</biostatMet>
-	<resourceLossPerDay>0.33</resourceLossPerDay>
+	<resourceLossPerDay>1.00</resourceLossPerDay>
 	<customEffectDescriptions>
 		<!-- <li>When a pawn's &lt;color=#8a8ae6&gt;hemogen reaches 92%&lt;/color&gt;, there is a chance that a &lt;color=#8a8ae6&gt;hemogen pack&lt;/color&gt; will be spawned.</li> -->
 		<li>When active, significantly &lt;color=#8a8ae6&gt;increases hemogen consumption&lt;/color&gt;, but slowly &lt;color=#8a8ae6&gt;replenishes 0.02 hunger&lt;/color&gt;.</li>

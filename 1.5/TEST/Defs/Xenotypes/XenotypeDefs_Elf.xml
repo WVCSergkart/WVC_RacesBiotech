@@ -28,6 +28,8 @@
 		<li>WVC_NaturalDisease_DiseaseFree</li>
 		<li>FireWeakness</li>
 		<li>FireTerror</li>
+		<!-- = -->
+		<li>WVC_BloodfeederBeauty</li>
 	</genes>
   </XenotypeDef>
 
