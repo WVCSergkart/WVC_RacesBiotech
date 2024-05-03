@@ -69,6 +69,9 @@
 		  <li>WVC_DeadStomach</li>
 		  <!-- <li>WVC_NaturalDisease_DiseaseFree</li> -->
 		  <!-- <li>WVC_NaturalImmunity_PerfectImmunity</li> -->
+		  <!-- <li>ToxResist_Total</li> -->
+		  <li>WVC_ArchitePerfectImmunity_DiseaseFree</li>
+		  <li>WVC_ToxResist_Archite</li>
 		  <!-- Vampire Thralls -->
 		  <li>Bloodfeeder</li>
 		  <li>WVC_Bloodeater</li>

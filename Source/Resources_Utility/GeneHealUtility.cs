@@ -63,7 +63,7 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// Scars
-		public static void TryHealRandomPermanentWound(Pawn pawn, string cause)
+		public static bool TryHealRandomPermanentWound(Pawn pawn, string cause)
 		{
 			if (pawn.health.hediffSet.hediffs.Where((Hediff hd) => (hd.IsPermanent() || hd.def.chronic) && hd.def != HediffDefOf.Scarification).TryRandomElement(out var result))
 			{
@@ -72,7 +72,9 @@ namespace WVC_XenotypesAndGenes
 				{
 					Messages.Message("MessagePermanentWoundHealed".Translate(cause, pawn.LabelShort, result.Label, pawn.Named("PAWN")), pawn, MessageTypeDefOf.PositiveEvent);
 				}
+				return true;
 			}
+			return false;
 		}
 
 		// RestorePart

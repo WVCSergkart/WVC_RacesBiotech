@@ -317,6 +317,8 @@ namespace WVC_XenotypesAndGenes
 			// }
 		// }
 
+		private float cachedNutritionPerTick = -1f;
+
 		public override void Tick()
 		{
 			if (!consumeHemogen)
@@ -328,7 +330,16 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			UndeadUtility.OffsetNeedFood(pawn, 0.02f);
+			ReplenishHunger();
+		}
+
+		public void ReplenishHunger()
+		{
+			if (cachedNutritionPerTick <= 0f)
+			{
+				cachedNutritionPerTick = 0.02f + (pawn.needs?.food != null ? pawn.needs.food.FoodFallPerTick : 0f);
+			}
+			UndeadUtility.OffsetNeedFood(pawn, cachedNutritionPerTick);
 		}
 
 		public string Flick()

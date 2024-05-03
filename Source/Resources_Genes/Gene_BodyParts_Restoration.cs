@@ -330,4 +330,71 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_HemogenScarless : Gene_HemogenOffset
+	{
+		private int ticksToHeal;
+
+		private static readonly IntRange HealingIntervalTicksRange = new(900000, 1800000);
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			ResetInterval();
+		}
+
+		public override void Tick()
+		{
+			// base.Tick();
+			ticksToHeal--;
+			if (ticksToHeal <= 0)
+			{
+				TryConsumeHemogenAndHealWound();
+			}
+		}
+
+		private void ResetInterval()
+		{
+			ticksToHeal = HealingIntervalTicksRange.RandomInRange;
+		}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: HealPermanentWound",
+					action = delegate
+					{
+						TryConsumeHemogenAndHealWound();
+					}
+				};
+			}
+		}
+
+		private void TryConsumeHemogenAndHealWound()
+		{
+			if (Hemogen == null)
+			{
+				return;
+			}
+			if ((Hemogen.Value - ResourceLossPerDay) <= 0f)
+			{
+				return;
+			}
+			if (HealingUtility.TryHealRandomPermanentWound(pawn, LabelCap))
+			{
+				GeneResourceDrainUtility.OffsetResource(this, 0f - ResourceLossPerDay);
+			}
+			ResetInterval();
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref ticksToHeal, "ticksToHeal", 0);
+		}
+
+	}
+
 }
