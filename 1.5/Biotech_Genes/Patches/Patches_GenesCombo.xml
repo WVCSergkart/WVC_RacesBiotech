@@ -32,6 +32,29 @@
 		</caseTrue>
 	</Operation>
 
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>bloodfeeder_AutoBloodfeed</settingName>
+		<caseTrue Class="PatchOperationSequence">
+			<success>Always</success>
+			<operations>
+				<li Class="PatchOperationReplace">
+				  <xpath>/Defs/GeneDef[defName="Bloodfeeder"]/geneClass</xpath>
+				  <success>Invert</success>
+				  <value>
+					<geneClass>WVC_XenotypesAndGenes.Gene_Bloodfeeder</geneClass>
+				  </value>
+				</li>
+				<li Class="PatchOperationAdd">
+				  <xpath>/Defs/GeneDef[defName="Bloodfeeder"]</xpath>
+				  <success>Always</success>
+				  <value>
+					<geneClass>WVC_XenotypesAndGenes.Gene_Bloodfeeder</geneClass>
+				  </value>
+				</li>
+			</operations>
+		</caseTrue>
+	</Operation>
+
 	<!-- Patch for special food for dustogenics -->
 
 	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">

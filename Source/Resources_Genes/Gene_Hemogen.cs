@@ -1,4 +1,5 @@
 using RimWorld;
+using RimWorld.Planet;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
@@ -235,6 +236,63 @@ namespace WVC_XenotypesAndGenes
 					int max2 = HediffDefOf.XenogermLossShock.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.max;
 					Find.LetterStack.ReceiveLetter("LetterLabelGenesImplanted".Translate(), "LetterTextGenesImplanted".Translate(pawn.Named("CASTER"), victim.Named("TARGET"), max.ToStringTicksToPeriod().Named("COMADURATION"), max2.ToStringTicksToPeriod().Named("SHOCKDURATION")), LetterDefOf.NeutralEvent, new LookTargets(pawn, victim));
 				}
+			}
+		}
+
+	}
+
+	public class Gene_Bloodfeeder : Gene_BloodHunter
+	{
+
+		public override void Tick()
+		{
+			// base.Tick();
+			if (!pawn.IsHashIntervalTick(10628))
+			{
+				return;
+			}
+			if (Hemogen?.ShouldConsumeHemogenNow() != true)
+			{
+				return;
+			}
+			if (pawn.Faction != Faction.OfPlayer)
+			{
+				return;
+			}
+			if (pawn.Map == null)
+			{
+				// In caravan use
+				InCaravan();
+				return;
+			}
+			if (pawn.Downed || pawn.Drafted)
+			{
+				return;
+			}
+			TryHuntForFood();
+		}
+
+		private void InCaravan()
+		{
+			Caravan caravan = pawn.GetCaravan();
+			if (caravan == null)
+			{
+				return;
+			}
+			List<Pawn> pawns = caravan.PawnsListForReading;
+			if (pawns.NullOrEmpty())
+			{
+				return;
+			}
+			pawns.Shuffle();
+			for (int j = 0; j < pawns.Count; j++)
+			{
+				if (!GeneFeaturesUtility.CanBloodFeedNowWith(pawn, pawns[j]))
+				{
+					continue;
+				}
+				SanguophageUtility.DoBite(pawn, pawns[j], 0.2f, 0.1f, 0.4f, 1f, new (0, 0), ThoughtDefOf.FedOn, ThoughtDefOf.FedOn_Social);
+				break;
 			}
 		}
 

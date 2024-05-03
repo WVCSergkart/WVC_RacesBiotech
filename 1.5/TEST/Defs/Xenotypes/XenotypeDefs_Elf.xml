@@ -13,11 +13,10 @@
 		<li>WVC_Delicate</li>
 		<li>Hair_LongOnly</li>
 		<!-- <li>Ears_Pointed</li> -->
-		<li>WVC_Ears_PointedA</li>
 		<li>WVC_DryadSkin</li>
-		<li>WVC_BodySize_Small</li>
 		<li>Hair_SnowWhite</li>
 		<li>DarkVision</li>
+		<li>WVC_BodySize_Small</li>
 		<!-- = -->
 		<li>LongjumpLegs</li>
 		<li>PiercingSpine</li>
@@ -42,6 +41,7 @@
 		<li>WVC_Eyes_69a2ce_HEX</li>
 		<li>Skin_Melanin1</li>
 		<li>WVC_HairColor_ffdcb4_HEX</li>
+		<li>WVC_Ears_PointedA</li>
 		<!-- Set -->
 		<li>WVC_Dustogenic_Metabolism</li>
 		<li>WVC_BloodyGrowths</li>
@@ -60,6 +60,7 @@
 		<li>WVC_Eyes_ce6969_HEX</li>
 		<li>WVC_HeadBoneHorns</li>
 		<li>WVC_DemonTailA</li>
+		<li>WVC_Ears_PointedB</li>
 		<!-- Set -->
 		<!-- <li>WVC_DebuffUV_StrongInjuryHealing</li> -->
 		<li>WVC_UVSensitivity_Deadly</li>

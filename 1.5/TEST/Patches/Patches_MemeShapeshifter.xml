@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
 
-	<Operation Class="PatchOperationAdd">
-		<xpath>/Defs/PreceptDef[defName="Cannibalism_Acceptable" or defName="Corpses_DontCare" or defName="NutrientPasteEating_DontMind" or defName="Slavery_Acceptable" or defName="Slavery_Acceptable" or defName="Lovin_Free" or defName="Nudity_Male_NoRules" or defName="Nudity_Female_NoRules" or defName="OrganUse_Acceptable"]/associatedMemes</xpath>
-		<value>
-			<li>WVC_Shapeshifterist</li>
-		</value>
-	</Operation>
-	<Operation Class="PatchOperationAdd">
-		<xpath>/Defs/PreceptDef[defName="Cannibalism_Acceptable" or defName="Corpses_DontCare" or defName="NutrientPasteEating_DontMind" or defName="Slavery_Acceptable" or defName="Slavery_Acceptable" or defName="Lovin_Free" or defName="Nudity_Male_NoRules" or defName="Nudity_Female_NoRules" or defName="OrganUse_Acceptable"]/requiredMemes</xpath>
-		<value>
-			<li>WVC_Shapeshifterist</li>
-		</value>
-	</Operation>
+	<!-- <Operation Class="PatchOperationAdd"> -->
+		<!-- <xpath>/Defs/PreceptDef[defName="Cannibalism_Acceptable" or defName="Corpses_DontCare" or defName="NutrientPasteEating_DontMind" or defName="Slavery_Acceptable" or defName="Slavery_Acceptable" or defName="Lovin_Free" or defName="Nudity_Male_NoRules" or defName="Nudity_Female_NoRules" or defName="OrganUse_Acceptable"]/associatedMemes</xpath> -->
+		<!-- <value> -->
+			<!-- <li>WVC_Shapeshifterist</li> -->
+		<!-- </value> -->
+	<!-- </Operation> -->
+	<!-- <Operation Class="PatchOperationAdd"> -->
+		<!-- <xpath>/Defs/PreceptDef[defName="Cannibalism_Acceptable" or defName="Corpses_DontCare" or defName="NutrientPasteEating_DontMind" or defName="Slavery_Acceptable" or defName="Slavery_Acceptable" or defName="Lovin_Free" or defName="Nudity_Male_NoRules" or defName="Nudity_Female_NoRules" or defName="OrganUse_Acceptable"]/requiredMemes</xpath> -->
+		<!-- <value> -->
+			<!-- <li>WVC_Shapeshifterist</li> -->
+		<!-- </value> -->
+	<!-- </Operation> -->
 
 	<!-- <Operation Class="PatchOperationAdd"> -->
 		<!-- <xpath>/Defs/ThoughtDef[nullifyingPrecepts[li[contains(text(),'Bloodfeeders_Revered')]]]/nullifyingPrecepts</xpath> -->
