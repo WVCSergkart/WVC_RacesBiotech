@@ -8,13 +8,13 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_HemogenScarless</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_HemogenHealing_v0</iconPath>
 	<resourceLossPerDay>0.08</resourceLossPerDay>
-	<displayOrderInCategory>90</displayOrderInCategory>
+	<displayOrderInCategory>100</displayOrderInCategory>
 	<biostatCpx>4</biostatCpx>
 	<biostatMet>-5</biostatMet>
 	<preventPermanentWounds>true</preventPermanentWounds>
 	<customEffectDescriptions>
 	  <li>Every (*DateTime)15-30 days(/DateTime), one &lt;color=#8a8ae6&gt;old wound&lt;/color&gt; or &lt;color=#8a8ae6&gt;chronic illness&lt;/color&gt; is healed.</li>
-	  <li>&lt;color=#8a8ae6&gt;Hemogen is only consumed when the effect is triggered.&lt;/color&gt;</li>
+	  <li>&lt;color=#8a8ae6&gt;Hemogen&lt;/color&gt; is only &lt;color=#8a8ae6&gt;consumed&lt;/color&gt; when the effect is &lt;color=#8a8ae6&gt;triggered&lt;/color&gt;.</li>
 	</customEffectDescriptions>
   </GeneDef>
 

@@ -330,7 +330,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_HemogenScarless : Gene_HemogenOffset
+	public class Gene_HemogenScarless : Gene_HemogenDependant
 	{
 		private int ticksToHeal;
 
@@ -378,13 +378,13 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if ((Hemogen.Value - ResourceLossPerDay) <= 0f)
+			if ((Hemogen.Value - def.resourceLossPerDay) <= 0f)
 			{
 				return;
 			}
 			if (HealingUtility.TryHealRandomPermanentWound(pawn, LabelCap))
 			{
-				GeneResourceDrainUtility.OffsetResource(this, 0f - ResourceLossPerDay);
+				GeneResourceDrainUtility.OffsetResource(Hemogen, 0f - def.resourceLossPerDay);
 			}
 			ResetInterval();
 		}

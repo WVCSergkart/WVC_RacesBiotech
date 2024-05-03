@@ -29,6 +29,10 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
+				if (hediff.def == HediffDefOf.Scarification && WVC_Biotech.settings.totalHealingIgnoreScarification)
+				{
+					continue;
+				}
 				eatedDamage += 0.005f;
 				injury.Heal(0.5f);
 			}

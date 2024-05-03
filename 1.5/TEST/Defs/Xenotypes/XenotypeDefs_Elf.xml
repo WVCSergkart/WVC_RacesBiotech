@@ -10,7 +10,6 @@
 		<li>Bloodfeeder</li>
 		<li>WVC_Bloodeater</li>
 		<li>WVC_NaturalAgeless</li>
-		<li>WVC_Delicate</li>
 		<li>Hair_LongOnly</li>
 		<!-- <li>Ears_Pointed</li> -->
 		<li>WVC_DryadSkin</li>
@@ -19,8 +18,6 @@
 		<li>WVC_BodySize_Small</li>
 		<!-- = -->
 		<li>LongjumpLegs</li>
-		<li>PiercingSpine</li>
-		<li>Coagulate</li>
 		<li>Deathrest</li>
 		<!-- = -->
 		<li>Neversleep</li>
@@ -31,7 +28,7 @@
 		<li>FireTerror</li>
 		<!-- = -->
 		<li>WVC_BloodfeederBeauty</li>
-		<li>WVC_HemogenScarless</li>
+		<li>WVC_HemogenicMetabolism</li>
 	</genes>
   </XenotypeDef>
 
@@ -49,7 +46,11 @@
 		<!-- Set -->
 		<li>WVC_Dustogenic_Metabolism</li>
 		<li>WVC_BloodyGrowths</li>
-		<li>WVC_HemogenicMetabolism</li>
+		<li>WVC_HemogenScarless</li>
+		<li>WVC_HemogenGain</li>
+		<li>Coagulate</li>
+		<li>WVC_Delicate</li>
+		<li>WVC_ImplanterFang</li>
 	</genes>
   </XenotypeDef>
 
@@ -73,6 +74,8 @@
 		<li>WVC_WoundHealing_NoHealing</li>
 		<!-- = -->
 		<li>WVC_ImplanterFangs</li>
+		<li>PiercingSpine</li>
+		<li>WVC_Tough</li>
 	</genes>
   </XenotypeDef>
 

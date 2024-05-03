@@ -10,6 +10,7 @@
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<biostatArc>1</biostatArc>
+	<preventPermanentWounds>true</preventPermanentWounds>
 	<customEffectDescriptions>
 	  <!-- <li>TEXT &lt;color=#8a8ae6&gt;WORD&lt;/color&gt; TEXT &lt;color=#ff8585&gt;WARNING&lt;/color&gt;.</li> -->
 	  <li>Slowly &lt;color=#8a8ae6&gt;regenerates wounds&lt;/color&gt; regardless of the pawn's healing factor.</li>

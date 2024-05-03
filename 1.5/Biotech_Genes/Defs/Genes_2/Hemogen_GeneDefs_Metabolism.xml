@@ -14,8 +14,8 @@
 	<resourceLossPerDay>1.00</resourceLossPerDay>
 	<customEffectDescriptions>
 		<!-- <li>When a pawn's &lt;color=#8a8ae6&gt;hemogen reaches 92%&lt;/color&gt;, there is a chance that a &lt;color=#8a8ae6&gt;hemogen pack&lt;/color&gt; will be spawned.</li> -->
-		<li>When active, significantly &lt;color=#8a8ae6&gt;increases hemogen consumption&lt;/color&gt;, but slowly &lt;color=#8a8ae6&gt;replenishes 0.02 hunger&lt;/color&gt;.</li>
-		<li>&lt;color=#8a8ae6&gt;The effect of the gene can be switched at any time.&lt;/color&gt;</li>
+		<li>&lt;color=#8a8ae6&gt;Increases hemogen consumption&lt;/color&gt;, but &lt;color=#8a8ae6&gt;replenishes hunger&lt;/color&gt;.</li>
+		<li>The effect of the gene &lt;color=#8a8ae6&gt;can be switched&lt;/color&gt; at any time.</li>
 	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>

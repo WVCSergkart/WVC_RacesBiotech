@@ -11,13 +11,11 @@ namespace WVC_XenotypesAndGenes
 {
 
 	// Rare Hemogen Drain
-	public class Gene_HemogenOffset : Gene, IGeneResourceDrain
+	public class Gene_HemogenDependant : Gene
 	{
 
 		[Unsaved(false)]
 		private Gene_Hemogen cachedHemogenGene;
-
-		public Gene_Resource Resource => Hemogen;
 
 		public Gene_Hemogen Hemogen
 		{
@@ -30,6 +28,22 @@ namespace WVC_XenotypesAndGenes
 				return cachedHemogenGene;
 			}
 		}
+
+		public static void TickHemogenDrain(IGeneResourceDrain drain, int tick = 1)
+		{
+			if (drain.Resource != null && drain.CanOffset)
+			{
+				GeneResourceDrainUtility.OffsetResource(drain, ((0f - drain.ResourceLossPerDay) / 60000f) * tick);
+			}
+		}
+
+	}
+
+	// Rare Hemogen Drain
+	public class Gene_HemogenOffset : Gene_HemogenDependant, IGeneResourceDrain
+	{
+
+		public Gene_Resource Resource => Hemogen;
 
 		public bool CanOffset
 		{
@@ -51,14 +65,6 @@ namespace WVC_XenotypesAndGenes
 			if (pawn.IsHashIntervalTick(120))
 			{
 				TickHemogenDrain(this, 120);
-			}
-		}
-
-		public static void TickHemogenDrain(IGeneResourceDrain drain, int tick = 1)
-		{
-			if (drain.Resource != null && drain.CanOffset)
-			{
-				GeneResourceDrainUtility.OffsetResource(drain, ((0f - drain.ResourceLossPerDay) / 60000f) * tick);
 			}
 		}
 
@@ -300,7 +306,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_HemogenicMetabolism : Gene_HemogenOffset
+	public class Gene_HemogenicMetabolism : Gene_HemogenDependant, IGeneResourceDrain
 	{
 
 		public bool consumeHemogen = false;
@@ -319,13 +325,43 @@ namespace WVC_XenotypesAndGenes
 
 		private float cachedNutritionPerTick = -1f;
 
+		public Gene_Resource Resource => Hemogen;
+
+		public bool CanOffset
+		{
+			get
+			{
+				return Hemogen?.CanOffset == true;
+			}
+		}
+
+		public float ResourceLossPerDay
+		{
+			get
+			{
+				if (consumeHemogen)
+				{
+					return def.resourceLossPerDay;
+				}
+				return 0f;
+			}
+		}
+
+		public Pawn Pawn => pawn;
+
+		public string DisplayLabel => Label + " (" + "Gene".Translate() + ")";
+
 		public override void Tick()
 		{
+			base.Tick();
 			if (!consumeHemogen)
 			{
 				return;
 			}
-			base.Tick();
+			if (pawn.IsHashIntervalTick(120))
+			{
+				TickHemogenDrain(this, 120);
+			}
 			if (!pawn.IsHashIntervalTick(527))
 			{
 				return;

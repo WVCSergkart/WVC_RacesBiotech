@@ -164,40 +164,4 @@
 	</modExtensions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Bloodfeeder">
-	<defName>WVC_ImplanterFangs</defName>
-	<label>implanter fangs</label>
-	<description>Carriers of this gene have a small implantation organ in their mouth. By biting a victim, with some chance they can implant their set of genes into it.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_ImplanterFang</geneClass>
-	<iconPath>WVC/UI/Genes/Gene_Reimplanter_Bloodfeeder_v0</iconPath>
-	<displayOrderInCategory>90</displayOrderInCategory>
-	<resourceLossPerDay>-0.07</resourceLossPerDay>
-	<biostatCpx>1</biostatCpx>
-	<biostatArc>1</biostatArc>
-	<biostatMet>1</biostatMet>
-	<customEffectDescriptions>
-		<li>Using the &lt;color=#8a8ae6&gt;bloodfeed&lt;/color&gt; ability has some chance of &lt;color=#8a8ae6&gt;implanting genes&lt;/color&gt; into the target.</li>
-		<li>The target's &lt;color=#8a8ae6&gt;immunity&lt;/color&gt; directly affects the chance of &lt;color=#8a8ae6&gt;gene implantation&lt;/color&gt;. The higher the immunity, the lower the chance.</li>
-	</customEffectDescriptions>
-	<makeImmuneTo>
-	  <li>WVC_XaG_ImplanterFangsMark</li>
-	</makeImmuneTo>
-	<symbolPack>
-	  <prefixSymbols>
-		<li><symbol>blood</symbol></li>
-		<li><symbol>cells</symbol></li>
-	  </prefixSymbols>
-	  <suffixSymbols>
-		<li><symbol>cells</symbol></li>
-	  </suffixSymbols>
-	</symbolPack>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
-			<reimplantEndogenes>true</reimplantEndogenes>
-			<reimplantXenogenes>true</reimplantXenogenes>
-			<reimplantChance>0.03</reimplantChance>
-		</li>
-	</modExtensions>
-  </GeneDef>
-
 </Defs>
