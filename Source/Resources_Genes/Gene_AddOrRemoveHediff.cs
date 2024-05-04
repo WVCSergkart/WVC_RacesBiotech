@@ -274,4 +274,26 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_BloodfeedHediffGiver : Gene, IGeneBloodfeeder
+	{
+
+		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
+
+		public void Notify_Bloodfeed(Pawn victim)
+		{
+			if (Props == null || victim == null)
+			{
+				return;
+			}
+			Hediff hediff = HediffMaker.MakeHediff(Props.hediffDefName, pawn);
+			HediffComp_Disappears hediffComp_Disappears = hediff.TryGetComp<HediffComp_Disappears>();
+			if (hediffComp_Disappears != null)
+			{
+				hediffComp_Disappears.ticksToDisappear = Props.ticksToDisappear;
+			}
+			pawn.health.AddHediff(hediff);
+		}
+
+	}
+
 }

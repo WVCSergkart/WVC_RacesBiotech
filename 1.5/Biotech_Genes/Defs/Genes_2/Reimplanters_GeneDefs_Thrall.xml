@@ -63,6 +63,7 @@
 		  <li>Deathless</li>
 		  <!-- Special -->
 		  <li>DarkVision</li>
+		  <li>WVC_GeneSavant</li>
 		  <!-- Rare Super -->
 		  <li>DiseaseFree</li>
 		  <li>PerfectImmunity</li>
@@ -72,9 +73,13 @@
 		  <!-- <li>ToxResist_Total</li> -->
 		  <li>WVC_ArchitePerfectImmunity_DiseaseFree</li>
 		  <li>WVC_ToxResist_Archite</li>
+		  <li>TotalHealing</li>
 		  <!-- Vampire Thralls -->
 		  <li>Bloodfeeder</li>
 		  <li>WVC_Bloodeater</li>
+		  <li>WVC_BloodyGrowths</li>
+		  <li>WVC_HemogenScarless</li>
+		  <li>WVC_HemogenGain</li>
 		  <!-- Golem Thralls -->
 		  <!-- <li>WVC_StoneSkin</li> -->
 		  <!-- <li>WVC_SkinColor_Granite</li> -->

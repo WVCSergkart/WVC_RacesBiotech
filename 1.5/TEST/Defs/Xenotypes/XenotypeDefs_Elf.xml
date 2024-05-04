@@ -21,8 +21,9 @@
 		<li>Deathrest</li>
 		<!-- = -->
 		<li>Neversleep</li>
-		<li>WVC_NaturalImmunity_PerfectImmunity</li>
+		<!-- <li>WVC_NaturalImmunity_PerfectImmunity</li> -->
 		<!-- <li>WVC_NaturalDisease_DiseaseFree</li> -->
+		<li>WVC_PerfectImmunity_DiseaseFree</li>
 		<li>ToxResist_Total</li>
 		<li>FireWeakness</li>
 		<li>FireTerror</li>

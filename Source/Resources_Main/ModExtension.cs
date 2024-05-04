@@ -192,6 +192,8 @@ namespace WVC_XenotypesAndGenes
 		public float nutritionPerBite = 0.8f;
 		// Photosynthesis
 		public float passivelyReplenishedNutrition = 0.04f;
+		// Bloodfeeder
+		public int ticksToDisappear = 60000;
 	}
 
 	// public class GeneExtension_Shapeshifter : DefModExtension

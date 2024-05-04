@@ -22,6 +22,7 @@ namespace WVC_XenotypesAndGenes
 		// Inherit
 		// public static GeneDef PerfectImmunity;
 		// public static GeneDef DiseaseFree;
+		// public static HediffGiverSetDef OrganicStandard;
 		// Resurrection
 		public static ThoughtDef WVC_XenotypesAndGenes_WasResurrected;
 		// public static ThoughtDef WVC_XenotypesAndGenes_AngelBeauty;

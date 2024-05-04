@@ -13,13 +13,48 @@ namespace WVC_XenotypesAndGenes
 		static XaG_PostInitialization()
 		{
 			InitializeModSettings();
-			GeneDefs();
+			// Hediffs();
+			GenesAndMutants();
 			ThingDefs();
 			// XenotypeDefs();
 			HarmonyPatches.HarmonyUtility.PostInitialPatches();
 		}
 
-		public static void GeneDefs()
+		// public static void Hediffs()
+		// {
+			// if (!WVC_Biotech.settings.autoPatchVanillaArchiteImmunityGenes)
+			// {
+				// return;
+			// }
+			// GeneDef perfectImmunity = WVC_GenesDefOf.PerfectImmunity;
+			// GeneDef diseaseFree = WVC_GenesDefOf.DiseaseFree;
+			// foreach (HediffDef hediffDef in DefDatabase<HediffDef>.AllDefsListForReading)
+			// {
+				// if (!perfectImmunity.makeImmuneTo.NullOrEmpty())
+				// {
+					// if (hediffDef.isInfection && !perfectImmunity.makeImmuneTo.Contains(hediffDef))
+					// {
+						// perfectImmunity.makeImmuneTo.Add(hediffDef);
+					// }
+				// }
+				// if (!diseaseFree.hediffGiversCannotGive.NullOrEmpty())
+				// {
+					// if (hediffDef.chronic && !diseaseFree.hediffGiversCannotGive.Contains(hediffDef))
+					// {
+						// diseaseFree.hediffGiversCannotGive.Add(hediffDef);
+					// }
+				// }
+			// }
+			// foreach (HediffGiver hediffGivers in WVC_GenesDefOf.OrganicStandard.hediffGivers)
+			// {
+				// if (!diseaseFree.hediffGiversCannotGive.Contains(hediffGivers.hediff))
+				// {
+					// diseaseFree.hediffGiversCannotGive.Add(hediffGivers.hediff);
+				// }
+			// }
+		// }
+
+		public static void GenesAndMutants()
 		{
 			List<GeneDef> xenogenesGenes = new();
 			foreach (GeneDef geneDef in DefDatabase<GeneDef>.AllDefsListForReading)
