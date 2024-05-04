@@ -12,6 +12,9 @@
 	<makeImmuneTo>
 	  <li>WVC_XaG_ImplanterFangsMark</li>
 	</makeImmuneTo>
+	<exclusionTags>
+		<li>WVC_XaG_ImplanterFangs</li>
+	</exclusionTags>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>blood</symbol></li>

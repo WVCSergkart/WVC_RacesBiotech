@@ -18,4 +18,12 @@
 	  </value>
 	</Operation>
 
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/XenotypeDef[defName="Baseliner"]/factionlessGenerationWeight</xpath>
+		<success>Always</success>
+		<value>
+		  <factionlessGenerationWeight>0.8</factionlessGenerationWeight>
+		</value>
+	</Operation>
+
 </Patch>
