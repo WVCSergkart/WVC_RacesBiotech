@@ -73,4 +73,31 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class ThoughtWorker_Precept_MoreWhenFiveColonistInFaction : ThoughtWorker_PreceptWithXaGComponent
+	{
+
+		protected override ThoughtState ShouldHaveThought(Pawn p)
+		{
+			if (p.Faction != Faction.OfPlayer)
+			{
+				return false;
+			}
+			if (GameComponent.cachedPawnsCount > 5)
+			{
+				return ThoughtState.ActiveDefault;
+			}
+			return ThoughtState.Inactive;
+		}
+
+		public override float MoodMultiplier(Pawn p)
+		{
+			if (GameComponent.cachedPawnsCount > 5)
+			{
+				return GameComponent.cachedPawnsCount - 5;
+			}
+			return 0f;
+		}
+
+	}
+
 }

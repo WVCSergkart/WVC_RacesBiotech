@@ -13,6 +13,7 @@
 		<!-- </exclusionTags> -->
 		<requireOne>
 		  <li>
+			<li>WVC_Shapeshifters_Recluse</li>
 			<li>WVC_Shapeshifters_Revered</li>
 		  </li>
 		  <!-- <li> -->

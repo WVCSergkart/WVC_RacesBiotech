@@ -8,11 +8,57 @@
   </IssueDef>
 
   <PreceptDef>
+	<defName>WVC_Shapeshifters_Recluse</defName>
+	<issue>WVC_Shapeshifters</issue>
+	<label>recluse</label>
+	<description>We don't need many people to survive; we are strong not in numbers, but in form.</description>
+	<impact>High</impact>
+	<requiredMemes>
+	  <li>WVC_Shapeshifterist</li>
+	</requiredMemes>
+	<!-- <conditionalStatAffecters> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_ColonistInColony"> -->
+		<!-- <colonistsLimit>5</colonistsLimit> -->
+	  <!-- </li> -->
+	<!-- </conditionalStatAffecters> -->
+	<statOffsets>
+	  <MentalBreakThreshold>-0.08</MentalBreakThreshold>
+	  <WorkSpeedGlobal>0.2</WorkSpeedGlobal>
+	</statOffsets>
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_Shapeshifters_Recluse_Opinion_Shapeshifter</thought>
+		<description>Shapeshifter</description>
+	  </li>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_Shapeshifters_Recluse_Humanlikes</thought>
+		<description>For each colonist above 5</description>
+	  </li>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_ShapeshifterColonist_Recluse</thought>
+		<thoughtStageDescriptions>
+		  <li>No shapeshifters</li>
+		  <li>No shapeshifter leader</li>
+		  <li>Shapeshifter leader</li>
+		</thoughtStageDescriptions>
+	  </li>
+	  <li Class="PreceptComp_DevelopmentPoints">
+		<eventDef>WVC_Shapeshift</eventDef>
+		<eventLabel>shapeshift</eventLabel>
+		<points>6</points>
+	  </li>
+	</comps>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_ReveredAndReviledPrecepts_Revered</li> -->
+	<!-- </exclusionTags> -->
+  </PreceptDef>
+
+  <PreceptDef>
 	<defName>WVC_Shapeshifters_Revered</defName>
 	<issue>WVC_Shapeshifters</issue>
 	<label>required</label>
 	<description>Shapeshifters should be worshipped. Believers will be happy if there is a shapeshifter in the colony.</description>
-	<impact>High</impact>
+	<impact>Medium</impact>
 	<requiredMemes>
 	  <li>WVC_Shapeshifterist</li>
 	</requiredMemes>
@@ -36,7 +82,7 @@
 	  <li Class="PreceptComp_DevelopmentPoints">
 		<eventDef>WVC_Shapeshift</eventDef>
 		<eventLabel>shapeshift</eventLabel>
-		<points>3</points>
+		<points>2</points>
 	  </li>
 	</comps>
 	<!-- <exclusionTags> -->
@@ -70,7 +116,7 @@
   <!-- Thoughts -->
 
   <ThoughtDef>
-	<defName>WVC_Shapeshifters_Revered_Opinion_Shapeshifter</defName>
+	<defName>WVC_Shapeshifters_Recluse_Opinion_Shapeshifter</defName>
 	<thoughtClass>Thought_SituationalSocial</thoughtClass>
 	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_Shapeshifter_Social</workerClass>
 	<validWhileDespawned>true</validWhileDespawned>
@@ -78,6 +124,19 @@
 	  <li>
 		<label>shapeshifter</label>
 		<baseOpinionOffset>20</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_Shapeshifters_Revered_Opinion_Shapeshifter</defName>
+	<thoughtClass>Thought_SituationalSocial</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_Shapeshifter_Social</workerClass>
+	<validWhileDespawned>true</validWhileDespawned>
+	<stages>
+	  <li>
+		<label>shapeshifter</label>
+		<baseOpinionOffset>10</baseOpinionOffset>
 	  </li>
 	</stages>
   </ThoughtDef>
@@ -135,7 +194,8 @@
 	  <li>
 		<label>no shapeshifter leader</label>
 		<description>Without a shapeshifter leader, our colony feels incomplete and pointless. We should make a shapeshifter our leader.</description>
-		<baseMoodEffect>-6</baseMoodEffect>
+		<visible>false</visible>
+		<baseMoodEffect>0</baseMoodEffect>
 	  </li>
 	  <li>
 		<label>shapeshifter leader</label>
@@ -158,5 +218,43 @@
 	  <!-- </li> -->
 	<!-- </stages> -->
   <!-- </ThoughtDef> -->
+
+  <ThoughtDef>
+	<defName>WVC_ShapeshifterColonist_Recluse</defName>
+	<thoughtClass>Thought_Situational</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_ShapeshifterColonist</workerClass>
+	<nullifiedIfNotColonist>true</nullifiedIfNotColonist>
+	<stages>
+	  <li>
+		<label>no shapeshifter</label>
+		<description>Without a shapeshifter leader, our colony feels incomplete and pointless. We should make a shapeshifter our leader.</description>
+		<baseMoodEffect>-16</baseMoodEffect>
+	  </li>
+	  <li>
+		<label>no shapeshifter leader</label>
+		<description>Without a shapeshifter leader, our colony feels incomplete and pointless. We should make a shapeshifter our leader.</description>
+		<baseMoodEffect>-6</baseMoodEffect>
+	  </li>
+	  <li>
+		<label>shapeshifter leader</label>
+		<description>The shapeshifter's presence is a great honor. May they live forever.</description>
+		<baseMoodEffect>4</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_Shapeshifters_Recluse_Humanlikes</defName>
+	<thoughtClass>Thought_Situational</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_MoreWhenFiveColonistInFaction</workerClass>
+	<validWhileDespawned>true</validWhileDespawned>
+	<stages>
+	  <li>
+		<label>recluse</label>
+		<description>There are too many of us. Someone needs to leave our colony.</description>
+		<baseMoodEffect>-6</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
 
 </Defs>

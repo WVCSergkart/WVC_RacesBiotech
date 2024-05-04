@@ -32,6 +32,7 @@
   <WVC_GeneSpawner_GizmoTooltip>Gizmo can be disabled in the settings.</WVC_GeneSpawner_GizmoTooltip>
 
   <WVC_XaG_StatsReport_NoSunlight>no sunlight</WVC_XaG_StatsReport_NoSunlight>
+  <WVC_XaG_StatsReport_ColonistsInColony>less than {0} colonists</WVC_XaG_StatsReport_ColonistsInColony>
 
   <!-- <WVC_GeneSpawner_GizmoTitle>Resource spawner</WVC_GeneSpawner_GizmoTitle> -->
   <!-- <WVC_GeneGestator_GizmoLabel>Gestator</WVC_GeneGestator_GizmoLabel> -->
