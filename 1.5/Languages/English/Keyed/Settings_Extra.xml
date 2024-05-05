@@ -115,12 +115,12 @@ A restart is required.</WVC_ToolTip_bloodeater_SafeBloodfeed>
 	<WVC_Label_link_removeMechlinkWithGene>Remove mechlink with gene</WVC_Label_link_removeMechlinkWithGene>
 	<WVC_ToolTip_link_removeMechlinkWithGene>If enabled, when the corresponding gene is removed, the mechlink is removed too.
 
-Removing a mechlink or psylink is guaranteed to lead to bugs. Use at your own risk.</WVC_ToolTip_link_removeMechlinkWithGene>
+Removing a mechlink shouldn't cause any bugs, at least in the vanilla game. Use at your own risk.</WVC_ToolTip_link_removeMechlinkWithGene>
 
 	<WVC_Label_link_removePsylinkWithGene>Remove psylink with gene</WVC_Label_link_removePsylinkWithGene>
 	<WVC_ToolTip_link_removePsylinkWithGene>If enabled, when the corresponding gene is removed, the psylink is removed too.
 
-Removing a mechlink or psylink is guaranteed to lead to bugs. Use at your own risk.</WVC_ToolTip_link_removePsylinkWithGene>
+Removing a psylink should not lead to serious bugs, but unexpected errors and conflicts may arise. Use at your own risk.</WVC_ToolTip_link_removePsylinkWithGene>
 
 	<!-- ================================== -->
 

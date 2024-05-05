@@ -21,6 +21,7 @@
 		<!-- <colonistsLimit>5</colonistsLimit> -->
 	  <!-- </li> -->
 	<!-- </conditionalStatAffecters> -->
+	<enabledForNPCFactions>false</enabledForNPCFactions>
 	<statOffsets>
 	  <MentalBreakThreshold>-0.08</MentalBreakThreshold>
 	  <WorkSpeedGlobal>0.2</WorkSpeedGlobal>
@@ -59,6 +60,7 @@
 	<label>required</label>
 	<description>Shapeshifters should be worshipped. Believers will be happy if there is a shapeshifter in the colony.</description>
 	<impact>Medium</impact>
+	<!-- <enabledForNPCFactions>false</enabledForNPCFactions> -->
 	<requiredMemes>
 	  <li>WVC_Shapeshifterist</li>
 	</requiredMemes>
@@ -246,8 +248,9 @@
   <ThoughtDef>
 	<defName>WVC_Shapeshifters_Recluse_Humanlikes</defName>
 	<thoughtClass>Thought_Situational</thoughtClass>
-	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_MoreWhenFiveColonistInFaction</workerClass>
-	<validWhileDespawned>true</validWhileDespawned>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_MoreThanFiveColonistsInFaction</workerClass>
+	<!-- <validWhileDespawned>true</validWhileDespawned> -->
+	<!-- <enabledForNPCFactions>false</enabledForNPCFactions> -->
 	<stages>
 	  <li>
 		<label>recluse</label>

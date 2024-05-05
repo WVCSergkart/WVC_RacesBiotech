@@ -32,10 +32,10 @@ namespace WVC_XenotypesAndGenes
 
 		protected override ThoughtState ShouldHaveThought(Pawn p)
 		{
-			if (p.Faction != Faction.OfPlayer)
-			{
-				return false;
-			}
+			// if (p.Faction != Faction.OfPlayer)
+			// {
+				// return false;
+			// }
 			if (GameComponent.cachedXenotypesCount > 0)
 			{
 				return ThoughtState.ActiveDefault;
@@ -55,10 +55,10 @@ namespace WVC_XenotypesAndGenes
 
 		protected override ThoughtState ShouldHaveThought(Pawn p)
 		{
-			if (p.Faction != Faction.OfPlayer)
-			{
-				return false;
-			}
+			// if (p.Faction != Faction.OfPlayer)
+			// {
+				// return false;
+			// }
 			if (GameComponent.cachedNonHumansCount > 0)
 			{
 				return ThoughtState.ActiveDefault;
@@ -73,15 +73,15 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class ThoughtWorker_Precept_MoreWhenFiveColonistInFaction : ThoughtWorker_PreceptWithXaGComponent
+	public class ThoughtWorker_Precept_MoreThanFiveColonistsInFaction : ThoughtWorker_PreceptWithXaGComponent
 	{
 
 		protected override ThoughtState ShouldHaveThought(Pawn p)
 		{
-			if (p.Faction != Faction.OfPlayer)
-			{
-				return false;
-			}
+			// if (p.Faction != Faction.OfPlayer)
+			// {
+				// return false;
+			// }
 			if (GameComponent.cachedPawnsCount > 5)
 			{
 				return ThoughtState.ActiveDefault;

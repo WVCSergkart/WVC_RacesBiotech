@@ -17,6 +17,8 @@ namespace WVC_XenotypesAndGenes
 		public int timeForNextSummon = -1;
 		public bool summonMechanoids = false;
 
+		public bool pawnHadMechlinkBefore = false;
+
 		public override void PostAdd()
 		{
 			base.PostAdd();
@@ -27,6 +29,10 @@ namespace WVC_XenotypesAndGenes
 			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
 			{
 				pawn.health.AddHediff(HediffDefOf.MechlinkImplant, pawn.health.hediffSet.GetBrain());
+			}
+			else
+			{
+				pawnHadMechlinkBefore = true;
 			}
 			ResetSummonInterval();
 		}
@@ -71,7 +77,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			if (WVC_Biotech.settings.link_removeMechlinkWithGene)
+			if (WVC_Biotech.settings.link_removeMechlinkWithGene && !pawnHadMechlinkBefore)
 			{
 				HediffUtility.TryRemoveHediff(HediffDefOf.MechlinkImplant, pawn);
 			}
@@ -91,6 +97,7 @@ namespace WVC_XenotypesAndGenes
 			base.ExposeData();
 			Scribe_Values.Look(ref timeForNextSummon, "timeForNextSummon", -1);
 			Scribe_Values.Look(ref summonMechanoids, "summonMechanoids", false);
+			Scribe_Values.Look(ref pawnHadMechlinkBefore, "pawnHadMechlinkBefore", false);
 		}
 
 	}

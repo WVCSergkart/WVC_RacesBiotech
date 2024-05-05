@@ -4,7 +4,7 @@
   <RitualAttachableOutcomeEffectDef WVC_XaG_XenotypeRemoveTag="General">
 	<defName>WVC_ShapeshifterRecruit</defName>
 	<label>shapeshifter recruit</label>
-	<effectDesc>70% chance of shapeshifter recruit of the same ideoligion joining your colony.</effectDesc>
+	<effectDesc>20% chance of shapeshifter recruit of the same ideoligion joining your colony.</effectDesc>
 	<letterInfoText>A wanderer has arrived and wants to join your colony.</letterInfoText>
 	<workerClass>WVC_XenotypesAndGenes.RitualAttachableOutcomeEffectWorker_XenotypeRecruit</workerClass>
 	<requiredMemeAny>
@@ -21,7 +21,7 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
 			<pawnKindDef>WVC_Ashen_Player</pawnKindDef>
-			<recruitChance>0.70</recruitChance>
+			<recruitChance>0.20</recruitChance>
 		</li>
 	</modExtensions>
   </RitualAttachableOutcomeEffectDef>
@@ -29,7 +29,7 @@
   <RitualAttachableOutcomeEffectDef WVC_XaG_XenotypeRemoveTag="General">
 	<defName>WVC_UndeadRecruit</defName>
 	<label>undead recruit</label>
-	<effectDesc>60% chance of undead recruit of the same ideoligion joining your colony.</effectDesc>
+	<effectDesc>20% chance of undead recruit of the same ideoligion joining your colony.</effectDesc>
 	<letterInfoText>A wanderer has arrived and wants to join your colony.</letterInfoText>
 	<workerClass>WVC_XenotypesAndGenes.RitualAttachableOutcomeEffectWorker_XenotypeRecruit</workerClass>
 	<requiredMemeAny>
@@ -50,7 +50,7 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
 			<pawnKindDef>WVC_Undead_Player</pawnKindDef>
-			<recruitChance>0.60</recruitChance>
+			<recruitChance>0.20</recruitChance>
 		</li>
 	</modExtensions>
   </RitualAttachableOutcomeEffectDef>
@@ -58,7 +58,7 @@
   <RitualAttachableOutcomeEffectDef WVC_XaG_XenotypeRemoveTag="General">
 	<defName>WVC_BlankindRecruit</defName>
 	<label>subject recruit</label>
-	<effectDesc>100% chance of blankind, lilif or deadcat recruit of the same ideoligion joining your colony.</effectDesc>
+	<effectDesc>40% chance of blankind, lilif or deadcat recruit of the same ideoligion joining your colony.</effectDesc>
 	<letterInfoText>A wanderer has arrived and wants to join your colony.</letterInfoText>
 	<workerClass>WVC_XenotypesAndGenes.RitualAttachableOutcomeEffectWorker_XenotypeRecruit</workerClass>
 	<requiredMemeAny>
@@ -75,7 +75,7 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
 			<pawnKindDef>WVC_Blank_Player</pawnKindDef>
-			<recruitChance>1.0</recruitChance>
+			<recruitChance>0.4</recruitChance>
 		</li>
 	</modExtensions>
   </RitualAttachableOutcomeEffectDef>

@@ -8,6 +8,8 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_SimplePsylink : Gene
 	{
 
+		private bool pawnHadPsylinkBefore = false;
+
 		public override void PostAdd()
 		{
 			base.PostAdd();
@@ -18,8 +20,12 @@ namespace WVC_XenotypesAndGenes
 			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.PsychicAmplifier))
 			{
 				pawn.health.AddHediff(HediffDefOf.PsychicAmplifier, pawn.health.hediffSet.GetBrain());
+				ChangePsylinkLevel(pawn);
 			}
-			ChangePsylinkLevel(pawn);
+			else
+			{
+				pawnHadPsylinkBefore = true;
+			}
 		}
 
 		public static void ChangePsylinkLevel(Pawn pawn)
@@ -39,7 +45,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			if (WVC_Biotech.settings.link_removePsylinkWithGene)
+			if (WVC_Biotech.settings.link_removePsylinkWithGene && !pawnHadPsylinkBefore)
 			{
 				HediffUtility.TryRemoveHediff(HediffDefOf.PsychicAmplifier, pawn);
 			}
@@ -53,6 +59,12 @@ namespace WVC_XenotypesAndGenes
 				// pawn.health.AddHediff(HediffDefOf.PsychicAmplifier, pawn.health.hediffSet.GetBrain());
 			// }
 		// }
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref pawnHadPsylinkBefore, "pawnHadPsylinkBefore", false);
+		}
 
 	}
 
@@ -109,6 +121,8 @@ namespace WVC_XenotypesAndGenes
 
 		public float recoveryRate = 0.01f;
 
+		private bool pawnHadPsylinkBefore = false;
+
 		public override void PostAdd()
 		{
 			base.PostAdd();
@@ -119,8 +133,12 @@ namespace WVC_XenotypesAndGenes
 			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.PsychicAmplifier))
 			{
 				pawn.health.AddHediff(HediffDefOf.PsychicAmplifier, pawn.health.hediffSet.GetBrain());
+				Gene_SimplePsylink.ChangePsylinkLevel(pawn);
 			}
-			Gene_SimplePsylink.ChangePsylinkLevel(pawn);
+			else
+			{
+				pawnHadPsylinkBefore = true;
+			}
 		}
 
 		public override void Tick()
@@ -157,7 +175,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			if (WVC_Biotech.settings.link_removePsylinkWithGene)
+			if (WVC_Biotech.settings.link_removePsylinkWithGene && !pawnHadPsylinkBefore)
 			{
 				HediffUtility.TryRemoveHediff(HediffDefOf.PsychicAmplifier, pawn);
 			}
@@ -167,6 +185,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref recoveryRate, "psyfocusRecoveryRate", 0);
+			Scribe_Values.Look(ref pawnHadPsylinkBefore, "pawnHadPsylinkBefore", false);
 		}
 
 	}

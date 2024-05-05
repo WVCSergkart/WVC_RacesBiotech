@@ -123,12 +123,12 @@ namespace WVC_XenotypesAndGenes
 			{
 				descriptionHyperlinks.Add(new DefHyperlink(gene));
 			}
-			foreach (ThrallDef thrallDef in thrallDefs)
+			foreach (ThrallDef thrallDef in DefDatabase<ThrallDef>.AllDefsListForReading)
 			{
-				if (thrallDef.mutantDef != null)
-				{
-					continue;
-				}
+				// if (thrallDef.mutantDef != null)
+				// {
+					// continue;
+				// }
 				descriptionHyperlinks.Add(new DefHyperlink(thrallDef));
 			}
 			inheritable = true;

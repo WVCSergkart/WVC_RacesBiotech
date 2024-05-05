@@ -29,6 +29,7 @@
 	<impact>High</impact>
 	<displayOrderInIssue>20</displayOrderInIssue>
 	<displayOrderInImpact>100</displayOrderInImpact>
+	<enabledForNPCFactions>false</enabledForNPCFactions>
 	<statFactors>
 	  <TameAnimalChance>0.2</TameAnimalChance>
 	  <BondAnimalChanceFactor>0.05</BondAnimalChanceFactor>
@@ -67,7 +68,8 @@
 	<defName>WVC_GeneticSupremacy_Desired_Xenotypes</defName>
 	<thoughtClass>Thought_Situational</thoughtClass>
 	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_HasAnyXenotypesAndCount</workerClass>
-	<validWhileDespawned>true</validWhileDespawned>
+	<!-- <validWhileDespawned>true</validWhileDespawned> -->
+	<!-- <enabledForNPCFactions>false</enabledForNPCFactions> -->
 	<stages>
 	  <li>
 		<label>xenohumans in faction</label>
@@ -81,7 +83,8 @@
 	<defName>WVC_GeneticSupremacy_Desired_NonHumanlikes</defName>
 	<thoughtClass>Thought_Situational</thoughtClass>
 	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_HasAnyNonHumanlikeAndCount</workerClass>
-	<validWhileDespawned>true</validWhileDespawned>
+	<!-- <validWhileDespawned>true</validWhileDespawned> -->
+	<!-- <enabledForNPCFactions>false</enabledForNPCFactions> -->
 	<stages>
 	  <li>
 		<label>non-humanlikes in faction</label>
@@ -101,6 +104,7 @@
 	<impact>Medium</impact>
 	<displayOrderInIssue>15</displayOrderInIssue>
 	<displayOrderInImpact>100</displayOrderInImpact>
+	<enabledForNPCFactions>false</enabledForNPCFactions>
 	<statFactors>
 	  <TameAnimalChance>0.6</TameAnimalChance>
 	  <BondAnimalChanceFactor>0.2</BondAnimalChanceFactor>
@@ -135,7 +139,8 @@
 	<defName>WVC_GeneticSupremacy_Preferred_NonHumanlikes</defName>
 	<thoughtClass>Thought_Situational</thoughtClass>
 	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_HasAnyNonHumanlikeAndCount</workerClass>
-	<validWhileDespawned>true</validWhileDespawned>
+	<!-- <validWhileDespawned>true</validWhileDespawned> -->
+	<!-- <enabledForNPCFactions>false</enabledForNPCFactions> -->
 	<stages>
 	  <li>
 		<label>non-humanlikes in faction</label>
