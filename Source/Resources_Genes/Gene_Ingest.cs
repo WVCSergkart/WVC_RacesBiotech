@@ -448,9 +448,17 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			IngestibleProperties ingestible = thing.def.ingestible;
-			float nutrition = thing.GetStatValue(StatDefOf.Nutrition);
-			if (ingestible != null && nutrition > 0f)
+			if (thing.def.IsDrug)
+			{
+				return;
+			}
+			IngestibleProperties ingestible = thing?.def?.ingestible;
+			// float nutrition = thing.GetStatValue(StatDefOf.Nutrition);
+			if (ingestible?.foodType == null)
+			{
+				return;
+			}
+			if (ingestible != null && ingestible.CachedNutrition > 0f)
 			{
 				FoodUtility.AddFoodPoisoningHediff(pawn, thing, FoodPoisonCause.DangerousFoodType);
 			}

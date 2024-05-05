@@ -4,7 +4,7 @@
 	<!-- Bloodfeeder patch -->
 
 	<Operation Class="PatchOperationAdd">
-	  <xpath>/Defs/AbilityDef[defName="Bloodfeed"]/comps</xpath>
+	  <xpath>/Defs/AbilityDef[defName="Bloodfeed" or defName="VRE_SanguoFeed"]/comps</xpath>
 	  <value>
 		  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityBloodeater"/>
 	  </value>

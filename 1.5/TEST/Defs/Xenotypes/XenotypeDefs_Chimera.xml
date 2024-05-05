@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- <XenotypeDef ParentName="WVC_RB_Xenotypes_TEST" Class="WVC_XenotypesAndGenes.ChimeratypeDef" WVC_XaG_XenotypeRemoveTag="NonSpecificOrMisc"> -->
+	<!-- <defName>WVC_Chimera</defName> -->
+	<!-- <label>chimera</label> -->
+	<!-- <inheritable>true</inheritable> -->
+	<!-- <iconPath>WVC/UI/Mecha_Icons/Xeno_Chimera_v0</iconPath> -->
+	<!-- <genes> -->
+		<!-- <li>Hemogenic</li> -->
+		<!-- <li>Bloodfeeder</li> -->
+		<!-- <li>WVC_Bloodfeeder_GeneticThief</li> -->
+	<!-- </genes> -->
+  <!-- </XenotypeDef> -->
+
+</Defs>

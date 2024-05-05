@@ -437,6 +437,18 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_GeneShapeshifterStyles_Label>Change style</WVC_XaG_GeneShapeshifterStyles_Label>
 	<WVC_XaG_GeneShapeshifterStyles_Desc>Opens a menu where you can change the style of the pawn. Including hairstyle and its color, as well as tattoos, both for the face and body.</WVC_XaG_GeneShapeshifterStyles_Desc>
 
+	<WVC_XaG_GeneGeneticThief_Effects>Effects:</WVC_XaG_GeneGeneticThief_Effects>
+	<WVC_XaG_GeneGeneticThief_Desc>Here you can select the genes collected by the pawn and implant them.</WVC_XaG_GeneGeneticThief_Desc>
+	<!-- Please note that already implanted genes cannot be removed or genes that conflict with the implanted ones cannot be implanted. -->
+	<WVC_XaG_GeneGeneticThief_AddGene>Add to geneset</WVC_XaG_GeneGeneticThief_AddGene>
+	<WVC_XaG_GeneGeneticThief_RemoveGene>Remove from geneset</WVC_XaG_GeneGeneticThief_RemoveGene>
+	<WVC_XaG_GeneGeneticThief_ClearXenogenesButton>Clear all xenogenes</WVC_XaG_GeneGeneticThief_ClearXenogenesButton>
+
+	<WVC_XaG_GeneGeneticThief_ImplantGeneSet>The selected genes will be implanted as xenogenes, and the pawn will receive genes regrowing hediff. Genes regrowing may limit the use of certain genes or abilities.</WVC_XaG_GeneGeneticThief_ImplantGeneSet>
+	<WVC_XaG_GeneGeneticThief_ClearGeneSet>All xenogenes will be removed, and the {0} gene, if it was a xenogene, will lose all accumulated genes and become endogene. Pawn will also receive genes regrowing hediff.</WVC_XaG_GeneGeneticThief_ClearGeneSet>
+
+	<WVC_XaG_GeneGeneticThief_GeneCopied>{0} copied the {1} gene.</WVC_XaG_GeneGeneticThief_GeneCopied>
+
 	<WVC_XaG_GeneShapeshifter_DuplicateMode>This person shapeshift mechanites are in overclocking mode. The carrier's genes will not be changed, but instead a copy of the carrier will be created with the set of genes of the selected xenotype.</WVC_XaG_GeneShapeshifter_DuplicateMode>
 
 	<WVC_XaG_GeneShapeshifter_NotPreferredXenotype>Xenotype does not correspond to beliefs.</WVC_XaG_GeneShapeshifter_NotPreferredXenotype>

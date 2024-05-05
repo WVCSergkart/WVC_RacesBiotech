@@ -137,4 +137,115 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_Chimera : Gene
+	{
+
+		public GeneExtension_Undead Props => def?.GetModExtension<GeneExtension_Undead>();
+
+		private List<GeneDef> stolenGenes = new();
+
+		public List<GeneDef> AllStolenGenes => stolenGenes;
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			if (pawn.Spawned)
+			{
+				return;
+			}
+			List<GeneDef> geneDefs = DefDatabase<GeneDef>.AllDefsListForReading;
+			while (stolenGenes.Count < 5)
+			{
+				if (geneDefs.Where((GeneDef x) => x.endogeneCategory == EndogeneCategory.None && x.selectionWeight > 0f && x.canGenerateInGeneSet && x.passOnDirectly && !AllStolenGenes.Contains(x) && x.biostatArc == 0).TryRandomElementByWeight((GeneDef gene) => gene.selectionWeight, out GeneDef result))
+				{
+					AddGene(result);
+				}
+			}
+		}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (Find.Selector.SelectedPawns.Count > 1 || pawn.Drafted || !Active || pawn.Faction != Faction.OfPlayer)
+			{
+				yield break;
+			}
+			yield return new Command_Action
+			{
+				defaultLabel = def.LabelCap,
+				defaultDesc = "WVC_XaG_GeneGeneticThief_Desc".Translate(),
+				icon = ContentFinder<Texture2D>.Get(def.iconPath),
+				action = delegate
+				{
+					Find.WindowStack.Add(new Dialog_GeneticThief(this));
+				}
+			};
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: GetRandomGene",
+					action = delegate
+					{
+						AddGene(DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.endogeneCategory == EndogeneCategory.None && x.selectionWeight > 0f && x.canGenerateInGeneSet && x.passOnDirectly && !AllStolenGenes.Contains(x)).RandomElement());
+					}
+				};
+			}
+		}
+
+		public void AddGene(GeneDef geneDef)
+		{
+			if (!AllStolenGenes.Contains(geneDef))
+			{
+				stolenGenes.Add(geneDef);
+			}
+		}
+		public void RemoveGene(GeneDef geneDef)
+		{
+			if (AllStolenGenes.Contains(geneDef))
+			{
+				stolenGenes.Remove(geneDef);
+			}
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Collections.Look(ref stolenGenes, "stolenGenes", LookMode.Def);
+		}
+
+		// public static float GetGeneWeight(GeneDef geneDef)
+		// {
+			// float weight = 1f / (geneDef.biostatCpx + geneDef.biostatMet + geneDef.biostatArc + 1f);
+			// if (weight < 0f)
+			// {
+				// weight *= -1;
+			// }
+			// if (weight == 0f)
+			// {
+				// weight += 1f;
+			// }
+			// return weight;
+		// }
+
+	}
+
+	public class Gene_BloodChimera : Gene_Chimera, IGeneBloodfeeder
+	{
+
+		public void Notify_Bloodfeed(Pawn victim)
+		{
+			List<Gene> genes = victim?.genes?.GenesListForReading;
+			if (genes.NullOrEmpty())
+			{
+				return;
+			}
+			if (genes.Where((Gene x) => x.def.selectionWeight > 0f && x.def.canGenerateInGeneSet && x.def.passOnDirectly && !AllStolenGenes.Contains(x.def)).TryRandomElementByWeight((Gene gene) => gene.def.selectionWeight, out Gene result))
+			{
+				AddGene(result.def);
+				Messages.Message("WVC_XaG_GeneGeneticThief_GeneCopied".Translate(pawn.NameShortColored, result.Label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+			}
+		}
+
+	}
+
 }

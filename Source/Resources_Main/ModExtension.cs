@@ -96,6 +96,8 @@ namespace WVC_XenotypesAndGenes
 		public List<XaG_CountWithChance> possibleTraits;
 		// Special Food
 		public List<ThingDef> specialFoodDefs;
+		// GeneticThief
+		public XenotypeDef xenotypeDef;
 	}
 
 	public class GeneExtension_Opinion : DefModExtension
