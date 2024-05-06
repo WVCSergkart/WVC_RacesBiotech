@@ -166,16 +166,20 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public string GetInspectInfo
-        {
-            get
-            {
-                if (CanScarify)
-                {
-                    return "WVC_XaG_Gene_Scarifier_On_Info".Translate().Resolve() + ": " + scarifyInterval.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
-                }
-                return null;
-            }
-        }
+		{
+			get
+			{
+				if (pawn.Drafted)
+				{
+					return null;
+				}
+				if (CanScarify)
+				{
+					return "WVC_XaG_Gene_Scarifier_On_Info".Translate().Resolve() + ": " + scarifyInterval.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
+				}
+				return null;
+			}
+		}
 
 	}
 

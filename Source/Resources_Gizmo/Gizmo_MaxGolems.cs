@@ -30,8 +30,8 @@ namespace WVC_XenotypesAndGenes
 		private int totalBandwidth;
 		private int usedBandwidth;
 
-		private int nextRecache = -1;
-		public int recacheFrequency = 734;
+		// private int nextRecache = -1;
+		// public int recacheFrequency = 734;
 
 		public int golemIndex = -1;
 
@@ -53,7 +53,7 @@ namespace WVC_XenotypesAndGenes
 				Order = extension.gizmoOrder;
 				filledBlockColor = extension.filledBlockColor;
 				excessBlockColor = extension.excessBlockColor;
-				recacheFrequency = extension.recacheFrequency;
+				// recacheFrequency = extension.recacheFrequency;
 				tipSectionTitle = extension.tipSectionTitle;
 				tipSectionTip = extension.tipSectionTip;
 				golemIndex = extension.golemistTypeIndex;
@@ -65,13 +65,16 @@ namespace WVC_XenotypesAndGenes
 			Rect rect = new(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
 			Rect rect2 = rect.ContractedBy(6f);
 			Widgets.DrawWindowBackground(rect);
-			if (Find.TickManager.TicksGame > nextRecache)
+			if (mechanitor.IsHashIntervalTick(60))
 			{
 				totalBandwidth = (int)MechanoidsUtility.TotalGolembond(mechanitor);
 				usedBandwidth = (int)MechanoidsUtility.GetConsumedGolembond(mechanitor);
 				allControlledGolems = MechanoidsUtility.GetAllControlledGolemsOfIndex(mechanitor, golemIndex);
-				nextRecache = Find.TickManager.TicksGame + recacheFrequency;
 			}
+			// if (Find.TickManager.TicksGame > nextRecache)
+			// {
+				// nextRecache = Find.TickManager.TicksGame + recacheFrequency;
+			// }
 			string text = usedBandwidth.ToString("F0") + " / " + totalBandwidth.ToString("F0");
 			TaggedString taggedString = tipSectionTitle.Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + text + "\n\n" + tipSectionTip.Translate();
 			if (usedBandwidth > 0)

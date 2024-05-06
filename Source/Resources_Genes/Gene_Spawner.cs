@@ -115,6 +115,10 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
+				if (pawn.Drafted)
+				{
+					return null;
+				}
 				return "NextSpawnedItemIn".Translate(GenLabel.ThingLabel(Props?.thingDefToSpawn, null, FinalStackCount)).Resolve() + ": " + ticksUntilSpawn.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
 			}
 		}
