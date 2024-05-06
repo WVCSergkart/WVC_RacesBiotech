@@ -76,10 +76,10 @@ namespace WVC_XenotypesAndGenes
 				golem.Kill(null, null);
 				return;
 			}
-			if (golem.Map == null)
-			{
-				return;
-			}
+			// if (golem.Map == null || overseer.Map == null)
+			// {
+				// return;
+			// }
 			if (!overseer.IsGolemistOfIndex(Props.golemIndex) || !MechanoidsUtility.HasEnoughGolembond(overseer))
 			{
 				golem.Kill(null, null);
