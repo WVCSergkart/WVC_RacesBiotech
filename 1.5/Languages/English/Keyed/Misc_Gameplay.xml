@@ -19,7 +19,7 @@
 	<WVC_RoleRequirementShouldBeMechanitor>Must be a Mechanitor</WVC_RoleRequirementShouldBeMechanitor>
 	
 	<WVC_PawnIsAndroidCheck>User and target must be humans and genetically compatible.</WVC_PawnIsAndroidCheck>
-	<WVC_XaG_WrongDevelopmentalStage>The target has an incorrect developmental stage.</WVC_XaG_WrongDevelopmentalStage>
+	<WVC_XaG_WrongDevelopmentalStage>The target has an inappropriate developmental stage.</WVC_XaG_WrongDevelopmentalStage>
 
 	<WVC_XaG_GeneralWrongTarget>Wrong target.</WVC_XaG_GeneralWrongTarget>
 	
@@ -33,7 +33,7 @@
 
 	<!-- <WVC_XaG_RecommendedRole>Recommended role</WVC_XaG_RecommendedRole> -->
 
-	<WVC_XaG_MessageWrongRottingStage>Wrong rotting stage.</WVC_XaG_MessageWrongRottingStage>
+	<WVC_XaG_MessageWrongRottingStage>The target has an inappropriate rotting stage.</WVC_XaG_MessageWrongRottingStage>
 
 	<WVC_XaG_AcceptableRotStages>Acceptable rot stages</WVC_XaG_AcceptableRotStages>
 
