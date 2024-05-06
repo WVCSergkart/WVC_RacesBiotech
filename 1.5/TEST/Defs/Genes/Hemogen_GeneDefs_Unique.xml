@@ -4,7 +4,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Bloodfeeder">
 	<defName>WVC_BloodfeedChimera</defName>
 	<label>blood chimera</label>
-	<description>Carriers of this gene have a special organ in their mouth that allows them to read the genetic code of the blood that falls on it. This sometimes makes it possible to copy the genes of victims bitten by carriers of the gene.</description>
+	<description>Carriers of this gene have a special organ in their mouth that allows them to read the genetic code of the blood that falls on it. This sometimes makes it possible to copy the genes of victims bitten by carriers.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_BloodChimera</geneClass>
 	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_ChimerasGenes</resourceGizmoType>
 	<iconPath>WVC/UI/Genes/Gene_GeneticThief_Bloodfeeder_v0</iconPath>
@@ -29,6 +29,8 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
 			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
 			<xenotypeDef>WVC_Shadoweater</xenotypeDef>
+			<collectedGenesColor>(162, 216, 162)</collectedGenesColor>
+			<destroyedGenesColor>(178, 97, 96)</destroyedGenesColor>
 		</li>
 	</modExtensions>
   </GeneDef>

@@ -98,6 +98,8 @@ namespace WVC_XenotypesAndGenes
 		public List<ThingDef> specialFoodDefs;
 		// GeneticThief
 		public XenotypeDef xenotypeDef;
+		public Color collectedGenesColor;
+		public Color destroyedGenesColor;
 	}
 
 	public class GeneExtension_Opinion : DefModExtension

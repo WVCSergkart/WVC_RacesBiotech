@@ -4,43 +4,15 @@
   <!-- ============================================= -->
 
    <!-- ParentName="GeneEyeColor" -->
-  <GeneDef Name="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" Abstract="True" WVC_Tag="MechaAndNodeSkins_EasyPatch">
-	<!-- <defName>WVC_FacePlate</defName> -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase" Name="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" Abstract="True" WVC_Tag="XaG_ColorfullEyesAndFaceplates">
 	<label>faceplate</label>
 	<labelShortAdj>faceplate</labelShortAdj>
 	<description>Carriers of this gene have a translucent organic plate, with a unnatural pattern, on their face. This plate closes the eyes but does not interfere with vision at all.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Faceless</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_Faceplate</iconPath>
 	<prerequisite>WVC_NodeSkin</prerequisite>
 	<iconColor>(0.75, 0.75, 0.75)</iconColor>
-	<!-- <statOffsets> -->
-	  <!-- <ArmorRating_Blunt>0.17</ArmorRating_Blunt> -->
-	<!-- </statOffsets> -->
-	<!-- = -->
-	<geneClass>WVC_XenotypesAndGenes.Gene_Faceless</geneClass>
-	<minAgeActive>0</minAgeActive>
-	<!-- <displayCategory>Cosmetic</displayCategory> -->
-	<displayCategory>WVC_Cosmetic</displayCategory>
 	<displayOrderInCategory>4</displayOrderInCategory>
-	<randomChosen>true</randomChosen>
-	<!-- <displayCategory>WVC_RandomGenes</displayCategory> -->
-	<!-- <displayOrderInCategory>-5</displayOrderInCategory> -->
-	<!-- They cost nothing, as they can only be obtained through a randomizer. -->
-	<biostatCpx>0</biostatCpx>
-	<biostatArc>0</biostatArc>
-	<biostatMet>0</biostatMet>
-	<selectionWeight>0.00</selectionWeight>
-	<canGenerateInGeneSet>false</canGenerateInGeneSet>
-	<!-- <customEffectDescriptions> -->
-		<!-- <li>&lt;color=#ff8585&gt;This gene is activated only in the presence of the "Faceless" gene.&lt;/color&gt;</li> -->
-	<!-- </customEffectDescriptions> -->
-	<customEffectDescriptions>
-		<!-- <li>&lt;color=#ff8585&gt;Cannot spawn in genepacks.&lt;/color&gt;</li> -->
-	</customEffectDescriptions>
-	<exclusionTags>
-	  <li>EyeColor</li>
-	  <!-- <li>WVC_NodeBody_Eyes</li> -->
-	  <li>WVC_XenotypesAndGenes_GeneTagRandomizer_RandomFaceplate</li>
-	</exclusionTags>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<!-- Any HeadTypes -->
@@ -53,7 +25,7 @@
 
   <!-- ============ -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" WVC_Tag="XaG_ColorfullEyesAndFaceplates">
 	<defName>WVC_FacelessEyes_ffffff_HEX</defName>
 	<label>white faceplate</label>
 	<labelShortAdj>white-plated</labelShortAdj>
@@ -96,7 +68,7 @@
 	</renderNodeProperties>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" WVC_Tag="XaG_ColorfullEyesAndFaceplates">
 	<defName>WVC_FacelessEyes_afafaf_HEX</defName>
 	<label>gray faceplate</label>
 	<labelShortAdj>gray-plated</labelShortAdj>
@@ -139,7 +111,7 @@
 	</renderNodeProperties>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" WVC_Tag="XaG_ColorfullEyesAndFaceplates">
 	<defName>WVC_FacelessEyes_7c69ce_HEX</defName>
 	<label>purple faceplate</label>
 	<labelShortAdj>purple-plated</labelShortAdj>
@@ -182,7 +154,7 @@
 	</renderNodeProperties>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" WVC_Tag="XaG_ColorfullEyesAndFaceplates">
 	<defName>WVC_FacelessEyes_69a2ce_HEX</defName>
 	<label>blue faceplate</label>
 	<labelShortAdj>blue-plated</labelShortAdj>
@@ -225,7 +197,7 @@
 	</renderNodeProperties>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" WVC_Tag="XaG_ColorfullEyesAndFaceplates">
 	<defName>WVC_FacelessEyes_69ce7a_HEX</defName>
 	<label>green faceplate</label>
 	<labelShortAdj>green-plated</labelShortAdj>
@@ -268,7 +240,7 @@
 	</renderNodeProperties>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" WVC_Tag="XaG_ColorfullEyesAndFaceplates">
 	<defName>WVC_FacelessEyes_c8ce69_HEX</defName>
 	<label>yellow faceplate</label>
 	<labelShortAdj>yellow-plated</labelShortAdj>
@@ -311,7 +283,7 @@
 	</renderNodeProperties>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" WVC_Tag="XaG_ColorfullEyesAndFaceplates">
 	<defName>WVC_FacelessEyes_ce69c3_HEX</defName>
 	<label>pink faceplate</label>
 	<labelShortAdj>pink-plated</labelShortAdj>
@@ -354,7 +326,7 @@
 	</renderNodeProperties>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" WVC_Tag="XaG_ColorfullEyesAndFaceplates">
 	<defName>WVC_FacelessEyes_ce6969_HEX</defName>
 	<label>red faceplate</label>
 	<labelShortAdj>red-plated</labelShortAdj>
@@ -397,7 +369,7 @@
 	</renderNodeProperties>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" WVC_Tag="XaG_ColorfullEyesAndFaceplates">
 	<defName>WVC_FacelessEyes_ceae69_HEX</defName>
 	<label>orange faceplate</label>
 	<labelShortAdj>orange-plated</labelShortAdj>
@@ -440,7 +412,7 @@
 	</renderNodeProperties>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColor_Faceless" WVC_Tag="XaG_ColorfullEyesAndFaceplates">
 	<defName>WVC_FacelessEyes_69cec6_HEX</defName>
 	<label>cyan faceplate</label>
 	<labelShortAdj>cyan-plated</labelShortAdj>

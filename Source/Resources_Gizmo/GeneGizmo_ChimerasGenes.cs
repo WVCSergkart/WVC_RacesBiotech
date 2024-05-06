@@ -38,6 +38,14 @@ namespace WVC_XenotypesAndGenes
 		{
 			gene = geneMechlink;
 			mechanitor = gene?.pawn;
+			if (gene.Props.collectedGenesColor != null)
+			{
+				filledBlockColor = gene.Props.collectedGenesColor;
+			}
+			if (gene.Props.destroyedGenesColor != null)
+			{
+				excessBlockColor = gene.Props.destroyedGenesColor;
+			}
 			// allDryads = gene.AllDryads;
 			// usedBandwidth = allDryads.Count;
 			Order = -90f;

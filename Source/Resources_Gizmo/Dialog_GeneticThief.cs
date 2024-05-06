@@ -107,7 +107,7 @@ namespace WVC_XenotypesAndGenes
 					Widgets.Label(rect3.x, ref curY, rect3.width, effectDescriptions.ResolveTags());
 				}
 				Rect button = new(rect3.x, rect3.yMax - 85f, rect3.width, 25f);
-				if (CanAdded(selectedXeno))
+				if (CanAdded(selectedXeno) && !choosenGenes.Contains(selectedXeno))
 				{
 					if (Widgets.ButtonText(button, "WVC_XaG_GeneGeneticThief_AddGene".Translate()))
 					{
@@ -121,36 +121,53 @@ namespace WVC_XenotypesAndGenes
 						choosenGenes.Remove(selectedXeno);
 					}
 				}
-				Rect rect4 = new(rect3.x, rect3.yMax - 55f, rect3.width, 30f);
-				if (MeetsRequirements(selectedXeno))
+				Rect rect4 = new(rect3.x, rect3.yMax - 58f, rect3.width, 30f);
+				if (MeetsRequirements())
 				{
 					string acceptButtonLabel = eatAllSelectedGenes ? "WVC_XaG_GeneGeneticThief_AcceptLabelEat".Translate() : "WVC_XaG_GeneGeneticThief_AcceptLabelImplant".Translate(gene.pawn.LabelCap);
 					if (Widgets.ButtonText(rect4, acceptButtonLabel))
 					{
 						string warningDesc = eatAllSelectedGenes ? "WVC_XaG_GeneGeneticThief_EatSelectedGenes".Translate() : "WVC_XaG_GeneGeneticThief_ImplantGeneSet".Translate(gene.pawn.LabelCap);
-						Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation(warningDesc, delegate
+						if (!HaveConflicts())
 						{
-							StartChange();
-						});
-						Find.WindowStack.Add(window);
+							Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation(warningDesc, delegate
+							{
+								StartChange();
+							});
+							Find.WindowStack.Add(window);
+						}
+						else
+						{
+							Messages.Message("WVC_XaG_GeneGeneticThief_ConflictingGenesMessage".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
+						}
 					}
 				}
 				else
 				{
 					Text.Anchor = TextAnchor.MiddleCenter;
 					Widgets.DrawHighlight(rect4);
-					Widgets.Label(rect4.ContractedBy(5f), "WVC_XaG_XenoTreeModeNotMeetsRequirements".Translate());
+					Widgets.Label(rect4.ContractedBy(5f), "WVC_XaG_GeneGeneticThief_NullGeneSet".Translate());
 					Text.Anchor = TextAnchor.UpperLeft;
 				}
 			}
-			Rect rect5 = new(rect3.x, rect3.yMax - 20f, rect3.width, 25f);
-			if (Widgets.ButtonText(rect5, "WVC_XaG_GeneGeneticThief_ClearXenogenesButton".Translate()))
+			Rect rect5 = new(rect3.x, rect3.yMax - 26f, rect3.width, 30f);
+			if (pawnXenoGenes.Count > 0)
 			{
-				Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_GeneGeneticThief_ClearGeneSet".Translate(gene.LabelCap), delegate
+				if (Widgets.ButtonText(rect5, "WVC_XaG_GeneGeneticThief_ClearXenogenesButton".Translate()))
 				{
-					ClearXenogenes();
-				});
-				Find.WindowStack.Add(window);
+					Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_GeneGeneticThief_ClearGeneSet".Translate(gene.LabelCap), delegate
+					{
+						ClearXenogenes();
+					});
+					Find.WindowStack.Add(window);
+				}
+			}
+			else
+			{
+				Text.Anchor = TextAnchor.MiddleCenter;
+				Widgets.DrawHighlight(rect5);
+				Widgets.Label(rect5.ContractedBy(5f), "WVC_XaG_GeneGeneticThief_ClearGeneSet_NonXenogenes".Translate());
+				Text.Anchor = TextAnchor.UpperLeft;
 			}
 			// Rect eatButton = new(rect3.x, rect3.yMax - 85f, rect3.width, 25f);
 			// if (CanEat())
@@ -175,6 +192,26 @@ namespace WVC_XenotypesAndGenes
 			Rect rectCheckbox = new(rect5.x, rect5.yMax + 10f, rect5.width / 2f, 24f);
 			Widgets.DrawHighlightIfMouseover(rectCheckbox);
 			Widgets.CheckboxLabeled(rectCheckbox, "WVC_XaG_GeneGeneticThief_EatGene".Translate(), ref eatAllSelectedGenes);
+		}
+
+		private bool HaveConflicts()
+		{
+			if (eatAllSelectedGenes)
+			{
+				return false;
+			}
+			if (choosenGenes.NullOrEmpty())
+			{
+				return false;
+			}
+			foreach (GeneDef geneDef in choosenGenes)
+			{
+				if (!CanAdded(geneDef))
+				{
+					return true;
+				}
+			}
+			return false;
 		}
 
 		public override void DoWindowContents(Rect inRect)
@@ -211,16 +248,16 @@ namespace WVC_XenotypesAndGenes
 			Widgets.EndScrollView();
 		}
 
-		public bool MeetsRequirements(GeneDef mode)
+		public bool MeetsRequirements()
 		{
 			// if (DebugSettings.ShowDevGizmos)
 			// {
 				// return true;
 			// }
-			if (pawnGenes.Contains(mode))
-			{
-				return false;
-			}
+			// if (pawnGenes.Contains(mode))
+			// {
+				// return false;
+			// }
 			if (choosenGenes.NullOrEmpty())
 			{
 				return false;
@@ -230,11 +267,15 @@ namespace WVC_XenotypesAndGenes
 
 		public bool CanAdded(GeneDef mode)
 		{
+			if (eatAllSelectedGenes)
+			{
+				return true;
+			}
 			if (pawnGenes.Contains(mode))
 			{
 				return false;
 			}
-			if (mode.prerequisite != null && !pawnGenes.Contains(mode.prerequisite))
+			if (mode.prerequisite != null && !pawnGenes.Contains(mode.prerequisite) && !choosenGenes.Contains(mode.prerequisite))
 			{
 				return false;
 			}
@@ -290,6 +331,10 @@ namespace WVC_XenotypesAndGenes
 						gene.pawn?.genes?.AddGene(geneDef, xenogene: true);
 					}
 				}
+				GeneUtility.UpdateXenogermReplication(gene.pawn);
+				// IntRange rangeToDisappear = new(60000, 120000);
+				// XaG_GeneUtility.UpdateXenogermReplication(gene.pawn, true, rangeToDisappear.RandomInRange * choosenGenes.Count);
+				WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(gene.pawn, gene.pawn.Map).Trigger(gene.pawn, null);
 			}
 			else
 			{
@@ -298,8 +343,6 @@ namespace WVC_XenotypesAndGenes
 					gene.EatGene(geneDef);
 				}
 			}
-			GeneUtility.UpdateXenogermReplication(gene.pawn);
-			WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(gene.pawn, gene.pawn.Map).Trigger(gene.pawn, null);
 			if (!gene.Props.soundDefOnImplant.NullOrUndefined())
 			{
 				gene.Props.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(gene.pawn));
@@ -318,7 +361,7 @@ namespace WVC_XenotypesAndGenes
 				gene.pawn.genes.AddGene(gene.def, false);
 			}
 			CheckAllOverrides();
-			GeneUtility.UpdateXenogermReplication(gene.pawn);
+			XaG_GeneUtility.UpdateXenogermReplication(gene.pawn, false);
 			WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(gene.pawn, gene.pawn.Map).Trigger(gene.pawn, null);
 			if (!gene.Props.soundDefOnImplant.NullOrUndefined())
 			{
@@ -415,6 +458,10 @@ namespace WVC_XenotypesAndGenes
 		{
 			foreach (GeneDef item in geneDefs)
 			{
+				if (item == geneDef)
+				{
+					continue;
+				}
 				if (item.ConflictsWith(geneDef))
 				{
 					return true;

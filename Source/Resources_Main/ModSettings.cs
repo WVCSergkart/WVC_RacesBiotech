@@ -19,6 +19,7 @@ namespace WVC_XenotypesAndGenes
 		public bool disableFurGraphic = false;
 		public bool disableAllGraphic = false;
 		public bool disableUniqueGeneInterface = false;
+		public bool disableEyesGraphic = false;
 		// public bool enableBodySizeGenes = true;
 		// Generator
 		public bool generateSkillGenes = true;
@@ -113,6 +114,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref disableAllGraphic, "disableAllGraphic", defaultValue: false);
 			Scribe_Values.Look(ref disableUniqueGeneInterface, "disableUniqueGeneInterface", defaultValue: false);
 			// Scribe_Values.Look(ref enableBodySizeGenes, "enableBodySizeGenes", defaultValue: true);
+			Scribe_Values.Look(ref disableEyesGraphic, "disableEyesGraphic", defaultValue: false);
 			// Generator
 			Scribe_Values.Look(ref generateSkillGenes, "generateSkillGenes", defaultValue: true);
 			Scribe_Values.Look(ref generateXenotypeForceGenes, "generateXenotypeForceGenes", defaultValue: false);
@@ -292,6 +294,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_disableFurGraphic".Translate().Colorize(ColorLibrary.LightPurple), ref settings.disableFurGraphic, "WVC_ToolTip_disableFurGraphic".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableAllGraphic".Translate(), ref settings.disableAllGraphic, "WVC_ToolTip_disableAllGraphic".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableUniqueGeneInterface".Translate().Colorize(ColorLibrary.LightPurple), ref settings.disableUniqueGeneInterface, "WVC_ToolTip_disableUniqueGeneInterface".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_disableEyesGraphic".Translate(), ref settings.disableEyesGraphic, "WVC_ToolTip_disableEyesGraphic".Translate());
 			//listingStandard.CheckboxLabeled("WVC_Label_enableBodySizeGenes".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enableBodySizeGenes, "WVC_ToolTip_enableBodySizeGenes".Translate());
 			// Info
 			// listingStandard.Gap();
@@ -741,7 +744,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.disableFurGraphic = false;
 			WVC_Biotech.settings.disableAllGraphic = false;
 			WVC_Biotech.settings.disableUniqueGeneInterface = false;
-			// WVC_Biotech.settings.enableBodySizeGenes = true;
+			WVC_Biotech.settings.disableEyesGraphic = false;
 			// Generator
 			WVC_Biotech.settings.generateSkillGenes = true;
 			WVC_Biotech.settings.generateXenotypeForceGenes = false;
@@ -833,7 +836,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.disableFurGraphic = false;
 			WVC_Biotech.settings.disableAllGraphic = false;
 			WVC_Biotech.settings.disableUniqueGeneInterface = false;
-			// WVC_Biotech.settings.enableBodySizeGenes = true;
+			WVC_Biotech.settings.disableEyesGraphic = false;
 			// Generator
 			WVC_Biotech.settings.generateSkillGenes = true;
 			WVC_Biotech.settings.generateXenotypeForceGenes = false;

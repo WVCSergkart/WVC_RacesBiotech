@@ -9,6 +9,27 @@ namespace WVC_XenotypesAndGenes
 	public static class XaG_GeneUtility
 	{
 
+		public static void UpdateXenogermReplication(Pawn pawn, bool addXenogermReplicating = true, IntRange ticksToDisappear = new())
+		{
+			Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating);
+			if (firstHediffOfDef != null)
+			{
+				pawn.health.RemoveHediff(firstHediffOfDef);
+			}
+			if (addXenogermReplicating)
+			{
+				// pawn.health.AddHediff(HediffDefOf.XenogermReplicating);
+				Hediff cooldownHediff = HediffMaker.MakeHediff(HediffDefOf.XenogermReplicating, pawn);
+				HediffComp_Disappears hediffComp_Disappears = cooldownHediff.TryGetComp<HediffComp_Disappears>();
+				int ticks = ticksToDisappear.RandomInRange;
+				if (hediffComp_Disappears != null && ticks > 0)
+				{
+					hediffComp_Disappears.ticksToDisappear = ticks;
+				}
+				pawn.health.AddHediff(cooldownHediff);
+			}
+		}
+
 		// Gene Restoration
 
 		// public static void XenogermRestoration(Pawn pawn)

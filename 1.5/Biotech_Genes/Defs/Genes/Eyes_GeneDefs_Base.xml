@@ -4,47 +4,20 @@
   <!-- ================================================================== -->
 
   <GeneDef ParentName="GeneEyeColor" Name="WVC_XenotypesAndGenes_GeneEyeColorBase" Abstract="True">
-	<!-- <defName>Eyes_Gray</defName> -->
-	<!-- <label>gray eyes</label> -->
-	<!-- <labelShortAdj>gray-eyed</labelShortAdj> -->
 	<description>Carriers of this gene have a unique eye color.</description>
 	<iconPath>WVC/UI/Genes/GeneEyesIcon_v0</iconPath>
 	<displayCategory>WVC_Cosmetic</displayCategory>
 	<displayOrderInCategory>2</displayOrderInCategory>
-	<!-- <selectionWeight>0.00085</selectionWeight> -->
-	<selectionWeight>0.00</selectionWeight>
-	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<selectionWeight>0.00001</selectionWeight>
+	<canGenerateInGeneSet>true</canGenerateInGeneSet>
 	<!-- <customEffectDescriptions> -->
 		<!-- <li>Eyes have no outline.</li> -->
 	<!-- </customEffectDescriptions> -->
-	<!-- <graphicData> -->
-	  <!-- <drawScale>0.28</drawScale> -->
-	  <!-- <graphicPath>WVC/BodyParts/Eyes/Eye_v0</graphicPath> -->
-	  <!-- <graphicPathFemale>WVC/BodyParts/Eyes/Eye_v0</graphicPathFemale> -->
-	<!-- </graphicData> -->
-	<exclusionTags>
-		<li>AG_OnlyOnCharacterCreation_WVC_EyesColor</li>
-	</exclusionTags>
-	<!-- <modExtensions> -->
-		<!-- <li Class="VanillaGenesExpanded.GeneExtension"> -->
-			<!-- <offsets> -->
-			 <!-- <east> -->
-			  <!-- <bodyTypes> -->
-			   <!-- <Thin>(0.2, 0.20, 0.20)</Thin> -->
-			   <!-- <Fat>(0.2, 0.20, 0.20)</Fat> -->
-			   <!-- <Male>(0.2, 0.20, 0.20)</Male> -->
-			   <!-- <Hulk>(0.2, 0.20, 0.20)</Hulk> -->
-			   <!-- <Female>(0.2, 0.20, 0.20)</Female> -->
-			  <!-- </bodyTypes> -->
-			 <!-- </east> -->
-			<!-- </offsets> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
   </GeneDef>
 
   <!-- ============================ -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase" WVC_Tag="XaG_ColorfullEyesAndFaceplates">
 	<defName>WVC_Eyes_ffffff_HEX</defName>
 	<label>white eyes</label>
 	<labelShortAdj>white-eyed</labelShortAdj>
@@ -89,7 +62,7 @@
 	</renderNodeProperties>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase" WVC_Tag="XaG_ColorfullEyesAndFaceplates">
 	<defName>WVC_Eyes_afafaf_HEX</defName>
 	<label>gray eyes</label>
 	<labelShortAdj>gray-eyed</labelShortAdj>
@@ -134,7 +107,7 @@
 	</renderNodeProperties>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase" WVC_Tag="XaG_ColorfullEyesAndFaceplates">
 	<defName>WVC_Eyes_7c69ce_HEX</defName>
 	<label>purple eyes</label>
 	<labelShortAdj>purple-eyed</labelShortAdj>
@@ -182,7 +155,7 @@
 	</renderNodeProperties>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase" WVC_Tag="XaG_ColorfullEyesAndFaceplates">
 	<defName>WVC_Eyes_69a2ce_HEX</defName>
 	<label>blue eyes</label>
 	<labelShortAdj>blue-eyed</labelShortAdj>
@@ -230,7 +203,7 @@
 	</renderNodeProperties>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase" WVC_Tag="XaG_ColorfullEyesAndFaceplates">
 	<defName>WVC_Eyes_69ce7a_HEX</defName>
 	<label>green eyes</label>
 	<labelShortAdj>green-eyed</labelShortAdj>
@@ -278,7 +251,7 @@
 	</renderNodeProperties>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase" WVC_Tag="XaG_ColorfullEyesAndFaceplates">
 	<defName>WVC_Eyes_c8ce69_HEX</defName>
 	<label>yellow eyes</label>
 	<labelShortAdj>yellow-eyed</labelShortAdj>
@@ -326,7 +299,7 @@
 	</renderNodeProperties>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase" WVC_Tag="XaG_ColorfullEyesAndFaceplates">
 	<defName>WVC_Eyes_ce69c3_HEX</defName>
 	<label>pink eyes</label>
 	<labelShortAdj>pink-eyed</labelShortAdj>
@@ -374,7 +347,7 @@
 	</renderNodeProperties>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase" WVC_Tag="XaG_ColorfullEyesAndFaceplates">
 	<defName>WVC_Eyes_ce6969_HEX</defName>
 	<label>red eyes</label>
 	<labelShortAdj>red-eyed</labelShortAdj>
@@ -422,7 +395,7 @@
 	</renderNodeProperties>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase" WVC_Tag="XaG_ColorfullEyesAndFaceplates">
 	<defName>WVC_Eyes_ceae69_HEX</defName>
 	<label>orange eyes</label>
 	<labelShortAdj>orange-eyed</labelShortAdj>
@@ -470,7 +443,7 @@
 	</renderNodeProperties>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEyeColorBase" WVC_Tag="XaG_ColorfullEyesAndFaceplates">
 	<defName>WVC_Eyes_69cec6_HEX</defName>
 	<label>cyan eyes</label>
 	<labelShortAdj>cyan-eyed</labelShortAdj>

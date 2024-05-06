@@ -57,6 +57,12 @@ A restart is required to correct the categories and apply patches.</WVC_ToolTip_
 	<!-- <WVC_XaG_ResetAllSettings_Label>Reset to default</WVC_XaG_ResetAllSettings_Label> -->
 
 	<!-- ====================================================================================== -->
+	<WVC_Label_disableEyesGraphic>Disable eyes and faceplate graphic</WVC_Label_disableEyesGraphic>
+	<WVC_ToolTip_disableEyesGraphic>If enabled, graphics for eyes and faceplates will not be displayed.
+
+A restart is required.</WVC_ToolTip_disableEyesGraphic>
+
+	<!-- ====================================================================================== -->
 	<WVC_Label_disableFurGraphic>Disable mecha/node/rune/stone(skin) graphic</WVC_Label_disableFurGraphic>
 	<WVC_ToolTip_disableFurGraphic>Turns off the visual changes introduced by (...)skins.
 
