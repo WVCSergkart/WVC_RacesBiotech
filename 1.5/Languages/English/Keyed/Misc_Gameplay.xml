@@ -324,6 +324,32 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_ChooseDryadCasteModeInitialDesc>Here you can choose a caste for the {0}.</WVC_XaG_ChooseDryadCasteModeInitialDesc>
 	<WVC_XaG_ChangeDreadCasteDescFull>It will take several days for the dryad to change caste, during which time the dryad will be immobilized and defenseless.</WVC_XaG_ChangeDreadCasteDescFull>
 
+	<!-- ============================ CHIMERA`S GENES ============================ -->
+	<!-- ============================ CHIMERA`S GENES ============================ -->
+	<!-- ============================ CHIMERA`S GENES ============================ -->
+
+	<WVC_XaG_Gene_Chimera_GizmoLabel>Chimera`s genes</WVC_XaG_Gene_Chimera_GizmoLabel>
+	<WVC_XaG_Gene_Chimera_GizmoTip>The chimera can have an unlimited number of genes from other pawns. The &lt;color=#95d0fc&gt;collected genes&lt;/color&gt; can either be &lt;color=#6bb6bb&gt;implanted&lt;/color&gt; or &lt;color=#96f97b&gt;eaten&lt;/color&gt;. The &lt;color=#96f97b&gt;eated genes&lt;/color&gt; cannot be reacquired or &lt;color=#6bb6bb&gt;implanted&lt;/color&gt;.\n\n&lt;color=#95d0fc&gt;Collected genes&lt;/color&gt; can be implanted or removed at any time, but this will cause &lt;color=#6bb6bb&gt;genes&lt;/color&gt; to &lt;color=#6bb6bb&gt;regrowing&lt;/color&gt;. Genes are always &lt;color=#6bb6bb&gt;implanted&lt;/color&gt; as &lt;color=#6bb6bb&gt;xenogenes&lt;/color&gt;. Please note that a chimera cannot &lt;color=#95d0fc&gt;collect&lt;/color&gt; its owner's genes.\n\n&lt;color=#96f97b&gt;Eaten genes&lt;/color&gt; cannot be &lt;color=#95d0fc&gt;collected&lt;/color&gt; or &lt;color=#6bb6bb&gt;implanted&lt;/color&gt;; these genes are lost for this particular chimera forever. Some genes provide special effects relative to the number of genes &lt;color=#96f97b&gt;eaten&lt;/color&gt;, but the chimera itself does not have any special bonuses from this.</WVC_XaG_Gene_Chimera_GizmoTip>
+
+	<WVC_XaG_Gene_Chimera_GizmoEatedLabel>Eated genes</WVC_XaG_Gene_Chimera_GizmoEatedLabel>
+
+	<WVC_XaG_GeneGeneticThief_Effects>Effects:</WVC_XaG_GeneGeneticThief_Effects>
+	<WVC_XaG_GeneGeneticThief_Desc>Here you can select the genes collected by the pawn and implant them.</WVC_XaG_GeneGeneticThief_Desc>
+	<!-- Please note that already implanted genes cannot be removed or genes that conflict with the implanted ones cannot be implanted. -->
+	<WVC_XaG_GeneGeneticThief_AddGene>Add to geneset</WVC_XaG_GeneGeneticThief_AddGene>
+	<WVC_XaG_GeneGeneticThief_EatGene>Eat selected genes</WVC_XaG_GeneGeneticThief_EatGene>
+	<WVC_XaG_GeneGeneticThief_RemoveGene>Remove from geneset</WVC_XaG_GeneGeneticThief_RemoveGene>
+	<WVC_XaG_GeneGeneticThief_ClearXenogenesButton>Clear all xenogenes</WVC_XaG_GeneGeneticThief_ClearXenogenesButton>
+
+	<WVC_XaG_GeneGeneticThief_ImplantGeneSet>The selected genes will be implanted as xenogenes, and the pawn will receive genes regrowing hediff. Genes regrowing may limit the use of certain genes or abilities.</WVC_XaG_GeneGeneticThief_ImplantGeneSet>
+	<WVC_XaG_GeneGeneticThief_ClearGeneSet>All xenogenes will be removed, and the {0} gene, if it was a xenogene, will lose all accumulated genes and become endogene. Pawn will also receive genes regrowing hediff.</WVC_XaG_GeneGeneticThief_ClearGeneSet>
+	<WVC_XaG_GeneGeneticThief_EatSelectedGenes>When eaten, genes become inaccessible. They can no longer be re-obtained or implanted, but this can have its benefits in some cases.</WVC_XaG_GeneGeneticThief_EatSelectedGenes>
+
+	<WVC_XaG_GeneGeneticThief_AcceptLabelEat>Eat genes</WVC_XaG_GeneGeneticThief_AcceptLabelEat>
+	<WVC_XaG_GeneGeneticThief_AcceptLabelImplant>Implant genes</WVC_XaG_GeneGeneticThief_AcceptLabelImplant>
+
+	<WVC_XaG_GeneGeneticThief_GeneCopied>{0} copied the {1} gene.</WVC_XaG_GeneGeneticThief_GeneCopied>
+
 	<!-- ============================ MECHLINK CUSTOM LABEL ============================ -->
 
 	<WVC_XaG_CustomLabeledMechlinkDesc>A neural formation resulting from genetic evolution or modification, similar to what can be obtained by implanting a mechlink.</WVC_XaG_CustomLabeledMechlinkDesc>
@@ -436,18 +462,6 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_GeneShapeshifterStyles_Label>Change style</WVC_XaG_GeneShapeshifterStyles_Label>
 	<WVC_XaG_GeneShapeshifterStyles_Desc>Opens a menu where you can change the style of the pawn. Including hairstyle and its color, as well as tattoos, both for the face and body.</WVC_XaG_GeneShapeshifterStyles_Desc>
-
-	<WVC_XaG_GeneGeneticThief_Effects>Effects:</WVC_XaG_GeneGeneticThief_Effects>
-	<WVC_XaG_GeneGeneticThief_Desc>Here you can select the genes collected by the pawn and implant them.</WVC_XaG_GeneGeneticThief_Desc>
-	<!-- Please note that already implanted genes cannot be removed or genes that conflict with the implanted ones cannot be implanted. -->
-	<WVC_XaG_GeneGeneticThief_AddGene>Add to geneset</WVC_XaG_GeneGeneticThief_AddGene>
-	<WVC_XaG_GeneGeneticThief_RemoveGene>Remove from geneset</WVC_XaG_GeneGeneticThief_RemoveGene>
-	<WVC_XaG_GeneGeneticThief_ClearXenogenesButton>Clear all xenogenes</WVC_XaG_GeneGeneticThief_ClearXenogenesButton>
-
-	<WVC_XaG_GeneGeneticThief_ImplantGeneSet>The selected genes will be implanted as xenogenes, and the pawn will receive genes regrowing hediff. Genes regrowing may limit the use of certain genes or abilities.</WVC_XaG_GeneGeneticThief_ImplantGeneSet>
-	<WVC_XaG_GeneGeneticThief_ClearGeneSet>All xenogenes will be removed, and the {0} gene, if it was a xenogene, will lose all accumulated genes and become endogene. Pawn will also receive genes regrowing hediff.</WVC_XaG_GeneGeneticThief_ClearGeneSet>
-
-	<WVC_XaG_GeneGeneticThief_GeneCopied>{0} copied the {1} gene.</WVC_XaG_GeneGeneticThief_GeneCopied>
 
 	<WVC_XaG_GeneShapeshifter_DuplicateMode>This person shapeshift mechanites are in overclocking mode. The carrier's genes will not be changed, but instead a copy of the carrier will be created with the set of genes of the selected xenotype.</WVC_XaG_GeneShapeshifter_DuplicateMode>
 

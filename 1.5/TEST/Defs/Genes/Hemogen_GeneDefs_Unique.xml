@@ -6,6 +6,7 @@
 	<label>blood chimera</label>
 	<description>Carriers of this gene have a special organ in their mouth that allows them to read the genetic code of the blood that falls on it. This sometimes makes it possible to copy the genes of victims bitten by carriers of the gene.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_BloodChimera</geneClass>
+	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_ChimerasGenes</resourceGizmoType>
 	<iconPath>WVC/UI/Genes/Gene_GeneticThief_Bloodfeeder_v0</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
 	<selectionWeight>0.000044</selectionWeight>

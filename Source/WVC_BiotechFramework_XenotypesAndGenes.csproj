@@ -102,6 +102,7 @@
     <Compile Include="Resources_Gizmo\Dialog_StylingShift.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ThrallMaker.cs" />
     <Compile Include="Resources_Gizmo\Dialog_XenotypesBase.cs" />
+    <Compile Include="Resources_Gizmo\GeneGizmo_ChimerasGenes.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Dryads.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Thralls.cs" />
     <Compile Include="Resources_Gizmo\Gizmo_MaxGolems.cs" />

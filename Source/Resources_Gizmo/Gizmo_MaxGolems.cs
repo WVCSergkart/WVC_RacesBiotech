@@ -58,6 +58,9 @@ namespace WVC_XenotypesAndGenes
 				tipSectionTip = extension.tipSectionTip;
 				golemIndex = extension.golemistTypeIndex;
 			}
+			totalBandwidth = (int)MechanoidsUtility.TotalGolembond(mechanitor);
+			usedBandwidth = (int)MechanoidsUtility.GetConsumedGolembond(mechanitor);
+			allControlledGolems = MechanoidsUtility.GetAllControlledGolemsOfIndex(mechanitor, golemIndex);
 		}
 
 		public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
@@ -65,7 +68,7 @@ namespace WVC_XenotypesAndGenes
 			Rect rect = new(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
 			Rect rect2 = rect.ContractedBy(6f);
 			Widgets.DrawWindowBackground(rect);
-			if (mechanitor.IsHashIntervalTick(60))
+			if (mechanitor.IsHashIntervalTick(120))
 			{
 				totalBandwidth = (int)MechanoidsUtility.TotalGolembond(mechanitor);
 				usedBandwidth = (int)MechanoidsUtility.GetConsumedGolembond(mechanitor);

@@ -144,7 +144,21 @@ namespace WVC_XenotypesAndGenes
 
 		private List<GeneDef> stolenGenes = new();
 
-		public List<GeneDef> AllStolenGenes => stolenGenes;
+		private List<GeneDef> eatedGenes = new();
+
+		public List<GeneDef> AllGenes
+		{
+			get
+			{
+				List<GeneDef> genes = new();
+				genes.AddRange(eatedGenes);
+				genes.AddRange(stolenGenes);
+				return genes;
+			}
+		}
+
+		public List<GeneDef> EatedGenes => eatedGenes;
+		public List<GeneDef> StolenGenes => stolenGenes;
 
 		public override void PostAdd()
 		{
@@ -156,12 +170,14 @@ namespace WVC_XenotypesAndGenes
 			List<GeneDef> geneDefs = DefDatabase<GeneDef>.AllDefsListForReading;
 			while (stolenGenes.Count < 5)
 			{
-				if (geneDefs.Where((GeneDef x) => x.endogeneCategory == EndogeneCategory.None && x.selectionWeight > 0f && x.canGenerateInGeneSet && x.passOnDirectly && !AllStolenGenes.Contains(x) && x.biostatArc == 0).TryRandomElementByWeight((GeneDef gene) => gene.selectionWeight, out GeneDef result))
+				if (geneDefs.Where((GeneDef x) => x.endogeneCategory == EndogeneCategory.None && x.selectionWeight > 0f && x.canGenerateInGeneSet && x.passOnDirectly && !AllGenes.Contains(x) && x.biostatArc == 0).TryRandomElementByWeight((GeneDef gene) => gene.selectionWeight, out GeneDef result))
 				{
 					AddGene(result);
 				}
 			}
 		}
+
+		private Gizmo genesGizmo;
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
@@ -169,6 +185,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
+			if (genesGizmo == null)
+			{
+				genesGizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, this);
+			}
+			yield return genesGizmo;
 			yield return new Command_Action
 			{
 				defaultLabel = def.LabelCap,
@@ -186,7 +207,7 @@ namespace WVC_XenotypesAndGenes
 					defaultLabel = "DEV: GetRandomGene",
 					action = delegate
 					{
-						AddGene(DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.endogeneCategory == EndogeneCategory.None && x.selectionWeight > 0f && x.canGenerateInGeneSet && x.passOnDirectly && !AllStolenGenes.Contains(x)).RandomElement());
+						AddGene(DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.endogeneCategory == EndogeneCategory.None && x.selectionWeight > 0f && x.canGenerateInGeneSet && x.passOnDirectly && !AllGenes.Contains(x)).RandomElement());
 					}
 				};
 			}
@@ -194,14 +215,23 @@ namespace WVC_XenotypesAndGenes
 
 		public void AddGene(GeneDef geneDef)
 		{
-			if (!AllStolenGenes.Contains(geneDef))
+			if (!stolenGenes.Contains(geneDef))
 			{
 				stolenGenes.Add(geneDef);
 			}
 		}
+
+		public void EatGene(GeneDef geneDef)
+		{
+			if (!eatedGenes.Contains(geneDef))
+			{
+				eatedGenes.Add(geneDef);
+				RemoveGene(geneDef);
+			}
+		}
 		public void RemoveGene(GeneDef geneDef)
 		{
-			if (AllStolenGenes.Contains(geneDef))
+			if (stolenGenes.Contains(geneDef))
 			{
 				stolenGenes.Remove(geneDef);
 			}
@@ -210,6 +240,7 @@ namespace WVC_XenotypesAndGenes
 		public override void ExposeData()
 		{
 			base.ExposeData();
+			Scribe_Collections.Look(ref eatedGenes, "eatedGenes", LookMode.Def);
 			Scribe_Collections.Look(ref stolenGenes, "stolenGenes", LookMode.Def);
 		}
 
@@ -239,7 +270,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (genes.Where((Gene x) => x.def.selectionWeight > 0f && x.def.canGenerateInGeneSet && x.def.passOnDirectly && !AllStolenGenes.Contains(x.def)).TryRandomElementByWeight((Gene gene) => gene.def.selectionWeight, out Gene result))
+			if (genes.Where((Gene x) => x.def.selectionWeight > 0f && x.def.canGenerateInGeneSet && x.def.passOnDirectly && !AllGenes.Contains(x.def)).TryRandomElementByWeight((Gene gene) => gene.def.selectionWeight, out Gene result))
 			{
 				AddGene(result.def);
 				Messages.Message("WVC_XaG_GeneGeneticThief_GeneCopied".Translate(pawn.NameShortColored, result.Label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);

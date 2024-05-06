@@ -31,8 +31,8 @@ namespace WVC_XenotypesAndGenes
 		private int resurgentPawnsCount;
 		private int thrallPawnsCount;
 
-		private int nextRecache = -1;
-		public int recacheFrequency = 734;
+		// private int nextRecache = -1;
+		// public int recacheFrequency = 734;
 
 		public float cellsPerDay;
 
@@ -57,7 +57,7 @@ namespace WVC_XenotypesAndGenes
 				Order = extension.gizmoOrder;
 				filledBlockColor = extension.filledBlockColor;
 				excessBlockColor = extension.excessBlockColor;
-				recacheFrequency = extension.recacheFrequency;
+				// recacheFrequency = extension.recacheFrequency;
 				// tipSectionTitle = extension.tipSectionTitle;
 				// tipSectionTip = extension.tipSectionTip;
 				// golemIndex = extension.golemistTypeIndex;
@@ -66,6 +66,9 @@ namespace WVC_XenotypesAndGenes
 				// daysPerCell = cellsfeederComponent.daysGain / (cellsfeederComponent.daysGain * cellsfeederComponent.cellsConsumeFactor);
 				cellsPerDay = cellsfeederComponent.cellsConsumeFactor;
 			}
+			resurgentPawnsCount = GetThrallsLimit();
+			geneThralls = GetAllThralls(mechanitor);
+			thrallPawnsCount = geneThralls.Count;
 		}
 
 		public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
@@ -73,13 +76,16 @@ namespace WVC_XenotypesAndGenes
 			Rect rect = new(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
 			Rect rect2 = rect.ContractedBy(6f);
 			Widgets.DrawWindowBackground(rect);
-			if (Find.TickManager.TicksGame > nextRecache)
+			if (mechanitor.IsHashIntervalTick(120))
 			{
 				resurgentPawnsCount = GetThrallsLimit();
 				geneThralls = GetAllThralls(mechanitor);
 				thrallPawnsCount = geneThralls.Count;
-				nextRecache = Find.TickManager.TicksGame + recacheFrequency;
 			}
+			// if (Find.TickManager.TicksGame > nextRecache)
+			// {
+				// nextRecache = Find.TickManager.TicksGame + recacheFrequency;
+			// }
 			string text = thrallPawnsCount.ToString("F0") + " / " + resurgentPawnsCount.ToString("F0");
 			TaggedString taggedString = "WVC_XaG_ThrallsBandwidthGizmoLabel".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + text + "\n\n" + "WVC_XaG_ThrallsBandwidthGizmoGizmoTip".Translate();
 			if (thrallPawnsCount > 0 && thrallPawnsCount < 11)

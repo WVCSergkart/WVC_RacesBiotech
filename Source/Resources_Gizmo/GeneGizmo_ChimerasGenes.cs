@@ -7,31 +7,33 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class GeneGizmo_Dryads : Gizmo
+	public class GeneGizmo_ChimerasGenes : Gizmo
 	{
-		public const int InRectPadding = 6;
+		// public const int InRectPadding = 6;
 
-		private static readonly Color EmptyBlockColor = new(0.3f, 0.3f, 0.3f, 1f);
+		// private static readonly Color EmptyBlockColor = new(0.3f, 0.3f, 0.3f, 1f);
 
-		public Color filledBlockColor = ColorLibrary.LightOrange;
-		public Color excessBlockColor = ColorLibrary.Red;
+		public Color filledBlockColor = ColorLibrary.LightBlue;
+		public Color excessBlockColor = ColorLibrary.LightGreen;
 
 		public Pawn mechanitor;
 
-		public Gene_DryadQueen gene;
+		public Gene_Chimera gene;
 
-		public float totalBandwidth = 6;
+		public int totalBandwidth = 0;
 
 		public int usedBandwidth = 0;
 
-		public List<Pawn> allDryads = new();
+		// public int allGenesCount = 0;
+
+		// public List<Pawn> allDryads = new();
 
 		// private int nextRecache = -1;
 		// public int recacheFrequency = 734;
 
 		public override bool Visible => Find.Selector.SelectedPawns.Count == 1;
 
-		public GeneGizmo_Dryads(Gene_DryadQueen geneMechlink)
+		public GeneGizmo_ChimerasGenes(Gene_Chimera geneMechlink)
 			: base()
 		{
 			gene = geneMechlink;
@@ -39,9 +41,8 @@ namespace WVC_XenotypesAndGenes
 			// allDryads = gene.AllDryads;
 			// usedBandwidth = allDryads.Count;
 			Order = -90f;
-			allDryads = gene.AllDryads;
-			totalBandwidth = mechanitor.GetStatValue(gene.Spawner.dryadsStatLimit);
-			usedBandwidth = allDryads.Count;
+			totalBandwidth = gene.AllGenes.Count;
+			usedBandwidth = gene.EatedGenes.Count;
 		}
 
 		public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
@@ -51,30 +52,30 @@ namespace WVC_XenotypesAndGenes
 			Widgets.DrawWindowBackground(rect);
 			if (mechanitor.IsHashIntervalTick(60))
 			{
-				allDryads = gene.AllDryads;
-				totalBandwidth = mechanitor.GetStatValue(gene.Spawner.dryadsStatLimit);
-				usedBandwidth = allDryads.Count;
+				totalBandwidth = gene.AllGenes.Count;
+				// totalBandwidth = gene.StolenGenes.Count;
+				usedBandwidth = gene.EatedGenes.Count;
 			}
 			// if (Find.TickManager.TicksGame > nextRecache)
 			// {
 				// nextRecache = Find.TickManager.TicksGame + recacheFrequency;
 			// }
-			string text = usedBandwidth.ToString("F0") + " / " + totalBandwidth.ToString("F0");
-			TaggedString taggedString = "WVC_XaG_BroodmindLimit".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + text + "\n\n" + "WVC_XaG_BroodmindLimitGizmoTip".Translate();
+			string text = totalBandwidth.ToString("F0");
+			TaggedString taggedString = "WVC_XaG_Gene_Chimera_GizmoLabel".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + text + "\n\n" + "WVC_XaG_Gene_Chimera_GizmoTip".Translate();
 			if (usedBandwidth > 0)
 			{
-				taggedString += (string)("\n\n" + ("WVC_XaG_BroodmindUsage".Translate() + ": ")) + usedBandwidth;
-				IEnumerable<string> entries = from p in allDryads
-					where p.Map != null
-					group p by p.kindDef into p
-					select (string)(p.Key.LabelCap + " x") + p.Count();
-				taggedString += "\n\n" + entries.ToLineList(" - ");
+				taggedString += (string)("\n\n" + ("WVC_XaG_Gene_Chimera_GizmoEatedLabel".Translate() + ": ")) + usedBandwidth;
+				// IEnumerable<string> entries = from p in allDryads
+					// where p.Map != null
+					// group p by p.kindDef into p
+					// select (string)(p.Key.LabelCap + " x") + p.Count();
+				// taggedString += "\n\n" + entries.ToLineList(" - ");
 			}
 			TooltipHandler.TipRegion(rect, taggedString);
 			Text.Font = GameFont.Small;
 			Text.Anchor = TextAnchor.UpperLeft;
 			Rect rect3 = new(rect2.x, rect2.y, rect2.width, 20f);
-			Widgets.Label(rect3, "WVC_XaG_BroodmindLimit".Translate());
+			Widgets.Label(rect3, "Genes".Translate().CapitalizeFirst());
 			Text.Font = GameFont.Small;
 			Text.Anchor = TextAnchor.UpperRight;
 			Widgets.Label(rect3, text);
@@ -111,11 +112,11 @@ namespace WVC_XenotypesAndGenes
 					{
 						if (num9 <= usedBandwidth)
 						{
-							Widgets.DrawRectFast(rect5, (num9 <= totalBandwidth) ? filledBlockColor : excessBlockColor);
+							Widgets.DrawRectFast(rect5, excessBlockColor);
 						}
 						else
 						{
-							Widgets.DrawRectFast(rect5, EmptyBlockColor);
+							Widgets.DrawRectFast(rect5, filledBlockColor);
 						}
 					}
 				}
