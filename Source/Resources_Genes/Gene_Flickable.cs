@@ -7,7 +7,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Flickable : Gene
+	public class Gene_Flickable : Gene, IGeneOverridden
 	{
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
@@ -18,6 +18,15 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostRemove();
 			RemoveHediff(pawn, Props.hediffDefName);
+		}
+
+		public void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			RemoveHediff(pawn, Props.hediffDefName);
+		}
+
+		public void Notify_Override()
+		{
 		}
 
 		public static void AddOrRemoveHediff(Pawn pawn, HediffDef hediffDef, Gene gene)

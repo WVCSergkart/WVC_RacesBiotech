@@ -376,7 +376,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (item.overriddenByGene != null && !gene.pawn.genes.HasGene(item.overriddenByGene.def))
 				{
-					item.overriddenByGene = null;
+					item.OverrideBy(null);
 				}
 			}
 		}

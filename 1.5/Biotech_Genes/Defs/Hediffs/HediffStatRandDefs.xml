@@ -30,7 +30,7 @@
 	<label>genetic speciality</label>
 	<defaultLabelColor>(255, 216, 133)</defaultLabelColor>
 	<comps>
-		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive">
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
 			<geneDef>WVC_RandomGeneticSpeciality</geneDef>
 		</li>
 	</comps>
@@ -92,7 +92,7 @@
 	<defName>WVC_GeneHediffStatRand_hungerRateFactor</defName>
 	<label>genetic metabolism</label>
 	<comps>
-		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive">
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
 			<geneDef>WVC_RandomMetabolism</geneDef>
 		</li>
 	</comps>
@@ -128,7 +128,7 @@
 	<defName>WVC_GeneHediffStatRand_PsychicSensitivity</defName>
 	<label>genetic psychic</label>
 	<comps>
-		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive">
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
 			<geneDef>WVC_RandomPsychicAbility</geneDef>
 		</li>
 	</comps>
@@ -172,7 +172,7 @@
 	<defName>WVC_GeneHediffStatRand_MoveSpeed</defName>
 	<label>genetic speed</label>
 	<comps>
-		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive">
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
 			<geneDef>WVC_RandomMoveSpeed</geneDef>
 		</li>
 	</comps>
@@ -216,7 +216,7 @@
 	<defName>WVC_GeneHediffStatRand_InjuryHealingFactor</defName>
 	<label>genetic healing</label>
 	<comps>
-		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive">
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
 			<geneDef>WVC_RandomWoundHealing</geneDef>
 		</li>
 	</comps>
@@ -260,7 +260,7 @@
 	<defName>WVC_GeneHediffStatRand_GlobalLearningFactor</defName>
 	<label>genetic learning</label>
 	<comps>
-		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive">
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
 			<geneDef>WVC_RandomLearning</geneDef>
 		</li>
 	</comps>
@@ -304,7 +304,7 @@
 	<defName>WVC_GeneHediffStatRand_Manipulation</defName>
 	<label>genetic manipulation</label>
 	<comps>
-		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive">
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
 			<geneDef>WVC_RandomHands</geneDef>
 		</li>
 	</comps>
@@ -372,7 +372,7 @@
 	<defName>WVC_GeneHediffStatRand_ImmunityGainSpeed</defName>
 	<label>genetic immunity</label>
 	<comps>
-		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive">
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
 			<geneDef>WVC_RandomImmunity</geneDef>
 		</li>
 	</comps>

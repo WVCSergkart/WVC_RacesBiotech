@@ -49,7 +49,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Feminine : Gene_Exoskin, IGeneLifeStageStarted
+	public class Gene_Feminine : Gene_Exoskin, IGeneLifeStageStarted, IGeneOverridden
 	{
 
 		public override void PostAdd()
@@ -74,9 +74,24 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			Remove();
+		}
+
+		public void Notify_Override()
+		{
+			ChangeBodyType();
+		}
+
 		public override void PostRemove()
 		{
 			base.PostRemove();
+			Remove();
+		}
+
+		private void Remove()
+		{
 			if (pawn.DevelopmentalStage != DevelopmentalStage.Adult)
 			{
 				return;
@@ -89,8 +104,8 @@ namespace WVC_XenotypesAndGenes
 
 		// public override void ExposeData()
 		// {
-			// base.ExposeData();
-			// ChangeBodyType();
+		// base.ExposeData();
+		// ChangeBodyType();
 		// }
 
 		public void Notify_LifeStageStarted()

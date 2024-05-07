@@ -6,28 +6,28 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class CompProperties_GenesDisplayInfo : CompProperties
+	public class CompProperties_Humanlike : CompProperties
 	{
 
 		public int recacheFrequency = 11435;
 
 		//public Type golemGizmoType = typeof(GeneGizmo_Golems);
 
-		public CompProperties_GenesDisplayInfo()
+		public CompProperties_Humanlike()
 		{
-			compClass = typeof(CompDisplayInfoFromGenes);
+			compClass = typeof(CompHumanlike);
 		}
 
 	}
 
-	public class CompDisplayInfoFromGenes : ThingComp
+	public class CompHumanlike : ThingComp
 	{
 
-		public CompProperties_GenesDisplayInfo Props => (CompProperties_GenesDisplayInfo)props;
+		public CompProperties_Humanlike Props => (CompProperties_Humanlike)props;
 
 		// =================
 
-		public List<IGeneInspectInfo> cachedInfoGenes = new();
+		private List<IGeneInspectInfo> cachedInfoGenes = new();
 
 		private int nextRecache = -1;
 

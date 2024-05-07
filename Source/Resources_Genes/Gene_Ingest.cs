@@ -160,17 +160,11 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Notify_IngestedThing(Thing thing, int numTaken)
 		{
-			base.Notify_IngestedThing(thing, numTaken);
 			if (!Active)
 			{
 				return;
 			}
-			// IngestibleProperties ingestible = thing.def.ingestible;
-			// float nutrition = thing.GetStatValue(StatDefOf.Nutrition);
-			// if (ingestible != null && nutrition >= 1f)
-			// {
-			// DustUtility.OffsetNeedFood(pawn, 10.0f * nutrition * (float)numTaken);
-			// }
+			base.Notify_IngestedThing(thing, numTaken);
 			UndeadUtility.OffsetNeedFood(pawn, 10.0f, true);
 		}
 
@@ -181,18 +175,18 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Notify_IngestedThing(Thing thing, int numTaken)
 		{
-			base.Notify_IngestedThing(thing, numTaken);
 			if (!Active)
 			{
 				return;
 			}
+			base.Notify_IngestedThing(thing, numTaken);
 			UndeadUtility.OffsetNeedFood(pawn, 10.0f, true);
 		}
 
 	}
 
 	// Hemogen
-	public class Gene_EternalHunger : Gene_BloodHunter
+	public class Gene_EternalHunger : Gene_BloodHunter, IGeneOverridden
 	{
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
@@ -202,6 +196,16 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
+			AddOrRemoveHediff();
+		}
+
+		public void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			AddOrRemoveHediff();
+		}
+
+		public void Notify_Override()
+		{
 			AddOrRemoveHediff();
 		}
 
@@ -218,10 +222,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (pawn.IsHashIntervalTick(66000))
-			{
-				AddOrRemoveHediff();
-			}
+			//if (pawn.IsHashIntervalTick(66000))
+			//{
+			//	AddOrRemoveHediff();
+			//}
 			if (pawn.Map == null)
 			{
 				return;
@@ -437,7 +441,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				SanguophageUtility.DoBite(pawn, pawns[j], 0.2f, 0.9f * pawn.GetStatValue(StatDefOf.RawNutritionFactor, cacheStaleAfterTicks: 360000) * pawn.GetStatValue(StatDefOf.HemogenGainFactor, cacheStaleAfterTicks: 360000), 0.4f, 1f, new (0, 0), ThoughtDefOf.FedOn, ThoughtDefOf.FedOn_Social);
+				SanguophageUtility.DoBite(pawn, pawns[j], 0.2f, 0.9f * pawn.GetStatValue(StatDefOf.HemogenGainFactor, cacheStaleAfterTicks: 360000), 0.4f, 1f, new (0, 0), ThoughtDefOf.FedOn, ThoughtDefOf.FedOn_Social);
 				break;
 			}
 		}
@@ -454,20 +458,19 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			IngestibleProperties ingestible = thing?.def?.ingestible;
-			// float nutrition = thing.GetStatValue(StatDefOf.Nutrition);
-			if (ingestible?.foodType == null)
-			{
-				return;
-			}
 			if (ingestible != null && ingestible.CachedNutrition > 0f)
 			{
+				if (ingestible.foodType == FoodTypeFlags.Fluid)
+				{
+					return;
+				}
 				FoodUtility.AddFoodPoisoningHediff(pawn, thing, FoodPoisonCause.DangerousFoodType);
 			}
 		}
 
 		public void Notify_Bloodfeed(Pawn victim)
 		{
-			UndeadUtility.OffsetNeedFood(pawn, Props.nutritionPerBite * victim.BodySize * pawn.GetStatValue(StatDefOf.RawNutritionFactor, cacheStaleAfterTicks: 360000) * pawn.GetStatValue(StatDefOf.HemogenGainFactor, cacheStaleAfterTicks: 360000));
+			UndeadUtility.OffsetNeedFood(pawn, Props.nutritionPerBite * victim.BodySize * pawn.GetStatValue(StatDefOf.HemogenGainFactor, cacheStaleAfterTicks: 360000));
 		}
 
 	}

@@ -37,7 +37,7 @@ namespace WVC_XenotypesAndGenes
 				removeHediff = true;
 				return;
 			}
-			Gene_PermanentHediff.BodyPartsGiver(Props.bodyparts, Pawn, Props.hediffDef, Pawn.genes.GetGene(Props.geneDef));
+			HediffUtility.BodyPartsGiver(Props.bodyparts, Pawn, Props.hediffDef, Props.geneDef);
 			Log.Warning("Successfully updated hediff for the " + Props.geneDef.LabelCap + " gene.");
 			removeHediff = true;
 		}

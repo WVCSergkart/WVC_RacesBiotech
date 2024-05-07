@@ -36,7 +36,7 @@ namespace WVC_XenotypesAndGenes
 				eatedDamage += 0.005f;
 				injury.Heal(0.5f);
 			}
-			UndeadUtility.OffsetNeedFood(pawn, eatedDamage * pawn.GetStatValue(StatDefOf.RawNutritionFactor, cacheStaleAfterTicks: 360000));
+			UndeadUtility.OffsetNeedFood(pawn, eatedDamage);
 		}
 
 	}
@@ -49,6 +49,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Tick()
 		{
+			base.Tick();
 			if (!pawn.IsHashIntervalTick(1500))
 			{
 				return;
@@ -58,7 +59,6 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			WoundsClotting(pawn, new(0.5f, 1.0f));
-			base.Tick();
 		}
 
 		public static void WoundsClotting(Pawn pawn, FloatRange tendingQualityRange)

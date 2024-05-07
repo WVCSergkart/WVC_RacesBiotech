@@ -24,6 +24,15 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public interface IGeneOverridden
+	{
+
+		void Notify_OverriddenBy(Gene overriddenBy);
+
+		void Notify_Override();
+
+	}
+
 	// public interface IGeneAddOrRemoveHediff
 	// {
 

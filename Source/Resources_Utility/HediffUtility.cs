@@ -9,7 +9,26 @@ namespace WVC_XenotypesAndGenes
 	public static class HediffUtility
 	{
 
-		public static bool TryAddOrRemoveHediff(HediffDef hediffDef, Pawn pawn, Gene gene, List<BodyPartDef> bodyparts = null)
+		public static void BodyPartsGiver(List<BodyPartDef> bodyparts, Pawn pawn, HediffDef hediffDef, GeneDef geneDef)
+		{
+			int num = 0;
+			foreach (BodyPartDef bodypart in bodyparts)
+			{
+				if (!pawn.RaceProps.body.GetPartsWithDef(bodypart).EnumerableNullOrEmpty() && num <= pawn.RaceProps.body.GetPartsWithDef(bodypart).Count)
+				{
+					Hediff hediff = HediffMaker.MakeHediff(hediffDef, pawn);
+					HediffComp_GeneHediff hediff_GeneCheck = hediff.TryGetComp<HediffComp_GeneHediff>();
+					if (hediff_GeneCheck != null)
+					{
+						hediff_GeneCheck.geneDef = geneDef;
+					}
+					pawn.health.AddHediff(hediff, pawn.RaceProps.body.GetPartsWithDef(bodypart).ToArray()[num]);
+					num++;
+				}
+			}
+		}
+
+		public static bool TryAddOrRemoveHediff(HediffDef hediffDef, Pawn pawn, Gene gene, List<BodyPartDef> bodyparts = null, bool randomizeSeverity = false)
 		{
 			if (hediffDef == null)
 			{
@@ -17,27 +36,54 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (gene.Active)
 			{
-				if (!pawn.health.hediffSet.HasHediff(hediffDef))
-				{
-					if (!bodyparts.NullOrEmpty())
-					{
-						Gene_PermanentHediff.BodyPartsGiver(bodyparts, pawn, hediffDef, gene);
-						return true;
-					}
-					// pawn.health.AddHediff(hediffDef);
-					Hediff hediff = HediffMaker.MakeHediff(hediffDef, pawn);
-					HediffComp_RemoveIfGeneIsNotActive hediff_GeneCheck = hediff.TryGetComp<HediffComp_RemoveIfGeneIsNotActive>();
-					if (hediff_GeneCheck != null)
-					{
-						hediff_GeneCheck.geneDef = gene.def;
-					}
-					pawn.health.AddHediff(hediff);
-					return true;
-				}
+				// if (!pawn.health.hediffSet.HasHediff(hediffDef))
+				// {
+					// if (!bodyparts.NullOrEmpty())
+					// {
+						// HediffUtility.BodyPartsGiver(bodyparts, pawn, hediffDef, gene);
+						// return true;
+					// }
+					// Hediff hediff = HediffMaker.MakeHediff(hediffDef, pawn);
+					// HediffComp_RemoveIfGeneIsNotActive hediff_GeneCheck = hediff.TryGetComp<HediffComp_RemoveIfGeneIsNotActive>();
+					// if (hediff_GeneCheck != null)
+					// {
+						// hediff_GeneCheck.geneDef = gene.def;
+					// }
+					// pawn.health.AddHediff(hediff);
+					// return true;
+				// }
+				return TryAddHediff(hediffDef, pawn, gene.def, bodyparts, randomizeSeverity);
 			}
 			else
 			{
 				TryRemoveHediff(hediffDef, pawn);
+			}
+			return false;
+		}
+
+		public static bool TryAddHediff(HediffDef hediffDef, Pawn pawn, GeneDef geneDef, List<BodyPartDef> bodyparts = null, bool randomizeSeverity = false)
+		{
+			if (!pawn.health.hediffSet.HasHediff(hediffDef))
+			{
+				if (!bodyparts.NullOrEmpty())
+				{
+					HediffUtility.BodyPartsGiver(bodyparts, pawn, hediffDef, geneDef);
+					return true;
+				}
+				// pawn.health.AddHediff(hediffDef);
+				Hediff hediff = HediffMaker.MakeHediff(hediffDef, pawn);
+				HediffComp_GeneHediff hediff_GeneCheck = hediff.TryGetComp<HediffComp_GeneHediff>();
+				if (hediff_GeneCheck != null)
+				{
+					hediff_GeneCheck.geneDef = geneDef;
+				}
+				if (randomizeSeverity)
+				{
+					FloatRange floatRange = new(hediffDef.minSeverity, hediffDef.maxSeverity);
+					hediff.Severity = floatRange.RandomInRange;
+				}
+				pawn.health.AddHediff(hediff);
+				return true;
 			}
 			return false;
 		}

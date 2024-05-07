@@ -12,7 +12,7 @@
 	  </li>
 	</stages>
 	<comps>
-	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive">
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
 		<geneDef>WVC_SleepyStomach</geneDef>
 	  </li>
 	</comps>
@@ -29,7 +29,7 @@
 	  </li>
 	</stages>
 	<comps>
-	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive">
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
 		<geneDef>WVC_StoneStomach</geneDef>
 	  </li>
 	</comps>
@@ -46,7 +46,7 @@
 	  </li>
 	</stages>
 	<comps>
-	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive"/>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/>
 	</comps>
   </HediffDef>
 
@@ -61,7 +61,7 @@
 	  </li>
 	</stages>
 	<comps>
-	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveIfGeneIsNotActive"/>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/>
 	</comps>
   </HediffDef>
 

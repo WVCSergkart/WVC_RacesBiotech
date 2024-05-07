@@ -10,10 +10,12 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_DryadQueen : Gene_AddOrRemoveHediff, IGeneInspectInfo
+	public class Gene_DryadQueen : Gene, IGeneInspectInfo, IGeneOverridden
 	{
 
 		public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
+
+		public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
 
 		private List<Pawn> dryads = new();
 
@@ -25,11 +27,11 @@ namespace WVC_XenotypesAndGenes
 
 		public bool spawnDryads = true;
 
-		// public override void PostAdd()
-		// {
-			// base.PostAdd();
-			// choosedDryadCast = Props?.defaultDryadPawnKindDef;
-		// }
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			HediffUtility.TryAddOrRemoveHediff(Props.hediffDefName, pawn, this, Props.bodyparts);
+		}
 
 		public override void Tick()
 		{
@@ -59,7 +61,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				spawnDryads = false;
 			}
-			if (Spawner?.defaultDryadPawnKindDef == null || dryads.Count >= pawn.GetStatValue(Spawner.dryadsStatLimit, cacheStaleAfterTicks: 120000) || pawn.Map == null || !spawnDryads)
+			if (Spawner?.defaultDryadPawnKindDef == null || dryads.Count >= pawn.GetStatValue(Spawner.dryadsStatLimit) || pawn.Map == null || !spawnDryads)
 			{
 				return;
 			}
@@ -197,6 +199,18 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostRemove();
 			KillConnectedDryads();
+			HediffUtility.TryAddOrRemoveHediff(Props.hediffDefName, pawn, this, Props.bodyparts);
+		}
+
+		public void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			KillConnectedDryads();
+			HediffUtility.TryAddOrRemoveHediff(Props.hediffDefName, pawn, this, Props.bodyparts);
+		}
+
+		public void Notify_Override()
+		{
+			HediffUtility.TryAddOrRemoveHediff(Props.hediffDefName, pawn, this, Props.bodyparts);
 		}
 
 		public void KillConnectedDryads()
@@ -213,7 +227,7 @@ namespace WVC_XenotypesAndGenes
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{
 			StatDef stat = Spawner.dryadsStatLimit;
-			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, stat.LabelCap, pawn.GetStatValue(stat, cacheStaleAfterTicks: 60000).ToString(), stat.description, 200);
+			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, stat.LabelCap, pawn.GetStatValue(stat).ToString(), stat.description, 200);
 		}
 
 		public override void ExposeData()

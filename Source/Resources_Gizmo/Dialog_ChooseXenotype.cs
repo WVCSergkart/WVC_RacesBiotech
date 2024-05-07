@@ -147,7 +147,7 @@ namespace WVC_XenotypesAndGenes
 					xeno_Gestator.xenotypeDef = selectedXeno;
 					xeno_Gestator.gestationIntervalDays = GetGestationTime();
 				}
-				HediffComp_RemoveIfGeneIsNotActive hediff_GeneCheck = hediff.TryGetComp<HediffComp_RemoveIfGeneIsNotActive>();
+				HediffComp_GeneHediff hediff_GeneCheck = hediff.TryGetComp<HediffComp_GeneHediff>();
 				if (hediff_GeneCheck != null)
 				{
 					hediff_GeneCheck.geneDef = gene.def;
@@ -168,7 +168,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						hediffComp_Disappears.ticksToDisappear = ticksInDay * (cooldownDays + GetGestationTime());
 					}
-					HediffComp_RemoveIfGeneIsNotActive cooldownHediff_GeneCheck = cooldownHediff.TryGetComp<HediffComp_RemoveIfGeneIsNotActive>();
+					HediffComp_GeneHediff cooldownHediff_GeneCheck = cooldownHediff.TryGetComp<HediffComp_GeneHediff>();
 					if (cooldownHediff_GeneCheck != null)
 					{
 						cooldownHediff_GeneCheck.geneDef = gene.def;

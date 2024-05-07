@@ -60,12 +60,21 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_GauntSkin : Gene_Exoskin, IGeneLifeStageStarted
+	public class Gene_GauntSkin : Gene_Exoskin, IGeneLifeStageStarted, IGeneOverridden
 	{
 
 		public override void PostAdd()
 		{
 			base.PostAdd();
+			ChangeBodyType();
+		}
+
+		public void Notify_OverriddenBy(Gene overriddenBy)
+		{
+		}
+
+		public void Notify_Override()
+		{
 			ChangeBodyType();
 		}
 

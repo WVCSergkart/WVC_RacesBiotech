@@ -135,6 +135,7 @@ namespace WVC_XenotypesAndGenes
 					// Log.Error("Target: " + colonist.Name.ToString());
 					return true;
 				}
+				return false;
 			}
 			return false;
 		}
