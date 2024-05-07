@@ -45,7 +45,8 @@ namespace WVC_XenotypesAndGenes
 						{
 							StatModifier statModifier = new();
 							statModifier.stat = item.stat;
-							statModifier.value = 1f - (item.value * cachedScarsCount);
+							float factor = 1f - (item.value * cachedScarsCount);
+							statModifier.value = factor > 0f ? factor : 0f;
 							curStage.statFactors.Add(statModifier);
 						}
 					}

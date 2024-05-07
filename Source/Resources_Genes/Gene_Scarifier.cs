@@ -30,11 +30,15 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			if (Active)
+			if (Active && !pawn.Spawned)
 			{
 				IntRange range = new(0,3);
 				for (int i = 0; i < range.RandomInRange; i++)
 				{
+					// if (!CanScarifyCheck())
+					// {
+						// continue;
+					// }
 					Scarify(pawn);
 				}
 			}

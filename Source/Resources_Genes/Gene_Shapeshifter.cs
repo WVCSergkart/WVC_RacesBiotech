@@ -258,6 +258,18 @@ namespace WVC_XenotypesAndGenes
 			// return weight;
 		// }
 
+		// public void Notify_PostStart(Gene_Shapeshifter shapeshiftGene)
+		// {
+		// }
+
+		// public void Notify_PostShapeshift(Gene_Shapeshifter newShapeshiftGene)
+		// {
+			// foreach (Gene gene in pawn.genes.GenesListForReading)
+			// {
+				// AddGene(gene.def);
+			// }
+		// }
+
 	}
 
 	public class Gene_BloodChimera : Gene_Chimera, IGeneBloodfeeder

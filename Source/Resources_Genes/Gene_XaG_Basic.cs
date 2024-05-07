@@ -56,4 +56,13 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public interface IGeneShapeshift
+	{
+
+		void Notify_PostStart(Gene_Shapeshifter shapeshiftGene);
+
+		void Notify_PostShapeshift(Gene_Shapeshifter newShapeshiftGene);
+
+	}
+
 }

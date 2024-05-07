@@ -189,6 +189,65 @@ namespace WVC_XenotypesAndGenes
 			GeneUtility.UpdateXenogermReplication(recipient);
 		}
 
+		// =============================== New ===============================
+
+		public static void ReimplantGenesDouble_Shapeshifter(Pawn pawn, XenotypeDef xenotypeDef, bool xenogenes = true, bool doubleXenotypes = true)
+		{
+			if (!xenotypeDef.doubleXenotypeChances.NullOrEmpty() && Rand.Value < xenotypeDef.doubleXenotypeChances.Sum((XenotypeChance x) => x.chance) && xenotypeDef.doubleXenotypeChances.TryRandomElementByWeight((XenotypeChance x) => x.chance, out var result) && doubleXenotypes)
+			{
+				ReimplantGenes_Shapeshifter(pawn, result.xenotype, false);
+			}
+			ReimplantGenes_Shapeshifter(pawn, xenotypeDef, xenogenes);
+		}
+
+		public static void ReimplantGenes_Shapeshifter(Pawn pawn, XenotypeDef xenotypeDef, bool xenogenes = true)
+		{
+			Pawn_GeneTracker recipientGenes = pawn.genes;
+			if (recipientGenes.Xenogenes.NullOrEmpty() || xenogenes)
+			{
+				SetXenotypeDirect(null, pawn, xenotypeDef, true);
+			}
+			if (xenogenes || !xenotypeDef.inheritable || xenotypeDef == XenotypeDefOf.Baseliner)
+			{
+				recipientGenes.Xenogenes.RemoveAllGenes();
+			}
+			if (xenotypeDef.inheritable || xenotypeDef == XenotypeDefOf.Baseliner)
+			{
+				recipientGenes.Endogenes.RemoveAllGenes();
+			}
+			foreach (GeneDef geneDef in xenotypeDef.genes)
+			{
+				pawn.genes.AddGene(geneDef, !xenotypeDef.inheritable);
+			}
+			TrySetSkinAndHairGenes(pawn);
+		}
+
+		public static void TrySetSkinAndHairGenes(Pawn pawn)
+		{
+			Pawn_GeneTracker recipientGenes = pawn.genes;
+			bool xenotypeHasSkinColor = false;
+			bool xenotypeHasHairColor = false;
+			foreach (Gene gene in recipientGenes.GenesListForReading)
+			{
+				if (gene.def.skinColorBase != null || gene.def.skinColorOverride != null)
+				{
+					xenotypeHasSkinColor = true;
+				}
+				if (gene.def.hairColorOverride != null)
+				{
+					xenotypeHasHairColor = true;
+				}
+			}
+			if (!xenotypeHasSkinColor)
+			{
+				recipientGenes?.AddGene(WVC_GenesDefOf.Skin_SheerWhite, false);
+			}
+			if (!xenotypeHasHairColor)
+			{
+				recipientGenes?.AddGene(WVC_GenesDefOf.Hair_SnowWhite, false);
+			}
+		}
+
 		// =============================== Setter ===============================
 
 		public static void SetXenotype_DoubleXenotype(Pawn pawn, XenotypeDef xenotypeDef, bool changeXenotype = true)
