@@ -9,7 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Mechlink : Gene
+	public class Gene_Mechlink : Gene, IGeneOverridden
 	{
 
 		public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
@@ -72,6 +72,25 @@ namespace WVC_XenotypesAndGenes
 				return false;
 			}
 			return true;
+		}
+
+		public void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			if (WVC_Biotech.settings.link_removeMechlinkWithGene && !pawnHadMechlinkBefore)
+			{
+				HediffUtility.TryRemoveHediff(HediffDefOf.MechlinkImplant, pawn);
+			}
+		}
+
+		public void Notify_Override()
+		{
+			if (WVC_Biotech.settings.link_removeMechlinkWithGene && WVC_Biotech.settings.link_addedMechlinkWithGene)
+			{
+				if (!pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
+				{
+					pawn.health.AddHediff(HediffDefOf.MechlinkImplant, pawn.health.hediffSet.GetBrain());
+				}
+			}
 		}
 
 		public override void PostRemove()

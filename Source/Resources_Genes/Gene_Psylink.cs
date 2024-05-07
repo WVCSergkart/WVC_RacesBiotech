@@ -5,7 +5,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_SimplePsylink : Gene
+	public class Gene_SimplePsylink : Gene, IGeneOverridden
 	{
 
 		private bool pawnHadPsylinkBefore = false;
@@ -39,6 +39,25 @@ namespace WVC_XenotypesAndGenes
 			{
 				IntRange level = new(1, 5);
 				((Hediff_Level)firstHediffOfDef).ChangeLevel(level.RandomInRange);
+			}
+		}
+
+		public void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			if (WVC_Biotech.settings.link_removePsylinkWithGene && !pawnHadPsylinkBefore)
+			{
+				HediffUtility.TryRemoveHediff(HediffDefOf.PsychicAmplifier, pawn);
+			}
+		}
+
+		public void Notify_Override()
+		{
+			if (WVC_Biotech.settings.link_removePsylinkWithGene && WVC_Biotech.settings.link_addedPsylinkWithGene)
+			{
+				if (!pawn.health.hediffSet.HasHediff(HediffDefOf.PsychicAmplifier))
+				{
+					pawn.health.AddHediff(HediffDefOf.PsychicAmplifier, pawn.health.hediffSet.GetBrain());
+				}
 			}
 		}
 
@@ -114,7 +133,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_HemogenDrain_Psylink : Gene_HemogenOffset
+	public class Gene_HemogenDrain_Psylink : Gene_HemogenOffset, IGeneOverridden
 	{
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
@@ -171,6 +190,25 @@ namespace WVC_XenotypesAndGenes
 				// pawn.health.AddHediff(HediffDefOf.PsychicAmplifier, pawn.health.hediffSet.GetBrain());
 			// }
 		// }
+
+		public void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			if (WVC_Biotech.settings.link_removePsylinkWithGene && !pawnHadPsylinkBefore)
+			{
+				HediffUtility.TryRemoveHediff(HediffDefOf.PsychicAmplifier, pawn);
+			}
+		}
+
+		public void Notify_Override()
+		{
+			if (WVC_Biotech.settings.link_removePsylinkWithGene && WVC_Biotech.settings.link_addedPsylinkWithGene)
+			{
+				if (!pawn.health.hediffSet.HasHediff(HediffDefOf.PsychicAmplifier))
+				{
+					pawn.health.AddHediff(HediffDefOf.PsychicAmplifier, pawn.health.hediffSet.GetBrain());
+				}
+			}
+		}
 
 		public override void PostRemove()
 		{
