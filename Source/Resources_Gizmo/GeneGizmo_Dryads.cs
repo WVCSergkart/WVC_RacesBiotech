@@ -40,7 +40,7 @@ namespace WVC_XenotypesAndGenes
 			// usedBandwidth = allDryads.Count;
 			Order = -90f;
 			allDryads = gene.AllDryads;
-			totalBandwidth = mechanitor.GetStatValue(gene.Spawner.dryadsStatLimit);
+			totalBandwidth = mechanitor.GetStatValue(gene.Spawner.dryadsStatLimit, cacheStaleAfterTicks: 360000);
 			usedBandwidth = allDryads.Count;
 		}
 
@@ -49,10 +49,10 @@ namespace WVC_XenotypesAndGenes
 			Rect rect = new(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
 			Rect rect2 = rect.ContractedBy(6f);
 			Widgets.DrawWindowBackground(rect);
-			if (mechanitor.IsHashIntervalTick(60))
+			if (mechanitor.IsHashIntervalTick(180))
 			{
 				allDryads = gene.AllDryads;
-				totalBandwidth = mechanitor.GetStatValue(gene.Spawner.dryadsStatLimit);
+				totalBandwidth = mechanitor.GetStatValue(gene.Spawner.dryadsStatLimit, cacheStaleAfterTicks: 6000);
 				usedBandwidth = allDryads.Count;
 			}
 			// if (Find.TickManager.TicksGame > nextRecache)

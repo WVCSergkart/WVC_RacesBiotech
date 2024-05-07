@@ -59,7 +59,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				spawnDryads = false;
 			}
-			if (Spawner?.defaultDryadPawnKindDef == null || dryads.Count >= pawn.GetStatValue(Spawner.dryadsStatLimit) || pawn.Map == null || !spawnDryads)
+			if (Spawner?.defaultDryadPawnKindDef == null || dryads.Count >= pawn.GetStatValue(Spawner.dryadsStatLimit, cacheStaleAfterTicks: 120000) || pawn.Map == null || !spawnDryads)
 			{
 				return;
 			}
@@ -213,7 +213,7 @@ namespace WVC_XenotypesAndGenes
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{
 			StatDef stat = Spawner.dryadsStatLimit;
-			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, stat.LabelCap, pawn.GetStatValue(stat).ToString(), stat.description, 200);
+			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, stat.LabelCap, pawn.GetStatValue(stat, cacheStaleAfterTicks: 60000).ToString(), stat.description, 200);
 		}
 
 		public override void ExposeData()
@@ -228,7 +228,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				if (spawnDryads && dryads.Count < pawn.GetStatValue(Spawner.dryadsStatLimit))
+				if (spawnDryads && dryads.Count < pawn.GetStatValue(Spawner.dryadsStatLimit, cacheStaleAfterTicks: 30000))
 				{
 					return "WVC_XaG_Gene_GauranlenConnection_NextDryad_Info".Translate().Resolve() + ": " + nextTick.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
 				}

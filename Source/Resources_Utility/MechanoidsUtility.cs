@@ -52,7 +52,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (pawn.RaceProps.IsMechanoid)
 			{
-				return pawn.GetStatValue(WVC_GenesDefOf.WVC_GolemBondCost) > 0;
+				return pawn.GetStatValue(WVC_GenesDefOf.WVC_GolemBondCost, cacheStaleAfterTicks: 820000) > 0;
 			}
 			return false;
 		}
@@ -65,7 +65,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static float TotalGolembond(Pawn mechanitor)
 		{
-			return mechanitor.GetStatValue(WVC_GenesDefOf.WVC_GolemBond);
+			return mechanitor.GetStatValue(WVC_GenesDefOf.WVC_GolemBond, cacheStaleAfterTicks: 120000);
 		}
 
 		public static float GetConsumedGolembond(Pawn mechanitor)
@@ -82,7 +82,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				result += golem.GetStatValue(WVC_GenesDefOf.WVC_GolemBondCost);
+				result += golem.GetStatValue(WVC_GenesDefOf.WVC_GolemBondCost, cacheStaleAfterTicks: 360000);
 			}
 			return result;
 		}
@@ -200,7 +200,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool CanSpawnMoreMechanoids(Pawn mechanitor, Pawn mech)
 		{
-			float weight = mechanitor.mechanitor.TotalBandwidth - (mechanitor.mechanitor.UsedBandwidth + mech.GetStatValue(StatDefOf.BandwidthCost));
+			float weight = mechanitor.mechanitor.TotalBandwidth - (mechanitor.mechanitor.UsedBandwidth + mech.GetStatValue(StatDefOf.BandwidthCost, cacheStaleAfterTicks: 360000));
 			if (weight < 0f)
 			{
 				return false;

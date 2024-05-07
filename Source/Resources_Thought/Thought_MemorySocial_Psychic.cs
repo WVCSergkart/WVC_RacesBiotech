@@ -21,7 +21,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (statValue == 0f)
 				{
-					statValue = pawn.GetStatValue(def.effectMultiplyingStat);
+					statValue = pawn.GetStatValue(def.effectMultiplyingStat, cacheStaleAfterTicks: 360000);
 				}
 				return statValue;
 			}

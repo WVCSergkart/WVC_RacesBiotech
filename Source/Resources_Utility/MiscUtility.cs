@@ -179,7 +179,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool PawnPsychicSensitive(this Pawn pawn)
 		{
-			return pawn?.GetStatValue(StatDefOf.PsychicSensitivity) > 0f;
+			return pawn?.GetStatValue(StatDefOf.PsychicSensitivity, cacheStaleAfterTicks: 30000) > 0f;
 		}
 
 		// Precepts

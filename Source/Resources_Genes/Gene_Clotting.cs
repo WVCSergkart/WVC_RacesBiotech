@@ -36,7 +36,7 @@ namespace WVC_XenotypesAndGenes
 				eatedDamage += 0.005f;
 				injury.Heal(0.5f);
 			}
-			UndeadUtility.OffsetNeedFood(pawn, eatedDamage * pawn.GetStatValue(StatDefOf.RawNutritionFactor));
+			UndeadUtility.OffsetNeedFood(pawn, eatedDamage * pawn.GetStatValue(StatDefOf.RawNutritionFactor, cacheStaleAfterTicks: 360000));
 		}
 
 	}

@@ -35,6 +35,7 @@
 				<refreshHours>2</refreshHours>
 				<shutdownEnergyReplenish>4.0</shutdownEnergyReplenish>
 				<golemIndex>0</golemIndex>
+				<checkOverseerInterval>80000~220000</checkOverseerInterval>
 			</li>
 			<!-- <li Class="WVC_XenotypesAndGenes.CompProperties_InitialHediff"> -->
 				<!-- <hediffDefs> -->

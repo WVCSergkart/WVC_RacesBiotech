@@ -40,7 +40,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (MechanoidsUtility.CanSpawnMoreMechanoids(lich, golem))
 			{
-				float weight = TotalSporesBandwidth(lich) - MechanoidsUtility.GetConsumedGolembond(lich) - golem.GetStatValue(WVC_GenesDefOf.WVC_GolemBondCost);
+				float weight = TotalSporesBandwidth(lich) - MechanoidsUtility.GetConsumedGolembond(lich) - golem.GetStatValue(WVC_GenesDefOf.WVC_GolemBondCost, cacheStaleAfterTicks: 360000);
 				if (weight < 0f)
 				{
 					return false;
@@ -106,7 +106,7 @@ namespace WVC_XenotypesAndGenes
 		[Obsolete]
 		public static float TotalSporesBandwidth(Pawn mechanitor)
 		{
-			return mechanitor.GetStatValue(WVC_GenesDefOf.WVC_GolemBond);
+			return mechanitor.GetStatValue(WVC_GenesDefOf.WVC_GolemBond, cacheStaleAfterTicks: 360000);
 		}
 
 		// [Obsolete]

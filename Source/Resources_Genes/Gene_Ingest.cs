@@ -26,7 +26,8 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			IngestibleProperties ingestible = thing.def.ingestible;
-			float nutrition = thing.GetStatValue(StatDefOf.Nutrition);
+			// thing.def.ingestible.CachedNutrition
+			float nutrition = ingestible.CachedNutrition;
 			if (ingestible != null && nutrition > 0f)
 			{
 				UndeadUtility.OffsetNeedFood(pawn, (-1f * def.resourceLossPerDay) * nutrition * (float)numTaken);
@@ -325,7 +326,7 @@ namespace WVC_XenotypesAndGenes
 
 		public float GetHunger(int stack, Thing thing, Need_Food need_Food)
 		{
-			float nutrition = stack * thing.GetStatValue(StatDefOf.Nutrition) * pawn.GetStatValue(StatDefOf.RawNutritionFactor);
+			float nutrition = stack * thing.def.ingestible.CachedNutrition * pawn.GetStatValue(StatDefOf.RawNutritionFactor, cacheStaleAfterTicks: 360000);
 			float currentNeedFood = need_Food.CurLevel;
 			float maxNeedFood = need_Food.MaxLevel;
 			float targetFoodLevel = maxNeedFood - nutrition;
@@ -353,7 +354,7 @@ namespace WVC_XenotypesAndGenes
 
 		public float GetHomegenCountFromFood(Thing thing)
 		{
-			return 0.175f * thing.GetStatValue(StatDefOf.Nutrition) * pawn.GetStatValue(StatDefOf.RawNutritionFactor) * pawn.GetStatValue(StatDefOf.HemogenGainFactor);
+			return 0.175f *  thing.def.ingestible.CachedNutrition * pawn.GetStatValue(StatDefOf.RawNutritionFactor, cacheStaleAfterTicks: 360000) * pawn.GetStatValue(StatDefOf.HemogenGainFactor, cacheStaleAfterTicks: 360000);
 		}
 
 	}
@@ -436,7 +437,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				SanguophageUtility.DoBite(pawn, pawns[j], 0.2f, 0.9f * pawn.GetStatValue(StatDefOf.RawNutritionFactor) * pawn.GetStatValue(StatDefOf.HemogenGainFactor), 0.4f, 1f, new (0, 0), ThoughtDefOf.FedOn, ThoughtDefOf.FedOn_Social);
+				SanguophageUtility.DoBite(pawn, pawns[j], 0.2f, 0.9f * pawn.GetStatValue(StatDefOf.RawNutritionFactor, cacheStaleAfterTicks: 360000) * pawn.GetStatValue(StatDefOf.HemogenGainFactor, cacheStaleAfterTicks: 360000), 0.4f, 1f, new (0, 0), ThoughtDefOf.FedOn, ThoughtDefOf.FedOn_Social);
 				break;
 			}
 		}
@@ -466,7 +467,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void Notify_Bloodfeed(Pawn victim)
 		{
-			UndeadUtility.OffsetNeedFood(pawn, Props.nutritionPerBite * victim.BodySize * pawn.GetStatValue(StatDefOf.RawNutritionFactor) * pawn.GetStatValue(StatDefOf.HemogenGainFactor));
+			UndeadUtility.OffsetNeedFood(pawn, Props.nutritionPerBite * victim.BodySize * pawn.GetStatValue(StatDefOf.RawNutritionFactor, cacheStaleAfterTicks: 360000) * pawn.GetStatValue(StatDefOf.HemogenGainFactor, cacheStaleAfterTicks: 360000));
 		}
 
 	}

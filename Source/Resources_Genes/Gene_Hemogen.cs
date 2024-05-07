@@ -222,7 +222,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			// Log.Error("2");
-			float? immunity = victim?.GetStatValue(StatDefOf.ImmunityGainSpeed);
+			float? immunity = victim?.GetStatValue(StatDefOf.ImmunityGainSpeed, cacheStaleAfterTicks: 360000);
 			float chance = (General.reimplantChance / (immunity.HasValue && immunity.Value > 0.01f ? immunity.Value : 0.01f)) * WVC_Biotech.settings.hemogenic_ImplanterFangsChanceFactor;
 			if (!Rand.Chance(chance))
 			{

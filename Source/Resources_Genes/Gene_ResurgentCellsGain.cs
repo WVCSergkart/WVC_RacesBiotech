@@ -31,7 +31,7 @@ namespace WVC_XenotypesAndGenes
 			if (Props.specialFoodDefs.Contains(thing.def) && Cells != null)
 			{
 				IngestibleProperties ingestible = thing.def.ingestible;
-				float nutrition = thing.GetStatValue(StatDefOf.Nutrition);
+				float nutrition = ingestible.CachedNutrition;
 				if (ingestible != null && nutrition > 0f)
 				{
 					UndeadUtility.OffsetResource(Cells, nutrition);
@@ -43,7 +43,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (Cells != null)
 			{
-				UndeadUtility.OffsetResource(Cells, Props.nutritionPerBite * victim.BodySize * pawn.GetStatValue(StatDefOf.HemogenGainFactor));
+				UndeadUtility.OffsetResource(Cells, Props.nutritionPerBite * victim.BodySize * pawn.GetStatValue(StatDefOf.HemogenGainFactor, cacheStaleAfterTicks: 360000));
 			}
 		}
 
