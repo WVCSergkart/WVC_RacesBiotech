@@ -16,10 +16,10 @@
 	<label>archite-clotting</label>
 	<description>Carriers of this gene have archites that stabilize blood pressure, which helps to avoid bleeding.</description>
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_MechaClotting</geneClass> -->
-	<geneClass>WVC_XenotypesAndGenes.Gene_MechaClotting</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ClottingWithHediff</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_Superclotting_v0</iconPath>
 	<biostatMet>-1</biostatMet>
-	<!-- <biostatArc>2</biostatArc> -->
+	<biostatArc>1</biostatArc>
 	<displayCategory>Healing</displayCategory>
 	<!-- <displayOrderInCategory>-33</displayOrderInCategory> -->
 	<displayOrderInCategory>100</displayOrderInCategory>

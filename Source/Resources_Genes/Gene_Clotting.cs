@@ -1,51 +1,13 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	// Health
-	public class Gene_HealingStomach : Gene
+	public class Gene_ClottingWithHediff : Gene_AddOrRemoveHediff
 	{
-
-		public override void Tick()
-		{
-			base.Tick();
-			if (!pawn.IsHashIntervalTick(2317))
-			{
-				return;
-			}
-			EatWounds();
-		}
-
-		public void EatWounds()
-		{
-			List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
-			float eatedDamage = 0f;
-			foreach (Hediff hediff in hediffs)
-			{
-				if (hediff is not Hediff_Injury injury)
-				{
-					continue;
-				}
-				if (hediff.def == HediffDefOf.Scarification && WVC_Biotech.settings.totalHealingIgnoreScarification)
-				{
-					continue;
-				}
-				eatedDamage += 0.005f;
-				injury.Heal(0.5f);
-			}
-			UndeadUtility.OffsetNeedFood(pawn, eatedDamage);
-		}
-
-	}
-
-	public class Gene_MechaClotting : Gene_AddOrRemoveHediff
-	{
-		// private const int ClotCheckInterval = 750;
-
-		// private static readonly FloatRange TendingQualityRange = new(0.5f, 1.0f);
 
 		public override void Tick()
 		{
@@ -76,16 +38,22 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete]
+	public class Gene_MechaClotting : Gene_ClottingWithHediff
+	{
+
+
+	}
+
 	public class Gene_DustClotting : Gene
 	{
-		// private const int ClotCheckInterval = 750;
 
-		private static readonly FloatRange TendingQualityRange = new(0.5f, 1.0f);
+		private static readonly FloatRange TendingQualityRange = new(0.8f, 1.0f);
 
 		public override void Tick()
 		{
 			base.Tick();
-			if (!pawn.IsHashIntervalTick(1500))
+			if (!pawn.IsHashIntervalTick(3200))
 			{
 				return;
 			}
@@ -100,15 +68,11 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				// Gene_Dust gene_Dust = pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
-				// if (gene_Dust != null)
-				// {
-				// }
 				UndeadUtility.OffsetNeedFood(pawn, -1f * def.resourceLossPerDay);
 				hediffs[num].Tended(TendingQualityRange.RandomInRange, TendingQualityRange.TrueMax, 1);
-				// hediffs[num].Heal(TendingQualityRange.RandomInRange * 2);
 			}
 		}
+
 	}
 
 	public class Gene_ResurgentClotting : Gene_ResurgentDependent
@@ -152,14 +116,13 @@ namespace WVC_XenotypesAndGenes
 
 	public class Gene_ScarifierClotting : Gene
 	{
-		// private const int ClotCheckInterval = 750;
 
-		private static readonly FloatRange TendingQualityRange = new(0.5f, 1.0f);
+		private static readonly FloatRange TendingQualityRange = new(0.7f, 1.0f);
 
 		public override void Tick()
 		{
 			base.Tick();
-			if (!pawn.IsHashIntervalTick(1500))
+			if (!pawn.IsHashIntervalTick(2000))
 			{
 				return;
 			}
@@ -197,6 +160,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			return false;
 		}
+
 	}
 
 	public class Gene_GauranlenDryads_Clotting : Gene_DryadQueen_Dependant
@@ -212,8 +176,102 @@ namespace WVC_XenotypesAndGenes
 			List<Pawn> connectedThings = Gauranlen?.AllDryads;
 			foreach (Pawn dryad in connectedThings)
 			{
-				Gene_MechaClotting.WoundsClotting(dryad, new(0.4f, 0.8f));
+				Gene_ClottingWithHediff.WoundsClotting(dryad, new(0.4f, 0.8f));
 			}
+		}
+
+	}
+
+	// Health
+	public class Gene_HealingStomach : Gene
+	{
+
+		public override void Tick()
+		{
+			base.Tick();
+			if (!pawn.IsHashIntervalTick(2317))
+			{
+				return;
+			}
+			EatWounds();
+		}
+
+		public void EatWounds()
+		{
+			List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
+			float eatedDamage = 0f;
+			foreach (Hediff hediff in hediffs)
+			{
+				if (hediff is not Hediff_Injury injury)
+				{
+					continue;
+				}
+				if (hediff.def == HediffDefOf.Scarification && WVC_Biotech.settings.totalHealingIgnoreScarification)
+				{
+					continue;
+				}
+				eatedDamage += 0.005f;
+				injury.Heal(0.5f);
+			}
+			UndeadUtility.OffsetNeedFood(pawn, eatedDamage);
+		}
+
+	}
+
+	// Health
+	public class Gene_ArchiteSkin : Gene
+	{
+
+		public override void Tick()
+		{
+			base.Tick();
+			if (!pawn.IsHashIntervalTick(11821))
+			{
+				return;
+			}
+			if (TryHealWounds())
+			{
+				TryRepairApparel();
+			}
+		}
+
+		public bool TryHealWounds()
+		{
+			List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
+			bool repairApparels = true;
+			foreach (Hediff hediff in hediffs)
+			{
+				if (hediff is not Hediff_Injury injury)
+				{
+					continue;
+				}
+				if (injury.Part?.depth != BodyPartDepth.Outside)
+				{
+					continue;
+				}
+				if (hediff.def == HediffDefOf.Scarification && WVC_Biotech.settings.totalHealingIgnoreScarification)
+				{
+					continue;
+				}
+				repairApparels = false;
+				injury.Heal(0.5f);
+			}
+			return repairApparels;
+		}
+
+		public bool TryRepairApparel()
+		{
+			List<Apparel> apparels = pawn.apparel.WornApparel;
+			bool repairApparels = false;
+			foreach (Apparel apparel in apparels)
+			{
+				if (apparel.def.useHitPoints && apparel.HitPoints < apparel.MaxHitPoints)
+				{
+					apparel.HitPoints++;
+					repairApparels = true;
+				}
+			}
+			return repairApparels;
 		}
 
 	}
