@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_Base" Name="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes" Abstract="True">
+	<biostatCpx>-3</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>4</biostatMet>
+	<selectionWeight>0.000094</selectionWeight>
+	<displayOrderInCategory>160</displayOrderInCategory>
+	<prerequisite>WVC_Shapeshifter</prerequisite>
+  </GeneDef>
+
+  <!-- ===================================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes">
+	<defName>WVC_PostShapeshift_Recovery</defName>
+	<label>postshift recovery</label>
+	<description>Carriers of this gene have archites that stabilize the carrier after a shapeshift.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_PostShapeshift_Recovery</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_PostShapeshift_Recovery_v0</iconPath>
+	<displayOrderInCategory>160</displayOrderInCategory>
+	<customEffectDescriptions>
+		<!-- <li>This gene removes the limit of the &lt;color=#8a8ae6&gt;"Xenotype gestator"&lt;/color&gt; gene.</li> -->
+		<li>If, &lt;color=#8a8ae6&gt;after&lt;/color&gt; using &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt;, a pawn receives this gene, then &lt;color=#8a8ae6&gt;xenogermination coma&lt;/color&gt; effect &lt;color=#8a8ae6&gt;are removed&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<scarsCount>2</scarsCount>
+			<hediffDefs>
+				<!-- <li>XenogermReplicating</li> -->
+				<li>XenogerminationComa</li>
+				<li>XenogermLossShock</li>
+			</hediffDefs>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes">
+	<defName>WVC_PostShapeshift_Regeneration</defName>
+	<label>postshift regeneration</label>
+	<description>Carriers of this gene have archites that regenerate all wounds, even critical ones, before a shapeshift.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_PostShapeshift_Regeneration</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_PostShapeshift_Regeneration_v0</iconPath>
+	<displayOrderInCategory>165</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>If a pawn has this gene, it is guaranteed to &lt;color=#8a8ae6&gt;heal all scars&lt;/color&gt; and &lt;color=#8a8ae6&gt;regrow missing parts&lt;/color&gt; when using the &lt;color=#8a8ae6&gt;shapeshfit&lt;/color&gt; ability.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<scarsCount>2</scarsCount>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes">
+	<defName>WVC_PostShapeshift_Metabolism</defName>
+	<label>postshift metabolism</label>
+	<description>Carriers of this gene have archites that significantly increase metabolism after shapeshift.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_PostShapeshift_GiveHediff</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_PostShapeshift_Hunger_v0</iconPath>
+	<displayOrderInCategory>170</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>If, after using the &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt; ability, a pawn receives this gene, then for some time its &lt;color=#8a8ae6&gt;hunger&lt;/color&gt; is significantly &lt;color=#8a8ae6&gt;reduced&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_PostshiftMetabolism_HungerFactor</hediffDefName>
+			<intervalRange>120000~180000</intervalRange>
+			<scarsCount>2</scarsCount>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

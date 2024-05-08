@@ -13,9 +13,12 @@
 	<tendable>true</tendable>
 	<displayWound>true</displayWound>
 	<isBad>true</isBad>
+	<preventsDeath>true</preventsDeath>
 	<everCurableByItem>true</everCurableByItem>
 	<keepOnBodyPartRestoration>false</keepOnBodyPartRestoration>
 	<defaultLabelColor>(0.5, 0.5, 0.5)</defaultLabelColor>
+	<chanceToCauseNoPain>0.2</chanceToCauseNoPain>
+	<cureAllAtOnceIfCuredByItem>true</cureAllAtOnceIfCuredByItem>
 	<comps>
 	  <li Class="HediffCompProperties_TendDuration">
 		<labelTendedWell>bandaged</labelTendedWell>
@@ -31,7 +34,7 @@
 	  </li>
 	</comps>
 	<injuryProps>
-	  <painPerSeverity>0.0025</painPerSeverity>
+	  <painPerSeverity>0.00025</painPerSeverity>
 	  <averagePainPerSeverityPermanent>0</averagePainPerSeverityPermanent>
 	  <bleedRate>0</bleedRate>
 	  <canMerge>false</canMerge>

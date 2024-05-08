@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneShapeshifter_Base" Abstract="True">
+	<iconColor>(255, 255, 255)</iconColor>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<selectionWeight>0.000044</selectionWeight>
+	<canGenerateInGeneSet>true</canGenerateInGeneSet>
+	<displayCategory>WVC_Scarifier</displayCategory>
+	<displayOrderInCategory>55</displayOrderInCategory>
+  </GeneDef>
+
+  <!-- ================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_Base">
+	<defName>WVC_Shapeshifter</defName>
+	<label>shapeshifter</label>
+	<description>Carriers of this gene can change their xenotype at will.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Shapeshifter</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_XenoForcer_ShapeShifter</iconPath>
+	<customEffectDescriptions>
+		<li>Allows you to change the xenotype at any time.</li>
+		<li>This gene removes the limit of the &lt;color=#8a8ae6&gt;xenotype gestator&lt;/color&gt; gene.</li>
+		<li>&lt;color=#ff8585&gt;Does not support custom xenotypes.&lt;/color&gt;</li>
+		<li>&lt;color=#ff8585&gt;This gene cannot be removed.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<displayOrderInCategory>155</displayOrderInCategory>
+	<marketValueFactor>3</marketValueFactor>
+	<biostatCpx>8</biostatCpx>
+	<biostatArc>3</biostatArc>
+	<sterilize>true</sterilize>
+	<statFactors>
+	  <Fertility>0</Fertility>
+	</statFactors>
+	<exclusionTags>
+	  <li>WVC_ShapeshifterGene</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<scarsCount>-3</scarsCount>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
+			<!-- <shapeshiftEffect>CocoonWakingUp</shapeshiftEffect> -->
+			<duplicateHediffs>
+				<li>WVC_Scarifier_ShapeshifterDuplicateMode</li>
+			</duplicateHediffs>
+			<duplicateTraits>
+				<li>WVC_XaG_ShapeshiftOverclock</li>
+			</duplicateTraits>
+			<blockingHediffs>
+				<li>XenogermReplicating</li>
+				<li>XenogerminationComa</li>
+				<li>XenogermLossShock</li>
+				<!-- Post shapeshift hediffs also blocks shapeshift -->
+				<!-- <li>WVC_PostshiftMetabolism_HungerFactor</li> -->
+			</blockingHediffs>
+			<blockingTraits>
+				<li>WVC_XaG_ShapeshiftPhobia</li>
+			</blockingTraits>
+			<!-- Possible traits that will spawn on pawns with this gene. -->
+			<possibleTraits>
+				<li>
+					<traitDef>WVC_XaG_ShapeshiftPhobia</traitDef>
+					<weight>0.09</weight>
+				</li>
+				<li>
+					<traitDef>WVC_XaG_ShapeshiftOverclock</traitDef>
+					<weight>0.07</weight>
+				</li>
+			</possibleTraits>
+			<!-- Xenotypes with which this gene works correctly. Any string -->
+			<trustedXenotypes>
+				<!-- Vanilla -->
+				<li>Baseliner</li>
+				<li>Dirtmole</li>
+				<li>Genie</li>
+				<li>Hussar</li>
+				<li>Sanguophage</li>
+				<li>Neanderthal</li>
+				<li>Pigskin</li>
+				<li>Impid</li>
+				<li>Waster</li>
+				<li>Yttakin</li>
+				<li>Highmate</li>
+				<!-- WVC -->
+				<li>WVC_Undead</li>
+				<li>WVC_Featherdust</li>
+				<li>WVC_Resurgent</li>
+				<li>WVC_Ashen</li>
+				<li>WVC_CatDeity</li>
+				<li>WVC_Lilith</li>
+				<li>WVC_Blank</li>
+				<li>WVC_Golemkind</li>
+				<li>WVC_Meca</li>
+				<li>WVC_RogueFormer</li>
+				<li>WVC_RuneDryad</li>
+				<li>WVC_GeneThrower</li>
+				<li>WVC_Sandycat</li>
+				<li>WVC_Bloodeater</li>
+				<li>WVC_Shadoweater</li>
+				<li>WVC_Thrall</li>
+				<!-- VE -->
+				<li>VRE_Bruxa</li>
+				<li>VRE_Gauranlenkin</li>
+				<li>VRE_Animakin</li>
+				<li>VRE_Poluxkin</li>
+			</trustedXenotypes>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

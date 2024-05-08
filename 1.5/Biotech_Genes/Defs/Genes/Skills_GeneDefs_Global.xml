@@ -234,4 +234,32 @@
 	</aptitudes>
   </GeneDef>
 
+  <GeneDef ParentName="WVC_Mechanoidization_FirmwareBase">
+	<defName>WVC_PatternAptitude_Shapeshifter</defName>
+	<label>pattern aptitude (shapeshifter)</label>
+	<iconPath>WVC/UI/Genes/Gene_PatternAptitude_Shapeshifter_v0</iconPath>
+	<biostatCpx>-8</biostatCpx>
+	<biostatArc>-2</biostatArc>
+	<biostatMet>8</biostatMet>
+	<aptitudes>
+	  <Construction>-6</Construction>
+	  <Intellectual>-6</Intellectual>
+	  <Crafting>-6</Crafting>
+	  <Artistic>-6</Artistic>
+	  <Mining>-6</Mining>
+	  <Shooting>-6</Shooting>
+	  <Melee>-6</Melee>
+	  <Plants>-6</Plants>
+	  <Cooking>-6</Cooking>
+	  <Animals>-6</Animals>
+	  <Social>-6</Social>
+	  <Medicine>-6</Medicine>
+	</aptitudes>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<scarsCount>4</scarsCount>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
 </Defs>
