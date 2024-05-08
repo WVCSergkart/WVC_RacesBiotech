@@ -183,7 +183,7 @@
   <AbilityDef ParentName="WVC_GestationAbilities_Base">
 	<defName>WVC_Dustogenic_AbilityImmaculateConception</defName>
 	<label>immaculate conception</label>
-	<description>With a sufficient level of dust, it allows you to start the pregnancy process.</description>
+	<description>With a sufficient level of nutrients, it allows you to start the pregnancy process.</description>
 	<iconPath>WVC/UI/Genes/Gene_ImmaculateConception_v0</iconPath>
 	<verbProperties>
 	  <warmupEffecter>Berserk</warmupEffecter>
