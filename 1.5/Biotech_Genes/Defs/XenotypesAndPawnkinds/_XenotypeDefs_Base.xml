@@ -20,16 +20,16 @@
   <!-- Undead sub-xenotypes -->
   <XenotypeDef Name="WVC_XenotypesAndGenes_UndeadSubXenotypes_Base" Abstract="True">
 	<displayPriority>-220</displayPriority>
-	<!-- <descriptionHyperlinks> -->
-	  <!-- <XenotypeDef>WVC_Undead</XenotypeDef> -->
-	<!-- </descriptionHyperlinks> -->
-	<doubleXenotypeChances>
-		<WVC_Undead>1.0</WVC_Undead>
-	</doubleXenotypeChances>
+	<descriptionHyperlinks>
+	  <XenotypeDef>WVC_Undead</XenotypeDef>
+	</descriptionHyperlinks>
+	<!-- <doubleXenotypeChances> -->
+		<!-- <WVC_Undead>1.0</WVC_Undead> -->
+	<!-- </doubleXenotypeChances> -->
 	<canGenerateAsCombatant>true</canGenerateAsCombatant>
 	<combatPowerFactor>2.5</combatPowerFactor>
 	<factionlessGenerationWeight>0.06</factionlessGenerationWeight>
-	<inheritable>false</inheritable>
+	<inheritable>true</inheritable>
   </XenotypeDef>
 
   <!-- General undead sub-xenotype info -->

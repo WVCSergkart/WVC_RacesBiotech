@@ -166,7 +166,7 @@ namespace WVC_XenotypesAndGenes
 			// }
 			if (Rand.Chance(evotypeDef.shapeshiftChance))
 			{
-				XenotypeDef xenotypeDef = evotypeDef.subXenotypeDefs.RandomElementByWeight((XenotypeDef x) => x is SubXenotypeDef subXenotypeDef ? subXenotypeDef.selectionWeight : 0.0001f);
+				XenotypeDef xenotypeDef = evotypeDef.subXenotypeDefs.RandomElementByWeight((XenotypeDef x) => x is SubXenotypeDef subXenotypeDef ? subXenotypeDef.selectionWeight : 1f);
 				ReimplanterUtility.SaveReimplantXenogenesFromXenotype(pawn, xenotypeDef);
 			}
 		}

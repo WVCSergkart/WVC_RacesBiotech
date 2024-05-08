@@ -11,7 +11,7 @@
 		<!-- Only undead resurrection -->
 		<li>WVC_Featherdust</li>
 		<li>WVC_Resurgent</li>
-		<li>WVC_Ashen</li>
+		<li MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li>
 		<!-- Random -->
 		<li>WVC_Shapeshifter</li>
 		<li>WVC_RandomHybrid</li>
@@ -26,6 +26,9 @@
 	<!-- It is combined with the usual list, it is only necessary to determine which of the prohibited xenotypes are allowed specifically for these purposes. -->
 	<whiteListedXenotypesForResurrectorSerums>
 		<li>WVC_Undead</li>
+		<li>WVC_Featherdust</li>
+		<li>WVC_Resurgent</li>
+		<li MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li>
 	</whiteListedXenotypesForResurrectorSerums>
 	<!-- Xenotypes for xenotype filter. Needed to determine default xenotypes for sera. Not used for random sera. Any string -->
 	<!-- In addition to this filter, there are several more filtering stages. All of them are in C# code and cannot be changed via XML. However, this filter takes precedence. -->

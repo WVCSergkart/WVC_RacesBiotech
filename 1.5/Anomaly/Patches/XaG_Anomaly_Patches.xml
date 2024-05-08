@@ -61,14 +61,20 @@
 	  <!-- </value> -->
 	<!-- </Operation> -->
 
-	<Operation Class="PatchOperationAdd">
-	  <xpath>/Defs/XenotypeDef[defName="WVC_Resurgent"]/removeGenes</xpath>
-	  <value>
-		<li>WVC_PatchSkin</li>
-	  </value>
-	</Operation>
-	<Operation Class="PatchOperationAdd">
-	  <xpath>/Defs/XenotypeDef[defName="WVC_Resurgent"]/endogenes</xpath>
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/XenotypeDef[defName="WVC_Resurgent"]/removeGenes</xpath> -->
+	  <!-- <value> -->
+		<!-- <li>WVC_PatchSkin</li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/XenotypeDef[defName="WVC_Resurgent"]/endogenes</xpath> -->
+	  <!-- <value> -->
+		<!-- <li>WVC_GhoulSkin</li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/XenotypeDef[defName="WVC_Resurgent"]/genes/li[@Tag="AnomalySkin"]</xpath>
 	  <value>
 		<li>WVC_GhoulSkin</li>
 	  </value>

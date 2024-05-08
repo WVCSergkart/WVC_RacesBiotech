@@ -108,6 +108,7 @@ namespace WVC_XenotypesAndGenes
 
 		// ===============================================================
 
+		[Obsolete]
 		public static void ReimplantXenogenesFromXenotype(Pawn pawn, XenotypeDef xenotypeDef)
 		{
 			// pawn.genes.SetXenotypeDirect(xenotypeDef);
@@ -132,15 +133,15 @@ namespace WVC_XenotypesAndGenes
 			{
 				xenotypeDef.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(pawn));
 			}
-			pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
-			GeneUtility.UpdateXenogermReplication(pawn);
 		}
 
 		public static void SaveReimplantXenogenesFromXenotype(Pawn pawn, XenotypeDef xenotypeDef)
 		{
 			if (pawn.genes != null && pawn.genes.Xenogenes.NullOrEmpty())
 			{
-				ReimplantXenogenesFromXenotype(pawn, xenotypeDef);
+				SetXenotype(pawn, xenotypeDef);
+				pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
+				GeneUtility.UpdateXenogermReplication(pawn);
 			}
 		}
 

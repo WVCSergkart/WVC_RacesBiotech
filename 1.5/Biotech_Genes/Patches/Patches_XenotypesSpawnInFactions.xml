@@ -134,6 +134,11 @@
 						<operations>
 
 							<li Class="PatchOperationRemove">
+								<xpath>/Defs/GeneDef[defName="WVC_BloodfeedChimera"]/modExtensions/li[@Class="WVC_XenotypesAndGenes.GeneExtension_Undead"]/xenotypeDef</xpath>
+								<success>Always</success>
+							</li>
+
+							<li Class="PatchOperationRemove">
 								<xpath>/Defs/XenotypeDef[@WVC_XaG_XenotypeRemoveTag="Bloodeaters"]</xpath>
 								<success>Always</success>
 							</li>
@@ -177,7 +182,7 @@
 							<WVC_RuneDryad>0.002</WVC_RuneDryad>
 							<WVC_Golemkind>0.001</WVC_Golemkind>
 							<WVC_Undead>0.0014</WVC_Undead>
-							<WVC_Resurgent>0.0006</WVC_Resurgent>
+							<!-- <WVC_Resurgent>0.0006</WVC_Resurgent> -->
 						  </value>
 						</li>
 						<li Class="PatchOperationAdd">
@@ -188,7 +193,7 @@
 								<WVC_RuneDryad>0.002</WVC_RuneDryad>
 								<WVC_Golemkind>0.001</WVC_Golemkind>
 								<WVC_Undead>0.0014</WVC_Undead>
-								<WVC_Resurgent>0.0006</WVC_Resurgent>
+								<!-- <WVC_Resurgent>0.0006</WVC_Resurgent> -->
 							  </xenotypeChances>
 						  </value>
 						</li>
@@ -201,7 +206,7 @@
 								<WVC_RuneDryad>0.002</WVC_RuneDryad>
 								<WVC_Golemkind>0.001</WVC_Golemkind>
 								<WVC_Undead>0.0014</WVC_Undead>
-								<WVC_Resurgent>0.0006</WVC_Resurgent>
+								<!-- <WVC_Resurgent>0.0006</WVC_Resurgent> -->
 							  </xenotypeChances>
 							</xenotypeSet>
 						  </value>
@@ -217,7 +222,7 @@
 						  <success>Invert</success>
 						  <value>
 							<WVC_GeneThrower>0.002</WVC_GeneThrower>
-							<WVC_Featherdust>0.0006</WVC_Featherdust>
+							<WVC_Undead>0.0006</WVC_Undead>
 						  </value>
 						</li>
 						<li Class="PatchOperationAdd">
@@ -226,7 +231,7 @@
 						  <value>
 							  <xenotypeChances>
 								<WVC_GeneThrower>0.002</WVC_GeneThrower>
-								<WVC_Featherdust>0.0006</WVC_Featherdust>
+								<WVC_Undead>0.0006</WVC_Undead>
 							  </xenotypeChances>
 						  </value>
 						</li>
@@ -237,7 +242,7 @@
 							<xenotypeSet>
 							  <xenotypeChances>
 								<WVC_GeneThrower>0.002</WVC_GeneThrower>
-								<WVC_Featherdust>0.0006</WVC_Featherdust>
+								<WVC_Undead>0.0006</WVC_Undead>
 							  </xenotypeChances>
 							</xenotypeSet>
 						  </value>
@@ -250,7 +255,7 @@
 				  <value>
 					<WVC_Meca>0.001</WVC_Meca>
 					<WVC_RogueFormer>0.001</WVC_RogueFormer>
-					<WVC_Ashen MayRequire="ludeon.rimworld.ideology">0.0004</WVC_Ashen>
+					<WVC_Undead>0.0004</WVC_Undead>
 				  </value>
 				</li>
 				<!-- Factions Patch -->

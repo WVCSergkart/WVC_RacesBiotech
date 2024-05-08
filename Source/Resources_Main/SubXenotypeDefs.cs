@@ -197,7 +197,7 @@ namespace WVC_XenotypesAndGenes
 		public bool xenotypeCanShapeshiftOnDeath = false;
 		public bool xenotypeCanEvolveOvertime = false;
 
-		public List<SubXenotypeDef> subXenotypeDefs;
+		public List<XenotypeDef> subXenotypeDefs;
 
 		public override void ResolveReferences()
 		{
@@ -207,7 +207,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (!subXenotypeDefs.NullOrEmpty())
 			{
-				foreach (SubXenotypeDef subXenotypeDef in subXenotypeDefs)
+				foreach (XenotypeDef subXenotypeDef in subXenotypeDefs)
 				{
 					descriptionHyperlinks.Add(new DefHyperlink(subXenotypeDef));
 				}
@@ -229,7 +229,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (!subXenotypeDefs.NullOrEmpty())
 			{
-				yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_XaG_SubXeno_SubXenotypesList".Translate().CapitalizeFirst(), subXenotypeDefs.Select((SubXenotypeDef x) => x.label).ToCommaList().CapitalizeFirst(), "WVC_XaG_SubXeno_SubXenotypesList_Desc".Translate() + "\n\n" + subXenotypeDefs.Select((SubXenotypeDef x) => x.label).ToLineList("  - ", capitalizeItems: true), 810);
+				yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_XaG_SubXeno_SubXenotypesList".Translate().CapitalizeFirst(), subXenotypeDefs.Select((XenotypeDef x) => x.label).ToCommaList().CapitalizeFirst(), "WVC_XaG_SubXeno_SubXenotypesList_Desc".Translate() + "\n\n" + subXenotypeDefs.Select((XenotypeDef x) => x.label).ToLineList("  - ", capitalizeItems: true), 810);
 			}
 			yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_XaG_SubXeno_SubXenotypes_CanEvolveOnDeath".Translate(), xenotypeCanShapeshiftOnDeath.ToStringYesNo(), "WVC_XaG_SubXeno_SubXenotypes_CanEvolveOnDeath_Desc".Translate(), 800);
 			yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_XaG_SubXeno_SubXenotypes_CanEvolveOvertime".Translate(), xenotypeCanEvolveOvertime.ToStringYesNo(), "WVC_XaG_SubXeno_SubXenotypes_CanEvolveOvertime_Desc".Translate(), 790);
