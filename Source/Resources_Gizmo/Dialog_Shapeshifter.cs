@@ -248,6 +248,11 @@ namespace WVC_XenotypesAndGenes
 		// Misc
 		public void PostStart(Gene_Shapeshifter shapeshiftGene)
 		{
+			if (genesRegrowing)
+			{
+				return;
+			}
+			// Shapeshifter SubGenes Trigger
 			foreach (Gene gene in shapeshiftGene.pawn.genes.GenesListForReading)
 			{
 				if (gene is IGeneShapeshift geneShapeshifter && gene.Active)
@@ -268,6 +273,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_GenesDefOf.WVC_Shapeshift, newShapeshiftGene.pawn.Named(HistoryEventArgsNames.Doer)));
 			}
+			if (genesRegrowing)
+			{
+				return;
+			}
+			// Shapeshifter SubGenes Trigger
 			foreach (Gene gene in newShapeshiftGene.pawn.genes.GenesListForReading)
 			{
 				if (gene is IGeneShapeshift geneShapeshifter && gene.Active)
