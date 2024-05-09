@@ -10,6 +10,8 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneDef geneDef;
 
+		public List<GeneDef> geneDefs;
+
 		// ~1 day
 		public IntRange checkInterval = new (56720, 72032);
 
@@ -66,7 +68,10 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (HediffUtility.TryAddHediff(Def, Pawn, geneDef, bodyparts))
 				{
-					Log.Warning("Trying to remove " + Def.label + " hediff, but " + Pawn.Name.ToString() + " has the required gene. Hediff is added back.");
+					if (DebugSettings.ShowDevGizmos)
+					{
+						Log.Warning("Trying to remove " + Def.label + " hediff, but " + Pawn.Name.ToString() + " has the required gene. Hediff is added back.");
+					}
 				}
 			}
 		}
@@ -75,6 +80,37 @@ namespace WVC_XenotypesAndGenes
 		{
 			Scribe_Defs.Look(ref geneDef, "geneDef");
 			// Scribe_Values.Look(ref nextTick, "nextTick", 60000);
+		}
+
+	}
+
+	public class HediffComp_ShapeshifterHediff : HediffComp
+	{
+
+		public HediffCompProperties_GeneHediff Props => (HediffCompProperties_GeneHediff)props;
+
+		public override void CompPostPostRemoved()
+		{
+			if (Pawn?.health?.hediffSet?.GetBrain() == null)
+			{
+				return;
+			}
+			if (XaG_GeneUtility.HasAnyActiveGene(Props.geneDefs, Pawn))
+			{
+				BodyPartDef bodyPart = parent?.Part?.def;
+				List<BodyPartDef> bodyparts = new();
+				if (bodyPart != null)
+				{
+					bodyparts.Add(bodyPart);
+				}
+				if (HediffUtility.TryAddHediff(Def, Pawn, null, bodyparts))
+				{
+					if (DebugSettings.ShowDevGizmos)
+					{
+						Log.Warning("Trying to remove " + Def.label + " hediff, but " + Pawn.Name.ToString() + " has the required gene. Hediff is added back.");
+					}
+				}
+			}
 		}
 
 	}

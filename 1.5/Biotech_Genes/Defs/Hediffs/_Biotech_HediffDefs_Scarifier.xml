@@ -107,24 +107,4 @@
 	<!-- </comps> -->
   <!-- </HediffDef> -->
 
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
-	<defName>WVC_PostshiftMetabolism_HungerFactor</defName>
-	<label>postshift metabolism</label>
-	<description>A residual shapeshift effect during which the owner's metabolism is significantly enhanced.</description>
-	<defaultLabelColor>(255, 255, 255)</defaultLabelColor>
-	<stages>
-	  <li>
-		<hungerRateFactor>0.01</hungerRateFactor>
-		<becomeVisible>true</becomeVisible>
-		<minSeverity>0.0</minSeverity>
-	  </li>
-	</stages>
-	<comps>
-		<li Class="HediffCompProperties_Disappears">
-			<disappearsAfterTicks>210000~450000</disappearsAfterTicks>
-			<showRemainingTime>true</showRemainingTime>
-		</li>
-	</comps>
-  </HediffDef>
-
 </Defs>

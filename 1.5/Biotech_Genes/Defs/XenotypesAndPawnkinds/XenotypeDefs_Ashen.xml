@@ -112,7 +112,7 @@
 		<li>WVC_Scarifier_GeneticStability</li>
 		<li>WVC_Learning_Scarifier</li>
 		<li>DarkVision</li>
-		<li>Deathless</li>
+		<!-- <li>Deathless</li> -->
 		<li>WVC_ShapeshiftSkin</li>
 		<li>WVC_Shapeshifter</li>
 		<li>WVC_Scarifier_ArchiteScarstomach</li>
@@ -127,26 +127,27 @@
 		<li>LowSleep</li>
 		<li>Unstoppable</li>
 		<!-- = -->
-		<li>WVC_PostShapeshift_Recovery</li>
-		<li>WVC_PostShapeshift_Regeneration</li>
-		<li>WVC_PostShapeshift_Metabolism</li>
-		<li>WVC_PostShapeshift_Scarred</li>
-		<li>WVC_Shapeshift_TrueForm</li>
-		<li>WVC_AptitudeArchitePerfect_Shooting</li>
-		<li>WVC_AptitudeArchitePerfect_Melee</li>
-		<li>WVC_PatternAptitude_Shapeshifter</li>
-		<!-- <li>WVC_AptitudeArchiteGreat_Shooting</li> -->
+		<!-- <li>WVC_PostShapeshift_Recovery</li> -->
+		<!-- <li>WVC_PostShapeshift_Regeneration</li> -->
+		<!-- <li>WVC_PostShapeshift_Metabolism</li> -->
+		<!-- <li>WVC_PostShapeshift_Scarred</li> -->
+		<!-- <li>WVC_Shapeshift_TrueForm</li> -->
+		<!-- <li>WVC_Shapeshift_Deathless</li> -->
+		<!-- <li>WVC_AptitudeArchitePerfect_Shooting</li> -->
 		<!-- <li>WVC_AptitudeArchitePerfect_Melee</li> -->
-		<!-- <li>WVC_AptitudeArchiteScarifier_Cooking</li> -->
-		<!-- <li>WVC_AptitudeArchiteScarifier_Plants</li> -->
-		<!-- <li>WVC_AptitudeArchiteScarifier_Animals</li> -->
-		<!-- <li>WVC_AptitudeArchiteScarifier_Artistic</li> -->
-		<!-- <li>WVC_AptitudeArchiteScarifier_Medicine</li> -->
-		<!-- <li>WVC_AptitudeArchiteScarifier_Social</li> -->
-		<!-- <li>WVC_AptitudeArchiteScarifier_Construction</li> -->
-		<!-- <li>WVC_AptitudeArchiteScarifier_Mining</li> -->
-		<!-- <li>WVC_AptitudeArchiteScarifier_Crafting</li> -->
-		<!-- <li>WVC_AptitudeArchiteScarifier_Intellectual</li> -->
+		<!-- <li>WVC_PatternAptitude_Shapeshifter</li> -->
+		<li>WVC_AptitudeArchiteGreat_Shooting</li>
+		<li>WVC_AptitudeArchitePerfect_Melee</li>
+		<li>WVC_AptitudeArchiteScarifier_Cooking</li>
+		<li>WVC_AptitudeArchiteScarifier_Plants</li>
+		<li>WVC_AptitudeArchiteScarifier_Animals</li>
+		<li>WVC_AptitudeArchiteScarifier_Artistic</li>
+		<li>WVC_AptitudeArchiteScarifier_Medicine</li>
+		<li>WVC_AptitudeArchiteScarifier_Social</li>
+		<li>WVC_AptitudeArchiteScarifier_Construction</li>
+		<li>WVC_AptitudeArchiteScarifier_Mining</li>
+		<li>WVC_AptitudeArchiteScarifier_Crafting</li>
+		<li>WVC_AptitudeArchiteScarifier_Intellectual</li>
 	</genes>
 	<!-- <modExtensions> -->
 		<!-- <li Class="WVC_XenotypesAndGenes.XenotypeExtension_XenotypeShapeShift"> -->

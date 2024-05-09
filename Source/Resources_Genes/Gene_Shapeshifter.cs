@@ -8,10 +8,12 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Shapeshifter : Gene
+	public class Gene_Shapeshifter : Gene, IGeneOverridden
 	{
 
 		public GeneExtension_Undead Props => def?.GetModExtension<GeneExtension_Undead>();
+
+		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
 		public bool xenogermComaAfterShapeshift = true;
 
@@ -55,6 +57,20 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			RemoveHediffs();
+		}
+
+		public void RemoveHediffs()
+		{
+			HediffUtility.RemoveHediffsFromList(pawn, Giver?.hediffDefs);
+		}
+
+		public void Notify_Override()
+		{
+		}
+
 		public override void PostRemove()
 		{
 			base.PostRemove();
@@ -62,6 +78,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				pawn.genes.AddGene(this.def, false);
 			}
+			RemoveHediffs();
 		}
 
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()

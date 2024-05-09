@@ -23,7 +23,7 @@
 
 &lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; If a xenotype has a certain set of endogenes (germline genes), then some genes will be added and/or deleted.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_XenotypeShapeshifter</geneClass>
-	<iconPath>WVC/UI/Genes/Gene_ShapeShifter_v0</iconPath>
+	<iconPath>WVC/UI/Genes/DevHook_ReplaceGeneSet_v0</iconPath>
 	<selectionWeight>0.00</selectionWeight>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<biostatCpx>0</biostatCpx>

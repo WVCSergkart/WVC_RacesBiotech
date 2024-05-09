@@ -239,7 +239,7 @@
 	<label>pattern aptitude (shapeshifter)</label>
 	<iconPath>WVC/UI/Genes/Gene_PatternAptitude_Shapeshifter_v0</iconPath>
 	<biostatCpx>-5</biostatCpx>
-	<biostatArc>-2</biostatArc>
+	<biostatArc>2</biostatArc>
 	<biostatMet>8</biostatMet>
 	<aptitudes>
 	  <Construction>-6</Construction>

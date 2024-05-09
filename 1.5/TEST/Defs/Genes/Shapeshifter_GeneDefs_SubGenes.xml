@@ -2,7 +2,7 @@
 <Defs>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_Base" Name="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes" Abstract="True">
-	<biostatCpx>-5</biostatCpx>
+	<biostatCpx>-3</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<!-- <biostatMet>4</biostatMet> -->
 	<biostatMet>2</biostatMet>
@@ -103,6 +103,27 @@
 	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<scarsCount>1</scarsCount>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes">
+	<defName>WVC_Shapeshift_Deathless</defName>
+	<label>shift deathless</label>
+	<!-- <description>Carriers of this gene have archites, which protect them from death for some time after the shapeshift.</description> -->
+	<description>Carriers of this gene have archites in the blood which will sustain their life processes no matter what. As long as the carrier of this gene remains a shapeshifter, it will never die.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_PostShapeshift_Deathless_v0</iconPath>
+	<displayOrderInCategory>185</displayOrderInCategory>
+	<biostatArc>3</biostatArc>
+	<customEffectDescriptions>
+		<li>If a pawn received this gene as a &lt;color=#8a8ae6&gt;shapeshifter&lt;/color&gt;, it &lt;color=#8a8ae6&gt;permanently&lt;/color&gt; receives the &lt;color=#8a8ae6&gt;deathless&lt;/color&gt; effect.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_ShapeshifterDeathless</hediffDefName>
+			<intervalRange>45000~72000</intervalRange>
 			<scarsCount>1</scarsCount>
 		</li>
 	</modExtensions>

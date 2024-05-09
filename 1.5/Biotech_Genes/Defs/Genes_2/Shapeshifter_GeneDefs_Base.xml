@@ -19,7 +19,8 @@
 	<label>shapeshifter</label>
 	<description>Carriers of this gene can change their xenotype at will.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Shapeshifter</geneClass>
-	<iconPath>WVC/UI/Genes/Gene_XenoForcer_ShapeShifter</iconPath>
+	<!-- <iconPath>WVC/UI/Genes/Gene_XenoForcer_ShapeShifter</iconPath> -->
+	<iconPath>WVC/UI/Genes/Gene_Shapeshifter_v0</iconPath>
 	<customEffectDescriptions>
 		<li>Allows you to change the xenotype at any time.</li>
 		<li>This gene removes the limit of the &lt;color=#8a8ae6&gt;xenotype gestator&lt;/color&gt; gene.</li>
@@ -40,6 +41,10 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<scarsCount>-3</scarsCount>
+			<hediffDefs>
+				<li>WVC_PostshiftMetabolism_HungerFactor</li>
+				<li>WVC_ShapeshifterDeathless</li>
+			</hediffDefs>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
 			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
