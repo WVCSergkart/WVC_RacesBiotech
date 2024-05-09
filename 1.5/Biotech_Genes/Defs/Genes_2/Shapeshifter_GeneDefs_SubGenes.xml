@@ -2,7 +2,7 @@
 <Defs>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_Base" Name="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes" Abstract="True">
-	<biostatCpx>-3</biostatCpx>
+	<biostatCpx>-5</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<!-- <biostatMet>4</biostatMet> -->
 	<biostatMet>2</biostatMet>
@@ -72,7 +72,7 @@
 	</modExtensions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes">
+  <GeneDef MayRequire="ludeon.rimworld.ideology" ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes">
 	<defName>WVC_PostShapeshift_Scarred</defName>
 	<label>postshift scarred</label>
 	<description>Carriers of this gene become covered with scars after shapeshifting.</description>

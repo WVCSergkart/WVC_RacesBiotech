@@ -50,8 +50,10 @@ namespace WVC_XenotypesAndGenes
 	}
 
 	// Gene-Gestator
-	public class Gene_XenotypeGestator : Gene
+	public class Gene_XenotypeGestator : Gene, IGeneOverridden
 	{
+
+		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
@@ -103,6 +105,26 @@ namespace WVC_XenotypesAndGenes
 			{
 				Log.Error("Match list is null");
 			}
+		}
+
+		public void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			RemoveHediffs();
+		}
+
+		public void RemoveHediffs()
+		{
+			HediffUtility.RemoveHediffsFromList(pawn, Giver?.hediffDefs);
+		}
+
+		public void Notify_Override()
+		{
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			RemoveHediffs();
 		}
 
 	}

@@ -74,6 +74,12 @@
 				<li>WVC_Shapeshifter</li>
 			</canGestateAnyIfHas>
 		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefs>
+				<li>WVC_XenotypesAndGenes_XenotypeGestator</li>
+				<li>WVC_XenotypesAndGenes_GestatorCooldown</li>
+			</hediffDefs>
+		</li>
 	</modExtensions>
   </GeneDef>
 

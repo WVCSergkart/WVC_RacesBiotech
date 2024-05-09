@@ -21,6 +21,7 @@ namespace WVC_XenotypesAndGenes
 		// public bool shouldBeDowned = true;
 		public List<XenotypeDef> preferredXenotypes;
 		public List<string> trustedXenotypes;
+		public List<XenotypeDef> trueFormXenotypes = new();
 
 		public bool xenogermComaAfterShapeshift = true;
 
@@ -51,8 +52,29 @@ namespace WVC_XenotypesAndGenes
 			canEverUseShapeshift = !MiscUtility.HasAnyTraits(shiftExtension?.blockingTraits, gene.pawn);
 			duplicateMode = MiscUtility.HasAnyTraits(shiftExtension?.duplicateTraits, gene.pawn) || HediffUtility.HasAnyHediff(shiftExtension?.duplicateHediffs, gene.pawn);
 			trustedXenotypes = shiftExtension?.trustedXenotypes != null ? shiftExtension.trustedXenotypes : new();
+			trueFormXenotypes = TrueFormXenotypesFromList(allXenotypes);
 			// Gene stats
 			xenogermComaAfterShapeshift = gene.xenogermComaAfterShapeshift;
+		}
+
+		public static List<XenotypeDef> TrueFormXenotypesFromList(List<XenotypeDef> xenotypes)
+		{
+			List<XenotypeDef> list = new();
+			foreach (XenotypeDef item in xenotypes)
+			{
+				// Log.Error(item.LabelCap + " checked.");
+				foreach (GeneDef geneDef in item.genes)
+				{
+					// Log.Error(geneDef.LabelCap + " checked.");
+					if (geneDef.geneClass == typeof(Gene_Shapeshift_TrueForm))
+					{
+						// Log.Error(geneDef.LabelCap + " is true form.");
+						list.Add(item);
+						break;
+					}
+				}
+			}
+			return list;
 		}
 
 		public override void DrawLeftRect(Rect rect, ref float curY)
@@ -191,7 +213,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			PostStart(gene);
 			// Shapeshift START
-			ReimplanterUtility.ReimplantGenesDouble_Shapeshifter(gene.pawn, selectedXeno, clearXenogenes, doubleXenotypeReimplantation);
+			ReimplanterUtility.ReimplantGenesDouble_Shapeshifter(gene.pawn, selectedXeno, genesRegrowing || clearXenogenes, genesRegrowing || doubleXenotypeReimplantation);
 			// if (doubleXenotypeReimplantation)
 			// {
 				// ReimplanterUtility.SetXenotype_DoubleXenotype(gene.pawn, selectedXeno);
@@ -227,6 +249,10 @@ namespace WVC_XenotypesAndGenes
 		public override bool MeetsRequirements(XenotypeDef mode)
 		{
 			if (DebugSettings.ShowDevGizmos)
+			{
+				return true;
+			}
+			if (!duplicateMode && trueFormXenotypes.Contains(mode))
 			{
 				return true;
 			}
@@ -275,8 +301,10 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (genesRegrowing)
 			{
+				// Log.Error("0");
 				return;
 			}
+			// Log.Error("1");
 			// Shapeshifter SubGenes Trigger
 			foreach (Gene gene in newShapeshiftGene.pawn.genes.GenesListForReading)
 			{

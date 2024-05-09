@@ -46,6 +46,23 @@ namespace WVC_XenotypesAndGenes
 
 		public HediffCompProperties_Gestator Props => (HediffCompProperties_Gestator)props;
 
+		public override bool CompShouldRemove => XenotypeGestator == null;
+
+		[Unsaved(false)]
+		private Gene_XenotypeGestator cachedGestatorGene;
+
+		public Gene_XenotypeGestator XenotypeGestator
+		{
+			get
+			{
+				if (cachedGestatorGene == null || !cachedGestatorGene.Active)
+				{
+					cachedGestatorGene = Pawn?.genes?.GetFirstGeneOfType<Gene_XenotypeGestator>();
+				}
+				return cachedGestatorGene;
+			}
+		}
+
 		// protected Pawn Pawn => parent.pawn;
 
 		public override string CompLabelInBracketsExtra => GetLabel();
@@ -61,6 +78,11 @@ namespace WVC_XenotypesAndGenes
 				xenotypeDef = Props.xenotypeDef;
 			}
 		}
+
+		// public override bool CompDisallowVisible()
+		// {
+			// return XenotypeGestator == null;
+		// }
 
 		public override void CompExposeData()
 		{
@@ -78,6 +100,13 @@ namespace WVC_XenotypesAndGenes
 			// {
 				// gestationIntervalDays = Props.gestationIntervalDays;
 				// return;
+			// }
+			// if (Pawn.IsHashIntervalTick(120))
+			// {
+				// if (XenotypeGestator == null)
+				// {
+					// Pawn.health.RemoveHediff(parent);
+				// }
 			// }
 			if (Pawn.Map == null)
 			{

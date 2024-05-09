@@ -12,6 +12,7 @@
 	<defaultLabelColor>(255,255,255)</defaultLabelColor>
 	<preventsPregnancy>true</preventsPregnancy>
 	<removeOnQuestLodgers>true</removeOnQuestLodgers>
+	<pregnant>true</pregnant>
 	<initialSeverity>1</initialSeverity>
 	<maxSeverity>1.0</maxSeverity>
 	<stages>
@@ -68,9 +69,9 @@
 			<xenogerminationComa>true</xenogerminationComa>
 			<hediffDef>WVC_XenotypesAndGenes_PostGestationRecovery</hediffDef>
 		</li>
-		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
-			<checkInterval>11430</checkInterval>
-		</li>
+		<!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"> -->
+			<!-- <checkInterval>11430</checkInterval> -->
+		<!-- </li> -->
 	</comps>
   </HediffDef>
 
@@ -105,18 +106,20 @@
 	<description>Before this time has expired, the gestator cannot be reused.</description>
 	<hediffClass>HediffWithComps</hediffClass>
 	<preventsPregnancy>true</preventsPregnancy>
+	<removeOnQuestLodgers>true</removeOnQuestLodgers>
 	<comps>
 		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_RemoveLetter">
 			<letterLabel>WVC_XaG_GeneXenoGestator_CooldownLetterLabel</letterLabel>
 			<letterDesc>WVC_XaG_GeneXenoGestator_CooldownLetterDesc</letterDesc>
+			<compClass>WVC_XenotypesAndGenes.HediffComp_XenotypeGestatorLetter</compClass>
 		</li>
 		<li Class="HediffCompProperties_Disappears">
 			<disappearsAfterTicks>6000~12000</disappearsAfterTicks>
 			<showRemainingTime>true</showRemainingTime>
 		</li>
-		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
-			<checkInterval>83231</checkInterval>
-		</li>
+		<!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"> -->
+			<!-- <checkInterval>83231</checkInterval> -->
+		<!-- </li> -->
 	</comps>
   </HediffDef>
 
