@@ -2,7 +2,8 @@
 <Defs>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_Base" Name="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes" Abstract="True">
-	<biostatCpx>-3</biostatCpx>
+	<biostatCpx>2</biostatCpx>
+	<!-- <biostatCpx>-3</biostatCpx> -->
 	<biostatArc>1</biostatArc>
 	<!-- <biostatMet>4</biostatMet> -->
 	<biostatMet>2</biostatMet>
@@ -60,6 +61,7 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_PostShapeshift_GiveHediff</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_PostShapeshift_Hunger_v0</iconPath>
 	<displayOrderInCategory>170</displayOrderInCategory>
+	<!-- <biostatCpx>1</biostatCpx> -->
 	<customEffectDescriptions>
 		<li>If, after using the &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt; ability, a pawn receives this gene, then for some time its &lt;color=#8a8ae6&gt;hunger&lt;/color&gt; is significantly &lt;color=#8a8ae6&gt;reduced&lt;/color&gt;.</li>
 	</customEffectDescriptions>
@@ -79,13 +81,14 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_PostShapeshift_Scarred</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_PostShapeshift_Scarred_v0</iconPath>
 	<displayOrderInCategory>175</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
 	<customEffectDescriptions>
 		<li>When using the &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt; ability, receiving this gene, the pawn &lt;color=#8a8ae6&gt;receives 5 scars&lt;/color&gt;.</li>
 		<li>When &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt; to a form &lt;color=#8a8ae6&gt;without this gene&lt;/color&gt;, the pawn &lt;color=#8a8ae6&gt;loses all scars&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<scarsCount>1</scarsCount>
+			<scarsCount>3</scarsCount>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -97,34 +100,46 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_Shapeshift_TrueForm</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_PostShapeshift_TrueForm_v0</iconPath>
 	<displayOrderInCategory>180</displayOrderInCategory>
+	<biostatMet>4</biostatMet>
 	<customEffectDescriptions>
 		<li>&lt;color=#8a8ae6&gt;Shapeshift&lt;/color&gt; into a xenotype with this gene &lt;color=#8a8ae6&gt;does not require cd&lt;/color&gt;.</li>
 		<li>If at the moment of &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt; the pawn was in &lt;color=#8a8ae6&gt;recovery state&lt;/color&gt;, then bonuses from &lt;color=#8a8ae6&gt;postshift&lt;/color&gt; genes will not be received.</li>
 	</customEffectDescriptions>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<scarsCount>1</scarsCount>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <scarsCount>1</scarsCount> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes">
 	<defName>WVC_Shapeshift_Deathless</defName>
-	<label>shift deathless</label>
-	<!-- <description>Carriers of this gene have archites, which protect them from death for some time after the shapeshift.</description> -->
-	<description>Carriers of this gene have archites in the blood which will sustain their life processes no matter what. As long as the carrier of this gene remains a shapeshifter, it will never die.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass>
+	<!-- <label>shift deathless</label> -->
+	<!-- <label>indestructible</label> -->
+	<label>cellular</label>
+	<description>Carriers of this gene have archites that transfer consciousness to the cellular level, which makes their carriers indestructible. As long as at least a shred of flesh remains from their body, they can recover.</description>
+	<!-- <description>Carriers of this gene have archites in the blood which will sustain their life processes no matter what. As long as the carrier of this gene remains a shapeshifter, it will never die.</description> -->
+	<geneClass>WVC_XenotypesAndGenes.Gene_Cellular</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_PostShapeshift_Deathless_v0</iconPath>
 	<displayOrderInCategory>185</displayOrderInCategory>
-	<biostatArc>3</biostatArc>
+	<prerequisite></prerequisite>
+	<selectionWeight>0.000001</selectionWeight>
+	<biostatCpx>7</biostatCpx>
+	<biostatArc>4</biostatArc>
+	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
-		<li>If a pawn received this gene as a &lt;color=#8a8ae6&gt;shapeshifter&lt;/color&gt;, it &lt;color=#8a8ae6&gt;permanently&lt;/color&gt; receives the &lt;color=#8a8ae6&gt;deathless&lt;/color&gt; effect.</li>
+		<!-- <li>If a pawn received this gene as a &lt;color=#8a8ae6&gt;shapeshifter&lt;/color&gt;, it &lt;color=#8a8ae6&gt;permanently&lt;/color&gt; receives the &lt;color=#8a8ae6&gt;deathless&lt;/color&gt; effect.</li> -->
+		<li>Carrier can only be killed either by &lt;color=#8a8ae6&gt;completely destroying&lt;/color&gt; their body or by &lt;color=#8a8ae6&gt;removing this gene&lt;/color&gt;.</li>
+		<li>Healing: 100 hp/day</li>
 	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_ShapeshifterDeathless</hediffDefName>
-			<intervalRange>45000~72000</intervalRange>
-			<scarsCount>1</scarsCount>
+			<!-- <intervalRange>45000~72000</intervalRange> -->
+			<!-- <scarsCount>1</scarsCount> -->
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<regeneration>100</regeneration>
 		</li>
 	</modExtensions>
   </GeneDef>

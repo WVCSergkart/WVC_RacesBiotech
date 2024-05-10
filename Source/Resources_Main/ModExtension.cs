@@ -100,6 +100,8 @@ namespace WVC_XenotypesAndGenes
 		public XenotypeDef xenotypeDef;
 		public Color collectedGenesColor;
 		public Color destroyedGenesColor;
+		// Regen
+		public float regeneration = -1f;
 	}
 
 	public class GeneExtension_Opinion : DefModExtension

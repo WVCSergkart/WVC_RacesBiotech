@@ -2,35 +2,21 @@
 <Patch>
 
 	<!-- <Operation Class="PatchOperationAdd"> -->
-	  <!-- <xpath>/Defs/MutantDef[disablesGenes[li[contains(text(),'Hemogenic')]]]/disablesGenes</xpath> -->
+	  <!-- <xpath>/Defs/MutantDef[disablesGenes[li[contains(text(),'Furskin')]]]/disablesGenes</xpath> -->
 	  <!-- <value> -->
-		<!-- <li>WVC_Dustogenic</li> -->
-		<!-- <li>WVC_ResurgentCells</li> -->
-		<!-- <li>WVC_Shapeshifter</li> -->
-		<!-- <li>WVC_Thrall</li> -->
-		<!-- <li>WVC_DeadlyGeneticInstability</li> -->
-		<!-- <li>WVC_MildGeneticInstability</li> -->
-		<!-- <li>WVC_MajorGeneticInstability</li> -->
-		<!-- <li>WVC_ExtremeGeneticInstability</li> -->
+		<!-- <li>WVC_MechaSkin</li> -->
+		<!-- <li>WVC_RuneSkin</li> -->
+		<!-- <li>WVC_StoneSkin</li> -->
+		<!-- <li>WVC_NodeSkin</li> -->
+		<!-- <li>WVC_PatchSkin</li> -->
+		<!-- <li>WVC_FeatherSkin</li> -->
+		<!-- <li>WVC_ShapeshiftSkin</li> -->
+		<!-- <li>WVC_TransparentSkin</li> -->
+		<!-- <li>WVC_GauntSkin</li> -->
+		<!-- <li>WVC_SemifurSkin</li> -->
+		<!-- <li>WVC_GhoulSkin</li> -->
 	  <!-- </value> -->
 	<!-- </Operation> -->
-
-	<Operation Class="PatchOperationAdd">
-	  <xpath>/Defs/MutantDef[disablesGenes[li[contains(text(),'Furskin')]]]/disablesGenes</xpath>
-	  <value>
-		<li>WVC_MechaSkin</li>
-		<li>WVC_RuneSkin</li>
-		<li>WVC_StoneSkin</li>
-		<li>WVC_NodeSkin</li>
-		<li>WVC_PatchSkin</li>
-		<li>WVC_FeatherSkin</li>
-		<li>WVC_ShapeshiftSkin</li>
-		<li>WVC_TransparentSkin</li>
-		<li>WVC_GauntSkin</li>
-		<li>WVC_SemifurSkin</li>
-		<li>WVC_GhoulSkin</li>
-	  </value>
-	</Operation>
 
 	<Operation Class="PatchOperationReplace">
 	  <xpath>/Defs/WVC_XenotypesAndGenes.ThrallDef[@Name="WVC_XenotypesAndGenes_ThrallDefs_Base"]/generalDesc</xpath>
@@ -54,30 +40,35 @@
 	  </value>
 	</Operation>
 
-	<!-- <Operation Class="PatchOperationReplace"> -->
-	  <!-- <xpath>/Defs/WVC_XenotypesAndGenes.ThrallDef[@Name="WVC_XenotypesAndGenes_ThrallDefs_Undead"]/genes/li[contains(text(),'WVC_GauntSkin')]</xpath> -->
-	  <!-- <value> -->
-		<!-- <li>WVC_GhoulSkin</li> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-
-	<!-- <Operation Class="PatchOperationAdd"> -->
-	  <!-- <xpath>/Defs/XenotypeDef[defName="WVC_Resurgent"]/removeGenes</xpath> -->
-	  <!-- <value> -->
-		<!-- <li>WVC_PatchSkin</li> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-	<!-- <Operation Class="PatchOperationAdd"> -->
-	  <!-- <xpath>/Defs/XenotypeDef[defName="WVC_Resurgent"]/endogenes</xpath> -->
-	  <!-- <value> -->
-		<!-- <li>WVC_GhoulSkin</li> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
 	<Operation Class="PatchOperationReplace">
 	  <xpath>/Defs/XenotypeDef[defName="WVC_Resurgent"]/genes/li[@Tag="AnomalySkin"]</xpath>
 	  <value>
 		<li>WVC_GhoulSkin</li>
 	  </value>
 	</Operation>
+
+	<!-- <Operation Class="PatchOperationSequence"> -->
+		<!-- <success>Always</success> -->
+		<!-- <operations> -->
+			<!-- <li Class="PatchOperationTest"> -->
+			  <!-- <xpath>/Defs/HediffDef[defName="Inhumanized"]/comps</xpath> -->
+			  <!-- <success>Invert</success> -->
+			<!-- </li> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/HediffDef[defName="Inhumanized"]</xpath> -->
+			  <!-- <success>Always</success> -->
+			  <!-- <value> -->
+				<!-- <comps/> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+		<!-- </operations> -->
+	<!-- </Operation> -->
+
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/HediffDef[defName="Inhumanized"]/comps</xpath> -->
+	  <!-- <value> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
 
 </Patch>

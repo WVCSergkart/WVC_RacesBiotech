@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneInhumanized_Base" Abstract="True">
+	<selectionWeight>0.00022</selectionWeight>
+	<displayCategory>Healing</displayCategory>
+	<displayOrderInCategory>130</displayOrderInCategory>
+	<exclusionTags>
+	  <li>Inhumanized</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneInhumanized_Base">
+	<defName>WVC_Inhumanized</defName>
+	<label>inhumanization</label>
+	<description>Carriers of this gene are dominated by the psychic patterns of the void. They are completely disconnected from human concerns of family, friendship, and love. Their experience of reality is distant and muted, guided by the psychic rhythm of a dark hyperintelligence.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Inhuman_v1</iconPath>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Carriers are &lt;color=#ff8585&gt;permanently inhumanized&lt;/color&gt;.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>inhuman</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>Inhumanized</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

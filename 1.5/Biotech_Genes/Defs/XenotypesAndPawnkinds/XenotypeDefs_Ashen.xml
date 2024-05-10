@@ -95,13 +95,12 @@
 	<generateWithXenogermReplicatingHediffChance>0.1</generateWithXenogermReplicatingHediffChance>
 	<xenogermReplicatingDurationLeftDaysRange>0.1~25</xenogermReplicatingDurationLeftDaysRange>
 	<genes>
-		<!-- Undead -->
+		<!-- = -->
 		<li>WVC_NaturalReimplanter_RiseFromTheDead</li>
 		<li>WVC_Undead</li>
 		<li>Body_Standard</li>
 		<li>Hair_SnowWhite</li>
 		<li>WVC_PredatorPrey_NotTasty</li>
-		<!-- Ashen -->
 		<li>WVC_Scarifier_Scarshield</li>
 		<li>WVC_ArchitePerfectImmunity_DiseaseFree</li>
 		<li>WVC_ToxResist_Archite</li>
@@ -112,12 +111,10 @@
 		<li>WVC_Scarifier_GeneticStability</li>
 		<li>WVC_Learning_Scarifier</li>
 		<li>DarkVision</li>
-		<!-- <li>Deathless</li> -->
 		<li>WVC_ShapeshiftSkin</li>
 		<li>WVC_Shapeshifter</li>
 		<li>WVC_Scarifier_ArchiteScarstomach</li>
 		<li>WVC_MinMaxTemp_Scarifier</li>
-		<!-- = -->
 		<li>WVC_Scarifier</li>
 		<li>WVC_Scarifier_Pain</li>
 		<li>WVC_Scarifier_Clotting</li>
@@ -127,27 +124,17 @@
 		<li>LowSleep</li>
 		<li>Unstoppable</li>
 		<!-- = -->
-		<!-- <li>WVC_PostShapeshift_Recovery</li> -->
-		<!-- <li>WVC_PostShapeshift_Regeneration</li> -->
-		<!-- <li>WVC_PostShapeshift_Metabolism</li> -->
-		<!-- <li>WVC_PostShapeshift_Scarred</li> -->
-		<!-- <li>WVC_Shapeshift_TrueForm</li> -->
-		<!-- <li>WVC_Shapeshift_Deathless</li> -->
-		<!-- <li>WVC_AptitudeArchitePerfect_Shooting</li> -->
-		<!-- <li>WVC_AptitudeArchitePerfect_Melee</li> -->
-		<!-- <li>WVC_PatternAptitude_Shapeshifter</li> -->
-		<li>WVC_AptitudeArchiteGreat_Shooting</li>
+		<li>WVC_PostShapeshift_Recovery</li>
+		<li>WVC_PostShapeshift_Regeneration</li>
+		<li>WVC_PostShapeshift_Metabolism</li>
+		<li>WVC_PostShapeshift_Scarred</li>
+		<li>WVC_Shapeshift_TrueForm</li>
+		<li>WVC_Shapeshift_Deathless</li>
+		<li>WVC_AptitudeArchitePerfect_Shooting</li>
 		<li>WVC_AptitudeArchitePerfect_Melee</li>
-		<li>WVC_AptitudeArchiteScarifier_Cooking</li>
-		<li>WVC_AptitudeArchiteScarifier_Plants</li>
-		<li>WVC_AptitudeArchiteScarifier_Animals</li>
-		<li>WVC_AptitudeArchiteScarifier_Artistic</li>
-		<li>WVC_AptitudeArchiteScarifier_Medicine</li>
-		<li>WVC_AptitudeArchiteScarifier_Social</li>
-		<li>WVC_AptitudeArchiteScarifier_Construction</li>
-		<li>WVC_AptitudeArchiteScarifier_Mining</li>
-		<li>WVC_AptitudeArchiteScarifier_Crafting</li>
-		<li>WVC_AptitudeArchiteScarifier_Intellectual</li>
+		<li>WVC_PatternAptitude_Shapeshifter</li>
+		<!-- Anomaly -->
+		<li MayRequire="ludeon.rimworld.anomaly">WVC_Inhumanized</li>
 	</genes>
 	<!-- <modExtensions> -->
 		<!-- <li Class="WVC_XenotypesAndGenes.XenotypeExtension_XenotypeShapeShift"> -->

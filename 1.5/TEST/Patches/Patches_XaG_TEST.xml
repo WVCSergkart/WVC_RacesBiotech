@@ -26,51 +26,11 @@
 		</value>
 	</Operation>
 
-	<Operation Class="PatchOperationReplace">
-		<xpath>/Defs/XenotypeDef[defName="WVC_Ashen"]/genes</xpath>
-		<success>Always</success>
-		<value>
-			<genes>
-				<!-- = -->
-				<li>WVC_NaturalReimplanter_RiseFromTheDead</li>
-				<li>WVC_Undead</li>
-				<li>Body_Standard</li>
-				<li>Hair_SnowWhite</li>
-				<li>WVC_PredatorPrey_NotTasty</li>
-				<li>WVC_Scarifier_Scarshield</li>
-				<li>WVC_ArchitePerfectImmunity_DiseaseFree</li>
-				<li>WVC_ToxResist_Archite</li>
-				<li>WVC_NaturalAgeless</li>
-				<li>WVC_SkinColor_Slate</li>
-				<li>WVC_HeadBoneHorns</li>
-				<li>WVC_DemonTailA</li>
-				<li>WVC_Scarifier_GeneticStability</li>
-				<li>WVC_Learning_Scarifier</li>
-				<li>DarkVision</li>
-				<li>WVC_ShapeshiftSkin</li>
-				<li>WVC_Shapeshifter</li>
-				<li>WVC_Scarifier_ArchiteScarstomach</li>
-				<li>WVC_MinMaxTemp_Scarifier</li>
-				<li>WVC_Scarifier</li>
-				<li>WVC_Scarifier_Pain</li>
-				<li>WVC_Scarifier_Clotting</li>
-				<li>WVC_WoundHealing_UnrealFast</li>
-				<li>Aggression_DeadCalm</li>
-				<li>WVC_Scarifier_StrongMelee</li>
-				<li>LowSleep</li>
-				<li>Unstoppable</li>
-				<!-- = -->
-				<li>WVC_PostShapeshift_Recovery</li>
-				<li>WVC_PostShapeshift_Regeneration</li>
-				<li>WVC_PostShapeshift_Metabolism</li>
-				<li>WVC_PostShapeshift_Scarred</li>
-				<li>WVC_Shapeshift_TrueForm</li>
-				<li>WVC_Shapeshift_Deathless</li>
-				<li>WVC_AptitudeArchitePerfect_Shooting</li>
-				<li>WVC_AptitudeArchitePerfect_Melee</li>
-				<li>WVC_PatternAptitude_Shapeshifter</li>
-			</genes>
-		</value>
-	</Operation>
+	<!-- <Operation Class="PatchOperationReplace"> -->
+		<!-- <xpath>/Defs/XenotypeDef[defName="WVC_Ashen"]/genes</xpath> -->
+		<!-- <success>Always</success> -->
+		<!-- <value> -->
+		<!-- </value> -->
+	<!-- </Operation> -->
 
 </Patch>

@@ -14,6 +14,7 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Undead Giver => def.GetModExtension<GeneExtension_Undead>();
 
+		[Unsaved(false)]
 		private List<HediffDef> cachedPreventiveHediffs;
 
 		public bool UndeadCanResurrect => PawnCanResurrect();
@@ -136,6 +137,38 @@ namespace WVC_XenotypesAndGenes
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{
 			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate".Translate().CapitalizeFirst(), CanReincarnate(pawn, this, WVC_Biotech.settings.reincarnation_MinChronoAge).ToString(), "WVC_XaG_Gene_DisplayStats_Undead_CanReincarnate_Desc".Translate(WVC_Biotech.settings.reincarnation_MinChronoAge.ToString()), 1090);
+		}
+
+	}
+
+	public class Gene_Cellular : Gene_AddOrRemoveHediff
+	{
+
+		public GeneExtension_Undead Undead => def.GetModExtension<GeneExtension_Undead>();
+
+		[Unsaved(false)]
+		private float cachedRegeneration = -1;
+
+		public float Regeneration
+		{
+			get
+			{
+				if (cachedRegeneration == -1)
+				{
+					cachedRegeneration = Undead.regeneration;
+				}
+				return cachedRegeneration;
+			}
+		}
+
+		public override void Tick()
+		{
+			base.Tick();
+			if (!pawn.IsHashIntervalTick(617))
+			{
+				return;
+			}
+			HealingUtility.Regeneration(pawn, Regeneration, WVC_Biotech.settings.totalHealingIgnoreScarification);
 		}
 
 	}
