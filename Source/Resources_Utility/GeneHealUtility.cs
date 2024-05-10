@@ -11,11 +11,15 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		// Regeneration
-		public static void Regeneration(Pawn pawn, float regeneration = -1, bool ignoreScarification = true)
+		public static void Regeneration(Pawn pawn, float regeneration = -1, bool ignoreScarification = true, int tick = 10)
 		{
 			List<Hediff_Injury> tmpHediffInjuries = new();
 			List<Hediff_MissingPart> tmpHediffMissing = new();
 			regeneration *= 0.000166666665f;
+			if (tick > 0f)
+			{
+				regeneration *= (tick / 10);
+			}
 			if (regeneration > 0f)
 			{
 				pawn.health.hediffSet.GetHediffs(ref tmpHediffInjuries, (Hediff_Injury h) => h.def != HediffDefOf.Scarification || !ignoreScarification);

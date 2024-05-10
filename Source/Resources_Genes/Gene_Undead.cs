@@ -168,7 +168,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			HealingUtility.Regeneration(pawn, Regeneration, WVC_Biotech.settings.totalHealingIgnoreScarification);
+			HealingUtility.Regeneration(pawn, Regeneration, WVC_Biotech.settings.totalHealingIgnoreScarification, 617);
 		}
 
 	}

@@ -130,7 +130,7 @@
 	<customEffectDescriptions>
 		<!-- <li>If a pawn received this gene as a &lt;color=#8a8ae6&gt;shapeshifter&lt;/color&gt;, it &lt;color=#8a8ae6&gt;permanently&lt;/color&gt; receives the &lt;color=#8a8ae6&gt;deathless&lt;/color&gt; effect.</li> -->
 		<li>Carrier can only be killed either by &lt;color=#8a8ae6&gt;completely destroying&lt;/color&gt; their body or by &lt;color=#8a8ae6&gt;removing this gene&lt;/color&gt;.</li>
-		<li>Healing: 100 hp/day</li>
+		<li>Healing: 10 hp/day</li>
 	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
@@ -139,7 +139,7 @@
 			<!-- <scarsCount>1</scarsCount> -->
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
-			<regeneration>100</regeneration>
+			<regeneration>10</regeneration>
 		</li>
 	</modExtensions>
   </GeneDef>
