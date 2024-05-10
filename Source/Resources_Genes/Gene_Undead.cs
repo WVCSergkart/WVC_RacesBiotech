@@ -164,11 +164,11 @@ namespace WVC_XenotypesAndGenes
 		public override void Tick()
 		{
 			base.Tick();
-			if (!pawn.IsHashIntervalTick(617))
+			if (!pawn.IsHashIntervalTick(2222))
 			{
 				return;
 			}
-			HealingUtility.Regeneration(pawn, Regeneration, WVC_Biotech.settings.totalHealingIgnoreScarification, 617);
+			HealingUtility.Regeneration(pawn, Regeneration, WVC_Biotech.settings.totalHealingIgnoreScarification, 2222);
 		}
 
 	}

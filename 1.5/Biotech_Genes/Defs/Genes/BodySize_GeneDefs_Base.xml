@@ -36,7 +36,7 @@
 		  <!-- 0.9 -->
 		  <!-- <MaxNutrition>1.25</MaxNutrition> -->
 		  <!-- 0.8 -->
-		  <MaxNutrition>1.5625</MaxNutrition>
+		  <MaxNutrition MayRequire="oskarpotocki.vanillafactionsexpanded.core">1.5625</MaxNutrition>
 		  <VEF_BodySize_Multiplier MayRequire="oskarpotocki.vanillafactionsexpanded.core">0.8</VEF_BodySize_Multiplier>
 		</statFactors>
 		<statOffsets>
