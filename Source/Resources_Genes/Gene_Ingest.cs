@@ -222,10 +222,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			//if (pawn.IsHashIntervalTick(66000))
-			//{
-			//	AddOrRemoveHediff();
-			//}
+			if (pawn.IsHashIntervalTick(66000))
+			{
+				AddOrRemoveHediff();
+			}
 			if (pawn.Map == null)
 			{
 				return;

@@ -29,28 +29,28 @@ namespace WVC_XenotypesAndGenes
 
 		public HediffCompProperties_GeneHediff Props => (HediffCompProperties_GeneHediff)props;
 
-		// public int nextTick = 60000;
+		public int nextTick = 60000;
 
-		// public override void CompPostPostAdd(DamageInfo? dinfo)
-		// {
-			// nextTick = Props.checkInterval.RandomInRange;
-		// }
+		public override void CompPostPostAdd(DamageInfo? dinfo)
+		{
+			nextTick = Props.checkInterval.RandomInRange;
+		}
 
-		// public override void CompPostTick(ref float severityAdjustment)
-		// {
-			// if (!Pawn.IsHashIntervalTick(nextTick))
-			// {
-				// return;
-			// }
-			// if (geneDef == null && Props.geneDef != null)
-			// {
-				// geneDef = Props.geneDef;
-			// }
-			// if (!XaG_GeneUtility.HasActiveGene(geneDef, parent.pawn))
-			// {
-				// base.Pawn.health.RemoveHediff(parent);
-			// }
-		// }
+		public override void CompPostTick(ref float severityAdjustment)
+		{
+			if (!Pawn.IsHashIntervalTick(nextTick))
+			{
+				return;
+			}
+			if (geneDef == null && Props.geneDef != null)
+			{
+				geneDef = Props.geneDef;
+			}
+			if (!XaG_GeneUtility.HasActiveGene(geneDef, parent.pawn))
+			{
+				base.Pawn.health.RemoveHediff(parent);
+			}
+		}
 
 		public override void CompPostPostRemoved()
 		{
@@ -79,7 +79,7 @@ namespace WVC_XenotypesAndGenes
 		public override void CompExposeData()
 		{
 			Scribe_Defs.Look(ref geneDef, "geneDef");
-			// Scribe_Values.Look(ref nextTick, "nextTick", 60000);
+			Scribe_Values.Look(ref nextTick, "nextTick", 60000);
 		}
 
 	}

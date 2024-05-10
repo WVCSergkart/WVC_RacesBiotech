@@ -33,15 +33,15 @@ namespace WVC_XenotypesAndGenes
 			HediffUtility.TryAddOrRemoveHediff(Props.hediffDefName, pawn, this, Props.bodyparts);
 		}
 
-		// public override void Tick()
-		// {
-			// base.Tick();
-			// if (!pawn.IsHashIntervalTick(67200))
-			// {
-				// return;
-			// }
-			// Local_AddOrRemoveHediff();
-		// }
+		public override void Tick()
+		{
+			base.Tick();
+			if (!pawn.IsHashIntervalTick(67200))
+			{
+				return;
+			}
+			Local_AddOrRemoveHediff();
+		}
 
 		public override void PostRemove()
 		{
@@ -131,15 +131,15 @@ namespace WVC_XenotypesAndGenes
 			AddOrRemoveHediff(HediffDef, pawn, this);
 		}
 
-		// public override void Tick()
-		// {
-			// base.Tick();
-			// if (!pawn.IsHashIntervalTick(67200))
-			// {
-				// return;
-			// }
-			// AddOrRemoveHediff(HediffDef, pawn, this);
-		// }
+		public override void Tick()
+		{
+			base.Tick();
+			if (!pawn.IsHashIntervalTick(67200))
+			{
+				return;
+			}
+			AddOrRemoveHediff(HediffDef, pawn, this);
+		}
 
 		public void AddOrRemoveHediff(HediffDef hediffDef, Pawn pawn, Gene gene)
 		{
@@ -190,15 +190,15 @@ namespace WVC_XenotypesAndGenes
 			AddOrRemoveHediff();
 		}
 
-		// public override void Tick()
-		// {
-			// base.Tick();
-			// if (!pawn.IsHashIntervalTick(67200))
-			// {
-				// return;
-			// }
-			// AddOrRemoveHediff();
-		// }
+		public override void Tick()
+		{
+			base.Tick();
+			if (!pawn.IsHashIntervalTick(67200))
+			{
+				return;
+			}
+			AddOrRemoveHediff();
+		}
 
 		public override void PostRemove()
 		{
