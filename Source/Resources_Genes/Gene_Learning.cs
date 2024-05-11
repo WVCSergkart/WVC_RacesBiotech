@@ -53,7 +53,7 @@ namespace WVC_XenotypesAndGenes
 		public override void Tick()
 		{
 			base.Tick();
-			if (!pawn.IsHashIntervalTick(2000))
+			if (!pawn.IsHashIntervalTick(3000))
 			{
 				return;
 			}
@@ -83,10 +83,10 @@ namespace WVC_XenotypesAndGenes
 		{
 			foreach (SkillRecord skill in pawn.skills.skills)
 			{
-				if (skill.TotallyDisabled || skill.PermanentlyDisabled)
-				{
-					continue;
-				}
+				// if (skill.TotallyDisabled || skill.PermanentlyDisabled)
+				// {
+					// continue;
+				// }
 				int reservedExp = reserve * skill.GetLevel(false);
 				if (skill.xpSinceLastLevel - reservedExp > minExp)
 				{
@@ -100,10 +100,10 @@ namespace WVC_XenotypesAndGenes
 		{
 			foreach (SkillRecord skill in pawn.skills.skills)
 			{
-				if (skill.TotallyDisabled || skill.PermanentlyDisabled)
-				{
-					continue;
-				}
+				// if (skill.TotallyDisabled || skill.PermanentlyDisabled)
+				// {
+					// continue;
+				// }
 				skill.xpSinceLastLevel = 0f;
 			}
 		}

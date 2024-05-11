@@ -10,7 +10,7 @@
 	<displayOrderInCategory>15</displayOrderInCategory>
 	<selectionWeight>0.003</selectionWeight>
 	<statFactors>
-	  <MentalBreakThreshold>0</MentalBreakThreshold>
+	  <MentalBreakThreshold>0.5</MentalBreakThreshold>
 	  <BondAnimalChanceFactor>0</BondAnimalChanceFactor>
 	  <SocialImpact>0.1</SocialImpact>
 	</statFactors>
@@ -111,13 +111,13 @@
   <GeneDef>
 	<defName>WVC_EmotionlessUnshakable</defName>
 	<label>unshakable</label>
-	<description>Carriers of this gene never experience nervous breakdowns.</description>
+	<description>Carriers of this gene very rare experience nervous breakdowns.</description>
 	<iconPath>WVC/UI/Genes/Emotionless_Unshakable</iconPath>
 	<displayCategory>Mood</displayCategory>
 	<displayOrderInCategory>1245</displayOrderInCategory>
 	<selectionWeight>0.00105</selectionWeight>
 	<statFactors>
-	  <MentalBreakThreshold>0</MentalBreakThreshold>
+	  <MentalBreakThreshold>0.5</MentalBreakThreshold>
 	</statFactors>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>-1</biostatMet>
