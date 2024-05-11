@@ -261,41 +261,41 @@
 				<!-- Factions Patch -->
 
 				<!-- Wild Man Patch -->
-				<li Class="PatchOperationSequence">
-					<success>Always</success>
-					<operations>
-						<li Class="PatchOperationAdd">
-						  <xpath>/Defs/PawnKindDef[defName="WildMan"]/xenotypeSet/xenotypeChances</xpath>
-						  <success>Invert</success>
-						  <value>
-							<WVC_Blank>0.01</WVC_Blank>
-							<WVC_Undead>0.01</WVC_Undead>
-						  </value>
-						</li>
-						<li Class="PatchOperationAdd">
-						  <xpath>/Defs/PawnKindDef[defName="WildMan"]/xenotypeSet</xpath>
-						  <success>Invert</success>
-						  <value>
-							  <xenotypeChances>
-								<WVC_Blank>0.01</WVC_Blank>
-								<WVC_Undead>0.01</WVC_Undead>
-							  </xenotypeChances>
-						  </value>
-						</li>
-						<li Class="PatchOperationAdd">
-						  <xpath>/Defs/PawnKindDef[defName="WildMan"]</xpath>
-						  <success>Always</success>
-						  <value>
-							<xenotypeSet>
-							  <xenotypeChances>
-								<WVC_Blank>0.01</WVC_Blank>
-								<WVC_Undead>0.01</WVC_Undead>
-							  </xenotypeChances>
-							</xenotypeSet>
-						  </value>
-						</li>
-					</operations>
-				</li>
+				<!-- <li Class="PatchOperationSequence"> -->
+					<!-- <success>Always</success> -->
+					<!-- <operations> -->
+						<!-- <li Class="PatchOperationAdd"> -->
+						  <!-- <xpath>/Defs/PawnKindDef[defName="WildMan"]/xenotypeSet/xenotypeChances</xpath> -->
+						  <!-- <success>Invert</success> -->
+						  <!-- <value> -->
+							<!-- <WVC_Blank>0.01</WVC_Blank> -->
+							<!-- <WVC_Undead>0.01</WVC_Undead> -->
+						  <!-- </value> -->
+						<!-- </li> -->
+						<!-- <li Class="PatchOperationAdd"> -->
+						  <!-- <xpath>/Defs/PawnKindDef[defName="WildMan"]/xenotypeSet</xpath> -->
+						  <!-- <success>Invert</success> -->
+						  <!-- <value> -->
+							  <!-- <xenotypeChances> -->
+								<!-- <WVC_Blank>0.01</WVC_Blank> -->
+								<!-- <WVC_Undead>0.01</WVC_Undead> -->
+							  <!-- </xenotypeChances> -->
+						  <!-- </value> -->
+						<!-- </li> -->
+						<!-- <li Class="PatchOperationAdd"> -->
+						  <!-- <xpath>/Defs/PawnKindDef[defName="WildMan"]</xpath> -->
+						  <!-- <success>Always</success> -->
+						  <!-- <value> -->
+							<!-- <xenotypeSet> -->
+							  <!-- <xenotypeChances> -->
+								<!-- <WVC_Blank>0.01</WVC_Blank> -->
+								<!-- <WVC_Undead>0.01</WVC_Undead> -->
+							  <!-- </xenotypeChances> -->
+							<!-- </xenotypeSet> -->
+						  <!-- </value> -->
+						<!-- </li> -->
+					<!-- </operations> -->
+				<!-- </li> -->
 
 			</operations>
 		</caseFalse>
