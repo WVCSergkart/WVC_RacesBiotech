@@ -215,7 +215,7 @@
 	<!-- ============================================================ -->
 
 	<Operation Class="PatchOperationReplace">
-		<xpath>/Defs/StatDef[defName="MentalBreakThreshold" or defName="InjuryHealingFactor"]/minValue</xpath>
+		<xpath>/Defs/StatDef[defName="InjuryHealingFactor"]/minValue</xpath>
 		<success>Always</success>
 		<value>
 			<minValue>0</minValue>
@@ -226,7 +226,7 @@
 		<xpath>/Defs/StatDef[defName="IncomingDamageFactor"]/minValue</xpath>
 		<success>Always</success>
 		<value>
-			<minValue>0.02</minValue>
+			<minValue>0.1</minValue>
 		</value>
 	</Operation>
 
