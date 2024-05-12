@@ -297,6 +297,19 @@
 					<!-- </operations> -->
 				<!-- </li> -->
 
+					<!-- <li Class="PatchOperationAdd"> -->
+					  <!-- <xpath>/Defs/ThingDef[defName="HumanEmbryo"]/comps</xpath> -->
+					  <!-- <success>Always</success> -->
+					  <!-- <value> -->
+						<!-- <li Class="WVC_XenotypesAndGenes.CompProperties_Genepack"> -->
+							<!-- <compClass>WVC_XenotypesAndGenes.CompHumanEmbryo</compClass> -->
+							<!-- <xenotypeDefs> -->
+							  <!-- <li>WVC_Blank</li> -->
+							<!-- </xenotypeDefs> -->
+						<!-- </li> -->
+					  <!-- </value> -->
+					<!-- </li> -->
+
 			</operations>
 		</caseFalse>
 	</Operation>
