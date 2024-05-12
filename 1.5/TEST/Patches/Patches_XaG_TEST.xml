@@ -33,4 +33,15 @@
 		<!-- </value> -->
 	<!-- </Operation> -->
 
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/TraderKindDef/stockGenerators</xpath> -->
+	  <!-- <value> -->
+		  <!-- <li Class="StockGenerator_Tag"> -->
+			<!-- <tradeTag>WVC_GenePacks</tradeTag> -->
+			<!-- <thingDefCountRange>2~3</thingDefCountRange> -->
+			<!-- <countRange>1~1</countRange> -->
+		  <!-- </li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
 </Patch>

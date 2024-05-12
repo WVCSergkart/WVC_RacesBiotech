@@ -20,6 +20,9 @@ namespace WVC_XenotypesAndGenes
 		// StatPart
 		public ThingDef thingDef;
 		public float bandwidth = 1f;
+		// public RulePackDef genepackNamer;
+		// public ThingStyleDef styleDef;
+		// public List<XaG_CountWithChance> genesCountProbabilities;
 	}
 
 	// Exten

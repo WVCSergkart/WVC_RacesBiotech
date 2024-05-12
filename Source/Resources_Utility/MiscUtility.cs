@@ -2,9 +2,11 @@ using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using UnityEngine;
 using Verse;
 using Verse.AI;
+using Verse.Grammar;
 using Verse.Sound;
 using static Verse.GeneSymbolPack;
 
@@ -14,7 +16,69 @@ namespace WVC_XenotypesAndGenes
 	public static class MiscUtility
 	{
 
-		// Abilities
+		// Genepacks
+
+		public static void GenerateName(GeneSet geneSet, RulePackDef rule)
+		{
+			if (rule == null)
+			{
+				rule = RulePackDefOf.NamerGenepack;
+			}
+			if (geneSet.GenesListForReading.Any())
+			{
+				GrammarRequest request = default;
+				request.Includes.Add(rule);
+				request.Rules.Add(new Rule_String("geneWord", geneSet.GenesListForReading[0].LabelShortAdj));
+				request.Rules.Add(new Rule_String("geneCountMinusOne", (geneSet.GenesListForReading.Count - 1).ToString()));
+				request.Constants.Add("geneCount", geneSet.GenesListForReading.Count.ToString());
+				Type typeFromHandle = typeof(GeneSet);
+				FieldInfo field = typeFromHandle.GetField("name", BindingFlags.Instance | BindingFlags.NonPublic);
+				field.SetValue(geneSet, GrammarResolver.Resolve("r_name", request, null, forceLog: false, null, null, null, capitalizeFirstSentence: false));
+			}
+		}
+
+		public static void SetGenesInPack(XaG_CountWithChance geneCount, GeneSet geneSet)
+		{
+			for (int j = 0; j < geneCount.genesCount; j++)
+			{
+				if (DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.biostatArc == 0 && x.IsXenoGenesDef() && CanAddGeneDuringGeneration(x, geneSet)).TryRandomElementByWeight((GeneDef x) => x.selectionWeight, out var result))
+				{
+					geneSet.AddGene(result);
+				}
+			}
+			for (int i = 0; i < geneCount.architeCount; i++)
+			{
+				if (DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.biostatArc != 0 && x.IsXenoGenesDef() && CanAddGeneDuringGeneration(x, geneSet)).TryRandomElementByWeight((GeneDef x) => x.selectionWeight, out var result))
+				{
+					geneSet.AddGene(result);
+				}
+			}
+		}
+
+		public static bool CanAddGeneDuringGeneration(GeneDef gene, GeneSet geneSet)
+		{
+			if (!gene.canGenerateInGeneSet || gene.selectionWeight <= 0f)
+			{
+				return false;
+			}
+			List<GeneDef> genes = geneSet.GenesListForReading;
+			if (genes.Contains(gene))
+			{
+				return false;
+			}
+			if (genes.Count > 0 && !GeneTuning.BiostatRange.Includes(gene.biostatMet + geneSet.MetabolismTotal))
+			{
+				return false;
+			}
+			for (int i = 0; i < genes.Count; i++)
+			{
+				if (gene.ConflictsWith(genes[i]))
+				{
+					return false;
+				}
+			}
+			return true;
+		}
 
 		// Map
 

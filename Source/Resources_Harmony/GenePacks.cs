@@ -15,30 +15,57 @@ namespace WVC_XenotypesAndGenes
 	public static class Patch_Genepack_PostMake
 	{
 
+		// [HarmonyPostfix]
+		// public static void ChangeGenesInPack(Genepack __instance, ref GeneSet ___geneSet)
+		// {
+			// CompGenepack xag_genepack = __instance.TryGetComp<CompGenepack>();
+			// if (xag_genepack != null)
+			// {
+				// GeneSet newGeneSet = new();
+				// int? seed = null;
+				// if (seed.HasValue)
+				// {
+					// Rand.PushState(seed.Value);
+				// }
+				// XaG_CountWithChance countWithChance = xag_genepack.Props.genepacks.RandomElementByWeight((XaG_CountWithChance x) => x.chance);
+				// if (countWithChance != null)
+				// {
+					// XaG_CountWithChance geneCount = countWithChance.genesCountProbabilities.RandomElementByWeight((XaG_CountWithChance x) => x.chance);
+					// SetGenesInPack(geneCount, newGeneSet);
+					// newGeneSet.SortGenes();
+					// GenerateName(newGeneSet, countWithChance.genepackNamer);
+					// if (countWithChance.styleDef != null)
+					// {
+						// __instance.SetStyleDef(countWithChance.styleDef);
+					// }
+				// }
+				// if (seed.HasValue)
+				// {
+					// Rand.PopState();
+				// }
+				// if (!newGeneSet.Empty)
+				// {
+					// ___geneSet = newGeneSet;
+				// }
+				// else
+				// {
+					// Log.Warning(__instance.LabelCap + " generated with null geneSet. Vanilla geneSet will be used instead.");
+				// }
+			// }
+		// }
+
 		[HarmonyPostfix]
 		public static void ChangeGenesInPack(Genepack __instance, ref GeneSet ___geneSet)
 		{
-			ThingDef thingDef = __instance.def;
-			if (thingDef.IsXenoGenesDef())
+			CompProperties_Genepack xag_genepack = __instance?.TryGetComp<CompGenepack>()?.Props;
+			if (xag_genepack != null)
 			{
+				ThingDef thingDef = __instance.def;
 				GeneSet newGeneSet = new();
-				int? seed = null;
-				if (seed.HasValue)
-				{
-					Rand.PushState(seed.Value);
-				}
-				GeneExtension_General geneExtension = thingDef?.GetModExtension<GeneExtension_General>();
-				if (geneExtension != null)
-				{
-					XaG_CountWithChance geneCount = geneExtension.genesCountProbabilities.RandomElementByWeight((XaG_CountWithChance x) => x.chance);
-					SetGenesInPack(geneCount, newGeneSet);
-					newGeneSet.SortGenes();
-					GenerateName(newGeneSet, geneExtension.genepackNamer);
-				}
-				if (seed.HasValue)
-				{
-					Rand.PopState();
-				}
+				XaG_CountWithChance geneCount = xag_genepack.genesCountProbabilities.RandomElementByWeight((XaG_CountWithChance x) => x.chance);
+				MiscUtility.SetGenesInPack(geneCount, newGeneSet);
+				newGeneSet.SortGenes();
+				MiscUtility.GenerateName(newGeneSet, xag_genepack.genepackNamer);
 				if (!newGeneSet.Empty)
 				{
 					___geneSet = newGeneSet;
@@ -47,70 +74,48 @@ namespace WVC_XenotypesAndGenes
 				{
 					Log.Warning(thingDef.LabelCap + " generated with null geneSet. Vanilla geneSet will be used instead.");
 				}
+				if (xag_genepack.styleDef != null)
+				{
+					__instance.SetStyleDef(xag_genepack.styleDef);
+				}
+				__instance.def = ThingDefOf.Genepack;
 			}
 		}
 
-		private static void GenerateName(GeneSet geneSet, RulePackDef rule)
-		{
-			if (rule == null)
-			{
-				rule = RulePackDefOf.NamerGenepack;
-			}
-			if (geneSet.GenesListForReading.Any())
-			{
-				GrammarRequest request = default;
-				request.Includes.Add(rule);
-				request.Rules.Add(new Rule_String("geneWord", geneSet.GenesListForReading[0].LabelShortAdj));
-				request.Rules.Add(new Rule_String("geneCountMinusOne", (geneSet.GenesListForReading.Count - 1).ToString()));
-				request.Constants.Add("geneCount", geneSet.GenesListForReading.Count.ToString());
-				Type typeFromHandle = typeof(GeneSet);
-				FieldInfo field = typeFromHandle.GetField("name", BindingFlags.Instance | BindingFlags.NonPublic);
-				field.SetValue(geneSet, GrammarResolver.Resolve("r_name", request, null, forceLog: false, null, null, null, capitalizeFirstSentence: false));
-			}
-		}
-
-		private static void SetGenesInPack(XaG_CountWithChance geneCount, GeneSet geneSet)
-		{
-			for (int j = 0; j < geneCount.genesCount; j++)
-			{
-				if (DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.biostatArc == 0 && x.IsXenoGenesDef() && CanAddGeneDuringGeneration(x, geneSet)).TryRandomElementByWeight((GeneDef x) => x.selectionWeight, out var result))
-				{
-					geneSet.AddGene(result);
-				}
-			}
-			for (int i = 0; i < geneCount.architeCount; i++)
-			{
-				if (DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.biostatArc != 0 && x.IsXenoGenesDef() && CanAddGeneDuringGeneration(x, geneSet)).TryRandomElementByWeight((GeneDef x) => x.selectionWeight, out var result))
-				{
-					geneSet.AddGene(result);
-				}
-			}
-		}
-
-		private static bool CanAddGeneDuringGeneration(GeneDef gene, GeneSet geneSet)
-		{
-			if (!gene.canGenerateInGeneSet || gene.selectionWeight <= 0f)
-			{
-				return false;
-			}
-			List<GeneDef> genes = geneSet.GenesListForReading;
-			if (genes.Contains(gene))
-			{
-				return false;
-			}
-			if (genes.Count > 0 && !GeneTuning.BiostatRange.Includes(gene.biostatMet + geneSet.MetabolismTotal))
-			{
-				return false;
-			}
-			for (int i = 0; i < genes.Count; i++)
-			{
-				if (gene.ConflictsWith(genes[i]))
-				{
-					return false;
-				}
-			}
-			return true;
-		}
+		// [HarmonyPostfix]
+		// public static void ChangeGenesInPack(Genepack __instance, ref GeneSet ___geneSet)
+		// {
+			// ThingDef thingDef = __instance.def;
+			// if (thingDef.IsXenoGenesDef())
+			// {
+				// GeneSet newGeneSet = new();
+				// int? seed = null;
+				// if (seed.HasValue)
+				// {
+					// Rand.PushState(seed.Value);
+				// }
+				// GeneExtension_General geneExtension = thingDef?.GetModExtension<GeneExtension_General>();
+				// if (geneExtension != null)
+				// {
+					// XaG_CountWithChance geneCount = geneExtension.genesCountProbabilities.RandomElementByWeight((XaG_CountWithChance x) => x.chance);
+					// MiscUtility.SetGenesInPack(geneCount, newGeneSet);
+					// newGeneSet.SortGenes();
+					// MiscUtility.GenerateName(newGeneSet, geneExtension.genepackNamer);
+				// }
+				// if (seed.HasValue)
+				// {
+					// Rand.PopState();
+				// }
+				// if (!newGeneSet.Empty)
+				// {
+					// ___geneSet = newGeneSet;
+				// }
+				// else
+				// {
+					// Log.Warning(thingDef.LabelCap + " generated with null geneSet. Vanilla geneSet will be used instead.");
+				// }
+			// }
+		// }
 
 	}
 

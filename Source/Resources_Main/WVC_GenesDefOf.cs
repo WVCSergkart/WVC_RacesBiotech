@@ -36,9 +36,9 @@ namespace WVC_XenotypesAndGenes
 		// public static StatDef WVC_SporesBandwidth;
 		// public static StatDef WVC_SporesBandwidthCost;
 		// Genepack
-		public static ThingDef WVC_Genepack;
-		public static ThingDef WVC_UltraGenepack;
-		public static ThingDef WVC_MechaGenepack;
+		// public static ThingDef WVC_Genepack;
+		// public static ThingDef WVC_UltraGenepack;
+		// public static ThingDef WVC_MechaGenepack;
 		// public static RulePackDef WVC_NamerGenepack;
 		// public static RulePackDef WVC_NamerUltraGenepack;
 		// public static RulePackDef WVC_NamerMechaGenepack;

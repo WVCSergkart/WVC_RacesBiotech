@@ -11,6 +11,15 @@
 					<success>Always</success>
 				</li>
 
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks"]/thingSetMakerTags</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks"]/tradeTags</xpath>
+					<success>Always</success>
+				</li>
+
 				<!-- <li Class="PatchOperationRemove"> -->
 					<!-- <xpath>/Defs/ThingDef[defName[contains(text(),'WVC_')]]/thingSetMakerTags</xpath> -->
 					<!-- <success>Always</success> -->

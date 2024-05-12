@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThingDef ParentName="GeneSetHolderBase" Name="WVC_GeneSetHolderBase" Abstract="True">
+  <ThingDef ParentName="GeneSetHolderBase" Name="WVC_GeneSetHolderBase" Abstract="True" WVC_XaG_Tag_Genepacks="AllGenePacks">
 	<label>genepack</label>
 	<description>A small capsule containing a package of genetic information. To use a genepack, it must be placed in a gene bank near a gene assembler and combined into an implantable xenogerm.\n\nIf not kept in a powered gene bank, this genepack will slowly deteriorate.</description>
+	<!-- <thingClass>WVC_XenotypesAndGenes.XaG_Genepack</thingClass> -->
 	<thingClass>Genepack</thingClass>
 	<tickerType>Rare</tickerType>
 	<useHitPoints>true</useHitPoints>
@@ -31,19 +32,23 @@
 	<thingSetMakerTags>
 	  <li>RewardStandardMidFreq</li>
 	</thingSetMakerTags>
+	<comps>
+		<li Class="CompProperties_Styleable" />
+	</comps>
   </ThingDef>
 
   <!-- ========== -->
 
-  <ThingDef ParentName="WVC_GeneSetHolderBase">
+  <ThingDef ParentName="WVC_GeneSetHolderBase" WVC_XaG_Tag_Genepacks="AllGenePacks">
 	<defName>WVC_Genepack</defName>
 	<label>w-pack</label>
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Items/W_Genepack</texPath>
 	</graphicData>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.CompProperties_Genepack">
 			<genepackNamer>WVC_NamerGenepack</genepackNamer>
+			<styleDef MayRequire="ludeon.rimworld.ideology">WVC_Genepack</styleDef>
 			<genesCountProbabilities>
 			  <li>
 				<architeCount>0</architeCount>
@@ -67,17 +72,18 @@
 			  </li>
 			</genesCountProbabilities>
 		</li>
-	</modExtensions>
+	</comps>
   </ThingDef>
 
-  <ThingDef ParentName="WVC_GeneSetHolderBase">
+  <ThingDef ParentName="WVC_GeneSetHolderBase" WVC_XaG_Tag_Genepacks="AllGenePacks">
 	<defName>WVC_UltraGenepack</defName>
 	<label>ultrapack</label>
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Items/Ultra_Genepack</texPath>
 	</graphicData>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.CompProperties_Genepack">
+			<styleDef MayRequire="ludeon.rimworld.ideology">WVC_UltraGenepack</styleDef>
 			<genepackNamer>WVC_NamerUltraGenepack</genepackNamer>
 			<genesCountProbabilities>
 			  <li>
@@ -118,18 +124,19 @@
 			  </li>
 			</genesCountProbabilities>
 		</li>
-	</modExtensions>
+	</comps>
   </ThingDef>
 
-  <ThingDef ParentName="WVC_GeneSetHolderBase">
+  <ThingDef ParentName="WVC_GeneSetHolderBase" WVC_XaG_Tag_Genepacks="AllGenePacks">
 	<defName>WVC_MechaGenepack</defName>
 	<label>mechapack</label>
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Items/Mecha_Genepack</texPath>
 	  <graphicClass>Graphic_Random</graphicClass>
 	</graphicData>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.CompProperties_Genepack">
+			<styleDef MayRequire="ludeon.rimworld.ideology">WVC_MechaGenepack</styleDef>
 			<genepackNamer>WVC_NamerMechaGenepack</genepackNamer>
 			<genesCountProbabilities>
 			  <li>
@@ -154,7 +161,7 @@
 			  </li>
 			</genesCountProbabilities>
 		</li>
-	</modExtensions>
+	</comps>
   </ThingDef>
 
   <!-- ======================================================= -->

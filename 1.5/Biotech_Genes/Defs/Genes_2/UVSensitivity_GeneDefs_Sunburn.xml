@@ -4,6 +4,7 @@
   <!-- UV Sensitivity -->
 
   <GeneDef ParentName="UVSensitivityBase" Name="WVC_XenotypesAndGenes_UVSensitivity_Base" Abstract="True">
+	<selectionWeight>0.0017</selectionWeight>
 	<dislikesSunlight>true</dislikesSunlight>
 	<exclusionTags>
 	  <li>UVSensitivity</li>
