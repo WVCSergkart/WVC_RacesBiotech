@@ -4,14 +4,13 @@
   <GeneDef Name="WVC_XenotypesAndGenes_GeneXenotypeForcer_Base" Abstract="True">
 	<!-- <label>mechlink</label>  -->
 	<label>xeno-forcer</label>
-	<description>Adds random xenotype genes in addition to the existing ones. Allows you to make hybrid xenotypes.
-
-Please note that if the xenotype is (non-)inherited and your geneset is also (non-)inherited, then all genes will be overwritten.</description>
+	<description>Carriers of this gene are guaranteed to receive a random hybrid mutation.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_XenotypeForcer</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_RandomXenotype_v0</iconPath>
 	<selectionWeight>0.000056</selectionWeight>
 	<canGenerateInGeneSet>true</canGenerateInGeneSet>
 	<displayCategory>WVC_Shapeshifter</displayCategory>
-	<displayOrderInCategory>-500</displayOrderInCategory>
+	<displayOrderInCategory>10</displayOrderInCategory>
 	<customEffectDescriptions>
 	  <!-- <li>&lt;color=#ff8585&gt;Cannot spawn in genepacks.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
@@ -22,8 +21,7 @@ Please note that if the xenotype is (non-)inherited and your geneset is also (no
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneXenotypeForcer_Base">
 	<defName>WVC_XenotypesAndGenes_RandomEndotypeForcer</defName>
-	<label>endo-forcer (random)</label>
-	<iconPath>WVC/UI/Genes/Gene_RandomEndo_v0</iconPath>
+	<label>random endotype</label>
 	<exclusionTags>
 	  <li>WVC_XenotypesAndGenes_XenotypeTemplateCollection_Endo</li>
 	</exclusionTags>
@@ -36,8 +34,7 @@ Please note that if the xenotype is (non-)inherited and your geneset is also (no
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneXenotypeForcer_Base">
 	<defName>WVC_XenotypesAndGenes_RandomXenotypeForcer</defName>
-	<label>xeno-forcer (random)</label>
-	<iconPath>WVC/UI/Genes/Gene_RandomXeno_v0</iconPath>
+	<label>random xenotype</label>
 	<exclusionTags>
 	  <li>WVC_XenotypesAndGenes_XenotypeTemplateCollection_Xeno</li>
 	</exclusionTags>
