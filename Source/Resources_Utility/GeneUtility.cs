@@ -1,13 +1,124 @@
 using RimWorld;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using Verse;
+using Verse.Grammar;
 
 namespace WVC_XenotypesAndGenes
 {
 
 	public static class XaG_GeneUtility
 	{
+
+		// Genepacks
+
+		public static void GenerateName(GeneSet geneSet, RulePackDef rule)
+		{
+			if (rule == null)
+			{
+				rule = RulePackDefOf.NamerGenepack;
+			}
+			if (geneSet.GenesListForReading.Any())
+			{
+				GrammarRequest request = default;
+				request.Includes.Add(rule);
+				request.Rules.Add(new Rule_String("geneWord", geneSet.GenesListForReading[0].LabelShortAdj));
+				request.Rules.Add(new Rule_String("geneCountMinusOne", (geneSet.GenesListForReading.Count - 1).ToString()));
+				request.Constants.Add("geneCount", geneSet.GenesListForReading.Count.ToString());
+				Type typeFromHandle = typeof(GeneSet);
+				FieldInfo field = typeFromHandle.GetField("name", BindingFlags.Instance | BindingFlags.NonPublic);
+				field.SetValue(geneSet, GrammarResolver.Resolve("r_name", request, null, forceLog: false, null, null, null, capitalizeFirstSentence: false));
+			}
+		}
+
+		public static void SetGenesInPack(XaG_CountWithChance geneCount, GeneSet geneSet)
+		{
+			List<GeneDef> geneDefs = DefDatabase<GeneDef>.AllDefsListForReading;
+			for (int j = 0; j < geneCount.genesCount; j++)
+			{
+				if (geneDefs.Where((GeneDef x) => x.biostatArc == 0 && CanAddGeneDuringGeneration(x, geneSet, geneCount)).TryRandomElementByWeight((GeneDef x) => x.selectionWeight, out var result))
+				{
+					geneSet.AddGene(result);
+				}
+			}
+			for (int i = 0; i < geneCount.architeCount; i++)
+			{
+				if (geneDefs.Where((GeneDef x) => x.biostatArc != 0 && CanAddGeneDuringGeneration(x, geneSet, geneCount)).TryRandomElementByWeight((GeneDef x) => x.selectionWeight, out var result))
+				{
+					geneSet.AddGene(result);
+				}
+			}
+		}
+
+		public static bool CanAddGeneDuringGeneration(GeneDef gene, GeneSet geneSet, XaG_CountWithChance geneCount)
+		{
+			if (!gene.IsXenoGenesDef())
+			{
+				return false;
+			}
+			if (!gene.canGenerateInGeneSet || gene.selectionWeight <= 0f)
+			{
+				return false;
+			}
+			if (geneCount.prerequisitesOnly && gene.prerequisite == null)
+			{
+				return false;
+			}
+			if (geneCount.cosmeticOnly && !IsCosmeticGene(gene))
+			{
+				return false;
+			}
+			List<GeneDef> genes = geneSet.GenesListForReading;
+			if (genes.Contains(gene))
+			{
+				return false;
+			}
+			if (genes.Count > 0 && !GeneTuning.BiostatRange.Includes(gene.biostatMet + geneSet.MetabolismTotal))
+			{
+				return false;
+			}
+			for (int i = 0; i < genes.Count; i++)
+			{
+				if (gene.ConflictsWith(genes[i]))
+				{
+					return false;
+				}
+			}
+			return true;
+		}
+
+		public static bool IsCosmeticGene(GeneDef gene)
+		{
+			if (gene.skinColorBase != null || gene.skinColorOverride != null || gene.hairColorOverride != null)
+			{
+				return true;
+			}
+			if (gene.soundCall != null || gene.soundDeath != null || gene.soundWounded != null)
+			{
+				return true;
+			}
+			if (gene.fur != null || !gene.renderNodeProperties.NullOrEmpty())
+			{
+				return true;
+			}
+			if (gene.forcedHair != null || !gene.forcedHeadTypes.NullOrEmpty())
+			{
+				return true;
+			}
+			if (gene.hairTagFilter != null || gene.beardTagFilter != null)
+			{
+				return true;
+			}
+			if (gene.bodyType.HasValue)
+			{
+				return true;
+			}
+			return false;
+		}
+
+		// Misc
 
 		public static void UpdateXenogermReplication(Pawn pawn, bool addXenogermReplicating = true, IntRange ticksToDisappear = new())
 		{

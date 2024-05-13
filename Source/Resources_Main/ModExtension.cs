@@ -23,6 +23,18 @@ namespace WVC_XenotypesAndGenes
 		// public RulePackDef genepackNamer;
 		// public ThingStyleDef styleDef;
 		// public List<XaG_CountWithChance> genesCountProbabilities;
+		// public int AllGenesCount
+		// {
+			// get
+			// {
+				// int count = 0;
+				// count += genesCount;
+				// count += architeCount;
+				// return count;
+			// }
+		// }
+		public bool cosmeticOnly = false;
+		public bool prerequisitesOnly = false;
 	}
 
 	// Exten

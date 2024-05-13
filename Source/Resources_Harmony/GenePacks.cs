@@ -15,45 +15,6 @@ namespace WVC_XenotypesAndGenes
 	public static class Patch_Genepack_PostMake
 	{
 
-		// [HarmonyPostfix]
-		// public static void ChangeGenesInPack(Genepack __instance, ref GeneSet ___geneSet)
-		// {
-			// CompGenepack xag_genepack = __instance.TryGetComp<CompGenepack>();
-			// if (xag_genepack != null)
-			// {
-				// GeneSet newGeneSet = new();
-				// int? seed = null;
-				// if (seed.HasValue)
-				// {
-					// Rand.PushState(seed.Value);
-				// }
-				// XaG_CountWithChance countWithChance = xag_genepack.Props.genepacks.RandomElementByWeight((XaG_CountWithChance x) => x.chance);
-				// if (countWithChance != null)
-				// {
-					// XaG_CountWithChance geneCount = countWithChance.genesCountProbabilities.RandomElementByWeight((XaG_CountWithChance x) => x.chance);
-					// SetGenesInPack(geneCount, newGeneSet);
-					// newGeneSet.SortGenes();
-					// GenerateName(newGeneSet, countWithChance.genepackNamer);
-					// if (countWithChance.styleDef != null)
-					// {
-						// __instance.SetStyleDef(countWithChance.styleDef);
-					// }
-				// }
-				// if (seed.HasValue)
-				// {
-					// Rand.PopState();
-				// }
-				// if (!newGeneSet.Empty)
-				// {
-					// ___geneSet = newGeneSet;
-				// }
-				// else
-				// {
-					// Log.Warning(__instance.LabelCap + " generated with null geneSet. Vanilla geneSet will be used instead.");
-				// }
-			// }
-		// }
-
 		[HarmonyPostfix]
 		public static void ChangeGenesInPack(Genepack __instance, ref GeneSet ___geneSet)
 		{
@@ -63,9 +24,9 @@ namespace WVC_XenotypesAndGenes
 				ThingDef thingDef = __instance.def;
 				GeneSet newGeneSet = new();
 				XaG_CountWithChance geneCount = xag_genepack.genesCountProbabilities.RandomElementByWeight((XaG_CountWithChance x) => x.chance);
-				MiscUtility.SetGenesInPack(geneCount, newGeneSet);
+				XaG_GeneUtility.SetGenesInPack(geneCount, newGeneSet);
 				newGeneSet.SortGenes();
-				MiscUtility.GenerateName(newGeneSet, xag_genepack.genepackNamer);
+				XaG_GeneUtility.GenerateName(newGeneSet, xag_genepack.genepackNamer);
 				if (!newGeneSet.Empty)
 				{
 					___geneSet = newGeneSet;
@@ -89,11 +50,6 @@ namespace WVC_XenotypesAndGenes
 			// if (thingDef.IsXenoGenesDef())
 			// {
 				// GeneSet newGeneSet = new();
-				// int? seed = null;
-				// if (seed.HasValue)
-				// {
-					// Rand.PushState(seed.Value);
-				// }
 				// GeneExtension_General geneExtension = thingDef?.GetModExtension<GeneExtension_General>();
 				// if (geneExtension != null)
 				// {
@@ -101,10 +57,6 @@ namespace WVC_XenotypesAndGenes
 					// MiscUtility.SetGenesInPack(geneCount, newGeneSet);
 					// newGeneSet.SortGenes();
 					// MiscUtility.GenerateName(newGeneSet, geneExtension.genepackNamer);
-				// }
-				// if (seed.HasValue)
-				// {
-					// Rand.PopState();
 				// }
 				// if (!newGeneSet.Empty)
 				// {
