@@ -1,30 +1,26 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Bloodfeeder">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_Base">
 	<defName>WVC_BloodfeedChimera</defName>
-	<label>blood chimera</label>
+	<label>chimera</label>
 	<description>Carriers of this gene have a special organ in their mouth that allows them to read the genetic code of the blood that falls on it. This sometimes makes it possible to copy the genes of victims bitten by carriers.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_BloodChimera</geneClass>
 	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_ChimerasGenes</resourceGizmoType>
 	<iconPath>WVC/UI/Genes/Gene_GeneticThief_Bloodfeeder_v0</iconPath>
-	<iconColor>(255, 255, 255)</iconColor>
-	<selectionWeight>0.000044</selectionWeight>
-	<marketValueFactor>3</marketValueFactor>
-	<resourceLabel></resourceLabel>
 	<biostatCpx>6</biostatCpx>
 	<biostatArc>2</biostatArc>
+	<displayOrderInCategory>140</displayOrderInCategory>
 	<customEffectDescriptions>
 		<li>When using the &lt;color=#8a8ae6&gt;bloodfeed&lt;/color&gt; ability, it has a certain chance of &lt;color=#8a8ae6&gt;copying&lt;/color&gt; one of the victim's &lt;color=#8a8ae6&gt;random genes&lt;/color&gt;.</li>
-		<li>&lt;color=#8a8ae6&gt;Copied genes&lt;/color&gt; can be implanted at any time as xenogenes.</li>
-		<li>After using implantation, the owner’s &lt;color=#ff8585&gt;xenotype&lt;/color&gt; is guaranteed to &lt;color=#ff8585&gt;be changed&lt;/color&gt;.</li>
+		<li>&lt;color=#8a8ae6&gt;Copied genes&lt;/color&gt; can be implanted at any time as &lt;color=#8a8ae6&gt;xenogenes&lt;/color&gt;.</li>
+		<!-- <li>After using implantation, the owner’s &lt;color=#ff8585&gt;xenotype&lt;/color&gt; is guaranteed to &lt;color=#ff8585&gt;be changed&lt;/color&gt;.</li> -->
 		<li>&lt;color=#ff8585&gt;Does not copy genes that do not spawn in genepacks.&lt;/color&gt;</li>
 		<!-- <li>&lt;color=#ff8585&gt;Does not allow to remove already implanted genes.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
-	<displayOrderInCategory>155</displayOrderInCategory>
-	<exclusionTags>
-	  <li>WVC_GeneticThiefGene</li>
-	</exclusionTags>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_GeneticThiefGene</li> -->
+	<!-- </exclusionTags> -->
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
 			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>

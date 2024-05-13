@@ -108,19 +108,34 @@ namespace WVC_XenotypesAndGenes
 			// OverrideGeneSet(Props.xenotypeDefs.RandomElement());
 		// }
 
-		// public bool overrided = false;
+		// private string newLabel;
 
 		// public override string TransformLabel(string label)
 		// {
-			// if (overrided)
+			// if (newLabel == null)
 			// {
 				// return label;
 			// }
-			// if (pawnSources.Count == 2)
+			// return newLabel;
+		// }
+
+		// public override void PostSpawnSetup(bool respawningAfterLoad)
+		// {
+			// if (Props.styleDef != null)
 			// {
-				// return "ThingOfTwoSources".Translate(label, pawnSources[0].LabelShortCap, pawnSources[1].LabelShortCap);
+				// parent.SetStyleDef(Props.styleDef);
 			// }
-			// return "ThingOfSource".Translate(label, pawnSources[0].LabelShortCap);
+			// if (parent.Map != null)
+			// {
+				// parent.Map.listerThings.Remove(parent);
+				// RegionListersUpdater.DeregisterInRegions(parent, parent.Map);
+			// }
+			// parent.def = ThingDefOf.HumanEmbryo;
+			// if (parent.Map != null)
+			// {
+				// parent.Map.listerThings.Add(parent);
+				// RegionListersUpdater.RegisterInRegions(parent, parent.Map);
+			// }
 		// }
 
 		public void OverrideGeneSet(XenotypeDef xenotypeDef = null)
@@ -146,7 +161,8 @@ namespace WVC_XenotypesAndGenes
 					geneSet.AddGene(geneDef);
 				}
 				geneSet.SortGenes();
-				geneSet.SetNameDirect(parent.def.label + " " + xenotypeDef.label);
+				// geneSet.SetNameDirect(parent.def.label + " " + xenotypeDef.label);
+				// newLabel = parent.def.label + " " + xenotypeDef.label;
 			}
 		}
 
@@ -169,7 +185,7 @@ namespace WVC_XenotypesAndGenes
 		// public override void PostExposeData()
 		// {
 			// base.PostExposeData();
-			// Scribe_Values.Look(ref overrided, "overrided_" + Props.uniqueTag, false);
+			// Scribe_Values.Look(ref newLabel, "label_" + Props.uniqueTag);
 		// }
 
 	}

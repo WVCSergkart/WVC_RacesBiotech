@@ -8,8 +8,10 @@
 	<biostatMet>0</biostatMet>
 	<selectionWeight>0.000044</selectionWeight>
 	<canGenerateInGeneSet>true</canGenerateInGeneSet>
-	<displayCategory>WVC_Scarifier</displayCategory>
+	<!-- <displayCategory>WVC_Scarifier</displayCategory> -->
+	<displayCategory>WVC_Shapeshifter</displayCategory>
 	<displayOrderInCategory>55</displayOrderInCategory>
+	<marketValueFactor>3</marketValueFactor>
   </GeneDef>
 
   <!-- ================= -->
@@ -28,7 +30,6 @@
 		<li>&lt;color=#ff8585&gt;This gene cannot be removed.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<displayOrderInCategory>155</displayOrderInCategory>
-	<marketValueFactor>3</marketValueFactor>
 	<biostatCpx>8</biostatCpx>
 	<biostatArc>3</biostatArc>
 	<sterilize>true</sterilize>

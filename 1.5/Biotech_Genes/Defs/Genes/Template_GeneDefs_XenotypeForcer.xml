@@ -10,7 +10,7 @@ Please note that if the xenotype is (non-)inherited and your geneset is also (no
 	<geneClass>WVC_XenotypesAndGenes.Gene_XenotypeForcer</geneClass>
 	<selectionWeight>0.000056</selectionWeight>
 	<canGenerateInGeneSet>true</canGenerateInGeneSet>
-	<displayCategory>WVC_XenotypeForcerGenes</displayCategory>
+	<displayCategory>WVC_Shapeshifter</displayCategory>
 	<displayOrderInCategory>-500</displayOrderInCategory>
 	<customEffectDescriptions>
 	  <!-- <li>&lt;color=#ff8585&gt;Cannot spawn in genepacks.&lt;/color&gt;</li> -->
@@ -54,7 +54,7 @@ Please note that if the xenotype is (non-)inherited and your geneset is also (no
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_ResurgentActive</geneClass> -->
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass> -->
 	<ignoreIllegalLabelCharacterConfigError>true</ignoreIllegalLabelCharacterConfigError>
-	<displayCategory>WVC_XenotypeForcerGenes</displayCategory>
+	<displayCategory>WVC_Shapeshifter</displayCategory>
 	<displayOrderOffset>100</displayOrderOffset>
 	<selectionWeight>0.000032</selectionWeight>
 	<customEffectDescriptions>

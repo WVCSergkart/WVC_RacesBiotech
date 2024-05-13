@@ -191,7 +191,12 @@
 	<!-- <rotatable>false</rotatable> -->
 	<!-- <pathCost>14</pathCost> -->
 	<!-- <comps> -->
-	  <!-- <li Class="CompProperties_HasPawnSources"/> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_Genepack"> -->
+		<!-- <compClass>WVC_XenotypesAndGenes.CompHumanEmbryo</compClass> -->
+		<!-- <xenotypeDefs> -->
+		  <!-- <li>WVC_Blank</li> -->
+		<!-- </xenotypeDefs> -->
+	  <!-- </li> -->
 	<!-- </comps> -->
 	<!-- <inspectorTabs> -->
 	  <!-- <li>ITab_Genes</li> -->

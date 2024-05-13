@@ -23,7 +23,7 @@
 	<!-- </conditionalStatAffecters> -->
 	<enabledForNPCFactions>false</enabledForNPCFactions>
 	<statOffsets>
-	  <MentalBreakThreshold>0.08</MentalBreakThreshold>
+	  <MentalBreakThreshold>-0.08</MentalBreakThreshold>
 	  <WorkSpeedGlobal>0.2</WorkSpeedGlobal>
 	</statOffsets>
 	<comps>
