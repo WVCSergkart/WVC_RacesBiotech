@@ -22,7 +22,7 @@
   </WorkGiverDef>
 
   <!-- Serums -->
-  <ThingDef ParentName="BenchBase">
+  <ThingDef ParentName="BenchBase" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_SerumCraftingTable</defName>
 	<label>xenogenes serum lab</label>
 	<description>A high-tech workbench for the production of serums.</description>
@@ -107,7 +107,7 @@
 
   <!-- ========================================================== -->
 
-  <ThingDef ParentName="BuildingBase">
+  <ThingDef ParentName="BuildingBase" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_XenotypesAndGenes_UltranitesSpawner</defName>
 	<label>ultranite gestation vat</label>
 	<description>Artificial environment for gestation of microscopic hybrid machines.</description>
@@ -197,7 +197,7 @@
 	</tradeTags>
   </ThingDef>
 
-  <ThingDef ParentName="BuildingBase">
+  <ThingDef ParentName="BuildingBase" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_XenotypesAndGenes_UltraniteRecycler</defName>
 	<label>ultranite recycler</label>
 	<description>A glittertech device that deconstructs toxic wastepacks into microscopic hybrid machines using advanced molecular processes. The process requires considerable amounts of power.</description>

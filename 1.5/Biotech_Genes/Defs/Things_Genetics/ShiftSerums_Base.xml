@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThingDef ParentName="WVC_XenotypeSerum_Craftable" Abstract="True" Name="WVC_XenotypeSerum_ShiftSerumsTech">
+  <ThingDef ParentName="WVC_XenotypeSerum_Craftable" Abstract="True" Name="WVC_XenotypeSerum_ShiftSerumsTech" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Items/Serums_Single/ShiftInjector_v0</texPath>
 	  <graphicClass>Graphic_Single</graphicClass>
@@ -31,7 +31,7 @@
 
   <!-- ==================================== -->
 
-  <ThingDef ParentName="WVC_XenotypeSerum_ShiftSerumsTech">
+  <ThingDef ParentName="WVC_XenotypeSerum_ShiftSerumsTech" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_ShapeshifterOverclockerSerum_Base</defName>
 	<label>shiftover serum</label>
 	<description>A one-use super-dose of mechanites tuned to disstabilize the influence of the psychic field on the shapeshifter. As a result, shapeshift mechanites go into overclocking mode, which allows the carrier of the shapeshift genes to duplicate themselves.</description>
@@ -54,7 +54,7 @@
 	</comps>
   </ThingDef>
 
-  <ThingDef ParentName="WVC_XenotypeSerum_ShiftSerumsTech">
+  <ThingDef ParentName="WVC_XenotypeSerum_ShiftSerumsTech" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_GeneShapeshifterSerum_Coma</defName>
 	<label>shift serum (coma)</label>
 	<description>A one-use super-dose of mechanites tuned to optimize the genetic transformation of the shapeshifter. Once used, the user will no longer fall into a coma after shapeshifting.</description>

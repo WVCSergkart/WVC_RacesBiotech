@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThingDef ParentName="WVC_XenotypeSerum_Base" Name="WVC_XenotypeSerum_ArchotechNonCraftable" Abstract="True">
+  <ThingDef ParentName="WVC_XenotypeSerum_Base" Name="WVC_XenotypeSerum_ArchotechNonCraftable" Abstract="True" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<techLevel>Archotech</techLevel>
 	<descriptionHyperlinks Inherit="False"/>
 	<graphicData>
@@ -37,7 +37,7 @@
 
   <!-- =================================================================================== -->
 
-  <ThingDef ParentName="WVC_XenotypeSerum_ArchotechNonCraftable">
+  <ThingDef ParentName="WVC_XenotypeSerum_ArchotechNonCraftable" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_ArchotechGeneGiver</defName>
 	<label>gene giver</label>
 	<description>A one-use super-dose of mechanites tuned to add the user a new gene. After using the serum, users' genes will be regrowing.
@@ -64,7 +64,7 @@
 
   <!-- =========== -->
 
-  <ThingDef ParentName="WVC_XenotypeSerum_ArchotechNonCraftable" WVC_XaG_XenotypeRemoveTag="General">
+  <ThingDef ParentName="WVC_XenotypeSerum_ArchotechNonCraftable" WVC_XaG_XenotypeRemoveTag="General" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_SubXenotypeSerum_Undead</defName>
 	<label>sub-xenotype serum</label>
 	<description>A one-use super-dose of mechanites tuned to change the user's xenotype. After using the serum, the user will fall into a two-day coma.
@@ -92,7 +92,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 
   <!-- =========== -->
 
-  <ThingDef ParentName="WVC_XenotypeSerum_ArchotechNonCraftable">
+  <ThingDef ParentName="WVC_XenotypeSerum_ArchotechNonCraftable" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_GeneticStabilizerSerum_Archotech</defName>
 	<label>archotech genetic stabilizer</label>
 	<description>A one-use super-dose of mechanites tuned to stabilize the user's genetic condition. After use, it delays genetic instabilization for 80 years.</description>

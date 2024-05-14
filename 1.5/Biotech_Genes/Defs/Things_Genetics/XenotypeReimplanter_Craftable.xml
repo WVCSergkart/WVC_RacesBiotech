@@ -3,7 +3,7 @@
 
   <!-- ==================================== -->
 
-  <ThingDef ParentName="WVC_XenotypeSerum_Craftable">
+  <ThingDef ParentName="WVC_XenotypeSerum_Craftable" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_GeneRestorationSerum_Base</defName>
 	<label>gene restoration serum</label>
 	<description>A one-use super-dose of mechanites tuned to restore the user's genes. After using the serum, it removes from the user the effect associated with xenogerm reimplantation.</description>
@@ -78,7 +78,7 @@
 
   <!-- ==================================== -->
 
-  <ThingDef ParentName="WVC_XenotypeSerum_Craftable">
+  <ThingDef ParentName="WVC_XenotypeSerum_Craftable" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_GeneticStabilizerSerum_Base</defName>
 	<label>genetic stabilizer</label>
 	<description>A one-use super-dose of mechanites tuned to stabilize the user's genetic condition. After use, it delays genetic instabilization for 8 days. The effect can be cumulative.</description>
@@ -143,7 +143,7 @@
 
   <!-- ==================================== -->
 
-  <ThingDef ParentName="WVC_XenotypeSerum_Craftable">
+  <ThingDef ParentName="WVC_XenotypeSerum_Craftable" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_XenotypeSerum_Nullifier</defName>
 	<label>xenotype nullifier serum</label>
 	<description>A one-use super-dose of mechanites tuned to nullify the user's xenotype. After using the serum, the &lt;color=#f5ffa2&gt;user's skin and hair will lose color&lt;/color&gt;, and the user himself will fall into a two-day coma.
@@ -215,7 +215,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 
   <!-- ======================================== -->
 
-  <ThingDef ParentName="WVC_XenotypeResurrectorSerum_Craftable" WVC_XaG_XenotypeRemoveTag="General">
+  <ThingDef ParentName="WVC_XenotypeResurrectorSerum_Craftable" WVC_XaG_XenotypeRemoveTag="General" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_XenotypeResurrectorSerum_Undead</defName>
 	<label>xenotype resurrector</label>
 	<!-- <stackLimit>1</stackLimit> -->
@@ -252,7 +252,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 
   <!-- =================================================================================== -->
 
-  <ThingDef ParentName="WVC_XenotypeSerum_Craftable" WVC_XaG_EasyPatch="ThingDefSerumXenotypeForcerII">
+  <ThingDef ParentName="WVC_XenotypeSerum_Craftable" WVC_XaG_EasyPatch="ThingDefSerumXenotypeForcerII" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_XenotypeSerum_Base</defName>
 	<label>basetype serum</label>
 	<!-- <stackLimit>1</stackLimit> -->

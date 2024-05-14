@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThingDef ParentName="WVC_XenotypesAndGenes_XenotypeSerumsBase" Name="WVC_XenotypeSerum_Base" Abstract="True">
+  <ThingDef ParentName="WVC_XenotypesAndGenes_XenotypeSerumsBase" Name="WVC_XenotypeSerum_Base" Abstract="True" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<label>xenotype serum</label>
 	<description>A one-use super-dose of mechanites tuned to change the user's xenotype. After using the serum, the user will fall into a two-day coma.
 
@@ -35,7 +35,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
   </ThingDef>
 
   <!-- ============Auto Generation Base============ -->
-  <ThingDef ParentName="WVC_XenotypeSerum_Base" Name="WVC_XenotypeSerum_Craftable" Abstract="True">
+  <ThingDef ParentName="WVC_XenotypeSerum_Base" Name="WVC_XenotypeSerum_Craftable" Abstract="True" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<graphicData>
 	  <!-- <texPath>WVC/Things/XaG_Items/XenotypeSerum</texPath> -->
 	  <!-- <shaderType>CutoutComplex</shaderType> -->
@@ -78,7 +78,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	</comps>
   </ThingDef>
 
-  <ThingDef ParentName="WVC_XenotypeSerum_Base" Name="WVC_XenotypeSerum_NonCraftable" Abstract="True">
+  <ThingDef ParentName="WVC_XenotypeSerum_Base" Name="WVC_XenotypeSerum_NonCraftable" Abstract="True" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<statBases>
 	  <MarketValue>2700</MarketValue>
 	  <DeteriorationRate>1.0</DeteriorationRate>
@@ -116,7 +116,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	</comps>
   </ThingDef>
 
-  <ThingDef ParentName="WVC_XenotypeSerum_Base" Name="WVC_XenotypeSerum_HybridNonCraftable" Abstract="True">
+  <ThingDef ParentName="WVC_XenotypeSerum_Base" Name="WVC_XenotypeSerum_HybridNonCraftable" Abstract="True" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<statBases>
 	  <MarketValue>2750</MarketValue>
 	  <DeteriorationRate>0.5</DeteriorationRate>

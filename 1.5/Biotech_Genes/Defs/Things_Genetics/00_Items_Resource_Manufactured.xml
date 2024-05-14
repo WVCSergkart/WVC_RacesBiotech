@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThingDef ParentName="ResourceBase" Name="WVC_XenotypeAndGenes_ResourceComponents_Base" Abstract="True">
+  <ThingDef ParentName="ResourceBase" Name="WVC_XenotypeAndGenes_ResourceComponents_Base" Abstract="True" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<soundInteract>Metal_Drop</soundInteract>
 	<soundDrop>Standard_Drop</soundDrop>
 	<stackLimit>50</stackLimit>
@@ -33,7 +33,7 @@
 
   <!-- ================================================================= -->
 
-  <ThingDef ParentName="WVC_XenotypeAndGenes_ResourceComponents_Base">
+  <ThingDef ParentName="WVC_XenotypeAndGenes_ResourceComponents_Base" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_EmptyXenotypeSerum</defName>
 	<label>serum component</label>
 	<description>Advanced computing and energy-directing machinery specifically designed for use in serums.</description>
@@ -74,7 +74,7 @@
 
   <!-- ========================================================== -->
 
-  <ThingDef Name="WVC_XenotypesAndGenes_SerumComponents_Base" Abstract="True">
+  <ThingDef Name="WVC_XenotypesAndGenes_SerumComponents_Base" Abstract="True" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<description>A small capsule containing a special super-dose of mechanites and is used to create disposable serums. One such dose is enough to completely overwrite the genetic code of any person, but without a special injector it is completely useless.</description>
 	<descriptionHyperlinks>
 	  <!-- <ThingDef>WVC_XenotypeSerum_Base</ThingDef> -->
@@ -138,7 +138,7 @@
   </ThingDef>
 
   <!-- Capsule -->
-  <ThingDef ParentName="WVC_XenotypesAndGenes_SerumComponents_Base">
+  <ThingDef ParentName="WVC_XenotypesAndGenes_SerumComponents_Base" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_XenotypeSerumCapsule</defName>
 	<label>basic serum capsule</label>
 	<descriptionHyperlinks>
@@ -156,7 +156,7 @@
 	</costList>
   </ThingDef>
 
-  <ThingDef ParentName="WVC_XenotypesAndGenes_SerumComponents_Base">
+  <ThingDef ParentName="WVC_XenotypesAndGenes_SerumComponents_Base" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_XenotypeSerumUltraCapsule</defName>
 	<label>archite serum capsule</label>
 	<descriptionHyperlinks>

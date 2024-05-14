@@ -25,7 +25,7 @@
 
   <!--=============== Base ====================-->
 
-  <ThingDef ParentName="ResourceBase" Name="WVC_XenotypesAndGenes_XenotypeSerumsBase" Abstract="True">
+  <ThingDef ParentName="ResourceBase" Name="WVC_XenotypesAndGenes_XenotypeSerumsBase" Abstract="True" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<!-- <label>xenotype serum</label> -->
 	<!-- <description>A one-use super-dose of mechanites tuned to change the user's xenotype. After using the serum, the user will fall into a two-day coma.</description> -->
 	<descriptionHyperlinks>

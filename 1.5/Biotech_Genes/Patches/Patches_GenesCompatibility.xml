@@ -12,12 +12,17 @@
 				</li>
 
 				<li Class="PatchOperationRemove">
-					<xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks"]/thingSetMakerTags</xpath>
+					<xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks" or @WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings"]/thingSetMakerTags</xpath>
 					<success>Always</success>
 				</li>
-				<li Class="PatchOperationRemove">
-					<xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks"]/tradeTags</xpath>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks" or @WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings"]/tradeTags</xpath>
 					<success>Always</success>
+					<value>
+					  <tradeTags>
+						<li>ExoticMisc</li>
+					  </tradeTags>
+					</value>
 				</li>
 
 				<!-- <li Class="PatchOperationRemove"> -->
