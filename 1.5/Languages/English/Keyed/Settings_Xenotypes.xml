@@ -20,6 +20,13 @@
 
 	<!-- ================================== -->
 
+	<WVC_Label_enable_spawnXenotypesInFactions>Spawn xenotypes in factions</WVC_Label_enable_spawnXenotypesInFactions>
+	<WVC_ToolTip_enable_spawnXenotypesInFactions>This option allows you to enable the spawning of xenotypes from the mod in factions, taking into account their balance and design.
+
+By default, xenotypes should not be found in factions and only occasionally appear as factionless wanderers. Enabling this option may simplify the game too much in some situations. If you are looking for a challenge, ignore this option.
+
+A restart is required.</WVC_ToolTip_enable_spawnXenotypesInFactions>
+
 	<WVC_Label_disableXenotypes_MainSwitch>Disable xenotype-related things</WVC_Label_disableXenotypes_MainSwitch>
 	<WVC_ToolTip_disableXenotypes_MainSwitch>Removes things associated with xenotypes. Mandatory option to disable any xenotypes.
 
@@ -38,7 +45,7 @@ A restart is required.</WVC_ToolTip_disableXenotypes_MainSwitch>
 	<WVC_ToolTip_disableXenotypes_GolemMasters>Runeex, Golemkind.</WVC_ToolTip_disableXenotypes_GolemMasters>
 
 	<WVC_Label_disableXenotypes_Bloodeaters>Disable bloodeaters</WVC_Label_disableXenotypes_Bloodeaters>
-	<WVC_ToolTip_disableXenotypes_Bloodeaters>Sandycat, Bloodeater (DEV), Shadoweater (DEV).</WVC_ToolTip_disableXenotypes_Bloodeaters>
+	<WVC_ToolTip_disableXenotypes_Bloodeaters>Sandycat, Bloodeater (DEV), Chimerkin (DEV).</WVC_ToolTip_disableXenotypes_Bloodeaters>
 
 	<WVC_Label_disableXenotypes_Misc>Disable misc</WVC_Label_disableXenotypes_Misc>
 	<WVC_ToolTip_disableXenotypes_Misc>Thrall.</WVC_ToolTip_disableXenotypes_Misc>

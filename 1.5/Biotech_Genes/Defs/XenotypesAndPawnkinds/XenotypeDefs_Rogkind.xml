@@ -16,6 +16,7 @@
 	<displayPriority>-1100</displayPriority>
 	<generateWithXenogermReplicatingHediffChance>0.2</generateWithXenogermReplicatingHediffChance>
 	<xenogermReplicatingDurationLeftDaysRange>0.1~140</xenogermReplicatingDurationLeftDaysRange>
+	<combatPowerFactor>3.0</combatPowerFactor>
 	<doubleXenotypeChances>
 		<!-- <Sanguophage>0.1</Sanguophage> -->
 	</doubleXenotypeChances>

@@ -239,6 +239,7 @@ namespace WVC_XenotypesAndGenes
 			if (pawn.Faction != Faction.OfPlayer)
 			{
 				useStabilizerAuto = false;
+				ResetInterval();
 				return;
 			}
 			if (pawn.Map == null)

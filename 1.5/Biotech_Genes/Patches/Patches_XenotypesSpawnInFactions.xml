@@ -171,162 +171,259 @@
 		<caseFalse Class="PatchOperationSequence">
 			<operations>
 
-				<!-- Factions Patch -->
-				<li Class="PatchOperationSequence">
-					<success>Always</success>
-					<operations>
-						<li Class="PatchOperationAdd">
-						  <xpath>/Defs/FactionDef[defName="TribeCivil" or defName="TribeRough"]/xenotypeSet/xenotypeChances</xpath>
-						  <success>Invert</success>
-						  <value>
-							<WVC_RuneDryad>0.002</WVC_RuneDryad>
-							<WVC_Golemkind>0.001</WVC_Golemkind>
-							<WVC_Undead>0.0014</WVC_Undead>
-							<!-- <WVC_Resurgent>0.0006</WVC_Resurgent> -->
-						  </value>
-						</li>
-						<li Class="PatchOperationAdd">
-						  <xpath>/Defs/FactionDef[defName="TribeCivil" or defName="TribeRough"]/xenotypeSet</xpath>
-						  <success>Invert</success>
-						  <value>
-							  <xenotypeChances>
-								<WVC_RuneDryad>0.002</WVC_RuneDryad>
-								<WVC_Golemkind>0.001</WVC_Golemkind>
-								<WVC_Undead>0.0014</WVC_Undead>
-								<!-- <WVC_Resurgent>0.0006</WVC_Resurgent> -->
-							  </xenotypeChances>
-						  </value>
-						</li>
-						<li Class="PatchOperationAdd">
-						  <xpath>/Defs/FactionDef[defName="TribeCivil" or defName="TribeRough"]</xpath>
-						  <success>Always</success>
-						  <value>
-							<xenotypeSet>
-							  <xenotypeChances>
-								<WVC_RuneDryad>0.002</WVC_RuneDryad>
-								<WVC_Golemkind>0.001</WVC_Golemkind>
-								<WVC_Undead>0.0014</WVC_Undead>
-								<!-- <WVC_Resurgent>0.0006</WVC_Resurgent> -->
-							  </xenotypeChances>
-							</xenotypeSet>
-						  </value>
-						</li>
-					</operations>
+				<li Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+					<settingName>enable_spawnXenotypesInFactions</settingName>
+					<caseTrue Class="PatchOperationSequence">
+						<operations>
+
+							<li Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+							  <xpath>/Defs/FactionDef[defName="TribeCivil"]</xpath>
+							  <safetyDepth>2</safetyDepth>
+							  <value>
+								<xenotypeSet>
+								  <xenotypeChances>
+									<WVC_RuneDryad>0.05</WVC_RuneDryad>
+									<WVC_Golemkind>0.05</WVC_Golemkind>
+									<WVC_Undead>0.02</WVC_Undead>
+								  </xenotypeChances>
+								</xenotypeSet>
+							  </value>
+							</li>
+
+							<li Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+							  <xpath>/Defs/FactionDef[defName="TribeRough"]</xpath>
+							  <safetyDepth>2</safetyDepth>
+							  <value>
+								<xenotypeSet>
+								  <xenotypeChances>
+									<WVC_Undead>0.15</WVC_Undead>
+									<WVC_Resurgent>0.03</WVC_Resurgent>
+								  </xenotypeChances>
+								</xenotypeSet>
+							  </value>
+							</li>
+
+							<li Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+							  <xpath>/Defs/FactionDef[defName="OutlanderCivil"]</xpath>
+							  <safetyDepth>2</safetyDepth>
+							  <value>
+								<xenotypeSet>
+								  <xenotypeChances>
+									<WVC_GeneThrower>0.05</WVC_GeneThrower>
+									<WVC_Undead>0.05</WVC_Undead>
+									<WVC_Featherdust>0.01</WVC_Featherdust>
+								  </xenotypeChances>
+								</xenotypeSet>
+							  </value>
+							</li>
+
+							<li Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+							  <xpath>/Defs/FactionDef[defName="OutlanderRough"]</xpath>
+							  <safetyDepth>2</safetyDepth>
+							  <value>
+								<xenotypeSet>
+								  <xenotypeChances>
+									<WVC_Meca>0.05</WVC_Meca>
+									<WVC_RogueFormer>0.02</WVC_RogueFormer>
+								  </xenotypeChances>
+								</xenotypeSet>
+							  </value>
+							</li>
+
+							<li Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+							  <xpath>/Defs/FactionDef[defName="Pirate"]</xpath>
+							  <safetyDepth>2</safetyDepth>
+							  <value>
+								<xenotypeSet>
+								  <xenotypeChances>
+									<WVC_RogueFormer>0.01</WVC_RogueFormer>
+									<WVC_Thrall>0.07</WVC_Thrall>
+								  </xenotypeChances>
+								</xenotypeSet>
+							  </value>
+							</li>
+
+							<li Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+							  <xpath>/Defs/FactionDef[defName="Sanguophages"]</xpath>
+							  <safetyDepth>2</safetyDepth>
+							  <value>
+								<xenotypeSet>
+								  <xenotypeChances>
+									<WVC_Sandycat>0.01</WVC_Sandycat>
+									<WVC_Lilith MayRequire="ludeon.rimworld.royalty">0.06</WVC_Lilith>
+									<WVC_Bloodeater MayRequire="wvc.sergkart.test.tools">0.07</WVC_Bloodeater>
+									<WVC_Shadoweater MayRequire="wvc.sergkart.test.tools">0.03</WVC_Shadoweater>
+								  </xenotypeChances>
+								</xenotypeSet>
+							  </value>
+							</li>
+
+							<!-- <li Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd"> -->
+							  <!-- <xpath>/Defs/FactionDef[defName="OutlanderRoughPig"]</xpath> -->
+							  <!-- <safetyDepth>2</safetyDepth> -->
+							  <!-- <value> -->
+								<!-- <xenotypeSet> -->
+								  <!-- <xenotypeChances> -->
+									<!-- <WVC_Thrall>0.01</WVC_Thrall> -->
+								  <!-- </xenotypeChances> -->
+								<!-- </xenotypeSet> -->
+							  <!-- </value> -->
+							<!-- </li> -->
+
+							<li Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+							  <xpath>/Defs/FactionDef[defName="PirateWaster"]</xpath>
+							  <safetyDepth>2</safetyDepth>
+							  <value>
+								<xenotypeSet>
+								  <xenotypeChances>
+									<WVC_Undead>0.05</WVC_Undead>
+									<!-- <WVC_Ashen MayRequire="ludeon.rimworld.ideology">0.01</WVC_Ashen> -->
+									<WVC_CatDeity MayRequire="ludeon.rimworld.royalty">0.02</WVC_CatDeity>
+									<WVC_Thrall>0.07</WVC_Thrall>
+								  </xenotypeChances>
+								</xenotypeSet>
+							  </value>
+							</li>
+
+							<li Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+							  <xpath>/Defs/FactionDef[defName="PirateYttakin"]</xpath>
+							  <safetyDepth>2</safetyDepth>
+							  <value>
+								<xenotypeSet>
+								  <xenotypeChances>
+									<WVC_Sandycat>0.02</WVC_Sandycat>
+									<WVC_Featherdust>0.01</WVC_Featherdust>
+								  </xenotypeChances>
+								</xenotypeSet>
+							  </value>
+							</li>
+
+							<li Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+							  <xpath>/Defs/FactionDef[defName="TribeSavageImpid"]</xpath>
+							  <safetyDepth>2</safetyDepth>
+							  <value>
+								<xenotypeSet>
+								  <xenotypeChances>
+									<WVC_Sandycat>0.01</WVC_Sandycat>
+								  </xenotypeChances>
+								</xenotypeSet>
+							  </value>
+							</li>
+
+							<li Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+							  <xpath>/Defs/FactionDef[defName="Empire"]</xpath>
+							  <safetyDepth>2</safetyDepth>
+							  <value>
+								<xenotypeSet>
+								  <xenotypeChances>
+									<WVC_Undead>0.05</WVC_Undead>
+									<WVC_Ashen MayRequire="ludeon.rimworld.ideology">0.03</WVC_Ashen>
+									<WVC_Lilith MayRequire="ludeon.rimworld.royalty">0.03</WVC_Lilith>
+									<WVC_RogueFormer>0.01</WVC_RogueFormer>
+									<WVC_Shadoweater MayRequire="wvc.sergkart.test.tools">0.02</WVC_Shadoweater>
+								  </xenotypeChances>
+								</xenotypeSet>
+							  </value>
+							</li>
+
+							<li Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+							  <xpath>/Defs/FactionDef[defName="OutlanderRefugee"]</xpath>
+							  <safetyDepth>2</safetyDepth>
+							  <value>
+								<xenotypeSet>
+								  <xenotypeChances>
+									<WVC_Undead>0.05</WVC_Undead>
+									<WVC_CatDeity MayRequire="ludeon.rimworld.royalty">0.05</WVC_CatDeity>
+									<WVC_Blank>0.05</WVC_Blank>
+								  </xenotypeChances>
+								</xenotypeSet>
+							  </value>
+							</li>
+
+							<li Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+							  <xpath>/Defs/FactionDef[defName="Beggars"]</xpath>
+							  <safetyDepth>2</safetyDepth>
+							  <value>
+								<xenotypeSet>
+								  <xenotypeChances>
+									<WVC_Undead>0.02</WVC_Undead>
+									<WVC_CatDeity MayRequire="ludeon.rimworld.royalty">0.04</WVC_CatDeity>
+									<WVC_Blank>0.12</WVC_Blank>
+								  </xenotypeChances>
+								</xenotypeSet>
+							  </value>
+							</li>
+
+							<li Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+							  <xpath>/Defs/FactionDef[defName="TribeCannibal"]</xpath>
+							  <safetyDepth>2</safetyDepth>
+							  <value>
+								<xenotypeSet>
+								  <xenotypeChances>
+									<WVC_Lilith MayRequire="ludeon.rimworld.royalty">0.01</WVC_Lilith>
+									<WVC_Sandycat>0.06</WVC_Sandycat>
+									<WVC_Bloodeater MayRequire="wvc.sergkart.test.tools">0.02</WVC_Bloodeater>
+								  </xenotypeChances>
+								</xenotypeSet>
+							  </value>
+							</li>
+
+							<li Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+							  <xpath>/Defs/FactionDef[defName="NudistTribe"]</xpath>
+							  <safetyDepth>2</safetyDepth>
+							  <value>
+								<xenotypeSet>
+								  <xenotypeChances>
+									<WVC_Sandycat>0.02</WVC_Sandycat>
+								  </xenotypeChances>
+								</xenotypeSet>
+							  </value>
+							</li>
+
+							<li Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+							  <xpath>/Defs/FactionDef[defName="Ancients" or defName="AncientsHostile"]</xpath>
+							  <safetyDepth>2</safetyDepth>
+							  <value>
+								<xenotypeSet>
+								  <xenotypeChances>
+									<WVC_Ashen MayRequire="ludeon.rimworld.ideology">0.07</WVC_Ashen>
+								  </xenotypeChances>
+								</xenotypeSet>
+							  </value>
+							</li>
+
+							<li Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+							  <xpath>/Defs/FactionDef[defName="CannibalPirate"]</xpath>
+							  <safetyDepth>2</safetyDepth>
+							  <value>
+								<xenotypeSet>
+								  <xenotypeChances>
+									<WVC_Sandycat>0.02</WVC_Sandycat>
+									<WVC_Lilith MayRequire="ludeon.rimworld.royalty">0.01</WVC_Lilith>
+									<WVC_Bloodeater MayRequire="wvc.sergkart.test.tools">0.02</WVC_Bloodeater>
+								  </xenotypeChances>
+								</xenotypeSet>
+							  </value>
+							</li>
+
+							<li Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+							  <xpath>/Defs/FactionDef[defName="Pilgrims"]</xpath>
+							  <safetyDepth>2</safetyDepth>
+							  <value>
+								<xenotypeSet>
+								  <xenotypeChances>
+									<WVC_Featherdust>0.05</WVC_Featherdust>
+								  </xenotypeChances>
+								</xenotypeSet>
+							  </value>
+							</li>
+
+						</operations>
+					</caseTrue>
 				</li>
-
-				<li Class="PatchOperationSequence">
-					<success>Always</success>
-					<operations>
-						<li Class="PatchOperationAdd">
-						  <xpath>/Defs/FactionDef[defName="OutlanderCivil" or defName="OutlanderRough"]/xenotypeSet/xenotypeChances</xpath>
-						  <success>Invert</success>
-						  <value>
-							<WVC_GeneThrower>0.002</WVC_GeneThrower>
-							<WVC_Undead>0.0006</WVC_Undead>
-						  </value>
-						</li>
-						<li Class="PatchOperationAdd">
-						  <xpath>/Defs/FactionDef[defName="OutlanderCivil" or defName="OutlanderRough"]/xenotypeSet</xpath>
-						  <success>Invert</success>
-						  <value>
-							  <xenotypeChances>
-								<WVC_GeneThrower>0.002</WVC_GeneThrower>
-								<WVC_Undead>0.0006</WVC_Undead>
-							  </xenotypeChances>
-						  </value>
-						</li>
-						<li Class="PatchOperationAdd">
-						  <xpath>/Defs/FactionDef[defName="OutlanderCivil" or defName="OutlanderRough"]</xpath>
-						  <success>Always</success>
-						  <value>
-							<xenotypeSet>
-							  <xenotypeChances>
-								<WVC_GeneThrower>0.002</WVC_GeneThrower>
-								<WVC_Undead>0.0006</WVC_Undead>
-							  </xenotypeChances>
-							</xenotypeSet>
-						  </value>
-						</li>
-					</operations>
-				</li>
-
-				<li Class="PatchOperationAdd">
-				  <xpath>/Defs/FactionDef[defName="PirateWaster"]/xenotypeSet/xenotypeChances</xpath>
-				  <value>
-					<WVC_Meca>0.001</WVC_Meca>
-					<WVC_RogueFormer>0.001</WVC_RogueFormer>
-					<WVC_Undead>0.0004</WVC_Undead>
-				  </value>
-				</li>
-				<!-- Factions Patch -->
-
-				<!-- Wild Man Patch -->
-				<!-- <li Class="PatchOperationSequence"> -->
-					<!-- <success>Always</success> -->
-					<!-- <operations> -->
-						<!-- <li Class="PatchOperationAdd"> -->
-						  <!-- <xpath>/Defs/PawnKindDef[defName="WildMan"]/xenotypeSet/xenotypeChances</xpath> -->
-						  <!-- <success>Invert</success> -->
-						  <!-- <value> -->
-							<!-- <WVC_Blank>0.01</WVC_Blank> -->
-							<!-- <WVC_Undead>0.01</WVC_Undead> -->
-						  <!-- </value> -->
-						<!-- </li> -->
-						<!-- <li Class="PatchOperationAdd"> -->
-						  <!-- <xpath>/Defs/PawnKindDef[defName="WildMan"]/xenotypeSet</xpath> -->
-						  <!-- <success>Invert</success> -->
-						  <!-- <value> -->
-							  <!-- <xenotypeChances> -->
-								<!-- <WVC_Blank>0.01</WVC_Blank> -->
-								<!-- <WVC_Undead>0.01</WVC_Undead> -->
-							  <!-- </xenotypeChances> -->
-						  <!-- </value> -->
-						<!-- </li> -->
-						<!-- <li Class="PatchOperationAdd"> -->
-						  <!-- <xpath>/Defs/PawnKindDef[defName="WildMan"]</xpath> -->
-						  <!-- <success>Always</success> -->
-						  <!-- <value> -->
-							<!-- <xenotypeSet> -->
-							  <!-- <xenotypeChances> -->
-								<!-- <WVC_Blank>0.01</WVC_Blank> -->
-								<!-- <WVC_Undead>0.01</WVC_Undead> -->
-							  <!-- </xenotypeChances> -->
-							<!-- </xenotypeSet> -->
-						  <!-- </value> -->
-						<!-- </li> -->
-					<!-- </operations> -->
-				<!-- </li> -->
-
-					<!-- <li Class="PatchOperationAdd"> -->
-					  <!-- <xpath>/Defs/ThingDef[defName="HumanEmbryo"]/comps</xpath> -->
-					  <!-- <success>Always</success> -->
-					  <!-- <value> -->
-						<!-- <li Class="WVC_XenotypesAndGenes.CompProperties_Genepack"> -->
-							<!-- <compClass>WVC_XenotypesAndGenes.CompHumanEmbryo</compClass> -->
-							<!-- <xenotypeDefs> -->
-							  <!-- <li>WVC_Blank</li> -->
-							<!-- </xenotypeDefs> -->
-						<!-- </li> -->
-					  <!-- </value> -->
-					<!-- </li> -->
 
 			</operations>
 		</caseFalse>
 	</Operation>
-
-	<!-- <Operation Class="PatchOperationAdd"> -->
-	  <!-- <xpath>/Defs/FactionDef[techLevel="Industrial" or techLevel="Spacer" or techLevel="Ultra" or techLevel="Archotech"]/xenotypeSet/xenotypeChances</xpath> -->
-	  <!-- <value> -->
-		<!-- <WVC_Meca>0.11</WVC_Meca> -->
-		<!-- <WVC_RogueFormer>0.02</WVC_RogueFormer> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-
-	<!-- <Operation Class="PatchOperationAdd"> -->
-	  <!-- <xpath>/Defs/FactionDef[techLevel="Neolithic" or techLevel="Medieval" or techLevel="Industrial"]/xenotypeSet/xenotypeChances</xpath> -->
-	  <!-- <value> -->
-		<!-- <WVC_RuneDryad>0.05</WVC_RuneDryad> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
 
 </Patch>

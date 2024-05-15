@@ -90,6 +90,7 @@ namespace WVC_XenotypesAndGenes
 		// Shapeshifter
 		public bool shapeshifter_enableStyleButton = true;
 		// Xenotypes
+		public bool enable_spawnXenotypesInFactions = false;
 		// public bool increasedXenotypesFactionlessGenerationWeight_MainSwitch = false;
 		public bool disableXenotypes_MainSwitch = false;
 		public bool disableXenotypes_Undeads = false;
@@ -182,6 +183,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref link_removePsylinkWithGene, "link_removePsylinkWithGene", defaultValue: false);
 			// shapeshifter
 			Scribe_Values.Look(ref shapeshifter_enableStyleButton, "shapeshifter_enableStyleButton", defaultValue: true);
+			Scribe_Values.Look(ref enable_spawnXenotypesInFactions, "enable_spawnXenotypesInFactions", defaultValue: false);
 			// Reincarnation
 			Scribe_Values.Look(ref disableXenotypes_MainSwitch, "disableXenotypes_MainSwitch", defaultValue: false);
 			Scribe_Values.Look(ref disableXenotypes_Undeads, "disableXenotypes_Undeads", defaultValue: false);
@@ -698,6 +700,7 @@ namespace WVC_XenotypesAndGenes
 			Listing_Standard listingStandard = new();
 			listingStandard.Begin(rect);
 			// =
+			listingStandard.CheckboxLabeled("WVC_Label_enable_spawnXenotypesInFactions".Translate(), ref settings.enable_spawnXenotypesInFactions, "WVC_ToolTip_enable_spawnXenotypesInFactions".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_onlyXenotypesMode".Translate(), ref settings.onlyXenotypesMode, "WVC_ToolTip_onlyXenotypesMode".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableUniqueXenotypeScenarios".Translate(), ref settings.disableUniqueXenotypeScenarios, "WVC_ToolTip_disableUniqueXenotypeScenarios".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableXenotypes_MainSwitch".Translate(), ref settings.disableXenotypes_MainSwitch, "WVC_ToolTip_disableXenotypes_MainSwitch".Translate());
@@ -813,6 +816,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.genesCanTickOnlyOnMap = false;
 			// WVC_Biotech.settings.autoPatchVanillaArchiteImmunityGenes = false;
 			// Xenotypes
+			WVC_Biotech.settings.enable_spawnXenotypesInFactions = false;
 			WVC_Biotech.settings.disableXenotypes_MainSwitch = false;
 			WVC_Biotech.settings.disableXenotypes_Undeads = false;
 			WVC_Biotech.settings.disableXenotypes_Psycasters = false;
@@ -906,6 +910,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.genesCanTickOnlyOnMap = false;
 			// WVC_Biotech.settings.autoPatchVanillaArchiteImmunityGenes = false;
 			// Xenotypes
+			WVC_Biotech.settings.enable_spawnXenotypesInFactions = false;
 			WVC_Biotech.settings.disableXenotypes_MainSwitch = false;
 			WVC_Biotech.settings.disableXenotypes_Undeads = false;
 			WVC_Biotech.settings.disableXenotypes_Psycasters = false;

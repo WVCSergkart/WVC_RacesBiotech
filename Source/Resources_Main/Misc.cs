@@ -28,6 +28,64 @@ namespace WVC_XenotypesAndGenes
 		}
 	}
 
+	public class PatchOperationSafeAdd : PatchOperationPathed
+	{
+
+		public int safetyDepth = -1;
+
+		public XmlContainer value;
+
+		protected override bool ApplyWorker(XmlDocument xml)
+		{
+			XmlNode node = value.node;
+			foreach (XmlNode item in xml.SelectNodes(xpath))
+			{
+				// XmlNode xmlNode = item as XmlNode;
+				foreach (XmlNode childNode in node.ChildNodes)
+				{
+					TryAddNode(item, childNode, 0);
+				}
+			}
+			return true;
+		}
+
+		private void TryAddNode(XmlNode parent, XmlNode addNode, int depth)
+		{
+			XmlNode foundNode = null;
+			if (!ContainsNode(parent, addNode, ref foundNode) || depth >= safetyDepth)
+			{
+				parent.AppendChild(parent.OwnerDocument.ImportNode(addNode, deep: true));
+			}
+			else
+			{
+				if (!addNode.HasChildNodes || !addNode.FirstChild.HasChildNodes)
+				{
+					return;
+				}
+				foreach (XmlNode childNode in addNode.ChildNodes)
+				{
+					TryAddNode(foundNode, childNode, depth + 1);
+				}
+			}
+		}
+
+		private bool ContainsNode(XmlNode parent, XmlNode node, ref XmlNode foundNode)
+		{
+			foreach (XmlNode childNode in parent.ChildNodes)
+			{
+				if (childNode.Name != node.Name && childNode.InnerText != node.InnerText && childNode.InnerText != node.InnerText)
+				{
+					continue;
+				}
+				foundNode = childNode;
+				return true;
+			}
+			foundNode = null;
+			return false;
+		}
+
+	}
+
 	// public class PatchOperationRemove_XenoGenes : PatchOperationPathed
 	// {
 
