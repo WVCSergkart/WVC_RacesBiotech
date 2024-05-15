@@ -418,6 +418,25 @@ namespace WVC_XenotypesAndGenes
 			return mult;
 		}
 
+		public static int CountAllPlayerControlledColonistsExceptClonesAndQuests()
+		{
+			int mult = 0;
+			List<Pawn> pawns = PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_Colonists;
+			foreach (Pawn item in pawns)
+			{
+				if (item.IsQuestLodger())
+				{
+					continue;
+				}
+				if (item.IsDuplicate)
+				{
+					continue;
+				}
+				mult++;
+			}
+			return mult;
+		}
+
 		public static int CountAllPlayerNonHumanlikes()
 		{
 			int mult = 0;
@@ -426,6 +445,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				foreach (Pawn item in maps[i].mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer))
 				{
+					if (item.IsQuestLodger())
+					{
+						continue;
+					}
 					if (!item.RaceProps.Humanlike)
 					{
 						mult++;
@@ -443,6 +466,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				foreach (Pawn item in maps[i].mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer))
 				{
+					if (item.IsQuestLodger())
+					{
+						continue;
+					}
 					if (item.IsColonyMech)
 					{
 						mult += 1;
@@ -460,6 +487,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				foreach (Pawn item in maps[i].mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer))
 				{
+					if (item.IsQuestLodger())
+					{
+						continue;
+					}
 					if (item.RaceProps.Animal)
 					{
 						mult += 1;

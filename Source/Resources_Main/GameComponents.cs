@@ -54,7 +54,7 @@ namespace WVC_XenotypesAndGenes
 			// cachedBloodHunters = XaG_GeneUtility.GetAllBloodHunters();
 			if (ModLister.IdeologyInstalled)
 			{
-				cachedPawnsCount = PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_Colonists.Count;
+				cachedPawnsCount = MiscUtility.CountAllPlayerControlledColonistsExceptClonesAndQuests();
 				cachedXenotypesCount = MiscUtility.CountAllPlayerXenos();
 				cachedNonHumansCount = MiscUtility.CountAllPlayerNonHumanlikes();
 			}
