@@ -5,6 +5,7 @@
 	<label>elf</label>
 	<inheritable>true</inheritable>
 	<iconPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_v0</iconPath>
+	<displayPriority>-190</displayPriority>
 	<genes>
 		<li>Hemogenic</li>
 		<li>Bloodfeeder</li>
