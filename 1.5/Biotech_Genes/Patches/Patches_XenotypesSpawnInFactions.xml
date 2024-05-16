@@ -134,7 +134,7 @@
 						<operations>
 
 							<li Class="PatchOperationRemove">
-								<xpath>/Defs/GeneDef[defName="WVC_BloodfeedChimera"]/modExtensions/li[@Class="WVC_XenotypesAndGenes.GeneExtension_Undead"]/xenotypeDef</xpath>
+								<xpath>/Defs/GeneDef[defName="WVC_Chimera"]/modExtensions/li[@Class="WVC_XenotypesAndGenes.GeneExtension_Undead"]/xenotypeDef</xpath>
 								<success>Always</success>
 							</li>
 
@@ -251,8 +251,8 @@
 								  <xenotypeChances>
 									<WVC_Sandycat>0.01</WVC_Sandycat>
 									<WVC_Lilith MayRequire="ludeon.rimworld.royalty">0.06</WVC_Lilith>
-									<WVC_Bloodeater MayRequire="wvc.sergkart.test.tools">0.07</WVC_Bloodeater>
-									<WVC_Shadoweater MayRequire="wvc.sergkart.test.tools">0.03</WVC_Shadoweater>
+									<WVC_Bloodeater>0.07</WVC_Bloodeater>
+									<WVC_Shadoweater>0.03</WVC_Shadoweater>
 								  </xenotypeChances>
 								</xenotypeSet>
 							  </value>
@@ -320,7 +320,7 @@
 									<WVC_Ashen MayRequire="ludeon.rimworld.ideology">0.03</WVC_Ashen>
 									<WVC_Lilith MayRequire="ludeon.rimworld.royalty">0.03</WVC_Lilith>
 									<WVC_RogueFormer>0.01</WVC_RogueFormer>
-									<WVC_Shadoweater MayRequire="wvc.sergkart.test.tools">0.02</WVC_Shadoweater>
+									<WVC_Shadoweater>0.02</WVC_Shadoweater>
 								  </xenotypeChances>
 								</xenotypeSet>
 							  </value>
@@ -362,7 +362,7 @@
 								  <xenotypeChances>
 									<WVC_Lilith MayRequire="ludeon.rimworld.royalty">0.01</WVC_Lilith>
 									<WVC_Sandycat>0.06</WVC_Sandycat>
-									<WVC_Bloodeater MayRequire="wvc.sergkart.test.tools">0.02</WVC_Bloodeater>
+									<WVC_Bloodeater>0.02</WVC_Bloodeater>
 								  </xenotypeChances>
 								</xenotypeSet>
 							  </value>
@@ -400,7 +400,7 @@
 								  <xenotypeChances>
 									<WVC_Sandycat>0.02</WVC_Sandycat>
 									<WVC_Lilith MayRequire="ludeon.rimworld.royalty">0.01</WVC_Lilith>
-									<WVC_Bloodeater MayRequire="wvc.sergkart.test.tools">0.02</WVC_Bloodeater>
+									<WVC_Bloodeater>0.02</WVC_Bloodeater>
 								  </xenotypeChances>
 								</xenotypeSet>
 							  </value>

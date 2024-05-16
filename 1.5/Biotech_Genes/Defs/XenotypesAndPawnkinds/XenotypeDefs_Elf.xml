@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_TEST" Name="WVC_RB_Xenotypes_TEST_Elfs" WVC_XaG_XenotypeRemoveTag="Bloodeaters" Abstract="True">
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" Name="WVC_XenotypesAndGenes_XenoDef_Elfs" WVC_XaG_XenotypeRemoveTag="Bloodeaters" Abstract="True">
 	<label>elf</label>
 	<inheritable>true</inheritable>
 	<iconPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_v0</iconPath>
@@ -33,9 +33,15 @@
 	</genes>
   </XenotypeDef>
 
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_TEST_Elfs" WVC_XaG_XenotypeRemoveTag="Bloodeaters">
+  <XenotypeDef ParentName="WVC_XenotypesAndGenes_XenoDef_Elfs" WVC_XaG_XenotypeRemoveTag="Bloodeaters">
 	<defName>WVC_Bloodeater</defName>
 	<label>bloodeater</label>
+	<description>Bloodeaters are ageless super-humans, powered by archotech-created archites in the bloodstream. They are very feminine and beautiful. They are able to obtain nutrients from sunlight and from accumulated hemogen. They can charm their victims by feeding on their blood. But they are vulnerable, and their stomach is unable to feed on anything other than human blood.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Genes):&lt;/color&gt; A pawn with this xenotype will not be able to eat food. To obtain nutrients it needs other pawns or sunlight.
+
+Also, pawns with this xenotype produce hemogen packs from time to time.</description>
+	<descriptionShort>Bloodeaters are ageless super-humans, powered by archotech-created archites in the bloodstream. They are very feminine and beautiful. They are able to obtain nutrients from sunlight and from accumulated hemogen. They can charm their victims by feeding on their blood. But they are vulnerable, and their stomach is unable to feed on anything other than human blood.</descriptionShort>
 	<inheritable>true</inheritable>
 	<iconPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_v0</iconPath>
 	<genes>

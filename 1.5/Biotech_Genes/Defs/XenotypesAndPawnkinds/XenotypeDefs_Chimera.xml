@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_TEST_Elfs" WVC_XaG_XenotypeRemoveTag="Bloodeaters">
+  <XenotypeDef ParentName="WVC_XenotypesAndGenes_XenoDef_Elfs" WVC_XaG_XenotypeRemoveTag="Bloodeaters">
 	<defName>WVC_Shadoweater</defName>
 	<!-- <label>shadoweater</label> -->
 	<!-- <label>chimera</label> -->
@@ -12,6 +12,9 @@
 	<descriptionShort>Chimerkins are rare super-humans, powered by archotech-created archites in the bloodstream, that does not fall into any known xenotype. They are remarkable in that they are able to modify their xeno-germ by adding copies of the genes of the creatures they feed on. Typically, chimerkins are an archite modification of bloodeaters and have a strong genetic match with them. Since chimerkins can "reset" their xenogene modification at any time, it is quite difficult to encounter highly modified chimerkins.</descriptionShort>
 	<inheritable>true</inheritable>
 	<iconPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_Horns_v0</iconPath>
+	<descriptionHyperlinks>
+	  <XenotypeDef>WVC_Bloodeater</XenotypeDef>
+	</descriptionHyperlinks>
 	<genes>
 		<!-- Graphic -->
 		<!-- <li>Eyes_Red</li> -->
