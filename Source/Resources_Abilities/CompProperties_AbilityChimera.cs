@@ -1,0 +1,165 @@
+using RimWorld;
+using System;
+using System.Collections.Generic;
+using Verse;
+
+namespace WVC_XenotypesAndGenes
+{
+
+	public class CompProperties_AbilityChimera : CompProperties_AbilityEffect
+	{
+
+		// public ThoughtDef thoughtDefToGiveTarget;
+
+		// public ThoughtDef opinionThoughtDefToGiveTarget;
+
+		// public float resistanceGain;
+
+		// public float nutritionGain = 0.2f;
+
+		// public float targetBloodLoss = 0.03f;
+
+		// public IntRange bloodFilthToSpawnRange = new(1, 1);
+
+		public CompProperties_AbilityChimera()
+		{
+			compClass = typeof(CompAbilityEffect_CopyGene);
+		}
+
+	}
+
+	public class CompAbilityEffect_CopyGene : CompAbilityEffect
+	{
+
+		public new CompProperties_AbilityChimera Props => (CompProperties_AbilityChimera)props;
+
+		[Unsaved(false)]
+		private Gene_Chimera cachedChimeraGene;
+
+		public Gene_Chimera ChimeraGene
+		{
+			get
+			{
+				if (cachedChimeraGene == null || !cachedChimeraGene.Active)
+				{
+					cachedChimeraGene = parent?.pawn?.genes?.GetFirstGeneOfType<Gene_Chimera>();
+				}
+				return cachedChimeraGene;
+			}
+		}
+
+		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+		{
+			base.Apply(target, dest);
+			Pawn pawn = target.Pawn;
+			if (pawn != null && ChimeraGene != null)
+			{
+				if (ChimeraGene.TryGetGene(XaG_GeneUtility.ConvertGenesInGeneDefs(pawn.genes.GenesListForReading), out GeneDef result))
+				{
+					Messages.Message("WVC_XaG_GeneGeneticThief_GeneCopied".Translate(parent.pawn.NameShortColored, result.label), parent.pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+				}
+			}
+		}
+
+		public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest)
+		{
+			return Valid(target);
+		}
+
+		public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
+		{
+			Pawn pawn = target.Pawn;
+			if (pawn == null)
+			{
+				return false;
+			}
+			if (ChimeraGene == null || !pawn.IsHuman())
+			{
+				if (throwMessages)
+				{
+					Messages.Message("WVC_PawnIsAndroidCheck".Translate(), parent.pawn, MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return false;
+			}
+			return base.Valid(target, throwMessages);
+		}
+
+		public override string ExtraLabelMouseAttachment(LocalTargetInfo target)
+		{
+			Pawn pawn = target.Pawn;
+			if (pawn != null)
+			{
+				string text = null;
+				if (pawn.HostileTo(parent.pawn) && !pawn.Downed)
+				{
+					text += "MessageCantUseOnResistingPerson".Translate(parent.def.Named("ABILITY"));
+				}
+				return text;
+			}
+			return null;
+		}
+
+	}
+
+	public class CompAbilityEffect_CopyGeneFromGenepack : CompAbilityEffect
+	{
+
+		public new CompProperties_AbilityChimera Props => (CompProperties_AbilityChimera)props;
+
+		[Unsaved(false)]
+		private Gene_Chimera cachedChimeraGene;
+
+		public Gene_Chimera ChimeraGene
+		{
+			get
+			{
+				if (cachedChimeraGene == null || !cachedChimeraGene.Active)
+				{
+					cachedChimeraGene = parent?.pawn?.genes?.GetFirstGeneOfType<Gene_Chimera>();
+				}
+				return cachedChimeraGene;
+			}
+		}
+
+		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+		{
+			base.Apply(target, dest);
+			if (target.HasThing && target.Thing is Genepack genepack && ChimeraGene != null)
+			{
+				if (ChimeraGene.TryGetGene(genepack.GeneSet.GenesListForReading, out GeneDef result))
+				{
+					Messages.Message("WVC_XaG_GeneGeneticThief_GeneCopied".Translate(parent.pawn.NameShortColored, result.label), parent.pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+				}
+				genepack.Kill();
+			}
+		}
+
+		public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest)
+		{
+			return Valid(target);
+		}
+
+		public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
+		{
+			if (!target.HasThing || target.Thing is not Genepack)
+			{
+				if (throwMessages)
+				{
+					Messages.Message("WVC_XaG_MustTargetGenepack".Translate(), parent.pawn, MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return false;
+			}
+			if (ChimeraGene == null)
+			{
+				if (throwMessages)
+				{
+					Messages.Message("WVC_PawnIsAndroidCheck".Translate(), parent.pawn, MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return false;
+			}
+			return base.Valid(target, throwMessages);
+		}
+
+	}
+
+}

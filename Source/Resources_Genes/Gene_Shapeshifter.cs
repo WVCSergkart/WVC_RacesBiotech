@@ -154,7 +154,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Chimera : Gene
+	public class Gene_Chimera : Gene, IGeneBloodfeeder
 	{
 
 		public GeneExtension_Undead Props => def?.GetModExtension<GeneExtension_Undead>();
@@ -287,10 +287,16 @@ namespace WVC_XenotypesAndGenes
 			// }
 		// }
 
-	}
-
-	public class Gene_BloodChimera : Gene_Chimera, IGeneBloodfeeder
-	{
+		public bool TryGetGene(List<GeneDef> genes, out GeneDef result)
+		{
+			result = null;
+			if (genes.Where((GeneDef x) => x.selectionWeight > 0f && x.canGenerateInGeneSet && x.passOnDirectly && !AllGenes.Contains(x)).TryRandomElementByWeight((GeneDef gene) => gene.selectionWeight, out result))
+			{
+				AddGene(result);
+				return true;
+			}
+			return false;
+		}
 
 		public void Notify_Bloodfeed(Pawn victim)
 		{
@@ -299,12 +305,17 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (genes.Where((Gene x) => x.def.selectionWeight > 0f && x.def.canGenerateInGeneSet && x.def.passOnDirectly && !AllGenes.Contains(x.def)).TryRandomElementByWeight((Gene gene) => gene.def.selectionWeight, out Gene result))
+			if (TryGetGene(XaG_GeneUtility.ConvertGenesInGeneDefs(genes), out GeneDef result))
 			{
-				AddGene(result.def);
-				Messages.Message("WVC_XaG_GeneGeneticThief_GeneCopied".Translate(pawn.NameShortColored, result.Label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+				Messages.Message("WVC_XaG_GeneGeneticThief_GeneCopied".Translate(pawn.NameShortColored, result.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
 			}
 		}
+
+	}
+
+	[Obsolete]
+	public class Gene_BloodChimera : Gene_Chimera
+	{
 
 	}
 

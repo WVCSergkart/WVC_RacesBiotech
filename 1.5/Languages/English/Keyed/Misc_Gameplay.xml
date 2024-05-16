@@ -22,6 +22,8 @@
 	<WVC_XaG_WrongDevelopmentalStage>The target has an inappropriate developmental stage.</WVC_XaG_WrongDevelopmentalStage>
 
 	<WVC_XaG_GeneralWrongTarget>Wrong target.</WVC_XaG_GeneralWrongTarget>
+
+	<WVC_XaG_MustTargetGenepack>Must target genepack.</WVC_XaG_MustTargetGenepack>
 	
 	<WVC_AbilityValidation_ReimplantationCheck>Reimplantation in progress. Wait for the process to finish before starting another one.</WVC_AbilityValidation_ReimplantationCheck>
 	

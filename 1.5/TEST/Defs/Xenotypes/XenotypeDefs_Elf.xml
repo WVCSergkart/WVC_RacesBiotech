@@ -55,36 +55,4 @@
 	</genes>
   </XenotypeDef>
 
-  <XenotypeDef ParentName="WVC_RB_Xenotypes_TEST_Elfs" WVC_XaG_XenotypeRemoveTag="Bloodeaters">
-	<defName>WVC_Shadoweater</defName>
-	<!-- <label>shadoweater</label> -->
-	<!-- <label>chimera</label> -->
-	<label>chimerkin</label>
-	<description>Chimerkins are rare super-humans, powered by archotech-created archites in the bloodstream, that does not fall into any known xenotype. They are remarkable in that they are able to modify their xeno-germ by adding copies of the genes of the creatures they feed on. Typically, chimerkins are an archite modification of bloodeaters and have a strong genetic match with them. Since chimerkins can "reset" their xenogene modification at any time, it is quite difficult to encounter highly modified chimerkins.
-
-&lt;color=#f5ffa2&gt;Gameplay Effect (Genes):&lt;/color&gt; A pawn can collect the genes of other pawns using the bloodfeed ability. The collected genes can be implanted at any time as xenogenes. You can also remove all xenogens at any time.</description>
-	<descriptionShort>Chimerkins are rare super-humans, powered by archotech-created archites in the bloodstream, that does not fall into any known xenotype. They are remarkable in that they are able to modify their xeno-germ by adding copies of the genes of the creatures they feed on. Typically, chimerkins are an archite modification of bloodeaters and have a strong genetic match with them. Since chimerkins can "reset" their xenogene modification at any time, it is quite difficult to encounter highly modified chimerkins.</descriptionShort>
-	<inheritable>true</inheritable>
-	<iconPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_Horns_v0</iconPath>
-	<genes>
-		<!-- Graphic -->
-		<!-- <li>Eyes_Red</li> -->
-		<li>WVC_SkinColor_DarkBlue</li>
-		<li>WVC_Eyes_ce6969_HEX</li>
-		<li>WVC_HeadBoneHorns</li>
-		<li>WVC_DemonTailA</li>
-		<li>WVC_Ears_PointedB</li>
-		<!-- Set -->
-		<!-- <li>WVC_DebuffUV_StrongInjuryHealing</li> -->
-		<li>WVC_UVSensitivity_Deadly</li>
-		<li>WVC_HealingStomach</li>
-		<li>WVC_WoundHealing_NoHealing</li>
-		<!-- = -->
-		<li>WVC_ImplanterFangs</li>
-		<li>PiercingSpine</li>
-		<li>WVC_Tough</li>
-		<li>WVC_BloodfeedChimera</li>
-	</genes>
-  </XenotypeDef>
-
 </Defs>

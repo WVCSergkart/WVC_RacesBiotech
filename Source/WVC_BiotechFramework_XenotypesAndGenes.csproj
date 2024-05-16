@@ -67,6 +67,7 @@
     <Compile Include="Resources_Abilities\CompAbilityEffect_ResurrectMech.cs" />
     <Compile Include="Resources_Abilities\CompAbility_Validators.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityCellsFeed.cs" />
+    <Compile Include="Resources_Abilities\CompProperties_AbilityChimera.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityDustCost.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityReimplantXenotype.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityResurgentCost.cs" />
