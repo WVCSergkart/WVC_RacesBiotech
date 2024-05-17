@@ -11,9 +11,8 @@
 	<defName>WVC_Shapeshifters_Recluse</defName>
 	<issue>WVC_Shapeshifters</issue>
 	<label>recluse</label>
-	<description>We don't need many people to survive; we are strong not in numbers, but in form.
-
-&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; For every pawn greater than 5, a mood debuff is applied. Quest pawns and anomaly duplicates are ignored.</description>
+	<description>We don't need many people to survive; we are strong not in numbers, but in form.</description>
+	<!-- &lt;color=#f5ffa2&gt;Gameplay Effect (Mood):&lt;/color&gt; Quest pawns and anomaly duplicates are ignored. -->
 	<impact>High</impact>
 	<requiredMemes>
 	  <li>WVC_Shapeshifterist</li>
@@ -35,7 +34,7 @@
 	  </li>
 	  <li Class="PreceptComp_SituationalThought">
 		<thought>WVC_Shapeshifters_Recluse_Humanlikes</thought>
-		<description>For each colonist above 5</description>
+		<description>For each colonist (non-quest, non-duplicate) above 5</description>
 	  </li>
 	  <li Class="PreceptComp_SituationalThought">
 		<thought>WVC_ShapeshifterColonist_Recluse</thought>

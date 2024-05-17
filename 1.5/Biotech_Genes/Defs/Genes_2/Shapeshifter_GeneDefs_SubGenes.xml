@@ -134,7 +134,8 @@
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
 		<!-- <li>If a pawn received this gene as a &lt;color=#8a8ae6&gt;shapeshifter&lt;/color&gt;, it &lt;color=#8a8ae6&gt;permanently&lt;/color&gt; receives the &lt;color=#8a8ae6&gt;deathless&lt;/color&gt; effect.</li> -->
-		<li>Carrier can only be killed either by &lt;color=#8a8ae6&gt;completely destroying&lt;/color&gt; their body or by &lt;color=#8a8ae6&gt;removing this gene&lt;/color&gt;.</li>
+		<li>Carrier can only be killed by &lt;color=#8a8ae6&gt;destruction&lt;/color&gt; of the body, &lt;color=#8a8ae6&gt;surgery&lt;/color&gt;, or &lt;color=#8a8ae6&gt;removal&lt;/color&gt; of the gene.</li>
+		<!-- <li>Carrier can only be killed either by &lt;color=#8a8ae6&gt;completely destroying&lt;/color&gt; their body or by &lt;color=#8a8ae6&gt;removing this gene&lt;/color&gt;.</li> -->
 		<li>Healing: 1 hp/day</li>
 	</customEffectDescriptions>
 	<statFactors>
