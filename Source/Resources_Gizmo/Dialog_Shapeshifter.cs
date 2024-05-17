@@ -20,7 +20,7 @@ namespace WVC_XenotypesAndGenes
 		public bool duplicateMode = false;
 		// public bool shouldBeDowned = true;
 		public List<XenotypeDef> preferredXenotypes;
-		public List<string> trustedXenotypes;
+		// public List<string> trustedXenotypes;
 		public List<XenotypeDef> trueFormXenotypes = new();
 
 		public bool xenogermComaAfterShapeshift = true;
@@ -51,7 +51,7 @@ namespace WVC_XenotypesAndGenes
 			genesRegrowing = HediffUtility.HasAnyHediff(shiftExtension?.blockingHediffs, gene.pawn);
 			canEverUseShapeshift = !MiscUtility.HasAnyTraits(shiftExtension?.blockingTraits, gene.pawn);
 			duplicateMode = MiscUtility.HasAnyTraits(shiftExtension?.duplicateTraits, gene.pawn) || HediffUtility.HasAnyHediff(shiftExtension?.duplicateHediffs, gene.pawn);
-			trustedXenotypes = shiftExtension?.trustedXenotypes != null ? shiftExtension.trustedXenotypes : new();
+			// trustedXenotypes = shiftExtension?.trustedXenotypes != null ? shiftExtension.trustedXenotypes : new();
 			trueFormXenotypes = TrueFormXenotypesFromList(allXenotypes);
 			// Gene stats
 			xenogermComaAfterShapeshift = gene.xenogermComaAfterShapeshift;
@@ -142,16 +142,16 @@ namespace WVC_XenotypesAndGenes
 				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneShapeshifter_DuplicateMode".Translate().Colorize(ColorLibrary.LightBlue));
 				curY += 10f;
 			}
-			if (trustedXenotypes.Contains(selectedXeno.defName))
-			{
-				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneShapeshifter_TrustedXenotypes".Translate().Colorize(ColoredText.SubtleGrayColor));
-				curY += 10f;
-			}
-			else
-			{
-				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneShapeshifter_UnknownXenotypes".Translate().Colorize(ColoredText.SubtleGrayColor));
-				curY += 10f;
-			}
+			// if (trustedXenotypes.Contains(selectedXeno.defName))
+			// {
+				// Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneShapeshifter_TrustedXenotypes".Translate().Colorize(ColoredText.SubtleGrayColor));
+				// curY += 10f;
+			// }
+			// else
+			// {
+				// Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneShapeshifter_UnknownXenotypes".Translate().Colorize(ColoredText.SubtleGrayColor));
+				// curY += 10f;
+			// }
 			Rect rect4 = new(rect3.x, rect3.yMax - 55f, rect3.width, 55f);
 			// Checkbox
 			Rect rectCheckbox = new(rect4.x, rect4.yMax - 85f, (rect4.width / 2f) - 5f, 24f);
