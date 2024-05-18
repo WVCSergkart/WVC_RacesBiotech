@@ -154,10 +154,12 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Chimera : Gene, IGeneBloodfeeder
+	public class Gene_Chimera : Gene, IGeneBloodfeeder, IGeneOverridden
 	{
 
 		public GeneExtension_Undead Props => def?.GetModExtension<GeneExtension_Undead>();
+
+		public GeneExtension_Giver Giver => def.GetModExtension<GeneExtension_Giver>();
 
 		private List<GeneDef> stolenGenes = new();
 
@@ -180,6 +182,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
+			Local_AddOrRemoveHediff();
 			if (pawn.Spawned)
 			{
 				return;
@@ -192,6 +195,21 @@ namespace WVC_XenotypesAndGenes
 					AddGene(result);
 				}
 			}
+		}
+
+		public void Local_AddOrRemoveHediff()
+		{
+			HediffUtility.TryAddOrRemoveHediff(Giver.hediffDefName, pawn, this, Giver.bodyparts);
+		}
+
+		public void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			HediffUtility.TryRemoveHediff(Giver.hediffDefName, pawn);
+		}
+
+		public void Notify_Override()
+		{
+			HediffUtility.TryAddOrRemoveHediff(Giver.hediffDefName, pawn, this, Giver.bodyparts);
 		}
 
 		private Gizmo genesGizmo;
@@ -252,6 +270,22 @@ namespace WVC_XenotypesAndGenes
 			{
 				stolenGenes.Remove(geneDef);
 			}
+		}
+
+		public override void Tick()
+		{
+			base.Tick();
+			if (!pawn.IsHashIntervalTick(63333))
+			{
+				return;
+			}
+			Local_AddOrRemoveHediff();
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			HediffUtility.TryRemoveHediff(Giver.hediffDefName, pawn);
 		}
 
 		public override void ExposeData()

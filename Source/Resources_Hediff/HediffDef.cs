@@ -19,6 +19,8 @@ namespace WVC_XenotypesAndGenes
 			public List<StatModifier> statFactors;
 		}
 
+		// public SimpleCurve curve;
+
 	}
 
 

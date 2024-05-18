@@ -132,6 +132,7 @@
     <Compile Include="Resources_Hediff\HediffComp_ReplaceWithHediff.cs" />
     <Compile Include="Resources_Hediff\HediffDef.cs" />
     <Compile Include="Resources_Hediff\Hediff_DryadQueen.cs" />
+    <Compile Include="Resources_Hediff\Hediff_Metabolism.cs" />
     <Compile Include="Resources_Hediff\Hediff_Scarshield.cs" />
     <Compile Include="Resources_Hediff\Hediff_Spores.cs" />
     <Compile Include="Resources_Hediff\OnlyOneOverseer.cs" />

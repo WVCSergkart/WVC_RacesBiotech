@@ -21,6 +21,7 @@
 		<li>Using the &lt;color=#8a8ae6&gt;bloodfeed&lt;/color&gt;, &lt;color=#8a8ae6&gt;geneharvest&lt;/color&gt; and &lt;color=#8a8ae6&gt;packharvest&lt;/color&gt; abilities, a random gene of the target is copied.</li>
 		<li>&lt;color=#8a8ae6&gt;Copied genes&lt;/color&gt; can be implanted at any time as &lt;color=#8a8ae6&gt;xenogenes&lt;/color&gt;.</li>
 		<!-- <li>After using implantation, the owner’s &lt;color=#ff8585&gt;xenotype&lt;/color&gt; is guaranteed to &lt;color=#ff8585&gt;be changed&lt;/color&gt;.</li> -->
+		<li>Exceeding metabolic limits &lt;color=#8a8ae6&gt;increases&lt;/color&gt; or &lt;color=#8a8ae6&gt;decreases&lt;/color&gt; hunger.</li>
 		<li>&lt;color=#ff8585&gt;Does not copy genes that do not spawn in genepacks.&lt;/color&gt;</li>
 		<!-- <li>&lt;color=#ff8585&gt;Does not allow to remove already implanted genes.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
@@ -33,6 +34,9 @@
 			<xenotypeDef>WVC_Shadoweater</xenotypeDef>
 			<collectedGenesColor>(162, 216, 162)</collectedGenesColor>
 			<destroyedGenesColor>(178, 97, 96)</destroyedGenesColor>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_ChimeraMetabolism_HungerFactor</hediffDefName>
 		</li>
 	</modExtensions>
   </GeneDef>
