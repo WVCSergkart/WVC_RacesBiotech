@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="AB_ForsakenThunderstorm" or defName="AB_ForsakenRain" or defName="AB_ForsakenNight" or defName="EnvironmentDark"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li>WVC_MecaBodyParts_Eye</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="CreepyBreathing"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li>WVC_SmokepopMech</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="PsychicDrone"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li>WVC_MechaAI_PsychicDull</li>
+		  <li>WVC_PsychicAbility_Archite</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="Sick"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li>WVC_MecaBodyParts_Liver</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
+	<!-- ==================================================== -->
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Royalty</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+
+				<li Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+				  <xpath>/Defs/ThoughtDef[defName="TitleNoPersonalBedroom" or defName="TitleBedroomRequirementsNotMet"]</xpath> 
+				  <safetyDepth>1</safetyDepth>
+				  <value>
+					<nullifyingGenes>
+					  <li>Neversleep</li>
+					  <li>WVC_Neversleep</li>
+					</nullifyingGenes>
+				  </value>
+				</li>
+
+				<li Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+				  <xpath>/Defs/ThoughtDef[defName="TitleApparelRequirementNotMet"]</xpath> 
+				  <safetyDepth>1</safetyDepth>
+				  <value>
+					<nullifyingGenes>
+					  <li>WVC_UVSensitivity_Deadly</li>
+					  <li>WVC_Dustogenic_Metabolism</li>
+					</nullifyingGenes>
+				  </value>
+				</li>
+
+				<li Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+				  <xpath>/Defs/ThoughtDef[defName="AteFoodInappropriateForTitle"]</xpath> 
+				  <safetyDepth>1</safetyDepth>
+				  <value>
+					<nullifyingGenes>
+					  <li>WVC_Bloodeater</li>
+					  <li>WVC_EternalHunger</li>
+					  <li>WVC_Dustogenic</li>
+					  <li>WVC_SuperStomach</li>
+					  <li>WVC_DeadStomach</li>
+					  <li>WVC_Scarifier_Scarstomach</li>
+					  <li>WVC_Scarifier_ArchiteScarstomach</li>
+					</nullifyingGenes>
+				  </value>
+				</li>
+
+			</operations>
+		</match>
+	</Operation>
+
+	<!-- ================================================= -->
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/GeneDef[defName="VRE_Slow_Diseases"]</xpath>
+	  <success>Always</success>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<exclusionTags>
+		  <li>WVC_DiseaseProgression</li>
+		</exclusionTags>
+	  </value>
+	</Operation>
+
+	<!-- ================================================= -->
+
+	<!-- =TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST=TEST= -->
+
+	<!-- <Operation Class="XmlExtensions.FindMod"> -->
+		<!-- <mods> -->
+			<!-- <li>wvc.wvcmod.wvcspecific</li> -->
+		<!-- </mods> -->
+		<!-- <packageId>true</packageId> -->
+		<!-- <logic>and</logic> -->
+		<!-- <caseTrue> -->
+
+		<!-- </caseTrue> -->
+	<!-- </Operation> -->
+
+</Patch>
