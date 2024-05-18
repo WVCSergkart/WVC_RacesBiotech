@@ -32,6 +32,11 @@
 		<li><symbol>firm</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<isAptitude>true</isAptitude>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- Aptitudes -->

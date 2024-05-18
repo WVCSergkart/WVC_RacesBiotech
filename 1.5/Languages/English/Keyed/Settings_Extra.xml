@@ -29,6 +29,11 @@ Use this option only if you are sure of what you are doing.
 
 A restart is required.</WVC_ToolTip_genesCanTickOnlyOnMap>
 
+	<WVC_Label_flatGenesSpawnChances>Flat genes selection weight</WVC_Label_flatGenesSpawnChances>
+	<WVC_ToolTip_flatGenesSpawnChances>If enabled, the chances of genes spawning will be equalized like vanilla genes.
+
+A restart is required.</WVC_ToolTip_flatGenesSpawnChances>
+
 	<!-- <WVC_Label_enableBodySizeGenes>Enable body size genes</WVC_Label_enableBodySizeGenes> -->
 	<!-- <WVC_ToolTip_enableBodySizeGenes>If enabled, body size genes will visually change the size of pawns. -->
 

@@ -60,7 +60,8 @@ namespace WVC_XenotypesAndGenes
 		public bool serumsForAllXenotypes_Spawners = false;
 		// ExtraSettings
 		public bool genesCanTickOnlyOnMap = false;
-		// public bool autoPatchVanillaArchiteImmunityGenes = false;
+		public bool enable_flatGenesSpawnChances = false;
+		// public float flatGenesSpawnChances_selectionWeight = 0.001f;
 		// Fix
 		public bool fixVanillaGeneImmunityCheck = true;
 		public bool spawnXenoForcerSerumsFromTraders = true;
@@ -161,6 +162,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref serumsForAllXenotypes_Spawners, "serumsForAllXenotypes_Spawners", defaultValue: false);
 			// ExtraSettings
 			Scribe_Values.Look(ref genesCanTickOnlyOnMap, "genesCanTickOnlyOnMap", defaultValue: false);
+			Scribe_Values.Look(ref enable_flatGenesSpawnChances, "enable_flatGenesSpawnChances", defaultValue: false);
 			// Scribe_Values.Look(ref autoPatchVanillaArchiteImmunityGenes, "autoPatchVanillaArchiteImmunityGenes", defaultValue: false);
 			// Gestator
 			Scribe_Values.Look(ref xenotypeGestator_GestationTimeFactor, "xenotypeGestator_GestationTimeFactor", defaultValue: 1f);
@@ -474,6 +476,7 @@ namespace WVC_XenotypesAndGenes
 			// Extra
 			listingStandard.Label("WVC_BiotechSettings_Label_Genes".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Genes".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_genesCanTickOnlyOnMap".Translate().Colorize(ColorLibrary.LightPurple), ref settings.genesCanTickOnlyOnMap, "WVC_ToolTip_genesCanTickOnlyOnMap".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_flatGenesSpawnChances".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enable_flatGenesSpawnChances, "WVC_ToolTip_flatGenesSpawnChances".Translate());
 			// listingStandard.CheckboxLabeled("WVC_Label_autoPatchVanillaArchiteImmunityGenes".Translate().Colorize(ColorLibrary.LightBlue), ref settings.autoPatchVanillaArchiteImmunityGenes, "WVC_ToolTip_autoPatchVanillaArchiteImmunityGenes".Translate());
 			listingStandard.Gap();
 			// =============== Dev ===============
@@ -581,6 +584,14 @@ namespace WVC_XenotypesAndGenes
 					{
 						Log.Error("Genes list is null");
 					}
+				}
+				if (listingStandard.ButtonText("DEV: Log genes weights"))
+				{
+					// foreach (GeneDef geneDef in DefDatabase<GeneDef>.AllDefsListForReading)
+					// {
+						// Log.Error(geneDef.defName + " | " + geneDef.LabelCap + ": " + geneDef.selectionWeight.ToString());
+					// }
+					Log.Error("Genes weights:" + "\n" + DefDatabase<GeneDef>.AllDefsListForReading.Select((GeneDef x) => x.defName + " | " + x.LabelCap + ": " + x.selectionWeight).ToLineList(" - "));
 				}
 			}
 			listingStandard.End();
@@ -814,6 +825,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.link_removePsylinkWithGene = false;
 			// Extra
 			WVC_Biotech.settings.genesCanTickOnlyOnMap = false;
+			WVC_Biotech.settings.enable_flatGenesSpawnChances = false;
 			// WVC_Biotech.settings.autoPatchVanillaArchiteImmunityGenes = false;
 			// Xenotypes
 			WVC_Biotech.settings.enable_spawnXenotypesInFactions = false;
@@ -894,7 +906,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.reincarnation_MinChronoAge = 500f;
 			WVC_Biotech.settings.reincarnation_Chance = 0.08f;
 			// =
-			WVC_Biotech.settings.bloodeater_SafeBloodfeed = true;
+			WVC_Biotech.settings.bloodeater_SafeBloodfeed = false;
 			WVC_Biotech.settings.bloodeater_disableAutoFeed = false;
 			WVC_Biotech.settings.bloodfeeder_AutoBloodfeed = true;
 			WVC_Biotech.settings.hemogenic_ImplanterFangsChanceFactor = 1f;
@@ -908,6 +920,7 @@ namespace WVC_XenotypesAndGenes
 			// =
 			// Extra
 			WVC_Biotech.settings.genesCanTickOnlyOnMap = false;
+			WVC_Biotech.settings.enable_flatGenesSpawnChances = false;
 			// WVC_Biotech.settings.autoPatchVanillaArchiteImmunityGenes = false;
 			// Xenotypes
 			WVC_Biotech.settings.enable_spawnXenotypesInFactions = false;

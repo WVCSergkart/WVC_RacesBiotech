@@ -137,6 +137,11 @@ namespace WVC_XenotypesAndGenes
 								text = text + "\n\n" + text2.Colorize(ColorLibrary.RedReadable);
 							}
 						}
+						if (Prefs.DevMode)
+						{
+							text += "\n\n DevMode:".Colorize(ColoredText.TipSectionTitleColor);
+							text += "\n - selectionWeight: " + gene.selectionWeight.ToString();
+						}
 						if (clickable)
 						{
 							text += "\n\n" + "ClickForMoreInfo".Translate().ToString().Colorize(ColoredText.SubtleGrayColor);

@@ -11,6 +11,11 @@
 	<biostatCpx>0</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<biostatArc>0</biostatArc>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<isAptitude>true</isAptitude>
+		</li>
+	</modExtensions>
   </WVC_XenotypesAndGenes.SkillsGeneTemplateDef>
 
   <!-- Aptitude -->
@@ -207,6 +212,11 @@
 	  <li>AptitudeCrafting</li>
 	  <li>Aptitude_Crafting</li>
 	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<isAptitude>true</isAptitude>
+		</li>
+	</modExtensions>
   </GeneDef>
 
 </Defs>

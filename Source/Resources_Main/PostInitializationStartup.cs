@@ -71,6 +71,10 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
+				if (geneDef.selectionWeight > 0.01f)
+				{
+					geneDef.selectionWeight = 0.001f;
+				}
 				xenogenesGenes.Add(geneDef);
 				if (!WVC_Biotech.settings.hideXaGGenes)
 				{
@@ -134,6 +138,26 @@ namespace WVC_XenotypesAndGenes
 						{
 							mutantDef.disablesGenes.Add(geneDef);
 						}
+					}
+				}
+			}
+			if (!WVC_Biotech.settings.enable_flatGenesSpawnChances)
+			{
+				return;
+			}
+			foreach (GeneDef geneDef in xenogenesGenes)
+			{
+				if (geneDef.selectionWeight > 0f)
+				{
+					geneDef.selectionWeight = 1f / xenogenesGenes.Count;
+					if (geneDef.prerequisite != null)
+					{
+						geneDef.selectionWeight *= 0.1f;
+					}
+					GeneExtension_General extension = geneDef?.GetModExtension<GeneExtension_General>();
+					if (extension != null && extension.isAptitude)
+					{
+						geneDef.selectionWeight *= 0.02f;
 					}
 				}
 			}

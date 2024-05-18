@@ -161,6 +161,9 @@ namespace WVC_XenotypesAndGenes
 		public List<MutantDef> supportedMutantDefs;
 		// implanter
 		public float reimplantChance = 0.02f;
+		// weight flatter
+		// public float selectionWeight = 1f;
+		public bool isAptitude = false;
 	}
 
 	public class GeneExtension_Graphic : DefModExtension
