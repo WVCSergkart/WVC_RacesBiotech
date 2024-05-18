@@ -9,7 +9,7 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		public int cachedMetabolism;
-		public int refreshInterval = 11982;
+		public int refreshInterval = 59389;
 
 		private HediffStage curStage;
 
@@ -58,29 +58,28 @@ namespace WVC_XenotypesAndGenes
 		public void RecacheScars()
 		{
 			int num2 = 0;
-			foreach (Gene item in pawn.genes.GenesListForReading)
+			if (WVC_Biotech.settings.enable_chimeraMetabolismHungerFactor)
 			{
-				if (!item.Overridden)
+				foreach (Gene item in pawn.genes.GenesListForReading)
 				{
-					num2 += item.def.biostatMet;
+					if (!item.Overridden)
+					{
+						num2 += item.def.biostatMet;
+					}
+				}
+				if (num2 >= 5)
+				{
+					num2 -= 5;
+				}
+				else if (num2 <= -5)
+				{
+					num2 += 5;
+				}
+				else
+				{
+					num2 = 0;
 				}
 			}
-			if (num2 >= 5)
-			{
-				num2 -= 5;
-			}
-			else if (num2 <= -5)
-			{
-				num2 += 5;
-			}
-			else
-			{
-				num2 = 0;
-			}
-			// if (num2 < 0)
-			// {
-				// num2 *= -1;
-			// }
 			cachedMetabolism = num2;
 			curStage = null;
 		}

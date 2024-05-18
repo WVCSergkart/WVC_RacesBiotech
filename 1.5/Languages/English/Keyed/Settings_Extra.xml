@@ -129,11 +129,18 @@ Removing a psylink should not lead to serious bugs, but unexpected errors and co
 
 	<!-- ================================== -->
 
-	<WVC_Label_shapeshifter_enableStyleButton>Enable style button.</WVC_Label_shapeshifter_enableStyleButton>
+	<WVC_Label_shapeshifter_enableStyleButton>Enable style button</WVC_Label_shapeshifter_enableStyleButton>
 	<WVC_ToolTip_shapeshifter_enableStyleButton>If enabled, the shapeshifter gene will also allow you to change the style of the pawn at any time. This option allows you to change the hairstyle and its color, the beard and its color, tattoos for the face and body.
 
 Acts the same as the styling station from ideology, but does not allow you to dye clothes.
 
 Requires the Ideology DLC, for obvious reasons.</WVC_ToolTip_shapeshifter_enableStyleButton>
+
+	<!-- ================================== -->
+
+	<WVC_Label_enable_chimeraMetabolismHungerFactor>Сhimera metabolism hunger factor</WVC_Label_enable_chimeraMetabolismHungerFactor>
+	<WVC_ToolTip_enable_chimeraMetabolismHungerFactor>If enabled, the chimera gene will change the hunger factor depending on genetic metabolism, as if there were no limit on the multiplier.
+
+Disable this option if you have any mods that change the mechanics of the hunger multiplier from metabolism.</WVC_ToolTip_enable_chimeraMetabolismHungerFactor>
 
 </LanguageData>
