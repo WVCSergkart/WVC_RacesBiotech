@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenes">
+	<defName>WVC_Chimera_GeneDigestor</defName>
+	<label>gene digestor</label>
+	<description>Carriers of this gene have archites that slowly absorb the genes eaten by the chimera and create new ones.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_GeneDigestor</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Chimera_GeneEaterStomach_v0</iconPath>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<!-- <li>Copies &lt;color=#8a8ae6&gt;random gene&lt;/color&gt; contained in the target &lt;color=#8a8ae6&gt;genepack&lt;/color&gt;. Genepack is destroyed in the process.</li> -->
+		<li>Destroys 1-3 &lt;color=#8a8ae6&gt;eaten genes&lt;/color&gt; every day.</li>
+		<li>&lt;color=#ff8585&gt;Destroyed&lt;/color&gt; genes cannot be &lt;color=#8a8ae6&gt;re-obtained&lt;/color&gt; or &lt;color=#8a8ae6&gt;re-eaten&lt;/color&gt;.</li>
+		<li>With some chance, for each destroyed gene it can &lt;color=#8a8ae6&gt;give&lt;/color&gt; a &lt;color=#8a8ae6&gt;random&lt;/color&gt; not received &lt;color=#8a8ae6&gt;gene&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<selectionWeight>0.5</selectionWeight>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<spawnIntervalRange>55000~139000</spawnIntervalRange>
+			<digestRange>1~3</digestRange>
+			<soundDef>WVC_OneShot_PredatorSmall_Eat</soundDef>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

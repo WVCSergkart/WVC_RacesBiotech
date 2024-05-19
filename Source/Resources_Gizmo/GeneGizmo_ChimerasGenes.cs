@@ -24,6 +24,8 @@ namespace WVC_XenotypesAndGenes
 
 		public int usedBandwidth = 0;
 
+		// public bool overcap = false;
+
 		// public int allGenesCount = 0;
 
 		// public List<Pawn> allDryads = new();
@@ -89,6 +91,10 @@ namespace WVC_XenotypesAndGenes
 			Widgets.Label(rect3, text);
 			Text.Anchor = TextAnchor.UpperLeft;
 			int num = (int)Mathf.Max(usedBandwidth, totalBandwidth);
+			if (num > 100)
+			{
+				num = (int)(num * 0.05f);
+			}
 			Rect rect4 = new(rect2.x, rect3.yMax + 6f, rect2.width, rect2.height - rect3.height - 6f);
 			int num2 = 2;
 			int num3 = Mathf.FloorToInt(rect4.height / (float)num2);
@@ -100,9 +106,10 @@ namespace WVC_XenotypesAndGenes
 				num3 = Mathf.FloorToInt(rect4.height / (float)num2);
 				num4 = Mathf.FloorToInt(rect4.width / (float)num3);
 				num5++;
-				if (num5 >= 1000)
+				if (num5 >= 100)
 				{
-					Log.Error("Failed to fit bandwidth cells into gizmo rect.");
+					// overcap = true;
+					// Log.Error("Failed to fit bandwidth cells into gizmo rect.");
 					return new GizmoResult(GizmoState.Clear);
 				}
 			}

@@ -87,6 +87,10 @@ namespace WVC_XenotypesAndGenes
 		//BloodyGrowths
 		public float hemogenPerThing = 0.2f;
 		public ThingStyleDef styleDef = null;
+		// GeneDigester
+		public IntRange digestRange = new(1, 2);
+		public float chance = 0.66f;
+		public SoundDef soundDef;
 	}
 
 	public class GeneExtension_Undead : DefModExtension
@@ -162,7 +166,7 @@ namespace WVC_XenotypesAndGenes
 		// implanter
 		public float reimplantChance = 0.02f;
 		// weight flatter
-		// public float selectionWeight = 1f;
+		public float selectionWeight = 1f;
 		public bool isAptitude = false;
 	}
 
@@ -178,7 +182,9 @@ namespace WVC_XenotypesAndGenes
 		[Obsolete]
 		public bool furCanRot = true;
 		// BodySize
+		[Obsolete]
 		public float bodyScaleFactor = 1f;
+		[Obsolete]
 		public float headScaleFactor = 1f;
 	}
 

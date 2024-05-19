@@ -69,6 +69,11 @@
 		<li>Copies a &lt;color=#8a8ae6&gt;random gene&lt;/color&gt; from the target and adds it to the &lt;color=#8a8ae6&gt;chimera&lt;/color&gt;.</li>
 		<li>After use it has a cooldown of 9 days.</li>
 	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<selectionWeight>3</selectionWeight>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- Abilities -->
@@ -133,6 +138,11 @@
 	<customEffectDescriptions>
 		<li>Copies &lt;color=#8a8ae6&gt;random gene&lt;/color&gt; contained in the target &lt;color=#8a8ae6&gt;genepack&lt;/color&gt;. Genepack is destroyed in the process.</li>
 	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<selectionWeight>3</selectionWeight>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- Abilities -->

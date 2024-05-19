@@ -44,19 +44,27 @@
 	  <!-- </value> -->
 	<!-- </Operation> -->
 
-	<Operation Class="PatchOperationReplace">
-		<xpath>/Defs/GeneDef[defName="WVC_MecaUpgrades_PerfectShape"]/statOffsets/PawnBeauty</xpath>
-		<success>Always</success>
-		<value>
-			<PawnBeauty>6</PawnBeauty>
-		</value>
-	</Operation>
+	<!-- <Operation Class="PatchOperationReplace"> -->
+		<!-- <xpath>/Defs/GeneDef[defName="WVC_MecaUpgrades_PerfectShape"]/statOffsets/PawnBeauty</xpath> -->
+		<!-- <success>Always</success> -->
+		<!-- <value> -->
+			<!-- <PawnBeauty>6</PawnBeauty> -->
+		<!-- </value> -->
+	<!-- </Operation> -->
+
+	<!-- <Operation Class="PatchOperationAdd"> -->
+		<!-- <xpath>/Defs/GeneDef[defName="WVC_Dustogenic"]/modExtensions/li/specialFoodDefs</xpath> -->
+		<!-- <success>Always</success> -->
+		<!-- <value> -->
+		  <!-- <li>MealNutrientPaste</li> -->
+		<!-- </value> -->
+	<!-- </Operation> -->
 
 	<Operation Class="PatchOperationAdd">
-		<xpath>/Defs/GeneDef[defName="WVC_Dustogenic"]/modExtensions/li/specialFoodDefs</xpath>
+		<xpath>/Defs/MemeDef[defName="WVC_Shapeshifterist"]/requireOne/li[@Tag="ReclusePrecepts"]</xpath>
 		<success>Always</success>
 		<value>
-		  <li>MealNutrientPaste</li>
+		  <li>WVC_Shapeshifters_OneManArmy</li>
 		</value>
 	</Operation>
 

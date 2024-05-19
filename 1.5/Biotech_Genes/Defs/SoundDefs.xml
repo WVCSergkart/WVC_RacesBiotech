@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <SoundDef>
+	<defName>WVC_OneShot_PredatorSmall_Eat</defName>
+	<context>MapOnly</context>
+	<maxSimultaneous>1</maxSimultaneous>
+	<subSounds>
+	  <li>
+		<grains>
+		  <li Class="AudioGrain_Folder">
+			<clipFolderPath>Pawn/Animal/Eating/PredatorSmall</clipFolderPath>
+		  </li>
+		</grains>
+		<volumeRange>20</volumeRange>
+		<distRange>10~35</distRange>
+	  </li>
+	</subSounds>
+  </SoundDef>
+
+</Defs>

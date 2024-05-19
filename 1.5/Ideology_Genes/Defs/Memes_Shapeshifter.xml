@@ -8,38 +8,11 @@
 		<iconPath>WVC/UI/Precepts/Meme_Shapeshifter2_v0</iconPath>
 		<groupDef>Misc</groupDef>
 		<impact>2</impact>
-		<!-- <exclusionTags> -->
-		  <!-- <li>WVC_GeneticSupremacy</li> -->
-		<!-- </exclusionTags> -->
 		<requireOne>
-		  <li>
+		  <li Tag="ReclusePrecepts">
 			<li>WVC_Shapeshifters_Recluse</li>
 			<li>WVC_Shapeshifters_Revered</li>
 		  </li>
-		  <!-- <li> -->
-			<!-- <li>Cannibalism_Acceptable</li> -->
-		  <!-- </li> -->
-		  <!-- <li> -->
-			<!-- <li>Corpses_DontCare</li> -->
-		  <!-- </li> -->
-		  <!-- <li> -->
-			<!-- <li>NutrientPasteEating_DontMind</li> -->
-		  <!-- </li> -->
-		  <!-- <li> -->
-			<!-- <li>Slavery_Acceptable</li> -->
-		  <!-- </li> -->
-		  <!-- <li> -->
-			<!-- <li>Lovin_Free</li> -->
-		  <!-- </li> -->
-		  <!-- <li> -->
-			<!-- <li>Nudity_Male_NoRules</li> -->
-		  <!-- </li> -->
-		  <!-- <li> -->
-			<!-- <li>Nudity_Female_NoRules</li> -->
-		  <!-- </li> -->
-		  <!-- <li> -->
-			<!-- <li>OrganUse_Acceptable</li> -->
-		  <!-- </li> -->
 		</requireOne>
 	</MemeDef>
 

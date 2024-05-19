@@ -191,35 +191,35 @@ namespace WVC_XenotypesAndGenes
 				// }
 			// }
 
-			public static void BodyGraphicSize(ref float __result, ref Pawn pawn)
-			{
-				Gene_BodySize gene = pawn?.genes?.GetFirstGeneOfType<Gene_BodySize>();
-				if (gene == null)
-				{
-					return;
-				}
-				GeneExtension_Graphic modExtension = gene.Graphic;
-				if (modExtension == null)
-				{
-					return;
-				}
-				__result *= modExtension.bodyScaleFactor;
-			}
+			// public static void BodyGraphicSize(ref float __result, ref Pawn pawn)
+			// {
+				// Gene_BodySize gene = pawn?.genes?.GetFirstGeneOfType<Gene_BodySize>();
+				// if (gene == null)
+				// {
+					// return;
+				// }
+				// GeneExtension_Graphic modExtension = gene.Graphic;
+				// if (modExtension == null)
+				// {
+					// return;
+				// }
+				// __result *= modExtension.bodyScaleFactor;
+			// }
 
-			public static void HeadGraphicSize(ref float __result, ref Pawn pawn)
-			{
-				Gene_BodySize gene = pawn?.genes?.GetFirstGeneOfType<Gene_BodySize>();
-				if (gene == null)
-				{
-					return;
-				}
-				GeneExtension_Graphic modExtension = gene.Graphic;
-				if (modExtension == null)
-				{
-					return;
-				}
-				__result *= modExtension.headScaleFactor;
-			}
+			// public static void HeadGraphicSize(ref float __result, ref Pawn pawn)
+			// {
+				// Gene_BodySize gene = pawn?.genes?.GetFirstGeneOfType<Gene_BodySize>();
+				// if (gene == null)
+				// {
+					// return;
+				// }
+				// GeneExtension_Graphic modExtension = gene.Graphic;
+				// if (modExtension == null)
+				// {
+					// return;
+				// }
+				// __result *= modExtension.headScaleFactor;
+			// }
 
 			public static void FurskinIsSkin(Pawn pawn, ref Graphic __result)
 			{

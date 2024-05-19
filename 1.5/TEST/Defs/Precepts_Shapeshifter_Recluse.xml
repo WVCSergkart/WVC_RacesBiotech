@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <PreceptDef>
+	<defName>WVC_Shapeshifters_OneManArmy</defName>
+	<issue>WVC_Shapeshifters</issue>
+	<label>one man army</label>
+	<description>We must stand alone. Together we are more vulnerable than apart.</description>
+	<impact>High</impact>
+	<requiredMemes>
+	  <li>WVC_Shapeshifterist</li>
+	</requiredMemes>
+	<enabledForNPCFactions>false</enabledForNPCFactions>
+	<statOffsets>
+	  <MentalBreakThreshold>-0.16</MentalBreakThreshold>
+	  <WorkSpeedGlobal>0.5</WorkSpeedGlobal>
+	  <GlobalLearningFactor>0.5</GlobalLearningFactor>
+	</statOffsets>
+	<comps>
+	  <li Class="PreceptComp_SituationalThought">
+		<thought>WVC_Shapeshifters_OneManArmy_Humanlikes</thought>
+		<description>For each colonist (non-quest, non-duplicate) above 1</description>
+	  </li>
+	  <li Class="PreceptComp_DevelopmentPoints">
+		<eventDef>WVC_Shapeshift</eventDef>
+		<eventLabel>shapeshift</eventLabel>
+		<points>20</points>
+	  </li>
+	</comps>
+  </PreceptDef>
+
+  <ThoughtDef>
+	<defName>WVC_Shapeshifters_OneManArmy_Humanlikes</defName>
+	<thoughtClass>Thought_Situational</thoughtClass>
+	<workerClass>WVC_XenotypesAndGenes.ThoughtWorker_Precept_MoreThanOneColonistsInFaction</workerClass>
+	<stages>
+	  <li>
+		<label>one man army</label>
+		<description>We must stand alone. Together we are more vulnerable than apart.</description>
+		<baseMoodEffect>-20</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+</Defs>
