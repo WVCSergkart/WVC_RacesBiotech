@@ -190,7 +190,7 @@ namespace WVC_XenotypesAndGenes
 			List<GeneDef> geneDefs = DefDatabase<GeneDef>.AllDefsListForReading;
 			while (stolenGenes.Count < 5)
 			{
-				if (geneDefs.Where((GeneDef x) => x.endogeneCategory == EndogeneCategory.None && x.selectionWeight > 0f && x.canGenerateInGeneSet && x.passOnDirectly && !AllGenes.Contains(x) && x.biostatArc == 0).TryRandomElementByWeight((GeneDef gene) => gene.selectionWeight, out GeneDef result))
+				if (geneDefs.Where((GeneDef x) => x.endogeneCategory == EndogeneCategory.None && x.selectionWeight > 0f && x.canGenerateInGeneSet && x.passOnDirectly && !AllGenes.Contains(x)).TryRandomElementByWeight((GeneDef gene) => (gene.selectionWeight * (gene.biostatArc != 0 ? 0.01f : 1f)) + (gene.prerequisite == def ? 3f : 0f), out GeneDef result))
 				{
 					AddGene(result);
 				}
