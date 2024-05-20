@@ -46,6 +46,33 @@
 				  </value>
 				</li>
 
+				<li Class="PatchOperationAdd">
+				  <xpath>/Defs/StatDef[@Name="MarketValueBase"]/parts</xpath>
+				  <value>
+					  <li Class="WVC_XenotypesAndGenes.StatPart_XenotypeSerum" MayRequire="Ludeon.RimWorld.Biotech">
+						<xenotypeCostMult>320</xenotypeCostMult>
+					  </li>
+				  </value>
+				</li>
+
+				<li Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+					<settingName>spawnXenoForcerSerumsFromTraders</settingName>
+					<caseTrue Class="PatchOperationSequence">
+						<operations>
+							<li Class="PatchOperationAdd">
+							  <xpath>/Defs/TraderKindDef/stockGenerators[li[thingDef="Genepack"]]</xpath>
+							  <value>
+								  <li Class="StockGenerator_Tag">
+									<tradeTag>WVC_XenotypeSerums_NonCraftable</tradeTag>
+									<thingDefCountRange>0~2</thingDefCountRange>
+									<countRange>1~1</countRange>
+								  </li>
+							  </value>
+							</li>
+						</operations>
+					</caseTrue>
+				</li>
+
 			</operations>
 		</caseFalse>
 	</Operation>
@@ -110,81 +137,112 @@
 
 	<!-- ======================================================== -->
 
-	<Operation Class="PatchOperationSequence">
-		<success>Always</success>
-		<operations>
-			<li Class="PatchOperationTest">
-			  <xpath>/Defs/ThoughtDef[defName="Pain"]/nullifyingGenes</xpath>
-			  <success>Invert</success>
-			</li>
-			<li Class="PatchOperationAdd">
-			  <xpath>/Defs/ThoughtDef[defName="Pain"]</xpath>
-			  <success>Always</success>
-			  <value>
-				<nullifyingGenes/>
-			  </value>
-			</li>
-		</operations>
-	</Operation>
-	<Operation Class="PatchOperationAdd">
-	  <xpath>/Defs/ThoughtDef[defName="Pain"]/nullifyingGenes</xpath>
+	<!-- <Operation Class="PatchOperationSequence"> -->
+		<!-- <success>Always</success> -->
+		<!-- <operations> -->
+			<!-- <li Class="PatchOperationTest"> -->
+			  <!-- <xpath>/Defs/ThoughtDef[defName="Pain"]/nullifyingGenes</xpath> -->
+			  <!-- <success>Invert</success> -->
+			<!-- </li> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/ThoughtDef[defName="Pain"]</xpath> -->
+			  <!-- <success>Always</success> -->
+			  <!-- <value> -->
+				<!-- <nullifyingGenes/> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+		<!-- </operations> -->
+	<!-- </Operation> -->
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/ThoughtDef[defName="Pain"]/nullifyingGenes</xpath> -->
+	  <!-- <value> -->
+		  <!-- <li>WVC_Scarifier_Pain</li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="Pain"]</xpath>
+	  <safetyDepth>1</safetyDepth>
 	  <value>
+		<nullifyingGenes>
 		  <li>WVC_Scarifier_Pain</li>
+		</nullifyingGenes>
 	  </value>
 	</Operation>
 
-	<Operation Class="PatchOperationSequence">
-		<success>Always</success>
-		<operations>
-			<li Class="PatchOperationTest">
-			  <xpath>/Defs/ThingDef[@Name="AnimalThingBase"]/race/willNeverEat</xpath>
-			  <success>Invert</success>
-			</li>
-			<li Class="PatchOperationAdd">
-			  <xpath>/Defs/ThingDef[@Name="AnimalThingBase"]/race</xpath>
-			  <success>Always</success>
-			  <value>
-				<willNeverEat/>
-			  </value>
-			</li>
-		</operations>
-	</Operation>
-	<Operation Class="PatchOperationAdd">
-	  <xpath>/Defs/ThingDef[@Name="AnimalThingBase"]/race/willNeverEat</xpath>
+	<!-- <Operation Class="PatchOperationSequence"> -->
+		<!-- <success>Always</success> -->
+		<!-- <operations> -->
+			<!-- <li Class="PatchOperationTest"> -->
+			  <!-- <xpath>/Defs/ThingDef[@Name="AnimalThingBase"]/race/willNeverEat</xpath> -->
+			  <!-- <success>Invert</success> -->
+			<!-- </li> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/ThingDef[@Name="AnimalThingBase"]/race</xpath> -->
+			  <!-- <success>Always</success> -->
+			  <!-- <value> -->
+				<!-- <willNeverEat/> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+		<!-- </operations> -->
+	<!-- </Operation> -->
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/ThingDef[@Name="AnimalThingBase"]/race/willNeverEat</xpath> -->
+	  <!-- <value> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThingDef[@Name="AnimalThingBase"]</xpath>
+	  <safetyDepth>2</safetyDepth>
 	  <value>
-		<!-- Plants -->
-		<li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeXenoSpawner</li>
-		<!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_XenoBulb</li> -->
-		<li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeResurgent</li>
-		<li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeXenoSpawner</li>
-		<!-- Edible Non-Food -->
-		<!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MealDustPack</li> -->
-		<!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MealDustogenicPaste</li> -->
-		<li MayRequire="Ludeon.RimWorld.Biotech">WVC_NutrientsInjector</li>
-		<li MayRequire="Ludeon.RimWorld.Biotech">WVC_UniversalFuel</li>
+		<race>
+		  <willNeverEat>
+			<!-- Plants -->
+			<li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeXenoSpawner</li>
+			<!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_XenoBulb</li> -->
+			<li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeResurgent</li>
+			<li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeXenoSpawner</li>
+			<!-- Edible Non-Food -->
+			<!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MealDustPack</li> -->
+			<!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MealDustogenicPaste</li> -->
+			<li MayRequire="Ludeon.RimWorld.Biotech">WVC_NutrientsInjector</li>
+			<li MayRequire="Ludeon.RimWorld.Biotech">WVC_UniversalFuel</li>
+		  </willNeverEat>
+		</race>
 	  </value>
 	</Operation>
 
-	<Operation Class="PatchOperationSequence">
-		<success>Always</success>
-		<operations>
-			<li Class="PatchOperationTest">
-			  <xpath>/Defs/ThoughtDef[defName="WrongApparelGender"]/nullifyingGenes</xpath>
-			  <success>Invert</success>
-			</li>
-			<li Class="PatchOperationAdd">
-			  <xpath>/Defs/ThoughtDef[defName="WrongApparelGender"]</xpath>
-			  <success>Always</success>
-			  <value>
-				<nullifyingGenes/>
-			  </value>
-			</li>
-		</operations>
-	</Operation>
-	<Operation Class="PatchOperationAdd">
-	  <xpath>/Defs/ThoughtDef[defName="WrongApparelGender"]/nullifyingGenes</xpath>
+	<!-- <Operation Class="PatchOperationSequence"> -->
+		<!-- <success>Always</success> -->
+		<!-- <operations> -->
+			<!-- <li Class="PatchOperationTest"> -->
+			  <!-- <xpath>/Defs/ThoughtDef[defName="WrongApparelGender"]/nullifyingGenes</xpath> -->
+			  <!-- <success>Invert</success> -->
+			<!-- </li> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/ThoughtDef[defName="WrongApparelGender"]</xpath> -->
+			  <!-- <success>Always</success> -->
+			  <!-- <value> -->
+				<!-- <nullifyingGenes/> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+		<!-- </operations> -->
+	<!-- </Operation> -->
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/ThoughtDef[defName="WrongApparelGender"]/nullifyingGenes</xpath> -->
+	  <!-- <value> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="WrongApparelGender"]</xpath>
+	  <safetyDepth>1</safetyDepth>
 	  <value>
+		<nullifyingGenes>
 		  <li>WVC_Feminine</li>
+		  <li>WVC_DryadSkin</li>
+		</nullifyingGenes>
 	  </value>
 	</Operation>
 

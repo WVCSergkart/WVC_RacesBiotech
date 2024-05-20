@@ -18,29 +18,40 @@
 		</operations>
 	</Operation>
 
-	<Operation Class="PatchOperationSequence">
-		<success>Always</success>
-		<operations>
-			<li Class="PatchOperationAdd">
-			  <xpath>/Defs/ThoughtDef[defName="Disfigured"]/nullifyingGenes</xpath>
-			  <success>Invert</success>
-			  <value>
-				  <li>WVC_Scarifier</li>
-				  <li>WVC_Scarifier_Clotting</li>
-			  </value>
-			</li>
-			<li Class="PatchOperationAdd">
-			  <xpath>/Defs/ThoughtDef[defName="Disfigured"]</xpath>
-			  <success>Always</success>
-			  <value>
-				<nullifyingGenes>
-				  <li>WVC_Scarifier</li>
-				  <li>WVC_Scarifier_Clotting</li>
-				</nullifyingGenes>
-			  </value>
-			</li>
-		</operations>
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="Disfigured"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li>WVC_Scarifier</li>
+		  <li>WVC_Scarifier_Clotting</li>
+		</nullifyingGenes>
+	  </value>
 	</Operation>
+
+	<!-- <Operation Class="PatchOperationSequence"> -->
+		<!-- <success>Always</success> -->
+		<!-- <operations> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/ThoughtDef[defName="Disfigured"]/nullifyingGenes</xpath> -->
+			  <!-- <success>Invert</success> -->
+			  <!-- <value> -->
+				  <!-- <li>WVC_Scarifier</li> -->
+				  <!-- <li>WVC_Scarifier_Clotting</li> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/ThoughtDef[defName="Disfigured"]</xpath> -->
+			  <!-- <success>Always</success> -->
+			  <!-- <value> -->
+				<!-- <nullifyingGenes> -->
+				  <!-- <li>WVC_Scarifier</li> -->
+				  <!-- <li>WVC_Scarifier_Clotting</li> -->
+				<!-- </nullifyingGenes> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+		<!-- </operations> -->
+	<!-- </Operation> -->
 
 	<!-- <Operation Class="PatchOperationSequence"> -->
 		<!-- <success>Always</success> -->
@@ -64,48 +75,58 @@
 		<!-- </operations> -->
 	<!-- </Operation> -->
 
-	<Operation Class="PatchOperationSequence">
-		<success>Always</success>
-		<operations>
-			<li Class="PatchOperationAdd">
-			  <xpath>/Defs/PreceptDef[defName="PreferredXenotype"]/conflictingMemes</xpath>
-			  <success>Invert</success>
-			  <value>
-				  <li>WVC_XenotypesSupremacy</li>
-			  </value>
-			</li>
-			<li Class="PatchOperationAdd">
-			  <xpath>/Defs/PreceptDef[defName="PreferredXenotype"]</xpath>
-			  <success>Always</success>
-			  <value>
-				<conflictingMemes>
-				  <li>WVC_XenotypesSupremacy</li>
-				</conflictingMemes>
-			  </value>
-			</li>
-		</operations>
-	</Operation>
+	<!-- <Operation Class="PatchOperationSequence"> -->
+		<!-- <success>Always</success> -->
+		<!-- <operations> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/PreceptDef[defName="PreferredXenotype"]/conflictingMemes</xpath> -->
+			  <!-- <success>Invert</success> -->
+			  <!-- <value> -->
+				  <!-- <li>WVC_XenotypesSupremacy</li> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/PreceptDef[defName="PreferredXenotype"]</xpath> -->
+			  <!-- <success>Always</success> -->
+			  <!-- <value> -->
+				<!-- <conflictingMemes> -->
+				  <!-- <li>WVC_XenotypesSupremacy</li> -->
+				<!-- </conflictingMemes> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+		<!-- </operations> -->
+	<!-- </Operation> -->
 
-	<Operation Class="PatchOperationSequence">
-		<success>Always</success>
-		<operations>
-			<li Class="PatchOperationAdd">
-			  <xpath>/Defs/PreceptDef[defName="AnimalVenerated"]/conflictingMemes</xpath>
-			  <success>Invert</success>
-			  <value>
-				  <li>WVC_XenotypesSupremacy</li>
-			  </value>
-			</li>
-			<li Class="PatchOperationAdd">
-			  <xpath>/Defs/PreceptDef[defName="AnimalVenerated"]</xpath>
-			  <success>Always</success>
-			  <value>
-				<conflictingMemes>
-				  <li>WVC_XenotypesSupremacy</li>
-				</conflictingMemes>
-			  </value>
-			</li>
-		</operations>
+	<!-- <Operation Class="PatchOperationSequence"> -->
+		<!-- <success>Always</success> -->
+		<!-- <operations> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/PreceptDef[defName="AnimalVenerated"]/conflictingMemes</xpath> -->
+			  <!-- <success>Invert</success> -->
+			  <!-- <value> -->
+				  <!-- <li>WVC_XenotypesSupremacy</li> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+			<!-- <li Class="PatchOperationAdd"> -->
+			  <!-- <xpath>/Defs/PreceptDef[defName="AnimalVenerated"]</xpath> -->
+			  <!-- <success>Always</success> -->
+			  <!-- <value> -->
+				<!-- <conflictingMemes> -->
+				  <!-- <li>WVC_XenotypesSupremacy</li> -->
+				<!-- </conflictingMemes> -->
+			  <!-- </value> -->
+			<!-- </li> -->
+		<!-- </operations> -->
+	<!-- </Operation> -->
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/PreceptDef[defName="AnimalVenerated" or defName="PreferredXenotype"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<conflictingMemes>
+		  <li>WVC_XenotypesSupremacy</li>
+		</conflictingMemes>
+	  </value>
 	</Operation>
 
 	<!-- <Operation Class="PatchOperationSequence"> -->

@@ -8,7 +8,7 @@
 	<displayOrderInCategory>400</displayOrderInCategory>
 	<selectionWeight>0.00185</selectionWeight>
 	<iconColor>(0.75, 0.75, 0.75)</iconColor>
-	<randomChosen>false</randomChosen>
+	<!-- <randomChosen>false</randomChosen> -->
 	<canGenerateInGeneSet>true</canGenerateInGeneSet>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>0</biostatArc>
