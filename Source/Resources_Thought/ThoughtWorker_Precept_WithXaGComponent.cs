@@ -5,29 +5,27 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public abstract class ThoughtWorker_PreceptWithXaGComponent : ThoughtWorker_Precept
-	{
+	// public abstract class ThoughtWorker_PreceptWithXaGComponent : ThoughtWorker_Precept
+	// {
 
-		[Unsaved(false)]
-		private XaG_GameComponent cachedGameComponent;
+		// [Unsaved(false)]
+		// private XaG_GameComponent cachedGameComponent;
 
-		public XaG_GameComponent GameComponent
-		{
-			get
-			{
-				if (cachedGameComponent == null || Current.Game != cachedGameComponent.currentGame)
-				{
-					cachedGameComponent = Current.Game.GetComponent<XaG_GameComponent>();
-				}
-				return cachedGameComponent;
-			}
-		}
+		// public XaG_GameComponent GameComponent
+		// {
+			// get
+			// {
+				// if (cachedGameComponent == null || Current.Game != cachedGameComponent.currentGame)
+				// {
+					// cachedGameComponent = Current.Game.GetComponent<XaG_GameComponent>();
+				// }
+				// return cachedGameComponent;
+			// }
+		// }
 
-		// public XaG_GameComponent GameComponent => Current.Game.GetComponent<XaG_GameComponent>();
+	// }
 
-	}
-
-	public class ThoughtWorker_Precept_HasAnyXenotypesAndCount : ThoughtWorker_PreceptWithXaGComponent
+	public class ThoughtWorker_Precept_HasAnyXenotypesAndCount : ThoughtWorker_Precept
 	{
 
 		protected override ThoughtState ShouldHaveThought(Pawn p)
@@ -36,7 +34,7 @@ namespace WVC_XenotypesAndGenes
 			// {
 				// return false;
 			// }
-			if (GameComponent.cachedXenotypesCount > 0)
+			if (StaticCollectionsClass.cachedXenotypesCount > 0)
 			{
 				return ThoughtState.ActiveDefault;
 			}
@@ -45,12 +43,12 @@ namespace WVC_XenotypesAndGenes
 
 		public override float MoodMultiplier(Pawn p)
 		{
-			return GameComponent.cachedXenotypesCount;
+			return StaticCollectionsClass.cachedXenotypesCount;
 		}
 
 	}
 
-	public class ThoughtWorker_Precept_HasAnyNonHumanlikeAndCount : ThoughtWorker_PreceptWithXaGComponent
+	public class ThoughtWorker_Precept_HasAnyNonHumanlikeAndCount : ThoughtWorker_Precept
 	{
 
 		protected override ThoughtState ShouldHaveThought(Pawn p)
@@ -59,7 +57,7 @@ namespace WVC_XenotypesAndGenes
 			// {
 				// return false;
 			// }
-			if (GameComponent.cachedNonHumansCount > 0)
+			if (StaticCollectionsClass.cachedNonHumansCount > 0)
 			{
 				return ThoughtState.ActiveDefault;
 			}
@@ -68,21 +66,17 @@ namespace WVC_XenotypesAndGenes
 
 		public override float MoodMultiplier(Pawn p)
 		{
-			return GameComponent.cachedNonHumansCount;
+			return StaticCollectionsClass.cachedNonHumansCount;
 		}
 
 	}
 
-	public class ThoughtWorker_Precept_MoreThanFiveColonistsInFaction : ThoughtWorker_PreceptWithXaGComponent
+	public class ThoughtWorker_Precept_MoreThanFiveColonistsInFaction : ThoughtWorker_Precept
 	{
 
 		protected override ThoughtState ShouldHaveThought(Pawn p)
 		{
-			// if (p.Faction != Faction.OfPlayer)
-			// {
-				// return false;
-			// }
-			if (GameComponent.cachedPawnsCount > 5)
+			if (StaticCollectionsClass.cachedPawnsCount > 5)
 			{
 				return ThoughtState.ActiveDefault;
 			}
@@ -91,21 +85,21 @@ namespace WVC_XenotypesAndGenes
 
 		public override float MoodMultiplier(Pawn p)
 		{
-			if (GameComponent.cachedPawnsCount > 5)
+			if (StaticCollectionsClass.cachedPawnsCount > 5)
 			{
-				return GameComponent.cachedPawnsCount - 5;
+				return StaticCollectionsClass.cachedPawnsCount - 5;
 			}
 			return 0f;
 		}
 
 	}
 
-	public class ThoughtWorker_Precept_MoreThanOneColonistsInFaction : ThoughtWorker_PreceptWithXaGComponent
+	public class ThoughtWorker_Precept_MoreThanOneColonistsInFaction : ThoughtWorker_Precept
 	{
 
 		protected override ThoughtState ShouldHaveThought(Pawn p)
 		{
-			if (GameComponent.cachedPawnsCount > 1)
+			if (StaticCollectionsClass.cachedPawnsCount > 1)
 			{
 				return ThoughtState.ActiveDefault;
 			}
@@ -114,9 +108,9 @@ namespace WVC_XenotypesAndGenes
 
 		public override float MoodMultiplier(Pawn p)
 		{
-			if (GameComponent.cachedPawnsCount > 1)
+			if (StaticCollectionsClass.cachedPawnsCount > 1)
 			{
-				return GameComponent.cachedPawnsCount - 1;
+				return StaticCollectionsClass.cachedPawnsCount - 1;
 			}
 			return 0f;
 		}

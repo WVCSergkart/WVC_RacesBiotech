@@ -15,11 +15,11 @@ namespace WVC_XenotypesAndGenes
 			// Apply();
 		// }
 
-		private int nextRecache = 1500;
+		private int nextRecache = 444;
 
-		public int cachedPawnsCount = 0;
-		public int cachedXenotypesCount = 0;
-		public int cachedNonHumansCount = 0;
+		// public int cachedPawnsCount = 0;
+		// public int cachedXenotypesCount = 0;
+		// public int cachedNonHumansCount = 0;
 
 		// public List<Pawn> cachedBloodHunters;
 
@@ -46,7 +46,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			XaG_General();
-			ResetCounter(new(50000, 70000));
+			ResetCounter(new(40000, 70000));
 		}
 
 		public void XaG_General()
@@ -54,19 +54,18 @@ namespace WVC_XenotypesAndGenes
 			// cachedBloodHunters = XaG_GeneUtility.GetAllBloodHunters();
 			if (ModLister.IdeologyInstalled)
 			{
-				cachedPawnsCount = MiscUtility.CountAllPlayerControlledColonistsExceptClonesAndQuests();
-				cachedXenotypesCount = MiscUtility.CountAllPlayerXenos();
-				cachedNonHumansCount = MiscUtility.CountAllPlayerNonHumanlikes();
+				StaticCollectionsClass.cachedPawnsCount = MiscUtility.CountAllPlayerControlledColonistsExceptClonesAndQuests();
+				StaticCollectionsClass.cachedXenotypesCount = MiscUtility.CountAllPlayerXenos();
+				StaticCollectionsClass.cachedNonHumansCount = MiscUtility.CountAllPlayerNonHumanlikes();
 			}
 		}
 
-		public override void ExposeData()
-		{
-			Scribe_Values.Look(ref cachedPawnsCount, "cachedPawnsCount", 0);
-			Scribe_Values.Look(ref cachedXenotypesCount, "cachedXenotypesCount", 0);
-			Scribe_Values.Look(ref cachedNonHumansCount, "cachedNonHumansCount", 0);
-			// Scribe_Collections.Look(ref cachedBloodHunters, "cachedBloodHunters", LookMode.Reference);
-		}
+		// public override void ExposeData()
+		// {
+			// Scribe_Values.Look(ref cachedPawnsCount, "cachedPawnsCount", 0);
+			// Scribe_Values.Look(ref cachedXenotypesCount, "cachedXenotypesCount", 0);
+			// Scribe_Values.Look(ref cachedNonHumansCount, "cachedNonHumansCount", 0);
+		// }
 
 		public void DevFixes()
 		{

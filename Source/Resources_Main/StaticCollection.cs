@@ -5,32 +5,13 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	[StaticConstructorOnStartup]
+	// [StaticConstructorOnStartup]
 	public static class StaticCollectionsClass
 	{
 
-		public static HashSet<Pawn> skillsNotDecayPawns;
-
-		static StaticCollectionsClass()
-		{
-			skillsNotDecayPawns = new HashSet<Pawn>();
-		}
-
-		public static void AddSkillDecayGenePawnToList(Pawn pawn)
-		{
-			if (!skillsNotDecayPawns.Contains(pawn))
-			{
-				skillsNotDecayPawns.Add(pawn);
-			}
-		}
-
-		public static void RemoveSkillDecayGenePawnFromList(Pawn pawn)
-		{
-			if (skillsNotDecayPawns.Contains(pawn))
-			{
-				skillsNotDecayPawns.Remove(pawn);
-			}
-		}
+		public static int cachedPawnsCount = 0;
+		public static int cachedXenotypesCount = 0;
+		public static int cachedNonHumansCount = 0;
 
 	}
 
