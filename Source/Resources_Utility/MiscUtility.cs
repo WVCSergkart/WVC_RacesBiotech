@@ -432,6 +432,10 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
+				if (item.IsPrisoner)
+				{
+					continue;
+				}
 				mult++;
 			}
 			return mult;
