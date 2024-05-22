@@ -117,7 +117,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			base.Notify_PawnDied(dinfo, culprit);
-			if (ModsConfig.AnomalyActive && MutantDefOf.Ghoul.allowedDevelopmentalStages == pawn.DevelopmentalStage)
+			if (ModsConfig.AnomalyActive && !pawn.IsMutant && MutantDefOf.Ghoul.allowedDevelopmentalStages == pawn.DevelopmentalStage)
 			{
 				if (UndeadUtility.TryResurrectWithSickness(pawn, null, true, 0.92f))
 				{

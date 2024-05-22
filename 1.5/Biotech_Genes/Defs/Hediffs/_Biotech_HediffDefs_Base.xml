@@ -185,7 +185,7 @@
 	<defName>WVC_GeneSavant</defName>
 	<label>genetic savant</label>
 	<!-- <description>An exceptional condition caused by gene. The brain has developed extreme abilities in some areas, while losing the ability to speak.</description> -->
-	<blocksSocialInteraction>true</blocksSocialInteraction>
+	<!-- <blocksSocialInteraction>true</blocksSocialInteraction> -->
 	<stages>
 	  <li>
 		<becomeVisible>false</becomeVisible>
