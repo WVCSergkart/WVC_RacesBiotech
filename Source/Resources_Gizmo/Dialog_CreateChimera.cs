@@ -405,7 +405,7 @@ namespace WVC_XenotypesAndGenes
 					text = ("GeneWillBeRandomChosen".Translate() + ":\n" + randomChosenGroups[geneDef].Select((GeneDef x) => x.label).ToLineList("  - ", capitalizeItems: true)).Colorize(ColoredText.TipSectionTitleColor);
 				}
 			}
-			if (selectedGenes.Contains(geneDef) && geneDef.prerequisite != null && !selectedGenes.Contains(geneDef.prerequisite) && !pawnEndoGenes.Contains(geneDef.prerequisite))
+			if (!eatAllSelectedGenes && selectedGenes.Contains(geneDef) && geneDef.prerequisite != null && !selectedGenes.Contains(geneDef.prerequisite) && !pawnEndoGenes.Contains(geneDef.prerequisite))
 			{
 				if (!text.NullOrEmpty())
 				{
@@ -475,7 +475,16 @@ namespace WVC_XenotypesAndGenes
 		protected override void OnGenesChanged()
 		{
 			selectedGenes.SortGeneDefs();
-			base.OnGenesChanged();
+			if (!eatAllSelectedGenes)
+			{
+				base.OnGenesChanged();
+			}
+			else
+			{
+				gcx = 0;
+				met = 0;
+				arc = 0;
+			}
 			foreach (GeneDef item in pawnEndoGenes)
 			{
 				gcx += item.biostatCpx;
@@ -668,6 +677,10 @@ namespace WVC_XenotypesAndGenes
 
 		protected override bool CanAccept()
 		{
+			if (eatAllSelectedGenes)
+			{
+				return true;
+			}
 			List<GeneDef> selectedGenes = SelectedGenes;
 			foreach (GeneDef selectedGene in SelectedGenes)
 			{
