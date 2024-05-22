@@ -90,7 +90,7 @@ namespace WVC_XenotypesAndGenes
 				icon = ContentFinder<Texture2D>.Get(def.iconPath),
 				action = delegate
 				{
-					Find.WindowStack.Add(new Dialog_GeneticThief(this));
+					Find.WindowStack.Add(new Dialog_CreateChimera(this));
 				}
 			};
 			if (DebugSettings.ShowDevGizmos)

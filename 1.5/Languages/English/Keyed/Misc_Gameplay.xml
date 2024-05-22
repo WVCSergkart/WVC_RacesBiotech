@@ -358,6 +358,12 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_GeneGeneticThief_GeneCopied>{0} copied the {1} gene.</WVC_XaG_GeneGeneticThief_GeneCopied>
 
+	<WVC_XaG_CreateChimera>Create chimera</WVC_XaG_CreateChimera>
+
+	<WVC_XaG_ChimeraApply_Implant>implant</WVC_XaG_ChimeraApply_Implant>
+	<WVC_XaG_ChimeraApply_Eat>eat</WVC_XaG_ChimeraApply_Eat>
+	<WVC_XaG_ChimeraApply_Clear>clear</WVC_XaG_ChimeraApply_Clear>
+
 	<!-- ============================ MECHLINK CUSTOM LABEL ============================ -->
 
 	<WVC_XaG_CustomLabeledMechlinkDesc>A neural formation resulting from genetic evolution or modification, similar to what can be obtained by implanting a mechlink.</WVC_XaG_CustomLabeledMechlinkDesc>

@@ -97,8 +97,8 @@
     <Compile Include="Resources_Genes\Gene_XaG_Basic.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ChangeXenotype.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ChooseXenotype.cs" />
+    <Compile Include="Resources_Gizmo\Dialog_CreateChimera.cs" />
     <Compile Include="Resources_Gizmo\Dialog_GauranlenGeneMode.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_GeneticThief.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Reimplanter.cs" />
     <Compile Include="Resources_Gizmo\Dialog_RetuneSerum.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Shapeshifter.cs" />
