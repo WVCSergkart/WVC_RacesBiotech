@@ -361,7 +361,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_CreateChimera>Create chimera</WVC_XaG_CreateChimera>
 
 	<WVC_XaG_ChimeraApply_Implant>implant</WVC_XaG_ChimeraApply_Implant>
-	<WVC_XaG_ChimeraApply_Eat>eat</WVC_XaG_ChimeraApply_Eat>
+	<WVC_XaG_ChimeraApply_Eat>Eat</WVC_XaG_ChimeraApply_Eat>
 	<WVC_XaG_ChimeraApply_Clear>clear</WVC_XaG_ChimeraApply_Clear>
 
 	<!-- ============================ MECHLINK CUSTOM LABEL ============================ -->

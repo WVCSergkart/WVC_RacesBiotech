@@ -19,7 +19,7 @@ namespace WVC_XenotypesAndGenes
 
 		public List<GeneDef> selectedGenes = new();
 
-		private bool eatAllSelectedGenes;
+		// private bool eatAllSelectedGenes;
 
 		private bool? selectedCollapsed = false;
 
@@ -53,10 +53,10 @@ namespace WVC_XenotypesAndGenes
 				{
 					return "WVC_XaG_ChimeraApply_Clear".Translate().CapitalizeFirst();
 				}
-				else if (eatAllSelectedGenes)
-				{
-					return "WVC_XaG_ChimeraApply_Eat".Translate().CapitalizeFirst();
-				}
+				// else if (eatAllSelectedGenes)
+				// {
+					// return "WVC_XaG_ChimeraApply_Eat".Translate().CapitalizeFirst();
+				// }
 				return "WVC_XaG_ChimeraApply_Implant".Translate().CapitalizeFirst();
 			}
 		}
@@ -79,7 +79,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				if (cachedGeneDefsInOrder == null)
+				if (cachedGeneDefsInOrder.NullOrEmpty())
 				{
 					cachedGeneDefsInOrder = new();
 					foreach (GeneDef allDef in allGenes)
@@ -406,7 +406,7 @@ namespace WVC_XenotypesAndGenes
 					text = ("GeneWillBeRandomChosen".Translate() + ":\n" + randomChosenGroups[geneDef].Select((GeneDef x) => x.label).ToLineList("  - ", capitalizeItems: true)).Colorize(ColoredText.TipSectionTitleColor);
 				}
 			}
-			if (!eatAllSelectedGenes && selectedGenes.Contains(geneDef) && geneDef.prerequisite != null && !selectedGenes.Contains(geneDef.prerequisite) && !pawnEndoGenes.Contains(geneDef.prerequisite))
+			if (selectedGenes.Contains(geneDef) && geneDef.prerequisite != null && !selectedGenes.Contains(geneDef.prerequisite) && !pawnEndoGenes.Contains(geneDef.prerequisite))
 			{
 				if (!text.NullOrEmpty())
 				{
@@ -429,69 +429,60 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		protected override void PostXenotypeOnGUI(float curX, float curY)
-		{
-			TaggedString taggedString = "WVC_XaG_GeneGeneticThief_EatGene".Translate();
-			// TaggedString taggedString2 = "IgnoreRestrictions".Translate();
-			float width = Mathf.Max(Text.CalcSize(taggedString).x) + 4f + 24f;
-			Rect rect = new(curX, curY, width, Text.LineHeight);
-			Widgets.CheckboxLabeled(rect, taggedString, ref eatAllSelectedGenes);
-			if (Mouse.IsOver(rect))
-			{
-				Widgets.DrawHighlight(rect);
-				TooltipHandler.TipRegion(rect, "WVC_XaG_GeneGeneticThief_EatSelectedGenes".Translate());
-			}
-			rect.y += Text.LineHeight;
-			// bool num = ignoreRestrictions;
-			// Widgets.CheckboxLabeled(rect, taggedString2, ref ignoreRestrictions);
-			// if (num != ignoreRestrictions)
-			// {
-				// if (ignoreRestrictions)
-				// {
-					// if (!ignoreRestrictionsConfirmationSent)
-					// {
-						// ignoreRestrictionsConfirmationSent = true;
-						// Find.WindowStack.Add(new Dialog_MessageBox("IgnoreRestrictionsConfirmation".Translate(), "Yes".Translate(), delegate
-						// {
-						// }, "No".Translate(), delegate
-						// {
-							// ignoreRestrictions = false;
-						// }));
-					// }
-				// }
-				// else
-				// {
-					// selectedGenes.RemoveAll((GeneDef x) => x.biostatArc > 0);
-					// OnGenesChanged();
-				// }
-			// }
+		// protected override void PostXenotypeOnGUI(float curX, float curY)
+		// {
+			// TaggedString taggedString = "WVC_XaG_GeneGeneticThief_EatGene".Translate();
+			// float width = Mathf.Max(Text.CalcSize(taggedString).x) + 4f + 24f;
+			// Rect rect = new(curX, curY, width, Text.LineHeight);
+			// Widgets.CheckboxLabeled(rect, taggedString, ref eatAllSelectedGenes);
 			// if (Mouse.IsOver(rect))
 			// {
 				// Widgets.DrawHighlight(rect);
-				// TooltipHandler.TipRegion(rect, "IgnoreRestrictionsDesc".Translate());
+				// TooltipHandler.TipRegion(rect, "WVC_XaG_GeneGeneticThief_EatSelectedGenes".Translate());
 			// }
-			postXenotypeHeight += rect.yMax - curY;
-		}
+			// rect.y += Text.LineHeight;
+			// postXenotypeHeight += rect.yMax - curY;
+		// }
 
 		protected override void OnGenesChanged()
 		{
 			selectedGenes.SortGeneDefs();
-			if (!eatAllSelectedGenes)
-			{
-				base.OnGenesChanged();
-			}
-			else
-			{
-				gcx = 0;
-				met = 0;
-				arc = 0;
-			}
+			// if (!eatAllSelectedGenes)
+			// {
+			// }
+			// else
+			// {
+				// gcx = 0;
+				// met = 0;
+				// arc = 0;
+			// }
+			base.OnGenesChanged();
 			foreach (GeneDef item in pawnEndoGenes)
 			{
+				if (ConflictWith(item, selectedGenes))
+				{
+					continue;
+				}
 				gcx += item.biostatCpx;
 				met += item.biostatMet;
 				arc += item.biostatArc;
 			}
+		}
+
+		private static bool ConflictWith(GeneDef geneDef, List<GeneDef> geneDefs)
+		{
+			foreach (GeneDef item in geneDefs)
+			{
+				if (item == geneDef)
+				{
+					return true;
+				}
+				if (item.ConflictsWith(geneDef))
+				{
+					return true;
+				}
+			}
+			return false;
 		}
 
 		public override void DoWindowContents(Rect rect)
@@ -504,8 +495,8 @@ namespace WVC_XenotypesAndGenes
 			Text.Font = GameFont.Small;
 			DrawSearchRect(rect);
 			rect2.yMin += 39f;
-			float num = rect.width * 0.25f - Margin - 10f;
-			float num2 = num - 24f - 10f;
+			// float num = rect.width * 0.25f - Margin - 10f;
+			// float num2 = num - 24f - 10f;
 			float num3 = Mathf.Max(BiostatsTable.HeightForBiostats(alwaysUseFullBiostatsTableHeight ? 1 : arc), postXenotypeHeight);
 			Rect rect4 = new(rect2.x + Margin, rect2.y, rect2.width - Margin * 2f, rect2.height - num3 - 8f);
 			DrawGenes(rect4);
@@ -513,106 +504,16 @@ namespace WVC_XenotypesAndGenes
 			Rect rect5 = new(rect2.x + Margin + 10f, num4, rect.width * 0.75f - Margin * 3f - 10f, num3);
 			rect5.yMax = rect4.yMax + num3 + 4f;
 			BiostatsTable.Draw(rect5, gcx, met, arc, drawMax: true, true, maxGCX);
-			string text = "XenotypeName".Translate().CapitalizeFirst() + ":";
-			Rect rect6 = new(rect5.xMax + Margin, num4, Text.CalcSize(text).x, Text.LineHeight);
+			// string text = "XenotypeName".Translate().CapitalizeFirst() + ":";
+			// Rect rect6 = new(rect5.xMax + Margin, num4, Text.CalcSize(text).x, Text.LineHeight);
 			// Widgets.Label(rect6, text);
-			Rect rect7 = new(rect6.xMin, rect6.y + Text.LineHeight, num, Text.LineHeight);
-			rect7.xMax = rect2.xMax - Margin - 17f - num2 * 0.25f;
-			// string text2 = xenotypeName;
-			// xenotypeName = Widgets.TextField(rect7, xenotypeName, 40, ValidSymbolRegex);
-			// if (text2 != xenotypeName)
-			// {
-				// if (xenotypeName.Length > text2.Length && xenotypeName.Length > 3)
-				// {
-					// xenotypeNameLocked = true;
-				// }
-				// else if (xenotypeName.Length == 0)
-				// {
-					// xenotypeNameLocked = false;
-				// }
-			// }
-			// Rect rect8 = new(rect7.xMax + 4f, rect7.yMax - 35f, 35f, 35f);
-			// DrawIconSelector(rect8);
-			Rect rect9 = new(rect7.x, rect7.yMax + 4f, num2 * 0.75f - 4f, 24f);
-			// if (Widgets.ButtonText(rect9, "Randomize".Translate()))
-			// {
-				// if (SelectedGenes.Count == 0)
-				// {
-					// Messages.Message("SelectAGeneToRandomizeName".Translate(), MessageTypeDefOf.RejectInput, historical: false);
-				// }
-				// else
-				// {
-					// GUI.FocusControl(null);
-					// SoundDefOf.Tick_High.PlayOneShotOnCamera();
-					// xenotypeName = GeneUtility.GenerateXenotypeNameFromGenes(SelectedGenes);
-				// }
-			// }
-			Rect rect10 = new(rect9.xMax + 4f, rect9.y, num2 * 0.25f, 24f);
-			// if (Widgets.ButtonText(rect10, "..."))
-			// {
-				// if (SelectedGenes.Count > 0)
-				// {
-					// List<string> list = new List<string>();
-					// int num5 = 0;
-					// while (list.Count < 20)
-					// {
-						// string text3 = GeneUtility.GenerateXenotypeNameFromGenes(SelectedGenes);
-						// if (text3.NullOrEmpty())
-						// {
-							// break;
-						// }
-						// if (list.Contains(text3) || text3 == xenotypeName)
-						// {
-							// num5++;
-							// if (num5 >= 1000)
-							// {
-								// break;
-							// }
-						// }
-						// else
-						// {
-							// list.Add(text3);
-						// }
-					// }
-					// List<FloatMenuOption> list2 = new List<FloatMenuOption>();
-					// for (int j = 0; j < list.Count; j++)
-					// {
-						// string i = list[j];
-						// list2.Add(new FloatMenuOption(i, delegate
-						// {
-							// xenotypeName = i;
-						// }));
-					// }
-					// if (list2.Any())
-					// {
-						// Find.WindowStack.Add(new FloatMenu(list2));
-					// }
-				// }
-				// else
-				// {
-					// Messages.Message("SelectAGeneToChooseAName".Translate(), MessageTypeDefOf.RejectInput, historical: false);
-				// }
-			// }
-			Rect rect11 = new(rect10.xMax + 10f, rect9.y, 24f, 24f);
-			// if (Widgets.ButtonImage(rect11, xenotypeNameLocked ? LockedTex : UnlockedTex))
-			// {
-				// xenotypeNameLocked = !xenotypeNameLocked;
-				// if (xenotypeNameLocked)
-				// {
-					// SoundDefOf.Checkbox_TurnedOn.PlayOneShotOnCamera();
-				// }
-				// else
-				// {
-					// SoundDefOf.Checkbox_TurnedOff.PlayOneShotOnCamera();
-				// }
-			// }
-			// if (Mouse.IsOver(rect11))
-			// {
-				// string text4 = "LockNameButtonDesc".Translate() + "\n\n" + (xenotypeNameLocked ? "LockNameOn" : "LockNameOff").Translate();
-				// TooltipHandler.TipRegion(rect11, text4);
-			// }
-			postXenotypeHeight = rect11.yMax - num4;
-			PostXenotypeOnGUI(rect6.xMin, rect9.y + 24f);
+			// Rect rect7 = new(rect6.xMin, rect6.y + Text.LineHeight, num, Text.LineHeight);
+			// rect7.xMax = rect2.xMax - Margin - 17f - num2 * 0.25f;
+			// Rect rect9 = new(rect7.x, rect7.yMax + 4f, num2 * 0.75f - 4f, 24f);
+			// Rect rect10 = new(rect9.xMax + 4f, rect9.y, num2 * 0.25f, 24f);
+			// Rect rect11 = new(rect10.xMax + 10f, rect9.y, 24f, 24f);
+			// postXenotypeHeight = rect11.yMax - num4;
+			// PostXenotypeOnGUI(rect6.xMin, rect9.y + 24f);
 			Rect rect12 = rect;
 			rect12.yMin = rect12.yMax - ButSize.y;
 			DoBottomButtons(rect12);
@@ -662,26 +563,34 @@ namespace WVC_XenotypesAndGenes
 		protected override void DoBottomButtons(Rect rect)
 		{
 			base.DoBottomButtons(rect);
-			if (leftChosenGroups.Any())
+			if (Widgets.ButtonText(new Rect((rect.xMax / 2) - ButSize.x, rect.y, ButSize.x, ButSize.y), "WVC_XaG_ResetButton".Translate()))
 			{
-				int num = leftChosenGroups.Sum((GeneLeftChosenGroup x) => x.overriddenGenes.Count);
-				GeneLeftChosenGroup geneLeftChosenGroup = leftChosenGroups[0];
-				string text = "GenesConflict".Translate() + ": " + "GenesConflictDesc".Translate(geneLeftChosenGroup.leftChosen.Named("FIRST"), geneLeftChosenGroup.overriddenGenes[0].Named("SECOND")).CapitalizeFirst() + ((num > 1) ? (" +" + (num - 1)) : string.Empty);
-				float x2 = Text.CalcSize(text).x;
-				GUI.color = ColorLibrary.RedReadable;
-				Text.Anchor = TextAnchor.MiddleLeft;
-				Widgets.Label(new Rect(rect.xMax - GeneCreationDialogBase.ButSize.x - x2 - 4f, rect.y, x2, rect.height), text);
-				Text.Anchor = TextAnchor.UpperLeft;
-				GUI.color = Color.white;
+				selectedGenes = new();
 			}
+			if (Widgets.ButtonText(new Rect((rect.xMax / 2), rect.y, ButSize.x, ButSize.y), "WVC_XaG_ChimeraApply_Eat".Translate()))
+			{
+				Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_GeneGeneticThief_EatSelectedGenes".Translate(gene.pawn.LabelCap), EatGenes));
+			}
+			// if (leftChosenGroups.Any())
+			// {
+				// int num = leftChosenGroups.Sum((GeneLeftChosenGroup x) => x.overriddenGenes.Count);
+				// GeneLeftChosenGroup geneLeftChosenGroup = leftChosenGroups[0];
+				// string text = "GenesConflict".Translate() + ": " + "GenesConflictDesc".Translate(geneLeftChosenGroup.leftChosen.Named("FIRST"), geneLeftChosenGroup.overriddenGenes[0].Named("SECOND")).CapitalizeFirst() + ((num > 1) ? (" +" + (num - 1)) : string.Empty);
+				// float x2 = Text.CalcSize(text).x;
+				// GUI.color = ColorLibrary.RedReadable;
+				// Text.Anchor = TextAnchor.MiddleLeft;
+				// Widgets.Label(new Rect(rect.xMax - GeneCreationDialogBase.ButSize.x - x2 - 4f, rect.y, x2, rect.height), text);
+				// Text.Anchor = TextAnchor.UpperLeft;
+				// GUI.color = Color.white;
+			// }
 		}
 
 		protected override bool CanAccept()
 		{
-			if (eatAllSelectedGenes)
-			{
-				return true;
-			}
+			// if (eatAllSelectedGenes)
+			// {
+				// return true;
+			// }
 			List<GeneDef> selectedGenes = SelectedGenes;
 			foreach (GeneDef selectedGene in SelectedGenes)
 			{
@@ -705,7 +614,7 @@ namespace WVC_XenotypesAndGenes
 				// Messages.Message("MessageTooManyCustomXenotypes", null, MessageTypeDefOf.RejectInput, historical: false);
 				// return false;
 			// }
-			if (!eatAllSelectedGenes && leftChosenGroups.Any())
+			if (leftChosenGroups.Any())
 			{
 				Messages.Message("WVC_XaG_GeneGeneticThief_ConflictingGenesMessage".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
 				return false;
@@ -719,10 +628,6 @@ namespace WVC_XenotypesAndGenes
 			if (selectedGenes.NullOrEmpty())
 			{
 				Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_GeneGeneticThief_ClearGeneSet".Translate(gene.pawn.LabelCap), ClearXenogenes));
-			}
-			else if (eatAllSelectedGenes)
-			{
-				Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_GeneGeneticThief_EatSelectedGenes".Translate(gene.pawn.LabelCap), StartChange));
 			}
 			else
 			{
@@ -756,45 +661,56 @@ namespace WVC_XenotypesAndGenes
 
 		public void StartChange()
 		{
-			if (!eatAllSelectedGenes)
+			ClearGenes();
+			if (gene.Props.xenotypeDef != null)
 			{
-				ClearGenes();
-				if (gene.Props.xenotypeDef != null)
+				if (gene.pawn.genes.Xenotype != gene.Props.xenotypeDef)
 				{
-					if (gene.pawn.genes.Xenotype != gene.Props.xenotypeDef)
-					{
-						ReimplanterUtility.SetXenotypeDirect(null, gene.pawn, gene.Props.xenotypeDef);
-					}
+					ReimplanterUtility.SetXenotypeDirect(null, gene.pawn, gene.Props.xenotypeDef);
 				}
-				else
-				{
-					ReimplanterUtility.UnknownXenotype(gene.pawn);
-				}
-				foreach (GeneDef geneDef in selectedGenes)
-				{
-					if (!gene.pawn.genes.HasGene(geneDef))
-					{
-						gene.pawn?.genes?.AddGene(geneDef, xenogene: true);
-					}
-				}
-				GeneUtility.UpdateXenogermReplication(gene.pawn);
-				// IntRange rangeToDisappear = new(60000, 120000);
-				// XaG_GeneUtility.UpdateXenogermReplication(gene.pawn, true, rangeToDisappear.RandomInRange * selectedGenes.Count);
-				WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(gene.pawn, gene.pawn.Map).Trigger(gene.pawn, null);
 			}
 			else
 			{
-				foreach (GeneDef geneDef in selectedGenes)
+				ReimplanterUtility.UnknownXenotype(gene.pawn);
+			}
+			foreach (GeneDef geneDef in selectedGenes)
+			{
+				if (!gene.pawn.genes.HasGene(geneDef))
 				{
-					gene.EatGene(geneDef);
+					gene.pawn?.genes?.AddGene(geneDef, xenogene: true);
 				}
 			}
+			GeneUtility.UpdateXenogermReplication(gene.pawn);
+			// IntRange rangeToDisappear = new(60000, 120000);
+			// XaG_GeneUtility.UpdateXenogermReplication(gene.pawn, true, rangeToDisappear.RandomInRange * selectedGenes.Count);
+			WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(gene.pawn, gene.pawn.Map).Trigger(gene.pawn, null);
 			if (!gene.Props.soundDefOnImplant.NullOrUndefined())
 			{
 				gene.Props.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(gene.pawn));
 			}
 			UpdateMetabolism();
 			Close(doCloseSound: false);
+		}
+
+		public void EatGenes()
+		{
+			foreach (GeneDef geneDef in selectedGenes)
+			{
+				gene.EatGene(geneDef);
+			}
+			if (!gene.Props.soundDefOnImplant.NullOrUndefined())
+			{
+				gene.Props.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(gene.pawn));
+			}
+			selectedGenes = new();
+			cachedGeneDefsInOrder = new();
+			pawnGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.GenesListForReading);
+			pawnXenoGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.Xenogenes);
+			pawnEndoGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.Endogenes);
+			allGenes = gene.StolenGenes;
+			eatedGenes = gene.EatedGenes;
+			UpdateSearchResults();
+			// Close(doCloseSound: false);
 		}
 
 		private void ClearGenes()
