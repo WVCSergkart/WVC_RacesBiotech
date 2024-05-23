@@ -14,6 +14,7 @@ They are irreversibly blind and very fragile, any stray bullet can kill them ins
 	<inheritable>true</inheritable>
 	<iconPath>WVC/UI/Mecha_Icons/Icon_Lilith_v0</iconPath>
 	<displayPriority>-190</displayPriority>
+	<factionlessGenerationWeight>0.012</factionlessGenerationWeight>
 	<genes>
 		<li>WVC_ReimplanterNatural_Endogenes</li>
 		<li>Hemogenic</li>
