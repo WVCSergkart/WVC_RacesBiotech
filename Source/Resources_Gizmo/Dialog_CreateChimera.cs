@@ -98,6 +98,7 @@ namespace WVC_XenotypesAndGenes
 			// this.callback = callback;
 			// xenotypeName = string.Empty;
 			gene = chimera;
+			forcePause = true;
 			closeOnAccept = false;
 			absorbInputAroundWindow = true;
 			alwaysUseFullBiostatsTableHeight = true;
@@ -253,7 +254,7 @@ namespace WVC_XenotypesAndGenes
 				for (int i = 0; i < genes.Count; i++)
 				{
 					GeneDef geneDef = genes[i];
-					if ((adding && quickSearchWidget.filter.Active && (!matchingGenes.Contains(geneDef) || selectedGenes.Contains(geneDef)) && !matchingCategories.Contains(geneDef.displayCategory)) || (!ignoreRestrictions && geneDef.biostatArc > 0))
+					if ((adding && quickSearchWidget.filter.Active && (!matchingGenes.Contains(geneDef) || selectedGenes.Contains(geneDef)) && !matchingCategories.Contains(geneDef.displayCategory)))
 					{
 						continue;
 					}
@@ -511,7 +512,7 @@ namespace WVC_XenotypesAndGenes
 			float num4 = rect4.yMax + 4f;
 			Rect rect5 = new(rect2.x + Margin + 10f, num4, rect.width * 0.75f - Margin * 3f - 10f, num3);
 			rect5.yMax = rect4.yMax + num3 + 4f;
-			BiostatsTable.Draw(rect5, gcx, met, arc, drawMax: true, ignoreRestrictions, maxGCX);
+			BiostatsTable.Draw(rect5, gcx, met, arc, drawMax: true, true, maxGCX);
 			string text = "XenotypeName".Translate().CapitalizeFirst() + ":";
 			Rect rect6 = new(rect5.xMax + Margin, num4, Text.CalcSize(text).x, Text.LineHeight);
 			// Widgets.Label(rect6, text);
