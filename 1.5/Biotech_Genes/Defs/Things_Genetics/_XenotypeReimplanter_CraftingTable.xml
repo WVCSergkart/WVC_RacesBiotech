@@ -3,24 +3,19 @@
 
   <WorkGiverDef>
 	<defName>WVC_DoBillsCraftSerums</defName>
-	<label>Make serums at xenogene serum lab</label>
+	<label>make things at xenogenes serum lab</label>
 	<giverClass>WorkGiver_DoBill</giverClass>
 	<workType>Crafting</workType>
-	<workTags>
-	  <li>Intellectual</li>
-	</workTags>
-	<!-- <priorityInType>170</priorityInType> -->
 	<priorityInType>75</priorityInType>
 	<fixedBillGiverDefs>
 	  <li>WVC_SerumCraftingTable</li>
 	</fixedBillGiverDefs>
-	<verb>craft serums</verb>
-	<gerund>craft serums at</gerund>
+	<verb>work at</verb>
+	<gerund>working at</gerund>
 	<requiredCapacities>
 	  <li>Manipulation</li>
 	</requiredCapacities>
 	<prioritizeSustains>true</prioritizeSustains>
-	<!-- <canBeDoneByMechs>true</canBeDoneByMechs> -->
   </WorkGiverDef>
 
   <!-- Serums -->
