@@ -151,8 +151,8 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  </recipeUsers>
 	  <useIngredientsForColor>false</useIngredientsForColor>
 	  <skillRequirements>
-		<Crafting>14</Crafting>
-		<Intellectual>14</Intellectual>
+		<Crafting>10</Crafting>
+		<!-- <Intellectual>14</Intellectual> -->
 	  </skillRequirements>
 	</recipeMaker>
 	<thingCategories>

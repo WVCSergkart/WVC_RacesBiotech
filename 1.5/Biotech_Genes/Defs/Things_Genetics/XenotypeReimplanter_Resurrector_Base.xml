@@ -45,8 +45,8 @@
 		<li>WVC_XenotypesAndGenes_XenotypeResurrectorSerumCrafting</li>
 	  </researchPrerequisites>
 	  <skillRequirements>
-		<Crafting>14</Crafting>
-		<Intellectual>14</Intellectual>
+		<Crafting>10</Crafting>
+		<!-- <Intellectual>14</Intellectual> -->
 	  </skillRequirements>
 	</recipeMaker>
 	<thingSetMakerTags Inherit="False">

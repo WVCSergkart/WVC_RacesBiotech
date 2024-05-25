@@ -3,7 +3,7 @@
 
   <WorkGiverDef>
 	<defName>WVC_DoBillsCraftSerums</defName>
-	<label>Make serums at serum lab</label>
+	<label>Make serums at xenogene serum lab</label>
 	<giverClass>WorkGiver_DoBill</giverClass>
 	<workType>Crafting</workType>
 	<workTags>
@@ -19,6 +19,7 @@
 	  <li>Manipulation</li>
 	</requiredCapacities>
 	<prioritizeSustains>true</prioritizeSustains>
+	<!-- <canBeDoneByMechs>true</canBeDoneByMechs> -->
   </WorkGiverDef>
 
   <!-- Serums -->

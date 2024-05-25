@@ -80,8 +80,8 @@
 	<description>Make a healer mech serum.</description>
 	<jobString>Making healer mech serum.</jobString>
 	<skillRequirements>
-	  <Crafting>12</Crafting>
-	  <Intellectual>16</Intellectual>
+	  <Crafting>10</Crafting>
+	  <!-- <Intellectual>16</Intellectual> -->
 	</skillRequirements>
 	<researchPrerequisites>
 	  <li>WVC_XenotypesAndGenes_GeneRestoration</li>
@@ -123,8 +123,8 @@
 	<description>Make a resurrector mech serum.</description>
 	<jobString>Making resurrector mech serum.</jobString>
 	<skillRequirements>
-	  <Crafting>16</Crafting>
-	  <Intellectual>16</Intellectual>
+	  <Crafting>10</Crafting>
+	  <!-- <Intellectual>16</Intellectual> -->
 	</skillRequirements>
 	<researchPrerequisites>
 	  <li>Archogenetics</li>
@@ -174,8 +174,8 @@
 	<description>Make a deathrest capacity serum.</description>
 	<jobString>Making deathrest capacity serum.</jobString>
 	<skillRequirements>
-	  <Crafting>12</Crafting>
-	  <Intellectual>8</Intellectual>
+	  <Crafting>8</Crafting>
+	  <!-- <Intellectual>8</Intellectual> -->
 	</skillRequirements>
 	<researchPrerequisites>
 	  <li>Deathrest</li>

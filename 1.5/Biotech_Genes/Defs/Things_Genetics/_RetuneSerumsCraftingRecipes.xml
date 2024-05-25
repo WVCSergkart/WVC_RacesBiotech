@@ -12,10 +12,10 @@
 	<workSkill>Crafting</workSkill>
 	<effectWorking>Smith</effectWorking>
 	<soundWorking>Recipe_Machining</soundWorking>
-	<skillRequirements>
+	<!-- <skillRequirements> -->
 	  <!-- <Crafting>6</Crafting> -->
-	  <Intellectual>8</Intellectual>
-	</skillRequirements>
+	  <!-- <Intellectual>8</Intellectual> -->
+	<!-- </skillRequirements> -->
 	<recipeUsers>
 	  <li>WVC_SerumCraftingTable</li>
 	</recipeUsers>

@@ -60,10 +60,10 @@
 		<!-- <glowRadius>2</glowRadius> -->
 		<!-- <glowColor>(78, 226, 229, 0)</glowColor> -->
 	  <!-- </li> -->
-	  <li Class="CompProperties_Glower">
-		<glowRadius>1</glowRadius>
-		<glowColor>(255,248,133, 0)</glowColor>
-	  </li>
+	  <!-- <li Class="CompProperties_Glower"> -->
+		<!-- <glowRadius>1</glowRadius> -->
+		<!-- <glowColor>(255,248,133, 0)</glowColor> -->
+	  <!-- </li> -->
 	</comps>
 	<allowedArchonexusCount>750</allowedArchonexusCount>
   </ThingDef>

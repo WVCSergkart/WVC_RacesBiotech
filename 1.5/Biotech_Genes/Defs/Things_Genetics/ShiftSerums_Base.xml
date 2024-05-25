@@ -14,12 +14,12 @@
 	  <!-- <li>WVC_XenotypeSerums_NonCraftable</li> -->
 	</tradeTags>
 	<recipeMaker>
-	  <researchPrerequisites>
+	  <researchPrerequisites Inherit="False">
 		<li>WVC_XenotypesAndGenes_ShapeshifterSerums</li>
 	  </researchPrerequisites>
 	  <skillRequirements>
 		<Crafting>8</Crafting>
-		<Intellectual>8</Intellectual>
+		<!-- <Intellectual>8</Intellectual> -->
 	  </skillRequirements>
 	</recipeMaker>
 	<costList>

@@ -14,7 +14,7 @@
 	<soundWorking>Recipe_Machining</soundWorking>
 	<skillRequirements>
 	  <Crafting>6</Crafting>
-	  <Intellectual>8</Intellectual>
+	  <!-- <Intellectual>8</Intellectual> -->
 	</skillRequirements>
 	<products>
 	  <WVC_EmptyXenotypeSerum>1</WVC_EmptyXenotypeSerum>
@@ -37,7 +37,7 @@
 	<workAmount>2200</workAmount>
 	<products Inherit="False"/>
 	<skillRequirements Inherit="False">
-	  <Crafting>3</Crafting>
+	  <Crafting>4</Crafting>
 	</skillRequirements>
 	<displayPriority>-900</displayPriority>
 	<specialProducts>

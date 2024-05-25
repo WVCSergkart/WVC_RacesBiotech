@@ -63,8 +63,8 @@
 	  </recipeUsers>
 	  <useIngredientsForColor>false</useIngredientsForColor>
 	  <skillRequirements>
-		<Crafting>12</Crafting>
-		<Intellectual>12</Intellectual>
+		<Crafting>6</Crafting>
+		<!-- <Intellectual>12</Intellectual> -->
 	  </skillRequirements>
 	</recipeMaker>
 	<tradeTags>
@@ -109,8 +109,8 @@
 	  </recipeUsers>
 	  <useIngredientsForColor>false</useIngredientsForColor>
 	  <skillRequirements>
-		<Crafting>12</Crafting>
-		<Intellectual>12</Intellectual>
+		<Crafting>6</Crafting>
+		<!-- <Intellectual>12</Intellectual> -->
 	  </skillRequirements>
 	</recipeMaker>
 	<thingCategories>
@@ -170,6 +170,9 @@
 	  <researchPrerequisites>
 		<li>Archogenetics</li>
 	  </researchPrerequisites>
+	  <skillRequirements>
+		<Crafting>8</Crafting>
+	  </skillRequirements>
 	</recipeMaker>
 	<costList>
 	  <ArchiteCapsule>1</ArchiteCapsule>
