@@ -9,7 +9,8 @@
 	<workTags>
 	  <li>Intellectual</li>
 	</workTags>
-	<priorityInType>170</priorityInType>
+	<!-- <priorityInType>170</priorityInType> -->
+	<priorityInType>75</priorityInType>
 	<fixedBillGiverDefs>
 	  <li>WVC_SerumCraftingTable</li>
 	</fixedBillGiverDefs>
