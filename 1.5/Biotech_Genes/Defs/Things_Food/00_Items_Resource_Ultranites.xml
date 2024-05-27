@@ -4,7 +4,7 @@
   <ThingDef ParentName="ResourceBase">
 	<defName>WVC_UniversalFuel</defName>
 	<label>ultranites</label>
-	<description>Artificially grown microscopic machines used in various areas of ultra-tech production. Can be eaten as a nutritional paste.</description>
+	<description>Artificially grown microscopic machines used in various areas of ultra-tech production. Can be converted into nutritional paste.</description>
 	<descriptionHyperlinks>
 	  <ThingDef>WVC_XenotypesAndGenes_UltranitesSpawner</ThingDef>
 	  <ThingDef>WVC_XenotypesAndGenes_UltraniteRecycler</ThingDef>
@@ -22,7 +22,7 @@
 	<stackLimit>750</stackLimit>
 	<healthAffectsPrice>false</healthAffectsPrice>
 	<resourceReadoutPriority>Last</resourceReadoutPriority>
-	<socialPropernessMatters>true</socialPropernessMatters>
+	<!-- <socialPropernessMatters>true</socialPropernessMatters> -->
 	<!-- <smallVolume>true</smallVolume> -->
 	<statBases>
 	  <MaxHitPoints>50</MaxHitPoints>
@@ -30,41 +30,27 @@
 	  <Mass>0.0025</Mass>
 	  <Flammability>0.2</Flammability>
 	  <DeteriorationRate>5.0</DeteriorationRate>
-	  <Nutrition>0.06</Nutrition>
-	  <FoodPoisonChanceFixedHuman>0.09</FoodPoisonChanceFixedHuman>
+	  <!-- <Nutrition>0.06</Nutrition> -->
+	  <!-- <FoodPoisonChanceFixedHuman>0.09</FoodPoisonChanceFixedHuman> -->
 	  <!-- <Bulk MayRequire="ceteam.combatextended">0.2</Bulk> -->
 	</statBases>
 	<intricate>true</intricate>
 	<thingCategories>
 	  <li>Manufactured</li>
-	  <li>FoodMeals</li>
-	  <!-- <li>ResourcesRaw</li> -->
+	  <!-- <li>FoodMeals</li> -->
 	</thingCategories>
-	<ingestible>
-	  <foodType>Fluid</foodType>
-	  <preferability>DesperateOnly</preferability>
-	  <!-- <foodType>Processed</foodType> -->
-	  <!-- <ateEvent>WVC_IngestedUltranites</ateEvent> -->
-	  <specialThoughtDirect>WVC_IngestedUltranites</specialThoughtDirect>
-	  <ingestEffect>EatVegetarian</ingestEffect>
-	  <ingestSound>Meal_Eat</ingestSound>
-	  <babiesCanIngest>true</babiesCanIngest>
-	  <canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
-	  <!-- <tableDesired>false</tableDesired> -->
-	  <!-- <ingestHoldUsesTable>false</ingestHoldUsesTable> -->
-	  <optimalityOffsetHumanlikes>-1200</optimalityOffsetHumanlikes>
-	  <optimalityOffsetFeedingAnimals>-99999</optimalityOffsetFeedingAnimals>
-	</ingestible>
-	<comps>
-	  <!-- <li Class="CompProperties_Glower"> -->
-		<!-- <glowRadius>2</glowRadius> -->
-		<!-- <glowColor>(78, 226, 229, 0)</glowColor> -->
-	  <!-- </li> -->
-	  <!-- <li Class="CompProperties_Glower"> -->
-		<!-- <glowRadius>1</glowRadius> -->
-		<!-- <glowColor>(255,248,133, 0)</glowColor> -->
-	  <!-- </li> -->
-	</comps>
+	<!-- <ingestible> -->
+	  <!-- <foodType>Fluid</foodType> -->
+	  <!-- <preferability>DesperateOnly</preferability> -->
+	  <!-- <specialThoughtDirect>WVC_IngestedUltranites</specialThoughtDirect> -->
+	  <!-- <ingestEffect>EatVegetarian</ingestEffect> -->
+	  <!-- <ingestSound>Meal_Eat</ingestSound> -->
+	  <!-- <babiesCanIngest>true</babiesCanIngest> -->
+	  <!-- <canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan> -->
+	  <!-- <optimalityOffsetHumanlikes>-1200</optimalityOffsetHumanlikes> -->
+	  <!-- <optimalityOffsetFeedingAnimals>-99999</optimalityOffsetFeedingAnimals> -->
+	<!-- </ingestible> -->
+	<comps/>
 	<allowedArchonexusCount>750</allowedArchonexusCount>
   </ThingDef>
 
