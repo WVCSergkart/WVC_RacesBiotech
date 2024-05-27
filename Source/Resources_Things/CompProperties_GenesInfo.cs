@@ -48,7 +48,7 @@ namespace WVC_XenotypesAndGenes
 
 		// =================
 
-		private List<IGeneInspectInfo> cachedInfoGenes = new();
+		private List<IGeneInspectInfo> cachedInfoGenes;
 
 		// public Pawn Pawn => parent as Pawn;
 
@@ -56,9 +56,9 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				if (cachedInfoGenes.NullOrEmpty())
+				if (cachedInfoGenes == null)
 				{
-					ResetInspectString();
+					cachedInfoGenes = new();
 					if (parent is Pawn pawn)
 					{
 						foreach (Gene gene in pawn.genes.GenesListForReading)
@@ -76,7 +76,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void ResetInspectString()
 		{
-			cachedInfoGenes = new();
+			cachedInfoGenes = null;
 		}
 
 		// private int nextRecache = -1;
@@ -111,6 +111,10 @@ namespace WVC_XenotypesAndGenes
 			return null;
 		}
 
+		private string info = null;
+
+		private bool firstCache = true;
+
 		public string Info(Pawn pawn)
 		{
 			if (pawn?.genes == null)
@@ -129,21 +133,25 @@ namespace WVC_XenotypesAndGenes
 				// }
 				// nextRecache = Find.TickManager.TicksGame + Props.recacheFrequency;
 			// }
-			string info = null;
-			int count = 0;
-			foreach (IGeneInspectInfo gene in InfoGenes)
+			if (pawn.IsHashIntervalTick(60) || firstCache)
 			{
-				string geneText = gene.GetInspectInfo;
-				if (geneText.NullOrEmpty())
+				info = null;
+				firstCache = false;
+				int count = 0;
+				foreach (IGeneInspectInfo gene in InfoGenes)
 				{
-					continue;
+					string geneText = gene.GetInspectInfo;
+					if (geneText.NullOrEmpty())
+					{
+						continue;
+					}
+					if (count > 0)
+					{
+						info += "\n";
+					}
+					info += geneText;
+					count++;
 				}
-				if (count > 0)
-				{
-					info += "\n";
-				}
-				info += geneText;
-				count++;
 			}
 			return info;
 		}

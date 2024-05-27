@@ -278,6 +278,7 @@ namespace WVC_XenotypesAndGenes
 						gene_LifeStageStarted.Notify_LifeStageStarted();
 					}
 				}
+				XaG_GeneUtility.ResetGenesInspectString(pawn);
 			}
 
 			// public static void SpecialGeneGraphic(PawnGraphicSet __instance)
