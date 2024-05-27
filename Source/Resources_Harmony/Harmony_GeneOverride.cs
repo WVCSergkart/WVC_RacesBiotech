@@ -27,6 +27,8 @@ namespace WVC_XenotypesAndGenes
 						geneOverridden.Notify_Override();
 					}
 				}
+				// Log.Error("ResetGenesInspectString");
+				XaG_GeneUtility.ResetGenesInspectString(__instance.pawn);
 			}
 		}
 

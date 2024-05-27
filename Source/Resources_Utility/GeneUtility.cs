@@ -12,6 +12,17 @@ namespace WVC_XenotypesAndGenes
 	public static class XaG_GeneUtility
 	{
 
+		public static void ResetGenesInspectString(Pawn pawn)
+		{
+			// Log.Error("Check CompHumanlike");
+			CompHumanlike humanlike = pawn.TryGetComp<CompHumanlike>();
+			if (humanlike != null)
+			{
+				// Log.Error("CompHumanlike Reset");
+				humanlike.ResetInspectString();
+			}
+		}
+
 		// Genepacks
 
 		public static void GenerateName(GeneSet geneSet, RulePackDef rule)
@@ -305,6 +316,23 @@ namespace WVC_XenotypesAndGenes
 			for (int i = 0; i < genesListForReading.Count; i++)
 			{
 				if (genesListForReading[i].Active == true && genesListForReading[i].def == geneDef)
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
+		public static bool HasGene(GeneDef geneDef, Pawn pawn)
+		{
+			if (geneDef == null || pawn?.genes == null)
+			{
+				return false;
+			}
+			List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+			for (int i = 0; i < genesListForReading.Count; i++)
+			{
+				if (genesListForReading[i].def == geneDef)
 				{
 					return true;
 				}

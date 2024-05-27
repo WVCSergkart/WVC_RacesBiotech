@@ -192,18 +192,44 @@
 		<!-- </operations> -->
 	<!-- </Operation> -->
 
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
+		<!-- <settingName>enableGenesInfo</settingName> -->
+		<!-- <caseTrue Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd"> -->
+		  <!-- <xpath>/Defs/ThingDef[defName="Human"]</xpath> -->
+		  <!-- <safetyDepth>1</safetyDepth> -->
+		  <!-- <value> -->
+			<!-- <comps> -->
+			  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_Humanlike"> -->
+				<!-- <uniqueTag>XaG_HumanUndead</uniqueTag> -->
+				<!-- <resurrectionDelay>8200~39000</resurrectionDelay> -->
+				<!-- <recacheFrequency>11435</recacheFrequency> -->
+			  <!-- </li> -->
+			<!-- </comps> -->
+		  <!-- </value> -->
+		<!-- </caseTrue> -->
+	<!-- </Operation> -->
+
 	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
 		<settingName>enableGenesInfo</settingName>
-		<caseTrue Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
-		  <xpath>/Defs/ThingDef[defName="Human"]</xpath>
-		  <safetyDepth>1</safetyDepth>
+		<caseTrue Class="PatchOperationAdd">
+		  <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath>
 		  <value>
-			<comps>
 			  <li Class="WVC_XenotypesAndGenes.CompProperties_Humanlike"/>
-			</comps>
 		  </value>
 		</caseTrue>
 	</Operation>
+
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath> -->
+	  <!-- <value> -->
+		  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_Humanlike"> -->
+			<!-- <shouldResurrect>true</shouldResurrect> -->
+			<!-- <uniqueTag>XaG_HumanUndead</uniqueTag> -->
+			<!-- <resurrectionDelay>8200~39000</resurrectionDelay> -->
+			<!-- <recacheFrequency>11435</recacheFrequency> -->
+		  <!-- </li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
 
 	<!-- <Operation Class="PatchOperationSequence"> -->
 		<!-- <success>Always</success> -->

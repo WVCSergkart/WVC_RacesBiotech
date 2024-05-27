@@ -108,7 +108,7 @@ namespace WVC_XenotypesAndGenes
 			if (PawnUtility.TrySpawnHatchedOrBornPawn(clone, progenitor))
 			{
 				DuplicateUtility.DuplicatePawn(progenitor, clone, xenotypeDef);
-				if (!clone.genes.HasGene(gene.def))
+				if (!XaG_GeneUtility.HasGene(gene.def, clone))
 				{
 					clone.genes.AddGene(gene.def, false);
 				}

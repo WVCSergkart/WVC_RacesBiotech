@@ -116,15 +116,15 @@ namespace WVC_XenotypesAndGenes
 			{
 				foreach (GeneDef item in Props.inheritableGenes)
 				{
-					if (!parent.pawn.genes.HasGene(item))
+					if (!XaG_GeneUtility.HasGene(item, parent.pawn))
 					{
 						continue;
 					}
-					if (item.prerequisite != null && !innerPawn.genes.HasGene(item.prerequisite))
+					if (item.prerequisite != null && !XaG_GeneUtility.HasGene(item.prerequisite, innerPawn))
 					{
 						continue;
 					}
-					if (!innerPawn.genes.HasGene(item))
+					if (!XaG_GeneUtility.HasGene(item, innerPawn))
 					{
 						innerPawn.genes?.AddGene(item, false);
 					}

@@ -222,7 +222,7 @@ namespace WVC_XenotypesAndGenes
 			// {
 				// ReimplanterUtility.SetXenotype(gene.pawn, selectedXeno);
 			// }
-			if (!gene.pawn.genes.HasGene(gene.def))
+			if (!XaG_GeneUtility.HasGene(gene.def, gene.pawn))
 			{
 				gene.pawn.genes.AddGene(gene.def, false);
 			}

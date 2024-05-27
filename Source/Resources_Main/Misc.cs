@@ -73,7 +73,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			foreach (XmlNode childNode in parent.ChildNodes)
 			{
-				if (childNode.Name != node.Name && childNode.InnerText != node.InnerText && childNode.InnerText != node.InnerText)
+				if (childNode.Name != node.Name && childNode.InnerText != node.InnerText)
 				{
 					continue;
 				}

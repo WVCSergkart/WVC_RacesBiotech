@@ -54,7 +54,7 @@ namespace WVC_XenotypesAndGenes
 				pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));
 				return;
 			}
-			if (pawn.genes.HasGene(geneDef))
+			if (XaG_GeneUtility.HasGene(geneDef, pawn))
 			{
 				return;
 			}
@@ -84,7 +84,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return "ERROR geneDef is null";
 			}
-			if (p.genes.HasGene(geneDef))
+			if (XaG_GeneUtility.HasGene(geneDef, p))
 			{
 				return "WVC_XaG_GeneGiverPawnHasGene_Label".Translate(p.Name.ToString());
 			}

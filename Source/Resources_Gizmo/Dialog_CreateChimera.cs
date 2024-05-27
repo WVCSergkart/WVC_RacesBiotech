@@ -675,7 +675,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			foreach (GeneDef geneDef in selectedGenes)
 			{
-				if (!gene.pawn.genes.HasGene(geneDef))
+				if (!XaG_GeneUtility.HasGene(geneDef, gene.pawn))
 				{
 					gene.pawn?.genes?.AddGene(geneDef, xenogene: true);
 				}
@@ -719,7 +719,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				gene.pawn?.genes?.RemoveGene(gene);
 			}
-			if (!gene.pawn.genes.HasGene(gene.def))
+			if (!XaG_GeneUtility.HasGene(gene.def, gene.pawn))
 			{
 				gene.pawn.genes.AddGene(gene.def, false);
 			}
@@ -743,7 +743,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			foreach (Gene item in gene.pawn.genes.GenesListForReading)
 			{
-				if (item.overriddenByGene != null && !gene.pawn.genes.HasGene(item.overriddenByGene.def))
+				if (item.overriddenByGene != null && !XaG_GeneUtility.HasGene(item.overriddenByGene.def, gene.pawn))
 				{
 					item.OverrideBy(null);
 				}
