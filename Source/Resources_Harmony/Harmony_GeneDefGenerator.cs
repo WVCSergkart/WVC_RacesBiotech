@@ -68,6 +68,7 @@ namespace WVC_XenotypesAndGenes
 						}
 					}
 				}
+				GeneratorUtility.GauranlenTreeModeDef();
 				return geneDefList;
 			}
 		}

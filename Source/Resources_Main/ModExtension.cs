@@ -81,6 +81,7 @@ namespace WVC_XenotypesAndGenes
 		// public List<GauranlenTreeModeDef> blacklistedGauranlenTreeModeDefs;
 		public int connectedDryadsLimit = 6;
 		public PawnKindDef defaultDryadPawnKindDef;
+		public ThingDef defaultDryadThingDef;
 		public StatDef dryadsStatLimit;
 		public HediffDef postGestationSickness;
 		public ThoughtDef dryadDiedMemoryDef;

@@ -50,7 +50,9 @@
 	</symbolPack>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
-			<defaultDryadPawnKindDef>WVC_XaG_Dryad_Basic</defaultDryadPawnKindDef>
+			<!-- <defaultDryadPawnKindDef>WVC_XaG_Dryad_Basic</defaultDryadPawnKindDef> -->
+			<defaultDryadPawnKindDef>Dryad_Basic</defaultDryadPawnKindDef>
+			<defaultDryadThingDef>WVC_XaG_Dryad_Basic</defaultDryadThingDef>
 			<postGestationSickness>WVC_XenotypesAndGenes_PostGestationRecovery</postGestationSickness>
 			<dryadsStatLimit>WVC_DryadsLimit</dryadsStatLimit>
 			<connectedDryadsLimit>6</connectedDryadsLimit>

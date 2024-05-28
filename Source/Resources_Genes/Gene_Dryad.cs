@@ -65,7 +65,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			Pawn dryad = GenerateNewDryad(Spawner.defaultDryadPawnKindDef);
+			Pawn dryad = GenerateNewDryad(Spawner.defaultDryadPawnKindDef, Spawner.defaultDryadThingDef);
 			GenSpawn.Spawn(dryad, pawn.Position, pawn.Map).Rotation = Rot4.South;
 			EffecterDefOf.DryadSpawn.Spawn(pawn.Position, pawn.Map).Cleanup();
 			SoundDefOf.Pawn_Dryad_Spawn.PlayOneShot(SoundInfo.InMap(dryad));
@@ -77,11 +77,16 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public Pawn GenerateNewDryad(PawnKindDef dryadCaste)
+		public Pawn GenerateNewDryad(PawnKindDef dryadCaste, ThingDef dryadThing)
 		{
 			Pawn dryad = PawnGenerator.GeneratePawn(new PawnGenerationRequest(dryadCaste, null, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: false, canGeneratePawnRelations: true, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: true, allowAddictions: true, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, Gender.Male, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Newborn));
+			dryad.def = dryadThing;
+			dryad.InitializeComps();
 			ResetDryad(dryad);
 			CompGauranlenDryad newPawnComp = dryad.TryGetComp<CompGauranlenDryad>();
+			// if (newPawnComp == null)
+			// {
+			// }
 			newPawnComp.SetMaster(pawn);
 			dryad.connections?.ConnectTo(pawn);
 			dryads.Add(dryad);

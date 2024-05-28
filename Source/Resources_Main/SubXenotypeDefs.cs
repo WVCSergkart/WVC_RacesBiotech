@@ -8,6 +8,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
+	[Obsolete]
 	public class DryadKindDef : PawnKindDef
 	{
 
@@ -48,6 +49,8 @@ namespace WVC_XenotypesAndGenes
 		public GauranlenGeneModeDef previousStage;
 
 		public PawnKindDef pawnKindDef;
+
+		public ThingDef newDryadDef;
 
 		public List<MemeDef> requiredMemes;
 

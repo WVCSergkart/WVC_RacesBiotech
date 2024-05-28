@@ -92,6 +92,8 @@ namespace WVC_XenotypesAndGenes
 		public bool shapeshifter_enableStyleButton = true;
 		// Chimera
 		public bool enable_chimeraMetabolismHungerFactor = true;
+		// DryadQueen
+		public bool enable_dryadQueenMechanicGenerator = false;
 		// Xenotypes
 		public bool enable_spawnXenotypesInFactions = false;
 		// public bool increasedXenotypesFactionlessGenerationWeight_MainSwitch = false;
@@ -188,8 +190,10 @@ namespace WVC_XenotypesAndGenes
 			// shapeshifter
 			Scribe_Values.Look(ref shapeshifter_enableStyleButton, "shapeshifter_enableStyleButton", defaultValue: true);
 			Scribe_Values.Look(ref enable_spawnXenotypesInFactions, "enable_spawnXenotypesInFactions", defaultValue: false);
-		// Chimera
+			// Chimera
 			Scribe_Values.Look(ref enable_chimeraMetabolismHungerFactor, "enable_chimeraMetabolismHungerFactor", defaultValue: true);
+			// DryadQueen
+			Scribe_Values.Look(ref enable_dryadQueenMechanicGenerator, "enable_dryadQueenMechanicGenerator", defaultValue: false);
 			// Reincarnation
 			Scribe_Values.Look(ref disableXenotypes_MainSwitch, "disableXenotypes_MainSwitch", defaultValue: false);
 			Scribe_Values.Look(ref disableXenotypes_Undeads, "disableXenotypes_Undeads", defaultValue: false);
@@ -609,7 +613,7 @@ namespace WVC_XenotypesAndGenes
 		public void GenesSettings(Rect inRect)
 		{
 			Rect outRect = new(inRect.x, inRect.y, inRect.width, inRect.height);
-			Rect rect = new(0f, 0f, inRect.width - 30f, inRect.height * 2.0f);
+			Rect rect = new(0f, 0f, inRect.width - 30f, inRect.height * 3.0f);
 			Widgets.BeginScrollView(outRect, ref scrollPosition, rect);
 			Listing_Standard listingStandard = new();
 			listingStandard.Begin(rect);
@@ -678,6 +682,13 @@ namespace WVC_XenotypesAndGenes
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_TelepathStudy".Translate() + ":", -1);
 			listingStandard.CheckboxLabeled("WVC_Label_learningTelepathWorkForBothSides".Translate().Colorize(ColorLibrary.LightBlue), ref settings.learningTelepathWorkForBothSides, "WVC_ToolTip_learningTelepathWorkForBothSides".Translate());
+			listingStandard.GapLine();
+			// =
+			listingStandard.Label("WVC_XaGGeneSettings_DryadQueen".Translate() + ":", -1);
+			if (Prefs.DevMode)
+			{
+				listingStandard.CheckboxLabeled("WVC_Label_enable_dryadQueenMechanicGenerator".Translate().Colorize(ColorLibrary.LightOrange), ref settings.enable_dryadQueenMechanicGenerator, "WVC_ToolTip_enable_dryadQueenMechanicGenerator".Translate());
+			}
 			// Reset Button
 			listingStandard.GapLine();
 			// =============== Buttons ===============
@@ -825,6 +836,8 @@ namespace WVC_XenotypesAndGenes
 			// =
 			WVC_Biotech.settings.enableInstabilityLastChanceMechanic = true;
 			// =
+			WVC_Biotech.settings.enable_dryadQueenMechanicGenerator = false;
+			// =
 			WVC_Biotech.settings.link_addedMechlinkWithGene = true;
 			WVC_Biotech.settings.link_addedPsylinkWithGene = true;
 			WVC_Biotech.settings.link_removeMechlinkWithGene = false;
@@ -919,6 +932,8 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.hemogenic_ImplanterFangsChanceFactor = 1f;
 			// =
 			WVC_Biotech.settings.enableInstabilityLastChanceMechanic = true;
+			// =
+			WVC_Biotech.settings.enable_dryadQueenMechanicGenerator = false;
 			// =
 			WVC_Biotech.settings.link_addedMechlinkWithGene = true;
 			WVC_Biotech.settings.link_addedPsylinkWithGene = true;

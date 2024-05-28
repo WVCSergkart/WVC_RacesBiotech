@@ -19,6 +19,7 @@
 	<WVC_XaGGeneSettings_TelepathStudy>Telepath study</WVC_XaGGeneSettings_TelepathStudy>
 	<WVC_XaGGeneSettings_Hemogenic>Hemogenic</WVC_XaGGeneSettings_Hemogenic>
 	<WVC_XaGGeneSettings_MechAndPsyLinks>Mechlink and Psylink</WVC_XaGGeneSettings_MechAndPsyLinks>
+	<WVC_XaGGeneSettings_DryadQueen>Dryad queen</WVC_XaGGeneSettings_DryadQueen>
 
 	<!-- ================================== -->
 
@@ -142,5 +143,10 @@ Requires the Ideology DLC, for obvious reasons.</WVC_ToolTip_shapeshifter_enable
 	<WVC_ToolTip_enable_chimeraMetabolismHungerFactor>If enabled, the chimera gene will change the hunger factor depending on genetic metabolism, as if there were no limit on the multiplier.
 
 Disable this option if you have any mods that change the mechanics of the hunger multiplier from metabolism.</WVC_ToolTip_enable_chimeraMetabolismHungerFactor>
+
+	<!-- ================================== -->
+
+	<WVC_Label_enable_dryadQueenMechanicGenerator>(DEV) Generate dryads</WVC_Label_enable_dryadQueenMechanicGenerator>
+	<WVC_ToolTip_enable_dryadQueenMechanicGenerator>If enabled, the necessary defs for the "Dryad queen" gene will be created when the game starts.</WVC_ToolTip_enable_dryadQueenMechanicGenerator>
 
 </LanguageData>

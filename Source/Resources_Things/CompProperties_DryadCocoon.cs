@@ -246,7 +246,7 @@ namespace WVC_XenotypesAndGenes
 				Pawn pawn = (Pawn)innerContainer[0];
 				long ageBiologicalTicks = pawn.ageTracker.AgeBiologicalTicks;
 				DryadComp.Gene_GauranlenConnection.RemoveDryad(pawn);
-				Pawn pawn2 = DryadComp.Gene_GauranlenConnection.GenerateNewDryad(dryadKind);
+				Pawn pawn2 = DryadComp.Gene_GauranlenConnection.GenerateNewDryad(dryadKind, DryadComp.currentMode.newDryadDef);
 				pawn2.ageTracker.AgeBiologicalTicks = ageBiologicalTicks;
 				if (!pawn.Name.Numerical)
 				{

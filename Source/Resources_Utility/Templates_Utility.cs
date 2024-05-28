@@ -11,6 +11,102 @@ namespace WVC_XenotypesAndGenes
 	public static class GeneratorUtility
 	{
 
+		// Dryads
+
+		public static void GauranlenTreeModeDef()
+		{
+			if (!ModLister.IdeologyInstalled || !WVC_Biotech.settings.enable_dryadQueenMechanicGenerator)
+			{
+				return;
+			}
+			foreach (GauranlenTreeModeDef gauranlenTreeModeDef in DefDatabase<GauranlenTreeModeDef>.AllDefsListForReading)
+			{
+				DefGenerator.AddImpliedDef(GeneratorUtility.GetFromGauranlenTreeModeTemplate(gauranlenTreeModeDef));
+			}
+		}
+
+		public static GauranlenGeneModeDef GetFromGauranlenTreeModeTemplate(GauranlenTreeModeDef def)
+		{
+			GauranlenGeneModeDef gauranlenGeneModeDef = new()
+			{
+				defName = "WVC_XaG_" + def.defName,
+				label = def.label,
+				description = def.description,
+				pawnKindDef = def.pawnKindDef,
+				requiredMemes = def.requiredMemes,
+				displayedStats = def.displayedStats,
+				hyperlinks = def.hyperlinks,
+				modContentPack = WVC_Biotech.settings.Mod.Content,
+				modExtensions = def.modExtensions
+			};
+			if (def.pawnKindDef != null)
+			{
+				ThingDef newDryadDef = GetFromGauranlenGeneModeTemplate(def.pawnKindDef.race);
+				DefGenerator.AddImpliedDef(newDryadDef);
+				gauranlenGeneModeDef.newDryadDef = newDryadDef;
+			}
+			return gauranlenGeneModeDef;
+		}
+
+		public static ThingDef GetFromGauranlenGeneModeTemplate(ThingDef thingDef)
+		{
+			ThingDef dryadDef = new()
+			{
+				defName = "WVC_XaG_" + thingDef.defName,
+				label = thingDef.label,
+				description = thingDef.description + "\n\n" + "WVC_XaG_GestatedDryadDescription".Translate().Resolve(),
+				modContentPack = WVC_Biotech.settings.Mod.Content,
+				statBases = thingDef.statBases,
+				uiIconScale = thingDef.uiIconScale,
+				tools = thingDef.tools,
+				tradeTags = thingDef.tradeTags,
+				race = thingDef.race,
+				comps = thingDef.comps,
+				thingCategories = thingDef.thingCategories,
+				recipes = thingDef.recipes,
+				thingClass = thingDef.thingClass,
+				category = thingDef.category,
+				selectable = thingDef.selectable,
+				containedItemsSelectable = thingDef.containedItemsSelectable,
+				containedPawnsSelectable = thingDef.containedPawnsSelectable,
+				tickerType = thingDef.tickerType,
+				altitudeLayer = thingDef.altitudeLayer,
+				useHitPoints = thingDef.useHitPoints,
+				hasTooltip = thingDef.hasTooltip,
+				soundImpactDefault = thingDef.soundImpactDefault,
+				drawHighlight = thingDef.drawHighlight,
+				inspectorTabs = thingDef.inspectorTabs,
+				drawGUIOverlay = thingDef.drawGUIOverlay,
+				modExtensions = thingDef.modExtensions
+			};
+			// dryadDef.shortHash = (ushort)dryadDef.GetHashCode();
+			// ThingDef dryadDef = thingDef;
+			// dryadDef.defName = "WVC_XaG_" + thingDef.defName;
+			// dryadDef.label = "WVC_XaG_GestatedDryad".Translate() + thingDef.label;
+			// dryadDef.description = thingDef.description + "\n\n" + "WVC_XaG_GestatedDryadDescription".Translate();
+			// dryadDef.modContentPack = WVC_Biotech.settings.Mod.Content;
+			dryadDef.race.linkedCorpseKind = thingDef;
+			dryadDef.race.useMeatFrom = PawnKindDefOf.Dryad_Basic.race;
+			ThinkTreeDef dryadThink = DefDatabase<ThinkTreeDef>.GetNamed("WVC_XaG_Dryad");
+			if (dryadThink != null)
+			{
+				dryadDef.race.thinkTreeMain = dryadThink;
+			}
+			if (dryadDef.comps.NullOrEmpty())
+			{
+				dryadDef.comps = new();
+			}
+			if (dryadDef.GetCompProperties<CompProperties_GauranlenDryad>() == null)
+			{
+				CompProperties_GauranlenDryad dryad_comp = new();
+				dryad_comp.defaultDryadPawnKindDef = PawnKindDefOf.Dryad_Basic;
+				dryadDef.comps.Add(dryad_comp);
+			}
+			return dryadDef;
+		}
+
+		// XenoForcers
+
 		public static GeneDef GetFromTemplate_XenotypeForcer(XenotypeForcerGeneTemplateDef template, XenotypeDef def, int displayOrderBase)
 		{
 			GeneDef geneDef = new()
