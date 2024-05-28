@@ -162,6 +162,11 @@
 	<xenoGenesMutantsExceptions>
 		<!-- <li MayRequire="ludeon.rimworld.anomaly">WVC_Thrall</li> -->
 	</xenoGenesMutantsExceptions>
+	<!-- Ignored dryad modes by dryad queen gene. Required any GauranlenTreeModeDefs -->
+	<ignoredGauranlenTreeModeDefs>
+		<li MayRequire="ludeon.rimworld.ideology">Gaumaker</li>
+		<li MayRequire="sarg.alphamemes">AM_Corruptor</li>
+	</ignoredGauranlenTreeModeDefs>
   </WVC_XenotypesAndGenes.XenotypesAndGenesListDef>
 
   <!-- ======================================================================= -->

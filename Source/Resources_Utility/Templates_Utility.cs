@@ -2,6 +2,7 @@ using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Verse;
 using static Verse.GeneSymbolPack;
 
@@ -19,9 +20,29 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
+			List<GauranlenTreeModeDef> exceptions = XenotypeFilterUtility.GauranlenTreeModeDefExceptions();
 			foreach (GauranlenTreeModeDef gauranlenTreeModeDef in DefDatabase<GauranlenTreeModeDef>.AllDefsListForReading)
 			{
+				if (exceptions.Contains(gauranlenTreeModeDef))
+				{
+					continue;
+				}
 				DefGenerator.AddImpliedDef(GeneratorUtility.GetFromGauranlenTreeModeTemplate(gauranlenTreeModeDef));
+			}
+			foreach (DummyDryadTemplateDef dummyDryad in DefDatabase<DummyDryadTemplateDef>.AllDefsListForReading)
+			{
+				if (dummyDryad.dryadDef == null || dummyDryad.geneDef == null)
+				{
+					continue;
+				}
+				GeneExtension_Spawner modExtension = dummyDryad.geneDef?.GetModExtension<GeneExtension_Spawner>();
+				if (modExtension == null)
+				{
+					continue;
+				}
+				ThingDef newBasicDryad = GeneratorUtility.GetFromGauranlenGeneModeTemplate(dummyDryad.dryadDef.race);
+				DefGenerator.AddImpliedDef(newBasicDryad);
+				modExtension.defaultDryadThingDef = newBasicDryad;
 			}
 		}
 
@@ -35,7 +56,7 @@ namespace WVC_XenotypesAndGenes
 				pawnKindDef = def.pawnKindDef,
 				requiredMemes = def.requiredMemes,
 				displayedStats = def.displayedStats,
-				hyperlinks = def.hyperlinks,
+				// hyperlinks = def.hyperlinks,
 				modContentPack = WVC_Biotech.settings.Mod.Content,
 				modExtensions = def.modExtensions
 			};
@@ -55,13 +76,14 @@ namespace WVC_XenotypesAndGenes
 				defName = "WVC_XaG_" + thingDef.defName,
 				label = thingDef.label,
 				description = thingDef.description + "\n\n" + "WVC_XaG_GestatedDryadDescription".Translate().Resolve(),
+				descriptionHyperlinks = thingDef.descriptionHyperlinks,
 				modContentPack = WVC_Biotech.settings.Mod.Content,
 				statBases = thingDef.statBases,
 				uiIconScale = thingDef.uiIconScale,
 				tools = thingDef.tools,
 				tradeTags = thingDef.tradeTags,
 				race = thingDef.race,
-				comps = thingDef.comps,
+				comps = new(),
 				thingCategories = thingDef.thingCategories,
 				recipes = thingDef.recipes,
 				thingClass = thingDef.thingClass,
@@ -79,22 +101,27 @@ namespace WVC_XenotypesAndGenes
 				drawGUIOverlay = thingDef.drawGUIOverlay,
 				modExtensions = thingDef.modExtensions
 			};
-			// dryadDef.shortHash = (ushort)dryadDef.GetHashCode();
-			// ThingDef dryadDef = thingDef;
+			// ThingCopyDef oldDryadDef = new(thingDef);
+			// ThingDef dryadDef = (ThingDef)DeepClone(thingDef);
 			// dryadDef.defName = "WVC_XaG_" + thingDef.defName;
-			// dryadDef.label = "WVC_XaG_GestatedDryad".Translate() + thingDef.label;
-			// dryadDef.description = thingDef.description + "\n\n" + "WVC_XaG_GestatedDryadDescription".Translate();
+			// dryadDef.label = thingDef.label;
+			// dryadDef.description = thingDef.description + "\n\n" + "WVC_XaG_GestatedDryadDescription".Translate().Resolve();
 			// dryadDef.modContentPack = WVC_Biotech.settings.Mod.Content;
 			dryadDef.race.linkedCorpseKind = thingDef;
 			dryadDef.race.useMeatFrom = PawnKindDefOf.Dryad_Basic.race;
+			dryadDef.race.allowedOnCaravan = true;
+			dryadDef.race.disableAreaControl = false;
 			ThinkTreeDef dryadThink = DefDatabase<ThinkTreeDef>.GetNamed("WVC_XaG_Dryad");
 			if (dryadThink != null)
 			{
 				dryadDef.race.thinkTreeMain = dryadThink;
 			}
-			if (dryadDef.comps.NullOrEmpty())
+			if (!thingDef.comps.NullOrEmpty())
 			{
-				dryadDef.comps = new();
+				foreach (CompProperties item in thingDef.comps)
+				{
+					dryadDef.comps.Add(item);
+				}
 			}
 			if (dryadDef.GetCompProperties<CompProperties_GauranlenDryad>() == null)
 			{
@@ -104,6 +131,44 @@ namespace WVC_XenotypesAndGenes
 			}
 			return dryadDef;
 		}
+
+		// public static T DeepClone<T>(T obj)
+		// {
+			// using var ms = new MemoryStream();
+			// var formatter = new BinaryFormatter();
+			// formatter.Serialize(ms, obj);
+			// ms.Position = 0;
+			// return (T)formatter.Deserialize(ms);
+		// }
+
+		// public static object DeepClone(object objSource)
+		// {
+			// Type type = objSource.GetType();
+			// object obj = Activator.CreateInstance(type);
+			// PropertyInfo[] properties = type.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+			// foreach (PropertyInfo propertyInfo in properties)
+			// {
+				// if (!propertyInfo.CanWrite)
+				// {
+					// continue;
+				// }
+				// if (propertyInfo.PropertyType.IsValueType || propertyInfo.PropertyType.IsEnum || propertyInfo.PropertyType == typeof(string))
+				// {
+					// propertyInfo.SetValue(obj, propertyInfo.GetValue(objSource, null), null);
+					// continue;
+				// }
+				// object value = propertyInfo.GetValue(objSource, null);
+				// if (value == null)
+				// {
+					// propertyInfo.SetValue(obj, null, null);
+				// }
+				// else
+				// {
+					// propertyInfo.SetValue(obj, DeepClone(value), null);
+				// }
+			// }
+			// return obj;
+		// }
 
 		// XenoForcers
 

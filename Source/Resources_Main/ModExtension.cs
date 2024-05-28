@@ -326,6 +326,7 @@ namespace WVC_XenotypesAndGenes
 		// public List<HediffDef> hediffsRemovedByGenesRestorationSerum;
 		public List<MutantDef> xenoGenesMutantsExceptions = new();
 		public List<GeneDef> anomalyXenoGenesExceptions = new();
+		public List<GauranlenTreeModeDef> ignoredGauranlenTreeModeDefs = new();
 
 		// [Obsolete]
 		// public List<HediffDef> hediffsThatPreventUndeadResurrection;

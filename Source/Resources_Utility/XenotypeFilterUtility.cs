@@ -137,5 +137,19 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
+		public static List<GauranlenTreeModeDef> GauranlenTreeModeDefExceptions()
+		{
+			List<GauranlenTreeModeDef> list = new();
+			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+			{
+				if (item.ignoredGauranlenTreeModeDefs.NullOrEmpty())
+				{
+					continue;
+				}
+				list.AddRange(item.ignoredGauranlenTreeModeDefs);
+			}
+			return list;
+		}
+
 	}
 }

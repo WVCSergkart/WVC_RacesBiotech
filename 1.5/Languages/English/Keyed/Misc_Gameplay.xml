@@ -326,6 +326,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_ChooseDryadCasteModeInitialDesc>Here you can choose a caste for the {0}.</WVC_XaG_ChooseDryadCasteModeInitialDesc>
 	<WVC_XaG_ChangeDreadCasteDescFull>It will take several days for the dryad to change caste, during which time the dryad will be immobilized and defenseless.</WVC_XaG_ChangeDreadCasteDescFull>
 
+	<WVC_XaG_CompGauranlenDryad_ChangeMode>Change caste for this dryad.</WVC_XaG_CompGauranlenDryad_ChangeMode>
+
 	<!-- ============================ CHIMERA`S GENES ============================ -->
 	<!-- ============================ CHIMERA`S GENES ============================ -->
 	<!-- ============================ CHIMERA`S GENES ============================ -->

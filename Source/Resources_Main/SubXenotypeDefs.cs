@@ -3,10 +3,48 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
-
+// using System.Runtime.Serialization.Formatters.Binary;
+// using System.IO;
 
 namespace WVC_XenotypesAndGenes
 {
+
+	// [Serializable]
+	// public class ThingCopyDef : ThingDef
+	// {
+
+		// public ThingCopyDef()
+		// {
+		// }
+
+		// public ThingCopyDef(ThingDef thingDef)
+		// {
+			// descriptionHyperlinks = thingDef.descriptionHyperlinks;
+			// statBases = thingDef.statBases;
+			// uiIconScale = thingDef.uiIconScale;
+			// tools = thingDef.tools;
+			// tradeTags = thingDef.tradeTags;
+			// race = thingDef.race;
+			// comps = thingDef.comps;
+			// thingCategories = thingDef.thingCategories;
+			// recipes = thingDef.recipes;
+			// thingClass = thingDef.thingClass;
+			// category = thingDef.category;
+			// selectable = thingDef.selectable;
+			// containedItemsSelectable = thingDef.containedItemsSelectable;
+			// containedPawnsSelectable = thingDef.containedPawnsSelectable;
+			// tickerType = thingDef.tickerType;
+			// altitudeLayer = thingDef.altitudeLayer;
+			// useHitPoints = thingDef.useHitPoints;
+			// hasTooltip = thingDef.hasTooltip;
+			// soundImpactDefault = thingDef.soundImpactDefault;
+			// drawHighlight = thingDef.drawHighlight;
+			// inspectorTabs = thingDef.inspectorTabs;
+			// drawGUIOverlay = thingDef.drawGUIOverlay;
+			// modExtensions = thingDef.modExtensions;
+		// }
+
+	// }
 
 	[Obsolete]
 	public class DryadKindDef : PawnKindDef

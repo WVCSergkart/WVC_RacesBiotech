@@ -109,15 +109,15 @@ namespace WVC_XenotypesAndGenes
 		public override IEnumerable<Gizmo> CompGetGizmosExtra()
 		{
 			Pawn pawn = parent as Pawn;
-			if (Find.Selector.SelectedPawns.Count > 1 || Gene_GauranlenConnection == null || pawn.Faction != Faction.OfPlayer)
+			if (Gene_GauranlenConnection == null || pawn.Faction != Faction.OfPlayer)
 			{
 				yield break;
 			}
 			yield return new Command_Action
 			{
 				defaultLabel = "ChangeMode".Translate(),
-				defaultDesc = "ChangeModeDesc".Translate(),
-				icon = currentMode?.pawnKindDef != null ? Widgets.GetIconFor(currentMode.pawnKindDef.race) : Widgets.GetIconFor(pawn.def),
+				defaultDesc = "WVC_XaG_CompGauranlenDryad_ChangeMode".Translate(),
+				icon = currentMode?.pawnKindDef != null ? Widgets.GetIconFor(currentMode.pawnKindDef.race) : Widgets.GetIconFor(pawn.kindDef.race),
 				action = delegate
 				{
 					Find.WindowStack.Add(new Dialog_ChangeDryadCaste(Gene_GauranlenConnection, this));

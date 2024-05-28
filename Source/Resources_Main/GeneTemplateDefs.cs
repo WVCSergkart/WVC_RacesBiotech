@@ -6,6 +6,15 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
+	public class DummyDryadTemplateDef : Def
+	{
+
+		public GeneDef geneDef;
+
+		public PawnKindDef dryadDef;
+
+	}
+
 	public class SkillsGeneTemplateDef : Def
 	{
 		public Type geneClass = typeof(Gene);
