@@ -65,6 +65,8 @@ namespace WVC_XenotypesAndGenes
 				ThingDef newDryadDef = GetFromGauranlenGeneModeTemplate(def.pawnKindDef.race);
 				DefGenerator.AddImpliedDef(newDryadDef);
 				gauranlenGeneModeDef.newDryadDef = newDryadDef;
+				// def.pawnKindDef.race.race.allowedOnCaravan = true;
+				// def.pawnKindDef.race.race.disableAreaControl = false;
 			}
 			return gauranlenGeneModeDef;
 		}
@@ -101,21 +103,26 @@ namespace WVC_XenotypesAndGenes
 				drawGUIOverlay = thingDef.drawGUIOverlay,
 				modExtensions = thingDef.modExtensions
 			};
+			// ThingCopyDef oldDryad = new(thingDef);
+			// ThingDef dryadDef = (ThingDef)oldDryad.Clone();
 			// ThingCopyDef oldDryadDef = new(thingDef);
 			// ThingDef dryadDef = (ThingDef)DeepClone(thingDef);
 			// dryadDef.defName = "WVC_XaG_" + thingDef.defName;
 			// dryadDef.label = thingDef.label;
 			// dryadDef.description = thingDef.description + "\n\n" + "WVC_XaG_GestatedDryadDescription".Translate().Resolve();
 			// dryadDef.modContentPack = WVC_Biotech.settings.Mod.Content;
-			dryadDef.race.linkedCorpseKind = thingDef;
-			dryadDef.race.useMeatFrom = PawnKindDefOf.Dryad_Basic.race;
+			// dryadDef.race.CopyRaceProperties(thingDef.race);
+			// dryadDef.race = thingDef.race;
+			// dryadDef.race = CopyClass(thingDef.race);
+			// dryadDef.race.linkedCorpseKind = thingDef;
+			// dryadDef.race.useMeatFrom = PawnKindDefOf.Dryad_Basic.race;
 			dryadDef.race.allowedOnCaravan = true;
 			dryadDef.race.disableAreaControl = false;
-			ThinkTreeDef dryadThink = DefDatabase<ThinkTreeDef>.GetNamed("WVC_XaG_Dryad");
-			if (dryadThink != null)
-			{
-				dryadDef.race.thinkTreeMain = dryadThink;
-			}
+			// ThinkTreeDef dryadThink = DefDatabase<ThinkTreeDef>.GetNamed("WVC_XaG_Dryad");
+			// if (dryadThink != null)
+			// {
+				// dryadDef.race.thinkTreeMain = dryadThink;
+			// }
 			if (!thingDef.comps.NullOrEmpty())
 			{
 				foreach (CompProperties item in thingDef.comps)
@@ -139,6 +146,47 @@ namespace WVC_XenotypesAndGenes
 			// formatter.Serialize(ms, obj);
 			// ms.Position = 0;
 			// return (T)formatter.Deserialize(ms);
+		// }
+
+		// public static void CopyRaceProperties(this RaceProperties target, RaceProperties source)
+		// {
+			// RaceProperties newRace = new();
+			// newRace = source;
+			// target = newRace;
+		// }
+
+		// public static void CopyRaceProperties(this RaceProperties target, RaceProperties source)
+		// {
+			// foreach (var property in source.GetType().GetProperties())
+			// {
+				// PropertyInfo propertyS = target.GetType().GetProperty(property.Name);
+				// var value = property.GetValue(source, null);
+				// try
+				// {
+					// propertyS.SetValue(target, value, null);
+				// }
+				// catch
+				// {
+					// Log.Error(property.Name);
+				// }
+			// }
+		// }
+
+		// public static T CopyClass<T>(T obj)
+		// {
+			// T objcpy = (T)Activator.CreateInstance(typeof(T));
+			// foreach (var prop in obj.GetType().GetProperties())
+			// {
+				// var value = prop.GetValue(obj);
+				// try
+				// {
+					// objcpy.GetType().GetProperty(prop.Name).SetValue(objcpy, value);
+				// }
+				// catch
+				// {
+				// }
+			// }
+			// return objcpy;
 		// }
 
 		// public static object DeepClone(object objSource)

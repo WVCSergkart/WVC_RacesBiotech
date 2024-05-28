@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>enable_dryadQueenMechanicGenerator</settingName>
+		<caseTrue Class="PatchOperationInsert">
+		  <xpath>/Defs/ThinkTreeDef/thinkRoot/subNodes/li[@Class="JobGiver_ReturnToGauranlenTree"]</xpath>
+		  <order>Prepend</order>
+		  <value>
+			<li Class="WVC_XenotypesAndGenes.ThinkNode_ConditionalGestatedDryad">
+			  <subNodes>
+
+				<li Class="ThinkNode_Subtree">
+				  <treeDef>LordDuty</treeDef>
+				</li>
+
+				<!-- Primary faction actions -->
+				<li Class="ThinkNode_ConditionalOfPlayerFaction">
+				  <subNodes>
+					<!-- Dryad mode changed, return to cocoon and change type. -->
+					<li Class="WVC_XenotypesAndGenes.JobGiver_NewDryads_CreateAndEnterCocoon">
+					  <cocoonJobDef>WVC_XaG_CreateAndEnterCocoon</cocoonJobDef>
+					  <leaveJoinableLordIfIssuesJob>true</leaveJoinableLordIfIssuesJob>
+					</li>
+					<!-- Ordered to return to a healing pod to tend wounds. -->
+					<li Class="WVC_XenotypesAndGenes.JobGiver_NewDryads_CreateAndEnterHealingPod">
+					  <cocoonJobDef>WVC_XaG_CreateAndEnterHealingPod</cocoonJobDef>
+					  <leaveJoinableLordIfIssuesJob>true</leaveJoinableLordIfIssuesJob>
+					</li>
+					<!-- Create gauranlen pod -->
+					<!-- <li Class="ThinkNode_ConditionalPawnKind"> -->
+					  <!-- <pawnKind>Dryad_Gaumaker</pawnKind> -->
+					  <!-- <subNodes> -->
+						<!-- <li Class="JobGiver_MergeIntoGaumakerPod"> -->
+						  <!-- <leaveJoinableLordIfIssuesJob>true</leaveJoinableLordIfIssuesJob> -->
+						<!-- </li> -->
+					  <!-- </subNodes> -->
+					<!-- </li> -->
+
+					<li Class="ThinkNode_Tagger">
+					  <tagToGive>TrainedAnimalBehavior</tagToGive>
+					  <subNodes>
+						<!-- Trained behavior: obedience: Follow and defend master -->
+						<!-- <li Class="ThinkNode_ConditionalTrainableCompleted"> -->
+						  <!-- <trainable>Obedience</trainable> -->
+						  <!-- <subNodes> -->
+						  <!-- </subNodes> -->
+						<!-- </li> -->
+						<li Class="WVC_XenotypesAndGenes.ThinkNode_ConditionalShouldFollowConnectedPawn" >
+						  <subNodes>
+							<li Class="WVC_XenotypesAndGenes.JobGiver_AIDefendConnectedPawn">
+							  <attackMeleeThreatEvenIfNotHostile>true</attackMeleeThreatEvenIfNotHostile>
+							</li>
+							<li Class="WVC_XenotypesAndGenes.JobGiver_AIFollowConnectedPawn"/>
+							<li Class="WVC_XenotypesAndGenes.JobGiver_RescueConnectedPawn"/>
+							<li Class="WVC_XenotypesAndGenes.JobGiver_WanderNearConnectedPawn"/>
+						  </subNodes>
+						</li>
+					  </subNodes>
+					</li>
+				  </subNodes>
+				</li>
+
+				<!-- Needs -->
+				<li Class="ThinkNode_Subtree">
+				  <treeDef>SatisfyBasicNeeds</treeDef>
+				</li>
+
+				<!-- Secondary faction actions -->
+				<li Class="ThinkNode_ConditionalOfPlayerFaction">
+				  <subNodes>
+					<li Class="ThinkNode_Tagger">
+					  <tagToGive>RestingForMedicalReasons</tagToGive>
+					  <subNodes>
+						<li Class="JobGiver_PatientGoToBed" />
+					  </subNodes>
+					</li>
+					<li Class="JobGiver_SeekAllowedArea" />
+					<li Class="JobGiver_SeekSafeTemperature" />
+
+					<li Class="ThinkNode_Tagger">
+					  <tagToGive>RestingForMedicalReasons</tagToGive>
+					  <subNodes>
+						<li Class="JobGiver_PatientGoToBed" />
+					  </subNodes>
+					</li>
+
+					<li Class="ThinkNode_ChancePerHour_Constant">
+					  <mtbHours>1</mtbHours>
+					  <subNodes>
+						<li Class="ThinkNode_ConditionalRequireCapacities">
+						  <requiredCapacities>
+							<li>Manipulation</li>
+						  </requiredCapacities>
+						  <subNodes>
+							<!-- Trained behavior: Rescue-->
+							<li Class="ThinkNode_ConditionalTrainableCompleted">
+							  <trainable>Rescue</trainable>
+							  <subNodes>
+								<li Class="JobGiver_RescueNearby">
+								  <radius>75</radius>
+								</li>
+							  </subNodes>
+							</li>
+							<!-- Trained behavior: Haul-->
+							<li Class="ThinkNode_ConditionalTrainableCompleted">
+							  <trainable>Haul</trainable>
+							  <subNodes>
+								<li Class="ThinkNode_Tagger">
+								  <tagToGive>TrainedAnimalBehavior</tagToGive>
+								  <subNodes>
+									<li Class="JobGiver_Haul" />
+								  </subNodes>
+								</li>
+							  </subNodes>
+							</li>
+						  </subNodes>
+						</li>
+					  </subNodes>
+					</li>
+				  </subNodes>
+				</li>
+
+				<!-- Idle -->
+				<li Class="ThinkNode_Tagger">
+				  <tagToGive>Idle</tagToGive>
+				  <subNodes>
+					<li Class="JobGiver_WanderNearConnectedTree">
+					  <maxDanger>Deadly</maxDanger>
+					</li>
+					<li Class="JobGiver_WanderAnywhere">
+					  <maxDanger>Deadly</maxDanger>
+					  <ticksBetweenWandersRange>120~240</ticksBetweenWandersRange>
+					</li>
+				  </subNodes>
+				</li>
+
+			  </subNodes>
+			</li>
+
+		  </value>
+		</caseTrue>
+	</Operation>
+
+</Patch>

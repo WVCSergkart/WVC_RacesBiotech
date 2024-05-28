@@ -7,6 +7,16 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
+	public class ThinkNode_ConditionalGestatedDryad : ThinkNode_Conditional
+	{
+
+		protected override bool Satisfied(Pawn pawn)
+		{
+			return pawn.TryGetComp<CompGauranlenDryad>() != null;
+		}
+
+	}
+
 	// Queen Dryads
 
 	public class ThinkNode_ConditionalShouldFollowConnectedPawn : ThinkNode_Conditional

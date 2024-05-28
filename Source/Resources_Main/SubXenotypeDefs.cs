@@ -3,15 +3,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
-// using System.Runtime.Serialization.Formatters.Binary;
-// using System.IO;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	// [Serializable]
-	// public class ThingCopyDef : ThingDef
+	// public class ThingCopyDef : ThingDef, ICloneable
 	// {
+
+		// public object Clone()
+		// {
+			// return (ThingDef) this.MemberwiseClone();
+		// }
 
 		// public ThingCopyDef()
 		// {
