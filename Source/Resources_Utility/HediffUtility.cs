@@ -11,10 +11,24 @@ namespace WVC_XenotypesAndGenes
 
 		public static void BodyPartsGiver(List<BodyPartDef> bodyparts, Pawn pawn, HediffDef hediffDef, GeneDef geneDef)
 		{
-			int num = 0;
+			// int num = 0;
+			// foreach (BodyPartDef bodypart in bodyparts)
+			// {
+				// if (!pawn.RaceProps.body.GetPartsWithDef(bodypart).EnumerableNullOrEmpty() && num <= pawn.RaceProps.body.GetPartsWithDef(bodypart).Count)
+				// {
+					// Hediff hediff = HediffMaker.MakeHediff(hediffDef, pawn);
+					// HediffComp_GeneHediff hediff_GeneCheck = hediff.TryGetComp<HediffComp_GeneHediff>();
+					// if (hediff_GeneCheck != null)
+					// {
+						// hediff_GeneCheck.geneDef = geneDef;
+					// }
+					// pawn.health.AddHediff(hediff, pawn.RaceProps.body.GetPartsWithDef(bodypart).ToArray()[num]);
+					// num++;
+				// }
+			// }
 			foreach (BodyPartDef bodypart in bodyparts)
 			{
-				if (!pawn.RaceProps.body.GetPartsWithDef(bodypart).EnumerableNullOrEmpty() && num <= pawn.RaceProps.body.GetPartsWithDef(bodypart).Count)
+				foreach (BodyPartRecord bodyPartRecord in pawn.RaceProps.body.GetPartsWithDef(bodypart))
 				{
 					Hediff hediff = HediffMaker.MakeHediff(hediffDef, pawn);
 					HediffComp_GeneHediff hediff_GeneCheck = hediff.TryGetComp<HediffComp_GeneHediff>();
@@ -22,8 +36,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						hediff_GeneCheck.geneDef = geneDef;
 					}
-					pawn.health.AddHediff(hediff, pawn.RaceProps.body.GetPartsWithDef(bodypart).ToArray()[num]);
-					num++;
+					pawn.health.AddHediff(hediff, bodyPartRecord);
 				}
 			}
 		}
@@ -96,10 +109,17 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (pawn.health.hediffSet.HasHediff(hediffDef))
 			{
-				Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(hediffDef);
-				if (firstHediffOfDef != null)
+				// Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(hediffDef);
+				// if (firstHediffOfDef != null)
+				// {
+					// pawn.health.RemoveHediff(firstHediffOfDef);
+				// }
+				foreach (Hediff hediff in pawn.health.hediffSet.hediffs.ToList())
 				{
-					pawn.health.RemoveHediff(firstHediffOfDef);
+					if (hediff.def == hediffDef)
+					{
+						pawn.health.RemoveHediff(hediff);
+					}
 				}
 				return true;
 			}
