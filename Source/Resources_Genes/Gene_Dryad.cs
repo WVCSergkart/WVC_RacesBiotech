@@ -61,7 +61,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				spawnDryads = false;
 			}
-			if (Spawner?.defaultDryadPawnKindDef == null || dryads.Count >= pawn.GetStatValue(Spawner.dryadsStatLimit) || pawn.Map == null || !spawnDryads)
+			if (!spawnDryads || pawn.Map == null || Spawner?.defaultDryadPawnKindDef == null || dryads.Count >= pawn.GetStatValue(Spawner.dryadsStatLimit))
 			{
 				return;
 			}
@@ -99,6 +99,13 @@ namespace WVC_XenotypesAndGenes
 			newPawnComp.SetMaster(pawn);
 			dryad.connections?.ConnectTo(pawn);
 			dryads.Add(dryad);
+			foreach (Gene gene in pawn.genes.GenesListForReading)
+			{
+				if (gene is IGeneDryadQueen geneDryadQueen && gene.Active)
+				{
+					geneDryadQueen.Notify_DryadSpawned(dryad);
+				}
+			}
 			return dryad;
 		}
 

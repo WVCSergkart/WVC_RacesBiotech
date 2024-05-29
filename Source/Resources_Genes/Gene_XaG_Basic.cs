@@ -33,6 +33,13 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public interface IGeneDryadQueen
+	{
+
+		void Notify_DryadSpawned(Pawn dryad);
+
+	}
+
 	// public interface IGeneAddOrRemoveHediff
 	// {
 

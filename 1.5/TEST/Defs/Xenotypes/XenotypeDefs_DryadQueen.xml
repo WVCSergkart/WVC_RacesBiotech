@@ -15,6 +15,7 @@
 		<li>WVC_GauranlenConnection</li>
 		<li>WVC_GauranlenDryads_Clotting</li>
 		<li>WVC_GauranlenDryads_TotalHealing</li>
+		<li>WVC_GauranlenDryads_Tough</li>
 	</genes>
   </XenotypeDef>
 

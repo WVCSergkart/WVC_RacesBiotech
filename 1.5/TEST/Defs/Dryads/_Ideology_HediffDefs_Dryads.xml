@@ -23,4 +23,17 @@
 	</statModifiers>
   </HediffDef>
 
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_GauranlenDryads_Tough</defName>
+	<label>tough</label>
+	<stages>
+	  <li>
+		<becomeVisible>false</becomeVisible>
+		<statFactors>
+		  <IncomingDamageFactor>0.5</IncomingDamageFactor>
+		</statFactors>
+	  </li>
+	</stages>
+  </HediffDef>
+
 </Defs>

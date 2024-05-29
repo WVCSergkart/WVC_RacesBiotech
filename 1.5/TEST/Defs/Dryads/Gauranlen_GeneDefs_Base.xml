@@ -94,4 +94,25 @@
 	</customEffectDescriptions>
   </GeneDef>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGauranlen_DryadGestatorDependant">
+	<defName>WVC_GauranlenDryads_Tough</defName>
+	<label>dryads tough</label>
+	<description>Carriers of this gene gestate more tough dryads.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_GauranlenDryads_AddPermanentHediff</geneClass>
+	<iconColor>(255, 255, 255)</iconColor>
+	<iconPath>WVC/UI/Genes/Gene_DryadTough_v0</iconPath>
+	<displayOrderInCategory>45</displayOrderInCategory>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<customEffectDescriptions>
+		<li>Gestated dryads incoming damage multiplier x50%</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_GauranlenDryads_Tough</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
 </Defs>
