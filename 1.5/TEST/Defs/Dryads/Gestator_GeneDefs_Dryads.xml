@@ -25,16 +25,17 @@
 	<biostatMet>7</biostatMet>
 	<iconColor>(255, 255, 255)</iconColor>
 	<minAgeActive>13</minAgeActive>
-	<statFactors>
-	  <PruningSpeed>2.0</PruningSpeed>
-	</statFactors>
+	<!-- <statFactors> -->
+	  <!-- <PruningSpeed>2.0</PruningSpeed> -->
+	<!-- </statFactors> -->
 	<statOffsets>
 	  <!-- <MaxNutrition>0.4</MaxNutrition> -->
-	  <WVC_DryadsLimit>6</WVC_DryadsLimit>
+	  <PruningSpeed>0.5</PruningSpeed>
+	  <WVC_DryadsLimit>4</WVC_DryadsLimit>
 	</statOffsets>
-	<aptitudes>
-	  <Plants>8</Plants>
-	</aptitudes>
+	<!-- <aptitudes> -->
+	  <!-- <Plants>8</Plants> -->
+	<!-- </aptitudes> -->
 	<customEffectDescriptions>
 	  <!-- <li>TEXT &lt;color=#8a8ae6&gt;WORD&lt;/color&gt; TEXT &lt;color=#ff8585&gt;WARNING&lt;/color&gt;.</li> -->
 	  <li>Carrier &lt;color=#8a8ae6&gt;spawns dryads&lt;/color&gt; every (*DateTime)8-10 days(/DateTime).</li>

@@ -16,6 +16,8 @@
 		<li>WVC_GauranlenDryads_Clotting</li>
 		<li>WVC_GauranlenDryads_TotalHealing</li>
 		<li>WVC_GauranlenDryads_Tough</li>
+		<li>WVC_GauranlenDryads_ArmorSkin</li>
+		<li>WVC_GauranlenDryads_WasteDryads</li>
 	</genes>
   </XenotypeDef>
 

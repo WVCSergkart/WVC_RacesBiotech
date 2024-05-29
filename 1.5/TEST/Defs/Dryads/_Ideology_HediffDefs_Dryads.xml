@@ -36,4 +36,38 @@
 	</stages>
   </HediffDef>
 
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_GauranlenDryads_ArmorSkin</defName>
+	<label>armor skin</label>
+	<stages>
+	  <li>
+		<becomeVisible>false</becomeVisible>
+		<statOffsets>
+		  <ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+		  <ArmorRating_Sharp>0.25</ArmorRating_Sharp>
+		</statOffsets>
+	  </li>
+	</stages>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_GauranlenDryads_WasteDryads</defName>
+	<label>toxic metabolism</label>
+	<description>This dryad has toxic metabolic processes and as a result its waste can pollute the soil.</description>
+	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_WithInspectString</hediffClass>
+	<stages>
+	  <li>
+		<becomeVisible>true</becomeVisible>
+	  </li>
+	</stages>
+	<comps>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_Spawner">
+			<thingDef>Wastepack</thingDef>
+			<stackCount>2</stackCount>
+			<intervals>360000~720000</intervals>
+			<showMessage>false</showMessage>
+		</li>
+	</comps>
+  </HediffDef>
+
 </Defs>

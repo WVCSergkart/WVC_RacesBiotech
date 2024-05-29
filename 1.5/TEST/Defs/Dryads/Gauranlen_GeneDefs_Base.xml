@@ -13,9 +13,9 @@
 	  <PruningSpeed>0.1</PruningSpeed>
 	  <WVC_DryadsLimit>1</WVC_DryadsLimit>
 	</statOffsets>
-	<aptitudes>
-	  <Plants>2</Plants>
-	</aptitudes>
+	<!-- <aptitudes> -->
+	  <!-- <Plants>2</Plants> -->
+	<!-- </aptitudes> -->
   </GeneDef>
 
   <!-- ============================= -->
@@ -106,11 +106,53 @@
 	<biostatArc>0</biostatArc>
 	<biostatMet>-1</biostatMet>
 	<customEffectDescriptions>
-		<li>Gestated dryads incoming damage multiplier x50%</li>
+		<li>&lt;color=#ff8585&gt;Gestated dryads&lt;/color&gt; incoming damage multiplier x50%</li>
 	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_GauranlenDryads_Tough</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGauranlen_DryadGestatorDependant">
+	<defName>WVC_GauranlenDryads_ArmorSkin</defName>
+	<label>dryads armor skin</label>
+	<description>Carriers of this gene gestate dryads with armored skin.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_GauranlenDryads_AddPermanentHediff</geneClass>
+	<iconColor>(255, 255, 255)</iconColor>
+	<iconPath>WVC/UI/Genes/Gene_DryadArmor_v0</iconPath>
+	<displayOrderInCategory>50</displayOrderInCategory>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<customEffectDescriptions>
+		<li>&lt;color=#ff8585&gt;Gestated dryads&lt;/color&gt; blunt and sharp armor +25%</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_GauranlenDryads_ArmorSkin</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGauranlen_DryadGestatorDependant">
+	<defName>WVC_GauranlenDryads_WasteDryads</defName>
+	<label>waste dryads</label>
+	<description>Carriers of this gene gestate dryads with toxic metabolism. These dryads produce wastepacks from time to time.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_GauranlenDryads_AddPermanentHediff</geneClass>
+	<iconColor>(255, 255, 255)</iconColor>
+	<iconPath>WVC/UI/Genes/Gene_WasteDryads_v0</iconPath>
+	<displayOrderInCategory>55</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>3</biostatMet>
+	<customEffectDescriptions>
+		<li>&lt;color=#ff8585&gt;Gestated dryads&lt;/color&gt; spawns 2 wastepacks each (*DateTime)6-12 days(/DateTime).</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_GauranlenDryads_WasteDryads</hediffDefName>
 		</li>
 	</modExtensions>
   </GeneDef>
