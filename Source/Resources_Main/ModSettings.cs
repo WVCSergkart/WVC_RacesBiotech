@@ -685,10 +685,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.GapLine();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_DryadQueen".Translate() + ":", -1);
-			if (Prefs.DevMode)
-			{
-				listingStandard.CheckboxLabeled("WVC_Label_enable_dryadQueenMechanicGenerator".Translate().Colorize(ColorLibrary.LightOrange), ref settings.enable_dryadQueenMechanicGenerator, "WVC_ToolTip_enable_dryadQueenMechanicGenerator".Translate());
-			}
+			listingStandard.CheckboxLabeled("WVC_Label_enable_dryadQueenMechanicGenerator".Translate().Colorize(ColorLibrary.LightOrange), ref settings.enable_dryadQueenMechanicGenerator, "WVC_ToolTip_enable_dryadQueenMechanicGenerator".Translate());
 			// Reset Button
 			listingStandard.GapLine();
 			// =============== Buttons ===============

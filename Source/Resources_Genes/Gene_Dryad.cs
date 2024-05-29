@@ -65,7 +65,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			Pawn dryad = GenerateNewDryad(Spawner.defaultDryadPawnKindDef, Spawner.defaultDryadThingDef);
+			Pawn dryad = GenerateNewDryad(Spawner.defaultDryadPawnKindDef);
 			if (dryad == null)
 			{
 				return;
@@ -81,20 +81,21 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public Pawn GenerateNewDryad(PawnKindDef dryadCaste, ThingDef dryadThing)
+		public Pawn GenerateNewDryad(PawnKindDef dryadCaste)
 		{
-			if (dryadThing == null)
+			// if (dryadThing == null)
+			// {
+				// return null;
+			// }
+			Pawn dryad = PawnGenerator.GeneratePawn(new PawnGenerationRequest(dryadCaste, null, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: false, canGeneratePawnRelations: true, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: true, allowAddictions: true, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, Gender.Male, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Newborn));
+			// dryad.def = dryadThing;
+			// dryad.InitializeComps();
+			ResetDryad(dryad);
+			CompGauranlenDryad newPawnComp = dryad.TryGetComp<CompGauranlenDryad>();
+			if (newPawnComp == null)
 			{
 				return null;
 			}
-			Pawn dryad = PawnGenerator.GeneratePawn(new PawnGenerationRequest(dryadCaste, null, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: false, canGeneratePawnRelations: true, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: true, allowAddictions: true, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, Gender.Male, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Newborn));
-			dryad.def = dryadThing;
-			dryad.InitializeComps();
-			ResetDryad(dryad);
-			CompGauranlenDryad newPawnComp = dryad.TryGetComp<CompGauranlenDryad>();
-			// if (newPawnComp == null)
-			// {
-			// }
 			newPawnComp.SetMaster(pawn);
 			dryad.connections?.ConnectTo(pawn);
 			dryads.Add(dryad);
@@ -181,7 +182,7 @@ namespace WVC_XenotypesAndGenes
 				gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, this);
 			}
 			yield return gizmo;
-			Command_Action command_Action = new()
+			yield return new Command_Action
 			{
 				defaultLabel = "WVC_XaG_Gene_GauranlenConnection_SpawnOnOff".Translate() + ": " + GeneUiUtility.OnOrOff(spawnDryads),
 				defaultDesc = "WVC_XaG_Gene_GauranlenConnection_SpawnOnOffDesc".Translate(),
@@ -199,7 +200,21 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			};
-			yield return command_Action;
+			yield return new Command_Action
+			{
+				defaultLabel = "WVC_XaG_DryadQueenSelectAllDryads".Translate(),
+				defaultDesc = "WVC_XaG_DryadQueenSelectAllDryads_Desc".Translate(),
+				icon = ContentFinder<Texture2D>.Get("WVC/UI/XaG_General/UI_SelectDryads"),
+				Order = -87f,
+				action = delegate
+				{
+					Find.Selector.ClearSelection();
+					for (int i = 0; i < dryads.Count; i++)
+					{
+						Find.Selector.Select(dryads[i]);
+					}
+				}
+			};
 		}
 
 		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)

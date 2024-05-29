@@ -12,7 +12,7 @@ namespace WVC_XenotypesAndGenes
 
 		protected override bool Satisfied(Pawn pawn)
 		{
-			return pawn.TryGetComp<CompGauranlenDryad>() != null;
+			return pawn.TryGetComp<CompGauranlenDryad>()?.Gestated == true;
 		}
 
 	}

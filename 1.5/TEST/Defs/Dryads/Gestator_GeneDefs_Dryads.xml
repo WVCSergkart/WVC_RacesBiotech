@@ -67,10 +67,14 @@
 
   <!-- Dummy Dryad -->
 
+  <!-- Dryads which also need to be patched regardless of GauranlenTreeModeDefs. -->
   <WVC_XenotypesAndGenes.DummyDryadTemplateDef>
 	<defName>WVC_XaG_Dryad_Basic</defName>
-	<dryadDef>Dryad_Basic</dryadDef>
-	<geneDef>WVC_DryadQueen</geneDef>
+	<!-- <dryadDef>Dryad_Basic</dryadDef> -->
+	<!-- <geneDef>WVC_DryadQueen</geneDef> -->
+	<dryadDefs>
+	  <li>Dryad_Basic</li>
+	</dryadDefs>
   </WVC_XenotypesAndGenes.DummyDryadTemplateDef>
 
   <!-- <ThingDef ParentName="DryadBase"> -->

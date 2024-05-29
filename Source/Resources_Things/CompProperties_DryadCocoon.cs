@@ -34,6 +34,8 @@ namespace WVC_XenotypesAndGenes
 
 		private Pawn dryadMaster;
 
+		public bool Gestated => dryadMaster != null;
+
 		// [Unsaved(false)]
 		// private Pawn cachedConnectedPawn;
 
@@ -76,6 +78,24 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		// public override string TransformLabel(string label)
+		// {
+			// if (Gestated)
+			// {
+				// return "WVC_XaG_GestatedDryad".Translate() + " " + label;
+			// }
+			// return label;
+		// }
+
+		// public override string GetDescriptionPart()
+		// {
+			// if (Gestated)
+			// {
+				// return "WVC_XaG_GestatedDryadDescription".Translate().Resolve();
+			// }
+			// return null;
+		// }
+
 		public override void PostSpawnSetup(bool respawningAfterLoad)
 		{
 			base.PostSpawnSetup(respawningAfterLoad);
@@ -97,19 +117,23 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Notify_Killed(Map prevMap, DamageInfo? dinfo = null)
 		{
+			if (!Gestated)
+			{
+				return;
+			}
 			RemoveThisDryad(true);
 		}
 
 		public void RemoveThisDryad(bool gainMemory = false)
 		{
 			Pawn pawn = parent as Pawn;
-			Gene_GauranlenConnection.Notify_DryadKilled(pawn, gainMemory);
+			Gene_GauranlenConnection?.Notify_DryadKilled(pawn, gainMemory);
 		}
 
 		public override IEnumerable<Gizmo> CompGetGizmosExtra()
 		{
 			Pawn pawn = parent as Pawn;
-			if (Gene_GauranlenConnection == null || pawn.Faction != Faction.OfPlayer)
+			if (!Gestated || Gene_GauranlenConnection == null || pawn.Faction != Faction.OfPlayer)
 			{
 				yield break;
 			}
@@ -121,6 +145,18 @@ namespace WVC_XenotypesAndGenes
 				action = delegate
 				{
 					Find.WindowStack.Add(new Dialog_ChangeDryadCaste(Gene_GauranlenConnection, this));
+				}
+			};
+			yield return new Command_Action
+			{
+				defaultLabel = "WVC_XaG_GeneDryadsSelectDryadQueen".Translate(),
+				defaultDesc = "WVC_XaG_GeneDryadsSelectDryadQueen_Desc".Translate(),
+				icon = ContentFinder<Texture2D>.Get("WVC/UI/XaG_General/UI_SelectDryadQueen"),
+				Order = -87f,
+				action = delegate
+				{
+					Find.Selector.ClearSelection();
+					Find.Selector.Select(dryadMaster);
 				}
 			};
 		}
@@ -140,6 +176,23 @@ namespace WVC_XenotypesAndGenes
 	}
 
 	// ============================Cocoon=Cocoon============================
+
+	public class CompProperties_InheritableDryadCocoon : CompProperties_DryadCocoon
+	{
+
+		public ThingDef inheritFromDef;
+
+		public override void ResolveReferences(ThingDef parentDef)
+		{
+			CompProperties_DryadCocoon cocoon = inheritFromDef?.GetCompProperties<CompProperties_DryadCocoon>();
+			if (cocoon != null)
+			{
+				daysToComplete = cocoon.daysToComplete;
+				drawContents = cocoon.drawContents;
+			}
+		}
+
+	}
 
 	public class CompDryadHolder_WithGene : CompDryadHolder
 	{
@@ -246,7 +299,7 @@ namespace WVC_XenotypesAndGenes
 				Pawn pawn = (Pawn)innerContainer[0];
 				long ageBiologicalTicks = pawn.ageTracker.AgeBiologicalTicks;
 				DryadComp.Gene_GauranlenConnection.RemoveDryad(pawn);
-				Pawn pawn2 = DryadComp.Gene_GauranlenConnection.GenerateNewDryad(dryadKind, DryadComp.currentMode.newDryadDef);
+				Pawn pawn2 = DryadComp.Gene_GauranlenConnection.GenerateNewDryad(dryadKind);
 				pawn2.ageTracker.AgeBiologicalTicks = ageBiologicalTicks;
 				if (!pawn.Name.Numerical)
 				{

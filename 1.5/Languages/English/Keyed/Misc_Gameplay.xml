@@ -328,6 +328,12 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_CompGauranlenDryad_ChangeMode>Change caste for this dryad.</WVC_XaG_CompGauranlenDryad_ChangeMode>
 
+	<WVC_XaG_DryadQueenSelectAllDryads>Select dryads</WVC_XaG_DryadQueenSelectAllDryads>
+	<WVC_XaG_DryadQueenSelectAllDryads_Desc>Select all dryads associated with the queen.</WVC_XaG_DryadQueenSelectAllDryads_Desc>
+
+	<WVC_XaG_GeneDryadsSelectDryadQueen>Select dryad queen</WVC_XaG_GeneDryadsSelectDryadQueen>
+	<WVC_XaG_GeneDryadsSelectDryadQueen_Desc>Select dryad queen to whom this dryad belongs.</WVC_XaG_GeneDryadsSelectDryadQueen_Desc>
+
 	<!-- ============================ CHIMERA`S GENES ============================ -->
 	<!-- ============================ CHIMERA`S GENES ============================ -->
 	<!-- ============================ CHIMERA`S GENES ============================ -->

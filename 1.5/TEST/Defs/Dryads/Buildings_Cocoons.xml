@@ -25,10 +25,11 @@
 	  <deconstructible>false</deconstructible>
 	</building>
 	<comps>
-	  <li Class="CompProperties_DryadCocoon">
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_InheritableDryadCocoon">
 		<compClass>WVC_XenotypesAndGenes.CompDryadCocoon_WithGene</compClass>
-		<daysToComplete>5</daysToComplete>
-		<drawContents>true</drawContents>
+		<!-- <daysToComplete>5</daysToComplete> -->
+		<!-- <drawContents>true</drawContents> -->
+		<inheritFromDef>DryadCocoon</inheritFromDef>
 	  </li>
 	</comps>
   </ThingDef>
@@ -57,10 +58,11 @@
 	<fillPercent>0.5</fillPercent>
 	<selectable>true</selectable>
 	<comps>
-	  <li Class="CompProperties_DryadCocoon">
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_InheritableDryadCocoon">
 		<compClass>WVC_XenotypesAndGenes.CompDryadHealingPod_WithGene</compClass>
-		<daysToComplete>3</daysToComplete>
-		<drawContents>true</drawContents>
+		<!-- <daysToComplete>3</daysToComplete> -->
+		<!-- <drawContents>true</drawContents> -->
+		<inheritFromDef>DryadHealingPod</inheritFromDef>
 	  </li>
 	</comps>
   </ThingDef>

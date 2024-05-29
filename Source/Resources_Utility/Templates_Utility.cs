@@ -31,18 +31,26 @@ namespace WVC_XenotypesAndGenes
 			}
 			foreach (DummyDryadTemplateDef dummyDryad in DefDatabase<DummyDryadTemplateDef>.AllDefsListForReading)
 			{
-				if (dummyDryad.dryadDef == null || dummyDryad.geneDef == null)
+				if (dummyDryad.dryadDefs.NullOrEmpty())
 				{
 					continue;
 				}
-				GeneExtension_Spawner modExtension = dummyDryad.geneDef?.GetModExtension<GeneExtension_Spawner>();
-				if (modExtension == null)
+				// GeneExtension_Spawner modExtension = dummyDryad.geneDef?.GetModExtension<GeneExtension_Spawner>();
+				// if (modExtension == null)
+				// {
+					// continue;
+				// }
+				// ThingDef newBasicDryad = GeneratorUtility.GetFromGauranlenGeneModeTemplate(dummyDryad.dryadDef.race);
+				// DefGenerator.AddImpliedDef(newBasicDryad);
+				// modExtension.defaultDryadThingDef = newBasicDryad;
+				foreach (PawnKindDef dryad in dummyDryad.dryadDefs)
 				{
-					continue;
+					TrySetDryadComp(dryad.race);
+					// if (!)
+					// {
+						// Log.Warning("Failed set CompProperties_GauranlenDryad for " + dryad.race.defName + ". These dryads will not work with the dryad queen gene.");
+					// }
 				}
-				ThingDef newBasicDryad = GeneratorUtility.GetFromGauranlenGeneModeTemplate(dummyDryad.dryadDef.race);
-				DefGenerator.AddImpliedDef(newBasicDryad);
-				modExtension.defaultDryadThingDef = newBasicDryad;
 			}
 		}
 
@@ -62,13 +70,43 @@ namespace WVC_XenotypesAndGenes
 			};
 			if (def.pawnKindDef != null)
 			{
-				ThingDef newDryadDef = GetFromGauranlenGeneModeTemplate(def.pawnKindDef.race);
-				DefGenerator.AddImpliedDef(newDryadDef);
-				gauranlenGeneModeDef.newDryadDef = newDryadDef;
+				// ThingDef newDryadDef = GetFromGauranlenGeneModeTemplate(def.pawnKindDef.race);
+				// DefGenerator.AddImpliedDef(newDryadDef);
+				// gauranlenGeneModeDef.newDryadDef = newDryadDef;
 				// def.pawnKindDef.race.race.allowedOnCaravan = true;
 				// def.pawnKindDef.race.race.disableAreaControl = false;
+				TrySetDryadComp(def.pawnKindDef.race);
+				// if (!TrySetDryadComp(def.pawnKindDef.race))
+				// {
+					// Log.Warning("Failed set CompProperties_GauranlenDryad for " + def.pawnKindDef.race.defName + ". These dryads will not work with the dryad queen gene.");
+				// }
 			}
 			return gauranlenGeneModeDef;
+		}
+
+		public static bool TrySetDryadComp(ThingDef thingDef)
+		{
+			try
+			{
+				thingDef.race.allowedOnCaravan = true;
+				thingDef.race.disableAreaControl = false;
+				if (thingDef.comps == null)
+				{
+					thingDef.comps = new();
+				}
+				if (thingDef.GetCompProperties<CompProperties_GauranlenDryad>() == null)
+				{
+					CompProperties_GauranlenDryad dryad_comp = new();
+					dryad_comp.defaultDryadPawnKindDef = PawnKindDefOf.Dryad_Basic;
+					thingDef.comps.Add(dryad_comp);
+				}
+				return true;
+			}
+			catch
+			{
+				Log.Warning("Failed set CompProperties_GauranlenDryad for " + thingDef.defName + ". These dryads will not work with the dryad queen gene.");
+			}
+			return false;
 		}
 
 		public static ThingDef GetFromGauranlenGeneModeTemplate(ThingDef thingDef)
@@ -103,26 +141,8 @@ namespace WVC_XenotypesAndGenes
 				drawGUIOverlay = thingDef.drawGUIOverlay,
 				modExtensions = thingDef.modExtensions
 			};
-			// ThingCopyDef oldDryad = new(thingDef);
-			// ThingDef dryadDef = (ThingDef)oldDryad.Clone();
-			// ThingCopyDef oldDryadDef = new(thingDef);
-			// ThingDef dryadDef = (ThingDef)DeepClone(thingDef);
-			// dryadDef.defName = "WVC_XaG_" + thingDef.defName;
-			// dryadDef.label = thingDef.label;
-			// dryadDef.description = thingDef.description + "\n\n" + "WVC_XaG_GestatedDryadDescription".Translate().Resolve();
-			// dryadDef.modContentPack = WVC_Biotech.settings.Mod.Content;
-			// dryadDef.race.CopyRaceProperties(thingDef.race);
-			// dryadDef.race = thingDef.race;
-			// dryadDef.race = CopyClass(thingDef.race);
-			// dryadDef.race.linkedCorpseKind = thingDef;
-			// dryadDef.race.useMeatFrom = PawnKindDefOf.Dryad_Basic.race;
 			dryadDef.race.allowedOnCaravan = true;
 			dryadDef.race.disableAreaControl = false;
-			// ThinkTreeDef dryadThink = DefDatabase<ThinkTreeDef>.GetNamed("WVC_XaG_Dryad");
-			// if (dryadThink != null)
-			// {
-				// dryadDef.race.thinkTreeMain = dryadThink;
-			// }
 			if (!thingDef.comps.NullOrEmpty())
 			{
 				foreach (CompProperties item in thingDef.comps)
