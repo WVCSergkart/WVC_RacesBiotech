@@ -15,4 +15,15 @@
 	<skinColorOverride>(60,65,82)</skinColorOverride>
   </GeneDef>
 
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride"> -->
+	<!-- <defName>WVC_SkinColor_DryadBasic</defName> -->
+	<!-- <label>dryad basic skin</label> -->
+	<!-- <skinColorOverride>(206,158,90)</skinColorOverride> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride"> -->
+	<!-- <defName>WVC_SkinColor_DryadBarkskin</defName> -->
+	<!-- <label>dryad barkskin skin</label> -->
+	<!-- <skinColorOverride>(132,117,74)</skinColorOverride> -->
+  <!-- </GeneDef> -->
+
 </Defs>

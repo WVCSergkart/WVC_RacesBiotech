@@ -31,6 +31,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostAdd();
 			HediffUtility.TryAddOrRemoveHediff(Props.hediffDefName, pawn, this, Props.bodyparts);
+			ResetInterval();
 		}
 
 		public override void Tick()

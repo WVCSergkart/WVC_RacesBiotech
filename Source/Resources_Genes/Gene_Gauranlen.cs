@@ -36,10 +36,15 @@ namespace WVC_XenotypesAndGenes
 		public override void Tick()
 		{
 			base.Tick();
-			if (!pawn.IsHashIntervalTick(1624))
+			if (!pawn.IsHashIntervalTick(23195))
 			{
 				return;
 			}
+			Connection(23195);
+		}
+
+		public void Connection(int tick = 1)
+		{
 			if (!ModsConfig.IdeologyActive)
 			{
 				return;
@@ -56,7 +61,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				treeConnection.ConnectionStrength += 0.01f;
+				treeConnection.ConnectionStrength += ((0.33f) / 60000) * tick;
 			}
 		}
 

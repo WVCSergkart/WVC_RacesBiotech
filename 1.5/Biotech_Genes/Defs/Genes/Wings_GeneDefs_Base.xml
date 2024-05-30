@@ -5,7 +5,7 @@
 	<label>wing jump</label>
 	<description>With the help of wings to overcome a considerable distance.</description>
 	<iconPath>WVC/UI/Genes/Gene_FeatheredWings_v0</iconPath>
-	<cooldownTicksRange>60</cooldownTicksRange>
+	<cooldownTicksRange>1500</cooldownTicksRange>
 	<hostile>false</hostile>
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
 	<verbProperties>
@@ -26,9 +26,9 @@
 	</verbProperties>
 	<jobDef>CastJump</jobDef>
 	<comps>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityPawnNutritionCost">
-		<nutritionCost>0.2</nutritionCost>
-	  </li>
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityPawnNutritionCost"> -->
+		<!-- <nutritionCost>0.2</nutritionCost> -->
+	  <!-- </li> -->
 	</comps>
   </AbilityDef>
 
