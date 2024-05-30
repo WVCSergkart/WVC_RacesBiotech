@@ -76,6 +76,7 @@
     <Compile Include="Resources_Abilities\CompProperties_AbilitySpawnOnCell.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityThrallMaker.cs" />
     <Compile Include="Resources_Abilities\CompProperties_Bloodeater.cs" />
+    <Compile Include="Resources_Abilities\CompProperties_CorpseEater.cs" />
     <Compile Include="Resources_Abilities\CompProperties_SafeBloodfeed.cs" />
     <Compile Include="Resources_Abilities\QuestNode_Root_Reincarnation.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_NoSunlight.cs" />
