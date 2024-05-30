@@ -12,10 +12,10 @@
 	<!-- </doubleXenotypeChances> -->
 	<genes>
 		<!-- Vampire -->
-		<li>Hemogenic</li>
-		<li>HemogenDrain</li>
-		<li>Bloodfeeder</li>
-		<li>Coagulate</li>
+		<!-- <li>Hemogenic</li> -->
+		<!-- <li>HemogenDrain</li> -->
+		<!-- <li>Bloodfeeder</li> -->
+		<!-- <li>Coagulate</li> -->
 		<li>WVC_ReimplanterArchite_Xenogenes</li>
 		<li>Ageless</li>
 		<li>Deathless</li>

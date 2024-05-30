@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- <GeneDef Name="WVC_XenotypesAndGenes_GeneDeathrest_Base" Abstract="True"> -->
+	<!-- <iconColor>(255, 255, 255)</iconColor> -->
+	<!-- <selectionWeight>0.00</selectionWeight> -->
+	<!-- <canGenerateInGeneSet>false</canGenerateInGeneSet> -->
+	<!-- <biostatCpx>0</biostatCpx> -->
+	<!-- <biostatArc>0</biostatArc> -->
+	<!-- <biostatMet>0</biostatMet> -->
+  <!-- </GeneDef> -->
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathrest_Base"> -->
+	<!-- <defName>WVC_Deathrest</defName> -->
+	<!-- <label>deathrest</label> -->
+	<!-- <description>Carriers of this gene must periodically regenerate themselves in a special coma called deathrest. Deathrest takes days, but can confer substantial bonuses. Deathrest can be accelerated and its effects enhanced by the use of a variety of special buildings and technologies.\n\nThose who put off deathresting will suffer from deathrest exhaustion.</description> -->
+	<!-- <geneClass>Gene_Deathrest</geneClass> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_Deathrest_v0</iconPath> -->
+	<!-- <displayCategory>Sleep</displayCategory> -->
+	<!-- <displayOrderInCategory>50</displayOrderInCategory> -->
+	<!-- <causesNeed>Deathrest</causesNeed> -->
+	<!-- <biostatCpx>2</biostatCpx> -->
+	<!-- <biostatMet>7</biostatMet> -->
+	<!-- <minAgeActive>3</minAgeActive> -->
+	<!-- <symbolPack> -->
+	  <!-- <prefixSymbols> -->
+		<!-- <li><symbol>death</symbol></li> -->
+		<!-- <li><symbol>dead</symbol></li> -->
+		<!-- <li><symbol>still</symbol></li> -->
+	  <!-- </prefixSymbols> -->
+	  <!-- <suffixSymbols> -->
+		<!-- <li><symbol>rester</symbol></li> -->
+	  <!-- </suffixSymbols> -->
+	<!-- </symbolPack> -->
+  <!-- </GeneDef> -->
+
+</Defs>

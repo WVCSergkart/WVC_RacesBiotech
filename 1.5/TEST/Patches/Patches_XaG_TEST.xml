@@ -33,6 +33,11 @@
 		<!-- </value> -->
 	<!-- </Operation> -->
 
+	<Operation Class="PatchOperationRemove">
+		<xpath>/Defs/GeneDef[defName="Deathrest"]/prerequisite</xpath>
+		<success>Always</success>
+	</Operation>
+
 	<!-- <Operation Class="PatchOperationAdd"> -->
 	  <!-- <xpath>/Defs/TraderKindDef/stockGenerators</xpath> -->
 	  <!-- <value> -->

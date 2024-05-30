@@ -1,5 +1,6 @@
 using RimWorld;
 using RimWorld.Planet;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -152,6 +153,7 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		[Obsolete]
 		public static bool PawnReserved(List<Pawn> biters, Pawn victim, Pawn biter)
 		{
 			foreach (Pawn item in biters)

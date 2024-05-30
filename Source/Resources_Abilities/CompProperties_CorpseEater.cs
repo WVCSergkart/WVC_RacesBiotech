@@ -61,7 +61,7 @@ namespace WVC_XenotypesAndGenes
 			BodyPartRecord bodyPartRecord = corpse.GetBestBodyPartToEat(nutritionWanted);
 			if (bodyPartRecord == null)
 			{
-				bodyPartRecord = GetBestBodyPartToEat_Rotting(nutritionWanted, corpse);
+				bodyPartRecord = corpse.InnerPawn.health.hediffSet.GetNotMissingParts().RandomElement();
 				if (bodyPartRecord == null)
 				{
 					// Log.Error(string.Concat(ingester, " ate ", corpse, " but no body part was found. Replacing with core part."));
@@ -69,12 +69,17 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 			float bodyPartNutrition = FoodUtility.GetBodyPartNutrition(corpse, bodyPartRecord);
+			if (bodyPartNutrition <= 0f)
+			{
+				bodyPartNutrition = 0.2f;
+			}
 			if (bodyPartRecord == corpse.InnerPawn.RaceProps.body.corePart)
 			{
 				if (ingester != null && PawnUtility.ShouldSendNotificationAbout(corpse.InnerPawn) && corpse.InnerPawn.RaceProps.Humanlike)
 				{
 					Messages.Message("MessageEatenByPredator".Translate(corpse.InnerPawn.LabelShort, ingester.Named("PREDATOR"), corpse.InnerPawn.Named("EATEN")).CapitalizeFirst(), ingester, MessageTypeDefOf.NegativeEvent);
 				}
+				corpse.Destroy();
 			}
 			else
 			{
@@ -89,17 +94,17 @@ namespace WVC_XenotypesAndGenes
 			nutritionIngested = bodyPartNutrition;
 		}
 
-		public static BodyPartRecord GetBestBodyPartToEat_Rotting(float nutritionWanted, Corpse corpse)
-		{
-			IEnumerable<BodyPartRecord> source = from x in corpse.InnerPawn.health.hediffSet.GetNotMissingParts()
-				where x.depth == BodyPartDepth.Outside
-				select x;
-			if (!source.Any())
-			{
-				return null;
-			}
-			return source.MinBy((BodyPartRecord x) => Mathf.Abs(0.2f - nutritionWanted));
-		}
+		// public static BodyPartRecord GetBestBodyPartToEat_Rotting(float nutritionWanted, Corpse corpse)
+		// {
+			// IEnumerable<BodyPartRecord> source = from x in corpse.InnerPawn.health.hediffSet.GetNotMissingParts()
+				// where x.depth == BodyPartDepth.Outside
+				// select x;
+			// if (!source.Any())
+			// {
+				// return null;
+			// }
+			// return source.MinBy((BodyPartRecord x) => Mathf.Abs(0.2f - nutritionWanted));
+		// }
 
 		public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest)
 		{
