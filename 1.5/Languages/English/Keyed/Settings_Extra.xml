@@ -146,7 +146,11 @@ Disable this option if you have any mods that change the mechanics of the hunger
 
 	<!-- ================================== -->
 
-	<WVC_Label_enable_dryadQueenMechanicGenerator>(DEV) Generate dryads</WVC_Label_enable_dryadQueenMechanicGenerator>
-	<WVC_ToolTip_enable_dryadQueenMechanicGenerator>If enabled, the necessary defs for the "Dryad queen" gene will be created when the game starts.</WVC_ToolTip_enable_dryadQueenMechanicGenerator>
+	<WVC_Label_enable_dryadQueenMechanicGenerator>Dryad queen mechanics</WVC_Label_enable_dryadQueenMechanicGenerator>
+	<WVC_ToolTip_enable_dryadQueenMechanicGenerator>If enabled, the patches necessary for the Dryad queen gene to work will be initialized. This includes a small change to dryad thinkTree to support alternate behavior and an autopatcher that removes some dryad restrictions, such as the inability to travel in a caravan.
+
+This should not affect performance, but if you encounter problems with dryads, it is recommended to disable this option.
+
+A restart is required.</WVC_ToolTip_enable_dryadQueenMechanicGenerator>
 
 </LanguageData>
