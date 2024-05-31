@@ -93,7 +93,7 @@ namespace WVC_XenotypesAndGenes
 		// Chimera
 		public bool enable_chimeraMetabolismHungerFactor = true;
 		// DryadQueen
-		public bool enable_dryadQueenMechanicGenerator = false;
+		public bool enable_dryadQueenMechanicGenerator = true;
 		// Xenotypes
 		public bool enable_spawnXenotypesInFactions = false;
 		// public bool increasedXenotypesFactionlessGenerationWeight_MainSwitch = false;
@@ -193,7 +193,7 @@ namespace WVC_XenotypesAndGenes
 			// Chimera
 			Scribe_Values.Look(ref enable_chimeraMetabolismHungerFactor, "enable_chimeraMetabolismHungerFactor", defaultValue: true);
 			// DryadQueen
-			Scribe_Values.Look(ref enable_dryadQueenMechanicGenerator, "enable_dryadQueenMechanicGenerator", defaultValue: false);
+			Scribe_Values.Look(ref enable_dryadQueenMechanicGenerator, "enable_dryadQueenMechanicGenerator", defaultValue: true);
 			// Reincarnation
 			Scribe_Values.Look(ref disableXenotypes_MainSwitch, "disableXenotypes_MainSwitch", defaultValue: false);
 			Scribe_Values.Look(ref disableXenotypes_Undeads, "disableXenotypes_Undeads", defaultValue: false);
@@ -833,7 +833,7 @@ namespace WVC_XenotypesAndGenes
 			// =
 			WVC_Biotech.settings.enableInstabilityLastChanceMechanic = true;
 			// =
-			WVC_Biotech.settings.enable_dryadQueenMechanicGenerator = false;
+			WVC_Biotech.settings.enable_dryadQueenMechanicGenerator = true;
 			// =
 			WVC_Biotech.settings.link_addedMechlinkWithGene = true;
 			WVC_Biotech.settings.link_addedPsylinkWithGene = true;
@@ -930,7 +930,7 @@ namespace WVC_XenotypesAndGenes
 			// =
 			WVC_Biotech.settings.enableInstabilityLastChanceMechanic = true;
 			// =
-			WVC_Biotech.settings.enable_dryadQueenMechanicGenerator = false;
+			WVC_Biotech.settings.enable_dryadQueenMechanicGenerator = true;
 			// =
 			WVC_Biotech.settings.link_addedMechlinkWithGene = true;
 			WVC_Biotech.settings.link_addedPsylinkWithGene = true;

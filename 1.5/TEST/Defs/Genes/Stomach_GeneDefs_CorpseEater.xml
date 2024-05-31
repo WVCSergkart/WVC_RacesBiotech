@@ -2,75 +2,74 @@
 <Defs>
 
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneStomach_Base">
-	<defName>WVC_CorpseEater</defName>
-	<label>corpseeater</label>
-	<description>Carriers of this gene can eat rotting corpses to satisfy their hunger.</description>
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneStomach_Base"> -->
+	<!-- <defName>WVC_CorpseEater</defName> -->
+	<!-- <label>corpseeater</label> -->
+	<!-- <description>Carriers of this gene can eat rotting corpses to satisfy their hunger.</description> -->
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_SuperMetabolism</geneClass> -->
-	<descriptionHyperlinks>
-	  <AbilityDef>WVC_XaG_CorpseEater</AbilityDef>
-	</descriptionHyperlinks>
-	<iconPath>WVC/UI/Genes/Gene_CorpseEater_v0</iconPath>
-	<foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
-	<dontMindRawFood>true</dontMindRawFood>
-	<biostatCpx>3</biostatCpx>
-	<biostatMet>-3</biostatMet>
-	<selectionWeight>0.00025</selectionWeight>
-	<displayCategory>Miscellaneous</displayCategory>
-	<displayOrderInCategory>11</displayOrderInCategory>
-	<customEffectDescriptions>
+	<!-- <descriptionHyperlinks> -->
+	  <!-- <AbilityDef>WVC_XaG_CorpseEater</AbilityDef> -->
+	<!-- </descriptionHyperlinks> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_CorpseEater_v0</iconPath> -->
+	<!-- <foodPoisoningChanceFactor>0</foodPoisoningChanceFactor> -->
+	<!-- <dontMindRawFood>true</dontMindRawFood> -->
+	<!-- <biostatCpx>3</biostatCpx> -->
+	<!-- <biostatMet>-3</biostatMet> -->
+	<!-- <selectionWeight>0.00025</selectionWeight> -->
+	<!-- <displayCategory>Miscellaneous</displayCategory> -->
+	<!-- <displayOrderInCategory>11</displayOrderInCategory> -->
+	<!-- <customEffectDescriptions> -->
 	  <!-- <li>Any ingestible things completely replenish hunger.</li> -->
-	</customEffectDescriptions>
-	<abilities>
-	  <li>WVC_XaG_CorpseEater</li>
-	</abilities>
-	<exclusionTags Inherit="False">
-	  <li>BMT_CorpseEaterGenes</li>
-	</exclusionTags>
-  </GeneDef>
+	<!-- </customEffectDescriptions> -->
+	<!-- <abilities> -->
+	  <!-- <li>WVC_XaG_CorpseEater</li> -->
+	<!-- </abilities> -->
+	<!-- <exclusionTags Inherit="False"> -->
+	  <!-- <li>BMT_CorpseEaterGenes</li> -->
+	<!-- </exclusionTags> -->
+  <!-- </GeneDef> -->
 
   <!-- Abilities -->
 
-  <AbilityDef ParentName="AbilityTouchBase">
-	<defName>WVC_XaG_CorpseEater</defName>
-	<label>corpseeater</label>
-	<description>Can eat rotting corpses to satisfy hunger.</description>
-	<iconPath>WVC/UI/Genes/Gene_CorpseEater_v0</iconPath>
-	<displayOrder>100</displayOrder>
-	<warmupEffecter>Bloodfeed_Warmup</warmupEffecter>
-	<warmupStartSound>Bloodfeed_Cast</warmupStartSound>
-	<hostile>false</hostile>
-	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
-	<!-- <jobDef>Ingest</jobDef> -->
-	<verbProperties>
-	  <verbClass>Verb_CastAbilityTouch</verbClass>
-	  <drawAimPie>false</drawAimPie>
-	  <range>-1</range>
-	  <warmupTime>2</warmupTime>
-	  <targetParams>
-		<canTargetSelf>false</canTargetSelf>
-		<canTargetBuildings>false</canTargetBuildings>
-		<canTargetMechs>false</canTargetMechs>
-		<canTargetBloodfeeders>true</canTargetBloodfeeders>
-		<canTargetCorpses>true</canTargetCorpses>
-		<onlyTargetCorpses>true</onlyTargetCorpses>
-	  </targetParams>
-	</verbProperties>
-	<comps>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityHideIfPawnMultiSelected"/>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityCorpseEater">
-		<acceptableRotStages>
-		  <li>Fresh</li>
-		  <li>Rotting</li>
-		</acceptableRotStages>
-	  </li>
-	  <li Class="CompProperties_AbilityFleckOnTarget">
-		<fleckDef>BloodSplash</fleckDef>
-	  </li>
-	  <li Class="CompProperties_AbilityRequiresCapacity">
-		<capacity>Eating</capacity>
-	  </li>
-	</comps>
-  </AbilityDef>
+  <!-- <AbilityDef ParentName="AbilityTouchBase"> -->
+	<!-- <defName>WVC_XaG_CorpseEater</defName> -->
+	<!-- <label>corpseeater</label> -->
+	<!-- <description>Can eat rotting corpses to satisfy hunger.</description> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_CorpseEater_v0</iconPath> -->
+	<!-- <displayOrder>100</displayOrder> -->
+	<!-- <warmupEffecter>Bloodfeed_Warmup</warmupEffecter> -->
+	<!-- <warmupStartSound>Bloodfeed_Cast</warmupStartSound> -->
+	<!-- <hostile>false</hostile> -->
+	<!-- <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence> -->
+	<!-- <verbProperties> -->
+	  <!-- <verbClass>Verb_CastAbilityTouch</verbClass> -->
+	  <!-- <drawAimPie>false</drawAimPie> -->
+	  <!-- <range>-1</range> -->
+	  <!-- <warmupTime>2</warmupTime> -->
+	  <!-- <targetParams> -->
+		<!-- <canTargetSelf>false</canTargetSelf> -->
+		<!-- <canTargetBuildings>false</canTargetBuildings> -->
+		<!-- <canTargetMechs>false</canTargetMechs> -->
+		<!-- <canTargetBloodfeeders>true</canTargetBloodfeeders> -->
+		<!-- <canTargetCorpses>true</canTargetCorpses> -->
+		<!-- <onlyTargetCorpses>true</onlyTargetCorpses> -->
+	  <!-- </targetParams> -->
+	<!-- </verbProperties> -->
+	<!-- <comps> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityHideIfPawnMultiSelected"/> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityCorpseEater"> -->
+		<!-- <acceptableRotStages> -->
+		  <!-- <li>Fresh</li> -->
+		  <!-- <li>Rotting</li> -->
+		<!-- </acceptableRotStages> -->
+	  <!-- </li> -->
+	  <!-- <li Class="CompProperties_AbilityFleckOnTarget"> -->
+		<!-- <fleckDef>BloodSplash</fleckDef> -->
+	  <!-- </li> -->
+	  <!-- <li Class="CompProperties_AbilityRequiresCapacity"> -->
+		<!-- <capacity>Eating</capacity> -->
+	  <!-- </li> -->
+	<!-- </comps> -->
+  <!-- </AbilityDef> -->
 
 </Defs>
