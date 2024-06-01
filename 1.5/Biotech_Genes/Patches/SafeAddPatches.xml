@@ -83,8 +83,8 @@
 					  <li>WVC_Dustogenic</li>
 					  <li>WVC_SuperStomach</li>
 					  <li>WVC_DeadStomach</li>
-					  <li>WVC_Scarifier_Scarstomach</li>
-					  <li>WVC_Scarifier_ArchiteScarstomach</li>
+					  <li MayRequire="ludeon.rimworld.ideology">WVC_Scarifier_Scarstomach</li>
+					  <li MayRequire="ludeon.rimworld.ideology">WVC_Scarifier_ArchiteScarstomach</li>
 					</nullifyingGenes>
 				  </value>
 				</li>

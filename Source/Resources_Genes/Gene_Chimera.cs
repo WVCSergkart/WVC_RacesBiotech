@@ -89,16 +89,16 @@ namespace WVC_XenotypesAndGenes
 				genesGizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, this);
 			}
 			yield return genesGizmo;
-			yield return new Command_Action
-			{
-				defaultLabel = def.LabelCap,
-				defaultDesc = "WVC_XaG_GeneGeneticThief_Desc".Translate(),
-				icon = ContentFinder<Texture2D>.Get(def.iconPath),
-				action = delegate
-				{
-					Find.WindowStack.Add(new Dialog_CreateChimera(this));
-				}
-			};
+			// yield return new Command_Action
+			// {
+				// defaultLabel = def.LabelCap,
+				// defaultDesc = "WVC_XaG_GeneGeneticThief_Desc".Translate(),
+				// icon = ContentFinder<Texture2D>.Get(def.iconPath),
+				// action = delegate
+				// {
+					// Find.WindowStack.Add(new Dialog_CreateChimera(this));
+				// }
+			// };
 			if (DebugSettings.ShowDevGizmos)
 			{
 				yield return new Command_Action

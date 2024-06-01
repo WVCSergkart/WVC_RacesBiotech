@@ -108,6 +108,7 @@
     <Compile Include="Resources_Gizmo\Dialog_XenotypesBase.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_ChimerasGenes.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Dryads.cs" />
+    <Compile Include="Resources_Gizmo\GeneGizmo_ShapeshifterMode.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Thralls.cs" />
     <Compile Include="Resources_Gizmo\Gizmo_MaxGolems.cs" />
     <Compile Include="Resources_Genes\Gene_InStability.cs" />

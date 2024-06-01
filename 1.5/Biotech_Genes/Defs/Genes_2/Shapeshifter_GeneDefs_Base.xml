@@ -23,6 +23,7 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_Shapeshifter</geneClass>
 	<!-- <iconPath>WVC/UI/Genes/Gene_XenoForcer_ShapeShifter</iconPath> -->
 	<iconPath>WVC/UI/Genes/Gene_Shapeshifter_v0</iconPath>
+	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_ShapeshifterMode</resourceGizmoType>
 	<customEffectDescriptions>
 		<li>Allows you to change the xenotype at any time.</li>
 		<li>This gene removes the limit of the &lt;color=#8a8ae6&gt;xenotype gestator&lt;/color&gt; gene.</li>

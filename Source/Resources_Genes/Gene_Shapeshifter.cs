@@ -26,35 +26,46 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		private Gizmo gizmo;
+
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			if (Find.Selector.SelectedPawns.Count > 1 || pawn.Drafted || !Active || pawn.Faction != Faction.OfPlayer)
+			if (Find.Selector.SelectedPawns.Count > 1 || !Active || pawn.Faction != Faction.OfPlayer)
 			{
 				yield break;
 			}
-			yield return new Command_Action
+			if (gizmo == null)
 			{
-				defaultLabel = def.LabelCap,
-				defaultDesc = "WVC_XaG_GeneShapeshifter_Desc".Translate(),
-				icon = ContentFinder<Texture2D>.Get(def.iconPath),
-				action = delegate
-				{
-					Find.WindowStack.Add(new Dialog_Shapeshifter(this));
-				}
-			};
-			if (ModLister.CheckIdeology("Styling station") && WVC_Biotech.settings.shapeshifter_enableStyleButton)
-			{
-				yield return new Command_Action
-				{
-					defaultLabel = "WVC_XaG_GeneShapeshifterStyles_Label".Translate(),
-					defaultDesc = "WVC_XaG_GeneShapeshifterStyles_Desc".Translate(),
-					icon = ContentFinder<Texture2D>.Get(def.iconPath),
-					action = delegate
-					{
-						Find.WindowStack.Add(new Dialog_StylingShift(pawn, this));
-					}
-				};
+				gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, this);
 			}
+			yield return gizmo;
+			// yield return new Command_Action
+			// {
+				// defaultLabel = def.LabelCap,
+				// defaultDesc = "WVC_XaG_GeneShapeshifter_Desc".Translate(),
+				// icon = ContentFinder<Texture2D>.Get(def.iconPath),
+				// action = delegate
+				// {
+					// Find.WindowStack.Add(new Dialog_Shapeshifter(this));
+				// }
+			// };
+			// if (pawn.Drafted)
+			// {
+				// yield break;
+			// }
+			// if (ModLister.CheckIdeology("Styling station") && WVC_Biotech.settings.shapeshifter_enableStyleButton)
+			// {
+				// yield return new Command_Action
+				// {
+					// defaultLabel = "WVC_XaG_GeneShapeshifterStyles_Label".Translate(),
+					// defaultDesc = "WVC_XaG_GeneShapeshifterStyles_Desc".Translate(),
+					// icon = ContentFinder<Texture2D>.Get(def.iconPath),
+					// action = delegate
+					// {
+						// Find.WindowStack.Add(new Dialog_StylingShift(pawn, this));
+					// }
+				// };
+			// }
 		}
 
 		public void Notify_OverriddenBy(Gene overriddenBy)

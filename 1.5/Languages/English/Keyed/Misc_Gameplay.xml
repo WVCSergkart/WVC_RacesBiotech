@@ -476,11 +476,17 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_GeneXenoGestator_GestatorIsOnLetterDesc>{TARGET_nameDef} has started the gestation process, it will take some time. During this period, {TARGET_nameDef} will receive a number of debuffs.</WVC_XaG_GeneXenoGestator_GestatorIsOnLetterDesc>
 
 	<!-- ========== GENE XENO SHAPESHIFTER ========== -->
+	<!-- ========== GENE XENO SHAPESHIFTER ========== -->
+	<!-- ========== GENE XENO SHAPESHIFTER ========== -->
 
 	<WVC_XaG_GeneShapeshifter_Label>Shapeshift</WVC_XaG_GeneShapeshifter_Label>
 	<WVC_XaG_GeneShapeshifter_Desc>Opens a menu in which you can select any xenotype available in the game. The exceptions are androids and custom xenotypes.</WVC_XaG_GeneShapeshifter_Desc>
 	<WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing>This person's genetic material is regrowing.</WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing>
 	<WVC_XaG_GeneShapeshifter_DisabledPermanent>This person will never be able to use shapeshift.</WVC_XaG_GeneShapeshifter_DisabledPermanent>
+
+	<WVC_XaG_ShapeshifterGizmo>Shapeshifter</WVC_XaG_ShapeshifterGizmo>
+
+	<WVC_XaG_ReqIdeology>Ideology is required.</WVC_XaG_ReqIdeology>
 
 	<WVC_XaG_GeneShapeshifterStyles_Label>Change style</WVC_XaG_GeneShapeshifterStyles_Label>
 	<WVC_XaG_GeneShapeshifterStyles_Desc>Opens a menu where you can change the style of the pawn. Including hairstyle and its color, as well as tattoos, both for the face and body.</WVC_XaG_GeneShapeshifterStyles_Desc>
