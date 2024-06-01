@@ -60,7 +60,6 @@ namespace WVC_XenotypesAndGenes
 			{
 				label = sourceDryadDef.label;
 				lifeStages = sourceDryadDef.lifeStages;
-				// race.race.corpseDef = sourceDryadDef.race.race.corpseDef;
 				race.statBases = sourceDryadDef.race.statBases;
 				race.race.trainability = sourceDryadDef.race.race.trainability;
 				race.race.lifeStageAges = sourceDryadDef.race.race.lifeStageAges;

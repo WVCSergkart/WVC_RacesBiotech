@@ -352,6 +352,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				foodCount++;
 				currentHemogenLvl += hemogen;
+				if (foodCount >= 75)
+				{
+					break;
+				}
 			}
 			return foodCount;
 		}

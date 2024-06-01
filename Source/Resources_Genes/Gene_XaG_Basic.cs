@@ -72,4 +72,11 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public interface IGeneNotifyGenesChanged
+	{
+
+		void Notify_GenesChanged(Gene changedGene);
+
+	}
+
 }

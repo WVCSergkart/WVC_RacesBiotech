@@ -76,13 +76,13 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool TryAddHediff(HediffDef hediffDef, Pawn pawn, GeneDef geneDef, List<BodyPartDef> bodyparts = null, bool randomizeSeverity = false)
 		{
+			if (!bodyparts.NullOrEmpty())
+			{
+				HediffUtility.BodyPartsGiver(bodyparts, pawn, hediffDef, geneDef);
+				return true;
+			}
 			if (!pawn.health.hediffSet.HasHediff(hediffDef))
 			{
-				if (!bodyparts.NullOrEmpty())
-				{
-					HediffUtility.BodyPartsGiver(bodyparts, pawn, hediffDef, geneDef);
-					return true;
-				}
 				// pawn.health.AddHediff(hediffDef);
 				Hediff hediff = HediffMaker.MakeHediff(hediffDef, pawn);
 				HediffComp_GeneHediff hediff_GeneCheck = hediff.TryGetComp<HediffComp_GeneHediff>();
