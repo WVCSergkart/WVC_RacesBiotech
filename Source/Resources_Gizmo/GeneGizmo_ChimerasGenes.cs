@@ -52,7 +52,8 @@ namespace WVC_XenotypesAndGenes
 			Text.Font = GameFont.Small;
 			Text.Anchor = TextAnchor.UpperLeft;
 			Rect rect3 = new(rect2.x, rect2.y, rect2.width, 20f);
-			Widgets.Label(rect3, "Genes".Translate().CapitalizeFirst());
+			// Widgets.Label(rect3, "Genes".Translate().CapitalizeFirst());
+			Widgets.Label(rect3, "WVC_XaG_GeneChimeraGizmoLabel".Translate().CapitalizeFirst());
 			Text.Font = GameFont.Small;
 			Text.Anchor = TextAnchor.UpperRight;
 			Widgets.Label(rect3, text);
@@ -74,7 +75,8 @@ namespace WVC_XenotypesAndGenes
 
 		public override float GetWidth(float maxWidth)
 		{
-			return 136f;
+			// return 136f;
+			return 96f;
 		}
 
 	}
