@@ -98,6 +98,7 @@ namespace WVC_XenotypesAndGenes
 	{
 		// Undead
 		public List<HediffDef> hediffDefs;
+		public List<ThoughtDef> thoughtDefs;
 		public BackstoryDef childhoodDef;
 		public BackstoryDef adulthoodDef;
 		public bool ignoreHediffs = false;

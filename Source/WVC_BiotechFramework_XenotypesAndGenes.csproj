@@ -119,7 +119,6 @@
     <Compile Include="Resources_Genes\Gene_Scarifier.cs" />
     <Compile Include="Resources_Genes\Gene_Flickable.cs" />
     <Compile Include="Resources_Genes\Gene_NonPlayerSpecials.cs" />
-    <Compile Include="Resources_Harmony\GenePacks.cs" />
     <Compile Include="Resources_Harmony\Harmony.cs" />
     <Compile Include="Resources_Harmony\Harmony_DisablePawnRelations.cs" />
     <Compile Include="Resources_Harmony\Harmony_GeneOverride.cs" />

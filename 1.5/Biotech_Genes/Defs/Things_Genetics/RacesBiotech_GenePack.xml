@@ -4,8 +4,8 @@
   <ThingDef ParentName="GeneSetHolderBase" Name="WVC_GeneSetHolderBase" Abstract="True" WVC_XaG_Tag_Genepacks="AllGenePacks">
 	<label>genepack</label>
 	<description>A small capsule containing a package of genetic information. To use a genepack, it must be placed in a gene bank near a gene assembler and combined into an implantable xenogerm.\n\nIf not kept in a powered gene bank, this genepack will slowly deteriorate.</description>
-	<!-- <thingClass>WVC_XenotypesAndGenes.XaG_Genepack</thingClass> -->
-	<thingClass>Genepack</thingClass>
+	<thingClass>WVC_XenotypesAndGenes.XaG_Genepack</thingClass>
+	<!-- <thingClass>Genepack</thingClass> -->
 	<tickerType>Rare</tickerType>
 	<useHitPoints>true</useHitPoints>
 	<canDeteriorateUnspawned>true</canDeteriorateUnspawned>

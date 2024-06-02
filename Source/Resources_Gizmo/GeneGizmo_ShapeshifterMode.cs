@@ -16,7 +16,9 @@ namespace WVC_XenotypesAndGenes
 
 		private static readonly CachedTexture MenuIcon = new("WVC/UI/XaG_General/Shapeshifter_GizmoMain");
 
-		private static readonly CachedTexture styleIcon = new("WVC/UI/XaG_General/Shapeshifter_GizmoStyle");
+		private static readonly CachedTexture StyleIcon = new("WVC/UI/XaG_General/Shapeshifter_GizmoStyle");
+
+		// private static readonly CachedTexture ModeSettingsIcon = new("WVC/UI/XaG_General/ShapeshifterModeSettings");
 
 		public override bool Visible => true;
 
@@ -54,7 +56,7 @@ namespace WVC_XenotypesAndGenes
 			TooltipHandler.TipRegion(rect4, "WVC_XaG_GeneShapeshifter_Desc".Translate());
 			// Button
 			Rect rect5 = new(rect4.x + 44f, rect4.y, rect4.width, rect4.height);
-			Widgets.DrawTextureFitted(rect5, styleIcon.Texture, 1f);
+			Widgets.DrawTextureFitted(rect5, StyleIcon.Texture, 1f);
 			if (Mouse.IsOver(rect5))
 			{
 				Widgets.DrawHighlight(rect5);
@@ -71,6 +73,18 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 			TooltipHandler.TipRegion(rect5, "WVC_XaG_GeneShapeshifterStyles_Desc".Translate());
+			// Button
+			// Rect rect6 = new(rect5.x + 44f, rect5.y, rect5.width, rect5.height);
+			// Widgets.DrawTextureFitted(rect6, ModeSettingsIcon.Texture, 1f);
+			// if (Mouse.IsOver(rect6))
+			// {
+				// Widgets.DrawHighlight(rect6);
+				// if (Widgets.ButtonInvisible(rect6))
+				// {
+					// Find.WindowStack.Add(new Dialog_ShapeShiftModeMenu(pawn, gene));
+				// }
+			// }
+			// TooltipHandler.TipRegion(rect6, "WVC_XaG_GeneShapeshifterStyles_Desc".Translate());
 			return new GizmoResult(GizmoState.Clear);
 		}
 
@@ -78,6 +92,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			// return 136f;
 			return 96f;
+			// return 140f;
 		}
 
 	}

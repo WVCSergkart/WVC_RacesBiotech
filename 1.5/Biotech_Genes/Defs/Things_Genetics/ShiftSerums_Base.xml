@@ -14,6 +14,7 @@
 	  <!-- <li>WVC_XenotypeSerums_NonCraftable</li> -->
 	</tradeTags>
 	<recipeMaker>
+	  <researchPrerequisite Inherit="False"/>
 	  <researchPrerequisites Inherit="False">
 		<li>WVC_XenotypesAndGenes_ShapeshifterSerums</li>
 	  </researchPrerequisites>
@@ -34,7 +35,9 @@
   <ThingDef ParentName="WVC_XenotypeSerum_ShiftSerumsTech" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_ShapeshifterOverclockerSerum_Base</defName>
 	<label>shiftover serum</label>
+	<!-- <label>duplicate serum</label> -->
 	<description>A one-use super-dose of mechanites tuned to disstabilize the influence of the psychic field on the shapeshifter. As a result, shapeshift mechanites go into overclocking mode, which allows the carrier of the shapeshift genes to duplicate themselves.</description>
+	<!-- <description>A one-use super-dose of mechanites tuned to restore the user's mental state and cure diseases associated with duplication.</description> -->
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Items/Serums_Single/ShiftInjector_v0</texPath>
 	</graphicData>
@@ -51,6 +54,16 @@
 		<hediffDef>WVC_Scarifier_ShapeshifterDuplicateMode</hediffDef>
 		<geneDef>WVC_Shapeshifter</geneDef>
 	  </li>
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_GeneRestoration"> -->
+		<!-- <hediffsToRemove> -->
+		  <!-- <li>DuplicateSickness</li> -->
+		  <!-- <li>WVC_XaG_ShapeshifterDuplicateSickness</li> -->
+		  <!-- <li>CrumblingMindUndiagnosedDuplication</li> -->
+		  <!-- <li>CrumblingMindUndiagnosedCreepjoiner</li> -->
+		  <!-- <li>CrumblingMind</li> -->
+		  <!-- <li>CrumbledMind</li> -->
+		<!-- </hediffsToRemove> -->
+	  <!-- </li> -->
 	</comps>
   </ThingDef>
 

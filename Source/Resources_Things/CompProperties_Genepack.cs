@@ -6,15 +6,43 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	// public class XaG_Genepack : Genepack
-	// {
+	public class XaG_Genepack : Genepack
+	{
+
+		public override void PostMake()
+		{
+			base.PostMake();
+			CompProperties_Genepack xag_genepack = this?.TryGetComp<CompGenepack>()?.Props;
+			if (xag_genepack != null)
+			{
+				ThingDef thingDef = this.def;
+				GeneSet newGeneSet = new();
+				XaG_CountWithChance geneCount = xag_genepack.genesCountProbabilities.RandomElementByWeight((XaG_CountWithChance x) => x.chance);
+				XaG_GeneUtility.SetGenesInPack(geneCount, newGeneSet);
+				newGeneSet.SortGenes();
+				XaG_GeneUtility.GenerateName(newGeneSet, xag_genepack.genepackNamer);
+				if (!newGeneSet.Empty)
+				{
+					geneSet = newGeneSet;
+				}
+				else
+				{
+					Log.Warning(thingDef.LabelCap + " generated with null geneSet. Vanilla geneSet will be used instead.");
+				}
+				if (xag_genepack.styleDef != null)
+				{
+					this.SetStyleDef(xag_genepack.styleDef);
+				}
+				this.def = ThingDefOf.Genepack;
+			}
+		}
 
 		// public void SetGeneset(GeneSet geneset)
 		// {
 			// geneSet = geneset;
 		// }
 
-	// }
+	}
 
 	public class CompProperties_Genepack : CompProperties
 	{
