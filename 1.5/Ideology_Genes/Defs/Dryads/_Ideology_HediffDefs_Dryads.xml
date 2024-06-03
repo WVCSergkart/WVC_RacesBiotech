@@ -18,7 +18,7 @@
 	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_DryadQueen</hediffClass>
 	<statModifiers>
 	  <statOffsets>
-		<MaxNutrition>0.4</MaxNutrition>
+		<MaxNutrition>0.1</MaxNutrition>
 	  </statOffsets>
 	</statModifiers>
   </HediffDef>
@@ -68,6 +68,19 @@
 			<showMessage>false</showMessage>
 		</li>
 	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_GauranlenDryads_MeleeDamageFactor</defName>
+	<label>melee damage factor</label>
+	<stages>
+	  <li>
+		<becomeVisible>false</becomeVisible>
+		<statOffsets>
+		  <MeleeDamageFactor>0.5</MeleeDamageFactor>
+		</statOffsets>
+	  </li>
+	</stages>
   </HediffDef>
 
 </Defs>

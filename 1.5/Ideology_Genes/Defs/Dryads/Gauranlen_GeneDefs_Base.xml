@@ -53,6 +53,8 @@
 	<biostatMet>0</biostatMet>
   </GeneDef>
 
+  <!-- ===== -->
+
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGauranlen_DryadGestatorDependant">
 	<defName>WVC_GauranlenDryads_Clotting</defName>
 	<label>dryads clotting</label>
@@ -77,6 +79,8 @@
 	</symbolPack>
   </GeneDef>
 
+  <!-- ========================= -->
+
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGauranlen_DryadGestatorDependant">
 	<defName>WVC_GauranlenDryads_TotalHealing</defName>
 	<label>dryads healing</label>
@@ -93,6 +97,8 @@
 		<li>&lt;color=#ff8585&gt;Affects only gestated dryads.&lt;/color&gt;</li>
 	</customEffectDescriptions>
   </GeneDef>
+
+  <!-- ========================= -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGauranlen_DryadGestatorDependant">
 	<defName>WVC_GauranlenDryads_Tough</defName>
@@ -156,5 +162,66 @@
 		</li>
 	</modExtensions>
   </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGauranlen_DryadGestatorDependant">
+	<defName>WVC_GauranlenDryads_MeleeDamageFactor</defName>
+	<label>dryads damage</label>
+	<description>Carriers of this gene gestate stronger dryads.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_GauranlenDryads_AddPermanentHediff</geneClass>
+	<iconColor>(255, 255, 255)</iconColor>
+	<iconPath>WVC/UI/Genes/Gene_DryadDamage_v0</iconPath>
+	<displayOrderInCategory>60</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<customEffectDescriptions>
+		<li>&lt;color=#ff8585&gt;Gestated dryads&lt;/color&gt; melee damage factor +50%</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_GauranlenDryads_MeleeDamageFactor</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ========================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGauranlen_DryadGestatorDependant">
+	<defName>WVC_GauranlenDryads_DryadbondEnchanced</defName>
+	<label>dryadbond enchanced</label>
+	<description>Carriers of this gene can gestate more dryads.</description>
+	<iconColor>(255, 255, 255)</iconColor>
+	<iconPath>WVC/UI/Genes/Gene_DryadbondEnchanced_v0</iconPath>
+	<displayOrderInCategory>65</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<statOffsets>
+	  <WVC_DryadsLimit>6</WVC_DryadsLimit>
+	</statOffsets>
+	<exclusionTags>
+		<li>WVC_GauranlenDryads_Dryadbond</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGauranlen_DryadGestatorDependant">
+	<defName>WVC_GauranlenDryads_DryadbondExtreme</defName>
+	<label>dryadbond extreme</label>
+	<description>Carriers of this gene can gestate significantly more dryads.</description>
+	<iconColor>(255, 255, 255)</iconColor>
+	<iconPath>WVC/UI/Genes/Gene_DryadbondExtreme_v0</iconPath>
+	<displayOrderInCategory>70</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-4</biostatMet>
+	<statOffsets>
+	  <WVC_DryadsLimit>12</WVC_DryadsLimit>
+	</statOffsets>
+	<exclusionTags>
+		<li>WVC_GauranlenDryads_Dryadbond</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- ========================= -->
 
 </Defs>
