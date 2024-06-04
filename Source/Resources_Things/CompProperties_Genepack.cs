@@ -134,65 +134,66 @@ namespace WVC_XenotypesAndGenes
 		// public override void PostPostMake()
 		// {
 			// OverrideGeneSet(Props.xenotypeDefs.RandomElement());
+			// SetTrueParentGenes();
 		// }
 
-		// private string newLabel;
+		public override void PostSpawnSetup(bool respawningAfterLoad)
+		{
+			if (!respawningAfterLoad)
+			{
+				SetTrueParentGenes();
+			}
+		}
 
-		// public override string TransformLabel(string label)
-		// {
-			// if (newLabel == null)
-			// {
-				// return label;
-			// }
-			// return newLabel;
-		// }
-
-		// public override void PostSpawnSetup(bool respawningAfterLoad)
-		// {
-			// if (Props.styleDef != null)
-			// {
-				// parent.SetStyleDef(Props.styleDef);
-			// }
-			// if (parent.Map != null)
-			// {
-				// parent.Map.listerThings.Remove(parent);
-				// RegionListersUpdater.DeregisterInRegions(parent, parent.Map);
-			// }
-			// parent.def = ThingDefOf.HumanEmbryo;
-			// if (parent.Map != null)
-			// {
-				// parent.Map.listerThings.Add(parent);
-				// RegionListersUpdater.RegisterInRegions(parent, parent.Map);
-			// }
-		// }
-
-		public void OverrideGeneSet(XenotypeDef xenotypeDef = null)
+		public void SetTrueParentGenes()
 		{
 			if (parent is not HumanEmbryo embryo)
 			{
 				return;
 			}
-			if (!Props.xenotypeDefs.NullOrEmpty())
+			GeneSet geneSet = embryo.GeneSet;
+			if (geneSet == null)
 			{
-				if (xenotypeDef == null)
-				{
-					xenotypeDef = Props.xenotypeDefs.RandomElement();
-				}
-				GeneSet geneSet = embryo.GeneSet;
-				for (int i = 0; i < geneSet.GenesListForReading.Count; i++)
-				{
-					GeneDef geneDef = geneSet.GenesListForReading[i];
-					geneSet.Debug_RemoveGene(geneDef);
-				}
-				foreach (GeneDef geneDef in xenotypeDef.genes)
-				{
-					geneSet.AddGene(geneDef);
-				}
-				geneSet.SortGenes();
-				// geneSet.SetNameDirect(parent.def.label + " " + xenotypeDef.label);
-				// newLabel = parent.def.label + " " + xenotypeDef.label;
+				return;
 			}
+			// Log.Error("0");
+			for (int i = 0; i < geneSet.GenesListForReading.Count; i++)
+			{
+				GeneDef geneDef = geneSet.GenesListForReading[i];
+				geneSet.Debug_RemoveGene(geneDef);
+			}
+			// Log.Error("1");
+			HediffComp_TrueParentGenes.AddParentGenes(embryo.Mother, geneSet);
+			HediffComp_TrueParentGenes.AddParentGenes(embryo.Father, geneSet);
+			// Log.Error("2");
+			geneSet.SortGenes();
 		}
+
+		// public void OverrideGeneSet(XenotypeDef xenotypeDef = null)
+		// {
+			// if (parent is not HumanEmbryo embryo)
+			// {
+				// return;
+			// }
+			// if (!Props.xenotypeDefs.NullOrEmpty())
+			// {
+				// if (xenotypeDef == null)
+				// {
+					// xenotypeDef = Props.xenotypeDefs.RandomElement();
+				// }
+				// GeneSet geneSet = embryo.GeneSet;
+				// for (int i = 0; i < geneSet.GenesListForReading.Count; i++)
+				// {
+					// GeneDef geneDef = geneSet.GenesListForReading[i];
+					// geneSet.Debug_RemoveGene(geneDef);
+				// }
+				// foreach (GeneDef geneDef in xenotypeDef.genes)
+				// {
+					// geneSet.AddGene(geneDef);
+				// }
+				// geneSet.SortGenes();
+			// }
+		// }
 
 		public override IEnumerable<Gizmo> CompGetGizmosExtra()
 		{
@@ -203,7 +204,7 @@ namespace WVC_XenotypesAndGenes
 					defaultLabel = "DEV: OverrideGeneSet",
 					action = delegate
 					{
-						OverrideGeneSet();
+						SetTrueParentGenes();
 					}
 				};
 				yield return command_Action;

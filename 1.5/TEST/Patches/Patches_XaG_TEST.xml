@@ -18,6 +18,24 @@
 	  </value>
 	</Operation>
 
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/HediffDef[defName="PregnantHuman"]/comps</xpath>
+	  <value>
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_TrueParentGenes">
+		  <compClass>WVC_XenotypesAndGenes.HediffComp_TrueParentGenes</compClass>
+		</li>
+	  </value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/ThingDef[defName="HumanEmbryo"]/comps</xpath>
+	  <value>
+		<li Class="WVC_XenotypesAndGenes.CompProperties_Genepack">
+		  <compClass>WVC_XenotypesAndGenes.CompHumanEmbryo</compClass>
+		</li>
+	  </value>
+	</Operation>
+
 	<Operation Class="PatchOperationReplace">
 		<xpath>/Defs/XenotypeDef[defName="Baseliner"]/factionlessGenerationWeight</xpath>
 		<success>Always</success>

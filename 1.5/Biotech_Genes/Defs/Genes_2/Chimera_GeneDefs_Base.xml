@@ -71,7 +71,7 @@
 	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
-			<selectionWeight>3</selectionWeight>
+			<selectionWeight>10</selectionWeight>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -140,7 +140,7 @@
 	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
-			<selectionWeight>3</selectionWeight>
+			<selectionWeight>10</selectionWeight>
 		</li>
 	</modExtensions>
   </GeneDef>

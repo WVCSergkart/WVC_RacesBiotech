@@ -129,6 +129,7 @@
     <Compile Include="Resources_Hediff\HediffComp_ChangeXenotype.cs" />
     <Compile Include="Resources_Hediff\HediffComp_DustGestator.cs" />
     <Compile Include="Resources_Hediff\HediffComp_GenesRegrowing.cs" />
+    <Compile Include="Resources_Hediff\HediffComp_ParentGenes.cs" />
     <Compile Include="Resources_Hediff\HediffComp_RemoveIfGeneIsNotActive.cs" />
     <Compile Include="Resources_Hediff\HediffComp_RemoveLetter.cs" />
     <Compile Include="Resources_Hediff\HediffComp_ReplaceWithHediff.cs" />

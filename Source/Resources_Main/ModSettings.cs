@@ -104,6 +104,10 @@ namespace WVC_XenotypesAndGenes
 		public bool disableXenotypes_GolemMasters = false;
 		public bool disableXenotypes_Bloodeaters = false;
 		public bool disableXenotypes_Misc = false;
+		// PregnantHuman
+		// public bool pregnantHuman_TrueParentGenesPatch = false;
+		// public bool pregnantHuman_InheritSurrogateGenes = false;
+		// public bool pregnantHuman_InheritArchiteGenes = false;
 
 		public IEnumerable<string> GetEnabledSettings => from specificSetting in GetType().GetFields()
 														 where specificSetting.FieldType == typeof(bool) && (bool)specificSetting.GetValue(this)
@@ -202,6 +206,10 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref disableXenotypes_GolemMasters, "disableXenotypes_GolemMasters", defaultValue: false);
 			Scribe_Values.Look(ref disableXenotypes_Bloodeaters, "disableXenotypes_Bloodeaters", defaultValue: false);
 			Scribe_Values.Look(ref disableXenotypes_Misc, "disableXenotypes_Misc", defaultValue: false);
+			// PregnantHuman
+			// Scribe_Values.Look(ref pregnantHuman_TrueParentGenesPatch, "pregnantHuman_TrueParentGenesPatch", defaultValue: false);
+			// Scribe_Values.Look(ref pregnantHuman_InheritSurrogateGenes, "pregnantHuman_InheritSurrogateGenes", defaultValue: false);
+			// Scribe_Values.Look(ref pregnantHuman_InheritArchiteGenes, "pregnantHuman_InheritArchiteGenes", defaultValue: false);
 			// End
 			Scribe_Collections.Look(ref WVC_Biotech.cachedXenotypesFilter, "cachedXenotypesFilter", LookMode.Value, LookMode.Value);
 		}
@@ -852,6 +860,10 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.disableXenotypes_GolemMasters = false;
 			WVC_Biotech.settings.disableXenotypes_Bloodeaters = false;
 			WVC_Biotech.settings.disableXenotypes_Misc = false;
+			// PregnantHuman
+			// WVC_Biotech.settings.pregnantHuman_TrueParentGenesPatch = false;
+			// WVC_Biotech.settings.pregnantHuman_InheritSurrogateGenes = false;
+			// WVC_Biotech.settings.pregnantHuman_InheritArchiteGenes = false;
 			// XenotypesSettings
 			WVC_Biotech.cachedXenotypesFilter.Clear();
 			XaG_PostInitialization.SetValues(XenotypeFilterUtility.WhiteListedXenotypesForFilter());
@@ -950,6 +962,10 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.disableXenotypes_GolemMasters = false;
 			WVC_Biotech.settings.disableXenotypes_Bloodeaters = false;
 			WVC_Biotech.settings.disableXenotypes_Misc = false;
+			// PregnantHuman
+			// WVC_Biotech.settings.pregnantHuman_TrueParentGenesPatch = false;
+			// WVC_Biotech.settings.pregnantHuman_InheritSurrogateGenes = false;
+			// WVC_Biotech.settings.pregnantHuman_InheritArchiteGenes = false;
 			// XenotypesSettings
 			WVC_Biotech.cachedXenotypesFilter.Clear();
 			XaG_PostInitialization.SetValues(XenotypeFilterUtility.WhiteListedXenotypesForFilter());

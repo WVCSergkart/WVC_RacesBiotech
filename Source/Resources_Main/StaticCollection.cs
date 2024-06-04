@@ -15,4 +15,14 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	// public class PawnContainer : IExposable
+	// {
+
+		// public void ExposeData()
+		// {
+			// Scribe_Collections.Look(ref skills, "skills", LookMode.Deep, pawn);
+		// }
+
+	// }
+
 }
