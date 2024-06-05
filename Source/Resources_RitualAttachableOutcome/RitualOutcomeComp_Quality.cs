@@ -76,7 +76,12 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool Applies(LordJob_Ritual ritual)
 		{
-			return true;
+			Pawn pawn = ritual?.PawnWithRole(roleId);
+			if (XaG_GeneUtility.HasAnyActiveGene(anyGeneDefs, pawn))
+			{
+				return true;
+			}
+			return false;
 		}
 
 	}

@@ -3,7 +3,7 @@
 
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_Base" Name="WVC_XenotypesAndGenes_GeneDustSupply_DustAbilities" Abstract="True">
-	<marketValueFactor>1.5</marketValueFactor>
+	<marketValueFactor>1.1</marketValueFactor>
 	<selectionWeight>0.0009</selectionWeight>
 	<minAgeActive>3</minAgeActive>
 	<biostatCpx>2</biostatCpx>
@@ -15,7 +15,7 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustAbilities">
 	<defName>WVC_Dustogenic_ImmaculateConception</defName>
-	<label>parthenogenesis</label>
+	<label>dustogenesis</label>
 	<description>Carriers of this gene do not require a partner for reproduction. Pregnancy occurs only at the request of the mother.</description>
 	<descriptionHyperlinks>
 	  <AbilityDef>WVC_Dustogenic_AbilityImmaculateConception</AbilityDef>
@@ -28,11 +28,12 @@
 	<!-- <sterilize>true</sterilize> -->
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>0</biostatMet>
+	<biostatArc>1</biostatArc>
 	<customEffectDescriptions>
 		<!-- <li>Spawns a baby-pawn with similar genes few days after the ability is activated.</li> -->
 		<!-- <li>&lt;color=#ff8585&gt;Female only.&lt;/color&gt;</li> -->
-		<li>Allows to start &lt;color=#8a8ae6&gt;pregnancy&lt;/color&gt; at any time</li>
-		<li>Children &lt;color=#8a8ae6&gt;always&lt;/color&gt; receive a set of pawn &lt;color=#8a8ae6&gt;endogens&lt;/color&gt;.</li>
+		<li>Allows to start &lt;color=#8a8ae6&gt;pregnancy&lt;/color&gt; at any time.</li>
+		<li>Children &lt;color=#8a8ae6&gt;always&lt;/color&gt; receive all mother &lt;color=#8a8ae6&gt;endogens&lt;/color&gt;.</li>
 		<li>Birth quality +100%</li>
 	</customEffectDescriptions>
 	<!-- <statFactors> -->
@@ -46,7 +47,7 @@
 		<li>Egglaying</li>
 		<li>AG_Egglaying</li>
 		<li>AG_Gestation</li>
-		<li>AG_Fertility</li>
+		<!-- <li>AG_Fertility</li> -->
 	</exclusionTags>
 	<symbolPack>
 	  <prefixSymbols>

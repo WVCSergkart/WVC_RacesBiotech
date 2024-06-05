@@ -182,8 +182,8 @@
 
   <AbilityDef ParentName="WVC_GestationAbilities_Base">
 	<defName>WVC_Dustogenic_AbilityImmaculateConception</defName>
-	<label>parthenogenesis</label>
-	<description>Allows a pawn to conceive a child without a partner.</description>
+	<label>dustogenesis</label>
+	<description>Conceive a child without a partner.</description>
 	<iconPath>WVC/UI/Genes/Gene_ImmaculateConception_v0</iconPath>
 	<verbProperties>
 	  <warmupEffecter>Berserk</warmupEffecter>
@@ -211,7 +211,7 @@
 		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_PregnantHuman</compClass>
 	  </li>
 	</comps>
-	<confirmationDialogText>After using the ability, the pawn will gain a progressive debuff to consciousness and rest fall factor. The process cannot be interrupted.\n\nDo you still need a new pawn?</confirmationDialogText>
+	<confirmationDialogText>After using the ability, the pawn will gain a pregnant hediff. The child will receive a full set of endogens, including archites. The process can be interrupted in the same ways as a normal pregnancy.\n\nDo you still need a new pawn?</confirmationDialogText>
   </AbilityDef>
 
 

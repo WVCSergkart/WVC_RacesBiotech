@@ -28,7 +28,7 @@
 	<label>hardened feathers</label>
 	<description>Flap your wings and use the dustogenic chemical reactions to separate the hardened feathers at just the right moment to launch them at the target. Given the method of launch, it is surprisingly easy to aim.</description>
 	<iconPath>WVC/UI/Genes/Gene_FeatherBlades_v0</iconPath>
-	<cooldownTicksRange>60</cooldownTicksRange>
+	<cooldownTicksRange>560</cooldownTicksRange>
 	<!-- <category>Sanguophage</category> -->
 	<displayOrder>200</displayOrder>
 	<aiCanUse>true</aiCanUse>
@@ -47,9 +47,9 @@
 		  <li>WVC_Wings_FeatheredWings</li>
 		</anyOfGenes>
 	  </li>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityPawnNutritionCost">
-		<nutritionCost>0.3</nutritionCost>
-	  </li>
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityPawnNutritionCost"> -->
+		<!-- <nutritionCost>0.3</nutritionCost> -->
+	  <!-- </li> -->
 	  <li Class="CompProperties_AbilityLaunchProjectile">
 		<projectileDef>WVC_Dustogenic_HardenedFeathers</projectileDef>
 	  </li>

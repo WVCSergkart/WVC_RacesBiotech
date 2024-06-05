@@ -1,10 +1,12 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
+	[Obsolete]
     public class CompProperties_AbilityPawnNutritionCost : CompProperties_AbilityEffect
 	{
 		public float nutritionCost = 0.2f;
@@ -21,12 +23,12 @@ namespace WVC_XenotypesAndGenes
 		}
 	}
 
+	[Obsolete]
 	public class CompAbilityEffect_PawnNutritionCost : CompAbilityEffect
 	{
 		public new CompProperties_AbilityPawnNutritionCost Props => (CompProperties_AbilityPawnNutritionCost)props;
 
 		private Need_Food need_Food = null;
-		// private bool cacheResugentGene = true;
 
 		private void Cache()
 		{
@@ -40,14 +42,12 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				// Gene_Dust gene_Dust = parent.pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
-				// Need_Food need_Food = parent.pawn.needs?.food;
 				Cache();
-				if (need_Food == null || need_Food.CurLevel < Props.nutritionCost)
+				if (need_Food == null)
 				{
 					return false;
 				}
-				return true;
+				return need_Food.CurLevel >= Props.nutritionCost;
 			}
 		}
 
@@ -56,11 +56,11 @@ namespace WVC_XenotypesAndGenes
 			base.Apply(target, dest);
 			// Need_Food need_Food = parent.pawn.needs?.food;
 			// Gene_Dust gene_Dust = parent.pawn.genes?.GetFirstGeneOfType<Gene_Dust>();
-			Cache();
-			if (need_Food != null)
-			{
-				UndeadUtility.OffsetNeedFood(parent.pawn, 0f - Props.nutritionCost);
-			}
+			// Cache();
+			// if (need_Food != null)
+			// {
+			// }
+			UndeadUtility.OffsetNeedFood(parent.pawn, 0f - Props.nutritionCost);
 		}
 
 		public override bool GizmoDisabled(out string reason)
@@ -73,7 +73,7 @@ namespace WVC_XenotypesAndGenes
 				reason = "WVC_XaG_AbilityDisabledNoDustGene".Translate(parent.pawn);
 				return true;
 			}
-			if (need_Food.CurLevel < Props.nutritionCost)
+			if (need_Food != null && need_Food.CurLevel < Props.nutritionCost)
 			{
 				reason = "WVC_XaG_AbilityDisabledNoDust".Translate(parent.pawn);
 				return true;
