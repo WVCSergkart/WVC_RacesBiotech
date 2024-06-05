@@ -36,7 +36,7 @@ namespace WVC_XenotypesAndGenes
 		public bool shapeshifterGeneUnremovable = true;
 		public bool enableIncestLoverGene = true;
 		public bool enableHarmonyTelepathyGene = false;
-		public bool useAlternativeDustogenicFoodJob = true;
+		// public bool useAlternativeDustogenicFoodJob = true;
 		public bool learningTelepathWorkForBothSides = false;
 		public bool disableUniqueXenotypeScenarios = false;
 		public bool restoreBodyPartsWithFullHP = false;
@@ -140,7 +140,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref shapeshifterGeneUnremovable, "shapeshifterGeneUnremovable", defaultValue: true);
 			Scribe_Values.Look(ref enableIncestLoverGene, "enableIncestLoverGene", defaultValue: true);
 			Scribe_Values.Look(ref enableHarmonyTelepathyGene, "enableHarmonyTelepathyGene", defaultValue: false);
-			Scribe_Values.Look(ref useAlternativeDustogenicFoodJob, "useAlternativeDustogenicFoodJob", defaultValue: true);
+			// Scribe_Values.Look(ref useAlternativeDustogenicFoodJob, "useAlternativeDustogenicFoodJob", defaultValue: true);
 			Scribe_Values.Look(ref learningTelepathWorkForBothSides, "learningTelepathWorkForBothSides", defaultValue: false);
 			Scribe_Values.Look(ref restoreBodyPartsWithFullHP, "restoreBodyPartsWithFullHP", defaultValue: false);
 			// Scribe_Values.Look(ref reimplantResurrectionRecruiting, "reimplantResurrectionRecruiting", defaultValue: false);
@@ -684,9 +684,9 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_enableHarmonyTelepathyGene".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enableHarmonyTelepathyGene, "WVC_ToolTip_enableHarmonyTelepathyGene".Translate());
 			listingStandard.GapLine();
 			// =
-			listingStandard.Label("WVC_XaGGeneSettings_Dustogenic".Translate() + ":", -1);
-			listingStandard.CheckboxLabeled("WVC_Label_useAlternativeDustogenicFoodJob".Translate().Colorize(ColorLibrary.LightBlue), ref settings.useAlternativeDustogenicFoodJob, "WVC_ToolTip_useAlternativeDustogenicFoodJob".Translate());
-			listingStandard.GapLine();
+			// listingStandard.Label("WVC_XaGGeneSettings_Dustogenic".Translate() + ":", -1);
+			// listingStandard.CheckboxLabeled("WVC_Label_useAlternativeDustogenicFoodJob".Translate().Colorize(ColorLibrary.LightBlue), ref settings.useAlternativeDustogenicFoodJob, "WVC_ToolTip_useAlternativeDustogenicFoodJob".Translate());
+			// listingStandard.GapLine();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_TelepathStudy".Translate() + ":", -1);
 			listingStandard.CheckboxLabeled("WVC_Label_learningTelepathWorkForBothSides".Translate().Colorize(ColorLibrary.LightBlue), ref settings.learningTelepathWorkForBothSides, "WVC_ToolTip_learningTelepathWorkForBothSides".Translate());
@@ -823,7 +823,7 @@ namespace WVC_XenotypesAndGenes
 			// =
 			WVC_Biotech.settings.enableHarmonyTelepathyGene = false;
 			// =
-			WVC_Biotech.settings.useAlternativeDustogenicFoodJob = true;
+			// WVC_Biotech.settings.useAlternativeDustogenicFoodJob = true;
 			// =
 			WVC_Biotech.settings.learningTelepathWorkForBothSides = false;
 			// =
@@ -924,7 +924,7 @@ namespace WVC_XenotypesAndGenes
 			// =
 			WVC_Biotech.settings.enableHarmonyTelepathyGene = false;
 			// =
-			WVC_Biotech.settings.useAlternativeDustogenicFoodJob = true;
+			// WVC_Biotech.settings.useAlternativeDustogenicFoodJob = true;
 			// =
 			WVC_Biotech.settings.learningTelepathWorkForBothSides = true;
 			// =

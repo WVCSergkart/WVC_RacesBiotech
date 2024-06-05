@@ -55,73 +55,96 @@
 		</caseTrue>
 	</Operation>
 
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/HediffDef[defName="PregnantHuman"]/comps</xpath>
+	  <order>Prepend</order>
+	  <value>
+		<li>
+		  <compClass>WVC_XenotypesAndGenes.HediffComp_NotifyPregnancyStarted</compClass>
+		</li>
+	  </value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/RitualOutcomeEffectDef[defName="ChildBirth"]/comps</xpath>
+	  <order>Prepend</order>
+	  <value>
+		<li Class="WVC_XenotypesAndGenes.RitualOutcomeComp_PawnGenes">
+		  <label>{PAWN_labelShort}'s genes</label>
+		  <labelAbstract>mother's genes</labelAbstract>
+		  <roleId>mother</roleId>
+		  <quality>1.00</quality>
+		  <anyGeneDefs>
+			<li>WVC_Dustogenic_ImmaculateConception</li>
+		  </anyGeneDefs>
+		</li>
+	  </value>
+	</Operation>
+
 	<!-- Patch for special food for dustogenics -->
 
-	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
-		<settingName>useAlternativeDustogenicFoodJob</settingName>
-		<caseFalse Class="PatchOperationSequence">
-			<operations>
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional"> -->
+		<!-- <settingName>useAlternativeDustogenicFoodJob</settingName> -->
+		<!-- <caseFalse Class="PatchOperationSequence"> -->
+			<!-- <operations> -->
 
-				<!-- Starving -->
-				<li Class="PatchOperationInsert">
-					<xpath>/Defs/ThinkTreeDef[defName="Humanlike"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalColonist"]/subNodes/li[@Class="ThinkNode_ConditionalStarving"]/subNodes/li/subNodes/li[@Class="JobGiver_GetFood"]</xpath>
-					<order>Prepend</order>
-					<value>
-					  <li Class="WVC_XenotypesAndGenes.JobGiver_GetSpecialFood">
-						<geneDefs>
-							<li>WVC_Dustogenic</li>
-						</geneDefs>
-						<foodDefs>
-							<li>WVC_NutrientsInjector</li>
-							<li>WVC_MealDustPack</li>
-							<li>WVC_MealDustogenicPaste</li>
-						</foodDefs>
-						<ingestAtOnce>1</ingestAtOnce>
-					  </li>
-					</value>
-				</li>
+				<!-- <li Class="PatchOperationInsert"> -->
+					<!-- <xpath>/Defs/ThinkTreeDef[defName="Humanlike"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalColonist"]/subNodes/li[@Class="ThinkNode_ConditionalStarving"]/subNodes/li/subNodes/li[@Class="JobGiver_GetFood"]</xpath> -->
+					<!-- <order>Prepend</order> -->
+					<!-- <value> -->
+					  <!-- <li Class="WVC_XenotypesAndGenes.JobGiver_GetSpecialFood"> -->
+						<!-- <geneDefs> -->
+							<!-- <li>WVC_Dustogenic</li> -->
+						<!-- </geneDefs> -->
+						<!-- <foodDefs> -->
+							<!-- <li>WVC_NutrientsInjector</li> -->
+							<!-- <li>WVC_MealDustPack</li> -->
+							<!-- <li>WVC_MealDustogenicPaste</li> -->
+						<!-- </foodDefs> -->
+						<!-- <ingestAtOnce>1</ingestAtOnce> -->
+					  <!-- </li> -->
+					<!-- </value> -->
+				<!-- </li> -->
 
-				<!-- Prisoners -->
-				<li Class="PatchOperationInsert">
-					<xpath>/Defs/ThinkTreeDef[defName="Humanlike"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalPrisoner"]/subNodes/li/subNodes/li/subNodes/li[@Class="JobGiver_GetFood"]</xpath>
-					<order>Prepend</order>
-					<value>
-					  <li Class="WVC_XenotypesAndGenes.JobGiver_GetSpecialFood">
-						<geneDefs>
-							<li>WVC_Dustogenic</li>
-						</geneDefs>
-						<foodDefs>
-							<li>WVC_NutrientsInjector</li>
-							<li>WVC_MealDustPack</li>
-							<li>WVC_MealDustogenicPaste</li>
-						</foodDefs>
-						<ingestAtOnce>1</ingestAtOnce>
-					  </li>
-					</value>
-				</li>
+				<!-- <li Class="PatchOperationInsert"> -->
+					<!-- <xpath>/Defs/ThinkTreeDef[defName="Humanlike"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalPrisoner"]/subNodes/li/subNodes/li/subNodes/li[@Class="JobGiver_GetFood"]</xpath> -->
+					<!-- <order>Prepend</order> -->
+					<!-- <value> -->
+					  <!-- <li Class="WVC_XenotypesAndGenes.JobGiver_GetSpecialFood"> -->
+						<!-- <geneDefs> -->
+							<!-- <li>WVC_Dustogenic</li> -->
+						<!-- </geneDefs> -->
+						<!-- <foodDefs> -->
+							<!-- <li>WVC_NutrientsInjector</li> -->
+							<!-- <li>WVC_MealDustPack</li> -->
+							<!-- <li>WVC_MealDustogenicPaste</li> -->
+						<!-- </foodDefs> -->
+						<!-- <ingestAtOnce>1</ingestAtOnce> -->
+					  <!-- </li> -->
+					<!-- </value> -->
+				<!-- </li> -->
 
-				<!-- General -->
-				<li Class="PatchOperationInsert">
-					<xpath>/Defs/ThinkTreeDef[defName="MainColonistBehaviorCore"]/thinkRoot/subNodes/li[@Class="ThinkNode_PrioritySorter"]/subNodes/li[@Class="JobGiver_GetFood"]</xpath>
-					<order>Prepend</order>
-					<value>
-					  <li Class="WVC_XenotypesAndGenes.JobGiver_GetSpecialFood">
-						<geneDefs>
-							<li>WVC_Dustogenic</li>
-						</geneDefs>
-						<foodDefs>
-							<li>WVC_NutrientsInjector</li>
-							<li>WVC_MealDustPack</li>
-							<li>WVC_MealDustogenicPaste</li>
-						</foodDefs>
-						<ingestAtOnce>1</ingestAtOnce>
-					  </li>
-					</value>
-				</li>
+				<!-- <li Class="PatchOperationInsert"> -->
+					<!-- <xpath>/Defs/ThinkTreeDef[defName="MainColonistBehaviorCore"]/thinkRoot/subNodes/li[@Class="ThinkNode_PrioritySorter"]/subNodes/li[@Class="JobGiver_GetFood"]</xpath> -->
+					<!-- <order>Prepend</order> -->
+					<!-- <value> -->
+					  <!-- <li Class="WVC_XenotypesAndGenes.JobGiver_GetSpecialFood"> -->
+						<!-- <geneDefs> -->
+							<!-- <li>WVC_Dustogenic</li> -->
+						<!-- </geneDefs> -->
+						<!-- <foodDefs> -->
+							<!-- <li>WVC_NutrientsInjector</li> -->
+							<!-- <li>WVC_MealDustPack</li> -->
+							<!-- <li>WVC_MealDustogenicPaste</li> -->
+						<!-- </foodDefs> -->
+						<!-- <ingestAtOnce>1</ingestAtOnce> -->
+					  <!-- </li> -->
+					<!-- </value> -->
+				<!-- </li> -->
 
-			</operations>
-		</caseFalse>
-	</Operation>
+			<!-- </operations> -->
+		<!-- </caseFalse> -->
+	<!-- </Operation> -->
 
 	<!-- ================== -->
 

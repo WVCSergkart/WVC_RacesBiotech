@@ -77,6 +77,7 @@
     <Compile Include="Resources_Abilities\CompProperties_AbilityThrallMaker.cs" />
     <Compile Include="Resources_Abilities\CompProperties_Bloodeater.cs" />
     <Compile Include="Resources_Abilities\CompProperties_CorpseEater.cs" />
+    <Compile Include="Resources_Abilities\CompProperties_PregnantHuman.cs" />
     <Compile Include="Resources_Abilities\CompProperties_SafeBloodfeed.cs" />
     <Compile Include="Resources_Abilities\QuestNode_Root_Reincarnation.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_NoSunlight.cs" />
@@ -145,6 +146,7 @@
     <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_ColorFromRock.cs" />
     <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_FurIsSkin.cs" />
     <Compile Include="Resources_RitualAttachableOutcome\OutcomeWorker_ShapeshifterJoin.cs" />
+    <Compile Include="Resources_RitualAttachableOutcome\RitualOutcomeComp_Quality.cs" />
     <Compile Include="Resources_Things\CompProperties_DryadCocoon.cs" />
     <Compile Include="Resources_Things\CompProperties_Genepack.cs" />
     <Compile Include="Resources_Things\CompProperties_Golem.cs" />

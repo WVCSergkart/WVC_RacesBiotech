@@ -55,10 +55,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (!WVC_Biotech.settings.useAlternativeDustogenicFoodJob)
-			{
-				return;
-			}
+			// if (!WVC_Biotech.settings.useAlternativeDustogenicFoodJob)
+			// {
+				// return;
+			// }
 			if (pawn.Downed || pawn.Drafted)
 			{
 				return;

@@ -79,4 +79,11 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public interface IGenePregnantHuman
+	{
+
+		void Notify_PregnancyStarted(Hediff_Pregnant pregnancy);
+
+	}
+
 }

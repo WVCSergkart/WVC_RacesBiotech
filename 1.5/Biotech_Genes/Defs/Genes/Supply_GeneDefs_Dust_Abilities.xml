@@ -15,31 +15,34 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDustSupply_DustAbilities">
 	<defName>WVC_Dustogenic_ImmaculateConception</defName>
-	<label>dustogenic conception</label>
-	<description>Carriers of this gene do not require a partner for reproduction. Pregnancy occurs only at the request of the mother and only with sufficient dust levels.</description>
+	<label>parthenogenesis</label>
+	<description>Carriers of this gene do not require a partner for reproduction. Pregnancy occurs only at the request of the mother.</description>
 	<descriptionHyperlinks>
 	  <AbilityDef>WVC_Dustogenic_AbilityImmaculateConception</AbilityDef>
 	</descriptionHyperlinks>
-	<geneClass>WVC_XenotypesAndGenes.Gene_Gestator_TestTool</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Parthenogenesis</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_ImmaculateConception_v0</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
 	<displayOrderInCategory>105</displayOrderInCategory>
 	<minAgeActive>13</minAgeActive>
-	<sterilize>true</sterilize>
+	<!-- <sterilize>true</sterilize> -->
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
-		<li>Spawns a baby-pawn with similar genes few days after the ability is activated.</li>
-		<li>&lt;color=#ff8585&gt;Female only.&lt;/color&gt;</li>
+		<!-- <li>Spawns a baby-pawn with similar genes few days after the ability is activated.</li> -->
+		<!-- <li>&lt;color=#ff8585&gt;Female only.&lt;/color&gt;</li> -->
+		<li>Allows to start &lt;color=#8a8ae6&gt;pregnancy&lt;/color&gt; at any time</li>
+		<li>Children &lt;color=#8a8ae6&gt;always&lt;/color&gt; receive a set of pawn &lt;color=#8a8ae6&gt;endogens&lt;/color&gt;.</li>
+		<li>Birth quality +100%</li>
 	</customEffectDescriptions>
-	<statFactors>
-	  <Fertility>0</Fertility>
-	</statFactors>
+	<!-- <statFactors> -->
+	  <!-- <Fertility>0</Fertility> -->
+	<!-- </statFactors> -->
 	<abilities>
 	  <li>WVC_Dustogenic_AbilityImmaculateConception</li>
 	</abilities>
 	<exclusionTags>
-		<li>Fertility</li>
+		<!-- <li>Fertility</li> -->
 		<li>Egglaying</li>
 		<li>AG_Egglaying</li>
 		<li>AG_Gestation</li>
@@ -47,7 +50,8 @@
 	</exclusionTags>
 	<symbolPack>
 	  <prefixSymbols>
-		<li><symbol>bless</symbol></li>
+		<li><symbol>partheno</symbol></li>
+		<li><symbol>genesis</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
   </GeneDef>

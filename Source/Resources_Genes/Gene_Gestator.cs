@@ -49,6 +49,27 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_Parthenogenesis : Gene, IGenePregnantHuman
+	{
+
+		public void Notify_PregnancyStarted(Hediff_Pregnant pregnancy)
+		{
+			GeneSet geneSet = pregnancy.geneSet;
+			if (geneSet != null)
+			{
+				HediffComp_TrueParentGenes.AddParentGenes(pawn, geneSet);
+			}
+			else
+			{
+				GeneSet newGeneSet = new();
+				HediffComp_TrueParentGenes.AddParentGenes(pawn, newGeneSet);
+				geneSet = newGeneSet;
+			}
+			geneSet.SortGenes();
+		}
+
+	}
+
 	// Gene-Gestator
 	public class Gene_XenotypeGestator : Gene, IGeneOverridden
 	{

@@ -28,7 +28,7 @@ namespace WVC_XenotypesAndGenes
 			if (parent is Hediff_Pregnant pregnancy)
 			{
 				// Log.Error("1");
-				GeneSet newGeneSet = new();
+				GeneSet newGeneSet = pregnancy.geneSet;
 				AddParentGenes(pregnancy.Mother, newGeneSet);
 				AddParentGenes(pregnancy.Father, newGeneSet);
 				if (!parent.pawn.Spawned || Props.addSurrogateGenes)
@@ -37,10 +37,10 @@ namespace WVC_XenotypesAndGenes
 				}
 				// Log.Error("Genes: " + newGeneSet.GenesListForReading.Count.ToString());
 				newGeneSet.SortGenes();
-				if (!newGeneSet.Empty)
-				{
-					pregnancy.geneSet = newGeneSet;
-				}
+				// if (!newGeneSet.Empty)
+				// {
+					// pregnancy.geneSet = newGeneSet;
+				// }
 			}
 		}
 
@@ -59,6 +59,27 @@ namespace WVC_XenotypesAndGenes
 					continue;
 				}
 				geneSet.AddGene(gene);
+			}
+		}
+
+	}
+
+	public class HediffComp_NotifyPregnancyStarted : HediffComp
+	{
+
+		// public HediffCompProperties_TrueParentGenes Props => (HediffCompProperties_TrueParentGenes)props;
+
+		public override void CompPostPostAdd(DamageInfo? dinfo)
+		{
+			if (parent is Hediff_Pregnant pregnancy)
+			{
+				foreach (Gene gene in parent.pawn.genes.GenesListForReading)
+				{
+					if (gene is IGenePregnantHuman genePregnantHuman && gene.Active)
+					{
+						genePregnantHuman.Notify_PregnancyStarted(pregnancy);
+					}
+				}
 			}
 		}
 

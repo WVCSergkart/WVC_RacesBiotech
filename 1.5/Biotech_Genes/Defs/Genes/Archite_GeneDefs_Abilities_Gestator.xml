@@ -182,17 +182,17 @@
 
   <AbilityDef ParentName="WVC_GestationAbilities_Base">
 	<defName>WVC_Dustogenic_AbilityImmaculateConception</defName>
-	<label>immaculate conception</label>
-	<description>With a sufficient level of nutrients, it allows you to start the pregnancy process.</description>
+	<label>parthenogenesis</label>
+	<description>Allows a pawn to conceive a child without a partner.</description>
 	<iconPath>WVC/UI/Genes/Gene_ImmaculateConception_v0</iconPath>
 	<verbProperties>
 	  <warmupEffecter>Berserk</warmupEffecter>
 	</verbProperties>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityHideIfPawnMultiSelected"/>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityPawnNutritionCost">
-		<nutritionCost>0.92</nutritionCost>
-	  </li>
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityPawnNutritionCost"> -->
+		<!-- <nutritionCost>0.92</nutritionCost> -->
+	  <!-- </li> -->
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive">
 		<gender>Female</gender>
 		<eachOfGenes>
@@ -201,11 +201,14 @@
 		</eachOfGenes>
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityPawnPregnant"/>
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGiveHediff"> -->
+		<!-- <compClass>WVC_XenotypesAndGenes.CompAbilityEffect_GiveHediff</compClass> -->
+		<!-- <hediffDef>WVC_Dustogenic_HediffImmaculateConception</hediffDef> -->
+		<!-- <onlyApplyToSelf>true</onlyApplyToSelf> -->
+		<!-- <onlyReproductive>false</onlyReproductive> -->
+	  <!-- </li> -->
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGiveHediff">
-		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_GiveHediff</compClass>
-		<hediffDef>WVC_Dustogenic_HediffImmaculateConception</hediffDef>
-		<onlyApplyToSelf>true</onlyApplyToSelf>
-		<onlyReproductive>false</onlyReproductive>
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_PregnantHuman</compClass>
 	  </li>
 	</comps>
 	<confirmationDialogText>After using the ability, the pawn will gain a progressive debuff to consciousness and rest fall factor. The process cannot be interrupted.\n\nDo you still need a new pawn?</confirmationDialogText>
