@@ -49,7 +49,8 @@
   <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
 	<defName>WVC_GolemBond</defName>
 	<label>golembond</label>
-	<description>To control golems, the mechanitor requires psionic focus on the mechanites, which are the basis and heart of the golems. The higher the golembond value, the more golems the mechanitor can control at the same time. The loss of golembond will lead to the fact that the mechanites will gradually disperse and the golems will die.\n\nA golembond can be increased using genes, and certain genes are needed to control certain types of golems.</description>
+	<!-- <description>To control golems, the mechanitor requires psionic focus on the mechanites, which are the basis and heart of the golems. The higher the golembond value, the more golems the mechanitor can control at the same time. The loss of golembond will lead to the fact that the mechanites will gradually disperse and the golems will die.\n\nA golembond can be increased using genes, and certain genes are needed to control certain types of golems.</description> -->
+	<description>To control golems, just like for mechanoids, bandwidth is required, but to create them, the mechanitor needs golembond. Exceeding or losing golembond does not affect existing golems.</description>
 	<defaultBaseValue>0</defaultBaseValue>
 	<hideAtValue>0</hideAtValue>
 	<alwaysHide>false</alwaysHide>
@@ -84,7 +85,7 @@
   <StatDef ParentName="MechStatBase">
 	<defName>WVC_GolemBondCost</defName>
 	<label>golembond cost</label>
-	<description>How much psionic focus the mechanite swarm in this golem requires to control.</description>
+	<description>How much golembond the mechanite swarm in this golem requires to maintain.</description>
 	<defaultBaseValue>0</defaultBaseValue>
 	<minValue>0</minValue>
 	<displayPriorityInCategory>2005</displayPriorityInCategory>

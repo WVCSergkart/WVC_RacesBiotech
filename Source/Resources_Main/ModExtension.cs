@@ -92,6 +92,8 @@ namespace WVC_XenotypesAndGenes
 		public IntRange digestRange = new(1, 2);
 		public float chance = 0.66f;
 		public SoundDef soundDef;
+		// Golems
+		public List<PawnKindDef> mechTypes;
 	}
 
 	public class GeneExtension_Undead : DefModExtension

@@ -17,6 +17,33 @@ namespace WVC_XenotypesAndGenes
 			return TotalGolembond(mechanitor) >= GetConsumedGolembond(mechanitor);
 		}
 
+		public static List<Pawn> GetAllControlledGolems(Pawn mechanitor)
+		{
+			List<Pawn> mechs = mechanitor?.mechanitor?.OverseenPawns;
+			if (mechs.NullOrEmpty())
+			{
+				return null;
+			}
+			List<Pawn> list = new();
+			foreach (Pawn item in mechs)
+			{
+				if (item.health.Dead)
+				{
+					continue;
+				}
+				if (!item.IsGolemlike())
+				{
+					continue;
+				}
+				// if (compGolem.Props.golemIndex == golemIndex)
+				// {
+				// }
+				list.Add(item);
+			}
+			return list;
+		}
+
+		[Obsolete]
 		public static List<Pawn> GetAllControlledGolemsOfIndex(Pawn mechanitor, int golemIndex)
 		{
 			List<Pawn> mechs = mechanitor?.mechanitor?.OverseenPawns;
@@ -52,15 +79,24 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (pawn.RaceProps.IsMechanoid)
 			{
-				return pawn.GetStatValue(WVC_GenesDefOf.WVC_GolemBondCost, cacheStaleAfterTicks: 820000) > 0;
+				return pawn.TryGetComp<CompGolem>() != null;
 			}
 			return false;
 		}
 
-		public static bool GetGolemistGene(this Pawn pawn, out Gene_MechlinkWithGizmo mechlinkWithGizmo)
+		public static bool IsGolemlike(this PawnKindDef pawnkind)
 		{
-			return (mechlinkWithGizmo = pawn?.genes?.GetFirstGeneOfType<Gene_MechlinkWithGizmo>())?.def?.resourceGizmoType == typeof(GeneGizmo_Golems);
+			if (pawnkind.race.race.IsMechanoid)
+			{
+				return pawnkind.race.GetCompProperties<CompProperties_Golem>() != null;
+			}
+			return false;
 		}
+
+		// public static bool GetGolemistGene(this Pawn pawn, out Gene_MechlinkWithGizmo mechlinkWithGizmo)
+		// {
+			// return (mechlinkWithGizmo = pawn?.genes?.GetFirstGeneOfType<Gene_MechlinkWithGizmo>())?.def?.resourceGizmoType == typeof(GeneGizmo_Golems);
+		// }
 
 
 		public static float TotalGolembond(Pawn mechanitor)
@@ -87,26 +123,24 @@ namespace WVC_XenotypesAndGenes
 			return result;
 		}
 
-		public static bool IsGolemistOfIndex(this Pawn mechanitor, int golemsIndex)
-		{
-			if (MechanitorUtility.IsMechanitor(mechanitor))
-			{
-				return mechanitor.GetGolemistGene(out Gene_MechlinkWithGizmo mechlinkWithGizmo) && mechlinkWithGizmo?.Giver?.golemistTypeIndex == golemsIndex;
-			}
-			return false;
-		}
+		// public static bool IsGolemistOfIndex(this Pawn mechanitor, int golemsIndex)
+		// {
+			// if (MechanitorUtility.IsMechanitor(mechanitor))
+			// {
+				// return mechanitor.GetGolemistGene(out Gene_MechlinkWithGizmo mechlinkWithGizmo) && mechlinkWithGizmo?.Giver?.golemistTypeIndex == golemsIndex;
+			// }
+			// return false;
+		// }
 
 		[Obsolete]
 		public static bool MechanitorIsLich(Pawn mechanitor)
 		{
-			// return mechanitor.IsGolemistOfIndex(1);
 			return mechanitor?.genes?.GetFirstGeneOfType<Gene_Sporelink>() != null;
 		}
 
 		public static bool MechanitorIsGolemist(Pawn mechanitor)
 		{
-			// return mechanitor.IsGolemistOfIndex(0);
-			return mechanitor?.genes?.GetFirstGeneOfType<Gene_Stonelink>() != null;
+			return mechanitor?.genes?.GetFirstGeneOfType<Gene_Golemlink>() != null;
 		}
 
 		// Ideo

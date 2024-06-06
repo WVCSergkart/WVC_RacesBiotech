@@ -2,14 +2,15 @@
 <Defs>
 
 	<ThingDef ParentName="LightMechanoid" Name="WVC_XenotypesAndGenes_Golemlike_Base" Abstract="True">
-		<description>In general golems are dense clusters of mechanites animating a pile of “something”, they, like mechanoids, require mechlink and bandwidth for control, in addition to this they require golembond. Golems lose energy much faster than mechanoids, but very quickly restore the lost charge in shutdown mode.\n\nGolembond is a mechanitor's psychic focus used to control golems. To increase focus, a mechanitor needs special meditation objects. Objects that help the mechanitor focus depend on genes. Most sources that increase golembond only work within one map.</description>
+		<description>In general golems are dense clusters of mechanites animating a pile of “something”, they, like mechanoids, require mechlink and bandwidth for control, in addition to this they require golembond. Golems lose energy much faster than mechanoids, but very quickly restore the lost charge in shutdown mode.</description>
+		<!-- \n\nGolembond is a mechanitor's psychic focus used to maintain golems. To increase focus, a mechanitor needs special meditation objects. Objects that help the mechanitor focus depend on genes. Most sources that increase golembond only work within one map. -->
 		<statBases>
 			<BandwidthCost>0.2</BandwidthCost>
-			<MechEnergyUsageFactor>2.0</MechEnergyUsageFactor>
+			<!-- <MechEnergyUsageFactor>1.0</MechEnergyUsageFactor> -->
 			<MechEnergyLossPerHP>1.0</MechEnergyLossPerHP>
 			<WastepacksPerRecharge>0</WastepacksPerRecharge>
-			<ControlTakingTime MayRequire="Ludeon.Rimworld.Biotech">6</ControlTakingTime>
-			<MarketValue>220</MarketValue>
+			<ControlTakingTime MayRequire="Ludeon.Rimworld.Biotech">74</ControlTakingTime>
+			<MarketValue>70</MarketValue>
 			<!-- Work -->
 			<FoodPoisonChance>0</FoodPoisonChance>
 			<MiningSpeed>0.50</MiningSpeed>
@@ -44,7 +45,8 @@
 		</tools>
 		<race>
 			<body>Mech_Light</body>
-			<maxMechEnergy>100</maxMechEnergy>
+			<maxMechEnergy>30</maxMechEnergy>
+			<mechFixedSkillLevel>8</mechFixedSkillLevel>
 			<deathAction Class="WVC_XenotypesAndGenes.DeathActionProperties_DestroyCorpse">
 				<deSpawn>false</deSpawn>
 			</deathAction>

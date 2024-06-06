@@ -101,14 +101,12 @@
 
   <!-- Golemlink -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Base" Name="WVC_XenotypesAndGenes_GeneMechlink_Golems" Abstract="True">
-	<geneClass>WVC_XenotypesAndGenes.Gene_MechlinkWithGizmo</geneClass>
-	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Golems</resourceGizmoType>
-	<customEffectDescriptions>
-		<li>Allows the &lt;color=#8a8ae6&gt;mechanitor&lt;/color&gt; to control &lt;color=#8a8ae6&gt;golems&lt;/color&gt;.</li>
-		<!-- <li>&lt;color=#8a8ae6&gt;Golembond&lt;/color&gt; is a special limit unique to &lt;color=#8a8ae6&gt;golems&lt;/color&gt;. Most &lt;color=#8a8ae6&gt;sources&lt;/color&gt; that increase &lt;color=#8a8ae6&gt;golembond&lt;/color&gt; only work within &lt;color=#8a8ae6&gt;one map&lt;/color&gt;.</li> -->
-	</customEffectDescriptions>
-  </GeneDef>
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Base" Name="WVC_XenotypesAndGenes_GeneMechlink_Golems" Abstract="True"> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_MechlinkWithGizmo</geneClass> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Allows the &lt;color=#8a8ae6&gt;mechanitor&lt;/color&gt; to control &lt;color=#8a8ae6&gt;golems&lt;/color&gt;.</li> -->
+	<!-- </customEffectDescriptions> -->
+  <!-- </GeneDef> -->
 
   <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Golems"> -->
 	<!-- <defName>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</defName> -->
@@ -141,20 +139,22 @@
 	<!-- </modExtensions> -->
   <!-- </GeneDef> -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Golems">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Base">
 	<defName>WVC_SwarmConnection_Golems</defName>
-	<label>stone mechlink</label>
-	<description>Carriers of this gene have the ability to control orbital mining mechanites; these microscopic machines are ready at any moment to animate a stone chunk and begin serving the mechanitor again.</description>
+	<label>golemlink</label>
+	<description>Carriers of this gene have archites capable of animating stone chunks, turning them into stone mechanoids - golems.</description>
 	<iconPath>WVC/UI/Genes/Gene_Golemlink_v0</iconPath>
-	<geneClass>WVC_XenotypesAndGenes.Gene_Stonelink</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Golemlink</geneClass>
+	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Golemlink</resourceGizmoType>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>-3</biostatMet>
 	<displayOrderInCategory>1130</displayOrderInCategory>
 	<customEffectDescriptions>
-		<!-- <li>After activating the ability, summons from 1 to 5 golems.</li> -->
-		<li>Golems are &lt;color=#8a8ae6&gt;summoned automatically&lt;/color&gt; from &lt;color=#8a8ae6&gt;1 to 6&lt;/color&gt; every (*DateTime)8-30 days(/DateTime).</li>
-		<!-- <li>&lt;color=#8a8ae6&gt;Global work speed&lt;/color&gt; of the golems depends on the &lt;color=#8a8ae6&gt;psychic sensitivity&lt;/color&gt; of the overseer.</li> -->
+		<!-- <li>Allows the &lt;color=#8a8ae6&gt;mechanitor&lt;/color&gt; to control &lt;color=#8a8ae6&gt;golems&lt;/color&gt;.</li> -->
+		<li>&lt;color=#8a8ae6&gt;Animates&lt;/color&gt; from 1 to 6 &lt;color=#8a8ae6&gt;chunks&lt;/color&gt; present within the map every (*DateTime)8-30 days(/DateTime).</li>
+		<li>If there are no chunks, it &lt;color=#8a8ae6&gt;summons golems&lt;/color&gt; instead.</li>
+		<!-- <li>Golems are &lt;color=#8a8ae6&gt;summoned automatically&lt;/color&gt; from &lt;color=#8a8ae6&gt;1 to 6&lt;/color&gt; every (*DateTime)8-30 days(/DateTime).</li> -->
 		<li>A overseer can reproduce with the help of &lt;color=#8a8ae6&gt;golems&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<statOffsets>
@@ -179,6 +179,14 @@
 			<spawnIntervalRange>480000~1800000</spawnIntervalRange>
 			<summonRange>1~6</summonRange>
 			<summonQuest>WVC_MechanitorSummonGolems</summonQuest>
+			<mechTypes>
+			  <li>WVC_Golem_Liftoid</li>
+			  <li>WVC_Golem_Constructoid</li>
+			  <li>WVC_Golem_Crafter</li>
+			  <li>WVC_Golem_Miner</li>
+			  <li>WVC_Golem_Hunter</li>
+			  <li>WVC_Golem_Behemoth</li>
+			</mechTypes>
 		</li>
 	</modExtensions>
   </GeneDef>

@@ -121,6 +121,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete]
 	public class Gene_MechlinkWithGizmo : Gene_Mechlink
 	{
 
@@ -184,8 +185,20 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Stonelink : Gene_MechlinkWithGizmo, IGeneInspectInfo
+	public class Gene_Golemlink : Gene_Mechlink, IGeneInspectInfo
 	{
+
+		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
+
+		public List<PawnKindDef> golemsForSummon = new();
+
+		private Gizmo gizmo;
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			golemsForSummon = Spawner?.mechTypes;
+		}
 
 		public override void Tick()
 		{
@@ -220,39 +233,62 @@ namespace WVC_XenotypesAndGenes
 					}
 				};
 			}
-			foreach (Gizmo item in base.GetGizmos())
+			if (pawn?.Map == null)
 			{
-				yield return item;
+				yield break;
 			}
-			Command_Action command_Action = new()
+			if (gizmo == null)
 			{
-				defaultLabel = "WVC_XaG_Gene_DustMechlink".Translate() + ": " + GeneUiUtility.OnOrOff(summonMechanoids),
-				defaultDesc = "WVC_XaG_Gene_DustMechlinkDesc".Translate(),
-				icon = ContentFinder<Texture2D>.Get(def.iconPath),
-				action = delegate
-				{
-					summonMechanoids = !summonMechanoids;
-					if (summonMechanoids)
-					{
-						SoundDefOf.Tick_High.PlayOneShotOnCamera();
-					}
-					else
-					{
-						SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-					}
-				}
-			};
-			yield return command_Action;
+				gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, this);
+			}
+			yield return gizmo;
+			// foreach (Gizmo item in base.GetGizmos())
+			// {
+				// yield return item;
+			// }
+			// Command_Action command_Action = new()
+			// {
+				// defaultLabel = "WVC_XaG_Gene_DustMechlink".Translate() + ": " + GeneUiUtility.OnOrOff(summonMechanoids),
+				// defaultDesc = "WVC_XaG_Gene_DustMechlinkDesc".Translate(),
+				// icon = ContentFinder<Texture2D>.Get(def.iconPath),
+				// action = delegate
+				// {
+					// summonMechanoids = !summonMechanoids;
+					// if (summonMechanoids)
+					// {
+						// SoundDefOf.Tick_High.PlayOneShotOnCamera();
+					// }
+					// else
+					// {
+						// SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+					// }
+				// }
+			// };
+			// yield return command_Action;
 		}
 
 		private void SummonRandomMech()
 		{
+			if (golemsForSummon.NullOrEmpty())
+			{
+				golemsForSummon = Spawner?.mechTypes;
+			}
 			int countSpawn = Spawner.summonRange.RandomInRange;
+			List<Thing> chunks = XenotypeFilterUtility.GetAllStoneChunksOnMap(pawn.Map);
 			for (int i = 0; i < countSpawn; i++)
 			{
 				if (!MechanoidsUtility.HasEnoughGolembond(pawn))
 				{
 					break;
+				}
+				if (!chunks.NullOrEmpty())
+				{
+					Thing chunk = chunks.RandomElement();
+					if (TryCreateGolemFromThing(chunk))
+					{
+						chunks.Remove(chunk);
+					}
+					continue;
 				}
 				MechanoidsUtility.MechSummonQuest(pawn, Spawner.summonQuest);
 				if (i == 0)
@@ -260,6 +296,29 @@ namespace WVC_XenotypesAndGenes
 					Messages.Message("WVC_RB_Gene_Summoner".Translate(), pawn, MessageTypeDefOf.PositiveEvent);
 				}
 			}
+		}
+
+		public bool TryCreateGolemFromThing(Thing chunk)
+		{
+			List<Thing> mapThings = pawn.Map.listerThings.AllThings;
+			if (chunk != null)
+			{
+				PawnKindDef newGolem = golemsForSummon.RandomElement();
+				PawnGenerationRequest request = new(newGolem, pawn.Faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: false, canGeneratePawnRelations: true, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: true, allowAddictions: true, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Newborn);
+				Pawn summon = PawnGenerator.GeneratePawn(request);
+				summon.Position = chunk.Position;
+				summon.SpawnSetup(chunk.Map, respawningAfterLoad: false);
+				CompSpawnOnDeath_GetColor compGolem = summon.TryGetComp<CompSpawnOnDeath_GetColor>();
+				if (compGolem != null)
+				{
+					compGolem.SetStoneChunk(chunk.def);
+				}
+				pawn.relations.AddDirectRelation(PawnRelationDefOf.Overseer, summon);
+				chunk.Kill();
+				Messages.Message("WVC_XaG_GolemCreatedFromRandomChunk_Message".Translate(summon.Name.ToString()), summon, MessageTypeDefOf.PositiveEvent);
+				return true;
+			}
+			return false;
 		}
 
 		public string GetInspectInfo
@@ -274,6 +333,17 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Collections.Look(ref golemsForSummon, "golemsForSummon", LookMode.Def);
+		}
+
+	}
+
+	[Obsolete]
+	public class Gene_Stonelink : Gene_Golemlink
+	{
 	}
 
 	public class Gene_Falselink : Gene_Mechlink, IGeneInspectInfo

@@ -25,7 +25,7 @@
 			<Mass>80</Mass>
 		</statBases>
 		<race>
-			<!-- <maxMechEnergy>100</maxMechEnergy> -->
+			<!-- <maxMechEnergy>30</maxMechEnergy> -->
 		</race>
 		<butcherProducts>
 			<Steel>5</Steel>
@@ -140,6 +140,7 @@
 			<MoveSpeed>2.4</MoveSpeed>
 		</statBases>
 		<race>
+			<mechFixedSkillLevel>10</mechFixedSkillLevel>
 			<mechEnabledWorkTypes>
 			  <!-- <li>Firefighter</li> -->
 			  <!-- <li>BasicWorker</li> -->
@@ -178,6 +179,7 @@
 			<MoveSpeed>2.2</MoveSpeed>
 		</statBases>
 		<race>
+			<mechFixedSkillLevel>8</mechFixedSkillLevel>
 			<mechEnabledWorkTypes>
 			  <!-- <li>Firefighter</li> -->
 			  <!-- <li>BasicWorker</li> -->
@@ -219,6 +221,7 @@
 			<MoveSpeed>2.6</MoveSpeed>
 		</statBases>
 		<race>
+			<mechFixedSkillLevel>4</mechFixedSkillLevel>
 			<mechEnabledWorkTypes>
 			  <li>Firefighter</li>
 			  <li>Mining</li>
@@ -261,6 +264,7 @@
 			<MoveSpeed>3.8</MoveSpeed>
 		</statBases>
 		<race>
+			<mechFixedSkillLevel>4</mechFixedSkillLevel>
 			<mechEnabledWorkTypes>
 			  <li>Hunting</li>
 			</mechEnabledWorkTypes>

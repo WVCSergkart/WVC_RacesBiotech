@@ -288,16 +288,29 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<!-- ============================ GOLEMS ============================ -->
 	<!-- ============================ GOLEMS ============================ -->
 
-	<WVC_XaG_GolemBandwidth>Golembond</WVC_XaG_GolemBandwidth>
-	<WVC_XaG_GolemBandwidthGizmoTip>A mechanitor can only oversee a golem if there is enough golembond to do so. Each golem consumes a different amount of golembond.\n\nGain more golembond by constructing &lt;color=#f4e776&gt;natural shrines&lt;/color&gt; and &lt;color=#f4e776&gt;animus stones&lt;/color&gt; or with help of &lt;color=#6bb6bb&gt;genes&lt;/color&gt;.</WVC_XaG_GolemBandwidthGizmoTip>
+	<!-- <WVC_XaG_GolemBandwidth>Golembond</WVC_XaG_GolemBandwidth> -->
+
+	<WVC_XaG_GolemBandwidth>Golems</WVC_XaG_GolemBandwidth>
+	<WVC_XaG_GolemBandwidthGizmoTip>A mechanitor can oversee as many &lt;color=#8a8ae6&gt;golems&lt;/color&gt; as &lt;color=#8a8ae6&gt;mechanoids&lt;/color&gt;, but creating &lt;color=#8a8ae6&gt;new&lt;/color&gt; ones requires a &lt;color=#8a8ae6&gt;golembond&lt;/color&gt;. Each &lt;color=#8a8ae6&gt;golem&lt;/color&gt; consumes a different amount of &lt;color=#8a8ae6&gt;golembond&lt;/color&gt;.\n\nGain more golembond by constructing &lt;color=#f4e776&gt;natural shrines&lt;/color&gt; and &lt;color=#f4e776&gt;animus stones&lt;/color&gt; or with help of &lt;color=#6bb6bb&gt;genes&lt;/color&gt;.</WVC_XaG_GolemBandwidthGizmoTip>
 
 	<WVC_XaG_GolemBandwidthUsage>Golembond usage</WVC_XaG_GolemBandwidthUsage>
 	<!-- <WVC_XaG_GolemGestationBandwidthUsed>Golem gestation bandwidth</WVC_XaG_GolemGestationBandwidthUsed> -->
 
-	<WVC_XaG_SporesBandwidth>Spores</WVC_XaG_SporesBandwidth>
-	<WVC_XaG_SporesBandwidthGizmoTip>A mechanitor can only oversee a walking corpses if there is enough golembond to do so. Each corpse consumes a different amount of golembond.\n\nGain more golembond by digging graves in &lt;color=#6bb6bb&gt;polluted soil&lt;/color&gt; and burying creatures in them, or building &lt;color=#f76d6b&gt;skullspikes&lt;/color&gt; and &lt;color=#f76d6b&gt;gibbet cages&lt;/color&gt; or with help of &lt;color=#6bb6bb&gt;genes&lt;/color&gt;.</WVC_XaG_SporesBandwidthGizmoTip>
+	<WVC_XaG_GeneGolemlinkSummonSettings_Desc>Opens a menu where you can configure which golems will be animated by archites. Does not affect summoning.</WVC_XaG_GeneGolemlinkSummonSettings_Desc>
 
-	<WVC_XaG_SporesBandwidthUsage>Resurgent spores usage</WVC_XaG_SporesBandwidthUsage>
+	<WVC_XaG_AddToList>Add</WVC_XaG_AddToList>
+	<WVC_XaG_RemoveFromList>Remove</WVC_XaG_RemoveFromList>
+
+	<WVC_XaG_GolemCreatedFromRandomChunk_Message>Archites animated the chunk, the new golem is called {0}.</WVC_XaG_GolemCreatedFromRandomChunk_Message>
+
+	<WVC_XaG_Gene_GolemlinkGizmoSpawnDesc>Allows you to toggle the automatic creation of new golems. New golems will be created from stone chunks scattered on the map, if there are no chunks, then the golems will be summoned. Golems summoned in this way land in drop pods at a random cell on the map.</WVC_XaG_Gene_GolemlinkGizmoSpawnDesc>
+
+	<WVC_XaG_Gene_GolemlinkGizmoSpawnLabel>Animate chunks</WVC_XaG_Gene_GolemlinkGizmoSpawnLabel>
+
+	<!-- <WVC_XaG_SporesBandwidth>Spores</WVC_XaG_SporesBandwidth> -->
+	<!-- <WVC_XaG_SporesBandwidthGizmoTip>A mechanitor can only oversee a walking corpses if there is enough golembond to do so. Each corpse consumes a different amount of golembond.\n\nGain more golembond by digging graves in &lt;color=#6bb6bb&gt;polluted soil&lt;/color&gt; and burying creatures in them, or building &lt;color=#f76d6b&gt;skullspikes&lt;/color&gt; and &lt;color=#f76d6b&gt;gibbet cages&lt;/color&gt; or with help of &lt;color=#6bb6bb&gt;genes&lt;/color&gt;.</WVC_XaG_SporesBandwidthGizmoTip> -->
+
+	<!-- <WVC_XaG_SporesBandwidthUsage>Resurgent spores usage</WVC_XaG_SporesBandwidthUsage> -->
 	<!-- <WVC_XaG_SporesGestationBandwidthUsed>Resurgent spores gestation bandwidth</WVC_XaG_SporesGestationBandwidthUsed> -->
 
 	<WVC_XaG_ThrallsBandwidthGizmoLabel>Thralls</WVC_XaG_ThrallsBandwidthGizmoLabel>

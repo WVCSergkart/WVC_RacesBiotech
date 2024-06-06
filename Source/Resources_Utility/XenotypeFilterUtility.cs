@@ -151,5 +151,43 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
+		public static List<PawnKindDef> GetAllGolems()
+		{
+			List<PawnKindDef> list = new();
+			foreach (PawnKindDef item in DefDatabase<PawnKindDef>.AllDefsListForReading)
+			{
+				if (!item.IsGolemlike())
+				{
+					continue;
+				}
+				list.Add(item);
+			}
+			return list;
+		}
+
+		public static List<Thing> GetAllStoneChunksOnMap(Map map)
+		{
+			List<Thing> list = new();
+			// Log.Error("0");
+			List<Thing> mapThings = map.listerThings.AllThings;
+			// Log.Error("1");
+			foreach (Thing item in mapThings)
+			{
+				// Log.Error("2");
+				if (item.def.thingCategories.NullOrEmpty() || !item.def.thingCategories.Contains(ThingCategoryDefOf.StoneChunks))
+				{
+					continue;
+				}
+				// Log.Error("3");
+				if (item.Position.Fogged(item.Map))
+				{
+					continue;
+				}
+				// Log.Error("4");
+				list.Add(item);
+			}
+			return list;
+		}
+
 	}
 }

@@ -57,6 +57,7 @@
 			<MoveSpeed>2.2</MoveSpeed>
 		</statBases>
 		<race>
+			<mechFixedSkillLevel>10</mechFixedSkillLevel>
 			<mechEnabledWorkTypes>
 			  <li>Mining</li>
 			</mechEnabledWorkTypes>

@@ -37,22 +37,24 @@ namespace WVC_XenotypesAndGenes
 		public CompProperties_Golem Props => (CompProperties_Golem)props;
 
 		private int nextEnergyTick = 1500;
-		private int nextOverseerTick = 27371;
+		// private int nextOverseerTick = 27371;
 
 		public override void CompTick()
 		{
-			Pawn pawn = parent as Pawn;
-			if (pawn.IsHashIntervalTick(nextEnergyTick))
+			// Pawn pawn = parent as Pawn;
+			nextEnergyTick--;
+			if (nextEnergyTick <= 0f)
 			{
+				Pawn pawn = parent as Pawn;
 				MechanoidsUtility.OffsetNeedEnergy(pawn, Props.shutdownEnergyReplenish, Props.refreshHours);
 				nextEnergyTick = Props.refreshHours * 1500;
 			}
-			if (pawn.IsHashIntervalTick(nextOverseerTick))
-			{
-				Pawn currentOverseer = pawn.GetOverseer();
-				HasEnoughGolembond(pawn, currentOverseer);
-				ResetOverseerTick();
-			}
+			// if (pawn.IsHashIntervalTick(nextOverseerTick))
+			// {
+				// Pawn currentOverseer = pawn.GetOverseer();
+				// HasEnoughGolembond(pawn, currentOverseer);
+				// ResetOverseerTick();
+			// }
 		}
 
 		public override void PostSpawnSetup(bool respawningAfterLoad)
@@ -65,31 +67,27 @@ namespace WVC_XenotypesAndGenes
 				{
 					pawn.needs.energy.CurLevel = pawn.needs.energy.MaxLevel;
 				}
-				ResetOverseerTick();
+				// ResetOverseerTick();
 			}
 		}
 
-		private void HasEnoughGolembond(Pawn golem, Pawn overseer)
-		{
-			if (overseer == null)
-			{
-				golem.Kill(null, null);
-				return;
-			}
-			// if (golem.Map == null || overseer.Map == null)
+		// private void HasEnoughGolembond(Pawn golem, Pawn overseer)
+		// {
+			// if (overseer == null)
 			// {
+				// golem.Kill(null, null);
 				// return;
 			// }
-			if (!overseer.IsGolemistOfIndex(Props.golemIndex) || !MechanoidsUtility.HasEnoughGolembond(overseer))
-			{
-				golem.Kill(null, null);
-			}
-		}
+			// if (!overseer.IsGolemistOfIndex(Props.golemIndex) || !MechanoidsUtility.HasEnoughGolembond(overseer))
+			// {
+				// golem.Kill(null, null);
+			// }
+		// }
 
-		private void ResetOverseerTick()
-		{
-			nextOverseerTick = Props.checkOverseerInterval.RandomInRange;
-		}
+		// private void ResetOverseerTick()
+		// {
+			// nextOverseerTick = Props.checkOverseerInterval.RandomInRange;
+		// }
 
 		public override string CompInspectStringExtra()
 		{
@@ -108,12 +106,11 @@ namespace WVC_XenotypesAndGenes
 			return null;
 		}
 
-		public override void PostExposeData()
-		{
-			base.PostExposeData();
-			Scribe_Values.Look(ref nextOverseerTick, "nextOverseerTick_" + Props.uniqueTag, 0);
-			// Scribe_Refernces.Look(ref currentGolemOverseer, "currentGolemOverseer_" + Props.uniqueTag);
-		}
+		// public override void PostExposeData()
+		// {
+			// base.PostExposeData();
+			// Scribe_Values.Look(ref nextOverseerTick, "nextOverseerTick_" + Props.uniqueTag, 0);
+		// }
 
 	}
 
