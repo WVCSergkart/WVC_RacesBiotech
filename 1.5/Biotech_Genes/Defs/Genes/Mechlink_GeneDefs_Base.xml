@@ -141,7 +141,7 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Base">
 	<defName>WVC_SwarmConnection_Golems</defName>
-	<label>golemlink</label>
+	<label>golem mechlink</label>
 	<description>Carriers of this gene have archites capable of animating stone chunks, turning them into stone mechanoids - golems.</description>
 	<iconPath>WVC/UI/Genes/Gene_Golemlink_v0</iconPath>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Golemlink</geneClass>
