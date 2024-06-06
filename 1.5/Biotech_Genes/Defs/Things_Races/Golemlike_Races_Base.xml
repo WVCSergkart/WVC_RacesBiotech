@@ -2,7 +2,7 @@
 <Defs>
 
 	<ThingDef ParentName="LightMechanoid" Name="WVC_XenotypesAndGenes_Golemlike_Base" Abstract="True">
-		<description>In general golems are dense clusters of archites animating a pile of “something”, they, like mechanoids, require mechlink and bandwidth for control, in addition to this they require golembond. Golems lose energy much faster than mechanoids, but very quickly restore the lost charge in shutdown mode.</description>
+		<!-- <description>In general golemnoids are dense clusters of archites animating a pile of “something”, they, like mechanoids, require mechlink and bandwidth for control, in addition to this they require golembond. Golems lose energy much faster than mechs, but very quickly restore the lost charge in shutdown mode.</description> -->
 		<!-- \n\nGolembond is a mechanitor's psychic focus used to maintain golems. To increase focus, a mechanitor needs special meditation objects. Objects that help the mechanitor focus depend on genes. Most sources that increase golembond only work within one map. -->
 		<statBases>
 			<BandwidthCost>0.2</BandwidthCost>

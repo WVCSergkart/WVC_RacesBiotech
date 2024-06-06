@@ -302,4 +302,14 @@
 		</value>
 	</Operation>
 
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThingDef[defName="Bow_Recurve"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<weaponTags>
+		  <li>WVC_XaG_GolemGun_Militoid</li>
+		</weaponTags>
+	  </value>
+	</Operation>
+
 </Patch>

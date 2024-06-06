@@ -298,6 +298,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_GeneGolemlinkSummonSettings_Desc>Opens a menu where you can configure which golems will be animated by archites. Does not affect summoning.</WVC_XaG_GeneGolemlinkSummonSettings_Desc>
 
+	<WVC_XaG_GolemnoidsGeneralDesc>In general golemnoids are dense clusters of archites animating a pile of “something”, they, like mechanoids, require mechlink and bandwidth for control, in addition to this they require golembond. Golems lose energy much faster than mechs, but very quickly restore the lost charge in shutdown mode.</WVC_XaG_GolemnoidsGeneralDesc>
+
 	<WVC_XaG_AddToList>Add</WVC_XaG_AddToList>
 	<WVC_XaG_RemoveFromList>Remove</WVC_XaG_RemoveFromList>
 

@@ -29,6 +29,14 @@ namespace WVC_XenotypesAndGenes
 			compClass = typeof(CompGolem);
 		}
 
+		public override void ResolveReferences(ThingDef parentDef)
+		{
+			if (!parentDef.description.NullOrEmpty())
+			{
+				parentDef.description = parentDef.description + "\n\n" + "WVC_XaG_GolemnoidsGeneralDesc".Translate();
+			}
+		}
+
 	}
 
 	public class CompGolem : ThingComp

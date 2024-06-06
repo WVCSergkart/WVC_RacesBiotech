@@ -56,7 +56,7 @@
 		<defName>WVC_Golem_Behemoth</defName>
 		<!-- <label>golem behemoth</label> -->
 		<label>golem behemoid</label>
-		<description>This heavy golemnoid acts as a vanguard by absorbing and dealing damage, making it an excellent combat golem. Its impressive armor will allow it to withstand heavy combat, but its speed is incredibly slow, so its tactical positioning is important to determine before the battle begins. It can also do digging work no worse than specialized mechanoids.\n\nIn general golemnoids are dense clusters of archites animating a pile of “something”, they, like mechanoids, require mechlink and bandwidth for control, in addition to this they require golembond. Golems lose energy much faster than mechanoids, but very quickly restore the lost charge in shutdown mode.</description>
+		<description>This heavy golemnoid acts as a vanguard by absorbing and dealing damage, making it an excellent combat golem. Its impressive armor will allow it to withstand heavy combat, but its speed is incredibly slow, so its tactical positioning is important to determine before the battle begins. It can also do digging work no worse than specialized mechanoids.</description>
 		<statBases>
 			<ArmorRating_Sharp>0.63</ArmorRating_Sharp>
 			<ArmorRating_Blunt>0.82</ArmorRating_Blunt>
@@ -89,7 +89,7 @@
 	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_StoneHeavy">
 		<defName>WVC_Golem_Medicor</defName>
 		<label>golem medicoroid</label>
-		<description>This heavy golemnoid is a medical mechanoid, it has a very dense cluster of archites and can use them for medical purposes, performing surgeries or treating wounds no worse than medical mechanoids. In combat, it can act as a shield, absorbing massive amounts of damage, but it is completely incapable of fighting.\n\nAlso, the number of archites of this golem is sufficient to act as a gestator, converting the entire swarm into a newborn.\n\nIn general golemnoids are dense clusters of archites animating a pile of “something”, they, like mechanoids, require mechlink and bandwidth for control, in addition to this they require golembond. Golems lose energy much faster than mechanoids, but very quickly restore the lost charge in shutdown mode.</description>
+		<description>This heavy golemnoid is a medical mechanoid, it has a very dense cluster of archites and can use them for medical purposes, performing surgeries or treating wounds no worse than medical mechanoids. In combat, it can act as a shield, absorbing massive amounts of damage, but it is completely incapable of fighting.\n\nAlso, the number of archites of this golem is sufficient to act as a gestator, converting the entire swarm into a newborn.</description>
 		<statBases>
 			<ArmorRating_Sharp>0.43</ArmorRating_Sharp>
 			<ArmorRating_Blunt>0.52</ArmorRating_Blunt>
