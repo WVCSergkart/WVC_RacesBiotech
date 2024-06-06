@@ -22,10 +22,11 @@
 			<WVC_GolemBondCost>1</WVC_GolemBondCost>
 			<ArmorRating_Blunt>0.6</ArmorRating_Blunt>
 			<MoveSpeed>3.6</MoveSpeed>
-			<Mass>80</Mass>
+			<Mass>83</Mass>
 		</statBases>
 		<race>
 			<!-- <maxMechEnergy>30</maxMechEnergy> -->
+			<!-- <baseHealthScale>1.2</baseHealthScale> -->
 		</race>
 		<butcherProducts>
 			<Steel>5</Steel>
@@ -89,9 +90,6 @@
 			<!-- marble -->
 			<li><color>(132,135,132)</color></li>
 		</alternateGraphics>
-		<abilities>
-			<li>WVC_MechanoidAbility_ActivateGestator</li>
-		</abilities>
 	</PawnKindDef>
 
 	<!-- =================================================================== -->
@@ -99,9 +97,10 @@
 	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Stone">
 		<defName>WVC_Golem_Liftoid</defName>
 		<label>golem liftoid</label>
+		<description>This light golemnoid is an excellent cleaner, and is also capable of carrying loads and doing basic work such as flipping switches. It is quite fast compared to other golems, but it is not well suited for battles and can easily die in battle.\n\nIn general golemnoids are dense clusters of archites animating a pile of “something”, they, like mechanoids, require mechlink and bandwidth for control, in addition to this they require golembond. Golems lose energy much faster than mechanoids, but very quickly restore the lost charge in shutdown mode.</description>
 		<statBases>
-			<ArmorRating_Sharp>0.25</ArmorRating_Sharp>
-			<ArmorRating_Blunt>0.3</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.15</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.05</ArmorRating_Blunt>
 			<MoveSpeed>3.2</MoveSpeed>
 		</statBases>
 		<race>
@@ -134,6 +133,7 @@
 	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Stone">
 		<defName>WVC_Golem_Constructoid</defName>
 		<label>golem structoid</label>
+		<description>This light golemnoid serves as a builder and gardener. It can build well and does an excellent job in the garden, but its speed, like most golems, leaves much to be desired. It also has good armor and can provide support in battle.\n\nIn general golemnoids are dense clusters of archites animating a pile of “something”, they, like mechanoids, require mechlink and bandwidth for control, in addition to this they require golembond. Golems lose energy much faster than mechanoids, but very quickly restore the lost charge in shutdown mode.</description>
 		<statBases>
 			<ArmorRating_Sharp>0.3</ArmorRating_Sharp>
 			<ArmorRating_Blunt>0.3</ArmorRating_Blunt>
@@ -172,6 +172,7 @@
 	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Stone">
 		<defName>WVC_Golem_Crafter</defName>
 		<label>golem craftoid</label>
+		<description>This light golemnoid is capable of crafting and cooking, but the quality of its work leaves much to be desired. It is quite slow, but has good armor and can provide support in battle.\n\nIn general golemnoids are dense clusters of archites animating a pile of “something”, they, like mechanoids, require mechlink and bandwidth for control, in addition to this they require golembond. Golems lose energy much faster than mechanoids, but very quickly restore the lost charge in shutdown mode.</description>
 		<statBases>
 			<WVC_GolemBondCost>2</WVC_GolemBondCost>
 			<ArmorRating_Sharp>0.2</ArmorRating_Sharp>
@@ -192,7 +193,7 @@
 			  <li>Smithing</li>
 			  <li>Tailoring</li>
 			  <li>Cooking</li>
-			  <li>Doctor</li>
+			  <!-- <li>Doctor</li> -->
 			</mechEnabledWorkTypes>
 		</race>
 	</ThingDef>
@@ -215,6 +216,7 @@
 	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Stone">
 		<defName>WVC_Golem_Miner</defName>
 		<label>golem minenoid</label>
+		<description>This light golemnoid serves as a miner, but can also do firefighter work. It has good armor and speed compared to other golems. It can help a lot by providing support in battle.\n\nIn general golemnoids are dense clusters of archites animating a pile of “something”, they, like mechanoids, require mechlink and bandwidth for control, in addition to this they require golembond. Golems lose energy much faster than mechanoids, but very quickly restore the lost charge in shutdown mode.</description>
 		<statBases>
 			<ArmorRating_Sharp>0.3</ArmorRating_Sharp>
 			<ArmorRating_Blunt>0.3</ArmorRating_Blunt>
@@ -257,6 +259,7 @@
 	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Stone">
 		<defName>WVC_Golem_Hunter</defName>
 		<label>golem hunteroid</label>
+		<description>This light golemnoid serves as a hunter. It has poor armor but very high speed, and its long-range slugthrower can provide good support in battle.\n\nIn general golemnoids are dense clusters of archites animating a pile of “something”, they, like mechanoids, require mechlink and bandwidth for control, in addition to this they require golembond. Golems lose energy much faster than mechanoids, but very quickly restore the lost charge in shutdown mode.</description>
 		<statBases>
 			<WVC_GolemBondCost>2</WVC_GolemBondCost>
 			<ArmorRating_Sharp>0.1</ArmorRating_Sharp>

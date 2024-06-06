@@ -2,7 +2,7 @@
 <Defs>
 
 	<ThingDef ParentName="LightMechanoid" Name="WVC_XenotypesAndGenes_Golemlike_Base" Abstract="True">
-		<description>In general golems are dense clusters of mechanites animating a pile of “something”, they, like mechanoids, require mechlink and bandwidth for control, in addition to this they require golembond. Golems lose energy much faster than mechanoids, but very quickly restore the lost charge in shutdown mode.</description>
+		<description>In general golems are dense clusters of archites animating a pile of “something”, they, like mechanoids, require mechlink and bandwidth for control, in addition to this they require golembond. Golems lose energy much faster than mechanoids, but very quickly restore the lost charge in shutdown mode.</description>
 		<!-- \n\nGolembond is a mechanitor's psychic focus used to maintain golems. To increase focus, a mechanitor needs special meditation objects. Objects that help the mechanitor focus depend on genes. Most sources that increase golembond only work within one map. -->
 		<statBases>
 			<BandwidthCost>0.2</BandwidthCost>
@@ -95,7 +95,7 @@
 	<AbilityDef ParentName="WVC_GestationAbilities_Base">
 		<defName>WVC_XenotypesAndGenes_GolemlikeInstantKill</defName>
 		<label>permanent shutdown</label>
-		<description>Order the mechanites to disperse, which will result in the instant death of the golem.</description>
+		<description>Order the archites to disperse, which will result in the instant death of the golem.</description>
 		<iconPath>WVC/UI/XaG_General/Ui_InstantKill</iconPath>
 		<comps>
 		  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGiveHediff">
@@ -111,7 +111,7 @@
 	<AbilityDef ParentName="WVC_GestationAbilities_Base">
 		<defName>WVC_MechanoidAbility_ActivateGestator</defName>
 		<label>gestator</label>
-		<description>This mechanoid has a large accumulation of mechanites, sufficient to form organic life.</description>
+		<description>This mechanoid has a large accumulation of archites, sufficient to form organic life.</description>
 		<comps>
 		  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGiveHediff">
 			<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_GiveHediff</compClass>

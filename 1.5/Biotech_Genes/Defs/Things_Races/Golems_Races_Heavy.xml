@@ -14,13 +14,17 @@
 			<ConstructionSpeed>0.5</ConstructionSpeed>
 			<SmoothingSpeed>0.5</SmoothingSpeed>
 			<GeneralLaborSpeed>0.5</GeneralLaborSpeed>
-			<MedicalTendSpeed>0.5</MedicalTendSpeed>
+			<MedicalTendSpeed>1.5</MedicalTendSpeed>
 			<MedicalOperationSpeed>0.5</MedicalOperationSpeed>
 			<CookSpeed>0.5</CookSpeed>
 			<SmeltingSpeed>0.5</SmeltingSpeed>
 			<DrugSynthesisSpeed>0.5</DrugSynthesisSpeed>
 			<ButcheryFleshSpeed>0.5</ButcheryFleshSpeed>
 			<ButcheryMechanoidSpeed>0.5</ButcheryMechanoidSpeed>
+			<!-- Other -->
+			<MedicalSurgerySuccessChance>5.0</MedicalSurgerySuccessChance>
+			<ConstructSuccessChance>5.0</ConstructSuccessChance>
+			<FixBrokenDownBuildingSuccessChance>5.0</FixBrokenDownBuildingSuccessChance>
 		</statBases>
 		<uiIconScale>1.5</uiIconScale>
 		<tools Inherit="False">
@@ -50,7 +54,9 @@
 
 	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_StoneHeavy">
 		<defName>WVC_Golem_Behemoth</defName>
-		<label>golem behemoth</label>
+		<!-- <label>golem behemoth</label> -->
+		<label>golem behemoid</label>
+		<description>This heavy golemnoid acts as a vanguard by absorbing and dealing damage, making it an excellent combat golem. Its impressive armor will allow it to withstand heavy combat, but its speed is incredibly slow, so its tactical positioning is important to determine before the battle begins. It can also do digging work no worse than specialized mechanoids.\n\nIn general golemnoids are dense clusters of archites animating a pile of “something”, they, like mechanoids, require mechlink and bandwidth for control, in addition to this they require golembond. Golems lose energy much faster than mechanoids, but very quickly restore the lost charge in shutdown mode.</description>
 		<statBases>
 			<ArmorRating_Sharp>0.63</ArmorRating_Sharp>
 			<ArmorRating_Blunt>0.82</ArmorRating_Blunt>
@@ -65,7 +71,7 @@
 	</ThingDef>
 	<PawnKindDef ParentName="WVC_XenotypesAndGenes_NonCombatGolemKind">
 		<defName>WVC_Golem_Behemoth</defName>
-		<label>golem behemoth</label>
+		<label>golem behemoid</label>
 		<controlGroupPortraitZoom>1.35</controlGroupPortraitZoom>
 		<race>WVC_Golem_Behemoth</race>
 		<lifeStages>
@@ -76,6 +82,58 @@
 				</bodyGraphicData>
 			</li>
 		</lifeStages>
+	</PawnKindDef>
+
+	<!-- ============== -->
+
+	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_StoneHeavy">
+		<defName>WVC_Golem_Medicor</defName>
+		<label>golem medicoroid</label>
+		<description>This heavy golemnoid is a medical mechanoid, it has a very dense cluster of archites and can use them for medical purposes, performing surgeries or treating wounds no worse than medical mechanoids. In combat, it can act as a shield, absorbing massive amounts of damage, but it is completely incapable of fighting.\n\nAlso, the number of archites of this golem is sufficient to act as a gestator, converting the entire swarm into a newborn.\n\nIn general golemnoids are dense clusters of archites animating a pile of “something”, they, like mechanoids, require mechlink and bandwidth for control, in addition to this they require golembond. Golems lose energy much faster than mechanoids, but very quickly restore the lost charge in shutdown mode.</description>
+		<statBases>
+			<ArmorRating_Sharp>0.43</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.52</ArmorRating_Blunt>
+			<MoveSpeed>2.6</MoveSpeed>
+			<WVC_GolemBondCost>4</WVC_GolemBondCost>
+			<Mass>166</Mass>
+		</statBases>
+		<race>
+			<mechFixedSkillLevel>10</mechFixedSkillLevel>
+			<mechEnabledWorkTypes>
+			  <li>Doctor</li>
+			</mechEnabledWorkTypes>
+			<baseBodySize>1.4</baseBodySize>
+			<baseHealthScale>3.0</baseHealthScale>
+		</race>
+		<tools Inherit="False">
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>3.0</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+			</li>
+		</tools>
+	</ThingDef>
+	<PawnKindDef ParentName="WVC_XenotypesAndGenes_NonCombatGolemKind">
+		<defName>WVC_Golem_Medicor</defName>
+		<label>golem medicoroid</label>
+		<controlGroupPortraitZoom>1.35</controlGroupPortraitZoom>
+		<race>WVC_Golem_Medicor</race>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>WVC/Things/XaG_Pawns/Mechanoids_Golems/GolemMedicor</texPath>
+					<drawSize>2</drawSize>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+		<abilities>
+			<li>WVC_MechanoidAbility_ActivateGestator</li>
+		</abilities>
 	</PawnKindDef>
 
 </Defs>
