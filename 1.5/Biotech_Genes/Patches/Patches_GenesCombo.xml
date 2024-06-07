@@ -65,20 +65,19 @@
 	  </value>
 	</Operation>
 
-	<Operation Class="PatchOperationAdd">
-	  <xpath>/Defs/RitualOutcomeEffectDef[defName="ChildBirth"]/comps</xpath>
-	  <order>Prepend</order>
-	  <value>
-		<li Class="WVC_XenotypesAndGenes.RitualOutcomeComp_PawnGenes">
-		  <label>{PAWN_labelShort}'s genes</label>
-		  <labelAbstract>mother's genes</labelAbstract>
-		  <roleId>mother</roleId>
-		  <quality>1.00</quality>
-		  <anyGeneDefs>
-			<li>WVC_Dustogenic_ImmaculateConception</li>
-		  </anyGeneDefs>
-		</li>
-	  </value>
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+		<settingName>enable_birthQualityOffsetFromGenes</settingName>
+		<caseTrue Class="PatchOperationAdd">
+		  <xpath>/Defs/RitualOutcomeEffectDef[defName="ChildBirth"]/comps</xpath>
+		  <order>Prepend</order>
+		  <value>
+			<li Class="WVC_XenotypesAndGenes.RitualOutcomeComp_PawnGenes">
+			  <label>{PAWN_labelShort}'s genes</label>
+			  <labelAbstract>mother's genes</labelAbstract>
+			  <roleId>mother</roleId>
+			</li>
+		  </value>
+		</caseTrue>
 	</Operation>
 
 	<!-- Patch for special food for dustogenics -->

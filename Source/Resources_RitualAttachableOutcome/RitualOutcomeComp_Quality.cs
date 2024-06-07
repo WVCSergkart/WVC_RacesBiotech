@@ -11,9 +11,22 @@ namespace WVC_XenotypesAndGenes
 		[NoTranslate]
 		public string roleId;
 
-		public List<GeneDef> anyGeneDefs = new();
+		// [Obsolete]
+		// public List<GeneDef> anyGeneDefs = new();
 
-		public float quality = 0f;
+		// public float quality = 0f;
+
+		// [Unsaved(false)]
+		// private float? cachedOffsetFromGenes;
+
+		// public float OffsetFromGenes(Pawn pawn)
+		// {
+			// if (!cachedOffsetFromGenes.HasValue)
+			// {
+				// cachedOffsetFromGenes = GetBirthQualityOffsetFromGenes(pawn);
+			// }
+			// return cachedOffsetFromGenes.Value;
+		// }
 
 		public override float QualityOffset(LordJob_Ritual ritual, RitualOutcomeComp_Data data)
 		{
@@ -22,11 +35,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return 0f;
 			}
-			if (XaG_GeneUtility.HasAnyActiveGene(anyGeneDefs, pawn))
-			{
-				return quality;
-			}
-			return 0f;
+			return GetBirthQualityOffsetFromGenes(pawn);
 		}
 
 		public override string GetDesc(LordJob_Ritual ritual = null, RitualOutcomeComp_Data data = null)
@@ -40,10 +49,15 @@ namespace WVC_XenotypesAndGenes
 			{
 				return null;
 			}
-			float num = quality;
-			string text = ((num < 0f) ? "" : "+");
-			return LabelForDesc.Formatted(pawn.Named("PAWN")) + ": " + "OutcomeBonusDesc_QualitySingleOffset".Translate(text + num.ToStringPercent()) + ".";
+			float offset = GetBirthQualityOffsetFromGenes(pawn);
+			string text = ((offset < 0f) ? "" : "+");
+			return LabelForDesc.Formatted(pawn.Named("PAWN")) + ": " + "OutcomeBonusDesc_QualitySingleOffset".Translate(text + offset.ToStringPercent()) + ".";
 		}
+
+		// public override string GetDesc(LordJob_Ritual ritual = null, RitualOutcomeComp_Data data = null)
+		// {
+			// return null;
+		// }
 
 		public override QualityFactor GetQualityFactor(Precept_Ritual ritual, TargetInfo ritualTarget, RitualObligation obligation, RitualRoleAssignments assignments, RitualOutcomeComp_Data data)
 		{
@@ -52,19 +66,19 @@ namespace WVC_XenotypesAndGenes
 			{
 				return null;
 			}
-			if (!XaG_GeneUtility.HasAnyActiveGene(anyGeneDefs, pawn))
+			float offset = GetBirthQualityOffsetFromGenes(pawn);
+			if (offset == 0f)
 			{
 				return null;
 			}
-			float num = quality;
 			return new QualityFactor
 			{
 				label = label.Formatted(pawn.Named("PAWN")),
 				// count = "1",
-				qualityChange = ExpectedOffsetDesc(num > 0f, num),
-				positive = (num > 0f),
+				qualityChange = ExpectedOffsetDesc(offset > 0f, offset),
+				positive = (offset > 0f),
 				present = true,
-				quality = num,
+				quality = offset,
 				priority = 0f
 			};
 		}
@@ -76,12 +90,37 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool Applies(LordJob_Ritual ritual)
 		{
-			Pawn pawn = ritual?.PawnWithRole(roleId);
-			if (XaG_GeneUtility.HasAnyActiveGene(anyGeneDefs, pawn))
+			// Pawn pawn = ritual?.PawnWithRole(roleId);
+			// if (XaG_GeneUtility.HasAnyActiveGene(anyGeneDefs, pawn))
+			// {
+				// return true;
+			// }
+			return true;
+		}
+
+		public static float GetBirthQualityOffsetFromGenes(Pawn pawn)
+		{
+			if (pawn?.genes == null)
 			{
-				return true;
+				return 0f;
 			}
-			return false;
+			List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+			float offest = 0f;
+			for (int j = 0; j < genesListForReading.Count; j++)
+			{
+				Gene gene = genesListForReading[j];
+				if (!gene.Active)
+				{
+					continue;
+				}
+				GeneExtension_General general = gene.def?.GetModExtension<GeneExtension_General>();
+				if (general == null)
+				{
+					continue;
+				}
+				offest += general.birthQualityOffset;
+			}
+			return offest;
 		}
 
 	}

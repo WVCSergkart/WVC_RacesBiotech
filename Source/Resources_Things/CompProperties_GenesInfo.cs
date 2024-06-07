@@ -46,6 +46,7 @@ namespace WVC_XenotypesAndGenes
 
 		// =================
 
+		[Unsaved(false)]
 		private List<IGeneInspectInfo> cachedInfoGenes;
 
 		// public Pawn Pawn => parent as Pawn;

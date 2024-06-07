@@ -67,6 +67,11 @@ It is not recommended to use more than one DEV-fix at a time. It might break som
 
 	<!-- ================================== -->
 
+	<WVC_Label_enable_birthQualityOffsetFromGenes>Enable birth quality offset from genes</WVC_Label_enable_birthQualityOffsetFromGenes>
+	<WVC_ToolTip_enable_birthQualityOffsetFromGenes>If enabled, some genes will affect birth quality. Due to the way the rituals window works, there may be a slight impact on performance in the corresponding window.
+
+A restart is required.</WVC_ToolTip_enable_birthQualityOffsetFromGenes>
+
 	<WVC_Label_xenotypeGestator_GestationTimeFactor>Gestation period factor x{0}%</WVC_Label_xenotypeGestator_GestationTimeFactor>
 	<WVC_Label_xenotypeGestator_GestationMatchPercent>Min xenotype match {0}%</WVC_Label_xenotypeGestator_GestationMatchPercent>
 

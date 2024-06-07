@@ -70,6 +70,7 @@ namespace WVC_XenotypesAndGenes
 		public bool fixGeneTypesOnLoad = false;
 		// public bool fixThrallTypesOnLoad = false;
 		// Gestator
+		public bool enable_birthQualityOffsetFromGenes = true;
 		public float xenotypeGestator_GestationTimeFactor = 1f;
 		public float xenotypeGestator_GestationMatchPercent = 0.4f;
 		// Reincarnation
@@ -173,6 +174,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref enable_flatGenesSpawnChances, "enable_flatGenesSpawnChances", defaultValue: false);
 			// Scribe_Values.Look(ref autoPatchVanillaArchiteImmunityGenes, "autoPatchVanillaArchiteImmunityGenes", defaultValue: false);
 			// Gestator
+			Scribe_Values.Look(ref enable_birthQualityOffsetFromGenes, "enable_birthQualityOffsetFromGenes", defaultValue: true);
 			Scribe_Values.Look(ref xenotypeGestator_GestationTimeFactor, "xenotypeGestator_GestationTimeFactor", defaultValue: 1f);
 			Scribe_Values.Look(ref xenotypeGestator_GestationMatchPercent, "xenotypeGestator_GestationMatchPercent", defaultValue: 0.4f);
 			// Reincarnation
@@ -645,6 +647,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.GapLine();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_XenotypeGestator".Translate() + ":", -1);
+			listingStandard.CheckboxLabeled("WVC_Label_enable_birthQualityOffsetFromGenes".Translate(), ref settings.enable_birthQualityOffsetFromGenes, "WVC_ToolTip_enable_birthQualityOffsetFromGenes".Translate());
 			listingStandard.SliderLabeledWithRef("WVC_Label_xenotypeGestator_GestationTimeFactor".Translate((settings.xenotypeGestator_GestationTimeFactor * 100f).ToString()), ref settings.xenotypeGestator_GestationTimeFactor, 0f, 2f);
 			listingStandard.SliderLabeledWithRef("WVC_Label_xenotypeGestator_GestationMatchPercent".Translate((settings.xenotypeGestator_GestationMatchPercent * 100f).ToString()), ref settings.xenotypeGestator_GestationMatchPercent, 0f, 1f);
 			listingStandard.GapLine();
@@ -827,6 +830,7 @@ namespace WVC_XenotypesAndGenes
 			// =
 			WVC_Biotech.settings.learningTelepathWorkForBothSides = false;
 			// =
+			WVC_Biotech.settings.enable_birthQualityOffsetFromGenes = true;
 			WVC_Biotech.settings.xenotypeGestator_GestationTimeFactor = 1f;
 			WVC_Biotech.settings.xenotypeGestator_GestationMatchPercent = 0.4f;
 			// =
@@ -928,6 +932,7 @@ namespace WVC_XenotypesAndGenes
 			// =
 			WVC_Biotech.settings.learningTelepathWorkForBothSides = true;
 			// =
+			WVC_Biotech.settings.enable_birthQualityOffsetFromGenes = true;
 			WVC_Biotech.settings.xenotypeGestator_GestationTimeFactor = 1f;
 			WVC_Biotech.settings.xenotypeGestator_GestationMatchPercent = 0.4f;
 			// =

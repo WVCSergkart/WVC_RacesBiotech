@@ -214,16 +214,21 @@ namespace WVC_XenotypesAndGenes
 				}
 				return;
 			}
+			if (pawn.Faction != Faction.OfPlayer)
+			{
+				ResetInterval();
+				return;
+			}
 			GeneticStuff();
 		}
 
 		public virtual void GetDelayJob()
 		{
-			if (!pawn.IsHashIntervalTick(12000))
+			if (!useStabilizerAuto)
 			{
 				return;
 			}
-			if (!useStabilizerAuto)
+			if (!pawn.IsHashIntervalTick(12000))
 			{
 				return;
 			}
@@ -236,12 +241,12 @@ namespace WVC_XenotypesAndGenes
 				}
 				return;
 			}
-			if (pawn.Faction != Faction.OfPlayer)
-			{
-				useStabilizerAuto = false;
-				ResetInterval();
-				return;
-			}
+			// if (pawn.Faction != Faction.OfPlayer)
+			// {
+				// useStabilizerAuto = false;
+				// ResetInterval();
+				// return;
+			// }
 			if (pawn.Map == null)
 			{
 				// In caravan use

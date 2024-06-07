@@ -172,6 +172,8 @@ namespace WVC_XenotypesAndGenes
 		// weight flatter
 		public float selectionWeight = 1f;
 		public bool isAptitude = false;
+		// Birth
+		public float birthQualityOffset = 0f;
 	}
 
 	public class GeneExtension_Graphic : DefModExtension
