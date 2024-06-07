@@ -109,7 +109,7 @@ namespace WVC_XenotypesAndGenes
 				// Widgets.HyperlinkWithIcon(new Rect(rect3.x, curY, rect3.width, Text.LineHeight), new Dialog_InfoCard.Hyperlink(item));
 				// curY += Text.LineHeight;
 			// }
-			List<XenotypeDef> doubleXenotypes = XenoTreeUtility.GetXenotypeAndDoubleXenotypes(selectedXeno);
+			List<XenotypeDef> doubleXenotypes = XaG_GeneUtility.GetXenotypeAndDoubleXenotypes(selectedXeno);
 			for (int i = 0; i < doubleXenotypes.Count; i++)
 			{
 				Widgets.HyperlinkWithIcon(new Rect(rect3.x, curY, rect3.width, Text.LineHeight), new Dialog_InfoCard.Hyperlink(doubleXenotypes[i]));

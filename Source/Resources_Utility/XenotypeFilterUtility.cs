@@ -2,7 +2,7 @@ using RimWorld;
 using System;
 using System.Collections.Generic;
 using Verse;
-
+using Verse.AI;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -165,7 +165,7 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
-		public static List<Thing> GetAllStoneChunksOnMap(Map map)
+		public static List<Thing> GetAllStoneChunksOnMap(Map map, Pawn pawn)
 		{
 			List<Thing> list = new();
 			// Log.Error("0");
@@ -178,11 +178,15 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				// Log.Error("3");
 				if (item.Position.Fogged(item.Map))
 				{
 					continue;
 				}
+				if (!pawn.CanReserveAndReach(item, PathEndMode.OnCell, pawn.NormalMaxDanger()))
+				{
+					continue;
+				}
+				// Log.Error("3");
 				// Log.Error("4");
 				list.Add(item);
 			}

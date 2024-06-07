@@ -550,6 +550,33 @@ namespace WVC_XenotypesAndGenes
 			return null;
 		}
 
+		// =============================== Getter ===============================
+
+		public static int GetAllGenesCount(XenotypeDef xenotypeDef)
+		{
+			int genesCount = 0;
+			List<XenotypeDef> xenotypes = GetXenotypeAndDoubleXenotypes(xenotypeDef);
+			foreach (XenotypeDef xenotype in xenotypes)
+			{
+				genesCount += xenotype.genes.Count;
+			}
+			return genesCount;
+		}
+
+		public static List<XenotypeDef> GetXenotypeAndDoubleXenotypes(XenotypeDef xenotypeDef)
+		{
+			List<XenotypeDef> xenotypes = new();
+			xenotypes.Add(xenotypeDef);
+			if (!xenotypeDef.doubleXenotypeChances.NullOrEmpty())
+			{
+				foreach (XenotypeChance item in xenotypeDef.doubleXenotypeChances)
+				{
+					xenotypes.Add(item.xenotype);
+				}
+			}
+			return xenotypes;
+		}
+
 		// Xenotype Cost
 
 		public static float XenotypeCost(XenotypeDef xenotype)

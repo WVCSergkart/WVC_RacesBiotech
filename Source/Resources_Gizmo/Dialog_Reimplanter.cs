@@ -58,7 +58,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			curY += 10f;
 			Rect rect4 = new(rect3.x, rect3.yMax - 55f, rect3.width, 55f);
-			foreach (XenotypeDef item in XenoTreeUtility.GetXenotypeAndDoubleXenotypes(selectedXeno))
+			foreach (XenotypeDef item in XaG_GeneUtility.GetXenotypeAndDoubleXenotypes(selectedXeno))
 			{
 				Widgets.HyperlinkWithIcon(new Rect(rect3.x, curY, rect3.width, Text.LineHeight), new Dialog_InfoCard.Hyperlink(item));
 				curY += Text.LineHeight;

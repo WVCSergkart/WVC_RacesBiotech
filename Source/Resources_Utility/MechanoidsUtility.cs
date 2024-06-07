@@ -12,9 +12,26 @@ namespace WVC_XenotypesAndGenes
 
 		// Golems
 
-		public static bool HasEnoughGolembond(Pawn mechanitor)
+		public static bool HasEnoughGolembond(Pawn mechanitor, float additionalBond = 0)
 		{
-			return TotalGolembond(mechanitor) >= GetConsumedGolembond(mechanitor);
+			float maxBond = TotalGolembond(mechanitor);
+			float consumedBond = GetConsumedGolembond(mechanitor) + additionalBond;
+			return maxBond >= consumedBond;
+		}
+
+		public static List<PawnKindDef> GetAllControlledGolems_PawnKinds(Pawn mechanitor)
+		{
+			List<Pawn> currentGolems = GetAllControlledGolems(mechanitor);
+			if (currentGolems.NullOrEmpty())
+			{
+				return null;
+			}
+			List<PawnKindDef> list = new();
+			foreach (Pawn item in currentGolems)
+			{
+				list.Add(item.kindDef);
+			}
+			return list;
 		}
 
 		public static List<Pawn> GetAllControlledGolems(Pawn mechanitor)
@@ -43,37 +60,37 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
-		[Obsolete]
-		public static List<Pawn> GetAllControlledGolemsOfIndex(Pawn mechanitor, int golemIndex)
-		{
-			List<Pawn> mechs = mechanitor?.mechanitor?.OverseenPawns;
-			if (mechs.NullOrEmpty())
-			{
-				return null;
-			}
-			List<Pawn> list = new();
-			foreach (Pawn item in mechs)
-			{
-				if (item.health.Dead)
-				{
-					continue;
-				}
-				if (!item.IsGolemlike())
-				{
-					continue;
-				}
-				CompGolem compGolem = item.GetComp<CompGolem>();
-				if (compGolem == null)
-				{
-					continue;
-				}
-				if (compGolem.Props.golemIndex == golemIndex)
-				{
-					list.Add(item);
-				}
-			}
-			return list;
-		}
+		// [Obsolete]
+		// public static List<Pawn> GetAllControlledGolemsOfIndex(Pawn mechanitor, int golemIndex)
+		// {
+			// List<Pawn> mechs = mechanitor?.mechanitor?.OverseenPawns;
+			// if (mechs.NullOrEmpty())
+			// {
+				// return null;
+			// }
+			// List<Pawn> list = new();
+			// foreach (Pawn item in mechs)
+			// {
+				// if (item.health.Dead)
+				// {
+					// continue;
+				// }
+				// if (!item.IsGolemlike())
+				// {
+					// continue;
+				// }
+				// CompGolem compGolem = item.GetComp<CompGolem>();
+				// if (compGolem == null)
+				// {
+					// continue;
+				// }
+				// if (compGolem.Props.golemIndex == golemIndex)
+				// {
+					// list.Add(item);
+				// }
+			// }
+			// return list;
+		// }
 
 		public static bool IsGolemlike(this Pawn pawn)
 		{
@@ -101,13 +118,13 @@ namespace WVC_XenotypesAndGenes
 
 		public static float TotalGolembond(Pawn mechanitor)
 		{
-			return mechanitor.GetStatValue(WVC_GenesDefOf.WVC_GolemBond, cacheStaleAfterTicks: 120000);
+			return mechanitor.GetStatValue(WVC_GenesDefOf.WVC_GolemBond, cacheStaleAfterTicks: 3000);
 		}
 
 		public static float GetConsumedGolembond(Pawn mechanitor)
 		{
 			float result = 0;
-			List <Pawn> golems = mechanitor?.mechanitor?.OverseenPawns;
+			List<Pawn> golems = mechanitor?.mechanitor?.OverseenPawns;
 			if (golems.NullOrEmpty())
 			{
 				return result;
@@ -132,11 +149,11 @@ namespace WVC_XenotypesAndGenes
 			// return false;
 		// }
 
-		[Obsolete]
-		public static bool MechanitorIsLich(Pawn mechanitor)
-		{
-			return mechanitor?.genes?.GetFirstGeneOfType<Gene_Sporelink>() != null;
-		}
+		// [Obsolete]
+		// public static bool MechanitorIsLich(Pawn mechanitor)
+		// {
+			// return mechanitor?.genes?.GetFirstGeneOfType<Gene_Sporelink>() != null;
+		// }
 
 		public static bool MechanitorIsGolemist(Pawn mechanitor)
 		{
@@ -232,15 +249,15 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
-		public static bool CanSpawnMoreMechanoids(Pawn mechanitor, Pawn mech)
-		{
-			float weight = mechanitor.mechanitor.TotalBandwidth - (mechanitor.mechanitor.UsedBandwidth + mech.GetStatValue(StatDefOf.BandwidthCost, cacheStaleAfterTicks: 360000));
-			if (weight < 0f)
-			{
-				return false;
-			}
-			return true;
-		}
+		// public static bool CanSpawnMoreMechanoids(Pawn mechanitor, Pawn mech)
+		// {
+			// float weight = mechanitor.mechanitor.TotalBandwidth - (mechanitor.mechanitor.UsedBandwidth + mech.GetStatValue(StatDefOf.BandwidthCost, cacheStaleAfterTicks: 360000));
+			// if (weight < 0f)
+			// {
+				// return false;
+			// }
+			// return true;
+		// }
 
 		// public static float GetConsumedBandwidth(Pawn mechanitor)
 		// {

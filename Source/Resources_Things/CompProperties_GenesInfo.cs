@@ -11,13 +11,11 @@ namespace WVC_XenotypesAndGenes
 
 		public bool shouldResurrect = true;
 
-		public int recacheFrequency = 11435;
+		public int recacheFrequency = 60;
 
 		public IntRange resurrectionDelay = new(6000, 9000);
 
 		public string uniqueTag = "XaG_Undead";
-
-		//public Type golemGizmoType = typeof(GeneGizmo_Golems);
 
 		public CompProperties_Humanlike()
 		{
@@ -79,25 +77,6 @@ namespace WVC_XenotypesAndGenes
 			cachedInfoGenes = null;
 		}
 
-		// private int nextRecache = -1;
-
-		// public override void CompTick()
-		// {
-			// Log.Error("1");
-		// }
-
-		// public override void CompTickRare()
-		// {
-			// Log.Error("1");
-		// }
-
-		// public override void CompTickLong()
-		// {
-			// Log.Error("1");
-		// }
-
-		// =================
-
 		public override string CompInspectStringExtra()
 		{
 			if (parent.Faction != Faction.OfPlayer)
@@ -113,30 +92,18 @@ namespace WVC_XenotypesAndGenes
 
 		private string info = null;
 
-		private bool firstCache = true;
+		private int nextRecache = -1;
 
 		public string Info(Pawn pawn)
 		{
-			if (pawn?.genes == null)
+			nextRecache--;
+			if (nextRecache <= 0)
 			{
-				return null;
-			}
-			// if (Find.TickManager.TicksGame >= nextRecache)
-			// {
-				// cachedInfoGenes = new();
-				// foreach (Gene gene in pawn.genes.GenesListForReading)
-				// {
-					// if (gene is IGeneInspectInfo geneInspectInfo && gene.Active)
-					// {
-						// cachedInfoGenes.Add(geneInspectInfo);
-					// }
-				// }
-				// nextRecache = Find.TickManager.TicksGame + Props.recacheFrequency;
-			// }
-			if (pawn.IsHashIntervalTick(60) || firstCache)
-			{
+				if (pawn?.genes == null)
+				{
+					return null;
+				}
 				info = null;
-				firstCache = false;
 				int count = 0;
 				foreach (IGeneInspectInfo gene in InfoGenes)
 				{
@@ -152,6 +119,7 @@ namespace WVC_XenotypesAndGenes
 					info += geneText;
 					count++;
 				}
+				nextRecache = Props.recacheFrequency;
 			}
 			return info;
 		}
