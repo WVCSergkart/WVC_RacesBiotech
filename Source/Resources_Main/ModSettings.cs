@@ -93,6 +93,7 @@ namespace WVC_XenotypesAndGenes
 		// public bool shapeshifter_enableStyleButton = true;
 		// Chimera
 		public bool enable_chimeraMetabolismHungerFactor = true;
+		public float chimeraMinGeneCopyChance = 0.01f;
 		// DryadQueen
 		public bool enable_dryadQueenMechanicGenerator = true;
 		// Xenotypes
@@ -198,6 +199,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref enable_spawnXenotypesInFactions, "enable_spawnXenotypesInFactions", defaultValue: false);
 			// Chimera
 			Scribe_Values.Look(ref enable_chimeraMetabolismHungerFactor, "enable_chimeraMetabolismHungerFactor", defaultValue: true);
+			Scribe_Values.Look(ref chimeraMinGeneCopyChance, "chimeraMinGeneCopyChance", defaultValue: 0.01f);
 			// DryadQueen
 			Scribe_Values.Look(ref enable_dryadQueenMechanicGenerator, "enable_dryadQueenMechanicGenerator", defaultValue: true);
 			// Reincarnation
@@ -677,6 +679,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_ShapeshifterGeneUnremovable".Translate().Colorize(ColorLibrary.LightBlue), ref settings.shapeshifterGeneUnremovable, "WVC_ToolTip_ShapeshifterGeneUnremovable".Translate());
 			// listingStandard.CheckboxLabeled("WVC_Label_shapeshifter_enableStyleButton".Translate().Colorize(ColorLibrary.LightBlue), ref settings.shapeshifter_enableStyleButton, "WVC_ToolTip_shapeshifter_enableStyleButton".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enable_chimeraMetabolismHungerFactor".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_chimeraMetabolismHungerFactor, "WVC_ToolTip_enable_chimeraMetabolismHungerFactor".Translate());
+			listingStandard.SliderLabeledWithRef("WVC_Label_chimeraMinGeneCopyChance".Translate((settings.chimeraMinGeneCopyChance * 100f).ToString()), ref settings.chimeraMinGeneCopyChance, 0.01f, 1f, round: 2);
 			listingStandard.GapLine();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_IncestLover".Translate() + ":", -1);
@@ -814,6 +817,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.allowShapeshiftAfterDeath = true;
 			// WVC_Biotech.settings.shapeshifter_enableStyleButton = true;
 			WVC_Biotech.settings.enable_chimeraMetabolismHungerFactor = true;
+			WVC_Biotech.settings.chimeraMinGeneCopyChance = 0.01f;
 			// =
 			WVC_Biotech.settings.thrallMaker_ThrallsInheritMasterGenes = true;
 			// =
@@ -916,6 +920,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.allowShapeshiftAfterDeath = true;
 			// WVC_Biotech.settings.shapeshifter_enableStyleButton = true;
 			WVC_Biotech.settings.enable_chimeraMetabolismHungerFactor = true;
+			WVC_Biotech.settings.chimeraMinGeneCopyChance = 0.01f;
 			// =
 			WVC_Biotech.settings.thrallMaker_ThrallsInheritMasterGenes = true;
 			// =

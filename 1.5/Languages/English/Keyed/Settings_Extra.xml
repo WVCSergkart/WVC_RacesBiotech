@@ -149,6 +149,8 @@ Requires the Ideology DLC, for obvious reasons.</WVC_ToolTip_shapeshifter_enable
 
 Disable this option if you have any mods that change the mechanics of the hunger multiplier from metabolism.</WVC_ToolTip_enable_chimeraMetabolismHungerFactor>
 
+	<WVC_Label_chimeraMinGeneCopyChance>Min gene copy chance +{0}%</WVC_Label_chimeraMinGeneCopyChance>
+
 	<!-- ================================== -->
 
 	<WVC_Label_enable_dryadQueenMechanicGenerator>Dryad queen mechanics</WVC_Label_enable_dryadQueenMechanicGenerator>
