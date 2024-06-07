@@ -9,7 +9,7 @@
 			<!-- <MechEnergyUsageFactor>1.0</MechEnergyUsageFactor> -->
 			<MechEnergyLossPerHP>1.0</MechEnergyLossPerHP>
 			<WastepacksPerRecharge>0</WastepacksPerRecharge>
-			<ControlTakingTime MayRequire="Ludeon.Rimworld.Biotech">74</ControlTakingTime>
+			<ControlTakingTime MayRequire="Ludeon.Rimworld.Biotech">148</ControlTakingTime>
 			<MarketValue>70</MarketValue>
 			<!-- Work -->
 			<FoodPoisonChance>0</FoodPoisonChance>

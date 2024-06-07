@@ -152,8 +152,8 @@
 	<displayOrderInCategory>1130</displayOrderInCategory>
 	<customEffectDescriptions>
 		<!-- <li>Allows the &lt;color=#8a8ae6&gt;mechanitor&lt;/color&gt; to control &lt;color=#8a8ae6&gt;golems&lt;/color&gt;.</li> -->
-		<li>&lt;color=#8a8ae6&gt;Animates&lt;/color&gt; from 1 to 6 &lt;color=#8a8ae6&gt;chunks&lt;/color&gt; present within the map every (*DateTime)8-30 days(/DateTime).</li>
-		<li>If there are no chunks, it &lt;color=#8a8ae6&gt;summons golems&lt;/color&gt; instead.</li>
+		<li>&lt;color=#8a8ae6&gt;Animates&lt;/color&gt; from 1 to 3 &lt;color=#8a8ae6&gt;chunks&lt;/color&gt; present within the map every (*DateTime)4-7 days(/DateTime).</li>
+		<li>If there are no chunks, it &lt;color=#8a8ae6&gt;summons golems&lt;/color&gt; instead. &lt;color=#ff8585&gt;Summoned golems are limited to simple types.&lt;/color&gt;</li>
 		<!-- <li>Golems are &lt;color=#8a8ae6&gt;summoned automatically&lt;/color&gt; from &lt;color=#8a8ae6&gt;1 to 6&lt;/color&gt; every (*DateTime)8-30 days(/DateTime).</li> -->
 		<li>A overseer can reproduce with the help of &lt;color=#8a8ae6&gt;golems&lt;/color&gt;.</li>
 	</customEffectDescriptions>
@@ -176,8 +176,8 @@
 			<golemistTypeIndex>0</golemistTypeIndex>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
-			<spawnIntervalRange>480000~1800000</spawnIntervalRange>
-			<summonRange>1~6</summonRange>
+			<spawnIntervalRange>240000~420000</spawnIntervalRange>
+			<summonRange>1~3</summonRange>
 			<summonQuest>WVC_MechanitorSummonGolems</summonQuest>
 			<mechTypes>
 			  <li>WVC_Golem_Liftoid</li>
