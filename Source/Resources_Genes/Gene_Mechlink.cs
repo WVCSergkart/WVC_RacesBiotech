@@ -49,10 +49,10 @@ namespace WVC_XenotypesAndGenes
 
 		public bool CanDoOrbitalSummon()
 		{
-			if (!summonMechanoids)
-			{
-				return false;
-			}
+			// if (!summonMechanoids)
+			// {
+				// return false;
+			// }
 			if (pawn.Faction != Faction.OfPlayer)
 			{
 				summonMechanoids = false;
@@ -200,6 +200,10 @@ namespace WVC_XenotypesAndGenes
 		public override void Tick()
 		{
 			base.Tick();
+			if (!summonMechanoids)
+			{
+				return;
+			}
 			timeForNextSummon--;
 			if (timeForNextSummon > 0)
 			{
@@ -371,7 +375,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (summonMechanoids)
 				{
-					return "WVC_XaG_Gene_Blesslin_On_Info".Translate().Resolve() + ": " + timeForNextSummon.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
+					return "WVC_XaG_Gene_Golemlink_On_Info".Translate().Resolve() + ": " + timeForNextSummon.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
 				}
 				return null;
 			}
@@ -396,6 +400,10 @@ namespace WVC_XenotypesAndGenes
 		public override void Tick()
 		{
 			base.Tick();
+			if (!summonMechanoids)
+			{
+				return;
+			}
 			timeForNextSummon--;
 			if (timeForNextSummon > 0)
 			{
