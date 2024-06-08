@@ -113,6 +113,22 @@
 				<chance>0.33</chance>
 			  </li>
 			  <li>
+				<architeCount>2</architeCount>
+				<genesCount>0</genesCount>
+				<chance>0.08</chance>
+			  </li>
+			  <li>
+				<architeCount>3</architeCount>
+				<genesCount>0</genesCount>
+				<chance>0.06</chance>
+			  </li>
+			  <li>
+				<architeCount>4</architeCount>
+				<genesCount>0</genesCount>
+				<chance>0.04</chance>
+			  </li>
+			  <!-- Double -->
+			  <li>
 				<architeCount>1</architeCount>
 				<genesCount>1</genesCount>
 				<chance>0.11</chance>
@@ -121,6 +137,27 @@
 				<architeCount>2</architeCount>
 				<genesCount>2</genesCount>
 				<chance>0.08</chance>
+			  </li>
+			  <!-- Misc -->
+			  <li>
+				<architeCount>1</architeCount>
+				<genesCount>2</genesCount>
+				<chance>0.07</chance>
+			  </li>
+			  <li>
+				<architeCount>1</architeCount>
+				<genesCount>3</genesCount>
+				<chance>0.05</chance>
+			  </li>
+			  <li>
+				<architeCount>2</architeCount>
+				<genesCount>1</genesCount>
+				<chance>0.07</chance>
+			  </li>
+			  <li>
+				<architeCount>3</architeCount>
+				<genesCount>1</genesCount>
+				<chance>0.05</chance>
 			  </li>
 			</genesCountProbabilities>
 		</li>

@@ -16,7 +16,7 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
-		private float cachedNutritionPerTick = -1f;
+		private float? cachedNutritionPerTick;
 
 		public override void Tick()
 		{
@@ -53,11 +53,11 @@ namespace WVC_XenotypesAndGenes
 
 		public void ReplenishHunger()
 		{
-			if (cachedNutritionPerTick <= 0f)
+			if (!cachedNutritionPerTick.HasValue)
 			{
 				cachedNutritionPerTick = Giver.passivelyReplenishedNutrition + (pawn.needs?.food != null ? pawn.needs.food.FoodFallPerTick : 0f);
 			}
-			UndeadUtility.OffsetNeedFood(pawn, cachedNutritionPerTick);
+			UndeadUtility.OffsetNeedFood(pawn, cachedNutritionPerTick.Value);
 		}
 
 	}
@@ -92,9 +92,10 @@ namespace WVC_XenotypesAndGenes
 		private void InSunlight()
 		{
 			SoundDefOf.Interact_BeatFire.PlayOneShot(pawn);
-			BattleLogEntry_DamageTaken battleLogEntry_DamageTaken = new(pawn, RulePackDefOf.DamageEvent_Fire);
-			Find.BattleLog.Add(battleLogEntry_DamageTaken);
-			pawn.TakeDamage(new DamageInfo(DamageDefOf.Burn, new FloatRange(2.5f, 5.5f).RandomInRange)).AssociateWithLog(battleLogEntry_DamageTaken);
+			// BattleLogEntry_DamageTaken battleLogEntry_DamageTaken = new(pawn, RulePackDefOf.DamageEvent_Fire);
+			// Find.BattleLog.Add(battleLogEntry_DamageTaken);
+			// pawn.TakeDamage(new DamageInfo(DamageDefOf.Burn, new FloatRange(2.5f, 5.5f).RandomInRange)).AssociateWithLog(battleLogEntry_DamageTaken);
+			pawn.TakeDamage(new DamageInfo(DamageDefOf.Burn, new FloatRange(2.5f, 5.5f).RandomInRange));
 			if (Opinion?.MeAboutThoughtDef != null)
 			{
 				pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Opinion.MeAboutThoughtDef);
