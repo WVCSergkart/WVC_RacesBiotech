@@ -88,6 +88,7 @@ namespace WVC_XenotypesAndGenes
 			if (WVC_Biotech.settings.shapeshifterGeneUnremovable)
 			{
 				pawn.genes.AddGene(this.def, false);
+				UndeadUtility.TryTransferGeneStats(this, pawn.genes.GetFirstGeneOfType<Gene_Shapeshifter>());
 			}
 			RemoveHediffs();
 		}

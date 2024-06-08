@@ -73,6 +73,129 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		// Shapeshift
+		public static bool TryShapeshift(Gene_Shapeshifter gene, Dialog_Shapeshifter dialog)
+		{
+			try
+			{
+				PostStart(gene, dialog);
+				// Shapeshift START
+				ReimplanterUtility.ReimplantGenesDouble_Shapeshifter(gene.pawn, dialog.selectedXeno, dialog.genesRegrowing || dialog.clearXenogenes, dialog.genesRegrowing || dialog.doubleXenotypeReimplantation);
+				// if (doubleXenotypeReimplantation)
+				// {
+					// ReimplanterUtility.SetXenotype_DoubleXenotype(gene.pawn, selectedXeno);
+				// }
+				// else
+				// {
+					// ReimplanterUtility.SetXenotype(gene.pawn, selectedXeno);
+				// }
+				if (!XaG_GeneUtility.HasGene(gene.def, gene.pawn))
+				{
+					gene.pawn.genes.AddGene(gene.def, false);
+				}
+				if (dialog.xenogermComaAfterShapeshift)
+				{
+					gene.pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
+				}
+				GeneUtility.UpdateXenogermReplication(gene.pawn);
+				WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(gene.pawn, gene.pawn.Map).Trigger(gene.pawn, null);
+				if (!dialog.soundDefOnImplant.NullOrUndefined())
+				{
+					dialog.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(gene.pawn));
+				}
+				Gene_Shapeshifter newGene = gene.pawn?.genes?.GetFirstGeneOfType<Gene_Shapeshifter>();
+				// Shapeshift END
+				PostShapeshift(newGene, gene, dialog);
+				// Letter
+				Find.LetterStack.ReceiveLetter("WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel".Translate(), "WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc".Translate(gene.pawn.Named("TARGET"), dialog.selectedXeno.LabelCap, gene.LabelCap)
+					+ "\n\n" + (dialog.selectedXeno.descriptionShort.NullOrEmpty() ? dialog.selectedXeno.description : dialog.selectedXeno.descriptionShort),
+					WVC_GenesDefOf.WVC_XaG_UndeadEvent, new LookTargets(gene.pawn));
+				return true;
+			}
+			catch
+			{
+				Log.Error(gene.def.defName + " failed use shapeshift.");
+			}
+			return false;
+		}
+
+		// Misc
+		public static void PostStart(Gene_Shapeshifter shapeshiftGene, Dialog_Shapeshifter dialog)
+		{
+			if (dialog.genesRegrowing)
+			{
+				return;
+			}
+			// Shapeshifter SubGenes Trigger
+			foreach (Gene gene in shapeshiftGene.pawn.genes.GenesListForReading)
+			{
+				if (gene is IGeneShapeshift geneShapeshifter && gene.Active)
+				{
+					geneShapeshifter.Notify_PostStart(shapeshiftGene);
+				}
+			}
+		}
+
+		// Misc
+		public static void PostShapeshift(Gene_Shapeshifter oldShapeshiftGene, Gene_Shapeshifter newShapeshiftGene, Dialog_Shapeshifter dialog)
+		{
+			if (!TryTransferGeneStats(oldShapeshiftGene, newShapeshiftGene))
+			{
+				return;
+			}
+			if (ModLister.IdeologyInstalled)
+			{
+				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_GenesDefOf.WVC_Shapeshift, newShapeshiftGene.pawn.Named(HistoryEventArgsNames.Doer)));
+			}
+			if (dialog.genesRegrowing)
+			{
+				// Log.Error("0");
+				return;
+			}
+			// Log.Error("1");
+			// Shapeshifter SubGenes Trigger
+			foreach (Gene gene in newShapeshiftGene.pawn.genes.GenesListForReading)
+			{
+				if (gene is IGeneShapeshift geneShapeshifter && gene.Active)
+				{
+					geneShapeshifter.Notify_PostShapeshift(newShapeshiftGene);
+				}
+			}
+			foreach (Trait trait in newShapeshiftGene.pawn.story.traits.allTraits)
+			{
+				GeneExtension_Undead extension = trait?.def?.GetModExtension<GeneExtension_Undead>();
+				if (extension == null)
+				{
+					continue;
+				}
+				if (!extension.thoughtDefs.NullOrEmpty())
+				{
+					foreach (ThoughtDef thoughtDef in extension.thoughtDefs)
+					{
+						newShapeshiftGene.pawn.needs?.mood?.thoughts?.memories.TryGainMemory(thoughtDef);
+					}
+				}
+				if (!extension.hediffDefs.NullOrEmpty())
+				{
+					foreach (HediffDef hediff in extension.hediffDefs)
+					{
+						HediffUtility.TryAddHediff(hediff, newShapeshiftGene.pawn, null);
+					}
+				}
+			}
+		}
+
+		public static bool TryTransferGeneStats(Gene_Shapeshifter oldShapeshifter, Gene_Shapeshifter newShapeshifter)
+		{
+			if (newShapeshifter == null)
+			{
+				Log.Error(newShapeshifter.pawn.Name.ToString() + " pawn used shapeshift, but it is not a shapeshifter. " + newShapeshifter.LabelCap + " | " + newShapeshifter.def.defName);
+				return false;
+			}
+			newShapeshifter.xenogermComaAfterShapeshift = oldShapeshifter.xenogermComaAfterShapeshift;
+			return true;
+		}
+
 		// public static bool TraitDefWithWeight_HasAnyConflicts(List<TraitDef> traitDefs, List<Trait> traits)
 		// {
 			// foreach (TraitDef item in traitDefs)

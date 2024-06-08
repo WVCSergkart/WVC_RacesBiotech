@@ -19,23 +19,23 @@ namespace WVC_XenotypesAndGenes
 
 		public List<GeneDef> reqGeneDefs;
 
-		public Type workerClass = typeof(ShapeshifterModeWorker);
+		// public Type workerClass = typeof(ShapeshifterModeWorker);
 
-		[Unsaved(false)]
-		private ShapeshifterModeWorker workerInt;
+		// [Unsaved(false)]
+		// private ShapeshifterModeWorker workerInt;
 
-		public ShapeshifterModeWorker Worker
-		{
-			get
-			{
-				if (workerInt == null)
-				{
-					workerInt = (ShapeshifterModeWorker)Activator.CreateInstance(workerClass);
-					workerInt.def = this;
-				}
-				return workerInt;
-			}
-		}
+		// public ShapeshifterModeWorker Worker
+		// {
+			// get
+			// {
+				// if (workerInt == null)
+				// {
+					// workerInt = (ShapeshifterModeWorker)Activator.CreateInstance(workerClass);
+					// workerInt.def = this;
+				// }
+				// return workerInt;
+			// }
+		// }
 
 		public override void PostLoad()
 		{
@@ -50,14 +50,14 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class ShapeshifterModeWorker
-	{
+	// public class ShapeshifterModeWorker
+	// {
 
-		public virtual void Notify_ChangeHediffs()
-		{
+		// public virtual void Notify_ChangeHediffs()
+		// {
 			
-		}
+		// }
 
-	}
+	// }
 
 }

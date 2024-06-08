@@ -30,7 +30,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			HediffUtility.TryAddOrRemoveHediff(Props.hediffDefName, pawn, this, Props.bodyparts);
+			HediffUtility.TryAddOrRemoveHediff(Props.hediffDefName, pawn, this, null);
 			ResetInterval();
 		}
 
@@ -62,18 +62,26 @@ namespace WVC_XenotypesAndGenes
 			{
 				spawnDryads = false;
 			}
-			if (!spawnDryads || pawn.Map == null || Spawner?.defaultDryadPawnKindDef == null || dryads.Count >= pawn.GetStatValue(Spawner.dryadsStatLimit))
+			int litterSize = ((pawn.RaceProps.litterSizeCurve == null) ? 1 : Mathf.RoundToInt(Rand.ByCurve(pawn.RaceProps.litterSizeCurve)));
+			if (litterSize < 1)
 			{
-				return;
+				litterSize = 1;
 			}
-			Pawn dryad = GenerateNewDryad(Spawner.defaultDryadPawnKindDef);
-			if (dryad == null)
+			for (int i = 0; i < litterSize; i++)
 			{
-				return;
+				if (!spawnDryads || pawn.Map == null || Spawner?.defaultDryadPawnKindDef == null || dryads.Count >= pawn.GetStatValue(Spawner.dryadsStatLimit, cacheStaleAfterTicks: 120))
+				{
+					return;
+				}
+				Pawn dryad = GenerateNewDryad(Spawner.defaultDryadPawnKindDef);
+				if (dryad == null)
+				{
+					return;
+				}
+				GenSpawn.Spawn(dryad, pawn.Position, pawn.Map).Rotation = Rot4.South;
+				EffecterDefOf.DryadSpawn.Spawn(pawn.Position, pawn.Map).Cleanup();
+				SoundDefOf.Pawn_Dryad_Spawn.PlayOneShot(SoundInfo.InMap(dryad));
 			}
-			GenSpawn.Spawn(dryad, pawn.Position, pawn.Map).Rotation = Rot4.South;
-			EffecterDefOf.DryadSpawn.Spawn(pawn.Position, pawn.Map).Cleanup();
-			SoundDefOf.Pawn_Dryad_Spawn.PlayOneShot(SoundInfo.InMap(dryad));
 			// Post Spawn Sickness
 			if (Spawner.postGestationSickness != null)
 			{
@@ -235,18 +243,18 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostRemove();
 			KillConnectedDryads();
-			HediffUtility.TryAddOrRemoveHediff(Props.hediffDefName, pawn, this, Props.bodyparts);
+			HediffUtility.TryAddOrRemoveHediff(Props.hediffDefName, pawn, this, null);
 		}
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
 		{
 			KillConnectedDryads();
-			HediffUtility.TryAddOrRemoveHediff(Props.hediffDefName, pawn, this, Props.bodyparts);
+			HediffUtility.TryAddOrRemoveHediff(Props.hediffDefName, pawn, this, null);
 		}
 
 		public void Notify_Override()
 		{
-			HediffUtility.TryAddOrRemoveHediff(Props.hediffDefName, pawn, this, Props.bodyparts);
+			HediffUtility.TryAddOrRemoveHediff(Props.hediffDefName, pawn, this, null);
 		}
 
 		public void KillConnectedDryads()

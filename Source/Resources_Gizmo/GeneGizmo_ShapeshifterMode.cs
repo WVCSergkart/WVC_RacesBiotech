@@ -42,8 +42,8 @@ namespace WVC_XenotypesAndGenes
 			// Label
 			Rect rect3 = new(rect2.x, rect2.y, rect2.width, 20f);
 			Widgets.Label(rect3, "WVC_XaG_ShapeshifterGizmo".Translate());
-			Text.Font = GameFont.Small;
-			Text.Anchor = TextAnchor.UpperRight;
+			// Text.Font = GameFont.Small;
+			// Text.Anchor = TextAnchor.UpperRight;
 			// Button
 			Rect rect4 = new(rect2.x, rect2.y + 23f, 40f, 40f);
 			Widgets.DrawTextureFitted(rect4, MenuIcon.Texture, 1f);
@@ -87,6 +87,16 @@ namespace WVC_XenotypesAndGenes
 				// }
 			// }
 			// TooltipHandler.TipRegion(rect6, "WVC_XaG_GeneShapeshifterStyles_Desc".Translate());
+			// UpperButton
+			// Rect rectModeButton = new(rect.x + rect.width - 52f - 6f, rect.y + 6f, 26f, 26f);
+			// Widgets.DrawTextureFitted(rectModeButton, MenuIcon.Texture, 1f);
+			// if (Mouse.IsOver(rectModeButton))
+			// {
+				// Widgets.DrawHighlight(rectModeButton);
+				// if (Widgets.ButtonInvisible(rectModeButton))
+				// {
+				// }
+			// }
 			return new GizmoResult(GizmoState.Clear);
 		}
 

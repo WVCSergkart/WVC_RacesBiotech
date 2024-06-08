@@ -215,6 +215,20 @@
 	</stages>
   </ThoughtDef>
 
+  <ThoughtDef>
+	<defName>WVC_XaG_ShapeshiftPhobia</defName>
+	<durationDays>1</durationDays>
+	<stackLimit>3</stackLimit>
+	<stackedEffectMultiplier>0.5</stackedEffectMultiplier>
+	<stages>
+	  <li>
+		<label>shiftphobe</label>
+		<description>It was so scary, I thought I wouldn't survive it..</description>
+		<baseMoodEffect>-8</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
   <!-- ========================================================== -->
 
   <ThoughtDef>

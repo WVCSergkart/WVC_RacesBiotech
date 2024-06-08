@@ -26,15 +26,15 @@
 	  <li>
 		<label>shiftphobe</label>
 		 <!-- [PAWN_pronoun] will never use shapeshifting. -->
-		<description>[PAWN_nameDef] is afraid of shapeshift; just the thought of a sudden and complete transformation gives [PAWN_objective] goosebumps. [PAWN_pronoun] will never use shapeshifting.</description>
+		<description>[PAWN_nameDef] is afraid of shapeshift; just the thought of a sudden and complete transformation gives [PAWN_objective] goosebumps.</description>
 	  </li>
 	</degreeDatas>
 	<modExtensions>
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Undead"> -->
-			<!-- <thoughtDefs> -->
-				<!-- <li>WVC_XaG_ShapeshiftPhobia</li> -->
-			<!-- </thoughtDefs> -->
-		<!-- </li> -->
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<thoughtDefs>
+				<li>WVC_XaG_ShapeshiftPhobia</li>
+			</thoughtDefs>
+		</li>
 	</modExtensions>
   </TraitDef>
 
@@ -44,21 +44,21 @@
 	<degreeDatas>
 	  <li>
 		<label>psychic shift</label>
-		<description>[PAWN_nameDef] has a special psychic sensitivity, [PAWN_pronoun] is a little nervous and is especially susceptible to archites. This susceptibility may have unexpected effects on some genes.</description>
-		<!-- <description>[PAWN_nameDef] has a special psychic reaction to shapeshift, each use of this ability temporarily increases psychic sensitivity.</description> -->
-		<statOffsets>
-		  <WorkSpeedGlobal>-0.10</WorkSpeedGlobal>
-		  <MentalBreakThreshold>0.12</MentalBreakThreshold>
-		  <PsychicSensitivity>0.20</PsychicSensitivity>
-		</statOffsets>
+		<!-- <description>[PAWN_nameDef] has a special psychic sensitivity, [PAWN_pronoun] is a little nervous and is especially susceptible to archites. This susceptibility may have unexpected effects on some genes.</description> -->
+		<description>[PAWN_nameDef] has a special psychic reaction to shapeshift, each use of this ability temporarily increases psychic sensitivity.</description>
+		<!-- <statOffsets> -->
+		  <!-- <WorkSpeedGlobal>-0.10</WorkSpeedGlobal> -->
+		  <!-- <MentalBreakThreshold>0.12</MentalBreakThreshold> -->
+		  <!-- <PsychicSensitivity>0.20</PsychicSensitivity> -->
+		<!-- </statOffsets> -->
 	  </li>
 	</degreeDatas>
 	<modExtensions>
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Undead"> -->
-			<!-- <hediffDefs> -->
-				<!-- <li>WVC_Shapeshifter_TempPsychicSensitivity</li> -->
-			<!-- </hediffDefs> -->
-		<!-- </li> -->
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<hediffDefs>
+				<li>WVC_Shapeshifter_TempPsychicSensitivity</li>
+			</hediffDefs>
+		</li>
 	</modExtensions>
   </TraitDef>
 
