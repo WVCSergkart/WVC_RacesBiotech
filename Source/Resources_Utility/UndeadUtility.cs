@@ -192,12 +192,12 @@ namespace WVC_XenotypesAndGenes
 				Log.Error(newShapeshifter.pawn.Name.ToString() + " pawn used shapeshift, but it is not a shapeshifter. " + newShapeshifter.LabelCap + " | " + newShapeshifter.def.defName);
 				return false;
 			}
-			// newShapeshifter.xenogermComaAfterShapeshift = oldShapeshifter.xenogermComaAfterShapeshift;
-			foreach (ShapeshiftModeDef modeDef in oldShapeshifter.UnlockedModes)
-			{
-				newShapeshifter.UnlockMode(modeDef);
-			}
-			newShapeshifter.SetMode(oldShapeshifter.ShiftMode);
+			newShapeshifter.xenogermComaAfterShapeshift = oldShapeshifter.xenogermComaAfterShapeshift;
+			// foreach (ShapeshiftModeDef modeDef in oldShapeshifter.UnlockedModes)
+			// {
+				// newShapeshifter.UnlockMode(modeDef);
+			// }
+			// newShapeshifter.SetMode(oldShapeshifter.ShiftMode);
 			return true;
 		}
 

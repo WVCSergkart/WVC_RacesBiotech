@@ -23,6 +23,8 @@ namespace WVC_XenotypesAndGenes
 
 		public bool xenogermComa = true;
 
+		public bool unlockedByDefault = false;
+
 		// public Type modeClass = typeof(ShapeshifterMode);
 
 		public Type workerClass = typeof(ShapeshifterModeWorker);

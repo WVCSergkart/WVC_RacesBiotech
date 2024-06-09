@@ -51,17 +51,16 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
 			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
 			<!-- <shapeshiftEffect>CocoonWakingUp</shapeshiftEffect> -->
-			<defaultShapeMode>WVC_Shapeshift</defaultShapeMode>
-			<initialShapeModes>
-				<li>WVC_Shapeshift</li>
-				<!-- <li>WVC_Disabled</li> -->
-			</initialShapeModes>
-			<duplicateHediffs>
-				<li>WVC_Scarifier_ShapeshifterDuplicateMode</li>
-			</duplicateHediffs>
-			<duplicateTraits>
-				<li>WVC_XaG_ShapeshiftOverclock</li>
-			</duplicateTraits>
+			<!-- <defaultShapeMode>WVC_Shapeshift</defaultShapeMode> -->
+			<!-- <initialShapeModes> -->
+				<!-- <li>WVC_Shapeshift</li> -->
+			<!-- </initialShapeModes> -->
+			<!-- <duplicateHediffs> -->
+				<!-- <li>WVC_Scarifier_ShapeshifterDuplicateMode</li> -->
+			<!-- </duplicateHediffs> -->
+			<!-- <duplicateTraits> -->
+				<!-- <li>WVC_XaG_ShapeshiftOverclock</li> -->
+			<!-- </duplicateTraits> -->
 			<blockingHediffs>
 				<li>XenogermReplicating</li>
 				<li>XenogerminationComa</li>
@@ -69,9 +68,9 @@
 				<!-- Post shapeshift hediffs also blocks shapeshift -->
 				<!-- <li>WVC_PostshiftMetabolism_HungerFactor</li> -->
 			</blockingHediffs>
-			<blockingTraits>
-				<li>WVC_XaG_ShapeshiftPhobia</li>
-			</blockingTraits>
+			<!-- <blockingTraits> -->
+				<!-- <li>WVC_XaG_ShapeshiftPhobia</li> -->
+			<!-- </blockingTraits> -->
 			<!-- Possible traits that will spawn on pawns with this gene. -->
 			<possibleTraits>
 				<li>
@@ -89,41 +88,33 @@
 
   <!-- Modes -->
 
-  <WVC_XenotypesAndGenes.ShapeshiftModeDef>
-	<defName>WVC_Shapeshift</defName>
-	<label>shapeshift</label>
-	<description>In this mode, the shapeshifter can change xenotype to any other at will.</description>
-	<workerClass>WVC_XenotypesAndGenes.ShapeshifterModeWorker</workerClass>
-	<iconPath>WVC/UI/XaG_General/UI_ShapeshifterMode_Default</iconPath>
-	<uiOrder>0</uiOrder>
-  </WVC_XenotypesAndGenes.ShapeshiftModeDef>
-
-  <WVC_XenotypesAndGenes.ShapeshiftModeDef>
-	<defName>WVC_Safeshift</defName>
-	<label>safeshift</label>
-	<description>In this mode, as in basic mode, the shapeshifter can change its xenotype at will, but it does not fall into a xenogerm coma.</description>
-	<workerClass>WVC_XenotypesAndGenes.ShapeshifterModeWorker</workerClass>
-	<iconPath>WVC/UI/XaG_General/UI_ShapeshifterMode_Safeshift</iconPath>
-	<xenogermComa>false</xenogermComa>
-	<uiOrder>10</uiOrder>
-  </WVC_XenotypesAndGenes.ShapeshiftModeDef>
-
-  <WVC_XenotypesAndGenes.ShapeshiftModeDef>
-	<defName>WVC_Duplicate</defName>
-	<label>duplicate</label>
-	<description>In this mode, the shapeshifter can create duplicates of itself in the selected xenotype.</description>
-	<workerClass>WVC_XenotypesAndGenes.ShapeshifterModeWorker_Duplicate</workerClass>
-	<iconPath>WVC/UI/XaG_General/UI_ShapeshifterMode_Duplicate</iconPath>
-	<uiOrder>20</uiOrder>
-  </WVC_XenotypesAndGenes.ShapeshiftModeDef>
+  <!-- <WVC_XenotypesAndGenes.ShapeshiftModeDef> -->
+	<!-- <defName>WVC_Shapeshift</defName> -->
+	<!-- <label>shapeshift</label> -->
+	<!-- <description>In this mode, the shapeshifter can change xenotype to any other at will.</description> -->
+	<!-- <workerClass>WVC_XenotypesAndGenes.ShapeshifterModeWorker</workerClass> -->
+	<!-- <iconPath>WVC/UI/XaG_General/UI_ShapeshifterMode_Default</iconPath> -->
+	<!-- <uiOrder>0</uiOrder> -->
+	<!-- <unlockedByDefault>true</unlockedByDefault> -->
+  <!-- </WVC_XenotypesAndGenes.ShapeshiftModeDef> -->
 
   <!-- <WVC_XenotypesAndGenes.ShapeshiftModeDef> -->
-	<!-- <defName>WVC_Disabled</defName> -->
-	<!-- <label>disabled</label> -->
-	<!-- <description>In this mode, the shapeshifter can create duplicates of itself in the selected xenotype.</description> -->
+	<!-- <defName>WVC_Safeshift</defName> -->
+	<!-- <label>safeshift</label> -->
+	<!-- <description>In this mode, as in basic mode, the shapeshifter can change its xenotype at will, but it does not fall into a xenogerm coma.</description> -->
+	<!-- <workerClass>WVC_XenotypesAndGenes.ShapeshifterModeWorker</workerClass> -->
+	<!-- <iconPath>WVC/UI/XaG_General/UI_ShapeshifterMode_Safeshift</iconPath> -->
+	<!-- <xenogermComa>false</xenogermComa> -->
+	<!-- <uiOrder>10</uiOrder> -->
+  <!-- </WVC_XenotypesAndGenes.ShapeshiftModeDef> -->
+
+  <!-- <WVC_XenotypesAndGenes.ShapeshiftModeDef> -->
+	<!-- <defName>WVC_Duplicate</defName> -->
+	<!-- <label>duplicate</label> -->
+	<!-- <description>In this mode, the shapeshifter can create duplicates of itself of the selected xenotype.</description> -->
 	<!-- <workerClass>WVC_XenotypesAndGenes.ShapeshifterModeWorker_Duplicate</workerClass> -->
-	<!-- <iconPath>WVC/UI/XaG_General/UI_DisabledWhite</iconPath> -->
-	<!-- <uiOrder>200</uiOrder> -->
+	<!-- <iconPath>WVC/UI/XaG_General/UI_ShapeshifterMode_Duplicate</iconPath> -->
+	<!-- <uiOrder>20</uiOrder> -->
   <!-- </WVC_XenotypesAndGenes.ShapeshiftModeDef> -->
 
 </Defs>

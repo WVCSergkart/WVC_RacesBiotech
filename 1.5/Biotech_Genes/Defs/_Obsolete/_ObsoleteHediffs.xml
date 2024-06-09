@@ -74,4 +74,69 @@
 	</comps>
   </HediffDef>
 
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_Scarifier_ShapeshifterDuplicateMode</defName>
+	<label>obsolete</label>
+	<description>Should be removed.</description>
+	<stages>
+	  <li>
+		<becomeVisible>false</becomeVisible>
+		<minSeverity>0.0</minSeverity>
+	  </li>
+	</stages>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
+		<geneDef>WVC_Shapeshifter</geneDef>
+	  </li>
+	  <li Class="HediffCompProperties_Disappears">
+		<disappearsAfterTicks>1~2</disappearsAfterTicks>
+		<showRemainingTime>true</showRemainingTime>
+	  </li>
+	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+	</comps>
+  </HediffDef>
+
+  <ThingDef ParentName="WVC_XenotypeSerum_ShiftSerumsTech" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+	<defName>WVC_ShapeshifterOverclockerSerum_Base</defName>
+	<!-- <label>shiftover serum</label> -->
+	<label>shift serum (duplicate)</label>
+	<!-- <description>A one-use super-dose of mechanites tuned to disstabilize the influence of the psychic field on the shapeshifter. As a result, shapeshift mechanites go into overclocking mode, which allows the carrier of the shapeshift genes to duplicate themselves.</description> -->
+	<!-- <description>A one-use super-dose of mechanites tuned to restore the user's mental state and cure diseases associated with duplication.</description> -->
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/ShiftInjector_v0</texPath>
+	</graphicData>
+	<costList>
+	  <WVC_XenotypeSerumCapsule>2</WVC_XenotypeSerumCapsule>
+	  <WVC_EmptyXenotypeSerum>2</WVC_EmptyXenotypeSerum>
+	</costList>
+	<recipeMaker Inherit="False"/>
+	<comps>
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_GeneRestoration"> -->
+		<!-- <compClass>WVC_XenotypesAndGenes.CompUseEffect_GiveHediffIfHasGene</compClass> -->
+		<!-- <hediffDef>WVC_Scarifier_ShapeshifterDuplicateMode</hediffDef> -->
+		<!-- <geneDef>WVC_Shapeshifter</geneDef> -->
+	  <!-- </li> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_GeneRestoration"> -->
+		<!-- <hediffsToRemove> -->
+		  <!-- <li>DuplicateSickness</li> -->
+		  <!-- <li>WVC_XaG_ShapeshifterDuplicateSickness</li> -->
+		  <!-- <li>CrumblingMindUndiagnosedDuplication</li> -->
+		  <!-- <li>CrumblingMindUndiagnosedCreepjoiner</li> -->
+		  <!-- <li>CrumblingMind</li> -->
+		  <!-- <li>CrumbledMind</li> -->
+		<!-- </hediffsToRemove> -->
+	  <!-- </li> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_GeneRestoration"> -->
+		<!-- <compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneShapeshifterModes</compClass> -->
+		<!-- <unlockModes> -->
+		  <!-- <li>WVC_Duplicate</li> -->
+		<!-- </unlockModes> -->
+	  <!-- </li> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_DestroyAndReturnResources"/> -->
+	  <li>
+		<compClass>WVC_XenotypesAndGenes.CompDestroyAndRefund</compClass>
+	  </li>
+	</comps>
+  </ThingDef>
+
 </Defs>

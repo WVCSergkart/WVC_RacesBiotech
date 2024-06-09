@@ -17,7 +17,7 @@ namespace WVC_XenotypesAndGenes
 
 		public bool genesRegrowing = false;
 		public bool canEverUseShapeshift = true;
-		public bool duplicateMode = false;
+		// public bool duplicateMode = false;
 		// public bool shouldBeDowned = true;
 		public List<XenotypeDef> preferredXenotypes;
 		// public List<string> trustedXenotypes;
@@ -29,7 +29,7 @@ namespace WVC_XenotypesAndGenes
 
 		public bool clearXenogenes = true;
 
-		public ShapeshiftModeDef shiftMode;
+		// public ShapeshiftModeDef shiftMode;
 
 		public Dialog_Shapeshifter(Gene_Shapeshifter thisGene)
 		{
@@ -37,7 +37,7 @@ namespace WVC_XenotypesAndGenes
 			gene = thisGene;
 			currentXeno = gene?.pawn?.genes?.Xenotype;
 			selectedXeno = currentXeno;
-			shiftMode = gene.ShiftMode;
+			// shiftMode = gene.ShiftMode;
 			// Settings
 			forcePause = true;
 			closeOnAccept = false;
@@ -54,11 +54,11 @@ namespace WVC_XenotypesAndGenes
 			genesRegrowing = HediffUtility.HasAnyHediff(shiftExtension?.blockingHediffs, gene.pawn);
 			// canEverUseShapeshift = !MiscUtility.HasAnyTraits(shiftExtension?.blockingTraits, gene.pawn);
 			// duplicateMode = MiscUtility.HasAnyTraits(shiftExtension?.duplicateTraits, gene.pawn) || HediffUtility.HasAnyHediff(shiftExtension?.duplicateHediffs, gene.pawn);
-			duplicateMode = HediffUtility.HasAnyHediff(shiftExtension?.duplicateHediffs, gene.pawn);
+			// duplicateMode = HediffUtility.HasAnyHediff(shiftExtension?.duplicateHediffs, gene.pawn);
 			// trustedXenotypes = shiftExtension?.trustedXenotypes != null ? shiftExtension.trustedXenotypes : new();
 			trueFormXenotypes = TrueFormXenotypesFromList(allXenotypes);
 			// Gene stats
-			xenogermComaAfterShapeshift = shiftMode.xenogermComa;
+			xenogermComaAfterShapeshift = gene.xenogermComaAfterShapeshift;
 		}
 
 		public static List<XenotypeDef> TrueFormXenotypesFromList(List<XenotypeDef> xenotypes)
@@ -131,8 +131,8 @@ namespace WVC_XenotypesAndGenes
 				// Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneShapeshifter_DisabledPermanent".Translate().Colorize(ColorLibrary.RedReadable));
 				// curY += 10f;
 			// }
-			Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneShapeshifter_DialogCurrentMode".Translate(shiftMode.LabelCap).Colorize(ColorLibrary.LightBlue));
-			curY += 10f;
+			// Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneShapeshifter_DialogCurrentMode".Translate(shiftMode.LabelCap).Colorize(ColorLibrary.LightBlue));
+			// curY += 10f;
 			if (genesRegrowing)
 			{
 				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate().Colorize(ColorLibrary.RedReadable));
@@ -216,11 +216,11 @@ namespace WVC_XenotypesAndGenes
 			// {
 				
 			// }
-			// else if (UndeadUtility.TryShapeshift(gene, this))
-			// {
+			if (UndeadUtility.TryShapeshift(gene, this))
+			{
 				
-			// }
-			shiftMode.Worker.Shapeshift(gene, this);
+			}
+			// shiftMode.Worker.Shapeshift(gene, this);
 			Close(doCloseSound: false);
 		}
 
@@ -230,7 +230,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return true;
 			}
-			if (!duplicateMode && trueFormXenotypes.Contains(mode))
+			if (trueFormXenotypes.Contains(mode))
 			{
 				return true;
 			}

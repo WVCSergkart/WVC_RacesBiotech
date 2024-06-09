@@ -102,12 +102,12 @@ namespace WVC_XenotypesAndGenes
 		public static JobDef WVC_XaG_CastCellsfeedOnPawnMelee;
 	}
 
-	[DefOf]
-	public static class ShapeshiftModeDefOf
-	{
-		public static ShapeshiftModeDef WVC_Shapeshift;
-		public static ShapeshiftModeDef WVC_Safeshift;
-		public static ShapeshiftModeDef WVC_Duplicate;
-	}
+	// [DefOf]
+	// public static class ShapeshiftModeDefOf
+	// {
+		// public static ShapeshiftModeDef WVC_Shapeshift;
+		// public static ShapeshiftModeDef WVC_Safeshift;
+		// public static ShapeshiftModeDef WVC_Duplicate;
+	// }
 
 }

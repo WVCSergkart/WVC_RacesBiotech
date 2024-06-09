@@ -2,7 +2,7 @@
 <Defs>
 
   <ThingDef ParentName="WVC_XenotypeSerum_Craftable" Abstract="True" Name="WVC_XenotypeSerum_ShiftSerumsTech" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
-	<description>A one-use super-dose of mechanites tuned to unlock an additional mode for shapeshift archites.</description>
+	<!-- <description>A one-use super-dose of mechanites tuned to unlock an additional mode for shapeshift archites.</description> -->
 	<descriptionHyperlinks Inherit="False">
 	  <GeneDef>WVC_Shapeshifter</GeneDef>
 	</descriptionHyperlinks>
@@ -37,47 +37,9 @@
   <!-- ==================================== -->
 
   <ThingDef ParentName="WVC_XenotypeSerum_ShiftSerumsTech" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
-	<defName>WVC_ShapeshifterOverclockerSerum_Base</defName>
-	<!-- <label>shiftover serum</label> -->
-	<label>shift serum (duplicate)</label>
-	<!-- <description>A one-use super-dose of mechanites tuned to disstabilize the influence of the psychic field on the shapeshifter. As a result, shapeshift mechanites go into overclocking mode, which allows the carrier of the shapeshift genes to duplicate themselves.</description> -->
-	<!-- <description>A one-use super-dose of mechanites tuned to restore the user's mental state and cure diseases associated with duplication.</description> -->
-	<graphicData>
-	  <texPath>WVC/Things/XaG_Items/Serums_Single/ShiftInjector_v0</texPath>
-	</graphicData>
-	<costList>
-	  <WVC_XenotypeSerumCapsule>2</WVC_XenotypeSerumCapsule>
-	  <WVC_EmptyXenotypeSerum>2</WVC_EmptyXenotypeSerum>
-	</costList>
-	<comps>
-	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_GeneRestoration"> -->
-		<!-- <compClass>WVC_XenotypesAndGenes.CompUseEffect_GiveHediffIfHasGene</compClass> -->
-		<!-- <hediffDef>WVC_Scarifier_ShapeshifterDuplicateMode</hediffDef> -->
-		<!-- <geneDef>WVC_Shapeshifter</geneDef> -->
-	  <!-- </li> -->
-	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_GeneRestoration"> -->
-		<!-- <hediffsToRemove> -->
-		  <!-- <li>DuplicateSickness</li> -->
-		  <!-- <li>WVC_XaG_ShapeshifterDuplicateSickness</li> -->
-		  <!-- <li>CrumblingMindUndiagnosedDuplication</li> -->
-		  <!-- <li>CrumblingMindUndiagnosedCreepjoiner</li> -->
-		  <!-- <li>CrumblingMind</li> -->
-		  <!-- <li>CrumbledMind</li> -->
-		<!-- </hediffsToRemove> -->
-	  <!-- </li> -->
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_GeneRestoration">
-		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneShapeshifterModes</compClass>
-		<unlockModes>
-		  <li>WVC_Duplicate</li>
-		</unlockModes>
-	  </li>
-	</comps>
-  </ThingDef>
-
-  <ThingDef ParentName="WVC_XenotypeSerum_ShiftSerumsTech" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_GeneShapeshifterSerum_Coma</defName>
 	<label>shift serum (coma)</label>
-	<!-- <description>A one-use super-dose of mechanites tuned to optimize the genetic transformation of the shapeshifter. Once used, the user will no longer fall into a coma after shapeshifting.</description> -->
+	<description>A one-use super-dose of mechanites tuned to optimize the genetic transformation of the shapeshifter. Once used, the user will no longer fall into a coma after shapeshifting.</description>
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Items/Serums_Single/ShiftSerum_Coma_v0</texPath>
 	</graphicData>
@@ -89,16 +51,16 @@
 	  <ComponentSpacer>3</ComponentSpacer>
 	</costList>
 	<comps>
-	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_GeneRestoration"> -->
-		<!-- <compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneShapeshifterChanger</compClass> -->
-		<!-- <disableShapeshiftComaAfterUse>true</disableShapeshiftComaAfterUse> -->
-	  <!-- </li> -->
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_GeneRestoration">
-		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneShapeshifterModes</compClass>
-		<unlockModes>
-		  <li>WVC_Safeshift</li>
-		</unlockModes>
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneShapeshifterChanger</compClass>
+		<disableShapeshiftComaAfterUse>true</disableShapeshiftComaAfterUse>
 	  </li>
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_GeneRestoration"> -->
+		<!-- <compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneShapeshifterModes</compClass> -->
+		<!-- <unlockModes> -->
+		  <!-- <li>WVC_Safeshift</li> -->
+		<!-- </unlockModes> -->
+	  <!-- </li> -->
 	</comps>
   </ThingDef>
 

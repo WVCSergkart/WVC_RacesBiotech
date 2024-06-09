@@ -32,10 +32,10 @@ namespace WVC_XenotypesAndGenes
 			// {
 				// styleIcon = new("WVC/UI/XaG_General/UI_DisabledWhite");
 			// }
-			if (gene.ShiftMode == null)
-			{
-				gene.Reset();
-			}
+			// if (gene.ShiftMode == null)
+			// {
+				// gene.Reset();
+			// }
 		}
 
 		public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
@@ -80,30 +80,34 @@ namespace WVC_XenotypesAndGenes
 			}
 			TooltipHandler.TipRegion(rect5, "WVC_XaG_GeneShapeshifterStyles_Desc".Translate());
 			// Button
-			Rect rect6 = new(rect5.x + 44f, rect5.y, rect5.width, rect5.height);
-			Widgets.DrawTextureFitted(rect6, gene.ShiftMode.uiIcon, 1f);
-			if (Mouse.IsOver(rect6))
-			{
-				Widgets.DrawHighlight(rect6);
-				if (Widgets.ButtonInvisible(rect6))
-				{
-					List<FloatMenuOption> list = new();
-					foreach (ShapeshiftModeDef shapeshiftModeDef in gene.UnlockedModes.OrderBy((ShapeshiftModeDef d) => d.uiOrder))
-					{
-						FloatMenuOption floatMenuOption = new(shapeshiftModeDef.LabelCap, delegate
-						{
-							gene.SetMode(shapeshiftModeDef);
-						}, shapeshiftModeDef.uiIcon, Color.white);
-						floatMenuOption.tooltip = new TipSignal(shapeshiftModeDef.description, shapeshiftModeDef.index ^ 0xDFE8661);
-						list.Add(floatMenuOption);
-					}
-					if (list.Any())
-					{
-						Find.WindowStack.Add(new FloatMenu(list));
-					}
-				}
-			}
-			TooltipHandler.TipRegion(rect6, gene.ShiftMode.description);
+			// Rect rect6 = new(rect5.x + 44f, rect5.y, rect5.width, rect5.height);
+			// Widgets.DrawTextureFitted(rect6, gene.ShiftMode.uiIcon, 1f);
+			// if (Mouse.IsOver(rect6))
+			// {
+				// Widgets.DrawHighlight(rect6);
+				// if (Widgets.ButtonInvisible(rect6))
+				// {
+					// List<FloatMenuOption> list = new();
+					// foreach (ShapeshiftModeDef shapeshiftModeDef in DefDatabase<ShapeshiftModeDef>.AllDefsListForReading.OrderBy((ShapeshiftModeDef d) => d.uiOrder))
+					// {
+						// if (!shapeshiftModeDef.unlockedByDefault && !gene.UnlockedModes.Contains(shapeshiftModeDef))
+						// {
+							// continue;
+						// }
+						// FloatMenuOption floatMenuOption = new(shapeshiftModeDef.LabelCap, delegate
+						// {
+							// gene.SetMode(shapeshiftModeDef);
+						// }, shapeshiftModeDef.uiIcon, Color.white);
+						// floatMenuOption.tooltip = new TipSignal(shapeshiftModeDef.description, shapeshiftModeDef.index ^ 0xDFE8661);
+						// list.Add(floatMenuOption);
+					// }
+					// if (list.Any())
+					// {
+						// Find.WindowStack.Add(new FloatMenu(list));
+					// }
+				// }
+			// }
+			// TooltipHandler.TipRegion(rect6, gene.ShiftMode.description);
 			// UpperButton
 			// Rect rectModeButton = new(rect.x + rect.width - 52f - 6f, rect.y + 6f, 26f, 26f);
 			// Widgets.DrawTextureFitted(rectModeButton, MenuIcon.Texture, 1f);
@@ -120,8 +124,8 @@ namespace WVC_XenotypesAndGenes
 		public override float GetWidth(float maxWidth)
 		{
 			// return 136f;
-			// return 96f;
-			return 140f;
+			return 96f;
+			// return 140f;
 		}
 
 		// public static IEnumerable<FloatMenuOption> GetWorkModeOptions(MechanitorControlGroup controlGroup)

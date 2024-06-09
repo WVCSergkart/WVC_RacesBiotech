@@ -15,45 +15,50 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
-		[Obsolete]
+		// [Obsolete]
 		public bool xenogermComaAfterShapeshift = true;
 
-		private ShapeshiftModeDef currentMode;
+		// private ShapeshiftModeDef currentMode;
 
-		private List<ShapeshiftModeDef> unlockedModes = new();
+		// private List<ShapeshiftModeDef> unlockedModes;
 
-		public List<ShapeshiftModeDef> UnlockedModes => unlockedModes;
-
-		public ShapeshiftModeDef ShiftMode => currentMode;
-
-		public void SetMode(ShapeshiftModeDef newMode)
-		{
-			if (currentMode != null)
-			{
-				HediffUtility.RemoveHediffsFromList(pawn, currentMode.hediffDefs);
-			}
-			currentMode = newMode;
-			// if (currentMode == null)
+		// public List<ShapeshiftModeDef> UnlockedModes
+		// {
+			// get
 			// {
-				// UnlockMode(Props.defaultShapeMode);
-				// currentMode = Props.defaultShapeMode;
+				// if (unlockedModes == null)
+				// {
+					// unlockedModes = new();
+				// }
+				// return unlockedModes;
 			// }
-			if (currentMode != null)
-			{
-				foreach (HediffDef hediffDef in currentMode.hediffDefs)
-				{
-					HediffUtility.TryAddHediff(hediffDef, pawn, def);
-				}
-			}
-		}
+		// }
 
-		public void UnlockMode(ShapeshiftModeDef newMode)
-		{
-			if (!unlockedModes.Contains(newMode))
-			{
-				unlockedModes.Add(newMode);
-			}
-		}
+		// public ShapeshiftModeDef ShiftMode => currentMode;
+
+		// public void SetMode(ShapeshiftModeDef newMode)
+		// {
+			// if (currentMode != null)
+			// {
+				// HediffUtility.RemoveHediffsFromList(pawn, currentMode.hediffDefs);
+			// }
+			// currentMode = newMode;
+			// if (currentMode != null)
+			// {
+				// foreach (HediffDef hediffDef in currentMode.hediffDefs)
+				// {
+					// HediffUtility.TryAddHediff(hediffDef, pawn, def);
+				// }
+			// }
+		// }
+
+		// public void UnlockMode(ShapeshiftModeDef newMode)
+		// {
+			// if (!unlockedModes.Contains(newMode))
+			// {
+				// unlockedModes.Add(newMode);
+			// }
+		// }
 
 		public override void PostAdd()
 		{
@@ -62,23 +67,22 @@ namespace WVC_XenotypesAndGenes
 			{
 				UndeadUtility.AddRandomTraitFromListWithChance(pawn, Props);
 			}
-			Reset();
+			// Reset();
 		}
 
-		public override void Reset()
-		{
-			unlockedModes = Props.initialShapeModes;
-			currentMode = Props.defaultShapeMode;
-			if (!xenogermComaAfterShapeshift)
-			{
-				UnlockMode(ShapeshiftModeDefOf.WVC_Safeshift);
-				xenogermComaAfterShapeshift = true;
-			}
-			if (HediffUtility.HasAnyHediff(Props.duplicateHediffs, pawn))
-			{
-				UnlockMode(ShapeshiftModeDefOf.WVC_Duplicate);
-			}
-		}
+		// public override void Reset()
+		// {
+			// SetMode(Props.defaultShapeMode);
+			// if (!xenogermComaAfterShapeshift)
+			// {
+				// UnlockMode(ShapeshiftModeDefOf.WVC_Safeshift);
+				// xenogermComaAfterShapeshift = true;
+			// }
+			// if (HediffUtility.HasAnyHediff(Props.duplicateHediffs, pawn))
+			// {
+				// UnlockMode(ShapeshiftModeDefOf.WVC_Duplicate);
+			// }
+		// }
 
 		private Gizmo gizmo;
 
@@ -88,20 +92,20 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
-			if (DebugSettings.ShowDevGizmos)
-			{
-				yield return new Command_Action
-				{
-					defaultLabel = "DEV: UnlockAllModes",
-					action = delegate
-					{
-						foreach (ShapeshiftModeDef shapeshiftModeDef in DefDatabase<ShapeshiftModeDef>.AllDefsListForReading)
-						{
-							UnlockMode(shapeshiftModeDef);
-						}
-					}
-				};
-			}
+			// if (DebugSettings.ShowDevGizmos)
+			// {
+				// yield return new Command_Action
+				// {
+					// defaultLabel = "DEV: UnlockAllModes",
+					// action = delegate
+					// {
+						// foreach (ShapeshiftModeDef shapeshiftModeDef in DefDatabase<ShapeshiftModeDef>.AllDefsListForReading)
+						// {
+							// UnlockMode(shapeshiftModeDef);
+						// }
+					// }
+				// };
+			// }
 			if (gizmo == null)
 			{
 				gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, this);
@@ -116,10 +120,10 @@ namespace WVC_XenotypesAndGenes
 
 		public void RemoveHediffs()
 		{
-			if (currentMode != null)
-			{
-				HediffUtility.RemoveHediffsFromList(pawn, currentMode.hediffDefs);
-			}
+			// if (currentMode != null)
+			// {
+				// HediffUtility.RemoveHediffsFromList(pawn, currentMode.hediffDefs);
+			// }
 			HediffUtility.RemoveHediffsFromList(pawn, Giver?.hediffDefs);
 		}
 
@@ -138,17 +142,17 @@ namespace WVC_XenotypesAndGenes
 			RemoveHediffs();
 		}
 
-		// public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
-		// {
-			// yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Label".Translate(), xenogermComaAfterShapeshift.ToStringYesNo(), "WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Desc".Translate(), 200);
-		// }
+		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
+		{
+			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Label".Translate(), xenogermComaAfterShapeshift.ToStringYesNo(), "WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Desc".Translate(), 200);
+		}
 
 		public override void ExposeData()
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref xenogermComaAfterShapeshift, "xenogerminationComaAfterShapeshift", defaultValue: true);
-			Scribe_Defs.Look(ref currentMode, "shapeshifterMode");
-			Scribe_Collections.Look(ref unlockedModes, "unlockedModes", LookMode.Def);
+			// Scribe_Defs.Look(ref currentMode, "shapeshifterMode");
+			// Scribe_Collections.Look(ref unlockedModes, "unlockedModes", LookMode.Def);
 		}
 
 	}

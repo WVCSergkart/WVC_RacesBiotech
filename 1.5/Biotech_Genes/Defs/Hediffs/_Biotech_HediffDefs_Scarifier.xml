@@ -68,28 +68,6 @@
 
   <!-- ====================================== -->
 
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
-	<defName>WVC_Scarifier_ShapeshifterDuplicateMode</defName>
-	<label>shapeshift overclock</label>
-	<description>Shapeshifter mechanites in overclocking mode. In the current state, it is impossible to apply shapeshift, and attempts will lead to copying of the carrier of the corresponding gene.</description>
-	<stages>
-	  <li>
-		<becomeVisible>true</becomeVisible>
-		<minSeverity>0.0</minSeverity>
-	  </li>
-	</stages>
-	<comps>
-	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
-		<geneDef>WVC_Shapeshifter</geneDef>
-	  </li>
-	  <li Class="HediffCompProperties_Disappears">
-		<disappearsAfterTicks>120000~340000</disappearsAfterTicks>
-		<showRemainingTime>true</showRemainingTime>
-	  </li>
-	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
-	</comps>
-  </HediffDef>
-
   <!-- <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base"> -->
 	<!-- <defName>WVC_Scarifier_ShapeshifterNoXenogermComa</defName> -->
 	<!-- <label>shapeshift optimizer</label> -->

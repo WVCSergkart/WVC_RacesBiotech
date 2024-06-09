@@ -12,7 +12,7 @@ namespace WVC_XenotypesAndGenes
 
 		public bool canBeUsedInCaravan = false;
 
-		public List<ShapeshiftModeDef> unlockModes;
+		// public List<ShapeshiftModeDef> unlockModes;
 
 		public GeneDef geneDef;
 
@@ -27,20 +27,20 @@ namespace WVC_XenotypesAndGenes
 			compClass = typeof(CompUseEffect_GeneRestoration);
 		}
 
-		public override void ResolveReferences(ThingDef parentDef)
-		{
-			if (!unlockModes.NullOrEmpty())
-			{
-				if (parentDef.descriptionHyperlinks.NullOrEmpty())
-				{
-					parentDef.descriptionHyperlinks = new();
-				}
-				foreach (ShapeshiftModeDef shapeshiftModeDef in unlockModes)
-				{
-					parentDef.descriptionHyperlinks.Add(new DefHyperlink(shapeshiftModeDef));
-				}
-			}
-		}
+		// public override void ResolveReferences(ThingDef parentDef)
+		// {
+			// if (!unlockModes.NullOrEmpty())
+			// {
+				// if (parentDef.descriptionHyperlinks.NullOrEmpty())
+				// {
+					// parentDef.descriptionHyperlinks = new();
+				// }
+				// foreach (ShapeshiftModeDef shapeshiftModeDef in unlockModes)
+				// {
+					// parentDef.descriptionHyperlinks.Add(new DefHyperlink(shapeshiftModeDef));
+				// }
+			// }
+		// }
 
 	}
 

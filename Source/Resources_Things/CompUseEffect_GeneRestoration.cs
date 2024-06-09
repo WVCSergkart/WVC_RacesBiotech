@@ -104,7 +104,6 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	[Obsolete]
 	public class CompUseEffect_GeneShapeshifterChanger : CompUseEffect
 	{
 		public CompProperties_UseEffect_GeneRestoration Props => (CompProperties_UseEffect_GeneRestoration)props;
@@ -135,38 +134,38 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class CompUseEffect_GeneShapeshifterModes : CompUseEffect
-	{
-		public CompProperties_UseEffect_GeneRestoration Props => (CompProperties_UseEffect_GeneRestoration)props;
+	// public class CompUseEffect_GeneShapeshifterModes : CompUseEffect
+	// {
+		// public CompProperties_UseEffect_GeneRestoration Props => (CompProperties_UseEffect_GeneRestoration)props;
 
-		public override void DoEffect(Pawn pawn)
-		{
-			Gene_Shapeshifter shapeshifter = pawn?.genes?.GetFirstGeneOfType<Gene_Shapeshifter>();
-			if (!SerumUtility.IsHuman(pawn) || shapeshifter == null)
-			{
-				pawn.health.AddHediff(WVC_GenesDefOf.WVC_IncompatibilityComa);
-				Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
-				return;
-			}
-			if (Props.unlockModes.NullOrEmpty())
-			{
-				return;
-			}
-			foreach (ShapeshiftModeDef shapeshiftModeDef in Props.unlockModes)
-			{
-				shapeshifter.UnlockMode(shapeshiftModeDef);
-			}
-		}
+		// public override void DoEffect(Pawn pawn)
+		// {
+			// Gene_Shapeshifter shapeshifter = pawn?.genes?.GetFirstGeneOfType<Gene_Shapeshifter>();
+			// if (!SerumUtility.IsHuman(pawn) || shapeshifter == null)
+			// {
+				// pawn.health.AddHediff(WVC_GenesDefOf.WVC_IncompatibilityComa);
+				// Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+				// return;
+			// }
+			// if (Props.unlockModes.NullOrEmpty())
+			// {
+				// return;
+			// }
+			// foreach (ShapeshiftModeDef shapeshiftModeDef in Props.unlockModes)
+			// {
+				// shapeshifter.UnlockMode(shapeshiftModeDef);
+			// }
+		// }
 
-		public override AcceptanceReport CanBeUsedBy(Pawn p)
-		{
-			if (!SerumUtility.IsHuman(p) || !p.IsShapeshifter())
-			{
-				return "WVC_PawnIsAndroidCheck".Translate();
-			}
-			return true;
-		}
+		// public override AcceptanceReport CanBeUsedBy(Pawn p)
+		// {
+			// if (!SerumUtility.IsHuman(p) || !p.IsShapeshifter())
+			// {
+				// return "WVC_PawnIsAndroidCheck".Translate();
+			// }
+			// return true;
+		// }
 
-	}
+	// }
 
 }
