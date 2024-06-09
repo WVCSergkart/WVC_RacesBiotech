@@ -503,6 +503,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing>This person's genetic material is regrowing.</WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing>
 	<WVC_XaG_GeneShapeshifter_DisabledPermanent>This person will never be able to use shapeshift.</WVC_XaG_GeneShapeshifter_DisabledPermanent>
 
+	<WVC_XaG_GeneShapeshifter_DialogCurrentMode>Current mode: {0}</WVC_XaG_GeneShapeshifter_DialogCurrentMode>
+
 	<WVC_XaG_ShapeshifterGizmo>Shapeshifter</WVC_XaG_ShapeshifterGizmo>
 
 	<WVC_XaG_ReqIdeology>Ideology is required.</WVC_XaG_ReqIdeology>
@@ -532,7 +534,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>{TARGET_nameDef}'s genes have been significantly changed, {TARGET_possessive} xenotype is now {1}. {TARGET_nameDef} won't be able to use {2} again for a while.</WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>
 
 	<WVC_XaG_GeneShapeshifter_DuplicateLetterLabel>Duplicate</WVC_XaG_GeneShapeshifter_DuplicateLetterLabel>
-	<WVC_XaG_GeneShapeshifter_DuplicateLetterDesc>Due to the shapeshift mechanites overclocking, {TARGET_nameDef} was cloned. {TARGET_nameDef}'s clone inherited most of {TARGET_possessive} skills and traits.</WVC_XaG_GeneShapeshifter_DuplicateLetterDesc>
+	<WVC_XaG_GeneShapeshifter_DuplicateLetterDesc>{TARGET_nameDef} was duplicated. {TARGET_nameDef}'s duplicate inherited most of {TARGET_possessive} skills and traits.</WVC_XaG_GeneShapeshifter_DuplicateLetterDesc>
 
 	<WVC_XaG_GeneShapeshifter_TrustedXenotypes>This xenotype has been verified by the mod developer.</WVC_XaG_GeneShapeshifter_TrustedXenotypes>
 	<WVC_XaG_GeneShapeshifter_UnknownXenotypes>This xenotype has not been tested, use at your own risk.</WVC_XaG_GeneShapeshifter_UnknownXenotypes>

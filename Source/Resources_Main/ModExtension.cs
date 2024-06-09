@@ -125,6 +125,9 @@ namespace WVC_XenotypesAndGenes
 		public Color destroyedGenesColor;
 		// Regen
 		public float regeneration = -1f;
+		// Regen
+		public ShapeshiftModeDef defaultShapeMode;
+		public List<ShapeshiftModeDef> initialShapeModes;
 	}
 
 	public class GeneExtension_Opinion : DefModExtension

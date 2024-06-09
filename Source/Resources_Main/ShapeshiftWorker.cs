@@ -1,5 +1,7 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
+using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -15,27 +17,31 @@ namespace WVC_XenotypesAndGenes
 
 		public int uiOrder;
 
-		public List<HediffDef> hediffDefs;
+		public List<HediffDef> hediffDefs = new();
 
 		public List<GeneDef> reqGeneDefs;
 
-		// public Type workerClass = typeof(ShapeshifterModeWorker);
+		public bool xenogermComa = true;
 
-		// [Unsaved(false)]
-		// private ShapeshifterModeWorker workerInt;
+		// public Type modeClass = typeof(ShapeshifterMode);
 
-		// public ShapeshifterModeWorker Worker
-		// {
-			// get
-			// {
-				// if (workerInt == null)
-				// {
-					// workerInt = (ShapeshifterModeWorker)Activator.CreateInstance(workerClass);
-					// workerInt.def = this;
-				// }
-				// return workerInt;
-			// }
-		// }
+		public Type workerClass = typeof(ShapeshifterModeWorker);
+
+		[Unsaved(false)]
+		private ShapeshifterModeWorker workerInt;
+
+		public ShapeshifterModeWorker Worker
+		{
+			get
+			{
+				if (workerInt == null)
+				{
+					workerInt = (ShapeshifterModeWorker)Activator.CreateInstance(workerClass);
+					workerInt.def = this;
+				}
+				return workerInt;
+			}
+		}
 
 		public override void PostLoad()
 		{
@@ -50,14 +56,26 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	// public class ShapeshifterModeWorker
-	// {
+	public class ShapeshifterModeWorker
+	{
 
-		// public virtual void Notify_ChangeHediffs()
-		// {
-			
-		// }
+		public ShapeshiftModeDef def;
 
-	// }
+		public virtual void Shapeshift(Gene_Shapeshifter gene, Dialog_Shapeshifter dialog)
+		{
+			UndeadUtility.TryShapeshift(gene, dialog);
+		}
+
+	}
+
+	public class ShapeshifterModeWorker_Duplicate : ShapeshifterModeWorker
+	{
+
+		public override void Shapeshift(Gene_Shapeshifter gene, Dialog_Shapeshifter dialog)
+		{
+			UndeadUtility.TryDuplicatePawn(gene.pawn, gene, dialog.selectedXeno, true);
+		}
+
+	}
 
 }

@@ -15,7 +15,45 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
+		[Obsolete]
 		public bool xenogermComaAfterShapeshift = true;
+
+		private ShapeshiftModeDef currentMode;
+
+		private List<ShapeshiftModeDef> unlockedModes = new();
+
+		public List<ShapeshiftModeDef> UnlockedModes => unlockedModes;
+
+		public ShapeshiftModeDef ShiftMode => currentMode;
+
+		public void SetMode(ShapeshiftModeDef newMode)
+		{
+			if (currentMode != null)
+			{
+				HediffUtility.RemoveHediffsFromList(pawn, currentMode.hediffDefs);
+			}
+			currentMode = newMode;
+			// if (currentMode == null)
+			// {
+				// UnlockMode(Props.defaultShapeMode);
+				// currentMode = Props.defaultShapeMode;
+			// }
+			if (currentMode != null)
+			{
+				foreach (HediffDef hediffDef in currentMode.hediffDefs)
+				{
+					HediffUtility.TryAddHediff(hediffDef, pawn, def);
+				}
+			}
+		}
+
+		public void UnlockMode(ShapeshiftModeDef newMode)
+		{
+			if (!unlockedModes.Contains(newMode))
+			{
+				unlockedModes.Add(newMode);
+			}
+		}
 
 		public override void PostAdd()
 		{
@@ -23,6 +61,22 @@ namespace WVC_XenotypesAndGenes
 			if (!pawn.Spawned)
 			{
 				UndeadUtility.AddRandomTraitFromListWithChance(pawn, Props);
+			}
+			Reset();
+		}
+
+		public override void Reset()
+		{
+			unlockedModes = Props.initialShapeModes;
+			currentMode = Props.defaultShapeMode;
+			if (!xenogermComaAfterShapeshift)
+			{
+				UnlockMode(ShapeshiftModeDefOf.WVC_Safeshift);
+				xenogermComaAfterShapeshift = true;
+			}
+			if (HediffUtility.HasAnyHediff(Props.duplicateHediffs, pawn))
+			{
+				UnlockMode(ShapeshiftModeDefOf.WVC_Duplicate);
 			}
 		}
 
@@ -34,38 +88,25 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: UnlockAllModes",
+					action = delegate
+					{
+						foreach (ShapeshiftModeDef shapeshiftModeDef in DefDatabase<ShapeshiftModeDef>.AllDefsListForReading)
+						{
+							UnlockMode(shapeshiftModeDef);
+						}
+					}
+				};
+			}
 			if (gizmo == null)
 			{
 				gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, this);
 			}
 			yield return gizmo;
-			// yield return new Command_Action
-			// {
-				// defaultLabel = def.LabelCap,
-				// defaultDesc = "WVC_XaG_GeneShapeshifter_Desc".Translate(),
-				// icon = ContentFinder<Texture2D>.Get(def.iconPath),
-				// action = delegate
-				// {
-					// Find.WindowStack.Add(new Dialog_Shapeshifter(this));
-				// }
-			// };
-			// if (pawn.Drafted)
-			// {
-				// yield break;
-			// }
-			// if (ModLister.CheckIdeology("Styling station") && WVC_Biotech.settings.shapeshifter_enableStyleButton)
-			// {
-				// yield return new Command_Action
-				// {
-					// defaultLabel = "WVC_XaG_GeneShapeshifterStyles_Label".Translate(),
-					// defaultDesc = "WVC_XaG_GeneShapeshifterStyles_Desc".Translate(),
-					// icon = ContentFinder<Texture2D>.Get(def.iconPath),
-					// action = delegate
-					// {
-						// Find.WindowStack.Add(new Dialog_StylingShift(pawn, this));
-					// }
-				// };
-			// }
 		}
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
@@ -75,6 +116,10 @@ namespace WVC_XenotypesAndGenes
 
 		public void RemoveHediffs()
 		{
+			if (currentMode != null)
+			{
+				HediffUtility.RemoveHediffsFromList(pawn, currentMode.hediffDefs);
+			}
 			HediffUtility.RemoveHediffsFromList(pawn, Giver?.hediffDefs);
 		}
 
@@ -93,76 +138,18 @@ namespace WVC_XenotypesAndGenes
 			RemoveHediffs();
 		}
 
-		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
-		{
-			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Label".Translate(), xenogermComaAfterShapeshift.ToStringYesNo(), "WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Desc".Translate(), 200);
-		}
+		// public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
+		// {
+			// yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Label".Translate(), xenogermComaAfterShapeshift.ToStringYesNo(), "WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Desc".Translate(), 200);
+		// }
 
 		public override void ExposeData()
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref xenogermComaAfterShapeshift, "xenogerminationComaAfterShapeshift", defaultValue: true);
+			Scribe_Defs.Look(ref currentMode, "shapeshifterMode");
+			Scribe_Collections.Look(ref unlockedModes, "unlockedModes", LookMode.Def);
 		}
-
-	}
-
-	[Obsolete]
-	public class Gene_Shapeshifter_Rand : Gene_Shapeshifter
-	{
-
-		// public override void PostAdd()
-		// {
-			// base.PostAdd();
-			// Shapeshift();
-		// }
-
-		// public void Shapeshift(float chance = 0.2f)
-		// {
-			// if (Active && Rand.Chance(chance))
-			// {
-				// RandomXenotype(pawn, this, null);
-			// }
-		// }
-
-		// public void RandomXenotype(Pawn pawn, Gene gene, XenotypeDef xenotype)
-		// {
-			// if (xenotype == null)
-			// {
-				// List<XenotypeDef> xenotypeDef = XenotypeFilterUtility.AllXenotypesExceptAndroids();
-				// if (gene.def.GetModExtension<GeneExtension_Giver>() != null && gene.def.GetModExtension<GeneExtension_Giver>().xenotypeIsInheritable)
-				// {
-					// xenotype = xenotypeDef.Where((XenotypeDef randomXenotypeDef) => randomXenotypeDef.inheritable).RandomElement();
-				// }
-				// else
-				// {
-					// xenotype = xenotypeDef.Where((XenotypeDef randomXenotypeDef) => !randomXenotypeDef.inheritable).RandomElement();
-				// }
-				// if (xenotype == null)
-				// {
-					// Log.Error("Generated gene with null xenotype. Choose random.");
-					// xenotype = xenotypeDef.RandomElement();
-				// }
-			// }
-			// if (xenotype == null)
-			// {
-				// pawn.genes.RemoveGene(gene);
-				// Log.Error("Xenotype is null. Do not report this to the developer, you yourself created this creepy world filled with bugs. To fix the situation, reset the filter in the " + "WVC_BiotechSettings".Translate() + " mod settings and restart the game.");
-				// return;
-			// }
-			// List<GeneDef> dontRemove = new();
-			// dontRemove.Add(gene.def);
-			// ReimplanterUtility.SetXenotype_DoubleXenotype(pawn, xenotype);
-		// }
-
-		// public override void Tick()
-		// {
-			// base.Tick();
-			// if (!pawn.IsHashIntervalTick(132520))
-			// {
-				// return;
-			// }
-			// Shapeshift(0.1f);
-		// }
 
 	}
 

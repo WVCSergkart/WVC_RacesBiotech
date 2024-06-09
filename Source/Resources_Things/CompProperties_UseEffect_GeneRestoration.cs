@@ -12,6 +12,8 @@ namespace WVC_XenotypesAndGenes
 
 		public bool canBeUsedInCaravan = false;
 
+		public List<ShapeshiftModeDef> unlockModes;
+
 		public GeneDef geneDef;
 
 		public HediffDef hediffDef;
@@ -23,6 +25,21 @@ namespace WVC_XenotypesAndGenes
 		public CompProperties_UseEffect_GeneRestoration()
 		{
 			compClass = typeof(CompUseEffect_GeneRestoration);
+		}
+
+		public override void ResolveReferences(ThingDef parentDef)
+		{
+			if (!unlockModes.NullOrEmpty())
+			{
+				if (parentDef.descriptionHyperlinks.NullOrEmpty())
+				{
+					parentDef.descriptionHyperlinks = new();
+				}
+				foreach (ShapeshiftModeDef shapeshiftModeDef in unlockModes)
+				{
+					parentDef.descriptionHyperlinks.Add(new DefHyperlink(shapeshiftModeDef));
+				}
+			}
 		}
 
 	}
