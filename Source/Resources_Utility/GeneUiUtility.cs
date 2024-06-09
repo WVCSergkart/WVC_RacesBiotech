@@ -6,8 +6,13 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public static class GeneUiUtility
-    {
+	public static class GeneUiUtility
+	{
+
+		public static readonly CachedTexture GeneBackground_Endogene = new("WVC/UI/Genes/GeneBackground_Endogene");
+		public static readonly CachedTexture GeneBackground_Xenogene = new("WVC/UI/Genes/GeneBackground_Xenogene");
+		public static readonly CachedTexture GeneBackground_ArchiteEndogene = new("WVC/UI/Genes/GeneBackground_ArchiteGene");
+		public static readonly CachedTexture GeneBackground_ArchiteXenogene = new("WVC/UI/Genes/GeneBackground_XenoArchiteGene");
 
 		public static string OnOrOff(bool onOrOff)
 		{
@@ -26,10 +31,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return true;
 			}
-			if (geneDef.GetModExtension<GeneExtension_Graphic>() != null)
-			{
-				return true;
-			}
+			// if (geneDef.GetModExtension<GeneExtension_Graphic>() != null)
+			// {
+				// return true;
+			// }
 			return false;
 		}
 
@@ -97,9 +102,6 @@ namespace WVC_XenotypesAndGenes
 
 		public static void DrawGeneBasics(GeneDef gene, Rect geneRect, GeneType geneType, bool doBackground, bool clickable, bool overridden)
 		{
-			// CachedTexture GeneBackground_Archite = new CachedTexture("WVC/UI/Genes/GeneBackground_ArchiteGene");
-			// CachedTexture GeneBackground_Archite = new CachedTexture("WVC/UI/Genes/GeneBackground_Endogene");
-			// CachedTexture GeneBackground_Archite = new CachedTexture("WVC/UI/Genes/GeneBackground_Xenogene");
 			GUI.BeginGroup(geneRect);
 			Rect rect = geneRect.AtZero();
 			if (doBackground)
@@ -153,25 +155,26 @@ namespace WVC_XenotypesAndGenes
 
 		public static CachedTexture BackgroundTexture(GeneDef gene, GeneType geneType)
 		{
-			GeneExtension_Graphic background = gene.GetModExtension<GeneExtension_Graphic>();
-			CachedTexture cachedTexture = new("WVC/UI/Genes/GeneBackground_Endogene");
+			// Log.Error("1");
+			// GeneExtension_Graphic background = gene.GetModExtension<GeneExtension_Graphic>();
+			CachedTexture cachedTexture = GeneBackground_Endogene;
 			if (gene.biostatArc == 0)
 			{
 				switch (geneType)
 				{
 				case GeneType.Endogene:
-					cachedTexture = new("WVC/UI/Genes/GeneBackground_Endogene");
-					if (background != null && !background.backgroundPathEndogenes.NullOrEmpty())
-					{
-						cachedTexture = new(background.backgroundPathEndogenes);
-					}
+					cachedTexture = GeneBackground_Endogene;
+					// if (background != null && !background.backgroundPathEndogenes.NullOrEmpty())
+					// {
+						// cachedTexture = new(background.backgroundPathEndogenes);
+					// }
 					break;
 				case GeneType.Xenogene:
-					cachedTexture = new("WVC/UI/Genes/GeneBackground_Xenogene");
-					if (background != null && !background.backgroundPathXenogenes.NullOrEmpty())
-					{
-						cachedTexture = new(background.backgroundPathXenogenes);
-					}
+					cachedTexture = GeneBackground_Xenogene;
+					// if (background != null && !background.backgroundPathXenogenes.NullOrEmpty())
+					// {
+						// cachedTexture = new(background.backgroundPathXenogenes);
+					// }
 					break;
 				}
 			}
@@ -180,18 +183,18 @@ namespace WVC_XenotypesAndGenes
 				switch (geneType)
 				{
 				case GeneType.Endogene:
-					cachedTexture = new("WVC/UI/Genes/GeneBackground_ArchiteGene");
-					if (background != null && !background.backgroundPathEndoArchite.NullOrEmpty())
-					{
-						cachedTexture = new(background.backgroundPathEndoArchite);
-					}
+					cachedTexture = GeneBackground_ArchiteEndogene;
+					// if (background != null && !background.backgroundPathEndoArchite.NullOrEmpty())
+					// {
+						// cachedTexture = new(background.backgroundPathEndoArchite);
+					// }
 					break;
 				case GeneType.Xenogene:
-					cachedTexture = new("WVC/UI/Genes/GeneBackground_XenoArchiteGene");
-					if (background != null && !background.backgroundPathXenoArchite.NullOrEmpty())
-					{
-						cachedTexture = new(background.backgroundPathXenoArchite);
-					}
+					cachedTexture = GeneBackground_ArchiteXenogene;
+					// if (background != null && !background.backgroundPathXenoArchite.NullOrEmpty())
+					// {
+						// cachedTexture = new(background.backgroundPathXenoArchite);
+					// }
 					break;
 				}
 			}
