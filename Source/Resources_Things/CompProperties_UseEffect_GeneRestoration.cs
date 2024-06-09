@@ -27,20 +27,20 @@ namespace WVC_XenotypesAndGenes
 			compClass = typeof(CompUseEffect_GeneRestoration);
 		}
 
-		// public override void ResolveReferences(ThingDef parentDef)
-		// {
-			// if (!unlockModes.NullOrEmpty())
-			// {
-				// if (parentDef.descriptionHyperlinks.NullOrEmpty())
-				// {
-					// parentDef.descriptionHyperlinks = new();
-				// }
-				// foreach (ShapeshiftModeDef shapeshiftModeDef in unlockModes)
-				// {
-					// parentDef.descriptionHyperlinks.Add(new DefHyperlink(shapeshiftModeDef));
-				// }
-			// }
-		// }
+		public override void ResolveReferences(ThingDef parentDef)
+		{
+			if (!hediffsToRemove.NullOrEmpty())
+			{
+				if (parentDef.descriptionHyperlinks.NullOrEmpty())
+				{
+					parentDef.descriptionHyperlinks = new();
+				}
+				foreach (HediffDef hediffDef in hediffsToRemove)
+				{
+					parentDef.descriptionHyperlinks.Add(new DefHyperlink(hediffDef));
+				}
+			}
+		}
 
 	}
 

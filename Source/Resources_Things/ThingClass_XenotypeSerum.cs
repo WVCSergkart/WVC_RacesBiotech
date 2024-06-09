@@ -28,13 +28,13 @@ namespace WVC_XenotypesAndGenes
 				{
 					yield return new DefHyperlink(this.TryGetComp<CompUseEffect_GeneGiver>().geneDef);
 				}
-				if (this?.TryGetComp<CompUseEffect_GeneRestoration>()?.Props?.hediffsToRemove != null)
-				{
-					foreach (HediffDef item in this.TryGetComp<CompUseEffect_GeneRestoration>().Props.hediffsToRemove)
-					{
-						yield return new DefHyperlink(item);
-					}
-				}
+				// if (this?.TryGetComp<CompUseEffect_GeneRestoration>()?.Props?.hediffsToRemove != null)
+				// {
+					// foreach (HediffDef item in this.TryGetComp<CompUseEffect_GeneRestoration>().Props.hediffsToRemove)
+					// {
+						// yield return new DefHyperlink(item);
+					// }
+				// }
 				if (def.descriptionHyperlinks != null)
 				{
 					for (int i = 0; i < def.descriptionHyperlinks.Count; i++)
