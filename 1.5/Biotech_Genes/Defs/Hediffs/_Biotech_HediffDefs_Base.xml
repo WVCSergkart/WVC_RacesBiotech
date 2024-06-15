@@ -136,11 +136,11 @@
 	<description>Psychically-induced invisibility. This actually affects others nearby, making their brains unable to perceive the sight of this individual, even if the eyes are unaffected.</description>
 	<stages>
 	  <li>
-		<hungerRateFactorOffset>2.2</hungerRateFactorOffset>
+		<hungerRateFactorOffset>5.0</hungerRateFactorOffset>
 		<statOffsets>
-		  <RestFallRateFactor>2.2</RestFallRateFactor>
+		  <RestFallRateFactor>5.0</RestFallRateFactor>
 		</statOffsets>
-		<disabledWorkTags>Violent</disabledWorkTags>
+		<!-- <disabledWorkTags>Violent</disabledWorkTags> -->
 		<minSeverity>0.0</minSeverity>
 	  </li>
 	</stages>
@@ -152,6 +152,10 @@
 		<!-- <checkInterval>3246~7831</checkInterval> -->
 		<!-- <geneDef>WVC_Invisibility</geneDef> -->
 	  <!-- </li> -->
+	  <li Class="HediffCompProperties_Disappears">
+		<disappearsAfterTicks>1250~2400</disappearsAfterTicks>
+		<showRemainingTime>true</showRemainingTime>
+	  </li>
 	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
 	</comps>
   </HediffDef>

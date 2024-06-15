@@ -33,7 +33,7 @@
 	<defName>WVC_Invisibility</defName>
 	<label>invisibility</label>
 	<description>Carriers of this gene can psychically influence the minds of others, becoming completely invisible to them.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_Flickable</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Invisibility</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_Invisibility_v0</iconPath>
 	<biostatCpx>4</biostatCpx>
 	<biostatArc>1</biostatArc>

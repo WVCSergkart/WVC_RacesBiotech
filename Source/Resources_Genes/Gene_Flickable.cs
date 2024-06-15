@@ -149,4 +149,46 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_Invisibility : Gene_Flickable
+	{
+
+		private int cooldown = -1;
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (!Active || Find.Selector.SelectedPawns.Count != 1 || pawn.Faction != Faction.OfPlayer)
+			{
+				yield break;
+			}
+			yield return new Command_Action
+			{
+				defaultLabel = def.LabelCap + ": " + Flick(pawn, Props.hediffDefName),
+				defaultDesc = Props.message.Translate(),
+				icon = ContentFinder<Texture2D>.Get(def.iconPath),
+				Disabled = cooldown > Find.TickManager.TicksGame,
+				disabledReason = "WVC_XaG_Gene_InvisibilityCD".Translate(),
+				action = delegate
+				{
+					AddOrRemoveHediff(pawn, Props.hediffDefName, this);
+					cooldown = Find.TickManager.TicksGame + 450;
+					if (!pawn.health.hediffSet.HasHediff(Props.hediffDefName))
+					{
+						SoundDefOf.Tick_High.PlayOneShotOnCamera();
+					}
+					else
+					{
+						SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+					}
+				}
+			};
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref cooldown, "cooldown", -1);
+		}
+
+	}
+
 }
