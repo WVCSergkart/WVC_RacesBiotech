@@ -91,4 +91,13 @@
 		</value>
 	</Operation>
 
+	<!-- True Xenotypes TEST -->
+
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath> -->
+	  <!-- <value> -->
+		  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_Xenotype"/> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
 </Patch>

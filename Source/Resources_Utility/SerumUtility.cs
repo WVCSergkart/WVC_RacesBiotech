@@ -91,7 +91,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void XenotypeSerum(Pawn pawn, List<string> blackListedXenotypes, XenotypeDef xenotypeDef, bool removeEndogenes, bool removeXenogenes)
 		{
-			XenotypeDef xenotype = DefDatabase<XenotypeDef>.AllDefs.Where((XenotypeDef randomXenotypeDef) => randomXenotypeDef != pawn.genes.Xenotype && !blackListedXenotypes.Contains(randomXenotypeDef.defName)).RandomElement();
+			XenotypeDef xenotype = DefDatabase<XenotypeDef>.AllDefsListForReading.Where((XenotypeDef randomXenotypeDef) => randomXenotypeDef != pawn.genes.Xenotype && !blackListedXenotypes.Contains(randomXenotypeDef.defName)).RandomElement();
 			if (xenotypeDef != null)
 			{
 				xenotype = xenotypeDef;
@@ -141,8 +141,8 @@ namespace WVC_XenotypesAndGenes
 		{
 			// Set random xenotype
 			Pawn_GeneTracker genes = pawn.genes;
-			XenotypeDef endoXenotype = DefDatabase<XenotypeDef>.AllDefs.Where((XenotypeDef randomXenotypeDef) => randomXenotypeDef != pawn.genes.Xenotype && !blackListedXenotypes.Contains(randomXenotypeDef.defName) && randomXenotypeDef.inheritable).RandomElement();
-			XenotypeDef xenoXenotype = DefDatabase<XenotypeDef>.AllDefs.Where((XenotypeDef randomXenotypeDef) => randomXenotypeDef != pawn.genes.Xenotype && !blackListedXenotypes.Contains(randomXenotypeDef.defName) && !randomXenotypeDef.inheritable).RandomElement();
+			XenotypeDef endoXenotype = DefDatabase<XenotypeDef>.AllDefsListForReading.Where((XenotypeDef randomXenotypeDef) => randomXenotypeDef != pawn.genes.Xenotype && !blackListedXenotypes.Contains(randomXenotypeDef.defName) && randomXenotypeDef.inheritable).RandomElement();
+			XenotypeDef xenoXenotype = DefDatabase<XenotypeDef>.AllDefsListForReading.Where((XenotypeDef randomXenotypeDef) => randomXenotypeDef != pawn.genes.Xenotype && !blackListedXenotypes.Contains(randomXenotypeDef.defName) && !randomXenotypeDef.inheritable).RandomElement();
 			// Check props
 			if (xenotypeDef != null && xenotypeDef.inheritable)
 			{
