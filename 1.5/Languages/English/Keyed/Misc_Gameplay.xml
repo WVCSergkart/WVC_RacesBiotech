@@ -370,8 +370,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_GeneGeneticThief_RemoveGene>Remove from geneset</WVC_XaG_GeneGeneticThief_RemoveGene>
 	<WVC_XaG_GeneGeneticThief_ClearXenogenesButton>Clear all xenogenes</WVC_XaG_GeneGeneticThief_ClearXenogenesButton>
 
-	<WVC_XaG_GeneGeneticThief_ImplantGeneSet>The selected genes will be implanted as xenogenes, and the pawn will receive genes regrowing hediff. Genes regrowing may limit the use of certain genes or abilities.\n\n If the chimera gene is xenogene, then it will lose all accumulated genes and become endogene.</WVC_XaG_GeneGeneticThief_ImplantGeneSet>
-	<WVC_XaG_GeneGeneticThief_ClearGeneSet>All xenogenes will be removed, and the {0} gene, if it was a xenogene, will lose all accumulated genes and become endogene. The xenogerm replication hediff will also be removed if it is present.</WVC_XaG_GeneGeneticThief_ClearGeneSet>
+	<WVC_XaG_GeneGeneticThief_ImplantGeneSet>The selected genes will be implanted as xenogenes, and the pawn will receive genes regrowing hediff. Genes regrowing may limit the use of certain genes or abilities.\n\nIf the chimera gene is xenogene, then it will lose all accumulated genes and become endogene.</WVC_XaG_GeneGeneticThief_ImplantGeneSet>
+	<WVC_XaG_GeneGeneticThief_ClearGeneSet>All xenogenes will be removed, and the chimera gene, if it was a xenogene, will lose all accumulated genes and become endogene. The xenogerm replication hediff will also be removed if it is present.</WVC_XaG_GeneGeneticThief_ClearGeneSet>
 	<WVC_XaG_GeneGeneticThief_EatSelectedGenes>When eaten, genes become inaccessible. They can no longer be re-obtained or implanted, but this can have its benefits in some cases.</WVC_XaG_GeneGeneticThief_EatSelectedGenes>
 
 	<WVC_XaG_GeneGeneticThief_ConflictingGenesMessage>Conflicting genes.</WVC_XaG_GeneGeneticThief_ConflictingGenesMessage>
