@@ -283,6 +283,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				golemsForSummon = Spawner?.mechTypes;
 			}
+			if (golemsForSummon.NullOrEmpty())
+			{
+				Log.Error("Failed summon golems. golemsForSummon is null.");
+				return;
+			}
 			int countSpawn = Spawner.summonRange.RandomInRange;
 			float possibleConsumption = 1;
 			// PawnKindDef newGolem = ;
@@ -350,21 +355,36 @@ namespace WVC_XenotypesAndGenes
 
 		public bool TryCreateGolemFromThing(Thing chunk, PawnKindDef newGolem)
 		{
-			if (chunk != null && pawn.CanReserveAndReach(chunk, PathEndMode.OnCell, pawn.NormalMaxDanger()))
+			try
 			{
-				PawnGenerationRequest request = new(newGolem, pawn.Faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: false, canGeneratePawnRelations: true, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: true, allowAddictions: true, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Newborn);
-				Pawn summon = PawnGenerator.GeneratePawn(request);
-				summon.Position = chunk.Position;
-				summon.SpawnSetup(chunk.Map, respawningAfterLoad: false);
-				CompSpawnOnDeath_GetColor compGolem = summon.TryGetComp<CompSpawnOnDeath_GetColor>();
-				if (compGolem != null)
+				if (chunk != null && pawn.CanReserveAndReach(chunk, PathEndMode.OnCell, pawn.NormalMaxDanger()))
 				{
-					compGolem.SetStoneChunk(chunk.def);
+					PawnGenerationRequest request = new(newGolem, pawn.Faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: false, canGeneratePawnRelations: true, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: true, allowAddictions: true, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Newborn);
+					Pawn summon = PawnGenerator.GeneratePawn(request);
+					summon.Position = chunk.Position;
+					summon.SpawnSetup(chunk.Map, respawningAfterLoad: false);
+					CompSpawnOnDeath_GetColor compGolem = summon.TryGetComp<CompSpawnOnDeath_GetColor>();
+					if (compGolem != null)
+					{
+						compGolem.SetStoneChunk(chunk.def);
+					}
+					pawn.relations.AddDirectRelation(PawnRelationDefOf.Overseer, summon);
+					if (chunk.stackCount > 1)
+					{
+						chunk.stackCount--;
+					}
+					else
+					{
+						chunk.Kill();
+					}
+					Messages.Message("WVC_XaG_GolemCreatedFromRandomChunk_Message".Translate(summon.Name.ToString()), summon, MessageTypeDefOf.PositiveEvent);
+					return true;
 				}
-				pawn.relations.AddDirectRelation(PawnRelationDefOf.Overseer, summon);
-				chunk.Kill();
-				Messages.Message("WVC_XaG_GolemCreatedFromRandomChunk_Message".Translate(summon.Name.ToString()), summon, MessageTypeDefOf.PositiveEvent);
-				return true;
+			}
+			catch
+			{
+				summonMechanoids = false;
+				Log.Error("Failed generate golem.");
 			}
 			return false;
 		}
