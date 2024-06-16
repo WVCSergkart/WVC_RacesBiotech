@@ -19,6 +19,8 @@ namespace WVC_XenotypesAndGenes
 
 		public List<GeneDef> selectedGenes = new();
 
+		// public string presetName;
+
 		// private bool eatAllSelectedGenes;
 
 		private bool? selectedCollapsed = false;
@@ -96,7 +98,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			// generationRequestIndex = index;
 			// this.callback = callback;
-			// xenotypeName = string.Empty;
+			xenotypeName = string.Empty;
 			gene = chimera;
 			forcePause = true;
 			closeOnAccept = false;
@@ -495,8 +497,6 @@ namespace WVC_XenotypesAndGenes
 			Text.Font = GameFont.Small;
 			DrawSearchRect(rect);
 			rect2.yMin += 39f;
-			// float num = rect.width * 0.25f - Margin - 10f;
-			// float num2 = num - 24f - 10f;
 			float num3 = Mathf.Max(BiostatsTable.HeightForBiostats(alwaysUseFullBiostatsTableHeight ? 1 : arc), postXenotypeHeight);
 			Rect rect4 = new(rect2.x + Margin, rect2.y, rect2.width - Margin * 2f, rect2.height - num3 - 8f);
 			DrawGenes(rect4);
@@ -504,38 +504,168 @@ namespace WVC_XenotypesAndGenes
 			Rect rect5 = new(rect2.x + Margin + 10f, num4, rect.width * 0.75f - Margin * 3f - 10f, num3);
 			rect5.yMax = rect4.yMax + num3 + 4f;
 			BiostatsTable.Draw(rect5, gcx, met, arc, drawMax: true, true, maxGCX);
-			// string text = "XenotypeName".Translate().CapitalizeFirst() + ":";
-			// Rect rect6 = new(rect5.xMax + Margin, num4, Text.CalcSize(text).x, Text.LineHeight);
-			// Widgets.Label(rect6, text);
-			// Rect rect7 = new(rect6.xMin, rect6.y + Text.LineHeight, num, Text.LineHeight);
-			// rect7.xMax = rect2.xMax - Margin - 17f - num2 * 0.25f;
-			// Rect rect9 = new(rect7.x, rect7.yMax + 4f, num2 * 0.75f - 4f, 24f);
-			// Rect rect10 = new(rect9.xMax + 4f, rect9.y, num2 * 0.25f, 24f);
-			// Rect rect11 = new(rect10.xMax + 10f, rect9.y, 24f, 24f);
-			// postXenotypeHeight = rect11.yMax - num4;
-			// PostXenotypeOnGUI(rect6.xMin, rect9.y + 24f);
+			// Presets
+			float num = rect.width * 0.25f - Margin - 10f;
+			float num2 = num - 24f - 10f;
+			string text = "WVC_XaG_CreateChimera_PresetsNameTextField".Translate().CapitalizeFirst() + ":";
+			Rect rect6 = new(rect5.xMax + Margin, num4, Text.CalcSize(text).x, Text.LineHeight);
+			Widgets.Label(rect6, text);
+			Rect rect7 = new(rect6.xMin, rect6.y + Text.LineHeight, num, Text.LineHeight);
+			rect7.xMax = rect2.xMax - Margin - 17f - num2 * 0.25f;
+			string text2 = xenotypeName;
+			xenotypeName = Widgets.TextField(rect7, xenotypeName, 40, new("^[\\p{L}0-9 '\\-]*$"));
+			if (text2 != xenotypeName)
+			{
+				if (xenotypeName.Length > text2.Length && xenotypeName.Length > 3)
+				{
+					xenotypeNameLocked = true;
+				}
+				else if (xenotypeName.Length == 0)
+				{
+					xenotypeNameLocked = false;
+				}
+			}
+			Rect rect9 = new(rect7.x, rect7.yMax + 4f, num2 * 0.75f - 4f, 24f);
+			if (Widgets.ButtonText(rect9, "Randomize".Translate()))
+			{
+				if (SelectedGenes.Count == 0)
+				{
+					Messages.Message("SelectAGeneToRandomizeName".Translate(), MessageTypeDefOf.RejectInput, historical: false);
+				}
+				else
+				{
+					GUI.FocusControl(null);
+					SoundDefOf.Tick_High.PlayOneShotOnCamera();
+					xenotypeName = GeneUtility.GenerateXenotypeNameFromGenes(SelectedGenes);
+				}
+			}
+			Rect rect10 = new(rect9.xMax + 4f, rect9.y, num2 * 0.25f, 24f);
+			if (Widgets.ButtonText(rect10, "..."))
+			{
+				if (SelectedGenes.Count > 0)
+				{
+					List<string> list = new();
+					int num5 = 0;
+					while (list.Count < 20)
+					{
+						string text3 = GeneUtility.GenerateXenotypeNameFromGenes(SelectedGenes);
+						if (text3.NullOrEmpty())
+						{
+							break;
+						}
+						if (list.Contains(text3) || text3 == xenotypeName)
+						{
+							num5++;
+							if (num5 >= 1000)
+							{
+								break;
+							}
+						}
+						else
+						{
+							list.Add(text3);
+						}
+					}
+					List<FloatMenuOption> list2 = new();
+					for (int j = 0; j < list.Count; j++)
+					{
+						string i = list[j];
+						list2.Add(new FloatMenuOption(i, delegate
+						{
+							xenotypeName = i;
+						}));
+					}
+					if (list2.Any())
+					{
+						Find.WindowStack.Add(new FloatMenu(list2));
+					}
+				}
+				else
+				{
+					Messages.Message("SelectAGeneToChooseAName".Translate(), MessageTypeDefOf.RejectInput, historical: false);
+				}
+			}
+			Rect rect11 = new(rect10.xMax + 10f, rect9.y, 24f, 24f);
+			if (Widgets.ButtonImage(rect11, xenotypeNameLocked ? LockedTex : UnlockedTex))
+			{
+				xenotypeNameLocked = !xenotypeNameLocked;
+				if (xenotypeNameLocked)
+				{
+					SoundDefOf.Checkbox_TurnedOn.PlayOneShotOnCamera();
+				}
+				else
+				{
+					SoundDefOf.Checkbox_TurnedOff.PlayOneShotOnCamera();
+				}
+			}
+			if (Mouse.IsOver(rect11))
+			{
+				string text4 = "LockNameButtonDesc".Translate() + "\n\n" + (xenotypeNameLocked ? "LockNameOn" : "LockNameOff").Translate();
+				TooltipHandler.TipRegion(rect11, text4);
+			}
+			// Presets
 			Rect rect12 = rect;
 			rect12.yMin = rect12.yMax - ButSize.y;
 			DoBottomButtons(rect12);
 		}
 
-		// protected override void DrawSearchRect(Rect rect)
-		// {
-			// base.DrawSearchRect(rect);
-			// if (Widgets.ButtonText(new Rect(rect.xMax - GeneCreationDialogBase.ButSize.x, rect.y, GeneCreationDialogBase.ButSize.x, GeneCreationDialogBase.ButSize.y), "LoadCustom".Translate()))
-			// {
-				// Find.WindowStack.Add(new Dialog_XenotypeList_Load(delegate(CustomXenotype xenotype)
-				// {
-					// xenotypeName = xenotype.name;
-					// xenotypeNameLocked = true;
-					// selectedGenes.Clear();
-					// selectedGenes.AddRange(xenotype.genes);
-					// eatAllSelectedGenes = xenotype.eatAllSelectedGenes;
-					// iconDef = xenotype.IconDef;
-					// OnGenesChanged();
-					// ignoreRestrictions = selectedGenes.Any((GeneDef x) => x.biostatArc > 0) || !WithinAcceptableBiostatLimits(showMessage: false);
-				// }));
-			// }
+		public void SetPreset(GeneSetPresets geneSetPresets)
+		{
+			xenotypeName = geneSetPresets.name;
+			selectedGenes = new();
+			foreach (GeneDef geneDef in geneSetPresets.geneDefs)
+			{
+				if (gene.StolenGenes.Contains(geneDef))
+				{
+					selectedGenes.Add(geneDef);
+				}
+			}
+			OnGenesChanged();
+		}
+
+		protected override void DrawSearchRect(Rect rect)
+		{
+			base.DrawSearchRect(rect);
+			if (Widgets.ButtonText(new Rect(rect.xMax - ButSize.x, rect.y, ButSize.x, ButSize.y), "WVC_XaG_CreateChimera_PresetsLoad".Translate()))
+			{
+				if (!gene.geneSetPresets.NullOrEmpty())
+				{
+					Find.WindowStack.Add(new Dialog_ChimeraPresetsList_Load(this));
+				}
+				else
+				{
+					Messages.Message("WVC_XaG_CreateChimera_PresetsIsNull".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+				}
+			}
+			if (Widgets.ButtonText(new Rect(rect.xMax - ButSize.x * 2f - 4f, rect.y, ButSize.x, ButSize.y), "WVC_XaG_CreateChimera_PresetsSave".Translate()))
+			{
+				if (xenotypeName.NullOrEmpty())
+				{
+					Messages.Message("WVC_XaG_CreateChimera_PresetsNameMessageError".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+				}
+				else
+				{
+					if (!gene.geneSetPresets.NullOrEmpty())
+					{
+						foreach (GeneSetPresets geneSetPresets in gene.geneSetPresets.ToList())
+						{
+							if (geneSetPresets.name == xenotypeName)
+							{
+								gene.geneSetPresets.Remove(geneSetPresets);
+							}
+						}
+					}
+					else
+					{
+						gene.geneSetPresets = new();
+					}
+					GeneSetPresets preset = new();
+					preset.name = xenotypeName;
+					preset.geneDefs = selectedGenes;
+					gene.geneSetPresets.Add(preset);
+					Messages.Message("WVC_XaG_CreateChimera_NewPresetSaved".Translate().CapitalizeFirst(), null, MessageTypeDefOf.PositiveEvent, historical: false);
+				}
+			}
 			// if (!Widgets.ButtonText(new Rect(rect.xMax - GeneCreationDialogBase.ButSize.x * 2f - 4f, rect.y, GeneCreationDialogBase.ButSize.x, GeneCreationDialogBase.ButSize.y), "LoadPremade".Translate()))
 			// {
 				// return;
@@ -558,7 +688,7 @@ namespace WVC_XenotypesAndGenes
 				// }));
 			// }
 			// Find.WindowStack.Add(new FloatMenu(list));
-		// }
+		}
 
 		protected override void DoBottomButtons(Rect rect)
 		{

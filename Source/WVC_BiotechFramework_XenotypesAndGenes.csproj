@@ -98,6 +98,7 @@
     <Compile Include="Resources_Genes\Gene_Hemogen.cs" />
     <Compile Include="Resources_Genes\Gene_XaG_Basic.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ChangeXenotype.cs" />
+    <Compile Include="Resources_Gizmo\Dialog_ChimeraPresetsLoad.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ChooseXenotype.cs" />
     <Compile Include="Resources_Gizmo\Dialog_CreateChimera.cs" />
     <Compile Include="Resources_Gizmo\Dialog_GauranlenGeneMode.cs" />

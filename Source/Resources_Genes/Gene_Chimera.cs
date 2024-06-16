@@ -22,6 +22,8 @@ namespace WVC_XenotypesAndGenes
 
 		private List<GeneDef> destroyedGenes = new();
 
+		public List<GeneSetPresets> geneSetPresets = new();
+
 		// private float minCopyChance = WVC_Biotech.settings.chimeraMinGeneCopyChance;
 
 		public float MinCopyChance
@@ -187,6 +189,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Collections.Look(ref eatedGenes, "eatedGenes", LookMode.Def);
 			Scribe_Collections.Look(ref stolenGenes, "stolenGenes", LookMode.Def);
 			Scribe_Collections.Look(ref destroyedGenes, "destroyedGenes", LookMode.Def);
+			Scribe_Collections.Look(ref geneSetPresets, "geneSetPresets", LookMode.Deep);
 		}
 
 		// public static float GetGeneWeight(GeneDef geneDef)

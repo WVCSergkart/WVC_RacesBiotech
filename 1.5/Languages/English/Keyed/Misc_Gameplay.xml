@@ -389,6 +389,17 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_CreateChimera>Create chimera</WVC_XaG_CreateChimera>
 
+	<WVC_XaG_CreateChimera_PresetsNameMessageError>The preset must have a name.</WVC_XaG_CreateChimera_PresetsNameMessageError>
+	<WVC_XaG_CreateChimera_NewPresetSaved>Preset saved.</WVC_XaG_CreateChimera_NewPresetSaved>
+	<WVC_XaG_CreateChimera_PresetsIsNull>This chimera has no presets.</WVC_XaG_CreateChimera_PresetsIsNull>
+
+	<WVC_XaG_CreateChimera_PresetsNameTextField>Preset name</WVC_XaG_CreateChimera_PresetsNameTextField>
+
+	<WVC_XaG_CreateChimera_PresetsLoad>Load</WVC_XaG_CreateChimera_PresetsLoad>
+	<WVC_XaG_CreateChimera_PresetsSave>Save</WVC_XaG_CreateChimera_PresetsSave>
+
+	<WVC_XaG_Dialog_ChimeraPresetsList_Load>The selected preset will replace the selected genes.</WVC_XaG_Dialog_ChimeraPresetsList_Load>
+
 	<WVC_XaG_ChimeraApply_Implant>implant</WVC_XaG_ChimeraApply_Implant>
 	<WVC_XaG_ChimeraApply_Eat>Eat</WVC_XaG_ChimeraApply_Eat>
 	<WVC_XaG_ChimeraApply_Clear>clear</WVC_XaG_ChimeraApply_Clear>

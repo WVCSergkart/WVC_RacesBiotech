@@ -16,6 +16,21 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class GeneSetPresets : IExposable
+	{
+
+		public string name;
+
+		public List<GeneDef> geneDefs = new();
+
+		public void ExposeData()
+		{
+			Scribe_Values.Look(ref name, "name");
+			Scribe_Collections.Look(ref geneDefs, "geneDefs", LookMode.Def);
+		}
+
+	}
+
 	// public class PawnContainer : IExposable
 	// {
 
