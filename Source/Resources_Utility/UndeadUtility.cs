@@ -74,57 +74,33 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// Shapeshift
-		public static bool TryShapeshift(Gene_Shapeshifter gene, Dialog_Shapeshifter dialog)
+		public static bool TryShapeshift(Gene_Shapeshifter geneShapeshifter, Dialog_Shapeshifter dialog)
 		{
 			try
 			{
-				PostStart(gene, dialog);
+				TryPreShapeshift(geneShapeshifter, dialog);
 				// Shapeshift START
-				ReimplanterUtility.ReimplantGenesDouble_Shapeshifter(gene.pawn, dialog.selectedXeno, dialog.genesRegrowing || dialog.clearXenogenes, dialog.genesRegrowing || dialog.doubleXenotypeReimplantation);
-				// if (doubleXenotypeReimplantation)
-				// {
-					// ReimplanterUtility.SetXenotype_DoubleXenotype(gene.pawn, selectedXeno);
-				// }
-				// else
-				// {
-					// ReimplanterUtility.SetXenotype(gene.pawn, selectedXeno);
-				// }
-				if (!XaG_GeneUtility.HasGene(gene.def, gene.pawn))
-				{
-					gene.pawn.genes.AddGene(gene.def, false);
-				}
-				if (dialog.xenogermComaAfterShapeshift)
-				{
-					gene.pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
-				}
-				GeneUtility.UpdateXenogermReplication(gene.pawn);
-				WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(gene.pawn, gene.pawn.Map).Trigger(gene.pawn, null);
-				if (!dialog.soundDefOnImplant.NullOrUndefined())
-				{
-					dialog.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(gene.pawn));
-				}
-				Gene_Shapeshifter newGene = gene.pawn?.genes?.GetFirstGeneOfType<Gene_Shapeshifter>();
+				geneShapeshifter.Shapeshift(dialog.selectedXeno, dialog.genesRegrowing || dialog.clearXenogenes, dialog.genesRegrowing || dialog.doubleXenotypeReimplantation);
 				// Shapeshift END
-				PostShapeshift(newGene, gene, dialog);
-				// Letter
-				Find.LetterStack.ReceiveLetter("WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel".Translate(), "WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc".Translate(gene.pawn.Named("TARGET"), dialog.selectedXeno.LabelCap, gene.LabelCap)
-					+ "\n\n" + (dialog.selectedXeno.descriptionShort.NullOrEmpty() ? dialog.selectedXeno.description : dialog.selectedXeno.descriptionShort),
-					WVC_GenesDefOf.WVC_XaG_UndeadEvent, new LookTargets(gene.pawn));
+				TryPostShapeshift(geneShapeshifter, dialog);
+				Find.LetterStack.ReceiveLetter("WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel".Translate(), "WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc".Translate(geneShapeshifter.pawn.Named("TARGET"), dialog.selectedXeno.LabelCap, geneShapeshifter.LabelCap)
+				+ "\n\n" + (dialog.selectedXeno.descriptionShort.NullOrEmpty() ? dialog.selectedXeno.description : dialog.selectedXeno.descriptionShort),
+				WVC_GenesDefOf.WVC_XaG_UndeadEvent, new LookTargets(geneShapeshifter.pawn));
 				return true;
 			}
 			catch
 			{
-				Log.Error(gene.def.defName + " failed use shapeshift.");
+				Log.Error(geneShapeshifter.def.defName + " failed use shapeshift.");
 			}
 			return false;
 		}
 
 		// Misc
-		public static void PostStart(Gene_Shapeshifter shapeshiftGene, Dialog_Shapeshifter dialog)
+		public static bool TryPreShapeshift(Gene_Shapeshifter shapeshiftGene, Dialog_Shapeshifter dialog)
 		{
 			if (dialog.genesRegrowing)
 			{
-				return;
+				return false;
 			}
 			// Shapeshifter SubGenes Trigger
 			foreach (Gene gene in shapeshiftGene.pawn.genes.GenesListForReading)
@@ -135,27 +111,26 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 			// shapeshiftGene.RemoveHeritableGenes();
+			return true;
 		}
 
 		// Misc
-		public static void PostShapeshift(Gene_Shapeshifter oldShapeshiftGene, Gene_Shapeshifter newShapeshiftGene, Dialog_Shapeshifter dialog)
+		public static bool TryPostShapeshift(Gene_Shapeshifter newShapeshiftGene, Dialog_Shapeshifter dialog)
 		{
-			if (!TryTransferGeneStats(oldShapeshiftGene, newShapeshiftGene))
-			{
-				return;
-			}
+			// if (newShapeshiftGene == null)
+			// {
+				// Find.LetterStack.ReceiveLetter("WVC_XaG_GeneShapeshifter_LoseShapeshifterDuringShapeshiftLetterLabel".Translate(), "WVC_XaG_GeneShapeshifter_LoseShapeshifterDuringShapeshiftLetterDesc".Translate(oldShapeshiftGene.pawn.Named("TARGET"), oldShapeshiftGene.LabelCap),
+					// LetterDefOf.NegativeEvent, new LookTargets(oldShapeshiftGene.pawn));
+				// return false;
+			// }
 			if (ModLister.IdeologyInstalled)
 			{
 				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_GenesDefOf.WVC_Shapeshift, newShapeshiftGene.pawn.Named(HistoryEventArgsNames.Doer)));
 			}
 			if (dialog.genesRegrowing)
 			{
-				// Log.Error("0");
-				return;
+				return true;
 			}
-			// Log.Error("1");
-			// newShapeshiftGene.AddHeritableGenes();
-			// Shapeshifter SubGenes Trigger
 			foreach (Gene gene in newShapeshiftGene.pawn.genes.GenesListForReading)
 			{
 				if (gene is IGeneShapeshift geneShapeshifter && gene.Active)
@@ -185,6 +160,7 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			}
+			return true;
 		}
 
 		public static bool TryTransferGeneStats(Gene_Shapeshifter oldShapeshifter, Gene_Shapeshifter newShapeshifter)

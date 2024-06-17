@@ -192,6 +192,7 @@ namespace WVC_XenotypesAndGenes
 
 		// =============================== New ===============================
 
+		[Obsolete]
 		public static void ReimplantGenesDouble_Shapeshifter(Pawn pawn, XenotypeDef xenotypeDef, bool xenogenes = true, bool doubleXenotypes = true)
 		{
 			if (!xenotypeDef.doubleXenotypeChances.NullOrEmpty() && Rand.Value < xenotypeDef.doubleXenotypeChances.Sum((XenotypeChance x) => x.chance) && xenotypeDef.doubleXenotypeChances.TryRandomElementByWeight((XenotypeChance x) => x.chance, out var result) && doubleXenotypes)
@@ -201,6 +202,7 @@ namespace WVC_XenotypesAndGenes
 			ReimplantGenes_Shapeshifter(pawn, xenotypeDef, xenogenes);
 		}
 
+		[Obsolete]
 		public static void ReimplantGenes_Shapeshifter(Pawn pawn, XenotypeDef xenotypeDef, bool xenogenes = true)
 		{
 			Pawn_GeneTracker recipientGenes = pawn.genes;

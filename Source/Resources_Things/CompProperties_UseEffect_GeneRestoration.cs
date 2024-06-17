@@ -22,6 +22,8 @@ namespace WVC_XenotypesAndGenes
 
 		public bool disableShapeshiftComaAfterUse = false;
 
+		public bool disableShapeshiftGenesRegrowAfterUse = false;
+
 		public CompProperties_UseEffect_GeneRestoration()
 		{
 			compClass = typeof(CompUseEffect_GeneRestoration);

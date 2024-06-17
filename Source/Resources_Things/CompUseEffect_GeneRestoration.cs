@@ -121,6 +121,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				shapeshifter.xenogermComaAfterShapeshift = false;
 			}
+			if (Props.disableShapeshiftGenesRegrowAfterUse)
+			{
+				shapeshifter.genesRegrowAfterShapeshift = false;
+			}
 		}
 
 		public override AcceptanceReport CanBeUsedBy(Pawn p)

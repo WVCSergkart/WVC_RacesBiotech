@@ -13,17 +13,18 @@ namespace WVC_XenotypesAndGenes
 		public Gene_Shapeshifter gene;
 		public GeneExtension_Undead shiftExtension;
 
-		public SoundDef soundDefOnImplant;
+		// public SoundDef soundDefOnImplant;
 
 		public bool genesRegrowing = false;
-		public bool canEverUseShapeshift = true;
+		// public bool canEverUseShapeshift = true;
 		// public bool duplicateMode = false;
 		// public bool shouldBeDowned = true;
 		public List<XenotypeDef> preferredXenotypes;
 		// public List<string> trustedXenotypes;
 		public List<XenotypeDef> trueFormXenotypes = new();
 
-		public bool xenogermComaAfterShapeshift = true;
+		// public bool xenogermComaAfterShapeshift = true;
+		// public bool genesRegrowAfterShapeshift = true;
 
 		public bool doubleXenotypeReimplantation = true;
 
@@ -49,7 +50,7 @@ namespace WVC_XenotypesAndGenes
 			preferredXenotypes = ModLister.IdeologyInstalled ? gene.pawn?.ideo?.Ideo?.PreferredXenotypes : null;
 			// Extension
 			shiftExtension = gene?.def?.GetModExtension<GeneExtension_Undead>();
-			soundDefOnImplant = shiftExtension?.soundDefOnImplant;
+			// soundDefOnImplant = shiftExtension?.soundDefOnImplant;
 			// Info
 			genesRegrowing = HediffUtility.HasAnyHediff(shiftExtension?.blockingHediffs, gene.pawn);
 			// canEverUseShapeshift = !MiscUtility.HasAnyTraits(shiftExtension?.blockingTraits, gene.pawn);
@@ -58,7 +59,8 @@ namespace WVC_XenotypesAndGenes
 			// trustedXenotypes = shiftExtension?.trustedXenotypes != null ? shiftExtension.trustedXenotypes : new();
 			trueFormXenotypes = TrueFormXenotypesFromList(allXenotypes);
 			// Gene stats
-			xenogermComaAfterShapeshift = gene.xenogermComaAfterShapeshift;
+			// xenogermComaAfterShapeshift = gene.xenogermComaAfterShapeshift;
+			// genesRegrowAfterShapeshift = gene.genesRegrowAfterShapeshift;
 		}
 
 		public static List<XenotypeDef> TrueFormXenotypesFromList(List<XenotypeDef> xenotypes)

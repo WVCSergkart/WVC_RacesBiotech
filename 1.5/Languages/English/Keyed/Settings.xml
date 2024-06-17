@@ -192,7 +192,7 @@ Please note that resurrecting a pawn will not bring back a disappeared mechlink.
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_ShapeshifterGeneUnremovable>Shapeshifter gene unremovable</WVC_Label_ShapeshifterGeneUnremovable>
-	<WVC_ToolTip_ShapeshifterGeneUnremovable>If enabled, then if the "Shapeshifter" gene is removed, it will add itself back.
+	<WVC_ToolTip_ShapeshifterGeneUnremovable>If enabled, then if the "Shapeshifter" gene is removed, it will add itself back. Please note that if the option is disabled, the shapeshift ability will remove the gene.
 
 It is recommended to disable it in case of bugs associated with mods that add gene implanters.</WVC_ToolTip_ShapeshifterGeneUnremovable>
 

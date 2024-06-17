@@ -11,11 +11,11 @@
 	  <MarketValue>4750</MarketValue>
 	  <DeteriorationRate>0.0</DeteriorationRate>
 	</statBases>
-	<thingCategories>
-	  <li>Artifacts</li>
-	</thingCategories>
+	<!-- <thingCategories> -->
+	  <!-- <li>Artifacts</li> -->
+	<!-- </thingCategories> -->
 	<tradeTags Inherit="False">
-	  <li>Artifact</li>
+	  <!-- <li>Artifact</li> -->
 	  <li>WVC_All_XenotypeSerums</li>
 	</tradeTags>
 	<thingSetMakerTags Inherit="False">
@@ -113,6 +113,29 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneticStabilizer</compClass>
 		<!-- 288 000 000 ticks = 4800 days = 80 years -->
 		<daysDelay>4800</daysDelay>
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <!-- =========== -->
+
+  <ThingDef ParentName="WVC_XenotypeSerum_ArchotechNonCraftable" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+	<defName>WVC_GeneShapeshifterSerum_GenesRegrow</defName>
+	<label>shift serum (genes regrow)</label>
+	<description>A one-use super-dose of mechanics tuned to optimize the genetic transformation of the shapeshifter. Once used, the user will no longer receive genes regrow after shapeshifting.</description>
+	<descriptionHyperlinks Inherit="False">
+	  <GeneDef>WVC_Shapeshifter</GeneDef>
+	</descriptionHyperlinks>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/ShiftSerum_v0</texPath>
+	</graphicData>
+	<statBases>
+	  <MarketValue>4670</MarketValue>
+	</statBases>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_GeneRestoration">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneShapeshifterChanger</compClass>
+		<disableShapeshiftGenesRegrowAfterUse>true</disableShapeshiftGenesRegrowAfterUse>
 	  </li>
 	</comps>
   </ThingDef>

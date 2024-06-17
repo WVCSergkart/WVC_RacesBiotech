@@ -547,6 +547,9 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Label>Shapeshift coma</WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Label>
 	<WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Desc>Does a pawn fall into a xenogermination coma after a shapeshift. This can be changed with a special serum or under certain conditions.</WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Desc>
 
+	<WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Label>Shapeshift regrow</WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Label>
+	<WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Desc>Will pawn genes be regrow after shapeshift. This can be changed with a special serum or under certain conditions.</WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Desc>
+
 	<!-- <WVC_XaG_GeneXenoGestator_GestationGenesMatch>The minimum matched genes must be at least {0}%</WVC_XaG_GeneXenoGestator_GestationGenesMatch> -->
 
 	<WVC_XaG_GeneShapeshifter_ShapeshiftWarning>The xenotype change process will take 2 days, during which time the gene carrier will be downed. Once completed, the carrier will not be able to change xenotype again for some time.</WVC_XaG_GeneShapeshifter_ShapeshiftWarning>
@@ -554,6 +557,10 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel>Shapeshift</WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel>
 	<!-- <WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>{TARGET_nameDef}'s genes have been altered. {TARGET_nameDef} won't be able to use shapeshift again for a while.</WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc> -->
 	<WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>{TARGET_nameDef}'s genes have been significantly changed, {TARGET_possessive} xenotype is now {1}. {TARGET_nameDef} won't be able to use {2} again for a while.</WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>
+
+	<WVC_XaG_GeneShapeshifter_LoseShapeshifterDuringShapeshiftLetterLabel>Failed shift</WVC_XaG_GeneShapeshifter_LoseShapeshifterDuringShapeshiftLetterLabel>
+	<!-- <WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>{TARGET_nameDef}'s genes have been altered. {TARGET_nameDef} won't be able to use shapeshift again for a while.</WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc> -->
+	<WVC_XaG_GeneShapeshifter_LoseShapeshifterDuringShapeshiftLetterDesc>{TARGET_nameDef} loses the {1} gene and is therefore no longer able to use shapeshift abilities.</WVC_XaG_GeneShapeshifter_LoseShapeshifterDuringShapeshiftLetterDesc>
 
 	<WVC_XaG_GeneShapeshifter_DuplicateLetterLabel>Duplicate</WVC_XaG_GeneShapeshifter_DuplicateLetterLabel>
 	<WVC_XaG_GeneShapeshifter_DuplicateLetterDesc>{TARGET_nameDef} was duplicated. {TARGET_nameDef}'s duplicate inherited most of {TARGET_possessive} skills and traits.</WVC_XaG_GeneShapeshifter_DuplicateLetterDesc>

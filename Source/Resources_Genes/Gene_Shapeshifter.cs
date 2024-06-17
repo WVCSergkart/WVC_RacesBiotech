@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Verse;
+using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -64,6 +65,12 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
+			if (pawn.genes.IsXenogene(this))
+			{
+				pawn.genes.RemoveGene(this);
+				pawn.genes.AddGene(this.def, false);
+				return;
+			}
 			if (!pawn.Spawned)
 			{
 				UndeadUtility.AddRandomTraitFromListWithChance(pawn, Props);
@@ -133,7 +140,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			if (Find.Selector.SelectedPawns.Count > 1 || !Active || pawn.Faction != Faction.OfPlayer)
+			if (Find.Selector.SelectedPawns.Count > 1 || !Active || pawn.Faction != Faction.OfPlayer || pawn.Map == null)
 			{
 				yield break;
 			}
@@ -180,7 +187,9 @@ namespace WVC_XenotypesAndGenes
 			if (WVC_Biotech.settings.shapeshifterGeneUnremovable)
 			{
 				pawn.genes.AddGene(this.def, false);
-				UndeadUtility.TryTransferGeneStats(this, pawn.genes.GetFirstGeneOfType<Gene_Shapeshifter>());
+				// UndeadUtility.TryTransferGeneStats(this, pawn.genes.GetFirstGeneOfType<Gene_Shapeshifter>());
+				Gene_Shapeshifter newShifter = pawn.genes.GetFirstGeneOfType<Gene_Shapeshifter>();
+				newShifter.UpdateForNewGene(this);
 			}
 			RemoveHediffs();
 		}
@@ -188,6 +197,7 @@ namespace WVC_XenotypesAndGenes
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{
 			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Label".Translate(), xenogermComaAfterShapeshift.ToStringYesNo(), "WVC_XaG_GeneShapeshifter_XenogermComaAfterShapeshift_Desc".Translate(), 200);
+			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Label".Translate(), genesRegrowAfterShapeshift.ToStringYesNo(), "WVC_XaG_GeneShapeshifter_GenesRegrowAfterShapeshift_Desc".Translate(), 220);
 		}
 
 		public override void ExposeData()
@@ -207,6 +217,74 @@ namespace WVC_XenotypesAndGenes
 			// heritableGenesSlots = oldShapeshifter.heritableGenesSlots;
 			// heritableGenes = oldShapeshifter.heritableGenes;
 			// oldHeritableGenes = oldShapeshifter.oldHeritableGenes;
+		}
+
+		// Reimplanter
+
+		public virtual void AddGene(GeneDef geneDef, bool inheritable)
+		{
+			if (!geneDef.ConflictsWith(this.def))
+			{
+				pawn.genes.AddGene(geneDef, !inheritable);
+			}
+		}
+
+		public virtual void RemoveGene(Gene gene)
+		{
+			if (gene != this)
+			{
+				pawn?.genes?.RemoveGene(gene);
+			}
+		}
+
+		public virtual void Shapeshift(XenotypeDef xenotypeDef, bool xenogenes = true, bool doubleXenotypes = true)
+		{
+			if (doubleXenotypes && !xenotypeDef.doubleXenotypeChances.NullOrEmpty() && Rand.Value < xenotypeDef.doubleXenotypeChances.Sum((XenotypeChance x) => x.chance) && xenotypeDef.doubleXenotypeChances.TryRandomElementByWeight((XenotypeChance x) => x.chance, out var result))
+			{
+				Reimplant(result.xenotype, false);
+			}
+			Reimplant(xenotypeDef, xenogenes);
+			if (xenogermComaAfterShapeshift)
+			{
+				pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
+			}
+			if (genesRegrowAfterShapeshift)
+			{
+				GeneUtility.UpdateXenogermReplication(pawn);
+			}
+			WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(pawn, pawn.Map).Trigger(pawn, null);
+			if (!Props.soundDefOnImplant.NullOrUndefined())
+			{
+				Props.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(pawn));
+			}
+		}
+
+		private void Reimplant(XenotypeDef xenotypeDef, bool xenogenes = true)
+		{
+			Pawn_GeneTracker recipientGenes = pawn.genes;
+			if (recipientGenes.Xenogenes.NullOrEmpty() || xenogenes)
+			{
+				ReimplanterUtility.SetXenotypeDirect(null, pawn, xenotypeDef, true);
+			}
+			if (xenogenes || !xenotypeDef.inheritable || xenotypeDef == XenotypeDefOf.Baseliner)
+			{
+				foreach (Gene gene in recipientGenes.Xenogenes.ToList())
+				{
+					RemoveGene(gene);
+				}
+			}
+			if (xenotypeDef.inheritable || xenotypeDef == XenotypeDefOf.Baseliner)
+			{
+				foreach (Gene gene in recipientGenes.Endogenes.ToList())
+				{
+					RemoveGene(gene);
+				}
+			}
+			foreach (GeneDef geneDef in xenotypeDef.genes)
+			{
+				AddGene(geneDef, xenotypeDef.inheritable);
+			}
+			ReimplanterUtility.TrySetSkinAndHairGenes(pawn);
 		}
 
 	}
