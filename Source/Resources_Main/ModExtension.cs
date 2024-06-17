@@ -328,14 +328,16 @@ namespace WVC_XenotypesAndGenes
 		public List<string> mechDefNameShouldNotContain = new();
 		// public List<GeneDef> xenoTree_PollutionReq_GeneDefs;
 		public List<ThingDef> plantsToNotOverwrite_SpawnSubplant = new();
-		public List<Type> shapeShift_IgnoredGeneClasses = new();
 		// public List<TraitDef> shapeShift_ProhibitedTraits;
 		// public List<PreceptDef> shapeShift_ProhibitedPrecepts;
 		// public List<HediffDef> hediffsRemovedByGenesRestorationSerum;
 		public List<MutantDef> xenoGenesMutantsExceptions = new();
 		public List<GeneDef> anomalyXenoGenesExceptions = new();
 		public List<GauranlenTreeModeDef> ignoredGauranlenTreeModeDefs = new();
+		public List<GeneDef> shapeshifterHeritableGenes = new();
 
+		[Obsolete]
+		public List<Type> shapeShift_IgnoredGeneClasses = new();
 		// [Obsolete]
 		// public List<HediffDef> hediffsThatPreventUndeadResurrection;
 		// [Obsolete]

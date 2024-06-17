@@ -216,9 +216,9 @@ namespace WVC_XenotypesAndGenes
 			// {
 				
 			// }
-			if (UndeadUtility.TryShapeshift(gene, this))
+			if (!UndeadUtility.TryShapeshift(gene, this))
 			{
-				
+				Log.Error(gene.pawn.Name.ToString() + " critical error during shapeshift. " + gene.LabelCap + " | " + gene.def.defName);
 			}
 			// shiftMode.Worker.Shapeshift(gene, this);
 			Close(doCloseSound: false);

@@ -519,8 +519,17 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_GeneShapeshifter_DialogCurrentMode>Current mode: {0}</WVC_XaG_GeneShapeshifter_DialogCurrentMode>
 
 	<WVC_XaG_ShapeshifterGizmo>Shapeshifter</WVC_XaG_ShapeshifterGizmo>
+	<WVC_XaG_ShapeshifterGizmoTip>Shapeshifter can freely change &lt;color=#6bb6bb&gt;forms (xenotypes)&lt;/color&gt; at will. The limitations are &lt;color=#8a8ae6&gt;xenogermination coma&lt;/color&gt; and &lt;color=#8a8ae6&gt;genes regrowing&lt;/color&gt;, which prevent the change of &lt;color=#6bb6bb&gt;form&lt;/color&gt;. These restrictions can be overcome with the help of certain &lt;color=#6bb6bb&gt;genes&lt;/color&gt; or with the help of &lt;color=#6bb6bb&gt;special serums&lt;/color&gt;.</WVC_XaG_ShapeshifterGizmoTip>
+
+	<!-- \n\nThe &lt;color=#8a8ae6&gt;shapeshifter&lt;/color&gt; can also transfer some &lt;color=#6bb6bb&gt;genes&lt;/color&gt; between &lt;color=#8a8ae6&gt;forms&lt;/color&gt;, provided that the &lt;color=#8a8ae6&gt;form&lt;/color&gt; allows it. The limit of &lt;color=#6bb6bb&gt;genes&lt;/color&gt; for transfer can be increased using &lt;color=#6bb6bb&gt;special serums&lt;/color&gt;. -->
 
 	<WVC_XaG_ReqIdeology>Ideology is required.</WVC_XaG_ReqIdeology>
+
+	<WVC_XaG_GeneShapeshifterHeritableGenes_AddRemove>Add/Remove</WVC_XaG_GeneShapeshifterHeritableGenes_AddRemove>
+
+	<WVC_XaG_GeneShapeshifterHeritableGenes_Desc>Opens a menu in which you can select which genes will be transfered between forms (xenotypes) during shapeshift.</WVC_XaG_GeneShapeshifterHeritableGenes_Desc>
+
+	<WVC_XaG_ShapeshifterWarning_NeedMoreGenesSlots>There are not enough genetic slots for heritable genes.</WVC_XaG_ShapeshifterWarning_NeedMoreGenesSlots>
 
 	<WVC_XaG_GeneShapeshifterStyles_Label>Change style</WVC_XaG_GeneShapeshifterStyles_Label>
 	<WVC_XaG_GeneShapeshifterStyles_Desc>Opens a menu where you can change the style of the pawn. Including hairstyle and its color, as well as tattoos, both for the face and body.</WVC_XaG_GeneShapeshifterStyles_Desc>

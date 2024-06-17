@@ -18,7 +18,7 @@ namespace WVC_XenotypesAndGenes
 
 		private static readonly CachedTexture StyleIcon = new("WVC/UI/XaG_General/Shapeshifter_GizmoStyle");
 
-		// private static readonly CachedTexture ModeSettingsIcon = new("WVC/UI/XaG_General/ShapeshifterModeSettings");
+		// private static readonly CachedTexture InheritableGenesIcon = new("WVC/UI/XaG_General/UI_ShapeshifterMode_Duplicate");
 
 		public override bool Visible => true;
 
@@ -43,9 +43,21 @@ namespace WVC_XenotypesAndGenes
 			Rect rect = new(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
 			Rect rect2 = rect.ContractedBy(6f);
 			Widgets.DrawWindowBackground(rect);
+			// Tip
+			// string text = gene.heritableGenesSlots.ToString("F0");
+			// +text
+			TaggedString taggedString = gene.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + ": " + "\n\n" + "WVC_XaG_ShapeshifterGizmoTip".Translate();
+			Text.Font = GameFont.Small;
+			Text.Anchor = TextAnchor.UpperLeft;
 			// Label
 			Rect rect3 = new(rect2.x, rect2.y, rect2.width, 20f);
-			Widgets.Label(rect3, "WVC_XaG_ShapeshifterGizmo".Translate());
+			// Widgets.Label(rect3, "WVC_XaG_ShapeshifterGizmo".Translate());
+			Widgets.Label(rect3, gene.LabelCap);
+			Text.Font = GameFont.Small;
+			Text.Anchor = TextAnchor.UpperRight;
+			TooltipHandler.TipRegion(rect3, taggedString);
+			// Widgets.Label(rect3, text);
+			// Text.Anchor = TextAnchor.UpperLeft;
 			// Text.Font = GameFont.Small;
 			// Text.Anchor = TextAnchor.UpperRight;
 			// Button
@@ -81,33 +93,16 @@ namespace WVC_XenotypesAndGenes
 			TooltipHandler.TipRegion(rect5, "WVC_XaG_GeneShapeshifterStyles_Desc".Translate());
 			// Button
 			// Rect rect6 = new(rect5.x + 44f, rect5.y, rect5.width, rect5.height);
-			// Widgets.DrawTextureFitted(rect6, gene.ShiftMode.uiIcon, 1f);
+			// Widgets.DrawTextureFitted(rect6, InheritableGenesIcon.Texture, 1f);
 			// if (Mouse.IsOver(rect6))
 			// {
 				// Widgets.DrawHighlight(rect6);
 				// if (Widgets.ButtonInvisible(rect6))
 				// {
-					// List<FloatMenuOption> list = new();
-					// foreach (ShapeshiftModeDef shapeshiftModeDef in DefDatabase<ShapeshiftModeDef>.AllDefsListForReading.OrderBy((ShapeshiftModeDef d) => d.uiOrder))
-					// {
-						// if (!shapeshiftModeDef.unlockedByDefault && !gene.UnlockedModes.Contains(shapeshiftModeDef))
-						// {
-							// continue;
-						// }
-						// FloatMenuOption floatMenuOption = new(shapeshiftModeDef.LabelCap, delegate
-						// {
-							// gene.SetMode(shapeshiftModeDef);
-						// }, shapeshiftModeDef.uiIcon, Color.white);
-						// floatMenuOption.tooltip = new TipSignal(shapeshiftModeDef.description, shapeshiftModeDef.index ^ 0xDFE8661);
-						// list.Add(floatMenuOption);
-					// }
-					// if (list.Any())
-					// {
-						// Find.WindowStack.Add(new FloatMenu(list));
-					// }
+					// Find.WindowStack.Add(new Dialog_ShapeshifterHeritableGenes(gene));
 				// }
 			// }
-			// TooltipHandler.TipRegion(rect6, gene.ShiftMode.description);
+			// TooltipHandler.TipRegion(rect6, "WVC_XaG_GeneShapeshifterHeritableGenes_Desc".Translate());
 			// UpperButton
 			// Rect rectModeButton = new(rect.x + rect.width - 52f - 6f, rect.y + 6f, 26f, 26f);
 			// Widgets.DrawTextureFitted(rectModeButton, MenuIcon.Texture, 1f);

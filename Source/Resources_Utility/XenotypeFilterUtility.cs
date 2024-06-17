@@ -193,5 +193,19 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
+		public static List<GeneDef> GetShapeshifterHeritableGenes()
+		{
+			List<GeneDef> list = new();
+			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+			{
+				if (item.shapeshifterHeritableGenes.NullOrEmpty())
+				{
+					continue;
+				}
+				list.AddRange(item.shapeshifterHeritableGenes);
+			}
+			return list;
+		}
+
 	}
 }

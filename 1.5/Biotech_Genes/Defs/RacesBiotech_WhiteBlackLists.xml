@@ -167,6 +167,17 @@
 		<li MayRequire="ludeon.rimworld.ideology">Gaumaker</li>
 		<li MayRequire="sarg.alphamemes">AM_Corruptor</li>
 	</ignoredGauranlenTreeModeDefs>
+	<!-- Genes that the shapeshifter can move between forms. Required any GeneDefs -->
+	<shapeshifterHeritableGenes>
+		<li>Deathless</li>
+		<li>WVC_Undead</li>
+		<li>WVC_Shapeshift_Deathless</li>
+		<!-- Bonus -->
+		<li>WVC_PostShapeshift_Recovery</li>
+		<li>WVC_PostShapeshift_Regeneration</li>
+		<li>WVC_PostShapeshift_Metabolism</li>
+		<li>WVC_PostShapeshift_Scarred</li>
+	</shapeshifterHeritableGenes>
   </WVC_XenotypesAndGenes.XenotypesAndGenesListDef>
 
   <!-- ======================================================================= -->

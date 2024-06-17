@@ -17,6 +17,7 @@ namespace WVC_XenotypesAndGenes
 
 		// [Obsolete]
 		public bool xenogermComaAfterShapeshift = true;
+		public bool genesRegrowAfterShapeshift = true;
 
 		// private ShapeshiftModeDef currentMode;
 
@@ -70,6 +71,50 @@ namespace WVC_XenotypesAndGenes
 			// Reset();
 		}
 
+		// HeritGenes
+
+		// public int heritableGenesSlots = 0;
+		// public List<GeneDef> heritableGenes;
+		// private List<GeneDef> oldHeritableGenes;
+
+		// public void AddHeritableGenes()
+		// {
+			// if (heritableGenes.NullOrEmpty())
+			// {
+				// return;
+			// }
+			// List<GeneDef> pawnGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(pawn.genes.GenesListForReading);
+			// foreach (GeneDef heritableGeneDef in heritableGenes)
+			// {
+				// if (Dialog_CreateChimera.ConflictWith(heritableGeneDef, pawnGenes))
+				// {
+					// continue;
+				// }
+				// pawn.genes.AddGene(heritableGeneDef, false);
+				// oldHeritableGenes.Add(heritableGeneDef);
+			// }
+		// }
+
+		// public void RemoveHeritableGenes()
+		// {
+			// if (oldHeritableGenes.NullOrEmpty())
+			// {
+				// return;
+			// }
+			// foreach (GeneDef heritableGeneDef in oldHeritableGenes)
+			// {
+				// Gene gene = pawn.genes.GetGene(heritableGeneDef);
+				// if (gene != null)
+				// {
+					// continue;
+				// }
+				// pawn.genes.RemoveGene(gene);
+			// }
+			// oldHeritableGenes = new();
+		// }
+
+		// HeritGenes
+
 		// public override void Reset()
 		// {
 			// SetMode(Props.defaultShapeMode);
@@ -96,13 +141,10 @@ namespace WVC_XenotypesAndGenes
 			// {
 				// yield return new Command_Action
 				// {
-					// defaultLabel = "DEV: UnlockAllModes",
+					// defaultLabel = "DEV: AddHeritableGeneSlot",
 					// action = delegate
 					// {
-						// foreach (ShapeshiftModeDef shapeshiftModeDef in DefDatabase<ShapeshiftModeDef>.AllDefsListForReading)
-						// {
-							// UnlockMode(shapeshiftModeDef);
-						// }
+						// heritableGenesSlots++;
 					// }
 				// };
 			// }
@@ -134,6 +176,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostRemove()
 		{
 			base.PostRemove();
+			// RemoveHeritableGenes();
 			if (WVC_Biotech.settings.shapeshifterGeneUnremovable)
 			{
 				pawn.genes.AddGene(this.def, false);
@@ -151,8 +194,19 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref xenogermComaAfterShapeshift, "xenogerminationComaAfterShapeshift", defaultValue: true);
-			// Scribe_Defs.Look(ref currentMode, "shapeshifterMode");
-			// Scribe_Collections.Look(ref unlockedModes, "unlockedModes", LookMode.Def);
+			Scribe_Values.Look(ref genesRegrowAfterShapeshift, "genesRegrowAfterShapeshift", defaultValue: true);
+			// Scribe_Values.Look(ref heritableGenesSlots, "heritableGenesSlots", 0);
+			// Scribe_Collections.Look(ref heritableGenes, "heritableGenes", LookMode.Def);
+			// Scribe_Collections.Look(ref oldHeritableGenes, "oldHeritableGenes", LookMode.Def);
+		}
+
+		public virtual void UpdateForNewGene(Gene_Shapeshifter oldShapeshifter)
+		{
+			xenogermComaAfterShapeshift = oldShapeshifter.xenogermComaAfterShapeshift;
+			genesRegrowAfterShapeshift = oldShapeshifter.genesRegrowAfterShapeshift;
+			// heritableGenesSlots = oldShapeshifter.heritableGenesSlots;
+			// heritableGenes = oldShapeshifter.heritableGenes;
+			// oldHeritableGenes = oldShapeshifter.oldHeritableGenes;
 		}
 
 	}

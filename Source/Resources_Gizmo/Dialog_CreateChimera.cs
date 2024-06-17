@@ -471,7 +471,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private static bool ConflictWith(GeneDef geneDef, List<GeneDef> geneDefs)
+		public static bool ConflictWith(GeneDef geneDef, List<GeneDef> geneDefs)
 		{
 			foreach (GeneDef item in geneDefs)
 			{

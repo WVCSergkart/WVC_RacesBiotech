@@ -134,6 +134,7 @@ namespace WVC_XenotypesAndGenes
 					geneShapeshifter.Notify_PostStart(shapeshiftGene);
 				}
 			}
+			// shapeshiftGene.RemoveHeritableGenes();
 		}
 
 		// Misc
@@ -153,6 +154,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			// Log.Error("1");
+			// newShapeshiftGene.AddHeritableGenes();
 			// Shapeshifter SubGenes Trigger
 			foreach (Gene gene in newShapeshiftGene.pawn.genes.GenesListForReading)
 			{
@@ -189,15 +191,19 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (newShapeshifter == null)
 			{
-				Log.Error(newShapeshifter.pawn.Name.ToString() + " pawn used shapeshift, but it is not a shapeshifter. " + newShapeshifter.LabelCap + " | " + newShapeshifter.def.defName);
 				return false;
 			}
-			newShapeshifter.xenogermComaAfterShapeshift = oldShapeshifter.xenogermComaAfterShapeshift;
+			// newShapeshifter.xenogermComaAfterShapeshift = oldShapeshifter.xenogermComaAfterShapeshift;
+			// newShapeshifter.genesRegrowAfterShapeshift = oldShapeshifter.genesRegrowAfterShapeshift;
+			// newShapeshifter.heritableGenesSlots = oldShapeshifter.heritableGenesSlots;
+			// newShapeshifter.heritableGenes = oldShapeshifter.heritableGenes;
+			// newShapeshifter.oldHeritableGenes = oldShapeshifter.oldHeritableGenes;
 			// foreach (ShapeshiftModeDef modeDef in oldShapeshifter.UnlockedModes)
 			// {
 				// newShapeshifter.UnlockMode(modeDef);
 			// }
 			// newShapeshifter.SetMode(oldShapeshifter.ShiftMode);
+			newShapeshifter.UpdateForNewGene(oldShapeshifter);
 			return true;
 		}
 

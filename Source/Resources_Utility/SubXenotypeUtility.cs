@@ -46,7 +46,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void SetXenotypeGenes(Pawn pawn, SubXenotypeDef xenotype, float xenogermReplicationChance)
 		{
-			RemoveRandomGenes(pawn);
+			// RemoveRandomGenes(pawn);
 			// Log.Error(pawn.Name + " genes remove.");
 			if (!xenotype.removeGenes.NullOrEmpty())
 			{
@@ -260,6 +260,7 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// Remove genes
+		[Obsolete]
 		public static void RemoveRandomGenes(Pawn pawn)
 		{
 			List<Gene> genesListForReading = pawn.genes.GenesListForReading;
@@ -275,12 +276,13 @@ namespace WVC_XenotypesAndGenes
 		// Random genes
 		// public static bool GeneIsRandom(GeneDef gene)
 		// {
-			// if (gene.geneClass == typeof(Gene_XenotypeShapeshifter))
-			// {
-				// return true;
-			// }
-			// return false;
+		// if (gene.geneClass == typeof(Gene_XenotypeShapeshifter))
+		// {
+		// return true;
 		// }
+		// return false;
+		// }
+		[Obsolete]
 		public static bool GeneIsRandom(GeneDef gene)
 		{
 			List<Type> geneClasses = GetAllShapeShiftGeneClasses();
@@ -291,6 +293,7 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		[Obsolete]
 		public static List<Type> GetAllShapeShiftGeneClasses()
 		{
 			List<Type> list = new();
@@ -310,6 +313,7 @@ namespace WVC_XenotypesAndGenes
 		//	return false;
 		//}
 
+		[Obsolete]
 		public static bool TestXenotype_TestGene(GeneDef geneDef)
 		{
 			if (!GeneIsRandom(geneDef) && !geneDef.defName.Contains("Skin_Melanin"))

@@ -164,7 +164,6 @@
     <Compile Include="Resources_Workers\JobDriver_BiteTarget.cs" />
     <Compile Include="Resources_Workers\JobDriver_RetuneSerum.cs" />
     <Compile Include="Resources_Workers\JobGiver_DryadCocoon.cs" />
-    <Compile Include="Resources_Workers\JobGiver_GetSpecialFood.cs" />
     <Compile Include="Resources_Main\GameComponents.cs" />
     <Compile Include="Resources_Main\PostInitializationStartup.cs" />
     <Compile Include="Resources_StatPart\StatPart_OffsetFromPollutedGraves.cs" />
@@ -245,7 +244,6 @@
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_MechanoidLabor.cs" />
     <Compile Include="Resources_Workers\JobGiver_DryadWork.cs" />
     <Compile Include="Resources_Workers\SpecialTrees.cs" />
-    <Compile Include="Resources_Workers\WorkGiver_HaulToGeneBank.cs" />
     <Compile Include="Resources_Things\CompProperties_TargetEffectRiseFromTheDead.cs" />
     <Compile Include="Resources_Things\CompProperties_UseEffect_GeneRestoration.cs" />
     <Compile Include="Resources_Things\CompProperties_UseEffect_XenotypeForcer.cs" />
