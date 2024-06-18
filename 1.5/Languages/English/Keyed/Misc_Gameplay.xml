@@ -372,9 +372,9 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_GeneGeneticThief_RemoveGene>Remove from geneset</WVC_XaG_GeneGeneticThief_RemoveGene>
 	<WVC_XaG_GeneGeneticThief_ClearXenogenesButton>Clear all xenogenes</WVC_XaG_GeneGeneticThief_ClearXenogenesButton>
 
-	<WVC_XaG_GeneGeneticThief_ImplantGeneSet>The selected genes will be implanted as xenogenes, and the pawn will receive genes regrowing hediff. Genes regrowing may limit the use of certain genes or abilities.\n\nIf the chimera gene is xenogene, then it will lose all accumulated genes and become endogene.</WVC_XaG_GeneGeneticThief_ImplantGeneSet>
-	<WVC_XaG_GeneGeneticThief_ClearGeneSet>All xenogenes will be removed, and the chimera gene, if it was a xenogene, will lose all accumulated genes and become endogene. The xenogerm replication hediff will also be removed if it is present.</WVC_XaG_GeneGeneticThief_ClearGeneSet>
-	<WVC_XaG_GeneGeneticThief_EatSelectedGenes>When eaten, genes become inaccessible. They can no longer be re-obtained or implanted, but this can have its benefits in some cases.</WVC_XaG_GeneGeneticThief_EatSelectedGenes>
+	<WVC_XaG_GeneGeneticThief_ImplantGeneSet>The selected genes will be implanted as xenogenes, and the pawn will receive genes regrowing hediff. Genes regrowing may limit the use of certain genes or abilities.\n\nIf the chimera gene is xenogene, then it will lose all accumulated genes and become endogene.\n\nIf the pawn already has genes regrowing, then all xenogene abilities will have a cooldown after implantation.</WVC_XaG_GeneGeneticThief_ImplantGeneSet>
+	<WVC_XaG_GeneGeneticThief_ClearGeneSet>All xenogenes will be removed, and the chimera gene, if it was a xenogene, will lose all accumulated genes and become endogene.</WVC_XaG_GeneGeneticThief_ClearGeneSet>
+	<WVC_XaG_GeneGeneticThief_EatSelectedGenes>When eaten, genes become inaccessible. They can no longer be re-obtained or implanted, but this can have benefits in some cases.</WVC_XaG_GeneGeneticThief_EatSelectedGenes>
 
 	<WVC_XaG_GeneGeneticThief_ConflictingGenesMessage>Conflicting genes.</WVC_XaG_GeneGeneticThief_ConflictingGenesMessage>
 
@@ -400,9 +400,9 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_Dialog_ChimeraPresetsList_Load>The selected preset will replace the selected genes.</WVC_XaG_Dialog_ChimeraPresetsList_Load>
 
-	<WVC_XaG_ChimeraApply_Implant>implant</WVC_XaG_ChimeraApply_Implant>
+	<WVC_XaG_ChimeraApply_Implant>Implant</WVC_XaG_ChimeraApply_Implant>
 	<WVC_XaG_ChimeraApply_Eat>Eat</WVC_XaG_ChimeraApply_Eat>
-	<WVC_XaG_ChimeraApply_Clear>clear</WVC_XaG_ChimeraApply_Clear>
+	<WVC_XaG_ChimeraApply_Clear>Clear</WVC_XaG_ChimeraApply_Clear>
 
 	<!-- ============================ MECHLINK CUSTOM LABEL ============================ -->
 
@@ -525,11 +525,11 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_ReqIdeology>Ideology is required.</WVC_XaG_ReqIdeology>
 
-	<WVC_XaG_GeneShapeshifterHeritableGenes_AddRemove>Add/Remove</WVC_XaG_GeneShapeshifterHeritableGenes_AddRemove>
+	<!-- <WVC_XaG_GeneShapeshifterHeritableGenes_AddRemove>Add/Remove</WVC_XaG_GeneShapeshifterHeritableGenes_AddRemove> -->
 
 	<WVC_XaG_GeneShapeshifterHeritableGenes_Desc>Opens a menu in which you can select which genes will be transfered between forms (xenotypes) during shapeshift.</WVC_XaG_GeneShapeshifterHeritableGenes_Desc>
 
-	<WVC_XaG_ShapeshifterWarning_NeedMoreGenesSlots>There are not enough genetic slots for heritable genes.</WVC_XaG_ShapeshifterWarning_NeedMoreGenesSlots>
+	<WVC_XaG_ShapeshifterWarning_NeedMoreGenesSlots>There are too many evolve genes or the pawn already has this gene.</WVC_XaG_ShapeshifterWarning_NeedMoreGenesSlots>
 
 	<WVC_XaG_GeneShapeshifterStyles_Label>Change style</WVC_XaG_GeneShapeshifterStyles_Label>
 	<WVC_XaG_GeneShapeshifterStyles_Desc>Opens a menu where you can change the style of the pawn. Including hairstyle and its color, as well as tattoos, both for the face and body.</WVC_XaG_GeneShapeshifterStyles_Desc>
@@ -565,8 +565,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_GeneShapeshifter_DuplicateLetterLabel>Duplicate</WVC_XaG_GeneShapeshifter_DuplicateLetterLabel>
 	<WVC_XaG_GeneShapeshifter_DuplicateLetterDesc>{TARGET_nameDef} was duplicated. {TARGET_nameDef}'s duplicate inherited most of {TARGET_possessive} skills and traits.</WVC_XaG_GeneShapeshifter_DuplicateLetterDesc>
 
-	<WVC_XaG_GeneShapeshifter_TrustedXenotypes>This xenotype has been verified by the mod developer.</WVC_XaG_GeneShapeshifter_TrustedXenotypes>
-	<WVC_XaG_GeneShapeshifter_UnknownXenotypes>This xenotype has not been tested, use at your own risk.</WVC_XaG_GeneShapeshifter_UnknownXenotypes>
+	<!-- <WVC_XaG_GeneShapeshifter_TrustedXenotypes>This xenotype has been verified by the mod developer.</WVC_XaG_GeneShapeshifter_TrustedXenotypes> -->
+	<!-- <WVC_XaG_GeneShapeshifter_UnknownXenotypes>This xenotype has not been tested, use at your own risk.</WVC_XaG_GeneShapeshifter_UnknownXenotypes> -->
 
 	<!-- ========== GENE_SPAWNER ========== -->
 

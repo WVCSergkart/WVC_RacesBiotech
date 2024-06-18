@@ -11,6 +11,8 @@ namespace WVC_XenotypesAndGenes
 	public class Dialog_ShapeshifterHeritableGenes : Dialog_FileList
 	{
 
+		public List<GeneDef> evolveGenes;
+
 		public List<GeneDef> heritableGenes;
 
 		public Gene_Shapeshifter gene;
@@ -18,12 +20,22 @@ namespace WVC_XenotypesAndGenes
 		public Dialog_ShapeshifterHeritableGenes(Gene_Shapeshifter gene)
 		{
 			this.gene = gene;
-			this.heritableGenes = XenotypeFilterUtility.GetShapeshifterHeritableGenes();
-			if (gene.heritableGenes.NullOrEmpty())
+			this.evolveGenes = XenotypeFilterUtility.GetShapeshifterHeritableGenes();
+			UpdateGenes();
+			interactButLabel = "WVC_XaG_ChimeraApply_Implant".Translate();
+			forcePause = false;
+		}
+
+		public UpdateGenes()
+		{
+			heritableGenes = new();
+			foreach (GeneDef gene in evolveGenes)
 			{
-				gene.heritableGenes = new();
+				if (XaG_GeneUtility.HasGene(gene, gene.pawn))
+				{
+					heritableGenes.Add(gene);
+				}
 			}
-			interactButLabel = "WVC_XaG_GeneShapeshifterHeritableGenes_AddRemove".Translate();
 		}
 
 		public override void DoWindowContents(Rect inRect)
@@ -41,7 +53,7 @@ namespace WVC_XenotypesAndGenes
 			Widgets.BeginScrollView(outRect, ref scrollPosition, viewRect);
 			float num2 = 0f;
 			int num3 = 0;
-			foreach (GeneDef file in heritableGenes)
+			foreach (GeneDef file in evolveGenes)
 			{
 				if (num2 + vector.y >= scrollPosition.y && num2 <= scrollPosition.y + outRect.height)
 				{
@@ -71,17 +83,15 @@ namespace WVC_XenotypesAndGenes
 						// Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_Dialog_ChimeraPresetsList_Load".Translate(file.LabelCap), delegate
 						// {
 						// }));
-						if (gene.heritableGenes.Contains(file))
+						if (heritableGenes.Contains(file) || heritableGenes.Count >= gene.maxEvolveGenes)
 						{
-							gene.heritableGenes.Remove(file);
-						}
-						else if (gene.heritableGenes.Count < gene.heritableGenesSlots)
-						{
-							gene.heritableGenes.Add(file);
+							Messages.Message("WVC_XaG_ShapeshifterWarning_NeedMoreGenesSlots".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
 						}
 						else
 						{
-							Messages.Message("WVC_XaG_ShapeshifterWarning_NeedMoreGenesSlots".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+							gene.AddGene(file);
+							UpdateGenes();
+							gene.DoEffects();
 						}
 					}
 					Rect rect4 = new(rect3.x - 94f, 0f, 94f, rect.height);
@@ -112,7 +122,7 @@ namespace WVC_XenotypesAndGenes
 
 		public Color GetBoxColor(GeneDef geneDef)
 		{
-			if (gene.heritableGenes.Contains(geneDef))
+			if (heritableGenes.Contains(geneDef))
 			{
 				return TexUI.ActiveResearchColor;
 			}
@@ -121,7 +131,7 @@ namespace WVC_XenotypesAndGenes
 
 		public Color GetBoxOutlineColor(GeneDef geneDef)
 		{
-			if (gene.heritableGenes.Contains(geneDef))
+			if (heritableGenes.Contains(geneDef))
 			{
 				return TexUI.HighlightBorderResearchColor;
 			}

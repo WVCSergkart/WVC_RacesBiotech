@@ -242,6 +242,68 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public virtual void UpdateChimeraXenogerm()
+		{
+			Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating);
+			if (firstHediffOfDef != null)
+			{
+				List<Ability> xenogenesAbilities = MiscUtility.GetXenogenesAbilities(pawn);
+				foreach (Ability ability in xenogenesAbilities)
+				{
+					if (!ability.HasCooldown)
+					{
+						continue;
+					}
+					ability.StartCooldown(ability.def.cooldownTicksRange.RandomInRange);
+				}
+				pawn.health.RemoveHediff(firstHediffOfDef);
+			}
+			pawn.health.AddHediff(HediffDefOf.XenogermReplicating);
+		}
+
+		// public virtual void ClearChimeraXenogerm()
+		// {
+			// Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating);
+			// bool clearXenogerm = true;
+			// if (firstHediffOfDef != null)
+			// {
+				// List<Ability> xenogenesAbilities = MiscUtility.GetXenogenesAbilities(pawn);
+				// foreach (Ability ability in xenogenesAbilities)
+				// {
+					// if (ability.OnCooldown)
+					// {
+						// clearXenogerm = false;
+						// break;
+					// }
+				// }
+				// if (clearXenogerm)
+				// {
+					// pawn.health.RemoveHediff(firstHediffOfDef);
+				// }
+			// }
+		// }
+
+		public virtual void UpdateMetabolism()
+		{
+			if (pawn.health.hediffSet.TryGetHediff(out HediffWithComps_Metabolism metabolism))
+			{
+				metabolism.RecacheScars();
+			}
+		}
+
+		public void DoEffects()
+		{
+			if (pawn.Map == null)
+			{
+				return;
+			}
+			WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(pawn, pawn.Map).Trigger(pawn, null);
+			if (!Props.soundDefOnImplant.NullOrUndefined())
+			{
+				Props.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(pawn));
+			}
+		}
+
 	}
 
 	[Obsolete]

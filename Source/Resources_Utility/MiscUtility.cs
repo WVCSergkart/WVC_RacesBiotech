@@ -145,6 +145,31 @@ namespace WVC_XenotypesAndGenes
 			return true;
 		}
 
+		public static List<Ability> GetXenogenesAbilities(Pawn pawn)
+		{
+			List<Ability> list = new();
+			List<Ability> pawnAbilities = pawn.abilities.abilities;
+			List<Gene> xenogenes = pawn.genes.Xenogenes;
+			foreach (Gene gene in xenogenes)
+			{
+				if (gene.def.abilities.NullOrEmpty())
+				{
+					continue;
+				}
+				foreach (Ability pawnAbility in pawnAbilities)
+				{
+					foreach (AbilityDef geneAbility in gene.def.abilities)
+					{
+						if (pawnAbility.def == geneAbility)
+						{
+							list.Add(pawnAbility);
+						}
+					}
+				}
+			}
+			return list;
+		}
+
 		// Spawner
 
 		public static void SpawnItems(Pawn pawn, ThingDef thingDef, int stack, bool showMessage = false, string message = "MessageCompSpawnerSpawnedItem")

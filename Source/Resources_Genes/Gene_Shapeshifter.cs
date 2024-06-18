@@ -80,7 +80,8 @@ namespace WVC_XenotypesAndGenes
 
 		// HeritGenes
 
-		// public int heritableGenesSlots = 0;
+		// public int maxEvolveGenes = 0;
+		// public int currentEvolveGenes = 0;
 		// public List<GeneDef> heritableGenes;
 		// private List<GeneDef> oldHeritableGenes;
 
@@ -205,18 +206,14 @@ namespace WVC_XenotypesAndGenes
 			base.ExposeData();
 			Scribe_Values.Look(ref xenogermComaAfterShapeshift, "xenogerminationComaAfterShapeshift", defaultValue: true);
 			Scribe_Values.Look(ref genesRegrowAfterShapeshift, "genesRegrowAfterShapeshift", defaultValue: true);
-			// Scribe_Values.Look(ref heritableGenesSlots, "heritableGenesSlots", 0);
-			// Scribe_Collections.Look(ref heritableGenes, "heritableGenes", LookMode.Def);
-			// Scribe_Collections.Look(ref oldHeritableGenes, "oldHeritableGenes", LookMode.Def);
+			// Scribe_Values.Look(ref maxEvolveGenes, "maxEvolveGenes", 0);
 		}
 
 		public virtual void UpdateForNewGene(Gene_Shapeshifter oldShapeshifter)
 		{
 			xenogermComaAfterShapeshift = oldShapeshifter.xenogermComaAfterShapeshift;
 			genesRegrowAfterShapeshift = oldShapeshifter.genesRegrowAfterShapeshift;
-			// heritableGenesSlots = oldShapeshifter.heritableGenesSlots;
-			// heritableGenes = oldShapeshifter.heritableGenes;
-			// oldHeritableGenes = oldShapeshifter.oldHeritableGenes;
+			// maxEvolveGenes = oldShapeshifter.maxEvolveGenes;
 		}
 
 		// Reimplanter
@@ -251,6 +248,15 @@ namespace WVC_XenotypesAndGenes
 			if (genesRegrowAfterShapeshift)
 			{
 				GeneUtility.UpdateXenogermReplication(pawn);
+			}
+			DoEffects();
+		}
+
+		public void DoEffects()
+		{
+			if (pawn.Map == null)
+			{
+				return;
 			}
 			WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(pawn, pawn.Map).Trigger(pawn, null);
 			if (!Props.soundDefOnImplant.NullOrUndefined())

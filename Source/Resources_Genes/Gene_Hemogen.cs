@@ -370,6 +370,10 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			ReplenishHunger();
+			if (Hemogen == null || Hemogen.MinLevelForAlert > Hemogen.Value)
+			{
+				consumeHemogen = false;
+			}
 		}
 
 		public void ReplenishHunger()

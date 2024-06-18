@@ -543,10 +543,11 @@ namespace WVC_XenotypesAndGenes
 				// }
 				pawn.story.HairColor = desiredHairColor;
 				pawn.style.Notify_StyleItemChanged();
-				if (pawn.Map != null)
-				{
-					WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(pawn, pawn.Map).Trigger(pawn, null);
-				}
+				// if (pawn.Map != null)
+				// {
+					// WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(pawn, pawn.Map).Trigger(pawn, null);
+				// }
+				gene_Shapeshifter.DoEffects();
 			}
 			// ApplyApparelColors();
 			Close();

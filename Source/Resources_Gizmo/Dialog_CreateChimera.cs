@@ -810,15 +810,9 @@ namespace WVC_XenotypesAndGenes
 					gene.pawn?.genes?.AddGene(geneDef, xenogene: true);
 				}
 			}
-			GeneUtility.UpdateXenogermReplication(gene.pawn);
-			// IntRange rangeToDisappear = new(60000, 120000);
-			// XaG_GeneUtility.UpdateXenogermReplication(gene.pawn, true, rangeToDisappear.RandomInRange * selectedGenes.Count);
-			WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(gene.pawn, gene.pawn.Map).Trigger(gene.pawn, null);
-			if (!gene.Props.soundDefOnImplant.NullOrUndefined())
-			{
-				gene.Props.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(gene.pawn));
-			}
-			UpdateMetabolism();
+			gene.UpdateChimeraXenogerm();
+			gene.DoEffects();
+			gene.UpdateMetabolism();
 			Close(doCloseSound: false);
 		}
 
@@ -858,14 +852,11 @@ namespace WVC_XenotypesAndGenes
 
 		public void ClearXenogenes()
 		{
+			// gene.ClearChimeraXenogerm();
 			ClearGenes();
-			XaG_GeneUtility.UpdateXenogermReplication(gene.pawn, false);
-			WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(gene.pawn, gene.pawn.Map).Trigger(gene.pawn, null);
-			if (!gene.Props.soundDefOnImplant.NullOrUndefined())
-			{
-				gene.Props.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(gene.pawn));
-			}
-			UpdateMetabolism();
+			// XaG_GeneUtility.UpdateXenogermReplication(gene.pawn, false);
+			gene.DoEffects();
+			gene.UpdateMetabolism();
 			Close(doCloseSound: false);
 		}
 
@@ -877,14 +868,6 @@ namespace WVC_XenotypesAndGenes
 				{
 					item.OverrideBy(null);
 				}
-			}
-		}
-
-		private void UpdateMetabolism()
-		{
-			if (gene.pawn.health.hediffSet.TryGetHediff<HediffWithComps_Metabolism>(out HediffWithComps_Metabolism metabolism))
-			{
-				metabolism.RecacheScars();
 			}
 		}
 
