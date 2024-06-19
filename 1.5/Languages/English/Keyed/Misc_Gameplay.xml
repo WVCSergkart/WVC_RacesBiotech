@@ -524,7 +524,9 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_ShapeshifterDialog_XenotypeGenesDesc>Expected number of xenotype genes. This does not reflect the exact number of genes in the xenotype.</WVC_XaG_ShapeshifterDialog_XenotypeGenesDesc>
 
-	<!-- <WVC_Inheritable>Inheritable</WVC_Inheritable> -->
+	<WVC_Inheritable>Inheritable</WVC_Inheritable>
+	<WVC_DoubleXenotypes>Double xenotypes</WVC_DoubleXenotypes>
+	<WVC_XaG_DoubleXenotypeWithChanceText>{0} with chance: {1}%</WVC_XaG_DoubleXenotypeWithChanceText>
 	<!-- <WVC_XaG_ShapeshifterDialog_XenotypeInheritableDesc>This xenotype is endogenous; some of its genes can be inherited by offspring.</WVC_XaG_ShapeshifterDialog_XenotypeInheritableDesc> -->
 
 	<WVC_XaG_TrueForm>True form</WVC_XaG_TrueForm>
@@ -566,7 +568,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<!-- <WVC_XaG_GeneXenoGestator_GestationGenesMatch>The minimum matched genes must be at least {0}%</WVC_XaG_GeneXenoGestator_GestationGenesMatch> -->
 
-	<WVC_XaG_GeneShapeshifter_ShapeshiftWarning>The pawn's xenotype will be changed to the selected xenotype, and the pawn will lose the genes of the previous xenotype and receive new ones. The shapeshifter gene will not be deleted regardless of the selected xenotype.\n\nAfter implantation of new genes, the pawn receives xenogerm coma and xenogerm replication (genes regrowing).</WVC_XaG_GeneShapeshifter_ShapeshiftWarning>
+	<WVC_XaG_GeneShapeshifter_ShapeshiftWarning>The pawn's xenotype will be changed to the selected xenotype, and the pawn will lose the genes of the previous xenotype and receive new ones. The shapeshifter gene will not be removed regardless of the selected xenotype.\n\nAfter implantation of new genes, the pawn receives xenogermination coma and genes regrowing.</WVC_XaG_GeneShapeshifter_ShapeshiftWarning>
 
 	<WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel>Shapeshift</WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel>
 	<!-- <WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>{TARGET_nameDef}'s genes have been altered. {TARGET_nameDef} won't be able to use shapeshift again for a while.</WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc> -->

@@ -9,7 +9,6 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	// In Dev
 	public class Dialog_Shapeshifter : GeneCreationDialogBase
 	{
 
@@ -98,16 +97,6 @@ namespace WVC_XenotypesAndGenes
 			absorbInputAroundWindow = true;
 			alwaysUseFullBiostatsTableHeight = true;
 			searchWidgetOffsetX = GeneCreationDialogBase.ButSize.x * 2f + 4f;
-			// foreach (GeneCategoryDef allDef in DefDatabase<GeneCategoryDef>.AllDefs)
-			// {
-				// collapsedCategories.Add(allDef, value: false);
-			// }
-			// pawnGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.GenesListForReading);
-			// pawnXenoGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.Xenogenes);
-			// pawnEndoGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.Endogenes);
-			// allGenes = gene.StolenGenes;
-			// eatedGenes = gene.EatedGenes;
-			// selectedGenes = pawnXenoGenes;
 			currentXeno = gene?.pawn?.genes?.Xenotype;
 			selectedXeno = currentXeno;
 			allXenotypes = XenotypeFilterUtility.AllXenotypesExceptAndroids();
@@ -346,7 +335,8 @@ namespace WVC_XenotypesAndGenes
 				curX = rect.xMax + 4f;
 				return false;
 			}
-			Widgets.DrawOptionBackground(rect, selectedXeno == xenotypeDef);
+			bool selected = selectedXeno == xenotypeDef;
+			Widgets.DrawOptionBackground(rect, selected);
 			curX += 4f;
 			DrawBiostats(xenotypeDef.AllGenes.Count, trueFormXenotypes.Contains(xenotypeDef), ref curX, curY, 4f);
 			Rect xenoRect = new(curX, curY + 4f, XenotypeSize.x, XenotypeSize.y);
@@ -354,6 +344,12 @@ namespace WVC_XenotypesAndGenes
 			if (Mouse.IsOver(xenoRect))
 			{
 				string text = xenotypeDef.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + (!xenotypeDef.descriptionShort.NullOrEmpty() ? xenotypeDef.descriptionShort : xenotypeDef.description);
+				text += "\n\n" + ("WVC_Inheritable".Translate() + ":").Colorize(ColoredText.TipSectionTitleColor) + " " + xenotypeDef.inheritable.ToStringYesNo();
+				if (!xenotypeDef.doubleXenotypeChances.NullOrEmpty())
+				{
+					text += "\n\n" + ("WVC_DoubleXenotypes".Translate() + ":").Colorize(ColoredText.TipSectionTitleColor) + "\n" + xenotypeDef.doubleXenotypeChances.Select((XenotypeChance x) => "WVC_XaG_DoubleXenotypeWithChanceText".Translate(x.xenotype.LabelCap, (x.chance * 100f).ToString()).ToString()).ToLineList(" - ");
+				}
+				text += "\n\n" + (selected ? "ClickToRemove" : "ClickToAdd").Translate().Colorize(ColoredText.SubtleGrayColor);
 				TooltipHandler.TipRegion(xenoRect, text);
 			}
 			curX += XenotypeSize.x + 4f;
@@ -655,6 +651,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			quickSearchWidget.noResultsMatched = !matchingXenotypes.Any();
 		}
+
 	}
 
 }
