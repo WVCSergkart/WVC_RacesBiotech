@@ -31,6 +31,13 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	// public class VirtualCategory
+	// {
+
+		// public string name;
+
+	// }
+
 	// public class PawnContainer : IExposable
 	// {
 

@@ -23,6 +23,10 @@
 
 	<WVC_XaG_GeneralWrongTarget>Wrong target.</WVC_XaG_GeneralWrongTarget>
 
+	<WVC_Xenotypes>Xenotypes</WVC_Xenotypes>
+
+	<WVC_SelectedXenotypeGenes>Selected xenotype genes</WVC_SelectedXenotypeGenes>
+
 	<WVC_XaG_MustTargetGenepack>Must target genepack.</WVC_XaG_MustTargetGenepack>
 	
 	<WVC_AbilityValidation_ReimplantationCheck>Reimplantation in progress. Wait for the process to finish before starting another one.</WVC_AbilityValidation_ReimplantationCheck>
@@ -518,6 +522,14 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_GeneShapeshifter_DialogCurrentMode>Current mode: {0}</WVC_XaG_GeneShapeshifter_DialogCurrentMode>
 
+	<WVC_XaG_ShapeshifterDialog_XenotypeGenesDesc>Expected number of xenotype genes. This does not reflect the exact number of genes in the xenotype.</WVC_XaG_ShapeshifterDialog_XenotypeGenesDesc>
+
+	<!-- <WVC_Inheritable>Inheritable</WVC_Inheritable> -->
+	<!-- <WVC_XaG_ShapeshifterDialog_XenotypeInheritableDesc>This xenotype is endogenous; some of its genes can be inherited by offspring.</WVC_XaG_ShapeshifterDialog_XenotypeInheritableDesc> -->
+
+	<WVC_XaG_TrueForm>True form</WVC_XaG_TrueForm>
+	<WVC_XaG_ShapeshifterDialog_TrueFormDesc>This xenotype is one of the natural forms of the shapeshifter. It can be implanted regardless of the owner's genetic condition.</WVC_XaG_ShapeshifterDialog_TrueFormDesc>
+
 	<WVC_XaG_ShapeshifterGizmo>Shapeshifter</WVC_XaG_ShapeshifterGizmo>
 	<WVC_XaG_ShapeshifterGizmoTip>Shapeshifter can freely change &lt;color=#6bb6bb&gt;forms (xenotypes)&lt;/color&gt; at will. The limitations are &lt;color=#8a8ae6&gt;xenogermination coma&lt;/color&gt; and &lt;color=#8a8ae6&gt;genes regrowing&lt;/color&gt;, which prevent the change of &lt;color=#6bb6bb&gt;form&lt;/color&gt;. These restrictions can be overcome with the help of certain &lt;color=#6bb6bb&gt;genes&lt;/color&gt; or with the help of &lt;color=#6bb6bb&gt;special serums&lt;/color&gt;.</WVC_XaG_ShapeshifterGizmoTip>
 
@@ -527,20 +539,22 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<!-- <WVC_XaG_GeneShapeshifterHeritableGenes_AddRemove>Add/Remove</WVC_XaG_GeneShapeshifterHeritableGenes_AddRemove> -->
 
-	<WVC_XaG_GeneShapeshifterHeritableGenes_Desc>Opens a menu in which you can select which genes will be transfered between forms (xenotypes) during shapeshift.</WVC_XaG_GeneShapeshifterHeritableGenes_Desc>
+	<!-- <WVC_XaG_GeneShapeshifterHeritableGenes_Desc>Opens a menu in which you can select which genes will be transfered between forms (xenotypes) during shapeshift.</WVC_XaG_GeneShapeshifterHeritableGenes_Desc> -->
 
-	<WVC_XaG_ShapeshifterWarning_NeedMoreGenesSlots>There are too many evolve genes or the pawn already has this gene.</WVC_XaG_ShapeshifterWarning_NeedMoreGenesSlots>
+	<!-- <WVC_XaG_ShapeshifterWarning_NeedMoreGenesSlots>There are too many evolve genes or the pawn already has this gene.</WVC_XaG_ShapeshifterWarning_NeedMoreGenesSlots> -->
 
 	<WVC_XaG_GeneShapeshifterStyles_Label>Change style</WVC_XaG_GeneShapeshifterStyles_Label>
 	<WVC_XaG_GeneShapeshifterStyles_Desc>Opens a menu where you can change the style of the pawn. Including hairstyle and its color, as well as tattoos, both for the face and body.</WVC_XaG_GeneShapeshifterStyles_Desc>
 
-	<WVC_XaG_GeneShapeshifter_DuplicateMode>This person shapeshift mechanites are in overclocking mode. The carrier's genes will not be changed, but instead a copy of the carrier will be created with the set of genes of the selected xenotype.</WVC_XaG_GeneShapeshifter_DuplicateMode>
+	<!-- <WVC_XaG_GeneShapeshifter_DuplicateMode>This person shapeshift mechanites are in overclocking mode. The carrier's genes will not be changed, but instead a copy of the carrier will be created with the set of genes of the selected xenotype.</WVC_XaG_GeneShapeshifter_DuplicateMode> -->
 
 	<WVC_XaG_GeneShapeshifter_NotPreferredXenotype>Xenotype does not correspond to beliefs.</WVC_XaG_GeneShapeshifter_NotPreferredXenotype>
 
-	<WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype>Implant double xenotypes</WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype>
+	<WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype>Double xenotypes</WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype>
+	<WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype_Desc>Some xenogene xenotypes are related to endogene xenotypes. If a xenogene xenotype has a double xenotype, then the shapeshifter can implant the genes of that xenotype.</WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype_Desc>
 
 	<WVC_XaG_GeneShapeshifter_CheckBox_ClearXenogenesBeforeImplant>Clear xenogenes</WVC_XaG_GeneShapeshifter_CheckBox_ClearXenogenesBeforeImplant>
+	<WVC_XaG_GeneShapeshifter_CheckBox_ClearXenogenesBeforeImplant_Desc>If enabled, xenogens will be removed when implanting an endogene xenotype. For xenogene xenotypes, xenogenes will be removed regardless of this option.</WVC_XaG_GeneShapeshifter_CheckBox_ClearXenogenesBeforeImplant_Desc>
 
 	<!-- <WVC_XaG_GeneXenoGestator_GestationTime>Gestation time: {0}</WVC_XaG_GeneXenoGestator_GestationTime> -->
 
@@ -552,18 +566,18 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<!-- <WVC_XaG_GeneXenoGestator_GestationGenesMatch>The minimum matched genes must be at least {0}%</WVC_XaG_GeneXenoGestator_GestationGenesMatch> -->
 
-	<WVC_XaG_GeneShapeshifter_ShapeshiftWarning>The xenotype change process will take 2 days, during which time the gene carrier will be downed. Once completed, the carrier will not be able to change xenotype again for some time.</WVC_XaG_GeneShapeshifter_ShapeshiftWarning>
+	<WVC_XaG_GeneShapeshifter_ShapeshiftWarning>The pawn's xenotype will be changed to the selected xenotype, and the pawn will lose the genes of the previous xenotype and receive new ones. The shapeshifter gene will not be deleted regardless of the selected xenotype.\n\nAfter implantation of new genes, the pawn receives xenogerm coma and xenogerm replication (genes regrowing).</WVC_XaG_GeneShapeshifter_ShapeshiftWarning>
 
 	<WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel>Shapeshift</WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel>
 	<!-- <WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>{TARGET_nameDef}'s genes have been altered. {TARGET_nameDef} won't be able to use shapeshift again for a while.</WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc> -->
 	<WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>{TARGET_nameDef}'s genes have been significantly changed, {TARGET_possessive} xenotype is now {1}. {TARGET_nameDef} won't be able to use {2} again for a while.</WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>
 
-	<WVC_XaG_GeneShapeshifter_LoseShapeshifterDuringShapeshiftLetterLabel>Failed shift</WVC_XaG_GeneShapeshifter_LoseShapeshifterDuringShapeshiftLetterLabel>
+	<!-- <WVC_XaG_GeneShapeshifter_LoseShapeshifterDuringShapeshiftLetterLabel>Failed shift</WVC_XaG_GeneShapeshifter_LoseShapeshifterDuringShapeshiftLetterLabel> -->
 	<!-- <WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc>{TARGET_nameDef}'s genes have been altered. {TARGET_nameDef} won't be able to use shapeshift again for a while.</WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc> -->
-	<WVC_XaG_GeneShapeshifter_LoseShapeshifterDuringShapeshiftLetterDesc>{TARGET_nameDef} loses the {1} gene and is therefore no longer able to use shapeshift abilities.</WVC_XaG_GeneShapeshifter_LoseShapeshifterDuringShapeshiftLetterDesc>
+	<!-- <WVC_XaG_GeneShapeshifter_LoseShapeshifterDuringShapeshiftLetterDesc>{TARGET_nameDef} loses the {1} gene and is therefore no longer able to use shapeshift abilities.</WVC_XaG_GeneShapeshifter_LoseShapeshifterDuringShapeshiftLetterDesc> -->
 
-	<WVC_XaG_GeneShapeshifter_DuplicateLetterLabel>Duplicate</WVC_XaG_GeneShapeshifter_DuplicateLetterLabel>
-	<WVC_XaG_GeneShapeshifter_DuplicateLetterDesc>{TARGET_nameDef} was duplicated. {TARGET_nameDef}'s duplicate inherited most of {TARGET_possessive} skills and traits.</WVC_XaG_GeneShapeshifter_DuplicateLetterDesc>
+	<!-- <WVC_XaG_GeneShapeshifter_DuplicateLetterLabel>Duplicate</WVC_XaG_GeneShapeshifter_DuplicateLetterLabel> -->
+	<!-- <WVC_XaG_GeneShapeshifter_DuplicateLetterDesc>{TARGET_nameDef} was duplicated. {TARGET_nameDef}'s duplicate inherited most of {TARGET_possessive} skills and traits.</WVC_XaG_GeneShapeshifter_DuplicateLetterDesc> -->
 
 	<!-- <WVC_XaG_GeneShapeshifter_TrustedXenotypes>This xenotype has been verified by the mod developer.</WVC_XaG_GeneShapeshifter_TrustedXenotypes> -->
 	<!-- <WVC_XaG_GeneShapeshifter_UnknownXenotypes>This xenotype has not been tested, use at your own risk.</WVC_XaG_GeneShapeshifter_UnknownXenotypes> -->

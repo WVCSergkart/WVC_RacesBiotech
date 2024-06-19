@@ -90,7 +90,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			catch
 			{
-				Log.Error(geneShapeshifter.def.defName + " failed use shapeshift.");
+				Log.Error(geneShapeshifter.pawn.Name.ToString() + " critical error during shapeshift. " + geneShapeshifter.LabelCap + " | " + geneShapeshifter.def.defName);
 			}
 			return false;
 		}
@@ -162,48 +162,6 @@ namespace WVC_XenotypesAndGenes
 			}
 			return true;
 		}
-
-		public static bool TryTransferGeneStats(Gene_Shapeshifter oldShapeshifter, Gene_Shapeshifter newShapeshifter)
-		{
-			if (newShapeshifter == null)
-			{
-				return false;
-			}
-			// newShapeshifter.xenogermComaAfterShapeshift = oldShapeshifter.xenogermComaAfterShapeshift;
-			// newShapeshifter.genesRegrowAfterShapeshift = oldShapeshifter.genesRegrowAfterShapeshift;
-			// newShapeshifter.heritableGenesSlots = oldShapeshifter.heritableGenesSlots;
-			// newShapeshifter.heritableGenes = oldShapeshifter.heritableGenes;
-			// newShapeshifter.oldHeritableGenes = oldShapeshifter.oldHeritableGenes;
-			// foreach (ShapeshiftModeDef modeDef in oldShapeshifter.UnlockedModes)
-			// {
-				// newShapeshifter.UnlockMode(modeDef);
-			// }
-			// newShapeshifter.SetMode(oldShapeshifter.ShiftMode);
-			newShapeshifter.UpdateForNewGene(oldShapeshifter);
-			return true;
-		}
-
-		// public static bool TraitDefWithWeight_HasAnyConflicts(List<TraitDef> traitDefs, List<Trait> traits)
-		// {
-			// foreach (TraitDef item in traitDefs)
-			// {
-				// if (MiscUtility.TraitHasAnyConflicts(traits, item))
-				// {
-					// return true;
-				// }
-			// }
-			// return false;
-		// }
-
-		// public static List<TraitDef> GetAllTraitsFrom_TraitDefWithWeight(GeneExtension_Shapeshifter geneExtension)
-		// {
-			// List<TraitDef> traits = new();
-			// foreach (GeneExtension_Shapeshifter.TraitDefWithWeight traitDefWithWeight in geneExtension.possibleTraits)
-			// {
-				// traits.Add(traitDefWithWeight.traitDef);
-			// }
-			// return traits;
-		// }
 
 		// Clone
 		public static bool TryDuplicatePawn(Pawn progenitor, Gene gene = null, XenotypeDef xenotypeDef = null, bool duplicateMode = false)
