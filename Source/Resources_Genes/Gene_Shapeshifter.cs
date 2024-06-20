@@ -293,6 +293,112 @@ namespace WVC_XenotypesAndGenes
 			ReimplanterUtility.TrySetSkinAndHairGenes(pawn);
 		}
 
+		// Shapeshift
+
+		private float cachedPawnBodySize = 1f;
+		private Dictionary<Type, float> cachedPawnGeneResources;
+		// private Dictionary<Need, float> cachedPawnNeeds;
+
+		public virtual void PreShapeshift(Gene_Shapeshifter shapeshiftGene, bool genesRegrowing)
+		{
+			cachedPawnBodySize = pawn.BodySize;
+			cachedPawnGeneResources = new();
+			foreach (Gene gene in pawn.genes.GenesListForReading)
+			{
+				if (gene is Gene_Resource resource && gene.Active)
+				{
+					cachedPawnGeneResources[resource.def.geneClass] = resource.Value;
+				}
+			}
+			// cachedPawnNeeds = new();
+			// foreach (Need need in pawn.needs.AllNeeds)
+			// {
+				// cachedPawnNeeds[need] = need.CurLevel;
+			// }
+			if (genesRegrowing)
+			{
+				return;
+			}
+			foreach (Gene gene in shapeshiftGene.pawn.genes.GenesListForReading)
+			{
+				if (gene is IGeneShapeshift geneShapeshifter && gene.Active)
+				{
+					geneShapeshifter.Notify_PostStart(shapeshiftGene);
+				}
+			}
+		}
+
+		public virtual void PostShapeshift(Gene_Shapeshifter shapeshiftGene, bool genesRegrowing)
+		{
+			if (ModLister.IdeologyInstalled)
+			{
+				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_GenesDefOf.WVC_Shapeshift, shapeshiftGene.pawn.Named(HistoryEventArgsNames.Doer)));
+			}
+			// foreach (Need need in pawn.needs.AllNeeds)
+			// {
+				// foreach (var item in cachedPawnNeeds)
+				// {
+					// if (need == item.Key)
+					// {
+						// need.CurLevel = item.Value;
+					// }
+				// }
+			// }
+			// cachedPawnNeeds = new();
+			if (cachedPawnBodySize != pawn.BodySize)
+			{
+				UndeadUtility.OffsetNeedFood(pawn, cachedPawnBodySize - pawn.BodySize);
+			}
+			cachedPawnBodySize = pawn.BodySize;
+			foreach (Gene gene in pawn.genes.GenesListForReading)
+			{
+				if (gene is Gene_Resource resource && gene.Active)
+				{
+					foreach (var item in cachedPawnGeneResources)
+					{
+						if (resource.def.geneClass == item.Key)
+						{
+							resource.Value = item.Value;
+						}
+					}
+				}
+			}
+			cachedPawnGeneResources = new();
+			if (genesRegrowing)
+			{
+				return;
+			}
+			foreach (Gene gene in shapeshiftGene.pawn.genes.GenesListForReading)
+			{
+				if (gene is IGeneShapeshift geneShapeshifter && gene.Active)
+				{
+					geneShapeshifter.Notify_PostShapeshift(shapeshiftGene);
+				}
+			}
+			foreach (Trait trait in shapeshiftGene.pawn.story.traits.allTraits)
+			{
+				GeneExtension_Undead extension = trait?.def?.GetModExtension<GeneExtension_Undead>();
+				if (extension == null)
+				{
+					continue;
+				}
+				if (!extension.thoughtDefs.NullOrEmpty())
+				{
+					foreach (ThoughtDef thoughtDef in extension.thoughtDefs)
+					{
+						shapeshiftGene.pawn.needs?.mood?.thoughts?.memories.TryGainMemory(thoughtDef);
+					}
+				}
+				if (!extension.hediffDefs.NullOrEmpty())
+				{
+					foreach (HediffDef hediff in extension.hediffDefs)
+					{
+						HediffUtility.TryAddHediff(hediff, shapeshiftGene.pawn, null);
+					}
+				}
+			}
+		}
+
 	}
 
 }

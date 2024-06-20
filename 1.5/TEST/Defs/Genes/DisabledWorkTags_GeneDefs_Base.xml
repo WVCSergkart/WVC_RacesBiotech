@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneDisabledWorkTags_Base" Abstract="True">
+	<description>Carriers of this gene, due to a number of disorders of neural connections, cannot perform some work.</description>
+	<selectionWeight>0.0012</selectionWeight>
+	<iconPath>WVC/UI/Genes/Gene_Blankind_v0</iconPath>
+	<displayOrderInCategory>2220</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>2</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>use</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>less</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDisabledWorkTags_Base">
+	<defName>WVC_DisabledWorkTags_Caring</defName>
+	<label>disabled caring</label>
+	<iconPath>WVC/UI/Genes/Skills/Medicine/NoChance</iconPath>
+	<disabledWorkTags>
+	  <li>Caring</li>
+	</disabledWorkTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDisabledWorkTags_Base">
+	<defName>WVC_DisabledWorkTags_Social</defName>
+	<label>disabled social</label>
+	<iconPath>WVC/UI/Genes/Skills/Social/NoChance</iconPath>
+	<disabledWorkTags>
+	  <li>Social</li>
+	</disabledWorkTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDisabledWorkTags_Base">
+	<defName>WVC_DisabledWorkTags_Intellectual</defName>
+	<label>disabled intellectual</label>
+	<iconPath>WVC/UI/Genes/Skills/Intellectual/NoChance</iconPath>
+	<disabledWorkTags>
+	  <li>Intellectual</li>
+	</disabledWorkTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDisabledWorkTags_Base">
+	<defName>WVC_DisabledWorkTags_Animals</defName>
+	<label>disabled animals</label>
+	<iconPath>WVC/UI/Genes/Skills/Animals/NoChance</iconPath>
+	<disabledWorkTags>
+	  <li>Animals</li>
+	</disabledWorkTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDisabledWorkTags_Base">
+	<defName>WVC_DisabledWorkTags_Artistic</defName>
+	<label>disabled artistic</label>
+	<iconPath>WVC/UI/Genes/Skills/Artistic/NoChance</iconPath>
+	<disabledWorkTags>
+	  <li>Artistic</li>
+	</disabledWorkTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDisabledWorkTags_Base">
+	<defName>WVC_DisabledWorkTags_Crafting</defName>
+	<label>disabled crafting</label>
+	<iconPath>WVC/UI/Genes/Skills/Crafting/NoChance</iconPath>
+	<disabledWorkTags>
+	  <li>Crafting</li>
+	</disabledWorkTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDisabledWorkTags_Base">
+	<defName>WVC_DisabledWorkTags_Cooking</defName>
+	<label>disabled cooking</label>
+	<iconPath>WVC/UI/Genes/Skills/Cooking/NoChance</iconPath>
+	<disabledWorkTags>
+	  <li>Cooking</li>
+	</disabledWorkTags>
+  </GeneDef>
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDisabledWorkTags_Base"> -->
+	<!-- <defName>WVC_DisabledWorkTags_Firefighting</defName> -->
+	<!-- <label>disabled firefighting</label> -->
+	<!-- <disabledWorkTags> -->
+	  <!-- <li>Firefighting</li> -->
+	<!-- </disabledWorkTags> -->
+  <!-- </GeneDef> -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDisabledWorkTags_Base">
+	<defName>WVC_DisabledWorkTags_Cleaning</defName>
+	<label>disabled cleaning</label>
+	<!-- <iconPath>WVC/UI/Genes/Skills/Medicine/NoChance</iconPath> -->
+	<disabledWorkTags>
+	  <li>Cleaning</li>
+	</disabledWorkTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDisabledWorkTags_Base">
+	<defName>WVC_DisabledWorkTags_Hauling</defName>
+	<label>disabled hauling</label>
+	<disabledWorkTags>
+	  <li>Hauling</li>
+	</disabledWorkTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDisabledWorkTags_Base">
+	<defName>WVC_DisabledWorkTags_PlantWork</defName>
+	<label>disabled plants</label>
+	<iconPath>WVC/UI/Genes/Skills/Plants/NoChance</iconPath>
+	<disabledWorkTags>
+	  <li>PlantWork</li>
+	</disabledWorkTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDisabledWorkTags_Base">
+	<defName>WVC_DisabledWorkTags_Mining</defName>
+	<label>disabled mining</label>
+	<iconPath>WVC/UI/Genes/Skills/Mining/NoChance</iconPath>
+	<disabledWorkTags>
+	  <li>Mining</li>
+	</disabledWorkTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDisabledWorkTags_Base">
+	<defName>WVC_DisabledWorkTags_Constructing</defName>
+	<label>disabled constructing</label>
+	<iconPath>WVC/UI/Genes/Skills/Construction/NoChance</iconPath>
+	<disabledWorkTags>
+	  <li>Constructing</li>
+	</disabledWorkTags>
+  </GeneDef>
+
+</Defs>
