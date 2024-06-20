@@ -1,6 +1,7 @@
 using RimWorld;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -31,104 +32,126 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class CustomXenotypeWithXenotypeDef
-	{
+	// public class CustomXenotypeWithXenotypeDef
+	// {
 
-		private XenotypeDef xenotypeDef;
+		// private XenotypeDef xenotypeDef;
 
-		private CustomXenotype customXenotype;
+		// private CustomXenotype customXenotype;
 
-		public XenotypeDef XenotypeDef
-		{
-			get
-			{
-				if (customXenotype != null)
-				{
-					return XenotypeDefOf.Baseliner;
-				}
-				return xenotypeDef;
-			}
-		}
+		// public XenotypeDef XenotypeDef
+		// {
+			// get
+			// {
+				// if (customXenotype != null)
+				// {
+					// return XenotypeDefOf.Baseliner;
+				// }
+				// return xenotypeDef;
+			// }
+		// }
 
-		public CustomXenotype CustomXenotype => customXenotype;
+		// public CustomXenotype CustomXenotype => customXenotype;
 
-		public void SetXenotype(XenotypeDef xenotypeDef = null, CustomXenotype customXenotype = null)
-		{
-			if (customXenotype != null)
-			{
-				this.customXenotype = customXenotype;
-			}
-			if (xenotypeDef != null)
-			{
-				this.xenotypeDef = xenotypeDef;
-			}
-		}
+		// public void SetXenotype(XenotypeDef xenotypeDef = null, CustomXenotype customXenotype = null)
+		// {
+			// if (customXenotype != null)
+			// {
+				// this.customXenotype = customXenotype;
+			// }
+			// if (xenotypeDef != null)
+			// {
+				// this.xenotypeDef = xenotypeDef;
+			// }
+		// }
 
-		public string LabelCap
-		{
-			get
-			{
-				if (customXenotype != null)
-				{
-					return customXenotype.name.CapitalizeFirst();
-				}
-				else if (xenotypeDef != null)
-				{
-					return xenotypeDef.LabelCap;
-				}
-				return null;
-			}
-		}
+		// [Unsaved(false)]
+		// private Texture2D cachedIcon;
 
-		public float DisplayPriority
-		{
-			get
-			{
-				if (customXenotype != null)
-				{
-					return customXenotype.inheritable ? 1f : 0f;
-				}
-				else if (xenotypeDef != null)
-				{
-					return xenotypeDef.displayPriority;
-				}
-				return 0f;
-			}
-		}
+		// public Texture2D Icon
+		// {
+			// get
+			// {
+				// if (cachedIcon == null)
+				// {
+					// if (customXenotype != null)
+					// {
+						// cachedIcon = customXenotype.IconDef.Icon;
+					// }
+					// else if (xenotypeDef != null)
+					// {
+						// cachedIcon = xenotypeDef.Icon;
+					// }
+				// }
+				// return cachedIcon;
+			// }
+		// }
 
-		public bool Inheritable
-		{
-			get
-			{
-				if (customXenotype != null)
-				{
-					return customXenotype.inheritable;
-				}
-				else if (xenotypeDef != null)
-				{
-					return xenotypeDef.inheritable;
-				}
-				return false;
-			}
-		}
+		// public string LabelCap
+		// {
+			// get
+			// {
+				// if (customXenotype != null)
+				// {
+					// return customXenotype.name.CapitalizeFirst();
+				// }
+				// else if (xenotypeDef != null)
+				// {
+					// return xenotypeDef.LabelCap;
+				// }
+				// return null;
+			// }
+		// }
 
-		public List<GeneDef> AllGenes
-		{
-			get
-			{
-				if (customXenotype != null)
-				{
-					return customXenotype.genes;
-				}
-				else if (xenotypeDef != null)
-				{
-					return xenotypeDef.AllGenes;
-				}
-				return new();
-			}
-		}
+		// public float DisplayPriority
+		// {
+			// get
+			// {
+				// if (customXenotype != null)
+				// {
+					// return customXenotype.inheritable ? 1f : 0f;
+				// }
+				// else if (xenotypeDef != null)
+				// {
+					// return xenotypeDef.displayPriority;
+				// }
+				// return 0f;
+			// }
+		// }
 
-	}
+		// public bool Inheritable
+		// {
+			// get
+			// {
+				// if (customXenotype != null)
+				// {
+					// return customXenotype.inheritable;
+				// }
+				// else if (xenotypeDef != null)
+				// {
+					// return xenotypeDef.inheritable;
+				// }
+				// return false;
+			// }
+		// }
+
+		// public List<GeneDef> AllGenes
+		// {
+			// get
+			// {
+				// if (customXenotype != null)
+				// {
+					// return customXenotype.genes;
+				// }
+				// else if (xenotypeDef != null)
+				// {
+					// return xenotypeDef.AllGenes;
+				// }
+				// return new();
+			// }
+		// }
+
+	// }
 
 	// public class VirtualCategory
 	// {

@@ -342,9 +342,10 @@ namespace WVC_XenotypesAndGenes
 			bool selected = selectedXeno == xenotypeDef;
 			Widgets.DrawOptionBackground(rect, selected);
 			curX += 4f;
-			DrawBiostats(xenotypeDef.AllGenes.Count, trueFormXenotypes.Contains(xenotypeDef), ref curX, curY, 4f);
+			bool trueForm = trueFormXenotypes.Contains(xenotypeDef);
+			DrawBiostats(xenotypeDef.AllGenes.Count, trueForm, ref curX, curY, 4f);
 			Rect xenoRect = new(curX, curY + 4f, XenotypeSize.x, XenotypeSize.y);
-			DrawXenotypeBasics(xenotypeDef, xenoRect, genesRegrowing && !trueFormXenotypes.Contains(xenotypeDef));
+			DrawXenotypeBasics(xenotypeDef, xenoRect, genesRegrowing && !trueForm);
 			if (Mouse.IsOver(xenoRect))
 			{
 				string text = xenotypeDef.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + (!xenotypeDef.descriptionShort.NullOrEmpty() ? xenotypeDef.descriptionShort : xenotypeDef.description);
