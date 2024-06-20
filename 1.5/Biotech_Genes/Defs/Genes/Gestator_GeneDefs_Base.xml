@@ -71,7 +71,7 @@
 			<xenotypeComplexityFactor>0.2</xenotypeComplexityFactor>
 			<cooldownDays>7</cooldownDays>
 			<canGestateAnyIfHas>
-				<li>WVC_Shapeshifter</li>
+				<!-- <li>WVC_Shapeshifter</li> -->
 			</canGestateAnyIfHas>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">

@@ -309,17 +309,14 @@ namespace WVC_XenotypesAndGenes
 		public static List<CustomXenotype> CustomXenotypesList()
 		{
 			List<CustomXenotype> xenotypes = new();
-			// Используем ванильные методы загрузки и создания списка ксенотипов
 			foreach (FileInfo item in GenFilePaths.AllCustomXenotypeFiles.OrderBy((FileInfo f) => f.LastWriteTime))
 			{
-				// Присваеваем путь
 				string filePath = GenFilePaths.AbsFilePathForXenotype(Path.GetFileNameWithoutExtension(item.Name));
-				// Чекаем версию и список модов. Скипаем несоответствия
 				PreLoadUtility.CheckVersionAndLoad(filePath, ScribeMetaHeaderUtility.ScribeHeaderMode.Xenotype, delegate
 				{
 					if (GameDataSaveLoader.TryLoadXenotype(filePath, out var xenotype))
 					{
-						if (!CustomXenotypeIsAndroid(xenotype))
+						if (!XaG_GeneUtility.XenotypeIsAndroid(xenotype))
 						{
 							xenotypes.Add(xenotype);
 						}
@@ -329,22 +326,22 @@ namespace WVC_XenotypesAndGenes
 			return xenotypes;
 		}
 
-		public static bool CustomXenotypeIsAndroid(CustomXenotype xenotype)
-		{
-			if (xenotype?.genes == null)
-			{
-				return false;
-			}
-			List<GeneDef> genesListForReading = xenotype.genes;
-			for (int i = 0; i < genesListForReading.Count; i++)
-			{
-				if (genesListForReading[i].defName.Contains("VREA_SyntheticBody"))
-				{
-					return true;
-				}
-			}
-			return false;
-		}
+		// public static bool CustomXenotypeIsAndroid(CustomXenotype xenotype)
+		// {
+			// if (xenotype?.genes == null)
+			// {
+				// return false;
+			// }
+			// List<GeneDef> genesListForReading = xenotype.genes;
+			// for (int i = 0; i < genesListForReading.Count; i++)
+			// {
+				// if (genesListForReading[i].defName.Contains("VREA_SyntheticBody"))
+				// {
+					// return true;
+				// }
+			// }
+			// return false;
+		// }
 
 		// ============================================
 

@@ -51,6 +51,10 @@
 			<!-- <disappearsAfterTicks>42000~73000</disappearsAfterTicks> -->
 			<!-- <showRemainingTime>true</showRemainingTime> -->
 		<!-- </li> -->
+		<!-- Cause bugs -->
+		<!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_Cellur"> -->
+			<!-- <forceNoDeathNotification>true</forceNoDeathNotification> -->
+		<!-- </li> -->
 	</comps>
   </HediffDef>
 

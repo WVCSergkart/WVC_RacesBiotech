@@ -5,40 +5,57 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class HediffCompProperties_UndeadResurrection : HediffCompProperties
+	public class HediffCompProperties_Cellur : HediffCompProperties
 	{
 
-		// public bool shouldSendNotification = false;
+		public bool forceNoDeathNotification = true;
 
-		public int refreshTicks = 6000;
-
-		// public FloatRange tendingQualityRange = new(0.1f, 1.0f);
-
-		public HediffCompProperties_UndeadResurrection()
+		public HediffCompProperties_Cellur()
 		{
-			compClass = typeof(HediffCompUndeadResurrection);
+			compClass = typeof(HediffCompCellur);
 		}
 	}
 
-	public class HediffCompUndeadResurrection : HediffComp
+	public class HediffCompCellur : HediffComp
 	{
 
-		private int ticksToResurrection = 0;
+		public HediffCompProperties_Cellur Props => (HediffCompProperties_Cellur)props;
 
-		public HediffCompProperties_UndeadResurrection Props => (HediffCompProperties_UndeadResurrection)props;
-
-		public override void CompPostTick(ref float severityAdjustment)
+		public override void CompPostPostAdd(DamageInfo? dinfo)
 		{
-			base.CompPostTick(ref severityAdjustment);
-			ticksToResurrection++;
-			if (Props.refreshTicks > ticksToResurrection)
+			Pawn.forceNoDeathNotification = Props.forceNoDeathNotification;
+		}
+
+		public override void CompPostPostRemoved()
+		{
+			Pawn.forceNoDeathNotification = false;
+		}
+
+		public override void Notify_Spawned()
+		{
+			Pawn.forceNoDeathNotification = Props.forceNoDeathNotification;
+		}
+
+		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
+		{
+			if (Pawn.Faction != Faction.OfPlayer && !WVC_Biotech.settings.canNonPlayerPawnResurrect || !Pawn.Dead)
 			{
 				return;
 			}
-			UndeadUtility.Resurrect(parent.pawn);
-			ticksToResurrection = 0;
-			base.Pawn.health.RemoveHediff(parent);
+			ResurrectionParams resurrectionParams = new();
+			resurrectionParams.restoreMissingParts = false;
+			resurrectionParams.noLord = true;
+			resurrectionParams.removeDiedThoughts = true;
+			resurrectionParams.canPickUpOpportunisticWeapons = true;
+			resurrectionParams.gettingScarsChance = 0f;
+			resurrectionParams.canKidnap = false;
+			resurrectionParams.canSteal = false;
+			resurrectionParams.breachers = false;
+			resurrectionParams.sappers = false;
+			ResurrectionUtility.TryResurrect(Pawn, resurrectionParams);
+			Pawn.health.forceDowned = true;
 		}
+
 	}
 
 }

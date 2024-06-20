@@ -31,6 +31,105 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class CustomXenotypeWithXenotypeDef
+	{
+
+		private XenotypeDef xenotypeDef;
+
+		private CustomXenotype customXenotype;
+
+		public XenotypeDef XenotypeDef
+		{
+			get
+			{
+				if (customXenotype != null)
+				{
+					return XenotypeDefOf.Baseliner;
+				}
+				return xenotypeDef;
+			}
+		}
+
+		public CustomXenotype CustomXenotype => customXenotype;
+
+		public void SetXenotype(XenotypeDef xenotypeDef = null, CustomXenotype customXenotype = null)
+		{
+			if (customXenotype != null)
+			{
+				this.customXenotype = customXenotype;
+			}
+			if (xenotypeDef != null)
+			{
+				this.xenotypeDef = xenotypeDef;
+			}
+		}
+
+		public string LabelCap
+		{
+			get
+			{
+				if (customXenotype != null)
+				{
+					return customXenotype.name.CapitalizeFirst();
+				}
+				else if (xenotypeDef != null)
+				{
+					return xenotypeDef.LabelCap;
+				}
+				return null;
+			}
+		}
+
+		public float DisplayPriority
+		{
+			get
+			{
+				if (customXenotype != null)
+				{
+					return customXenotype.inheritable ? 1f : 0f;
+				}
+				else if (xenotypeDef != null)
+				{
+					return xenotypeDef.displayPriority;
+				}
+				return 0f;
+			}
+		}
+
+		public bool Inheritable
+		{
+			get
+			{
+				if (customXenotype != null)
+				{
+					return customXenotype.inheritable;
+				}
+				else if (xenotypeDef != null)
+				{
+					return xenotypeDef.inheritable;
+				}
+				return false;
+			}
+		}
+
+		public List<GeneDef> AllGenes
+		{
+			get
+			{
+				if (customXenotype != null)
+				{
+					return customXenotype.genes;
+				}
+				else if (xenotypeDef != null)
+				{
+					return xenotypeDef.AllGenes;
+				}
+				return new();
+			}
+		}
+
+	}
+
 	// public class VirtualCategory
 	// {
 

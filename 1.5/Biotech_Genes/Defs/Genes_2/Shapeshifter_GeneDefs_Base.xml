@@ -19,28 +19,33 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_Base">
 	<defName>WVC_Shapeshifter</defName>
 	<label>shapeshifter</label>
-	<description>Carriers of this gene can change their xenotype at will.</description>
+	<description>Carriers of this gene have archites that can completely rearrange and rewrite the genetic code at the request of the carrier. Thanks to this, the xenotype of the carrier can be changed at any time, but the carriers completely lose the accumulated genetic information of the previous form.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Shapeshifter</geneClass>
 	<!-- <iconPath>WVC/UI/Genes/Gene_XenoForcer_ShapeShifter</iconPath> -->
 	<iconPath>WVC/UI/Genes/Gene_Shapeshifter_v0</iconPath>
 	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_ShapeshifterMode</resourceGizmoType>
 	<customEffectDescriptions>
-		<li>Allows you to change the xenotype at any time.</li>
-		<li>This gene removes the limit of the &lt;color=#8a8ae6&gt;xenotype gestator&lt;/color&gt; gene.</li>
+		<li>Allows to change the xenotype at any time.</li>
+		<!-- <li>This gene removes the limit of the &lt;color=#8a8ae6&gt;xenotype gestator&lt;/color&gt; gene.</li> -->
+		<li>Birth quality +25%</li>
+		<li>&lt;color=#8a8ae6&gt;Childs&lt;/color&gt; born as a carrier of the gene &lt;color=#8a8ae6&gt;receive this gene&lt;/color&gt;. Affects only &lt;color=#8a8ae6&gt;default pregnancy&lt;/color&gt;.</li>
 		<li>&lt;color=#ff8585&gt;Does not support custom xenotypes.&lt;/color&gt;</li>
 		<li>&lt;color=#ff8585&gt;This gene cannot be removed.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<displayOrderInCategory>155</displayOrderInCategory>
 	<biostatCpx>8</biostatCpx>
 	<biostatArc>3</biostatArc>
-	<sterilize>true</sterilize>
-	<statFactors>
-	  <Fertility>0</Fertility>
-	</statFactors>
+	<!-- <sterilize>true</sterilize> -->
+	<!-- <statFactors> -->
+	  <!-- <Fertility>0</Fertility> -->
+	<!-- </statFactors> -->
 	<exclusionTags>
 	  <li>WVC_ShapeshifterGene</li>
 	</exclusionTags>
 	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<birthQualityOffset>0.25</birthQualityOffset>
+		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<scarsCount>-3</scarsCount>
 			<hediffDefs>

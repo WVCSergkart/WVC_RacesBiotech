@@ -118,11 +118,8 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes">
 	<defName>WVC_Shapeshift_Deathless</defName>
-	<!-- <label>shift deathless</label> -->
-	<!-- <label>indestructible</label> -->
 	<label>cellular</label>
-	<description>Carriers of this gene have archites that transfer consciousness to the cellular level, which makes their carriers indestructible. As long as at least a shred of flesh remains from their body, they can recover.</description>
-	<!-- <description>Carriers of this gene have archites in the blood which will sustain their life processes no matter what. As long as the carrier of this gene remains a shapeshifter, it will never die.</description> -->
+	<description>Carriers of this gene have archites that transfer consciousness to the cellular-molecular level, which makes their carriers almost indestructible. As long as at least a shred of flesh remains from their body, they can recover.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Cellular</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_PostShapeshift_Deathless_v0</iconPath>
 	<displayOrderInCategory>185</displayOrderInCategory>
@@ -133,9 +130,7 @@
 	<biostatArc>4</biostatArc>
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
-		<!-- <li>If a pawn received this gene as a &lt;color=#8a8ae6&gt;shapeshifter&lt;/color&gt;, it &lt;color=#8a8ae6&gt;permanently&lt;/color&gt; receives the &lt;color=#8a8ae6&gt;deathless&lt;/color&gt; effect.</li> -->
 		<li>Carrier can only be killed by &lt;color=#8a8ae6&gt;destruction&lt;/color&gt; of the body, &lt;color=#8a8ae6&gt;surgery&lt;/color&gt;, or &lt;color=#8a8ae6&gt;removal&lt;/color&gt; of the gene.</li>
-		<!-- <li>Carrier can only be killed either by &lt;color=#8a8ae6&gt;completely destroying&lt;/color&gt; their body or by &lt;color=#8a8ae6&gt;removing this gene&lt;/color&gt;.</li> -->
 		<li>Healing: 1 hp/day</li>
 	</customEffectDescriptions>
 	<statFactors>

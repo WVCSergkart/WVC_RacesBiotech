@@ -108,6 +108,51 @@ namespace WVC_XenotypesAndGenes
 			}
 			return list;
 		}
+		public static List<CustomXenotype> AllCustomXenotypesExceptAndroids()
+		{
+			List<CustomXenotype> list = new();
+			foreach (CustomXenotype item in SerumUtility.CustomXenotypesList())
+			{
+				if (!XaG_GeneUtility.XenotypeIsAndroid(item))
+				{
+					list.Add(item);
+				}
+			}
+			return list;
+		}
+
+		public static List<XenotypeDef> TrueFormXenotypesFromList(List<XenotypeDef> xenotypes)
+		{
+			List<XenotypeDef> list = new();
+			foreach (XenotypeDef item in xenotypes)
+			{
+				foreach (GeneDef geneDef in item.genes)
+				{
+					if (geneDef.geneClass == typeof(Gene_Shapeshift_TrueForm))
+					{
+						list.Add(item);
+						break;
+					}
+				}
+			}
+			return list;
+		}
+		public static List<CustomXenotype> TrueFormXenotypesFromList(List<CustomXenotype> xenotypes)
+		{
+			List<CustomXenotype> list = new();
+			foreach (CustomXenotype item in xenotypes)
+			{
+				foreach (GeneDef geneDef in item.genes)
+				{
+					if (geneDef.geneClass == typeof(Gene_Shapeshift_TrueForm))
+					{
+						list.Add(item);
+						break;
+					}
+				}
+			}
+			return list;
+		}
 
 		public static List<GeneDef> AnomalyExceptions()
 		{

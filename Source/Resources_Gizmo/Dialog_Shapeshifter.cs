@@ -17,6 +17,7 @@ namespace WVC_XenotypesAndGenes
 		// public List<XenotypeDef> selectedGenes = new();
 
 		protected HashSet<XenotypeDef> matchingXenotypes = new();
+		// protected HashSet<CustomXenotype> matchingCustomXenotypes = new();
 
 		private bool? selectedCollapsed = false;
 
@@ -58,35 +59,55 @@ namespace WVC_XenotypesAndGenes
 		public bool genesRegrowing = false;
 		public List<XenotypeDef> preferredXenotypes;
 		public List<XenotypeDef> trueFormXenotypes = new();
+		// public List<CustomXenotype> trueFormCustomtypes = new();
 		public bool doubleXenotypeReimplantation = true;
 		public bool clearXenogenes = true;
 		public XenotypeDef selectedXeno;
 		public XenotypeDef currentXeno;
 
 		public List<XenotypeDef> allXenotypes;
+		// public List<CustomXenotype> customXenotypes;
 
-		private List<XenotypeDef> cachedGeneDefsInOrder;
+		private List<XenotypeDef> cachedXenotypeDefsInOrder;
+		// private List<CustomXenotype> cachedCustomXenotypesInOrder;
 
-		public List<XenotypeDef> GenesInOrder
+		public List<XenotypeDef> XenotypesInOrder
 		{
 			get
 			{
-				if (cachedGeneDefsInOrder.NullOrEmpty())
+				if (cachedXenotypeDefsInOrder == null)
 				{
-					cachedGeneDefsInOrder = new();
+					cachedXenotypeDefsInOrder = new();
 					foreach (XenotypeDef allDef in allXenotypes)
 					{
 						if (allDef == XenotypeDefOf.Baseliner)
 						{
 							continue;
 						}
-						cachedGeneDefsInOrder.Add(allDef);
+						cachedXenotypeDefsInOrder.Add(allDef);
 					}
-					cachedGeneDefsInOrder.SortBy((XenotypeDef x) => 0f - x.displayPriority - (x.inheritable ? 100000f : 0));
+					cachedXenotypeDefsInOrder.SortBy((XenotypeDef x) => 0f - x.displayPriority - (x.inheritable ? 100000f : 0));
 				}
-				return cachedGeneDefsInOrder;
+				return cachedXenotypeDefsInOrder;
 			}
 		}
+
+		// public List<CustomXenotype> CustomtypesInOrder
+		// {
+			// get
+			// {
+				// if (cachedCustomXenotypesInOrder == null)
+				// {
+					// cachedCustomXenotypesInOrder = new();
+					// foreach (CustomXenotype allDef in customXenotypes)
+					// {
+						// cachedCustomXenotypesInOrder.Add(allDef);
+					// }
+					// cachedCustomXenotypesInOrder.SortBy((CustomXenotype x) => x.inheritable ? 1f : 0);
+				// }
+				// return cachedCustomXenotypesInOrder;
+			// }
+		// }
 
 		public Dialog_Shapeshifter(Gene_Shapeshifter chimera)
 		{
@@ -100,31 +121,13 @@ namespace WVC_XenotypesAndGenes
 			currentXeno = gene?.pawn?.genes?.Xenotype;
 			selectedXeno = currentXeno;
 			allXenotypes = XenotypeFilterUtility.AllXenotypesExceptAndroids();
+			// customXenotypes = XenotypeFilterUtility.AllCustomXenotypesExceptAndroids();
 			preferredXenotypes = ModLister.IdeologyInstalled ? gene.pawn?.ideo?.Ideo?.PreferredXenotypes : null;
 			shiftExtension = gene?.def?.GetModExtension<GeneExtension_Undead>();
 			genesRegrowing = HediffUtility.HasAnyHediff(shiftExtension?.blockingHediffs, gene.pawn);
-			trueFormXenotypes = TrueFormXenotypesFromList(allXenotypes);
+			trueFormXenotypes = XenotypeFilterUtility.TrueFormXenotypesFromList(allXenotypes);
+			// trueFormCustomtypes = XenotypeFilterUtility.TrueFormXenotypesFromList(customXenotypes);
 			OnGenesChanged();
-		}
-
-		public static List<XenotypeDef> TrueFormXenotypesFromList(List<XenotypeDef> xenotypes)
-		{
-			List<XenotypeDef> list = new();
-			foreach (XenotypeDef item in xenotypes)
-			{
-				// Log.Error(item.LabelCap + " checked.");
-				foreach (GeneDef geneDef in item.genes)
-				{
-					// Log.Error(geneDef.LabelCap + " checked.");
-					if (geneDef.geneClass == typeof(Gene_Shapeshift_TrueForm))
-					{
-						// Log.Error(geneDef.LabelCap + " is true form.");
-						list.Add(item);
-						break;
-					}
-				}
-			}
-			return list;
 		}
 
 		protected override void DrawGenes(Rect rect)
@@ -140,7 +143,8 @@ namespace WVC_XenotypesAndGenes
 			Rect containingRect = rect2;
 			containingRect.y = curY + scrollPosition.y;
 			containingRect.height = rect.height;
-			DrawXenotypeSection(rect, GenesInOrder, null, ref curY, ref unselectedHeight, containingRect);
+			DrawXenotypeSection(rect, XenotypesInOrder, null, ref curY, ref unselectedHeight, containingRect);
+			// DrawCustomXenotypeSection(rect, CustomtypesInOrder, null, ref curY, ref unselectedHeight, containingRect);
 			if (Event.current.type == EventType.Layout)
 			{
 				scrollHeight = curY - num2;
@@ -635,11 +639,12 @@ namespace WVC_XenotypesAndGenes
 		{
 			quickSearchWidget.noResultsMatched = false;
 			matchingXenotypes.Clear();
+			// matchingCustomXenotypes.Clear();
 			if (!quickSearchWidget.filter.Active)
 			{
 				return;
 			}
-			foreach (XenotypeDef item in GenesInOrder)
+			foreach (XenotypeDef item in XenotypesInOrder)
 			{
 				if (item != selectedXeno)
 				{
@@ -649,6 +654,16 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			}
+			// foreach (CustomXenotype item in CustomtypesInOrder)
+			// {
+				// if (item != selectedXeno)
+				// {
+					// if (quickSearchWidget.filter.Matches(item.name))
+					// {
+						// matchingCustomXenotypes.Add(item);
+					// }
+				// }
+			// }
 			quickSearchWidget.noResultsMatched = !matchingXenotypes.Any();
 		}
 

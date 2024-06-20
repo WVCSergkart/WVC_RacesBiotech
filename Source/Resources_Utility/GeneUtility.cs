@@ -263,6 +263,23 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		public static bool XenotypeIsAndroid(CustomXenotype xenotypeDef)
+		{
+			List<GeneDef> genesListForReading = xenotypeDef?.genes;
+			if (genesListForReading.NullOrEmpty())
+			{
+				return false;
+			}
+			for (int i = 0; i < genesListForReading.Count; i++)
+			{
+				if (genesListForReading[i].defName.Contains("VREA_SyntheticBody"))
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
 		public static bool PawnIsBaseliner(Pawn pawn)
 		{
 			if (pawn?.genes == null)

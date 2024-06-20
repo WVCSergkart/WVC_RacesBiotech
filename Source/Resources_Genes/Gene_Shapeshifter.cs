@@ -9,7 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Shapeshifter : Gene, IGeneOverridden
+	public class Gene_Shapeshifter : Gene, IGeneOverridden, IGenePregnantHuman
 	{
 
 		public GeneExtension_Undead Props => def?.GetModExtension<GeneExtension_Undead>();
@@ -181,6 +181,13 @@ namespace WVC_XenotypesAndGenes
 		{
 		}
 
+		public void Notify_PregnancyStarted(Hediff_Pregnant pregnancy)
+		{
+			GeneSet geneSet = pregnancy.geneSet;
+			geneSet.AddGene(def);
+			geneSet.SortGenes();
+		}
+
 		public override void PostRemove()
 		{
 			base.PostRemove();
@@ -295,21 +302,28 @@ namespace WVC_XenotypesAndGenes
 
 		// Shapeshift
 
-		private float cachedPawnBodySize = 1f;
-		private Dictionary<Type, float> cachedPawnGeneResources;
+		// private float cachedPawnBodySize = 1f;
+		// private Dictionary<Type, float> cachedPawnGeneResources;
 		// private Dictionary<Need, float> cachedPawnNeeds;
+
+		// Does not correspond to the description of the gene and the general idea of ​​a complete reset.
+		// Shapeshift now takes body size changes into account. The pawn's hunger will increase or decrease relative to the difference in size.
+			// Please note that it is the actual body size that is taken into account, not the visual one.
+		// Shapeshift now transfers resource gene accumulations between shapes. But only if the new form also has this resource.
+			// This only affects resource genes, such as hemogen. Deathrest capacity and similar ones will not be transferred.
+
 
 		public virtual void PreShapeshift(Gene_Shapeshifter shapeshiftGene, bool genesRegrowing)
 		{
-			cachedPawnBodySize = pawn.BodySize;
-			cachedPawnGeneResources = new();
-			foreach (Gene gene in pawn.genes.GenesListForReading)
-			{
-				if (gene is Gene_Resource resource && gene.Active)
-				{
-					cachedPawnGeneResources[resource.def.geneClass] = resource.Value;
-				}
-			}
+			// cachedPawnBodySize = pawn.BodySize;
+			// cachedPawnGeneResources = new();
+			// foreach (Gene gene in pawn.genes.GenesListForReading)
+			// {
+				// if (gene is Gene_Resource resource && gene.Active)
+				// {
+					// cachedPawnGeneResources[resource.def.geneClass] = resource.Value;
+				// }
+			// }
 			// cachedPawnNeeds = new();
 			// foreach (Need need in pawn.needs.AllNeeds)
 			// {
@@ -345,25 +359,25 @@ namespace WVC_XenotypesAndGenes
 				// }
 			// }
 			// cachedPawnNeeds = new();
-			if (cachedPawnBodySize != pawn.BodySize)
-			{
-				UndeadUtility.OffsetNeedFood(pawn, cachedPawnBodySize - pawn.BodySize);
-			}
-			cachedPawnBodySize = pawn.BodySize;
-			foreach (Gene gene in pawn.genes.GenesListForReading)
-			{
-				if (gene is Gene_Resource resource && gene.Active)
-				{
-					foreach (var item in cachedPawnGeneResources)
-					{
-						if (resource.def.geneClass == item.Key)
-						{
-							resource.Value = item.Value;
-						}
-					}
-				}
-			}
-			cachedPawnGeneResources = new();
+			// if (cachedPawnBodySize != pawn.BodySize)
+			// {
+				// UndeadUtility.OffsetNeedFood(pawn, cachedPawnBodySize - pawn.BodySize);
+			// }
+			// cachedPawnBodySize = pawn.BodySize;
+			// foreach (Gene gene in pawn.genes.GenesListForReading)
+			// {
+				// if (gene is Gene_Resource resource && gene.Active)
+				// {
+					// foreach (var item in cachedPawnGeneResources)
+					// {
+						// if (resource.def.geneClass == item.Key)
+						// {
+							// resource.Value = item.Value;
+						// }
+					// }
+				// }
+			// }
+			// cachedPawnGeneResources = new();
 			if (genesRegrowing)
 			{
 				return;

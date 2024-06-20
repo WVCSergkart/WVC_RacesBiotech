@@ -76,19 +76,25 @@ namespace WVC_XenotypesAndGenes
 		// Shapeshift
 		public static bool TryShapeshift(Gene_Shapeshifter geneShapeshifter, Dialog_Shapeshifter dialog)
 		{
+			int num = 0;
 			try
 			{
+				num = 1;
 				geneShapeshifter.PreShapeshift(geneShapeshifter, dialog.genesRegrowing);
+				num = 2;
 				geneShapeshifter.Shapeshift(dialog.selectedXeno, dialog.genesRegrowing || dialog.clearXenogenes, dialog.genesRegrowing || dialog.doubleXenotypeReimplantation);
+				num = 3;
 				geneShapeshifter.PostShapeshift(geneShapeshifter, dialog.genesRegrowing);
+				num = 4;
 				Find.LetterStack.ReceiveLetter("WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel".Translate(), "WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc".Translate(geneShapeshifter.pawn.Named("TARGET"), dialog.selectedXeno.LabelCap, geneShapeshifter.LabelCap)
 				+ "\n\n" + (dialog.selectedXeno.descriptionShort.NullOrEmpty() ? dialog.selectedXeno.description : dialog.selectedXeno.descriptionShort),
 				WVC_GenesDefOf.WVC_XaG_UndeadEvent, new LookTargets(geneShapeshifter.pawn));
 				return true;
 			}
-			catch
+			catch (Exception arg)
 			{
-				Log.Error(geneShapeshifter.pawn.Name.ToString() + " critical error during shapeshift. " + geneShapeshifter.LabelCap + " | " + geneShapeshifter.def.defName);
+				// Log.Error(geneShapeshifter.pawn.Name.ToString() + " critical error during shapeshift. " + geneShapeshifter.LabelCap + " | " + geneShapeshifter.def.defName);
+				Log.Error($"Error while shapeshifting {geneShapeshifter.ToStringSafe()} during phase {num}: {arg} (Gene: " + geneShapeshifter.LabelCap + " | " + geneShapeshifter.def.defName + ")");
 			}
 			return false;
 		}
