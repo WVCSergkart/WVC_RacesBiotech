@@ -176,7 +176,7 @@
 		<li>WVC_PostShapeshift_Recovery</li>
 		<li>WVC_PostShapeshift_Regeneration</li>
 		<li>WVC_PostShapeshift_Metabolism</li>
-		<li>WVC_PostShapeshift_Scarred</li>
+		<li MayRequire="ludeon.rimworld.ideology">WVC_PostShapeshift_Scarred</li>
 	</shapeshifterHeritableGenes>
   </WVC_XenotypesAndGenes.XenotypesAndGenesListDef>
 

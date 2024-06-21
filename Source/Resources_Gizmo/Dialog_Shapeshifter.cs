@@ -33,9 +33,9 @@ namespace WVC_XenotypesAndGenes
 
 		public override Vector2 InitialSize => new(Mathf.Min(UI.screenWidth, 1036), UI.screenHeight - 4);
 
-		protected override List<GeneDef> SelectedGenes => selectedXeno.AllGenes;
+		protected override List<GeneDef> SelectedGenes => selectedXenotype.AllGenes;
 
-		protected override string Header => selectedXeno != null ? selectedXeno.LabelCap : gene.LabelCap;
+		protected override string Header => selectedXenotype != null ? selectedXenotype.LabelCap : gene.LabelCap;
 
 		protected override string AcceptButtonLabel
 		{
@@ -62,8 +62,8 @@ namespace WVC_XenotypesAndGenes
 		// public List<CustomXenotype> trueFormCustomtypes = new();
 		public bool doubleXenotypeReimplantation = true;
 		public bool clearXenogenes = true;
-		public XenotypeDef selectedXeno;
-		public XenotypeDef currentXeno;
+		public XenotypeDef selectedXenotype;
+		// public XenotypeDef currentXeno;
 
 		public List<XenotypeDef> allXenotypes;
 		// public List<CustomXenotype> customXenotypes;
@@ -118,8 +118,8 @@ namespace WVC_XenotypesAndGenes
 			absorbInputAroundWindow = true;
 			alwaysUseFullBiostatsTableHeight = true;
 			searchWidgetOffsetX = GeneCreationDialogBase.ButSize.x * 2f + 4f;
-			currentXeno = gene?.pawn?.genes?.Xenotype;
-			selectedXeno = currentXeno;
+			// currentXeno = gene?.pawn?.genes?.Xenotype;
+			selectedXenotype = gene?.pawn?.genes?.Xenotype;
 			allXenotypes = XenotypeFilterUtility.AllXenotypesExceptAndroids();
 			// customXenotypes = XenotypeFilterUtility.AllCustomXenotypesExceptAndroids();
 			preferredXenotypes = ModLister.IdeologyInstalled ? gene.pawn?.ideo?.Ideo?.PreferredXenotypes : null;
@@ -134,7 +134,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			GUI.BeginGroup(rect);
 			float curY = 0f;
-			DrawGenesSection(new Rect(0f, 0f, rect.width, selectedHeight), selectedXeno.AllGenes, "WVC_SelectedXenotypeGenes".Translate(), ref curY, ref selectedHeight, rect, ref selectedCollapsed);
+			DrawGenesSection(new Rect(0f, 0f, rect.width, selectedHeight), selectedXenotype.AllGenes, "WVC_selectedXenotypetypeGenes".Translate(), ref curY, ref selectedHeight, rect, ref selectedCollapsed);
 			Widgets.Label(0f, ref curY, rect.width, "WVC_Xenotypes".Translate().CapitalizeFirst());
 			curY += 10f;
 			float num2 = curY;
@@ -275,15 +275,15 @@ namespace WVC_XenotypesAndGenes
 					curX = Mathf.Max(curX, b);
 					if (DrawXenotype(xenotypeDef, ref curX, curY, num2, containingRect))
 					{
-						if (selectedXeno == xenotypeDef)
+						if (selectedXenotype == xenotypeDef)
 						{
 							SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-							selectedXeno = XenotypeDefOf.Baseliner;
+							selectedXenotype = XenotypeDefOf.Baseliner;
 						}
 						else
 						{
 							SoundDefOf.Tick_High.PlayOneShotOnCamera();
-							selectedXeno = xenotypeDef;
+							selectedXenotype = xenotypeDef;
 						}
 						OnGenesChanged();
 						break;
@@ -311,7 +311,7 @@ namespace WVC_XenotypesAndGenes
 			Widgets.DrawOptionBackground(rect, false);
 			curX += 4f;
 			GeneUIUtility.DrawBiostats(geneDef.biostatCpx, geneDef.biostatMet, geneDef.biostatArc, ref curX, curY, 4f);
-			GeneUIUtility.DrawGeneDef(geneRect: new(curX, curY + 4f, GeneCreationDialogBase.GeneSize.x, GeneCreationDialogBase.GeneSize.y), gene: geneDef, geneType: selectedXeno.inheritable ? GeneType.Endogene : GeneType.Xenogene, extraTooltip: null, doBackground: false, clickable: false, overridden: overridden);
+			GeneUIUtility.DrawGeneDef(geneRect: new(curX, curY + 4f, GeneCreationDialogBase.GeneSize.x, GeneCreationDialogBase.GeneSize.y), gene: geneDef, geneType: selectedXenotype.inheritable ? GeneType.Endogene : GeneType.Xenogene, extraTooltip: null, doBackground: false, clickable: false, overridden: overridden);
 			curX += GeneCreationDialogBase.GeneSize.x + 4f;
 			// if (Mouse.IsOver(rect))
 			// {
@@ -339,7 +339,7 @@ namespace WVC_XenotypesAndGenes
 				curX = rect.xMax + 4f;
 				return false;
 			}
-			bool selected = selectedXeno == xenotypeDef;
+			bool selected = selectedXenotype == xenotypeDef;
 			Widgets.DrawOptionBackground(rect, selected);
 			curX += 4f;
 			bool trueForm = trueFormXenotypes.Contains(xenotypeDef);
@@ -363,7 +363,7 @@ namespace WVC_XenotypesAndGenes
 				// hoveredGene = xenotypeDef;
 				// hoveredAnyGene = true;
 			// }
-			// else if (hoveredGene != null && selectedXeno == xenotypeDef)
+			// else if (hoveredGene != null && selectedXenotype == xenotypeDef)
 			// {
 				// Widgets.DrawLightHighlight(rect);
 			// }
@@ -578,7 +578,7 @@ namespace WVC_XenotypesAndGenes
 
 		protected override bool CanAccept()
 		{
-			if (trueFormXenotypes.Contains(selectedXeno))
+			if (trueFormXenotypes.Contains(selectedXenotype))
 			{
 				return true;
 			}
@@ -587,7 +587,7 @@ namespace WVC_XenotypesAndGenes
 				Messages.Message("WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
 				return false;
 			}
-			if (!preferredXenotypes.NullOrEmpty() && !preferredXenotypes.Contains(selectedXeno))
+			if (!preferredXenotypes.NullOrEmpty() && !preferredXenotypes.Contains(selectedXenotype))
 			{
 				Messages.Message("WVC_XaG_GeneShapeshifter_NotPreferredXenotype".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
 				return false;
@@ -597,7 +597,7 @@ namespace WVC_XenotypesAndGenes
 
 		protected override void Accept()
 		{
-			// if (selectedXeno != currentXeno)
+			// if (selectedXenotype != currentXeno)
 			// {
 				// Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_GeneShapeshifter_ShapeshiftWarning".Translate(gene.pawn.LabelCap), StartChange));
 			// }
@@ -647,7 +647,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			foreach (XenotypeDef item in XenotypesInOrder)
 			{
-				if (item != selectedXeno)
+				if (item != selectedXenotype)
 				{
 					if (quickSearchWidget.filter.Matches(item.label))
 					{
@@ -657,7 +657,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			// foreach (CustomXenotype item in CustomtypesInOrder)
 			// {
-				// if (item != selectedXeno)
+				// if (item != selectedXenotype)
 				// {
 					// if (quickSearchWidget.filter.Matches(item.name))
 					// {
