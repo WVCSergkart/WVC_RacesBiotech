@@ -25,15 +25,16 @@ namespace WVC_XenotypesAndGenes
 		public Gene_ResurgentAgeless ageReversionGene = null;
 		public Gene_ResurgentClotting woundClottingGene = null;
 
-		public GeneGizmo_ResourceResurgentCells(Gene_Resource gene, List<IGeneResourceDrain> drainGenes, Color barColor, Color barhighlightColor)
+		public GeneGizmo_ResourceResurgentCells(Gene_ResurgentCells gene, List<IGeneResourceDrain> drainGenes, Color barColor, Color barhighlightColor)
 			: base(gene, drainGenes, barColor, barhighlightColor)
 		{
-			if (gene is Gene_ResurgentCells cells)
-			{
-				ageReversionGene = cells?.ResurgentAgeless;
-				woundClottingGene = cells?.ResurgentClotting;
-				totalHealingGene = cells?.ResurgentTotalHealing;
-			}
+			this.gene = gene;
+			this.drainGenes = drainGenes;
+			// BarColor = barColor;
+			// BarHighlightColor = barHighlightColor;
+			ageReversionGene = gene?.ResurgentAgeless;
+			woundClottingGene = gene?.ResurgentClotting;
+			totalHealingGene = gene?.ResurgentTotalHealing;
 		}
 
 		public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
@@ -53,88 +54,49 @@ namespace WVC_XenotypesAndGenes
 
 		protected override void DrawHeader(Rect headerRect, ref bool mouseOverElement)
 		{
-			if (gene?.pawn?.Faction == Faction.OfPlayer && gene is Gene_ResurgentCells hemogenGene)
+			if (gene?.pawn?.Faction == Faction.OfPlayer && gene is Gene_ResurgentCells cellsGene)
 			{
 				if (totalHealingGene != null)
 				{
-					headerRect.xMax -= 24f;
-					Rect rect = new(headerRect.xMax, headerRect.y, 24f, 24f);
-					Widgets.DefIcon(rect, totalHealingGene.def);
-					GUI.DrawTexture(new Rect(rect.center.x, rect.y, rect.width / 2f, rect.height / 2f), hemogenGene.totalHealingAllowed ? Widgets.CheckboxOnTex : Widgets.CheckboxOffTex);
-					if (Widgets.ButtonInvisible(rect))
-					{
-						hemogenGene.totalHealingAllowed = !hemogenGene.totalHealingAllowed;
-						if (hemogenGene.totalHealingAllowed)
-						{
-							SoundDefOf.Tick_High.PlayOneShotOnCamera();
-						}
-						else
-						{
-							SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-						}
-					}
-					if (Mouse.IsOver(rect))
-					{
-						Widgets.DrawHighlight(rect);
-						string onOff = (hemogenGene.totalHealingAllowed ? "On" : "Off").Translate().ToString().UncapitalizeFirst();
-						TooltipHandler.TipRegion(rect, () => "WVC_XaG_AutoBaseDesc".Translate() + "WVC_XaG_AutoTotalHealingDesc".Translate(onOff.Named("ONOFF")), 1001);
-						mouseOverElement = true;
-					}
+					GeneSwitcher(ref headerRect, ref mouseOverElement, ref cellsGene.totalHealingAllowed, "WVC_XaG_AutoTotalHealingDesc", totalHealingGene.def);
 				}
 				if (ageReversionGene != null)
 				{
-					headerRect.xMax -= 24f;
-					Rect rect = new(headerRect.xMax, headerRect.y, 24f, 24f);
-					Widgets.DefIcon(rect, ageReversionGene.def);
-					GUI.DrawTexture(new Rect(rect.center.x, rect.y, rect.width / 2f, rect.height / 2f), hemogenGene.ageReversionAllowed ? Widgets.CheckboxOnTex : Widgets.CheckboxOffTex);
-					if (Widgets.ButtonInvisible(rect))
-					{
-						hemogenGene.ageReversionAllowed = !hemogenGene.ageReversionAllowed;
-						if (hemogenGene.ageReversionAllowed)
-						{
-							SoundDefOf.Tick_High.PlayOneShotOnCamera();
-						}
-						else
-						{
-							SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-						}
-					}
-					if (Mouse.IsOver(rect))
-					{
-						Widgets.DrawHighlight(rect);
-						string onOff = (hemogenGene.ageReversionAllowed ? "On" : "Off").Translate().ToString().UncapitalizeFirst();
-						TooltipHandler.TipRegion(rect, () => "WVC_XaG_AutoBaseDesc".Translate() + "WVC_XaG_AutoAgeReversionDesc".Translate(onOff.Named("ONOFF")), 1001);
-						mouseOverElement = true;
-					}
+					GeneSwitcher(ref headerRect, ref mouseOverElement, ref cellsGene.ageReversionAllowed, "WVC_XaG_AutoAgeReversionDesc", ageReversionGene.def);
 				}
 				if (woundClottingGene != null)
 				{
-					headerRect.xMax -= 24f;
-					Rect rect = new(headerRect.xMax, headerRect.y, 24f, 24f);
-					Widgets.DefIcon(rect, woundClottingGene.def);
-					GUI.DrawTexture(new Rect(rect.center.x, rect.y, rect.width / 2f, rect.height / 2f), hemogenGene.woundClottingAllowed ? Widgets.CheckboxOnTex : Widgets.CheckboxOffTex);
-					if (Widgets.ButtonInvisible(rect))
-					{
-						hemogenGene.woundClottingAllowed = !hemogenGene.woundClottingAllowed;
-						if (hemogenGene.woundClottingAllowed)
-						{
-							SoundDefOf.Tick_High.PlayOneShotOnCamera();
-						}
-						else
-						{
-							SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-						}
-					}
-					if (Mouse.IsOver(rect))
-					{
-						Widgets.DrawHighlight(rect);
-						string onOff = (hemogenGene.woundClottingAllowed ? "On" : "Off").Translate().ToString().UncapitalizeFirst();
-						TooltipHandler.TipRegion(rect, () => "WVC_XaG_AutoBaseDesc".Translate() + "WVC_XaG_AutoWoundClottingDesc".Translate(onOff.Named("ONOFF")), 1001);
-						mouseOverElement = true;
-					}
+					GeneSwitcher(ref headerRect, ref mouseOverElement, ref cellsGene.woundClottingAllowed, "WVC_XaG_AutoWoundClottingDesc", woundClottingGene.def);
 				}
 			}
 			base.DrawHeader(headerRect, ref mouseOverElement);
+		}
+
+		private void GeneSwitcher(ref Rect headerRect, ref bool mouseOverElement, ref bool geneAllowed, string autoGeneDesc, Def def)
+		{
+			headerRect.xMax -= 24f;
+			Rect rect = new(headerRect.xMax, headerRect.y, 24f, 24f);
+			Widgets.DefIcon(rect, def);
+			GUI.DrawTexture(new Rect(rect.center.x, rect.y, rect.width / 2f, rect.height / 2f), geneAllowed ? Widgets.CheckboxOnTex : Widgets.CheckboxOffTex);
+			if (Widgets.ButtonInvisible(rect))
+			{
+				geneAllowed = !geneAllowed;
+				if (geneAllowed)
+				{
+					SoundDefOf.Tick_High.PlayOneShotOnCamera();
+				}
+				else
+				{
+					SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+				}
+			}
+			if (Mouse.IsOver(rect))
+			{
+				Widgets.DrawHighlight(rect);
+				string onOff = (geneAllowed ? "On" : "Off").Translate().ToString().UncapitalizeFirst();
+				TooltipHandler.TipRegion(rect, () => "WVC_XaG_AutoBaseDesc".Translate() + autoGeneDesc.Translate(onOff.Named("ONOFF")), 1001);
+				mouseOverElement = true;
+			}
 		}
 
 		protected override string GetTooltip()

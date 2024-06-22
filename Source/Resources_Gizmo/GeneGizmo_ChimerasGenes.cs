@@ -27,7 +27,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			gene = geneChimera;
 			mechanitor = gene?.pawn;
-			Order = -490f;
+			Order = -94f;
 			totalBandwidth = gene.AllGenes.Count;
 			usedBandwidth = gene.EatedGenes.Count;
 		}

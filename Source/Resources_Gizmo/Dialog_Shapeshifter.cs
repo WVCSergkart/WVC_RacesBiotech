@@ -109,10 +109,10 @@ namespace WVC_XenotypesAndGenes
 			// }
 		// }
 
-		public Dialog_Shapeshifter(Gene_Shapeshifter chimera)
+		public Dialog_Shapeshifter(Gene_Shapeshifter shapeshifter)
 		{
 			xenotypeName = string.Empty;
-			gene = chimera;
+			gene = shapeshifter;
 			forcePause = true;
 			closeOnAccept = false;
 			absorbInputAroundWindow = true;

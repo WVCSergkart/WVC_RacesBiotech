@@ -27,7 +27,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			gene = geneShapeshifter;
 			pawn = gene?.pawn;
-			Order = -500f;
+			Order = -95f;
 			// if (!ModLister.CheckIdeology("Styling station"))
 			// {
 				// styleIcon = new("WVC/UI/XaG_General/UI_DisabledWhite");
