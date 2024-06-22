@@ -525,10 +525,16 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_ShapeshifterDialog_XenotypeGenesDesc>Expected number of xenotype genes. This does not reflect the exact number of genes in the xenotype.</WVC_XaG_ShapeshifterDialog_XenotypeGenesDesc>
 
+	<!-- <WVC_Endogenous_E>Endo</WVC_Endogenous_E> -->
+	<!-- <WVC_Xenogeneic_X>Xeno</WVC_Xenogeneic_X> -->
+
+	<!-- <WVC_Endogenous>Endogenous</WVC_Endogenous> -->
+	<!-- <WVC_Xenogeneic>Xenogeneic</WVC_Xenogeneic> -->
+
 	<WVC_Inheritable>Inheritable</WVC_Inheritable>
 	<WVC_DoubleXenotypes>Double xenotypes</WVC_DoubleXenotypes>
 	<WVC_XaG_DoubleXenotypeWithChanceText>{0} with chance: {1}%</WVC_XaG_DoubleXenotypeWithChanceText>
-	<!-- <WVC_XaG_ShapeshifterDialog_XenotypeInheritableDesc>This xenotype is endogenous; some of its genes can be inherited by offspring.</WVC_XaG_ShapeshifterDialog_XenotypeInheritableDesc> -->
+	<!-- <WVC_XaG_ShapeshifterDialog_XenotypeInheritableDesc>Responsible for whether the genes of this xenotype are endogenous or xenogenous. The final xenotype of the pawn will be chosen relative to the xenogenes.</WVC_XaG_ShapeshifterDialog_XenotypeInheritableDesc> -->
 
 	<WVC_XaG_TrueForm>True form</WVC_XaG_TrueForm>
 	<WVC_XaG_ShapeshifterDialog_TrueFormDesc>This xenotype is one of the natural forms of the shapeshifter. It can be implanted regardless of the owner's genetic condition.</WVC_XaG_ShapeshifterDialog_TrueFormDesc>
