@@ -86,6 +86,20 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		// public static void XaG_CustomXenotypeIcon(Rect rect, CustomXenotype customXenotype, float scale = 1f, Color? color = null, Material material = null)
+		// {
+			// GUI.color = color ?? Color.white;
+			// Widgets.DrawTextureFitted(rect, customXenotype.IconDef.Icon, scale, material);
+			// GUI.color = Color.white;
+		// }
+
+		public static void XaG_Icon(Rect rect, Texture icon, float scale = 1f, Color? color = null, Material material = null)
+		{
+			GUI.color = color ?? Color.white;
+			Widgets.DrawTextureFitted(rect, icon, scale, material);
+			GUI.color = Color.white;
+		}
+
 		// Skills
 
 		// public static void TransferSkills(Pawn student, Pawn teacher)

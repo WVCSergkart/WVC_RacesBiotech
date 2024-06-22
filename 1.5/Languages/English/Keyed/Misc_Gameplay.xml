@@ -24,6 +24,7 @@
 	<WVC_XaG_GeneralWrongTarget>Wrong target.</WVC_XaG_GeneralWrongTarget>
 
 	<WVC_Xenotypes>Xenotypes</WVC_Xenotypes>
+	<WVC_CustomXenotypes>Custom xenotypes</WVC_CustomXenotypes>
 
 	<WVC_SelectedXenotypeGenes>Selected xenotype genes</WVC_SelectedXenotypeGenes>
 

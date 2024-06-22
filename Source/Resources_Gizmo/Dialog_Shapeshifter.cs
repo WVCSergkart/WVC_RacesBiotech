@@ -134,7 +134,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			GUI.BeginGroup(rect);
 			float curY = 0f;
-			DrawGenesSection(new Rect(0f, 0f, rect.width, selectedHeight), selectedXenotype.AllGenes, "WVC_selectedXenotypetypeGenes".Translate(), ref curY, ref selectedHeight, rect, ref selectedCollapsed);
+			DrawGenesSection(new Rect(0f, 0f, rect.width, selectedHeight), selectedXenotype.AllGenes, "WVC_SelectedXenotypeGenes".Translate(), ref curY, ref selectedHeight, rect, ref selectedCollapsed);
 			Widgets.Label(0f, ref curY, rect.width, "WVC_Xenotypes".Translate().CapitalizeFirst());
 			curY += 10f;
 			float num2 = curY;
@@ -307,11 +307,11 @@ namespace WVC_XenotypesAndGenes
 				return false;
 			}
 			// bool selected = !selectedSection && selectedGenes.Contains(geneDef);
-			bool overridden = leftChosenGroups.Any((GeneLeftChosenGroup x) => x.overriddenGenes.Contains(geneDef));
+			// bool overridden = leftChosenGroups.Any((GeneLeftChosenGroup x) => x.overriddenGenes.Contains(geneDef));
 			Widgets.DrawOptionBackground(rect, false);
 			curX += 4f;
 			GeneUIUtility.DrawBiostats(geneDef.biostatCpx, geneDef.biostatMet, geneDef.biostatArc, ref curX, curY, 4f);
-			GeneUIUtility.DrawGeneDef(geneRect: new(curX, curY + 4f, GeneCreationDialogBase.GeneSize.x, GeneCreationDialogBase.GeneSize.y), gene: geneDef, geneType: selectedXenotype.inheritable ? GeneType.Endogene : GeneType.Xenogene, extraTooltip: null, doBackground: false, clickable: false, overridden: overridden);
+			GeneUIUtility.DrawGeneDef(geneRect: new(curX, curY + 4f, GeneCreationDialogBase.GeneSize.x, GeneCreationDialogBase.GeneSize.y), gene: geneDef, geneType: selectedXenotype.inheritable ? GeneType.Endogene : GeneType.Xenogene, extraTooltip: null, doBackground: false, clickable: false, overridden: false);
 			curX += GeneCreationDialogBase.GeneSize.x + 4f;
 			// if (Mouse.IsOver(rect))
 			// {
