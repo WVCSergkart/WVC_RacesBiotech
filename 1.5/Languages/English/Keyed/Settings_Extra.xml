@@ -21,6 +21,17 @@
 	<WVC_XaGGeneSettings_MechAndPsyLinks>Mechlink and Psylink</WVC_XaGGeneSettings_MechAndPsyLinks>
 	<WVC_XaGGeneSettings_DryadQueen>Dryad queen</WVC_XaGGeneSettings_DryadQueen>
 
+	<WVC_Label_harmony_EnableGenesMechanicsTriggers>Enable genes triggers</WVC_Label_harmony_EnableGenesMechanicsTriggers>
+	<WVC_ToolTip_harmony_EnableGenesMechanicsTriggers>If enabled, the harmony patch will add triggers that are needed for the operation of some complex genes. Disabling this option will not prevent the mod from working, but it can greatly affect most of the mechanics.
+
+This should not have an impact on performance since these are one time triggers that only fire under certain conditions.
+
+An approximate list of affected mechanics: All hemogen genes triggered by a bite (bloodfeed), all body genes, all genes that add hediffs or have similar mechanics.
+
+Use this option only as a last resort and if you know what you are doing.
+
+A restart is required.</WVC_ToolTip_harmony_EnableGenesMechanicsTriggers>
+
 	<!-- ================================== -->
 
 	<WVC_Label_genesCanTickOnlyOnMap>Genes tick only on map</WVC_Label_genesCanTickOnlyOnMap>
@@ -100,11 +111,6 @@ It is recommended to leave this option enabled.</WVC_ToolTip_enableInstabilityLa
 
 	<!-- ================================== -->
 
-	<WVC_Label_bloodeater_EnableBloodeaterMechanic>Enable bloodeater gene mechanic</WVC_Label_bloodeater_EnableBloodeaterMechanic>
-	<WVC_ToolTip_bloodeater_EnableBloodeaterMechanic>If enabled, the bloodeater mechanics will work as intended. You can disable, but keep in mind that food poisoning caused by bloodeater gene will not be disabled.
-
-A restart is required.</WVC_ToolTip_bloodeater_EnableBloodeaterMechanic>
-
 	<WVC_Label_bloodeater_disableAutoFeed>Disable bloodEATer auto-feed</WVC_Label_bloodeater_disableAutoFeed>
 	<WVC_ToolTip_bloodeater_disableAutoFeed>If enabled, then pawns with the bloodEATer gene (and similar) WILL NOT automatically bite colonists.</WVC_ToolTip_bloodeater_disableAutoFeed>
 
@@ -115,8 +121,6 @@ A new game and restart is required.</WVC_ToolTip_bloodfeeder_AutoBloodfeed>
 
 	<WVC_Label_bloodeater_SafeBloodfeed>Safe bloodfeed</WVC_Label_bloodeater_SafeBloodfeed>
 	<WVC_ToolTip_bloodeater_SafeBloodfeed>If enabled, using the bloodfeed ability will not kill pawns if there is not enough blood. Instead, the blood loss value will drop to the minimum non-fatal level.
-
-It is recommended to disable it only if you are looking for a challenge.
 
 A restart is required.</WVC_ToolTip_bloodeater_SafeBloodfeed>
 

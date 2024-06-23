@@ -53,7 +53,6 @@ namespace WVC_XenotypesAndGenes
 				{
 					harmony.Patch(AccessTools.Method(typeof(PawnRenderNode_Body), "GraphicFor"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("FurskinIsSkin")));
 					// harmony.Patch(AccessTools.Method(typeof(PawnGraphicSet), "ResolveGeneGraphics"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("SpecialGeneGraphic")));
-					harmony.Patch(AccessTools.Method(typeof(LifeStageWorker_HumanlikeAdult), "Notify_LifeStageStarted"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Notify_LifeStageStarted")));
 				}
 				// if (WVC_Biotech.settings.enableBodySizeGenes)
 				// {
@@ -66,8 +65,10 @@ namespace WVC_XenotypesAndGenes
 					harmony.Patch(AccessTools.Method(typeof(RelationsUtility), "Incestuous"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Incestuous_Relations")));
 					harmony.Patch(AccessTools.Method(typeof(Pawn_RelationsTracker), "SecondaryLovinChanceFactor"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Incestuous_LovinChanceFactor")));
 				}
-				if (WVC_Biotech.settings.bloodeater_EnableBloodeaterMechanic)
+				if (WVC_Biotech.settings.harmony_EnableGenesMechanicsTriggers)
 				{
+					harmony.Patch(AccessTools.Method(typeof(Gene), "OverrideBy"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("OverrideTrigger")));
+					harmony.Patch(AccessTools.Method(typeof(LifeStageWorker_HumanlikeAdult), "Notify_LifeStageStarted"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Notify_LifeStageStarted")));
 					harmony.Patch(AccessTools.Method(typeof(SanguophageUtility), "DoBite"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("BloodeaterTrigger")));
 				}
 			}
@@ -279,7 +280,14 @@ namespace WVC_XenotypesAndGenes
 				{
 					if (gene is IGeneLifeStageStarted gene_LifeStageStarted && gene.Active)
 					{
-						gene_LifeStageStarted.Notify_LifeStageStarted();
+						try
+						{
+							gene_LifeStageStarted.Notify_LifeStageStarted();
+						}
+						catch
+						{
+							Log.Error("Failed trigger Notify_LifeStageStarted for gene " + gene.def.defName);
+						}
 					}
 				}
 				XaG_GeneUtility.ResetGenesInspectString(pawn);
@@ -417,9 +425,42 @@ namespace WVC_XenotypesAndGenes
 				{
 					if (gene is IGeneBloodfeeder geneBloodfeeder && gene.Active)
 					{
-						geneBloodfeeder.Notify_Bloodfeed(victim);
+						try
+						{
+							geneBloodfeeder.Notify_Bloodfeed(victim);
+						}
+						catch
+						{
+							Log.Error("Failed trigger Notify_Bloodfeed for gene " + gene.def.defName);
+						}
 					}
 				}
+			}
+
+			// GeneOverride
+
+			public static void OverrideTrigger(Gene __instance, Gene overriddenBy)
+			{
+				if (__instance is IGeneOverridden geneOverridden)
+				{
+					if (overriddenBy != null)
+					{
+						geneOverridden.Notify_OverriddenBy(overriddenBy);
+					}
+					else
+					{
+						geneOverridden.Notify_Override();
+					}
+				}
+				if (__instance is IGeneInspectInfo)
+				{
+					// Log.Error("ResetGenesInspectString");
+					XaG_GeneUtility.ResetGenesInspectString(__instance.pawn);
+				}
+				// if (__instance is IGeneNotifyGenesChanged geneNotifyGenesChanged)
+				// {
+					// geneNotifyGenesChanged.Notify_GenesChanged(overriddenBy);
+				// }
 			}
 
 			// Dev TESTS

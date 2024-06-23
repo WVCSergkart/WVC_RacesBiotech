@@ -124,7 +124,6 @@
     <Compile Include="Resources_Genes\Gene_NonPlayerSpecials.cs" />
     <Compile Include="Resources_Harmony\Harmony.cs" />
     <Compile Include="Resources_Harmony\Harmony_DisablePawnRelations.cs" />
-    <Compile Include="Resources_Harmony\Harmony_GeneOverride.cs" />
     <Compile Include="Resources_Hediff\CustomMechlinkLabel.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_PawnHaveWings.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_SeverityFromDust.cs" />

@@ -78,7 +78,7 @@ namespace WVC_XenotypesAndGenes
 		public float reincarnation_MinChronoAge = 200f;
 		public float reincarnation_Chance = 0.08f;
 		// Hemogenic
-		public bool bloodeater_EnableBloodeaterMechanic = true;
+		public bool harmony_EnableGenesMechanicsTriggers = true;
 		public bool bloodeater_SafeBloodfeed = false;
 		public bool bloodeater_disableAutoFeed = false;
 		public bool bloodfeeder_AutoBloodfeed = false;
@@ -184,7 +184,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref reincarnation_MinChronoAge, "reincarnation_MinChronoAge", defaultValue: 200f);
 			Scribe_Values.Look(ref reincarnation_Chance, "reincarnation_Chance", defaultValue: 0.08f);
 			// Hemogenic
-			Scribe_Values.Look(ref bloodeater_EnableBloodeaterMechanic, "bloodeater_EnableBloodeaterMechanic", defaultValue: true);
+			Scribe_Values.Look(ref harmony_EnableGenesMechanicsTriggers, "harmony_EnableGenesMechanicsTriggers", defaultValue: true);
 			Scribe_Values.Look(ref bloodeater_SafeBloodfeed, "bloodeater_SafeBloodfeed", defaultValue: false);
 			Scribe_Values.Look(ref bloodeater_disableAutoFeed, "bloodeater_disableAutoFeed", defaultValue: false);
 			Scribe_Values.Look(ref bloodfeeder_AutoBloodfeed, "bloodfeeder_AutoBloodfeed", defaultValue: false);
@@ -632,8 +632,10 @@ namespace WVC_XenotypesAndGenes
 			Listing_Standard listingStandard = new();
 			listingStandard.Begin(rect);
 			// =
-			listingStandard.Label("WVC_BiotechSettings_Label_Info".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Info".Translate());
+			listingStandard.Label("WVC_BiotechSettings_Tab_General".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_GenesMechanicsGeneral".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enableGenesInfo".Translate(), ref settings.enableGenesInfo, "WVC_ToolTip_enableGenesInfo".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_enable_birthQualityOffsetFromGenes".Translate(), ref settings.enable_birthQualityOffsetFromGenes, "WVC_ToolTip_enable_birthQualityOffsetFromGenes".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_harmony_EnableGenesMechanicsTriggers".Translate().Colorize(ColorLibrary.LightPurple), ref settings.harmony_EnableGenesMechanicsTriggers, "WVC_ToolTip_harmony_EnableGenesMechanicsTriggers".Translate());
 			listingStandard.GapLine();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_MechAndPsyLinks".Translate() + ":", -1);
@@ -644,7 +646,6 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.GapLine();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_Hemogenic".Translate() + ":", -1);
-			listingStandard.CheckboxLabeled("WVC_Label_bloodeater_EnableBloodeaterMechanic".Translate().Colorize(ColorLibrary.LightPurple), ref settings.bloodeater_EnableBloodeaterMechanic, "WVC_ToolTip_bloodeater_EnableBloodeaterMechanic".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_bloodeater_SafeBloodfeed".Translate(), ref settings.bloodeater_SafeBloodfeed, "WVC_ToolTip_bloodeater_SafeBloodfeed".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_bloodeater_disableAutoFeed".Translate().Colorize(ColorLibrary.LightBlue), ref settings.bloodeater_disableAutoFeed, "WVC_ToolTip_bloodeater_disableAutoFeed".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_bloodfeeder_AutoBloodfeed".Translate(), ref settings.bloodfeeder_AutoBloodfeed, "WVC_ToolTip_bloodfeeder_AutoBloodfeed".Translate());
@@ -652,7 +653,6 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.GapLine();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_XenotypeGestator".Translate() + ":", -1);
-			listingStandard.CheckboxLabeled("WVC_Label_enable_birthQualityOffsetFromGenes".Translate(), ref settings.enable_birthQualityOffsetFromGenes, "WVC_ToolTip_enable_birthQualityOffsetFromGenes".Translate());
 			listingStandard.SliderLabeledWithRef("WVC_Label_xenotypeGestator_GestationTimeFactor".Translate((settings.xenotypeGestator_GestationTimeFactor * 100f).ToString()), ref settings.xenotypeGestator_GestationTimeFactor, 0f, 2f);
 			listingStandard.SliderLabeledWithRef("WVC_Label_xenotypeGestator_GestationMatchPercent".Translate((settings.xenotypeGestator_GestationMatchPercent * 100f).ToString()), ref settings.xenotypeGestator_GestationMatchPercent, 0f, 1f);
 			listingStandard.GapLine();
@@ -845,7 +845,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.reincarnation_MinChronoAge = 200f;
 			WVC_Biotech.settings.reincarnation_Chance = 0.08f;
 			// =
-			WVC_Biotech.settings.bloodeater_EnableBloodeaterMechanic = true;
+			WVC_Biotech.settings.harmony_EnableGenesMechanicsTriggers = true;
 			WVC_Biotech.settings.bloodeater_SafeBloodfeed = false;
 			WVC_Biotech.settings.bloodeater_disableAutoFeed = false;
 			WVC_Biotech.settings.bloodfeeder_AutoBloodfeed = false;
@@ -949,7 +949,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.reincarnation_MinChronoAge = 500f;
 			WVC_Biotech.settings.reincarnation_Chance = 0.08f;
 			// =
-			WVC_Biotech.settings.bloodeater_EnableBloodeaterMechanic = true;
+			WVC_Biotech.settings.harmony_EnableGenesMechanicsTriggers = true;
 			WVC_Biotech.settings.bloodeater_SafeBloodfeed = false;
 			WVC_Biotech.settings.bloodeater_disableAutoFeed = false;
 			WVC_Biotech.settings.bloodfeeder_AutoBloodfeed = true;

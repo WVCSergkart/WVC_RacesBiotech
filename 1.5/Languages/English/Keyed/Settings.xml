@@ -7,7 +7,7 @@
 	<WVC_BiotechSettings_Tab_XenotypesFilter>Xenotypes Filter</WVC_BiotechSettings_Tab_XenotypesFilter>
 
 	<WVC_BiotechSettings_Label_Graphics>Graphics</WVC_BiotechSettings_Label_Graphics>
-	<WVC_BiotechSettings_Label_Info>Info</WVC_BiotechSettings_Label_Info>
+	<!-- <WVC_BiotechSettings_Label_Info>Info</WVC_BiotechSettings_Label_Info> -->
 	<WVC_BiotechSettings_Label_Genes>Genes</WVC_BiotechSettings_Label_Genes>
 	<WVC_BiotechSettings_Label_Generators>Generator</WVC_BiotechSettings_Label_Generators>
 	<WVC_BiotechSettings_Label_Other>Other</WVC_BiotechSettings_Label_Other>
@@ -20,9 +20,10 @@
 	<WVC_XaG_ResetButton_SettingsChanged>The settings have been changed.</WVC_XaG_ResetButton_SettingsChanged>
 
 	<WVC_BiotechSettings_Tooltip_Graphics>Settings responsible for graphic elements.</WVC_BiotechSettings_Tooltip_Graphics>
-	<WVC_BiotechSettings_Tooltip_Info>Settings responsible for information in the interface.
+	<WVC_BiotechSettings_Tooltip_GenesMechanicsGeneral>General settings affecting most genes in the mod.</WVC_BiotechSettings_Tooltip_GenesMechanicsGeneral>
+	<!-- <WVC_BiotechSettings_Tooltip_Info>Settings responsible for information in the interface. -->
 
-It is recommended to enable all settings for the first acquaintance with the mod. Or disable all settings for a very small performance boost.</WVC_BiotechSettings_Tooltip_Info>
+<!-- It is recommended to enable all settings for the first acquaintance with the mod. Or disable all settings for a very small performance boost.</WVC_BiotechSettings_Tooltip_Info> -->
 	<WVC_BiotechSettings_Tooltip_Genes>Settings responsible for the special effects of genes.</WVC_BiotechSettings_Tooltip_Genes>
 	<WVC_BiotechSettings_Tooltip_Generators>Settings responsible for generation. For example, skill genes, they are created when the game starts.
 
