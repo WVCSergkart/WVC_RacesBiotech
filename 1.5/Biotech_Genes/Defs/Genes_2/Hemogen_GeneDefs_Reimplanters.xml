@@ -6,9 +6,10 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_ImplanterFang</geneClass>
 	<displayOrderInCategory>90</displayOrderInCategory>
 	<customEffectDescriptions>
-		<li>Using the &lt;color=#8a8ae6&gt;bloodfeed&lt;/color&gt; ability has some chance of &lt;color=#8a8ae6&gt;implanting genes&lt;/color&gt; into the target.</li>
+		<li>Using the &lt;color=#8a8ae6&gt;bloodfeed&lt;/color&gt; (and similar) ability has some chance of &lt;color=#8a8ae6&gt;implanting genes&lt;/color&gt; into the target.</li>
 		<li>The target's &lt;color=#8a8ae6&gt;immunity&lt;/color&gt; directly affects the chance of &lt;color=#8a8ae6&gt;gene implantation&lt;/color&gt;. The higher the immunity, the lower the chance.</li>
 	</customEffectDescriptions>
+	<prerequisite></prerequisite>
 	<makeImmuneTo>
 	  <li>WVC_XaG_ImplanterFangsMark</li>
 	</makeImmuneTo>

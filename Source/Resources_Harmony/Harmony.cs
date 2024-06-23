@@ -66,6 +66,10 @@ namespace WVC_XenotypesAndGenes
 					harmony.Patch(AccessTools.Method(typeof(RelationsUtility), "Incestuous"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Incestuous_Relations")));
 					harmony.Patch(AccessTools.Method(typeof(Pawn_RelationsTracker), "SecondaryLovinChanceFactor"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Incestuous_LovinChanceFactor")));
 				}
+				if (WVC_Biotech.settings.bloodeater_EnableBloodeaterMechanic)
+				{
+					harmony.Patch(AccessTools.Method(typeof(SanguophageUtility), "DoBite"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("BloodeaterTrigger")));
+				}
 			}
 
 			// Patches
@@ -400,6 +404,23 @@ namespace WVC_XenotypesAndGenes
 				// }
 				// return true;
 			// }
+
+			// Bloodeater
+
+			public static void BloodeaterTrigger(ref Pawn biter, ref Pawn victim)
+			{
+				if (biter == null || victim == null)
+				{
+					return;
+				}
+				foreach (Gene gene in biter.genes.GenesListForReading)
+				{
+					if (gene is IGeneBloodfeeder geneBloodfeeder && gene.Active)
+					{
+						geneBloodfeeder.Notify_Bloodfeed(victim);
+					}
+				}
+			}
 
 			// Dev TESTS
 

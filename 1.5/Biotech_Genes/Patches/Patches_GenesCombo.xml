@@ -3,12 +3,13 @@
 
 	<!-- Bloodfeeder patch -->
 
-	<Operation Class="PatchOperationAdd">
-	  <xpath>/Defs/AbilityDef[defName="Bloodfeed" or defName="VRE_SanguoFeed"]/comps</xpath>
-	  <value>
-		  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityBloodeater"/>
-	  </value>
-	</Operation>
+	<!-- Replaced by harmony patch -->
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/AbilityDef[defName="Bloodfeed" or defName="VRE_SanguoFeed"]/comps</xpath> -->
+	  <!-- <value> -->
+		  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityBloodeater"/> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
 
 	<Operation Class="PatchOperationAdd">
 	  <xpath>/Defs/GeneDef[defName="PerfectImmunity"]/makeImmuneTo</xpath>

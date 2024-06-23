@@ -100,6 +100,11 @@ It is recommended to leave this option enabled.</WVC_ToolTip_enableInstabilityLa
 
 	<!-- ================================== -->
 
+	<WVC_Label_bloodeater_EnableBloodeaterMechanic>Enable bloodeater gene mechanic</WVC_Label_bloodeater_EnableBloodeaterMechanic>
+	<WVC_ToolTip_bloodeater_EnableBloodeaterMechanic>If enabled, the bloodeater mechanics will work as intended. You can disable, but keep in mind that food poisoning caused by bloodeater gene will not be disabled.
+
+A restart is required.</WVC_ToolTip_bloodeater_EnableBloodeaterMechanic>
+
 	<WVC_Label_bloodeater_disableAutoFeed>Disable bloodEATer auto-feed</WVC_Label_bloodeater_disableAutoFeed>
 	<WVC_ToolTip_bloodeater_disableAutoFeed>If enabled, then pawns with the bloodEATer gene (and similar) WILL NOT automatically bite colonists.</WVC_ToolTip_bloodeater_disableAutoFeed>
 

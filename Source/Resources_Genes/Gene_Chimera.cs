@@ -221,7 +221,7 @@ namespace WVC_XenotypesAndGenes
 		public bool TryGetGene(List<GeneDef> genes, out GeneDef result)
 		{
 			result = null;
-			if (genes.Where((GeneDef x) => x.passOnDirectly && !AllGenes.Contains(x)).TryRandomElementByWeight((GeneDef gene) => MinCopyChance + gene.selectionWeight, out result))
+			if (genes.Where((GeneDef x) => !AllGenes.Contains(x)).TryRandomElementByWeight((GeneDef gene) => MinCopyChance + gene.selectionWeight, out result))
 			{
 				AddGene(result);
 				return true;

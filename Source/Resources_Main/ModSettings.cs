@@ -78,6 +78,7 @@ namespace WVC_XenotypesAndGenes
 		public float reincarnation_MinChronoAge = 200f;
 		public float reincarnation_Chance = 0.08f;
 		// Hemogenic
+		public bool bloodeater_EnableBloodeaterMechanic = true;
 		public bool bloodeater_SafeBloodfeed = false;
 		public bool bloodeater_disableAutoFeed = false;
 		public bool bloodfeeder_AutoBloodfeed = false;
@@ -183,6 +184,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref reincarnation_MinChronoAge, "reincarnation_MinChronoAge", defaultValue: 200f);
 			Scribe_Values.Look(ref reincarnation_Chance, "reincarnation_Chance", defaultValue: 0.08f);
 			// Hemogenic
+			Scribe_Values.Look(ref bloodeater_EnableBloodeaterMechanic, "bloodeater_EnableBloodeaterMechanic", defaultValue: true);
 			Scribe_Values.Look(ref bloodeater_SafeBloodfeed, "bloodeater_SafeBloodfeed", defaultValue: false);
 			Scribe_Values.Look(ref bloodeater_disableAutoFeed, "bloodeater_disableAutoFeed", defaultValue: false);
 			Scribe_Values.Look(ref bloodfeeder_AutoBloodfeed, "bloodfeeder_AutoBloodfeed", defaultValue: false);
@@ -642,6 +644,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.GapLine();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_Hemogenic".Translate() + ":", -1);
+			listingStandard.CheckboxLabeled("WVC_Label_bloodeater_EnableBloodeaterMechanic".Translate().Colorize(ColorLibrary.LightPurple), ref settings.bloodeater_EnableBloodeaterMechanic, "WVC_ToolTip_bloodeater_EnableBloodeaterMechanic".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_bloodeater_SafeBloodfeed".Translate(), ref settings.bloodeater_SafeBloodfeed, "WVC_ToolTip_bloodeater_SafeBloodfeed".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_bloodeater_disableAutoFeed".Translate().Colorize(ColorLibrary.LightBlue), ref settings.bloodeater_disableAutoFeed, "WVC_ToolTip_bloodeater_disableAutoFeed".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_bloodfeeder_AutoBloodfeed".Translate(), ref settings.bloodfeeder_AutoBloodfeed, "WVC_ToolTip_bloodfeeder_AutoBloodfeed".Translate());
@@ -842,6 +845,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.reincarnation_MinChronoAge = 200f;
 			WVC_Biotech.settings.reincarnation_Chance = 0.08f;
 			// =
+			WVC_Biotech.settings.bloodeater_EnableBloodeaterMechanic = true;
 			WVC_Biotech.settings.bloodeater_SafeBloodfeed = false;
 			WVC_Biotech.settings.bloodeater_disableAutoFeed = false;
 			WVC_Biotech.settings.bloodfeeder_AutoBloodfeed = false;
@@ -945,6 +949,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.reincarnation_MinChronoAge = 500f;
 			WVC_Biotech.settings.reincarnation_Chance = 0.08f;
 			// =
+			WVC_Biotech.settings.bloodeater_EnableBloodeaterMechanic = true;
 			WVC_Biotech.settings.bloodeater_SafeBloodfeed = false;
 			WVC_Biotech.settings.bloodeater_disableAutoFeed = false;
 			WVC_Biotech.settings.bloodfeeder_AutoBloodfeed = true;

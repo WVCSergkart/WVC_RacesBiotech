@@ -1,10 +1,12 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
+	[Obsolete]
 	public class CompProperties_AbilityBloodeater : CompProperties_AbilityEffect
 	{
 
@@ -15,6 +17,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete]
 	public class CompAbilityEffect_Bloodeater : CompAbilityEffect
 	{
 
@@ -42,6 +45,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete]
 	public class CompAbilityEffect_Cellseater : CompAbilityEffect
 	{
 
