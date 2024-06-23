@@ -242,6 +242,14 @@ namespace WVC_XenotypesAndGenes
 						ResetSummonInterval();
 					}
 				};
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: SetCooldown 1 hour",
+					action = delegate
+					{
+						timeForNextSummon = 1500;
+					}
+				};
 			}
 			if (pawn?.Map == null)
 			{
@@ -288,38 +296,63 @@ namespace WVC_XenotypesAndGenes
 				Log.Error("Failed summon golems. golemsForSummon is null.");
 				return;
 			}
-			int countSpawn = Spawner.summonRange.RandomInRange;
-			float possibleConsumption = 1;
-			// PawnKindDef newGolem = ;
-			float currentLimit = MechanoidsUtility.TotalGolembond(pawn);
-			float currentConsumption = MechanoidsUtility.GetConsumedGolembond(pawn);
-			List<PawnKindDef> currentGolems = MechanoidsUtility.GetAllControlledGolems_PawnKinds(pawn);
-			List<Thing> chunks = XenotypeFilterUtility.GetAllStoneChunksOnMap(pawn.Map, pawn);
-			for (int i = 0; i < countSpawn; i++)
+			int phase = 0;
+			try
 			{
-				if (ignoreChunks || chunks.NullOrEmpty())
+				phase = 1;
+				int countSpawn = Spawner.summonRange.RandomInRange;
+				float possibleConsumption = 1;
+				// PawnKindDef newGolem = ;
+				phase = 2;
+				float currentLimit = MechanoidsUtility.TotalGolembond(pawn);
+				phase = 3;
+				float currentConsumption = MechanoidsUtility.GetConsumedGolembond(pawn);
+				phase = 4;
+				List<PawnKindDef> currentGolems = MechanoidsUtility.GetAllControlledGolems_PawnKinds(pawn);
+				if (currentGolems.NullOrEmpty())
 				{
-					if (currentLimit < currentConsumption + possibleConsumption)
-					{
-						break;
-					}
-					MechanoidsUtility.MechSummonQuest(pawn, Spawner.summonQuest);
-					if (i == 0)
-					{
-						Messages.Message("WVC_RB_Gene_Summoner".Translate(), pawn, MessageTypeDefOf.PositiveEvent);
-					}
-					possibleConsumption++;
+					currentGolems = new();
 				}
-				else if (TryGetBestGolemKindForSummon(currentLimit, currentConsumption, golemsForSummon, currentGolems, out PawnKindDef newGolem, out float golemConsumtion))
+				phase = 5;
+				List<Thing> chunks = XenotypeFilterUtility.GetAllStoneChunksOnMap(pawn.Map, pawn);
+				for (int i = 0; i < countSpawn; i++)
 				{
-					Thing chunk = chunks.RandomElement();
-					if (TryCreateGolemFromThing(chunk, newGolem))
+					phase = 6;
+					if (ignoreChunks || chunks.NullOrEmpty())
 					{
-						chunks.Remove(chunk);
-						currentConsumption += golemConsumtion;
-						currentGolems.Add(newGolem);
+						phase = 7;
+						if (currentLimit < currentConsumption + possibleConsumption)
+						{
+							break;
+						}
+						phase = 8;
+						MechanoidsUtility.MechSummonQuest(pawn, Spawner.summonQuest);
+						if (i == 0)
+						{
+							Messages.Message("WVC_RB_Gene_Summoner".Translate(), pawn, MessageTypeDefOf.PositiveEvent);
+						}
+						possibleConsumption++;
+					}
+					else if (TryGetBestGolemKindForSummon(currentLimit, currentConsumption, golemsForSummon, currentGolems, out PawnKindDef newGolem, out float golemConsumtion))
+					{
+						phase = 9;
+						Thing chunk = chunks.RandomElement();
+						if (TryCreateGolemFromThing(chunk, newGolem))
+						{
+							phase = 10;
+							chunks.Remove(chunk);
+							phase = 11;
+							currentConsumption += golemConsumtion;
+							phase = 12;
+							currentGolems.Add(newGolem);
+						}
 					}
 				}
+			}
+			catch (Exception arg)
+			{
+				summonMechanoids = false;
+				Log.Error($"Error while generating golems {this.ToStringSafe()} during phase {phase}: {arg}");
 			}
 		}
 
