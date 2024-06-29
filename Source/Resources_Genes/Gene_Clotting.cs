@@ -173,7 +173,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			List<Pawn> connectedThings = Gauranlen?.AllDryads;
+			List<Pawn> connectedThings = Gauranlen?.DryadsListForReading;
 			foreach (Pawn dryad in connectedThings)
 			{
 				Gene_ClottingWithHediff.WoundsClotting(dryad, new(0.4f, 0.8f));

@@ -21,7 +21,23 @@ namespace WVC_XenotypesAndGenes
 
 		// private PawnKindDef choosedDryadCast = null;
 
-		public List<Pawn> AllDryads => dryads.ToList();
+		// public List<Pawn> AllDryads => dryads.ToList();
+		public List<Pawn> DryadsListForReading
+		{
+			get
+			{
+				List<Pawn> dryadsForReading = new();
+				foreach (Pawn dryad in dryads)
+				{
+					if (dryad == null || dryad.Dead || dryad.Destroyed)
+					{
+						continue;
+					}
+					dryadsForReading.Add(dryad);
+				}
+				return dryadsForReading;
+			}
+		}
 
 		public int nextTick = 60000;
 
@@ -51,11 +67,16 @@ namespace WVC_XenotypesAndGenes
 
 		private void SpawnDryad()
 		{
-			foreach (Pawn item in AllDryads)
+			if (dryads == null)
 			{
-				if (item.Dead)
+				dryads = new();
+			}
+			foreach (Pawn item in dryads.ToList())
+			{
+				if (item == null || item.Dead || item.Destroyed)
 				{
-					dryads.Remove(item);
+					// dryads.Remove(item);
+					RemoveDryad(item);
 				}
 			}
 			if (pawn.Faction != Faction.OfPlayer)
@@ -107,7 +128,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			newPawnComp.SetMaster(pawn);
 			dryad.connections?.ConnectTo(pawn);
-			dryads.Add(dryad);
+			AddDryad(dryad);
 			foreach (Gene gene in pawn.genes.GenesListForReading)
 			{
 				if (gene is IGeneDryadQueen geneDryadQueen && gene.Active)
@@ -142,9 +163,28 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public void AddDryad(Pawn newDryad)
+		{
+			if (dryads == null)
+			{
+				dryads = new();
+			}
+			if (!dryads.Contains(newDryad))
+			{
+				dryads.Add(newDryad);
+			}
+		}
+
 		public void RemoveDryad(Pawn oldDryad)
 		{
-			dryads.Remove(oldDryad);
+			if (dryads == null)
+			{
+				dryads = new();
+			}
+			if (dryads.Contains(oldDryad))
+			{
+				dryads.Remove(oldDryad);
+			}
 		}
 
 		public void Notify_DryadKilled(Pawn oldDryad, bool gainMemory = false)
@@ -186,6 +226,22 @@ namespace WVC_XenotypesAndGenes
 					{
 						SpawnDryad();
 						ResetInterval();
+					}
+				};
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: GetDryadsList",
+					action = delegate
+					{
+						// List<PawnKindDef> pawnKindDefs = DefDatabase<PawnKindDef>.AllDefsListForReading.Where((PawnKindDef randomXenotypeDef) => MechanoidsUtility.MechanoidIsPlayerMechanoid(randomXenotypeDef)).ToList();
+						if (!dryads.NullOrEmpty())
+						{
+							Log.Error("All dryads:" + "\n" + dryads.Select((Pawn x) => x.Name.ToString()).ToLineList(" - "));
+						}
+						else
+						{
+							Log.Error("Dryads list is null");
+						}
 					}
 				};
 			}
@@ -280,6 +336,20 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref nextTick, "nextDryad", 0);
 			Scribe_Values.Look(ref spawnDryads, "spawnDryads", true);
 			Scribe_Collections.Look(ref dryads, "connectedDryads", LookMode.Reference);
+			// if (!dryads.NullOrEmpty())
+			// {
+				// foreach (Pawn dryad in dryads.ToList())
+				// {
+					// if (dryad == null)
+					// {
+						// RemoveDryad(dryad);
+					// }
+				// }
+			// }
+			if (dryads != null && dryads.RemoveAll((Pawn x) => x == null || x.Destroyed || x.Dead) > 0)
+			{
+				Log.Warning("Removed null dryad(s) from gene: " + def.defName);
+			}
 		}
 
 		public string GetInspectInfo

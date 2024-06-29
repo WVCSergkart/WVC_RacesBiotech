@@ -85,7 +85,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void RecacheScars()
 		{
-			cachedDryadsCount = Gauranlen.AllDryads.Count;
+			cachedDryadsCount = Gauranlen.DryadsListForReading.Count;
 			curStage = null;
 		}
 

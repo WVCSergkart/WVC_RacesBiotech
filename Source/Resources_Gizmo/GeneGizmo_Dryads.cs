@@ -26,7 +26,7 @@ namespace WVC_XenotypesAndGenes
 
 		public List<Pawn> allDryads = new();
 
-		// private int nextRecache = -1;
+		private int nextRecache = -1;
 		// public int recacheFrequency = 734;
 
 		public override bool Visible => Find.Selector.SelectedPawns.Count == 1;
@@ -39,7 +39,7 @@ namespace WVC_XenotypesAndGenes
 			// allDryads = gene.AllDryads;
 			// usedBandwidth = allDryads.Count;
 			Order = -90f;
-			allDryads = gene.AllDryads;
+			allDryads = gene.DryadsListForReading;
 			totalBandwidth = mechanitor.GetStatValue(gene.Spawner.dryadsStatLimit, cacheStaleAfterTicks: 360000);
 			usedBandwidth = allDryads.Count;
 		}
@@ -49,11 +49,13 @@ namespace WVC_XenotypesAndGenes
 			Rect rect = new(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
 			Rect rect2 = rect.ContractedBy(6f);
 			Widgets.DrawWindowBackground(rect);
-			if (mechanitor.IsHashIntervalTick(180))
+			nextRecache--;
+			if (nextRecache < 0)
 			{
-				allDryads = gene.AllDryads;
+				allDryads = gene.DryadsListForReading;
 				totalBandwidth = mechanitor.GetStatValue(gene.Spawner.dryadsStatLimit, cacheStaleAfterTicks: 6000);
 				usedBandwidth = allDryads.Count;
+				nextRecache = 180;
 			}
 			// if (Find.TickManager.TicksGame > nextRecache)
 			// {

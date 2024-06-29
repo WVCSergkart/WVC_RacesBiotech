@@ -110,10 +110,15 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		// public override void PostDestroy(DestroyMode mode, Map previousMap)
-		// {
-			// RemoveThisDryad();
-		// }
+		public override void PostDestroy(DestroyMode mode, Map previousMap)
+		{
+			if (!Gestated)
+			{
+				return;
+			}
+			Pawn pawn = parent as Pawn;
+			Gene_GauranlenConnection?.RemoveDryad(pawn);
+		}
 
 		public override void Notify_Killed(Map prevMap, DamageInfo? dinfo = null)
 		{
@@ -122,6 +127,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			RemoveThisDryad(true);
+			SetMaster(null);
 		}
 
 		public void RemoveThisDryad(bool gainMemory = false)

@@ -294,7 +294,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void HealDryads()
 		{
-			List<Pawn> connectedThings = Gauranlen?.AllDryads;
+			List<Pawn> connectedThings = Gauranlen?.DryadsListForReading;
 			foreach (Pawn dryad in connectedThings)
 			{
 				HealingUtility.TryHealRandomPermanentWound(dryad, this, true);
