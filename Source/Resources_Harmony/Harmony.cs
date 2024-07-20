@@ -242,6 +242,10 @@ namespace WVC_XenotypesAndGenes
 				{
 					return;
 				}
+				if (pawn.DevelopmentalStage != DevelopmentalStage.Adult)
+				{
+					return;
+				}
 				RotDrawMode curRotDrawMode = pawn.Drawer?.renderer != null ? pawn.Drawer.renderer.CurRotDrawMode : RotDrawMode.Fresh;
 				if (curRotDrawMode == RotDrawMode.Dessicated)
 				{

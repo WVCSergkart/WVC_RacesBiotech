@@ -155,7 +155,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedRegeneration == -1)
 				{
-					cachedRegeneration = Undead.regeneration;
+					cachedRegeneration = WVC_Biotech.settings.shapeshifer_GeneCellularRegeneration;
 				}
 				return cachedRegeneration;
 			}
