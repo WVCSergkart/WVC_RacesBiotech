@@ -147,17 +147,17 @@ namespace WVC_XenotypesAndGenes
 		public GeneExtension_Undead Undead => def.GetModExtension<GeneExtension_Undead>();
 
 		[Unsaved(false)]
-		private float cachedRegeneration = -1;
+		private float? cachedRegeneration;
 
 		public float Regeneration
 		{
 			get
 			{
-				if (cachedRegeneration == -1)
+				if (!cachedRegeneration.HasValue)
 				{
 					cachedRegeneration = WVC_Biotech.settings.shapeshifer_GeneCellularRegeneration;
 				}
-				return cachedRegeneration;
+				return cachedRegeneration.Value;
 			}
 		}
 

@@ -162,6 +162,8 @@ Disable this option if you have any mods that change the mechanics of the hunger
 
 	<WVC_Label_shapeshifer_GeneCellularRegeneration>Cellular regeneration rate +{0} hp/day</WVC_Label_shapeshifer_GeneCellularRegeneration>
 
+	<!-- <WVC_Label_shapeshifer_GeneCellularTickFrequency>Cellular tick freq {0} hours</WVC_Label_shapeshifer_GeneCellularTickFrequency> -->
+
 	<!-- ================================== -->
 
 	<WVC_Label_enable_dryadQueenMechanicGenerator>Dryad queen mechanics</WVC_Label_enable_dryadQueenMechanicGenerator>
