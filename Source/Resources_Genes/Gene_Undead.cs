@@ -146,20 +146,21 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Undead Undead => def.GetModExtension<GeneExtension_Undead>();
 
-		[Unsaved(false)]
-		private float? cachedRegeneration;
+		// For future sub-genes
+		// [Unsaved(false)]
+		// private float? cachedRegeneration;
 
-		public float Regeneration
-		{
-			get
-			{
-				if (!cachedRegeneration.HasValue)
-				{
-					cachedRegeneration = WVC_Biotech.settings.shapeshifer_GeneCellularRegeneration;
-				}
-				return cachedRegeneration.Value;
-			}
-		}
+		// public float Regeneration
+		// {
+			// get
+			// {
+				// if (!cachedRegeneration.HasValue)
+				// {
+					// cachedRegeneration = WVC_Biotech.settings.shapeshifer_GeneCellularRegeneration;
+				// }
+				// return cachedRegeneration.Value;
+			// }
+		// }
 
 		public override void Tick()
 		{
@@ -168,7 +169,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			HealingUtility.Regeneration(pawn, Regeneration, WVC_Biotech.settings.totalHealingIgnoreScarification, 22222);
+			HealingUtility.Regeneration(pawn, WVC_Biotech.settings.shapeshifer_GeneCellularRegeneration, WVC_Biotech.settings.totalHealingIgnoreScarification, 22222);
 		}
 
 	}
