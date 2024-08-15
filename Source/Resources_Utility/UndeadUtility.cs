@@ -39,9 +39,9 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public static void ReimplantGenes(Pawn caster, Pawn recipient)
+		public static void ReimplantGenes(Pawn caster, Pawn recipient, bool extractXenogerm = true)
 		{
-			if (ReimplanterUtility.TryReimplant(caster, recipient))
+			if (ReimplanterUtility.TryReimplant(caster, recipient, true, true, extractXenogerm))
 			{
 				if (PawnUtility.ShouldSendNotificationAbout(recipient))
 				{

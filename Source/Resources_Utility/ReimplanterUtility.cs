@@ -12,7 +12,7 @@ namespace WVC_XenotypesAndGenes
 	public static class ReimplanterUtility
 	{
 
-		public static bool TryReimplant(Pawn caster, Pawn recipient, bool endogenes = true, bool xenogenes = true)
+		public static bool TryReimplant(Pawn caster, Pawn recipient, bool endogenes = true, bool xenogenes = true, bool extractXenogerm = true)
 		{
 			if (!recipient.IsHuman() || !caster.IsHuman())
 			{
@@ -20,7 +20,10 @@ namespace WVC_XenotypesAndGenes
 			}
 			QuestUtility.SendQuestTargetSignals(caster.questTags, "XenogermReimplanted", caster.Named("SUBJECT"));
 			ReimplanterUtility.ReimplantGenesHybrid(caster, recipient, endogenes, xenogenes);
-			ExtractXenogerm(caster);
+			if (extractXenogerm)
+			{
+				ExtractXenogerm(caster);
+			}
 			return true;
 		}
 
