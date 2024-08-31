@@ -77,7 +77,7 @@ namespace WVC_XenotypesAndGenes
 
 		// ============================= GENE Learning Telepath =============================
 
-		public static bool TryLearning(Pawn pawn, float learnPercent = 0.2f, bool shareSkills = false)
+		public static bool TryLearning(Pawn pawn, float learnPercent = 0.2f, bool shareSkills = false, int minLvlDiff = 0)
 		{
 			if (pawn?.Map == null || pawn.Downed)
 			{
@@ -103,13 +103,13 @@ namespace WVC_XenotypesAndGenes
 				// if (GeneFeaturesUtility.CanPsyFeedNowWith(pawn, p))
 				// {
 				// }
-				TryGetSkillsFromPawn(pawn, p, learnPercent, shareSkills);
+				TryGetSkillsFromPawn(pawn, p, learnPercent, shareSkills, minLvlDiff);
 			}
 			FleckMaker.AttachedOverlay(pawn, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
 			return true;
 		}
 
-		public static void TryGetSkillsFromPawn(Pawn student, Pawn teacher, float learnPercent, bool shareSkills = false)
+		public static void TryGetSkillsFromPawn(Pawn student, Pawn teacher, float learnPercent, bool shareSkills = false, int minLvlDiff = 0)
 		{
 			List<SkillRecord> teacherSkills = teacher?.skills?.skills;
 			if (teacherSkills == null || student?.skills?.skills == null)
@@ -133,7 +133,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						break;
 					}
-					if (teacherSkill.GetLevel(false) < skill.GetLevel(false))
+					if (teacherSkill.GetLevel(false) < skill.GetLevel(false) + minLvlDiff)
 					{
 						if (shareSkills)
 						{
@@ -142,7 +142,7 @@ namespace WVC_XenotypesAndGenes
 						}
 						break;
 					}
-					if (teacherSkill.GetLevel(false) > skill.GetLevel())
+					if (teacherSkill.GetLevel(false) + minLvlDiff > skill.GetLevel())
 					{
 						skill.Learn(teacherSkill.XpTotalEarned * learnPercent, true);
 						// Log.Error(skill.def.LabelCap + " learned exp " + (teacherSkill.XpTotalEarned * learnPercent).ToString());

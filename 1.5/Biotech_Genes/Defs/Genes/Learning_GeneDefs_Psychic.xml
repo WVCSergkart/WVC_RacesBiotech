@@ -32,7 +32,8 @@
 		<li>Every (*DateTime)1-2 days(/DateTime), the carrier &lt;color=#8a8ae6&gt;gains experience relative&lt;/color&gt; to the experience of &lt;color=#8a8ae6&gt;other pawns&lt;/color&gt; in the colony.</li>
 		<li>The target can be any &lt;color=#8a8ae6&gt;psi-sensitive&lt;/color&gt; pawn.</li>
 		<li>The carrier receives &lt;color=#8a8ae6&gt;20% experience&lt;/color&gt; from each skill of the target.</li>
-		<li>If the skill level of the carrier is &lt;color=#8a8ae6&gt;higher than or equal&lt;/color&gt; to the target's skill level, then no experience will be gained.</li>
+		<!-- <li>If the skill level of the carrier is &lt;color=#8a8ae6&gt;higher than or equal&lt;/color&gt; to the target's skill level, then no experience will be gained.</li> -->
+		<li>If the carrier's skill level is &lt;color=#8a8ae6&gt;higher than, equal to, or 1 level lower&lt;/color&gt; than the target's skill level, no experience will be gained.</li>
 		<li>&lt;color=#8a8ae6&gt;Aptitude&lt;/color&gt; is taken into account for the carrier, but not for the target.</li>
 	</customEffectDescriptions>
 	<statFactors>

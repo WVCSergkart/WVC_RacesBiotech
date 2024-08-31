@@ -138,7 +138,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void TryLearning()
 		{
-			GeneFeaturesUtility.TryLearning(pawn, 0.2f, WVC_Biotech.settings.learningTelepathWorkForBothSides);
+			GeneFeaturesUtility.TryLearning(pawn, 0.2f, WVC_Biotech.settings.learningTelepathWorkForBothSides, 1);
 		}
 
 		private void ResetInterval()
