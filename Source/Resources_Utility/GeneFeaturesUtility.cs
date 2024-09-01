@@ -133,7 +133,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						break;
 					}
-					if (teacherSkill.GetLevel(false) < skill.GetLevel(false) + minLvlDiff)
+					if (teacherSkill.GetLevel(false) + minLvlDiff < skill.GetLevel(false))
 					{
 						if (shareSkills)
 						{
@@ -142,7 +142,7 @@ namespace WVC_XenotypesAndGenes
 						}
 						break;
 					}
-					if (teacherSkill.GetLevel(false) + minLvlDiff > skill.GetLevel())
+					if (teacherSkill.GetLevel(false) > skill.GetLevel() + minLvlDiff)
 					{
 						skill.Learn(teacherSkill.XpTotalEarned * learnPercent, true);
 						// Log.Error(skill.def.LabelCap + " learned exp " + (teacherSkill.XpTotalEarned * learnPercent).ToString());
