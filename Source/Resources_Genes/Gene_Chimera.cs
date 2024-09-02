@@ -59,13 +59,13 @@ namespace WVC_XenotypesAndGenes
 			}
 			List<GeneDef> geneDefs = DefDatabase<GeneDef>.AllDefsListForReading;
 			int cycleTry = 0;
-			while (stolenGenes.Count < 5)
+			while (stolenGenes.Count < WVC_Biotech.settings.chimeraStartingGenes)
 			{
 				if (geneDefs.Where((GeneDef x) => x.endogeneCategory == EndogeneCategory.None && x.selectionWeight > 0f && x.canGenerateInGeneSet && x.passOnDirectly && !AllGenes.Contains(x)).TryRandomElementByWeight((GeneDef gene) => (gene.selectionWeight * (gene.biostatArc != 0 ? 0.01f : 1f)) + (gene.prerequisite == def && gene.GetModExtension<GeneExtension_General>() != null ? gene.GetModExtension<GeneExtension_General>().selectionWeight : 0f), out GeneDef result))
 				{
 					AddGene(result);
 				}
-				if (cycleTry > 15)
+				if (cycleTry > WVC_Biotech.settings.chimeraStartingGenes + 3)
 				{
 					break;
 				}

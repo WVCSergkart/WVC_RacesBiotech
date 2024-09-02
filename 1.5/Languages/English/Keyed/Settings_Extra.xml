@@ -164,6 +164,8 @@ Disable this option if you have any mods that change the mechanics of the hunger
 
 	<!-- <WVC_Label_shapeshifer_GeneCellularTickFrequency>Cellular tick freq {0} hours</WVC_Label_shapeshifer_GeneCellularTickFrequency> -->
 
+	<WVC_Label_chimeraStartingGenes>Chimera new game genes: {0}</WVC_Label_chimeraStartingGenes>
+
 	<!-- ================================== -->
 
 	<WVC_Label_enable_dryadQueenMechanicGenerator>Dryad queen mechanics</WVC_Label_enable_dryadQueenMechanicGenerator>

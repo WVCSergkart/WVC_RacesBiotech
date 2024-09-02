@@ -96,6 +96,7 @@ namespace WVC_XenotypesAndGenes
 		// Chimera
 		public bool enable_chimeraMetabolismHungerFactor = true;
 		public float chimeraMinGeneCopyChance = 0.01f;
+		public float chimeraStartingGenes = 5f;
 		// DryadQueen
 		public bool enable_dryadQueenMechanicGenerator = true;
 		// Xenotypes
@@ -204,6 +205,7 @@ namespace WVC_XenotypesAndGenes
 			// Chimera
 			Scribe_Values.Look(ref enable_chimeraMetabolismHungerFactor, "enable_chimeraMetabolismHungerFactor", defaultValue: true);
 			Scribe_Values.Look(ref chimeraMinGeneCopyChance, "chimeraMinGeneCopyChance", defaultValue: 0.01f);
+			Scribe_Values.Look(ref chimeraStartingGenes, "chimeraStartingGenes", defaultValue: 5f);
 			// DryadQueen
 			Scribe_Values.Look(ref enable_dryadQueenMechanicGenerator, "enable_dryadQueenMechanicGenerator", defaultValue: true);
 			// Reincarnation
@@ -686,6 +688,7 @@ namespace WVC_XenotypesAndGenes
 			// listingStandard.CheckboxLabeled("WVC_Label_shapeshifter_enableStyleButton".Translate().Colorize(ColorLibrary.LightBlue), ref settings.shapeshifter_enableStyleButton, "WVC_ToolTip_shapeshifter_enableStyleButton".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enable_chimeraMetabolismHungerFactor".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_chimeraMetabolismHungerFactor, "WVC_ToolTip_enable_chimeraMetabolismHungerFactor".Translate());
 			listingStandard.SliderLabeledWithRef("WVC_Label_chimeraMinGeneCopyChance".Translate((settings.chimeraMinGeneCopyChance * 100f).ToString()), ref settings.chimeraMinGeneCopyChance, 0.01f, 1f, round: 2);
+			listingStandard.SliderLabeledWithRef("WVC_Label_chimeraStartingGenes".Translate((settings.chimeraStartingGenes).ToString()), ref settings.chimeraStartingGenes, 0f, 50f, round: 0);
 			listingStandard.GapLine();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_IncestLover".Translate() + ":", -1);
@@ -825,6 +828,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.enable_chimeraMetabolismHungerFactor = true;
 			WVC_Biotech.settings.chimeraMinGeneCopyChance = 0.01f;
 			WVC_Biotech.settings.shapeshifer_GeneCellularRegeneration = 1f;
+			WVC_Biotech.settings.chimeraStartingGenes = 5f;
 			// =
 			WVC_Biotech.settings.thrallMaker_ThrallsInheritMasterGenes = true;
 			// =
@@ -930,6 +934,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.enable_chimeraMetabolismHungerFactor = true;
 			WVC_Biotech.settings.chimeraMinGeneCopyChance = 0.01f;
 			WVC_Biotech.settings.shapeshifer_GeneCellularRegeneration = 1f;
+			WVC_Biotech.settings.chimeraStartingGenes = 5f;
 			// =
 			WVC_Biotech.settings.thrallMaker_ThrallsInheritMasterGenes = true;
 			// =
