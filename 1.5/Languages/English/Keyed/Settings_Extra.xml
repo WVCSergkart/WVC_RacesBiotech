@@ -22,7 +22,7 @@
 	<WVC_XaGGeneSettings_DryadQueen>Dryad queen</WVC_XaGGeneSettings_DryadQueen>
 
 	<WVC_Label_harmony_EnableGenesMechanicsTriggers>Enable genes triggers</WVC_Label_harmony_EnableGenesMechanicsTriggers>
-	<WVC_ToolTip_harmony_EnableGenesMechanicsTriggers>If enabled, the harmony patch will add triggers that are needed for the operation of some complex genes. Disabling this option will not prevent the mod from working, but it can greatly affect most of the mechanics.
+	<WVC_ToolTip_harmony_EnableGenesMechanicsTriggers>If enabled, the harmony patch will add triggers that are needed for some complex genes to work. Disabling this option will not prevent the mod from working, but it can greatly affect most of the mechanics.
 
 This should not have an impact on performance since these are one time triggers that only fire under certain conditions.
 
@@ -164,7 +164,7 @@ Disable this option if you have any mods that change the mechanics of the hunger
 
 	<!-- <WVC_Label_shapeshifer_GeneCellularTickFrequency>Cellular tick freq {0} hours</WVC_Label_shapeshifer_GeneCellularTickFrequency> -->
 
-	<WVC_Label_chimeraStartingGenes>Chimera new game genes: {0}</WVC_Label_chimeraStartingGenes>
+	<WVC_Label_chimeraStartingGenes>Chimera new game genes count: {0}</WVC_Label_chimeraStartingGenes>
 
 	<!-- ================================== -->
 
