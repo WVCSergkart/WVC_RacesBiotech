@@ -61,17 +61,23 @@ A restart is required to correct the categories and apply patches.</WVC_ToolTip_
 	<WVC_Label_disableEyesGraphic>Disable eyes and faceplate graphic</WVC_Label_disableEyesGraphic>
 	<WVC_ToolTip_disableEyesGraphic>If enabled, graphics for eyes and faceplates will not be displayed.
 
+It is recommended to enable this option if you use any mods that change the display of pawn faces.
+
 A restart is required.</WVC_ToolTip_disableEyesGraphic>
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_disableFurGraphic>Disable mecha/node/rune/stone(skin) graphic</WVC_Label_disableFurGraphic>
 	<WVC_ToolTip_disableFurGraphic>Turns off the visual changes introduced by (...)skins.
 
+It is recommended to enable this option if you use mods that change the display of pawn body graphics.
+
 A restart is required to apply the setting. Required new game!</WVC_ToolTip_disableFurGraphic>
 
 	<!-- ====================================================================================== -->
-	<WVC_Label_disableAllGraphic>Disable all genes graphic</WVC_Label_disableAllGraphic>
+	<WVC_Label_disableAllGraphic>|- Disable all genes graphic</WVC_Label_disableAllGraphic>
 	<WVC_ToolTip_disableAllGraphic>Completely removes all graphic elements of the mod.
+
+It is recommended to enable this option if you use any mods that change the display of pawn faces or body graphics.
 
 Requires a restart, a new game and that the previous setting is enabled.</WVC_ToolTip_disableAllGraphic>
 
@@ -80,6 +86,8 @@ Requires a restart, a new game and that the previous setting is enabled.</WVC_To
 	<WVC_ToolTip_disableUniqueGeneInterface>Responsible for displaying the unique background and additional information of the gene.
 
 If enabled, then all genes of the mod will have a vanilla background without additional info.
+
+It is recommended to enable this option if you have a heavy mod load and interface performance issues.
 
 A restart is required to apply patches.</WVC_ToolTip_disableUniqueGeneInterface>
 
