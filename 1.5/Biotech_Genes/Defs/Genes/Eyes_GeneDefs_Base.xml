@@ -3,6 +3,8 @@
 
   <!-- ================================================================== -->
 
+  <!-- The colors most likely do not correspond to the HEX value. These defs are too old. -->
+
   <GeneDef ParentName="GeneEyeColor" Name="WVC_XenotypesAndGenes_GeneEyeColorBase" Abstract="True">
 	<description>Carriers of this gene have a unique eye color.</description>
 	<iconPath>WVC/UI/Genes/GeneEyesIcon_v0</iconPath>

@@ -109,6 +109,7 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		[Obsolete]
 		public static ThingDef GetFromGauranlenGeneModeTemplate(ThingDef thingDef)
 		{
 			ThingDef dryadDef = new()
@@ -158,85 +159,6 @@ namespace WVC_XenotypesAndGenes
 			}
 			return dryadDef;
 		}
-
-		// public static T DeepClone<T>(T obj)
-		// {
-			// using var ms = new MemoryStream();
-			// var formatter = new BinaryFormatter();
-			// formatter.Serialize(ms, obj);
-			// ms.Position = 0;
-			// return (T)formatter.Deserialize(ms);
-		// }
-
-		// public static void CopyRaceProperties(this RaceProperties target, RaceProperties source)
-		// {
-			// RaceProperties newRace = new();
-			// newRace = source;
-			// target = newRace;
-		// }
-
-		// public static void CopyRaceProperties(this RaceProperties target, RaceProperties source)
-		// {
-			// foreach (var property in source.GetType().GetProperties())
-			// {
-				// PropertyInfo propertyS = target.GetType().GetProperty(property.Name);
-				// var value = property.GetValue(source, null);
-				// try
-				// {
-					// propertyS.SetValue(target, value, null);
-				// }
-				// catch
-				// {
-					// Log.Error(property.Name);
-				// }
-			// }
-		// }
-
-		// public static T CopyClass<T>(T obj)
-		// {
-			// T objcpy = (T)Activator.CreateInstance(typeof(T));
-			// foreach (var prop in obj.GetType().GetProperties())
-			// {
-				// var value = prop.GetValue(obj);
-				// try
-				// {
-					// objcpy.GetType().GetProperty(prop.Name).SetValue(objcpy, value);
-				// }
-				// catch
-				// {
-				// }
-			// }
-			// return objcpy;
-		// }
-
-		// public static object DeepClone(object objSource)
-		// {
-			// Type type = objSource.GetType();
-			// object obj = Activator.CreateInstance(type);
-			// PropertyInfo[] properties = type.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-			// foreach (PropertyInfo propertyInfo in properties)
-			// {
-				// if (!propertyInfo.CanWrite)
-				// {
-					// continue;
-				// }
-				// if (propertyInfo.PropertyType.IsValueType || propertyInfo.PropertyType.IsEnum || propertyInfo.PropertyType == typeof(string))
-				// {
-					// propertyInfo.SetValue(obj, propertyInfo.GetValue(objSource, null), null);
-					// continue;
-				// }
-				// object value = propertyInfo.GetValue(objSource, null);
-				// if (value == null)
-				// {
-					// propertyInfo.SetValue(obj, null, null);
-				// }
-				// else
-				// {
-					// propertyInfo.SetValue(obj, DeepClone(value), null);
-				// }
-			// }
-			// return obj;
-		// }
 
 		// XenoForcers
 

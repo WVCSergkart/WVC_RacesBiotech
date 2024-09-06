@@ -312,7 +312,7 @@ namespace WVC_XenotypesAndGenes
 						{
 							WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = false;
 						}
-						else if (metabol < -5 && metabol > 5)
+						else if (metabol < -5 || metabol > 5)
 						{
 							WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = false;
 						}

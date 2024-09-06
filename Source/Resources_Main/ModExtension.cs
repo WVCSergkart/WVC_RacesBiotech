@@ -35,6 +35,9 @@ namespace WVC_XenotypesAndGenes
 		// }
 		public bool cosmeticOnly = false;
 		public bool prerequisitesOnly = false;
+		// Duplicated Genes
+		// public GeneDef sourceGeneDef;
+		// public List<GeneDef> dupGeneDefs;
 	}
 
 	// Exten
@@ -334,8 +337,10 @@ namespace WVC_XenotypesAndGenes
 		public List<MutantDef> xenoGenesMutantsExceptions = new();
 		public List<GeneDef> anomalyXenoGenesExceptions = new();
 		public List<GauranlenTreeModeDef> ignoredGauranlenTreeModeDefs = new();
-		public List<GeneDef> shapeshifterHeritableGenes = new();
+		// public List<XaG_CountWithChance> identicalGeneDefs = new();
 
+		[Obsolete]
+		public List<GeneDef> shapeshifterHeritableGenes = new();
 		[Obsolete]
 		public List<Type> shapeShift_IgnoredGeneClasses = new();
 		// [Obsolete]
