@@ -71,7 +71,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			if (!Active || Find.Selector.SelectedPawns.Count != 1 || pawn.Faction != Faction.OfPlayer)
+			if (XaG_GeneUtility.SelectorActiveFaction(pawn, this))
 			{
 				yield break;
 			}
@@ -111,7 +111,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			if (!Active || Find.Selector.SelectedPawns.Count != 1 || pawn.Faction != Faction.OfPlayer)
+			if (XaG_GeneUtility.SelectorActiveFaction(pawn, this))
 			{
 				yield break;
 			}
@@ -156,7 +156,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			if (!Active || Find.Selector.SelectedPawns.Count != 1 || pawn.Faction != Faction.OfPlayer)
+			if (XaG_GeneUtility.SelectorActiveFaction(pawn, this))
 			{
 				yield break;
 			}

@@ -92,7 +92,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			if (Find.Selector.SelectedPawns.Count > 1 || pawn.Drafted || !Active || pawn.Faction != Faction.OfPlayer || pawn.Map == null)
+			if (XaG_GeneUtility.SelectorDraftedActiveFactionMap(pawn, this))
 			{
 				yield break;
 			}

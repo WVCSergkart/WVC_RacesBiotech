@@ -141,21 +141,10 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			if (Find.Selector.SelectedPawns.Count > 1 || !Active || pawn.Faction != Faction.OfPlayer || pawn.Map == null)
+			if (XaG_GeneUtility.SelectorActiveFactionMap(pawn, this))
 			{
 				yield break;
 			}
-			// if (DebugSettings.ShowDevGizmos)
-			// {
-				// yield return new Command_Action
-				// {
-					// defaultLabel = "DEV: AddHeritableGeneSlot",
-					// action = delegate
-					// {
-						// heritableGenesSlots++;
-					// }
-				// };
-			// }
 			if (gizmo == null)
 			{
 				gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, this);

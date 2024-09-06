@@ -209,13 +209,13 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			if (Find.Selector.SelectedPawns.Count > 1 || !Active || pawn.Faction != Faction.OfPlayer)
+			if (XaG_GeneUtility.SelectorActiveFactionMap(pawn, this))
 			{
 				yield break;
 			}
 			// if (!ModsConfig.IdeologyActive)
 			// {
-				// yield break;
+			// yield break;
 			// }
 			if (DebugSettings.ShowDevGizmos)
 			{
@@ -244,10 +244,6 @@ namespace WVC_XenotypesAndGenes
 						}
 					}
 				};
-			}
-			if (pawn?.Map == null)
-			{
-				yield break;
 			}
 			if (gizmo == null)
 			{

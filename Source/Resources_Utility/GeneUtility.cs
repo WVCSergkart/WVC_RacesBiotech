@@ -12,6 +12,26 @@ namespace WVC_XenotypesAndGenes
 	public static class XaG_GeneUtility
 	{
 
+		public static bool SelectorActiveFactionMap(Pawn pawn, Gene gene)
+		{
+			return Find.Selector.SelectedPawns.Count > 1 || !gene.Active || pawn.Faction != Faction.OfPlayer || pawn.Map == null;
+		}
+
+		public static bool SelectorDraftedActiveFactionMap(Pawn pawn, Gene gene)
+		{
+			return Find.Selector.SelectedPawns.Count > 1 || pawn.Drafted || !gene.Active || pawn.Faction != Faction.OfPlayer || pawn.Map == null;
+		}
+
+		public static bool SelectorActiveFaction(Pawn pawn, Gene gene)
+		{
+			return Find.Selector.SelectedPawns.Count > 1 || !gene.Active || pawn.Faction != Faction.OfPlayer;
+		}
+
+		public static bool SelectorDraftedActiveFaction(Pawn pawn, Gene gene)
+		{
+			return Find.Selector.SelectedPawns.Count > 1 || pawn.Drafted || !gene.Active || pawn.Faction != Faction.OfPlayer;
+		}
+
 		public static void ResetGenesInspectString(Pawn pawn)
 		{
 			// Log.Error("Check CompHumanlike");
