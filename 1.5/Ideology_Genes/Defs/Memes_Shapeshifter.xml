@@ -12,6 +12,7 @@
 		  <li Tag="ReclusePrecepts">
 			<li>WVC_Shapeshifters_Recluse</li>
 			<li>WVC_Shapeshifters_Revered</li>
+			<li>WVC_Shapeshifters_OneManArmy</li>
 		  </li>
 		</requireOne>
 	</MemeDef>

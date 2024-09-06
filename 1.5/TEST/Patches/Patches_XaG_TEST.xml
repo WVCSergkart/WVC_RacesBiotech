@@ -51,10 +51,10 @@
 		<!-- </value> -->
 	<!-- </Operation> -->
 
-	<Operation Class="PatchOperationRemove">
-		<xpath>/Defs/GeneDef[defName="Deathrest"]/prerequisite</xpath>
-		<success>Always</success>
-	</Operation>
+	<!-- <Operation Class="PatchOperationRemove"> -->
+		<!-- <xpath>/Defs/GeneDef[defName="Deathrest"]/prerequisite</xpath> -->
+		<!-- <success>Always</success> -->
+	<!-- </Operation> -->
 
 	<!-- <Operation Class="PatchOperationAdd"> -->
 	  <!-- <xpath>/Defs/TraderKindDef/stockGenerators</xpath> -->
@@ -83,13 +83,13 @@
 		<!-- </value> -->
 	<!-- </Operation> -->
 
-	<Operation Class="PatchOperationAdd">
-		<xpath>/Defs/MemeDef[defName="WVC_Shapeshifterist"]/requireOne/li[@Tag="ReclusePrecepts"]</xpath>
-		<success>Always</success>
-		<value>
-		  <li>WVC_Shapeshifters_OneManArmy</li>
-		</value>
-	</Operation>
+	<!-- <Operation Class="PatchOperationAdd"> -->
+		<!-- <xpath>/Defs/MemeDef[defName="WVC_Shapeshifterist"]/requireOne/li[@Tag="ReclusePrecepts"]</xpath> -->
+		<!-- <success>Always</success> -->
+		<!-- <value> -->
+		  <!-- <li>WVC_Shapeshifters_OneManArmy</li> -->
+		<!-- </value> -->
+	<!-- </Operation> -->
 
 	<!-- True Xenotypes TEST -->
 
