@@ -127,26 +127,26 @@
 	</comps>
   </ThingDef>
   
-  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
-	<defName>WVC_AdministerXenotypeSerum_Hybrid</defName>
-	<label>administer hybridtype serum</label>
-	<description>Administer a hybridtype serum.</description>
-	<jobString>Administering hybridtype serum.</jobString>
-	<ingredients>
-	  <li>
-		<filter>
-		  <thingDefs>
-			<li>WVC_XenotypeSerum_Hybrid</li>
-		  </thingDefs>
-		</filter>
-		<count>1</count>
-	  </li>
-	</ingredients>
-	<fixedIngredientFilter>
-	  <thingDefs>
-		<li>WVC_XenotypeSerum_Hybrid</li>
-	  </thingDefs>
-	</fixedIngredientFilter>
-  </RecipeDef>
+  <!-- <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base"> -->
+	<!-- <defName>WVC_AdministerXenotypeSerum_Hybrid</defName> -->
+	<!-- <label>administer hybridtype serum</label> -->
+	<!-- <description>Administer a hybridtype serum.</description> -->
+	<!-- <jobString>Administering hybridtype serum.</jobString> -->
+	<!-- <ingredients> -->
+	  <!-- <li> -->
+		<!-- <filter> -->
+		  <!-- <thingDefs> -->
+			<!-- <li>WVC_XenotypeSerum_Hybrid</li> -->
+		  <!-- </thingDefs> -->
+		<!-- </filter> -->
+		<!-- <count>1</count> -->
+	  <!-- </li> -->
+	<!-- </ingredients> -->
+	<!-- <fixedIngredientFilter> -->
+	  <!-- <thingDefs> -->
+		<!-- <li>WVC_XenotypeSerum_Hybrid</li> -->
+	  <!-- </thingDefs> -->
+	<!-- </fixedIngredientFilter> -->
+  <!-- </RecipeDef> -->
 
 </Defs>

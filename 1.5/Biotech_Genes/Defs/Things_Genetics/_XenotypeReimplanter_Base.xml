@@ -59,7 +59,8 @@
 	<tradeNeverStack>true</tradeNeverStack>
 	<tradeNeverGenerateStacked>true</tradeNeverGenerateStacked>
 	<healthAffectsPrice>false</healthAffectsPrice>
-	<stackLimit>10</stackLimit>
+	<drawGUIOverlay>false</drawGUIOverlay>
+	<stackLimit>1</stackLimit>
 	<techLevel>Ultra</techLevel>
 	<tradeTags>
 	  <li>WVC_All_XenotypeSerums</li>
@@ -74,17 +75,50 @@
 	</thingCategories>
   </ThingDef>
   
-  <RecipeDef Name="WVC_AdministerXenotypeSerum_Base" Abstract="True">
-	<workerClass>Recipe_AdministerUsableItem</workerClass>
+  <!-- <RecipeDef Name="WVC_AdministerXenotypeSerum_Base" Abstract="True"> -->
+	<!-- <workerClass>Recipe_AdministerUsableItem</workerClass> -->
+	<!-- <targetsBodyPart>false</targetsBodyPart> -->
+	<!-- <anesthetize>false</anesthetize> -->
+	<!-- <workAmount>600</workAmount> -->
+	<!-- <dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing> -->
+	<!-- <allowedForQuestLodgers>false</allowedForQuestLodgers> -->
+	<!-- <surgeryOutcomeEffect IsNull="True"/> -->
+	<!-- <recipeUsers> -->
+	  <!-- <li>Human</li> -->
+	<!-- </recipeUsers> -->
+  <!-- </RecipeDef> -->
+
+   <!-- ParentName="SurgeryFlesh" -->
+  <RecipeDef>
+	<defName>WVC_ImplantXenogermSerum</defName>
+	<label>implant serum</label>
+	<description>Implant a serum into a patient.</description>
+	<jobString>Implanting serum.</jobString>
+	<workerClass>WVC_XenotypesAndGenes.Recipe_ImplantXenogermSerum</workerClass>
+	<workAmount>600</workAmount>
+	<hideBodyPartNames>true</hideBodyPartNames>
 	<targetsBodyPart>false</targetsBodyPart>
 	<anesthetize>false</anesthetize>
-	<workAmount>600</workAmount>
-	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
 	<allowedForQuestLodgers>false</allowedForQuestLodgers>
 	<surgeryOutcomeEffect IsNull="True"/>
-	<recipeUsers>
-	  <li>Human</li>
-	</recipeUsers>
+	<isViolation>true</isViolation>
+	<!-- <surgeryOutcomeEffect>ImplantXenogerm</surgeryOutcomeEffect> -->
+	<uiIconThing>Xenogerm</uiIconThing>
+	<!-- <ingredients> -->
+	  <!-- <li> -->
+		<!-- <filter> -->
+		  <!-- <categories> -->
+			<!-- <li>Medicine</li> -->
+		  <!-- </categories> -->
+		<!-- </filter> -->
+		<!-- <count>4</count> -->
+	  <!-- </li> -->
+	<!-- </ingredients> -->
+	<!-- <fixedIngredientFilter> -->
+	  <!-- <categories> -->
+		<!-- <li>Medicine</li> -->
+	  <!-- </categories> -->
+	<!-- </fixedIngredientFilter> -->
   </RecipeDef>
   
   <!-- <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base" Name="WVC_AdministerXenotypeSerum_NewType" Abstract="True"> -->

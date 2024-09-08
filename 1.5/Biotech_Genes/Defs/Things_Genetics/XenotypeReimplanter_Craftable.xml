@@ -54,27 +54,27 @@
 	</comps>
   </ThingDef>
   
-  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
-	<defName>WVC_AdministerGeneRestorationSerum_Base</defName>
-	<label>administer gene restoration serum</label>
-	<description>Administer a gene restoration serum.</description>
-	<jobString>Administering gene restoration serum.</jobString>
-	<ingredients>
-	  <li>
-		<filter>
-		  <thingDefs>
-			<li>WVC_GeneRestorationSerum_Base</li>
-		  </thingDefs>
-		</filter>
-		<count>1</count>
-	  </li>
-	</ingredients>
-	<fixedIngredientFilter>
-	  <thingDefs>
-		<li>WVC_GeneRestorationSerum_Base</li>
-	  </thingDefs>
-	</fixedIngredientFilter>
-  </RecipeDef>
+  <!-- <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base"> -->
+	<!-- <defName>WVC_AdministerGeneRestorationSerum_Base</defName> -->
+	<!-- <label>administer gene restoration serum</label> -->
+	<!-- <description>Administer a gene restoration serum.</description> -->
+	<!-- <jobString>Administering gene restoration serum.</jobString> -->
+	<!-- <ingredients> -->
+	  <!-- <li> -->
+		<!-- <filter> -->
+		  <!-- <thingDefs> -->
+			<!-- <li>WVC_GeneRestorationSerum_Base</li> -->
+		  <!-- </thingDefs> -->
+		<!-- </filter> -->
+		<!-- <count>1</count> -->
+	  <!-- </li> -->
+	<!-- </ingredients> -->
+	<!-- <fixedIngredientFilter> -->
+	  <!-- <thingDefs> -->
+		<!-- <li>WVC_GeneRestorationSerum_Base</li> -->
+	  <!-- </thingDefs> -->
+	<!-- </fixedIngredientFilter> -->
+  <!-- </RecipeDef> -->
 
   <!-- ==================================== -->
 
@@ -191,27 +191,27 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	</comps>
   </ThingDef>
   
-  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
-	<defName>WVC_AdministerXenotypeSerum_Nullifier</defName>
-	<label>administer xenotype nullifier serum</label>
-	<description>Administer a xenotype nullifier serum.</description>
-	<jobString>Administering xenotype nullifier serum.</jobString>
-	<ingredients>
-	  <li>
-		<filter>
-		  <thingDefs>
-			<li>WVC_XenotypeSerum_Nullifier</li>
-		  </thingDefs>
-		</filter>
-		<count>1</count>
-	  </li>
-	</ingredients>
-	<fixedIngredientFilter>
-	  <thingDefs>
-		<li>WVC_XenotypeSerum_Nullifier</li>
-	  </thingDefs>
-	</fixedIngredientFilter>
-  </RecipeDef>
+  <!-- <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base"> -->
+	<!-- <defName>WVC_AdministerXenotypeSerum_Nullifier</defName> -->
+	<!-- <label>administer xenotype nullifier serum</label> -->
+	<!-- <description>Administer a xenotype nullifier serum.</description> -->
+	<!-- <jobString>Administering xenotype nullifier serum.</jobString> -->
+	<!-- <ingredients> -->
+	  <!-- <li> -->
+		<!-- <filter> -->
+		  <!-- <thingDefs> -->
+			<!-- <li>WVC_XenotypeSerum_Nullifier</li> -->
+		  <!-- </thingDefs> -->
+		<!-- </filter> -->
+		<!-- <count>1</count> -->
+	  <!-- </li> -->
+	<!-- </ingredients> -->
+	<!-- <fixedIngredientFilter> -->
+	  <!-- <thingDefs> -->
+		<!-- <li>WVC_XenotypeSerum_Nullifier</li> -->
+	  <!-- </thingDefs> -->
+	<!-- </fixedIngredientFilter> -->
+  <!-- </RecipeDef> -->
 
   <!-- ======================================== -->
 
@@ -280,26 +280,26 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	</comps>
   </ThingDef>
   
-  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
-	<defName>WVC_AdministerXenotypeSerum_Base</defName>
-	<label>administer xenotype serum</label>
-	<description>Administer a xenotype serum.</description>
-	<jobString>Administering xenotype serum.</jobString>
-	<ingredients>
-	  <li>
-		<filter>
-		  <thingDefs>
-			<li>WVC_XenotypeSerum_Base</li>
-		  </thingDefs>
-		</filter>
-		<count>1</count>
-	  </li>
-	</ingredients>
-	<fixedIngredientFilter>
-	  <thingDefs>
-		<li>WVC_XenotypeSerum_Base</li>
-	  </thingDefs>
-	</fixedIngredientFilter>
-  </RecipeDef>
+  <!-- <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base"> -->
+	<!-- <defName>WVC_AdministerXenotypeSerum_Base</defName> -->
+	<!-- <label>administer xenotype serum</label> -->
+	<!-- <description>Administer a xenotype serum.</description> -->
+	<!-- <jobString>Administering xenotype serum.</jobString> -->
+	<!-- <ingredients> -->
+	  <!-- <li> -->
+		<!-- <filter> -->
+		  <!-- <thingDefs> -->
+			<!-- <li>WVC_XenotypeSerum_Base</li> -->
+		  <!-- </thingDefs> -->
+		<!-- </filter> -->
+		<!-- <count>1</count> -->
+	  <!-- </li> -->
+	<!-- </ingredients> -->
+	<!-- <fixedIngredientFilter> -->
+	  <!-- <thingDefs> -->
+		<!-- <li>WVC_XenotypeSerum_Base</li> -->
+	  <!-- </thingDefs> -->
+	<!-- </fixedIngredientFilter> -->
+  <!-- </RecipeDef> -->
 
 </Defs>

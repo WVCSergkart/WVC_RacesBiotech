@@ -32,7 +32,9 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <li Class="CompProperties_UseEffectPlaySound">
 		<soundOnUsed>MechSerumUsed</soundOnUsed>
 	  </li>
-	  <li Class="CompProperties_UseEffectDestroySelf" />
+	  <li Class="CompProperties_UseEffectDestroySelf">
+		<!-- <compClass>WVC_XenotypesAndGenes.CompUseEffect_SimpleDestroySelf</compClass> -->
+	  </li>
 	</comps>
   </ThingDef>
 

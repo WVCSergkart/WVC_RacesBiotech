@@ -44,10 +44,26 @@ namespace WVC_XenotypesAndGenes
 
 		public override void PostSpawnSetup(bool respawningAfterLoad)
 		{
-			Thing thing = ThingMaker.MakeThing(Props.newDef);
-			thing.stackCount = Props.count;
-			GenPlace.TryPlaceThing(thing, parent.Position, parent.Map, ThingPlaceMode.Near, null, null, default);
+			for (int i = 0; i < parent.stackCount; i++)
+			{
+				Thing thing = ThingMaker.MakeThing(Props.newDef);
+				thing.stackCount = Props.count;
+				GenPlace.TryPlaceThing(thing, parent.Position, parent.Map, ThingPlaceMode.Near, null, null, default);
+			}
 			parent.Destroy();
+		}
+
+	}
+
+	public class CompUseEffect_SimpleDestroySelf : CompUseEffect
+	{
+
+		public override void DoEffect(Pawn usedBy)
+		{
+			if (!parent.Destroyed)
+			{
+				parent?.SplitOff(1)?.Destroy();
+			}
 		}
 
 	}

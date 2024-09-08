@@ -50,6 +50,10 @@ namespace WVC_XenotypesAndGenes
 
 		public override string TransformLabel(string label)
 		{
+			if (customMode)
+			{
+				return parent.def.label + " (" + "WVC_Custom".Translate() + ")";
+			}
 			if (xenotype == null || endotype == null)
 			{
 				return parent.def.label + " (" + "ERR" + ")";
@@ -65,15 +69,15 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref customMode, "customMode");
 		}
 
-		public override bool AllowStackWith(Thing other)
-		{
-			CompUseEffect_XenotypeForcer_Hybrid otherXeno = other.TryGetComp<CompUseEffect_XenotypeForcer_Hybrid>();
-			if (otherXeno != null && otherXeno.xenotype != null && otherXeno.xenotype == xenotype && otherXeno.endotype != null && otherXeno.endotype == endotype)
-			{
-				return true;
-			}
-			return false;
-		}
+		// public override bool AllowStackWith(Thing other)
+		// {
+			// CompUseEffect_XenotypeForcer_Hybrid otherXeno = other.TryGetComp<CompUseEffect_XenotypeForcer_Hybrid>();
+			// if (otherXeno != null && otherXeno.xenotype != null && otherXeno.xenotype == xenotype && otherXeno.endotype != null && otherXeno.endotype == endotype && otherXeno.customMode == customMode)
+			// {
+				// return true;
+			// }
+			// return false;
+		// }
 
 		public override AcceptanceReport CanBeUsedBy(Pawn p)
 		{

@@ -29,15 +29,15 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override bool AllowStackWith(Thing other)
-		{
-			CompTargetEffect_DoJobOnTarget otherXeno = other.TryGetComp<CompTargetEffect_DoJobOnTarget>();
-			if (otherXeno != null && otherXeno.xenotypeDef != null && otherXeno.xenotypeDef == xenotypeDef)
-			{
-				return true;
-			}
-			return false;
-		}
+		// public override bool AllowStackWith(Thing other)
+		// {
+			// CompTargetEffect_DoJobOnTarget otherXeno = other.TryGetComp<CompTargetEffect_DoJobOnTarget>();
+			// if (otherXeno != null && otherXeno.xenotypeDef != null && otherXeno.xenotypeDef == xenotypeDef)
+			// {
+				// return true;
+			// }
+			// return false;
+		// }
 
 		public override void DoEffectOn(Pawn user, Thing target)
 		{
