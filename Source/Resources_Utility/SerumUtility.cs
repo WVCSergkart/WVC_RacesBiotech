@@ -13,11 +13,15 @@ namespace WVC_XenotypesAndGenes
 
 		// Ideology Hook
 
-		public static void PostSerumUsedHook(Pawn pawn)
+		public static void PostSerumUsedHook(Pawn pawn, bool isXenoMod)
 		{
 			if (ModLister.IdeologyInstalled)
 			{
 				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_GenesDefOf.WVC_XenotypeSerumUsed, pawn.Named(HistoryEventArgsNames.Doer)));
+				if (!isXenoMod)
+				{
+					Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.InstalledProsthetic, pawn.Named(HistoryEventArgsNames.Doer)));
+				}
 			}
 		}
 
@@ -89,6 +93,7 @@ namespace WVC_XenotypesAndGenes
 
 		// ============================================
 
+		[Obsolete]
 		public static void XenotypeSerum(Pawn pawn, List<string> blackListedXenotypes, XenotypeDef xenotypeDef, bool removeEndogenes, bool removeXenogenes)
 		{
 			XenotypeDef xenotype = DefDatabase<XenotypeDef>.AllDefsListForReading.Where((XenotypeDef randomXenotypeDef) => randomXenotypeDef != pawn.genes.Xenotype && !blackListedXenotypes.Contains(randomXenotypeDef.defName)).RandomElement();
@@ -137,6 +142,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		[Obsolete]
 		public static void HybridXenotypeSerum(Pawn pawn, List<string> blackListedXenotypes, XenotypeDef xenotypeDef)
 		{
 			// Set random xenotype
@@ -191,6 +197,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		[Obsolete]
 		public static void CustomXenotypeSerum(Pawn pawn, List<string> blackListedXenotypes)
 		{
 			// Search for custom xenotypes || Ищем кастомные ксенотипы
@@ -250,6 +257,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		[Obsolete]
 		public static void CustomHybridXenotypeSerum(Pawn pawn, List<string> blackListedXenotypes)
 		{
 			List<CustomXenotype> xenotypes = CustomXenotypesList();
@@ -345,6 +353,7 @@ namespace WVC_XenotypesAndGenes
 
 		// ============================================
 
+		[Obsolete]
 		public static void DoubleXenotypeSerum(Pawn pawn, XenotypeDef endotypeDef, XenotypeDef xenotypeDef)
 		{
 			// remove genes

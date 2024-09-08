@@ -40,7 +40,7 @@
 	  <!-- <Gold>2</Gold> -->
 	</costList>
 	<comps>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_GeneRestoration">
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
 		<hediffsToRemove>
 		  <!-- Vanilla -->
 		  <li>XenogermReplicating</li>
@@ -111,7 +111,7 @@
 	  <WVC_UniversalFuel>45</WVC_UniversalFuel>
 	</costList>
 	<comps>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_GeneRestoration">
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
 		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneticStabilizer</compClass>
 		<daysDelay>8</daysDelay>
 		<canBeUsedInCaravan>true</canBeUsedInCaravan>
@@ -184,7 +184,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <!-- <Gold>3</Gold> -->
 	</costList>
 	<comps>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenotypeForcer">
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
 		<compClass>WVC_XenotypesAndGenes.CompUseEffect_XenotypeNullifier</compClass>
 		<removeSkinColor>true</removeSkinColor>
 	  </li>
@@ -242,7 +242,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <li>WVC_XenotypeSerums_Base</li>
 	</thingCategories>
 	<comps>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_TargetEffect_DoJobOnTarget">
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
 		<moteDef>Mote_ResurrectFlash</moteDef>
 		<xenotypeDef>WVC_Undead</xenotypeDef>
 		<jobDef>WVC_XenotypesAndGenes_ResurrectAndChangeXenotype</jobDef>
@@ -254,7 +254,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 
   <ThingDef ParentName="WVC_XenotypeSerum_Craftable" WVC_XaG_EasyPatch="ThingDefSerumXenotypeForcerII" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_XenotypeSerum_Base</defName>
-	<label>basetype serum</label>
+	<label>xenotype serum</label>
 	<!-- <stackLimit>1</stackLimit> -->
 	<!-- <drawGUIOverlay>false</drawGUIOverlay> -->
 	<tradeTags>
@@ -266,8 +266,8 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <li>WVC_XenotypeSerums_Base</li>
 	</thingCategories>
 	<comps>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenotypeForcer_II">
-		<compClass>WVC_XenotypesAndGenes.CompUseEffect_XenotypeForcer_II</compClass>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_XenogermSerum</compClass>
 		<xenotypeType>Base</xenotypeType>
 		<removeEndogenes>false</removeEndogenes>
 		<removeXenogenes>true</removeXenogenes>
@@ -282,9 +282,9 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
   
   <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
 	<defName>WVC_AdministerXenotypeSerum_Base</defName>
-	<label>administer basetype serum</label>
-	<description>Administer a basetype serum.</description>
-	<jobString>Administering basetype serum.</jobString>
+	<label>administer xenotype serum</label>
+	<description>Administer a xenotype serum.</description>
+	<jobString>Administering xenotype serum.</jobString>
 	<ingredients>
 	  <li>
 		<filter>

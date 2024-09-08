@@ -221,7 +221,7 @@ This is exactly how this gene was originally intended, but this can greatly skew
 
 May affect startup speed on modlists with a lot of mods that add xenotypes.
 
-Outdated. Use at your own risk.</WVC_ToolTip_serumsForAllXenotypes>
+Outdated. Do not use this feature as it will be removed soon and it may corrupt your saves.</WVC_ToolTip_serumsForAllXenotypes>
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_serumsForAllXenotypes_GenBase>Generate base xenotypes serums</WVC_Label_serumsForAllXenotypes_GenBase>

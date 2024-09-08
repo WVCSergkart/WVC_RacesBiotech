@@ -69,7 +69,8 @@ namespace WVC_XenotypesAndGenes
 				// ResurrectionUtility.TryResurrect(innerPawn);
 				// innerPawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
 				XenotypeDef xenotypeDef = Item?.TryGetComp<CompTargetEffect_DoJobOnTarget>()?.xenotypeDef;
-				SerumUtility.XenotypeSerum(innerPawn, XenotypeFilterUtility.BlackListedXenotypesForSerums(false), xenotypeDef, false, false);
+				// SerumUtility.XenotypeSerum(innerPawn, XenotypeFilterUtility.BlackListedXenotypesForSerums(false), xenotypeDef, false, false);
+				ReimplanterUtility.SetXenotype(innerPawn, xenotypeDef);
 				innerPawn.health.AddHediff(HediffDefOf.XenogerminationComa);
 				GeneUtility.UpdateXenogermReplication(innerPawn);
 				if (ModLister.IdeologyInstalled)

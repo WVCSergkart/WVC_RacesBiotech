@@ -10,7 +10,7 @@ namespace WVC_XenotypesAndGenes
 	{
 		public XenotypeDef xenotypeDef = null;
 
-		public CompProperties_TargetEffect_DoJobOnTarget Props => (CompProperties_TargetEffect_DoJobOnTarget)props;
+		public CompProperties_UseEffect_XenogermSerum Props => (CompProperties_UseEffect_XenogermSerum)props;
 
 		public override void PostPostMake()
 		{

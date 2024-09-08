@@ -1,10 +1,12 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
+	[Obsolete]
 	public class CompProperties_UseEffect_GeneRestoration : CompProperties_UseEffect
 	{
 
@@ -42,6 +44,7 @@ namespace WVC_XenotypesAndGenes
 					parentDef.descriptionHyperlinks.Add(new DefHyperlink(hediffDef));
 				}
 			}
+			Log.Warning(parentDef.defName + " uses an outdated serum component.");
 		}
 
 	}

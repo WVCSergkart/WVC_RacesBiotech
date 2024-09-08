@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,7 +9,8 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class CompUseEffect_XenotypeForcer_II : CompUseEffect
+	[Obsolete]
+	public class CompUseEffect_XenotypeForcer_II : CompUseEffect
 	{
 		public XenotypeDef xenotype = null;
 
@@ -104,7 +106,7 @@ namespace WVC_XenotypesAndGenes
 				int max = HediffDefOf.XenogerminationComa.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.max;
 				Find.LetterStack.ReceiveLetter("LetterLabelGenesImplanted".Translate(), "WVC_LetterTextGenesImplanted".Translate(pawn.Named("TARGET"), max.ToStringTicksToPeriod().Named("COMADURATION")), LetterDefOf.NeutralEvent, new LookTargets(pawn));
 			}
-			SerumUtility.PostSerumUsedHook(pawn);
+			SerumUtility.PostSerumUsedHook(pawn, true);
 		}
 
 		public override IEnumerable<Gizmo> CompGetGizmosExtra()

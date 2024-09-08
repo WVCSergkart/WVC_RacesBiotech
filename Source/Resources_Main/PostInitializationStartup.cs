@@ -277,6 +277,10 @@ namespace WVC_XenotypesAndGenes
 				WVC_Biotech.settings.firstModLaunch = false;
 				WVC_Biotech.settings.Write();
 			}
+			if (WVC_Biotech.settings.serumsForAllXenotypes)
+			{
+				Log.Error("The xenotype serum generation feature is too outdated and not optimized. Please stop using it as it will be removed in the future and it may damage your save.");
+			}
 			foreach (XenotypeDef item in XenotypeFilterUtility.WhiteListedXenotypes(true, true))
 			{
 				WVC_GenesDefOf.WVC_XenotypeSerums_SupportedXenotypesList.descriptionHyperlinks.Add(item);

@@ -15,9 +15,9 @@ namespace WVC_XenotypesAndGenes
 			if (ModsConfig.BiotechActive && req.HasThing && req.Thing is XenotypeSerum xenotypeSerum)
 			{
 				float num = 0f;
-				if (xenotypeSerum?.TryGetComp<CompUseEffect_XenotypeForcer_II>()?.xenotype != null)
+				if (xenotypeSerum?.TryGetComp<CompUseEffect_XenogermSerum>()?.xenotype != null)
 				{
-					XenotypeDef xenotypeDef = xenotypeSerum.TryGetComp<CompUseEffect_XenotypeForcer_II>().xenotype;
+					XenotypeDef xenotypeDef = xenotypeSerum.TryGetComp<CompUseEffect_XenogermSerum>().xenotype;
 					num = XaG_GeneUtility.XenotypeCost(xenotypeDef);
 				}
 				if (xenotypeSerum?.TryGetComp<CompTargetEffect_DoJobOnTarget>()?.xenotypeDef != null)

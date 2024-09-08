@@ -19,7 +19,7 @@ namespace WVC_XenotypesAndGenes
 
 		protected override IEnumerable<Toil> MakeNewToils()
 		{
-			CompUseEffect_XenotypeForcer_II xenotypeForcer = Target.TryGetComp<CompUseEffect_XenotypeForcer_II>();
+			CompUseEffect_XenogermSerum xenotypeForcer = Target.TryGetComp<CompUseEffect_XenogermSerum>();
 			if (xenotypeForcer == null)
 			{
 				yield break;

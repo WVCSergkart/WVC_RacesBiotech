@@ -29,7 +29,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <!-- <ConceptDef>WVC_Tutorial_XenotypeSerums_I</ConceptDef> -->
 	  <!-- <ConceptDef>WVC_Tutorial_XenotypeSerums_II</ConceptDef> -->
 	  <!-- <ConceptDef>WVC_Tutorial_XenotypeSerums_III</ConceptDef> -->
-	  <ConceptDef>WVC_Tutorial_XenotypeSerums_Desc</ConceptDef>
+	  <!-- <ConceptDef>WVC_Tutorial_XenotypeSerums_Desc</ConceptDef> -->
 	  <ConceptDef>WVC_XenotypeSerums_SupportedXenotypesList</ConceptDef>
 	</descriptionHyperlinks>
 	<thingClass>ThingWithComps</thingClass>

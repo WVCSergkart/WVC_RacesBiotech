@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
@@ -6,14 +7,16 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class CompUseEffect_XenotypeForcer_Hybrid : CompUseEffect
+	public class CompUseEffect_XenotypeForcer_Hybrid : CompUseEffect
 	{
 
 		public XenotypeDef endotype = null;
 
 		public XenotypeDef xenotype = null;
 
-		public CompProperties_UseEffect_XenotypeForcer_II Props => (CompProperties_UseEffect_XenotypeForcer_II)props;
+		public bool customMode = false;
+
+		public CompProperties_UseEffect_XenogermSerum Props => (CompProperties_UseEffect_XenogermSerum)props;
 
 		public override void PostPostMake()
 		{
@@ -59,6 +62,7 @@ namespace WVC_XenotypesAndGenes
 			base.PostExposeData();
 			Scribe_Defs.Look(ref endotype, "endotypeDef");
 			Scribe_Defs.Look(ref xenotype, "xenotypeDef");
+			Scribe_Values.Look(ref customMode, "customMode");
 		}
 
 		public override bool AllowStackWith(Thing other)
@@ -88,6 +92,24 @@ namespace WVC_XenotypesAndGenes
 			return true;
 		}
 
+		public override IEnumerable<Gizmo> CompGetGizmosExtra()
+		{
+			yield return new Command_Action
+			{
+				defaultLabel = "WVC_XaG_SerumCustomMode_Label".Translate() + " " + customMode.ToStringYesNo(),
+				defaultDesc = "WVC_XaG_SerumCustomMode_Desc".Translate(),
+				icon = parent.def.uiIcon,
+				action = delegate
+				{
+					customMode = !customMode;
+				}
+			};
+			if (Props.retuneJob == null)
+			{
+				yield break;
+			}
+		}
+
 		public override void DoEffect(Pawn pawn)
 		{
 			// SerumUtility.HumanityCheck(pawn);
@@ -100,12 +122,25 @@ namespace WVC_XenotypesAndGenes
 				// pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));
 				// return;
 			// }
-			if (xenotype == null || endotype == null)
+			// SerumUtility.DoubleXenotypeSerum(pawn, endotype, xenotype);
+			if (customMode)
 			{
-				Log.Error("Xeno/endotype is still null. Do not report this to the developer, you yourself created this creepy world filled with bugs. To fix the situation, reset the filter in the " + "WVC_BiotechSettings".Translate() + " mod settings and restart the game.");
-				return;
+				List<CustomXenotype> xenotypes = SerumUtility.CustomXenotypesList();
+				CustomXenotype endoCustomXenotype = xenotypes.Where((CustomXenotype randomXenotypeDef) => randomXenotypeDef.name != pawn.genes.xenotypeName && randomXenotypeDef.inheritable).RandomElement();
+				CustomXenotype xenoCustomXenotype = xenotypes.Where((CustomXenotype randomXenotypeDef) => randomXenotypeDef.name != pawn.genes.xenotypeName && !randomXenotypeDef.inheritable).RandomElement();
+				ReimplanterUtility.SetCustomXenotype(pawn, endoCustomXenotype);
+				ReimplanterUtility.SetCustomXenotype(pawn, xenoCustomXenotype);
 			}
-			SerumUtility.DoubleXenotypeSerum(pawn, endotype, xenotype);
+			else
+			{
+				if (xenotype == null || endotype == null)
+				{
+					Log.Error("Xeno/endotype is still null. Do not report this to the developer, you yourself created this creepy world filled with bugs. To fix the situation, reset the filter in the " + "WVC_BiotechSettings".Translate() + " mod settings and restart the game.");
+					return;
+				}
+				ReimplanterUtility.SetXenotype(pawn, endotype, false);
+				ReimplanterUtility.SetXenotype(pawn, xenotype);
+			}
 			pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
 			GeneUtility.UpdateXenogermReplication(pawn);
 			if (PawnUtility.ShouldSendNotificationAbout(pawn))
@@ -113,7 +148,7 @@ namespace WVC_XenotypesAndGenes
 				int max = HediffDefOf.XenogerminationComa.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.max;
 				Find.LetterStack.ReceiveLetter("LetterLabelGenesImplanted".Translate(), "WVC_LetterTextGenesImplanted".Translate(pawn.Named("TARGET"), max.ToStringTicksToPeriod().Named("COMADURATION")), LetterDefOf.NeutralEvent, new LookTargets(pawn));
 			}
-			SerumUtility.PostSerumUsedHook(pawn);
+			SerumUtility.PostSerumUsedHook(pawn, true);
 		}
 
 	}

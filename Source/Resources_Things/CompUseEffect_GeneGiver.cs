@@ -12,7 +12,7 @@ namespace WVC_XenotypesAndGenes
 	{
 		public GeneDef geneDef = null;
 
-		public CompProperties_UseEffect_XenotypeForcer_II Props => (CompProperties_UseEffect_XenotypeForcer_II)props;
+		public CompProperties_UseEffect_XenogermSerum Props => (CompProperties_UseEffect_XenogermSerum)props;
 
 		public override void PostPostMake()
 		{
@@ -65,7 +65,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				Find.LetterStack.ReceiveLetter("WVC_XaG_GeneGiverImplanted_Label".Translate(), "WVC_XaG_GeneGiverImplanted_Desc".Translate(pawn.Name.ToString(), geneDef.LabelCap), LetterDefOf.NeutralEvent, new LookTargets(pawn));
 			}
-			SerumUtility.PostSerumUsedHook(pawn);
+			SerumUtility.PostSerumUsedHook(pawn, true);
 		}
 
 		public override bool AllowStackWith(Thing other)

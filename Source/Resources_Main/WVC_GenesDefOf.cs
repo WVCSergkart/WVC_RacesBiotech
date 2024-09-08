@@ -100,6 +100,8 @@ namespace WVC_XenotypesAndGenes
 		// public static MutantDef WVC_Thrall;
 		public static JobDef WVC_XaG_CastBloodfeedOnPawnMelee;
 		public static JobDef WVC_XaG_CastCellsfeedOnPawnMelee;
+		//
+		// public static RecipeDef WVC_ImplantXenogermSerum;
 	}
 
 	// [DefOf]

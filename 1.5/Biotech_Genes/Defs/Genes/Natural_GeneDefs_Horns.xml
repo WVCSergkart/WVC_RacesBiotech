@@ -61,6 +61,7 @@
 		<texPaths>
 		  <li>WVC/BodyParts/Horns/HornsA</li>
 		  <li>WVC/BodyParts/Horns/HornsC</li>
+		  <li>WVC/BodyParts/Horns/HornsBrokenA</li>
 		</texPaths>
 		<color>(255, 255, 255)</color>
 		<parentTagDef>Head</parentTagDef>

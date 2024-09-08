@@ -5,6 +5,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
+	[Obsolete]
 	public class CompProperties_UseEffect_XenotypeForcer : CompProperties_UseEffect
 	{
 
@@ -38,6 +39,12 @@ namespace WVC_XenotypesAndGenes
 			Custom,
 			CustomHybrid
 		}
+
+		public override void ResolveReferences(ThingDef parentDef)
+		{
+			Log.Warning(parentDef.defName + " uses an outdated serum component.");
+		}
+
 	}
 
 }

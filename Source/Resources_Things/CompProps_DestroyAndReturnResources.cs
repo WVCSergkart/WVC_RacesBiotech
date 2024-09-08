@@ -24,4 +24,32 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class CompProperties_OutdatedThing : CompProperties
+	{
+
+		public ThingDef newDef;
+
+		public int count = 1;
+
+		public CompProperties_OutdatedThing()
+		{
+			compClass = typeof(CompReplaceWithThing);
+		}
+	}
+
+	public class CompReplaceWithThing : ThingComp
+	{
+
+		public CompProperties_OutdatedThing Props => (CompProperties_OutdatedThing)props;
+
+		public override void PostSpawnSetup(bool respawningAfterLoad)
+		{
+			Thing thing = ThingMaker.MakeThing(Props.newDef);
+			thing.stackCount = Props.count;
+			GenPlace.TryPlaceThing(thing, parent.Position, parent.Map, ThingPlaceMode.Near, null, null, default);
+			parent.Destroy();
+		}
+
+	}
+
 }

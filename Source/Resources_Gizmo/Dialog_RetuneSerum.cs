@@ -9,11 +9,11 @@ namespace WVC_XenotypesAndGenes
     public class Dialog_RetuneSerum : Dialog_XenotypesBase
 	{
 
-		public CompUseEffect_XenotypeForcer_II xenotypeForcer;
+		public CompUseEffect_XenogermSerum xenotypeForcer;
 
 		public Dialog_RetuneSerum(Thing serum)
 		{
-			xenotypeForcer = serum.TryGetComp<CompUseEffect_XenotypeForcer_II>();
+			xenotypeForcer = serum.TryGetComp<CompUseEffect_XenogermSerum>();
 			currentXeno = xenotypeForcer.xenotype;
 			selectedXeno = currentXeno;
 			forcePause = true;
@@ -84,7 +84,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (SerumUtility.XenotypeHasArchites(mode))
 			{
-				if (xenotypeForcer.Props.xenotypeType == CompProperties_UseEffect_XenotypeForcer_II.XenotypeType.Archite)
+				if (xenotypeForcer.Props.xenotypeType == CompProperties_UseEffect_XenogermSerum.XenotypeType.Archite)
 				{
 					return true;
 				}
@@ -93,7 +93,7 @@ namespace WVC_XenotypesAndGenes
 					return false;
 				}
 			}
-			else if (xenotypeForcer.Props.xenotypeType == CompProperties_UseEffect_XenotypeForcer_II.XenotypeType.Base)
+			else if (xenotypeForcer.Props.xenotypeType == CompProperties_UseEffect_XenogermSerum.XenotypeType.Base)
 			{
 				return true;
 			}

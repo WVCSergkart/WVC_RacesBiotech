@@ -1,10 +1,12 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
+	[Obsolete]
     public class CompProperties_UseEffect_XenotypeForcer_II : CompProperties_UseEffect
 	{
 
@@ -45,6 +47,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				Log.Error(parentDef.defName + " has CompUseEffect_GeneGiver compClass with null possibleGenes.");
 			}
+			Log.Warning(parentDef.defName + " uses an outdated serum component.");
 		}
 
 		// public CompProperties_UseEffect_XenotypeForcer_II()

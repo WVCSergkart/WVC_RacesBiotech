@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="ResourceBase">
+	<defName>WVC_XenotypeSerum_Random</defName>
+	<label>xenotype serum (random)</label>
+	<statBases>
+	  <Mass>0.2</Mass>
+	</statBases>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_OutdatedThing">
+		<newDef>WVC_XenotypeSerum_Ultra</newDef>
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+	<defName>WVC_XenotypeSerum_CustomRandom</defName>
+	<label>xenotype serum (custom)</label>
+	<statBases>
+	  <Mass>0.2</Mass>
+	</statBases>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_OutdatedThing">
+		<newDef>WVC_XenotypeSerum_Ultra</newDef>
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+	<defName>WVC_XenotypeSerum_HybridRandom</defName>
+	<label>hybrid serum (random)</label>
+	<statBases>
+	  <Mass>0.2</Mass>
+	</statBases>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_OutdatedThing">
+		<newDef>WVC_XenotypeSerum_Hybrid</newDef>
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+	<defName>WVC_XenotypeSerum_CustomHybridRandom</defName>
+	<label>hybrid serum (custom)</label>
+	<statBases>
+	  <Mass>0.2</Mass>
+	</statBases>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_OutdatedThing">
+		<newDef>WVC_XenotypeSerum_Hybrid</newDef>
+	  </li>
+	</comps>
+  </ThingDef>
+
+</Defs>

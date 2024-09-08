@@ -301,5 +301,43 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public static void SetCustomXenotype(Pawn pawn, CustomXenotype xenotypeDef)
+		{
+			// Remove genes
+			Pawn_GeneTracker genes = pawn.genes;
+			genes.Xenogenes.RemoveAllGenes();
+			if (xenotypeDef.inheritable)
+			{
+				genes.Endogenes.RemoveAllGenes();
+			}
+			// Add genes
+			genes.SetXenotypeDirect(XenotypeDefOf.Baseliner);
+			genes.xenotypeName = xenotypeDef.name;
+			genes.iconDef = xenotypeDef.iconDef;
+			bool xenotypeHasSkinColor = false;
+			bool xenotypeHasHairColor = false;
+			List<GeneDef> xenotypeGenes = xenotypeDef.genes;
+			for (int i = 0; i < xenotypeGenes.Count; i++)
+			{
+				genes?.AddGene(xenotypeGenes[i], !xenotypeDef.inheritable);
+				if (xenotypeGenes[i].skinColorBase != null || xenotypeGenes[i].skinColorOverride != null)
+				{
+					xenotypeHasSkinColor = true;
+				}
+				if (xenotypeGenes[i].hairColorOverride != null)
+				{
+					xenotypeHasHairColor = true;
+				}
+			}
+			if ((xenotypeDef.inheritable) && !xenotypeHasSkinColor)
+			{
+				genes?.AddGene(WVC_GenesDefOf.Skin_SheerWhite, false);
+			}
+			if ((xenotypeDef.inheritable) && !xenotypeHasHairColor)
+			{
+				genes?.AddGene(WVC_GenesDefOf.Hair_SnowWhite, false);
+			}
+		}
+
 	}
 }
