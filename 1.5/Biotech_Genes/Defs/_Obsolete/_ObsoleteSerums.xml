@@ -4,6 +4,8 @@
   <ThingDef ParentName="ResourceBase">
 	<defName>WVC_XenotypeSerum_Random</defName>
 	<label>xenotype serum (random)</label>
+	<stackLimit>50</stackLimit>
+	<drawGUIOverlay>true</drawGUIOverlay>
 	<statBases>
 	  <Mass>0.2</Mass>
 	</statBases>
@@ -17,6 +19,8 @@
   <ThingDef ParentName="ResourceBase">
 	<defName>WVC_XenotypeSerum_CustomRandom</defName>
 	<label>xenotype serum (custom)</label>
+	<stackLimit>50</stackLimit>
+	<drawGUIOverlay>true</drawGUIOverlay>
 	<statBases>
 	  <Mass>0.2</Mass>
 	</statBases>
@@ -30,6 +34,8 @@
   <ThingDef ParentName="ResourceBase">
 	<defName>WVC_XenotypeSerum_HybridRandom</defName>
 	<label>hybrid serum (random)</label>
+	<stackLimit>50</stackLimit>
+	<drawGUIOverlay>true</drawGUIOverlay>
 	<statBases>
 	  <Mass>0.2</Mass>
 	</statBases>
@@ -43,6 +49,8 @@
   <ThingDef ParentName="ResourceBase">
 	<defName>WVC_XenotypeSerum_CustomHybridRandom</defName>
 	<label>hybrid serum (custom)</label>
+	<stackLimit>50</stackLimit>
+	<drawGUIOverlay>true</drawGUIOverlay>
 	<statBases>
 	  <Mass>0.2</Mass>
 	</statBases>
