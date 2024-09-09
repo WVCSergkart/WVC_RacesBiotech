@@ -103,7 +103,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	  <!-- <PowerfocusChip>1</PowerfocusChip> -->
 	  <!-- <Plasteel>50</Plasteel> -->
 	  <!-- <Uranium>20</Uranium> -->
-	  <WVC_EmptyXenotypeSerum>1</WVC_EmptyXenotypeSerum>
+	  <ComponentIndustrial>2</ComponentIndustrial>
 	  <WVC_XenotypeSerumCapsule>1</WVC_XenotypeSerumCapsule>
 	  <!-- <ComponentIndustrial>3</ComponentIndustrial> -->
 	</costList>

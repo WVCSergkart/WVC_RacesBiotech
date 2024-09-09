@@ -6,6 +6,10 @@
 	<label>xenotype serum (random)</label>
 	<stackLimit>50</stackLimit>
 	<drawGUIOverlay>true</drawGUIOverlay>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/NewSerum_v2</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
 	<statBases>
 	  <Mass>0.2</Mass>
 	</statBases>
@@ -21,6 +25,10 @@
 	<label>xenotype serum (custom)</label>
 	<stackLimit>50</stackLimit>
 	<drawGUIOverlay>true</drawGUIOverlay>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/NewSerum_v2</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
 	<statBases>
 	  <Mass>0.2</Mass>
 	</statBases>
@@ -36,6 +44,10 @@
 	<label>hybrid serum (random)</label>
 	<stackLimit>50</stackLimit>
 	<drawGUIOverlay>true</drawGUIOverlay>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/NewSerum_v2</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
 	<statBases>
 	  <Mass>0.2</Mass>
 	</statBases>
@@ -51,12 +63,36 @@
 	<label>hybrid serum (custom)</label>
 	<stackLimit>50</stackLimit>
 	<drawGUIOverlay>true</drawGUIOverlay>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/NewSerum_v2</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
 	<statBases>
 	  <Mass>0.2</Mass>
 	</statBases>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_OutdatedThing">
 		<newDef>WVC_XenotypeSerum_Hybrid</newDef>
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+	<defName>WVC_EmptyXenotypeSerum</defName>
+	<label>serum component</label>
+	<stackLimit>50</stackLimit>
+	<drawGUIOverlay>true</drawGUIOverlay>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/NewSerum_v2</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+	<statBases>
+	  <Mass>0.2</Mass>
+	</statBases>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_OutdatedThing">
+		<newDef>ComponentIndustrial</newDef>
+		<count>2</count>
 	  </li>
 	</comps>
   </ThingDef>

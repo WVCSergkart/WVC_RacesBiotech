@@ -29,7 +29,7 @@
 	</recipeMaker>
 	<costList Inherit="False">
 	  <Steel>30</Steel>
-	  <WVC_EmptyXenotypeSerum>1</WVC_EmptyXenotypeSerum>
+	  <ComponentIndustrial>2</ComponentIndustrial>
 	  <WVC_UniversalFuel>45</WVC_UniversalFuel>
 	</costList>
 	<comps>
@@ -78,7 +78,7 @@
 	</graphicData>
 	<costList>
 	  <WVC_XenotypeSerumCapsule>2</WVC_XenotypeSerumCapsule>
-	  <WVC_EmptyXenotypeSerum>2</WVC_EmptyXenotypeSerum>
+	  <ComponentIndustrial>3</ComponentIndustrial>
 	</costList>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
@@ -104,7 +104,7 @@
 	  <MarketValue>1670</MarketValue>
 	</statBases>
 	<costList>
-	  <WVC_EmptyXenotypeSerum>2</WVC_EmptyXenotypeSerum>
+	  <ComponentIndustrial>4</ComponentIndustrial>
 	  <ComponentSpacer>3</ComponentSpacer>
 	</costList>
 	<comps>

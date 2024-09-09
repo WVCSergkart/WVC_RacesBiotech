@@ -38,8 +38,7 @@
 	</graphicData>
 	<costList>
 	  <Plasteel>30</Plasteel>
-	  <WVC_EmptyXenotypeSerum>1</WVC_EmptyXenotypeSerum>
-	  <ComponentIndustrial>3</ComponentIndustrial>
+	  <ComponentIndustrial>4</ComponentIndustrial>
 	</costList>
 	<statBases>
 	  <MarketValue>2100</MarketValue>
@@ -301,7 +300,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
 	</thingSetMakerTags>
 	<costList>
 	  <Plasteel>46</Plasteel>
-	  <WVC_EmptyXenotypeSerum>4</WVC_EmptyXenotypeSerum>
+	  <ComponentIndustrial>8</ComponentIndustrial>
 	  <ComponentSpacer>6</ComponentSpacer>
 	  <WVC_XenotypeSerumUltraCapsule>6</WVC_XenotypeSerumUltraCapsule>
 	</costList>

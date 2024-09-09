@@ -17,7 +17,7 @@
 	  <!-- <Intellectual>8</Intellectual> -->
 	</skillRequirements>
 	<products>
-	  <WVC_EmptyXenotypeSerum>1</WVC_EmptyXenotypeSerum>
+	  <ComponentIndustrial>2</ComponentIndustrial>
 	</products>
 	<recipeUsers>
 	  <li>WVC_SerumCraftingTable</li>

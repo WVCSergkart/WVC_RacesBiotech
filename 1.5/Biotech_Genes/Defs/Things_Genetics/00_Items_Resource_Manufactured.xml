@@ -1,85 +1,81 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThingDef ParentName="ResourceBase" Name="WVC_XenotypeAndGenes_ResourceComponents_Base" Abstract="True" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
-	<soundInteract>Metal_Drop</soundInteract>
-	<soundDrop>Standard_Drop</soundDrop>
-	<stackLimit>50</stackLimit>
-	<healthAffectsPrice>false</healthAffectsPrice>
-	<graphicData>
-	  <texPath>WVC/Things/XaG_Items/Serums_Empty</texPath>
-	  <graphicClass>Graphic_Random</graphicClass>
-	</graphicData>
-	<statBases>
-	  <MaxHitPoints>70</MaxHitPoints>
-	  <MarketValue>200</MarketValue>
-	  <Mass>0.6</Mass>
-	  <Flammability>0.6</Flammability>
-	  <DeteriorationRate>2.0</DeteriorationRate>
-	  <WorkToMake>14000</WorkToMake>
-	</statBases>
-	<intricate>true</intricate>
-	<thingCategories>
-	  <li>Manufactured</li>
-	</thingCategories>
-	<tradeTags>
-	  <li>ExoticMisc</li>
-	</tradeTags>
-	<allowedArchonexusCount>5</allowedArchonexusCount>
-	<thingSetMakerTags>
-	  <li>RewardStandardLowFreq</li>
-	</thingSetMakerTags>
-  </ThingDef>
+  <!-- <ThingDef ParentName="ResourceBase" Name="WVC_XenotypeAndGenes_ResourceComponents_Base" Abstract="True" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings"> -->
+	<!-- <soundInteract>Metal_Drop</soundInteract> -->
+	<!-- <soundDrop>Standard_Drop</soundDrop> -->
+	<!-- <stackLimit>50</stackLimit> -->
+	<!-- <healthAffectsPrice>false</healthAffectsPrice> -->
+	<!-- <graphicData> -->
+	  <!-- <texPath>WVC/Things/XaG_Items/Serums_Empty</texPath> -->
+	  <!-- <graphicClass>Graphic_Random</graphicClass> -->
+	<!-- </graphicData> -->
+	<!-- <statBases> -->
+	  <!-- <MaxHitPoints>70</MaxHitPoints> -->
+	  <!-- <MarketValue>200</MarketValue> -->
+	  <!-- <Mass>0.6</Mass> -->
+	  <!-- <Flammability>0.6</Flammability> -->
+	  <!-- <DeteriorationRate>2.0</DeteriorationRate> -->
+	  <!-- <WorkToMake>14000</WorkToMake> -->
+	<!-- </statBases> -->
+	<!-- <intricate>true</intricate> -->
+	<!-- <thingCategories> -->
+	  <!-- <li>Manufactured</li> -->
+	<!-- </thingCategories> -->
+	<!-- <tradeTags> -->
+	  <!-- <li>ExoticMisc</li> -->
+	<!-- </tradeTags> -->
+	<!-- <allowedArchonexusCount>5</allowedArchonexusCount> -->
+	<!-- <thingSetMakerTags> -->
+	  <!-- <li>RewardStandardLowFreq</li> -->
+	<!-- </thingSetMakerTags> -->
+  <!-- </ThingDef> -->
 
   <!-- ================================================================= -->
 
-  <ThingDef ParentName="WVC_XenotypeAndGenes_ResourceComponents_Base" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
-	<defName>WVC_EmptyXenotypeSerum</defName>
-	<label>serum component</label>
-	<description>Advanced computing and energy-directing machinery specifically designed for use in serums.</description>
-	<graphicData>
-	  <texPath>WVC/Things/XaG_Items/Serums_Empty</texPath>
-	  <graphicClass>Graphic_Random</graphicClass>
-	</graphicData>
-	<statBases>
-	  <MarketValue>220</MarketValue>
-	</statBases>
-	<costList>
-	  <Steel>25</Steel>
-	  <ComponentIndustrial>2</ComponentIndustrial>
-	</costList>
-	<recipeMaker>
-	  <displayPriority>-100</displayPriority>
-	  <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
-	  <researchPrerequisites>
-		<li>WVC_XenotypesAndGenes_SerumLab</li>
-	  </researchPrerequisites>
-	  <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-	  <workSkill>Crafting</workSkill>
-	  <effectWorking>Smith</effectWorking>
-	  <soundWorking>Recipe_Machining</soundWorking>
-	  <recipeUsers>
-		<li>WVC_SerumCraftingTable</li>
-	  </recipeUsers>
-	  <useIngredientsForColor>false</useIngredientsForColor>
-	  <skillRequirements>
-		<Crafting>6</Crafting>
-		<!-- <Intellectual>12</Intellectual> -->
-	  </skillRequirements>
-	</recipeMaker>
-	<tradeTags>
-	  <li>WVC_SerumComponents_AllCraftable</li>
-	</tradeTags>
-  </ThingDef>
+  <!-- <ThingDef ParentName="WVC_XenotypeAndGenes_ResourceComponents_Base" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings"> -->
+	<!-- <defName>WVC_EmptyXenotypeSerum</defName> -->
+	<!-- <label>serum component</label> -->
+	<!-- <description>Advanced computing and energy-directing machinery specifically designed for use in serums.</description> -->
+	<!-- <graphicData> -->
+	  <!-- <texPath>WVC/Things/XaG_Items/Serums_Empty</texPath> -->
+	  <!-- <graphicClass>Graphic_Random</graphicClass> -->
+	<!-- </graphicData> -->
+	<!-- <statBases> -->
+	  <!-- <MarketValue>220</MarketValue> -->
+	<!-- </statBases> -->
+	<!-- <costList> -->
+	  <!-- <Steel>25</Steel> -->
+	  <!-- <ComponentIndustrial>2</ComponentIndustrial> -->
+	<!-- </costList> -->
+	<!-- <recipeMaker> -->
+	  <!-- <displayPriority>-100</displayPriority> -->
+	  <!-- <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef> -->
+	  <!-- <researchPrerequisites> -->
+		<!-- <li>WVC_XenotypesAndGenes_SerumLab</li> -->
+	  <!-- </researchPrerequisites> -->
+	  <!-- <workSpeedStat>GeneralLaborSpeed</workSpeedStat> -->
+	  <!-- <workSkill>Crafting</workSkill> -->
+	  <!-- <effectWorking>Smith</effectWorking> -->
+	  <!-- <soundWorking>Recipe_Machining</soundWorking> -->
+	  <!-- <recipeUsers> -->
+		<!-- <li>WVC_SerumCraftingTable</li> -->
+	  <!-- </recipeUsers> -->
+	  <!-- <useIngredientsForColor>false</useIngredientsForColor> -->
+	  <!-- <skillRequirements> -->
+		<!-- <Crafting>6</Crafting> -->
+	  <!-- </skillRequirements> -->
+	<!-- </recipeMaker> -->
+	<!-- <tradeTags> -->
+	  <!-- <li>WVC_SerumComponents_AllCraftable</li> -->
+	<!-- </tradeTags> -->
+  <!-- </ThingDef> -->
 
   <!-- ========================================================== -->
 
   <ThingDef Name="WVC_XenotypesAndGenes_SerumComponents_Base" Abstract="True" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<description>A small capsule containing a special super-dose of mechanites and is used to create disposable serums. One such dose is enough to completely overwrite the genetic code of any person, but without a special injector it is completely useless.</description>
 	<descriptionHyperlinks>
-	  <!-- <ThingDef>WVC_XenotypeSerum_Base</ThingDef> -->
-	  <!-- <ThingDef>WVC_XenotypeSerum_Ultra</ThingDef> -->
-	  <!-- <ThingDef>WVC_XenotypeSerum_Hybrid</ThingDef> -->
 	  <ThingDef>WVC_SerumCraftingTable</ThingDef>
 	</descriptionHyperlinks>
 	<thingClass>ThingWithComps</thingClass>
@@ -110,7 +106,6 @@
 	  <useIngredientsForColor>false</useIngredientsForColor>
 	  <skillRequirements>
 		<Crafting>6</Crafting>
-		<!-- <Intellectual>12</Intellectual> -->
 	  </skillRequirements>
 	</recipeMaker>
 	<thingCategories>
@@ -142,7 +137,7 @@
 	<defName>WVC_XenotypeSerumCapsule</defName>
 	<label>basic serum capsule</label>
 	<descriptionHyperlinks>
-	  <ThingDef>WVC_EmptyXenotypeSerum</ThingDef>
+	  <!-- <ThingDef>WVC_EmptyXenotypeSerum</ThingDef> -->
 	</descriptionHyperlinks>
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Items/SerumCapsule/Basic</texPath>
@@ -160,7 +155,7 @@
 	<defName>WVC_XenotypeSerumUltraCapsule</defName>
 	<label>archite serum capsule</label>
 	<descriptionHyperlinks>
-	  <ThingDef>WVC_EmptyXenotypeSerum</ThingDef>
+	  <!-- <ThingDef>WVC_EmptyXenotypeSerum</ThingDef> -->
 	</descriptionHyperlinks>
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Items/SerumCapsule/Archite</texPath>

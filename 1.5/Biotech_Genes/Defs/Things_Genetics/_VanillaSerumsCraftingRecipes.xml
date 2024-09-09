@@ -93,10 +93,10 @@
 	  <li>
 		<filter>
 		  <thingDefs>
-			<li>WVC_EmptyXenotypeSerum</li>
+			<li>ComponentIndustrial</li>
 		  </thingDefs>
 		</filter>
-		<count>2</count>
+		<count>4</count>
 	  </li>
 	  <li>
 		<filter>
@@ -136,10 +136,10 @@
 	  <li>
 		<filter>
 		  <thingDefs>
-			<li>WVC_EmptyXenotypeSerum</li>
+			<li>ComponentIndustrial</li>
 		  </thingDefs>
 		</filter>
-		<count>2</count>
+		<count>4</count>
 	  </li>
 	  <li>
 		<filter>
@@ -187,10 +187,10 @@
 	  <li>
 		<filter>
 		  <thingDefs>
-			<li>WVC_EmptyXenotypeSerum</li>
+			<li>ComponentIndustrial</li>
 		  </thingDefs>
 		</filter>
-		<count>3</count>
+		<count>6</count>
 	  </li>
 	  <li>
 		<filter>
