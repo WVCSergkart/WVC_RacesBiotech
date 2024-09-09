@@ -3,6 +3,7 @@ using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 using Verse;
 using Verse.AI;
 
@@ -382,7 +383,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Bloodeater : Gene_BloodHunter, IGeneBloodfeeder
+	public class Gene_Bloodeater : Gene_BloodHunter, IGeneBloodfeeder, IGeneFloatMenuOptions
 	{
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
@@ -475,6 +476,65 @@ namespace WVC_XenotypesAndGenes
 		public void Notify_Bloodfeed(Pawn victim)
 		{
 			UndeadUtility.OffsetNeedFood(pawn, Props.nutritionPerBite * victim.BodySize * pawn.GetStatValue(StatDefOf.HemogenGainFactor, cacheStaleAfterTicks: 360000));
+		}
+
+		public IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
+		{
+			if (!pawn.Downed)
+			{
+				yield break;
+			}
+			if (!GeneFeaturesUtility.CanBloodFeedNowWith(pawn, selPawn))
+			{
+				yield return new FloatMenuOption("WVC_NotEnoughBlood".Translate(), null);
+				yield break;
+			}
+			yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("WVC_FeedWithBlood".Translate() + " " + pawn.LabelShort, delegate
+			{
+				Job job = JobMaker.MakeJob(Props.bloodeaterFeedingJobDef, pawn);
+				selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+			}), selPawn, pawn);
+		}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			foreach (Gizmo item in base.GetGizmos())
+			{
+				yield return item;
+			}
+			if (!pawn.Downed)
+			{
+				yield break;
+			}
+			yield return new Command_Action
+			{
+				defaultLabel = "WVC_FeedDownedBloodeaterForced".Translate(),
+				defaultDesc = "WVC_FeedDownedBloodeaterForcedDesc".Translate(),
+				icon = ContentFinder<Texture2D>.Get(def.iconPath),
+				action = delegate
+				{
+					List<FloatMenuOption> list = new();
+					List<Pawn> list2 = pawn.MapHeld.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer);
+					for (int i = 0; i < list2.Count; i++)
+					{
+						Pawn absorber = list2[i];
+						if (absorber.genes != null 
+							&& GeneFeaturesUtility.CanBloodFeedNowWith(pawn, absorber))
+						{
+							list.Add(new FloatMenuOption(absorber.LabelShort, delegate
+							{
+								Job job = JobMaker.MakeJob(Props.bloodeaterFeedingJobDef, pawn);
+								absorber.jobs.TryTakeOrderedJob(job, JobTag.Misc, false);
+							}, absorber, Color.white));
+						}
+					}
+					if (!list.Any())
+					{
+						list.Add(new FloatMenuOption("WVC_XaG_NoSuitableTargets".Translate(), null));
+					}
+					Find.WindowStack.Add(new FloatMenu(list));
+				}
+			};
 		}
 
 	}

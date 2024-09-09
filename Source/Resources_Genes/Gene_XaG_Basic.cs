@@ -17,6 +17,13 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public interface IGeneFloatMenuOptions
+	{
+
+		IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn);
+
+	}
+
 	public interface IGeneLifeStageStarted
 	{
 

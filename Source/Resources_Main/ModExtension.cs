@@ -232,6 +232,7 @@ namespace WVC_XenotypesAndGenes
 		public QuestScriptDef summonQuest;
 		// Bloodeater
 		public float nutritionPerBite = 0.8f;
+		public JobDef bloodeaterFeedingJobDef;
 		// Photosynthesis
 		public float passivelyReplenishedNutrition = 0.04f;
 		// Bloodfeeder

@@ -119,6 +119,7 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<nutritionPerBite>0.8</nutritionPerBite>
+			<bloodeaterFeedingJobDef>WVC_XaG_FeedTargetWithOwnBlood</bloodeaterFeedingJobDef>
 			<specialFoodDefs>
 			  <li>HemogenPack</li>
 			  <li MayRequire="vanillaracesexpanded.sanguophage">VRE_HemogenPack_Sanguophage</li>

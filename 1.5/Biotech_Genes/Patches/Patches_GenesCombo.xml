@@ -238,7 +238,7 @@
 		  <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath>
 		  <value>
 			  <li Class="WVC_XenotypesAndGenes.CompProperties_Humanlike">
-				<bloodeaterFeedingJobDef>WVC_XaG_FeedTargetWithOwnBlood</bloodeaterFeedingJobDef>
+				<!-- <bloodeaterFeedingJobDef>WVC_XaG_FeedTargetWithOwnBlood</bloodeaterFeedingJobDef> -->
 			  </li>
 		  </value>
 		</caseTrue>
