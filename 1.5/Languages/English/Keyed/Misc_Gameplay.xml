@@ -60,8 +60,8 @@
 	<WVC_XaG_SerumCustomMode_Label>Custom</WVC_XaG_SerumCustomMode_Label>
 	<WVC_XaG_SerumCustomMode_Desc>Allows you to switch between standard and custom mode. Custom xenotypes are always randomized.</WVC_XaG_SerumCustomMode_Desc>
 	
-	<WVC_ImplantXenogermSerum>Implant serum</WVC_ImplantXenogermSerum>
-	<WVC_ImplantXenogermSerumDesc>Implant the serum into the selected pawn.</WVC_ImplantXenogermSerumDesc>
+	<WVC_ImplantXenogermSerum>Administer serum</WVC_ImplantXenogermSerum>
+	<WVC_ImplantXenogermSerumDesc>Administer the serum for the selected pawn.</WVC_ImplantXenogermSerumDesc>
 	
 	<WVC_XaG_SuremRetuneShouldBeTunedWarn_Label>Should be tuned</WVC_XaG_SuremRetuneShouldBeTunedWarn_Label>
 	

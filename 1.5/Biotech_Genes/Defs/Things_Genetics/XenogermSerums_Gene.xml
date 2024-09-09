@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="WVC_XenotypeSerum_ArchotechNonCraftable" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+	<defName>WVC_ArchotechGeneGiver</defName>
+	<label>gene giver</label>
+	<description>A one-use super-dose of mechanites tuned to add the user a new gene. After using the serum, users' genes will be regrowing.
+
+&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; Xenotype will be randomized.</description>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/ShiftSerumB_v0</texPath>
+	</graphicData>
+	<statBases>
+	  <MarketValue>5750</MarketValue>
+	</statBases>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneGiver</compClass>
+		<possibleGenes>
+		  <li>WVC_Shapeshifter</li>
+		  <li>WVC_ArchitePerfectImmunity_DiseaseFree</li>
+		  <!-- <li>WVC_ToxResist_Archite</li> -->
+		  <li>Deathless</li>
+		</possibleGenes>
+	  </li>
+	</comps>
+  </ThingDef>
+
+</Defs>
