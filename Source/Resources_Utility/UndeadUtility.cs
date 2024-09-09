@@ -316,6 +316,11 @@ namespace WVC_XenotypesAndGenes
 			return pawn?.genes?.GetFirstGeneOfType<Gene_Shapeshifter>() != null;
 		}
 
+		public static bool IsBloodeater(this Pawn pawn)
+		{
+			return pawn?.genes?.GetFirstGeneOfType<Gene_Bloodeater>() != null;
+		}
+
 		public static bool GetUndeadGene(this Pawn pawn, out Gene_Undead gene)
 		{
 			return (gene = pawn?.genes?.GetFirstGeneOfType<Gene_Undead>()) != null;

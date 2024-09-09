@@ -1,7 +1,10 @@
 using RimWorld;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 using Verse;
+using Verse.AI;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -16,6 +19,8 @@ namespace WVC_XenotypesAndGenes
 		public IntRange resurrectionDelay = new(6000, 9000);
 
 		public string uniqueTag = "XaG_Undead";
+
+		public JobDef bloodeaterFeedingJobDef;
 
 		public CompProperties_Humanlike()
 		{
@@ -76,6 +81,7 @@ namespace WVC_XenotypesAndGenes
 		public void ResetInspectString()
 		{
 			cachedInfoGenes = null;
+			isBloodeater = null;
 		}
 
 		public override string CompInspectStringExtra()
@@ -123,6 +129,82 @@ namespace WVC_XenotypesAndGenes
 				nextRecache = Props.recacheFrequency;
 			}
 			return info;
+		}
+
+		// =============
+
+		public bool? isBloodeater;
+
+		public static readonly CachedTexture FeedTex = new("WVC/UI/Genes/Gene_Bloodeater_v0");
+
+		public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
+		{
+			if (Bloodeater())
+			{
+				if (parent is not Pawn pawn || !pawn.Downed)
+				{
+					yield break;
+				}
+				if (!GeneFeaturesUtility.CanBloodFeedNowWith(pawn, selPawn))
+				{
+					yield return new FloatMenuOption("WVC_NotEnoughBlood".Translate(), null);
+					yield break;
+				}
+				yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("WVC_FeedWithBlood".Translate() + " " + pawn.LabelShort, delegate
+				{
+					Job job = JobMaker.MakeJob(Props.bloodeaterFeedingJobDef, parent);
+					selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+				}), selPawn, pawn);
+			}
+		}
+
+		public override IEnumerable<Gizmo> CompGetGizmosExtra()
+		{
+			if (Bloodeater())
+			{
+				if (parent is not Pawn pawn || !pawn.Downed)
+				{
+					yield break;
+				}
+				yield return new Command_Action
+				{
+					defaultLabel = "WVC_FeedDownedBloodeaterForced".Translate(),
+					defaultDesc = "WVC_FeedDownedBloodeaterForcedDesc".Translate(),
+					icon = FeedTex.Texture,
+					action = delegate
+					{
+						List<FloatMenuOption> list = new();
+						List<Pawn> list2 = pawn.MapHeld.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer);
+						for (int i = 0; i < list2.Count; i++)
+						{
+							Pawn absorber = list2[i];
+							if (absorber.genes != null 
+								&& GeneFeaturesUtility.CanBloodFeedNowWith(pawn, absorber))
+							{
+								list.Add(new FloatMenuOption(absorber.LabelShort, delegate
+								{
+									Job job = JobMaker.MakeJob(Props.bloodeaterFeedingJobDef, pawn);
+									absorber.jobs.TryTakeOrderedJob(job, JobTag.Misc, false);
+								}, absorber, Color.white));
+							}
+						}
+						if (list.Any())
+						{
+							Find.WindowStack.Add(new FloatMenu(list));
+						}
+					}
+				};
+			}
+		}
+
+		public bool Bloodeater()
+		{
+			if (!isBloodeater.HasValue)
+			{
+				isBloodeater = UndeadUtility.IsBloodeater(parent as Pawn);
+				// Log.Error("Pawn is bloodeater: " + );
+			}
+			return isBloodeater.Value;
 		}
 
 	}

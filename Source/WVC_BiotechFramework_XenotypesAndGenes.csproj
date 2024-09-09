@@ -161,6 +161,7 @@
     <Compile Include="Resources_Utility\Templates_Utility.cs" />
     <Compile Include="Resources_Workers\JobDriver_AbsorbGenogerm.cs" />
     <Compile Include="Resources_Workers\JobDriver_BiteTarget.cs" />
+    <Compile Include="Resources_Workers\JobDriver_FeedTargetWithOwnBlood.cs" />
     <Compile Include="Resources_Workers\JobDriver_RetuneSerum.cs" />
     <Compile Include="Resources_Workers\JobGiver_DryadCocoon.cs" />
     <Compile Include="Resources_Main\GameComponents.cs" />

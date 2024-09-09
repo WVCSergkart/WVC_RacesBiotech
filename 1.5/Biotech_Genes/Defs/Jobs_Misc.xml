@@ -94,4 +94,11 @@
 	<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
   </JobDef>
 
+  <JobDef>
+	<defName>WVC_XaG_FeedTargetWithOwnBlood</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_FeedTargetWithOwnBlood</driverClass>
+	<reportString>feeding TargetA.</reportString>
+	<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
 </Defs>

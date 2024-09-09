@@ -237,7 +237,9 @@
 		<caseTrue Class="PatchOperationAdd">
 		  <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath>
 		  <value>
-			  <li Class="WVC_XenotypesAndGenes.CompProperties_Humanlike"/>
+			  <li Class="WVC_XenotypesAndGenes.CompProperties_Humanlike">
+				<bloodeaterFeedingJobDef>WVC_XaG_FeedTargetWithOwnBlood</bloodeaterFeedingJobDef>
+			  </li>
 		  </value>
 		</caseTrue>
 	</Operation>

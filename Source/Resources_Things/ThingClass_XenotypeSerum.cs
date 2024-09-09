@@ -191,11 +191,10 @@ namespace WVC_XenotypesAndGenes
 					{
 						ReportViolation(pawn, billDoer, pawn.HomeFaction, -70);
 					}
-					if (ModsConfig.IdeologyActive)
-					{
-						Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.InstalledProsthetic, billDoer.Named(HistoryEventArgsNames.Doer)));
-						// SerumUtility.PostSerumUsedHook(pawn);
-					}
+					// if (ModsConfig.IdeologyActive)
+					// {
+						// Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.InstalledProsthetic, billDoer.Named(HistoryEventArgsNames.Doer)));
+					// }
 				}
 				else if (!string.IsNullOrEmpty(acceptanceReport.Reason))
 				{
