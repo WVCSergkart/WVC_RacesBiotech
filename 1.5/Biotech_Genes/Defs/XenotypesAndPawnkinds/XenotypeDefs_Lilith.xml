@@ -34,7 +34,8 @@ They are irreversibly blind and very fragile, any stray bullet can kill them ins
 		<li>Sterile</li>
 		<li>WVC_AngelBeauty</li>
 		<li>WVC_Hair_NonBald</li>
-		<li>WVC_HeadBoneHorns</li>
+		<!-- <li>WVC_HeadBoneHorns</li> -->
+		<li>WVC_HeadSkinHorns</li>
 		<li>WVC_NodeSkin</li>
 		<li>WVC_DemonTailA</li>
 		<li>Beard_NoBeardOnly</li>
