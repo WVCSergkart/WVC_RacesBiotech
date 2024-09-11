@@ -237,6 +237,9 @@ namespace WVC_XenotypesAndGenes
 		public float passivelyReplenishedNutrition = 0.04f;
 		// Bloodfeeder
 		public int ticksToDisappear = 60000;
+		// Energy
+		public bool foodPoisoningFromFood = false;
+		public JobDef rechargeableStomachJobDef;
 	}
 
 	// public class GeneExtension_Shapeshifter : DefModExtension

@@ -101,4 +101,10 @@
 	<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
   </JobDef>
 
+  <!-- <JobDef> -->
+	<!-- <defName>WVC_RechargeableStomach</defName> -->
+	<!-- <driverClass>WVC_XenotypesAndGenes.JobDriver_StomachCharge</driverClass> -->
+	<!-- <reportString>charging.</reportString> -->
+  <!-- </JobDef> -->
+
 </Defs>

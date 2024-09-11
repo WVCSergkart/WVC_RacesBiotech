@@ -42,6 +42,8 @@
 		<li>WVC_SkinColor_c8b4ff_HEX</li>
 		<li>WVC_BodySize_Small</li>
 		<li>WVC_PredatorPrey_NotTasty</li>
+		<!-- New -->
+		<!-- <li>WVC_RechargeableStomach</li> -->
 	</genes>
   </XenotypeDef>
 
