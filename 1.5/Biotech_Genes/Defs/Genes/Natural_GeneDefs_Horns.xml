@@ -106,6 +106,12 @@
 		  <dataSouth>
 			<offset>(0, 0, -0.13)</offset>
 		  </dataSouth>
+		  <dataEast>
+			<offset>(0.03, 0, 0.0)</offset>
+		  </dataEast>
+		  <dataWest>
+			<offset>(-0.03, 0, 0.0)</offset>
+		  </dataWest>
 		</drawData>
 	  </li>
 	</renderNodeProperties>
@@ -140,6 +146,9 @@
 		  <dataSouth>
 			<offset>(0, 0, -0.13)</offset>
 		  </dataSouth>
+		  <dataEast>
+			<layer>10</layer>
+		  </dataEast>
 		</drawData>
 	  </li>
 	</renderNodeProperties>
