@@ -82,6 +82,7 @@
 	</costList>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneRestoration</compClass>
 		<hediffsToRemove>
 		  <li MayRequire="ludeon.rimworld.anomaly">DuplicateSickness</li>
 		  <li MayRequire="ludeon.rimworld.anomaly">CrumblingMindUndiagnosedDuplication</li>
@@ -168,6 +169,7 @@
 	</costList>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneRestoration</compClass>
 		<hediffsToRemove>
 		  <!-- Vanilla -->
 		  <li>XenogermReplicating</li>

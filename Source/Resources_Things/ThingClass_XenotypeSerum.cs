@@ -256,9 +256,14 @@ namespace WVC_XenotypesAndGenes
 			Archite
 		}
 
+		// public CompProperties_UseEffect_XenogermSerum()
+		// {
+			// compClass = typeof(CompUseEffect);
+		// }
+
 		public override void ResolveReferences(ThingDef parentDef)
 		{
-			if (compClass == typeof(ThingComp))
+			if (compClass == typeof(CompUseEffect))
 			{
 				Log.Error(parentDef.defName + " has CompProperties_UseEffect_XenogermSerum with ThingComp compClass. Will be used CompUseEffect_XenogermSerum instead.");
 				compClass = typeof(CompUseEffect_XenogermSerum);

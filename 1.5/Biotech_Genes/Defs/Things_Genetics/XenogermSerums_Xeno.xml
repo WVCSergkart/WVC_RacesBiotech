@@ -88,6 +88,7 @@
 	</thingCategories>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
+		<compClass>WVC_XenotypesAndGenes.CompTargetEffect_DoJobOnTarget</compClass>
 		<moteDef>Mote_ResurrectFlash</moteDef>
 		<jobDef>WVC_XenotypesAndGenes_ResurrectAndChangeXenotype</jobDef>
 	  </li>
@@ -109,6 +110,7 @@
 	</thingCategories>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
+		<compClass>WVC_XenotypesAndGenes.CompTargetEffect_DoJobOnTarget</compClass>
 		<moteDef>Mote_ResurrectFlash</moteDef>
 		<xenotypeDef>WVC_Undead</xenotypeDef>
 		<jobDef>WVC_XenotypesAndGenes_ResurrectAndChangeXenotype</jobDef>
