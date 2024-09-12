@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Verse;
+using Verse.AI;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -107,6 +108,165 @@ namespace WVC_XenotypesAndGenes
 			{
 				pawn.genes?.AddGene(WVC_GenesDefOf.Hair_SnowWhite, xenogene: false);
 			}
+		}
+
+	}
+
+	public class Gene_Implanter : Gene, IGeneFloatMenuOptions
+	{
+
+		private CompAbilityEffect_Reimplanter cachedReimplanterComp;
+
+		public CompAbilityEffect_Reimplanter ReimplanterComp
+		{
+			get
+			{
+				if (cachedReimplanterComp == null && def.abilities != null)
+				{
+					cachedReimplanterComp = pawn?.abilities?.GetAbility(def.abilities.FirstOrDefault()).CompOfType<CompAbilityEffect_Reimplanter>();
+				}
+				return cachedReimplanterComp;
+			}
+		}
+
+		public IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
+		{
+			if (!Active)
+			{
+				yield break;
+			}
+			if (!pawn.Downed)
+			{
+				yield break;
+			}
+			if (ReimplanterComp?.Props?.absorberJob == null || !ReimplanterUtility.CanAbsorbGenogerm(pawn))
+			{
+				yield break;
+			}
+			if (!selPawn.CanReach(pawn, PathEndMode.ClosestTouch, Danger.Deadly) || !selPawn.IsHuman())
+			{
+				yield break;
+			}
+			yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("ForceXenogermImplantation".Translate() + " " + pawn.LabelShort, delegate
+			{
+				ReimplanterUtility.GiveReimplantJob(selPawn, pawn, ReimplanterComp.Props.absorberJob);
+			}), selPawn, pawn);
+		}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (!Active)
+			{
+				yield break;
+			}
+			if (!pawn.Downed)
+			{
+				yield break;
+			}
+			if (ReimplanterComp?.Props?.absorberJob == null || !ReimplanterUtility.CanAbsorbGenogerm(pawn))
+			{
+				yield break;
+			}
+			// yield return new Command_Action
+			// {
+				// defaultLabel = "ForceXenogermImplantation".Translate(),
+				// defaultDesc = "ForceXenogermImplantationDesc".Translate(),
+				// icon = ContentFinder<Texture2D>.Get(def.iconPath),
+				// action = delegate
+				// {
+					// List<FloatMenuOption> list = new();
+					// List<Pawn> list2 = pawn.MapHeld.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer);
+					// for (int i = 0; i < list2.Count; i++)
+					// {
+						// Pawn absorber = list2[i];
+						// if (absorber.IsColonistPlayerControlled && absorber.CanReach(pawn, PathEndMode.ClosestTouch, Danger.Deadly) && absorber.IsHuman())
+						// {
+							// if (!CompAbilityEffect_Reimplanter.PawnIdeoCanAcceptReimplant(pawn, absorber))
+							// {
+								// list.Add(new FloatMenuOption(absorber.LabelCap + ": " + "IdeoligionForbids".Translate(), null, absorber, Color.white));
+							// }
+							// else
+							// {
+								// list.Add(new FloatMenuOption(absorber.LabelShort, delegate
+								// {
+									// if (GeneUtility.PawnWouldDieFromReimplanting(pawn))
+									// {
+										// Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WarningPawnWillDieFromReimplanting".Translate(pawn.Named("PAWN")), delegate
+										// {
+											// ReimplanterUtility.GiveReimplantJob(absorber, pawn, ReimplanterComp.Props.absorberJob);
+										// }, destructive: true));
+									// }
+									// else
+									// {
+										// ReimplanterUtility.GiveReimplantJob(absorber, pawn, ReimplanterComp.Props.absorberJob);
+									// }
+								// }, absorber, Color.white));
+							// }
+						// }
+					// }
+					// if (list.Any())
+					// {
+						// Find.WindowStack.Add(new FloatMenu(list));
+					// }
+				// }
+			// };
+			Pawn myPawn = pawn;
+			Command_Action command_Action = new()
+			{
+				defaultLabel = "ForceXenogermImplantation".Translate(),
+				defaultDesc = "ForceXenogermImplantationDesc".Translate(),
+				icon = ContentFinder<Texture2D>.Get(def.iconPath),
+				action = delegate
+				{
+					List<FloatMenuOption> list = new();
+					List<Pawn> list2 = myPawn.MapHeld.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer);
+					for (int i = 0; i < list2.Count; i++)
+					{
+						Pawn absorber = list2[i];
+						if (absorber != pawn && absorber.IsColonistPlayerControlled && absorber.CanReach(pawn, PathEndMode.ClosestTouch, Danger.Deadly) && absorber.IsHuman())
+						{
+							if (!CompAbilityEffect_Reimplanter.PawnIdeoCanAcceptReimplant(myPawn, absorber))
+							{
+								list.Add(new FloatMenuOption(absorber.LabelCap + ": " + "IdeoligionForbids".Translate(), null, absorber, Color.white));
+							}
+							else
+							{
+								list.Add(new FloatMenuOption(absorber.LabelShort, delegate
+								{
+									if (GeneUtility.PawnWouldDieFromReimplanting(myPawn))
+									{
+										Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WarningPawnWillDieFromReimplanting".Translate(myPawn.Named("PAWN")), delegate
+										{
+											ReimplanterUtility.GiveReimplantJob(absorber, myPawn, ReimplanterComp.Props.absorberJob);
+										}, destructive: true));
+									}
+									else
+									{
+										ReimplanterUtility.GiveReimplantJob(absorber, myPawn, ReimplanterComp.Props.absorberJob);
+									}
+								}, absorber, Color.white));
+							}
+						}
+					}
+					if (list.Any())
+					{
+						Find.WindowStack.Add(new FloatMenu(list));
+					}
+				}
+			};
+			if (myPawn.IsQuestLodger())
+			{
+				command_Action.Disable("TemporaryFactionMember".Translate(myPawn.Named("PAWN")));
+			}
+			else if (myPawn.health.hediffSet.HasHediff(HediffDefOf.XenogermLossShock))
+			{
+				command_Action.Disable("XenogermLossShockPresent".Translate(myPawn.Named("PAWN")));
+			}
+			else if (myPawn.IsPrisonerOfColony && !myPawn.Downed)
+			{
+				command_Action.Disable("MessageTargetMustBeDownedToForceReimplant".Translate(myPawn.Named("PAWN")));
+			}
+			yield return command_Action;
 		}
 
 	}

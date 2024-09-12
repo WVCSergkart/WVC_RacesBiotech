@@ -276,29 +276,34 @@ namespace WVC_XenotypesAndGenes
 			}
 			// Add genes
 			SetXenotypeDirect(null, pawn, xenotypeDef, changeXenotype);
-			bool xenotypeHasSkinColor = false;
-			bool xenotypeHasHairColor = false;
-			List<GeneDef> xenotypeGenes = xenotypeDef.genes;
-			for (int i = 0; i < xenotypeGenes.Count; i++)
+			// bool xenotypeHasSkinColor = false;
+			// bool xenotypeHasHairColor = false;
+			// List<GeneDef> xenotypeGenes = xenotypeDef.genes;
+			// for (int i = 0; i < xenotypeGenes.Count; i++)
+			// {
+				// genes?.AddGene(xenotypeGenes[i], !xenotypeDef.inheritable);
+				// if (xenotypeGenes[i].skinColorBase != null || xenotypeGenes[i].skinColorOverride != null)
+				// {
+					// xenotypeHasSkinColor = true;
+				// }
+				// if (xenotypeGenes[i].hairColorOverride != null)
+				// {
+					// xenotypeHasHairColor = true;
+				// }
+			// }
+			// if ((xenotypeDef.inheritable || xenotypeDef == XenotypeDefOf.Baseliner) && !xenotypeHasSkinColor)
+			// {
+				// genes?.AddGene(WVC_GenesDefOf.Skin_SheerWhite, false);
+			// }
+			// if ((xenotypeDef.inheritable || xenotypeDef == XenotypeDefOf.Baseliner) && !xenotypeHasHairColor)
+			// {
+				// genes?.AddGene(WVC_GenesDefOf.Hair_SnowWhite, false);
+			// }
+			foreach (GeneDef geneDef in xenotypeDef.genes)
 			{
-				genes?.AddGene(xenotypeGenes[i], !xenotypeDef.inheritable);
-				if (xenotypeGenes[i].skinColorBase != null || xenotypeGenes[i].skinColorOverride != null)
-				{
-					xenotypeHasSkinColor = true;
-				}
-				if (xenotypeGenes[i].hairColorOverride != null)
-				{
-					xenotypeHasHairColor = true;
-				}
+				genes.AddGene(geneDef, !xenotypeDef.inheritable);
 			}
-			if ((xenotypeDef.inheritable || xenotypeDef == XenotypeDefOf.Baseliner) && !xenotypeHasSkinColor)
-			{
-				genes?.AddGene(WVC_GenesDefOf.Skin_SheerWhite, false);
-			}
-			if ((xenotypeDef.inheritable || xenotypeDef == XenotypeDefOf.Baseliner) && !xenotypeHasHairColor)
-			{
-				genes?.AddGene(WVC_GenesDefOf.Hair_SnowWhite, false);
-			}
+			TrySetSkinAndHairGenes(pawn);
 		}
 
 		public static void SetCustomXenotype(Pawn pawn, CustomXenotype xenotypeDef)
@@ -314,29 +319,34 @@ namespace WVC_XenotypesAndGenes
 			genes.SetXenotypeDirect(XenotypeDefOf.Baseliner);
 			genes.xenotypeName = xenotypeDef.name;
 			genes.iconDef = xenotypeDef.iconDef;
-			bool xenotypeHasSkinColor = false;
-			bool xenotypeHasHairColor = false;
-			List<GeneDef> xenotypeGenes = xenotypeDef.genes;
-			for (int i = 0; i < xenotypeGenes.Count; i++)
+			// bool xenotypeHasSkinColor = false;
+			// bool xenotypeHasHairColor = false;
+			// List<GeneDef> xenotypeGenes = xenotypeDef.genes;
+			// for (int i = 0; i < xenotypeGenes.Count; i++)
+			// {
+				// genes?.AddGene(xenotypeGenes[i], !xenotypeDef.inheritable);
+				// if (xenotypeGenes[i].skinColorBase != null || xenotypeGenes[i].skinColorOverride != null)
+				// {
+					// xenotypeHasSkinColor = true;
+				// }
+				// if (xenotypeGenes[i].hairColorOverride != null)
+				// {
+					// xenotypeHasHairColor = true;
+				// }
+			// }
+			// if ((xenotypeDef.inheritable) && !xenotypeHasSkinColor)
+			// {
+				// genes?.AddGene(WVC_GenesDefOf.Skin_SheerWhite, false);
+			// }
+			// if ((xenotypeDef.inheritable) && !xenotypeHasHairColor)
+			// {
+				// genes?.AddGene(WVC_GenesDefOf.Hair_SnowWhite, false);
+			// }
+			foreach (GeneDef geneDef in xenotypeDef.genes)
 			{
-				genes?.AddGene(xenotypeGenes[i], !xenotypeDef.inheritable);
-				if (xenotypeGenes[i].skinColorBase != null || xenotypeGenes[i].skinColorOverride != null)
-				{
-					xenotypeHasSkinColor = true;
-				}
-				if (xenotypeGenes[i].hairColorOverride != null)
-				{
-					xenotypeHasHairColor = true;
-				}
+				genes.AddGene(geneDef, !xenotypeDef.inheritable);
 			}
-			if ((xenotypeDef.inheritable) && !xenotypeHasSkinColor)
-			{
-				genes?.AddGene(WVC_GenesDefOf.Skin_SheerWhite, false);
-			}
-			if ((xenotypeDef.inheritable) && !xenotypeHasHairColor)
-			{
-				genes?.AddGene(WVC_GenesDefOf.Hair_SnowWhite, false);
-			}
+			TrySetSkinAndHairGenes(pawn);
 		}
 
 	}
