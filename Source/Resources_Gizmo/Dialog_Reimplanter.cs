@@ -10,11 +10,11 @@ namespace WVC_XenotypesAndGenes
 	public class Dialog_ReimplanterXenotype : Dialog_XenotypesBase
 	{
 
-		public Gene_Reimplanter gene;
+		public Gene_XenotypeImplanter gene;
 
 		public List<XenotypeDef> preferredXenotypes;
 
-		public Dialog_ReimplanterXenotype(Gene_Reimplanter thisGene)
+		public Dialog_ReimplanterXenotype(Gene_XenotypeImplanter thisGene)
 		{
 			// Init
 			gene = thisGene;

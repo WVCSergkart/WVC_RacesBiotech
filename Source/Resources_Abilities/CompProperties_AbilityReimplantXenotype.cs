@@ -14,15 +14,15 @@ namespace WVC_XenotypesAndGenes
 		public new CompProperties_AbilityReimplanter Props => (CompProperties_AbilityReimplanter)props;
 
 		[Unsaved(false)]
-		private Gene_Reimplanter cachedReimplanterGene;
+		private Gene_XenotypeImplanter cachedReimplanterGene;
 
-		public Gene_Reimplanter ReimplanterGene
+		public Gene_XenotypeImplanter ReimplanterGene
 		{
 			get
 			{
 				if (cachedReimplanterGene == null || !cachedReimplanterGene.Active)
 				{
-					cachedReimplanterGene = parent?.pawn?.genes?.GetFirstGeneOfType<Gene_Reimplanter>();
+					cachedReimplanterGene = parent?.pawn?.genes?.GetFirstGeneOfType<Gene_XenotypeImplanter>();
 				}
 				return cachedReimplanterGene;
 			}

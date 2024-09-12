@@ -25,6 +25,7 @@
 	<label>posthumous reimplanter</label>
 	<description>Carriers of this gene can reimplant their genes into a corpse through a somewhat gross-looking injector organ. As a result, the dead man comes to life and receives a caster xenotype and a copy of the genes.</description>
 	<iconPath>WVC/UI/Genes/Gene_PostReimplanter_Hybrid_v0</iconPath>
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_PostImplanter</geneClass> -->
 	<geneClass>Gene</geneClass>
 	<biostatCpx>3</biostatCpx>
 	<biostatArc>0</biostatArc>

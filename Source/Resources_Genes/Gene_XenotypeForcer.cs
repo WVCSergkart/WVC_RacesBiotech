@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -147,10 +148,35 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
-			yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("ForceXenogermImplantation".Translate() + " " + pawn.LabelShort, delegate
+			if (pawn.IsQuestLodger())
+			{
+				yield return new FloatMenuOption("TemporaryFactionMember".Translate(pawn.Named("PAWN")), null);
+				yield break;
+			}
+			if (pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermLossShock))
+			{
+				yield return new FloatMenuOption("XenogermLossShockPresent".Translate(pawn.Named("PAWN")), null);
+				yield break;
+			}
+			yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("WVC_ForceXenogermImplantation".Translate() + " (" + base.LabelCap + ")", delegate
+			{
+				GiveJob(selPawn);
+			}), selPawn, pawn);
+		}
+
+		private void GiveJob(Pawn selPawn)
+		{
+			if (GeneUtility.PawnWouldDieFromReimplanting(pawn))
+			{
+				Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WarningPawnWillDieFromReimplanting".Translate(pawn.Named("PAWN")), delegate
+				{
+					ReimplanterUtility.GiveReimplantJob(selPawn, pawn, ReimplanterComp.Props.absorberJob);
+				}, destructive: true));
+			}
+			else
 			{
 				ReimplanterUtility.GiveReimplantJob(selPawn, pawn, ReimplanterComp.Props.absorberJob);
-			}), selPawn, pawn);
+			}
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -167,54 +193,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
-			// yield return new Command_Action
-			// {
-				// defaultLabel = "ForceXenogermImplantation".Translate(),
-				// defaultDesc = "ForceXenogermImplantationDesc".Translate(),
-				// icon = ContentFinder<Texture2D>.Get(def.iconPath),
-				// action = delegate
-				// {
-					// List<FloatMenuOption> list = new();
-					// List<Pawn> list2 = pawn.MapHeld.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer);
-					// for (int i = 0; i < list2.Count; i++)
-					// {
-						// Pawn absorber = list2[i];
-						// if (absorber.IsColonistPlayerControlled && absorber.CanReach(pawn, PathEndMode.ClosestTouch, Danger.Deadly) && absorber.IsHuman())
-						// {
-							// if (!CompAbilityEffect_Reimplanter.PawnIdeoCanAcceptReimplant(pawn, absorber))
-							// {
-								// list.Add(new FloatMenuOption(absorber.LabelCap + ": " + "IdeoligionForbids".Translate(), null, absorber, Color.white));
-							// }
-							// else
-							// {
-								// list.Add(new FloatMenuOption(absorber.LabelShort, delegate
-								// {
-									// if (GeneUtility.PawnWouldDieFromReimplanting(pawn))
-									// {
-										// Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WarningPawnWillDieFromReimplanting".Translate(pawn.Named("PAWN")), delegate
-										// {
-											// ReimplanterUtility.GiveReimplantJob(absorber, pawn, ReimplanterComp.Props.absorberJob);
-										// }, destructive: true));
-									// }
-									// else
-									// {
-										// ReimplanterUtility.GiveReimplantJob(absorber, pawn, ReimplanterComp.Props.absorberJob);
-									// }
-								// }, absorber, Color.white));
-							// }
-						// }
-					// }
-					// if (list.Any())
-					// {
-						// Find.WindowStack.Add(new FloatMenu(list));
-					// }
-				// }
-			// };
 			Pawn myPawn = pawn;
 			Command_Action command_Action = new()
 			{
-				defaultLabel = "ForceXenogermImplantation".Translate(),
-				defaultDesc = "ForceXenogermImplantationDesc".Translate(),
+				defaultLabel = "WVC_ForceXenogermImplantation".Translate(),
+				defaultDesc = "WVC_ForceXenogermImplantationDesc".Translate(),
 				icon = ContentFinder<Texture2D>.Get(def.iconPath),
 				action = delegate
 				{
@@ -233,17 +216,7 @@ namespace WVC_XenotypesAndGenes
 							{
 								list.Add(new FloatMenuOption(absorber.LabelShort, delegate
 								{
-									if (GeneUtility.PawnWouldDieFromReimplanting(myPawn))
-									{
-										Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WarningPawnWillDieFromReimplanting".Translate(myPawn.Named("PAWN")), delegate
-										{
-											ReimplanterUtility.GiveReimplantJob(absorber, myPawn, ReimplanterComp.Props.absorberJob);
-										}, destructive: true));
-									}
-									else
-									{
-										ReimplanterUtility.GiveReimplantJob(absorber, myPawn, ReimplanterComp.Props.absorberJob);
-									}
+									GiveJob(absorber);
 								}, absorber, Color.white));
 							}
 						}
@@ -271,7 +244,15 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Reimplanter : Gene
+	// InDev
+	// public class Gene_PostImplanter : Gene
+	// {
+
+
+
+	// }
+
+	public class Gene_XenotypeImplanter : Gene
 	{
 
 		public XenotypeDef xenotypeDef = null;
@@ -308,6 +289,14 @@ namespace WVC_XenotypesAndGenes
 			base.ExposeData();
 			Scribe_Defs.Look(ref xenotypeDef, "xenotypeDef");
 		}
+
+	}
+
+	[Obsolete]
+	public class Gene_Reimplanter : Gene_XenotypeImplanter
+	{
+
+
 
 	}
 

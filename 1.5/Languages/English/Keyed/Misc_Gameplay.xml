@@ -89,6 +89,9 @@
 	<WVC_XaG_LetterDescThrallTransformedIntoGhoul>Due to instabilization, {0_nameDef}'s archites got out of control. {0_possessive} body was irreversibly changed, and {0_possessive} consciousness lost any clarity. Now {0_nameDef} is an eternally hungry, brainless monster.</WVC_XaG_LetterDescThrallTransformedIntoGhoul>
 
   <!-- <LetterTextGenesImplanted>{CASTER_nameDef} has implanted a copy of {CASTER_possessive} xenogerm into {TARGET_nameDef}, passing all xenogenes onto {TARGET_objective}.\n\n{TARGET_nameDef} will be in a xenogermination coma for the next {COMADURATION} while {TARGET_possessive} body adjusts to the changes.\n\n{CASTER_nameDef} will suffer from gene loss shock for the next {SHOCKDURATION}. {CASTER_possessive} genes will also need to regrow. This process takes time. If {CASTER_nameDef} implants {CASTER_possessive} xenogerm again before {CASTER_possessive} genes have regrown, {CASTER_pronoun} will die.</LetterTextGenesImplanted> -->
+	
+	<WVC_ForceXenogermImplantation>Force genes implantation</WVC_ForceXenogermImplantation>
+	<WVC_ForceXenogermImplantationDesc>Force this person to implant their genes into another individual using a special injector organ. If this person's genes are currently regrowing, they will die in the process.\n\nWhen implanted, the new genes will overwrite the target genes according to the type of the implanter gene.</WVC_ForceXenogermImplantationDesc>
 
 	<!-- ============================ REIMPLANTER GENE ============================ -->
 

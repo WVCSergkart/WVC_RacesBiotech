@@ -9,7 +9,7 @@
 	<description>Carriers of this gene can implant a copy of choosen xenogerm into another person through a somewhat gross-looking injector organ. Their own genetic material will then regrow very slowly. If they implant while their genes are regrowing, they will die.</description>
 	<iconPath>WVC/UI/Genes/Gene_ReimplanterXenotypes_v0</iconPath>
 	<displayOrderInCategory>-530</displayOrderInCategory>
-	<geneClass>WVC_XenotypesAndGenes.Gene_Reimplanter</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_XenotypeImplanter</geneClass>
 	<!-- <sterilize>true</sterilize> -->
 	<!-- <prerequisite>WVC_Shapeshifter</prerequisite> -->
 	<!-- <statFactors> -->
