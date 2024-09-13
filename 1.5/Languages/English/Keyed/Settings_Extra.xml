@@ -14,6 +14,7 @@
 	<WVC_XaGGeneSettings_Shapeshifer>Shapeshifer</WVC_XaGGeneSettings_Shapeshifer>
 	<WVC_XaGGeneSettings_TotalHealing>Total healing and similar</WVC_XaGGeneSettings_TotalHealing>
 	<WVC_XaGGeneSettings_IncestLover>Incest lover</WVC_XaGGeneSettings_IncestLover>
+	<WVC_XaGGeneSettings_AcceptablePrey>Tasty (Acceptable Prey)</WVC_XaGGeneSettings_AcceptablePrey>
 	<WVC_XaGGeneSettings_Telepath>Telepath</WVC_XaGGeneSettings_Telepath>
 	<WVC_XaGGeneSettings_Dustogenic>Dustogenic</WVC_XaGGeneSettings_Dustogenic>
 	<WVC_XaGGeneSettings_TelepathStudy>Telepath study</WVC_XaGGeneSettings_TelepathStudy>
@@ -174,5 +175,14 @@ Disable this option if you have any mods that change the mechanics of the hunger
 This should not affect performance, but if you encounter problems with dryads, it is recommended to disable this option.
 
 A restart is required.</WVC_ToolTip_enable_dryadQueenMechanicGenerator>
+
+	<!-- ================================== -->
+
+	<WVC_Label_disableNonAcceptablePreyGenes>Disable non acceptable prey mechanic</WVC_Label_disableNonAcceptablePreyGenes>
+	<WVC_ToolTip_disableNonAcceptablePreyGenes>If enabled, the "not tasty" gene will not have any effect on protecting against predators. As well as genes with similar mechanics.
+
+Enabling may slightly increase performance in some situations when predators are looking for prey.
+
+A restart is required.</WVC_ToolTip_disableNonAcceptablePreyGenes>
 
 </LanguageData>

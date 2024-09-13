@@ -124,7 +124,6 @@
     <Compile Include="Resources_Genes\Gene_NonPlayerSpecials.cs" />
     <Compile Include="Resources_Harmony\Harmony.cs" />
     <Compile Include="Resources_Harmony\Harmony_DisablePawnRelations.cs" />
-    <Compile Include="Resources_Hediff\CustomMechlinkLabel.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_PawnHaveWings.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_SeverityFromDust.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_SuperRegeneration.cs" />
@@ -144,7 +143,6 @@
     <Compile Include="Resources_Main\Misc.cs" />
     <Compile Include="Resources_Main\StaticCollection.cs" />
     <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_ColorFromRock.cs" />
-    <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_FurIsSkin.cs" />
     <Compile Include="Resources_RitualAttachableOutcome\OutcomeWorker_ShapeshifterJoin.cs" />
     <Compile Include="Resources_RitualAttachableOutcome\RitualOutcomeComp_Quality.cs" />
     <Compile Include="Resources_Things\CompProperties_DryadCocoon.cs" />
@@ -153,12 +151,12 @@
     <Compile Include="Resources_Things\CompProperties_Xenotype.cs" />
     <Compile Include="Resources_Things\CompProps_DestroyAndReturnResources.cs" />
     <Compile Include="Resources_Things\CompUseEffect_GeneGiver.cs" />
+    <Compile Include="Resources_Things\CompUseEffect_XenogermSerum.cs" />
     <Compile Include="Resources_Things\DeathActionWorker_DestroyCorpse.cs" />
     <Compile Include="Resources_Things\ThingClass_XenotypeSerum.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_Shapeshifter_Social.cs" />
-    <Compile Include="Resources_Thought\Thought_MemorySocial_Psychic.cs" />
     <Compile Include="Resources_Utility\DuplicateUtility.cs" />
-    <Compile Include="Resources_Utility\Templates_Utility.cs" />
+    <Compile Include="Resources_Utility\GeneratorUtility.cs" />
     <Compile Include="Resources_Workers\JobDriver_AbsorbGenogerm.cs" />
     <Compile Include="Resources_Workers\JobDriver_BiteTarget.cs" />
     <Compile Include="Resources_Workers\JobDriver_FeedTargetWithOwnBlood.cs" />
@@ -166,12 +164,10 @@
     <Compile Include="Resources_Workers\JobGiver_DryadCocoon.cs" />
     <Compile Include="Resources_Main\GameComponents.cs" />
     <Compile Include="Resources_Main\PostInitializationStartup.cs" />
-    <Compile Include="Resources_StatPart\StatPart_OffsetFromPollutedGraves.cs" />
     <Compile Include="Resources_Main\SubXenotypeDefs.cs" />
     <Compile Include="Resources_Things\CompProperties_CheckPawnFaction.cs" />
     <Compile Include="Resources_Things\CompProperties_GenesInfo.cs" />
     <Compile Include="Resources_Things\CompProperties_InitialNeed.cs" />
-    <Compile Include="Resources_Things\CompProperties_Regeneration.cs" />
     <Compile Include="Resources_Things\CompProperties_UndeadCorpse.cs" />
     <Compile Include="Resources_Things\CompProperties_XenoTree.cs" />
     <Compile Include="Resources_Things\CompSpawnOnDeath.cs" />
@@ -188,10 +184,6 @@
     <Compile Include="Resources_Utility\MiscUtility.cs" />
     <Compile Include="Resources_Utility\ReimplanterUtility.cs" />
     <Compile Include="Resources_Things\CompProperties_InitialHediff.cs" />
-    <Compile Include="Resources_Things\CompProperties_RandomName.cs" />
-    <Compile Include="Resources_Things\CompProperties_RecyclerSpawner.cs" />
-    <Compile Include="Resources_Things\CompProperties_SpawnBaby.cs" />
-    <Compile Include="Resources_Things\CompProperties_Toxifier.cs" />
     <Compile Include="Resources_Things\CompRecyclerSpawner.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_ResurgentCells.cs" />
     <Compile Include="Resources_Genes\Gene_AddOrRemoveHediff.cs" />
@@ -202,7 +194,6 @@
     <Compile Include="Resources_Genes\Gene_Gestator.cs" />
     <Compile Include="Resources_Genes\Gene_Clotting.cs" />
     <Compile Include="Resources_Genes\Gene_Spawner.cs" />
-    <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_CauseSetting.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_MechanitorUsedBandwidth.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityReimplantEndogerm.cs" />
     <Compile Include="Resources_Genes\Gene_XenotypeForcer.cs" />
@@ -218,7 +209,6 @@
     <Compile Include="Resources_Utility\XenotypeFilterUtility.cs" />
     <Compile Include="Resources_Generator\Harmony_DefGenerator_Serums.cs" />
     <Compile Include="Resources_Harmony\Harmony_GeneDefGenerator.cs" />
-    <Compile Include="Resources_Harmony\Harmony_PredatorPrey.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_Gestator.cs" />
     <Compile Include="Resources_Hediff\Old_HediffComp_Gestator.cs" />
     <Compile Include="Resources_Hediff\GolemGestator.cs" />
@@ -228,7 +218,6 @@
     <Compile Include="Resources_Abilities\CompAbilityEffect_Summon.cs" />
     <Compile Include="Resources_Abilities\QuestNode_Root_MechanitorSummonMech.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_BattleIsStarted.cs" />
-    <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_Genes.cs" />
     <Compile Include="Resources_Main\ModSettings.cs" />
     <Compile Include="Resources_Main\RoleRequirement_Mechanitor.cs" />
     <Compile Include="Resources_StatPart\StatPart_OffsetFromBuildingsOnMap.cs" />
@@ -244,16 +233,11 @@
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_MechanoidLabor.cs" />
     <Compile Include="Resources_Workers\JobGiver_DryadWork.cs" />
     <Compile Include="Resources_Workers\SpecialTrees.cs" />
-    <Compile Include="Resources_Things\CompProperties_TargetEffectRiseFromTheDead.cs" />
-    <Compile Include="Resources_Things\CompProperties_UseEffect_GeneRestoration.cs" />
-    <Compile Include="Resources_Things\CompProperties_UseEffect_XenotypeForcer.cs" />
-    <Compile Include="Resources_Things\CompProperties_UseEffect_XenotypeForcer_II.cs" />
+    <Compile Include="Resources_Things\_ObsoleteSerums_CompProperties.cs" />
     <Compile Include="Resources_Things\CompTargetable_SingleCorpse.cs" />
     <Compile Include="Resources_Things\CompTargetEffect_RiseFromTheDead.cs" />
     <Compile Include="Resources_Things\CompUseEffect_GeneRestoration.cs" />
-    <Compile Include="Resources_Things\CompUseEffect_XenotypeForcer.cs" />
     <Compile Include="Resources_Things\CompUseEffect_XenotypeForcer_Hybrid.cs" />
-    <Compile Include="Resources_Things\CompUseEffect_XenotypeForcer_II.cs" />
     <Compile Include="Resources_Workers\JobDriver_ResurrectAndChangeXenotype.cs" />
   </ItemGroup>
   <ItemGroup>

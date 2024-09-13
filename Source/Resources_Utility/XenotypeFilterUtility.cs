@@ -111,7 +111,7 @@ namespace WVC_XenotypesAndGenes
 		public static List<CustomXenotype> AllCustomXenotypesExceptAndroids()
 		{
 			List<CustomXenotype> list = new();
-			foreach (CustomXenotype item in SerumUtility.CustomXenotypesList())
+			foreach (CustomXenotype item in ReimplanterUtility.CustomXenotypesList())
 			{
 				if (!XaG_GeneUtility.XenotypeIsAndroid(item))
 				{

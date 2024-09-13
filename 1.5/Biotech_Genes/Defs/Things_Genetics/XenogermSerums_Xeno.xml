@@ -160,8 +160,6 @@
 	<label>sub-xenotype serum</label>
 	<description>A one-use super-dose of mechanites tuned to change the user's xenotype. After using the serum, the user will fall into a two-day coma.
 
-If the user's genes are regrowing, then instead of applying the xenotype, the gene regeneration timer will be reset.
-
 &lt;color=#f5ffa2&gt;Note:&lt;/color&gt; Cannot be administered or retuned.</description>
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Items/Serums_Single/ShiftSerum_v0</texPath>

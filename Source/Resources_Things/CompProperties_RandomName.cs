@@ -1,9 +1,11 @@
+using System;
 using Verse;
 using Verse.Grammar;
 
 namespace WVC_XenotypesAndGenes
 {
 
+	[Obsolete]
 	public class CompProperties_RandomName : CompProperties
 	{
 
@@ -16,6 +18,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete]
 	public class CompRandomName : ThingComp
 	{
 

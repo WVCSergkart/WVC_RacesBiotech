@@ -70,7 +70,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			// Log.Error("1");
-			if ((Props.humanityCheck && !SerumUtility.IsHuman(target)))
+			if ((Props.humanityCheck && !ReimplanterUtility.IsHuman(target)))
 			{
 				Messages.Message("WVC_PawnIsAndroidCheck".Translate(), target, MessageTypeDefOf.RejectInput, historical: false);
 				return;

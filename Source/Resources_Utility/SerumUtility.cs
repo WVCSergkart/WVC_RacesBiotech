@@ -8,22 +8,9 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
+	[Obsolete]
 	public static class SerumUtility
 	{
-
-		// Ideology Hook
-
-		public static void PostSerumUsedHook(Pawn pawn, bool isXenoMod)
-		{
-			if (ModLister.IdeologyInstalled)
-			{
-				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_GenesDefOf.WVC_XenotypeSerumUsed, pawn.Named(HistoryEventArgsNames.Doer)));
-				if (isXenoMod)
-				{
-					Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.InstalledProsthetic, pawn.Named(HistoryEventArgsNames.Doer)));
-				}
-			}
-		}
 
 		// Checks
 
@@ -35,58 +22,16 @@ namespace WVC_XenotypesAndGenes
 			return pawn.IsHuman();
 		}
 
-		public static bool IsHuman(this Pawn pawn)
-		{
-			if (pawn?.RaceProps?.Humanlike != true || pawn.IsAndroid())
-			{
-				return false;
-			}
-			return true;
-		}
-
-		public static bool IsAnomaly(this Pawn pawn)
-		{
-			if (ModsConfig.AnomalyActive)
-			{
-				if (pawn.IsMutant)
-				{
-					return true;
-				}
-			}
-			return false;
-		}
-
-		public static bool IsMutantOfDef(this Pawn pawn, MutantDef mutantDef)
-		{
-			if (mutantDef == null || pawn.mutant == null)
-			{
-				return false;
-			}
-			return mutantDef == pawn.mutant.Def;
-		}
-
 		// HumanityCheck is serums use only
 		// I already forgot why it is separate
+		[Obsolete]
 		public static bool HumanityCheck(Pawn pawn)
 		{
-			if (!IsHuman(pawn))
+			if (!ReimplanterUtility.IsHuman(pawn))
 			{
 				pawn.health.AddHediff(WVC_GenesDefOf.WVC_IncompatibilityComa);
 				Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
 				return true;
-			}
-			return false;
-		}
-
-		public static bool XenotypeHasArchites(XenotypeDef xenotypeDef)
-		{
-			List<GeneDef> genesListForReading = xenotypeDef.genes;
-			for (int i = 0; i < genesListForReading.Count; i++)
-			{
-				if (genesListForReading[i].biostatArc > 0)
-				{
-					return true;
-				}
 			}
 			return false;
 		}
@@ -201,7 +146,7 @@ namespace WVC_XenotypesAndGenes
 		public static void CustomXenotypeSerum(Pawn pawn, List<string> blackListedXenotypes)
 		{
 			// Search for custom xenotypes || Ищем кастомные ксенотипы
-			List<CustomXenotype> xenotypes = CustomXenotypesList();
+			List<CustomXenotype> xenotypes = ReimplanterUtility.CustomXenotypesList();
 			// Проверяме есть ли ксенотипы. Если нету даём рандомный
 			if (xenotypes.Count > 0)
 			{
@@ -260,7 +205,7 @@ namespace WVC_XenotypesAndGenes
 		[Obsolete]
 		public static void CustomHybridXenotypeSerum(Pawn pawn, List<string> blackListedXenotypes)
 		{
-			List<CustomXenotype> xenotypes = CustomXenotypesList();
+			List<CustomXenotype> xenotypes = ReimplanterUtility.CustomXenotypesList();
 			CustomXenotype endoCustomXenotype = xenotypes.Where((CustomXenotype randomXenotypeDef) => randomXenotypeDef.name != pawn.genes.xenotypeName && randomXenotypeDef.inheritable).RandomElement();
 			CustomXenotype xenoCustomXenotype = xenotypes.Where((CustomXenotype randomXenotypeDef) => randomXenotypeDef.name != pawn.genes.xenotypeName && !randomXenotypeDef.inheritable).RandomElement();
 			// if (xenotypes.Count > 1)
@@ -313,26 +258,6 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// ============================================
-
-		public static List<CustomXenotype> CustomXenotypesList()
-		{
-			List<CustomXenotype> xenotypes = new();
-			foreach (FileInfo item in GenFilePaths.AllCustomXenotypeFiles.OrderBy((FileInfo f) => f.LastWriteTime))
-			{
-				string filePath = GenFilePaths.AbsFilePathForXenotype(Path.GetFileNameWithoutExtension(item.Name));
-				PreLoadUtility.CheckVersionAndLoad(filePath, ScribeMetaHeaderUtility.ScribeHeaderMode.Xenotype, delegate
-				{
-					if (GameDataSaveLoader.TryLoadXenotype(filePath, out var xenotype))
-					{
-						if (!XaG_GeneUtility.XenotypeIsAndroid(xenotype))
-						{
-							xenotypes.Add(xenotype);
-						}
-					}
-				}, skipOnMismatch: true);
-			}
-			return xenotypes;
-		}
 
 		// public static bool CustomXenotypeIsAndroid(CustomXenotype xenotype)
 		// {

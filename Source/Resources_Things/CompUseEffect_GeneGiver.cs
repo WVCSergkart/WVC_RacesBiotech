@@ -45,15 +45,15 @@ namespace WVC_XenotypesAndGenes
 
 		public override void DoEffect(Pawn pawn)
 		{
-			if (SerumUtility.HumanityCheck(pawn))
-			{
-				return;
-			}
-			if (pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
-			{
-				pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));
-				return;
-			}
+			// if (SerumUtility.HumanityCheck(pawn))
+			// {
+				// return;
+			// }
+			// if (pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
+			// {
+				// pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));
+				// return;
+			// }
 			if (XaG_GeneUtility.HasGene(geneDef, pawn))
 			{
 				return;
@@ -65,7 +65,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				Find.LetterStack.ReceiveLetter("WVC_XaG_GeneGiverImplanted_Label".Translate(), "WVC_XaG_GeneGiverImplanted_Desc".Translate(pawn.Name.ToString(), geneDef.LabelCap), LetterDefOf.NeutralEvent, new LookTargets(pawn));
 			}
-			SerumUtility.PostSerumUsedHook(pawn, true);
+			ReimplanterUtility.PostSerumUsedHook(pawn, true);
 		}
 
 		// public override bool AllowStackWith(Thing other)
@@ -88,14 +88,14 @@ namespace WVC_XenotypesAndGenes
 			{
 				return "WVC_XaG_GeneGiverPawnHasGene_Label".Translate(p.Name.ToString());
 			}
-			if (!SerumUtility.IsHuman(p))
+			if (!ReimplanterUtility.IsHuman(p))
 			{
 				return "WVC_PawnIsAndroidCheck".Translate();
 			}
-			if (p.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
-			{
-				return "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate();
-			}
+			// if (p.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
+			// {
+				// return "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate();
+			// }
 			return true;
 		}
 

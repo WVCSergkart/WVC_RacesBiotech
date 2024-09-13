@@ -1,6 +1,7 @@
 using RimWorld;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Verse;
 using Verse.AI;
@@ -107,6 +108,36 @@ namespace WVC_XenotypesAndGenes
 				return false;
 			}
 			return true;
+		}
+
+		public static bool IsHuman(this Pawn pawn)
+		{
+			if (pawn?.RaceProps?.Humanlike != true || pawn.IsAndroid())
+			{
+				return false;
+			}
+			return true;
+		}
+
+		public static bool IsAnomaly(this Pawn pawn)
+		{
+			if (ModsConfig.AnomalyActive)
+			{
+				if (pawn.IsMutant)
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
+		public static bool IsMutantOfDef(this Pawn pawn, MutantDef mutantDef)
+		{
+			if (mutantDef == null || pawn.mutant == null)
+			{
+				return false;
+			}
+			return mutantDef == pawn.mutant.Def;
 		}
 
 		// ===============================================================
@@ -267,6 +298,11 @@ namespace WVC_XenotypesAndGenes
 
 		public static void SetXenotype(Pawn pawn, XenotypeDef xenotypeDef, bool changeXenotype = true)
 		{
+			// if (xenotypeDef == null)
+			// {
+				// xenotypeDef = XenotypeFilterUtility.WhiteListedXenotypes(true, true).RandomElement();
+				// Log.Error("Xenotype is null. Choose random.");
+			// }
 			// Remove genes
 			Pawn_GeneTracker genes = pawn.genes;
 			genes.Xenogenes.RemoveAllGenes();
@@ -347,6 +383,40 @@ namespace WVC_XenotypesAndGenes
 				genes.AddGene(geneDef, !xenotypeDef.inheritable);
 			}
 			TrySetSkinAndHairGenes(pawn);
+		}
+
+		public static List<CustomXenotype> CustomXenotypesList()
+		{
+			List<CustomXenotype> xenotypes = new();
+			foreach (FileInfo item in GenFilePaths.AllCustomXenotypeFiles.OrderBy((FileInfo f) => f.LastWriteTime))
+			{
+				string filePath = GenFilePaths.AbsFilePathForXenotype(Path.GetFileNameWithoutExtension(item.Name));
+				PreLoadUtility.CheckVersionAndLoad(filePath, ScribeMetaHeaderUtility.ScribeHeaderMode.Xenotype, delegate
+				{
+					if (GameDataSaveLoader.TryLoadXenotype(filePath, out var xenotype))
+					{
+						if (!XaG_GeneUtility.XenotypeIsAndroid(xenotype))
+						{
+							xenotypes.Add(xenotype);
+						}
+					}
+				}, skipOnMismatch: true);
+			}
+			return xenotypes;
+		}
+
+		// Ideology Hook
+
+		public static void PostSerumUsedHook(Pawn pawn, bool isXenoMod)
+		{
+			if (ModLister.IdeologyInstalled)
+			{
+				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_GenesDefOf.WVC_XenotypeSerumUsed, pawn.Named(HistoryEventArgsNames.Doer)));
+				if (isXenoMod)
+				{
+					Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.InstalledProsthetic, pawn.Named(HistoryEventArgsNames.Doer)));
+				}
+			}
 		}
 
 	}

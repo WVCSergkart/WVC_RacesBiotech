@@ -85,14 +85,14 @@ namespace WVC_XenotypesAndGenes
 			{
 				return "WVC_XaG_SuremRetuneShouldBeTunedWarn_Label".Translate();
 			}
-			if (!SerumUtility.IsHuman(p))
+			if (!ReimplanterUtility.IsHuman(p))
 			{
 				return "WVC_PawnIsAndroidCheck".Translate();
 			}
-			if (p.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
-			{
-				return "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate();
-			}
+			// if (p.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
+			// {
+				// return "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate();
+			// }
 			return true;
 		}
 
@@ -129,7 +129,7 @@ namespace WVC_XenotypesAndGenes
 			// SerumUtility.DoubleXenotypeSerum(pawn, endotype, xenotype);
 			if (customMode)
 			{
-				List<CustomXenotype> xenotypes = SerumUtility.CustomXenotypesList();
+				List<CustomXenotype> xenotypes = ReimplanterUtility.CustomXenotypesList();
 				CustomXenotype endoCustomXenotype = xenotypes.Where((CustomXenotype randomXenotypeDef) => randomXenotypeDef.name != pawn.genes.xenotypeName && randomXenotypeDef.inheritable).RandomElement();
 				CustomXenotype xenoCustomXenotype = xenotypes.Where((CustomXenotype randomXenotypeDef) => randomXenotypeDef.name != pawn.genes.xenotypeName && !randomXenotypeDef.inheritable).RandomElement();
 				ReimplanterUtility.SetCustomXenotype(pawn, endoCustomXenotype);
@@ -152,7 +152,7 @@ namespace WVC_XenotypesAndGenes
 				int max = HediffDefOf.XenogerminationComa.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.max;
 				Find.LetterStack.ReceiveLetter("LetterLabelGenesImplanted".Translate(), "WVC_LetterTextGenesImplanted".Translate(pawn.Named("TARGET"), max.ToStringTicksToPeriod().Named("COMADURATION")), LetterDefOf.NeutralEvent, new LookTargets(pawn));
 			}
-			SerumUtility.PostSerumUsedHook(pawn, true);
+			ReimplanterUtility.PostSerumUsedHook(pawn, true);
 		}
 
 	}

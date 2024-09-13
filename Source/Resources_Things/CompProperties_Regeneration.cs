@@ -1,10 +1,12 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
+	[Obsolete]
     public class CompProperties_Regeneration : CompProperties
 	{
 
@@ -20,6 +22,7 @@ namespace WVC_XenotypesAndGenes
 		}
 	}
 
+	[Obsolete]
 	public class CompRegeneration : ThingComp
 	{
 

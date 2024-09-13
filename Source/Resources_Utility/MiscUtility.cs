@@ -574,7 +574,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (!SerumUtility.IsHuman(victim))
+			if (!ReimplanterUtility.IsHuman(victim))
 			{
 				return false;
 			}

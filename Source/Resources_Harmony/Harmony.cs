@@ -60,6 +60,10 @@ namespace WVC_XenotypesAndGenes
 					// harmony.Patch(AccessTools.Method(typeof(HumanlikeMeshPoolUtility), "HumanlikeBodyWidthForPawn"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("BodyGraphicSize")));
 					// harmony.Patch(AccessTools.Method(typeof(HumanlikeMeshPoolUtility), "HumanlikeHeadWidthForPawn"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("HeadGraphicSize")));
 				// }
+				if (!WVC_Biotech.settings.disableNonAcceptablePreyGenes)
+				{
+					harmony.Patch(AccessTools.Method(typeof(FoodUtility), "IsAcceptablePreyFor"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("IsNotAcceptablePrey")));
+				}
 				if (WVC_Biotech.settings.enableIncestLoverGene)
 				{
 					harmony.Patch(AccessTools.Method(typeof(RelationsUtility), "Incestuous"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Incestuous_Relations")));
@@ -465,6 +469,18 @@ namespace WVC_XenotypesAndGenes
 				// {
 					// geneNotifyGenesChanged.Notify_GenesChanged(overriddenBy);
 				// }
+			}
+
+			// Predators
+
+			public static bool IsNotAcceptablePrey(ref bool __result, ref Pawn prey)
+			{
+				if (prey.RaceProps.Humanlike && GeneFeaturesUtility.IsNotAcceptablePrey(prey))
+				{
+					__result = false;
+					return false;
+				}
+				return true;
 			}
 
 			// Dev TESTS

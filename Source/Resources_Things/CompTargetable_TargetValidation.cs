@@ -1,10 +1,12 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
+    [Obsolete]
     public class CompTargetable_HumanCanUseSerum : CompProperties_Targetable
     {
         public CompTargetable_HumanCanUseSerum()
@@ -13,6 +15,7 @@ namespace WVC_XenotypesAndGenes
         }
     }
 
+    [Obsolete]
     public class CompHumanCanUseSerum : CompTargetable
     {
         public new CompTargetable_HumanCanUseSerum Props => (CompTargetable_HumanCanUseSerum)props;
@@ -26,7 +29,7 @@ namespace WVC_XenotypesAndGenes
                 canTargetPawns = true,
                 canTargetItems = false,
                 canTargetBuildings = false,
-                validator = (TargetInfo x) => ValidateTarget(x.Thing) && x.Thing is Pawn pawn && SerumUtility.IsHuman(pawn)
+                validator = (TargetInfo x) => ValidateTarget(x.Thing) && x.Thing is Pawn pawn && ReimplanterUtility.IsHuman(pawn)
             };
         }
 

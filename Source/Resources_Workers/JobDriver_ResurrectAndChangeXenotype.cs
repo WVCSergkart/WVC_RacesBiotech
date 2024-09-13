@@ -69,6 +69,11 @@ namespace WVC_XenotypesAndGenes
 				// ResurrectionUtility.TryResurrect(innerPawn);
 				// innerPawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
 				XenotypeDef xenotypeDef = Item?.TryGetComp<CompTargetEffect_DoJobOnTarget>()?.xenotypeDef;
+				if (xenotypeDef == null)
+				{
+					xenotypeDef = XenotypeFilterUtility.WhiteListedXenotypes(true, true).RandomElement();
+					Log.Error("Xenotype is null. Choosing random.");
+				}
 				// SerumUtility.XenotypeSerum(innerPawn, XenotypeFilterUtility.BlackListedXenotypesForSerums(false), xenotypeDef, false, false);
 				ReimplanterUtility.SetXenotype(innerPawn, xenotypeDef);
 				innerPawn.health.AddHediff(HediffDefOf.XenogerminationComa);

@@ -82,7 +82,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool MeetsRequirements(XenotypeDef mode)
 		{
-			if (SerumUtility.XenotypeHasArchites(mode))
+			if (XaG_GeneUtility.XenotypeHasArchites(mode))
 			{
 				if (xenotypeForcer.Props.xenotypeType == CompProperties_UseEffect_XenogermSerum.XenotypeType.Archite)
 				{

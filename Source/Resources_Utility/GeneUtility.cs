@@ -681,6 +681,19 @@ namespace WVC_XenotypesAndGenes
 			return num;
 		}
 
+		public static bool XenotypeHasArchites(XenotypeDef xenotypeDef)
+		{
+			List<GeneDef> genesListForReading = xenotypeDef.genes;
+			for (int i = 0; i < genesListForReading.Count; i++)
+			{
+				if (genesListForReading[i].biostatArc > 0)
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
 		// XaG test
 
 		public static bool IsXenoGenesDef(this Def def)
