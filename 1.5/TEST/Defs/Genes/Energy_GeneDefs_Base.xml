@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <!-- <GeneDef Name="WVC_XenotypesAndGenes_GeneRechargeableStomach_Base" Abstract="True"> -->
-	<!-- <selectionWeight>0.0022</selectionWeight> -->
-	<!-- <displayCategory>Healing</displayCategory> -->
-	<!-- <displayOrderInCategory>125</displayOrderInCategory> -->
-	<!-- <exclusionTags> -->
-	  <!-- <li>WVC_XaG_EternalHunger</li> -->
-	  <!-- <li>WVC_XaG_HungerReplenishStomach</li> -->
-	<!-- </exclusionTags> -->
-  <!-- </GeneDef> -->
-
   <!-- ============================= -->
 
-  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneRechargeableStomach_Base"> -->
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneStomach_Base"> -->
 	<!-- <defName>WVC_RechargeableStomach</defName> -->
 	<!-- <label>rechargeable stomach</label> -->
-	<!-- <description>Carriers of this gene has an exceptional condition. The brain has developed extreme abilities in some areas, while losing the ability to speak.</description> -->
+	<!-- <description>Carriers of this gene..</description> -->
 	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_RechargeableStomach</geneClass> -->
 	<!-- <iconPath>WVC/UI/Genes/Gene_Savant_v0</iconPath> -->
 	<!-- <biostatCpx>0</biostatCpx> -->
@@ -28,10 +18,15 @@
 		<!-- <li><symbol>ene</symbol></li> -->
 	  <!-- </prefixSymbols> -->
 	<!-- </symbolPack> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_XaG_EternalHunger</li> -->
+	  <!-- <li>WVC_XaG_HungerReplenishStomach</li> -->
+	<!-- </exclusionTags> -->
 	<!-- <modExtensions> -->
 		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
 			<!-- <foodPoisoningFromFood>true</foodPoisoningFromFood> -->
 			<!-- <rechargeableStomachJobDef>WVC_RechargeableStomach</rechargeableStomachJobDef> -->
+			<!-- <xenoChargerDef>WVC_GeneRecharger</xenoChargerDef> -->
 		<!-- </li> -->
 	<!-- </modExtensions> -->
   <!-- </GeneDef> -->

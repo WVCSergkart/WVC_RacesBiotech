@@ -82,6 +82,7 @@
     <Compile Include="Resources_Abilities\QuestNode_Root_Reincarnation.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_NoSunlight.cs" />
     <Compile Include="Resources_Genes\Gene_Chimera.cs" />
+    <Compile Include="Resources_Genes\Gene_Energy.cs" />
     <Compile Include="Resources_Genes\Gene_Furskin.cs" />
     <Compile Include="Resources_Genes\Gene_Dryad.cs" />
     <Compile Include="Resources_Genes\Gene_Gauranlen.cs" />
@@ -145,6 +146,7 @@
     <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_ColorFromRock.cs" />
     <Compile Include="Resources_RitualAttachableOutcome\OutcomeWorker_ShapeshifterJoin.cs" />
     <Compile Include="Resources_RitualAttachableOutcome\RitualOutcomeComp_Quality.cs" />
+    <Compile Include="Resources_Things\Building_MechCharger.cs" />
     <Compile Include="Resources_Things\CompProperties_DryadCocoon.cs" />
     <Compile Include="Resources_Things\CompProperties_Genepack.cs" />
     <Compile Include="Resources_Things\CompProperties_Golem.cs" />
@@ -161,6 +163,7 @@
     <Compile Include="Resources_Workers\JobDriver_BiteTarget.cs" />
     <Compile Include="Resources_Workers\JobDriver_FeedTargetWithOwnBlood.cs" />
     <Compile Include="Resources_Workers\JobDriver_RetuneSerum.cs" />
+    <Compile Include="Resources_Workers\JobDriver_StomachCharge.cs" />
     <Compile Include="Resources_Workers\JobGiver_DryadCocoon.cs" />
     <Compile Include="Resources_Main\GameComponents.cs" />
     <Compile Include="Resources_Main\PostInitializationStartup.cs" />

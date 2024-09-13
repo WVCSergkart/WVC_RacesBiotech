@@ -240,6 +240,7 @@ namespace WVC_XenotypesAndGenes
 		// Energy
 		public bool foodPoisoningFromFood = false;
 		public JobDef rechargeableStomachJobDef;
+		public ThingDef xenoChargerDef;
 	}
 
 	// public class GeneExtension_Shapeshifter : DefModExtension

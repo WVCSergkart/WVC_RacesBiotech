@@ -97,22 +97,22 @@
 
   <GeneDef ParentName="WVC_Mechanoidization_PowerSourceBase">
 	<defName>WVC_MechaPowerSource_Tox</defName>
-	<label>tox saturation</label> 
+	<label>tox saturation</label>
+	<!-- <label>rechargeable</label> -->
+	<!-- <description>Carriers of this gene have archites that, when given special electrical stimulation, replenish nutrients in the carrier's body.</description> -->
 	<iconPath>WVC/UI/Genes/PowerSource_Tox</iconPath>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Spawner</geneClass>
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Rechargeable</geneClass> -->
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>2</biostatArc>
 	<biostatMet>5</biostatMet>
 	<minAgeActive>3</minAgeActive>
 	<customEffectDescriptions>
-		<!-- <li>Grants an additional 5 metabolism points.</li> -->
 		<li>Spawns 5 wastepacks every (*DateTime)2-5 days(/DateTime).</li>
-		<!-- <li>&lt;color=#b8c6ff&gt;The number of wastepacks depends on the archites capsules.&lt;/color&gt;</li> -->
 		<li>Stack count increases or decreases relative to metabolism.</li>
+		<!-- <li>Сarrier can be charged at special &lt;color=#8a8ae6&gt;recharging stations&lt;/color&gt; to replenish nutrition.</li> -->
+		<!-- <li>Charging in this way generates &lt;color=#8a8ae6&gt;wastepacks&lt;/color&gt;.</li> -->
 	</customEffectDescriptions>
-	<statOffsets>
-	  <ToxicResistance MayRequireAnyOf="wvc.wvcmod.wvcspecific">1.0</ToxicResistance>
-	</statOffsets>
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>tox</symbol></li>
@@ -129,6 +129,11 @@
 			<stackCount>5</stackCount>
 			<showMessageIfOwned>false</showMessageIfOwned>
 		</li>
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <foodPoisoningFromFood>false</foodPoisoningFromFood> -->
+			<!-- <rechargeableStomachJobDef>WVC_RechargeableStomach</rechargeableStomachJobDef> -->
+			<!-- <xenoChargerDef>WVC_GeneRecharger</xenoChargerDef> -->
+		<!-- </li> -->
 	</modExtensions>
   </GeneDef>
 

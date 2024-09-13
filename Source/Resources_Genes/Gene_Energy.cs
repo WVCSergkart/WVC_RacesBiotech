@@ -11,7 +11,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_RechargeableStomach : Gene
+	public class Gene_Rechargeable : Gene
 	{
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
@@ -22,56 +22,56 @@ namespace WVC_XenotypesAndGenes
 			// pawn.foodRestriction;
 		// }
 
-		private bool pawnIsCharging = false;
+		public Building_XenoCharger currentCharger;
 
 		public override void Tick()
 		{
-			if (pawnIsCharging)
+			// if (pawnIsCharging)
+			// {
+				// if (!pawn.IsHashIntervalTick(60))
+				// {
+					// return;
+				// }
+				// UndeadUtility.OffsetNeedFood(pawn, 0.0334f);
+			// }
+			// else
+			// {
+			// }
+			base.Tick();
+			if (!pawn.IsHashIntervalTick(2301))
 			{
-				if (!pawn.IsHashIntervalTick(60))
-				{
-					return;
-				}
-				UndeadUtility.OffsetNeedFood(pawn, 0.0334f);
+				return;
 			}
-			else
+			Need_Food food = pawn?.needs?.food;
+			if (food == null)
 			{
-				base.Tick();
-				if (!pawn.IsHashIntervalTick(2301))
-				{
-					return;
-				}
-				Need_Food food = pawn?.needs?.food;
-				if (food == null)
-				{
-					return;
-				}
-				if (food.CurLevelPercentage >= pawn.RaceProps.FoodLevelPercentageWantEat + 0.09f)
-				{
-					return;
-				}
-				if (pawn.Faction != Faction.OfPlayer)
-				{
-					UndeadUtility.OffsetNeedFood(pawn, 0.2f);
-					return;
-				}
-				if (pawn.Map == null)
-				{
-					// In caravan use
-					InCaravan();
-					return;
-				}
-				if (pawn.Drafted)
-				{
-					return;
-				}
-				if (pawn.Downed)
-				{
-					UndeadUtility.OffsetNeedFood(pawn, 0.1f);
-					return;
-				}
-				TryRecharge();
+				return;
 			}
+			if (food.CurLevelPercentage >= pawn.RaceProps.FoodLevelPercentageWantEat + 0.09f)
+			{
+				return;
+			}
+			if (pawn.Faction != Faction.OfPlayer)
+			{
+				UndeadUtility.OffsetNeedFood(pawn, 0.2f);
+				return;
+			}
+			if (pawn.Map == null)
+			{
+				// In caravan use
+				InCaravan();
+				return;
+			}
+			if (pawn.Drafted)
+			{
+				return;
+			}
+			if (pawn.Downed)
+			{
+				UndeadUtility.OffsetNeedFood(pawn, 0.1f);
+				return;
+			}
+			TryRecharge();
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -94,7 +94,7 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual bool TryRecharge()
 		{
-			Building_MechCharger closestCharger = GetClosestCharger(pawn, pawn, forced: false);
+			Building_XenoCharger closestCharger = GetClosestCharger(pawn, pawn, forced: false, Props.xenoChargerDef);
 			if (closestCharger != null)
 			{
 				Job job = JobMaker.MakeJob(Props.rechargeableStomachJobDef, closestCharger);
@@ -105,12 +105,12 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public static Building_MechCharger GetClosestCharger(Pawn mech, Pawn carrier, bool forced)
+		public static Building_XenoCharger GetClosestCharger(Pawn mech, Pawn carrier, bool forced, ThingDef thingDef)
 		{
 			Danger danger = (forced ? Danger.Deadly : Danger.Some);
-			return (Building_MechCharger)GenClosest.ClosestThingReachable(mech.Position, mech.Map, ThingRequest.ForGroup(ThingRequestGroup.MechCharger), PathEndMode.InteractionCell, TraverseParms.For(carrier, danger), 9999f, delegate(Thing t)
+			return (Building_XenoCharger)GenClosest.ClosestThingReachable(mech.Position, mech.Map, ThingRequest.ForDef(thingDef), PathEndMode.InteractionCell, TraverseParms.For(carrier, danger), 9999f, delegate(Thing t)
 			{
-				Building_MechCharger building_MechCharger = (Building_MechCharger)t;
+				Building_XenoCharger building_MechCharger = (Building_XenoCharger)t;
 				if (!carrier.CanReach(t, PathEndMode.InteractionCell, danger))
 				{
 					return false;
@@ -126,26 +126,26 @@ namespace WVC_XenotypesAndGenes
 						// return false;
 					// }
 				// }
-				return !t.IsForbidden(carrier) && carrier.CanReserve(t, 1, -1, null, forced) && CanPawnChargeCurrently(building_MechCharger);
+				return !t.IsForbidden(carrier) && carrier.CanReserve(t, 1, -1, null, forced) && building_MechCharger.CanPawnChargeCurrently(mech);
 			});
 		}
 
-		public static bool CanPawnChargeCurrently(Building_MechCharger charger)
-		{
-			if (charger.Power.PowerNet == null)
-			{
-				return false;
-			}
-			if (charger.IsFullOfWaste)
-			{
-				return false;
-			}
-			if (charger.IsPowered)
-			{
-				return true;
-			}
-			return false;
-		}
+		// public static bool CanPawnChargeCurrently(Building_MechCharger charger)
+		// {
+			// if (charger.Power.PowerNet == null)
+			// {
+				// return false;
+			// }
+			// if (charger.IsFullOfWaste)
+			// {
+				// return false;
+			// }
+			// if (charger.IsPowered)
+			// {
+				// return true;
+			// }
+			// return false;
+		// }
 
 		private void InCaravan()
 		{
@@ -174,21 +174,21 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public void StartCharging(Building_MechCharger charger)
-		{
-			pawnIsCharging = true;
-			SoundDefOf.MechChargerStart.PlayOneShot(charger);
-		}
+		// public void StartCharging(Building_MechCharger charger)
+		// {
+			// pawnIsCharging = true;
+			// SoundDefOf.MechChargerStart.PlayOneShot(charger);
+		// }
 
-		public void StopCharging()
-		{
-			pawnIsCharging = false;
-		}
+		// public void StopCharging()
+		// {
+			// pawnIsCharging = false;
+		// }
 
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Values.Look(ref pawnIsCharging, "pawnIsCharging", false);
+			Scribe_References.Look(ref currentCharger, "currentCharger");
 		}
 
 	}

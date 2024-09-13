@@ -13,7 +13,7 @@ namespace WVC_XenotypesAndGenes
 	{
 		// private const TargetIndex ChargerInd = TargetIndex.A;
 
-		public Building_MechCharger Charger => (Building_MechCharger)job.targetA.Thing;
+		public Building_XenoCharger Charger => (Building_XenoCharger)job.targetA.Thing;
 
 		public override bool TryMakePreToilReservations(bool errorOnFailed)
 		{
@@ -24,32 +24,32 @@ namespace WVC_XenotypesAndGenes
 			return true;
 		}
 
-		public Gene_RechargeableStomach energyGene;
+		// public Gene_RechargeableStomach energyGene;
 
 		protected override IEnumerable<Toil> MakeNewToils()
 		{
-			if (energyGene == null)
-			{
-				energyGene = pawn?.genes?.GetFirstGeneOfType<Gene_RechargeableStomach>();
-			}
+			// if (energyGene == null)
+			// {
+				// energyGene = pawn?.genes?.GetFirstGeneOfType<Gene_RechargeableStomach>();
+			// }
 			this.FailOnDespawnedOrNull(TargetIndex.A);
-			this.FailOn(() => energyGene == null || !Gene_RechargeableStomach.CanPawnChargeCurrently(Charger));
+			this.FailOn(() => !Charger.CanPawnChargeCurrently(pawn));
 			yield return Toils_Goto.Goto(TargetIndex.A, PathEndMode.InteractionCell).FailOnForbidden(TargetIndex.A);
 			Toil toil = ToilMaker.MakeToil("MakeNewToils");
 			toil.defaultCompleteMode = ToilCompleteMode.Never;
 			toil.initAction = delegate
 			{
-				energyGene.StartCharging(Charger);
+				Charger.StartCharging(pawn);
 			};
 			toil.AddFinishAction(delegate
 			{
-				energyGene.StopCharging();
+				Charger.StopCharging();
 			});
 			toil.handlingFacing = true;
 			toil.tickAction = (Action)Delegate.Combine(toil.tickAction, (Action)delegate
 			{
 				pawn.rotationTracker.FaceTarget(Charger.Position);
-				if (pawn.needs.food.CurLevelPercentage >= pawn.needs.food.MaxLevel - 0.06f)
+				if (pawn.needs.food.CurLevel >= pawn.needs.food.MaxLevel)
 				{
 					ReadyForNextToil();
 				}
