@@ -1,7 +1,76 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneStomach_Base" Name="WVC_XenotypesAndGenes_GeneEnergyStomach_Base" Abstract="True">
+	<geneClass>WVC_XenotypesAndGenes.Gene_Rechargeable</geneClass>
+	<description>Carriers of this gene have archites that, when given special electrical stimulation, replenish nutrients in the carrier's body.</description>
+	<descriptionHyperlinks>
+	  <ThingDef>WVC_GeneRecharger</ThingDef>
+	</descriptionHyperlinks>
+	<marketValueFactor>1.1</marketValueFactor>
+	<minAgeActive>3</minAgeActive>
+	<customEffectDescriptions>
+		<li>Сarrier can be charged at special &lt;color=#8a8ae6&gt;recharging stations&lt;/color&gt; to replenish nutrition.</li>
+		<li>Charging in this way generates &lt;color=#8a8ae6&gt;wastepacks&lt;/color&gt;.</li>
+		<li>&lt;color=#8a8ae6&gt;Downed&lt;/color&gt; carrier slowly replenishes nutrition to half.</li>
+	</customEffectDescriptions>
+	<exclusionTags Inherit="False">
+	  <li>WVC_XaG_Rechargeable</li>
+	</exclusionTags>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>power</symbol></li>
+		<li><symbol>drain</symbol></li>
+		<li><symbol>pow</symbol></li>
+		<li><symbol>powe</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>ainer</symbol></li>
+		<li><symbol>iner</symbol></li>
+		<li><symbol>ner</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
   <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergyStomach_Base">
+	<defName>WVC_MechaPowerSource_Stable</defName>
+	<label>rechargeable</label> 
+	<geneClass>WVC_XenotypesAndGenes.Gene_Rechargeable</geneClass>
+	<iconPath>WVC/UI/Genes/PowerSource_Stable</iconPath>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>2</biostatMet>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<foodPoisoningFromFood>false</foodPoisoningFromFood>
+			<rechargeableStomachJobDef>WVC_RechargeableStomach</rechargeableStomachJobDef>
+			<xenoChargerDef>WVC_GeneRecharger</xenoChargerDef>
+			<chargeSpeedFactor>0.8</chargeSpeedFactor>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergyStomach_Base">
+	<defName>WVC_MechaPowerSource_Unstable</defName>
+	<label>faulty rechargeable</label> 
+	<iconPath>WVC/UI/Genes/PowerSource_Unstable</iconPath>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>3</biostatMet>
+	<customEffectDescriptions>
+		<li>&lt;color=#ff8585&gt;Charging rate is lower than that of similar genes.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<foodPoisoningFromFood>false</foodPoisoningFromFood>
+			<rechargeableStomachJobDef>WVC_RechargeableStomach</rechargeableStomachJobDef>
+			<xenoChargerDef>WVC_GeneRecharger</xenoChargerDef>
+			<chargeSpeedFactor>0.2</chargeSpeedFactor>
+		</li>
+	</modExtensions>
+  </GeneDef>
 
   <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneStomach_Base"> -->
 	<!-- <defName>WVC_RechargeableStomach</defName> -->
@@ -31,27 +100,14 @@
 	<!-- </modExtensions> -->
   <!-- </GeneDef> -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneStomach_Base">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergyStomach_Base">
 	<defName>WVC_MechaPowerSource_Tox</defName>
-	<!-- <label>tox saturation</label> -->
-	<label>rechargeable</label>
-	<description>Carriers of this gene have archites that, when given special electrical stimulation, replenish nutrients in the carrier's body.</description>
-	<descriptionHyperlinks>
-	  <ThingDef>WVC_GeneRecharger</ThingDef>
-	</descriptionHyperlinks>
+	<label>rechargeable stomach</label>
 	<iconPath>WVC/UI/Genes/PowerSource_Tox</iconPath>
-	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Spawner</geneClass> -->
-	<geneClass>WVC_XenotypesAndGenes.Gene_Rechargeable</geneClass>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>2</biostatArc>
 	<biostatMet>5</biostatMet>
-	<minAgeActive>3</minAgeActive>
 	<customEffectDescriptions>
-		<!-- <li>Spawns 5 wastepacks every (*DateTime)2-5 days(/DateTime).</li> -->
-		<!-- <li>Stack count increases or decreases relative to metabolism.</li> -->
-		<li>Сarrier can be charged at special &lt;color=#8a8ae6&gt;recharging stations&lt;/color&gt; to replenish nutrition.</li>
-		<li>Charging in this way generates &lt;color=#8a8ae6&gt;wastepacks&lt;/color&gt;.</li>
-		<li>&lt;color=#8a8ae6&gt;Downed&lt;/color&gt; carrier slowly replenishes nutrition to half.</li>
 		<li>&lt;color=#ff8585&gt;Carrier gets food poisoning from any food sources.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<symbolPack>
@@ -65,7 +121,6 @@
 	  </suffixSymbols>
 	</symbolPack>
 	<exclusionTags>
-	  <li>WVC_XaG_Rechargeable</li>
 	  <li>WVC_XaG_EternalHunger</li>
 	  <li>WVC_XaG_HungerReplenishStomach</li>
 	</exclusionTags>
@@ -79,6 +134,7 @@
 			<foodPoisoningFromFood>true</foodPoisoningFromFood>
 			<rechargeableStomachJobDef>WVC_RechargeableStomach</rechargeableStomachJobDef>
 			<xenoChargerDef>WVC_GeneRecharger</xenoChargerDef>
+			<chargeSpeedFactor>1</chargeSpeedFactor>
 		</li>
 	</modExtensions>
   </GeneDef>

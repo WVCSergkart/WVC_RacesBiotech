@@ -35,9 +35,9 @@ namespace WVC_XenotypesAndGenes
 
 		// private const float ChargePerTick = 0.000833333354f;
 
-		private static readonly Material WasteBarFilledMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.9f, 0.85f, 0.2f));
+		// private static readonly Material WasteBarFilledMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.9f, 0.85f, 0.2f));
 
-		private static readonly Material WasteBarUnfilledMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.3f, 0.3f, 0.3f, 1f));
+		// private static readonly Material WasteBarUnfilledMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.3f, 0.3f, 0.3f, 1f));
 
 		// private const int TicksToExtendWire = 70;
 
@@ -206,7 +206,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (currentlyChargingMech != null && Power.PowerOn)
 			{
-				currentlyChargingMech.needs.food.CurLevel += chargePerTick;
+				currentlyChargingMech.needs.food.CurLevel += chargePerTick * RechargeableStomach.Props.chargeSpeedFactor;
 				wasteProduced += WasteProducedPerTick;
 				wasteProduced = Mathf.Clamp(wasteProduced, 0f, WasteProducedPerChargingCycle);
 				if (wasteProduced >= (float)WasteProducedPerChargingCycle && !Container.innerContainer.Any)
@@ -386,9 +386,10 @@ namespace WVC_XenotypesAndGenes
 			GenDraw.FillableBarRequest barDrawData = BarDrawData;
 			barDrawData.center = DrawPos + Vector3.up * 0.1f;
 			barDrawData.fillPercent = WasteProducedPercentFull;
-			barDrawData.filledMat = WasteBarFilledMat;
-			barDrawData.unfilledMat = WasteBarUnfilledMat;
-			barDrawData.rotation = base.Rotation;
+			barDrawData.filledMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.9f, 0.85f, 0.2f));
+			barDrawData.unfilledMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.3f, 0.3f, 0.3f, 1f));
+			// barDrawData.rotation = base.Rotation;
+			barDrawData.rotation = Rot4.South;
 			GenDraw.DrawFillableBar(barDrawData);
 			Vector3 a = drawLoc;
 			float num = EaseInOutQuart((float)wireExtensionTicks / 70f);

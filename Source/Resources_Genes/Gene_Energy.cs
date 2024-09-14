@@ -37,7 +37,7 @@ namespace WVC_XenotypesAndGenes
 			// else
 			// {
 			// }
-			base.Tick();
+			// base.Tick();
 			if (!pawn.IsHashIntervalTick(2301))
 			{
 				return;
