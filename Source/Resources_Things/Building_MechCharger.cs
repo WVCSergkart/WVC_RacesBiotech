@@ -4,6 +4,7 @@ using System.Text;
 using RimWorld;
 using UnityEngine;
 using Verse;
+using Verse.AI;
 using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
@@ -27,6 +28,8 @@ namespace WVC_XenotypesAndGenes
 		private Mote moteCharging;
 
 		private Mote moteCablePulse;
+
+		public float chargePerTick = 0.000833333354f;
 
 		public const float ChargePerDay = 50f;
 
@@ -113,7 +116,7 @@ namespace WVC_XenotypesAndGenes
 		private float WasteProducedPercentFull => wasteProduced / (float)WasteProducedPerChargingCycle;
 
 		// private float WasteProducedPerTick => currentlyChargingMech.GetStatValue(StatDefOf.WastepacksPerRecharge) * (0.000833333354f / currentlyChargingMech.needs.food.MaxLevel);
-		private float WasteProducedPerTick => 1 * (0.000833333354f / currentlyChargingMech.needs.food.MaxLevel);
+		private float WasteProducedPerTick => 1 * (chargePerTick / currentlyChargingMech.needs.food.MaxLevel);
 
 
 		// public override void PostPostMake()
@@ -130,6 +133,10 @@ namespace WVC_XenotypesAndGenes
 
 		public bool CanPawnChargeCurrently(Pawn pawn)
 		{
+			if (pawn?.needs?.food == null)
+			{
+				return false;
+			}
 			if (Power.PowerNet == null)
 			{
 				return false;
@@ -181,7 +188,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				if (gene_RechargeableStomach == null)
+				if (gene_RechargeableStomach == null || gene_RechargeableStomach?.pawn != currentlyChargingMech)
 				{
 					gene_RechargeableStomach = currentlyChargingMech?.genes?.GetFirstGeneOfType<Gene_Rechargeable>();
 				}
@@ -199,7 +206,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (currentlyChargingMech != null && Power.PowerOn)
 			{
-				currentlyChargingMech.needs.food.CurLevel += 0.000833333354f;
+				currentlyChargingMech.needs.food.CurLevel += chargePerTick;
 				wasteProduced += WasteProducedPerTick;
 				wasteProduced = Mathf.Clamp(wasteProduced, 0f, WasteProducedPerChargingCycle);
 				if (wasteProduced >= (float)WasteProducedPerChargingCycle && !Container.innerContainer.Any)
@@ -243,6 +250,31 @@ namespace WVC_XenotypesAndGenes
 			EffecterDefOf.MechChargerWasteProduced.Spawn(base.Position, base.Map).Cleanup();
 		}
 
+		public override IEnumerable<FloatMenuOption> GetFloatMenuOptions(Pawn selPawn)
+		{
+			foreach (FloatMenuOption floatMenuOption in base.GetFloatMenuOptions(selPawn))
+			{
+				yield return floatMenuOption;
+			}
+			if (!CanPawnChargeCurrently(selPawn))
+			{
+				yield break;
+			}
+			// Log.Error("0");
+			Gene_Rechargeable gene = selPawn?.genes?.GetFirstGeneOfType<Gene_Rechargeable>();
+			if (gene?.Props?.xenoChargerDef == def)
+			{
+				// Log.Error("1");
+				yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("WVC_ForceRecharge".Translate(), delegate
+				{
+					Job job = JobMaker.MakeJob(gene.Props.rechargeableStomachJobDef, this);
+					job.overrideFacing = Rot4.South;
+					selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, false);
+				}), selPawn, this);
+			}
+			// Log.Error("End 0");
+		}
+
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
 			foreach (Gizmo gizmo in base.GetGizmos())
@@ -253,57 +285,57 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
-            Command_Action command_Action = new()
-            {
-                action = delegate
-                {
-                    wasteProduced = WasteProducedPerChargingCycle;
-                },
-                defaultLabel = "DEV: Waste 100%"
-            };
-            yield return command_Action;
-            Command_Action command_Action2 = new()
-            {
-                action = delegate
-                {
-                    wasteProduced += 0.25f * (float)WasteProducedPerChargingCycle;
-                    wasteProduced = Mathf.Clamp(wasteProduced, 0f, WasteProducedPerChargingCycle);
-                },
-                defaultLabel = "DEV: Waste +25%"
-            };
-            yield return command_Action2;
-            Command_Action command_Action3 = new()
-            {
-                action = delegate
-                {
-                    wasteProduced = 0f;
-                },
-                defaultLabel = "DEV: Waste 0%"
-            };
-            yield return command_Action3;
+			Command_Action command_Action = new()
+			{
+				action = delegate
+				{
+					wasteProduced = WasteProducedPerChargingCycle;
+				},
+				defaultLabel = "DEV: Waste 100%"
+			};
+			yield return command_Action;
+			Command_Action command_Action2 = new()
+			{
+				action = delegate
+				{
+					wasteProduced += 0.25f * (float)WasteProducedPerChargingCycle;
+					wasteProduced = Mathf.Clamp(wasteProduced, 0f, WasteProducedPerChargingCycle);
+				},
+				defaultLabel = "DEV: Waste +25%"
+			};
+			yield return command_Action2;
+			Command_Action command_Action3 = new()
+			{
+				action = delegate
+				{
+					wasteProduced = 0f;
+				},
+				defaultLabel = "DEV: Waste 0%"
+			};
+			yield return command_Action3;
 			if (!Container.innerContainer.Any)
 			{
-                Command_Action command_Action4 = new()
-                {
-                    action = delegate
-                    {
-                        GenerateWastePack();
-                    },
-                    defaultLabel = "DEV: Generate waste"
-                };
-                yield return command_Action4;
+				Command_Action command_Action4 = new()
+				{
+					action = delegate
+					{
+						GenerateWastePack();
+					},
+					defaultLabel = "DEV: Generate waste"
+				};
+				yield return command_Action4;
 			}
 			if (currentlyChargingMech != null)
 			{
-                Command_Action command_Action5 = new()
-                {
-                    action = delegate
-                    {
-                        currentlyChargingMech.needs.TryGetNeed<Need_MechEnergy>().CurLevelPercentage = 1f;
-                    },
-                    defaultLabel = "DEV: Charge 100%"
-                };
-                yield return command_Action5;
+				Command_Action command_Action5 = new()
+				{
+					action = delegate
+					{
+						currentlyChargingMech.needs.TryGetNeed<Need_Food>().CurLevelPercentage = 1f;
+					},
+					defaultLabel = "DEV: Charge 100%"
+				};
+				yield return command_Action5;
 			}
 		}
 
@@ -315,6 +347,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			currentlyChargingMech = mech;
+			gene_RechargeableStomach = currentlyChargingMech?.genes?.GetFirstGeneOfType<Gene_Rechargeable>();
 			RechargeableStomach.currentCharger = this;
 			wireExtensionTicks = 0;
 			SoundDefOf.MechChargerStart.PlayOneShot(this);
@@ -331,6 +364,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				RechargeableStomach.currentCharger = null;
 			}
+			gene_RechargeableStomach = null;
 			currentlyChargingMech = null;
 			wireExtensionTicks = 0;
 		}
@@ -387,12 +421,12 @@ namespace WVC_XenotypesAndGenes
 			return stringBuilder.ToString();
 		}
 
-		// public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
-		// {
-			// IEnumerable<PawnKindDef> source = DefDatabase<PawnKindDef>.AllDefs.Where((PawnKindDef pk) => IsCompatibleWithCharger(pk));
-			// string text = source.Select((PawnKindDef pk) => pk.LabelCap.Resolve()).ToLineList(" - ");
-			// yield return new StatDrawEntry(StatCategoryDefOf.Basics, "StatsReport_RechargerWeightClass".Translate(), def.building.requiredMechWeightClasses.Select((MechWeightClass w) => w.ToStringHuman()).ToCommaList().CapitalizeFirst(), "StatsReport_RechargerWeightClass_Desc".Translate() + ": " + "\n\n" + text, 99999, null, source.Select((PawnKindDef pk) => new Dialog_InfoCard.Hyperlink(pk.race)));
-		// }
+		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
+		{
+			IEnumerable<GeneDef> source = DefDatabase<GeneDef>.AllDefs.Where((GeneDef pk) => pk.GetModExtension<GeneExtension_Giver>() != null && pk.GetModExtension<GeneExtension_Giver>().xenoChargerDef == def);
+			string text = source.Select((GeneDef pk) => pk.LabelCap.Resolve()).ToLineList(" - ");
+			yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_StatsReport_RechargerGeneClass".Translate(), source.Select((GeneDef w) => w.label).ToCommaList().CapitalizeFirst(), "WVC_StatsReport_RechargerGeneClass_Desc".Translate() + ": " + "\n\n" + text, 99999, null, source.Select((GeneDef pk) => new Dialog_InfoCard.Hyperlink(pk)));
+		}
 
 		public override void ExposeData()
 		{

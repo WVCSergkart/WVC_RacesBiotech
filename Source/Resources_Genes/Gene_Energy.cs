@@ -81,9 +81,12 @@ namespace WVC_XenotypesAndGenes
 				yield return new Command_Action
 				{
 					defaultLabel = "DEV: TryRecharge",
+					// defaultLabel = "WVC_ForceRecharge".Translate(),
+					// defaultDesc = "WVC_ForceRechargeDesc".Translate(),
+					// icon = ContentFinder<Texture2D>.Get(def.iconPath),
 					action = delegate
 					{
-						if (!TryRecharge())
+						if (!TryRecharge(false))
 						{
 							Log.Error("Charger is null");
 						}
@@ -92,14 +95,14 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public virtual bool TryRecharge()
+		public virtual bool TryRecharge(bool requestQueueing = true)
 		{
 			Building_XenoCharger closestCharger = GetClosestCharger(pawn, pawn, forced: false, Props.xenoChargerDef);
 			if (closestCharger != null)
 			{
 				Job job = JobMaker.MakeJob(Props.rechargeableStomachJobDef, closestCharger);
 				job.overrideFacing = Rot4.South;
-				pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);
+				pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, requestQueueing);
 				return true;
 			}
 			return false;
@@ -159,7 +162,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Notify_IngestedThing(Thing thing, int numTaken)
 		{
-			if (Props?.foodPoisoningFromFood == false)
+			if (Props?.foodPoisoningFromFood == false || !WVC_Biotech.settings.rechargeable_enablefoodPoisoningFromFood)
 			{
 				return;
 			}

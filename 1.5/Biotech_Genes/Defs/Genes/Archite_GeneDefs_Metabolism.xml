@@ -95,46 +95,4 @@
 	</symbolPack>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_Mechanoidization_PowerSourceBase">
-	<defName>WVC_MechaPowerSource_Tox</defName>
-	<label>tox saturation</label>
-	<!-- <label>rechargeable</label> -->
-	<!-- <description>Carriers of this gene have archites that, when given special electrical stimulation, replenish nutrients in the carrier's body.</description> -->
-	<iconPath>WVC/UI/Genes/PowerSource_Tox</iconPath>
-	<geneClass>WVC_XenotypesAndGenes.Gene_Spawner</geneClass>
-	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Rechargeable</geneClass> -->
-	<biostatCpx>1</biostatCpx>
-	<biostatArc>2</biostatArc>
-	<biostatMet>5</biostatMet>
-	<minAgeActive>3</minAgeActive>
-	<customEffectDescriptions>
-		<li>Spawns 5 wastepacks every (*DateTime)2-5 days(/DateTime).</li>
-		<li>Stack count increases or decreases relative to metabolism.</li>
-		<!-- <li>Сarrier can be charged at special &lt;color=#8a8ae6&gt;recharging stations&lt;/color&gt; to replenish nutrition.</li> -->
-		<!-- <li>Charging in this way generates &lt;color=#8a8ae6&gt;wastepacks&lt;/color&gt;.</li> -->
-	</customEffectDescriptions>
-	<symbolPack>
-	  <prefixSymbols>
-		<li><symbol>tox</symbol></li>
-		<li><symbol>toxic</symbol></li>
-	  </prefixSymbols>
-	  <suffixSymbols>
-		<li><symbol>tox</symbol></li>
-		<li><symbol>ox</symbol></li>
-	  </suffixSymbols>
-	</symbolPack>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
-			<thingDefToSpawn>Wastepack</thingDefToSpawn>
-			<stackCount>5</stackCount>
-			<showMessageIfOwned>false</showMessageIfOwned>
-		</li>
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
-			<!-- <foodPoisoningFromFood>false</foodPoisoningFromFood> -->
-			<!-- <rechargeableStomachJobDef>WVC_RechargeableStomach</rechargeableStomachJobDef> -->
-			<!-- <xenoChargerDef>WVC_GeneRecharger</xenoChargerDef> -->
-		<!-- </li> -->
-	</modExtensions>
-  </GeneDef>
-
 </Defs>

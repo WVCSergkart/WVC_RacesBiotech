@@ -100,6 +100,8 @@ namespace WVC_XenotypesAndGenes
 		public float chimeraStartingGenes = 5f;
 		// DryadQueen
 		public bool enable_dryadQueenMechanicGenerator = true;
+		// Rechargeable
+		public bool rechargeable_enablefoodPoisoningFromFood = true;
 		// Xenotypes
 		public bool enable_spawnXenotypesInFactions = false;
 		// public bool increasedXenotypesFactionlessGenerationWeight_MainSwitch = false;
@@ -210,6 +212,8 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref chimeraStartingGenes, "chimeraStartingGenes", defaultValue: 5f);
 			// DryadQueen
 			Scribe_Values.Look(ref enable_dryadQueenMechanicGenerator, "enable_dryadQueenMechanicGenerator", defaultValue: true);
+			// Rechargeable
+			Scribe_Values.Look(ref rechargeable_enablefoodPoisoningFromFood, "rechargeable_enablefoodPoisoningFromFood", defaultValue: true);
 			// Reincarnation
 			Scribe_Values.Look(ref disableXenotypes_MainSwitch, "disableXenotypes_MainSwitch", defaultValue: false);
 			Scribe_Values.Look(ref disableXenotypes_Undeads, "disableXenotypes_Undeads", defaultValue: false);
@@ -661,6 +665,10 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.SliderLabeledWithRef("WVC_Label_hemogenic_ImplanterFangsChanceFactor".Translate((settings.hemogenic_ImplanterFangsChanceFactor * 100f).ToString()), ref settings.hemogenic_ImplanterFangsChanceFactor, 0f, 10f, null, 2);
 			listingStandard.GapLine();
 			// =
+			listingStandard.Label("WVC_XaGGeneSettings_Energy".Translate() + ":", -1);
+			listingStandard.CheckboxLabeled("WVC_Label_rechargeable_enablefoodPoisoningFromFood".Translate().Colorize(ColorLibrary.LightBlue), ref settings.rechargeable_enablefoodPoisoningFromFood, "WVC_ToolTip_rechargeable_enablefoodPoisoningFromFood".Translate());
+			listingStandard.GapLine();
+			// =
 			listingStandard.Label("WVC_XaGGeneSettings_XenotypeGestator".Translate() + ":", -1);
 			listingStandard.SliderLabeledWithRef("WVC_Label_xenotypeGestator_GestationTimeFactor".Translate((settings.xenotypeGestator_GestationTimeFactor * 100f).ToString()), ref settings.xenotypeGestator_GestationTimeFactor, 0f, 2f);
 			listingStandard.SliderLabeledWithRef("WVC_Label_xenotypeGestator_GestationMatchPercent".Translate((settings.xenotypeGestator_GestationMatchPercent * 100f).ToString()), ref settings.xenotypeGestator_GestationMatchPercent, 0f, 1f);
@@ -877,6 +885,8 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.link_addedPsylinkWithGene = true;
 			WVC_Biotech.settings.link_removeMechlinkWithGene = false;
 			WVC_Biotech.settings.link_removePsylinkWithGene = false;
+			// =
+			WVC_Biotech.settings.rechargeable_enablefoodPoisoningFromFood = true;
 			// Extra
 			WVC_Biotech.settings.genesCanTickOnlyOnMap = false;
 			WVC_Biotech.settings.enable_flatGenesSpawnChances = false;
@@ -984,6 +994,8 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.link_addedPsylinkWithGene = true;
 			WVC_Biotech.settings.link_removeMechlinkWithGene = false;
 			WVC_Biotech.settings.link_removePsylinkWithGene = false;
+			// =
+			WVC_Biotech.settings.rechargeable_enablefoodPoisoningFromFood = true;
 			// =
 			// Extra
 			WVC_Biotech.settings.genesCanTickOnlyOnMap = false;

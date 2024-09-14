@@ -3,16 +3,16 @@
 
   <ThingDef ParentName="BaseMechCharger">
 	<defName>WVC_GeneRecharger</defName>
-	<label>xenogene recharger</label>
+	<label>xenohuman recharger</label>
 	<description>Xenohumans with rechargeable gene can recharge here. During recharge, this recharger produces toxic wastepacks and stores them internally. Haulers must remove the wastepacks from time to time.</description>
-	<descriptionHyperlinks>
-	  <GeneDef>WVC_MechaPowerSource_Tox</GeneDef>
-	</descriptionHyperlinks>
+	<!-- <descriptionHyperlinks> -->
+	  <!-- <GeneDef>WVC_MechaPowerSource_Tox</GeneDef> -->
+	<!-- </descriptionHyperlinks> -->
 	<thingClass>WVC_XenotypesAndGenes.Building_XenoCharger</thingClass>
 	<graphicData>
-	  <texPath>Things/Building/Production/BasicRecharger</texPath>
+	  <texPath>WVC/Things/XaG_Buildings/XenotypesCharger/XenoRecharger</texPath>
 	  <graphicClass>Graphic_Multi</graphicClass>
-	  <drawSize>(1.25,1.25)</drawSize>
+	  <drawSize>(1.0,1.0)</drawSize>
 	  <shadowData>
 		<volume>(0.9, 0.5, 0.9)</volume>
 	  </shadowData>
@@ -20,9 +20,9 @@
 	<interactionCellOffset>(0,0,1)</interactionCellOffset>
 	<passability>PassThroughOnly</passability>
 	<statBases>
-	  <MaxHitPoints>150</MaxHitPoints>
-	  <WorkToBuild>8000</WorkToBuild>
-	  <Mass>25</Mass>
+	  <MaxHitPoints>90</MaxHitPoints>
+	  <WorkToBuild>5600</WorkToBuild>
+	  <Mass>18</Mass>
 	  <Flammability>0.5</Flammability>
 	</statBases>
 	<size>(1,1)</size>
@@ -50,7 +50,7 @@
 	  </barDrawData>
 	</building>
 	<costList>
-	  <Steel>125</Steel>
+	  <Steel>80</Steel>
 	  <ComponentIndustrial>1</ComponentIndustrial>
 	</costList>
 	<researchPrerequisites>
@@ -65,7 +65,7 @@
 	  </li>
 	  <li Class="CompProperties_Power">
 		<compClass>CompPowerTrader</compClass>
-		<basePowerConsumption>200</basePowerConsumption>
+		<basePowerConsumption>180</basePowerConsumption>
 	  </li>
 	</comps>
   </ThingDef>

@@ -19,6 +19,7 @@
 	<WVC_XaGGeneSettings_Dustogenic>Dustogenic</WVC_XaGGeneSettings_Dustogenic>
 	<WVC_XaGGeneSettings_TelepathStudy>Telepath study</WVC_XaGGeneSettings_TelepathStudy>
 	<WVC_XaGGeneSettings_Hemogenic>Hemogenic</WVC_XaGGeneSettings_Hemogenic>
+	<WVC_XaGGeneSettings_Energy>Energy (Rechargeable)</WVC_XaGGeneSettings_Energy>
 	<WVC_XaGGeneSettings_MechAndPsyLinks>Mechlink and Psylink</WVC_XaGGeneSettings_MechAndPsyLinks>
 	<WVC_XaGGeneSettings_DryadQueen>Dryad queen</WVC_XaGGeneSettings_DryadQueen>
 
@@ -184,5 +185,12 @@ A restart is required.</WVC_ToolTip_enable_dryadQueenMechanicGenerator>
 Enabling may slightly increase performance in some situations when predators are looking for prey.
 
 A restart is required.</WVC_ToolTip_disableNonAcceptablePreyGenes>
+
+	<!-- ================================== -->
+
+	<WVC_Label_rechargeable_enablefoodPoisoningFromFood>Enable food poisoning from any food</WVC_Label_rechargeable_enablefoodPoisoningFromFood>
+	<WVC_ToolTip_rechargeable_enablefoodPoisoningFromFood>If enabled, pawns with the "Rechargeable" gene will get poisoned from food.
+
+This affects all rechargeable class genes that cause poisoning.</WVC_ToolTip_rechargeable_enablefoodPoisoningFromFood>
 
 </LanguageData>
