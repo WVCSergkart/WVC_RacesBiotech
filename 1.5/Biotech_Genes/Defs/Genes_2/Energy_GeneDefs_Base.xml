@@ -9,6 +9,8 @@
 	</descriptionHyperlinks>
 	<marketValueFactor>1.1</marketValueFactor>
 	<minAgeActive>3</minAgeActive>
+	<displayCategory>WVC_Energy</displayCategory>
+	<displayOrderInCategory>0</displayOrderInCategory>
 	<customEffectDescriptions>
 		<li>Сarrier can be charged at special &lt;color=#8a8ae6&gt;recharging stations&lt;/color&gt; to replenish nutrition.</li>
 		<li>Charging in this way generates &lt;color=#8a8ae6&gt;wastepacks&lt;/color&gt;.</li>
@@ -39,6 +41,7 @@
 	<label>rechargeable</label> 
 	<geneClass>WVC_XenotypesAndGenes.Gene_Rechargeable</geneClass>
 	<iconPath>WVC/UI/Genes/PowerSource_Stable</iconPath>
+	<displayOrderInCategory>0</displayOrderInCategory>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>2</biostatMet>
@@ -56,6 +59,7 @@
 	<defName>WVC_MechaPowerSource_Unstable</defName>
 	<label>faulty rechargeable</label> 
 	<iconPath>WVC/UI/Genes/PowerSource_Unstable</iconPath>
+	<displayOrderInCategory>5</displayOrderInCategory>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>3</biostatMet>
@@ -104,6 +108,7 @@
 	<defName>WVC_MechaPowerSource_Tox</defName>
 	<label>rechargeable stomach</label>
 	<iconPath>WVC/UI/Genes/PowerSource_Tox</iconPath>
+	<displayOrderInCategory>10</displayOrderInCategory>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>2</biostatArc>
 	<biostatMet>5</biostatMet>

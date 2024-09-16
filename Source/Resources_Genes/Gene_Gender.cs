@@ -64,7 +64,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (pawn.DevelopmentalStage != DevelopmentalStage.Adult)
+			if (pawn?.DevelopmentalStage != DevelopmentalStage.Adult)
 			{
 				return;
 			}
@@ -92,7 +92,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void Remove()
 		{
-			if (pawn.DevelopmentalStage != DevelopmentalStage.Adult)
+			if (pawn?.DevelopmentalStage != DevelopmentalStage.Adult)
 			{
 				return;
 			}

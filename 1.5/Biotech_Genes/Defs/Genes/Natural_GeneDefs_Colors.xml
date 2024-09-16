@@ -161,6 +161,14 @@
 	<skinColorOverride>(93,101,126)</skinColorOverride>
   </GeneDef>
 
+  <!-- =============== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
+	<defName>WVC_SkinColor_Metal</defName>
+	<label>metal skin</label>
+	<skinColorOverride>(101,95,95)</skinColorOverride>
+  </GeneDef>
+
   <!-- ======================================================== -->
 
   <GeneDef ParentName="GeneHairColorBase" Name="WVC_XenotypesAndGenes_GeneHairColorBase" Abstract="True">

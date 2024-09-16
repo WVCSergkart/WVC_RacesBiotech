@@ -11,10 +11,12 @@
 	<iconPath>WVC/UI/Xeno2Icons/Xeno13</iconPath>
 	<displayPriority>-1100</displayPriority>
 	<genes>
-		<li>WVC_MechaSkin</li>
+		<!-- <li>WVC_MechaSkin</li> -->
+		<li>WVC_CyberSkin</li>
 		<li>WVC_MechaPowerSource_Tox</li>
-		<li>WVC_GenePackSpawner_Disable</li>
-		<li>WVC_GenePackSpawner_Mecha</li>
+		<!-- <li>WVC_GenePackSpawner_Disable</li> -->
+		<!-- <li>WVC_GenePackSpawner_Mecha</li> -->
+		<li>WVC_Genemaker</li>
 		<li>WVC_MechaAI_FirmwareCreatorMachine</li>
 		<li>WVC_MechaAI_FirmwareGreenMachine</li>
 		<li>WVC_MechaAI_FirmwarePropagandaMachine</li>
@@ -38,8 +40,9 @@
 		<li>Body_Standard</li>
 		<!-- <li>Hair_InkBlack</li> -->
 		<li>WVC_HairColor_Slate</li>
-		<li>WVC_SkinColor_b4c8ff_HEX</li>
-		<li>WVC_SkinColor_c8b4ff_HEX</li>
+		<!-- <li>WVC_SkinColor_b4c8ff_HEX</li> -->
+		<!-- <li>WVC_SkinColor_c8b4ff_HEX</li> -->
+		<li>WVC_SkinColor_Metal</li>
 		<li>WVC_BodySize_Small</li>
 		<li>WVC_PredatorPrey_NotTasty</li>
 		<!-- New -->

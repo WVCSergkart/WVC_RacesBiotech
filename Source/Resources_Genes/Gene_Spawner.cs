@@ -19,15 +19,15 @@ namespace WVC_XenotypesAndGenes
 		public int ticksUntilSpawn;
 
 		// For info
-		private int cachedStackCount;
+		private int? cachedStackCount;
 
 		public int FinalStackCount
 		{
 			get
 			{
-				if (cachedStackCount != 0)
+				if (cachedStackCount.HasValue)
 				{
-					return cachedStackCount;
+					return cachedStackCount.Value;
 				}
 				return GetStackModifier();
 			}
@@ -66,18 +66,33 @@ namespace WVC_XenotypesAndGenes
 			List<Gene> genes = pawn?.genes?.GenesListForReading;
 			if (genes.NullOrEmpty())
 			{
-				cachedStackCount = (int)modifier;
-				return cachedStackCount;
+				cachedStackCount = Props.stackCount;
+				return cachedStackCount.Value;
 			}
 			int met = 0;
 			foreach (Gene item in genes)
 			{
 				met += item.def.biostatMet;
 			}
-			modifier += met * 0.1f;
+			if (met > 0f)
+			{
+				float factor = 1f + (met * 0.1f);
+				modifier = factor > 0f ? factor : 0f;
+			}
+			else if (met < 0f)
+			{
+				float factor = 1f - ((met * -1) * 0.1f);
+				modifier = factor;
+			}
+			if (modifier == 0)
+			{
+				cachedStackCount = Props.stackCount;
+				return cachedStackCount.Value;
+			}
+			// modifier += met * 0.1f;
 			int countedStack = (int)(Props.stackCount * modifier);
 			cachedStackCount = countedStack <= 1 ? 1 : countedStack;
-			return cachedStackCount;
+			return cachedStackCount.Value;
 		}
 
 		private void ResetInterval()

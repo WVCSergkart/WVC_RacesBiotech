@@ -124,7 +124,23 @@
 	</bodyTypeGraphicPaths>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
-			<furIsSkin>true</furIsSkin>
+			<furIsSkinWithMask>true</furIsSkinWithMask>
+		</li>
+	</modExtensions>
+  </FurDef>
+
+  <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">
+	<defName>WVC_CyberSkin</defName>
+	<bodyTypeGraphicPaths>
+	  <Male>WVC/Bodies/Cyberskin_Body/Naked_Male</Male>
+	  <Female>WVC/Bodies/Cyberskin_Body/Naked_Female</Female>
+	  <Hulk>WVC/Bodies/Cyberskin_Body/Naked_Hulk</Hulk>
+	  <Fat>WVC/Bodies/Cyberskin_Body/Naked_Fat</Fat>
+	  <Thin>WVC/Bodies/Cyberskin_Body/Naked_Thin</Thin>
+	</bodyTypeGraphicPaths>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<furIsSkinWithMask>true</furIsSkinWithMask>
 		</li>
 	</modExtensions>
   </FurDef>

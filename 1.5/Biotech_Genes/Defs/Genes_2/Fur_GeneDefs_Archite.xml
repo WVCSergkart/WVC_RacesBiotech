@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" Name="WVC_XenotypesAndGenes_GeneMechaskinBasic" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_MechaSkin</defName>
 	<label>mechaskin</label>
-	<labelShortAdj>mechaskin</labelShortAdj>
 	<description>Carriers of this gene have archites that completely transform their body. 
 
 The body is covered with plates, and the skin becomes hard and resembles plasteel to the touch. The glands are replaced by small colonies of mechanites that serve the body. Mechanites have flexibly adapted to the host's body, making their influence almost imperceptible. The hairline completely disappears, remaining only on the head or face. Muscle tissues are strengthened and become more resilient. 
@@ -15,7 +14,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	<biostatArc>1</biostatArc>
 	<iconPath>WVC/UI/Genes/Gene_FurskinD_v0</iconPath>
 	<fur>WVC_MechaSkin</fur>
-	<tattoosVisible>false</tattoosVisible>
+	<tattoosVisible>true</tattoosVisible>
 	<neverGrayHair>true</neverGrayHair>
 	<forcedHeadTypes>
 	  <li>Male_AverageNormal</li>
@@ -23,7 +22,7 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <li>Female_AverageNormal</li>
 	  <li>Female_AveragePointy</li>
 	</forcedHeadTypes>
-	<missingGeneRomanceChanceFactor>0.5</missingGeneRomanceChanceFactor>
+	<missingGeneRomanceChanceFactor>0.6</missingGeneRomanceChanceFactor>
 	<statOffsets>
 	  <ComfyTemperatureMax>14</ComfyTemperatureMax>
 	  <ComfyTemperatureMin>-46</ComfyTemperatureMin>
@@ -32,9 +31,6 @@ Most of the internal organs remain intact, but there are enough external changes
 	  <ArmorRating_Heat>0.21</ArmorRating_Heat>
 	  <ToxicEnvironmentResistance MayRequireAnyOf="wvc.wvcmod.wvcspecific">2.0</ToxicEnvironmentResistance>
 	</statOffsets>
-	<customEffectDescriptions>
-		<li>&lt;color=#ff8585&gt;Disable tattoos.&lt;/color&gt;</li>
-	</customEffectDescriptions>
 	<makeImmuneTo>
 	  <li>MuscleParasites</li>
 	</makeImmuneTo>
@@ -67,6 +63,19 @@ Most of the internal organs remain intact, but there are enough external changes
 			<customBloodEffect>Damage_HitMechanoid</customBloodEffect>
 		</li>
 	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechaskinBasic" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_CyberSkin</defName>
+	<label>cyberskin</label>
+	<iconPath>WVC/UI/Genes/Gene_Cyberskin_v0</iconPath>
+	<fur>WVC_CyberSkin</fur>
+	<!-- <forcedHeadTypes Inherit="False"> -->
+	  <!-- <li>Male_AverageNormal</li> -->
+	  <!-- <li>Male_AveragePointy</li> -->
+	  <!-- <li>Female_AverageNormal</li> -->
+	  <!-- <li>Female_AveragePointy</li> -->
+	<!-- </forcedHeadTypes> -->
   </GeneDef>
 
   <!-- ================================================================== -->

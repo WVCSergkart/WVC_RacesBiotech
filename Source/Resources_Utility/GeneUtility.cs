@@ -534,6 +534,24 @@ namespace WVC_XenotypesAndGenes
 			return matched;
 		}
 
+		public static List<CustomXenotype> GetAllMatchedCustomXenotypes(Pawn pawn, List<CustomXenotype> xenotypeDefs, float percent = 0.6f)
+		{
+			List<Gene> pawnGenes = pawn?.genes?.GenesListForReading;
+			if (pawnGenes.NullOrEmpty() || xenotypeDefs.NullOrEmpty())
+			{
+				return null;
+			}
+			List<CustomXenotype> matched = new();
+			foreach (CustomXenotype item in xenotypeDefs)
+			{
+				if (GenesIsMatch(pawnGenes, item.genes, percent))
+				{
+					matched.Add(item);
+				}
+			}
+			return matched;
+		}
+
 		public static List<GeneDef> GetMatchingGenesList(List<Gene> pawnGenes, List<GeneDef> xenotypeGenes)
 		{
 			if (pawnGenes.NullOrEmpty() || xenotypeGenes.NullOrEmpty())

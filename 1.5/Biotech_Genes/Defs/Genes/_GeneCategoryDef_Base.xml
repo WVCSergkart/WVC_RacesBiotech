@@ -1,50 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <!-- <GeneCategoryDef> -->
-	<!-- <defName>WVC_MechaBody</defName> -->
-	<!-- <label>archite - Misc</label> -->
-	<!-- <displayPriorityInXenotype>3926</displayPriorityInXenotype> -->
-  <!-- </GeneCategoryDef> -->
-  <!-- <GeneCategoryDef> -->
-	<!-- <defName>WVC_MechaBodyWare</defName> -->
-	<!-- <label>archite - Brain</label> -->
-	<!-- <displayPriorityInXenotype>3925</displayPriorityInXenotype> -->
-  <!-- </GeneCategoryDef> -->
-  <!-- <GeneCategoryDef> -->
-	<!-- <defName>WVC_MechaBodyEncoding</defName> -->
-	<!-- <label>archite - Encode</label> -->
-	<!-- <displayPriorityInXenotype>3924</displayPriorityInXenotype> -->
-  <!-- </GeneCategoryDef> -->
-  <!-- <GeneCategoryDef> -->
-	<!-- <defName>WVC_MechaBodyWare</defName> -->
-	<!-- <label>archite - Firmware</label> -->
-	<!-- <displayPriorityInXenotype>3925</displayPriorityInXenotype> -->
-  <!-- </GeneCategoryDef> -->
-  <!-- <GeneCategoryDef> -->
-	<!-- <defName>WVC_MechaBodyWare</defName> -->
-	<!-- <label>archite - Software</label> -->
-	<!-- <displayPriorityInXenotype>3924</displayPriorityInXenotype> -->
-  <!-- </GeneCategoryDef> -->
-  <!-- <GeneCategoryDef> -->
-	<!-- <defName>WVC_MechaBodyParts</defName> -->
-	<!-- <label>archite - Body</label> -->
-	<!-- <displayPriorityInXenotype>3923</displayPriorityInXenotype> -->
-  <!-- </GeneCategoryDef> -->
-  <!-- <GeneCategoryDef> -->
-	<!-- <defName>WVC_MechaBodyParts</defName> -->
-	<!-- <label>archite - Other</label> -->
-	<!-- <displayPriorityInXenotype>3921</displayPriorityInXenotype> -->
-  <!-- </GeneCategoryDef> -->
-  <!-- <GeneCategoryDef> -->
-	<!-- <defName>WVC_MechaBodyVoices</defName> -->
-	<!-- <label>archite - Voices</label> -->
-	<!-- <displayPriorityInXenotype>3919</displayPriorityInXenotype> -->
-  <!-- </GeneCategoryDef> -->
   <GeneCategoryDef>
 	<defName>WVC_XenotypeSerumSpawners</defName>
 	<label>spawners</label>
-	<!-- <displayPriorityInXenotype>3917</displayPriorityInXenotype> -->
 	<displayPriorityInXenotype>400.2886992038</displayPriorityInXenotype>
   </GeneCategoryDef>
 
@@ -63,18 +22,16 @@
 	<label>resurgent</label>
 	<displayPriorityInXenotype>510.2886992038</displayPriorityInXenotype>
   </GeneCategoryDef>
-  <!-- <GeneCategoryDef> -->
-	<!-- <defName>WVC_Shapeshifter</defName> -->
-	<!-- <label>shapeshifter</label> -->
-	<!-- <displayPriorityInXenotype>509.2886992038</displayPriorityInXenotype> -->
-  <!-- </GeneCategoryDef> -->
   <GeneCategoryDef>
 	<defName>WVC_Shapeshifter</defName>
 	<label>shapeshifter</label>
 	<displayPriorityInXenotype>509.2886992038</displayPriorityInXenotype>
-	<!-- <label>xenotype forcers</label> -->
-	<!-- <displayPriorityInXenotype>-9999.2886992038</displayPriorityInXenotype> -->
-	<!-- <displayPriorityInGenepack>-9999.2886992038</displayPriorityInGenepack> -->
+  </GeneCategoryDef>
+  <!-- Dryads 508.2886992038 -->
+  <GeneCategoryDef>
+	<defName>WVC_Energy</defName>
+	<label>energy</label>
+	<displayPriorityInXenotype>507.2886992038</displayPriorityInXenotype>
   </GeneCategoryDef>
 
   <GeneCategoryDef>
@@ -94,12 +51,6 @@
 	<label>aptitudes - pattern</label>
 	<displayPriorityInXenotype>198.2886992038</displayPriorityInXenotype>
   </GeneCategoryDef>
-
-  <!-- <GeneCategoryDef> -->
-	<!-- <defName>WVC_Miscellaneous</defName> -->
-	<!-- <label>miscellaneous:</label> -->
-	<!-- <displayPriorityInXenotype>270.2886992038</displayPriorityInXenotype> -->
-  <!-- </GeneCategoryDef> -->
 
   <GeneCategoryDef>
 	<defName>WVC_Cosmetic</defName>

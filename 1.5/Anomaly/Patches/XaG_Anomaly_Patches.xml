@@ -47,6 +47,13 @@
 	  </value>
 	</Operation>
 
+	<!-- <Operation Class="PatchOperationReplace"> -->
+	  <!-- <xpath>/Defs/XenotypeDef[defName="WVC_GeneThrower"]/genes/li[@Tag="CultSkin"]</xpath> -->
+	  <!-- <value> -->
+		<!-- <li>WVC_CultSkin</li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
 	<!-- <Operation Class="PatchOperationSequence"> -->
 		<!-- <success>Always</success> -->
 		<!-- <operations> -->

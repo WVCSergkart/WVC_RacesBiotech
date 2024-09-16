@@ -152,16 +152,17 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			SoundDefOf.Execute_Cut.PlayOneShot(pawn);
-			CellRect cellRect = new(pawn.PositionHeld.x - 1, pawn.PositionHeld.z - 1, 3, 3);
-			for (int i = 0; i < 3; i++)
-			{
-				IntVec3 randomCell = cellRect.RandomCell;
-				if (!randomCell.InBounds(pawn.Map) || !GenSight.LineOfSight(randomCell, pawn.PositionHeld, pawn.Map))
-				{
-					continue;
-				}
-				FilthMaker.TryMakeFilth(randomCell, pawn.MapHeld, pawn.RaceProps.BloodDef, pawn.LabelIndefinite());
-			}
+			// CellRect cellRect = new(pawn.PositionHeld.x - 1, pawn.PositionHeld.z - 1, 3, 3);
+			// for (int i = 0; i < 3; i++)
+			// {
+				// IntVec3 randomCell = cellRect.RandomCell;
+				// if (!randomCell.InBounds(pawn.Map) || !GenSight.LineOfSight(randomCell, pawn.PositionHeld, pawn.Map))
+				// {
+					// continue;
+				// }
+				// FilthMaker.TryMakeFilth(randomCell, pawn.MapHeld, pawn.RaceProps.BloodDef, pawn.LabelIndefinite());
+			// }
+			GeneFeaturesUtility.TrySpawnBloodFilth(pawn, new(2,3));
 		}
 
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()

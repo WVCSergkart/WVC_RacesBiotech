@@ -272,6 +272,10 @@ namespace WVC_XenotypesAndGenes
 				{
 					__result = GraphicDatabase.Get<Graphic_Multi>(bodyPath, ShaderDatabase.CutoutComplex, Vector2.one, skinColor, pawn.story.HairColor);
 				}
+				else if (modExtension.furIsSkinWithMask)
+				{
+					__result = GraphicDatabase.Get<Graphic_Multi>(bodyPath, WVC_Biotech.settings.useMaskForFurskinGenes ? ShaderDatabase.CutoutComplex : ShaderUtility.GetSkinShader(pawn), Vector2.one, skinColor);
+				}
 				else if (modExtension.furIsSkin)
 				{
 					__result = GraphicDatabase.Get<Graphic_Multi>(bodyPath, ShaderUtility.GetSkinShader(pawn), Vector2.one, skinColor);

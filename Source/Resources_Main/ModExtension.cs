@@ -97,6 +97,8 @@ namespace WVC_XenotypesAndGenes
 		public SoundDef soundDef;
 		// Golems
 		public List<PawnKindDef> mechTypes;
+		// Golems
+		public IntRange durationIntervalRange = new(240000, 300000);
 	}
 
 	public class GeneExtension_Undead : DefModExtension
@@ -190,6 +192,7 @@ namespace WVC_XenotypesAndGenes
 		public string backgroundPathXenoArchite = "WVC/UI/Genes/GeneBackground_XenoArchiteGene";
 		// BodySkin
 		public bool furIsSkinWithHair = false;
+		public bool furIsSkinWithMask = false;
 		public bool furIsSkin = false;
 		[Obsolete]
 		public bool furCanRot = true;

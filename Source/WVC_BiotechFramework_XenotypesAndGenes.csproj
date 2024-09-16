@@ -87,6 +87,7 @@
     <Compile Include="Resources_Genes\Gene_Dryad.cs" />
     <Compile Include="Resources_Genes\Gene_Gauranlen.cs" />
     <Compile Include="Resources_Genes\Gene_Gender.cs" />
+    <Compile Include="Resources_Genes\Gene_GeneMaker.cs" />
     <Compile Include="Resources_Genes\Gene_Harvester.cs" />
     <Compile Include="Resources_Genes\Gene_Learning.cs" />
     <Compile Include="Resources_Genes\Gene_Opinion.cs" />

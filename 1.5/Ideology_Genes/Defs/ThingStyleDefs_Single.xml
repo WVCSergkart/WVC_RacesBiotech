@@ -36,4 +36,12 @@
 	</graphicData>
   </ThingStyleDef>
 
+  <ThingStyleDef>
+	<defName>WVC_XaG_GenepackCrystal</defName>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/GenepackCrystal</texPath>
+	  <graphicClass>Graphic_Random</graphicClass>
+	</graphicData>
+  </ThingStyleDef>
+
 </Defs>

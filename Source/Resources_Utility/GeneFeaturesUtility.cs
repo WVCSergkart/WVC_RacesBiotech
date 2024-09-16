@@ -62,15 +62,16 @@ namespace WVC_XenotypesAndGenes
 			int randomInRange = bloodFilthToSpawnRange.RandomInRange;
 			for (int i = 0; i < randomInRange; i++)
 			{
-				IntVec3 c = victim.Position;
-				if (randomInRange > 1 && Rand.Chance(0.8888f))
-				{
-					c = victim.Position.RandomAdjacentCell8Way();
-				}
-				if (c.InBounds(victim.MapHeld))
-				{
-					FilthMaker.TryMakeFilth(c, victim.MapHeld, victim.RaceProps.BloodDef, victim.LabelShort);
-				}
+				// IntVec3 c = victim.Position;
+				// if (randomInRange > 1 && Rand.Chance(0.8888f))
+				// {
+					// c = victim.Position.RandomAdjacentCell8Way();
+				// }
+				// if (c.InBounds(victim.MapHeld))
+				// {
+					// FilthMaker.TryMakeFilth(c, victim.MapHeld, victim.RaceProps.BloodDef, victim.LabelShort);
+				// }
+				victim?.health?.DropBloodFilth();
 			}
 			return true;
 		}

@@ -49,6 +49,29 @@ namespace WVC_XenotypesAndGenes
 			pawn.health.AddHediff(hediff);
 		}
 
+		public static void XenogermReplicating_WithCustomDuration(Pawn pawn, IntRange durationIntervalRange)
+		{
+			Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating);
+			if (firstHediffOfDef != null)
+			{
+				HediffComp_Disappears hediffComp_Disappears = firstHediffOfDef.TryGetComp<HediffComp_Disappears>();
+				if (hediffComp_Disappears != null)
+				{
+					hediffComp_Disappears.ticksToDisappear += durationIntervalRange.RandomInRange;
+				}
+			}
+			else
+			{
+				Hediff cooldownHediff = HediffMaker.MakeHediff(HediffDefOf.XenogermReplicating, pawn);
+				HediffComp_Disappears hediffComp_Disappears = cooldownHediff.TryGetComp<HediffComp_Disappears>();
+				if (hediffComp_Disappears != null)
+				{
+					hediffComp_Disappears.ticksToDisappear = durationIntervalRange.RandomInRange;
+				}
+				pawn.health.AddHediff(cooldownHediff);
+			}
+		}
+
 		public static void SetXenotypeDirect(Pawn caster, Pawn recipient, XenotypeDef xenotypeDef = null, bool changeXenotype = true)
 		{
 			if (changeXenotype)
