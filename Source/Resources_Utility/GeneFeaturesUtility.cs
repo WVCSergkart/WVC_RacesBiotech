@@ -167,6 +167,26 @@ namespace WVC_XenotypesAndGenes
 			// Log.Error(studentSkill.def.LabelCap + " " + teachSkill.XpTotalEarned.ToString());
 		}
 
+		public static void TryLevelUpRandomSkill(Pawn student, int maxLevel = 20)
+		{
+			List<SkillRecord> studentSkills = student?.skills?.skills;
+			if (studentSkills == null)
+			{
+				return;
+			}
+			studentSkills.Where((SkillRecord ssr) => !ssr.TotallyDisabled && ssr.GetLevel(false) < maxLevel).TryRandomElementByWeight((SkillRecord wssr) => wssr.passion != Passion.None ? 1f : 0.1f, out SkillRecord studentSkill);
+			if (studentSkill == null)
+			{
+				return;
+			}
+			if (studentSkill.GetLevel(false) >= maxLevel)
+			{
+				Log.Error("Tryed lvl up maxed skill: " + studentSkill.def.LabelCap);
+			}
+			studentSkill.Learn(studentSkill.XpRequiredForLevelUp * 1.05f, true);
+			FleckMaker.AttachedOverlay(student, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
+		}
+
 		// ============================= GENE PSY HARVESTER =============================
 
 		public static bool TryHarvest(Pawn pawn, ThingDef thingDef, int stackCount, float targetBloodLoss = 0.4499f, ThingStyleDef styleDef = null)

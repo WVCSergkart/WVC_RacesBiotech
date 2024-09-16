@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneBeauty_Base">
+	<defName>WVC_BloodfeederBeauty</defName>
+	<label>bloodfeeder beauty</label>
+	<description>Carriers of this gene secrete a special hormone when bloodfeed. Everyone they bite begins to sympathize with them.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_BloodfeederBeauty</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_VampireBeauty_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<displayOrderInCategory>-45</displayOrderInCategory>
+	<selectionWeight>0.0007</selectionWeight>
+	<prerequisite>Bloodfeeder</prerequisite>
+	<customEffectDescriptions>
+	  <!-- <li>All &lt;color=#8a8ae6&gt;psychic sensitivity&lt;/color&gt; pawns &lt;color=#8a8ae6&gt;without this gene&lt;/color&gt; get -40 opinion towards gene carrier.</li> -->
+	  <li>&lt;color=#8a8ae6&gt;Each bloodfeed&lt;/color&gt; on the same target &lt;color=#8a8ae6&gt;increases the target's opinion&lt;/color&gt; by 10</li>
+	  <li>Maximum &lt;color=#8a8ae6&gt;stack&lt;/color&gt; per target is 4</li>
+	  <li>The effect lasts 5 days.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>vampire</symbol></li>
+		<li><symbol>beauty</symbol></li>
+		<li><symbol>charm</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
+			<AboutMeThoughtDef>WVC_XenotypesAndGenes_BloodfeederBeauty</AboutMeThoughtDef>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneBeauty_Base">
+	<defName>WVC_MechaAI_SoftwareMoving</defName>
+	<label>metal beauty</label>
+	<description>Carriers of this gene have archites that change them, creating a frightening, cold, mechanical appearance. They lose their sense of beauty, and their behavioral habits are creepy to others.</description>
+	<iconPath>WVC/UI/Genes/Gene_MetalBeauty_v0</iconPath>
+	<displayOrderInCategory>-70</displayOrderInCategory>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>-1</biostatArc>
+	<disablesNeeds>
+	  <li>Beauty</li>
+	</disablesNeeds>
+	<statOffsets>
+	  <PawnBeauty>-10</PawnBeauty>
+	</statOffsets>
+	<missingGeneRomanceChanceFactor>0.0</missingGeneRomanceChanceFactor>
+	<!-- <renderNodeProperties> -->
+	  <!-- <li MayRequire="ludeon.rimworld.anomaly"> -->
+		<!-- <debugLabel>Ghoul spikes</debugLabel> -->
+		<!-- <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass> -->
+		<!-- <texPaths> -->
+		  <!-- <li>Things/Pawn/Ghoul/Attachments/Barbs/GhoulBarb_A</li> -->
+		  <!-- <li>Things/Pawn/Ghoul/Attachments/Barbs/GhoulBarb_B</li> -->
+		  <!-- <li>Things/Pawn/Ghoul/Attachments/Barbs/GhoulBarb_C</li> -->
+		  <!-- <li>Things/Pawn/Ghoul/Attachments/Barbs/GhoulBarb_D</li> -->
+		  <!-- <li>Things/Pawn/Ghoul/Attachments/Barbs/GhoulBarb_E</li> -->
+		  <!-- <li>Things/Pawn/Ghoul/Attachments/Barbs/GhoulBarb_F</li> -->
+		<!-- </texPaths> -->
+		<!-- <baseLayer>65</baseLayer> -->
+		<!-- <texSeed>1</texSeed> -->
+	  <!-- </li> -->
+	  <!-- <li MayRequire="ludeon.rimworld.anomaly"> -->
+		<!-- <debugLabel>Ghoul spikes</debugLabel> -->
+		<!-- <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass> -->
+		<!-- <texPaths> -->
+		  <!-- <li>Things/Pawn/Ghoul/Attachments/Barbs/GhoulBarb_A</li> -->
+		  <!-- <li>Things/Pawn/Ghoul/Attachments/Barbs/GhoulBarb_B</li> -->
+		  <!-- <li>Things/Pawn/Ghoul/Attachments/Barbs/GhoulBarb_C</li> -->
+		  <!-- <li>Things/Pawn/Ghoul/Attachments/Barbs/GhoulBarb_D</li> -->
+		  <!-- <li>Things/Pawn/Ghoul/Attachments/Barbs/GhoulBarb_E</li> -->
+		  <!-- <li>Things/Pawn/Ghoul/Attachments/Barbs/GhoulBarb_F</li> -->
+		<!-- </texPaths> -->
+		<!-- <baseLayer>65</baseLayer> -->
+		<!-- <texSeed>2</texSeed> -->
+		<!-- <flipGraphic>true</flipGraphic> -->
+	  <!-- </li> -->
+	<!-- </renderNodeProperties> -->
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>creep</symbol></li>
+		<li><symbol>creepy</symbol></li>
+		<li><symbol>cre</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>

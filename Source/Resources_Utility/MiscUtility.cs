@@ -190,7 +190,14 @@ namespace WVC_XenotypesAndGenes
 		{
 			Thing thing = ThingMaker.MakeThing(thingDef);
 			thing.stackCount = stack;
-			GenPlace.TryPlaceThing(thing, pawn.Position, pawn.Map, ThingPlaceMode.Near, null, null, default);
+			if (pawn.Map == null && pawn.Corpse != null)
+			{
+				GenPlace.TryPlaceThing(thing, pawn.Corpse.Position, pawn.Corpse.Map, ThingPlaceMode.Near, null, null, default);
+			}
+			else
+			{
+				GenPlace.TryPlaceThing(thing, pawn.Position, pawn.Map, ThingPlaceMode.Near, null, null, default);
+			}
 			if (showMessage)
 			{
 				Messages.Message(message.Translate(thing.LabelCap), thing, MessageTypeDefOf.PositiveEvent);

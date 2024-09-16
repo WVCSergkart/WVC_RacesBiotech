@@ -170,6 +170,16 @@
 	  </value>
 	</Operation>
 
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="Pretty" or defName="Ugly"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li>WVC_MechaAI_SoftwareMoving</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
 	<!-- <Operation Class="PatchOperationSequence"> -->
 		<!-- <success>Always</success> -->
 		<!-- <operations> -->

@@ -49,25 +49,6 @@
 		<!-- </li> -->
 	<!-- </modExtensions> -->
   </GeneDef>
-
-  <!-- = -->
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
-	<defName>WVC_MechaAI_SoftwareMoving</defName>
-	<label>improved attentiveness</label>
-	<iconPath>WVC/UI/Genes/ImprovedIntuitionAttentiveness_B</iconPath>
-	<displayCategory>Violence</displayCategory>
-	<!-- <displayOrderInCategory>-120</displayOrderInCategory> -->
-	<capMods>
-	  <li>
-		<capacity>Moving</capacity>
-		<offset>0.225</offset>
-	  </li>
-	  <li>
-		<capacity>Manipulation</capacity>
-		<offset>0.225</offset>
-	  </li>
-	</capMods>
-  </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
 	<defName>WVC_MecaBodyParts_Arm</defName>

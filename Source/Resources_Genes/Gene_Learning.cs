@@ -303,4 +303,64 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_CyclicallySelfLearning : Gene_BackstoryChanger
+	{
+
+		private int hashIntervalTick = 6000;
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			ResetInterval();
+		}
+
+		public override void Tick()
+		{
+			base.Tick();
+			if (!pawn.IsHashIntervalTick(hashIntervalTick))
+			{
+				return;
+			}
+			if (!Active)
+			{
+				return;
+			}
+			TryLearning();
+			ResetInterval();
+		}
+
+		public void TryLearning()
+		{
+			GeneFeaturesUtility.TryLevelUpRandomSkill(pawn);
+		}
+
+		private void ResetInterval()
+		{
+			IntRange range = new(60000, 120000);
+			hashIntervalTick = range.RandomInRange;
+		}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: TryLevelUpRandomSkill",
+					action = delegate
+					{
+						TryLearning();
+					}
+				};
+			}
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref hashIntervalTick, "hashIntervalTick", 6000);
+		}
+
+	}
+
 }

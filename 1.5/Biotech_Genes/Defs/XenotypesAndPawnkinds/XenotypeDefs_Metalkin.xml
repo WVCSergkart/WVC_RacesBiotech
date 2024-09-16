@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- metalkin -->
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="Mechalike">
+	<defName>WVC_GeneThrower</defName>
+	<label>metalkin</label>
+	<!-- <label>throwex</label> -->
+	<!-- metalkin, ferrikind, horrors -->
+	<!-- Mystery, anomaly, metal and horror -->
+	<description>Metalkins are ageless super-humans powered by archotech-created archites in the bloodstream..</description>
+	<descriptionShort>Metalkins are ageless super-humans powered by archotech-created archites in the bloodstream..</descriptionShort>
+	<iconPath>WVC/UI/Xeno2Icons/Xeno13</iconPath>
+	<displayPriority>-1100</displayPriority>
+	<genes>
+		<!-- <li>WVC_MechaSkin</li> -->
+		<li>WVC_CyberSkin</li>
+		<!-- <li>WVC_MechaPowerSource_Tox</li> -->
+		<li>WVC_MechaPowerSource_Stable</li>
+		<!-- <li>WVC_GenePackSpawner_Disable</li> -->
+		<!-- <li>WVC_GenePackSpawner_Mecha</li> -->
+		<li>WVC_Genemaker</li>
+		<!-- <li>WVC_MechaAI_FirmwareCreatorMachine</li> -->
+		<!-- <li>WVC_MechaAI_FirmwareGreenMachine</li> -->
+		<!-- <li>WVC_MechaAI_FirmwarePropagandaMachine</li> -->
+		<li>WVC_CyclicallySelfLearning</li>
+		<li>WVC_MechaAI_PsychicDull</li>
+		<li>WVC_MecaBodyParts_Ear</li>
+		<li>WVC_MecaBodyParts_Eye</li>
+		<li>WVC_MecaBodyParts_Leg</li>
+		<li>WVC_MecaBodyParts_Stomach</li>
+		<li>WVC_MecaBodyParts_Heart</li>
+		<li>WVC_Mecha_ConnectorTail</li>
+		<li>WVC_Mecha_RedFormerSpikesDouble</li>
+		<li>WVC_VoiceMechaFabricor</li>
+		<li>WVC_MechaAI_SoftwareManipulation</li>
+		<li>WVC_MechaAI_SoftwareMoving</li>
+		<li>Ageless</li>
+		<!-- <li>DiseaseFree</li> -->
+		<!-- <li>PerfectImmunity</li> -->
+		<li>WVC_ArchitePerfectImmunity_DiseaseFree</li>
+		<li>WVC_FirefoampopMech</li>
+		<li>WVC_XenotypeGestator</li>
+		<!-- <li>ToxResist_Total</li> -->
+		<li>WVC_ToxResist_Total</li>
+		<li>WVC_MinMaxTemp_Archite</li>
+		<li>WVC_Neversleep</li>
+		<li>Body_Standard</li>
+		<!-- <li>Hair_InkBlack</li> -->
+		<li>WVC_HairColor_Slate</li>
+		<!-- <li>WVC_SkinColor_b4c8ff_HEX</li> -->
+		<!-- <li>WVC_SkinColor_c8b4ff_HEX</li> -->
+		<li>WVC_SkinColor_Metal</li>
+		<li>WVC_BodySize_Small</li>
+		<li>WVC_PredatorPrey_NotTasty</li>
+		<!-- New -->
+		<!-- <li>WVC_RechargeableStomach</li> -->
+		<!-- Anomaly -->
+		<li MayRequire="ludeon.rimworld.anomaly">WVC_Inhumanized</li>
+	</genes>
+  </XenotypeDef>
+
+</Defs>

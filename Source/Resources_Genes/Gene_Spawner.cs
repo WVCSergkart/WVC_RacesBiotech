@@ -468,19 +468,20 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (ModsConfig.AnomalyActive && !horrorSpawned)
+			if (ModsConfig.AnomalyActive && !horrorSpawned && pawn.Corpse?.Map != null)
 			{
 				SpawnMetalhorrorWithoutHediff(pawn);
 				horrorSpawned = true;
-				MiscUtility.SpawnItems(pawn, ThingDefOf.Bioferrite, 42, false);
+				MiscUtility.SpawnItems(pawn, ThingDefOf.Bioferrite, (int)((pawn.GetStatValue(StatDefOf.MeatAmount) + pawn.GetStatValue(StatDefOf.LeatherAmount)) * 0.5), false);
+				// pawn?.Corpse?.Destroy();
 			}
 		}
 
-		public static Pawn SpawnMetalhorrorWithoutHediff(Pawn infected)
+		public static void SpawnMetalhorrorWithoutHediff(Pawn infected)
 		{
 			if (!ModLister.CheckAnomaly("Metalhorror"))
 			{
-				return null;
+				return;
 			}
 			Pawn pawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(PawnKindDefOf.Metalhorror, Faction.OfEntities));
 			if (!GenAdj.TryFindRandomAdjacentCell8WayWithRoom(infected.SpawnedParentOrMe, out var result))
@@ -503,11 +504,13 @@ namespace WVC_XenotypesAndGenes
 			pawn.ageTracker.LockCurrentLifeStageIndex(index);
 			pawn.ageTracker.AgeBiologicalTicks = infected.ageTracker.AgeBiologicalTicks;
 			pawn.ageTracker.AgeChronologicalTicks = infected.ageTracker.AgeChronologicalTicks;
-			Pawn pawn2 = (Pawn)GenSpawn.Spawn(pawn, result, infected.MapHeld);
-			compMetalhorror.FindOrCreateEmergedLord();
+			Pawn pawn2 = (Pawn)GenSpawn.Spawn(pawn, result, infected.Corpse.MapHeld);
+			// compMetalhorror.FindOrCreateEmergedLord();
 			Find.BattleLog.Add(new BattleLogEntry_Event(infected, RulePackDefOf.Event_MetalhorrorEmerged, pawn2));
 			pawn2.stances.stunner.StunFor(60, null, addBattleLog: false);
-			return pawn2;
+			// return pawn2;
+			// GeneFeaturesUtility.TrySpawnBloodFilth(pawn2, new(3,4));
+			WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(pawn2, pawn2.Map).Trigger(pawn2, null);
 		}
 
 		public override void ExposeData()
