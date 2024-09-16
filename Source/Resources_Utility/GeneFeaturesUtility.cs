@@ -153,6 +153,20 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public static void TryGetRandomSkillFromPawn(Pawn student, Pawn teacher, float learnPercent)
+		{
+			List<SkillRecord> teacherSkills = teacher?.skills?.skills;
+			List<SkillRecord> studentSkills = student?.skills?.skills;
+			if (teacherSkills == null || studentSkills == null)
+			{
+				return;
+			}
+			SkillRecord studentSkill = studentSkills.Where((SkillRecord ssr) => !ssr.TotallyDisabled).RandomElement();
+			SkillRecord teachSkill = teacherSkills.Where((SkillRecord tsr) => !tsr.TotallyDisabled && tsr.def == studentSkill.def).RandomElement();
+			studentSkill.Learn(teachSkill.XpTotalEarned * learnPercent, true);
+			// Log.Error(studentSkill.def.LabelCap + " " + teachSkill.XpTotalEarned.ToString());
+		}
+
 		// ============================= GENE PSY HARVESTER =============================
 
 		public static bool TryHarvest(Pawn pawn, ThingDef thingDef, int stackCount, float targetBloodLoss = 0.4499f, ThingStyleDef styleDef = null)

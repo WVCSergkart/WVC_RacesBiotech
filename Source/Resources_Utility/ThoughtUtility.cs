@@ -12,7 +12,7 @@ namespace WVC_XenotypesAndGenes
 	public static class ThoughtUtility
 	{
 
-		public static bool TryInteractRandomly(Pawn pawn)
+		public static bool TryInteractRandomly(Pawn pawn, Gene shouldHaveGeneOfType = null)
 		{
 			// if (Pawn_InteractionsTracker.InteractedTooRecentlyToInteract())
 			// {
@@ -37,6 +37,10 @@ namespace WVC_XenotypesAndGenes
 					continue;
 				}
 				if (!p.PawnPsychicSensitive())
+				{
+					continue;
+				}
+				if (shouldHaveGeneOfType != null && !XaG_GeneUtility.HasGeneOfType(shouldHaveGeneOfType, p))
 				{
 					continue;
 				}

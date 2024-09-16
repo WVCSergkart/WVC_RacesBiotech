@@ -1,6 +1,7 @@
 using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -189,6 +190,115 @@ namespace WVC_XenotypesAndGenes
 			{
 				skill.Learn(-1f * skill.GetLevel(false), true);
 			}
+		}
+
+	}
+
+	public class Gene_PsychicNetwork : Gene
+	{
+
+		private int hashIntervalTick = 6000;
+
+		private int currentRange = 0;
+
+		public override void PostAdd()
+		{
+			// base.PostAdd();
+			ResetInterval();
+		}
+
+		public override void Tick()
+		{
+			// base.Tick();
+			if (!pawn.IsHashIntervalTick(hashIntervalTick))
+			{
+				return;
+			}
+			if (!Active)
+			{
+				return;
+			}
+			TryInteractOrLearning();
+			ResetInterval();
+		}
+
+		public void TryInteractOrLearning()
+		{
+			if (currentRange < 30000)
+			{
+				ThoughtUtility.TryInteractRandomly(pawn, this);
+			}
+			else
+			{
+				TryLearning(pawn, 0.05f);
+			}
+			// Log.Error(currentRange.ToString());
+		}
+
+		public bool TryLearning(Pawn pawn, float learnPercent = 0.1f)
+		{
+			if (pawn?.Map == null || pawn.Downed)
+			{
+				return false;
+			}
+			List<Pawn> workingList = pawn.Map.mapPawns.SpawnedPawnsInFaction(pawn.Faction);
+			workingList.Shuffle();
+			for (int i = 0; i < workingList.Count; i++)
+			{
+				Pawn p = workingList[i];
+				if (!p.RaceProps.Humanlike)
+				{
+					continue;
+				}
+				if (!p.PawnPsychicSensitive())
+				{
+					continue;
+				}
+				if (p == pawn)
+				{
+					continue;
+				}
+				// Log.Error("Try find pawn with same gene");
+				if (!XaG_GeneUtility.HasGeneOfType(this, p))
+				{
+					continue;
+				}
+				// Log.Error(p.Name.ToString());
+				GeneFeaturesUtility.TryGetRandomSkillFromPawn(pawn, p, learnPercent);
+				break;
+			}
+			FleckMaker.AttachedOverlay(pawn, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
+			return true;
+		}
+
+		private void ResetInterval()
+		{
+			IntRange range = new(6000, 90000);
+			currentRange = range.RandomInRange;
+			hashIntervalTick = currentRange;
+		}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: TryInteractOrLearning",
+					action = delegate
+					{
+						TryInteractOrLearning();
+						ResetInterval();
+					}
+				};
+			}
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref hashIntervalTick, "hashIntervalTick", 6000);
+			Scribe_Values.Look(ref currentRange, "currentRange", 0);
 		}
 
 	}

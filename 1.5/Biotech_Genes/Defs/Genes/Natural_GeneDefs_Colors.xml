@@ -165,7 +165,7 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
 	<defName>WVC_SkinColor_Metal</defName>
-	<label>metal skin</label>
+	<label>old-metal skin</label>
 	<skinColorOverride>(101,95,95)</skinColorOverride>
   </GeneDef>
 

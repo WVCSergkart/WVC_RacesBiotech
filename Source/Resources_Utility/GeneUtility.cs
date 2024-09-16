@@ -377,6 +377,23 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		public static bool HasGeneOfType(Gene gene, Pawn pawn)
+		{
+			if (gene == null || pawn?.genes == null)
+			{
+				return false;
+			}
+			List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+			for (int i = 0; i < genesListForReading.Count; i++)
+			{
+				if (genesListForReading[i].Active && genesListForReading[i].def.geneClass == gene.def.geneClass)
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
 		public static bool GenesIsMatchForPawns(List<Pawn> pawns, List<GeneDef> xenotypeGenes, float percent)
 		{
 			if (xenotypeGenes.NullOrEmpty() || percent <= 0f)
