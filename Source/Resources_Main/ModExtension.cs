@@ -20,19 +20,6 @@ namespace WVC_XenotypesAndGenes
 		// StatPart
 		public ThingDef thingDef;
 		public float bandwidth = 1f;
-		// public RulePackDef genepackNamer;
-		// public ThingStyleDef styleDef;
-		// public List<XaG_CountWithChance> genesCountProbabilities;
-		// public int AllGenesCount
-		// {
-			// get
-			// {
-				// int count = 0;
-				// count += genesCount;
-				// count += architeCount;
-				// return count;
-			// }
-		// }
 		public bool cosmeticOnly = false;
 		public bool prerequisitesOnly = false;
 		// Duplicated Genes
@@ -41,14 +28,6 @@ namespace WVC_XenotypesAndGenes
 	}
 
 	// Exten
-
-	// public class GeneExtension_Background : DefModExtension
-	// {
-		// public string backgroundPathEndogenes;
-		// public string backgroundPathXenogenes;
-		// public string backgroundPathEndoArchite;
-		// public string backgroundPathXenoArchite;
-	// }
 
 	public class GeneExtension_Spawner : DefModExtension
 	{
@@ -247,83 +226,11 @@ namespace WVC_XenotypesAndGenes
 		public float chargeSpeedFactor = 1f;
 	}
 
-	// public class GeneExtension_Shapeshifter : DefModExtension
-	// {
-		// public SoundDef soundDefOnImplant;
-		// public List<HediffDef> duplicateHediffs;
-		// public List<TraitDef> duplicateTraits;
-		// public List<HediffDef> blockingHediffs;
-		// public List<TraitDef> blockingTraits;
-		// public List<string> trustedXenotypes;
-		// public List<TraitDefWithWeight> possibleTraits;
+	public class GeneExtension_Obsolete : DefModExtension
+	{
+		public bool logInDevMode = true;
+	}
 
-		// public class TraitDefWithWeight
-		// {
-			// public TraitDef traitDef;
-			// public float weight = 1f;
-		// }
-	// }
-
-	// public class GeneExtension_XenotypeGestator : DefModExtension
-	// {
-		// public HediffDef gestationHediffDef;
-		// public HediffDef cooldownHediffDef;
-		// public float matchPercent = 0.4f;
-		// public float gestationPeriodFactor = 0.5f;
-		// public float xenotypeComplexityFactor = 0.1f;
-		// public int cooldownDays = 15;
-		// public List<GeneDef> canGestateAnyIfHas;
-	// }
-
-	// public class XenotypeExtension_SubXenotype : DefModExtension
-	// {
-		// public float shapeshiftChance = 0.1f;
-		// public bool xenotypeCanShapeshiftOnDeath = false;
-		// public List<XenotypeDef> xenotypeDefs;
-	// }
-
-	// public class PreceptExtension_General : DefModExtension
-	// {
-		// public bool blesslinkCannotSummonMechanoids = false;
-	// }
-
-	// public class XenotypeExtension_XenotypeShapeShift : DefModExtension
-	// {
-		// public SubXenotypeDef subXenotypeDef = null;
-	// }
-
-	// public class JobExtension_Reimplanter : DefModExtension
-	// {
-		// public int ticksToAbsorb = 180;
-		// public ThingDef warmupMote;
-		// public SoundDef warmupStartSound;
-		// public EffecterDef warmupEffecter;
-		// public bool reimplantEndogenes = true;
-		// public bool reimplantXenogenes = true;
-	// }
-
-	// public class ThingExtension_Golems : DefModExtension
-	// {
-		// public bool removeButcherRecipes = false;
-		// public bool removeRepairComp = false;
-		// public bool removeDormantComp = false;
-	// }
-
-	// public class ThingExtension_Undead : DefModExtension
-	// {
-		// public bool shouldResurrect = false;
-		// public IntRange resurrectionDelay = new(6000, 9000);
-		// public string uniqueTag = "XaG_Undead";
-	// }
-
-	// public class FoodExtension_GeneFood : DefModExtension
-	// {
-		// public bool requireAnyGene = false;
-		// public List<GeneDef> geneDefs;
-		// public List<ThingDef> foodDefs;
-	// }
-
-	// public class BlackListedXenotypesDef : Def
 	public class XenotypesAndGenesListDef : Def
 	{
 		public List<string> blackListedXenotypesForSerums = new();

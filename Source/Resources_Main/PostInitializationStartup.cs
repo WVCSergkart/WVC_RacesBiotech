@@ -71,6 +71,10 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
+				// if (WVC_Biotech.settings.advancedDevMode && geneDef?.GetModExtension<GeneExtension_Obsolete>()?.logInDevMode == true)
+				// {
+					// Log.Warning(geneDef + " is obsolete.");
+				// }
 				if (geneDef.selectionWeight > 0.01f)
 				{
 					geneDef.selectionWeight = 0.001f;
@@ -269,17 +273,13 @@ namespace WVC_XenotypesAndGenes
 
 		public static void InitializeModSettings()
 		{
-			if (WVC_Biotech.settings.firstModLaunch || WVC_Biotech.settings.serumsForAllXenotypes)
+			if (WVC_Biotech.settings.firstModLaunch)
 			{
 				WVC_Biotech.cachedXenotypesFilter ??= new Dictionary<string, bool>();
 				WVC_Biotech.allXenotypes = XenotypeFilterUtility.WhiteListedXenotypes(false);
-				SetValues(XenotypeFilterUtility.WhiteListedXenotypesForFilter());
+				SetValues();
 				WVC_Biotech.settings.firstModLaunch = false;
 				WVC_Biotech.settings.Write();
-			}
-			if (WVC_Biotech.settings.serumsForAllXenotypes)
-			{
-				Log.Error("The xenotype serum generation feature is too outdated and not optimized. Please stop using it as it will be removed in the future and it may damage your save.");
 			}
 			foreach (XenotypeDef item in XenotypeFilterUtility.WhiteListedXenotypes(true, true))
 			{
@@ -287,75 +287,14 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void SetValues(List<string> whiteListedXenotypesFromDef)
+		public static void SetValues()
 		{
 			foreach (XenotypeDef thingDef in WVC_Biotech.allXenotypes)
 			{
 
-				if (!WVC_Biotech.settings.serumsForAllXenotypes)
+				if (!WVC_Biotech.cachedXenotypesFilter.TryGetValue(thingDef.defName, out _))
 				{
-					if (!WVC_Biotech.cachedXenotypesFilter.TryGetValue(thingDef.defName, out _))
-					{
-						WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = true;
-					}
-				}
-				else
-				{
-					if (!WVC_Biotech.cachedXenotypesFilter.TryGetValue(thingDef.defName, out _))
-					{
-						float metabol = 0f;
-						foreach (GeneDef item in thingDef.genes)
-						{
-							metabol += item.biostatMet;
-						}
-						if (whiteListedXenotypesFromDef.Contains(thingDef.defName))
-						{
-							WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = true;
-						}
-						else if (thingDef.defName.Contains("VREA_") || thingDef.defName.Contains("Android") || thingDef.defName.Contains("Random") || thingDef.defName.Contains("WVC_"))
-						{
-							WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = false;
-						}
-						else if (metabol < -5 || metabol > 5)
-						{
-							WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = false;
-						}
-						else if (!thingDef.inheritable)
-						{
-							if (thingDef.genes.Count > 14)
-							{
-								WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = true;
-							}
-							else
-							{
-								WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = false;
-							}
-						}
-						else if (thingDef.inheritable)
-						{
-							float archites = 0f;
-							foreach (GeneDef item in thingDef.genes)
-							{
-								archites += item.biostatArc;
-							}
-							if (archites > 0 && thingDef.genes.Count > 14)
-							{
-								WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = true;
-							}
-							else if (thingDef.genes.Count > 21)
-							{
-								WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = true;
-							}
-							else
-							{
-								WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = false;
-							}
-						}
-						else
-						{
-							WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = false;
-						}
-					}
+					WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = true;
 				}
 
 			}

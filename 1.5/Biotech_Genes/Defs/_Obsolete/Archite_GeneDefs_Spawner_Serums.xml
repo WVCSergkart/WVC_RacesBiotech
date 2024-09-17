@@ -10,7 +10,7 @@
 	<biostatArc>2</biostatArc>
 	<customEffectDescriptions Inherit="False">
 		<li>Spawns xenotype serum every (*DateTime)15-45 days(/DateTime).</li>
-		<li>Xenotype serum (random) - a one-time serum that changes a pawn's xenotype to any random one. Custom xenotypes are not supported.</li>
+		<li>Xenotype serum - a one-time serum that changes a pawn's xenotype to any non-archite random one.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>WVC_TemplateSerumSpawner</li>
@@ -23,7 +23,7 @@
 	</symbolPack>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
-			<thingDefToSpawn>WVC_XenotypeSerum_Random</thingDefToSpawn>
+			<thingDefToSpawn>WVC_XenotypeSerum_Base</thingDefToSpawn>
 			<stackCount>1</stackCount>
 			<spawnIntervalRange><min>900000</min><max>2700000</max></spawnIntervalRange>
 		</li>
@@ -38,7 +38,7 @@
 	<biostatArc>2</biostatArc>
 	<customEffectDescriptions Inherit="False">
 		<li>Spawns hybrid serum every (*DateTime)15-45 days(/DateTime).</li>
-		<li>Hybrid serum (random) - a single use serum that gives the pawn two random xenotypes, endo and xeno. Custom xenotypes are not supported.</li>
+		<li>Hybrid serum - a single use serum that gives the pawn two random xenotypes, endo and xeno.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>WVC_TemplateSerumSpawner</li>
@@ -51,7 +51,7 @@
 	</symbolPack>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
-			<thingDefToSpawn>WVC_XenotypeSerum_HybridRandom</thingDefToSpawn>
+			<thingDefToSpawn>WVC_XenotypeSerum_Hybrid</thingDefToSpawn>
 			<stackCount>1</stackCount>
 			<spawnIntervalRange><min>900000</min><max>2700000</max></spawnIntervalRange>
 		</li>

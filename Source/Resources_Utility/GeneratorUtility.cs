@@ -12,7 +12,74 @@ namespace WVC_XenotypesAndGenes
 	public static class GeneratorUtility
 	{
 
-		// Dryads
+		// HarmonyHooks
+
+		public static void AutoColorGenes(List<GeneDef> geneDefList)
+		{
+			if (!WVC_Biotech.settings.generateSkinHairColorGenes)
+			{
+				return;
+			}
+			foreach (ColorGeneTemplateDef template in DefDatabase<ColorGeneTemplateDef>.AllDefsListForReading)
+			{
+				foreach (ThingDef allDef in DefDatabase<ThingDef>.AllDefsListForReading)
+				{
+					if (allDef.stuffProps != null && allDef.stuffProps.color != null)
+					{
+						geneDefList.Add(GeneratorUtility.GetFromTemplate_SkinHairColorGenes_FromResources(template, allDef, allDef.index * 1000));
+					}
+				}
+			}
+		}
+
+		public static void Spawners(List<GeneDef> geneDefList)
+		{
+			if (!WVC_Biotech.settings.generateResourceSpawnerGenes)
+			{
+				return;
+			}
+			foreach (SpawnerGeneTemplateDef template in DefDatabase<SpawnerGeneTemplateDef>.AllDefsListForReading)
+			{
+				foreach (ThingDef allDef in DefDatabase<ThingDef>.AllDefsListForReading)
+				{
+					if (allDef.stuffProps != null && allDef.stackLimit > 0)
+					{
+						geneDefList.Add(GeneratorUtility.GetFromTemplate_SpawnerGenes_Resources(template, allDef, allDef.index * 1000));
+					}
+				}
+			}
+		}
+
+		public static void HybridForcerGenes(List<GeneDef> geneDefList)
+		{
+			if (!WVC_Biotech.settings.generateXenotypeForceGenes)
+			{
+				return;
+			}
+			foreach (XenotypeForcerGeneTemplateDef template in DefDatabase<XenotypeForcerGeneTemplateDef>.AllDefsListForReading)
+			{
+				foreach (XenotypeDef allDef in XenotypeFilterUtility.WhiteListedXenotypes(true, true))
+				{
+					geneDefList.Add(GeneratorUtility.GetFromTemplate_XenotypeForcer(template, allDef, allDef.index * 1000));
+				}
+			}
+		}
+
+		public static void Aptitudes(List<GeneDef> geneDefList)
+		{
+			if (!WVC_Biotech.settings.generateSkillGenes)
+			{
+				return;
+			}
+			foreach (SkillsGeneTemplateDef template in DefDatabase<SkillsGeneTemplateDef>.AllDefsListForReading)
+			{
+				List<SkillDef> skillDefs = DefDatabase<SkillDef>.AllDefsListForReading;
+				foreach (SkillDef skillDef in skillDefs)
+				{
+					geneDefList.Add(GeneratorUtility.GetFromTemplate_Skills(template, skillDef, skillDef.index * 1000));
+				}
+			}
+		}
 
 		public static void GauranlenTreeModeDef()
 		{
@@ -53,6 +120,8 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 		}
+
+		// Dryads
 
 		public static GauranlenGeneModeDef GetFromGauranlenTreeModeTemplate(GauranlenTreeModeDef def)
 		{

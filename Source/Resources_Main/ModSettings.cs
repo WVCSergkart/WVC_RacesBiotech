@@ -12,6 +12,7 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		public bool firstModLaunch = true;
+		// public bool advancedDevMode = false;
 
 		// Main
 		// Graphic
@@ -54,12 +55,12 @@ namespace WVC_XenotypesAndGenes
 		// public bool enableGeneInstabilityInfo = true;
 		// public bool enableGeneGauranlenConnectionInfo = true;
 		// Serums
-		public bool serumsForAllXenotypes = false;
-		public bool serumsForAllXenotypes_GenBase = true;
-		public bool serumsForAllXenotypes_GenUltra = false;
-		public bool serumsForAllXenotypes_GenHybrid = false;
-		public bool serumsForAllXenotypes_Recipes = true;
-		public bool serumsForAllXenotypes_Spawners = false;
+		// public bool serumsForAllXenotypes = false;
+		// public bool serumsForAllXenotypes_GenBase = true;
+		// public bool serumsForAllXenotypes_GenUltra = false;
+		// public bool serumsForAllXenotypes_GenHybrid = false;
+		// public bool serumsForAllXenotypes_Recipes = true;
+		// public bool serumsForAllXenotypes_Spawners = false;
 		// ExtraSettings
 		public bool genesCanTickOnlyOnMap = false;
 		public bool enable_flatGenesSpawnChances = false;
@@ -126,6 +127,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref firstModLaunch, "firstModLaunch", defaultValue: true, forceSave: true);
+			// Scribe_Values.Look(ref advancedDevMode, "advancedDevMode", defaultValue: false);
 			// Main
 			// Graphic
 			Scribe_Values.Look(ref hideXaGGenes, "hideXaGGenes", defaultValue: false);
@@ -173,12 +175,12 @@ namespace WVC_XenotypesAndGenes
 			// Scribe_Values.Look(ref enableGeneInstabilityInfo, "enableGeneInstabilityInfo", defaultValue: true);
 			// Scribe_Values.Look(ref enableGeneGauranlenConnectionInfo, "enableGeneGauranlenConnectionInfo", defaultValue: true);
 			// Serums
-			Scribe_Values.Look(ref serumsForAllXenotypes, "serumsForAllXenotypes", defaultValue: false, forceSave: true);
-			Scribe_Values.Look(ref serumsForAllXenotypes_GenBase, "serumsForAllXenotypes_GenBase", defaultValue: true);
-			Scribe_Values.Look(ref serumsForAllXenotypes_GenUltra, "serumsForAllXenotypes_GenUltra", defaultValue: false);
-			Scribe_Values.Look(ref serumsForAllXenotypes_GenHybrid, "serumsForAllXenotypes_GenHybrid", defaultValue: false);
-			Scribe_Values.Look(ref serumsForAllXenotypes_Recipes, "serumsForAllXenotypes_Recipes", defaultValue: true);
-			Scribe_Values.Look(ref serumsForAllXenotypes_Spawners, "serumsForAllXenotypes_Spawners", defaultValue: false);
+			// Scribe_Values.Look(ref serumsForAllXenotypes, "serumsForAllXenotypes", defaultValue: false, forceSave: true);
+			// Scribe_Values.Look(ref serumsForAllXenotypes_GenBase, "serumsForAllXenotypes_GenBase", defaultValue: true);
+			// Scribe_Values.Look(ref serumsForAllXenotypes_GenUltra, "serumsForAllXenotypes_GenUltra", defaultValue: false);
+			// Scribe_Values.Look(ref serumsForAllXenotypes_GenHybrid, "serumsForAllXenotypes_GenHybrid", defaultValue: false);
+			// Scribe_Values.Look(ref serumsForAllXenotypes_Recipes, "serumsForAllXenotypes_Recipes", defaultValue: true);
+			// Scribe_Values.Look(ref serumsForAllXenotypes_Spawners, "serumsForAllXenotypes_Spawners", defaultValue: false);
 			// ExtraSettings
 			Scribe_Values.Look(ref genesCanTickOnlyOnMap, "genesCanTickOnlyOnMap", defaultValue: false);
 			Scribe_Values.Look(ref enable_flatGenesSpawnChances, "enable_flatGenesSpawnChances", defaultValue: false);
@@ -358,17 +360,17 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_spawnXenoForcerSerumsFromTraders".Translate(), ref settings.spawnXenoForcerSerumsFromTraders, "WVC_ToolTip_spawnXenoForcerSerumsFromTraders".Translate());
 			listingStandard.GapLine();
 			// Serums
-			if (settings.serumsForAllXenotypes)
-			{
-				listingStandard.Label("WVC_BiotechSettings_Label_Serums".Translate().Colorize(ColoredText.SubtleGrayColor) + ":", -1, "WVC_BiotechSettings_Tooltip_Serums".Translate());
-				listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.serumsForAllXenotypes, "WVC_ToolTip_serumsForAllXenotypes".Translate());
-				listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenBase".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.serumsForAllXenotypes_GenBase, "WVC_ToolTip_serumsForAllXenotypes_GenBase".Translate());
-				listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenUltra".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.serumsForAllXenotypes_GenUltra, "WVC_ToolTip_serumsForAllXenotypes_GenUltra".Translate());
-				listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenHybrid".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.serumsForAllXenotypes_GenHybrid, "WVC_ToolTip_serumsForAllXenotypes_GenHybrid".Translate());
-				listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_Recipes".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.serumsForAllXenotypes_Recipes, "WVC_ToolTip_serumsForAllXenotypes_Recipes".Translate());
-				listingStandard.CheckboxLabeled("WVC_Label_serumsSpawnersForAllXenotypes".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.serumsForAllXenotypes_Spawners, "WVC_ToolTip_serumsSpawnersForAllXenotypes".Translate());
-				listingStandard.GapLine();
-			}
+			// if (settings.serumsForAllXenotypes)
+			// {
+				// listingStandard.Label("WVC_BiotechSettings_Label_Serums".Translate().Colorize(ColoredText.SubtleGrayColor) + ":", -1, "WVC_BiotechSettings_Tooltip_Serums".Translate());
+				// listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.serumsForAllXenotypes, "WVC_ToolTip_serumsForAllXenotypes".Translate());
+				// listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenBase".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.serumsForAllXenotypes_GenBase, "WVC_ToolTip_serumsForAllXenotypes_GenBase".Translate());
+				// listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenUltra".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.serumsForAllXenotypes_GenUltra, "WVC_ToolTip_serumsForAllXenotypes_GenUltra".Translate());
+				// listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenHybrid".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.serumsForAllXenotypes_GenHybrid, "WVC_ToolTip_serumsForAllXenotypes_GenHybrid".Translate());
+				// listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_Recipes".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.serumsForAllXenotypes_Recipes, "WVC_ToolTip_serumsForAllXenotypes_Recipes".Translate());
+				// listingStandard.CheckboxLabeled("WVC_Label_serumsSpawnersForAllXenotypes".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.serumsForAllXenotypes_Spawners, "WVC_ToolTip_serumsSpawnersForAllXenotypes".Translate());
+				// listingStandard.GapLine();
+			// }
 			// =============== Buttons ===============
 			if (listingStandard.ButtonText("WVC_XaG_ResetButton".Translate()))
 			{
@@ -437,7 +439,7 @@ namespace WVC_XenotypesAndGenes
 			if (Widgets.ButtonText(resetRect, "WVC_BiotechSettings_XenotypesFilter_Reset".Translate()))
 			{
 				cachedXenotypesFilter.Clear();
-				XaG_PostInitialization.SetValues(XenotypeFilterUtility.WhiteListedXenotypesForFilter());
+				XaG_PostInitialization.SetValues();
 			}
 
 			var explanationTitleRect = new Rect(resetRect.xMax + 15, resetRect.y, inRect.width - (resetRect.width + 35), 24f);
@@ -522,6 +524,8 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("DEV: ".Colorize(ColorLibrary.RedReadable) + "WVC_Label_fixGeneAbilitiesOnLoad".Translate().Colorize(ColorLibrary.LightPink), ref settings.fixGeneAbilitiesOnLoad, "WVC_ToolTip_fixGeneAbilitiesOnLoad".Translate() + "\n\n" + "WVC_Alert_fixBrokenShit".Translate());
 			listingStandard.CheckboxLabeled("DEV: ".Colorize(ColorLibrary.RedReadable) + "WVC_Label_fixGeneTypesOnLoad".Translate().Colorize(ColorLibrary.LightPink), ref settings.fixGeneTypesOnLoad, "WVC_ToolTip_fixGeneTypesOnLoad".Translate() + "\n\n" + "WVC_Alert_fixBrokenShit".Translate());
 			// listingStandard.CheckboxLabeled("DEV: ".Colorize(ColorLibrary.RedReadable) + "WVC_Label_fixThrallTypesOnLoad".Translate().Colorize(ColorLibrary.LightPink), ref settings.fixThrallTypesOnLoad, "WVC_ToolTip_fixThrallTypesOnLoad".Translate());
+			listingStandard.Gap();
+			// listingStandard.CheckboxLabeled("DEV MODE", ref settings.advancedDevMode, "Dev tool.");
 			listingStandard.GapLine();
 			// =============== Buttons ===============
 			if (listingStandard.ButtonText("WVC_XaG_ResetButton".Translate()))
@@ -630,6 +634,10 @@ namespace WVC_XenotypesAndGenes
 						// Log.Error(geneDef.defName + " | " + geneDef.LabelCap + ": " + geneDef.selectionWeight.ToString());
 					// }
 					Log.Error("Genes weights:" + "\n" + DefDatabase<GeneDef>.AllDefsListForReading.Select((GeneDef x) => x.defName + " | " + x.LabelCap + ": " + x.selectionWeight).ToLineList(" - "));
+				}
+				if (listingStandard.ButtonText("DEV: Log obsolete genes"))
+				{
+					Log.Error("Obsolete genes:" + "\n" + DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.GetModExtension<GeneExtension_Obsolete>()?.logInDevMode == true).Select((GeneDef x) => x.defName + " | " + x.LabelCap + ": " + x.selectionWeight).ToLineList(" - "));
 				}
 			}
 			listingStandard.End();
@@ -836,12 +844,12 @@ namespace WVC_XenotypesAndGenes
 			// WVC_Biotech.settings.enableGeneInstabilityInfo = true;
 			// WVC_Biotech.settings.enableGeneGauranlenConnectionInfo = true;
 			// Serums
-			WVC_Biotech.settings.serumsForAllXenotypes = false;
-			WVC_Biotech.settings.serumsForAllXenotypes_GenBase = true;
-			WVC_Biotech.settings.serumsForAllXenotypes_GenUltra = false;
-			WVC_Biotech.settings.serumsForAllXenotypes_GenHybrid = false;
-			WVC_Biotech.settings.serumsForAllXenotypes_Recipes = true;
-			WVC_Biotech.settings.serumsForAllXenotypes_Spawners = false;
+			// WVC_Biotech.settings.serumsForAllXenotypes = false;
+			// WVC_Biotech.settings.serumsForAllXenotypes_GenBase = true;
+			// WVC_Biotech.settings.serumsForAllXenotypes_GenUltra = false;
+			// WVC_Biotech.settings.serumsForAllXenotypes_GenHybrid = false;
+			// WVC_Biotech.settings.serumsForAllXenotypes_Recipes = true;
+			// WVC_Biotech.settings.serumsForAllXenotypes_Spawners = false;
 			// =
 			WVC_Biotech.settings.canNonPlayerPawnResurrect = true;
 			WVC_Biotech.settings.allowShapeshiftAfterDeath = true;
@@ -910,7 +918,7 @@ namespace WVC_XenotypesAndGenes
 			// WVC_Biotech.settings.pregnantHuman_InheritArchiteGenes = false;
 			// XenotypesSettings
 			WVC_Biotech.cachedXenotypesFilter.Clear();
-			XaG_PostInitialization.SetValues(XenotypeFilterUtility.WhiteListedXenotypesForFilter());
+			XaG_PostInitialization.SetValues();
 			// Initial
 			WVC_Biotech.settings.firstModLaunch = false;
 			WVC_Biotech.settings.Write();
@@ -946,12 +954,12 @@ namespace WVC_XenotypesAndGenes
 			// WVC_Biotech.settings.enableGeneInstabilityInfo = true;
 			// WVC_Biotech.settings.enableGeneGauranlenConnectionInfo = true;
 			// Serums
-			WVC_Biotech.settings.serumsForAllXenotypes = false;
-			WVC_Biotech.settings.serumsForAllXenotypes_GenBase = false;
-			WVC_Biotech.settings.serumsForAllXenotypes_GenUltra = false;
-			WVC_Biotech.settings.serumsForAllXenotypes_GenHybrid = false;
-			WVC_Biotech.settings.serumsForAllXenotypes_Recipes = false;
-			WVC_Biotech.settings.serumsForAllXenotypes_Spawners = false;
+			// WVC_Biotech.settings.serumsForAllXenotypes = false;
+			// WVC_Biotech.settings.serumsForAllXenotypes_GenBase = false;
+			// WVC_Biotech.settings.serumsForAllXenotypes_GenUltra = false;
+			// WVC_Biotech.settings.serumsForAllXenotypes_GenHybrid = false;
+			// WVC_Biotech.settings.serumsForAllXenotypes_Recipes = false;
+			// WVC_Biotech.settings.serumsForAllXenotypes_Spawners = false;
 			// =
 			WVC_Biotech.settings.canNonPlayerPawnResurrect = true;
 			WVC_Biotech.settings.allowShapeshiftAfterDeath = true;
@@ -1021,7 +1029,7 @@ namespace WVC_XenotypesAndGenes
 			// WVC_Biotech.settings.pregnantHuman_InheritArchiteGenes = false;
 			// XenotypesSettings
 			WVC_Biotech.cachedXenotypesFilter.Clear();
-			XaG_PostInitialization.SetValues(XenotypeFilterUtility.WhiteListedXenotypesForFilter());
+			XaG_PostInitialization.SetValues();
 			// Initial
 			WVC_Biotech.settings.firstModLaunch = false;
 			WVC_Biotech.settings.Write();
