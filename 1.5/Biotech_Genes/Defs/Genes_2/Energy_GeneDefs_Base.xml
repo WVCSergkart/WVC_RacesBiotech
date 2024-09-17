@@ -71,7 +71,7 @@
 			<foodPoisoningFromFood>false</foodPoisoningFromFood>
 			<rechargeableStomachJobDef>WVC_RechargeableStomach</rechargeableStomachJobDef>
 			<xenoChargerDef>WVC_GeneRecharger</xenoChargerDef>
-			<chargeSpeedFactor>0.2</chargeSpeedFactor>
+			<chargeSpeedFactor>0.5</chargeSpeedFactor>
 		</li>
 	</modExtensions>
   </GeneDef>

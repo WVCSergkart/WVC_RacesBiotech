@@ -189,7 +189,7 @@ namespace WVC_XenotypesAndGenes
 				SkillRecord item = new(pawn, skill.def)
 				{
 					levelInt = 0,
-					passion = Passion.None,
+					passion = skill.passion,
 					xpSinceLastLevel = 0,
 					xpSinceMidnight = 0
 				};
@@ -218,6 +218,10 @@ namespace WVC_XenotypesAndGenes
 
 		public static void NullifyBackstory(Pawn pawn)
 		{
+			if (pawn.Spawned)
+			{
+				return;
+			}
 			if (pawn.story.Childhood != null)
 			{
 				pawn.story.Childhood = WVC_GenesDefOf.WVC_RacesBiotech_Amnesia_Child;

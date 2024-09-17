@@ -101,7 +101,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneLearning_Base" Name="WVC_XenotypesAndGenes_GeneLearning_ExtremeSlow" Abstract="True">
 	<geneClass>WVC_XenotypesAndGenes.Gene_BackstoryChanger</geneClass>
 	<customEffectDescriptions>
-	  <li>Childhood and adulthood background will be &lt;color=#8a8ae6&gt;unknown&lt;/color&gt;. Does not work if the carrier is a native colonist.</li>
+	  <li>Childhood and adulthood background will be &lt;color=#8a8ae6&gt;unknown&lt;/color&gt;. Does not work if the carrier is spawned.</li>
 	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">

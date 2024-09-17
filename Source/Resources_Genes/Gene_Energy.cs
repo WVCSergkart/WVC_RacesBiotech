@@ -16,28 +16,10 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
 
-		// public override void PostAdd()
-		// {
-			// base.PostAdd();
-			// pawn.foodRestriction;
-		// }
-
 		public Building_XenoCharger currentCharger;
 
 		public override void Tick()
 		{
-			// if (pawnIsCharging)
-			// {
-				// if (!pawn.IsHashIntervalTick(60))
-				// {
-					// return;
-				// }
-				// UndeadUtility.OffsetNeedFood(pawn, 0.0334f);
-			// }
-			// else
-			// {
-			// }
-			// base.Tick();
 			if (!pawn.IsHashIntervalTick(2301))
 			{
 				return;
@@ -102,8 +84,24 @@ namespace WVC_XenotypesAndGenes
 			{
 				Job job = JobMaker.MakeJob(Props.rechargeableStomachJobDef, closestCharger);
 				job.overrideFacing = Rot4.South;
+				if (PawnHaveThisJob(pawn, job))
+				{
+					return false;
+				}
 				pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, requestQueueing);
 				return true;
+			}
+			return false;
+		}
+
+		public static bool PawnHaveThisJob(Pawn pawn, Job job)
+		{
+			foreach (Job item in pawn.jobs.AllJobs().ToList())
+			{
+				if (item.def == job.def)
+				{
+					return true;
+				}
 			}
 			return false;
 		}
@@ -118,45 +116,12 @@ namespace WVC_XenotypesAndGenes
 				{
 					return false;
 				}
-				// if (carrier != mech)
-				// {
-					// if (!forced && building_MechCharger.Map.reservationManager.ReservedBy(building_MechCharger, carrier))
-					// {
-						// return false;
-					// }
-					// if (forced && KeyBindingDefOf.QueueOrder.IsDownEvent && building_MechCharger.Map.reservationManager.ReservedBy(building_MechCharger, carrier))
-					// {
-						// return false;
-					// }
-				// }
 				return !t.IsForbidden(carrier) && carrier.CanReserve(t, 1, -1, null, forced) && building_MechCharger.CanPawnChargeCurrently(mech);
 			});
 		}
 
-		// public static bool CanPawnChargeCurrently(Building_MechCharger charger)
-		// {
-			// if (charger.Power.PowerNet == null)
-			// {
-				// return false;
-			// }
-			// if (charger.IsFullOfWaste)
-			// {
-				// return false;
-			// }
-			// if (charger.IsPowered)
-			// {
-				// return true;
-			// }
-			// return false;
-		// }
-
 		private void InCaravan()
 		{
-			// Caravan caravan = pawn.GetCaravan();
-			// if (caravan == null)
-			// {
-				// return;
-			// }
 			UndeadUtility.OffsetNeedFood(pawn, 0.25f);
 		}
 
@@ -176,17 +141,6 @@ namespace WVC_XenotypesAndGenes
 				FoodUtility.AddFoodPoisoningHediff(pawn, thing, FoodPoisonCause.DangerousFoodType);
 			}
 		}
-
-		// public void StartCharging(Building_MechCharger charger)
-		// {
-			// pawnIsCharging = true;
-			// SoundDefOf.MechChargerStart.PlayOneShot(charger);
-		// }
-
-		// public void StopCharging()
-		// {
-			// pawnIsCharging = false;
-		// }
 
 		public override void ExposeData()
 		{

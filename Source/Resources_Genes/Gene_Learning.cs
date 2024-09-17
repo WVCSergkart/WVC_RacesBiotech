@@ -33,6 +33,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
+			if (pawn.Spawned)
+			{
+				return;
+			}
 			List<BackstoryDef> blackListedBackstoryForChanger = XenotypeFilterUtility.BlackListedBackstoryForChanger();
 			if (childBackstoryDef != null && !blackListedBackstoryForChanger.Contains(pawn.story.Childhood))
 			{
@@ -303,7 +307,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_CyclicallySelfLearning : Gene_BackstoryChanger
+	public class Gene_CyclicallySelfLearning : Gene
 	{
 
 		private int hashIntervalTick = 6000;

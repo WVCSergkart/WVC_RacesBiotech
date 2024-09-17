@@ -23,7 +23,7 @@
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
 	  <li>In case of death, after some time the carrier will be resurrected, completely healthy and without damage.</li>
-	  <li>If the carrier’s &lt;color=#8a8ae6&gt;brain was destroyed&lt;/color&gt;, then the carrier &lt;color=#8a8ae6&gt;loses backstory and all experience in skills&lt;/color&gt;.</li>
+	  <li>If the carrier’s &lt;color=#8a8ae6&gt;brain was destroyed&lt;/color&gt;, then the carrier &lt;color=#8a8ae6&gt;loses all experience in skills&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<symbolPack>
 	  <wholeNameSymbols>

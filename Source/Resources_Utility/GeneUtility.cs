@@ -12,6 +12,11 @@ namespace WVC_XenotypesAndGenes
 	public static class XaG_GeneUtility
 	{
 
+		public static bool ActiveFactionMap(Pawn pawn, Gene gene)
+		{
+			return !gene.Active || pawn.Faction != Faction.OfPlayer || pawn.Map == null;
+		}
+
 		public static bool SelectorActiveFactionMap(Pawn pawn, Gene gene)
 		{
 			return Find.Selector.SelectedPawns.Count > 1 || !gene.Active || pawn.Faction != Faction.OfPlayer || pawn.Map == null;

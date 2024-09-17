@@ -30,7 +30,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (pawn.Map != null && Active && pawn.Faction != null && pawn.Faction == Faction.OfPlayer && Props != null)
+			if (!XaG_GeneUtility.ActiveFactionMap(pawn, this) && Props != null)
 			{
 				SpawnItems();
 			}
