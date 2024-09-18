@@ -66,6 +66,12 @@
 	<displayPriorityInGenepack>-100</displayPriorityInGenepack>
   </GeneCategoryDef>
 
+  <GeneCategoryDef>
+	<defName>WVC_Miscellaneous</defName>
+	<label>miscellaneous - Xenotypes and Genes</label>
+	<displayPriorityInXenotype>269.2886992038</displayPriorityInXenotype>
+  </GeneCategoryDef>
+
   <!-- https://steamcommunity.com/sharedfiles/filedetails/?id=2886992038 -->
   <!-- ================================================================== -->
 

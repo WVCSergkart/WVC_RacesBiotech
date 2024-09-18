@@ -20,6 +20,9 @@ namespace WVC_XenotypesAndGenes
 			{
 				regeneration *= (tick / 10);
 			}
+			// Log.Error(regeneration.ToString());
+			// Old 0.0001243781
+			// New 0.5583333
 			if (regeneration > 0f)
 			{
 				pawn.health.hediffSet.GetHediffs(ref tmpHediffInjuries, (Hediff_Injury h) => h.def != HediffDefOf.Scarification || !ignoreScarification);

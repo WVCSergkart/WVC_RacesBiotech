@@ -103,6 +103,8 @@ namespace WVC_XenotypesAndGenes
 		// public static JobDef WVC_XaG_FeedBloodeaterForced;
 		//
 		public static RecipeDef WVC_ImplantXenogermSerum;
+		//
+		public static GeneCategoryDef WVC_Miscellaneous;
 	}
 
 	// [DefOf]

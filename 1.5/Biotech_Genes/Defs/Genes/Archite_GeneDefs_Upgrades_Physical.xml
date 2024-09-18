@@ -155,22 +155,21 @@
 	</modExtensions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_OldMecaBodyParts">
-	<defName>WVC_MecaBodyParts_Kidney</defName>
-	<label>archite healing</label>
-	<description>Carriers of this gene have archites that speed up regeneration and protect against mechanites.</description>
-	<biostatMet>-1</biostatMet>
-	<iconPath>WVC/UI/Genes/MechaClusters_v0</iconPath>
-	<displayCategory>Healing</displayCategory>
-	<statOffsets>
-	  <!-- <ToxicResistance>0.5</ToxicResistance> -->
-	  <InjuryHealingFactor>1</InjuryHealingFactor>
-	</statOffsets>
-	<makeImmuneTo>
-	  <li>FibrousMechanites</li>
-	  <li>SensoryMechanites</li>
-	</makeImmuneTo>
-  </GeneDef>
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_OldMecaBodyParts"> -->
+	<!-- <defName>WVC_MecaBodyParts_Kidney</defName> -->
+	<!-- <label>archite healing</label> -->
+	<!-- <description>Carriers of this gene have archites that speed up regeneration and protect against mechanites.</description> -->
+	<!-- <biostatMet>-1</biostatMet> -->
+	<!-- <iconPath>WVC/UI/Genes/MechaClusters_v0</iconPath> -->
+	<!-- <displayCategory>Healing</displayCategory> -->
+	<!-- <statOffsets> -->
+	  <!-- <InjuryHealingFactor>1</InjuryHealingFactor> -->
+	<!-- </statOffsets> -->
+	<!-- <makeImmuneTo> -->
+	  <!-- <li>FibrousMechanites</li> -->
+	  <!-- <li>SensoryMechanites</li> -->
+	<!-- </makeImmuneTo> -->
+  <!-- </GeneDef> -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_OldMecaBodyParts">
 	<defName>WVC_MecaUpgrades_PerfectShape</defName>

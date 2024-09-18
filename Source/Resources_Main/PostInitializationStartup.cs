@@ -59,40 +59,56 @@ namespace WVC_XenotypesAndGenes
 			List<GeneDef> xenogenesGenes = new();
 			foreach (GeneDef geneDef in DefDatabase<GeneDef>.AllDefsListForReading)
 			{
-				List<GeneDef> inheritableGeneDefs = geneDef?.GetModExtension<GeneExtension_General>()?.inheritableGeneDefs;
-				if (!inheritableGeneDefs.NullOrEmpty())
+				InheritableGeneStats(geneDef);
+				XenoGenesDef(geneDef, xenogenesGenes);
+			}
+			AnomalyPatch(xenogenesGenes);
+			FlatGenesChances(xenogenesGenes);
+		}
+
+		private static void InheritableGeneStats(GeneDef geneDef)
+		{
+			List<GeneDef> inheritableGeneDefs = geneDef?.GetModExtension<GeneExtension_General>()?.inheritableGeneDefs;
+			if (!inheritableGeneDefs.NullOrEmpty())
+			{
+				foreach (GeneDef inheritableGeneDef in inheritableGeneDefs)
 				{
-					foreach (GeneDef inheritableGeneDef in inheritableGeneDefs)
-					{
-						MiscUtility.InheritGeneDefFrom(geneDef, inheritableGeneDef);
-					}
-				}
-				if (!geneDef.IsXenoGenesDef())
-				{
-					continue;
-				}
-				// if (WVC_Biotech.settings.advancedDevMode && geneDef?.GetModExtension<GeneExtension_Obsolete>()?.logInDevMode == true)
-				// {
-					// Log.Warning(geneDef + " is obsolete.");
-				// }
-				if (geneDef.selectionWeight > 0.01f)
-				{
-					geneDef.selectionWeight = 0.001f;
-				}
-				xenogenesGenes.Add(geneDef);
-				if (!WVC_Biotech.settings.hideXaGGenes)
-				{
-					continue;
-				}
-				if (geneDef.biostatArc != 0)
-				{
-					geneDef.displayCategory = GeneCategoryDefOf.Archite;
-				}
-				else
-				{
-					geneDef.displayCategory = GeneCategoryDefOf.Miscellaneous;
+					MiscUtility.InheritGeneDefFrom(geneDef, inheritableGeneDef);
 				}
 			}
+		}
+
+		private static void XenoGenesDef(GeneDef geneDef, List<GeneDef> xenogenesGenes)
+		{
+			if (!geneDef.IsXenoGenesDef())
+			{
+				return;
+			}
+			if (geneDef.selectionWeight > 0.01f)
+			{
+				geneDef.selectionWeight = 0.001f;
+			}
+			xenogenesGenes.Add(geneDef);
+			if (!WVC_Biotech.settings.hideXaGGenes)
+			{
+				if (geneDef.displayCategory == GeneCategoryDefOf.Miscellaneous)
+				{
+					geneDef.displayCategory = WVC_GenesDefOf.WVC_Miscellaneous;
+				}
+				return;
+			}
+			if (geneDef.biostatArc != 0)
+			{
+				geneDef.displayCategory = GeneCategoryDefOf.Archite;
+			}
+			else
+			{
+				geneDef.displayCategory = GeneCategoryDefOf.Miscellaneous;
+			}
+		}
+
+		private static void AnomalyPatch(List<GeneDef> xenogenesGenes)
+		{
 			if (ModsConfig.AnomalyActive)
 			{
 				List<MutantDef> exceptions_Mutants = XenotypeFilterUtility.MutantsExceptions();
@@ -113,10 +129,6 @@ namespace WVC_XenotypesAndGenes
 					}
 					foreach (GeneDef geneDef in xenogenesGenes)
 					{
-						// if (geneDef.fur != null && !mutantDef.bodyTypeGraphicPaths.NullOrEmpty())
-						// {
-							// continue;
-						// }
 						GeneExtension_General modExtension = geneDef?.GetModExtension<GeneExtension_General>();
 						if (modExtension?.supportMutants == false)
 						{
@@ -145,6 +157,10 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			}
+		}
+
+		private static void FlatGenesChances(List<GeneDef> xenogenesGenes)
+		{
 			if (!WVC_Biotech.settings.enable_flatGenesSpawnChances)
 			{
 				return;
