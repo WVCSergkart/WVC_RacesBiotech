@@ -7,7 +7,7 @@
 	<label>metalkin</label>
 	<!-- <label>throwex</label> -->
 	<!-- metalkin, ferrikind, horrors -->
-	<!-- Mystery, anomaly, metal and horror -->
+	<!-- Mystery, anomaly, metal and horror, machine world, scavenge -->
 	<description>Metalkins are ageless super-humans powered by archotech-created archites in the bloodstream..</description>
 	<descriptionShort>Metalkins are ageless super-humans powered by archotech-created archites in the bloodstream..</descriptionShort>
 	<iconPath>WVC/UI/Xeno2Icons/Xeno13</iconPath>
@@ -40,10 +40,13 @@
 		<!-- <li>PerfectImmunity</li> -->
 		<li>WVC_ArchitePerfectImmunity_DiseaseFree</li>
 		<li>WVC_FirefoampopMech</li>
-		<li>WVC_XenotypeGestator</li>
+		<!-- <li>WVC_XenotypeGestator</li> -->
+		<li>WVC_ReimplanterArchite_Endogenes</li>
+		<li>WVC_ReimplanterArchite_RiseEndogenes</li>
 		<!-- <li>ToxResist_Total</li> -->
-		<li>WVC_ToxResist_Total</li>
-		<li>WVC_MinMaxTemp_Archite</li>
+		<!-- <li>WVC_ToxResist_Total</li> -->
+		<!-- <li>WVC_MinMaxTemp_Archite</li> -->
+		<li>WVC_MecaBodyParts_Lung</li>
 		<li>WVC_Neversleep</li>
 		<li>Body_Standard</li>
 		<!-- <li>Hair_InkBlack</li> -->

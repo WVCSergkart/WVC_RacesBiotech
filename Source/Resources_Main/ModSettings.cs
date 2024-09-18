@@ -635,6 +635,34 @@ namespace WVC_XenotypesAndGenes
 					// }
 					Log.Error("Genes weights:" + "\n" + DefDatabase<GeneDef>.AllDefsListForReading.Select((GeneDef x) => x.defName + " | " + x.LabelCap + ": " + x.selectionWeight).ToLineList(" - "));
 				}
+				if (listingStandard.ButtonText("DEV: Count unused in xenotypes genes"))
+				{
+					List<GeneDef> genes = new();
+					int genesCount = 0;
+					foreach (Def def in Content.AllDefs)
+					{
+						if (def is XenotypeDef xenotypeDef)
+						{
+							foreach (GeneDef geneDef in xenotypeDef.genes)
+							{
+								if (geneDef.IsXenoGenesDef() && !genes.Contains(geneDef))
+								{
+									// genesCount ++;
+									genes.Add(geneDef);
+								}
+							}
+						}
+					}
+					Log.Error("WVC used genes: " + genesCount.ToString());
+					if (!genes.NullOrEmpty())
+					{
+						Log.Error("All unused genes:" + "\n" + Content.AllDefs.Where((Def x) => x is GeneDef geneDef && !genes.Contains(geneDef)).Select((Def x) => x.defName).ToLineList(" - "));
+					}
+					else
+					{
+						Log.Error("Genes list is null");
+					}
+				}
 				if (listingStandard.ButtonText("DEV: Log obsolete genes"))
 				{
 					Log.Error("Obsolete genes:" + "\n" + DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.GetModExtension<GeneExtension_Obsolete>()?.logInDevMode == true).Select((GeneDef x) => x.defName + " | " + x.LabelCap + ": " + x.selectionWeight).ToLineList(" - "));

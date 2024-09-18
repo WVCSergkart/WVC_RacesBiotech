@@ -3,7 +3,7 @@
 
   <!-- Upgrades -->
 
-  <GeneDef Name="WVC_MechanoidizationUpgrades" ParentName="WVC_XenotypesAndGenes_Archites" Abstract="True">
+  <GeneDef Name="WVC_XenotypesAndGenes_OldMecaBodyParts" ParentName="WVC_XenotypesAndGenes_Archites" Abstract="True">
 	<displayOrderInCategory>-33</displayOrderInCategory>
 	<iconPath>WVC/UI/Genes/Mechanoidization</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
@@ -11,28 +11,21 @@
 	<biostatArc>1</biostatArc>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_OldMecaBodyParts">
 	<defName>WVC_MecaBodyParts_Heart</defName>
 	<label>archite-clotting</label>
 	<description>Carriers of this gene have archites that stabilize blood pressure, which helps to avoid bleeding.</description>
-	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_MechaClotting</geneClass> -->
 	<geneClass>WVC_XenotypesAndGenes.Gene_ClottingWithHediff</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_Superclotting_v0</iconPath>
 	<biostatMet>-1</biostatMet>
 	<biostatArc>1</biostatArc>
 	<displayCategory>Healing</displayCategory>
-	<!-- <displayOrderInCategory>-33</displayOrderInCategory> -->
 	<displayOrderInCategory>100</displayOrderInCategory>
 	<customEffectDescriptions>
-		<!-- <li>&lt;color=#b8c6ff&gt;Mechanoidization:&lt;/color&gt; Increases lifespan factor.</li> -->
 		<li>Prevent bleeding.</li>
-		<!-- <li>Bleeding wounds close very quickly.</li> -->
 		<li>Treat wounds from time to time.</li>
 		<li MayRequire="oskarpotocki.vanillafactionsexpanded.core">Changes blood filth into machine bits.</li>
 	</customEffectDescriptions>
-	<!-- <statFactors> -->
-	  <!-- <WVC_BleedingFactor>0</WVC_BleedingFactor> -->
-	<!-- </statFactors> -->
 	<makeImmuneTo>
 	  <li>WoundInfection</li>
 	</makeImmuneTo>
@@ -48,19 +41,14 @@
 		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 			<customBloodThingDef>Filth_MachineBits</customBloodThingDef>
 			<customBloodIcon>WVC/UI/InvisibleThing</customBloodIcon>
-			<!-- Not necessary -->
-			<!-- <hediffToWholeBody>WVC_MechaClotting_PreventBleeding</hediffToWholeBody> -->
 		</li>
-		<!-- <li Class="WVC.GeneExtension_MechaClotting"> -->
-			<!-- <preventBleeding>true</preventBleeding> -->
-		<!-- </li> -->
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_MechaClotting_PreventBleeding</hediffDefName>
 		</li>
 	</modExtensions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_OldMecaBodyParts">
 	<defName>WVC_MecaBodyParts_Spine</defName>
 	<label>super endurance</label>
 	<description>Carriers of this gene have strong skeletal structure.</description>
@@ -78,29 +66,16 @@
 	  <!-- <MoveSpeed>0.5</MoveSpeed> -->
 	  <ArmorRating_Blunt>0.15</ArmorRating_Blunt>
 	</statOffsets>
-	<customEffectDescriptions>
-		<!-- <li MayRequire="oskarpotocki.vanillafactionsexpanded.core">Carrying capacity on the map increased to 50%.</li> -->
-	</customEffectDescriptions>
-	<!-- <capMods> -->
-	  <!-- <li> -->
-		<!-- <capacity>Moving</capacity> -->
-		<!-- <offset>0.1</offset> -->
-	  <!-- </li> -->
-	<!-- </capMods> -->
-	<!-- <exclusionTags> -->
-	  <!-- <li>WVC_LightFrameSuperSpine</li> -->
-	<!-- </exclusionTags> -->
-	<modExtensions>
-		<!-- <li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core"> -->
-			<!-- <caravanCarryingFactor>1.50</caravanCarryingFactor> -->
-		<!-- </li> -->
-	</modExtensions>
+	<!-- <hediffGiversCannotGive> -->
+	  <!-- <li>BadBack</li> -->
+	  <!-- <li>Frail</li> -->
+	<!-- </hediffGiversCannotGive> -->
   </GeneDef>
 
-  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_OldMecaBodyParts">
 	<defName>WVC_MecaBodyParts_Leg</defName>
 	<label>lightweight</label>
-	<description>Carriers of this gene have a fairly light body.</description>
+	<description>Carriers of this gene have a lighter body than baseliners.</description>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>-1</biostatMet>
 	<biostatArc>0</biostatArc>
@@ -123,36 +98,24 @@
 	<!-- </exclusionTags> -->
   </GeneDef>
 
-  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_OldMecaBodyParts">
 	<defName>WVC_MecaBodyParts_Stomach</defName>
 	<label>mechabolism</label>
-	<description>Carriers of this gene have a strong stomach and can accumulate nutrients much better.</description>
+	<description>Carriers of this gene have archites in the stomach which significantly improve metabolism.</description>
 	<foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
-	<!-- <overdoseChanceFactor>0</overdoseChanceFactor> -->
-	<!-- <toleranceBuildupFactor>0</toleranceBuildupFactor> -->
-	<!-- <addictionChanceFactor>0</addictionChanceFactor> -->
 	<iconPath>WVC/UI/Genes/ArchiteStomach_v0</iconPath>
 	<dontMindRawFood>true</dontMindRawFood>
-	<!-- <biostatCpx>4</biostatCpx> -->
-	<!-- <biostatArc>0</biostatArc> -->
 	<biostatMet>1</biostatMet>
 	<displayCategory>Miscellaneous</displayCategory>
 	<displayOrderInCategory>9</displayOrderInCategory>
 	<makeImmuneTo>
 	  <li>GutWorms</li>
-	  <!-- <li>MuscleParasites</li> -->
-	  <!-- <li>Malaria</li> -->
-	  <!-- <li>SleepingSickness</li> -->
-	  <!-- <li>Plague</li> -->
-	  <!-- <li>WoundInfection</li> -->
-	  <!-- <li>LungRot</li> -->
 	</makeImmuneTo>
 	<statFactors>
 	  <MaxNutrition>2.0</MaxNutrition>
 	</statFactors>
 	<exclusionTags>
 	  <li>AG_StrongStomachAndWeakStomach</li>
-	  <!-- <li>AG_RobustDigestionAndWeakStomach</li> -->
 	</exclusionTags>
 	<capMods>
 	  <li>
@@ -162,10 +125,10 @@
 	</capMods>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_OldMecaBodyParts">
 	<defName>WVC_MecaBodyParts_Liver</defName>
 	<label>immunostabilizer</label>
-	<description>Archites in the carrier's blood significantly enhance immunity.</description>
+	<description>Carriers of this gene have archites that improve immunity and cleanse the blood of toxins.</description>
 	<biostatMet>-3</biostatMet>
 	<iconPath>WVC/UI/Genes/Immunostabilizer_v0</iconPath>
 	<!-- <biostatArc>1</biostatArc> -->
@@ -182,6 +145,9 @@
 	  <ToxicResistance>0.5</ToxicResistance>
 	  <ImmunityGainSpeed>1</ImmunityGainSpeed>
 	</statOffsets>
+	<makeImmuneTo>
+	  <li>OrganDecay</li>
+	</makeImmuneTo>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 			<diseaseProgressionFactor>0.5</diseaseProgressionFactor>
@@ -189,21 +155,15 @@
 	</modExtensions>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_OldMecaBodyParts">
 	<defName>WVC_MecaBodyParts_Kidney</defName>
-	<label>mechanite clusters</label>
-	<description>Archites create mechanite clusters, slightly increasing regeneration.</description>
+	<label>archite healing</label>
+	<description>Carriers of this gene have archites that speed up regeneration and protect against mechanites.</description>
 	<biostatMet>-1</biostatMet>
 	<iconPath>WVC/UI/Genes/MechaClusters_v0</iconPath>
-	<!-- <customEffectDescriptions> -->
-		<!-- <li>&lt;color=#b8c6ff&gt;Increases toxic resistance.&lt;/color&gt;</li> -->
-	<!-- </customEffectDescriptions> -->
-	<!-- <makeImmuneTo> -->
-	  <!-- <li>MuscleParasites</li> -->
-	<!-- </makeImmuneTo> -->
 	<displayCategory>Healing</displayCategory>
 	<statOffsets>
-	  <ToxicResistance>0.25</ToxicResistance>
+	  <!-- <ToxicResistance>0.5</ToxicResistance> -->
 	  <InjuryHealingFactor>1</InjuryHealingFactor>
 	</statOffsets>
 	<makeImmuneTo>
@@ -212,33 +172,7 @@
 	</makeImmuneTo>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
-	<defName>WVC_MecaBodyParts_Lung</defName>
-	<label>improved T-adaptation</label>
-	<description>Carriers of this gene adapt better in a hostile environment.</description>
-	<biostatCpx>2</biostatCpx>
-	<biostatArc>0</biostatArc>
-	<biostatMet>-2</biostatMet>
-	<iconPath>WVC/UI/Genes/Gene_TemperatureAdaptation_v0</iconPath>
-	<!-- <biostatArc>2</biostatArc> -->
-	<!-- <customEffectDescriptions> -->
-		<!-- <li>&lt;color=#b8c6ff&gt;Increases toxic resistance.&lt;/color&gt;</li> -->
-	<!-- </customEffectDescriptions> -->
-	<displayCategory>Temperature</displayCategory>
-	<statOffsets>
-	  <ToxicResistance>0.25</ToxicResistance>
-	  <!-- <WVC_PawnMechanoidization>2</WVC_PawnMechanoidization> -->
-	  <ComfyTemperatureMax>25</ComfyTemperatureMax>
-	  <ComfyTemperatureMin>-25</ComfyTemperatureMin>
-	  <!-- <ArmorRating_Heat>0.10</ArmorRating_Heat> -->
-	</statOffsets>
-	<makeImmuneTo>
-	  <li>LungRot</li>
-	  <li>LungRotExposure</li>
-	</makeImmuneTo>
-  </GeneDef>
-
-  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_OldMecaBodyParts">
 	<defName>WVC_MecaUpgrades_PerfectShape</defName>
 	<label>perfect shape</label>
 	<biostatMet>-1</biostatMet>
@@ -274,10 +208,10 @@
 	</exclusionTags>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_MechanoidizationUpgrades">
+  <GeneDef ParentName="WVC_XenotypesAndGenes_OldMecaBodyParts">
 	<defName>WVC_MecaUpgrades_CombatMode</defName>
 	<label>combat mode</label>
-	<description>The carrier of this gene has archites which can increase the strength of the carrier's skin in case of danger.</description>
+	<description>Carriers of this gene have archites which increase the strength of the carrier's skin in case of danger.</description>
 	<biostatMet>-2</biostatMet>
 	<displayCategory>Violence</displayCategory>
 	<conditionalStatAffecters>

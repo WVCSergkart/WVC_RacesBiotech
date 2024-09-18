@@ -70,6 +70,7 @@
 			<gestationPeriodFactor>0.5</gestationPeriodFactor>
 			<xenotypeComplexityFactor>0.2</xenotypeComplexityFactor>
 			<cooldownDays>7</cooldownDays>
+			<!-- Obsolete -->
 			<canGestateAnyIfHas>
 				<!-- <li>WVC_Shapeshifter</li> -->
 			</canGestateAnyIfHas>
