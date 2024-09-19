@@ -85,6 +85,9 @@
 					  <li>WVC_DeadStomach</li>
 					  <li MayRequire="ludeon.rimworld.ideology">WVC_Scarifier_Scarstomach</li>
 					  <li MayRequire="ludeon.rimworld.ideology">WVC_Scarifier_ArchiteScarstomach</li>
+					  <li>WVC_MechaPowerSource_Tox</li>
+					  <li>WVC_MechaPowerSource_Unstable</li>
+					  <li>WVC_MechaPowerSource_Stable</li>
 					</nullifyingGenes>
 				  </value>
 				</li>
@@ -95,16 +98,16 @@
 
 	<!-- ================================================= -->
 
-	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
-	  <xpath>/Defs/GeneDef[defName="VRE_Slow_Diseases"]</xpath>
-	  <success>Always</success>
-	  <safetyDepth>1</safetyDepth>
-	  <value>
-		<exclusionTags>
-		  <li>WVC_DiseaseProgression</li>
-		</exclusionTags>
-	  </value>
-	</Operation>
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd"> -->
+	  <!-- <xpath>/Defs/GeneDef[defName="VRE_Slow_Diseases"]</xpath> -->
+	  <!-- <success>Always</success> -->
+	  <!-- <safetyDepth>1</safetyDepth> -->
+	  <!-- <value> -->
+		<!-- <exclusionTags> -->
+		  <!-- <li>WVC_DiseaseProgression</li> -->
+		<!-- </exclusionTags> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
 
 	<!-- ================================================= -->
 

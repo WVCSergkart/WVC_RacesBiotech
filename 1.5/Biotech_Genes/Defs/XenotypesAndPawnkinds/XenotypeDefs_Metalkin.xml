@@ -31,6 +31,7 @@
 		<li>WVC_MecaBodyParts_Stomach</li>
 		<li>WVC_MecaBodyParts_Heart</li>
 		<li>WVC_MecaBodyParts_Kidney</li>
+		<li>WVC_MecaBodyParts_Liver</li>
 		<li>WVC_Mecha_ConnectorTail</li>
 		<li>WVC_Mecha_RedFormerSpikesDouble</li>
 		<li>WVC_VoiceMechaFabricor</li>
@@ -39,7 +40,7 @@
 		<li>Ageless</li>
 		<!-- <li>DiseaseFree</li> -->
 		<!-- <li>PerfectImmunity</li> -->
-		<li>WVC_ArchitePerfectImmunity_DiseaseFree</li>
+		<!-- <li>WVC_ArchitePerfectImmunity_DiseaseFree</li> -->
 		<li>WVC_FirefoampopMech</li>
 		<!-- <li>WVC_XenotypeGestator</li> -->
 		<li>WVC_ReimplanterArchite_Endogenes</li>

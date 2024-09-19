@@ -81,6 +81,7 @@
     <Compile Include="Resources_Abilities\CompProperties_SafeBloodfeed.cs" />
     <Compile Include="Resources_Abilities\QuestNode_Root_Reincarnation.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_NoSunlight.cs" />
+    <Compile Include="Resources_Genes\Gene_Anomaly.cs" />
     <Compile Include="Resources_Genes\Gene_Chimera.cs" />
     <Compile Include="Resources_Genes\Gene_Energy.cs" />
     <Compile Include="Resources_Genes\Gene_Furskin.cs" />

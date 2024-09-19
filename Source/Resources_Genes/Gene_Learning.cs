@@ -207,7 +207,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void PostAdd()
 		{
-			// base.PostAdd();
+			base.PostAdd();
 			ResetInterval();
 		}
 

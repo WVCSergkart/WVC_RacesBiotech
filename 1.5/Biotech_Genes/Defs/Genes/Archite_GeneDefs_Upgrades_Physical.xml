@@ -125,35 +125,32 @@
 	</capMods>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_OldMecaBodyParts">
-	<defName>WVC_MecaBodyParts_Liver</defName>
-	<label>immunostabilizer</label>
-	<description>Carriers of this gene have archites that improve immunity and cleanse the blood of toxins.</description>
-	<biostatMet>-3</biostatMet>
-	<iconPath>WVC/UI/Genes/Immunostabilizer_v0</iconPath>
-	<!-- <biostatArc>1</biostatArc> -->
-	<displayCategory>Healing</displayCategory>
-	<customEffectDescriptions>
-		<!-- <li>&lt;color=#b8c6ff&gt;Increases toxic resistance.&lt;/color&gt;</li> -->
-		<li MayRequire="oskarpotocki.vanillafactionsexpanded.core">Slowdown the progression of diseases.</li>
-	</customEffectDescriptions>
-	<exclusionTags>
-	  <!-- <li>Immunity</li> -->
-	  <li>WVC_DiseaseProgression</li>
-	</exclusionTags>
-	<statOffsets>
-	  <ToxicResistance>0.5</ToxicResistance>
-	  <ImmunityGainSpeed>1</ImmunityGainSpeed>
-	</statOffsets>
-	<makeImmuneTo>
-	  <li>OrganDecay</li>
-	</makeImmuneTo>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
-			<diseaseProgressionFactor>0.5</diseaseProgressionFactor>
-		</li>
-	</modExtensions>
-  </GeneDef>
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_OldMecaBodyParts"> -->
+	<!-- <defName>WVC_MecaBodyParts_Liver</defName> -->
+	<!-- <label>immunostabilizer</label> -->
+	<!-- <description>Carriers of this gene have archites that improve immunity and cleanse the blood of toxins.</description> -->
+	<!-- <biostatMet>-3</biostatMet> -->
+	<!-- <iconPath>WVC/UI/Genes/Immunostabilizer_v0</iconPath> -->
+	<!-- <displayCategory>Healing</displayCategory> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li MayRequire="oskarpotocki.vanillafactionsexpanded.core">Slowdown the progression of diseases.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_DiseaseProgression</li> -->
+	<!-- </exclusionTags> -->
+	<!-- <statOffsets> -->
+	  <!-- <ToxicResistance>0.5</ToxicResistance> -->
+	  <!-- <ImmunityGainSpeed>1</ImmunityGainSpeed> -->
+	<!-- </statOffsets> -->
+	<!-- <makeImmuneTo> -->
+	  <!-- <li>OrganDecay</li> -->
+	<!-- </makeImmuneTo> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core"> -->
+			<!-- <diseaseProgressionFactor>0.5</diseaseProgressionFactor> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </GeneDef> -->
 
   <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_OldMecaBodyParts"> -->
 	<!-- <defName>WVC_MecaBodyParts_Kidney</defName> -->

@@ -16,7 +16,7 @@
 	<!-- <displayCategory>Violence</displayCategory> -->
 	<!-- <displayOrderInCategory>-120</displayOrderInCategory> -->
 	<customEffectDescriptions>
-		<li>Upon death, it spawns &lt;color=#8a8ae6&gt;metal horror&lt;/color&gt; and some &lt;color=#8a8ae6&gt;bioferrite&lt;/color&gt;.</li>
+		<li>Upon death, it spawns &lt;color=#8a8ae6&gt;metalhorror&lt;/color&gt; and some &lt;color=#8a8ae6&gt;bioferrite&lt;/color&gt;.</li>
 		<!-- <li>&lt;color=#ff8585&gt;Destroys carrier corpse.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<capMods>

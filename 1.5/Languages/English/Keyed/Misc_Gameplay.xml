@@ -50,6 +50,8 @@
 
 	<WVC_XaG_GestatedDryad>gestated</WVC_XaG_GestatedDryad>
 
+	<WVC_XaG_MetalhorrorReasonGeneRejection>{INFECTED_nameDef}'s metalhorror emerged for genetic rejection.</WVC_XaG_MetalhorrorReasonGeneRejection>
+
 	<WVC_XaG_GestatedDryadDescription>&lt;color=#f5ffa2&gt;Being gestated&lt;/color&gt; by the genetic dryad queen, dryads behave differently from their tree-relatives. They exist in a symbiotic relationship directly with the genetic queen, who in turn gestates new dryads and has a psychic bond with them.</WVC_XaG_GestatedDryadDescription>
 
 	<!-- ============================ SERUM RETUNE AND OTHER ============================ -->
