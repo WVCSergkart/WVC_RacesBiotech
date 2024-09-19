@@ -647,7 +647,7 @@ namespace WVC_XenotypesAndGenes
 							{
 								if (geneDef.IsXenoGenesDef() && !genes.Contains(geneDef))
 								{
-									// genesCount ++;
+									genesCount ++;
 									genes.Add(geneDef);
 								}
 							}

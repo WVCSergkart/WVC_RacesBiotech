@@ -33,6 +33,7 @@
 		<li>WVC_MecaBodyParts_Kidney</li>
 		<li>WVC_MecaBodyParts_Liver</li>
 		<li>WVC_Mecha_ConnectorTail</li>
+		<!-- <li>WVC_Mecha_AntennaTail</li> -->
 		<li>WVC_Mecha_RedFormerSpikesDouble</li>
 		<li>WVC_VoiceMechaFabricor</li>
 		<li>WVC_MechaAI_SoftwareManipulation</li>

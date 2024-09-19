@@ -131,6 +131,54 @@
 	</symbolPack>
   </GeneDef>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneTails_Base">
+	<defName>WVC_LizardTailA</defName>
+	<label>short spiked tail</label>
+	<description>Carriers of this gene grow a short spiked tail.</description>
+	<iconPath>WVC/UI/Genes/Gene_LizardTail_v0</iconPath>
+	<minAgeActive>3</minAgeActive>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
+	<renderNodeProperties>
+	  <li>
+		<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+		<texPaths>
+		  <li>WVC/BodyParts/MecaGene_ScytheTail/ShortSpikedTail</li>
+		</texPaths>
+		<colorType>Skin</colorType>
+		<overrideMeshSize>(1.0, 1.0)</overrideMeshSize>
+		<drawSize>1.25</drawSize>
+		<parentTagDef>Body</parentTagDef>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<drawData>
+		  <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+		  <defaultData>
+			<layer>-2</layer>
+		  </defaultData>
+		  <dataNorth>
+			<offset>(0.0, 0.2, 0.0)</offset>
+			<layer>90</layer>
+		  </dataNorth>
+		  <dataSouth>
+			<offset>(0.0, -0.1, 0.0)</offset>
+		  </dataSouth>
+		  <dataEast>
+			<offset>(-0.12, -0.1, 0.02)</offset>
+		  </dataEast>
+		  <dataWest>
+			<offset>(0.12, -0.1, 0.02)</offset>
+		  </dataWest>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>lizard</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
   <!-- Old tails -->
 
   <GeneDef ParentName="GeneTailBase" Name="WVC_XenotypesAndGenes_GeneTails_OldBase" Abstract="True">
@@ -355,9 +403,6 @@
 	<statOffsets>
 		<MechBandwidth>12</MechBandwidth>
 	</statOffsets>
-	<!-- <graphicData> -->
-	  <!-- <graphicPath>WVC/BodyParts/MecaGene_ScytheTail/AntennaTail</graphicPath> -->
-	<!-- </graphicData> -->
 	<renderNodeProperties>
 	  <li>
 		<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
@@ -390,6 +435,38 @@
 		</drawData>
 	  </li>
 	</renderNodeProperties>
+	<!-- <renderNodeProperties> -->
+	  <!-- <li> -->
+		<!-- <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass> -->
+		<!-- <texPaths> -->
+		  <!-- <li>WVC/BodyParts/MecaGene_ScytheTail/ShortSpikedTail</li> -->
+		<!-- </texPaths> -->
+		<!-- <colorType>Skin</colorType> -->
+		<!-- <overrideMeshSize>(1.0, 1.0)</overrideMeshSize> -->
+		<!-- <drawSize>1.25</drawSize> -->
+		<!-- <parentTagDef>Body</parentTagDef> -->
+		<!-- <rotDrawMode>Fresh, Rotting</rotDrawMode> -->
+		<!-- <drawData> -->
+		  <!-- <scaleOffsetByBodySize>true</scaleOffsetByBodySize> -->
+		  <!-- <defaultData> -->
+			<!-- <layer>-2</layer> -->
+		  <!-- </defaultData> -->
+		  <!-- <dataNorth> -->
+			<!-- <offset>(0.0, 0.2, 0.0)</offset> -->
+			<!-- <layer>90</layer> -->
+		  <!-- </dataNorth> -->
+		  <!-- <dataSouth> -->
+			<!-- <offset>(0.0, -0.1, 0.0)</offset> -->
+		  <!-- </dataSouth> -->
+		  <!-- <dataEast> -->
+			<!-- <offset>(-0.12, -0.1, 0.02)</offset> -->
+		  <!-- </dataEast> -->
+		  <!-- <dataWest> -->
+			<!-- <offset>(0.12, -0.1, 0.02)</offset> -->
+		  <!-- </dataWest> -->
+		<!-- </drawData> -->
+	  <!-- </li> -->
+	<!-- </renderNodeProperties> -->
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>antenna</symbol></li>
@@ -399,18 +476,6 @@
 		<li><symbol>ten</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
-	<modExtensions>
-		<!-- <li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core"> -->
-			<!-- <offsets> -->
-			 <!-- <east> -->
-			  <!-- <bodyTypes> -->
-			   <!-- <Thin>(0.22, 0.0, 0.0)</Thin> -->
-			   <!-- <Male>(-0.02, 0.0, 0.0)</Male> -->
-			  <!-- </bodyTypes> -->
-			 <!-- </east> -->
-			<!-- </offsets> -->
-		<!-- </li> -->
-	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneTails_OldBase">
