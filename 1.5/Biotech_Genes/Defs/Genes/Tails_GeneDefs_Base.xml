@@ -19,19 +19,11 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneTails_Base">
 	<defName>WVC_DemonTailA</defName>
 	<label>demon tail</label>
-	<!-- <description>Carriers of this gene grow a sleek long tail.</description> -->
 	<iconPath>WVC/UI/Genes/Gene_DemonTail_v0</iconPath>
 	<minAgeActive>3</minAgeActive>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>0</biostatMet>
-	<!-- <graphicData> -->
-	  <!-- <colorType>Skin</colorType> -->
-	  <!-- <drawScale>1.25</drawScale> -->
-	  <!-- <drawOffsetNorth>(0.0, 0.2, 0.0)</drawOffsetNorth> -->
-	  <!-- <drawOffsetSouth>(0.0, -0.1, 0.0)</drawOffsetSouth> -->
-	  <!-- <drawOffsetEast>(-0.06, -0.1, 0.02)</drawOffsetEast> -->
-	<!-- </graphicData> -->
 	<renderNodeProperties>
 	  <li>
 		<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
@@ -82,16 +74,6 @@
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>0</biostatMet>
-	<!-- <graphicData> -->
-	  <!-- <graphicPaths> -->
-		<!-- <li>WVC/BodyParts/MecaGene_ScytheTail/CatTailA</li> -->
-	  <!-- </graphicPaths> -->
-	  <!-- <colorType>Hair</colorType> -->
-	  <!-- <drawScale>1.25</drawScale> -->
-	  <!-- <drawOffsetNorth>(0.0, 0.2, 0.0)</drawOffsetNorth> -->
-	  <!-- <drawOffsetSouth>(0.0, -0.1, 0.0)</drawOffsetSouth> -->
-	  <!-- <drawOffsetEast>(-0.06, -0.1, 0.02)</drawOffsetEast> -->
-	<!-- </graphicData> -->
 	<renderNodeProperties>
 	  <li>
 		<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
@@ -179,6 +161,117 @@
 	</symbolPack>
   </GeneDef>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneTails_Base">
+	<defName>WVC_DragonTailA</defName>
+	<label>spiked tail</label>
+	<description>Carriers of this gene grow a long spiked tail.</description>
+	<iconPath>WVC/UI/Genes/Gene_DragonTail_v0</iconPath>
+	<minAgeActive>3</minAgeActive>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
+	<renderNodeProperties>
+	  <li>
+		<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+		<texPaths>
+		  <li>WVC/BodyParts/MecaGene_ScytheTail/DragonTail</li>
+		</texPaths>
+		<colorType>Skin</colorType>
+		<overrideMeshSize>(1.0, 1.0)</overrideMeshSize>
+		<drawSize>1.5</drawSize>
+		<parentTagDef>Body</parentTagDef>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<drawData>
+		  <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+		  <defaultData>
+			<layer>-2</layer>
+		  </defaultData>
+		  <dataNorth>
+			<offset>(0.0, 0.2, 0.06)</offset>
+			<layer>90</layer>
+		  </dataNorth>
+		  <dataSouth>
+			<offset>(0.0, -0.1, 0.06)</offset>
+		  </dataSouth>
+		  <dataEast>
+			<offset>(-0.06, -0.1, 0.06)</offset>
+		  </dataEast>
+		  <dataWest>
+			<offset>(0.06, -0.1, 0.06)</offset>
+		  </dataWest>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>dragon</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneTails_Base">
+	<defName>WVC_Mecha_AntennaTail</defName>
+	<label>segmented tail</label>
+	<description>Carriers of this gene have archites that form a long, segmented bandwidth amplifier that resembles a tail.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_SegmentedTail</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_AntennaTail_v0</iconPath>
+	<minAgeActive>3</minAgeActive>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<selectionWeight>0.00125</selectionWeight>
+	<customEffectDescriptions>
+		<li>Has a &lt;color=#8a8ae6&gt;small chance&lt;/color&gt; of occasionally &lt;color=#8a8ae6&gt;summoning&lt;/color&gt; a random &lt;color=#8a8ae6&gt;light mechanoid&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<statOffsets>
+		<MechBandwidth>12</MechBandwidth>
+	</statOffsets>
+	<renderNodeProperties>
+	  <li>
+		<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+		<texPaths>
+		  <li>WVC/BodyParts/MecaGene_ScytheTail/AntennaTail</li>
+		</texPaths>
+		<colorType>Skin</colorType>
+		<overrideMeshSize>(1.0, 1.0)</overrideMeshSize>
+		<drawSize>1.5</drawSize>
+		<parentTagDef>Body</parentTagDef>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<drawData>
+		  <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+		  <defaultData>
+			<layer>-2</layer>
+		  </defaultData>
+		  <dataNorth>
+			<offset>(0.0, 0.2, 0.06)</offset>
+			<layer>90</layer>
+		  </dataNorth>
+		  <dataSouth>
+			<offset>(0.0, -0.1, 0.06)</offset>
+		  </dataSouth>
+		  <dataEast>
+			<offset>(-0.06, -0.1, 0.06)</offset>
+		  </dataEast>
+		  <dataWest>
+			<offset>(0.06, -0.1, 0.06)</offset>
+		  </dataWest>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>mecha</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>dragon</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<summonQuest>WVC_MechanitorSummonLightMech</summonQuest>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
   <!-- Old tails -->
 
   <GeneDef ParentName="GeneTailBase" Name="WVC_XenotypesAndGenes_GeneTails_OldBase" Abstract="True">
@@ -195,44 +288,6 @@
 	<biostatMet>0</biostatMet>
 	<minAgeActive>0</minAgeActive>
 	<selectionWeight>0.00125</selectionWeight>
-	<!-- <graphicData> -->
-	  <!-- <graphicPath>WVC/BodyParts/MecaGene_ScytheTail/NodeTail</graphicPath> -->
-	  <!-- <colorType>Skin</colorType> -->
-	  <!-- <drawOffsetNorth>(0, 0.2, -0.15)</drawOffsetNorth> -->
-	  <!-- <drawOffsetSouth>(0, -0.1, -0.15)</drawOffsetSouth> -->
-	  <!-- <drawOffsetEast>(-0.5, -0.1, -0.15)</drawOffsetEast> -->
-	<!-- </graphicData> -->
-	<!-- <renderNodeProperties> -->
-	  <!-- <li> -->
-		<!-- <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass> -->
-		<!-- <texPaths> -->
-		  <!-- <li>WVC/BodyParts/MecaGene_ScytheTail/NodeTail</li> -->
-		<!-- </texPaths> -->
-		<!-- <colorType>Skin</colorType> -->
-		<!-- <overrideMeshSize>(1, 1)</overrideMeshSize> -->
-		<!-- <parentTagDef>Body</parentTagDef> -->
-		<!-- <rotDrawMode>Fresh, Rotting</rotDrawMode> -->
-		<!-- <drawData> -->
-		  <!-- <scaleOffsetByBodySize>true</scaleOffsetByBodySize> -->
-		  <!-- <defaultData> -->
-			<!-- <layer>-2</layer> -->
-		  <!-- </defaultData> -->
-		  <!-- <dataNorth> -->
-			<!-- <offset>(0.0, 0.2, -0.15)</offset> -->
-			<!-- <layer>90</layer> -->
-		  <!-- </dataNorth> -->
-		  <!-- <dataSouth> -->
-			<!-- <offset>(0.0, -0.1, -0.15)</offset> -->
-		  <!-- </dataSouth> -->
-		  <!-- <dataEast> -->
-			<!-- <offset>(-0.5, -0.1, -0.15)</offset> -->
-		  <!-- </dataEast> -->
-		  <!-- <dataWest> -->
-			<!-- <offset>(-0.5, -0.1, -0.15)</offset> -->
-		  <!-- </dataWest> -->
-		<!-- </drawData> -->
-	  <!-- </li> -->
-	<!-- </renderNodeProperties> -->
   </GeneDef>
 
   <!-- ======================== -->
@@ -246,7 +301,7 @@
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<!-- <biostatMet>-1</biostatMet> -->
-	<minAgeActive>13</minAgeActive>
+	<minAgeActive>3</minAgeActive>
 	<customEffectDescriptions>
 		<li>Adds a deadly tail attack.</li>
 	</customEffectDescriptions>
@@ -327,7 +382,7 @@
 	<label>connector tail</label>
 	<description>Carriers of this gene grow a sleek long tail with several connectors at the end.</description>
 	<iconPath>WVC/BodyParts/MecaGene_ScytheTail/NodeTail_east</iconPath>
-	<minAgeActive>13</minAgeActive>
+	<minAgeActive>3</minAgeActive>
 	<statOffsets>
 		<MechBandwidth>2</MechBandwidth>
 		<MechRepairSpeed>1.0</MechRepairSpeed>
@@ -392,90 +447,6 @@
 			<!-- </offsets> -->
 		<!-- </li> -->
 	</modExtensions>
-  </GeneDef>
-
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneTails_OldBase">
-	<defName>WVC_Mecha_AntennaTail</defName>
-	<label>antenna tail</label>
-	<description>Carriers of this gene grow a short antenna-like tail.</description>
-	<iconPath>WVC/BodyParts/MecaGene_ScytheTail/AntennaTail_east</iconPath>
-	<minAgeActive>13</minAgeActive>
-	<statOffsets>
-		<MechBandwidth>12</MechBandwidth>
-	</statOffsets>
-	<renderNodeProperties>
-	  <li>
-		<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
-		<texPaths>
-		  <li>WVC/BodyParts/MecaGene_ScytheTail/AntennaTail</li>
-		</texPaths>
-		<colorType>Skin</colorType>
-		<overrideMeshSize>(1, 1)</overrideMeshSize>
-		<drawSize>1.0</drawSize>
-		<parentTagDef>Body</parentTagDef>
-		<rotDrawMode>Fresh, Rotting</rotDrawMode>
-		<drawData>
-		  <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
-		  <defaultData>
-			<layer>-2</layer>
-		  </defaultData>
-		  <dataNorth>
-			<offset>(0.0, 0.2, -0.15)</offset>
-			<layer>90</layer>
-		  </dataNorth>
-		  <dataSouth>
-			<offset>(0.0, -0.1, -0.15)</offset>
-		  </dataSouth>
-		  <dataEast>
-			<offset>(-0.5, -0.1, -0.15)</offset>
-		  </dataEast>
-		  <dataWest>
-			<offset>(0.5, -0.1, -0.15)</offset>
-		  </dataWest>
-		</drawData>
-	  </li>
-	</renderNodeProperties>
-	<!-- <renderNodeProperties> -->
-	  <!-- <li> -->
-		<!-- <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass> -->
-		<!-- <texPaths> -->
-		  <!-- <li>WVC/BodyParts/MecaGene_ScytheTail/ShortSpikedTail</li> -->
-		<!-- </texPaths> -->
-		<!-- <colorType>Skin</colorType> -->
-		<!-- <overrideMeshSize>(1.0, 1.0)</overrideMeshSize> -->
-		<!-- <drawSize>1.25</drawSize> -->
-		<!-- <parentTagDef>Body</parentTagDef> -->
-		<!-- <rotDrawMode>Fresh, Rotting</rotDrawMode> -->
-		<!-- <drawData> -->
-		  <!-- <scaleOffsetByBodySize>true</scaleOffsetByBodySize> -->
-		  <!-- <defaultData> -->
-			<!-- <layer>-2</layer> -->
-		  <!-- </defaultData> -->
-		  <!-- <dataNorth> -->
-			<!-- <offset>(0.0, 0.2, 0.0)</offset> -->
-			<!-- <layer>90</layer> -->
-		  <!-- </dataNorth> -->
-		  <!-- <dataSouth> -->
-			<!-- <offset>(0.0, -0.1, 0.0)</offset> -->
-		  <!-- </dataSouth> -->
-		  <!-- <dataEast> -->
-			<!-- <offset>(-0.12, -0.1, 0.02)</offset> -->
-		  <!-- </dataEast> -->
-		  <!-- <dataWest> -->
-			<!-- <offset>(0.12, -0.1, 0.02)</offset> -->
-		  <!-- </dataWest> -->
-		<!-- </drawData> -->
-	  <!-- </li> -->
-	<!-- </renderNodeProperties> -->
-	<symbolPack>
-	  <prefixSymbols>
-		<li><symbol>antenna</symbol></li>
-		<li><symbol>anten</symbol></li>
-	  </prefixSymbols>
-	  <suffixSymbols>
-		<li><symbol>ten</symbol></li>
-	  </suffixSymbols>
-	</symbolPack>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneTails_OldBase">

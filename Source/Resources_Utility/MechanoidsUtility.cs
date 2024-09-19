@@ -298,22 +298,37 @@ namespace WVC_XenotypesAndGenes
 		// }
 
 		// Mecha summon
-		public static bool MechanoidIsPlayerMechanoid(PawnKindDef mech)
+		public static bool MechanoidIsPlayerMechanoid(PawnKindDef mech, bool summonLightMechs = true, bool summonMediumMechs = true, bool summonHeavyMechs = true, bool summonUltraHeavyMechs = true)
 		{
-			if (mech.race.race.IsMechanoid 
-			&& mech.defName.Contains("Mech_") 
-			&& MechDefNameShouldNotContain(mech.defName)
-			&& MechDefNameShouldNotContain(mech.race.defName)
-			&& mech.race.race.thinkTreeMain == WVC_GenesDefOf.Mechanoid 
-			&& mech.race.race.thinkTreeConstant == WVC_GenesDefOf.MechConstant 
-			// && mech.race.race.maxMechEnergy == 100
-			&& mech.race.race.lifeStageAges.Count > 1
-			&& EverControllable(mech.race)
-			&& EverRepairable(mech.race))
+			if (!mech.race.race.IsMechanoid
+			|| !mech.defName.Contains("Mech_")
+			|| !MechDefNameShouldNotContain(mech.defName)
+			|| !MechDefNameShouldNotContain(mech.race.defName)
+			|| mech.race.race.thinkTreeMain != WVC_GenesDefOf.Mechanoid
+			|| mech.race.race.thinkTreeConstant != WVC_GenesDefOf.MechConstant
+			|| mech.race.race.lifeStageAges.Count <= 1
+			|| !EverControllable(mech.race)
+			|| !EverRepairable(mech.race))
 			{
-				return true;
+				return false;
 			}
-			return false;
+			if (!summonLightMechs && mech.race.race.mechWeightClass == MechWeightClass.Light)
+			{
+				return false;
+			}
+			if (!summonMediumMechs && mech.race.race.mechWeightClass == MechWeightClass.Medium)
+			{
+				return false;
+			}
+			if (!summonHeavyMechs && mech.race.race.mechWeightClass == MechWeightClass.Heavy)
+			{
+				return false;
+			}
+			if (!summonUltraHeavyMechs && mech.race.race.mechWeightClass == MechWeightClass.UltraHeavy)
+			{
+				return false;
+			}
+			return true;
 		}
 
 		public static bool MechDefNameShouldNotContain(string defName)

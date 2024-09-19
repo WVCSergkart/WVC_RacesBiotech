@@ -150,4 +150,70 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_SegmentedTail : Gene
+	{
+
+		public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
+
+		public override void Tick()
+		{
+			if (!pawn.IsHashIntervalTick(77752))
+			{
+				return;
+			}
+			TrySummonRandomMech();
+		}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: TryRandomSummon",
+					action = delegate
+					{
+						if (!TrySummonRandomMech(1f))
+						{
+							Log.Error("Failed summon");
+						}
+					}
+				};
+			}
+		}
+
+		public bool CanDoOrbitalSummon()
+		{
+			if (pawn.Faction != Faction.OfPlayer)
+			{
+				return false;
+			}
+			if (pawn.Map == null)
+			{
+				return false;
+			}
+			if (!MechanitorUtility.IsMechanitor(pawn))
+			{
+				return false;
+			}
+			return true;
+		}
+
+		private bool TrySummonRandomMech(float chance = 0.02f)
+		{
+			if (!Rand.Chance(chance))
+			{
+				return false;
+			}
+			if (!CanDoOrbitalSummon())
+			{
+				return false;
+			}
+			MechanoidsUtility.MechSummonQuest(pawn, Spawner.summonQuest);
+			Messages.Message("WVC_RB_Gene_Summoner".Translate(), pawn, MessageTypeDefOf.PositiveEvent);
+			return true;
+		}
+
+	}
+
 }
