@@ -14,63 +14,12 @@
 	<packageId>wvc.sergkart.races.biotech</packageId>
 	<description>======================================
 
-ATTENTION: The mod does NOT REQUIRE anything other than the Biotech DLC and Harmony. Don't trust RimPy, it lies!
+ATTENTION: The mod does NOT REQUIRE anything other than the Biotech DLC and Harmony. Stop using RimPy, it's outdated!
 
 ======================================
 
 Xenotypes and Genes
 The mod adds over 400+ new genes, as well as several xenotypes. Some have little impact on the game, some big. Almost all genes can be found in genepacks.
-
-Blankind - Blankinds require very little food, but this is compensated by their increased sleepiness. They don't experience nervous breakdowns, but they quickly lose all the experience in skills. They do not age and mature very quickly, and their wounds heal almost instantly. But their immunity is very weak and they can easily die from any disease.
-
-Mechakin - Mechakins can regrow lost limbs, never experience a nervous breakdown, are immune to toxins, and have an innate mechlink. They are most often a sub-xenotype of the Blankinds and inherit many of their flaws from them. Most skills are practically not available to them and the best role for them is a combat mechanitor.
-
-Throwex - Throwex needs a lot of food, they move fast, have the ability to put out emergency fires, and can also produce mechapacks. They are very poorly suited for combat and will be quite useful as crafters, gardeners or ideological leaders. They cannot reproduce normally and have a special ability to do so.
-
-Rogkind - Rogkinds have gene that determine their strengths. Vitality, regeneration, psi abilities, hunger, etc. Their skills are largely fixed, for example, cooking is not their forte. They are not prone to disease, do not age, are vulnerable to the sun, are not tolerant of those who are different, and most importantly, they can reimplant their genes. They are also excellent fighters or psycasters.
-
-Runeex - Runeex require very little food but a lot of sleep, they have good immunity and can never be in danger of food poisoning. They move very slowly and are completely useless in combat. But they have the ability to summon and control golems, which completely neutralize the weaknesses of the xenotype.
-
-Golemkind - Golemkinds are very slow, eat very little, and can take a lot of damage. They are immune to most diseases, do not age, but have poor health regeneration and weak psi-sensitivity. Usually golemkinds are a sub-xenotype of Runeex, which rethinks the approach to controlling golems a bit.
-
-Undead - Undead have 7 genes that are always randomized. Their hunger, immunity, movement speed, regeneration and work efficiency are always random. Common to all representatives is incredible fragility, they are very vulnerable in battle. All this is compensated by their partial immortality. They can also reanimate the dead by turning them into their own kind.
-* Has a very small chance to spawn as a wild man.
-
-All xenotypes spawn only in vanilla factions and with a very low chance.
-
-Tribal mechanoids
-Golems - Few types of multi-tasking mechanoids for the tribal-mechanitor. A new type of mechanoid that can be summoned using the new "Stonelink" gene. They require a lot of energy, but restore it very quickly, and their global work speed depends on the overseer's psi-sensitivity.
-
-Golems have a "soft" limit, if exceeded they die after some time (1-2 days). The base level of this limit is 0, it can be increased either with the help of genes, or the corresponding ideology (DLC Ideology), or with the help of shrines (DLC Royalty).
-
-Genepacks and Serums
-The mod also adds 3 new genepacks. In genepacks from the mod, only genes from the mod will spawn.
-W-pack - only regular genes spawn in it.
-Ultrapack - it spawns both archite and regular ones, or a combination of them.
-Mechapack - only archite genes spawn in it.
-
-Genepacks can be found at all traders that sell vanilla genepacks (does not overwrite vanilla genepack spawns)
-
-Xenotype serums:
-In total, the mod contains 4 types of possible xenotype serums. Basic, hybrid, custom and hybrid custom.
-
-Xenotype serum (_name_) - This is a basic serum, it changes the xenotype in accordance with the one indicated in the name. If the xenotype is not inherited, then the germline is not overwritten and you can thus create a hybrid xenotype.
-Hybrid serum (_name_) - This is a hybrid serum, hybrid serum give 2 xenotypes, for germline and xeno respectively. The name indicates a guaranteed xenotype.
-Xenotype serum (custom) - This is a custom serum that gives a random xenotype that you have created yourself. Note that if there is no suitable xenotype, then the base serum rule will be used.
-Hybrid serum (custom) - This is a hybrid serum that gives two xenotypes, for germline and for xenogenes. Xenotypes are selected from those that were created by you. Please note that two suitable xenotypes must exist at the same time. One is inheritable, the other is not.
-
-Whether a xenotype is considered suitable is affected by the modlist and game version. Please note that when you change the modlist or update the game, be sure to re-save custom xenotypes.
-
-There are also several additional serums with slightly different mechanics:
-Gene restoration serum - After using the serum, it removes from the user the effect associated with the reimplantation of genes.
-Xenotype nullifier serum - Removes all genes and resets the xenotype to the baseliner.
-Xenotype resurrector serum (any_xenotype) - Resurrects a fresh human corpse and changes its xenotype. The xenotype is indicated in the name of the serum.
-
-Known Issues
-Game launch too long:
-On too large modlists (300+ mods) with a huge number of xenotypes, there may be a problem with the game launching too long. If you encounter such problems, disable the serums in the mod settings.
-
-This is due to the fact that at startup a serum is created for each of the xenotypes. If you do not want to turn them off completely, then use the xenotype filter setting and leave only those xenotypes that you need.
 
 FAQ
 Q: Can "gene_name" be a separate mod?
