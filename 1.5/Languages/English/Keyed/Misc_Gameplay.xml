@@ -165,6 +165,12 @@
 
 	<WVC_XaG_Extreme_GeneticInstabilityMessage>Due to genetic instability, {0} lost consciousness.</WVC_XaG_Extreme_GeneticInstabilityMessage>
 
+	<WVC_XaG_RegenerationSleepGizmoTip>Pawn can be put into &lt;color=#6bb6bb&gt;regeneration coma&lt;/color&gt; at any time, but it will take an hour to come out of it. When falling into a coma, the pawn receives all the same effects as when falling into it from the &lt;color=#6bb6bb&gt;deathless&lt;/color&gt; gene. It will last either until &lt;color=#8a8ae6&gt;full recovery&lt;/color&gt;, or end when &lt;color=#8a8ae6&gt;time expires&lt;/color&gt;.\n\nYou can also &lt;color=#8a8ae6&gt;extend&lt;/color&gt; the pawn's coma. The coma is always &lt;color=#8a8ae6&gt;extended&lt;/color&gt; for an additional 6 days.</WVC_XaG_RegenerationSleepGizmoTip>
+
+	<WVC_XaG_RegenerationSleepAddHediffTip>Put the pawn into regeneration coma or extend it for 6 days.</WVC_XaG_RegenerationSleepAddHediffTip>
+	<WVC_XaG_RegenerationSleepRemoveHediffTip>Reset the coma to an hour.</WVC_XaG_RegenerationSleepRemoveHediffTip>
+	<WVC_Coma>Coma</WVC_Coma>
+
 	<!-- ============================ UNDEAD RESURRECTION ============================ -->
 
 	<WVC_LetterLabelSecondChance_GeneUndead>Second chance</WVC_LetterLabelSecondChance_GeneUndead>

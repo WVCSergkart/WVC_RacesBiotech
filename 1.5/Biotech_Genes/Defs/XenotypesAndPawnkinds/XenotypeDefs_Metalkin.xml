@@ -27,6 +27,7 @@
 		<!-- <li>WVC_MechaAI_FirmwareCreatorMachine</li> -->
 		<!-- <li>WVC_MechaAI_FirmwareGreenMachine</li> -->
 		<!-- <li>WVC_MechaAI_FirmwarePropagandaMachine</li> -->
+		<!-- <li>WVC_Eyes_ceae69_HEX</li> -->
 		<li>WVC_CyclicallySelfLearning</li>
 		<li>WVC_MechaAI_PsychicDull</li>
 		<li>WVC_MecaBodyParts_Ear</li>
@@ -40,7 +41,8 @@
 		<li>WVC_Mecha_AntennaTail</li>
 		<!-- <li>WVC_DragonTailA</li> -->
 		<li>WVC_Mecha_RedFormerSpikesDouble</li>
-		<li>WVC_VoiceMechaFabricor</li>
+		<li>WVC_VoiceMechaScorcher</li>
+		<!-- <li>WVC_VoiceMechaFabricor</li> -->
 		<li>WVC_MechaAI_SoftwareManipulation</li>
 		<li>WVC_MechaAI_SoftwareMoving</li>
 		<li>Ageless</li>
@@ -55,7 +57,8 @@
 		<!-- <li>WVC_ToxResist_Total</li> -->
 		<!-- <li>WVC_MinMaxTemp_Archite</li> -->
 		<li>WVC_MecaBodyParts_Lung</li>
-		<li>WVC_Neversleep</li>
+		<!-- <li>WVC_Neversleep</li> -->
+		<li>WVC_MecaUpgrades_EnergySavingMode</li>
 		<li>Body_Standard</li>
 		<!-- <li>Hair_InkBlack</li> -->
 		<li>WVC_HairColor_Slate</li>

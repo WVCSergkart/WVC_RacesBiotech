@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Verse;
@@ -188,6 +189,37 @@ namespace WVC_XenotypesAndGenes
 			base.ExposeData();
 			Scribe_Values.Look(ref cooldown, "cooldown", -1);
 		}
+
+	}
+
+	public class Gene_Gizmo : Gene
+	{
+
+		private Gizmo gizmo;
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (XaG_GeneUtility.SelectorActiveFaction(pawn, this))
+			{
+				yield break;
+			}
+			if (def?.showGizmoWhenDrafted == false && pawn.Drafted)
+			{
+				yield break;
+			}
+			if (gizmo == null)
+			{
+				gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, this);
+			}
+			yield return gizmo;
+		}
+
+	}
+
+	[Obsolete]
+	public class Gene_RegenerationSleep : Gene_Gizmo
+	{
+
 
 	}
 

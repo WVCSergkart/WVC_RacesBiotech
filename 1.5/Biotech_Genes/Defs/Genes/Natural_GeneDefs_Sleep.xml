@@ -23,9 +23,9 @@
 	<biostatMet>0</biostatMet>
 	<biostatArc>1</biostatArc>
 	<biostatCpx>3</biostatCpx>
-	<exclusionTags>
-	  <li>WVC_DisableComfort</li>
-	</exclusionTags>
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_DisableComfort</li> -->
+	<!-- </exclusionTags> -->
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>wake</symbol></li>
@@ -81,22 +81,50 @@
 	</modExtensions>
   </GeneDef>
 
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSleep_Base"> -->
+	<!-- <defName>WVC_MecaUpgrades_EnergySavingMode</defName> -->
+	<!-- <label>healthy sleep</label> -->
+	<!-- <description>The carrier of this gene has archites, which can significantly optimize the metabolic process during sleep.</description> -->
+	<!-- <iconPath>WVC/UI/Genes/HealthySleep_v0</iconPath> -->
+	<!-- <displayOrderInCategory>-10</displayOrderInCategory> -->
+	<!-- <selectionWeight>0.00125</selectionWeight> -->
+	<!-- <biostatMet>5</biostatMet> -->
+	<!-- <biostatCpx>3</biostatCpx> -->
+	<!-- <biostatArc>1</biostatArc> -->
+	<!-- <suppressedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>QuickSleeper</def> -->
+	  <!-- </li> -->
+	<!-- </suppressedTraits> -->
+	<!-- <makeImmuneTo> -->
+	  <!-- <li>SleepingSickness</li> -->
+	<!-- </makeImmuneTo> -->
+  <!-- </GeneDef> -->
+
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSleep_Base">
 	<defName>WVC_MecaUpgrades_EnergySavingMode</defName>
-	<label>healthy sleep</label>
-	<description>The carrier of this gene has archites, which can significantly optimize the metabolic process during sleep.</description>
-	<!-- <biostatArc>1</biostatArc> -->
+	<label>regeneration sleep</label>
+	<description>Carriers of this gene have archites that optimize metabolic processes, allowing clusters of neurons to sleep while the rest of the brain stays awake. They can also put the carrier into a regeneration coma or wake up from it at any time.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Gizmo</geneClass>
+	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_RegenerationSleep</resourceGizmoType>
+	<showGizmoWhenDrafted>true</showGizmoWhenDrafted>
+	<showGizmoOnMultiSelect>false</showGizmoOnMultiSelect>
+	<showGizmoOnWorldView>false</showGizmoOnWorldView>
 	<iconPath>WVC/UI/Genes/HealthySleep_v0</iconPath>
-	<displayOrderInCategory>-10</displayOrderInCategory>
+	<displayCategory>WVC_Energy</displayCategory>
+	<displayOrderInCategory>110</displayOrderInCategory>
+	<marketValueFactor>1.5</marketValueFactor>
 	<selectionWeight>0.00125</selectionWeight>
-	<!-- <biostatCpx>3</biostatCpx> -->
-	<biostatMet>5</biostatMet>
+	<biostatMet>2</biostatMet>
 	<biostatCpx>3</biostatCpx>
 	<biostatArc>1</biostatArc>
-	<!-- <selectionWeight>0.0005</selectionWeight> -->
-	<!-- <customEffectDescriptions> -->
-		<!-- <li>The hunger bar does not decrease while the pawn is on the bed.</li> -->
-	<!-- </customEffectDescriptions> -->
+	<customEffectDescriptions>
+	  <li>Allows to put a pawn into or wake them up from a &lt;color=#8a8ae6&gt;regeneration coma&lt;/color&gt; at any time.</li>
+	</customEffectDescriptions>
+	<disablesNeeds>
+	  <li>Rest</li>
+	  <li>Comfort</li>
+	</disablesNeeds>
 	<suppressedTraits>
 	  <li>
 		<def>QuickSleeper</def>
@@ -105,9 +133,6 @@
 	<makeImmuneTo>
 	  <li>SleepingSickness</li>
 	</makeImmuneTo>
-	<!-- <statFactors> -->
-	  <!-- <BedHungerRateFactor>0.0</BedHungerRateFactor> -->
-	<!-- </statFactors> -->
   </GeneDef>
 
 </Defs>

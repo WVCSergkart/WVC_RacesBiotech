@@ -132,6 +132,8 @@
 	  <xpath>/Defs/ThoughtDef[nullifyingGenes[li[contains(text(),'Furskin')]]]/nullifyingGenes</xpath>
 	  <value>
 		  <li>WVC_SemifurSkin</li>
+		  <li>WVC_CyberSkin</li>
+		  <li>WVC_MechaSkin</li>
 	  </value>
 	</Operation>
 
