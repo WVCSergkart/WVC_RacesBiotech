@@ -107,6 +107,7 @@
 	  <value>
 		  <li>WVC_ToxResist_Total</li>
 		  <li>WVC_ToxResist_Archite</li>
+		  <li>WVC_MecaBodyParts_Lung</li>
 	  </value>
 	</Operation>
 

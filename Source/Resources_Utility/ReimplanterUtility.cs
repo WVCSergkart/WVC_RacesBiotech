@@ -28,10 +28,16 @@ namespace WVC_XenotypesAndGenes
 			return true;
 		}
 
-		[Obsolete]
-		public static void Reimplanter(Pawn caster, Pawn recipient, bool endogenes = true, bool xenogenes = true)
+		public static void RemoteReimplant(Pawn caster, Pawn recipient, bool extractXenogerm = false)
 		{
-			TryReimplant(caster, recipient, endogenes, xenogenes);
+			if (ReimplanterUtility.TryReimplant(caster, recipient, true, true, extractXenogerm))
+			{
+				if (PawnUtility.ShouldSendNotificationAbout(recipient))
+				{
+					int max = HediffDefOf.XenogerminationComa.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.max;
+					Find.LetterStack.ReceiveLetter("LetterLabelGenesImplanted".Translate(), "WVC_LetterTextGenesImplanted".Translate(recipient.Named("TARGET"), max.ToStringTicksToPeriod().Named("COMADURATION")), LetterDefOf.NeutralEvent, new LookTargets(recipient));
+				}
+			}
 		}
 
 		public static void ExtractXenogerm(Pawn pawn, int overrideDurationTicks = -1)
@@ -165,33 +171,6 @@ namespace WVC_XenotypesAndGenes
 
 		// ===============================================================
 
-		[Obsolete]
-		public static void ReimplantXenogenesFromXenotype(Pawn pawn, XenotypeDef xenotypeDef)
-		{
-			// pawn.genes.SetXenotypeDirect(xenotypeDef);
-			// pawn.genes.xenotypeName = null;
-			// pawn.genes.iconDef = null;
-			// pawn.genes.cachedHasCustomXenotype = null;
-			// pawn.genes.cachedCustomXenotype = null;
-			SetXenotypeDirect(null, pawn, xenotypeDef);
-			Pawn_GeneTracker pawnGenes = pawn.genes;
-			if (pawnGenes != null && pawnGenes.Xenogenes.Count > 0)
-			{
-				foreach (Gene item in pawn.genes?.Xenogenes)
-				{
-					pawn.genes?.RemoveGene(item);
-				}
-			}
-			foreach (GeneDef xenogene in xenotypeDef.genes)
-			{
-				pawn.genes.AddGene(xenogene, xenogene: true);
-			}
-			if (!xenotypeDef.soundDefOnImplant.NullOrUndefined())
-			{
-				xenotypeDef.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(pawn));
-			}
-		}
-
 		public static void SaveReimplantXenogenesFromXenotype(Pawn pawn, XenotypeDef xenotypeDef)
 		{
 			if (pawn.genes != null && pawn.genes.Xenogenes.NullOrEmpty())
@@ -248,39 +227,6 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// =============================== New ===============================
-
-		[Obsolete]
-		public static void ReimplantGenesDouble_Shapeshifter(Pawn pawn, XenotypeDef xenotypeDef, bool xenogenes = true, bool doubleXenotypes = true)
-		{
-			if (!xenotypeDef.doubleXenotypeChances.NullOrEmpty() && Rand.Value < xenotypeDef.doubleXenotypeChances.Sum((XenotypeChance x) => x.chance) && xenotypeDef.doubleXenotypeChances.TryRandomElementByWeight((XenotypeChance x) => x.chance, out var result) && doubleXenotypes)
-			{
-				ReimplantGenes_Shapeshifter(pawn, result.xenotype, false);
-			}
-			ReimplantGenes_Shapeshifter(pawn, xenotypeDef, xenogenes);
-		}
-
-		[Obsolete]
-		public static void ReimplantGenes_Shapeshifter(Pawn pawn, XenotypeDef xenotypeDef, bool xenogenes = true)
-		{
-			Pawn_GeneTracker recipientGenes = pawn.genes;
-			if (recipientGenes.Xenogenes.NullOrEmpty() || xenogenes)
-			{
-				SetXenotypeDirect(null, pawn, xenotypeDef, true);
-			}
-			if (xenogenes || !xenotypeDef.inheritable || xenotypeDef == XenotypeDefOf.Baseliner)
-			{
-				recipientGenes.Xenogenes.RemoveAllGenes();
-			}
-			if (xenotypeDef.inheritable || xenotypeDef == XenotypeDefOf.Baseliner)
-			{
-				recipientGenes.Endogenes.RemoveAllGenes();
-			}
-			foreach (GeneDef geneDef in xenotypeDef.genes)
-			{
-				pawn.genes.AddGene(geneDef, !xenotypeDef.inheritable);
-			}
-			TrySetSkinAndHairGenes(pawn);
-		}
 
 		public static void TrySetSkinAndHairGenes(Pawn pawn)
 		{

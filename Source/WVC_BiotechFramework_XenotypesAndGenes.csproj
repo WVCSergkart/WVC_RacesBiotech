@@ -208,7 +208,6 @@
     <Compile Include="Resources_Utility\GestationUtility.cs" />
     <Compile Include="Resources_Utility\HediffUtility.cs" />
     <Compile Include="Resources_Main\ModExtension.cs" />
-    <Compile Include="Resources_Utility\SerumUtility.cs" />
     <Compile Include="Resources_Utility\SubXenotypeUtility.cs" />
     <Compile Include="Resources_Utility\ThoughtUtility.cs" />
     <Compile Include="Resources_Utility\UndeadUtility.cs" />
@@ -237,7 +236,6 @@
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_MechanoidLabor.cs" />
     <Compile Include="Resources_Workers\JobGiver_DryadWork.cs" />
     <Compile Include="Resources_Workers\SpecialTrees.cs" />
-    <Compile Include="Resources_Things\_ObsoleteSerums_CompProperties.cs" />
     <Compile Include="Resources_Things\CompTargetable_SingleCorpse.cs" />
     <Compile Include="Resources_Things\CompTargetEffect_RiseFromTheDead.cs" />
     <Compile Include="Resources_Things\CompUseEffect_GeneRestoration.cs" />

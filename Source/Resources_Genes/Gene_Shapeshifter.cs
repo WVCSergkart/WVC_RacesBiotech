@@ -304,16 +304,9 @@ namespace WVC_XenotypesAndGenes
 		public virtual void PreShapeshift(Gene_Shapeshifter shapeshiftGene, bool genesRegrowing)
 		{
 			// ResourceCache();
-			if (genesRegrowing)
+			if (!genesRegrowing)
 			{
-				return;
-			}
-			foreach (Gene gene in shapeshiftGene.pawn.genes.GenesListForReading)
-			{
-				if (gene is IGeneShapeshift geneShapeshifter && gene.Active)
-				{
-					geneShapeshifter.Notify_PostStart(shapeshiftGene);
-				}
+				UndeadUtility.Notify_PreShapeshift(shapeshiftGene);
 			}
 		}
 
@@ -323,96 +316,68 @@ namespace WVC_XenotypesAndGenes
 
 		// private void ResourceCache()
 		// {
-			// cachedPawnBodySize = pawn.BodySize;
-			// cachedPawnGeneResources = new();
-			// cachedPawnNeeds = new();
-			// foreach (Gene gene in pawn.genes.GenesListForReading)
-			// {
-				// if (gene is Gene_Resource resource && gene.Active)
-				// {
-					// cachedPawnGeneResources[resource.def.geneClass] = resource.Value;
-				// }
-			// }
-			// foreach (Need need in pawn.needs.AllNeeds)
-			// {
-				// cachedPawnNeeds[need] = need.CurLevel;
-			// }
+		// cachedPawnBodySize = pawn.BodySize;
+		// cachedPawnGeneResources = new();
+		// cachedPawnNeeds = new();
+		// foreach (Gene gene in pawn.genes.GenesListForReading)
+		// {
+		// if (gene is Gene_Resource resource && gene.Active)
+		// {
+		// cachedPawnGeneResources[resource.def.geneClass] = resource.Value;
+		// }
+		// }
+		// foreach (Need need in pawn.needs.AllNeeds)
+		// {
+		// cachedPawnNeeds[need] = need.CurLevel;
+		// }
 		// }
 
 		public virtual void PostShapeshift(Gene_Shapeshifter shapeshiftGene, bool genesRegrowing)
 		{
 			// ResourceTransfer();
-			if (genesRegrowing)
+			if (!genesRegrowing)
 			{
-				return;
-			}
-			foreach (Gene gene in shapeshiftGene.pawn.genes.GenesListForReading)
-			{
-				if (gene is IGeneShapeshift geneShapeshifter && gene.Active)
-				{
-					geneShapeshifter.Notify_PostShapeshift(shapeshiftGene);
-				}
-			}
-			foreach (Trait trait in shapeshiftGene.pawn.story.traits.allTraits)
-			{
-				GeneExtension_Undead extension = trait?.def?.GetModExtension<GeneExtension_Undead>();
-				if (extension == null)
-				{
-					continue;
-				}
-				if (!extension.thoughtDefs.NullOrEmpty())
-				{
-					foreach (ThoughtDef thoughtDef in extension.thoughtDefs)
-					{
-						shapeshiftGene.pawn.needs?.mood?.thoughts?.memories.TryGainMemory(thoughtDef);
-					}
-				}
-				if (!extension.hediffDefs.NullOrEmpty())
-				{
-					foreach (HediffDef hediff in extension.hediffDefs)
-					{
-						HediffUtility.TryAddHediff(hediff, shapeshiftGene.pawn, null);
-					}
-				}
+				UndeadUtility.Notify_PostShapeshift(shapeshiftGene);
+				UndeadUtility.Notify_PostShapeshift_Traits(shapeshiftGene);
 			}
 		}
 
 		// private void ResourceTransfer()
 		// {
-			// foreach (Need need in pawn.needs.AllNeeds)
-			// {
-				// foreach (var item in cachedPawnNeeds)
-				// {
-					// if (need.def == item.Key.def)
-					// {
-						// need.CurLevel = item.Value;
-					// }
-				// }
-			// }
-			// if (cachedPawnBodySize != pawn.BodySize)
-			// {
-				// UndeadUtility.OffsetNeedFood(pawn, cachedPawnBodySize - pawn.BodySize);
-			// }
-			// foreach (Gene gene in pawn.genes.GenesListForReading)
-			// {
-				// if (!gene.Active)
-				// {
-					// continue;
-				// }
-				// if (gene is Gene_Resource resource)
-				// {
-					// foreach (var item in cachedPawnGeneResources)
-					// {
-						// if (resource.def.geneClass == item.Key)
-						// {
-							// resource.Value = item.Value;
-						// }
-					// }
-				// }
-			// }
-			// cachedPawnBodySize = pawn.BodySize;
-			// cachedPawnNeeds = null;
-			// cachedPawnGeneResources = null;
+		// foreach (Need need in pawn.needs.AllNeeds)
+		// {
+		// foreach (var item in cachedPawnNeeds)
+		// {
+		// if (need.def == item.Key.def)
+		// {
+		// need.CurLevel = item.Value;
+		// }
+		// }
+		// }
+		// if (cachedPawnBodySize != pawn.BodySize)
+		// {
+		// UndeadUtility.OffsetNeedFood(pawn, cachedPawnBodySize - pawn.BodySize);
+		// }
+		// foreach (Gene gene in pawn.genes.GenesListForReading)
+		// {
+		// if (!gene.Active)
+		// {
+		// continue;
+		// }
+		// if (gene is Gene_Resource resource)
+		// {
+		// foreach (var item in cachedPawnGeneResources)
+		// {
+		// if (resource.def.geneClass == item.Key)
+		// {
+		// resource.Value = item.Value;
+		// }
+		// }
+		// }
+		// }
+		// cachedPawnBodySize = pawn.BodySize;
+		// cachedPawnNeeds = null;
+		// cachedPawnGeneResources = null;
 		// }
 
 	}

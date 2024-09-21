@@ -39,19 +39,55 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public static void ReimplantGenes(Pawn caster, Pawn recipient, bool extractXenogerm = true)
+		// Shape
+
+		public static void Notify_PreShapeshift(Gene_Shapeshifter shapeshiftGene)
 		{
-			if (ReimplanterUtility.TryReimplant(caster, recipient, true, true, extractXenogerm))
+			foreach (Gene gene in shapeshiftGene.pawn.genes.GenesListForReading)
 			{
-				if (PawnUtility.ShouldSendNotificationAbout(recipient))
+				if (gene is IGeneShapeshift geneShapeshifter && gene.Active)
 				{
-					int max = HediffDefOf.XenogerminationComa.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.max;
-					Find.LetterStack.ReceiveLetter("LetterLabelGenesImplanted".Translate(), "WVC_LetterTextGenesImplanted".Translate(recipient.Named("TARGET"), max.ToStringTicksToPeriod().Named("COMADURATION")), LetterDefOf.NeutralEvent, new LookTargets(recipient));
+					geneShapeshifter.Notify_PostStart(shapeshiftGene);
 				}
 			}
 		}
 
-		// Shape
+		public static void Notify_PostShapeshift_Traits(Gene_Shapeshifter shapeshiftGene)
+		{
+			foreach (Trait trait in shapeshiftGene.pawn.story.traits.allTraits)
+			{
+				GeneExtension_Undead extension = trait?.def?.GetModExtension<GeneExtension_Undead>();
+				if (extension == null)
+				{
+					continue;
+				}
+				if (!extension.thoughtDefs.NullOrEmpty())
+				{
+					foreach (ThoughtDef thoughtDef in extension.thoughtDefs)
+					{
+						shapeshiftGene.pawn.needs?.mood?.thoughts?.memories.TryGainMemory(thoughtDef);
+					}
+				}
+				if (!extension.hediffDefs.NullOrEmpty())
+				{
+					foreach (HediffDef hediff in extension.hediffDefs)
+					{
+						HediffUtility.TryAddHediff(hediff, shapeshiftGene.pawn, null);
+					}
+				}
+			}
+		}
+
+		public static void Notify_PostShapeshift(Gene_Shapeshifter shapeshiftGene)
+		{
+			foreach (Gene gene in shapeshiftGene.pawn.genes.GenesListForReading)
+			{
+				if (gene is IGeneShapeshift geneShapeshifter && gene.Active)
+				{
+					geneShapeshifter.Notify_PostShapeshift(shapeshiftGene);
+				}
+			}
+		}
 
 		[Obsolete]
 		public static void AddRandomTraitFromListWithChance(Pawn pawn, GeneExtension_Undead geneExtension)
