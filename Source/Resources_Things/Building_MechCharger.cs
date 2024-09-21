@@ -116,7 +116,7 @@ namespace WVC_XenotypesAndGenes
 		private float WasteProducedPercentFull => wasteProduced / (float)WasteProducedPerChargingCycle;
 
 		// private float WasteProducedPerTick => currentlyChargingMech.GetStatValue(StatDefOf.WastepacksPerRecharge) * (0.000833333354f / currentlyChargingMech.needs.food.MaxLevel);
-		private float WasteProducedPerTick => 1 * (chargePerTick / currentlyChargingMech.needs.food.MaxLevel);
+		private float WasteProducedPerTick => 0.5f * (chargePerTick / currentlyChargingMech.needs.food.MaxLevel);
 
 
 		// public override void PostPostMake()

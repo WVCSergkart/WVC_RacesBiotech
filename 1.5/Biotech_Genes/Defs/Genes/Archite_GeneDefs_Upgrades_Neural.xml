@@ -128,10 +128,12 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
 	<defName>WVC_MecaBodyParts_Nose</defName>
 	<label>chemical analyzer</label>
+	<description>Carriers of this gene have archites that enhance their sense of smell and analyze surrounding odors.</description>
 	<iconPath>WVC/UI/Genes/Analyzer_Chemical_v0</iconPath>
 	<displayCategory>Miscellaneous</displayCategory>
 	<displayOrderInCategory>61</displayOrderInCategory>
 	<immuneToToxGasExposure>true</immuneToToxGasExposure>
+	<ignoreDarkness>true</ignoreDarkness>
 	<statFactors>
 	  <FoodPoisonChance>0.0</FoodPoisonChance>
 	</statFactors>
@@ -144,6 +146,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
 	<defName>WVC_MecaBodyParts_Ear</defName>
 	<label>sound analyzer</label>
+	<description>Carriers of this gene have archites that enhance hearing and, by analyzing sounds, help carriers navigate even in complete darkness.</description>
 	<iconPath>WVC/UI/Genes/Analyzer_Sound_v0</iconPath>
 	<displayCategory>Miscellaneous</displayCategory>
 	<displayOrderInCategory>61</displayOrderInCategory>
@@ -165,6 +168,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
 	<defName>WVC_MecaBodyParts_Eye</defName>
 	<label>visual analyzer</label>
+	<description>Carriers of this gene have archites that significantly enhance their vision.</description>
 	<iconPath>WVC/UI/Genes/Analyzer_Visual_v0</iconPath>
 	<displayCategory>Miscellaneous</displayCategory>
 	<displayOrderInCategory>61</displayOrderInCategory>
@@ -260,6 +264,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
 	<defName>WVC_MechaAI_SoftwareNaturalEnemy</defName>
 	<label>hard-minded</label>
+	<description>Carriers of this gene have archites that enhance the psychic influence on their emotions, causing a pronounced intolerance to everything that is not like them. They find it difficult to build relationships with anyone who does not have a similar psychic shade.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Opinion</geneClass>
 	<iconPath>WVC/UI/Genes/NaturalEnemy_v0</iconPath>
 	<!-- <biostatCpx>3</biostatCpx> -->

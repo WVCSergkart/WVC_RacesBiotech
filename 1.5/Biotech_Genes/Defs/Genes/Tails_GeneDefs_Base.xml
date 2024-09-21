@@ -14,6 +14,15 @@
 	<selectionWeight>0.0022</selectionWeight>
   </GeneDef>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneTails_Base">
+	<defName>WVC_Mecha_NoTail</defName>
+	<label>human tailbone</label>
+	<description>Carriers of this gene have regular human tailbone.</description>
+	<iconPath>WVC/UI/Genes/Gene_Tailbone_v0</iconPath>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<biostatCpx>0</biostatCpx>
+  </GeneDef>
+
   <!-- Tail -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneTails_Base">
@@ -447,21 +456,6 @@
 			<!-- </offsets> -->
 		<!-- </li> -->
 	</modExtensions>
-  </GeneDef>
-
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneTails_OldBase">
-	<defName>WVC_Mecha_NoTail</defName>
-	<label>protective plate</label>
-	<description>Carriers of this gene have additional protection.</description>
-	<iconPath>WVC/UI/Genes/NoTail</iconPath>
-	<iconColor>(255, 255, 255)</iconColor>
-	<customEffectDescriptions>
-		<li>Disable tail.</li>
-	</customEffectDescriptions>
-	<renderNodeProperties Inherit="False"/>
-	<statOffsets>
-	  <ArmorRating_Blunt>0.20</ArmorRating_Blunt>
-	</statOffsets>
   </GeneDef>
 
 </Defs>

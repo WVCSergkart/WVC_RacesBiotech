@@ -7,6 +7,8 @@
 	  <value>
 		<nullifyingGenes>
 		  <li>WVC_MecaBodyParts_Eye</li>
+		  <li>WVC_MecaBodyParts_Ear</li>
+		  <li>WVC_MecaBodyParts_Nose</li>
 		</nullifyingGenes>
 	  </value>
 	</Operation>
