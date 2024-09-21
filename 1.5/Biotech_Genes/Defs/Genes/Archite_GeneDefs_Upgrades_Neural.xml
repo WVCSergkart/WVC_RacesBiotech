@@ -258,22 +258,6 @@
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
-	<defName>WVC_MechaAI_SoftwareFriendOrFoe</defName>
-	<label>friend or foe</label>
-	<iconPath>WVC/UI/Genes/FriendOrFoe_v0</iconPath>
-	<displayCategory>Violence</displayCategory>
-	<displayOrderInCategory>-22</displayOrderInCategory>
-	<customEffectDescriptions>
-		<li>Ancient mechanoids do not attack a pawn, even if a pawn attacks them.</li>
-	</customEffectDescriptions>
-	<forcedTraits>
-	  <li>
-		<def>WVC_RB_FriendOrFoeTrait</def>
-	  </li>
-	</forcedTraits>
-  </GeneDef>
-  <!-- = -->
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
 	<defName>WVC_MechaAI_SoftwareNaturalEnemy</defName>
 	<label>hard-minded</label>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Opinion</geneClass>

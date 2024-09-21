@@ -55,38 +55,21 @@
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
 			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
-			<!-- <shapeshiftEffect>CocoonWakingUp</shapeshiftEffect> -->
-			<!-- <defaultShapeMode>WVC_Shapeshift</defaultShapeMode> -->
-			<!-- <initialShapeModes> -->
-				<!-- <li>WVC_Shapeshift</li> -->
-			<!-- </initialShapeModes> -->
-			<!-- <duplicateHediffs> -->
-				<!-- <li>WVC_Scarifier_ShapeshifterDuplicateMode</li> -->
-			<!-- </duplicateHediffs> -->
-			<!-- <duplicateTraits> -->
-				<!-- <li>WVC_XaG_ShapeshiftOverclock</li> -->
-			<!-- </duplicateTraits> -->
 			<blockingHediffs>
 				<li>XenogermReplicating</li>
 				<li>XenogerminationComa</li>
 				<li>XenogermLossShock</li>
-				<!-- Post shapeshift hediffs also blocks shapeshift ?? -->
-				<!-- <li>WVC_PostshiftMetabolism_HungerFactor</li> -->
 			</blockingHediffs>
-			<!-- <blockingTraits> -->
-				<!-- <li>WVC_XaG_ShapeshiftPhobia</li> -->
-			<!-- </blockingTraits> -->
-			<!-- Possible traits that will spawn on pawns with this gene. -->
-			<possibleTraits>
-				<li>
-					<traitDef>WVC_XaG_ShapeshiftPhobia</traitDef>
-					<weight>0.09</weight>
-				</li>
-				<li>
-					<traitDef>WVC_XaG_ShapeshiftOverclock</traitDef>
-					<weight>0.07</weight>
-				</li>
-			</possibleTraits>
+			<!-- <possibleTraits> -->
+				<!-- <li> -->
+					<!-- <traitDef>WVC_XaG_ShapeshiftPhobia</traitDef> -->
+					<!-- <weight>0.09</weight> -->
+				<!-- </li> -->
+				<!-- <li> -->
+					<!-- <traitDef>WVC_XaG_ShapeshiftOverclock</traitDef> -->
+					<!-- <weight>0.07</weight> -->
+				<!-- </li> -->
+			<!-- </possibleTraits> -->
 		</li>
 	</modExtensions>
   </GeneDef>

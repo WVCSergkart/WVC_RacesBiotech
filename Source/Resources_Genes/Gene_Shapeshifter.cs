@@ -71,10 +71,10 @@ namespace WVC_XenotypesAndGenes
 				pawn.genes.AddGene(this.def, false);
 				return;
 			}
-			if (!pawn.Spawned)
-			{
-				UndeadUtility.AddRandomTraitFromListWithChance(pawn, Props);
-			}
+			//if (!pawn.Spawned)
+			//{
+			//	UndeadUtility.AddRandomTraitFromListWithChance(pawn, Props);
+			//}
 			// Reset();
 		}
 

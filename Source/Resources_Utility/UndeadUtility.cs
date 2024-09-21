@@ -53,6 +53,7 @@ namespace WVC_XenotypesAndGenes
 
 		// Shape
 
+		[Obsolete]
 		public static void AddRandomTraitFromListWithChance(Pawn pawn, GeneExtension_Undead geneExtension)
 		{
 			TraitSet traitSet = pawn.story.traits;

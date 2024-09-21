@@ -81,29 +81,6 @@
   <!-- </HediffDef> -->
 
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
-	<defName>WVC_Shapeshifter_TempPsychicSensitivity</defName>
-	<label>psychic shift</label>
-	<description>Temporary increase in psychic sensitivity after shapeshift.</description>
-	<stages>
-	  <li>
-		<becomeVisible>true</becomeVisible>
-		<minSeverity>0.0</minSeverity>
-		<statOffsets>
-		  <PsychicSensitivity>0.2</PsychicSensitivity>
-		  <MeditationFocusGain>0.1</MeditationFocusGain>
-		  <PsychicEntropyRecoveryRate>0.1</PsychicEntropyRecoveryRate>
-		</statOffsets>
-	  </li>
-	</stages>
-	<comps>
-		<li Class="HediffCompProperties_Disappears">
-			<disappearsAfterTicks>62000~340000</disappearsAfterTicks>
-			<showRemainingTime>true</showRemainingTime>
-		</li>
-	</comps>
-  </HediffDef>
-
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
 	<defName>WVC_ChimeraMetabolism_HungerFactor</defName>
 	<label>chimera metabolism</label>
 	<description>This creature's hunger varies depending on its genetic metabolism.</description>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- = -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
+	<defName>WVC_MechaAI_SoftwareFriendOrFoe</defName>
+	<label>friend or foe</label>
+	<iconPath>WVC/UI/Genes/FriendOrFoe_v0</iconPath>
+	<displayCategory>Violence</displayCategory>
+	<displayOrderInCategory>-22</displayOrderInCategory>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<customEffectDescriptions>
+		<li>Ancient mechanoids do not attack a pawn, even if a pawn attacks them.</li>
+	</customEffectDescriptions>
+	<forcedTraits>
+	  <li>
+		<def>WVC_RB_FriendOrFoeTrait</def>
+	  </li>
+	</forcedTraits>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+			<hideGene>true</hideGene>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Obsolete"/>
+	</modExtensions>
+  </GeneDef>
+
+  <TraitDef>
+	<defName>WVC_RB_FriendOrFoeTrait</defName>
+	<commonality>0</commonality>
+	<disableHostilityFromFaction>Mechanoid</disableHostilityFromFaction>
+	<degreeDatas>
+	  <li>
+		<label>techno-ghost</label>
+		<description>For some strange reason, {PAWN_nameDef} is not touched by ancient mechanoids, they constantly ignore [PAWN_objective] no matter what {PAWN_nameDef} takes against them.</description>
+	  </li>
+	</degreeDatas>
+  </TraitDef>
+
+</Defs>
