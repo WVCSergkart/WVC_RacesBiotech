@@ -69,31 +69,45 @@ namespace WVC_XenotypesAndGenes
 
 		public void SpawnItems(Pawn pawn, bool showMessage = false, string message = "MessageCompSpawnerSpawnedItem")
 		{
-			Thing thing = ThingMaker.MakeThing(ThingDefOf.Genepack);
-			if (thing is Genepack genepack)
+			string catchString = "";
+			try
 			{
-				GeneSet geneSet = genepack.GeneSet;
-				foreach (GeneDef geneDef in geneSet.GenesListForReading.ToList())
+				catchString = "genepack";
+				Thing thing = ThingMaker.MakeThing(ThingDefOf.Genepack);
+				if (thing is Genepack genepack)
 				{
-					geneSet.Debug_RemoveGene(geneDef);
+					GeneSet geneSet = genepack.GeneSet;
+					foreach (GeneDef geneDef in geneSet.GenesListForReading.ToList())
+					{
+						geneSet.Debug_RemoveGene(geneDef);
+					}
+					catchString = "getting gene for genepack";
+					GeneDef choosenGene = GetGene(pawn);
+					geneSet.AddGene(choosenGene);
+					geneSet.GenerateName();
 				}
-				GeneDef choosenGene = GetGene(pawn);
-				geneSet.AddGene(choosenGene);
-				geneSet.GenerateName();
+				thing.stackCount = 1;
+				catchString = "style";
+				if (Props.styleDef != null)
+				{
+					thing.SetStyleDef(Props.styleDef);
+				}
+				catchString = "spawn";
+				GenPlace.TryPlaceThing(thing, pawn.Position, pawn.Map, ThingPlaceMode.Near, null, null, default);
+				SoundDefOf.Execute_Cut.PlayOneShot(pawn);
+				catchString = "blood";
+				GeneFeaturesUtility.TrySpawnBloodFilth(pawn, new(0,1));
+				if (showMessage)
+				{
+					Messages.Message(message.Translate(thing.LabelCap), thing, MessageTypeDefOf.PositiveEvent);
+				}
+				catchString = "xenogermination";
+				ReimplanterUtility.XenogermReplicating_WithCustomDuration(pawn, Props.durationIntervalRange);
 			}
-			thing.stackCount = 1;
-			if (Props.styleDef != null)
+			catch (Exception arg)
 			{
-				thing.SetStyleDef(Props.styleDef);
+				Log.Error($"{def.defName} failed spawn genepack during phase {catchString}: {arg}");
 			}
-			GenPlace.TryPlaceThing(thing, pawn.Position, pawn.Map, ThingPlaceMode.Near, null, null, default);
-			SoundDefOf.Execute_Cut.PlayOneShot(pawn);
-			GeneFeaturesUtility.TrySpawnBloodFilth(pawn, new(0,1));
-			if (showMessage)
-			{
-				Messages.Message(message.Translate(thing.LabelCap), thing, MessageTypeDefOf.PositiveEvent);
-			}
-			ReimplanterUtility.XenogermReplicating_WithCustomDuration(pawn, Props.durationIntervalRange);
 		}
 
 		private GeneDef GetGene(Pawn pawn)
@@ -111,13 +125,16 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 			List<CustomXenotype> allMatchedCustomXenotypes = XaG_GeneUtility.GetAllMatchedCustomXenotypes(pawn, ReimplanterUtility.CustomXenotypesList(), Props.matchPercent);
-			foreach (CustomXenotype xenoDef in allMatchedCustomXenotypes)
+			if (!allMatchedCustomXenotypes.NullOrEmpty())
 			{
-				foreach (GeneDef geneDef in xenoDef.genes)
+				foreach (CustomXenotype xenoDef in allMatchedCustomXenotypes)
 				{
-					if (!allGenes.Contains(geneDef))
+					foreach (GeneDef geneDef in xenoDef.genes)
 					{
-						allGenes.Add(geneDef);
+						if (!allGenes.Contains(geneDef))
+						{
+							allGenes.Add(geneDef);
+						}
 					}
 				}
 			}
