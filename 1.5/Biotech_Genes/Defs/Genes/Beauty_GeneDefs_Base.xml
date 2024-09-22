@@ -6,6 +6,67 @@
 	<displayOrderInCategory>40</displayOrderInCategory>
   </GeneDef>
 
+  <!-- UV Phobia -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneBeauty_Base">
+	<defName>WVC_SunlightBeauty_Sun</defName>
+	<label>sunlight beauty</label>
+	<description>Carriers of this gene, due to a special enzyme, are only attractive under sunlight.</description>
+	<iconPath>WVC/UI/Genes/SunlightBeautyA</iconPath>
+	<displayOrderInCategory>70</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<conditionalStatAffecters>
+	  <li Class="ConditionalStatAffecter_InSunlight">
+		<statOffsets>
+			<PawnBeauty>2</PawnBeauty>
+		</statOffsets>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_NoSunlight">
+		<statOffsets>
+			<PawnBeauty>-2</PawnBeauty>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>sun</symbol></li>
+		<li><symbol>light</symbol></li>
+		<li><symbol>sunlight-</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneBeauty_Base">
+	<defName>WVC_SunlightBeauty_Moon</defName>
+	<label>moonlight beauty</label>
+	<description>Carriers of this gene, due to a special enzyme, lose a significant portion of their attractiveness when exposed to sunlight.</description>
+	<iconPath>WVC/UI/Genes/SunlightBeautyB</iconPath>
+	<displayOrderInCategory>70</displayOrderInCategory>
+	<dislikesSunlight>true</dislikesSunlight>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>0</biostatMet>
+	<conditionalStatAffecters>
+	  <li Class="ConditionalStatAffecter_InSunlight">
+		<statOffsets>
+			<PawnBeauty>-2</PawnBeauty>
+		</statOffsets>
+	  </li>
+	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_NoSunlight">
+		<statOffsets>
+			<PawnBeauty>2</PawnBeauty>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>moon</symbol></li>
+		<li><symbol>light</symbol></li>
+		<li><symbol>moonlight-</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneBeauty_Base" Name="WVC_XenotypesAndGenes_GeneBeauty_PsychicBeauty" Abstract="True">
 	<selectionWeight>0.0011</selectionWeight>
 	<customEffectDescriptions>

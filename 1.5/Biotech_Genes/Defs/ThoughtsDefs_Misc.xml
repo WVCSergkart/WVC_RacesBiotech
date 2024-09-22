@@ -147,6 +147,18 @@
 	</stages>
   </ThoughtDef>
 
+  <ThoughtDef ParentName="WVC_XenotypesAndGenes_Thought_MemorySocial_Base">
+	<defName>WVC_XenotypesAndGenes_SweetVoice</defName>
+	<stackedEffectMultiplier>0.5</stackedEffectMultiplier>
+	<durationDays>2</durationDays>
+	<stages>
+	  <li>
+		<label>sweet voice</label>
+		<baseOpinionOffset>100</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
   <!-- ===================== -->
 
   <ThoughtDef ParentName="WVC_XenotypesAndGenes_Thought_MemorySocial_Base">

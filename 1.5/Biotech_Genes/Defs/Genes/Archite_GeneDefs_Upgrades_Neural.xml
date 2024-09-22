@@ -61,31 +61,6 @@
   </GeneDef>
   <!-- = -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
-	<defName>WVC_MecaBodyParts_Jaw</defName>
-	<label>pleasant voice</label>
-	<iconPath>WVC/UI/Genes/PleasantVoice_v0</iconPath>
-	<displayCategory>Miscellaneous</displayCategory>
-	<displayOrderInCategory>21</displayOrderInCategory>
-	<suppressedTraits>
-	  <li>
-		<def>AnnoyingVoice</def>
-	  </li>
-	</suppressedTraits>
-	<statFactors>
-	  <SocialImpact>2.0</SocialImpact>
-	</statFactors>
-	<capMods>
-	  <li>
-		<capacity>Talking</capacity>
-		<offset>0.1</offset>
-	  </li>
-	</capMods>
-	<exclusionTags>
-	  <li>WVC_MechaAI_SoftwareDisableTalking</li>
-	</exclusionTags>
-  </GeneDef>
-  <!-- = -->
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
 	<defName>WVC_MechaAI_SoftwareDisableTalking</defName>
 	<label>silence</label>
 	<!-- <description>Archites disable the voice functions of the pawn, which saves some resources.</description> -->

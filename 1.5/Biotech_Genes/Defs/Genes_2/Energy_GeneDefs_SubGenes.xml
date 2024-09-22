@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
+	<defName>WVC_MecaBodyParts_Jaw</defName>
+	<label>sweet voice</label>
+	<description>Carriers of this gene have archites that modify their voice so that it sounds perfect to everyone.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_SweetVoice</geneClass>
+	<iconPath>WVC/UI/Genes/PleasantVoice_v0</iconPath>
+	<displayCategory>WVC_Energy</displayCategory>
+	<displayOrderInCategory>200</displayOrderInCategory>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<customEffectDescriptions>
+	  <li>When &lt;color=#8a8ae6&gt;interacting&lt;/color&gt;, it has a chance to temporarily improve the target's opinion by 100</li>
+	  <li>Target must be &lt;color=#8a8ae6&gt;psi-sensitive&lt;/color&gt;.</li>
+	  <li>Opinion lasts 2 days and stacks up to 4 times.</li>
+	</customEffectDescriptions>
+	<suppressedTraits>
+	  <li>
+		<def>AnnoyingVoice</def>
+	  </li>
+	</suppressedTraits>
+	<statFactors>
+	  <SocialImpact>2.0</SocialImpact>
+	</statFactors>
+	<capMods>
+	  <li>
+		<capacity>Talking</capacity>
+		<offset>0.2</offset>
+	  </li>
+	</capMods>
+	<exclusionTags>
+	  <li>WVC_MechaAI_SoftwareDisableTalking</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
+			<AboutMeThoughtDef>WVC_XenotypesAndGenes_SweetVoice</AboutMeThoughtDef>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>
