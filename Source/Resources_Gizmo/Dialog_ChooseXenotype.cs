@@ -49,7 +49,7 @@ namespace WVC_XenotypesAndGenes
 			closeOnAccept = false;
 			doCloseX = true;
 			doCloseButton = true;
-			allXenotypes = XenotypeFilterUtility.AllXenotypesExceptAndroids();
+			allXenotypes = ListsUtility.GetAllXenotypesExceptAndroids();
 			allMatchedXenotypes = XaG_GeneUtility.GetAllMatchedXenotypes(gene?.pawn, allXenotypes, matchPercent);
 			preventGestation = HediffUtility.GetFirstHediffPreventsPregnancy(gene.pawn.health.hediffSet.hediffs);
 		}

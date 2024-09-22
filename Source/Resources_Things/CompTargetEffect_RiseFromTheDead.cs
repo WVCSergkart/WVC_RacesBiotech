@@ -23,21 +23,21 @@ namespace WVC_XenotypesAndGenes
 				}
 				else
 				{
-					List<XenotypeDef> xenotypeDefs = XenotypeFilterUtility.WhiteListedXenotypes(true, true);
+					List<XenotypeDef> xenotypeDefs = ListsUtility.GetWhiteListedXenotypes(true, true);
 					xenotypeDef = xenotypeDefs.RandomElement();
 				}
 			}
 		}
 
-		// public override bool AllowStackWith(Thing other)
-		// {
+		public override bool AllowStackWith(Thing other)
+		{
 			// CompTargetEffect_DoJobOnTarget otherXeno = other.TryGetComp<CompTargetEffect_DoJobOnTarget>();
 			// if (otherXeno != null && otherXeno.xenotypeDef != null && otherXeno.xenotypeDef == xenotypeDef)
 			// {
 				// return true;
 			// }
-			// return false;
-		// }
+			return false;
+		}
 
 		public override void DoEffectOn(Pawn user, Thing target)
 		{

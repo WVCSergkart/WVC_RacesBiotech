@@ -41,7 +41,7 @@ namespace WVC_XenotypesAndGenes
 			// golemsForSummon = gene.golemsForSummon;
 			// currentXeno = gene?.thrallDef;
 			// Xenos
-			allXenotypes = XenotypeFilterUtility.GetAllGolems();
+			allXenotypes = ListsUtility.GetAllGolemPawnkinds();
 			selectedXeno = allXenotypes.RandomElement();
 			if (!gene.golemsForSummon.NullOrEmpty())
 			{

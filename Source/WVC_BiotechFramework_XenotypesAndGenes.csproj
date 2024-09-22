@@ -212,7 +212,7 @@
     <Compile Include="Resources_Utility\ThoughtUtility.cs" />
     <Compile Include="Resources_Utility\UndeadUtility.cs" />
     <Compile Include="Resources_Main\WVC_GenesDefOf.cs" />
-    <Compile Include="Resources_Utility\XenotypeFilterUtility.cs" />
+    <Compile Include="Resources_Utility\ListsUtility.cs" />
     <Compile Include="Resources_Harmony\Harmony_GeneDefGenerator.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_Gestator.cs" />
     <Compile Include="Resources_Hediff\Old_HediffComp_Gestator.cs" />

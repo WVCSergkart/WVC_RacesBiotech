@@ -67,22 +67,6 @@
 	</thingCategories>
   </ThingDef>
 
-  <RecipeDef>
-	<defName>WVC_ImplantXenogermSerum</defName>
-	<label>administer serum</label>
-	<description>Administer a serum.</description>
-	<jobString>Administering serum.</jobString>
-	<workerClass>WVC_XenotypesAndGenes.Recipe_ImplantXenogermSerum</workerClass>
-	<workAmount>600</workAmount>
-	<hideBodyPartNames>true</hideBodyPartNames>
-	<targetsBodyPart>false</targetsBodyPart>
-	<anesthetize>false</anesthetize>
-	<allowedForQuestLodgers>false</allowedForQuestLodgers>
-	<surgeryOutcomeEffect IsNull="True"/>
-	<isViolation>true</isViolation>
-	<uiIconThing>Xenogerm</uiIconThing>
-  </RecipeDef>
-
   <!-- ================================================================================== -->
 
   <ThingDef ParentName="WVC_XenotypesAndGenes_XenotypeSerumsBase" Name="WVC_XenotypeSerum_Base" Abstract="True" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
@@ -108,6 +92,7 @@
   </ThingDef>
 
   <!-- ============Auto Generation Base============ -->
+
   <ThingDef ParentName="WVC_XenotypeSerum_Base" Name="WVC_XenotypeSerum_Craftable" Abstract="True" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<graphicData>
 	</graphicData>

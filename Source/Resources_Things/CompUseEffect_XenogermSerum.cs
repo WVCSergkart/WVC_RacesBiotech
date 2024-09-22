@@ -112,7 +112,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (xenotype == null)
 			{
-				List<XenotypeDef> xenotypeDef = XenotypeFilterUtility.WhiteListedXenotypes(true);
+				List<XenotypeDef> xenotypeDef = ListsUtility.GetWhiteListedXenotypes(true);
 				switch (Props.xenotypeType)
 				{
 					case CompProperties_UseEffect_XenogermSerum.XenotypeType.Base:
@@ -181,7 +181,7 @@ namespace WVC_XenotypesAndGenes
 			// }
 			if (customMode)
 			{
-				ReimplanterUtility.SetCustomXenotype(pawn, ReimplanterUtility.CustomXenotypesList().RandomElement());
+				ReimplanterUtility.SetCustomXenotype(pawn, ListsUtility.GetCustomXenotypesList().RandomElement());
 			}
 			else
 			{
@@ -256,15 +256,15 @@ namespace WVC_XenotypesAndGenes
 			yield return command_Action;
 		}
 
-		// public override bool AllowStackWith(Thing other)
-		// {
+		public override bool AllowStackWith(Thing other)
+		{
 			// CompUseEffect_XenogermSerum otherXeno = other.TryGetComp<CompUseEffect_XenogermSerum>();
 			// if (otherXeno != null && otherXeno.xenotype != null && otherXeno.xenotype == xenotype && otherXeno.customMode == customMode)
 			// {
 				// return true;
 			// }
-			// return false;
-		// }
+			return false;
+		}
 
 		public override AcceptanceReport CanBeUsedBy(Pawn p)
 		{

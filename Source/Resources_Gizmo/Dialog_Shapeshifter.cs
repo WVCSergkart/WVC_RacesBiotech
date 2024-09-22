@@ -120,12 +120,12 @@ namespace WVC_XenotypesAndGenes
 			searchWidgetOffsetX = GeneCreationDialogBase.ButSize.x * 2f + 4f;
 			// currentXeno = gene?.pawn?.genes?.Xenotype;
 			selectedXenotype = gene?.pawn?.genes?.Xenotype;
-			allXenotypes = XenotypeFilterUtility.AllXenotypesExceptAndroids();
+			allXenotypes = ListsUtility.GetAllXenotypesExceptAndroids();
 			// customXenotypes = XenotypeFilterUtility.AllCustomXenotypesExceptAndroids();
 			// preferredXenotypes = ModLister.IdeologyInstalled ? gene.pawn?.ideo?.Ideo?.PreferredXenotypes : null;
 			shiftExtension = gene?.def?.GetModExtension<GeneExtension_Undead>();
 			genesRegrowing = HediffUtility.HasAnyHediff(shiftExtension?.blockingHediffs, gene.pawn);
-			trueFormXenotypes = XenotypeFilterUtility.TrueFormXenotypesFromList(allXenotypes);
+			trueFormXenotypes = ListsUtility.GetTrueFormXenotypesFromList(allXenotypes);
 			// trueFormCustomtypes = XenotypeFilterUtility.TrueFormXenotypesFromList(customXenotypes);
 			OnGenesChanged();
 		}

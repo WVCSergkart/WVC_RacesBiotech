@@ -1,16 +1,18 @@
 using RimWorld;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using Verse;
 using Verse.AI;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public static class XenotypeFilterUtility
+	public static class ListsUtility
 	{
 
-		public static List<BackstoryDef> BlackListedBackstoryForChanger()
+		public static List<BackstoryDef> GetBlackListedBackstoryForChanger()
 		{
 			List<BackstoryDef> list = new();
 			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
@@ -24,7 +26,7 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
-		public static List<string> WhiteListedXenotypesForFilter()
+		public static List<string> GetWhiteListedXenotypesForFilter()
 		{
 			List<string> whiteListedXenotypesFromDef = new();
 			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
@@ -38,7 +40,7 @@ namespace WVC_XenotypesAndGenes
 			return whiteListedXenotypesFromDef;
 		}
 
-		public static List<string> BlackListedXenotypesForSerums(bool addFromFilter = true)
+		public static List<string> GetBlackListedXenotypesForSerums(bool addFromFilter = true)
 		{
 			List<string> list = new();
 			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
@@ -66,9 +68,9 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
-		public static List<XenotypeDef> WhiteListedXenotypes(bool addFromFilter = false, bool addFromResurrectorFilter = false)
+		public static List<XenotypeDef> GetWhiteListedXenotypes(bool addFromFilter = false, bool addFromResurrectorFilter = false)
 		{
-			List<string> filterList = BlackListedXenotypesForSerums(addFromFilter);
+			List<string> filterList = GetBlackListedXenotypesForSerums(addFromFilter);
 			// foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
 			// {
 			// blackListedXenotypesForSerums.AddRange(item.blackListedXenotypesForSerums);
@@ -96,7 +98,7 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
-		public static List<XenotypeDef> AllXenotypesExceptAndroids()
+		public static List<XenotypeDef> GetAllXenotypesExceptAndroids()
 		{
 			List<XenotypeDef> list = new();
 			foreach (XenotypeDef item in DefDatabase<XenotypeDef>.AllDefsListForReading)
@@ -108,10 +110,10 @@ namespace WVC_XenotypesAndGenes
 			}
 			return list;
 		}
-		public static List<CustomXenotype> AllCustomXenotypesExceptAndroids()
+		public static List<CustomXenotype> GetAllCustomXenotypesExceptAndroids()
 		{
 			List<CustomXenotype> list = new();
-			foreach (CustomXenotype item in ReimplanterUtility.CustomXenotypesList())
+			foreach (CustomXenotype item in ListsUtility.GetCustomXenotypesList())
 			{
 				if (!XaG_GeneUtility.XenotypeIsAndroid(item))
 				{
@@ -121,7 +123,7 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
-		public static List<XenotypeDef> TrueFormXenotypesFromList(List<XenotypeDef> xenotypes)
+		public static List<XenotypeDef> GetTrueFormXenotypesFromList(List<XenotypeDef> xenotypes)
 		{
 			List<XenotypeDef> list = new();
 			foreach (XenotypeDef item in xenotypes)
@@ -137,7 +139,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			return list;
 		}
-		public static List<CustomXenotype> TrueFormXenotypesFromList(List<CustomXenotype> xenotypes)
+		public static List<CustomXenotype> GetTrueFormXenotypesFromList(List<CustomXenotype> xenotypes)
 		{
 			List<CustomXenotype> list = new();
 			foreach (CustomXenotype item in xenotypes)
@@ -154,7 +156,7 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
-		public static List<GeneDef> AnomalyExceptions()
+		public static List<GeneDef> GetAnomalyExceptions()
 		{
 			List<GeneDef> list = new();
 			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
@@ -168,7 +170,7 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
-		public static List<MutantDef> MutantsExceptions()
+		public static List<MutantDef> GetMutantsExceptions()
 		{
 			List<MutantDef> list = new();
 			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
@@ -182,7 +184,7 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
-		public static List<GauranlenTreeModeDef> GauranlenTreeModeDefExceptions()
+		public static List<GauranlenTreeModeDef> GetGauranlenTreeModeDefExceptions()
 		{
 			List<GauranlenTreeModeDef> list = new();
 			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
@@ -196,7 +198,7 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
-		public static List<PawnKindDef> GetAllGolems()
+		public static List<PawnKindDef> GetAllGolemPawnkinds()
 		{
 			List<PawnKindDef> list = new();
 			foreach (PawnKindDef item in DefDatabase<PawnKindDef>.AllDefsListForReading)
@@ -236,6 +238,26 @@ namespace WVC_XenotypesAndGenes
 				list.Add(item);
 			}
 			return list;
+		}
+
+		public static List<CustomXenotype> GetCustomXenotypesList()
+		{
+			List<CustomXenotype> xenotypes = new();
+			foreach (FileInfo item in GenFilePaths.AllCustomXenotypeFiles.OrderBy((FileInfo f) => f.LastWriteTime))
+			{
+				string filePath = GenFilePaths.AbsFilePathForXenotype(Path.GetFileNameWithoutExtension(item.Name));
+				PreLoadUtility.CheckVersionAndLoad(filePath, ScribeMetaHeaderUtility.ScribeHeaderMode.Xenotype, delegate
+				{
+					if (GameDataSaveLoader.TryLoadXenotype(filePath, out var xenotype))
+					{
+						if (!XaG_GeneUtility.XenotypeIsAndroid(xenotype))
+						{
+							xenotypes.Add(xenotype);
+						}
+					}
+				}, skipOnMismatch: true);
+			}
+			return xenotypes;
 		}
 
 		// public static List<GeneDef> GetShapeshifterHeritableGenes()

@@ -38,13 +38,6 @@ namespace WVC_XenotypesAndGenes
 				{
 					yield return new DefHyperlink(this.TryGetComp<CompUseEffect_GeneGiver>().geneDef);
 				}
-				// if (this?.TryGetComp<CompUseEffect_GeneRestoration>()?.Props?.hediffsToRemove != null)
-				// {
-					// foreach (HediffDef item in this.TryGetComp<CompUseEffect_GeneRestoration>().Props.hediffsToRemove)
-					// {
-						// yield return new DefHyperlink(item);
-					// }
-				// }
 				if (def.descriptionHyperlinks != null)
 				{
 					for (int i = 0; i < def.descriptionHyperlinks.Count; i++)
@@ -58,46 +51,19 @@ namespace WVC_XenotypesAndGenes
 		public void SetTargetPawnForXenoChanger(Pawn newTarget)
 		{
 			int trueMax = HediffDefOf.XenogerminationComa.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.TrueMax;
-			TaggedString text = "ImplantXenogermWarningDesc".Translate(newTarget.Named("PAWN"), trueMax.ToStringTicksToPeriod().Named("COMADURATION"));
-			// if (newTarget.genes.Xenogenes.Any())
-			// {
-				// text += "\n\n" + "ImplantXenogermWarningOverwriteXenogenes".Translate(newTarget.Named("PAWN"), newTarget.genes.XenotypeLabelCap.Named("XENOTYPE"), newTarget.genes.Xenogenes.Select((Gene x) => x.LabelCap).ToLineList("  - ").Named("XENOGENES"));
-			// }
-			// int num = GeneUtility.MetabolismAfterImplanting(newTarget, geneSet);
-			// text += "\n\n" + "ImplantXenogermWarningNewMetabolism".Translate(newTarget.Named("PAWN"), num.Named("MET"), GeneTuning.MetabolismToFoodConsumptionFactorCurve.Evaluate(num).ToStringPercent().Named("CONSUMPTION"));
+			TaggedString text = "WVC_XaG_AdministerXenogermWarningDesc".Translate(newTarget.Named("PAWN"), trueMax.ToStringTicksToPeriod().Named("COMADURATION"));
 			text += "\n\n" + "WouldYouLikeToContinue".Translate();
 			Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation(text, delegate
 			{
-				// List<Thing> things = new() { this };
-				// Log.Error("0");
 				Bill bill = targetPawn?.BillStack?.Bills?.FirstOrDefault((Bill x) => x is Bill_Medical bill_Medical && bill_Medical.uniqueRequiredIngredients != null && bill_Medical.uniqueRequiredIngredients.Contains(this));
 				if (bill != null)
 				{
 					targetPawn.BillStack.Delete(bill);
 				}
-				// Log.Error("1");
 				HealthCardUtility.CreateSurgeryBill(newTarget, WVC_GenesDefOf.WVC_ImplantXenogermSerum, null, new() { this });
-				// Log.Error("2");
 				targetPawn = newTarget;
-				// SendImplantationLetter(newTarget);
 			}, destructive: true));
 		}
-
-		// public void SendImplantationLetter(Pawn targetPawn)
-		// {
-			// string arg = string.Empty;
-			// if (!targetPawn.InBed() && !targetPawn.Map.listerBuildings.allBuildingsColonist.Any((Building x) => x is Building_Bed bed && RestUtility.CanUseBedEver(targetPawn, x.def) && bed.Medical))
-			// {
-				// arg = "XenogermOrderedImplantedBedNeeded".Translate(targetPawn.Named("PAWN"));
-			// }
-			// int requiredMedicineForImplanting = RequiredMedicineForImplanting;
-			// string arg2 = string.Empty;
-			// if (targetPawn.Map.listerThings.ThingsInGroup(ThingRequestGroup.Medicine).Sum((Thing x) => x.stackCount) < requiredMedicineForImplanting)
-			// {
-				// arg2 = "XenogermOrderedImplantedMedicineNeeded".Translate(requiredMedicineForImplanting.Named("MEDICINENEEDED"));
-			// }
-			// Find.LetterStack.ReceiveLetter("LetterLabelXenogermOrderedImplanted".Translate(), "LetterXenogermOrderedImplanted".Translate(targetPawn.Named("PAWN"), requiredMedicineForImplanting.Named("MEDICINENEEDED"), arg.Named("BEDINFO"), arg2.Named("MEDICINEINFO")), LetterDefOf.NeutralEvent);
-		// }
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
@@ -118,7 +84,7 @@ namespace WVC_XenotypesAndGenes
 						foreach (Pawn item in base.Map.mapPawns.AllPawnsSpawned)
 						{
 							Pawn pawn = item;
-							if (!pawn.IsQuestLodger() && pawn.genes != null && (pawn.IsColonistPlayerControlled || pawn.IsPrisonerOfColony || pawn.IsSlaveOfColony || (pawn.IsColonyMutant && pawn.IsGhoul)))
+							if (!pawn.IsQuestLodger() && pawn.IsHuman() && (pawn.IsColonistPlayerControlled || pawn.IsPrisonerOfColony || pawn.IsSlaveOfColony || (pawn.IsColonyMutant && pawn.IsGhoul)))
 							{
 								list.Add(new FloatMenuOption(pawn.LabelShortCap + ", " + pawn.genes.XenotypeLabelCap, delegate
 								{
@@ -191,10 +157,6 @@ namespace WVC_XenotypesAndGenes
 					{
 						ReportViolation(pawn, billDoer, pawn.HomeFaction, -70);
 					}
-					// if (ModsConfig.IdeologyActive)
-					// {
-						// Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.InstalledProsthetic, billDoer.Named(HistoryEventArgsNames.Doer)));
-					// }
 				}
 				else if (!string.IsNullOrEmpty(acceptanceReport.Reason))
 				{

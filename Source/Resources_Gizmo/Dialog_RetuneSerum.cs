@@ -20,7 +20,7 @@ namespace WVC_XenotypesAndGenes
 			closeOnAccept = false;
 			doCloseX = true;
 			doCloseButton = true;
-			allXenotypes = XenotypeFilterUtility.WhiteListedXenotypes(true);
+			allXenotypes = ListsUtility.GetWhiteListedXenotypes(true);
 		}
 
 		public override void DrawLeftRect(Rect rect, ref float curY)

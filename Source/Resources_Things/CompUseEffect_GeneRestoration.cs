@@ -11,21 +11,6 @@ namespace WVC_XenotypesAndGenes
 
 		public override void DoEffect(Pawn pawn)
 		{
-			// Humanity check
-			// if (MechanoidizationUtility.PawnIsAndroid(pawn) || !pawn.RaceProps.Humanlike)
-			// {
-			// pawn.health.AddHediff(WVC_GenesDefOf.WVC_IncompatibilityComa);
-			// Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
-			// return;
-			// }
-			// if (!SerumUtility.IsHuman(pawn))
-			// {
-				// pawn.health.AddHediff(WVC_GenesDefOf.WVC_IncompatibilityComa);
-				// Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
-				// return;
-			// }
-			// Main
-			// XaG_GeneUtility.XenogermRestoration(pawn);
 			HediffUtility.RemoveHediffsFromList(pawn, Props.hediffsToRemove);
 		}
 
@@ -45,14 +30,14 @@ namespace WVC_XenotypesAndGenes
 
 		public override void DoEffect(Pawn pawn)
 		{
-			Gene_GeneticInstability geneticInstability = pawn?.genes?.GetFirstGeneOfType<Gene_GeneticInstability>();
-			if (!ReimplanterUtility.IsHuman(pawn) || geneticInstability == null)
-			{
-				pawn.health.AddHediff(WVC_GenesDefOf.WVC_IncompatibilityComa);
-				Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
-				return;
-			}
-			geneticInstability.nextTick += 60000 * Props.daysDelay;
+			// Gene_GeneticInstability geneticInstability = pawn?.genes?.GetFirstGeneOfType<Gene_GeneticInstability>();
+			// if (!ReimplanterUtility.IsHuman(pawn) || geneticInstability == null)
+			// {
+				// pawn.health.AddHediff(WVC_GenesDefOf.WVC_IncompatibilityComa);
+				// Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+				// return;
+			// }
+			pawn.genes.GetFirstGeneOfType<Gene_GeneticInstability>().nextTick += 60000 * Props.daysDelay;
 		}
 
 		public override AcceptanceReport CanBeUsedBy(Pawn p)
@@ -72,12 +57,12 @@ namespace WVC_XenotypesAndGenes
 
 		public override void DoEffect(Pawn pawn)
 		{
-			if (!ReimplanterUtility.IsHuman(pawn) || !XaG_GeneUtility.HasActiveGene(Props.geneDef, pawn))
-			{
-				pawn.health.AddHediff(WVC_GenesDefOf.WVC_IncompatibilityComa);
-				Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
-				return;
-			}
+			// if (!ReimplanterUtility.IsHuman(pawn) || !XaG_GeneUtility.HasActiveGene(Props.geneDef, pawn))
+			// {
+				// pawn.health.AddHediff(WVC_GenesDefOf.WVC_IncompatibilityComa);
+				// Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+				// return;
+			// }
 			if (!pawn.health.hediffSet.HasHediff(Props.hediffDef))
 			{
 				pawn.health.AddHediff(Props.hediffDef);
@@ -111,12 +96,12 @@ namespace WVC_XenotypesAndGenes
 		public override void DoEffect(Pawn pawn)
 		{
 			Gene_Shapeshifter shapeshifter = pawn?.genes?.GetFirstGeneOfType<Gene_Shapeshifter>();
-			if (!ReimplanterUtility.IsHuman(pawn) || shapeshifter == null)
-			{
-				pawn.health.AddHediff(WVC_GenesDefOf.WVC_IncompatibilityComa);
-				Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
-				return;
-			}
+			// if (!ReimplanterUtility.IsHuman(pawn) || shapeshifter == null)
+			// {
+				// pawn.health.AddHediff(WVC_GenesDefOf.WVC_IncompatibilityComa);
+				// Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+				// return;
+			// }
 			if (Props.disableShapeshiftComaAfterUse)
 			{
 				shapeshifter.xenogermComaAfterShapeshift = false;

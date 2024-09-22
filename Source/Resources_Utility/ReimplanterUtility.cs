@@ -354,26 +354,6 @@ namespace WVC_XenotypesAndGenes
 			TrySetSkinAndHairGenes(pawn);
 		}
 
-		public static List<CustomXenotype> CustomXenotypesList()
-		{
-			List<CustomXenotype> xenotypes = new();
-			foreach (FileInfo item in GenFilePaths.AllCustomXenotypeFiles.OrderBy((FileInfo f) => f.LastWriteTime))
-			{
-				string filePath = GenFilePaths.AbsFilePathForXenotype(Path.GetFileNameWithoutExtension(item.Name));
-				PreLoadUtility.CheckVersionAndLoad(filePath, ScribeMetaHeaderUtility.ScribeHeaderMode.Xenotype, delegate
-				{
-					if (GameDataSaveLoader.TryLoadXenotype(filePath, out var xenotype))
-					{
-						if (!XaG_GeneUtility.XenotypeIsAndroid(xenotype))
-						{
-							xenotypes.Add(xenotype);
-						}
-					}
-				}, skipOnMismatch: true);
-			}
-			return xenotypes;
-		}
-
 		// Ideology Hook
 
 		public static void PostSerumUsedHook(Pawn pawn, bool isXenoMod)

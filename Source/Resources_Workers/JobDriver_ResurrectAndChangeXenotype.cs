@@ -71,7 +71,7 @@ namespace WVC_XenotypesAndGenes
 				XenotypeDef xenotypeDef = Item?.TryGetComp<CompTargetEffect_DoJobOnTarget>()?.xenotypeDef;
 				if (xenotypeDef == null)
 				{
-					xenotypeDef = XenotypeFilterUtility.WhiteListedXenotypes(true, true).RandomElement();
+					xenotypeDef = ListsUtility.GetWhiteListedXenotypes(true, true).RandomElement();
 					Log.Error("Xenotype is null. Choosing random.");
 				}
 				// SerumUtility.XenotypeSerum(innerPawn, XenotypeFilterUtility.BlackListedXenotypesForSerums(false), xenotypeDef, false, false);

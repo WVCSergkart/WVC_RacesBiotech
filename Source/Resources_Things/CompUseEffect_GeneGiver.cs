@@ -68,15 +68,15 @@ namespace WVC_XenotypesAndGenes
 			ReimplanterUtility.PostSerumUsedHook(pawn, true);
 		}
 
-		// public override bool AllowStackWith(Thing other)
-		// {
+		public override bool AllowStackWith(Thing other)
+		{
 			// CompUseEffect_GeneGiver otherXeno = other.TryGetComp<CompUseEffect_GeneGiver>();
 			// if (otherXeno != null && otherXeno.geneDef != null && otherXeno.geneDef == geneDef)
 			// {
 				// return true;
 			// }
-			// return false;
-		// }
+			return false;
+		}
 
 		public override AcceptanceReport CanBeUsedBy(Pawn p)
 		{

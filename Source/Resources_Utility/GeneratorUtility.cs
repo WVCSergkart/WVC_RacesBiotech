@@ -58,7 +58,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			foreach (XenotypeForcerGeneTemplateDef template in DefDatabase<XenotypeForcerGeneTemplateDef>.AllDefsListForReading)
 			{
-				foreach (XenotypeDef allDef in XenotypeFilterUtility.WhiteListedXenotypes(true, true))
+				foreach (XenotypeDef allDef in ListsUtility.GetWhiteListedXenotypes(true, true))
 				{
 					geneDefList.Add(GeneratorUtility.GetFromTemplate_XenotypeForcer(template, allDef, allDef.index * 1000));
 				}
@@ -87,7 +87,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			List<GauranlenTreeModeDef> exceptions = XenotypeFilterUtility.GauranlenTreeModeDefExceptions();
+			List<GauranlenTreeModeDef> exceptions = ListsUtility.GetGauranlenTreeModeDefExceptions();
 			foreach (GauranlenTreeModeDef gauranlenTreeModeDef in DefDatabase<GauranlenTreeModeDef>.AllDefsListForReading)
 			{
 				if (exceptions.Contains(gauranlenTreeModeDef))

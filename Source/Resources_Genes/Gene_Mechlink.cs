@@ -314,7 +314,7 @@ namespace WVC_XenotypesAndGenes
 					currentGolems = new();
 				}
 				phase = 5;
-				List<Thing> chunks = XenotypeFilterUtility.GetAllStoneChunksOnMap(pawn.Map, pawn);
+				List<Thing> chunks = ListsUtility.GetAllStoneChunksOnMap(pawn.Map, pawn);
 				for (int i = 0; i < countSpawn; i++)
 				{
 					phase = 6;

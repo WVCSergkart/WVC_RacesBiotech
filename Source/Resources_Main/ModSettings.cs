@@ -409,7 +409,7 @@ namespace WVC_XenotypesAndGenes
 			if (allXenotypes.NullOrEmpty())
 			{
 				// XaG_PostInitialization.SetValues(XenotypeFilterUtility.WhiteListedXenotypesForFilter());
-				allXenotypes = XenotypeFilterUtility.WhiteListedXenotypes(false);
+				allXenotypes = ListsUtility.GetWhiteListedXenotypes(false);
 				return;
 			}
 			var rect = new Rect(inRect.x, inRect.y, inRect.width, inRect.height);

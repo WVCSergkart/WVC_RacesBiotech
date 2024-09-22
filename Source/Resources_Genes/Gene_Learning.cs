@@ -37,7 +37,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			List<BackstoryDef> blackListedBackstoryForChanger = XenotypeFilterUtility.BlackListedBackstoryForChanger();
+			List<BackstoryDef> blackListedBackstoryForChanger = ListsUtility.GetBlackListedBackstoryForChanger();
 			if (childBackstoryDef != null && !blackListedBackstoryForChanger.Contains(pawn.story.Childhood))
 			{
 				pawn.story.Childhood = childBackstoryDef;

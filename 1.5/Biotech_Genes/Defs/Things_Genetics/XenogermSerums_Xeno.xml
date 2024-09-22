@@ -72,6 +72,69 @@
 	</comps>
   </ThingDef>
 
+  <ThingDef ParentName="WVC_XenotypeSerum_HybridNonCraftable" WVC_XaG_EasyPatch="ThingDefSerumXenotypeForcerII" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+	<defName>WVC_XenotypeSerum_Hybrid</defName>
+	<label>hybridtype serum</label>
+	<tradeTags>
+	  <li>WVC_XenotypeSerums</li>
+	  <li>WVC_All_XenotypeSerums</li>
+	  <li>WVC_XenotypeSerums_NonCraftable</li>
+	</tradeTags>
+	<recipeMaker>
+	  <displayPriority>-18</displayPriority>
+	  <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
+	  <researchPrerequisites>
+		<li>Archogenetics</li>
+		<li>WVC_XenotypesAndGenes_XenotypeSerumCrafting</li>
+	  </researchPrerequisites>
+	  <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+	  <workSkill>Crafting</workSkill>
+	  <effectWorking>Smith</effectWorking>
+	  <soundWorking>Recipe_Machining</soundWorking>
+	  <recipeUsers>
+		<li>WVC_SerumCraftingTable</li>
+	  </recipeUsers>
+	  <useIngredientsForColor>false</useIngredientsForColor>
+	  <skillRequirements>
+		<Crafting>10</Crafting>
+	  </skillRequirements>
+	</recipeMaker>
+	<thingCategories>
+	  <li>WVC_XenotypeSerums_Mecha</li>
+	</thingCategories>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_XenotypeForcer_Hybrid</compClass>
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <ThingDef ParentName="WVC_XenotypeSerum_ArchotechNonCraftable" WVC_XaG_XenotypeRemoveTag="General" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+	<defName>WVC_SubXenotypeSerum_Undead</defName>
+	<label>undeadtype serum</label>
+	<description>A one-use super-dose of mechanites tuned to change the user's xenotype. After using the serum, the user will fall into a two-day coma.
+
+&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; Cannot be retuned.</description>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/ShiftSerum_v0</texPath>
+	</graphicData>
+	<statBases>
+	  <MarketValue>4250</MarketValue>
+	</statBases>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_XenogermSerum</compClass>
+		<possibleXenotypes>
+		  <li>WVC_Featherdust</li>
+		  <li>WVC_Resurgent</li>
+		  <li MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li>
+		</possibleXenotypes>
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <!-- ==================================== -->
+
   <ThingDef ParentName="WVC_XenotypeResurrectorSerum_NonCraftable" WVC_XaG_EasyPatch="ThingDefSerumXenotypeForcerII" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_XenotypeResurrectorSerum_Ultra</defName>
 	<label>xenotype resurrector</label>
@@ -114,67 +177,6 @@
 		<moteDef>Mote_ResurrectFlash</moteDef>
 		<xenotypeDef>WVC_Undead</xenotypeDef>
 		<jobDef>WVC_XenotypesAndGenes_ResurrectAndChangeXenotype</jobDef>
-	  </li>
-	</comps>
-  </ThingDef>
-
-  <ThingDef ParentName="WVC_XenotypeSerum_HybridNonCraftable" WVC_XaG_EasyPatch="ThingDefSerumXenotypeForcerII" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
-	<defName>WVC_XenotypeSerum_Hybrid</defName>
-	<label>hybridtype serum</label>
-	<tradeTags>
-	  <li>WVC_XenotypeSerums</li>
-	  <li>WVC_All_XenotypeSerums</li>
-	  <li>WVC_XenotypeSerums_NonCraftable</li>
-	</tradeTags>
-	<recipeMaker>
-	  <displayPriority>-18</displayPriority>
-	  <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
-	  <researchPrerequisites>
-		<li>Archogenetics</li>
-		<li>WVC_XenotypesAndGenes_XenotypeSerumCrafting</li>
-	  </researchPrerequisites>
-	  <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-	  <workSkill>Crafting</workSkill>
-	  <effectWorking>Smith</effectWorking>
-	  <soundWorking>Recipe_Machining</soundWorking>
-	  <recipeUsers>
-		<li>WVC_SerumCraftingTable</li>
-	  </recipeUsers>
-	  <useIngredientsForColor>false</useIngredientsForColor>
-	  <skillRequirements>
-		<Crafting>10</Crafting>
-	  </skillRequirements>
-	</recipeMaker>
-	<thingCategories>
-	  <li>WVC_XenotypeSerums_Mecha</li>
-	</thingCategories>
-	<comps>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
-		<compClass>WVC_XenotypesAndGenes.CompUseEffect_XenotypeForcer_Hybrid</compClass>
-	  </li>
-	</comps>
-  </ThingDef>
-
-  <ThingDef ParentName="WVC_XenotypeSerum_ArchotechNonCraftable" WVC_XaG_XenotypeRemoveTag="General" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
-	<defName>WVC_SubXenotypeSerum_Undead</defName>
-	<label>sub-xenotype serum</label>
-	<description>A one-use super-dose of mechanites tuned to change the user's xenotype. After using the serum, the user will fall into a two-day coma.
-
-&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; Cannot be administered or retuned.</description>
-	<graphicData>
-	  <texPath>WVC/Things/XaG_Items/Serums_Single/ShiftSerum_v0</texPath>
-	</graphicData>
-	<statBases>
-	  <MarketValue>4250</MarketValue>
-	</statBases>
-	<comps>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
-		<compClass>WVC_XenotypesAndGenes.CompUseEffect_XenogermSerum</compClass>
-		<possibleXenotypes>
-		  <li>WVC_Featherdust</li>
-		  <li>WVC_Resurgent</li>
-		  <li MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li>
-		</possibleXenotypes>
 	  </li>
 	</comps>
   </ThingDef>

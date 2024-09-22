@@ -21,8 +21,8 @@
 	<displayOrderInCategory>60</displayOrderInCategory>
 	<customEffectDescriptions>
 	  <!-- <li>TEXT &lt;color=#8a8ae6&gt;WORD&lt;/color&gt; TEXT &lt;color=#ff8585&gt;WARNING&lt;/color&gt;.</li> -->
-	  <li>If a pawn is &lt;color=#8a8ae6&gt;not fully covered&lt;/color&gt; by clothing, then it regularly &lt;color=#ff8585&gt;receives burns&lt;/color&gt; and a stacking &lt;color=#ff8585&gt;mood debuff&lt;/color&gt;.</li>
-	  <li>The debuff lasts a little less than &lt;color=#ff8585&gt;half a day&lt;/color&gt;, and the stack's effectiveness is halved for each.</li>
+	  <li>If a pawn is &lt;color=#8a8ae6&gt;not fully covered&lt;/color&gt; by clothing, then it regularly &lt;color=#ff8585&gt;receives burns&lt;/color&gt; and a stacking &lt;color=#ff8585&gt;mood debuff&lt;/color&gt;. Burns deal &lt;color=#ff8585&gt;damage to armor&lt;/color&gt;.</li>
+	  <li>Debuff lasts a little less than &lt;color=#ff8585&gt;half a day&lt;/color&gt;, and the stack's effectiveness is halved for each.</li>
 	</customEffectDescriptions>
 	<conditionalStatAffecters>
 	  <li Class="ConditionalStatAffecter_InSunlight">

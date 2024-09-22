@@ -95,7 +95,7 @@ namespace WVC_XenotypesAndGenes
 			// BattleLogEntry_DamageTaken battleLogEntry_DamageTaken = new(pawn, RulePackDefOf.DamageEvent_Fire);
 			// Find.BattleLog.Add(battleLogEntry_DamageTaken);
 			// pawn.TakeDamage(new DamageInfo(DamageDefOf.Burn, new FloatRange(2.5f, 5.5f).RandomInRange)).AssociateWithLog(battleLogEntry_DamageTaken);
-			pawn.TakeDamage(new DamageInfo(DamageDefOf.Burn, new FloatRange(2.5f, 5.5f).RandomInRange));
+			pawn.TakeDamage(new DamageInfo(DamageDefOf.Burn, new FloatRange(2.5f, 5.5f).RandomInRange, hitPart: pawn?.health?.hediffSet?.GetRandomNotMissingPart(DamageDefOf.Burn, depth: BodyPartDepth.Outside)));
 			if (Opinion?.MeAboutThoughtDef != null)
 			{
 				pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Opinion.MeAboutThoughtDef);

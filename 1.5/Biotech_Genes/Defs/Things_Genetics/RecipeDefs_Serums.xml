@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <RecipeDef>
+	<defName>WVC_ImplantXenogermSerum</defName>
+	<label>administer serum</label>
+	<description>Administer a serum.</description>
+	<jobString>Administering serum.</jobString>
+	<workerClass>WVC_XenotypesAndGenes.Recipe_ImplantXenogermSerum</workerClass>
+	<workAmount>600</workAmount>
+	<hideBodyPartNames>true</hideBodyPartNames>
+	<targetsBodyPart>false</targetsBodyPart>
+	<anesthetize>false</anesthetize>
+	<allowedForQuestLodgers>false</allowedForQuestLodgers>
+	<surgeryOutcomeEffect IsNull="True"/>
+	<isViolation>true</isViolation>
+	<uiIconThing>Xenogerm</uiIconThing>
+  </RecipeDef>
+
+  <RecipeDef Name="WVC_AdministerXenotypeSerum_Base" Abstract="True">
+	<workerClass>Recipe_AdministerUsableItem</workerClass>
+	<targetsBodyPart>false</targetsBodyPart>
+	<anesthetize>false</anesthetize>
+	<workAmount>600</workAmount>
+	<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+	<allowedForQuestLodgers>false</allowedForQuestLodgers>
+	<surgeryOutcomeEffect IsNull="True"/>
+	<recipeUsers>
+	  <li>Human</li>
+	</recipeUsers>
+  </RecipeDef>
+
+  <!--=============== Base ====================-->
+
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+	<defName>WVC_AdministerGeneRestorationSerum</defName>
+	<label>administer gene restoration serum</label>
+	<description>Administer a gene restoration serum.</description>
+	<jobString>Administering gene restoration serum.</jobString>
+	<ingredients>
+	  <li>
+		<filter>
+		  <thingDefs>
+			<li>WVC_GeneRestorationSerum_Base</li>
+		  </thingDefs>
+		</filter>
+		<count>1</count>
+	  </li>
+	</ingredients>
+	<fixedIngredientFilter>
+	  <thingDefs>
+		<li>WVC_GeneRestorationSerum_Base</li>
+	  </thingDefs>
+	</fixedIngredientFilter>
+  </RecipeDef>
+
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+	<defName>WVC_AdministerDuplicateRestorationSerum</defName>
+	<label>administer duplicate restoration serum</label>
+	<description>Administer a duplicate restoration serum.</description>
+	<jobString>Administering duplicate restoration serum.</jobString>
+	<ingredients>
+	  <li>
+		<filter>
+		  <thingDefs>
+			<li>WVC_ShapeshifterOverclockerSerum_Base</li>
+		  </thingDefs>
+		</filter>
+		<count>1</count>
+	  </li>
+	</ingredients>
+	<fixedIngredientFilter>
+	  <thingDefs>
+		<li>WVC_ShapeshifterOverclockerSerum_Base</li>
+	  </thingDefs>
+	</fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- ==================================== -->
+
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+	<defName>WVC_AdministerXenotypeNullifierSerumA</defName>
+	<label>administer xenotype nullifier serum (white)</label>
+	<description>Administer a xenotype nullifier serum.</description>
+	<jobString>Administering xenotype nullifier serum.</jobString>
+	<ingredients>
+	  <li>
+		<filter>
+		  <thingDefs>
+			<li>WVC_XenotypeSerum_Nullifier</li>
+		  </thingDefs>
+		</filter>
+		<count>1</count>
+	  </li>
+	</ingredients>
+	<fixedIngredientFilter>
+	  <thingDefs>
+		<li>WVC_XenotypeSerum_Nullifier</li>
+	  </thingDefs>
+	</fixedIngredientFilter>
+  </RecipeDef>
+
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+	<defName>WVC_AdministerXenotypeNullifierSerumB</defName>
+	<label>administer xenotype nullifier serum (melanin)</label>
+	<description>Administer a xenotype nullifier serum.</description>
+	<jobString>Administering xenotype nullifier serum.</jobString>
+	<ingredients>
+	  <li>
+		<filter>
+		  <thingDefs>
+			<li>WVC_XenotypeSerum_Baseliner</li>
+		  </thingDefs>
+		</filter>
+		<count>1</count>
+	  </li>
+	</ingredients>
+	<fixedIngredientFilter>
+	  <thingDefs>
+		<li>WVC_XenotypeSerum_Baseliner</li>
+	  </thingDefs>
+	</fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- ==================================== -->
+
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+	<defName>WVC_AdministerGeneticStabilizerSerum_Archotech</defName>
+	<label>administer archotech genetic stabilizer serum</label>
+	<description>Administer a archotech genetic stabilizer serum.</description>
+	<jobString>Administering archotech genetic stabilizer serum.</jobString>
+	<ingredients>
+	  <li>
+		<filter>
+		  <thingDefs>
+			<li>WVC_GeneticStabilizerSerum_Archotech</li>
+		  </thingDefs>
+		</filter>
+		<count>1</count>
+	  </li>
+	</ingredients>
+	<fixedIngredientFilter>
+	  <thingDefs>
+		<li>WVC_GeneticStabilizerSerum_Archotech</li>
+	  </thingDefs>
+	</fixedIngredientFilter>
+  </RecipeDef>
+
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+	<defName>WVC_AdministerGeneticStabilizerSerum_Base</defName>
+	<label>administer genetic stabilizer serum</label>
+	<description>Administer a genetic stabilizer serum.</description>
+	<jobString>Administering genetic stabilizer serum.</jobString>
+	<ingredients>
+	  <li>
+		<filter>
+		  <thingDefs>
+			<li>WVC_GeneticStabilizerSerum_Base</li>
+		  </thingDefs>
+		</filter>
+		<count>1</count>
+	  </li>
+	</ingredients>
+	<fixedIngredientFilter>
+	  <thingDefs>
+		<li>WVC_GeneticStabilizerSerum_Base</li>
+	  </thingDefs>
+	</fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- ==================================== -->
+
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+	<defName>WVC_AdministerXenotypeSerum_Base</defName>
+	<label>administer xenotype serum</label>
+	<description>Administer a xenotype serum.</description>
+	<jobString>Administering xenotype serum.</jobString>
+	<ingredients>
+	  <li>
+		<filter>
+		  <thingDefs>
+			<li>WVC_XenotypeSerum_Base</li>
+		  </thingDefs>
+		</filter>
+		<count>1</count>
+	  </li>
+	</ingredients>
+	<fixedIngredientFilter>
+	  <thingDefs>
+		<li>WVC_XenotypeSerum_Base</li>
+	  </thingDefs>
+	</fixedIngredientFilter>
+  </RecipeDef>
+
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+	<defName>WVC_AdministerXenotypeSerum_Ultra</defName>
+	<label>administer archotype serum</label>
+	<description>Administer a archotype serum.</description>
+	<jobString>Administering archotype serum.</jobString>
+	<ingredients>
+	  <li>
+		<filter>
+		  <thingDefs>
+			<li>WVC_XenotypeSerum_Ultra</li>
+		  </thingDefs>
+		</filter>
+		<count>1</count>
+	  </li>
+	</ingredients>
+	<fixedIngredientFilter>
+	  <thingDefs>
+		<li>WVC_XenotypeSerum_Ultra</li>
+	  </thingDefs>
+	</fixedIngredientFilter>
+  </RecipeDef>
+
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+	<defName>WVC_AdministerXenotypeSerum_Hybrid</defName>
+	<label>administer hybridtype serum</label>
+	<description>Administer a hybridtype serum.</description>
+	<jobString>Administering hybridtype serum.</jobString>
+	<ingredients>
+	  <li>
+		<filter>
+		  <thingDefs>
+			<li>WVC_XenotypeSerum_Hybrid</li>
+		  </thingDefs>
+		</filter>
+		<count>1</count>
+	  </li>
+	</ingredients>
+	<fixedIngredientFilter>
+	  <thingDefs>
+		<li>WVC_XenotypeSerum_Hybrid</li>
+	  </thingDefs>
+	</fixedIngredientFilter>
+  </RecipeDef>
+
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+	<defName>WVC_AdministerSubXenotypeSerum_Undead</defName>
+	<label>administer undeadtype serum</label>
+	<description>Administer a undeadtype serum.</description>
+	<jobString>Administering undeadtype serum.</jobString>
+	<ingredients>
+	  <li>
+		<filter>
+		  <thingDefs>
+			<li>WVC_SubXenotypeSerum_Undead</li>
+		  </thingDefs>
+		</filter>
+		<count>1</count>
+	  </li>
+	</ingredients>
+	<fixedIngredientFilter>
+	  <thingDefs>
+		<li>WVC_SubXenotypeSerum_Undead</li>
+	  </thingDefs>
+	</fixedIngredientFilter>
+  </RecipeDef>
+
+  <!-- ==================================== -->
+
+  <RecipeDef ParentName="WVC_AdministerXenotypeSerum_Base">
+	<defName>WVC_AdministerArchotechGeneGiverA</defName>
+	<label>administer gene giver serum</label>
+	<description>Administer a gene giver serum.</description>
+	<jobString>Administering gene giver serum.</jobString>
+	<ingredients>
+	  <li>
+		<filter>
+		  <thingDefs>
+			<li>WVC_ArchotechGeneGiver</li>
+		  </thingDefs>
+		</filter>
+		<count>1</count>
+	  </li>
+	</ingredients>
+	<fixedIngredientFilter>
+	  <thingDefs>
+		<li>WVC_ArchotechGeneGiver</li>
+	  </thingDefs>
+	</fixedIngredientFilter>
+  </RecipeDef>
+
+</Defs>

@@ -21,7 +21,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostPostMake()
 		{
 			base.PostPostMake();
-			List<XenotypeDef> xenotypeDefs = XenotypeFilterUtility.WhiteListedXenotypes(true);
+			List<XenotypeDef> xenotypeDefs = ListsUtility.GetWhiteListedXenotypes(true);
 			endotype = Props.endotypeDef;
 			xenotype = Props.xenotypeDef;
 			if (endotype == null)
@@ -129,7 +129,7 @@ namespace WVC_XenotypesAndGenes
 			// SerumUtility.DoubleXenotypeSerum(pawn, endotype, xenotype);
 			if (customMode)
 			{
-				List<CustomXenotype> xenotypes = ReimplanterUtility.CustomXenotypesList();
+				List<CustomXenotype> xenotypes = ListsUtility.GetCustomXenotypesList();
 				CustomXenotype endoCustomXenotype = xenotypes.Where((CustomXenotype randomXenotypeDef) => randomXenotypeDef.name != pawn.genes.xenotypeName && randomXenotypeDef.inheritable).RandomElement();
 				CustomXenotype xenoCustomXenotype = xenotypes.Where((CustomXenotype randomXenotypeDef) => randomXenotypeDef.name != pawn.genes.xenotypeName && !randomXenotypeDef.inheritable).RandomElement();
 				ReimplanterUtility.SetCustomXenotype(pawn, endoCustomXenotype);

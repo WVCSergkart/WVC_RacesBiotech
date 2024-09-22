@@ -112,7 +112,7 @@ namespace WVC_XenotypesAndGenes
 
 		private GeneDef GetGene(Pawn pawn)
 		{
-			List<XenotypeDef> allMatchedXenotypes = XaG_GeneUtility.GetAllMatchedXenotypes(pawn, XenotypeFilterUtility.AllXenotypesExceptAndroids(), Props.matchPercent);
+			List<XenotypeDef> allMatchedXenotypes = XaG_GeneUtility.GetAllMatchedXenotypes(pawn, ListsUtility.GetAllXenotypesExceptAndroids(), Props.matchPercent);
 			List<GeneDef> allGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(pawn.genes.GenesListForReading);
 			foreach (XenotypeDef xenoDef in allMatchedXenotypes)
 			{
@@ -124,7 +124,7 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			}
-			List<CustomXenotype> allMatchedCustomXenotypes = XaG_GeneUtility.GetAllMatchedCustomXenotypes(pawn, ReimplanterUtility.CustomXenotypesList(), Props.matchPercent);
+			List<CustomXenotype> allMatchedCustomXenotypes = XaG_GeneUtility.GetAllMatchedCustomXenotypes(pawn, ListsUtility.GetCustomXenotypesList(), Props.matchPercent);
 			if (!allMatchedCustomXenotypes.NullOrEmpty())
 			{
 				foreach (CustomXenotype xenoDef in allMatchedCustomXenotypes)

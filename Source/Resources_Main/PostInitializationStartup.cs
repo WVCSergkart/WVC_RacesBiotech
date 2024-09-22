@@ -111,8 +111,8 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (ModsConfig.AnomalyActive)
 			{
-				List<MutantDef> exceptions_Mutants = XenotypeFilterUtility.MutantsExceptions();
-				List<GeneDef> exceptions = XenotypeFilterUtility.AnomalyExceptions();
+				List<MutantDef> exceptions_Mutants = ListsUtility.GetMutantsExceptions();
+				List<GeneDef> exceptions = ListsUtility.GetAnomalyExceptions();
 				foreach (MutantDef mutantDef in DefDatabase<MutantDef>.AllDefsListForReading)
 				{
 					if (mutantDef == null)
@@ -292,12 +292,12 @@ namespace WVC_XenotypesAndGenes
 			if (WVC_Biotech.settings.firstModLaunch)
 			{
 				WVC_Biotech.cachedXenotypesFilter ??= new Dictionary<string, bool>();
-				WVC_Biotech.allXenotypes = XenotypeFilterUtility.WhiteListedXenotypes(false);
+				WVC_Biotech.allXenotypes = ListsUtility.GetWhiteListedXenotypes(false);
 				SetValues();
 				WVC_Biotech.settings.firstModLaunch = false;
 				WVC_Biotech.settings.Write();
 			}
-			foreach (XenotypeDef item in XenotypeFilterUtility.WhiteListedXenotypes(true, true))
+			foreach (XenotypeDef item in ListsUtility.GetWhiteListedXenotypes(true, true))
 			{
 				WVC_GenesDefOf.WVC_XenotypeSerums_SupportedXenotypesList.descriptionHyperlinks.Add(item);
 			}

@@ -69,32 +69,6 @@
   <!-- ==================================== -->
 
   <ThingDef ParentName="WVC_XenotypeSerum_ShiftSerumsTech" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
-	<defName>WVC_ShapeshifterOverclockerSerum_Base</defName>
-	<label>duplicate restore serum</label>
-	<description>A one-use super-dose of mechanites tuned to restore the user's mental state and cure diseases associated with duplication.</description>
-	<descriptionHyperlinks Inherit="False"/>
-	<graphicData>
-	  <texPath>WVC/Things/XaG_Items/Serums_Single/ShiftInjector_v0</texPath>
-	</graphicData>
-	<costList>
-	  <WVC_XenotypeSerumCapsule>2</WVC_XenotypeSerumCapsule>
-	  <ComponentIndustrial>3</ComponentIndustrial>
-	</costList>
-	<comps>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
-		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneRestoration</compClass>
-		<hediffsToRemove>
-		  <li MayRequire="ludeon.rimworld.anomaly">DuplicateSickness</li>
-		  <li MayRequire="ludeon.rimworld.anomaly">CrumblingMindUndiagnosedDuplication</li>
-		  <li MayRequire="ludeon.rimworld.anomaly">CrumblingMindUndiagnosedCreepjoiner</li>
-		  <li MayRequire="ludeon.rimworld.anomaly">CrumblingMind</li>
-		  <li MayRequire="ludeon.rimworld.anomaly">CrumbledMind</li>
-		</hediffsToRemove>
-	  </li>
-	</comps>
-  </ThingDef>
-
-  <ThingDef ParentName="WVC_XenotypeSerum_ShiftSerumsTech" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_GeneShapeshifterSerum_Coma</defName>
 	<label>shift serum (coma)</label>
 	<description>A one-use super-dose of mechanites tuned to optimize the genetic transformation of the shapeshifter. Once used, the user will no longer fall into a coma after shapeshifting.</description>
@@ -115,8 +89,6 @@
 	  </li>
 	</comps>
   </ThingDef>
-
-  <!-- =========== -->
 
   <ThingDef ParentName="WVC_XenotypeSerum_ArchotechNonCraftable" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_GeneShapeshifterSerum_GenesRegrow</defName>
@@ -149,8 +121,7 @@
 	  <texPath>WVC/Things/XaG_Items/Serums_Single/GeneResorationSerum_v0</texPath>
 	  <graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
-	<descriptionHyperlinks Inherit="False">
-	</descriptionHyperlinks>
+	<descriptionHyperlinks Inherit="False"/>
 	<statBases>
 	  <MarketValue>670</MarketValue>
 	  <DeteriorationRate>0.5</DeteriorationRate>
@@ -175,11 +146,42 @@
 		  <li>XenogermReplicating</li>
 		  <li>XenogerminationComa</li>
 		  <li>XenogermLossShock</li>
-		  <!-- Dustogenic -->
+		  <!-- Mod -->
 		  <li>WVC_Dustogenic_DelayedReimplanter</li>
 		</hediffsToRemove>
 	  </li>
 	</comps>
   </ThingDef>
+
+  <ThingDef ParentName="WVC_XenotypeSerum_ShiftSerumsTech" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+	<defName>WVC_ShapeshifterOverclockerSerum_Base</defName>
+	<label>duplicate restoration serum</label>
+	<description>A one-use super-dose of mechanites tuned to restore the user's mental state and cure diseases associated with duplication.</description>
+	<descriptionHyperlinks Inherit="False"/>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/ShiftInjector_v0</texPath>
+	</graphicData>
+	<costList>
+	  <WVC_XenotypeSerumCapsule>2</WVC_XenotypeSerumCapsule>
+	  <ComponentIndustrial>3</ComponentIndustrial>
+	</costList>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneRestoration</compClass>
+		<hediffsToRemove>
+		  <!-- Vanilla -->
+		  <li MayRequire="ludeon.rimworld.anomaly">DuplicateSickness</li>
+		  <li MayRequire="ludeon.rimworld.anomaly">CrumblingMindUndiagnosedDuplication</li>
+		  <li MayRequire="ludeon.rimworld.anomaly">CrumblingMindUndiagnosedCreepjoiner</li>
+		  <li MayRequire="ludeon.rimworld.anomaly">CrumblingMind</li>
+		  <li MayRequire="ludeon.rimworld.anomaly">CrumbledMind</li>
+		  <!-- Mod -->
+		  <!-- <li">WVC_DuplicateSickness</li> -->
+		</hediffsToRemove>
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <!-- ==================================== -->
 
 </Defs>

@@ -26,7 +26,7 @@ namespace WVC_XenotypesAndGenes
 			doCloseX = true;
 			doCloseButton = true;
 			// Xenos
-			allXenotypes = XenotypeFilterUtility.AllXenotypesExceptAndroids();
+			allXenotypes = ListsUtility.GetAllXenotypesExceptAndroids();
 			// Ideo
 			preferredXenotypes = ModLister.IdeologyInstalled ? gene.pawn?.ideo?.Ideo?.PreferredXenotypes : null;
 		}

@@ -101,7 +101,7 @@ namespace WVC_XenotypesAndGenes
 					defaultLabel = "DEV: Spawn pawn",
 					action = delegate
 					{
-						GestationUtility.GenerateNewBornPawn_WithChosenXenotype(pawn, XenotypeFilterUtility.AllXenotypesExceptAndroids().RandomElement(), "WVC_XaG_XenoTreeBirthLabel", "WVC_XaG_XenoTreeBirthDesc", true);
+						GestationUtility.GenerateNewBornPawn_WithChosenXenotype(pawn, ListsUtility.GetAllXenotypesExceptAndroids().RandomElement(), "WVC_XaG_XenoTreeBirthLabel", "WVC_XaG_XenoTreeBirthDesc", true);
 					}
 				};
 				yield return new Command_Action
@@ -117,7 +117,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void DevGetMatchingList(float percent = 0.6f)
 		{
-			List<XenotypeDef> xenotypesDef = XaG_GeneUtility.GetAllMatchedXenotypes(pawn, XenotypeFilterUtility.AllXenotypesExceptAndroids(), percent);
+			List<XenotypeDef> xenotypesDef = XaG_GeneUtility.GetAllMatchedXenotypes(pawn, ListsUtility.GetAllXenotypesExceptAndroids(), percent);
 			if (!xenotypesDef.NullOrEmpty())
 			{
 				Log.Error("All matched xenotypes:" + "\n" + xenotypesDef.Select((XenotypeDef x) => x.defName).ToLineList(" - "));
