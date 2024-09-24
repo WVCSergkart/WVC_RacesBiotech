@@ -869,6 +869,7 @@ namespace WVC_XenotypesAndGenes
 					item.OverrideBy(null);
 				}
 			}
+			XaG_GameComponent.FixMissingAbilities(gene.pawn, gene.pawn.abilities);
 		}
 
 		// private IEnumerable<string> GetWarnings()

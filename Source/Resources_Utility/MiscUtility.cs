@@ -16,6 +16,16 @@ namespace WVC_XenotypesAndGenes
 	public static class MiscUtility
 	{
 
+		public static List<AbilityDef> ConvertAbilitiesInAbilityDefs(List<Ability> abilities)
+		{
+			List<AbilityDef> list = new();
+			foreach (Ability item in abilities)
+			{
+				list.Add(item.def);
+			}
+			return list;
+		}
+
 		// Map
 
 		public static bool IsUnderground(this Map map)

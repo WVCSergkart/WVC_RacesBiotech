@@ -69,6 +69,107 @@ namespace WVC_XenotypesAndGenes
 
 		public void DevFixes()
 		{
+			FixGenesClasses();
+			ResetGenes();
+			FixGeneAbilities();
+			// if (WVC_Biotech.settings.fixThrallTypesOnLoad)
+			// {
+			// foreach (Pawn item in currentGame.CurrentMap.mapPawns.AllPawns.ToList())
+			// {
+			// if (item != null && item.RaceProps.Humanlike && item.genes != null)
+			// {
+			// }
+			// }
+			// WVC_Biotech.settings.fixGeneAbilitiesOnLoad = false;
+			// }
+		}
+
+		private static void FixGeneAbilities()
+		{
+			if (WVC_Biotech.settings.fixGeneAbilitiesOnLoad)
+			{
+				foreach (Pawn item in PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_Colonists.ToList())
+				{
+					if (item != null && item.RaceProps.Humanlike && item.genes != null)
+					{
+						// List<AbilityDef> fixedAbilities = new();
+						Pawn_AbilityTracker abilities = item.abilities;
+						if (abilities != null && !abilities.AllAbilitiesForReading.NullOrEmpty())
+						{
+							foreach (Ability ability in abilities.AllAbilitiesForReading.ToList())
+							{
+								if (XaG_GeneUtility.AbilityIsGeneAbility(ability))
+								{
+									abilities.RemoveAbility(ability.def);
+									abilities.GainAbility(ability.def);
+									Log.Message(item.Name + ": ABILITY FIXED: " + ability.def.label);
+									// fixedAbilities.Add(ability.def);
+								}
+							}
+						}
+						FixMissingAbilities(item, abilities);
+					}
+				}
+				WVC_Biotech.settings.fixGeneAbilitiesOnLoad = false;
+			}
+		}
+
+		public static void FixMissingAbilities(Pawn item, Pawn_AbilityTracker abilities)
+		{
+			List<AbilityDef> pawnAbilities = MiscUtility.ConvertAbilitiesInAbilityDefs(abilities.AllAbilitiesForReading);
+			foreach (Gene gene in item.genes.GenesListForReading)
+			{
+				if (gene.def?.abilities != null)
+				{
+					foreach (AbilityDef ability in gene.def.abilities)
+					{
+						if (!pawnAbilities.Contains(ability))
+						{
+							abilities.GainAbility(ability);
+						}
+					}
+				}
+			}
+		}
+
+		private static void ResetGenes()
+		{
+			if (WVC_Biotech.settings.fixGenesOnLoad)
+			{
+				// foreach (Pawn item in currentGame.World.worldPawns.AllPawnsAliveOrDead)
+				// List<Pawn> pawns = currentGame.CurrentMap.mapPawns.AllPawns;
+				// Log.Error("1");
+				foreach (Pawn item in PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_Colonists.ToList())
+				{
+					if (item != null && item.RaceProps.Humanlike && item.genes != null)
+					{
+						Pawn_GeneTracker genes = item.genes;
+						if (!genes.Endogenes.NullOrEmpty())
+						{
+							foreach (Gene gene in genes.Endogenes.ToList())
+							{
+								genes.RemoveGene(gene);
+								genes.AddGene(gene.def, xenogene: false);
+							}
+							Log.Message(item.Name + ": ENDOGENES FIXED: " + "\n" + genes.Endogenes.Select((Gene x) => x.def.label).ToLineList("	 - ", capitalizeItems: true));
+						}
+						if (!genes.Xenogenes.NullOrEmpty())
+						{
+							foreach (Gene gene in genes.Xenogenes.ToList())
+							{
+								genes.RemoveGene(gene);
+								genes.AddGene(gene.def, xenogene: true);
+							}
+							Log.Message(item.Name + ": XENOGENES FIXED: " + "\n" + genes.Xenogenes.Select((Gene x) => x.def.label).ToLineList("	 - ", capitalizeItems: true));
+						}
+					}
+				}
+				WVC_Biotech.settings.fixGenesOnLoad = false;
+			}
+		}
+
+		private static void FixGenesClasses()
+		{
 			if (WVC_Biotech.settings.fixGeneTypesOnLoad)
 			{
 				foreach (Pawn item in PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_Colonists.ToList())
@@ -106,71 +207,6 @@ namespace WVC_XenotypesAndGenes
 				}
 				WVC_Biotech.settings.fixGeneTypesOnLoad = false;
 			}
-			if (WVC_Biotech.settings.fixGenesOnLoad)
-			{
-				// foreach (Pawn item in currentGame.World.worldPawns.AllPawnsAliveOrDead)
-				// List<Pawn> pawns = currentGame.CurrentMap.mapPawns.AllPawns;
-				// Log.Error("1");
-				foreach (Pawn item in PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_Colonists.ToList())
-				{
-					if (item != null && item.RaceProps.Humanlike && item.genes != null)
-					{
-						Pawn_GeneTracker genes = item.genes;
-						if (!genes.Endogenes.NullOrEmpty())
-						{
-							foreach (Gene gene in genes.Endogenes.ToList())
-							{
-								genes.RemoveGene(gene);
-								genes.AddGene(gene.def, xenogene: false);
-							}
-							Log.Message(item.Name + ": ENDOGENES FIXED: " + "\n" + genes.Endogenes.Select((Gene x) => x.def.label).ToLineList("  - ", capitalizeItems: true));
-						}
-						if (!genes.Xenogenes.NullOrEmpty())
-						{
-							foreach (Gene gene in genes.Xenogenes.ToList())
-							{
-								genes.RemoveGene(gene);
-								genes.AddGene(gene.def, xenogene: true);
-							}
-							Log.Message(item.Name + ": XENOGENES FIXED: " + "\n" + genes.Xenogenes.Select((Gene x) => x.def.label).ToLineList("  - ", capitalizeItems: true));
-						}
-					}
-				}
-				WVC_Biotech.settings.fixGenesOnLoad = false;
-			}
-			if (WVC_Biotech.settings.fixGeneAbilitiesOnLoad)
-			{
-				foreach (Pawn item in PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_Colonists.ToList())
-				{
-					if (item != null && item.RaceProps.Humanlike && item.genes != null)
-					{
-						Pawn_AbilityTracker abilities = item.abilities;
-						if (abilities != null && !abilities.AllAbilitiesForReading.NullOrEmpty())
-						{
-							foreach (Ability ability in abilities.AllAbilitiesForReading.ToList())
-							{
-								if (XaG_GeneUtility.AbilityIsGeneAbility(ability))
-								{
-									abilities.RemoveAbility(ability.def);
-									abilities.GainAbility(ability.def);
-									Log.Message(item.Name + ": ABILITY FIXED: " + ability.def.label);
-								}
-							}
-						}
-					}
-				}
-				WVC_Biotech.settings.fixGeneAbilitiesOnLoad = false;
-			}
-			// if (WVC_Biotech.settings.fixThrallTypesOnLoad)
-			// {
-				// foreach (Pawn item in currentGame.CurrentMap.mapPawns.AllPawns.ToList())
-				// {
-					// if (item != null && item.RaceProps.Humanlike && item.genes != null)
-					// {
-					// }
-				// }
-				// WVC_Biotech.settings.fixGeneAbilitiesOnLoad = false;
-			// }
 		}
 
 		public void ResetCounter(IntRange interval)
