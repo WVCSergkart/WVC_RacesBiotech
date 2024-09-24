@@ -4,11 +4,13 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" Name="WVC_XenotypesAndGenes_GeneMechaskinBasic" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_MechaSkin</defName>
 	<label>mechaskin</label>
-	<description>Carriers of this gene have archites that completely transform their body. 
+	<description>Carriers of this gene have archites that completely transform the external appearance of the body, making it look like a mechanoid one.</description>
+	<!-- Too long -->
+	<!-- <description>Carriers of this gene have archites that completely transform their body.  -->
 
-The body is covered with plates, and the skin becomes hard and resembles plasteel to the touch. The glands are replaced by small colonies of mechanites that serve the body. Mechanites have flexibly adapted to the host's body, making their influence almost imperceptible. The hairline completely disappears, remaining only on the head or face. Muscle tissues are strengthened and become more resilient. 
+<!-- The body is covered with plates, and the skin becomes hard and resembles plasteel to the touch. The glands are replaced by small colonies of mechanites that serve the body. Mechanites have flexibly adapted to the host's body, making their influence almost imperceptible. The hairline completely disappears, remaining only on the head or face. Muscle tissues are strengthened and become more resilient.  -->
 
-Most of the internal organs remain intact, but there are enough external changes to indicate that the host is more like a mechanoid than a human.</description>
+<!-- Most of the internal organs remain intact, but there are enough external changes to indicate that the host is more like a mechanoid than a human.</description> -->
 	<selectionWeight>0.00125</selectionWeight>
 	<biostatCpx>3</biostatCpx>
 	<biostatArc>1</biostatArc>
