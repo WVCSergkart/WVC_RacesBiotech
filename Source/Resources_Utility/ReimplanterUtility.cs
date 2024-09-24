@@ -224,6 +224,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			recipient.health.AddHediff(HediffDefOf.XenogerminationComa);
 			GeneUtility.UpdateXenogermReplication(recipient);
+			XaG_GameComponent.AddMissingGeneAbilities(recipient);
 		}
 
 		// =============================== New ===============================

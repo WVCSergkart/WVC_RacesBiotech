@@ -340,6 +340,7 @@ namespace WVC_XenotypesAndGenes
 				UndeadUtility.Notify_PostShapeshift(shapeshiftGene);
 				UndeadUtility.Notify_PostShapeshift_Traits(shapeshiftGene);
 			}
+			XaG_GeneUtility.CheckAllOverrides(pawn);
 		}
 
 		// private void ResourceTransfer()

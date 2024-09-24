@@ -107,16 +107,16 @@ namespace WVC_XenotypesAndGenes
 								}
 							}
 						}
-						FixMissingAbilities(item, abilities);
+						AddMissingGeneAbilities(item);
 					}
 				}
 				WVC_Biotech.settings.fixGeneAbilitiesOnLoad = false;
 			}
 		}
 
-		public static void FixMissingAbilities(Pawn item, Pawn_AbilityTracker abilities)
+		public static void AddMissingGeneAbilities(Pawn item)
 		{
-			List<AbilityDef> pawnAbilities = MiscUtility.ConvertAbilitiesInAbilityDefs(abilities.AllAbilitiesForReading);
+			List<AbilityDef> pawnAbilities = MiscUtility.ConvertAbilitiesInAbilityDefs(item.abilities.AllAbilitiesForReading);
 			foreach (Gene gene in item.genes.GenesListForReading)
 			{
 				if (gene.def?.abilities != null)
@@ -125,7 +125,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						if (!pawnAbilities.Contains(ability))
 						{
-							abilities.GainAbility(ability);
+							item.abilities.GainAbility(ability);
 						}
 					}
 				}

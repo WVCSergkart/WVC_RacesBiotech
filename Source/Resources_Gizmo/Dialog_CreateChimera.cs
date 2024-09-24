@@ -847,7 +847,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				gene.pawn.genes.AddGene(gene.def, false);
 			}
-			CheckAllOverrides();
+			XaG_GeneUtility.CheckAllOverrides(gene.pawn);
 		}
 
 		public void ClearXenogenes()
@@ -858,18 +858,6 @@ namespace WVC_XenotypesAndGenes
 			gene.DoEffects();
 			gene.UpdateMetabolism();
 			Close(doCloseSound: false);
-		}
-
-		private void CheckAllOverrides()
-		{
-			foreach (Gene item in gene.pawn.genes.GenesListForReading)
-			{
-				if (item.overriddenByGene != null && !XaG_GeneUtility.HasGene(item.overriddenByGene.def, gene.pawn))
-				{
-					item.OverrideBy(null);
-				}
-			}
-			XaG_GameComponent.FixMissingAbilities(gene.pawn, gene.pawn.abilities);
 		}
 
 		// private IEnumerable<string> GetWarnings()
