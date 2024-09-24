@@ -184,7 +184,10 @@ namespace WVC_XenotypesAndGenes
 				Log.Error("Tryed lvl up maxed skill: " + studentSkill.def.LabelCap);
 			}
 			studentSkill.Learn(studentSkill.XpRequiredForLevelUp * 1.05f, true);
-			FleckMaker.AttachedOverlay(student, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
+			if (student.Map != null)
+			{
+				FleckMaker.AttachedOverlay(student, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
+			}
 		}
 
 		// ============================= GENE PSY HARVESTER =============================
