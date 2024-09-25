@@ -14,7 +14,6 @@
 	<customEffectDescriptions>
 		<li>Сarrier can be charged at special &lt;color=#8a8ae6&gt;recharging stations&lt;/color&gt; to replenish nutrition.</li>
 		<li>Charging in this way generates &lt;color=#8a8ae6&gt;wastepacks&lt;/color&gt;.</li>
-		<li>&lt;color=#8a8ae6&gt;Downed&lt;/color&gt; carrier slowly replenishes nutrition to half.</li>
 	</customEffectDescriptions>
 	<exclusionTags Inherit="False">
 	  <li>WVC_XaG_Rechargeable</li>
@@ -113,6 +112,7 @@
 	<biostatArc>2</biostatArc>
 	<biostatMet>5</biostatMet>
 	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Downed&lt;/color&gt; carrier slowly replenishes nutrition to half.</li>
 		<li>&lt;color=#ff8585&gt;Carrier gets food poisoning from any food sources.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<symbolPack>

@@ -35,13 +35,13 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (pawn.Faction != Faction.OfPlayer)
 			{
-				UndeadUtility.OffsetNeedFood(pawn, 0.2f);
+				OffsetNeedFood();
 				return;
 			}
 			if (pawn.Map == null)
 			{
 				// In caravan use
-				InCaravan();
+				OffsetNeedFood();
 				return;
 			}
 			if (pawn.Drafted)
@@ -50,7 +50,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (pawn.Downed)
 			{
-				UndeadUtility.OffsetNeedFood(pawn, 0.1f);
+				OffsetNeedFood();
 				return;
 			}
 			TryRecharge();
@@ -79,7 +79,7 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual bool TryRecharge(bool requestQueueing = true)
 		{
-			Building_XenoCharger closestCharger = GetClosestCharger(pawn, pawn, forced: false, Props.xenoChargerDef);
+			Building_XenoCharger closestCharger = GetClosestCharger(pawn, forced: false, Props.xenoChargerDef);
 			if (closestCharger != null)
 			{
 				Job job = JobMaker.MakeJob(Props.rechargeableStomachJobDef, closestCharger);
@@ -106,23 +106,26 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public static Building_XenoCharger GetClosestCharger(Pawn mech, Pawn carrier, bool forced, ThingDef thingDef)
+		public static Building_XenoCharger GetClosestCharger(Pawn mech, bool forced, ThingDef thingDef)
 		{
 			Danger danger = (forced ? Danger.Deadly : Danger.Some);
-			return (Building_XenoCharger)GenClosest.ClosestThingReachable(mech.Position, mech.Map, ThingRequest.ForDef(thingDef), PathEndMode.InteractionCell, TraverseParms.For(carrier, danger), 9999f, delegate(Thing t)
+			return (Building_XenoCharger)GenClosest.ClosestThingReachable(mech.Position, mech.Map, ThingRequest.ForDef(thingDef), PathEndMode.InteractionCell, TraverseParms.For(mech, danger), 9999f, delegate(Thing t)
 			{
 				Building_XenoCharger building_MechCharger = (Building_XenoCharger)t;
-				if (!carrier.CanReach(t, PathEndMode.InteractionCell, danger))
+				if (!mech.CanReach(t, PathEndMode.InteractionCell, danger))
 				{
 					return false;
 				}
-				return !t.IsForbidden(carrier) && carrier.CanReserve(t, 1, -1, null, forced) && building_MechCharger.CanPawnChargeCurrently(mech);
+				return !t.IsForbidden(mech) && mech.CanReserve(t, 1, -1, null, forced) && building_MechCharger.CanPawnChargeCurrently(mech);
 			});
 		}
 
-		private void InCaravan()
+		private void OffsetNeedFood()
 		{
-			UndeadUtility.OffsetNeedFood(pawn, 0.25f);
+			if (Props?.foodPoisoningFromFood != false || !WVC_Biotech.settings.rechargeable_enablefoodPoisoningFromFood)
+			{
+				UndeadUtility.OffsetNeedFood(pawn, 0.25f);
+			}
 		}
 
 		public override void Notify_IngestedThing(Thing thing, int numTaken)
