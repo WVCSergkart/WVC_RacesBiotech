@@ -16,6 +16,28 @@ namespace WVC_XenotypesAndGenes
 	public static class MiscUtility
 	{
 
+		public static bool FurskinHasMask(FurDef furDef)
+		{
+			bool hasMask = false;
+			foreach (BodyTypeGraphicData item in furDef.bodyTypeGraphicPaths)
+			{
+				if (TextureHasMask(item.texturePath))
+				{
+					hasMask = true;
+				}
+			}
+			return hasMask;
+		}
+
+		public static bool TextureHasMask(string path)
+		{
+			Texture2D north = ContentFinder<Texture2D>.Get(path + "_northm", reportFailure: false);
+			Texture2D east = ContentFinder<Texture2D>.Get(path + "_eastm", reportFailure: false);
+			Texture2D south = ContentFinder<Texture2D>.Get(path + "_southm", reportFailure: false);
+			Texture2D west = ContentFinder<Texture2D>.Get(path + "_westm", reportFailure: false);
+			return west != null || south != null || east != null || north != null;
+		}
+
 		public static List<AbilityDef> ConvertAbilitiesInAbilityDefs(List<Ability> abilities)
 		{
 			List<AbilityDef> list = new();

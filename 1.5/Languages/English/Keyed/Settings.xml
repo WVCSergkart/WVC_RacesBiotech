@@ -74,6 +74,12 @@ It is recommended to enable this option if you use mods that change the display 
 A restart is required to apply the setting. Required new game!</WVC_ToolTip_disableFurGraphic>
 
 	<!-- ====================================================================================== -->
+	<WVC_Label_enable_FurskinIsSkinAutopatch>Enable furskin is skin patch</WVC_Label_enable_FurskinIsSkinAutopatch>
+	<WVC_ToolTip_enable_FurskinIsSkinAutopatch>If enabled, all furskin genes will be patched and will work the same way as in the mod. This means that furskins from mods will support the display of tattoos (if this is not prohibited by the gene) and other features related to this.
+
+A restart is required.</WVC_ToolTip_enable_FurskinIsSkinAutopatch>
+
+	<!-- ====================================================================================== -->
 	<WVC_Label_disableAllGraphic>|- Disable all genes graphic</WVC_Label_disableAllGraphic>
 	<WVC_ToolTip_disableAllGraphic>Completely removes all graphic elements of the mod.
 

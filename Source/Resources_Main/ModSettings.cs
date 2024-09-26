@@ -18,6 +18,7 @@ namespace WVC_XenotypesAndGenes
 		// Graphic
 		public bool hideXaGGenes = false;
 		public bool disableFurGraphic = false;
+		public bool enable_FurskinIsSkinAutopatch = false;
 		public bool disableAllGraphic = false;
 		public bool disableUniqueGeneInterface = false;
 		public bool disableEyesGraphic = false;
@@ -132,6 +133,7 @@ namespace WVC_XenotypesAndGenes
 			// Graphic
 			Scribe_Values.Look(ref hideXaGGenes, "hideXaGGenes", defaultValue: false);
 			Scribe_Values.Look(ref disableFurGraphic, "disableFurGraphic", defaultValue: false);
+			Scribe_Values.Look(ref enable_FurskinIsSkinAutopatch, "enable_FurskinIsSkinAutopatch", defaultValue: false);
 			Scribe_Values.Look(ref disableAllGraphic, "disableAllGraphic", defaultValue: false);
 			Scribe_Values.Look(ref disableUniqueGeneInterface, "disableUniqueGeneInterface", defaultValue: false);
 			// Scribe_Values.Look(ref enableBodySizeGenes, "enableBodySizeGenes", defaultValue: true);
@@ -332,6 +334,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.Label("WVC_BiotechSettings_Label_Graphics".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Graphics".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_hideXaGGenes".Translate().Colorize(ColorLibrary.LightPurple), ref settings.hideXaGGenes, "WVC_ToolTip_hideXaGGenes".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableFurGraphic".Translate().Colorize(ColorLibrary.LightPurple), ref settings.disableFurGraphic, "WVC_ToolTip_disableFurGraphic".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_enable_FurskinIsSkinAutopatch".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enable_FurskinIsSkinAutopatch, "WVC_ToolTip_enable_FurskinIsSkinAutopatch".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableAllGraphic".Translate(), ref settings.disableAllGraphic, "WVC_ToolTip_disableAllGraphic".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableUniqueGeneInterface".Translate().Colorize(ColorLibrary.LightPurple), ref settings.disableUniqueGeneInterface, "WVC_ToolTip_disableUniqueGeneInterface".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableEyesGraphic".Translate(), ref settings.disableEyesGraphic, "WVC_ToolTip_disableEyesGraphic".Translate());
@@ -848,6 +851,7 @@ namespace WVC_XenotypesAndGenes
 			// Graphic
 			WVC_Biotech.settings.hideXaGGenes = false;
 			WVC_Biotech.settings.disableFurGraphic = false;
+			WVC_Biotech.settings.enable_FurskinIsSkinAutopatch = false;
 			WVC_Biotech.settings.disableAllGraphic = false;
 			WVC_Biotech.settings.disableUniqueGeneInterface = false;
 			WVC_Biotech.settings.disableEyesGraphic = false;
@@ -958,6 +962,7 @@ namespace WVC_XenotypesAndGenes
 			// Graphic
 			WVC_Biotech.settings.hideXaGGenes = true;
 			WVC_Biotech.settings.disableFurGraphic = false;
+			WVC_Biotech.settings.enable_FurskinIsSkinAutopatch = true;
 			WVC_Biotech.settings.disableAllGraphic = false;
 			WVC_Biotech.settings.disableUniqueGeneInterface = false;
 			WVC_Biotech.settings.disableEyesGraphic = false;

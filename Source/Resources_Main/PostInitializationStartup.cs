@@ -60,6 +60,7 @@ namespace WVC_XenotypesAndGenes
 			foreach (GeneDef geneDef in DefDatabase<GeneDef>.AllDefsListForReading)
 			{
 				InheritableGeneStats(geneDef);
+				FurskinIsSkin(geneDef);
 				XenoGenesDef(geneDef, xenogenesGenes);
 			}
 			AnomalyPatch(xenogenesGenes);
@@ -76,6 +77,35 @@ namespace WVC_XenotypesAndGenes
 					MiscUtility.InheritGeneDefFrom(geneDef, inheritableGeneDef);
 				}
 			}
+		}
+
+		private static void FurskinIsSkin(GeneDef geneDef)
+		{
+			if (!WVC_Biotech.settings.enable_FurskinIsSkinAutopatch || WVC_Biotech.settings.disableFurGraphic)
+			{
+				return;
+			}
+			if (geneDef.fur == null)
+			{
+				return;
+			}
+			GeneExtension_Graphic modExtension = geneDef.fur?.GetModExtension<GeneExtension_Graphic>();
+			if (modExtension != null)
+			{
+				return;
+			}
+			geneDef.renderNodeProperties = null;
+			if (geneDef.fur.modExtensions == null)
+			{
+				geneDef.fur.modExtensions = new();
+			}
+			GeneExtension_Graphic geneExtension_Graphic = new();
+			if (MiscUtility.FurskinHasMask(geneDef.fur))
+			{
+				geneExtension_Graphic.furIsSkinWithHair = true;
+			}
+			geneExtension_Graphic.furIsSkin = true;
+			geneDef.fur.modExtensions.Add(geneExtension_Graphic);
 		}
 
 		private static void XenoGenesDef(GeneDef geneDef, List<GeneDef> xenogenesGenes)
