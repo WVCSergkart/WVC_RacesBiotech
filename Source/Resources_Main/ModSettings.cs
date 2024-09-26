@@ -22,7 +22,7 @@ namespace WVC_XenotypesAndGenes
 		public bool disableAllGraphic = false;
 		public bool disableUniqueGeneInterface = false;
 		public bool disableEyesGraphic = false;
-		public bool useMaskForFurskinGenes = false;
+		public bool useMaskForFurskinGenes = true;
 		// public bool enableBodySizeGenes = true;
 		// Generator
 		public bool generateSkillGenes = true;
@@ -138,7 +138,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref disableUniqueGeneInterface, "disableUniqueGeneInterface", defaultValue: false);
 			// Scribe_Values.Look(ref enableBodySizeGenes, "enableBodySizeGenes", defaultValue: true);
 			Scribe_Values.Look(ref disableEyesGraphic, "disableEyesGraphic", defaultValue: false);
-			Scribe_Values.Look(ref useMaskForFurskinGenes, "useMaskForFurskinGenes", defaultValue: false);
+			Scribe_Values.Look(ref useMaskForFurskinGenes, "useMaskForFurskinGenes", defaultValue: true);
 			// Generator
 			Scribe_Values.Look(ref generateSkillGenes, "generateSkillGenes", defaultValue: true);
 			Scribe_Values.Look(ref generateXenotypeForceGenes, "generateXenotypeForceGenes", defaultValue: false);
@@ -855,7 +855,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.disableAllGraphic = false;
 			WVC_Biotech.settings.disableUniqueGeneInterface = false;
 			WVC_Biotech.settings.disableEyesGraphic = false;
-			WVC_Biotech.settings.useMaskForFurskinGenes = false;
+			WVC_Biotech.settings.useMaskForFurskinGenes = true;
 			// Generator
 			WVC_Biotech.settings.generateSkillGenes = true;
 			WVC_Biotech.settings.generateXenotypeForceGenes = false;
@@ -966,7 +966,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.disableAllGraphic = false;
 			WVC_Biotech.settings.disableUniqueGeneInterface = false;
 			WVC_Biotech.settings.disableEyesGraphic = false;
-			WVC_Biotech.settings.useMaskForFurskinGenes = false;
+			WVC_Biotech.settings.useMaskForFurskinGenes = true;
 			// Generator
 			WVC_Biotech.settings.generateSkillGenes = true;
 			WVC_Biotech.settings.generateXenotypeForceGenes = false;

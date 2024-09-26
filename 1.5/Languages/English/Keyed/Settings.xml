@@ -91,9 +91,7 @@ Requires a restart, a new game and that the previous setting is enabled.</WVC_To
 	<WVC_Label_useMaskForFurskinGenes>Use mask for furskin if possible</WVC_Label_useMaskForFurskinGenes>
 	<WVC_ToolTip_useMaskForFurskinGenes>If enabled, furskins that are designed to be used with a mask will have it. For example, mechaskin, mechanoid elements will not be colored by genes. This option does not affect genes that always use a mask (example featherskin).
 
-By default, this is disabled because the mask shader does not work with the skin shader, which in the case of using melanin will create graphical bugs.
-
-A load is required.</WVC_ToolTip_useMaskForFurskinGenes>
+A reload is required.</WVC_ToolTip_useMaskForFurskinGenes>
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_disableUniqueGeneInterface>Disable unique gene interface</WVC_Label_disableUniqueGeneInterface>
