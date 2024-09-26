@@ -195,10 +195,14 @@
   <!-- Used -->
 
   <!-- Faceless -->
-  <!-- Used -->
   <XenotypeIconDef>
 	<defName>WVC_FacelessHorns1c</defName>
 	<texPath>WVC/UI/Mecha_Icons/Icon_Lilith_v0</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_FacelessHorns2c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Icon_Lilith_v2</texPath>
   </XenotypeIconDef>
   <!-- Used -->
 
@@ -213,5 +217,11 @@
 	<texPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_Horns_v0</texPath>
   </XenotypeIconDef>
   <!-- Used -->
+
+  <!-- Anomaly -->
+  <!-- <XenotypeIconDef> -->
+	<!-- <defName>WVC_DeadFace0c</defName> -->
+	<!-- <texPath>WVC/UI/Mecha_Icons/Icon_Metalkin_v0</texPath> -->
+  <!-- </XenotypeIconDef> -->
 
 </Defs>

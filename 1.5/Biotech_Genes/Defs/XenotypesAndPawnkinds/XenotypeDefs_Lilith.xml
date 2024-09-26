@@ -12,7 +12,8 @@
 They are irreversibly blind and very fragile, any stray bullet can kill them instantly. But their psionic potential is limitless, as they passively restore psyfocus.</description>
 	<descriptionShort>Lilifs are ageless, psy-gifted super-humans powered by archotech-created archites in the bloodstream. They are divinely beautiful, can communicate with the power of thought, never suffer from disease and learn the skills of exploring the memories of others. But their endless hemogen thirst, incredible fragility and genetic blindness makes them dependent. They cannot exist on their own and greatly need others, because those around them mean protection, food and knowledge.</descriptionShort>
 	<inheritable>true</inheritable>
-	<iconPath>WVC/UI/Mecha_Icons/Icon_Lilith_v0</iconPath>
+	<!-- <iconPath>WVC/UI/Mecha_Icons/Icon_Lilith_v0</iconPath> -->
+	<iconPath>WVC/UI/Mecha_Icons/Icon_Lilith_v2</iconPath>
 	<displayPriority>-190</displayPriority>
 	<factionlessGenerationWeight>0.012</factionlessGenerationWeight>
 	<genes>

@@ -62,7 +62,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Tick()
 		{
-			base.Tick();
+			// base.Tick();
 			if (pawn.IsHashIntervalTick(120))
 			{
 				TickHemogenDrain(this, 120);
@@ -326,7 +326,7 @@ namespace WVC_XenotypesAndGenes
 			// }
 		// }
 
-		private float cachedNutritionPerTick = -1f;
+		private float? cachedNutritionPerTick;
 
 		public Gene_Resource Resource => Hemogen;
 
@@ -356,7 +356,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Tick()
 		{
-			base.Tick();
+			// base.Tick();
 			if (!consumeHemogen)
 			{
 				return;
@@ -378,11 +378,11 @@ namespace WVC_XenotypesAndGenes
 
 		public void ReplenishHunger()
 		{
-			if (cachedNutritionPerTick <= 0f)
+			if (!cachedNutritionPerTick.HasValue)
 			{
 				cachedNutritionPerTick = 0.02f + (pawn.needs?.food != null ? pawn.needs.food.FoodFallPerTick : 0f);
 			}
-			UndeadUtility.OffsetNeedFood(pawn, cachedNutritionPerTick);
+			UndeadUtility.OffsetNeedFood(pawn, cachedNutritionPerTick.Value);
 		}
 
 		public string Flick()
