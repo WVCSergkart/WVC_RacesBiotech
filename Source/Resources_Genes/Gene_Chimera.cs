@@ -122,7 +122,8 @@ namespace WVC_XenotypesAndGenes
 					defaultLabel = "DEV: GetRandomGene",
 					action = delegate
 					{
-						AddGene(DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.endogeneCategory == EndogeneCategory.None && x.selectionWeight > 0f && x.canGenerateInGeneSet && x.passOnDirectly && !AllGenes.Contains(x)).RandomElement());
+						// AddGene(DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.endogeneCategory == EndogeneCategory.None && x.selectionWeight > 0f && x.canGenerateInGeneSet && x.passOnDirectly && !AllGenes.Contains(x)).RandomElement());
+						GetRandomGene();
 					}
 				};
 				// yield return new Command_Action
@@ -254,20 +255,41 @@ namespace WVC_XenotypesAndGenes
 		public override void Notify_IngestedThing(Thing thing, int numTaken)
 		{
 			// base.Notify_IngestedThing(thing, numTaken);
-			if (thing is not Corpse corpse)
+			if (thing is Corpse corpse)
 			{
+				if (corpse.InnerPawn.IsHuman())
+				{
+					GetGeneFromHuman(corpse.InnerPawn);
+				}
+				else if (Rand.Chance(0.04f) || thing.def == PawnKindDefOf.Chimera.race)
+				{
+					GetRandomGene();
+				}
 				return;
 			}
-			if (corpse.InnerPawn.IsHuman())
+			if (thing.def.IsMeat)
 			{
-				GetGeneFromHuman(corpse.InnerPawn);
+				if (Rand.Chance(0.01f))
+				{
+					GetRandomGene();
+				}
+				return;
 			}
-			else if (Rand.Chance(0.04f) || thing.def == PawnKindDefOf.Chimera.race)
+			CompIngredients compIngredients = thing.TryGetComp<CompIngredients>();
+			if (compIngredients?.ingredients.NullOrEmpty() == false)
 			{
-				GeneDef result = DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.biostatArc == 0 && x.selectionWeight > 0f && x.canGenerateInGeneSet && !AllGenes.Contains(x)).RandomElement();
-				AddGene(result);
-				Messages.Message("WVC_XaG_GeneGeneticThief_GeneCopied".Translate(pawn.NameShortColored, result.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+				if (Rand.Chance(0.004f) && compIngredients.ingredients.Any((ThingDef thing) => thing.IsMeat))
+				{
+					GetRandomGene();
+				}
 			}
+		}
+
+		private void GetRandomGene()
+		{
+			GeneDef result = DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.biostatArc == 0 && x.selectionWeight > 0f && x.canGenerateInGeneSet && !AllGenes.Contains(x)).RandomElement();
+			AddGene(result);
+			Messages.Message("WVC_XaG_GeneGeneticThief_GeneCopied".Translate(pawn.NameShortColored, result.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
 		}
 
 		public virtual void UpdateChimeraXenogerm(List<GeneDef> implantedGenes)

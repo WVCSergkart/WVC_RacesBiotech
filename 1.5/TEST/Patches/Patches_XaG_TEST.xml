@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
 
-	<Operation Class="PatchOperationAdd">
-	  <xpath>/Defs/GeneDef[defName="PerfectImmunity"]/makeImmuneTo</xpath>
-	  <value>
-		<li>GutWorms</li>
-		<li>MuscleParasites</li>
-		<li>FibrousMechanites</li>
-		<li>SensoryMechanites</li>
-	  </value>
-	</Operation>
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/GeneDef[defName="PerfectImmunity"]/makeImmuneTo</xpath> -->
+	  <!-- <value> -->
+		<!-- <li>GutWorms</li> -->
+		<!-- <li>MuscleParasites</li> -->
+		<!-- <li>FibrousMechanites</li> -->
+		<!-- <li>SensoryMechanites</li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
 
-	<Operation Class="PatchOperationAdd">
-	  <xpath>/Defs/GeneDef[defName="DiseaseFree"]/hediffGiversCannotGive</xpath>
-	  <value>
-		<li>TraumaSavant</li>
-	  </value>
-	</Operation>
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/GeneDef[defName="DiseaseFree"]/hediffGiversCannotGive</xpath> -->
+	  <!-- <value> -->
+		<!-- <li>TraumaSavant</li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
 
 	<!-- <Operation Class="PatchOperationAdd"> -->
 	  <!-- <xpath>/Defs/HediffDef[defName="PregnantHuman"]/comps</xpath> -->
