@@ -23,6 +23,8 @@
 
 	<WVC_XaG_GeneralWrongTarget>Wrong target.</WVC_XaG_GeneralWrongTarget>
 
+	<WVC_XaG_BirthQuality>Birth quality offset: {0}%</WVC_XaG_BirthQuality>
+
 	<WVC_XaG_NoSuitableTargets>There are no suitable targets.</WVC_XaG_NoSuitableTargets>
 
 	<WVC_Custom>custom</WVC_Custom>
@@ -120,6 +122,7 @@
 	<WVC_XaG_NewBack_GeneIsScarifier>Current max scars</WVC_XaG_NewBack_GeneIsScarifier>
 	<WVC_XaG_NewBack_GeneIsScarifier_SubGenesIncrease>Increases scars limit by {0}</WVC_XaG_NewBack_GeneIsScarifier_SubGenesIncrease>
 	<WVC_XaG_NewBack_GeneIsScarifier_SubGenesDecrease>Decreases scars limit by {0}</WVC_XaG_NewBack_GeneIsScarifier_SubGenesDecrease>
+	<!-- <WVC_XaG_ScarifierScarsOffset>&lt;color=#3c3c3c&gt;Scarifier&lt;/color&gt; scars: {0}</WVC_XaG_ScarifierScarsOffset> -->
 	<!-- <WVC_XaG_NewBack_GeneIsNonCandidatesForSerum>Some gene re-implanters will not work for carriers of this gene.</WVC_XaG_NewBack_GeneIsNonCandidatesForSerum> -->
 	<WVC_XaG_NewBack_GeneIsAngelicStability>Removing this gene is guaranteed to kill the carrier.</WVC_XaG_NewBack_GeneIsAngelicStability>
 	<WVC_XaG_NewBack_GeneIsGeneticStability>Removing this gene causes temporary damage to the host's immune system.</WVC_XaG_NewBack_GeneIsGeneticStability>

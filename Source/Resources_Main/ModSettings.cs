@@ -66,6 +66,7 @@ namespace WVC_XenotypesAndGenes
 		public bool genesCanTickOnlyOnMap = false;
 		public bool enable_flatGenesSpawnChances = false;
 		// public float flatGenesSpawnChances_selectionWeight = 0.001f;
+		public bool enable_ReplaceSimilarGenesAutopatch = false;
 		// Fix
 		public bool fixVanillaGeneImmunityCheck = true;
 		public bool spawnXenoForcerSerumsFromTraders = true;
@@ -188,6 +189,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref genesCanTickOnlyOnMap, "genesCanTickOnlyOnMap", defaultValue: false);
 			Scribe_Values.Look(ref enable_flatGenesSpawnChances, "enable_flatGenesSpawnChances", defaultValue: false);
 			// Scribe_Values.Look(ref autoPatchVanillaArchiteImmunityGenes, "autoPatchVanillaArchiteImmunityGenes", defaultValue: false);
+			Scribe_Values.Look(ref enable_ReplaceSimilarGenesAutopatch, "enable_ReplaceSimilarGenesAutopatch", defaultValue: false);
 			// Gestator
 			Scribe_Values.Look(ref enable_birthQualityOffsetFromGenes, "enable_birthQualityOffsetFromGenes", defaultValue: true);
 			Scribe_Values.Look(ref xenotypeGestator_GestationTimeFactor, "xenotypeGestator_GestationTimeFactor", defaultValue: 1f);
@@ -521,7 +523,8 @@ namespace WVC_XenotypesAndGenes
 			// Extra
 			listingStandard.Label("WVC_BiotechSettings_Label_Genes".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Genes".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_genesCanTickOnlyOnMap".Translate().Colorize(ColorLibrary.LightPurple), ref settings.genesCanTickOnlyOnMap, "WVC_ToolTip_genesCanTickOnlyOnMap".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_flatGenesSpawnChances".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enable_flatGenesSpawnChances, "WVC_ToolTip_flatGenesSpawnChances".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_flatGenesSpawnChances".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_flatGenesSpawnChances, "WVC_ToolTip_flatGenesSpawnChances".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_enable_ReplaceSimilarGenesAutopatch".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_ReplaceSimilarGenesAutopatch, "WVC_ToolTip_enable_ReplaceSimilarGenesAutopatch".Translate());
 			// listingStandard.CheckboxLabeled("WVC_Label_autoPatchVanillaArchiteImmunityGenes".Translate().Colorize(ColorLibrary.LightBlue), ref settings.autoPatchVanillaArchiteImmunityGenes, "WVC_ToolTip_autoPatchVanillaArchiteImmunityGenes".Translate());
 			listingStandard.Gap();
 			// =============== Dev ===============
@@ -938,7 +941,7 @@ namespace WVC_XenotypesAndGenes
 			// Extra
 			WVC_Biotech.settings.genesCanTickOnlyOnMap = false;
 			WVC_Biotech.settings.enable_flatGenesSpawnChances = false;
-			// WVC_Biotech.settings.autoPatchVanillaArchiteImmunityGenes = false;
+			WVC_Biotech.settings.enable_ReplaceSimilarGenesAutopatch = false;
 			// Xenotypes
 			WVC_Biotech.settings.enable_spawnXenotypesInFactions = false;
 			WVC_Biotech.settings.disableXenotypes_MainSwitch = false;
@@ -1021,7 +1024,7 @@ namespace WVC_XenotypesAndGenes
 			// =
 			// WVC_Biotech.settings.useAlternativeDustogenicFoodJob = true;
 			// =
-			WVC_Biotech.settings.learningTelepathWorkForBothSides = true;
+			WVC_Biotech.settings.learningTelepathWorkForBothSides = false;
 			// =
 			WVC_Biotech.settings.enable_birthQualityOffsetFromGenes = true;
 			WVC_Biotech.settings.xenotypeGestator_GestationTimeFactor = 1f;
@@ -1051,7 +1054,7 @@ namespace WVC_XenotypesAndGenes
 			// Extra
 			WVC_Biotech.settings.genesCanTickOnlyOnMap = false;
 			WVC_Biotech.settings.enable_flatGenesSpawnChances = false;
-			// WVC_Biotech.settings.autoPatchVanillaArchiteImmunityGenes = false;
+			WVC_Biotech.settings.enable_ReplaceSimilarGenesAutopatch = false;
 			// Xenotypes
 			WVC_Biotech.settings.enable_spawnXenotypesInFactions = false;
 			WVC_Biotech.settings.disableXenotypes_MainSwitch = false;

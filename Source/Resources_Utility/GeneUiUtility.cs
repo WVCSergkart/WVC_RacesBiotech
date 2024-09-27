@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Linq;
 using UnityEngine;
 using Verse;
@@ -25,6 +26,7 @@ namespace WVC_XenotypesAndGenes
 
 		// ===========================
 
+		[Obsolete]
 		public static bool ReplaceGeneBackground(GeneDef geneDef)
 		{
 			if (geneDef.IsXenoGenesDef())
@@ -54,9 +56,9 @@ namespace WVC_XenotypesAndGenes
 			{
 				text += "\n\n" + "WVC_XaG_NewBack_GeneCannotSpawnInGenepacks".Translate().Colorize(ColoredText.SubtleGrayColor);
 			}
-			if (def?.GetModExtension<GeneExtension_Giver>() != null)
+			if (ModLister.CheckIdeology("Scarification") && def?.GetModExtension<GeneExtension_Giver>() != null)
 			{
-				if (ModLister.CheckIdeology("Scarification") && def.GetModExtension<GeneExtension_Giver>().scarsCount != 0)
+				if (def.GetModExtension<GeneExtension_Giver>().scarsCount != 0)
 				{
 					int scarsCount = def?.GetModExtension<GeneExtension_Giver>() != null ? def.GetModExtension<GeneExtension_Giver>().scarsCount : 0;
 					string scarsLimitText = scarsCount > 0 ? "WVC_XaG_NewBack_GeneIsScarifier_SubGenesIncrease" : "WVC_XaG_NewBack_GeneIsScarifier_SubGenesDecrease";
@@ -66,6 +68,7 @@ namespace WVC_XenotypesAndGenes
 			return text;
 		}
 
+		[Obsolete]
 		public static string AdditionalInfo_Gene(Gene gene)
 		{
 			string text = "";
@@ -93,10 +96,6 @@ namespace WVC_XenotypesAndGenes
 			{
 				text += "\n\n" + ("WVC_XaG_NewBack_GeneIsScarifier".Translate() + ": " + scarifier.cachedMaxScars.ToString());
 			}
-			//if (gene is Gene_Faceless faceless && !faceless.drawGraphic)
-			//{
-			//	text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive_WrongFace".Translate().Colorize(ColorLibrary.RedReadable);
-			//}
 			return text.Colorize(ColoredText.SubtleGrayColor);
 		}
 
@@ -155,8 +154,6 @@ namespace WVC_XenotypesAndGenes
 
 		public static CachedTexture BackgroundTexture(GeneDef gene, GeneType geneType)
 		{
-			// Log.Error("1");
-			// GeneExtension_Graphic background = gene.GetModExtension<GeneExtension_Graphic>();
 			CachedTexture cachedTexture = GeneBackground_Endogene;
 			if (gene.biostatArc == 0)
 			{
@@ -164,17 +161,9 @@ namespace WVC_XenotypesAndGenes
 				{
 				case GeneType.Endogene:
 					cachedTexture = GeneBackground_Endogene;
-					// if (background != null && !background.backgroundPathEndogenes.NullOrEmpty())
-					// {
-						// cachedTexture = new(background.backgroundPathEndogenes);
-					// }
 					break;
 				case GeneType.Xenogene:
 					cachedTexture = GeneBackground_Xenogene;
-					// if (background != null && !background.backgroundPathXenogenes.NullOrEmpty())
-					// {
-						// cachedTexture = new(background.backgroundPathXenogenes);
-					// }
 					break;
 				}
 			}
@@ -184,17 +173,9 @@ namespace WVC_XenotypesAndGenes
 				{
 				case GeneType.Endogene:
 					cachedTexture = GeneBackground_ArchiteEndogene;
-					// if (background != null && !background.backgroundPathEndoArchite.NullOrEmpty())
-					// {
-						// cachedTexture = new(background.backgroundPathEndoArchite);
-					// }
 					break;
 				case GeneType.Xenogene:
 					cachedTexture = GeneBackground_ArchiteXenogene;
-					// if (background != null && !background.backgroundPathXenoArchite.NullOrEmpty())
-					// {
-						// cachedTexture = new(background.backgroundPathXenoArchite);
-					// }
 					break;
 				}
 			}

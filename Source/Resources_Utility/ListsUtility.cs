@@ -12,6 +12,20 @@ namespace WVC_XenotypesAndGenes
 	public static class ListsUtility
 	{
 
+		public static List<XaG_CountWithChance> GetIdenticalGeneDefs()
+		{
+			List<XaG_CountWithChance> list = new();
+			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+			{
+				if (item.identicalGeneDefs.NullOrEmpty())
+				{
+					continue;
+				}
+				list.AddRange(item.identicalGeneDefs);
+			}
+			return list;
+		}
+
 		public static List<BackstoryDef> GetBlackListedBackstoryForChanger()
 		{
 			List<BackstoryDef> list = new();

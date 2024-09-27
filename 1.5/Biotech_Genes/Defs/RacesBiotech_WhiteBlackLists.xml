@@ -177,6 +177,45 @@
 		<!-- <li>WVC_PostShapeshift_Metabolism</li> -->
 		<!-- <li MayRequire="ludeon.rimworld.ideology">WVC_PostShapeshift_Scarred</li> -->
 	<!-- </shapeshifterHeritableGenes> -->
+	<!-- (Experimental) Similar geneDefs. Required any GeneDefs -->
+	<identicalGeneDefs>
+	  <li>
+		<sourceGeneDef>WVC_ReimplanterArchite_Xenogenes</sourceGeneDef>
+		<dupGeneDefs>
+		  <li>XenogermReimplanter</li>
+		</dupGeneDefs>
+	  </li>
+	  <li>
+		<sourceGeneDef>WVC_PsychicAbility_Deaf</sourceGeneDef>
+		<dupGeneDefs>
+		  <li>PsychicAbility_Deaf</li>
+		</dupGeneDefs>
+	  </li>
+	  <li>
+		<sourceGeneDef>WVC_PsychicAbility_Dull</sourceGeneDef>
+		<dupGeneDefs>
+		  <li>PsychicAbility_Dull</li>
+		</dupGeneDefs>
+	  </li>
+	  <li>
+		<sourceGeneDef>WVC_Eyes_ce6969_HEX</sourceGeneDef>
+		<dupGeneDefs>
+		  <li>Eyes_Red</li>
+		</dupGeneDefs>
+	  </li>
+	  <li>
+		<sourceGeneDef>WVC_Eyes_afafaf_HEX</sourceGeneDef>
+		<dupGeneDefs>
+		  <li>Eyes_Gray</li>
+		</dupGeneDefs>
+	  </li>
+	  <li>
+		<sourceGeneDef>WVC_ReimplanterArchite_Endogenes</sourceGeneDef>
+		<dupGeneDefs>
+		  <li MayRequire="vanillaracesexpanded.lycanthrope">VRE_GermlineReimplanter</li>
+		</dupGeneDefs>
+	  </li>
+	</identicalGeneDefs>
   </WVC_XenotypesAndGenes.XenotypesAndGenesListDef>
 
   <!-- ======================================================================= -->

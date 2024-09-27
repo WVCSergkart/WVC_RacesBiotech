@@ -34,7 +34,7 @@
 		<!-- <li>&lt;color=#ff8585&gt;Female only.&lt;/color&gt;</li> -->
 		<li>Allows to start &lt;color=#8a8ae6&gt;pregnancy&lt;/color&gt; at any time.</li>
 		<li>Childs &lt;color=#8a8ae6&gt;always&lt;/color&gt; receive all mother &lt;color=#8a8ae6&gt;endogenes&lt;/color&gt;.</li>
-		<li>Birth quality +100%</li>
+		<!-- <li>Birth quality +100%</li> -->
 	</customEffectDescriptions>
 	<!-- <statFactors> -->
 	  <!-- <Fertility>0</Fertility> -->

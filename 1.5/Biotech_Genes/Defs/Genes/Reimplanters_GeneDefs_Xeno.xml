@@ -10,7 +10,9 @@
 	<iconPath>WVC/UI/Genes/Gene_Reimplanter_Xeno_v0</iconPath>
 	<displayOrderInCategory>-495</displayOrderInCategory>
 	<customEffectDescriptions>
-		<li>Сhanges the xenogenes of the target pawn to the xenogenes of the caster. Does not affect endogenes.</li>
+		<!-- <li>Сhanges the xenogenes of the target pawn to the xenogenes of the caster. Does not affect endogenes.</li> -->
+		<li>Сhanges the &lt;color=#8a8ae6&gt;xenogenes&lt;/color&gt; of the target pawn to the &lt;color=#8a8ae6&gt;xenogenes&lt;/color&gt; of the caster.</li>
+		<li>&lt;color=#8a8ae6&gt;Does not affect endogenes.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<exclusionTags>
 		<li>WVC_ReimplanterNatural_Xenogenes</li>
@@ -31,10 +33,10 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_Xenogenes">
 	<defName>WVC_ReimplanterArchite_Xenogenes</defName>
 	<biostatArc>1</biostatArc>
-	<sterilize>true</sterilize>
-	<statFactors>
-	  <Fertility>0</Fertility>
-	</statFactors>
+	<!-- <sterilize>true</sterilize> -->
+	<!-- <statFactors> -->
+	  <!-- <Fertility>0</Fertility> -->
+	<!-- </statFactors> -->
 	<abilities>
 	  <li>WVC_ReimplanterArchite_Xenogenes</li>
 	</abilities>
@@ -49,12 +51,12 @@
 	<label>implant xenogenes</label>
 	<iconPath>WVC/UI/Genes/Gene_Reimplanter_Xeno_v0</iconPath>
 	<comps>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive">
-		<anyOfGenes>
-		  <li>WVC_ReimplanterNatural_Xenogenes</li>
-		  <li>WVC_ReimplanterArchite_Xenogenes</li>
-		</anyOfGenes>
-	  </li>
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive"> -->
+		<!-- <anyOfGenes> -->
+		  <!-- <li>WVC_ReimplanterNatural_Xenogenes</li> -->
+		  <!-- <li>WVC_ReimplanterArchite_Xenogenes</li> -->
+		<!-- </anyOfGenes> -->
+	  <!-- </li> -->
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
 		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Reimplanter</compClass>
 		<reimplantEndogenes>false</reimplantEndogenes>
@@ -83,7 +85,8 @@
 	<iconPath>WVC/UI/Genes/Gene_PostReimplanter_Xeno_v0</iconPath>
 	<displayOrderInCategory>-490</displayOrderInCategory>
 	<customEffectDescriptions>
-		<li>Сhanges the xenogenes of the target pawn to the xenogenes of the caster. Does not affect endogenes.</li>
+		<li>Сhanges the &lt;color=#8a8ae6&gt;xenogenes&lt;/color&gt; of the target pawn to the &lt;color=#8a8ae6&gt;xenogenes&lt;/color&gt; of the caster.</li>
+		<li>&lt;color=#8a8ae6&gt;Does not affect endogenes.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<exclusionTags>
 		<li>WVC_ReimplanterNatural_RiseXenogenes</li>
@@ -103,11 +106,11 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_RiseXenogenes">
 	<defName>WVC_ReimplanterArchite_RiseXenogenes</defName>
-	<sterilize>true</sterilize>
+	<!-- <sterilize>true</sterilize> -->
 	<biostatArc>1</biostatArc>
-	<statFactors>
-	  <Fertility>0</Fertility>
-	</statFactors>
+	<!-- <statFactors> -->
+	  <!-- <Fertility>0</Fertility> -->
+	<!-- </statFactors> -->
 	<abilities>
 	  <li>WVC_ReimplanterArchite_RiseXenogenes</li>
 	</abilities>
@@ -119,15 +122,15 @@
   <!-- AbilityDef -->
 
   <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_RiseFromTheDead_Base" Name="WVC_XenotypesAndGenes_AbilityTouchReimplanter_RiseXenogenes" Abstract="True">
-	<label>implant xenogenes (corpse)</label>
+	<label>implant xenogerm (corpse)</label>
 	<iconPath>WVC/UI/Genes/Gene_PostReimplanter_Xeno_v0</iconPath>
 	<comps>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive">
-		<anyOfGenes>
-		  <li>WVC_ReimplanterNatural_RiseXenogenes</li>
-		  <li>WVC_ReimplanterArchite_RiseXenogenes</li>
-		</anyOfGenes>
-	  </li>
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive"> -->
+		<!-- <anyOfGenes> -->
+		  <!-- <li>WVC_ReimplanterNatural_RiseXenogenes</li> -->
+		  <!-- <li>WVC_ReimplanterArchite_RiseXenogenes</li> -->
+		<!-- </anyOfGenes> -->
+	  <!-- </li> -->
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
 		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_RiseFromTheDead</compClass>
 		<afterResurrectionThoughtDef>WVC_XenotypesAndGenes_WasResurrected</afterResurrectionThoughtDef>

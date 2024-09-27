@@ -1,5 +1,6 @@
 using RimWorld;
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 // namespace WVC
@@ -16,7 +17,7 @@ namespace WVC_XenotypesAndGenes
 			// Hediffs();
 			GenesAndMutants();
 			ThingDefs();
-			// XenotypeDefs();
+			XenotypeDefs();
 			HarmonyPatches.HarmonyUtility.PostInitialPatches();
 		}
 
@@ -59,7 +60,17 @@ namespace WVC_XenotypesAndGenes
 			List<GeneDef> xenogenesGenes = new();
 			foreach (GeneDef geneDef in DefDatabase<GeneDef>.AllDefsListForReading)
 			{
-				InheritableGeneStats(geneDef);
+				GeneExtension_General geneExtension_General = geneDef?.GetModExtension<GeneExtension_General>();
+				if (geneExtension_General != null)
+				{
+					InheritableGeneStats(geneDef, geneExtension_General);
+					BirthQuality(geneDef, geneExtension_General);
+				}
+				// GeneExtension_Giver geneExtension_Giver = geneDef?.GetModExtension<GeneExtension_Giver>();
+				// if (geneExtension_Giver != null)
+				// {
+					// GeneExtension_Giver(geneDef, geneExtension_Giver);
+				// }
 				FurskinIsSkin(geneDef);
 				XenoGenesDef(geneDef, xenogenesGenes);
 			}
@@ -67,9 +78,41 @@ namespace WVC_XenotypesAndGenes
 			FlatGenesChances(xenogenesGenes);
 		}
 
-		private static void InheritableGeneStats(GeneDef geneDef)
+		// public static void GeneExtension_Giver(GeneDef geneDef, GeneExtension_Giver geneExtension_Giver)
+		// {
+			// if (geneDef.customEffectDescriptions.NullOrEmpty())
+			// {
+				// geneDef.customEffectDescriptions = new();
+			// }
+			// int scarsCount = geneExtension_Giver.scarsCount;
+			// if (scarsCount != 0)
+			// {
+				// string scarsLimitText = scarsCount > 0 ? "+" : "";
+				// geneDef.customEffectDescriptions.Add("WVC_XaG_ScarifierScarsOffset".Translate(scarsLimitText + scarsCount.ToString()));
+			// }
+		// }
+
+		public static void BirthQuality(GeneDef geneDef, GeneExtension_General geneExtension_General)
 		{
-			List<GeneDef> inheritableGeneDefs = geneDef?.GetModExtension<GeneExtension_General>()?.inheritableGeneDefs;
+			if (!WVC_Biotech.settings.enable_birthQualityOffsetFromGenes)
+			{
+				return;
+			}
+			if (geneExtension_General.birthQualityOffset == 0)
+			{
+				return;
+			}
+			if (geneDef.customEffectDescriptions.NullOrEmpty())
+			{
+				geneDef.customEffectDescriptions = new();
+			}
+			string birthQualityOffset = (geneExtension_General.birthQualityOffset > 0 ? "+" : "") + (geneExtension_General.birthQualityOffset * 100f).ToString();
+			geneDef.customEffectDescriptions.Add("WVC_XaG_BirthQuality".Translate(birthQualityOffset));
+		}
+
+		private static void InheritableGeneStats(GeneDef geneDef, GeneExtension_General geneExtension_General)
+		{
+			List<GeneDef> inheritableGeneDefs = geneExtension_General?.inheritableGeneDefs;
 			if (!inheritableGeneDefs.NullOrEmpty())
 			{
 				foreach (GeneDef inheritableGeneDef in inheritableGeneDefs)
@@ -278,12 +321,28 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		// public static void XenotypeDefs()
-		// {
-			// foreach (XenotypeDef xenotypeDef in DefDatabase<XenotypeDef>.AllDefsListForReading)
-			// {
-			// }
-		// }
+		public static void XenotypeDefs()
+		{
+			if (!WVC_Biotech.settings.enable_ReplaceSimilarGenesAutopatch)
+			{
+				return;
+			}
+			List<XaG_CountWithChance> similarGenes = ListsUtility.GetIdenticalGeneDefs();
+			foreach (XenotypeDef xenotypeDef in DefDatabase<XenotypeDef>.AllDefsListForReading)
+			{
+				foreach (GeneDef geneDef in xenotypeDef.genes.ToList())
+				{
+					foreach (XaG_CountWithChance similar in similarGenes)
+					{
+						if (similar.sourceGeneDef != null && !similar.dupGeneDefs.NullOrEmpty() && similar.dupGeneDefs.Contains(geneDef))
+						{
+							xenotypeDef.genes.Remove(geneDef);
+							xenotypeDef.genes.Add(similar.sourceGeneDef);
+						}
+					}
+				}
+			}
+		}
 
 		// public static void SubXenotypes()
 		// {

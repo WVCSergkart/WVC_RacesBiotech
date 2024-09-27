@@ -95,13 +95,13 @@ namespace WVC_XenotypesAndGenes
 
 			public static bool Xag_DrawGene(ref Gene gene, ref Rect geneRect, ref GeneType geneType, ref bool doBackground, ref bool clickable)
 			{
-				if (GeneUiUtility.ReplaceGeneBackground(gene.def))
+				if (gene.def.IsXenoGenesDef())
 				{
 					GeneUiUtility.DrawGeneBasics(gene.def, geneRect, geneType, doBackground, clickable, !gene.Active);
 					if (Mouse.IsOver(geneRect))
 					{
 						string text = gene.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + gene.def.DescriptionFull;
-						text += GeneUiUtility.AdditionalInfo_Gene(gene);
+						// text += GeneUiUtility.AdditionalInfo_Gene(gene);
 						text += GeneUiUtility.AdditionalInfo_GeneDef(gene.def);
 						if (gene.Overridden)
 						{
@@ -131,7 +131,7 @@ namespace WVC_XenotypesAndGenes
 
 			public static bool Xag_DrawGeneDef(ref GeneDef gene, ref Rect geneRect, ref GeneType geneType, ref Func<string> extraTooltip, ref bool doBackground, ref bool clickable, ref bool overridden)
 			{
-				if (GeneUiUtility.ReplaceGeneBackground(gene))
+				if (gene.IsXenoGenesDef())
 				{
 					GeneUiUtility.DrawGeneBasics(gene, geneRect, geneType, doBackground, clickable, overridden);
 					if (Mouse.IsOver(geneRect))

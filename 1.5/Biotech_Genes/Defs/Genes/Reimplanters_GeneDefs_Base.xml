@@ -44,7 +44,7 @@
   <!-- </AbilityGroupDef> -->
 
   <AbilityDef ParentName="AbilityTouchBase"  Name="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base" Abstract="True">
-	<label>reimplant genes</label>
+	<label>implant genes</label>
 	<description>Implant this person's endo/xenogenes into a willing subject using a special injector organ. If this person's genes are currently regrowing, they will implant their endo/xenogerm and die in the process.\n\nWhen implanted, a endo/xenogerm will overwrite the target's endo/xenogenes.</description>
 	<iconPath>WVC/UI/Genes/Gene_Reimplanter_Hybrid_v0</iconPath>
 	<warmupStartSound>ReimplantXenogerm_Cast</warmupStartSound>
@@ -78,7 +78,7 @@
   </AbilityDef>
 
   <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base" Name="WVC_XenotypesAndGenes_AbilityTouchReimplanter_RiseFromTheDead_Base" Abstract="True">
-	<label>reimplant genes (corpse)</label>
+	<label>implant genes (corpse)</label>
 	<description>Resurrect the target corpse and give it a copy of the caster's genes. If this person's genes are currently regrowing, they will implant their genes and die in the process.\n\nThe target's previous genes will be removed.</description>
 	<iconPath>WVC/UI/Genes/Gene_PostReimplanter_Hybrid_v0</iconPath>
 	<verbProperties>

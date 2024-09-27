@@ -23,11 +23,9 @@
 	<biostatCpx>1</biostatCpx>
 	<biostatMet>-1</biostatMet>
 	<biostatArc>1</biostatArc>
+	<randomChosen>false</randomChosen>
 	<customEffectDescriptions>
 		<li>Changes the target's genes to the caster's genes some time after the ability is used.</li>
-		<!-- <li>To use the ability, genes are needed: Dustogenic, Dustogenic genetic.</li> -->
-		<!-- <li>&lt;color=#ff8585&gt;Ignores genetic stability.&lt;/color&gt;</li> -->
-		<!-- <li>&lt;color=#ff8585&gt;Can't be absorbed forcly.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<abilities>
 	  <li>WVC_Reimplanter_BlessedTouch</li>
@@ -35,9 +33,7 @@
 	<descriptionHyperlinks>
 	  <AbilityDef>WVC_Reimplanter_BlessedTouch</AbilityDef>
 	</descriptionHyperlinks>
-	<!-- <exclusionTags> -->
-		<!-- <li>WVC_Reimplanter</li> -->
-	<!-- </exclusionTags> -->
+	<exclusionTags Inherit="False"/>
   </GeneDef>
 
   <!-- ============================= -->
@@ -77,7 +73,7 @@
 	<capMods>
 	  <li>
 		<capacity>Manipulation</capacity>
-		<postFactor>0.0</postFactor>
+		<postFactor>0.1</postFactor>
 	  </li>
 	</capMods>
   </GeneDef>

@@ -17,12 +17,10 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_EndoXeno">
 	<defName>WVC_EndogermReimplanter</defName>
-	<!-- <label>archite-reimplanter</label> -->
-	<!-- <iconPath>WVC/UI/Genes/Reimplanter</iconPath> -->
-	<sterilize>true</sterilize>
-	<statFactors>
-	  <Fertility>0</Fertility>
-	</statFactors>
+	<!-- <sterilize>true</sterilize> -->
+	<!-- <statFactors> -->
+	  <!-- <Fertility>0</Fertility> -->
+	<!-- </statFactors> -->
 	<abilities>
 	  <li>WVC_EndogermReimplanter</li>
 	</abilities>
@@ -33,8 +31,6 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_EndoXeno">
 	<defName>WVC_NaturalReimplanter</defName>
-	<!-- <label>natural-reimplanter</label> -->
-	<!-- <iconPath>WVC/UI/Genes/Reimplanter_Natural</iconPath> -->
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>-2</biostatMet>
 	<biostatArc>0</biostatArc>
@@ -64,11 +60,11 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_RiseEndoXenoGenes">
 	<defName>WVC_Reimplanter_RiseFromTheDead</defName>
-	<sterilize>true</sterilize>
+	<!-- <sterilize>true</sterilize> -->
 	<biostatArc>1</biostatArc>
-	<statFactors>
-	  <Fertility>0</Fertility>
-	</statFactors>
+	<!-- <statFactors> -->
+	  <!-- <Fertility>0</Fertility> -->
+	<!-- </statFactors> -->
 	<abilities>
 	  <li>WVC_Reimplanter_ArchiteRiseFromTheDead</li>
 	</abilities>
@@ -94,12 +90,12 @@
 	<defName>WVC_EndogermReimplanter</defName>
 	<iconPath>WVC/UI/Genes/Gene_Reimplanter_Hybrid_v0</iconPath>
 	<comps>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive">
-		<anyOfGenes>
-		  <li>WVC_EndogermReimplanter</li>
-		  <li>WVC_NaturalReimplanter</li>
-		</anyOfGenes>
-	  </li>
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive"> -->
+		<!-- <anyOfGenes> -->
+		  <!-- <li>WVC_EndogermReimplanter</li> -->
+		  <!-- <li>WVC_NaturalReimplanter</li> -->
+		<!-- </anyOfGenes> -->
+	  <!-- </li> -->
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
 		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Reimplanter</compClass>
 		<absorberJob>WVC_XenotypesAndGenes_AbsorbGenogerm</absorberJob>
@@ -122,15 +118,15 @@
   <!-- ============= -->
 
   <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_RiseFromTheDead_Base" Name="WVC_XenotypesAndGenes_AbilityTouchReimplanter_RiseFromTheDead" Abstract="True">
-	<label>reimplant genes (corpse)</label>
+	<label>implant genes (corpse)</label>
 	<iconPath>WVC/UI/Genes/Gene_PostReimplanter_Hybrid_v0</iconPath>
 	<comps>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive">
-		<anyOfGenes>
-		  <li>WVC_Reimplanter_RiseFromTheDead</li>
-		  <li>WVC_NaturalReimplanter_RiseFromTheDead</li>
-		</anyOfGenes>
-	  </li>
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive"> -->
+		<!-- <anyOfGenes> -->
+		  <!-- <li>WVC_Reimplanter_RiseFromTheDead</li> -->
+		  <!-- <li>WVC_NaturalReimplanter_RiseFromTheDead</li> -->
+		<!-- </anyOfGenes> -->
+	  <!-- </li> -->
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
 		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_RiseFromTheDead</compClass>
 		<afterResurrectionThoughtDef>WVC_XenotypesAndGenes_WasResurrected</afterResurrectionThoughtDef>
@@ -155,7 +151,7 @@
 	<label>blessed touch</label>
 	<description>Infects the target with a mutagen poison that, after a few days, completely overwrites the target's genes with the caster's genes.</description>
 	<iconPath>WVC/UI/Genes/Gene_HandsAngels_v0</iconPath>
-	<casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
 	<verbProperties>
 	  <violent>true</violent>
 	</verbProperties>
@@ -167,13 +163,11 @@
 		<!-- <onlyReproductive>false</onlyReproductive> -->
 		<humanityCheck>true</humanityCheck>
 	  </li>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive">
-		<eachOfGenes>
-		  <!-- <li>WVC_Dustogenic</li> -->
-		  <!-- <li>WVC_Dustogenic_GeneticStability</li> -->
-		  <li>WVC_Hands_Angel</li>
-		</eachOfGenes>
-	  </li>
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive"> -->
+		<!-- <eachOfGenes> -->
+		  <!-- <li>WVC_Hands_Angel</li> -->
+		<!-- </eachOfGenes> -->
+	  <!-- </li> -->
 	  <li Class="CompProperties_AbilityRequiresCapacity">
 		<capacity>Manipulation</capacity>
 	  </li>

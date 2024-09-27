@@ -27,7 +27,7 @@
 	<customEffectDescriptions>
 		<li>Allows to change the xenotype at any time.</li>
 		<!-- <li>This gene removes the limit of the &lt;color=#8a8ae6&gt;xenotype gestator&lt;/color&gt; gene.</li> -->
-		<li>Birth quality +25%</li>
+		<!-- <li>Birth quality +25%</li> -->
 		<li>&lt;color=#8a8ae6&gt;Childs&lt;/color&gt; born as a carrier of the gene &lt;color=#8a8ae6&gt;receive this gene&lt;/color&gt;. Affects only &lt;color=#8a8ae6&gt;default pregnancy&lt;/color&gt;.</li>
 		<li>&lt;color=#ff8585&gt;Does not support custom xenotypes.&lt;/color&gt;</li>
 		<li>&lt;color=#ff8585&gt;This gene cannot be removed.&lt;/color&gt;</li>
