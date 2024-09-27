@@ -16,9 +16,9 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Giver Giver => def.GetModExtension<GeneExtension_Giver>();
 
-		private List<GeneDef> stolenGenes = new();
+		private List<GeneDef> collectedGenes = new();
 
-		private List<GeneDef> eatedGenes = new();
+		private List<GeneDef> consumedGenes = new();
 
 		private List<GeneDef> destroyedGenes = new();
 
@@ -39,15 +39,15 @@ namespace WVC_XenotypesAndGenes
 			get
 			{
 				List<GeneDef> genes = new();
-				genes.AddRange(eatedGenes);
-				genes.AddRange(stolenGenes);
+				genes.AddRange(consumedGenes);
+				genes.AddRange(collectedGenes);
 				genes.AddRange(destroyedGenes);
 				return genes;
 			}
 		}
 
-		public List<GeneDef> EatedGenes => eatedGenes;
-		public List<GeneDef> StolenGenes => stolenGenes;
+		public List<GeneDef> EatedGenes => consumedGenes;
+		public List<GeneDef> CollectedGenes => collectedGenes;
 
 		public override void PostAdd()
 		{
@@ -59,7 +59,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			List<GeneDef> geneDefs = DefDatabase<GeneDef>.AllDefsListForReading;
 			int cycleTry = 0;
-			while (stolenGenes.Count < WVC_Biotech.settings.chimeraStartingGenes)
+			while (collectedGenes.Count < WVC_Biotech.settings.chimeraStartingGenes)
 			{
 				if (geneDefs.Where((GeneDef x) => x.endogeneCategory == EndogeneCategory.None && x.selectionWeight > 0f && x.canGenerateInGeneSet && x.passOnDirectly && !AllGenes.Contains(x)).TryRandomElementByWeight((GeneDef gene) => (gene.selectionWeight * (gene.biostatArc != 0 ? 0.01f : 1f)) + (gene.prerequisite == def && gene.GetModExtension<GeneExtension_General>() != null ? gene.GetModExtension<GeneExtension_General>().selectionWeight : 0f), out GeneDef result))
 				{
@@ -70,6 +70,10 @@ namespace WVC_XenotypesAndGenes
 					break;
 				}
 				cycleTry++;
+			}
+			if (WVC_Biotech.settings.enable_chimeraStartingTools && Props?.chimeraGenesTools != null)
+			{
+				AddGene(Props.chimeraGenesTools.RandomElement());
 			}
 		}
 
@@ -137,33 +141,33 @@ namespace WVC_XenotypesAndGenes
 
 		public void AddGene(GeneDef geneDef)
 		{
-			if (!stolenGenes.Contains(geneDef))
+			if (!collectedGenes.Contains(geneDef))
 			{
-				stolenGenes.Add(geneDef);
+				collectedGenes.Add(geneDef);
 			}
 		}
 
 		public void EatGene(GeneDef geneDef)
 		{
-			if (!eatedGenes.Contains(geneDef))
+			if (!consumedGenes.Contains(geneDef))
 			{
-				eatedGenes.Add(geneDef);
+				consumedGenes.Add(geneDef);
 				RemoveGene(geneDef);
 			}
 		}
 		public void RemoveGene(GeneDef geneDef)
 		{
-			if (stolenGenes.Contains(geneDef))
+			if (collectedGenes.Contains(geneDef))
 			{
-				stolenGenes.Remove(geneDef);
+				collectedGenes.Remove(geneDef);
 			}
 		}
 		public void DestroyGene(GeneDef geneDef)
 		{
-			if (eatedGenes.Contains(geneDef))
+			if (consumedGenes.Contains(geneDef))
 			{
 				destroyedGenes.Add(geneDef);
-				eatedGenes.Remove(geneDef);
+				consumedGenes.Remove(geneDef);
 			}
 		}
 
@@ -186,8 +190,8 @@ namespace WVC_XenotypesAndGenes
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Collections.Look(ref eatedGenes, "eatedGenes", LookMode.Def);
-			Scribe_Collections.Look(ref stolenGenes, "stolenGenes", LookMode.Def);
+			Scribe_Collections.Look(ref consumedGenes, "eatedGenes", LookMode.Def);
+			Scribe_Collections.Look(ref collectedGenes, "stolenGenes", LookMode.Def);
 			Scribe_Collections.Look(ref destroyedGenes, "destroyedGenes", LookMode.Def);
 			Scribe_Collections.Look(ref geneSetPresets, "geneSetPresets", LookMode.Deep);
 		}
@@ -231,6 +235,11 @@ namespace WVC_XenotypesAndGenes
 
 		public void Notify_Bloodfeed(Pawn victim)
 		{
+			GetGeneFromHuman(victim);
+		}
+
+		private void GetGeneFromHuman(Pawn victim)
+		{
 			List<Gene> genes = victim?.genes?.GenesListForReading;
 			if (genes.NullOrEmpty())
 			{
@@ -242,7 +251,26 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public virtual void UpdateChimeraXenogerm()
+		public override void Notify_IngestedThing(Thing thing, int numTaken)
+		{
+			// base.Notify_IngestedThing(thing, numTaken);
+			if (thing is not Corpse corpse)
+			{
+				return;
+			}
+			if (corpse.InnerPawn.IsHuman())
+			{
+				GetGeneFromHuman(corpse.InnerPawn);
+			}
+			else if (Rand.Chance(0.04f) || thing.def == PawnKindDefOf.Chimera.race)
+			{
+				GeneDef result = DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.biostatArc == 0 && x.selectionWeight > 0f && x.canGenerateInGeneSet && !AllGenes.Contains(x)).RandomElement();
+				AddGene(result);
+				Messages.Message("WVC_XaG_GeneGeneticThief_GeneCopied".Translate(pawn.NameShortColored, result.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+			}
+		}
+
+		public virtual void UpdateChimeraXenogerm(List<GeneDef> implantedGenes)
 		{
 			Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating);
 			if (firstHediffOfDef != null)
@@ -258,7 +286,10 @@ namespace WVC_XenotypesAndGenes
 				}
 				pawn.health.RemoveHediff(firstHediffOfDef);
 			}
-			pawn.health.AddHediff(HediffDefOf.XenogermReplicating);
+
+			int count = (implantedGenes.Count + 1) * 180000;
+			ReimplanterUtility.XenogermReplicating_WithCustomDuration(pawn, new((int)(count * 0.8f), (int)(count * 1.1f)));
+			// pawn.health.AddHediff(HediffDefOf.XenogermReplicating);
 		}
 
 		// public virtual void ClearChimeraXenogerm()

@@ -17,23 +17,22 @@
 	  <AbilityDef>WVC_Chimera_Packharvest</AbilityDef>
 	</descriptionHyperlinks>
 	<customEffectDescriptions>
-		<!-- <li>When using the &lt;color=#8a8ae6&gt;bloodfeed&lt;/color&gt; ability, it has a certain chance of &lt;color=#8a8ae6&gt;copying&lt;/color&gt; one of the victim's &lt;color=#8a8ae6&gt;random genes&lt;/color&gt;.</li> -->
 		<li>Using the &lt;color=#8a8ae6&gt;bloodfeed&lt;/color&gt;, &lt;color=#8a8ae6&gt;geneharvest&lt;/color&gt; and &lt;color=#8a8ae6&gt;packharvest&lt;/color&gt; abilities, a random gene of the target is copied.</li>
 		<li>&lt;color=#8a8ae6&gt;Copied genes&lt;/color&gt; can be implanted at any time as &lt;color=#8a8ae6&gt;xenogenes&lt;/color&gt;.</li>
-		<!-- <li>After using implantation, the owner’s &lt;color=#ff8585&gt;xenotype&lt;/color&gt; is guaranteed to &lt;color=#ff8585&gt;be changed&lt;/color&gt;.</li> -->
 		<li>Exceeding metabolic limits &lt;color=#8a8ae6&gt;increases&lt;/color&gt; or &lt;color=#8a8ae6&gt;decreases&lt;/color&gt; hunger.</li>
-		<li>&lt;color=#ff8585&gt;Does not copy genes that do not spawn in genepacks.&lt;/color&gt;</li>
-		<!-- <li>&lt;color=#ff8585&gt;Does not allow to remove already implanted genes.&lt;/color&gt;</li> -->
+		<li>When eating &lt;color=#8a8ae6&gt;raw corpses&lt;/color&gt;, there is a &lt;color=#8a8ae6&gt;chance&lt;/color&gt; to receive a random gene.</li>
 	</customEffectDescriptions>
-	<!-- <exclusionTags> -->
-	  <!-- <li>WVC_GeneticThiefGene</li> -->
-	<!-- </exclusionTags> -->
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
 			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
 			<xenotypeDef>WVC_Shadoweater</xenotypeDef>
 			<collectedGenesColor>(162, 216, 162)</collectedGenesColor>
 			<destroyedGenesColor>(178, 97, 96)</destroyedGenesColor>
+			<chimeraGenesTools>
+			  <li>WVC_Chimera_Geneharvest</li>
+			  <li>WVC_Chimera_Packharvest</li>
+			  <li>WVC_Chimera_GeneDigestor</li>
+			</chimeraGenesTools>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_ChimeraMetabolism_HungerFactor</hediffDefName>

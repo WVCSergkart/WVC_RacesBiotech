@@ -112,6 +112,8 @@ namespace WVC_XenotypesAndGenes
 		// Regen
 		// public ShapeshiftModeDef defaultShapeMode;
 		// public List<ShapeshiftModeDef> initialShapeModes;
+		// Chimera
+		public List<GeneDef> chimeraGenesTools;
 	}
 
 	public class GeneExtension_Opinion : DefModExtension

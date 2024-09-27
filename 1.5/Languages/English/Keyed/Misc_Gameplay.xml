@@ -27,6 +27,8 @@
 
 	<WVC_Custom>custom</WVC_Custom>
 
+	<WVC_Reset>Reset</WVC_Reset>
+
 	<WVC_Xenotypes>Xenotypes</WVC_Xenotypes>
 	<WVC_CustomXenotypes>Custom xenotypes</WVC_CustomXenotypes>
 

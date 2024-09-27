@@ -112,7 +112,7 @@ namespace WVC_XenotypesAndGenes
 			pawnGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.GenesListForReading);
 			pawnXenoGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.Xenogenes);
 			pawnEndoGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.Endogenes);
-			allGenes = gene.StolenGenes;
+			allGenes = gene.CollectedGenes;
 			eatedGenes = gene.EatedGenes;
 			selectedGenes = pawnXenoGenes;
 			// selectedXeno = allGenes.RandomElement();
@@ -615,7 +615,7 @@ namespace WVC_XenotypesAndGenes
 			selectedGenes = new();
 			foreach (GeneDef geneDef in geneSetPresets.geneDefs)
 			{
-				if (gene.StolenGenes.Contains(geneDef))
+				if (gene.CollectedGenes.Contains(geneDef))
 				{
 					selectedGenes.Add(geneDef);
 				}
@@ -693,7 +693,7 @@ namespace WVC_XenotypesAndGenes
 		protected override void DoBottomButtons(Rect rect)
 		{
 			base.DoBottomButtons(rect);
-			if (Widgets.ButtonText(new Rect((rect.xMax / 2) - ButSize.x, rect.y, ButSize.x, ButSize.y), "WVC_XaG_ResetButton".Translate()))
+			if (Widgets.ButtonText(new Rect((rect.xMax / 2) - ButSize.x, rect.y, ButSize.x, ButSize.y), "WVC_Reset".Translate()))
 			{
 				selectedGenes = new();
 			}
@@ -810,7 +810,7 @@ namespace WVC_XenotypesAndGenes
 					gene.pawn?.genes?.AddGene(geneDef, xenogene: true);
 				}
 			}
-			gene.UpdateChimeraXenogerm();
+			gene.UpdateChimeraXenogerm(selectedGenes);
 			gene.DoEffects();
 			gene.UpdateMetabolism();
 			Close(doCloseSound: false);
@@ -831,7 +831,7 @@ namespace WVC_XenotypesAndGenes
 			pawnGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.GenesListForReading);
 			pawnXenoGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.Xenogenes);
 			pawnEndoGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.Endogenes);
-			allGenes = gene.StolenGenes;
+			allGenes = gene.CollectedGenes;
 			eatedGenes = gene.EatedGenes;
 			UpdateSearchResults();
 			// Close(doCloseSound: false);

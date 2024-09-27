@@ -160,6 +160,9 @@ Requires the Ideology DLC, for obvious reasons.</WVC_ToolTip_shapeshifter_enable
 
 Disable this option if you have any mods that change the mechanics of the hunger multiplier from metabolism.</WVC_ToolTip_enable_chimeraMetabolismHungerFactor>
 
+	<WVC_Label_enable_chimeraStartingTools>Сhimera starting tools</WVC_Label_enable_chimeraStartingTools>
+	<WVC_ToolTip_enable_chimeraStartingTools>If enabled, the chimera is guaranteed to receive one of the tool subgenes.</WVC_ToolTip_enable_chimeraStartingTools>
+
 	<WVC_Label_chimeraMinGeneCopyChance>Min gene copy chance +{0}%</WVC_Label_chimeraMinGeneCopyChance>
 
 	<WVC_Label_shapeshifer_GeneCellularRegeneration>Cellular regeneration rate +{0} hp/day</WVC_Label_shapeshifer_GeneCellularRegeneration>
