@@ -141,7 +141,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (!thing.def.IsDrug)
 			{
-				FoodUtility.AddFoodPoisoningHediff(pawn, thing, FoodPoisonCause.DangerousFoodType);
+				MiscUtility.TryAddFoodPoisoningHediff(pawn, thing);
 			}
 		}
 

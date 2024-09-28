@@ -16,6 +16,16 @@ namespace WVC_XenotypesAndGenes
 	public static class MiscUtility
 	{
 
+		public static bool TryAddFoodPoisoningHediff(Pawn pawn, Thing thing)
+		{
+			if (FoodUtility.GetFoodPoisonChanceFactor(pawn) <= 0f)
+			{
+				return false;
+			}
+			FoodUtility.AddFoodPoisoningHediff(pawn, thing, FoodPoisonCause.DangerousFoodType);
+			return true;
+		}
+
 		public static bool FurskinHasMask(FurDef furDef)
 		{
 			bool hasMask = false;

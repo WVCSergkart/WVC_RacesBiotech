@@ -469,7 +469,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					return;
 				}
-				FoodUtility.AddFoodPoisoningHediff(pawn, thing, FoodPoisonCause.DangerousFoodType);
+				MiscUtility.TryAddFoodPoisoningHediff(pawn, thing);
 			}
 		}
 

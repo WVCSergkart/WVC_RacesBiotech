@@ -203,7 +203,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
-			if (def?.showGizmoWhenDrafted == false && pawn.Drafted)
+			if (!def.showGizmoWhenDrafted && pawn.Drafted)
 			{
 				yield break;
 			}
@@ -216,11 +216,11 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	[Obsolete]
-	public class Gene_RegenerationSleep : Gene_Gizmo
-	{
+	// [Obsolete]
+	// public class Gene_RegenerationSleep : Gene_Gizmo
+	// {
 
 
-	}
+	// }
 
 }

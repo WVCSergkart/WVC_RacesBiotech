@@ -66,4 +66,30 @@
 
   <!-- ======================== -->
 
+  <!-- ================== -->
+  
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_GeneSavant</defName>
+	<label>genetic savant</label>
+	<!-- <description>An exceptional condition caused by gene. The brain has developed extreme abilities in some areas, while losing the ability to speak.</description> -->
+	<!-- <blocksSocialInteraction>true</blocksSocialInteraction> -->
+	<stages>
+	  <li>
+		<becomeVisible>false</becomeVisible>
+		<opinionOfOthersFactor>0</opinionOfOthersFactor>
+		<partIgnoreMissingHP>true</partIgnoreMissingHP>
+	  </li>
+	</stages>
+	<comps>
+	  <!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/> -->
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_ReplaceWithHediff">
+		<geneDef>WVC_GeneSavant</geneDef>
+		<hediffDef>TraumaSavant</hediffDef>
+		<bodyparts>
+		  <li>Brain</li>
+		</bodyparts>
+	  </li>
+	</comps>
+  </HediffDef>
+
 </Defs>
