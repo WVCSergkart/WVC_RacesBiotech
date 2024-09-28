@@ -83,11 +83,12 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (Corpse?.CurRotDrawMode != RotDrawMode.Fresh)
 			{
-				shouldResurrect = false;
-				return;
+				if (ModLister.CheckAnomaly("Shambler"))
+				{
+					MutantUtility.ResurrectAsShambler(InnerPawn, -1, InnerPawn.Faction);
+				}
 			}
-			// Pawn pawn = parent is Corpse corpse ? corpse.InnerPawn : null;
-			if (InnerPawn?.RaceProps?.Humanlike == true && Gene_Undead?.UndeadCanResurrect == true)
+			else if (InnerPawn?.RaceProps?.Humanlike == true && Gene_Undead?.UndeadCanResurrect == true)
 			{
 				UndeadUtility.RegenComaOrDeathrest(InnerPawn, Gene_Undead);
 			}

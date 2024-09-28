@@ -24,6 +24,7 @@
 	<customEffectDescriptions>
 	  <li>In case of death, after some time the carrier will be resurrected, completely healthy and without damage.</li>
 	  <li>If the carrier’s &lt;color=#8a8ae6&gt;brain was destroyed&lt;/color&gt;, then the carrier &lt;color=#8a8ae6&gt;loses all experience in skills&lt;/color&gt;.</li>
+	  <li MayRequire="ludeon.rimworld.anomaly">If the carrier's body has &lt;color=#8a8ae6&gt;rotted&lt;/color&gt; at the time of resurrection, it will be resurrected as a &lt;color=#8a8ae6&gt;shambler&lt;/color&gt; of the owner's faction.</li>
 	</customEffectDescriptions>
 	<symbolPack>
 	  <wholeNameSymbols>
