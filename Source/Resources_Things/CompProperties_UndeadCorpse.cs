@@ -32,7 +32,9 @@ namespace WVC_XenotypesAndGenes
 			// ResetCounter();
 		// }
 
-		public Pawn InnerPawn => parent is Corpse corpse ? corpse.InnerPawn : null;
+		public Corpse Corpse => parent is Corpse corpse ? corpse : null;
+
+		public Pawn InnerPawn => Corpse?.InnerPawn;
 
 		public Gene_Undead Gene_Undead => InnerPawn.GetUndeadGene(out Gene_Undead gene_undead) ? gene_undead : null;
 
@@ -77,6 +79,11 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (parent.Map == null)
 			{
+				return;
+			}
+			if (Corpse?.CurRotDrawMode != RotDrawMode.Fresh)
+			{
+				shouldResurrect = false;
 				return;
 			}
 			// Pawn pawn = parent is Corpse corpse ? corpse.InnerPawn : null;

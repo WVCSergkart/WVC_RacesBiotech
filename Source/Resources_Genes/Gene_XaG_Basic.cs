@@ -59,6 +59,8 @@ namespace WVC_XenotypesAndGenes
 	public interface IGeneBloodfeeder
 	{
 
+		// float Order { get; }
+
 		void Notify_Bloodfeed(Pawn victim);
 
 	}
