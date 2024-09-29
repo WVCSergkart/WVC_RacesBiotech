@@ -506,6 +506,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
+			if (XaG_GeneUtility.SelectorDraftedActiveFactionMap(pawn, this))
+			{
+				yield break;
+			}
 			yield return new Command_Action
 			{
 				defaultLabel = "WVC_FeedDownedBloodeaterForced".Translate(),

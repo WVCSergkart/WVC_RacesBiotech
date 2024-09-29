@@ -71,9 +71,14 @@ namespace WVC_XenotypesAndGenes
 				}
 				cycleTry++;
 			}
+			GetToolGene();
+		}
+
+		public void GetToolGene()
+		{
 			if (WVC_Biotech.settings.enable_chimeraStartingTools && Props?.chimeraGenesTools != null)
 			{
-				AddGene(Props.chimeraGenesTools.RandomElement());
+				AddGene(Props.chimeraGenesTools.Where((GeneDef geneDef) => !AllGenes.Contains(geneDef)).RandomElement());
 			}
 		}
 

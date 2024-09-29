@@ -791,7 +791,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void StartChange()
 		{
-			ClearGenes();
+			ClearGenes(selectedGenes);
 			if (gene.Props.xenotypeDef != null)
 			{
 				if (gene.pawn.genes.Xenotype != gene.Props.xenotypeDef)
@@ -820,6 +820,10 @@ namespace WVC_XenotypesAndGenes
 		{
 			foreach (GeneDef geneDef in selectedGenes)
 			{
+				if (Rand.Chance(0.01f))
+				{
+					gene.GetToolGene();
+				}
 				gene.EatGene(geneDef);
 			}
 			if (!gene.Props.soundDefOnImplant.NullOrUndefined())
@@ -837,10 +841,14 @@ namespace WVC_XenotypesAndGenes
 			// Close(doCloseSound: false);
 		}
 
-		private void ClearGenes()
+		private void ClearGenes(List<GeneDef> nonRemoveGenes = null)
 		{
 			foreach (Gene gene in gene.pawn.genes.Xenogenes.ToList())
 			{
+				if (nonRemoveGenes != null && nonRemoveGenes.Contains(gene.def))
+				{
+					continue;
+				}
 				gene.pawn?.genes?.RemoveGene(gene);
 			}
 			if (!XaG_GeneUtility.HasGene(gene.def, gene.pawn))
