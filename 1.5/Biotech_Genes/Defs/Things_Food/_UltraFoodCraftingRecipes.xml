@@ -11,7 +11,7 @@
 	<soundWorking>Recipe_Machining</soundWorking>
 	<displayPriority>-9500</displayPriority>
 	<skillRequirements>
-	  <Crafting>4</Crafting>
+	  <!-- <Crafting>4</Crafting> -->
 	  <Intellectual>6</Intellectual>
 	</skillRequirements>
 	<recipeUsers>
@@ -30,10 +30,18 @@
 	  <li>
 		<filter>
 		  <thingDefs>
-			<li>WVC_UniversalFuel</li>
+			<li>Steel</li>
 		  </thingDefs>
 		</filter>
-		<count>20</count>
+		<count>2</count>
+	  </li>
+	  <li>
+		<filter>
+		  <thingDefs>
+			<li>Silver</li>
+		  </thingDefs>
+		</filter>
+		<count>1</count>
 	  </li>
 	</ingredients>
 	<products>
@@ -48,10 +56,18 @@
 	  <li>
 		<filter>
 		  <thingDefs>
-			<li>WVC_UniversalFuel</li>
+			<li>Steel</li>
 		  </thingDefs>
 		</filter>
-		<count>80</count>
+		<count>8</count>
+	  </li>
+	  <li>
+		<filter>
+		  <thingDefs>
+			<li>Silver</li>
+		  </thingDefs>
+		</filter>
+		<count>4</count>
 	  </li>
 	</ingredients>
 	<products>

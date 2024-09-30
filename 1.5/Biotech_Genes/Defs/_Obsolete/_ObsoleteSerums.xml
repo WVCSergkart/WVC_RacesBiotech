@@ -97,4 +97,73 @@
 	</comps>
   </ThingDef>
 
+  <ThingDef ParentName="ResourceBase">
+	<defName>WVC_XenotypeSerumCapsule</defName>
+	<label>basic serum capsule</label>
+	<costList>
+	  <Silver>52</Silver>
+	  <Uranium>15</Uranium>
+	  <Gold>1</Gold>
+	</costList>
+	<stackLimit>50</stackLimit>
+	<drawGUIOverlay>true</drawGUIOverlay>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/NewSerum_v2</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+	<statBases>
+	  <Mass>0.2</Mass>
+	</statBases>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_OutdatedThing">
+		<compClass>WVC_XenotypesAndGenes.CompDestroyAndRefundStack</compClass>
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+	<defName>WVC_XenotypeSerumUltraCapsule</defName>
+	<label>archite serum capsule</label>
+	<costList>
+	  <ArchiteCapsule>1</ArchiteCapsule>
+	  <Silver>50</Silver>
+	  <Plasteel>20</Plasteel>
+	  <Gold>5</Gold>
+	</costList>
+	<stackLimit>50</stackLimit>
+	<drawGUIOverlay>true</drawGUIOverlay>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/NewSerum_v2</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+	<statBases>
+	  <Mass>0.2</Mass>
+	</statBases>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_OutdatedThing">
+		<compClass>WVC_XenotypesAndGenes.CompDestroyAndRefundStack</compClass>
+	  </li>
+	</comps>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+	<defName>WVC_UniversalFuel</defName>
+	<label>ultranites</label>
+	<stackLimit>1000</stackLimit>
+	<drawGUIOverlay>true</drawGUIOverlay>
+	<graphicData>
+	  <texPath>WVC/Things/XaG_Items/Serums_Single/NewSerum_v2</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+	<statBases>
+	  <Mass>0.2</Mass>
+	</statBases>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_OutdatedThing">
+		<newDef>Silver</newDef>
+		<count>1</count>
+	  </li>
+	</comps>
+  </ThingDef>
+
 </Defs>

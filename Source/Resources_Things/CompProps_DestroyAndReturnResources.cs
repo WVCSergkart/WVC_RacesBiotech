@@ -5,25 +5,6 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class CompDestroyAndRefund : ThingComp
-	{
-
-		public override void PostSpawnSetup(bool respawningAfterLoad)
-		{
-			if (!parent.def.costList.NullOrEmpty())
-			{
-				foreach (ThingDefCountClass thingDefCountClass in parent.def.costList)
-				{
-					Thing thing = ThingMaker.MakeThing(thingDefCountClass.thingDef);
-					thing.stackCount = thingDefCountClass.count;
-					GenPlace.TryPlaceThing(thing, parent.Position, parent.Map, ThingPlaceMode.Near, null, null, default);
-				}
-			}
-			parent.Destroy();
-		}
-
-	}
-
 	public class CompProperties_OutdatedThing : CompProperties
 	{
 
@@ -64,6 +45,51 @@ namespace WVC_XenotypesAndGenes
 			{
 				parent?.SplitOff(1)?.Destroy();
 			}
+		}
+
+	}
+
+	public class CompDestroyAndRefund : ThingComp
+	{
+
+		public CompProperties_OutdatedThing Props => (CompProperties_OutdatedThing)props;
+
+		public override void PostSpawnSetup(bool respawningAfterLoad)
+		{
+			if (!parent.def.costList.NullOrEmpty())
+			{
+				foreach (ThingDefCountClass thingDefCountClass in parent.def.costList)
+				{
+					Thing thing = ThingMaker.MakeThing(thingDefCountClass.thingDef);
+					thing.stackCount = thingDefCountClass.count;
+					GenPlace.TryPlaceThing(thing, parent.Position, parent.Map, ThingPlaceMode.Near, null, null, default);
+				}
+			}
+			parent.Destroy();
+		}
+
+	}
+
+	public class CompDestroyAndRefundStack : ThingComp
+	{
+
+		public CompProperties_OutdatedThing Props => (CompProperties_OutdatedThing)props;
+
+		public override void PostSpawnSetup(bool respawningAfterLoad)
+		{
+			if (!parent.def.costList.NullOrEmpty())
+			{
+				for (int i = 0; i < parent.stackCount; i++)
+				{
+					foreach (ThingDefCountClass thingDefCountClass in parent.def.costList)
+					{
+						Thing thing = ThingMaker.MakeThing(thingDefCountClass.thingDef);
+						thing.stackCount = thingDefCountClass.count;
+						GenPlace.TryPlaceThing(thing, parent.Position, parent.Map, ThingPlaceMode.Near, null, null, default);
+					}
+				}
+			}
+			parent.Destroy();
 		}
 
 	}

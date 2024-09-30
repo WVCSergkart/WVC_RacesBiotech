@@ -109,10 +109,10 @@
 	  <li>
 		<filter>
 		  <thingDefs>
-			<li>WVC_XenotypeSerumCapsule</li>
+			<li>Uranium</li>
 		  </thingDefs>
 		</filter>
-		<count>1</count>
+		<count>15</count>
 	  </li>
 	</ingredients>
   </RecipeDef>
@@ -152,15 +152,15 @@
 	  <li>
 		<filter>
 		  <thingDefs>
-			<li>WVC_XenotypeSerumCapsule</li>
+			<li>Uranium</li>
 		  </thingDefs>
 		</filter>
-		<count>1</count>
+		<count>15</count>
 	  </li>
 	  <li>
 		<filter>
 		  <thingDefs>
-			<li>WVC_XenotypeSerumUltraCapsule</li>
+			<li>ArchiteCapsule</li>
 		  </thingDefs>
 		</filter>
 		<count>1</count>

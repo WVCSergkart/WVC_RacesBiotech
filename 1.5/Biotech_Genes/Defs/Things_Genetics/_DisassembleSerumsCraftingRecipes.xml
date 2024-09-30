@@ -66,7 +66,7 @@
 	<label>disassemble base serum</label>
 	<description>Disassemble base serum.</description>
 	<products>
-	  <WVC_XenotypeSerumCapsule>1</WVC_XenotypeSerumCapsule>
+	  <Uranium>15</Uranium>
 	</products>
 	<ingredients>
 	  <li>
@@ -90,8 +90,8 @@
 	<label>disassemble ultra serum</label>
 	<description>Disassemble ultra serum.</description>
 	<products>
-	  <WVC_XenotypeSerumCapsule>1</WVC_XenotypeSerumCapsule>
-	  <WVC_XenotypeSerumUltraCapsule>1</WVC_XenotypeSerumUltraCapsule>
+	  <Uranium>15</Uranium>
+	  <ArchiteCapsule>1</ArchiteCapsule>
 	</products>
 	<ingredients>
 	  <li>
@@ -115,8 +115,8 @@
 	<label>disassemble hybrid serum</label>
 	<description>Disassemble hybrid serum.</description>
 	<products>
-	  <WVC_XenotypeSerumCapsule>2</WVC_XenotypeSerumCapsule>
-	  <WVC_XenotypeSerumUltraCapsule>2</WVC_XenotypeSerumUltraCapsule>
+	  <Uranium>30</Uranium>
+	  <ArchiteCapsule>2</ArchiteCapsule>
 	</products>
 	<ingredients>
 	  <li>

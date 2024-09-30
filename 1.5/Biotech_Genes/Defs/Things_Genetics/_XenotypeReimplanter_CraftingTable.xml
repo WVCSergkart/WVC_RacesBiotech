@@ -25,7 +25,7 @@
 	<description>A high-tech workbench for the production of serums.</description>
 	<descriptionHyperlinks>
 	  <!-- <ThingDef>WVC_EmptyXenotypeSerum</ThingDef> -->
-	  <ThingDef>WVC_XenotypeSerumCapsule</ThingDef>
+	  <!-- <ThingDef>WVC_XenotypeSerumCapsule</ThingDef> -->
 	</descriptionHyperlinks>
 	<thingClass>Building_WorkTable</thingClass>
 	<canOverlapZones>false</canOverlapZones>
@@ -104,12 +104,14 @@
 
   <!-- ========================================================== -->
 
-  <ThingDef ParentName="BuildingBase" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+  <ThingDef ParentName="BuildingBase" WVC_XaG_Tag_Genepacks="All_XaG_RewardThings">
 	<defName>WVC_XenotypesAndGenes_UltranitesSpawner</defName>
-	<label>ultranite gestation vat</label>
-	<description>Artificial environment for gestation of microscopic hybrid machines.</description>
+	<label>subcore gestation vat</label>
+	<!-- <description>Artificial environment for gestation of microscopic hybrid machines.</description> -->
+	<description>Artificial environment saturated with mechanites for growing mechanoid subcores.</description>
 	<descriptionHyperlinks>
-	  <ThingDef>WVC_UniversalFuel</ThingDef>
+	  <!-- <ThingDef>WVC_UniversalFuel</ThingDef> -->
+	  <ThingDef>SubcoreBasic</ThingDef>
 	</descriptionHyperlinks>
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Buildings/Ultranites_Spawner</texPath>
@@ -130,7 +132,6 @@
 	  <Plasteel>25</Plasteel>
 	  <SignalChip>1</SignalChip>
 	  <ComponentIndustrial>6</ComponentIndustrial>
-	  <!-- <ComponentSpacer>1</ComponentSpacer> -->
 	</costList>
 	<building>
 	  <destroySound>BuildingDestroyed_Metal_Big</destroySound>
@@ -144,21 +145,12 @@
 	  <li Class="CompProperties_Flickable"/>
 	  <li Class="CompProperties_Spawner">
 		<requiresPower>true</requiresPower>
-		<thingToSpawn>WVC_UniversalFuel</thingToSpawn>
-		<spawnCount>75</spawnCount>
-		<!-- <spawnIntervalRange><min>600000</min><max>900000</max></spawnIntervalRange> -->
+		<thingToSpawn>SubcoreBasic</thingToSpawn>
+		<spawnCount>1</spawnCount>
 		<spawnIntervalRange><min>240000</min><max>540000</max></spawnIntervalRange>
 		<writeTimeLeftToSpawn>true</writeTimeLeftToSpawn>
 		<showMessageIfOwned>false</showMessageIfOwned>
 	  </li>
-	  <!-- <li Class="CompProperties_Explosive"> -->
-		<!-- <explosiveRadius>8</explosiveRadius> -->
-		<!-- <explosiveDamageType>Flame</explosiveDamageType> -->
-	  <!-- </li> -->
-	  <!-- <li Class="CompProperties_Glower"> -->
-		<!-- <glowRadius>2</glowRadius> -->
-		<!-- <glowColor>(133,202,255, 0)</glowColor> -->
-	  <!-- </li> -->
 	</comps>
 	<altitudeLayer>Building</altitudeLayer>
 	<statBases>
@@ -184,22 +176,24 @@
 	<canOverlapZones>false</canOverlapZones>
 	<minifiedDef>MinifiedThing</minifiedDef>
 	<tradeability>Sellable</tradeability>
-	<designationCategory>Biotech</designationCategory>
-	<researchPrerequisites>
-	  <li>WVC_XenotypesAndGenes_SerumLab</li>
-	  <li>BasicMechtech</li>
-	</researchPrerequisites>
+	<!-- <designationCategory>Biotech</designationCategory> -->
+	<designationCategory/>
+	<researchPrerequisites/>
+	<!-- <researchPrerequisites> -->
+	  <!-- <li>WVC_XenotypesAndGenes_SerumLab</li> -->
+	  <!-- <li>BasicMechtech</li> -->
+	<!-- </researchPrerequisites> -->
 	<tradeTags>
 	  <li>ExoticBuilding</li>
 	</tradeTags>
   </ThingDef>
 
-  <ThingDef ParentName="BuildingBase" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
+  <ThingDef ParentName="BuildingBase" WVC_XaG_Tag_Genepacks="All_XaG_RewardThings">
 	<defName>WVC_XenotypesAndGenes_UltraniteRecycler</defName>
-	<label>ultranite recycler</label>
-	<description>A glittertech device that deconstructs toxic wastepacks into microscopic hybrid machines using advanced molecular processes. The process requires considerable amounts of power.</description>
+	<label>uranium recycler</label>
+	<description>A glittertech device that deconstructs toxic wastepacks into uranium using advanced molecular processes. The process requires considerable amounts of power.</description>
 	<descriptionHyperlinks>
-	  <ThingDef>WVC_UniversalFuel</ThingDef>
+	  <ThingDef>Uranium</ThingDef>
 	</descriptionHyperlinks>
 	<thingClass>Building_WastepackAtomizer</thingClass>
 	<drawerType>MapMeshAndRealTime</drawerType>
@@ -240,7 +234,7 @@
 	  </wastepackAtomizerWindowGraphic>
 	  <wastepackAtomizerOperationEffecter>WVC_XenotypesAndGenes_UltraniteRecycler_Operating</wastepackAtomizerOperationEffecter>
 	</building>
-	<designationCategory>Biotech</designationCategory>
+	<!-- <designationCategory>Biotech</designationCategory> -->
 	<hasInteractionCell>true</hasInteractionCell>
 	<interactionCellOffset>(0, 0, -1)</interactionCellOffset>
 	<statBases>
@@ -256,10 +250,18 @@
 	  <ComponentIndustrial>2</ComponentIndustrial>
 	  <NanostructuringChip>1</NanostructuringChip>
 	</costList>
-	<researchPrerequisites>
-	  <li>WastepackAtomizer</li>
-	  <li>WVC_XenotypesAndGenes_SerumLab</li>
-	</researchPrerequisites>
+	<!-- <researchPrerequisites> -->
+	  <!-- <li>WastepackAtomizer</li> -->
+	  <!-- <li>WVC_XenotypesAndGenes_SerumLab</li> -->
+	<!-- </researchPrerequisites> -->
+	<designationCategory/>
+	<researchPrerequisites/>
+	<thingSetMakerTags>
+	  <li>RewardStandardQualitySuper</li>
+	</thingSetMakerTags>
+	<tradeTags>
+	  <li>ExoticBuilding</li>
+	</tradeTags>
 	<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
 	<comps>
 	  <li Class="CompProperties_Power">
@@ -277,8 +279,8 @@
 		<contentsDrawOffset>(0.05, 0, 0.2)</contentsDrawOffset>
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_RecyclerSpawner">
-		<productDef>WVC_UniversalFuel</productDef>
-		<productCount>11</productCount>
+		<productDef>Uranium</productDef>
+		<productCount>3</productCount>
 		<ticksUntilSpawn>12000~17000</ticksUntilSpawn>
 	  </li>
 	  <li Class="CompProperties_Flickable"/>

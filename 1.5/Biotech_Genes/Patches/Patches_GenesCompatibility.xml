@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
 
+	<!-- ============================ -->
+
 	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
 		<settingName>onlyXenotypesMode</settingName>
 		<caseTrue Class="PatchOperationSequence">
@@ -220,7 +222,7 @@
 			<!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MealDustPack</li> -->
 			<!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MealDustogenicPaste</li> -->
 			<li MayRequire="Ludeon.RimWorld.Biotech">WVC_NutrientsInjector</li>
-			<li MayRequire="Ludeon.RimWorld.Biotech">WVC_UniversalFuel</li>
+			<!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_UniversalFuel</li> -->
 		  </willNeverEat>
 		</race>
 	  </value>

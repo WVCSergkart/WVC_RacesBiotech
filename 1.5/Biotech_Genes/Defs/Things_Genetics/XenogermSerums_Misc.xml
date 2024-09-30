@@ -30,7 +30,7 @@
 	<costList Inherit="False">
 	  <Steel>30</Steel>
 	  <ComponentIndustrial>2</ComponentIndustrial>
-	  <WVC_UniversalFuel>45</WVC_UniversalFuel>
+	  <Silver>45</Silver>
 	</costList>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
@@ -162,7 +162,7 @@
 	  <texPath>WVC/Things/XaG_Items/Serums_Single/ShiftInjector_v0</texPath>
 	</graphicData>
 	<costList>
-	  <WVC_XenotypeSerumCapsule>2</WVC_XenotypeSerumCapsule>
+	  <Uranium>30</Uranium>
 	  <ComponentIndustrial>3</ComponentIndustrial>
 	</costList>
 	<comps>
