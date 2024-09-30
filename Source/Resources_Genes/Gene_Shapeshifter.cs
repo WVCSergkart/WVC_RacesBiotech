@@ -276,6 +276,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				foreach (Gene gene in recipientGenes.Xenogenes.ToList())
 				{
+					if (!xenotypeDef.inheritable && xenotypeDef.genes.Contains(gene.def))
+					{
+						continue;
+					}
 					RemoveGene(gene);
 				}
 			}
@@ -283,11 +287,19 @@ namespace WVC_XenotypesAndGenes
 			{
 				foreach (Gene gene in recipientGenes.Endogenes.ToList())
 				{
+					if (xenotypeDef.inheritable && xenotypeDef.genes.Contains(gene.def))
+					{
+						continue;
+					}
 					RemoveGene(gene);
 				}
 			}
 			foreach (GeneDef geneDef in xenotypeDef.genes)
 			{
+				if (!xenotypeDef.inheritable && XaG_GeneUtility.HasXenogene(geneDef, pawn) || xenotypeDef.inheritable && XaG_GeneUtility.HasEndogene(geneDef, pawn))
+				{
+					continue;
+				}
 				AddGene(geneDef, xenotypeDef.inheritable);
 			}
 			ReimplanterUtility.TrySetSkinAndHairGenes(pawn);
