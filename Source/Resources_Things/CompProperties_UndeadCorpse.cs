@@ -90,7 +90,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			else if (InnerPawn?.RaceProps?.Humanlike == true && Gene_Undead?.UndeadCanResurrect == true)
 			{
-				UndeadUtility.RegenComaOrDeathrest(InnerPawn, Gene_Undead);
+				GeneResourceUtility.RegenComaOrDeathrest(InnerPawn, Gene_Undead);
 			}
 			shouldResurrect = false;
 		}

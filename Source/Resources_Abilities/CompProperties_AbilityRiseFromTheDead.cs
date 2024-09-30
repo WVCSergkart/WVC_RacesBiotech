@@ -16,7 +16,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.Apply(target, dest);
 			Pawn innerPawn = ((Corpse)target.Thing).InnerPawn;
-			UndeadUtility.ResurrectWithSickness(innerPawn, Props.afterResurrectionThoughtDef);
+			GeneResourceUtility.ResurrectWithSickness(innerPawn, Props.afterResurrectionThoughtDef);
 			if ((innerPawn.Faction == null || innerPawn.Faction != Faction.OfPlayer) && innerPawn.guest.Recruitable)
 			{
 				RecruitUtility.Recruit(innerPawn, Faction.OfPlayer, parent.pawn);

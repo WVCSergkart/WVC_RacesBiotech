@@ -318,7 +318,7 @@ namespace WVC_XenotypesAndGenes
 			// ResourceCache();
 			if (!genesRegrowing)
 			{
-				UndeadUtility.Notify_PreShapeshift(shapeshiftGene);
+				GeneResourceUtility.Notify_PreShapeshift(shapeshiftGene);
 			}
 		}
 
@@ -349,8 +349,8 @@ namespace WVC_XenotypesAndGenes
 			// ResourceTransfer();
 			if (!genesRegrowing)
 			{
-				UndeadUtility.Notify_PostShapeshift(shapeshiftGene);
-				UndeadUtility.Notify_PostShapeshift_Traits(shapeshiftGene);
+				GeneResourceUtility.Notify_PostShapeshift(shapeshiftGene);
+				GeneResourceUtility.Notify_PostShapeshift_Traits(shapeshiftGene);
 			}
 			XaG_GeneUtility.CheckAllOverrides(pawn);
 		}

@@ -62,7 +62,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void NonAnomaly(ThrallDef thrallDef, Pawn innerPawn)
 		{
-			UndeadUtility.ResurrectWithSickness(innerPawn, null);
+			GeneResourceUtility.ResurrectWithSickness(innerPawn, null);
 			SetStory(innerPawn);
 			ReimplantGenes(thrallDef, innerPawn);
 		}
@@ -77,7 +77,7 @@ namespace WVC_XenotypesAndGenes
 			// else
 			// {
 			// }
-			UndeadUtility.ResurrectWithSickness(innerPawn, null);
+			GeneResourceUtility.ResurrectWithSickness(innerPawn, null);
 			SetStory(innerPawn);
 			ReimplantGenes(thrallDef, innerPawn);
 			if (mutantDef != null)

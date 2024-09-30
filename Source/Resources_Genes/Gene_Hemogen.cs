@@ -30,14 +30,6 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void TickHemogenDrain(IGeneResourceDrain drain, int tick = 1)
-		{
-			if (drain.Resource != null && drain.CanOffset)
-			{
-				GeneResourceDrainUtility.OffsetResource(drain, ((0f - drain.ResourceLossPerDay) / 60000f) * tick);
-			}
-		}
-
 	}
 
 	// Rare Hemogen Drain
@@ -60,12 +52,17 @@ namespace WVC_XenotypesAndGenes
 
 		public string DisplayLabel => Label + " (" + "Gene".Translate() + ")";
 
+		// private int tick;
+
 		public override void Tick()
 		{
 			// base.Tick();
-			if (pawn.IsHashIntervalTick(120))
+			// tick++;
+			if (pawn.IsHashIntervalTick(360))
 			{
-				TickHemogenDrain(this, 120);
+				// Log.Error(tick.ToString() + " | 120");
+				// tick = 0;
+				GeneResourceUtility.TickHemogenDrain(this, 360);
 			}
 		}
 
@@ -361,9 +358,9 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (pawn.IsHashIntervalTick(120))
+			if (pawn.IsHashIntervalTick(360))
 			{
-				TickHemogenDrain(this, 120);
+				GeneResourceUtility.TickHemogenDrain(this, 360);
 			}
 			if (!pawn.IsHashIntervalTick(527))
 			{
@@ -382,7 +379,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				cachedNutritionPerTick = 0.02f + (pawn.needs?.food != null ? pawn.needs.food.FoodFallPerTick : 0f);
 			}
-			UndeadUtility.OffsetNeedFood(pawn, cachedNutritionPerTick.Value);
+			GeneResourceUtility.OffsetNeedFood(pawn, cachedNutritionPerTick.Value);
 		}
 
 		public string Flick()

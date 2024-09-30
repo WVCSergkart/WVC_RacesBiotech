@@ -57,7 +57,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				cachedNutritionPerTick = Giver.passivelyReplenishedNutrition + (pawn.needs?.food != null ? pawn.needs.food.FoodFallPerTick : 0f);
 			}
-			UndeadUtility.OffsetNeedFood(pawn, cachedNutritionPerTick.Value);
+			GeneResourceUtility.OffsetNeedFood(pawn, cachedNutritionPerTick.Value);
 		}
 
 	}

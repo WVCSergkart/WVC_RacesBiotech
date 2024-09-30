@@ -170,7 +170,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					return;
 				}
-				if (recipient.PawnPsychicSensitive() && p?.genes?.GetFirstGeneOfType<Gene_Telepathy>() != null)
+				if (recipient.IsPsychicSensitive() && p?.genes?.GetFirstGeneOfType<Gene_Telepathy>() != null)
 				{
 					if (p.Map != null)
 					{

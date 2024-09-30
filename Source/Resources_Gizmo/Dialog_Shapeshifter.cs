@@ -600,7 +600,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void StartChange()
 		{
-			UndeadUtility.TryShapeshift(gene, this);
+			GeneResourceUtility.TryShapeshift(gene, this);
 			Close(doCloseSound: false);
 		}
 

@@ -31,7 +31,7 @@ namespace WVC_XenotypesAndGenes
 			float nutrition = ingestible.CachedNutrition;
 			if (ingestible != null && nutrition > 0f)
 			{
-				UndeadUtility.OffsetNeedFood(pawn, (-1f * def.resourceLossPerDay) * nutrition * (float)numTaken);
+				GeneResourceUtility.OffsetNeedFood(pawn, (-1f * def.resourceLossPerDay) * nutrition * (float)numTaken);
 			}
 		}
 
@@ -148,9 +148,9 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			base.Notify_IngestedThing(thing, numTaken);
-			if (Undead.specialFoodDefs.Contains(thing.def) || UndeadUtility.PawnDowned(pawn))
+			if (Undead.specialFoodDefs.Contains(thing.def) || GeneResourceUtility.PawnDowned(pawn))
 			{
-				UndeadUtility.OffsetNeedFood(pawn, 10.0f, true);
+				GeneResourceUtility.OffsetNeedFood(pawn, 10.0f, true);
 			}
 		}
 
@@ -166,7 +166,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			base.Notify_IngestedThing(thing, numTaken);
-			UndeadUtility.OffsetNeedFood(pawn, 10.0f, true);
+			GeneResourceUtility.OffsetNeedFood(pawn, 10.0f, true);
 		}
 
 	}
@@ -181,7 +181,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			base.Notify_IngestedThing(thing, numTaken);
-			UndeadUtility.OffsetNeedFood(pawn, 10.0f, true);
+			GeneResourceUtility.OffsetNeedFood(pawn, 10.0f, true);
 		}
 
 	}
@@ -320,7 +320,7 @@ namespace WVC_XenotypesAndGenes
 					continue;
 				}
 				int stack = GetFoodCount(specialFood) > 1 ? GetFoodCount(specialFood) : 1;
-				UndeadUtility.OffsetNeedFood(pawn, GetHunger(stack, specialFood, need_Food));
+				GeneResourceUtility.OffsetNeedFood(pawn, GetHunger(stack, specialFood, need_Food));
 				Job job = JobMaker.MakeJob(JobDefOf.Ingest, specialFood);
 				job.count = stack + 3;
 				pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);
@@ -378,7 +378,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			UndeadUtility.OffsetNeedFood(pawn, 0.1f);
+			GeneResourceUtility.OffsetNeedFood(pawn, 0.1f);
 		}
 
 	}
@@ -475,7 +475,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void Notify_Bloodfeed(Pawn victim)
 		{
-			UndeadUtility.OffsetNeedFood(pawn, Props.nutritionPerBite * victim.BodySize * pawn.GetStatValue(StatDefOf.HemogenGainFactor, cacheStaleAfterTicks: 360000));
+			GeneResourceUtility.OffsetNeedFood(pawn, Props.nutritionPerBite * victim.BodySize * pawn.GetStatValue(StatDefOf.HemogenGainFactor, cacheStaleAfterTicks: 360000));
 		}
 
 		public IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)

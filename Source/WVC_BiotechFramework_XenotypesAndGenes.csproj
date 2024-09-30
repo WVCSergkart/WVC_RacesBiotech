@@ -210,7 +210,7 @@
     <Compile Include="Resources_Main\ModExtension.cs" />
     <Compile Include="Resources_Utility\SubXenotypeUtility.cs" />
     <Compile Include="Resources_Utility\ThoughtUtility.cs" />
-    <Compile Include="Resources_Utility\UndeadUtility.cs" />
+    <Compile Include="Resources_Utility\GeneResourceUtility.cs" />
     <Compile Include="Resources_Main\WVC_GenesDefOf.cs" />
     <Compile Include="Resources_Utility\ListsUtility.cs" />
     <Compile Include="Resources_Harmony\Harmony_GeneDefGenerator.cs" />

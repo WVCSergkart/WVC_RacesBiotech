@@ -124,7 +124,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (Props?.foodPoisoningFromFood != false || !WVC_Biotech.settings.rechargeable_enablefoodPoisoningFromFood)
 			{
-				UndeadUtility.OffsetNeedFood(pawn, 0.25f);
+				GeneResourceUtility.OffsetNeedFood(pawn, 0.25f);
 			}
 		}
 
@@ -137,7 +137,7 @@ namespace WVC_XenotypesAndGenes
 			IngestibleProperties ingestible = thing?.def?.ingestible;
 			if (ingestible != null && ingestible.CachedNutrition > 0f)
 			{
-				UndeadUtility.OffsetNeedFood(pawn, -1 * ingestible.CachedNutrition);
+				GeneResourceUtility.OffsetNeedFood(pawn, -1 * ingestible.CachedNutrition);
 			}
 			if (!thing.def.IsDrug)
 			{

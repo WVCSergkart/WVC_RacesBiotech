@@ -36,7 +36,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				if (!p.PawnPsychicSensitive())
+				if (!p.IsPsychicSensitive())
 				{
 					continue;
 				}
@@ -123,7 +123,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			foreach (Thing item in GenRadial.RadialDistinctThingsAround(parent.Position, parent.Map, radius, useCenter: true))
 			{
-				if (item is not Pawn pawn || pawn.AnimalOrWildMan() || !pawn.RaceProps.IsFlesh || pawn == parent || pawn.Dead || pawn.Downed || !pawn.PawnPsychicSensitive())
+				if (item is not Pawn pawn || pawn.AnimalOrWildMan() || !pawn.RaceProps.IsFlesh || pawn == parent || pawn.Dead || pawn.Downed || !pawn.IsPsychicSensitive())
 				{
 					continue;
 				}
@@ -205,7 +205,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (shouldBePsySensitive && !other.PawnPsychicSensitive())
+			if (shouldBePsySensitive && !other.IsPsychicSensitive())
 			{
 				return false;
 			}

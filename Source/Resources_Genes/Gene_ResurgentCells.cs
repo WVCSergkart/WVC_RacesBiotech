@@ -135,7 +135,7 @@ namespace WVC_XenotypesAndGenes
 			base.Tick();
 			if (pawn.IsHashIntervalTick(120))
 			{
-				UndeadUtility.TickResourceDrain(this, 120);
+				GeneResourceUtility.TickResourceDrain(this, 120);
 			}
 		}
 
@@ -145,7 +145,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield return gizmo;
 			}
-			foreach (Gizmo resourceDrainGizmo in UndeadUtility.GetResourceDrainGizmos(this))
+			foreach (Gizmo resourceDrainGizmo in GeneResourceUtility.GetResourceDrainGizmos(this))
 			{
 				yield return resourceDrainGizmo;
 			}

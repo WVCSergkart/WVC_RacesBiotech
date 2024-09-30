@@ -64,11 +64,11 @@ namespace WVC_XenotypesAndGenes
 			List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
 			for (int num = 0; num < hediffs.Count; num++)
 			{
-				if (!hediffs[num].TendableNow() || hediffs[num].IsTended() || !UndeadUtility.PawnDowned(pawn))
+				if (!hediffs[num].TendableNow() || hediffs[num].IsTended() || !GeneResourceUtility.PawnDowned(pawn))
 				{
 					continue;
 				}
-				UndeadUtility.OffsetNeedFood(pawn, -1f * def.resourceLossPerDay);
+				GeneResourceUtility.OffsetNeedFood(pawn, -1f * def.resourceLossPerDay);
 				hediffs[num].Tended(TendingQualityRange.RandomInRange, TendingQualityRange.TrueMax, 1);
 			}
 		}
@@ -213,7 +213,7 @@ namespace WVC_XenotypesAndGenes
 				eatedDamage += 0.005f;
 				injury.Heal(0.5f);
 			}
-			UndeadUtility.OffsetNeedFood(pawn, eatedDamage);
+			GeneResourceUtility.OffsetNeedFood(pawn, eatedDamage);
 		}
 
 	}

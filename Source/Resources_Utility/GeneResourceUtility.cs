@@ -2,6 +2,7 @@ using RimWorld;
 using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 using Verse;
 using Verse.AI.Group;
 using Verse.Sound;
@@ -9,7 +10,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public static class UndeadUtility
+	public static class GeneResourceUtility
 	{
 
 		// Dust
@@ -25,7 +26,8 @@ namespace WVC_XenotypesAndGenes
 				}
 				else
 				{
-					need_Food.CurLevel += need_Food.MaxLevel >= (need_Food.CurLevel + offset) ? offset : (need_Food.MaxLevel - need_Food.CurLevel);
+					// need_Food.CurLevel += need_Food.MaxLevel >= (need_Food.CurLevel + offset) ? offset : (need_Food.MaxLevel - need_Food.CurLevel);
+					need_Food.CurLevel = Mathf.Clamp(need_Food.CurLevel + offset, 0f, need_Food.MaxLevel);
 				}
 			}
 		}
@@ -297,6 +299,15 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public static void TickHemogenDrain(IGeneResourceDrain drain, int tick = 1)
+		{
+			// Log.Error("1 TickHemogenDrain " + tick.ToString() + " | 120");
+			if (drain.Resource != null && drain.CanOffset)
+			{
+				// Log.Error("TickHemogenDrain ticks: " + tick.ToString());
+				GeneResourceDrainUtility.OffsetResource(drain, ((0f - drain.ResourceLossPerDay) / 60000f) * tick);
+			}
+		}
 
 		public static void OffsetResource(IGeneResourceDrain drain, float amnt)
 		{

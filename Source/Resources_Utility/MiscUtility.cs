@@ -265,9 +265,10 @@ namespace WVC_XenotypesAndGenes
 			return GenClosest.ClosestThing_Global_Reachable(pawn.Position, pawn.Map, pawn.Map.listerThings.ThingsOfDef(foodDef), PathEndMode.OnCell, TraverseParms.For(pawn), 9999f, (Thing t) => pawn.CanReserve(t) && !t.IsForbidden(pawn));
 		}
 
-		public static bool PawnPsychicSensitive(this Pawn pawn)
+		public static bool IsPsychicSensitive(this Pawn pawn)
 		{
-			return pawn?.GetStatValue(StatDefOf.PsychicSensitivity, cacheStaleAfterTicks: 30000) > 0f;
+			// return pawn?.GetStatValue(StatDefOf.PsychicSensitivity, cacheStaleAfterTicks: 30000) > 0f;
+			return pawn.psychicEntropy.IsPsychicallySensitive;
 		}
 
 		// Precepts

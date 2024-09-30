@@ -510,6 +510,19 @@ namespace WVC_XenotypesAndGenes
 
 		// ============================= Getter =============================
 
+		public static bool GeneDefIsHemogenic(GeneDef geneDef)
+		{
+			if (geneDef == GeneDefOf.Hemogenic)
+			{
+				return true;
+			}
+			if (geneDef?.prerequisite != null)
+			{
+				return GeneDefIsHemogenic(geneDef.prerequisite);
+			}
+			return false;
+		}
+
 		public static GeneDef GetFirstGeneDefOfType(List<GeneDef> genes, Type type)
 		{
 			if (genes.NullOrEmpty())

@@ -38,7 +38,7 @@ namespace WVC_XenotypesAndGenes
 			Cache();
 			if (cachedResugentGene != null)
 			{
-				UndeadUtility.OffsetResurgentCells(parent.pawn, 0f - Props.resurgentCost);
+				GeneResourceUtility.OffsetResurgentCells(parent.pawn, 0f - Props.resurgentCost);
 			}
 		}
 

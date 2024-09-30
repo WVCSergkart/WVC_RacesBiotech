@@ -38,7 +38,7 @@ namespace WVC_XenotypesAndGenes
 			float cells = daysGain * cellsConsumeFactor;
 			int ticks = (int)(daysGain * (victim.BodySize * 60000));
 			XaG_GeneUtility.OffsetInstabilityTick(biter, ticks);
-			UndeadUtility.OffsetResurgentCells(victim, 0f - (cells * 0.01f));
+			GeneResourceUtility.OffsetResurgentCells(victim, 0f - (cells * 0.01f));
 			if (biter.needs?.food != null)
 			{
 				biter.needs.food.CurLevel += nutritionGain * cells;
@@ -93,7 +93,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				if (!p.PawnPsychicSensitive())
+				if (!p.IsPsychicSensitive())
 				{
 					continue;
 				}
@@ -207,7 +207,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				if (!p.PawnPsychicSensitive())
+				if (!p.IsPsychicSensitive())
 				{
 					continue;
 				}
@@ -268,7 +268,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				if (!p.PawnPsychicSensitive())
+				if (!p.IsPsychicSensitive())
 				{
 					continue;
 				}

@@ -65,7 +65,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			else
 			{
-				UndeadUtility.ResurrectWithSickness(innerPawn);
+				GeneResourceUtility.ResurrectWithSickness(innerPawn);
 				// ResurrectionUtility.TryResurrect(innerPawn);
 				// innerPawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
 				XenotypeDef xenotypeDef = Item?.TryGetComp<CompTargetEffect_DoJobOnTarget>()?.xenotypeDef;

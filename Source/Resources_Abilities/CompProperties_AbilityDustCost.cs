@@ -60,7 +60,7 @@ namespace WVC_XenotypesAndGenes
 			// if (need_Food != null)
 			// {
 			// }
-			UndeadUtility.OffsetNeedFood(parent.pawn, 0f - Props.nutritionCost);
+			GeneResourceUtility.OffsetNeedFood(parent.pawn, 0f - Props.nutritionCost);
 		}
 
 		public override bool GizmoDisabled(out string reason)

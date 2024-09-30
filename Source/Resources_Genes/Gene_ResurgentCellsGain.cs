@@ -34,7 +34,7 @@ namespace WVC_XenotypesAndGenes
 				float nutrition = ingestible.CachedNutrition;
 				if (ingestible != null && nutrition > 0f)
 				{
-					UndeadUtility.OffsetResource(Cells, nutrition);
+					GeneResourceUtility.OffsetResource(Cells, nutrition);
 				}
 			}
 		}
@@ -43,7 +43,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (Cells != null)
 			{
-				UndeadUtility.OffsetResource(Cells, Props.nutritionPerBite * victim.BodySize * pawn.GetStatValue(StatDefOf.HemogenGainFactor, cacheStaleAfterTicks: 360000));
+				GeneResourceUtility.OffsetResource(Cells, Props.nutritionPerBite * victim.BodySize * pawn.GetStatValue(StatDefOf.HemogenGainFactor, cacheStaleAfterTicks: 360000));
 			}
 		}
 
@@ -109,7 +109,7 @@ namespace WVC_XenotypesAndGenes
 			base.Tick();
 			if (pawn.IsHashIntervalTick(120))
 			{
-				UndeadUtility.TickResourceDrain(this, 120);
+				GeneResourceUtility.TickResourceDrain(this, 120);
 			}
 			// UndeadUtility.TickResourceDrain(this);
 		}

@@ -242,7 +242,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				if (!p.PawnPsychicSensitive())
+				if (!p.IsPsychicSensitive())
 				{
 					continue;
 				}
