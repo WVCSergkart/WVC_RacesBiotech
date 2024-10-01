@@ -36,7 +36,7 @@ namespace WVC_XenotypesAndGenes
 		public bool totalHealingIgnoreScarification = true;
 		// public bool genesRemoveMechlinkUponDeath = false;
 		// public bool enableCustomMechLinkName = false;
-		public bool shapeshifterGeneUnremovable = true;
+		// public bool shapeshifterGeneUnremovable = true;
 		public bool enableIncestLoverGene = true;
 		public bool disableNonAcceptablePreyGenes = false;
 		public bool enableHarmonyTelepathyGene = false;
@@ -47,7 +47,7 @@ namespace WVC_XenotypesAndGenes
 		// public bool reimplantResurrectionRecruiting = false;
 		public bool thrallMaker_ThrallsInheritMasterGenes = true;
 		// Info
-		public bool enableGenesInfo = true;
+		public bool enable_xagHumanComponent = true;
 		// public bool enableGeneSpawnerGizmo = true;
 		// public bool enableGeneWingInfo = false;
 		// public bool enableGeneBlesslinkInfo = true;
@@ -153,7 +153,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref totalHealingIgnoreScarification, "totalHealingIgnoreScarification", defaultValue: true);
 			// Scribe_Values.Look(ref genesRemoveMechlinkUponDeath, "genesRemoveMechlinkUponDeath", defaultValue: false);
 			// Scribe_Values.Look(ref enableCustomMechLinkName, "enableCustomMechLinkName", defaultValue: false);
-			Scribe_Values.Look(ref shapeshifterGeneUnremovable, "shapeshifterGeneUnremovable", defaultValue: true);
+			// Scribe_Values.Look(ref shapeshifterGeneUnremovable, "shapeshifterGeneUnremovable", defaultValue: true);
 			Scribe_Values.Look(ref enableIncestLoverGene, "enableIncestLoverGene", defaultValue: true);
 			Scribe_Values.Look(ref disableNonAcceptablePreyGenes, "disableNonAcceptablePreyGenes", defaultValue: false);
 			Scribe_Values.Look(ref enableHarmonyTelepathyGene, "enableHarmonyTelepathyGene", defaultValue: false);
@@ -170,7 +170,7 @@ namespace WVC_XenotypesAndGenes
 			// Scribe_Values.Look(ref fixGenesOnLoad, "fixGenesOnLoad", defaultValue: false);
 			Scribe_Values.Look(ref disableUniqueXenotypeScenarios, "disableUniqueXenotypeScenarios", defaultValue: false);
 			// Info
-			Scribe_Values.Look(ref enableGenesInfo, "enableGenesInfo", defaultValue: true);
+			Scribe_Values.Look(ref enable_xagHumanComponent, "enableGenesInfo", defaultValue: true);
 			// Scribe_Values.Look(ref enableGeneSpawnerGizmo, "enableGeneSpawnerGizmo", defaultValue: true);
 			// Scribe_Values.Look(ref enableGeneWingInfo, "enableGeneWingInfo", defaultValue: false);
 			// Scribe_Values.Look(ref enableGeneBlesslinkInfo, "enableGeneBlesslinkInfo", defaultValue: true);
@@ -693,7 +693,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.Begin(rect);
 			// =
 			listingStandard.Label("WVC_BiotechSettings_Tab_General".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_GenesMechanicsGeneral".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_enableGenesInfo".Translate(), ref settings.enableGenesInfo, "WVC_ToolTip_enableGenesInfo".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_enable_xagHumanComponent".Translate(), ref settings.enable_xagHumanComponent, "WVC_ToolTip_enable_xagHumanComponent".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enable_birthQualityOffsetFromGenes".Translate(), ref settings.enable_birthQualityOffsetFromGenes, "WVC_ToolTip_enable_birthQualityOffsetFromGenes".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_harmony_EnableGenesMechanicsTriggers".Translate().Colorize(ColorLibrary.LightPurple), ref settings.harmony_EnableGenesMechanicsTriggers, "WVC_ToolTip_harmony_EnableGenesMechanicsTriggers".Translate());
 			listingStandard.GapLine();
@@ -743,7 +743,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.GapLine();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_Shapeshifer".Translate() + ":", -1);
-			listingStandard.CheckboxLabeled("WVC_Label_ShapeshifterGeneUnremovable".Translate().Colorize(ColorLibrary.LightBlue), ref settings.shapeshifterGeneUnremovable, "WVC_ToolTip_ShapeshifterGeneUnremovable".Translate());
+			// listingStandard.CheckboxLabeled("WVC_Label_ShapeshifterGeneUnremovable".Translate().Colorize(ColorLibrary.LightBlue), ref settings.shapeshifterGeneUnremovable, "WVC_ToolTip_ShapeshifterGeneUnremovable".Translate());
 			listingStandard.SliderLabeledWithRef("WVC_Label_shapeshifer_GeneCellularRegeneration".Translate((settings.shapeshifer_GeneCellularRegeneration).ToString()), ref settings.shapeshifer_GeneCellularRegeneration, 1f, 100f, round: 0);
 			// listingStandard.CheckboxLabeled("WVC_Label_shapeshifter_enableStyleButton".Translate().Colorize(ColorLibrary.LightBlue), ref settings.shapeshifter_enableStyleButton, "WVC_ToolTip_shapeshifter_enableStyleButton".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enable_chimeraMetabolismHungerFactor".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_chimeraMetabolismHungerFactor, "WVC_ToolTip_enable_chimeraMetabolismHungerFactor".Translate());
@@ -873,7 +873,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.fixVanillaGeneImmunityCheck = true;
 			WVC_Biotech.settings.spawnXenoForcerSerumsFromTraders = true;
 			// Info
-			WVC_Biotech.settings.enableGenesInfo = true;
+			WVC_Biotech.settings.enable_xagHumanComponent = true;
 			// WVC_Biotech.settings.enableGeneSpawnerGizmo = true;
 			// WVC_Biotech.settings.enableGeneWingInfo = false;
 			// WVC_Biotech.settings.enableGeneBlesslinkInfo = true;
@@ -903,7 +903,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.totalHealingIgnoreScarification = true;
 			WVC_Biotech.settings.restoreBodyPartsWithFullHP = false;
 			// =
-			WVC_Biotech.settings.shapeshifterGeneUnremovable = true;
+			// WVC_Biotech.settings.shapeshifterGeneUnremovable = true;
 			// =
 			WVC_Biotech.settings.enableIncestLoverGene = true;
 			WVC_Biotech.settings.disableNonAcceptablePreyGenes = false;
@@ -985,7 +985,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.fixVanillaGeneImmunityCheck = true;
 			WVC_Biotech.settings.spawnXenoForcerSerumsFromTraders = true;
 			// Info
-			WVC_Biotech.settings.enableGenesInfo = true;
+			WVC_Biotech.settings.enable_xagHumanComponent = true;
 			// WVC_Biotech.settings.enableGeneSpawnerGizmo = true;
 			// WVC_Biotech.settings.enableGeneWingInfo = false;
 			// WVC_Biotech.settings.enableGeneBlesslinkInfo = true;
@@ -1015,7 +1015,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.totalHealingIgnoreScarification = true;
 			WVC_Biotech.settings.restoreBodyPartsWithFullHP = false;
 			// =
-			WVC_Biotech.settings.shapeshifterGeneUnremovable = true;
+			// WVC_Biotech.settings.shapeshifterGeneUnremovable = true;
 			// =
 			WVC_Biotech.settings.enableIncestLoverGene = true;
 			WVC_Biotech.settings.disableNonAcceptablePreyGenes = false;

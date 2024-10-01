@@ -298,26 +298,25 @@ namespace WVC_XenotypesAndGenes
 					thingDef.comps.RemoveAll((CompProperties compProperties) => compProperties is CompProperties_CanBeDormant);
 					thingDef.comps.RemoveAll((CompProperties compProperties) => compProperties is CompProperties_WakeUpDormant);
 				}
-				ThingDef corpseDef = thingDef.race?.corpseDef;
-				if (corpseDef != null)
-				{
-					if (modExtension.removeButcherRecipes)
-					{
-						corpseDef.thingCategories = new();
-						// thingDef.race.corpseDef = null;
-					}
-					if (modExtension.shouldResurrect)
-					{
-						if (corpseDef.GetCompProperties<CompProperties_UndeadCorpse>() != null)
-						{
-							continue;
-						}
-						CompProperties_UndeadCorpse undead_comp = new();
-						undead_comp.resurrectionDelay = modExtension.resurrectionDelay;
-						undead_comp.uniqueTag = modExtension.uniqueTag;
-						corpseDef.comps.Add(undead_comp);
-					}
-				}
+				//ThingDef corpseDef = thingDef.race?.corpseDef;
+				//if (corpseDef != null)
+				//{
+				//	if (modExtension.removeButcherRecipes)
+				//	{
+				//		corpseDef.thingCategories = new();
+				//	}
+				//	if (modExtension.shouldResurrect)
+				//	{
+				//		if (corpseDef.GetCompProperties<CompProperties_UndeadCorpse>() != null)
+				//		{
+				//			continue;
+				//		}
+				//		CompProperties_UndeadCorpse undead_comp = new();
+				//		undead_comp.resurrectionDelay = modExtension.resurrectionDelay;
+				//		undead_comp.uniqueTag = modExtension.uniqueTag;
+				//		corpseDef.comps.Add(undead_comp);
+				//	}
+				//}
 			}
 		}
 

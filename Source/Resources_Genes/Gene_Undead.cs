@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Verse;
+using Verse.AI;
 // using Verse.AI;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Undead : Gene, IGeneInspectInfo
+	public class Gene_Undead : Gene
 	{
 
 		public GeneExtension_Undead Giver => def.GetModExtension<GeneExtension_Undead>();
@@ -58,17 +59,48 @@ namespace WVC_XenotypesAndGenes
 			1100);
 		}
 
-		public string GetInspectInfo
+		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
 		{
-			get
+			base.Notify_PawnDied(dinfo, culprit);
+			SetCorpse(PawnCanResurrect(), Giver.additionalDelay.RandomInRange);
+		}
+
+		public void SetCorpse(bool resurrect, int delay)
+		{
+			// if (pawn.Corpse == null)
+			// {
+				// return;
+			// }
+			CompHumanlike corpseComp = pawn.TryGetComp<CompHumanlike>();
+			if (corpseComp != null)
 			{
-				if (UndeadCanResurrect)
-				{
-					return "WVC_XaG_Gene_Undead_On_Info".Translate().Resolve();
-				}
-				return null;
+				corpseComp.SetUndead(resurrect, delay, pawn);
 			}
 		}
+
+		// public override void PostAdd()
+		// {
+			// base.PostAdd();
+			// SetCorpse(PawnCanResurrect(), Giver.additionalDelay.RandomInRange);
+		// }
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			SetCorpse(false, 0);
+		}
+
+		// public string GetInspectInfo
+		// {
+			// get
+			// {
+				// if (PawnCanResurrect)
+				// {
+					// return "WVC_XaG_Gene_Undead_On_Info".Translate().Resolve();
+				// }
+				// return null;
+			// }
+		// }
 
 	}
 
@@ -141,10 +173,12 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Cellular : Gene_AddOrRemoveHediff
+	public class Gene_Cellular : Gene_AddOrRemoveHediff, IGeneFloatMenuOptions
 	{
 
 		public GeneExtension_Undead Undead => def.GetModExtension<GeneExtension_Undead>();
+
+		public GeneExtension_Giver Giver => def.GetModExtension<GeneExtension_Giver>();
 
 		// For future sub-genes
 		// [Unsaved(false)]
@@ -170,6 +204,81 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			HealingUtility.Regeneration(pawn, WVC_Biotech.settings.shapeshifer_GeneCellularRegeneration, WVC_Biotech.settings.totalHealingIgnoreScarification, 22222);
+		}
+
+		public IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
+		{
+			if (!pawn.Downed)
+			{
+				yield break;
+			}
+			yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("WVC_XaG_CellularDestroyBody".Translate(), delegate
+			{
+				Job job = JobMaker.MakeJob(Giver.jobDef, pawn);
+				selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+			}), selPawn, pawn);
+		}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			foreach (Gizmo item in base.GetGizmos())
+			{
+				yield return item;
+			}
+			if (!pawn.Downed)
+			{
+				yield break;
+			}
+			// if (XaG_GeneUtility.SelectorDraftedActiveFactionMap(pawn, this))
+			// {
+				// yield break;
+			// }
+			yield return new Command_Action
+			{
+				defaultLabel = "WVC_XaG_CellularDestroyBody".Translate(),
+				defaultDesc = "WVC_XaG_CellularDestroyBodyDesc".Translate(),
+				icon = ContentFinder<Texture2D>.Get(def.iconPath),
+				action = delegate
+				{
+					List<FloatMenuOption> list = new();
+					List<Pawn> list2 = pawn.MapHeld.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer);
+					for (int i = 0; i < list2.Count; i++)
+					{
+						Pawn absorber = list2[i];
+						if (absorber != pawn && absorber.IsColonist && absorber.CanReach(pawn, PathEndMode.Touch, Danger.Deadly))
+						{
+							list.Add(new FloatMenuOption(absorber.LabelShort, delegate
+							{
+								Job job = JobMaker.MakeJob(Giver.jobDef, pawn);
+								absorber.jobs.TryTakeOrderedJob(job, JobTag.Misc, false);
+							}, absorber, Color.white));
+						}
+					}
+					if (!list.Any())
+					{
+						list.Add(new FloatMenuOption("WVC_XaG_NoSuitableTargets".Translate(), null));
+					}
+					Find.WindowStack.Add(new FloatMenu(list));
+				}
+			};
+		}
+
+		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
+		{
+			base.Notify_PawnDied(dinfo, culprit);
+			if (!Active || dinfo != null || culprit != null)
+			{
+				return;
+			}
+			if (ModLister.CheckAnomaly("Shard"))
+			{
+				if (pawn.SpawnedOrAnyParentSpawned && GenDrop.TryDropSpawn(ThingMaker.MakeThing(ThingDefOf.Shard), pawn.PositionHeld, pawn.MapHeld, ThingPlaceMode.Near, out var resultingThing))
+				{
+					resultingThing.SetForbidden(!resultingThing.MapHeld.areaManager.Home[resultingThing.PositionHeld]);
+					Messages.Message("MessageShardDropped".Translate(pawn.LabelShort).CapitalizeFirst(), resultingThing, MessageTypeDefOf.NeutralEvent);
+				}
+			}
+			ReimplanterUtility.SetXenotype(pawn, XenotypeDefOf.Baseliner);
 		}
 
 	}

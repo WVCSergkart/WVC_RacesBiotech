@@ -510,15 +510,15 @@ namespace WVC_XenotypesAndGenes
 
 		// ============================= Getter =============================
 
-		public static bool GeneDefIsHemogenic(GeneDef geneDef)
+		public static bool GeneDefIsSubGeneOf(GeneDef childGeneDef, GeneDef parentGeneDef)
 		{
-			if (geneDef == GeneDefOf.Hemogenic)
+			if (childGeneDef == parentGeneDef)
 			{
 				return true;
 			}
-			if (geneDef?.prerequisite != null)
+			if (childGeneDef?.prerequisite != null)
 			{
-				return GeneDefIsHemogenic(geneDef.prerequisite);
+				return GeneDefIsSubGeneOf(childGeneDef.prerequisite, parentGeneDef);
 			}
 			return false;
 		}

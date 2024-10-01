@@ -34,6 +34,17 @@ Use this option only as a last resort and if you know what you are doing.
 
 A restart is required.</WVC_ToolTip_harmony_EnableGenesMechanicsTriggers>
 
+	<WVC_Label_enable_xagHumanComponent>Enable human component</WVC_Label_enable_xagHumanComponent>
+	<WVC_ToolTip_enable_xagHumanComponent>If enabled, the mod will add a special component to humans. It is needed for the functioning of some visual information contained in genes, such as displaying a timer before spawning items in the pawn inspect menu and drop-down lists when right-clicking on a pawn.
+
+This component is also responsible for the operation of the undead gene mechanics.
+
+It should not affect performance, since the comp caches all the necessary information and requests it only when the player directly interacts with the pawn (like opening the inspect panel).
+
+Use this option only as a last resort and if you know what you are doing.
+
+A restart is required.</WVC_ToolTip_enable_xagHumanComponent>
+
 	<!-- ================================== -->
 
 	<WVC_Label_genesCanTickOnlyOnMap>Genes tick only on map</WVC_Label_genesCanTickOnlyOnMap>

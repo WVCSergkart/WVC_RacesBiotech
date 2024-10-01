@@ -70,9 +70,9 @@
 			</li>
 		</comps>
 		<modExtensions>
-			<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
-				<removeButcherRecipes>true</removeButcherRecipes>
-			</li>
+			<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+				<!-- <removeButcherRecipes>true</removeButcherRecipes> -->
+			<!-- </li> -->
 		</modExtensions>
 	</ThingDef>
 	<PawnKindDef ParentName="WVC_XenotypesAndGenes_NonCombatGolemlikeKind_Base" Name="WVC_XenotypesAndGenes_NonCombatGolemKind" Abstract="True">

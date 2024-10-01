@@ -135,6 +135,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void RemoveHediffs()
 		{
+			// HediffUtility.Notify_GeneRemoved(this, pawn);
 			HediffUtility.RemoveHediffsFromList(pawn, Giver?.hediffDefs);
 		}
 

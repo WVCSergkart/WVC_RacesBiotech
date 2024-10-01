@@ -47,9 +47,10 @@
 			<body>Mech_Light</body>
 			<maxMechEnergy>30</maxMechEnergy>
 			<mechFixedSkillLevel>8</mechFixedSkillLevel>
-			<deathAction Class="WVC_XenotypesAndGenes.DeathActionProperties_DestroyCorpse">
-				<deSpawn>false</deSpawn>
-			</deathAction>
+			<!-- <deathAction Class="WVC_XenotypesAndGenes.DeathActionProperties_DestroyCorpse"> -->
+				<!-- <deSpawn>false</deSpawn> -->
+			<!-- </deathAction> -->
+			<hasCorpse>false</hasCorpse>
 			<!-- <maxMechEnergy>1</maxMechEnergy> -->
 			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
 			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
@@ -72,12 +73,12 @@
 				<!-- <refreshHours>2</refreshHours> -->
 				<!-- <shutdownEnergyReplenish>3.0</shutdownEnergyReplenish> -->
 			<!-- </li> -->
-			<li Class="WVC_XenotypesAndGenes.CompProperties_InitialPawnFaction"/>
+			<!-- <li Class="WVC_XenotypesAndGenes.CompProperties_InitialPawnFaction"/> -->
 		</comps>
 		<modExtensions>
-			<li Class="VFECore.ThingDefExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
-				<destroyCorpse>true</destroyCorpse>
-			</li>
+			<!-- <li Class="VFECore.ThingDefExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core"> -->
+				<!-- <destroyCorpse>true</destroyCorpse> -->
+			<!-- </li> -->
 		</modExtensions>
 	</ThingDef>
 

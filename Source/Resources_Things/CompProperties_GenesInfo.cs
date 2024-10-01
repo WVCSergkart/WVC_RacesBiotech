@@ -166,6 +166,74 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		// =====================
+
+		private int resurrectionDelay = 0;
+		private bool shouldResurrect = false;
+
+		public void SetUndead(bool resurrect, int delay, Pawn pawn)
+		{
+			shouldResurrect = resurrect && (pawn.IsColonist || WVC_Biotech.settings.canNonPlayerPawnResurrect);
+			resurrectionDelay = delay;
+			if (delay > 0)
+			{
+				resurrectionDelay += Find.TickManager.TicksGame + Props.resurrectionDelay.RandomInRange;
+			}
+		}
+
+		public override void CompTickRare()
+		{
+			UndeadTick();
+		}
+
+		public void UndeadTick()
+		{
+			if (!shouldResurrect)
+			{
+				return;
+			}
+			if (Find.TickManager.TicksGame < resurrectionDelay)
+			{
+				return;
+			}
+			TryResurrect();
+		}
+
+		public void TryResurrect()
+		{
+			if (parent is not Pawn pawn)
+			{
+				return;
+			}
+			if (pawn.Corpse?.Map == null)
+			{
+				return;
+			}
+			pawn.GetUndeadGene(out Gene_Undead gene);
+			if (gene != null)
+			{
+				if (pawn.Corpse?.CurRotDrawMode != RotDrawMode.Fresh)
+				{
+					if (ModLister.CheckAnomaly("Shambler"))
+					{
+						MutantUtility.ResurrectAsShambler(pawn, new IntRange(145563, 888855).RandomInRange, pawn.Faction);
+					}
+				}
+				else
+				{
+					GeneResourceUtility.RegenComaOrDeathrest(pawn, gene);
+				}
+			}
+			resurrectionDelay = 0;
+			shouldResurrect = false;
+		}
+
+		public override void PostExposeData()
+		{
+			Scribe_Values.Look(ref resurrectionDelay, "resurrectionDelay_" + Props.uniqueTag, 0);
+			Scribe_Values.Look(ref shouldResurrect, "shouldResurrect_" + Props.uniqueTag, false);
+		}
+
 	}
 
 }

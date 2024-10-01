@@ -23,40 +23,40 @@
 
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
 	<defName>WVC_ShapeshifterDeathless</defName>
-	<label>deathless</label>
-	<!-- <description>Carriers have archites in the blood which will sustain their life processes no matter what. As long as the carrier remains a shapeshifter, it will never die.</description> -->
+	<label>cellular</label>
 	<description>This creature is unkillable, it remains alive as long as at least a piece of their flesh exists.</description>
 	<defaultLabelColor>(255, 255, 255)</defaultLabelColor>
 	<preventsDeath>true</preventsDeath>
 	<stages>
 	  <li>
-		<!-- <becomeVisible>false</becomeVisible> -->
+		<becomeVisible>false</becomeVisible>
 		<minSeverity>0.0</minSeverity>
-		<!-- <regeneration MayRequire="ludeon.rimworld.anomaly">10</regeneration> -->
+		<!-- <partIgnoreMissingHP>true</partIgnoreMissingHP> -->
 	  </li>
 	</stages>
 	<comps>
-		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff">
-			<!-- <compClass>WVC_XenotypesAndGenes.HediffComp_ShapeshifterHediff</compClass> -->
-			<!-- <geneDefs> -->
-			  <!-- <li>WVC_Shapeshifter</li> -->
-			  <!-- <li>WVC_Shapeshift_Deathless</li> -->
-			<!-- </geneDefs> -->
-		</li>
-		<!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_ReplaceWithHediff"> -->
-			<!-- <compClass>WVC_XenotypesAndGenes.HediffComp_ReplaceWhenBrainDestroyed</compClass> -->
-			<!-- <hediffDef>WVC_ShapeshifterDeathless_Disabled</hediffDef> -->
-		<!-- </li> -->
-		<!-- <li Class="HediffCompProperties_Disappears"> -->
-			<!-- <disappearsAfterTicks>42000~73000</disappearsAfterTicks> -->
-			<!-- <showRemainingTime>true</showRemainingTime> -->
-		<!-- </li> -->
-		<!-- Cause bugs -->
-		<!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_Cellur"> -->
-			<!-- <forceNoDeathNotification>true</forceNoDeathNotification> -->
-		<!-- </li> -->
+		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/>
 	</comps>
   </HediffDef>
+
+  <!-- <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base"> -->
+	<!-- <defName>WVC_Cellsrest</defName> -->
+	<!-- <label>cellsresting</label> -->
+	<!-- <description>A deep coma-like sleep that lasts several days and restores the body's resources.</description> -->
+	<!-- <hediffClass>WVC_XenotypesAndGenes.Hediff_Cellsrest</hediffClass> -->
+	<!-- <recordDownedTale>false</recordDownedTale> -->
+	<!-- <defaultLabelColor>(255, 255, 255)</defaultLabelColor> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <capMods> -->
+		  <!-- <li> -->
+			<!-- <capacity>Consciousness</capacity> -->
+			<!-- <setMax>0.1</setMax> -->
+		  <!-- </li> -->
+		<!-- </capMods> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+  <!-- </HediffDef> -->
 
   <!-- <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base"> -->
 	<!-- <defName>WVC_ShapeshifterDeathless_Disabled</defName> -->

@@ -107,4 +107,11 @@
 	<!-- <reportString>charging.</reportString> -->
   <!-- </JobDef> -->
 
+  <JobDef>
+	<defName>WVC_XaG_DestroyCellularBody</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_DestroyCellularBody</driverClass>
+	<reportString>smashing TargetA.</reportString>
+	<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
 </Defs>

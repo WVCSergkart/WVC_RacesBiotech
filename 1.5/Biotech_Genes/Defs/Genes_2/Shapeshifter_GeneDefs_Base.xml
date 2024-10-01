@@ -8,7 +8,6 @@
 	<biostatMet>0</biostatMet>
 	<selectionWeight>0.000044</selectionWeight>
 	<canGenerateInGeneSet>true</canGenerateInGeneSet>
-	<!-- <displayCategory>WVC_Scarifier</displayCategory> -->
 	<displayCategory>WVC_Shapeshifter</displayCategory>
 	<displayOrderInCategory>55</displayOrderInCategory>
 	<marketValueFactor>3</marketValueFactor>
@@ -21,24 +20,16 @@
 	<label>shapeshifter</label>
 	<description>Carriers of this gene have archites that can completely rearrange and rewrite the genetic code at the request of the carrier. Thanks to this, the xenotype of the carrier can be changed at any time, but the carriers completely lose the accumulated genetic information of the previous form.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Shapeshifter</geneClass>
-	<!-- <iconPath>WVC/UI/Genes/Gene_XenoForcer_ShapeShifter</iconPath> -->
 	<iconPath>WVC/UI/Genes/Gene_Shapeshifter_v0</iconPath>
 	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_ShapeshifterMode</resourceGizmoType>
 	<customEffectDescriptions>
 		<li>Allows to change the xenotype at any time.</li>
-		<!-- <li>This gene removes the limit of the &lt;color=#8a8ae6&gt;xenotype gestator&lt;/color&gt; gene.</li> -->
-		<!-- <li>Birth quality +25%</li> -->
-		<li>&lt;color=#8a8ae6&gt;Childs&lt;/color&gt; born as a carrier of the gene &lt;color=#8a8ae6&gt;receive this gene&lt;/color&gt;. Affects only &lt;color=#8a8ae6&gt;default pregnancy&lt;/color&gt;.</li>
 		<li>&lt;color=#ff8585&gt;Does not support custom xenotypes.&lt;/color&gt;</li>
-		<li>&lt;color=#ff8585&gt;This gene cannot be removed.&lt;/color&gt;</li>
+		<li>&lt;color=#8a8ae6&gt;Childs&lt;/color&gt; born as a carrier of the gene &lt;color=#8a8ae6&gt;receive this gene&lt;/color&gt;. Affects only &lt;color=#8a8ae6&gt;default pregnancy&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<displayOrderInCategory>155</displayOrderInCategory>
 	<biostatCpx>8</biostatCpx>
 	<biostatArc>3</biostatArc>
-	<!-- <sterilize>true</sterilize> -->
-	<!-- <statFactors> -->
-	  <!-- <Fertility>0</Fertility> -->
-	<!-- </statFactors> -->
 	<exclusionTags>
 	  <li>WVC_ShapeshifterGene</li>
 	</exclusionTags>
@@ -60,49 +51,8 @@
 				<li>XenogerminationComa</li>
 				<li>XenogermLossShock</li>
 			</blockingHediffs>
-			<!-- <possibleTraits> -->
-				<!-- <li> -->
-					<!-- <traitDef>WVC_XaG_ShapeshiftPhobia</traitDef> -->
-					<!-- <weight>0.09</weight> -->
-				<!-- </li> -->
-				<!-- <li> -->
-					<!-- <traitDef>WVC_XaG_ShapeshiftOverclock</traitDef> -->
-					<!-- <weight>0.07</weight> -->
-				<!-- </li> -->
-			<!-- </possibleTraits> -->
 		</li>
 	</modExtensions>
   </GeneDef>
-
-  <!-- Modes -->
-
-  <!-- <WVC_XenotypesAndGenes.ShapeshiftModeDef> -->
-	<!-- <defName>WVC_Shapeshift</defName> -->
-	<!-- <label>shapeshift</label> -->
-	<!-- <description>In this mode, the shapeshifter can change xenotype to any other at will.</description> -->
-	<!-- <workerClass>WVC_XenotypesAndGenes.ShapeshifterModeWorker</workerClass> -->
-	<!-- <iconPath>WVC/UI/XaG_General/UI_ShapeshifterMode_Default</iconPath> -->
-	<!-- <uiOrder>0</uiOrder> -->
-	<!-- <unlockedByDefault>true</unlockedByDefault> -->
-  <!-- </WVC_XenotypesAndGenes.ShapeshiftModeDef> -->
-
-  <!-- <WVC_XenotypesAndGenes.ShapeshiftModeDef> -->
-	<!-- <defName>WVC_Safeshift</defName> -->
-	<!-- <label>safeshift</label> -->
-	<!-- <description>In this mode, as in basic mode, the shapeshifter can change its xenotype at will, but it does not fall into a xenogerm coma.</description> -->
-	<!-- <workerClass>WVC_XenotypesAndGenes.ShapeshifterModeWorker</workerClass> -->
-	<!-- <iconPath>WVC/UI/XaG_General/UI_ShapeshifterMode_Safeshift</iconPath> -->
-	<!-- <xenogermComa>false</xenogermComa> -->
-	<!-- <uiOrder>10</uiOrder> -->
-  <!-- </WVC_XenotypesAndGenes.ShapeshiftModeDef> -->
-
-  <!-- <WVC_XenotypesAndGenes.ShapeshiftModeDef> -->
-	<!-- <defName>WVC_Duplicate</defName> -->
-	<!-- <label>duplicate</label> -->
-	<!-- <description>In this mode, the shapeshifter can create duplicates of itself of the selected xenotype.</description> -->
-	<!-- <workerClass>WVC_XenotypesAndGenes.ShapeshifterModeWorker_Duplicate</workerClass> -->
-	<!-- <iconPath>WVC/UI/XaG_General/UI_ShapeshifterMode_Duplicate</iconPath> -->
-	<!-- <uiOrder>20</uiOrder> -->
-  <!-- </WVC_XenotypesAndGenes.ShapeshiftModeDef> -->
 
 </Defs>

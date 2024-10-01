@@ -1,61 +1,103 @@
 using RimWorld;
 using System.Collections.Generic;
 using Verse;
+using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public class HediffCompProperties_Cellur : HediffCompProperties
+	public class Hediff_Undead : HediffWithComps
 	{
+		private static readonly FloatRange ResurrectionSecondsRange = new FloatRange(5f, 10f);
 
-		public bool forceNoDeathNotification = true;
+		private static readonly FloatRange StunSecondsRange = new FloatRange(1f, 3f);
 
-		public HediffCompProperties_Cellur()
+		private static readonly FloatRange AlertSecondsRange = new FloatRange(0.5f, 3f);
+
+		private static readonly IntRange SelfRaiseHoursRange = new IntRange(3, 4);
+
+		private const float ParticleSpawnMTBSeconds = 1f;
+
+		private static readonly IntRange CheckForTargetTicksInterval = new IntRange(900, 1800);
+
+		private const float ExtinguishFireMTB = 45f;
+
+		private const float BioferriteOnDeathChance = 0.04f;
+
+		private const int BioferriteAmountOnDeath = 10;
+
+		public float headRotation;
+
+		private float resurrectTimer;
+
+		private float selfRaiseTimer;
+
+		private float alertTimer;
+
+		private int nextTargetCheckTick = -99999;
+
+		private Thing alertedTarget;
+
+		private Effecter riseEffecter;
+
+		private Sustainer riseSustainer;
+
+		private float corpseDamagePct = 1f;
+
+		// public bool IsRising => pawn.health.hediffSet.HasHediff(HediffDefOf.Rising);
+
+		public bool IsRising => true;
+
+		public override void Tick()
 		{
-			compClass = typeof(HediffCompCellur);
-		}
-	}
-
-	public class HediffCompCellur : HediffComp
-	{
-
-		public HediffCompProperties_Cellur Props => (HediffCompProperties_Cellur)props;
-
-		public override void CompPostPostAdd(DamageInfo? dinfo)
-		{
-			Pawn.forceNoDeathNotification = Props.forceNoDeathNotification;
-		}
-
-		public override void CompPostPostRemoved()
-		{
-			Pawn.forceNoDeathNotification = false;
-		}
-
-		public override void Notify_Spawned()
-		{
-			Pawn.forceNoDeathNotification = Props.forceNoDeathNotification;
-		}
-
-		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
-		{
-			if (Pawn.Faction != Faction.OfPlayer && !WVC_Biotech.settings.canNonPlayerPawnResurrect || !Pawn.Dead)
+			base.Tick();
+			if (IsRising)
 			{
+				if ((float)Find.TickManager.TicksGame > resurrectTimer)
+				{
+					// FinishRising();
+				}
+				if (!pawn.Spawned)
+				{
+					return;
+				}
+				if ((float)Find.TickManager.TicksGame > resurrectTimer - 15f)
+				{
+					riseSustainer?.End();
+				}
+				else if (IsRising)
+				{
+					if (riseSustainer == null || riseSustainer.Ended)
+					{
+						SoundInfo info = SoundInfo.InMap(pawn, MaintenanceType.PerTick);
+						riseSustainer = SoundDefOf.Pawn_Shambler_Rise.TrySpawnSustainer(info);
+					}
+					if (riseEffecter == null)
+					{
+						riseEffecter = EffecterDefOf.ShamblerRaise.Spawn(pawn, pawn.Map);
+					}
+					if (pawn.Drawer.renderer.CurAnimation != AnimationDefOf.ShamblerRise)
+					{
+						pawn.Drawer.renderer.SetAnimation(AnimationDefOf.ShamblerRise);
+					}
+					riseSustainer.Maintain();
+					riseEffecter.EffectTick(pawn, TargetInfo.Invalid);
+				}
+				Log.Error("Hediff tick");
 				return;
 			}
-			ResurrectionParams resurrectionParams = new();
-			resurrectionParams.restoreMissingParts = false;
-			resurrectionParams.noLord = true;
-			resurrectionParams.removeDiedThoughts = true;
-			resurrectionParams.canPickUpOpportunisticWeapons = true;
-			resurrectionParams.gettingScarsChance = 0f;
-			resurrectionParams.canKidnap = false;
-			resurrectionParams.canSteal = false;
-			resurrectionParams.breachers = false;
-			resurrectionParams.sappers = false;
-			ResurrectionUtility.TryResurrect(Pawn, resurrectionParams);
-			Pawn.health.forceDowned = true;
 		}
 
+		// public override void ExposeData()
+		// {
+			// base.ExposeData();
+			// Scribe_Values.Look(ref alertTimer, "alertTimer", 0f);
+			// Scribe_Values.Look(ref nextTargetCheckTick, "nextTargetCheckTick", 0);
+			// Scribe_References.Look(ref alertedTarget, "alertedTarget");
+			// Scribe_Values.Look(ref resurrectTimer, "resurrectTimer", 0f);
+			// Scribe_Values.Look(ref selfRaiseTimer, "selfRaiseTimer", 0f);
+			// Scribe_Values.Look(ref headRotation, "headRotation", 0f);
+		// }
 	}
 
 }

@@ -46,8 +46,14 @@
 	</exclusionTags>
   </GeneDef>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Undead" Name="WVC_XenotypesAndGenes_GeneDeathless_UndeadWithSickness" Abstract="True">
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Undead" Name="WVC_XenotypesAndGenes_GeneDeathless_UndeadWithSickness">
+	<defName>WVC_Undead</defName>
 	<label>undead</label>
+	<biostatCpx>7</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
 	  <li>Cooldown will take (*DateTime)2-12 days(/DateTime).</li>
 	</customEffectDescriptions>
@@ -61,23 +67,6 @@
 			<additionalDelay>1120~2450</additionalDelay>
 		</li>
 	</modExtensions>
-  </GeneDef>
-
-  <!-- ============================= -->
-
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_UndeadWithSickness">
-	<defName>WVC_Undead</defName>
-	<biostatCpx>7</biostatCpx>
-	<biostatArc>2</biostatArc>
-	<biostatMet>0</biostatMet>
-  </GeneDef>
-
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_UndeadWithSickness">
-	<defName>WVC_NaturalUndead</defName>
-	<displayCategory>Healing</displayCategory>
-	<biostatCpx>7</biostatCpx>
-	<biostatArc>0</biostatArc>
-	<biostatMet>-6</biostatMet>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_Undead">

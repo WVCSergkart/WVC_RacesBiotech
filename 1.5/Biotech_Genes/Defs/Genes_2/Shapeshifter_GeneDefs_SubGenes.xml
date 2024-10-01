@@ -27,6 +27,11 @@
 		<!-- <li>This gene removes the limit of the &lt;color=#8a8ae6&gt;"Xenotype gestator"&lt;/color&gt; gene.</li> -->
 		<li>If, &lt;color=#8a8ae6&gt;after&lt;/color&gt; using &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt;, a pawn receives this gene, then &lt;color=#8a8ae6&gt;xenogermination coma&lt;/color&gt; effect &lt;color=#8a8ae6&gt;are removed&lt;/color&gt;.</li>
 	</customEffectDescriptions>
+	<statFactors>
+	  <LifespanFactor>0.6</LifespanFactor>
+	  <CancerRate>2</CancerRate>
+	  <ImmunityGainSpeed>0.80</ImmunityGainSpeed>
+	</statFactors>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<scarsCount>1</scarsCount>
@@ -46,11 +51,14 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_PostShapeshift_Regeneration</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_PostShapeshift_Regeneration_v0</iconPath>
 	<displayOrderInCategory>165</displayOrderInCategory>
-	<selectionWeight>0.000094</selectionWeight>
-	<canGenerateInGeneSet>true</canGenerateInGeneSet>
+	<!-- <selectionWeight>0.000094</selectionWeight> -->
+	<!-- <canGenerateInGeneSet>true</canGenerateInGeneSet> -->
 	<customEffectDescriptions>
 		<li>If a pawn has this gene, it is guaranteed to &lt;color=#8a8ae6&gt;heal all scars&lt;/color&gt; and &lt;color=#8a8ae6&gt;regrow missing parts&lt;/color&gt; when using the &lt;color=#8a8ae6&gt;shapeshfit&lt;/color&gt; ability.</li>
 	</customEffectDescriptions>
+	<statFactors>
+	  <InjuryHealingFactor>0.5</InjuryHealingFactor>
+	</statFactors>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<scarsCount>1</scarsCount>
@@ -69,6 +77,9 @@
 	<customEffectDescriptions>
 		<li>If, after using the &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt; ability, a pawn receives this gene, then for some time its &lt;color=#8a8ae6&gt;hunger&lt;/color&gt; is significantly &lt;color=#8a8ae6&gt;reduced&lt;/color&gt;.</li>
 	</customEffectDescriptions>
+	<statOffsets>
+	  <MaxNutrition>1.0</MaxNutrition>
+	</statOffsets>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_PostshiftMetabolism_HungerFactor</hediffDefName>
@@ -90,6 +101,10 @@
 		<li>When using the &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt; ability, receiving this gene, the pawn &lt;color=#8a8ae6&gt;receives 5 scars&lt;/color&gt;.</li>
 		<li>When &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt; to a form &lt;color=#8a8ae6&gt;without this gene&lt;/color&gt;, the pawn &lt;color=#8a8ae6&gt;loses all scars&lt;/color&gt;.</li>
 	</customEffectDescriptions>
+	<painFactor>0.8</painFactor>
+	<statFactors>
+	  <IncomingDamageFactor>1.20</IncomingDamageFactor>
+	</statFactors>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<scarsCount>3</scarsCount>
@@ -109,17 +124,22 @@
 		<li>&lt;color=#8a8ae6&gt;Shapeshift&lt;/color&gt; into a xenotype with this gene &lt;color=#8a8ae6&gt;does not require cd&lt;/color&gt;.</li>
 		<li>If at the moment of &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt; the pawn was in &lt;color=#8a8ae6&gt;recovery state&lt;/color&gt;, then bonuses from &lt;color=#8a8ae6&gt;postshift&lt;/color&gt; genes will not be received.</li>
 	</customEffectDescriptions>
-	<!-- <modExtensions> -->
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
-			<!-- <scarsCount>1</scarsCount> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
+	<!-- <statFactors> -->
+	  <!-- <MaxNutrition MayRequire="oskarpotocki.vanillafactionsexpanded.core">1.5625</MaxNutrition> -->
+	  <!-- <VEF_BodySize_Multiplier MayRequire="oskarpotocki.vanillafactionsexpanded.core">0.8</VEF_BodySize_Multiplier> -->
+	<!-- </statFactors> -->
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+			<hideGene>true</hideGene>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes">
 	<defName>WVC_Shapeshift_Deathless</defName>
 	<label>cellular</label>
-	<description>Carriers of this gene have archites that transfer consciousness to the cellular-molecular level, which makes their carriers almost indestructible. As long as at least a shred of flesh remains from their body, they can recover.</description>
+	<!-- <description>Carriers of this gene have archites that transfer consciousness to the cellular-molecular level, which makes their carriers almost indestructible. As long as at least a shred of flesh remains from their body, they can recover.</description> -->
+	<description>Carriers of this gene have archites that transfer their consciousness to the cellular-psychic level, making them almost unkillable. As long as their body has a piece of dark archotechnology in it, they can recover.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Cellular</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_PostShapeshift_Deathless_v0</iconPath>
 	<displayOrderInCategory>185</displayOrderInCategory>
@@ -130,20 +150,24 @@
 	<biostatArc>4</biostatArc>
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
-		<li>Carrier can only be killed by &lt;color=#8a8ae6&gt;destruction&lt;/color&gt; of the body, &lt;color=#8a8ae6&gt;surgery&lt;/color&gt;, or &lt;color=#8a8ae6&gt;removal&lt;/color&gt; of the gene.</li>
+		<!-- <li>Carrier can only be killed by &lt;color=#8a8ae6&gt;destruction&lt;/color&gt; of the body, &lt;color=#8a8ae6&gt;surgery&lt;/color&gt;, or &lt;color=#8a8ae6&gt;removal&lt;/color&gt; of the gene.</li> -->
+		<li>Carrier can only be killed by &lt;color=#8a8ae6&gt;extracting&lt;/color&gt; the archotech &lt;color=#8a8ae6&gt;shard&lt;/color&gt; from their body.</li>
 		<li>Healing: 1 hp/day</li>
 	</customEffectDescriptions>
-	<statFactors>
-	  <IncomingDamageFactor>1.10</IncomingDamageFactor>
-	</statFactors>
+	<!-- <statFactors> -->
+	  <!-- <IncomingDamageFactor>1.20</IncomingDamageFactor> -->
+	<!-- </statFactors> -->
 	<statOffsets>
-	  <MentalBreakThreshold>0.05</MentalBreakThreshold>
+	  <IncomingDamageFactor>0.20</IncomingDamageFactor>
+	  <MentalBreakThreshold>0.10</MentalBreakThreshold>
 	</statOffsets>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_ShapeshifterDeathless</hediffDefName>
-			<!-- <intervalRange>45000~72000</intervalRange> -->
-			<!-- <scarsCount>1</scarsCount> -->
+			<jobDef>WVC_XaG_DestroyCellularBody</jobDef>
+			<!-- <bodyparts> -->
+				<!-- <li>Brain</li> -->
+			<!-- </bodyparts> -->
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
 			<regeneration>1</regeneration>

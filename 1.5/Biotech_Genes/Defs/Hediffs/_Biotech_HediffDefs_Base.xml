@@ -203,4 +203,27 @@
 	</comps>
   </HediffDef>
 
+  <!-- ================== -->
+
+  <!-- <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base"> -->
+	<!-- <defName>WVC_UndeadRising</defName> -->
+	<!-- <label>undead rising</label> -->
+	<!-- <description>The process of recovery after natural resurrection. It has no negative consequences, but can prevent re-resurrection.</description> -->
+	<!-- <hediffClass>WVC_XenotypesAndGenes.Hediff_Undead</hediffClass> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <hungerRateFactor>1.10</hungerRateFactor> -->
+		<!-- <totalBleedFactor>0.90</totalBleedFactor> -->
+		<!-- <becomeVisible>true</becomeVisible> -->
+		<!-- <minSeverity>0.0</minSeverity> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+	<!-- <comps> -->
+		<!-- <li Class="HediffCompProperties_Disappears"> -->
+			<!-- <disappearsAfterTicks>120000~720000</disappearsAfterTicks> -->
+			<!-- <showRemainingTime>true</showRemainingTime> -->
+		<!-- </li> -->
+	<!-- </comps> -->
+  <!-- </HediffDef> -->
+
 </Defs>

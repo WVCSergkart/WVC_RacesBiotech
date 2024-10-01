@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef Name="WVC_XenotypesAndGenes_GeneSpecialPurposes_Base" Abstract="True">
-	<iconColor>(255, 255, 255)</iconColor>
-	<selectionWeight>0.00</selectionWeight>
-	<canGenerateInGeneSet>false</canGenerateInGeneSet>
-	<displayCategory>WVC_Shapeshifter</displayCategory>
-	<biostatCpx>0</biostatCpx>
-	<biostatArc>1</biostatArc>
-	<biostatMet>0</biostatMet>
-  </GeneDef>
+  <!-- <GeneDef Name="WVC_XenotypesAndGenes_GeneSpecialPurposes_Base" Abstract="True"> -->
+	<!-- <selectionWeight>0.00</selectionWeight> -->
+	<!-- <canGenerateInGeneSet>false</canGenerateInGeneSet> -->
+	<!-- <biostatCpx>0</biostatCpx> -->
+	<!-- <biostatArc>1</biostatArc> -->
+	<!-- <biostatMet>0</biostatMet> -->
+  <!-- </GeneDef> -->
 
   <!-- ============================================================== -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSpecialPurposes_Base">
+  <GeneDef>
 	<defName>WVC_XenotypesAndGenes_SubXenotypeShapeshifter</defName>
 	<label>evotype</label>
 	<!-- For modders only -->
@@ -22,6 +20,8 @@
 	<description>Carriers of this gene have a very complex genetic code.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_XenotypeShapeshifter</geneClass>
 	<iconPath>WVC/UI/Genes/DevHook_ReplaceGeneSet_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayCategory>WVC_Shapeshifter</displayCategory>
 	<selectionWeight>0.00</selectionWeight>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<biostatCpx>7</biostatCpx>
@@ -31,7 +31,11 @@
 	  <li>&lt;color=#ff8585&gt;For modders only. Useless for players.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<displayOrderInCategory>0</displayOrderInCategory>
-	<modExtensions Inherit="False"/>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+			<hideGene>true</hideGene>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <!-- ================= -->

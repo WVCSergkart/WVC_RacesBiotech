@@ -104,19 +104,19 @@ It is recommended to enable this option if you have a heavy mod load and interfa
 A restart is required to apply patches.</WVC_ToolTip_disableUniqueGeneInterface>
 
 	<!-- ====================================================================================== -->
-	<WVC_Label_enableGenesInfo>Enable genes info display</WVC_Label_enableGenesInfo>
-	<WVC_Label_enableGeneSpawnerGizmo>Enable gene-spawner info</WVC_Label_enableGeneSpawnerGizmo>
-	<WVC_Label_enableGeneWingInfo>Enable gene-wing info</WVC_Label_enableGeneWingInfo>
-	<WVC_Label_enableGeneBlesslinkInfo>Enable blesslink summon info</WVC_Label_enableGeneBlesslinkInfo>
-	<WVC_Label_enableGeneUndeadInfo>Enable undead info</WVC_Label_enableGeneUndeadInfo>
-	<WVC_Label_enableGeneScarifierInfo>Enable scarifier info</WVC_Label_enableGeneScarifierInfo>
-	<WVC_Label_enableGeneInstabilityInfo>Enable genetic instability info</WVC_Label_enableGeneInstabilityInfo>
-	<WVC_Label_enableGolemsInfo>Enable golem bandwidth info</WVC_Label_enableGolemsInfo>
-	<WVC_Label_enableGeneGauranlenConnectionInfo>Enable gauranlen dryad info</WVC_Label_enableGeneGauranlenConnectionInfo>
+	<!-- <WVC_Label_enableGenesInfo>Enable genes info display</WVC_Label_enableGenesInfo> -->
+	<!-- <WVC_Label_enableGeneSpawnerGizmo>Enable gene-spawner info</WVC_Label_enableGeneSpawnerGizmo> -->
+	<!-- <WVC_Label_enableGeneWingInfo>Enable gene-wing info</WVC_Label_enableGeneWingInfo> -->
+	<!-- <WVC_Label_enableGeneBlesslinkInfo>Enable blesslink summon info</WVC_Label_enableGeneBlesslinkInfo> -->
+	<!-- <WVC_Label_enableGeneUndeadInfo>Enable undead info</WVC_Label_enableGeneUndeadInfo> -->
+	<!-- <WVC_Label_enableGeneScarifierInfo>Enable scarifier info</WVC_Label_enableGeneScarifierInfo> -->
+	<!-- <WVC_Label_enableGeneInstabilityInfo>Enable genetic instability info</WVC_Label_enableGeneInstabilityInfo> -->
+	<!-- <WVC_Label_enableGolemsInfo>Enable golem bandwidth info</WVC_Label_enableGolemsInfo> -->
+	<!-- <WVC_Label_enableGeneGauranlenConnectionInfo>Enable gauranlen dryad info</WVC_Label_enableGeneGauranlenConnectionInfo> -->
 
-	<WVC_ToolTip_enableGenesInfo>Responsible for displaying gene information. For example, for spawner genes: time, name and count.
+	<!-- <WVC_ToolTip_enableGenesInfo>Responsible for displaying gene information. For example, for spawner genes: time, name and count. -->
 
-A restart is required.</WVC_ToolTip_enableGenesInfo>
+<!-- A restart is required.</WVC_ToolTip_enableGenesInfo> -->
 	<!-- ====================================================================================== -->
 
 	<WVC_Label_fixVanillaGeneImmunityCheck>Fix vanilla genes immunity check</WVC_Label_fixVanillaGeneImmunityCheck>
@@ -228,29 +228,29 @@ This is exactly how this gene was originally intended, but this can greatly skew
 	<WVC_ToolTip_spawnXenoForcerSerumsFromTraders>If enabled, traders will sell serums. Does not affect orbital xenogenes trader.</WVC_ToolTip_spawnXenoForcerSerumsFromTraders>
 
 	<!-- ====================================================================================== -->
-	<WVC_Label_serumsForAllXenotypes>Generate xenotypes serums</WVC_Label_serumsForAllXenotypes>
-	<WVC_ToolTip_serumsForAllXenotypes>Affects whether serums for all possible xenotypes will be generated. Does not affect custom ones. Restart required.
+	<!-- <WVC_Label_serumsForAllXenotypes>Generate xenotypes serums</WVC_Label_serumsForAllXenotypes> -->
+	<!-- <WVC_ToolTip_serumsForAllXenotypes>Affects whether serums for all possible xenotypes will be generated. Does not affect custom ones. Restart required. -->
 
-May affect startup speed on modlists with a lot of mods that add xenotypes.
+<!-- May affect startup speed on modlists with a lot of mods that add xenotypes. -->
 
-Outdated. Do not use this feature as it will be removed soon and it may corrupt your saves.</WVC_ToolTip_serumsForAllXenotypes>
-
-	<!-- ====================================================================================== -->
-	<WVC_Label_serumsForAllXenotypes_GenBase>Generate base xenotypes serums</WVC_Label_serumsForAllXenotypes_GenBase>
-	<WVC_Label_serumsForAllXenotypes_GenUltra>Generate ultra xenotypes serums</WVC_Label_serumsForAllXenotypes_GenUltra>
-	<WVC_Label_serumsForAllXenotypes_GenHybrid>Generate hybrid xenotypes serums</WVC_Label_serumsForAllXenotypes_GenHybrid>
-
-	<WVC_ToolTip_serumsForAllXenotypes_GenBase>Responsible for generating serums that can be crafted.</WVC_ToolTip_serumsForAllXenotypes_GenBase>
-	<WVC_ToolTip_serumsForAllXenotypes_GenUltra>Responsible for the generation of serums that can be purchased or spawned using the gene of the same name.</WVC_ToolTip_serumsForAllXenotypes_GenUltra>
-	<WVC_ToolTip_serumsForAllXenotypes_GenHybrid>Responsible for the generation of serums with two xenotypes that can only be purchased or spawned with the gene of the same name.</WVC_ToolTip_serumsForAllXenotypes_GenHybrid>
+<!-- Outdated. Do not use this feature as it will be removed soon and it may corrupt your saves.</WVC_ToolTip_serumsForAllXenotypes> -->
 
 	<!-- ====================================================================================== -->
-	<WVC_Label_serumsForAllXenotypes_Recipes>Generate serum recipes</WVC_Label_serumsForAllXenotypes_Recipes>
-	<WVC_ToolTip_serumsForAllXenotypes_Recipes>If enabled, it creates a recipe for each serum, allowing it to be used through the "Operation" menu, in the pawn's health tab. Restart required.</WVC_ToolTip_serumsForAllXenotypes_Recipes>
+	<!-- <WVC_Label_serumsForAllXenotypes_GenBase>Generate base xenotypes serums</WVC_Label_serumsForAllXenotypes_GenBase> -->
+	<!-- <WVC_Label_serumsForAllXenotypes_GenUltra>Generate ultra xenotypes serums</WVC_Label_serumsForAllXenotypes_GenUltra> -->
+	<!-- <WVC_Label_serumsForAllXenotypes_GenHybrid>Generate hybrid xenotypes serums</WVC_Label_serumsForAllXenotypes_GenHybrid> -->
+
+	<!-- <WVC_ToolTip_serumsForAllXenotypes_GenBase>Responsible for generating serums that can be crafted.</WVC_ToolTip_serumsForAllXenotypes_GenBase> -->
+	<!-- <WVC_ToolTip_serumsForAllXenotypes_GenUltra>Responsible for the generation of serums that can be purchased or spawned using the gene of the same name.</WVC_ToolTip_serumsForAllXenotypes_GenUltra> -->
+	<!-- <WVC_ToolTip_serumsForAllXenotypes_GenHybrid>Responsible for the generation of serums with two xenotypes that can only be purchased or spawned with the gene of the same name.</WVC_ToolTip_serumsForAllXenotypes_GenHybrid> -->
 
 	<!-- ====================================================================================== -->
-	<WVC_Label_serumsSpawnersForAllXenotypes>Generate serum spawner genes</WVC_Label_serumsSpawnersForAllXenotypes>
-	<WVC_ToolTip_serumsSpawnersForAllXenotypes>If enabled, a spawner gene will be added for each serum. Restart required.</WVC_ToolTip_serumsSpawnersForAllXenotypes>
+	<!-- <WVC_Label_serumsForAllXenotypes_Recipes>Generate serum recipes</WVC_Label_serumsForAllXenotypes_Recipes> -->
+	<!-- <WVC_ToolTip_serumsForAllXenotypes_Recipes>If enabled, it creates a recipe for each serum, allowing it to be used through the "Operation" menu, in the pawn's health tab. Restart required.</WVC_ToolTip_serumsForAllXenotypes_Recipes> -->
+
+	<!-- ====================================================================================== -->
+	<!-- <WVC_Label_serumsSpawnersForAllXenotypes>Generate serum spawner genes</WVC_Label_serumsSpawnersForAllXenotypes> -->
+	<!-- <WVC_ToolTip_serumsSpawnersForAllXenotypes>If enabled, a spawner gene will be added for each serum. Restart required.</WVC_ToolTip_serumsSpawnersForAllXenotypes> -->
 
 	<!-- ====================================================================================== -->
 

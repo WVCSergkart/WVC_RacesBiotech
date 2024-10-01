@@ -28,12 +28,18 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		// public override void PostRemove()
+		// {
+			// base.PostRemove();
+			// HediffUtility.Notify_GeneRemoved(this, pawn);
+		// }
+
 	}
 
 	public class Gene_PostShapeshift_Recovery : Gene_ShapeshifterDependant, IGeneShapeshift
 	{
 
-		public void Notify_PostStart(Gene_Shapeshifter shapeshiftGene)
+		public void Notify_PreShapeshift(Gene_Shapeshifter shapeshiftGene)
 		{
 		}
 
@@ -51,7 +57,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_PostShapeshift_Regeneration : Gene_ShapeshifterDependant, IGeneShapeshift
 	{
 
-		public void Notify_PostStart(Gene_Shapeshifter shapeshiftGene)
+		public void Notify_PreShapeshift(Gene_Shapeshifter shapeshiftGene)
 		{
 			List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
 			for (int num = 0; num < hediffs.Count; num++)
@@ -70,7 +76,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_PostShapeshift_GiveHediff : Gene_ShapeshifterDependant, IGeneShapeshift
 	{
 
-		public void Notify_PostStart(Gene_Shapeshifter shapeshiftGene)
+		public void Notify_PreShapeshift(Gene_Shapeshifter shapeshiftGene)
 		{
 		}
 
@@ -112,26 +118,40 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
+			int currentTry = 0;
 			while (pawn.health.hediffSet.GetHediffCount(HediffDefOf.Scarification) < 5)
 			{
 				Gene_Scarifier.Scarify(pawn);
+				currentTry++;
+				if (currentTry > 8)
+				{
+					break;
+				}
 			}
 		}
 
-		public void Notify_PostStart(Gene_Shapeshifter shapeshiftGene)
+		public void Notify_PreShapeshift(Gene_Shapeshifter shapeshiftGene)
 		{
 			if (!ModLister.CheckIdeology("Scarification"))
 			{
 				return;
 			}
-			List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
-			for (int num = 0; num < hediffs.Count; num++)
+			// List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
+			// for (int num = 0; num < hediffs.Count; num++)
+			// {
+				// if (hediffs[num].def != HediffDefOf.Scarification)
+				// {
+					// continue;
+				// }
+				// pawn.health.RemoveHediff(hediffs[num]);
+			// }
+			foreach (Hediff hediff in pawn.health.hediffSet.hediffs.ToList())
 			{
-				if (hediffs[num].def != HediffDefOf.Scarification)
+				if (hediff.def != HediffDefOf.Scarification)
 				{
 					continue;
 				}
-				pawn.health.RemoveHediff(hediffs[num]);
+				pawn.health.RemoveHediff(hediff);
 			}
 		}
 

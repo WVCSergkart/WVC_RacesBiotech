@@ -98,7 +98,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Wings : Gene_Flickable, IGeneInspectInfo
+	public class Gene_Wings : Gene_Flickable
 	{
 
 		private string Wings()
@@ -136,17 +136,17 @@ namespace WVC_XenotypesAndGenes
 			};
 		}
 
-		public string GetInspectInfo
-		{
-			get
-			{
-				if (OnOrOff)
-				{
-					return "WVC_XaG_Gene_Wings_On_Info".Translate().Resolve();
-				}
-				return null;
-			}
-		}
+		// public string GetInspectInfo
+		// {
+			// get
+			// {
+				// if (OnOrOff)
+				// {
+					// return "WVC_XaG_Gene_Wings_On_Info".Translate().Resolve();
+				// }
+				// return null;
+			// }
+		// }
 
 	}
 

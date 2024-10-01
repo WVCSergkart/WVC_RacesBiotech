@@ -40,6 +40,22 @@
 
   <!-- ======================== -->
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathless_UndeadWithSickness">
+	<defName>WVC_NaturalUndead</defName>
+	<displayCategory>Healing</displayCategory>
+	<biostatCpx>7</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-6</biostatMet>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+			<hideGene>true</hideGene>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Obsolete"/>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- ======================== -->
+
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_KittyEars">
 	<defName>WVC_Mecha_NoEars</defName>
 	<label>protective plate</label>

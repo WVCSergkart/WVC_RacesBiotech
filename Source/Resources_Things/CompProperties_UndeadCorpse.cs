@@ -1,9 +1,11 @@
 using RimWorld;
+using System;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
+	[Obsolete]
 	public class CompProperties_UndeadCorpse : CompProperties
 	{
 
@@ -18,11 +20,12 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete]
 	public class CompUndeadCorpse : ThingComp
 	{
 
-		public int resurrectionDelay = 12000;
-		public bool shouldResurrect = false;
+		private int resurrectionDelay = 0;
+		private bool shouldResurrect = false;
 
 		private CompProperties_UndeadCorpse Props => (CompProperties_UndeadCorpse)props;
 
@@ -36,14 +39,24 @@ namespace WVC_XenotypesAndGenes
 
 		public Pawn InnerPawn => Corpse?.InnerPawn;
 
-		public Gene_Undead Gene_Undead => InnerPawn.GetUndeadGene(out Gene_Undead gene_undead) ? gene_undead : null;
+		// public Gene_Undead Gene_Undead => InnerPawn.GetUndeadGene(out Gene_Undead gene_undead) ? gene_undead : null;
 
-		public override void PostSpawnSetup(bool respawningAfterLoad)
+		// public override void PostSpawnSetup(bool respawningAfterLoad)
+		// {
+			// if (!respawningAfterLoad)
+			// {
+				// shouldResurrect = Gene_Undead?.UndeadCanResurrect == true && (InnerPawn.IsColonist || WVC_Biotech.settings.canNonPlayerPawnResurrect);
+				// ResetCounter();
+			// }
+		// }
+
+		public void SetUndead(bool resurrect, int delay)
 		{
-			if (!respawningAfterLoad)
+			shouldResurrect = resurrect;
+			resurrectionDelay = delay;
+			if (delay > 0)
 			{
-				shouldResurrect = Gene_Undead?.UndeadCanResurrect == true && (InnerPawn.IsColonist || WVC_Biotech.settings.canNonPlayerPawnResurrect);
-				ResetCounter();
+				resurrectionDelay += Props.resurrectionDelay.RandomInRange;
 			}
 		}
 
@@ -81,29 +94,33 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (Corpse?.CurRotDrawMode != RotDrawMode.Fresh)
+			InnerPawn.GetUndeadGene(out Gene_Undead gene);
+			if (gene != null)
 			{
-				if (ModLister.CheckAnomaly("Shambler"))
+				if (Corpse?.CurRotDrawMode != RotDrawMode.Fresh)
 				{
-					MutantUtility.ResurrectAsShambler(InnerPawn, -1, InnerPawn.Faction);
+					if (ModLister.CheckAnomaly("Shambler"))
+					{
+						MutantUtility.ResurrectAsShambler(InnerPawn, -1, InnerPawn.Faction);
+					}
 				}
-			}
-			else if (InnerPawn?.RaceProps?.Humanlike == true && Gene_Undead?.UndeadCanResurrect == true)
-			{
-				GeneResourceUtility.RegenComaOrDeathrest(InnerPawn, Gene_Undead);
+				else
+				{
+					GeneResourceUtility.RegenComaOrDeathrest(InnerPawn, gene);
+				}
 			}
 			shouldResurrect = false;
 		}
 
-		public void ResetCounter()
-		{
-			int delay = Props.resurrectionDelay.RandomInRange;
-			if (Gene_Undead != null)
-			{
-				delay += Gene_Undead.Giver.additionalDelay.RandomInRange;
-			}
-			resurrectionDelay = Find.TickManager.TicksGame + delay;
-		}
+		// public void ResetCounter()
+		// {
+			// int delay = Props.resurrectionDelay.RandomInRange;
+			// if (Gene_Undead != null)
+			// {
+				// delay += Gene_Undead.Giver.additionalDelay.RandomInRange;
+			// }
+			// resurrectionDelay = Find.TickManager.TicksGame + delay;
+		// }
 
 		public override void PostExposeData()
 		{

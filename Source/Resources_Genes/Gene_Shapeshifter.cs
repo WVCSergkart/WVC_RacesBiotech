@@ -164,6 +164,7 @@ namespace WVC_XenotypesAndGenes
 				// HediffUtility.RemoveHediffsFromList(pawn, currentMode.hediffDefs);
 			// }
 			HediffUtility.RemoveHediffsFromList(pawn, Giver?.hediffDefs);
+			// HediffUtility.Notify_GeneRemoved(this, pawn);
 		}
 
 		public void Notify_Override()
@@ -180,14 +181,12 @@ namespace WVC_XenotypesAndGenes
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			// RemoveHeritableGenes();
-			if (WVC_Biotech.settings.shapeshifterGeneUnremovable)
-			{
-				pawn.genes.AddGene(this.def, false);
-				// UndeadUtility.TryTransferGeneStats(this, pawn.genes.GetFirstGeneOfType<Gene_Shapeshifter>());
-				Gene_Shapeshifter newShifter = pawn.genes.GetFirstGeneOfType<Gene_Shapeshifter>();
-				newShifter.UpdateForNewGene(this);
-			}
+			// if (WVC_Biotech.settings.shapeshifterGeneUnremovable)
+			// {
+				// pawn.genes.AddGene(this.def, false);
+				// Gene_Shapeshifter newShifter = pawn.genes.GetFirstGeneOfType<Gene_Shapeshifter>();
+				// newShifter.UpdateForNewGene(this);
+			// }
 			RemoveHediffs();
 		}
 

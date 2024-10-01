@@ -31,6 +31,8 @@ namespace WVC_XenotypesAndGenes
 
 		public int nextTick = 60000;
 
+		// private bool geneIsRemoved = false;
+
 		public override void CompPostPostAdd(DamageInfo? dinfo)
 		{
 			nextTick = Props.checkInterval.RandomInRange;
@@ -76,6 +78,15 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		// public virtual void Notify_GeneRemoved(Gene gene)
+		// {
+			// if (geneDef == gene.def || Props.geneDef == gene.def)
+			// {
+				// geneIsRemoved = true;
+				// base.Pawn.health.RemoveHediff(parent);
+			// }
+		// }
+
 		public override void CompExposeData()
 		{
 			Scribe_Defs.Look(ref geneDef, "geneDef");
@@ -84,6 +95,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete]
 	public class HediffComp_ShapeshifterHediff : HediffComp
 	{
 

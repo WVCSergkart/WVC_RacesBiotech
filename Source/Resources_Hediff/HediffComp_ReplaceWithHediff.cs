@@ -16,6 +16,8 @@ namespace WVC_XenotypesAndGenes
 
 		public List<GeneDef> geneDefs;
 
+		public bool removeWhenBodyPartDestroyed = false;
+
 		public HediffCompProperties_ReplaceWithHediff()
 		{
 			compClass = typeof(HediffComp_ReplaceWithHediff);
@@ -66,17 +68,25 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class HediffComp_ReplaceWhenBrainDestroyed : HediffComp
+	public class HediffComp_AddHediffWhenBodyPartDestroyed : HediffComp
 	{
 
 		public HediffCompProperties_ReplaceWithHediff Props => (HediffCompProperties_ReplaceWithHediff)props;
 
 		public override void Notify_PawnPostApplyDamage(DamageInfo dinfo, float totalDamageDealt)
 		{
-			if (Pawn.health.hediffSet.GetBrain() == null)
+			if (parent.Part == null)
+			{
+				Pawn.health.RemoveHediff(parent);
+				return;
+			}
+			if (Pawn.health.hediffSet.PartIsMissing(parent.Part))
 			{
 				HediffUtility.TryAddHediff(Props.hediffDef, Pawn, null);
-				Pawn.health.RemoveHediff(parent);
+				if (Props.removeWhenBodyPartDestroyed)
+				{
+					Pawn.health.RemoveHediff(parent);
+				}
 			}
 		}
 

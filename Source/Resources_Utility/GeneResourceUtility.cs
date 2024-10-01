@@ -49,7 +49,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (gene is IGeneShapeshift geneShapeshifter && gene.Active)
 				{
-					geneShapeshifter.Notify_PostStart(shapeshiftGene);
+					geneShapeshifter.Notify_PreShapeshift(shapeshiftGene);
 				}
 			}
 		}
@@ -183,33 +183,11 @@ namespace WVC_XenotypesAndGenes
 
 		// Coma TEST
 
-		[Obsolete]
-		public static void ShouldUndeadRegenComaOrDeathrest(bool resurrect, Pawn pawn)
-		{
-			if (resurrect)
-			{
-				Gene_Undead undead = pawn?.genes?.GetFirstGeneOfType<Gene_Undead>();
-				if (undead != null)
-				{
-					RegenComaOrDeathrest(pawn, undead);
-				}
-			}
-		}
-
 		public static void RegenComaOrDeathrest(Pawn pawn, Gene_Undead gene)
 		{
 			// Brain test
 			if (pawn?.health?.hediffSet?.GetBrain() == null)
 			{
-				// Gene_BackstoryChanger.BackstoryChanger(pawn, gene.Giver.childhoodDef, gene.Giver.adulthoodDef);
-				// foreach (SkillRecord item in pawn.skills.skills)
-				// {
-					// if (!item.TotallyDisabled && item.XpTotalEarned > 0f)
-					// {
-						// float num = item.XpTotalEarned;
-						// item.Learn(0f - num, direct: true);
-					// }
-				// }
 				DuplicateUtility.NullifyBackstory(pawn);
 				DuplicateUtility.NullifySkills(pawn);
 			}
@@ -218,10 +196,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			// ResurrectionUtility.Resurrect(pawn);
-			// pawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
 			pawn.health.AddHediff(WVC_GenesDefOf.WVC_Resurgent_UndeadResurrectionRecovery);
-			// pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(WVC_GenesDefOf.WVC_XenotypesAndGenes_WasResurrected);
 			if (ModLister.IdeologyInstalled)
 			{
 				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_GenesDefOf.WVC_UndeadResurrection, pawn.Named(HistoryEventArgsNames.Doer)));
