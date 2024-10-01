@@ -18,30 +18,20 @@
 	<description>Carriers of this gene have archites which transform them into a symbiotic organism similar to the dryad queen. The body of gene carriers undergoes a number of changes so that they can gestate dryads and maintain a brood. They lose the ability to reproduce, and they develop a special organ that accumulates nutrients for the brood. With the help of a psychic connection that is formed with each gestated dryad, they can partially control them.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_DryadQueen</geneClass>
 	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Dryads</resourceGizmoType>
-	<!-- <iconPath>WVC/UI/Genes/Gene_GestatorGauranlen_v0</iconPath> -->
 	<iconPath>WVC/UI/Genes/Gene_DryadQueen_v0</iconPath>
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>2</biostatArc>
 	<biostatMet>7</biostatMet>
 	<iconColor>(255, 255, 255)</iconColor>
 	<minAgeActive>13</minAgeActive>
-	<!-- <statFactors> -->
-	  <!-- <PruningSpeed>2.0</PruningSpeed> -->
-	<!-- </statFactors> -->
 	<statOffsets>
-	  <!-- <MaxNutrition>0.4</MaxNutrition> -->
 	  <PruningSpeed>0.5</PruningSpeed>
 	  <WVC_DryadsLimit>4</WVC_DryadsLimit>
 	</statOffsets>
-	<!-- <aptitudes> -->
-	  <!-- <Plants>8</Plants> -->
-	<!-- </aptitudes> -->
 	<customEffectDescriptions>
-	  <!-- <li>TEXT &lt;color=#8a8ae6&gt;WORD&lt;/color&gt; TEXT &lt;color=#ff8585&gt;WARNING&lt;/color&gt;.</li> -->
 	  <li>Carrier &lt;color=#8a8ae6&gt;spawns dryads&lt;/color&gt; every (*DateTime)8-10 days(/DateTime).</li>
 	  <li>Each &lt;color=#8a8ae6&gt;dryad's caste&lt;/color&gt; is chosen &lt;color=#ff8585&gt;manually, separately&lt;/color&gt;.</li>
 	  <li>&lt;color=#8a8ae6&gt;Dryads do not require food&lt;/color&gt;, and each dryad &lt;color=#8a8ae6&gt;increases max nutrition&lt;/color&gt; by 0.1</li>
-	  <!-- <li>&lt;color=#8a8ae6&gt;Dryads can travel in a caravan.&lt;/color&gt;</li> -->
 	  <li>&lt;color=#ff8585&gt;Dryads always follow their queen.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<symbolPack>
@@ -51,14 +41,13 @@
 	</symbolPack>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
-			<!-- <defaultDryadPawnKindDef>WVC_XaG_Dryad_Basic</defaultDryadPawnKindDef> -->
 			<defaultDryadPawnKindDef>Dryad_Basic</defaultDryadPawnKindDef>
-			<!-- <defaultDryadThingDef>WVC_XaG_Dryad_Basic</defaultDryadThingDef> -->
 			<postGestationSickness>WVC_XenotypesAndGenes_PostGestationRecovery</postGestationSickness>
 			<dryadsStatLimit>WVC_DryadsLimit</dryadsStatLimit>
 			<connectedDryadsLimit>6</connectedDryadsLimit>
 			<spawnIntervalRange>480000~600000</spawnIntervalRange>
 			<dryadDiedMemoryDef>DryadDied</dryadDiedMemoryDef>
+			<initialHediffDef>WVC_GauranlenDryads_FilthFactor</initialHediffDef>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_DryadQueen_MaxNutrition</hediffDefName>
@@ -71,56 +60,9 @@
   <!-- Dryads which also need to be patched regardless of GauranlenTreeModeDefs. -->
   <WVC_XenotypesAndGenes.DummyDryadTemplateDef>
 	<defName>WVC_XaG_Dryad_Basic</defName>
-	<!-- <dryadDef>Dryad_Basic</dryadDef> -->
-	<!-- <geneDef>WVC_DryadQueen</geneDef> -->
 	<dryadDefs>
 	  <li>Dryad_Basic</li>
 	</dryadDefs>
   </WVC_XenotypesAndGenes.DummyDryadTemplateDef>
-
-  <!-- <ThingDef ParentName="DryadBase"> -->
-	<!-- <defName>WVC_XaG_Dryad_Basic</defName> -->
-	<!-- <label>immature dryad</label> -->
-	<!-- <description>Dryads are small mammalian creatures that have a symbiotic relationship with the Gauranlen tree. This immature dryad can support and protect its tree, but its main purpose is to morph into more specialized and powerful dryad forms.</description> -->
-	<!-- <descriptionHyperlinks Inherit="False"> -->
-	  <!-- <GeneDef>WVC_DryadQueen</GeneDef> -->
-	<!-- </descriptionHyperlinks> -->
-	<!-- <statBases> -->
-	  <!-- <MoveSpeed>3</MoveSpeed> -->
-	<!-- </statBases> -->
-	<!-- <race> -->
-	  <!-- <linkedCorpseKind>Dryad_Basic</linkedCorpseKind> -->
-	  <!-- <useMeatFrom>Dryad_Basic</useMeatFrom> -->
-	  <!-- <thinkTreeMain>WVC_XaG_Dryad</thinkTreeMain> -->
-	  <!-- <allowedOnCaravan>true</allowedOnCaravan> -->
-	  <!-- <disableAreaControl>false</disableAreaControl> -->
-	  <!-- <lifeStageAges> -->
-		<!-- <li> -->
-		  <!-- <def>AnimalAdult</def> -->
-		  <!-- <soundWounded>Pawn_Dryad_Wounded</soundWounded> -->
-		  <!-- <soundCall>Pawn_Dryad_Call</soundCall> -->
-		<!-- </li> -->
-	  <!-- </lifeStageAges> -->
-	  <!-- <headPosPerRotation> -->
-		<!-- <li>(0.0, 0, 0.12)</li> -->
-		<!-- <li>(0.08, 0, 0.04)</li> -->
-		<!-- <li>(0, 0, 0)</li> -->
-		<!-- <li>(-0.08, 0, 0.04)</li> -->
-	  <!-- </headPosPerRotation> -->
-	<!-- </race> -->
-	<!-- <tradeTags> -->
-	  <!-- <li>AnimalDryad</li> -->
-	<!-- </tradeTags> -->
-	<!-- <comps> -->
-	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_GauranlenDryad"> -->
-		<!-- <defaultDryadPawnKindDef>Dryad_Basic</defaultDryadPawnKindDef> -->
-	  <!-- </li> -->
-	<!-- </comps> -->
-	<!-- <modExtensions> -->
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
-			<!-- <generateCorpse>false</generateCorpse> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
-  <!-- </ThingDef> -->
 
 </Defs>

@@ -24,8 +24,15 @@
   </HediffDef>
 
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_GauranlenDryads_FilthFactor</defName>
+	<label>gestated dryad</label>
+	<hediffClass>WVC_XenotypesAndGenes.Hediff_GestatedDryad</hediffClass>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
 	<defName>WVC_GauranlenDryads_Tough</defName>
 	<label>tough</label>
+	<hediffClass>Hediff</hediffClass>
 	<stages>
 	  <li>
 		<becomeVisible>false</becomeVisible>
@@ -39,6 +46,7 @@
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
 	<defName>WVC_GauranlenDryads_ArmorSkin</defName>
 	<label>armor skin</label>
+	<hediffClass>Hediff</hediffClass>
 	<stages>
 	  <li>
 		<becomeVisible>false</becomeVisible>
@@ -73,6 +81,7 @@
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
 	<defName>WVC_GauranlenDryads_MeleeDamageFactor</defName>
 	<label>melee damage factor</label>
+	<hediffClass>Hediff</hediffClass>
 	<stages>
 	  <li>
 		<becomeVisible>false</becomeVisible>

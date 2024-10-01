@@ -24,6 +24,25 @@
 	</exclusionTags>
   </GeneDef>
 
+  <GeneDef Name="WVC_XenotypesAndGenes_SunPhobiaSensitivity_Base" Abstract="True">
+	<displayCategory>Psychic</displayCategory>
+	<displayOrderInCategory>190</displayOrderInCategory>
+	<selectionWeight>0.003</selectionWeight>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>night</symbol></li>
+		<li><symbol>dark</symbol></li>
+		<li><symbol>dar</symbol></li>
+		<li><symbol>moon</symbol></li>
+		<li><symbol>sleep</symbol></li>
+		<li><symbol>psyh</symbol></li>
+		<li><symbol>darkn</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <!-- ============== -->
+
   <GeneDef ParentName="WVC_XenotypesAndGenes_PsychicSunSensitivityBase">
 	<defName>WVC_UVSensitivity_Psychic</defName>
 	<label>psychic UV sensitivity</label>
@@ -82,66 +101,6 @@
 		<li><symbol>darkn</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
-  </GeneDef>
-
-  <!-- UV Phobia -->
-
-  <GeneDef Name="WVC_XenotypesAndGenes_SunPhobiaSensitivity_Base" Abstract="True">
-	<displayCategory>Psychic</displayCategory>
-	<displayOrderInCategory>190</displayOrderInCategory>
-	<selectionWeight>0.003</selectionWeight>
-	<symbolPack>
-	  <prefixSymbols>
-		<li><symbol>night</symbol></li>
-		<li><symbol>dark</symbol></li>
-		<li><symbol>dar</symbol></li>
-		<li><symbol>moon</symbol></li>
-		<li><symbol>sleep</symbol></li>
-		<li><symbol>psyh</symbol></li>
-		<li><symbol>darkn</symbol></li>
-	  </prefixSymbols>
-	</symbolPack>
-  </GeneDef>
-
-  <GeneDef ParentName="WVC_XenotypesAndGenes_SunPhobiaSensitivity_Base">
-	<defName>WVC_DebuffUV_StrongInjuryHealing</defName>
-	<label>strong sunphobia</label>
-	<description>Carriers of this gene partially stop regeneration when they are in sunlight.</description>
-	<iconPath>WVC/UI/Genes/SunDebuff_Heal1</iconPath>
-	<displayCategory>Healing</displayCategory>
-	<dislikesSunlight>true</dislikesSunlight>
-	<biostatCpx>2</biostatCpx>
-	<biostatMet>3</biostatMet>
-	<exclusionTags>
-	  <li>WVC_DebuffUV_InjuryHealing</li>
-	</exclusionTags>
-	<conditionalStatAffecters>
-	  <li Class="ConditionalStatAffecter_InSunlight">
-		<statFactors>
-		  <InjuryHealingFactor>0.5</InjuryHealingFactor>
-		</statFactors>
-	  </li>
-	</conditionalStatAffecters>
-  </GeneDef>
-  <GeneDef ParentName="WVC_XenotypesAndGenes_SunPhobiaSensitivity_Base">
-	<defName>WVC_DebuffUV_ExtremeInjuryHealing</defName>
-	<label>extreme sunphobia</label>
-	<description>Carriers of this gene completely stop regeneration when they are in sunlight.</description>
-	<iconPath>WVC/UI/Genes/SunDebuff_Heal2</iconPath>
-	<displayCategory>Healing</displayCategory>
-	<dislikesSunlight>true</dislikesSunlight>
-	<biostatCpx>3</biostatCpx>
-	<biostatMet>4</biostatMet>
-	<exclusionTags>
-	  <li>WVC_DebuffUV_InjuryHealing</li>
-	</exclusionTags>
-	<conditionalStatAffecters>
-	  <li Class="ConditionalStatAffecter_InSunlight">
-		<statFactors>
-		  <InjuryHealingFactor>0.0</InjuryHealingFactor>
-		</statFactors>
-	  </li>
-	</conditionalStatAffecters>
   </GeneDef>
 
   <!-- UV Psychic Sensitivity -->

@@ -16,51 +16,8 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
-		// [Obsolete]
 		public bool xenogermComaAfterShapeshift = true;
 		public bool genesRegrowAfterShapeshift = true;
-
-		// private ShapeshiftModeDef currentMode;
-
-		// private List<ShapeshiftModeDef> unlockedModes;
-
-		// public List<ShapeshiftModeDef> UnlockedModes
-		// {
-			// get
-			// {
-				// if (unlockedModes == null)
-				// {
-					// unlockedModes = new();
-				// }
-				// return unlockedModes;
-			// }
-		// }
-
-		// public ShapeshiftModeDef ShiftMode => currentMode;
-
-		// public void SetMode(ShapeshiftModeDef newMode)
-		// {
-			// if (currentMode != null)
-			// {
-				// HediffUtility.RemoveHediffsFromList(pawn, currentMode.hediffDefs);
-			// }
-			// currentMode = newMode;
-			// if (currentMode != null)
-			// {
-				// foreach (HediffDef hediffDef in currentMode.hediffDefs)
-				// {
-					// HediffUtility.TryAddHediff(hediffDef, pawn, def);
-				// }
-			// }
-		// }
-
-		// public void UnlockMode(ShapeshiftModeDef newMode)
-		// {
-			// if (!unlockedModes.Contains(newMode))
-			// {
-				// unlockedModes.Add(newMode);
-			// }
-		// }
 
 		public override void PostAdd()
 		{
@@ -71,71 +28,7 @@ namespace WVC_XenotypesAndGenes
 				pawn.genes.AddGene(this.def, false);
 				return;
 			}
-			//if (!pawn.Spawned)
-			//{
-			//	UndeadUtility.AddRandomTraitFromListWithChance(pawn, Props);
-			//}
-			// Reset();
 		}
-
-		// HeritGenes
-
-		// public int maxEvolveGenes = 0;
-		// public int currentEvolveGenes = 0;
-		// public List<GeneDef> heritableGenes;
-		// private List<GeneDef> oldHeritableGenes;
-
-		// public void AddHeritableGenes()
-		// {
-			// if (heritableGenes.NullOrEmpty())
-			// {
-				// return;
-			// }
-			// List<GeneDef> pawnGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(pawn.genes.GenesListForReading);
-			// foreach (GeneDef heritableGeneDef in heritableGenes)
-			// {
-				// if (Dialog_CreateChimera.ConflictWith(heritableGeneDef, pawnGenes))
-				// {
-					// continue;
-				// }
-				// pawn.genes.AddGene(heritableGeneDef, false);
-				// oldHeritableGenes.Add(heritableGeneDef);
-			// }
-		// }
-
-		// public void RemoveHeritableGenes()
-		// {
-			// if (oldHeritableGenes.NullOrEmpty())
-			// {
-				// return;
-			// }
-			// foreach (GeneDef heritableGeneDef in oldHeritableGenes)
-			// {
-				// Gene gene = pawn.genes.GetGene(heritableGeneDef);
-				// if (gene != null)
-				// {
-					// continue;
-				// }
-				// pawn.genes.RemoveGene(gene);
-			// }
-			// oldHeritableGenes = new();
-		// }
-
-		// HeritGenes
-
-		// public override void Reset()
-		// {
-			// SetMode(Props.defaultShapeMode);
-			// if (!xenogermComaAfterShapeshift)
-			// {
-				// UnlockMode(ShapeshiftModeDefOf.WVC_Safeshift);
-				// xenogermComaAfterShapeshift = true;
-			// }
-			// if (HediffUtility.HasAnyHediff(Props.duplicateHediffs, pawn))
-			// {
-				// UnlockMode(ShapeshiftModeDefOf.WVC_Duplicate);
-			// }
-		// }
 
 		private Gizmo gizmo;
 
@@ -159,12 +52,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void RemoveHediffs()
 		{
-			// if (currentMode != null)
-			// {
-				// HediffUtility.RemoveHediffsFromList(pawn, currentMode.hediffDefs);
-			// }
 			HediffUtility.RemoveHediffsFromList(pawn, Giver?.hediffDefs);
-			// HediffUtility.Notify_GeneRemoved(this, pawn);
 		}
 
 		public void Notify_Override()
@@ -306,46 +194,16 @@ namespace WVC_XenotypesAndGenes
 
 		// Shapeshift
 
-		// - Shapeshift now takes body size changes into account. The pawn's hunger will increase or decrease relative to the difference in size.
-			// * Please note that it is the actual body size that is taken into account, not the visual one.
-		// - Shapeshift now transfers resource genes values between xenotypes. But only if the new xeno has this resources.
-			// * This only affects resource genes, such as hemogen. Deathrest capacity and similar ones will not be transferred.
-		// - Shapeshift now transfers genes needs between xenotypes. But only if the new xeno has this needs.
-
 		public virtual void PreShapeshift(Gene_Shapeshifter shapeshiftGene, bool genesRegrowing)
 		{
-			// ResourceCache();
 			if (!genesRegrowing)
 			{
 				GeneResourceUtility.Notify_PreShapeshift(shapeshiftGene);
 			}
 		}
 
-		// private float cachedPawnBodySize = 1f;
-		// private Dictionary<Type, float> cachedPawnGeneResources;
-		// private Dictionary<Need, float> cachedPawnNeeds;
-
-		// private void ResourceCache()
-		// {
-		// cachedPawnBodySize = pawn.BodySize;
-		// cachedPawnGeneResources = new();
-		// cachedPawnNeeds = new();
-		// foreach (Gene gene in pawn.genes.GenesListForReading)
-		// {
-		// if (gene is Gene_Resource resource && gene.Active)
-		// {
-		// cachedPawnGeneResources[resource.def.geneClass] = resource.Value;
-		// }
-		// }
-		// foreach (Need need in pawn.needs.AllNeeds)
-		// {
-		// cachedPawnNeeds[need] = need.CurLevel;
-		// }
-		// }
-
 		public virtual void PostShapeshift(Gene_Shapeshifter shapeshiftGene, bool genesRegrowing)
 		{
-			// ResourceTransfer();
 			if (!genesRegrowing)
 			{
 				GeneResourceUtility.Notify_PostShapeshift(shapeshiftGene);
@@ -353,44 +211,6 @@ namespace WVC_XenotypesAndGenes
 			}
 			XaG_GeneUtility.CheckAllOverrides(pawn);
 		}
-
-		// private void ResourceTransfer()
-		// {
-		// foreach (Need need in pawn.needs.AllNeeds)
-		// {
-		// foreach (var item in cachedPawnNeeds)
-		// {
-		// if (need.def == item.Key.def)
-		// {
-		// need.CurLevel = item.Value;
-		// }
-		// }
-		// }
-		// if (cachedPawnBodySize != pawn.BodySize)
-		// {
-		// UndeadUtility.OffsetNeedFood(pawn, cachedPawnBodySize - pawn.BodySize);
-		// }
-		// foreach (Gene gene in pawn.genes.GenesListForReading)
-		// {
-		// if (!gene.Active)
-		// {
-		// continue;
-		// }
-		// if (gene is Gene_Resource resource)
-		// {
-		// foreach (var item in cachedPawnGeneResources)
-		// {
-		// if (resource.def.geneClass == item.Key)
-		// {
-		// resource.Value = item.Value;
-		// }
-		// }
-		// }
-		// }
-		// cachedPawnBodySize = pawn.BodySize;
-		// cachedPawnNeeds = null;
-		// cachedPawnGeneResources = null;
-		// }
 
 	}
 

@@ -266,7 +266,6 @@ namespace WVC_XenotypesAndGenes
 					{
 						if (thingDef.thingSetMakerTags != null)
 						{
-							// Log.Error(thingDef.LabelCap + " patched.");
 							thingDef.thingSetMakerTags = null;
 						}
 						if (thingDef.tradeTags != null)
@@ -280,24 +279,24 @@ namespace WVC_XenotypesAndGenes
 						}
 					}
 				}
-				if (thingDef?.race == null)
-				{
-					continue;
-				}
-				GeneExtension_General modExtension = thingDef?.GetModExtension<GeneExtension_General>();
-				if (modExtension == null)
-				{
-					continue;
-				}
-				if (modExtension.removeRepairComp)
-				{
-					thingDef.comps.RemoveAll((CompProperties compProperties) => compProperties is CompProperties_MechRepairable);
-				}
-				if (modExtension.removeDormantComp)
-				{
-					thingDef.comps.RemoveAll((CompProperties compProperties) => compProperties is CompProperties_CanBeDormant);
-					thingDef.comps.RemoveAll((CompProperties compProperties) => compProperties is CompProperties_WakeUpDormant);
-				}
+				// if (thingDef?.race == null)
+				// {
+					// continue;
+				// }
+				// GeneExtension_General modExtension = thingDef?.GetModExtension<GeneExtension_General>();
+				// if (modExtension == null)
+				// {
+					// continue;
+				// }
+				// if (modExtension.removeRepairComp)
+				// {
+					// thingDef.comps.RemoveAll((CompProperties compProperties) => compProperties is CompProperties_MechRepairable);
+				// }
+				// if (modExtension.removeDormantComp)
+				// {
+					// thingDef.comps.RemoveAll((CompProperties compProperties) => compProperties is CompProperties_CanBeDormant);
+					// thingDef.comps.RemoveAll((CompProperties compProperties) => compProperties is CompProperties_WakeUpDormant);
+				// }
 				//ThingDef corpseDef = thingDef.race?.corpseDef;
 				//if (corpseDef != null)
 				//{

@@ -126,6 +126,7 @@
 	  </suffixSymbols>
 	</symbolPack>
 	<exclusionTags>
+	  <li>WVC_HybridStomach</li>
 	  <li>WVC_XaG_EternalHunger</li>
 	  <li>WVC_XaG_HungerReplenishStomach</li>
 	</exclusionTags>

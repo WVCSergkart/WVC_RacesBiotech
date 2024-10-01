@@ -142,6 +142,7 @@
     <Compile Include="Resources_Hediff\HediffComp_Spawner.cs" />
     <Compile Include="Resources_Hediff\HediffDef.cs" />
     <Compile Include="Resources_Hediff\Hediff_DryadQueen.cs" />
+    <Compile Include="Resources_Hediff\Hediff_GestatedDryad.cs" />
     <Compile Include="Resources_Hediff\Hediff_Metabolism.cs" />
     <Compile Include="Resources_Hediff\Hediff_Scarshield.cs" />
     <Compile Include="Resources_Hediff\OnlyOneOverseer.cs" />
@@ -176,7 +177,6 @@
     <Compile Include="Resources_Things\CompProperties_CheckPawnFaction.cs" />
     <Compile Include="Resources_Things\CompProperties_GenesInfo.cs" />
     <Compile Include="Resources_Things\CompProperties_InitialNeed.cs" />
-    <Compile Include="Resources_Things\CompProperties_UndeadCorpse.cs" />
     <Compile Include="Resources_Things\CompProperties_XenoTree.cs" />
     <Compile Include="Resources_Things\CompSpawnOnDeath.cs" />
     <Compile Include="Resources_Things\CompSpawnSubplantDuration.cs" />

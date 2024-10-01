@@ -136,6 +136,7 @@ namespace WVC_XenotypesAndGenes
 					geneDryadQueen.Notify_DryadSpawned(dryad);
 				}
 			}
+			HediffUtility.TryAddOrRemoveHediff(Spawner.initialHediffDef, dryad, this, null);
 			return dryad;
 		}
 

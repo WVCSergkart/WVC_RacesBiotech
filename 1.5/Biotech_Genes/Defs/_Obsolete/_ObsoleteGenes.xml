@@ -46,6 +46,8 @@
 	<biostatCpx>7</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>-6</biostatMet>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 			<hideGene>true</hideGene>

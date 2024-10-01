@@ -38,6 +38,7 @@ namespace WVC_XenotypesAndGenes
 		public IntRange spawnIntervalRange = new(120000, 300000);
 		public string spawnMessage = "MessageCompSpawnerSpawnedItem";
 		public bool showMessageIfOwned = true;
+		public HediffDef initialHediffDef;
 		// WIP
 		public bool customizable = false;
 		public float stackPercent = 0.1f;

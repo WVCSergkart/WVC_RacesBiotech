@@ -3,7 +3,7 @@
 
   <GeneDef Name="WVC_XenotypesAndGenes_GeneStomach_Base" Abstract="True">
 	<selectionWeight>0.00025</selectionWeight>
-	<displayCategory>Miscellaneous</displayCategory>
+	<displayCategory>WVC_Miscellaneous</displayCategory>
 	<displayOrderInCategory>11</displayOrderInCategory>
 	<symbolPack>
 	  <wholeNameSymbols>
@@ -18,7 +18,6 @@
 	</symbolPack>
 	<exclusionTags>
 	  <li>WVC_HybridStomach</li>
-	  <!-- <li>AG_StrongStomachAndWeakStomach</li> -->
 	</exclusionTags>
   </GeneDef>
 
@@ -89,5 +88,81 @@
 
   <!-- ================================================================== -->
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneStomach_Base">
+	<defName>WVC_SleepyStomach</defName>
+	<label>sleepy stomach</label>
+	<description>Carriers of this gene get tired very quickly due to their slow metabolism, but they require very little food.</description>
+	<iconPath>WVC/UI/Genes/SleepyStomach</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass>
+	<displayOrderInCategory>-5</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Hunger rate factor x20%</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <RestFallRateFactor>2.0</RestFallRateFactor>
+	  <RestRateMultiplier>0.5</RestRateMultiplier>
+	</statFactors>
+	<biostatMet>1</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>sleep</symbol></li>
+		<li><symbol>bed</symbol></li>
+		<li><symbol>somno</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>loaf</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<!-- <exclusionTags Inherit="False"/> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_SleepyStomach_HungerFactor</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneStomach_Base">
+	<defName>WVC_StoneStomach</defName>
+	<label>stone stomach</label> 
+	<labelShortAdj>very slow</labelShortAdj>
+	<description>Carriers of this gene move extremely slowly, but they require very little food.</description>
+	<iconPath>WVC/UI/Genes/StoneStomach_v0</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass>
+	<iconColor>(105,95,97)</iconColor>
+	<displayOrderInCategory>-5</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Hunger rate factor x20%</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <MoveSpeed>0.4</MoveSpeed>
+	</statFactors>
+	<capMods>
+	  <li>
+		<capacity>Moving</capacity>
+		<setMax>1.0</setMax>
+	  </li>
+	</capMods>
+	<biostatMet>1</biostatMet>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>slow</symbol></li>
+		<li><symbol>plod</symbol></li>
+		<li><symbol>grado</symbol></li>
+		<li><symbol>letho</symbol></li>
+		<li><symbol>slug</symbol></li>
+		<li><symbol>slack</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>slug</symbol></li>
+		<li><symbol>plodder</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+	<!-- <exclusionTags Inherit="False"/> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_StoneStomach_HungerFactor</hediffDefName>
+		</li>
+	</modExtensions>
+  </GeneDef>
 
 </Defs>
