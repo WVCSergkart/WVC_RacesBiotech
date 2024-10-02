@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- TEST -->
+  <XenotypeDef ParentName="WVC_RB_Xenotypes_TEST">
+	<defName>WVC_Sildator</defName>
+	<label>sildator</label>
+	<inheritable>false</inheritable>
+	<genes>
+		<li>WVC_NaturalPsylink</li>
+		<li>WVC_GeneSavant</li>
+		<li>WVC_DebuffUV_StrongInjuryHealing</li>
+		<li>WVC_NaturalSlowAging</li>
+		<li>WVC_NaturalFastGrowing</li>
+		<li>WVC_DebuffUV_StrongPsychicSensitivity</li>
+		<li>WVC_FurskinInstincts_ExtremeWildness</li>
+		<li>WVC_FurskinInstincts_Base</li>
+		<li>WVC_FurskinInstincts_KeenEye</li>
+		<li>WVC_FurskinInstincts_PredatorSense</li>
+		<li>WVC_SlaveSuppression_Submissive</li>
+		<li>WVC_Unbreakable</li>
+		<li>WVC_SunlightBeauty_Moon</li>
+		<li>WVC_GauntSkin</li>
+		<li>WVC_DragonTailA</li>
+		<li>WVC_BodySize_Large</li>
+		<li>Hair_Gray</li>
+		<li>WVC_SkinColor_Slate</li>
+	</genes>
+  </XenotypeDef>
+
+</Defs>

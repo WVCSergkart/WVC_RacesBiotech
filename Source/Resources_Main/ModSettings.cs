@@ -673,6 +673,44 @@ namespace WVC_XenotypesAndGenes
 						Log.Error("Genes list is null");
 					}
 				}
+				if (listingStandard.ButtonText("DEV: Log used genes"))
+				{
+					Dictionary<GeneDef, int> genes = new();
+					foreach (Def def in Content.AllDefs)
+					{
+						if (def is XenotypeDef xenotypeDef)
+						{
+							foreach (GeneDef geneDef in xenotypeDef.genes)
+							{
+								if (geneDef.IsXenoGenesDef())
+								{
+									if (!genes.TryGetValue(geneDef, out int dgene))
+									{
+										genes[geneDef] = 1;
+									}
+									else
+									{
+										// Log.Error(geneDef.defName + " +1");
+										genes[geneDef] += 1;
+									}
+								}
+							}
+						}
+					}
+					if (!genes.NullOrEmpty())
+					{
+						string text = "";
+						foreach (var item in genes)
+						{
+							text += "\n" + item.Key.defName + ": " + item.Value.ToString();
+						}
+						Log.Error("Genes:" + text);
+					}
+					else
+					{
+						Log.Error("Genes list is null");
+					}
+				}
 				if (listingStandard.ButtonText("DEV: Log obsolete genes"))
 				{
 					Log.Error("Obsolete genes:" + "\n" + DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.GetModExtension<GeneExtension_Obsolete>()?.logInDevMode == true).Select((GeneDef x) => x.defName + " | " + x.LabelCap + ": " + x.selectionWeight).ToLineList(" - "));

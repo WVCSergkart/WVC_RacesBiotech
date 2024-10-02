@@ -62,7 +62,7 @@
 	<displayCategory>Healing</displayCategory>
 	<dislikesSunlight>true</dislikesSunlight>
 	<biostatCpx>1</biostatCpx>
-	<biostatMet>4</biostatMet>
+	<biostatMet>6</biostatMet>
 	<exclusionTags>
 	  <li>WVC_DebuffUV_InjuryHealing</li>
 	</exclusionTags>

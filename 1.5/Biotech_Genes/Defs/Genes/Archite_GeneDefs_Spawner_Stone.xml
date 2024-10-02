@@ -9,8 +9,8 @@
 	<description>Carriers of this gene have tough and rough skin, causing the carrier to shed in stone chunks.</description>
 	<iconPath>Things/Item/Chunk/ChunkStone/RockLowC</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
-	<!-- <displayCategory>WVC_MechaBody</displayCategory> -->
-	<displayCategory>WVC_XenotypeSerumSpawners</displayCategory>
+	<!-- <displayCategory>WVC_XenotypeSerumSpawners</displayCategory> -->
+	<displayCategory>WVC_Miscellaneous</displayCategory>
 	<displayOrderInCategory>950</displayOrderInCategory>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Spawner</geneClass>
 	<!-- <biostatArc>1</biostatArc> -->

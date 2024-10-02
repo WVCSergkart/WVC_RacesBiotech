@@ -215,6 +215,24 @@
 		  <li MayRequire="vanillaracesexpanded.lycanthrope">VRE_GermlineReimplanter</li>
 		</dupGeneDefs>
 	  </li>
+	  <li>
+		<sourceGeneDef>WVC_Pain_Extra</sourceGeneDef>
+		<dupGeneDefs>
+		  <li>Pain_Extra</li>
+		</dupGeneDefs>
+	  </li>
+	  <li>
+		<sourceGeneDef>WVC_Delicate</sourceGeneDef>
+		<dupGeneDefs>
+		  <li>Delicate</li>
+		</dupGeneDefs>
+	  </li>
+	  <!-- <li> -->
+		<!-- <sourceGeneDef>WVC_Tough</sourceGeneDef> -->
+		<!-- <dupGeneDefs> -->
+		  <!-- <li>Delicate</li> -->
+		<!-- </dupGeneDefs> -->
+	  <!-- </li> -->
 	</identicalGeneDefs>
   </WVC_XenotypesAndGenes.XenotypesAndGenesListDef>
 

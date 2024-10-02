@@ -68,4 +68,36 @@
 	</renderNodeProperties>
   </GeneDef>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEars_ElfPointed">
+	<defName>WVC_Ears_DoublePointedA</defName>
+	<label>double ears</label>
+	<description>Carriers of this gene have short double ears.</description>
+	<iconPath>WVC/UI/Genes/DoubleEars_v0</iconPath>
+	<renderNodeProperties>
+	  <li>
+		<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<texPaths>
+			<li>WVC/BodyParts/ElfEars/DoubleEars</li>
+		</texPaths>
+		<colorType>Skin</colorType>
+		<parentTagDef>Head</parentTagDef>
+		<useSkinShader>true</useSkinShader>
+		<useRottenColor>true</useRottenColor>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<drawData>
+		  <defaultData>
+			<layer>70</layer>
+		  </defaultData>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
+	<capMods>
+	  <li>
+		<capacity>Hearing</capacity>
+		<offset>0.02</offset>
+	  </li>
+	</capMods>
+  </GeneDef>
+
 </Defs>

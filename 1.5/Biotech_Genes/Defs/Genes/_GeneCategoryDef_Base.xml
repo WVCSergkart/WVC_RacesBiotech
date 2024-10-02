@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneCategoryDef>
-	<defName>WVC_XenotypeSerumSpawners</defName>
-	<label>spawners</label>
-	<displayPriorityInXenotype>400.2886992038</displayPriorityInXenotype>
-  </GeneCategoryDef>
+  <!-- <GeneCategoryDef> -->
+	<!-- <defName>WVC_XenotypeSerumSpawners</defName> -->
+	<!-- <label>spawners</label> -->
+	<!-- <displayPriorityInXenotype>400.2886992038</displayPriorityInXenotype> -->
+  <!-- </GeneCategoryDef> -->
 
   <GeneCategoryDef>
 	<defName>WVC_Scarifier</defName>

@@ -36,18 +36,17 @@ namespace WVC_XenotypesAndGenes
 
 		private CompProperties_SpawnOnDeath Props => (CompProperties_SpawnOnDeath)props;
 
-		public override void PostDestroy(DestroyMode mode, Map previousMap)
+		public override void Notify_Killed(Map prevMap, DamageInfo? dinfo = null)
 		{
-			base.PostDestroy(mode, previousMap);
+			base.Notify_Killed(prevMap, dinfo);
 			Pawn pawn = parent as Pawn;
 			for (int i = 0; i < Props.filthCount; i++)
 			{
 				IntVec3 intVec = pawn.Position + GenRadial.RadialPattern[i];
-				FilthMaker.TryMakeFilth(intVec, previousMap, Props.filthDefToSpawn, 1);
+				FilthMaker.TryMakeFilth(intVec, prevMap, Props.filthDefToSpawn, 1);
 			}
-			// FilthMaker.TryMakeFilth(pawn.Position, previousMap, Props.filthDefToSpawn, filthCount);
 			Thing thing = ThingMaker.MakeThing(Props.thingDefsToSpawn.RandomElement());
-			GenPlace.TryPlaceThing(thing, pawn.Position, previousMap, ThingPlaceMode.Near, null, null, default);
+			GenPlace.TryPlaceThing(thing, pawn.Position, prevMap, ThingPlaceMode.Near, null, null, default);
 		}
 
 	}
@@ -57,22 +56,21 @@ namespace WVC_XenotypesAndGenes
 
 		private CompProperties_SpawnOnDeath Props => (CompProperties_SpawnOnDeath)props;
 
-		public override void PostDestroy(DestroyMode mode, Map previousMap)
+		public override void Notify_Killed(Map prevMap, DamageInfo? dinfo = null)
 		{
-			base.PostDestroy(mode, previousMap);
+			base.Notify_Killed(prevMap, dinfo);
 			Pawn pawn = parent as Pawn;
 			for (int i = 0; i < Props.filthCount; i++)
 			{
 				IntVec3 intVec = pawn.Position + GenRadial.RadialPattern[i];
-				FilthMaker.TryMakeFilth(intVec, previousMap, Props.filthDefToSpawn, 1);
+				FilthMaker.TryMakeFilth(intVec, prevMap, Props.filthDefToSpawn, 1);
 			}
 			for (int i = 0; i < Props.subplantCount; i++)
 			{
-				MiscUtility.GrowSubplant(pawn, Props.maxRadius, Props.subplant, Props.initialGrowthRange, previousMap, Props.canSpawnOverPlayerSownPlants);
+				MiscUtility.GrowSubplant(pawn, Props.maxRadius, Props.subplant, Props.initialGrowthRange, prevMap, Props.canSpawnOverPlayerSownPlants);
 			}
-			// FilthMaker.TryMakeFilth(pawn.Position, previousMap, Props.filthDefToSpawn, filthCount);
 			Thing thing = ThingMaker.MakeThing(Props.thingDefsToSpawn.RandomElement());
-			GenPlace.TryPlaceThing(thing, pawn.Position, previousMap, ThingPlaceMode.Near, null, null, default);
+			GenPlace.TryPlaceThing(thing, pawn.Position, prevMap, ThingPlaceMode.Near, null, null, default);
 		}
 
 	}
@@ -110,17 +108,17 @@ namespace WVC_XenotypesAndGenes
 			rockDef = chunkDef ?? Props.thingDefsToSpawn.RandomElement();
 		}
 
-		public override void PostDestroy(DestroyMode mode, Map previousMap)
+		public override void Notify_Killed(Map prevMap, DamageInfo? dinfo = null)
 		{
-			base.PostDestroy(mode, previousMap);
+			base.Notify_Killed(prevMap, dinfo);
 			Pawn pawn = parent as Pawn;
 			for (int i = 0; i < Props.filthCount; i++)
 			{
 				IntVec3 intVec = pawn.Position + GenRadial.RadialPattern[i];
-				FilthMaker.TryMakeFilth(intVec, previousMap, Props.filthDefToSpawn, 1);
+				FilthMaker.TryMakeFilth(intVec, prevMap, Props.filthDefToSpawn, 1);
 			}
 			Thing thing = ThingMaker.MakeThing(rockDef);
-			GenPlace.TryPlaceThing(thing, pawn.Position, previousMap, ThingPlaceMode.Near, null, null, default);
+			GenPlace.TryPlaceThing(thing, pawn.Position, prevMap, ThingPlaceMode.Near, null, null, default);
 		}
 
 		public override List<PawnRenderNode> CompRenderNodes()

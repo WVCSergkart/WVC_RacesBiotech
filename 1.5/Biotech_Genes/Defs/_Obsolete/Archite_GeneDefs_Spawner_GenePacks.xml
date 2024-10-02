@@ -8,8 +8,8 @@
 	<description>Carriers of this gene have archites that constantly generate genes and separate them from the carrier.</description>
 	<iconPath>WVC/UI/Genes/MechanoidizationSoftwareUp</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
-	<!-- <displayCategory>WVC_MechaBody</displayCategory> -->
-	<displayCategory>WVC_XenotypeSerumSpawners</displayCategory>
+	<displayCategory>WVC_Miscellaneous</displayCategory>
+	<!-- <displayCategory>WVC_XenotypeSerumSpawners</displayCategory> -->
 	<displayOrderInCategory>957</displayOrderInCategory>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Spawner</geneClass>
 	<biostatArc>1</biostatArc>

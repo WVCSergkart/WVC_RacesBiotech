@@ -30,6 +30,21 @@
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHealingRate_Base">
+	<defName>WVC_WoundHealing_SuperSlowHealing</defName>
+	<label>superslow wound healing</label>
+	<labelShortAdj>slow-heal</labelShortAdj>
+	<description>Carriers of this gene heal from wounds five times slower as normal.</description>
+	<iconPath>WVC/UI/Genes/Gene_WoundHealing_VerySlow_v0</iconPath>
+	<displayOrderInCategory>27</displayOrderInCategory>
+	<marketValueFactor>0.4</marketValueFactor>
+	<biostatMet>5</biostatMet>
+	<iconColor>(255, 255, 255)</iconColor>
+	<statFactors>
+	  <InjuryHealingFactor>0.2</InjuryHealingFactor>
+	</statFactors>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHealingRate_Base">
 	<defName>WVC_WoundHealing_ExtremeFast</defName>
 	<label>extremefast wound healing</label>
 	<labelShortAdj>extr-heal</labelShortAdj>

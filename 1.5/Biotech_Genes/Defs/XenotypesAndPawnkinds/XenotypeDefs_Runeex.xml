@@ -6,33 +6,42 @@
 	<defName>WVC_RuneDryad</defName>
 	<label>runeex</label>
 	<!-- A successful experiment, not the most useful aspects, "and so it will do" conclusion -->
-	<description>Runeex are super-humans powered by archotech-created archites in the bloodstream. They are slow, weak, get tired quickly and are practically unable to fight. However, they require little to no food and can control hordes of golems.</description>
-	<descriptionShort>Runeex are super-humans powered by archotech-created archites in the bloodstream. They are slow, weak, get tired quickly and are practically unable to fight. However, they require little to no food and can control hordes of golems.</descriptionShort>
-	<iconPath>WVC/UI/Xeno2Icons/Xeno14</iconPath>
+	<description>Runeex are super-humans powered by archotech-created archites in the bloodstream. They are slow, weak, get tired quickly and are practically unable to fight. However, they require little to no food and can control hordes of golems and dryads.</description>
+	<descriptionShort>Runeex are super-humans powered by archotech-created archites in the bloodstream. They are slow, weak, get tired quickly and are practically unable to fight. However, they require little to no food and can control hordes of golems and dryads.</descriptionShort>
+	<!-- <iconPath>WVC/UI/Xeno2Icons/Xeno14</iconPath> -->
+	<iconPath>WVC/UI/Mecha_Icons/Icon_Runeex_v0</iconPath>
 	<genes>
-		<!-- <li>Ageless</li> -->
-		<li ReplaceTag="DryadQueen">WVC_SwarmConnection_Golems</li>
+		<!-- Dryads -->
+		<li MayRequire="ludeon.rimworld.ideology">WVC_DryadQueen</li>
+		<li MayRequire="ludeon.rimworld.ideology">WVC_GauranlenConnection</li>
+		<!-- <li MayRequire="ludeon.rimworld.ideology">WVC_GauranlenDryads_DryadbondEnchanced</li> -->
+		<!-- <li MayRequire="ludeon.rimworld.ideology">WVC_GauranlenDryads_TotalHealing</li> -->
+		<li MayRequire="ludeon.rimworld.ideology">WVC_GauranlenDryads_Tough</li>
+		<li MayRequire="ludeon.rimworld.ideology">WVC_GauranlenDryads_ArmorSkin</li>
+		<!-- Golems -->
+		<li>WVC_SwarmConnection_Golems</li>
+		<!-- = -->
 		<li>Immunity_SuperStrong</li>
-		<li>WoundHealing_Fast</li>
-		<!-- <li>PsychicAbility_Extreme</li> -->
+		<!-- <li>WoundHealing_Fast</li> -->
+		<li>WVC_WoundHealing_SuperSlowHealing</li>
 		<li>WVC_AgeDebuff_MoveSpeed</li>
 		<li>MaxTemp_LargeIncrease</li>
 		<li>ToxicEnvironmentResistance_Total</li>
-		<!-- <li>FireResistant</li> -->
 		<li>WVC_SleepyStomach</li>
-		<li>WVC_Fragile</li>
-		<!-- <li>Sterile</li> -->
+		<!-- <li>WVC_Fragile</li> -->
+		<li>StrongStomach</li>
+		<!-- <li>WVC_BodySize_Small</li> -->
+		<!-- <li>AptitudeRemarkable_Crafting</li> -->
+		<li>WVC_PsychicAbility_AlmostDeaf</li>
+		<!-- Graphic -->
+		<li>WVC_Ears_DoublePointedA</li>
+		<li>WVC_SkinnyTailA</li>
+		<li>WVC_RuneSkin</li>
 		<li>Body_Standard</li>
 		<li>Hair_DarkBlack</li>
 		<li>WVC_SkinColor_ffdcb4_HEX</li>
-		<li>WVC_SkinColor_ffb4b4_HEX</li>
-		<li>StrongStomach</li>
-		<!-- <li>RobustDigestion</li> -->
-		<li>WVC_BodySize_Small</li>
-		<li>WVC_RuneSkin</li>
-		<!-- <li>WVC_AptitudeImpossible_Shooting</li> -->
-		<!-- <li>WVC_AptitudeImpossible_Melee</li> -->
-		<li>AptitudeRemarkable_Crafting</li>
+		<!-- <li>WVC_SkinColor_ffb4b4_HEX</li> -->
+		<li>WVC_Eyes_ceae69_HEX</li>
 	</genes>
   </XenotypeDef>
 

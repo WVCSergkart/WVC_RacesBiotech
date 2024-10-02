@@ -31,7 +31,7 @@
 		<!-- = -->
 		<li>Body_Standard</li>
 		<li>Body_Thin</li>
-		<li>WVC_BodySize_Small</li>
+		<!-- <li>WVC_BodySize_Small</li> -->
 		<li>WVC_HairColor_DarkGray</li>
 		<li>WVC_SkinColor_DarkGray</li>
 		<!-- Stats -->

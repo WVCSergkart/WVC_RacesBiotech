@@ -11,12 +11,9 @@
 	<iconPath>WVC/UI/Xeno2Icons/Xeno25</iconPath>
 	<inheritable>false</inheritable>
 	<!-- <canGenerateAsCombatant>true</canGenerateAsCombatant> -->
-	<doubleXenotypeChances>
-		<!-- <Dirtmole>0.2</Dirtmole> -->
-		<!-- <Waster>0.1</Waster> -->
-		<!-- <Yttakin>0.2</Yttakin> -->
-		<WVC_RuneDryad>0.2</WVC_RuneDryad>
-	</doubleXenotypeChances>
+	<!-- <doubleXenotypeChances> -->
+		<!-- <WVC_RuneDryad>0.2</WVC_RuneDryad> -->
+	<!-- </doubleXenotypeChances> -->
 	<genes>
 		<li>WVC_SwarmConnection_Golems</li>
 		<!-- <li>DiseaseFree</li> -->

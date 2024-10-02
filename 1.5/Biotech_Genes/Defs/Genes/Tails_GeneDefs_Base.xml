@@ -75,6 +75,54 @@
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneTails_Base">
+	<defName>WVC_SkinnyTailA</defName>
+	<label>skinny tail</label>
+	<description>Carriers of this gene grow a sleek tail.</description>
+	<iconPath>WVC/UI/Genes/ShortDemonTailA_v0</iconPath>
+	<minAgeActive>3</minAgeActive>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
+	<renderNodeProperties>
+	  <li>
+		<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+		<texPaths>
+		  <li>WVC/BodyParts/MecaGene_ScytheTail/ShortDemonTailA</li>
+		</texPaths>
+		<colorType>Skin</colorType>
+		<overrideMeshSize>(1.0, 1.0)</overrideMeshSize>
+		<drawSize>1.25</drawSize>
+		<parentTagDef>Body</parentTagDef>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<drawData>
+		  <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+		  <defaultData>
+			<layer>-2</layer>
+		  </defaultData>
+		  <dataNorth>
+			<offset>(0.0, 0.2, 0.0)</offset>
+			<layer>90</layer>
+		  </dataNorth>
+		  <dataSouth>
+			<offset>(0.0, -0.1, 0.0)</offset>
+		  </dataSouth>
+		  <dataEast>
+			<offset>(-0.06, -0.1, 0.02)</offset>
+		  </dataEast>
+		  <dataWest>
+			<offset>(0.06, -0.1, 0.02)</offset>
+		  </dataWest>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>rat</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneTails_Base">
 	<defName>WVC_CatTailA</defName>
 	<label>cat-like tail</label>
 	<description>Carriers of this gene grow a catlike tail.</description>

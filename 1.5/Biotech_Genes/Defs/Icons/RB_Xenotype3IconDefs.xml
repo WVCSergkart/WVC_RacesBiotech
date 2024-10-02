@@ -5,10 +5,6 @@
 	<defName>WVC_XenoMecha1c</defName>
 	<texPath>WVC/UI/Mecha_Icons/Xeno1</texPath>
   </XenotypeIconDef>
-  <!-- <XenotypeIconDef> -->
-	<!-- <defName>WVC_XenoMecha2c</defName> -->
-	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno2</texPath> -->
-  <!-- </XenotypeIconDef> -->
   <XenotypeIconDef>
 	<defName>WVC_XenoMecha3c</defName>
 	<texPath>WVC/UI/Mecha_Icons/Xeno3</texPath>
@@ -17,110 +13,6 @@
 	<defName>WVC_XenoMecha4c</defName>
 	<texPath>WVC/UI/Mecha_Icons/Xeno4</texPath>
   </XenotypeIconDef>
-  <!-- <XenotypeIconDef> -->
-	<!-- <defName>WVC_XenoMecha5c</defName> -->
-	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno5</texPath> -->
-  <!-- </XenotypeIconDef> -->
-  <!-- <XenotypeIconDef> -->
-	<!-- <defName>WVC_XenoMecha6c</defName> -->
-	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno6</texPath> -->
-  <!-- </XenotypeIconDef> -->
-  <!-- <XenotypeIconDef> -->
-	<!-- <defName>WVC_XenoMecha7c</defName> -->
-	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno7</texPath> -->
-  <!-- </XenotypeIconDef> -->
-  <!-- <XenotypeIconDef> -->
-	<!-- <defName>WVC_XenoMecha8c</defName> -->
-	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno8</texPath> -->
-  <!-- </XenotypeIconDef> -->
-  <!-- <XenotypeIconDef> -->
-	<!-- <defName>WVC_XenoMecha9c</defName> -->
-	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno9</texPath> -->
-  <!-- </XenotypeIconDef> -->
-  <!-- <XenotypeIconDef> -->
-	<!-- <defName>WVC_XenoMecha10c</defName> -->
-	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno10</texPath> -->
-  <!-- </XenotypeIconDef> -->
-  <!-- <XenotypeIconDef> -->
-	<!-- <defName>WVC_XenoMecha11c</defName> -->
-	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno11</texPath> -->
-  <!-- </XenotypeIconDef> -->
-  <!-- <XenotypeIconDef> -->
-	<!-- <defName>WVC_XenoMecha12c</defName> -->
-	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno12</texPath> -->
-  <!-- </XenotypeIconDef> -->
-  <!-- <XenotypeIconDef> -->
-	<!-- <defName>WVC_XenoMecha13c</defName> -->
-	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno13</texPath> -->
-  <!-- </XenotypeIconDef> -->
-  <!-- <XenotypeIconDef> -->
-	<!-- <defName>WVC_XenoMecha14c</defName> -->
-	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno14</texPath> -->
-  <!-- </XenotypeIconDef> -->
-  <!-- <XenotypeIconDef> -->
-	<!-- <defName>WVC_XenoMecha15c</defName> -->
-	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno15</texPath> -->
-  <!-- </XenotypeIconDef> -->
-  <!-- <XenotypeIconDef> -->
-	<!-- <defName>WVC_XenoMecha16c</defName> -->
-	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno16</texPath> -->
-  <!-- </XenotypeIconDef> -->
-  <!-- <XenotypeIconDef> -->
-	<!-- <defName>WVC_XenoMecha17c</defName> -->
-	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno17</texPath> -->
-  <!-- </XenotypeIconDef> -->
-  <!-- <XenotypeIconDef> -->
-	<!-- <defName>WVC_XenoMecha18c</defName> -->
-	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno18</texPath> -->
-  <!-- </XenotypeIconDef> -->
-  <!-- <XenotypeIconDef> -->
-	<!-- <defName>WVC_XenoMecha19c</defName> -->
-	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno19</texPath> -->
-  <!-- </XenotypeIconDef> -->
-  <!-- <XenotypeIconDef> -->
-	<!-- <defName>WVC_XenoMecha20c</defName> -->
-	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno20</texPath> -->
-  <!-- </XenotypeIconDef> -->
-  <!-- <XenotypeIconDef> -->
-	<!-- <defName>WVC_XenoMecha21c</defName> -->
-	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno21</texPath> -->
-  <!-- </XenotypeIconDef> -->
-  <!-- <XenotypeIconDef> -->
-	<!-- <defName>WVC_XenoMecha22c</defName> -->
-	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno22</texPath> -->
-  <!-- </XenotypeIconDef> -->
-  <!-- <XenotypeIconDef> -->
-	<!-- <defName>WVC_XenoMecha23c</defName> -->
-	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno23</texPath> -->
-  <!-- </XenotypeIconDef> -->
-  <!-- <XenotypeIconDef> -->
-	<!-- <defName>WVC_XenoMecha24c</defName> -->
-	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno24</texPath> -->
-  <!-- </XenotypeIconDef> -->
-  <!-- <XenotypeIconDef> -->
-	<!-- <defName>WVC_XenoMecha25c</defName> -->
-	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno25</texPath> -->
-  <!-- </XenotypeIconDef> -->
-  <!-- <XenotypeIconDef> -->
-	<!-- <defName>WVC_XenoMecha26c</defName> -->
-	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno26</texPath> -->
-  <!-- </XenotypeIconDef> -->
-  <!-- <XenotypeIconDef> -->
-	<!-- <defName>WVC_XenoMecha27c</defName> -->
-	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno27</texPath> -->
-  <!-- </XenotypeIconDef> -->
-  <!-- <XenotypeIconDef> -->
-	<!-- <defName>WVC_XenoMecha28c</defName> -->
-	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno28</texPath> -->
-  <!-- </XenotypeIconDef> -->
-  <!-- <XenotypeIconDef> -->
-	<!-- <defName>WVC_XenoMecha29c</defName> -->
-	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno29</texPath> -->
-  <!-- </XenotypeIconDef> -->
-  <!-- <XenotypeIconDef> -->
-	<!-- <defName>WVC_XenoMecha30c</defName> -->
-	<!-- <texPath>WVC/UI/Mecha_Icons/Xeno30</texPath> -->
-  <!-- </XenotypeIconDef> -->
   <XenotypeIconDef>
 	<defName>WVC_XenoRogueFormer1c</defName>
 	<texPath>WVC/UI/Mecha_Icons/Roguekind1</texPath>
@@ -223,5 +115,13 @@
 	<!-- <defName>WVC_DeadFace0c</defName> -->
 	<!-- <texPath>WVC/UI/Mecha_Icons/Icon_Metalkin_v0</texPath> -->
   <!-- </XenotypeIconDef> -->
+
+  <!-- Golem -->
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_DoubleEars1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Icon_Runeex_v0</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
 
 </Defs>
