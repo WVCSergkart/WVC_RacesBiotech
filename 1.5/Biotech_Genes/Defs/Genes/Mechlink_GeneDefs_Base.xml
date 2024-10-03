@@ -101,44 +101,6 @@
 
   <!-- Golemlink -->
 
-  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Base" Name="WVC_XenotypesAndGenes_GeneMechlink_Golems" Abstract="True"> -->
-	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_MechlinkWithGizmo</geneClass> -->
-	<!-- <customEffectDescriptions> -->
-		<!-- <li>Allows the &lt;color=#8a8ae6&gt;mechanitor&lt;/color&gt; to control &lt;color=#8a8ae6&gt;golems&lt;/color&gt;.</li> -->
-	<!-- </customEffectDescriptions> -->
-  <!-- </GeneDef> -->
-
-  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Golems"> -->
-	<!-- <defName>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</defName> -->
-	<!-- <label>spore mechlink</label> -->
-	<!-- <description>Carriers of the gene have a natural mechlink and the ability to psionically control resurgent trees.</description> -->
-	<!-- <iconPath>WVC/UI/Genes/Gene_ResurgentTree_v0</iconPath> -->
-	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Sporelink</geneClass> -->
-	<!-- <displayCategory>WVC_ResurgentCells</displayCategory> -->
-	<!-- <displayOrderInCategory>1260</displayOrderInCategory> -->
-	<!-- <minAgeActive>3</minAgeActive> -->
-	<!-- <prerequisite>WVC_ResurgentCellsGain</prerequisite> -->
-	<!-- <biostatCpx>2</biostatCpx> -->
-	<!-- <biostatMet>0</biostatMet> -->
-	<!-- <biostatArc>1</biostatArc> -->
-	<!-- <customEffectDescriptions> -->
-		<!-- <li>Allows the carrier to establish a &lt;color=#8a8ae6&gt;connection&lt;/color&gt; with &lt;color=#8a8ae6&gt;resurgent trees&lt;/color&gt;.</li> -->
-		<!-- <li>The &lt;color=#8a8ae6&gt;resurgent tree&lt;/color&gt; slowly pollutes the soil around it and raises &lt;color=#8a8ae6&gt;bone golems&lt;/color&gt;.</li> -->
-	<!-- </customEffectDescriptions> -->
-	<!-- <statOffsets> -->
-	  <!-- <WVC_GolemBond>6</WVC_GolemBond> -->
-	  <!-- <MechBandwidth>-2</MechBandwidth> -->
-	<!-- </statOffsets> -->
-	<!-- <modExtensions> -->
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
-			<!-- <filledBlockColor>(150, 249, 123)</filledBlockColor> -->
-			<!-- <tipSectionTitle>WVC_XaG_GolemBandwidth</tipSectionTitle> -->
-			<!-- <tipSectionTip>WVC_XaG_SporesBandwidthGizmoTip</tipSectionTip> -->
-			<!-- <golemistTypeIndex>1</golemistTypeIndex> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
-  <!-- </GeneDef> -->
-
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Base">
 	<defName>WVC_SwarmConnection_Golems</defName>
 	<label>golem mechlink</label>
@@ -149,25 +111,18 @@
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>-3</biostatMet>
+	<minAgeActive>3</minAgeActive>
 	<displayOrderInCategory>1130</displayOrderInCategory>
 	<customEffectDescriptions>
-		<!-- <li>Allows the &lt;color=#8a8ae6&gt;mechanitor&lt;/color&gt; to control &lt;color=#8a8ae6&gt;golems&lt;/color&gt;.</li> -->
 		<li>&lt;color=#8a8ae6&gt;Animates&lt;/color&gt; from 1 to 3 &lt;color=#8a8ae6&gt;chunks&lt;/color&gt; present within the map every (*DateTime)4-7 days(/DateTime).</li>
 		<li>If there are no chunks, it &lt;color=#8a8ae6&gt;summons golems&lt;/color&gt; instead. &lt;color=#ff8585&gt;Summoned golems are limited to simple types.&lt;/color&gt;</li>
-		<!-- <li>Golems are &lt;color=#8a8ae6&gt;summoned automatically&lt;/color&gt; from &lt;color=#8a8ae6&gt;1 to 6&lt;/color&gt; every (*DateTime)8-30 days(/DateTime).</li> -->
 		<li>A overseer can reproduce with the help of &lt;color=#8a8ae6&gt;golems&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<statOffsets>
-	  <WVC_GolemBond>2</WVC_GolemBond>
+	  <WVC_GolemBond>6</WVC_GolemBond>
 	  <MechBandwidth>2</MechBandwidth>
 	  <MechControlGroups>1</MechControlGroups>
 	</statOffsets>
-	<!-- <abilities> -->
-	  <!-- <li>WVC_MechSummon_Golems</li> -->
-	<!-- </abilities> -->
-	<!-- <descriptionHyperlinks> -->
-	  <!-- <AbilityDef>WVC_MechSummon_Golems</AbilityDef> -->
-	<!-- </descriptionHyperlinks> -->
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<filledBlockColor>(249, 115, 6)</filledBlockColor>

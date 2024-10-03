@@ -1,34 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<!-- <StatDef> -->
-	  <!-- <defName>WVC_BandwidthCostOffsetMech</defName> -->
-	  <!-- <label>mech bandwidth cost offset</label> -->
-	  <!-- <description>A bandwidth cost offset applied to a mechanitor's mechs.</description> -->
-	  <!-- <category>Mechanitor</category> -->
-	  <!-- <defaultBaseValue>0</defaultBaseValue> -->
-	  <!-- <hideAtValue>0</hideAtValue> -->
-	  <!-- <toStringStyle>FloatOne</toStringStyle> -->
-	  <!-- <scenarioRandomizable>true</scenarioRandomizable> -->
-	  <!-- <displayPriorityInCategory>5000</displayPriorityInCategory> -->
-	  <!-- <showOnMechanoids>false</showOnMechanoids> -->
-	  <!-- <showOnAnimals>false</showOnAnimals> -->
-	<!-- </StatDef> -->
-
-	<!-- <StatDef> -->
-	  <!-- <defName>WVC_MechEnergyUsageOffset</defName> -->
-	  <!-- <label>mech energy usage offset</label> -->
-	  <!-- <description>A energy usage offset applied to a mechanitor's mechs.</description> -->
-	  <!-- <category>Mechanitor</category> -->
-	  <!-- <defaultBaseValue>0</defaultBaseValue> -->
-	  <!-- <hideAtValue>0</hideAtValue> -->
-	  <!-- <toStringStyle>PercentZero</toStringStyle> -->
-	  <!-- <scenarioRandomizable>true</scenarioRandomizable> -->
-	  <!-- <displayPriorityInCategory>5000</displayPriorityInCategory> -->
-	  <!-- <showOnMechanoids>false</showOnMechanoids> -->
-	  <!-- <showOnAnimals>false</showOnAnimals> -->
-	<!-- </StatDef> -->
-
   <StatDef Name="WVC_Biotech_ForcedStat_Base" Abstract="True">
 	<description>Should be invisible.</description>
 	<!-- <category>WVC_ForcedStats_Genes</category> -->
@@ -49,7 +21,6 @@
   <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
 	<defName>WVC_GolemBond</defName>
 	<label>golembond</label>
-	<!-- <description>To control golems, the mechanitor requires psionic focus on the mechanites, which are the basis and heart of the golems. The higher the golembond value, the more golems the mechanitor can control at the same time. The loss of golembond will lead to the fact that the mechanites will gradually disperse and the golems will die.\n\nA golembond can be increased using genes, and certain genes are needed to control certain types of golems.</description> -->
 	<description>To control golems, just like for mechanoids, bandwidth is required, but to create them, the mechanitor needs golembond. Exceeding or losing golembond does not affect existing golems.</description>
 	<defaultBaseValue>0</defaultBaseValue>
 	<hideAtValue>0</hideAtValue>
@@ -58,27 +29,37 @@
 	<displayPriorityInCategory>2005</displayPriorityInCategory>
 	<toStringStyle>FloatOne</toStringStyle>
 	<parts>
+	  <!-- To-Do: Remove after adding alternative mechanics. -->
 	  <li Class="WVC_XenotypesAndGenes.StatPart_OffsetFromBuildingsOnMap">
 		<label>WVC_StatPart_GenesCombo_OffsetFromShrines</label>
 		<reqGeneDef>WVC_SwarmConnection_Golems</reqGeneDef>
 		<buildings>
 		  <li MayRequire="Ludeon.RimWorld.Royalty">
 			<thingDef>NatureShrine_Small</thingDef>
-			<bandwidth>1</bandwidth>
+			<bandwidth>0.2</bandwidth>
 		  </li>
 		  <li MayRequire="Ludeon.RimWorld.Royalty">
 			<thingDef>NatureShrine_Large</thingDef>
-			<bandwidth>2</bandwidth>
+			<bandwidth>0.5</bandwidth>
 		  </li>
 		  <li MayRequire="Ludeon.RimWorld.Royalty">
 			<thingDef>AnimusStone</thingDef>
-			<bandwidth>3</bandwidth>
+			<bandwidth>1</bandwidth>
+		  </li>
+		  <li MayRequire="redmattis.dryads">
+			<thingDef>Dryad_GauranlenShrine_Large</thingDef>
+			<bandwidth>0.5</bandwidth>
+		  </li>
+		  <li MayRequire="redmattis.dryads">
+			<thingDef>Dryad_GauranlenShrine_Small</thingDef>
+			<bandwidth>0.2</bandwidth>
+		  </li>
+		  <li MayRequire="redmattis.dryads">
+			<thingDef>Dryad_VikingShrine</thingDef>
+			<bandwidth>0.1</bandwidth>
 		  </li>
 		</buildings>
 	  </li>
-	  <!-- <li Class="WVC_XenotypesAndGenes.StatPart_OffsetFromPollutedGraves"> -->
-		<!-- <reqGeneDef>WVC_ResurgentCells_AbilitySpawn_ResurgentTree</reqGeneDef> -->
-	  <!-- </li> -->
 	</parts>
   </StatDef>
 
@@ -92,78 +73,5 @@
 	<showIfUndefined>false</showIfUndefined>
 	<toStringStyle>FloatOne</toStringStyle>
   </StatDef>
-
-  <!-- <StatDef ParentName="WVC_Biotech_ForcedStat_Base"> -->
-	<!-- <defName>WVC_ForceTo_MechBandwidth</defName> -->
-	<!-- <label>mech bandwidth is always</label> -->
-  <!-- </StatDef> -->
-
-  <!-- <StatDef ParentName="WVC_Biotech_ForcedStat_Base"> -->
-	<!-- <defName>WVC_OverseerMaxGolems</defName> -->
-	<!-- <label>golem bandwidth</label> -->
-	<!-- <description>How much bandwidth a mechanitor has. More bandwidth allows a mechanitor to summon and control more golems at the same time.\n\nLosing bandwidth means losing control of golems. Golems will start dying due to lack of bandwidth.</description> -->
-	<!-- <defaultBaseValue>0</defaultBaseValue> -->
-	<!-- <hideAtValue>0</hideAtValue> -->
-	<!-- <alwaysHide>false</alwaysHide> -->
-	<!-- <category>Mechanitor</category> -->
-	<!-- <displayPriorityInCategory>2005</displayPriorityInCategory> -->
-	<!-- <toStringStyle>FloatOne</toStringStyle> -->
-	<!-- <parts> -->
-	  <!-- <li Class="WVC_XenotypesAndGenes.StatPart_OffsetFromBuildingsOnMap"> -->
-		<!-- <label>WVC_StatPart_GenesCombo_OffsetFromShrines</label> -->
-		<!-- <buildings> -->
-		  <!-- <li MayRequire="Ludeon.RimWorld.Royalty"> -->
-			<!-- <thingDef>NatureShrine_Small</thingDef> -->
-			<!-- <bandwidth>1</bandwidth> -->
-		  <!-- </li> -->
-		  <!-- <li MayRequire="Ludeon.RimWorld.Royalty"> -->
-			<!-- <thingDef>NatureShrine_Large</thingDef> -->
-			<!-- <bandwidth>2</bandwidth> -->
-		  <!-- </li> -->
-		  <!-- <li MayRequire="Ludeon.RimWorld.Royalty"> -->
-			<!-- <thingDef>AnimusStone</thingDef> -->
-			<!-- <bandwidth>3</bandwidth> -->
-		  <!-- </li> -->
-		<!-- </buildings> -->
-	  <!-- </li> -->
-	<!-- </parts> -->
-  <!-- </StatDef> -->
-
-  <!-- <StatDef ParentName="MechStatBase"> -->
-	<!-- <defName>WVC_GolemBandwidthCost</defName> -->
-	<!-- <label>golem bandwidth cost</label> -->
-	<!-- <description>How much bandwidth this golem consumes when under mechanitor control.</description> -->
-	<!-- <defaultBaseValue>0</defaultBaseValue> -->
-	<!-- <minValue>0</minValue> -->
-	<!-- <displayPriorityInCategory>2005</displayPriorityInCategory> -->
-	<!-- <showIfUndefined>false</showIfUndefined> -->
-	<!-- <toStringStyle>FloatOne</toStringStyle> -->
-  <!-- </StatDef> -->
-
-  <!-- <StatDef ParentName="WVC_Biotech_ForcedStat_Base"> -->
-	<!-- <defName>WVC_SporesBandwidth</defName> -->
-	<!-- <label>resurgent spores</label> -->
-	<!-- <description>How much resurgent spores a mechanitor has. More spores allows a mechanitor to control more walking corpses at the same time.\n\nLosing spores means losing control of corpses. Corpses will start dying due to lack of spores.</description> -->
-	<!-- <defaultBaseValue>0</defaultBaseValue> -->
-	<!-- <hideAtValue>0</hideAtValue> -->
-	<!-- <alwaysHide>false</alwaysHide> -->
-	<!-- <category>Mechanitor</category> -->
-	<!-- <displayPriorityInCategory>2010</displayPriorityInCategory> -->
-	<!-- <toStringStyle>FloatOne</toStringStyle> -->
-	<!-- <parts> -->
-	  <!-- <li Class="WVC_XenotypesAndGenes.StatPart_OffsetFromPollutedGraves"/> -->
-	<!-- </parts> -->
-  <!-- </StatDef> -->
-
-  <!-- <StatDef ParentName="MechStatBase"> -->
-	<!-- <defName>WVC_SporesBandwidthCost</defName> -->
-	<!-- <label>resurgent spores cost</label> -->
-	<!-- <description>How much resurgent spores this corpse consumes when under mechanitor control.</description> -->
-	<!-- <defaultBaseValue>0</defaultBaseValue> -->
-	<!-- <minValue>0</minValue> -->
-	<!-- <displayPriorityInCategory>2010</displayPriorityInCategory> -->
-	<!-- <showIfUndefined>false</showIfUndefined> -->
-	<!-- <toStringStyle>FloatOne</toStringStyle> -->
-  <!-- </StatDef> -->
 
 </Defs>

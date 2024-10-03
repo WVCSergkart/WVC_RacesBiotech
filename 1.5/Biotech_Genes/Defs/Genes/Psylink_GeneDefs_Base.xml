@@ -62,6 +62,7 @@
 	<biostatCpx>3</biostatCpx>
 	<biostatArc>2</biostatArc>
 	<selectionWeight>0.00125</selectionWeight>
+	<minAgeActive>3</minAgeActive>
 	<customEffectDescriptions>
 		<li>&lt;color=#8a8ae6&gt;Psyfocus&lt;/color&gt; is passively &lt;color=#8a8ae6&gt;replenished&lt;/color&gt; relative to the psylink's level.</li>
 	</customEffectDescriptions>

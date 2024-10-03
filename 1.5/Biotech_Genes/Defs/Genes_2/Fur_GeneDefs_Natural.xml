@@ -54,7 +54,7 @@
 	  <li>WVC_RuneSkin_Average</li>
 	</forcedHeadTypes>
 	<statOffsets>
-	  <WVC_GolemBond>2</WVC_GolemBond>
+	  <WVC_GolemBond>4</WVC_GolemBond>
 	  <ArmorRating_Blunt>0.22</ArmorRating_Blunt>
 	</statOffsets>
 	<missingGeneRomanceChanceFactor>0.65</missingGeneRomanceChanceFactor>
@@ -87,7 +87,7 @@
 	  <li>WVC_StoneSkin_Average</li>
 	</forcedHeadTypes>
 	<statOffsets>
-	  <WVC_GolemBond>6</WVC_GolemBond>
+	  <WVC_GolemBond>8</WVC_GolemBond>
 	  <ArmorRating_Blunt>0.22</ArmorRating_Blunt>
 	  <ArmorRating_Sharp>0.12</ArmorRating_Sharp>
 	  <ArmorRating_Heat>0.11</ArmorRating_Heat>
