@@ -5,7 +5,7 @@
 
   <RecipeDef Name="WVC_XenotypesAndGenes_RetuneSerumCrafting_Base" Abstract="True">
 	<label>retune the serum</label>
-	<description>Retune the serum.</description>
+	<description>Retune the serum by resetting its settings, as a result of which the serum automatically tunes to a random other xenotype. This does not require special ingredients.</description>
 	<jobString>Retunes the serum.</jobString>
 	<workAmount>3200</workAmount>
 	<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
@@ -29,8 +29,7 @@
 
   <RecipeDef ParentName="WVC_XenotypesAndGenes_RetuneSerumCrafting_Base">
 	<defName>WVC_RacesBiotech_RetuneSerumBase</defName>
-	<label>retune basetype serum</label>
-	<description>Retune basetype serum.</description>
+	<label>retune xenotype serum</label>
 	<products>
 	  <WVC_XenotypeSerum_Base>1</WVC_XenotypeSerum_Base>
 	</products>
@@ -48,8 +47,7 @@
 
   <RecipeDef ParentName="WVC_XenotypesAndGenes_RetuneSerumCrafting_Base">
 	<defName>WVC_RacesBiotech_RetuneSerumUltra</defName>
-	<label>retune ultratype serum</label>
-	<description>Retune ultratype serum.</description>
+	<label>retune acrhotype serum</label>
 	<products>
 	  <WVC_XenotypeSerum_Ultra>1</WVC_XenotypeSerum_Ultra>
 	</products>
@@ -68,7 +66,6 @@
   <RecipeDef ParentName="WVC_XenotypesAndGenes_RetuneSerumCrafting_Base">
 	<defName>WVC_RacesBiotech_RetuneSerumHybrid</defName>
 	<label>retune hybridtype serum</label>
-	<description>Retune hybridtype serum.</description>
 	<products>
 	  <WVC_XenotypeSerum_Hybrid>1</WVC_XenotypeSerum_Hybrid>
 	</products>

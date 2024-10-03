@@ -384,20 +384,27 @@ namespace WVC_XenotypesAndGenes
 				WVC_Biotech.settings.firstModLaunch = false;
 				WVC_Biotech.settings.Write();
 			}
-			foreach (XenotypeDef item in ListsUtility.GetWhiteListedXenotypes(true, true))
-			{
-				WVC_GenesDefOf.WVC_XenotypeSerums_SupportedXenotypesList.descriptionHyperlinks.Add(item);
-			}
+			// foreach (XenotypeDef item in ListsUtility.GetWhiteListedXenotypes(true, true))
+			// {
+				// WVC_GenesDefOf.WVC_XenotypeSerums_SupportedXenotypesList.descriptionHyperlinks.Add(item);
+			// }
 		}
 
 		public static void SetValues()
 		{
-			foreach (XenotypeDef thingDef in WVC_Biotech.allXenotypes)
+			foreach (XenotypeDef xenotypeDef in WVC_Biotech.allXenotypes)
 			{
 
-				if (!WVC_Biotech.cachedXenotypesFilter.TryGetValue(thingDef.defName, out _))
+				if (!WVC_Biotech.cachedXenotypesFilter.TryGetValue(xenotypeDef.defName, out _))
 				{
-					WVC_Biotech.cachedXenotypesFilter[thingDef.defName] = _ = true;
+					if (xenotypeDef.modContentPack?.IsOfficialMod == true)
+					{
+						WVC_Biotech.cachedXenotypesFilter[xenotypeDef.defName] = _ = true;
+					}
+					else
+					{
+						WVC_Biotech.cachedXenotypesFilter[xenotypeDef.defName] = _ = false;
+					}
 				}
 
 			}

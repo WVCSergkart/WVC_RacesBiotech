@@ -240,11 +240,9 @@
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>-5</biostatMet>
 	<customEffectDescriptions>
-	  <li>Any ingestible things completely replenish hunger.</li>
-	  <!-- <li>Hunger rate -5% per scar</li> -->
-	  <!-- <li>Raw nutrition multiplier +5% per scar</li> -->
+	  <!-- <li>Any ingestible things completely replenish hunger.</li> -->
+	  <li>Increases nutrition received from food by 5 times.</li>
 	  <li>Max nutrition +0.2 per scar</li>
-	  <!-- <li>Only &lt;color=#8a8ae6&gt;ideo&lt;/color&gt;logical &lt;color=#8a8ae6&gt;scars&lt;/color&gt; count.</li> -->
 	</customEffectDescriptions>
 	<makeImmuneTo>
 	  <li>GutWorms</li>

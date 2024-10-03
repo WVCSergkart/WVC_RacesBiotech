@@ -13,7 +13,83 @@ namespace WVC_XenotypesAndGenes
 	public static class GeneResourceUtility
 	{
 
+		// Psylinks
+
+		public static void AddPsylink(Pawn pawn, ref bool pawnHadPsylinkBefore)
+		{
+			if (!WVC_Biotech.settings.link_addedPsylinkWithGene)
+			{
+				return;
+			}
+			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.PsychicAmplifier))
+			{
+				pawn.health.AddHediff(HediffDefOf.PsychicAmplifier, pawn.health.hediffSet.GetBrain());
+				ChangePsylinkLevel(pawn);
+			}
+			else
+			{
+				pawnHadPsylinkBefore = true;
+			}
+		}
+
+		public static void ChangePsylinkLevel(Pawn pawn)
+		{
+			if (pawn.Spawned)
+			{
+				return;
+			}
+			Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.PsychicAmplifier);
+			if (Rand.Chance(0.34f) && firstHediffOfDef != null)
+			{
+				IntRange level = new(1, 5);
+				((Hediff_Level)firstHediffOfDef).ChangeLevel(level.RandomInRange);
+			}
+		}
+
+		public static void PsyfocusOffset(Pawn pawn, Gene gene, ref float recoveryRate, GeneExtension_Giver props)
+		{
+			if (!pawn.IsHashIntervalTick(750))
+			{
+				return;
+			}
+			if (!gene.Active)
+			{
+				return;
+			}
+			pawn?.psychicEntropy?.OffsetPsyfocusDirectly(recoveryRate);
+			if (!pawn.IsHashIntervalTick(7500))
+			{
+				return;
+			}
+			if (pawn.HasPsylink)
+			{
+				recoveryRate = GetRecoveryRate(pawn, props);
+			}
+		}
+
+		public static float GetRecoveryRate(Pawn pawn, GeneExtension_Giver giver)
+		{
+			if (giver == null)
+			{
+				return 0.01f * pawn.GetPsylinkLevel();
+			}
+			return giver.curve.Evaluate(pawn.GetPsylinkLevel());
+		}
+
 		// Dust
+
+		public static void IngestedThingWithFactor(Gene gene, Thing thing, Pawn pawn, float factor)
+		{
+			if (!gene.Active || thing?.def?.ingestible == null)
+			{
+				return;
+			}
+			float nutrition = thing.def.ingestible.CachedNutrition;
+			if (nutrition > 0f)
+			{
+				GeneResourceUtility.OffsetNeedFood(pawn, nutrition * factor);
+			}
+		}
 
 		public static void OffsetNeedFood(Pawn pawn, float offset, bool alwaysMaxValue = false)
 		{

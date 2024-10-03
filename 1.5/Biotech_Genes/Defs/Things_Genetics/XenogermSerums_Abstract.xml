@@ -27,7 +27,7 @@
 
   <ThingDef ParentName="ResourceBase" Name="WVC_XenotypesAndGenes_XenotypeSerumsBase" Abstract="True" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<descriptionHyperlinks>
-	  <ConceptDef>WVC_XenotypeSerums_SupportedXenotypesList</ConceptDef>
+	  <!-- <ConceptDef>WVC_XenotypeSerums_SupportedXenotypesList</ConceptDef> -->
 	</descriptionHyperlinks>
 	<thingClass>WVC_XenotypesAndGenes.XenotypeSerum</thingClass>
 	<resourceReadoutPriority>Middle</resourceReadoutPriority>

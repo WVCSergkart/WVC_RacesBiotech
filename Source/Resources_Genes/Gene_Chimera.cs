@@ -76,9 +76,9 @@ namespace WVC_XenotypesAndGenes
 
 		public void GetToolGene()
 		{
-			if (WVC_Biotech.settings.enable_chimeraStartingTools && Props?.chimeraGenesTools != null)
+			if (WVC_Biotech.settings.enable_chimeraStartingTools && Props?.chimeraGenesTools != null && Props.chimeraGenesTools.Where((GeneDef geneDef) => !AllGenes.Contains(geneDef)).TryRandomElement(out GeneDef result))
 			{
-				AddGene(Props.chimeraGenesTools.Where((GeneDef geneDef) => !AllGenes.Contains(geneDef)).RandomElement());
+				AddGene(result);
 			}
 		}
 

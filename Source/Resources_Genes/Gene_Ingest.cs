@@ -161,12 +161,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Notify_IngestedThing(Thing thing, int numTaken)
 		{
-			if (!Active)
-			{
-				return;
-			}
-			base.Notify_IngestedThing(thing, numTaken);
-			GeneResourceUtility.OffsetNeedFood(pawn, 10.0f, true);
+			GeneResourceUtility.IngestedThingWithFactor(this, thing, pawn, 5 * numTaken);
 		}
 
 	}
@@ -176,12 +171,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Notify_IngestedThing(Thing thing, int numTaken)
 		{
-			if (!Active)
-			{
-				return;
-			}
-			base.Notify_IngestedThing(thing, numTaken);
-			GeneResourceUtility.OffsetNeedFood(pawn, 10.0f, true);
+			GeneResourceUtility.IngestedThingWithFactor(this, thing, pawn, 5 * numTaken);
 		}
 
 	}

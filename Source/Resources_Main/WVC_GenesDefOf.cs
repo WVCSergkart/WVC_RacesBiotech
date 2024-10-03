@@ -55,7 +55,7 @@ namespace WVC_XenotypesAndGenes
 		public static HediffDef WVC_Resurgent_UndeadResurrectionRecovery;
 		public static HediffDef WVC_XaG_ImplanterFangsMark;
 		// Supported Xenotypes List
-		public static ConceptDef WVC_XenotypeSerums_SupportedXenotypesList;
+		// public static ConceptDef WVC_XenotypeSerums_SupportedXenotypesList;
 		// Random Mechanoids Summon
 		public static ThinkTreeDef Mechanoid;
 		public static ThinkTreeDef MechConstant;

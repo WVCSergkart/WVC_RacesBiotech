@@ -13,33 +13,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			if (!WVC_Biotech.settings.link_addedPsylinkWithGene)
-			{
-				return;
-			}
-			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.PsychicAmplifier))
-			{
-				pawn.health.AddHediff(HediffDefOf.PsychicAmplifier, pawn.health.hediffSet.GetBrain());
-				ChangePsylinkLevel(pawn);
-			}
-			else
-			{
-				pawnHadPsylinkBefore = true;
-			}
-		}
-
-		public static void ChangePsylinkLevel(Pawn pawn)
-		{
-			if (pawn.Spawned)
-			{
-				return;
-			}
-			Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.PsychicAmplifier);
-			if (Rand.Chance(0.34f) && firstHediffOfDef != null)
-			{
-				IntRange level = new(1, 5);
-				((Hediff_Level)firstHediffOfDef).ChangeLevel(level.RandomInRange);
-			}
+			GeneResourceUtility.AddPsylink(pawn, ref pawnHadPsylinkBefore);
 		}
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
@@ -97,32 +71,7 @@ namespace WVC_XenotypesAndGenes
 		public override void Tick()
 		{
 			base.Tick();
-			if (!pawn.IsHashIntervalTick(750))
-			{
-				return;
-			}
-			if (!Active)
-			{
-				return;
-			}
-			pawn?.psychicEntropy?.OffsetPsyfocusDirectly(recoveryRate);
-			if (!pawn.IsHashIntervalTick(7500))
-			{
-				return;
-			}
-			if (pawn.HasPsylink)
-			{
-				recoveryRate = GetRecoveryRate(pawn, Props);
-			}
-		}
-
-		public static float GetRecoveryRate(Pawn pawn, GeneExtension_Giver giver)
-		{
-			if (giver == null)
-			{
-				return 0.01f * pawn.GetPsylinkLevel();
-			}
-			return giver.curve.Evaluate(pawn.GetPsylinkLevel());
+			GeneResourceUtility.PsyfocusOffset(pawn, this, ref recoveryRate, Props);
 		}
 
 		public override void ExposeData()
@@ -145,41 +94,13 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			if (!WVC_Biotech.settings.link_addedPsylinkWithGene)
-			{
-				return;
-			}
-			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.PsychicAmplifier))
-			{
-				pawn.health.AddHediff(HediffDefOf.PsychicAmplifier, pawn.health.hediffSet.GetBrain());
-				Gene_SimplePsylink.ChangePsylinkLevel(pawn);
-			}
-			else
-			{
-				pawnHadPsylinkBefore = true;
-			}
+			GeneResourceUtility.AddPsylink(pawn, ref pawnHadPsylinkBefore);
 		}
 
 		public override void Tick()
 		{
 			base.Tick();
-			if (!pawn.IsHashIntervalTick(750))
-			{
-				return;
-			}
-			if (!Active)
-			{
-				return;
-			}
-			pawn?.psychicEntropy?.OffsetPsyfocusDirectly(recoveryRate);
-			if (!pawn.IsHashIntervalTick(7500))
-			{
-				return;
-			}
-			if (pawn.HasPsylink)
-			{
-				recoveryRate = Gene_Psylink.GetRecoveryRate(pawn, Props);
-			}
+			GeneResourceUtility.PsyfocusOffset(pawn, this, ref recoveryRate, Props);
 		}
 
 		// public override void Reset()

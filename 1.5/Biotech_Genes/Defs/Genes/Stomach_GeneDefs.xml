@@ -34,7 +34,8 @@
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>-3</biostatMet>
 	<customEffectDescriptions>
-	  <li>Any ingestible things completely replenish hunger.</li>
+	  <!-- <li>Any ingestible things completely replenish hunger.</li> -->
+	  <li>Increases nutrition received from food by 5 times.</li>
 	</customEffectDescriptions>
 	<makeImmuneTo>
 	  <li>GutWorms</li>
