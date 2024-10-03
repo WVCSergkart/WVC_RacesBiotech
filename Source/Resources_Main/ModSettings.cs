@@ -31,7 +31,7 @@ namespace WVC_XenotypesAndGenes
 		public bool generateSkinHairColorGenes = false;
 		// Genes
 		public bool onlyXenotypesMode = false;
-		public bool canNonPlayerPawnResurrect = false;
+		public bool canNonPlayerPawnResurrect = true;
 		public bool allowShapeshiftAfterDeath = true;
 		public bool totalHealingIgnoreScarification = true;
 		// public bool genesRemoveMechlinkUponDeath = false;
@@ -371,34 +371,17 @@ namespace WVC_XenotypesAndGenes
 			// Serums
 			// if (settings.serumsForAllXenotypes)
 			// {
-				// listingStandard.Label("WVC_BiotechSettings_Label_Serums".Translate().Colorize(ColoredText.SubtleGrayColor) + ":", -1, "WVC_BiotechSettings_Tooltip_Serums".Translate());
-				// listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.serumsForAllXenotypes, "WVC_ToolTip_serumsForAllXenotypes".Translate());
-				// listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenBase".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.serumsForAllXenotypes_GenBase, "WVC_ToolTip_serumsForAllXenotypes_GenBase".Translate());
-				// listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenUltra".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.serumsForAllXenotypes_GenUltra, "WVC_ToolTip_serumsForAllXenotypes_GenUltra".Translate());
-				// listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenHybrid".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.serumsForAllXenotypes_GenHybrid, "WVC_ToolTip_serumsForAllXenotypes_GenHybrid".Translate());
-				// listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_Recipes".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.serumsForAllXenotypes_Recipes, "WVC_ToolTip_serumsForAllXenotypes_Recipes".Translate());
-				// listingStandard.CheckboxLabeled("WVC_Label_serumsSpawnersForAllXenotypes".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.serumsForAllXenotypes_Spawners, "WVC_ToolTip_serumsSpawnersForAllXenotypes".Translate());
-				// listingStandard.GapLine();
+			// listingStandard.Label("WVC_BiotechSettings_Label_Serums".Translate().Colorize(ColoredText.SubtleGrayColor) + ":", -1, "WVC_BiotechSettings_Tooltip_Serums".Translate());
+			// listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.serumsForAllXenotypes, "WVC_ToolTip_serumsForAllXenotypes".Translate());
+			// listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenBase".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.serumsForAllXenotypes_GenBase, "WVC_ToolTip_serumsForAllXenotypes_GenBase".Translate());
+			// listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenUltra".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.serumsForAllXenotypes_GenUltra, "WVC_ToolTip_serumsForAllXenotypes_GenUltra".Translate());
+			// listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_GenHybrid".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.serumsForAllXenotypes_GenHybrid, "WVC_ToolTip_serumsForAllXenotypes_GenHybrid".Translate());
+			// listingStandard.CheckboxLabeled("WVC_Label_serumsForAllXenotypes_Recipes".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.serumsForAllXenotypes_Recipes, "WVC_ToolTip_serumsForAllXenotypes_Recipes".Translate());
+			// listingStandard.CheckboxLabeled("WVC_Label_serumsSpawnersForAllXenotypes".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.serumsForAllXenotypes_Spawners, "WVC_ToolTip_serumsSpawnersForAllXenotypes".Translate());
+			// listingStandard.GapLine();
 			// }
 			// =============== Buttons ===============
-			if (listingStandard.ButtonText("WVC_XaG_ResetButton".Translate()))
-			{
-				Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_ResetButtonWarning".Translate(), delegate
-				{
-					ResetSettings_Default();
-					Messages.Message("WVC_XaG_ResetButton_SettingsChanged".Translate(), MessageTypeDefOf.TaskCompletion, historical: false);
-				});
-				Find.WindowStack.Add(window);
-			}
-			if (listingStandard.ButtonText("WVC_XaG_ModDeveloperRecommendationButton".Translate()))
-			{
-				Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_ResetButtonWarning".Translate(), delegate
-				{
-					ResetSettings_MyChoice();
-					Messages.Message("WVC_XaG_ResetButton_SettingsChanged".Translate(), MessageTypeDefOf.TaskCompletion, historical: false);
-				});
-				Find.WindowStack.Add(window);
-			}
+			ResetButton(listingStandard);
 			// =============== Buttons ===============
 			listingStandard.End();
 			Widgets.EndScrollView();
@@ -538,24 +521,7 @@ namespace WVC_XenotypesAndGenes
 			// listingStandard.CheckboxLabeled("DEV MODE", ref settings.advancedDevMode, "Dev tool.");
 			listingStandard.GapLine();
 			// =============== Buttons ===============
-			if (listingStandard.ButtonText("WVC_XaG_ResetButton".Translate()))
-			{
-				Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_ResetButtonWarning".Translate(), delegate
-				{
-					ResetSettings_Default();
-					Messages.Message("WVC_XaG_ResetButton_SettingsChanged".Translate(), MessageTypeDefOf.TaskCompletion, historical: false);
-				});
-				Find.WindowStack.Add(window);
-			}
-			if (listingStandard.ButtonText("WVC_XaG_ModDeveloperRecommendationButton".Translate()))
-			{
-				Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_ResetButtonWarning".Translate(), delegate
-				{
-					ResetSettings_MyChoice();
-					Messages.Message("WVC_XaG_ResetButton_SettingsChanged".Translate(), MessageTypeDefOf.TaskCompletion, historical: false);
-				});
-				Find.WindowStack.Add(window);
-			}
+			ResetButton(listingStandard);
 			// =============== Dev Mode ===============
 			if (Prefs.DevMode)
 			{
@@ -814,28 +780,11 @@ namespace WVC_XenotypesAndGenes
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_DryadQueen".Translate() + ":", -1);
 			listingStandard.CheckboxLabeled("WVC_Label_enable_dryadQueenMechanicGenerator".Translate().Colorize(ColorLibrary.LightOrange), ref settings.enable_dryadQueenMechanicGenerator, "WVC_ToolTip_enable_dryadQueenMechanicGenerator".Translate());
-			listingStandard.SliderLabeledWithRef("WVC_Label_gestatedDryads_FilthRateFactor".Translate((settings.chimeraMinGeneCopyChance * 100f).ToString()), ref settings.gestatedDryads_FilthRateFactor, 0f, 1f, round: 2);
+			listingStandard.SliderLabeledWithRef("WVC_Label_gestatedDryads_FilthRateFactor".Translate((settings.gestatedDryads_FilthRateFactor * 100f).ToString()), ref settings.gestatedDryads_FilthRateFactor, 0f, 1f, round: 2);
 			// Reset Button
 			listingStandard.GapLine();
 			// =============== Buttons ===============
-			if (listingStandard.ButtonText("WVC_XaG_ResetButton".Translate()))
-			{
-				Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_ResetButtonWarning".Translate(), delegate
-				{
-					ResetSettings_Default();
-					Messages.Message("WVC_XaG_ResetButton_SettingsChanged".Translate(), MessageTypeDefOf.TaskCompletion, historical: false);
-				});
-				Find.WindowStack.Add(window);
-			}
-			if (listingStandard.ButtonText("WVC_XaG_ModDeveloperRecommendationButton".Translate()))
-			{
-				Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_ResetButtonWarning".Translate(), delegate
-				{
-					ResetSettings_MyChoice();
-					Messages.Message("WVC_XaG_ResetButton_SettingsChanged".Translate(), MessageTypeDefOf.TaskCompletion, historical: false);
-				});
-				Find.WindowStack.Add(window);
-			}
+			ResetButton(listingStandard);
 			// =============== Buttons ===============
 			listingStandard.End();
 			Widgets.EndScrollView();
@@ -867,167 +816,73 @@ namespace WVC_XenotypesAndGenes
 			// =============== Xenotypes Chance Settings ===============
 			// listingStandard.GapLine();
 			// =============== Buttons ===============
-			if (listingStandard.ButtonText("WVC_XaG_ResetButton".Translate()))
-			{
-				Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_ResetButtonWarning".Translate(), delegate
-				{
-					ResetSettings_Default();
-					Messages.Message("WVC_XaG_ResetButton_SettingsChanged".Translate(), MessageTypeDefOf.TaskCompletion, historical: false);
-				});
-				Find.WindowStack.Add(window);
-			}
-			if (listingStandard.ButtonText("WVC_XaG_ModDeveloperRecommendationButton".Translate()))
-			{
-				Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_ResetButtonWarning".Translate(), delegate
-				{
-					ResetSettings_MyChoice();
-					Messages.Message("WVC_XaG_ResetButton_SettingsChanged".Translate(), MessageTypeDefOf.TaskCompletion, historical: false);
-				});
-				Find.WindowStack.Add(window);
-			}
+			ResetButton(listingStandard);
+			// if (listingStandard.ButtonText("WVC_XaG_ModDeveloperRecommendationButton".Translate()))
+			// {
+			// Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_ResetButtonWarning".Translate(), delegate
+			// {
+			// ResetSettings_MyChoice();
+			// Messages.Message("WVC_XaG_ResetButton_SettingsChanged".Translate(), MessageTypeDefOf.TaskCompletion, historical: false);
+			// });
+			// Find.WindowStack.Add(window);
+			// }
 			// =============== Buttons ===============
 			listingStandard.End();
 			Widgets.EndScrollView();
 		}
 
-		// Reset
-
-		public static void ResetSettings_Default()
+		private static void ResetButton(Listing_Standard listingStandard)
 		{
-			WVC_Biotech.settings.onlyXenotypesMode = false;
-			// Graphic
-			WVC_Biotech.settings.hideXaGGenes = false;
-			WVC_Biotech.settings.disableFurGraphic = false;
-			WVC_Biotech.settings.enable_FurskinIsSkinAutopatch = false;
-			WVC_Biotech.settings.disableAllGraphic = false;
-			WVC_Biotech.settings.disableUniqueGeneInterface = false;
-			WVC_Biotech.settings.disableEyesGraphic = false;
-			WVC_Biotech.settings.useMaskForFurskinGenes = true;
-			// Generator
-			WVC_Biotech.settings.generateSkillGenes = true;
-			WVC_Biotech.settings.generateXenotypeForceGenes = false;
-			WVC_Biotech.settings.generateResourceSpawnerGenes = false;
-			WVC_Biotech.settings.generateSkinHairColorGenes = false;
-			// Misc
-			WVC_Biotech.settings.disableUniqueXenotypeScenarios = false;
-			// Fix
-			WVC_Biotech.settings.fixVanillaGeneImmunityCheck = true;
-			WVC_Biotech.settings.spawnXenoForcerSerumsFromTraders = true;
-			// Info
-			WVC_Biotech.settings.enable_xagHumanComponent = true;
-			// WVC_Biotech.settings.enableGeneSpawnerGizmo = true;
-			// WVC_Biotech.settings.enableGeneWingInfo = false;
-			// WVC_Biotech.settings.enableGeneBlesslinkInfo = true;
-			// WVC_Biotech.settings.enableGeneUndeadInfo = false;
-			// WVC_Biotech.settings.enableGeneScarifierInfo = false;
-			// WVC_Biotech.settings.enableGeneInstabilityInfo = true;
-			// WVC_Biotech.settings.enableGeneGauranlenConnectionInfo = true;
-			// Serums
-			// WVC_Biotech.settings.serumsForAllXenotypes = false;
-			// WVC_Biotech.settings.serumsForAllXenotypes_GenBase = true;
-			// WVC_Biotech.settings.serumsForAllXenotypes_GenUltra = false;
-			// WVC_Biotech.settings.serumsForAllXenotypes_GenHybrid = false;
-			// WVC_Biotech.settings.serumsForAllXenotypes_Recipes = true;
-			// WVC_Biotech.settings.serumsForAllXenotypes_Spawners = false;
-			// =
-			WVC_Biotech.settings.canNonPlayerPawnResurrect = true;
-			WVC_Biotech.settings.allowShapeshiftAfterDeath = true;
-			// WVC_Biotech.settings.shapeshifter_enableStyleButton = true;
-			WVC_Biotech.settings.enable_chimeraMetabolismHungerFactor = true;
-			WVC_Biotech.settings.chimeraMinGeneCopyChance = 0.35f;
-			WVC_Biotech.settings.shapeshifer_GeneCellularRegeneration = 1f;
-			WVC_Biotech.settings.chimeraStartingGenes = 5f;
-			WVC_Biotech.settings.enable_chimeraStartingTools = true;
-			// =
-			WVC_Biotech.settings.thrallMaker_ThrallsInheritMasterGenes = true;
-			// =
-			WVC_Biotech.settings.totalHealingIgnoreScarification = true;
-			WVC_Biotech.settings.restoreBodyPartsWithFullHP = false;
-			// =
-			// WVC_Biotech.settings.shapeshifterGeneUnremovable = true;
-			// =
-			WVC_Biotech.settings.enableIncestLoverGene = true;
-			WVC_Biotech.settings.disableNonAcceptablePreyGenes = false;
-			// =
-			WVC_Biotech.settings.enableHarmonyTelepathyGene = false;
-			// =
-			// WVC_Biotech.settings.useAlternativeDustogenicFoodJob = true;
-			// =
-			WVC_Biotech.settings.learningTelepathWorkForBothSides = false;
-			// =
-			WVC_Biotech.settings.enable_birthQualityOffsetFromGenes = true;
-			WVC_Biotech.settings.xenotypeGestator_GestationTimeFactor = 1f;
-			WVC_Biotech.settings.xenotypeGestator_GestationMatchPercent = 0.4f;
-			// =
-			WVC_Biotech.settings.reincarnation_EnableMechanic = true;
-			WVC_Biotech.settings.reincarnation_MinChronoAge = 200f;
-			WVC_Biotech.settings.reincarnation_Chance = 0.08f;
-			// =
-			WVC_Biotech.settings.harmony_EnableGenesMechanicsTriggers = true;
-			WVC_Biotech.settings.bloodeater_SafeBloodfeed = false;
-			WVC_Biotech.settings.bloodeater_disableAutoFeed = false;
-			WVC_Biotech.settings.bloodfeeder_AutoBloodfeed = false;
-			WVC_Biotech.settings.hemogenic_ImplanterFangsChanceFactor = 1f;
-			// =
-			WVC_Biotech.settings.enableInstabilityLastChanceMechanic = true;
-			// =
-			WVC_Biotech.settings.enable_dryadQueenMechanicGenerator = true;
-			WVC_Biotech.settings.gestatedDryads_FilthRateFactor = 0.1f;
-			// =
-			WVC_Biotech.settings.link_addedMechlinkWithGene = true;
-			WVC_Biotech.settings.link_addedPsylinkWithGene = true;
-			WVC_Biotech.settings.link_removeMechlinkWithGene = false;
-			WVC_Biotech.settings.link_removePsylinkWithGene = false;
-			// =
-			WVC_Biotech.settings.rechargeable_enablefoodPoisoningFromFood = true;
-			// Extra
-			WVC_Biotech.settings.genesCanTickOnlyOnMap = false;
-			WVC_Biotech.settings.enable_flatGenesSpawnChances = false;
-			WVC_Biotech.settings.enable_ReplaceSimilarGenesAutopatch = false;
-			// Xenotypes
-			WVC_Biotech.settings.enable_spawnXenotypesInFactions = false;
-			WVC_Biotech.settings.disableXenotypes_MainSwitch = false;
-			WVC_Biotech.settings.disableXenotypes_Undeads = false;
-			WVC_Biotech.settings.disableXenotypes_Psycasters = false;
-			WVC_Biotech.settings.disableXenotypes_Mechalike = false;
-			WVC_Biotech.settings.disableXenotypes_GolemMasters = false;
-			WVC_Biotech.settings.disableXenotypes_Bloodeaters = false;
-			WVC_Biotech.settings.disableXenotypes_Misc = false;
-			// PregnantHuman
-			// WVC_Biotech.settings.pregnantHuman_TrueParentGenesPatch = false;
-			// WVC_Biotech.settings.pregnantHuman_InheritSurrogateGenes = false;
-			// WVC_Biotech.settings.pregnantHuman_InheritArchiteGenes = false;
-			// XenotypesSettings
-			WVC_Biotech.cachedXenotypesFilter.Clear();
-			XaG_PostInitialization.SetValues();
-			// Initial
-			WVC_Biotech.settings.firstModLaunch = false;
-			WVC_Biotech.settings.Write();
+			if (listingStandard.ButtonText("WVC_XaG_ResetButton".Translate()))
+			{
+				List<FloatMenuOption> list = new();
+				List<SettingsDef> allSettings = DefDatabase<SettingsDef>.AllDefsListForReading;
+				for (int i = 0; i < allSettings.Count; i++)
+				{
+					SettingsDef preset = allSettings[i];
+					list.Add(new FloatMenuOption(preset.LabelCap, delegate
+					{
+						Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_ResetButtonWarning".Translate(preset.description), delegate
+						{
+							ResetSettings_ByTemplate(preset);
+							Messages.Message("WVC_XaG_ResetButton_SettingsChanged".Translate(), MessageTypeDefOf.TaskCompletion, historical: false);
+						});
+						Find.WindowStack.Add(window);
+					}, orderInPriority: 0 - preset.presetOrder));
+				}
+				if (!list.Any())
+				{
+					list.Add(new FloatMenuOption("ERROR SETTINGS PRESET IS NULL", null));
+				}
+				Find.WindowStack.Add(new FloatMenu(list));
+			}
 		}
 
-		public static void ResetSettings_MyChoice()
+		// Reset
+
+		public static void ResetSettings_ByTemplate(SettingsDef settingsDef)
 		{
-			WVC_Biotech.settings.onlyXenotypesMode = false;
+			WVC_Biotech.settings.onlyXenotypesMode = settingsDef.onlyXenotypesMode;
 			// Graphic
-			WVC_Biotech.settings.hideXaGGenes = true;
-			WVC_Biotech.settings.disableFurGraphic = false;
-			WVC_Biotech.settings.enable_FurskinIsSkinAutopatch = true;
-			WVC_Biotech.settings.disableAllGraphic = false;
-			WVC_Biotech.settings.disableUniqueGeneInterface = false;
-			WVC_Biotech.settings.disableEyesGraphic = false;
-			WVC_Biotech.settings.useMaskForFurskinGenes = true;
+			WVC_Biotech.settings.hideXaGGenes = settingsDef.hideXaGGenes;
+			WVC_Biotech.settings.disableFurGraphic = settingsDef.disableFurGraphic;
+			WVC_Biotech.settings.enable_FurskinIsSkinAutopatch = settingsDef.enable_FurskinIsSkinAutopatch;
+			WVC_Biotech.settings.disableAllGraphic = settingsDef.disableAllGraphic;
+			WVC_Biotech.settings.disableUniqueGeneInterface = settingsDef.disableUniqueGeneInterface;
+			WVC_Biotech.settings.disableEyesGraphic = settingsDef.disableEyesGraphic;
+			WVC_Biotech.settings.useMaskForFurskinGenes = settingsDef.useMaskForFurskinGenes;
 			// Generator
-			WVC_Biotech.settings.generateSkillGenes = true;
-			WVC_Biotech.settings.generateXenotypeForceGenes = false;
-			WVC_Biotech.settings.generateResourceSpawnerGenes = false;
-			WVC_Biotech.settings.generateSkinHairColorGenes = false;
+			WVC_Biotech.settings.generateSkillGenes = settingsDef.generateSkillGenes;
+			WVC_Biotech.settings.generateXenotypeForceGenes = settingsDef.generateXenotypeForceGenes;
+			WVC_Biotech.settings.generateResourceSpawnerGenes = settingsDef.generateResourceSpawnerGenes;
+			WVC_Biotech.settings.generateSkinHairColorGenes = settingsDef.generateSkinHairColorGenes;
 			// Misc
-			WVC_Biotech.settings.disableUniqueXenotypeScenarios = false;
+			WVC_Biotech.settings.disableUniqueXenotypeScenarios = settingsDef.disableUniqueXenotypeScenarios;
 			// Fix
-			WVC_Biotech.settings.fixVanillaGeneImmunityCheck = true;
-			WVC_Biotech.settings.spawnXenoForcerSerumsFromTraders = true;
+			WVC_Biotech.settings.fixVanillaGeneImmunityCheck = settingsDef.fixVanillaGeneImmunityCheck;
+			WVC_Biotech.settings.spawnXenoForcerSerumsFromTraders = settingsDef.spawnXenoForcerSerumsFromTraders;
 			// Info
-			WVC_Biotech.settings.enable_xagHumanComponent = true;
+			WVC_Biotech.settings.enable_xagHumanComponent = settingsDef.enable_xagHumanComponent;
 			// WVC_Biotech.settings.enableGeneSpawnerGizmo = true;
 			// WVC_Biotech.settings.enableGeneWingInfo = false;
 			// WVC_Biotech.settings.enableGeneBlesslinkInfo = true;
@@ -1043,77 +898,77 @@ namespace WVC_XenotypesAndGenes
 			// WVC_Biotech.settings.serumsForAllXenotypes_Recipes = false;
 			// WVC_Biotech.settings.serumsForAllXenotypes_Spawners = false;
 			// =
-			WVC_Biotech.settings.canNonPlayerPawnResurrect = true;
-			WVC_Biotech.settings.allowShapeshiftAfterDeath = true;
+			WVC_Biotech.settings.canNonPlayerPawnResurrect = settingsDef.canNonPlayerPawnResurrect;
+			WVC_Biotech.settings.allowShapeshiftAfterDeath = settingsDef.allowShapeshiftAfterDeath;
 			// WVC_Biotech.settings.shapeshifter_enableStyleButton = true;
-			WVC_Biotech.settings.enable_chimeraMetabolismHungerFactor = true;
-			WVC_Biotech.settings.chimeraMinGeneCopyChance = 0.35f;
-			WVC_Biotech.settings.shapeshifer_GeneCellularRegeneration = 1f;
-			WVC_Biotech.settings.chimeraStartingGenes = 5f;
-			WVC_Biotech.settings.enable_chimeraStartingTools = true;
+			WVC_Biotech.settings.enable_chimeraMetabolismHungerFactor = settingsDef.enable_chimeraMetabolismHungerFactor;
+			WVC_Biotech.settings.chimeraMinGeneCopyChance = settingsDef.chimeraMinGeneCopyChance;
+			WVC_Biotech.settings.shapeshifer_GeneCellularRegeneration = settingsDef.shapeshifer_GeneCellularRegeneration;
+			WVC_Biotech.settings.chimeraStartingGenes = settingsDef.chimeraStartingGenes;
+			WVC_Biotech.settings.enable_chimeraStartingTools = settingsDef.enable_chimeraStartingTools;
 			// =
-			WVC_Biotech.settings.thrallMaker_ThrallsInheritMasterGenes = true;
+			WVC_Biotech.settings.thrallMaker_ThrallsInheritMasterGenes = settingsDef.thrallMaker_ThrallsInheritMasterGenes;
 			// =
-			WVC_Biotech.settings.totalHealingIgnoreScarification = true;
-			WVC_Biotech.settings.restoreBodyPartsWithFullHP = false;
+			WVC_Biotech.settings.totalHealingIgnoreScarification = settingsDef.totalHealingIgnoreScarification;
+			WVC_Biotech.settings.restoreBodyPartsWithFullHP = settingsDef.restoreBodyPartsWithFullHP;
 			// =
 			// WVC_Biotech.settings.shapeshifterGeneUnremovable = true;
 			// =
-			WVC_Biotech.settings.enableIncestLoverGene = true;
-			WVC_Biotech.settings.disableNonAcceptablePreyGenes = false;
+			WVC_Biotech.settings.enableIncestLoverGene = settingsDef.enableIncestLoverGene;
+			WVC_Biotech.settings.disableNonAcceptablePreyGenes = settingsDef.disableNonAcceptablePreyGenes;
 			// =
-			WVC_Biotech.settings.enableHarmonyTelepathyGene = false;
+			WVC_Biotech.settings.enableHarmonyTelepathyGene = settingsDef.enableHarmonyTelepathyGene;
 			// =
 			// WVC_Biotech.settings.useAlternativeDustogenicFoodJob = true;
 			// =
-			WVC_Biotech.settings.learningTelepathWorkForBothSides = false;
+			WVC_Biotech.settings.learningTelepathWorkForBothSides = settingsDef.learningTelepathWorkForBothSides;
 			// =
-			WVC_Biotech.settings.enable_birthQualityOffsetFromGenes = true;
-			WVC_Biotech.settings.xenotypeGestator_GestationTimeFactor = 1f;
-			WVC_Biotech.settings.xenotypeGestator_GestationMatchPercent = 0.4f;
+			WVC_Biotech.settings.enable_birthQualityOffsetFromGenes = settingsDef.enable_birthQualityOffsetFromGenes;
+			WVC_Biotech.settings.xenotypeGestator_GestationTimeFactor = settingsDef.xenotypeGestator_GestationTimeFactor;
+			WVC_Biotech.settings.xenotypeGestator_GestationMatchPercent = settingsDef.xenotypeGestator_GestationMatchPercent;
 			// =
-			WVC_Biotech.settings.reincarnation_EnableMechanic = true;
-			WVC_Biotech.settings.reincarnation_MinChronoAge = 500f;
-			WVC_Biotech.settings.reincarnation_Chance = 0.08f;
+			WVC_Biotech.settings.reincarnation_EnableMechanic = settingsDef.reincarnation_EnableMechanic;
+			WVC_Biotech.settings.reincarnation_MinChronoAge = settingsDef.reincarnation_MinChronoAge;
+			WVC_Biotech.settings.reincarnation_Chance = settingsDef.reincarnation_Chance;
 			// =
-			WVC_Biotech.settings.harmony_EnableGenesMechanicsTriggers = true;
-			WVC_Biotech.settings.bloodeater_SafeBloodfeed = false;
-			WVC_Biotech.settings.bloodeater_disableAutoFeed = false;
-			WVC_Biotech.settings.bloodfeeder_AutoBloodfeed = true;
-			WVC_Biotech.settings.hemogenic_ImplanterFangsChanceFactor = 1f;
+			WVC_Biotech.settings.harmony_EnableGenesMechanicsTriggers = settingsDef.harmony_EnableGenesMechanicsTriggers;
+			WVC_Biotech.settings.bloodeater_SafeBloodfeed = settingsDef.bloodeater_SafeBloodfeed;
+			WVC_Biotech.settings.bloodeater_disableAutoFeed = settingsDef.bloodeater_disableAutoFeed;
+			WVC_Biotech.settings.bloodfeeder_AutoBloodfeed = settingsDef.bloodfeeder_AutoBloodfeed;
+			WVC_Biotech.settings.hemogenic_ImplanterFangsChanceFactor = settingsDef.hemogenic_ImplanterFangsChanceFactor;
 			// =
-			WVC_Biotech.settings.enableInstabilityLastChanceMechanic = true;
+			WVC_Biotech.settings.enableInstabilityLastChanceMechanic = settingsDef.enableInstabilityLastChanceMechanic;
 			// =
-			WVC_Biotech.settings.enable_dryadQueenMechanicGenerator = true;
-			WVC_Biotech.settings.gestatedDryads_FilthRateFactor = 0.1f;
+			WVC_Biotech.settings.enable_dryadQueenMechanicGenerator = settingsDef.enable_dryadQueenMechanicGenerator;
+			WVC_Biotech.settings.gestatedDryads_FilthRateFactor = settingsDef.gestatedDryads_FilthRateFactor;
 			// =
-			WVC_Biotech.settings.link_addedMechlinkWithGene = true;
-			WVC_Biotech.settings.link_addedPsylinkWithGene = true;
-			WVC_Biotech.settings.link_removeMechlinkWithGene = false;
-			WVC_Biotech.settings.link_removePsylinkWithGene = false;
+			WVC_Biotech.settings.link_addedMechlinkWithGene = settingsDef.link_addedMechlinkWithGene;
+			WVC_Biotech.settings.link_addedPsylinkWithGene = settingsDef.link_addedPsylinkWithGene;
+			WVC_Biotech.settings.link_removeMechlinkWithGene = settingsDef.link_removeMechlinkWithGene;
+			WVC_Biotech.settings.link_removePsylinkWithGene = settingsDef.link_removePsylinkWithGene;
 			// =
-			WVC_Biotech.settings.rechargeable_enablefoodPoisoningFromFood = true;
+			WVC_Biotech.settings.rechargeable_enablefoodPoisoningFromFood = settingsDef.rechargeable_enablefoodPoisoningFromFood;
 			// =
 			// Extra
-			WVC_Biotech.settings.genesCanTickOnlyOnMap = false;
-			WVC_Biotech.settings.enable_flatGenesSpawnChances = false;
-			WVC_Biotech.settings.enable_ReplaceSimilarGenesAutopatch = false;
+			WVC_Biotech.settings.genesCanTickOnlyOnMap = settingsDef.genesCanTickOnlyOnMap;
+			WVC_Biotech.settings.enable_flatGenesSpawnChances = settingsDef.enable_flatGenesSpawnChances;
+			WVC_Biotech.settings.enable_ReplaceSimilarGenesAutopatch = settingsDef.enable_ReplaceSimilarGenesAutopatch;
 			// Xenotypes
-			WVC_Biotech.settings.enable_spawnXenotypesInFactions = false;
-			WVC_Biotech.settings.disableXenotypes_MainSwitch = false;
-			WVC_Biotech.settings.disableXenotypes_Undeads = false;
-			WVC_Biotech.settings.disableXenotypes_Psycasters = false;
-			WVC_Biotech.settings.disableXenotypes_Mechalike = false;
-			WVC_Biotech.settings.disableXenotypes_GolemMasters = false;
-			WVC_Biotech.settings.disableXenotypes_Bloodeaters = false;
-			WVC_Biotech.settings.disableXenotypes_Misc = false;
+			WVC_Biotech.settings.enable_spawnXenotypesInFactions = settingsDef.enable_spawnXenotypesInFactions;
+			WVC_Biotech.settings.disableXenotypes_MainSwitch = settingsDef.disableXenotypes_MainSwitch;
+			WVC_Biotech.settings.disableXenotypes_Undeads = settingsDef.disableXenotypes_Undeads;
+			WVC_Biotech.settings.disableXenotypes_Psycasters = settingsDef.disableXenotypes_Psycasters;
+			WVC_Biotech.settings.disableXenotypes_Mechalike = settingsDef.disableXenotypes_Mechalike;
+			WVC_Biotech.settings.disableXenotypes_GolemMasters = settingsDef.disableXenotypes_GolemMasters;
+			WVC_Biotech.settings.disableXenotypes_Bloodeaters = settingsDef.disableXenotypes_Bloodeaters;
+			WVC_Biotech.settings.disableXenotypes_Misc = settingsDef.disableXenotypes_Misc;
 			// PregnantHuman
 			// WVC_Biotech.settings.pregnantHuman_TrueParentGenesPatch = false;
 			// WVC_Biotech.settings.pregnantHuman_InheritSurrogateGenes = false;
 			// WVC_Biotech.settings.pregnantHuman_InheritArchiteGenes = false;
 			// XenotypesSettings
-			WVC_Biotech.cachedXenotypesFilter.Clear();
-			XaG_PostInitialization.SetValues();
+			// WVC_Biotech.cachedXenotypesFilter.Clear();
+			// XaG_PostInitialization.SetValues();
 			// Initial
 			WVC_Biotech.settings.firstModLaunch = false;
 			WVC_Biotech.settings.Write();

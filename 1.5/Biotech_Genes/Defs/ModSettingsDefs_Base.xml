@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WVC_XenotypesAndGenes.SettingsDef>
+	<defName>WVC_Default</defName>
+	<label>default</label>
+	<description>Default settings of the mod. These settings should be best suited for the first acquaintance with the mod.</description>
+	<presetOrder>0</presetOrder>
+  </WVC_XenotypesAndGenes.SettingsDef>
+
+  <WVC_XenotypesAndGenes.SettingsDef>
+	<defName>WVC_MyChoice</defName>
+	<label>dev choice</label>
+	<description>These are the mod developer's preferred settings. Please note that this preset may not suit your playstyle.</description>
+	<presetOrder>20</presetOrder>
+	<onlyXenotypesMode>true</onlyXenotypesMode>
+	<!-- Traders Sell Serums -->
+	<spawnXenoForcerSerumsFromTraders>false</spawnXenoForcerSerumsFromTraders>
+	<chimeraMinGeneCopyChance>0.55</chimeraMinGeneCopyChance>
+	<reincarnation_MinChronoAge>500</reincarnation_MinChronoAge>
+	<enable_FurskinIsSkinAutopatch>True</enable_FurskinIsSkinAutopatch>
+	<enable_ReplaceSimilarGenesAutopatch>True</enable_ReplaceSimilarGenesAutopatch>
+	<bloodfeeder_AutoBloodfeed>True</bloodfeeder_AutoBloodfeed>
+  </WVC_XenotypesAndGenes.SettingsDef>
+
+  <WVC_XenotypesAndGenes.SettingsDef>
+	<defName>WVC_UltraPerformance</defName>
+	<label>ultra performance</label>
+	<description>Settings for maximum performance. In this preset most of the mod mechanics and all graphics are disabled, keep in mind that some genes will stop working. Use this preset only as a last resort, and only if you know what you are doing.</description>
+	<presetOrder>100</presetOrder>
+	<hideXaGGenes>true</hideXaGGenes>
+	<disableFurGraphic>true</disableFurGraphic>
+	<disableAllGraphic>true</disableAllGraphic>
+	<disableUniqueGeneInterface>true</disableUniqueGeneInterface>
+	<generateSkillGenes>false</generateSkillGenes>
+	<harmony_EnableGenesMechanicsTriggers>false</harmony_EnableGenesMechanicsTriggers>
+	<enableIncestLoverGene>false</enableIncestLoverGene>
+	<disableNonAcceptablePreyGenes>true</disableNonAcceptablePreyGenes>
+	<enable_xagHumanComponent>false</enable_xagHumanComponent>
+	<fixVanillaGeneImmunityCheck>false</fixVanillaGeneImmunityCheck>
+	<enable_birthQualityOffsetFromGenes>false</enable_birthQualityOffsetFromGenes>
+	<enable_dryadQueenMechanicGenerator>false</enable_dryadQueenMechanicGenerator>
+  </WVC_XenotypesAndGenes.SettingsDef>
+
+	<!-- Current Default Settings -->
+	<!-- public bool hideXaGGenes = false; -->
+	<!-- public bool disableFurGraphic = false; -->
+	<!-- public bool enable_FurskinIsSkinAutopatch = false; -->
+	<!-- public bool disableAllGraphic = false; -->
+	<!-- public bool disableUniqueGeneInterface = false; -->
+	<!-- public bool disableEyesGraphic = false; -->
+	<!-- public bool useMaskForFurskinGenes = true; -->
+	<!-- public bool generateSkillGenes = true; -->
+	<!-- public bool generateXenotypeForceGenes = false; -->
+	<!-- public bool generateResourceSpawnerGenes = false; -->
+	<!-- public bool generateSkinHairColorGenes = false; -->
+	<!-- public bool onlyXenotypesMode = false; -->
+	<!-- public bool canNonPlayerPawnResurrect = true; -->
+	<!-- public bool allowShapeshiftAfterDeath = true; -->
+	<!-- public bool totalHealingIgnoreScarification = true; -->
+	<!-- public bool enableIncestLoverGene = true; -->
+	<!-- public bool disableNonAcceptablePreyGenes = false; -->
+	<!-- public bool enableHarmonyTelepathyGene = false; -->
+	<!-- public bool learningTelepathWorkForBothSides = false; -->
+	<!-- public bool disableUniqueXenotypeScenarios = false; -->
+	<!-- public bool restoreBodyPartsWithFullHP = false; -->
+	<!-- public bool thrallMaker_ThrallsInheritMasterGenes = true; -->
+	<!-- public bool enable_xagHumanComponent = true; -->
+	<!-- public bool genesCanTickOnlyOnMap = false; -->
+	<!-- public bool enable_flatGenesSpawnChances = false; -->
+	<!-- public bool enable_ReplaceSimilarGenesAutopatch = false; -->
+	<!-- public bool fixVanillaGeneImmunityCheck = true; -->
+	<!-- public bool spawnXenoForcerSerumsFromTraders = true; -->
+	<!-- public bool enable_birthQualityOffsetFromGenes = true; -->
+	<!-- public float xenotypeGestator_GestationTimeFactor = 1f; -->
+	<!-- public float xenotypeGestator_GestationMatchPercent = 0.4f; -->
+	<!-- public bool reincarnation_EnableMechanic = true; -->
+	<!-- public float reincarnation_MinChronoAge = 200f; -->
+	<!-- public float reincarnation_Chance = 0.08f; -->
+	<!-- public bool harmony_EnableGenesMechanicsTriggers = true; -->
+	<!-- public bool bloodeater_SafeBloodfeed = false; -->
+	<!-- public bool bloodeater_disableAutoFeed = false; -->
+	<!-- public bool bloodfeeder_AutoBloodfeed = false; -->
+	<!-- public float hemogenic_ImplanterFangsChanceFactor = 1f; -->
+	<!-- public bool enableInstabilityLastChanceMechanic = true; -->
+	<!-- public bool link_addedMechlinkWithGene = true; -->
+	<!-- public bool link_addedPsylinkWithGene = true; -->
+	<!-- public bool link_removeMechlinkWithGene = false; -->
+	<!-- public bool link_removePsylinkWithGene = false; -->
+	<!-- public float shapeshifer_GeneCellularRegeneration = 1f; -->
+	<!-- public bool enable_chimeraMetabolismHungerFactor = true; -->
+	<!-- public float chimeraMinGeneCopyChance = 0.35f; -->
+	<!-- public float chimeraStartingGenes = 5f; -->
+	<!-- public bool enable_chimeraStartingTools = true; -->
+	<!-- public bool enable_dryadQueenMechanicGenerator = true; -->
+	<!-- public float gestatedDryads_FilthRateFactor = 0.1f; -->
+	<!-- public bool rechargeable_enablefoodPoisoningFromFood = true; -->
+	<!-- public bool enable_spawnXenotypesInFactions = false; -->
+	<!-- public bool disableXenotypes_MainSwitch = false; -->
+	<!-- public bool disableXenotypes_Undeads = false; -->
+	<!-- public bool disableXenotypes_Psycasters = false; -->
+	<!-- public bool disableXenotypes_Mechalike = false; -->
+	<!-- public bool disableXenotypes_GolemMasters = false; -->
+	<!-- public bool disableXenotypes_Bloodeaters = false; -->
+	<!-- public bool disableXenotypes_Misc = false; -->
+
+</Defs>

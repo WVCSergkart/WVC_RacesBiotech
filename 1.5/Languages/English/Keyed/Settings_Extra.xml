@@ -198,7 +198,7 @@ This should not affect performance, but if you encounter problems with dryads, i
 
 A restart is required.</WVC_ToolTip_enable_dryadQueenMechanicGenerator>
 
-	<WVC_Label_gestatedDryads_FilthRateFactor>Gestated dryads filth factor: x{0}%</WVC_Label_gestatedDryads_FilthRateFactor>
+	<WVC_Label_gestatedDryads_FilthRateFactor>Gestated dryads filth factor x{0}%</WVC_Label_gestatedDryads_FilthRateFactor>
 
 	<!-- ================================== -->
 

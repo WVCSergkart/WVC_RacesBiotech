@@ -1,0 +1,228 @@
+
+
+		public static void ResetSettings_Default()
+		{
+			WVC_Biotech.settings.onlyXenotypesMode = false;
+			// Graphic
+			WVC_Biotech.settings.hideXaGGenes = false;
+			WVC_Biotech.settings.disableFurGraphic = false;
+			WVC_Biotech.settings.enable_FurskinIsSkinAutopatch = false;
+			WVC_Biotech.settings.disableAllGraphic = false;
+			WVC_Biotech.settings.disableUniqueGeneInterface = false;
+			WVC_Biotech.settings.disableEyesGraphic = false;
+			WVC_Biotech.settings.useMaskForFurskinGenes = true;
+			// Generator
+			WVC_Biotech.settings.generateSkillGenes = true;
+			WVC_Biotech.settings.generateXenotypeForceGenes = false;
+			WVC_Biotech.settings.generateResourceSpawnerGenes = false;
+			WVC_Biotech.settings.generateSkinHairColorGenes = false;
+			// Misc
+			WVC_Biotech.settings.disableUniqueXenotypeScenarios = false;
+			// Fix
+			WVC_Biotech.settings.fixVanillaGeneImmunityCheck = true;
+			WVC_Biotech.settings.spawnXenoForcerSerumsFromTraders = true;
+			// Info
+			WVC_Biotech.settings.enable_xagHumanComponent = true;
+			// WVC_Biotech.settings.enableGeneSpawnerGizmo = true;
+			// WVC_Biotech.settings.enableGeneWingInfo = false;
+			// WVC_Biotech.settings.enableGeneBlesslinkInfo = true;
+			// WVC_Biotech.settings.enableGeneUndeadInfo = false;
+			// WVC_Biotech.settings.enableGeneScarifierInfo = false;
+			// WVC_Biotech.settings.enableGeneInstabilityInfo = true;
+			// WVC_Biotech.settings.enableGeneGauranlenConnectionInfo = true;
+			// Serums
+			// WVC_Biotech.settings.serumsForAllXenotypes = false;
+			// WVC_Biotech.settings.serumsForAllXenotypes_GenBase = true;
+			// WVC_Biotech.settings.serumsForAllXenotypes_GenUltra = false;
+			// WVC_Biotech.settings.serumsForAllXenotypes_GenHybrid = false;
+			// WVC_Biotech.settings.serumsForAllXenotypes_Recipes = true;
+			// WVC_Biotech.settings.serumsForAllXenotypes_Spawners = false;
+			// =
+			WVC_Biotech.settings.canNonPlayerPawnResurrect = true;
+			WVC_Biotech.settings.allowShapeshiftAfterDeath = true;
+			// WVC_Biotech.settings.shapeshifter_enableStyleButton = true;
+			WVC_Biotech.settings.enable_chimeraMetabolismHungerFactor = true;
+			WVC_Biotech.settings.chimeraMinGeneCopyChance = 0.35f;
+			WVC_Biotech.settings.shapeshifer_GeneCellularRegeneration = 1f;
+			WVC_Biotech.settings.chimeraStartingGenes = 5f;
+			WVC_Biotech.settings.enable_chimeraStartingTools = true;
+			// =
+			WVC_Biotech.settings.thrallMaker_ThrallsInheritMasterGenes = true;
+			// =
+			WVC_Biotech.settings.totalHealingIgnoreScarification = true;
+			WVC_Biotech.settings.restoreBodyPartsWithFullHP = false;
+			// =
+			// WVC_Biotech.settings.shapeshifterGeneUnremovable = true;
+			// =
+			WVC_Biotech.settings.enableIncestLoverGene = true;
+			WVC_Biotech.settings.disableNonAcceptablePreyGenes = false;
+			// =
+			WVC_Biotech.settings.enableHarmonyTelepathyGene = false;
+			// =
+			// WVC_Biotech.settings.useAlternativeDustogenicFoodJob = true;
+			// =
+			WVC_Biotech.settings.learningTelepathWorkForBothSides = false;
+			// =
+			WVC_Biotech.settings.enable_birthQualityOffsetFromGenes = true;
+			WVC_Biotech.settings.xenotypeGestator_GestationTimeFactor = 1f;
+			WVC_Biotech.settings.xenotypeGestator_GestationMatchPercent = 0.4f;
+			// =
+			WVC_Biotech.settings.reincarnation_EnableMechanic = true;
+			WVC_Biotech.settings.reincarnation_MinChronoAge = 200f;
+			WVC_Biotech.settings.reincarnation_Chance = 0.08f;
+			// =
+			WVC_Biotech.settings.harmony_EnableGenesMechanicsTriggers = true;
+			WVC_Biotech.settings.bloodeater_SafeBloodfeed = false;
+			WVC_Biotech.settings.bloodeater_disableAutoFeed = false;
+			WVC_Biotech.settings.bloodfeeder_AutoBloodfeed = false;
+			WVC_Biotech.settings.hemogenic_ImplanterFangsChanceFactor = 1f;
+			// =
+			WVC_Biotech.settings.enableInstabilityLastChanceMechanic = true;
+			// =
+			WVC_Biotech.settings.enable_dryadQueenMechanicGenerator = true;
+			WVC_Biotech.settings.gestatedDryads_FilthRateFactor = 0.1f;
+			// =
+			WVC_Biotech.settings.link_addedMechlinkWithGene = true;
+			WVC_Biotech.settings.link_addedPsylinkWithGene = true;
+			WVC_Biotech.settings.link_removeMechlinkWithGene = false;
+			WVC_Biotech.settings.link_removePsylinkWithGene = false;
+			// =
+			WVC_Biotech.settings.rechargeable_enablefoodPoisoningFromFood = true;
+			// Extra
+			WVC_Biotech.settings.genesCanTickOnlyOnMap = false;
+			WVC_Biotech.settings.enable_flatGenesSpawnChances = false;
+			WVC_Biotech.settings.enable_ReplaceSimilarGenesAutopatch = false;
+			// Xenotypes
+			WVC_Biotech.settings.enable_spawnXenotypesInFactions = false;
+			WVC_Biotech.settings.disableXenotypes_MainSwitch = false;
+			WVC_Biotech.settings.disableXenotypes_Undeads = false;
+			WVC_Biotech.settings.disableXenotypes_Psycasters = false;
+			WVC_Biotech.settings.disableXenotypes_Mechalike = false;
+			WVC_Biotech.settings.disableXenotypes_GolemMasters = false;
+			WVC_Biotech.settings.disableXenotypes_Bloodeaters = false;
+			WVC_Biotech.settings.disableXenotypes_Misc = false;
+			// PregnantHuman
+			// WVC_Biotech.settings.pregnantHuman_TrueParentGenesPatch = false;
+			// WVC_Biotech.settings.pregnantHuman_InheritSurrogateGenes = false;
+			// WVC_Biotech.settings.pregnantHuman_InheritArchiteGenes = false;
+			// XenotypesSettings
+			WVC_Biotech.cachedXenotypesFilter.Clear();
+			XaG_PostInitialization.SetValues();
+			// Initial
+			WVC_Biotech.settings.firstModLaunch = false;
+			WVC_Biotech.settings.Write();
+		}
+
+		public static void ResetSettings_MyChoice()
+		{
+			WVC_Biotech.settings.onlyXenotypesMode = false;
+			// Graphic
+			WVC_Biotech.settings.hideXaGGenes = true;
+			WVC_Biotech.settings.disableFurGraphic = false;
+			WVC_Biotech.settings.enable_FurskinIsSkinAutopatch = true;
+			WVC_Biotech.settings.disableAllGraphic = false;
+			WVC_Biotech.settings.disableUniqueGeneInterface = false;
+			WVC_Biotech.settings.disableEyesGraphic = false;
+			WVC_Biotech.settings.useMaskForFurskinGenes = true;
+			// Generator
+			WVC_Biotech.settings.generateSkillGenes = true;
+			WVC_Biotech.settings.generateXenotypeForceGenes = false;
+			WVC_Biotech.settings.generateResourceSpawnerGenes = false;
+			WVC_Biotech.settings.generateSkinHairColorGenes = false;
+			// Misc
+			WVC_Biotech.settings.disableUniqueXenotypeScenarios = false;
+			// Fix
+			WVC_Biotech.settings.fixVanillaGeneImmunityCheck = true;
+			WVC_Biotech.settings.spawnXenoForcerSerumsFromTraders = true;
+			// Info
+			WVC_Biotech.settings.enable_xagHumanComponent = true;
+			// WVC_Biotech.settings.enableGeneSpawnerGizmo = true;
+			// WVC_Biotech.settings.enableGeneWingInfo = false;
+			// WVC_Biotech.settings.enableGeneBlesslinkInfo = true;
+			// WVC_Biotech.settings.enableGeneUndeadInfo = false;
+			// WVC_Biotech.settings.enableGeneScarifierInfo = false;
+			// WVC_Biotech.settings.enableGeneInstabilityInfo = true;
+			// WVC_Biotech.settings.enableGeneGauranlenConnectionInfo = true;
+			// Serums
+			// WVC_Biotech.settings.serumsForAllXenotypes = false;
+			// WVC_Biotech.settings.serumsForAllXenotypes_GenBase = false;
+			// WVC_Biotech.settings.serumsForAllXenotypes_GenUltra = false;
+			// WVC_Biotech.settings.serumsForAllXenotypes_GenHybrid = false;
+			// WVC_Biotech.settings.serumsForAllXenotypes_Recipes = false;
+			// WVC_Biotech.settings.serumsForAllXenotypes_Spawners = false;
+			// =
+			WVC_Biotech.settings.canNonPlayerPawnResurrect = true;
+			WVC_Biotech.settings.allowShapeshiftAfterDeath = true;
+			// WVC_Biotech.settings.shapeshifter_enableStyleButton = true;
+			WVC_Biotech.settings.enable_chimeraMetabolismHungerFactor = true;
+			WVC_Biotech.settings.chimeraMinGeneCopyChance = 0.35f;
+			WVC_Biotech.settings.shapeshifer_GeneCellularRegeneration = 1f;
+			WVC_Biotech.settings.chimeraStartingGenes = 5f;
+			WVC_Biotech.settings.enable_chimeraStartingTools = true;
+			// =
+			WVC_Biotech.settings.thrallMaker_ThrallsInheritMasterGenes = true;
+			// =
+			WVC_Biotech.settings.totalHealingIgnoreScarification = true;
+			WVC_Biotech.settings.restoreBodyPartsWithFullHP = false;
+			// =
+			// WVC_Biotech.settings.shapeshifterGeneUnremovable = true;
+			// =
+			WVC_Biotech.settings.enableIncestLoverGene = true;
+			WVC_Biotech.settings.disableNonAcceptablePreyGenes = false;
+			// =
+			WVC_Biotech.settings.enableHarmonyTelepathyGene = false;
+			// =
+			// WVC_Biotech.settings.useAlternativeDustogenicFoodJob = true;
+			// =
+			WVC_Biotech.settings.learningTelepathWorkForBothSides = false;
+			// =
+			WVC_Biotech.settings.enable_birthQualityOffsetFromGenes = true;
+			WVC_Biotech.settings.xenotypeGestator_GestationTimeFactor = 1f;
+			WVC_Biotech.settings.xenotypeGestator_GestationMatchPercent = 0.4f;
+			// =
+			WVC_Biotech.settings.reincarnation_EnableMechanic = true;
+			WVC_Biotech.settings.reincarnation_MinChronoAge = 500f;
+			WVC_Biotech.settings.reincarnation_Chance = 0.08f;
+			// =
+			WVC_Biotech.settings.harmony_EnableGenesMechanicsTriggers = true;
+			WVC_Biotech.settings.bloodeater_SafeBloodfeed = false;
+			WVC_Biotech.settings.bloodeater_disableAutoFeed = false;
+			WVC_Biotech.settings.bloodfeeder_AutoBloodfeed = true;
+			WVC_Biotech.settings.hemogenic_ImplanterFangsChanceFactor = 1f;
+			// =
+			WVC_Biotech.settings.enableInstabilityLastChanceMechanic = true;
+			// =
+			WVC_Biotech.settings.enable_dryadQueenMechanicGenerator = true;
+			WVC_Biotech.settings.gestatedDryads_FilthRateFactor = 0.1f;
+			// =
+			WVC_Biotech.settings.link_addedMechlinkWithGene = true;
+			WVC_Biotech.settings.link_addedPsylinkWithGene = true;
+			WVC_Biotech.settings.link_removeMechlinkWithGene = false;
+			WVC_Biotech.settings.link_removePsylinkWithGene = false;
+			// =
+			WVC_Biotech.settings.rechargeable_enablefoodPoisoningFromFood = true;
+			// =
+			// Extra
+			WVC_Biotech.settings.genesCanTickOnlyOnMap = false;
+			WVC_Biotech.settings.enable_flatGenesSpawnChances = false;
+			WVC_Biotech.settings.enable_ReplaceSimilarGenesAutopatch = false;
+			// Xenotypes
+			WVC_Biotech.settings.enable_spawnXenotypesInFactions = false;
+			WVC_Biotech.settings.disableXenotypes_MainSwitch = false;
+			WVC_Biotech.settings.disableXenotypes_Undeads = false;
+			WVC_Biotech.settings.disableXenotypes_Psycasters = false;
+			WVC_Biotech.settings.disableXenotypes_Mechalike = false;
+			WVC_Biotech.settings.disableXenotypes_GolemMasters = false;
+			WVC_Biotech.settings.disableXenotypes_Bloodeaters = false;
+			WVC_Biotech.settings.disableXenotypes_Misc = false;
+			// PregnantHuman
+			// WVC_Biotech.settings.pregnantHuman_TrueParentGenesPatch = false;
+			// WVC_Biotech.settings.pregnantHuman_InheritSurrogateGenes = false;
+			// WVC_Biotech.settings.pregnantHuman_InheritArchiteGenes = false;
+			// XenotypesSettings
+			WVC_Biotech.cachedXenotypesFilter.Clear();
+			XaG_PostInitialization.SetValues();
+			// Initial
+			WVC_Biotech.settings.firstModLaunch = false;
+			WVC_Biotech.settings.Write();
+		}

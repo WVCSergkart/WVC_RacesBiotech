@@ -156,5 +156,116 @@ namespace WVC_XenotypesAndGenes
 
 	// }
 
+	public class SettingsDef : Def
+	{
+
+		public int presetOrder = 0;
+
+		// Settings
+		public bool hideXaGGenes = false;
+		public bool disableFurGraphic = false;
+		public bool enable_FurskinIsSkinAutopatch = false;
+		public bool disableAllGraphic = false;
+		public bool disableUniqueGeneInterface = false;
+		public bool disableEyesGraphic = false;
+		public bool useMaskForFurskinGenes = true;
+		// public bool enableBodySizeGenes = true;
+		// Generator
+		public bool generateSkillGenes = true;
+		public bool generateXenotypeForceGenes = false;
+		public bool generateResourceSpawnerGenes = false;
+		public bool generateSkinHairColorGenes = false;
+		// Genes
+		public bool onlyXenotypesMode = false;
+		public bool canNonPlayerPawnResurrect = true;
+		public bool allowShapeshiftAfterDeath = true;
+		public bool totalHealingIgnoreScarification = true;
+		// public bool genesRemoveMechlinkUponDeath = false;
+		// public bool enableCustomMechLinkName = false;
+		// public bool shapeshifterGeneUnremovable = true;
+		public bool enableIncestLoverGene = true;
+		public bool disableNonAcceptablePreyGenes = false;
+		public bool enableHarmonyTelepathyGene = false;
+		// public bool useAlternativeDustogenicFoodJob = true;
+		public bool learningTelepathWorkForBothSides = false;
+		public bool disableUniqueXenotypeScenarios = false;
+		public bool restoreBodyPartsWithFullHP = false;
+		// public bool reimplantResurrectionRecruiting = false;
+		public bool thrallMaker_ThrallsInheritMasterGenes = true;
+		// Info
+		public bool enable_xagHumanComponent = true;
+		// public bool enableGeneSpawnerGizmo = true;
+		// public bool enableGeneWingInfo = false;
+		// public bool enableGeneBlesslinkInfo = true;
+		// public bool enableGeneUndeadInfo = false;
+		// public bool enableGeneScarifierInfo = false;
+		// public bool enableGeneInstabilityInfo = true;
+		// public bool enableGeneGauranlenConnectionInfo = true;
+		// Serums
+		// public bool serumsForAllXenotypes = false;
+		// public bool serumsForAllXenotypes_GenBase = true;
+		// public bool serumsForAllXenotypes_GenUltra = false;
+		// public bool serumsForAllXenotypes_GenHybrid = false;
+		// public bool serumsForAllXenotypes_Recipes = true;
+		// public bool serumsForAllXenotypes_Spawners = false;
+		// ExtraSettings
+		public bool genesCanTickOnlyOnMap = false;
+		public bool enable_flatGenesSpawnChances = false;
+		// public float flatGenesSpawnChances_selectionWeight = 0.001f;
+		public bool enable_ReplaceSimilarGenesAutopatch = false;
+		// Fix
+		public bool fixVanillaGeneImmunityCheck = true;
+		public bool spawnXenoForcerSerumsFromTraders = true;
+		public bool fixGenesOnLoad = false;
+		public bool fixGeneAbilitiesOnLoad = false;
+		public bool fixGeneTypesOnLoad = false;
+		// public bool fixThrallTypesOnLoad = false;
+		// Gestator
+		public bool enable_birthQualityOffsetFromGenes = true;
+		public float xenotypeGestator_GestationTimeFactor = 1f;
+		public float xenotypeGestator_GestationMatchPercent = 0.4f;
+		// Reincarnation
+		public bool reincarnation_EnableMechanic = true;
+		public float reincarnation_MinChronoAge = 200f;
+		public float reincarnation_Chance = 0.08f;
+		// Hemogenic
+		public bool harmony_EnableGenesMechanicsTriggers = true;
+		public bool bloodeater_SafeBloodfeed = false;
+		public bool bloodeater_disableAutoFeed = false;
+		public bool bloodfeeder_AutoBloodfeed = false;
+		public float hemogenic_ImplanterFangsChanceFactor = 1f;
+		// Thralls
+		public bool enableInstabilityLastChanceMechanic = true;
+		// Links
+		public bool link_addedMechlinkWithGene = true;
+		public bool link_addedPsylinkWithGene = true;
+		public bool link_removeMechlinkWithGene = false;
+		public bool link_removePsylinkWithGene = false;
+		// Shapeshifter
+		// public bool shapeshifter_enableStyleButton = true;
+		public float shapeshifer_GeneCellularRegeneration = 1f;
+		// Chimera
+		public bool enable_chimeraMetabolismHungerFactor = true;
+		public float chimeraMinGeneCopyChance = 0.35f;
+		public float chimeraStartingGenes = 5f;
+		public bool enable_chimeraStartingTools = true;
+		// DryadQueen
+		public bool enable_dryadQueenMechanicGenerator = true;
+		public float gestatedDryads_FilthRateFactor = 0.1f;
+		// Rechargeable
+		public bool rechargeable_enablefoodPoisoningFromFood = true;
+		// Xenotypes
+		public bool enable_spawnXenotypesInFactions = false;
+		// public bool increasedXenotypesFactionlessGenerationWeight_MainSwitch = false;
+		public bool disableXenotypes_MainSwitch = false;
+		public bool disableXenotypes_Undeads = false;
+		public bool disableXenotypes_Psycasters = false;
+		public bool disableXenotypes_Mechalike = false;
+		public bool disableXenotypes_GolemMasters = false;
+		public bool disableXenotypes_Bloodeaters = false;
+		public bool disableXenotypes_Misc = false;
+
+	}
+
 
 }
