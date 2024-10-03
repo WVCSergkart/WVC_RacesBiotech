@@ -20,7 +20,7 @@ namespace WVC_XenotypesAndGenes
 					defaultLabel = "DEV: Spawn pawn",
 					action = delegate
 					{
-						GestationUtility.GenerateNewBornPawn(pawn);
+						GestationUtility.GestateChild_WithGenes(pawn);
 					}
 				};
 			}
@@ -41,7 +41,7 @@ namespace WVC_XenotypesAndGenes
 					defaultLabel = "DEV: Spawn pawn",
 					action = delegate
 					{
-						GestationUtility.GenerateNewBornPawn(pawn);
+						GestationUtility.GestateChild_WithGenes(pawn);
 					}
 				};
 			}
@@ -101,7 +101,7 @@ namespace WVC_XenotypesAndGenes
 					defaultLabel = "DEV: Spawn pawn",
 					action = delegate
 					{
-						GestationUtility.GenerateNewBornPawn_WithChosenXenotype(pawn, ListsUtility.GetAllXenotypesExceptAndroids().RandomElement(), "WVC_XaG_XenoTreeBirthLabel", "WVC_XaG_XenoTreeBirthDesc", true);
+						GestationUtility.GestateChild_WithXenotype(pawn, ListsUtility.GetAllXenotypesExceptAndroids().RandomElement(), "WVC_XaG_XenoTreeBirthLabel", "WVC_XaG_XenoTreeBirthDesc");
 					}
 				};
 				yield return new Command_Action

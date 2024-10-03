@@ -12,6 +12,11 @@ namespace WVC_XenotypesAndGenes
 
 		// Golems
 
+		public static string GolemsEnergyPerDayInPercent(float energy)
+		{
+			return ((24f * WVC_Biotech.settings.golemnoids_ShutdownRechargePerTick) / 100f / (energy / 100)).ToStringPercent();
+		}
+
 		public static bool HasEnoughGolembond(Pawn mechanitor, float additionalBond = 0)
 		{
 			float maxBond = TotalGolembond(mechanitor);
@@ -280,10 +285,13 @@ namespace WVC_XenotypesAndGenes
 
 		public static void OffsetNeedEnergy(Pawn pawn, float offset, int hours)
 		{
-			Need_MechEnergy energy = pawn?.needs?.energy;
-			if (energy?.IsSelfShutdown == true)
+			if (offset > 0 && hours > 0)
 			{
-				energy.CurLevel += offset * hours;
+				Need_MechEnergy energy = pawn?.needs?.energy;
+				if (energy?.IsSelfShutdown == true)
+				{
+					energy.CurLevel += offset * hours;
+				}
 			}
 		}
 

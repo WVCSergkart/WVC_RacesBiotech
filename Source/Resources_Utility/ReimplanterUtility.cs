@@ -181,7 +181,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void ReimplantGenesHybrid(Pawn caster, Pawn recipient, bool endogenes = true, bool xenogenes = true)
+		public static void ReimplantGenesHybrid(Pawn caster, Pawn recipient, bool endogenes = true, bool xenogenes = true, bool xenogerm = true)
 		{
 			Pawn_GeneTracker recipientGenes = recipient.genes;
 			if (recipientGenes.Xenogenes.NullOrEmpty() || xenogenes)
@@ -222,8 +222,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				caster.genes.Xenotype.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(recipient));
 			}
-			recipient.health.AddHediff(HediffDefOf.XenogerminationComa);
-			GeneUtility.UpdateXenogermReplication(recipient);
+			if (xenogerm)
+			{
+				recipient.health.AddHediff(HediffDefOf.XenogerminationComa);
+				GeneUtility.UpdateXenogermReplication(recipient);
+			}
 			XaG_GameComponent.AddMissingGeneAbilities(recipient);
 		}
 

@@ -40,7 +40,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (!pawn.Spawned)
 				{
-					GestationUtility.GetBabyName(pawn, pawn.GetMother() ?? pawn.GetFather() ?? null);
+					GestationUtility.SetName(pawn, pawn.GetMother() ?? pawn.GetFather() ?? null);
 					// Log.Error("Rename with gender");
 				}
 				pawn.Drawer.renderer.SetAllGraphicsDirty();

@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using Verse;
 
@@ -14,14 +15,18 @@ namespace WVC_XenotypesAndGenes
 
 		// public List<GeneDef> anyGeneDefs;
 
+		[Obsolete]
 		public int golemIndex = -1;
 
 		public int refreshHours = 2;
 
+		[Obsolete]
 		public float shutdownEnergyReplenish = 1.0f;
 
+		[Obsolete]
 		public IntRange checkOverseerInterval = new(45000, 85000);
 
+		[Obsolete]
 		public string uniqueTag = "XaG_Golems";
 
 		public CompProperties_Golem()
@@ -45,56 +50,29 @@ namespace WVC_XenotypesAndGenes
 		public CompProperties_Golem Props => (CompProperties_Golem)props;
 
 		private int nextEnergyTick = 1500;
-		// private int nextOverseerTick = 27371;
 
 		public override void CompTick()
 		{
-			// Pawn pawn = parent as Pawn;
 			nextEnergyTick--;
 			if (nextEnergyTick <= 0f)
 			{
 				Pawn pawn = parent as Pawn;
-				MechanoidsUtility.OffsetNeedEnergy(pawn, Props.shutdownEnergyReplenish, Props.refreshHours);
+				MechanoidsUtility.OffsetNeedEnergy(pawn, WVC_Biotech.settings.golemnoids_ShutdownRechargePerTick, Props.refreshHours);
 				nextEnergyTick = Props.refreshHours * 1500;
 			}
-			// if (pawn.IsHashIntervalTick(nextOverseerTick))
-			// {
-				// Pawn currentOverseer = pawn.GetOverseer();
-				// HasEnoughGolembond(pawn, currentOverseer);
-				// ResetOverseerTick();
-			// }
 		}
 
-		public override void PostSpawnSetup(bool respawningAfterLoad)
-		{
-			base.PostSpawnSetup(respawningAfterLoad);
-			if (!respawningAfterLoad)
-			{
-				Pawn pawn = parent as Pawn;
-				if (pawn?.needs?.energy != null)
-				{
-					pawn.needs.energy.CurLevel = pawn.needs.energy.MaxLevel;
-				}
-				// ResetOverseerTick();
-			}
-		}
-
-		// private void HasEnoughGolembond(Pawn golem, Pawn overseer)
+		// public override void PostSpawnSetup(bool respawningAfterLoad)
 		// {
-			// if (overseer == null)
+			// base.PostSpawnSetup(respawningAfterLoad);
+			// if (!respawningAfterLoad)
 			// {
-				// golem.Kill(null, null);
-				// return;
+				// Pawn pawn = parent as Pawn;
+				// if (pawn?.needs?.energy != null)
+				// {
+					// pawn.needs.energy.CurLevel = pawn.needs.energy.MaxLevel;
+				// }
 			// }
-			// if (!overseer.IsGolemistOfIndex(Props.golemIndex) || !MechanoidsUtility.HasEnoughGolembond(overseer))
-			// {
-				// golem.Kill(null, null);
-			// }
-		// }
-
-		// private void ResetOverseerTick()
-		// {
-			// nextOverseerTick = Props.checkOverseerInterval.RandomInRange;
 		// }
 
 		public override string CompInspectStringExtra()
@@ -108,18 +86,11 @@ namespace WVC_XenotypesAndGenes
 				Need_MechEnergy energy = pawn?.needs?.energy;
 				if (energy?.IsSelfShutdown == true)
 				{
-					return "WVC_XaG_GolemEnergyRecovery_Info".Translate((energy.CurLevelPercentage).ToStringPercent(), ((24f * Props.shutdownEnergyReplenish) / 100f / (energy.MaxLevel / 100)).ToStringPercent());
+					return "WVC_XaG_GolemEnergyRecovery_Info".Translate((energy.CurLevelPercentage).ToStringPercent(), MechanoidsUtility.GolemsEnergyPerDayInPercent(energy.MaxLevel));
 				}
 			}
 			return null;
 		}
-
-		// public override void PostExposeData()
-		// {
-			// base.PostExposeData();
-			// Scribe_Values.Look(ref nextOverseerTick, "nextOverseerTick_" + Props.uniqueTag, 0);
-		// }
-
-	}
+    }
 
 }

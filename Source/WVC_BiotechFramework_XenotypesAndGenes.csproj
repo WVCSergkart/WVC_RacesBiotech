@@ -217,8 +217,7 @@
     <Compile Include="Resources_Harmony\Harmony_GeneDefGenerator.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_Gestator.cs" />
     <Compile Include="Resources_Hediff\Old_HediffComp_Gestator.cs" />
-    <Compile Include="Resources_Hediff\GolemGestator.cs" />
-    <Compile Include="Resources_Hediff\GolemGestatorProperties.cs" />
+    <Compile Include="Resources_Hediff\HediffComp_GolemGestator.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_GiveHediff.cs" />
     <Compile Include="Resources_Hediff\SelfPopulationRegulation.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_Summon.cs" />

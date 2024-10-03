@@ -133,7 +133,7 @@ namespace WVC_XenotypesAndGenes
 		private void EndGestation()
 		{
 			// GestationUtility.GenerateNewBornPawn(parent.pawn, Props.completeMessage, Props.endogeneTransfer, Props.xenogeneTransfer);
-			GestationUtility.GenerateNewBornPawn_WithChosenXenotype(Pawn, xenotypeDef, Props.completeLetterLabel, Props.completeLetterDesc, Props.xenogerminationComa);
+			GestationUtility.GestateChild_WithXenotype(Pawn, xenotypeDef, Props.completeLetterLabel, Props.completeLetterDesc);
 			ticksCounter = 0;
 			RemoveHediff(true);
 		}

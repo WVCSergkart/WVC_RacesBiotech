@@ -5,6 +5,24 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
+	public class HediffCompProperties_GolemGestator : HediffCompProperties
+	{
+		public int gestationIntervalDays = 1;
+
+		public string completeMessage = "WVC_RB_Gene_MechaGestator";
+
+		public bool endogeneTransfer = true;
+
+		public bool xenogeneTransfer = true;
+
+		public GeneDef geneDef;
+
+		public HediffCompProperties_GolemGestator()
+		{
+			compClass = typeof(HediffComp_GolemGestator);
+		}
+	}
+
 	public class HediffComp_GolemGestator : HediffComp
 	{
 		private readonly int ticksInday = 60000;
@@ -26,31 +44,37 @@ namespace WVC_XenotypesAndGenes
 			Scribe_References.Look(ref childOwner, "childOwner");
 		}
 
+		private int checkTick = 0;
+
 		public override void CompPostTick(ref float severityAdjustment)
 		{
-			base.CompPostTick(ref severityAdjustment);
-			Pawn golem = parent.pawn;
-			Pawn pawn = golem.GetOverseer();
-			if (pawn == null)
-			{
-				base.Pawn.Kill(null, parent);
-				return;
-			}
-			if (childOwner == null)
-			{
-				childOwner = pawn;
-			}
-			if (golem.Map == null)
-			{
-				return;
-			}
-			if (golem.Faction != Faction.OfPlayer)
-			{
-				return;
-			}
 			ticksCounter++;
+			checkTick--;
+			if (checkTick <= 0)
+			{
+				Pawn pawn = Pawn.GetOverseer();
+				if (pawn == null)
+				{
+					Pawn.health.RemoveHediff(parent);
+					return;
+				}
+				if (childOwner == null)
+				{
+					childOwner = pawn;
+				}
+				checkTick = 4500;
+			}
 			if (ticksCounter < ticksInday * GestationIntervalDays)
 			{
+				return;
+			}
+			if (Pawn.Map == null)
+			{
+				return;
+			}
+			if (Pawn.Faction != Faction.OfPlayer)
+			{
+				Pawn.health.RemoveHediff(parent);
 				return;
 			}
 			EndGestation();
@@ -59,10 +83,13 @@ namespace WVC_XenotypesAndGenes
 
 		private void EndGestation()
 		{
+			// Log.Error("1");
 			if (XaG_GeneUtility.HasActiveGene(Props.geneDef, childOwner))
 			{
-				GestationUtility.GenerateNewBornPawn(childOwner, Props.completeMessage, Props.endogeneTransfer, Props.xenogeneTransfer, spawnPawn: parent.pawn);
+				// Log.Error("2");
+				GestationUtility.GestateChild_WithGenes(childOwner, motherOrEgg: parent.pawn, completeMessage: Props.completeMessage, endogenes: Props.endogeneTransfer, xenogenes: Props.xenogeneTransfer);
 			}
+			Pawn.health.RemoveHediff(parent);
 			base.Pawn.Kill(null, parent);
 		}
 

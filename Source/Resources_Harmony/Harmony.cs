@@ -108,10 +108,10 @@ namespace WVC_XenotypesAndGenes
 							text += "\n\n";
 							text = ((gene.overriddenByGene.def != gene.def) ? (text + ("OverriddenByGene".Translate() + ": " + gene.overriddenByGene.LabelCap).Colorize(ColorLibrary.RedReadable)) : (text + ("OverriddenByIdenticalGene".Translate() + ": " + gene.overriddenByGene.LabelCap).Colorize(ColorLibrary.RedReadable)));
 						}
-						else if (!gene.Active)
-						{
-							text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive".Translate().Colorize(ColorLibrary.RedReadable);
-						}
+						// else if (!gene.Active)
+						// {
+							// text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive".Translate().Colorize(ColorLibrary.RedReadable);
+						// }
 						if (Prefs.DevMode)
 						{
 							text += "\n\n DevMode:".Colorize(ColoredText.TipSectionTitleColor);

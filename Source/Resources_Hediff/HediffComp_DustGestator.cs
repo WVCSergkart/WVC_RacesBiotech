@@ -71,7 +71,7 @@ namespace WVC_XenotypesAndGenes
 		private void EndGestation()
 		{
 			// canBirth = false;
-			GestationUtility.GenerateNewBornPawn(parent.pawn, Props.completeMessage, Props.endogeneTransfer, Props.xenogeneTransfer);
+			GestationUtility.GestateChild_WithGenes(parent.pawn, completeMessage: Props.completeMessage, endogenes: Props.endogeneTransfer, xenogenes: Props.xenogeneTransfer);
 			RemoveHediff(true);
 		}
 

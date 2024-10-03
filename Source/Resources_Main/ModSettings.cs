@@ -95,6 +95,7 @@ namespace WVC_XenotypesAndGenes
 		public bool link_addedPsylinkWithGene = true;
 		public bool link_removeMechlinkWithGene = false;
 		public bool link_removePsylinkWithGene = false;
+		public float golemnoids_ShutdownRechargePerTick = 4f;
 		// Shapeshifter
 		// public bool shapeshifter_enableStyleButton = true;
 		public float shapeshifer_GeneCellularRegeneration = 1f;
@@ -212,6 +213,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref link_addedPsylinkWithGene, "link_addedPsylinkWithGene", defaultValue: true);
 			Scribe_Values.Look(ref link_removeMechlinkWithGene, "link_removeMechlinkWithGene", defaultValue: false);
 			Scribe_Values.Look(ref link_removePsylinkWithGene, "link_removePsylinkWithGene", defaultValue: false);
+			Scribe_Values.Look(ref golemnoids_ShutdownRechargePerTick, "golemnoids_ShutdownRechargePerTick", defaultValue: 4f);
 			// shapeshifter
 			Scribe_Values.Look(ref shapeshifer_GeneCellularRegeneration, "shapeshifer_GeneCellularRegeneration", defaultValue: 1f);
 			// Scribe_Values.Look(ref shapeshifter_enableStyleButton, "shapeshifter_enableStyleButton", defaultValue: true);
@@ -709,6 +711,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_link_addedPsylinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_addedPsylinkWithGene, "WVC_ToolTip_link_addedPsylinkWithGene".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_link_removeMechlinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_removeMechlinkWithGene, "WVC_ToolTip_link_removeMechlinkWithGene".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_link_removePsylinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_removePsylinkWithGene, "WVC_ToolTip_link_removePsylinkWithGene".Translate());
+			listingStandard.SliderLabeledWithRef("WVC_Label_golemnoids_ShutdownRechargePerTick".Translate((settings.golemnoids_ShutdownRechargePerTick).ToString()), ref settings.golemnoids_ShutdownRechargePerTick, 0f, 50f, round: 0);
 			listingStandard.GapLine();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_Hemogenic".Translate() + ":", -1);
@@ -946,6 +949,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.link_addedPsylinkWithGene = settingsDef.link_addedPsylinkWithGene;
 			WVC_Biotech.settings.link_removeMechlinkWithGene = settingsDef.link_removeMechlinkWithGene;
 			WVC_Biotech.settings.link_removePsylinkWithGene = settingsDef.link_removePsylinkWithGene;
+			WVC_Biotech.settings.golemnoids_ShutdownRechargePerTick = settingsDef.golemnoids_ShutdownRechargePerTick;
 			// =
 			WVC_Biotech.settings.rechargeable_enablefoodPoisoningFromFood = settingsDef.rechargeable_enablefoodPoisoningFromFood;
 			// =

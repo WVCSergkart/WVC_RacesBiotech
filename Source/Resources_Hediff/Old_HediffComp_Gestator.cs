@@ -55,7 +55,7 @@ namespace WVC_XenotypesAndGenes
 			// asexualFissionCounter = 0;
 			// return;
 			// }
-			GestationUtility.GenerateNewBornPawn(parent.pawn, Props.completeLetterDesc, Props.endogeneTransfer, Props.xenogeneTransfer);
+			GestationUtility.GestateChild_WithGenes(parent.pawn, completeMessage: Props.completeLetterDesc, endogenes: Props.endogeneTransfer, xenogenes: Props.xenogeneTransfer);
 			ticksCounter = 0;
 			base.Pawn.health.RemoveHediff(parent);
 		}
