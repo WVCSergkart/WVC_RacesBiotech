@@ -96,6 +96,7 @@ namespace WVC_XenotypesAndGenes
 		public bool link_removeMechlinkWithGene = false;
 		public bool link_removePsylinkWithGene = false;
 		public float golemnoids_ShutdownRechargePerTick = 2f;
+		public bool golembond_ShrinesStatPartOffset = false;
 		// Shapeshifter
 		// public bool shapeshifter_enableStyleButton = true;
 		public float shapeshifer_GeneCellularRegeneration = 1f;
@@ -214,6 +215,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref link_removeMechlinkWithGene, "link_removeMechlinkWithGene", defaultValue: false);
 			Scribe_Values.Look(ref link_removePsylinkWithGene, "link_removePsylinkWithGene", defaultValue: false);
 			Scribe_Values.Look(ref golemnoids_ShutdownRechargePerTick, "golemnoids_ShutdownRechargePerTick", defaultValue: 2f);
+			Scribe_Values.Look(ref golembond_ShrinesStatPartOffset, "golembond_ShrinesStatPartOffset", defaultValue: false);
 			// shapeshifter
 			Scribe_Values.Look(ref shapeshifer_GeneCellularRegeneration, "shapeshifer_GeneCellularRegeneration", defaultValue: 1f);
 			// Scribe_Values.Look(ref shapeshifter_enableStyleButton, "shapeshifter_enableStyleButton", defaultValue: true);
@@ -712,6 +714,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_link_removeMechlinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_removeMechlinkWithGene, "WVC_ToolTip_link_removeMechlinkWithGene".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_link_removePsylinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_removePsylinkWithGene, "WVC_ToolTip_link_removePsylinkWithGene".Translate());
 			listingStandard.SliderLabeledWithRef("WVC_Label_golemnoids_ShutdownRechargePerTick".Translate((settings.golemnoids_ShutdownRechargePerTick).ToString()), ref settings.golemnoids_ShutdownRechargePerTick, 0f, 10f, round: 1);
+			listingStandard.CheckboxLabeled("WVC_Label_golembond_ShrinesStatPartOffset".Translate(), ref settings.golembond_ShrinesStatPartOffset, "WVC_ToolTip_golembond_ShrinesStatPartOffset".Translate());
 			listingStandard.GapLine();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_Hemogenic".Translate() + ":", -1);

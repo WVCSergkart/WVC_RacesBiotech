@@ -14,6 +14,8 @@ namespace WVC_XenotypesAndGenes
 		public ThingDef filthDefToSpawn;
 		public List<ThingDef> thingDefsToSpawn;
 
+		public List<HediffDef> hediffDefs;
+
 		public int subplantCount = 3;
 		public ThingDef subplant;
 		public float maxRadius;
@@ -106,6 +108,14 @@ namespace WVC_XenotypesAndGenes
 		public void SetStoneChunk(ThingDef chunkDef = null)
 		{
 			rockDef = chunkDef ?? Props.thingDefsToSpawn.RandomElement();
+			// if (Props.hediffDefs != null)
+			// {
+				// Pawn pawn = parent as Pawn;
+				// foreach (HediffDef hediff in Props.hediffDefs)
+				// {
+					// pawn.health.AddHediff(hediff);
+				// }
+			// }
 		}
 
 		public override void Notify_Killed(Map prevMap, DamageInfo? dinfo = null)
@@ -121,23 +131,23 @@ namespace WVC_XenotypesAndGenes
 			GenPlace.TryPlaceThing(thing, pawn.Position, prevMap, ThingPlaceMode.Near, null, null, default);
 		}
 
-		public override List<PawnRenderNode> CompRenderNodes()
-		{
-			if (!Props.renderNodeProperties.NullOrEmpty() && parent is Pawn pawn)
-			{
-				List<PawnRenderNode> list = new();
-				{
-					foreach (PawnRenderNodeProperties renderNodeProperty in Props.renderNodeProperties)
-					{
-						PawnRenderNode_ColorFromGetColorComp pawnRenderNode_ColorFromGetColorComp = (PawnRenderNode_ColorFromGetColorComp)Activator.CreateInstance(renderNodeProperty.nodeClass, pawn, renderNodeProperty, pawn.Drawer.renderer.renderTree);
-						pawnRenderNode_ColorFromGetColorComp.colorComp = this;
-						list.Add(pawnRenderNode_ColorFromGetColorComp);
-					}
-					return list;
-				}
-			}
-			return null;
-		}
+		// public override List<PawnRenderNode> CompRenderNodes()
+		// {
+			// if (!Props.renderNodeProperties.NullOrEmpty() && parent is Pawn pawn)
+			// {
+				// List<PawnRenderNode> list = new();
+				// {
+					// foreach (PawnRenderNodeProperties renderNodeProperty in Props.renderNodeProperties)
+					// {
+						// PawnRenderNode_ColorFromGetColorComp pawnRenderNode_ColorFromGetColorComp = (PawnRenderNode_ColorFromGetColorComp)Activator.CreateInstance(renderNodeProperty.nodeClass, pawn, renderNodeProperty, pawn.Drawer.renderer.renderTree);
+						// pawnRenderNode_ColorFromGetColorComp.colorComp = this;
+						// list.Add(pawnRenderNode_ColorFromGetColorComp);
+					// }
+					// return list;
+				// }
+			// }
+			// return null;
+		// }
 
 		public override void PostExposeData()
 		{

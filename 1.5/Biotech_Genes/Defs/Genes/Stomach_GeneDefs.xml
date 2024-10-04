@@ -137,6 +137,9 @@
 	<statFactors>
 	  <MoveSpeed>0.4</MoveSpeed>
 	</statFactors>
+	<statOffsets>
+	  <WVC_GolemBond>4</WVC_GolemBond>
+	</statOffsets>
 	<capMods>
 	  <li>
 		<capacity>Moving</capacity>

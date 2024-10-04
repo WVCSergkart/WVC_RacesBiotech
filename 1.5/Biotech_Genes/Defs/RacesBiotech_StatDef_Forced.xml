@@ -28,39 +28,7 @@
 	<category>Mechanitor</category>
 	<displayPriorityInCategory>2005</displayPriorityInCategory>
 	<toStringStyle>FloatOne</toStringStyle>
-	<parts>
-	  <!-- To-Do: Remove after adding alternative mechanics. -->
-	  <li Class="WVC_XenotypesAndGenes.StatPart_OffsetFromBuildingsOnMap">
-		<label>WVC_StatPart_GenesCombo_OffsetFromShrines</label>
-		<reqGeneDef>WVC_SwarmConnection_Golems</reqGeneDef>
-		<buildings>
-		  <li MayRequire="Ludeon.RimWorld.Royalty">
-			<thingDef>NatureShrine_Small</thingDef>
-			<bandwidth>0.2</bandwidth>
-		  </li>
-		  <li MayRequire="Ludeon.RimWorld.Royalty">
-			<thingDef>NatureShrine_Large</thingDef>
-			<bandwidth>0.5</bandwidth>
-		  </li>
-		  <li MayRequire="Ludeon.RimWorld.Royalty">
-			<thingDef>AnimusStone</thingDef>
-			<bandwidth>1</bandwidth>
-		  </li>
-		  <li MayRequire="redmattis.dryads">
-			<thingDef>Dryad_GauranlenShrine_Large</thingDef>
-			<bandwidth>0.5</bandwidth>
-		  </li>
-		  <li MayRequire="redmattis.dryads">
-			<thingDef>Dryad_GauranlenShrine_Small</thingDef>
-			<bandwidth>0.2</bandwidth>
-		  </li>
-		  <li MayRequire="redmattis.dryads">
-			<thingDef>Dryad_VikingShrine</thingDef>
-			<bandwidth>0.1</bandwidth>
-		  </li>
-		</buildings>
-	  </li>
-	</parts>
+	<parts/>
   </StatDef>
 
   <StatDef ParentName="MechStatBase">

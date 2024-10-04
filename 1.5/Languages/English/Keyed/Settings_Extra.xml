@@ -164,14 +164,19 @@ Removing a psylink should not lead to serious bugs, but unexpected errors and co
 
 	<WVC_Label_golemnoids_ShutdownRechargePerTick>Golems recharge per hour {0}</WVC_Label_golemnoids_ShutdownRechargePerTick>
 
+	<WVC_Label_golembond_ShrinesStatPartOffset>Enable golembond shrines offset</WVC_Label_golembond_ShrinesStatPartOffset>
+	<WVC_ToolTip_golembond_ShrinesStatPartOffset>If enabled, shrines from the Royalty DLC will increase golembond.
+
+A restart is required.</WVC_ToolTip_golembond_ShrinesStatPartOffset>
+
 	<!-- ================================== -->
 
-	<WVC_Label_shapeshifter_enableStyleButton>Enable style button</WVC_Label_shapeshifter_enableStyleButton>
-	<WVC_ToolTip_shapeshifter_enableStyleButton>If enabled, the shapeshifter gene will also allow you to change the style of the pawn at any time. This option allows you to change the hairstyle and its color, the beard and its color, tattoos for the face and body.
+	<!-- <WVC_Label_shapeshifter_enableStyleButton>Enable style button</WVC_Label_shapeshifter_enableStyleButton> -->
+	<!-- <WVC_ToolTip_shapeshifter_enableStyleButton>If enabled, the shapeshifter gene will also allow you to change the style of the pawn at any time. This option allows you to change the hairstyle and its color, the beard and its color, tattoos for the face and body. -->
 
-Acts the same as the styling station from ideology, but does not allow you to dye clothes.
+<!-- Acts the same as the styling station from ideology, but does not allow you to dye clothes. -->
 
-Requires the Ideology DLC, for obvious reasons.</WVC_ToolTip_shapeshifter_enableStyleButton>
+<!-- Requires the Ideology DLC, for obvious reasons.</WVC_ToolTip_shapeshifter_enableStyleButton> -->
 
 	<!-- ================================== -->
 

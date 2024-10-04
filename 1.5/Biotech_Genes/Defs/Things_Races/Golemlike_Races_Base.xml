@@ -126,4 +126,34 @@
 		<confirmationDialogText>After activating the ability, the golem will begin gestation, during which time it will continue to do its job. When the gestation process is over, the golemnoid will die. The process cannot be interrupted.\n\nPlease note that if the golemnoid loses connection with the overseer during the process, it will immediately die.\n\nDo you still need a new pawn?</confirmationDialogText>
 	</AbilityDef>
 
+  <PawnRenderTreeDef>
+	<defName>WVC_Golemnoid_Tree</defName>
+	<root Class="PawnRenderNodeProperties_Parent">
+	  <debugLabel>Root</debugLabel>
+	  <tagDef>Root</tagDef>
+	  <children>
+		<li>
+		  <debugLabel>Body</debugLabel>
+		  <tagDef>Body</tagDef>
+		  <useRottenColor>false</useRottenColor>
+		  <nodeClass>WVC_XenotypesAndGenes.PawnRenderNode_Golemnoid</nodeClass>
+		  <children>
+			<li>
+			  <debugLabel>Firefoam</debugLabel>
+			  <nodeClass>PawnRenderNode_AnimalPart</nodeClass>
+			  <workerClass>PawnRenderNodeWorker_OverlayFirefoam</workerClass>
+			  <overlayLayer>Body</overlayLayer>
+			  <useGraphic>false</useGraphic>
+			  <baseLayer>10</baseLayer>
+			</li>
+			<li Class="PawnRenderNodeProperties_Carried">
+			  <debugLabel>Carried thing</debugLabel>
+			  <workerClass>PawnRenderNodeWorker_Carried</workerClass>
+			</li>
+		  </children>
+		</li>
+	  </children>
+	</root>
+  </PawnRenderTreeDef>
+
 </Defs>

@@ -242,6 +242,7 @@ namespace WVC_XenotypesAndGenes
 		public bool link_removeMechlinkWithGene = false;
 		public bool link_removePsylinkWithGene = false;
 		public float golemnoids_ShutdownRechargePerTick = 2f;
+		public bool golembond_ShrinesStatPartOffset = false;
 		// Shapeshifter
 		// public bool shapeshifter_enableStyleButton = true;
 		public float shapeshifer_GeneCellularRegeneration = 1f;

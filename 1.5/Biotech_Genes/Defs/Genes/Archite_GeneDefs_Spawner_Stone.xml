@@ -21,6 +21,9 @@
 	<customEffectDescriptions>
 		<li>Spawns stonechunk every (*DateTime)10-15 days(/DateTime).</li>
 	</customEffectDescriptions>
+	<statOffsets>
+	  <WVC_GolemBond>6</WVC_GolemBond>
+	</statOffsets>
 	<randomChosen>true</randomChosen>
 	<exclusionTags>
 	  <li>WVC_ChunkSpawner</li>

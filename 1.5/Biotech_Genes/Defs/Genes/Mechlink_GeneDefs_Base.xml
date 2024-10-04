@@ -119,7 +119,7 @@
 		<li>A overseer can reproduce with the help of &lt;color=#8a8ae6&gt;golems&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<statOffsets>
-	  <WVC_GolemBond>6</WVC_GolemBond>
+	  <WVC_GolemBond>8</WVC_GolemBond>
 	  <MechBandwidth>2</MechBandwidth>
 	  <MechControlGroups>1</MechControlGroups>
 	</statOffsets>

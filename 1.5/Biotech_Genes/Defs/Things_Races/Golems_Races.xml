@@ -25,6 +25,7 @@
 			<Mass>83</Mass>
 		</statBases>
 		<race>
+			<renderTree>WVC_Golemnoid_Tree</renderTree>
 			<!-- <maxMechEnergy>30</maxMechEnergy> -->
 			<!-- <baseHealthScale>1.2</baseHealthScale> -->
 		</race>
@@ -40,11 +41,6 @@
 				<checkOverseerInterval>80000~220000</checkOverseerInterval>
 				<!-- obsolete -->
 			</li>
-			<!-- <li Class="WVC_XenotypesAndGenes.CompProperties_InitialHediff"> -->
-				<!-- <hediffDefs> -->
-				  <!-- <li>WVC_SelfPopulationRegulation_Golems</li> -->
-				<!-- </hediffDefs> -->
-			<!-- </li> -->
 			<li Class="WVC_XenotypesAndGenes.CompProperties_SpawnOnDeath">
 				<compClass>WVC_XenotypesAndGenes.CompSpawnOnDeath_GetColor</compClass>
 				<filthDefToSpawn>Filth_RubbleRock</filthDefToSpawn>
@@ -55,20 +51,20 @@
 				  <li>ChunkGranite</li>
 				  <li>ChunkSandstone</li>
 				</thingDefsToSpawn>
-				<renderNodeProperties>
-				  <li>
-					<nodeClass>WVC_XenotypesAndGenes.PawnRenderNode_ColorFromGetColorComp</nodeClass>
-					<workerClass>PawnRenderNodeWorker</workerClass>
-					<parentTagDef>Body</parentTagDef>
-					<baseLayer>2</baseLayer>
-					<pawnType>Any</pawnType>
-					<overrideMeshSize>(1, 1)</overrideMeshSize>
-					<drawSize>2</drawSize>
-					<!-- <drawData> -->
-					  <!-- <scaleOffsetByBodySize>true</scaleOffsetByBodySize> -->
-					<!-- </drawData> -->
-				  </li>
-				</renderNodeProperties>
+				<!-- <hediffDefs> -->
+				  <!-- <li>WVC_XaG_GolemChunk</li> -->
+				<!-- </hediffDefs> -->
+				<!-- <renderNodeProperties> -->
+				  <!-- <li> -->
+					<!-- <nodeClass>WVC_XenotypesAndGenes.PawnRenderNode_ColorFromGetColorComp</nodeClass> -->
+					<!-- <workerClass>PawnRenderNodeWorker</workerClass> -->
+					<!-- <parentTagDef>Body</parentTagDef> -->
+					<!-- <baseLayer>2</baseLayer> -->
+					<!-- <pawnType>Any</pawnType> -->
+					<!-- <overrideMeshSize>(1, 1)</overrideMeshSize> -->
+					<!-- <drawSize>2</drawSize> -->
+				  <!-- </li> -->
+				<!-- </renderNodeProperties> -->
 			</li>
 		</comps>
 		<modExtensions>
@@ -78,8 +74,7 @@
 		</modExtensions>
 	</ThingDef>
 	<PawnKindDef ParentName="WVC_XenotypesAndGenes_NonCombatGolemlikeKind_Base" Name="WVC_XenotypesAndGenes_NonCombatGolemKind" Abstract="True">
-		<alternateGraphicChance>1.0</alternateGraphicChance>
-		<!-- To-Do: Repair rock graphic setter -->
+		<!-- <alternateGraphicChance>1.0</alternateGraphicChance> -->
 		<alternateGraphics>
 			<!-- slate -->
 			<li><color>(70,70,70)</color></li>
