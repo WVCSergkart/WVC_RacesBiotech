@@ -81,7 +81,7 @@ namespace WVC_XenotypesAndGenes
 		// Reincarnation
 		public bool reincarnation_EnableMechanic = true;
 		public float reincarnation_MinChronoAge = 200f;
-		public float reincarnation_Chance = 0.08f;
+		public float reincarnation_Chance = 0.12f;
 		// Hemogenic
 		public bool harmony_EnableGenesMechanicsTriggers = true;
 		public bool bloodeater_SafeBloodfeed = false;
@@ -95,7 +95,7 @@ namespace WVC_XenotypesAndGenes
 		public bool link_addedPsylinkWithGene = true;
 		public bool link_removeMechlinkWithGene = false;
 		public bool link_removePsylinkWithGene = false;
-		public float golemnoids_ShutdownRechargePerTick = 4f;
+		public float golemnoids_ShutdownRechargePerTick = 2f;
 		// Shapeshifter
 		// public bool shapeshifter_enableStyleButton = true;
 		public float shapeshifer_GeneCellularRegeneration = 1f;
@@ -199,7 +199,7 @@ namespace WVC_XenotypesAndGenes
 			// Reincarnation
 			Scribe_Values.Look(ref reincarnation_EnableMechanic, "reincarnation_EnableMechanic", defaultValue: true);
 			Scribe_Values.Look(ref reincarnation_MinChronoAge, "reincarnation_MinChronoAge", defaultValue: 200f);
-			Scribe_Values.Look(ref reincarnation_Chance, "reincarnation_Chance", defaultValue: 0.08f);
+			Scribe_Values.Look(ref reincarnation_Chance, "reincarnation_Chance", defaultValue: 0.12f);
 			// Hemogenic
 			Scribe_Values.Look(ref harmony_EnableGenesMechanicsTriggers, "harmony_EnableGenesMechanicsTriggers", defaultValue: true);
 			Scribe_Values.Look(ref bloodeater_SafeBloodfeed, "bloodeater_SafeBloodfeed", defaultValue: false);
@@ -213,7 +213,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref link_addedPsylinkWithGene, "link_addedPsylinkWithGene", defaultValue: true);
 			Scribe_Values.Look(ref link_removeMechlinkWithGene, "link_removeMechlinkWithGene", defaultValue: false);
 			Scribe_Values.Look(ref link_removePsylinkWithGene, "link_removePsylinkWithGene", defaultValue: false);
-			Scribe_Values.Look(ref golemnoids_ShutdownRechargePerTick, "golemnoids_ShutdownRechargePerTick", defaultValue: 4f);
+			Scribe_Values.Look(ref golemnoids_ShutdownRechargePerTick, "golemnoids_ShutdownRechargePerTick", defaultValue: 2f);
 			// shapeshifter
 			Scribe_Values.Look(ref shapeshifer_GeneCellularRegeneration, "shapeshifer_GeneCellularRegeneration", defaultValue: 1f);
 			// Scribe_Values.Look(ref shapeshifter_enableStyleButton, "shapeshifter_enableStyleButton", defaultValue: true);
@@ -711,7 +711,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_link_addedPsylinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_addedPsylinkWithGene, "WVC_ToolTip_link_addedPsylinkWithGene".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_link_removeMechlinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_removeMechlinkWithGene, "WVC_ToolTip_link_removeMechlinkWithGene".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_link_removePsylinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_removePsylinkWithGene, "WVC_ToolTip_link_removePsylinkWithGene".Translate());
-			listingStandard.SliderLabeledWithRef("WVC_Label_golemnoids_ShutdownRechargePerTick".Translate((settings.golemnoids_ShutdownRechargePerTick).ToString()), ref settings.golemnoids_ShutdownRechargePerTick, 0f, 50f, round: 0);
+			listingStandard.SliderLabeledWithRef("WVC_Label_golemnoids_ShutdownRechargePerTick".Translate((settings.golemnoids_ShutdownRechargePerTick).ToString()), ref settings.golemnoids_ShutdownRechargePerTick, 0f, 10f, round: 1);
 			listingStandard.GapLine();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_Hemogenic".Translate() + ":", -1);

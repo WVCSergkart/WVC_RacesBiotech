@@ -227,7 +227,7 @@ namespace WVC_XenotypesAndGenes
 		// Reincarnation
 		public bool reincarnation_EnableMechanic = true;
 		public float reincarnation_MinChronoAge = 200f;
-		public float reincarnation_Chance = 0.08f;
+		public float reincarnation_Chance = 0.12f;
 		// Hemogenic
 		public bool harmony_EnableGenesMechanicsTriggers = true;
 		public bool bloodeater_SafeBloodfeed = false;
@@ -241,7 +241,7 @@ namespace WVC_XenotypesAndGenes
 		public bool link_addedPsylinkWithGene = true;
 		public bool link_removeMechlinkWithGene = false;
 		public bool link_removePsylinkWithGene = false;
-		public float golemnoids_ShutdownRechargePerTick = 4f;
+		public float golemnoids_ShutdownRechargePerTick = 2f;
 		// Shapeshifter
 		// public bool shapeshifter_enableStyleButton = true;
 		public float shapeshifer_GeneCellularRegeneration = 1f;
