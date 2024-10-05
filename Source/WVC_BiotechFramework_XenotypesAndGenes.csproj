@@ -106,7 +106,7 @@
     <Compile Include="Resources_Gizmo\Dialog_ChooseXenotype.cs" />
     <Compile Include="Resources_Gizmo\Dialog_CreateChimera.cs" />
     <Compile Include="Resources_Gizmo\Dialog_GauranlenGeneMode.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_GolemTypesForSummon.cs" />
+    <Compile Include="Resources_Gizmo\Dialog_Golemlink.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Reimplanter.cs" />
     <Compile Include="Resources_Gizmo\Dialog_RetuneSerum.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Shapeshifter.cs" />

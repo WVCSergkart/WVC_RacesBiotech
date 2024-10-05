@@ -106,7 +106,7 @@ namespace WVC_XenotypesAndGenes
 				Widgets.DrawHighlight(rectGolemsSettings);
 				if (Widgets.ButtonInvisible(rectGolemsSettings))
 				{
-					Find.WindowStack.Add(new Dialog_GolemTypesForSummon(gene));
+					Find.WindowStack.Add(new Dialog_Golemlink(gene));
 				}
 			}
 			TooltipHandler.TipRegion(rectGolemsSettings, "WVC_XaG_GeneGolemlinkSummonSettings_Desc".Translate());
