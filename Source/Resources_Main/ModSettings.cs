@@ -953,6 +953,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.link_removeMechlinkWithGene = settingsDef.link_removeMechlinkWithGene;
 			WVC_Biotech.settings.link_removePsylinkWithGene = settingsDef.link_removePsylinkWithGene;
 			WVC_Biotech.settings.golemnoids_ShutdownRechargePerTick = settingsDef.golemnoids_ShutdownRechargePerTick;
+			WVC_Biotech.settings.golembond_ShrinesStatPartOffset = settingsDef.golembond_ShrinesStatPartOffset;
 			// =
 			WVC_Biotech.settings.rechargeable_enablefoodPoisoningFromFood = settingsDef.rechargeable_enablefoodPoisoningFromFood;
 			// =

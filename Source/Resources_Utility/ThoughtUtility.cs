@@ -72,13 +72,13 @@ namespace WVC_XenotypesAndGenes
 			return true;
 		}
 
-		public static bool TryInteractWith(Pawn pawn, Pawn recipient, InteractionDef intDef)
+		public static bool TryInteractWith(Pawn pawn, Pawn recipient, InteractionDef intDef, bool psychicInteraction = true, bool ignoreTalking = false)
 		{
 			if (pawn == recipient)
 			{
 				return false;
 			}
-			if (!CanInteractNowWith(pawn, recipient, intDef))
+			if (!ignoreTalking && !CanInteractNowWith(pawn, recipient, intDef))
 			{
 				return false;
 			}
@@ -113,7 +113,10 @@ namespace WVC_XenotypesAndGenes
 				}
 				Find.LetterStack.ReceiveLetter(letterLabel, text, letterDef, lookTargets ?? ((LookTargets)pawn));
 			}
-			FleckMaker.AttachedOverlay(pawn, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
+			if (psychicInteraction)
+			{
+				FleckMaker.AttachedOverlay(pawn, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
+			}
 			return true;
 		}
 
@@ -210,6 +213,71 @@ namespace WVC_XenotypesAndGenes
 				return false;
 			}
 			if (onlySameXenotype && !GeneUtility.SameXenotype(pawn, other))
+			{
+				return false;
+			}
+			return true;
+		}
+
+		// Mute voice
+
+		public static bool CanInitiateRandomInteraction_WithoutTalking(Pawn p)
+		{
+			if (!CanInitiateInteraction_WithoutTalking(p))
+			{
+				return false;
+			}
+			if (!p.RaceProps.Humanlike || p.Downed || p.InAggroMentalState || p.IsInteractionBlocked(null, isInitiator: true, isRandom: true))
+			{
+				return false;
+			}
+			if (p.Faction == null)
+			{
+				return false;
+			}
+			if (!p.ageTracker.CurLifeStage.canInitiateSocialInteraction)
+			{
+				return false;
+			}
+			if (p.Inhumanized())
+			{
+				return false;
+			}
+			return true;
+		}
+
+		public static bool CanInteractNowWith_WithoutTalking(Pawn pawn, Pawn recipient, InteractionDef interactionDef = null)
+		{
+			if (!pawn.IsCarryingPawn(recipient) && !recipient.Spawned)
+			{
+				return false;
+			}
+			if (!CanInitiateInteraction_WithoutTalking(pawn, interactionDef) || !InteractionUtility.CanReceiveInteraction(recipient, interactionDef))
+			{
+				return false;
+			}
+			return true;
+		}
+
+		public static bool CanInitiateInteraction_WithoutTalking(Pawn pawn, InteractionDef interactionDef = null)
+		{
+			if (pawn.interactions == null)
+			{
+				return false;
+			}
+			if (!pawn.Awake())
+			{
+				return false;
+			}
+			if (pawn.IsBurning())
+			{
+				return false;
+			}
+			if (pawn.IsMutant)
+			{
+				return false;
+			}
+			if (pawn.IsInteractionBlocked(interactionDef, isInitiator: true, isRandom: false))
 			{
 				return false;
 			}

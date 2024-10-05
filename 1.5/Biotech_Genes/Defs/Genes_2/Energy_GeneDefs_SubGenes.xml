@@ -40,4 +40,38 @@
 	</modExtensions>
   </GeneDef>
 
+  <!-- = -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
+	<defName>WVC_MechaAI_SoftwareNaturalEnemy</defName>
+	<label>binary voice</label>
+	<description>Carriers of this gene have archites that alter the functioning of their vocal cords, making their speech sound like machine binary signals, making it difficult for them to communicate.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_BinaryVoice</geneClass>
+	<iconPath>WVC/UI/Genes/NaturalEnemy_v0</iconPath>
+	<displayCategory>WVC_Energy</displayCategory>
+	<displayOrderInCategory>210</displayOrderInCategory>
+	<statFactors>
+	  <TradePriceImprovement>0.0</TradePriceImprovement>
+	  <BondAnimalChanceFactor>0.0</BondAnimalChanceFactor>
+	</statFactors>
+	<capMods>
+	  <li>
+		<capacity>Talking</capacity>
+		<setMax>0.0</setMax>
+	  </li>
+	</capMods>
+	<customEffectDescriptions>
+	  <li>Carriers can initiate social interaction only with each other.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_MechaAI_SoftwareDisableTalking</li>
+	</exclusionTags>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
+			<MeAboutThoughtDef>WVC_XenotypesAndGenes_Hater</MeAboutThoughtDef>
+			<ignoreIfHasGene>true</ignoreIfHasGene>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
 </Defs>

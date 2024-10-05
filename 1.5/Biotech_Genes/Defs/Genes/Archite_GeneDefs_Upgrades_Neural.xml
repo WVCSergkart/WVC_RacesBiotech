@@ -235,33 +235,5 @@
 	  <li>WVC_MechanitorNetwork</li>
 	</exclusionTags>
   </GeneDef>
-  <!-- = -->
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
-	<defName>WVC_MechaAI_SoftwareNaturalEnemy</defName>
-	<label>hard-minded</label>
-	<description>Carriers of this gene have archites that enhance the psychic influence on their emotions, causing a pronounced intolerance to everything that is not like them. They find it difficult to build relationships with anyone who does not have a similar psychic shade.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_Opinion</geneClass>
-	<iconPath>WVC/UI/Genes/NaturalEnemy_v0</iconPath>
-	<!-- <biostatCpx>3</biostatCpx> -->
-	<displayCategory>Violence</displayCategory>
-	<displayOrderInCategory>-22</displayOrderInCategory>
-	<statFactors>
-	  <TradePriceImprovement>0.0</TradePriceImprovement>
-	  <BondAnimalChanceFactor>0.0</BondAnimalChanceFactor>
-	</statFactors>
-	<customEffectDescriptions>
-	  <li>The carrier of the gene accumulates a -25 opinion about others. If they don't have this gene.</li>
-	  <li>Opinion updated every day and lasts 5 days.</li>
-	  <li>Opinion can stack up to 4 times.</li>
-	  <li>Only affects colony pawns and prisoners.</li>
-	  <!-- <li>Does not affect babies and children.</li> -->
-	</customEffectDescriptions>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
-			<MeAboutThoughtDef>WVC_XenotypesAndGenes_Hater</MeAboutThoughtDef>
-			<ignoreIfHasGene>true</ignoreIfHasGene>
-		</li>
-	</modExtensions>
-  </GeneDef>
 
 </Defs>

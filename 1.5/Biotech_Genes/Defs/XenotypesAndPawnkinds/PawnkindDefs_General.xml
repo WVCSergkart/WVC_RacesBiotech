@@ -139,7 +139,7 @@
 
   <PawnKindDef ParentName="WVC_RB_XenoBase" WVC_XaG_XenotypeRemoveTag="General">
 	<defName>WVC_RuneDryad_Player</defName>
-	<label>runeex</label>
+	<label>golemist</label>
 	<chronologicalAgeRange>0</chronologicalAgeRange>
 	<backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
 	<defaultFactionType>PlayerTribe</defaultFactionType>

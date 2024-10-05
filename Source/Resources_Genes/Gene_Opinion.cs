@@ -277,4 +277,101 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_BinaryVoice : Gene
+	{
+
+		public GeneExtension_Opinion Props => def?.GetModExtension<GeneExtension_Opinion>();
+
+		private int hashIntervalTick = 7200;
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			ResetInterval();
+		}
+
+		public override void Tick()
+		{
+			if (!pawn.IsHashIntervalTick(hashIntervalTick))
+			{
+				return;
+			}
+			if (!Active)
+			{
+				return;
+			}
+			TryInteractRandomly_CloseTarget(pawn);
+			ResetInterval();
+		}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: TryInteract",
+					action = delegate
+					{
+						TryInteractRandomly_CloseTarget(pawn);
+					}
+				};
+			}
+		}
+
+		public bool TryInteractRandomly_CloseTarget(Pawn pawn)
+		{
+			if (pawn?.Map == null || pawn.Downed)
+			{
+				return false;
+			}
+			if (!ThoughtUtility.CanInitiateRandomInteraction_WithoutTalking(pawn))
+			{
+				return false;
+			}
+			List<Pawn> workingList = pawn.Map.mapPawns.SpawnedPawnsInFaction(pawn.Faction);
+			workingList.Shuffle();
+			List<InteractionDef> allDefsListForReading = DefDatabase<InteractionDef>.AllDefsListForReading;
+			for (int i = 0; i < workingList.Count; i++)
+			{
+				Pawn p = workingList[i];
+				if (!p.RaceProps.Humanlike)
+				{
+					continue;
+				}
+				if (!XaG_GeneUtility.HasGeneOfType(this, p))
+				{
+					continue;
+				}
+				if (!InteractionUtility.IsGoodPositionForInteraction(pawn, p))
+				{
+					continue;
+				}
+				if (p != pawn && ThoughtUtility.CanInteractNowWith_WithoutTalking(pawn, p) && InteractionUtility.CanReceiveRandomInteraction(p) && !pawn.HostileTo(p) && allDefsListForReading.TryRandomElementByWeight((InteractionDef x) => (!ThoughtUtility.CanInteractNowWith_WithoutTalking(pawn, p, x)) ? 0f : x.Worker.RandomSelectionWeight(pawn, p), out var result))
+				{
+					if (ThoughtUtility.TryInteractWith(pawn, p, result, false, true))
+					{
+						return true;
+					}
+					Log.Error(string.Concat(pawn, " failed to interact with ", p));
+				}
+				continue;
+			}
+			return false;
+		}
+
+		private void ResetInterval()
+		{
+			IntRange range = new(7200, 22000);
+			hashIntervalTick = range.RandomInRange;
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref hashIntervalTick, "hashIntervalTick", 0);
+		}
+
+	}
+
 }

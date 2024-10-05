@@ -84,6 +84,17 @@
 
   <!-- ======================== -->
 
+  <ThoughtDef ParentName="WVC_XenotypesAndGenes_Thought_MemorySocial_Base">
+	<defName>WVC_XenotypesAndGenes_Hater</defName>
+	<stackedEffectMultiplier>1.0</stackedEffectMultiplier>
+	<stages>
+	  <li>
+		<label>not like me</label>
+		<baseOpinionOffset>-25</baseOpinionOffset>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
   <!-- ================== -->
   
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
