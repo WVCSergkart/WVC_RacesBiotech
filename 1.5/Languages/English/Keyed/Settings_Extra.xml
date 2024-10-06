@@ -207,6 +207,8 @@ A restart is required.</WVC_ToolTip_enable_dryadQueenMechanicGenerator>
 
 	<WVC_Label_gestatedDryads_FilthRateFactor>Gestated dryads filth factor x{0}%</WVC_Label_gestatedDryads_FilthRateFactor>
 
+	<WVC_Label_gestatedDryads_AnomalyRegeneration>Gestated dryads healing {0} hp/day</WVC_Label_gestatedDryads_AnomalyRegeneration>
+
 	<!-- ================================== -->
 
 	<WVC_Label_disableNonAcceptablePreyGenes>Disable non acceptable prey mechanic</WVC_Label_disableNonAcceptablePreyGenes>

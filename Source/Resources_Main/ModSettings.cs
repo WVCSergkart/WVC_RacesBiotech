@@ -95,7 +95,7 @@ namespace WVC_XenotypesAndGenes
 		public bool link_addedPsylinkWithGene = true;
 		public bool link_removeMechlinkWithGene = false;
 		public bool link_removePsylinkWithGene = false;
-		public float golemnoids_ShutdownRechargePerTick = 2f;
+		public float golemnoids_ShutdownRechargePerTick = 1f;
 		public bool golembond_ShrinesStatPartOffset = false;
 		// Shapeshifter
 		// public bool shapeshifter_enableStyleButton = true;
@@ -108,6 +108,7 @@ namespace WVC_XenotypesAndGenes
 		// DryadQueen
 		public bool enable_dryadQueenMechanicGenerator = true;
 		public float gestatedDryads_FilthRateFactor = 0.1f;
+		public float gestatedDryads_AnomalyRegeneration = 0f;
 		// Rechargeable
 		public bool rechargeable_enablefoodPoisoningFromFood = true;
 		// Xenotypes
@@ -214,7 +215,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref link_addedPsylinkWithGene, "link_addedPsylinkWithGene", defaultValue: true);
 			Scribe_Values.Look(ref link_removeMechlinkWithGene, "link_removeMechlinkWithGene", defaultValue: false);
 			Scribe_Values.Look(ref link_removePsylinkWithGene, "link_removePsylinkWithGene", defaultValue: false);
-			Scribe_Values.Look(ref golemnoids_ShutdownRechargePerTick, "golemnoids_ShutdownRechargePerTick", defaultValue: 2f);
+			Scribe_Values.Look(ref golemnoids_ShutdownRechargePerTick, "golemnoids_ShutdownRechargePerTick", defaultValue: 1f);
 			Scribe_Values.Look(ref golembond_ShrinesStatPartOffset, "golembond_ShrinesStatPartOffset", defaultValue: false);
 			// shapeshifter
 			Scribe_Values.Look(ref shapeshifer_GeneCellularRegeneration, "shapeshifer_GeneCellularRegeneration", defaultValue: 1f);
@@ -228,6 +229,7 @@ namespace WVC_XenotypesAndGenes
 			// DryadQueen
 			Scribe_Values.Look(ref enable_dryadQueenMechanicGenerator, "enable_dryadQueenMechanicGenerator", defaultValue: true);
 			Scribe_Values.Look(ref gestatedDryads_FilthRateFactor, "gestatedDryads_FilthRateFactor", defaultValue: 0.1f);
+			Scribe_Values.Look(ref gestatedDryads_AnomalyRegeneration, "gestatedDryads_AnomalyRegeneration", defaultValue: 0f);
 			// Rechargeable
 			Scribe_Values.Look(ref rechargeable_enablefoodPoisoningFromFood, "rechargeable_enablefoodPoisoningFromFood", defaultValue: true);
 			// Reincarnation
@@ -787,6 +789,10 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.Label("WVC_XaGGeneSettings_DryadQueen".Translate() + ":", -1);
 			listingStandard.CheckboxLabeled("WVC_Label_enable_dryadQueenMechanicGenerator".Translate().Colorize(ColorLibrary.LightOrange), ref settings.enable_dryadQueenMechanicGenerator, "WVC_ToolTip_enable_dryadQueenMechanicGenerator".Translate());
 			listingStandard.SliderLabeledWithRef("WVC_Label_gestatedDryads_FilthRateFactor".Translate((settings.gestatedDryads_FilthRateFactor * 100f).ToString()), ref settings.gestatedDryads_FilthRateFactor, 0f, 1f, round: 2);
+			if (ModsConfig.AnomalyActive)
+			{
+				listingStandard.SliderLabeledWithRef("WVC_Label_gestatedDryads_AnomalyRegeneration".Translate((settings.gestatedDryads_AnomalyRegeneration).ToString()), ref settings.gestatedDryads_AnomalyRegeneration, 0f, 50f, round: 0);
+			}
 			// Reset Button
 			listingStandard.GapLine();
 			// =============== Buttons ===============
@@ -947,6 +953,7 @@ namespace WVC_XenotypesAndGenes
 			// =
 			WVC_Biotech.settings.enable_dryadQueenMechanicGenerator = settingsDef.enable_dryadQueenMechanicGenerator;
 			WVC_Biotech.settings.gestatedDryads_FilthRateFactor = settingsDef.gestatedDryads_FilthRateFactor;
+			WVC_Biotech.settings.gestatedDryads_AnomalyRegeneration = settingsDef.gestatedDryads_AnomalyRegeneration;
 			// =
 			WVC_Biotech.settings.link_addedMechlinkWithGene = settingsDef.link_addedMechlinkWithGene;
 			WVC_Biotech.settings.link_addedPsylinkWithGene = settingsDef.link_addedPsylinkWithGene;

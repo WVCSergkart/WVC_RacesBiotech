@@ -79,26 +79,26 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual bool TryRecharge(bool requestQueueing = true)
 		{
+			if (PawnHaveThisJob(pawn, Props.rechargeableStomachJobDef))
+			{
+				return false;
+			}
 			Building_XenoCharger closestCharger = GetClosestCharger(pawn, forced: false, Props.xenoChargerDef);
 			if (closestCharger != null)
 			{
 				Job job = JobMaker.MakeJob(Props.rechargeableStomachJobDef, closestCharger);
 				job.overrideFacing = Rot4.South;
-				if (PawnHaveThisJob(pawn, job))
-				{
-					return false;
-				}
 				pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, requestQueueing);
 				return true;
 			}
 			return false;
 		}
 
-		public static bool PawnHaveThisJob(Pawn pawn, Job job)
+		public static bool PawnHaveThisJob(Pawn pawn, JobDef job)
 		{
 			foreach (Job item in pawn.jobs.AllJobs().ToList())
 			{
-				if (item.def == job.def)
+				if (item.def == job)
 				{
 					return true;
 				}

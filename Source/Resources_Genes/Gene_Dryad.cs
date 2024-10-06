@@ -251,39 +251,39 @@ namespace WVC_XenotypesAndGenes
 				gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, this);
 			}
 			yield return gizmo;
-			yield return new Command_Action
-			{
-				defaultLabel = "WVC_XaG_Gene_GauranlenConnection_SpawnOnOff".Translate() + ": " + GeneUiUtility.OnOrOff(spawnDryads),
-				defaultDesc = "WVC_XaG_Gene_GauranlenConnection_SpawnOnOffDesc".Translate(),
-				icon = ContentFinder<Texture2D>.Get(def.iconPath),
-				action = delegate
-				{
-					spawnDryads = !spawnDryads;
-					if (spawnDryads)
-					{
-						SoundDefOf.Tick_High.PlayOneShotOnCamera();
-					}
-					else
-					{
-						SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-					}
-				}
-			};
-			yield return new Command_Action
-			{
-				defaultLabel = "WVC_XaG_DryadQueenSelectAllDryads".Translate(),
-				defaultDesc = "WVC_XaG_DryadQueenSelectAllDryads_Desc".Translate(),
-				icon = ContentFinder<Texture2D>.Get("WVC/UI/XaG_General/UI_SelectDryads"),
-				Order = -87f,
-				action = delegate
-				{
-					Find.Selector.ClearSelection();
-					for (int i = 0; i < dryads.Count; i++)
-					{
-						Find.Selector.Select(dryads[i]);
-					}
-				}
-			};
+			// yield return new Command_Action
+			// {
+				// defaultLabel = "WVC_XaG_Gene_GauranlenConnection_SpawnOnOff".Translate() + ": " + GeneUiUtility.OnOrOff(spawnDryads),
+				// defaultDesc = "WVC_XaG_Gene_GauranlenConnection_SpawnOnOffDesc".Translate(),
+				// icon = ContentFinder<Texture2D>.Get(def.iconPath),
+				// action = delegate
+				// {
+					// spawnDryads = !spawnDryads;
+					// if (spawnDryads)
+					// {
+						// SoundDefOf.Tick_High.PlayOneShotOnCamera();
+					// }
+					// else
+					// {
+						// SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+					// }
+				// }
+			// };
+			// yield return new Command_Action
+			// {
+				// defaultLabel = "WVC_XaG_DryadQueenSelectAllDryads".Translate(),
+				// defaultDesc = "WVC_XaG_DryadQueenSelectAllDryads_Desc".Translate(),
+				// icon = ContentFinder<Texture2D>.Get("WVC/UI/XaG_General/UI_SelectDryads"),
+				// Order = -87f,
+				// action = delegate
+				// {
+					// Find.Selector.ClearSelection();
+					// for (int i = 0; i < dryads.Count; i++)
+					// {
+						// Find.Selector.Select(dryads[i]);
+					// }
+				// }
+			// };
 		}
 
 		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)

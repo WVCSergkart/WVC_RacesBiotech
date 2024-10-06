@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Verse;
+using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -15,6 +16,9 @@ namespace WVC_XenotypesAndGenes
 
 		public Color filledBlockColor = ColorLibrary.LightOrange;
 		public Color excessBlockColor = ColorLibrary.Red;
+
+		private static readonly CachedTexture SummonSettingsIcon = new("WVC/UI/XaG_General/UI_SelectDryadQueen");
+		private static readonly CachedTexture SelectDryadsIcon = new("WVC/UI/XaG_General/UI_SelectDryads");
 
 		public Pawn mechanitor;
 
@@ -57,12 +61,8 @@ namespace WVC_XenotypesAndGenes
 				usedBandwidth = allDryads.Count;
 				nextRecache = 180;
 			}
-			// if (Find.TickManager.TicksGame > nextRecache)
-			// {
-				// nextRecache = Find.TickManager.TicksGame + recacheFrequency;
-			// }
 			string text = usedBandwidth.ToString("F0") + " / " + totalBandwidth.ToString("F0");
-			TaggedString taggedString = "WVC_XaG_BroodmindLimit".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + text + "\n\n" + "WVC_XaG_BroodmindLimitGizmoTip".Translate();
+			TaggedString taggedString = "WVC_XaG_BroodmindLimit".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + text + "\n\n" + "WVC_XaG_BroodmindLimitGizmoTip".Translate() + "\n\n" +  "WVC_XaG_Gene_GauranlenConnection_SpawnOnOff".Translate() + ": " + GeneUiUtility.OnOrOff(gene.spawnDryads);;
 			if (usedBandwidth > 0)
 			{
 				taggedString += (string)("\n\n" + ("WVC_XaG_BroodmindUsage".Translate() + ": ")) + usedBandwidth;
@@ -72,7 +72,6 @@ namespace WVC_XenotypesAndGenes
 					select (string)(p.Key.LabelCap + " x") + p.Count();
 				taggedString += "\n\n" + entries.ToLineList(" - ");
 			}
-			TooltipHandler.TipRegion(rect, taggedString);
 			Text.Font = GameFont.Small;
 			Text.Anchor = TextAnchor.UpperLeft;
 			Rect rect3 = new(rect2.x, rect2.y, rect2.width, 20f);
@@ -80,9 +79,48 @@ namespace WVC_XenotypesAndGenes
 			Text.Font = GameFont.Small;
 			Text.Anchor = TextAnchor.UpperRight;
 			Widgets.Label(rect3, text);
+			TooltipHandler.TipRegion(rect3, taggedString);
 			Text.Anchor = TextAnchor.UpperLeft;
 			int num = (int)Mathf.Max(usedBandwidth, totalBandwidth);
-			Rect rect4 = new(rect2.x, rect3.yMax + 6f, rect2.width, rect2.height - rect3.height - 6f);
+			Rect rect4 = new(rect2.x, rect3.yMax + 6f, rect2.width - 84f, rect2.height - rect3.height - 6f);
+			TooltipHandler.TipRegion(rect4, taggedString);
+			// Button
+			Rect rectSummonSettings = new(rect4.xMax, rect2.y + 23f, 40f, 40f);
+			Widgets.DrawTextureFitted(rectSummonSettings, SummonSettingsIcon.Texture, 1f);
+			if (Mouse.IsOver(rectSummonSettings))
+			{
+				Widgets.DrawHighlight(rectSummonSettings);
+				if (Widgets.ButtonInvisible(rectSummonSettings))
+				{
+					gene.spawnDryads = !gene.spawnDryads;
+					if (gene.spawnDryads)
+					{
+						SoundDefOf.Tick_High.PlayOneShotOnCamera();
+					}
+					else
+					{
+						SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+					}
+				}
+			}
+			TooltipHandler.TipRegion(rectSummonSettings, "WVC_XaG_Gene_GauranlenConnection_SpawnOnOffDesc".Translate() + "\n\n" +  "WVC_XaG_Gene_GauranlenConnection_SpawnOnOff".Translate() + ": " + GeneUiUtility.OnOrOff(gene.spawnDryads));
+			// Button
+			Rect rectGolemsSettings = new(rectSummonSettings.x + 44f, rectSummonSettings.y, rectSummonSettings.width, rectSummonSettings.height);
+			Widgets.DrawTextureFitted(rectGolemsSettings, SelectDryadsIcon.Texture, 1f);
+			if (Mouse.IsOver(rectGolemsSettings))
+			{
+				Widgets.DrawHighlight(rectGolemsSettings);
+				if (Widgets.ButtonInvisible(rectGolemsSettings))
+				{
+					Find.Selector.ClearSelection();
+					for (int i = 0; i < gene.DryadsListForReading.Count; i++)
+					{
+						Find.Selector.Select(gene.DryadsListForReading[i]);
+					}
+				}
+			}
+			TooltipHandler.TipRegion(rectGolemsSettings, "WVC_XaG_DryadQueenSelectAllDryads_Desc".Translate());
+			// Bonds
 			int num2 = 2;
 			int num3 = Mathf.FloorToInt(rect4.height / (float)num2);
 			int num4 = Mathf.FloorToInt(rect4.width / (float)num3);
@@ -93,10 +131,9 @@ namespace WVC_XenotypesAndGenes
 				num3 = Mathf.FloorToInt(rect4.height / (float)num2);
 				num4 = Mathf.FloorToInt(rect4.width / (float)num3);
 				num5++;
-				if (num5 >= 1000)
+				if (num5 >= 300)
 				{
-					Log.Error("Failed to fit bandwidth cells into gizmo rect.");
-					return new GizmoResult(GizmoState.Clear);
+					break;
 				}
 			}
 			int num6 = Mathf.FloorToInt(rect4.width / (float)num3);
@@ -123,11 +160,74 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 			return new GizmoResult(GizmoState.Clear);
+			// string text = usedBandwidth.ToString("F0") + " / " + totalBandwidth.ToString("F0");
+			// TaggedString taggedString = "WVC_XaG_BroodmindLimit".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + text + "\n\n" + "WVC_XaG_BroodmindLimitGizmoTip".Translate();
+			// if (usedBandwidth > 0)
+			// {
+				// taggedString += (string)("\n\n" + ("WVC_XaG_BroodmindUsage".Translate() + ": ")) + usedBandwidth;
+				// IEnumerable<string> entries = from p in allDryads
+					// where p.Map != null
+					// group p by p.kindDef into p
+					// select (string)(p.Key.LabelCap + " x") + p.Count();
+				// taggedString += "\n\n" + entries.ToLineList(" - ");
+			// }
+			// TooltipHandler.TipRegion(rect, taggedString);
+			// Text.Font = GameFont.Small;
+			// Text.Anchor = TextAnchor.UpperLeft;
+			// Rect rect3 = new(rect2.x, rect2.y, rect2.width, 20f);
+			// Widgets.Label(rect3, "WVC_XaG_BroodmindLimit".Translate());
+			// Text.Font = GameFont.Small;
+			// Text.Anchor = TextAnchor.UpperRight;
+			// Widgets.Label(rect3, text);
+			// Text.Anchor = TextAnchor.UpperLeft;
+			// int num = (int)Mathf.Max(usedBandwidth, totalBandwidth);
+			// Rect rect4 = new(rect2.x, rect3.yMax + 6f, rect2.width, rect2.height - rect3.height - 6f);
+			// int num2 = 2;
+			// int num3 = Mathf.FloorToInt(rect4.height / (float)num2);
+			// int num4 = Mathf.FloorToInt(rect4.width / (float)num3);
+			// int num5 = 0;
+			// while (num2 * num4 < num)
+			// {
+				// num2++;
+				// num3 = Mathf.FloorToInt(rect4.height / (float)num2);
+				// num4 = Mathf.FloorToInt(rect4.width / (float)num3);
+				// num5++;
+				// if (num5 >= 1000)
+				// {
+					// Log.Error("Failed to fit bandwidth cells into gizmo rect.");
+					// return new GizmoResult(GizmoState.Clear);
+				// }
+			// }
+			// int num6 = Mathf.FloorToInt(rect4.width / (float)num3);
+			// int num7 = num2;
+			// float num8 = (rect4.width - (float)(num6 * num3)) / 2f;
+			// int num9 = 0;
+			// for (int i = 0; i < num7; i++)
+			// {
+				// for (int j = 0; j < num6; j++)
+				// {
+					// num9++;
+					// Rect rect5 = new Rect(rect4.x + (float)(j * num3) + num8, rect4.y + (float)(i * num3), num3, num3).ContractedBy(2f);
+					// if (num9 <= num)
+					// {
+						// if (num9 <= usedBandwidth)
+						// {
+							// Widgets.DrawRectFast(rect5, (num9 <= totalBandwidth) ? filledBlockColor : excessBlockColor);
+						// }
+						// else
+						// {
+							// Widgets.DrawRectFast(rect5, EmptyBlockColor);
+						// }
+					// }
+				// }
+			// }
+			// return new GizmoResult(GizmoState.Clear);
 		}
 
 		public override float GetWidth(float maxWidth)
 		{
-			return 136f;
+			// return 136f;
+			return 220f;
 		}
 
 	}

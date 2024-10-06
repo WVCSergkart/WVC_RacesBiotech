@@ -104,16 +104,24 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
+			if (Gene_Rechargeable.PawnHaveThisJob(pawn, WVC_GenesDefOf.WVC_XaG_CastBloodfeedOnPawnMelee))
+			{
+				return false;
+			}
 			// =
 			List<Pawn> targets = MiscUtility.GetAllPlayerControlledMapPawns_ForBloodfeed(pawn);
 			// =
 			foreach (Pawn colonist in targets)
 			{
-				if (!GeneFeaturesUtility.CanBloodFeedNowWith(pawn, colonist))
+				//if (!GeneFeaturesUtility.CanBloodFeedNowWith(pawn, colonist))
+				//{
+				//	continue;
+				//}
+				if (colonist.IsForbidden(pawn) || !pawn.CanReserveAndReach(colonist, PathEndMode.OnCell, pawn.NormalMaxDanger()))
 				{
 					continue;
 				}
-				if (colonist.IsForbidden(pawn) || !pawn.CanReserveAndReach(colonist, PathEndMode.OnCell, pawn.NormalMaxDanger()))
+				if (colonist.health.hediffSet.HasHediff(HediffDefOf.BloodLoss))
 				{
 					continue;
 				}
@@ -121,23 +129,14 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				// if (PawnReserved(biters, colonist, pawn))
-				// {
-					// continue;
-				// }
 				job.def = WVC_GenesDefOf.WVC_XaG_CastBloodfeedOnPawnMelee;
-				// job.MakeDriver(pawn);
-				if (!PawnHaveBloodHuntJob(pawn, job))
-				{
-					pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);
-					// Log.Error("Target: " + colonist.Name.ToString());
-					return true;
-				}
-				return false;
+				pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);
+				return true;
 			}
 			return false;
 		}
-
+		
+		[Obsolete]
 		public static bool PawnHaveBloodHuntJob(Pawn pawn, Job job)
 		{
 			foreach (Job item in pawn.jobs.AllJobs().ToList())

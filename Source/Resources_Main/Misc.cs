@@ -241,7 +241,7 @@ namespace WVC_XenotypesAndGenes
 		public bool link_addedPsylinkWithGene = true;
 		public bool link_removeMechlinkWithGene = false;
 		public bool link_removePsylinkWithGene = false;
-		public float golemnoids_ShutdownRechargePerTick = 2f;
+		public float golemnoids_ShutdownRechargePerTick = 1f;
 		public bool golembond_ShrinesStatPartOffset = false;
 		// Shapeshifter
 		// public bool shapeshifter_enableStyleButton = true;
@@ -254,6 +254,7 @@ namespace WVC_XenotypesAndGenes
 		// DryadQueen
 		public bool enable_dryadQueenMechanicGenerator = true;
 		public float gestatedDryads_FilthRateFactor = 0.1f;
+		public float gestatedDryads_AnomalyRegeneration = 0f;
 		// Rechargeable
 		public bool rechargeable_enablefoodPoisoningFromFood = true;
 		// Xenotypes

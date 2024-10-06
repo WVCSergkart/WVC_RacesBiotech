@@ -73,14 +73,18 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool TryHuntForCells(Pawn pawn)
 		{
+			if (Gene_Rechargeable.PawnHaveThisJob(pawn, WVC_GenesDefOf.WVC_XaG_CastCellsfeedOnPawnMelee))
+			{
+				return false;
+			}
 			List<Pawn> targets = MiscUtility.GetAllPlayerControlledMapPawns_ForBloodfeed(pawn);
 			// =
 			foreach (Pawn colonist in targets)
 			{
-				if (!GeneFeaturesUtility.CanCellsFeedNowWith(pawn, colonist))
-				{
-					continue;
-				}
+				//if (!GeneFeaturesUtility.CanCellsFeedNowWith(pawn, colonist))
+				//{
+				//	continue;
+				//}
 				if (colonist.IsForbidden(pawn) || !pawn.CanReserveAndReach(colonist, PathEndMode.OnCell, pawn.NormalMaxDanger()))
 				{
 					continue;
@@ -89,16 +93,9 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				// if (Gene_BloodHunter.PawnReserved(biters, colonist, pawn))
-				// {
-					// continue;
-				// }
 				job.def = WVC_GenesDefOf.WVC_XaG_CastCellsfeedOnPawnMelee;
-				if (!Gene_BloodHunter.PawnHaveBloodHuntJob(pawn, job))
-				{
-					pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);
-					return true;
-				}
+				pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);
+				return true;
 			}
 			return false;
 		}

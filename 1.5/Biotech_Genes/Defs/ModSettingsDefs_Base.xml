@@ -18,6 +18,7 @@
 	<spawnXenoForcerSerumsFromTraders>false</spawnXenoForcerSerumsFromTraders>
 	<chimeraMinGeneCopyChance>0.55</chimeraMinGeneCopyChance>
 	<reincarnation_MinChronoAge>500</reincarnation_MinChronoAge>
+	<gestatedDryads_AnomalyRegeneration>10</gestatedDryads_AnomalyRegeneration>
 	<enable_FurskinIsSkinAutopatch>True</enable_FurskinIsSkinAutopatch>
 	<enable_ReplaceSimilarGenesAutopatch>True</enable_ReplaceSimilarGenesAutopatch>
 	<bloodfeeder_AutoBloodfeed>True</bloodfeeder_AutoBloodfeed>
@@ -42,7 +43,7 @@
 	<enable_dryadQueenMechanicGenerator>false</enable_dryadQueenMechanicGenerator>
   </WVC_XenotypesAndGenes.SettingsDef>
 
-	<!-- Current Default Settings -->
+	<!-- Default Settings -->
 	<!-- public bool hideXaGGenes = false; -->
 	<!-- public bool disableFurGraphic = false; -->
 	<!-- public bool enable_FurskinIsSkinAutopatch = false; -->

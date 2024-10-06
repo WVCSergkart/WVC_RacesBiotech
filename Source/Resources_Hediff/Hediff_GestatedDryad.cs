@@ -21,16 +21,20 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (curStage == null)
 				{
-                    StatModifier statModifier = new()
-                    {
-                        stat = StatDefOf.FilthRate,
-                        value = WVC_Biotech.settings.gestatedDryads_FilthRateFactor
-                    };
-                    curStage = new HediffStage
-                    {
-                        statFactors = new List<StatModifier> { statModifier }
-                    };
-                }
+					StatModifier statModifier = new()
+					{
+						stat = StatDefOf.FilthRate,
+						value = WVC_Biotech.settings.gestatedDryads_FilthRateFactor
+					};
+					curStage = new HediffStage
+					{
+						statFactors = new List<StatModifier> { statModifier }
+					};
+					if (WVC_Biotech.settings.gestatedDryads_AnomalyRegeneration > 0f)
+					{
+						curStage.regeneration = WVC_Biotech.settings.gestatedDryads_AnomalyRegeneration;
+					}
+				}
 				return curStage;
 			}
 		}
