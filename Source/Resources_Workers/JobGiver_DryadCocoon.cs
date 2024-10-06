@@ -14,14 +14,14 @@ namespace WVC_XenotypesAndGenes
 
 		public abstract JobDef JobDef { get; }
 
-		public virtual bool ExtraValidator(Pawn pawn, CompGauranlenDryad connectionComp)
+		public virtual bool ExtraValidator(Pawn pawn, CompGestatedDryad connectionComp)
 		{
 			return false;
 		}
 
 		protected override Job TryGiveJob(Pawn pawn)
 		{
-			CompGauranlenDryad compTreeConnection = pawn?.TryGetComp<CompGauranlenDryad>();
+			CompGestatedDryad compTreeConnection = pawn?.TryGetComp<CompGestatedDryad>();
 			if (compTreeConnection == null)
 			{
 				return null;
@@ -47,7 +47,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override JobDef JobDef => cocoonJobDef;
 
-		public override bool ExtraValidator(Pawn pawn, CompGauranlenDryad connectionComp)
+		public override bool ExtraValidator(Pawn pawn, CompGestatedDryad connectionComp)
 		{
 			if (connectionComp.DryadKind != pawn.kindDef)
 			{
@@ -64,7 +64,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override JobDef JobDef => cocoonJobDef;
 
-		public override bool ExtraValidator(Pawn pawn, CompGauranlenDryad connectionComp)
+		public override bool ExtraValidator(Pawn pawn, CompGestatedDryad connectionComp)
 		{
 			if (pawn.mindState != null && pawn.mindState.returnToHealingPod)
 			{

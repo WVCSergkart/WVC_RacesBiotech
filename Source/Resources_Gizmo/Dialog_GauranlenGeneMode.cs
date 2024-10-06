@@ -10,7 +10,7 @@ namespace WVC_XenotypesAndGenes
 	public class Dialog_ChangeDryadCaste : Window
 	{
 
-		public CompGauranlenDryad comp;
+		public CompGestatedDryad comp;
 
 		public Gene_DryadQueen gene;
 
@@ -40,7 +40,7 @@ namespace WVC_XenotypesAndGenes
 
 		// Interface
 
-		public Dialog_ChangeDryadCaste(Gene_DryadQueen thisGene, CompGauranlenDryad thisComp)
+		public Dialog_ChangeDryadCaste(Gene_DryadQueen thisGene, CompGestatedDryad thisComp)
 		{
 			// Init
 			gene = thisGene;

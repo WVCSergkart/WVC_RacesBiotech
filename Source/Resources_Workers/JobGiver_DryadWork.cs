@@ -12,7 +12,7 @@ namespace WVC_XenotypesAndGenes
 
 		protected override bool Satisfied(Pawn pawn)
 		{
-			return pawn.TryGetComp<CompGauranlenDryad>()?.Gestated == true;
+			return pawn.TryGetComp<CompGestatedDryad>()?.Gestated == true;
 		}
 
 	}
@@ -33,14 +33,14 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			Pawn respectedMaster = MiscUtility.GetFirstConnectedPawn(pawn);
+			Pawn respectedMaster = MiscUtility.GetConnectedPawn(pawn);
 			if (respectedMaster == null)
 			{
 				return false;
 			}
 			if (respectedMaster.Spawned)
 			{
-				if ((respectedMaster.Drafted || respectedMaster.Downed) && pawn.CanReach(respectedMaster, PathEndMode.OnCell, Danger.Deadly))
+				if ((respectedMaster.Drafted || (respectedMaster.Downed && !respectedMaster.InBed())) && pawn.CanReach(respectedMaster, PathEndMode.OnCell, Danger.Deadly))
 				{
 					return true;
 				}
@@ -70,7 +70,7 @@ namespace WVC_XenotypesAndGenes
 
 		protected override Pawn GetDefendee(Pawn pawn)
 		{
-			return MiscUtility.GetFirstConnectedPawn(pawn);
+			return MiscUtility.GetConnectedPawn(pawn);
 		}
 
 		protected override float GetFlagRadius(Pawn pawn)
@@ -98,7 +98,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return null;
 			}
-			return MiscUtility.GetFirstConnectedPawn(pawn);
+			return MiscUtility.GetConnectedPawn(pawn);
 		}
 
 		protected override float GetRadius(Pawn pawn)
@@ -124,7 +124,7 @@ namespace WVC_XenotypesAndGenes
 
 		protected override IntVec3 GetWanderRoot(Pawn pawn)
 		{
-			return WanderUtility.BestCloseWanderRoot(MiscUtility.GetFirstConnectedPawn(pawn).PositionHeld, pawn);
+			return WanderUtility.BestCloseWanderRoot(MiscUtility.GetConnectedPawn(pawn).PositionHeld, pawn);
 		}
 
 		private bool MustUseRootRoom(Pawn pawn)
@@ -139,7 +139,7 @@ namespace WVC_XenotypesAndGenes
 
 		protected override Job TryGiveJob(Pawn pawn)
 		{
-			Pawn queen = MiscUtility.GetFirstConnectedPawn(pawn);
+			Pawn queen = MiscUtility.GetConnectedPawn(pawn);
 			if (queen?.Downed != true)
 			{
 				return null;

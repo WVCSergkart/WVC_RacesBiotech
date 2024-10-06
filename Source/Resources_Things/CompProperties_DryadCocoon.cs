@@ -9,24 +9,24 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class CompProperties_GauranlenDryad : CompProperties
+	public class CompProperties_GestatedDryad : CompProperties
 	{
 
 		public PawnKindDef defaultDryadPawnKindDef;
 
 		public string uniqueTag = "XaG_Dryads";
 
-		public CompProperties_GauranlenDryad()
+		public CompProperties_GestatedDryad()
 		{
-			compClass = typeof(CompGauranlenDryad);
+			compClass = typeof(CompGestatedDryad);
 		}
 
 	}
 
-	public class CompGauranlenDryad : ThingComp
+	public class CompGestatedDryad : ThingComp
 	{
 
-		public CompProperties_GauranlenDryad Props => (CompProperties_GauranlenDryad)props;
+		public CompProperties_GestatedDryad Props => (CompProperties_GestatedDryad)props;
 
 		public GauranlenGeneModeDef currentMode = null;
 
@@ -55,10 +55,10 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				if (dryadMaster == null && parent is Pawn dryad)
-				{
-					dryadMaster = dryad?.connections?.ConnectedThings.FirstOrDefault() is Pawn master ? master : null;
-				}
+				//if (dryadMaster == null && parent is Pawn dryad)
+				//{
+				//	dryadMaster = dryad?.connections?.ConnectedThings.FirstOrDefault() is Pawn master ? master : null;
+				//}
 				return dryadMaster;
 			}
 		}
@@ -219,15 +219,15 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		[Unsaved(false)]
-		private CompGauranlenDryad cachedDryadComp;
+		private CompGestatedDryad cachedDryadComp;
 
-		public CompGauranlenDryad DryadComp
+		public CompGestatedDryad DryadComp
 		{
 			get
 			{
 				if (cachedDryadComp == null)
 				{
-					cachedDryadComp = Dryad?.TryGetComp<CompGauranlenDryad>();
+					cachedDryadComp = Dryad?.TryGetComp<CompGestatedDryad>();
 				}
 				return cachedDryadComp;
 			}
@@ -311,7 +311,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					pawn2.Name = pawn.Name;
 				}
-				CompGauranlenDryad newPawnComp = pawn2.TryGetComp<CompGauranlenDryad>();
+				CompGestatedDryad newPawnComp = pawn2.TryGetComp<CompGestatedDryad>();
 				newPawnComp.currentMode = DryadComp.currentMode;
 				pawn.Destroy();
 				innerContainer.TryAddOrTransfer(pawn2, 1);

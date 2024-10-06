@@ -181,9 +181,9 @@ namespace WVC_XenotypesAndGenes
 				{
 					thingDef.comps = new();
 				}
-				if (thingDef.GetCompProperties<CompProperties_GauranlenDryad>() == null)
+				if (thingDef.GetCompProperties<CompProperties_GestatedDryad>() == null)
 				{
-					CompProperties_GauranlenDryad dryad_comp = new();
+					CompProperties_GestatedDryad dryad_comp = new();
 					dryad_comp.defaultDryadPawnKindDef = PawnKindDefOf.Dryad_Basic;
 					thingDef.comps.Add(dryad_comp);
 				}
@@ -238,9 +238,9 @@ namespace WVC_XenotypesAndGenes
 					dryadDef.comps.Add(item);
 				}
 			}
-			if (dryadDef.GetCompProperties<CompProperties_GauranlenDryad>() == null)
+			if (dryadDef.GetCompProperties<CompProperties_GestatedDryad>() == null)
 			{
-				CompProperties_GauranlenDryad dryad_comp = new();
+				CompProperties_GestatedDryad dryad_comp = new();
 				dryad_comp.defaultDryadPawnKindDef = PawnKindDefOf.Dryad_Basic;
 				dryadDef.comps.Add(dryad_comp);
 			}

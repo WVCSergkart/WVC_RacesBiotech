@@ -121,7 +121,7 @@ namespace WVC_XenotypesAndGenes
 			// dryad.def = dryadThing;
 			// dryad.InitializeComps();
 			ResetDryad(dryad);
-			CompGauranlenDryad newPawnComp = dryad.TryGetComp<CompGauranlenDryad>();
+			CompGestatedDryad newPawnComp = dryad.TryGetComp<CompGestatedDryad>();
 			if (newPawnComp == null)
 			{
 				return null;
