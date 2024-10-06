@@ -142,35 +142,4 @@
 		</caseTrue>
 	</Operation>
 
-	<!-- Ideology Runeex Patch -->
-
-	<!-- <Operation Class="PatchOperationReplace"> -->
-	  <!-- <xpath>/Defs/XenotypeDef[defName="WVC_RuneDryad"]/genes/li[@ReplaceTag="DryadQueen"]</xpath> -->
-	  <!-- <success>Always</success> -->
-	  <!-- <value> -->
-		<!-- <li>WVC_DryadQueen</li> -->
-		<!-- <li>WVC_GauranlenConnection</li> -->
-		<!-- <li>WVC_GauranlenDryads_DryadbondEnchanced</li> -->
-		<!-- <li>WVC_GauranlenDryads_TotalHealing</li> -->
-		<!-- <li>WVC_GauranlenDryads_Tough</li> -->
-		<!-- <li>WVC_GauranlenDryads_ArmorSkin</li> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-
-	<!-- <Operation Class="PatchOperationReplace"> -->
-	  <!-- <xpath>/Defs/XenotypeDef[defName="WVC_RuneDryad"]/description</xpath> -->
-	  <!-- <success>Always</success> -->
-	  <!-- <value> -->
-		<!-- <description>Runeex are super-humans powered by archotech-created archites in the bloodstream. They are slow, weak, get tired quickly and are practically unable to fight. However, they require little to no food and can control hordes of dryads.</description> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-
-	<!-- <Operation Class="PatchOperationReplace"> -->
-	  <!-- <xpath>/Defs/XenotypeDef[defName="WVC_RuneDryad"]/descriptionShort</xpath> -->
-	  <!-- <success>Always</success> -->
-	  <!-- <value> -->
-		<!-- <descriptionShort>Runeex are super-humans powered by archotech-created archites in the bloodstream. They are slow, weak, get tired quickly and are practically unable to fight. However, they require little to no food and can control hordes of dryads.</descriptionShort> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-
 </Patch>

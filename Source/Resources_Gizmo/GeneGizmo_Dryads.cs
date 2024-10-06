@@ -17,7 +17,7 @@ namespace WVC_XenotypesAndGenes
 		public Color filledBlockColor = ColorLibrary.LightOrange;
 		public Color excessBlockColor = ColorLibrary.Red;
 
-		private static readonly CachedTexture SummonSettingsIcon = new("WVC/UI/XaG_General/UI_SelectDryadQueen");
+		private static readonly CachedTexture SummonSettingsIcon = new("WVC/UI/XaG_General/UI_GestateDryads");
 		private static readonly CachedTexture SelectDryadsIcon = new("WVC/UI/XaG_General/UI_SelectDryads");
 
 		public Pawn mechanitor;
@@ -112,12 +112,19 @@ namespace WVC_XenotypesAndGenes
 				Widgets.DrawHighlight(rectGolemsSettings);
 				if (Widgets.ButtonInvisible(rectGolemsSettings))
 				{
-					Find.Selector.ClearSelection();
-					for (int i = 0; i < gene.DryadsListForReading.Count; i++)
+                    if (gene.DryadsListForReading.NullOrEmpty())
 					{
-						Find.Selector.Select(gene.DryadsListForReading[i]);
+						Messages.Message("WVC_XaG_DryadQueenSelectAllDryads_NonDryads".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
 					}
-				}
+                    else
+                    {
+                        Find.Selector.ClearSelection();
+                        for (int i = 0; i < gene.DryadsListForReading.Count; i++)
+                        {
+                            Find.Selector.Select(gene.DryadsListForReading[i]);
+                        }
+                    }
+                }
 			}
 			TooltipHandler.TipRegion(rectGolemsSettings, "WVC_XaG_DryadQueenSelectAllDryads_Desc".Translate());
 			// Bonds

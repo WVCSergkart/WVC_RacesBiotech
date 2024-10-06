@@ -41,7 +41,7 @@ namespace WVC_XenotypesAndGenes
 
 		public int nextTick = 60000;
 
-		public bool spawnDryads = true;
+		public bool spawnDryads = false;
 
 		public override void PostAdd()
 		{
@@ -331,7 +331,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref nextTick, "nextDryad", 0);
-			Scribe_Values.Look(ref spawnDryads, "spawnDryads", true);
+			Scribe_Values.Look(ref spawnDryads, "spawnDryads", false);
 			Scribe_Collections.Look(ref dryads, "connectedDryads", LookMode.Reference);
 			// if (!dryads.NullOrEmpty())
 			// {

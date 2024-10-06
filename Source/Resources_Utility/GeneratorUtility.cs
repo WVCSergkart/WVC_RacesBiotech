@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Verse;
+using Verse.AI;
 using static Verse.GeneSymbolPack;
 
 namespace WVC_XenotypesAndGenes
@@ -102,24 +103,41 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				// GeneExtension_Spawner modExtension = dummyDryad.geneDef?.GetModExtension<GeneExtension_Spawner>();
-				// if (modExtension == null)
-				// {
-					// continue;
-				// }
-				// ThingDef newBasicDryad = GeneratorUtility.GetFromGauranlenGeneModeTemplate(dummyDryad.dryadDef.race);
-				// DefGenerator.AddImpliedDef(newBasicDryad);
-				// modExtension.defaultDryadThingDef = newBasicDryad;
 				foreach (PawnKindDef dryad in dummyDryad.dryadDefs)
 				{
 					TrySetDryadComp(dryad.race);
-					// if (!)
-					// {
-						// Log.Warning("Failed set CompProperties_GauranlenDryad for " + dryad.race.defName + ". These dryads will not work with the dryad queen gene.");
-					// }
 				}
 			}
 		}
+
+		// public static void PatchThinkTree(ThinkTreeDef dryadTree)
+		// {
+			// if (dryadTree.thinkRoot == null)
+			// {
+				// Log.Error("Failed to patch " + dryadTree.defName + " root is null.");
+				// return;
+			// }
+			// ThinkNode node = GetReturnToGauranlenTreeSubNode(dryadTree.thinkRoot);
+			// if (node == null)
+			// {
+				// Log.Error("Failed to patch " + dryadTree.defName + " node is null.");
+				// return;
+			// }
+		// }
+
+		// public static bool IsGestatedDryadThinkTree(ThinkTreeDef dryadTree, out ThinkTreeDef checkedTree)
+		// {
+			// checkedTree = null;
+			// foreach (ThinkNode subNode in dryadTree.thinkRoot.subNodes)
+			// {
+				// if (subNode is ThinkNode_ConditionalGestatedDryad)
+				// {
+					// checkedTree = dryadTree;
+					// return true;
+				// }
+			// }
+			// return false;
+		// }
 
 		// Dryads
 

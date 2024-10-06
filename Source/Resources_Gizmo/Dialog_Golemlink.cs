@@ -56,7 +56,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						cachedPawnKindDefsInOrder.Add(allDef);
 					}
-					// cachedXenotypeDefsInOrder.SortBy((PawnKindDef x) => 0f - x.displayPriority - (x.inheritable ? 100000f : 0));
+					cachedPawnKindDefsInOrder.SortBy((PawnKindDef x) => 0f - x.race.GetStatValueAbstract(WVC_GenesDefOf.WVC_GolemBondCost));
 				}
 				return cachedPawnKindDefsInOrder;
 			}
