@@ -332,4 +332,51 @@
 	  </weaponTags>
 	</PawnKindDef>
 
+	<!-- ======================= -->
+
+	<!-- Cleansweeper -->
+	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Stone">
+	  <defName>WVC_Golem_Cleanoid</defName>
+	  <label>cleanoid</label>
+	  <description>This light golemnoid is a cleaner. It has no weapons, is very weak and has poor armor. But it requires less bandwidth than other light golemnoids.</description>
+	  <statBases>
+		<BandwidthCost>0.1</BandwidthCost>
+		<MoveSpeed>3.1</MoveSpeed>
+		<ArmorRating_Blunt>0.08</ArmorRating_Blunt>
+		<ArmorRating_Sharp>0.22</ArmorRating_Sharp>
+		<WVC_GolemBondCost>1</WVC_GolemBondCost>
+	  </statBases>
+	  <race>
+		<mechFixedSkillLevel>2</mechFixedSkillLevel>
+		<mechEnabledWorkTypes>
+		  <li>Cleaning</li>
+		</mechEnabledWorkTypes>
+	  </race>
+	  <tools Inherit="False">
+		<li>
+			<label>head</label>
+			<capacities>
+				<li>Blunt</li>
+			</capacities>
+			<power>8</power>
+			<cooldownTime>2.5</cooldownTime>
+			<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+			<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+		</li>
+	  </tools>
+	</ThingDef>
+	<PawnKindDef ParentName="WVC_XenotypesAndGenes_NonCombatGolemKind">
+	  <defName>WVC_Golem_Cleanoid</defName>
+	  <label>cleanoid</label>
+	  <race>WVC_Golem_Cleanoid</race>
+	  <lifeStages>
+		<li>
+			<bodyGraphicData>
+				<texPath>WVC/Things/XaG_Pawns/Mechanoids_Golems/Cleanoid</texPath>
+				<drawSize>1</drawSize>
+			</bodyGraphicData>
+		</li>
+	  </lifeStages>
+	</PawnKindDef>
+
 </Defs>

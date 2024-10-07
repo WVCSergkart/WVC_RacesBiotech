@@ -23,6 +23,7 @@
 			<DrugSynthesisSpeed>0.50</DrugSynthesisSpeed>
 			<ButcheryFleshSpeed>0.50</ButcheryFleshSpeed>
 			<ButcheryMechanoidSpeed>0.50</ButcheryMechanoidSpeed>
+			<CleaningSpeed>0.50</CleaningSpeed>
 			<!-- Other -->
 			<MedicalSurgerySuccessChance>2.0</MedicalSurgerySuccessChance>
 			<ConstructSuccessChance>2.0</ConstructSuccessChance>

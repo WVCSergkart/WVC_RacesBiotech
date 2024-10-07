@@ -220,7 +220,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				string text = pawnKindDef.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + pawnKindDef.race.description;
 				// text += "\n\n" + "MechWorkSkill".Translate().Colorize(ColoredText.TipSectionTitleColor) + "\n" + pawnKindDef.race.race.mechFixedSkillLevel.ToString();
-				text += "\n\n" + "MechWorkActivities".Translate().Colorize(ColoredText.TipSectionTitleColor) + "\n" + pawnKindDef.race.race.mechEnabledWorkTypes.Select((WorkTypeDef w) => w.gerundLabel).ToCommaList(useAnd: true).CapitalizeFirst();
+				if (!pawnKindDef.race.race.mechEnabledWorkTypes.NullOrEmpty())
+				{
+					text += "\n\n" + "MechWorkActivities".Translate().Colorize(ColoredText.TipSectionTitleColor) + ":\n- " + pawnKindDef.race.race.mechEnabledWorkTypes.Select((WorkTypeDef w) => w.gerundLabel).ToCommaList(useAnd: true).CapitalizeFirst();
+				}
 				text += "\n\n" + (selected ? "ClickToRemove" : "ClickToAdd").Translate().Colorize(ColoredText.SubtleGrayColor);
 				TooltipHandler.TipRegion(xenoRect, text);
 			}

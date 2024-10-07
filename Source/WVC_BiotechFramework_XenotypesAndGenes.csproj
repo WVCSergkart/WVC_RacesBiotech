@@ -151,7 +151,7 @@
     <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_ColorFromRock.cs" />
     <Compile Include="Resources_RitualAttachableOutcome\OutcomeWorker_ShapeshifterJoin.cs" />
     <Compile Include="Resources_RitualAttachableOutcome\RitualOutcomeComp_Quality.cs" />
-    <Compile Include="Resources_StatPart\StatPart_OffsetPsychicSensitivity.cs" />
+    <Compile Include="Resources_StatPart\StatPart_OffsetFromBuildingsOnMap.cs" />
     <Compile Include="Resources_Things\Building_MechCharger.cs" />
     <Compile Include="Resources_Things\CompProperties_DryadCocoon.cs" />
     <Compile Include="Resources_Things\CompProperties_Genepack.cs" />
@@ -226,9 +226,7 @@
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_BattleIsStarted.cs" />
     <Compile Include="Resources_Main\ModSettings.cs" />
     <Compile Include="Resources_Main\RoleRequirement_Mechanitor.cs" />
-    <Compile Include="Resources_StatPart\StatPart_OffsetFromBuildingsOnMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources_StatPart\StatPart_XenotypeSerum.cs" />
     <Compile Include="Resources_Main\GeneTemplateDefs.cs" />
     <Compile Include="Resources_Things\CompTargetable_TargetValidation.cs" />
     <Compile Include="Resources_Things\CompToxifier.cs" />

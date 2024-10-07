@@ -48,14 +48,14 @@
 				  </value>
 				</li>
 
-				<li Class="PatchOperationAdd">
-				  <xpath>/Defs/StatDef[@Name="MarketValueBase"]/parts</xpath>
-				  <value>
-					  <li Class="WVC_XenotypesAndGenes.StatPart_XenotypeSerum" MayRequire="Ludeon.RimWorld.Biotech">
-						<xenotypeCostMult>320</xenotypeCostMult>
-					  </li>
-				  </value>
-				</li>
+				<!-- <li Class="PatchOperationAdd"> -->
+				  <!-- <xpath>/Defs/StatDef[@Name="MarketValueBase"]/parts</xpath> -->
+				  <!-- <value> -->
+					  <!-- <li Class="WVC_XenotypesAndGenes.StatPart_XenotypeSerum" MayRequire="Ludeon.RimWorld.Biotech"> -->
+						<!-- <xenotypeCostMult>320</xenotypeCostMult> -->
+					  <!-- </li> -->
+				  <!-- </value> -->
+				<!-- </li> -->
 
 				<li Class="WVC_XenotypesAndGenes.PatchOperationOptional">
 					<settingName>spawnXenoForcerSerumsFromTraders</settingName>
@@ -206,27 +206,6 @@
 	  <!-- <value> -->
 	  <!-- </value> -->
 	<!-- </Operation> -->
-
-	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
-	  <xpath>/Defs/ThingDef[@Name="AnimalThingBase"]</xpath>
-	  <safetyDepth>2</safetyDepth>
-	  <value>
-		<race>
-		  <willNeverEat>
-			<!-- Plants -->
-			<li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeXenoSpawner</li>
-			<!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_XenoBulb</li> -->
-			<li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeResurgent</li>
-			<li MayRequire="Ludeon.RimWorld.Biotech">WVC_Plant_TreeXenoSpawner</li>
-			<!-- Edible Non-Food -->
-			<!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MealDustPack</li> -->
-			<!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_MealDustogenicPaste</li> -->
-			<li MayRequire="Ludeon.RimWorld.Biotech">WVC_NutrientsInjector</li>
-			<!-- <li MayRequire="Ludeon.RimWorld.Biotech">WVC_UniversalFuel</li> -->
-		  </willNeverEat>
-		</race>
-	  </value>
-	</Operation>
 
 	<!-- <Operation Class="PatchOperationSequence"> -->
 		<!-- <success>Always</success> -->

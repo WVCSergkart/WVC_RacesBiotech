@@ -4,6 +4,9 @@
   <ThingDef ParentName="WVC_XenotypeSerum_Craftable" WVC_XaG_EasyPatch="ThingDefSerumXenotypeForcerII" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_XenotypeSerum_Base</defName>
 	<label>xenotype serum</label>
+	<statBases>
+	  <MarketValue>4350</MarketValue>
+	</statBases>
 	<tradeTags>
 	  <li>WVC_XenotypeSerums</li>
 	  <li>WVC_All_XenotypeSerums</li>
@@ -30,6 +33,9 @@
   <ThingDef ParentName="WVC_XenotypeSerum_NonCraftable" WVC_XaG_EasyPatch="ThingDefSerumXenotypeForcerII" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_XenotypeSerum_Ultra</defName>
 	<label>archotype serum</label>
+	<statBases>
+	  <MarketValue>8570</MarketValue>
+	</statBases>
 	<tradeTags>
 	  <li>WVC_XenotypeSerums</li>
 	  <li>WVC_All_XenotypeSerums</li>
@@ -75,6 +81,9 @@
   <ThingDef ParentName="WVC_XenotypeSerum_HybridNonCraftable" WVC_XaG_EasyPatch="ThingDefSerumXenotypeForcerII" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_XenotypeSerum_Hybrid</defName>
 	<label>hybridtype serum</label>
+	<statBases>
+	  <MarketValue>12220</MarketValue>
+	</statBases>
 	<tradeTags>
 	  <li>WVC_XenotypeSerums</li>
 	  <li>WVC_All_XenotypeSerums</li>
@@ -119,7 +128,7 @@
 	  <texPath>WVC/Things/XaG_Items/Serums_Single/ShiftSerum_v0</texPath>
 	</graphicData>
 	<statBases>
-	  <MarketValue>4250</MarketValue>
+	  <MarketValue>18850</MarketValue>
 	</statBases>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
@@ -138,6 +147,9 @@
   <ThingDef ParentName="WVC_XenotypeResurrectorSerum_NonCraftable" WVC_XaG_EasyPatch="ThingDefSerumXenotypeForcerII" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_XenotypeResurrectorSerum_Ultra</defName>
 	<label>xenotype resurrector</label>
+	<statBases>
+	  <MarketValue>12850</MarketValue>
+	</statBases>
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Items/Serums_Single/ResurrectSerumB_v0</texPath>
 	</graphicData>
@@ -161,6 +173,9 @@
   <ThingDef ParentName="WVC_XenotypeResurrectorSerum_Craftable" WVC_XaG_XenotypeRemoveTag="General" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_XenotypeResurrectorSerum_Undead</defName>
 	<label>xenotype resurrector</label>
+	<statBases>
+	  <MarketValue>10850</MarketValue>
+	</statBases>
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Items/Serums_Single/ResurrectSerum_v0</texPath>
 	</graphicData>
