@@ -122,66 +122,6 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	// [Obsolete]
-	// public class Gene_MechlinkWithGizmo : Gene_Mechlink
-	// {
-
-		// public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
-
-		// private Gizmo gizmo;
-
-		// public override IEnumerable<Gizmo> GetGizmos()
-		// {
-			// if (pawn?.Map == null)
-			// {
-				// yield break;
-			// }
-			// if (gizmo == null)
-			// {
-				// gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, this);
-			// }
-			// yield return gizmo;
-		// }
-
-	// }
-
-	// [Obsolete]
-	// public class Gene_Sporelink : Gene_MechlinkWithGizmo
-	// {
-
-		// public override IEnumerable<Gizmo> GetGizmos()
-		// {
-			// if (!Active || Find.Selector.SelectedPawns.Count != 1 || pawn.Faction != Faction.OfPlayer)
-			// {
-				// yield break;
-			// }
-			// foreach (Gizmo item in base.GetGizmos())
-			// {
-				// yield return item;
-			// }
-			// Command_Action command_Action = new()
-			// {
-				// defaultLabel = "WVC_XaG_Gene_Sporelink_ConnectWithResurgentTrees".Translate() + ": " + GeneUiUtility.OnOrOff(summonMechanoids),
-				// defaultDesc = "WVC_XaG_Gene_Sporelink_ConnectWithResurgentTreesDesc".Translate(),
-				// icon = ContentFinder<Texture2D>.Get(def.iconPath),
-				// action = delegate
-				// {
-					// summonMechanoids = !summonMechanoids;
-					// if (summonMechanoids)
-					// {
-						// SoundDefOf.Tick_High.PlayOneShotOnCamera();
-					// }
-					// else
-					// {
-						// SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-					// }
-				// }
-			// };
-			// yield return command_Action;
-		// }
-
-	// }
-
 	public class Gene_Golemlink : Gene_Mechlink, IGeneInspectInfo
 	{
 
@@ -218,7 +158,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			if (XaG_GeneUtility.SelectorActiveFaction(pawn, this))
+			if (XaG_GeneUtility.SelectorActiveFactionMap(pawn, this))
 			{
 				yield break;
 			}
@@ -251,38 +191,11 @@ namespace WVC_XenotypesAndGenes
 					}
 				};
 			}
-			if (pawn?.Map == null)
-			{
-				yield break;
-			}
 			if (gizmo == null)
 			{
 				gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, this);
 			}
 			yield return gizmo;
-			// foreach (Gizmo item in base.GetGizmos())
-			// {
-				// yield return item;
-			// }
-			// Command_Action command_Action = new()
-			// {
-				// defaultLabel = "WVC_XaG_Gene_DustMechlink".Translate() + ": " + GeneUiUtility.OnOrOff(summonMechanoids),
-				// defaultDesc = "WVC_XaG_Gene_DustMechlinkDesc".Translate(),
-				// icon = ContentFinder<Texture2D>.Get(def.iconPath),
-				// action = delegate
-				// {
-					// summonMechanoids = !summonMechanoids;
-					// if (summonMechanoids)
-					// {
-						// SoundDefOf.Tick_High.PlayOneShotOnCamera();
-					// }
-					// else
-					// {
-						// SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-					// }
-				// }
-			// };
-			// yield return command_Action;
 		}
 
 		private void SummonRandomMech(bool ignoreChunks = false)
@@ -302,7 +215,6 @@ namespace WVC_XenotypesAndGenes
 				phase = 1;
 				int countSpawn = Spawner.summonRange.RandomInRange;
 				float possibleConsumption = 1;
-				// PawnKindDef newGolem = ;
 				phase = 2;
 				float currentLimit = MechanoidsUtility.TotalGolembond(pawn);
 				phase = 3;

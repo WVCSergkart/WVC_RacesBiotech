@@ -18,7 +18,7 @@ namespace WVC_XenotypesAndGenes
 
 		protected HashSet<PawnKindDef> matchingGolems = new();
 
-		private bool? selectedCollapsed = false;
+		// private bool? selectedCollapsed = false;
 
 		private bool? pawnKindsCollapsed = false;
 
@@ -80,7 +80,7 @@ namespace WVC_XenotypesAndGenes
 			forcePause = true;
 			closeOnAccept = false;
 			absorbInputAroundWindow = true;
-			alwaysUseFullBiostatsTableHeight = true;
+			// alwaysUseFullBiostatsTableHeight = true;
 			searchWidgetOffsetX = GeneCreationDialogBase.ButSize.x * 2f + 4f;
 		}
 
@@ -88,7 +88,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			GUI.BeginGroup(rect);
 			float curY = 0f;
-			DrawPawnKindSection(new Rect(0f, 0f, rect.width, selectedHeight), SelectedGolems, "WVC_XaG_DialogGolemlink_SelectedGolemnoids".Translate(), ref curY, ref selectedHeight, rect, ref selectedCollapsed, true);
+			// DrawPawnKindSection(new Rect(0f, 0f, rect.width, selectedHeight), SelectedGolems, "WVC_XaG_DialogGolemlink_SelectedGolemnoids".Translate(), ref curY, ref selectedHeight, rect, ref selectedCollapsed, true);
 			Widgets.Label(0f, ref curY, rect.width, "WVC_XaG_DialogGolemlink_Golemnoids".Translate().CapitalizeFirst());
 			curY += 10f;
 			float num2 = curY;
@@ -213,12 +213,14 @@ namespace WVC_XenotypesAndGenes
 			bool selected = selectedGolems.Contains(pawnKindDef);
 			Widgets.DrawOptionBackground(rect, selected);
 			curX += 4f;
-			DrawGolemstats(pawnKindDef.race.GetStatValueAbstract(WVC_GenesDefOf.WVC_GolemBondCost), ref curX, curY, 4f);
+			DrawGolemstats(pawnKindDef, pawnKindDef.race.GetStatValueAbstract(WVC_GenesDefOf.WVC_GolemBondCost), !pawnKindDef.race.race.mechEnabledWorkTypes.NullOrEmpty(), ref curX, curY, 4f);
 			Rect xenoRect = new(curX, curY + 4f, XenotypeSize.x, XenotypeSize.y);
 			DrawXenotypeBasics(pawnKindDef, xenoRect, false);
 			if (Mouse.IsOver(xenoRect))
 			{
 				string text = pawnKindDef.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + pawnKindDef.race.description;
+				// text += "\n\n" + "MechWorkSkill".Translate().Colorize(ColoredText.TipSectionTitleColor) + "\n" + pawnKindDef.race.race.mechFixedSkillLevel.ToString();
+				text += "\n\n" + "MechWorkActivities".Translate().Colorize(ColoredText.TipSectionTitleColor) + "\n" + pawnKindDef.race.race.mechEnabledWorkTypes.Select((WorkTypeDef w) => w.gerundLabel).ToCommaList(useAnd: true).CapitalizeFirst();
 				text += "\n\n" + (selected ? "ClickToRemove" : "ClickToAdd").Translate().Colorize(ColoredText.SubtleGrayColor);
 				TooltipHandler.TipRegion(xenoRect, text);
 			}
@@ -232,6 +234,7 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public static readonly CachedTexture GolembondTex = new("WVC/UI/XaG_General/GolembondTex_v0");
+		public static readonly CachedTexture WorkSkillTex = new("WVC/UI/XaG_General/WorkSkillTex_v0");
 
 		public static readonly CachedTexture Background = new("WVC/UI/XaG_General/Ui_BackgroundGolems_v0");
 
@@ -249,7 +252,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			CachedTexture cachedTexture = Background;
 			GUI.DrawTexture(rect2, cachedTexture.Texture);
-			Widgets.DefIcon(rect2, pawnKindDef, null, 0.9f, null, drawPlaceholder: false, iconColor);
+			Widgets.DefIcon(rect2, pawnKindDef, null, 0.8f, null, drawPlaceholder: false, iconColor);
 			Text.Font = GameFont.Tiny;
 			float num2 = Text.CalcHeight(pawnKindDef.LabelCap, rect.width);
 			Rect rect3 = new(0f, rect.yMax - num2, rect.width, num2);
@@ -262,8 +265,9 @@ namespace WVC_XenotypesAndGenes
 			GUI.EndGroup();
 		}
 
-		public static void DrawGolemstats(float golembond, ref float curX, float curY, float margin = 6f)
+		public static void DrawGolemstats(PawnKindDef pawnKindDef, float golembond, bool worker, ref float curX, float curY, float margin = 6f)
 		{
+			float num = GeneCreationDialogBase.GeneSize.y / 3f;
 			float num2 = 0f;
 			float baseWidthOffset = 38f;
 			float num3 = Text.LineHeightOf(GameFont.Small);
@@ -274,6 +278,18 @@ namespace WVC_XenotypesAndGenes
 			{
 				Widgets.DrawHighlight(rect);
 				TooltipHandler.TipRegion(rect, WVC_GenesDefOf.WVC_GolemBondCost.label.CapitalizeFirst().Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + WVC_GenesDefOf.WVC_GolemBondCost.description);
+			}
+			num2 += num;
+			if (worker)
+			{
+				Rect iconRect3 = new(curX, curY + margin + num2, num3, num3);
+				DrawStat(iconRect3, WorkSkillTex, pawnKindDef.race.race.mechFixedSkillLevel.ToString(), num3);
+				Rect rect3 = new(curX, iconRect3.y, baseWidthOffset, num3);
+				if (Mouse.IsOver(rect3))
+				{
+					Widgets.DrawHighlight(rect3);
+					TooltipHandler.TipRegion(rect3, "MechWorkSkill".Translate().CapitalizeFirst().Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "MechWorkSkillDesc".Translate());
+				}
 			}
 			curX += 34f;
 		}

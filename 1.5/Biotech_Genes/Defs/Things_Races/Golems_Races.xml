@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<!-- <HediffGiverSetDef> -->
-		<!-- <defName>WVC_MechanoidGolem_HediffGiver</defName> -->
-		<!-- <hediffGivers> -->
-			<!-- <li Class="HediffGiver_Birthday"> -->
-				<!-- <hediff>WVC_SelfPopulationRegulation_Golems</hediff> -->
-				<!-- <ageFractionChanceCurve> -->
-				  <!-- <points> -->
-					<!-- <li>(0, 1)</li> -->
-					<!-- <li>(1, 1)</li> -->
-				  <!-- </points> -->
-				<!-- </ageFractionChanceCurve> -->
-			<!-- </li> -->
-		<!-- </hediffGivers> -->
-	<!-- </HediffGiverSetDef> -->
-
 	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Base" Name="WVC_XenotypesAndGenes_Golemlike_Stone" Abstract="True">
-		<!-- <description>A piece of rock chunk, animated by mechanites. This “mechanoid” requires a lot of energy, but very little bandwidth.\n\n&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; Golem control requires bandwidth and golem bandwidth. The standard bandwidth-to-golem ratio is 1 to 5.</description> -->
 		<statBases>
 			<WVC_GolemBondCost>1</WVC_GolemBondCost>
 			<ArmorRating_Blunt>0.6</ArmorRating_Blunt>
@@ -26,20 +10,10 @@
 		</statBases>
 		<race>
 			<renderTree>WVC_Golemnoid_Tree</renderTree>
-			<!-- <maxMechEnergy>30</maxMechEnergy> -->
-			<!-- <baseHealthScale>1.2</baseHealthScale> -->
 		</race>
-		<butcherProducts>
-			<Steel>5</Steel>
-		</butcherProducts>
 		<comps>
 			<li Class="WVC_XenotypesAndGenes.CompProperties_Golem">
 				<refreshHours>2</refreshHours>
-				<!-- obsolete -->
-				<shutdownEnergyReplenish>4.0</shutdownEnergyReplenish>
-				<golemIndex>0</golemIndex>
-				<checkOverseerInterval>80000~220000</checkOverseerInterval>
-				<!-- obsolete -->
 			</li>
 			<li Class="WVC_XenotypesAndGenes.CompProperties_SpawnOnDeath">
 				<compClass>WVC_XenotypesAndGenes.CompSpawnOnDeath_GetColor</compClass>
@@ -51,27 +25,8 @@
 				  <li>ChunkGranite</li>
 				  <li>ChunkSandstone</li>
 				</thingDefsToSpawn>
-				<!-- <hediffDefs> -->
-				  <!-- <li>WVC_XaG_GolemChunk</li> -->
-				<!-- </hediffDefs> -->
-				<!-- <renderNodeProperties> -->
-				  <!-- <li> -->
-					<!-- <nodeClass>WVC_XenotypesAndGenes.PawnRenderNode_ColorFromGetColorComp</nodeClass> -->
-					<!-- <workerClass>PawnRenderNodeWorker</workerClass> -->
-					<!-- <parentTagDef>Body</parentTagDef> -->
-					<!-- <baseLayer>2</baseLayer> -->
-					<!-- <pawnType>Any</pawnType> -->
-					<!-- <overrideMeshSize>(1, 1)</overrideMeshSize> -->
-					<!-- <drawSize>2</drawSize> -->
-				  <!-- </li> -->
-				<!-- </renderNodeProperties> -->
 			</li>
 		</comps>
-		<modExtensions>
-			<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
-				<!-- <removeButcherRecipes>true</removeButcherRecipes> -->
-			<!-- </li> -->
-		</modExtensions>
 	</ThingDef>
 	<PawnKindDef ParentName="WVC_XenotypesAndGenes_NonCombatGolemlikeKind_Base" Name="WVC_XenotypesAndGenes_NonCombatGolemKind" Abstract="True">
 		<!-- <alternateGraphicChance>1.0</alternateGraphicChance> -->
@@ -93,7 +48,7 @@
 
 	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Stone">
 		<defName>WVC_Golem_Liftoid</defName>
-		<label>golem liftoid</label>
+		<label>liftoid</label>
 		<description>This light golemnoid is an excellent cleaner, and is also capable of carrying loads and doing basic work such as flipping switches. It is quite fast compared to other golems, but it is not well suited for battles and can easily die in battle.</description>
 		<statBases>
 			<ArmorRating_Sharp>0.15</ArmorRating_Sharp>
@@ -113,7 +68,7 @@
 	</ThingDef>
 	<PawnKindDef ParentName="WVC_XenotypesAndGenes_NonCombatGolemKind">
 		<defName>WVC_Golem_Liftoid</defName>
-		<label>golem liftoid</label>
+		<label>liftoid</label>
 		<race>WVC_Golem_Liftoid</race>
 		<lifeStages>
 			<li>
@@ -129,7 +84,7 @@
 
 	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Stone">
 		<defName>WVC_Golem_Constructoid</defName>
-		<label>golem structoid</label>
+		<label>structoid</label>
 		<description>This light golemnoid serves as a builder and gardener. It can build well and does an excellent job in the garden, but its speed, like most golems, leaves much to be desired. It also has good armor and can provide support in battle.</description>
 		<statBases>
 			<ArmorRating_Sharp>0.3</ArmorRating_Sharp>
@@ -152,7 +107,7 @@
 	</ThingDef>
 	<PawnKindDef ParentName="WVC_XenotypesAndGenes_NonCombatGolemKind">
 		<defName>WVC_Golem_Constructoid</defName>
-		<label>golem structoid</label>
+		<label>structoid</label>
 		<race>WVC_Golem_Constructoid</race>
 		<lifeStages>
 			<li>
@@ -168,7 +123,7 @@
 
 	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Stone">
 		<defName>WVC_Golem_Crafter</defName>
-		<label>golem craftoid</label>
+		<label>craftoid</label>
 		<description>This light golemnoid is capable of crafting and cooking, but the quality of its work leaves much to be desired. It is quite slow, but has good armor and can provide support in battle.</description>
 		<statBases>
 			<WVC_GolemBondCost>2</WVC_GolemBondCost>
@@ -196,7 +151,7 @@
 	</ThingDef>
 	<PawnKindDef ParentName="WVC_XenotypesAndGenes_NonCombatGolemKind">
 		<defName>WVC_Golem_Crafter</defName>
-		<label>golem craftoid</label>
+		<label>craftoid</label>
 		<race>WVC_Golem_Crafter</race>
 		<lifeStages>
 			<li>
@@ -212,7 +167,7 @@
 
 	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Stone">
 		<defName>WVC_Golem_Miner</defName>
-		<label>golem minenoid</label>
+		<label>minenoid</label>
 		<description>This light golemnoid serves as a miner, but can also do firefighter work. It has good armor and speed compared to other golems. It can help a lot by providing support in battle.</description>
 		<statBases>
 			<ArmorRating_Sharp>0.3</ArmorRating_Sharp>
@@ -239,7 +194,7 @@
 	</ThingDef>
 	<PawnKindDef ParentName="WVC_XenotypesAndGenes_NonCombatGolemKind">
 		<defName>WVC_Golem_Miner</defName>
-		<label>golem minenoid</label>
+		<label>minenoid</label>
 		<race>WVC_Golem_Miner</race>
 		<lifeStages>
 			<li>
@@ -255,16 +210,16 @@
 
 	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Stone">
 		<defName>WVC_Golem_Hunter</defName>
-		<label>golem hunteroid</label>
+		<label>hunteroid</label>
 		<description>This light golemnoid serves as a hunter. It has poor armor but very high speed, and its long-range slugthrower can provide good support in battle.</description>
 		<statBases>
-			<WVC_GolemBondCost>2</WVC_GolemBondCost>
+			<WVC_GolemBondCost>1</WVC_GolemBondCost>
 			<ArmorRating_Sharp>0.1</ArmorRating_Sharp>
 			<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
 			<MoveSpeed>3.8</MoveSpeed>
 		</statBases>
 		<race>
-			<mechFixedSkillLevel>4</mechFixedSkillLevel>
+			<mechFixedSkillLevel>6</mechFixedSkillLevel>
 			<mechEnabledWorkTypes>
 			  <li>Hunting</li>
 			</mechEnabledWorkTypes>
@@ -272,7 +227,7 @@
 	</ThingDef>
 	<PawnKindDef ParentName="WVC_XenotypesAndGenes_NonCombatGolemKind">
 		<defName>WVC_Golem_Hunter</defName>
-		<label>golem hunteroid</label>
+		<label>hunteroid</label>
 		<race>WVC_Golem_Hunter</race>
 		<lifeStages>
 			<li>
@@ -345,12 +300,13 @@
 	<!-- Militor -->
 	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Stone">
 	  <defName>WVC_Golem_Militoid</defName>
-	  <label>golem militoid</label>
+	  <label>militoid</label>
 	  <description>This light golemnoid, which looks like a militor, is a hunter. It is armed with a bow and has light armor and good speed. It can provide good support in battle.</description>
 	  <statBases>
 		<MoveSpeed>3.1</MoveSpeed>
 		<ArmorRating_Blunt>0.10</ArmorRating_Blunt>
 		<ArmorRating_Sharp>0.20</ArmorRating_Sharp>
+		<WVC_GolemBondCost>2</WVC_GolemBondCost>
 	  </statBases>
 	  <race>
 		<mechFixedSkillLevel>4</mechFixedSkillLevel>
@@ -361,7 +317,7 @@
 	</ThingDef>
 	<PawnKindDef ParentName="WVC_XenotypesAndGenes_NonCombatGolemKind">
 	  <defName>WVC_Golem_Militoid</defName>
-	  <label>golem militoid</label>
+	  <label>militoid</label>
 	  <race>WVC_Golem_Militoid</race>
 		<lifeStages>
 			<li>

@@ -2,8 +2,6 @@
 <Defs>
 
 	<ThingDef ParentName="LightMechanoid" Name="WVC_XenotypesAndGenes_Golemlike_Base" Abstract="True">
-		<!-- <description>In general golemnoids are dense clusters of archites animating a pile of “something”, they, like mechanoids, require mechlink and bandwidth for control, in addition to this they require golembond. Golems lose energy much faster than mechs, but very quickly restore the lost charge in shutdown mode.</description> -->
-		<!-- \n\nGolembond is a mechanitor's psychic focus used to maintain golems. To increase focus, a mechanitor needs special meditation objects. Objects that help the mechanitor focus depend on genes. Most sources that increase golembond only work within one map. -->
 		<statBases>
 			<BandwidthCost>0.2</BandwidthCost>
 			<!-- <MechEnergyUsageFactor>1.0</MechEnergyUsageFactor> -->
@@ -51,7 +49,6 @@
 				<!-- <deSpawn>false</deSpawn> -->
 			<!-- </deathAction> -->
 			<hasCorpse>false</hasCorpse>
-			<!-- <maxMechEnergy>1</maxMechEnergy> -->
 			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
 			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
 			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
@@ -61,6 +58,7 @@
 					<def>MechanoidFullyFormed</def>
 					<minAge>0</minAge>
 					<soundDeath>Pawn_Mech_Constructoid_Death</soundDeath>
+					<!-- <soundWounded>Pawn_Mech_Constructoid_Wounded</soundWounded> -->
 				</li>
 			</lifeStageAges>
 			<hediffGiverSets Inherit="False"/>
@@ -68,18 +66,6 @@
 		<butcherProducts Inherit="False">
 			<Steel>5</Steel>
 		</butcherProducts>
-		<comps>
-			<!-- <li Class="WVC_XenotypesAndGenes.CompProperties_InitialEnergyNeed"> -->
-				<!-- <refreshHours>2</refreshHours> -->
-				<!-- <shutdownEnergyReplenish>3.0</shutdownEnergyReplenish> -->
-			<!-- </li> -->
-			<!-- <li Class="WVC_XenotypesAndGenes.CompProperties_InitialPawnFaction"/> -->
-		</comps>
-		<modExtensions>
-			<!-- <li Class="VFECore.ThingDefExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core"> -->
-				<!-- <destroyCorpse>true</destroyCorpse> -->
-			<!-- </li> -->
-		</modExtensions>
 	</ThingDef>
 
 	<PawnKindDef ParentName="NonCombatLightMechanoidKind" Name="WVC_XenotypesAndGenes_NonCombatGolemlikeKind_Base" Abstract="True">

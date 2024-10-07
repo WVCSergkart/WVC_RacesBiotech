@@ -151,6 +151,7 @@
     <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_ColorFromRock.cs" />
     <Compile Include="Resources_RitualAttachableOutcome\OutcomeWorker_ShapeshifterJoin.cs" />
     <Compile Include="Resources_RitualAttachableOutcome\RitualOutcomeComp_Quality.cs" />
+    <Compile Include="Resources_StatPart\StatPart_OffsetPsychicSensitivity.cs" />
     <Compile Include="Resources_Things\Building_MechCharger.cs" />
     <Compile Include="Resources_Things\CompProperties_DryadCocoon.cs" />
     <Compile Include="Resources_Things\CompProperties_Genepack.cs" />

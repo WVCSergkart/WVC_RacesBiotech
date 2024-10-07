@@ -40,12 +40,10 @@ namespace WVC_XenotypesAndGenes
 		{
 			gene = geneMechlink;
 			mechanitor = gene?.pawn;
-			// allDryads = gene.AllDryads;
-			// usedBandwidth = allDryads.Count;
 			Order = -90f;
-			allDryads = gene.DryadsListForReading;
-			totalBandwidth = mechanitor.GetStatValue(gene.Spawner.dryadsStatLimit, cacheStaleAfterTicks: 360000);
-			usedBandwidth = allDryads.Count;
+			// allDryads = gene.DryadsListForReading;
+			// totalBandwidth = mechanitor.GetStatValue(gene.Spawner.dryadsStatLimit, cacheStaleAfterTicks: 360000);
+			// usedBandwidth = allDryads.Count;
 		}
 
 		public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)

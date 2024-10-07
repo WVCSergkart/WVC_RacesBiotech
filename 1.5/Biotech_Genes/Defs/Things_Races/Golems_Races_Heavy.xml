@@ -3,6 +3,7 @@
 
 	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_Stone" Name="WVC_XenotypesAndGenes_Golemlike_StoneHeavy" Abstract="True">
 		<statBases>
+			<BandwidthCost>0.4</BandwidthCost>
 			<ArmorRating_Sharp>0.55</ArmorRating_Sharp>
 			<ArmorRating_Blunt>0.65</ArmorRating_Blunt>
 			<MoveSpeed>1.6</MoveSpeed>
@@ -54,8 +55,7 @@
 
 	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_StoneHeavy">
 		<defName>WVC_Golem_Behemoth</defName>
-		<!-- <label>golem behemoth</label> -->
-		<label>golem behemoid</label>
+		<label>behemoid</label>
 		<description>This heavy golemnoid acts as a vanguard by absorbing and dealing damage, making it an excellent combat golem. Its impressive armor will allow it to withstand heavy combat, but its speed is incredibly slow, so its tactical positioning is important to determine before the battle begins. It can also do digging work no worse than specialized mechanoids.</description>
 		<statBases>
 			<ArmorRating_Sharp>0.63</ArmorRating_Sharp>
@@ -71,7 +71,7 @@
 	</ThingDef>
 	<PawnKindDef ParentName="WVC_XenotypesAndGenes_NonCombatGolemKind">
 		<defName>WVC_Golem_Behemoth</defName>
-		<label>golem behemoid</label>
+		<label>behemoid</label>
 		<controlGroupPortraitZoom>1.35</controlGroupPortraitZoom>
 		<race>WVC_Golem_Behemoth</race>
 		<lifeStages>
@@ -88,7 +88,7 @@
 
 	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_StoneHeavy">
 		<defName>WVC_Golem_Medicor</defName>
-		<label>golem medicoroid</label>
+		<label>medicoroid</label>
 		<description>This heavy golemnoid is a medical mechanoid, it has a very dense cluster of archites and can use them for medical purposes, performing surgeries or treating wounds no worse than medical mechanoids. In combat, it can act as a shield, absorbing massive amounts of damage, but it is completely incapable of fighting.\n\nAlso, the number of archites of this golem is sufficient to act as a gestator, converting the entire swarm into a newborn.</description>
 		<statBases>
 			<ArmorRating_Sharp>0.43</ArmorRating_Sharp>
@@ -120,7 +120,7 @@
 	</ThingDef>
 	<PawnKindDef ParentName="WVC_XenotypesAndGenes_NonCombatGolemKind">
 		<defName>WVC_Golem_Medicor</defName>
-		<label>golem medicoroid</label>
+		<label>medicoroid</label>
 		<controlGroupPortraitZoom>1.35</controlGroupPortraitZoom>
 		<race>WVC_Golem_Medicor</race>
 		<lifeStages>
@@ -134,6 +134,56 @@
 		<abilities>
 			<li>WVC_MechanoidAbility_ActivateGestator</li>
 		</abilities>
+	</PawnKindDef>
+
+	<!-- ============== -->
+
+	<ThingDef ParentName="WVC_XenotypesAndGenes_Golemlike_StoneHeavy">
+		<defName>WVC_Golem_Stonepede</defName>
+		<label>stonepede</label>
+		<description>This heavy golemnoid is a walking fortress-farmer, it can perform growing and plant cutting work no worse than specialized mechanoids. It has no weapons and moves very slowly, but it has very strong armor and can cause colossal damage in melee combat.</description>
+		<statBases>
+			<MoveSpeed>1.6</MoveSpeed>
+			<ArmorRating_Blunt>0.22</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.72</ArmorRating_Sharp>
+			<Mass>244</Mass>
+		</statBases>
+		<race>
+			<mechFixedSkillLevel>10</mechFixedSkillLevel>
+			<mechEnabledWorkTypes>
+			  <li>PlantCutting</li>
+			  <li>Growing</li>
+			</mechEnabledWorkTypes>
+			<body>MechanicalCentipede</body>
+			<baseBodySize>1.6</baseBodySize>
+			<baseHealthScale>5.0</baseHealthScale>
+		</race>
+		<tools Inherit="False">
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>32</power>
+				<cooldownTime>2.0</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+			</li>
+		</tools>
+	</ThingDef>
+	<PawnKindDef ParentName="WVC_XenotypesAndGenes_NonCombatGolemKind">
+		<defName>WVC_Golem_Stonepede</defName>
+		<label>stonepede</label>
+		<controlGroupPortraitZoom>0.9</controlGroupPortraitZoom>
+		<race>WVC_Golem_Stonepede</race>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>WVC/Things/XaG_Pawns/Mechanoids_Golems/Stonepede</texPath>
+					<drawSize>2</drawSize>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
 	</PawnKindDef>
 
 </Defs>
