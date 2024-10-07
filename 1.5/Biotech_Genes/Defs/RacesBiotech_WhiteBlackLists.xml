@@ -13,6 +13,7 @@
 		<li>WVC_Resurgent</li>
 		<li MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li>
 		<!-- Random -->
+		<li>WVC_Thrall</li>
 		<li>WVC_Shapeshifter</li>
 		<li>WVC_RandomHybrid</li>
 		<li>WVC_RandomHybrid_Blankind</li>
