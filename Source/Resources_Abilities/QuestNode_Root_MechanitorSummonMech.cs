@@ -17,6 +17,7 @@ namespace WVC_XenotypesAndGenes
 
 		public List<HediffDef> hediffDefs;
 
+		public bool summonGolems = false;
 		public bool summonLightMechs = false;
 		public bool summonMediumMechs = false;
 		public bool summonHeavyMechs = false;
@@ -65,6 +66,10 @@ namespace WVC_XenotypesAndGenes
 
 		private PawnKindDef MechanoidKind()
 		{
+			if (summonGolems)
+			{
+				return ListsUtility.GetAllSummonableGolems().RandomElement();
+			}
 			List<PawnKindDef> pawnKindDefs;
 			if (!mechTypes.NullOrEmpty())
 			{

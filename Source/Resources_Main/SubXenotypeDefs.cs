@@ -2,10 +2,95 @@ using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
+	public class GolemModeDef : Def
+	{
+
+		public PawnKindDef pawnKindDef;
+
+		public bool canBeSummoned = false;
+
+		public bool canBeAnimated = true;
+
+		public float iconSize = 1f;
+
+		public float order = 0f;
+
+		private bool? isWorkGolemnoid;
+
+		private string cachedDescription;
+
+		private float? cachedGolembondCost;
+
+		public bool Worker
+		{
+			get
+			{
+				if (isWorkGolemnoid == null)
+				{
+					isWorkGolemnoid = !pawnKindDef.race.race.mechEnabledWorkTypes.NullOrEmpty();
+				}
+				return isWorkGolemnoid.Value;
+			}
+		}
+
+		public float GolembondCost
+		{
+			get
+			{
+				if (cachedGolembondCost == null)
+				{
+					cachedGolembondCost = pawnKindDef.race.GetStatValueAbstract(WVC_GenesDefOf.WVC_GolemBondCost);
+				}
+				return cachedGolembondCost.Value;
+			}
+		}
+
+		public string Description
+		{
+			get
+			{
+				if (cachedDescription == null)
+				{
+					StringBuilder stringBuilder = new();
+					stringBuilder.AppendLine(pawnKindDef.race.description);
+					stringBuilder.AppendLine();
+					stringBuilder.AppendLine("WVC_XaG_Dialog_Golemlink_Stats".Translate().Colorize(ColoredText.TipSectionTitleColor) + ":");
+					stringBuilder.AppendLine(" - " + StatDefOf.ArmorRating_Blunt.LabelCap + ": " + pawnKindDef.race.GetStatValueAbstract(StatDefOf.ArmorRating_Blunt).ToStringPercent());
+					stringBuilder.AppendLine(" - " + StatDefOf.ArmorRating_Sharp.LabelCap + ": " + pawnKindDef.race.GetStatValueAbstract(StatDefOf.ArmorRating_Sharp).ToStringPercent());
+					stringBuilder.AppendLine(" - " + StatDefOf.MoveSpeed.LabelCap + ": " + StatDefOf.MoveSpeed.ValueToString(pawnKindDef.race.GetStatValueAbstract(StatDefOf.MoveSpeed), ToStringNumberSense.Absolute, !StatDefOf.MoveSpeed.formatString.NullOrEmpty()));
+					stringBuilder.AppendLine(" - " + WVC_GenesDefOf.WVC_GolemBondCost.LabelCap + ": " + pawnKindDef.race.GetStatValueAbstract(WVC_GenesDefOf.WVC_GolemBondCost));
+					stringBuilder.AppendLine(" - " + StatDefOf.BandwidthCost.LabelCap + ": " + pawnKindDef.race.GetStatValueAbstract(StatDefOf.BandwidthCost));
+                    if (Worker)
+					{
+						stringBuilder.AppendLine();
+						stringBuilder.AppendLine("MechWorkActivities".Translate().Colorize(ColoredText.TipSectionTitleColor) + ":");
+						stringBuilder.AppendLine(" - " + pawnKindDef.race.race.mechEnabledWorkTypes.Select((WorkTypeDef w) => w.gerundLabel).ToCommaList(useAnd: true).CapitalizeFirst());
+					}
+					if (!pawnKindDef.weaponTags.NullOrEmpty())
+					{
+						stringBuilder.AppendLine();
+						stringBuilder.AppendLine("WVC_XaG_Dialog_Golemlink_Weapon".Translate().Colorize(ColoredText.TipSectionTitleColor) + ":");
+						stringBuilder.AppendLine(" - " + DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef thing) => !thing.weaponTags.NullOrEmpty() && thing.weaponTags.Contains(pawnKindDef.weaponTags.FirstOrDefault())).FirstOrDefault().label.CapitalizeFirst());
+					}
+					cachedDescription = stringBuilder.ToString();
+				}
+				return cachedDescription;
+			}
+		}
+
+		public override void ResolveReferences()
+		{
+			base.ResolveReferences();
+			label = pawnKindDef.label;
+		}
+
+
+	}
 
 	public class GauranlenGeneModeDef : Def
 	{

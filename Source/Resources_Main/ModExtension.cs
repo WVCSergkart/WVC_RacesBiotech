@@ -77,6 +77,7 @@ namespace WVC_XenotypesAndGenes
 		public SoundDef soundDef;
 		// Golems
 		public List<PawnKindDef> mechTypes;
+		public List<GolemModeDef> golemModeDefs;
 		// Golems
 		public IntRange durationIntervalRange = new(240000, 300000);
 	}

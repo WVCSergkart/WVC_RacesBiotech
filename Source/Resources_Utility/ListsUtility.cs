@@ -212,16 +212,30 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
-		public static List<PawnKindDef> GetAllGolemPawnkinds()
+		public static List<GolemModeDef> GetAllGolemModeDefs()
 		{
-			List<PawnKindDef> list = new();
-			foreach (PawnKindDef item in DefDatabase<PawnKindDef>.AllDefsListForReading)
+			List<GolemModeDef> list = new();
+			foreach (GolemModeDef item in DefDatabase<GolemModeDef>.AllDefsListForReading)
 			{
-				if (!item.IsGolemlike())
+				if (!item.canBeAnimated)
 				{
 					continue;
 				}
 				list.Add(item);
+			}
+			return list;
+		}
+
+		public static List<PawnKindDef> GetAllSummonableGolems()
+		{
+			List<PawnKindDef> list = new();
+			foreach (GolemModeDef item in DefDatabase<GolemModeDef>.AllDefsListForReading)
+			{
+				if (!item.canBeSummoned)
+				{
+					continue;
+				}
+				list.Add(item.pawnKindDef);
 			}
 			return list;
 		}

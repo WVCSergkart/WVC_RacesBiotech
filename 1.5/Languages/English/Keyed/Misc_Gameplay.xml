@@ -353,6 +353,9 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_AddToList>Add</WVC_XaG_AddToList>
 	<WVC_XaG_RemoveFromList>Remove</WVC_XaG_RemoveFromList>
 
+	<WVC_XaG_Dialog_Golemlink_Stats>Stats</WVC_XaG_Dialog_Golemlink_Stats>
+	<WVC_XaG_Dialog_Golemlink_Weapon>Weapon</WVC_XaG_Dialog_Golemlink_Weapon>
+
 	<WVC_XaG_GolemCreatedFromRandomChunk_Message>Archites animated the chunk, the new golem is called {0}.</WVC_XaG_GolemCreatedFromRandomChunk_Message>
 
 	<WVC_XaG_Gene_GolemlinkGizmoSpawnDesc>Allows you to toggle the automatic creation of new golems. New golems will be created from stone chunks scattered on the map, if there are no chunks, then the golems will be summoned. Golems summoned in this way land in drop pods at a random cell on the map.</WVC_XaG_Gene_GolemlinkGizmoSpawnDesc>

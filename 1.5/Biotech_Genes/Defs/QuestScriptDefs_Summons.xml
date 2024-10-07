@@ -39,12 +39,7 @@
   <QuestScriptDef ParentName="WVC_SummonQuestScript_Base">
 	<defName>WVC_MechanitorSummonGolems</defName>
 	<root Class="WVC_XenotypesAndGenes.QuestNode_Root_MechanitorSummonMech">
-	  <mechTypes>
-		<li>WVC_Golem_Liftoid</li>
-		<li>WVC_Golem_Constructoid</li>
-		<li>WVC_Golem_Miner</li>
-		<li>WVC_Golem_Hunter</li>
-	  </mechTypes>
+	  <summonGolems>true</summonGolems>
 	</root>
   </QuestScriptDef>
 

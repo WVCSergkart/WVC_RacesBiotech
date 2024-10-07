@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Light -->
+
+  <WVC_XenotypesAndGenes.GolemModeDef>
+	<defName>WVC_Golem_Liftoid</defName>
+	<canBeSummoned>true</canBeSummoned>
+	<canBeAnimated>true</canBeAnimated>
+	<iconSize>1</iconSize>
+	<pawnKindDef>WVC_Golem_Liftoid</pawnKindDef>
+  </WVC_XenotypesAndGenes.GolemModeDef>
+
+  <WVC_XenotypesAndGenes.GolemModeDef>
+	<defName>WVC_Golem_Constructoid</defName>
+	<canBeSummoned>true</canBeSummoned>
+	<canBeAnimated>true</canBeAnimated>
+	<iconSize>1</iconSize>
+	<pawnKindDef>WVC_Golem_Constructoid</pawnKindDef>
+  </WVC_XenotypesAndGenes.GolemModeDef>
+
+  <WVC_XenotypesAndGenes.GolemModeDef>
+	<defName>WVC_Golem_Crafter</defName>
+	<canBeSummoned>false</canBeSummoned>
+	<canBeAnimated>true</canBeAnimated>
+	<iconSize>1</iconSize>
+	<pawnKindDef>WVC_Golem_Crafter</pawnKindDef>
+  </WVC_XenotypesAndGenes.GolemModeDef>
+
+  <WVC_XenotypesAndGenes.GolemModeDef>
+	<defName>WVC_Golem_Hunter</defName>
+	<canBeSummoned>true</canBeSummoned>
+	<canBeAnimated>true</canBeAnimated>
+	<iconSize>1</iconSize>
+	<pawnKindDef>WVC_Golem_Hunter</pawnKindDef>
+  </WVC_XenotypesAndGenes.GolemModeDef>
+
+  <WVC_XenotypesAndGenes.GolemModeDef>
+	<defName>WVC_Golem_Miner</defName>
+	<canBeSummoned>true</canBeSummoned>
+	<canBeAnimated>true</canBeAnimated>
+	<iconSize>1</iconSize>
+	<pawnKindDef>WVC_Golem_Miner</pawnKindDef>
+  </WVC_XenotypesAndGenes.GolemModeDef>
+
+  <WVC_XenotypesAndGenes.GolemModeDef>
+	<defName>WVC_Golem_Militoid</defName>
+	<canBeSummoned>false</canBeSummoned>
+	<canBeAnimated>true</canBeAnimated>
+	<iconSize>1</iconSize>
+	<pawnKindDef>WVC_Golem_Militoid</pawnKindDef>
+  </WVC_XenotypesAndGenes.GolemModeDef>
+
+  <WVC_XenotypesAndGenes.GolemModeDef>
+	<defName>WVC_Golem_Cleanoid</defName>
+	<canBeSummoned>true</canBeSummoned>
+	<canBeAnimated>true</canBeAnimated>
+	<iconSize>0.5</iconSize>
+	<pawnKindDef>WVC_Golem_Cleanoid</pawnKindDef>
+  </WVC_XenotypesAndGenes.GolemModeDef>
+
+  <!-- Heavy -->
+
+  <WVC_XenotypesAndGenes.GolemModeDef>
+	<defName>WVC_Golem_Behemoth</defName>
+	<canBeSummoned>false</canBeSummoned>
+	<canBeAnimated>true</canBeAnimated>
+	<iconSize>1</iconSize>
+	<pawnKindDef>WVC_Golem_Behemoth</pawnKindDef>
+  </WVC_XenotypesAndGenes.GolemModeDef>
+
+  <WVC_XenotypesAndGenes.GolemModeDef>
+	<defName>WVC_Golem_Medicor</defName>
+	<canBeSummoned>false</canBeSummoned>
+	<canBeAnimated>true</canBeAnimated>
+	<iconSize>1</iconSize>
+	<pawnKindDef>WVC_Golem_Medicor</pawnKindDef>
+  </WVC_XenotypesAndGenes.GolemModeDef>
+
+  <WVC_XenotypesAndGenes.GolemModeDef>
+	<defName>WVC_Golem_Stonepede</defName>
+	<canBeSummoned>false</canBeSummoned>
+	<canBeAnimated>true</canBeAnimated>
+	<iconSize>1</iconSize>
+	<pawnKindDef>WVC_Golem_Stonepede</pawnKindDef>
+  </WVC_XenotypesAndGenes.GolemModeDef>
+
+</Defs>

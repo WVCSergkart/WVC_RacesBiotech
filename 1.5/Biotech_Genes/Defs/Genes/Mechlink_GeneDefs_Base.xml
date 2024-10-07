@@ -134,7 +134,7 @@
 			<spawnIntervalRange>240000~420000</spawnIntervalRange>
 			<summonRange>1~3</summonRange>
 			<summonQuest>WVC_MechanitorSummonGolems</summonQuest>
-			<mechTypes>
+			<golemModeDefs>
 			  <li>WVC_Golem_Liftoid</li>
 			  <li>WVC_Golem_Constructoid</li>
 			  <li>WVC_Golem_Crafter</li>
@@ -144,7 +144,7 @@
 			  <!-- <li>WVC_Golem_Behemoth</li> -->
 			  <!-- <li>WVC_Golem_Medicor</li> -->
 			  <li>WVC_Golem_Militoid</li>
-			</mechTypes>
+			</golemModeDefs>
 		</li>
 	</modExtensions>
   </GeneDef>

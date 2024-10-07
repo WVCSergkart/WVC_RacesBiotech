@@ -14,9 +14,9 @@ namespace WVC_XenotypesAndGenes
 
 		public Gene_Golemlink gene;
 
-		public List<PawnKindDef> selectedGolems = new();
+		public List<GolemModeDef> selectedGolems = new();
 
-		protected HashSet<PawnKindDef> matchingGolems = new();
+		protected HashSet<GolemModeDef> matchingGolems = new();
 
 		// private bool? selectedCollapsed = false;
 
@@ -26,7 +26,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override Vector2 InitialSize => new(Mathf.Min(UI.screenWidth, 1036), UI.screenHeight - 4);
 
-		public List<PawnKindDef> SelectedGolems => selectedGolems;
+		public List<GolemModeDef> SelectedGolems => selectedGolems;
 
 		protected override List<GeneDef> SelectedGenes => new();
 
@@ -41,22 +41,22 @@ namespace WVC_XenotypesAndGenes
 		}
 
 
-		public List<PawnKindDef> allPawnKinds;
+		public List<GolemModeDef> allPawnKinds;
 
-		private List<PawnKindDef> cachedPawnKindDefsInOrder;
+		private List<GolemModeDef> cachedPawnKindDefsInOrder;
 
-		public List<PawnKindDef> PawnKindsInOrder
+		public List<GolemModeDef> PawnKindsInOrder
 		{
 			get
 			{
 				if (cachedPawnKindDefsInOrder == null)
 				{
 					cachedPawnKindDefsInOrder = new();
-					foreach (PawnKindDef allDef in allPawnKinds)
+					foreach (GolemModeDef allDef in allPawnKinds)
 					{
 						cachedPawnKindDefsInOrder.Add(allDef);
 					}
-					cachedPawnKindDefsInOrder.SortBy((PawnKindDef x) => 0f - x.race.GetStatValueAbstract(WVC_GenesDefOf.WVC_GolemBondCost));
+					cachedPawnKindDefsInOrder.SortBy((GolemModeDef x) => x.order + x.GolembondCost);
 				}
 				return cachedPawnKindDefsInOrder;
 			}
@@ -66,7 +66,7 @@ namespace WVC_XenotypesAndGenes
 		public Dialog_Golemlink(Gene_Golemlink thisGene)
 		{
 			gene = thisGene;
-			allPawnKinds = ListsUtility.GetAllGolemPawnkinds();
+			allPawnKinds = ListsUtility.GetAllGolemModeDefs();
 			// selectedXeno = allXenotypes.RandomElement();
 			selectedGolems = new();
 			if (!gene.golemsForSummon.NullOrEmpty())
@@ -106,7 +106,7 @@ namespace WVC_XenotypesAndGenes
 			GUI.EndGroup();
 		}
 
-		private void DrawPawnKindSection(Rect rect, List<PawnKindDef> pawnKinds, string label, ref float curY, ref float sectionHeight, Rect containingRect, ref bool? collapsed, bool ignoreFilter = false)
+		private void DrawPawnKindSection(Rect rect, List<GolemModeDef> pawnKinds, string label, ref float curY, ref float sectionHeight, Rect containingRect, ref bool? collapsed, bool ignoreFilter = false)
 		{
 			float curX = 4f;
 			if (!label.NullOrEmpty())
@@ -166,7 +166,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				for (int i = 0; i < pawnKinds.Count; i++)
 				{
-					PawnKindDef pawnKindDef = pawnKinds[i];
+					GolemModeDef pawnKindDef = pawnKinds[i];
 					if (!ignoreFilter && quickSearchWidget.filter.Active && !matchingGolems.Contains(pawnKindDef))
 					{
 						continue;
@@ -201,7 +201,7 @@ namespace WVC_XenotypesAndGenes
 		}
 
 
-		private bool DrawPawnKinds(PawnKindDef pawnKindDef, ref float curX, float curY, float packWidth, Rect containingRect)
+		private bool DrawPawnKinds(GolemModeDef golemModeDef, ref float curX, float curY, float packWidth, Rect containingRect)
 		{
 			bool result = false;
 			Rect rect = new(curX, curY, packWidth, XenotypeSize.y + 8f);
@@ -210,20 +210,15 @@ namespace WVC_XenotypesAndGenes
 				curX = rect.xMax + 4f;
 				return false;
 			}
-			bool selected = selectedGolems.Contains(pawnKindDef);
+			bool selected = selectedGolems.Contains(golemModeDef);
 			Widgets.DrawOptionBackground(rect, selected);
 			curX += 4f;
-			DrawGolemstats(pawnKindDef, pawnKindDef.race.GetStatValueAbstract(WVC_GenesDefOf.WVC_GolemBondCost), !pawnKindDef.race.race.mechEnabledWorkTypes.NullOrEmpty(), ref curX, curY, 4f);
+			DrawGolemstats(golemModeDef.pawnKindDef, golemModeDef.GolembondCost.ToString(), golemModeDef.Worker, ref curX, curY, 4f);
 			Rect xenoRect = new(curX, curY + 4f, XenotypeSize.x, XenotypeSize.y);
-			DrawXenotypeBasics(pawnKindDef, xenoRect, false);
+			DrawXenotypeBasics(golemModeDef, xenoRect, false);
 			if (Mouse.IsOver(xenoRect))
 			{
-				string text = pawnKindDef.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + pawnKindDef.race.description;
-				// text += "\n\n" + "MechWorkSkill".Translate().Colorize(ColoredText.TipSectionTitleColor) + "\n" + pawnKindDef.race.race.mechFixedSkillLevel.ToString();
-				if (!pawnKindDef.race.race.mechEnabledWorkTypes.NullOrEmpty())
-				{
-					text += "\n\n" + "MechWorkActivities".Translate().Colorize(ColoredText.TipSectionTitleColor) + ":\n- " + pawnKindDef.race.race.mechEnabledWorkTypes.Select((WorkTypeDef w) => w.gerundLabel).ToCommaList(useAnd: true).CapitalizeFirst();
-				}
+				string text = golemModeDef.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + golemModeDef.Description;
 				text += "\n\n" + (selected ? "ClickToRemove" : "ClickToAdd").Translate().Colorize(ColoredText.SubtleGrayColor);
 				TooltipHandler.TipRegion(xenoRect, text);
 			}
@@ -241,7 +236,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static readonly CachedTexture Background = new("WVC/UI/XaG_General/Ui_BackgroundGolems_v0");
 
-		public static void DrawXenotypeBasics(PawnKindDef pawnKindDef, Rect geneRect, bool overridden)
+		public static void DrawXenotypeBasics(GolemModeDef golemModeDef, Rect geneRect, bool overridden)
 		{
 			GUI.BeginGroup(geneRect);
 			Rect rect = geneRect.AtZero();
@@ -255,27 +250,27 @@ namespace WVC_XenotypesAndGenes
 			}
 			CachedTexture cachedTexture = Background;
 			GUI.DrawTexture(rect2, cachedTexture.Texture);
-			Widgets.DefIcon(rect2, pawnKindDef, null, 0.8f, null, drawPlaceholder: false, iconColor);
+			Widgets.DefIcon(rect2, golemModeDef.pawnKindDef, null, golemModeDef.iconSize * 0.8f, null, drawPlaceholder: false, iconColor);
 			Text.Font = GameFont.Tiny;
-			float num2 = Text.CalcHeight(pawnKindDef.LabelCap, rect.width);
+			float num2 = Text.CalcHeight(golemModeDef.LabelCap, rect.width);
 			Rect rect3 = new(0f, rect.yMax - num2, rect.width, num2);
 			GUI.DrawTexture(new(rect3.x, rect3.yMax - num2, rect3.width, num2), TexUI.GrayTextBG);
 			Text.Anchor = TextAnchor.LowerCenter;
-			Widgets.Label(rect3, pawnKindDef.LabelCap);
+			Widgets.Label(rect3, golemModeDef.LabelCap);
 			GUI.color = Color.white;
 			Text.Anchor = TextAnchor.UpperLeft;
 			Text.Font = GameFont.Small;
 			GUI.EndGroup();
 		}
 
-		public static void DrawGolemstats(PawnKindDef pawnKindDef, float golembond, bool worker, ref float curX, float curY, float margin = 6f)
+		public static void DrawGolemstats(PawnKindDef pawnKindDef, string golembond, bool worker, ref float curX, float curY, float margin = 6f)
 		{
 			float num = GeneCreationDialogBase.GeneSize.y / 3f;
 			float num2 = 0f;
 			float baseWidthOffset = 38f;
 			float num3 = Text.LineHeightOf(GameFont.Small);
 			Rect iconRect = new(curX, curY + margin + num2, num3, num3);
-			DrawStat(iconRect, GolembondTex, golembond.ToString(), num3);
+			DrawStat(iconRect, GolembondTex, golembond, num3);
 			Rect rect = new(curX, iconRect.y, baseWidthOffset, num3);
 			if (Mouse.IsOver(rect))
 			{
@@ -331,7 +326,14 @@ namespace WVC_XenotypesAndGenes
 
 		protected override void Accept()
 		{
-			gene.golemsForSummon = selectedGolems;
+			if (selectedGolems.NullOrEmpty())
+			{
+				gene.golemsForSummon = allPawnKinds;
+			}
+			else
+            {
+				gene.golemsForSummon = selectedGolems;
+			}
 			Close(doCloseSound: true);
 		}
 
@@ -343,7 +345,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			foreach (PawnKindDef item in PawnKindsInOrder)
+			foreach (GolemModeDef item in PawnKindsInOrder)
 			{
 				if (quickSearchWidget.filter.Matches(item.label))
 				{

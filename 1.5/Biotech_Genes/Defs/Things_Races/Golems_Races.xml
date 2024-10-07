@@ -245,8 +245,8 @@
   <!-- SlugGun -->
   <ThingDef ParentName="LightMechanoidGunRanged">
 	<defName>WVC_GolemGun_Slugthrower</defName>
-	<label>slugthrower</label>
-	<description>A compact single-shot slug thrower designed to be mounted on a light combat mechanoid.</description>
+	<label>stonethrower</label>
+	<description>A compact single-shot stone thrower designed to be mounted on a light combat golemnoid.</description>
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Items/Mechanoids_Golems_Guns/Slugthrower</texPath>
 	  <!-- <color>(70,70,70)</color> -->

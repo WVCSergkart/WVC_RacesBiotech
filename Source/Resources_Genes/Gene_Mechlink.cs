@@ -127,14 +127,14 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
-		public List<PawnKindDef> golemsForSummon = new();
+		public List<GolemModeDef> golemsForSummon = new();
 
 		private Gizmo gizmo;
 
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			golemsForSummon = Spawner?.mechTypes;
+			golemsForSummon = Spawner?.golemModeDefs;
 		}
 
 		public override void Tick()
@@ -202,7 +202,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (golemsForSummon.NullOrEmpty())
 			{
-				golemsForSummon = Spawner?.mechTypes;
+				golemsForSummon = Spawner?.golemModeDefs;
 			}
 			if (golemsForSummon.NullOrEmpty())
 			{
@@ -268,28 +268,28 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static bool TryGetBestGolemKindForSummon(float limit, float consumption, List<PawnKindDef> candidates, List<PawnKindDef> currentGolems, out PawnKindDef golem, out float golemConsumtion)
+		public static bool TryGetBestGolemKindForSummon(float limit, float consumption, List<GolemModeDef> candidates, List<PawnKindDef> currentGolems, out PawnKindDef golem, out float golemConsumtion)
 		{
 			golem = null;
 			golemConsumtion = 0f;
-			foreach (PawnKindDef item in candidates)
+			foreach (GolemModeDef item in candidates)
 			{
-				if (currentGolems.Contains(item))
+				if (currentGolems.Contains(item.pawnKindDef))
 				{
 					continue;
 				}
-				float golemBondReq = item.race.GetStatValueAbstract(WVC_GenesDefOf.WVC_GolemBondCost);
+				float golemBondReq = item.GolembondCost;
 				if (limit >= consumption + golemBondReq)
 				{
-					golem = item;
+					golem = item.pawnKindDef;
 					golemConsumtion = golemBondReq;
 					break;
 				}
 			}
-			if (golem == null && candidates.TryRandomElement((PawnKindDef mech) => limit >= consumption + mech.race.GetStatValueAbstract(WVC_GenesDefOf.WVC_GolemBondCost), out PawnKindDef newGolem))
+			if (golem == null && candidates.TryRandomElement((GolemModeDef mech) => limit >= consumption + mech.GolembondCost, out GolemModeDef newGolem))
 			{
-				golem = newGolem;
-				golemConsumtion = newGolem.race.GetStatValueAbstract(WVC_GenesDefOf.WVC_GolemBondCost);
+				golem = newGolem.pawnKindDef;
+				golemConsumtion = newGolem.GolembondCost;
 			}
 			if (golem == null)
 			{
