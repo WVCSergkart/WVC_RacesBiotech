@@ -136,7 +136,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			foreach (Pawn golem in golems)
 			{
-				if (golem.health.Dead)
+				if (golem.Dead)
 				{
 					continue;
 				}

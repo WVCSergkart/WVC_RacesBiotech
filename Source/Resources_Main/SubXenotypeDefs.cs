@@ -10,11 +10,17 @@ namespace WVC_XenotypesAndGenes
 	public class GolemModeDef : Def
 	{
 
+		public List<StatDef> displayedStats;
+
+		public List<DefHyperlink> hyperlinks = new();
+
 		public PawnKindDef pawnKindDef;
 
 		public bool canBeSummoned = false;
 
 		public bool canBeAnimated = true;
+
+		public bool changeable = true;
 
 		public float iconSize = 1f;
 
@@ -60,11 +66,19 @@ namespace WVC_XenotypesAndGenes
 					stringBuilder.AppendLine(pawnKindDef.race.description);
 					stringBuilder.AppendLine();
 					stringBuilder.AppendLine("WVC_XaG_Dialog_Golemlink_Stats".Translate().Colorize(ColoredText.TipSectionTitleColor) + ":");
-					stringBuilder.AppendLine(" - " + StatDefOf.ArmorRating_Blunt.LabelCap + ": " + pawnKindDef.race.GetStatValueAbstract(StatDefOf.ArmorRating_Blunt).ToStringPercent());
-					stringBuilder.AppendLine(" - " + StatDefOf.ArmorRating_Sharp.LabelCap + ": " + pawnKindDef.race.GetStatValueAbstract(StatDefOf.ArmorRating_Sharp).ToStringPercent());
-					stringBuilder.AppendLine(" - " + StatDefOf.MoveSpeed.LabelCap + ": " + StatDefOf.MoveSpeed.ValueToString(pawnKindDef.race.GetStatValueAbstract(StatDefOf.MoveSpeed), ToStringNumberSense.Absolute, !StatDefOf.MoveSpeed.formatString.NullOrEmpty()));
-					stringBuilder.AppendLine(" - " + WVC_GenesDefOf.WVC_GolemBondCost.LabelCap + ": " + pawnKindDef.race.GetStatValueAbstract(WVC_GenesDefOf.WVC_GolemBondCost));
-					stringBuilder.AppendLine(" - " + StatDefOf.BandwidthCost.LabelCap + ": " + pawnKindDef.race.GetStatValueAbstract(StatDefOf.BandwidthCost));
+					if (!displayedStats.NullOrEmpty())
+					{
+						for (int j = 0; j < displayedStats.Count; j++)
+						{
+							StatDef statDef = displayedStats[j];
+							stringBuilder.AppendLine(" - " + statDef.LabelCap + ": " + statDef.ValueToString(pawnKindDef.race.GetStatValueAbstract(statDef), statDef.toStringNumberSense));
+						}
+					}
+					//stringBuilder.AppendLine(" - " + StatDefOf.ArmorRating_Blunt.LabelCap + ": " + pawnKindDef.race.GetStatValueAbstract(StatDefOf.ArmorRating_Blunt).ToStringPercent());
+					//stringBuilder.AppendLine(" - " + StatDefOf.ArmorRating_Sharp.LabelCap + ": " + pawnKindDef.race.GetStatValueAbstract(StatDefOf.ArmorRating_Sharp).ToStringPercent());
+					//stringBuilder.AppendLine(" - " + StatDefOf.MoveSpeed.LabelCap + ": " + StatDefOf.MoveSpeed.ValueToString(pawnKindDef.race.GetStatValueAbstract(StatDefOf.MoveSpeed), ToStringNumberSense.Absolute, !StatDefOf.MoveSpeed.formatString.NullOrEmpty()));
+					//stringBuilder.AppendLine(" - " + WVC_GenesDefOf.WVC_GolemBondCost.LabelCap + ": " + pawnKindDef.race.GetStatValueAbstract(WVC_GenesDefOf.WVC_GolemBondCost));
+					//stringBuilder.AppendLine(" - " + StatDefOf.BandwidthCost.LabelCap + ": " + pawnKindDef.race.GetStatValueAbstract(StatDefOf.BandwidthCost));
                     if (Worker)
 					{
 						stringBuilder.AppendLine();
@@ -87,6 +101,13 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.ResolveReferences();
 			label = pawnKindDef.label;
+			description = pawnKindDef.description;
+			hyperlinks.Add(new DefHyperlink(pawnKindDef.race));
+			CompProperties_Spawner compProperties_Spawner = pawnKindDef?.race?.GetCompProperties<CompProperties_Spawner>();
+			if (compProperties_Spawner != null)
+			{
+				hyperlinks.Add(new DefHyperlink(compProperties_Spawner.thingToSpawn));
+			}
 		}
 
 

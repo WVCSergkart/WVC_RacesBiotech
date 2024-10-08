@@ -356,6 +356,12 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_Dialog_Golemlink_Stats>Stats</WVC_XaG_Dialog_Golemlink_Stats>
 	<WVC_XaG_Dialog_Golemlink_Weapon>Weapon</WVC_XaG_Dialog_Golemlink_Weapon>
 
+	<WVC_XaG_ChangeGolemCaste_NonChunk_NonGolembond>Not enough golembond or no available chunks in range.</WVC_XaG_ChangeGolemCaste_NonChunk_NonGolembond>
+	<WVC_XaG_ChangeGolemCasteDescFull>Give the golem the order to change type. The golem will try to find a free chunk, and then the archites will move from the old body to the new one. In the process, this golem will be converted into a chunk. The new golem will not inherit anything from the old one.\n\nDo you wish to continue?</WVC_XaG_ChangeGolemCasteDescFull>
+	<!-- <WVC_XaG_ChooseGolemCasteModeInitialDesc>Stats</WVC_XaG_ChooseGolemCasteModeInitialDesc> -->
+	<WVC_XaG_ChangeGolemMode>Change golem type</WVC_XaG_ChangeGolemMode>
+	<WVC_XaG_ChangeGolemModeDesc>Archites in a golem can be ordered to change their golem type. This requires a free chunk and enough golembond.</WVC_XaG_ChangeGolemModeDesc>
+
 	<WVC_XaG_GolemCreatedFromRandomChunk_Message>Archites animated the chunk, the new golem is called {0}.</WVC_XaG_GolemCreatedFromRandomChunk_Message>
 
 	<WVC_XaG_Gene_GolemlinkGizmoSpawnDesc>Allows you to toggle the automatic creation of new golems. New golems will be created from stone chunks scattered on the map, if there are no chunks, then the golems will be summoned. Golems summoned in this way land in drop pods at a random cell on the map.</WVC_XaG_Gene_GolemlinkGizmoSpawnDesc>

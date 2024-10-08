@@ -107,6 +107,7 @@
     <Compile Include="Resources_Gizmo\Dialog_CreateChimera.cs" />
     <Compile Include="Resources_Gizmo\Dialog_GauranlenGeneMode.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Golemlink.cs" />
+    <Compile Include="Resources_Gizmo\Dialog_GolemMode.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Reimplanter.cs" />
     <Compile Include="Resources_Gizmo\Dialog_RetuneSerum.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Shapeshifter.cs" />
@@ -167,6 +168,7 @@
     <Compile Include="Resources_Utility\GeneratorUtility.cs" />
     <Compile Include="Resources_Workers\JobDriver_AbsorbGenogerm.cs" />
     <Compile Include="Resources_Workers\JobDriver_BiteTarget.cs" />
+    <Compile Include="Resources_Workers\JobDriver_ChangeGolemType.cs" />
     <Compile Include="Resources_Workers\JobDriver_DestroyCellularBody.cs" />
     <Compile Include="Resources_Workers\JobDriver_FeedTargetWithOwnBlood.cs" />
     <Compile Include="Resources_Workers\JobDriver_RetuneSerum.cs" />

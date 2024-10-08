@@ -14,6 +14,7 @@
 		<comps>
 			<li Class="WVC_XenotypesAndGenes.CompProperties_Golem">
 				<refreshHours>2</refreshHours>
+				<changeCasteJob>WVC_XaG_ChangeGolemType</changeCasteJob>
 			</li>
 			<li Class="WVC_XenotypesAndGenes.CompProperties_SpawnOnDeath">
 				<compClass>WVC_XenotypesAndGenes.CompSpawnOnDeath_GetColor</compClass>

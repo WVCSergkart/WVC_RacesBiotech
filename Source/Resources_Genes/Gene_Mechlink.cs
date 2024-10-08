@@ -226,11 +226,11 @@ namespace WVC_XenotypesAndGenes
 					currentGolems = new();
 				}
 				phase = 5;
-				List<Thing> chunks = ListsUtility.GetAllStoneChunksOnMap(pawn.Map, pawn);
 				for (int i = 0; i < countSpawn; i++)
 				{
+					Thing chunk = GetBestChunk(pawn, false);
 					phase = 6;
-					if (ignoreChunks || chunks.NullOrEmpty())
+					if (ignoreChunks || chunk == null)
 					{
 						phase = 7;
 						if (currentLimit < currentConsumption + possibleConsumption)
@@ -248,14 +248,10 @@ namespace WVC_XenotypesAndGenes
 					else if (TryGetBestGolemKindForSummon(currentLimit, currentConsumption, golemsForSummon, currentGolems, out PawnKindDef newGolem, out float golemConsumtion))
 					{
 						phase = 9;
-						Thing chunk = chunks.RandomElement();
-						if (TryCreateGolemFromThing(chunk, newGolem))
+						if (TryCreateGolemFromThing(chunk, newGolem, pawn))
 						{
 							phase = 10;
-							chunks.Remove(chunk);
-							phase = 11;
 							currentConsumption += golemConsumtion;
-							phase = 12;
 							currentGolems.Add(newGolem);
 						}
 					}
@@ -266,6 +262,20 @@ namespace WVC_XenotypesAndGenes
 				summonMechanoids = false;
 				Log.Error($"Error while generating golems {this.ToStringSafe()} during phase {phase}: {arg}");
 			}
+		}
+
+		public static Thing GetBestChunk(Pawn pawn, bool forced)
+		{
+			Danger danger = (forced ? Danger.Deadly : Danger.Some);
+			return (Thing)GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForGroup(ThingRequestGroup.Chunk), PathEndMode.InteractionCell, TraverseParms.For(pawn, danger), 9999f, delegate (Thing t)
+			{
+				Thing building_MechCharger = (Thing)t;
+				if (!pawn.CanReach(t, PathEndMode.InteractionCell, danger))
+				{
+					return false;
+				}
+				return !t.IsForbidden(pawn) && pawn.CanReserve(t, 1, -1, null, forced);
+			});
 		}
 
 		public static bool TryGetBestGolemKindForSummon(float limit, float consumption, List<GolemModeDef> candidates, List<PawnKindDef> currentGolems, out PawnKindDef golem, out float golemConsumtion)
@@ -298,11 +308,11 @@ namespace WVC_XenotypesAndGenes
 			return true;
 		}
 
-		public bool TryCreateGolemFromThing(Thing chunk, PawnKindDef newGolem)
+		public static bool TryCreateGolemFromThing(Thing chunk, PawnKindDef newGolem, Pawn pawn)
 		{
 			try
 			{
-				if (chunk != null && pawn.CanReserveAndReach(chunk, PathEndMode.OnCell, pawn.NormalMaxDanger()))
+				if (chunk != null)
 				{
 					PawnGenerationRequest request = new(newGolem, pawn.Faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: false, canGeneratePawnRelations: true, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: true, allowAddictions: true, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Newborn);
 					Pawn summon = PawnGenerator.GeneratePawn(request);
@@ -328,8 +338,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			catch
 			{
-				summonMechanoids = false;
-				Log.Error("Failed generate golem.");
+				Log.Error("Failed create golem from " + chunk.def.defName);
 			}
 			return false;
 		}

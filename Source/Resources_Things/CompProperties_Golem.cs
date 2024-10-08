@@ -2,6 +2,7 @@ using RimWorld;
 using System;
 using System.Collections.Generic;
 using Verse;
+using Verse.AI;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -15,6 +16,8 @@ namespace WVC_XenotypesAndGenes
 
 		// public List<GeneDef> anyGeneDefs;
 
+		public JobDef changeCasteJob;
+
 		[Obsolete]
 		public int golemIndex = -1;
 
@@ -26,7 +29,6 @@ namespace WVC_XenotypesAndGenes
 		[Obsolete]
 		public IntRange checkOverseerInterval = new(45000, 85000);
 
-		[Obsolete]
 		public string uniqueTag = "XaG_Golems";
 
 		public CompProperties_Golem()
@@ -62,18 +64,49 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		private static readonly CachedTexture ChangeModeIcon = new("WVC/UI/XaG_General/Ui_ChangeGolemMode_v0");
+
 		// public override void PostSpawnSetup(bool respawningAfterLoad)
 		// {
-			// base.PostSpawnSetup(respawningAfterLoad);
-			// if (!respawningAfterLoad)
-			// {
-				// Pawn pawn = parent as Pawn;
-				// if (pawn?.needs?.energy != null)
-				// {
-					// pawn.needs.energy.CurLevel = pawn.needs.energy.MaxLevel;
-				// }
-			// }
+		// base.PostSpawnSetup(respawningAfterLoad);
+		// if (!respawningAfterLoad)
+		// {
+		// Pawn pawn = parent as Pawn;
+		// if (pawn?.needs?.energy != null)
+		// {
+		// pawn.needs.energy.CurLevel = pawn.needs.energy.MaxLevel;
 		// }
+		// }
+		// }
+
+		public override IEnumerable<Gizmo> CompGetGizmosExtra()
+		{
+			Pawn pawn = parent as Pawn;
+			if (XaG_GeneUtility.SelectorFactionMap(pawn))
+			{
+				yield break;
+			}
+			yield return new Command_Action
+			{
+				defaultLabel = "WVC_XaG_ChangeGolemMode".Translate(),
+				defaultDesc = "WVC_XaG_ChangeGolemModeDesc".Translate(),
+				icon = ChangeModeIcon.Texture,
+				action = delegate
+				{
+					Thing chunk = Gene_Golemlink.GetBestChunk(pawn, true);
+					float limit = MechanoidsUtility.TotalGolembond(pawn.GetOverseer());
+					float consumedGolembond = MechanoidsUtility.GetConsumedGolembond(pawn.GetOverseer()) - pawn.GetStatValue(WVC_GenesDefOf.WVC_GolemBondCost);
+					if (chunk == null || consumedGolembond > limit)
+					{
+						Messages.Message("WVC_XaG_ChangeGolemCaste_NonChunk_NonGolembond".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
+					}
+					else
+					{
+						Find.WindowStack.Add(new Dialog_ChangeGolemCaste(pawn, consumedGolembond, limit, this, chunk));
+					}
+				}
+			};
+		}
 
 		public override string CompInspectStringExtra()
 		{
@@ -91,6 +124,15 @@ namespace WVC_XenotypesAndGenes
 			}
 			return null;
 		}
-    }
+
+		public GolemModeDef targetMode;
+
+		public override void PostExposeData()
+		{
+			base.PostExposeData();
+			Scribe_Defs.Look(ref targetMode, "targetMode_" + Props.uniqueTag);
+		}
+
+	}
 
 }
