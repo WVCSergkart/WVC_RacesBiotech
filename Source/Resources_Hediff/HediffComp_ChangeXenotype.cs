@@ -1,3 +1,4 @@
+using RimWorld;
 using System.Collections.Generic;
 using Verse;
 
@@ -28,6 +29,11 @@ namespace WVC_XenotypesAndGenes
 
 		public Pawn genesOwner = null;
 
+		//public override void CompPostPostAdd(DamageInfo? dinfo)
+		//{
+		//	base.CompPostPostAdd(dinfo);
+		//}
+
 		public override void CompPostTick(ref float severityAdjustment)
 		{
 			base.CompPostTick(ref severityAdjustment);
@@ -38,6 +44,10 @@ namespace WVC_XenotypesAndGenes
 			// Pawn pawn = parent.pawn;
 			if (Pawn.Map == null)
 			{
+				if (Pawn.Faction != Faction.OfPlayer)
+				{
+					Pawn.health.RemoveHediff(parent);
+				}
 				return;
 			}
 			if (genesOwner == null)

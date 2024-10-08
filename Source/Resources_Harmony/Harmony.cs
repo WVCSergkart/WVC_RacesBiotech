@@ -1,6 +1,7 @@
 using HarmonyLib;
 using RimWorld;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Verse;
@@ -74,6 +75,7 @@ namespace WVC_XenotypesAndGenes
 					harmony.Patch(AccessTools.Method(typeof(Gene), "OverrideBy"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("OverrideTrigger")));
 					harmony.Patch(AccessTools.Method(typeof(LifeStageWorker_HumanlikeAdult), "Notify_LifeStageStarted"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Notify_LifeStageStarted")));
 					harmony.Patch(AccessTools.Method(typeof(SanguophageUtility), "DoBite"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("BloodeaterTrigger")));
+					// harmony.Patch(AccessTools.Method(typeof(FoodRestrictionDatabase), "GenerateStartingFoodRestrictions"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("StartingFoodRestrictions")));
 				}
 			}
 
@@ -486,6 +488,32 @@ namespace WVC_XenotypesAndGenes
 				}
 				return true;
 			}
+
+			// FoodPolicy
+
+			// public static void StartingFoodRestrictions(List<FoodPolicy> ___foodRestrictions, FoodRestrictionDatabase __instance)
+			// {
+				// List<ThingDef> thingDefs = DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef x) => x.GetStatValueAbstract(StatDefOf.Nutrition) > 0f).ToList();
+				// FoodPolicy bloodEaterFoodPolicy = __instance.MakeNewFoodRestriction();
+				// bloodEaterFoodPolicy.label = "WVC_XaG_BloodEaterFoodPolicy".Translate();
+				// foreach (ThingDef item in thingDefs.Where((ThingDef x) => x.ingestible != null))
+				// {
+					// if (item.ingestible.foodType == FoodTypeFlags.Fluid)
+					// {
+						// bloodEaterFoodPolicy.filter.SetAllow(item, allow: true);
+					// }
+					// else
+					// {
+						// bloodEaterFoodPolicy.filter.SetAllow(item, allow: false);
+					// }
+				// }
+				// FoodPolicy energyFoodPolicy = __instance.MakeNewFoodRestriction();
+				// energyFoodPolicy.label = "WVC_XaG_EnergyFoodPolicy".Translate();
+				// foreach (ThingDef item in thingDefs)
+				// {
+					// energyFoodPolicy.filter.SetAllow(item, allow: false);
+				// }
+			// }
 
 			// Dev TESTS
 

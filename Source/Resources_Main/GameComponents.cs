@@ -9,19 +9,38 @@ namespace WVC_XenotypesAndGenes
 	public class XaG_GameComponent : GameComponent
 	{
 
-		// public override void StartedNewGame()
-		// {
-			// base.StartedNewGame();
-			// Apply();
-		// }
+		public override void StartedNewGame()
+		{
+			if (!WVC_Biotech.settings.enable_StartingFoodPolicies)
+			{
+				return;
+			}
+			List<ThingDef> thingDefs = DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef x) => x.GetStatValueAbstract(StatDefOf.Nutrition) > 0f).ToList();
+			FoodPolicy bloodEaterFoodPolicy = Current.Game.foodRestrictionDatabase.MakeNewFoodRestriction();
+			bloodEaterFoodPolicy.label = "WVC_XaG_BloodEaterFoodPolicy".Translate();
+			FoodPolicy energyFoodPolicy = Current.Game.foodRestrictionDatabase.MakeNewFoodRestriction();
+			energyFoodPolicy.label = "WVC_XaG_EnergyFoodPolicy".Translate();
+			foreach (ThingDef item in thingDefs)
+			{
+				if (item.IsDrug)
+				{
+					bloodEaterFoodPolicy.filter.SetAllow(item, allow: true);
+					energyFoodPolicy.filter.SetAllow(item, allow: true);
+				}
+				else if (item.ingestible?.foodType == FoodTypeFlags.Fluid)
+				{
+					bloodEaterFoodPolicy.filter.SetAllow(item, allow: true);
+					energyFoodPolicy.filter.SetAllow(item, allow: false);
+				}
+				else
+				{
+					bloodEaterFoodPolicy.filter.SetAllow(item, allow: false);
+					energyFoodPolicy.filter.SetAllow(item, allow: false);
+				}
+			}
+		}
 
 		private int nextRecache = 444;
-
-		// public int cachedPawnsCount = 0;
-		// public int cachedXenotypesCount = 0;
-		// public int cachedNonHumansCount = 0;
-
-		// public List<Pawn> cachedBloodHunters;
 
 		public Game currentGame;
 
@@ -33,9 +52,6 @@ namespace WVC_XenotypesAndGenes
 		public override void LoadedGame()
 		{
 			DevFixes();
-			// XaG_General();
-			// ResetCounter();
-			// ResetCounter(1500);
 		}
 
 		public override void GameComponentTick()
@@ -51,7 +67,6 @@ namespace WVC_XenotypesAndGenes
 
 		public void XaG_General()
 		{
-			// cachedBloodHunters = XaG_GeneUtility.GetAllBloodHunters();
 			if (ModLister.IdeologyInstalled)
 			{
 				StaticCollectionsClass.cachedPawnsCount = MiscUtility.CountAllPlayerControlledColonistsExceptClonesAndQuests();
@@ -60,28 +75,12 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		// public override void ExposeData()
-		// {
-			// Scribe_Values.Look(ref cachedPawnsCount, "cachedPawnsCount", 0);
-			// Scribe_Values.Look(ref cachedXenotypesCount, "cachedXenotypesCount", 0);
-			// Scribe_Values.Look(ref cachedNonHumansCount, "cachedNonHumansCount", 0);
-		// }
-
+		// DEV
 		public void DevFixes()
 		{
 			FixGenesClasses();
 			ResetGenes();
 			FixGeneAbilities();
-			// if (WVC_Biotech.settings.fixThrallTypesOnLoad)
-			// {
-			// foreach (Pawn item in currentGame.CurrentMap.mapPawns.AllPawns.ToList())
-			// {
-			// if (item != null && item.RaceProps.Humanlike && item.genes != null)
-			// {
-			// }
-			// }
-			// WVC_Biotech.settings.fixGeneAbilitiesOnLoad = false;
-			// }
 		}
 
 		private static void FixGeneAbilities()

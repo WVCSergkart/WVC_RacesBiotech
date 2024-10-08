@@ -194,6 +194,7 @@ namespace WVC_XenotypesAndGenes
 		public bool thrallMaker_ThrallsInheritMasterGenes = true;
 		// Info
 		public bool enable_xagHumanComponent = true;
+		public bool enable_StartingFoodPolicies = true;
 		// public bool enableGeneSpawnerGizmo = true;
 		// public bool enableGeneWingInfo = false;
 		// public bool enableGeneBlesslinkInfo = true;

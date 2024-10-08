@@ -41,6 +41,7 @@
 	<fixVanillaGeneImmunityCheck>false</fixVanillaGeneImmunityCheck>
 	<enable_birthQualityOffsetFromGenes>false</enable_birthQualityOffsetFromGenes>
 	<enable_dryadQueenMechanicGenerator>false</enable_dryadQueenMechanicGenerator>
+	<enable_StartingFoodPolicies>false</enable_StartingFoodPolicies>
   </WVC_XenotypesAndGenes.SettingsDef>
 
 	<!-- Default Settings -->

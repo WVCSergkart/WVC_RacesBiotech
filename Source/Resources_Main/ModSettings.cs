@@ -48,6 +48,7 @@ namespace WVC_XenotypesAndGenes
 		public bool thrallMaker_ThrallsInheritMasterGenes = true;
 		// Info
 		public bool enable_xagHumanComponent = true;
+		public bool enable_StartingFoodPolicies = true;
 		// public bool enableGeneSpawnerGizmo = true;
 		// public bool enableGeneWingInfo = false;
 		// public bool enableGeneBlesslinkInfo = true;
@@ -175,6 +176,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref disableUniqueXenotypeScenarios, "disableUniqueXenotypeScenarios", defaultValue: false);
 			// Info
 			Scribe_Values.Look(ref enable_xagHumanComponent, "enable_xagHumanComponent", defaultValue: true);
+			Scribe_Values.Look(ref enable_StartingFoodPolicies, "enable_StartingFoodPolicies", defaultValue: true);
 			// Scribe_Values.Look(ref enableGeneSpawnerGizmo, "enableGeneSpawnerGizmo", defaultValue: true);
 			// Scribe_Values.Look(ref enableGeneWingInfo, "enableGeneWingInfo", defaultValue: false);
 			// Scribe_Values.Look(ref enableGeneBlesslinkInfo, "enableGeneBlesslinkInfo", defaultValue: true);
@@ -708,6 +710,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_enable_xagHumanComponent".Translate(), ref settings.enable_xagHumanComponent, "WVC_ToolTip_enable_xagHumanComponent".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_enable_birthQualityOffsetFromGenes".Translate(), ref settings.enable_birthQualityOffsetFromGenes, "WVC_ToolTip_enable_birthQualityOffsetFromGenes".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_harmony_EnableGenesMechanicsTriggers".Translate().Colorize(ColorLibrary.LightPurple), ref settings.harmony_EnableGenesMechanicsTriggers, "WVC_ToolTip_harmony_EnableGenesMechanicsTriggers".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_enable_StartingFoodPolicies".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_StartingFoodPolicies, "WVC_ToolTip_enable_StartingFoodPolicies".Translate());
 			listingStandard.GapLine();
 			// =
 			listingStandard.Label("WVC_XaGGeneSettings_MechAndPsyLinks".Translate() + ":", -1);
@@ -895,6 +898,7 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.spawnXenoForcerSerumsFromTraders = settingsDef.spawnXenoForcerSerumsFromTraders;
 			// Info
 			WVC_Biotech.settings.enable_xagHumanComponent = settingsDef.enable_xagHumanComponent;
+			WVC_Biotech.settings.enable_StartingFoodPolicies = settingsDef.enable_StartingFoodPolicies;
 			// WVC_Biotech.settings.enableGeneSpawnerGizmo = true;
 			// WVC_Biotech.settings.enableGeneWingInfo = false;
 			// WVC_Biotech.settings.enableGeneBlesslinkInfo = true;
