@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- =============== -->
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride"> -->
+	<!-- <defName>WVC_SkinColor_Dryad</defName> -->
+	<!-- <label>dryad skin</label> -->
+	<!-- <skinColorOverride>(255,203,139)</skinColorOverride> -->
+  <!-- </GeneDef> -->
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride"> -->
+	<!-- <defName>WVC_SkinColor_DryadBasic</defName> -->
+	<!-- <label>dryad basic skin</label> -->
+	<!-- <skinColorOverride>(206,158,90)</skinColorOverride> -->
+  <!-- </GeneDef> -->
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride"> -->
+	<!-- <defName>WVC_SkinColor_DryadBarkskin</defName> -->
+	<!-- <label>dryad barkskin skin</label> -->
+	<!-- <skinColorOverride>(132,117,74)</skinColorOverride> -->
+  <!-- </GeneDef> -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
+	<defName>WVC_SkinColor_MilkWhite</defName>
+	<label>milk white skin</label>
+	<skinColorOverride>(214,208,211)</skinColorOverride>
+	<!-- <skinColorOverride>(240,210,240)</skinColorOverride> -->
+  </GeneDef>
+
+</Defs>

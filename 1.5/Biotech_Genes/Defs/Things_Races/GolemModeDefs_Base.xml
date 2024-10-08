@@ -81,7 +81,7 @@
 	<displayedStats>
 	  <li>CleaningSpeed</li>
 	</displayedStats>
-	<canBeSummoned>true</canBeSummoned>
+	<canBeSummoned>false</canBeSummoned>
 	<canBeAnimated>true</canBeAnimated>
 	<iconSize>0.5</iconSize>
 	<pawnKindDef>WVC_Golem_Cleanoid</pawnKindDef>

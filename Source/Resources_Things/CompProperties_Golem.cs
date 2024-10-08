@@ -86,6 +86,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
+			if (Props.changeCasteJob == null)
+			{
+				yield break;
+			}
 			yield return new Command_Action
 			{
 				defaultLabel = "WVC_XaG_ChangeGolemMode".Translate(),
