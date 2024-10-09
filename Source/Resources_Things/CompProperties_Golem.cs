@@ -97,7 +97,7 @@ namespace WVC_XenotypesAndGenes
 				icon = ChangeModeIcon.Texture,
 				action = delegate
 				{
-					Thing chunk = Gene_Golemlink.GetBestChunk(pawn, true);
+					Thing chunk = Gene_Golemlink.GetBestStoneChunk(pawn, false);
 					float limit = MechanoidsUtility.TotalGolembond(pawn.GetOverseer());
 					float consumedGolembond = MechanoidsUtility.GetConsumedGolembond(pawn.GetOverseer()) - pawn.GetStatValue(WVC_GenesDefOf.WVC_GolemBondCost);
 					if (chunk == null || consumedGolembond > limit)

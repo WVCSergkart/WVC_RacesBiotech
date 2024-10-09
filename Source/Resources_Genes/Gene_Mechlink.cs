@@ -228,7 +228,7 @@ namespace WVC_XenotypesAndGenes
 				phase = 5;
 				for (int i = 0; i < countSpawn; i++)
 				{
-					Thing chunk = GetBestChunk(pawn, false);
+					Thing chunk = GetBestStoneChunk(pawn, false);
 					phase = 6;
 					if (ignoreChunks || chunk == null)
 					{
@@ -264,13 +264,13 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static Thing GetBestChunk(Pawn pawn, bool forced)
+		public static Thing GetBestStoneChunk(Pawn pawn, bool forced)
 		{
 			Danger danger = (forced ? Danger.Deadly : Danger.Some);
 			return (Thing)GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForGroup(ThingRequestGroup.Chunk), PathEndMode.InteractionCell, TraverseParms.For(pawn, danger), 9999f, delegate (Thing t)
 			{
-				Thing building_MechCharger = (Thing)t;
-				if (!pawn.CanReach(t, PathEndMode.InteractionCell, danger))
+				Thing chunk = (Thing)t;
+				if (!pawn.CanReach(t, PathEndMode.InteractionCell, danger) || chunk.def.thingCategories.NullOrEmpty() || !chunk.def.thingCategories.Contains(ThingCategoryDefOf.StoneChunks))
 				{
 					return false;
 				}
