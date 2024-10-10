@@ -234,6 +234,12 @@
 		  <!-- <li>Delicate</li> -->
 		<!-- </dupGeneDefs> -->
 	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <sourceGeneDef>WVC_GauntSkin</sourceGeneDef> -->
+		<!-- <dupGeneDefs> -->
+		  <!-- <li>Head_Gaunt</li> -->
+		<!-- </dupGeneDefs> -->
+	  <!-- </li> -->
 	</identicalGeneDefs>
   </WVC_XenotypesAndGenes.XenotypesAndGenesListDef>
 

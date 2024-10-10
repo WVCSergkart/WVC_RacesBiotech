@@ -328,6 +328,7 @@ namespace WVC_XenotypesAndGenes
 			List<XaG_CountWithChance> similarGenes = ListsUtility.GetIdenticalGeneDefs();
 			foreach (XenotypeDef xenotypeDef in DefDatabase<XenotypeDef>.AllDefsListForReading)
 			{
+				GeneDef geneToAdd = null;
 				foreach (GeneDef geneDef in xenotypeDef.genes.ToList())
 				{
 					foreach (XaG_CountWithChance similar in similarGenes)
@@ -335,9 +336,20 @@ namespace WVC_XenotypesAndGenes
 						if (similar.sourceGeneDef != null && !similar.dupGeneDefs.NullOrEmpty() && similar.dupGeneDefs.Contains(geneDef))
 						{
 							xenotypeDef.genes.Remove(geneDef);
-							xenotypeDef.genes.Add(similar.sourceGeneDef);
+							geneToAdd = similar.sourceGeneDef;
 						}
 					}
+				}
+				if (geneToAdd != null && !xenotypeDef.genes.Contains(geneToAdd))
+				{
+					foreach (GeneDef geneDef in xenotypeDef.genes.ToList())
+					{
+						if (geneDef.ConflictsWith(geneToAdd))
+						{
+							xenotypeDef.genes.Remove(geneDef);
+						}
+					}
+					xenotypeDef.genes.Add(geneToAdd);
 				}
 			}
 		}
