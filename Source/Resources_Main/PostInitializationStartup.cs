@@ -327,32 +327,36 @@ namespace WVC_XenotypesAndGenes
 			}
 			List<XaG_CountWithChance> similarGenes = ListsUtility.GetIdenticalGeneDefs();
 			foreach (XenotypeDef xenotypeDef in DefDatabase<XenotypeDef>.AllDefsListForReading)
-			{
-				GeneDef geneToAdd = null;
-				foreach (GeneDef geneDef in xenotypeDef.genes.ToList())
-				{
-					foreach (XaG_CountWithChance similar in similarGenes)
-					{
-						if (similar.sourceGeneDef != null && !similar.dupGeneDefs.NullOrEmpty() && similar.dupGeneDefs.Contains(geneDef))
-						{
-							xenotypeDef.genes.Remove(geneDef);
-							geneToAdd = similar.sourceGeneDef;
-						}
-					}
-				}
-				if (geneToAdd != null && !xenotypeDef.genes.Contains(geneToAdd))
-				{
-					foreach (GeneDef geneDef in xenotypeDef.genes.ToList())
-					{
-						if (geneDef.ConflictsWith(geneToAdd))
-						{
-							xenotypeDef.genes.Remove(geneDef);
-						}
-					}
-					xenotypeDef.genes.Add(geneToAdd);
-				}
-			}
-		}
+            {
+                GeneDef geneToAdd = null;
+                foreach (GeneDef geneDef in xenotypeDef.genes.ToList())
+                {
+                    foreach (XaG_CountWithChance similar in similarGenes)
+                    {
+                        if (similar.sourceGeneDef != null && !similar.dupGeneDefs.NullOrEmpty() && similar.dupGeneDefs.Contains(geneDef))
+                        {
+                            xenotypeDef.genes.Remove(geneDef);
+                            geneToAdd = similar.sourceGeneDef;
+                        }
+                    }
+                }
+                if (geneToAdd == null || xenotypeDef.genes.Contains(geneToAdd))
+                {
+                    continue;
+                }
+                if (!geneToAdd.randomChosen)
+                {
+                    foreach (GeneDef geneDef in xenotypeDef.genes.ToList())
+                    {
+                        if (geneDef.ConflictsWith(geneToAdd))
+                        {
+                            xenotypeDef.genes.Remove(geneDef);
+                        }
+                    }
+                }
+                xenotypeDef.genes.Add(geneToAdd);
+            }
+        }
 
 		// public static void SubXenotypes()
 		// {

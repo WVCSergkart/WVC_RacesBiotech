@@ -197,6 +197,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
+			if (!ability.CanApplyOn(target))
+			{
+				return false;
+			}
 			job = ability.GetJob(target, target);
 			return true;
 		}
