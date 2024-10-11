@@ -56,7 +56,7 @@
 	<biostatArc>2</biostatArc>
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
-	  <li>Cooldown will take (*DateTime)2-12 days(/DateTime).</li>
+	  <li>Cooldown between resurrections will take (*DateTime)2-12 days(/DateTime).</li>
 	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
@@ -79,9 +79,9 @@
 	<biostatCpx>7</biostatCpx>
 	<biostatArc>2</biostatArc>
 	<biostatMet>0</biostatMet>
-	<customEffectDescriptions>
-	  <li>&lt;color=#ff8585&gt;The only way to kill the carrier is to destroy the body.&lt;/color&gt;</li>
-	</customEffectDescriptions>
+	<!-- <customEffectDescriptions> -->
+	  <!-- <li>&lt;color=#ff8585&gt;The only way to kill the carrier is to destroy the body.&lt;/color&gt;</li> -->
+	<!-- </customEffectDescriptions> -->
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
 			<childhoodDef>WVC_RacesBiotech_Amnesia_Child</childhoodDef>
