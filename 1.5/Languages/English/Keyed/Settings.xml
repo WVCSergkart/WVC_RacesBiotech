@@ -16,7 +16,7 @@
 	<WVC_XaG_ResetButton>Reset Settings</WVC_XaG_ResetButton>
 	<!-- <WVC_XaG_ModDeveloperRecommendationButton>Dev Intended Settings</WVC_XaG_ModDeveloperRecommendationButton> -->
 
-	<WVC_XaG_ResetButtonWarning>{0}\n\nChanging the preset settings requires a game restart. Do you want to continue?</WVC_XaG_ResetButtonWarning>
+	<WVC_XaG_ResetButtonWarning>{0}\n\nChanging settings require a restart and starting a new game. Do you want to continue?</WVC_XaG_ResetButtonWarning>
 	<WVC_XaG_ResetButton_SettingsChanged>The settings have been changed.</WVC_XaG_ResetButton_SettingsChanged>
 
 	<WVC_BiotechSettings_Tooltip_Graphics>Settings responsible for graphic elements.</WVC_BiotechSettings_Tooltip_Graphics>
