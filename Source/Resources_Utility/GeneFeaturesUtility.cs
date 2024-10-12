@@ -162,7 +162,15 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			SkillRecord studentSkill = studentSkills.Where((SkillRecord ssr) => !ssr.TotallyDisabled).RandomElement();
+			if (studentSkill == null)
+			{
+				return;
+			}
 			SkillRecord teachSkill = teacherSkills.Where((SkillRecord tsr) => !tsr.TotallyDisabled && tsr.def == studentSkill.def).RandomElement();
+			if (teachSkill == null)
+			{
+				return;
+			}
 			studentSkill.Learn(teachSkill.XpTotalEarned * learnPercent, true);
 			// Log.Error(studentSkill.def.LabelCap + " " + teachSkill.XpTotalEarned.ToString());
 		}

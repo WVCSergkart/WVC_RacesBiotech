@@ -59,6 +59,29 @@
 
 			</operations>
 		</caseTrue>
+		<caseFalse Class="PatchOperationSequence">
+			<operations>
+
+				<li Class="WVC_XenotypesAndGenes.PatchOperationOptional">
+					<settingName>enable_FurskinIsSkinAutopatch</settingName>
+					<caseTrue Class="PatchOperationSequence">
+						<operations>
+
+							<li Class="PatchOperationRemove">
+								<xpath>/Defs/GeneDef/modExtensions/li[@Class="VanillaGenesExpanded.GeneExtension"]/useSkinColorForFur</xpath>
+								<success>Always</success>
+							</li>
+							<li Class="PatchOperationRemove">
+								<xpath>/Defs/GeneDef/modExtensions/li[@Class="VanillaGenesExpanded.GeneExtension"]/furHidesBody</xpath>
+								<success>Always</success>
+							</li>
+
+						</operations>
+					</caseTrue>
+				</li>
+
+			</operations>
+		</caseFalse>
 	</Operation>
 
 	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
