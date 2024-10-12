@@ -187,6 +187,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return true;
 			}
+			if (implantee.Downed)
+			{
+				return true;
+			}
 			if (!IdeoUtility.DoerWillingToDo(HistoryEventDefOf.PropagateBloodfeederGene, implantee) && implanter.genes.Xenogenes.Any((Gene x) => x.def == GeneDefOf.Bloodfeeder))
 			{
 				return false;

@@ -337,7 +337,10 @@ namespace WVC_XenotypesAndGenes
                         {
                             xenotypeDef.genes.Remove(geneDef);
                             geneToAdd = similar.sourceGeneDef;
-                        }
+							geneDef.selectionWeight = 0f;
+							geneDef.canGenerateInGeneSet = false;
+
+						}
                     }
                 }
                 if (geneToAdd == null || xenotypeDef.genes.Contains(geneToAdd))
