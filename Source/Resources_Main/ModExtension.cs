@@ -228,6 +228,8 @@ namespace WVC_XenotypesAndGenes
 		public JobDef rechargeableStomachJobDef;
 		public ThingDef xenoChargerDef;
 		public float chargeSpeedFactor = 1f;
+		// Morpher
+		public List<XenotypeDef> xenotypeDefs;
 	}
 
 	public class GeneExtension_Obsolete : DefModExtension

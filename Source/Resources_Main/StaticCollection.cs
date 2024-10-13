@@ -31,4 +31,21 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class PawnGeneSetHolder : IExposable
+	{
+
+		public List<Gene> endogenes = new();
+		public List<Gene> xenogenes = new();
+
+		public XenotypeDef xenotypeDef;
+
+		public void ExposeData()
+		{
+			Scribe_Defs.Look(ref xenotypeDef, "xenotypeDef");
+			Scribe_Collections.Look(ref endogenes, "endogenes", LookMode.Deep);
+			Scribe_Collections.Look(ref xenogenes, "xenogenes", LookMode.Deep);
+		}
+
+	}
+
 }

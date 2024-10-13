@@ -113,18 +113,18 @@ namespace WVC_XenotypesAndGenes
 			// =
 			foreach (Pawn colonist in targets)
 			{
-				//if (!GeneFeaturesUtility.CanBloodFeedNowWith(pawn, colonist))
+                if (!GeneFeaturesUtility.CanBloodFeedNowWith(pawn, colonist))
+                {
+                    continue;
+                }
+                if (colonist.IsForbidden(pawn) || !pawn.CanReserveAndReach(colonist, PathEndMode.OnCell, pawn.NormalMaxDanger()))
+				{
+					continue;
+				}
+				//if (colonist.health.hediffSet.HasHediff(HediffDefOf.BloodLoss))
 				//{
 				//	continue;
 				//}
-				if (colonist.IsForbidden(pawn) || !pawn.CanReserveAndReach(colonist, PathEndMode.OnCell, pawn.NormalMaxDanger()))
-				{
-					continue;
-				}
-				if (colonist.health.hediffSet.HasHediff(HediffDefOf.BloodLoss))
-				{
-					continue;
-				}
 				if (!MiscUtility.TryGetAbilityJob(pawn, colonist, WVC_GenesDefOf.Bloodfeed, out Job job))
 				{
 					continue;

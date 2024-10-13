@@ -91,6 +91,7 @@
     <Compile Include="Resources_Genes\Gene_GeneMaker.cs" />
     <Compile Include="Resources_Genes\Gene_Harvester.cs" />
     <Compile Include="Resources_Genes\Gene_Learning.cs" />
+    <Compile Include="Resources_Genes\Gene_Morpher.cs" />
     <Compile Include="Resources_Genes\Gene_Opinion.cs" />
     <Compile Include="Resources_Genes\Gene_Psylink.cs" />
     <Compile Include="Resources_Genes\Gene_Regen.cs" />

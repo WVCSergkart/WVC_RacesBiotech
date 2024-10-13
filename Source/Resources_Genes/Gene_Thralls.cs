@@ -81,11 +81,11 @@ namespace WVC_XenotypesAndGenes
 			// =
 			foreach (Pawn colonist in targets)
 			{
-				//if (!GeneFeaturesUtility.CanCellsFeedNowWith(pawn, colonist))
-				//{
-				//	continue;
-				//}
-				if (colonist.IsForbidden(pawn) || !pawn.CanReserveAndReach(colonist, PathEndMode.OnCell, pawn.NormalMaxDanger()))
+                if (!GeneFeaturesUtility.CanCellsFeedNowWith(pawn, colonist))
+                {
+                    continue;
+                }
+                if (colonist.IsForbidden(pawn) || !pawn.CanReserveAndReach(colonist, PathEndMode.OnCell, pawn.NormalMaxDanger()))
 				{
 					continue;
 				}
