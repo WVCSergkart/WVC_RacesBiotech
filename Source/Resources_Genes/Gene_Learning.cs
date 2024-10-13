@@ -228,13 +228,13 @@ namespace WVC_XenotypesAndGenes
 
 		public void TryInteractOrLearning()
 		{
-			if (currentRange < 30000)
+			if (currentRange < 30000 || !TryLearning(pawn, 0.05f))
 			{
 				ThoughtUtility.TryInteractRandomly(pawn, this);
 			}
 			else
-			{
-				TryLearning(pawn, 0.05f);
+            {
+				FleckMaker.AttachedOverlay(pawn, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
 			}
 			// Log.Error(currentRange.ToString());
 		}
@@ -268,10 +268,8 @@ namespace WVC_XenotypesAndGenes
 					continue;
 				}
 				// Log.Error(p.Name.ToString());
-				GeneFeaturesUtility.TryGetRandomSkillFromPawn(pawn, p, learnPercent);
-				break;
+				return GeneFeaturesUtility.TryGetRandomSkillFromPawn(pawn, p, learnPercent);
 			}
-			FleckMaker.AttachedOverlay(pawn, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
 			return true;
 		}
 

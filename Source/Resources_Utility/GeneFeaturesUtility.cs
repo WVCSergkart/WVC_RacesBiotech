@@ -153,25 +153,24 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void TryGetRandomSkillFromPawn(Pawn student, Pawn teacher, float learnPercent)
+		public static bool TryGetRandomSkillFromPawn(Pawn student, Pawn teacher, float learnPercent)
 		{
 			List<SkillRecord> teacherSkills = teacher?.skills?.skills;
 			List<SkillRecord> studentSkills = student?.skills?.skills;
 			if (teacherSkills == null || studentSkills == null)
 			{
-				return;
+				return false;
 			}
-			SkillRecord studentSkill = studentSkills.Where((SkillRecord ssr) => !ssr.TotallyDisabled).RandomElement();
-			if (studentSkill == null)
+			if (!studentSkills.Where((SkillRecord ssr) => !ssr.TotallyDisabled).TryRandomElement(out SkillRecord studentSkill))
 			{
-				return;
+				return false;
 			}
-			SkillRecord teachSkill = teacherSkills.Where((SkillRecord tsr) => !tsr.TotallyDisabled && tsr.def == studentSkill.def).RandomElement();
-			if (teachSkill == null)
+			if (!teacherSkills.Where((SkillRecord tsr) => !tsr.TotallyDisabled && tsr.def == studentSkill.def).TryRandomElement(out SkillRecord teachSkill))
 			{
-				return;
+				return false;
 			}
 			studentSkill.Learn(teachSkill.XpTotalEarned * learnPercent, true);
+			return true;
 			// Log.Error(studentSkill.def.LabelCap + " " + teachSkill.XpTotalEarned.ToString());
 		}
 
