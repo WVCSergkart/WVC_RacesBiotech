@@ -227,10 +227,40 @@ namespace WVC_XenotypesAndGenes
 				recipient.health.AddHediff(HediffDefOf.XenogerminationComa);
 				GeneUtility.UpdateXenogermReplication(recipient);
 			}
-			XaG_GameComponent.AddMissingGeneAbilities(recipient);
-		}
+            //XaG_GameComponent.AddMissingGeneAbilities(recipient);
+            //FixGeneTraits(recipient);
+            ReimplanterUtility.PostImplantDebug(recipient);
+        }
 
 		// =============================== New ===============================
+
+		public static void PostImplantDebug(Pawn pawn)
+		{
+            foreach (Gene item in pawn.genes.GenesListForReading)
+            {
+                if (item.overriddenByGene != null && !XaG_GeneUtility.HasGene(item.overriddenByGene.def, pawn))
+                {
+                    item.OverrideBy(null);
+                }
+            }
+            XaG_GameComponent.AddMissingGeneAbilities(pawn);
+			ReimplanterUtility.FixGeneTraits(pawn);
+		}
+
+		public static void OverrideAllConflictsWith(Gene gene, List<Gene> genes)
+		{
+			foreach (Gene item in genes)
+			{
+				if (item == gene)
+				{
+					continue;
+				}
+				if (item.def.ConflictsWith(gene.def))
+				{
+					item.OverrideBy(gene);
+				}
+			}
+		}
 
 		public static void TrySetSkinAndHairGenes(Pawn pawn)
 		{
@@ -255,6 +285,24 @@ namespace WVC_XenotypesAndGenes
 			if (!xenotypeHasHairColor)
 			{
 				recipientGenes?.AddGene(WVC_GenesDefOf.Hair_SnowWhite, false);
+			}
+		}
+
+		public static void FixGeneTraits(Pawn pawn)
+		{
+			foreach (Trait trait in pawn.story.traits.allTraits.ToList())
+			{
+				if (trait.sourceGene != null && !XaG_GeneUtility.HasGene(trait.sourceGene.def, pawn))
+				{
+					trait.sourceGene = null;
+					trait.suppressedByGene = null;
+					trait.suppressedByTrait = false;
+					pawn.story.traits.RemoveTrait(trait);
+				}
+				if (trait.suppressedByGene != null && !XaG_GeneUtility.HasGene(trait.suppressedByGene.def, pawn))
+				{
+					trait.suppressedByGene = null;
+				}
 			}
 		}
 

@@ -34,6 +34,12 @@ namespace WVC_XenotypesAndGenes
 	public class PawnGeneSetHolder : IExposable
 	{
 
+		public int formId;
+
+		public string name;
+
+		public XenotypeIconDef iconDef;
+
 		public List<Gene> endogenes = new();
 		public List<Gene> xenogenes = new();
 
@@ -41,6 +47,9 @@ namespace WVC_XenotypesAndGenes
 
 		public void ExposeData()
 		{
+			Scribe_Values.Look(ref formId, "formId");
+			Scribe_Values.Look(ref name, "name");
+			Scribe_Defs.Look(ref iconDef, "iconDef");
 			Scribe_Defs.Look(ref xenotypeDef, "xenotypeDef");
 			Scribe_Collections.Look(ref endogenes, "endogenes", LookMode.Deep);
 			Scribe_Collections.Look(ref xenogenes, "xenogenes", LookMode.Deep);

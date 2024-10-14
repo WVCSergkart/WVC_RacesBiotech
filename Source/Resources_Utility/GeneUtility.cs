@@ -165,18 +165,6 @@ namespace WVC_XenotypesAndGenes
 
 		// Misc
 
-		public static void CheckAllOverrides(Pawn pawn)
-		{
-			foreach (Gene item in pawn.genes.GenesListForReading)
-			{
-				if (item.overriddenByGene != null && !XaG_GeneUtility.HasGene(item.overriddenByGene.def, pawn))
-				{
-					item.OverrideBy(null);
-				}
-			}
-			XaG_GameComponent.AddMissingGeneAbilities(pawn);
-		}
-
 		public static void UpdateXenogermReplication(Pawn pawn, bool addXenogermReplicating = true, IntRange ticksToDisappear = new())
 		{
 			Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating);

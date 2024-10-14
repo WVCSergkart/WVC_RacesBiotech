@@ -71,6 +71,8 @@ namespace WVC_XenotypesAndGenes
 				{
 					return list;
 				}
+				XaG_PostInitialization.SetValues();
+				// WVC_Biotech.settings.Write();
 				foreach (var item in WVC_Biotech.cachedXenotypesFilter)
 				{
 					if (item.Value == false)
@@ -89,13 +91,13 @@ namespace WVC_XenotypesAndGenes
 			// {
 			// blackListedXenotypesForSerums.AddRange(item.blackListedXenotypesForSerums);
 			// }
-			List<XenotypeDef> genesListForReading = DefDatabase<XenotypeDef>.AllDefsListForReading;
+			List<XenotypeDef> allXenotypesList = DefDatabase<XenotypeDef>.AllDefsListForReading;
 			List<XenotypeDef> list = new();
-			for (int i = 0; i < genesListForReading.Count; i++)
+			for (int i = 0; i < allXenotypesList.Count; i++)
 			{
-				if (!filterList.Contains(genesListForReading[i].defName))
+				if (!filterList.Contains(allXenotypesList[i].defName))
 				{
-					list.Add(genesListForReading[i]);
+					list.Add(allXenotypesList[i]);
 				}
 			}
 			if (addFromResurrectorFilter)

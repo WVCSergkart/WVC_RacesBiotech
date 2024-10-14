@@ -13,6 +13,7 @@
 	<customEffectDescriptions>
 		<li>Under certain conditions, &lt;color=#8a8ae6&gt;changes&lt;/color&gt; the carrier's gene set.</li>
 		<li>The old gene set is stored in the &lt;color=#8a8ae6&gt;gene's memory&lt;/color&gt;.</li>
+		<li>&lt;color=#8a8ae6&gt;Morph&lt;/color&gt; is triggered every &lt;color=#8a8ae6&gt;evening&lt;/color&gt;.</li>
 		<li>&lt;color=#ffec85&gt;Can only remember one custom xenotype at a time.&lt;/color&gt;</li>
 		<!-- <li>&lt;color=#ffec85&gt;Support custom xenotypes.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>

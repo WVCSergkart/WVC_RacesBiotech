@@ -17,7 +17,24 @@ namespace WVC_XenotypesAndGenes
 
 		private int nextTick = 1500;
 
-		public List<PawnGeneSetHolder> pawnGeneSets = new();
+		private int currentLimit = 1;
+
+		private string currentFormName = null;
+		private int? formId;
+
+		public List<PawnGeneSetHolder> savedGeneSets = new();
+
+		public override string LabelCap
+		{
+			get
+			{
+				if (currentFormName.NullOrEmpty())
+				{
+					return base.LabelCap;
+				}
+				return base.LabelCap + " (" + currentFormName.CapitalizeFirst() + ")";
+			}
+		}
 
 		public override void PostAdd()
 		{
@@ -49,37 +66,53 @@ namespace WVC_XenotypesAndGenes
 				}
 				phase = "exclude list";
 				List<XenotypeDef> exclude = new() { pawn.genes.Xenotype };
-				if (pawnGeneSets.NullOrEmpty())
+				if (savedGeneSets.NullOrEmpty())
 				{
-					pawnGeneSets = new();
+					savedGeneSets = new();
 				}
 				else
 				{
-					foreach (PawnGeneSetHolder set in pawnGeneSets)
+					foreach (PawnGeneSetHolder set in savedGeneSets)
 					{
 						exclude.Add(set.xenotypeDef);
 					}
 				}
 				phase = "save old gene set";
 				SaveGenes();
-				phase = "get xenotype from pawn xenotype";
+				phase = "get xenotype";
 				XenotypeDef xenotypeDef = null;
-				xenotypeDef = GetRandomXenotypeFromList(pawn.genes?.Xenotype?.GetModExtension<GeneExtension_Giver>()?.xenotypeDefs, exclude, xenotypeDef);
-				if (xenotypeDef == null && Giver != null)
+				if (savedGeneSets.Count < currentLimit + 1)
 				{
-					phase = "get xenotype from gene xenotypes list";
-					xenotypeDef = GetRandomXenotypeFromList(Giver?.xenotypeDefs, exclude, xenotypeDef);
+					phase = "get xenotype from pawn xenotype";
+					xenotypeDef = GetRandomXenotypeFromList(pawn.genes?.Xenotype?.GetModExtension<GeneExtension_Giver>()?.xenotypeDefs, exclude, xenotypeDef);
+					if (xenotypeDef == null && Giver != null)
+					{
+						phase = "get xenotype from gene xenotypes list";
+						xenotypeDef = GetRandomXenotypeFromList(Giver?.xenotypeDefs, exclude, xenotypeDef);
+					}
+					if (xenotypeDef == null)
+					{
+						phase = "get random xenotype from white list";
+						xenotypeDef = ListsUtility.GetWhiteListedXenotypes().RandomElement();
+					}
 				}
 				if (xenotypeDef != null)
 				{
 					phase = "implant new xenotype";
 					Reimplant(xenotypeDef);
 				}
-				else
+				else if (savedGeneSets.Where((PawnGeneSetHolder set) => set.xenotypeDef != null && set.formId != formId.Value).TryRandomElement(out PawnGeneSetHolder genesHolder))
 				{
 					phase = "implant saved xenotype";
-					ImplantFromSet(pawnGeneSets.Where((PawnGeneSetHolder set) => set.xenotypeDef != null && set.xenotypeDef != pawn.genes.Xenotype).RandomElement());
+					ImplantFromSet(genesHolder);
 				}
+				else
+				{
+					Log.Error("Failed morph on phase: " + phase);
+				}
+				phase = "debug genes";
+				ReimplanterUtility.TrySetSkinAndHairGenes(pawn);
+				ReimplanterUtility.PostImplantDebug(pawn);
 				pawn.Drawer?.renderer?.SetAllGraphicsDirty();
 				phase = "do effects yay";
 				DoEffects();
@@ -91,9 +124,9 @@ namespace WVC_XenotypesAndGenes
 				Log.Error($"Error while morphing during phase {phase}: {arg} (Gene: " + this.LabelCap + " | " + this.def.defName + ")");
 				nextTick = 60000;
 			}
-        }
+		}
 
-        public static XenotypeDef GetRandomXenotypeFromList(List<XenotypeDef> xenotypeDefs, List<XenotypeDef> exclude, XenotypeDef xenotypeDef)
+		public static XenotypeDef GetRandomXenotypeFromList(List<XenotypeDef> xenotypeDefs, List<XenotypeDef> exclude, XenotypeDef xenotypeDef)
 		{
 			if (xenotypeDefs.NullOrEmpty())
 			{
@@ -104,10 +137,10 @@ namespace WVC_XenotypesAndGenes
 				exclude = new();
 			}
 			xenotypeDefs?.Where((XenotypeDef xenos) => !exclude.Contains(xenos))?.TryRandomElement(out xenotypeDef);
-            return xenotypeDef;
-        }
+			return xenotypeDef;
+		}
 
-        public void DoEffects()
+		public void DoEffects()
 		{
 			if (pawn.Map == null)
 			{
@@ -119,6 +152,8 @@ namespace WVC_XenotypesAndGenes
 		private void ImplantFromSet(PawnGeneSetHolder pawnGeneSet)
 		{
 			ReimplanterUtility.SetXenotypeDirect(null, pawn, pawnGeneSet.xenotypeDef, true);
+			pawn.genes.xenotypeName = pawnGeneSet.name;
+			pawn.genes.iconDef = pawnGeneSet.iconDef;
 			foreach (Gene gene in pawnGeneSet.endogenes)
 			{
 				AddGene(gene.def, gene, true);
@@ -127,8 +162,9 @@ namespace WVC_XenotypesAndGenes
 			{
 				AddGene(gene.def, gene, false);
 			}
-			ReimplanterUtility.TrySetSkinAndHairGenes(pawn);
-			pawnGeneSets.Remove(pawnGeneSet);
+			currentFormName = pawnGeneSet.name;
+			formId = pawnGeneSet.formId;
+			savedGeneSets.Remove(pawnGeneSet);
 		}
 
 		private void Reimplant(XenotypeDef xenotypeDef)
@@ -138,7 +174,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				AddGene(geneDef, null, xenotypeDef.inheritable);
 			}
-			ReimplanterUtility.TrySetSkinAndHairGenes(pawn);
+			formId = savedGeneSets.Count + 1;
+			currentFormName = xenotypeDef.label;
 		}
 
 		public void SaveGenes()
@@ -148,6 +185,11 @@ namespace WVC_XenotypesAndGenes
 			//	return;
 			//}
 			PawnGeneSetHolder newSet = new();
+			if (!formId.HasValue)
+			{
+				formId = savedGeneSets.Count + 1;
+			}
+			newSet.formId = formId.Value;
 			newSet.xenotypeDef = pawn.genes.Xenotype;
 			newSet.xenogenes = new();
 			newSet.endogenes = new();
@@ -173,7 +215,13 @@ namespace WVC_XenotypesAndGenes
 			{
 				RemoveGene(gene);
 			}
-			pawnGeneSets.Add(newSet);
+			newSet.name = pawn.genes.xenotypeName;
+			if (newSet.name.NullOrEmpty())
+			{
+				newSet.name = newSet.xenotypeDef.label;
+			}
+			newSet.iconDef = pawn.genes.iconDef;
+			savedGeneSets.Add(newSet);
 		}
 
 		public virtual void AddGene(GeneDef geneDef, Gene gene, bool inheritable)
@@ -210,29 +258,29 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		private void ResetInterval(IntRange range)
-        {
-            nextTick = range.RandomInRange;
-        }
+		{
+			nextTick = range.RandomInRange;
+		}
 
 		//public bool TryDamageSwitch()
-  //      {
-  //          if (pawn.genes.GetFirstGeneOfType<Gene_Morpher>() != null)
-  //          {
-  //              float summaryHealthPercent = pawn.health.summaryHealth.SummaryHealthPercent;
-  //              if (summaryHealthPercent < 0.8f)
-  //              {
+  //	  {
+  //		  if (pawn.genes.GetFirstGeneOfType<Gene_Morpher>() != null)
+  //		  {
+  //			  float summaryHealthPercent = pawn.health.summaryHealth.SummaryHealthPercent;
+  //			  if (summaryHealthPercent < 0.8f)
+  //			  {
 		//			return true;
-  //              }
-  //          }
+  //			  }
+  //		  }
 		//	return false;
-  //      }
+  //	  }
 
 		//public bool TrySeasonsSwitch()
-  //      {
-  //          if (pawn.genes.GetFirstGeneOfType<Gene_Morpher>() != null)
-  //          {
-  //              float num2 = GenLocalDate.DayOfYear(pawn);
-  //              if (num2 > 31f && num2 < 60f)
+  //	  {
+  //		  if (pawn.genes.GetFirstGeneOfType<Gene_Morpher>() != null)
+  //		  {
+  //			  float num2 = GenLocalDate.DayOfYear(pawn);
+  //			  if (num2 > 31f && num2 < 60f)
 		//		{
 		//			return true;
 		//		}
@@ -240,7 +288,7 @@ namespace WVC_XenotypesAndGenes
 		//	return false;
 		//}
 
-        public bool TryNocturnalSwitch()
+		public bool TryNocturnalSwitch()
 		{
 			float num = GenLocalDate.DayTick(pawn);
 			if (num > 45000f || num < 15000f)
@@ -250,7 +298,7 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-        public override IEnumerable<Gizmo> GetGizmos()
+		public override IEnumerable<Gizmo> GetGizmos()
 		{
 			if (DebugSettings.ShowDevGizmos)
 			{
@@ -268,7 +316,11 @@ namespace WVC_XenotypesAndGenes
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Collections.Look(ref pawnGeneSets, "pawnGeneSets", LookMode.Deep);
+			Scribe_Values.Look(ref formId, "formId");
+			Scribe_Values.Look(ref currentFormName, "currentFormName");
+			Scribe_Values.Look(ref currentLimit, "currentLimit", 1);
+			Scribe_Values.Look(ref nextTick, "nextTick", 0);
+			Scribe_Collections.Look(ref savedGeneSets, "pawnGeneSets", LookMode.Deep);
 		}
 
 	}

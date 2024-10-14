@@ -209,7 +209,7 @@ namespace WVC_XenotypesAndGenes
 				GeneResourceUtility.Notify_PostShapeshift(shapeshiftGene);
 				GeneResourceUtility.Notify_PostShapeshift_Traits(shapeshiftGene);
 			}
-			XaG_GeneUtility.CheckAllOverrides(pawn);
+			ReimplanterUtility.PostImplantDebug(pawn);
 		}
 
 	}

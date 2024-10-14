@@ -398,7 +398,6 @@ namespace WVC_XenotypesAndGenes
 			if (WVC_Biotech.settings.firstModLaunch)
 			{
 				WVC_Biotech.cachedXenotypesFilter ??= new Dictionary<string, bool>();
-				WVC_Biotech.allXenotypes = ListsUtility.GetWhiteListedXenotypes(false);
 				SetValues();
 				WVC_Biotech.settings.firstModLaunch = false;
 				WVC_Biotech.settings.Write();
@@ -411,6 +410,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void SetValues()
 		{
+			WVC_Biotech.allXenotypes = ListsUtility.GetWhiteListedXenotypes(false);
 			foreach (XenotypeDef xenotypeDef in WVC_Biotech.allXenotypes)
 			{
 

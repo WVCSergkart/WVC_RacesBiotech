@@ -855,7 +855,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				gene.pawn.genes.AddGene(gene.def, false);
 			}
-			XaG_GeneUtility.CheckAllOverrides(gene.pawn);
+			ReimplanterUtility.PostImplantDebug(gene.pawn);
 		}
 
 		public void ClearXenogenes()
