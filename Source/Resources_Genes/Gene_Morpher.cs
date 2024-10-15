@@ -19,10 +19,32 @@ namespace WVC_XenotypesAndGenes
 
 		private int currentLimit = 1;
 
+		public int CurrentLimit => currentLimit;
+		public int FormsCount
+		{
+			get
+			{
+				if (savedGeneSets != null)
+				{
+					return savedGeneSets.Count;
+				}
+				return 1;
+			}
+		}
+
+		public List<PawnGeneSetHolder> GetGeneSets()
+		{
+			if (savedGeneSets == null)
+			{
+				savedGeneSets = new();
+			}
+			return savedGeneSets;
+		}
+
 		private string currentFormName = null;
 		private int? formId;
 
-		public List<PawnGeneSetHolder> savedGeneSets = new();
+		private List<PawnGeneSetHolder> savedGeneSets = new();
 
 		public override string LabelCap
 		{
@@ -152,8 +174,11 @@ namespace WVC_XenotypesAndGenes
 		private void ImplantFromSet(PawnGeneSetHolder pawnGeneSet)
 		{
 			ReimplanterUtility.SetXenotypeDirect(null, pawn, pawnGeneSet.xenotypeDef, true);
-			pawn.genes.xenotypeName = pawnGeneSet.name;
-			pawn.genes.iconDef = pawnGeneSet.iconDef;
+			if (pawn.genes.Xenotype == XenotypeDefOf.Baseliner)
+			{
+				pawn.genes.xenotypeName = pawnGeneSet.name;
+				pawn.genes.iconDef = pawnGeneSet.iconDef;
+			}
 			foreach (Gene gene in pawnGeneSet.endogenes)
 			{
 				AddGene(gene.def, gene, true);
@@ -220,7 +245,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				newSet.name = newSet.xenotypeDef.label;
 			}
-			newSet.iconDef = pawn.genes.iconDef;
+			if (pawn.genes.UniqueXenotype)
+			{
+				newSet.iconDef = pawn.genes.iconDef;
+			}
 			savedGeneSets.Add(newSet);
 		}
 
@@ -298,8 +326,14 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		private Gizmo gizmo;
+
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
+			if (XaG_GeneUtility.SelectorActiveFactionMap(pawn, this))
+			{
+				yield break;
+			}
 			if (DebugSettings.ShowDevGizmos)
 			{
 				yield return new Command_Action
@@ -311,6 +345,11 @@ namespace WVC_XenotypesAndGenes
 					}
 				};
 			}
+			if (gizmo == null)
+			{
+				gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, this);
+			}
+			yield return gizmo;
 		}
 
 		public override void ExposeData()

@@ -126,6 +126,18 @@ namespace WVC_XenotypesAndGenes
 				Widgets.DrawTextureFitted(rect, thrallDef.xenotypeIconDef.Icon, scale, material);
 				GUI.color = Color.white;
 			}
+			else if (def is XenotypeDef xenotypeDef)
+			{
+				GUI.color = color ?? XenotypeDef.IconColor;
+				Widgets.DrawTextureFitted(rect, xenotypeDef.Icon, scale, material);
+				GUI.color = Color.white;
+			}
+			else if (def is XenotypeIconDef xenotypeIconDef)
+			{
+				GUI.color = color ?? XenotypeDef.IconColor;
+				Widgets.DrawTextureFitted(rect, xenotypeIconDef.Icon, scale, material);
+				GUI.color = Color.white;
+			}
 		}
 
 		// public static void XaG_CustomXenotypeIcon(Rect rect, CustomXenotype customXenotype, float scale = 1f, Color? color = null, Material material = null)

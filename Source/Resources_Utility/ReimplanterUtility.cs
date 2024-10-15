@@ -361,6 +361,7 @@ namespace WVC_XenotypesAndGenes
 				genes.AddGene(geneDef, !xenotypeDef.inheritable);
 			}
 			TrySetSkinAndHairGenes(pawn);
+			ReimplanterUtility.PostImplantDebug(pawn);
 		}
 
 		public static void SetCustomXenotype(Pawn pawn, CustomXenotype xenotypeDef)
@@ -404,6 +405,7 @@ namespace WVC_XenotypesAndGenes
 				genes.AddGene(geneDef, !xenotypeDef.inheritable);
 			}
 			TrySetSkinAndHairGenes(pawn);
+			ReimplanterUtility.PostImplantDebug(pawn);
 		}
 
 		// Ideology Hook

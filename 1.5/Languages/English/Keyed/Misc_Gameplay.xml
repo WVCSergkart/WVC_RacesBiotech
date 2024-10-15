@@ -597,11 +597,23 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_TrueForm>True form</WVC_XaG_TrueForm>
 	<WVC_XaG_ShapeshifterDialog_TrueFormDesc>This xenotype is one of the natural forms of the shapeshifter. It can be implanted regardless of the owner's genetic condition.</WVC_XaG_ShapeshifterDialog_TrueFormDesc>
 
-	<WVC_XaG_ShapeshifterGizmo>Shapeshifter</WVC_XaG_ShapeshifterGizmo>
+	<!-- <WVC_XaG_ShapeshifterGizmo>Shapeshifter</WVC_XaG_ShapeshifterGizmo> -->
 	<WVC_XaG_ShapeshifterGizmoTip>Pawn can &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt; (change &lt;color=#6bb6bb&gt;xenotypes&lt;/color&gt;) at any time at will. The only restrictions are &lt;color=#6bb6bb&gt;xenogermination coma&lt;/color&gt;, &lt;color=#6bb6bb&gt;gene loss shock&lt;/color&gt; and &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt;. Each &lt;color=#8a8ae6&gt;shapeshift&lt;/color&gt; imposes &lt;color=#6bb6bb&gt;xenogermination comу&lt;/color&gt; and &lt;color=#6bb6bb&gt;genes regrowing&lt;/color&gt;; this debuff can be neutralized with the help of some &lt;color=#6bb6bb&gt;genes&lt;/color&gt; or &lt;color=#8a8ae6&gt;special serums&lt;/color&gt;.\n\nSome &lt;color=#6bb6bb&gt;xenotypes&lt;/color&gt; are the so-called &lt;color=#8a8ae6&gt;true form&lt;/color&gt;, that is, &lt;color=#8a8ae6&gt;shapeshifting&lt;/color&gt; is always possible in them, regardless of the genetic state of the pawn.</WVC_XaG_ShapeshifterGizmoTip>
 
 	<WVC_XaG_CellularDestroyBody>Extract shard</WVC_XaG_CellularDestroyBody>
 	<WVC_XaG_CellularDestroyBodyDesc>Extract archotechnology shard. Extracting the shard will kill the carrier and nullify its xenotype.</WVC_XaG_CellularDestroyBodyDesc>
+
+	<WVC_XaG_GeneMorpherArchitesLevel_Desc>Order the pawn to find the archite capsule and absorb its contents to increase the maximum form limit.</WVC_XaG_GeneMorpherArchitesLevel_Desc>
+	<WVC_XaG_GeneMorpherMenu_Desc>Opens a menu where you can view the morpher's saved genesets. Genesets cannot be edited or deleted in this menu.</WVC_XaG_GeneMorpherMenu_Desc>
+
+	<WVC_XaG_MorpherGizmoTip>The &lt;color=#8a8ae6&gt;morpher&lt;/color&gt; changes the pawn's &lt;color=#8a8ae6&gt;geneset&lt;/color&gt; from time to time under certain conditions, each &lt;color=#8a8ae6&gt;geneset&lt;/color&gt; is called a &lt;color=#8a8ae6&gt;form&lt;/color&gt;. The minimum cooldown between form changes is about a day. &lt;color=#8a8ae6&gt;Forms&lt;/color&gt; are independent of each other and their &lt;color=#8a8ae6&gt;genesets&lt;/color&gt; can be modified without risk of harming another form.\n\nWhen changing a &lt;color=#8a8ae6&gt;form&lt;/color&gt;, the current &lt;color=#8a8ae6&gt;geneset&lt;/color&gt; is saved by the &lt;color=#8a8ae6&gt;morpher&lt;/color&gt;, and then a random saved one is &lt;color=#8a8ae6&gt;implanted&lt;/color&gt; and its information is deleted from the &lt;color=#8a8ae6&gt;morpher&lt;/color&gt;. All &lt;color=#6bb6bb&gt;genetic information&lt;/color&gt; of the &lt;color=#8a8ae6&gt;implanted form&lt;/color&gt; will be the same as it was at the time of its saving. States that involve &lt;color=#6bb6bb&gt;external objects&lt;/color&gt; will not be restored and will require repeated manual intervention.\n\nSome &lt;color=#6bb6bb&gt;genes&lt;/color&gt; can influence the conditions of the form change, but their effect only affects the form in which they are.</WVC_XaG_MorpherGizmoTip>
+
+	<WVC_XaG_MorpherGizmoLimitTip>Current forms: Saved {0} / Max {1}</WVC_XaG_MorpherGizmoLimitTip>
+
+	<WVC_XaG_SelectedEndoGeneSetHolder>Endogenes</WVC_XaG_SelectedEndoGeneSetHolder>
+	<WVC_XaG_SelectedXenoGeneSetHolder>Xenogenes</WVC_XaG_SelectedXenoGeneSetHolder>
+
+	<WVC_XaG_ReqAnyGeneSetHolders>There are no saved forms.</WVC_XaG_ReqAnyGeneSetHolders>
 
 	<!-- Shapeshifter can freely change &lt;color=#6bb6bb&gt;forms (xenotypes)&lt;/color&gt; at will. The limitations are &lt;color=#8a8ae6&gt;xenogermination coma&lt;/color&gt; and &lt;color=#8a8ae6&gt;genes regrowing&lt;/color&gt;, which prevent the change of &lt;color=#6bb6bb&gt;form&lt;/color&gt;. These restrictions can be overcome with the help of certain &lt;color=#6bb6bb&gt;genes&lt;/color&gt; or with the help of &lt;color=#6bb6bb&gt;special serums&lt;/color&gt;. -->
 

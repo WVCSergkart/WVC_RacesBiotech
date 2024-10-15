@@ -36,16 +36,24 @@ namespace WVC_XenotypesAndGenes
 
 		public int formId;
 
-		public string name;
+		public string name = null;
 
-		public XenotypeIconDef iconDef;
+		public XenotypeIconDef iconDef = null;
 
 		public List<Gene> endogenes = new();
 		public List<Gene> xenogenes = new();
 
-		public XenotypeDef xenotypeDef;
+		public XenotypeDef xenotypeDef = null;
 
-		public void ExposeData()
+        public int AllGenesCount
+        {
+            get
+            {
+                return endogenes.Count + xenogenes.Count;
+            }
+        }
+
+        public void ExposeData()
 		{
 			Scribe_Values.Look(ref formId, "formId");
 			Scribe_Values.Look(ref name, "name");

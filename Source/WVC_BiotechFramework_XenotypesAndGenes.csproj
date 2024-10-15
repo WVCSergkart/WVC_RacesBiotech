@@ -109,6 +109,7 @@
     <Compile Include="Resources_Gizmo\Dialog_GauranlenGeneMode.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Golemlink.cs" />
     <Compile Include="Resources_Gizmo\Dialog_GolemMode.cs" />
+    <Compile Include="Resources_Gizmo\Dialog_Morpher.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Reimplanter.cs" />
     <Compile Include="Resources_Gizmo\Dialog_RetuneSerum.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Shapeshifter.cs" />
@@ -118,6 +119,7 @@
     <Compile Include="Resources_Gizmo\GeneGizmo_ChimerasGenes.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Dryads.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Golems.cs" />
+    <Compile Include="Resources_Gizmo\GeneGizmo_Morpher.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_RegenerationSleep.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_ShapeshifterMode.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Thralls.cs" />

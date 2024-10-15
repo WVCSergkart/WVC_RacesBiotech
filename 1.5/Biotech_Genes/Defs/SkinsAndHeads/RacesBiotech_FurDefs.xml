@@ -169,6 +169,22 @@
 	<!-- </bodyTypeGraphicPaths> -->
   <!-- </FurDef> -->
 
+  <!-- <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base"> -->
+	<!-- <defName>WVC_FishSkin</defName> -->
+	<!-- <bodyTypeGraphicPaths> -->
+	  <!-- <Male>WVC/Bodies/Mermaid_Body/Naked_Male</Male> -->
+	  <!-- <Female>WVC/Bodies/Mermaid_Body/Naked_Female</Female> -->
+	  <!-- <Hulk>WVC/Bodies/Mermaid_Body/Naked_Hulk</Hulk> -->
+	  <!-- <Fat>WVC/Bodies/Mermaid_Body/Naked_Fat</Fat> -->
+	  <!-- <Thin>WVC/Bodies/Mermaid_Body/Naked_Thin</Thin> -->
+	<!-- </bodyTypeGraphicPaths> -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic"> -->
+			<!-- <furIsSkin>true</furIsSkin> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  <!-- </FurDef> -->
+
   <!-- ==================================== -->
 
   <FurDef ParentName="WVC_XenotypesAndGenes_FurDef_Base">

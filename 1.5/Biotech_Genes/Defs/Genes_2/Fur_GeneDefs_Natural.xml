@@ -366,4 +366,32 @@
 	</symbolPack>
   </GeneDef>
 
+  <!-- Fishskin -->
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch"> -->
+	<!-- <defName>WVC_FishSkin</defName> -->
+	<!-- <label>fishskin</label> -->
+	<!-- <description>Carriers of this gene have slippery, hydrophobic skin.</description> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_Fishskin_v0</iconPath> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Feminine</geneClass> -->
+	<!-- <forcedHeadTypes> -->
+	  <!-- <li>Male_AverageNormal</li> -->
+	  <!-- <li>Male_AveragePointy</li> -->
+	  <!-- <li>Female_AverageNormal</li> -->
+	  <!-- <li>Female_AveragePointy</li> -->
+	<!-- </forcedHeadTypes> -->
+	<!-- <biostatCpx>1</biostatCpx> -->
+	<!-- <biostatMet>-1</biostatMet> -->
+	<!-- <statOffsets> -->
+	  <!-- <ComfyTemperatureMin>-3</ComfyTemperatureMin> -->
+	<!-- </statOffsets> -->
+	<!-- <fur>WVC_FishSkin</fur> -->
+	<!-- <missingGeneRomanceChanceFactor>0.70</missingGeneRomanceChanceFactor> -->
+	<!-- <symbolPack> -->
+	  <!-- <prefixSymbols> -->
+		<!-- <li><symbol>fish</symbol></li> -->
+		<!-- <li><symbol>merm</symbol></li> -->
+	  <!-- </prefixSymbols> -->
+	<!-- </symbolPack> -->
+  <!-- </GeneDef> -->
+
 </Defs>
