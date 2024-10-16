@@ -29,7 +29,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (!WVC_Biotech.settings.enableHarmonyTelepathyGene)
 			{
-				ThoughtUtility.TryInteractRandomly(pawn);
+				ThoughtUtility.TryInteractRandomly(pawn, true, true, false);
 			}
 			ResetInterval();
 		}

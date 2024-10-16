@@ -230,7 +230,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (currentRange < 30000 || !TryLearning(pawn, 0.05f))
 			{
-				ThoughtUtility.TryInteractRandomly(pawn, this);
+				ThoughtUtility.TryInteractRandomly(pawn, true, true, false, this);
 			}
 			else
             {

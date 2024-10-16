@@ -203,7 +203,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			TryInteractRandomly_CloseTarget(pawn);
+			//TryInteractRandomly_CloseTarget(pawn);
+			ThoughtUtility.TryInteractRandomly(pawn, true, false, true);
 			ResetInterval();
 		}
 
@@ -216,52 +217,49 @@ namespace WVC_XenotypesAndGenes
 					defaultLabel = "DEV: TryInteract",
 					action = delegate
 					{
-						TryInteractRandomly_CloseTarget(pawn);
+						//TryInteractRandomly_CloseTarget(pawn);
+						ThoughtUtility.TryInteractRandomly(pawn, true, false, true);
 					}
 				};
 			}
 		}
 
-		public bool TryInteractRandomly_CloseTarget(Pawn pawn)
-		{
-			if (pawn?.Map == null || pawn.Downed)
-			{
-				return false;
-			}
-			if (!InteractionUtility.CanInitiateRandomInteraction(pawn))
-			{
-				return false;
-			}
-			List<Pawn> workingList = pawn.Map.mapPawns.SpawnedPawnsInFaction(pawn.Faction);
-			workingList.Shuffle();
-			List<InteractionDef> allDefsListForReading = DefDatabase<InteractionDef>.AllDefsListForReading;
-			for (int i = 0; i < workingList.Count; i++)
-			{
-				Pawn p = workingList[i];
-				if (!p.RaceProps.Humanlike)
-				{
-					continue;
-				}
-				if (!p.IsPsychicSensitive())
-				{
-					continue;
-				}
-				if (!InteractionUtility.IsGoodPositionForInteraction(pawn, p))
-				{
-					continue;
-				}
-				if (p != pawn && ThoughtUtility.CanInteractNowWith(pawn, p) && InteractionUtility.CanReceiveRandomInteraction(p) && !pawn.HostileTo(p) && allDefsListForReading.TryRandomElementByWeight((InteractionDef x) => (!ThoughtUtility.CanInteractNowWith(pawn, p, x)) ? 0f : x.Worker.RandomSelectionWeight(pawn, p), out var result))
-				{
-					if (ThoughtUtility.TryInteractWith(pawn, p, result))
-					{
-						p.needs?.mood?.thoughts?.memories.TryGainMemory(Props.AboutMeThoughtDef, pawn);
-						return true;
-					}
-					Log.Error(string.Concat(pawn, " failed to interact with ", p));
-				}
-			}
-			return false;
-		}
+		//public bool TryInteractRandomly_CloseTarget(Pawn pawn)
+		//{
+		//	if (!ThoughtUtility.Telepath_CanInitiateRandomInteraction(pawn, false))
+		//	{
+		//		return false;
+		//	}
+		//	List<Pawn> workingList = pawn.Map.mapPawns.SpawnedPawnsInFaction(pawn.Faction);
+		//	workingList.Shuffle();
+		//	List<InteractionDef> allDefsListForReading = DefDatabase<InteractionDef>.AllDefsListForReading;
+		//	for (int i = 0; i < workingList.Count; i++)
+		//	{
+		//		Pawn p = workingList[i];
+		//		if (!p.RaceProps.Humanlike)
+		//		{
+		//			continue;
+		//		}
+		//		if (!p.IsPsychicSensitive())
+		//		{
+		//			continue;
+		//		}
+		//		if (!InteractionUtility.IsGoodPositionForInteraction(pawn, p))
+		//		{
+		//			continue;
+		//		}
+		//		if (p != pawn && ThoughtUtility.Telepath_CanInteractNowWith(pawn, p, ignoreTalking: false) && InteractionUtility.CanReceiveRandomInteraction(p) && !pawn.HostileTo(p) && allDefsListForReading.TryRandomElementByWeight((InteractionDef x) => (!ThoughtUtility.Telepath_CanInteractNowWith(pawn, p, ignoreTalking: false, x)) ? 0f : x.Worker.RandomSelectionWeight(pawn, p), out var result))
+		//		{
+		//			if (ThoughtUtility.TryInteractWith(pawn, p, result, true))
+		//			{
+		//				p.needs?.mood?.thoughts?.memories.TryGainMemory(Props.AboutMeThoughtDef, pawn);
+		//				return true;
+		//			}
+		//			Log.Error(string.Concat(pawn, " failed to interact with ", p));
+		//		}
+		//	}
+		//	return false;
+		//}
 
 		private void ResetInterval()
 		{
@@ -300,7 +298,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			TryInteractRandomly_CloseTarget(pawn);
+			//TryInteractRandomly_CloseTarget(pawn);
+			ThoughtUtility.TryInteractRandomly(pawn, false, true, true, this);
 			ResetInterval();
 		}
 
@@ -313,52 +312,49 @@ namespace WVC_XenotypesAndGenes
 					defaultLabel = "DEV: TryInteract",
 					action = delegate
 					{
-						TryInteractRandomly_CloseTarget(pawn);
+						//TryInteractRandomly_CloseTarget(pawn);
+						ThoughtUtility.TryInteractRandomly(pawn, false, true, true, this);
 					}
 				};
 			}
 		}
 
-		public bool TryInteractRandomly_CloseTarget(Pawn pawn)
-		{
-			if (pawn?.Map == null || pawn.Downed)
-			{
-				return false;
-			}
-			if (!ThoughtUtility.CanInitiateRandomInteraction_WithoutTalking(pawn))
-			{
-				return false;
-			}
-			List<Pawn> workingList = pawn.Map.mapPawns.SpawnedPawnsInFaction(pawn.Faction);
-			workingList.Shuffle();
-			List<InteractionDef> allDefsListForReading = DefDatabase<InteractionDef>.AllDefsListForReading;
-			for (int i = 0; i < workingList.Count; i++)
-			{
-				Pawn p = workingList[i];
-				if (!p.RaceProps.Humanlike)
-				{
-					continue;
-				}
-				if (!XaG_GeneUtility.HasGeneOfType(this, p))
-				{
-					continue;
-				}
-				if (!InteractionUtility.IsGoodPositionForInteraction(pawn, p))
-				{
-					continue;
-				}
-				if (p != pawn && ThoughtUtility.CanInteractNowWith_WithoutTalking(pawn, p) && InteractionUtility.CanReceiveRandomInteraction(p) && !pawn.HostileTo(p) && allDefsListForReading.TryRandomElementByWeight((InteractionDef x) => (!ThoughtUtility.CanInteractNowWith_WithoutTalking(pawn, p, x)) ? 0f : x.Worker.RandomSelectionWeight(pawn, p), out var result))
-				{
-					if (ThoughtUtility.TryInteractWith(pawn, p, result, false, true))
-					{
-						return true;
-					}
-					Log.Error(string.Concat(pawn, " failed to interact with ", p));
-				}
-				continue;
-			}
-			return false;
-		}
+		//public bool TryInteractRandomly_CloseTarget(Pawn pawn)
+		//{
+		//	if (!ThoughtUtility.Telepath_CanInitiateRandomInteraction(pawn, true))
+		//	{
+		//		return false;
+		//	}
+		//	List<Pawn> workingList = pawn.Map.mapPawns.SpawnedPawnsInFaction(pawn.Faction);
+		//	workingList.Shuffle();
+		//	List<InteractionDef> allDefsListForReading = DefDatabase<InteractionDef>.AllDefsListForReading;
+		//	for (int i = 0; i < workingList.Count; i++)
+		//	{
+		//		Pawn p = workingList[i];
+		//		if (!p.RaceProps.Humanlike)
+		//		{
+		//			continue;
+		//		}
+		//		if (!InteractionUtility.IsGoodPositionForInteraction(pawn, p))
+		//		{
+		//			continue;
+		//		}
+		//		if (!XaG_GeneUtility.HasGeneOfType(this, p))
+		//		{
+		//			continue;
+		//		}
+		//		if (p != pawn && ThoughtUtility.Telepath_CanInteractNowWith(pawn, p, true) && InteractionUtility.CanReceiveRandomInteraction(p) && !pawn.HostileTo(p) && allDefsListForReading.TryRandomElementByWeight((InteractionDef x) => (!ThoughtUtility.Telepath_CanInteractNowWith(pawn, p, true, x)) ? 0f : x.Worker.RandomSelectionWeight(pawn, p), out var result))
+		//		{
+		//			if (ThoughtUtility.TryInteractWith(pawn, p, result, false))
+		//			{
+		//				return true;
+		//			}
+		//			Log.Error(string.Concat(pawn, " failed to interact with ", p));
+		//		}
+		//		continue;
+		//	}
+		//	return false;
+		//}
 
 		private void ResetInterval()
 		{
