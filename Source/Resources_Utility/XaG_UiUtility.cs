@@ -7,7 +7,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public static class GeneUiUtility
+	public static class XaG_UiUtility
 	{
 
 		public static readonly CachedTexture GeneBackground_Endogene = new("WVC/UI/Genes/GeneBackground_Endogene");
@@ -182,5 +182,107 @@ namespace WVC_XenotypesAndGenes
 			return cachedTexture;
 		}
 
-    }
+		// Settings
+
+		public static bool ButtonTextWithTooltip(this Listing_Standard ls, string label, bool drawbackground = false, string highlightTag = null, float widthPct = 1f, string tooltip = null)
+		{
+			Rect rect = ls.GetRect(30f, widthPct);
+			bool result = false;
+			if (!ls.BoundingRectCached.HasValue || rect.Overlaps(ls.BoundingRectCached.Value))
+			{
+				result = Widgets.ButtonText(rect, label, drawbackground, overrideTextAnchor: TextAnchor.MiddleCenter);
+				if (highlightTag != null)
+				{
+					UIHighlighter.HighlightOpportunity(rect, highlightTag);
+				}
+				else if (Mouse.IsOver(rect) && !drawbackground)
+				{
+					Widgets.DrawHighlight(rect);
+				}
+			}
+			if (!tooltip.NullOrEmpty())
+			{
+				TooltipHandler.TipRegion(rect, tooltip);
+			}
+			ls.Gap(ls.verticalSpacing);
+			return result;
+		}
+
+		public static void SliderLabeledWithRef(this Listing_Standard ls, string label, ref float val, float min = 0f, float max = 1f, string tooltip = null, int round = 2)
+		{
+			Rect rect = ls.GetRect(Text.LineHeight);
+			Rect rect2 = rect.LeftPart(0.5f).Rounded();
+			Rect rect3 = rect.RightPart(0.62f).Rounded().LeftPart(0.97f).Rounded();
+			TextAnchor anchor = Text.Anchor;
+			Text.Anchor = TextAnchor.MiddleLeft;
+			Widgets.Label(rect2, label);
+			float _ = (val = Widgets.HorizontalSlider(rect3, val, min, max, middleAlignment: true));
+			val = (float)Math.Round(val, round);
+			Text.Anchor = TextAnchor.MiddleRight;
+			if (!tooltip.NullOrEmpty())
+			{
+				TooltipHandler.TipRegion(rect, tooltip);
+			}
+			Text.Anchor = anchor;
+			ls.Gap(ls.verticalSpacing);
+		}
+
+		public static void IntRangeLabeledWithRef(this Listing_Standard ls, string label, ref IntRange range, int min = 0, int max = 1, string tooltip = null)
+		{
+			Rect rect = ls.GetRect(Text.LineHeight);
+			Rect rect2 = rect.LeftPart(0.5f).Rounded();
+			Rect rect3 = rect.RightPart(0.62f).Rounded().LeftPart(0.97f).Rounded();
+			TextAnchor anchor = Text.Anchor;
+			Text.Anchor = TextAnchor.MiddleLeft;
+			Widgets.Label(rect2, label);
+			Text.Anchor = TextAnchor.MiddleRight;
+			if (!tooltip.NullOrEmpty())
+			{
+				TooltipHandler.TipRegion(rect, tooltip);
+			}
+			Text.Anchor = anchor;
+			if (!ls.BoundingRectCached.HasValue || rect3.Overlaps(ls.BoundingRectCached.Value))
+			{
+				Widgets.IntRange(rect3, (int)ls.CurHeight, ref range, min, max);
+			}
+			ls.Gap(ls.verticalSpacing);
+		}
+
+		public static void XaG_DefIcon(Rect rect, Def def, float scale = 1f, Color? color = null, Material material = null)
+		{
+			if (def is ThrallDef thrallDef)
+			{
+				GUI.color = color ?? Color.white;
+				Widgets.DrawTextureFitted(rect, thrallDef.xenotypeIconDef.Icon, scale, material);
+				GUI.color = Color.white;
+			}
+			else if (def is XenotypeDef xenotypeDef)
+			{
+				GUI.color = color ?? XenotypeDef.IconColor;
+				Widgets.DrawTextureFitted(rect, xenotypeDef.Icon, scale, material);
+				GUI.color = Color.white;
+			}
+			else if (def is XenotypeIconDef xenotypeIconDef)
+			{
+				GUI.color = color ?? XenotypeDef.IconColor;
+				Widgets.DrawTextureFitted(rect, xenotypeIconDef.Icon, scale, material);
+				GUI.color = Color.white;
+			}
+		}
+
+		// public static void XaG_CustomXenotypeIcon(Rect rect, CustomXenotype customXenotype, float scale = 1f, Color? color = null, Material material = null)
+		// {
+		// GUI.color = color ?? Color.white;
+		// Widgets.DrawTextureFitted(rect, customXenotype.IconDef.Icon, scale, material);
+		// GUI.color = Color.white;
+		// }
+
+		public static void XaG_Icon(Rect rect, Texture icon, float scale = 1f, Color? color = null, Material material = null)
+		{
+			GUI.color = color ?? Color.white;
+			Widgets.DrawTextureFitted(rect, icon, scale, material);
+			GUI.color = Color.white;
+		}
+
+	}
 }

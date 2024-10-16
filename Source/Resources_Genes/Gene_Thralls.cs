@@ -199,7 +199,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			yield return new Command_Action
 			{
-				defaultLabel = "WVC_XaG_Gene_GeneticThrallLabel".Translate() + ": " + GeneUiUtility.OnOrOff(useStabilizerAuto),
+				defaultLabel = "WVC_XaG_Gene_GeneticThrallLabel".Translate() + ": " + XaG_UiUtility.OnOrOff(useStabilizerAuto),
 				defaultDesc = "WVC_XaG_Gene_GeneticThrallDesc".Translate(),
 				icon = ContentFinder<Texture2D>.Get(def.iconPath),
 				action = delegate

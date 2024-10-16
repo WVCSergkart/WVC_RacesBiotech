@@ -145,7 +145,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			yield return new Command_Action
 			{
-				defaultLabel = "WVC_XaG_GeneBabyTree_label".Translate() + ": " + GeneUiUtility.OnOrOff(spawnerIsActive),
+				defaultLabel = "WVC_XaG_GeneBabyTree_label".Translate() + ": " + XaG_UiUtility.OnOrOff(spawnerIsActive),
 				defaultDesc = "WVC_XaG_GeneBabyTree_desc".Translate(),
 				Disabled = chosenXenotype == null,
 				disabledReason = "WVC_XaG_XenoTreeXenotypeChooseDisabled_OnOrOff".Translate(),

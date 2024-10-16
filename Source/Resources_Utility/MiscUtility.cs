@@ -16,6 +16,18 @@ namespace WVC_XenotypesAndGenes
 	public static class MiscUtility
 	{
 
+		public static void SummonDropPod(Map map, List<Thing> list)
+		{
+			if (map == null || map.IsUnderground())
+			{
+				return;
+			}
+			ActiveDropPodInfo activeDropPodInfo = new();
+			activeDropPodInfo.innerContainer.TryAddRangeOrTransfer(list);
+			IntVec3 cell = DropCellFinder.TradeDropSpot(map);
+            DropPodUtility.MakeDropPodAt(cell, map, activeDropPodInfo);
+		}
+
 		public static bool TryAddFoodPoisoningHediff(Pawn pawn, Thing thing)
 		{
 			if (FoodUtility.GetFoodPoisonChanceFactor(pawn) <= 0f)
@@ -96,63 +108,6 @@ namespace WVC_XenotypesAndGenes
 			// }
 			// return false;
 		// }
-
-		// Settings
-
-		public static void SliderLabeledWithRef(this Listing_Standard ls, string label, ref float val, float min = 0f, float max = 1f, string tooltip = null, int round = 2)
-		{
-			Rect rect = ls.GetRect(Text.LineHeight);
-			Rect rect2 = rect.LeftPart(0.5f).Rounded();
-			Rect rect3 = rect.RightPart(0.62f).Rounded().LeftPart(0.97f).Rounded();
-			TextAnchor anchor = Text.Anchor;
-			Text.Anchor = TextAnchor.MiddleLeft;
-			Widgets.Label(rect2, label);
-			float _ = (val = Widgets.HorizontalSlider(rect3, val, min, max, middleAlignment: true));
-			val = (float)Math.Round(val, round);
-			Text.Anchor = TextAnchor.MiddleRight;
-			if (!tooltip.NullOrEmpty())
-			{
-				TooltipHandler.TipRegion(rect, tooltip);
-			}
-			Text.Anchor = anchor;
-			ls.Gap(ls.verticalSpacing);
-		}
-
-		public static void XaG_DefIcon(Rect rect, Def def, float scale = 1f, Color? color = null, Material material = null)
-		{
-			if (def is ThrallDef thrallDef)
-			{
-				GUI.color = color ?? Color.white;
-				Widgets.DrawTextureFitted(rect, thrallDef.xenotypeIconDef.Icon, scale, material);
-				GUI.color = Color.white;
-			}
-			else if (def is XenotypeDef xenotypeDef)
-			{
-				GUI.color = color ?? XenotypeDef.IconColor;
-				Widgets.DrawTextureFitted(rect, xenotypeDef.Icon, scale, material);
-				GUI.color = Color.white;
-			}
-			else if (def is XenotypeIconDef xenotypeIconDef)
-			{
-				GUI.color = color ?? XenotypeDef.IconColor;
-				Widgets.DrawTextureFitted(rect, xenotypeIconDef.Icon, scale, material);
-				GUI.color = Color.white;
-			}
-		}
-
-		// public static void XaG_CustomXenotypeIcon(Rect rect, CustomXenotype customXenotype, float scale = 1f, Color? color = null, Material material = null)
-		// {
-			// GUI.color = color ?? Color.white;
-			// Widgets.DrawTextureFitted(rect, customXenotype.IconDef.Icon, scale, material);
-			// GUI.color = Color.white;
-		// }
-
-		public static void XaG_Icon(Rect rect, Texture icon, float scale = 1f, Color? color = null, Material material = null)
-		{
-			GUI.color = color ?? Color.white;
-			Widgets.DrawTextureFitted(rect, icon, scale, material);
-			GUI.color = Color.white;
-		}
 
 		// Skills
 

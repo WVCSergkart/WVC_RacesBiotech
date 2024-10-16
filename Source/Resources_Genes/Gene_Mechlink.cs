@@ -35,16 +35,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				pawnHadMechlinkBefore = true;
 			}
-			ResetSummonInterval();
-		}
-
-		public void ResetSummonInterval()
-		{
-			if (Spawner == null)
-			{
-				return;
-			}
-			timeForNextSummon = Spawner.spawnIntervalRange.RandomInRange;
+			// ResetSummonInterval();
 		}
 
 		public bool CanDoOrbitalSummon()
@@ -135,6 +126,16 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostAdd();
 			golemsForSummon = Spawner?.golemModeDefs;
+			ResetSummonInterval();
+		}
+
+		public void ResetSummonInterval()
+		{
+			if (Spawner == null)
+			{
+				return;
+			}
+			timeForNextSummon = WVC_Biotech.settings.golemlink_spawnIntervalRange.RandomInRange;
 		}
 
 		public override void Tick()
@@ -209,35 +210,36 @@ namespace WVC_XenotypesAndGenes
 				Log.Error("Failed summon golems. golemsForSummon is null.");
 				return;
 			}
-			int phase = 0;
+			string phase = "";
 			try
 			{
-				phase = 1;
-				int countSpawn = Spawner.summonRange.RandomInRange;
+				phase = "start";
+				int countSpawn = WVC_Biotech.settings.golemlink_golemsToSpawnRange.RandomInRange;
 				float possibleConsumption = 1;
-				phase = 2;
+				phase = "get total golembond";
 				float currentLimit = MechanoidsUtility.TotalGolembond(pawn);
-				phase = 3;
+				phase = "get consumed golembond";
 				float currentConsumption = MechanoidsUtility.GetConsumedGolembond(pawn);
-				phase = 4;
+				phase = "get all controlled golems";
 				List<PawnKindDef> currentGolems = MechanoidsUtility.GetAllControlledGolems_PawnKinds(pawn);
 				if (currentGolems.NullOrEmpty())
 				{
 					currentGolems = new();
 				}
-				phase = 5;
+				//List<Thing> summonList = new();
+				phase = "start spawn";
 				for (int i = 0; i < countSpawn; i++)
 				{
 					Thing chunk = GetBestStoneChunk(pawn, false);
-					phase = 6;
+					phase = "choose method";
 					if (ignoreChunks || chunk == null)
 					{
-						phase = 7;
+						phase = "summon random golem";
 						if (currentLimit < currentConsumption + possibleConsumption)
 						{
 							break;
 						}
-						phase = 8;
+						phase = "create golem";
 						MechanoidsUtility.MechSummonQuest(pawn, Spawner.summonQuest);
 						if (i == 0)
 						{
@@ -247,15 +249,19 @@ namespace WVC_XenotypesAndGenes
 					}
 					else if (TryGetBestGolemKindForSummon(currentLimit, currentConsumption, golemsForSummon, currentGolems, out PawnKindDef newGolem, out float golemConsumtion))
 					{
-						phase = 9;
+						phase = "try animate golem";
 						if (TryCreateGolemFromThing(chunk, newGolem, pawn))
 						{
-							phase = 10;
 							currentConsumption += golemConsumtion;
 							currentGolems.Add(newGolem);
 						}
 					}
 				}
+				//phase = "try summon golems";
+				//if (!golemsForSummon.NullOrEmpty())
+				//{
+				//	MiscUtility.SummonDropPod(pawn.Map, summonList);
+				//}
 			}
 			catch (Exception arg)
 			{
@@ -363,13 +369,28 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	[Obsolete]
-	public class Gene_Stonelink : Gene_Golemlink
-	{
-	}
+	//[Obsolete]
+	//public class Gene_Stonelink : Gene_Golemlink
+	//{
+	//}
 
 	public class Gene_Falselink : Gene_Mechlink, IGeneInspectInfo
 	{
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			ResetSummonInterval();
+		}
+
+		public void ResetSummonInterval()
+		{
+			if (Spawner == null)
+			{
+				return;
+			}
+			timeForNextSummon = WVC_Biotech.settings.falselink_spawnIntervalRange.RandomInRange;
+		}
 
 		public override void Tick()
 		{
@@ -392,7 +413,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void SummonRandomMech()
 		{
-			int countSpawn = Spawner.summonRange.RandomInRange;
+			int countSpawn = WVC_Biotech.settings.falselink_mechsToSpawnRange.RandomInRange;
 			for (int i = 0; i < countSpawn; i++)
 			{
 				MechanoidsUtility.MechSummonQuest(pawn, Spawner.summonQuest);
@@ -439,7 +460,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			Command_Action command_Action = new()
 			{
-				defaultLabel = "WVC_XaG_Gene_DustMechlink".Translate() + ": " + GeneUiUtility.OnOrOff(summonMechanoids),
+				defaultLabel = "WVC_XaG_Gene_DustMechlink".Translate() + ": " + XaG_UiUtility.OnOrOff(summonMechanoids),
 				defaultDesc = "WVC_XaG_Gene_DustMechlinkDesc".Translate(),
 				icon = ContentFinder<Texture2D>.Get(def.iconPath),
 				action = delegate

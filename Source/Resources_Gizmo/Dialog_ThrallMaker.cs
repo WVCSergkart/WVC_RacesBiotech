@@ -199,7 +199,7 @@ namespace WVC_XenotypesAndGenes
 			Rect rect2 = new(position.x, position.y, OptionSize.x, OptionSize.y);
 			Widgets.DrawBoxSolidWithOutline(rect2, GetBoxColor(stage), GetBoxOutlineColor(stage));
 			Rect rect3 = new(rect2.x, rect2.y, rect2.height, rect2.height);
-			MiscUtility.XaG_DefIcon(rect3.ContractedBy(4f), stage);
+			XaG_UiUtility.XaG_DefIcon(rect3.ContractedBy(4f), stage);
 			// Widgets.LabelWithIcon(rect3.ContractedBy(4f), "", stage.xenotypeIconDef.Icon);
 			GUI.color = GetTextColor(stage);
 			Text.Anchor = TextAnchor.MiddleLeft;

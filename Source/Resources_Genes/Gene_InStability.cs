@@ -355,7 +355,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			yield return new Command_Action
 			{
-				defaultLabel = "WVC_XaG_Gene_GeneticInstability".Translate() + ": " + GeneUiUtility.OnOrOff(useStabilizerAuto),
+				defaultLabel = "WVC_XaG_Gene_GeneticInstability".Translate() + ": " + XaG_UiUtility.OnOrOff(useStabilizerAuto),
 				defaultDesc = "WVC_XaG_Gene_GeneticInstabilityDesc".Translate(),
 				icon = ContentFinder<Texture2D>.Get(def.iconPath),
 				action = delegate

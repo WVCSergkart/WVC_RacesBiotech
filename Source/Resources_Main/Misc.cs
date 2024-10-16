@@ -244,6 +244,10 @@ namespace WVC_XenotypesAndGenes
 		public bool link_removePsylinkWithGene = false;
 		public float golemnoids_ShutdownRechargePerTick = 1f;
 		public bool golembond_ShrinesStatPartOffset = false;
+		public IntRange golemlink_spawnIntervalRange = new(240000, 420000);
+		public IntRange golemlink_golemsToSpawnRange = new(1, 3);
+		public IntRange falselink_spawnIntervalRange = new(480000, 960000);
+		public IntRange falselink_mechsToSpawnRange = new(1, 6);
 		// Shapeshifter
 		// public bool shapeshifter_enableStyleButton = true;
 		public float shapeshifer_GeneCellularRegeneration = 1f;

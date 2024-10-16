@@ -113,7 +113,7 @@ A restart is required.</WVC_ToolTip_enable_birthQualityOffsetFromGenes>
 
 	<!-- ================================== -->
 
-	<WVC_Label_reincarnation_EnableMechanic>Enable mechanic</WVC_Label_reincarnation_EnableMechanic>
+	<WVC_Label_reincarnation_EnableMechanic>Enable reincarnation mechanic</WVC_Label_reincarnation_EnableMechanic>
 	<WVC_ToolTip_reincarnation_EnableMechanic>If enabled, the mechanics will work as intended.</WVC_ToolTip_reincarnation_EnableMechanic>
 
 	<WVC_Label_Reincarnation_MinChronoAge>Reincarnation min chrono age {0} years</WVC_Label_Reincarnation_MinChronoAge>
@@ -171,6 +171,11 @@ Removing a psylink should not lead to serious bugs, but unexpected errors and co
 	<WVC_ToolTip_golembond_ShrinesStatPartOffset>If enabled, shrines from the Royalty DLC will increase golembond.
 
 A restart is required.</WVC_ToolTip_golembond_ShrinesStatPartOffset>
+
+	<WVC_Label_golemlink_spawnIntervalRange>Golemlink interval range {0} days</WVC_Label_golemlink_spawnIntervalRange>
+	<WVC_Label_golemlink_golemsToSpawnRange>Golemlink spawn count {0}</WVC_Label_golemlink_golemsToSpawnRange>
+	<WVC_Label_falselink_spawnIntervalRange>Falselink interval range {0} days</WVC_Label_falselink_spawnIntervalRange>
+	<WVC_Label_falselink_mechsToSpawnRange>Falselink spawn count {0}</WVC_Label_falselink_mechsToSpawnRange>
 
 	<!-- ================================== -->
 

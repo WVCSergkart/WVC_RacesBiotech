@@ -363,7 +363,7 @@ namespace WVC_XenotypesAndGenes
             {
 				defIcon = geneSet.iconDef;
             }
-            MiscUtility.XaG_DefIcon(rect2, defIcon, 0.9f, iconColor);
+			XaG_UiUtility.XaG_DefIcon(rect2, defIcon, 0.9f, iconColor);
             Text.Font = GameFont.Tiny;
 			float num2 = Text.CalcHeight(geneSet.name.CapitalizeFirst(), rect.width);
 			Rect rect3 = new(0f, rect.yMax - num2, rect.width, num2);

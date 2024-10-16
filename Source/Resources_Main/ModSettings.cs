@@ -98,6 +98,10 @@ namespace WVC_XenotypesAndGenes
 		public bool link_removePsylinkWithGene = false;
 		public float golemnoids_ShutdownRechargePerTick = 1f;
 		public bool golembond_ShrinesStatPartOffset = false;
+		public IntRange golemlink_spawnIntervalRange = new(240000, 420000);
+		public IntRange golemlink_golemsToSpawnRange = new(1, 3);
+		public IntRange falselink_spawnIntervalRange = new(480000, 960000);
+		public IntRange falselink_mechsToSpawnRange = new(1, 6);
 		// Shapeshifter
 		// public bool shapeshifter_enableStyleButton = true;
 		public float shapeshifer_GeneCellularRegeneration = 1f;
@@ -219,6 +223,10 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref link_removePsylinkWithGene, "link_removePsylinkWithGene", defaultValue: false);
 			Scribe_Values.Look(ref golemnoids_ShutdownRechargePerTick, "golemnoids_ShutdownRechargePerTick", defaultValue: 1f);
 			Scribe_Values.Look(ref golembond_ShrinesStatPartOffset, "golembond_ShrinesStatPartOffset", defaultValue: false);
+			Scribe_Values.Look(ref golemlink_spawnIntervalRange, "golemlink_spawnIntervalRange", defaultValue: new(240000, 420000));
+			Scribe_Values.Look(ref golemlink_golemsToSpawnRange, "golemlink_golemsToSpawnRange", defaultValue: new(1, 3));
+			Scribe_Values.Look(ref falselink_spawnIntervalRange, "falselink_spawnIntervalRange", defaultValue: new(480000, 960000));
+			Scribe_Values.Look(ref falselink_mechsToSpawnRange, "falselink_mechsToSpawnRange", defaultValue: new(1, 6));
 			// shapeshifter
 			Scribe_Values.Look(ref shapeshifer_GeneCellularRegeneration, "shapeshifer_GeneCellularRegeneration", defaultValue: 1f);
 			// Scribe_Values.Look(ref shapeshifter_enableStyleButton, "shapeshifter_enableStyleButton", defaultValue: true);
@@ -697,6 +705,16 @@ namespace WVC_XenotypesAndGenes
 		// Genes Settings
 		// Genes Settings
 		// Genes Settings
+		private bool collapse_genesSettings_general = false;
+		private bool collapse_genesSettings_MechAndPsyLinks = false;
+		private bool collapse_genesSettings_Hemogenic = false;
+		private bool collapse_genesSettings_Energy = false;
+		private bool collapse_genesSettings_XenotypeGestator = false;
+		private bool collapse_genesSettings_Undead = false;
+		private bool collapse_genesSettings_TotalHealing = false;
+		private bool collapse_genesSettings_Shapeshifer = false;
+		private bool collapse_genesSettings_DryadQueen = false;
+
 
 		public void GenesSettings(Rect inRect)
 		{
@@ -706,95 +724,155 @@ namespace WVC_XenotypesAndGenes
 			Listing_Standard listingStandard = new();
 			listingStandard.Begin(rect);
 			// =
-			listingStandard.Label("WVC_BiotechSettings_Tab_General".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_GenesMechanicsGeneral".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_enable_xagHumanComponent".Translate(), ref settings.enable_xagHumanComponent, "WVC_ToolTip_enable_xagHumanComponent".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_enable_birthQualityOffsetFromGenes".Translate(), ref settings.enable_birthQualityOffsetFromGenes, "WVC_ToolTip_enable_birthQualityOffsetFromGenes".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_harmony_EnableGenesMechanicsTriggers".Translate().Colorize(ColorLibrary.LightPurple), ref settings.harmony_EnableGenesMechanicsTriggers, "WVC_ToolTip_harmony_EnableGenesMechanicsTriggers".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_enable_StartingFoodPolicies".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_StartingFoodPolicies, "WVC_ToolTip_enable_StartingFoodPolicies".Translate());
-			listingStandard.GapLine();
-			// =
-			listingStandard.Label("WVC_XaGGeneSettings_MechAndPsyLinks".Translate() + ":", -1);
-			listingStandard.CheckboxLabeled("WVC_Label_link_addedMechlinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_addedMechlinkWithGene, "WVC_ToolTip_link_addedMechlinkWithGene".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_link_addedPsylinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_addedPsylinkWithGene, "WVC_ToolTip_link_addedPsylinkWithGene".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_link_removeMechlinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_removeMechlinkWithGene, "WVC_ToolTip_link_removeMechlinkWithGene".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_link_removePsylinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_removePsylinkWithGene, "WVC_ToolTip_link_removePsylinkWithGene".Translate());
-			listingStandard.SliderLabeledWithRef("WVC_Label_golemnoids_ShutdownRechargePerTick".Translate((settings.golemnoids_ShutdownRechargePerTick).ToString()), ref settings.golemnoids_ShutdownRechargePerTick, 0f, 10f, round: 1);
-			listingStandard.CheckboxLabeled("WVC_Label_golembond_ShrinesStatPartOffset".Translate(), ref settings.golembond_ShrinesStatPartOffset, "WVC_ToolTip_golembond_ShrinesStatPartOffset".Translate());
-			listingStandard.GapLine();
-			// =
-			listingStandard.Label("WVC_XaGGeneSettings_Hemogenic".Translate() + ":", -1);
-			listingStandard.CheckboxLabeled("WVC_Label_bloodeater_SafeBloodfeed".Translate(), ref settings.bloodeater_SafeBloodfeed, "WVC_ToolTip_bloodeater_SafeBloodfeed".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_bloodeater_disableAutoFeed".Translate().Colorize(ColorLibrary.LightBlue), ref settings.bloodeater_disableAutoFeed, "WVC_ToolTip_bloodeater_disableAutoFeed".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_bloodfeeder_AutoBloodfeed".Translate(), ref settings.bloodfeeder_AutoBloodfeed, "WVC_ToolTip_bloodfeeder_AutoBloodfeed".Translate());
-			listingStandard.SliderLabeledWithRef("WVC_Label_hemogenic_ImplanterFangsChanceFactor".Translate((settings.hemogenic_ImplanterFangsChanceFactor * 100f).ToString()), ref settings.hemogenic_ImplanterFangsChanceFactor, 0f, 10f, null, 2);
-			listingStandard.GapLine();
-			// =
-			listingStandard.Label("WVC_XaGGeneSettings_Energy".Translate() + ":", -1);
-			listingStandard.CheckboxLabeled("WVC_Label_rechargeable_enablefoodPoisoningFromFood".Translate().Colorize(ColorLibrary.LightBlue), ref settings.rechargeable_enablefoodPoisoningFromFood, "WVC_ToolTip_rechargeable_enablefoodPoisoningFromFood".Translate());
-			listingStandard.GapLine();
-			// =
-			listingStandard.Label("WVC_XaGGeneSettings_XenotypeGestator".Translate() + ":", -1);
-			listingStandard.SliderLabeledWithRef("WVC_Label_xenotypeGestator_GestationTimeFactor".Translate((settings.xenotypeGestator_GestationTimeFactor * 100f).ToString()), ref settings.xenotypeGestator_GestationTimeFactor, 0f, 2f);
-			listingStandard.SliderLabeledWithRef("WVC_Label_xenotypeGestator_GestationMatchPercent".Translate((settings.xenotypeGestator_GestationMatchPercent * 100f).ToString()), ref settings.xenotypeGestator_GestationMatchPercent, 0f, 1f);
-			listingStandard.GapLine();
-			// =
-			listingStandard.Label("WVC_XaGGeneSettings_Undead".Translate() + ":", -1);
-			listingStandard.CheckboxLabeled("WVC_Label_canNonPlayerPawnResurrect".Translate().Colorize(ColorLibrary.LightBlue), ref settings.canNonPlayerPawnResurrect, "WVC_ToolTip_canNonPlayerPawnResurrect".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_allowShapeshiftAfterDeath".Translate().Colorize(ColorLibrary.LightBlue), ref settings.allowShapeshiftAfterDeath, "WVC_ToolTip_allowShapeshiftAfterDeath".Translate());
-			listingStandard.GapLine();
-			// =
-			listingStandard.Label("WVC_XaGGeneSettings_Thralls".Translate() + ":", -1);
-			listingStandard.CheckboxLabeled("WVC_Label_ThrallMaker_ThrallsInheritMasterGenes".Translate().Colorize(ColorLibrary.LightBlue), ref settings.thrallMaker_ThrallsInheritMasterGenes, "WVC_ToolTip_ThrallMaker_ThrallsInheritMasterGenes".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_enableInstabilityLastChanceMechanic".Translate(), ref settings.enableInstabilityLastChanceMechanic, "WVC_ToolTip_enableInstabilityLastChanceMechanic".Translate());
-			listingStandard.GapLine();
-			// =
-			listingStandard.Label("WVC_XaGGeneSettings_Reincarnation".Translate() + ":", -1);
-			listingStandard.CheckboxLabeled("WVC_Label_reincarnation_EnableMechanic".Translate().Colorize(ColorLibrary.LightBlue), ref settings.reincarnation_EnableMechanic, "WVC_ToolTip_reincarnation_EnableMechanic".Translate());
-			listingStandard.SliderLabeledWithRef("WVC_Label_Reincarnation_MinChronoAge".Translate((settings.reincarnation_MinChronoAge).ToString()), ref settings.reincarnation_MinChronoAge, 50f, 2000f, round: 0);
-			listingStandard.SliderLabeledWithRef("WVC_Label_reincarnation_Chance".Translate((settings.reincarnation_Chance * 100f).ToString()), ref settings.reincarnation_Chance, 0f, 1f, round: 2);
-			listingStandard.GapLine();
-			// =
-			listingStandard.Label("WVC_XaGGeneSettings_TotalHealing".Translate() + ":", -1);
-			listingStandard.CheckboxLabeled("WVC_Label_restoreBodyPartsWithFullHP".Translate().Colorize(ColorLibrary.LightBlue), ref settings.restoreBodyPartsWithFullHP, "WVC_ToolTip_restoreBodyPartsWithFullHP".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_totalHealingIgnoreScarification".Translate().Colorize(ColorLibrary.LightBlue), ref settings.totalHealingIgnoreScarification, "WVC_ToolTip_totalHealingIgnoreScarification".Translate());
-			listingStandard.GapLine();
-			// =
-			listingStandard.Label("WVC_XaGGeneSettings_Shapeshifer".Translate() + ":", -1);
-			// listingStandard.CheckboxLabeled("WVC_Label_ShapeshifterGeneUnremovable".Translate().Colorize(ColorLibrary.LightBlue), ref settings.shapeshifterGeneUnremovable, "WVC_ToolTip_ShapeshifterGeneUnremovable".Translate());
-			listingStandard.SliderLabeledWithRef("WVC_Label_shapeshifer_GeneCellularRegeneration".Translate((settings.shapeshifer_GeneCellularRegeneration).ToString()), ref settings.shapeshifer_GeneCellularRegeneration, 1f, 100f, round: 0);
-			// listingStandard.CheckboxLabeled("WVC_Label_shapeshifter_enableStyleButton".Translate().Colorize(ColorLibrary.LightBlue), ref settings.shapeshifter_enableStyleButton, "WVC_ToolTip_shapeshifter_enableStyleButton".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_enable_chimeraMetabolismHungerFactor".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_chimeraMetabolismHungerFactor, "WVC_ToolTip_enable_chimeraMetabolismHungerFactor".Translate());
-			listingStandard.SliderLabeledWithRef("WVC_Label_chimeraMinGeneCopyChance".Translate((settings.chimeraMinGeneCopyChance * 100f).ToString()), ref settings.chimeraMinGeneCopyChance, 0.01f, 1f, round: 2);
-			listingStandard.SliderLabeledWithRef("WVC_Label_chimeraStartingGenes".Translate((settings.chimeraStartingGenes).ToString()), ref settings.chimeraStartingGenes, 0f, 50f, round: 0);
-			listingStandard.CheckboxLabeled("WVC_Label_enable_chimeraStartingTools".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_chimeraStartingTools, "WVC_ToolTip_enable_chimeraStartingTools".Translate());
-			listingStandard.GapLine();
-			// =
-			listingStandard.Label("WVC_XaGGeneSettings_IncestLover".Translate() + ":", -1);
-			listingStandard.CheckboxLabeled("WVC_Label_enableIncestLoverGene".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enableIncestLoverGene, "WVC_ToolTip_enableIncestLoverGene".Translate());
-			listingStandard.GapLine();
-			// =
-			listingStandard.Label("WVC_XaGGeneSettings_AcceptablePrey".Translate() + ":", -1);
-			listingStandard.CheckboxLabeled("WVC_Label_disableNonAcceptablePreyGenes".Translate().Colorize(ColorLibrary.LightPurple), ref settings.disableNonAcceptablePreyGenes, "WVC_ToolTip_disableNonAcceptablePreyGenes".Translate());
-			listingStandard.GapLine();
-			// =
-			listingStandard.Label("WVC_XaGGeneSettings_Telepath".Translate() + ":", -1);
-			listingStandard.CheckboxLabeled("WVC_Label_enableHarmonyTelepathyGene".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enableHarmonyTelepathyGene, "WVC_ToolTip_enableHarmonyTelepathyGene".Translate());
-			listingStandard.GapLine();
-			// =
-			// listingStandard.Label("WVC_XaGGeneSettings_Dustogenic".Translate() + ":", -1);
-			// listingStandard.CheckboxLabeled("WVC_Label_useAlternativeDustogenicFoodJob".Translate().Colorize(ColorLibrary.LightBlue), ref settings.useAlternativeDustogenicFoodJob, "WVC_ToolTip_useAlternativeDustogenicFoodJob".Translate());
-			// listingStandard.GapLine();
-			// =
-			listingStandard.Label("WVC_XaGGeneSettings_TelepathStudy".Translate() + ":", -1);
-			listingStandard.CheckboxLabeled("WVC_Label_learningTelepathWorkForBothSides".Translate().Colorize(ColorLibrary.LightBlue), ref settings.learningTelepathWorkForBothSides, "WVC_ToolTip_learningTelepathWorkForBothSides".Translate());
-			listingStandard.GapLine();
-			// =
-			listingStandard.Label("WVC_XaGGeneSettings_DryadQueen".Translate() + ":", -1);
-			listingStandard.CheckboxLabeled("WVC_Label_enable_dryadQueenMechanicGenerator".Translate().Colorize(ColorLibrary.LightOrange), ref settings.enable_dryadQueenMechanicGenerator, "WVC_ToolTip_enable_dryadQueenMechanicGenerator".Translate());
-			listingStandard.SliderLabeledWithRef("WVC_Label_gestatedDryads_FilthRateFactor".Translate((settings.gestatedDryads_FilthRateFactor * 100f).ToString()), ref settings.gestatedDryads_FilthRateFactor, 0f, 1f, round: 2);
-			if (ModsConfig.AnomalyActive)
+			if (listingStandard.ButtonTextWithTooltip("WVC_BiotechSettings_Tab_General".Translate(), tooltip: "WVC_BiotechSettings_Tooltip_GenesMechanicsGeneral".Translate()))
+            {
+				collapse_genesSettings_general = !collapse_genesSettings_general;
+			}
+			if (collapse_genesSettings_general)
 			{
-				listingStandard.SliderLabeledWithRef("WVC_Label_gestatedDryads_AnomalyRegeneration".Translate((settings.gestatedDryads_AnomalyRegeneration).ToString()), ref settings.gestatedDryads_AnomalyRegeneration, 0f, 50f, round: 0);
+				//listingStandard.Label("WVC_BiotechSettings_Tab_General".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_GenesMechanicsGeneral".Translate());
+				listingStandard.CheckboxLabeled("WVC_Label_enable_xagHumanComponent".Translate(), ref settings.enable_xagHumanComponent, "WVC_ToolTip_enable_xagHumanComponent".Translate());
+				listingStandard.CheckboxLabeled("WVC_Label_enable_birthQualityOffsetFromGenes".Translate(), ref settings.enable_birthQualityOffsetFromGenes, "WVC_ToolTip_enable_birthQualityOffsetFromGenes".Translate());
+				listingStandard.CheckboxLabeled("WVC_Label_harmony_EnableGenesMechanicsTriggers".Translate().Colorize(ColorLibrary.LightPurple), ref settings.harmony_EnableGenesMechanicsTriggers, "WVC_ToolTip_harmony_EnableGenesMechanicsTriggers".Translate());
+				listingStandard.CheckboxLabeled("WVC_Label_enable_StartingFoodPolicies".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_StartingFoodPolicies, "WVC_ToolTip_enable_StartingFoodPolicies".Translate());
+				listingStandard.CheckboxLabeled("WVC_Label_enableIncestLoverGene".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enableIncestLoverGene, "WVC_ToolTip_enableIncestLoverGene".Translate());
+				listingStandard.CheckboxLabeled("WVC_Label_disableNonAcceptablePreyGenes".Translate().Colorize(ColorLibrary.LightPurple), ref settings.disableNonAcceptablePreyGenes, "WVC_ToolTip_disableNonAcceptablePreyGenes".Translate());
+				listingStandard.CheckboxLabeled("WVC_Label_enableHarmonyTelepathyGene".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enableHarmonyTelepathyGene, "WVC_ToolTip_enableHarmonyTelepathyGene".Translate());
+				listingStandard.CheckboxLabeled("WVC_Label_learningTelepathWorkForBothSides".Translate().Colorize(ColorLibrary.LightBlue), ref settings.learningTelepathWorkForBothSides, "WVC_ToolTip_learningTelepathWorkForBothSides".Translate());
+			}
+			listingStandard.GapLine();
+			// =
+			if (listingStandard.ButtonTextWithTooltip("WVC_XaGGeneSettings_MechAndPsyLinks".Translate()))
+			{
+				collapse_genesSettings_MechAndPsyLinks = !collapse_genesSettings_MechAndPsyLinks;
+			}
+			if (collapse_genesSettings_MechAndPsyLinks)
+			{
+				//listingStandard.Label("WVC_XaGGeneSettings_MechAndPsyLinks".Translate() + ":", -1);
+				listingStandard.CheckboxLabeled("WVC_Label_link_addedMechlinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_addedMechlinkWithGene, "WVC_ToolTip_link_addedMechlinkWithGene".Translate());
+				listingStandard.CheckboxLabeled("WVC_Label_link_addedPsylinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_addedPsylinkWithGene, "WVC_ToolTip_link_addedPsylinkWithGene".Translate());
+				listingStandard.CheckboxLabeled("WVC_Label_link_removeMechlinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_removeMechlinkWithGene, "WVC_ToolTip_link_removeMechlinkWithGene".Translate());
+				listingStandard.CheckboxLabeled("WVC_Label_link_removePsylinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_removePsylinkWithGene, "WVC_ToolTip_link_removePsylinkWithGene".Translate());
+				listingStandard.SliderLabeledWithRef("WVC_Label_golemnoids_ShutdownRechargePerTick".Translate((settings.golemnoids_ShutdownRechargePerTick).ToString()), ref settings.golemnoids_ShutdownRechargePerTick, 0f, 10f, round: 1);
+				listingStandard.CheckboxLabeled("WVC_Label_golembond_ShrinesStatPartOffset".Translate(), ref settings.golembond_ShrinesStatPartOffset, "WVC_ToolTip_golembond_ShrinesStatPartOffset".Translate());
+				listingStandard.IntRangeLabeledWithRef("WVC_Label_golemlink_spawnIntervalRange".Translate((int)settings.golemlink_spawnIntervalRange.min.TicksToDays() + "~" + (int)settings.golemlink_spawnIntervalRange.max.TicksToDays()), ref settings.golemlink_spawnIntervalRange, 60000, 1800000);
+				listingStandard.IntRangeLabeledWithRef("WVC_Label_golemlink_golemsToSpawnRange".Translate(settings.golemlink_golemsToSpawnRange.ToString()), ref settings.golemlink_golemsToSpawnRange, 1, 10);
+				listingStandard.IntRangeLabeledWithRef("WVC_Label_falselink_spawnIntervalRange".Translate((int)settings.falselink_spawnIntervalRange.min.TicksToDays() + "~" + (int)settings.falselink_spawnIntervalRange.max.TicksToDays()), ref settings.falselink_spawnIntervalRange, 60000, 1800000);
+				listingStandard.IntRangeLabeledWithRef("WVC_Label_falselink_mechsToSpawnRange".Translate(settings.falselink_mechsToSpawnRange.ToString()), ref settings.falselink_mechsToSpawnRange, 1, 10);
+			}
+			listingStandard.GapLine();
+			// =
+			if (listingStandard.ButtonTextWithTooltip("WVC_XaGGeneSettings_Hemogenic".Translate()))
+			{
+				collapse_genesSettings_Hemogenic = !collapse_genesSettings_Hemogenic;
+			}
+			if (collapse_genesSettings_Hemogenic)
+			{
+				//listingStandard.Label("WVC_XaGGeneSettings_Hemogenic".Translate() + ":", -1);
+				listingStandard.CheckboxLabeled("WVC_Label_bloodeater_SafeBloodfeed".Translate(), ref settings.bloodeater_SafeBloodfeed, "WVC_ToolTip_bloodeater_SafeBloodfeed".Translate());
+				listingStandard.CheckboxLabeled("WVC_Label_bloodeater_disableAutoFeed".Translate().Colorize(ColorLibrary.LightBlue), ref settings.bloodeater_disableAutoFeed, "WVC_ToolTip_bloodeater_disableAutoFeed".Translate());
+				listingStandard.CheckboxLabeled("WVC_Label_bloodfeeder_AutoBloodfeed".Translate(), ref settings.bloodfeeder_AutoBloodfeed, "WVC_ToolTip_bloodfeeder_AutoBloodfeed".Translate());
+				listingStandard.SliderLabeledWithRef("WVC_Label_hemogenic_ImplanterFangsChanceFactor".Translate((settings.hemogenic_ImplanterFangsChanceFactor * 100f).ToString()), ref settings.hemogenic_ImplanterFangsChanceFactor, 0f, 10f, null, 2);
+			}
+			listingStandard.GapLine();
+			// =
+			if (listingStandard.ButtonTextWithTooltip("WVC_XaGGeneSettings_Energy".Translate()))
+			{
+				collapse_genesSettings_Energy = !collapse_genesSettings_Energy;
+			}
+			if (collapse_genesSettings_Energy)
+			{
+				//listingStandard.Label("WVC_XaGGeneSettings_Energy".Translate() + ":", -1);
+				listingStandard.CheckboxLabeled("WVC_Label_rechargeable_enablefoodPoisoningFromFood".Translate().Colorize(ColorLibrary.LightBlue), ref settings.rechargeable_enablefoodPoisoningFromFood, "WVC_ToolTip_rechargeable_enablefoodPoisoningFromFood".Translate());
+			}
+			listingStandard.GapLine();
+			// =
+			if (listingStandard.ButtonTextWithTooltip("WVC_XaGGeneSettings_XenotypeGestator".Translate()))
+			{
+				collapse_genesSettings_XenotypeGestator = !collapse_genesSettings_XenotypeGestator;
+			}
+			if (collapse_genesSettings_XenotypeGestator)
+			{
+				//listingStandard.Label("WVC_XaGGeneSettings_XenotypeGestator".Translate() + ":", -1);
+				listingStandard.SliderLabeledWithRef("WVC_Label_xenotypeGestator_GestationTimeFactor".Translate((settings.xenotypeGestator_GestationTimeFactor * 100f).ToString()), ref settings.xenotypeGestator_GestationTimeFactor, 0f, 2f);
+				listingStandard.SliderLabeledWithRef("WVC_Label_xenotypeGestator_GestationMatchPercent".Translate((settings.xenotypeGestator_GestationMatchPercent * 100f).ToString()), ref settings.xenotypeGestator_GestationMatchPercent, 0f, 1f);
+			}
+			listingStandard.GapLine();
+			// =
+			if (listingStandard.ButtonTextWithTooltip("WVC_XaGGeneSettings_Undead".Translate()))
+			{
+				collapse_genesSettings_Undead = !collapse_genesSettings_Undead;
+			}
+			if (collapse_genesSettings_Undead)
+			{
+				//listingStandard.Label("WVC_XaGGeneSettings_Undead".Translate() + ":", -1);
+				listingStandard.CheckboxLabeled("WVC_Label_canNonPlayerPawnResurrect".Translate().Colorize(ColorLibrary.LightBlue), ref settings.canNonPlayerPawnResurrect, "WVC_ToolTip_canNonPlayerPawnResurrect".Translate());
+				listingStandard.CheckboxLabeled("WVC_Label_allowShapeshiftAfterDeath".Translate().Colorize(ColorLibrary.LightBlue), ref settings.allowShapeshiftAfterDeath, "WVC_ToolTip_allowShapeshiftAfterDeath".Translate());
+				listingStandard.CheckboxLabeled("WVC_Label_ThrallMaker_ThrallsInheritMasterGenes".Translate().Colorize(ColorLibrary.LightBlue), ref settings.thrallMaker_ThrallsInheritMasterGenes, "WVC_ToolTip_ThrallMaker_ThrallsInheritMasterGenes".Translate());
+				listingStandard.CheckboxLabeled("WVC_Label_enableInstabilityLastChanceMechanic".Translate(), ref settings.enableInstabilityLastChanceMechanic, "WVC_ToolTip_enableInstabilityLastChanceMechanic".Translate());
+				listingStandard.CheckboxLabeled("WVC_Label_reincarnation_EnableMechanic".Translate().Colorize(ColorLibrary.LightBlue), ref settings.reincarnation_EnableMechanic, "WVC_ToolTip_reincarnation_EnableMechanic".Translate());
+				listingStandard.SliderLabeledWithRef("WVC_Label_Reincarnation_MinChronoAge".Translate((settings.reincarnation_MinChronoAge).ToString()), ref settings.reincarnation_MinChronoAge, 50f, 2000f, round: 0);
+				listingStandard.SliderLabeledWithRef("WVC_Label_reincarnation_Chance".Translate((settings.reincarnation_Chance * 100f).ToString()), ref settings.reincarnation_Chance, 0f, 1f, round: 2);
+			}
+			listingStandard.GapLine();
+			// =
+			//listingStandard.Label("WVC_XaGGeneSettings_Thralls".Translate() + ":", -1);
+			//listingStandard.GapLine();
+			// =
+			//listingStandard.Label("WVC_XaGGeneSettings_Reincarnation".Translate() + ":", -1);
+			//listingStandard.GapLine();
+			// =
+			if (listingStandard.ButtonTextWithTooltip("WVC_XaGGeneSettings_TotalHealing".Translate()))
+			{
+				collapse_genesSettings_TotalHealing = !collapse_genesSettings_TotalHealing;
+			}
+			if (collapse_genesSettings_TotalHealing)
+			{
+				//listingStandard.Label("WVC_XaGGeneSettings_TotalHealing".Translate() + ":", -1);
+				listingStandard.CheckboxLabeled("WVC_Label_restoreBodyPartsWithFullHP".Translate().Colorize(ColorLibrary.LightBlue), ref settings.restoreBodyPartsWithFullHP, "WVC_ToolTip_restoreBodyPartsWithFullHP".Translate());
+				listingStandard.CheckboxLabeled("WVC_Label_totalHealingIgnoreScarification".Translate().Colorize(ColorLibrary.LightBlue), ref settings.totalHealingIgnoreScarification, "WVC_ToolTip_totalHealingIgnoreScarification".Translate());
+			}
+			listingStandard.GapLine();
+			// =
+			if (listingStandard.ButtonTextWithTooltip("WVC_XaGGeneSettings_Shapeshifer".Translate()))
+			{
+				collapse_genesSettings_Shapeshifer = !collapse_genesSettings_Shapeshifer;
+			}
+			if (collapse_genesSettings_Shapeshifer)
+			{
+				//listingStandard.Label("WVC_XaGGeneSettings_Shapeshifer".Translate() + ":", -1);
+				// listingStandard.CheckboxLabeled("WVC_Label_ShapeshifterGeneUnremovable".Translate().Colorize(ColorLibrary.LightBlue), ref settings.shapeshifterGeneUnremovable, "WVC_ToolTip_ShapeshifterGeneUnremovable".Translate());
+				listingStandard.SliderLabeledWithRef("WVC_Label_shapeshifer_GeneCellularRegeneration".Translate((settings.shapeshifer_GeneCellularRegeneration).ToString()), ref settings.shapeshifer_GeneCellularRegeneration, 1f, 100f, round: 0);
+				// listingStandard.CheckboxLabeled("WVC_Label_shapeshifter_enableStyleButton".Translate().Colorize(ColorLibrary.LightBlue), ref settings.shapeshifter_enableStyleButton, "WVC_ToolTip_shapeshifter_enableStyleButton".Translate());
+				listingStandard.CheckboxLabeled("WVC_Label_enable_chimeraMetabolismHungerFactor".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_chimeraMetabolismHungerFactor, "WVC_ToolTip_enable_chimeraMetabolismHungerFactor".Translate());
+				listingStandard.SliderLabeledWithRef("WVC_Label_chimeraMinGeneCopyChance".Translate((settings.chimeraMinGeneCopyChance * 100f).ToString()), ref settings.chimeraMinGeneCopyChance, 0.01f, 1f, round: 2);
+				listingStandard.SliderLabeledWithRef("WVC_Label_chimeraStartingGenes".Translate((settings.chimeraStartingGenes).ToString()), ref settings.chimeraStartingGenes, 0f, 50f, round: 0);
+				listingStandard.CheckboxLabeled("WVC_Label_enable_chimeraStartingTools".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_chimeraStartingTools, "WVC_ToolTip_enable_chimeraStartingTools".Translate());
+			}
+			listingStandard.GapLine();
+			// =
+			//listingStandard.Label("WVC_XaGGeneSettings_IncestLover".Translate() + ":", -1);
+			//listingStandard.GapLine();
+			//listingStandard.Label("WVC_XaGGeneSettings_AcceptablePrey".Translate() + ":", -1);
+			//listingStandard.GapLine();
+			//listingStandard.Label("WVC_XaGGeneSettings_Telepath".Translate() + ":", -1);
+			//listingStandard.GapLine();
+			//listingStandard.Label("WVC_XaGGeneSettings_TelepathStudy".Translate() + ":", -1);
+			//listingStandard.GapLine();
+			// =
+			if (listingStandard.ButtonTextWithTooltip("WVC_XaGGeneSettings_DryadQueen".Translate()))
+			{
+				collapse_genesSettings_DryadQueen = !collapse_genesSettings_DryadQueen;
+			}
+			if (collapse_genesSettings_DryadQueen)
+			{
+				//listingStandard.Label("WVC_XaGGeneSettings_DryadQueen".Translate() + ":", -1);
+				listingStandard.CheckboxLabeled("WVC_Label_enable_dryadQueenMechanicGenerator".Translate().Colorize(ColorLibrary.LightOrange), ref settings.enable_dryadQueenMechanicGenerator, "WVC_ToolTip_enable_dryadQueenMechanicGenerator".Translate());
+				listingStandard.SliderLabeledWithRef("WVC_Label_gestatedDryads_FilthRateFactor".Translate((settings.gestatedDryads_FilthRateFactor * 100f).ToString()), ref settings.gestatedDryads_FilthRateFactor, 0f, 1f, round: 2);
+				if (ModsConfig.AnomalyActive)
+				{
+					listingStandard.SliderLabeledWithRef("WVC_Label_gestatedDryads_AnomalyRegeneration".Translate((settings.gestatedDryads_AnomalyRegeneration).ToString()), ref settings.gestatedDryads_AnomalyRegeneration, 0f, 50f, round: 0);
+				}
 			}
 			// Reset Button
 			listingStandard.GapLine();
@@ -965,6 +1043,10 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.link_removePsylinkWithGene = settingsDef.link_removePsylinkWithGene;
 			WVC_Biotech.settings.golemnoids_ShutdownRechargePerTick = settingsDef.golemnoids_ShutdownRechargePerTick;
 			WVC_Biotech.settings.golembond_ShrinesStatPartOffset = settingsDef.golembond_ShrinesStatPartOffset;
+			WVC_Biotech.settings.golemlink_spawnIntervalRange = settingsDef.golemlink_spawnIntervalRange;
+			WVC_Biotech.settings.golemlink_golemsToSpawnRange = settingsDef.golemlink_golemsToSpawnRange;
+			WVC_Biotech.settings.falselink_spawnIntervalRange = settingsDef.falselink_spawnIntervalRange;
+			WVC_Biotech.settings.falselink_mechsToSpawnRange = settingsDef.falselink_mechsToSpawnRange;
 			// =
 			WVC_Biotech.settings.rechargeable_enablefoodPoisoningFromFood = settingsDef.rechargeable_enablefoodPoisoningFromFood;
 			// =

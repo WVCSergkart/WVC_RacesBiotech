@@ -60,7 +60,7 @@ namespace WVC_XenotypesAndGenes
 				nextRecache = 180;
 			}
 			string text = usedBandwidth.ToString("F0") + " / " + totalBandwidth.ToString("F0");
-			TaggedString taggedString = "WVC_XaG_BroodmindLimit".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + text + "\n\n" + "WVC_XaG_BroodmindLimitGizmoTip".Translate() + "\n\n" +  "WVC_XaG_Gene_GauranlenConnection_SpawnOnOff".Translate() + ": " + GeneUiUtility.OnOrOff(gene.spawnDryads);;
+			TaggedString taggedString = "WVC_XaG_BroodmindLimit".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + text + "\n\n" + "WVC_XaG_BroodmindLimitGizmoTip".Translate() + "\n\n" +  "WVC_XaG_Gene_GauranlenConnection_SpawnOnOff".Translate() + ": " + XaG_UiUtility.OnOrOff(gene.spawnDryads);;
 			if (usedBandwidth > 0)
 			{
 				taggedString += (string)("\n\n" + ("WVC_XaG_BroodmindUsage".Translate() + ": ")) + usedBandwidth;
@@ -101,7 +101,7 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			}
-			TooltipHandler.TipRegion(rectSummonSettings, "WVC_XaG_Gene_GauranlenConnection_SpawnOnOffDesc".Translate() + "\n\n" +  "WVC_XaG_Gene_GauranlenConnection_SpawnOnOff".Translate() + ": " + GeneUiUtility.OnOrOff(gene.spawnDryads));
+			TooltipHandler.TipRegion(rectSummonSettings, "WVC_XaG_Gene_GauranlenConnection_SpawnOnOffDesc".Translate() + "\n\n" +  "WVC_XaG_Gene_GauranlenConnection_SpawnOnOff".Translate() + ": " + XaG_UiUtility.OnOrOff(gene.spawnDryads));
 			// Button
 			Rect rectGolemsSettings = new(rectSummonSettings.x + 44f, rectSummonSettings.y, rectSummonSettings.width, rectSummonSettings.height);
 			Widgets.DrawTextureFitted(rectGolemsSettings, SelectDryadsIcon.Texture, 1f);

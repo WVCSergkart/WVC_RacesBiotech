@@ -56,7 +56,7 @@ namespace WVC_XenotypesAndGenes
 				nextRecache = 120;
 			}
 			string text = usedBandwidth.ToString("F0") + " / " + totalBandwidth.ToString("F0");
-			TaggedString taggedString = "WVC_XaG_GolemBandwidth".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + text + "\n\n" + "WVC_XaG_GolemBandwidthGizmoTip".Translate() + "\n\n" +  "WVC_XaG_Gene_GolemlinkGizmoSpawnLabel".Translate() + ": " + GeneUiUtility.OnOrOff(gene.summonMechanoids);
+			TaggedString taggedString = "WVC_XaG_GolemBandwidth".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + text + "\n\n" + "WVC_XaG_GolemBandwidthGizmoTip".Translate() + "\n\n" +  "WVC_XaG_Gene_GolemlinkGizmoSpawnLabel".Translate() + ": " + XaG_UiUtility.OnOrOff(gene.summonMechanoids);
 			if (usedBandwidth > 0)
 			{
 				taggedString += (string)("\n\n" + ("WVC_XaG_GolemBandwidthUsage".Translate() + ": ")) + usedBandwidth;
@@ -97,7 +97,7 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			}
-			TooltipHandler.TipRegion(rectSummonSettings, "WVC_XaG_Gene_GolemlinkGizmoSpawnDesc".Translate() + "\n\n" +  "WVC_XaG_Gene_GolemlinkGizmoSpawnLabel".Translate() + ": " + GeneUiUtility.OnOrOff(gene.summonMechanoids));
+			TooltipHandler.TipRegion(rectSummonSettings, "WVC_XaG_Gene_GolemlinkGizmoSpawnDesc".Translate() + "\n\n" +  "WVC_XaG_Gene_GolemlinkGizmoSpawnLabel".Translate() + ": " + XaG_UiUtility.OnOrOff(gene.summonMechanoids));
 			// Button
 			Rect rectGolemsSettings = new(rectSummonSettings.x + 44f, rectSummonSettings.y, rectSummonSettings.width, rectSummonSettings.height);
 			Widgets.DrawTextureFitted(rectGolemsSettings, GolemSettingsIcon.Texture, 1f);
