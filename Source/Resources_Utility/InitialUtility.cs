@@ -337,7 +337,6 @@ namespace WVC_XenotypesAndGenes
 			List<XaG_CountWithChance> similarGenes = ListsUtility.GetIdenticalGeneDefs();
 			foreach (XenotypeDef xenotypeDef in DefDatabase<XenotypeDef>.AllDefsListForReading)
 			{
-				GeneDef geneToAdd = null;
 				foreach (GeneDef geneDef in xenotypeDef.genes.ToList())
 				{
 					foreach (XaG_CountWithChance similar in similarGenes)
@@ -345,28 +344,25 @@ namespace WVC_XenotypesAndGenes
 						if (similar.sourceGeneDef != null && !similar.dupGeneDefs.NullOrEmpty() && similar.dupGeneDefs.Contains(geneDef))
 						{
 							xenotypeDef.genes.Remove(geneDef);
-							geneToAdd = similar.sourceGeneDef;
+							//Log.Error("Target gene " + similar.sourceGeneDef.defName);
 							geneDef.selectionWeight = 0f;
 							geneDef.canGenerateInGeneSet = false;
-
+							//Log.Error("Null check gene " + similar.sourceGeneDef.defName);
+							if (!similar.sourceGeneDef.randomChosen)
+							{
+								foreach (GeneDef geneDef2 in xenotypeDef.genes.ToList())
+								{
+									if (geneDef2.ConflictsWith(similar.sourceGeneDef))
+									{
+										xenotypeDef.genes.Remove(geneDef2);
+									}
+								}
+							}
+							//Log.Error("Adding gene " + similar.sourceGeneDef.defName);
+							xenotypeDef.genes.Add(similar.sourceGeneDef);
 						}
 					}
 				}
-				if (geneToAdd == null || xenotypeDef.genes.Contains(geneToAdd))
-				{
-					continue;
-				}
-				if (!geneToAdd.randomChosen)
-				{
-					foreach (GeneDef geneDef in xenotypeDef.genes.ToList())
-					{
-						if (geneDef.ConflictsWith(geneToAdd))
-						{
-							xenotypeDef.genes.Remove(geneDef);
-						}
-					}
-				}
-				xenotypeDef.genes.Add(geneToAdd);
 			}
 		}
 

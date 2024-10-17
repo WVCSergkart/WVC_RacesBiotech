@@ -45,6 +45,7 @@
   <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_RiseFromTheDead_Base">
 	<defName>WVC_ReimplanterThrallMaker</defName>
 	<label>thrall maker</label>
+	<description>Implant a copy of choosen xenogerm into another person through a somewhat gross-looking injector organ. Subsequently, the target turns into a genetic thrall; genetic thralls must regularly delay instabilization in order to survive.</description>
 	<iconPath>WVC/UI/Genes/Gene_ThrallMaker_v0</iconPath>
 	<cooldownTicksRange>540000</cooldownTicksRange><!-- 9 days -->
 	<comps>
