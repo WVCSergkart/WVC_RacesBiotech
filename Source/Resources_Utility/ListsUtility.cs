@@ -71,7 +71,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					return list;
 				}
-				XaG_PostInitialization.SetValues();
+				InitialUtility.SetValues();
 				// WVC_Biotech.settings.Write();
 				foreach (var item in WVC_Biotech.cachedXenotypesFilter)
 				{

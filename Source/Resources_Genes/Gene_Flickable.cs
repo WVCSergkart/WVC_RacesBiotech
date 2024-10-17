@@ -192,6 +192,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete]
 	public class Gene_Gizmo : Gene
 	{
 
@@ -216,11 +217,28 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	// [Obsolete]
-	// public class Gene_RegenerationSleep : Gene_Gizmo
-	// {
+    public class Gene_RegenerationSleep : Gene_OverOverridable
+	{
 
+		private Gizmo gizmo;
 
-	// }
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (XaG_GeneUtility.SelectorActiveFaction(pawn, this))
+			{
+				yield break;
+			}
+			if (!def.showGizmoWhenDrafted && pawn.Drafted)
+			{
+				yield break;
+			}
+			if (gizmo == null)
+			{
+				gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, this);
+			}
+			yield return gizmo;
+		}
+
+	}
 
 }

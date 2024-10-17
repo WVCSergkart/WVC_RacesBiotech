@@ -61,38 +61,4 @@
 	<!-- </makeImmuneTo> -->
   <!-- </GeneDef> -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSleep_Base">
-	<defName>WVC_MecaUpgrades_EnergySavingMode</defName>
-	<label>regeneration sleep</label>
-	<description>Carriers of this gene have archites that optimize metabolic processes, allowing clusters of neurons to sleep while the rest of the brain stays awake. They can also put the carrier into a regeneration coma or wake up from it at any time.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_Gizmo</geneClass>
-	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_RegenerationSleep</resourceGizmoType>
-	<showGizmoWhenDrafted>true</showGizmoWhenDrafted>
-	<showGizmoOnMultiSelect>false</showGizmoOnMultiSelect>
-	<showGizmoOnWorldView>false</showGizmoOnWorldView>
-	<iconPath>WVC/UI/Genes/HealthySleep_v0</iconPath>
-	<displayCategory>WVC_Energy</displayCategory>
-	<displayOrderInCategory>110</displayOrderInCategory>
-	<marketValueFactor>1.5</marketValueFactor>
-	<selectionWeight>0.00125</selectionWeight>
-	<biostatMet>2</biostatMet>
-	<biostatCpx>3</biostatCpx>
-	<biostatArc>1</biostatArc>
-	<customEffectDescriptions>
-	  <li>Allows to put a pawn into or wake them up from a &lt;color=#8a8ae6&gt;regeneration coma&lt;/color&gt; at any time.</li>
-	</customEffectDescriptions>
-	<disablesNeeds>
-	  <li>Rest</li>
-	  <li>Comfort</li>
-	</disablesNeeds>
-	<suppressedTraits>
-	  <li>
-		<def>QuickSleeper</def>
-	  </li>
-	</suppressedTraits>
-	<makeImmuneTo>
-	  <li>SleepingSickness</li>
-	</makeImmuneTo>
-  </GeneDef>
-
 </Defs>

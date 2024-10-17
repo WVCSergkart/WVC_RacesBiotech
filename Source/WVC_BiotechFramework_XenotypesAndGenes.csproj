@@ -81,6 +81,7 @@
     <Compile Include="Resources_Abilities\CompProperties_SafeBloodfeed.cs" />
     <Compile Include="Resources_Abilities\QuestNode_Root_Reincarnation.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_NoSunlight.cs" />
+    <Compile Include="Resources_Genes\Gene_OverOverridable.cs" />
     <Compile Include="Resources_Genes\Gene_Anomaly.cs" />
     <Compile Include="Resources_Genes\Gene_Chimera.cs" />
     <Compile Include="Resources_Genes\Gene_Energy.cs" />
@@ -169,6 +170,7 @@
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_Shapeshifter_Social.cs" />
     <Compile Include="Resources_Utility\DuplicateUtility.cs" />
     <Compile Include="Resources_Utility\GeneratorUtility.cs" />
+    <Compile Include="Resources_Utility\InitialUtility.cs" />
     <Compile Include="Resources_Workers\JobDriver_AbsorbGenogerm.cs" />
     <Compile Include="Resources_Workers\JobDriver_BiteTarget.cs" />
     <Compile Include="Resources_Workers\JobDriver_ChangeGolemType.cs" />

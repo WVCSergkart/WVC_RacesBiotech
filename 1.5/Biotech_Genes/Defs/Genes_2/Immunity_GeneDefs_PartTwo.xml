@@ -1,38 +1,4 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneImmunity_Base">
-	<defName>WVC_MecaBodyParts_Liver</defName>
-	<label>machine senescent</label>
-	<description>Carriers of this gene have archites that provide them with very adaptive immunity and protect against chronic diseases.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_EmergeMetalhorror</geneClass>
-	<iconPath>WVC/UI/Genes/Immunostabilizer_v0</iconPath>
-	<!-- <displayCategory>Healing</displayCategory> -->
-	<displayCategory>WVC_Energy</displayCategory>
-	<displayOrderInCategory>100</displayOrderInCategory>
-	<biostatCpx>4</biostatCpx>
-	<biostatArc>2</biostatArc>
-	<biostatMet>0</biostatMet>
-	<customEffectDescriptions>
-		<li>When carrier infected with &lt;color=#8a8ae6&gt;metalhorror&lt;/color&gt;, it will &lt;color=#8a8ae6&gt;emerge&lt;/color&gt; after a while, preventing it from growing.</li>
-		<li MayRequire="oskarpotocki.vanillafactionsexpanded.core">Slowdown the progression of diseases.</li>
-	</customEffectDescriptions>
-	<statFactors>
-	  <ImmunityGainSpeed>8</ImmunityGainSpeed>
-	</statFactors>
-	<makeImmuneTo>
-	  <li>OrganDecay</li>
-	</makeImmuneTo>
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
-			<diseaseProgressionFactor>0.5</diseaseProgressionFactor>
-		</li>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
-			<inheritableGeneDefs>
-			  <li>DiseaseFree</li>
-			</inheritableGeneDefs>
-		</li>
-	</modExtensions>
-  </GeneDef>
-
 </Defs>

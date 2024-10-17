@@ -17,6 +17,13 @@
 	  </value>
 	</Operation>
 
+	<!-- <Operation Class="PatchOperationReplace"> -->
+	  <!-- <xpath>/Defs/GeneDef[defName="WVC_MecaBodyParts_Lung"]/geneClass</xpath> -->
+	  <!-- <value> -->
+		<!-- <geneClass>WVC_XenotypesAndGenes.Gene_OverOverridable</geneClass> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
 	<!-- <Operation Class="PatchOperationAdd"> -->
 	  <!-- <xpath>/Defs/GeneDef[defName="PerfectImmunity"]/makeImmuneTo</xpath> -->
 	  <!-- <value> -->

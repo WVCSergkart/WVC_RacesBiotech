@@ -133,7 +133,7 @@ namespace WVC_XenotypesAndGenes
 
 		private static void ResetGenes()
 		{
-			if (WVC_Biotech.settings.fixGenesOnLoad)
+			if (WVC_Biotech.settings.resetGenesOnLoad)
 			{
 				// foreach (Pawn item in currentGame.World.worldPawns.AllPawnsAliveOrDead)
 				// List<Pawn> pawns = currentGame.CurrentMap.mapPawns.AllPawns;
@@ -161,9 +161,10 @@ namespace WVC_XenotypesAndGenes
 							}
 							Log.Message(item.Name + ": XENOGENES FIXED: " + "\n" + genes.Xenogenes.Select((Gene x) => x.def.label).ToLineList("	 - ", capitalizeItems: true));
 						}
+						ReimplanterUtility.PostImplantDebug(item);
 					}
 				}
-				WVC_Biotech.settings.fixGenesOnLoad = false;
+				WVC_Biotech.settings.resetGenesOnLoad = false;
 			}
 		}
 
@@ -202,6 +203,7 @@ namespace WVC_XenotypesAndGenes
 								Log.Message(item.Name + ": XENOGENE TYPE FIXED: " + gene.def.defName);
 							}
 						}
+						ReimplanterUtility.PostImplantDebug(item);
 					}
 				}
 				WVC_Biotech.settings.fixGeneTypesOnLoad = false;

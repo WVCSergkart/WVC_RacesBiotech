@@ -70,7 +70,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_EmergeMetalhorror : Gene
+	public class Gene_MachineSenescent : Gene_OverOverridable
 	{
 
 		public override void Tick()
@@ -85,6 +85,13 @@ namespace WVC_XenotypesAndGenes
 				MetalhorrorUtility.TryEmerge(pawn, "WVC_XaG_MetalhorrorReasonGeneRejection".Translate(pawn.Named("INFECTED")));
 			}
 		}
+
+	}
+
+	[Obsolete]
+	public class Gene_EmergeMetalhorror : Gene_MachineSenescent
+	{
+
 
 	}
 

@@ -40,6 +40,7 @@ namespace WVC_XenotypesAndGenes
 		public bool enableIncestLoverGene = true;
 		public bool disableNonAcceptablePreyGenes = false;
 		public bool enableHarmonyTelepathyGene = false;
+		public bool enable_OverOverridableGenesMechanic = true;
 		// public bool useAlternativeDustogenicFoodJob = true;
 		public bool learningTelepathWorkForBothSides = false;
 		public bool disableUniqueXenotypeScenarios = false;
@@ -71,7 +72,7 @@ namespace WVC_XenotypesAndGenes
 		// Fix
 		public bool fixVanillaGeneImmunityCheck = true;
 		public bool spawnXenoForcerSerumsFromTraders = true;
-		public bool fixGenesOnLoad = false;
+		public bool resetGenesOnLoad = false;
 		public bool fixGeneAbilitiesOnLoad = false;
 		public bool fixGeneTypesOnLoad = false;
 		// public bool fixThrallTypesOnLoad = false;
@@ -447,7 +448,7 @@ namespace WVC_XenotypesAndGenes
 			if (Widgets.ButtonText(resetRect, "WVC_BiotechSettings_XenotypesFilter_Reset".Translate()))
 			{
 				cachedXenotypesFilter.Clear();
-				XaG_PostInitialization.SetValues();
+				InitialUtility.SetValues();
 			}
 
 			var explanationTitleRect = new Rect(resetRect.xMax + 15, resetRect.y, inRect.width - (resetRect.width + 35), 24f);
@@ -529,7 +530,7 @@ namespace WVC_XenotypesAndGenes
 			// listingStandard.CheckboxLabeled("WVC_Label_autoPatchVanillaArchiteImmunityGenes".Translate().Colorize(ColorLibrary.LightBlue), ref settings.autoPatchVanillaArchiteImmunityGenes, "WVC_ToolTip_autoPatchVanillaArchiteImmunityGenes".Translate());
 			listingStandard.Gap();
 			// =============== Dev ===============
-			listingStandard.CheckboxLabeled("DEV: ".Colorize(ColorLibrary.RedReadable) + "WVC_Label_fixGenesOnLoad".Translate().Colorize(ColorLibrary.LightPink), ref settings.fixGenesOnLoad, "WVC_ToolTip_fixGenesOnLoad".Translate() + "\n\n" + "WVC_Alert_fixBrokenShit".Translate());
+			listingStandard.CheckboxLabeled("DEV: ".Colorize(ColorLibrary.RedReadable) + "WVC_Label_fixGenesOnLoad".Translate().Colorize(ColorLibrary.LightPink), ref settings.resetGenesOnLoad, "WVC_ToolTip_fixGenesOnLoad".Translate() + "\n\n" + "WVC_Alert_fixBrokenShit".Translate());
 			listingStandard.CheckboxLabeled("DEV: ".Colorize(ColorLibrary.RedReadable) + "WVC_Label_fixGeneAbilitiesOnLoad".Translate().Colorize(ColorLibrary.LightPink), ref settings.fixGeneAbilitiesOnLoad, "WVC_ToolTip_fixGeneAbilitiesOnLoad".Translate() + "\n\n" + "WVC_Alert_fixBrokenShit".Translate());
 			listingStandard.CheckboxLabeled("DEV: ".Colorize(ColorLibrary.RedReadable) + "WVC_Label_fixGeneTypesOnLoad".Translate().Colorize(ColorLibrary.LightPink), ref settings.fixGeneTypesOnLoad, "WVC_ToolTip_fixGeneTypesOnLoad".Translate() + "\n\n" + "WVC_Alert_fixBrokenShit".Translate());
 			// listingStandard.CheckboxLabeled("DEV: ".Colorize(ColorLibrary.RedReadable) + "WVC_Label_fixThrallTypesOnLoad".Translate().Colorize(ColorLibrary.LightPink), ref settings.fixThrallTypesOnLoad, "WVC_ToolTip_fixThrallTypesOnLoad".Translate());
@@ -739,6 +740,7 @@ namespace WVC_XenotypesAndGenes
 				listingStandard.CheckboxLabeled("WVC_Label_disableNonAcceptablePreyGenes".Translate().Colorize(ColorLibrary.LightPurple), ref settings.disableNonAcceptablePreyGenes, "WVC_ToolTip_disableNonAcceptablePreyGenes".Translate());
 				listingStandard.CheckboxLabeled("WVC_Label_enableHarmonyTelepathyGene".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enableHarmonyTelepathyGene, "WVC_ToolTip_enableHarmonyTelepathyGene".Translate());
 				listingStandard.CheckboxLabeled("WVC_Label_learningTelepathWorkForBothSides".Translate().Colorize(ColorLibrary.LightBlue), ref settings.learningTelepathWorkForBothSides, "WVC_ToolTip_learningTelepathWorkForBothSides".Translate());
+				listingStandard.CheckboxLabeled("WVC_Label_enable_OverOverridableGenesMechanic".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_OverOverridableGenesMechanic, "WVC_ToolTip_enable_OverOverridableGenesMechanic".Translate());
 			}
 			listingStandard.GapLine();
 			// =
@@ -1013,6 +1015,7 @@ namespace WVC_XenotypesAndGenes
 			// =
 			WVC_Biotech.settings.enableHarmonyTelepathyGene = settingsDef.enableHarmonyTelepathyGene;
 			// =
+			WVC_Biotech.settings.enable_OverOverridableGenesMechanic = settingsDef.enable_OverOverridableGenesMechanic;
 			// WVC_Biotech.settings.useAlternativeDustogenicFoodJob = true;
 			// =
 			WVC_Biotech.settings.learningTelepathWorkForBothSides = settingsDef.learningTelepathWorkForBothSides;

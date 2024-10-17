@@ -48,6 +48,11 @@ A restart is required.</WVC_ToolTip_enable_xagHumanComponent>
 	<WVC_Label_enable_StartingFoodPolicies>Enable starting food policies</WVC_Label_enable_StartingFoodPolicies>
 	<WVC_ToolTip_enable_StartingFoodPolicies>If enabled, food policies will be generated for genes that require a certain diet. Affects only the start of a new game.</WVC_ToolTip_enable_StartingFoodPolicies>
 
+	<WVC_Label_enable_OverOverridableGenesMechanic>Enable over-overriadable mechanics</WVC_Label_enable_OverOverridableGenesMechanic>
+	<WVC_ToolTip_enable_OverOverridableGenesMechanic>Some genes cannot be overridden regardless of their type (endogene\xenogene), they always override conflicting genes.
+
+This does not affect overriding genes with which these genes are not mutually exclusive.</WVC_ToolTip_enable_OverOverridableGenesMechanic>
+
 	<!-- ================================== -->
 
 	<WVC_Label_genesCanTickOnlyOnMap>Genes tick only on map</WVC_Label_genesCanTickOnlyOnMap>

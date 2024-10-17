@@ -112,6 +112,7 @@
 		<li>WVC_Wings_Levitation</li>
 		<li>WVC_Wings_MembranousWings</li>
 		<li>WVC_Wings_FeatheredWings</li>
+		<li>WVC_MecaBodyParts_Lung</li>
 		<!-- = -->
 		<li MayRequire="ludeon.rimworld.ideology">WVC_Scarifier</li>
 		<!-- <li>WVC_Scarifier_Clotting</li> -->
@@ -150,8 +151,9 @@
 		<!-- = -->
 		<li>WVC_Mecha_ScytheTail</li>
 		<li>WVC_MechaHidden_ArchiteForge</li>
+		<li>WVC_Mecha_AntennaTail</li>
 		<!-- <li>WVC_MecaBodyParts_Heart</li> -->
-		<li>WVC_MechaPowerSource_Tox</li>
+		<!-- <li>WVC_MechaPowerSource_Tox</li> -->
 		<!-- = -->
 		<li>WVC_NoLearning</li>
 		<li>WVC_Learning_ExtremeSlow</li>
