@@ -53,8 +53,8 @@ namespace WVC_XenotypesAndGenes
 			Rect rect3 = new(rect2.x, rect2.y, rect2.width, 20f);
 			// Widgets.Label(rect3, "WVC_XaG_ShapeshifterGizmo".Translate());
 			Widgets.Label(rect3, gene.LabelCap);
-			Text.Font = GameFont.Small;
-			Text.Anchor = TextAnchor.UpperRight;
+			//Text.Font = GameFont.Small;
+			//Text.Anchor = TextAnchor.UpperRight;
 			TooltipHandler.TipRegion(rect3, taggedString);
 			// Widgets.Label(rect3, text);
 			// Text.Anchor = TextAnchor.UpperLeft;

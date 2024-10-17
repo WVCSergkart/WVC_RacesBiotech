@@ -138,7 +138,7 @@ namespace WVC_XenotypesAndGenes
 				pawn.Drawer?.renderer?.SetAllGraphicsDirty();
 				phase = "do effects yay";
 				DoEffects();
-				ResetInterval(new IntRange(3200, 5000));
+				ResetInterval(new IntRange(42000, 50000));
 
 			}
 			catch (Exception arg)

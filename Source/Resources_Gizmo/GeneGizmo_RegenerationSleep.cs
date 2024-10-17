@@ -40,8 +40,8 @@ namespace WVC_XenotypesAndGenes
 			// Label
 			Rect rect3 = new(rect2.x, rect2.y, rect2.width, 20f);
 			Widgets.Label(rect3, "WVC_Coma".Translate());
-			Text.Font = GameFont.Small;
-			Text.Anchor = TextAnchor.UpperRight;
+			//Text.Font = GameFont.Small;
+			//Text.Anchor = TextAnchor.UpperRight;
 			TooltipHandler.TipRegion(rect3, taggedString);
 			// Button
 			Rect rect4 = new(rect2.x, rect2.y + 23f, 40f, 40f);
