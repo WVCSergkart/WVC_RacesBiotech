@@ -218,12 +218,12 @@ namespace WVC_XenotypesAndGenes
 					recipient.genes.AddGene(xenogene.def, xenogene: true);
 				}
 			}
-			if (!caster.genes.Xenotype.soundDefOnImplant.NullOrUndefined())
-			{
-				caster.genes.Xenotype.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(recipient));
-			}
 			if (xenogerm)
 			{
+				if (!caster.genes.Xenotype.soundDefOnImplant.NullOrUndefined())
+				{
+					caster.genes.Xenotype.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(recipient));
+				}
 				recipient.health.AddHediff(HediffDefOf.XenogerminationComa);
 				GeneUtility.UpdateXenogermReplication(recipient);
 			}
@@ -267,7 +267,7 @@ namespace WVC_XenotypesAndGenes
 			Pawn_GeneTracker recipientGenes = pawn.genes;
 			bool xenotypeHasSkinColor = false;
 			bool xenotypeHasHairColor = false;
-			foreach (Gene gene in recipientGenes.GenesListForReading)
+			foreach (Gene gene in recipientGenes.Endogenes)
 			{
 				if (gene.def.skinColorBase != null || gene.def.skinColorOverride != null)
 				{

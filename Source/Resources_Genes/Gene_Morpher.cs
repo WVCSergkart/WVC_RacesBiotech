@@ -181,15 +181,44 @@ namespace WVC_XenotypesAndGenes
 			}
 			foreach (Gene gene in pawnGeneSet.endogenes)
 			{
-				AddGene(gene.def, gene, true);
+				AddGene(gene.def, true);
 			}
 			foreach (Gene gene in pawnGeneSet.xenogenes)
 			{
-				AddGene(gene.def, gene, false);
+				AddGene(gene.def, false);
 			}
+			CopyGenesID(pawnGeneSet.endogenes, pawn.genes.Endogenes);
+			CopyGenesID(pawnGeneSet.xenogenes, pawn.genes.Xenogenes);
+			//DuplicateUtility.CopyGenesOverrides(pawn, pawn.genes.Endogenes, tmpOldEndogenes);
+			//DuplicateUtility.CopyGenesOverrides(pawn, pawn.genes.Xenogenes, tmpOldXenogenes);
 			currentFormName = pawnGeneSet.name;
 			formId = pawnGeneSet.formId;
 			savedGeneSets.Remove(pawnGeneSet);
+		}
+
+		public void CopyGenesID(List<Gene> newGenes, List<Gene> sourceGenes)
+		{
+			int i;
+			for (i = 0; i < sourceGenes.Count; i++)
+			{
+				//Gene gene = newGenes[i];
+				Gene sourceGene = sourceGenes[i];
+				try
+				{
+					if (sourceGene == this || !newGenes.Where((Gene e) => e.def == sourceGene.def).TryRandomElement(out Gene gene))
+                    {
+						continue;
+                    }
+					gene.loadID = sourceGene.loadID;
+					gene.overriddenByGene = sourceGene.overriddenByGene;
+					sourceGenes.Remove(sourceGene);
+					sourceGenes.Add(gene);
+				}
+				catch (Exception arg)
+				{
+					Log.Warning("Failed copy gene: " + sourceGene.LabelCap + ". Reason: " + arg);
+				}
+			}
 		}
 
 		private void Reimplant(XenotypeDef xenotypeDef)
@@ -197,7 +226,7 @@ namespace WVC_XenotypesAndGenes
 			ReimplanterUtility.SetXenotypeDirect(null, pawn, xenotypeDef, true);
 			foreach (GeneDef geneDef in xenotypeDef.genes)
 			{
-				AddGene(geneDef, null, xenotypeDef.inheritable);
+				AddGene(geneDef, xenotypeDef.inheritable);
 			}
 			formId = savedGeneSets.Count + 1;
 			currentFormName = xenotypeDef.label;
@@ -260,34 +289,11 @@ namespace WVC_XenotypesAndGenes
 			savedGeneSets.Add(newSet);
 		}
 
-		public virtual void AddGene(GeneDef geneDef, Gene gene, bool inheritable)
+		public virtual void AddGene(GeneDef geneDef, bool inheritable)
 		{
 			if (!geneDef.ConflictsWith(this.def))
 			{
 				pawn.genes.AddGene(geneDef, !inheritable);
-			}
-			else
-			{
-				return;
-			}
-			if (gene != null)
-			{
-				Gene overrideGene;
-				Gene newGene = pawn.genes.GetGene(geneDef);
-				if (inheritable)
-				{
-					overrideGene = newGene.overriddenByGene;
-					pawn.genes.Endogenes.Remove(newGene);
-					pawn.genes.Endogenes.Add(gene);
-					gene.overriddenByGene = overrideGene;
-				}
-				else
-				{
-					overrideGene = newGene.overriddenByGene;
-					pawn.genes.Xenogenes.Remove(newGene);
-					pawn.genes.Xenogenes.Add(gene);
-					gene.overriddenByGene = overrideGene;
-				}
 			}
 		}
 
