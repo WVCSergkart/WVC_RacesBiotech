@@ -51,7 +51,9 @@ A restart is required.</WVC_ToolTip_enable_xagHumanComponent>
 	<WVC_Label_enable_OverOverridableGenesMechanic>Enable over-overriadable mechanics</WVC_Label_enable_OverOverridableGenesMechanic>
 	<WVC_ToolTip_enable_OverOverridableGenesMechanic>Some genes cannot be overridden regardless of their type (endogene\xenogene), they always override conflicting genes.
 
-This does not affect overriding genes with which these genes are not mutually exclusive.</WVC_ToolTip_enable_OverOverridableGenesMechanic>
+This does not affect overriding genes with which these genes are not mutually exclusive.
+
+This option also patches the gene copying of the duplicator anomaly, making it more compatible with mods and adding a debugger to it.</WVC_ToolTip_enable_OverOverridableGenesMechanic>
 
 	<!-- ================================== -->
 

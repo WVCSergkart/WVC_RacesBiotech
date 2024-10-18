@@ -740,7 +740,7 @@ namespace WVC_XenotypesAndGenes
 				listingStandard.CheckboxLabeled("WVC_Label_disableNonAcceptablePreyGenes".Translate().Colorize(ColorLibrary.LightPurple), ref settings.disableNonAcceptablePreyGenes, "WVC_ToolTip_disableNonAcceptablePreyGenes".Translate());
 				listingStandard.CheckboxLabeled("WVC_Label_enableHarmonyTelepathyGene".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enableHarmonyTelepathyGene, "WVC_ToolTip_enableHarmonyTelepathyGene".Translate());
 				listingStandard.CheckboxLabeled("WVC_Label_learningTelepathWorkForBothSides".Translate().Colorize(ColorLibrary.LightBlue), ref settings.learningTelepathWorkForBothSides, "WVC_ToolTip_learningTelepathWorkForBothSides".Translate());
-				listingStandard.CheckboxLabeled("WVC_Label_enable_OverOverridableGenesMechanic".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_OverOverridableGenesMechanic, "WVC_ToolTip_enable_OverOverridableGenesMechanic".Translate());
+				listingStandard.CheckboxLabeled("WVC_Label_enable_OverOverridableGenesMechanic".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enable_OverOverridableGenesMechanic, "WVC_ToolTip_enable_OverOverridableGenesMechanic".Translate());
 			}
 			listingStandard.GapLine();
 			// =

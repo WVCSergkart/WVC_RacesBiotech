@@ -58,44 +58,49 @@ namespace WVC_XenotypesAndGenes
 		public static void CopyGenes(Pawn pawn, Pawn newPawn)
 		{
 			newPawn.genes.Endogenes.RemoveAllGenes();
+			newPawn.genes.Xenogenes.RemoveAllGenes();
+			//Log.Error("0");
 			List<Gene> sourceEndogenes = pawn.genes.Endogenes;
 			foreach (Gene item in sourceEndogenes)
 			{
 				newPawn.genes.AddGene(item.def, xenogene: false);
 			}
+			List<Gene> sourceXenogenes = pawn.genes.Xenogenes;
+			foreach (Gene item2 in sourceXenogenes)
+			{
+				newPawn.genes.AddGene(item2.def, xenogene: true);
+			}
+			//Log.Error("1");
 			int j;
 			for (j = 0; j < sourceEndogenes.Count; j++)
 			{
 				Gene gene = newPawn.genes.Endogenes[j];
 				if (sourceEndogenes[j].Overridden)
 				{
-					gene.overriddenByGene = newPawn.genes.Endogenes.First((Gene e) => e.def == sourceEndogenes[j].overriddenByGene.def);
+					gene.overriddenByGene = newPawn.genes.GenesListForReading.First((Gene e) => e.def == sourceEndogenes[j].overriddenByGene.def);
 				}
 				else
 				{
 					gene.overriddenByGene = null;
 				}
 			}
-			newPawn.genes.Xenogenes.RemoveAllGenes();
-			List<Gene> sourceXenogenes = pawn.genes.Xenogenes;
-			foreach (Gene item2 in sourceXenogenes)
-			{
-				newPawn.genes.AddGene(item2.def, xenogene: true);
-			}
+			//Log.Error("2");
 			int i;
 			for (i = 0; i < sourceXenogenes.Count; i++)
 			{
 				Gene gene2 = newPawn.genes.Xenogenes[i];
 				if (sourceXenogenes[i].Overridden)
 				{
-					gene2.overriddenByGene = newPawn.genes.Xenogenes.First((Gene e) => e.def == sourceXenogenes[i].overriddenByGene.def);
+					gene2.overriddenByGene = newPawn.genes.GenesListForReading.First((Gene e) => e.def == sourceXenogenes[i].overriddenByGene.def);
 				}
 				else
 				{
 					gene2.overriddenByGene = null;
 				}
 			}
+			//Log.Error("3");
 			ReimplanterUtility.SetXenotypeDirect(pawn, newPawn);
+			ReimplanterUtility.PostImplantDebug(newPawn);
 		}
 
 		// Broke stuff

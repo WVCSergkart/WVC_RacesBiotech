@@ -65,6 +65,10 @@ namespace WVC_XenotypesAndGenes
 				{
 					harmony.Patch(AccessTools.Method(typeof(FoodUtility), "IsAcceptablePreyFor"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("IsNotAcceptablePrey")));
 				}
+				if (WVC_Biotech.settings.enable_OverOverridableGenesMechanic)
+				{
+					harmony.Patch(AccessTools.Method(typeof(GameComponent_PawnDuplicator), "CopyGenes"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("PawnDuplicatorFix")));
+				}
 				if (WVC_Biotech.settings.enableIncestLoverGene)
 				{
 					harmony.Patch(AccessTools.Method(typeof(RelationsUtility), "Incestuous"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Incestuous_Relations")));
@@ -489,30 +493,38 @@ namespace WVC_XenotypesAndGenes
 				return true;
 			}
 
+			// PawnDuplicatorFix
+
+			public static bool PawnDuplicatorFix(ref Pawn pawn, ref Pawn newPawn)
+			{
+				DuplicateUtility.CopyGenes(pawn, newPawn);
+				return false;
+			}
+
 			// FoodPolicy
 
 			// public static void StartingFoodRestrictions(List<FoodPolicy> ___foodRestrictions, FoodRestrictionDatabase __instance)
 			// {
-				// List<ThingDef> thingDefs = DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef x) => x.GetStatValueAbstract(StatDefOf.Nutrition) > 0f).ToList();
-				// FoodPolicy bloodEaterFoodPolicy = __instance.MakeNewFoodRestriction();
-				// bloodEaterFoodPolicy.label = "WVC_XaG_BloodEaterFoodPolicy".Translate();
-				// foreach (ThingDef item in thingDefs.Where((ThingDef x) => x.ingestible != null))
-				// {
-					// if (item.ingestible.foodType == FoodTypeFlags.Fluid)
-					// {
-						// bloodEaterFoodPolicy.filter.SetAllow(item, allow: true);
-					// }
-					// else
-					// {
-						// bloodEaterFoodPolicy.filter.SetAllow(item, allow: false);
-					// }
-				// }
-				// FoodPolicy energyFoodPolicy = __instance.MakeNewFoodRestriction();
-				// energyFoodPolicy.label = "WVC_XaG_EnergyFoodPolicy".Translate();
-				// foreach (ThingDef item in thingDefs)
-				// {
-					// energyFoodPolicy.filter.SetAllow(item, allow: false);
-				// }
+			// List<ThingDef> thingDefs = DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef x) => x.GetStatValueAbstract(StatDefOf.Nutrition) > 0f).ToList();
+			// FoodPolicy bloodEaterFoodPolicy = __instance.MakeNewFoodRestriction();
+			// bloodEaterFoodPolicy.label = "WVC_XaG_BloodEaterFoodPolicy".Translate();
+			// foreach (ThingDef item in thingDefs.Where((ThingDef x) => x.ingestible != null))
+			// {
+			// if (item.ingestible.foodType == FoodTypeFlags.Fluid)
+			// {
+			// bloodEaterFoodPolicy.filter.SetAllow(item, allow: true);
+			// }
+			// else
+			// {
+			// bloodEaterFoodPolicy.filter.SetAllow(item, allow: false);
+			// }
+			// }
+			// FoodPolicy energyFoodPolicy = __instance.MakeNewFoodRestriction();
+			// energyFoodPolicy.label = "WVC_XaG_EnergyFoodPolicy".Translate();
+			// foreach (ThingDef item in thingDefs)
+			// {
+			// energyFoodPolicy.filter.SetAllow(item, allow: false);
+			// }
 			// }
 
 			// Dev TESTS
