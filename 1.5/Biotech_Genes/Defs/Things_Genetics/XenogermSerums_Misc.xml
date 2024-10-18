@@ -30,7 +30,7 @@
 	<costList Inherit="False">
 	  <Steel>30</Steel>
 	  <ComponentIndustrial>2</ComponentIndustrial>
-	  <Silver>45</Silver>
+	  <Silver>4</Silver>
 	</costList>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
