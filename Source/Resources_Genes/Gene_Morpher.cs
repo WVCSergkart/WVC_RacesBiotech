@@ -240,6 +240,14 @@ namespace WVC_XenotypesAndGenes
 			{
 				RemoveGene(gene);
 			}
+			foreach (Gene gene in newSet.endogenes)
+			{
+				gene.overriddenByGene = this;
+			}
+			foreach (Gene gene in newSet.xenogenes)
+			{
+				gene.overriddenByGene = this;
+			}
 			newSet.name = pawn.genes.xenotypeName;
 			if (newSet.name.NullOrEmpty())
 			{
@@ -264,15 +272,21 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (gene != null)
 			{
+				Gene overrideGene;
+				Gene newGene = pawn.genes.GetGene(geneDef);
 				if (inheritable)
 				{
-					pawn.genes.Endogenes.Remove(pawn.genes.GetGene(geneDef));
+					overrideGene = newGene.overriddenByGene;
+					pawn.genes.Endogenes.Remove(newGene);
 					pawn.genes.Endogenes.Add(gene);
+					gene.overriddenByGene = overrideGene;
 				}
 				else
 				{
-					pawn.genes.Xenogenes.Remove(pawn.genes.GetGene(geneDef));
+					overrideGene = newGene.overriddenByGene;
+					pawn.genes.Xenogenes.Remove(newGene);
 					pawn.genes.Xenogenes.Add(gene);
+					gene.overriddenByGene = overrideGene;
 				}
 			}
 		}
