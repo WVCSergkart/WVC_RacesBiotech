@@ -641,7 +641,7 @@ namespace WVC_XenotypesAndGenes
 							{
 								if (geneDef.IsXenoGenesDef() && !genes.Contains(geneDef))
 								{
-									genesCount ++;
+									genesCount++;
 									genes.Add(geneDef);
 								}
 							}
@@ -650,7 +650,7 @@ namespace WVC_XenotypesAndGenes
 					Log.Error("WVC used genes: " + genesCount.ToString());
 					if (!genes.NullOrEmpty())
 					{
-						Log.Error("All unused genes:" + "\n" + Content.AllDefs.Where((Def x) => x is GeneDef geneDef && !genes.Contains(geneDef)).Select((Def x) => x.defName).ToLineList(" - "));
+						Log.Error("All unused genes:" + "\n" + Content.AllDefs.Where((Def x) => x is GeneDef geneDef && !genes.Contains(geneDef) && geneDef.GetModExtension<GeneExtension_Obsolete>() == null).Select((Def x) => x.defName).ToLineList(" - "));
 					}
 					else
 					{

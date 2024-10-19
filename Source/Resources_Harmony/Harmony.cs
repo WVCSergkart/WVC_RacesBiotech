@@ -45,6 +45,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					// harmony.Patch(AccessTools.Method(typeof(Pawn_GeneTracker), "HediffGiversCanGive"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Immunity_hediffGivers")));
 					harmony.Patch(AccessTools.Method(typeof(ImmunityHandler), "AnyGeneMakesFullyImmuneTo"), prefix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("Immunity_makeImmuneTo")));
+					//harmony.Patch(AccessTools.Method(typeof(Pawn_GeneTracker), "CheckForOverrides"), postfix: new HarmonyMethod(typeof(HarmonyUtility).GetMethod("FixOverrides")));
 				}
 				if (WVC_Biotech.settings.enableHarmonyTelepathyGene)
 				{
@@ -477,8 +478,41 @@ namespace WVC_XenotypesAndGenes
 				}
 				// if (__instance is IGeneNotifyGenesChanged geneNotifyGenesChanged)
 				// {
-					// geneNotifyGenesChanged.Notify_GenesChanged(overriddenBy);
+				// geneNotifyGenesChanged.Notify_GenesChanged(overriddenBy);
 				// }
+			}
+
+			public static void FixOverrides(Pawn_GeneTracker __instance)
+			{
+				List<Gene> xenogenes = __instance.pawn.genes.Xenogenes;
+				List<Gene> endogenes = __instance.pawn.genes.Endogenes;
+				if (xenogenes.NullOrEmpty() || endogenes.NullOrEmpty())
+				{
+					return;
+				}
+				for (int i = 0; i < xenogenes.Count; i++)
+				{
+					Gene xenogene = xenogenes[i];
+					if (!xenogene.Overridden)
+					{
+						continue;
+					}
+					for (int j = 0; j < endogenes.Count; j++)
+					{
+						Gene endogene = endogenes[i];
+						if (!endogene.Overridden)
+						{
+							continue;
+						}
+						if (xenogene.def.ConflictsWith(endogene.def) || endogene.def.ConflictsWith(xenogene.def))
+						{
+							endogene.OverrideBy(xenogene);
+						}
+					}
+				}
+				__instance.pawn?.skills?.DirtyAptitudes();
+				__instance.pawn?.Notify_DisabledWorkTypesChanged();
+				//__instance.pawn?.Drawer?.renderer?.SetAllGraphicsDirty();
 			}
 
 			// Predators

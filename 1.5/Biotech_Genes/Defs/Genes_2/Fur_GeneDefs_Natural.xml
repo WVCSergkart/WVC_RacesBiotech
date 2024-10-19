@@ -220,6 +220,7 @@
 	<defName>WVC_NodeSkin</defName>
 	<label>eyeless</label>
 	<description>Carriers of this gene have a translucent organic plate on their face. This plate closes the eyes but does not interfere with vision at all.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Eyeless</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_FurskinG_v0</iconPath>
 	<biostatCpx>2</biostatCpx>
 	<biostatMet>0</biostatMet>
@@ -243,9 +244,9 @@
 		<li><symbol>less</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
-	<exclusionTags Inherit="False">
-	  <li>Jaw</li>
-	</exclusionTags>
+	<!-- <exclusionTags> -->
+	  <!-- <li>Jaw</li> -->
+	<!-- </exclusionTags> -->
   </GeneDef>
 
   <!-- Gauntskin -->

@@ -82,6 +82,34 @@
 	</modExtensions>
   </GeneDef>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHairColorBase">
+	<defName>WVC_HairColor_DarkGray</defName>
+	<label>node hair</label>
+	<hairColorOverride>(79, 80, 81)</hairColorOverride>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+			<hideGene>true</hideGene>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Obsolete"/>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
+	<defName>WVC_SkinColor_DarkGray</defName>
+	<label>node skin</label>
+	<skinColorOverride>(79, 80, 81)</skinColorOverride>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+			<hideGene>true</hideGene>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Obsolete"/>
+	</modExtensions>
+  </GeneDef>
+
   <!-- ======================== -->
 
   <ThoughtDef ParentName="WVC_XenotypesAndGenes_Thought_MemorySocial_Base">

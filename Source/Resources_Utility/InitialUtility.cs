@@ -62,30 +62,11 @@ namespace WVC_XenotypesAndGenes
 				// {
 				// GeneExtension_Giver(geneDef, geneExtension_Giver);
 				// }
-				OverOverridable(geneDef);
 				FurskinIsSkin(geneDef);
 				XenoGenesDef(geneDef, xenogenesGenes);
 			}
 			AnomalyPatch(xenogenesGenes);
 			FlatGenesChances(xenogenesGenes);
-		}
-
-        public static void OverOverridable(GeneDef geneDef)
-        {
-            if (!WVC_Biotech.settings.enable_OverOverridableGenesMechanic)
-            {
-                return;
-			}
-			List<Type> geneClasse = new() { typeof(Gene_OverOverridable), typeof(Gene_RegenerationSleep), typeof(Gene_MachineSenescent), typeof(Gene_MachineWoundHealing) };
-			if (!geneClasse.Contains(geneDef.geneClass))
-			{
-				return;
-			}
-			if (geneDef.customEffectDescriptions.NullOrEmpty())
-			{
-				geneDef.customEffectDescriptions = new();
-			}
-			geneDef.customEffectDescriptions.Add("WVC_XaG_OverOverrideGene".Translate().ToString());
 		}
 
         // public static void GeneExtension_Giver(GeneDef geneDef, GeneExtension_Giver geneExtension_Giver)
@@ -188,6 +169,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				geneDef.selectionWeight = 0.001f;
 			}
+			OverOverridable(geneDef);
 			xenogenesGenes.Add(geneDef);
 			if (!WVC_Biotech.settings.hideXaGGenes)
 			{
@@ -205,6 +187,24 @@ namespace WVC_XenotypesAndGenes
 			{
 				geneDef.displayCategory = GeneCategoryDefOf.Miscellaneous;
 			}
+		}
+
+		public static void OverOverridable(GeneDef geneDef)
+		{
+			if (!WVC_Biotech.settings.enable_OverOverridableGenesMechanic)
+			{
+				return;
+			}
+			List<Type> geneClasse = new() { typeof(Gene_OverOverridable), typeof(Gene_RegenerationSleep), typeof(Gene_MachineSenescent), typeof(Gene_MachineWoundHealing) };
+			if (!geneClasse.Contains(geneDef.geneClass))
+			{
+				return;
+			}
+			if (geneDef.customEffectDescriptions.NullOrEmpty())
+			{
+				geneDef.customEffectDescriptions = new();
+			}
+			geneDef.customEffectDescriptions.Add("WVC_XaG_OverOverrideGene".Translate().ToString());
 		}
 
 		private static void AnomalyPatch(List<GeneDef> xenogenesGenes)

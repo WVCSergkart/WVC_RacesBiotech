@@ -18,7 +18,7 @@
 		<!-- Graphic -->
 		<li>WVC_NodeSkin</li>
 		<!-- <li>WVC_FacelessEyes_ceae69_HEX</li> -->
-		<li>WVC_Eyes_Holoface</li>
+		<li>WVC_Eyes_Holoeyes</li>
 		<li>WVC_VoiceMechaTesseron</li>
 		<!-- = -->
 		<li>WVC_Mecha_NoTail</li>
@@ -52,6 +52,11 @@
 		<li>WVC_RandomMetabolism</li>
 		<li>WVC_MechaPowerSource_Unstable</li>
 	</genes>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<defaultColor>(255, 216, 133)</defaultColor>
+		</li>
+	</modExtensions>
   </XenotypeDef>
 
 </Defs>

@@ -14,6 +14,41 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_Eyeless : Gene, IGeneOverridden
+	{
+
+		public void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			foreach (Gene gene in pawn.genes.GenesListForReading)
+			{
+				if (gene.def.prerequisite == null || gene.def == def)
+				{
+					continue;
+				}
+				if (XaG_GeneUtility.GeneDefIsSubGeneOf(gene.def.prerequisite, def))
+                {
+					gene.OverrideBy(overriddenBy);
+				}
+			}
+		}
+
+		public void Notify_Override()
+		{
+			foreach (Gene gene in pawn.genes.GenesListForReading)
+			{
+				if (gene.def.prerequisite == null || gene.def == def)
+				{
+					continue;
+				}
+				if (XaG_GeneUtility.GeneDefIsSubGeneOf(gene.def.prerequisite, def))
+				{
+					gene.OverrideBy(null);
+				}
+			}
+		}
+
+	}
+
 	public class Gene_Eyes : Gene
 	{
 
@@ -94,7 +129,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Holoface : Gene_Eyes
 	{
 
-		public override float Alpha => 0.6f;
+		public override float Alpha => 0.8f;
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{

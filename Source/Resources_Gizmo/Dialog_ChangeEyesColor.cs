@@ -27,10 +27,18 @@ namespace WVC_XenotypesAndGenes
 					colors = new List<Color>();
 					foreach (XaG_CountWithChance colorHolder in gene.Props.holofaces)
 					{
+						if (colors.Contains(colorHolder.color))
+						{
+							continue;
+						}
 						colors.Add(colorHolder.color);
 					}
 					foreach (ColorDef allDef in DefDatabase<ColorDef>.AllDefs)
 					{
+						if (colors.Contains(allDef.color))
+						{
+							continue;
+						}
 						colors.Add(allDef.color);
 					}
 					colors.SortByColor((Color x) => x);
@@ -74,7 +82,6 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (Widgets.ButtonText(new Rect(inRect.x, inRect.yMax - ButSize.y, ButSize.x, ButSize.y), "Cancel".Translate()))
 			{
-				Reset();
 				Close();
 			}
 			if (Widgets.ButtonText(new Rect(inRect.xMin + inRect.width / 1.5f - ButSize.x / 1.5f, inRect.yMax - ButSize.y, ButSize.x, ButSize.y), "Reset".Translate()))
