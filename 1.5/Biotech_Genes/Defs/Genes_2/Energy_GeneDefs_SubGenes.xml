@@ -150,9 +150,9 @@
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>2</biostatArc>
 	<biostatMet>0</biostatMet>
-	<customEffectDescriptions>
-	  <li>&lt;color=#ff8585&gt;This gene always overrides genes with which it is mutually exclusive.&lt;/color&gt;</li>
-	</customEffectDescriptions>
+	<!-- <customEffectDescriptions> -->
+	  <!-- <li>&lt;color=#ff8585&gt;This gene always overrides genes with which it is mutually exclusive.&lt;/color&gt;</li> -->
+	<!-- </customEffectDescriptions> -->
 	<statOffsets>
 	  <ToxicResistance>1</ToxicResistance>
 	  <ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
@@ -193,7 +193,7 @@
 	<customEffectDescriptions>
 		<li>When carrier infected with &lt;color=#8a8ae6&gt;metalhorror&lt;/color&gt;, it will &lt;color=#8a8ae6&gt;emerge&lt;/color&gt; after a while, preventing it from growing.</li>
 		<li MayRequire="oskarpotocki.vanillafactionsexpanded.core">Slowdown the progression of diseases.</li>
-		<li>&lt;color=#ff8585&gt;This gene always overrides genes with which it is mutually exclusive.&lt;/color&gt;</li>
+		<!-- <li>&lt;color=#ff8585&gt;This gene always overrides genes with which it is mutually exclusive.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<statFactors>
 	  <ImmunityGainSpeed>8</ImmunityGainSpeed>
@@ -227,7 +227,7 @@
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
 		<li>Healing: 100 hp/day</li>
-		<li>&lt;color=#ff8585&gt;This gene always overrides genes with which it is mutually exclusive.&lt;/color&gt;</li>
+		<!-- <li>&lt;color=#ff8585&gt;This gene always overrides genes with which it is mutually exclusive.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<statFactors>
 	  <InjuryHealingFactor>0</InjuryHealingFactor>
@@ -262,7 +262,7 @@
 	<biostatArc>1</biostatArc>
 	<customEffectDescriptions>
 	  <li>Allows to put a pawn into or wake them up from a &lt;color=#8a8ae6&gt;regeneration coma&lt;/color&gt; at any time.</li>
-	  <li>&lt;color=#ff8585&gt;This gene always overrides genes with which it is mutually exclusive.&lt;/color&gt;</li>
+	  <!-- <li>&lt;color=#ff8585&gt;This gene always overrides genes with which it is mutually exclusive.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<disablesNeeds>
 	  <li>Rest</li>

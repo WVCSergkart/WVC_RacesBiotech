@@ -53,7 +53,9 @@ A restart is required.</WVC_ToolTip_enable_xagHumanComponent>
 
 This does not affect overriding genes with which these genes are not mutually exclusive.
 
-This option also patches the gene copying of the duplicator anomaly, making it more compatible with mods and adding a debugger to it.</WVC_ToolTip_enable_OverOverridableGenesMechanic>
+This option also patches the gene copying of the duplicator anomaly, making it more compatible with mods and adding a debugger to it.
+
+A restart is required.</WVC_ToolTip_enable_OverOverridableGenesMechanic>
 
 	<!-- ================================== -->
 

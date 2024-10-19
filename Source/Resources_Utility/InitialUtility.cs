@@ -62,7 +62,7 @@ namespace WVC_XenotypesAndGenes
 				// {
 				// GeneExtension_Giver(geneDef, geneExtension_Giver);
 				// }
-				//OverOverridable(geneDef);
+				OverOverridable(geneDef);
 				FurskinIsSkin(geneDef);
 				XenoGenesDef(geneDef, xenogenesGenes);
 			}
@@ -70,21 +70,39 @@ namespace WVC_XenotypesAndGenes
 			FlatGenesChances(xenogenesGenes);
 		}
 
-		// public static void GeneExtension_Giver(GeneDef geneDef, GeneExtension_Giver geneExtension_Giver)
-		// {
-		// if (geneDef.customEffectDescriptions.NullOrEmpty())
-		// {
-		// geneDef.customEffectDescriptions = new();
-		// }
-		// int scarsCount = geneExtension_Giver.scarsCount;
-		// if (scarsCount != 0)
-		// {
-		// string scarsLimitText = scarsCount > 0 ? "+" : "";
-		// geneDef.customEffectDescriptions.Add("WVC_XaG_ScarifierScarsOffset".Translate(scarsLimitText + scarsCount.ToString()));
-		// }
-		// }
+        public static void OverOverridable(GeneDef geneDef)
+        {
+            if (!WVC_Biotech.settings.enable_OverOverridableGenesMechanic)
+            {
+                return;
+			}
+			List<Type> geneClasse = new() { typeof(Gene_OverOverridable), typeof(Gene_RegenerationSleep), typeof(Gene_MachineSenescent), typeof(Gene_MachineWoundHealing) };
+			if (!geneClasse.Contains(geneDef.geneClass))
+			{
+				return;
+			}
+			if (geneDef.customEffectDescriptions.NullOrEmpty())
+			{
+				geneDef.customEffectDescriptions = new();
+			}
+			geneDef.customEffectDescriptions.Add("WVC_XaG_OverOverrideGene".Translate().ToString());
+		}
 
-		public static void BirthQuality(GeneDef geneDef, GeneExtension_General geneExtension_General)
+        // public static void GeneExtension_Giver(GeneDef geneDef, GeneExtension_Giver geneExtension_Giver)
+        // {
+        // if (geneDef.customEffectDescriptions.NullOrEmpty())
+        // {
+        // geneDef.customEffectDescriptions = new();
+        // }
+        // int scarsCount = geneExtension_Giver.scarsCount;
+        // if (scarsCount != 0)
+        // {
+        // string scarsLimitText = scarsCount > 0 ? "+" : "";
+        // geneDef.customEffectDescriptions.Add("WVC_XaG_ScarifierScarsOffset".Translate(scarsLimitText + scarsCount.ToString()));
+        // }
+        // }
+
+        public static void BirthQuality(GeneDef geneDef, GeneExtension_General geneExtension_General)
 		{
 			if (!WVC_Biotech.settings.enable_birthQualityOffsetFromGenes)
 			{

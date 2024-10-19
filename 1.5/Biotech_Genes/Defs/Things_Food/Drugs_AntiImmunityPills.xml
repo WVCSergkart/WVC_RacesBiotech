@@ -47,6 +47,7 @@
 	  <li Class="CompProperties_Drug">
 		<listOrder>1000</listOrder>
 		<overdoseSeverityOffset>0.08~0.14</overdoseSeverityOffset>
+		<teetotalerCanConsume>true</teetotalerCanConsume>
 	  </li>
 	</comps>
   </ThingDef>

@@ -186,7 +186,7 @@ namespace WVC_XenotypesAndGenes
 		public bool enableIncestLoverGene = true;
 		public bool disableNonAcceptablePreyGenes = false;
 		public bool enableHarmonyTelepathyGene = false;
-		public bool enable_OverOverridableGenesMechanic = true;
+		public bool enable_OverOverridableGenesMechanic = false;
 		// public bool useAlternativeDustogenicFoodJob = true;
 		public bool learningTelepathWorkForBothSides = false;
 		public bool disableUniqueXenotypeScenarios = false;

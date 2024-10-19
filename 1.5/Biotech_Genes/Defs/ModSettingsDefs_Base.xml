@@ -22,6 +22,7 @@
 	<enable_FurskinIsSkinAutopatch>True</enable_FurskinIsSkinAutopatch>
 	<enable_ReplaceSimilarGenesAutopatch>True</enable_ReplaceSimilarGenesAutopatch>
 	<bloodfeeder_AutoBloodfeed>True</bloodfeeder_AutoBloodfeed>
+	<enable_OverOverridableGenesMechanic>true</enable_OverOverridableGenesMechanic>
   </WVC_XenotypesAndGenes.SettingsDef>
 
   <WVC_XenotypesAndGenes.SettingsDef>
@@ -42,6 +43,7 @@
 	<enable_birthQualityOffsetFromGenes>false</enable_birthQualityOffsetFromGenes>
 	<enable_dryadQueenMechanicGenerator>false</enable_dryadQueenMechanicGenerator>
 	<enable_StartingFoodPolicies>false</enable_StartingFoodPolicies>
+	<enable_OverOverridableGenesMechanic>false</enable_OverOverridableGenesMechanic>
   </WVC_XenotypesAndGenes.SettingsDef>
 
 	<!-- Default Settings -->

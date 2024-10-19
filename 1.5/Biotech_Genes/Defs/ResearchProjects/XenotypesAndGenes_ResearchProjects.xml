@@ -21,14 +21,14 @@
 
   <ResearchProjectDef ParentName="WVC_XenotypesAndGenesResearchProjectDefs_Base">
 	<defName>WVC_XenotypesAndGenes_DustogenicFood</defName>
-	<label>dustogenic food</label>
-	<description>Special food for dust addicts.</description>
+	<label>simplest xenogenetics</label>
+	<description>The simplest methods of influencing xenogenes using basic chemistry and available means.</description>
 	<baseCost>500</baseCost>
 	<researchViewX>0.00</researchViewX>
 	<researchViewY>5.50</researchViewY>
-	<prerequisites>
-	  <li>PackagedSurvivalMeal</li>
-	</prerequisites>
+	<!-- <prerequisites> -->
+	  <!-- <li>PackagedSurvivalMeal</li> -->
+	<!-- </prerequisites> -->
   </ResearchProjectDef>
 
 <!-- WVC_XenotypesAndGenes_SerumLab -->

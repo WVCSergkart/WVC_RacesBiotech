@@ -7,6 +7,8 @@
 	<iconPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_v0</iconPath>
 	<displayPriority>-190</displayPriority>
 	<genes>
+		<li>WVC_Eyes_Colorful</li>
+		<!-- = -->
 		<li>Hemogenic</li>
 		<li>Bloodfeeder</li>
 		<li>WVC_Bloodeater</li>
@@ -47,7 +49,7 @@ Also, pawns with this xenotype produce hemogen packs from time to time.</descrip
 	<iconPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_v0</iconPath>
 	<genes>
 		<!-- Graphic -->
-		<li>WVC_Eyes_69a2ce_HEX</li>
+		<!-- <li>WVC_Eyes_69a2ce_HEX</li> -->
 		<li>Skin_Melanin1</li>
 		<li>WVC_HairColor_ffdcb4_HEX</li>
 		<li>WVC_Ears_PointedA</li>
@@ -60,6 +62,11 @@ Also, pawns with this xenotype produce hemogen packs from time to time.</descrip
 		<li>WVC_Delicate</li>
 		<li>WVC_ImplanterFang</li>
 	</genes>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<defaultColor>(133, 202, 255)</defaultColor>
+		</li>
+	</modExtensions>
   </XenotypeDef>
 
 </Defs>

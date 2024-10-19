@@ -24,7 +24,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override Graphic GraphicFor(Pawn pawn)
 		{
-			if (gene is not Gene_Holoface holoface || holoface.visible != true)
+			if (gene is not Gene_Eyes holoface || holoface.visible != true)
 			{
 				return null;
 			}
@@ -33,11 +33,13 @@ namespace WVC_XenotypesAndGenes
 
 		public override Color ColorFor(Pawn pawn)
 		{
-			if (gene is not Gene_Holoface holoface || holoface?.color == null)
+			if (gene is not Gene_Eyes holoface || holoface?.color == null)
 			{
 				return Color.white;
 			}
-			return holoface.color;
+			Color newColor = holoface.color;
+			newColor.a = holoface.Alpha;
+			return newColor;
 		}
 
 	}

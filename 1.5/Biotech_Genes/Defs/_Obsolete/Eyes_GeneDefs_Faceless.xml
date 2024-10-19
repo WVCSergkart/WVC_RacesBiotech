@@ -16,12 +16,6 @@
 	<selectionWeight>0</selectionWeight>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<!-- Any HeadTypes -->
-			<headTypeDefs>
-				<li>WVC_Faceless_NodeSkin</li>
-			</headTypeDefs>
-		</li>
 		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 			<hideGene>true</hideGene>
 		</li>

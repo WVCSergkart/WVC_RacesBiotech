@@ -19,7 +19,7 @@
 		<!-- Graphic -->
 		<!-- <li>Eyes_Red</li> -->
 		<li>WVC_SkinColor_DarkBlue</li>
-		<li>WVC_Eyes_ce6969_HEX</li>
+		<!-- <li>WVC_Eyes_ce6969_HEX</li> -->
 		<li>WVC_HeadBoneHorns</li>
 		<li>WVC_DemonTailA</li>
 		<li>WVC_Ears_PointedB</li>
@@ -34,6 +34,11 @@
 		<li>WVC_Tough</li>
 		<li>WVC_Chimera</li>
 	</genes>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<defaultColor>(255, 133, 133)</defaultColor>
+		</li>
+	</modExtensions>
   </XenotypeDef>
 
 </Defs>

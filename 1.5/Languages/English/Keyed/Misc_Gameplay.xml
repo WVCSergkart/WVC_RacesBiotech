@@ -27,7 +27,7 @@
 
 	<WVC_XaG_NoSuitableTargets>There are no suitable targets.</WVC_XaG_NoSuitableTargets>
 
-	<!-- <WVC_XaG_OverOverrideGene>&lt;color=#ff8585&gt;This gene always overrides genes with which it is mutually exclusive.&lt;/color&gt;</WVC_XaG_OverOverrideGene> -->
+	<WVC_XaG_OverOverrideGene>&lt;color=#ff8585&gt;This gene always overrides genes with which it is mutually exclusive.&lt;/color&gt;</WVC_XaG_OverOverrideGene>
 
 	<WVC_Custom>custom</WVC_Custom>
 
@@ -64,6 +64,8 @@
 
 	<WVC_XaG_ColorableEyesLabel>Eyes color</WVC_XaG_ColorableEyesLabel>
 	<WVC_XaG_ColorableEyesDesc>Eye color can be changed at any time.</WVC_XaG_ColorableEyesDesc>
+
+	<WVC_XaG_ResetEyesColorWarning>The pawn does not have a default eye color.</WVC_XaG_ResetEyesColorWarning>
 
 	<!-- ============================ FOOD POLICY ============================ -->
 

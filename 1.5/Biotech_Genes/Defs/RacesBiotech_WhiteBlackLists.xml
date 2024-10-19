@@ -200,18 +200,18 @@
 		  <li>PsychicAbility_Dull</li>
 		</dupGeneDefs>
 	  </li>
-	  <li>
-		<sourceGeneDef>WVC_Eyes_ce6969_HEX</sourceGeneDef>
-		<dupGeneDefs>
-		  <li>Eyes_Red</li>
-		</dupGeneDefs>
-	  </li>
-	  <li>
-		<sourceGeneDef>WVC_Eyes_afafaf_HEX</sourceGeneDef>
-		<dupGeneDefs>
-		  <li>Eyes_Gray</li>
-		</dupGeneDefs>
-	  </li>
+	  <!-- <li> -->
+		<!-- <sourceGeneDef>WVC_Eyes_ce6969_HEX</sourceGeneDef> -->
+		<!-- <dupGeneDefs> -->
+		  <!-- <li>Eyes_Red</li> -->
+		<!-- </dupGeneDefs> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <sourceGeneDef>WVC_Eyes_afafaf_HEX</sourceGeneDef> -->
+		<!-- <dupGeneDefs> -->
+		  <!-- <li>Eyes_Gray</li> -->
+		<!-- </dupGeneDefs> -->
+	  <!-- </li> -->
 	  <li>
 		<sourceGeneDef>WVC_ReimplanterArchite_Endogenes</sourceGeneDef>
 		<dupGeneDefs>

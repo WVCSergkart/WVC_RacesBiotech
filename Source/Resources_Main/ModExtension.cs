@@ -237,6 +237,7 @@ namespace WVC_XenotypesAndGenes
 		public List<XenotypeDef> xenotypeDefs;
 		// Colorable Eyes
 		public List<XaG_CountWithChance> holofaces;
+		public Color defaultColor;
 	}
 
 	public class GeneExtension_Obsolete : DefModExtension
