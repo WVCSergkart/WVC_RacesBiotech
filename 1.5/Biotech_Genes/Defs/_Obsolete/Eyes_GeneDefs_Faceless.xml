@@ -13,6 +13,8 @@
 	<prerequisite>WVC_NodeSkin</prerequisite>
 	<iconColor>(0.75, 0.75, 0.75)</iconColor>
 	<displayOrderInCategory>4</displayOrderInCategory>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<!-- Any HeadTypes -->
@@ -20,6 +22,10 @@
 				<li>WVC_Faceless_NodeSkin</li>
 			</headTypeDefs>
 		</li>
+		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+			<hideGene>true</hideGene>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Obsolete"/>
 	</modExtensions>
   </GeneDef>
 

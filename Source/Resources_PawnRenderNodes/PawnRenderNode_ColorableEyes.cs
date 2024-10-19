@@ -1,0 +1,45 @@
+using RimWorld;
+using System.Collections.Generic;
+using System.Linq;
+using System.Xml;
+using UnityEngine;
+using Verse;
+
+namespace WVC_XenotypesAndGenes
+{
+
+	public class PawnRenderNode_ColorableEyes : PawnRenderNode_AttachmentHead
+	{
+
+		//public Gene_Holoface holoface;
+
+		public PawnRenderNode_ColorableEyes(Pawn pawn, PawnRenderNodeProperties props, PawnRenderTree tree)
+			: base(pawn, props, tree)
+		{
+			//if (gene is Gene_Holoface holoface)
+			//{
+			//	this.holoface = holoface;
+			//}
+		}
+
+		public override Graphic GraphicFor(Pawn pawn)
+		{
+			if (gene is not Gene_Holoface holoface || holoface.visible != true)
+			{
+				return null;
+			}
+			return base.GraphicFor(pawn);
+		}
+
+		public override Color ColorFor(Pawn pawn)
+		{
+			if (gene is not Gene_Holoface holoface || holoface?.color == null)
+			{
+				return Color.white;
+			}
+			return holoface.color;
+		}
+
+	}
+
+}

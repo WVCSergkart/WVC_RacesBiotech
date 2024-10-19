@@ -17,7 +17,8 @@
 	<genes>
 		<!-- Graphic -->
 		<li>WVC_NodeSkin</li>
-		<li>WVC_FacelessEyes_ceae69_HEX</li>
+		<!-- <li>WVC_FacelessEyes_ceae69_HEX</li> -->
+		<li>WVC_Eyes_Holoface</li>
 		<li>WVC_VoiceMechaTesseron</li>
 		<!-- = -->
 		<li>WVC_Mecha_NoTail</li>

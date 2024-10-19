@@ -25,6 +25,11 @@ namespace WVC_XenotypesAndGenes
 		// Duplicated Genes
 		public GeneDef sourceGeneDef;
 		public List<GeneDef> dupGeneDefs;
+		// Holoface
+		public Color color = Color.white;
+		public bool visible = true;
+		[MustTranslate]
+		public string label;
 	}
 
 	// Exten
@@ -230,6 +235,8 @@ namespace WVC_XenotypesAndGenes
 		public float chargeSpeedFactor = 1f;
 		// Morpher
 		public List<XenotypeDef> xenotypeDefs;
+		// Colorable Eyes
+		public List<XaG_CountWithChance> holofaces;
 	}
 
 	public class GeneExtension_Obsolete : DefModExtension
