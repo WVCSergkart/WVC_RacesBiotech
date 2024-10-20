@@ -9,6 +9,12 @@ namespace WVC_XenotypesAndGenes
 	public static class HediffUtility
 	{
 
+		public static float SeverityFromLit(Pawn pawn, float exposurePerSecond_Lit, float exposurePerSecond_Unlit, int ticks = 60)
+		{
+			bool flag = pawn.MapHeld.glowGrid.PsychGlowAt(pawn.PositionHeld) != PsychGlow.Dark;
+			return flag ? exposurePerSecond_Lit * (ticks / 60) : (exposurePerSecond_Unlit * (ticks / 60));
+		}
+
 		public static void BodyPartsGiver(List<BodyPartDef> bodyparts, Pawn pawn, HediffDef hediffDef, GeneDef geneDef)
 		{
 			// int num = 0;

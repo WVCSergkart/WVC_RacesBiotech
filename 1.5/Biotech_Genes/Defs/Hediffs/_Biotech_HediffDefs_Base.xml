@@ -226,4 +226,58 @@
 	<!-- </comps> -->
   <!-- </HediffDef> -->
 
+  <!-- ================== -->
+
+  <!-- <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base"> -->
+	<!-- <defName>WVC_XaG_LightExposure</defName> -->
+	<!-- <label>light exposure</label> -->
+	<!-- <description>Even the slightest exposure to light causes great discomfort to this creature, slowing it and weakening its attacks.</description> -->
+	<!-- <hediffClass>WVC_XenotypesAndGenes.HediffWithComps_LightExposure</hediffClass> -->
+	<!-- <minSeverity>0</minSeverity> -->
+	<!-- <maxSeverity>1</maxSeverity> -->
+	<!-- <initialSeverity>0</initialSeverity> -->
+	<!-- <stages> -->
+	  <!-- <li> -->
+		<!-- <label>initial</label> -->
+		<!-- <becomeVisible>false</becomeVisible> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <label>moderate</label> -->
+		<!-- <minSeverity>0.1</minSeverity> -->
+		<!-- <statOffsets> -->
+		  <!-- <MeleeCooldownFactor>1.25</MeleeCooldownFactor> -->
+		<!-- </statOffsets> -->
+		<!-- <statFactors> -->
+		  <!-- <MoveSpeed>0.9</MoveSpeed> -->
+		<!-- </statFactors> -->
+		<!-- <painOffset>0.05</painOffset> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <label>serious</label> -->
+		<!-- <minSeverity>0.4</minSeverity> -->
+		<!-- <statOffsets> -->
+		  <!-- <MeleeCooldownFactor>1.5</MeleeCooldownFactor> -->
+		<!-- </statOffsets> -->
+		<!-- <statFactors> -->
+		  <!-- <MoveSpeed>0.8</MoveSpeed> -->
+		<!-- </statFactors> -->
+		<!-- <painOffset>0.1</painOffset> -->
+	  <!-- </li> -->
+	  <!-- <li> -->
+		<!-- <label>extreme</label> -->
+		<!-- <minSeverity>0.8</minSeverity> -->
+		<!-- <statOffsets> -->
+		  <!-- <MeleeCooldownFactor>2</MeleeCooldownFactor> -->
+		<!-- </statOffsets> -->
+		<!-- <statFactors> -->
+		  <!-- <MoveSpeed>0.5</MoveSpeed> -->
+		<!-- </statFactors> -->
+		<!-- <painOffset>0.15</painOffset> -->
+	  <!-- </li> -->
+	<!-- </stages> -->
+	<!-- <comps> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/> -->
+	<!-- </comps> -->
+  <!-- </HediffDef> -->
+
 </Defs>

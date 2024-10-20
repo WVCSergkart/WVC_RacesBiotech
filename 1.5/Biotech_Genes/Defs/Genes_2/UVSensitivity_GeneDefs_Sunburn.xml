@@ -51,4 +51,54 @@
 	</modExtensions>
   </GeneDef>
 
+  <!-- UV Phobia -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_UVSensitivity_Base">
+	<defName>WVC_DebuffUV_StrongInjuryHealing</defName>
+	<label>unpleasant UV sensitivity</label>
+	<description>Carriers of this gene have special biological compounds in their skin that react to UV radiation. When exposed to sunlight, their reactions are impaired and they find it difficult to move.</description>
+	<iconPath>WVC/UI/Genes/Gene_SunlightExposureMild_v0</iconPath>
+	<displayOrderInCategory>55</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>5</biostatMet>
+	<conditionalStatAffecters>
+	  <li Class="ConditionalStatAffecter_InSunlight">
+		<statOffsets>
+		  <MeleeCooldownFactor>1.5</MeleeCooldownFactor>
+		</statOffsets>
+		<statFactors>
+		  <MoveSpeed>0.8</MoveSpeed>
+		</statFactors>
+	  </li>
+	</conditionalStatAffecters>
+  </GeneDef>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_UVSensitivity_Base">
+	<defName>WVC_DebuffUV_ExtremeInjuryHealing</defName>
+	<label>noctol light sensitivity</label>
+	<description>Carriers of this gene have special biological compounds in their skin that react to any light. Even the slightest exposure to light causes great discomfort to the carrier, slowing it and weakening its attacks.</description>
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass> -->
+	<iconPath>WVC/UI/Genes/Gene_SunlightExposureExtreme_v0</iconPath>
+	<displayOrderInCategory>58</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatMet>6</biostatMet>
+	<!-- <customEffectDescriptions> -->
+	  <!-- <li>Carriers of this gene are weakened by any light sources.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<conditionalStatAffecters>
+	  <li Class="WVC_XenotypesAndGenes.ConditionalStatAffecter_InLight">
+		<statOffsets>
+		  <MeleeCooldownFactor>2</MeleeCooldownFactor>
+		</statOffsets>
+		<statFactors>
+		  <MoveSpeed>0.5</MoveSpeed>
+		</statFactors>
+	  </li>
+	</conditionalStatAffecters>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <hediffDefName>WVC_XaG_LightExposure</hediffDefName> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+
 </Defs>

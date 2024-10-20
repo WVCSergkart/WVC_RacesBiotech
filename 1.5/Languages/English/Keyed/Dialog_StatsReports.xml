@@ -33,6 +33,7 @@
 
   <WVC_XaG_StatsReport_NoSunlight>no sunlight</WVC_XaG_StatsReport_NoSunlight>
   <WVC_XaG_StatsReport_ColonistsInColony>less than {0} colonists</WVC_XaG_StatsReport_ColonistsInColony>
+  <WVC_XaG_StatsReport_InLight>in light</WVC_XaG_StatsReport_InLight>
 
   <!-- <WVC_GeneSpawner_GizmoTitle>Resource spawner</WVC_GeneSpawner_GizmoTitle> -->
   <!-- <WVC_GeneGestator_GizmoLabel>Gestator</WVC_GeneGestator_GizmoLabel> -->
