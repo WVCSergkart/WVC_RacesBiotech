@@ -115,7 +115,7 @@ namespace WVC_XenotypesAndGenes
 			Widgets.BeginScrollView(rect, ref scrollPosition, rect2);
 			Widgets.BeginGroup(rect3);
 			int count = 0;
-			foreach (XenotypeDef allXenotype in allXenotypes.ToList())
+			foreach (XenotypeDef allXenotype in allXenotypes)
 			{
 				DrawDryadStage(rect3, allXenotype, count);
 				count += 1;
@@ -196,14 +196,6 @@ namespace WVC_XenotypesAndGenes
 				selectedXeno = stage;
 				SoundDefOf.Click.PlayOneShotOnCamera();
 			}
-			//try
-			//{
-			//}
-			//catch (Exception arg)
-			//{
-			//	allXenotypes.Remove(stage);
-			//	Log.Error("Failed draw xenotype icon for mod " + stage.modContentPack?.ModMetaData?.Name.ToString() + ". Contact the " + stage.modContentPack?.ModMetaData?.AuthorsString.ToString() + ". For reason " + arg);
-			//}
         }
 
         public virtual Color GetXenotypeColor(XenotypeDef xenotype)
