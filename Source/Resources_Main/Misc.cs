@@ -257,6 +257,8 @@ namespace WVC_XenotypesAndGenes
 		public float chimeraMinGeneCopyChance = 0.35f;
 		public float chimeraStartingGenes = 5f;
 		public bool enable_chimeraStartingTools = true;
+		// Duplicator
+		public float duplicator_RandomOutcomeChance = 0.66f;
 		// DryadQueen
 		public bool enable_dryadQueenMechanicGenerator = true;
 		public float gestatedDryads_FilthRateFactor = 0.1f;

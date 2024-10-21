@@ -242,4 +242,9 @@ A restart is required.</WVC_ToolTip_disableNonAcceptablePreyGenes>
 
 This affects all rechargeable class genes that cause poisoning.</WVC_ToolTip_rechargeable_enablefoodPoisoningFromFood>
 
+	<!-- ================================== -->
+
+	<WVC_Label_duplicator_RandomOutcomeChance>Duplicator random outcome chance {0}%</WVC_Label_duplicator_RandomOutcomeChance>
+	<WVC_Tooltip_duplicator_RandomOutcomeChance>Affects the chance that something will be wrong with the duplicate. Requires the Anomaly DLC, for obvious reasons.</WVC_Tooltip_duplicator_RandomOutcomeChance>
+
 </LanguageData>

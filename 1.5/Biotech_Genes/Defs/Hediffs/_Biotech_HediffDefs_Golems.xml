@@ -9,7 +9,7 @@
 
   <!-- ============================================= -->
 
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
 	<defName>WVC_DustMechanoid_OnlyOneOverseer</defName>
 	<label>bonded</label>
 	<description>Mechanoid's operational sub-core is malfunctioning. Changing the connection network can lead to a critical failure and subsequent self-destruction of the mechanoid.

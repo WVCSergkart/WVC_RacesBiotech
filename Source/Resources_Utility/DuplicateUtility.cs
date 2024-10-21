@@ -1,14 +1,86 @@
 using RimWorld;
+using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
+using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
 
 	public static class DuplicateUtility
 	{
+
+		// Clone
+		public static bool TryDuplicatePawn(Pawn originalPawn, IntVec3 targetCell, Map map, out Pawn duplicatePawn, bool randomOutcome = false)
+		{
+			if (ModsConfig.AnomalyActive)
+            {
+                duplicatePawn = Find.PawnDuplicator.Duplicate(originalPawn);
+                DuplicationOutcomes(originalPawn, duplicatePawn, randomOutcome);
+            }
+            else
+			{
+				PawnGenerationRequest request = DuplicateUtility.RequestCopy(originalPawn);
+				duplicatePawn = PawnGenerator.GeneratePawn(request);
+				DuplicatePawn(originalPawn, duplicatePawn, false);
+			}
+			map.effecterMaintainer.AddEffecterToMaintain(EffecterDefOf.Skip_EntryNoDelay.Spawn(targetCell, map), targetCell, 60);
+			SoundDefOf.Psycast_Skip_Entry.PlayOneShot(new TargetInfo(targetCell, map));
+			GenSpawn.Spawn(duplicatePawn, targetCell, map);
+			return duplicatePawn != null;
+		}
+
+        public static void DuplicationOutcomes(Pawn originalPawn, Pawn duplicatePawn, bool randomOutcome)
+        {
+            if (randomOutcome)
+            {
+                int num = Rand.RangeInclusive(0, 3);
+                if (num == 1 && (duplicatePawn.health.hediffSet.HasHediffOrWillBecome(HediffDefOf.OrganDecay) || duplicatePawn.health.hediffSet.HasHediffOrWillBecome(HediffDefOf.OrganDecayCreepjoiner)))
+                {
+                    num++;
+                }
+                if (num == 2 && duplicatePawn.health.hediffSet.HasHediffOrWillBecome(HediffDefOf.CrumblingMind))
+                {
+                    num++;
+                }
+                switch (num)
+                {
+                    case 0:
+                        AddDuplicateSickness(originalPawn, duplicatePawn);
+                        break;
+                    case 1:
+                        duplicatePawn.health.AddHediff(HediffDefOf.OrganDecayUndiagnosedDuplicaton);
+                        break;
+                    case 2:
+                        duplicatePawn.health.AddHediff(HediffDefOf.CrumblingMindUndiagnosedDuplication);
+                        break;
+                    case 3:
+                        duplicatePawn.SetFaction(Faction.OfEntities);
+                        break;
+                    default:
+                        Log.Error("Unhandled outcome in pawn duplication " + num);
+                        break;
+                }
+            }
+        }
+
+        public static void AddDuplicateSickness(Pawn originalPawn, Pawn duplicatePawn)
+		{
+			Hediff_DuplicateSickness hediff_DuplicateSickness = (Hediff_DuplicateSickness)originalPawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.DuplicateSickness);
+			if (hediff_DuplicateSickness == null)
+			{
+				hediff_DuplicateSickness = (Hediff_DuplicateSickness)HediffMaker.MakeHediff(HediffDefOf.DuplicateSickness, originalPawn);
+				originalPawn.health.AddHediff(hediff_DuplicateSickness);
+			}
+			else
+			{
+				hediff_DuplicateSickness.GetComp<HediffComp_SeverityPerDay>().severityPerDay = 0.1f;
+			}
+			Hediff_DuplicateSickness hediff = (Hediff_DuplicateSickness)HediffMaker.MakeHediff(HediffDefOf.DuplicateSickness, duplicatePawn);
+			duplicatePawn.health.AddHediff(hediff);
+		}
 
 		public static PawnGenerationRequest RequestCopy(Pawn pawn)
 		{
@@ -24,7 +96,7 @@ namespace WVC_XenotypesAndGenes
 			return request;
 		}
 
-		public static void DuplicatePawn(Pawn progenitor, Pawn clone, XenotypeDef xenotypeDef = null)
+		public static void DuplicatePawn(Pawn progenitor, Pawn clone, bool addParent = true)
 		{
 			clone.apparel.DestroyAll();
 			DuplicateUtility.CopyStory(progenitor, clone);
@@ -41,18 +113,20 @@ namespace WVC_XenotypesAndGenes
 			{
 				clone.playerSettings.AreaRestrictionInPawnCurrentMap = progenitor.playerSettings.AreaRestrictionInPawnCurrentMap;
 			}
-			if (clone.RaceProps.IsFlesh && progenitor.RaceProps.IsFlesh)
+			if (addParent && clone.RaceProps.IsFlesh && progenitor.RaceProps.IsFlesh)
 			{
 				clone.relations.AddDirectRelation(PawnRelationDefOf.Parent, progenitor);
 			}
-			if (xenotypeDef != null)
-			{
-				clone.health.AddHediff(HediffDefOf.XenogerminationComa);
-				GeneUtility.UpdateXenogermReplication(clone);
-				ReimplanterUtility.ExtractXenogerm(progenitor);
-				ReimplanterUtility.SetXenotype_DoubleXenotype(clone, xenotypeDef);
-			}
+			//if (xenotypeDef != null)
+			//{
+			//	clone.health.AddHediff(HediffDefOf.XenogerminationComa);
+			//	GeneUtility.UpdateXenogermReplication(clone);
+			//	ReimplanterUtility.ExtractXenogerm(progenitor);
+			//	ReimplanterUtility.SetXenotype_DoubleXenotype(clone, xenotypeDef);
+			//}
 			// GestationUtility.GetBabyName(clone, progenitor);
+			clone?.Drawer?.renderer?.SetAllGraphicsDirty();
+			clone?.Notify_DisabledWorkTypesChanged();
 		}
 
 		public static void CopyGenes(Pawn pawn, Pawn newPawn)

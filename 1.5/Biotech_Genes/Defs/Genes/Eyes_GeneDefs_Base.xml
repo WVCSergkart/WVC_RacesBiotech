@@ -14,7 +14,7 @@
 	<canGenerateInGeneSet>true</canGenerateInGeneSet>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<!-- Any HeadTypes -->
+			<!-- To-Do: Port colors in defs -->
 			<holofaces>
 			  <li>
 				<label>white</label>
@@ -64,6 +64,11 @@
 			  <li>
 				<label>cyan</label>
 				<color>(133, 255, 245)</color>
+				<visible>true</visible>
+			  </li>
+			  <li>
+				<label>anomaly red</label>
+				<color>(214, 49, 49)</color>
 				<visible>true</visible>
 			  </li>
 			  <!-- <li> -->

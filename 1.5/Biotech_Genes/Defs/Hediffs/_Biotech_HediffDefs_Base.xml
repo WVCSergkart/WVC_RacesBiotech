@@ -14,16 +14,23 @@
 	<countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
 	<allowMothballIfLowPriorityWorldPawn>true</allowMothballIfLowPriorityWorldPawn>
 	<canAffectBionicOrImplant>false</canAffectBionicOrImplant>
-	<duplicationAllowed>false</duplicationAllowed>
+	<duplicationAllowed>true</duplicationAllowed>
 	<isInfection>false</isInfection>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base" Name="WVC_XenotypesAndGenes_Hediffs_OneTime" Abstract="True">
+	<duplicationAllowed>false</duplicationAllowed>
+	<keepOnBodyPartRestoration>false</keepOnBodyPartRestoration>
+	<everCurableByItem>true</everCurableByItem>
   </HediffDef>
 
   <!--=====================================================================-->
 
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
 	<defName>WVC_IncompatibilityComa</defName>
 	<label>incompatibility coma</label>
 	<description>The pawn was rendered unconscious by a dose of incompatible mechanites.</description>
+	<duplicationAllowed>false</duplicationAllowed>
 	<stages>
 	  <li>
 		<becomeVisible>true</becomeVisible>
@@ -47,6 +54,7 @@
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
 	<defName>WVC_MechaClotting_PreventBleeding</defName>
 	<label>prevent bleeding</label>
+	<duplicationAllowed>true</duplicationAllowed>
 	<stages>
 	  <li>
 		<totalBleedFactor>0</totalBleedFactor>
@@ -83,7 +91,7 @@
 
   <!--=====================================================================-->
 
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
 	<defName>WVC_XenotypesAndGenes_NoBleedNoPainNoPoisoning</defName>
 	<label>instant killer</label>
 	<stages>
@@ -103,7 +111,7 @@
 
   <!--=====================================================================-->
 
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
 	<defName>WVC_Wings_FeatheredWings</defName>
 	<label>flying</label>
 	<!-- <label>feathered wings</label> -->
@@ -130,7 +138,7 @@
 
   <!-- ================== -->
 
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base" MayRequire="ludeon.rimworld.royalty">
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime" MayRequire="ludeon.rimworld.royalty">
 	<defName>WVC_XaG_GeneInvisibility</defName>
 	<label>psychic invisibility</label>
 	<description>Psychically-induced invisibility. This actually affects others nearby, making their brains unable to perceive the sight of this individual, even if the eyes are unaffected.</description>
@@ -180,26 +188,6 @@
 			<showRemainingTime>true</showRemainingTime>
 		</li>
 		<!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_UndeadResurrection"/> -->
-	</comps>
-  </HediffDef>
-
-  <!-- ================== -->
-
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
-	<defName>WVC_XaG_ImplanterFangsMark</defName>
-	<label>implanter fangs mark</label>
-	<labelNoun>a implanter fangs mark</labelNoun>
-	<description>Two small puncture wounds.</description>
-	<tendable>false</tendable>
-	<stages>
-	  <li>
-		<painOffset>0.0125</painOffset>
-	  </li>
-	</stages>
-	<comps>
-	  <li Class="HediffCompProperties_Disappears">
-		<disappearsAfterTicks>15000~45000</disappearsAfterTicks><!-- 6-18 hours -->
-	  </li>
 	</comps>
   </HediffDef>
 

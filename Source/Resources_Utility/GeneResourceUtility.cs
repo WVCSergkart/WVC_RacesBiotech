@@ -214,49 +214,6 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		// Clone
-		public static bool TryDuplicatePawn(Pawn progenitor, Gene gene = null, XenotypeDef xenotypeDef = null, bool duplicateMode = false)
-		{
-			if (gene == null || progenitor == null || xenotypeDef == null || duplicateMode == false)
-			{
-				return false;
-			}
-			PawnGenerationRequest request = DuplicateUtility.RequestCopy(progenitor);
-			// PawnGenerationRequest generateNewBornPawn = new(progenitor.kindDef, progenitor.Faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: true, canGeneratePawnRelations: false, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: false, allowAddictions: false, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, fixedChronologicalAge: progenitor.ageTracker.AgeBiologicalTicks, fixedGender: progenitor.gender, fixedBiologicalAge: progenitor.ageTracker.AgeBiologicalTicks, forceNoIdeo: false, forceNoBackstory: true, forbidAnyTitle: true, forceDead: false, forcedXenotype: progenitor.genes.Xenotype, developmentalStages: progenitor.DevelopmentalStage);
-			Pawn clone = PawnGenerator.GeneratePawn(request);
-			if (PawnUtility.TrySpawnHatchedOrBornPawn(clone, progenitor))
-			{
-				DuplicateUtility.DuplicatePawn(progenitor, clone, xenotypeDef);
-				if (!XaG_GeneUtility.HasGene(gene.def, clone))
-				{
-					clone.genes.AddGene(gene.def, false);
-				}
-				// HealingUtility.RegrowAllBodyParts(progenitor);
-			}
-			else
-			{
-				Find.WorldPawns.PassToWorld(clone, PawnDiscardDecideMode.Discard);
-			}
-			if (progenitor.Spawned)
-			{
-				FilthMaker.TryMakeFilth(progenitor.Position, progenitor.Map, ThingDefOf.Filth_Slime, 5);
-				WVC_GenesDefOf.Hive_Spawn.PlayOneShot(new TargetInfo(progenitor));
-				// WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(progenitor, progenitor.Map).Trigger(progenitor, null);
-				WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(clone, clone.Map).Trigger(clone, null);
-				if (clone.caller != null)
-				{
-					clone.caller.DoCall();
-				}
-			}
-			if (PawnUtility.ShouldSendNotificationAbout(clone))
-			{
-				Find.LetterStack.ReceiveLetter("WVC_XaG_GeneShapeshifter_DuplicateLetterLabel".Translate(), "WVC_XaG_GeneShapeshifter_DuplicateLetterDesc".Translate(progenitor.Named("TARGET"), xenotypeDef.LabelCap, gene.LabelCap)
-				+ "\n\n" + (xenotypeDef.descriptionShort.NullOrEmpty() ? xenotypeDef.description : xenotypeDef.descriptionShort),
-				WVC_GenesDefOf.WVC_XaG_UndeadEvent, new LookTargets(progenitor));
-			}
-			return true;
-		}
-
 		// Coma TEST
 
 		public static void RegenComaOrDeathrest(Pawn pawn, Gene_Undead gene)

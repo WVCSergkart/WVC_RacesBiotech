@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_Base">
+	<defName>WVC_Duplicator</defName>
+	<label>duplicator</label>
+	<description>Carriers of this gene can create a duplicate of any human with the help of a somewhat injector organ. Upon contact with a target, corrupted archites will begin the process of replicating the target, creating an exact copy of it. &lt;color=#b0bf80&gt;This can have terrible side effects.&lt;/color&gt;</description>
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Holoface</geneClass> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Morpher</geneClass> -->
+	<!-- <resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Morpher</resourceGizmoType> -->
+	<iconPath>WVC/UI/Genes/Gene_Duplicator_v0</iconPath>
+	<biostatCpx>4</biostatCpx>
+	<biostatArc>4</biostatArc>
+	<displayOrderInCategory>-5</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Carrier can create a &lt;color=#8a8ae6&gt;copy&lt;/color&gt; of a &lt;color=#8a8ae6&gt;human&lt;/color&gt; target.</li>
+		<li>&lt;color=#8a8ae6&gt;Copy&lt;/color&gt; inherits the target's genes, backstory, and appearance.</li>
+		<li>Target can be any &lt;color=#8a8ae6&gt;human&lt;/color&gt;, including a &lt;color=#8a8ae6&gt;caster&lt;/color&gt;.</li>
+		<li>Ability has a 15-day cooldown.</li>
+		<!-- <li MayRequire="ludeon.rimworld.anomaly">&lt;color=#b0bf80&gt;This can have terrible side effects.&lt;/color&gt;</li> -->
+	</customEffectDescriptions>
+	<abilities>
+	  <li>WVC_Duplicator</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_Duplicator</AbilityDef>
+	</descriptionHyperlinks>
+  </GeneDef>
+
+  <!-- ============================================================================== -->
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base">
+	<defName>WVC_Duplicator</defName>
+	<label>duplicator</label>
+	<description>Affect the target using a special cluster of archites and create an exact duplicate of the target. After this, the archites will need some time to restore their cluster, during which time the ability cannot be used again.</description>
+	<iconPath>WVC/UI/Genes/Gene_Duplicator_v0</iconPath>
+	<sendLetterOnCooldownComplete>true</sendLetterOnCooldownComplete>
+	<showPsycastEffects>true</showPsycastEffects>
+	<cooldownTicksRange>900000</cooldownTicksRange>
+	<verbProperties>
+	  <targetParams>
+		<canTargetSelf>true</canTargetSelf>
+		<onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+	  </targetParams>
+	</verbProperties>
+	<confirmationDialogText>Using the ability will create a duplicate of the target, with the ability going into a 15 day cooldown. The duplicate will inherit all genes, xenotype, backstory and appearance. But the duplicate may be susceptible to some &lt;color=#b0bf80&gt;duplication diseases&lt;/color&gt; or &lt;color=#b0bf80&gt;become hostile&lt;/color&gt;, and duplication can also be &lt;color=#b0bf80&gt;dangerous&lt;/color&gt; for the original.\n\nAre you sure you need a duplicate?</confirmationDialogText>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Duplicator</compClass>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+</Defs>

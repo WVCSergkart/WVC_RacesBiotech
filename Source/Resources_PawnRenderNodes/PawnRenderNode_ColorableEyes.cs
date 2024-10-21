@@ -44,4 +44,34 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	//public class PawnRenderNode_ColorableBody : PawnRenderNode
+	//{
+
+	//	public PawnRenderNode_ColorableBody(Pawn pawn, PawnRenderNodeProperties props, PawnRenderTree tree)
+	//		: base(pawn, props, tree)
+	//	{
+	//	}
+
+	//	public override Graphic GraphicFor(Pawn pawn)
+	//	{
+	//		if (gene is not Gene_Eyes holoface || holoface.visible != true)
+	//		{
+	//			return null;
+	//		}
+	//		return base.GraphicFor(pawn);
+	//	}
+
+	//	public override Color ColorFor(Pawn pawn)
+	//	{
+	//		if (gene is not Gene_Eyes holoface || holoface?.color == null)
+	//		{
+	//			return Color.white;
+	//		}
+	//		Color newColor = holoface.color;
+	//		newColor.a = holoface.Alpha;
+	//		return newColor;
+	//	}
+
+	//}
+
 }

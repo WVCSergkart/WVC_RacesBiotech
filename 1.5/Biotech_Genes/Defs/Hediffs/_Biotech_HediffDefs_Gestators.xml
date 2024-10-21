@@ -5,7 +5,7 @@
 
   <!-- Active -->
 
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base" Name="WVC_XenotypesAndGenes_Hediffs_AbilityGestator" Abstract="True">
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime" Name="WVC_XenotypesAndGenes_Hediffs_AbilityGestator" Abstract="True">
 	<label>gestation process</label>
 	<description>Mechanites slowly form new life.</description>
 	<hediffClass>HediffWithComps</hediffClass>
@@ -75,7 +75,7 @@
 	</comps>
   </HediffDef>
 
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
 	<defName>WVC_XenotypesAndGenes_PostGestationRecovery</defName>
 	<label>post gestation recovery</label>
 	<description>The body of the carrier is restored after the end of the gestation process.</description>
@@ -100,7 +100,7 @@
 	</comps>
   </HediffDef>
 
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
 	<defName>WVC_XenotypesAndGenes_GestatorCooldown</defName>
 	<label>gestator cooldown</label>
 	<description>Before this time has expired, the gestator cannot be reused.</description>

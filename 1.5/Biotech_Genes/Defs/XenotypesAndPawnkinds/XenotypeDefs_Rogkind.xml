@@ -6,55 +6,80 @@
 	<defName>WVC_RogueFormer</defName>
 	<label>rogkind</label>
 	<!-- Dark origin, strange appearance, unstable genes, archite hatred -->
-	<description>Rogkinds are ageless super-humans powered by archotech-created archites in the bloodstream. They are moderately strong. They do not suffer from disease or poison. Their genes are kind of unstable, which makes their metabolism vary from individual to individual. They can easily implant their genes, transforming anyone into their own kind. The price of all this is their vulnerability to the sun and a very bad relationship with everyone.</description>
-	<descriptionShort>Rogkinds are ageless super-humans powered by archotech-created archites in the bloodstream. They are moderately strong. They do not suffer from disease or poison. Their genes are kind of unstable, which makes their metabolism vary from individual to individual. They can easily implant their genes, transforming anyone into their own kind. The price of all this is their vulnerability to the sun and a very bad relationship with everyone.</descriptionShort>
+	<description>Rogkinds are ageless super-humans powered by archotech-created archites in the bloodstream..</description>
+	<descriptionShort>Rogkinds are ageless super-humans powered by archotech-created archites in the bloodstream..</descriptionShort>
 	<iconPath>WVC/UI/Mecha_Icons/Roguekind1</iconPath>
 	<canGenerateAsCombatant>true</canGenerateAsCombatant>
 	<displayPriority>-1100</displayPriority>
-	<generateWithXenogermReplicatingHediffChance>0.06</generateWithXenogermReplicatingHediffChance>
-	<xenogermReplicatingDurationLeftDaysRange>0.1~140</xenogermReplicatingDurationLeftDaysRange>
+	<!-- <generateWithXenogermReplicatingHediffChance>0.06</generateWithXenogermReplicatingHediffChance> -->
+	<!-- <xenogermReplicatingDurationLeftDaysRange>0.1~140</xenogermReplicatingDurationLeftDaysRange> -->
 	<!-- <combatPowerFactor>2.0</combatPowerFactor> -->
+	<factionlessGenerationWeight>0.1</factionlessGenerationWeight>
 	<genes>
+		<!-- <li>WVC_NodeSkin</li> -->
+		<!-- <li>WVC_Eyes_Holoeyes</li> -->
+		<!-- <li>WVC_VoiceMechaTesseron</li> -->
+		<!-- <li>WVC_Mecha_NoTail</li> -->
+		<!-- <li>WVC_Mecha_ConnectorTail</li> -->
+		<!-- <li>Ears_Human</li> -->
+		<!-- <li>WVC_Mecha_EarsCat</li> -->
+		<!-- <li>WVC_Mecha_RedFormerEarsDouble</li> -->
+		<!-- <li>WVC_Mecha_RedFormerSpikesDouble</li> -->
+		<!-- <li>WVC_Mecha_YellowFormerAntennaDouble</li> -->
+		<!-- <li>Body_Standard</li> -->
+		<!-- <li>Body_Thin</li> -->
+		<!-- <li>WVC_HairColor_DarkGray</li> -->
+		<!-- <li>WVC_SkinColor_DarkGray</li> -->
+		<!-- <li>WVC_EndogermReimplanter</li> -->
+		<!-- <li>WVC_NaturalAgeless</li> -->
+		<!-- <li>WVC_ArchitePerfectImmunity_DiseaseFree</li> -->
+		<!-- <li>WVC_ToxResist_Total</li> -->
+		<!-- <li>WVC_DebuffUV_ExtremeInjuryHealing</li> -->
+		<!-- <li>WVC_MechaAI_FirmwareRogueMachine</li> -->
+		<!-- <li>WVC_PredatorPrey_NotTasty</li> -->
+		<!-- <li>WVC_MechaAI_SoftwareNaturalEnemy</li> -->
+		<!-- <li>WVC_MecaBodyParts_Nose</li> -->
+		<!-- <li>WVC_MecaBodyParts_Heart</li> -->
+		<!-- <li>WVC_RandomGeneticSpeciality</li> -->
+		<!-- <li>WVC_RandomMetabolism</li> -->
+		<!-- <li>WVC_MechaPowerSource_Unstable</li> -->
+		<!-- ========= NEW ========= -->
 		<!-- Graphic -->
 		<li>WVC_NodeSkin</li>
-		<!-- <li>WVC_FacelessEyes_ceae69_HEX</li> -->
 		<li>WVC_Eyes_Holoeyes</li>
 		<li>WVC_VoiceMechaTesseron</li>
-		<!-- = -->
-		<li>WVC_Mecha_NoTail</li>
-		<li>WVC_Mecha_ConnectorTail</li>
-		<!-- = -->
-		<li>Ears_Human</li>
-		<li>WVC_Mecha_EarsCat</li>
-		<li>WVC_Mecha_RedFormerEarsDouble</li>
-		<li>WVC_Mecha_RedFormerSpikesDouble</li>
-		<li>WVC_Mecha_YellowFormerAntennaDouble</li>
-		<!-- = -->
 		<li>Body_Standard</li>
-		<li>Body_Thin</li>
-		<!-- <li>WVC_BodySize_Small</li> -->
-		<li>WVC_HairColor_DarkGray</li>
-		<li>WVC_SkinColor_DarkGray</li>
+		<li>WVC_HeadBoneCurveHorns</li>
+		<li>WVC_DragonTailA</li>
+		<li>WVC_BodySize_Small</li>
+		<li>WVC_HairColor_Slate</li>
+		<li>WVC_SkinColor_Slate</li>
 		<!-- Stats -->
-		<li>WVC_EndogermReimplanter</li>
+		<li>PsychicAbility_Enhanced</li>
+		<li>WVC_Duplicator</li>
 		<li>WVC_NaturalAgeless</li>
-		<li>WVC_ArchitePerfectImmunity_DiseaseFree</li>
-		<li>WVC_ToxResist_Total</li>
 		<li>WVC_DebuffUV_ExtremeInjuryHealing</li>
 		<li>WVC_MechaAI_FirmwareRogueMachine</li>
 		<li>WVC_PredatorPrey_NotTasty</li>
-		<!-- = -->
 		<li>WVC_MechaAI_SoftwareNaturalEnemy</li>
-		<!-- = -->
 		<li>WVC_MecaBodyParts_Nose</li>
-		<li>WVC_MecaBodyParts_Heart</li>
 		<li>WVC_RandomGeneticSpeciality</li>
 		<li>WVC_RandomMetabolism</li>
 		<li>WVC_MechaPowerSource_Unstable</li>
+		<li>WVC_WoundHealing_Unnatural</li>
+		<li>WVC_MecaBodyParts_Liver</li>
+		<li>WVC_MecaBodyParts_Lung</li>
+		<li>WVC_FurskinInstincts_NightHunter</li>
+		<li>WVC_SlaveSuppression_Submissive</li>
+		<li>WVC_FurskinInstincts_PredatorSense</li>
+		<li>Sterile</li>
 	</genes>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<defaultColor>(255, 216, 133)</defaultColor>
+			<!-- orange -->
+			<!-- <defaultColor>(255, 216, 133)</defaultColor> -->
+			<!-- anomaly red -->
+			<defaultColor>(214, 49, 49)</defaultColor>
 		</li>
 	</modExtensions>
   </XenotypeDef>

@@ -10,7 +10,7 @@
 	<iconPath>WVC/UI/Genes/Gene_Morpher_v0</iconPath>
 	<biostatCpx>4</biostatCpx>
 	<biostatArc>1</biostatArc>
-	<displayOrderInCategory>300</displayOrderInCategory>
+	<displayOrderInCategory>-10</displayOrderInCategory>
 	<customEffectDescriptions>
 		<!-- <li>Under certain conditions, &lt;color=#8a8ae6&gt;changes&lt;/color&gt; the carrier's gene set.</li> -->
 		<li>&lt;color=#8a8ae6&gt;Morph&lt;/color&gt; is triggered every &lt;color=#8a8ae6&gt;evening&lt;/color&gt;.</li>

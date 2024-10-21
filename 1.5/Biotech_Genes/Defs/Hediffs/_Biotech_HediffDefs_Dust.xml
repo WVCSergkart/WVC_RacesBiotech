@@ -34,7 +34,7 @@
 	<!-- </comps> -->
   <!-- </HediffDef> -->
 
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
 	<defName>WVC_Dustogenic_DelayedReimplanter</defName>
 	<label>genetic storm</label>
 	<description>Delayed reimplantation of genes causes fatigue and hunger. At the end, the carrier's genes will be guaranteed to be changed.</description>
@@ -113,7 +113,7 @@
 	<!-- </comps> -->
   <!-- </HediffDef> -->
 
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
 	<defName>WVC_NutrientsInjector_HungerFactor</defName>
 	<label>super nutrients</label>
 	<description>Saturation with a special dose of nutrients.</description>

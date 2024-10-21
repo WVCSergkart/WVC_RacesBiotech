@@ -19,43 +19,6 @@
 	<statOffsets>
 	  <SocialImpact>0.1</SocialImpact>
 	</statOffsets>
-	<!-- <renderNodeProperties> -->
-	  <!-- <li> -->
-		<!-- <nodeClass>WVC_XenotypesAndGenes.PawnRenderNode_ColorableEyes</nodeClass> -->
-		<!-- <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass> -->
-		<!-- <parentTagDef>Head</parentTagDef> -->
-		<!-- <colorType>Custom</colorType> -->
-		<!-- <color>(255, 255, 255)</color> -->
-		<!-- <useRottenColor>true</useRottenColor> -->
-		<!-- <useSkinShader>true</useSkinShader> -->
-		<!-- <rotDrawMode>Fresh</rotDrawMode> -->
-		<!-- <shaderTypeDef>MoteGlow</shaderTypeDef> -->
-		<!-- <texPaths> -->
-			<!-- <li>WVC/BodyParts/Eyes/FaceplateA</li> -->
-			<!-- <li>WVC/BodyParts/Eyes/FaceplateB</li> -->
-			<!-- <li>WVC/BodyParts/Eyes/FaceplateC</li> -->
-			<!-- <li>WVC/BodyParts/Eyes/FaceplateD</li> -->
-			<!-- <li>WVC/BodyParts/Eyes/FaceplateE</li> -->
-			<!-- <li>WVC/BodyParts/Eyes/FaceplateF</li> -->
-			<!-- <li>WVC/BodyParts/Eyes/FaceplateG</li> -->
-			<!-- <li>WVC/BodyParts/Eyes/FaceplateH</li> -->
-			<!-- <li>WVC/BodyParts/Eyes/FaceplateV</li> -->
-			<!-- <li>WVC/BodyParts/Eyes/FaceplateY</li> -->
-			<!-- <li>WVC/BodyParts/Eyes/FaceplateU</li> -->
-		<!-- </texPaths> -->
-		<!-- <visibleFacing> -->
-		  <!-- <li>East</li> -->
-		  <!-- <li>South</li> -->
-		  <!-- <li>West</li> -->
-		<!-- </visibleFacing> -->
-		<!-- <narrowCrownHorizontalOffset>0.03</narrowCrownHorizontalOffset> -->
-		<!-- <drawData> -->
-		  <!-- <defaultData> -->
-			<!-- <layer>57</layer> -->
-		  <!-- </defaultData> -->
-		<!-- </drawData> -->
-	  <!-- </li> -->
-	<!-- </renderNodeProperties> -->
 	<renderNodeProperties>
 	  <li Class="PawnRenderNodeProperties_Eye">
 		<nodeClass>WVC_XenotypesAndGenes.PawnRenderNode_ColorableEyes</nodeClass>
@@ -105,6 +68,38 @@
 		  </dataWest>
 		</drawData>
 	  </li>
+	  <!-- <li> -->
+		<!-- <nodeClass>WVC_XenotypesAndGenes.PawnRenderNode_ColorableBody</nodeClass> -->
+		<!-- <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass> -->
+		<!-- <texPaths> -->
+		  <!-- <li>WVC/BodyParts/DuplicatorMarks/DuplicatorMarksA</li> -->
+		  <!-- <li>WVC/BodyParts/DuplicatorMarks/DuplicatorMarksB</li> -->
+		  <!-- <li>WVC/BodyParts/DuplicatorMarks/DuplicatorMarksC</li> -->
+		  <!-- <li>WVC/BodyParts/DuplicatorMarks/DuplicatorMarksD</li> -->
+		<!-- </texPaths> -->
+		<!-- <color>(255, 255, 255)</color> -->
+		<!-- <rotDrawMode>Fresh</rotDrawMode> -->
+		<!-- <shaderTypeDef>MoteGlow</shaderTypeDef> -->
+		<!-- <drawSize>0.25</drawSize> -->
+		<!-- <baseLayer>6</baseLayer> -->
+		<!-- <drawData> -->
+		  <!-- <scaleOffsetByBodySize>true</scaleOffsetByBodySize> -->
+		  <!-- <dataSouth> -->
+			<!-- <offset>(0, 0, 0)</offset> -->
+		  <!-- </dataSouth> -->
+		  <!-- <dataEast> -->
+			<!-- <offset>(0.05, 0, 0)</offset> -->
+		  <!-- </dataEast> -->
+		  <!-- <dataWest> -->
+			<!-- <offset>(-0.05, 0, 0)</offset> -->
+		  <!-- </dataWest> -->
+		<!-- </drawData> -->
+		<!-- <visibleFacing> -->
+		  <!-- <li>East</li> -->
+		  <!-- <li>South</li> -->
+		  <!-- <li>West</li> -->
+		<!-- </visibleFacing> -->
+	  <!-- </li> -->
 	</renderNodeProperties>
   </GeneDef>
 

@@ -1,6 +1,65 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHealingRate_Base">
+	<defName>WVC_WoundHealing_Unnatural</defName>
+	<label>unnatural wound healing</label>
+	<description>Carriers of this gene have archites that regenerate wounds and lost organs, but their natural regeneration leaves much to be desired.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_MachineWoundHealing</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_UnnaturalWoundHealing_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<!-- <displayCategory>Healing</displayCategory> -->
+	<displayCategory>WVC_Energy</displayCategory>
+	<displayOrderInCategory>88</displayOrderInCategory>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Healing: 25 hp/day</li>
+	</customEffectDescriptions>
+	<statFactors>
+	  <InjuryHealingFactor>0.5</InjuryHealingFactor>
+	</statFactors>
+	<makeImmuneTo>
+	  <li>FibrousMechanites</li>
+	  <li>SensoryMechanites</li>
+	</makeImmuneTo>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<regeneration>25</regeneration>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHealingRate_Base">
+	<defName>WVC_MecaBodyParts_Kidney</defName>
+	<label>machine wound healing</label>
+	<description>Carriers of this gene have archites that regenerate wounds and lost organs, but they do not have natural regeneration.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_MachineWoundHealing</geneClass>
+	<iconPath>WVC/UI/Genes/MechaClusters_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<!-- <displayCategory>Healing</displayCategory> -->
+	<displayCategory>WVC_Energy</displayCategory>
+	<displayOrderInCategory>90</displayOrderInCategory>
+	<biostatArc>2</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Healing: 100 hp/day</li>
+		<!-- <li>&lt;color=#ff8585&gt;This gene always overrides genes with which it is mutually exclusive.&lt;/color&gt;</li> -->
+	</customEffectDescriptions>
+	<statFactors>
+	  <InjuryHealingFactor>0</InjuryHealingFactor>
+	</statFactors>
+	<makeImmuneTo>
+	  <li>FibrousMechanites</li>
+	  <li>SensoryMechanites</li>
+	</makeImmuneTo>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<regeneration>100</regeneration>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
   <!-- ============================= -->
 
   <!-- UV Phobia -->

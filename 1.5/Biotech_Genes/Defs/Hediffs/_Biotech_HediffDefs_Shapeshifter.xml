@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
 	<defName>WVC_PostshiftMetabolism_HungerFactor</defName>
 	<label>postshift metabolism</label>
 	<description>A residual shapeshift effect during which the owner's metabolism is significantly enhanced.</description>
