@@ -234,6 +234,22 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref shouldResurrect, "shouldResurrect_" + Props.uniqueTag, false);
 		}
 
+		public override IEnumerable<Gizmo> CompGetGizmosExtra()
+		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+                {
+					defaultLabel = "DEV: ResetXenotype",
+					action = delegate
+					{
+                        Pawn pawn = parent as Pawn;
+                        ReimplanterUtility.SetXenotype(pawn, pawn.genes.Xenotype);
+					}
+				};
+			}
+		}
+
 	}
 
 }

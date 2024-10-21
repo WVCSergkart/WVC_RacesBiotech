@@ -90,7 +90,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					Job job = JobMaker.MakeJob(JobDefOf.Ingest, specialFood);
 					job.count = 1;
-					pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, pawn.jobs.curJob.def != JobDefOf.Ingest);
+					pawn.jobs.TryTakeOrderedJob(job, JobTag.SatisfyingNeeds, pawn.jobs.curJob.def != JobDefOf.Ingest);
 				}
 				break;
 			}

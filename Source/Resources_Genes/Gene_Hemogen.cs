@@ -130,7 +130,7 @@ namespace WVC_XenotypesAndGenes
 					continue;
 				}
 				job.def = WVC_GenesDefOf.WVC_XaG_CastBloodfeedOnPawnMelee;
-				pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);
+				pawn.jobs.TryTakeOrderedJob(job, JobTag.SatisfyingNeeds, true);
 				return true;
 			}
 			return false;

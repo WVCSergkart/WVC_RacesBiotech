@@ -57,6 +57,9 @@ This option also patches the gene copying of the duplicator anomaly, making it m
 
 A restart is required.</WVC_ToolTip_enable_OverOverridableGenesMechanic>
 
+	<!-- <WVC_Label_forceSatisfyingNeeds_CustomEaterGenes>Custom eater genes force pawns</WVC_Label_forceSatisfyingNeeds_CustomEaterGenes> -->
+	<!-- <WVC_ToolTip_forceSatisfyingNeeds_CustomEaterGenes>If enabled, a pawn with genes such as rechargeable, bloodeater and dustogenic will abandon their current tasks to satisfy hunger. This is currently an experimental option.</WVC_ToolTip_forceSatisfyingNeeds_CustomEaterGenes> -->
+
 	<!-- ================================== -->
 
 	<WVC_Label_genesCanTickOnlyOnMap>Genes tick only on map</WVC_Label_genesCanTickOnlyOnMap>

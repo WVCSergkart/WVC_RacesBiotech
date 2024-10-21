@@ -88,7 +88,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				Job job = JobMaker.MakeJob(Props.rechargeableStomachJobDef, closestCharger);
 				job.overrideFacing = Rot4.South;
-				pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, requestQueueing);
+				pawn.jobs.TryTakeOrderedJob(job, JobTag.SatisfyingNeeds, requestQueueing);
 				return true;
 			}
 			return false;
