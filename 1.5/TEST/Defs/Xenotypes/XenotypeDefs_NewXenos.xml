@@ -5,7 +5,7 @@
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="TEST">
 	<defName>WVC_TestTemplate</defName>
 	<label>TestTemplate</label>
-	<iconPath>WVC/UI/Mecha_Icons/Icon_Runeex_v0</iconPath>
+	<iconPath>WVC/UI/Mecha_Icons/Icon_Rungfeex_v0</iconPath>
 	<genes>
 		<!-- Graphic -->
 		<li>Body_Standard</li>

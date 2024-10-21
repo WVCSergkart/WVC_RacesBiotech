@@ -91,7 +91,7 @@ namespace WVC_XenotypesAndGenes
 			// {
 			// blackListedXenotypesForSerums.AddRange(item.blackListedXenotypesForSerums);
 			// }
-			List<XenotypeDef> allXenotypesList = DefDatabase<XenotypeDef>.AllDefsListForReading;
+			List<XenotypeDef> allXenotypesList = GetAllXenotypesExceptAndroids();
 			List<XenotypeDef> list = new();
 			for (int i = 0; i < allXenotypesList.Count; i++)
 			{
@@ -119,6 +119,11 @@ namespace WVC_XenotypesAndGenes
 			List<XenotypeDef> list = new();
 			foreach (XenotypeDef item in DefDatabase<XenotypeDef>.AllDefsListForReading)
 			{
+				if (item.Icon == null)
+				{
+					Log.Error("Failed find xenotype icon for mod " + item.modContentPack?.ModMetaData?.Name.ToString() + ". Contact the " + item.modContentPack?.ModMetaData?.AuthorsString.ToString() + ". Xenotype skipped.");
+					continue;
+				}
 				if (!XaG_GeneUtility.XenotypeIsAndroid(item))
 				{
 					list.Add(item);
