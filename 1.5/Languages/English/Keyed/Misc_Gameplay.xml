@@ -688,7 +688,11 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_GeneDuplicationSuccessMessage>{PAWN_nameDef} has successfully triggered duplication.</WVC_XaG_GeneDuplicationSuccessMessage>
 
-	<WVC_XaG_GeneHostileDuplicateLetterLabel>Hostile gene duplicate</WVC_XaG_GeneHostileDuplicateLetterLabel>
+	<!-- <WVC_XaG_GeneHostileDuplicateLetterLabel>Hostile gene duplicate</WVC_XaG_GeneHostileDuplicateLetterLabel> -->
 	<WVC_XaG_GeneHostileDuplicateLetter>{CASTER_nameDef} pulsed with energy and generated a flash of light. {PAWN_nameDef} found {PAWN_objective}self face to face with a copy of {PAWN_objective}self. The duplicate is approaching {PAWN_nameDef} with murderous intent!</WVC_XaG_GeneHostileDuplicateLetter>
+
+	<WVC_XaG_GeneBackstoryDuplicateLetter>However, it seems {PAWN_nameDef}'s memories of the past have significant discrepancies compared to [PAWN_possessive] original.</WVC_XaG_GeneBackstoryDuplicateLetter>
+
+	<WVC_XaG_GeneTraitsDuplicateLetter>However, it seems [PAWN_possessive] personality is somewhat different from the original.</WVC_XaG_GeneTraitsDuplicateLetter>
 
 </LanguageData>
