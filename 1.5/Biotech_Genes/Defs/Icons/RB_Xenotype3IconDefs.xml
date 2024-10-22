@@ -124,4 +124,12 @@
   </XenotypeIconDef>
   <!-- Used -->
 
+  <!-- Duplicator -->
+  <!-- Used -->
+  <XenotypeIconDef>
+	<defName>WVC_Duplicator1c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Icon_Duplicator_v0</texPath>
+  </XenotypeIconDef>
+  <!-- Used -->
+
 </Defs>

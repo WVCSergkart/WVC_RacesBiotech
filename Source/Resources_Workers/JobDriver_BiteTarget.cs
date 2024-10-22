@@ -7,9 +7,19 @@ using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
-
-	public class JobDriver_CastBloodfeedMelee : JobDriver_CastAbility
+	public interface IJobCustomEater
 	{
+
+		bool ShouldFinalize { get; }
+
+	}
+
+	public class JobDriver_CastBloodfeedMelee : JobDriver_CastAbility, IJobCustomEater
+	{
+
+		public virtual bool Finalize => true;
+
+		public bool ShouldFinalize => Finalize;
 
 		public Pawn Victim => (Pawn)job.GetTarget(TargetIndex.A).Thing;
 
@@ -37,6 +47,8 @@ namespace WVC_XenotypesAndGenes
 
 	public class JobDriver_CastCellsfeedMelee : JobDriver_CastBloodfeedMelee
 	{
+
+		public override bool Finalize => false;
 
 		protected override IEnumerable<Toil> MakeNewToils()
 		{

@@ -90,7 +90,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					Job job = JobMaker.MakeJob(JobDefOf.Ingest, specialFood);
 					job.count = 1;
-					pawn.jobs.TryTakeOrderedJob(job, JobTag.SatisfyingNeeds, pawn.jobs.curJob.def != JobDefOf.Ingest);
+					pawn.TryTakeOrderedJob(job, JobTag.SatisfyingNeeds, MiscUtility.PawnDoIngestJob(pawn));
 				}
 				break;
 			}
@@ -313,7 +313,7 @@ namespace WVC_XenotypesAndGenes
 				GeneResourceUtility.OffsetNeedFood(pawn, GetHunger(stack, specialFood, need_Food));
 				Job job = JobMaker.MakeJob(JobDefOf.Ingest, specialFood);
 				job.count = stack + 3;
-				pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);
+				pawn.TryTakeOrderedJob(job, JobTag.Misc, true);
 				return true;
 			}
 			return false;
@@ -414,7 +414,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			TryHuntForFood();
+			TryHuntForFood(MiscUtility.PawnDoIngestJob(pawn));
 		}
 
 		private void InCaravan()
@@ -466,6 +466,7 @@ namespace WVC_XenotypesAndGenes
 		public void Notify_Bloodfeed(Pawn victim)
 		{
 			GeneResourceUtility.OffsetNeedFood(pawn, Props.nutritionPerBite * victim.BodySize * pawn.GetStatValue(StatDefOf.HemogenGainFactor, cacheStaleAfterTicks: 360000));
+			MiscUtility.TryDebugEaterGene(pawn);
 		}
 
 		public IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)

@@ -16,7 +16,28 @@ namespace WVC_XenotypesAndGenes
 	public static class MiscUtility
 	{
 
-		public static void SummonDropPod(Map map, List<Thing> list)
+		public static bool PawnDoIngestJob(Pawn pawn)
+		{
+			return pawn.jobs?.curJob?.def != JobDefOf.Ingest;
+		}
+
+		public static void TryTakeOrderedJob(this Pawn pawn, Job job, JobTag tag, bool requestQueueing)
+		{
+			if (requestQueueing && tag == JobTag.SatisfyingNeeds)
+            {
+                TryDebugEaterGene(pawn, false);
+                pawn.jobs.jobQueue.EnqueueFirst(job, tag);
+                return;
+            }
+            pawn.jobs.TryTakeOrderedJob(job, tag, requestQueueing);
+		}
+
+        public static void TryDebugEaterGene(Pawn pawn, bool finalize = true)
+        {
+			pawn?.jobs?.jobQueue?.RemoveAll(pawn, (Job j) => j.def == JobDefOf.Ingest || (finalize && j.GetCachedDriverDirect is IJobCustomEater eater && eater.ShouldFinalize));
+        }
+
+        public static void SummonDropPod(Map map, List<Thing> list)
 		{
 			if (map == null || map.IsUnderground())
 			{

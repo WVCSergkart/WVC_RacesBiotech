@@ -98,7 +98,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public virtual bool TryHuntForFood()
+		public virtual bool TryHuntForFood(bool requestQueueing = true)
 		{
 			if (WVC_Biotech.settings.bloodeater_disableAutoFeed)
 			{
@@ -130,7 +130,7 @@ namespace WVC_XenotypesAndGenes
 					continue;
 				}
 				job.def = WVC_GenesDefOf.WVC_XaG_CastBloodfeedOnPawnMelee;
-				pawn.jobs.TryTakeOrderedJob(job, JobTag.SatisfyingNeeds, true);
+				pawn.TryTakeOrderedJob(job, JobTag.SatisfyingNeeds, requestQueueing);
 				return true;
 			}
 			return false;

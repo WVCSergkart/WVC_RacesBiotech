@@ -9,9 +9,10 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class JobDriver_StomachCharge : JobDriver
+	public class JobDriver_StomachCharge : JobDriver, IJobCustomEater
 	{
 		// private const TargetIndex ChargerInd = TargetIndex.A;
+		public bool ShouldFinalize => true;
 
 		public Building_XenoCharger Charger => (Building_XenoCharger)job.targetA.Thing;
 

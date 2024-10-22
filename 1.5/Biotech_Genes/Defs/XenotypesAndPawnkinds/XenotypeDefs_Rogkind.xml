@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <!-- Former -->
+  <!-- Duplicator -->
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="Mechalike">
 	<defName>WVC_RogueFormer</defName>
-	<label>rogkind</label>
+	<!-- <label>rogkind</label> -->
+	<label>duplicator</label>
 	<!-- Dark origin, strange appearance, unstable genes, archite hatred -->
-	<description>Rogkinds are ageless super-humans powered by archotech-created archites in the bloodstream..</description>
-	<descriptionShort>Rogkinds are ageless super-humans powered by archotech-created archites in the bloodstream..</descriptionShort>
-	<iconPath>WVC/UI/Mecha_Icons/Roguekind1</iconPath>
+	<description>Duplicators are ageless super-humans powered by archotech-created archites in the bloodstream. They are moderately strong and fairly resilient. They are vulnerable to light, but gain an advantage in the dark. And their language is understandable only to themselves. But their main feature is the ability to create duplicates.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Abilities):&lt;/color&gt; This xenotype can create duplicates, similar to the duplicator obelisk. If an anomaly is present, the duplicates may have defects.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Interactions):&lt;/color&gt; This xenotype cannot talk, they are considered mute by everyone. No speeches or other royalty or ideology features related to talking. But they can interact with each other.</description>
+	<descriptionShort>Duplicators are ageless super-humans powered by archotech-created archites in the bloodstream. They are moderately strong and fairly resilient. They are vulnerable to light, but gain an advantage in the dark. And their language is understandable only to themselves. But their main feature is the ability to create duplicates.</descriptionShort>
+	<!-- <iconPath>WVC/UI/Mecha_Icons/Roguekind1</iconPath> -->
+	<iconPath>WVC/UI/Mecha_Icons/Icon_Duplicator_v0</iconPath>
 	<canGenerateAsCombatant>true</canGenerateAsCombatant>
 	<displayPriority>-1100</displayPriority>
-	<!-- <generateWithXenogermReplicatingHediffChance>0.06</generateWithXenogermReplicatingHediffChance> -->
-	<!-- <xenogermReplicatingDurationLeftDaysRange>0.1~140</xenogermReplicatingDurationLeftDaysRange> -->
-	<!-- <combatPowerFactor>2.0</combatPowerFactor> -->
 	<factionlessGenerationWeight>0.1</factionlessGenerationWeight>
 	<genes>
 		<!-- <li>WVC_NodeSkin</li> -->

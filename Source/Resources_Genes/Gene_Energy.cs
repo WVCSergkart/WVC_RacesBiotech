@@ -19,44 +19,44 @@ namespace WVC_XenotypesAndGenes
 		public Building_XenoCharger currentCharger;
 
 		public override void Tick()
-		{
-			if (!pawn.IsHashIntervalTick(2301))
-			{
-				return;
-			}
-			Need_Food food = pawn?.needs?.food;
-			if (food == null)
-			{
-				return;
-			}
-			if (food.CurLevelPercentage >= pawn.RaceProps.FoodLevelPercentageWantEat + 0.09f)
-			{
-				return;
-			}
-			if (pawn.Faction != Faction.OfPlayer)
-			{
-				OffsetNeedFood();
-				return;
-			}
-			if (pawn.Map == null)
-			{
-				// In caravan use
-				OffsetNeedFood();
-				return;
-			}
-			if (pawn.Drafted)
-			{
-				return;
-			}
-			if (pawn.Downed)
-			{
-				OffsetNeedFood();
-				return;
-			}
-			TryRecharge();
-		}
+        {
+            if (!pawn.IsHashIntervalTick(2301))
+            {
+                return;
+            }
+            Need_Food food = pawn?.needs?.food;
+            if (food == null)
+            {
+                return;
+            }
+            if (food.CurLevelPercentage >= pawn.RaceProps.FoodLevelPercentageWantEat + 0.09f)
+            {
+                return;
+            }
+            if (pawn.Faction != Faction.OfPlayer)
+            {
+                OffsetNeedFood();
+                return;
+            }
+            if (pawn.Map == null)
+            {
+                // In caravan use
+                OffsetNeedFood();
+                return;
+            }
+            if (pawn.Drafted)
+            {
+                return;
+            }
+            if (pawn.Downed)
+            {
+                OffsetNeedFood();
+                return;
+            }
+            TryRecharge(MiscUtility.PawnDoIngestJob(pawn));
+        }
 
-		public override IEnumerable<Gizmo> GetGizmos()
+        public override IEnumerable<Gizmo> GetGizmos()
 		{
 			if (DebugSettings.ShowDevGizmos)
 			{
@@ -88,7 +88,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				Job job = JobMaker.MakeJob(Props.rechargeableStomachJobDef, closestCharger);
 				job.overrideFacing = Rot4.South;
-				pawn.jobs.TryTakeOrderedJob(job, JobTag.SatisfyingNeeds, requestQueueing);
+				pawn.TryTakeOrderedJob(job, JobTag.SatisfyingNeeds, requestQueueing);
 				return true;
 			}
 			return false;

@@ -94,7 +94,7 @@ namespace WVC_XenotypesAndGenes
 					continue;
 				}
 				job.def = WVC_GenesDefOf.WVC_XaG_CastCellsfeedOnPawnMelee;
-				pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, true);
+				pawn.TryTakeOrderedJob(job, JobTag.Misc, true);
 				return true;
 			}
 			return false;
