@@ -25,14 +25,14 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (requestQueueing && tag == JobTag.SatisfyingNeeds)
             {
-                TryDebugEaterGene(pawn, false);
+                TryFinalizeAllIngestJobs(pawn, false);
                 pawn.jobs.jobQueue.EnqueueFirst(job, tag);
                 return;
             }
             pawn.jobs.TryTakeOrderedJob(job, tag, requestQueueing);
 		}
 
-        public static void TryDebugEaterGene(Pawn pawn, bool finalize = true)
+        public static void TryFinalizeAllIngestJobs(Pawn pawn, bool finalize = true)
         {
 			pawn?.jobs?.jobQueue?.RemoveAll(pawn, (Job j) => j.def == JobDefOf.Ingest || (finalize && j.GetCachedDriverDirect is IJobCustomEater eater && eater.ShouldFinalize));
         }

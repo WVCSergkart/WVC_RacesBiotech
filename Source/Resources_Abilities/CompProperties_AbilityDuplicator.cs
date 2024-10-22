@@ -22,19 +22,25 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
+			//Log.Error("");
 			string letterDesc = "WVC_XaG_GeneDuplicationLetter".Translate(parent.pawn.Named("CASTER"), pawn.Named("PAWN"));
-			if (DuplicateUtility.TryDuplicatePawn(pawn, spawnCell, pawn.Map, out Pawn duplicatePawn, ref letterDesc, Rand.Chance(WVC_Biotech.settings.duplicator_RandomOutcomeChance)))
+			if (DuplicateUtility.TryDuplicatePawn(parent.pawn, pawn, spawnCell, pawn.Map, out Pawn duplicatePawn, ref letterDesc, Rand.Chance(WVC_Biotech.settings.duplicator_RandomOutcomeChance)))
             {
-				Ability ability = duplicatePawn.abilities.GetAbility(parent.def);
-				if (ability.CanCooldown)
+				Ability ability = duplicatePawn.abilities?.GetAbility(parent.def);
+				if (ability?.CanCooldown == true)
 				{
 					ability.StartCooldown(ability.def.cooldownTicksRange.RandomInRange);
 				}
-				Find.LetterStack.ReceiveLetter("WVC_XaG_GeneDuplicationLetterLabel".Translate(), letterDesc, LetterDefOf.NeutralEvent, duplicatePawn);
+                LetterDef letterType = LetterDefOf.NeutralEvent;
 				if (duplicatePawn.Faction == Faction.OfPlayer)
 				{
 					Messages.Message("WVC_XaG_GeneDuplicationSuccessMessage".Translate(parent.pawn.Named("PAWN")), pawn, MessageTypeDefOf.NeutralEvent);
 				}
+				else
+                {
+					letterType = LetterDefOf.ThreatBig;
+				}
+				Find.LetterStack.ReceiveLetter("WVC_XaG_GeneDuplicationLetterLabel".Translate(), letterDesc, letterType, duplicatePawn);
             }
             bool IsValidSpawnCell(IntVec3 pos)
 			{

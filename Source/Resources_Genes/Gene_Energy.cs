@@ -48,7 +48,7 @@ namespace WVC_XenotypesAndGenes
             {
                 return;
             }
-            if (pawn.Downed)
+            if (pawn.Downed || !pawn.Awake())
             {
                 OffsetNeedFood();
                 return;

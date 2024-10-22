@@ -272,7 +272,7 @@ namespace WVC_XenotypesAndGenes
 				InCaravan();
 				return;
 			}
-			if (pawn.Downed || pawn.Drafted)
+			if (pawn.Downed || pawn.Drafted || !pawn.Awake())
 			{
 				return;
 			}

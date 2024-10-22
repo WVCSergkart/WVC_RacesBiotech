@@ -60,10 +60,6 @@ namespace WVC_XenotypesAndGenes
 			// {
 				// return;
 			// }
-			if (pawn.Downed || pawn.Drafted)
-			{
-				return;
-			}
 			Need_Food food = pawn?.needs?.food;
 			if (food == null)
 			{
@@ -77,6 +73,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				// In caravan use
 				InCaravan();
+				return;
+			}
+			if (pawn.Downed || pawn.Drafted || !pawn.Awake())
+			{
 				return;
 			}
 			for (int j = 0; j < Undead.specialFoodDefs.Count; j++)
@@ -151,7 +151,7 @@ namespace WVC_XenotypesAndGenes
 			if (Undead.specialFoodDefs.Contains(thing.def) || GeneResourceUtility.PawnDowned(pawn))
 			{
 				GeneResourceUtility.OffsetNeedFood(pawn, 10.0f, true);
-				MiscUtility.TryDebugEaterGene(pawn);
+				MiscUtility.TryFinalizeAllIngestJobs(pawn);
 			}
 		}
 
@@ -222,7 +222,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (pawn.Downed || pawn.Drafted)
+			if (pawn.Downed || pawn.Drafted || !pawn.Awake())
 			{
 				return;
 			}
@@ -411,7 +411,7 @@ namespace WVC_XenotypesAndGenes
 				InCaravan();
 				return;
 			}
-			if (pawn.Downed || pawn.Drafted)
+			if (pawn.Downed || pawn.Drafted || !pawn.Awake())
 			{
 				return;
 			}
@@ -467,7 +467,7 @@ namespace WVC_XenotypesAndGenes
 		public void Notify_Bloodfeed(Pawn victim)
 		{
 			GeneResourceUtility.OffsetNeedFood(pawn, Props.nutritionPerBite * victim.BodySize * pawn.GetStatValue(StatDefOf.HemogenGainFactor, cacheStaleAfterTicks: 360000));
-			MiscUtility.TryDebugEaterGene(pawn);
+			MiscUtility.TryFinalizeAllIngestJobs(pawn);
 		}
 
 		public IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)

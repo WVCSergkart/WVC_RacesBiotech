@@ -363,7 +363,7 @@ namespace WVC_XenotypesAndGenes
 			if (RechargeableStomach != null)
 			{
 				RechargeableStomach.currentCharger = null;
-				MiscUtility.TryDebugEaterGene(RechargeableStomach.pawn);
+				MiscUtility.TryFinalizeAllIngestJobs(RechargeableStomach.pawn);
 			}
 			gene_RechargeableStomach = null;
 			currentlyChargingMech = null;

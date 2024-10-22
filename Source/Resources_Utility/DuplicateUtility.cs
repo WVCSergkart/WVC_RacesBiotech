@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
+using Verse.AI.Group;
 using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
@@ -13,12 +14,12 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		// Clone
-		public static bool TryDuplicatePawn(Pawn originalPawn, IntVec3 targetCell, Map map, out Pawn duplicatePawn, ref string customLetter, bool randomOutcome = false)
+		public static bool TryDuplicatePawn(Pawn caster, Pawn originalPawn, IntVec3 targetCell, Map map, out Pawn duplicatePawn, ref string customLetter, bool randomOutcome = false)
 		{
 			if (ModsConfig.AnomalyActive)
             {
                 duplicatePawn = Find.PawnDuplicator.Duplicate(originalPawn);
-                DuplicationOutcomes(originalPawn, duplicatePawn, randomOutcome, ref customLetter);
+                DuplicationOutcomes(caster, originalPawn, duplicatePawn, randomOutcome, ref customLetter);
             }
             else
 			{
@@ -32,9 +33,9 @@ namespace WVC_XenotypesAndGenes
 			return duplicatePawn != null;
 		}
 
-        public static void DuplicationOutcomes(Pawn originalPawn, Pawn duplicatePawn, bool randomOutcome, ref string customLetter)
+        public static void DuplicationOutcomes(Pawn caster, Pawn originalPawn, Pawn duplicatePawn, bool randomOutcome, ref string customLetter)
         {
-            if (randomOutcome)
+			if (randomOutcome)
             {
                 int num = Rand.RangeInclusive(0, 5);
                 if (num == 1 && (duplicatePawn.health.hediffSet.HasHediffOrWillBecome(HediffDefOf.OrganDecay) || duplicatePawn.health.hediffSet.HasHediffOrWillBecome(HediffDefOf.OrganDecayCreepjoiner)))
@@ -58,16 +59,19 @@ namespace WVC_XenotypesAndGenes
                         break;
                     case 3:
 						NullifyBackstory(duplicatePawn);
-						customLetter += "WVC_XaG_GeneBackstoryDuplicateLetter".Translate(originalPawn.Named("CASTER"), duplicatePawn.Named("PAWN"));
+						customLetter += "\n\n" + "WVC_XaG_GeneBackstoryDuplicateLetter".Translate(duplicatePawn.Named("PAWN"));
 						break;
 					case 4:
 						duplicatePawn.story?.traits?.allTraits?.RemoveAllTraits();
 						duplicatePawn.AddRandomTraits();
-						customLetter += "WVC_XaG_GeneTraitsDuplicateLetter".Translate(originalPawn.Named("CASTER"), duplicatePawn.Named("PAWN"));
+						customLetter += "\n\n" + "WVC_XaG_GeneTraitsDuplicateLetter".Translate(duplicatePawn.Named("PAWN"));
 						break;
 					case 5:
 						duplicatePawn.SetFaction(Faction.OfEntities);
-						customLetter = "WVC_XaG_GeneHostileDuplicateLetter".Translate(originalPawn.Named("CASTER"), duplicatePawn.Named("PAWN"));
+						Lord newLord = LordMaker.MakeNewLord(Faction.OfEntities, new LordJob_AssaultColony(Faction.OfEntities, canKidnap: false, canTimeoutOrFlee: false, sappers: false, useAvoidGridSmart: false, canSteal: false), originalPawn.Map);
+						newLord.AddPawn(duplicatePawn);
+						//duplicatePawn.mindState?.mentalStateHandler?.TryStartMentalState(MentalStateDefOf.Berserk, null, forced: true);
+						customLetter = "WVC_XaG_GeneHostileDuplicateLetter".Translate(caster.Named("CASTER"), duplicatePawn.Named("PAWN"));
 						break;
 					default:
                         Log.Error("Unhandled outcome in pawn duplication " + num);
@@ -337,14 +341,19 @@ namespace WVC_XenotypesAndGenes
 		{
 			int range = new IntRange(1,3).RandomInRange;
 			int currentTry = 0;
-			List<TraitDef> traitsList = DefDatabase<TraitDef>.AllDefsListForReading;
+			//List<TraitDef> traitsList = DefDatabase<TraitDef>.AllDefsListForReading;
 			while (currentTry < range)
 			{
 				currentTry++;
-				if (traitsList.Where((TraitDef traitDef) => traitDef.GetGenderSpecificCommonality(pawn.gender) > 0f && pawn.story.traits.GetTrait(traitDef) == null).TryRandomElement(out TraitDef traitDef))
+				//if (traitsList.Where((TraitDef traitDef) => traitDef.GetGenderSpecificCommonality(pawn.gender) > 0f && pawn.story.traits.GetTrait(traitDef) == null).TryRandomElement(out TraitDef traitDef))
+				//{
+				//	Trait trait = new(traitDef);
+				//	pawn.story?.traits?.GainTrait(trait);
+				//}
+				Trait trait = PawnGenerator.GenerateTraitsFor(pawn, 1, null, growthMomentTrait: false).FirstOrFallback();
+				if (trait != null)
 				{
-					Trait trait = new(traitDef);
-					pawn.story?.traits?.GainTrait(trait);
+					pawn.story.traits.GainTrait(trait);
 				}
 			}
 		}
