@@ -151,6 +151,7 @@ namespace WVC_XenotypesAndGenes
 			if (Undead.specialFoodDefs.Contains(thing.def) || GeneResourceUtility.PawnDowned(pawn))
 			{
 				GeneResourceUtility.OffsetNeedFood(pawn, 10.0f, true);
+				MiscUtility.TryDebugEaterGene(pawn);
 			}
 		}
 
