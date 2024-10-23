@@ -24,12 +24,17 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool SelectorActiveFactionMap(Pawn pawn, Gene gene)
 		{
-			return Find.Selector.SelectedPawns.Count > 1 || !gene.Active || pawn.Faction != Faction.OfPlayer || pawn.Map == null;
+			return Find.Selector.SelectedPawns.Count > 1 || ActiveFactionMap(pawn, gene);
+		}
+
+		public static bool SelectorActiveFactionMapMechanitor(Pawn pawn, Gene gene)
+		{
+			return SelectorActiveFactionMap(pawn, gene) || pawn.mechanitor == null;
 		}
 
 		public static bool SelectorDraftedActiveFactionMap(Pawn pawn, Gene gene)
 		{
-			return Find.Selector.SelectedPawns.Count > 1 || pawn.Drafted || !gene.Active || pawn.Faction != Faction.OfPlayer || pawn.Map == null;
+			return Find.Selector.SelectedPawns.Count > 1 || pawn.Drafted || ActiveFactionMap(pawn, gene);
 		}
 
 		public static bool SelectorActiveFaction(Pawn pawn, Gene gene)

@@ -38,12 +38,11 @@ namespace WVC_XenotypesAndGenes
 				{
 					pawn.story.bodyType = BodyTypeDefOf.Male;
 				}
-				if (!pawn.Spawned)
-				{
-					GestationUtility.SetName(pawn, pawn.GetMother() ?? pawn.GetFather() ?? null);
-					// Log.Error("Rename with gender");
-				}
-				pawn.Drawer.renderer.SetAllGraphicsDirty();
+				//if (!pawn.Spawned)
+				//{
+				//	GestationUtility.SetName(pawn, pawn.GetMother() ?? pawn.GetFather() ?? null);
+				//}
+				pawn.Drawer?.renderer?.SetAllGraphicsDirty();
 			}
 		}
 
@@ -68,10 +67,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (pawn?.story?.bodyType != BodyTypeDefOf.Female)
+			if (pawn?.story?.bodyType != null && pawn.story.bodyType != BodyTypeDefOf.Female)
 			{
 				pawn.story.bodyType = BodyTypeDefOf.Female;
 			}
+			pawn.Drawer?.renderer?.SetAllGraphicsDirty();
 		}
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
@@ -100,6 +100,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				pawn.story.bodyType = BodyTypeDefOf.Male;
 			}
+			pawn.Drawer?.renderer?.SetAllGraphicsDirty();
 		}
 
 		// public override void ExposeData()

@@ -60,6 +60,14 @@
 
 	<WVC_XaG_GestatedDryadDescription>&lt;color=#f5ffa2&gt;Being gestated&lt;/color&gt; by the genetic dryad queen, dryads behave differently from their tree-relatives. They exist in a symbiotic relationship directly with the genetic queen, who in turn gestates new dryads and has a psychic bond with them.</WVC_XaG_GestatedDryadDescription>
 
+	<!-- ============================ MECHLINK AND PSYLINK ============================ -->
+
+	<WVC_XaG_GeneNaturalMechlinkLetterLabel>Natural mechlink</WVC_XaG_GeneNaturalMechlinkLetterLabel>
+	<WVC_XaG_GeneNaturalMechlinkLetterDesc>{PAWN_nameDef} has been feeling strange for a long time, {PAWN_pronoun} feels the psychic presence of the mechanoids more clearly every day. And now {PAWN_possessive} overseer potential has been fully realized, {PAWN_pronoun} has formed a mechlink.</WVC_XaG_GeneNaturalMechlinkLetterDesc>
+
+	<WVC_XaG_GeneNaturalPsylinkLetterLabel>Natural psylink</WVC_XaG_GeneNaturalPsylinkLetterLabel>
+	<WVC_XaG_GeneNaturalPsylinkLetterDesc>{PAWN_nameDef} has been feeling strange for a long time, {PAWN_possessive} sense of the world has become clearer every day. And now {PAWN_possessive} psychic potential has been fully revealed, {PAWN_pronoun} has formed a psylink.</WVC_XaG_GeneNaturalPsylinkLetterDesc>
+
 	<!-- ============================ COLORABLE EYES ============================ -->
 
 	<WVC_XaG_ColorableEyesLabel>Eyes color</WVC_XaG_ColorableEyesLabel>

@@ -239,10 +239,10 @@ namespace WVC_XenotypesAndGenes
 		// Thralls
 		public bool enableInstabilityLastChanceMechanic = true;
 		// Links
-		public bool link_addedMechlinkWithGene = true;
-		public bool link_addedPsylinkWithGene = true;
-		public bool link_removeMechlinkWithGene = false;
-		public bool link_removePsylinkWithGene = false;
+		public bool link_addedMechlinkWithGene = false;
+		public bool link_addedPsylinkWithGene = false;
+		//public bool link_removeMechlinkWithGene = false;
+		//public bool link_removePsylinkWithGene = false;
 		public float golemnoids_ShutdownRechargePerTick = 1f;
 		public bool golembond_ShrinesStatPartOffset = false;
 		public IntRange golemlink_spawnIntervalRange = new(240000, 420000);

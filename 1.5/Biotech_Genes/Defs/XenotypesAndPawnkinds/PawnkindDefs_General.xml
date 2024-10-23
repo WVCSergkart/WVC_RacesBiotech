@@ -151,6 +151,9 @@
 		</categories>
 	  </li>
 	</backstoryFiltersOverride>
+	<techHediffsRequired>
+	  <li>Mechlink</li>
+	</techHediffsRequired>
 	<forcedTraits>
 	  <Recluse>0</Recluse>
 	</forcedTraits>

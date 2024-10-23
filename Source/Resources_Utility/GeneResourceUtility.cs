@@ -13,9 +13,49 @@ namespace WVC_XenotypesAndGenes
 	public static class GeneResourceUtility
 	{
 
+		public static void TryAddMechlinkRandomly(Pawn pawn, float chance = 0.02f)
+		{
+			if (!pawn.IsHashIntervalTick(71712))
+			{
+				return;
+			}
+			if (!Rand.Chance(chance))
+			{
+				return;
+			}
+			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
+			{
+				pawn.health.AddHediff(HediffDefOf.MechlinkImplant, pawn.health.hediffSet.GetBrain());
+				if (pawn.Faction == Faction.OfPlayer)
+				{
+					Find.LetterStack.ReceiveLetter("WVC_XaG_GeneNaturalMechlinkLetterLabel".Translate(), "WVC_XaG_GeneNaturalMechlinkLetterDesc".Translate(pawn.Named("PAWN")), LetterDefOf.PositiveEvent, pawn);
+				}
+			}
+		}
+
 		// Psylinks
 
-		public static void AddPsylink(Pawn pawn, ref bool pawnHadPsylinkBefore)
+		public static void TryAddPsylinkRandomly(Pawn pawn, float chance = 0.02f)
+		{
+			if (!pawn.IsHashIntervalTick(71712))
+			{
+				return;
+			}
+			if (!Rand.Chance(chance))
+			{
+				return;
+			}
+			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.PsychicAmplifier))
+			{
+				pawn.health.AddHediff(HediffDefOf.PsychicAmplifier, pawn.health.hediffSet.GetBrain());
+				if (pawn.Faction == Faction.OfPlayer)
+				{
+					Find.LetterStack.ReceiveLetter("WVC_XaG_GeneNaturalPsylinkLetterLabel".Translate(), "WVC_XaG_GeneNaturalPsylinkLetterDesc".Translate(pawn.Named("PAWN")), LetterDefOf.PositiveEvent, pawn);
+				}
+			}
+		}
+
+		public static void AddPsylink(Pawn pawn)
 		{
 			if (!WVC_Biotech.settings.link_addedPsylinkWithGene)
 			{
@@ -26,10 +66,10 @@ namespace WVC_XenotypesAndGenes
 				pawn.health.AddHediff(HediffDefOf.PsychicAmplifier, pawn.health.hediffSet.GetBrain());
 				ChangePsylinkLevel(pawn);
 			}
-			else
-			{
-				pawnHadPsylinkBefore = true;
-			}
+			//else
+			//{
+			//	pawnHadPsylinkBefore = true;
+			//}
 		}
 
 		public static void ChangePsylinkLevel(Pawn pawn)

@@ -93,10 +93,10 @@ namespace WVC_XenotypesAndGenes
 		// Thralls
 		public bool enableInstabilityLastChanceMechanic = true;
 		// Links
-		public bool link_addedMechlinkWithGene = true;
-		public bool link_addedPsylinkWithGene = true;
-		public bool link_removeMechlinkWithGene = false;
-		public bool link_removePsylinkWithGene = false;
+		public bool link_addedMechlinkWithGene = false;
+		public bool link_addedPsylinkWithGene = false;
+		//public bool link_removeMechlinkWithGene = false;
+		//public bool link_removePsylinkWithGene = false;
 		public float golemnoids_ShutdownRechargePerTick = 1f;
 		public bool golembond_ShrinesStatPartOffset = false;
 		public IntRange golemlink_spawnIntervalRange = new(240000, 420000);
@@ -221,10 +221,10 @@ namespace WVC_XenotypesAndGenes
 			// Thralls
 			Scribe_Values.Look(ref enableInstabilityLastChanceMechanic, "enableInstabilityLastChanceMechanic", defaultValue: true);
 			// Links
-			Scribe_Values.Look(ref link_addedMechlinkWithGene, "link_addedMechlinkWithGene", defaultValue: true);
-			Scribe_Values.Look(ref link_addedPsylinkWithGene, "link_addedPsylinkWithGene", defaultValue: true);
-			Scribe_Values.Look(ref link_removeMechlinkWithGene, "link_removeMechlinkWithGene", defaultValue: false);
-			Scribe_Values.Look(ref link_removePsylinkWithGene, "link_removePsylinkWithGene", defaultValue: false);
+			Scribe_Values.Look(ref link_addedMechlinkWithGene, "link_addedMechlinkWithGene", defaultValue: false);
+			Scribe_Values.Look(ref link_addedPsylinkWithGene, "link_addedPsylinkWithGene", defaultValue: false);
+			//Scribe_Values.Look(ref link_removeMechlinkWithGene, "link_removeMechlinkWithGene", defaultValue: false);
+			//Scribe_Values.Look(ref link_removePsylinkWithGene, "link_removePsylinkWithGene", defaultValue: false);
 			Scribe_Values.Look(ref golemnoids_ShutdownRechargePerTick, "golemnoids_ShutdownRechargePerTick", defaultValue: 1f);
 			Scribe_Values.Look(ref golembond_ShrinesStatPartOffset, "golembond_ShrinesStatPartOffset", defaultValue: false);
 			Scribe_Values.Look(ref golemlink_spawnIntervalRange, "golemlink_spawnIntervalRange", defaultValue: new(240000, 420000));
@@ -758,8 +758,8 @@ namespace WVC_XenotypesAndGenes
 				//listingStandard.Label("WVC_XaGGeneSettings_MechAndPsyLinks".Translate() + ":", -1);
 				listingStandard.CheckboxLabeled("WVC_Label_link_addedMechlinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_addedMechlinkWithGene, "WVC_ToolTip_link_addedMechlinkWithGene".Translate());
 				listingStandard.CheckboxLabeled("WVC_Label_link_addedPsylinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_addedPsylinkWithGene, "WVC_ToolTip_link_addedPsylinkWithGene".Translate());
-				listingStandard.CheckboxLabeled("WVC_Label_link_removeMechlinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_removeMechlinkWithGene, "WVC_ToolTip_link_removeMechlinkWithGene".Translate());
-				listingStandard.CheckboxLabeled("WVC_Label_link_removePsylinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_removePsylinkWithGene, "WVC_ToolTip_link_removePsylinkWithGene".Translate());
+				//listingStandard.CheckboxLabeled("WVC_Label_link_removeMechlinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_removeMechlinkWithGene, "WVC_ToolTip_link_removeMechlinkWithGene".Translate());
+				//listingStandard.CheckboxLabeled("WVC_Label_link_removePsylinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_removePsylinkWithGene, "WVC_ToolTip_link_removePsylinkWithGene".Translate());
 				listingStandard.SliderLabeledWithRef("WVC_Label_golemnoids_ShutdownRechargePerTick".Translate((settings.golemnoids_ShutdownRechargePerTick).ToString()), ref settings.golemnoids_ShutdownRechargePerTick, 0f, 10f, round: 1);
 				listingStandard.CheckboxLabeled("WVC_Label_golembond_ShrinesStatPartOffset".Translate(), ref settings.golembond_ShrinesStatPartOffset, "WVC_ToolTip_golembond_ShrinesStatPartOffset".Translate());
 				listingStandard.IntRangeLabeledWithRef("WVC_Label_golemlink_spawnIntervalRange".Translate((int)settings.golemlink_spawnIntervalRange.min.TicksToDays() + "~" + (int)settings.golemlink_spawnIntervalRange.max.TicksToDays()), ref settings.golemlink_spawnIntervalRange, 60000, 1800000);
@@ -1050,8 +1050,8 @@ namespace WVC_XenotypesAndGenes
 			// =
 			WVC_Biotech.settings.link_addedMechlinkWithGene = settingsDef.link_addedMechlinkWithGene;
 			WVC_Biotech.settings.link_addedPsylinkWithGene = settingsDef.link_addedPsylinkWithGene;
-			WVC_Biotech.settings.link_removeMechlinkWithGene = settingsDef.link_removeMechlinkWithGene;
-			WVC_Biotech.settings.link_removePsylinkWithGene = settingsDef.link_removePsylinkWithGene;
+			//WVC_Biotech.settings.link_removeMechlinkWithGene = settingsDef.link_removeMechlinkWithGene;
+			//WVC_Biotech.settings.link_removePsylinkWithGene = settingsDef.link_removePsylinkWithGene;
 			WVC_Biotech.settings.golemnoids_ShutdownRechargePerTick = settingsDef.golemnoids_ShutdownRechargePerTick;
 			WVC_Biotech.settings.golembond_ShrinesStatPartOffset = settingsDef.golembond_ShrinesStatPartOffset;
 			WVC_Biotech.settings.golemlink_spawnIntervalRange = settingsDef.golemlink_spawnIntervalRange;

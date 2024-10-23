@@ -10,7 +10,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Mechlink : Gene, IGeneOverridden
+	public class Gene_Mechlink : Gene
 	{
 
 		public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
@@ -18,7 +18,7 @@ namespace WVC_XenotypesAndGenes
 		public int timeForNextSummon = -1;
 		public bool summonMechanoids = false;
 
-		public bool pawnHadMechlinkBefore = false;
+		//public bool pawnHadMechlinkBefore = false;
 
 		public override void PostAdd()
 		{
@@ -31,19 +31,20 @@ namespace WVC_XenotypesAndGenes
 			{
 				pawn.health.AddHediff(HediffDefOf.MechlinkImplant, pawn.health.hediffSet.GetBrain());
 			}
-			else
-			{
-				pawnHadMechlinkBefore = true;
-			}
-			// ResetSummonInterval();
+			//else
+			//{
+			//	pawnHadMechlinkBefore = true;
+			//}
+		}
+
+		public override void Tick()
+		{
+			//base.Tick();
+			GeneResourceUtility.TryAddMechlinkRandomly(pawn);
 		}
 
 		public bool CanDoOrbitalSummon()
 		{
-			// if (!summonMechanoids)
-			// {
-				// return false;
-			// }
 			if (pawn.Faction != Faction.OfPlayer)
 			{
 				summonMechanoids = false;
@@ -53,62 +54,48 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			// if (!CommsConsoleUtility.PlayerHasPoweredCommsConsole(pawn.Map))
-			// {
-				// return false;
-			// }
 			if (!MechanitorUtility.IsMechanitor(pawn))
 			{
 				summonMechanoids = false;
-				// Reset();
 				return false;
 			}
 			return true;
 		}
 
-		public void Notify_OverriddenBy(Gene overriddenBy)
-		{
-			if (WVC_Biotech.settings.link_removeMechlinkWithGene && !pawnHadMechlinkBefore)
-			{
-				HediffUtility.TryRemoveHediff(HediffDefOf.MechlinkImplant, pawn);
-			}
-		}
+		//public void Notify_OverriddenBy(Gene overriddenBy)
+		//{
+		//	if (WVC_Biotech.settings.link_removeMechlinkWithGene && !pawnHadMechlinkBefore)
+		//	{
+		//		HediffUtility.TryRemoveHediff(HediffDefOf.MechlinkImplant, pawn);
+		//	}
+		//}
 
-		public void Notify_Override()
-		{
-			if (WVC_Biotech.settings.link_removeMechlinkWithGene && WVC_Biotech.settings.link_addedMechlinkWithGene)
-			{
-				if (!pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
-				{
-					pawn.health.AddHediff(HediffDefOf.MechlinkImplant, pawn.health.hediffSet.GetBrain());
-				}
-			}
-		}
+		//public void Notify_Override()
+		//{
+		//	if (WVC_Biotech.settings.link_removeMechlinkWithGene && WVC_Biotech.settings.link_addedMechlinkWithGene)
+		//	{
+		//		if (!pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
+		//		{
+		//			pawn.health.AddHediff(HediffDefOf.MechlinkImplant, pawn.health.hediffSet.GetBrain());
+		//		}
+		//	}
+		//}
 
-		public override void PostRemove()
-		{
-			base.PostRemove();
-			if (WVC_Biotech.settings.link_removeMechlinkWithGene && !pawnHadMechlinkBefore)
-			{
-				HediffUtility.TryRemoveHediff(HediffDefOf.MechlinkImplant, pawn);
-			}
-		}
-
-		// public override void Reset()
-		// {
-			// base.Reset();
-			// if (!pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
-			// {
-				// pawn.health.AddHediff(HediffDefOf.MechlinkImplant, pawn.health.hediffSet.GetBrain());
-			// }
-		// }
+		//public override void PostRemove()
+		//{
+		//	base.PostRemove();
+		//	if (WVC_Biotech.settings.link_removeMechlinkWithGene && !pawnHadMechlinkBefore)
+		//	{
+		//		HediffUtility.TryRemoveHediff(HediffDefOf.MechlinkImplant, pawn);
+		//	}
+		//}
 
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Values.Look(ref timeForNextSummon, "timeForNextSummon", -1);
+			//Scribe_Values.Look(ref timeForNextSummon, "timeForNextSummon", -1);
 			Scribe_Values.Look(ref summonMechanoids, "summonMechanoids", false);
-			Scribe_Values.Look(ref pawnHadMechlinkBefore, "pawnHadMechlinkBefore", false);
+			//Scribe_Values.Look(ref pawnHadMechlinkBefore, "pawnHadMechlinkBefore", false);
 		}
 
 	}
@@ -159,7 +146,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			if (XaG_GeneUtility.SelectorActiveFactionMap(pawn, this))
+			if (XaG_GeneUtility.SelectorActiveFactionMapMechanitor(pawn, this))
 			{
 				yield break;
 			}
@@ -426,7 +413,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			if (XaG_GeneUtility.SelectorActiveFaction(pawn, this))
+			if (XaG_GeneUtility.SelectorActiveFactionMapMechanitor(pawn, this))
 			{
 				yield break;
 			}

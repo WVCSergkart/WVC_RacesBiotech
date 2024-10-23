@@ -22,7 +22,8 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Base" MayRequire="ludeon.rimworld.royalty">
 	<defName>WVC_HemogenPsylink</defName>
 	<label>blood psylink</label>
-	<description>Carriers of this gene gain psionic power from the hemogen.</description>
+	<!-- <description>Carriers of this gene gain psionic power from the hemogen.</description> -->
+	<description>Carriers of this gene have a natural tendency towards psychic abilities.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_HemogenDrain_Psylink</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_Psylink_Hemogen_v0</iconPath>
 	<displayOrderInCategory>60</displayOrderInCategory>
@@ -31,7 +32,8 @@
 	<biostatArc>1</biostatArc>
 	<biostatMet>-3</biostatMet>
 	<customEffectDescriptions>
-		<li>Carriers of this gene get &lt;color=#8a8ae6&gt;psylink&lt;/color&gt; permanently.</li>
+		<!-- <li>Carriers of this gene get &lt;color=#8a8ae6&gt;psylink&lt;/color&gt; permanently.</li> -->
+		<li>Carriers of this gene have a chance of forming a &lt;color=#8a8ae6&gt;psylink&lt;/color&gt; permanently.</li>
 		<li>&lt;color=#8a8ae6&gt;Psyfocus&lt;/color&gt; is passively &lt;color=#8a8ae6&gt;replenished&lt;/color&gt; relative to the psylink's level.</li>
 	</customEffectDescriptions>
 	<suppressedTraits>

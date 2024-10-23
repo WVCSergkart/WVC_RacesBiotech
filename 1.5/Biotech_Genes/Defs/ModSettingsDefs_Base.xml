@@ -23,6 +23,9 @@
 	<enable_ReplaceSimilarGenesAutopatch>True</enable_ReplaceSimilarGenesAutopatch>
 	<bloodfeeder_AutoBloodfeed>True</bloodfeeder_AutoBloodfeed>
 	<enable_OverOverridableGenesMechanic>true</enable_OverOverridableGenesMechanic>
+	<generateSkillGenes>false</generateSkillGenes>
+	<!-- <link_addedMechlinkWithGene>false</link_addedMechlinkWithGene> -->
+	<!-- <link_addedPsylinkWithGene>false</link_addedPsylinkWithGene> -->
   </WVC_XenotypesAndGenes.SettingsDef>
 
   <WVC_XenotypesAndGenes.SettingsDef>

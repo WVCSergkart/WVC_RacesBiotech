@@ -3,8 +3,8 @@
 
   <GeneDef Name="WVC_XenotypesAndGenes_GeneMechlink_Base" Abstract="True">
 	<label>mechlink</label> 
-	<labelShortAdj>mechlink</labelShortAdj>
-	<description>Carriers of the gene have archites that form a mechlink in the brain, which allows them to control the mechanoids.</description>
+	<labelShortAdj>mechlinked</labelShortAdj>
+	<description>Carriers of this gene have a natural tendency to overseer mechanoid-like life forms.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Mechlink</geneClass>
 	<selectionWeight>0.003</selectionWeight>
 	<!-- <displayCategory>Ability</displayCategory> -->
@@ -12,8 +12,8 @@
 	<displayCategory>Ability</displayCategory>
 	<displayOrderInCategory>1125</displayOrderInCategory>
 	<customEffectDescriptions>
-		<li>Carriers of this gene get &lt;color=#8a8ae6&gt;mechlink&lt;/color&gt; permanently.</li>
-		<!-- <li>Permanent &lt;color=#8a8ae6&gt;mechlink&lt;/color&gt;.</li> -->
+		<!-- <li>Carriers of this gene get &lt;color=#8a8ae6&gt;mechlink&lt;/color&gt; permanently.</li> -->
+		<li>Carriers of this gene have a chance of forming a &lt;color=#8a8ae6&gt;mechlink&lt;/color&gt; permanently.</li>
 	</customEffectDescriptions>
 	<marketValueFactor>1.8</marketValueFactor>
 	<suppressedTraits>
@@ -54,11 +54,8 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Base">
 	<defName>WVC_NaturalMechlink</defName>
 	<label>natural mechlink</label> 
-	<!-- <label>naturelink</label> -->
-	<description>Carriers of this gene have naturally strong psionic formations in the brain allowing them to partially control mechanoids.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; Since a mechlink is required for the mechanitor's abilities to work, the natural mechlink gene gives the pawn a vanilla mechlink with a permanent debuff.</description>
 	<iconPath>WVC/UI/Genes/NaturalMechlink</iconPath>
 	<statOffsets>
-	  <!-- <WVC_GolemBond>4</WVC_GolemBond> -->
 	  <MechBandwidth>-4</MechBandwidth>
 	  <MechControlGroups>-1</MechControlGroups>
 	</statOffsets>
