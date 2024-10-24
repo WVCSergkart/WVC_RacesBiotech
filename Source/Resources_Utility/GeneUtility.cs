@@ -58,6 +58,11 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public static bool Furskin_ShouldNotDrawNow(Pawn pawn)
+		{
+			return pawn.DevelopmentalStage != DevelopmentalStage.Adult || (pawn.Drawer?.renderer != null ? pawn.Drawer.renderer.CurRotDrawMode : RotDrawMode.Fresh) == RotDrawMode.Dessicated;
+		}
+
 		// Genepacks
 
 		public static void GenerateName(GeneSet geneSet, RulePackDef rule)

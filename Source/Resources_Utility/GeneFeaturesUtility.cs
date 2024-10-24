@@ -331,42 +331,63 @@ namespace WVC_XenotypesAndGenes
 
 		// public static void DoPsychicBite(Pawn biter, Pawn victim, float nutritionGain, float targetHemogenGain, float targetBloodLoss, IntRange bloodFilthToSpawnRange)
 		// {
-			// float num = SanguophageUtility.HemogenGainBloodlossFactor(victim, targetBloodLoss);
-			// float num2 = targetHemogenGain * victim.BodySize * num;
-			// GeneUtility.OffsetHemogen(biter, num2);
-			// GeneUtility.OffsetHemogen(victim, 0f - num2);
-			// if (biter.needs?.food != null)
-			// {
-				// biter.needs.food.CurLevel += nutritionGain * num;
-			// }
-			// if (targetBloodLoss > 0f)
-			// {
-				// Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.BloodLoss, victim);
-				// hediff.Severity = targetBloodLoss;
-				// victim.health.AddHediff(hediff);
-			// }
-			// if (victim.Map == null)
-			// {
-				// return;
-			// }
-			// SoundDefOf.Execute_Cut.PlayOneShot(victim);
-			// int randomInRange = bloodFilthToSpawnRange.RandomInRange;
-			// for (int i = 0; i < randomInRange; i++)
-			// {
-				// IntVec3 c = victim.Position;
-				// if (randomInRange > 1 && Rand.Chance(0.8888f))
-				// {
-					// c = victim.Position.RandomAdjacentCell8Way();
-				// }
-				// if (c.InBounds(victim.MapHeld))
-				// {
-					// FilthMaker.TryMakeFilth(c, victim.MapHeld, victim.RaceProps.BloodDef, victim.LabelShort);
-				// }
-			// }
-			// FleckMaker.AttachedOverlay(biter, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
+		// float num = SanguophageUtility.HemogenGainBloodlossFactor(victim, targetBloodLoss);
+		// float num2 = targetHemogenGain * victim.BodySize * num;
+		// GeneUtility.OffsetHemogen(biter, num2);
+		// GeneUtility.OffsetHemogen(victim, 0f - num2);
+		// if (biter.needs?.food != null)
+		// {
+		// biter.needs.food.CurLevel += nutritionGain * num;
+		// }
+		// if (targetBloodLoss > 0f)
+		// {
+		// Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.BloodLoss, victim);
+		// hediff.Severity = targetBloodLoss;
+		// victim.health.AddHediff(hediff);
+		// }
+		// if (victim.Map == null)
+		// {
+		// return;
+		// }
+		// SoundDefOf.Execute_Cut.PlayOneShot(victim);
+		// int randomInRange = bloodFilthToSpawnRange.RandomInRange;
+		// for (int i = 0; i < randomInRange; i++)
+		// {
+		// IntVec3 c = victim.Position;
+		// if (randomInRange > 1 && Rand.Chance(0.8888f))
+		// {
+		// c = victim.Position.RandomAdjacentCell8Way();
+		// }
+		// if (c.InBounds(victim.MapHeld))
+		// {
+		// FilthMaker.TryMakeFilth(c, victim.MapHeld, victim.RaceProps.BloodDef, victim.LabelShort);
+		// }
+		// }
+		// FleckMaker.AttachedOverlay(biter, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
 		// }
 
 		// ============================= Checker Gene Features =============================
+
+		//public static bool HasLuminescentHairGene(Pawn pawn)
+		//{
+		//	if (pawn?.genes == null)
+		//	{
+		//		return false;
+		//	}
+		//	List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+		//	for (int i = 0; i < genesListForReading.Count; i++)
+		//	{
+		//		if (genesListForReading[i].Active)
+		//		{
+		//			GeneExtension_Graphic modExtension = genesListForReading[i].def.GetModExtension<GeneExtension_Graphic>();
+		//			if (modExtension?.glowingHair == true)
+		//			{
+		//				return true;
+		//			}
+		//		}
+		//	}
+		//	return false;
+		//}
 
 		public static bool IsNotAcceptablePrey(Pawn pawn)
 		{

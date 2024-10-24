@@ -93,6 +93,8 @@
 	</bodyTypeGraphicPaths>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Graphic">
+			<furIsSkinTransparent>true</furIsSkinTransparent>
+			<alpha>0.9</alpha>
 			<furIsSkin>true</furIsSkin>
 		</li>
 	</modExtensions>

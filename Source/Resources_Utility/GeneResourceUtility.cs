@@ -86,13 +86,9 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void PsyfocusOffset(Pawn pawn, Gene gene, ref float recoveryRate, GeneExtension_Giver props)
+		public static void PsyfocusOffset(Pawn pawn, ref float recoveryRate, GeneExtension_Giver props)
 		{
 			if (!pawn.IsHashIntervalTick(750))
-			{
-				return;
-			}
-			if (!gene.Active)
 			{
 				return;
 			}

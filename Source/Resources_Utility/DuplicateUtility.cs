@@ -62,8 +62,9 @@ namespace WVC_XenotypesAndGenes
 						customLetter += "\n\n" + "WVC_XaG_GeneBackstoryDuplicateLetter".Translate(duplicatePawn.Named("PAWN"));
 						break;
 					case 4:
+						int traitsCount = duplicatePawn.story.traits.allTraits.Count;
 						duplicatePawn.story?.traits?.allTraits?.RemoveAllTraits();
-						duplicatePawn.AddRandomTraits();
+						duplicatePawn.AddRandomTraits(traitsCount);
 						customLetter += "\n\n" + "WVC_XaG_GeneTraitsDuplicateLetter".Translate(duplicatePawn.Named("PAWN"));
 						break;
 					case 5:
@@ -337,12 +338,12 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void AddRandomTraits(this Pawn pawn)
+		public static void AddRandomTraits(this Pawn pawn, int traitsCount)
 		{
-			int range = new IntRange(1,3).RandomInRange;
+			//int range = new IntRange(1,3).RandomInRange;
 			int currentTry = 0;
 			//List<TraitDef> traitsList = DefDatabase<TraitDef>.AllDefsListForReading;
-			while (currentTry < range)
+			while (currentTry < traitsCount)
 			{
 				currentTry++;
 				//if (traitsList.Where((TraitDef traitDef) => traitDef.GetGenderSpecificCommonality(pawn.gender) > 0f && pawn.story.traits.GetTrait(traitDef) == null).TryRandomElement(out TraitDef traitDef))

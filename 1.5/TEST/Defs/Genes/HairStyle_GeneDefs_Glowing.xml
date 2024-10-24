@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef>
+	<defName>WVC_Hair_GlowingHair</defName>
+	<label>glow-haired</label>
+	<iconPath>WVC/UI/Genes/Gene_HairPunk</iconPath>
+	<selectionWeight>0.0022</selectionWeight>
+	<displayCategory>WVC_Cosmetic</displayCategory>
+	<displayOrderInCategory>5</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-1</biostatMet>
+	<renderNodeProperties>
+	  <li>
+		<debugLabel>Hair</debugLabel>
+		<nodeClass>WVC_XenotypesAndGenes.PawnRenderNode_GlowingHair</nodeClass>
+		<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+		<rotDrawMode>Fresh</rotDrawMode>
+		<colorType>Hair</colorType>
+		<skipFlag>Hair</skipFlag>
+		<baseLayer>63</baseLayer>
+		<parentTagDef>Head</parentTagDef>
+	  </li>
+	  <li>
+		<debugLabel>Beard</debugLabel>
+		<nodeClass>WVC_XenotypesAndGenes.PawnRenderNode_GlowingBeard</nodeClass>
+		<workerClass>PawnRenderNodeWorker_Beard</workerClass>
+		<rotDrawMode>Fresh</rotDrawMode>
+		<colorType>Hair</colorType>
+		<skipFlag>Beard</skipFlag>
+		<baseLayer>61</baseLayer>
+		<parentTagDef>Head</parentTagDef>
+	  </li>
+	  <!-- <li> -->
+		<!-- <debugLabel>Fur</debugLabel> -->
+		<!-- <nodeClass>WVC_XenotypesAndGenes.PawnRenderNode_GlowingBodyHair</nodeClass> -->
+		<!-- <workerClass>PawnRenderNodeWorker_Body</workerClass> -->
+		<!-- <baseLayer>6</baseLayer> -->
+		<!-- <rotDrawMode>Fresh</rotDrawMode> -->
+		<!-- <colorType>Hair</colorType> -->
+		<!-- <parentTagDef>Body</parentTagDef> -->
+	  <!-- </li> -->
+	</renderNodeProperties>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>lume</symbol></li>
+		<li><symbol>glow</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>

@@ -68,7 +68,7 @@ namespace WVC_XenotypesAndGenes
 		public override void Tick()
 		{
 			base.Tick();
-			GeneResourceUtility.PsyfocusOffset(pawn, this, ref recoveryRate, Props);
+			GeneResourceUtility.PsyfocusOffset(pawn, ref recoveryRate, Props);
 		}
 
 		public override void ExposeData()
@@ -97,7 +97,7 @@ namespace WVC_XenotypesAndGenes
 		public override void Tick()
 		{
 			base.Tick();
-			GeneResourceUtility.PsyfocusOffset(pawn, this, ref recoveryRate, Props);
+			GeneResourceUtility.PsyfocusOffset(pawn, ref recoveryRate, Props);
 			GeneResourceUtility.TryAddPsylinkRandomly(pawn);
 		}
 

@@ -259,8 +259,8 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool IsPsychicSensitive(this Pawn pawn)
 		{
-			// return pawn?.GetStatValue(StatDefOf.PsychicSensitivity, cacheStaleAfterTicks: 30000) > 0f;
-			return pawn.psychicEntropy.IsPsychicallySensitive;
+			//return pawn?.GetStatValue(StatDefOf.PsychicSensitivity, cacheStaleAfterTicks: 30000) > 0f;
+			return pawn.psychicEntropy?.IsPsychicallySensitive != false;
 		}
 
 		// Precepts

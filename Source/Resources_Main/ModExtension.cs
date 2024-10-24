@@ -182,6 +182,9 @@ namespace WVC_XenotypesAndGenes
 		public bool furIsSkinWithHair = false;
 		public bool furIsSkinWithMask = false;
 		public bool furIsSkin = false;
+		public bool furIsSkinTransparent = false;
+		public float alpha = 0.8f;
+		//public bool glowingHair = false;
 		[Obsolete]
 		public bool furCanRot = true;
 		// BodySize
