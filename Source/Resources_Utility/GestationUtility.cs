@@ -81,7 +81,10 @@ namespace WVC_XenotypesAndGenes
 					{
 						parent.GetLord()?.AddPawn(newBorn);
 					}
-					ReimplanterUtility.ReimplantGenesHybrid(parent, newBorn, endogene, xenogene, false);
+					if (xenotypeDef == null)
+					{
+						ReimplanterUtility.ReimplantGenesHybrid(parent, newBorn, endogene, xenogene, false);
+					}
 					TaleRecorder.RecordTale(TaleDefOf.GaveBirth, parent, newBorn);
 				}
 				SetName(newBorn, parent);
@@ -101,7 +104,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			PawnGenerationRequest generateNewBornPawn = NewBornRequest(PawnKindDefOf.Colonist, Faction.OfPlayer);
-			TrySpawnHatchedOrBornPawn(null, motherOrEgg, generateNewBornPawn, out Pawn newBorn, true, true, xenotypeDef);
+			TrySpawnHatchedOrBornPawn(motherOrEgg is Pawn pawn ? pawn : null, motherOrEgg, generateNewBornPawn, out Pawn newBorn, true, true, xenotypeDef);
 			PostSpawnFilthAndSound(motherOrEgg);
 			if (PawnUtility.ShouldSendNotificationAbout(newBorn))
 			{

@@ -94,7 +94,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void CompPostTick(ref float severityAdjustment)
 		{
-			base.CompPostTick(ref severityAdjustment);
+			//base.CompPostTick(ref severityAdjustment);
 			// Pawn pawn = parent.pawn;
 			// if (Props.gestationIntervalDays > 0)
 			// {
