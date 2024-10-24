@@ -121,7 +121,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (item.Icon == null)
 				{
-					Log.Error("Failed find xenotype icon for mod " + item.modContentPack?.ModMetaData?.Name.ToString() + ". Contact the " + item.modContentPack?.ModMetaData?.AuthorsString.ToString() + ". Xenotype skipped.");
+					Log.Error("Failed find xenotype icon for mod " + (item.modContentPack?.ModMetaData?.Name).ToString() + ". Contact the " + (item.modContentPack?.ModMetaData?.AuthorsString).ToString() + ". " + item.defName + " skipped.");
 					continue;
 				}
 				if (!XaG_GeneUtility.XenotypeIsAndroid(item))

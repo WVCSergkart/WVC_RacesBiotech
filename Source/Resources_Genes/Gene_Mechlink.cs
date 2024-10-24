@@ -40,7 +40,7 @@ namespace WVC_XenotypesAndGenes
 		public override void Tick()
 		{
 			//base.Tick();
-			GeneResourceUtility.TryAddMechlinkRandomly(pawn);
+			GeneResourceUtility.TryAddMechlinkRandomly(pawn, WVC_Biotech.settings.mechlink_HediffFromGeneChance);
 		}
 
 		public bool CanDoOrbitalSummon()

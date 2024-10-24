@@ -19,7 +19,7 @@ namespace WVC_XenotypesAndGenes
 		public override void Tick()
 		{
 			//base.Tick();
-			GeneResourceUtility.TryAddPsylinkRandomly(pawn);
+			GeneResourceUtility.TryAddPsylinkRandomly(pawn, WVC_Biotech.settings.psylink_HediffFromGeneChance);
 		}
 
 		//public void Notify_OverriddenBy(Gene overriddenBy)
@@ -98,7 +98,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.Tick();
 			GeneResourceUtility.PsyfocusOffset(pawn, ref recoveryRate, Props);
-			GeneResourceUtility.TryAddPsylinkRandomly(pawn);
+			GeneResourceUtility.TryAddPsylinkRandomly(pawn, WVC_Biotech.settings.psylink_HediffFromGeneChance);
 		}
 
 		//public void Notify_OverriddenBy(Gene overriddenBy)

@@ -95,6 +95,8 @@ namespace WVC_XenotypesAndGenes
 		// Links
 		public bool link_addedMechlinkWithGene = false;
 		public bool link_addedPsylinkWithGene = false;
+		public float mechlink_HediffFromGeneChance = 0.02f;
+		public float psylink_HediffFromGeneChance = 0.02f;
 		//public bool link_removeMechlinkWithGene = false;
 		//public bool link_removePsylinkWithGene = false;
 		public float golemnoids_ShutdownRechargePerTick = 1f;
@@ -223,6 +225,8 @@ namespace WVC_XenotypesAndGenes
 			// Links
 			Scribe_Values.Look(ref link_addedMechlinkWithGene, "link_addedMechlinkWithGene", defaultValue: false);
 			Scribe_Values.Look(ref link_addedPsylinkWithGene, "link_addedPsylinkWithGene", defaultValue: false);
+			Scribe_Values.Look(ref mechlink_HediffFromGeneChance, "mechlink_HediffFromGeneChance", defaultValue: 0.02f);
+			Scribe_Values.Look(ref psylink_HediffFromGeneChance, "psylink_HediffFromGeneChance", defaultValue: 0.02f);
 			//Scribe_Values.Look(ref link_removeMechlinkWithGene, "link_removeMechlinkWithGene", defaultValue: false);
 			//Scribe_Values.Look(ref link_removePsylinkWithGene, "link_removePsylinkWithGene", defaultValue: false);
 			Scribe_Values.Look(ref golemnoids_ShutdownRechargePerTick, "golemnoids_ShutdownRechargePerTick", defaultValue: 1f);
@@ -758,6 +762,8 @@ namespace WVC_XenotypesAndGenes
 				//listingStandard.Label("WVC_XaGGeneSettings_MechAndPsyLinks".Translate() + ":", -1);
 				listingStandard.CheckboxLabeled("WVC_Label_link_addedMechlinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_addedMechlinkWithGene, "WVC_ToolTip_link_addedMechlinkWithGene".Translate());
 				listingStandard.CheckboxLabeled("WVC_Label_link_addedPsylinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_addedPsylinkWithGene, "WVC_ToolTip_link_addedPsylinkWithGene".Translate());
+				listingStandard.SliderLabeledWithRef("WVC_Label_mechlink_HediffFromGeneChance".Translate((settings.mechlink_HediffFromGeneChance * 100).ToString()), ref settings.mechlink_HediffFromGeneChance, 0f, 1f, round: 2);
+				listingStandard.SliderLabeledWithRef("WVC_Label_psylink_HediffFromGeneChance".Translate((settings.psylink_HediffFromGeneChance * 100).ToString()), ref settings.psylink_HediffFromGeneChance, 0f, 1f, round: 2);
 				//listingStandard.CheckboxLabeled("WVC_Label_link_removeMechlinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_removeMechlinkWithGene, "WVC_ToolTip_link_removeMechlinkWithGene".Translate());
 				//listingStandard.CheckboxLabeled("WVC_Label_link_removePsylinkWithGene".Translate().Colorize(ColorLibrary.LightBlue), ref settings.link_removePsylinkWithGene, "WVC_ToolTip_link_removePsylinkWithGene".Translate());
 				listingStandard.SliderLabeledWithRef("WVC_Label_golemnoids_ShutdownRechargePerTick".Translate((settings.golemnoids_ShutdownRechargePerTick).ToString()), ref settings.golemnoids_ShutdownRechargePerTick, 0f, 10f, round: 1);
@@ -1050,6 +1056,8 @@ namespace WVC_XenotypesAndGenes
 			// =
 			WVC_Biotech.settings.link_addedMechlinkWithGene = settingsDef.link_addedMechlinkWithGene;
 			WVC_Biotech.settings.link_addedPsylinkWithGene = settingsDef.link_addedPsylinkWithGene;
+			WVC_Biotech.settings.mechlink_HediffFromGeneChance = settingsDef.mechlink_HediffFromGeneChance;
+			WVC_Biotech.settings.psylink_HediffFromGeneChance = settingsDef.psylink_HediffFromGeneChance;
 			//WVC_Biotech.settings.link_removeMechlinkWithGene = settingsDef.link_removeMechlinkWithGene;
 			//WVC_Biotech.settings.link_removePsylinkWithGene = settingsDef.link_removePsylinkWithGene;
 			WVC_Biotech.settings.golemnoids_ShutdownRechargePerTick = settingsDef.golemnoids_ShutdownRechargePerTick;

@@ -241,6 +241,8 @@ namespace WVC_XenotypesAndGenes
 		// Links
 		public bool link_addedMechlinkWithGene = false;
 		public bool link_addedPsylinkWithGene = false;
+		public float mechlink_HediffFromGeneChance = 0.02f;
+		public float psylink_HediffFromGeneChance = 0.02f;
 		//public bool link_removeMechlinkWithGene = false;
 		//public bool link_removePsylinkWithGene = false;
 		public float golemnoids_ShutdownRechargePerTick = 1f;
