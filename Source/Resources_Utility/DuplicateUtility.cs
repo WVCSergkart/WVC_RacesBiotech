@@ -16,29 +16,44 @@ namespace WVC_XenotypesAndGenes
 		// Clone
 		public static bool TryDuplicatePawn(Pawn caster, Pawn originalPawn, IntVec3 targetCell, Map map, out Pawn duplicatePawn, ref string customLetter, bool randomOutcome = false)
 		{
-			if (ModsConfig.AnomalyActive)
-            {
-                duplicatePawn = Find.PawnDuplicator.Duplicate(originalPawn);
-                DuplicationOutcomes(caster, originalPawn, duplicatePawn, randomOutcome, ref customLetter);
-            }
-            else
+			duplicatePawn = null;
+			try
 			{
-				PawnGenerationRequest request = DuplicateUtility.RequestCopy(originalPawn);
-				duplicatePawn = PawnGenerator.GeneratePawn(request);
-				DuplicatePawn(originalPawn, duplicatePawn, false);
+				if (ModsConfig.AnomalyActive)
+				{
+					duplicatePawn = Find.PawnDuplicator.Duplicate(originalPawn);
+					DuplicationOutcomes(caster, originalPawn, duplicatePawn, randomOutcome, ref customLetter);
+				}
+				else
+				{
+					PawnGenerationRequest request = DuplicateUtility.RequestCopy(originalPawn);
+					duplicatePawn = PawnGenerator.GeneratePawn(request);
+					DuplicatePawn(originalPawn, duplicatePawn, false);
+				}
+				map.effecterMaintainer.AddEffecterToMaintain(EffecterDefOf.Skip_EntryNoDelay.Spawn(targetCell, map), targetCell, 60);
+				SoundDefOf.Psycast_Skip_Entry.PlayOneShot(new TargetInfo(targetCell, map));
+				GenSpawn.Spawn(duplicatePawn, targetCell, map);
 			}
-			map.effecterMaintainer.AddEffecterToMaintain(EffecterDefOf.Skip_EntryNoDelay.Spawn(targetCell, map), targetCell, 60);
-			SoundDefOf.Psycast_Skip_Entry.PlayOneShot(new TargetInfo(targetCell, map));
-			GenSpawn.Spawn(duplicatePawn, targetCell, map);
+			catch (Exception arg)
+			{
+				Log.Error("Error during duplication of pawn " + originalPawn.NameShortColored.ToString() + ". Reason: " + arg);
+			}
 			return duplicatePawn != null;
 		}
 
         public static void DuplicationOutcomes(Pawn caster, Pawn originalPawn, Pawn duplicatePawn, bool randomOutcome, ref string customLetter)
         {
-			if (randomOutcome)
+			string phase = null;
+            try
             {
-                int num = Rand.RangeInclusive(0, 5);
-                if (num == 1 && (duplicatePawn.health.hediffSet.HasHediffOrWillBecome(HediffDefOf.OrganDecay) || duplicatePawn.health.hediffSet.HasHediffOrWillBecome(HediffDefOf.OrganDecayCreepjoiner)))
+				phase = "initial";
+				if (!randomOutcome)
+                {
+                    return;
+				}
+				phase = "outcome randomazing";
+				int num = Rand.RangeInclusive(0, 5);
+				if (num == 1 && (duplicatePawn.health.hediffSet.HasHediffOrWillBecome(HediffDefOf.OrganDecay) || duplicatePawn.health.hediffSet.HasHediffOrWillBecome(HediffDefOf.OrganDecayCreepjoiner)))
                 {
                     num++;
                 }
@@ -49,35 +64,45 @@ namespace WVC_XenotypesAndGenes
                 switch (num)
                 {
                     case 0:
-                        AddDuplicateSickness(originalPawn, duplicatePawn);
+						phase = "add duplicate sickness";
+						AddDuplicateSickness(originalPawn, duplicatePawn);
                         break;
                     case 1:
-                        duplicatePawn.health.AddHediff(HediffDefOf.OrganDecayUndiagnosedDuplicaton);
+						phase = "add organ decay";
+						duplicatePawn.health.AddHediff(HediffDefOf.OrganDecayUndiagnosedDuplicaton);
                         break;
                     case 2:
-                        duplicatePawn.health.AddHediff(HediffDefOf.CrumblingMindUndiagnosedDuplication);
+						phase = "add crumbling mind";
+						duplicatePawn.health.AddHediff(HediffDefOf.CrumblingMindUndiagnosedDuplication);
                         break;
                     case 3:
+						phase = "nullify backstory";
 						NullifyBackstory(duplicatePawn);
-						customLetter += "\n\n" + "WVC_XaG_GeneBackstoryDuplicateLetter".Translate(duplicatePawn.Named("PAWN"));
-						break;
-					case 4:
+                        customLetter += "\n\n" + "WVC_XaG_GeneBackstoryDuplicateLetter".Translate(duplicatePawn.Named("PAWN"));
+                        break;
+                    case 4:
+						phase = "randomize traits";
 						int traitsCount = duplicatePawn.story.traits.allTraits.Count;
-						duplicatePawn.story?.traits?.allTraits?.RemoveAllTraits();
-						duplicatePawn.AddRandomTraits(traitsCount);
-						customLetter += "\n\n" + "WVC_XaG_GeneTraitsDuplicateLetter".Translate(duplicatePawn.Named("PAWN"));
-						break;
-					case 5:
+                        duplicatePawn.story?.traits?.allTraits?.RemoveAllTraits();
+                        duplicatePawn.AddRandomTraits(traitsCount);
+                        customLetter += "\n\n" + "WVC_XaG_GeneTraitsDuplicateLetter".Translate(duplicatePawn.Named("PAWN"));
+                        break;
+                    case 5:
+						phase = "make hostile";
 						duplicatePawn.SetFaction(Faction.OfEntities);
-						Lord newLord = LordMaker.MakeNewLord(Faction.OfEntities, new LordJob_AssaultColony(Faction.OfEntities, canKidnap: false, canTimeoutOrFlee: false, sappers: false, useAvoidGridSmart: false, canSteal: false), originalPawn.Map);
-						newLord.AddPawn(duplicatePawn);
-						//duplicatePawn.mindState?.mentalStateHandler?.TryStartMentalState(MentalStateDefOf.Berserk, null, forced: true);
-						customLetter = "WVC_XaG_GeneHostileDuplicateLetter".Translate(caster.Named("CASTER"), duplicatePawn.Named("PAWN"));
-						break;
-					default:
+                        Lord newLord = LordMaker.MakeNewLord(Faction.OfEntities, new LordJob_AssaultColony(Faction.OfEntities, canKidnap: false, canTimeoutOrFlee: false, sappers: false, useAvoidGridSmart: false, canSteal: false), originalPawn.Map);
+                        newLord.AddPawn(duplicatePawn);
+                        //duplicatePawn.mindState?.mentalStateHandler?.TryStartMentalState(MentalStateDefOf.Berserk, null, forced: true);
+                        customLetter = "WVC_XaG_GeneHostileDuplicateLetter".Translate(caster.Named("CASTER"), duplicatePawn.Named("PAWN"));
+                        break;
+                    default:
                         Log.Error("Unhandled outcome in pawn duplication " + num);
                         break;
                 }
+            }
+            catch (Exception arg)
+            {
+				Log.Error("Failed create outcome for pawn " + duplicatePawn.NameShortColored.ToString() + ". On phase " + phase + ". Reason: " + arg);
             }
         }
 
