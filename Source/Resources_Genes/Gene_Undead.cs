@@ -10,8 +10,10 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Undead : Gene
+	public class Gene_Undead : Gene, IGeneNotifyOnKilled
 	{
+
+		private Dictionary<WorkTypeDef, int> workSettings = new();
 
 		public GeneExtension_Undead Giver => def.GetModExtension<GeneExtension_Undead>();
 
@@ -65,6 +67,32 @@ namespace WVC_XenotypesAndGenes
 			SetCorpse(PawnCanResurrect(), Giver.additionalDelay.RandomInRange);
 		}
 
+		public void SafeWorkSettings()
+		{
+			if (pawn.workSettings == null)
+			{
+				return;
+			}
+			workSettings = new();
+			foreach (WorkTypeDef item in DefDatabase<WorkTypeDef>.AllDefsListForReading)
+			{
+				workSettings[item] = pawn.workSettings.GetPriority(item);
+			}
+		}
+
+		public void SetWorkSettings()
+		{
+			if (pawn.workSettings == null || workSettings.NullOrEmpty())
+			{
+				return;
+			}
+			foreach (var item in workSettings)
+			{
+				pawn.workSettings.SetPriority(item.Key, item.Value);
+			}
+			workSettings = new();
+		}
+
 		public void SetCorpse(bool resurrect, int delay)
 		{
 			// if (pawn.Corpse == null)
@@ -78,10 +106,20 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public void Notify_PawnKilled()
+		{
+			SafeWorkSettings();
+		}
+
+		//public void Notify_PawnResurrected()
+		//{
+		//	SetWorkSettings();
+		//}
+
 		// public override void PostAdd()
 		// {
-			// base.PostAdd();
-			// SetCorpse(PawnCanResurrect(), Giver.additionalDelay.RandomInRange);
+		// base.PostAdd();
+		// SetCorpse(PawnCanResurrect(), Giver.additionalDelay.RandomInRange);
 		// }
 
 		public override void PostRemove()
@@ -90,16 +128,22 @@ namespace WVC_XenotypesAndGenes
 			SetCorpse(false, 0);
 		}
 
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Collections.Look(ref workSettings, "workSettings", LookMode.Def, LookMode.Value);
+		}
+
 		// public string GetInspectInfo
 		// {
-			// get
-			// {
-				// if (PawnCanResurrect)
-				// {
-					// return "WVC_XaG_Gene_Undead_On_Info".Translate().Resolve();
-				// }
-				// return null;
-			// }
+		// get
+		// {
+		// if (PawnCanResurrect)
+		// {
+		// return "WVC_XaG_Gene_Undead_On_Info".Translate().Resolve();
+		// }
+		// return null;
+		// }
 		// }
 
 	}

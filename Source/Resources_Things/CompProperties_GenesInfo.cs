@@ -168,6 +168,28 @@ namespace WVC_XenotypesAndGenes
 
 		// =====================
 
+		public override void Notify_Killed(Map prevMap, DamageInfo? dinfo = null)
+		{
+			if (parent is not Pawn pawn || pawn?.genes == null)
+			{
+				return;
+			}
+			foreach (Gene gene in pawn.genes.GenesListForReading)
+			{
+				if (gene is IGeneNotifyOnKilled igene && gene.Active)
+				{
+					try
+					{
+						igene.Notify_PawnKilled();
+					}
+					catch
+					{
+						Log.Error("Failed trigger Notify_PawnKilled for gene " + gene.def.defName);
+					}
+				}
+			}
+		}
+
 		private int resurrectionDelay = 0;
 		private bool shouldResurrect = false;
 

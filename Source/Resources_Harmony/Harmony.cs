@@ -356,14 +356,14 @@ namespace WVC_XenotypesAndGenes
 
 			// public static void SpecialGeneGraphic(PawnGraphicSet __instance)
 			// {
-				// foreach (GeneGraphicRecord graphicRecord in __instance.geneGraphics.ToList())
-				// {
-					// if (graphicRecord.sourceGene is not Gene_Faceless faceless || faceless.drawGraphic)
-					// {
-						// continue;
-					// }
-					// __instance.geneGraphics.Remove(graphicRecord);
-				// }
+			// foreach (GeneGraphicRecord graphicRecord in __instance.geneGraphics.ToList())
+			// {
+			// if (graphicRecord.sourceGene is not Gene_Faceless faceless || faceless.drawGraphic)
+			// {
+			// continue;
+			// }
+			// __instance.geneGraphics.Remove(graphicRecord);
+			// }
 			// }
 
 			// Romance

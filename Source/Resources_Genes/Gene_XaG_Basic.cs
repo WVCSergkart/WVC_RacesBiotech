@@ -47,12 +47,21 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public interface IGeneNotifyOnKilled
+	{
+
+		void Notify_PawnKilled();
+
+		//void Notify_PawnResurrected();
+
+	}
+
 	// public interface IGeneAddOrRemoveHediff
 	// {
 
-		// void AddOrRemoveHediff(HediffDef hediffDef, Pawn pawn, Gene gene, List<BodyPartDef> bodyparts = null);
+	// void AddOrRemoveHediff(HediffDef hediffDef, Pawn pawn, Gene gene, List<BodyPartDef> bodyparts = null);
 
-		// void RemoveHediff(HediffDef hediffDef, Pawn pawn);
+	// void RemoveHediff(HediffDef hediffDef, Pawn pawn);
 
 	// }
 

@@ -284,6 +284,7 @@ namespace WVC_XenotypesAndGenes
 				string shapeshiftXenotype = pawn?.genes?.Xenotype != null ? pawn.genes.Xenotype.LabelCap : "ERROR";
 				Find.LetterStack.ReceiveLetter(gene.LabelCap, letterDesc.Translate(pawn.Named("PAWN"), gene.LabelCap, shapeshiftXenotype), WVC_GenesDefOf.WVC_XaG_UndeadEvent, new LookTargets(pawn));
 			}
+			gene.SetWorkSettings();
 		}
 
 		// Resurrection
