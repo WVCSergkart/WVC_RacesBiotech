@@ -33,24 +33,24 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public static void DoCellsBite(Pawn biter, Pawn victim, float daysGain, float cellsConsumeFactor, float nutritionGain, IntRange bloodFilthToSpawnRange, float targetBloodLoss = 0.03f)
+		public static void DoCellsBite(Pawn biter, Pawn victim, float daysGain, float cellsConsumeFactor)
 		{
 			float cells = daysGain * cellsConsumeFactor;
 			int ticks = (int)(daysGain * (victim.BodySize * 60000));
 			XaG_GeneUtility.OffsetInstabilityTick(biter, ticks);
 			GeneResourceUtility.OffsetResurgentCells(victim, 0f - (cells * 0.01f));
-			if (biter.needs?.food != null)
-			{
-				biter.needs.food.CurLevel += nutritionGain * cells;
-			}
-			if (!victim.WouldDieFromAdditionalBloodLoss(targetBloodLoss) && targetBloodLoss > 0f)
-			{
-				victim.health.AddHediff(HediffDefOf.BloodfeederMark, ExecutionUtility.ExecuteCutPart(victim));
-				Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.BloodLoss, victim);
-				hediff.Severity = targetBloodLoss;
-				victim.health.AddHediff(hediff);
-			}
-			TrySpawnBloodFilth(victim, bloodFilthToSpawnRange);
+			//if (biter.needs?.food != null)
+			//{
+			//	biter.needs.food.CurLevel += nutritionGain * cells;
+			//}
+			//if (!victim.WouldDieFromAdditionalBloodLoss(targetBloodLoss) && targetBloodLoss > 0f)
+			//{
+			//	victim.health.AddHediff(HediffDefOf.BloodfeederMark, ExecutionUtility.ExecuteCutPart(victim));
+			//	Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.BloodLoss, victim);
+			//	hediff.Severity = targetBloodLoss;
+			//	victim.health.AddHediff(hediff);
+			//}
+			//TrySpawnBloodFilth(victim, bloodFilthToSpawnRange);
 		}
 
 		public static bool TrySpawnBloodFilth(Pawn victim, IntRange bloodFilthToSpawnRange)

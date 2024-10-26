@@ -26,12 +26,12 @@ namespace WVC_XenotypesAndGenes
 
 		public Gene_ThrallMaker gene;
 		public GeneExtension_Giver extension;
-		public CompProperties_AbilityCellsfeederBite cellsfeederComponent;
+		//public CompProperties_AbilityCellsfeederBite cellsfeederComponent;
 
 		private int resurgentPawnsCount;
 		private int thrallPawnsCount;
 
-		// private int nextRecache = -1;
+		private int nextRecache = -1;
 		// public int recacheFrequency = 734;
 
 		public float cellsPerDay;
@@ -57,17 +57,11 @@ namespace WVC_XenotypesAndGenes
 				Order = extension.gizmoOrder;
 				filledBlockColor = extension.filledBlockColor;
 				excessBlockColor = extension.excessBlockColor;
-				// recacheFrequency = extension.recacheFrequency;
-				// tipSectionTitle = extension.tipSectionTitle;
-				// tipSectionTip = extension.tipSectionTip;
-				// golemIndex = extension.golemistTypeIndex;
-				// golemIndex = extension.golemistTypeIndex;
-				cellsfeederComponent = Gene_GeneticThrall.GetAbilityCompProperties_CellsFeeder(WVC_GenesDefOf.WVC_XaG_Cellsfeed);
-				// daysPerCell = cellsfeederComponent.daysGain / (cellsfeederComponent.daysGain * cellsfeederComponent.cellsConsumeFactor);
-				cellsPerDay = cellsfeederComponent.cellsConsumeFactor;
+				//cellsfeederComponent = Gene_GeneticThrall.GetAbilityCompProperties_CellsFeeder(WVC_GenesDefOf.WVC_XaG_Cellsfeed);
+				cellsPerDay = 1f;
 			}
-			resurgentPawnsCount = GetThrallsLimit();
-			geneThralls = GetAllThralls(mechanitor);
+			resurgentPawnsCount = GeneResourceUtility.GetThrallsLimit(mechanitor, cellsPerDay);
+			geneThralls = GeneResourceUtility.GetAllThralls(mechanitor);
 			thrallPawnsCount = geneThralls.Count;
 		}
 
@@ -76,16 +70,14 @@ namespace WVC_XenotypesAndGenes
 			Rect rect = new(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
 			Rect rect2 = rect.ContractedBy(6f);
 			Widgets.DrawWindowBackground(rect);
-			if (mechanitor.IsHashIntervalTick(120))
+			nextRecache--;
+			if (nextRecache < 0)
 			{
-				resurgentPawnsCount = GetThrallsLimit();
-				geneThralls = GetAllThralls(mechanitor);
+				resurgentPawnsCount = GeneResourceUtility.GetThrallsLimit(mechanitor, cellsPerDay);
+				geneThralls = GeneResourceUtility.GetAllThralls(mechanitor);
 				thrallPawnsCount = geneThralls.Count;
+				nextRecache = 180;
 			}
-			// if (Find.TickManager.TicksGame > nextRecache)
-			// {
-				// nextRecache = Find.TickManager.TicksGame + recacheFrequency;
-			// }
 			string text = thrallPawnsCount.ToString("F0") + " / " + resurgentPawnsCount.ToString("F0");
 			TaggedString taggedString = "WVC_XaG_ThrallsBandwidthGizmoLabel".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + text + "\n\n" + "WVC_XaG_ThrallsBandwidthGizmoGizmoTip".Translate();
 			if (thrallPawnsCount > 0 && thrallPawnsCount < 11)
@@ -162,66 +154,6 @@ namespace WVC_XenotypesAndGenes
 		public override float GetWidth(float maxWidth)
 		{
 			return 136f;
-		}
-
-		public int GetThrallsLimit()
-		{
-			float limit = 0f;
-			List<Pawn> colonists = mechanitor?.Map?.mapPawns?.SpawnedPawnsInFaction(mechanitor.Faction);
-			// colonists.Shuffle();
-			foreach (Pawn colonist in colonists)
-			{
-				Gene_ResurgentCells gene = colonist?.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
-				if (gene == null)
-				{
-					continue;
-				}
-				foreach (IGeneResourceDrain drainGene in gene.GetDrainGenes)
-				{
-					if (drainGene.CanOffset)
-					{
-						// Log.Error("drainGene.ResourceLossPerDay: " + drainGene.ResourceLossPerDay.ToString());
-						// limit += (int)(drainGene.ResourceLossPerDay * -100);
-						limit += drainGene.ResourceLossPerDay * -1;
-					}
-				}
-			}
-			// Log.Error("Limit v0: " + limit.ToString());
-			if (limit <= 0f)
-			{
-				return 0;
-			}
-			limit = (int)((limit / (cellsPerDay > 0f ? cellsPerDay : 0.01f)) * 100);
-			// Log.Error("Limit v1: " + limit.ToString());
-			if (limit >= 1000f)
-			{
-				return 999;
-			}
-			return (int)limit;
-		}
-
-		public static List<Gene_GeneticThrall> GetAllThralls(Pawn pawn)
-		{
-			List<Gene_GeneticThrall> list = new();
-			List<Pawn> colonists = pawn?.Map?.mapPawns?.SpawnedPawnsInFaction(pawn.Faction);
-			// colonists.Shuffle();
-			if (!colonists.NullOrEmpty())
-			{
-				foreach (Pawn colonist in colonists)
-				{
-					if (colonist.Dead)
-					{
-						continue;
-					}
-					Gene_GeneticThrall thralls = colonist?.genes?.GetFirstGeneOfType<Gene_GeneticThrall>();
-					if (thralls == null)
-					{
-						continue;
-					}
-					list.Add(thralls);
-				}
-			}
-			return list;
 		}
 
 	}

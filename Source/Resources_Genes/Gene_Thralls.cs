@@ -73,31 +73,21 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool TryHuntForCells(Pawn pawn)
 		{
-			if (Gene_Rechargeable.PawnHaveThisJob(pawn, WVC_GenesDefOf.WVC_XaG_CastCellsfeedOnPawnMelee))
-			{
-				return false;
-			}
-			List<Pawn> targets = MiscUtility.GetAllPlayerControlledMapPawns_ForBloodfeed(pawn);
-			// =
-			foreach (Pawn colonist in targets)
-			{
+            //if (Gene_Rechargeable.PawnHaveThisJob(pawn, WVC_GenesDefOf.WVC_XaG_CastCellsfeedOnPawnMelee))
+            //{
+            //	return false;
+            //}
+            List<Pawn> targets = MiscUtility.GetAllPlayerControlledMapPawns_ForBloodfeed(pawn);
+            foreach (Pawn colonist in targets)
+            {
                 if (!GeneFeaturesUtility.CanCellsFeedNowWith(pawn, colonist))
                 {
                     continue;
-                }
-                if (colonist.IsForbidden(pawn) || !pawn.CanReserveAndReach(colonist, PathEndMode.OnCell, pawn.NormalMaxDanger()))
-				{
-					continue;
 				}
-				if (!MiscUtility.TryGetAbilityJob(pawn, colonist, WVC_GenesDefOf.WVC_XaG_Cellsfeed, out Job job))
-				{
-					continue;
-				}
-				job.def = WVC_GenesDefOf.WVC_XaG_CastCellsfeedOnPawnMelee;
-				pawn.TryTakeOrderedJob(job, JobTag.Misc, true);
+				ConsumeCellsFromTarget(pawn, colonist);
 				return true;
-			}
-			return false;
+            }
+            return false;
 		}
 
 		public static List<Pawn> GetAllThrallsFromList(List<Pawn> pawns)
@@ -133,11 +123,20 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				CompProperties_AbilityCellsfeederBite cellsfeederComponent = GetAbilityCompProperties_CellsFeeder(WVC_GenesDefOf.WVC_XaG_Cellsfeed);
-				GeneFeaturesUtility.DoCellsBite(pawn, pawns[j], cellsfeederComponent.daysGain, cellsfeederComponent.cellsConsumeFactor, cellsfeederComponent.nutritionGain, new(0, 0), cellsfeederComponent.targetBloodLoss);
+				//CompProperties_AbilityCellsfeederBite cellsfeederComponent = GetAbilityCompProperties_CellsFeeder(WVC_GenesDefOf.WVC_XaG_Cellsfeed);
+				ConsumeCellsFromTarget(pawn, pawns[j]);
 				break;
 			}
 			base.InCaravan();
+		}
+
+		public static void ConsumeCellsFromTarget(Pawn consumer, Pawn target)
+		{
+			GeneFeaturesUtility.DoCellsBite(consumer, target, 12, 1f);
+            if (consumer.Map != null)
+			{
+				FleckMaker.AttachedOverlay(consumer, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
+			}
 		}
 
 		public override void GeneticStuff()
@@ -157,20 +156,20 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static CompProperties_AbilityCellsfeederBite GetAbilityCompProperties_CellsFeeder(AbilityDef abilityDef)
-		{
-			if (abilityDef?.comps != null)
-			{
-				foreach (AbilityCompProperties comp in abilityDef.comps)
-				{
-					if (comp is CompProperties_AbilityCellsfeederBite cellsFeeder)
-					{
-						return cellsFeeder;
-					}
-				}
-			}
-			return null;
-		}
+		//public static CompProperties_AbilityCellsfeederBite GetAbilityCompProperties_CellsFeeder(AbilityDef abilityDef)
+		//{
+		//	if (abilityDef?.comps != null)
+		//	{
+		//		foreach (AbilityCompProperties comp in abilityDef.comps)
+		//		{
+		//			if (comp is CompProperties_AbilityCellsfeederBite cellsFeeder)
+		//			{
+		//				return cellsFeeder;
+		//			}
+		//		}
+		//	}
+		//	return null;
+		//}
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{

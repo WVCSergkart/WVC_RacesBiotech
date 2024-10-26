@@ -110,7 +110,7 @@
 	<WVC_XaG_DaysGainFromBite>Instability delay</WVC_XaG_DaysGainFromBite>
 	
 	<WVC_XaG_Gene_GeneticThrallLabel>Delay death</WVC_XaG_Gene_GeneticThrallLabel>
-	<WVC_XaG_Gene_GeneticThrallDesc>Pawn will automatically try to bite resurgents or use genetic stabilizer serum when there are less than 3 days left until the next instabilization.</WVC_XaG_Gene_GeneticThrallDesc>
+	<WVC_XaG_Gene_GeneticThrallDesc>Archites will automatically absorb the psychic activity of resurgent cells or the pawn will automatically use genetic stabilizer serum when there are less than 3 days left until the next instabilization.</WVC_XaG_Gene_GeneticThrallDesc>
 
 	<WVC_XaG_LetterLabelThrallImplanted>thrall created</WVC_XaG_LetterLabelThrallImplanted>
 	<WVC_XaG_LetterTextThrallIImplanted>{CASTER_nameDef} has implanted a xenogerm into {TARGET_nameDef}, passing choosed genes onto {TARGET_objective}.\n\n{TARGET_nameDef} became a genetic thrall, thralls have their own strengths and weaknesses, but the main drawback of thralls is that in order to survive they need to regularly delay instabilization by absorbing the resurgent cells of living resurgent pawns.</WVC_XaG_LetterTextThrallIImplanted>
@@ -403,7 +403,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_ThrallsBandwidthUsage>Thralls in colony</WVC_XaG_ThrallsBandwidthUsage>
 
-	<WVC_XaG_ThrallsBandwidth_NextFeeding>cellsfeed in</WVC_XaG_ThrallsBandwidth_NextFeeding>
+	<WVC_XaG_ThrallsBandwidth_NextFeeding>cells absorb in</WVC_XaG_ThrallsBandwidth_NextFeeding>
 
 	<WVC_XaG_GolemEnergyRecovery_Info>Self-charge: {0} (+{1} / day)</WVC_XaG_GolemEnergyRecovery_Info>
 

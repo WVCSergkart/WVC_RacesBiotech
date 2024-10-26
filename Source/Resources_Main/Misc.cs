@@ -237,6 +237,7 @@ namespace WVC_XenotypesAndGenes
 		public bool bloodfeeder_AutoBloodfeed = false;
 		public float hemogenic_ImplanterFangsChanceFactor = 1f;
 		// Thralls
+		public float thrallMaker_cooldownOverride = 9f;
 		public bool enableInstabilityLastChanceMechanic = true;
 		// Links
 		public bool link_addedMechlinkWithGene = false;

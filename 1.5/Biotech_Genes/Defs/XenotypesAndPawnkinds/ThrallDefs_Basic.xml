@@ -15,6 +15,7 @@
 	</acceptableRotStages>
 	<genes>
 		<li>WVC_GeneSavant</li>
+		<li MayRequire="ludeon.rimworld.anomaly">WVC_Inhumanized</li>
 		<li>ToxicEnvironmentResistance_Total</li>
 		<li>Aggression_DeadCalm</li>
 		<li>WVC_NoLearning</li>
@@ -35,9 +36,9 @@
 		<li>WVC_SkinColor_Marble</li>
 		<li>WVC_SkinColor_Slate</li>
 		<!-- Needs -->
-		<li>WVC_NaturalDisableComfort</li>
-		<li>WVC_NaturalDisableOutdoors</li>
-		<li>WVC_NaturalDisableBeauty</li>
+		<!-- <li>WVC_NaturalDisableComfort</li> -->
+		<!-- <li>WVC_NaturalDisableOutdoors</li> -->
+		<!-- <li>WVC_NaturalDisableBeauty</li> -->
 	</genes>
   </WVC_XenotypesAndGenes.ThrallDef>
 

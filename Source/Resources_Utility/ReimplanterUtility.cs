@@ -297,13 +297,34 @@ namespace WVC_XenotypesAndGenes
 					trait.sourceGene = null;
 					trait.suppressedByGene = null;
 					trait.suppressedByTrait = false;
-					pawn.story.traits.RemoveTrait(trait);
+					pawn.story.traits.RemoveTrait(trait, true);
+					pawn.story.traits.allTraits?.Remove(trait);
 				}
 				if (trait.suppressedByGene != null && !XaG_GeneUtility.HasGene(trait.suppressedByGene.def, pawn))
 				{
 					trait.suppressedByGene = null;
 				}
 			}
+			//foreach (Trait trait in pawn.story.traits.allTraits.ToList())
+			//{
+			//	if (trait.suppressedByTrait && !TraitHasConflicts(pawn, trait))
+			//	{
+			//		trait.suppressedByTrait = false;
+			//	}
+			//}
+		}
+
+		public static bool TraitHasConflicts(Pawn pawn, Trait selectedTrait)
+		{
+			foreach (Trait trait in pawn.story.traits.allTraits.ToList())
+			{
+				if (selectedTrait.def.ConflictsWith(trait))
+				{
+					//Log.Error(trait.def.defName + " conflict with " + selectedTrait.def.defName);
+					return true;
+				}
+			}
+			return false;
 		}
 
 		// =============================== Setter ===============================

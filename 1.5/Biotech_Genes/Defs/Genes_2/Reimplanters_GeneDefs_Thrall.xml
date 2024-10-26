@@ -6,7 +6,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_Base">
 	<defName>WVC_ReimplanterThrallMaker</defName>
 	<label>thrall master</label>
-	<description>Carriers of this gene can implant a copy of choosen xenogerm into another person through a somewhat gross-looking injector organ. Subsequently, the target turns into a genetic thrall; genetic thralls must regularly delay instabilization in order to survive.</description>
+	<description>Carriers of this gene can implant a copy of choosen germline into dead person through a somewhat gross-looking injector organ. Subsequently, the target turns into a genetic thrall; genetic thralls must regularly delay instabilization in order to survive and are therefore often dependent on those who created them.</description>
 	<iconPath>WVC/UI/Genes/Gene_ThrallMaster_v0</iconPath>
 	<geneClass>WVC_XenotypesAndGenes.Gene_ThrallMaker</geneClass>
 	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Thralls</resourceGizmoType>
@@ -22,12 +22,8 @@
 	  <AbilityDef>WVC_ReimplanterThrallMaker</AbilityDef>
 	</descriptionHyperlinks>
 	<customEffectDescriptions>
-		<li>The target can only be a human corpse.</li>
-		<!-- <li>Gives the target the &lt;color=#8a8ae6&gt;selected set of genes&lt;/color&gt; and turns into a &lt;color=#8a8ae6&gt;thrall&lt;/color&gt;.</li> -->
-		<li>Target receives the &lt;color=#8a8ae6&gt;selected&lt;/color&gt; set of &lt;color=#8a8ae6&gt;genes&lt;/color&gt;, loses all &lt;color=#8a8ae6&gt;skills&lt;/color&gt; and &lt;color=#8a8ae6&gt;backstory&lt;/color&gt;, and also receives the &lt;color=#8a8ae6&gt;Thrall&lt;/color&gt; gene.</li>
-		<!-- <li>Carrier can control a limited number of &lt;color=#8a8ae6&gt;thralls&lt;/color&gt; at the same time.</li> -->
-		<li>The target &lt;color=#8a8ae6&gt;may inherit&lt;/color&gt; some &lt;color=#8a8ae6&gt;unique&lt;/color&gt; carrier genes.</li>
-		<li>&lt;color=#ff8585&gt;Can't be absorbed forcly.&lt;/color&gt;</li>
+		<li>Target gets the &lt;color=#8a8ae6&gt;selected geneset&lt;/color&gt;, &lt;color=#8a8ae6&gt;caster skills&lt;/color&gt;, &lt;color=#8a8ae6&gt;unique gene&lt;/color&gt; and &lt;color=#8a8ae6&gt;loses backstory&lt;/color&gt;.</li>
+		<!-- <li>&lt;color=#ff8585&gt;Can't be absorbed forcly.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<exclusionTags>
 		<li>WVC_ReimplanterThrallMaker</li>
@@ -45,7 +41,7 @@
   <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_RiseFromTheDead_Base">
 	<defName>WVC_ReimplanterThrallMaker</defName>
 	<label>thrall maker</label>
-	<description>Implant a copy of choosen xenogerm into another person through a somewhat gross-looking injector organ. Subsequently, the target turns into a genetic thrall; genetic thralls must regularly delay instabilization in order to survive.</description>
+	<description>Implant a copy of choosen germline into dead person through a somewhat gross-looking injector organ. Subsequently, the target turns into a genetic thrall; genetic thralls must regularly delay instabilization in order to survive.</description>
 	<iconPath>WVC/UI/Genes/Gene_ThrallMaker_v0</iconPath>
 	<cooldownTicksRange>540000</cooldownTicksRange><!-- 9 days -->
 	<comps>

@@ -137,6 +137,8 @@ A restart is required.</WVC_ToolTip_enable_birthQualityOffsetFromGenes>
 	<WVC_Label_ThrallMaker_ThrallsInheritMasterGenes>Thralls inherit master unique genes</WVC_Label_ThrallMaker_ThrallsInheritMasterGenes>
 	<WVC_ToolTip_ThrallMaker_ThrallsInheritMasterGenes>If enabled, thralls will, in addition to the basic set of genes, receive some rare master genes.</WVC_ToolTip_ThrallMaker_ThrallsInheritMasterGenes>
 
+	<WVC_Label_thrallMaker_cooldownOverride>Thrall maker cooldown {0} days</WVC_Label_thrallMaker_cooldownOverride>
+
 	<!-- ================================== -->
 
 	<WVC_Label_enableInstabilityLastChanceMechanic>Enbale instability last chance</WVC_Label_enableInstabilityLastChanceMechanic>

@@ -4,11 +4,12 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGeneticInstability_Base">
 	<defName>WVC_Thrall</defName>
 	<label>thrall genetic</label>
-	<description>Carriers of this gene have archites that strongly instabilize genetic integrity and lead to a number of mutations that can lead to critical consequences. To stabilize, archites require a neural cellular resource called resurgent cells, which can be obtained from the fresh blood of resurgent pawns.</description>
+	<!-- <description>Carriers of this gene have archites that strongly instabilize genetic integrity and lead to a number of mutations that can lead to critical consequences. To stabilize, archites require a neural cellular resource called resurgent cells, which can be obtained from the fresh blood of resurgent pawns.</description> -->
+	<description>Carriers of this gene have archites that strongly instabilize genetic integrity and lead to a number of mutations that can lead to critical consequences. For stabilization, it is necessary to be constantly near carriers of resurgent cells, archites slowly absorb cellular psychic activity and self-stabilize. Which will lead to a decrease in resurgent cells in targets.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_GeneticThrall</geneClass>
-	<descriptionHyperlinks>
-	  <AbilityDef>WVC_XaG_Cellsfeed</AbilityDef>
-	</descriptionHyperlinks>
+	<!-- <descriptionHyperlinks> -->
+	  <!-- <AbilityDef>WVC_XaG_Cellsfeed</AbilityDef> -->
+	<!-- </descriptionHyperlinks> -->
 	<iconPath>WVC/UI/Genes/Gene_Thrall_v0</iconPath>
 	<selectionWeight>0.00</selectionWeight>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
@@ -18,29 +19,17 @@
 	<biostatArc>1</biostatArc>
 	<biostatMet>8</biostatMet>
 	<minAgeActive>3</minAgeActive>
-	<sterilize>true</sterilize>
-	<statFactors>
-	  <Fertility>0</Fertility>
-	  <!-- <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0</ConversionPower> -->
-	  <!-- <SocialIdeoSpreadFrequencyFactor MayRequire="Ludeon.RimWorld.Ideology">0</SocialIdeoSpreadFrequencyFactor> -->
-	  <!-- <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">4.0</CertaintyLossFactor> -->
-	  <MentalBreakThreshold>0.8</MentalBreakThreshold>
-	  <SocialImpact>0.8</SocialImpact>
-	  <RestRateMultiplier>1.5</RestRateMultiplier>
-	</statFactors>
+	<!-- <sterilize>true</sterilize> -->
+	<!-- <statFactors> -->
+	  <!-- <Fertility>0</Fertility> -->
+	  <!-- <MentalBreakThreshold>0.8</MentalBreakThreshold> -->
+	  <!-- <SocialImpact>0.8</SocialImpact> -->
+	  <!-- <RestRateMultiplier>1.5</RestRateMultiplier> -->
+	<!-- </statFactors> -->
 	<customEffectDescriptions Inherit="False">
-	  <li>Carrier must regularly cellsfeed on &lt;color=#8a8ae6&gt;resurgent&lt;/color&gt; pawns or it &lt;color=#ff8585&gt;will die&lt;/color&gt;.</li>
-	  <!-- <li>&lt;color=#ff8585&gt;This gene cannot be removed.&lt;/color&gt;</li> -->
+	  <li>Carriers must be on the same map as &lt;color=#8a8ae6&gt;resurgent&lt;/color&gt; pawns or they risk becoming a &lt;color=#8a8ae6&gt;ghoul or dying&lt;/color&gt;.</li>
+	  <li>Absorbs 12% of &lt;color=#8a8ae6&gt;cells&lt;/color&gt; from a randomly &lt;color=#8a8ae6&gt;resurgent&lt;/color&gt; pawn, delaying &lt;color=#8a8ae6&gt;instability&lt;/color&gt; by 12 days.</li>
 	</customEffectDescriptions>
-	<abilities>
-	  <li>WVC_XaG_Cellsfeed</li>
-	</abilities>
-	<!-- <disablesNeeds> -->
-	  <!-- <li>Beauty</li> -->
-	  <!-- <li>Outdoors</li> -->
-	  <!-- <li>Indoors</li> -->
-	  <!-- <li>Comfort</li> -->
-	<!-- </disablesNeeds> -->
 	<exclusionTags>
 		<li>WVC_ReimplanterThrallMaker</li>
 		<li>WVC_ThrallGeneticInstability</li>
@@ -61,44 +50,43 @@
 
   <!-- Abilities -->
 
-  <AbilityDef ParentName="AbilityTouchBase">
-	<defName>WVC_XaG_Cellsfeed</defName>
-	<label>cellsfeed</label>
-	<description>Bite the target and extract resurgent cells directly from their blood. A fast-acting coagulant will seal the wound to prevent bleeding.\n\nCan only target resurgent humans. Delay gain is affected by the target's body size.</description>
-	<iconPath>WVC/UI/Genes/Gene_Thrall_v0</iconPath>
-	<displayOrder>100</displayOrder>
-	<warmupEffecter>Bloodfeed_Warmup</warmupEffecter>
-	<warmupStartSound>Bloodfeed_Cast</warmupStartSound>
-	<hostile>false</hostile>
-	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
-	<verbProperties>
-	  <verbClass>Verb_CastAbilityTouch</verbClass>
-	  <drawAimPie>false</drawAimPie>
-	  <range>-1</range>
-	  <warmupTime>2</warmupTime>
-	  <targetParams>
-		<canTargetSelf>false</canTargetSelf>
-		<canTargetBuildings>false</canTargetBuildings>
-		<canTargetMechs>false</canTargetMechs>
-		<!-- <canTargetBloodfeeders>true</canTargetBloodfeeders> -->
-	  </targetParams>
-	</verbProperties>
-	<comps>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityHideIfPawnMultiSelected"/>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityCellsfeederBite">
-		<daysGain>12</daysGain>
-		<cellsConsumeFactor>1.0</cellsConsumeFactor>
-	  </li>
-	  <li Class="CompProperties_AbilityFleckOnTarget">
-		<fleckDef>BloodSplash</fleckDef>
-	  </li>
-	  <li Class="CompProperties_AbilityRequiresCapacity">
-		<capacity>Eating</capacity>
-	  </li>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityBloodeater">
-		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Cellseater</compClass>
-	  </li>
-	</comps>
-  </AbilityDef>
+  <!-- <AbilityDef ParentName="AbilityTouchBase"> -->
+	<!-- <defName>WVC_XaG_Cellsfeed</defName> -->
+	<!-- <label>cellsfeed</label> -->
+	<!-- <description>Bite the target and extract resurgent cells directly from their blood. A fast-acting coagulant will seal the wound to prevent bleeding.\n\nCan only target resurgent humans. Delay gain is affected by the target's body size.</description> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_Thrall_v0</iconPath> -->
+	<!-- <displayOrder>100</displayOrder> -->
+	<!-- <warmupEffecter>Bloodfeed_Warmup</warmupEffecter> -->
+	<!-- <warmupStartSound>Bloodfeed_Cast</warmupStartSound> -->
+	<!-- <hostile>false</hostile> -->
+	<!-- <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence> -->
+	<!-- <verbProperties> -->
+	  <!-- <verbClass>Verb_CastAbilityTouch</verbClass> -->
+	  <!-- <drawAimPie>false</drawAimPie> -->
+	  <!-- <range>-1</range> -->
+	  <!-- <warmupTime>2</warmupTime> -->
+	  <!-- <targetParams> -->
+		<!-- <canTargetSelf>false</canTargetSelf> -->
+		<!-- <canTargetBuildings>false</canTargetBuildings> -->
+		<!-- <canTargetMechs>false</canTargetMechs> -->
+	  <!-- </targetParams> -->
+	<!-- </verbProperties> -->
+	<!-- <comps> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityHideIfPawnMultiSelected"/> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityCellsfeederBite"> -->
+		<!-- <daysGain>12</daysGain> -->
+		<!-- <cellsConsumeFactor>1.0</cellsConsumeFactor> -->
+	  <!-- </li> -->
+	  <!-- <li Class="CompProperties_AbilityFleckOnTarget"> -->
+		<!-- <fleckDef>BloodSplash</fleckDef> -->
+	  <!-- </li> -->
+	  <!-- <li Class="CompProperties_AbilityRequiresCapacity"> -->
+		<!-- <capacity>Eating</capacity> -->
+	  <!-- </li> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityBloodeater"> -->
+		<!-- <compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Cellseater</compClass> -->
+	  <!-- </li> -->
+	<!-- </comps> -->
+  <!-- </AbilityDef> -->
 
 </Defs>

@@ -41,46 +41,23 @@ namespace WVC_XenotypesAndGenes
 			Pawn innerPawn = ((Corpse)target.Thing).InnerPawn;
 			if (innerPawn != null)
 			{
-				if (ModsConfig.AnomalyActive)
-				{
-					Anomaly(thrallDef, innerPawn);
-				}
-				else
-				{
-					NonAnomaly(thrallDef, innerPawn);
-				}
-				// DuplicateUtility.RemoveAllGenes_Overridden(innerPawn);
+				MakeThrall(thrallDef, innerPawn);
 				FleckMaker.AttachedOverlay(innerPawn, FleckDefOf.FlashHollow, new Vector3(0f, 0f, 0.26f));
 				if (PawnUtility.ShouldSendNotificationAbout(parent.pawn) || PawnUtility.ShouldSendNotificationAbout(innerPawn))
 				{
 					Find.LetterStack.ReceiveLetter("WVC_XaG_LetterLabelThrallImplanted".Translate(), "WVC_XaG_LetterTextThrallIImplanted".Translate(parent.pawn.Named("CASTER"), innerPawn.Named("TARGET")) + "\n\n" + ReimplanterGene.thrallDef.description, WVC_GenesDefOf.WVC_XaG_UndeadEvent, new LookTargets(parent.pawn, innerPawn));
 				}
 			}
+			parent.StartCooldown((int)(60000 * WVC_Biotech.settings.thrallMaker_cooldownOverride));
 		}
 
-		// =================
-
-		private void NonAnomaly(ThrallDef thrallDef, Pawn innerPawn)
-		{
-			GeneResourceUtility.ResurrectWithSickness(innerPawn, null);
-			SetStory(innerPawn);
-			ReimplantGenes(thrallDef, innerPawn);
-		}
-
-		private void Anomaly(ThrallDef thrallDef, Pawn innerPawn)
+		private void MakeThrall(ThrallDef thrallDef, Pawn innerPawn)
 		{
 			MutantDef mutantDef = thrallDef?.mutantDef;
-			// if (thrallDef.resurrectAsShambler)
-			// {
-				// MutantUtility.ResurrectAsShambler(innerPawn, -1, Faction.OfPlayer)
-			// }
-			// else
-			// {
-			// }
-			GeneResourceUtility.ResurrectWithSickness(innerPawn, null);
+			GeneResourceUtility.TryResurrectWithSickness(innerPawn, null, false, 0.8f);
 			SetStory(innerPawn);
 			ReimplantGenes(thrallDef, innerPawn);
-			if (mutantDef != null)
+			if (ModsConfig.AnomalyActive && mutantDef != null)
 			{
 				MutantUtility.SetPawnAsMutantInstantly(innerPawn, mutantDef);
 			}
@@ -90,16 +67,20 @@ namespace WVC_XenotypesAndGenes
 
 		private void SetStory(Pawn innerPawn)
 		{
-			if ((innerPawn.Faction == null || innerPawn.Faction != Faction.OfPlayer))
+			if (innerPawn.Faction != Faction.OfPlayer)
 			{
 				RecruitUtility.Recruit(innerPawn, Faction.OfPlayer, parent.pawn);
 			}
 			DuplicateUtility.NullifyBackstory(innerPawn);
-			DuplicateUtility.NullifySkills(innerPawn);
+			//DuplicateUtility.NullifySkills(innerPawn);
+			DuplicateUtility.CopySkills(parent.pawn, innerPawn);
 			if (ModsConfig.IdeologyActive)
 			{
 				innerPawn.ideo.SetIdeo(parent.pawn.ideo.Ideo);
 			}
+			innerPawn.skills?.Notify_SkillDisablesChanged();
+			innerPawn.Notify_DisabledWorkTypesChanged();
+			innerPawn.Drawer?.renderer?.SetAllGraphicsDirty();
 		}
 
 		private void ReimplantGenes(ThrallDef thrallDef, Pawn innerPawn)
@@ -138,14 +119,8 @@ namespace WVC_XenotypesAndGenes
 		public static void ThrallMaker(Pawn pawn, ThrallDef thrallDef)
 		{
 			Pawn_GeneTracker genes = pawn.genes;
-			foreach (Gene item in genes.Xenogenes.ToList())
-			{
-				pawn.genes?.RemoveGene(item);
-			}
-			foreach (Gene item in genes.Endogenes.ToList())
-			{
-				pawn.genes?.RemoveGene(item);
-			}
+			genes.Xenogenes.RemoveAllGenes();
+			genes.Endogenes.RemoveAllGenes();
 			if (thrallDef.xenotypeDef != null)
 			{
 				ReimplanterUtility.SetXenotypeDirect(null, pawn, thrallDef.xenotypeDef);
@@ -154,29 +129,12 @@ namespace WVC_XenotypesAndGenes
 			{
 				ReimplanterUtility.UnknownXenotype(pawn, thrallDef.label, thrallDef.xenotypeIconDef);
 			}
-			bool xenotypeHasSkinColor = false;
-			bool xenotypeHasHairColor = false;
 			List<GeneDef> xenotypeGenes = thrallDef.genes;
 			for (int i = 0; i < xenotypeGenes.Count; i++)
 			{
 				pawn.genes?.AddGene(xenotypeGenes[i], false);
-				if (xenotypeGenes[i].skinColorBase != null || xenotypeGenes[i].skinColorOverride != null)
-				{
-					xenotypeHasSkinColor = true;
-				}
-				if (xenotypeGenes[i].hairColorOverride != null)
-				{
-					xenotypeHasHairColor = true;
-				}
 			}
-			if (!xenotypeHasSkinColor)
-			{
-				pawn.genes?.AddGene(WVC_GenesDefOf.Skin_SheerWhite, false);
-			}
-			if (!xenotypeHasHairColor)
-			{
-				pawn.genes?.AddGene(WVC_GenesDefOf.Hair_SnowWhite, false);
-			}
+			ReimplanterUtility.PostImplantDebug(pawn);
 		}
 
 		// =================

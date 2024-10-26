@@ -13,6 +13,66 @@ namespace WVC_XenotypesAndGenes
 	public static class GeneResourceUtility
 	{
 
+		public static int GetThrallsLimit(Pawn caller, float cellsPerDay)
+		{
+			float limit = 0f;
+			List<Pawn> colonists = caller?.Map?.mapPawns?.SpawnedPawnsInFaction(caller.Faction);
+			// colonists.Shuffle();
+			foreach (Pawn colonist in colonists)
+			{
+				Gene_ResurgentCells gene = colonist?.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
+				if (gene == null)
+				{
+					continue;
+				}
+				foreach (IGeneResourceDrain drainGene in gene.GetDrainGenes)
+				{
+					if (drainGene.CanOffset)
+					{
+						// Log.Error("drainGene.ResourceLossPerDay: " + drainGene.ResourceLossPerDay.ToString());
+						// limit += (int)(drainGene.ResourceLossPerDay * -100);
+						limit += drainGene.ResourceLossPerDay * -1;
+					}
+				}
+			}
+			// Log.Error("Limit v0: " + limit.ToString());
+			if (limit <= 0f)
+			{
+				return 0;
+			}
+			limit = (int)((limit / (cellsPerDay > 0f ? cellsPerDay : 0.01f)) * 100);
+			// Log.Error("Limit v1: " + limit.ToString());
+			if (limit >= 1000f)
+			{
+				return 999;
+			}
+			return (int)limit;
+		}
+
+		public static List<Gene_GeneticThrall> GetAllThralls(Pawn pawn)
+		{
+			List<Gene_GeneticThrall> list = new();
+			List<Pawn> colonists = pawn?.Map?.mapPawns?.SpawnedPawnsInFaction(pawn.Faction);
+			// colonists.Shuffle();
+			if (!colonists.NullOrEmpty())
+			{
+				foreach (Pawn colonist in colonists)
+				{
+					if (colonist.Dead)
+					{
+						continue;
+					}
+					Gene_GeneticThrall thralls = colonist?.genes?.GetFirstGeneOfType<Gene_GeneticThrall>();
+					if (thralls == null)
+					{
+						continue;
+					}
+					list.Add(thralls);
+				}
+			}
+			return list;
+		}
+
 		public static void TryAddMechlinkRandomly(Pawn pawn, float chance = 0.02f)
 		{
 			if (!pawn.IsHashIntervalTick(71712))
@@ -257,7 +317,7 @@ namespace WVC_XenotypesAndGenes
 			// Brain test
 			if (pawn?.health?.hediffSet?.GetBrain() == null)
 			{
-				DuplicateUtility.NullifyBackstory(pawn);
+				//DuplicateUtility.NullifyBackstory(pawn);
 				DuplicateUtility.NullifySkills(pawn);
 			}
 			// Undead Resurrect
@@ -308,7 +368,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (resurrectThought != null)
 				{
-					pawn.needs?.mood?.thoughts?.memories.TryGainMemory(resurrectThought);
+					pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(resurrectThought);
 				}
 				return true;
 			}

@@ -93,12 +93,12 @@ namespace WVC_XenotypesAndGenes
 		public static EffecterDef CocoonDestroyed;
 		// 1.5 Update
 		public static AbilityDef Bloodfeed;
-		public static AbilityDef WVC_XaG_Cellsfeed;
+		//public static AbilityDef WVC_XaG_Cellsfeed;
 		public static SoundDef Hive_Spawn;
 		// [MayRequireAnomaly]
 		// public static MutantDef WVC_Thrall;
 		public static JobDef WVC_XaG_CastBloodfeedOnPawnMelee;
-		public static JobDef WVC_XaG_CastCellsfeedOnPawnMelee;
+		//public static JobDef WVC_XaG_CastCellsfeedOnPawnMelee;
 		// public static JobDef WVC_XaG_FeedBloodeaterForced;
 		//
 		public static RecipeDef WVC_ImplantXenogermSerum;

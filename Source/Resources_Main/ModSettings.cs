@@ -91,6 +91,7 @@ namespace WVC_XenotypesAndGenes
 		public bool bloodfeeder_AutoBloodfeed = false;
 		public float hemogenic_ImplanterFangsChanceFactor = 1f;
 		// Thralls
+		public float thrallMaker_cooldownOverride = 9f;
 		public bool enableInstabilityLastChanceMechanic = true;
 		// Links
 		public bool link_addedMechlinkWithGene = false;
@@ -221,6 +222,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref bloodfeeder_AutoBloodfeed, "bloodfeeder_AutoBloodfeed", defaultValue: false);
 			Scribe_Values.Look(ref hemogenic_ImplanterFangsChanceFactor, "hemogenic_ImplanterFangsChanceFactor", defaultValue: 1f);
 			// Thralls
+			Scribe_Values.Look(ref thrallMaker_cooldownOverride, "thrallMaker_cooldownOverride", defaultValue: 9f);
 			Scribe_Values.Look(ref enableInstabilityLastChanceMechanic, "enableInstabilityLastChanceMechanic", defaultValue: true);
 			// Links
 			Scribe_Values.Look(ref link_addedMechlinkWithGene, "link_addedMechlinkWithGene", defaultValue: false);
@@ -822,6 +824,7 @@ namespace WVC_XenotypesAndGenes
 				listingStandard.CheckboxLabeled("WVC_Label_canNonPlayerPawnResurrect".Translate().Colorize(ColorLibrary.LightBlue), ref settings.canNonPlayerPawnResurrect, "WVC_ToolTip_canNonPlayerPawnResurrect".Translate());
 				listingStandard.CheckboxLabeled("WVC_Label_allowShapeshiftAfterDeath".Translate().Colorize(ColorLibrary.LightBlue), ref settings.allowShapeshiftAfterDeath, "WVC_ToolTip_allowShapeshiftAfterDeath".Translate());
 				listingStandard.CheckboxLabeled("WVC_Label_ThrallMaker_ThrallsInheritMasterGenes".Translate().Colorize(ColorLibrary.LightBlue), ref settings.thrallMaker_ThrallsInheritMasterGenes, "WVC_ToolTip_ThrallMaker_ThrallsInheritMasterGenes".Translate());
+				listingStandard.SliderLabeledWithRef("WVC_Label_thrallMaker_cooldownOverride".Translate((settings.thrallMaker_cooldownOverride).ToString()), ref settings.thrallMaker_cooldownOverride, 0f, 30f, round: 0);
 				listingStandard.CheckboxLabeled("WVC_Label_enableInstabilityLastChanceMechanic".Translate(), ref settings.enableInstabilityLastChanceMechanic, "WVC_ToolTip_enableInstabilityLastChanceMechanic".Translate());
 				listingStandard.CheckboxLabeled("WVC_Label_reincarnation_EnableMechanic".Translate().Colorize(ColorLibrary.LightBlue), ref settings.reincarnation_EnableMechanic, "WVC_ToolTip_reincarnation_EnableMechanic".Translate());
 				listingStandard.SliderLabeledWithRef("WVC_Label_Reincarnation_MinChronoAge".Translate((settings.reincarnation_MinChronoAge).ToString()), ref settings.reincarnation_MinChronoAge, 50f, 2000f, round: 0);
@@ -1017,6 +1020,7 @@ namespace WVC_XenotypesAndGenes
 			// =
 			WVC_Biotech.settings.duplicator_RandomOutcomeChance = settingsDef.duplicator_RandomOutcomeChance;
 			// =
+			WVC_Biotech.settings.thrallMaker_cooldownOverride = settingsDef.thrallMaker_cooldownOverride;
 			WVC_Biotech.settings.thrallMaker_ThrallsInheritMasterGenes = settingsDef.thrallMaker_ThrallsInheritMasterGenes;
 			// =
 			WVC_Biotech.settings.totalHealingIgnoreScarification = settingsDef.totalHealingIgnoreScarification;

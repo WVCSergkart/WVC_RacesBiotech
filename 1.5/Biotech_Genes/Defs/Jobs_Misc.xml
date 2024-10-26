@@ -26,14 +26,14 @@
 	<!-- <allowOpportunisticPrefix>true</allowOpportunisticPrefix> -->
   </JobDef>
 
-  <JobDef>
-	<defName>WVC_XaG_CastCellsfeedOnPawnMelee</defName>
-	<driverClass>WVC_XenotypesAndGenes.JobDriver_CastCellsfeedMelee</driverClass>
-	<casualInterruptible>false</casualInterruptible>
-	<collideWithPawns>false</collideWithPawns>
-	<neverShowWeapon>true</neverShowWeapon>
-	<suspendable>true</suspendable>
-  </JobDef>
+  <!-- <JobDef> -->
+	<!-- <defName>WVC_XaG_CastCellsfeedOnPawnMelee</defName> -->
+	<!-- <driverClass>WVC_XenotypesAndGenes.JobDriver_CastCellsfeedMelee</driverClass> -->
+	<!-- <casualInterruptible>false</casualInterruptible> -->
+	<!-- <collideWithPawns>false</collideWithPawns> -->
+	<!-- <neverShowWeapon>true</neverShowWeapon> -->
+	<!-- <suspendable>true</suspendable> -->
+  <!-- </JobDef> -->
 
   <JobDef>
 	<defName>WVC_XenotypesAndGenes_ResurrectAndChangeXenotype</defName>

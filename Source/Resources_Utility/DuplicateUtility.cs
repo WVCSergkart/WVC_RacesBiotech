@@ -320,10 +320,10 @@ namespace WVC_XenotypesAndGenes
 
 		public static void NullifyBackstory(Pawn pawn)
 		{
-			if (pawn.Spawned)
-			{
-				return;
-			}
+			//if (pawn.Spawned)
+			//{
+			//	return;
+			//}
 			if (pawn.story.Childhood != null)
 			{
 				pawn.story.Childhood = WVC_GenesDefOf.WVC_RacesBiotech_Amnesia_Child;
