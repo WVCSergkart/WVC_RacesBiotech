@@ -85,6 +85,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void ReimplantGenes(ThrallDef thrallDef, Pawn innerPawn)
 		{
+			List<GeneDef> oldXenotypeGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(innerPawn.genes.GenesListForReading);
 			ThrallMaker(innerPawn, thrallDef);
 			if (thrallDef.addGenesFromAbility)
 			{
@@ -111,7 +112,71 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			}
+			List<GeneDef> currentPawnGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(innerPawn.genes.GenesListForReading);
+			if (!oldXenotypeGenes.NullOrEmpty())
+			{
+				int count = (int)(oldXenotypeGenes.Count * 0.2f);
+				oldXenotypeGenes.Shuffle();
+				for (int i = 0; i < oldXenotypeGenes.Count; i++)
+                {
+                    GeneDef geneDef = oldXenotypeGenes[i];
+					if (CanImplant(innerPawn, currentPawnGenes, geneDef))
+                    {
+                        innerPawn.genes?.AddGene(geneDef, false);
+						currentPawnGenes.Add(geneDef);
+					}
+                    else
+                    {
+                        count++;
+                    }
+                    if (i > count)
+                    {
+                        break;
+                    }
+                }
+			}
+			currentPawnGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(innerPawn.genes.GenesListForReading);
+			List<GeneDef> allMasterGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(parent.pawn.genes.GenesListForReading);
+			if (!allMasterGenes.NullOrEmpty())
+			{
+				int count = (int)(allMasterGenes.Count * 0.2f);
+				allMasterGenes.Shuffle();
+				for (int i = 0; i < allMasterGenes.Count; i++)
+				{
+					GeneDef geneDef = allMasterGenes[i];
+					if (CanImplant(innerPawn, currentPawnGenes, geneDef))
+					{
+						innerPawn.genes?.AddGene(geneDef, false);
+						currentPawnGenes.Add(geneDef);
+					}
+					else
+					{
+						count++;
+					}
+					if (i > count)
+					{
+						break;
+					}
+				}
+			}
 			GeneUtility.UpdateXenogermReplication(innerPawn);
+			ReimplanterUtility.PostImplantDebug(innerPawn);
+		}
+
+        public static bool CanImplant(Pawn innerPawn, List<GeneDef> currentPawnGenes, GeneDef geneDef)
+        {
+            return geneDef.passOnDirectly && geneDef.prerequisite == null && !XaG_GeneUtility.HasGene(geneDef, innerPawn) && !XaG_GeneUtility.ConflictWith(geneDef, currentPawnGenes) && CanAcceptMetabolismAfterImplanting(currentPawnGenes, geneDef);
+		}
+
+		public static bool CanAcceptMetabolismAfterImplanting(List<GeneDef> geneSet, GeneDef gene)
+		{
+			int result = geneSet.Sum((GeneDef x) => x.biostatMet);
+			if (result > 5 && gene.biostatMet < 0 || result < -5 && gene.biostatMet > 0)
+            {
+				return true;
+            }
+			result += gene.biostatMet;
+			return result < 6 && result > -6;
 		}
 
 		// =================
@@ -134,7 +199,6 @@ namespace WVC_XenotypesAndGenes
 			{
 				pawn.genes?.AddGene(xenotypeGenes[i], false);
 			}
-			ReimplanterUtility.PostImplantDebug(pawn);
 		}
 
 		// =================

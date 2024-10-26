@@ -132,7 +132,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void ConsumeCellsFromTarget(Pawn consumer, Pawn target)
 		{
-			GeneFeaturesUtility.DoCellsBite(consumer, target, 12, 1f);
+			GeneFeaturesUtility.DoCellsBite(consumer, target, 6, 1f);
             if (consumer.Map != null)
 			{
 				FleckMaker.AttachedOverlay(consumer, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);

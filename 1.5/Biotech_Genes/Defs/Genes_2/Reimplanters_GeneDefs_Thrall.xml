@@ -22,7 +22,7 @@
 	  <AbilityDef>WVC_ReimplanterThrallMaker</AbilityDef>
 	</descriptionHyperlinks>
 	<customEffectDescriptions>
-		<li>Target gets the &lt;color=#8a8ae6&gt;selected geneset&lt;/color&gt;, &lt;color=#8a8ae6&gt;caster skills&lt;/color&gt;, &lt;color=#8a8ae6&gt;unique gene&lt;/color&gt; and &lt;color=#8a8ae6&gt;loses backstory&lt;/color&gt;.</li>
+		<li>Target gets the &lt;color=#8a8ae6&gt;selected geneset&lt;/color&gt;, &lt;color=#8a8ae6&gt;caster skills&lt;/color&gt;, &lt;color=#8a8ae6&gt;random caster genes&lt;/color&gt;, &lt;color=#8a8ae6&gt;thrall gene&lt;/color&gt; and &lt;color=#8a8ae6&gt;loses backstory&lt;/color&gt;.</li>
 		<!-- <li>&lt;color=#ff8585&gt;Can't be absorbed forcly.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<exclusionTags>

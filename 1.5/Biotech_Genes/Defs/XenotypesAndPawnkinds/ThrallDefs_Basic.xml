@@ -6,7 +6,7 @@
   <WVC_XenotypesAndGenes.ThrallDef Name="WVC_XenotypesAndGenes_ThrallDefs_Base" Abstract="True" WVC_XaG_XenotypeRemoveTag="NonSpecificOrMisc">
 	<label>thrall</label>
 	<description>An ordinary thrall with its own strengths and weaknesses.</description>
-	<generalDesc>In general thralls are rare xenohumans with a set of genes that does not fall into any known xenotype. Thralls are created from fresh corpses and usually cannot exist without the support of a master, since their genetic instabilization inevitably leads to death.</generalDesc>
+	<generalDesc>In general thralls are rare xenohumans with a set of genes that does not fall into any known xenotype. Thralls are created from fresh corpses and usually cannot exist without the support of a master, since their genetic instabilization inevitably leads to death or transformation into a ghoul.</generalDesc>
 	<xenotypeIconDef>WVC_Thrall_x1c</xenotypeIconDef>
 	<xenotypeDef>WVC_Thrall</xenotypeDef>
 	<acceptableRotStages>
@@ -15,12 +15,12 @@
 	</acceptableRotStages>
 	<genes>
 		<li>WVC_GeneSavant</li>
-		<!-- <li MayRequire="ludeon.rimworld.anomaly">WVC_Inhumanized</li> -->
+		<li MayRequire="ludeon.rimworld.anomaly">WVC_Inhumanized</li>
 		<li>ToxicEnvironmentResistance_Total</li>
 		<li>Aggression_DeadCalm</li>
 		<li>WVC_NoLearning</li>
-		<li>WVC_PredatorPrey_NotTasty</li>
-		<li>WVC_AptitudeShameful_Social</li>
+		<!-- <li>WVC_PredatorPrey_NotTasty</li> -->
+		<!-- <li>WVC_AptitudeShameful_Social</li> -->
 	</genes>
   </WVC_XenotypesAndGenes.ThrallDef>
 
@@ -30,15 +30,16 @@
 	<selectionWeight>0.33</selectionWeight>
 	<genes>
 		<li>WVC_GauntSkin</li>
-		<li>Hair_DarkBlack</li>
+		<!-- <li>Hair_DarkBlack</li> -->
 		<li>WVC_SkinColor_Granite</li>
-		<li>WVC_SkinColor_Limestone</li>
-		<li>WVC_SkinColor_Marble</li>
-		<li>WVC_SkinColor_Slate</li>
+		<!-- <li>WVC_SkinColor_Limestone</li> -->
+		<!-- <li>WVC_SkinColor_Marble</li> -->
+		<!-- <li>WVC_SkinColor_Slate</li> -->
+		<li>Hair_BaldOnly</li>
 		<!-- Needs -->
-		<li>WVC_NaturalDisableComfort</li>
-		<li>WVC_NaturalDisableOutdoors</li>
-		<li>WVC_NaturalDisableBeauty</li>
+		<!-- <li>WVC_NaturalDisableComfort</li> -->
+		<!-- <li>WVC_NaturalDisableOutdoors</li> -->
+		<!-- <li>WVC_NaturalDisableBeauty</li> -->
 	</genes>
   </WVC_XenotypesAndGenes.ThrallDef>
 
@@ -47,7 +48,7 @@
   <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Undead">
 	<defName>WVC_Fielder</defName>
 	<label>fielder</label>
-	<description>Field modification of the thrall. These thralls are excellent builders, gardeners, and miners. They have a bonus to speed and can easily recover from cutting wounds, but they are absolutely unsuitable for combat.</description>
+	<description>Field modification of the thrall. They have a bonus to speed and can easily recover from cutting wounds.</description>
 	<!-- <xenotypeIconDef>WVC_Thrall_Elf1c</xenotypeIconDef> -->
 	<!-- <recommendedRole>Work</recommendedRole> -->
 	<selectionWeight>1.1</selectionWeight>
@@ -55,221 +56,211 @@
 		<li>Superclotting</li>
 		<li>WVC_PsychicAbility_Deaf</li>
 		<li>MoveSpeed_VeryQuick</li>
-		<!-- <li>WVC_DemonTailA</li> -->
-		<!-- <li>Ears_Pointed</li> -->
-		<!-- <li>WVC_BodySize_Small</li> -->
+		<li>WVC_Delicate</li>
 		<!-- = -->
-		<li>WVC_AptitudeShameful_Shooting</li>
-		<li>WVC_AptitudeShameful_Melee</li>
-		<li>AptitudeRemarkable_Construction</li>
-		<li>AptitudeRemarkable_Mining</li>
-		<li>WVC_AptitudeShameful_Cooking</li>
-		<li>AptitudeRemarkable_Plants</li>
-		<li>WVC_AptitudeShameful_Animals</li>
-		<li>WVC_AptitudeShameful_Crafting</li>
-		<li>WVC_AptitudeShameful_Artistic</li>
-		<li>WVC_AptitudeShameful_Medicine</li>
-		<li>WVC_AptitudeShameful_Intellectual</li>
+		<!-- <li>WVC_AptitudeShameful_Shooting</li> -->
+		<!-- <li>WVC_AptitudeShameful_Melee</li> -->
+		<!-- <li>AptitudeRemarkable_Construction</li> -->
+		<!-- <li>AptitudeRemarkable_Mining</li> -->
+		<!-- <li>WVC_AptitudeShameful_Cooking</li> -->
+		<!-- <li>AptitudeRemarkable_Plants</li> -->
+		<!-- <li>WVC_AptitudeShameful_Animals</li> -->
+		<!-- <li>WVC_AptitudeShameful_Crafting</li> -->
+		<!-- <li>WVC_AptitudeShameful_Artistic</li> -->
+		<!-- <li>WVC_AptitudeShameful_Medicine</li> -->
+		<!-- <li>WVC_AptitudeShameful_Intellectual</li> -->
 	</genes>
   </WVC_XenotypesAndGenes.ThrallDef>
 
   <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Undead">
 	<defName>WVC_Striker</defName>
 	<label>striker</label>
-	<description>Combat modification of the thrall. These thralls are excellent fighters, they can take a lot of damage and put up a serious fight against superior opponents, but they are completely useless otherwise.</description>
+	<description>Combat modification of the thrall. These thralls are excellent fighters.</description>
 	<!-- <xenotypeIconDef>WVC_Xeno30c</xenotypeIconDef> -->
 	<!-- <recommendedRole>Combat</recommendedRole> -->
 	<selectionWeight>1.1</selectionWeight>
 	<genes>
-		<li>WoundHealing_SuperFast</li>
+		<!-- <li>WoundHealing_SuperFast</li> -->
 		<li>Superclotting</li>
-		<li>MoveSpeed_VeryQuick</li>
+		<!-- <li>MoveSpeed_VeryQuick</li> -->
 		<li>MeleeDamage_Strong</li>
-		<li>WVC_Tough</li>
-		<!-- <li>WVC_BodySize_Large</li> -->
+		<!-- <li>WVC_Tough</li> -->
 		<!-- = -->
-		<li>WVC_AptitudeMarvelous_Shooting</li>
-		<li>WVC_AptitudeMarvelous_Melee</li>
-		<li>WVC_AptitudeShameful_Construction</li>
-		<li>WVC_AptitudeShameful_Mining</li>
-		<li>WVC_AptitudeShameful_Cooking</li>
-		<li>WVC_AptitudeShameful_Plants</li>
-		<li>WVC_AptitudeShameful_Animals</li>
-		<li>WVC_AptitudeShameful_Crafting</li>
-		<li>WVC_AptitudeShameful_Artistic</li>
-		<li>WVC_AptitudeShameful_Medicine</li>
-		<li>WVC_AptitudeShameful_Intellectual</li>
+		<li>AptitudeStrong_Shooting</li>
+		<li>AptitudeStrong_Melee</li>
+		<!-- <li>WVC_AptitudeShameful_Construction</li> -->
+		<!-- <li>WVC_AptitudeShameful_Mining</li> -->
+		<!-- <li>WVC_AptitudeShameful_Cooking</li> -->
+		<!-- <li>WVC_AptitudeShameful_Plants</li> -->
+		<!-- <li>WVC_AptitudeShameful_Animals</li> -->
+		<!-- <li>WVC_AptitudeShameful_Crafting</li> -->
+		<!-- <li>WVC_AptitudeShameful_Artistic</li> -->
+		<!-- <li>WVC_AptitudeShameful_Medicine</li> -->
+		<!-- <li>WVC_AptitudeShameful_Intellectual</li> -->
 	</genes>
   </WVC_XenotypesAndGenes.ThrallDef>
 
   <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Undead">
 	<defName>WVC_Artister</defName>
 	<label>artister</label>
-	<description>Crafter modification of the thrall. These thralls are excellent artists and crafters. They do not require much food, but they are very slow and weak.</description>
+	<description>Crafter modification of the thrall. These thralls are excellent artists and crafters.</description>
 	<!-- <xenotypeIconDef>WVC_Thrall_Cat1c</xenotypeIconDef> -->
 	<!-- <recommendedRole>Work</recommendedRole> -->
 	<selectionWeight>0.6</selectionWeight>
 	<genes>
-		<!-- <li>WVC_NaturalTelepathy</li> -->
-		<li>WVC_StoneStomach</li>
-		<li>WVC_Delicate</li>
-		<!-- <li>WVC_CatEarsA</li> -->
+		<!-- <li>WVC_StoneStomach</li> -->
+		<!-- <li>WVC_Delicate</li> -->
 		<li>DarkVision</li>
 		<li>ElongatedFingers</li>
-		<!-- <li>WVC_BodySize_Small</li> -->
 		<!-- = -->
-		<li>WVC_AptitudeShameful_Shooting</li>
-		<li>WVC_AptitudeShameful_Melee</li>
-		<li>WVC_AptitudeShameful_Construction</li>
-		<li>WVC_AptitudeShameful_Mining</li>
-		<li>WVC_AptitudeShameful_Cooking</li>
-		<li>WVC_AptitudeShameful_Plants</li>
-		<li>WVC_AptitudeShameful_Animals</li>
-		<li>WVC_AptitudeMarvelous_Crafting</li>
-		<li>WVC_AptitudeMarvelous_Artistic</li>
-		<li>WVC_AptitudeShameful_Medicine</li>
-		<li>WVC_AptitudeShameful_Intellectual</li>
+		<!-- <li>WVC_AptitudeShameful_Shooting</li> -->
+		<!-- <li>WVC_AptitudeShameful_Melee</li> -->
+		<!-- <li>WVC_AptitudeShameful_Construction</li> -->
+		<!-- <li>WVC_AptitudeShameful_Mining</li> -->
+		<!-- <li>WVC_AptitudeShameful_Cooking</li> -->
+		<!-- <li>WVC_AptitudeShameful_Plants</li> -->
+		<!-- <li>WVC_AptitudeShameful_Animals</li> -->
+		<li>AptitudeStrong_Crafting</li>
+		<li>AptitudeRemarkable_Artistic</li>
+		<!-- <li>WVC_AptitudeShameful_Medicine</li> -->
+		<!-- <li>WVC_AptitudeShameful_Intellectual</li> -->
 	</genes>
   </WVC_XenotypesAndGenes.ThrallDef>
 
   <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Undead">
 	<defName>WVC_Smartkin</defName>
 	<label>smartkin</label>
-	<description>Research modification of the thrall. These thralls are excellent doctors and researchers. They require little food, but are very slow and fragile, so it is recommended to keep them within the base.</description>
+	<description>Research modification of the thrall. These thralls are excellent doctors and researchers.</description>
 	<!-- <xenotypeIconDef>WVC_Thrall_Demon1c</xenotypeIconDef> -->
 	<!-- <recommendedRole>Work</recommendedRole> -->
 	<selectionWeight>1.0</selectionWeight>
 	<genes>
-		<li>WVC_ClothedArmor</li>
-		<!-- <li>WVC_Hair_PunkOnly</li> -->
-		<li>WVC_SleepyStomach</li>
+		<!-- <li>WVC_ClothedArmor</li> -->
+		<!-- <li>WVC_SleepyStomach</li> -->
 		<li>WVC_PsychicAbility_Dull</li>
 		<li>WVC_Fragile</li>
-		<!-- <li>WVC_HeadBoneDoubleHorn</li> -->
 		<!-- = -->
-		<li>WVC_AptitudeShameful_Shooting</li>
-		<li>WVC_AptitudeShameful_Melee</li>
-		<li>WVC_AptitudeShameful_Construction</li>
-		<li>WVC_AptitudeShameful_Mining</li>
-		<li>WVC_AptitudeShameful_Cooking</li>
-		<li>WVC_AptitudeShameful_Plants</li>
-		<li>WVC_AptitudeShameful_Animals</li>
-		<li>WVC_AptitudeShameful_Crafting</li>
-		<li>WVC_AptitudeShameful_Artistic</li>
-		<li>WVC_AptitudeMarvelous_Medicine</li>
-		<li>WVC_AptitudeMarvelous_Intellectual</li>
+		<!-- <li>WVC_AptitudeShameful_Shooting</li> -->
+		<!-- <li>WVC_AptitudeShameful_Melee</li> -->
+		<!-- <li>WVC_AptitudeShameful_Construction</li> -->
+		<!-- <li>WVC_AptitudeShameful_Mining</li> -->
+		<!-- <li>WVC_AptitudeShameful_Cooking</li> -->
+		<!-- <li>WVC_AptitudeShameful_Plants</li> -->
+		<!-- <li>WVC_AptitudeShameful_Animals</li> -->
+		<!-- <li>WVC_AptitudeShameful_Crafting</li> -->
+		<!-- <li>WVC_AptitudeShameful_Artistic</li> -->
+		<li>AptitudeStrong_Medicine</li>
+		<li>AptitudeStrong_Intellectual</li>
 	</genes>
   </WVC_XenotypesAndGenes.ThrallDef>
 
   <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Undead">
 	<defName>WVC_Gardernkind</defName>
 	<label>gardernkind</label>
-	<description>Green modification of the thrall. These thralls are excellent gardeners and tamers. They also have excellent innate armor and do not feel pain.</description>
+	<description>Green modification of the thrall. These thralls are excellent gardeners and tamers. They also have excellent innate armor and bonus to speed.</description>
 	<!-- <xenotypeIconDef>WVC_Thrall_Demon1c</xenotypeIconDef> -->
 	<!-- <recommendedRole>Work, Tank</recommendedRole> -->
 	<genes>
 		<li>WVC_ArmoredSkin_Stone</li>
-		<!-- <li>WVC_Hair_TribalOnly</li> -->
-		<li>WVC_Pain_Nullified</li>
-		<li>WVC_SlaveSuppression_Submissive</li>
-		<li>WVC_DebuffNoUV_ExtremePsychicSensitivity</li>
-		<!-- <li>WVC_HeadBoneHorns</li> -->
+		<li>MoveSpeed_VeryQuick</li>
+		<!-- <li>WVC_Pain_Nullified</li> -->
+		<!-- <li>WVC_SlaveSuppression_Submissive</li> -->
+		<!-- <li>WVC_DebuffNoUV_ExtremePsychicSensitivity</li> -->
 		<!-- = -->
-		<li>WVC_AptitudeShameful_Shooting</li>
-		<li>WVC_AptitudeShameful_Melee</li>
-		<li>WVC_AptitudeShameful_Construction</li>
-		<li>WVC_AptitudeShameful_Mining</li>
-		<li>WVC_AptitudeShameful_Cooking</li>
-		<li>WVC_AptitudeMarvelous_Plants</li>
-		<li>WVC_AptitudeMarvelous_Animals</li>
-		<li>WVC_AptitudeShameful_Crafting</li>
-		<li>WVC_AptitudeShameful_Artistic</li>
-		<li>WVC_AptitudeShameful_Medicine</li>
-		<li>WVC_AptitudeShameful_Intellectual</li>
+		<!-- <li>WVC_AptitudeShameful_Shooting</li> -->
+		<!-- <li>WVC_AptitudeShameful_Melee</li> -->
+		<!-- <li>WVC_AptitudeShameful_Construction</li> -->
+		<!-- <li>WVC_AptitudeShameful_Mining</li> -->
+		<!-- <li>WVC_AptitudeShameful_Cooking</li> -->
+		<li>AptitudeStrong_Plants</li>
+		<li>AptitudeRemarkable_Animals</li>
+		<!-- <li>WVC_AptitudeShameful_Crafting</li> -->
+		<!-- <li>WVC_AptitudeShameful_Artistic</li> -->
+		<!-- <li>WVC_AptitudeShameful_Medicine</li> -->
+		<!-- <li>WVC_AptitudeShameful_Intellectual</li> -->
 	</genes>
   </WVC_XenotypesAndGenes.ThrallDef>
 
   <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Undead">
 	<defName>WVC_Molekin</defName>
 	<label>molekin</label>
-	<description>Mining modification of the thrall. These thralls are excellent cooks and miners. They also gain a defense bonus while naked, but they have an increased chance of a nervous breakdown.</description>
+	<description>Mining modification of the thrall. These thralls are excellent cooks and miners.</description>
 	<!-- <xenotypeIconDef>WVC_Thrall_Demon1c</xenotypeIconDef> -->
 	<!-- <recommendedRole>Work</recommendedRole> -->
 	<genes>
-		<li>WVC_UnClothedArmor</li>
-		<!-- <li>WVC_Hair_TribalOnly</li> -->
-		<li>WVC_Pain_Extra</li>
-		<li>WVC_SlaveSuppression_Unruly</li>
-		<li>WVC_FurskinInstincts_MediumWildness</li>
-		<li>WVC_DebuffUV_ExtremePsychicSensitivity</li>
+		<li>WVC_Delicate</li>
+		<li>DarkVision</li>
+		<!-- <li>WVC_UnClothedArmor</li> -->
+		<!-- <li>WVC_Pain_Extra</li> -->
+		<!-- <li>WVC_SlaveSuppression_Unruly</li> -->
+		<!-- <li>WVC_FurskinInstincts_MediumWildness</li> -->
+		<!-- <li>WVC_DebuffUV_ExtremePsychicSensitivity</li> -->
 		<!-- = -->
-		<li>WVC_AptitudeShameful_Shooting</li>
-		<li>WVC_AptitudeShameful_Melee</li>
-		<li>WVC_AptitudeShameful_Construction</li>
-		<li>WVC_AptitudeMarvelous_Mining</li>
-		<li>WVC_AptitudeMarvelous_Cooking</li>
-		<li>WVC_AptitudeShameful_Plants</li>
-		<li>WVC_AptitudeShameful_Animals</li>
-		<li>WVC_AptitudeShameful_Crafting</li>
-		<li>WVC_AptitudeShameful_Artistic</li>
-		<li>WVC_AptitudeShameful_Medicine</li>
-		<li>WVC_AptitudeShameful_Intellectual</li>
+		<!-- <li>WVC_AptitudeShameful_Shooting</li> -->
+		<!-- <li>WVC_AptitudeShameful_Melee</li> -->
+		<!-- <li>WVC_AptitudeShameful_Construction</li> -->
+		<li>AptitudeStrong_Mining</li>
+		<li>AptitudeStrong_Cooking</li>
+		<!-- <li>WVC_AptitudeShameful_Plants</li> -->
+		<!-- <li>WVC_AptitudeShameful_Animals</li> -->
+		<!-- <li>WVC_AptitudeShameful_Crafting</li> -->
+		<!-- <li>WVC_AptitudeShameful_Artistic</li> -->
+		<!-- <li>WVC_AptitudeShameful_Medicine</li> -->
+		<!-- <li>WVC_AptitudeShameful_Intellectual</li> -->
 	</genes>
   </WVC_XenotypesAndGenes.ThrallDef>
 
   <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Undead">
 	<defName>WVC_Carrier</defName>
 	<label>carrier</label>
-	<description>Power modification of the thrall. These thralls have very good innate armor, and can also carry significantly more cargo. Among other things, they are excellent tamers. But they have a very high chance of having a nervous breakdown and are more sensitive to pain.</description>
+	<description>Power modification of the thrall. These thralls have very good innate armor, and can also carry significantly more weight.</description>
 	<!-- <xenotypeIconDef>WVC_Thrall_Demon1c</xenotypeIconDef> -->
 	<!-- <recommendedRole>Tamer, Carrier</recommendedRole> -->
 	<genes>
 		<li>WVC_ArmoredSkin_Plasteel</li>
-		<!-- <li>WVC_Hair_NonBald</li> -->
-		<li>WVC_Pain_Extra</li>
+		<!-- <li>WVC_Pain_Extra</li> -->
 		<li>WVC_MecaBodyParts_Spine</li>
-		<li>WVC_FurskinInstincts_HighWildness</li>
-		<li>WVC_FurskinInstincts_Base</li>
+		<!-- <li>WVC_FurskinInstincts_HighWildness</li> -->
+		<!-- <li>WVC_FurskinInstincts_Base</li> -->
 		<!-- = -->
-		<li>WVC_AptitudeShameful_Shooting</li>
-		<li>WVC_AptitudeShameful_Melee</li>
-		<li>WVC_AptitudeShameful_Construction</li>
-		<li>WVC_AptitudeShameful_Mining</li>
-		<li>WVC_AptitudeShameful_Cooking</li>
-		<li>WVC_AptitudeShameful_Plants</li>
-		<li>WVC_AptitudeFaultless_Animals</li>
-		<li>WVC_AptitudeShameful_Crafting</li>
-		<li>WVC_AptitudeShameful_Artistic</li>
-		<li>WVC_AptitudeShameful_Medicine</li>
-		<li>WVC_AptitudeShameful_Intellectual</li>
+		<!-- <li>WVC_AptitudeShameful_Shooting</li> -->
+		<!-- <li>WVC_AptitudeShameful_Melee</li> -->
+		<!-- <li>WVC_AptitudeShameful_Construction</li> -->
+		<!-- <li>WVC_AptitudeShameful_Mining</li> -->
+		<!-- <li>WVC_AptitudeShameful_Cooking</li> -->
+		<!-- <li>WVC_AptitudeShameful_Plants</li> -->
+		<!-- <li>WVC_AptitudeFaultless_Animals</li> -->
+		<!-- <li>WVC_AptitudeShameful_Crafting</li> -->
+		<!-- <li>WVC_AptitudeShameful_Artistic</li> -->
+		<!-- <li>WVC_AptitudeShameful_Medicine</li> -->
+		<!-- <li>WVC_AptitudeShameful_Intellectual</li> -->
 	</genes>
   </WVC_XenotypesAndGenes.ThrallDef>
 
   <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Undead">
 	<defName>WVC_Fortkind</defName>
 	<label>fortkind</label>
-	<description>Defensive modification of the thrall. These thralls are incredibly durable. They have impenetrable armor, do not feel pain and are practically indestructible. But they are quite slow.</description>
+	<description>Defensive modification of the thrall. These thralls are incredibly durable.</description>
 	<!-- <xenotypeIconDef>WVC_Thrall_Demon1c</xenotypeIconDef> -->
 	<!-- <recommendedRole>Combat, Tank</recommendedRole> -->
 	<genes>
 		<li>WVC_ArmoredSkin_Fortress</li>
-		<li>WVC_Unbreakable</li>
-		<li>WVC_AgeDebuff_MoveSpeed</li>
-		<li>WVC_MecaBodyParts_Spine</li>
-		<!-- <li>WVC_BodySize_Large</li> -->
+		<!-- <li>WVC_Unbreakable</li> -->
+		<!-- <li>WVC_AgeDebuff_MoveSpeed</li> -->
+		<!-- <li>WVC_MecaBodyParts_Spine</li> -->
 		<li>WVC_Pain_Nullified</li>
 		<!-- = -->
-		<li>WVC_AptitudeShameful_Shooting</li>
-		<li>WVC_AptitudeShameful_Melee</li>
-		<li>WVC_AptitudeShameful_Construction</li>
-		<li>WVC_AptitudeShameful_Mining</li>
-		<li>WVC_AptitudeShameful_Cooking</li>
-		<li>WVC_AptitudeShameful_Plants</li>
-		<li>WVC_AptitudeShameful_Animals</li>
-		<li>WVC_AptitudeShameful_Crafting</li>
-		<li>WVC_AptitudeShameful_Artistic</li>
-		<li>WVC_AptitudeShameful_Medicine</li>
-		<li>WVC_AptitudeShameful_Intellectual</li>
+		<!-- <li>WVC_AptitudeShameful_Shooting</li> -->
+		<!-- <li>WVC_AptitudeShameful_Melee</li> -->
+		<!-- <li>WVC_AptitudeShameful_Construction</li> -->
+		<!-- <li>WVC_AptitudeShameful_Mining</li> -->
+		<!-- <li>WVC_AptitudeShameful_Cooking</li> -->
+		<!-- <li>WVC_AptitudeShameful_Plants</li> -->
+		<!-- <li>WVC_AptitudeShameful_Animals</li> -->
+		<!-- <li>WVC_AptitudeShameful_Crafting</li> -->
+		<!-- <li>WVC_AptitudeShameful_Artistic</li> -->
+		<!-- <li>WVC_AptitudeShameful_Medicine</li> -->
+		<!-- <li>WVC_AptitudeShameful_Intellectual</li> -->
 	</genes>
   </WVC_XenotypesAndGenes.ThrallDef>
 

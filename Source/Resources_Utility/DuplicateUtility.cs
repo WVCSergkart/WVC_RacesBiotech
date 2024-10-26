@@ -178,8 +178,8 @@ namespace WVC_XenotypesAndGenes
 
 		public static void CopyGenesOverrides(Pawn newPawn, List<Gene> newGenes, List<Gene> sourceGenes)
 		{
-			int i;
-			for (i = 0; i < sourceGenes.Count; i++)
+			//int i;
+			for (int i = 0; i < sourceGenes.Count; i++)
 			{
 				Gene gene = newGenes[i];
                 try

@@ -461,7 +461,7 @@ namespace WVC_XenotypesAndGenes
 			base.OnGenesChanged();
 			foreach (GeneDef item in pawnEndoGenes)
 			{
-				if (ConflictWith(item, selectedGenes))
+				if (XaG_GeneUtility.ConflictWith(item, selectedGenes))
 				{
 					continue;
 				}
@@ -469,22 +469,6 @@ namespace WVC_XenotypesAndGenes
 				met += item.biostatMet;
 				arc += item.biostatArc;
 			}
-		}
-
-		public static bool ConflictWith(GeneDef geneDef, List<GeneDef> geneDefs)
-		{
-			foreach (GeneDef item in geneDefs)
-			{
-				if (item == geneDef)
-				{
-					return true;
-				}
-				if (item.ConflictsWith(geneDef))
-				{
-					return true;
-				}
-			}
-			return false;
 		}
 
 		public override void DoWindowContents(Rect rect)

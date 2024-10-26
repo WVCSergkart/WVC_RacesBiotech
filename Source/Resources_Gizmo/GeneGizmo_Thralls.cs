@@ -89,11 +89,11 @@ namespace WVC_XenotypesAndGenes
 					select (string)(gene.pawn.NameShortColored.ToString()) + " " + "WVC_XaG_ThrallsBandwidth_NextFeeding".Translate().Resolve() + ": " + gene.nextTick.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
 				taggedString += "\n\n" + entries.ToLineList(" - ");
 			}
-			else if (thrallPawnsCount > 11)
+			else if (thrallPawnsCount > 10)
 			{
 				taggedString += (string)("\n\n" + ("WVC_XaG_ThrallsBandwidthUsage".Translate() + ": ")) + thrallPawnsCount;
 				IEnumerable<string> entries = from gene in geneThralls
-					where !gene.pawn.Dead && gene.nextTick < (60000 * 5)
+					where !gene.pawn.Dead && gene.nextTick < (60000 * 3)
 					// group p by p.kindDef into p
 					select (string)(gene.pawn.NameShortColored.ToString()) + " " + "WVC_XaG_ThrallsBandwidth_NextFeeding".Translate().Resolve() + ": " + gene.nextTick.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
 				taggedString += "\n\n" + entries.ToLineList(" - ");
