@@ -18,7 +18,8 @@
 		<li MayRequire="ludeon.rimworld.anomaly">WVC_Inhumanized</li>
 		<li>ToxicEnvironmentResistance_Total</li>
 		<li>Aggression_DeadCalm</li>
-		<li>WVC_NoLearning</li>
+		<!-- <li>WVC_NoLearning</li> -->
+		<li>Learning_Slow</li>
 		<!-- <li>WVC_PredatorPrey_NotTasty</li> -->
 		<!-- <li>WVC_AptitudeShameful_Social</li> -->
 	</genes>
