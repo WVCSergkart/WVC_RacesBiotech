@@ -61,6 +61,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				MutantUtility.SetPawnAsMutantInstantly(innerPawn, mutantDef);
 			}
+			if (innerPawn.Map != null)
+			{
+				WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(innerPawn, innerPawn.Map).Trigger(innerPawn, null);
+			}
 		}
 
 		// =================

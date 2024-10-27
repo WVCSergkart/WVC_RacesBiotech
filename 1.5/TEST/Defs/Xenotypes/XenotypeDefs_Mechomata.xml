@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Mechomata -->
+  <!-- <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="TEST"> -->
+	<!-- <defName>WVC_Mechomata</defName> -->
+	<!-- <label>mechomata</label> -->
+	<!-- <iconPath>WVC/UI/Mecha_Icons/Icon_Runeex_v0</iconPath> -->
+	<!-- <genes> -->
+		<!-- <li>Body_Standard</li> -->
+		<!-- <li>WVC_SkinColor_MilkWhite</li> -->
+		<!-- <li>WVC_Mecha_EarsCat</li> -->
+		<!-- <li>Hair_SnowWhite</li> -->
+		<!-- <li>WVC_CatTailB</li> -->
+		<!-- <li>WVC_CyberSkin</li> -->
+	<!-- </genes> -->
+  <!-- </XenotypeDef> -->
+
+</Defs>
