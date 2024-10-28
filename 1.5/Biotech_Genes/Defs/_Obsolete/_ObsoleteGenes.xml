@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <AbilityDef ParentName="AbilityTouchBase">
+	<defName>WVC_XaG_Cellsfeed</defName>
+	<label>cellsfeed</label>
+	<description>Bite the target and extract resurgent cells directly from their blood. A fast-acting coagulant will seal the wound to prevent bleeding.\n\nCan only target resurgent humans. Delay gain is affected by the target's body size.</description>
+	<iconPath>WVC/UI/Genes/Gene_Thrall_v0</iconPath>
+	<displayOrder>100</displayOrder>
+	<warmupEffecter>Bloodfeed_Warmup</warmupEffecter>
+	<warmupStartSound>Bloodfeed_Cast</warmupStartSound>
+	<hostile>false</hostile>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+	<verbProperties>
+	  <verbClass>Verb_CastAbilityTouch</verbClass>
+	  <drawAimPie>false</drawAimPie>
+	  <range>-1</range>
+	  <warmupTime>2</warmupTime>
+	  <targetParams>
+		<canTargetSelf>false</canTargetSelf>
+		<canTargetBuildings>false</canTargetBuildings>
+		<canTargetMechs>false</canTargetMechs>
+	  </targetParams>
+	</verbProperties>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityObsolete">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Obsolete</compClass>
+	  </li>
+	</comps>
+  </AbilityDef>
+
   <!-- = -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
 	<defName>WVC_MechaAI_SoftwareFriendOrFoe</defName>

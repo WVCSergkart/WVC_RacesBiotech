@@ -74,12 +74,12 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public interface IGeneCellsfeeder
-	{
+	//public interface IGeneCellsfeeder
+	//{
 
-		void Notify_Cellsfeed(Pawn victim);
+	//	void Notify_Cellsfeed(Pawn victim);
 
-	}
+	//}
 
 	public interface IGeneShapeshift
 	{

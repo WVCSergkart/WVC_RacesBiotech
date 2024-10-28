@@ -69,14 +69,13 @@
     <Compile Include="Resources_Abilities\CompProperties_AbilityChimera.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityDuplicator.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityDustCost.cs" />
+    <Compile Include="Resources_Abilities\CompProperties_AbilityObsolete.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityReimplantXenotype.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityResurgentCost.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityRiseFromTheDead.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilitySpawn.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilitySpawnOnCell.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityThrallMaker.cs" />
-    <Compile Include="Resources_Abilities\CompProperties_Bloodeater.cs" />
-    <Compile Include="Resources_Abilities\CompProperties_CorpseEater.cs" />
     <Compile Include="Resources_Abilities\CompProperties_PregnantHuman.cs" />
     <Compile Include="Resources_Abilities\CompProperties_SafeBloodfeed.cs" />
     <Compile Include="Resources_Abilities\QuestNode_Root_Reincarnation.cs" />
