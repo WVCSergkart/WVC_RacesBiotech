@@ -411,7 +411,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_ThrallsBandwidthUsage>Thralls in colony</WVC_XaG_ThrallsBandwidthUsage>
 
-	<WVC_XaG_ThrallsBandwidth_NextFeeding>cells absorb in</WVC_XaG_ThrallsBandwidth_NextFeeding>
+	<WVC_XaG_ThrallsBandwidth_NextFeeding>cellsfeed in</WVC_XaG_ThrallsBandwidth_NextFeeding>
 
 	<WVC_XaG_GolemEnergyRecovery_Info>Self-charge: {0} (+{1} / day)</WVC_XaG_GolemEnergyRecovery_Info>
 
