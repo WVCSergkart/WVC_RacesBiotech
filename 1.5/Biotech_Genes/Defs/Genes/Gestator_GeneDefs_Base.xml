@@ -44,6 +44,27 @@
   <!-- ============================= -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGestator_Base">
+	<defName>WVC_StartGestation</defName>
+	<label>gestator</label>
+	<iconPath>WVC/UI/Genes/Gestator</iconPath>
+	<customEffectDescriptions>
+		<li>Spawns a baby-pawn with similar genes 5 days after the ability is activated.</li>
+	</customEffectDescriptions>
+	<geneClass>WVC_XenotypesAndGenes.Gene_SimpleGestator</geneClass>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<gestationHediffDef>WVC_RB_AbilityMechaGestator</gestationHediffDef>
+			<cooldownHediffDef>WVC_XenotypesAndGenes_GestatorCooldown</cooldownHediffDef>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefs>
+				<li>WVC_RB_AbilityMechaGestator</li>
+			</hediffDefs>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneGestator_Base">
 	<defName>WVC_XenotypeGestator</defName>
 	<label>xenotype gestator</label>
 	<geneClass>WVC_XenotypesAndGenes.Gene_XenotypeGestator</geneClass>

@@ -34,7 +34,7 @@
 	<label>duplicator</label>
 	<description>Affect the target using a special cluster of archites and create an exact duplicate of the target. After this, the archites will need some time to restore their cluster, during which time the ability cannot be used again.</description>
 	<iconPath>WVC/UI/Genes/Gene_Duplicator_v0</iconPath>
-	<sendLetterOnCooldownComplete>true</sendLetterOnCooldownComplete>
+	<sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
 	<showPsycastEffects>true</showPsycastEffects>
 	<cooldownTicksRange>900000</cooldownTicksRange>
 	<verbProperties>

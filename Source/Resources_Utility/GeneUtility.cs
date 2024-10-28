@@ -687,6 +687,19 @@ namespace WVC_XenotypesAndGenes
 			return null;
 		}
 
+		public static void DevGetMatchingList(Pawn pawn, float percent = 0.6f)
+		{
+			List<XenotypeDef> xenotypesDef = XaG_GeneUtility.GetAllMatchedXenotypes(pawn, ListsUtility.GetAllXenotypesExceptAndroids(), percent);
+			if (!xenotypesDef.NullOrEmpty())
+			{
+				Log.Error("All matched xenotypes:" + "\n" + xenotypesDef.Select((XenotypeDef x) => x.defName).ToLineList(" - "));
+			}
+			else
+			{
+				Log.Error("Match list is null");
+			}
+		}
+
 		// =============================== Getter ===============================
 
 		public static int GetAllGenesCount(XenotypeDef xenotypeDef)

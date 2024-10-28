@@ -36,15 +36,15 @@ namespace WVC_XenotypesAndGenes
 		public override bool CompShouldRemove => XenotypeGestator == null;
 
 		[Unsaved(false)]
-		private Gene_XenotypeGestator cachedGestatorGene;
+		private Gene_SimpleGestator cachedGestatorGene;
 
-		public Gene_XenotypeGestator XenotypeGestator
+		public Gene_SimpleGestator XenotypeGestator
 		{
 			get
 			{
 				if (cachedGestatorGene == null || !cachedGestatorGene.Active)
 				{
-					cachedGestatorGene = Pawn?.genes?.GetFirstGeneOfType<Gene_XenotypeGestator>();
+					cachedGestatorGene = Pawn?.genes?.GetFirstGeneOfType<Gene_SimpleGestator>();
 				}
 				return cachedGestatorGene;
 			}
@@ -68,7 +68,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void CompPostPostRemoved()
 		{
-			cachedGestatorGene = Pawn?.genes?.GetFirstGeneOfType<Gene_XenotypeGestator>();
+			cachedGestatorGene = Pawn?.genes?.GetFirstGeneOfType<Gene_SimpleGestator>();
 			if (Pawn.Faction != Faction.OfPlayer || XenotypeGestator == null)
 			{
 				return;

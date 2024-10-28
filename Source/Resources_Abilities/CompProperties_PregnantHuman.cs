@@ -26,22 +26,12 @@ namespace WVC_XenotypesAndGenes
 		public new CompProperties_AbilityGiveHediff Props => (CompProperties_AbilityGiveHediff)props;
 
 		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
-		{
-			base.Apply(target, dest);
-			Pawn pawn = parent.pawn;
-			if (pawn?.genes != null && pawn.ageTracker.AgeBiologicalYears >= 13)
-			{
-				Hediff_Pregnant hediff_Pregnant = (Hediff_Pregnant)HediffMaker.MakeHediff(HediffDefOf.PregnantHuman, pawn);
-				hediff_Pregnant.Severity = PregnancyUtility.GeneratedPawnPregnancyProgressRange.TrueMin;
-				GeneSet newGeneSet = new();
-				HediffComp_TrueParentGenes.AddParentGenes(pawn, newGeneSet);
-				// GeneSet inheritedGeneSet = PregnancyUtility.GetInheritedGeneSet(null, pawn, out success);
-				newGeneSet.SortGenes();
-				hediff_Pregnant.SetParents(pawn, null, newGeneSet);
-				pawn.health.AddHediff(hediff_Pregnant);
-			}
-		}
+        {
+            base.Apply(target, dest);
+            Pawn pawn = parent.pawn;
+			MiscUtility.Impregnate(pawn);
+        }
 
-	}
+    }
 
 }

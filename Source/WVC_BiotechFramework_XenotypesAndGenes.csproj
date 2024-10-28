@@ -68,15 +68,11 @@
     <Compile Include="Resources_Abilities\CompAbility_Validators.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityChimera.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityDuplicator.cs" />
-    <Compile Include="Resources_Abilities\CompProperties_AbilityDustCost.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityObsolete.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityReimplantXenotype.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityResurgentCost.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityRiseFromTheDead.cs" />
-    <Compile Include="Resources_Abilities\CompProperties_AbilitySpawn.cs" />
-    <Compile Include="Resources_Abilities\CompProperties_AbilitySpawnOnCell.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityThrallMaker.cs" />
-    <Compile Include="Resources_Abilities\CompProperties_PregnantHuman.cs" />
     <Compile Include="Resources_Abilities\CompProperties_SafeBloodfeed.cs" />
     <Compile Include="Resources_Abilities\QuestNode_Root_Reincarnation.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_Light.cs" />
@@ -138,8 +134,6 @@
     <Compile Include="Resources_Hediff\HediffCompProperties_SeverityFromDust.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_SuperRegeneration.cs" />
     <Compile Include="Resources_Hediff\HediffComp_ChangeXenotype.cs" />
-    <Compile Include="Resources_Hediff\HediffComp_DustGestator.cs" />
-    <Compile Include="Resources_Hediff\HediffComp_GenesRegrowing.cs" />
     <Compile Include="Resources_Hediff\HediffComp_ParentGenes.cs" />
     <Compile Include="Resources_Hediff\HediffComp_RemoveIfGeneIsNotActive.cs" />
     <Compile Include="Resources_Hediff\HediffComp_RemoveLetter.cs" />
@@ -227,7 +221,6 @@
     <Compile Include="Resources_Utility\ListsUtility.cs" />
     <Compile Include="Resources_Harmony\Harmony_GeneDefGenerator.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_Gestator.cs" />
-    <Compile Include="Resources_Hediff\Old_HediffComp_Gestator.cs" />
     <Compile Include="Resources_Hediff\HediffComp_GolemGestator.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_GiveHediff.cs" />
     <Compile Include="Resources_Hediff\SelfPopulationRegulation.cs" />

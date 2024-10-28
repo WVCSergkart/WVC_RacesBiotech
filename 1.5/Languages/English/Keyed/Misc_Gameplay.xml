@@ -7,6 +7,14 @@
 
 	<WVC_RB_Gene_MechaGestator>{0} has gestated new pawn.</WVC_RB_Gene_MechaGestator>
 
+	<!-- <WVC_XaG_Gene_SimpleGestatorStart>Start gestation</WVC_XaG_Gene_SimpleGestatorStart> -->
+	<WVC_XaG_Gene_SimpleGestatorDesc>Begins the gestation process, upon completion of which it will spawn a newborn pawn with a copy of all the parent's genes.</WVC_XaG_Gene_SimpleGestatorDesc>
+	<WVC_XaG_Gene_SimpleGestatorFailMessage>It is impossible to start a pregnancy.</WVC_XaG_Gene_SimpleGestatorFailMessage>
+	<WVC_XaG_Gene_SimpleGestatorWarning>After activating the ability, the pawn will receive a moving and manipulation debuff, as well as increased hunger. The process cannot be interrupted.\n\nDo you still need a new pawn?</WVC_XaG_Gene_SimpleGestatorWarning>
+
+	<WVC_XaG_Gene_ParthenogenesisWarning>After using the ability, the pawn will gain a pregnant hediff. The child will receive a full set of endogens, including archites. The process can be interrupted in the same ways as a normal pregnancy.\n\nDo you still need a new pawn?</WVC_XaG_Gene_ParthenogenesisWarning>
+	<WVC_XaG_Gene_ParthenogenesisDesc>Conceive a child without a partner.</WVC_XaG_Gene_ParthenogenesisDesc>
+
 	<WVC_XaG_Gene_ImmaculateConception>{0} gave birth.</WVC_XaG_Gene_ImmaculateConception>
 
 	<WVC_RB_Gene_GolemGestator>{0}'s mechanoid has finished the gestation process.</WVC_RB_Gene_GolemGestator>
@@ -568,7 +576,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<!-- ========== GENE XENO GESTATOR ========== -->
 
-	<WVC_XaG_GeneXenoGestator_Label>Start gestation</WVC_XaG_GeneXenoGestator_Label>
+	<!-- <WVC_XaG_GeneXenoGestator_Label>Start gestation</WVC_XaG_GeneXenoGestator_Label> -->
 	<WVC_XaG_GeneXenoGestator_Desc>You can choose any xenotype for gestation. Gestation time directly depends on the complexity of the xenotype and the gestation period of the gene carrier.</WVC_XaG_GeneXenoGestator_Desc>
 	<!-- <WVC_XaG_GeneXenoGestator_Disabled>Cannot be used before cooldown ends.</WVC_XaG_GeneXenoGestator_Disabled> -->
 	<WVC_XaG_GeneXenoGestator_Disabled>Cannot start the gestation process due to the {0}.</WVC_XaG_GeneXenoGestator_Disabled>

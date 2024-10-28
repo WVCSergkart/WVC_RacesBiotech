@@ -29,6 +29,34 @@
 	</comps>
   </AbilityDef>
 
+  <AbilityDef ParentName="AbilityTouchBase">
+	<defName>WVC_StartGestation</defName>
+	<label>gestator</label>
+	<verbProperties>
+	  <warmupEffecter>Berserk</warmupEffecter>
+	</verbProperties>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityObsolete">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Obsolete</compClass>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+  <AbilityDef ParentName="AbilityTouchBase">
+	<defName>WVC_Dustogenic_AbilityImmaculateConception</defName>
+	<label>dustogenesis</label>
+	<description>Conceive a child without a partner.</description>
+	<iconPath>WVC/UI/Genes/Gene_ImmaculateConception_v0</iconPath>
+	<verbProperties>
+	  <warmupEffecter>Berserk</warmupEffecter>
+	</verbProperties>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityObsolete">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_Obsolete</compClass>
+	  </li>
+	</comps>
+  </AbilityDef>
+
   <!-- = -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
 	<defName>WVC_MechaAI_SoftwareFriendOrFoe</defName>

@@ -80,6 +80,49 @@
 
 	<!-- Abilities -->
 
+  <AbilityDef Name="WVC_GestationAbilities_Base" Abstract="True">
+	<label>gestator</label>
+	<description>Carriers of this gene have a built-in gestator that can produce semi-organic life.</description>
+	<iconPath>WVC/UI/Genes/Gestator</iconPath>
+	<cooldownTicksRange>900000</cooldownTicksRange><!-- 15 days -->
+	<canUseAoeToGetTargets>false</canUseAoeToGetTargets>
+	<stunTargetWhileCasting>True</stunTargetWhileCasting>
+	<showPsycastEffects>False</showPsycastEffects>
+	<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+	<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+	<showWhenDrafted>false</showWhenDrafted>
+	<hostile>false</hostile>
+	<targetRequired>False</targetRequired>
+	<showCastingProgressBar>True</showCastingProgressBar>
+	<!-- <category>WVC_Mechalike</category> -->
+	<!-- <groupDef>WVC_MechaGestator</groupDef> -->
+	<sendLetterOnCooldownComplete>True</sendLetterOnCooldownComplete>
+	<overrideGroupCooldown>True</overrideGroupCooldown>
+	<groupAbility>True</groupAbility>
+	<statBases>
+	  <Ability_Duration>5010</Ability_Duration>
+	</statBases>
+	<verbProperties>
+	  <verbClass>Verb_CastAbility</verbClass>
+	  <label>start gestation</label>
+	  <warmupTime>3</warmupTime>
+	  <range>0</range>
+	  <drawAimPie>False</drawAimPie>
+	  <requireLineOfSight>False</requireLineOfSight>
+	  <warmupEffecter>ControlMech</warmupEffecter>
+	  <violent>false</violent>
+	  <targetParams>
+		<canTargetSelf>True</canTargetSelf>
+		<canTargetBuildings>False</canTargetBuildings>
+		<canTargetAnimals>False</canTargetAnimals>
+		<!-- <thingCategory>Item</thingCategory> -->
+		<!-- <mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable> -->
+	  </targetParams>
+	</verbProperties>
+	<confirmationDialogText>After activating the ability, the pawn will receive a moving and manipulation debuff, as well as increased hunger. The process cannot be interrupted.\n\nDo you still need a new pawn?</confirmationDialogText>
+  </AbilityDef>
+
 	<AbilityDef ParentName="WVC_GestationAbilities_Base">
 		<defName>WVC_XenotypesAndGenes_GolemlikeInstantKill</defName>
 		<label>permanent shutdown</label>

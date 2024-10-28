@@ -17,37 +17,28 @@
 	<defName>WVC_Dustogenic_ImmaculateConception</defName>
 	<label>dustogenesis</label>
 	<description>Carriers of this gene do not require a partner for reproduction. Pregnancy occurs only at the request of the mother.</description>
-	<descriptionHyperlinks>
-	  <AbilityDef>WVC_Dustogenic_AbilityImmaculateConception</AbilityDef>
-	</descriptionHyperlinks>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Parthenogenesis</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_ImmaculateConception_v0</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
 	<displayOrderInCategory>105</displayOrderInCategory>
 	<minAgeActive>13</minAgeActive>
-	<!-- <sterilize>true</sterilize> -->
 	<biostatCpx>3</biostatCpx>
 	<biostatMet>0</biostatMet>
 	<biostatArc>1</biostatArc>
 	<customEffectDescriptions>
-		<!-- <li>Spawns a baby-pawn with similar genes few days after the ability is activated.</li> -->
-		<!-- <li>&lt;color=#ff8585&gt;Female only.&lt;/color&gt;</li> -->
 		<li>Allows to start &lt;color=#8a8ae6&gt;pregnancy&lt;/color&gt; at any time.</li>
 		<li>Childs &lt;color=#8a8ae6&gt;always&lt;/color&gt; receive all mother &lt;color=#8a8ae6&gt;endogenes&lt;/color&gt;.</li>
-		<!-- <li>Birth quality +100%</li> -->
 	</customEffectDescriptions>
-	<!-- <statFactors> -->
-	  <!-- <Fertility>0</Fertility> -->
-	<!-- </statFactors> -->
-	<abilities>
-	  <li>WVC_Dustogenic_AbilityImmaculateConception</li>
-	</abilities>
+	<!-- <descriptionHyperlinks> -->
+	  <!-- <AbilityDef>WVC_Dustogenic_AbilityImmaculateConception</AbilityDef> -->
+	<!-- </descriptionHyperlinks> -->
+	<!-- <abilities> -->
+	  <!-- <li>WVC_Dustogenic_AbilityImmaculateConception</li> -->
+	<!-- </abilities> -->
 	<exclusionTags>
-		<!-- <li>Fertility</li> -->
 		<li>Egglaying</li>
 		<li>AG_Egglaying</li>
 		<li>AG_Gestation</li>
-		<!-- <li>AG_Fertility</li> -->
 	</exclusionTags>
 	<symbolPack>
 	  <prefixSymbols>
@@ -58,6 +49,9 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
 			<birthQualityOffset>1.0</birthQualityOffset>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<gender>Female</gender>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -77,9 +71,7 @@
 	<biostatMet>-1</biostatMet>
 	<prerequisite>WVC_Wings_FeatheredWings</prerequisite>
 	<customEffectDescriptions>
-		<!-- <li>Allows melee and range attacks with feathers.</li> -->
 		<li>To use the ability, the &lt;color=#8a8ae6&gt;feathered wings&lt;/color&gt; gene is required.</li>
-		<!-- <li>Refresh time (*DateTime)~1 day(/DateTime).</li> -->
 	</customEffectDescriptions>
 	<abilities>
 	  <li>WVC_Dustogenic_FeatherBlades</li>
@@ -89,11 +81,6 @@
 		<li><symbol>feather</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
-	<!-- <modExtensions> -->
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
-			<!-- <hediffDefName>WVC_Dustogenic_WingsWithFeatherBlades</hediffDefName> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
   </GeneDef>
 
 </Defs>

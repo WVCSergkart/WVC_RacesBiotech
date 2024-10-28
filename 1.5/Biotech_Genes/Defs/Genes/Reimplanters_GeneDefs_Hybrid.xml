@@ -163,17 +163,12 @@
 		<!-- <onlyReproductive>false</onlyReproductive> -->
 		<humanityCheck>true</humanityCheck>
 	  </li>
-	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGeneIsActive"> -->
-		<!-- <eachOfGenes> -->
-		  <!-- <li>WVC_Hands_Angel</li> -->
-		<!-- </eachOfGenes> -->
-	  <!-- </li> -->
 	  <li Class="CompProperties_AbilityRequiresCapacity">
 		<capacity>Manipulation</capacity>
 	  </li>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityPawnNutritionCost">
-		<nutritionCost>0.73</nutritionCost>
-	  </li>
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityPawnNutritionCost"> -->
+		<!-- <nutritionCost>0.73</nutritionCost> -->
+	  <!-- </li> -->
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityTargetValidation">
 		<humanityCheck>true</humanityCheck>
 		<serumsCheck>false</serumsCheck>

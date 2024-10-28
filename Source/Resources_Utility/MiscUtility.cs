@@ -16,6 +16,28 @@ namespace WVC_XenotypesAndGenes
 	public static class MiscUtility
 	{
 
+		public static bool CanStartPregnancy(Pawn pawn, GeneExtension_Giver giver = null)
+		{
+			return HediffUtility.GetFirstHediffPreventsPregnancy(pawn.health.hediffSet.hediffs) == null 
+				&& (giver == null || giver.gender == Gender.None || giver.gender == pawn.gender)
+				&& pawn.ageTracker?.CurLifeStage?.reproductive != false;
+		}
+
+		public static void Impregnate(Pawn pawn)
+		{
+			if (pawn?.genes != null)
+			{
+				Hediff_Pregnant hediff_Pregnant = (Hediff_Pregnant)HediffMaker.MakeHediff(HediffDefOf.PregnantHuman, pawn);
+				hediff_Pregnant.Severity = PregnancyUtility.GeneratedPawnPregnancyProgressRange.TrueMin;
+				GeneSet newGeneSet = new();
+				HediffComp_TrueParentGenes.AddParentGenes(pawn, newGeneSet);
+				// GeneSet inheritedGeneSet = PregnancyUtility.GetInheritedGeneSet(null, pawn, out success);
+				newGeneSet.SortGenes();
+				hediff_Pregnant.SetParents(pawn, null, newGeneSet);
+				pawn.health.AddHediff(hediff_Pregnant);
+			}
+		}
+
 		public static bool PawnDoIngestJob(Pawn pawn)
 		{
 			return pawn.jobs?.curJob?.def != JobDefOf.Ingest;

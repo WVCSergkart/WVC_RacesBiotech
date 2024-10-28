@@ -233,7 +233,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			for (int i = 0; i < hediffs.Count; i++)
 			{
-				if (hediffs[i].def.preventsPregnancy)
+				if (hediffs[i].def.preventsPregnancy || hediffs[i].def.pregnant)
 				{
 					return hediffs[i];
 				}
