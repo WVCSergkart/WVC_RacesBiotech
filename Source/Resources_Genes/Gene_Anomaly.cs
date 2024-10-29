@@ -133,27 +133,26 @@ namespace WVC_XenotypesAndGenes
 			if (DebugSettings.ShowDevGizmos)
 			{
 				yield return new Command_Action
-				{
+                {
 					defaultLabel = "DEV: TryDuplicate",
 					action = delegate
-					{
-						//int squareRadius = Mathf.FloorToInt(4.9f);
-						//if (CellFinder.TryFindRandomCellNear(pawn.Position, pawn.Map, squareRadius, pos => CompAbilityEffect_Duplicator.IsValidSpawnCell(pos, pawn), out var spawnCell, 100))
-						//{
-						//	string letterDesc = null;
-						//	LetterDef letterType = null;
-						//	DuplicateUtility.TryDuplicatePawn(pawn, pawn, spawnCell, pawn.Map, out Pawn duplicatePawn, ref letterDesc, ref letterType, true);
-						//}
-						Ability ability = pawn.abilities?.GetAbility(def.abilities.First());
-						if (ability != null)
-						{
-							ability.Activate(pawn, pawn);
-						}
-					}
-				};
+                    {
+                        TryDuplicate();
+                    }
+                };
 			}
 		}
 
-	}
+		public bool? CanDuplicate()
+		{
+			return pawn.abilities?.GetAbility(def.abilities.First())?.OnCooldown;
+		}
+
+		public void TryDuplicate()
+        {
+            pawn.abilities?.GetAbility(def.abilities.First())?.Activate(pawn, pawn);
+        }
+
+    }
 
 }

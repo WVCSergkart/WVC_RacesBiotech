@@ -307,13 +307,8 @@ namespace WVC_XenotypesAndGenes
 			};
 		}
 
-		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
+		public void ExtractShard()
 		{
-			base.Notify_PawnDied(dinfo, culprit);
-			if (!Active || dinfo != null || culprit != null)
-			{
-				return;
-			}
 			if (ModLister.CheckAnomaly("Shard"))
 			{
 				if (pawn.SpawnedOrAnyParentSpawned && GenDrop.TryDropSpawn(ThingMaker.MakeThing(ThingDefOf.Shard), pawn.PositionHeld, pawn.MapHeld, ThingPlaceMode.Near, out var resultingThing))
@@ -323,8 +318,9 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 			ReimplanterUtility.SetXenotype(pawn, XenotypeDefOf.Baseliner);
+			pawn.Kill(null);
 		}
 
-	}
+    }
 
 }

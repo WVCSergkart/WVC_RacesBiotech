@@ -164,6 +164,7 @@
     <Compile Include="Resources_Things\CompUseEffect_XenogermSerum.cs" />
     <Compile Include="Resources_Things\DeathActionWorker_DestroyCorpse.cs" />
     <Compile Include="Resources_Things\ThingClass_XenotypeSerum.cs" />
+    <Compile Include="Resources_Thought\MentalStateWorker_Duplicator.cs" />
     <Compile Include="Resources_Thought\ThoughtWorker_Precept_Shapeshifter_Social.cs" />
     <Compile Include="Resources_Utility\DuplicateUtility.cs" />
     <Compile Include="Resources_Utility\GeneratorUtility.cs" />
