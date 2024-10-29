@@ -23,22 +23,18 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			//Log.Error("");
+			LetterDef letterType = LetterDefOf.NeutralEvent;
 			string letterDesc = "WVC_XaG_GeneDuplicationLetter".Translate(parent.pawn.Named("CASTER"), pawn.Named("PAWN"));
-			if (DuplicateUtility.TryDuplicatePawn(parent.pawn, pawn, spawnCell, pawn.Map, out Pawn duplicatePawn, ref letterDesc, Rand.Chance(WVC_Biotech.settings.duplicator_RandomOutcomeChance)))
+			if (DuplicateUtility.TryDuplicatePawn(parent.pawn, pawn, spawnCell, pawn.Map, out Pawn duplicatePawn, ref letterDesc, ref letterType, Rand.Chance(WVC_Biotech.settings.duplicator_RandomOutcomeChance)))
             {
 				Ability ability = duplicatePawn.abilities?.GetAbility(parent.def);
 				if (ability?.CanCooldown == true)
 				{
 					ability.StartCooldown(ability.def.cooldownTicksRange.RandomInRange);
 				}
-                LetterDef letterType = LetterDefOf.NeutralEvent;
 				if (duplicatePawn.Faction == Faction.OfPlayer)
 				{
 					Messages.Message("WVC_XaG_GeneDuplicationSuccessMessage".Translate(parent.pawn.Named("PAWN")), pawn, MessageTypeDefOf.NeutralEvent);
-				}
-				else
-                {
-					letterType = LetterDefOf.ThreatBig;
 				}
 				Find.LetterStack.ReceiveLetter("WVC_XaG_GeneDuplicationLetterLabel".Translate(), letterDesc, letterType, duplicatePawn);
             }

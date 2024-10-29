@@ -32,22 +32,22 @@ A restart is required.</WVC_ToolTip_enable_spawnXenotypesInFactions>
 
 A restart is required.</WVC_ToolTip_disableXenotypes_MainSwitch>
 
-	<WVC_Label_disableXenotypes_Undeads>Disable undeads</WVC_Label_disableXenotypes_Undeads>
+	<WVC_Label_disableXenotypes_Undeads>|- Disable undeads</WVC_Label_disableXenotypes_Undeads>
 	<WVC_ToolTip_disableXenotypes_Undeads>Undead, Ashen, Featherdust, Resurgent.</WVC_ToolTip_disableXenotypes_Undeads>
 
-	<WVC_Label_disableXenotypes_Psycasters>Disable psycasters</WVC_Label_disableXenotypes_Psycasters>
+	<WVC_Label_disableXenotypes_Psycasters>|- Disable psycasters</WVC_Label_disableXenotypes_Psycasters>
 	<WVC_ToolTip_disableXenotypes_Psycasters>Lilif, Deadcat.</WVC_ToolTip_disableXenotypes_Psycasters>
 
-	<WVC_Label_disableXenotypes_Mechalike>Disable mechalike</WVC_Label_disableXenotypes_Mechalike>
-	<WVC_ToolTip_disableXenotypes_Mechalike>Blankind, Mechakin, Rogkind, Throwex.</WVC_ToolTip_disableXenotypes_Mechalike>
+	<WVC_Label_disableXenotypes_Mechalike>|- Disable mechalike</WVC_Label_disableXenotypes_Mechalike>
+	<WVC_ToolTip_disableXenotypes_Mechalike>Blankind, Mechakin, Duplicator, Metalkin.</WVC_ToolTip_disableXenotypes_Mechalike>
 
-	<WVC_Label_disableXenotypes_GolemMasters>Disable golem masters</WVC_Label_disableXenotypes_GolemMasters>
-	<WVC_ToolTip_disableXenotypes_GolemMasters>Runeex, Golemkind.</WVC_ToolTip_disableXenotypes_GolemMasters>
+	<WVC_Label_disableXenotypes_GolemMasters>|- Disable golemists</WVC_Label_disableXenotypes_GolemMasters>
+	<WVC_ToolTip_disableXenotypes_GolemMasters>Golyad, Golemkind.</WVC_ToolTip_disableXenotypes_GolemMasters>
 
-	<WVC_Label_disableXenotypes_Bloodeaters>Disable bloodeaters</WVC_Label_disableXenotypes_Bloodeaters>
+	<WVC_Label_disableXenotypes_Bloodeaters>|- Disable bloodeaters</WVC_Label_disableXenotypes_Bloodeaters>
 	<WVC_ToolTip_disableXenotypes_Bloodeaters>Sandycat, Bloodeater, Chimerkin.</WVC_ToolTip_disableXenotypes_Bloodeaters>
 
-	<WVC_Label_disableXenotypes_Misc>Disable misc</WVC_Label_disableXenotypes_Misc>
+	<WVC_Label_disableXenotypes_Misc>|- Disable misc</WVC_Label_disableXenotypes_Misc>
 	<WVC_ToolTip_disableXenotypes_Misc>Thrall.</WVC_ToolTip_disableXenotypes_Misc>
 
 </LanguageData>

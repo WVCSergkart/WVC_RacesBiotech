@@ -5,9 +5,7 @@
 	<defName>WVC_Duplicator</defName>
 	<label>duplicator</label>
 	<description>Carriers of this gene can create a duplicate of any human with the help of a somewhat injector organ. Upon contact with a target, corrupted archites will begin the process of replicating the target, creating an exact copy of it. &lt;color=#b0bf80&gt;This can have terrible side effects.&lt;/color&gt;</description>
-	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Holoface</geneClass> -->
-	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_Morpher</geneClass> -->
-	<!-- <resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Morpher</resourceGizmoType> -->
+	<geneClass>WVC_XenotypesAndGenes.Gene_Duplicator</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_Duplicator_v0</iconPath>
 	<biostatCpx>4</biostatCpx>
 	<biostatArc>4</biostatArc>

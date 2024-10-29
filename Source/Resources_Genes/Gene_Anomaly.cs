@@ -1,6 +1,8 @@
 using RimWorld;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -92,6 +94,65 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_EmergeMetalhorror : Gene_MachineSenescent
 	{
 
+
+	}
+
+	public class Gene_Inhumanized : Gene
+	{
+
+		private int nextTick = 45679;
+		
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			HediffUtility.TryAddHediff(HediffDefOf.Inhumanized, pawn, def, null);
+		}
+
+		public override void Tick()
+		{
+			// base.Tick();
+			nextTick--;
+			if (nextTick > 0)
+			{
+				return;
+			}
+			if (ModsConfig.AnomalyActive && !pawn.Inhumanized())
+			{
+				pawn.mindState?.mentalBreaker?.TryDoMentalBreak("WVC_XaG_MentalBreakReason_Inhumanized".Translate(), MentalBreakDefOf.HumanityBreak);
+			}
+			nextTick = 157889;
+		}
+
+	}
+
+	public class Gene_Duplicator : Gene
+	{
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: TryDuplicate",
+					action = delegate
+					{
+						//int squareRadius = Mathf.FloorToInt(4.9f);
+						//if (CellFinder.TryFindRandomCellNear(pawn.Position, pawn.Map, squareRadius, pos => CompAbilityEffect_Duplicator.IsValidSpawnCell(pos, pawn), out var spawnCell, 100))
+						//{
+						//	string letterDesc = null;
+						//	LetterDef letterType = null;
+						//	DuplicateUtility.TryDuplicatePawn(pawn, pawn, spawnCell, pawn.Map, out Pawn duplicatePawn, ref letterDesc, ref letterType, true);
+						//}
+						Ability ability = pawn.abilities?.GetAbility(def.abilities.First());
+						if (ability != null)
+						{
+							ability.Activate(pawn, pawn);
+						}
+					}
+				};
+			}
+		}
 
 	}
 
