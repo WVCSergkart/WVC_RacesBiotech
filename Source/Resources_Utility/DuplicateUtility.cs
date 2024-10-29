@@ -117,14 +117,25 @@ namespace WVC_XenotypesAndGenes
             return customLetter;
         }
 
-        private static string RandomizeTraits(Pawn duplicatePawn, string customLetter)
-        {
-            int traitsCount = duplicatePawn.story.traits.allTraits.Count;
-            duplicatePawn.story?.traits?.allTraits?.RemoveAllTraits();
-            duplicatePawn.AddRandomTraits(traitsCount);
-            customLetter += "\n\n" + "WVC_XaG_GeneTraitsDuplicateLetter".Translate(duplicatePawn.Named("PAWN"));
-            return customLetter;
-        }
+		private static string RandomizeTraits(Pawn duplicatePawn, string customLetter)
+		{
+			List<Trait> allTraits = duplicatePawn.story.traits.allTraits;
+			int traitsCount = 0;
+			foreach (Trait trait in allTraits.ToList())
+			{
+				if (trait.sourceGene == null)
+				{
+					trait.suppressedByGene = null;
+					trait.sourceGene = null;
+					trait.suppressedByTrait = false;
+					trait.pawn?.story?.traits?.RemoveTrait(trait, true);
+					traitsCount++;
+				}
+			}
+			duplicatePawn.AddRandomTraits(traitsCount);
+			customLetter += "\n\n" + "WVC_XaG_GeneTraitsDuplicateLetter".Translate(duplicatePawn.Named("PAWN"));
+			return customLetter;
+		}
 
         private static string MakeHostile(Pawn caster, Pawn originalPawn, Pawn duplicatePawn, out LetterDef letterDef)
 		{
@@ -151,11 +162,11 @@ namespace WVC_XenotypesAndGenes
         public static bool TryGetRandomBackstory(Pawn duplicatePawn, out BackstoryDef childstory, out BackstoryDef adultstory)
         {
 			List<BackstoryDef> allDefsListForReading = DefDatabase<BackstoryDef>.AllDefsListForReading.Where((BackstoryDef def) => def.shuffleable && !def.spawnCategories.NullOrEmpty()).ToList();
-			if (duplicatePawn.story?.Childhood?.spawnCategories.NullOrEmpty() != false || !allDefsListForReading.Where((BackstoryDef def) => def.spawnCategories.Contains(duplicatePawn.story?.Childhood?.spawnCategories?.First())).ToList().TryRandomElement(out childstory))
+			if (duplicatePawn.story?.Childhood?.spawnCategories.NullOrEmpty() != false || !allDefsListForReading.Where((BackstoryDef def) => def != duplicatePawn.story.Childhood && def.spawnCategories.Contains(duplicatePawn.story?.Childhood?.spawnCategories?.First())).ToList().TryRandomElement(out childstory))
             {
 				childstory = null;
 			}
-			if (duplicatePawn.story?.Adulthood?.spawnCategories.NullOrEmpty() != false || !allDefsListForReading.Where((BackstoryDef def) => def.spawnCategories.Contains(duplicatePawn.story?.Adulthood?.spawnCategories?.First())).ToList().TryRandomElement(out adultstory))
+			if (duplicatePawn.story?.Adulthood?.spawnCategories.NullOrEmpty() != false || !allDefsListForReading.Where((BackstoryDef def) => def != duplicatePawn.story.Adulthood && def.spawnCategories.Contains(duplicatePawn.story?.Adulthood?.spawnCategories?.First())).ToList().TryRandomElement(out adultstory))
 			{
 				adultstory = null;
 			}
@@ -415,23 +426,17 @@ namespace WVC_XenotypesAndGenes
 			{
 				trait.suppressedByGene = null;
 				trait.sourceGene = null;
+				trait.suppressedByTrait = false;
 				trait.pawn?.story?.traits?.RemoveTrait(trait, true);
 			}
 		}
 
 		public static void AddRandomTraits(this Pawn pawn, int traitsCount)
 		{
-			//int range = new IntRange(1,3).RandomInRange;
 			int currentTry = 0;
-			//List<TraitDef> traitsList = DefDatabase<TraitDef>.AllDefsListForReading;
 			while (currentTry < traitsCount)
 			{
 				currentTry++;
-				//if (traitsList.Where((TraitDef traitDef) => traitDef.GetGenderSpecificCommonality(pawn.gender) > 0f && pawn.story.traits.GetTrait(traitDef) == null).TryRandomElement(out TraitDef traitDef))
-				//{
-				//	Trait trait = new(traitDef);
-				//	pawn.story?.traits?.GainTrait(trait);
-				//}
 				Trait trait = PawnGenerator.GenerateTraitsFor(pawn, 1, null, growthMomentTrait: false).FirstOrFallback();
 				if (trait != null)
 				{
