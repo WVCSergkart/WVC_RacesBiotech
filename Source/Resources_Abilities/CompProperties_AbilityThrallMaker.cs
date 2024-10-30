@@ -52,24 +52,25 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		private void MakeThrall(ThrallDef thrallDef, Pawn innerPawn)
-		{
-			MutantDef mutantDef = thrallDef?.mutantDef;
-			GeneResourceUtility.TryResurrectWithSickness(innerPawn, null, false, 0.8f);
-			SetStory(innerPawn);
-			ReimplantGenes(thrallDef, innerPawn);
-			if (ModsConfig.AnomalyActive && mutantDef != null)
-			{
-				MutantUtility.SetPawnAsMutantInstantly(innerPawn, mutantDef);
-			}
-			if (innerPawn.Map != null)
-			{
-				WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(innerPawn, innerPawn.Map).Trigger(innerPawn, null);
-			}
-		}
+        {
+            MutantDef mutantDef = thrallDef?.mutantDef;
+            GeneResourceUtility.TryResurrectWithSickness(innerPawn, null, false, 0.8f);
+            SetStory(innerPawn);
+            ReimplantGenes(thrallDef, innerPawn);
+            if (ModsConfig.AnomalyActive && mutantDef != null)
+            {
+                MutantUtility.SetPawnAsMutantInstantly(innerPawn, mutantDef);
+            }
+            if (innerPawn.Map != null)
+            {
+                WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(innerPawn, innerPawn.Map).Trigger(innerPawn, null);
+            }
+			GeneResourceUtility.ResurrectionSicknessWithCustomTick(innerPawn, new IntRange(1500, 3000));
+        }
 
-		// =================
+        // =================
 
-		private void SetStory(Pawn innerPawn)
+        private void SetStory(Pawn innerPawn)
 		{
 			if (innerPawn.Faction != Faction.OfPlayer)
 			{
@@ -164,6 +165,7 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 			GeneUtility.UpdateXenogermReplication(innerPawn);
+			ReimplanterUtility.TrySetSkinAndHairGenes(innerPawn);
 			ReimplanterUtility.PostImplantDebug(innerPawn);
 		}
 

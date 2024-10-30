@@ -349,6 +349,17 @@ namespace WVC_XenotypesAndGenes
 
 		// Resurrection
 
+		public static void ResurrectionSicknessWithCustomTick(Pawn innerPawn, IntRange intRange)
+		{
+			Hediff cooldownHediff = HediffMaker.MakeHediff(HediffDefOf.ResurrectionSickness, innerPawn);
+			HediffComp_Disappears hediffComp_Disappears = cooldownHediff.TryGetComp<HediffComp_Disappears>();
+			if (hediffComp_Disappears != null)
+			{
+				hediffComp_Disappears.ticksToDisappear = intRange.RandomInRange;
+			}
+			innerPawn.health.AddHediff(cooldownHediff);
+		}
+
 		public static bool TryResurrectWithSickness(Pawn pawn, ThoughtDef resurrectThought = null, bool resurrectionSickness = true, float scarsChance = 0.2f)
 		{
 			ResurrectionParams resurrectionParams = new();
