@@ -253,7 +253,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					if (sourceGenes[i].Overridden)
 					{
-						gene.overriddenByGene = newPawn.genes.GenesListForReading.First((Gene e) => e.def == sourceGenes[i].overriddenByGene.def);
+						gene.overriddenByGene = newPawn.genes.GenesListForReading.First((Gene e) => gene != e && e.def == sourceGenes[i].overriddenByGene.def);
 					}
 					else
 					{
