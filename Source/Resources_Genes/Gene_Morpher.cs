@@ -133,7 +133,7 @@ namespace WVC_XenotypesAndGenes
 					Log.Error("Failed morph on phase: " + phase);
 				}
 				phase = "debug genes";
-				ReimplanterUtility.TrySetSkinAndHairGenes(pawn);
+				UpdSkinAndHair();
 				ReimplanterUtility.PostImplantDebug(pawn);
 				pawn.Drawer?.renderer?.SetAllGraphicsDirty();
 				phase = "do effects yay";
@@ -146,6 +146,31 @@ namespace WVC_XenotypesAndGenes
 				Log.Error($"Error while morphing during phase {phase}: {arg} (Gene: " + this.LabelCap + " | " + this.def.defName + ")");
 				nextTick = 60000;
 			}
+		}
+
+		private void UpdSkinAndHair()
+		{
+			if (!savedGeneSets.NullOrEmpty())
+			{
+				ReimplanterUtility.FindSkinAndHairGenes(pawn, out Pawn_GeneTracker recipientGenes, out bool xenotypeHasSkinColor, out bool xenotypeHasHairColor);
+				if (!xenotypeHasSkinColor)
+				{
+					GeneDef skinDef = savedGeneSets?.FirstOrDefault()?.endogenes.Where((Gene gene) => gene.def.skinColorBase != null || gene.def.skinColorOverride != null)?.ToList()?.First()?.def;
+					if (skinDef != null)
+					{
+						recipientGenes?.AddGene(skinDef, false);
+					}
+				}
+				if (!xenotypeHasHairColor)
+				{
+					GeneDef hairDef = savedGeneSets?.FirstOrDefault()?.endogenes?.Where((Gene gene) => gene.def.hairColorOverride != null)?.ToList()?.First()?.def;
+					if (hairDef != null)
+					{
+						recipientGenes?.AddGene(hairDef, false);
+					}
+				}
+			}
+			ReimplanterUtility.TrySetSkinAndHairGenes(pawn);
 		}
 
 		public static XenotypeDef GetRandomXenotypeFromList(List<XenotypeDef> xenotypeDefs, List<XenotypeDef> exclude, XenotypeDef xenotypeDef)
@@ -206,9 +231,9 @@ namespace WVC_XenotypesAndGenes
 				try
 				{
 					if (sourceGene == this || !newGenes.Where((Gene e) => e.def == sourceGene.def).TryRandomElement(out Gene gene))
-                    {
+					{
 						continue;
-                    }
+					}
 					gene.loadID = sourceGene.loadID;
 					gene.overriddenByGene = sourceGene.overriddenByGene;
 					sourceGenes.Remove(sourceGene);

@@ -263,32 +263,37 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public static void TrySetSkinAndHairGenes(Pawn pawn)
-		{
-			Pawn_GeneTracker recipientGenes = pawn.genes;
-			bool xenotypeHasSkinColor = false;
-			bool xenotypeHasHairColor = false;
-			foreach (Gene gene in recipientGenes.Endogenes)
-			{
-				if (gene.def.skinColorBase != null || gene.def.skinColorOverride != null)
-				{
-					xenotypeHasSkinColor = true;
-				}
-				if (gene.def.hairColorOverride != null)
-				{
-					xenotypeHasHairColor = true;
-				}
-			}
-			if (!xenotypeHasSkinColor)
-			{
-				recipientGenes?.AddGene(WVC_GenesDefOf.Skin_SheerWhite, false);
-			}
-			if (!xenotypeHasHairColor)
-			{
-				recipientGenes?.AddGene(WVC_GenesDefOf.Hair_SnowWhite, false);
-			}
-		}
+        {
+            FindSkinAndHairGenes(pawn, out Pawn_GeneTracker recipientGenes, out bool xenotypeHasSkinColor, out bool xenotypeHasHairColor);
+            if (!xenotypeHasSkinColor)
+            {
+                recipientGenes?.AddGene(WVC_GenesDefOf.Skin_SheerWhite, false);
+            }
+            if (!xenotypeHasHairColor)
+            {
+                recipientGenes?.AddGene(WVC_GenesDefOf.Hair_SnowWhite, false);
+            }
+        }
 
-		public static void FixGeneTraits(Pawn pawn)
+        public static void FindSkinAndHairGenes(Pawn pawn, out Pawn_GeneTracker recipientGenes, out bool xenotypeHasSkinColor, out bool xenotypeHasHairColor)
+        {
+            recipientGenes = pawn.genes;
+            xenotypeHasSkinColor = false;
+            xenotypeHasHairColor = false;
+            foreach (Gene gene in recipientGenes.Endogenes)
+            {
+                if (gene.def.skinColorBase != null || gene.def.skinColorOverride != null)
+                {
+                    xenotypeHasSkinColor = true;
+                }
+                if (gene.def.hairColorOverride != null)
+                {
+                    xenotypeHasHairColor = true;
+                }
+            }
+        }
+
+        public static void FixGeneTraits(Pawn pawn)
 		{
 			foreach (Trait trait in pawn.story.traits.allTraits.ToList())
 			{

@@ -152,11 +152,14 @@ namespace WVC_XenotypesAndGenes
 
 	public class Gene_Parthenogenesis : Gene_SimpleGestator, IGenePregnantHuman
 	{
+
 		public override string Warning => "WVC_XaG_Gene_ParthenogenesisWarning".Translate();
 
 		public override string Desc => "WVC_XaG_Gene_ParthenogenesisDesc".Translate();
 
-		public override void StartPregnancy()
+        public override bool Active => pawn.gender == Gender.Female && base.Active;
+
+        public override void StartPregnancy()
 		{
 			MiscUtility.Impregnate(pawn);
 		}
