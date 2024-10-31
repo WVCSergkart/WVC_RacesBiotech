@@ -18,7 +18,7 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes">
 	<defName>WVC_PostShapeshift_Recovery</defName>
-	<label>preshift healing</label>
+	<label>postshift recovery</label>
 	<description>Carriers of this gene have archites that stabilize the carrier after a shapeshift.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_PostShapeshift_Recovery</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_PostShapeshift_Recovery_v0</iconPath>
@@ -46,7 +46,8 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes">
 	<defName>WVC_PostShapeshift_Regeneration</defName>
-	<label>postshift regeneration</label>
+	<!-- <label>postshift regeneration</label> -->
+	<label>preshift healing</label>
 	<description>Carriers of this gene have archites that regenerate all wounds, even critical ones, before a shapeshift.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_PostShapeshift_Regeneration</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_PostShapeshift_Regeneration_v0</iconPath>
