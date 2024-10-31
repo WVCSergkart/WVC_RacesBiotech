@@ -59,11 +59,18 @@ namespace WVC_XenotypesAndGenes
 
 		public void Notify_PreShapeshift(Gene_Shapeshifter shapeshiftGene)
 		{
-			List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
-			for (int num = 0; num < hediffs.Count; num++)
+			List<Hediff> hediffs = pawn.health.hediffSet.hediffs.ToList();
+			//for (int num = 0; num < hediffs.Count; num++)
+			//{
+			//	HealthUtility.FixWorstHealthCondition(pawn, HediffDefOf.Scarification);
+			//}
+			foreach (Hediff hediff in hediffs)
 			{
-				// HealingUtility.TryHealRandomPermanentWound(pawn, this, true, true);
-				HealthUtility.FixWorstHealthCondition(pawn, HediffDefOf.Scarification);
+				if (hediff.def == HediffDefOf.Scarification || !hediff.def.isBad || !hediff.def.everCurableByItem)
+				{
+					continue;
+				}
+				pawn.health.RemoveHediff(hediff);
 			}
 		}
 
