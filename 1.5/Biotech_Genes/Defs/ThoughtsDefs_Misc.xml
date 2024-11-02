@@ -235,4 +235,20 @@
 	</stages>
   </ThoughtDef>
 
+  <ThoughtDef>
+	<defName>WVC_WellCharged</defName>
+	<durationDays>1</durationDays>
+	<stages>
+	  <li>
+		<label>well charged</label>
+		<description>I'm well charged. Yum!</description>
+		<baseMoodEffect>4</baseMoodEffect>
+	  </li>
+	</stages>
+	<!-- <replaceThoughts> -->
+	  <!-- <li>AteLavishMeal</li> -->
+	  <!-- <li>AteFineMeal</li> -->
+	<!-- </replaceThoughts> -->
+  </ThoughtDef>
+
 </Defs>

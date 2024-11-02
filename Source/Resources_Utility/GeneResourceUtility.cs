@@ -293,12 +293,12 @@ namespace WVC_XenotypesAndGenes
 				num = 1;
 				geneShapeshifter.PreShapeshift(geneShapeshifter, dialog.genesRegrowing);
 				num = 2;
-				geneShapeshifter.Shapeshift(dialog.selectedXenotype, dialog.genesRegrowing || dialog.clearXenogenes, dialog.genesRegrowing || dialog.doubleXenotypeReimplantation);
+				geneShapeshifter.Shapeshift(dialog.selectedXenoHolder, dialog.genesRegrowing || dialog.clearXenogenes);
 				num = 3;
 				geneShapeshifter.PostShapeshift(geneShapeshifter, dialog.genesRegrowing);
 				num = 4;
-				Find.LetterStack.ReceiveLetter("WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel".Translate(), "WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc".Translate(geneShapeshifter.pawn.Named("TARGET"), dialog.selectedXenotype.LabelCap, geneShapeshifter.LabelCap)
-				+ "\n\n" + (dialog.selectedXenotype.descriptionShort.NullOrEmpty() ? dialog.selectedXenotype.description : dialog.selectedXenotype.descriptionShort),
+				Find.LetterStack.ReceiveLetter("WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel".Translate(), "WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc".Translate(geneShapeshifter.pawn.Named("TARGET"), dialog.selectedXenoHolder.LabelCap, geneShapeshifter.LabelCap)
+				+ "\n\n" + dialog.selectedXenoHolder.Description,
 				WVC_GenesDefOf.WVC_XaG_UndeadEvent, new LookTargets(geneShapeshifter.pawn));
 				return true;
 			}

@@ -16,6 +16,8 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
 
+		public GeneExtension_Opinion Opinion => def?.GetModExtension<GeneExtension_Opinion>();
+
 		public Building_XenoCharger currentCharger;
 
 		public override void Tick()
@@ -126,6 +128,16 @@ namespace WVC_XenotypesAndGenes
 			{
 				GeneResourceUtility.OffsetNeedFood(pawn, 0.25f);
 			}
+		}
+
+		public void Notify_StopCharging()
+		{
+			currentCharger = null;
+			if (Opinion?.MeAboutThoughtDef != null)
+			{
+				pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(Opinion.MeAboutThoughtDef);
+			}
+			MiscUtility.TryFinalizeAllIngestJobs(pawn);
 		}
 
 		public override void Notify_IngestedThing(Thing thing, int numTaken)

@@ -360,11 +360,7 @@ namespace WVC_XenotypesAndGenes
 				Log.Error("Tried stopping charging on currently not charging mech charger!");
 				return;
 			}
-			if (RechargeableStomach != null)
-			{
-				RechargeableStomach.currentCharger = null;
-				MiscUtility.TryFinalizeAllIngestJobs(RechargeableStomach.pawn);
-			}
+			RechargeableStomach?.Notify_StopCharging();
 			gene_RechargeableStomach = null;
 			currentlyChargingMech = null;
 			wireExtensionTicks = 0;
@@ -375,7 +371,7 @@ namespace WVC_XenotypesAndGenes
 			if (currentlyChargingMech != null)
 			{
 				Messages.Message("MessageMechChargerDestroyedMechGoesBerserk".Translate(currentlyChargingMech.Named("PAWN")), new LookTargets(currentlyChargingMech), MessageTypeDefOf.NegativeEvent);
-				currentlyChargingMech.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.Berserk);
+				currentlyChargingMech.mindState?.mentalStateHandler?.TryStartMentalState(MentalStateDefOf.Berserk);
 			}
 			WasteProducer.ProduceWaste(Mathf.CeilToInt(wasteProduced));
 			base.DeSpawn(mode);

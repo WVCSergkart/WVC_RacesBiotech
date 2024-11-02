@@ -117,13 +117,13 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public virtual void Shapeshift(XenotypeDef xenotypeDef, bool xenogenes = true, bool doubleXenotypes = true)
+		public virtual void Shapeshift(XenotypeHolder xenotypeHolder, bool xenogenes = true)
 		{
-			if (doubleXenotypes && !xenotypeDef.doubleXenotypeChances.NullOrEmpty() && Rand.Value < xenotypeDef.doubleXenotypeChances.Sum((XenotypeChance x) => x.chance) && xenotypeDef.doubleXenotypeChances.TryRandomElementByWeight((XenotypeChance x) => x.chance, out var result))
-			{
-				Reimplant(result.xenotype, false);
-			}
-			Reimplant(xenotypeDef, xenogenes);
+			//if (doubleXenotypes && !xenotypeHolder.xenotypeDef.doubleXenotypeChances.NullOrEmpty() && Rand.Value < xenotypeHolder.xenotypeDef.doubleXenotypeChances.Sum((XenotypeChance x) => x.chance) && xenotypeHolder.xenotypeDef.doubleXenotypeChances.TryRandomElementByWeight((XenotypeChance x) => x.chance, out var result))
+			//{
+			//	Reimplant(result.xenotype, false);
+			//}
+			Reimplant(xenotypeHolder, xenogenes);
 			if (xenogermComaAfterShapeshift)
 			{
 				pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
@@ -152,42 +152,47 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private void Reimplant(XenotypeDef xenotypeDef, bool xenogenes = true)
+		private void Reimplant(XenotypeHolder xenotypeHolder, bool xenogenes = true)
 		{
 			Pawn_GeneTracker recipientGenes = pawn.genes;
 			if (recipientGenes.Xenogenes.NullOrEmpty() || xenogenes)
 			{
-				ReimplanterUtility.SetXenotypeDirect(null, pawn, xenotypeDef, true);
+				ReimplanterUtility.SetXenotypeDirect(null, pawn, xenotypeHolder.xenotypeDef, true);
+				if (!xenotypeHolder.name.NullOrEmpty() || xenotypeHolder.iconDef != null)
+				{
+					pawn.genes.xenotypeName = xenotypeHolder.name;
+					pawn.genes.iconDef = xenotypeHolder.iconDef;
+				}
 			}
-			if (xenogenes || !xenotypeDef.inheritable || xenotypeDef == XenotypeDefOf.Baseliner)
+			if (xenogenes || !xenotypeHolder.inheritable || xenotypeHolder.Baseliner)
 			{
 				foreach (Gene gene in recipientGenes.Xenogenes.ToList())
 				{
-					if (!xenotypeDef.inheritable && xenotypeDef.genes.Contains(gene.def))
+					if (!xenotypeHolder.inheritable && xenotypeHolder.genes.Contains(gene.def))
 					{
 						continue;
 					}
 					RemoveGene(gene);
 				}
 			}
-			if (xenotypeDef.inheritable || xenotypeDef == XenotypeDefOf.Baseliner)
+			if (xenotypeHolder.inheritable || xenotypeHolder.Baseliner)
 			{
 				foreach (Gene gene in recipientGenes.Endogenes.ToList())
 				{
-					if (xenotypeDef.inheritable && xenotypeDef.genes.Contains(gene.def))
+					if (xenotypeHolder.inheritable && xenotypeHolder.genes.Contains(gene.def))
 					{
 						continue;
 					}
 					RemoveGene(gene);
 				}
 			}
-			foreach (GeneDef geneDef in xenotypeDef.genes)
+			foreach (GeneDef geneDef in xenotypeHolder.genes)
 			{
-				if (!xenotypeDef.inheritable && XaG_GeneUtility.HasXenogene(geneDef, pawn) || xenotypeDef.inheritable && XaG_GeneUtility.HasEndogene(geneDef, pawn))
+				if (!xenotypeHolder.inheritable && XaG_GeneUtility.HasXenogene(geneDef, pawn) || xenotypeHolder.inheritable && XaG_GeneUtility.HasEndogene(geneDef, pawn))
 				{
 					continue;
 				}
-				AddGene(geneDef, xenotypeDef.inheritable);
+				AddGene(geneDef, xenotypeHolder.inheritable);
 			}
 			ReimplanterUtility.TrySetSkinAndHairGenes(pawn);
 		}

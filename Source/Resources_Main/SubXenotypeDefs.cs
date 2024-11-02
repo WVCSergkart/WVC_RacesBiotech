@@ -457,4 +457,80 @@ namespace WVC_XenotypesAndGenes
 		}
 
 	}
+
+	public class XenotypeHolder
+	{
+
+		public string name = null;
+
+		public XenotypeIconDef iconDef = null;
+
+		public XenotypeDef xenotypeDef = null;
+
+		public List<GeneDef> genes = new();
+
+		public bool inheritable;
+
+		public float displayPriority;
+
+		public bool shouldSkip = false;
+
+		public bool Baseliner => xenotypeDef == XenotypeDefOf.Baseliner && genes.NullOrEmpty();
+
+		[Unsaved(false)]
+		private TaggedString cachedLabelCap = null;
+
+		public virtual TaggedString LabelCap
+		{
+			get
+			{
+				if (cachedLabelCap == null)
+				{
+					if (name.NullOrEmpty())
+					{
+						cachedLabelCap = xenotypeDef.LabelCap;
+					}
+					else
+					{
+						cachedLabelCap = name.CapitalizeFirst();
+					}
+				}
+				return cachedLabelCap;
+			}
+		}
+
+		[Unsaved(false)]
+		private string cachedDescription;
+
+		public string Description
+		{
+			get
+			{
+				if (cachedDescription == null)
+				{
+					StringBuilder stringBuilder = new();
+					stringBuilder.AppendLine(LabelCap.Colorize(ColoredText.TipSectionTitleColor));
+					stringBuilder.AppendLine();
+					if (xenotypeDef != XenotypeDefOf.Baseliner)
+					{
+						stringBuilder.AppendLine(!xenotypeDef.descriptionShort.NullOrEmpty() ? xenotypeDef.descriptionShort : xenotypeDef.description);
+						//if (!xenotypeDef.doubleXenotypeChances.NullOrEmpty())
+						//{
+						//	stringBuilder.AppendLine();
+						//	stringBuilder.AppendLine(("WVC_DoubleXenotypes".Translate() + ":").Colorize(ColoredText.TipSectionTitleColor) + "\n" + xenotypeDef.doubleXenotypeChances.Select((XenotypeChance x) => "WVC_XaG_DoubleXenotypeWithChanceText".Translate(x.xenotype.LabelCap, (x.chance * 100f).ToString()).ToString()).ToLineList(" - "));
+						//}
+					}
+					else
+					{
+						stringBuilder.AppendLine("UniqueXenotypeDesc".Translate());
+					}
+					stringBuilder.AppendLine();
+					stringBuilder.Append(("WVC_Inheritable".Translate() + ":").Colorize(ColoredText.TipSectionTitleColor) + " " + inheritable.ToStringYesNo());
+					cachedDescription = stringBuilder.ToString();
+				}
+				return cachedDescription;
+			}
+		}
+
+	}
 }

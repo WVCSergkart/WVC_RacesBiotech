@@ -24,7 +24,7 @@
 	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_ShapeshifterMode</resourceGizmoType>
 	<customEffectDescriptions>
 		<li>Allows to change the xenotype at any time.</li>
-		<li>&lt;color=#ff8585&gt;Does not support custom xenotypes.&lt;/color&gt;</li>
+		<!-- <li>&lt;color=#ff8585&gt;Does not support custom xenotypes.&lt;/color&gt;</li> -->
 		<li>&lt;color=#8a8ae6&gt;Childs&lt;/color&gt; born as a carrier of the gene &lt;color=#8a8ae6&gt;receive this gene&lt;/color&gt;. Affects only &lt;color=#8a8ae6&gt;default pregnancy&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<displayOrderInCategory>155</displayOrderInCategory>

@@ -114,6 +114,40 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
+		public static List<XenotypeHolder> GetAllXenotypesHolders()
+		{
+			List<XenotypeHolder> list = new();
+			foreach (XenotypeDef item in GetAllXenotypesExceptAndroids())
+			{
+				XenotypeHolder newHolder = new();
+				if (item == XenotypeDefOf.Baseliner || item.genes.NullOrEmpty())
+				{
+					newHolder.shouldSkip = true;
+				}
+				newHolder.xenotypeDef = item;
+				newHolder.genes = item.genes;
+				newHolder.displayPriority = item.displayPriority;
+				newHolder.inheritable = item.inheritable;
+				list.Add(newHolder);
+			}
+			foreach (CustomXenotype item in GetAllCustomXenotypesExceptAndroids())
+			{
+				XenotypeHolder newHolder = new();
+				if (item.genes.NullOrEmpty())
+				{
+					newHolder.shouldSkip = true;
+				}
+				newHolder.name = item.fileName;
+				newHolder.iconDef = item.iconDef;
+				newHolder.genes = item.genes;
+				newHolder.xenotypeDef = XenotypeDefOf.Baseliner;
+				newHolder.displayPriority = list.Count + 1;
+				newHolder.inheritable = item.inheritable;
+				list.Add(newHolder);
+			}
+			return list;
+		}
+
 		public static List<XenotypeDef> GetAllXenotypesExceptAndroids()
 		{
 			List<XenotypeDef> list = new();
@@ -144,10 +178,10 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
-		public static List<XenotypeDef> GetTrueFormXenotypesFromList(List<XenotypeDef> xenotypes)
+		public static List<XenotypeHolder> GetTrueFormXenotypesFromList(List<XenotypeHolder> xenotypes)
 		{
-			List<XenotypeDef> list = new();
-			foreach (XenotypeDef item in xenotypes)
+			List<XenotypeHolder> list = new();
+			foreach (XenotypeHolder item in xenotypes)
 			{
 				foreach (GeneDef geneDef in item.genes)
 				{
@@ -160,22 +194,22 @@ namespace WVC_XenotypesAndGenes
 			}
 			return list;
 		}
-		public static List<CustomXenotype> GetTrueFormXenotypesFromList(List<CustomXenotype> xenotypes)
-		{
-			List<CustomXenotype> list = new();
-			foreach (CustomXenotype item in xenotypes)
-			{
-				foreach (GeneDef geneDef in item.genes)
-				{
-					if (geneDef.geneClass == typeof(Gene_Shapeshift_TrueForm))
-					{
-						list.Add(item);
-						break;
-					}
-				}
-			}
-			return list;
-		}
+		//public static List<CustomXenotype> GetTrueFormXenotypesFromList(List<CustomXenotype> xenotypes)
+		//{
+		//	List<CustomXenotype> list = new();
+		//	foreach (CustomXenotype item in xenotypes)
+		//	{
+		//		foreach (GeneDef geneDef in item.genes)
+		//		{
+		//			if (geneDef.geneClass == typeof(Gene_Shapeshift_TrueForm))
+		//			{
+		//				list.Add(item);
+		//				break;
+		//			}
+		//		}
+		//	}
+		//	return list;
+		//}
 
 		public static List<GeneDef> GetAnomalyExceptions()
 		{
@@ -247,33 +281,28 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
-		public static List<Thing> GetAllStoneChunksOnMap(Map map, Pawn pawn)
-		{
-			List<Thing> list = new();
-			// Log.Error("0");
-			List<Thing> mapThings = map.listerThings.AllThings;
-			// Log.Error("1");
-			foreach (Thing item in mapThings)
-			{
-				// Log.Error("2");
-				if (item.def.thingCategories.NullOrEmpty() || !item.def.thingCategories.Contains(ThingCategoryDefOf.StoneChunks))
-				{
-					continue;
-				}
-				if (item.Position.Fogged(item.Map))
-				{
-					continue;
-				}
-				if (!pawn.CanReserveAndReach(item, PathEndMode.OnCell, pawn.NormalMaxDanger()))
-				{
-					continue;
-				}
-				// Log.Error("3");
-				// Log.Error("4");
-				list.Add(item);
-			}
-			return list;
-		}
+		//public static List<Thing> GetAllStoneChunksOnMap(Map map, Pawn pawn)
+		//{
+		//	List<Thing> list = new();
+		//	List<Thing> mapThings = map.listerThings.AllThings;
+		//	foreach (Thing item in mapThings)
+		//	{
+		//		if (item.def.thingCategories.NullOrEmpty() || !item.def.thingCategories.Contains(ThingCategoryDefOf.StoneChunks))
+		//		{
+		//			continue;
+		//		}
+		//		if (item.Position.Fogged(item.Map))
+		//		{
+		//			continue;
+		//		}
+		//		if (!pawn.CanReserveAndReach(item, PathEndMode.OnCell, pawn.NormalMaxDanger()))
+		//		{
+		//			continue;
+		//		}
+		//		list.Add(item);
+		//	}
+		//	return list;
+		//}
 
 		public static List<CustomXenotype> GetCustomXenotypesList()
 		{

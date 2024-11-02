@@ -129,11 +129,11 @@
 	  <!-- <MaxNutrition MayRequire="oskarpotocki.vanillafactionsexpanded.core">1.5625</MaxNutrition> -->
 	  <!-- <VEF_BodySize_Multiplier MayRequire="oskarpotocki.vanillafactionsexpanded.core">0.8</VEF_BodySize_Multiplier> -->
 	<!-- </statFactors> -->
-	<modExtensions>
-		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
-			<hideGene>true</hideGene>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core"> -->
+			<!-- <hideGene>true</hideGene> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_SubGenes">

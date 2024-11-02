@@ -140,6 +140,13 @@
 	  </value>
 	</Operation>
 
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/ThoughtDef[replaceThoughts[li[contains(text(),'AteLavishMeal')]] or replaceThoughts[li[contains(text(),'AteFineMeal')]]]/replaceThoughts</xpath> -->
+	  <!-- <value> -->
+		  <!-- <li>WVC_WellCharged</li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
 	<!-- ======================================================== -->
 
 	<!-- <Operation Class="PatchOperationSequence"> -->
