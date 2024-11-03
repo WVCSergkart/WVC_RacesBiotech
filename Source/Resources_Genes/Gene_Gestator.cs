@@ -191,7 +191,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void StartPregnancy()
 		{
-			Find.WindowStack.Add(new Dialog_ChooseXenotype(this));
+			Find.WindowStack.Add(new Dialog_XenotypeGestator(this));
 		}
 
 	}

@@ -8,7 +8,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Dialog_ChangeXenotype : Dialog_XenotypesBase
+    public class Dialog_XenotypeTree : Dialog_XenotypesBase
 	{
 		public CompXenoTree xenoTree;
 
@@ -18,7 +18,7 @@ namespace WVC_XenotypesAndGenes
 
 		public List<XenotypeDef> allMatchedXenotypes;
 
-		public Dialog_ChangeXenotype(Thing tree)
+		public Dialog_XenotypeTree(Thing tree)
 		{
 			xenoTree = tree.TryGetComp<CompXenoTree>();
 			currentXeno = xenoTree.chosenXenotype;

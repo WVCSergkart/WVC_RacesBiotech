@@ -172,7 +172,7 @@ namespace WVC_XenotypesAndGenes
 				icon = GetXenotypeIcon(),
 				action = delegate
 				{
-					Find.WindowStack.Add(new Dialog_ChangeXenotype(parent));
+					Find.WindowStack.Add(new Dialog_XenotypeTree(parent));
 				}
 			};
 		}

@@ -7,7 +7,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Dialog_ChooseXenotype : Dialog_XenotypesBase
+	public class Dialog_XenotypeGestator : Dialog_XenotypesBase
 	{
 		public Gene gene;
 
@@ -28,7 +28,7 @@ namespace WVC_XenotypesAndGenes
 
 		public Hediff preventGestation;
 
-		public Dialog_ChooseXenotype(Gene thisGene)
+		public Dialog_XenotypeGestator(Gene thisGene)
 		{
 			gene = thisGene;
 			geneExtension = gene?.def?.GetModExtension<GeneExtension_Spawner>();

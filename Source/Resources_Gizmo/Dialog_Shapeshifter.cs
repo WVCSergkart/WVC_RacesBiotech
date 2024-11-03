@@ -60,8 +60,8 @@ namespace WVC_XenotypesAndGenes
 		// public List<XenotypeDef> preferredXenotypes;
 		public List<XenotypeHolder> trueFormXenotypes = new();
 		// public List<CustomXenotype> trueFormCustomtypes = new();
-		public bool doubleXenotypeReimplantation = true;
-		public bool clearXenogenes = true;
+		//public bool doubleXenotypeReimplantation = true;
+		public bool clearXenogenes = false;
 		public XenotypeHolder selectedXenoHolder;
 		// public XenotypeDef currentXeno;
 
@@ -266,7 +266,7 @@ namespace WVC_XenotypesAndGenes
 						if (selectedXenoHolder == xenotypeDef)
 						{
 							SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-							selectedXenoHolder = allXenotypes.First((XenotypeHolder holder) => holder.shouldSkip);
+							selectedXenoHolder = allXenotypes.First((XenotypeHolder holder) => holder.Baseliner);
 						}
 						else
 						{
