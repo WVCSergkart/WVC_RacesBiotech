@@ -63,26 +63,26 @@ namespace WVC_XenotypesAndGenes
 
 		public override void CompTick()
 		{
-			base.CompTick();
+			//base.CompTick();
 			Tick(1);
 		}
 
 		public override void CompTickRare()
 		{
-			base.CompTickRare();
+			//base.CompTickRare();
 			Tick(250);
 		}
 
 		public override void CompTickLong()
 		{
-			base.CompTickRare();
+			//base.CompTickRare();
 			Tick(2000);
 		}
 
 		public void Tick(int tick)
 		{
 			tickCounter -= tick;
-			if (tickCounter > 0 && spawnerIsActive)
+			if (tickCounter > 0 || !spawnerIsActive)
 			{
 				return;
 			}
