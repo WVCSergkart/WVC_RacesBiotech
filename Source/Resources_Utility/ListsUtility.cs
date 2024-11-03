@@ -130,7 +130,7 @@ namespace WVC_XenotypesAndGenes
 				newHolder.inheritable = item.inheritable;
 				list.Add(newHolder);
 			}
-			foreach (CustomXenotype item in GetAllCustomXenotypesExceptAndroids())
+			foreach (CustomXenotype item in GetCustomXenotypesList())
 			{
 				XenotypeHolder newHolder = new();
 				if (item.genes.NullOrEmpty())
@@ -141,7 +141,7 @@ namespace WVC_XenotypesAndGenes
 				newHolder.iconDef = item.iconDef;
 				newHolder.genes = item.genes;
 				newHolder.xenotypeDef = XenotypeDefOf.Baseliner;
-				newHolder.displayPriority = list.Count + 1;
+				newHolder.displayPriority = -1 * (10000 + list.Count);
 				newHolder.inheritable = item.inheritable;
 				list.Add(newHolder);
 			}
@@ -165,51 +165,21 @@ namespace WVC_XenotypesAndGenes
 			}
 			return list;
 		}
-		public static List<CustomXenotype> GetAllCustomXenotypesExceptAndroids()
-		{
-			List<CustomXenotype> list = new();
-			foreach (CustomXenotype item in ListsUtility.GetCustomXenotypesList())
-			{
-				if (!XaG_GeneUtility.XenotypeIsAndroid(item))
-				{
-					list.Add(item);
-				}
-			}
-			return list;
-		}
 
-		public static List<XenotypeHolder> GetTrueFormXenotypesFromList(List<XenotypeHolder> xenotypes)
+		public static void UpdTrueFormHoldersFromList(List<XenotypeHolder> xenotypes)
 		{
-			List<XenotypeHolder> list = new();
 			foreach (XenotypeHolder item in xenotypes)
 			{
 				foreach (GeneDef geneDef in item.genes)
 				{
 					if (geneDef.geneClass == typeof(Gene_Shapeshift_TrueForm))
 					{
-						list.Add(item);
+						item.isTrueShiftForm = true;
 						break;
 					}
 				}
 			}
-			return list;
 		}
-		//public static List<CustomXenotype> GetTrueFormXenotypesFromList(List<CustomXenotype> xenotypes)
-		//{
-		//	List<CustomXenotype> list = new();
-		//	foreach (CustomXenotype item in xenotypes)
-		//	{
-		//		foreach (GeneDef geneDef in item.genes)
-		//		{
-		//			if (geneDef.geneClass == typeof(Gene_Shapeshift_TrueForm))
-		//			{
-		//				list.Add(item);
-		//				break;
-		//			}
-		//		}
-		//	}
-		//	return list;
-		//}
 
 		public static List<GeneDef> GetAnomalyExceptions()
 		{

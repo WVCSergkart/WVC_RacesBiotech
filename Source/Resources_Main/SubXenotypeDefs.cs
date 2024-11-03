@@ -475,7 +475,13 @@ namespace WVC_XenotypesAndGenes
 
 		public bool shouldSkip = false;
 
+		public bool isTrueShiftForm;
+
+		public bool isOverriden;
+
 		public bool Baseliner => xenotypeDef == XenotypeDefOf.Baseliner && genes.NullOrEmpty();
+
+		public bool CustomXenotype => xenotypeDef == XenotypeDefOf.Baseliner && !genes.NullOrEmpty();
 
 		[Unsaved(false)]
 		private TaggedString cachedLabelCap = null;
@@ -514,17 +520,38 @@ namespace WVC_XenotypesAndGenes
 					if (xenotypeDef != XenotypeDefOf.Baseliner)
 					{
 						stringBuilder.AppendLine(!xenotypeDef.descriptionShort.NullOrEmpty() ? xenotypeDef.descriptionShort : xenotypeDef.description);
-						//if (!xenotypeDef.doubleXenotypeChances.NullOrEmpty())
-						//{
-						//	stringBuilder.AppendLine();
-						//	stringBuilder.AppendLine(("WVC_DoubleXenotypes".Translate() + ":").Colorize(ColoredText.TipSectionTitleColor) + "\n" + xenotypeDef.doubleXenotypeChances.Select((XenotypeChance x) => "WVC_XaG_DoubleXenotypeWithChanceText".Translate(x.xenotype.LabelCap, (x.chance * 100f).ToString()).ToString()).ToLineList(" - "));
-						//}
+                        if (!xenotypeDef.doubleXenotypeChances.NullOrEmpty())
+                        {
+                            stringBuilder.AppendLine();
+                            stringBuilder.AppendLine(("WVC_DoubleXenotypes".Translate() + ":").Colorize(ColoredText.TipSectionTitleColor) + "\n" + xenotypeDef.doubleXenotypeChances.Select((XenotypeChance x) => "WVC_XaG_DoubleXenotypeWithChanceText".Translate(x.xenotype.LabelCap, (x.chance * 100f).ToString()).ToString()).ToLineList(" - "));
+						}
 					}
 					else
 					{
 						stringBuilder.AppendLine("UniqueXenotypeDesc".Translate());
 					}
 					stringBuilder.AppendLine();
+					XaG_GeneUtility.GetBiostatsFromList(genes, out int biostatCpx, out int biostatMet, out int biostatArc);
+					bool flag2 = false;
+					if (biostatCpx != 0)
+					{
+						stringBuilder.AppendLineTagged("Complexity".Translate().Colorize(GeneUtility.GCXColor) + ": " + biostatCpx.ToStringWithSign());
+						flag2 = true;
+					}
+					if (biostatMet != 0)
+					{
+						stringBuilder.AppendLineTagged("Metabolism".Translate().CapitalizeFirst().Colorize(GeneUtility.METColor) + ": " + biostatMet.ToStringWithSign());
+						flag2 = true;
+					}
+					if (biostatArc != 0)
+					{
+						stringBuilder.AppendLineTagged("ArchitesRequired".Translate().Colorize(GeneUtility.ARCColor) + ": " + biostatArc.ToStringWithSign());
+						flag2 = true;
+					}
+					if (flag2)
+					{
+						stringBuilder.AppendLine();
+					}
 					stringBuilder.Append(("WVC_Inheritable".Translate() + ":").Colorize(ColoredText.TipSectionTitleColor) + " " + inheritable.ToStringYesNo());
 					cachedDescription = stringBuilder.ToString();
 				}
@@ -533,4 +560,18 @@ namespace WVC_XenotypesAndGenes
 		}
 
 	}
+
+	public class SaveableXenotypeHolder : XenotypeHolder, IExposable
+	{
+
+        public void ExposeData()
+		{
+			Scribe_Defs.Look(ref xenotypeDef, "xenotypeDef");
+			Scribe_Defs.Look(ref iconDef, "iconDef");
+			Scribe_Values.Look(ref name, "name");
+			Scribe_Values.Look(ref inheritable, "inheritable");
+			Scribe_Collections.Look(ref genes, "genes", LookMode.Def);
+		}
+
+    }
 }

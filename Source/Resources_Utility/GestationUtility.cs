@@ -58,9 +58,21 @@ namespace WVC_XenotypesAndGenes
 			return new(pawnKind, faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: true, canGeneratePawnRelations: false, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: false, allowAddictions: false, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Newborn);
 		}
 
-		public static void TrySpawnHatchedOrBornPawn(Pawn parent, Thing motherOrEgg, PawnGenerationRequest generateNewBornPawn, out Pawn newBorn, bool endogene = true, bool xenogene = true, XenotypeDef xenotypeDef = null)
+		public static void TrySpawnHatchedOrBornPawn(Pawn parent, Thing motherOrEgg, PawnGenerationRequest generateNewBornPawn, out Pawn newBorn, bool endogene = true, bool xenogene = true, XenotypeDef xenotypeDef = null, XenotypeHolder xenotypeHolder = null)
 		{
 			newBorn = PawnGenerator.GeneratePawn(generateNewBornPawn);
+			if (xenotypeHolder != null)
+			{
+				if (!xenotypeHolder.CustomXenotype)
+				{
+					xenotypeDef = xenotypeHolder.xenotypeDef;
+				}
+				else
+				{
+					xenotypeDef = null;
+					ReimplanterUtility.SetCustomXenotype(newBorn, xenotypeHolder);
+				}
+			}
 			if (xenotypeDef != null)
 			{
 				ReimplanterUtility.SetXenotype_DoubleXenotype(newBorn, xenotypeDef);
@@ -81,7 +93,7 @@ namespace WVC_XenotypesAndGenes
 					{
 						parent.GetLord()?.AddPawn(newBorn);
 					}
-					if (xenotypeDef == null)
+					if (xenotypeDef == null && xenotypeHolder == null)
 					{
 						ReimplanterUtility.ReimplantGenesHybrid(parent, newBorn, endogene, xenogene, false);
 					}
@@ -97,14 +109,14 @@ namespace WVC_XenotypesAndGenes
 
 		// Xeno-Tree Spawner
 
-		public static void GestateChild_WithXenotype(Thing motherOrEgg, XenotypeDef xenotypeDef, string completeLetterLabel, string completeLetterDesc)
+		public static void GestateChild_WithXenotype(Thing motherOrEgg, XenotypeDef xenotypeDef, XenotypeHolder xenotypeHolder, string completeLetterLabel, string completeLetterDesc)
 		{
-			if (motherOrEgg == null || xenotypeDef == null)
+			if (motherOrEgg == null)
 			{
 				return;
 			}
 			PawnGenerationRequest generateNewBornPawn = NewBornRequest(PawnKindDefOf.Colonist, Faction.OfPlayer);
-			TrySpawnHatchedOrBornPawn(motherOrEgg is Pawn pawn ? pawn : null, motherOrEgg, generateNewBornPawn, out Pawn newBorn, true, true, xenotypeDef);
+			TrySpawnHatchedOrBornPawn(motherOrEgg is Pawn pawn ? pawn : null, motherOrEgg, generateNewBornPawn, out Pawn newBorn, true, true, xenotypeDef, xenotypeHolder);
 			PostSpawnFilthAndSound(motherOrEgg);
 			if (PawnUtility.ShouldSendNotificationAbout(newBorn))
 			{

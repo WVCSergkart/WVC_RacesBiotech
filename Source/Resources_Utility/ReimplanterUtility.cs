@@ -345,43 +345,13 @@ namespace WVC_XenotypesAndGenes
 
 		public static void SetXenotype(Pawn pawn, XenotypeDef xenotypeDef, bool changeXenotype = true)
 		{
-			// if (xenotypeDef == null)
-			// {
-				// xenotypeDef = XenotypeFilterUtility.WhiteListedXenotypes(true, true).RandomElement();
-				// Log.Error("Xenotype is null. Choose random.");
-			// }
-			// Remove genes
 			Pawn_GeneTracker genes = pawn.genes;
 			genes.Xenogenes.RemoveAllGenes();
 			if (xenotypeDef.inheritable || xenotypeDef == XenotypeDefOf.Baseliner)
 			{
 				genes.Endogenes.RemoveAllGenes();
 			}
-			// Add genes
 			SetXenotypeDirect(null, pawn, xenotypeDef, changeXenotype);
-			// bool xenotypeHasSkinColor = false;
-			// bool xenotypeHasHairColor = false;
-			// List<GeneDef> xenotypeGenes = xenotypeDef.genes;
-			// for (int i = 0; i < xenotypeGenes.Count; i++)
-			// {
-				// genes?.AddGene(xenotypeGenes[i], !xenotypeDef.inheritable);
-				// if (xenotypeGenes[i].skinColorBase != null || xenotypeGenes[i].skinColorOverride != null)
-				// {
-					// xenotypeHasSkinColor = true;
-				// }
-				// if (xenotypeGenes[i].hairColorOverride != null)
-				// {
-					// xenotypeHasHairColor = true;
-				// }
-			// }
-			// if ((xenotypeDef.inheritable || xenotypeDef == XenotypeDefOf.Baseliner) && !xenotypeHasSkinColor)
-			// {
-				// genes?.AddGene(WVC_GenesDefOf.Skin_SheerWhite, false);
-			// }
-			// if ((xenotypeDef.inheritable || xenotypeDef == XenotypeDefOf.Baseliner) && !xenotypeHasHairColor)
-			// {
-				// genes?.AddGene(WVC_GenesDefOf.Hair_SnowWhite, false);
-			// }
 			foreach (GeneDef geneDef in xenotypeDef.genes)
 			{
 				genes.AddGene(geneDef, !xenotypeDef.inheritable);
@@ -391,52 +361,37 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public static void SetCustomXenotype(Pawn pawn, CustomXenotype xenotypeDef)
-		{
-			// Remove genes
-			Pawn_GeneTracker genes = pawn.genes;
-			genes.Xenogenes.RemoveAllGenes();
-			if (xenotypeDef.inheritable)
-			{
-				genes.Endogenes.RemoveAllGenes();
-			}
-			// Add genes
-			genes.SetXenotypeDirect(XenotypeDefOf.Baseliner);
-			genes.xenotypeName = xenotypeDef.name;
-			genes.iconDef = xenotypeDef.iconDef;
-			// bool xenotypeHasSkinColor = false;
-			// bool xenotypeHasHairColor = false;
-			// List<GeneDef> xenotypeGenes = xenotypeDef.genes;
-			// for (int i = 0; i < xenotypeGenes.Count; i++)
-			// {
-				// genes?.AddGene(xenotypeGenes[i], !xenotypeDef.inheritable);
-				// if (xenotypeGenes[i].skinColorBase != null || xenotypeGenes[i].skinColorOverride != null)
-				// {
-					// xenotypeHasSkinColor = true;
-				// }
-				// if (xenotypeGenes[i].hairColorOverride != null)
-				// {
-					// xenotypeHasHairColor = true;
-				// }
-			// }
-			// if ((xenotypeDef.inheritable) && !xenotypeHasSkinColor)
-			// {
-				// genes?.AddGene(WVC_GenesDefOf.Skin_SheerWhite, false);
-			// }
-			// if ((xenotypeDef.inheritable) && !xenotypeHasHairColor)
-			// {
-				// genes?.AddGene(WVC_GenesDefOf.Hair_SnowWhite, false);
-			// }
-			foreach (GeneDef geneDef in xenotypeDef.genes)
-			{
-				genes.AddGene(geneDef, !xenotypeDef.inheritable);
-			}
-			TrySetSkinAndHairGenes(pawn);
-			ReimplanterUtility.PostImplantDebug(pawn);
+        {
+            SetCustomGenes(pawn, xenotypeDef.genes, xenotypeDef.iconDef, xenotypeDef.name, xenotypeDef.inheritable);
 		}
 
-		// Ideology Hook
+		public static void SetCustomXenotype(Pawn pawn, XenotypeHolder xenotypeDef)
+		{
+			SetCustomGenes(pawn, xenotypeDef.genes, xenotypeDef.iconDef, xenotypeDef.name, xenotypeDef.inheritable);
+		}
 
-		public static void PostSerumUsedHook(Pawn pawn, bool isXenoMod)
+		private static void SetCustomGenes(Pawn pawn, List<GeneDef> genes, XenotypeIconDef iconDef, string name, bool inheritable)
+        {
+            Pawn_GeneTracker geneTracker = pawn.genes;
+			geneTracker.Xenogenes.RemoveAllGenes();
+            if (inheritable)
+            {
+				geneTracker.Endogenes.RemoveAllGenes();
+            }
+			geneTracker.SetXenotypeDirect(XenotypeDefOf.Baseliner);
+			geneTracker.xenotypeName = name;
+			geneTracker.iconDef = iconDef;
+            foreach (GeneDef geneDef in genes)
+            {
+				geneTracker.AddGene(geneDef, !inheritable);
+            }
+            TrySetSkinAndHairGenes(pawn);
+            ReimplanterUtility.PostImplantDebug(pawn);
+        }
+
+        // Ideology Hook
+
+        public static void PostSerumUsedHook(Pawn pawn, bool isXenoMod)
 		{
 			if (ModLister.IdeologyInstalled)
 			{

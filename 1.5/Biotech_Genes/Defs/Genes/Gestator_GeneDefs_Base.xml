@@ -78,7 +78,7 @@
 		<li>Can gestate a baby of &lt;color=#8a8ae6&gt;any xenotype&lt;/color&gt;.</li>
 		<li>The &lt;color=#8a8ae6&gt;duration&lt;/color&gt; of gestation &lt;color=#8a8ae6&gt;depends&lt;/color&gt; on the &lt;color=#8a8ae6&gt;complexity&lt;/color&gt; of the xenotype.</li>
 		<li>A xenotype can be selected if carrier has at least &lt;color=#8a8ae6&gt;40% matching genes&lt;/color&gt;.</li>
-		<li>&lt;color=#ff8585&gt;Does not support custom xenotypes.&lt;/color&gt;</li>
+		<!-- <li>&lt;color=#ff8585&gt;Does not support custom xenotypes.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">

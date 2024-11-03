@@ -94,7 +94,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (spawnerIsActive && chosenXenotype != null)
 			{
-				GestationUtility.GestateChild_WithXenotype(parent, chosenXenotype, Props.completeLetterLabel, Props.completeLetterDesc);
+				GestationUtility.GestateChild_WithXenotype(parent, chosenXenotype, null, Props.completeLetterLabel, Props.completeLetterDesc);
 				if (Subplant != null)
 				{
 					Subplant.DoGrowSubplant();

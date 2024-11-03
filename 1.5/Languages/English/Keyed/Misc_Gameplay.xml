@@ -579,7 +579,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<!-- <WVC_XaG_GeneXenoGestator_Label>Start gestation</WVC_XaG_GeneXenoGestator_Label> -->
 	<WVC_XaG_GeneXenoGestator_Desc>You can choose any xenotype for gestation. Gestation time directly depends on the complexity of the xenotype and the gestation period of the gene carrier.</WVC_XaG_GeneXenoGestator_Desc>
 	<!-- <WVC_XaG_GeneXenoGestator_Disabled>Cannot be used before cooldown ends.</WVC_XaG_GeneXenoGestator_Disabled> -->
-	<WVC_XaG_GeneXenoGestator_Disabled>Cannot start the gestation process due to the {0}.</WVC_XaG_GeneXenoGestator_Disabled>
+	<!-- <WVC_XaG_GeneXenoGestator_Disabled>Cannot start the gestation process due to the {0}.</WVC_XaG_GeneXenoGestator_Disabled> -->
 
 	<WVC_XaG_GeneXenoGestator_GestationTime>Gestation time: {0}</WVC_XaG_GeneXenoGestator_GestationTime>
 

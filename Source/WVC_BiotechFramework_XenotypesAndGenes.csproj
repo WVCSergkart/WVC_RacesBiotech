@@ -99,9 +99,10 @@
     <Compile Include="Resources_Genes\Gene_Hemogen.cs" />
     <Compile Include="Resources_Genes\Gene_XaG_Basic.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ChangeEyesColor.cs" />
+    <Compile Include="Resources_Gizmo\Dialog_XenotypeGestator.cs" />
+    <Compile Include="Resources_Gizmo\Dialog_XenotypeHolderBasic.cs" />
     <Compile Include="Resources_Gizmo\Dialog_XenotypeTree.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ChimeraPresetsLoad.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_XenotypeGestator.cs" />
     <Compile Include="Resources_Gizmo\Dialog_CreateChimera.cs" />
     <Compile Include="Resources_Gizmo\Dialog_GauranlenGeneMode.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Golemlink.cs" />

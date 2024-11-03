@@ -586,14 +586,14 @@ namespace WVC_XenotypesAndGenes
 			return mult;
 		}
 
-		public static bool PawnIsColonistOrSlave(Pawn pawn, bool shouldBeAdult = false)
-		{
-			if ((pawn.IsColonist || pawn.IsSlaveOfColony) && (!shouldBeAdult || pawn.ageTracker.CurLifeStage.reproductive))
-			{
-				return true;
-			}
-			return false;
-		}
+		//public static bool PawnIsColonistOrSlave(Pawn pawn, bool shouldBeAdult = false)
+		//{
+		//	if ((pawn.IsColonist || pawn.IsSlaveOfColony) && (!shouldBeAdult || pawn.ageTracker.CurLifeStage.reproductive))
+		//	{
+		//		return true;
+		//	}
+		//	return false;
+		//}
 
 		// public static bool HasReimplanterAbility(Pawn pawn)
 		// {

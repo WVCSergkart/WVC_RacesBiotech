@@ -291,11 +291,11 @@ namespace WVC_XenotypesAndGenes
 			try
 			{
 				num = 1;
-				geneShapeshifter.PreShapeshift(geneShapeshifter, dialog.genesRegrowing);
+				geneShapeshifter.PreShapeshift(geneShapeshifter, dialog.disabled);
 				num = 2;
-				geneShapeshifter.Shapeshift(dialog.selectedXenoHolder, dialog.genesRegrowing || dialog.clearXenogenes);
+				geneShapeshifter.Shapeshift(dialog.selectedXenoHolder, dialog.disabled || dialog.clearXenogenes);
 				num = 3;
-				geneShapeshifter.PostShapeshift(geneShapeshifter, dialog.genesRegrowing);
+				geneShapeshifter.PostShapeshift(geneShapeshifter, dialog.disabled);
 				num = 4;
 				Find.LetterStack.ReceiveLetter("WVC_XaG_GeneShapeshifter_ShapeshiftLetterLabel".Translate(), "WVC_XaG_GeneShapeshifter_ShapeshiftLetterDesc".Translate(geneShapeshifter.pawn.Named("TARGET"), dialog.selectedXenoHolder.LabelCap, geneShapeshifter.LabelCap)
 				+ "\n\n" + dialog.selectedXenoHolder.Description,

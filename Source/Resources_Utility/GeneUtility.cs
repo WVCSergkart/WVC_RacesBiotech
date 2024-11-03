@@ -727,74 +727,91 @@ namespace WVC_XenotypesAndGenes
 			return xenotypes;
 		}
 
-		// Xenotype Cost
+        // Xenotype Cost
 
-		public static float XenotypeCost(XenotypeDef xenotype)
-		{
-			return (float)((GetXenotype_Arc(xenotype) * 1.2) + (GetXenotype_Cpx(xenotype) * 0.2) + (-1 * (GetXenotype_Met(xenotype) * 0.4)));
-		}
+        //public static float XenotypeCost(XenotypeDef xenotype)
+        //{
+        //	return (float)((GetXenotype_Arc(xenotype) * 1.2) + (GetXenotype_Cpx(xenotype) * 0.2) + (-1 * (GetXenotype_Met(xenotype) * 0.4)));
+        //}
 
-		public static int GetXenotype_Cpx(XenotypeDef xenotypeDef)
-		{
-			List<GeneDef> genes = xenotypeDef?.genes;
+        //public static int GetXenotype_Cpx(XenotypeDef xenotypeDef)
+        //{
+        //	List<GeneDef> genes = xenotypeDef?.genes;
+        //	if (genes.NullOrEmpty())
+        //	{
+        //		return 0;
+        //	}
+        //	int num = 0;
+        //	foreach (GeneDef item in genes)
+        //	{
+        //		num += item.biostatCpx;
+        //	}
+        //	return num;
+        //}
+
+        //public static int GetXenotype_Met(XenotypeDef xenotypeDef)
+        //{
+        //	List<GeneDef> genes = xenotypeDef?.genes;
+        //	if (genes.NullOrEmpty())
+        //	{
+        //		return 0;
+        //	}
+        //	int num = 0;
+        //	foreach (GeneDef item in genes)
+        //	{
+        //		num += item.biostatMet;
+        //	}
+        //	return num;
+        //}
+
+        //public static int GetXenotype_Arc(XenotypeDef xenotypeDef)
+        //{
+        //	List<GeneDef> genes = xenotypeDef?.genes;
+        //	if (genes.NullOrEmpty())
+        //	{
+        //		return 0;
+        //	}
+        //	int num = 0;
+        //	foreach (GeneDef item in genes)
+        //	{
+        //		num += item.biostatArc;
+        //	}
+        //	return num;
+        //}
+
+        //public static int GetPawn_Arc(Pawn pawn)
+        //{
+        //	List<Gene> genes = pawn?.genes?.GenesListForReading;
+        //	if (genes.NullOrEmpty())
+        //	{
+        //		return 0;
+        //	}
+        //	int num = 0;
+        //	foreach (Gene item in genes)
+        //	{
+        //		num += item.def.biostatArc;
+        //	}
+        //	return num;
+        //}
+
+        public static void GetBiostatsFromList(List<GeneDef> genes, out int cpx, out int met, out int arc)
+        {
+			cpx = 0;
+			met = 0;
+			arc = 0;
 			if (genes.NullOrEmpty())
-			{
-				return 0;
+            {
+                return;
+            }
+            foreach (GeneDef item in genes)
+            {
+				cpx += item.biostatCpx;
+				met += item.biostatMet;
+				arc += item.biostatArc;
 			}
-			int num = 0;
-			foreach (GeneDef item in genes)
-			{
-				num += item.biostatCpx;
-			}
-			return num;
-		}
+        }
 
-		public static int GetXenotype_Met(XenotypeDef xenotypeDef)
-		{
-			List<GeneDef> genes = xenotypeDef?.genes;
-			if (genes.NullOrEmpty())
-			{
-				return 0;
-			}
-			int num = 0;
-			foreach (GeneDef item in genes)
-			{
-				num += item.biostatMet;
-			}
-			return num;
-		}
-
-		public static int GetXenotype_Arc(XenotypeDef xenotypeDef)
-		{
-			List<GeneDef> genes = xenotypeDef?.genes;
-			if (genes.NullOrEmpty())
-			{
-				return 0;
-			}
-			int num = 0;
-			foreach (GeneDef item in genes)
-			{
-				num += item.biostatArc;
-			}
-			return num;
-		}
-
-		public static int GetPawn_Arc(Pawn pawn)
-		{
-			List<Gene> genes = pawn?.genes?.GenesListForReading;
-			if (genes.NullOrEmpty())
-			{
-				return 0;
-			}
-			int num = 0;
-			foreach (Gene item in genes)
-			{
-				num += item.def.biostatArc;
-			}
-			return num;
-		}
-
-		public static bool XenotypeHasArchites(XenotypeDef xenotypeDef)
+        public static bool XenotypeHasArchites(XenotypeDef xenotypeDef)
 		{
 			List<GeneDef> genesListForReading = xenotypeDef.genes;
 			for (int i = 0; i < genesListForReading.Count; i++)

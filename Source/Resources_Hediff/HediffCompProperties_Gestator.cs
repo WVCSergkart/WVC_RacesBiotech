@@ -44,6 +44,20 @@ namespace WVC_XenotypesAndGenes
 
 		public XenotypeDef xenotypeDef;
 
+		private SaveableXenotypeHolder xenotypeHolder;
+
+		public void SetupHolder(XenotypeHolder holder)
+		{
+			SaveableXenotypeHolder newHolder = new();
+			newHolder.xenotypeDef = holder.xenotypeDef;
+			newHolder.name = holder.name;
+			newHolder.iconDef = holder.iconDef;
+			newHolder.genes = holder.genes;
+			newHolder.inheritable = holder.inheritable;
+			xenotypeHolder = newHolder;
+		}
+
+
 		public HediffCompProperties_Gestator Props => (HediffCompProperties_Gestator)props;
 
 		public override bool CompShouldRemove => XenotypeGestator == null;
@@ -63,8 +77,6 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		// protected Pawn Pawn => parent.pawn;
-
 		public override string CompLabelInBracketsExtra => GetLabel();
 
 		public override void CompPostMake()
@@ -78,53 +90,31 @@ namespace WVC_XenotypesAndGenes
 				xenotypeDef = Props.xenotypeDef;
 			}
 		}
-
-		// public override bool CompDisallowVisible()
-		// {
-			// return XenotypeGestator == null;
-		// }
+		public override void CompPostPostAdd(DamageInfo? dinfo)
+		{
+			if (Pawn.Faction != Faction.OfPlayer || !Pawn.ageTracker.CurLifeStage.reproductive)
+			{
+				RemoveHediff();
+			}
+		}
 
 		public override void CompExposeData()
 		{
 			base.CompExposeData();
 			Scribe_Values.Look(ref ticksCounter, "ticksCounter_" + Props.uniqueTag, 0);
 			Scribe_Values.Look(ref gestationIntervalDays, "gestationIntervalDays_" + Props.uniqueTag, 0);
-			Scribe_Defs.Look(ref xenotypeDef, "xenotypeDef_" + Props.uniqueTag);
+			Scribe_Deep.Look(ref xenotypeHolder, "xenotypeHolder_" + Props.uniqueTag);
 		}
 
 		public override void CompPostTick(ref float severityAdjustment)
 		{
-			//base.CompPostTick(ref severityAdjustment);
-			// Pawn pawn = parent.pawn;
-			// if (Props.gestationIntervalDays > 0)
-			// {
-				// gestationIntervalDays = Props.gestationIntervalDays;
-				// return;
-			// }
-			// if (Pawn.IsHashIntervalTick(120))
-			// {
-				// if (XenotypeGestator == null)
-				// {
-					// Pawn.health.RemoveHediff(parent);
-				// }
-			// }
-			if (Pawn.Map == null)
-			{
-				return;
-			}
-			if (!MiscUtility.PawnIsColonistOrSlave(Pawn, Props.shouldBeAdult))
-			{
-				RemoveHediff();
-				return;
-			}
 			ticksCounter++;
 			if (ticksCounter < ticksInday * gestationIntervalDays)
 			{
 				return;
 			}
-			if (xenotypeDef == null)
+			if (Pawn.Map == null)
 			{
-				RemoveHediff();
 				return;
 			}
 			EndGestation();
@@ -132,8 +122,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void EndGestation()
 		{
-			// GestationUtility.GenerateNewBornPawn(parent.pawn, Props.completeMessage, Props.endogeneTransfer, Props.xenogeneTransfer);
-			GestationUtility.GestateChild_WithXenotype(Pawn, xenotypeDef, Props.completeLetterLabel, Props.completeLetterDesc);
+			GestationUtility.GestateChild_WithXenotype(Pawn, xenotypeDef, xenotypeHolder, Props.completeLetterLabel, Props.completeLetterDesc);
 			ticksCounter = 0;
 			RemoveHediff(true);
 		}
@@ -150,11 +139,9 @@ namespace WVC_XenotypesAndGenes
 
 		public string GetLabel()
 		{
-			// Pawn pawn = parent.pawn;
-			if (MiscUtility.PawnIsColonistOrSlave(Pawn, Props.shouldBeAdult))
+			if (Pawn.Faction == Faction.OfPlayer)
 			{
-				float percent = (float)ticksCounter / (float)(ticksInday * gestationIntervalDays);
-				return percent.ToStringPercent();
+				return ((float)ticksCounter / (ticksInday * gestationIntervalDays)).ToStringPercent();
 			}
 			return "";
 		}

@@ -40,7 +40,7 @@ namespace WVC_XenotypesAndGenes
 					defaultLabel = "DEV: Spawn NewBornXenotype",
 					action = delegate
 					{
-						GestationUtility.GestateChild_WithXenotype(pawn, ListsUtility.GetAllXenotypesExceptAndroids().RandomElement(), "WVC_XaG_XenoTreeBirthLabel", "WVC_XaG_XenoTreeBirthDesc");
+						GestationUtility.GestateChild_WithXenotype(pawn, ListsUtility.GetAllXenotypesExceptAndroids().RandomElement(), null, "WVC_XaG_XenoTreeBirthLabel", "WVC_XaG_XenoTreeBirthDesc");
 					}
 				};
 			}
