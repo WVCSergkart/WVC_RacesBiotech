@@ -97,6 +97,7 @@ namespace WVC_XenotypesAndGenes
 
 	public class CompUseEffect_XenogermSerum : CompUseEffect
 	{
+
 		public XenotypeDef xenotype = null;
 
 		public bool customMode = false;
@@ -154,9 +155,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (xenotype == null)
 			{
-				// return parent.def.label + " " + "WVC_XaG_SuremRetuneUntuned_Label".Translate();
 				return parent.def.label + " (ERR)";
-				// return "(ERROR: XENOTYPES LIST IS NULL)";
 			}
 			return parent.def.label + " (" + xenotype.label + ")";
 		}
@@ -170,15 +169,6 @@ namespace WVC_XenotypesAndGenes
 
 		public override void DoEffect(Pawn pawn)
 		{
-			// if (SerumUtility.HumanityCheck(pawn))
-			// {
-				// return;
-			// }
-			// if (pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
-			// {
-				// pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating));
-				// return;
-			// }
 			if (customMode)
 			{
 				ReimplanterUtility.SetCustomXenotype(pawn, ListsUtility.GetCustomXenotypesList().RandomElement());
@@ -187,9 +177,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (xenotype == null)
 				{
-					// This is already a problem created by the player. Occurs if the player has blacklisted ALL xenotypes.
 					Log.Error("Xenotype is still null. Do not report this to the developer, you yourself created this creepy world filled with bugs. To fix the situation, reset the filter in the " + "WVC_BiotechSettings".Translate() + " mod settings and restart the game.");
-					// The following code will try a few more times to try to assign the xenotype, and if it doesn't work, it will spam everything with errors.
 				}
 				ReimplanterUtility.SetXenotype(pawn, xenotype);
 			}

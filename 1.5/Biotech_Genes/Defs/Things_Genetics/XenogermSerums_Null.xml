@@ -4,9 +4,7 @@
   <ThingDef ParentName="WVC_XenotypeSerum_Craftable" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_XenotypeSerum_Nullifier</defName>
 	<label>xenotype nullifier serum</label>
-	<description>A one-use super-dose of mechanites tuned to nullify the user's xenotype. After using the serum, the &lt;color=#f5ffa2&gt;user's skin and hair will lose color&lt;/color&gt;, and the user himself will fall into a two-day coma.
-
-If the user's genes are regrowing, then instead of applying the xenotype, the gene regeneration timer will be reset.</description>
+	<description>A one-use super-dose of mechanites tuned to nullify the user's xenotype. After using the serum, the &lt;color=#f5ffa2&gt;user's skin and hair will lose color&lt;/color&gt;, and the user himself will fall into a two-day coma.</description>
 	<descriptionHyperlinks Inherit="False"/>
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Items/Serums_Single/NullSerum_v0</texPath>
@@ -40,9 +38,7 @@ If the user's genes are regrowing, then instead of applying the xenotype, the ge
   <ThingDef ParentName="WVC_XenotypeSerum_NonCraftable" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_XenotypeSerum_Baseliner</defName>
 	<label>xenotype nullifier serum</label>
-	<description>A one-use super-dose of mechanites tuned to nullify the user's xenotype. After using the serum, the &lt;color=#f5ffa2&gt;user's melanin will be randomized&lt;/color&gt;, and the user himself will fall into a two-day coma.
-
-If the user's genes are regrowing, then instead of applying the xenotype, the gene regeneration timer will be reset.</description>
+	<description>A one-use super-dose of mechanites tuned to nullify the user's xenotype. After using the serum, the &lt;color=#f5ffa2&gt;user's melanin will be randomized&lt;/color&gt;, and the user himself will fall into a two-day coma.</description>
 	<descriptionHyperlinks Inherit="False"/>
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Items/Serums_Single/NullSerumB_v0</texPath>

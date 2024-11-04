@@ -155,6 +155,7 @@
     <Compile Include="Resources_RitualAttachableOutcome\RitualOutcomeComp_Quality.cs" />
     <Compile Include="Resources_StatPart\StatPart_OffsetFromBuildingsOnMap.cs" />
     <Compile Include="Resources_Things\Building_MechCharger.cs" />
+    <Compile Include="Resources_Things\Building_MechGestator.cs" />
     <Compile Include="Resources_Things\CompProperties_ChangeEyesColor.cs" />
     <Compile Include="Resources_Things\CompProperties_DryadCocoon.cs" />
     <Compile Include="Resources_Things\CompProperties_Genepack.cs" />

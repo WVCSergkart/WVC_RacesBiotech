@@ -29,6 +29,63 @@
 	  </value>
 	</Operation>
 
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/ThingDef[defName="BiosculpterPod"]/comps</xpath>
+	  <success>Always</success>
+	  <value>
+		<li Class="WVC_XenotypesAndGenes.CompProperties_BiosculpterPod_XenogermCycle">
+			<compClass>WVC_XenotypesAndGenes.CompBiosculpterPod_XenogermCycle</compClass>
+			<key>wvc_xag_generestoration</key>
+			<label>gene restoration</label>
+			<description>Remove all effects associated with xenogerm reimplantation.</description>
+			<iconPath>WVC/UI/XaG_General/BiosculpterCycle_XenogermHeal_v0</iconPath>
+			<durationDays>12</durationDays>
+			<operatingColor>(0.666,0.666,1.000)</operatingColor>
+			<hediffsToRemove>
+			  <li>XenogermReplicating</li>
+			  <li>XenogerminationComa</li>
+			  <li>XenogermLossShock</li>
+			  <!-- <li>WVC_Dustogenic_DelayedReimplanter</li> -->
+			</hediffsToRemove>
+			<requiredResearch>
+			  <li>WVC_XenotypesAndGenes_GeneRestoration</li>
+			</requiredResearch>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.CompProperties_BiosculpterPod_XenogermCycle">
+			<compClass>WVC_XenotypesAndGenes.CompBiosculpterPod_XenotypeNullifierCycle</compClass>
+			<key>wvc_xag_xenotypenullifier</key>
+			<label>xenotype nullifier</label>
+			<description>Removes all genes and resets the xenotype to baseliner.</description>
+			<iconPath>WVC/UI/XaG_General/BiosculpterCycle_XenogermNullifier_v0</iconPath>
+			<durationDays>15</durationDays>
+			<operatingColor>(0.888,0.888,0.888)</operatingColor>
+			<requiredResearch>
+			  <li>WVC_XenotypesAndGenes_GeneRestoration</li>
+			  <li>WVC_XenotypesAndGenes_XenotypeSerumCrafting</li>
+			</requiredResearch>
+		</li>
+		<li MayRequire="ludeon.rimworld.anomaly" Class="WVC_XenotypesAndGenes.CompProperties_BiosculpterPod_XenogermCycle">
+			<compClass>WVC_XenotypesAndGenes.CompBiosculpterPod_XenogermCycle</compClass>
+			<key>wvc_xag_duplicaterestoration</key>
+			<label>duplicate restoration</label>
+			<description>Remove all effects associated with duplication.</description>
+			<iconPath>WVC/UI/XaG_General/BiosculpterCycle_Duplication_v0</iconPath>
+			<durationDays>22</durationDays>
+			<operatingColor>(1.000,0.666,0.666)</operatingColor>
+			<hediffsToRemove>
+			  <li MayRequire="ludeon.rimworld.anomaly">DuplicateSickness</li>
+			  <li MayRequire="ludeon.rimworld.anomaly">CrumblingMindUndiagnosedDuplication</li>
+			  <li MayRequire="ludeon.rimworld.anomaly">CrumblingMindUndiagnosedCreepjoiner</li>
+			  <li MayRequire="ludeon.rimworld.anomaly">CrumblingMind</li>
+			  <li MayRequire="ludeon.rimworld.anomaly">CrumbledMind</li>
+			</hediffsToRemove>
+			<requiredResearch>
+			  <li>WVC_XenotypesAndGenes_ShapeshifterSerums</li>
+			</requiredResearch>
+		</li>
+	  </value>
+	</Operation>
+
 	<!-- <Operation Class="PatchOperationSequence"> -->
 		<!-- <success>Always</success> -->
 		<!-- <operations> -->
