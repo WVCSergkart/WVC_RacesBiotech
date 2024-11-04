@@ -4,13 +4,9 @@
   <ThingDef ParentName="TreeBase">
 	<defName>WVC_Plant_TreeXenoSpawner</defName>
 	<label>xeno-tree</label>
-	<description>A large mushroom-like tree. It is a hybrid plant-mushroom combined with the human reproductive system. In the trunk of this tree there is a natural organic vat capable of growing xeno-like humans.
+	<description>A large mushroom-like tree. This hybrid mushroom-tree capable of gestation of a human was created by archotech for an unknown purpose. By catching the psychic vibrations of the people around it and analyzing their genetic code, it is able to reproduce any xenotype with amazing accuracy. The tree does not require direct interaction with it and gestates xenotypes in relation to the needs of the colony, as if it had a mind of its own, which is not the case.
 
-&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; Being fully grown, it allows you to spawn babies of any xenotype, with a period of 8-12 days. Available xenotypes are determined relative to the genes of all pawns on one map with the tree. That is, if you have several pawns in your colony with completely different genes, then you can choose xenotypes that match the set of genes with these pawns by at least 80%.
-
-If you have only baseliners in your colony, you can only choose the baseliner xenotype accordingly.
-
-&lt;color=#ff8585&gt;Only xenotypes created using XML are supported.&lt;/color&gt;</description>
+&lt;color=#f5ffa2&gt;Gameplay Effect:&lt;/color&gt; Being fully grown, it allows you to spawn babies of any xenotype, with a period of 13-15 days. Available xenotypes are determined relative to the genes of all pawns on one map with the tree. That is, if you have several pawns in your colony with completely different genes, then you can choose xenotypes that match the set of genes with these pawns by at least 80%. If you have only baseliners in your colony, you can only choose the baseliner xenotype accordingly.</description>
 	<descriptionHyperlinks>
 	  <!-- <ThingDef>WVC_Plant_XenoBulb</ThingDef> -->
 	  <ThingDef>WVC_XenoSpawnerSeed</ThingDef>
@@ -59,13 +55,7 @@ If you have only baseliners in your colony, you can only choose the baseliner xe
 	  <immatureGraphicPath>WVC/Things/XaG_Buildings/MushroomTreeBulbs/Bulb_B</immatureGraphicPath>
 	</plant>
 	<comps>
-	  <li Class="WVC_XenotypesAndGenes.CompProperties_XenoTree">
-		<compClass>WVC_XenotypesAndGenes.CompXenoTree</compClass>
-		<ticksBetweenSpawn>480000~720000</ticksBetweenSpawn>
-		<!-- <xenoBulbDef>WVC_Plant_XenoBulb</xenoBulbDef> -->
-		<!-- <connectionGeneDef>WVC_XenotypesAndGenes_InfectedMind</connectionGeneDef> -->
-		<!-- <infectionHediffDef>WVC_XenotypesAndGenes_XenoInfection</infectionHediffDef> -->
-	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_XenoTree"/>
 	  <li Class="CompProperties_SelfhealHitpoints">
 		<ticksPerHeal>2000</ticksPerHeal>
 	  </li>

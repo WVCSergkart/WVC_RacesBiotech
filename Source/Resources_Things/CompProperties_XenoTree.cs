@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
@@ -11,13 +12,14 @@ namespace WVC_XenotypesAndGenes
 	public class CompProperties_XenoTree : CompProperties
 	{
 
-		public IntRange ticksBetweenSpawn = new(480000, 720000);
+		public IntRange ticksBetweenSpawn = new(780000, 900000);
 
 		public float minMatchingGenes = 0.8f;
 
+		[Obsolete]
 		public bool xenogerminationComa = true;
 
-		public int xenotypeChangeCooldown = 420000;
+		public int xenotypeChangeCooldown = 900000;
 
 		public string uniqueTag = "XenoTree";
 
@@ -42,6 +44,8 @@ namespace WVC_XenotypesAndGenes
 
 		public XenotypeDef chosenXenotype = null;
 
+		public SaveableXenotypeHolder xenotypeHolder = null;
+
 		public CompProperties_XenoTree Props => (CompProperties_XenoTree)props;
 
 		public CompSpawnSubplantDuration Subplant => parent.TryGetComp<CompSpawnSubplantDuration>();
@@ -50,6 +54,18 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.Initialize(props);
 			ResetCounter();
+		}
+
+		public void SetupHolder(XenotypeHolder holder)
+		{
+			SaveableXenotypeHolder newHolder = new();
+			newHolder.xenotypeDef = holder.xenotypeDef;
+			newHolder.name = holder.name;
+			newHolder.iconDef = holder.iconDef;
+			newHolder.genes = holder.genes;
+			newHolder.inheritable = holder.inheritable;
+			xenotypeHolder = newHolder;
+			changeCooldown = Find.TickManager.TicksGame + Props.xenotypeChangeCooldown;
 		}
 
 		public override void PostSpawnSetup(bool respawningAfterLoad)
@@ -81,8 +97,12 @@ namespace WVC_XenotypesAndGenes
 
 		public void Tick(int tick)
 		{
+			if (!spawnerIsActive)
+			{
+				return;
+			}
 			tickCounter -= tick;
-			if (tickCounter > 0 || !spawnerIsActive)
+			if (tickCounter > 0)
 			{
 				return;
 			}
@@ -91,27 +111,40 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public void TryDoSpawn()
-		{
-			if (spawnerIsActive && chosenXenotype != null)
-			{
-				GestationUtility.GestateChild_WithXenotype(parent, chosenXenotype, null, Props.completeLetterLabel, Props.completeLetterDesc);
-				if (Subplant != null)
-				{
-					Subplant.DoGrowSubplant();
-				}
-			}
-		}
+        {
+            if (IsActive())
+            {
+				changeCooldown = 0;
+				GestationUtility.GestateChild_WithXenotype(parent, chosenXenotype, xenotypeHolder, Props.completeLetterLabel, Props.completeLetterDesc);
+                if (Subplant != null)
+                {
+                    Subplant.DoGrowSubplant();
+                }
+            }
+        }
 
-		public override string CompInspectStringExtra()
+        private bool IsActive()
+        {
+            return spawnerIsActive && (chosenXenotype != null || xenotypeHolder != null);
+        }
+
+        public override string CompInspectStringExtra()
 		{
 			StringBuilder stringBuilder = new(base.CompInspectStringExtra());
-			if (spawnerIsActive && chosenXenotype != null)
+			if (IsActive())
 			{
 				if (Find.TickManager.TicksGame < changeCooldown)
 				{
 					stringBuilder.AppendLine(string.Format("{0}", "WVC_XaG_XenoTreeXenotypeChangeCooldown".Translate(changeCooldown.ToStringTicksToPeriod())));
 				}
-				stringBuilder.AppendLine(string.Format("{0}: {1}", "WVC_XaG_CurrentXenotype".Translate(), chosenXenotype.label.CapitalizeFirst().Colorize(ColoredText.GeneColor)));
+				if (xenotypeHolder != null)
+				{
+					stringBuilder.AppendLine(string.Format("{0}: {1}", "WVC_XaG_CurrentXenotype".Translate(), xenotypeHolder.LabelCap.Colorize(ColoredText.GeneColor)));
+				}
+				else if (chosenXenotype != null)
+				{
+					stringBuilder.AppendLine(string.Format("{0}: {1}", "WVC_XaG_CurrentXenotype".Translate(), chosenXenotype.label.CapitalizeFirst().Colorize(ColoredText.GeneColor)));
+				}
 				stringBuilder.Append(string.Format("{0}", "WVC_XaG_Label_CompSpawnBabyPawnAndInheritGenes".Translate(tickCounter.ToStringTicksToPeriod())));
 			}
 			else if (Subplant != null && parent is Plant plant)
@@ -147,7 +180,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				defaultLabel = "WVC_XaG_GeneBabyTree_label".Translate() + ": " + XaG_UiUtility.OnOrOff(spawnerIsActive),
 				defaultDesc = "WVC_XaG_GeneBabyTree_desc".Translate(),
-				Disabled = chosenXenotype == null,
+				Disabled = chosenXenotype == null && xenotypeHolder == null,
 				disabledReason = "WVC_XaG_XenoTreeXenotypeChooseDisabled_OnOrOff".Translate(),
 				icon = parent.def.uiIcon,
 				action = delegate
@@ -179,7 +212,18 @@ namespace WVC_XenotypesAndGenes
 
 		private Texture2D GetXenotypeIcon()
 		{
-			if (chosenXenotype != null)
+			if (xenotypeHolder != null)
+			{
+				if (xenotypeHolder.iconDef != null)
+				{
+					return xenotypeHolder.iconDef.Icon;
+				}
+				else
+				{
+					return ContentFinder<Texture2D>.Get(xenotypeHolder.xenotypeDef.iconPath);
+				}
+			}
+			else if (chosenXenotype != null)
 			{
 				return ContentFinder<Texture2D>.Get(chosenXenotype.iconPath);
 			}
@@ -197,6 +241,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref tickCounter, "tickCounterNextBabySpawn_" + Props.uniqueTag, 0);
 			Scribe_Values.Look(ref changeCooldown, "changeCooldown_" + Props.uniqueTag, 0);
 			Scribe_Defs.Look(ref chosenXenotype, "chosenXenotype_" + Props.uniqueTag);
+			Scribe_Deep.Look(ref xenotypeHolder, "xenotypeHolder_" + Props.uniqueTag);
 			Scribe_Values.Look(ref spawnerIsActive, "spawnerIsActive", true);
 		}
 

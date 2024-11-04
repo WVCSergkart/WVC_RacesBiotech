@@ -8,7 +8,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Dialog_XenotypeTree : Dialog_XenotypesBase
+	public class Dialog_XenotypeTree : Dialog_XenotypeHolderBasic
 	{
 		public CompXenoTree xenoTree;
 
@@ -16,130 +16,93 @@ namespace WVC_XenotypesAndGenes
 
 		public float matchPercent;
 
-		public List<XenotypeDef> allMatchedXenotypes;
+		public XenotypeHolder currentHolder;
+
+		protected override string Header => xenoTree.parent.LabelCap;
+
+		public override List<XenotypeHolder> XenotypesInOrder
+		{
+			get
+			{
+				if (cachedXenotypeDefsInOrder == null)
+				{
+					cachedXenotypeDefsInOrder = new();
+					foreach (XenotypeHolder allDef in allXenotypes)
+					{
+						cachedXenotypeDefsInOrder.Add(allDef);
+					}
+					cachedXenotypeDefsInOrder.SortBy((XenotypeHolder x) => 0f - x.displayPriority);
+				}
+				return cachedXenotypeDefsInOrder;
+			}
+		}
 
 		public Dialog_XenotypeTree(Thing tree)
 		{
 			xenoTree = tree.TryGetComp<CompXenoTree>();
-			currentXeno = xenoTree.chosenXenotype;
-			selectedXeno = currentXeno;
+			GetCurrentXenotypeHolder();
+			selectedXenoHolder = currentHolder ?? allXenotypes.First();
 			allColonists = tree.Map.mapPawns.FreeColonistsAndPrisoners.ToList();
 			matchPercent = xenoTree.Props.minMatchingGenes;
-			// connectedPawn = xenoTree.ConnectedPawn;
-			forcePause = true;
-			closeOnAccept = false;
-			doCloseX = true;
-			doCloseButton = true;
-			allXenotypes = ListsUtility.GetAllXenotypesExceptAndroids();
-			allMatchedXenotypes = XaG_GeneUtility.GetAllMatchedXenotypes_ForPawns(allColonists, allXenotypes, matchPercent);
+			UpdAllMatchedXenotypes_ForPawns(allColonists, allXenotypes, matchPercent);
 		}
 
-		public override void DrawLeftRect(Rect rect, ref float curY)
+		public void GetCurrentXenotypeHolder()
 		{
-			Rect rect2 = new(rect.x, curY, rect.width, rect.height)
+			XenotypeHolder treeHolder = xenoTree.xenotypeHolder;
+			if (treeHolder == null)
 			{
-				yMax = rect.yMax
-			};
-			Rect rect3 = rect2.ContractedBy(4f);
-			if (selectedXeno == null)
-			{
-				Widgets.Label(rect3, "WVC_XaG_XenoTreeModeChangeDescInitial".Translate());
+				currentHolder = null;
 				return;
 			}
-			if (selectedXeno.descriptionShort.NullOrEmpty())
+			foreach (XenotypeHolder xenotypeHolder in allXenotypes)
 			{
-				Widgets.Label(rect3.x, ref curY, rect3.width, selectedXeno.description);
-			}
-			else
-			{
-				Widgets.Label(rect3.x, ref curY, rect3.width, selectedXeno.descriptionShort);
-			}
-			curY += 10f;
-			Rect rect4 = new(rect3.x, rect3.yMax - 55f, rect3.width, 55f);
-			foreach (XenotypeDef item in XaG_GeneUtility.GetXenotypeAndDoubleXenotypes(selectedXeno))
-			{
-				Widgets.HyperlinkWithIcon(new Rect(rect3.x, curY, rect3.width, Text.LineHeight), new Dialog_InfoCard.Hyperlink(item));
-				curY += Text.LineHeight;
-			}
-			curY += 10f;
-			if (Find.TickManager.TicksGame < xenoTree.changeCooldown)
-			{
-				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_XenoTreeXenotypeChangeCooldown".Translate(xenoTree.changeCooldown.ToStringTicksToPeriod()).Colorize(ColorLibrary.RedReadable));
-				curY += 10f;
-			}
-			if (!allMatchedXenotypes.Contains(selectedXeno))
-			{
-				Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_GeneXenoGestator_GestationGenesMatch".Translate((matchPercent * 100).ToString()).Colorize(ColorLibrary.RedReadable));
-				curY += 10f;
-			}
-			// if (!XenoTreeUtility.XenoTree_ToxResCheck(selectedXeno, xenoTree.parent))
-			// {
-				// Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_XenoTreeModeRequiredPollution".Translate(xenoTree.parent.LabelCap).Colorize(ColorLibrary.RedReadable));
-				// curY += 10f;
-			// }
-			// if (!XenoTreeUtility.XenoTree_ColdResCheck(selectedXeno, xenoTree.parent))
-			// {
-				// Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_XenoTreeModeRequiredCold".Translate(xenoTree.parent.LabelCap).Colorize(ColorLibrary.RedReadable));
-				// curY += 10f;
-			// }
-			// if (!XenoTreeUtility.XenoTree_HeatResCheck(selectedXeno, xenoTree.parent))
-			// {
-				// Widgets.Label(rect3.x, ref curY, rect3.width, "WVC_XaG_XenoTreeModeRequiredHeat".Translate(xenoTree.parent.LabelCap).Colorize(ColorLibrary.RedReadable));
-				// curY += 10f;
-			// }
-			if (MeetsRequirements(selectedXeno) && selectedXeno != currentXeno)
-			{
-				if (Widgets.ButtonText(rect4, "Accept".Translate()))
+				if (xenotypeHolder.xenotypeDef == treeHolder.xenotypeDef && xenotypeHolder.name == treeHolder.name && xenotypeHolder.iconDef == treeHolder.iconDef && xenotypeHolder.genes.Count == treeHolder.genes.Count)
 				{
-					Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_XenoTreeModeChangeDescFull".Translate(xenoTree.parent.LabelCap), delegate
-					{
-						StartChange();
-					});
-					Find.WindowStack.Add(window);
+					currentHolder = xenotypeHolder;
+					break;
 				}
 			}
-			else
-			{
-				string label = ((selectedXeno == currentXeno) ? ((string)"WVC_XaG_XenoTreeMode_AlreadySelected".Translate()) : ((!MeetsRequirements(selectedXeno)) ? ((string)"WVC_XaG_XenoTreeModeNotMeetsRequirements".Translate()) : ((string)"Locked".Translate())));
-				Text.Anchor = TextAnchor.MiddleCenter;
-				Widgets.DrawHighlight(rect4);
-				Widgets.Label(rect4.ContractedBy(5f), label);
-				Text.Anchor = TextAnchor.UpperLeft;
-			}
 		}
 
-		public override void StartChange()
+		protected override bool CanAccept()
 		{
-			xenoTree.chosenXenotype = selectedXeno;
-			xenoTree.changeCooldown = Find.TickManager.TicksGame + xenoTree.Props.xenotypeChangeCooldown;
-			SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-			// SoundDefOf.GauranlenProductionModeSet.PlayOneShotOnCamera();
-			Close(doCloseSound: false);
-		}
-
-		public override bool MeetsRequirements(XenotypeDef mode)
-		{
-			if (DebugSettings.ShowDevGizmos)
+			if (currentHolder == selectedXenoHolder)
 			{
-				return true;
+				Messages.Message("WVC_XaG_XenoTreeMode_AlreadySelected".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
+				return false;
 			}
 			if (Find.TickManager.TicksGame < xenoTree.changeCooldown)
 			{
+				Messages.Message("WVC_XaG_XenoTreeXenotypeChangeCooldown".Translate(xenoTree.changeCooldown.ToStringTicksToPeriod()), null, MessageTypeDefOf.RejectInput, historical: false);
 				return false;
 			}
-			if (allMatchedXenotypes.Contains(mode))
+			if (selectedXenoHolder.isOverriden)
 			{
-				return true;
+				Messages.Message("WVC_XaG_GeneXenoGestator_GestationGenesMatch".Translate((matchPercent * 100).ToString()), null, MessageTypeDefOf.RejectInput, historical: false);
+				return false;
 			}
-			// if (selectedXeno == currentXeno)
-			// {
-				// return false;
-			// }
-			// if (XaG_GeneUtility.GenesIsMatchForPawns(allColonists, mode.genes, matchPercent))
-			// {
-				// return true;
-			// }
-			return false;
+			return true;
+		}
+
+		public static void UpdAllMatchedXenotypes_ForPawns(List<Pawn> pawns, List<XenotypeHolder> xenotypeDefs, float percent = 0.6f)
+		{
+			foreach (Pawn pawn in pawns)
+			{
+				Dialog_XenotypeGestator.UpdAllMatchedXenotypeHolders(pawn, xenotypeDefs, percent);
+			}
+		}
+
+		protected override void Accept()
+		{
+			Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_XenoTreeModeChangeDescFull".Translate(xenoTree.parent.LabelCap), StartChange));
+		}
+
+		public void StartChange()
+		{
+			xenoTree.SetupHolder(selectedXenoHolder);
+			SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+			Close(doCloseSound: false);
 		}
 
 	}

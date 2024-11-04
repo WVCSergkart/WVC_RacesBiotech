@@ -71,12 +71,12 @@
 	<!-- XENO TREE DIALOG -->
 
 	<WVC_XaG_XenoTreeModeChange>Choose xenotype</WVC_XaG_XenoTreeModeChange>
-	<WVC_XaG_XenoTreeModeRequiredPollution>{0} must be located on polluted soil</WVC_XaG_XenoTreeModeRequiredPollution>
-	<WVC_XaG_XenoTreeModeRequiredCold>{0} must be located in cold biome</WVC_XaG_XenoTreeModeRequiredCold>
-	<WVC_XaG_XenoTreeModeRequiredHeat>{0} must be located in hot biome</WVC_XaG_XenoTreeModeRequiredHeat>
+	<!-- <WVC_XaG_XenoTreeModeRequiredPollution>{0} must be located on polluted soil</WVC_XaG_XenoTreeModeRequiredPollution> -->
+	<!-- <WVC_XaG_XenoTreeModeRequiredCold>{0} must be located in cold biome</WVC_XaG_XenoTreeModeRequiredCold> -->
+	<!-- <WVC_XaG_XenoTreeModeRequiredHeat>{0} must be located in hot biome</WVC_XaG_XenoTreeModeRequiredHeat> -->
 	<WVC_XaG_XenoTreeModeNotMeetsRequirements>Conditions are not met</WVC_XaG_XenoTreeModeNotMeetsRequirements>
 	<WVC_XaG_XenoTreeMode_AlreadySelected>Already selected</WVC_XaG_XenoTreeMode_AlreadySelected>
-	<WVC_XaG_XenoTreeModeChangeDescInitial>Here you can choose any xenotype of your future baby. Some xenotypes require special conditions to be used.</WVC_XaG_XenoTreeModeChangeDescInitial>
+	<!-- <WVC_XaG_XenoTreeModeChangeDescInitial>Here you can choose any xenotype of your future baby. Some xenotypes require special conditions to be used.</WVC_XaG_XenoTreeModeChangeDescInitial> -->
 	<WVC_XaG_XenoTreeModeChangeDescFull>{0} will need time to reconfigure the genetic code in the xeno-vats. During this time it will be impossible to change the xenotype. Are you sure about the selected xenotype?</WVC_XaG_XenoTreeModeChangeDescFull>
 
 	<!-- SERUM RETUNE DIALOG -->
