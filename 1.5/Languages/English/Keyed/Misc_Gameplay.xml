@@ -72,6 +72,10 @@
 
 	<WVC_XaG_XenogermCycleCompleted>{PAWN_labelShort} completed xenogerm cycle.</WVC_XaG_XenogermCycleCompleted>
 
+	<WVC_XaG_XenotypeHolderCycleStarted_XenotypeIsForbidden>The selected xenotype is not available.</WVC_XaG_XenotypeHolderCycleStarted_XenotypeIsForbidden>
+
+	<WVC_XaG_XenotypeHolderCycleStarted_Dialog>Once the cycle starts, it will be impossible to select another xenotype, are you sure?</WVC_XaG_XenotypeHolderCycleStarted_Dialog>
+
 	<!-- ============================ MECHLINK AND PSYLINK ============================ -->
 
 	<WVC_XaG_GeneNaturalMechlinkLetterLabel>Natural mechlink</WVC_XaG_GeneNaturalMechlinkLetterLabel>

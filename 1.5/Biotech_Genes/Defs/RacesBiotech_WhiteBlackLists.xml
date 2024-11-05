@@ -31,8 +31,7 @@
 		<li>WVC_Resurgent</li>
 		<li MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li>
 	</whiteListedXenotypesForResurrectorSerums>
-	<!-- Xenotypes for xenotype filter. Needed to determine default xenotypes for sera. Not used for random sera. Any string -->
-	<!-- In addition to this filter, there are several more filtering stages. All of them are in C# code and cannot be changed via XML. However, this filter takes precedence. -->
+	<!-- Obsolete -->
 	<whiteListedXenotypesForFilter>
 		<!-- Vanilla -->
 		<li>Highmate</li>

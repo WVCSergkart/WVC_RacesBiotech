@@ -83,6 +83,15 @@
 			  <li>WVC_XenotypesAndGenes_ShapeshifterSerums</li>
 			</requiredResearch>
 		</li>
+		<!-- <li Class="WVC_XenotypesAndGenes.CompProperties_BiosculpterPod_XenogermCycle"> -->
+			<!-- <compClass>WVC_XenotypesAndGenes.CompBiosculpterPod_XenotypeHolderCycle</compClass> -->
+			<!-- <key>wvc_xag_xenotypeholder</key> -->
+			<!-- <label>xenotype changer TEST</label> -->
+			<!-- <description>Removes all genes and resets the xenotype to baseliner.</description> -->
+			<!-- <iconPath>WVC/UI/XaG_General/BiosculpterCycle_XenogermNullifier_v0</iconPath> -->
+			<!-- <durationDays>1</durationDays> -->
+			<!-- <operatingColor>(0.888,0.888,0.888)</operatingColor> -->
+		<!-- </li> -->
 	  </value>
 	</Operation>
 

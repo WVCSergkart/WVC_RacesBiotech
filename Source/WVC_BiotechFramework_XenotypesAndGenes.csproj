@@ -98,6 +98,7 @@
     <Compile Include="Resources_Genes\Gene_Thralls.cs" />
     <Compile Include="Resources_Genes\Gene_Hemogen.cs" />
     <Compile Include="Resources_Genes\Gene_XaG_Basic.cs" />
+    <Compile Include="Resources_Gizmo\Dialog_BiosculpterPod.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ChangeEyesColor.cs" />
     <Compile Include="Resources_Gizmo\Dialog_XenotypeGestator.cs" />
     <Compile Include="Resources_Gizmo\Dialog_XenotypeHolderBasic.cs" />
