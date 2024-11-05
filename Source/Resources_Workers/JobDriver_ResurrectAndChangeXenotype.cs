@@ -68,7 +68,7 @@ namespace WVC_XenotypesAndGenes
 				GeneResourceUtility.ResurrectWithSickness(innerPawn);
 				// ResurrectionUtility.TryResurrect(innerPawn);
 				// innerPawn.health.AddHediff(HediffDefOf.ResurrectionSickness);
-				XenotypeDef xenotypeDef = Item?.TryGetComp<CompTargetEffect_DoJobOnTarget>()?.xenotypeDef;
+				XenotypeDef xenotypeDef = Item?.TryGetComp<CompTargetEffect_DoJobOnTarget_XenogermSerum>()?.xenotypeDef;
 				if (xenotypeDef == null)
 				{
 					xenotypeDef = ListsUtility.GetWhiteListedXenotypes(true, true).RandomElement();
@@ -89,7 +89,7 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 			Messages.Message("MessagePawnResurrected".Translate(innerPawn), innerPawn, MessageTypeDefOf.PositiveEvent);
-			ThingDef thingDef = Item?.TryGetComp<CompTargetEffect_DoJobOnTarget>()?.Props.moteDef;
+			ThingDef thingDef = Item?.TryGetComp<CompTargetEffect_DoJobOnTarget_XenogermSerum>()?.Props.moteDef;
 			if (thingDef != null)
 			{
 				MoteMaker.MakeAttachedOverlay(innerPawn, thingDef, Vector3.zero);

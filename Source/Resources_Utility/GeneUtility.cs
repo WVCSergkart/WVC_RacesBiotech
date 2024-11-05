@@ -229,6 +229,10 @@ namespace WVC_XenotypesAndGenes
 		public static List<GeneDef> ConvertGenesInGeneDefs(List<Gene> genes)
 		{
 			List<GeneDef> geneDefs = new();
+			if (genes.NullOrEmpty())
+            {
+				return geneDefs;
+            }
 			foreach (Gene item in genes)
 			{
 				geneDefs.Add(item.def);
@@ -492,21 +496,39 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		public static bool GenesIsMatch(List<GeneDef> pawnGenes, List<GeneDef> xenotypeGenes, float percent)
+		{
+			if (xenotypeGenes.NullOrEmpty() || percent <= 0f)
+			{
+				return true;
+			}
+			if (pawnGenes.NullOrEmpty())
+			{
+				return false;
+			}
+			List<GeneDef> matchingGenes = GetMatchingGenesList(pawnGenes, xenotypeGenes);
+			if (matchingGenes.Count >= xenotypeGenes.Count * percent)
+			{
+				return true;
+			}
+			return false;
+		}
+
 		// public static bool PawnIsBaseliner(Pawn pawn)
 		// {
-			// if (pawn.genes == null)
-			// {
-				// return true;
-			// }
-			// if (pawn.genes.CustomXenotype != null)
-			// {
-				// return false;
-			// }
-			// if (pawn.genes.Xenotype == XenotypeDefOf.Baseliner)
-			// {
-				// return true;
-			// }
-			// return false;
+		// if (pawn.genes == null)
+		// {
+		// return true;
+		// }
+		// if (pawn.genes.CustomXenotype != null)
+		// {
+		// return false;
+		// }
+		// if (pawn.genes.Xenotype == XenotypeDefOf.Baseliner)
+		// {
+		// return true;
+		// }
+		// return false;
 		// }
 
 		// ============================= Getter =============================
@@ -651,6 +673,23 @@ namespace WVC_XenotypesAndGenes
 				if (xenotypeGenes.Contains(item.def))
 				{
 					geneDef.Add(item.def);
+				}
+			}
+			return geneDef;
+		}
+
+		public static List<GeneDef> GetMatchingGenesList(List<GeneDef> pawnGenes, List<GeneDef> xenotypeGenes)
+		{
+			if (pawnGenes.NullOrEmpty() || xenotypeGenes.NullOrEmpty())
+			{
+				return null;
+			}
+			List<GeneDef> geneDef = new();
+			foreach (GeneDef item in pawnGenes)
+			{
+				if (xenotypeGenes.Contains(item))
+				{
+					geneDef.Add(item);
 				}
 			}
 			return geneDef;

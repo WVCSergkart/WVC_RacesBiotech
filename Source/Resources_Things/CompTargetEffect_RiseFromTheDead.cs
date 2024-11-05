@@ -6,7 +6,7 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class CompTargetEffect_DoJobOnTarget : CompTargetEffect
+	public class CompTargetEffect_DoJobOnTarget_XenogermSerum : CompTargetEffect
 	{
 		public XenotypeDef xenotypeDef = null;
 
@@ -27,6 +27,11 @@ namespace WVC_XenotypesAndGenes
 					xenotypeDef = xenotypeDefs.RandomElement();
 				}
 			}
+		}
+
+		public virtual void Notify_SerumCrafted(Pawn pawn)
+		{
+			xenotypeDef = null;
 		}
 
 		public override bool AllowStackWith(Thing other)
@@ -54,7 +59,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (xenotypeDef == null)
 			{
-				return parent.def.label + " (" + "ERR" + ")";
+				return parent.def.label + " (" + "WVC_XaG_Untuned".Translate() + ")";
 			}
 			return parent.def.label + " (" + xenotypeDef.label + ")";
 		}

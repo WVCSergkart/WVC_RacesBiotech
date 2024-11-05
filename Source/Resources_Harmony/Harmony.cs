@@ -580,26 +580,26 @@ namespace WVC_XenotypesAndGenes
 
 			// CompBiosculpterPod
 
-			public static void XenosculpterPod_TryAcceptPawn_Patch(ref bool __result, ref CompBiosculpterPod_Cycle cycle, ref float ___currentCycleTicksRemaining, CompBiosculpterPod __instance)
-			{
-				if (__result && cycle is CompBiosculpterPod_XenotypeHolderCycle holderCycle)
-				{
-					___currentCycleTicksRemaining += holderCycle.additionalCycleDays * 60000;
-					if (holderCycle.ShouldInterrupt)
-					{
-						holderCycle.ResetCycle();
-						__instance.EjectContents(interrupted: true, playSounds: true);
-					}
-				}
-			}
+			//public static void XenosculpterPod_TryAcceptPawn_Patch(ref bool __result, ref CompBiosculpterPod_Cycle cycle, ref float ___currentCycleTicksRemaining, CompBiosculpterPod __instance)
+			//{
+			//	if (__result && cycle is CompBiosculpterPod_XenotypeHolderCycle holderCycle)
+			//	{
+			//		___currentCycleTicksRemaining += holderCycle.additionalCycleDays * 60000;
+			//		if (holderCycle.ShouldInterrupt)
+			//		{
+			//			holderCycle.ResetCycle();
+			//			__instance.EjectContents(interrupted: true, playSounds: true);
+			//		}
+			//	}
+			//}
 
-            public static void XenosculpterPod_OrderToPod_Patch(ref CompBiosculpterPod_Cycle cycle)
-            {
-                if (cycle is CompBiosculpterPod_XenotypeHolderCycle holderCycle)
-				{
-					holderCycle.StartCycle();
-				}
-            }
+   //         public static void XenosculpterPod_OrderToPod_Patch(ref CompBiosculpterPod_Cycle cycle)
+   //         {
+   //             if (cycle is CompBiosculpterPod_XenotypeHolderCycle holderCycle)
+			//	{
+			//		holderCycle.StartCycle();
+			//	}
+   //         }
 
             // FoodPolicy
 

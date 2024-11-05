@@ -74,7 +74,11 @@
 
 	<WVC_XaG_XenotypeHolderCycleStarted_XenotypeIsForbidden>The selected xenotype is not available.</WVC_XaG_XenotypeHolderCycleStarted_XenotypeIsForbidden>
 
+	<WVC_XaG_XenotypeHolderCycleStarted_NonXenotypes>No xenotypes available.</WVC_XaG_XenotypeHolderCycleStarted_NonXenotypes>
+
 	<WVC_XaG_XenotypeHolderCycleStarted_Dialog>Once the cycle starts, it will be impossible to select another xenotype, are you sure?</WVC_XaG_XenotypeHolderCycleStarted_Dialog>
+
+	<WVC_XaG_XenotypeHolderCycleStarted_SelectXenotypeDesc>Allows you to select a xenotype for the xenosculptor cycle. The xenotype that can be selected is determined relative to the genebanks located in the same room with the biosculptor. It is recommended to select a xenotype before starting the cycle, otherwise the pawn's xenotype will be reset to the baseliner.</WVC_XaG_XenotypeHolderCycleStarted_SelectXenotypeDesc>
 
 	<!-- ============================ MECHLINK AND PSYLINK ============================ -->
 
@@ -107,6 +111,8 @@
 	
 	<WVC_XaG_SerumCustomMode_Label>Custom</WVC_XaG_SerumCustomMode_Label>
 	<WVC_XaG_SerumCustomMode_Desc>Allows you to switch between standard and custom mode. Custom xenotypes are always randomized.</WVC_XaG_SerumCustomMode_Desc>
+	
+	<WVC_XaG_Untuned>Untuned</WVC_XaG_Untuned>
 	
 	<WVC_ImplantXenogermSerum>Administer serum</WVC_ImplantXenogermSerum>
 	<WVC_ImplantXenogermSerumDesc>Administer the serum for the selected pawn.</WVC_ImplantXenogermSerumDesc>

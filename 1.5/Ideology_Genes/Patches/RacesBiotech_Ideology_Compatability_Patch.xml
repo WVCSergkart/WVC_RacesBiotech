@@ -68,7 +68,7 @@
 			<compClass>WVC_XenotypesAndGenes.CompBiosculpterPod_XenogermCycle</compClass>
 			<key>wvc_xag_duplicaterestoration</key>
 			<label>duplicate restoration</label>
-			<description>Remove all effects associated with duplication.</description>
+			<description>Remove all negative effects associated with duplication.</description>
 			<iconPath>WVC/UI/XaG_General/BiosculpterCycle_Duplication_v0</iconPath>
 			<durationDays>22</durationDays>
 			<operatingColor>(1.000,0.666,0.666)</operatingColor>
@@ -83,15 +83,23 @@
 			  <li>WVC_XenotypesAndGenes_ShapeshifterSerums</li>
 			</requiredResearch>
 		</li>
-		<!-- <li Class="WVC_XenotypesAndGenes.CompProperties_BiosculpterPod_XenogermCycle"> -->
-			<!-- <compClass>WVC_XenotypesAndGenes.CompBiosculpterPod_XenotypeHolderCycle</compClass> -->
-			<!-- <key>wvc_xag_xenotypeholder</key> -->
-			<!-- <label>xenotype changer TEST</label> -->
-			<!-- <description>Removes all genes and resets the xenotype to baseliner.</description> -->
-			<!-- <iconPath>WVC/UI/XaG_General/BiosculpterCycle_XenogermNullifier_v0</iconPath> -->
-			<!-- <durationDays>1</durationDays> -->
-			<!-- <operatingColor>(0.888,0.888,0.888)</operatingColor> -->
-		<!-- </li> -->
+		<li Class="WVC_XenotypesAndGenes.CompProperties_BiosculpterPod_XenogermCycle">
+			<compClass>WVC_XenotypesAndGenes.CompBiosculpterPod_XenotypeHolderCycle</compClass>
+			<key>wvc_xag_xenosculptor_basic</key>
+			<label>xenosculptor</label>
+			<description>Allows you to change the pawn's xenotype. The xenotype that can be applied to the pawn depends on the genebanks surrounding the biosculptor, the minimum match must be 40%. To connect to the genebanks, the biosculptor must be in the same room with them. If the xenotype was not set before the start of the cycle, the effect will be the same as that of the xenotype nullifier.</description>
+			<iconPath>WVC/UI/XaG_General/BiosculpterCycle_Xenosculptor_v0</iconPath>
+			<durationDays>15</durationDays>
+			<operatingColor>(1.000,0.444,1.000)</operatingColor>
+			<requiredResearch>
+			  <li>WVC_XenotypesAndGenes_GeneRestoration</li>
+			  <li>WVC_XenotypesAndGenes_XenotypeSerumCrafting</li>
+			</requiredResearch>
+			<extraRequiredIngredients>
+			  <MedicineUltratech>5</MedicineUltratech>
+			  <!-- <ArchiteCapsule>1</ArchiteCapsule> -->
+			</extraRequiredIngredients>
+		</li>
 	  </value>
 	</Operation>
 

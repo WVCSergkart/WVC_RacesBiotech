@@ -137,15 +137,20 @@ namespace WVC_XenotypesAndGenes
 
 		// public override void PostSpawnSetup(bool respawningAfterLoad)
 		// {
-			// if (!respawningAfterLoad)
-			// {
-				// return;
-			// }
-			// if (parent.Map != null)
-			// {
-				// xenotype = null;
-			// }
+		// if (!respawningAfterLoad)
+		// {
+		// return;
 		// }
+		// if (parent.Map != null)
+		// {
+		// xenotype = null;
+		// }
+		// }
+
+		public virtual void Notify_SerumCrafted(Pawn pawn)
+		{
+			xenotype = null;
+		}
 
 		public override string TransformLabel(string label)
 		{
@@ -155,7 +160,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (xenotype == null)
 			{
-				return parent.def.label + " (ERR)";
+				return parent.def.label + " (" + "WVC_XaG_Untuned".Translate() + ")";
 			}
 			return parent.def.label + " (" + xenotype.label + ")";
 		}

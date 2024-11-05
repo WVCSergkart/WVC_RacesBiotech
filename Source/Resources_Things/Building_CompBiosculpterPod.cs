@@ -1111,7 +1111,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (cachedPodDefs.NullOrEmpty())
 			{
-				cachedPodDefs = DefDatabase<ThingDef>.AllDefs.Where((ThingDef def) => def.GetCompProperties<CompProperties_BiosculpterPod>() != null).ToList();
+				cachedPodDefs = DefDatabase<ThingDef>.AllDefs.Where((ThingDef def) => def.GetCompProperties<CompProperties_XenosculpterPod>() != null).ToList();
 			}
 			foreach (ThingDef cachedPodDef in cachedPodDefs)
 			{

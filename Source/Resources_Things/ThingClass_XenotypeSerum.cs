@@ -25,9 +25,9 @@ namespace WVC_XenotypesAndGenes
 				{
 					yield return new DefHyperlink(this.TryGetComp<CompUseEffect_XenogermSerum>().xenotype);
 				}
-				if (this?.TryGetComp<CompTargetEffect_DoJobOnTarget>()?.xenotypeDef != null)
+				if (this?.TryGetComp<CompTargetEffect_DoJobOnTarget_XenogermSerum>()?.xenotypeDef != null)
 				{
-					yield return new DefHyperlink(this.TryGetComp<CompTargetEffect_DoJobOnTarget>().xenotypeDef);
+					yield return new DefHyperlink(this.TryGetComp<CompTargetEffect_DoJobOnTarget_XenogermSerum>().xenotypeDef);
 				}
 				if (this?.TryGetComp<CompUseEffect_XenotypeForcer_Hybrid>() != null)
 				{
@@ -122,6 +122,17 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.ExposeData();
 			Scribe_References.Look(ref targetPawn, "targetPawn");
+		}
+
+		public override void Notify_RecipeProduced(Pawn pawn)
+        {
+            base.Notify_RecipeProduced(pawn);
+			if (pawn != null)
+			{
+				this?.TryGetComp<CompUseEffect_XenogermSerum>()?.Notify_SerumCrafted(pawn);
+				//this?.TryGetComp<CompUseEffect_XenotypeForcer_Hybrid>()?.Notify_SerumCrafted(pawn);
+				//this?.TryGetComp<CompTargetEffect_DoJobOnTarget>()?.Notify_SerumCrafted(pawn);
+			}
 		}
 
 		public override void SpawnSetup(Map map, bool respawningAfterLoad)

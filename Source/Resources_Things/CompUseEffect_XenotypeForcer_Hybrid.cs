@@ -56,7 +56,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (xenotype == null || endotype == null)
 			{
-				return parent.def.label + " (" + "ERR" + ")";
+				return parent.def.label + " (" + "WVC_XaG_Untuned".Translate() + ")";
 			}
 			return parent.def.label + " (" + endotype.label + " + " + xenotype.label + ")";
 		}
@@ -69,14 +69,20 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref customMode, "customMode");
 		}
 
+		public virtual void Notify_SerumCrafted(Pawn pawn)
+		{
+			endotype = null;
+			xenotype = null;
+		}
+
 		// public override bool AllowStackWith(Thing other)
 		// {
-			// CompUseEffect_XenotypeForcer_Hybrid otherXeno = other.TryGetComp<CompUseEffect_XenotypeForcer_Hybrid>();
-			// if (otherXeno != null && otherXeno.xenotype != null && otherXeno.xenotype == xenotype && otherXeno.endotype != null && otherXeno.endotype == endotype && otherXeno.customMode == customMode)
-			// {
-				// return true;
-			// }
-			// return false;
+		// CompUseEffect_XenotypeForcer_Hybrid otherXeno = other.TryGetComp<CompUseEffect_XenotypeForcer_Hybrid>();
+		// if (otherXeno != null && otherXeno.xenotype != null && otherXeno.xenotype == xenotype && otherXeno.endotype != null && otherXeno.endotype == endotype && otherXeno.customMode == customMode)
+		// {
+		// return true;
+		// }
+		// return false;
 		// }
 
 		public override AcceptanceReport CanBeUsedBy(Pawn p)
