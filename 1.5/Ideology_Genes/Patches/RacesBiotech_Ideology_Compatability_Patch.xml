@@ -83,7 +83,7 @@
 			  <li>WVC_XenotypesAndGenes_ShapeshifterSerums</li>
 			</requiredResearch>
 		</li>
-		<li Class="WVC_XenotypesAndGenes.CompProperties_BiosculpterPod_XenogermCycle">
+		<li MayRequire="wvc.sergkart.test.tools" Class="WVC_XenotypesAndGenes.CompProperties_BiosculpterPod_XenogermCycle">
 			<compClass>WVC_XenotypesAndGenes.CompBiosculpterPod_XenotypeHolderCycle</compClass>
 			<key>wvc_xag_xenosculptor_basic</key>
 			<label>xenosculptor</label>
