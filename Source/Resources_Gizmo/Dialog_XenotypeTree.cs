@@ -87,9 +87,18 @@ namespace WVC_XenotypesAndGenes
 
 		public static void UpdAllMatchedXenotypes_ForPawns(List<Pawn> pawns, List<XenotypeHolder> xenotypeDefs, float percent = 0.6f)
 		{
-			foreach (Pawn pawn in pawns)
+			if (pawns.NullOrEmpty() || xenotypeDefs.NullOrEmpty())
 			{
-				Dialog_XenotypeGestator.UpdAllMatchedXenotypeHolders(pawn, xenotypeDefs, percent);
+				return;
+			}
+			List<Gene> genes = new();
+			foreach (Pawn item in pawns)
+			{
+				genes.AddRange(item.genes.GenesListForReading);
+			}
+			foreach (XenotypeHolder item in xenotypeDefs)
+			{
+				item.isOverriden = !XaG_GeneUtility.GenesIsMatch(genes, item.genes, percent);
 			}
 		}
 
