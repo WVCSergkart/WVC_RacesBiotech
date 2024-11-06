@@ -73,9 +73,7 @@
 	<label>xenotype serum</label>
 	<description>A one-use super-dose of mechanites tuned to change the user's xenotype. After using the serum, the user will fall into a two-day coma.
 
-&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; If the xenotype is inheritable and has no skin/hair color, then a white skin/hair gene will be added.
-
-&lt;color=#f5ffa2&gt;Custom xenotypes:&lt;/color&gt; The serum mode can be switched to custom mode at any time. In this mode, the serum implants a random custom xenotype.</description>
+&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; If the xenotype is inheritable and has no skin/hair color, then a white skin/hair gene will be added.</description>
 	<comps>
 	  <li Class="CompProperties_Usable">
 		<useJob>UseItem</useJob>

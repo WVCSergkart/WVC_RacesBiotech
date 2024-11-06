@@ -405,6 +405,13 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref currentLimit, "currentLimit", 1);
 			Scribe_Values.Look(ref nextTick, "nextTick", 0);
 			Scribe_Collections.Look(ref savedGeneSets, "pawnGeneSets", LookMode.Deep);
+			if (Scribe.mode == LoadSaveMode.PostLoadInit)
+			{
+				if (savedGeneSets == null)
+				{
+					savedGeneSets = new();
+				}
+			}
 		}
 
 	}

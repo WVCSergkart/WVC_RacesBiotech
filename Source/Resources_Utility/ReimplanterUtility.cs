@@ -360,6 +360,18 @@ namespace WVC_XenotypesAndGenes
 			ReimplanterUtility.PostImplantDebug(pawn);
 		}
 
+		public static void SetXenotype(Pawn pawn, XenotypeHolder xenotypeHolder)
+		{
+			if (xenotypeHolder.CustomXenotype)
+			{
+				SetCustomXenotype(pawn, xenotypeHolder);
+			}
+			else
+			{
+				SetXenotype(pawn, xenotypeHolder.xenotypeDef, true);
+			}
+		}
+
 		public static void SetCustomXenotype(Pawn pawn, CustomXenotype xenotypeDef)
         {
             SetCustomGenes(pawn, xenotypeDef.genes, xenotypeDef.iconDef, xenotypeDef.name, xenotypeDef.inheritable);

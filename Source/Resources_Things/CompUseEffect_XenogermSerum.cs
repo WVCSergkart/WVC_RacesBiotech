@@ -100,7 +100,14 @@ namespace WVC_XenotypesAndGenes
 
 		public XenotypeDef xenotype = null;
 
-		public bool customMode = false;
+		public SaveableXenotypeHolder xenotypeHolder = null;
+
+		public void SetupHolder(XenotypeHolder holder)
+		{
+			xenotypeHolder =  new SaveableXenotypeHolder(holder);
+		}
+
+		//public bool customMode = false;
 
 		public CompProperties_UseEffect_XenogermSerum Props => (CompProperties_UseEffect_XenogermSerum)props;
 
@@ -111,24 +118,24 @@ namespace WVC_XenotypesAndGenes
 			{
 				xenotype = Props.possibleXenotypes.RandomElement();
 			}
-			if (xenotype == null)
+			else if (xenotypeHolder == null)
 			{
-				List<XenotypeDef> xenotypeDef = ListsUtility.GetWhiteListedXenotypes(true);
+				List<XenotypeHolder> xenotypeDef = ListsUtility.GetWhiteListedXenotypesHolders(true);
 				switch (Props.xenotypeType)
 				{
 					case CompProperties_UseEffect_XenogermSerum.XenotypeType.Base:
-						xenotype = xenotypeDef.Where((XenotypeDef randomXenotypeDef) => !XaG_GeneUtility.XenotypeHasArchites(randomXenotypeDef)).RandomElement();
+						SetupHolder(xenotypeDef.Where((XenotypeHolder randomXenotypeDef) => !XaG_GeneUtility.XenotypeHasArchites(randomXenotypeDef)).RandomElement());
 						break;
 					case CompProperties_UseEffect_XenogermSerum.XenotypeType.Archite:
-						xenotype = xenotypeDef.Where((XenotypeDef randomXenotypeDef) => XaG_GeneUtility.XenotypeHasArchites(randomXenotypeDef)).RandomElement();
+						SetupHolder(xenotypeDef.Where((XenotypeHolder randomXenotypeDef) => XaG_GeneUtility.XenotypeHasArchites(randomXenotypeDef)).RandomElement());
 						break;
 				}
-				if (xenotype == null)
+				if (xenotypeHolder == null)
 				{
 					Log.Error("Generated serum with null xenotype. Choose random.");
-					xenotype = xenotypeDef.RandomElement();
+					SetupHolder(xenotypeDef.RandomElement());
 				}
-				if (xenotype == null)
+				if (xenotypeHolder == null)
 				{
 					Log.Error("Xenotype is still null. Do not report this to the developer, you yourself created this creepy world filled with bugs. To fix the situation, reset the filter in the " + "WVC_BiotechSettings".Translate() + " mod settings and restart the game.");
 				}
@@ -150,13 +157,14 @@ namespace WVC_XenotypesAndGenes
 		public virtual void Notify_SerumCrafted(Pawn pawn)
 		{
 			xenotype = null;
+			xenotypeHolder = null;
 		}
 
 		public override string TransformLabel(string label)
 		{
-			if (customMode)
+			if (xenotypeHolder != null)
 			{
-				return parent.def.label + " (" + "WVC_Custom".Translate() + ")";
+				return parent.def.label + " (" + xenotypeHolder.LabelCap.ToLower() + ")";
 			}
 			if (xenotype == null)
 			{
@@ -169,22 +177,23 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostExposeData();
 			Scribe_Defs.Look(ref xenotype, "xenotypeDef");
-			Scribe_Values.Look(ref customMode, "customMode");
+			Scribe_Deep.Look(ref xenotypeHolder, "xenotypeHolder");
 		}
 
 		public override void DoEffect(Pawn pawn)
 		{
-			if (customMode)
+			if (xenotype != null)
 			{
-				ReimplanterUtility.SetCustomXenotype(pawn, ListsUtility.GetCustomXenotypesList().RandomElement());
+				ReimplanterUtility.SetXenotype(pawn, xenotype);
 			}
 			else
 			{
-				if (xenotype == null)
+				if (xenotypeHolder == null)
 				{
 					Log.Error("Xenotype is still null. Do not report this to the developer, you yourself created this creepy world filled with bugs. To fix the situation, reset the filter in the " + "WVC_BiotechSettings".Translate() + " mod settings and restart the game.");
+					return;
 				}
-				ReimplanterUtility.SetXenotype(pawn, xenotype);
+				ReimplanterUtility.SetXenotype(pawn, xenotypeHolder);
 			}
 			pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
 			GeneUtility.UpdateXenogermReplication(pawn);
@@ -198,16 +207,6 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> CompGetGizmosExtra()
 		{
-			yield return new Command_Action
-			{
-				defaultLabel = "WVC_XaG_SerumCustomMode_Label".Translate() + " " + customMode.ToStringYesNo(),
-				defaultDesc = "WVC_XaG_SerumCustomMode_Desc".Translate(),
-				icon = parent.def.uiIcon,
-				action = delegate
-				{
-					customMode = !customMode;
-				}
-			};
 			if (Props.retuneJob == null)
 			{
 				yield break;
@@ -261,7 +260,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override AcceptanceReport CanBeUsedBy(Pawn p)
 		{
-			if (xenotype == null)
+			if (xenotype == null && xenotypeHolder == null)
 			{
 				return "WVC_XaG_SuremRetuneShouldBeTunedWarn_Label".Translate();
 			}

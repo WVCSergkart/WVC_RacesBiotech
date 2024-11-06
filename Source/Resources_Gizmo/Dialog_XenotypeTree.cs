@@ -40,16 +40,15 @@ namespace WVC_XenotypesAndGenes
 		public Dialog_XenotypeTree(Thing tree)
 		{
 			xenoTree = tree.TryGetComp<CompXenoTree>();
-			GetCurrentXenotypeHolder();
+			GetCurrentXenotypeHolder(xenoTree?.xenotypeHolder, ref currentHolder, allXenotypes);
 			selectedXenoHolder = currentHolder ?? allXenotypes.First();
 			allColonists = tree.Map.mapPawns.FreeColonistsAndPrisoners.ToList();
 			matchPercent = xenoTree.Props.minMatchingGenes;
 			UpdAllMatchedXenotypes_ForPawns(allColonists, allXenotypes, matchPercent);
 		}
 
-		public void GetCurrentXenotypeHolder()
+		public static void GetCurrentXenotypeHolder(XenotypeHolder treeHolder, ref XenotypeHolder currentHolder, List<XenotypeHolder> allXenotypes)
 		{
-			XenotypeHolder treeHolder = xenoTree.xenotypeHolder;
 			if (treeHolder == null)
 			{
 				currentHolder = null;

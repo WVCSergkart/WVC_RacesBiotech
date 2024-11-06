@@ -560,18 +560,4 @@ namespace WVC_XenotypesAndGenes
 		}
 
 	}
-
-	public class SaveableXenotypeHolder : XenotypeHolder, IExposable
-	{
-
-        public void ExposeData()
-		{
-			Scribe_Defs.Look(ref xenotypeDef, "xenotypeDef");
-			Scribe_Defs.Look(ref iconDef, "iconDef");
-			Scribe_Values.Look(ref name, "name");
-			Scribe_Values.Look(ref inheritable, "inheritable");
-			Scribe_Collections.Look(ref genes, "genes", LookMode.Def);
-		}
-
-    }
 }

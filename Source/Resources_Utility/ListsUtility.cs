@@ -114,6 +114,11 @@ namespace WVC_XenotypesAndGenes
 			return list;
 		}
 
+		public static List<XenotypeHolder> GetWhiteListedXenotypesHolders(bool addFromFilter = false, bool addFromResurrectorFilter = false)
+		{
+			return GetAllXenotypesHolders().Where((XenotypeHolder holder) => GetWhiteListedXenotypes(addFromFilter, addFromResurrectorFilter).Contains(holder.xenotypeDef)).ToList();
+		}
+
 		public static List<XenotypeHolder> GetAllXenotypesHolders()
 		{
 			List<XenotypeHolder> list = new();

@@ -200,6 +200,17 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Collections.Look(ref collectedGenes, "stolenGenes", LookMode.Def);
 			Scribe_Collections.Look(ref destroyedGenes, "destroyedGenes", LookMode.Def);
 			Scribe_Collections.Look(ref geneSetPresets, "geneSetPresets", LookMode.Deep);
+			if (Scribe.mode == LoadSaveMode.LoadingVars && ((consumedGenes != null && consumedGenes.RemoveAll((GeneDef x) => x == null) > 0) || (collectedGenes != null && collectedGenes.RemoveAll((GeneDef x) => x == null) > 0) || (destroyedGenes != null && destroyedGenes.RemoveAll((GeneDef x) => x == null) > 0)))
+			{
+				Log.Warning("Removed null geneDef(s)");
+			}
+			if (Scribe.mode == LoadSaveMode.PostLoadInit)
+			{
+				if (geneSetPresets == null)
+				{
+					geneSetPresets = new();
+				}
+			}
 		}
 
 		// public static float GetGeneWeight(GeneDef geneDef)

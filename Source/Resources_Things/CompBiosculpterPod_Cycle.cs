@@ -65,28 +65,14 @@ namespace WVC_XenotypesAndGenes
 
 		public void SetupHolder(XenotypeHolder holder)
 		{
-			//this.additionalCycleDays = additionalCycleDays;
-			SaveableXenotypeHolder newHolder = new();
-			newHolder.xenotypeDef = holder.xenotypeDef;
-			newHolder.name = holder.name;
-			newHolder.iconDef = holder.iconDef;
-			newHolder.genes = holder.genes;
-			newHolder.inheritable = holder.inheritable;
-			xenotypeHolder = newHolder;
+			xenotypeHolder = new SaveableXenotypeHolder(holder);
 		}
 
 		public override void CycleCompleted(Pawn pawn)
 		{
 			if (xenotypeHolder != null)
 			{
-				if (!xenotypeHolder.CustomXenotype)
-				{
-					ReimplanterUtility.SetXenotype(pawn, xenotypeHolder.xenotypeDef);
-				}
-				else
-				{
-					ReimplanterUtility.SetCustomXenotype(pawn, xenotypeHolder);
-				}
+				ReimplanterUtility.SetXenotype(pawn, xenotypeHolder);
 			}
 			else
 			{

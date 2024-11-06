@@ -48,13 +48,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void SetupHolder(XenotypeHolder holder)
 		{
-			SaveableXenotypeHolder newHolder = new();
-			newHolder.xenotypeDef = holder.xenotypeDef;
-			newHolder.name = holder.name;
-			newHolder.iconDef = holder.iconDef;
-			newHolder.genes = holder.genes;
-			newHolder.inheritable = holder.inheritable;
-			xenotypeHolder = newHolder;
+			xenotypeHolder = new SaveableXenotypeHolder(holder);
 		}
 
 

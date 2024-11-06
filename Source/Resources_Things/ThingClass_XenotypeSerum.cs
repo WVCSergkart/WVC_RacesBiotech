@@ -21,9 +21,14 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				if (this?.TryGetComp<CompUseEffect_XenogermSerum>()?.xenotype != null)
+				CompUseEffect_XenogermSerum xenoHolderSerum = this?.TryGetComp<CompUseEffect_XenogermSerum>();
+				if (xenoHolderSerum?.xenotype != null)
 				{
-					yield return new DefHyperlink(this.TryGetComp<CompUseEffect_XenogermSerum>().xenotype);
+					yield return new DefHyperlink(xenoHolderSerum.xenotype);
+				}
+				if (xenoHolderSerum?.xenotypeHolder != null)
+				{
+					yield return new DefHyperlink(xenoHolderSerum.xenotypeHolder.xenotypeDef);
 				}
 				if (this?.TryGetComp<CompTargetEffect_DoJobOnTarget_XenogermSerum>()?.xenotypeDef != null)
 				{
