@@ -268,4 +268,41 @@
 	<!-- </comps> -->
   <!-- </HediffDef> -->
 
+  <!-- ================== -->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
+	<defName>WVC_XaG_GeneFrenzy</defName>
+	<label>frenzy</label>
+	<description>This creature's blood is saturated with adrenaline, permitting it to move and attack at high speeds for a short time.</description>
+	<stages>
+	  <li>
+		<statFactors>
+		  <MeleeCooldownFactor>0.9</MeleeCooldownFactor>
+		</statFactors>
+		<painFactor>0.6</painFactor>
+		<capMods>
+		  <li>
+			<capacity>Consciousness</capacity>
+			<offset>0.1</offset>
+		  </li>
+		  <li>
+			<capacity>Sight</capacity>
+			<offset>0.2</offset>
+		  </li>
+		  <li>
+			<capacity>Moving</capacity>
+			<offset>0.3</offset>
+		  </li>
+		</capMods>
+	  </li>
+	</stages>
+	<comps>
+		<li Class="HediffCompProperties_Disappears">
+			<disappearsAfterTicks>3000~6000</disappearsAfterTicks>
+			<showRemainingTime>true</showRemainingTime>
+		</li>
+	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+	</comps>
+  </HediffDef>
+
 </Defs>
