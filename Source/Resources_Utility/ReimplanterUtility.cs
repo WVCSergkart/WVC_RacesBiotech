@@ -382,6 +382,24 @@ namespace WVC_XenotypesAndGenes
 			SetCustomGenes(pawn, xenotypeDef.genes, xenotypeDef.iconDef, xenotypeDef.name, xenotypeDef.inheritable);
 		}
 
+		public static void SetBrokenXenotype(Pawn pawn, XenotypeHolder xenotypeDef, float chance)
+		{
+			List<GeneDef> genes = xenotypeDef.genes;
+			genes.Shuffle();
+			int currentTry = 0;
+			foreach (GeneDef geneDef in genes.ToList())
+            {
+				float chanceFactor = currentTry * 0.02f;
+				if (Rand.Chance(chance + chanceFactor))
+                {
+					genes.Remove(geneDef);
+				}
+				currentTry++;
+			}
+			SetCustomGenes(pawn, genes, null, "ERR", xenotypeDef.inheritable);
+			UnknownXenotype(pawn);
+		}
+
 		private static void SetCustomGenes(Pawn pawn, List<GeneDef> genes, XenotypeIconDef iconDef, string name, bool inheritable)
         {
             Pawn_GeneTracker geneTracker = pawn.genes;

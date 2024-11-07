@@ -9,6 +9,160 @@ using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
+
+	public class CompProperties_XenosculpterPod : CompProperties_BiosculpterPod
+	{
+
+		public ThingDef inheritFromDef;
+
+		public CompProperties_XenosculpterPod()
+		{
+			compClass = typeof(CompXenosculpterPod);
+		}
+
+		public override void ResolveReferences(ThingDef parentDef)
+		{
+			if (inheritFromDef != null)
+			{
+				parentDef.description = inheritFromDef.description;
+				parentDef.statBases = inheritFromDef.statBases;
+				parentDef.building = inheritFromDef.building;
+				parentDef.thingCategories = inheritFromDef.thingCategories;
+				parentDef.inspectorTabs = inheritFromDef.inspectorTabs;
+				parentDef.placeWorkers = inheritFromDef.placeWorkers;
+				foreach (CompProperties comp in inheritFromDef.comps)
+				{
+					if (comp is CompProperties_BiosculpterPod || comp is CompProperties_BiosculpterPod_BaseCycle)
+					{
+						continue;
+					}
+					if (!parentDef.comps.Contains(comp))
+					{
+						parentDef.comps.Add(comp);
+					}
+				}
+				CompProperties_BiosculpterPod biosculpterPod = inheritFromDef?.GetCompProperties<CompProperties_BiosculpterPod>();
+				if (biosculpterPod != null)
+				{
+					enterSound = biosculpterPod.enterSound;
+					exitSound = biosculpterPod.exitSound;
+					operatingEffecter = biosculpterPod.operatingEffecter;
+					readyEffecter = biosculpterPod.readyEffecter;
+					biotunedCycleSpeedFactor = biosculpterPod.biotunedCycleSpeedFactor;
+					selectCycleColor = biosculpterPod.selectCycleColor;
+				}
+			}
+		}
+
+	}
+
+	public class CompXenosculpterPod : CompBiosculpterPod
+	{
+
+		public SaveableXenotypeHolder xenotypeHolder;
+
+		public List<Thing> ConnectedFacilities => parent.TryGetComp<CompAffectedByFacilities>()?.LinkedFacilitiesListForReading;
+
+		public void SetupHolder(XenotypeHolder holder)
+		{
+			xenotypeHolder = new SaveableXenotypeHolder(holder);
+		}
+
+		public override void PostExposeData()
+		{
+			base.PostExposeData();
+			//Scribe_Values.Look(ref additionalCycleDays, Props.uniqueTag + "_additionalCycleDays", 0);
+			Scribe_Deep.Look(ref xenotypeHolder, "xenotypeHolder");
+		}
+
+		public override IEnumerable<Gizmo> CompGetGizmosExtra()
+		{
+			if (Occupant == null)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "WVC_XaG_XenoTreeXenotypeChooseLabel".Translate(),
+					defaultDesc = "WVC_XaG_XenotypeHolderCycleStarted_SelectXenotypeDesc".Translate(),
+					icon = GetIcon(),
+					action = delegate
+					{
+						Find.WindowStack.Add(new Dialog_BiosculpterPod(this));
+					}
+				};
+			}
+			yield return new Command_Toggle
+			{
+				defaultLabel = "BiosculpterAutoLoadNutritionLabel".Translate(),
+				defaultDesc = "BiosculpterAutoLoadNutritionDescription".Translate(),
+				icon = (autoLoadNutrition ? TexCommand.ForbidOff : TexCommand.ForbidOn),
+				isActive = () => autoLoadNutrition,
+				toggleAction = delegate
+				{
+					autoLoadNutrition = !autoLoadNutrition;
+				}
+			};
+			foreach (Gizmo gizmo in base.CompGetGizmosExtra())
+			{
+				if (gizmo is Command_Toggle)
+				{
+					continue;
+				}
+				yield return gizmo;
+			}
+		}
+
+		private Texture2D GetIcon()
+		{
+			if (xenotypeHolder != null)
+			{
+				if (xenotypeHolder.iconDef != null)
+				{
+					return xenotypeHolder.iconDef.Icon;
+				}
+				else
+				{
+					return xenotypeHolder.xenotypeDef.Icon;
+				}
+			}
+			return XenotypeDefOf.Baseliner.Icon;
+		}
+
+		public List<GeneDef> GetGenes()
+		{
+			List<GeneDef> genes = new();
+			if (ConnectedFacilities == null)
+			{
+				return genes;
+			}
+			foreach (Thing item in ConnectedFacilities)
+			{
+				CompGenepackContainer compGenepackContainer = item.TryGetComp<CompGenepackContainer>();
+				if (compGenepackContainer == null)
+				{
+					continue;
+				}
+				bool flag = item.TryGetComp<CompPowerTrader>()?.PowerOn ?? true;
+				if (!flag)
+				{
+					continue;
+				}
+				foreach (Genepack genepack in compGenepackContainer.ContainedGenepacks)
+				{
+					foreach (GeneDef geneDef in genepack.GeneSet.GenesListForReading)
+					{
+						if (genes.Contains(geneDef))
+						{
+							continue;
+						}
+						genes.Add(geneDef);
+					}
+				}
+			}
+			return genes;
+		}
+
+	}
+
 	public class CompProperties_BiosculpterPod_XenogermCycle : CompProperties_BiosculpterPod_BaseCycle
 	{
 
@@ -47,10 +201,6 @@ namespace WVC_XenotypesAndGenes
 
 		//public int additionalCycleDays = 0;
 
-		private SaveableXenotypeHolder xenotypeHolder;
-
-		public bool ShouldInterrupt => xenotypeHolder == null;
-
 		public new CompProperties_BiosculpterPod_XenogermCycle Props => (CompProperties_BiosculpterPod_XenogermCycle)props;
 
 		//public void StartCycle()
@@ -63,16 +213,25 @@ namespace WVC_XenotypesAndGenes
 		//	xenotypeHolder = null;
 		//}
 
-		public void SetupHolder(XenotypeHolder holder)
-		{
-			xenotypeHolder = new SaveableXenotypeHolder(holder);
-		}
-
 		public override void CycleCompleted(Pawn pawn)
 		{
-			if (xenotypeHolder != null)
+			if (Biosculptor.xenotypeHolder != null)
 			{
-				ReimplanterUtility.SetXenotype(pawn, xenotypeHolder);
+				List<GeneDef> genes = XaG_GeneUtility.ConvertGenesInGeneDefs(pawn?.genes?.GenesListForReading);
+				List<GeneDef> sculptorGenes = Biosculptor.GetGenes();
+				if (!sculptorGenes.NullOrEmpty())
+				{
+					genes.AddRange(sculptorGenes);
+				}
+                float chance = GetChance(XaG_GeneUtility.GetMatchingGenesList(genes, Biosculptor.xenotypeHolder.genes).Count, Biosculptor.xenotypeHolder.genes.Count);
+                if (Rand.Chance(chance))
+				{
+					ReimplanterUtility.SetXenotype(pawn, Biosculptor.xenotypeHolder);
+				}
+				else
+				{
+					ReimplanterUtility.SetBrokenXenotype(pawn, Biosculptor.xenotypeHolder, 1f - chance);
+				}
 			}
 			else
 			{
@@ -82,89 +241,27 @@ namespace WVC_XenotypesAndGenes
 			//ResetCycle();
 		}
 
-		public override void PostExposeData()
+		public float GetChance(int matchingGenes, int totalGenes)
 		{
-			base.PostExposeData();
-			//Scribe_Values.Look(ref additionalCycleDays, Props.uniqueTag + "_additionalCycleDays", 0);
-			Scribe_Deep.Look(ref xenotypeHolder, Props.uniqueTag + "_xenotypeHolder");
+			if (matchingGenes <= 0)
+            {
+				return 0f;
+            }
+			return matchingGenes / totalGenes;
 		}
 
-        public override IEnumerable<Gizmo> CompGetGizmosExtra()
-        {
-			if (Biosculptor == null || Biosculptor.CannotUseNowCycleReason(this) != null || Biosculptor.State != BiosculpterPodState.SelectingCycle)
-            {
-				yield break;
-            }
-            yield return new Command_Action
-            {
-                defaultLabel = "WVC_XaG_XenoTreeXenotypeChooseLabel".Translate(),
-                defaultDesc = "WVC_XaG_XenotypeHolderCycleStarted_SelectXenotypeDesc".Translate(),
-                icon = GetIcon(),
-                action = delegate
-                {
-                    Find.WindowStack.Add(new Dialog_BiosculpterPod(this, GetGenes()));
-                }
-            };
-		}
+		private CompXenosculpterPod cachedBioscultor;
 
-		private List<GeneDef> GetGenes()
-        {
-            List<GeneDef> genes = new();
-            Room bioSculptorRoom = GridsUtility.GetRoom(parent.Position, parent.Map);
-            if (bioSculptorRoom == null)
-            {
-                return genes;
-            }
-            foreach (Thing thing in bioSculptorRoom.ContainedAndAdjacentThings.ToList())
-            {
-                CompGenepackContainer genebank = thing.TryGetComp<CompGenepackContainer>();
-                if (genebank == null)
-                {
-                    continue;
-                }
-                foreach (Genepack genepack in genebank.ContainedGenepacks)
-                {
-                    foreach (GeneDef geneDef in genepack.GeneSet.GenesListForReading)
-                    {
-                        if (genes.Contains(geneDef))
-                        {
-                            continue;
-                        }
-                        genes.Add(geneDef);
-                    }
-                }
-            }
-            return genes;
-        }
-
-        private CompBiosculpterPod cachedBioscultor;
-
-		private CompBiosculpterPod Biosculptor
+		public CompXenosculpterPod Biosculptor
         {
 			get
 			{
 				if (cachedBioscultor == null)
 				{
-					cachedBioscultor = parent.TryGetComp<CompBiosculpterPod>();
+					cachedBioscultor = parent.TryGetComp<CompXenosculpterPod>();
 				}
 				return cachedBioscultor;
 			}
-        }
-
-        private Texture2D GetIcon()
-        {
-            if (xenotypeHolder != null)
-            {
-                if (xenotypeHolder.iconDef != null)
-                {
-                    return xenotypeHolder.iconDef.Icon;
-                }
-                else
-                {
-                    return ContentFinder<Texture2D>.Get(xenotypeHolder.xenotypeDef.iconPath);
-                }
-            }
-            return XenotypeDefOf.Baseliner.Icon;
         }
 
     }

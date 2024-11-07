@@ -11,62 +11,25 @@ namespace WVC_XenotypesAndGenes
 	public class Dialog_BiosculpterPod : Dialog_XenotypeHolderBasic
 	{
 
-		public CompBiosculpterPod_XenotypeHolderCycle cycle;
-
-		public List<GeneDef> genes;
+		public CompXenosculpterPod cycle;
 
 		protected override string Header => cycle.parent.LabelCap;
 
-		public override List<XenotypeHolder> XenotypesInOrder
-		{
-			get
-			{
-				if (cachedXenotypeDefsInOrder == null)
-				{
-					cachedXenotypeDefsInOrder = new();
-					foreach (XenotypeHolder allDef in allXenotypes)
-					{
-						if (allDef.shouldSkip)
-                        {
-							continue;
-                        }
-						cachedXenotypeDefsInOrder.Add(allDef);
-					}
-					cachedXenotypeDefsInOrder.SortBy((XenotypeHolder x) => 0f - x.displayPriority);
-				}
-				return cachedXenotypeDefsInOrder;
-			}
-		}
-
-		public Dialog_BiosculpterPod(CompBiosculpterPod_XenotypeHolderCycle cycle, List<GeneDef> genes)
+		public Dialog_BiosculpterPod(CompXenosculpterPod cycle)
 		{
 			this.cycle = cycle;
-			this.genes = genes;
-			UpdXenotypHolders();
-			if (XenotypesInOrder.NullOrEmpty())
-			{
-				Messages.Message("WVC_XaG_XenotypeHolderCycleStarted_NonXenotypes".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
-				Close();
-				return;
-			}
+			//UpdXenotypHolders();
 			selectedXenoHolder = XenotypesInOrder.First();
 		}
 
-		public void UpdXenotypHolders()
-        {
-            //List<XenotypeDef> whiteList = ListsUtility.GetWhiteListedXenotypes(true);
-            //foreach (XenotypeHolder allDef in allXenotypes)
-            //{
-            //    if (!allDef.CustomXenotype && !whiteList.Contains(allDef.xenotypeDef))
-            //    {
-            //        allDef.shouldSkip = true;
-            //    }
-            //}
-            foreach (XenotypeHolder item in allXenotypes)
-            {
-                item.isOverriden = !XaG_GeneUtility.GenesIsMatch(genes, item.genes, 0.4f);
-            }
-        }
+		//public void UpdXenotypHolders()
+		//{
+		//	List<GeneDef> genes = cycle.GetGenes();
+		//	foreach (XenotypeHolder item in allXenotypes)
+		//	{
+		//		item.isOverriden = !XaG_GeneUtility.GenesIsMatch(genes, item.genes, 0.4f);
+		//	}
+		//}
 
         protected override bool CanAccept()
 		{

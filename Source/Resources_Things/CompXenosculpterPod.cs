@@ -20,6 +20,8 @@ namespace WVC_XenotypesAndGenes
 
 		public EffecterDef readyEffecter;
 
+		public JobDef enterXenosculptorJobDef;
+
 		public Color selectCycleColor;
 
 		public float biotunedCycleSpeedFactor;
@@ -42,7 +44,7 @@ namespace WVC_XenotypesAndGenes
 		}
 	}
 
-	public class CompXenosculpterPod : ThingComp, ISuspendableThingHolder, IThingHolder, IThingHolderWithDrawnPawn, IStoreSettingsParent, INotifyHauledTo, ISearchableContents
+	public class CompXenosculpterPod : ThingComp, ISuspendableThingHolder, IThingHolder, IThingHolderWithDrawnPawn, ISearchableContents
 	{
 
 		private static readonly Texture2D InterruptCycleIcon = ContentFinder<Texture2D>.Get("UI/Designators/Cancel");
@@ -57,11 +59,11 @@ namespace WVC_XenotypesAndGenes
 
 		private ThingOwner innerContainer;
 
-		private StorageSettings allowedNutritionSettings;
+		//private StorageSettings allowedNutritionSettings;
 
-		private float liquifiedNutrition;
+		//private float liquifiedNutrition;
 
-		public bool autoLoadNutrition = true;
+		//public bool autoLoadNutrition = true;
 
 		public bool devFillPodLatch;
 
@@ -71,25 +73,25 @@ namespace WVC_XenotypesAndGenes
 
 		public Pawn queuedPawn;
 
-		public List<ThingCount> chosenExtraItems = new();
+		//public List<ThingCount> chosenExtraItems = new();
 
 		public List<FloatMenuOption> cycleEligiblePawnOptions = new();
 
 		private Pawn pawnEnteringBiosculpter;
 
-		public Dictionary<CompBiosculpterPod_Cycle, List<IngredientCount>> cachedExtraIngredients = new();
+		//public Dictionary<CompBiosculpterPod_Cycle, List<IngredientCount>> cachedExtraIngredients = new();
 
 		public Dictionary<CompBiosculpterPod_Cycle, CacheAnyPawnEligibleCycle> cachedAnyPawnEligible = new();
 
 		public static Dictionary<Pawn, List<CompBiosculpterPod>> cachedBiotunedPods = new();
 
-		private Pawn cacheReachIngredientsPawn;
+		//private Pawn cacheReachIngredientsPawn;
 
-		private CompBiosculpterPod_Cycle cacheReachIngredientsCycle;
+		//private CompBiosculpterPod_Cycle cacheReachIngredientsCycle;
 
-		private float cacheReachIngredientsTime = float.MinValue;
+		//private float cacheReachIngredientsTime = float.MinValue;
 
-		private bool cacheReachIngredientsResult;
+		//private bool cacheReachIngredientsResult;
 
 		private Effecter progressBarEffecter;
 
@@ -117,9 +119,9 @@ namespace WVC_XenotypesAndGenes
 
 		public bool IsContentsSuspended => true;
 
-		public float RequiredNutritionRemaining => Mathf.Max(5f - liquifiedNutrition, 0f);
+		//public float RequiredNutritionRemaining => Mathf.Max(5f - liquifiedNutrition, 0f);
 
-		public bool NutritionLoaded => RequiredNutritionRemaining <= 0f;
+		//public bool NutritionLoaded => RequiredNutritionRemaining <= 0f;
 
 		public BiosculpterPodState State
 		{
@@ -129,11 +131,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					return BiosculpterPodState.Occupied;
 				}
-				if (NutritionLoaded)
-				{
-					return BiosculpterPodState.SelectingCycle;
-				}
-				return BiosculpterPodState.LoadingNutrition;
+				return BiosculpterPodState.SelectingCycle;
 			}
 		}
 
@@ -239,15 +237,15 @@ namespace WVC_XenotypesAndGenes
 			innerContainer = new ThingOwner<Thing>(this);
 		}
 
-		public override void Initialize(CompProperties props)
-		{
-			base.Initialize(props);
-			allowedNutritionSettings = new StorageSettings(this);
-			if (parent.def.building.defaultStorageSettings != null)
-			{
-				allowedNutritionSettings.CopyFrom(parent.def.building.defaultStorageSettings);
-			}
-		}
+		//public override void Initialize(CompProperties props)
+		//{
+		//	base.Initialize(props);
+		//	allowedNutritionSettings = new StorageSettings(this);
+		//	if (parent.def.building.defaultStorageSettings != null)
+		//	{
+		//		allowedNutritionSettings.CopyFrom(parent.def.building.defaultStorageSettings);
+		//	}
+		//}
 
 		public override void PostExposeData()
 		{
@@ -256,29 +254,29 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref currentCycleKey, "currentCycleKey");
 			Scribe_Values.Look(ref currentCycleTicksRemaining, "currentCycleTicksRemaining", 0f);
 			Scribe_Values.Look(ref currentCyclePowerCutTicks, "currentCyclePowerCutTicks", 0);
-			Scribe_Deep.Look(ref allowedNutritionSettings, "allowedNutritionSettings");
-			Scribe_Values.Look(ref liquifiedNutrition, "liquifiedNutrition", 0f);
-			Scribe_Values.Look(ref autoLoadNutrition, "autoLoadNutrition", defaultValue: false);
+			//Scribe_Deep.Look(ref allowedNutritionSettings, "allowedNutritionSettings");
+			//Scribe_Values.Look(ref liquifiedNutrition, "liquifiedNutrition", 0f);
+			//Scribe_Values.Look(ref autoLoadNutrition, "autoLoadNutrition", defaultValue: false);
 			Scribe_Values.Look(ref devFillPodLatch, "devFillPodLatch", defaultValue: false);
 			Scribe_Values.Look(ref tickEntered, "tickEntered", 0);
 			Scribe_References.Look(ref queuedEnterJob, "queuedEnterJob");
 			Scribe_References.Look(ref queuedPawn, "queuedPawn");
-			if (allowedNutritionSettings == null)
-			{
-				allowedNutritionSettings = new StorageSettings(this);
-				if (parent.def.building.defaultStorageSettings != null)
-				{
-					allowedNutritionSettings.CopyFrom(parent.def.building.defaultStorageSettings);
-				}
-			}
-			if (Scribe.mode == LoadSaveMode.PostLoadInit)
-			{
-				if (currentCycleKey == "healing")
-				{
-					currentCycleKey = "medic";
-				}
-				LiquifyNutrition();
-			}
+			//if (allowedNutritionSettings == null)
+			//{
+			//	allowedNutritionSettings = new StorageSettings(this);
+			//	if (parent.def.building.defaultStorageSettings != null)
+			//	{
+			//		allowedNutritionSettings.CopyFrom(parent.def.building.defaultStorageSettings);
+			//	}
+			//}
+			//if (Scribe.mode == LoadSaveMode.PostLoadInit)
+			//{
+			//	if (currentCycleKey == "healing")
+			//	{
+			//		currentCycleKey = "medic";
+			//	}
+			//	LiquifyNutrition();
+			//}
 		}
 
 		public CompBiosculpterPod_Cycle GetCycle(string key)
@@ -367,14 +365,14 @@ namespace WVC_XenotypesAndGenes
 						stringBuilder.Append("BiosculpterPodCycleSelectionNoPower".Translate().CapitalizeFirst());
 					}
 				}
-				if (state == BiosculpterPodState.LoadingNutrition)
-				{
-					stringBuilder.Append("BiosculpterPodCycleLabelLoading".Translate().CapitalizeFirst());
-					stringBuilder.AppendLineIfNotEmpty().Append("Nutrition".Translate()).Append(": ")
-						.Append(liquifiedNutrition.ToStringByStyle(ToStringStyle.FloatMaxOne))
-						.Append(" / ")
-						.Append(5f);
-				}
+				//if (state == BiosculpterPodState.LoadingNutrition)
+				//{
+				//	stringBuilder.Append("BiosculpterPodCycleLabelLoading".Translate().CapitalizeFirst());
+				//	stringBuilder.AppendLineIfNotEmpty().Append("Nutrition".Translate()).Append(": ")
+				//		.Append(liquifiedNutrition.ToStringByStyle(ToStringStyle.FloatMaxOne))
+				//		.Append(" / ")
+				//		.Append(5f);
+				//}
 				if (state == BiosculpterPodState.Occupied)
 				{
 					float num = currentCycleTicksRemaining / CycleSpeedFactor;
@@ -439,20 +437,20 @@ namespace WVC_XenotypesAndGenes
 				command_Action2.activateSound = SoundDefOf.Designate_Cancel;
 				yield return command_Action2;
 			}
-			Command_Toggle command_Toggle = new();
-			command_Toggle.defaultLabel = "BiosculpterAutoLoadNutritionLabel".Translate();
-			command_Toggle.defaultDesc = "BiosculpterAutoLoadNutritionDescription".Translate();
-			command_Toggle.icon = (autoLoadNutrition ? TexCommand.ForbidOff : TexCommand.ForbidOn);
-			command_Toggle.isActive = () => autoLoadNutrition;
-			command_Toggle.toggleAction = delegate
-			{
-				autoLoadNutrition = !autoLoadNutrition;
-			};
-			yield return command_Toggle;
-			foreach (Gizmo item in StorageSettingsClipboard.CopyPasteGizmosFor(allowedNutritionSettings))
-			{
-				yield return item;
-			}
+			//Command_Toggle command_Toggle = new();
+			//command_Toggle.defaultLabel = "BiosculpterAutoLoadNutritionLabel".Translate();
+			//command_Toggle.defaultDesc = "BiosculpterAutoLoadNutritionDescription".Translate();
+			//command_Toggle.icon = (autoLoadNutrition ? TexCommand.ForbidOff : TexCommand.ForbidOn);
+			//command_Toggle.isActive = () => autoLoadNutrition;
+			//command_Toggle.toggleAction = delegate
+			//{
+			//	autoLoadNutrition = !autoLoadNutrition;
+			//};
+			//yield return command_Toggle;
+			//foreach (Gizmo item in StorageSettingsClipboard.CopyPasteGizmosFor(allowedNutritionSettings))
+			//{
+			//	yield return item;
+			//}
 			Gizmo gizmo;
 			if ((gizmo = Building.SelectContainedItemGizmo(parent, Occupant)) != null)
 			{
@@ -478,31 +476,31 @@ namespace WVC_XenotypesAndGenes
 					},
 					Disabled = (State != BiosculpterPodState.Occupied)
 				};
-				yield return new Command_Action
-				{
-					defaultLabel = "DEV: fill nutrition and cycle ingredients",
-					action = delegate
-					{
-						liquifiedNutrition = 5f;
-						devFillPodLatch = true;
-					},
-					Disabled = (State == BiosculpterPodState.Occupied || (devFillPodLatch && liquifiedNutrition == 5f))
-				};
+				//yield return new Command_Action
+				//{
+				//	defaultLabel = "DEV: fill nutrition and cycle ingredients",
+				//	action = delegate
+				//	{
+				//		liquifiedNutrition = 5f;
+				//		devFillPodLatch = true;
+				//	},
+				//	Disabled = (State == BiosculpterPodState.Occupied || (devFillPodLatch && liquifiedNutrition == 5f))
+				//};
 			}
 		}
 
-		private string IngredientsDescription(CompBiosculpterPod_Cycle cycle)
-		{
-			tmpIngredientsStrings.Clear();
-			if (!cycle.Props.extraRequiredIngredients.NullOrEmpty() && !devFillPodLatch)
-			{
-				for (int i = 0; i < cycle.Props.extraRequiredIngredients.Count; i++)
-				{
-					tmpIngredientsStrings.Add(cycle.Props.extraRequiredIngredients[i].Summary);
-				}
-			}
-			return tmpIngredientsStrings.ToCommaList(useAnd: true);
-		}
+		//private string IngredientsDescription(CompBiosculpterPod_Cycle cycle)
+		//{
+		//	tmpIngredientsStrings.Clear();
+		//	if (!cycle.Props.extraRequiredIngredients.NullOrEmpty() && !devFillPodLatch)
+		//	{
+		//		for (int i = 0; i < cycle.Props.extraRequiredIngredients.Count; i++)
+		//		{
+		//			tmpIngredientsStrings.Add(cycle.Props.extraRequiredIngredients[i].Summary);
+		//		}
+		//	}
+		//	return tmpIngredientsStrings.ToCommaList(useAnd: true);
+		//}
 
 		private string CycleDescription(CompBiosculpterPod_Cycle cycle)
 		{
@@ -571,29 +569,20 @@ namespace WVC_XenotypesAndGenes
 			return null;
 		}
 
-		public string CannotUseNowPawnCycleReason(Pawn p, CompBiosculpterPod_Cycle cycle, bool checkIngredients = true)
-		{
-			return CannotUseNowPawnCycleReason(p, p, cycle, checkIngredients);
-		}
+		//private bool CanReachOrHasIngredients(Pawn hauler, Pawn biosculptee, CompBiosculpterPod_Cycle cycle, bool useCache = false)
+		//{
+		//	if (!PawnCarryingExtraCycleIngredients(biosculptee, cycle) && (biosculptee == hauler || !PawnCarryingExtraCycleIngredients(hauler, cycle)))
+		//	{
+		//		return CanReachRequiredIngredients(hauler, cycle, useCache);
+		//	}
+		//	return true;
+		//}
 
-		private bool CanReachOrHasIngredients(Pawn hauler, Pawn biosculptee, CompBiosculpterPod_Cycle cycle, bool useCache = false)
-		{
-			if (!PawnCarryingExtraCycleIngredients(biosculptee, cycle) && (biosculptee == hauler || !PawnCarryingExtraCycleIngredients(hauler, cycle)))
-			{
-				return CanReachRequiredIngredients(hauler, cycle, useCache);
-			}
-			return true;
-		}
-
-		public string CannotUseNowPawnCycleReason(Pawn hauler, Pawn biosculptee, CompBiosculpterPod_Cycle cycle, bool checkIngredients = true)
+		public string CannotUseNowPawnCycleReason(Pawn biosculptee, CompBiosculpterPod_Cycle cycle)
 		{
 			if (AgeReversalCycleKey != null && cycle.Props.key == AgeReversalCycleKey && !CanAgeReverse(biosculptee))
 			{
 				return "UnderMinBiosculpterAgeReversalAge".Translate(biosculptee.ageTracker.AdultMinAge.Named("ADULTAGE")).CapitalizeFirst();
-			}
-			if (checkIngredients && !CanReachOrHasIngredients(hauler, biosculptee, cycle, useCache: true))
-			{
-				return "BiosculpterMissingIngredients".Translate(IngredientsDescription(cycle).Named("INGREDIENTS")).CapitalizeFirst();
 			}
 			return null;
 		}
@@ -613,10 +602,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return "NoPower".Translate().CapitalizeFirst();
 			}
-			if (State == BiosculpterPodState.LoadingNutrition)
-			{
-				return "BiosculpterNutritionNotLoaded".Translate().CapitalizeFirst();
-			}
+			//if (State == BiosculpterPodState.LoadingNutrition)
+			//{
+			//	return "BiosculpterNutritionNotLoaded".Translate().CapitalizeFirst();
+			//}
 			if (State == BiosculpterPodState.Occupied)
 			{
 				return "BiosculpterOccupied".Translate().CapitalizeFirst();
@@ -624,42 +613,42 @@ namespace WVC_XenotypesAndGenes
 			return null;
 		}
 
-		private List<IngredientCount> RequiredIngredients(CompBiosculpterPod_Cycle cycle)
-		{
-			List<ThingDefCountClass> extraRequiredIngredients = cycle.Props.extraRequiredIngredients;
-			if (extraRequiredIngredients == null || devFillPodLatch)
-			{
-				return null;
-			}
-			if (!cachedExtraIngredients.ContainsKey(cycle))
-			{
-				cachedExtraIngredients[cycle] = extraRequiredIngredients.Select((ThingDefCountClass tc) => tc.ToIngredientCount()).ToList();
-			}
-			return cachedExtraIngredients[cycle];
-		}
+		//private List<IngredientCount> RequiredIngredients(CompBiosculpterPod_Cycle cycle)
+		//{
+		//	List<ThingDefCountClass> extraRequiredIngredients = cycle.Props.extraRequiredIngredients;
+		//	if (extraRequiredIngredients == null || devFillPodLatch)
+		//	{
+		//		return null;
+		//	}
+		//	if (!cachedExtraIngredients.ContainsKey(cycle))
+		//	{
+		//		cachedExtraIngredients[cycle] = extraRequiredIngredients.Select((ThingDefCountClass tc) => tc.ToIngredientCount()).ToList();
+		//	}
+		//	return cachedExtraIngredients[cycle];
+		//}
 
-		private bool CanReachRequiredIngredients(Pawn pawn, CompBiosculpterPod_Cycle cycle, bool useCache = false)
-		{
-			chosenExtraItems.Clear();
-			if (cycle.Props.extraRequiredIngredients == null || devFillPodLatch)
-			{
-				return true;
-			}
-			float realtimeSinceStartup = Time.realtimeSinceStartup;
-			if (useCache && cacheReachIngredientsPawn == pawn && cacheReachIngredientsCycle == cycle && realtimeSinceStartup < cacheReachIngredientsTime + 2f)
-			{
-				return cacheReachIngredientsResult;
-			}
-			cacheReachIngredientsPawn = pawn;
-			cacheReachIngredientsCycle = cycle;
-			cacheReachIngredientsTime = realtimeSinceStartup;
-			cacheReachIngredientsResult = WorkGiver_DoBill.TryFindBestFixedIngredients(RequiredIngredients(cycle), pawn, parent, chosenExtraItems);
-			return cacheReachIngredientsResult;
-		}
+		//private bool CanReachRequiredIngredients(Pawn pawn, CompBiosculpterPod_Cycle cycle, bool useCache = false)
+		//{
+		//	chosenExtraItems.Clear();
+		//	if (cycle.Props.extraRequiredIngredients == null || devFillPodLatch)
+		//	{
+		//		return true;
+		//	}
+		//	float realtimeSinceStartup = Time.realtimeSinceStartup;
+		//	if (useCache && cacheReachIngredientsPawn == pawn && cacheReachIngredientsCycle == cycle && realtimeSinceStartup < cacheReachIngredientsTime + 2f)
+		//	{
+		//		return cacheReachIngredientsResult;
+		//	}
+		//	cacheReachIngredientsPawn = pawn;
+		//	cacheReachIngredientsCycle = cycle;
+		//	cacheReachIngredientsTime = realtimeSinceStartup;
+		//	cacheReachIngredientsResult = WorkGiver_DoBill.TryFindBestFixedIngredients(RequiredIngredients(cycle), pawn, parent, chosenExtraItems);
+		//	return cacheReachIngredientsResult;
+		//}
 
 		private bool SelectPawnCycleOption(Pawn pawn, CompBiosculpterPod_Cycle cycle, out FloatMenuOption option)
 		{
-			string text = CannotUseNowPawnReason(pawn) ?? CannotUseNowPawnCycleReason(pawn, cycle, checkIngredients: false);
+			string text = CannotUseNowPawnReason(pawn) ?? CannotUseNowPawnCycleReason(pawn, cycle);
 			string label = pawn.Label + ((text == null) ? "" : (": " + text));
 			Action action = null;
 			if (text == null)
@@ -705,7 +694,7 @@ namespace WVC_XenotypesAndGenes
 
 		public Job EnterBiosculpterJob()
 		{
-			return JobMaker.MakeJob(JobDefOf.EnterBiosculpterPod, parent);
+			return JobMaker.MakeJob(Props.enterXenosculptorJobDef, parent);
 		}
 
 		private Job MakeCarryToBiosculpterJob(Pawn willBeCarried)
@@ -713,49 +702,30 @@ namespace WVC_XenotypesAndGenes
 			return JobMaker.MakeJob(JobDefOf.CarryToBiosculpterPod, willBeCarried, LocalTargetInfo.Invalid, parent);
 		}
 
-		public void ConfigureJobForCycle(Job job, CompBiosculpterPod_Cycle cycle, List<ThingCount> extraIngredients)
-		{
-			if (!extraIngredients.NullOrEmpty())
-			{
-				job.targetQueueB = new List<LocalTargetInfo>(extraIngredients.Count);
-				job.countQueue = new List<int>(extraIngredients.Count);
-				foreach (ThingCount extraIngredient in extraIngredients)
-				{
-					job.targetQueueB.Add(extraIngredient.Thing);
-					job.countQueue.Add(extraIngredient.Count);
-				}
-			}
-			job.haulMode = HaulMode.ToCellNonStorage;
-			job.biosculpterCycleKey = cycle.Props.key;
-		}
+		//public void ConfigureJobForCycle(Job job, CompBiosculpterPod_Cycle cycle, List<ThingCount> extraIngredients)
+		//{
+		//	if (!extraIngredients.NullOrEmpty())
+		//	{
+		//		job.targetQueueB = new List<LocalTargetInfo>(extraIngredients.Count);
+		//		job.countQueue = new List<int>(extraIngredients.Count);
+		//		foreach (ThingCount extraIngredient in extraIngredients)
+		//		{
+		//			job.targetQueueB.Add(extraIngredient.Thing);
+		//			job.countQueue.Add(extraIngredient.Count);
+		//		}
+		//	}
+		//	job.haulMode = HaulMode.ToCellNonStorage;
+		//	job.biosculpterCycleKey = cycle.Props.key;
+		//}
 
 		public void PrepareCycleJob(Pawn hauler, Pawn biosculptee, CompBiosculpterPod_Cycle cycle, Job job)
 		{
 			OrderToPod(cycle, biosculptee, delegate
 			{
-				chosenExtraItems.Clear();
-				if (!CanReachOrHasIngredients(hauler, biosculptee, cycle))
+				//chosenExtraItems.Clear();
+				if (hauler.jobs.TryTakeOrderedJob(job, JobTag.Misc))
 				{
-					Messages.Message("BiosculpterMissingIngredients".Translate(IngredientsDescription(cycle).Named("INGREDIENTS")).CapitalizeFirst(), parent, MessageTypeDefOf.NegativeEvent, historical: false);
-				}
-				else
-				{
-					ConfigureJobForCycle(job, cycle, chosenExtraItems);
-					if (cycle.Props.extraRequiredIngredients != null && !devFillPodLatch)
-					{
-						if (job.def == JobDefOf.CarryToBiosculpterPod)
-						{
-							Messages.Message("BiosculpterCarryStartedMessage".Translate(hauler.Named("PAWN"), IngredientsDescription(cycle).Named("INGREDIENTS"), biosculptee.Named("DOWNED"), cycle.Props.label.Named("CYCLE")), parent, MessageTypeDefOf.SilentInput, historical: false);
-						}
-						else
-						{
-							Messages.Message("BiosculpterLoadingStartedMessage".Translate(hauler.Named("PAWN"), IngredientsDescription(cycle).Named("INGREDIENTS"), cycle.Props.label.Named("CYCLE")), parent, MessageTypeDefOf.SilentInput, historical: false);
-						}
-					}
-					if (hauler.jobs.TryTakeOrderedJob(job, JobTag.Misc))
-					{
-						SetQueuedInformation(job, biosculptee);
-					}
+					SetQueuedInformation(job, biosculptee);
 				}
 			});
 		}
@@ -771,10 +741,10 @@ namespace WVC_XenotypesAndGenes
 			queuedPawn = biosculptee;
 		}
 
-		public bool CanAcceptNutrition(Thing thing)
-		{
-			return allowedNutritionSettings.AllowedToAccept(thing);
-		}
+		//public bool CanAcceptNutrition(Thing thing)
+		//{
+		//	return allowedNutritionSettings.AllowedToAccept(thing);
+		//}
 
 		public bool CanAcceptOnceCycleChosen(Pawn pawn)
 		{
@@ -789,33 +759,33 @@ namespace WVC_XenotypesAndGenes
 			return true;
 		}
 
-		public bool PawnCarryingExtraCycleIngredients(Pawn pawn, string cycleKey, bool remove = false)
-		{
-			return PawnCarryingExtraCycleIngredients(pawn, GetCycle(cycleKey), remove);
-		}
+		//public bool PawnCarryingExtraCycleIngredients(Pawn pawn, string cycleKey, bool remove = false)
+		//{
+		//	return PawnCarryingExtraCycleIngredients(pawn, GetCycle(cycleKey), remove);
+		//}
 
-		public bool PawnCarryingExtraCycleIngredients(Pawn pawn, CompBiosculpterPod_Cycle cycle, bool remove = false)
-		{
-			if (cycle.Props.extraRequiredIngredients.NullOrEmpty() || devFillPodLatch)
-			{
-				return true;
-			}
-			foreach (ThingDefCountClass extraRequiredIngredient in cycle.Props.extraRequiredIngredients)
-			{
-				if (pawn.inventory.Count(extraRequiredIngredient.thingDef) < extraRequiredIngredient.count)
-				{
-					return false;
-				}
-			}
-			if (remove)
-			{
-				foreach (ThingDefCountClass extraRequiredIngredient2 in cycle.Props.extraRequiredIngredients)
-				{
-					pawn.inventory.RemoveCount(extraRequiredIngredient2.thingDef, extraRequiredIngredient2.count);
-				}
-			}
-			return true;
-		}
+		//public bool PawnCarryingExtraCycleIngredients(Pawn pawn, CompBiosculpterPod_Cycle cycle, bool remove = false)
+		//{
+		//	if (cycle.Props.extraRequiredIngredients.NullOrEmpty() || devFillPodLatch)
+		//	{
+		//		return true;
+		//	}
+		//	foreach (ThingDefCountClass extraRequiredIngredient in cycle.Props.extraRequiredIngredients)
+		//	{
+		//		if (pawn.inventory.Count(extraRequiredIngredient.thingDef) < extraRequiredIngredient.count)
+		//		{
+		//			return false;
+		//		}
+		//	}
+		//	if (remove)
+		//	{
+		//		foreach (ThingDefCountClass extraRequiredIngredient2 in cycle.Props.extraRequiredIngredients)
+		//		{
+		//			pawn.inventory.RemoveCount(extraRequiredIngredient2.thingDef, extraRequiredIngredient2.count);
+		//		}
+		//	}
+		//	return true;
+		//}
 
 		public bool TryAcceptPawn(Pawn pawn, string cycleKey)
 		{
@@ -825,10 +795,6 @@ namespace WVC_XenotypesAndGenes
 		public bool TryAcceptPawn(Pawn pawn, CompBiosculpterPod_Cycle cycle)
 		{
 			if (!CanAcceptOnceCycleChosen(pawn))
-			{
-				return false;
-			}
-			if (!PawnCarryingExtraCycleIngredients(pawn, cycle, remove: true))
 			{
 				return false;
 			}
@@ -850,7 +816,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			pawnEnteringBiosculpter = null;
 			currentCycleTicksRemaining = cycle.Props.durationDays * 60000f;
-			liquifiedNutrition = 0f;
+			//liquifiedNutrition = 0f;
 			devFillPodLatch = false;
 			ClearQueuedInformation();
 			tickEntered = Find.TickManager.TicksGame;
@@ -867,7 +833,7 @@ namespace WVC_XenotypesAndGenes
 			currentCycleKey = null;
 			currentCycleTicksRemaining = 0f;
 			currentCyclePowerCutTicks = 0;
-			liquifiedNutrition = 0f;
+			//liquifiedNutrition = 0f;
 			devFillPodLatch = false;
 			innerContainer.TryDropAll(parent.InteractionCell, destMap, ThingPlaceMode.Near);
 			if (occupant != null)
@@ -911,18 +877,18 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private void LiquifyNutrition()
-		{
-			foreach (Thing item in (IEnumerable<Thing>)innerContainer)
-			{
-				float num = item.GetStatValue(StatDefOf.Nutrition) * (float)item.stackCount;
-				if (num > 0f && !(item is Pawn))
-				{
-					liquifiedNutrition = Mathf.Min(5f, liquifiedNutrition + num);
-					item.Destroy();
-				}
-			}
-		}
+		//private void LiquifyNutrition()
+		//{
+		//	foreach (Thing item in (IEnumerable<Thing>)innerContainer)
+		//	{
+		//		float num = item.GetStatValue(StatDefOf.Nutrition) * (float)item.stackCount;
+		//		if (num > 0f && !(item is Pawn))
+		//		{
+		//			liquifiedNutrition = Mathf.Min(5f, liquifiedNutrition + num);
+		//			item.Destroy();
+		//		}
+		//	}
+		//}
 
 		public override void CompTick()
 		{
@@ -1079,15 +1045,15 @@ namespace WVC_XenotypesAndGenes
 			return innerContainer;
 		}
 
-		public StorageSettings GetStoreSettings()
-		{
-			return allowedNutritionSettings;
-		}
+		//public StorageSettings GetStoreSettings()
+		//{
+		//	return allowedNutritionSettings;
+		//}
 
-		public StorageSettings GetParentStoreSettings()
-		{
-			return parent.def.building.fixedStorageSettings;
-		}
+		//public StorageSettings GetParentStoreSettings()
+		//{
+		//	return parent.def.building.fixedStorageSettings;
+		//}
 
 		public void Notify_SettingsChanged()
 		{
@@ -1167,7 +1133,7 @@ namespace WVC_XenotypesAndGenes
 					opts.Add(FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(text, null, MenuOptionPriority.Default, null, traveller), pawn, traveller));
 					continue;
 				}
-				string text2 = podComp.CannotUseNowCycleReason(cycle) ?? podComp.CannotUseNowPawnCycleReason(pawn, traveller, cycle);
+				string text2 = podComp.CannotUseNowCycleReason(cycle) ?? podComp.CannotUseNowPawnCycleReason(pawn, cycle);
 				if (text2 != null)
 				{
 					opts.Add(FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(CannotStartText(cycle, text2), null, MenuOptionPriority.Default, null, traveller), pawn, traveller));
@@ -1194,11 +1160,11 @@ namespace WVC_XenotypesAndGenes
 			currentCycleKey = null;
 		}
 
-		public void Notify_HauledTo(Pawn hauler, Thing thing, int count)
-		{
-			LiquifyNutrition();
-			SoundDefOf.Standard_Drop.PlayOneShot(parent);
-		}
+		//public void Notify_HauledTo(Pawn hauler, Thing thing, int count)
+		//{
+		//	LiquifyNutrition();
+		//	SoundDefOf.Standard_Drop.PlayOneShot(parent);
+		//}
 	}
 
 }
