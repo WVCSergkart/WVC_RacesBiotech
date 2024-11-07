@@ -12,7 +12,9 @@ namespace WVC_XenotypesAndGenes
 
 		public CompUseEffect_XenogermSerum xenotypeForcer;
 
-		public Dialog_RetuneSerum(Thing serum)
+        protected override string Header => xenotypeForcer.parent.def.LabelCap;
+
+        public Dialog_RetuneSerum(Thing serum)
 		{
 			xenotypeForcer = serum.TryGetComp<CompUseEffect_XenogermSerum>();
 			allXenotypes = ListsUtility.GetWhiteListedXenotypesHolders(true);

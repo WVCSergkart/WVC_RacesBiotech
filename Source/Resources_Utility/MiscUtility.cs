@@ -46,11 +46,17 @@ namespace WVC_XenotypesAndGenes
 		public static void TryTakeOrderedJob(this Pawn pawn, Job job, JobTag tag, bool requestQueueing)
 		{
 			if (requestQueueing && tag == JobTag.SatisfyingNeeds)
-            {
-                TryFinalizeAllIngestJobs(pawn, false);
-                pawn.jobs.jobQueue.EnqueueFirst(job, tag);
-                return;
-            }
+			{
+				TryFinalizeAllIngestJobs(pawn, false);
+				if (pawn.jobs.curJob.def.suspendable)
+				{
+					pawn.jobs.SuspendCurrentJob(JobCondition.InterruptForced);
+					pawn.jobs.StartJob(job, tag: tag);
+					return;
+				}
+				pawn.jobs.jobQueue.EnqueueFirst(job, tag);
+				return;
+			}
             pawn.jobs.TryTakeOrderedJob(job, tag, requestQueueing);
 		}
 
