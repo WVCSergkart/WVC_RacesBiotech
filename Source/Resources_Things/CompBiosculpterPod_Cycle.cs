@@ -224,7 +224,7 @@ namespace WVC_XenotypesAndGenes
 					genes.AddRange(sculptorGenes);
 				}
                 float chance = GetChance(XaG_GeneUtility.GetMatchingGenesList(genes, Biosculptor.xenotypeHolder.genes).Count, Biosculptor.xenotypeHolder.genes.Count);
-                if (Rand.Chance(chance))
+				if (Rand.Chance(chance))
 				{
 					ReimplanterUtility.SetXenotype(pawn, Biosculptor.xenotypeHolder);
 				}
@@ -241,13 +241,19 @@ namespace WVC_XenotypesAndGenes
 			//ResetCycle();
 		}
 
-		public float GetChance(int matchingGenes, int totalGenes)
+		public static float GetChance(int matchingGenes, int totalGenes)
 		{
 			if (matchingGenes <= 0)
             {
 				return 0f;
-            }
-			return matchingGenes / totalGenes;
+			}
+			if (totalGenes <= 0)
+			{
+				return 1f;
+			}
+			float chance = (float)matchingGenes / (float)totalGenes;
+			//Log.Error("Xenotype chance: " + chance);
+			return chance;
 		}
 
 		private CompXenosculpterPod cachedBioscultor;

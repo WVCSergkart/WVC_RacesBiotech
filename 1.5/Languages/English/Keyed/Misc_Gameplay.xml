@@ -66,11 +66,16 @@
 
 	<WVC_XaG_MetalhorrorReasonGeneRejection>{INFECTED_nameDef}'s metalhorror emerged for genetic rejection.</WVC_XaG_MetalhorrorReasonGeneRejection>
 
-	<WVC_XaG_GestatedDryadDescription>&lt;color=#f5ffa2&gt;Being gestated&lt;/color&gt; by the genetic dryad queen, dryads behave differently from their tree-relatives. They exist in a symbiotic relationship directly with the genetic queen, who in turn gestates new dryads and has a psychic bond with them.</WVC_XaG_GestatedDryadDescription>
+	<!-- <WVC_XaG_GestatedDryadDescription>&lt;color=#f5ffa2&gt;Being gestated&lt;/color&gt; by the genetic dryad queen, dryads behave differently from their tree-relatives. They exist in a symbiotic relationship directly with the genetic queen, who in turn gestates new dryads and has a psychic bond with them.</WVC_XaG_GestatedDryadDescription> -->
 
 	<!-- ============================ BiosculpterPod ============================ -->
 
 	<WVC_XaG_XenogermCycleCompleted>{PAWN_labelShort} completed {1} cycle.</WVC_XaG_XenogermCycleCompleted>
+
+	<WVC_XaG_XenotypeHolderCycleStarted_XenotypeChanceInfo>&lt;color=#f5ffa2&gt;Xenotype current match&lt;/color&gt;: {0}</WVC_XaG_XenotypeHolderCycleStarted_XenotypeChanceInfo>
+
+	<WVC_XaG_DialogBiosculpterPod_ChanceLabel>Genes match</WVC_XaG_DialogBiosculpterPod_ChanceLabel>
+	<WVC_XaG_DialogBiosculpterPod_ChanceDesc>The estimated chance of success in implanting this xenotype. The higher the chance, the more genes the pawn can receive. This calculation does not include the genes of the potential occupier.\n\n&lt;color=#f5ffa2&gt;Current chance&lt;/color&gt;: {0}</WVC_XaG_DialogBiosculpterPod_ChanceDesc>
 
 	<WVC_XaG_XenotypeHolderCycleStarted_XenotypeIsForbidden>The selected xenotype is not available.</WVC_XaG_XenotypeHolderCycleStarted_XenotypeIsForbidden>
 

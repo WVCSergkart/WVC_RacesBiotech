@@ -479,6 +479,10 @@ namespace WVC_XenotypesAndGenes
 
 		public bool isOverriden;
 
+		public float? matchPercent;
+
+		//public string customEffectsDesc = null;
+
 		public bool Baseliner => xenotypeDef == XenotypeDefOf.Baseliner && genes.NullOrEmpty();
 
 		public bool CustomXenotype => xenotypeDef == XenotypeDefOf.Baseliner && !genes.NullOrEmpty();
@@ -531,6 +535,11 @@ namespace WVC_XenotypesAndGenes
 						stringBuilder.AppendLine("UniqueXenotypeDesc".Translate());
 					}
 					stringBuilder.AppendLine();
+					//if (customEffectsDesc != null)
+					//{
+					//	stringBuilder.AppendLine(customEffectsDesc);
+					//	stringBuilder.AppendLine();
+					//}
 					XaG_GeneUtility.GetBiostatsFromList(genes, out int biostatCpx, out int biostatMet, out int biostatArc);
 					bool flag2 = false;
 					if (biostatCpx != 0)

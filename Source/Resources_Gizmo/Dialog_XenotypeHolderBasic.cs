@@ -277,7 +277,7 @@ namespace WVC_XenotypesAndGenes
 			Widgets.DrawOptionBackground(rect, selected);
 			curX += 4f;
 			bool trueForm = xenotypeHolder.isTrueShiftForm;
-			DrawBiostats(xenotypeHolder.genes.Count, trueForm, ref curX, curY, 4f);
+			DrawBiostats(xenotypeHolder, ref curX, curY, 4f);
 			Rect xenoRect = new(curX, curY + 4f, XenotypeSize.x, XenotypeSize.y);
 			DrawXenotypeBasics(xenotypeHolder, xenoRect, disabled && !trueForm || xenotypeHolder.isOverriden);
 			if (Mouse.IsOver(xenoRect))
@@ -333,13 +333,13 @@ namespace WVC_XenotypesAndGenes
 			GUI.EndGroup();
 		}
 
-		public virtual void DrawBiostats(int genes, bool trueForm, ref float curX, float curY, float margin = 6f)
+		public virtual void DrawBiostats(XenotypeHolder xenotypeHolder, ref float curX, float curY, float margin = 6f)
 		{
 			float num2 = 0f;
 			float baseWidthOffset = 38f;
 			float num3 = Text.LineHeightOf(GameFont.Small);
 			Rect iconRect = new(curX, curY + margin + num2, num3, num3);
-			DrawStat(iconRect, XGTex, genes.ToString(), num3);
+			DrawStat(iconRect, XGTex, xenotypeHolder.genes.Count.ToString(), num3);
 			Rect rect = new(curX, iconRect.y, baseWidthOffset, num3);
 			if (Mouse.IsOver(rect))
 			{

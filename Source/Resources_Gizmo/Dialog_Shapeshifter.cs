@@ -43,16 +43,16 @@ namespace WVC_XenotypesAndGenes
 			shiftExtension = gene?.def?.GetModExtension<GeneExtension_Undead>();
             disabled = HediffUtility.HasAnyHediff(shiftExtension?.blockingHediffs, gene.pawn);
             OnGenesChanged();
-        }
+		}
 
-		public override void DrawBiostats(int genes, bool trueForm, ref float curX, float curY, float margin = 6f)
+		public override void DrawBiostats(XenotypeHolder xenotypeHolder, ref float curX, float curY, float margin = 6f)
 		{
 			float num = GeneCreationDialogBase.GeneSize.y / 3f;
 			float num2 = 0f;
 			float baseWidthOffset = 38f;
 			float num3 = Text.LineHeightOf(GameFont.Small);
 			Rect iconRect = new(curX, curY + margin + num2, num3, num3);
-			DrawStat(iconRect, XGTex, genes.ToString(), num3);
+			DrawStat(iconRect, XGTex, xenotypeHolder.genes.Count.ToString(), num3);
 			Rect rect = new(curX, iconRect.y, baseWidthOffset, num3);
 			if (Mouse.IsOver(rect))
 			{
@@ -60,10 +60,10 @@ namespace WVC_XenotypesAndGenes
 				TooltipHandler.TipRegion(rect, "Genes".Translate().CapitalizeFirst().Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_ShapeshifterDialog_XenotypeGenesDesc".Translate());
 			}
 			num2 += num;
-			if (trueForm)
+			if (xenotypeHolder.isTrueShiftForm)
 			{
 				Rect iconRect3 = new(curX, curY + margin + num2, num3, num3);
-				DrawStat(iconRect3, XTFTex, trueForm.ToStringYesNo(), num3 - 3f);
+				DrawStat(iconRect3, XTFTex, xenotypeHolder.isTrueShiftForm.ToStringYesNo(), num3 - 3f);
 				Rect rect3 = new(curX, iconRect3.y, baseWidthOffset, num3);
 				if (Mouse.IsOver(rect3))
 				{
