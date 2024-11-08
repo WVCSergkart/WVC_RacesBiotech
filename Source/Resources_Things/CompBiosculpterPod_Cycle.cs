@@ -180,7 +180,7 @@ namespace WVC_XenotypesAndGenes
 		public override void CycleCompleted(Pawn pawn)
 		{
 			HediffUtility.RemoveHediffsFromList(pawn, Props.hediffsToRemove);
-			Messages.Message("WVC_XaG_XenogermCycleCompleted".Translate(pawn.Named("PAWN")), pawn, MessageTypeDefOf.PositiveEvent);
+			Messages.Message("WVC_XaG_XenogermCycleCompleted".Translate(pawn.Named("PAWN"), Props.label), pawn, MessageTypeDefOf.PositiveEvent);
 		}
 
 	}
@@ -191,7 +191,7 @@ namespace WVC_XenotypesAndGenes
 		public override void CycleCompleted(Pawn pawn)
 		{
 			ReimplanterUtility.SetXenotype(pawn, XenotypeDefOf.Baseliner);
-			Messages.Message("WVC_XaG_XenogermCycleCompleted".Translate(pawn.Named("PAWN")), pawn, MessageTypeDefOf.PositiveEvent);
+			Messages.Message("WVC_XaG_XenogermCycleCompleted".Translate(pawn.Named("PAWN"), Props.label), pawn, MessageTypeDefOf.PositiveEvent);
 		}
 
 	}
@@ -215,7 +215,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void CycleCompleted(Pawn pawn)
 		{
-			if (Biosculptor.xenotypeHolder != null)
+			if (Biosculptor?.xenotypeHolder != null)
 			{
 				List<GeneDef> genes = XaG_GeneUtility.ConvertGenesInGeneDefs(pawn?.genes?.GenesListForReading);
 				List<GeneDef> sculptorGenes = Biosculptor.GetGenes();
@@ -237,7 +237,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				ReimplanterUtility.SetXenotype(pawn, XenotypeDefOf.Baseliner);
 			}
-			Messages.Message("WVC_XaG_XenogermCycleCompleted".Translate(pawn.Named("PAWN")), pawn, MessageTypeDefOf.PositiveEvent);
+			Messages.Message("WVC_XaG_XenogermCycleCompleted".Translate(pawn.Named("PAWN"), Props.label), pawn, MessageTypeDefOf.PositiveEvent);
 			//ResetCycle();
 		}
 

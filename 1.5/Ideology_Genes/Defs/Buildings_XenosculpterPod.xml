@@ -6,7 +6,8 @@
 	<label>xenosculpter pod</label>
 	<containedPawnsSelectable>true</containedPawnsSelectable>
 	<graphicData>
-	  <texPath>Things/Building/Misc/BiosculpterPod/BiosculpterPod</texPath>
+	  <!-- <texPath>Things/Building/Misc/BiosculpterPod/BiosculpterPod</texPath> -->
+	  <texPath>WVC/Things/XaG_Buildings/Xenosculpter/BiosculpterPod</texPath>
 	  <graphicClass>Graphic_Multi</graphicClass>
 	  <shadowData>
 		<volume>(2.9,0.6,1.9)</volume>
@@ -30,8 +31,9 @@
 	<interactionCellOffset>(0,0,2)</interactionCellOffset>
 	<hasInteractionCell>true</hasInteractionCell>
 	<costList>
-	  <Steel>120</Steel>
-	  <ComponentIndustrial>5</ComponentIndustrial>
+	  <Steel>80</Steel>
+	  <Plasteel>20</Plasteel>
+	  <ComponentIndustrial>4</ComponentIndustrial>
 	  <PowerfocusChip>1</PowerfocusChip>
 	</costList>
 	<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
@@ -41,10 +43,11 @@
 	<minifiedDef>MinifiedThing</minifiedDef>
 	<tickerType>Normal</tickerType>
 	<comps>
-	  <li Class="CompProperties_AffectedByFacilities">
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AffectedByGenebanks">
 		<linkableFacilities>
 		  <li>GeneBank</li>
 		</linkableFacilities>
+		<autoLink>true</autoLink>
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_XenosculpterPod">
 		<inheritFromDef>BiosculpterPod</inheritFromDef>
@@ -52,10 +55,10 @@
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_BiosculpterPod_XenogermCycle">
 		<compClass>WVC_XenotypesAndGenes.CompBiosculpterPod_XenogermCycle</compClass>
 		<key>wvc_xag_generestoration</key>
-		<label>gene restoration</label>
+		<label>genetic</label>
 		<description>Remove all effects associated with xenogerm reimplantation.</description>
 		<iconPath>WVC/UI/XaG_General/BiosculpterCycle_XenogermHeal_v0</iconPath>
-		<durationDays>12</durationDays>
+		<durationDays>4</durationDays>
 		<operatingColor>(0.666,0.666,1.000)</operatingColor>
 		<hediffsToRemove>
 		  <li>XenogermReplicating</li>
@@ -70,10 +73,10 @@
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_BiosculpterPod_XenogermCycle">
 		<compClass>WVC_XenotypesAndGenes.CompBiosculpterPod_XenotypeNullifierCycle</compClass>
 		<key>wvc_xag_xenotypenullifier</key>
-		<label>xenotype nullifier</label>
+		<label>nullifier</label>
 		<description>Removes all genes and resets the xenotype to baseliner.</description>
 		<iconPath>WVC/UI/XaG_General/BiosculpterCycle_XenogermNullifier_v0</iconPath>
-		<durationDays>15</durationDays>
+		<durationDays>6</durationDays>
 		<operatingColor>(0.888,0.888,0.888)</operatingColor>
 		<requiredResearch>
 		  <li>WVC_XenotypesAndGenes_GeneRestoration</li>
@@ -83,10 +86,10 @@
 	  <li MayRequire="ludeon.rimworld.anomaly" Class="WVC_XenotypesAndGenes.CompProperties_BiosculpterPod_XenogermCycle">
 		<compClass>WVC_XenotypesAndGenes.CompBiosculpterPod_XenogermCycle</compClass>
 		<key>wvc_xag_duplicaterestoration</key>
-		<label>duplicate restoration</label>
+		<label>duplicate</label>
 		<description>Remove all negative effects associated with duplication.</description>
 		<iconPath>WVC/UI/XaG_General/BiosculpterCycle_Duplication_v0</iconPath>
-		<durationDays>22</durationDays>
+		<durationDays>8</durationDays>
 		<operatingColor>(1.000,0.666,0.666)</operatingColor>
 		<hediffsToRemove>
 		  <li MayRequire="ludeon.rimworld.anomaly">DuplicateSickness</li>
@@ -98,6 +101,9 @@
 		<requiredResearch>
 		  <li>WVC_XenotypesAndGenes_ShapeshifterSerums</li>
 		</requiredResearch>
+		<extraRequiredIngredients>
+		  <MedicineUltratech>2</MedicineUltratech>
+		</extraRequiredIngredients>
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_BiosculpterPod_XenogermCycle">
 		<compClass>WVC_XenotypesAndGenes.CompBiosculpterPod_XenotypeHolderCycle</compClass>
@@ -105,7 +111,7 @@
 		<label>xenosculptor</label>
 		<description>Allows to change the pawn's xenotype. The xenotype will be applied with a chance depending on the genebanks and the occupier's geneset. The higher the match, the more genes from the selected xenotype will be obtained. If the xenotype was not set before the start of the cycle, the effect will be the same as that of the xenotype nullifier.</description>
 		<iconPath>WVC/UI/XaG_General/BiosculpterCycle_Xenosculptor_v0</iconPath>
-		<durationDays>15</durationDays>
+		<durationDays>6</durationDays>
 		<operatingColor>(1.000,0.444,1.000)</operatingColor>
 		<requiredResearch>
 		  <li>WVC_XenotypesAndGenes_GeneRestoration</li>

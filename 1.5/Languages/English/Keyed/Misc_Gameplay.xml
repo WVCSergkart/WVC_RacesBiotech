@@ -70,7 +70,7 @@
 
 	<!-- ============================ BiosculpterPod ============================ -->
 
-	<WVC_XaG_XenogermCycleCompleted>{PAWN_labelShort} completed xenogerm cycle.</WVC_XaG_XenogermCycleCompleted>
+	<WVC_XaG_XenogermCycleCompleted>{PAWN_labelShort} completed {1} cycle.</WVC_XaG_XenogermCycleCompleted>
 
 	<WVC_XaG_XenotypeHolderCycleStarted_XenotypeIsForbidden>The selected xenotype is not available.</WVC_XaG_XenotypeHolderCycleStarted_XenotypeIsForbidden>
 

@@ -157,6 +157,7 @@
     <Compile Include="Resources_StatPart\StatPart_OffsetFromBuildingsOnMap.cs" />
     <Compile Include="Resources_Things\Building_MechCharger.cs" />
     <Compile Include="Resources_Things\CompBiosculpterPod_Cycle.cs" />
+    <Compile Include="Resources_Things\CompProperties_AffectedByFacilities.cs" />
     <Compile Include="Resources_Things\CompProperties_ChangeEyesColor.cs" />
     <Compile Include="Resources_Things\CompProperties_DryadCocoon.cs" />
     <Compile Include="Resources_Things\CompProperties_Genepack.cs" />
