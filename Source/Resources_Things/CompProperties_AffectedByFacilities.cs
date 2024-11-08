@@ -18,37 +18,65 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override void ResolveReferences(ThingDef parentDef)
-		{
-			if (!autoLink)
-			{
-				return;
-			}
-			if (linkableFacilities.NullOrEmpty())
-			{
-				linkableFacilities = new();
-			}
-			List<ThingDef> thingDefs = DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef thingDef) => !linkableFacilities.Contains(thingDef) && IsGenebank(thingDef)).ToList();
-			if (thingDefs.NullOrEmpty())
-			{
-				return;
-			}
-			foreach (ThingDef thingDef in thingDefs)
-			{
-				CompProperties_Facility compProperties = thingDef.GetCompProperties<CompProperties_Facility>();
-				if (compProperties == null)
-				{
-					continue;
-				}
-				if (compProperties.linkableBuildings.NullOrEmpty())
-				{
-					compProperties.linkableBuildings = new();
-				}
-				compProperties.linkableBuildings.Add(parentDef);
-				linkableFacilities.Add(thingDef);
-			}
-		}
+        {
+            if (autoLink)
+            {
+                SetLinks(parentDef);
+            }
+            SetHyperLinks(parentDef, linkableFacilities);
+        }
 
-		public static bool IsGenebank(ThingDef thingDef)
+        private void SetLinks(ThingDef parentDef)
+        {
+            if (linkableFacilities.NullOrEmpty())
+            {
+                linkableFacilities = new();
+            }
+            List<ThingDef> thingDefs = DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef thingDef) => !linkableFacilities.Contains(thingDef) && IsGenebank(thingDef)).ToList();
+            if (thingDefs.NullOrEmpty())
+            {
+                return;
+            }
+            foreach (ThingDef thingDef in thingDefs)
+            {
+                CompProperties_Facility compProperties = thingDef.GetCompProperties<CompProperties_Facility>();
+                if (compProperties == null)
+                {
+                    continue;
+                }
+                if (compProperties.linkableBuildings.NullOrEmpty())
+                {
+                    compProperties.linkableBuildings = new();
+                }
+                compProperties.linkableBuildings.Add(parentDef);
+                linkableFacilities.Add(thingDef);
+            }
+        }
+
+        public static void SetHyperLinks(ThingDef parentDef, List<ThingDef> linkableFacilities)
+        {
+            foreach (ThingDef thingDef in linkableFacilities)
+            {
+                if (thingDef.descriptionHyperlinks.NullOrEmpty())
+                {
+                    thingDef.descriptionHyperlinks = new();
+                }
+                if (parentDef.descriptionHyperlinks.NullOrEmpty())
+                {
+                    parentDef.descriptionHyperlinks = new();
+                }
+                if (!thingDef.descriptionHyperlinks.Contains(parentDef))
+                {
+                    thingDef.descriptionHyperlinks.Add(parentDef);
+                }
+                if (!parentDef.descriptionHyperlinks.Contains(thingDef))
+                {
+                    parentDef.descriptionHyperlinks.Add(thingDef);
+                }
+            }
+        }
+
+        public static bool IsGenebank(ThingDef thingDef)
 		{
 			if (thingDef.comps.NullOrEmpty())
 			{
