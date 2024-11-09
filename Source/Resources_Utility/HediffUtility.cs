@@ -86,6 +86,10 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool TryAddHediff(HediffDef hediffDef, Pawn pawn, GeneDef geneDef, List<BodyPartDef> bodyparts = null, bool randomizeSeverity = false)
 		{
+			if (hediffDef == null)
+			{
+				return false;
+			}
 			if (!bodyparts.NullOrEmpty())
 			{
 				HediffUtility.BodyPartsGiver(bodyparts, pawn, hediffDef, geneDef);

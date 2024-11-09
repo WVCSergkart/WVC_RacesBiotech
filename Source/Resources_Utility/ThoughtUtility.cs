@@ -114,13 +114,14 @@ namespace WVC_XenotypesAndGenes
 
 		// Mute voice
 
-		public static bool TryInteractRandomly(Pawn pawn, bool psychicInteraction, bool ignoreTalking, bool closeTarget, Gene shouldHaveGeneOfType = null)
+		public static bool TryInteractRandomly(Pawn pawn, bool psychicInteraction, bool ignoreTalking, bool closeTarget, out Pawn otherPawn, Gene shouldHaveGeneOfType = null)
 		{
-            // if (Pawn_InteractionsTracker.InteractedTooRecentlyToInteract())
-            // {
-            // return false;
-            // }
-            if (pawn?.Map == null || pawn.Downed)
+			// if (Pawn_InteractionsTracker.InteractedTooRecentlyToInteract())
+			// {
+			// return false;
+			// }
+			otherPawn = null;
+			if (pawn?.Map == null || pawn.Downed)
             {
                 return false;
             }
@@ -133,30 +134,31 @@ namespace WVC_XenotypesAndGenes
 			List<InteractionDef> allDefsListForReading = DefDatabase<InteractionDef>.AllDefsListForReading;
 			for (int i = 0; i < workingList.Count; i++)
 			{
-				Pawn p = workingList[i];
-				if (!p.RaceProps.Humanlike)
+				Pawn targetPawn = workingList[i];
+				if (!targetPawn.RaceProps.Humanlike)
 				{
 					continue;
 				}
-				if (psychicInteraction && !p.IsPsychicSensitive())
+				if (psychicInteraction && !targetPawn.IsPsychicSensitive())
 				{
 					continue;
 				}
-				if (closeTarget && !InteractionUtility.IsGoodPositionForInteraction(pawn, p))
+				if (closeTarget && !InteractionUtility.IsGoodPositionForInteraction(pawn, targetPawn))
 				{
 					continue;
 				}
-				if (shouldHaveGeneOfType != null && !XaG_GeneUtility.HasGeneOfType(shouldHaveGeneOfType, p))
+				if (shouldHaveGeneOfType != null && !XaG_GeneUtility.HasGeneOfType(shouldHaveGeneOfType, targetPawn))
 				{
 					continue;
 				}
-				if (p != pawn && Telepath_CanInteractNowWith(pawn, p, ignoreTalking: ignoreTalking) && InteractionUtility.CanReceiveRandomInteraction(p) && !pawn.HostileTo(p) && allDefsListForReading.TryRandomElementByWeight((InteractionDef x) => (!Telepath_CanInteractNowWith(pawn, p, ignoreTalking: ignoreTalking, x)) ? 0f : x.Worker.RandomSelectionWeight(pawn, p), out var result))
+				if (targetPawn != pawn && Telepath_CanInteractNowWith(pawn, targetPawn, ignoreTalking: ignoreTalking) && InteractionUtility.CanReceiveRandomInteraction(targetPawn) && !pawn.HostileTo(targetPawn) && allDefsListForReading.TryRandomElementByWeight((InteractionDef x) => (!Telepath_CanInteractNowWith(pawn, targetPawn, ignoreTalking: ignoreTalking, x)) ? 0f : x.Worker.RandomSelectionWeight(pawn, targetPawn), out var result))
 				{
-					if (TryInteractWith(pawn, p, result, psychicInteraction))
+					if (TryInteractWith(pawn, targetPawn, result, psychicInteraction))
 					{
+						otherPawn = targetPawn;
 						return true;
 					}
-					Log.Error(string.Concat(pawn, " failed to interact with ", p));
+					Log.Error(string.Concat(pawn, " failed to interact with ", targetPawn));
 				}
 			}
 			return false;

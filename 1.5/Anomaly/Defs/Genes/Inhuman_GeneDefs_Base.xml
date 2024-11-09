@@ -24,22 +24,22 @@
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>0</biostatMet>
-	<customEffectDescriptions>
-		<li>Carriers are &lt;color=#ff8585&gt;permanently inhumanized&lt;/color&gt;.</li>
-	</customEffectDescriptions>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Carriers are &lt;color=#ff8585&gt;permanently inhumanized&lt;/color&gt;.</li> -->
+	<!-- </customEffectDescriptions> -->
 	<symbolPack>
 	  <prefixSymbols>
 		<li><symbol>inhuman</symbol></li>
 	  </prefixSymbols>
 	</symbolPack>
+	<exclusionTags>
+	  <li>Inhumanized</li>
+	</exclusionTags>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>Inhumanized</hediffDefName>
 		</li>
 	</modExtensions>
-	<exclusionTags>
-	  <li>Inhumanized</li>
-	</exclusionTags>
   </GeneDef>
 
 </Defs>

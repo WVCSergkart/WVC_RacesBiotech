@@ -3,9 +3,20 @@
 
   <WVC_XenotypesAndGenes.ThrallDef ParentName="WVC_XenotypesAndGenes_ThrallDefs_Base" Name="WVC_XenotypesAndGenes_ThrallDefs_AnomalyGhoul" Abstract="True">
 	<generalDesc>In general ghouls are engineered murder machines, twisted by dark psychic influences.\n\nGhouls are very dangerous in melee combat. However, the process of their creation leaves them incapable of higher levels of thought, preventing them from holding weapons or tools. They cannot work and outside combat they wander in a half-conscious stupor.\n\nMany people find the constant twitching of ghouls disturbing. More disturbing is their dependence on raw meat. If they go hungry they will turn hostile, even attacking their creators to sate their hunger.</generalDesc>
+	<!-- Used if the thrall xenotype is disabled in the settings, and also for the icon in the thrall selection menu. -->
 	<xenotypeIconDef>WVC_Thrall_Ghoul1c</xenotypeIconDef>
+	<!-- If set, the pawn will turn into a mutant. -->
 	<mutantDef>Ghoul</mutantDef>
+	<!-- If true, the pawn will receive the genes specified in the ability in geneDefs. -->
 	<addGenesFromAbility>false</addGenesFromAbility>
+	<!-- If true, the pawn will receive the genes specified in the ability in inheritableGenes. -->
+	<!-- <addGenesFromMaster>true</addGenesFromMaster> -->
+	<!-- The state of the corpse on which the thrall maker can be used. -->
+	<!-- <acceptableRotStages> -->
+		<!-- <li>Fresh</li> -->
+	<!-- </acceptableRotStages> -->
+	<!-- Used only for internal randomizations and is largely useless. -->
+	<!-- <selectionWeight>1</selectionWeight> -->
 	<genes Inherit="False"/>
   </WVC_XenotypesAndGenes.ThrallDef>
 

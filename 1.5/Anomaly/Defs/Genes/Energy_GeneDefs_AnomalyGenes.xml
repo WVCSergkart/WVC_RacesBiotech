@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_Base"> -->
+	<!-- <defName>WVC_VoidVoice</defName> -->
+	<!-- <label>void voice</label> -->
+	<!-- <description>Carriers of this gene have something mysterious in their voice. Their voice penetrates into the back of the mind of the interlocutor and sows the seed of void in it.</description> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_VoidVoice</geneClass> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_VoidVoice_v0</iconPath> -->
+	<!-- <displayOrderInCategory>220</displayOrderInCategory> -->
+	<!-- <biostatCpx>1</biostatCpx> -->
+	<!-- <biostatArc>1</biostatArc> -->
+	<!-- <customEffectDescriptions> -->
+	  <!-- <li>When &lt;color=#8a8ae6&gt;interacting&lt;/color&gt;, it has a chance to &lt;color=#ff8585&gt;inhumanize&lt;/color&gt; the target.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <forcedTraits> -->
+	  <!-- <li> -->
+		<!-- <def>Disturbing</def> -->
+	  <!-- </li> -->
+	<!-- </forcedTraits> -->
+  <!-- </GeneDef> -->
+
+  <!-- <InteractionDef> -->
+	<!-- <defName>WVC_VoidVoice</defName> -->
+	<!-- <label>void words</label> -->
+	<!-- <symbol>Things/Mote/SpeechSymbols/InhumanRambling</symbol> -->
+	<!-- <recipientThought>SpokeToDisturbing</recipientThought> -->
+	<!-- <workerClass>WVC_XenotypesAndGenes.InteractionWorker_VoidWords</workerClass> -->
+	<!-- <logRulesInitiator> -->
+	  <!-- <include> -->
+		<!-- <li>DarkDialogue</li> -->
+	  <!-- </include> -->
+	  <!-- <rulesStrings> -->
+		<!-- <li>r_logentry->[INITIATOR_nameDef] [rambled] about [subjectInsane].</li> -->
+		<!-- <li>r_logentry->[INITIATOR_nameDef] [rambled] [darkSpeechAdverb] about [subjectInsane].</li> -->
+	  <!-- </rulesStrings> -->
+	<!-- </logRulesInitiator> -->
+  <!-- </InteractionDef> -->
+
+</Defs>

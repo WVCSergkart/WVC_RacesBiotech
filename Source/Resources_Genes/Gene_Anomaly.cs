@@ -97,15 +97,23 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Inhumanized : Gene
+	public class Gene_Inhumanized : Gene, IGeneOverridden
 	{
 
 		private int nextTick = 45679;
-		
+		private bool inhumanizedBeforeGene = false;
+
+		public HediffDef Inhumanized => HediffDefOf.Inhumanized;
+
+
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			HediffUtility.TryAddHediff(HediffDefOf.Inhumanized, pawn, def, null);
+			if (pawn.Inhumanized())
+			{
+				inhumanizedBeforeGene = true;
+			}
+			HediffUtility.TryAddHediff(Inhumanized, pawn, def, null);
 		}
 
 		public override void Tick()
@@ -121,6 +129,34 @@ namespace WVC_XenotypesAndGenes
 				pawn.mindState?.mentalBreaker?.TryDoMentalBreak("WVC_XaG_MentalBreakReason_Inhumanized".Translate(), MentalBreakDefOf.HumanityBreak);
 			}
 			nextTick = 157889;
+		}
+
+		public void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			if (!inhumanizedBeforeGene)
+			{
+				HediffUtility.TryRemoveHediff(Inhumanized, pawn);
+			}
+		}
+
+		public void Notify_Override()
+		{
+			HediffUtility.TryAddHediff(Inhumanized, pawn, def, null);
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			if (!inhumanizedBeforeGene)
+			{
+				HediffUtility.TryRemoveHediff(Inhumanized, pawn);
+			}
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref inhumanizedBeforeGene, "inhumanizedBeforeGene", false);
 		}
 
 	}

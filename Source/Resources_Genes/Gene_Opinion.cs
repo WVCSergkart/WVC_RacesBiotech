@@ -1,5 +1,6 @@
 using RimWorld;
 using System.Collections.Generic;
+using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -204,7 +205,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			//TryInteractRandomly_CloseTarget(pawn);
-			ThoughtUtility.TryInteractRandomly(pawn, true, false, true);
+			ThoughtUtility.TryInteractRandomly(pawn, true, false, true, out _);
 			ResetInterval();
 		}
 
@@ -218,7 +219,7 @@ namespace WVC_XenotypesAndGenes
 					action = delegate
 					{
 						//TryInteractRandomly_CloseTarget(pawn);
-						ThoughtUtility.TryInteractRandomly(pawn, true, false, true);
+						ThoughtUtility.TryInteractRandomly(pawn, true, false, true, out _);
 					}
 				};
 			}
@@ -299,7 +300,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			//TryInteractRandomly_CloseTarget(pawn);
-			ThoughtUtility.TryInteractRandomly(pawn, false, true, true, this);
+			ThoughtUtility.TryInteractRandomly(pawn, false, true, true, out _, this);
 			ResetInterval();
 		}
 
@@ -313,7 +314,7 @@ namespace WVC_XenotypesAndGenes
 					action = delegate
 					{
 						//TryInteractRandomly_CloseTarget(pawn);
-						ThoughtUtility.TryInteractRandomly(pawn, false, true, true, this);
+						ThoughtUtility.TryInteractRandomly(pawn, false, true, true, out _, this);
 					}
 				};
 			}
@@ -366,6 +367,41 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref hashIntervalTick, "hashIntervalTick", 0);
+		}
+
+	}
+
+	public class Gene_VoidVoice : Gene
+	{
+
+        public void VoidInteraction(Pawn target)
+		{
+			if (ModsConfig.AnomalyActive && !target.Inhumanized())
+			{
+				target.mindState?.mentalBreaker?.TryDoMentalBreak("WVC_XaG_MentalBreakReason_VoidVoice".Translate(pawn.Named("PAWN"), target.Named("TARGET")), MentalBreakDefOf.HumanityBreak);
+                if (pawn.Map != null)
+				{
+					FleckMaker.AttachedOverlay(pawn, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
+				}
+			}
+		}
+
+        public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: TryInteract",
+					action = delegate
+					{
+						if (ThoughtUtility.TryInteractRandomly(pawn, true, false, true, out Pawn target, null))
+						{
+							VoidInteraction(target);
+						}
+					}
+				};
+			}
 		}
 
 	}
