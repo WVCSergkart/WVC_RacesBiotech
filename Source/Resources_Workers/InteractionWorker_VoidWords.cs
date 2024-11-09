@@ -10,18 +10,18 @@ namespace WVC_XenotypesAndGenes
 
 		public override float RandomSelectionWeight(Pawn initiator, Pawn recipient)
 		{
-			if (Rand.Chance(0.7f))
-			{
-				return 0f;
-			}
-			if (!recipient.IsPsychicSensitive())
-			{
-				return 0f;
-			}
-			if (initiator?.genes?.GetFirstGeneOfType<Gene_VoidVoice>() != null)
-			{
-				return 999f;
-			}
+			//if (Rand.Chance(0.7f))
+			//{
+			//	return 0f;
+			//}
+			//if (!recipient.IsPsychicSensitive())
+			//{
+			//	return 0f;
+			//}
+			//if (initiator?.genes?.GetFirstGeneOfType<Gene_VoidVoice>() != null)
+			//{
+			//	return 999f;
+			//}
 			return 0f;
 		}
 

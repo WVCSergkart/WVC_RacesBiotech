@@ -205,7 +205,10 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			//TryInteractRandomly_CloseTarget(pawn);
-			ThoughtUtility.TryInteractRandomly(pawn, true, false, true, out _);
+			if (ThoughtUtility.TryInteractRandomly(pawn, true, false, true, out Pawn target))
+            {
+				target.needs?.mood?.thoughts?.memories.TryGainMemory(Props.AboutMeThoughtDef, pawn);
+			}
 			ResetInterval();
 		}
 

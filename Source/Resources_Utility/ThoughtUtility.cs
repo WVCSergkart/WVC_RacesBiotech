@@ -131,40 +131,51 @@ namespace WVC_XenotypesAndGenes
 			}
 			List<Pawn> workingList = pawn.Map.mapPawns.SpawnedPawnsInFaction(pawn.Faction);
 			workingList.Shuffle();
+			//List<InteractionDef> allDefsListForReading = DefDatabase<InteractionDef>.AllDefsListForReading;
 			List<InteractionDef> allDefsListForReading = DefDatabase<InteractionDef>.AllDefsListForReading;
 			for (int i = 0; i < workingList.Count; i++)
-			{
-				Pawn targetPawn = workingList[i];
-				if (!targetPawn.RaceProps.Humanlike)
-				{
-					continue;
-				}
-				if (psychicInteraction && !targetPawn.IsPsychicSensitive())
-				{
-					continue;
-				}
-				if (closeTarget && !InteractionUtility.IsGoodPositionForInteraction(pawn, targetPawn))
-				{
-					continue;
-				}
-				if (shouldHaveGeneOfType != null && !XaG_GeneUtility.HasGeneOfType(shouldHaveGeneOfType, targetPawn))
-				{
-					continue;
-				}
-				if (targetPawn != pawn && Telepath_CanInteractNowWith(pawn, targetPawn, ignoreTalking: ignoreTalking) && InteractionUtility.CanReceiveRandomInteraction(targetPawn) && !pawn.HostileTo(targetPawn) && allDefsListForReading.TryRandomElementByWeight((InteractionDef x) => (!Telepath_CanInteractNowWith(pawn, targetPawn, ignoreTalking: ignoreTalking, x)) ? 0f : x.Worker.RandomSelectionWeight(pawn, targetPawn), out var result))
-				{
-					if (TryInteractWith(pawn, targetPawn, result, psychicInteraction))
-					{
-						otherPawn = targetPawn;
-						return true;
-					}
-					Log.Error(string.Concat(pawn, " failed to interact with ", targetPawn));
-				}
-			}
-			return false;
+            {
+                Pawn targetPawn = workingList[i];
+                if (!targetPawn.RaceProps.Humanlike)
+                {
+                    continue;
+                }
+                if (psychicInteraction && !targetPawn.IsPsychicSensitive())
+                {
+                    continue;
+                }
+                if (closeTarget && !InteractionUtility.IsGoodPositionForInteraction(pawn, targetPawn))
+                {
+                    continue;
+                }
+                if (shouldHaveGeneOfType != null && !XaG_GeneUtility.HasGeneOfType(shouldHaveGeneOfType, targetPawn))
+                {
+                    continue;
+                }
+                if (targetPawn != pawn && Telepath_CanInteractNowWith(pawn, targetPawn, ignoreTalking: ignoreTalking) && InteractionUtility.CanReceiveRandomInteraction(targetPawn) && !pawn.HostileTo(targetPawn) && TryGetInteractionDef(pawn, ignoreTalking, allDefsListForReading, targetPawn, out InteractionDef result))
+                {
+                    if (TryInteractWith(pawn, targetPawn, result, psychicInteraction))
+                    {
+                        otherPawn = targetPawn;
+                        return true;
+                    }
+                    Log.Error(string.Concat(pawn, " failed to interact with ", targetPawn));
+                }
+            }
+            return false;
 		}
 
-		private static bool TryInteractWith(Pawn pawn, Pawn recipient, InteractionDef intDef, bool psychicInteraction)
+        public static bool TryGetInteractionDef(Pawn pawn, bool ignoreTalking, List<InteractionDef> allDefsListForReading, Pawn targetPawn, out InteractionDef result)
+		{
+			if (pawn.story.IsDisturbing)
+			{
+				result = InteractionDefOf.DisturbingChat;
+				return true;
+			}
+			return allDefsListForReading.TryRandomElementByWeight((InteractionDef x) => (!Telepath_CanInteractNowWith(pawn, targetPawn, ignoreTalking: ignoreTalking, x)) ? 0f : x.Worker.RandomSelectionWeight(pawn, targetPawn), out result);
+        }
+
+        public static bool TryInteractWith(Pawn pawn, Pawn recipient, InteractionDef intDef, bool psychicInteraction)
 		{
 			if (pawn == recipient)
 			{
@@ -179,7 +190,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				Pawn_InteractionsTracker.AddInteractionThought(pawn, recipient, intDef.initiatorThought);
 			}
-			if (intDef.recipientThought != null && recipient.needs.mood != null)
+			if (intDef.recipientThought != null && recipient.needs?.mood != null)
 			{
 				Pawn_InteractionsTracker.AddInteractionThought(recipient, pawn, intDef.recipientThought);
 			}
@@ -193,7 +204,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			recipient.ideo?.IncreaseIdeoExposureIfBaby(pawn.Ideo, 0.5f);
 			intDef.Worker.Interacted(pawn, recipient, new List<RulePackDef>(), out string letterText, out string letterLabel, out LetterDef letterDef, out LookTargets lookTargets);
-			MoteMaker.MakeInteractionBubble(pawn, recipient, intDef.interactionMote, intDef.GetSymbol(pawn.Faction, pawn.Ideo), intDef.GetSymbolColor(pawn.Faction));
+            MoteMaker.MakeInteractionBubble(pawn, recipient, intDef.interactionMote, intDef.GetSymbol(pawn.Faction, pawn.Ideo), intDef.GetSymbolColor(pawn.Faction));
 			PlayLogEntry_Interaction playLogEntry_Interaction = new(intDef, pawn, recipient, null);
 			Find.PlayLog.Add(playLogEntry_Interaction);
 			if (letterDef != null)

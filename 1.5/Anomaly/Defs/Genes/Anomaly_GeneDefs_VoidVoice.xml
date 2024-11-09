@@ -18,6 +18,12 @@
 		<!-- <def>Disturbing</def> -->
 	  <!-- </li> -->
 	<!-- </forcedTraits> -->
+	<!-- <abilities> -->
+	  <!-- <li>WVC_VoidVoice</li> -->
+	<!-- </abilities> -->
+	<!-- <descriptionHyperlinks> -->
+	  <!-- <AbilityDef>WVC_VoidVoice</AbilityDef> -->
+	<!-- </descriptionHyperlinks> -->
   <!-- </GeneDef> -->
 
   <!-- <InteractionDef> -->
@@ -36,5 +42,32 @@
 	  <!-- </rulesStrings> -->
 	<!-- </logRulesInitiator> -->
   <!-- </InteractionDef> -->
+
+  <!-- <AbilityDef ParentName="AbilityTouchBase"> -->
+	<!-- <defName>WVC_VoidVoice</defName> -->
+	<!-- <label>void words</label> -->
+	<!-- <description>Caster voice penetrates into the back of the mind of the interlocutor and sows the seed of void in it.</description> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_VoidVoice_v0</iconPath> -->
+	<!-- <cooldownTicksRange>6000</cooldownTicksRange> -->
+	<!-- <stunTargetWhileCasting>True</stunTargetWhileCasting> -->
+	<!-- <showPsycastEffects>False</showPsycastEffects> -->
+	<!-- <moteOffsetAmountTowardsTarget>0.5</moteOffsetAmountTowardsTarget> -->
+	<!-- <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted> -->
+	<!-- <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted> -->
+	<!-- <jobDef>CastAbilityOnThingMelee</jobDef> -->
+	<!-- <verbProperties> -->
+	  <!-- <drawAimPie>False</drawAimPie> -->
+	  <!-- <range>-1</range> -->
+	  <!-- <targetParams> -->
+		<!-- <canTargetBuildings>False</canTargetBuildings> -->
+		<!-- <neverTargetHostileFaction>True</neverTargetHostileFaction> -->
+	  <!-- </targetParams> -->
+	<!-- </verbProperties> -->
+	<!-- <comps> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityVoidVoice"> -->
+		<!-- <interactionDef>WVC_VoidVoice</interactionDef> -->
+	  <!-- </li> -->
+	<!-- </comps> -->
+  <!-- </AbilityDef> -->
 
 </Defs>
