@@ -1,73 +1,26 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_Base"> -->
-	<!-- <defName>WVC_VoidVoice</defName> -->
-	<!-- <label>void voice</label> -->
-	<!-- <description>Carriers of this gene have something mysterious in their voice. Their voice penetrates into the back of the mind of the interlocutor and sows the seed of void in it.</description> -->
-	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_VoidVoice</geneClass> -->
-	<!-- <iconPath>WVC/UI/Genes/Gene_VoidVoice_v0</iconPath> -->
-	<!-- <displayOrderInCategory>220</displayOrderInCategory> -->
-	<!-- <biostatCpx>1</biostatCpx> -->
-	<!-- <biostatArc>1</biostatArc> -->
-	<!-- <customEffectDescriptions> -->
-	  <!-- <li>When &lt;color=#8a8ae6&gt;interacting&lt;/color&gt;, it has a chance to &lt;color=#ff8585&gt;inhumanize&lt;/color&gt; the target.</li> -->
-	<!-- </customEffectDescriptions> -->
-	<!-- <forcedTraits> -->
-	  <!-- <li> -->
-		<!-- <def>Disturbing</def> -->
-	  <!-- </li> -->
-	<!-- </forcedTraits> -->
-	<!-- <abilities> -->
-	  <!-- <li>WVC_VoidVoice</li> -->
-	<!-- </abilities> -->
-	<!-- <descriptionHyperlinks> -->
-	  <!-- <AbilityDef>WVC_VoidVoice</AbilityDef> -->
-	<!-- </descriptionHyperlinks> -->
-  <!-- </GeneDef> -->
-
-  <!-- <InteractionDef> -->
-	<!-- <defName>WVC_VoidVoice</defName> -->
-	<!-- <label>void words</label> -->
-	<!-- <symbol>Things/Mote/SpeechSymbols/InhumanRambling</symbol> -->
-	<!-- <recipientThought>SpokeToDisturbing</recipientThought> -->
-	<!-- <workerClass>WVC_XenotypesAndGenes.InteractionWorker_VoidWords</workerClass> -->
-	<!-- <logRulesInitiator> -->
-	  <!-- <include> -->
-		<!-- <li>DarkDialogue</li> -->
-	  <!-- </include> -->
-	  <!-- <rulesStrings> -->
-		<!-- <li>r_logentry->[INITIATOR_nameDef] [rambled] about [subjectInsane].</li> -->
-		<!-- <li>r_logentry->[INITIATOR_nameDef] [rambled] [darkSpeechAdverb] about [subjectInsane].</li> -->
-	  <!-- </rulesStrings> -->
-	<!-- </logRulesInitiator> -->
-  <!-- </InteractionDef> -->
-
-  <!-- <AbilityDef ParentName="AbilityTouchBase"> -->
-	<!-- <defName>WVC_VoidVoice</defName> -->
-	<!-- <label>void words</label> -->
-	<!-- <description>Caster voice penetrates into the back of the mind of the interlocutor and sows the seed of void in it.</description> -->
-	<!-- <iconPath>WVC/UI/Genes/Gene_VoidVoice_v0</iconPath> -->
-	<!-- <cooldownTicksRange>6000</cooldownTicksRange> -->
-	<!-- <stunTargetWhileCasting>True</stunTargetWhileCasting> -->
-	<!-- <showPsycastEffects>False</showPsycastEffects> -->
-	<!-- <moteOffsetAmountTowardsTarget>0.5</moteOffsetAmountTowardsTarget> -->
-	<!-- <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted> -->
-	<!-- <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted> -->
-	<!-- <jobDef>CastAbilityOnThingMelee</jobDef> -->
-	<!-- <verbProperties> -->
-	  <!-- <drawAimPie>False</drawAimPie> -->
-	  <!-- <range>-1</range> -->
-	  <!-- <targetParams> -->
-		<!-- <canTargetBuildings>False</canTargetBuildings> -->
-		<!-- <neverTargetHostileFaction>True</neverTargetHostileFaction> -->
-	  <!-- </targetParams> -->
-	<!-- </verbProperties> -->
-	<!-- <comps> -->
-	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityVoidVoice"> -->
-		<!-- <interactionDef>WVC_VoidVoice</interactionDef> -->
-	  <!-- </li> -->
-	<!-- </comps> -->
-  <!-- </AbilityDef> -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_Base">
+	<defName>WVC_VoidVoice</defName>
+	<label>void voice</label>
+	<description>Carriers of this gene have something mysterious in their voice. Their voice penetrates into the back of the mind of the interlocutor and sows the seed of void in it.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_VoidVoice</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_VoidVoice_v0</iconPath>
+	<displayOrderInCategory>220</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<customEffectDescriptions>
+	  <li>When &lt;color=#8a8ae6&gt;interacting&lt;/color&gt;, it has a chance to &lt;color=#ff8585&gt;inhumanize&lt;/color&gt; the target.</li>
+	</customEffectDescriptions>
+	<forcedTraits>
+	  <li>
+		<def>Disturbing</def>
+	  </li>
+	</forcedTraits>
+	<exclusionTags>
+	  <li>WVC_MechaAI_SoftwareDisableTalking</li>
+	</exclusionTags>
+  </GeneDef>
 
 </Defs>

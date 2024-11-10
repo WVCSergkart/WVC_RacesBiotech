@@ -181,18 +181,10 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_SweetVoice : Gene
+	public class Gene_Speaker : Gene
 	{
 
-		public GeneExtension_Opinion Props => def?.GetModExtension<GeneExtension_Opinion>();
-
 		private int hashIntervalTick = 7200;
-
-		public override void PostAdd()
-		{
-			base.PostAdd();
-			ResetInterval();
-		}
 
 		public override void Tick()
 		{
@@ -200,184 +192,101 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (!Active)
+			TryInteract();
+		}
+
+		public virtual void TryInteract()
+		{
+
+		}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (DebugSettings.ShowDevGizmos)
 			{
-				return;
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: TryInteract",
+					action = delegate
+					{
+						TryInteract();
+					}
+				};
 			}
-			//TryInteractRandomly_CloseTarget(pawn);
-			if (ThoughtUtility.TryInteractRandomly(pawn, true, false, true, out Pawn target))
+		}
+
+		public virtual void ResetInterval(IntRange range)
+		{
+			//IntRange range = new(16000, 32000);
+			hashIntervalTick = range.RandomInRange;
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref hashIntervalTick, "hashIntervalTick", 0);
+		}
+
+	}
+
+	public class Gene_SweetVoice : Gene_Speaker
+	{
+
+		public GeneExtension_Opinion Props => def?.GetModExtension<GeneExtension_Opinion>();
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			ResetInterval(new(7200, 22000));
+		}
+
+		public override void TryInteract()
+		{
+			if (GeneInteractionsUtility.TryInteractRandomly(pawn, true, false, true, out Pawn target))
             {
 				target.needs?.mood?.thoughts?.memories.TryGainMemory(Props.AboutMeThoughtDef, pawn);
 			}
-			ResetInterval();
-		}
-
-		public override IEnumerable<Gizmo> GetGizmos()
-		{
-			if (DebugSettings.ShowDevGizmos)
-			{
-				yield return new Command_Action
-				{
-					defaultLabel = "DEV: TryInteract",
-					action = delegate
-					{
-						//TryInteractRandomly_CloseTarget(pawn);
-						ThoughtUtility.TryInteractRandomly(pawn, true, false, true, out _);
-					}
-				};
-			}
-		}
-
-		//public bool TryInteractRandomly_CloseTarget(Pawn pawn)
-		//{
-		//	if (!ThoughtUtility.Telepath_CanInitiateRandomInteraction(pawn, false))
-		//	{
-		//		return false;
-		//	}
-		//	List<Pawn> workingList = pawn.Map.mapPawns.SpawnedPawnsInFaction(pawn.Faction);
-		//	workingList.Shuffle();
-		//	List<InteractionDef> allDefsListForReading = DefDatabase<InteractionDef>.AllDefsListForReading;
-		//	for (int i = 0; i < workingList.Count; i++)
-		//	{
-		//		Pawn p = workingList[i];
-		//		if (!p.RaceProps.Humanlike)
-		//		{
-		//			continue;
-		//		}
-		//		if (!p.IsPsychicSensitive())
-		//		{
-		//			continue;
-		//		}
-		//		if (!InteractionUtility.IsGoodPositionForInteraction(pawn, p))
-		//		{
-		//			continue;
-		//		}
-		//		if (p != pawn && ThoughtUtility.Telepath_CanInteractNowWith(pawn, p, ignoreTalking: false) && InteractionUtility.CanReceiveRandomInteraction(p) && !pawn.HostileTo(p) && allDefsListForReading.TryRandomElementByWeight((InteractionDef x) => (!ThoughtUtility.Telepath_CanInteractNowWith(pawn, p, ignoreTalking: false, x)) ? 0f : x.Worker.RandomSelectionWeight(pawn, p), out var result))
-		//		{
-		//			if (ThoughtUtility.TryInteractWith(pawn, p, result, true))
-		//			{
-		//				p.needs?.mood?.thoughts?.memories.TryGainMemory(Props.AboutMeThoughtDef, pawn);
-		//				return true;
-		//			}
-		//			Log.Error(string.Concat(pawn, " failed to interact with ", p));
-		//		}
-		//	}
-		//	return false;
-		//}
-
-		private void ResetInterval()
-		{
-			IntRange range = new(16000, 32000);
-			hashIntervalTick = range.RandomInRange;
-		}
-
-		public override void ExposeData()
-		{
-			base.ExposeData();
-			Scribe_Values.Look(ref hashIntervalTick, "hashIntervalTick", 0);
+			ResetInterval(new(7200, 22000));
 		}
 
 	}
 
-	public class Gene_BinaryVoice : Gene
+	public class Gene_BinaryVoice : Gene_Speaker
 	{
-
-		public GeneExtension_Opinion Props => def?.GetModExtension<GeneExtension_Opinion>();
-
-		private int hashIntervalTick = 7200;
 
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			ResetInterval();
+			ResetInterval(new(7200, 22000));
 		}
 
-		public override void Tick()
+		public override void TryInteract()
 		{
-			if (!pawn.IsHashIntervalTick(hashIntervalTick))
-			{
-				return;
-			}
-			if (!Active)
-			{
-				return;
-			}
-			//TryInteractRandomly_CloseTarget(pawn);
-			ThoughtUtility.TryInteractRandomly(pawn, false, true, true, out _, this);
-			ResetInterval();
-		}
-
-		public override IEnumerable<Gizmo> GetGizmos()
-		{
-			if (DebugSettings.ShowDevGizmos)
-			{
-				yield return new Command_Action
-				{
-					defaultLabel = "DEV: TryInteract",
-					action = delegate
-					{
-						//TryInteractRandomly_CloseTarget(pawn);
-						ThoughtUtility.TryInteractRandomly(pawn, false, true, true, out _, this);
-					}
-				};
-			}
-		}
-
-		//public bool TryInteractRandomly_CloseTarget(Pawn pawn)
-		//{
-		//	if (!ThoughtUtility.Telepath_CanInitiateRandomInteraction(pawn, true))
-		//	{
-		//		return false;
-		//	}
-		//	List<Pawn> workingList = pawn.Map.mapPawns.SpawnedPawnsInFaction(pawn.Faction);
-		//	workingList.Shuffle();
-		//	List<InteractionDef> allDefsListForReading = DefDatabase<InteractionDef>.AllDefsListForReading;
-		//	for (int i = 0; i < workingList.Count; i++)
-		//	{
-		//		Pawn p = workingList[i];
-		//		if (!p.RaceProps.Humanlike)
-		//		{
-		//			continue;
-		//		}
-		//		if (!InteractionUtility.IsGoodPositionForInteraction(pawn, p))
-		//		{
-		//			continue;
-		//		}
-		//		if (!XaG_GeneUtility.HasGeneOfType(this, p))
-		//		{
-		//			continue;
-		//		}
-		//		if (p != pawn && ThoughtUtility.Telepath_CanInteractNowWith(pawn, p, true) && InteractionUtility.CanReceiveRandomInteraction(p) && !pawn.HostileTo(p) && allDefsListForReading.TryRandomElementByWeight((InteractionDef x) => (!ThoughtUtility.Telepath_CanInteractNowWith(pawn, p, true, x)) ? 0f : x.Worker.RandomSelectionWeight(pawn, p), out var result))
-		//		{
-		//			if (ThoughtUtility.TryInteractWith(pawn, p, result, false))
-		//			{
-		//				return true;
-		//			}
-		//			Log.Error(string.Concat(pawn, " failed to interact with ", p));
-		//		}
-		//		continue;
-		//	}
-		//	return false;
-		//}
-
-		private void ResetInterval()
-		{
-			IntRange range = new(7200, 22000);
-			hashIntervalTick = range.RandomInRange;
-		}
-
-		public override void ExposeData()
-		{
-			base.ExposeData();
-			Scribe_Values.Look(ref hashIntervalTick, "hashIntervalTick", 0);
+			GeneInteractionsUtility.TryInteractRandomly(pawn, false, true, true, out _, this);
+			ResetInterval(new(7200, 22000));
 		}
 
 	}
 
-	public class Gene_VoidVoice : Gene
+	public class Gene_VoidVoice : Gene_Speaker
 	{
 
-        public void VoidInteraction(Pawn target)
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			ResetInterval(new(57362, 262950));
+		}
+
+		public override void TryInteract()
+		{
+			if (GeneInteractionsUtility.TryInteractRandomly(pawn, true, false, true, out Pawn target, null, InteractionDefOf.DisturbingChat))
+			{
+				VoidInteraction(target);
+			}
+			ResetInterval(new(57362, 262950));
+		}
+
+		public void VoidInteraction(Pawn target)
 		{
 			if (ModsConfig.AnomalyActive && !target.Inhumanized())
 			{
@@ -386,24 +295,6 @@ namespace WVC_XenotypesAndGenes
 				{
 					FleckMaker.AttachedOverlay(pawn, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
 				}
-			}
-		}
-
-        public override IEnumerable<Gizmo> GetGizmos()
-		{
-			if (DebugSettings.ShowDevGizmos)
-			{
-				yield return new Command_Action
-				{
-					defaultLabel = "DEV: TryInteract",
-					action = delegate
-					{
-						if (ThoughtUtility.TryInteractRandomly(pawn, true, false, true, out Pawn target, null))
-						{
-							VoidInteraction(target);
-						}
-					}
-				};
 			}
 		}
 

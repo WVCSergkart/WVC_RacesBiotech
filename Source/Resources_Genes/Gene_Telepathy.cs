@@ -5,45 +5,22 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Telepathy : Gene
+	public class Gene_Telepathy : Gene_Speaker
 	{
-
-		private int hashIntervalTick = 7200;
 
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			ResetInterval();
+			ResetInterval(new(6600, 22000));
 		}
 
-		public override void Tick()
+		public override void TryInteract()
 		{
-			base.Tick();
-			if (!pawn.IsHashIntervalTick(hashIntervalTick))
-			{
-				return;
-			}
-			if (!Active)
-			{
-				return;
-			}
 			if (!WVC_Biotech.settings.enableHarmonyTelepathyGene)
 			{
-				ThoughtUtility.TryInteractRandomly(pawn, true, true, false, out _);
+				GeneInteractionsUtility.TryInteractRandomly(pawn, true, true, false, out _);
 			}
-			ResetInterval();
-		}
-
-		private void ResetInterval()
-		{
-			IntRange range = new(6600, 22000);
-			hashIntervalTick = range.RandomInRange;
-		}
-
-		public override void ExposeData()
-		{
-			base.ExposeData();
-			Scribe_Values.Look(ref hashIntervalTick, "hashIntervalTick", 0);
+			ResetInterval(new(6600, 22000));
 		}
 
 	}
@@ -72,7 +49,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Tick()
 		{
-			base.Tick();
+			//base.Tick();
 			if (!pawn.IsHashIntervalTick(8000))
 			{
 				return;

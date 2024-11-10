@@ -173,6 +173,7 @@
     <Compile Include="Resources_Utility\DuplicateUtility.cs" />
     <Compile Include="Resources_Utility\GeneratorUtility.cs" />
     <Compile Include="Resources_Utility\InitialUtility.cs" />
+    <Compile Include="Resources_Utility\InteractionUtility.cs" />
     <Compile Include="Resources_Workers\JobDriver_AbsorbGenogerm.cs" />
     <Compile Include="Resources_Workers\JobDriver_BiteTarget.cs" />
     <Compile Include="Resources_Workers\JobDriver_ChangeGolemType.cs" />

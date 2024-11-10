@@ -198,45 +198,28 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_PsychicNetwork : Gene
+	public class Gene_PsychicNetwork : Gene_Speaker
 	{
-
-		private int hashIntervalTick = 6000;
 
 		private int currentRange = 0;
 
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			ResetInterval();
+			ResetInterval(new(6000, 90000));
 		}
 
-		public override void Tick()
-		{
-			// base.Tick();
-			if (!pawn.IsHashIntervalTick(hashIntervalTick))
-			{
-				return;
-			}
-			if (!Active)
-			{
-				return;
-			}
-			TryInteractOrLearning();
-			ResetInterval();
-		}
-
-		public void TryInteractOrLearning()
+		public override void TryInteract()
 		{
 			if (currentRange < 30000 || !TryLearning(pawn, 0.05f))
 			{
-				ThoughtUtility.TryInteractRandomly(pawn, true, true, false, out _, this);
+				GeneInteractionsUtility.TryInteractRandomly(pawn, true, true, false, out _, this);
 			}
 			else
-            {
+			{
 				FleckMaker.AttachedOverlay(pawn, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);
 			}
-			// Log.Error(currentRange.ToString());
+			ResetInterval(new(6000, 90000));
 		}
 
 		public bool TryLearning(Pawn pawn, float learnPercent = 0.1f)
@@ -273,33 +256,15 @@ namespace WVC_XenotypesAndGenes
 			return true;
 		}
 
-		private void ResetInterval()
+		public override void ResetInterval(IntRange range)
 		{
-			IntRange range = new(6000, 90000);
 			currentRange = range.RandomInRange;
-			hashIntervalTick = currentRange;
-		}
-
-		public override IEnumerable<Gizmo> GetGizmos()
-		{
-			if (DebugSettings.ShowDevGizmos)
-			{
-				yield return new Command_Action
-				{
-					defaultLabel = "DEV: TryInteractOrLearning",
-					action = delegate
-					{
-						TryInteractOrLearning();
-						ResetInterval();
-					}
-				};
-			}
+			base.ResetInterval(new(currentRange, currentRange));
 		}
 
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Values.Look(ref hashIntervalTick, "hashIntervalTick", 6000);
 			Scribe_Values.Look(ref currentRange, "currentRange", 0);
 		}
 
