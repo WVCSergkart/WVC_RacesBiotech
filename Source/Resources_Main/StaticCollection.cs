@@ -12,6 +12,8 @@ namespace WVC_XenotypesAndGenes
 		public static int cachedXenotypesCount = 0;
 		public static int cachedNonHumansCount = 0;
 
+		//public static bool shapeshifterAppear = false;
+
 	}
 
 	public class GeneSetPresets : IExposable

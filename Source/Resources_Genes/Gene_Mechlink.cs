@@ -93,7 +93,7 @@ namespace WVC_XenotypesAndGenes
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			//Scribe_Values.Look(ref timeForNextSummon, "timeForNextSummon", -1);
+			Scribe_Values.Look(ref timeForNextSummon, "timeForNextSummon", -1);
 			Scribe_Values.Look(ref summonMechanoids, "summonMechanoids", false);
 			//Scribe_Values.Look(ref pawnHadMechlinkBefore, "pawnHadMechlinkBefore", false);
 		}

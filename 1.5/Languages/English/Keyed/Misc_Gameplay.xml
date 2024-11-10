@@ -737,4 +737,11 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_MentalBreakReason_Duplicator>This happened because of duplication.</WVC_XaG_MentalBreakReason_Duplicator>
 	<WVC_XaG_LetterDuplicatorMentalBreak>{0} has suffered from the burden of responsibility and unbearable hardships, {PAWN_pronoun} is sure that the duplicate will share this burden with {PAWN_objective}.</WVC_XaG_LetterDuplicatorMentalBreak>
 
+	<!-- =============== QUEST =============== -->
+
+	<!-- <WVC_XaG_FromTheVoidEndingLabel>Noise from the void</WVC_XaG_FromTheVoidEndingLabel> -->
+	<!-- <WVC_XaG_FromTheVoidEndingDesc>Something from the void is calling {PAWN_nameDef}, perhaps if {PAWN_pronoun} listens to this mysterious whisper something will happen.</WVC_XaG_FromTheVoidEndingDesc> -->
+	<!-- <WVC_XaG_FromTheVoidEndingWarning>With each passing second, the whispers of the void become clearer. {PAWN_nameDef} begins to see terrifying images, and the voice becomes more insistent and turns into a scream that only {PAWN_nameDef} can hear. Perhaps if {PAWN_pronoun} does what the voice demands, it will leave {PAWN_nameDef} alone. &lt;color=#ff8585&gt;But is {PAWN_nameDef} willing to pay the price?&lt;/color&gt;</WVC_XaG_FromTheVoidEndingWarning> -->
+	<!-- <WVC_XaG_FromTheVoidEndingWarning2c>If {PAWN_nameDef} agrees to this, there will be no &lt;color=#ff8585&gt;turning back&lt;/color&gt;. {PAWN_nameDef} must be sure that the colony is ready for this. But most importantly, is {PAWN_nameDef} ready?</WVC_XaG_FromTheVoidEndingWarning2c> -->
+
 </LanguageData>
