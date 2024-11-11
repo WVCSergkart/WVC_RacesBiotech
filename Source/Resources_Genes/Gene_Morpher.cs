@@ -13,8 +13,6 @@ namespace WVC_XenotypesAndGenes
 
 		//public GeneExtension_Undead Props => def?.GetModExtension<GeneExtension_Undead>();
 
-		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
-
 		//private int nextTick = 1500;
 
 		private int currentLimit = 1;
@@ -74,7 +72,11 @@ namespace WVC_XenotypesAndGenes
 		//	Morph();
 		//}
 
-		public virtual bool TryMorph(bool shouldMorph = false)
+		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
+
+		public GeneExtension_Giver XenotypeGiver => pawn.genes?.Xenotype?.GetModExtension<GeneExtension_Giver>();
+
+		public virtual bool TryMorph(bool shouldMorph = false, bool removeMorpher = false)
 		{
 			string phase = "";
 			try
@@ -97,30 +99,35 @@ namespace WVC_XenotypesAndGenes
                     {
                         exclude.Add(set.xenotypeDef);
                     }
-                }
-                phase = "save old gene set";
+				}
+				phase = "save old gene set";
                 SaveGenes();
                 phase = "get xenotype";
-                XenotypeHolder xenotypeDef = null;
+                XenotypeHolder xenotypeHolder = null;
                 if (savedGeneSets.Count < currentLimit + 1)
                 {
                     phase = "get xenotype from pawn xenotype";
-                    xenotypeDef = new(GetRandomXenotypeFromList(pawn.genes?.Xenotype?.GetModExtension<GeneExtension_Giver>()?.xenotypeDefs, exclude));
-                    if (xenotypeDef == null && Giver != null)
+					XenotypeDef xenotypeFromXenotype = GetRandomXenotypeFromList(XenotypeGiver?.xenotypeDefs, exclude);
+					if (xenotypeFromXenotype != null)
+					{
+                        xenotypeHolder = new(xenotypeFromXenotype);
+					}
+					phase = "get xenotype from gene xenotypes list";
+					XenotypeDef xenotypeFromGene = GetRandomXenotypeFromList(Giver?.xenotypeDefs, exclude);
+					if (xenotypeHolder == null && xenotypeFromGene != null)
                     {
-                        phase = "get xenotype from gene xenotypes list";
-                        xenotypeDef = new(GetRandomXenotypeFromList(Giver?.xenotypeDefs, exclude));
+                        xenotypeHolder = new(xenotypeFromGene);
                     }
-                    if (xenotypeDef == null)
+                    if (xenotypeHolder == null)
                     {
                         phase = "get random xenotype from white list";
-                        xenotypeDef = ListsUtility.GetAllXenotypesHolders().RandomElement();
+                        xenotypeHolder = ListsUtility.GetAllXenotypesHolders().RandomElement();
                     }
                 }
-                if (xenotypeDef != null)
+                if (xenotypeHolder != null)
                 {
                     phase = "implant new xenotype";
-                    Reimplant(xenotypeDef);
+                    Reimplant(xenotypeHolder);
                 }
                 else if (savedGeneSets.Where((PawnGeneSetHolder set) => set.xenotypeDef != null && set.formId != formId.Value).TryRandomElement(out PawnGeneSetHolder genesHolder))
                 {
@@ -134,12 +141,17 @@ namespace WVC_XenotypesAndGenes
                 phase = "debug genes";
                 UpdSkinAndHair();
                 UpdToolGenes();
-                ReimplanterUtility.PostImplantDebug(pawn);
-                pawn.Drawer?.renderer?.SetAllGraphicsDirty();
+				ReimplanterUtility.PostImplantDebug(pawn);
+				pawn.Drawer?.renderer?.SetAllGraphicsDirty();
                 phase = "do effects yay";
                 DoEffects();
-                //ResetInterval(new IntRange(42000, 50000));
-                return true;
+				if (removeMorpher)
+				{
+					phase = "remove morpher";
+					pawn?.genes?.RemoveGene(this);
+				}
+				//ResetInterval(new IntRange(42000, 50000));
+				return true;
 
             }
             catch (Exception arg)
@@ -226,6 +238,17 @@ namespace WVC_XenotypesAndGenes
 			CopyGenesID(pawnGeneSet.xenogenes, pawn.genes.Xenogenes);
 			//DuplicateUtility.CopyGenesOverrides(pawn, pawn.genes.Endogenes, tmpOldEndogenes);
 			//DuplicateUtility.CopyGenesOverrides(pawn, pawn.genes.Xenogenes, tmpOldXenogenes);
+			foreach (Need need in pawn.needs.AllNeeds)
+			{
+				foreach (var item in pawnGeneSet.savedPawnNeeds)
+				{
+					if (need.def == item.Key)
+					{
+						need.CurLevel = item.Value;
+					}
+				}
+			}
+			pawnGeneSet.savedPawnNeeds = null;
 			currentFormName = pawnGeneSet.name;
 			formId = pawnGeneSet.formId;
 			savedGeneSets.Remove(pawnGeneSet);
@@ -277,6 +300,15 @@ namespace WVC_XenotypesAndGenes
 			if (!formId.HasValue)
 			{
 				formId = savedGeneSets.Count + 1;
+			}
+			newSet.savedPawnNeeds = new();
+			foreach (Need need in pawn.needs.AllNeeds)
+			{
+				if (!need.def.onlyIfCausedByGene)
+				{
+					continue;
+				}
+				newSet.savedPawnNeeds[need.def] = need.CurLevel;
 			}
 			newSet.formId = formId.Value;
 			newSet.xenotypeDef = pawn.genes.Xenotype;

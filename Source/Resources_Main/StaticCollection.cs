@@ -1,5 +1,6 @@
 using RimWorld;
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -49,13 +50,15 @@ namespace WVC_XenotypesAndGenes
 
 		public XenotypeDef xenotypeDef = null;
 
-        public int AllGenesCount
-        {
-            get
-            {
-                return endogenes.Count + xenogenes.Count;
-            }
-        }
+		public Dictionary<NeedDef, float> savedPawnNeeds;
+
+		public int AllGenesCount
+		{
+			get
+			{
+				return endogenes.Count + xenogenes.Count;
+			}
+		}
 
         public void ExposeData()
 		{
@@ -65,9 +68,20 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Defs.Look(ref xenotypeDef, "xenotypeDef");
 			Scribe_Collections.Look(ref endogenes, "endogenes", LookMode.Deep);
 			Scribe_Collections.Look(ref xenogenes, "xenogenes", LookMode.Deep);
+			Scribe_Collections.Look(ref savedPawnNeeds, "savedPawnNeeds", LookMode.Def, LookMode.Value);
 			if (Scribe.mode == LoadSaveMode.LoadingVars && ((xenogenes != null && xenogenes.RemoveAll((Gene x) => x == null || x.def == null) > 0) || (endogenes != null && endogenes.RemoveAll((Gene x) => x == null || x.def == null) > 0)))
 			{
 				Log.Error("Removed null gene(s)");
+			}
+			if (Scribe.mode == LoadSaveMode.LoadingVars && savedPawnNeeds != null)
+			{
+				foreach (var need in savedPawnNeeds.ToList())
+				{
+					if (need.Key == null)
+					{
+						savedPawnNeeds.Remove(need.Key);
+					}
+				}
 			}
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{

@@ -26,45 +26,58 @@ namespace WVC_XenotypesAndGenes
 				return cachedMorpherGene;
 			}
 		}
+        //public Gene_Morpher Morpher => pawn?.genes?.GetFirstGeneOfType<Gene_Morpher>();
 
-	}
+    }
 
 	public class Gene_TickMorph : Gene_MorpherDependant
 	{
 
-		public int nextTick = 30000;
+		private int nextTick = 30000;
 
-		public virtual IntRange IntervalRange => new(1200, 3400);
+		//public virtual IntRange IntervalRange => new(1200, 3400);
 
 
 		public override void PostAdd()
         {
             base.PostAdd();
-            ResetInterval(IntervalRange);
+            ResetInterval();
         }
 
-        public override void Tick()
+		public override void Tick()
 		{
 			nextTick--;
 			if (nextTick > 0)
 			{
 				return;
 			}
-			ResetInterval(IntervalRange);
 			if (ShouldMorph())
-			{
-				Morpher.TryMorph(true);
-			}
+            {
+                MorpherTrigger();
+            }
+            ResetInterval();
 		}
 
-		public virtual bool ShouldMorph()
+        private void MorpherTrigger()
+        {
+            try
+            {
+                Morpher?.TryMorph(true);
+            }
+            catch (Exception arg)
+            {
+                Log.Error("Failed trigger morph. Reason: " + arg);
+            }
+        }
+
+        public virtual bool ShouldMorph()
 		{
 			return false;
 		}
 
-		public void ResetInterval(IntRange range)
+		private void ResetInterval()
 		{
-			nextTick = range.RandomInRange;
+			nextTick = new IntRange(2500, 5000).RandomInRange;
 		}
 
 		public override void ExposeData()
@@ -96,7 +109,7 @@ namespace WVC_XenotypesAndGenes
 		public override bool ShouldMorph()
 		{
 			float num = GenLocalDate.DayTick(pawn);
-			if (num < 45000f || num > 15000f)
+			if (num < 40000f || num > 25000f)
 			{
 				return true;
 			}
@@ -110,7 +123,7 @@ namespace WVC_XenotypesAndGenes
 
 		private Season savedSeason;
 
-		public override IntRange IntervalRange => new(50000, 80000);
+		//public override IntRange IntervalRange => new(50000, 80000);
 
 		public override bool ShouldMorph()
 		{
@@ -134,15 +147,15 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_DamageMorph : Gene_TickMorph
 	{
 
-		public override IntRange IntervalRange => new(8000, 12000);
+		//public override IntRange IntervalRange => new(4000, 6000);
 
 		public override bool ShouldMorph()
 		{
-			float? summaryHealthPercent = pawn?.health?.summaryHealth?.SummaryHealthPercent;
-			if (summaryHealthPercent.HasValue && summaryHealthPercent.Value < 0.8f)
-			{
-				return true;
-			}
+            float? summaryHealthPercent = pawn?.health?.summaryHealth?.SummaryHealthPercent;
+            if (summaryHealthPercent.HasValue && summaryHealthPercent.Value < 0.8f)
+            {
+                return true;
+            }
             return false;
 		}
 
