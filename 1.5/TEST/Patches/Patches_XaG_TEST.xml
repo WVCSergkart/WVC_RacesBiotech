@@ -17,6 +17,18 @@
 	  </value>
 	</Operation>
 
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/HediffDef[defName="VoidTouched"]/comps</xpath> -->
+	  <!-- <value> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_FromTheVoid"> -->
+		  <!-- <unnaturalDarkness>UnnaturalDarkness</unnaturalDarkness> -->
+		  <!-- <deathPall>DeathPall</deathPall> -->
+		  <!-- <metalhorrorImplantation>MetalhorrorImplantation</metalhorrorImplantation> -->
+		  <!-- <points>4000</points> -->
+		<!-- </li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
 	<!-- <Operation Class="PatchOperationReplace"> -->
 	  <!-- <xpath>/Defs/GeneDef[defName="WVC_MecaBodyParts_Lung"]/geneClass</xpath> -->
 	  <!-- <value> -->

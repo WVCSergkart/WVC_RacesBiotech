@@ -53,7 +53,7 @@ namespace WVC_XenotypesAndGenes
 			PostSpawnFilthAndSound(motherOrEgg);
 		}
 
-		private static PawnGenerationRequest NewBornRequest(PawnKindDef pawnKind, Faction faction)
+		public static PawnGenerationRequest NewBornRequest(PawnKindDef pawnKind, Faction faction)
 		{
 			return new(pawnKind, faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: true, canGeneratePawnRelations: false, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: false, allowAddictions: false, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Newborn);
 		}

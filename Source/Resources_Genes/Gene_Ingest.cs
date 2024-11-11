@@ -476,6 +476,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
+			if (XaG_GeneUtility.SelectorDraftedActiveFactionMap(pawn, this))
+			{
+				yield break;
+			}
 			if (!GeneFeaturesUtility.CanBloodFeedNowWith(pawn, selPawn))
 			{
 				yield return new FloatMenuOption("WVC_NotEnoughBlood".Translate(), null);

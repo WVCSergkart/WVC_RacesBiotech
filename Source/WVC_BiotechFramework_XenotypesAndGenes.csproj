@@ -74,7 +74,8 @@
     <Compile Include="Resources_Abilities\CompProperties_AbilityRiseFromTheDead.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityThrallMaker.cs" />
     <Compile Include="Resources_Abilities\CompProperties_SafeBloodfeed.cs" />
-    <Compile Include="Resources_Abilities\QuestNode_Root_Reincarnation.cs" />
+    <Compile Include="Resources_Quests\QuestNode_Root_ChimerkinBaby.cs" />
+    <Compile Include="Resources_Quests\QuestNode_Root_Reincarnation.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_Light.cs" />
     <Compile Include="Resources_Genes\Gene_OverOverridable.cs" />
     <Compile Include="Resources_Genes\Gene_Anomaly.cs" />
@@ -231,7 +232,7 @@
     <Compile Include="Resources_Abilities\CompAbilityEffect_GiveHediff.cs" />
     <Compile Include="Resources_Hediff\SelfPopulationRegulation.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_Summon.cs" />
-    <Compile Include="Resources_Abilities\QuestNode_Root_MechanitorSummonMech.cs" />
+    <Compile Include="Resources_Quests\QuestNode_Root_MechanitorSummonMech.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_BattleIsStarted.cs" />
     <Compile Include="Resources_Main\ModSettings.cs" />
     <Compile Include="Resources_Main\RoleRequirement_Mechanitor.cs" />
