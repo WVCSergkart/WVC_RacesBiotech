@@ -183,42 +183,6 @@ namespace WVC_XenotypesAndGenes
 	}
 
 	// Health
-	public class Gene_HealingStomach : Gene
-	{
-
-		public override void Tick()
-		{
-			base.Tick();
-			if (!pawn.IsHashIntervalTick(2317))
-			{
-				return;
-			}
-			EatWounds();
-		}
-
-		public void EatWounds()
-		{
-			List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
-			float eatedDamage = 0f;
-			foreach (Hediff hediff in hediffs)
-			{
-				if (hediff is not Hediff_Injury injury)
-				{
-					continue;
-				}
-				if (hediff.def == HediffDefOf.Scarification && WVC_Biotech.settings.totalHealingIgnoreScarification)
-				{
-					continue;
-				}
-				eatedDamage += 0.005f;
-				injury.Heal(0.5f);
-			}
-			GeneResourceUtility.OffsetNeedFood(pawn, eatedDamage);
-		}
-
-	}
-
-	// Health
 	public class Gene_ArchiteSkin : Gene
 	{
 

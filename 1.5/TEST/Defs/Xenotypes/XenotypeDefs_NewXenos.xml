@@ -18,7 +18,8 @@
 		<li>WVC_Ears_PointedA</li>
 		<!-- <li>WVC_FishSkin</li> -->
 		<!-- Stats -->
-		<!-- <li>WVC_Morpher</li> -->
+		<li>WVC_Morpher</li>
+		<li>WVC_MorphCondition_Diurnal</li>
 		<li>Deathrest</li>
 	</genes>
 	<modExtensions>

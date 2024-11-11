@@ -10,10 +10,10 @@
 	<iconPath>WVC/UI/Genes/Gene_Morpher_v0</iconPath>
 	<biostatCpx>4</biostatCpx>
 	<biostatArc>1</biostatArc>
-	<displayOrderInCategory>-10</displayOrderInCategory>
+	<displayOrderInCategory>-50</displayOrderInCategory>
 	<customEffectDescriptions>
-		<!-- <li>Under certain conditions, &lt;color=#8a8ae6&gt;changes&lt;/color&gt; the carrier's gene set.</li> -->
-		<li>&lt;color=#8a8ae6&gt;Morph&lt;/color&gt; is triggered every &lt;color=#8a8ae6&gt;evening&lt;/color&gt;.</li>
+		<li>&lt;color=#8a8ae6&gt;Morph&lt;/color&gt; is triggered only by &lt;color=#8a8ae6&gt;subgenes&lt;/color&gt;.</li>
+		<!-- <li>&lt;color=#8a8ae6&gt;Morph&lt;/color&gt; is triggered every &lt;color=#8a8ae6&gt;evening&lt;/color&gt;.</li> -->
 		<li>Old gene set is stored in the &lt;color=#8a8ae6&gt;gene's memory&lt;/color&gt;.</li>
 		<!-- <li>&lt;color=#ffec85&gt;Can only remember one custom xenotype at a time.&lt;/color&gt;</li> -->
 		<li>&lt;color=#ffec85&gt;Support custom xenotypes.&lt;/color&gt;</li>

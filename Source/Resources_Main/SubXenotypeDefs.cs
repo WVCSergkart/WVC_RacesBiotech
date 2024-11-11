@@ -487,8 +487,42 @@ namespace WVC_XenotypesAndGenes
 
 		public bool CustomXenotype => xenotypeDef == XenotypeDefOf.Baseliner && !genes.NullOrEmpty();
 
+		public XenotypeHolder()
+		{
+
+		}
+
+		public XenotypeHolder(XenotypeDef xenotypeDef)
+		{
+			this.xenotypeDef = xenotypeDef;
+			genes = xenotypeDef.genes;
+			inheritable = xenotypeDef.inheritable;
+		}
+
 		[Unsaved(false)]
 		private TaggedString cachedLabelCap = null;
+
+		[Unsaved(false)]
+		private TaggedString cachedLabel = null;
+
+		public virtual TaggedString Label
+		{
+			get
+			{
+				if (cachedLabel == null)
+				{
+					if (name.NullOrEmpty())
+					{
+						cachedLabelCap = xenotypeDef.label;
+					}
+					else
+					{
+						cachedLabelCap = name;
+					}
+				}
+				return cachedLabel;
+			}
+		}
 
 		public virtual TaggedString LabelCap
 		{
@@ -496,14 +530,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (cachedLabelCap == null)
 				{
-					if (name.NullOrEmpty())
-					{
-						cachedLabelCap = xenotypeDef.LabelCap;
-					}
-					else
-					{
-						cachedLabelCap = name.CapitalizeFirst();
-					}
+					cachedLabelCap = Label.CapitalizeFirst();
 				}
 				return cachedLabelCap;
 			}

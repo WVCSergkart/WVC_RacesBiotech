@@ -164,7 +164,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (xenotypeHolder != null)
 			{
-				return parent.def.label + " (" + xenotypeHolder.LabelCap.ToLower() + ")";
+				return parent.def.label + " (" + xenotypeHolder.Label + ")";
 			}
 			if (xenotype == null)
 			{
