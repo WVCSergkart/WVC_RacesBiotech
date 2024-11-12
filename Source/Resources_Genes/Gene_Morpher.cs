@@ -32,7 +32,7 @@ namespace WVC_XenotypesAndGenes
 
         public void AddLimit(int count = 1)
         {
-			currentLimit = count;
+			currentLimit += count;
         }
 
         public List<PawnGeneSetHolder> GetGeneSets()
@@ -111,12 +111,12 @@ namespace WVC_XenotypesAndGenes
                 SaveGenes();
 				if (nextGeneSet == null)
                 {
-                    phase = "get new form";
+                    phase = "create new form";
                     TryCreateNewForm(phase, exclude);
                 }
                 else
                 {
-                    phase = "implant saved xenotype";
+                    phase = "implant saved form";
                     ImplantFromSet(nextGeneSet);
                 }
                 phase = "debug genes";
@@ -160,7 +160,7 @@ namespace WVC_XenotypesAndGenes
                 }
                 if (xenotypeHolder == null)
                 {
-                    xenotypeHolder = ListsUtility.GetAllXenotypesHolders().RandomElement();
+                    xenotypeHolder = GetBestNewForm(def);
                 }
             }
             if (xenotypeHolder != null)
@@ -175,6 +175,40 @@ namespace WVC_XenotypesAndGenes
             {
                 Log.Error("Failed morph on phase: " + phase);
             }
+        }
+
+        private static XenotypeHolder GetBestNewForm(GeneDef geneDef)
+        {
+            List<XenotypeHolder> holders = ListsUtility.GetAllXenotypesHolders();
+			List<XenotypeHolder> result = new();
+			foreach (XenotypeHolder holder in holders)
+			{
+				if (holder.shouldSkip || holder.genes.NullOrEmpty())
+                {
+					holder.matchPercent = 0.1f;
+                }
+				else if (holder.genes.Contains(geneDef))
+				{
+					holder.matchPercent = 5f;
+				}
+				else if (XaG_GeneUtility.AnyGeneDefIsSubGeneOf(holder.genes, geneDef))
+				{
+					holder.matchPercent = 2f;
+				}
+				else
+				{
+					holder.matchPercent = 1f;
+				}
+				if (holder.CustomXenotype)
+				{
+					holder.matchPercent += 2f;
+				}
+			}
+			if (result.TryRandomElementByWeight((XenotypeHolder holder) => holder.matchPercent.Value, out XenotypeHolder newHolder))
+			{
+				return newHolder;
+			}
+			return holders.RandomElement();
         }
 
         public void UpdToolGenes()
@@ -300,6 +334,12 @@ namespace WVC_XenotypesAndGenes
 			foreach (GeneDef geneDef in xenotypeDef.genes)
 			{
 				AddGene(geneDef, xenotypeDef.inheritable);
+			}
+			if (xenotypeDef.CustomXenotype)
+			{
+				pawn.genes.SetXenotypeDirect(XenotypeDefOf.Baseliner);
+				pawn.genes.xenotypeName = xenotypeDef.Label;
+				pawn.genes.iconDef = xenotypeDef.iconDef;
 			}
 			formId = savedGeneSets.Count + 1;
 			currentFormName = xenotypeDef.Label;

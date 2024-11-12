@@ -37,7 +37,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			float cells = daysGain * cellsConsumeFactor;
 			int ticks = (int)(daysGain * (victim.BodySize * 60000));
-			XaG_GeneUtility.OffsetInstabilityTick(biter, ticks);
+			GeneResourceUtility.OffsetInstabilityTick(biter, ticks);
 			GeneResourceUtility.OffsetResurgentCells(victim, 0f - (cells * 0.01f));
 			//if (biter.needs?.food != null)
 			//{

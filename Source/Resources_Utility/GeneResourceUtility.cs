@@ -310,6 +310,17 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		// Instability
+
+		public static void OffsetInstabilityTick(Pawn pawn, int ticks)
+		{
+			Gene_GeneticInstability gene = pawn?.genes?.GetFirstGeneOfType<Gene_GeneticInstability>();
+			if (gene != null)
+			{
+				gene.nextTick += ticks;
+			}
+		}
+
 		// Coma TEST
 
 		public static void RegenComaOrDeathrest(Pawn pawn, Gene_Undead gene)

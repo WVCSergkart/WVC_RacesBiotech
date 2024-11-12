@@ -48,12 +48,12 @@ namespace WVC_XenotypesAndGenes
 				disabledReason = "WVC_XaG_GeneMorphAbilityDisabled".Translate(),
 				action = delegate
 				{
-					MorpherTrigger();
+					FloatMenu();
 				}
 			};
 		}
 
-		public void MorpherTrigger()
+		private void FloatMenu()
 		{
 			if (Morpher == null)
 			{
@@ -71,18 +71,7 @@ namespace WVC_XenotypesAndGenes
 					PawnGeneSetHolder geneSet = geneSets[i];
 					list.Add(new FloatMenuOption(geneSet.LabelCap + " " + geneSet.formId.ToString(), delegate
 					{
-						Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_GeneAbilityMorphWarning".Translate(), delegate
-						{
-							try
-							{
-								Morpher?.TryMorph(geneSet, true);
-							}
-							catch (Exception arg)
-							{
-								Log.Error("Failed trigger morph. Reason: " + arg);
-							}
-						});
-						Find.WindowStack.Add(window);
+						MorpherTrigger(geneSet);
 					}, orderInPriority: 0 - geneSet.formId));
 				}
 			}
@@ -90,21 +79,26 @@ namespace WVC_XenotypesAndGenes
 			{
 				list.Add(new FloatMenuOption("WVC_XaG_GeneAbilityMorphCreateNewForm".Translate(), delegate
 				{
-					Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_GeneAbilityMorphWarning".Translate(), delegate
-					{
-						try
-						{
-							Morpher?.TryMorph(null, true);
-						}
-						catch (Exception arg)
-						{
-							Log.Error("Failed create form and morph. Reason: " + arg);
-						}
-					});
-					Find.WindowStack.Add(window);
+					MorpherTrigger(null);
 				}));
 			}
 			Find.WindowStack.Add(new FloatMenu(list));
+		}
+
+		public virtual void MorpherTrigger(PawnGeneSetHolder geneSet)
+		{
+			Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_GeneAbilityMorphWarning".Translate(), delegate
+			{
+				try
+				{
+					Morpher?.TryMorph(geneSet, true);
+				}
+				catch (Exception arg)
+				{
+					Log.Error("Failed create form and morph. Reason: " + arg);
+				}
+			});
+			Find.WindowStack.Add(window);
 		}
 
 	}
@@ -183,17 +177,27 @@ namespace WVC_XenotypesAndGenes
 
 		private Season savedSeason;
 
-		//public override IntRange IntervalRange => new(50000, 80000);
+        //public override IntRange IntervalRange => new(50000, 80000);
 
-		public override bool CanMorph()
+        public override void PostAdd()
+        {
+            base.PostAdd();
+			savedSeason = GenLocalDate.Season(pawn);
+		}
+
+        public override bool CanMorph()
 		{
-			Season currentSeason = GenLocalDate.Season(pawn);
-			if (currentSeason != savedSeason)
+			if (GenLocalDate.Season(pawn) != savedSeason)
 			{
-				savedSeason = currentSeason;
 				return true;
 			}
 			return false;
+		}
+
+		public override void MorpherTrigger(PawnGeneSetHolder geneSet)
+		{
+			savedSeason = GenLocalDate.Season(pawn);
+			base.MorpherTrigger(geneSet);
 		}
 
 		public override void ExposeData()
