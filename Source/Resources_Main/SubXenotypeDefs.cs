@@ -513,11 +513,11 @@ namespace WVC_XenotypesAndGenes
 				{
 					if (name.NullOrEmpty())
 					{
-						cachedLabelCap = xenotypeDef.label;
+						cachedLabel = xenotypeDef.label;
 					}
 					else
 					{
-						cachedLabelCap = name;
+						cachedLabel = name;
 					}
 				}
 				return cachedLabel;

@@ -26,72 +26,132 @@ namespace WVC_XenotypesAndGenes
 				return cachedMorpherGene;
 			}
 		}
-        //public Gene_Morpher Morpher => pawn?.genes?.GetFirstGeneOfType<Gene_Morpher>();
+		//public Gene_Morpher Morpher => pawn?.genes?.GetFirstGeneOfType<Gene_Morpher>();
 
-    }
-
-	public class Gene_TickMorph : Gene_MorpherDependant
-	{
-
-		private int nextTick = 30000;
-
-		//public virtual IntRange IntervalRange => new(1200, 3400);
-
-
-		public override void PostAdd()
-        {
-            base.PostAdd();
-            ResetInterval();
-        }
-
-		public override void Tick()
-		{
-			nextTick--;
-			if (nextTick > 0)
-			{
-				return;
-			}
-			if (ShouldMorph())
-            {
-                MorpherTrigger();
-            }
-            ResetInterval();
-		}
-
-        private void MorpherTrigger()
-        {
-            try
-            {
-                Morpher?.TryMorph(true);
-            }
-            catch (Exception arg)
-            {
-                Log.Error("Failed trigger morph. Reason: " + arg);
-            }
-        }
-
-        public virtual bool ShouldMorph()
+		public virtual bool CanMorph()
 		{
 			return false;
 		}
 
-		private void ResetInterval()
+		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			nextTick = new IntRange(2500, 5000).RandomInRange;
+			if (XaG_GeneUtility.SelectorActiveFactionMap(pawn, this))
+			{
+				yield break;
+			}
+			yield return new Command_Action
+			{
+				defaultLabel = "WVC_XaG_GeneAbilityMorphLabel".Translate(),
+				defaultDesc = "WVC_XaG_GeneAbilityMorphDesc".Translate(),
+				icon = ContentFinder<Texture2D>.Get(def.iconPath),
+				Disabled = !CanMorph(),
+				disabledReason = "WVC_XaG_GeneMorphAbilityDisabled".Translate(),
+				action = delegate
+				{
+					MorpherTrigger();
+				}
+			};
 		}
 
-		public override void ExposeData()
+		public void MorpherTrigger()
 		{
-			base.ExposeData();
-			Scribe_Values.Look(ref nextTick, "nextTick", 30000);
+			if (Morpher == null)
+			{
+				//Log.Warning("Trying morph without morpher. Removing gene " + LabelCap + ".");
+				//pawn.genes?.RemoveGene(this);
+				Messages.Message("WVC_XaG_GeneAbilityMorpherIsNullMessage".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+				return;
+            }
+			List<FloatMenuOption> list = new();
+			List<PawnGeneSetHolder> geneSets = Morpher.GeneSets;
+			if (!geneSets.NullOrEmpty())
+			{
+				for (int i = 0; i < geneSets.Count; i++)
+				{
+					PawnGeneSetHolder geneSet = geneSets[i];
+					list.Add(new FloatMenuOption(geneSet.LabelCap + " " + geneSet.formId.ToString(), delegate
+					{
+						Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_GeneAbilityMorphWarning".Translate(), delegate
+						{
+							try
+							{
+								Morpher?.TryMorph(geneSet, true);
+							}
+							catch (Exception arg)
+							{
+								Log.Error("Failed trigger morph. Reason: " + arg);
+							}
+						});
+						Find.WindowStack.Add(window);
+					}, orderInPriority: 0 - geneSet.formId));
+				}
+			}
+			if (!list.Any() || Morpher.CurrentLimit > Morpher.FormsCount)
+			{
+				list.Add(new FloatMenuOption("WVC_XaG_GeneAbilityMorphCreateNewForm".Translate(), delegate
+				{
+					Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_GeneAbilityMorphWarning".Translate(), delegate
+					{
+						try
+						{
+							Morpher?.TryMorph(null, true);
+						}
+						catch (Exception arg)
+						{
+							Log.Error("Failed create form and morph. Reason: " + arg);
+						}
+					});
+					Find.WindowStack.Add(window);
+				}));
+			}
+			Find.WindowStack.Add(new FloatMenu(list));
 		}
 
 	}
 
-	public class Gene_NocturnalMorph : Gene_TickMorph
+	//public class Gene_TickMorph : Gene_MorpherDependant
+	//{
+
+	//	private int nextTick = 30000;
+
+
+	//	public override void PostAdd()
+ //       {
+ //           base.PostAdd();
+ //           ResetInterval();
+ //       }
+
+	//	public override void Tick()
+	//	{
+	//		nextTick--;
+	//		if (nextTick > 0)
+	//		{
+	//			return;
+	//		}
+	//		if (ShouldMorph())
+ //           {
+ //               MorpherTrigger();
+ //           }
+ //           ResetInterval();
+	//	}
+
+	//	private void ResetInterval()
+	//	{
+	//		nextTick = new IntRange(2500, 5000).RandomInRange;
+	//	}
+
+	//	public override void ExposeData()
+	//	{
+	//		base.ExposeData();
+	//		Scribe_Values.Look(ref nextTick, "nextTick", 30000);
+	//	}
+
+	//}
+
+	public class Gene_NocturnalMorph : Gene_MorpherDependant
 	{
 
-        public override bool ShouldMorph()
+        public override bool CanMorph()
         {
             float num = GenLocalDate.DayTick(pawn);
             if (num > 45000f || num < 15000f)
@@ -103,13 +163,13 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_DiurnalMorph : Gene_TickMorph
+	public class Gene_DiurnalMorph : Gene_MorpherDependant
 	{
 
-		public override bool ShouldMorph()
+		public override bool CanMorph()
 		{
 			float num = GenLocalDate.DayTick(pawn);
-			if (num < 40000f || num > 25000f)
+			if (num < 40000f && num > 25000f)
 			{
 				return true;
 			}
@@ -118,14 +178,14 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_SeasonalMorph : Gene_TickMorph
+	public class Gene_SeasonalMorph : Gene_MorpherDependant
 	{
 
 		private Season savedSeason;
 
 		//public override IntRange IntervalRange => new(50000, 80000);
 
-		public override bool ShouldMorph()
+		public override bool CanMorph()
 		{
 			Season currentSeason = GenLocalDate.Season(pawn);
 			if (currentSeason != savedSeason)
@@ -144,12 +204,12 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_DamageMorph : Gene_TickMorph
+	public class Gene_DamageMorph : Gene_MorpherDependant
 	{
 
 		//public override IntRange IntervalRange => new(4000, 6000);
 
-		public override bool ShouldMorph()
+		public override bool CanMorph()
 		{
             float? summaryHealthPercent = pawn?.health?.summaryHealth?.SummaryHealthPercent;
             if (summaryHealthPercent.HasValue && summaryHealthPercent.Value < 0.8f)
@@ -164,26 +224,9 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_AbilityMorph : Gene_MorpherDependant
 	{
 
-		public override IEnumerable<Gizmo> GetGizmos()
+		public override bool CanMorph()
 		{
-			if (XaG_GeneUtility.SelectorActiveFactionMap(pawn, this))
-			{
-				yield break;
-			}
-			yield return new Command_Action
-			{
-				defaultLabel = "WVC_XaG_GeneAbilityMorphLabel".Translate(),
-				defaultDesc = "WVC_XaG_GeneAbilityMorphDesc".Translate(),
-				icon = ContentFinder<Texture2D>.Get(def.iconPath),
-				action = delegate
-				{
-					Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_GeneAbilityMorphWarning".Translate(), delegate
-					{
-						Morpher.TryMorph(true);
-					});
-					Find.WindowStack.Add(window);
-				}
-			};
+			return true;
 		}
 
 	}

@@ -25,13 +25,14 @@ namespace WVC_XenotypesAndGenes
 
         public void UpdXenotypHolders()
         {
-            List<GeneDef> genes = cycle.GetGenes();
+            List<GeneDef> genes = cycle?.GetGenes();
             foreach (XenotypeHolder item in XenotypesInOrder)
             {
-				if (item.genes.NullOrEmpty())
+				if (item.genes.NullOrEmpty() || genes.NullOrEmpty())
                 {
+					item.matchPercent = 0f;
 					continue;
-                }
+				}
 				item.matchPercent = (float)Math.Round(CompBiosculpterPod_XenotypeHolderCycle.GetChance(XaG_GeneUtility.GetMatchingGenesList(genes, item.genes).Count, item.genes.Count), 2);
                 //item.customEffectsDesc = "WVC_XaG_XenotypeHolderCycleStarted_XenotypeChanceInfo".Translate(item.matchPercent.Value.ToStringPercent());
             }

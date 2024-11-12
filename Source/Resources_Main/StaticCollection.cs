@@ -52,6 +52,43 @@ namespace WVC_XenotypesAndGenes
 
 		public Dictionary<NeedDef, float> savedPawnNeeds;
 
+		[Unsaved(false)]
+		private TaggedString cachedLabelCap = null;
+
+		[Unsaved(false)]
+		private TaggedString cachedLabel = null;
+
+		public virtual TaggedString Label
+		{
+			get
+			{
+				if (cachedLabel == null)
+				{
+					if (name.NullOrEmpty())
+					{
+						cachedLabel = xenotypeDef.label;
+					}
+					else
+					{
+						cachedLabel = name.CapitalizeFirst();
+					}
+				}
+				return cachedLabel;
+			}
+		}
+
+		public virtual TaggedString LabelCap
+		{
+			get
+			{
+				if (cachedLabelCap == null)
+				{
+					cachedLabelCap = Label.CapitalizeFirst();
+				}
+				return cachedLabelCap;
+			}
+		}
+
 		public int AllGenesCount
 		{
 			get

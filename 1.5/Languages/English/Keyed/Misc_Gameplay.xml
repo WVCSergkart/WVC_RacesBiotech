@@ -652,9 +652,13 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_MorpherGizmoTip>The &lt;color=#8a8ae6&gt;morpher&lt;/color&gt; changes the pawn's &lt;color=#8a8ae6&gt;geneset&lt;/color&gt; from time to time under certain conditions, each &lt;color=#8a8ae6&gt;geneset&lt;/color&gt; is called a &lt;color=#8a8ae6&gt;form&lt;/color&gt;. The minimum cooldown between form changes is about a day. &lt;color=#8a8ae6&gt;Forms&lt;/color&gt; are independent of each other and their &lt;color=#8a8ae6&gt;genesets&lt;/color&gt; can be modified without risk of harming another form.\n\nWhen changing a &lt;color=#8a8ae6&gt;form&lt;/color&gt;, the current &lt;color=#8a8ae6&gt;geneset&lt;/color&gt; is saved by the &lt;color=#8a8ae6&gt;morpher&lt;/color&gt;, and then a random saved one is &lt;color=#8a8ae6&gt;implanted&lt;/color&gt; and its information is deleted from the &lt;color=#8a8ae6&gt;morpher&lt;/color&gt;. All &lt;color=#6bb6bb&gt;genetic information&lt;/color&gt; of the &lt;color=#8a8ae6&gt;implanted form&lt;/color&gt; will be the same as it was at the time of its saving. States that involve &lt;color=#6bb6bb&gt;external objects&lt;/color&gt; will not be restored and will require repeated manual intervention.\n\nSome &lt;color=#6bb6bb&gt;genes&lt;/color&gt; can influence the conditions of the form change, but their effect only affects the form in which they are.</WVC_XaG_MorpherGizmoTip>
 
-	<WVC_XaG_GeneAbilityMorphLabel>Try morph</WVC_XaG_GeneAbilityMorphLabel>
+	<WVC_XaG_GeneAbilityMorphLabel>Morph</WVC_XaG_GeneAbilityMorphLabel>
 	<WVC_XaG_GeneAbilityMorphDesc>Allows morphing to another form. The form will be selected either from the list of available ones or a new one will be created.</WVC_XaG_GeneAbilityMorphDesc>
-	<WVC_XaG_GeneAbilityMorphWarning>Changing the form will bring a number of restrictions, keep in mind that for some time the pawn will not be able to return to this form.</WVC_XaG_GeneAbilityMorphWarning>
+	<WVC_XaG_GeneAbilityMorphWarning>The &lt;color=#8a8ae6&gt;morph&lt;/color&gt; will lead to a complete replacement of the current &lt;color=#8a8ae6&gt;geneset&lt;/color&gt;. Also, the next form will be limited in accordance with the new &lt;color=#8a8ae6&gt;gene trigger&lt;/color&gt;, keep in mind that the &lt;color=#8a8ae6&gt;trigger conditions&lt;/color&gt; may be different.\n\nThe gene will retain all the current &lt;color=#8a8ae6&gt;internal information&lt;/color&gt; of the genes, but this does not apply to the external. The pawn will &lt;color=#ff8585&gt;lose all external&lt;/color&gt; connections created by the genes. Dryad queen will lose all dryads, and psychic bond its bond, etc.\n\nDo you still want to change the form?</WVC_XaG_GeneAbilityMorphWarning>
+	<WVC_XaG_GeneMorphAbilityDisabled>Morph is currently not possible.</WVC_XaG_GeneMorphAbilityDisabled>
+
+	<WVC_XaG_GeneAbilityMorphCreateNewForm>Create new Form</WVC_XaG_GeneAbilityMorphCreateNewForm>
+	<WVC_XaG_GeneAbilityMorpherIsNullMessage>The morpher gene is not active.</WVC_XaG_GeneAbilityMorpherIsNullMessage>
 
 	<WVC_XaG_MorpherGizmoLimitTip>Current forms: Saved {0} / Max {1}</WVC_XaG_MorpherGizmoLimitTip>
 

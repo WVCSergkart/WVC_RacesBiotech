@@ -68,6 +68,7 @@ namespace WVC_XenotypesAndGenes
 				Widgets.DrawHighlight(rect4);
 				if (Widgets.ButtonInvisible(rect4))
 				{
+					gene.AddLimit();
 					// Find.WindowStack.Add(new Dialog_Shapeshifter(gene));
 				}
 			}

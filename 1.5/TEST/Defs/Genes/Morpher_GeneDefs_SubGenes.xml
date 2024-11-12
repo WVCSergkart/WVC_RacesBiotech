@@ -21,6 +21,9 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_AbilityMorph</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_Ability</iconPath>
 	<displayOrderInCategory>-45</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Allows morph in &lt;color=#8a8ae6&gt;any time&lt;/color&gt;.</li>
+	</customEffectDescriptions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_SubGenes">
@@ -31,7 +34,7 @@
 	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_Nocturnal</iconPath>
 	<displayOrderInCategory>-40</displayOrderInCategory>
 	<customEffectDescriptions>
-		<li>Trigger morph in &lt;color=#8a8ae6&gt;nocturnal time&lt;/color&gt;.</li>
+		<li>Allows morph in &lt;color=#8a8ae6&gt;nocturnal time&lt;/color&gt;.</li>
 	</customEffectDescriptions>
   </GeneDef>
 
@@ -43,7 +46,7 @@
 	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_Diurnal</iconPath>
 	<displayOrderInCategory>-35</displayOrderInCategory>
 	<customEffectDescriptions>
-		<li>Trigger morph in &lt;color=#8a8ae6&gt;diurnal time&lt;/color&gt;.</li>
+		<li>Allows morph in &lt;color=#8a8ae6&gt;diurnal time&lt;/color&gt;.</li>
 	</customEffectDescriptions>
   </GeneDef>
 
@@ -55,7 +58,7 @@
 	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_Seasonal</iconPath>
 	<displayOrderInCategory>-30</displayOrderInCategory>
 	<customEffectDescriptions>
-		<li>Triggers morph &lt;color=#8a8ae6&gt;after season change&lt;/color&gt;.</li>
+		<li>Allows morph &lt;color=#8a8ae6&gt;after season change&lt;/color&gt;.</li>
 	</customEffectDescriptions>
   </GeneDef>
 
@@ -67,7 +70,7 @@
 	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_Damage</iconPath>
 	<displayOrderInCategory>-25</displayOrderInCategory>
 	<customEffectDescriptions>
-		<li>Triggers a morph if the pawn's &lt;color=#8a8ae6&gt;health drops below 80%&lt;/color&gt;</li>
+		<li>Allows morph if the pawn's &lt;color=#8a8ae6&gt;health drops below 80%&lt;/color&gt;</li>
 	</customEffectDescriptions>
   </GeneDef>
 
