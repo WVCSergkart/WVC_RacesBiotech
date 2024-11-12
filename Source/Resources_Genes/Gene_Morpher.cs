@@ -213,9 +213,27 @@ namespace WVC_XenotypesAndGenes
 
         public void UpdToolGenes()
         {
-            if (pawn.genes?.GenesListForReading?.Any((Gene gene) => gene is Gene_MorpherDependant) == false)
-            {
-                pawn.genes?.AddGene(DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef geneDef) => geneDef.prerequisite != null && geneDef.prerequisite == def).RandomElement(), pawn.genes.IsXenogene(this));
+            if (pawn.genes?.GenesListForReading?.Any((Gene gene) => gene is Gene_MorpherTrigger) == false)
+			{
+				bool xenogene = pawn.genes.IsXenogene(this);
+				GeneDef geneDef = DefDatabase<GeneDef>.GetNamed("WVC_MorphCondition_Deathrest");
+				if (XenotypeGiver?.morpherTriggerGene != null)
+				{
+                    pawn.genes?.AddGene(XenotypeGiver.morpherTriggerGene, xenogene);
+				}
+				else if (geneDef != null && pawn.needs?.TryGetNeed<Need_Deathrest>() != null)
+				{
+                    pawn.genes?.AddGene(geneDef, xenogene);
+				}
+				else if (Giver != null && !Giver.morpherTriggerGenes.NullOrEmpty())
+				{
+					pawn.genes?.AddGene(Giver.morpherTriggerGenes.RandomElement(), xenogene);
+				}
+				else
+				{
+					Log.Error("Failed find morpherTriggerGene in xenotypeDef or geneDef. Trying give random.");
+					pawn.genes?.AddGene(DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef geneDef) => geneDef.prerequisite != null && geneDef.prerequisite == def).RandomElement(), xenogene);
+				}
             }
         }
 

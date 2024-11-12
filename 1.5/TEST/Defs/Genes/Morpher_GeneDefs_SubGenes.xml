@@ -74,4 +74,17 @@
 	</customEffectDescriptions>
   </GeneDef>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_SubGenes">
+	<defName>WVC_MorphCondition_Deathrest</defName>
+	<label>deathrest morph</label>
+	<description>Carriers of this gene are only susceptible to morphing when sufficiently deathrested.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DeathrestMorph</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_Deathrest</iconPath>
+	<displayOrderInCategory>-20</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Allows morph if the pawn's &lt;color=#8a8ae6&gt;need for deathrest over 80%&lt;/color&gt;</li>
+		<li>Morphing &lt;color=#8a8ae6&gt;consumes&lt;/color&gt; all &lt;color=#8a8ae6&gt;deathrest&lt;/color&gt; need, dropping it to 10%.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
 </Defs>

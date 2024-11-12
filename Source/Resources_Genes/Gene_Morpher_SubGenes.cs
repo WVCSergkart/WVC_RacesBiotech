@@ -9,28 +9,46 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_MorpherDependant : Gene
+    public class Gene_MorpherDependant : Gene
+    {
+
+        [Unsaved(false)]
+        private Gene_Morpher cachedMorpherGene;
+
+        public Gene_Morpher Morpher
+        {
+            get
+            {
+                if (cachedMorpherGene == null || !cachedMorpherGene.Active)
+                {
+                    cachedMorpherGene = pawn?.genes?.GetFirstGeneOfType<Gene_Morpher>();
+                }
+                return cachedMorpherGene;
+            }
+        }
+
+    }
+
+    public class Gene_MorpherTrigger : Gene_MorpherDependant
 	{
-
-		[Unsaved(false)]
-		private Gene_Morpher cachedMorpherGene;
-
-		public Gene_Morpher Morpher
-		{
-			get
-			{
-				if (cachedMorpherGene == null || !cachedMorpherGene.Active)
-				{
-					cachedMorpherGene = pawn?.genes?.GetFirstGeneOfType<Gene_Morpher>();
-				}
-				return cachedMorpherGene;
-			}
-		}
-		//public Gene_Morpher Morpher => pawn?.genes?.GetFirstGeneOfType<Gene_Morpher>();
 
 		public virtual bool CanMorph()
 		{
 			return false;
+		}
+
+		private int nextTick = 0;
+		private bool cachedBool = false;
+
+		private bool CacheableBool(int ticksTumeOut = 120)
+		{
+			nextTick--;
+			if (nextTick < 0)
+			{
+				cachedBool = !CanMorph();
+				nextTick = ticksTumeOut;
+			}
+			return cachedBool;
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -44,7 +62,7 @@ namespace WVC_XenotypesAndGenes
 				defaultLabel = "WVC_XaG_GeneAbilityMorphLabel".Translate(),
 				defaultDesc = "WVC_XaG_GeneAbilityMorphDesc".Translate(),
 				icon = ContentFinder<Texture2D>.Get(def.iconPath),
-				Disabled = !CanMorph(),
+				Disabled = CacheableBool(),
 				disabledReason = "WVC_XaG_GeneMorphAbilityDisabled".Translate(),
 				action = delegate
 				{
@@ -142,7 +160,7 @@ namespace WVC_XenotypesAndGenes
 
 	//}
 
-	public class Gene_NocturnalMorph : Gene_MorpherDependant
+	public class Gene_NocturnalMorph : Gene_MorpherTrigger
 	{
 
         public override bool CanMorph()
@@ -157,7 +175,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_DiurnalMorph : Gene_MorpherDependant
+	public class Gene_DiurnalMorph : Gene_MorpherTrigger
 	{
 
 		public override bool CanMorph()
@@ -172,7 +190,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_SeasonalMorph : Gene_MorpherDependant
+	public class Gene_SeasonalMorph : Gene_MorpherTrigger
 	{
 
 		private Season savedSeason;
@@ -208,7 +226,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_DamageMorph : Gene_MorpherDependant
+	public class Gene_DamageMorph : Gene_MorpherTrigger
 	{
 
 		//public override IntRange IntervalRange => new(4000, 6000);
@@ -225,12 +243,37 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_AbilityMorph : Gene_MorpherDependant
+	public class Gene_AbilityMorph : Gene_MorpherTrigger
 	{
 
 		public override bool CanMorph()
 		{
 			return true;
+		}
+
+	}
+
+	public class Gene_DeathrestMorph : Gene_MorpherTrigger
+	{
+
+		public override bool CanMorph()
+		{
+			Need_Deathrest deathrest = pawn.needs?.TryGetNeed<Need_Deathrest>();
+			if (deathrest != null && deathrest.CurLevelPercentage > 0.8f)
+			{
+				return true;
+			}
+			return false;
+		}
+
+		public override void MorpherTrigger(PawnGeneSetHolder geneSet)
+		{
+			Need_Deathrest deathrest = pawn.needs?.TryGetNeed<Need_Deathrest>();
+			if (deathrest != null)
+			{
+				deathrest.CurLevel = 0.1f;
+			}
+			base.MorpherTrigger(geneSet);
 		}
 
 	}

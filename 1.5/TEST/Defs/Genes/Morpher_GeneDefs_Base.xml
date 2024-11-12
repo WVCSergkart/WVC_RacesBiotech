@@ -25,13 +25,14 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
 			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
 		</li>
-		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
-			<!-- <xenotypeDefs> -->
-			  <!-- <li>WVC_Shadoweater</li> -->
-			  <!-- <li>WVC_TestTemplate</li> -->
-			  <!-- <li>Sanguophage</li> -->
-			<!-- </xenotypeDefs> -->
-		<!-- </li> -->
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<morpherTriggerGenes>
+			  <li>WVC_MorphCondition_Diurnal</li>
+			  <li>WVC_MorphCondition_Nocturnal</li>
+			  <li>WVC_MorphCondition_Seasonal</li>
+			  <li>WVC_MorphCondition_Damage</li>
+			</morpherTriggerGenes>
+		</li>
 	</modExtensions>
   </GeneDef>
 

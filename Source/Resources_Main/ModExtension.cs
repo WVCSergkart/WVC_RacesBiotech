@@ -241,6 +241,9 @@ namespace WVC_XenotypesAndGenes
 		// Colorable Eyes
 		public List<XaG_CountWithChance> holofaces;
 		public Color defaultColor;
+		//Morpher
+		public GeneDef morpherTriggerGene;
+		public List<GeneDef> morpherTriggerGenes;
 	}
 
 	public class GeneExtension_Obsolete : DefModExtension
