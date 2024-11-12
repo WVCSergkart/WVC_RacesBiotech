@@ -113,7 +113,7 @@
 	<customEffectDescriptions>
 		<li>&lt;color=#8a8ae6&gt;Animates&lt;/color&gt; from 1 to 3 &lt;color=#8a8ae6&gt;chunks&lt;/color&gt; present within the map every (*DateTime)4-7 days(/DateTime).</li>
 		<li>If there are no chunks, it &lt;color=#8a8ae6&gt;summons golems&lt;/color&gt; instead. &lt;color=#ff8585&gt;Summoned golems are limited to simple types.&lt;/color&gt;</li>
-		<!-- <li>A overseer can reproduce with the help of &lt;color=#8a8ae6&gt;golems&lt;/color&gt;.</li> -->
+		<li>A overseer can reproduce with the help of &lt;color=#8a8ae6&gt;medicoroid golem&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<statOffsets>
 	  <WVC_GolemBond>8</WVC_GolemBond>

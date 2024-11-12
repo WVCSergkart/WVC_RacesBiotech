@@ -89,7 +89,7 @@ namespace WVC_XenotypesAndGenes
 					return true;
 				}
 			}
-			return false;
+            return thingDef.HasComp<CompGenepackContainer>();
 		}
 
 	}

@@ -355,28 +355,12 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool EverControllable(ThingDef def)
 		{
-			List<CompProperties> comps = def.comps;
-			for (int i = 0; i < comps.Count; i++)
-			{
-				if (comps[i].compClass == typeof(CompOverseerSubject))
-				{
-					return true;
-				}
-			}
-			return false;
+			return def.HasComp<CompOverseerSubject>();
 		}
 
 		public static bool EverRepairable(ThingDef def)
 		{
-			List<CompProperties> comps = def.comps;
-			for (int i = 0; i < comps.Count; i++)
-			{
-				if (comps[i].compClass == typeof(CompMechRepairable))
-				{
-					return true;
-				}
-			}
-			return false;
+			return def.HasComp<CompMechRepairable>();
 		}
 
 
