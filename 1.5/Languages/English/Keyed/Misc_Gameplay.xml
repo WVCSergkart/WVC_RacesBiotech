@@ -657,7 +657,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_GeneAbilityMorphWarning>The &lt;color=#8a8ae6&gt;morph&lt;/color&gt; will lead to a complete replacement of the current &lt;color=#8a8ae6&gt;geneset&lt;/color&gt;. Also, the next form will be limited in accordance with the new &lt;color=#8a8ae6&gt;gene trigger&lt;/color&gt;, keep in mind that the &lt;color=#8a8ae6&gt;trigger conditions&lt;/color&gt; may be different.\n\nThe gene will retain all the current &lt;color=#8a8ae6&gt;internal information&lt;/color&gt; of the genes, but this does not apply to the external. The pawn will &lt;color=#ff8585&gt;lose all external&lt;/color&gt; connections created by the genes. Dryad queen will lose all dryads, and psychic bond its bond, etc.\n\nDo you still want to change the form?</WVC_XaG_GeneAbilityMorphWarning>
 	<WVC_XaG_GeneMorphAbilityDisabled>Morph is currently not possible.</WVC_XaG_GeneMorphAbilityDisabled>
 
-	<WVC_XaG_GeneAbilityMorphCreateNewForm>Create new Form</WVC_XaG_GeneAbilityMorphCreateNewForm>
+	<WVC_XaG_GeneAbilityMorphCreateNewForm>(Create new form)</WVC_XaG_GeneAbilityMorphCreateNewForm>
 	<WVC_XaG_GeneAbilityMorpherIsNullMessage>The morpher gene is not active.</WVC_XaG_GeneAbilityMorpherIsNullMessage>
 
 	<WVC_XaG_MorpherGizmoLimitTip>Current forms: Saved {0} / Max {1}</WVC_XaG_MorpherGizmoLimitTip>

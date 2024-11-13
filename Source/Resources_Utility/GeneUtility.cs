@@ -260,6 +260,30 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		public static bool TryRemoveAllConflicts(Pawn pawn, GeneDef geneDef)
+		{
+			try
+			{
+				foreach (Gene item in pawn.genes.GenesListForReading.ToList())
+				{
+					if (item.def == geneDef)
+					{
+						pawn.genes.RemoveGene(item);
+					}
+					if (item.def.ConflictsWith(geneDef))
+					{
+						pawn.genes.RemoveGene(item);
+					}
+				}
+				return true;
+			}
+			catch
+			{
+				Log.Error("Failed remove conflict genes from pawn: " + pawn.LabelShort);
+			}
+			return false;
+		}
+
 		public static bool IsAndroid(this Pawn pawn)
 		{
 			if (pawn?.genes == null)

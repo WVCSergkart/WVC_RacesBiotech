@@ -160,7 +160,7 @@ namespace WVC_XenotypesAndGenes
                 }
                 if (xenotypeHolder == null)
                 {
-                    xenotypeHolder = GetBestNewForm(def);
+                    xenotypeHolder = GetBestNewForm(this);
                 }
             }
             if (xenotypeHolder != null)
@@ -177,7 +177,7 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        private static XenotypeHolder GetBestNewForm(GeneDef geneDef)
+        private static XenotypeHolder GetBestNewForm(Gene gene)
         {
             List<XenotypeHolder> holders = ListsUtility.GetAllXenotypesHolders();
 			List<XenotypeHolder> result = new();
@@ -187,11 +187,11 @@ namespace WVC_XenotypesAndGenes
                 {
 					holder.matchPercent = 0.1f;
                 }
-				else if (holder.genes.Contains(geneDef))
+				else if (holder.genes.Contains(gene.def))
 				{
 					holder.matchPercent = 5f;
 				}
-				else if (XaG_GeneUtility.AnyGeneDefIsSubGeneOf(holder.genes, geneDef))
+				else if (XaG_GeneUtility.AnyGeneDefIsSubGeneOf(holder.genes, gene.def))
 				{
 					holder.matchPercent = 2f;
 				}
@@ -203,7 +203,30 @@ namespace WVC_XenotypesAndGenes
 				{
 					holder.matchPercent += 2f;
 				}
+				XaG_GeneUtility.GetBiostatsFromList(holder.genes, out _, out int met, out int arc);
+				if (arc > 0)
+				{
+					holder.matchPercent = (float)Math.Round((float)(holder.matchPercent.Value / (arc * 0.5f)), 2);
+				}
+				else
+                {
+					holder.matchPercent *= 1.2f;
+				}
+				if (met < 0)
+				{
+					holder.matchPercent *= 0.5f;
+				}
+				bool xenogene = gene.pawn.genes.IsXenogene(gene);
+				if (xenogene && !holder.inheritable)
+				{
+					holder.matchPercent *= 10f;
+				}
+				else if (!xenogene && holder.inheritable)
+				{
+					holder.matchPercent *= 10f;
+				}
 			}
+			//Log.Error("Xenotypes weights:" + "\n" + holders.Select((XenotypeHolder x) => x.LabelCap + ": " + x.matchPercent).ToLineList(" - "));
 			if (result.TryRandomElementByWeight((XenotypeHolder holder) => holder.matchPercent.Value, out XenotypeHolder newHolder))
 			{
 				return newHolder;
@@ -211,28 +234,28 @@ namespace WVC_XenotypesAndGenes
 			return holders.RandomElement();
         }
 
-        public void UpdToolGenes()
+        public void UpdToolGenes(bool forced = false)
         {
-            if (pawn.genes?.GenesListForReading?.Any((Gene gene) => gene is Gene_MorpherTrigger) == false)
+            if (forced || pawn.genes?.GenesListForReading?.Any((Gene gene) => gene is Gene_MorpherTrigger) == false)
 			{
 				bool xenogene = pawn.genes.IsXenogene(this);
 				GeneDef geneDef = DefDatabase<GeneDef>.GetNamed("WVC_MorphCondition_Deathrest");
 				if (XenotypeGiver?.morpherTriggerGene != null)
 				{
-                    pawn.genes?.AddGene(XenotypeGiver.morpherTriggerGene, xenogene);
+					AddToolGene(XenotypeGiver.morpherTriggerGene, xenogene);
 				}
 				else if (geneDef != null && pawn.needs?.TryGetNeed<Need_Deathrest>() != null)
 				{
-                    pawn.genes?.AddGene(geneDef, xenogene);
+					AddToolGene(geneDef, xenogene);
 				}
 				else if (Giver != null && !Giver.morpherTriggerGenes.NullOrEmpty())
 				{
-					pawn.genes?.AddGene(Giver.morpherTriggerGenes.RandomElement(), xenogene);
+					AddToolGene(Giver.morpherTriggerGenes.RandomElement(), xenogene);
 				}
 				else
 				{
 					Log.Error("Failed find morpherTriggerGene in xenotypeDef or geneDef. Trying give random.");
-					pawn.genes?.AddGene(DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef geneDef) => geneDef.prerequisite != null && geneDef.prerequisite == def).RandomElement(), xenogene);
+					AddToolGene(DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef geneDef) => geneDef.prerequisite != null && geneDef.prerequisite == def).RandomElement(), xenogene);
 				}
             }
         }
@@ -437,6 +460,14 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public virtual void AddToolGene(GeneDef geneDef, bool xenogene)
+		{
+			if (Active && XaG_GeneUtility.TryRemoveAllConflicts(pawn, geneDef))
+			{
+				pawn.genes.AddGene(geneDef, xenogene);
+			}
+		}
+
 		public virtual void RemoveGene(Gene gene)
 		{
 			if (gene != this)
@@ -461,6 +492,14 @@ namespace WVC_XenotypesAndGenes
 					action = delegate
 					{
 						TryMorph(null, true);
+					}
+				};
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: UpdTriggerGenes",
+					action = delegate
+					{
+						UpdToolGenes(true);
 					}
 				};
 			}
