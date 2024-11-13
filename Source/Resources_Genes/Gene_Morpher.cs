@@ -129,7 +129,7 @@ namespace WVC_XenotypesAndGenes
 				if (removeMorpher)
 				{
 					phase = "remove morpher";
-					pawn?.genes?.RemoveGene(this);
+					RemoveMorpher();
 				}
 				//ResetInterval(new IntRange(42000, 50000));
 				return true;
@@ -187,13 +187,9 @@ namespace WVC_XenotypesAndGenes
                 {
 					holder.matchPercent = 0.1f;
                 }
-				else if (holder.genes.Contains(gene.def))
-				{
-					holder.matchPercent = 5f;
-				}
 				else if (XaG_GeneUtility.AnyGeneDefIsSubGeneOf(holder.genes, gene.def))
 				{
-					holder.matchPercent = 2f;
+					holder.matchPercent = 5f;
 				}
 				else
 				{
@@ -225,8 +221,12 @@ namespace WVC_XenotypesAndGenes
 				{
 					holder.matchPercent *= 10f;
 				}
+				if (!holder.genes.HasGeneDefOfType<Gene_MorpherOneTimeUse>())
+				{
+					result.Add(holder);
+				}
 			}
-			//Log.Error("Xenotypes weights:" + "\n" + holders.Select((XenotypeHolder x) => x.LabelCap + ": " + x.matchPercent).ToLineList(" - "));
+			//Log.Error("Xenotypes weights:" + "\n" + result.Select((XenotypeHolder x) => x.LabelCap + ": " + x.matchPercent).ToLineList(" - "));
 			if (result.TryRandomElementByWeight((XenotypeHolder holder) => holder.matchPercent.Value, out XenotypeHolder newHolder))
 			{
 				return newHolder;
@@ -254,8 +254,8 @@ namespace WVC_XenotypesAndGenes
 				}
 				else
 				{
-					Log.Error("Failed find morpherTriggerGene in xenotypeDef or geneDef. Trying give random.");
-					AddToolGene(DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef geneDef) => geneDef.prerequisite != null && geneDef.prerequisite == def).RandomElement(), xenogene);
+					Log.Error("Failed find morpherTriggerGene in xenotypeDef or geneDef.");
+					//AddToolGene(DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef geneDef) => geneDef.prerequisite != null && geneDef.prerequisite == def).RandomElement(), xenogene);
 				}
             }
         }
@@ -476,7 +476,28 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private Gizmo gizmo;
+		// Only for one time internal use. For other cases, the basic remove is used.
+		private void RemoveMorpher()
+		{
+			try
+			{
+				foreach (Gene gene in pawn.genes.GenesListForReading.ToList())
+				{
+					if (XaG_GeneUtility.GeneDefIsSubGeneOf(gene.def, def))
+					{
+						RemoveGene(gene);
+					}
+				}
+				pawn?.genes?.RemoveGene(this);
+				Messages.Message("WVC_XaG_GeneMorpherOneTimeMorph".Translate(pawn.Named("PAWN")), null, MessageTypeDefOf.NeutralEvent, historical: false);
+			}
+			catch (Exception arg)
+			{
+				Log.Error("Failed remove morpher properly. Reason: " + arg);
+			}
+		}
+
+        private Gizmo gizmo;
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{

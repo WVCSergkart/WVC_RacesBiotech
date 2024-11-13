@@ -14,38 +14,39 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Eyeless : Gene, IGeneOverridden
+	//InDev
+	public class Gene_Eyeless : Gene
 	{
 
-		public void Notify_OverriddenBy(Gene overriddenBy)
-		{
-			foreach (Gene gene in pawn.genes.GenesListForReading)
-			{
-				if (gene.def.prerequisite == null || gene.def == def)
-				{
-					continue;
-				}
-				if (XaG_GeneUtility.GeneDefIsSubGeneOf(gene.def.prerequisite, def))
-                {
-					gene.OverrideBy(overriddenBy);
-				}
-			}
-		}
+		//public void Notify_OverriddenBy(Gene overriddenBy)
+		//{
+		//	foreach (Gene gene in pawn.genes.GenesListForReading)
+		//	{
+		//		if (gene.def.prerequisite == null || gene.def == def)
+		//		{
+		//			continue;
+		//		}
+		//		if (XaG_GeneUtility.GeneDefIsSubGeneOf(gene.def.prerequisite, def))
+  //              {
+		//			gene.OverrideBy(overriddenBy);
+		//		}
+		//	}
+		//}
 
-		public void Notify_Override()
-		{
-			foreach (Gene gene in pawn.genes.GenesListForReading)
-			{
-				if (gene.def.prerequisite == null || gene.def == def)
-				{
-					continue;
-				}
-				if (XaG_GeneUtility.GeneDefIsSubGeneOf(gene.def.prerequisite, def))
-				{
-					gene.OverrideBy(null);
-				}
-			}
-		}
+		//public void Notify_Override()
+		//{
+		//	foreach (Gene gene in pawn.genes.GenesListForReading)
+		//	{
+		//		if (gene.def.prerequisite == null || gene.def == def)
+		//		{
+		//			continue;
+		//		}
+		//		if (XaG_GeneUtility.GeneDefIsSubGeneOf(gene.def.prerequisite, def))
+		//		{
+		//			gene.OverrideBy(null);
+		//		}
+		//	}
+		//}
 
 	}
 

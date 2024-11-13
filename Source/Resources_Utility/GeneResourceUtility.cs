@@ -323,7 +323,7 @@ namespace WVC_XenotypesAndGenes
 
 		// Coma TEST
 
-		public static void RegenComaOrDeathrest(Pawn pawn, Gene_Undead gene)
+		public static void GeneUndeadResurrection(Pawn pawn, Gene_Undead gene)
 		{
 			// Brain test
 			if (pawn?.health?.hediffSet?.GetBrain() == null)
@@ -341,19 +341,13 @@ namespace WVC_XenotypesAndGenes
 			{
 				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_GenesDefOf.WVC_UndeadResurrection, pawn.Named(HistoryEventArgsNames.Doer)));
 			}
-			// Evolve
-			XenotypeDef mainXenotype = pawn.genes.CustomXenotype == null ? pawn.genes.Xenotype : null;
-			string letterDesc = "WVC_LetterTextSecondChance_GeneUndead";
-			SubXenotypeUtility.XenotypeShapeshifter(pawn);
-			if (mainXenotype != null && mainXenotype != pawn.genes.Xenotype)
-			{
-				letterDesc = "WVC_LetterTextSecondChance_GeneUndeadShapeshift";
-			}
+			// Morph
+			pawn.genes?.GetFirstGeneOfType<Gene_UndeadMorph>()?.TryMorphWithChance(null, 0.2f);
 			// Letter
 			if (PawnUtility.ShouldSendNotificationAbout(pawn))
 			{
-				string shapeshiftXenotype = pawn?.genes?.Xenotype != null ? pawn.genes.Xenotype.LabelCap : "ERROR";
-				Find.LetterStack.ReceiveLetter(gene.LabelCap, letterDesc.Translate(pawn.Named("PAWN"), gene.LabelCap, shapeshiftXenotype), WVC_GenesDefOf.WVC_XaG_UndeadEvent, new LookTargets(pawn));
+				//string shapeshiftXenotype = pawn?.genes?.Xenotype != null ? pawn.genes.Xenotype.LabelCap : "ERROR";
+				Find.LetterStack.ReceiveLetter(gene.LabelCap, "WVC_LetterTextSecondChance_GeneUndead".Translate(pawn.Named("PAWN"), gene.LabelCap), WVC_GenesDefOf.WVC_XaG_UndeadEvent, new LookTargets(pawn));
 			}
 			gene.SetWorkSettings();
 		}

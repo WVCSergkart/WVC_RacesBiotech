@@ -134,18 +134,20 @@ namespace WVC_XenotypesAndGenes
 
 		// ========================================================
 
+		[Obsolete]
 		public static void XenotypeShapeshifter(Pawn pawn)
 		{
-			if (WVC_Biotech.settings.allowShapeshiftAfterDeath)
+			//if (WVC_Biotech.settings.allowShapeshiftAfterDeath)
+			//{
+			//}
+			if (PawnXenotypeIsNotCustomXenotype(pawn))
 			{
-				if (PawnXenotypeIsNotCustomXenotype(pawn))
-				{
-					XenotypeDef xenotype = pawn.genes?.Xenotype;
-					ShapeShiftOnDeath(pawn, xenotype);
-				}
+				XenotypeDef xenotype = pawn.genes?.Xenotype;
+				ShapeShiftOnDeath(pawn, xenotype);
 			}
 		}
 
+		[Obsolete]
 		public static void ShapeShiftOnDeath(Pawn pawn, XenotypeDef mainXenotype)
 		{
 			if (pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating))
@@ -227,23 +229,24 @@ namespace WVC_XenotypesAndGenes
 
 		// public static bool PawnCanEvolve(Pawn pawn)
 		// {
-			// Pawn_GeneTracker genes = pawn?.genes;
-			// if (genes == null || genes.UniqueXenotype || genes.iconDef != null)
-			// {
-				// return false;
-			// }
-			// XenotypeDef pawnXenotype = genes.Xenotype;
-			// if (pawnXenotype == null || pawnXenotype is not EvotypeDef evotypeDef)
-			// {
-				// return false;
-			// }
-			// if (evotypeDef.xenotypeCanEvolveOvertime)
-			// {
-				// return true;
-			// }
-			// return false;
+		// Pawn_GeneTracker genes = pawn?.genes;
+		// if (genes == null || genes.UniqueXenotype || genes.iconDef != null)
+		// {
+		// return false;
+		// }
+		// XenotypeDef pawnXenotype = genes.Xenotype;
+		// if (pawnXenotype == null || pawnXenotype is not EvotypeDef evotypeDef)
+		// {
+		// return false;
+		// }
+		// if (evotypeDef.xenotypeCanEvolveOvertime)
+		// {
+		// return true;
+		// }
+		// return false;
 		// }
 
+		[Obsolete]
 		public static bool PawnXenotypeIsEvotype(Pawn pawn)
 		{
 			Pawn_GeneTracker genes = pawn?.genes;
@@ -390,6 +393,7 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// Checks if xenotype is modified.
+		[Obsolete]
 		public static bool PawnXenotypeIsNotCustomXenotype(Pawn pawn)
 		{
 			Pawn_GeneTracker genes = pawn?.genes;

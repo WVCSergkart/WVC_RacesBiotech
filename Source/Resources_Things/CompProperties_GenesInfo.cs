@@ -243,7 +243,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				else
 				{
-					GeneResourceUtility.RegenComaOrDeathrest(pawn, gene);
+					GeneResourceUtility.GeneUndeadResurrection(pawn, gene);
 				}
 			}
 			resurrectionDelay = 0;

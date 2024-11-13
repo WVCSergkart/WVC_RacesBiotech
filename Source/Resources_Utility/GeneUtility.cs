@@ -244,6 +244,22 @@ namespace WVC_XenotypesAndGenes
 
 		// ============================= Anti-Bug =============================
 
+		public static bool HasGeneDefOfType<T>(this List<GeneDef> geneDefs)
+		{
+			if (geneDefs.NullOrEmpty())
+			{
+				return false;
+			}
+			for (int i = 0; i < geneDefs.Count; i++)
+			{
+				if (geneDefs[i].geneClass == typeof(T) || typeof(T).IsAssignableFrom(geneDefs[i].geneClass))
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
 		public static bool ConflictWith(GeneDef geneDef, List<GeneDef> geneDefs)
 		{
 			foreach (GeneDef item in geneDefs)

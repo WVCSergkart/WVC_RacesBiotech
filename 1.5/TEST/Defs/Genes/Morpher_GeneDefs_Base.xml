@@ -10,7 +10,7 @@
 	<iconPath>WVC/UI/Genes/Gene_Morpher_v0</iconPath>
 	<biostatCpx>4</biostatCpx>
 	<biostatArc>1</biostatArc>
-	<displayOrderInCategory>-50</displayOrderInCategory>
+	<displayOrderInCategory>-100</displayOrderInCategory>
 	<customEffectDescriptions>
 		<li>&lt;color=#8a8ae6&gt;Morph&lt;/color&gt; is triggered only by &lt;color=#8a8ae6&gt;subgenes&lt;/color&gt;.</li>
 		<!-- <li>&lt;color=#8a8ae6&gt;Morph&lt;/color&gt; is triggered every &lt;color=#8a8ae6&gt;evening&lt;/color&gt;.</li> -->

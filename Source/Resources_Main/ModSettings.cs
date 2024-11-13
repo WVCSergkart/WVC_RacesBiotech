@@ -32,7 +32,7 @@ namespace WVC_XenotypesAndGenes
 		// Genes
 		public bool onlyXenotypesMode = false;
 		public bool canNonPlayerPawnResurrect = true;
-		public bool allowShapeshiftAfterDeath = true;
+		//public bool allowShapeshiftAfterDeath = true;
 		public bool totalHealingIgnoreScarification = true;
 		// public bool genesRemoveMechlinkUponDeath = false;
 		// public bool enableCustomMechLinkName = false;
@@ -164,7 +164,7 @@ namespace WVC_XenotypesAndGenes
 			// Genes
 			Scribe_Values.Look(ref onlyXenotypesMode, "onlyXenotypesMode", defaultValue: false);
 			Scribe_Values.Look(ref canNonPlayerPawnResurrect, "canNonPlayerPawnResurrect", defaultValue: true);
-			Scribe_Values.Look(ref allowShapeshiftAfterDeath, "allowShapeshiftAfterDeath", defaultValue: true);
+			//Scribe_Values.Look(ref allowShapeshiftAfterDeath, "allowShapeshiftAfterDeath", defaultValue: true);
 			Scribe_Values.Look(ref totalHealingIgnoreScarification, "totalHealingIgnoreScarification", defaultValue: true);
 			// Scribe_Values.Look(ref genesRemoveMechlinkUponDeath, "genesRemoveMechlinkUponDeath", defaultValue: false);
 			// Scribe_Values.Look(ref enableCustomMechLinkName, "enableCustomMechLinkName", defaultValue: false);
@@ -822,7 +822,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				//listingStandard.Label("WVC_XaGGeneSettings_Undead".Translate() + ":", -1);
 				listingStandard.CheckboxLabeled("WVC_Label_canNonPlayerPawnResurrect".Translate().Colorize(ColorLibrary.LightBlue), ref settings.canNonPlayerPawnResurrect, "WVC_ToolTip_canNonPlayerPawnResurrect".Translate());
-				listingStandard.CheckboxLabeled("WVC_Label_allowShapeshiftAfterDeath".Translate().Colorize(ColorLibrary.LightBlue), ref settings.allowShapeshiftAfterDeath, "WVC_ToolTip_allowShapeshiftAfterDeath".Translate());
+				//listingStandard.CheckboxLabeled("WVC_Label_allowShapeshiftAfterDeath".Translate().Colorize(ColorLibrary.LightBlue), ref settings.allowShapeshiftAfterDeath, "WVC_ToolTip_allowShapeshiftAfterDeath".Translate());
 				listingStandard.CheckboxLabeled("WVC_Label_ThrallMaker_ThrallsInheritMasterGenes".Translate().Colorize(ColorLibrary.LightBlue), ref settings.thrallMaker_ThrallsInheritMasterGenes, "WVC_ToolTip_ThrallMaker_ThrallsInheritMasterGenes".Translate());
 				listingStandard.SliderLabeledWithRef("WVC_Label_thrallMaker_cooldownOverride".Translate((settings.thrallMaker_cooldownOverride).ToString()), ref settings.thrallMaker_cooldownOverride, 0f, 30f, round: 0);
 				listingStandard.CheckboxLabeled("WVC_Label_enableInstabilityLastChanceMechanic".Translate(), ref settings.enableInstabilityLastChanceMechanic, "WVC_ToolTip_enableInstabilityLastChanceMechanic".Translate());
@@ -1010,7 +1010,7 @@ namespace WVC_XenotypesAndGenes
 			// WVC_Biotech.settings.serumsForAllXenotypes_Spawners = false;
 			// =
 			WVC_Biotech.settings.canNonPlayerPawnResurrect = settingsDef.canNonPlayerPawnResurrect;
-			WVC_Biotech.settings.allowShapeshiftAfterDeath = settingsDef.allowShapeshiftAfterDeath;
+			//WVC_Biotech.settings.allowShapeshiftAfterDeath = settingsDef.allowShapeshiftAfterDeath;
 			// WVC_Biotech.settings.shapeshifter_enableStyleButton = true;
 			WVC_Biotech.settings.enable_chimeraMetabolismHungerFactor = settingsDef.enable_chimeraMetabolismHungerFactor;
 			WVC_Biotech.settings.chimeraMinGeneCopyChance = settingsDef.chimeraMinGeneCopyChance;

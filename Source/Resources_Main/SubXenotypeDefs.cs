@@ -264,6 +264,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete]
 	public class EvotypeDef : XenotypeDef
 	{
 
