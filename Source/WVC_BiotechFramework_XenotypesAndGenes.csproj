@@ -217,7 +217,7 @@
     <Compile Include="Resources_Genes\Gene_Spawner.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_MechanitorUsedBandwidth.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityReimplantEndogerm.cs" />
-    <Compile Include="Resources_Genes\Gene_XenotypeForcer.cs" />
+    <Compile Include="Resources_Genes\Gene_Reimplanters.cs" />
     <Compile Include="Resources_Hediff\HediffComp_SeverityFromResurgent.cs" />
     <Compile Include="Resources_Utility\GestationUtility.cs" />
     <Compile Include="Resources_Utility\HediffUtility.cs" />

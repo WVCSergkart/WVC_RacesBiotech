@@ -31,6 +31,7 @@
 		<li MayRequire="wvc.sergkart.test.tools">WVC_MorphEffects_OneTimeUse</li>
 		<!-- Base -->
 		<li>WVC_NaturalReimplanter_RiseFromTheDead</li>
+		<li>WVC_PostImplanterBrainwash</li>
 		<li>WVC_NaturalFastAging</li>
 		<li>WVC_NaturalFastGrowing</li>
 		<li>WVC_MildGeneticInstability</li>

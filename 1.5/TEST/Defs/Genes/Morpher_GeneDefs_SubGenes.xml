@@ -108,13 +108,13 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_Triggers">
 	<defName>WVC_MorphCondition_Undead</defName>
 	<label>undead morph</label>
-	<description>Carriers of this gene can only morph upon undead resurrection.</description>
+	<description>Carriers of this gene can only morph after resurrection.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_UndeadMorph</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_Undead</iconPath>
 	<displayOrderInCategory>-60</displayOrderInCategory>
 	<customEffectDescriptions>
-		<li>Has a 20% chance of morphing upon &lt;color=#8a8ae6&gt;undead&lt;/color&gt; resurrection.</li>
-		<li>&lt;color=#ffec85&gt;Does not take into account other methods of resurrection.&lt;/color&gt;</li>
+		<li>Allows morph after resurrection during &lt;color=#8a8ae6&gt;resurrection sickness&lt;/color&gt;.</li>
+		<li>After morphing, extends &lt;color=#8a8ae6&gt;resurrection sickness&lt;/color&gt; by 10 days.</li>
 	</customEffectDescriptions>
   </GeneDef>
 

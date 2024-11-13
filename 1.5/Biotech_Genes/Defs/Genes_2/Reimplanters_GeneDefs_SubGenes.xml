@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef>
+	<defName>WVC_PostImplanterBrainwash</defName>
+	<label>post-brainwash</label>
+	<description>Carriers of this gene can instantly recruit pawns resurrected by post-implanter genes.</description>
+	<iconPath>WVC/UI/Genes/Gene_PostImplanterBrainwash_v0</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_PostImplanter_Brainwash</geneClass>
+	<selectionWeight>0.0022</selectionWeight>
+	<displayCategory>WVC_Miscellaneous</displayCategory>
+	<displayOrderInCategory>100</displayOrderInCategory>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Using a &lt;color=#8a8ae6&gt;post-implanter&lt;/color&gt; is guaranteed to recruit the target.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>brain</symbol></li>
+		<li><symbol>wash</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>

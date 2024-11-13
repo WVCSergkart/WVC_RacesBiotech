@@ -244,15 +244,27 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	// InDev
-	// public class Gene_PostImplanter : Gene
-	// {
+    // InDev
+    public class Gene_PostImplanter : Gene
+	{
 
+		private CompAbilityEffect_RiseFromTheDead cachedReimplanterComp;
 
+		public CompAbilityEffect_RiseFromTheDead ReimplanterComp
+		{
+			get
+			{
+				if (cachedReimplanterComp == null && def.abilities != null)
+				{
+					cachedReimplanterComp = pawn?.abilities?.GetAbility(def.abilities.FirstOrDefault()).CompOfType<CompAbilityEffect_RiseFromTheDead>();
+				}
+				return cachedReimplanterComp;
+			}
+		}
 
-	// }
+	}
 
-	public class Gene_XenotypeImplanter : Gene
+    public class Gene_XenotypeImplanter : Gene
 	{
 
 		public XenotypeDef xenotypeDef = null;
@@ -297,6 +309,45 @@ namespace WVC_XenotypesAndGenes
 	{
 
 
+
+	}
+
+    public class Gene_PostImplanterDependant : Gene
+    {
+
+        [Unsaved(false)]
+        private Gene_PostImplanter cachedImplanterGene;
+
+        public Gene_PostImplanter PostImplanter
+        {
+            get
+            {
+                if (cachedImplanterGene == null || !cachedImplanterGene.Active)
+                {
+                    cachedImplanterGene = pawn?.genes?.GetFirstGeneOfType<Gene_PostImplanter>();
+                }
+                return cachedImplanterGene;
+            }
+        }
+
+        public virtual void Notify_TargetResurrected(Pawn target)
+        {
+
+        }
+
+    }
+
+    public class Gene_PostImplanter_Brainwash : Gene_PostImplanterDependant
+	{
+
+		public override void Notify_TargetResurrected(Pawn target)
+		{
+			if ((target.Faction == null || target.Faction != Faction.OfPlayer) && target.guest.Recruitable)
+			{
+				RecruitUtility.Recruit(target, Faction.OfPlayer, pawn);
+				Messages.Message("WVC_XaG_ReimplantResurrectionRecruiting".Translate(target), target, MessageTypeDefOf.PositiveEvent);
+			}
+		}
 
 	}
 

@@ -315,65 +315,82 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_UndeadMorph : Gene_MorpherTrigger
 	{
 
-		private bool shouldMorph = true;
+		//private bool shouldMorph = true;
+
+		//public override bool CanMorph()
+		//{
+		//	return shouldMorph && Active && Morpher != null;
+		//}
+
+		//public bool TryMorphWithChance(PawnGeneSetHolder geneSet, float chance = 0.2f)
+		//{
+		//	if (Rand.Chance(chance) && CanMorph())
+		//	{
+		//		MorpherTrigger(geneSet);
+		//		return true;
+		//	}
+		//	return false;
+		//}
+
+		//public override void MorpherTrigger(PawnGeneSetHolder geneSet)
+		//{
+		//	try
+		//	{
+		//		Morpher?.TryMorph(geneSet, true, OneTimeUse);
+		//	}
+		//	catch (Exception arg)
+		//	{
+		//		Log.Error("Failed create form and morph. Reason: " + arg);
+		//	}
+		//}
+
+		//public override IEnumerable<Gizmo> GetGizmos()
+		//{
+		//	if (XaG_GeneUtility.SelectorDraftedActiveFactionMap(pawn, this))
+		//	{
+		//		yield break;
+		//	}
+		//	yield return new Command_Action
+		//	{
+		//		defaultLabel = "WVC_XaG_GeneAbilityMorphLabel".Translate() + ": " + XaG_UiUtility.OnOrOff(shouldMorph),
+		//		defaultDesc = "WVC_XaG_GeneAbilityMorphUndeadResurrectionDesc".Translate(),
+		//		icon = ContentFinder<Texture2D>.Get(def.iconPath),
+		//		action = delegate
+		//		{
+		//			shouldMorph = !shouldMorph;
+		//			if (shouldMorph)
+		//			{
+		//				SoundDefOf.Tick_High.PlayOneShotOnCamera();
+		//			}
+		//			else
+		//			{
+		//				SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+		//			}
+		//		}
+		//	};
+		//}
+
+		//public override void ExposeData()
+		//{
+		//	base.ExposeData();
+		//	Scribe_Values.Look(ref shouldMorph, "shouldMorph", false);
+		//}
 
 		public override bool CanMorph()
 		{
-			return shouldMorph && Active && Morpher != null;
-		}
-
-		public bool TryMorphWithChance(PawnGeneSetHolder geneSet, float chance = 0.2f)
-		{
-			if (Rand.Chance(chance) && CanMorph())
-            {
-				MorpherTrigger(geneSet);
-				return true;
-            }
-			return false;
+			return pawn.health?.hediffSet?.HasHediff(HediffDefOf.ResurrectionSickness) == true;
 		}
 
 		public override void MorpherTrigger(PawnGeneSetHolder geneSet)
 		{
-			try
+			Hediff resurrectionSickness = null;
+			pawn.health?.hediffSet?.TryGetHediff(HediffDefOf.ResurrectionSickness, out resurrectionSickness);
+			HediffComp_Disappears hediffComp_Disappears = resurrectionSickness?.TryGetComp<HediffComp_Disappears>();
+			if (hediffComp_Disappears != null)
 			{
-				Morpher?.TryMorph(geneSet, true, OneTimeUse);
+				hediffComp_Disappears.ticksToDisappear += 10 * 60000;
 			}
-			catch (Exception arg)
-			{
-				Log.Error("Failed create form and morph. Reason: " + arg);
-			}
-		}
-
-		public override IEnumerable<Gizmo> GetGizmos()
-		{
-			if (XaG_GeneUtility.SelectorDraftedActiveFactionMap(pawn, this))
-			{
-				yield break;
-			}
-			yield return new Command_Action
-			{
-				defaultLabel = "WVC_XaG_GeneAbilityMorphLabel".Translate() + ": " + XaG_UiUtility.OnOrOff(shouldMorph),
-				defaultDesc = "WVC_XaG_GeneAbilityMorphUndeadResurrectionDesc".Translate(),
-				icon = ContentFinder<Texture2D>.Get(def.iconPath),
-				action = delegate
-				{
-					shouldMorph = !shouldMorph;
-					if (shouldMorph)
-					{
-						SoundDefOf.Tick_High.PlayOneShotOnCamera();
-					}
-					else
-					{
-						SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-					}
-				}
-			};
-		}
-
-		public override void ExposeData()
-		{
-			base.ExposeData();
-			Scribe_Values.Look(ref shouldMorph, "shouldMorph", false);
+			base.MorpherTrigger(geneSet);
 		}
 
 	}

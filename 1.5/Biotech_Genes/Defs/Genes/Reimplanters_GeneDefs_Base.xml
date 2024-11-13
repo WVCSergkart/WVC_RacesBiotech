@@ -25,14 +25,14 @@
 	<label>posthumous reimplanter</label>
 	<description>Carriers of this gene can reimplant their genes into a corpse through a somewhat gross-looking injector organ. As a result, the dead man comes to life and receives a caster xenotype and a copy of the genes.</description>
 	<iconPath>WVC/UI/Genes/Gene_PostReimplanter_Hybrid_v0</iconPath>
-	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_PostImplanter</geneClass> -->
-	<geneClass>Gene</geneClass>
+	<geneClass>WVC_XenotypesAndGenes.Gene_PostImplanter</geneClass>
+	<!-- <geneClass>Gene</geneClass> -->
 	<biostatCpx>3</biostatCpx>
 	<biostatArc>0</biostatArc>
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
 		<li>The target can only be a human corpse.</li>
-		<li>If the target is recruitable then it will join the colony.</li>
+		<!-- <li>If the target is recruitable then it will join the colony.</li> -->
 		<li>&lt;color=#ff8585&gt;Can't be absorbed forcly.&lt;/color&gt;</li>
 	</customEffectDescriptions>
   </GeneDef>

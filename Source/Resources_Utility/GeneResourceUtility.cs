@@ -342,7 +342,7 @@ namespace WVC_XenotypesAndGenes
 				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_GenesDefOf.WVC_UndeadResurrection, pawn.Named(HistoryEventArgsNames.Doer)));
 			}
 			// Morph
-			pawn.genes?.GetFirstGeneOfType<Gene_UndeadMorph>()?.TryMorphWithChance(null, 0.2f);
+			//pawn.genes?.GetFirstGeneOfType<Gene_UndeadMorph>()?.TryMorphWithChance(null, 0.2f);
 			// Letter
 			if (PawnUtility.ShouldSendNotificationAbout(pawn))
 			{

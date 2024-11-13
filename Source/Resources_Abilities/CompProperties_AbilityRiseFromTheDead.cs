@@ -17,11 +17,11 @@ namespace WVC_XenotypesAndGenes
 			base.Apply(target, dest);
 			Pawn innerPawn = ((Corpse)target.Thing).InnerPawn;
 			GeneResourceUtility.ResurrectWithSickness(innerPawn, Props.afterResurrectionThoughtDef);
-			if ((innerPawn.Faction == null || innerPawn.Faction != Faction.OfPlayer) && innerPawn.guest.Recruitable)
-			{
-				RecruitUtility.Recruit(innerPawn, Faction.OfPlayer, parent.pawn);
-				Messages.Message("WVC_XaG_ReimplantResurrectionRecruiting".Translate(innerPawn), innerPawn, MessageTypeDefOf.PositiveEvent);
-			}
+			//if ((innerPawn.Faction == null || innerPawn.Faction != Faction.OfPlayer) && innerPawn.guest.Recruitable)
+			//{
+			//	RecruitUtility.Recruit(innerPawn, Faction.OfPlayer, parent.pawn);
+			//	Messages.Message("WVC_XaG_ReimplantResurrectionRecruiting".Translate(innerPawn), innerPawn, MessageTypeDefOf.PositiveEvent);
+			//}
 			if (ModLister.IdeologyInstalled)
 			{
 				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_GenesDefOf.WVC_ReimplanterResurrection, parent.pawn.Named(HistoryEventArgsNames.Doer)));
@@ -46,6 +46,13 @@ namespace WVC_XenotypesAndGenes
 						int max = HediffDefOf.XenogerminationComa.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.max;
 						int max2 = HediffDefOf.XenogermLossShock.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.max;
 						Find.LetterStack.ReceiveLetter("WVC_LetterLabel_GeneRiseFromTheDead".Translate(), "WVC_LetterText_GeneRiseFromTheDead".Translate(innerPawn.Named("TARGET")) + "\n\n" + "LetterTextGenesImplanted".Translate(parent.pawn.Named("CASTER"), innerPawn.Named("TARGET"), max.ToStringTicksToPeriod().Named("COMADURATION"), max2.ToStringTicksToPeriod().Named("SHOCKDURATION")), LetterDefOf.NeutralEvent, new LookTargets(parent.pawn, innerPawn));
+					}
+				}
+				foreach (Gene gene in parent.pawn.genes.GenesListForReading)
+				{
+					if (gene is Gene_PostImplanterDependant postgene && gene.Active)
+					{
+						postgene.Notify_TargetResurrected(innerPawn);
 					}
 				}
 			}
