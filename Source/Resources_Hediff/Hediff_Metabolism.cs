@@ -20,7 +20,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd(DamageInfo? dinfo)
 		{
 			base.PostAdd(dinfo);
-			RecacheScars();
+			RecacheHungerFactor();
 		}
 
 		public override HediffStage CurStage
@@ -52,10 +52,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			RecacheScars();
+			RecacheHungerFactor();
 		}
 
-		public void RecacheScars()
+		public void RecacheHungerFactor()
 		{
 			int num2 = 0;
 			if (WVC_Biotech.settings.enable_chimeraMetabolismHungerFactor)

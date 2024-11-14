@@ -13,6 +13,14 @@ namespace WVC_XenotypesAndGenes
 	public static class GeneResourceUtility
 	{
 
+		public static void UpdMetabolism(Pawn pawn)
+		{
+			if (pawn.health.hediffSet.TryGetHediff(out HediffWithComps_Metabolism metabolism))
+			{
+				metabolism.RecacheHungerFactor();
+			}
+		}
+
 		public static int GetThrallsLimit(Pawn caller, float cellsPerDay)
 		{
 			float limit = 0f;
@@ -483,6 +491,11 @@ namespace WVC_XenotypesAndGenes
 		public static bool IsShapeshifter(this Pawn pawn)
 		{
 			return pawn?.genes?.GetFirstGeneOfType<Gene_Shapeshifter>() != null;
+		}
+
+		public static bool IsMorpher(this Pawn pawn)
+		{
+			return pawn?.genes?.GetFirstGeneOfType<Gene_Morpher>() != null;
 		}
 
 		public static bool IsBloodeater(this Pawn pawn)

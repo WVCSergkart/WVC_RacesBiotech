@@ -94,7 +94,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void Notify_Override()
 		{
-			HediffUtility.TryAddOrRemoveHediff(Giver.hediffDefName, pawn, this, Giver.bodyparts);
+			Local_AddOrRemoveHediff();
 		}
 
 		private Gizmo genesGizmo;
@@ -179,7 +179,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Tick()
 		{
-			base.Tick();
+			//base.Tick();
 			if (!pawn.IsHashIntervalTick(63333))
 			{
 				return;
@@ -353,14 +353,11 @@ namespace WVC_XenotypesAndGenes
 		// }
 
 		public virtual void UpdateMetabolism()
-		{
-			if (pawn.health.hediffSet.TryGetHediff(out HediffWithComps_Metabolism metabolism))
-			{
-				metabolism.RecacheScars();
-			}
-		}
+        {
+			GeneResourceUtility.UpdMetabolism(pawn);
+        }
 
-		public void DoEffects()
+        public void DoEffects()
 		{
 			if (pawn.Map == null)
 			{

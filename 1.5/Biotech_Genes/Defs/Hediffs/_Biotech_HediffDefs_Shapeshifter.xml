@@ -82,19 +82,10 @@
 
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
 	<defName>WVC_ChimeraMetabolism_HungerFactor</defName>
-	<label>chimera metabolism</label>
+	<label>genetic metabolism</label>
 	<description>This creature's hunger varies depending on its genetic metabolism.</description>
 	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_Metabolism</hediffClass>
 	<defaultLabelColor>(255, 255, 255)</defaultLabelColor>
-	<!-- <curve> -->
-	  <!-- <points> -->
-		<!-- <li>(-2f, 1.224f)</li> -->
-		<!-- <li>(-1f, 1.112f)</li> -->
-		<!-- <li>(0f, 1f)</li> -->
-		<!-- <li>(1, 0.8)</li> -->
-		<!-- <li>(5, 0)</li> -->
-	  <!-- </points> -->
-	<!-- </curve> -->
 	<comps>
 		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/>
 	</comps>

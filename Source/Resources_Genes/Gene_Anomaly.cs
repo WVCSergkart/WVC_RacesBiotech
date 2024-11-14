@@ -187,8 +187,13 @@ namespace WVC_XenotypesAndGenes
 		public void TryDuplicate()
         {
             pawn.abilities?.GetAbility(def.abilities.First())?.Activate(pawn, pawn);
-        }
+		}
 
-    }
+		public void ResetAbility()
+		{
+			pawn.abilities?.GetAbility(def.abilities.First())?.ResetCooldown();
+		}
+
+	}
 
 }

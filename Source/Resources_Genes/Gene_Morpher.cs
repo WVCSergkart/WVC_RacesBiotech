@@ -123,12 +123,14 @@ namespace WVC_XenotypesAndGenes
                 UpdSkinAndHair();
                 UpdToolGenes();
 				ReimplanterUtility.PostImplantDebug(pawn);
+				phase = "post morph";
+				//PostMorph();
 				pawn.Drawer?.renderer?.SetAllGraphicsDirty();
-                phase = "do effects yay";
+				phase = "do effects yay";
                 DoEffects();
 				if (removeMorpher)
 				{
-					phase = "remove morpher";
+					phase = "remove morpher :(";
 					RemoveMorpher();
 				}
 				//ResetInterval(new IntRange(42000, 50000));
@@ -179,7 +181,7 @@ namespace WVC_XenotypesAndGenes
 
         private static XenotypeHolder GetBestNewForm(Gene gene)
         {
-            List<XenotypeHolder> holders = ListsUtility.GetAllXenotypesHolders();
+            List<XenotypeHolder> holders = ListsUtility.GetAllXenotypesHolders().Where((XenotypeHolder holder) => !holder.genes.HasGeneDefOfType<Gene_MorpherOneTimeUse>()).ToList();
 			List<XenotypeHolder> result = new();
 			foreach (XenotypeHolder holder in holders)
 			{
@@ -221,22 +223,25 @@ namespace WVC_XenotypesAndGenes
 				{
 					holder.matchPercent *= 10f;
 				}
-				if (!holder.genes.HasGeneDefOfType<Gene_MorpherOneTimeUse>())
-				{
-					result.Add(holder);
-				}
+				result.Add(holder);
 			}
 			//Log.Error("Xenotypes weights:" + "\n" + result.Select((XenotypeHolder x) => x.LabelCap + ": " + x.matchPercent).ToLineList(" - "));
 			if (result.TryRandomElementByWeight((XenotypeHolder holder) => holder.matchPercent.Value, out XenotypeHolder newHolder))
 			{
 				return newHolder;
 			}
+			Log.Error("Failed get best holder. Trying randomize.");
 			return holders.RandomElement();
-        }
+		}
+
+		//public void PostMorph()
+		//{
+		//	GeneResourceUtility.UpdMetabolism(pawn);
+		//}
 
 		//public GeneDef nextGeneTool = null;
 
-        public void UpdToolGenes(bool forced = false, GeneDef nextGeneTool = null)
+		public void UpdToolGenes(bool forced = false, GeneDef nextGeneTool = null)
         {
             if (forced || pawn.genes?.GenesListForReading?.Any((Gene gene) => gene is Gene_MorpherTrigger) == false)
 			{

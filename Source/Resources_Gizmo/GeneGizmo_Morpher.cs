@@ -59,7 +59,14 @@ namespace WVC_XenotypesAndGenes
 				Widgets.DrawHighlight(rect4);
 				if (Widgets.ButtonInvisible(rect4))
 				{
-					FloatMenu();
+					if (pawn.genes?.GetFirstGeneOfType<Gene_MorpherOneTimeUse>() == null)
+					{
+						FloatMenu();
+					}
+					else
+					{
+						Messages.Message("WVC_XaG_ReqAnyGeneSetHolders".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+					}
 				}
 			}
 			TooltipHandler.TipRegion(rect4, "WVC_XaG_GeneMorpherChangeTriggerGene_Desc".Translate());
@@ -97,7 +104,7 @@ namespace WVC_XenotypesAndGenes
 			List<FloatMenuOption> list = new();
 			if (geneTriggers == null)
             {
-				geneTriggers = DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<Gene_MorpherTrigger>() && !XaG_GeneUtility.HasGene(geneDef, pawn)).ToList();
+				geneTriggers = DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<Gene_MorpherTrigger>() && !XaG_GeneUtility.HasGene(geneDef, pawn) && !geneDef.IsGeneDefOfType<Gene_AbilityMorph>()).ToList();
 			}
 			if (!geneTriggers.NullOrEmpty())
 			{

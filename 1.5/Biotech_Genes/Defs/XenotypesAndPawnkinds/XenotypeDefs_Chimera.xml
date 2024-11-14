@@ -37,7 +37,7 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<defaultColor>(255, 133, 133)</defaultColor>
-			<morpherTriggerGene>WVC_MorphCondition_Deathrest</morpherTriggerGene>
+			<!-- <morpherTriggerGene>WVC_MorphCondition_Deathrest</morpherTriggerGene> -->
 		</li>
 	</modExtensions>
   </XenotypeDef>

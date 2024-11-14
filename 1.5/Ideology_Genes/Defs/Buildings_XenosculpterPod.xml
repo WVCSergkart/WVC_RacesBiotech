@@ -103,6 +103,7 @@
 		</requiredResearch>
 		<extraRequiredIngredients>
 		  <MedicineUltratech>2</MedicineUltratech>
+		  <Shard MayRequire="ludeon.rimworld.anomaly">1</Shard>
 		</extraRequiredIngredients>
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_BiosculpterPod_XenogermCycle">

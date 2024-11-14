@@ -205,4 +205,34 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class CompUseEffect_GeneMorpherForms : CompUseEffect
+	{
+		public CompProperties_UseEffect_XenogermSerum Props => (CompProperties_UseEffect_XenogermSerum)props;
+
+		public override void DoEffect(Pawn pawn)
+		{
+			pawn?.genes?.GetFirstGeneOfType<Gene_Morpher>()?.AddLimit();
+		}
+
+		public override AcceptanceReport CanBeUsedBy(Pawn p)
+		{
+			if (!ReimplanterUtility.IsHuman(p) || !p.IsMorpher())
+			{
+				return "WVC_PawnIsAndroidCheck".Translate();
+			}
+			return true;
+		}
+
+	}
+
+	public class CompUseEffect_GeneDuplicatorResetAbility : CompUseEffect
+	{
+
+		public override void DoEffect(Pawn pawn)
+		{
+			pawn?.genes?.GetFirstGeneOfType<Gene_Duplicator>()?.ResetAbility();
+		}
+
+	}
+
 }

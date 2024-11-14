@@ -16,7 +16,7 @@
 		<!-- <li>&lt;color=#8a8ae6&gt;Morph&lt;/color&gt; is triggered every &lt;color=#8a8ae6&gt;evening&lt;/color&gt;.</li> -->
 		<li>Old gene set is stored in the &lt;color=#8a8ae6&gt;gene's memory&lt;/color&gt;.</li>
 		<!-- <li>&lt;color=#ffec85&gt;Can only remember one custom xenotype at a time.&lt;/color&gt;</li> -->
-		<li>&lt;color=#ffec85&gt;Support custom xenotypes.&lt;/color&gt;</li>
+		<!-- <li>&lt;color=#ffec85&gt;Support custom xenotypes.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>VRE_Morphs</li>
@@ -26,6 +26,7 @@
 			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<hediffDefName>WVC_ChimeraMetabolism_HungerFactor</hediffDefName>
 			<morpherTriggerChangeJob>WVC_ChangeMorpherTriggerGene</morpherTriggerChangeJob>
 			<morpherTriggerGenes>
 			  <li>WVC_MorphCondition_Diurnal</li>

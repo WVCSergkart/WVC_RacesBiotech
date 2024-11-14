@@ -81,6 +81,7 @@
 	<costList>
 	  <ComponentIndustrial>4</ComponentIndustrial>
 	  <ComponentSpacer>3</ComponentSpacer>
+	  <Shard MayRequire="ludeon.rimworld.anomaly">1</Shard>
 	</costList>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
@@ -157,13 +158,16 @@
 	<defName>WVC_ShapeshifterOverclockerSerum_Base</defName>
 	<label>duplicate restoration serum</label>
 	<description>A one-use super-dose of mechanites tuned to restore the user's mental state and cure diseases associated with duplication.</description>
-	<descriptionHyperlinks Inherit="False"/>
+	<descriptionHyperlinks Inherit="False">
+	  <GeneDef>WVC_Duplicator</GeneDef>
+	</descriptionHyperlinks>
 	<graphicData>
 	  <texPath>WVC/Things/XaG_Items/Serums_Single/ShiftInjector_v0</texPath>
 	</graphicData>
 	<costList>
 	  <Uranium>30</Uranium>
 	  <ComponentIndustrial>3</ComponentIndustrial>
+	  <Shard MayRequire="ludeon.rimworld.anomaly">1</Shard>
 	</costList>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
@@ -179,9 +183,37 @@
 		  <!-- <li">WVC_DuplicateSickness</li> -->
 		</hediffsToRemove>
 	  </li>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum">
+		<compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneDuplicatorResetAbility</compClass>
+	  </li>
 	</comps>
   </ThingDef>
 
   <!-- ==================================== -->
+
+  <!-- <ThingDef ParentName="WVC_XenotypeSerum_ShiftSerumsTech" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings"> -->
+	<!-- <defName>WVC_GeneMorpherSerum_AddForm</defName> -->
+	<!-- <label>form-creater serum</label> -->
+	<!-- <description>A one-use super-dose of archites tuned to expand the number of possible forms for the Morpher.</description> -->
+	<!-- <descriptionHyperlinks Inherit="False"> -->
+	  <!-- <GeneDef>WVC_Morpher</GeneDef> -->
+	<!-- </descriptionHyperlinks> -->
+	<!-- <graphicData> -->
+	  <!-- <texPath>WVC/Things/XaG_Items/Serums_Single/AnomalySerum_Morpher_v0</texPath> -->
+	<!-- </graphicData> -->
+	<!-- <statBases> -->
+	  <!-- <MarketValue>3175</MarketValue> -->
+	<!-- </statBases> -->
+	<!-- <costList> -->
+	  <!-- <ComponentSpacer>3</ComponentSpacer> -->
+	  <!-- <ArchiteCapsule>4</ArchiteCapsule> -->
+	  <!-- <Shard MayRequire="ludeon.rimworld.anomaly">1</Shard> -->
+	<!-- </costList> -->
+	<!-- <comps> -->
+	  <!-- <li Class="WVC_XenotypesAndGenes.CompProperties_UseEffect_XenogermSerum"> -->
+		<!-- <compClass>WVC_XenotypesAndGenes.CompUseEffect_GeneMorpherForms</compClass> -->
+	  <!-- </li> -->
+	<!-- </comps> -->
+  <!-- </ThingDef> -->
 
 </Defs>

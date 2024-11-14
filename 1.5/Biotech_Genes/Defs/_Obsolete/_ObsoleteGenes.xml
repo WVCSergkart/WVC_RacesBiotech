@@ -32,8 +32,23 @@
   <AbilityDef ParentName="AbilityTouchBase">
 	<defName>WVC_StartGestation</defName>
 	<label>gestator</label>
+	<description>Bite the target and extract resurgent cells directly from their blood. A fast-acting coagulant will seal the wound to prevent bleeding.\n\nCan only target resurgent humans. Delay gain is affected by the target's body size.</description>
+	<iconPath>WVC/UI/Genes/Gene_Thrall_v0</iconPath>
+	<displayOrder>100</displayOrder>
+	<warmupEffecter>Bloodfeed_Warmup</warmupEffecter>
+	<warmupStartSound>Bloodfeed_Cast</warmupStartSound>
+	<hostile>false</hostile>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
 	<verbProperties>
-	  <warmupEffecter>Berserk</warmupEffecter>
+	  <verbClass>Verb_CastAbilityTouch</verbClass>
+	  <drawAimPie>false</drawAimPie>
+	  <range>-1</range>
+	  <warmupTime>2</warmupTime>
+	  <targetParams>
+		<canTargetSelf>false</canTargetSelf>
+		<canTargetBuildings>false</canTargetBuildings>
+		<canTargetMechs>false</canTargetMechs>
+	  </targetParams>
 	</verbProperties>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityObsolete">
@@ -47,8 +62,21 @@
 	<label>dustogenesis</label>
 	<description>Conceive a child without a partner.</description>
 	<iconPath>WVC/UI/Genes/Gene_ImmaculateConception_v0</iconPath>
+	<displayOrder>100</displayOrder>
+	<warmupEffecter>Bloodfeed_Warmup</warmupEffecter>
+	<warmupStartSound>Bloodfeed_Cast</warmupStartSound>
+	<hostile>false</hostile>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
 	<verbProperties>
-	  <warmupEffecter>Berserk</warmupEffecter>
+	  <verbClass>Verb_CastAbilityTouch</verbClass>
+	  <drawAimPie>false</drawAimPie>
+	  <range>-1</range>
+	  <warmupTime>2</warmupTime>
+	  <targetParams>
+		<canTargetSelf>false</canTargetSelf>
+		<canTargetBuildings>false</canTargetBuildings>
+		<canTargetMechs>false</canTargetMechs>
+	  </targetParams>
 	</verbProperties>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityObsolete">

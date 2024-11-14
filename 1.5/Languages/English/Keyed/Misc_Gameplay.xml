@@ -673,6 +673,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_SelectedXenoGeneSetHolder>Xenogenes</WVC_XaG_SelectedXenoGeneSetHolder>
 
 	<WVC_XaG_ReqAnyGeneSetHolders>There are no saved forms.</WVC_XaG_ReqAnyGeneSetHolders>
+	<WVC_XaG_HasOneTimeMorpherGene>One time morphers cannot change the trigger gene.</WVC_XaG_HasOneTimeMorpherGene>
 
 	<!-- Shapeshifter can freely change &lt;color=#6bb6bb&gt;forms (xenotypes)&lt;/color&gt; at will. The limitations are &lt;color=#8a8ae6&gt;xenogermination coma&lt;/color&gt; and &lt;color=#8a8ae6&gt;genes regrowing&lt;/color&gt;, which prevent the change of &lt;color=#6bb6bb&gt;form&lt;/color&gt;. These restrictions can be overcome with the help of certain &lt;color=#6bb6bb&gt;genes&lt;/color&gt; or with the help of &lt;color=#6bb6bb&gt;special serums&lt;/color&gt;. -->
 
