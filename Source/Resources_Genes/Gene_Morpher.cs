@@ -234,11 +234,18 @@ namespace WVC_XenotypesAndGenes
 			return holders.RandomElement();
         }
 
-        public void UpdToolGenes(bool forced = false)
+		//public GeneDef nextGeneTool = null;
+
+        public void UpdToolGenes(bool forced = false, GeneDef nextGeneTool = null)
         {
             if (forced || pawn.genes?.GenesListForReading?.Any((Gene gene) => gene is Gene_MorpherTrigger) == false)
 			{
 				bool xenogene = pawn.genes.IsXenogene(this);
+				if (nextGeneTool != null)
+				{
+					AddToolGene(nextGeneTool, xenogene);
+					return;
+				}
 				GeneDef geneDef = DefDatabase<GeneDef>.GetNamed("WVC_MorphCondition_Deathrest");
 				if (XenotypeGiver?.morpherTriggerGene != null)
 				{
@@ -258,7 +265,7 @@ namespace WVC_XenotypesAndGenes
 					//AddToolGene(DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef geneDef) => geneDef.prerequisite != null && geneDef.prerequisite == def).RandomElement(), xenogene);
 				}
             }
-        }
+		}
 
         private void UpdSkinAndHair()
 		{

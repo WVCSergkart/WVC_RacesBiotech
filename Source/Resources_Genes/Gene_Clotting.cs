@@ -143,7 +143,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				scarifierIsNull = Scarifier == null;
 			}
-			bool skipScarify = scarifierIsNull.Value || !Scarifier.CanScarify;
+			bool canScarify = scarifierIsNull.Value || Scarifier.CanScarify;
 			List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
 			for (int num = 0; num < hediffs.Count; num++)
 			{
@@ -152,16 +152,16 @@ namespace WVC_XenotypesAndGenes
 					continue;
 				}
 				hediffs[num].Tended(TendingQualityRange.RandomInRange, TendingQualityRange.TrueMax, 1);
+				if (!canScarify)
+				{
+					continue;
+				}
 				if (!ShouldScarify())
 				{
 					continue;
 				}
-				//Gene_Scarifier gene_Scarifier = pawn.genes?.GetFirstGeneOfType<Gene_Scarifier>();
-				if (skipScarify)
-				{
-					continue;
-				}
 				Gene_Scarifier.Scarify(pawn);
+				canScarify = scarifierIsNull.Value || Scarifier.CanScarify;
 			}
 		}
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Verse;
+using Verse.AI;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -43,23 +44,13 @@ namespace WVC_XenotypesAndGenes
 			Rect rect2 = rect.ContractedBy(6f);
 			Widgets.DrawWindowBackground(rect);
 			// Tip
-			// string text = gene.heritableGenesSlots.ToString("F0");
-			// +text
-			// TaggedString taggedString = gene.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + ": " + "\n\n";
 			TaggedString taggedString = gene.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + ": " + "\n\n" + "WVC_XaG_MorpherGizmoTip".Translate() + "\n\n" + "WVC_XaG_MorpherGizmoLimitTip".Translate(gene.FormsCount, gene.CurrentLimit);
 			Text.Font = GameFont.Small;
 			Text.Anchor = TextAnchor.UpperLeft;
 			// Label
 			Rect rect3 = new(rect2.x, rect2.y, rect2.width, 20f);
-			// Widgets.Label(rect3, "WVC_XaG_ShapeshifterGizmo".Translate());
 			Widgets.Label(rect3, gene.def.LabelCap);
-			//Text.Font = GameFont.Small;
-			//Text.Anchor = TextAnchor.UpperRight;
 			TooltipHandler.TipRegion(rect3, taggedString);
-			// Widgets.Label(rect3, text);
-			// Text.Anchor = TextAnchor.UpperLeft;
-			// Text.Font = GameFont.Small;
-			// Text.Anchor = TextAnchor.UpperRight;
 			// Button
 			Rect rect4 = new(rect2.x, rect2.y + 23f, 40f, 40f);
 			Widgets.DrawTextureFitted(rect4, JobIcon.Texture, 1f);
@@ -68,11 +59,10 @@ namespace WVC_XenotypesAndGenes
 				Widgets.DrawHighlight(rect4);
 				if (Widgets.ButtonInvisible(rect4))
 				{
-					gene.AddLimit();
-					// Find.WindowStack.Add(new Dialog_Shapeshifter(gene));
+					FloatMenu();
 				}
 			}
-			TooltipHandler.TipRegion(rect4, "WVC_XaG_GeneMorpherArchitesLevel_Desc".Translate() + "\n\n" + "WVC_XaG_MorpherGizmoLimitTip".Translate(gene.FormsCount, gene.CurrentLimit));
+			TooltipHandler.TipRegion(rect4, "WVC_XaG_GeneMorpherChangeTriggerGene_Desc".Translate());
 			// Button
 			Rect rect5 = new(rect4.x + 44f, rect4.y, rect4.width, rect4.height);
 			Widgets.DrawTextureFitted(rect5, MenuIcon.Texture, 1f);
@@ -92,50 +82,61 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 			TooltipHandler.TipRegion(rect5, "WVC_XaG_GeneMorpherMenu_Desc".Translate());
-			// Button
-			// Rect rect6 = new(rect5.x + 44f, rect5.y, rect5.width, rect5.height);
-			// Widgets.DrawTextureFitted(rect6, InheritableGenesIcon.Texture, 1f);
-			// if (Mouse.IsOver(rect6))
-			// {
-				// Widgets.DrawHighlight(rect6);
-				// if (Widgets.ButtonInvisible(rect6))
-				// {
-					// Find.WindowStack.Add(new Dialog_ShapeshifterHeritableGenes(gene));
-				// }
-			// }
-			// TooltipHandler.TipRegion(rect6, "WVC_XaG_GeneShapeshifterHeritableGenes_Desc".Translate());
-			// UpperButton
-			// Rect rectModeButton = new(rect.x + rect.width - 52f - 6f, rect.y + 6f, 26f, 26f);
-			// Widgets.DrawTextureFitted(rectModeButton, MenuIcon.Texture, 1f);
-			// if (Mouse.IsOver(rectModeButton))
-			// {
-				// Widgets.DrawHighlight(rectModeButton);
-				// if (Widgets.ButtonInvisible(rectModeButton))
-				// {
-				// }
-			// }
 			return new GizmoResult(GizmoState.Clear);
 		}
 
 		public override float GetWidth(float maxWidth)
 		{
-			// return 136f;
 			return 96f;
-			// return 140f;
 		}
 
-		// public static IEnumerable<FloatMenuOption> GetWorkModeOptions(MechanitorControlGroup controlGroup)
-		// {
-			// foreach (MechWorkModeDef wm in DefDatabase<MechWorkModeDef>.AllDefsListForReading.OrderBy((MechWorkModeDef d) => d.uiOrder))
-			// {
-				// FloatMenuOption floatMenuOption = new FloatMenuOption(wm.LabelCap, delegate
-				// {
-					// controlGroup.SetWorkMode(wm);
-				// }, wm.uiIcon, Color.white);
-				// floatMenuOption.tooltip = new TipSignal(wm.description, wm.index ^ 0xDFE8661);
-				// yield return floatMenuOption;
-			// }
-		// }
+		private List<GeneDef> geneTriggers = null;
+
+		private void FloatMenu()
+		{
+			List<FloatMenuOption> list = new();
+			if (geneTriggers == null)
+            {
+				geneTriggers = DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<Gene_MorpherTrigger>() && !XaG_GeneUtility.HasGene(geneDef, pawn)).ToList();
+			}
+			if (!geneTriggers.NullOrEmpty())
+			{
+				for (int i = 0; i < geneTriggers.Count; i++)
+				{
+					GeneDef geneDef = geneTriggers[i];
+					list.Add(new FloatMenuOption(geneDef.LabelCap, delegate
+					{
+						Thing architeCapsule = GetBestArchiteStack(pawn, false);
+						if (architeCapsule != null)
+						{
+							XaG_Job xaG_Job = new(JobMaker.MakeJob(gene.Giver.morpherTriggerChangeJob, architeCapsule));
+							xaG_Job.geneDef = geneDef;
+							pawn.jobs.TryTakeOrderedJob(xaG_Job, JobTag.Misc);
+						}
+						else
+						{
+							Messages.Message("WVC_XaG_GeneMorpherChangeTriggerGene_FailMessage".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+						}
+						geneTriggers = null;
+					}));
+				}
+			}
+			Find.WindowStack.Add(new FloatMenu(list));
+		}
+
+		public static Thing GetBestArchiteStack(Pawn pawn, bool forced)
+		{
+			Danger danger = (forced ? Danger.Deadly : Danger.Some);
+			return (Thing)GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForDef(ThingDefOf.ArchiteCapsule), PathEndMode.Touch, TraverseParms.For(pawn, danger), 9999f, delegate (Thing t)
+			{
+				Thing chunk = (Thing)t;
+				if (!pawn.CanReach(t, PathEndMode.InteractionCell, danger))
+				{
+					return false;
+				}
+				return !t.IsForbidden(pawn) && pawn.CanReserve(t, 1, -1, null, forced);
+			});
+		}
 
 	}
 

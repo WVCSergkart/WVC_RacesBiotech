@@ -251,16 +251,21 @@ namespace WVC_XenotypesAndGenes
 				return false;
 			}
 			for (int i = 0; i < geneDefs.Count; i++)
-			{
-				if (geneDefs[i].geneClass == typeof(T) || typeof(T).IsAssignableFrom(geneDefs[i].geneClass))
-				{
-					return true;
-				}
-			}
-			return false;
+            {
+                if (geneDefs[i].IsGeneDefOfType<T>())
+                {
+                    return true;
+                }
+            }
+            return false;
 		}
 
-		public static bool ConflictWith(GeneDef geneDef, List<GeneDef> geneDefs)
+        public static bool IsGeneDefOfType<T>(this GeneDef geneDef)
+        {
+            return geneDef.geneClass == typeof(T) || typeof(T).IsAssignableFrom(geneDef.geneClass);
+        }
+
+        public static bool ConflictWith(GeneDef geneDef, List<GeneDef> geneDefs)
 		{
 			foreach (GeneDef item in geneDefs)
 			{

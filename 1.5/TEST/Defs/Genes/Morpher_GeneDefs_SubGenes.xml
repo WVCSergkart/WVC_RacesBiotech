@@ -24,6 +24,7 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_AbilityMorph</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_Ability</iconPath>
 	<displayOrderInCategory>-95</displayOrderInCategory>
+	<biostatArc>3</biostatArc>
 	<customEffectDescriptions>
 		<li>Allows morph in &lt;color=#8a8ae6&gt;any time&lt;/color&gt;.</li>
 	</customEffectDescriptions>

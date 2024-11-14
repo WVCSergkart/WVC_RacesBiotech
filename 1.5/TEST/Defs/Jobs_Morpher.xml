@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <JobDef>
+	<defName>WVC_ChangeMorpherTriggerGene</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_ChangeMorpherTriggerGene</driverClass>
+	<reportString>changing gene trigger.</reportString>
+  </JobDef>
+
+</Defs>

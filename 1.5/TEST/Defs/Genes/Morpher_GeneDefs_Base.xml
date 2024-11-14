@@ -26,6 +26,7 @@
 			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<morpherTriggerChangeJob>WVC_ChangeMorpherTriggerGene</morpherTriggerChangeJob>
 			<morpherTriggerGenes>
 			  <li>WVC_MorphCondition_Diurnal</li>
 			  <li>WVC_MorphCondition_Nocturnal</li>
