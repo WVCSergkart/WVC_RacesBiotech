@@ -121,21 +121,21 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostAdd();
 			Reset();
-			ResetResourceValue();
 		}
 
-		private void ResetResourceValue()
+		public override void Reset()
 		{
+			base.Reset();
 			FloatRange floatRange = new(0.06f, 0.97f);
 			Value = floatRange.RandomInRange;
 		}
 
 		public override void Tick()
 		{
-			base.Tick();
-			if (pawn.IsHashIntervalTick(120))
+			//base.Tick();
+			if (pawn.IsHashIntervalTick(1500))
 			{
-				GeneResourceUtility.TickResourceDrain(this, 120);
+				GeneResourceUtility.TickResourceDrain(this, 1500);
 			}
 		}
 

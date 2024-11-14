@@ -57,10 +57,6 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (!Active)
-			{
-				return;
-			}
 			List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
 			for (int num = 0; num < hediffs.Count; num++)
 			{
@@ -83,12 +79,12 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Tick()
 		{
-			base.Tick();
+			//base.Tick();
 			if (!pawn.IsHashIntervalTick(1500))
 			{
 				return;
 			}
-			if (!Active)
+			if (Resurgent == null)
 			{
 				return;
 			}
@@ -96,11 +92,6 @@ namespace WVC_XenotypesAndGenes
 			for (int num = 0; num < hediffs.Count; num++)
 			{
 				if (!hediffs[num].TendableNow() || hediffs[num].IsTended())
-				{
-					continue;
-				}
-				// Gene_ResurgentCells gene_Resurgent = pawn.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
-				if (Resurgent == null)
 				{
 					continue;
 				}
@@ -114,22 +105,45 @@ namespace WVC_XenotypesAndGenes
 		}
 	}
 
-	public class Gene_ScarifierClotting : Gene
+	public class Gene_ScarifierClotting : Gene, IGeneNotifyGenesChanged
 	{
+
+		[Unsaved(false)]
+		private Gene_Scarifier cachedScarifierGene;
+
+		public Gene_Scarifier Scarifier
+		{
+			get
+			{
+				if (cachedScarifierGene == null || !cachedScarifierGene.Active)
+				{
+					cachedScarifierGene = pawn?.genes?.GetFirstGeneOfType<Gene_Scarifier>();
+				}
+				return cachedScarifierGene;
+			}
+		}
+
+		private bool? scarifierIsNull;
 
 		private static readonly FloatRange TendingQualityRange = new(0.7f, 1.0f);
 
+		public void Notify_GenesChanged(Gene changedGene)
+		{
+			scarifierIsNull = null;
+		}
+
 		public override void Tick()
 		{
-			base.Tick();
+			//base.Tick();
 			if (!pawn.IsHashIntervalTick(2000))
 			{
 				return;
 			}
-			if (!Active)
+			if (!scarifierIsNull.HasValue)
 			{
-				return;
+				scarifierIsNull = Scarifier == null;
 			}
+			bool skipScarify = scarifierIsNull.Value || !Scarifier.CanScarify;
 			List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
 			for (int num = 0; num < hediffs.Count; num++)
 			{
@@ -142,8 +156,8 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				Gene_Scarifier gene_Scarifier = pawn.genes?.GetFirstGeneOfType<Gene_Scarifier>();
-				if (gene_Scarifier != null && (gene_Scarifier == null || !gene_Scarifier.CanScarify))
+				//Gene_Scarifier gene_Scarifier = pawn.genes?.GetFirstGeneOfType<Gene_Scarifier>();
+				if (skipScarify)
 				{
 					continue;
 				}
@@ -188,7 +202,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Tick()
 		{
-			base.Tick();
+			//base.Tick();
 			if (!pawn.IsHashIntervalTick(11821))
 			{
 				return;

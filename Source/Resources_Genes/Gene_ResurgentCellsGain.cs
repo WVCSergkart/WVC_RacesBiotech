@@ -69,32 +69,16 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_ResurgentCellsGain : Gene, IGeneResourceDrain
+	public class Gene_ResurgentCellsGain : Gene_ResurgentDependent, IGeneResourceDrain
 	{
 
-		[Unsaved(false)]
-		private Gene_ResurgentCells cachedHemogenGene;
-
-		public Gene_Resource Resource => Cells;
-
-		public Gene_ResurgentCells Cells
-		{
-			get
-			{
-				if (cachedHemogenGene == null || !cachedHemogenGene.Active)
-				{
-					cachedHemogenGene = pawn?.genes?.GetFirstGeneOfType<Gene_ResurgentCells>();
-				}
-				return cachedHemogenGene;
-			}
-		}
-
+		public Gene_Resource Resource => Resurgent;
 
 		public bool CanOffset
 		{
 			get
 			{
-				return Cells?.CanOffset == true;
+				return Resurgent?.CanOffset == true;
 			}
 		}
 
@@ -106,12 +90,11 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Tick()
 		{
-			base.Tick();
-			if (pawn.IsHashIntervalTick(120))
+			//base.Tick();
+			if (pawn.IsHashIntervalTick(1500))
 			{
-				GeneResourceUtility.TickResourceDrain(this, 120);
+				GeneResourceUtility.TickResourceDrain(this, 1500);
 			}
-			// UndeadUtility.TickResourceDrain(this);
 		}
 
 	}

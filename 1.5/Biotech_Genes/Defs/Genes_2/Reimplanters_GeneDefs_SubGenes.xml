@@ -8,8 +8,8 @@
 	<iconPath>WVC/UI/Genes/Gene_PostImplanterBrainwash_v0</iconPath>
 	<geneClass>WVC_XenotypesAndGenes.Gene_PostImplanter_Brainwash</geneClass>
 	<selectionWeight>0.0022</selectionWeight>
-	<displayCategory>WVC_Miscellaneous</displayCategory>
-	<displayOrderInCategory>100</displayOrderInCategory>
+	<displayCategory>WVC_ResurgentCells</displayCategory>
+	<displayOrderInCategory>120</displayOrderInCategory>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
