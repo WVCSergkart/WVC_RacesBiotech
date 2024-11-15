@@ -65,7 +65,7 @@ namespace WVC_XenotypesAndGenes
 					}
 					else
 					{
-						Messages.Message("WVC_XaG_ReqAnyGeneSetHolders".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+						Messages.Message("WVC_XaG_HasOneTimeMorpherGene".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
 					}
 				}
 			}
