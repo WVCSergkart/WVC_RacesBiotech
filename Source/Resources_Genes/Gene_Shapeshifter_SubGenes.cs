@@ -58,23 +58,23 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		public void Notify_PreShapeshift(Gene_Shapeshifter shapeshiftGene)
-        {
-            RemoveAllRemovableBadHediffs(pawn);
-        }
+		{
+			RemoveAllRemovableBadHediffs(pawn);
+		}
 
-        public static void RemoveAllRemovableBadHediffs(Pawn pawn)
-        {
-            foreach (Hediff hediff in pawn.health.hediffSet.hediffs.ToList())
-            {
-                if (hediff.def == HediffDefOf.Scarification || !hediff.def.isBad || !hediff.def.everCurableByItem)
-                {
-                    continue;
-                }
-                pawn.health.RemoveHediff(hediff);
-            }
-        }
+		public static void RemoveAllRemovableBadHediffs(Pawn pawn)
+		{
+			foreach (Hediff hediff in pawn.health.hediffSet.hediffs.ToList())
+			{
+				if (hediff.def == HediffDefOf.Scarification || !hediff.def.isBad || !hediff.def.everCurableByItem)
+				{
+					continue;
+				}
+				pawn.health.RemoveHediff(hediff);
+			}
+		}
 
-        public void Notify_PostShapeshift(Gene_Shapeshifter newShapeshiftGene)
+		public void Notify_PostShapeshift(Gene_Shapeshifter newShapeshiftGene)
 		{
 		}
 
