@@ -29,7 +29,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_MorpherOneTimeUse : Gene
+	public class Gene_MorpherOneTimeUse : Gene_MorpherDependant
 	{
 
 		//public virtual void AfterUseMessage()
