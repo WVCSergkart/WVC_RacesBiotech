@@ -35,7 +35,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd(DamageInfo? dinfo)
 		{
 			base.PostAdd(dinfo);
-			RecacheScars();
+			Recache();
 		}
 
 		public override HediffStage CurStage
@@ -80,12 +80,19 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			RecacheScars();
+			Recache();
 		}
 
-		public void RecacheScars()
+		public void Recache()
 		{
-			cachedDryadsCount = Gauranlen.DryadsListForReading.Count;
+			if (Gauranlen != null)
+			{
+				cachedDryadsCount = Gauranlen.DryadsListForReading.Count;
+			}
+			else
+            {
+				pawn?.health?.RemoveHediff(this);
+			}
 			curStage = null;
 		}
 

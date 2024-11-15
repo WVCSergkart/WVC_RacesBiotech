@@ -7,9 +7,9 @@
 	<initialSeverity>1.0</initialSeverity>
 	<minSeverity>0.01</minSeverity>
 	<maxSeverity>1.0</maxSeverity>
-	<comps>
-		<li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/>
-	</comps>
+	<!-- <comps> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/> -->
+	<!-- </comps> -->
   </HediffDef>
 
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_DryadQueen" Class="WVC_XenotypesAndGenes.XaG_HediffDef">

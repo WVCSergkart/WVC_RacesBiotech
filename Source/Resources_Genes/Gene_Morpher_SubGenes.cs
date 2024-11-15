@@ -107,7 +107,7 @@ namespace WVC_XenotypesAndGenes
 					PawnGeneSetHolder geneSet = geneSets[i];
 					list.Add(new FloatMenuOption(geneSet.LabelCap + " " + geneSet.formId.ToString(), delegate
 					{
-						MorpherTrigger(geneSet);
+						MorpherWarining(geneSet);
 					}, orderInPriority: 0 - geneSet.formId));
 				}
 			}
@@ -115,26 +115,31 @@ namespace WVC_XenotypesAndGenes
 			{
 				list.Add(new FloatMenuOption("WVC_XaG_GeneAbilityMorphCreateNewForm".Translate(), delegate
 				{
-					MorpherTrigger(null);
+					MorpherWarining(null);
 				}));
 			}
 			Find.WindowStack.Add(new FloatMenu(list));
 		}
 
-		public virtual void MorpherTrigger(PawnGeneSetHolder geneSet)
+		public virtual void MorpherWarining(PawnGeneSetHolder geneSet)
 		{
 			Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_GeneAbilityMorphWarning".Translate(), delegate
 			{
-				try
-				{
-					Morpher?.TryMorph(geneSet, true, OneTimeUse);
-				}
-				catch (Exception arg)
-				{
-					Log.Error("Failed create form and morph. Reason: " + arg);
-				}
+				MorpherTrigger(geneSet);
 			});
 			Find.WindowStack.Add(window);
+		}
+
+		public virtual void MorpherTrigger(PawnGeneSetHolder geneSet)
+		{
+			try
+			{
+				Morpher?.TryMorph(geneSet, true, OneTimeUse);
+			}
+			catch (Exception arg)
+			{
+				Log.Error("Failed create form and morph. Reason: " + arg);
+			}
 		}
 
 	}
