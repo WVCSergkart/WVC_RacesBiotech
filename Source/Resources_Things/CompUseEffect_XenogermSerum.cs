@@ -207,6 +207,18 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> CompGetGizmosExtra()
 		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: SetXenoholderNull",
+					action = delegate
+					{
+						xenotype = null;
+						xenotypeHolder = null;
+					}
+				};
+			}
 			if (Props.retuneJob == null)
 			{
 				yield break;

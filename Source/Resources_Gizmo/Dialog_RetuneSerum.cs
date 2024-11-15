@@ -22,7 +22,11 @@ namespace WVC_XenotypesAndGenes
             {
 				holder.isOverriden = !HasArchites(holder);
 			}
-			Dialog_XenotypeTree.GetCurrentXenotypeHolder(xenotypeForcer?.xenotypeHolder, ref selectedXenoHolder, allXenotypes);
+            Dialog_XenotypeTree.GetCurrentXenotypeHolder(xenotypeForcer?.xenotypeHolder, ref selectedXenoHolder, allXenotypes);
+            if (selectedXenoHolder == null)
+            {
+                selectedXenoHolder = allXenotypes.RandomElement();
+            }
 		}
 
 		protected override void Accept()
