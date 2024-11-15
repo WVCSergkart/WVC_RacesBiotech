@@ -56,11 +56,11 @@
 	</genes>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<xenotypeDefs>
+			<morpherXenotypeDefs>
 			  <li>WVC_Featherdust</li>
 			  <li>WVC_Resurgent</li>
 			  <li MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li>
-			</xenotypeDefs>
+			</morpherXenotypeDefs>
 		</li>
 	</modExtensions>
   </XenotypeDef>

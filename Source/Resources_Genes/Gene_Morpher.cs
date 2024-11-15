@@ -155,7 +155,7 @@ namespace WVC_XenotypesAndGenes
                 {
                     xenotypeHolder = new(xenotypeFromXenotype);
                 }
-                XenotypeDef xenotypeFromGene = GetRandomXenotypeFromList(Giver?.xenotypeDefs, exclude);
+                XenotypeDef xenotypeFromGene = GetRandomXenotypeFromList(Giver?.morpherXenotypeDefs, exclude);
                 if (xenotypeHolder == null && xenotypeFromGene != null)
                 {
                     xenotypeHolder = new(xenotypeFromGene);

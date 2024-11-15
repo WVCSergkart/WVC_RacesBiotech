@@ -24,9 +24,9 @@
 	</genes>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
-			<xenotypeDefs>
+			<morpherXenotypeDefs>
 			  <li>WVC_Shadoweater</li>
-			</xenotypeDefs>
+			</morpherXenotypeDefs>
 		</li>
 	</modExtensions>
   </XenotypeDef>
