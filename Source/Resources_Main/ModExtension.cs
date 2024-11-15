@@ -246,6 +246,7 @@ namespace WVC_XenotypesAndGenes
 		public List<GeneDef> morpherTriggerGenes;
 		public JobDef morpherTriggerChangeJob;
 		public List<XenotypeDef> morpherXenotypeDefs;
+		public List<XenotypeChance> morpherXenotypeChances;
 	}
 
 	public class GeneExtension_Obsolete : DefModExtension

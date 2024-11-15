@@ -30,12 +30,12 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        public void AddLimit(int count = 1)
-        {
+		public void AddLimit(int count = 1)
+		{
 			currentLimit += count;
-        }
+		}
 
-        public List<PawnGeneSetHolder> GetGeneSets()
+		public List<PawnGeneSetHolder> GetGeneSets()
 		{
 			if (savedGeneSets == null)
 			{
@@ -87,47 +87,47 @@ namespace WVC_XenotypesAndGenes
 		{
 			string phase = "";
 			try
-            {
-                phase = "switch";
-                if (!shouldMorph)
-                {
-                    //ResetInterval(new IntRange(1200, 3400));
-                    return false;
-                }
-                phase = "exclude list";
-                List<XenotypeDef> exclude = new() { pawn.genes.Xenotype };
-                if (savedGeneSets.NullOrEmpty())
-                {
-                    savedGeneSets = new();
-                }
-                else
-                {
-                    foreach (PawnGeneSetHolder set in savedGeneSets)
-                    {
-                        exclude.Add(set.xenotypeDef);
-                    }
+			{
+				phase = "switch";
+				if (!shouldMorph)
+				{
+					//ResetInterval(new IntRange(1200, 3400));
+					return false;
+				}
+				phase = "exclude list";
+				List<XenotypeDef> exclude = new() { pawn.genes.Xenotype };
+				if (savedGeneSets.NullOrEmpty())
+				{
+					savedGeneSets = new();
+				}
+				else
+				{
+					foreach (PawnGeneSetHolder set in savedGeneSets)
+					{
+						exclude.Add(set.xenotypeDef);
+					}
 				}
 				phase = "save old gene set";
-                SaveGenes();
+				SaveGenes();
 				if (nextGeneSet == null)
-                {
-                    phase = "create new form";
-                    TryCreateNewForm(phase, exclude);
-                }
-                else
-                {
-                    phase = "implant saved form";
-                    ImplantFromSet(nextGeneSet);
-                }
-                phase = "debug genes";
-                UpdSkinAndHair();
-                UpdToolGenes();
+				{
+					phase = "create new form";
+					TryCreateNewForm(phase, exclude);
+				}
+				else
+				{
+					phase = "implant saved form";
+					ImplantFromSet(nextGeneSet);
+				}
+				phase = "debug genes";
+				UpdSkinAndHair();
+				UpdToolGenes();
 				ReimplanterUtility.PostImplantDebug(pawn);
 				phase = "post morph";
 				//PostMorph();
 				pawn.Drawer?.renderer?.SetAllGraphicsDirty();
 				phase = "do effects yay";
-                DoEffects();
+				DoEffects();
 				if (removeMorpher)
 				{
 					phase = "remove morpher :(";
@@ -136,8 +136,8 @@ namespace WVC_XenotypesAndGenes
 				//ResetInterval(new IntRange(42000, 50000));
 				return true;
 
-            }
-            catch (Exception arg)
+			}
+			catch (Exception arg)
 			{
 				Log.Error($"Error while morphing during phase {phase}: {arg} (Gene: " + this.LabelCap + " | " + this.def.defName + ")");
 				//nextTick = 60000;
@@ -145,50 +145,62 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-        private void TryCreateNewForm(string phase, List<XenotypeDef> exclude)
-        {
-            XenotypeHolder xenotypeHolder = null;
-            if (savedGeneSets.Count < currentLimit + 1)
-            {
-                XenotypeDef xenotypeFromXenotype = GetRandomXenotypeFromList(XenotypeGiver?.xenotypeDefs, exclude);
-                if (xenotypeFromXenotype != null)
-                {
-                    xenotypeHolder = new(xenotypeFromXenotype);
-                }
-                XenotypeDef xenotypeFromGene = GetRandomXenotypeFromList(Giver?.morpherXenotypeDefs, exclude);
-                if (xenotypeHolder == null && xenotypeFromGene != null)
-                {
-                    xenotypeHolder = new(xenotypeFromGene);
-                }
-                if (xenotypeHolder == null)
-                {
-                    xenotypeHolder = GetBestNewForm(this);
-                }
-            }
-            if (xenotypeHolder != null)
-            {
-                Reimplant(xenotypeHolder);
-            }
-            else if (savedGeneSets.Where((PawnGeneSetHolder set) => set.xenotypeDef != null && set.formId != formId.Value).TryRandomElement(out PawnGeneSetHolder genesHolder))
-            {
-                ImplantFromSet(genesHolder);
-            }
-            else
-            {
-                Log.Error("Failed morph on phase: " + phase);
-            }
-        }
+		private void TryCreateNewForm(string phase, List<XenotypeDef> exclude)
+		{
+			XenotypeHolder xenotypeHolder = null;
+			if (savedGeneSets.Count < currentLimit + 1)
+			{
+				if (XenotypeGiver != null)
+				{
+					if (!XenotypeGiver.morpherXenotypeDefs.NullOrEmpty())
+					{
+						xenotypeHolder = new(GetRandomXenotypeFromList(XenotypeGiver?.morpherXenotypeDefs, exclude));
+					}
+					else if (!XenotypeGiver.morpherXenotypeChances.NullOrEmpty())
+					{
+						xenotypeHolder = new(GetRandomXenotypeFromXenotypeChances(XenotypeGiver?.morpherXenotypeChances, exclude));
+					}
+				}
+				if (xenotypeHolder == null && Giver != null)
+				{
+					if (!Giver.morpherXenotypeDefs.NullOrEmpty())
+					{
+						xenotypeHolder = new(GetRandomXenotypeFromList(Giver?.morpherXenotypeDefs, exclude));
+					}
+					else if (!Giver.morpherXenotypeChances.NullOrEmpty())
+					{
+						xenotypeHolder = new(GetRandomXenotypeFromXenotypeChances(Giver?.morpherXenotypeChances, exclude));
+					}
+				}
+				if (xenotypeHolder == null)
+				{
+					xenotypeHolder = GetBestNewForm(this);
+				}
+			}
+			if (xenotypeHolder != null)
+			{
+				Reimplant(xenotypeHolder);
+			}
+			else if (savedGeneSets.Where((PawnGeneSetHolder set) => set.xenotypeDef != null && set.formId != formId.Value).TryRandomElement(out PawnGeneSetHolder genesHolder))
+			{
+				ImplantFromSet(genesHolder);
+			}
+			else
+			{
+				Log.Error("Failed morph on phase: " + phase);
+			}
+		}
 
-        private static XenotypeHolder GetBestNewForm(Gene gene)
-        {
-            List<XenotypeHolder> holders = ListsUtility.GetAllXenotypesHolders().Where((XenotypeHolder holder) => !holder.genes.HasGeneDefOfType<Gene_MorpherOneTimeUse>()).ToList();
+		private static XenotypeHolder GetBestNewForm(Gene gene)
+		{
+			List<XenotypeHolder> holders = ListsUtility.GetAllXenotypesHolders().Where((XenotypeHolder holder) => !holder.genes.HasGeneDefOfType<Gene_MorpherOneTimeUse>()).ToList();
 			List<XenotypeHolder> result = new();
 			foreach (XenotypeHolder holder in holders)
 			{
 				if (holder.shouldSkip || holder.genes.NullOrEmpty())
-                {
+				{
 					holder.matchPercent = 0.1f;
-                }
+				}
 				else if (XaG_GeneUtility.AnyGeneDefIsSubGeneOf(holder.genes, gene.def))
 				{
 					holder.matchPercent = 5f;
@@ -207,7 +219,7 @@ namespace WVC_XenotypesAndGenes
 					holder.matchPercent = (float)Math.Round((float)(holder.matchPercent.Value / (arc * 0.5f)), 2);
 				}
 				else
-                {
+				{
 					holder.matchPercent *= 1.2f;
 				}
 				if (met < 0)
@@ -242,8 +254,8 @@ namespace WVC_XenotypesAndGenes
 		//public GeneDef nextGeneTool = null;
 
 		public void UpdToolGenes(bool forced = false, GeneDef nextGeneTool = null)
-        {
-            if (forced || pawn.genes?.GenesListForReading?.Any((Gene gene) => gene is Gene_MorpherTrigger) == false)
+		{
+			if (forced || pawn.genes?.GenesListForReading?.Any((Gene gene) => gene is Gene_MorpherTrigger) == false)
 			{
 				bool xenogene = pawn.genes.IsXenogene(this);
 				if (nextGeneTool != null)
@@ -269,10 +281,10 @@ namespace WVC_XenotypesAndGenes
 					Log.Error("Failed find morpherTriggerGene in xenotypeDef or geneDef.");
 					//AddToolGene(DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef geneDef) => geneDef.prerequisite != null && geneDef.prerequisite == def).RandomElement(), xenogene);
 				}
-            }
+			}
 		}
 
-        private void UpdSkinAndHair()
+		private void UpdSkinAndHair()
 		{
 			if (!savedGeneSets.NullOrEmpty())
 			{
@@ -307,6 +319,23 @@ namespace WVC_XenotypesAndGenes
 					exclude = new();
 				}
 				xenotypeDefs?.Where((XenotypeDef xenos) => !exclude.Contains(xenos))?.TryRandomElement(out xenotypeDef);
+			}
+			return xenotypeDef;
+		}
+
+		public static XenotypeDef GetRandomXenotypeFromXenotypeChances(List<XenotypeChance> xenotypeChances, List<XenotypeDef> exclude)
+		{
+			XenotypeDef xenotypeDef = null;
+			if (!xenotypeChances.NullOrEmpty())
+			{
+				if (exclude == null)
+				{
+					exclude = new();
+				}
+				if (xenotypeChances.Where((XenotypeChance xenos) => !exclude.Contains(xenos.xenotype)).TryRandomElementByWeight((XenotypeChance chance) => chance.chance, out XenotypeChance xenotypeChance))
+				{
+					xenotypeDef = xenotypeChance.xenotype;
+				}
 			}
 			return xenotypeDef;
 		}
@@ -509,7 +538,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        private Gizmo gizmo;
+		private Gizmo gizmo;
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
