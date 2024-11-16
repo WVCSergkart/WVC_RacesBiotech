@@ -24,9 +24,9 @@
 	<!-- Evolve -->
 	<genes>
 		<!-- Morpher -->
-		<li>WVC_Morpher</li>
-		<li>WVC_MorphCondition_Undead</li>
-		<li>WVC_MorphEffects_OneTimeUse</li>
+		<li MayRequire="wvc.sergkart.test.tools">WVC_Morpher</li>
+		<li MayRequire="wvc.sergkart.test.tools">WVC_MorphCondition_Undead</li>
+		<li MayRequire="wvc.sergkart.test.tools">WVC_MorphEffects_OneTimeUse</li>
 		<!-- Base -->
 		<li>WVC_NaturalReimplanter_RiseFromTheDead</li>
 		<li>WVC_PostImplanterBrainwash</li>

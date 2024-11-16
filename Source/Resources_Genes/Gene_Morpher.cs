@@ -487,6 +487,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (gene != this)
 				{
+					//gene.PostRemove();
 					newSet.endogenes.Add(gene);
 				}
 			}
@@ -498,6 +499,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (gene != this)
 				{
+					//gene.PostRemove();
 					newSet.xenogenes.Add(gene);
 				}
 			}
