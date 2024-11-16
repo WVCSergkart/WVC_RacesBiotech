@@ -357,22 +357,56 @@ namespace WVC_XenotypesAndGenes
 				pawn.genes.xenotypeName = pawnGeneSet.name;
 				pawn.genes.iconDef = pawnGeneSet.iconDef;
 			}
-			foreach (Gene gene in pawnGeneSet.endogenes)
+			try
 			{
-				AddGene(gene.def, true);
-				CopyGeneID(gene, pawn.genes.Endogenes.First((Gene oldGene) => oldGene.def == gene.def), pawn.genes.Endogenes);
+				Dictionary<Gene, int> savedEndogenesIDs = new();
+				Dictionary<Gene, Gene> savedEndogenesOverrides = new();
+				foreach (Gene gene in pawnGeneSet.endogenes)
+				{
+					AddGene(gene.def, true);
+					Gene sourceGene = pawn.genes.Endogenes.First((Gene oldGene) => oldGene.def == gene.def);
+					savedEndogenesIDs[sourceGene] = sourceGene.loadID;
+					savedEndogenesOverrides[sourceGene] = sourceGene.overriddenByGene;
+					CopyGeneID(gene, sourceGene, pawn.genes.Endogenes);
+				}
+				Dictionary<Gene, int> savedXenogenesIDs = new();
+				Dictionary<Gene, Gene> savedXenogenesOverrides = new();
+				foreach (Gene gene in pawnGeneSet.xenogenes)
+				{
+					AddGene(gene.def, false);
+					Gene sourceGene = pawn.genes.Xenogenes.First((Gene oldGene) => oldGene.def == gene.def);
+					savedXenogenesIDs[sourceGene] = sourceGene.loadID;
+					savedXenogenesOverrides[sourceGene] = sourceGene.overriddenByGene;
+					CopyGeneID(gene, sourceGene, pawn.genes.Xenogenes);
+				}
+				foreach (var item in savedEndogenesIDs)
+				{
+					Gene targetGene = pawn.genes.Endogenes.First((Gene oldGene) => oldGene.def == item.Key.def);
+					targetGene.loadID = item.Value;
+				}
+				foreach (var item in savedXenogenesIDs)
+				{
+					Gene targetGene = pawn.genes.Xenogenes.First((Gene oldGene) => oldGene.def == item.Key.def);
+					targetGene.loadID = item.Value;
+				}
+				foreach (var item in savedEndogenesOverrides)
+				{
+					Gene targetGene = pawn.genes.Endogenes.First((Gene oldGene) => oldGene.def == item.Key.def);
+					targetGene.overriddenByGene = item.Value;
+				}
+				foreach (var item in savedXenogenesOverrides)
+				{
+					Gene targetGene = pawn.genes.Xenogenes.First((Gene oldGene) => oldGene.def == item.Key.def);
+					targetGene.overriddenByGene = item.Value;
+				}
 			}
-			foreach (Gene gene in pawnGeneSet.xenogenes)
+			catch (Exception arg)
 			{
-				AddGene(gene.def, false);
-				CopyGeneID(gene, pawn.genes.Xenogenes.First((Gene oldGene) => oldGene.def == gene.def), pawn.genes.Xenogenes);
+				Log.Error("Failed copy genes. Reason: " + arg);
 			}
-			//Log.Error("Try add genes info");
 			//CopyGenesID(pawnGeneSet.endogenes, pawn.genes.Endogenes);
 			//CopyGenesID(pawnGeneSet.xenogenes, pawn.genes.Xenogenes);
-            //DuplicateUtility.CopyGenesOverrides(pawn, pawn.genes.Endogenes, tmpOldEndogenes);
-            //DuplicateUtility.CopyGenesOverrides(pawn, pawn.genes.Xenogenes, tmpOldXenogenes);
-            foreach (Need need in pawn.needs.AllNeeds)
+			foreach (Need need in pawn.needs.AllNeeds)
 			{
 				foreach (var item in pawnGeneSet.savedPawnNeeds)
 				{
@@ -396,8 +430,8 @@ namespace WVC_XenotypesAndGenes
 				{
 					return;
 				}
-				gene.loadID = sourceGene.loadID;
-				gene.overriddenByGene = sourceGene.overriddenByGene;
+				//gene.loadID = sourceGene.loadID;
+				//gene.overriddenByGene = sourceGene.overriddenByGene;
 				genes.Remove(sourceGene);
 				genes.Add(gene);
 				sourceGene = null;
@@ -407,34 +441,6 @@ namespace WVC_XenotypesAndGenes
 				Log.Warning("Failed copy gene: " + sourceGene.LabelCap + ". Reason: " + arg);
 			}
 		}
-
-        public void CopyGenesID(List<Gene> newGenes, List<Gene> sourceGenes)
-        {
-			List<Gene> oldGenesList = sourceGenes.ToList();
-            foreach (Gene sourceGene in oldGenesList)
-            {
-                try
-                {
-                    if (sourceGene == this)
-                    {
-                        continue;
-                    }
-                    Gene gene = newGenes.Where((Gene e) => e.def == sourceGene.def).First();
-                    if (gene == null)
-                    {
-                        continue;
-                    }
-                    gene.loadID = sourceGene.loadID;
-                    gene.overriddenByGene = sourceGene.overriddenByGene;
-                    sourceGenes.Remove(sourceGene);
-                    sourceGenes.Add(gene);
-                }
-                catch (Exception arg)
-                {
-                    Log.Warning("Failed copy gene: " + sourceGene.LabelCap + ". Reason: " + arg);
-                }
-            }
-        }
 
         private void Reimplant(XenotypeHolder xenotypeDef)
 		{
