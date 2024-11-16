@@ -9,23 +9,23 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_MorpherDependant : Gene
-    {
+	public class Gene_MorpherDependant : Gene
+	{
 
-        [Unsaved(false)]
-        private Gene_Morpher cachedMorpherGene;
+		[Unsaved(false)]
+		private Gene_Morpher cachedMorpherGene;
 
-        public Gene_Morpher Morpher
-        {
-            get
-            {
-                if (cachedMorpherGene == null || !cachedMorpherGene.Active)
-                {
-                    cachedMorpherGene = pawn?.genes?.GetFirstGeneOfType<Gene_Morpher>();
-                }
-                return cachedMorpherGene;
-            }
-        }
+		public Gene_Morpher Morpher
+		{
+			get
+			{
+				if (cachedMorpherGene == null || !cachedMorpherGene.Active)
+				{
+					cachedMorpherGene = pawn?.genes?.GetFirstGeneOfType<Gene_Morpher>();
+				}
+				return cachedMorpherGene;
+			}
+		}
 
 	}
 
@@ -97,7 +97,7 @@ namespace WVC_XenotypesAndGenes
 				//pawn.genes?.RemoveGene(this);
 				Messages.Message("WVC_XaG_GeneAbilityMorpherIsNullMessage".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
 				return;
-            }
+			}
 			List<FloatMenuOption> list = new();
 			List<PawnGeneSetHolder> geneSets = Morpher.GeneSets;
 			if (!geneSets.NullOrEmpty())
@@ -151,10 +151,10 @@ namespace WVC_XenotypesAndGenes
 
 
 	//	public override void PostAdd()
- //       {
- //           base.PostAdd();
- //           ResetInterval();
- //       }
+ //		  {
+ //			  base.PostAdd();
+ //			  ResetInterval();
+ //		  }
 
 	//	public override void Tick()
 	//	{
@@ -164,10 +164,10 @@ namespace WVC_XenotypesAndGenes
 	//			return;
 	//		}
 	//		if (ShouldMorph())
- //           {
- //               MorpherTrigger();
- //           }
- //           ResetInterval();
+ //			  {
+ //				  MorpherTrigger();
+ //			  }
+ //			  ResetInterval();
 	//	}
 
 	//	private void ResetInterval()
@@ -186,14 +186,14 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_NocturnalMorph : Gene_MorpherTrigger
 	{
 
-        public override bool CanMorph()
-        {
-            float num = GenLocalDate.DayTick(pawn);
-            if (num > 45000f || num < 15000f)
-            {
-                return true;
-            }
-            return false;
+		public override bool CanMorph()
+		{
+			float num = GenLocalDate.DayTick(pawn);
+			if (num > 45000f || num < 15000f)
+			{
+				return true;
+			}
+			return false;
 		}
 
 	}
@@ -218,15 +218,15 @@ namespace WVC_XenotypesAndGenes
 
 		private Season savedSeason;
 
-        //public override IntRange IntervalRange => new(50000, 80000);
+		//public override IntRange IntervalRange => new(50000, 80000);
 
-        public override void PostAdd()
-        {
-            base.PostAdd();
+		public override void PostAdd()
+		{
+			base.PostAdd();
 			savedSeason = GenLocalDate.Season(pawn);
 		}
 
-        public override bool CanMorph()
+		public override bool CanMorph()
 		{
 			if (GenLocalDate.Season(pawn) != savedSeason)
 			{
@@ -256,12 +256,12 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool CanMorph()
 		{
-            float? summaryHealthPercent = pawn?.health?.summaryHealth?.SummaryHealthPercent;
-            if (summaryHealthPercent.HasValue && summaryHealthPercent.Value < 0.8f)
-            {
-                return true;
-            }
-            return false;
+			float? summaryHealthPercent = pawn?.health?.summaryHealth?.SummaryHealthPercent;
+			if (summaryHealthPercent.HasValue && summaryHealthPercent.Value < 0.8f)
+			{
+				return true;
+			}
+			return false;
 		}
 
 	}

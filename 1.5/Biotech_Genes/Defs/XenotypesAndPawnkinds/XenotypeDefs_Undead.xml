@@ -61,10 +61,11 @@
 			  <!-- <li>WVC_Resurgent</li> -->
 			  <!-- <li MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li> -->
 			<!-- </morpherXenotypeDefs> -->
+			<!-- or -->
 			<morpherXenotypeChances>
 			  <WVC_Resurgent>0.80</WVC_Resurgent>
 			  <WVC_Featherdust>0.33</WVC_Featherdust>
-			  <WVC_Ashen>0.11</WVC_Ashen>
+			  <WVC_Ashen MayRequire="ludeon.rimworld.ideology">0.11</WVC_Ashen>
 			</morpherXenotypeChances>
 		</li>
 	</modExtensions>
