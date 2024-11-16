@@ -360,16 +360,16 @@ namespace WVC_XenotypesAndGenes
 			foreach (Gene gene in pawnGeneSet.endogenes)
 			{
 				AddGene(gene.def, true);
-				//CopyGeneID(gene, pawn.genes.Endogenes.First((Gene oldGene) => oldGene.def == gene.def), pawn.genes.Endogenes);
+				CopyGeneID(gene, pawn.genes.Endogenes.First((Gene oldGene) => oldGene.def == gene.def), pawn.genes.Endogenes);
 			}
 			foreach (Gene gene in pawnGeneSet.xenogenes)
 			{
 				AddGene(gene.def, false);
-				//CopyGeneID(gene, pawn.genes.Xenogenes.First((Gene oldGene) => oldGene.def == gene.def), pawn.genes.Xenogenes);
+				CopyGeneID(gene, pawn.genes.Xenogenes.First((Gene oldGene) => oldGene.def == gene.def), pawn.genes.Xenogenes);
 			}
 			//Log.Error("Try add genes info");
-			CopyGenesID(pawnGeneSet.endogenes, pawn.genes.Endogenes);
-			CopyGenesID(pawnGeneSet.xenogenes, pawn.genes.Xenogenes);
+			//CopyGenesID(pawnGeneSet.endogenes, pawn.genes.Endogenes);
+			//CopyGenesID(pawnGeneSet.xenogenes, pawn.genes.Xenogenes);
             //DuplicateUtility.CopyGenesOverrides(pawn, pawn.genes.Endogenes, tmpOldEndogenes);
             //DuplicateUtility.CopyGenesOverrides(pawn, pawn.genes.Xenogenes, tmpOldXenogenes);
             foreach (Need need in pawn.needs.AllNeeds)
