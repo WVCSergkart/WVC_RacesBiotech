@@ -97,15 +97,12 @@ namespace WVC_XenotypesAndGenes
 			return 96f;
 		}
 
-		private List<GeneDef> geneTriggers = null;
+		//private List<GeneDef> geneTriggers = null;
 
 		private void FloatMenu()
 		{
 			List<FloatMenuOption> list = new();
-			if (geneTriggers == null)
-            {
-				geneTriggers = DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<Gene_MorpherTrigger>() && !XaG_GeneUtility.HasGene(geneDef, pawn) && !geneDef.IsGeneDefOfType<Gene_AbilityMorph>()).ToList();
-			}
+			List<GeneDef> geneTriggers = DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<Gene_MorpherTrigger>() && !XaG_GeneUtility.HasGene(geneDef, pawn) && !geneDef.IsGeneDefOfType<Gene_AbilityMorph>()).ToList();
 			if (!geneTriggers.NullOrEmpty())
 			{
 				for (int i = 0; i < geneTriggers.Count; i++)
@@ -124,7 +121,6 @@ namespace WVC_XenotypesAndGenes
 						{
 							Messages.Message("WVC_XaG_GeneMorpherChangeTriggerGene_FailMessage".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
 						}
-						geneTriggers = null;
 					}));
 				}
 			}

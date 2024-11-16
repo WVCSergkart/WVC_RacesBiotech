@@ -360,16 +360,19 @@ namespace WVC_XenotypesAndGenes
 			foreach (Gene gene in pawnGeneSet.endogenes)
 			{
 				AddGene(gene.def, true);
+				CopyGeneID(gene, pawn.genes.Endogenes.First((Gene oldGene) => oldGene.def == gene.def), pawn.genes.Endogenes);
 			}
 			foreach (Gene gene in pawnGeneSet.xenogenes)
 			{
 				AddGene(gene.def, false);
+				CopyGeneID(gene, pawn.genes.Xenogenes.First((Gene oldGene) => oldGene.def == gene.def), pawn.genes.Xenogenes);
 			}
-			CopyGenesID(pawnGeneSet.endogenes, pawn.genes.Endogenes);
-			CopyGenesID(pawnGeneSet.xenogenes, pawn.genes.Xenogenes);
-			//DuplicateUtility.CopyGenesOverrides(pawn, pawn.genes.Endogenes, tmpOldEndogenes);
-			//DuplicateUtility.CopyGenesOverrides(pawn, pawn.genes.Xenogenes, tmpOldXenogenes);
-			foreach (Need need in pawn.needs.AllNeeds)
+			//Log.Error("Try add genes info");
+			//CopyGenesID(pawnGeneSet.endogenes, pawn.genes.Endogenes);
+			//CopyGenesID(pawnGeneSet.xenogenes, pawn.genes.Xenogenes);
+            //DuplicateUtility.CopyGenesOverrides(pawn, pawn.genes.Endogenes, tmpOldEndogenes);
+            //DuplicateUtility.CopyGenesOverrides(pawn, pawn.genes.Xenogenes, tmpOldXenogenes);
+            foreach (Need need in pawn.needs.AllNeeds)
 			{
 				foreach (var item in pawnGeneSet.savedPawnNeeds)
 				{
@@ -385,30 +388,53 @@ namespace WVC_XenotypesAndGenes
 			savedGeneSets.Remove(pawnGeneSet);
 		}
 
+		public void CopyGeneID(Gene gene, Gene sourceGene, List<Gene> genes)
+		{
+			try
+			{
+				if (sourceGene == this)
+				{
+					return;
+				}
+				gene.loadID = sourceGene.loadID;
+				gene.overriddenByGene = sourceGene.overriddenByGene;
+				//sourceGene = null;
+				genes.Remove(sourceGene);
+				genes.Add(gene);
+				sourceGene = null;
+			}
+			catch (Exception arg)
+			{
+				Log.Warning("Failed copy gene: " + sourceGene.LabelCap + ". Reason: " + arg);
+			}
+		}
+
 		public void CopyGenesID(List<Gene> newGenes, List<Gene> sourceGenes)
 		{
-			int i;
-			for (i = 0; i < sourceGenes.Count; i++)
+            foreach (Gene sourceGene in sourceGenes.ToList())
 			{
-				//Gene gene = newGenes[i];
-				Gene sourceGene = sourceGenes[i];
 				try
 				{
-					if (sourceGene == this || !newGenes.Where((Gene e) => e.def == sourceGene.def).TryRandomElement(out Gene gene))
+					if (sourceGene == this)
+					{
+						continue;
+					}
+					Gene gene = newGenes.Where((Gene e) => e.def == sourceGene.def).First();
+					if (gene == null)
 					{
 						continue;
 					}
 					gene.loadID = sourceGene.loadID;
 					gene.overriddenByGene = sourceGene.overriddenByGene;
-					sourceGenes.Remove(sourceGene);
-					sourceGenes.Add(gene);
-				}
+                    sourceGenes.Remove(sourceGene);
+                    sourceGenes.Add(gene);
+                }
 				catch (Exception arg)
 				{
 					Log.Warning("Failed copy gene: " + sourceGene.LabelCap + ". Reason: " + arg);
 				}
 			}
-		}
+        }
 
 		private void Reimplant(XenotypeHolder xenotypeDef)
 		{
@@ -495,10 +521,27 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual void AddGene(GeneDef geneDef, bool inheritable)
 		{
-			if (!geneDef.ConflictsWith(this.def))
+			if (!geneDef.ConflictsWith(this.def) && (inheritable && !XaG_GeneUtility.HasEndogene(geneDef, pawn) || !XaG_GeneUtility.HasXenogene(geneDef, pawn)))
 			{
 				pawn.genes.AddGene(geneDef, !inheritable);
 			}
+			//else
+			//{
+			//	return;
+			//}
+			//if (gene != null)
+			//{
+			//	if (inheritable)
+			//	{
+			//		pawn.genes.Endogenes.Remove(pawn.genes.GetGene(geneDef));
+			//		pawn.genes.Endogenes.Add(gene);
+			//	}
+			//	else
+			//	{
+			//		pawn.genes.Xenogenes.Remove(pawn.genes.GetGene(geneDef));
+			//		pawn.genes.Xenogenes.Add(gene);
+			//	}
+			//}
 		}
 
 		public virtual void AddToolGene(GeneDef geneDef, bool xenogene)
