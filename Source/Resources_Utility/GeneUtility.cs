@@ -65,7 +65,7 @@ namespace WVC_XenotypesAndGenes
 
 		// Genepacks
 
-		public static void GenerateName(GeneSet geneSet, RulePackDef rule)
+		public static void GenerateGenepackName(GeneSet geneSet, RulePackDef rule)
 		{
 			if (rule == null)
 			{
@@ -243,6 +243,37 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// ============================= Anti-Bug =============================
+
+		public static XenotypeDef GetRandomXenotypeFromList(List<XenotypeDef> xenotypeDefs, List<XenotypeDef> exclude)
+		{
+			XenotypeDef xenotypeDef = null;
+			if (!xenotypeDefs.NullOrEmpty())
+			{
+				if (exclude == null)
+				{
+					exclude = new();
+				}
+				xenotypeDefs?.Where((XenotypeDef xenos) => !exclude.Contains(xenos))?.TryRandomElement(out xenotypeDef);
+			}
+			return xenotypeDef;
+		}
+
+		public static XenotypeDef GetRandomXenotypeFromXenotypeChances(List<XenotypeChance> xenotypeChances, List<XenotypeDef> exclude)
+		{
+			XenotypeDef xenotypeDef = null;
+			if (!xenotypeChances.NullOrEmpty())
+			{
+				if (exclude == null)
+				{
+					exclude = new();
+				}
+				if (xenotypeChances.Where((XenotypeChance xenos) => !exclude.Contains(xenos.xenotype)).TryRandomElementByWeight((XenotypeChance chance) => chance.chance, out XenotypeChance xenotypeChance))
+				{
+					xenotypeDef = xenotypeChance.xenotype;
+				}
+			}
+			return xenotypeDef;
+		}
 
 		public static bool HasGeneDefOfType<T>(this List<GeneDef> geneDefs)
 		{
@@ -431,6 +462,96 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 			return false;
+		}
+
+		public static Gene GetXenogene(GeneDef geneDef, Pawn pawn)
+		{
+			if (geneDef == null || pawn?.genes == null)
+			{
+				return null;
+			}
+			List<Gene> genesListForReading = pawn.genes.Xenogenes;
+			for (int i = 0; i < genesListForReading.Count; i++)
+			{
+				if (genesListForReading[i].def == geneDef)
+				{
+					return genesListForReading[i];
+				}
+			}
+			return null;
+		}
+
+		public static Gene GetFirstSkinColorOverrideGene(Pawn pawn)
+		{
+			if (pawn?.genes == null)
+			{
+				return null;
+			}
+			List<Gene> xenogenes = pawn.genes.Xenogenes;
+			if (!xenogenes.NullOrEmpty())
+			{
+				for (int i = 0; i < xenogenes.Count; i++)
+				{
+					if (xenogenes[i].Active && xenogenes[i].def.skinColorOverride != null)
+					{
+						return xenogenes[i];
+					}
+				}
+			}
+			List<Gene> endogenes = pawn.genes.Endogenes;
+			for (int i = 0; i < endogenes.Count; i++)
+			{
+				if (endogenes[i].Active && endogenes[i].def.skinColorOverride != null)
+				{
+					return endogenes[i];
+				}
+			}
+			return null;
+		}
+
+		public static Gene GetFirstHairColorGene(Pawn pawn)
+		{
+			if (pawn?.genes == null)
+			{
+				return null;
+			}
+			List<Gene> xenogenes = pawn.genes.Xenogenes;
+			if (!xenogenes.NullOrEmpty())
+			{
+				for (int i = 0; i < xenogenes.Count; i++)
+				{
+					if (xenogenes[i].Active && xenogenes[i].def.hairColorOverride != null)
+					{
+						return xenogenes[i];
+					}
+				}
+			}
+			List<Gene> endogenes = pawn.genes.Endogenes;
+			for (int i = 0; i < endogenes.Count; i++)
+			{
+				if (endogenes[i].Active && endogenes[i].def.hairColorOverride != null)
+				{
+					return endogenes[i];
+				}
+			}
+			return null;
+		}
+
+		public static Gene GetEndogene(GeneDef geneDef, Pawn pawn)
+		{
+			if (geneDef == null || pawn?.genes == null)
+			{
+				return null;
+			}
+			List<Gene> genesListForReading = pawn.genes.Endogenes;
+			for (int i = 0; i < genesListForReading.Count; i++)
+			{
+				if (genesListForReading[i].def == geneDef)
+				{
+					return genesListForReading[i];
+				}
+			}
+			return null;
 		}
 
 		public static bool HasXenogene(GeneDef geneDef, Pawn pawn)

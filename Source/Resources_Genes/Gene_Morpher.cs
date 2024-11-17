@@ -117,7 +117,7 @@ namespace WVC_XenotypesAndGenes
 				else
 				{
 					phase = "implant saved form";
-					ImplantFromSet(nextGeneSet);
+					LoadGenes(nextGeneSet);
 				}
 				phase = "debug genes";
 				UpdSkinAndHair();
@@ -154,22 +154,22 @@ namespace WVC_XenotypesAndGenes
 				{
 					if (!XenotypeGiver.morpherXenotypeDefs.NullOrEmpty())
 					{
-						xenotypeHolder = new(GetRandomXenotypeFromList(XenotypeGiver?.morpherXenotypeDefs, exclude));
+						xenotypeHolder = new(XaG_GeneUtility.GetRandomXenotypeFromList(XenotypeGiver?.morpherXenotypeDefs, exclude));
 					}
 					else if (!XenotypeGiver.morpherXenotypeChances.NullOrEmpty())
 					{
-						xenotypeHolder = new(GetRandomXenotypeFromXenotypeChances(XenotypeGiver?.morpherXenotypeChances, exclude));
+						xenotypeHolder = new(XaG_GeneUtility.GetRandomXenotypeFromXenotypeChances(XenotypeGiver?.morpherXenotypeChances, exclude));
 					}
 				}
 				if (xenotypeHolder == null && Giver != null)
 				{
 					if (!Giver.morpherXenotypeDefs.NullOrEmpty())
 					{
-						xenotypeHolder = new(GetRandomXenotypeFromList(Giver?.morpherXenotypeDefs, exclude));
+						xenotypeHolder = new(XaG_GeneUtility.GetRandomXenotypeFromList(Giver?.morpherXenotypeDefs, exclude));
 					}
 					else if (!Giver.morpherXenotypeChances.NullOrEmpty())
 					{
-						xenotypeHolder = new(GetRandomXenotypeFromXenotypeChances(Giver?.morpherXenotypeChances, exclude));
+						xenotypeHolder = new(XaG_GeneUtility.GetRandomXenotypeFromXenotypeChances(Giver?.morpherXenotypeChances, exclude));
 					}
 				}
 				if (xenotypeHolder == null)
@@ -183,7 +183,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			else if (savedGeneSets.Where((PawnGeneSetHolder set) => set.xenotypeDef != null && set.formId != formId.Value).TryRandomElement(out PawnGeneSetHolder genesHolder))
 			{
-				ImplantFromSet(genesHolder);
+				LoadGenes(genesHolder);
 			}
 			else
 			{
@@ -309,37 +309,6 @@ namespace WVC_XenotypesAndGenes
 			ReimplanterUtility.TrySetSkinAndHairGenes(pawn);
 		}
 
-		public static XenotypeDef GetRandomXenotypeFromList(List<XenotypeDef> xenotypeDefs, List<XenotypeDef> exclude)
-		{
-			XenotypeDef xenotypeDef = null;
-			if (!xenotypeDefs.NullOrEmpty())
-			{
-				if (exclude == null)
-				{
-					exclude = new();
-				}
-				xenotypeDefs?.Where((XenotypeDef xenos) => !exclude.Contains(xenos))?.TryRandomElement(out xenotypeDef);
-			}
-			return xenotypeDef;
-		}
-
-		public static XenotypeDef GetRandomXenotypeFromXenotypeChances(List<XenotypeChance> xenotypeChances, List<XenotypeDef> exclude)
-		{
-			XenotypeDef xenotypeDef = null;
-			if (!xenotypeChances.NullOrEmpty())
-			{
-				if (exclude == null)
-				{
-					exclude = new();
-				}
-				if (xenotypeChances.Where((XenotypeChance xenos) => !exclude.Contains(xenos.xenotype)).TryRandomElementByWeight((XenotypeChance chance) => chance.chance, out XenotypeChance xenotypeChance))
-				{
-					xenotypeDef = xenotypeChance.xenotype;
-				}
-			}
-			return xenotypeDef;
-		}
-
 		public void DoEffects()
 		{
 			if (pawn.Map == null)
@@ -349,7 +318,34 @@ namespace WVC_XenotypesAndGenes
 			WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(pawn, pawn.Map).Trigger(pawn, null);
 		}
 
-		private void ImplantFromSet(PawnGeneSetHolder pawnGeneSet)
+		private void SaveGenes()
+		{
+			//if (pawnGeneSets.Where((PawnGeneSetHolder holder) => holder.xenotypeDef == pawn.genes.Xenotype).Any())
+			//{
+			//	return;
+			//}
+			PawnGeneSetHolder newSet = new();
+			if (!formId.HasValue)
+			{
+				formId = savedGeneSets.Count + 1;
+			}
+			//pawn.needs.AllNeeds.RemoveAll((Need need) => need.def.onlyIfCausedByGene);
+			newSet.formId = formId.Value;
+			newSet.xenotypeDef = pawn.genes.Xenotype;
+			newSet.SaveGenes(pawn, this);
+			newSet.name = pawn.genes.xenotypeName;
+			if (newSet.name.NullOrEmpty())
+			{
+				newSet.name = newSet.xenotypeDef.label;
+			}
+			if (pawn.genes.UniqueXenotype)
+			{
+				newSet.iconDef = pawn.genes.iconDef;
+			}
+			savedGeneSets.Add(newSet);
+		}
+
+		private void LoadGenes(PawnGeneSetHolder pawnGeneSet)
         {
             ReimplanterUtility.SetXenotypeDirect(null, pawn, pawnGeneSet.xenotypeDef, true);
             if (pawn.genes.Xenotype == XenotypeDefOf.Baseliner)
@@ -360,32 +356,7 @@ namespace WVC_XenotypesAndGenes
 			pawnGeneSet.LoadGenes(pawn, this);
             //CopyGenesID(pawnGeneSet.endogenes, pawn.genes.Endogenes);
             //CopyGenesID(pawnGeneSet.xenogenes, pawn.genes.Xenogenes);
-            pawn.needs.AddOrRemoveNeedsAsAppropriate();
-            foreach (Need need in pawn.needs.AllNeeds)
-            {
-                foreach (var item in pawnGeneSet.savedPawnNeeds)
-                {
-                    if (need.def == item.Key)
-                    {
-                        need.CurLevel = item.Value;
-                    }
-                }
-            }
-            pawnGeneSet.savedPawnNeeds = null;
-            foreach (Gene gene in pawn.genes.GenesListForReading)
-            {
-                if (gene is Gene_Resource resource)
-                {
-                    foreach (var item in pawnGeneSet.savedPawnResources)
-                    {
-                        if (resource.def == item.Key)
-                        {
-                            resource.Value = item.Value;
-                        }
-                    }
-                }
-            }
-            pawnGeneSet.savedPawnResources = null;
+            //pawn.needs.AddOrRemoveNeedsAsAppropriate();
             currentFormName = pawnGeneSet.name;
             formId = pawnGeneSet.formId;
             savedGeneSets.Remove(pawnGeneSet);
@@ -427,50 +398,6 @@ namespace WVC_XenotypesAndGenes
 			formId = savedGeneSets.Count + 1;
 			currentFormName = xenotypeDef.Label;
 		}
-
-		public void SaveGenes()
-        {
-            //if (pawnGeneSets.Where((PawnGeneSetHolder holder) => holder.xenotypeDef == pawn.genes.Xenotype).Any())
-            //{
-            //	return;
-            //}
-            PawnGeneSetHolder newSet = new();
-            if (!formId.HasValue)
-            {
-                formId = savedGeneSets.Count + 1;
-            }
-            newSet.savedPawnNeeds = new();
-            foreach (Need need in pawn.needs.AllNeeds)
-            {
-                if (!need.def.onlyIfCausedByGene)
-                {
-                    continue;
-                }
-                newSet.savedPawnNeeds[need.def] = need.CurLevel;
-            }
-            newSet.savedPawnResources = new();
-            foreach (Gene gene in pawn.genes.GenesListForReading)
-            {
-                if (gene is Gene_Resource resource)
-                {
-                    newSet.savedPawnResources[resource.def] = resource.Value;
-                }
-            }
-            //pawn.needs.AllNeeds.RemoveAll((Need need) => need.def.onlyIfCausedByGene);
-            newSet.formId = formId.Value;
-            newSet.xenotypeDef = pawn.genes.Xenotype;
-			newSet.SaveGenes(pawn, this);
-            newSet.name = pawn.genes.xenotypeName;
-            if (newSet.name.NullOrEmpty())
-            {
-                newSet.name = newSet.xenotypeDef.label;
-            }
-            if (pawn.genes.UniqueXenotype)
-            {
-                newSet.iconDef = pawn.genes.iconDef;
-            }
-            savedGeneSets.Add(newSet);
-        }
 
         public virtual void AddGene(GeneDef geneDef, bool inheritable)
 		{

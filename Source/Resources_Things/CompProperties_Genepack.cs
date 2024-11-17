@@ -20,7 +20,7 @@ namespace WVC_XenotypesAndGenes
 				XaG_CountWithChance geneCount = xag_genepack.genesCountProbabilities.RandomElementByWeight((XaG_CountWithChance x) => x.chance);
 				XaG_GeneUtility.SetGenesInPack(geneCount, newGeneSet);
 				newGeneSet.SortGenes();
-				XaG_GeneUtility.GenerateName(newGeneSet, xag_genepack.genepackNamer);
+				XaG_GeneUtility.GenerateGenepackName(newGeneSet, xag_genepack.genepackNamer);
 				if (!newGeneSet.Empty)
 				{
 					geneSet = newGeneSet;

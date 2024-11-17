@@ -273,9 +273,9 @@ namespace WVC_XenotypesAndGenes
             {
                 recipientGenes?.AddGene(WVC_GenesDefOf.Hair_SnowWhite, false);
             }
-        }
+		}
 
-        public static void FindSkinAndHairGenes(Pawn pawn, out Pawn_GeneTracker recipientGenes, out bool xenotypeHasSkinColor, out bool xenotypeHasHairColor)
+		public static void FindSkinAndHairGenes(Pawn pawn, out Pawn_GeneTracker recipientGenes, out bool xenotypeHasSkinColor, out bool xenotypeHasHairColor)
         {
             recipientGenes = pawn.genes;
             xenotypeHasSkinColor = false;
