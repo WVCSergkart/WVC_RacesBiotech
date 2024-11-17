@@ -17,7 +17,7 @@
 		<li>Old gene set is stored in the &lt;color=#8a8ae6&gt;gene's memory&lt;/color&gt;.</li>
 		<!-- <li>&lt;color=#ffec85&gt;Can only remember one custom xenotype at a time.&lt;/color&gt;</li> -->
 		<!-- <li>&lt;color=#ffec85&gt;Support custom xenotypes.&lt;/color&gt;</li> -->
-		<li>&lt;color=#ff8585&gt;Experimental.&lt;/color&gt;</li>
+		<!-- <li>&lt;color=#ff8585&gt;Experimental.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>VRE_Morphs</li>

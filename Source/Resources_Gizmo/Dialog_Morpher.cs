@@ -412,11 +412,19 @@ namespace WVC_XenotypesAndGenes
 			{
 				selectedEndogenes.AddRange(XaG_GeneUtility.ConvertGenesInGeneDefs(selectedGeneSetHolder.endogenes));
 			}
+			else if (!selectedGeneSetHolder.endogeneDefs.NullOrEmpty())
+			{
+				selectedEndogenes.AddRange(selectedGeneSetHolder.endogeneDefs);
+			}
 			selectedEndogenes.SortGeneDefs();
 			selectedXenogenes = new();
 			if (!selectedGeneSetHolder.xenogenes.NullOrEmpty())
 			{
 				selectedXenogenes.AddRange(XaG_GeneUtility.ConvertGenesInGeneDefs(selectedGeneSetHolder.xenogenes));
+			}
+			else if (!selectedGeneSetHolder.xenogeneDefs.NullOrEmpty())
+			{
+				selectedXenogenes.AddRange(selectedGeneSetHolder.xenogeneDefs);
 			}
 			selectedXenogenes.SortGeneDefs();
 			gcx = 0;

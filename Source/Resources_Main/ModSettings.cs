@@ -109,6 +109,7 @@ namespace WVC_XenotypesAndGenes
 		// Shapeshifter
 		// public bool shapeshifter_enableStyleButton = true;
 		public float shapeshifer_GeneCellularRegeneration = 1f;
+		public bool enable_MorpherExperimentalMode = false;
 		// Chimera
 		public bool enable_chimeraMetabolismHungerFactor = true;
 		public float chimeraMinGeneCopyChance = 0.35f;
@@ -239,6 +240,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref falselink_mechsToSpawnRange, "falselink_mechsToSpawnRange", defaultValue: new(1, 6));
 			// shapeshifter
 			Scribe_Values.Look(ref shapeshifer_GeneCellularRegeneration, "shapeshifer_GeneCellularRegeneration", defaultValue: 1f);
+			Scribe_Values.Look(ref enable_MorpherExperimentalMode, "enable_MorpherExperimentalMode", defaultValue: false);
 			// Scribe_Values.Look(ref shapeshifter_enableStyleButton, "shapeshifter_enableStyleButton", defaultValue: true);
 			Scribe_Values.Look(ref enable_spawnXenotypesInFactions, "enable_spawnXenotypesInFactions", defaultValue: false);
 			// Chimera
@@ -865,6 +867,7 @@ namespace WVC_XenotypesAndGenes
 				listingStandard.SliderLabeledWithRef("WVC_Label_chimeraStartingGenes".Translate((settings.chimeraStartingGenes).ToString()), ref settings.chimeraStartingGenes, 0f, 50f, round: 0);
 				listingStandard.CheckboxLabeled("WVC_Label_enable_chimeraStartingTools".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_chimeraStartingTools, "WVC_ToolTip_enable_chimeraStartingTools".Translate());
 				listingStandard.SliderLabeledWithRef("WVC_Label_duplicator_RandomOutcomeChance".Translate((settings.duplicator_RandomOutcomeChance).ToString()), ref settings.duplicator_RandomOutcomeChance, 0f, 1f, round: 2, tooltip: "WVC_Tooltip_duplicator_RandomOutcomeChance".Translate());
+				listingStandard.CheckboxLabeled("WVC_Label_enable_MorpherExperimentalMode".Translate().Colorize(ColorLibrary.RedReadable), ref settings.enable_MorpherExperimentalMode, "WVC_ToolTip_enable_MorpherExperimentalMode".Translate());
 			}
 			listingStandard.GapLine();
 			// =
@@ -1010,6 +1013,7 @@ namespace WVC_XenotypesAndGenes
 			// WVC_Biotech.settings.serumsForAllXenotypes_Spawners = false;
 			// =
 			WVC_Biotech.settings.canNonPlayerPawnResurrect = settingsDef.canNonPlayerPawnResurrect;
+			WVC_Biotech.settings.enable_MorpherExperimentalMode = settingsDef.enable_MorpherExperimentalMode;
 			//WVC_Biotech.settings.allowShapeshiftAfterDeath = settingsDef.allowShapeshiftAfterDeath;
 			// WVC_Biotech.settings.shapeshifter_enableStyleButton = true;
 			WVC_Biotech.settings.enable_chimeraMetabolismHungerFactor = settingsDef.enable_chimeraMetabolismHungerFactor;

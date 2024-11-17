@@ -291,7 +291,7 @@ namespace WVC_XenotypesAndGenes
 				ReimplanterUtility.FindSkinAndHairGenes(pawn, out Pawn_GeneTracker recipientGenes, out bool xenotypeHasSkinColor, out bool xenotypeHasHairColor);
 				if (!xenotypeHasSkinColor)
 				{
-					GeneDef skinDef = savedGeneSets?.FirstOrDefault()?.endogenes.Where((Gene gene) => gene.def.skinColorBase != null || gene.def.skinColorOverride != null)?.ToList()?.First()?.def;
+					GeneDef skinDef = savedGeneSets?.FirstOrDefault()?.endogenes?.Where((Gene gene) => gene.def.skinColorBase != null || gene.def.skinColorOverride != null)?.ToList()?.First()?.def ?? savedGeneSets?.FirstOrDefault()?.endogeneDefs?.Where((GeneDef gene) => def.skinColorBase != null || def.skinColorOverride != null)?.ToList()?.First();
 					if (skinDef != null)
 					{
 						recipientGenes?.AddGene(skinDef, false);
@@ -299,7 +299,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (!xenotypeHasHairColor)
 				{
-					GeneDef hairDef = savedGeneSets?.FirstOrDefault()?.endogenes?.Where((Gene gene) => gene.def.hairColorOverride != null)?.ToList()?.First()?.def;
+					GeneDef hairDef = savedGeneSets?.FirstOrDefault()?.endogenes?.Where((Gene gene) => gene.def.hairColorOverride != null)?.ToList()?.First()?.def ?? savedGeneSets?.FirstOrDefault()?.endogeneDefs?.Where((GeneDef gene) => gene.hairColorOverride != null)?.ToList()?.First();
 					if (hairDef != null)
 					{
 						recipientGenes?.AddGene(hairDef, false);
@@ -350,79 +350,48 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		private void ImplantFromSet(PawnGeneSetHolder pawnGeneSet)
-		{
-			ReimplanterUtility.SetXenotypeDirect(null, pawn, pawnGeneSet.xenotypeDef, true);
-			if (pawn.genes.Xenotype == XenotypeDefOf.Baseliner)
-			{
-				pawn.genes.xenotypeName = pawnGeneSet.name;
-				pawn.genes.iconDef = pawnGeneSet.iconDef;
-			}
-			try
-			{
-				Dictionary<Gene, int> savedEndogenesIDs = new();
-				Dictionary<Gene, Gene> savedEndogenesOverrides = new();
-				foreach (Gene gene in pawnGeneSet.endogenes)
-				{
-					AddGene(gene.def, true);
-					Gene sourceGene = pawn.genes.Endogenes.First((Gene oldGene) => oldGene.def == gene.def);
-					savedEndogenesIDs[sourceGene] = sourceGene.loadID;
-					savedEndogenesOverrides[sourceGene] = sourceGene.overriddenByGene;
-					CopyGeneID(gene, sourceGene, pawn.genes.Endogenes);
-				}
-				Dictionary<Gene, int> savedXenogenesIDs = new();
-				Dictionary<Gene, Gene> savedXenogenesOverrides = new();
-				foreach (Gene gene in pawnGeneSet.xenogenes)
-				{
-					AddGene(gene.def, false);
-					Gene sourceGene = pawn.genes.Xenogenes.First((Gene oldGene) => oldGene.def == gene.def);
-					savedXenogenesIDs[sourceGene] = sourceGene.loadID;
-					savedXenogenesOverrides[sourceGene] = sourceGene.overriddenByGene;
-					CopyGeneID(gene, sourceGene, pawn.genes.Xenogenes);
-				}
-				foreach (var item in savedEndogenesIDs)
-				{
-					Gene targetGene = pawn.genes.Endogenes.First((Gene oldGene) => oldGene.def == item.Key.def);
-					targetGene.loadID = item.Value;
-				}
-				foreach (var item in savedXenogenesIDs)
-				{
-					Gene targetGene = pawn.genes.Xenogenes.First((Gene oldGene) => oldGene.def == item.Key.def);
-					targetGene.loadID = item.Value;
-				}
-				foreach (var item in savedEndogenesOverrides)
-				{
-					Gene targetGene = pawn.genes.Endogenes.First((Gene oldGene) => oldGene.def == item.Key.def);
-					targetGene.overriddenByGene = item.Value;
-				}
-				foreach (var item in savedXenogenesOverrides)
-				{
-					Gene targetGene = pawn.genes.Xenogenes.First((Gene oldGene) => oldGene.def == item.Key.def);
-					targetGene.overriddenByGene = item.Value;
-				}
-			}
-			catch (Exception arg)
-			{
-				Log.Error("Failed copy genes. Reason: " + arg);
-			}
-			//CopyGenesID(pawnGeneSet.endogenes, pawn.genes.Endogenes);
-			//CopyGenesID(pawnGeneSet.xenogenes, pawn.genes.Xenogenes);
-			foreach (Need need in pawn.needs.AllNeeds)
-			{
-				foreach (var item in pawnGeneSet.savedPawnNeeds)
-				{
-					if (need.def == item.Key)
-					{
-						need.CurLevel = item.Value;
-					}
-				}
-			}
-			pawnGeneSet.savedPawnNeeds = null;
-			currentFormName = pawnGeneSet.name;
-			formId = pawnGeneSet.formId;
-			savedGeneSets.Remove(pawnGeneSet);
-		}
+        {
+            ReimplanterUtility.SetXenotypeDirect(null, pawn, pawnGeneSet.xenotypeDef, true);
+            if (pawn.genes.Xenotype == XenotypeDefOf.Baseliner)
+            {
+                pawn.genes.xenotypeName = pawnGeneSet.name;
+                pawn.genes.iconDef = pawnGeneSet.iconDef;
+            }
+			pawnGeneSet.LoadGenes(pawn, this);
+            //CopyGenesID(pawnGeneSet.endogenes, pawn.genes.Endogenes);
+            //CopyGenesID(pawnGeneSet.xenogenes, pawn.genes.Xenogenes);
+            pawn.needs.AddOrRemoveNeedsAsAppropriate();
+            foreach (Need need in pawn.needs.AllNeeds)
+            {
+                foreach (var item in pawnGeneSet.savedPawnNeeds)
+                {
+                    if (need.def == item.Key)
+                    {
+                        need.CurLevel = item.Value;
+                    }
+                }
+            }
+            pawnGeneSet.savedPawnNeeds = null;
+            foreach (Gene gene in pawn.genes.GenesListForReading)
+            {
+                if (gene is Gene_Resource resource)
+                {
+                    foreach (var item in pawnGeneSet.savedPawnResources)
+                    {
+                        if (resource.def == item.Key)
+                        {
+                            resource.Value = item.Value;
+                        }
+                    }
+                }
+            }
+            pawnGeneSet.savedPawnResources = null;
+            currentFormName = pawnGeneSet.name;
+            formId = pawnGeneSet.formId;
+            savedGeneSets.Remove(pawnGeneSet);
+        }
 
-		public void CopyGeneID(Gene gene, Gene sourceGene, List<Gene> genes)
+        public void CopyGeneID(Gene gene, Gene sourceGene, List<Gene> genes)
 		{
 			try
 			{
@@ -460,74 +429,50 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public void SaveGenes()
-		{
-			//if (pawnGeneSets.Where((PawnGeneSetHolder holder) => holder.xenotypeDef == pawn.genes.Xenotype).Any())
-			//{
-			//	return;
-			//}
-			PawnGeneSetHolder newSet = new();
-			if (!formId.HasValue)
-			{
-				formId = savedGeneSets.Count + 1;
-			}
-			newSet.savedPawnNeeds = new();
-			foreach (Need need in pawn.needs.AllNeeds)
-			{
-				if (!need.def.onlyIfCausedByGene)
-				{
-					continue;
-				}
-				newSet.savedPawnNeeds[need.def] = need.CurLevel;
-			}
-			newSet.formId = formId.Value;
-			newSet.xenotypeDef = pawn.genes.Xenotype;
-			newSet.xenogenes = new();
-			newSet.endogenes = new();
-			foreach (Gene gene in pawn.genes.Endogenes.ToList())
-			{
-				if (gene != this)
-				{
-					//gene.PostRemove();
-					newSet.endogenes.Add(gene);
-				}
-			}
-			foreach (Gene gene in pawn.genes.Endogenes.ToList())
-			{
-				RemoveGene(gene);
-			}
-			foreach (Gene gene in pawn.genes.Xenogenes.ToList())
-			{
-				if (gene != this)
-				{
-					//gene.PostRemove();
-					newSet.xenogenes.Add(gene);
-				}
-			}
-			foreach (Gene gene in pawn.genes.Xenogenes.ToList())
-			{
-				RemoveGene(gene);
-			}
-			foreach (Gene gene in newSet.endogenes)
-			{
-				gene.overriddenByGene = this;
-			}
-			foreach (Gene gene in newSet.xenogenes)
-			{
-				gene.overriddenByGene = this;
-			}
-			newSet.name = pawn.genes.xenotypeName;
-			if (newSet.name.NullOrEmpty())
-			{
-				newSet.name = newSet.xenotypeDef.label;
-			}
-			if (pawn.genes.UniqueXenotype)
-			{
-				newSet.iconDef = pawn.genes.iconDef;
-			}
-			savedGeneSets.Add(newSet);
-		}
+        {
+            //if (pawnGeneSets.Where((PawnGeneSetHolder holder) => holder.xenotypeDef == pawn.genes.Xenotype).Any())
+            //{
+            //	return;
+            //}
+            PawnGeneSetHolder newSet = new();
+            if (!formId.HasValue)
+            {
+                formId = savedGeneSets.Count + 1;
+            }
+            newSet.savedPawnNeeds = new();
+            foreach (Need need in pawn.needs.AllNeeds)
+            {
+                if (!need.def.onlyIfCausedByGene)
+                {
+                    continue;
+                }
+                newSet.savedPawnNeeds[need.def] = need.CurLevel;
+            }
+            newSet.savedPawnResources = new();
+            foreach (Gene gene in pawn.genes.GenesListForReading)
+            {
+                if (gene is Gene_Resource resource)
+                {
+                    newSet.savedPawnResources[resource.def] = resource.Value;
+                }
+            }
+            //pawn.needs.AllNeeds.RemoveAll((Need need) => need.def.onlyIfCausedByGene);
+            newSet.formId = formId.Value;
+            newSet.xenotypeDef = pawn.genes.Xenotype;
+			newSet.SaveGenes(pawn, this);
+            newSet.name = pawn.genes.xenotypeName;
+            if (newSet.name.NullOrEmpty())
+            {
+                newSet.name = newSet.xenotypeDef.label;
+            }
+            if (pawn.genes.UniqueXenotype)
+            {
+                newSet.iconDef = pawn.genes.iconDef;
+            }
+            savedGeneSets.Add(newSet);
+        }
 
-		public virtual void AddGene(GeneDef geneDef, bool inheritable)
+        public virtual void AddGene(GeneDef geneDef, bool inheritable)
 		{
 			if (!geneDef.ConflictsWith(this.def) && (inheritable && !XaG_GeneUtility.HasEndogene(geneDef, pawn) || !XaG_GeneUtility.HasXenogene(geneDef, pawn)))
 			{
