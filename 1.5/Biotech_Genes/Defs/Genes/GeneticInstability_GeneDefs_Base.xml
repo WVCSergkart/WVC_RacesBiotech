@@ -45,7 +45,6 @@
 	<displayOrderInCategory>1250</displayOrderInCategory>
 	<customEffectDescriptions Inherit="False">
 	  <li>Occasionally removes the xenogerm replication effects from the carrier.</li>
-	  <!-- <li>Abilities "Rise from the Dead", "Reimplanter" and "Natural reimplanter" do not work on carriers of this gene.</li> -->
 	</customEffectDescriptions>
   </GeneDef>
 
@@ -91,7 +90,7 @@
 	<biostatMet>-1</biostatMet>
 	<displayOrderInCategory>1253</displayOrderInCategory>
 	<customEffectDescriptions>
-	  <li>From time to time the carrier's &lt;color=#8a8ae6&gt;genes&lt;/color&gt; begin to &lt;color=#8a8ae6&gt;regrow&lt;/color&gt;.</li>
+	  <li>From time to time, the carrier receives a &lt;color=#8a8ae6&gt;gene loss shock&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<statFactors>
 	  <Fertility>0.8</Fertility>
@@ -105,9 +104,9 @@
 			</specialFoodDefs>
 			<intervalRange>522000~1240000</intervalRange>
 			<hediffDefs>
-				<li>XenogermReplicating</li>
+				<!-- <li>XenogermReplicating</li> -->
 				<!-- <li>XenogerminationComa</li> -->
-				<!-- <li>XenogermLossShock</li> -->
+				<li>XenogermLossShock</li>
 			</hediffDefs>
 		</li>
 	</modExtensions>
@@ -122,7 +121,7 @@
 	<biostatMet>-3</biostatMet>
 	<displayOrderInCategory>1254</displayOrderInCategory>
 	<customEffectDescriptions>
-	  <li>From time to time, the carrier of the gene receives a &lt;color=#8a8ae6&gt;gene loss shock&lt;/color&gt;, and the carrier's &lt;color=#8a8ae6&gt;genes&lt;/color&gt; begin to &lt;color=#8a8ae6&gt;regrow&lt;/color&gt;.</li>
+	  <li>From time to time, the carrier receives a &lt;color=#8a8ae6&gt;gene loss shock&lt;/color&gt;, and the carrier's &lt;color=#8a8ae6&gt;genes&lt;/color&gt; begin to &lt;color=#8a8ae6&gt;regrow&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<statFactors>
 	  <Fertility>0.5</Fertility>

@@ -10,9 +10,9 @@
 	<selectionWeight>0.0022</selectionWeight>
 	<displayCategory>WVC_ResurgentCells</displayCategory>
 	<displayOrderInCategory>120</displayOrderInCategory>
-	<biostatCpx>0</biostatCpx>
-	<biostatArc>1</biostatArc>
-	<biostatMet>0</biostatMet>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-1</biostatMet>
 	<customEffectDescriptions>
 		<li>Using a &lt;color=#8a8ae6&gt;post-implanter&lt;/color&gt; is guaranteed to recruit the target.</li>
 	</customEffectDescriptions>

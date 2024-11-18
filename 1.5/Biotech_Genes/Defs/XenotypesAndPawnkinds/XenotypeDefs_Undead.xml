@@ -7,7 +7,11 @@
 	<!-- undead necrokind necrokin necromantic -->
 	<label>undead</label>
 	<!-- Experiments, eternal youth, critical failure, side effect -->
-	<description>Undeads are partially immortal, rapidly aging xeno-humans. Their genes are quite unstable and often their health can cause death, their bodies are very fragile, which is why even a fist fight can be fatal for them. In compensation, they can reanimate the dead by turning them into their own kind, and death is not always the end for them.</description>
+	<description>Undeads are partially immortal, rapidly aging xeno-humans. Their genes are quite unstable and often their health can cause death, their bodies are very fragile, which is why even a fist fight can be fatal for them. In compensation, they can reanimate the dead by turning them into their own kind, and death is not always the end for them.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Ability):&lt;/color&gt; This xenotype can resurrect the dead and recruit them when possible.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Genes):&lt;/color&gt; After resurrection, it can morph into one of the sub-xenotypes.</description>
 	<descriptionShort>Undeads are partially immortal, rapidly aging xeno-humans. Their genes are quite unstable and often their health can cause death, their bodies are very fragile, which is why even a fist fight can be fatal for them. In compensation, they can reanimate the dead by turning them into their own kind, and death is not always the end for them.</descriptionShort>
 	<displayPriority>-200</displayPriority>
 	<canGenerateAsCombatant>true</canGenerateAsCombatant>
@@ -32,7 +36,7 @@
 		<li>WVC_PostImplanterBrainwash</li>
 		<li>WVC_NaturalFastAging</li>
 		<li>WVC_NaturalFastGrowing</li>
-		<li>WVC_MildGeneticInstability</li>
+		<!-- <li>WVC_MildGeneticInstability</li> -->
 		<li>WVC_Undead</li>
 		<!-- <li>ToxResist_Total</li> -->
 		<li>WVC_ToxResist_Total</li>
