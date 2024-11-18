@@ -74,6 +74,7 @@
     <Compile Include="Resources_Abilities\CompProperties_AbilityRiseFromTheDead.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityThrallMaker.cs" />
     <Compile Include="Resources_Abilities\CompProperties_SafeBloodfeed.cs" />
+    <Compile Include="Resources_Genes\Gene_DeathrestSubgenes.cs" />
     <Compile Include="Resources_Genes\Gene_Morpher_SubGenes.cs" />
     <Compile Include="Resources_Main\GenesHolder.cs" />
     <Compile Include="Resources_Quests\QuestNode_Root_ChimerkinBaby.cs" />

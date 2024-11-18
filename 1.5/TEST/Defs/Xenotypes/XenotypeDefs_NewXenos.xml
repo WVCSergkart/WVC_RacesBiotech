@@ -7,20 +7,48 @@
 	<label>TestTemplate</label>
 	<iconPath>WVC/UI/Mecha_Icons/Icon_Runeex_v0</iconPath>
 	<genes>
-		<!-- Graphic -->
-		<li>Body_Standard</li>
-		<!-- <li>WVC_HairColor_Slate</li> -->
-		<li>WVC_SkinColor_MilkWhite</li>
-		<li>WVC_HeadBoneCurveHorns</li>
-		<li>WVC_DragonTailA</li>
-		<li>WVC_HairColor_ffdcb4_HEX</li>
-		<li>Hair_SnowWhite</li>
-		<li>WVC_Ears_PointedA</li>
-		<!-- <li>WVC_FishSkin</li> -->
-		<!-- Stats -->
-		<li>WVC_Morpher</li>
-		<li>WVC_MorphCondition_Diurnal</li>
+		<!-- Mechomata -->
+		<!-- <li>WVC_Morpher</li> -->
+		<!-- <li>WVC_MorphCondition_Deathless</li> -->
+		<!-- <li>WVC_MorphEffects_OneTimeUse</li> -->
+		<!-- Mechomata -->
+		<!-- Deadcat -->
+		<!-- <li>WVC_ArchitePsylink</li> -->
+		<li>WVC_NeverDead</li>
+		<li>WVC_NaturalAgeless</li>
+		<!-- <li>WVC_DeadlyGeneticInstability</li> -->
+		<!-- <li>WVC_PsychicAbility_Archite</li> -->
+		<li>WVC_NaturalTelepathy</li>
+		<li>WVC_MinMaxTemp_Archite</li>
+		<li>VerySleepy</li>
+		<li>WVC_Hair_NonBald</li>
+		<li>WVC_CatEarsA</li>
+		<li>WVC_TransparentSkin</li>
+		<li>WVC_CatTailA</li>
+		<li>Beard_NoBeardOnly</li>
+		<li>WVC_VoiceAnimals_BigCat</li>
+		<!-- <li>WVC_Feminine</li> -->
+		<!-- <li>WVC_BodySize_Small</li> -->
+		<li>WVC_HairColor_b4c8ff_HEX</li>
+		<li>WVC_SkinColor_Slate</li>
+		<!-- <li>WVC_Learning_Telepath</li> -->
+		<li>DarkVision</li>
+		<li>WVC_DemonBeauty</li>
+		<li>WVC_DeadStomach</li>
+		<li>WVC_Glass</li>
+		<li>WVC_XenotypeGestator</li>
+		<li>WVC_Invisibility</li>
+		<li>WVC_WoundHealing_NoHealing</li>
+		<li>WVC_Immunity_Non</li>
+		<!-- New Deadcat -->
+		<li>Deathless</li>
+		<li>Hemogenic</li>
+		<!-- <li>WVC_HemogenGain</li> -->
 		<li>Deathrest</li>
+		<li>WVC_Deathrest_Immunization</li>
+		<li>WVC_Deathrest_Healing</li>
+		<li>WVC_Deathrest_FastRest</li>
+		<li>WVC_Deathrest_HemogenGain</li>
 	</genes>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">

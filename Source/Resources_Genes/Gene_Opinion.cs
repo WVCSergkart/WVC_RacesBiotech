@@ -188,8 +188,18 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Tick()
 		{
-			if (!pawn.IsHashIntervalTick(hashIntervalTick))
+			hashIntervalTick--;
+			if (hashIntervalTick > 0)
 			{
+				return;
+			}
+			//if (!pawn.IsHashIntervalTick(hashIntervalTick))
+			//{
+			//	return;
+			//}
+			if (hashIntervalTick < 0)
+			{
+				ResetInterval(new(7200, 7200));
 				return;
 			}
 			TryInteract();

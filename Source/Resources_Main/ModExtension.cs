@@ -116,6 +116,8 @@ namespace WVC_XenotypesAndGenes
 		public Color destroyedGenesColor;
 		// Regen
 		public float regeneration = -1f;
+		public float immunization = -1f;
+		//public float deathrestBoost = -1f;
 		// Regen
 		// public ShapeshiftModeDef defaultShapeMode;
 		// public List<ShapeshiftModeDef> initialShapeModes;

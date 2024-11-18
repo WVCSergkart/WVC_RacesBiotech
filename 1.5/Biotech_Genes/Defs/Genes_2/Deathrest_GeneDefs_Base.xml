@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef Name="WVC_XenotypesAndGenes_GeneDeathrest_Base" Abstract="True">
+	<prerequisite>Deathrest</prerequisite>
+	<displayCategory>Hemogen</displayCategory>
+	<selectionWeight>0.0007</selectionWeight>
+	<canGenerateInGeneSet>true</canGenerateInGeneSet>
+	<displayOrderInCategory>250</displayOrderInCategory>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
+	<minAgeActive>3</minAgeActive>
+  </GeneDef>
+
+  <!-- ===================================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathrest_Base">
+	<defName>WVC_Deathrest_Immunization</defName>
+	<label>deathrest immunization</label>
+	<description>Carriers of this gene quickly develop immunity while in deathrest.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Deathrest_Immunization</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_DeathrestSubGenes_Immunization</iconPath>
+	<displayOrderInCategory>260</displayOrderInCategory>
+	<biostatCpx>3</biostatCpx>
+	<biostatMet>-5</biostatMet>
+	<customEffectDescriptions>
+		<li>Deathrest immunization: 100 sv/day</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<immunization>100</immunization>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathrest_Base">
+	<defName>WVC_Deathrest_Healing</defName>
+	<label>deathrest healing</label>
+	<description>Carriers of this gene, while in deathrest, regenerate wounds and regrow lost limbs.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Deathrest_Healing</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_DeathrestSubGenes_Healing</iconPath>
+	<displayOrderInCategory>265</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-3</biostatMet>
+	<customEffectDescriptions>
+		<li>Deathrest healing: 100 hp/day</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<regeneration>100</regeneration>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathrest_Base">
+	<defName>WVC_Deathrest_FastRest</defName>
+	<label>deathrest faster safely</label>
+	<description>Carriers of this gene have a shorter safely deathrest than normal.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Deathrest_FastRest</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_DeathrestSubGenes_FastRest</iconPath>
+	<displayOrderInCategory>270</displayOrderInCategory>
+	<biostatCpx>4</biostatCpx>
+	<biostatMet>-3</biostatMet>
+	<customEffectDescriptions>
+		<!-- <li>Deathrest safely wake: 10 per day.</li> -->
+		<li>Speeds up safe wake up during deathrest.</li>
+	</customEffectDescriptions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Undead"> -->
+			<!-- <deathrestBoost>10</deathrestBoost> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneDeathrest_Base">
+	<defName>WVC_Deathrest_HemogenGain</defName>
+	<label>deathrest hemogen gain</label>
+	<description>Carriers of this gene quickly restore hemogen while deathresting.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Deathrest_HemogenGain</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_DeathrestSubGenes_HemogenGain</iconPath>
+	<displayOrderInCategory>275</displayOrderInCategory>
+	<biostatCpx>5</biostatCpx>
+	<biostatMet>-2</biostatMet>
+	<resourceLossPerDay>-0.10</resourceLossPerDay>
+	<customEffectDescriptions>
+		<li>Deathrest hemogen gain: 10 per day.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+</Defs>

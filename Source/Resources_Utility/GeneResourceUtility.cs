@@ -428,10 +428,10 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void TickHemogenDrain(IGeneResourceDrain drain, int tick = 1)
+		public static void TickHemogenDrain(IGeneResourceDrain drain, int tick = 1, bool canOffset = false)
 		{
 			// Log.Error("1 TickHemogenDrain " + tick.ToString() + " | 120");
-			if (drain.Resource != null && drain.CanOffset)
+			if (drain.Resource != null && canOffset)
 			{
 				// Log.Error("TickHemogenDrain ticks: " + tick.ToString());
 				GeneResourceDrainUtility.OffsetResource(drain, ((0f - drain.ResourceLossPerDay) / 60000f) * tick);

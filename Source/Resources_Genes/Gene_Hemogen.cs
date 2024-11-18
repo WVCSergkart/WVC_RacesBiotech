@@ -62,7 +62,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				// Log.Error(tick.ToString() + " | 120");
 				// tick = 0;
-				GeneResourceUtility.TickHemogenDrain(this, 360);
+				GeneResourceUtility.TickHemogenDrain(this, 360, CanOffset);
 			}
 		}
 
@@ -359,7 +359,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (pawn.IsHashIntervalTick(360))
 			{
-				GeneResourceUtility.TickHemogenDrain(this, 360);
+				GeneResourceUtility.TickHemogenDrain(this, 360, CanOffset);
 			}
 			if (!pawn.IsHashIntervalTick(527))
 			{
