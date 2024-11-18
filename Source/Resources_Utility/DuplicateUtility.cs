@@ -14,21 +14,25 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		// Clone
-		public static bool TryDuplicatePawn(Pawn caster, Pawn originalPawn, IntVec3 targetCell, Map map, out Pawn duplicatePawn, ref string customLetter, ref LetterDef letterDef, bool randomOutcome = false)
+		public static bool TryDuplicatePawn(Pawn caster, Pawn originalPawn, IntVec3 targetCell, Map map, out Pawn duplicatePawn, out string customLetter, out LetterDef letterDef, bool randomOutcome = false)
 		{
 			duplicatePawn = null;
+			customLetter = null;
+			letterDef = null;
 			try
 			{
 				if (ModsConfig.AnomalyActive)
 				{
 					duplicatePawn = Find.PawnDuplicator.Duplicate(originalPawn);
-					DuplicationOutcomes(caster, originalPawn, duplicatePawn, randomOutcome, ref customLetter, ref letterDef);
+					DuplicationOutcomes(caster, originalPawn, duplicatePawn, randomOutcome, out customLetter, out letterDef);
 				}
 				else
 				{
 					PawnGenerationRequest request = DuplicateUtility.RequestCopy(originalPawn);
 					duplicatePawn = PawnGenerator.GeneratePawn(request);
 					DuplicatePawn(originalPawn, duplicatePawn, false);
+					letterDef = LetterDefOf.PositiveEvent;
+					customLetter = "WVC_XaG_GeneDuplicationLetter".Translate(caster.Named("CASTER"), originalPawn.Named("PAWN"));
 				}
 				map.effecterMaintainer.AddEffecterToMaintain(EffecterDefOf.Skip_EntryNoDelay.Spawn(targetCell, map), targetCell, 60);
 				SoundDefOf.Psycast_Skip_Entry.PlayOneShot(new TargetInfo(targetCell, map));
@@ -41,10 +45,12 @@ namespace WVC_XenotypesAndGenes
 			return duplicatePawn != null;
 		}
 
-        public static void DuplicationOutcomes(Pawn caster, Pawn originalPawn, Pawn duplicatePawn, bool randomOutcome, ref string customLetter, ref LetterDef letterDef)
+        public static void DuplicationOutcomes(Pawn caster, Pawn originalPawn, Pawn duplicatePawn, bool randomOutcome, out string customLetter, out LetterDef letterDef)
         {
 			string phase = null;
-            try
+			letterDef = LetterDefOf.NeutralEvent;
+			customLetter = "WVC_XaG_GeneDuplicationLetter".Translate(caster.Named("CASTER"), originalPawn.Named("PAWN"));
+			try
             {
                 phase = "initial";
                 if (!randomOutcome)

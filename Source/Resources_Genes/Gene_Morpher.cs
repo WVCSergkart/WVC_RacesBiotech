@@ -286,27 +286,98 @@ namespace WVC_XenotypesAndGenes
 
 		private void UpdSkinAndHair()
 		{
+			//Log.Error("1");
 			if (!savedGeneSets.NullOrEmpty())
 			{
+				//Log.Error("2");
 				ReimplanterUtility.FindSkinAndHairGenes(pawn, out Pawn_GeneTracker recipientGenes, out bool xenotypeHasSkinColor, out bool xenotypeHasHairColor);
 				if (!xenotypeHasSkinColor)
 				{
-					GeneDef skinDef = savedGeneSets?.FirstOrDefault()?.endogenes?.Where((Gene gene) => gene.def.skinColorBase != null || gene.def.skinColorOverride != null)?.ToList()?.First()?.def ?? savedGeneSets?.FirstOrDefault()?.endogeneDefs?.Where((GeneDef gene) => def.skinColorBase != null || def.skinColorOverride != null)?.ToList()?.First();
+					//Log.Error("2.1");
+					//GeneDef skinDef = savedGeneSets?.FirstOrDefault()?.endogenes?.Where((Gene gene) => gene.def.skinColorBase != null || gene.def.skinColorOverride != null)?.ToList()?.First()?.def ?? savedGeneSets?.FirstOrDefault()?.endogeneDefs?.Where((GeneDef gene) => gene.skinColorBase != null || gene.skinColorOverride != null)?.ToList()?.First();
+					GeneDef skinDef = GetSkinDef();
 					if (skinDef != null)
 					{
+						//Log.Error("2.2");
 						recipientGenes?.AddGene(skinDef, false);
 					}
 				}
+				//Log.Error("3");
 				if (!xenotypeHasHairColor)
 				{
-					GeneDef hairDef = savedGeneSets?.FirstOrDefault()?.endogenes?.Where((Gene gene) => gene.def.hairColorOverride != null)?.ToList()?.First()?.def ?? savedGeneSets?.FirstOrDefault()?.endogeneDefs?.Where((GeneDef gene) => gene.hairColorOverride != null)?.ToList()?.First();
+					//Log.Error("3.1");
+					//GeneDef hairDef = savedGeneSets?.FirstOrDefault()?.endogenes?.Where((Gene gene) => gene.def.hairColorOverride != null)?.ToList()?.First()?.def ?? savedGeneSets?.FirstOrDefault()?.endogeneDefs?.Where((GeneDef gene) => gene.hairColorOverride != null)?.ToList()?.First();
+					GeneDef hairDef = GetHairDef();
 					if (hairDef != null)
 					{
+						//Log.Error("3.2");
 						recipientGenes?.AddGene(hairDef, false);
 					}
 				}
+				//Log.Error("4");
 			}
+			//Log.Error("5");
 			ReimplanterUtility.TrySetSkinAndHairGenes(pawn);
+		}
+
+		private GeneDef GetHairDef()
+		{
+			PawnGeneSetHolder geneSet = savedGeneSets.First();
+			if (geneSet == null)
+			{
+				Log.Error("PawnGeneSetHolder is null, but morph call debug sequence.");
+				return null;
+			}
+			if (!geneSet.endogenes.NullOrEmpty())
+			{
+				List<Gene> geneDefs = geneSet.endogenes?.Where((Gene gene) => gene.def.hairColorOverride != null)?.ToList();
+				if (geneDefs.NullOrEmpty())
+				{
+					return null;
+				}
+				return geneDefs.First().def;
+			}
+			if (!geneSet.endogeneDefs.NullOrEmpty())
+			{
+				List<GeneDef> geneDefs = geneSet.endogeneDefs?.Where((GeneDef gene) => gene.hairColorOverride != null)?.ToList()?.ToList();
+				if (geneDefs.NullOrEmpty())
+				{
+					return null;
+				}
+				return geneDefs.First();
+			}
+			Log.Error("PawnGeneSetHolder saved genes is null, but morph call debug sequence.");
+			return null;
+		}
+
+		private GeneDef GetSkinDef()
+		{
+			PawnGeneSetHolder geneSet = savedGeneSets.First();
+			if (geneSet == null)
+			{
+				Log.Error("PawnGeneSetHolder is null, but morph call debug sequence.");
+				return null;
+			}
+			if (!geneSet.endogenes.NullOrEmpty())
+			{
+				List<Gene> geneDefs = geneSet.endogenes?.Where((Gene gene) => gene.def.skinColorBase != null || gene.def.skinColorOverride != null)?.ToList();
+				if (geneDefs.NullOrEmpty())
+				{
+					return null;
+				}
+				return geneDefs.First().def;
+			}
+			if (!geneSet.endogeneDefs.NullOrEmpty())
+			{
+				List<GeneDef> geneDefs = geneSet.endogeneDefs?.Where((GeneDef gene) => gene.skinColorBase != null || gene.skinColorOverride != null)?.ToList();
+				if (geneDefs.NullOrEmpty())
+				{
+					return null;
+				}
+				return geneDefs.First();
+			}
+			Log.Error("PawnGeneSetHolder saved genes is null, but morph call debug sequence.");
+			return null;
 		}
 
 		public void DoEffects()
