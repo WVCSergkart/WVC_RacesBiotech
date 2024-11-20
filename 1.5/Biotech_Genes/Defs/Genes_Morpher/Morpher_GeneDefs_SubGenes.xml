@@ -10,6 +10,7 @@
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_SubGenes" Name="WVC_XenotypesAndGenes_GeneMorpher_Triggers" Abstract="True">
+	<prerequisite></prerequisite>
 	<exclusionTags>
 		<li>MorphCondition</li>
 	</exclusionTags>

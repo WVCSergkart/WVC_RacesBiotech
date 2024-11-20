@@ -15,7 +15,7 @@ namespace WVC_XenotypesAndGenes
 
 		//private int nextTick = 1500;
 
-		private int currentLimit = 1;
+		public int currentLimit = 1;
 
 		public int CurrentLimit => currentLimit;
 		public int FormsCount
@@ -47,21 +47,21 @@ namespace WVC_XenotypesAndGenes
 		private string currentFormName = null;
 		private int? formId;
 
-		private List<PawnGeneSetHolder> savedGeneSets = new();
+		public List<PawnGeneSetHolder> savedGeneSets = new();
 
 		public List<PawnGeneSetHolder> GeneSets => savedGeneSets;
 
-		public override string LabelCap
-		{
-			get
-			{
-				if (currentFormName.NullOrEmpty())
-				{
-					return base.LabelCap;
-				}
-				return base.LabelCap + " (" + currentFormName.CapitalizeFirst() + ")";
-			}
-		}
+		//public override string LabelCap
+		//{
+		//	get
+		//	{
+		//		if (currentFormName.NullOrEmpty())
+		//		{
+		//			return base.LabelCap;
+		//		}
+		//		return base.LabelCap + " (" + currentFormName.CapitalizeFirst() + ")";
+		//	}
+		//}
 
 		//public override void PostAdd()
 		//{
@@ -127,7 +127,7 @@ namespace WVC_XenotypesAndGenes
 				//PostMorph();
 				pawn.Drawer?.renderer?.SetAllGraphicsDirty();
 				phase = "do effects yay";
-				DoEffects();
+				DoEffects(pawn);
 				if (removeMorpher)
 				{
 					phase = "remove morpher :(";
@@ -191,7 +191,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private static XenotypeHolder GetBestNewForm(Gene gene)
+		public static XenotypeHolder GetBestNewForm(Gene gene)
 		{
 			List<XenotypeHolder> holders = ListsUtility.GetAllXenotypesHolders().Where((XenotypeHolder holder) => !holder.genes.HasGeneDefOfType<Gene_MorpherOneTimeUse>()).ToList();
 			List<XenotypeHolder> result = new();
@@ -201,9 +201,13 @@ namespace WVC_XenotypesAndGenes
 				{
 					holder.matchPercent = 0.1f;
 				}
-				else if (XaG_GeneUtility.AnyGeneDefIsSubGeneOf(holder.genes, gene.def))
+				else if (holder.genes.HasGeneDefOfType<Gene_MorpherDependant>())
 				{
-					holder.matchPercent = 5f;
+					holder.matchPercent = 8f;
+				}
+				else if (holder.genes.HasGeneDefOfType<Gene_Morpher>())
+				{
+					holder.matchPercent = 4f;
 				}
 				else
 				{
@@ -380,7 +384,7 @@ namespace WVC_XenotypesAndGenes
 			return null;
 		}
 
-		public void DoEffects()
+		public void DoEffects(Pawn pawn)
 		{
 			if (pawn.Map == null)
 			{
@@ -462,7 +466,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (xenotypeDef.CustomXenotype)
 			{
-				pawn.genes.SetXenotypeDirect(XenotypeDefOf.Baseliner);
+				//pawn.genes.SetXenotypeDirect(XenotypeDefOf.Baseliner);
 				pawn.genes.xenotypeName = xenotypeDef.Label;
 				pawn.genes.iconDef = xenotypeDef.iconDef;
 			}
@@ -518,7 +522,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				foreach (Gene gene in pawn.genes.GenesListForReading.ToList())
 				{
-					if (XaG_GeneUtility.GeneDefIsSubGeneOf(gene.def, def))
+					if (gene.def.IsGeneDefOfType<Gene_MorpherDependant>())
 					{
 						RemoveGene(gene);
 					}

@@ -17,13 +17,13 @@ namespace WVC_XenotypesAndGenes
 
 		public XenotypeIconDef iconDef = null;
 
-		public List<Gene> endogenes = new();
-		public List<Gene> xenogenes = new();
+		public List<Gene> endogenes = null;
+		public List<Gene> xenogenes = null;
 
-		public List<GeneDef> endogeneDefs = new();
-		public List<GeneDef> xenogeneDefs = new();
+		public List<GeneDef> endogeneDefs = null;
+		public List<GeneDef> xenogeneDefs = null;
 
-		public List<GeneDefOverrideSaver> overrideSaverList = new();
+		public List<GeneDefOverrideSaver> overrideSaverList = null;
 
 		public XenotypeDef xenotypeDef = null;
 
@@ -318,10 +318,10 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		[Unsaved(false)]
-		private TaggedString cachedLabelCap = null;
+		public TaggedString cachedLabelCap = null;
 
 		[Unsaved(false)]
-		private TaggedString cachedLabel = null;
+		public TaggedString cachedLabel = null;
 
 		public virtual TaggedString Label
 		{
@@ -354,9 +354,9 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private int? cachedGenesCount;
+		public int? cachedGenesCount;
 
-		public int AllGenesCount
+		public virtual int AllGenesCount
 		{
 			get
 			{
@@ -375,7 +375,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        public void ExposeData()
+        public virtual void ExposeData()
 		{
 			Scribe_Values.Look(ref formId, "formId");
 			Scribe_Values.Look(ref name, "name");
@@ -431,30 +431,30 @@ namespace WVC_XenotypesAndGenes
 					Log.Warning("Removed null overrideSaver(s)");
 				}
 			}
-			if (Scribe.mode == LoadSaveMode.PostLoadInit)
-			{
-				if (xenotypeDef == null)
-				{
-					xenotypeDef = XenotypeDefOf.Baseliner;
-				}
-				if (xenogenes == null)
-				{
-					xenogenes = new();
-				}
-				if (endogenes == null)
-				{
-					endogenes = new();
-				}
-				if (xenogeneDefs == null)
-				{
-					xenogeneDefs = new();
-				}
-				if (endogeneDefs == null)
-				{
-					endogeneDefs = new();
-				}
-			}
-		}
+            if (Scribe.mode == LoadSaveMode.PostLoadInit)
+            {
+                if (xenotypeDef == null)
+                {
+                    xenotypeDef = XenotypeDefOf.Baseliner;
+                }
+                //if (xenogenes == null)
+                //{
+                //    xenogenes = new();
+                //}
+                //if (endogenes == null)
+                //{
+                //    endogenes = new();
+                //}
+                //if (xenogeneDefs == null)
+                //{
+                //    xenogeneDefs = new();
+                //}
+                //if (endogeneDefs == null)
+                //{
+                //    endogeneDefs = new();
+                //}
+            }
+        }
 
 	}
 
@@ -479,29 +479,67 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class GeneAsPawnHolder : IThingHolder, IExposable
+	public class PawnContainerHolder : PawnGeneSetHolder, IThingHolder, ISuspendableThingHolder
 	{
+
+		public override TaggedString Label
+		{
+			get
+			{
+				if (cachedLabel == null)
+				{
+					cachedLabel = name;
+				}
+				return cachedLabel;
+			}
+		}
 
 		public Pawn owner = null;
 		public Pawn holded = null;
 
+		public bool IsNullContainer => owner == null || holded == null;
+
 		public ThingOwner innerContainer;
 
-		public void Initial(Pawn owner, Pawn toHold)
+		public override int AllGenesCount
+		{
+			get
+			{
+				if (!cachedGenesCount.HasValue)
+				{
+					cachedGenesCount = holded.genes.GenesListForReading.Count;
+				}
+				return cachedGenesCount.Value;
+			}
+		}
+
+		public bool TrySetContainer(Pawn owner, Pawn toHold)
         {
 			innerContainer = new ThingOwner<Thing>(this, oneStackOnly: false);
 			this.owner = owner;
 			this.holded = toHold;
 			if (Accepts(toHold))
 			{
+				name = toHold.Name.ToString();
+				xenotypeDef = toHold.genes.Xenotype;
+				//endogeneDefs.AddRange(XaG_GeneUtility.ConvertGenesInGeneDefs(toHold.genes.Endogenes));
+				//xenogeneDefs.AddRange(XaG_GeneUtility.ConvertGenesInGeneDefs(toHold.genes.Xenogenes));
+				if (toHold.genes.UniqueXenotype)
+				{
+					iconDef = toHold.genes.iconDef;
+				}
 				toHold.DeSpawn();
 				innerContainer.TryAdd(toHold);
+				return true;
 			}
+			return false;
 		}
 
         public IThingHolder ParentHolder => owner.ParentHolder;
 
-		public bool Accepts(Thing thing)
+        public bool IsContentsSuspended => true;
+
+        public bool Accepts(Thing thing)
 		{
 			return innerContainer.CanAcceptAnyOf(thing, canMergeWithExistingStacks: false);
 		}
@@ -516,11 +554,12 @@ namespace WVC_XenotypesAndGenes
 			return innerContainer;
 		}
 
-		public void ExposeData()
+		public override void ExposeData()
 		{
 			Scribe_Deep.Look(ref innerContainer, "innerContainer", this);
 			Scribe_References.Look(ref owner, "owner");
 			Scribe_References.Look(ref holded, "holded");
+			base.ExposeData();
 		}
 	}
 

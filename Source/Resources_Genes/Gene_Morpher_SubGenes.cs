@@ -29,6 +29,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	// In Dev
 	public class Gene_MorpherOneTimeUse : Gene_MorpherDependant
 	{
 
@@ -38,6 +39,12 @@ namespace WVC_XenotypesAndGenes
 		//}
 
 	}
+
+	// In Dev
+	//public class Gene_ArchiverXenotypeChanger : Gene_MorpherDependant
+	//{
+
+	//}
 
 	public class Gene_MorpherTrigger : Gene_MorpherDependant
 	{

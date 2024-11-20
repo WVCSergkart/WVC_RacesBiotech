@@ -1,22 +1,38 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_Base">
-	<defName>WVC_Archive</defName>
-	<label>archivator</label>
-	<description>Carriers of this gene have archites that are capable of rewriting the carrier with an exact copy of it, and then restoring it back if necessary.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_Archive</geneClass>
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher">
+	<defName>WVC_Archiver</defName>
+	<label>archiver</label>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Archiver</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_Archivator_v0</iconPath>
-	<biostatCpx>4</biostatCpx>
-	<biostatArc>4</biostatArc>
-	<displayOrderInCategory>-100</displayOrderInCategory>
+	<biostatArc>5</biostatArc>
+	<displayOrderInCategory>-110</displayOrderInCategory>
 	<customEffectDescriptions>
-		<li>Allows you to create a duplicate of the owner, which will take his place in the same second.</li>
-		<li>Genes, relationships, clothes and everything else are separate for duplicates.</li>
-		<li>When the gene owner dies or the gene is deleted, all stored duplicates are deleted.</li>
+		<li>Creates a &lt;color=#8a8ae6&gt;complete copy&lt;/color&gt; of the pawn and saves it.</li>
+		<li>For each &lt;color=#8a8ae6&gt;Form&lt;/color&gt;, all genes, clothing, relationships, etc. are separate.</li>
+		<li>&lt;color=#8a8ae6&gt;Removing&lt;/color&gt; a gene or the &lt;color=#8a8ae6&gt;death&lt;/color&gt; of its carrier destroys all &lt;color=#8a8ae6&gt;Forms&lt;/color&gt;.</li>
+		<li>&lt;color=#b0bf80&gt;Forms are considered duplicates.&lt;/color&gt;</li>
 	</customEffectDescriptions>
   </GeneDef>
 
   <!-- ============================================================================== -->
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_SubGenes"> -->
+	<!-- <defName>WVC_ArchiverEffects_RandXenos</defName> -->
+	<!-- <label>xeno morph</label> -->
+	<!-- <description>Carriers of this gene can change their xenotype during the archiver morph.</description> -->
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_ArchiverXenotypeChanger</geneClass> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_MorpherSubGene_RandXenos</iconPath> -->
+	<!-- <displayOrderInCategory>-45</displayOrderInCategory> -->
+	<!-- <prerequisite>WVC_Archiver</prerequisite> -->
+	<!-- <biostatArc>3</biostatArc> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Randomizes the xenotype for new &lt;color=#8a8ae6&gt;Forms&lt;/color&gt;.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <exclusionTags> -->
+		<!-- <li>WVC_ArchiverCondition_RandXenos</li> -->
+	<!-- </exclusionTags> -->
+  <!-- </GeneDef> -->
 
 </Defs>

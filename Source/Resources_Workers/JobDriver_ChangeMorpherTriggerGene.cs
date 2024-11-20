@@ -50,7 +50,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					Gene_Morpher morpher = pawn.genes?.GetFirstGeneOfType<Gene_Morpher>();
 					morpher?.UpdToolGenes(true, xaG_Job.geneDef);
-					morpher?.DoEffects();
+					morpher?.DoEffects(pawn);
 				}
 			});
 		}

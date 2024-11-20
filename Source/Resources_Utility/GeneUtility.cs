@@ -688,6 +688,7 @@ namespace WVC_XenotypesAndGenes
 
 		// ============================= Getter =============================
 
+		[Obsolete]
 		public static bool AnyGeneDefIsSubGeneOf(List<GeneDef> geneDefs, GeneDef parentGeneDef)
 		{
             foreach (GeneDef geneDef in geneDefs)
@@ -700,6 +701,7 @@ namespace WVC_XenotypesAndGenes
             return false;
 		}
 
+		[Obsolete]
 		public static bool GeneDefIsSubGeneOf(GeneDef childGeneDef, GeneDef parentGeneDef)
 		{
 			if (childGeneDef == parentGeneDef)
