@@ -57,7 +57,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void Immunization(Pawn pawn, float immunization = -1, int tick = 200)
 		{
-			List<HediffWithComps> tmpHediffInjuries = new();
+			//List<HediffWithComps> tmpHediffInjuries = new();
 			immunization *= 0.00333333341f;
 			if (tick > 0f)
 			{
@@ -68,23 +68,38 @@ namespace WVC_XenotypesAndGenes
 			// New 0.5583333
 			if (immunization > 0f)
 			{
-				pawn.health.hediffSet.GetHediffs(ref tmpHediffInjuries, (HediffWithComps h) => h.TryGetComp<HediffComp_Immunizable>() != null);
-				foreach (HediffWithComps tmpHediffInjury in tmpHediffInjuries)
+				//pawn.health.hediffSet.GetHediffs(ref tmpHediffInjuries, (HediffWithComps h) => h.TryGetComp<HediffComp_Immunizable>() != null);
+				//foreach (HediffWithComps tmpHediffInjury in tmpHediffInjuries)
+				//{
+				//	ImmunityRecord immunityRecord = pawn.health?.immunity?.GetImmunityRecord(tmpHediffInjury.def);
+				//	if (immunityRecord == null)
+				//	{
+				//		continue;
+				//	}
+				//	float num5 = Mathf.Min(immunization, immunityRecord.immunity);
+				//	immunization -= num5;
+				//	immunityRecord.immunity += num5;
+				//	if (immunization <= 0f)
+				//	{
+				//		break;
+				//	}
+				//}
+				List<ImmunityRecord> immunityListForReading = pawn.health?.immunity?.ImmunityListForReading;
+				foreach (ImmunityRecord immunityRecord in immunityListForReading)
 				{
-					ImmunityRecord immunityRecord = pawn.health?.immunity?.GetImmunityRecord(tmpHediffInjury.def);
-					if (immunityRecord == null)
-                    {
-						continue;
-                    }
-					float num5 = Mathf.Min(immunization, tmpHediffInjury.Severity);
-					immunization -= num5;
-					immunityRecord.immunity += num5;
-					if (immunization <= 0f)
+					if (immunityRecord.immunity >= 1f)
 					{
-						break;
+						continue;
 					}
-				}
-			}
+					float num5 = Mathf.Min(immunization, immunityRecord.immunity);
+                    immunization -= num5;
+                    immunityRecord.immunity += num5;
+                    if (immunization <= 0f)
+                    {
+                        break;
+                    }
+                }
+            }
 		}
 
 		// General

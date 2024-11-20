@@ -29,10 +29,13 @@
 		<offset>0.2</offset>
 	  </li>
 	</capMods>
+	<statFactors>
+	  <Flammability>1.5</Flammability>
+	</statFactors>
 	<statOffsets>
 	  <ArmorRating_Sharp>0.22</ArmorRating_Sharp>
-	  <ArmorRating_Blunt>0.08</ArmorRating_Blunt>
-	  <ArmorRating_Heat>0.08</ArmorRating_Heat>
+	  <ArmorRating_Blunt>0.12</ArmorRating_Blunt>
+	  <!-- <ArmorRating_Heat>0.08</ArmorRating_Heat> -->
 	  <!-- <MoveSpeed>-0.2</MoveSpeed> -->
 	</statOffsets>
 	<renderNodeProperties>

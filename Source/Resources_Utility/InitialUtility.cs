@@ -195,8 +195,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			List<Type> geneClasse = new() { typeof(Gene_OverOverridable), typeof(Gene_RegenerationSleep), typeof(Gene_MachineSenescent), typeof(Gene_MachineWoundHealing) };
-			if (!geneClasse.Contains(geneDef.geneClass))
+			if (!geneDef.IsGeneDefOfType<Gene_OverOverridable>())
 			{
 				return;
 			}

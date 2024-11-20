@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneShapeshifter_Base">
+	<defName>WVC_Archive</defName>
+	<label>archivator</label>
+	<description>Carriers of this gene have archites that are capable of rewriting the carrier with an exact copy of it, and then restoring it back if necessary.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Archive</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_Archivator_v0</iconPath>
+	<biostatCpx>4</biostatCpx>
+	<biostatArc>4</biostatArc>
+	<displayOrderInCategory>-100</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>Allows you to create a duplicate of the owner, which will take his place in the same second.</li>
+		<li>Genes, relationships, clothes and everything else are separate for duplicates.</li>
+		<li>When the gene owner dies or the gene is deleted, all stored duplicates are deleted.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <!-- ============================================================================== -->
+
+</Defs>

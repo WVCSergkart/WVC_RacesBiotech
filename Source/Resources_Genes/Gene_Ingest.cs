@@ -49,6 +49,29 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Undead Undead => def?.GetModExtension<GeneExtension_Undead>();
 
+		public override bool Active
+		{
+			get
+			{
+				if (!foodNeedDisbled)
+				{
+					return base.Active;
+				}
+				return false;
+			}
+		}
+
+		public bool foodNeedDisbled = false;
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			if (Scribe.mode == LoadSaveMode.PostLoadInit)
+			{
+				foodNeedDisbled = pawn.needs?.food == null;
+			}
+		}
+
 		public override void Tick()
 		{
 			base.Tick();
@@ -58,10 +81,9 @@ namespace WVC_XenotypesAndGenes
 			}
 			// if (!WVC_Biotech.settings.useAlternativeDustogenicFoodJob)
 			// {
-				// return;
+			// return;
 			// }
-			Need_Food food = pawn?.needs?.food;
-			if (food == null)
+			if (!pawn.TryGetFood(out Need_Food food))
 			{
 				return;
 			}
@@ -183,9 +205,9 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
 
-		// Gene
+        // Gene
 
-		public override void PostAdd()
+        public override void PostAdd()
 		{
 			base.PostAdd();
 			AddOrRemoveHediff();
@@ -288,10 +310,32 @@ namespace WVC_XenotypesAndGenes
 
 		// Misc
 
+		public override bool Active
+		{
+			get
+			{
+				if (!foodNeedDisbled)
+				{
+					return base.Active;
+				}
+				return false;
+			}
+		}
+
+		public bool foodNeedDisbled = false;
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			if (Scribe.mode == LoadSaveMode.PostLoadInit)
+			{
+				foodNeedDisbled = pawn.needs?.food == null;
+			}
+		}
+
 		public bool TryGetFood()
 		{
-			Need_Food need_Food = pawn.needs?.food;
-			if (need_Food == null)
+			if (!pawn.TryGetFoodWithRef(out Need_Food need_Food, ref foodNeedDisbled))
 			{
 				return false;
 			}
@@ -359,18 +403,26 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_HungerlessStomach : Gene_AddOrRemoveHediff
+	//public class Gene_HungerlessStomach : Gene_AddOrRemoveHediff
+	//{
+
+	//	public override void Tick()
+	//	{
+	//		base.Tick();
+	//		if (!pawn.IsHashIntervalTick(2919))
+	//		{
+	//			return;
+	//		}
+	//		GeneResourceUtility.OffsetNeedFood(pawn, 0.1f);
+	//	}
+
+	//}
+
+	[Obsolete]
+	public class Gene_HungerlessStomach : Gene
 	{
 
-		public override void Tick()
-		{
-			base.Tick();
-			if (!pawn.IsHashIntervalTick(900))
-			{
-				return;
-			}
-			GeneResourceUtility.OffsetNeedFood(pawn, 0.1f);
-		}
+
 
 	}
 
@@ -386,39 +438,38 @@ namespace WVC_XenotypesAndGenes
 		// }
 
 		public override void Tick()
-		{
-			base.Tick();
-			if (!pawn.IsHashIntervalTick(2210))
-			{
-				return;
-			}
-			Need_Food food = pawn?.needs?.food;
-			if (food == null)
-			{
-				return;
-			}
-			if (food.CurLevelPercentage >= pawn.RaceProps.FoodLevelPercentageWantEat + 0.09f)
-			{
-				return;
-			}
-			if (pawn.Faction != Faction.OfPlayer)
-			{
-				return;
-			}
-			if (pawn.Map == null)
-			{
-				// In caravan use
-				InCaravan();
-				return;
-			}
-			if (pawn.Downed || pawn.Drafted || !pawn.Awake())
-			{
-				return;
-			}
-			TryHuntForFood(MiscUtility.PawnDoIngestJob(pawn));
-		}
+        {
+            base.Tick();
+            if (!pawn.IsHashIntervalTick(2210))
+            {
+                return;
+            }
+            if (!pawn.TryGetFood(out Need_Food food))
+            {
+                return;
+            }
+            if (food.CurLevelPercentage >= pawn.RaceProps.FoodLevelPercentageWantEat + 0.09f)
+            {
+                return;
+            }
+            if (pawn.Faction != Faction.OfPlayer)
+            {
+                return;
+            }
+            if (pawn.Map == null)
+            {
+                // In caravan use
+                InCaravan();
+                return;
+            }
+            if (pawn.Downed || pawn.Drafted || !pawn.Awake())
+            {
+                return;
+            }
+            TryHuntForFood(MiscUtility.PawnDoIngestJob(pawn));
+        }
 
-		private void InCaravan()
+        private void InCaravan()
 		{
 			Caravan caravan = pawn.GetCaravan();
 			if (caravan == null)

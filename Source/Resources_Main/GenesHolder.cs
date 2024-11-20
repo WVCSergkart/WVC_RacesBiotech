@@ -479,4 +479,49 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class GeneAsPawnHolder : IThingHolder, IExposable
+	{
+
+		public Pawn owner = null;
+		public Pawn holded = null;
+
+		public ThingOwner innerContainer;
+
+		public void Initial(Pawn owner, Pawn toHold)
+        {
+			innerContainer = new ThingOwner<Thing>(this, oneStackOnly: false);
+			this.owner = owner;
+			this.holded = toHold;
+			if (Accepts(toHold))
+			{
+				toHold.DeSpawn();
+				innerContainer.TryAdd(toHold);
+			}
+		}
+
+        public IThingHolder ParentHolder => owner.ParentHolder;
+
+		public bool Accepts(Thing thing)
+		{
+			return innerContainer.CanAcceptAnyOf(thing, canMergeWithExistingStacks: false);
+		}
+
+		public void GetChildHolders(List<IThingHolder> outChildren)
+		{
+			ThingOwnerUtility.AppendThingHoldersFromThings(outChildren, GetDirectlyHeldThings());
+		}
+
+		public ThingOwner GetDirectlyHeldThings()
+		{
+			return innerContainer;
+		}
+
+		public void ExposeData()
+		{
+			Scribe_Deep.Look(ref innerContainer, "innerContainer", this);
+			Scribe_References.Look(ref owner, "owner");
+			Scribe_References.Look(ref holded, "holded");
+		}
+	}
+
 }

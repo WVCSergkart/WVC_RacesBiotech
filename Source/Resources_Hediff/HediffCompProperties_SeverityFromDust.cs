@@ -1,9 +1,11 @@
 using RimWorld;
+using System;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
 
+	[Obsolete]
     public class HediffCompProperties_SeverityFromDust : HediffCompProperties
 	{
 
@@ -21,6 +23,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete]
 	public class HediffComp_SeverityFromDust : HediffComp
 	{
 

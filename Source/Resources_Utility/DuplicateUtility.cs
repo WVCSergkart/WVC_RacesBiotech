@@ -14,7 +14,7 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		// Clone
-		public static bool TryDuplicatePawn(Pawn caster, Pawn originalPawn, IntVec3 targetCell, Map map, out Pawn duplicatePawn, out string customLetter, out LetterDef letterDef, bool randomOutcome = false)
+		public static bool TryDuplicatePawn(Pawn caster, Pawn originalPawn, IntVec3 targetCell, Map map, out Pawn duplicatePawn, out string customLetter, out LetterDef letterDef, bool randomOutcome = false, bool doEffects = true)
 		{
 			duplicatePawn = null;
 			customLetter = null;
@@ -34,8 +34,11 @@ namespace WVC_XenotypesAndGenes
 					letterDef = LetterDefOf.PositiveEvent;
 					customLetter = "WVC_XaG_GeneDuplicationLetter".Translate(caster.Named("CASTER"), originalPawn.Named("PAWN"));
 				}
-				map.effecterMaintainer.AddEffecterToMaintain(EffecterDefOf.Skip_EntryNoDelay.Spawn(targetCell, map), targetCell, 60);
-				SoundDefOf.Psycast_Skip_Entry.PlayOneShot(new TargetInfo(targetCell, map));
+				if (doEffects)
+				{
+					map.effecterMaintainer.AddEffecterToMaintain(EffecterDefOf.Skip_EntryNoDelay.Spawn(targetCell, map), targetCell, 60);
+					SoundDefOf.Psycast_Skip_Entry.PlayOneShot(new TargetInfo(targetCell, map));
+				}
 				GenSpawn.Spawn(duplicatePawn, targetCell, map);
 			}
 			catch (Exception arg)
@@ -260,7 +263,7 @@ namespace WVC_XenotypesAndGenes
 				{
                     if (sourceGene.Overridden)
 					{
-						gene.overriddenByGene = newPawn.genes.GenesListForReading.First((Gene e) => (gene != e || sourceGene.overriddenByGene == sourceGene) && e.def == sourceGene.overriddenByGene.def);
+						gene.overriddenByGene = GetOverriderGene(newPawn.genes.GenesListForReading, sourceGene, gene);
 					}
 					else
 					{
@@ -272,10 +275,22 @@ namespace WVC_XenotypesAndGenes
 					Log.Warning("Failed copy gene override for gene: " + gene.LabelCap + ". Reason: " + arg);
 				}
 			}
-        }
+		}
 
-        // Broke stuff
-        public static void CopyNeeds(Pawn pawn, Pawn newPawn)
+		public static Gene GetOverriderGene(List<Gene> genes, Gene sourceGene, Gene newGene)
+		{
+			foreach (Gene item in genes)
+            {
+				if ((newGene != item || sourceGene.overriddenByGene == sourceGene) && item.def == sourceGene.overriddenByGene.def)
+                {
+					return item;
+                }
+            }
+			return null;
+		}
+
+		// Broke stuff
+		public static void CopyNeeds(Pawn pawn, Pawn newPawn)
 		{
 			newPawn.needs.AllNeeds.Clear();
 			foreach (Need allNeed in pawn.needs.AllNeeds)

@@ -25,13 +25,12 @@ namespace WVC_XenotypesAndGenes
             if (!pawn.IsHashIntervalTick(2301))
             {
                 return;
-            }
-            Need_Food food = pawn?.needs?.food;
-            if (food == null)
-            {
-                return;
-            }
-            if (food.CurLevelPercentage >= pawn.RaceProps.FoodLevelPercentageWantEat + 0.09f)
+			}
+			if (!pawn.TryGetFood(out Need_Food food))
+			{
+				return;
+			}
+			if (food.CurLevelPercentage >= pawn.RaceProps.FoodLevelPercentageWantEat + 0.09f)
             {
                 return;
             }

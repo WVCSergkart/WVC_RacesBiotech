@@ -7,12 +7,28 @@
 	<!-- <label>mechomata</label> -->
 	<!-- <iconPath>WVC/UI/Mecha_Icons/Icon_Runeex_v0</iconPath> -->
 	<!-- <genes> -->
-		<!-- <li>Body_Standard</li> -->
-		<!-- <li>WVC_SkinColor_MilkWhite</li> -->
+		<!-- <li>Deathless</li> -->
+		<!-- <li>WVC_NaturalAgeless</li> -->
+		<!-- <li>WVC_VoiceAnimals_BigCat</li> -->
+		<!-- <li>WVC_Hair_NonBald</li> -->
+		<!-- <li>DarkVision</li> -->
+		<!-- <li>WVC_SkinColor_Slate</li> -->
+		<!-- <li>WVC_HairColor_b4c8ff_HEX</li> -->
+		<!-- <li>WVC_MinTemp_ArchiteDecrease</li> -->
+		<!-- <li>VerySleepy</li> -->
+		<!-- <li>Beard_NoBeardOnly</li> -->
+		<!-- <li>WVC_Feminine</li> -->
+		<!-- <li>WVC_NeverDead</li> -->
 		<!-- <li>WVC_Mecha_EarsCat</li> -->
-		<!-- <li>Hair_SnowWhite</li> -->
 		<!-- <li>WVC_CatTailB</li> -->
 		<!-- <li>WVC_CyberSkin</li> -->
+		<!-- <li>WVC_XenotypeGestator</li> -->
+		<!-- <li>WVC_FurskinInstincts_HighWildness</li> -->
+		<!-- <li>WVC_FurskinInstincts_Restlessness</li> -->
+		<!-- <li>WVC_SilentHunter</li> -->
+		<!-- <li>WVC_WoundHealing_Unnatural</li> -->
+		<!-- <li>WVC_MecaBodyParts_Liver</li> -->
+		<!-- <li>WVC_MecaBodyParts_Claws</li> -->
 	<!-- </genes> -->
   <!-- </XenotypeDef> -->
 

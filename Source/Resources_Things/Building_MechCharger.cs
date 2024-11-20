@@ -331,7 +331,10 @@ namespace WVC_XenotypesAndGenes
 				{
 					action = delegate
 					{
-						currentlyChargingMech.needs.TryGetNeed<Need_Food>().CurLevelPercentage = 1f;
+						if (currentlyChargingMech.TryGetFood(out Need_Food food))
+						{
+							food.CurLevelPercentage = 1f;
+						}
 					},
 					defaultLabel = "DEV: Charge 100%"
 				};

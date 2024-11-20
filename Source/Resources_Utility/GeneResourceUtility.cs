@@ -195,10 +195,22 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public static bool TryGetFood(this Pawn pawn, out Need_Food food)
+		{
+			food = pawn?.needs?.food;
+			return food != null;
+		}
+
+		public static bool TryGetFoodWithRef(this Pawn pawn, out Need_Food food, ref bool foodDisabled)
+		{
+			//food = pawn?.needs?.food;
+			foodDisabled = !pawn.TryGetFood(out food);
+			return !foodDisabled;
+		}
+
 		public static void OffsetNeedFood(Pawn pawn, float offset, bool alwaysMaxValue = false)
 		{
-			Need_Food need_Food = pawn.needs?.food;
-			if (need_Food != null)
+			if (pawn.TryGetFood(out Need_Food need_Food))
 			{
 				if (alwaysMaxValue)
 				{
