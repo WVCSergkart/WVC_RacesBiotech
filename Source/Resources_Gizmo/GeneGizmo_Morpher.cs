@@ -44,7 +44,7 @@ namespace WVC_XenotypesAndGenes
 			Rect rect2 = rect.ContractedBy(6f);
 			Widgets.DrawWindowBackground(rect);
 			// Tip
-			TaggedString taggedString = gene.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + ": " + "\n\n" + "WVC_XaG_MorpherGizmoTip".Translate() + "\n\n" + "WVC_XaG_MorpherGizmoLimitTip".Translate(gene.FormsCount, gene.CurrentLimit);
+			TaggedString taggedString = gene.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + ": " + "\n\n" + gene.GizmoTootip + "\n\n" + "WVC_XaG_MorpherGizmoLimitTip".Translate(gene.FormsCount, gene.CurrentLimit);
 			Text.Font = GameFont.Small;
 			Text.Anchor = TextAnchor.UpperLeft;
 			// Label
@@ -59,7 +59,7 @@ namespace WVC_XenotypesAndGenes
 				Widgets.DrawHighlight(rect4);
 				if (Widgets.ButtonInvisible(rect4))
 				{
-					if (pawn.genes?.GetFirstGeneOfType<Gene_MorpherOneTimeUse>() == null)
+					if (!gene.IsOneTime)
 					{
 						FloatMenu();
 					}
@@ -78,7 +78,7 @@ namespace WVC_XenotypesAndGenes
 				Widgets.DrawHighlight(rect5);
 				if (Widgets.ButtonInvisible(rect5))
 				{
-					if (!gene.GetGeneSets().NullOrEmpty())
+					if (!gene.SavedGeneSets.NullOrEmpty())
 					{
 						Find.WindowStack.Add(new Dialog_Morpher(gene));
 					}

@@ -49,13 +49,13 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_MorpherTrigger : Gene_MorpherDependant
 	{
 
-		public bool OneTimeUse
-		{
-			get
-			{
-				return pawn?.genes?.GetFirstGeneOfType<Gene_MorpherOneTimeUse>() != null;
-			}
-		}
+		//public bool OneTimeUse
+		//{
+		//	get
+		//	{
+		//		return pawn?.genes?.GetFirstGeneOfType<Gene_MorpherOneTimeUse>() != null;
+		//	}
+		//}
 
 		public virtual bool CanMorph()
 		{
@@ -98,6 +98,11 @@ namespace WVC_XenotypesAndGenes
 
 		private void FloatMenu()
 		{
+			if (pawn.IsQuestLodger())
+			{
+				Messages.Message("WVC_XaG_PawnIsQuestLodgerMessage".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+				return;
+			}
 			if (Morpher == null)
 			{
 				//Log.Warning("Trying morph without morpher. Removing gene " + LabelCap + ".");
@@ -106,7 +111,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			List<FloatMenuOption> list = new();
-			List<PawnGeneSetHolder> geneSets = Morpher.GeneSets;
+			List<PawnGeneSetHolder> geneSets = Morpher.SavedGeneSets;
 			if (!geneSets.NullOrEmpty())
 			{
 				for (int i = 0; i < geneSets.Count; i++)
@@ -141,7 +146,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			try
 			{
-				Morpher?.TryMorph(geneSet, true, OneTimeUse);
+				Morpher?.TryMorph(geneSet, true, Morpher.IsOneTime);
 			}
 			catch (Exception arg)
 			{

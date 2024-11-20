@@ -9,10 +9,10 @@
 	<biostatArc>5</biostatArc>
 	<displayOrderInCategory>-110</displayOrderInCategory>
 	<customEffectDescriptions>
-		<li>Creates a &lt;color=#8a8ae6&gt;complete copy&lt;/color&gt; of the pawn and saves it.</li>
-		<li>For each &lt;color=#8a8ae6&gt;Form&lt;/color&gt;, all genes, clothing, relationships, etc. are separate.</li>
-		<li>&lt;color=#8a8ae6&gt;Removing&lt;/color&gt; a gene or the &lt;color=#8a8ae6&gt;death&lt;/color&gt; of its carrier destroys all &lt;color=#8a8ae6&gt;Forms&lt;/color&gt;.</li>
-		<li>&lt;color=#b0bf80&gt;Forms are considered duplicates.&lt;/color&gt;</li>
+		<li>Creates a &lt;color=#b0bf80&gt;duplicate&lt;/color&gt; that can be used as a &lt;color=#8a8ae6&gt;form&lt;/color&gt;.</li>
+		<li>For each &lt;color=#8a8ae6&gt;form&lt;/color&gt;, all genes, clothing, relationships, etc. are separate.</li>
+		<!-- <li>The &lt;color=#8a8ae6&gt;forms&lt;/color&gt; are psychically connected to each other, and can receive some thoughts from each other.</li> -->
+		<li>&lt;color=#8a8ae6&gt;Removing&lt;/color&gt; kills all &lt;color=#b0bf80&gt;duplicates&lt;/color&gt;.</li>
 	</customEffectDescriptions>
   </GeneDef>
 

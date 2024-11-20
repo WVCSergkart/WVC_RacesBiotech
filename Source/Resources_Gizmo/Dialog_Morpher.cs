@@ -114,7 +114,7 @@ namespace WVC_XenotypesAndGenes
 			// currentXeno = gene?.pawn?.genes?.Xenotype;
 			doCloseButton = true;
 			selectedGeneSetHolder = null;
-			allXenotypes = gene.GetGeneSets();
+			allXenotypes = gene.SavedGeneSets;
 			OnGenesChanged();
 		}
 
