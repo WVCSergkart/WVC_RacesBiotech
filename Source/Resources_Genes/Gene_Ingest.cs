@@ -292,17 +292,17 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Notify_IngestedThing(Thing thing, int numTaken)
 		{
-			base.Notify_IngestedThing(thing, numTaken);
 			if (!Active)
 			{
 				return;
 			}
+			base.Notify_IngestedThing(thing, numTaken);
 			if (thing.def.IsMeat)
 			{
 				IngestibleProperties ingestible = thing.def.ingestible;
 				if (ingestible != null)
 				{
-					GeneUtility.OffsetHemogen(pawn, GetHomegenCountFromFood(thing) * (float)numTaken * 1.2f);
+					GeneUtility.OffsetHemogen(pawn, GetHemogenCountFromFood(thing) * (float)numTaken * 1.2f);
 					// Resource.Value += GetHomegenCountFromFood(thing) * (float)numTaken;
 				}
 			}
@@ -381,7 +381,7 @@ namespace WVC_XenotypesAndGenes
 		public int GetFoodCount(Thing thing)
 		{
 			int foodCount = 0;
-			float hemogen = GetHomegenCountFromFood(thing);
+			float hemogen = GetHemogenCountFromFood(thing);
 			float currentHemogenLvl = Resource.Value;
 			float targetHemogenLvl = Resource.targetValue;
 			while (currentHemogenLvl < targetHemogenLvl)
@@ -396,7 +396,7 @@ namespace WVC_XenotypesAndGenes
 			return foodCount;
 		}
 
-		public float GetHomegenCountFromFood(Thing thing)
+		public float GetHemogenCountFromFood(Thing thing)
 		{
 			return 0.175f *  thing.def.ingestible.CachedNutrition * pawn.GetStatValue(StatDefOf.RawNutritionFactor, cacheStaleAfterTicks: 360000) * pawn.GetStatValue(StatDefOf.HemogenGainFactor, cacheStaleAfterTicks: 360000);
 		}
@@ -523,11 +523,7 @@ namespace WVC_XenotypesAndGenes
 
 		public IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
 		{
-			if (!pawn.Downed)
-			{
-				yield break;
-			}
-			if (XaG_GeneUtility.SelectorDraftedActiveFactionMap(pawn, this))
+			if (XaG_GeneUtility.ActiveDowned(pawn, this))
 			{
 				yield break;
 			}
@@ -549,11 +545,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield return item;
 			}
-			if (!pawn.Downed)
-			{
-				yield break;
-			}
-			if (XaG_GeneUtility.SelectorDraftedActiveFactionMap(pawn, this))
+			if (XaG_GeneUtility.ActiveDowned(pawn, this))
 			{
 				yield break;
 			}

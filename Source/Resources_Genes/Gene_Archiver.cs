@@ -37,6 +37,7 @@ namespace WVC_XenotypesAndGenes
 		public override bool TryMorph(PawnGeneSetHolder nextGeneSet, bool shouldMorph = false, bool removeMorpher = false)
 		{
 			string phase = "";
+			Pawn nextPawn = null;
 			try
 			{
 				if (!shouldMorph || (nextGeneSet != null && nextGeneSet is not PawnContainerHolder))
@@ -44,55 +45,60 @@ namespace WVC_XenotypesAndGenes
 					return false;
 				}
 				PawnContainerHolder target = nextGeneSet as PawnContainerHolder;
-				Pawn nextPawn = null;
 				if (target == null && !SavedGeneSets.NullOrEmpty())
 				{
 					phase = "trying random holder";
 					target = SavedGeneSets.RandomElement() as PawnContainerHolder;
 				}
+				Gene_Archiver archive = null;
 				if (target != null)
 				{
-					phase = "trying drop pawn";
-					if (target.innerContainer.TryDropAll(pawn.Position, pawn.Map, ThingPlaceMode.Direct))
+					phase = "try drop pawn";
+					if (target.innerContainer != null && target.innerContainer.TryDropAll(pawn.Position, pawn.Map, ThingPlaceMode.Direct))
 					{
-						RemoveSetHolder(target);
 						nextPawn = target.holded;
 						if (!nextPawn.Spawned)
 						{
 							GenSpawn.Spawn(nextPawn, pawn.Position, pawn.Map);
 						}
+						phase = "trying get gene from holded";
+						archive = nextPawn.genes?.GetFirstGeneOfType<Gene_Archiver>();
+						archive.UpdToolGenes(false);
 					}
+					RemoveSetHolder(target);
 				}
 				else if (SavedGeneSets.Count < CurrentLimit + 1)
 				{
 					phase = "trying create new pawn";
 					DuplicateUtility.TryDuplicatePawn(pawn, pawn, pawn.Position, pawn.Map, out nextPawn, out _, out _, doEffects: false);
+					phase = "trying morph new pawn xenotype";
+					ReimplanterUtility.SetXenotype(nextPawn, GetBestNewForm(this));
+					nextPawn.TryAddGene(def, pawn.genes.IsXenogene(this));
+					phase = "trying get gene from duplicate";
+					archive = nextPawn.genes?.GetFirstGeneOfType<Gene_Archiver>();
+					archive.UpdToolGenes(false);
 					//Reimplant(nextPawn, pawn.genes.GetFirstGeneOfType<Gene_ArchiverXenotypeChanger>() != null);
 				}
 				if (nextPawn == null)
 				{
-					//Log.Error("Pawn is null");
+					Log.Error("Failed morph into next pawn, cause nextPawn is null.");
 					return false;
 				}
-				phase = "get gene";
-				Gene_Archiver archive = nextPawn.genes?.GetFirstGeneOfType<Gene_Archiver>();
 				if (archive == null)
 				{
 					Log.Error("Failed get Gene_Archiver.");
+					nextPawn?.Destroy();
 					return false;
 				}
-				//archive.UpdToolGenes(true);
 				phase = "trying transfer holders";
 				TransferHolders(this, archive);
-				//phase = "upd pawn apparel";
-				//TransferApparel(nextPawn);
 				phase = "trying create new holder";
-				//Log.Error("Create new holder");
 				PawnContainerHolder newHolder = new();
 				newHolder.formId = SavedGeneSets.Count + 1;
 				if (!newHolder.TrySetContainer(nextPawn, pawn))
 				{
 					Log.Error("Failed set pawn container.");
+					nextPawn?.Destroy();
 					return false;
 				}
 				archive.AddSetHolder(newHolder);
@@ -108,6 +114,7 @@ namespace WVC_XenotypesAndGenes
 			catch (Exception arg)
 			{
 				Log.Error("Failed replace pawn on phase: " + phase + ". Reason: " + arg);
+				nextPawn?.Destroy();
 			}
 			return false;
 		}
@@ -120,15 +127,15 @@ namespace WVC_XenotypesAndGenes
 			}
 			//if (oldPawn.needs?.mood?.thoughts?.memories != null)
 			//{
-   //             foreach (Thought_Memory memory in oldPawn.needs.mood.thoughts.memories.Memories)
-   //             {
+			//	foreach (Thought_Memory memory in oldPawn.needs.mood.thoughts.memories.Memories)
+			//	{
 			//		if (!memory.permanent)
 			//		{
 			//			newPawn.needs?.mood?.thoughts?.memories?.TryGainMemory(memory.def, memory.otherPawn);
 			//		}
-   //             }
-   //         }
-		}
+			//	}
+			//}
+        }
 
         //private void Reimplant(Pawn pawn, bool shouldUpdXenotype = false)
         //{
@@ -176,19 +183,21 @@ namespace WVC_XenotypesAndGenes
 					continue;
 				}
 				//Log.Error("Try destroy duplicates");
+				//pawnHolder.holded?.Discard(true);
+				//pawnHolder.holded?.Kill(null);
 				pawnHolder.holded?.Destroy();
 				pawnHolder.innerContainer.Clear();
 			}
 			ResetAllSetHolders();
 		}
 
-		//public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
-		//{
-		//	base.Notify_PawnDied(dinfo, culprit);
-		//	DestroyHoldedPawns();
-		//}
+        //public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
+        //{
+        //    base.Notify_PawnDied(dinfo, culprit);
+        //    DestroyHoldedPawns();
+        //}
 
-		public override void PostRemove()
+        public override void PostRemove()
 		{
 			base.PostRemove();
 			DestroyHoldedPawns();
@@ -197,7 +206,7 @@ namespace WVC_XenotypesAndGenes
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			if (Scribe.mode == LoadSaveMode.LoadingVars)
+			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
 				if (SavedGeneSets != null && SavedGeneSets.RemoveAll((PawnGeneSetHolder saver) => saver is PawnContainerHolder holder && holder.IsNullContainer) > 0)
 				{

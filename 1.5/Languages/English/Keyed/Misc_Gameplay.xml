@@ -44,6 +44,8 @@
 	<WVC_Xenotypes>Xenotypes</WVC_Xenotypes>
 	<WVC_CustomXenotypes>Custom xenotypes</WVC_CustomXenotypes>
 
+	<WVC_XaG_ReqGene>Require gene: {0}</WVC_XaG_ReqGene>
+
 	<WVC_SelectedXenotypeGenes>Selected xenotype genes</WVC_SelectedXenotypeGenes>
 
 	<WVC_XaG_MustTargetGenepack>Must target genepack.</WVC_XaG_MustTargetGenepack>

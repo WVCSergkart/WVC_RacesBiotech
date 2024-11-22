@@ -10,7 +10,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_ThrallMaker : Gene
+	public class Gene_ThrallMaker : Gene, IGeneNotifyGenesChanged
 	{
 
 		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
@@ -19,13 +19,32 @@ namespace WVC_XenotypesAndGenes
 
 		private Gizmo gizmo;
 
-		public override void PostAdd()
+		//public override void PostAdd()
+		//{
+		//	base.PostAdd();
+		//	if (thrallDef == null)
+		//	{
+		//		thrallDef = DefDatabase<ThrallDef>.AllDefsListForReading.RandomElement();
+		//	}
+		//}
+		[Unsaved(false)]
+		private bool? cachedShouldDraw;
+
+		public bool ShouldDrawGizmo
 		{
-			base.PostAdd();
-			if (thrallDef == null)
+			get
 			{
-				thrallDef = DefDatabase<ThrallDef>.AllDefsListForReading.RandomElement();
+				if (!cachedShouldDraw.HasValue)
+				{
+					cachedShouldDraw = pawn?.genes?.GetFirstGeneOfType<Gene_ResurgentCells>() != null;
+				}
+				return cachedShouldDraw.Value;
 			}
+		}
+
+		public void Notify_GenesChanged(Gene changedGene)
+		{
+			cachedShouldDraw = null;
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -36,7 +55,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			yield return new Command_Action
 			{
-				defaultLabel = def.LabelCap + ": " + (thrallDef != null ? thrallDef.LabelCap.ToString() : "ERR"),
+				defaultLabel = thrallDef != null ? thrallDef.LabelCap.ToString() : "WVC_XaG_XenoTreeXenotypeChooseLabel".Translate(),
 				defaultDesc = "WVC_XaG_GeneThrallMaker_ButtonDesc".Translate(),
 				icon = ContentFinder<Texture2D>.Get(def.iconPath),
 				action = delegate
@@ -44,11 +63,14 @@ namespace WVC_XenotypesAndGenes
 					Find.WindowStack.Add(new Dialog_ThrallMaker(this));
 				}
 			};
-			if (gizmo == null)
+			if (ShouldDrawGizmo)
 			{
-				gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, this);
+				if (gizmo == null)
+				{
+					gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, this);
+				}
+				yield return gizmo;
 			}
-			yield return gizmo;
 		}
 
 		public override void ExposeData()
@@ -57,7 +79,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Defs.Look(ref thrallDef, "thrallDef");
 		}
 
-	}
+    }
 
 	public class Gene_GeneticThrall : Gene_GeneticInstability
 	{

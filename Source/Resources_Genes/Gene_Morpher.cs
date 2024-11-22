@@ -92,6 +92,7 @@ namespace WVC_XenotypesAndGenes
 				newMorpher.AddSetHolder(holder);
 				oldMorpher.RemoveSetHolder(holder);
 			}
+			oldMorpher.ResetAllSetHolders();
 		}
 
         public List<PawnGeneSetHolder> SavedGeneSets

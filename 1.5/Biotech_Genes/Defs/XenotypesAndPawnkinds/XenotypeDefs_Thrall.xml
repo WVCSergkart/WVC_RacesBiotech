@@ -12,7 +12,7 @@ The genetic make-up of thralls varies from thrall to thrall and is highly depend
 &lt;color=#f5ffa2&gt;Gameplay Effect (Genes):&lt;/color&gt; All pawns with this xenotype must regularly cellsfeed on resurgent pawns or they will die.
 
 &lt;color=#f5ffa2&gt;Gameplay Effect (Spawn):&lt;/color&gt; Pawns generated with this xenotype will receive one of the random sets of genes from existing thralls in the game.</description>
-	<descriptionShort>Thralls are rare xenohumans with a set of genes that does not fall into any known xenotype. Thralls are created from fresh corpses and usually cannot exist without the support of a master, since their genetic instabilization inevitably leads to death.</descriptionShort>
+	<descriptionShort>Thralls are rare xenohumans with a set of genes that does not fall into any known xenotype. Thralls are created from fresh corpses and usually cannot exist without the support of a master, since their genetic instabilization inevitably leads to death or transformation into a ghoul.</descriptionShort>
 	<displayPriority>-230</displayPriority>
 	<canGenerateAsCombatant>false</canGenerateAsCombatant>
 	<factionlessGenerationWeight>0.01</factionlessGenerationWeight>

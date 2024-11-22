@@ -79,7 +79,7 @@ namespace WVC_XenotypesAndGenes
 					//stringBuilder.AppendLine(" - " + StatDefOf.MoveSpeed.LabelCap + ": " + StatDefOf.MoveSpeed.ValueToString(pawnKindDef.race.GetStatValueAbstract(StatDefOf.MoveSpeed), ToStringNumberSense.Absolute, !StatDefOf.MoveSpeed.formatString.NullOrEmpty()));
 					//stringBuilder.AppendLine(" - " + WVC_GenesDefOf.WVC_GolemBondCost.LabelCap + ": " + pawnKindDef.race.GetStatValueAbstract(WVC_GenesDefOf.WVC_GolemBondCost));
 					//stringBuilder.AppendLine(" - " + StatDefOf.BandwidthCost.LabelCap + ": " + pawnKindDef.race.GetStatValueAbstract(StatDefOf.BandwidthCost));
-                    if (Worker)
+					if (Worker)
 					{
 						stringBuilder.AppendLine();
 						stringBuilder.AppendLine("MechWorkActivities".Translate().Colorize(ColoredText.TipSectionTitleColor) + ":");
@@ -202,7 +202,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				// if (thrallDef.mutantDef != null)
 				// {
-					// continue;
+				// continue;
 				// }
 				descriptionHyperlinks.Add(new DefHyperlink(thrallDef));
 			}
@@ -220,6 +220,8 @@ namespace WVC_XenotypesAndGenes
 
 		public List<GeneDef> genes;
 
+		public GeneDef reqGeneDef;
+
 		public MutantDef mutantDef = null;
 
 		public bool addGenesFromAbility = true;
@@ -233,7 +235,7 @@ namespace WVC_XenotypesAndGenes
 
 		public float selectionWeight = 1f;
 
-		[MustTranslate]
+		[Obsolete]
 		public string generalDesc;
 
 		public override void ResolveReferences()
@@ -320,15 +322,15 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (subXenotypeDefs.NullOrEmpty())
 			{
-				 yield return defName + " has null subXenotypeDefs. subXenotypeDefs must contain at least one xenotype.";
+				yield return defName + " has null subXenotypeDefs. subXenotypeDefs must contain at least one xenotype.";
 			}
 			if (shapeshiftChance <= 0f)
 			{
-				 yield return defName + " shapeshiftChance must be > 0. If this is intended, then use XenotypeDef or SubXenotypeDef.";
+				yield return defName + " shapeshiftChance must be > 0. If this is intended, then use XenotypeDef or SubXenotypeDef.";
 			}
 			if (!xenotypeCanEvolveOvertime && !xenotypeCanShapeshiftOnDeath)
 			{
-				 yield return defName + " xenotypeCanEvolveOvertime and xenotypeCanShapeshiftOnDeath is false. At least one must be true.";
+				yield return defName + " xenotypeCanEvolveOvertime and xenotypeCanShapeshiftOnDeath is false. At least one must be true.";
 			}
 		}
 
@@ -430,7 +432,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			// if (!xenogenes.NullOrEmpty())
 			// {
-				// yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_XaG_SubXeno_Xenogenes".Translate().CapitalizeFirst(), xenogenes.Select((GeneDef x) => x.label).ToCommaList().CapitalizeFirst(), "GenesDesc".Translate() + "\n\n" + "WVC_XaG_SubXeno_Xenogenes_Desc".Translate() + "\n\n" + xenogenes.Select((GeneDef x) => x.label).ToLineList("  - ", capitalizeItems: true), 1040);
+			// yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_XaG_SubXeno_Xenogenes".Translate().CapitalizeFirst(), xenogenes.Select((GeneDef x) => x.label).ToCommaList().CapitalizeFirst(), "GenesDesc".Translate() + "\n\n" + "WVC_XaG_SubXeno_Xenogenes_Desc".Translate() + "\n\n" + xenogenes.Select((GeneDef x) => x.label).ToLineList("  - ", capitalizeItems: true), 1040);
 			// }
 			if (!endogenes.NullOrEmpty())
 			{
@@ -438,10 +440,10 @@ namespace WVC_XenotypesAndGenes
 			}
 			// if (!randomGenes.NullOrEmpty())
 			// {
-				// foreach (RandomGenes item in randomGenes)
-				// {
-					// yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_XaG_SubXeno_RandomGenes".Translate().CapitalizeFirst(), item.genes.Select((GeneDef x) => x.label).ToCommaList().CapitalizeFirst(), "WVC_XaG_SubXeno_RandomGenes_Desc".Translate() + "\n\n" + item.genes.Select((GeneDef x) => x.label).ToLineList("  - ", capitalizeItems: true), 1020);
-				// }
+			// foreach (RandomGenes item in randomGenes)
+			// {
+			// yield return new StatDrawEntry(StatCategoryDefOf.Basics, "WVC_XaG_SubXeno_RandomGenes".Translate().CapitalizeFirst(), item.genes.Select((GeneDef x) => x.label).ToCommaList().CapitalizeFirst(), "WVC_XaG_SubXeno_RandomGenes_Desc".Translate() + "\n\n" + item.genes.Select((GeneDef x) => x.label).ToLineList("  - ", capitalizeItems: true), 1020);
+			// }
 			// }
 		}
 
@@ -540,7 +542,7 @@ namespace WVC_XenotypesAndGenes
 		[Unsaved(false)]
 		private string cachedDescription;
 
-		public string Description
+		public virtual string Description
 		{
 			get
 			{
@@ -552,10 +554,10 @@ namespace WVC_XenotypesAndGenes
 					if (xenotypeDef != XenotypeDefOf.Baseliner)
 					{
 						stringBuilder.AppendLine(!xenotypeDef.descriptionShort.NullOrEmpty() ? xenotypeDef.descriptionShort : xenotypeDef.description);
-                        if (!xenotypeDef.doubleXenotypeChances.NullOrEmpty())
-                        {
-                            stringBuilder.AppendLine();
-                            stringBuilder.AppendLine(("WVC_DoubleXenotypes".Translate() + ":").Colorize(ColoredText.TipSectionTitleColor) + "\n" + xenotypeDef.doubleXenotypeChances.Select((XenotypeChance x) => "WVC_XaG_DoubleXenotypeWithChanceText".Translate(x.xenotype.LabelCap, (x.chance * 100f).ToString()).ToString()).ToLineList(" - "));
+						if (!xenotypeDef.doubleXenotypeChances.NullOrEmpty())
+						{
+							stringBuilder.AppendLine();
+							stringBuilder.AppendLine(("WVC_DoubleXenotypes".Translate() + ":").Colorize(ColoredText.TipSectionTitleColor) + "\n" + xenotypeDef.doubleXenotypeChances.Select((XenotypeChance x) => "WVC_XaG_DoubleXenotypeWithChanceText".Translate(x.xenotype.LabelCap, (x.chance * 100f).ToString()).ToString()).ToLineList(" - "));
 						}
 					}
 					else
@@ -597,4 +599,43 @@ namespace WVC_XenotypesAndGenes
 		}
 
 	}
+
+	public class ThrallHolder : XenotypeHolder
+	{
+
+		public ThrallDef thrallDef;
+
+		[Unsaved(false)]
+		private string cachedDescription;
+
+		public override string Description
+		{
+			get
+			{
+				if (cachedDescription == null)
+				{
+					StringBuilder stringBuilder = new();
+					stringBuilder.AppendLine(LabelCap.Colorize(ColoredText.TipSectionTitleColor));
+					stringBuilder.AppendLine();
+					stringBuilder.AppendLine(thrallDef.description);
+					if (thrallDef.xenotypeDef != null && !thrallDef.xenotypeDef.descriptionShort.NullOrEmpty())
+					{
+						stringBuilder.AppendLine();
+						stringBuilder.AppendLine(thrallDef.xenotypeDef.descriptionShort);
+					}
+					if (thrallDef.reqGeneDef != null)
+                    {
+						stringBuilder.AppendLine();
+						stringBuilder.AppendLine("Requires".Translate() + ": " + thrallDef.reqGeneDef.LabelCap);
+					}
+					stringBuilder.AppendLine();
+					stringBuilder.Append("WVC_XaG_AcceptableRotStages".Translate().Colorize(ColoredText.TipSectionTitleColor) + ":\n" + thrallDef.acceptableRotStages.Select((RotStage x) => x.ToStringHuman()).ToLineList(" - "));
+					cachedDescription = stringBuilder.ToString();
+				}
+				return cachedDescription;
+			}
+		}
+
+	}
+
 }

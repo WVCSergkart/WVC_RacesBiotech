@@ -12,7 +12,7 @@
 		<li>Creates a &lt;color=#b0bf80&gt;duplicate&lt;/color&gt; that can be used as a &lt;color=#8a8ae6&gt;form&lt;/color&gt;.</li>
 		<li>For each &lt;color=#8a8ae6&gt;form&lt;/color&gt;, all genes, clothing, relationships, etc. are separate.</li>
 		<!-- <li>The &lt;color=#8a8ae6&gt;forms&lt;/color&gt; are psychically connected to each other, and can receive some thoughts from each other.</li> -->
-		<li>&lt;color=#8a8ae6&gt;Removing&lt;/color&gt; kills all &lt;color=#b0bf80&gt;duplicates&lt;/color&gt;.</li>
+		<li>&lt;color=#8a8ae6&gt;Removing&lt;/color&gt; kills all saved &lt;color=#b0bf80&gt;duplicates&lt;/color&gt;.</li>
 	</customEffectDescriptions>
   </GeneDef>
 

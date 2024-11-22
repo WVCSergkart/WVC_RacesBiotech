@@ -44,7 +44,7 @@ namespace WVC_XenotypesAndGenes
 		// private List<Pawn> allThrallsInColony;
 		private List<Gene_GeneticThrall> geneThralls;
 
-		public override bool Visible => Find.Selector.SelectedPawns.Count == 1;
+		public override bool Visible => true;
 
 		public GeneGizmo_Thralls(Gene_ThrallMaker geneMechlink)
 			: base()
@@ -73,10 +73,15 @@ namespace WVC_XenotypesAndGenes
 			nextRecache--;
 			if (nextRecache < 0)
 			{
-				resurgentPawnsCount = GeneResourceUtility.GetThrallsLimit(mechanitor, cellsPerDay);
+				int newResurgentPawnsCount = GeneResourceUtility.GetThrallsLimit(mechanitor, cellsPerDay);
+				if (newResurgentPawnsCount != resurgentPawnsCount)
+				{
+					resurgentPawnsCount = newResurgentPawnsCount;
+					gene.Notify_GenesChanged(null);
+				}
 				geneThralls = GeneResourceUtility.GetAllThralls(mechanitor);
 				thrallPawnsCount = geneThralls.Count;
-				nextRecache = 180;
+				nextRecache = 600;
 			}
 			string text = thrallPawnsCount.ToString("F0") + " / " + resurgentPawnsCount.ToString("F0");
 			TaggedString taggedString = "WVC_XaG_ThrallsBandwidthGizmoLabel".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + text + "\n\n" + "WVC_XaG_ThrallsBandwidthGizmoGizmoTip".Translate();

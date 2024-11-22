@@ -129,6 +129,22 @@ namespace WVC_XenotypesAndGenes
 			return xenotypeHolders.Where((XenotypeHolder holder) => holder.CustomXenotype || xenotypes.Contains(holder.xenotypeDef)).ToList();
 		}
 
+		public static List<XenotypeHolder> GetAllThrallHolders()
+		{
+			List<XenotypeHolder> list = new();
+			foreach (ThrallDef item in DefDatabase<ThrallDef>.AllDefsListForReading)
+			{
+				ThrallHolder newHolder = new();
+				newHolder.xenotypeDef = XenotypeDefOf.Baseliner;
+				newHolder.iconDef = item.xenotypeIconDef;
+				newHolder.thrallDef = item;
+				newHolder.name = item.label;
+				newHolder.genes = item.genes;
+				list.Add(newHolder);
+			}
+			return list;
+		}
+
 		public static List<XenotypeHolder> GetAllXenotypesHolders()
 		{
 			List<XenotypeHolder> list = new();

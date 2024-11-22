@@ -12,6 +12,11 @@ namespace WVC_XenotypesAndGenes
 	public static class XaG_GeneUtility
 	{
 
+		public static bool ActiveDowned(Pawn pawn, Gene gene)
+		{
+			return !gene.Active || !pawn.Downed;
+		}
+
 		public static bool SelectorFactionMap(Pawn pawn)
 		{
 			return Find.Selector.SelectedPawns.Count > 1 || pawn.Faction != Faction.OfPlayer || pawn.Map == null;
@@ -402,6 +407,20 @@ namespace WVC_XenotypesAndGenes
 				return true;
 			}
 			return false;
+		}
+
+		public static bool TryAddGene(this Pawn pawn, GeneDef geneDef, bool xenogene)
+		{
+			if (HasEndogene(geneDef, pawn))
+			{
+				return false;
+			}
+			if (HasXenogene(geneDef, pawn))
+			{
+				return false;
+			}
+			pawn.genes.AddGene(geneDef, xenogene);
+			return true;
 		}
 
 		// ============================= Checker =============================

@@ -47,7 +47,7 @@
 		<linkableFacilities>
 		  <li>GeneBank</li>
 		</linkableFacilities>
-		<autoLink>true</autoLink>
+		<autoLink>false</autoLink>
 	  </li>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_XenosculpterPod">
 		<inheritFromDef>BiosculpterPod</inheritFromDef>

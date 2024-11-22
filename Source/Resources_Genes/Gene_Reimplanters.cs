@@ -132,11 +132,7 @@ namespace WVC_XenotypesAndGenes
 
 		public IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
 		{
-			if (!Active)
-			{
-				yield break;
-			}
-			if (!pawn.Downed)
+			if (XaG_GeneUtility.ActiveDowned(pawn, this))
 			{
 				yield break;
 			}
@@ -181,11 +177,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			if (!Active)
-			{
-				yield break;
-			}
-			if (!pawn.Downed)
+			if (XaG_GeneUtility.ActiveDowned(pawn, this))
 			{
 				yield break;
 			}

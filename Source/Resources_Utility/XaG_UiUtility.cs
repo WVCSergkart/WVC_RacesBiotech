@@ -24,6 +24,17 @@ namespace WVC_XenotypesAndGenes
 			return "WVC_XaG_Gene_DustMechlink_Off".Translate().Colorize(ColorLibrary.RedReadable);
 		}
 
+		public static string ToStringHuman(this RotStage rotStage)
+		{
+			return rotStage switch
+			{
+				RotStage.Fresh => "RotStateFresh".Translate(),
+				RotStage.Rotting => "RotStateRotting".Translate(),
+				RotStage.Dessicated => "RotStateDessicated".Translate(),
+				_ => "error",
+			};
+		}
+
 		// ===========================
 
 		[Obsolete]

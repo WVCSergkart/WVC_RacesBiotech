@@ -26,13 +26,13 @@ namespace WVC_XenotypesAndGenes
 
 		// private float minCopyChance = WVC_Biotech.settings.chimeraMinGeneCopyChance;
 
-		public float MinCopyChance
-		{
-			get
-			{
-				return WVC_Biotech.settings.chimeraMinGeneCopyChance;
-			}
-		}
+		//public float MinCopyChance
+		//{
+		//	get
+		//	{
+		//		return WVC_Biotech.settings.chimeraMinGeneCopyChance;
+		//	}
+		//}
 
 		public List<GeneDef> AllGenes
 		{
@@ -242,7 +242,7 @@ namespace WVC_XenotypesAndGenes
 		public bool TryGetGene(List<GeneDef> genes, out GeneDef result)
 		{
 			result = null;
-			if (genes.Where((GeneDef x) => !AllGenes.Contains(x)).TryRandomElementByWeight((GeneDef gene) => MinCopyChance + gene.selectionWeight, out result))
+			if (genes.Where((GeneDef x) => !AllGenes.Contains(x)).TryRandomElementByWeight((GeneDef gene) => 1f + gene.selectionWeight, out result))
 			{
 				AddGene(result);
 				return true;
@@ -480,7 +480,7 @@ namespace WVC_XenotypesAndGenes
 		public void GetRandomGene()
 		{
 			List<GeneDef> geneDefs = DefDatabase<GeneDef>.AllDefsListForReading;
-			if (geneDefs.Where((GeneDef x) => !Chimera.AllGenes.Contains(x)).TryRandomElementByWeight((GeneDef gene) => (Chimera.MinCopyChance + gene.selectionWeight * (gene.biostatArc != 0 ? 0.01f : 1f)) + (gene.prerequisite == Chimera.def && gene.GetModExtension<GeneExtension_General>() != null ? gene.GetModExtension<GeneExtension_General>().selectionWeight : 0f), out GeneDef result))
+			if (geneDefs.Where((GeneDef x) => !Chimera.AllGenes.Contains(x)).TryRandomElementByWeight((GeneDef gene) => (1f + gene.selectionWeight * (gene.biostatArc != 0 ? 0.01f : 1f)) + (gene.prerequisite == Chimera.def && gene.GetModExtension<GeneExtension_General>() != null ? gene.GetModExtension<GeneExtension_General>().selectionWeight : 0f), out GeneDef result))
 			{
 				Chimera.AddGene(result);
 			}

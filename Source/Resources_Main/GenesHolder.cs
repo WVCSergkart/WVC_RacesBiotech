@@ -120,15 +120,15 @@ namespace WVC_XenotypesAndGenes
                 {
                     continue;
                 }
-                GeneDefOverrideSaver newOverrideSaver = new();
-                newOverrideSaver.overrided = gene.def;
-                newOverrideSaver.overridedIsXenogene = pawn.genes.IsXenogene(gene);
                 if (gene.overriddenByGene != null)
-                {
-                    newOverrideSaver.overrider = gene.overriddenByGene.def;
+				{
+					GeneDefOverrideSaver newOverrideSaver = new();
+					newOverrideSaver.overrided = gene.def;
+					newOverrideSaver.overridedIsXenogene = pawn.genes.IsXenogene(gene);
+					newOverrideSaver.overrider = gene.overriddenByGene.def;
                     newOverrideSaver.overriderIsXenogene = pawn.genes.IsXenogene(gene.overriddenByGene);
-                }
-                overrideSaverList.Add(newOverrideSaver);
+					overrideSaverList.Add(newOverrideSaver);
+				}
             }
             if (SaveAndLoadGenes)
             {
@@ -261,22 +261,22 @@ namespace WVC_XenotypesAndGenes
 					morpher.AddGene(gene, false);
 				}
 			}
-			if (!overrideSaverList.NullOrEmpty())
+			foreach (Gene gene in pawn.genes.GenesListForReading)
 			{
-				foreach (Gene gene in pawn.genes.GenesListForReading)
-				{
-					gene.OverrideBy(null);
-				}
+				gene.OverrideBy(null);
+			}
+			if (overrideSaverList != null)
+			{
 				foreach (GeneDefOverrideSaver saver in overrideSaverList)
 				{
-					if (saver.overrided == morpher.def || saver.overrider == morpher.def)
+					if (saver.IsNull)
 					{
 						continue;
 					}
-					if (saver.overrider == null)
-					{
-						continue;
-					}
+					//if (saver.overrided == morpher.def || saver.overrider == morpher.def)
+					//{
+					//	continue;
+					//}
 					Gene overriderGene = saver.overriderIsXenogene ? XaG_GeneUtility.GetXenogene(saver.overrider, pawn) : XaG_GeneUtility.GetEndogene(saver.overrider, pawn);
 					if (saver.overridedIsXenogene)
 					{
@@ -426,14 +426,14 @@ namespace WVC_XenotypesAndGenes
 						}
 					}
 				}
-				if (overrideSaverList != null && overrideSaverList.RemoveAll((GeneDefOverrideSaver saver) => saver.IsNull) > 0)
-				{
-					Log.Warning("Removed null overrideSaver(s)");
-				}
+				//if (overrideSaverList != null && overrideSaverList.RemoveAll((GeneDefOverrideSaver saver) => saver.overrider == null || saver.overrided == null) > 0)
+				//{
+				//	Log.Warning("Removed null overrideSaver(s)");
+				//}
 			}
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
-            {
-                if (xenotypeDef == null)
+			{
+				if (xenotypeDef == null)
                 {
                     xenotypeDef = XenotypeDefOf.Baseliner;
                 }
@@ -516,11 +516,11 @@ namespace WVC_XenotypesAndGenes
 		public bool TrySetContainer(Pawn owner, Pawn toHold)
         {
 			innerContainer = new ThingOwner<Thing>(this, oneStackOnly: false);
-			this.owner = owner;
-			this.holded = toHold;
 			if (Accepts(toHold))
 			{
-				name = toHold.Name.ToString();
+				this.owner = owner;
+				this.holded = toHold;
+				name = toHold.Name.ToStringShort;
 				xenotypeDef = toHold.genes.Xenotype;
 				//endogeneDefs.AddRange(XaG_GeneUtility.ConvertGenesInGeneDefs(toHold.genes.Endogenes));
 				//xenogeneDefs.AddRange(XaG_GeneUtility.ConvertGenesInGeneDefs(toHold.genes.Xenogenes));
@@ -528,14 +528,16 @@ namespace WVC_XenotypesAndGenes
 				{
 					iconDef = toHold.genes.iconDef;
 				}
-				toHold.DeSpawn();
-				innerContainer.TryAdd(toHold);
-				return true;
+				toHold.DeSpawnOrDeselect();
+				if (innerContainer.TryAdd(toHold))
+				{
+					return true;
+				}
 			}
 			return false;
 		}
 
-        public IThingHolder ParentHolder => owner.ParentHolder;
+        public IThingHolder ParentHolder => owner?.ParentHolder;
 
         public bool IsContentsSuspended => true;
 
@@ -557,8 +559,8 @@ namespace WVC_XenotypesAndGenes
 		public override void ExposeData()
 		{
 			Scribe_Deep.Look(ref innerContainer, "innerContainer", this);
-			Scribe_References.Look(ref owner, "owner");
-			Scribe_References.Look(ref holded, "holded");
+			Scribe_References.Look(ref owner, "owner", saveDestroyedThings: true);
+			Scribe_References.Look(ref holded, "holded", saveDestroyedThings: true);
 			base.ExposeData();
 		}
 	}
