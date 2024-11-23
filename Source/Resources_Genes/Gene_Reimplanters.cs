@@ -338,6 +338,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				RecruitUtility.Recruit(target, Faction.OfPlayer, pawn);
 				Messages.Message("WVC_XaG_ReimplantResurrectionRecruiting".Translate(target), target, MessageTypeDefOf.PositiveEvent);
+				target.ideo?.SetIdeo(pawn.ideo.Ideo);
 			}
 		}
 
