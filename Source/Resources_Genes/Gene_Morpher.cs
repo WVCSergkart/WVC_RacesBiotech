@@ -26,7 +26,6 @@ namespace WVC_XenotypesAndGenes
 					cachedOneTimeMorpher = pawn.genes?.GetFirstGeneOfType<Gene_MorpherOneTimeUse>() != null;
 				}
 				return cachedOneTimeMorpher.Value;
-
 			}
         }
 
@@ -272,6 +271,10 @@ namespace WVC_XenotypesAndGenes
 				if (holder.CustomXenotype)
 				{
 					holder.matchPercent += 2f;
+				}
+				else if (gene.pawn.genes.Xenotype == holder.xenotypeDef)
+				{
+					holder.matchPercent *= 0.2f;
 				}
 				XaG_GeneUtility.GetBiostatsFromList(holder.genes, out _, out int met, out int arc);
 				if (arc > 0)

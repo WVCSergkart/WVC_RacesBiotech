@@ -251,10 +251,6 @@ namespace WVC_XenotypesAndGenes
 		{
 			foreach (Gene item in genes)
 			{
-				if (item == gene)
-				{
-					continue;
-				}
 				if (item.def.ConflictsWith(gene.def))
 				{
 					item.OverrideBy(gene);
@@ -398,6 +394,24 @@ namespace WVC_XenotypesAndGenes
 			}
 			SetCustomGenes(pawn, genes, null, "ERR", xenotypeDef.inheritable);
 			UnknownXenotype(pawn);
+		}
+
+		public static void ConvertXenogenesToEndogenes(Pawn pawn, float percent = 1f)
+		{
+			List<Gene> genes = pawn.genes.Xenogenes.Where((Gene gene) => !XaG_GeneUtility.HasActiveEndogene(gene.def, pawn)).ToList();
+			float maxCycleTry = genes.Count * percent;
+			int currentTry = 0;
+			foreach (Gene gene in genes.ToList())
+			{
+				if (maxCycleTry <= currentTry)
+                {
+					break;
+                }
+				pawn.genes.RemoveGene(gene);
+				pawn.genes.AddGene(gene.def, false);
+				currentTry++;
+			}
+			ReimplanterUtility.PostImplantDebug(pawn);
 		}
 
 		private static void SetCustomGenes(Pawn pawn, List<GeneDef> genes, XenotypeIconDef iconDef, string name, bool inheritable)

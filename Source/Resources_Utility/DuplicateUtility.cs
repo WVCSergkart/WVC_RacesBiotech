@@ -423,10 +423,14 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void RemoveAllGenes(this List<Gene> genes)
+		public static void RemoveAllGenes(this List<Gene> genes, List<GeneDef> exclude = null)
 		{
 			foreach (Gene gene in genes.ToList())
 			{
+				if (exclude != null && exclude.Contains(gene.def))
+                {
+					continue;
+                }
 				gene.pawn?.genes?.RemoveGene(gene);
 			}
 		}

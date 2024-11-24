@@ -28,7 +28,6 @@ namespace WVC_XenotypesAndGenes
 			get
 			{
 				return false;
-
 			}
 		}
 
@@ -77,6 +76,8 @@ namespace WVC_XenotypesAndGenes
 					phase = "trying get gene from duplicate";
 					archive = nextPawn.genes?.GetFirstGeneOfType<Gene_Archiver>();
 					archive.UpdToolGenes(false);
+					phase = "try upd skin and hair";
+					UpdSkinAndHair(nextPawn);
 					//Reimplant(nextPawn, pawn.genes.GetFirstGeneOfType<Gene_ArchiverXenotypeChanger>() != null);
 				}
 				if (nextPawn == null)
@@ -121,10 +122,7 @@ namespace WVC_XenotypesAndGenes
 
         private void UpdNewPawn(Pawn newPawn, Pawn oldPawn)
         {
-			if (oldPawn.ideo != null)
-            {
-				newPawn.ideo.SetIdeo(oldPawn.ideo.Ideo);
-			}
+			newPawn.ideo?.SetIdeo(oldPawn.ideo.Ideo);
 			//if (oldPawn.needs?.mood?.thoughts?.memories != null)
 			//{
 			//	foreach (Thought_Memory memory in oldPawn.needs.mood.thoughts.memories.Memories)
@@ -135,46 +133,98 @@ namespace WVC_XenotypesAndGenes
 			//		}
 			//	}
 			//}
-        }
+		}
 
-        //private void Reimplant(Pawn pawn, bool shouldUpdXenotype = false)
-        //{
-        //	if (!shouldUpdXenotype)
-        //	{
-        //		return;
-        //	}
-        //	XenotypeHolder xenotypeDef = GetBestNewForm(this);
-        //	if (xenotypeDef == null)
-        //          {
-        //		Log.Error("Failed get best form.");
-        //		return;
-        //	}
-        //	foreach (Gene gene in pawn.genes.GenesListForReading)
-        //	{
-        //		RemoveGene(gene);
-        //	}
-        //	ReimplanterUtility.SetXenotypeDirect(null, pawn, xenotypeDef.xenotypeDef, true);
-        //	foreach (GeneDef geneDef in xenotypeDef.genes)
-        //	{
-        //		AddGene(geneDef, xenotypeDef.inheritable);
-        //	}
-        //	if (xenotypeDef.CustomXenotype)
-        //	{
-        //		pawn.genes.xenotypeName = xenotypeDef.Label;
-        //		pawn.genes.iconDef = xenotypeDef.iconDef;
-        //	}
-        //}
+		private void UpdSkinAndHair(Pawn nextPawn)
+		{
+			ReimplanterUtility.FindSkinAndHairGenes(nextPawn, out Pawn_GeneTracker recipientGenes, out bool xenotypeHasSkinColor, out bool xenotypeHasHairColor);
+			if (!xenotypeHasSkinColor)
+			{
+				GeneDef skinDef = GetSkinDef();
+				if (skinDef != null)
+				{
+					recipientGenes?.AddGene(skinDef, false);
+				}
+			}
+			if (!xenotypeHasHairColor)
+			{
+				GeneDef hairDef = GetHairDef();
+				if (hairDef != null)
+				{
+					recipientGenes?.AddGene(hairDef, false);
+				}
+			}
+			ReimplanterUtility.TrySetSkinAndHairGenes(pawn);
+		}
 
-        //private void TransferApparel(Pawn newPawn)
-        //{
-        //	pawn.apparel.DropAll(pawn.Position);
-        //	foreach (Apparel item in pawn.apparel.WornApparel)
-        //	{
-        //		newPawn.apparel.Wear(item);
-        //	}
-        //}
+		private GeneDef GetHairDef()
+		{
+			if (!pawn.genes.Endogenes.NullOrEmpty())
+			{
+				List<Gene> geneDefs = pawn.genes.Endogenes?.Where((Gene gene) => gene.def.hairColorOverride != null)?.ToList();
+				if (geneDefs.NullOrEmpty())
+				{
+					return null;
+				}
+				return geneDefs.First().def;
+			}
+			Log.Warning("Failed get hair color for pawn. Color endogenes is null.");
+			return null;
+		}
 
-        private void DestroyHoldedPawns()
+		private GeneDef GetSkinDef()
+		{
+			if (!pawn.genes.Endogenes.NullOrEmpty())
+			{
+				List<Gene> geneDefs = pawn.genes.Endogenes?.Where((Gene gene) => gene.def.skinColorBase != null || gene.def.skinColorOverride != null)?.ToList();
+				if (geneDefs.NullOrEmpty())
+				{
+					return null;
+				}
+				return geneDefs.First().def;
+			}
+			Log.Warning("Failed get skin color for pawn. Color endogenes is null.");
+			return null;
+		}
+
+		//private void Reimplant(Pawn pawn, bool shouldUpdXenotype = false)
+		//{
+		//	if (!shouldUpdXenotype)
+		//	{
+		//		return;
+		//	}
+		//	XenotypeHolder xenotypeDef = GetBestNewForm(this);
+		//	if (xenotypeDef == null)
+		//          {
+		//		Log.Error("Failed get best form.");
+		//		return;
+		//	}
+		//	foreach (Gene gene in pawn.genes.GenesListForReading)
+		//	{
+		//		RemoveGene(gene);
+		//	}
+		//	ReimplanterUtility.SetXenotypeDirect(null, pawn, xenotypeDef.xenotypeDef, true);
+		//	foreach (GeneDef geneDef in xenotypeDef.genes)
+		//	{
+		//		AddGene(geneDef, xenotypeDef.inheritable);
+		//	}
+		//	if (xenotypeDef.CustomXenotype)
+		//	{
+		//		pawn.genes.xenotypeName = xenotypeDef.Label;
+		//		pawn.genes.iconDef = xenotypeDef.iconDef;
+		//	}
+		//}
+
+		//private void TransferApparel(Pawn newPawn)
+		//{
+		//	pawn.apparel.DropAll(pawn.Position);
+		//	foreach (Apparel item in pawn.apparel.WornApparel)
+		//	{
+		//		newPawn.apparel.Wear(item);
+		//	}
+		//}
+
+		private void DestroyHoldedPawns()
 		{
 			foreach (PawnGeneSetHolder holder in SavedGeneSets)
 			{

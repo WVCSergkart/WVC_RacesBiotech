@@ -189,7 +189,6 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (addXenogermReplicating)
 			{
-				// pawn.health.AddHediff(HediffDefOf.XenogermReplicating);
 				Hediff cooldownHediff = HediffMaker.MakeHediff(HediffDefOf.XenogermReplicating, pawn);
 				HediffComp_Disappears hediffComp_Disappears = cooldownHediff.TryGetComp<HediffComp_Disappears>();
 				int ticks = ticksToDisappear.RandomInRange;
@@ -202,23 +201,6 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// Gene Restoration
-
-		// public static void XenogermRestoration(Pawn pawn)
-		// {
-			// List<HediffDef> list = new();
-			// foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
-			// {
-				// list.AddRange(item.hediffsRemovedByGenesRestorationSerum);
-			// }
-			// HediffUtility.RemoveHediffsFromList(pawn, list);
-		// }
-
-		// Misc
-
-		// public static bool IsBloodeater(this Pawn pawn)
-		// {
-			// return pawn?.genes?.GetFirstGeneOfType<Gene_Bloodeater>() != null;
-		// }
 
 		public static List<GeneDef> ConvertGenesInGeneDefs(List<Gene> genes)
 		{
@@ -305,10 +287,6 @@ namespace WVC_XenotypesAndGenes
 		{
 			foreach (GeneDef item in geneDefs)
 			{
-				if (item == geneDef)
-				{
-					return true;
-				}
 				if (item.ConflictsWith(geneDef))
 				{
 					return true;
@@ -323,14 +301,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				foreach (Gene item in pawn.genes.GenesListForReading.ToList())
 				{
-					if (item.def == geneDef)
+					if (!item.def.ConflictsWith(geneDef))
 					{
-						pawn.genes.RemoveGene(item);
+						continue;
 					}
-					if (item.def.ConflictsWith(geneDef))
-					{
-						pawn.genes.RemoveGene(item);
-					}
+					pawn.genes.RemoveGene(item);
 				}
 				return true;
 			}
@@ -431,73 +406,22 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			List<Gene> genesListForReading = pawn.genes.GenesListForReading;
-			for (int j = 0; j < genesListForReading.Count; j++)
-			{
-				if (!genesListForReading[j].Active)
-				{
-					continue;
-				}
-				for (int i = 0; i < geneDefs.Count; i++)
-				{
-					if (genesListForReading[j].def == geneDefs[i])
-					{
-						return true;
-					}
-				}
-			}
-			return false;
-		}
-
-		public static bool HasActiveGene(GeneDef geneDef, Pawn pawn)
-		{
-			if (geneDef == null || pawn?.genes == null)
-			{
-				return false;
-			}
-			List<Gene> genesListForReading = pawn?.genes?.GenesListForReading;
-			for (int i = 0; i < genesListForReading.Count; i++)
-			{
-				if (genesListForReading[i].Active == true && genesListForReading[i].def == geneDef)
-				{
-					return true;
-				}
-			}
-			return false;
-		}
-
-		public static bool HasGene(GeneDef geneDef, Pawn pawn)
-		{
-			if (geneDef == null || pawn?.genes == null)
-			{
-				return false;
-			}
-			List<Gene> genesListForReading = pawn.genes.GenesListForReading;
-			for (int i = 0; i < genesListForReading.Count; i++)
-			{
-				if (genesListForReading[i].def == geneDef)
-				{
-					return true;
-				}
-			}
-			return false;
-		}
-
-		public static Gene GetXenogene(GeneDef geneDef, Pawn pawn)
-		{
-			if (geneDef == null || pawn?.genes == null)
-			{
-				return null;
-			}
-			List<Gene> genesListForReading = pawn.genes.Xenogenes;
-			for (int i = 0; i < genesListForReading.Count; i++)
-			{
-				if (genesListForReading[i].def == geneDef)
-				{
-					return genesListForReading[i];
-				}
-			}
-			return null;
+			//List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+			//for (int j = 0; j < genesListForReading.Count; j++)
+			//{
+			//	if (!genesListForReading[j].Active)
+			//	{
+			//		continue;
+			//	}
+			//	for (int i = 0; i < geneDefs.Count; i++)
+			//	{
+			//		if (genesListForReading[j].def == geneDefs[i])
+			//		{
+			//			return true;
+			//		}
+			//	}
+			//}
+			return pawn.genes.GenesListForReading.Any((Gene gene) => geneDefs.Contains(gene.def) && gene.Active);
 		}
 
 		public static Gene GetFirstSkinColorOverrideGene(Pawn pawn)
@@ -556,6 +480,40 @@ namespace WVC_XenotypesAndGenes
 			return null;
 		}
 
+		public static Gene GetGene(GeneDef geneDef, Pawn pawn)
+		{
+			if (geneDef == null || pawn?.genes == null)
+			{
+				return null;
+			}
+			List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+			for (int i = 0; i < genesListForReading.Count; i++)
+			{
+				if (genesListForReading[i].def == geneDef)
+				{
+					return genesListForReading[i];
+				}
+			}
+			return null;
+		}
+
+		public static Gene GetXenogene(GeneDef geneDef, Pawn pawn)
+		{
+			if (geneDef == null || pawn?.genes == null)
+			{
+				return null;
+			}
+			List<Gene> genesListForReading = pawn.genes.Xenogenes;
+			for (int i = 0; i < genesListForReading.Count; i++)
+			{
+				if (genesListForReading[i].def == geneDef)
+				{
+					return genesListForReading[i];
+				}
+			}
+			return null;
+		}
+
 		public static Gene GetEndogene(GeneDef geneDef, Pawn pawn)
 		{
 			if (geneDef == null || pawn?.genes == null)
@@ -575,6 +533,21 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool HasXenogene(GeneDef geneDef, Pawn pawn)
 		{
+			return GetXenogene(geneDef, pawn) != null;
+		}
+
+		public static bool HasEndogene(GeneDef geneDef, Pawn pawn)
+		{
+			return GetEndogene(geneDef, pawn) != null;
+		}
+
+		public static bool HasGene(GeneDef geneDef, Pawn pawn)
+		{
+			return GetGene(geneDef, pawn) != null;
+		}
+
+		public static bool HasActiveXenogene(GeneDef geneDef, Pawn pawn)
+		{
 			if (geneDef == null || pawn?.genes == null)
 			{
 				return false;
@@ -582,7 +555,7 @@ namespace WVC_XenotypesAndGenes
 			List<Gene> genesListForReading = pawn.genes.Xenogenes;
 			for (int i = 0; i < genesListForReading.Count; i++)
 			{
-				if (genesListForReading[i].def == geneDef)
+				if (genesListForReading[i].def == geneDef && genesListForReading[i].Active)
 				{
 					return true;
 				}
@@ -590,7 +563,7 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public static bool HasEndogene(GeneDef geneDef, Pawn pawn)
+		public static bool HasActiveEndogene(GeneDef geneDef, Pawn pawn)
 		{
 			if (geneDef == null || pawn?.genes == null)
 			{
@@ -599,7 +572,24 @@ namespace WVC_XenotypesAndGenes
 			List<Gene> genesListForReading = pawn.genes.Endogenes;
 			for (int i = 0; i < genesListForReading.Count; i++)
 			{
-				if (genesListForReading[i].def == geneDef)
+				if (genesListForReading[i].def == geneDef && genesListForReading[i].Active)
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
+		public static bool HasActiveGene(GeneDef geneDef, Pawn pawn)
+		{
+			if (geneDef == null || pawn?.genes == null)
+			{
+				return false;
+			}
+			List<Gene> genesListForReading = pawn.genes.GenesListForReading;
+			for (int i = 0; i < genesListForReading.Count; i++)
+			{
+				if (genesListForReading[i].def == geneDef && genesListForReading[i].Active)
 				{
 					return true;
 				}
@@ -707,60 +697,32 @@ namespace WVC_XenotypesAndGenes
 
 		// ============================= Getter =============================
 
-		[Obsolete]
-		public static bool AnyGeneDefIsSubGeneOf(List<GeneDef> geneDefs, GeneDef parentGeneDef)
-		{
-            foreach (GeneDef geneDef in geneDefs)
-            {
-                if (GeneDefIsSubGeneOf(geneDef, parentGeneDef))
-                {
-                    return true;
-                }
-            }
-            return false;
-		}
+		//[Obsolete]
+		//public static bool AnyGeneDefIsSubGeneOf(List<GeneDef> geneDefs, GeneDef parentGeneDef)
+		//{
+  //          foreach (GeneDef geneDef in geneDefs)
+  //          {
+  //              if (GeneDefIsSubGeneOf(geneDef, parentGeneDef))
+  //              {
+  //                  return true;
+  //              }
+  //          }
+  //          return false;
+		//}
 
-		[Obsolete]
-		public static bool GeneDefIsSubGeneOf(GeneDef childGeneDef, GeneDef parentGeneDef)
-		{
-			if (childGeneDef == parentGeneDef)
-			{
-				return true;
-			}
-			if (childGeneDef?.prerequisite != null)
-			{
-				return GeneDefIsSubGeneOf(childGeneDef.prerequisite, parentGeneDef);
-			}
-			return false;
-		}
-
-		public static GeneDef GetFirstGeneDefOfType(List<GeneDef> genes, Type type)
-		{
-			if (genes.NullOrEmpty())
-			{
-				return null;
-			}
-			for (int i = 0; i < genes.Count; i++)
-			{
-				if (genes[i].geneClass == type)
-				{
-					return genes[i];
-				}
-			}
-			return null;
-		}
-
-		// public static Gene GetFirstGeneOfType(List<Gene> genes, Type type)
-		// {
-			// for (int i = 0; i < genes.Count; i++)
-			// {
-				// if (genes[i] is type)
-				// {
-					// return genes[i];
-				// }
-			// }
-			// return null;
-		// }
+		//[Obsolete]
+		//public static bool GeneDefIsSubGeneOf(GeneDef childGeneDef, GeneDef parentGeneDef)
+		//{
+		//	if (childGeneDef == parentGeneDef)
+		//	{
+		//		return true;
+		//	}
+		//	if (childGeneDef?.prerequisite != null)
+		//	{
+		//		return GeneDefIsSubGeneOf(childGeneDef.prerequisite, parentGeneDef);
+		//	}
+		//	return false;
+		//}
 
 		public static List<XenotypeDef> GetAllMatchedXenotypes_ForPawns(List<Pawn> pawns, List<XenotypeDef> xenotypeDefs, float percent = 0.6f)
 		{
@@ -917,16 +879,16 @@ namespace WVC_XenotypesAndGenes
 
 		// =============================== Getter ===============================
 
-		public static int GetAllGenesCount(XenotypeDef xenotypeDef)
-		{
-			int genesCount = 0;
-			List<XenotypeDef> xenotypes = GetXenotypeAndDoubleXenotypes(xenotypeDef);
-			foreach (XenotypeDef xenotype in xenotypes)
-			{
-				genesCount += xenotype.genes.Count;
-			}
-			return genesCount;
-		}
+		//public static int GetAllGenesCount(XenotypeDef xenotypeDef)
+		//{
+		//	int genesCount = 0;
+		//	List<XenotypeDef> xenotypes = GetXenotypeAndDoubleXenotypes(xenotypeDef);
+		//	foreach (XenotypeDef xenotype in xenotypes)
+		//	{
+		//		genesCount += xenotype.genes.Count;
+		//	}
+		//	return genesCount;
+		//}
 
 		public static List<XenotypeDef> GetXenotypeAndDoubleXenotypes(XenotypeDef xenotypeDef)
 		{
@@ -941,73 +903,6 @@ namespace WVC_XenotypesAndGenes
 			}
 			return xenotypes;
 		}
-
-        // Xenotype Cost
-
-        //public static float XenotypeCost(XenotypeDef xenotype)
-        //{
-        //	return (float)((GetXenotype_Arc(xenotype) * 1.2) + (GetXenotype_Cpx(xenotype) * 0.2) + (-1 * (GetXenotype_Met(xenotype) * 0.4)));
-        //}
-
-        //public static int GetXenotype_Cpx(XenotypeDef xenotypeDef)
-        //{
-        //	List<GeneDef> genes = xenotypeDef?.genes;
-        //	if (genes.NullOrEmpty())
-        //	{
-        //		return 0;
-        //	}
-        //	int num = 0;
-        //	foreach (GeneDef item in genes)
-        //	{
-        //		num += item.biostatCpx;
-        //	}
-        //	return num;
-        //}
-
-        //public static int GetXenotype_Met(XenotypeDef xenotypeDef)
-        //{
-        //	List<GeneDef> genes = xenotypeDef?.genes;
-        //	if (genes.NullOrEmpty())
-        //	{
-        //		return 0;
-        //	}
-        //	int num = 0;
-        //	foreach (GeneDef item in genes)
-        //	{
-        //		num += item.biostatMet;
-        //	}
-        //	return num;
-        //}
-
-        //public static int GetXenotype_Arc(XenotypeDef xenotypeDef)
-        //{
-        //	List<GeneDef> genes = xenotypeDef?.genes;
-        //	if (genes.NullOrEmpty())
-        //	{
-        //		return 0;
-        //	}
-        //	int num = 0;
-        //	foreach (GeneDef item in genes)
-        //	{
-        //		num += item.biostatArc;
-        //	}
-        //	return num;
-        //}
-
-        //public static int GetPawn_Arc(Pawn pawn)
-        //{
-        //	List<Gene> genes = pawn?.genes?.GenesListForReading;
-        //	if (genes.NullOrEmpty())
-        //	{
-        //		return 0;
-        //	}
-        //	int num = 0;
-        //	foreach (Gene item in genes)
-        //	{
-        //		num += item.def.biostatArc;
-        //	}
-        //	return num;
-        //}
 
         public static void GetBiostatsFromList(List<GeneDef> genes, out int cpx, out int met, out int arc)
         {
@@ -1041,15 +936,11 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool XenotypeHasArchites(XenotypeHolder xenotypeDef)
 		{
-			List<GeneDef> genesListForReading = xenotypeDef.genes;
-			for (int i = 0; i < genesListForReading.Count; i++)
+			if (xenotypeDef.genes.NullOrEmpty())
 			{
-				if (genesListForReading[i].biostatArc > 0)
-				{
-					return true;
-				}
+				return false;
 			}
-			return false;
+			return xenotypeDef.genes.Any((GeneDef geneDef) => geneDef.biostatArc > 0);
 		}
 
 		// XaG test
