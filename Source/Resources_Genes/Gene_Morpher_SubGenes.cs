@@ -444,4 +444,63 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_HemogenMorph : Gene_MorpherTrigger
+	{
+
+		[Unsaved(false)]
+		private Gene_Hemogen cachedHemogenGene;
+
+		public Gene_Hemogen Hemogen
+		{
+			get
+			{
+				if (cachedHemogenGene == null || !cachedHemogenGene.Active)
+				{
+					cachedHemogenGene = pawn?.genes?.GetFirstGeneOfType<Gene_Hemogen>();
+				}
+				return cachedHemogenGene;
+			}
+		}
+
+		public override bool CanMorph()
+		{
+			if (Hemogen != null && Hemogen.ValuePercent > 0.8f)
+			{
+				return true;
+			}
+			return false;
+		}
+
+		public override void MorpherTrigger(PawnGeneSetHolder geneSet)
+		{
+			if (Hemogen != null)
+			{
+				Hemogen.Value = 0.1f;
+			}
+			base.MorpherTrigger(geneSet);
+		}
+
+	}
+
+	public class Gene_PsyfocusMorph : Gene_MorpherTrigger
+	{
+
+		public override bool CanMorph()
+		{
+			float? psyfocus = pawn.psychicEntropy?.CurrentPsyfocus;
+			if (psyfocus.HasValue && psyfocus.Value > 0.8f)
+			{
+				return true;
+			}
+			return false;
+		}
+
+		public override void MorpherTrigger(PawnGeneSetHolder geneSet)
+		{
+			pawn.psychicEntropy?.OffsetPsyfocusDirectly(-1f);
+			base.MorpherTrigger(geneSet);
+		}
+
+	}
+
 }

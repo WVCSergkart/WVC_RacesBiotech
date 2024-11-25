@@ -18,18 +18,4 @@
 
   <!-- ============================================================================== -->
 
-  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_SubGenes">
-	<defName>WVC_MorphEffects_Mutations</defName>
-	<label>mutation morph</label>
-	<description>Carriers of this gene are subject to flesh mutations during morph.</description>
-	<geneClass>WVC_XenotypesAndGenes.Gene_MorphMutations</geneClass>
-	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_RandXenos</iconPath>
-	<displayOrderInCategory>-45</displayOrderInCategory>
-	<prerequisite></prerequisite>
-	<biostatArc>1</biostatArc>
-	<customEffectDescriptions>
-		<li>After &lt;color=#8a8ae6&gt;morph&lt;/color&gt; causes a random &lt;color=#b0bf80&gt;mutation&lt;/color&gt;.</li>
-	</customEffectDescriptions>
-  </GeneDef>
-
 </Defs>
