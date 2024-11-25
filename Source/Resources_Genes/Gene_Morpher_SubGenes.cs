@@ -167,7 +167,7 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual void MorpherWarining(PawnGeneSetHolder geneSet)
 		{
-			Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_GeneAbilityMorphWarning".Translate(), delegate
+			Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation(Morpher.WarningDesc, delegate
 			{
 				MorpherTrigger(geneSet);
 			});

@@ -3,6 +3,7 @@ using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 using Verse;
 using Verse.Sound;
 
@@ -32,6 +33,8 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override TaggedString GizmoTootip => "WVC_XaG_ArchiverGizmoTip".Translate();
+
+		public override TaggedString WarningDesc => "WVC_XaG_GeneAbilityMorphWarning_Archiver".Translate();
 
 		public override bool TryMorph(PawnGeneSetHolder nextGeneSet, bool shouldMorph = false, bool removeMorpher = false)
 		{
@@ -126,8 +129,29 @@ namespace WVC_XenotypesAndGenes
 		}
 
         private void PostMorph(Pawn newPawn, Pawn oldPawn)
-        {
+		{
 			newPawn.ideo?.SetIdeo(oldPawn.ideo.Ideo);
+			//if (newPawn.ideo != null)
+			//{
+			//	newPawn.ideo?.SetIdeo(oldPawn.ideo.Ideo);
+			//	newPawn.ideo.Debug_ReduceCertainty(Mathf.Clamp01(newPawn.ideo.Certainty - oldPawn.ideo.Certainty));
+			//}
+			foreach (Need newNeed in newPawn.needs.AllNeeds)
+			{
+				if (newNeed.def.onlyIfCausedByGene || newNeed.def.onlyIfCausedByHediff || newNeed.def.onlyIfCausedByTrait)
+                {
+					continue;
+				}
+				newNeed.CurLevel = newNeed.MaxLevel;
+				foreach (Need oldNeed in oldPawn.needs.AllNeeds)
+				{
+					if (newNeed.def != oldNeed.def)
+					{
+						continue;
+					}
+					newNeed.CurLevel = Mathf.Clamp(oldNeed.CurLevel, 0f, newNeed.MaxLevel);
+				}
+			}
 			//if (oldPawn.needs?.mood?.thoughts?.memories != null)
 			//{
 			//	foreach (Thought_Memory memory in oldPawn.needs.mood.thoughts.memories.Memories)

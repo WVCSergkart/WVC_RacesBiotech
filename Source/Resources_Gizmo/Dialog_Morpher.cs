@@ -191,7 +191,7 @@ namespace WVC_XenotypesAndGenes
 			float num4 = num2 + 4f;
 			float b = (num3 - num4 * Mathf.Floor(num3 / num4)) / 2f;
 			Rect rect3 = new(0f, curY, rect.width, sectionHeight);
-			Widgets.DrawRectFast(rect3, Widgets.MenuSectionBGFillColor);
+			//Widgets.DrawRectFast(rect3, Widgets.MenuSectionBGFillColor);
 			curY += 4f;
 			if (!genes.Any())
 			{
@@ -293,7 +293,7 @@ namespace WVC_XenotypesAndGenes
 			Widgets.DrawOptionBackground(rect, false);
 			curX += 4f;
 			GeneUIUtility.DrawBiostats(geneDef.biostatCpx, geneDef.biostatMet, geneDef.biostatArc, ref curX, curY, 4f);
-			GeneUIUtility.DrawGeneDef(geneRect: new(curX, curY + 4f, GeneCreationDialogBase.GeneSize.x, GeneCreationDialogBase.GeneSize.y), gene: geneDef, geneType: xenogene ? GeneType.Endogene : GeneType.Xenogene, extraTooltip: null, doBackground: false, clickable: false, overridden: false);
+			GeneUIUtility.DrawGeneDef(geneRect: new(curX, curY + 4f, GeneCreationDialogBase.GeneSize.x, GeneCreationDialogBase.GeneSize.y), gene: geneDef, geneType: xenogene ? GeneType.Xenogene : GeneType.Endogene, extraTooltip: null, doBackground: false, clickable: false, overridden: false);
 			curX += GeneCreationDialogBase.GeneSize.x + 4f;
 			if (Widgets.ButtonInvisible(rect))
 			{

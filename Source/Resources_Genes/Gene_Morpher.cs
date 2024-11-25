@@ -670,6 +670,8 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual TaggedString GizmoTootip => "WVC_XaG_MorpherGizmoTip".Translate();
 
+		public virtual TaggedString WarningDesc => "WVC_XaG_GeneAbilityMorphWarning".Translate();
+
 		private Gizmo gizmo;
 
 		public override IEnumerable<Gizmo> GetGizmos()
