@@ -342,25 +342,82 @@ namespace WVC_XenotypesAndGenes
 					AddToolGene(nextGeneTool, xenogene);
 					return;
 				}
-				GeneDef geneDef = DefDatabase<GeneDef>.GetNamed("WVC_MorphCondition_Deathrest");
-				if (XenotypeGiver?.morpherTriggerGene != null)
+				AddToolGene(GetTriggerGene(), xenogene);
+			}
+		}
+
+		private GeneDef GetTriggerGene()
+		{
+			if (XenotypeGiver?.morpherTriggerGene != null)
+			{
+				return XenotypeGiver.morpherTriggerGene;
+			}
+			List<GeneDef> list = new();
+			List<GeneDef> database = DefDatabase<GeneDef>.AllDefsListForReading;
+			foreach (Gene gene in pawn.genes.GenesListForReading)
+			{
+				if (gene is Gene_Deathrest)
 				{
-					AddToolGene(XenotypeGiver.morpherTriggerGene, xenogene);
+					if (database.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<Gene_DeathrestMorph>()).TryRandomElement(out GeneDef triggerGene))
+					{
+						list.Add(triggerGene);
+					}
 				}
-				else if (geneDef != null && pawn.needs?.TryGetNeed<Need_Deathrest>() != null)
+				else if (gene is Gene_Deathless)
 				{
-					AddToolGene(geneDef, xenogene);
+					if (database.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<Gene_DeathlessMorph>()).TryRandomElement(out GeneDef triggerGene))
+					{
+						list.Add(triggerGene);
+					}
 				}
-				else if (Giver != null && !Giver.morpherTriggerGenes.NullOrEmpty())
+				else if (gene is Gene_Hemogen)
 				{
-					AddToolGene(Giver.morpherTriggerGenes.RandomElement(), xenogene);
+					if (database.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<Gene_HemogenMorph>()).TryRandomElement(out GeneDef triggerGene))
+					{
+						list.Add(triggerGene);
+					}
 				}
-				else
+				else if (gene is Gene_Undead)
 				{
-					Log.Error("Failed find morpherTriggerGene in xenotypeDef or geneDef.");
-					//AddToolGene(DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef geneDef) => geneDef.prerequisite != null && geneDef.prerequisite == def).RandomElement(), xenogene);
+					if (database.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<Gene_UndeadMorph>()).TryRandomElement(out GeneDef triggerGene))
+					{
+						list.Add(triggerGene);
+					}
 				}
 			}
+			//if (pawn.needs?.TryGetNeed<Need_Deathrest>() != null)
+			//{
+			//}
+			//if (pawn.genes?.GetFirstGeneOfType<Gene_Deathless>() != null)
+			//{
+			//}
+			//if (pawn.genes?.GetFirstGeneOfType<Gene_Hemogen>() != null)
+			//{
+			//}
+			//if (pawn.genes?.GetFirstGeneOfType<Gene_Undead>() != null)
+			//{
+			//}
+			if (pawn.psychicEntropy?.NeedsPsyfocus == true)
+			{
+				if (database.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<Gene_PsyfocusMorph>()).TryRandomElement(out GeneDef triggerGene))
+				{
+					list.Add(triggerGene);
+				}
+			}
+			if (Giver != null && !Giver.morpherTriggerGenes.NullOrEmpty())
+			{
+				list.AddRange(Giver.morpherTriggerGenes);
+			}
+			if (XenotypeGiver != null && !XenotypeGiver.morpherTriggerGenes.NullOrEmpty())
+			{
+				list.AddRange(XenotypeGiver.morpherTriggerGenes);
+			}
+			if (list.NullOrEmpty())
+            {
+				Log.Warning("Failed get trigger genes for pawn. Trying random from database.");
+				return database.Where((GeneDef geneDef) => geneDef.IsGeneDefOfType<Gene_MorpherTrigger>()).RandomElement();
+			}
+			return list.RandomElement();
 		}
 
 		private void UpdSkinAndHair()

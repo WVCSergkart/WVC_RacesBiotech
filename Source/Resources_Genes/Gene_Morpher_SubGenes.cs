@@ -487,8 +487,8 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool CanMorph()
 		{
-			float? psyfocus = pawn.psychicEntropy?.CurrentPsyfocus;
-			if (psyfocus.HasValue && psyfocus.Value > 0.8f)
+			//float? psyfocus = pawn.psychicEntropy?.CurrentPsyfocus;
+			if (pawn.psychicEntropy.NeedsPsyfocus)
 			{
 				return true;
 			}

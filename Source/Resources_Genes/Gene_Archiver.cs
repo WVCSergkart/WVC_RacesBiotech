@@ -72,10 +72,13 @@ namespace WVC_XenotypesAndGenes
 					DuplicateUtility.TryDuplicatePawn(pawn, pawn, pawn.Position, pawn.Map, out nextPawn, out _, out _, doEffects: false);
 					phase = "trying set new xenotype for pawn";
 					ReimplanterUtility.SetXenotype(nextPawn, GetBestNewFormForMorpher());
-					nextPawn.TryAddGene(def, pawn.genes.IsXenogene(this));
 					phase = "trying get gene from duplicate";
-					archive = nextPawn.genes?.GetFirstGeneOfType<Gene_Archiver>();
-					archive.UpdToolGenes(false);
+					if (XaG_GeneUtility.TryRemoveAllConflicts(nextPawn, def))
+					{
+						nextPawn.TryAddGene(def, pawn.genes.IsXenogene(this));
+						archive = nextPawn.genes?.GetFirstGeneOfType<Gene_Archiver>();
+						archive.UpdToolGenes();
+					}
 					phase = "try upd skin and hair";
 					UpdSkinAndHair(nextPawn);
 					//Reimplant(nextPawn, pawn.genes.GetFirstGeneOfType<Gene_ArchiverXenotypeChanger>() != null);
