@@ -150,24 +150,16 @@ namespace WVC_XenotypesAndGenes
 					return false;
 				}
 				phase = "exclude list";
-				List<XenotypeDef> exclude = new() { pawn.genes.Xenotype };
 				if (savedGeneSets.NullOrEmpty())
 				{
 					savedGeneSets = new();
-				}
-				else
-				{
-					foreach (PawnGeneSetHolder set in savedGeneSets)
-					{
-						exclude.Add(set.xenotypeDef);
-					}
 				}
 				phase = "save old gene set";
 				SaveGenes();
 				if (nextGeneSet == null)
 				{
 					phase = "create new form";
-					TryCreateNewForm(phase, exclude);
+					TryCreateNewForm(phase);
 				}
 				else
 				{
@@ -179,7 +171,7 @@ namespace WVC_XenotypesAndGenes
 				UpdToolGenes();
 				ReimplanterUtility.PostImplantDebug(pawn);
 				phase = "post morph";
-				//PostMorph();
+				PostMorph();
 				pawn.Drawer?.renderer?.SetAllGraphicsDirty();
 				phase = "do effects yay";
 				DoEffects(pawn);
@@ -200,39 +192,26 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		private void TryCreateNewForm(string phase, List<XenotypeDef> exclude)
+        private void PostMorph()
+        {
+			foreach (Gene gene in pawn.genes.GenesListForReading)
+            {
+				if (gene is not Gene_MorpherDependant postMorphGene)
+                {
+					continue;
+                }
+				postMorphGene.PostMorph(pawn);
+			}
+        }
+
+        private void TryCreateNewForm(string phase)
 		{
 			XenotypeHolder xenotypeHolder = null;
 			if (savedGeneSets.Count < currentLimit + 1)
-			{
-				if (XenotypeGiver != null)
-				{
-					if (!XenotypeGiver.morpherXenotypeDefs.NullOrEmpty())
-					{
-						xenotypeHolder = new(XaG_GeneUtility.GetRandomXenotypeFromList(XenotypeGiver?.morpherXenotypeDefs, exclude));
-					}
-					else if (!XenotypeGiver.morpherXenotypeChances.NullOrEmpty())
-					{
-						xenotypeHolder = new(XaG_GeneUtility.GetRandomXenotypeFromXenotypeChances(XenotypeGiver?.morpherXenotypeChances, exclude));
-					}
-				}
-				if (xenotypeHolder == null && Giver != null)
-				{
-					if (!Giver.morpherXenotypeDefs.NullOrEmpty())
-					{
-						xenotypeHolder = new(XaG_GeneUtility.GetRandomXenotypeFromList(Giver?.morpherXenotypeDefs, exclude));
-					}
-					else if (!Giver.morpherXenotypeChances.NullOrEmpty())
-					{
-						xenotypeHolder = new(XaG_GeneUtility.GetRandomXenotypeFromXenotypeChances(Giver?.morpherXenotypeChances, exclude));
-					}
-				}
-				if (xenotypeHolder == null)
-				{
-					xenotypeHolder = GetBestNewForm(this);
-				}
-			}
-			if (xenotypeHolder != null)
+            {
+                xenotypeHolder = GetBestNewFormForMorpher();
+            }
+            if (xenotypeHolder != null)
 			{
 				Reimplant(xenotypeHolder);
 			}
@@ -246,7 +225,44 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static XenotypeHolder GetBestNewForm(Gene gene)
+		public XenotypeHolder GetBestNewFormForMorpher()
+		{
+			XenotypeHolder xenotypeHolder = null;
+			List<XenotypeDef> exclude = new() { pawn.genes.Xenotype };
+			foreach (PawnGeneSetHolder set in savedGeneSets)
+			{
+				exclude.Add(set.xenotypeDef);
+			}
+			if (XenotypeGiver != null)
+			{
+				if (!XenotypeGiver.morpherXenotypeDefs.NullOrEmpty())
+				{
+					xenotypeHolder = new(XaG_GeneUtility.GetRandomXenotypeFromList(XenotypeGiver.morpherXenotypeDefs, exclude));
+				}
+				else if (!XenotypeGiver.morpherXenotypeChances.NullOrEmpty())
+				{
+					xenotypeHolder = new(XaG_GeneUtility.GetRandomXenotypeFromXenotypeChances(XenotypeGiver.morpherXenotypeChances, exclude));
+				}
+			}
+			if (xenotypeHolder == null && Giver != null)
+			{
+				if (!Giver.morpherXenotypeDefs.NullOrEmpty())
+				{
+					xenotypeHolder = new(XaG_GeneUtility.GetRandomXenotypeFromList(Giver.morpherXenotypeDefs, exclude));
+				}
+				else if (!Giver.morpherXenotypeChances.NullOrEmpty())
+				{
+					xenotypeHolder = new(XaG_GeneUtility.GetRandomXenotypeFromXenotypeChances(Giver.morpherXenotypeChances, exclude));
+				}
+			}
+			if (xenotypeHolder == null)
+			{
+				xenotypeHolder = GetBestNewForm(this);
+			}
+			return xenotypeHolder;
+		}
+
+        public static XenotypeHolder GetBestNewForm(Gene gene)
 		{
 			List<XenotypeHolder> holders = ListsUtility.GetAllXenotypesHolders().Where((XenotypeHolder holder) => !holder.genes.HasGeneDefOfType<Gene_MorpherOneTimeUse>()).ToList();
 			List<XenotypeHolder> result = new();

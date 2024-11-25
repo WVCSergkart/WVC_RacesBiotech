@@ -407,9 +407,11 @@ namespace WVC_XenotypesAndGenes
                 {
 					break;
                 }
-				pawn.genes.RemoveGene(gene);
-				pawn.genes.AddGene(gene.def, false);
-				currentTry++;
+				if (XaG_GeneUtility.TryRemoveAllConflicts(pawn, gene.def))
+				{
+					pawn.genes.AddGene(gene.def, false);
+					currentTry++;
+				}
 			}
 			ReimplanterUtility.PostImplantDebug(pawn);
 		}

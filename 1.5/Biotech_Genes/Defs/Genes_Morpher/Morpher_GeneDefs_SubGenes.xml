@@ -20,7 +20,7 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_Triggers">
 	<defName>WVC_MorphCondition_Ability</defName>
-	<label>ability morph</label>
+	<label>ability trigger</label>
 	<description>Carriers of this gene can morph at will.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_AbilityMorph</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_Ability</iconPath>
@@ -34,7 +34,7 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_Triggers">
 	<defName>WVC_MorphCondition_Nocturnal</defName>
-	<label>nocturnal morph</label>
+	<label>nocturnal trigger</label>
 	<description>Carriers of this gene are subject to morphing in nocturnal time.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_NocturnalMorph</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_Nocturnal</iconPath>
@@ -47,7 +47,7 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_Triggers">
 	<defName>WVC_MorphCondition_Diurnal</defName>
-	<label>diurnal morph</label>
+	<label>diurnal trigger</label>
 	<description>Carriers of this gene are subject to morphing in diurnal time.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_DiurnalMorph</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_Diurnal</iconPath>
@@ -60,7 +60,7 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_Triggers">
 	<defName>WVC_MorphCondition_Seasonal</defName>
-	<label>seasonal morph</label>
+	<label>seasonal trigger</label>
 	<description>Carriers of this gene are subject to morphing with the changing seasons.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_SeasonalMorph</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_Seasonal</iconPath>
@@ -73,7 +73,7 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_Triggers">
 	<defName>WVC_MorphCondition_Damage</defName>
-	<label>damage morph</label>
+	<label>damage trigger</label>
 	<description>Carriers of this gene are susceptible to morphing when injured.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_DamageMorph</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_Damage</iconPath>
@@ -86,7 +86,7 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_Triggers">
 	<defName>WVC_MorphCondition_Deathrest</defName>
-	<label>deathrest morph</label>
+	<label>deathrest trigger</label>
 	<description>Carriers of this gene are only susceptible to morphing when sufficiently deathrested.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_DeathrestMorph</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_Deathrest</iconPath>
@@ -99,7 +99,7 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_Triggers">
 	<defName>WVC_MorphCondition_Deathless</defName>
-	<label>deathless morph</label>
+	<label>deathless trigger</label>
 	<description>Carriers of this gene can only morph in a fatal state.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_DeathlessMorph</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_Deathless</iconPath>
@@ -114,7 +114,7 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_Triggers">
 	<defName>WVC_MorphCondition_Undead</defName>
-	<label>undead morph</label>
+	<label>undead trigger</label>
 	<description>Carriers of this gene can only morph after resurrection.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_UndeadMorph</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_Undead</iconPath>

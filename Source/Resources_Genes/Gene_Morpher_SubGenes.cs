@@ -27,6 +27,17 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		// Currently unused
+		//public virtual void PreMorph(Pawn pawn)
+		//{
+
+		//}
+
+		public virtual void PostMorph(Pawn pawn)
+		{
+
+		}
+
 	}
 
 	// In Dev
@@ -40,13 +51,34 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	// In Dev
-	//public class Gene_ArchiverXenotypeChanger : Gene_MorpherDependant
-	//{
+    public class Gene_MorphMutations : Gene_MorpherDependant
+	{
 
-	//}
+		public override void PostMorph(Pawn pawn)
+		{
+			if (!ModLister.CheckAnomaly("FleshbeastMutations"))
+			{
+				return;
+			}
+			if (TryGetBestMutation(pawn, out HediffDef mutation))
+			{
+				FleshbeastUtility.TryGiveMutation(pawn, mutation);
+			}
+		}
 
-	public class Gene_MorpherTrigger : Gene_MorpherDependant
+		public static bool TryGetBestMutation(Pawn pawn, out HediffDef mutation)
+		{
+			mutation = null;
+			if (DefDatabase<HediffDef>.AllDefsListForReading.Where((HediffDef hediffDef) => hediffDef.defaultInstallPart != null && hediffDef.CompProps<HediffCompProperties_FleshbeastEmerge>() != null).TryRandomElementByWeight((HediffDef hediffDef) => pawn.health.hediffSet.HasHediff(hediffDef) ? 1f : 100f, out HediffDef mutationHediff))
+            {
+				mutation = mutationHediff;
+			}
+			return mutation != null;
+		}
+
+	}
+
+    public class Gene_MorpherTrigger : Gene_MorpherDependant
 	{
 
 		//public bool OneTimeUse

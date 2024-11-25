@@ -50,19 +50,4 @@
 	</comps>
   </HediffDef>
 
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
-	<defName>WVC_DeadStomach_HungerFactor</defName>
-	<label>dead stomach</label>
-	<stages>
-	  <li>
-		<hungerRateFactor>0.01</hungerRateFactor>
-		<becomeVisible>false</becomeVisible>
-		<minSeverity>0.0</minSeverity>
-	  </li>
-	</stages>
-	<comps>
-	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/>
-	</comps>
-  </HediffDef>
-
 </Defs>
