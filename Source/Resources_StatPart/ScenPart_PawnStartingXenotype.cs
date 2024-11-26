@@ -7,12 +7,74 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class ScenPart_PawnModifier_Xenotype : ScenPart_PawnModifier
+	public class ScenPart_PawnModifier_XenotypesAndGenes : ScenPart_PawnModifier
 	{
 
 		public List<XenotypeChance> xenotypeChances = new();
+        public List<GeneDef> geneDefs = new();
+        public bool addMechlink = false;
+        public bool nullifyBackstory = false;
+        public List<GeneDef> chimeraGeneDefs = new();
 
-		protected override void ModifyNewPawn(Pawn p)
+        protected override void ModifyNewPawn(Pawn p)
+        {
+            SetXenotype(p);
+            SetGenes(p);
+            AddMechlink(p);
+            NullifyBackstory(p);
+            ChimeraGenes(p);
+        }
+
+        private void ChimeraGenes(Pawn p)
+        {
+            if (chimeraGeneDefs.NullOrEmpty())
+            {
+                return;
+            }
+            Gene_Chimera chimera = p.genes?.GetFirstGeneOfType<Gene_Chimera>();
+            if (chimera == null)
+            {
+                return;
+            }
+            foreach (GeneDef geneDef in chimeraGeneDefs)
+            {
+                chimera.AddGene(geneDef);
+            }
+        }
+
+        private void SetGenes(Pawn p)
+        {
+            if (geneDefs.NullOrEmpty())
+            {
+                return;
+            }
+            foreach (GeneDef geneDef in geneDefs)
+            {
+                if (XaG_GeneUtility.HasGene(geneDef, p))
+                {
+                    continue;
+                }
+                p.genes.AddGene(geneDef, xenogene: !p.genes.Xenotype.inheritable);
+            }
+        }
+
+        private void NullifyBackstory(Pawn p)
+        {
+            if (nullifyBackstory)
+            {
+                DuplicateUtility.NullifyBackstory(p);
+            }
+        }
+
+        private void AddMechlink(Pawn p)
+        {
+            if (addMechlink && !p.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
+            {
+                p.health.AddHediff(HediffDefOf.MechlinkImplant, p.health.hediffSet.GetBrain());
+            }
+        }
+
+        private void SetXenotype(Pawn p)
         {
             if (xenotypeChances.NullOrEmpty())
             {
@@ -35,22 +97,26 @@ namespace WVC_XenotypesAndGenes
 
         public override string Summary(Scenario scen)
         {
+            if (xenotypeChances.NullOrEmpty())
+            {
+                return base.Summary(scen);
+            }
             return "WVC_AllowedXenotypes".Translate().CapitalizeFirst() + ":\n" + xenotypeChances.Select((XenotypeChance x) => x.xenotype.LabelCap.ToString()).ToLineList(" - ");
         }
 
     }
 
-    public class ScenPart_ForcedMechanitor : ScenPart_PawnModifier
-    {
+    //public class ScenPart_ForcedMechanitor : ScenPart_PawnModifier
+    //{
 
-        protected override void ModifyNewPawn(Pawn p)
-        {
-            if (!p.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
-            {
-                p.health.AddHediff(HediffDefOf.MechlinkImplant, p.health.hediffSet.GetBrain());
-            }
-        }
+    //    protected override void ModifyNewPawn(Pawn p)
+    //    {
+    //        if (!p.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
+    //        {
+    //            p.health.AddHediff(HediffDefOf.MechlinkImplant, p.health.hediffSet.GetBrain());
+    //        }
+    //    }
 
-    }
+    //}
 
 }

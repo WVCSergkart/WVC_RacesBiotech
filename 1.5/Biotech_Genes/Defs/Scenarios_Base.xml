@@ -2,22 +2,22 @@
 <Defs>
 
   <ScenPartDef>
-	<defName>WVC_XaG_StartingXenotype</defName>
-	<label>starting xenotype</label>
+	<defName>WVC_XaG_Starting</defName>
+	<label>xenogenes initial</label>
 	<category>Fixed</category>
-	<scenPartClass>WVC_XenotypesAndGenes.ScenPart_PawnModifier_Xenotype</scenPartClass>
+	<scenPartClass>WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes</scenPartClass>
 	<selectionWeight>0</selectionWeight>
 	<summaryPriority>900</summaryPriority>
   </ScenPartDef>
 
-  <ScenPartDef>
-	<defName>WVC_XaG_ForcedMechlink</defName>
-	<label>forced mechlink</label>
-	<scenPartClass>WVC_XenotypesAndGenes.ScenPart_ForcedMechanitor</scenPartClass>
-	<category>Fixed</category>
-	<selectionWeight>0</selectionWeight>
-	<summaryPriority>460</summaryPriority>
-  </ScenPartDef>
+  <!-- <ScenPartDef> -->
+	<!-- <defName>WVC_XaG_ForcedMechlink</defName> -->
+	<!-- <label>forced mechlink</label> -->
+	<!-- <scenPartClass>WVC_XenotypesAndGenes.ScenPart_ForcedMechanitor</scenPartClass> -->
+	<!-- <category>Fixed</category> -->
+	<!-- <selectionWeight>0</selectionWeight> -->
+	<!-- <summaryPriority>460</summaryPriority> -->
+  <!-- </ScenPartDef> -->
 
   <ScenarioDef WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
 	<defName>WVC_XenotypesAndGenes_Blank</defName>
@@ -46,7 +46,7 @@
 		  <def>ConfigPage_ConfigureStartingPawns</def>
 		  <pawnCount>1</pawnCount>
 		  <pawnChoiceCount>8</pawnChoiceCount>
-		  <visible>false</visible>
+		  <!-- <visible>false</visible> -->
 		</li>
 
 		<!-- Player pawns modifiers -->
@@ -59,8 +59,8 @@
 		  <severityRange>1~1</severityRange>
 		</li>
 
-		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_Xenotype">
-		  <def>WVC_XaG_StartingXenotype</def>
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
+		  <def>WVC_XaG_Starting</def>
 		  <xenotypeChances>
 			<WVC_Lilith MayRequire="ludeon.rimworld.royalty">0.35</WVC_Lilith>
 			<WVC_CatDeity MayRequire="ludeon.rimworld.royalty">0.35</WVC_CatDeity>
@@ -107,7 +107,7 @@
 			<def>Naked</def>
 			<chance>1.0</chance>
 			<context>PlayerStarter</context>
-			<visible>false</visible>
+			<!-- <visible>false</visible> -->
 		</li>
 
 		<li MayRequire="oskarpotocki.vanillafactionsexpanded.core,ludeon.rimworld.ideology" Class="KCSG.ScenPart_AddStartingStructure">
@@ -119,6 +119,12 @@
 				<li>WVC_JunkYard_B</li>
 				<li>WVC_JunkYard_C</li>
 			</chooseFrom>
+		</li>
+
+		<li Class="ScenPart_PawnFilter_Age">
+			<def>PawnFilter_Age</def>
+			<allowedAgeRange>14~17</allowedAgeRange>
+			<visible>false</visible>
 		</li>
 
 	  </parts>
@@ -155,7 +161,7 @@
 		  <def>ConfigPage_ConfigureStartingPawns</def>
 		  <pawnCount>1</pawnCount>
 		  <pawnChoiceCount>8</pawnChoiceCount>
-		  <visible>false</visible>
+		  <!-- <visible>false</visible> -->
 		</li>
 
 		<!-- Player pawns modifiers -->
@@ -168,8 +174,8 @@
 		  <severityRange>1~1</severityRange>
 		</li>
 
-		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_Xenotype">
-		  <def>WVC_XaG_StartingXenotype</def>
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
+		  <def>WVC_XaG_Starting</def>
 		  <xenotypeChances>
 			<WVC_Meca>0.5</WVC_Meca>
 			<WVC_GeneThrower>0.35</WVC_GeneThrower>
@@ -230,6 +236,12 @@
 			</chooseFrom>
 		</li>
 
+		<li Class="ScenPart_PawnFilter_Age">
+			<def>PawnFilter_Age</def>
+			<allowedAgeRange>16~25</allowedAgeRange>
+			<visible>false</visible>
+		</li>
+
 	  </parts>
 	</scenario>
   </ScenarioDef>
@@ -238,7 +250,7 @@
 
   <ScenarioDef WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
 	<defName>WVC_XenotypesAndGenes_RuneDryad</defName>
-	<label>The Golemist</label>
+	<label>Tribal Mechanitor</label>
 	<description>You have spent your entire life in a star-worshipping tribe. The elders of the tribe very often talked about the messenger of the gods, who once descended from heaven and helped the tribe in their hour of need. The creature's flesh was entirely made of stone, and its endurance could be envied by the strongest warriors of the tribe. But even such a strong creature could not live forever, and when his time came, a child was found in his remains, and that child was you.\n\nNot much time has passed since you left the tribe to go on a journey. Forces left you very quickly, and food supplies came to an end. And remembering the legend of your birth, you begged heaven for help. And help came.</description>
 	<scenario>
 	  <summary>One pawn with two golems. &lt;color=#a1ff95&gt;Easy&lt;/color&gt; difficulty.</summary>
@@ -263,23 +275,24 @@
 		  <def>ConfigPage_ConfigureStartingPawns</def>
 		  <pawnCount>1</pawnCount>
 		  <pawnChoiceCount>8</pawnChoiceCount>
-		  <visible>false</visible>
+		  <!-- <visible>false</visible> -->
 		</li>
 
 		<!-- Player pawns modifiers -->
-		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_Xenotype">
-		  <def>WVC_XaG_StartingXenotype</def>
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
+		  <def>WVC_XaG_Starting</def>
 		  <xenotypeChances>
 			<WVC_RuneDryad>0.5</WVC_RuneDryad>
 			<WVC_Golemkind>0.5</WVC_Golemkind>
 		  </xenotypeChances>
 		  <context>PlayerStarter</context>
+		  <addMechlink>true</addMechlink>
 		</li>
 
-		<li Class="WVC_XenotypesAndGenes.ScenPart_ForcedMechanitor">
-		  <def>WVC_XaG_ForcedMechlink</def>
-		  <context>PlayerStarter</context>
-		</li>
+		<!-- <li Class="WVC_XenotypesAndGenes.ScenPart_ForcedMechanitor"> -->
+		  <!-- <def>WVC_XaG_ForcedMechlink</def> -->
+		  <!-- <context>PlayerStarter</context> -->
+		<!-- </li> -->
 
 		<!-- Player starting stuff spawn method-->
 		<li Class="ScenPart_PlayerPawnsArriveMethod">
@@ -295,13 +308,13 @@
 
 		<li Class="ScenPart_DisableMapGen">
 			<def>DisableExostriderRemains</def>
-			<visible>false</visible>
+			<!-- <visible>false</visible> -->
 		</li>
 		<li Class="ScenPart_Naked">
 			<def>Naked</def>
 			<chance>0.25</chance>
 			<context>PlayerStarter</context>
-			<visible>false</visible>
+			<!-- <visible>false</visible> -->
 		</li>
 
 		<li Class="ScenPart_StartingMech">
@@ -328,6 +341,12 @@
 			</chooseFrom>
 		</li>
 
+		<li Class="ScenPart_PawnFilter_Age">
+			<def>PawnFilter_Age</def>
+			<allowedAgeRange>16~21</allowedAgeRange>
+			<visible>false</visible>
+		</li>
+
 	  </parts>
 	</scenario>
   </ScenarioDef>
@@ -336,7 +355,7 @@
 
   <ScenarioDef WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
 	<defName>WVC_XenotypesAndGenes_Undead</defName>
-	<label>The Undead</label>
+	<label>Raised from the Dead</label>
 	<description>You no longer remember what motivated you to go on an adventure. This memory was so fleeting and insignificant that you had no desire to focus on it. Now you were more worried about the profuse bleeding from the wound deftly left by the blade. A group of raiders spotted you early and took you by surprise, taking your belongings and leaving you to die, they disappeared as abruptly as they appeared.\n\nBefore you expire, you caught a glimpse of a silhouette as if in a mist. When you opened your eyes, there were no wounds on your body, and you were already the same, but still a different person.</description>
 	<scenario>
 	  <summary>One pawn with no supplies. &lt;color=#fff695&gt;Medium&lt;/color&gt; difficulty.</summary>
@@ -361,12 +380,12 @@
 		  <def>ConfigPage_ConfigureStartingPawns</def>
 		  <pawnCount>1</pawnCount>
 		  <pawnChoiceCount>8</pawnChoiceCount>
-		  <visible>false</visible>
+		  <!-- <visible>false</visible> -->
 		</li>
 
 		<!-- Player pawns modifiers -->
-		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_Xenotype">
-		  <def>WVC_XaG_StartingXenotype</def>
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
+		  <def>WVC_XaG_Starting</def>
 		  <xenotypeChances>
 			<WVC_Undead>0.60</WVC_Undead>
 			<WVC_Featherdust>0.16</WVC_Featherdust>
@@ -392,6 +411,12 @@
 			<def>Naked</def>
 			<chance>1.0</chance>
 			<context>PlayerStarter</context>
+			<!-- <visible>false</visible> -->
+		</li>
+
+		<li Class="ScenPart_PawnFilter_Age">
+			<def>PawnFilter_Age</def>
+			<allowedAgeRange>18~28</allowedAgeRange>
 			<visible>false</visible>
 		</li>
 

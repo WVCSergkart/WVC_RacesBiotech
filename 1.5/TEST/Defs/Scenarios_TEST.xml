@@ -19,8 +19,8 @@
 		  <pawnChoiceCount>8</pawnChoiceCount>
 		</li>
 
-		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_Xenotype">
-		  <def>WVC_XaG_StartingXenotype</def>
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
+		  <def>WVC_XaG_Starting</def>
 		  <xenotypeChances>
 			<WVC_Meca>0.5</WVC_Meca>
 			<WVC_GeneThrower>0.35</WVC_GeneThrower>
@@ -50,7 +50,7 @@
 
   <!-- ========================================================= -->
 
-  <ScenarioDef WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
+  <ScenarioDef>
 	<defName>WVC_XaG_Test_Subject</defName>
 	<label>TEST SUBJECT</label>
 	<description>TEST</description>
@@ -68,8 +68,8 @@
 		  <pawnChoiceCount>8</pawnChoiceCount>
 		</li>
 
-		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_Xenotype">
-		  <def>WVC_XaG_StartingXenotype</def>
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
+		  <def>WVC_XaG_Starting</def>
 		  <xenotypeChances>
 			<WVC_Lilith MayRequire="ludeon.rimworld.royalty">0.35</WVC_Lilith>
 			<WVC_CatDeity MayRequire="ludeon.rimworld.royalty">0.35</WVC_CatDeity>
@@ -100,7 +100,7 @@
 
   <!-- ========================================================= -->
 
-  <ScenarioDef WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
+  <ScenarioDef>
 	<defName>WVC_XaG_Test_Golemist</defName>
 	<label>TEST GOLEMISTS</label>
 	<description>TEST</description>
@@ -119,8 +119,8 @@
 		</li>
 
 		<!-- Player pawns modifiers -->
-		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_Xenotype">
-		  <def>WVC_XaG_StartingXenotype</def>
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
+		  <def>WVC_XaG_Starting</def>
 		  <xenotypeChances>
 			<WVC_RuneDryad>0.5</WVC_RuneDryad>
 			<WVC_Golemkind>0.5</WVC_Golemkind>
@@ -149,7 +149,7 @@
 
   <!-- ========================================================= -->
 
-  <ScenarioDef WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
+  <ScenarioDef>
 	<defName>WVC_XaG_Test_Undead</defName>
 	<label>TEST UNDEAD</label>
 	<description>TEST</description>
@@ -168,8 +168,8 @@
 		</li>
 
 		<!-- Player pawns modifiers -->
-		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_Xenotype">
-		  <def>WVC_XaG_StartingXenotype</def>
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
+		  <def>WVC_XaG_Starting</def>
 		  <xenotypeChances>
 			<WVC_Undead>0.60</WVC_Undead>
 			<WVC_Featherdust>0.16</WVC_Featherdust>
@@ -200,7 +200,7 @@
 
   <!-- ========================================================= -->
 
-  <ScenarioDef WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
+  <ScenarioDef>
 	<defName>WVC_XaG_Test_Chimera</defName>
 	<label>TEST CHIMERA</label>
 	<description>TEST</description>
@@ -219,8 +219,8 @@
 		</li>
 
 		<!-- Player pawns modifiers -->
-		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_Xenotype">
-		  <def>WVC_XaG_StartingXenotype</def>
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
+		  <def>WVC_XaG_Starting</def>
 		  <xenotypeChances>
 			<WVC_Shadoweater>1</WVC_Shadoweater>
 		  </xenotypeChances>
@@ -240,6 +240,84 @@
 		<li Class="ScenPart_Naked">
 			<def>Naked</def>
 			<chance>0.5</chance>
+		</li>
+
+	  </parts>
+	</scenario>
+  </ScenarioDef>
+
+  <!-- ========================================================= -->
+
+  <ScenarioDef WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
+	<defName>WVC_XenotypesAndGenes_Chimerkin</defName>
+	<label>Lost Chimer-child</label>
+	<description>New text</description>
+	<scenario>
+	  <summary>One child pawn with no supplies. &lt;color=#fff695&gt;Medium&lt;/color&gt; difficulty.</summary>
+	  <playerFaction>
+		<def>PlayerFaction</def>
+		<factionDef>PlayerColony</factionDef>
+	  </playerFaction>
+	  <parts>
+
+		<!-- Config pages -->
+		<!-- <li Class="ScenPart_ConfigPage_ConfigureStartingPawns"> -->
+		  <!-- <def>ConfigPage_ConfigureStartingPawns</def> -->
+		  <!-- <pawnCount>1</pawnCount> -->
+		  <!-- <pawnChoiceCount>8</pawnChoiceCount> -->
+		<!-- </li> -->
+		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_Xenotypes">
+		  <def>ConfigurePawnsXenotypes</def>
+		  <pawnChoiceCount>8</pawnChoiceCount>
+		  <customSummary>Start with one child chimerkin.</customSummary>
+		  <xenotypeCounts>
+			<li>
+			  <xenotype>WVC_Shadoweater</xenotype>
+			  <count>1</count>
+			  <description>non-baby and non-adult chimerkin</description>
+			  <requiredAtStart>true</requiredAtStart>
+			  <allowedDevelopmentalStages>Child</allowedDevelopmentalStages>
+			</li>
+		  </xenotypeCounts>
+		</li>
+
+		<!-- Player pawns modifiers -->
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
+		  <def>WVC_XaG_Starting</def>
+		  <xenotypeChances>
+			<WVC_Shadoweater>1</WVC_Shadoweater>
+		  </xenotypeChances>
+		  <chimeraGeneDefs>
+			<li>WVC_Chimera_Geneharvest</li>
+			<li>WVC_Chimera_Packharvest</li>
+			<li>WVC_PredatorPrey_NotTasty</li>
+		  </chimeraGeneDefs>
+		  <context>PlayerStarter</context>
+		</li>
+
+		<!-- Player starting stuff spawn method-->
+		<li Class="ScenPart_PlayerPawnsArriveMethod">
+			<def>PlayerPawnsArriveMethod</def>
+		</li>
+
+		<!-- Game start dialog -->
+		<li Class="ScenPart_GameStartDialog">
+		  <def>GameStartDialog</def>
+		  <text>New text</text>
+		  <closeSound>GameStartSting</closeSound>
+		</li>
+
+		<!-- <li Class="ScenPart_PawnFilter_Age"> -->
+			<!-- <def>PawnFilter_Age</def> -->
+			<!-- <allowedAgeRange>7~11</allowedAgeRange> -->
+			<!-- <visible>false</visible> -->
+		<!-- </li> -->
+
+		<li Class="ScenPart_Naked">
+			<def>Naked</def>
+			<chance>1.0</chance>
+			<context>PlayerStarter</context>
+			<!-- <visible>false</visible> -->
 		</li>
 
 	  </parts>
