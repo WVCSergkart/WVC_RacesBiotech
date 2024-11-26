@@ -16,6 +16,7 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<!-- To-Do: Port colors in defs -->
 			<holofaces>
+			  <!-- Basic -->
 			  <li>
 				<label>white</label>
 				<color>(255, 255, 255)</color>
@@ -66,15 +67,42 @@
 				<color>(133, 255, 245)</color>
 				<visible>true</visible>
 			  </li>
+			  <!-- Unique -->
 			  <li>
 				<label>anomaly red</label>
 				<color>(214, 49, 49)</color>
+				<visible>true</visible>
+			  </li>
+			  <li>
+				<label>undead bright</label>
+				<color>(189, 205, 255)</color>
 				<visible>true</visible>
 			  </li>
 			  <!-- <li> -->
 				<!-- <label>none</label> -->
 				<!-- <visible>false</visible> -->
 			  <!-- </li> -->
+			  <!-- DLCs -->
+			  <li>
+				<label>anomaly</label>
+				<color>(176, 191, 128)</color>
+				<visible>true</visible>
+			  </li>
+			  <li>
+				<label>royalty</label>
+				<color>(244, 231, 118)</color>
+				<visible>true</visible>
+			  </li>
+			  <li>
+				<label>ideology</label>
+				<color>(244, 109, 107)</color>
+				<visible>true</visible>
+			  </li>
+			  <li>
+				<label>biotech</label>
+				<color>(107, 182, 187)</color>
+				<visible>true</visible>
+			  </li>
 			</holofaces>
 		</li>
 	</modExtensions>

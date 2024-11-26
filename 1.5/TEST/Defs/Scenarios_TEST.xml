@@ -254,9 +254,10 @@
 	<description>New text</description>
 	<scenario>
 	  <summary>One child pawn with no supplies. &lt;color=#fff695&gt;Medium&lt;/color&gt; difficulty.</summary>
+	  <!-- <showInUI>false</showInUI> -->
 	  <playerFaction>
 		<def>PlayerFaction</def>
-		<factionDef>PlayerColony</factionDef>
+		<factionDef>PlayerTribe</factionDef>
 	  </playerFaction>
 	  <parts>
 

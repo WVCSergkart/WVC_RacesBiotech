@@ -155,7 +155,7 @@ namespace WVC_XenotypesAndGenes
 					}, orderInPriority: 0 - geneSet.formId));
 				}
 			}
-			if (!list.Any() || Morpher.CurrentLimit > Morpher.FormsCount)
+			if (!list.Any() || Morpher.CanAddNewForm)
 			{
 				list.Add(new FloatMenuOption("WVC_XaG_GeneAbilityMorphCreateNewForm".Translate(), delegate
 				{

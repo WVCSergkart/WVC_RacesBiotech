@@ -40,13 +40,20 @@ namespace WVC_XenotypesAndGenes
 				{
 					return savedGeneSets.Count;
 				}
-				return 1;
+				return 0;
 			}
 		}
+
+		public bool CanAddNewForm => currentLimit > FormsCount;
 
 		public void AddLimit(int count = 1)
 		{
 			currentLimit += count;
+		}
+
+		public void SetLimit(int count = 1)
+		{
+			currentLimit = count;
 		}
 
 		//public List<PawnGeneSetHolder> GetGeneSets()
@@ -60,6 +67,21 @@ namespace WVC_XenotypesAndGenes
 
 		private string currentFormName = null;
 		private int? formId;
+
+		public void SetFormID(int newId, string name)
+		{
+			currentFormName = name;
+			formId = newId;
+		}
+
+		public void SaveFormID(PawnGeneSetHolder newSet)
+		{
+			if (!formId.HasValue)
+			{
+				formId = savedGeneSets.Count + 1;
+			}
+			newSet.formId = formId.Value;
+		}
 
 		private List<PawnGeneSetHolder> savedGeneSets = new();
 
@@ -91,10 +113,11 @@ namespace WVC_XenotypesAndGenes
 				newMorpher.AddSetHolder(holder);
 				oldMorpher.RemoveSetHolder(holder);
 			}
+			newMorpher.SetLimit(oldMorpher.currentLimit);
 			oldMorpher.ResetAllSetHolders();
 		}
 
-        public List<PawnGeneSetHolder> SavedGeneSets
+		public List<PawnGeneSetHolder> SavedGeneSets
         {
             get
 			{
@@ -207,7 +230,7 @@ namespace WVC_XenotypesAndGenes
         private void TryCreateNewForm(string phase)
 		{
 			XenotypeHolder xenotypeHolder = null;
-			if (savedGeneSets.Count < currentLimit + 1)
+			if (CanAddNewForm)
             {
                 xenotypeHolder = GetBestNewFormForMorpher();
             }
@@ -532,12 +555,12 @@ namespace WVC_XenotypesAndGenes
 			//	return;
 			//}
 			PawnGeneSetHolder newSet = new();
-			if (!formId.HasValue)
-			{
-				formId = savedGeneSets.Count + 1;
-			}
-			//pawn.needs.AllNeeds.RemoveAll((Need need) => need.def.onlyIfCausedByGene);
-			newSet.formId = formId.Value;
+			//if (!formId.HasValue)
+			//{
+			//	formId = savedGeneSets.Count + 1;
+			//}
+			//newSet.formId = formId.Value;
+			SaveFormID(newSet);
 			newSet.xenotypeDef = pawn.genes.Xenotype;
 			newSet.SaveGenes(pawn, this);
 			newSet.name = pawn.genes.xenotypeName;
@@ -589,7 +612,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        private void Reimplant(XenotypeHolder xenotypeDef)
+        public void Reimplant(XenotypeHolder xenotypeDef)
 		{
 			ReimplanterUtility.SetXenotypeDirect(null, pawn, xenotypeDef.xenotypeDef, true);
 			foreach (GeneDef geneDef in xenotypeDef.genes)
@@ -602,8 +625,9 @@ namespace WVC_XenotypesAndGenes
 				pawn.genes.xenotypeName = xenotypeDef.Label;
 				pawn.genes.iconDef = xenotypeDef.iconDef;
 			}
-			formId = savedGeneSets.Count + 1;
-			currentFormName = xenotypeDef.Label;
+			SetFormID(savedGeneSets.Count + 1, xenotypeDef.Label);
+			//formId = savedGeneSets.Count + 1;
+			//currentFormName = xenotypeDef.Label;
 		}
 
         public virtual void AddGene(GeneDef geneDef, bool inheritable)
@@ -645,6 +669,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				pawn?.genes?.RemoveGene(gene);
 			}
+		}
+
+		public virtual void ClearGenes()
+		{
+			DuplicateUtility.RemoveAllGenes(pawn.genes.GenesListForReading, new() { def });
 		}
 
 		// Only for one time internal use. For other cases, the basic remove is used.
