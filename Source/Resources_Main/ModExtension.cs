@@ -172,6 +172,8 @@ namespace WVC_XenotypesAndGenes
 		public bool isAptitude = false;
 		// Birth
 		public float birthQualityOffset = 0f;
+		//outcome
+		public List<XenotypeChance> xenotypeChances;
 	}
 
 	public class GeneExtension_Graphic : DefModExtension

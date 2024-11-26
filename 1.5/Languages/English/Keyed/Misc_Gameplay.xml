@@ -639,6 +639,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_Inheritable>Inheritable</WVC_Inheritable>
 	<WVC_DoubleXenotypes>Double xenotypes</WVC_DoubleXenotypes>
+	<WVC_AllowedXenotypes>Allowed xenotypes</WVC_AllowedXenotypes>
 	<WVC_XaG_DoubleXenotypeWithChanceText>{0} with chance: {1}%</WVC_XaG_DoubleXenotypeWithChanceText>
 	<!-- <WVC_XaG_ShapeshifterDialog_XenotypeInheritableDesc>Responsible for whether the genes of this xenotype are endogenous or xenogenous. The final xenotype of the pawn will be chosen relative to the xenogenes.</WVC_XaG_ShapeshifterDialog_XenotypeInheritableDesc> -->
 

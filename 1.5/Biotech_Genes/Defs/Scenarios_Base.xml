@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <ScenPartDef>
+	<defName>WVC_XaG_StartingXenotype</defName>
+	<label>starting xenotype</label>
+	<category>Fixed</category>
+	<scenPartClass>WVC_XenotypesAndGenes.ScenPart_PawnModifier_Xenotype</scenPartClass>
+	<selectionWeight>0</selectionWeight>
+	<summaryPriority>900</summaryPriority>
+  </ScenPartDef>
+
+  <ScenPartDef>
+	<defName>WVC_XaG_ForcedMechlink</defName>
+	<label>forced mechlink</label>
+	<scenPartClass>WVC_XenotypesAndGenes.ScenPart_ForcedMechanitor</scenPartClass>
+	<category>Fixed</category>
+	<selectionWeight>0</selectionWeight>
+	<summaryPriority>460</summaryPriority>
+  </ScenPartDef>
+
   <ScenarioDef WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
 	<defName>WVC_XenotypesAndGenes_Blank</defName>
-	<label>Long running joke</label>
-	<description>All your life you have had a strange, eerie feeling that someone is watching you from the shadows. Each of your actions seemed to be a point in some prepared scenario. And the icing on the cake was the fact that your health was deteriorating very quickly. And then when there was almost no hope left, people who were hiding in the shadows came for you and promised to cure all your ailments.\n\nWhen the experiment was over, you were placed in a cryopod, which is the last thing you remember before the drop pod hits the ground.\n\n&lt;color=#f5ffa2&gt;Note:&lt;/color&gt; The starting pawn in this scenario will not be able to cope with most challenges on its own, this is a difficult scenario.</description>
+	<label>The Subject</label>
+	<description>All your life you have had a strange, eerie feeling that someone is watching you from the shadows. Each of your actions seemed to be a point in some prepared scenario. And the icing on the cake was the fact that your health was deteriorating very quickly. And then when there was almost no hope left, people who were hiding in the shadows came for you and promised to cure all your ailments.\n\nWhen the experiment was over, you were placed in a cryopod, which is the last thing you remember before the drop pod hits the ground.</description>
 	<scenario>
-	  <summary>One pawn with no supplies. &lt;color=#ee2a23&gt;Very hard&lt;/color&gt; difficulty.</summary>
+	  <summary>One pawn with no supplies. &lt;color=#fff695&gt;Medium&lt;/color&gt; difficulty.</summary>
 	  <playerFaction>
 		<def>PlayerFaction</def>
 		<factionDef>PlayerColony</factionDef>
@@ -14,15 +32,42 @@
 	  <parts>
 
 		<!-- Config pages -->
-		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_KindDefs">
-			<def>ConfigurePawnsKindDefs</def>
-			<pawnChoiceCount>1</pawnChoiceCount>
-			<kindCounts>
-				<li>
-					<count>1</count>
-					<kindDef>WVC_Blank_Player</kindDef>
-				</li>
-			</kindCounts>
+		<!-- <li Class="ScenPart_ConfigPage_ConfigureStartingPawns_KindDefs"> -->
+			<!-- <def>ConfigurePawnsKindDefs</def> -->
+			<!-- <pawnChoiceCount>1</pawnChoiceCount> -->
+			<!-- <kindCounts> -->
+				<!-- <li> -->
+					<!-- <count>1</count> -->
+					<!-- <kindDef>WVC_Blank_Player</kindDef> -->
+				<!-- </li> -->
+			<!-- </kindCounts> -->
+		<!-- </li> -->
+		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+		  <def>ConfigPage_ConfigureStartingPawns</def>
+		  <pawnCount>1</pawnCount>
+		  <pawnChoiceCount>8</pawnChoiceCount>
+		  <visible>false</visible>
+		</li>
+
+		<!-- Player pawns modifiers -->
+		<li Class="ScenPart_ForcedHediff">
+		  <def>ForcedHediff</def>
+		  <context>PlayerStarter</context>
+		  <chance>0.5</chance>
+		  <hediff>CryptosleepSickness</hediff>
+		  <hideOffMap>true</hideOffMap>
+		  <severityRange>1~1</severityRange>
+		</li>
+
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_Xenotype">
+		  <def>WVC_XaG_StartingXenotype</def>
+		  <xenotypeChances>
+			<WVC_Lilith MayRequire="ludeon.rimworld.royalty">0.35</WVC_Lilith>
+			<WVC_CatDeity MayRequire="ludeon.rimworld.royalty">0.35</WVC_CatDeity>
+			<WVC_Sandycat>0.35</WVC_Sandycat>
+			<WVC_Blank>0.30</WVC_Blank>
+		  </xenotypeChances>
+		  <context>PlayerStarter</context>
 		</li>
 
 		<!-- Player starting stuff spawn method-->
@@ -43,11 +88,13 @@
 		  <def>StartingThing_Defined</def>
 		  <thingDef>Wastepack</thingDef>
 		  <count>15</count>
+		  <visible>false</visible>
 		</li>
 		<li Class="ScenPart_ScatterThingsAnywhere">
 		  <def>ScatterThingsAnywhere</def>
 		  <thingDef>Wastepack</thingDef>
 		  <count>50</count>
+		  <visible>false</visible>
 		</li>
 
 		<!-- <li Class="ScenPart_StartingThing_Defined"> -->
@@ -60,6 +107,7 @@
 			<def>Naked</def>
 			<chance>1.0</chance>
 			<context>PlayerStarter</context>
+			<visible>false</visible>
 		</li>
 
 		<li MayRequire="oskarpotocki.vanillafactionsexpanded.core,ludeon.rimworld.ideology" Class="KCSG.ScenPart_AddStartingStructure">
@@ -81,7 +129,7 @@
 
   <ScenarioDef WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
 	<defName>WVC_XenotypesAndGenes_Meca</defName>
-	<label>The Meca</label>
+	<label>The Mechalike</label>
 	<!-- Temporary description -->
 	<description>All your life you have had a strange, eerie feeling that someone is watching you from the shadows. Each of your actions seemed to be a point in some prepared scenario. And the icing on the cake was the fact that your health was deteriorating very quickly. And then when there was almost no hope left, people who were hiding in the shadows came for you and promised to cure all your ailments.\n\nWhen the experiment was over, you were placed in a cryopod, which is the last thing you remember before the drop pod hits the ground.</description>
 	<scenario>
@@ -93,15 +141,41 @@
 	  <parts>
 
 		<!-- Config pages -->
-		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_KindDefs">
-			<def>ConfigurePawnsKindDefs</def>
-			<pawnChoiceCount>1</pawnChoiceCount>
-			<kindCounts>
-				<li>
-					<count>1</count>
-					<kindDef>WVC_Meca_Player</kindDef>
-				</li>
-			</kindCounts>
+		<!-- <li Class="ScenPart_ConfigPage_ConfigureStartingPawns_KindDefs"> -->
+			<!-- <def>ConfigurePawnsKindDefs</def> -->
+			<!-- <pawnChoiceCount>1</pawnChoiceCount> -->
+			<!-- <kindCounts> -->
+				<!-- <li> -->
+					<!-- <count>1</count> -->
+					<!-- <kindDef>WVC_Meca_Player</kindDef> -->
+				<!-- </li> -->
+			<!-- </kindCounts> -->
+		<!-- </li> -->
+		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+		  <def>ConfigPage_ConfigureStartingPawns</def>
+		  <pawnCount>1</pawnCount>
+		  <pawnChoiceCount>8</pawnChoiceCount>
+		  <visible>false</visible>
+		</li>
+
+		<!-- Player pawns modifiers -->
+		<li Class="ScenPart_ForcedHediff">
+		  <def>ForcedHediff</def>
+		  <context>PlayerStarter</context>
+		  <chance>0.5</chance>
+		  <hediff>CryptosleepSickness</hediff>
+		  <hideOffMap>true</hideOffMap>
+		  <severityRange>1~1</severityRange>
+		</li>
+
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_Xenotype">
+		  <def>WVC_XaG_StartingXenotype</def>
+		  <xenotypeChances>
+			<WVC_Meca>0.5</WVC_Meca>
+			<WVC_GeneThrower>0.35</WVC_GeneThrower>
+			<WVC_RogueFormer>0.15</WVC_RogueFormer>
+		  </xenotypeChances>
+		  <context>PlayerStarter</context>
 		</li>
 
 		<!-- Player starting stuff spawn method-->
@@ -136,11 +210,13 @@
 		  <def>StartingThing_Defined</def>
 		  <thingDef>Wastepack</thingDef>
 		  <count>45</count>
+		  <visible>false</visible>
 		</li>
 		<li Class="ScenPart_ScatterThingsAnywhere">
 		  <def>ScatterThingsAnywhere</def>
 		  <thingDef>Wastepack</thingDef>
 		  <count>250</count>
+		  <visible>false</visible>
 		</li>
 
 		<li MayRequire="oskarpotocki.vanillafactionsexpanded.core,ludeon.rimworld.ideology" Class="KCSG.ScenPart_AddStartingStructure">
@@ -162,7 +238,7 @@
 
   <ScenarioDef WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
 	<defName>WVC_XenotypesAndGenes_RuneDryad</defName>
-	<label>Child of the stars</label>
+	<label>The Golemist</label>
 	<description>You have spent your entire life in a star-worshipping tribe. The elders of the tribe very often talked about the messenger of the gods, who once descended from heaven and helped the tribe in their hour of need. The creature's flesh was entirely made of stone, and its endurance could be envied by the strongest warriors of the tribe. But even such a strong creature could not live forever, and when his time came, a child was found in his remains, and that child was you.\n\nNot much time has passed since you left the tribe to go on a journey. Forces left you very quickly, and food supplies came to an end. And remembering the legend of your birth, you begged heaven for help. And help came.</description>
 	<scenario>
 	  <summary>One pawn with two golems. &lt;color=#a1ff95&gt;Easy&lt;/color&gt; difficulty.</summary>
@@ -173,36 +249,37 @@
 	  <parts>
 
 		<!-- Config pages -->
-		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_KindDefs">
-			<def>ConfigurePawnsKindDefs</def>
-			<pawnChoiceCount>1</pawnChoiceCount>
-			<kindCounts>
-				<li>
-					<count>1</count>
-					<kindDef>WVC_RuneDryad_Player</kindDef>
-				</li>
-			</kindCounts>
-		</li>
-		<!-- <li Class="ScenPart_ConfigPage_ConfigureStartingPawns_Xenotypes"> -->
-		  <!-- <def>ConfigurePawnsXenotypes</def> -->
-		  <!-- <pawnChoiceCount>8</pawnChoiceCount> -->
-		  <!-- <customSummary>Start with one adult mechalike pawn with no supplies.</customSummary> -->
-		  <!-- <overrideKinds> -->
-			<!-- <li> -->
-			  <!-- <xenotype>WVC_Meca</xenotype> -->
-			  <!-- <pawnKind>WVC_Meca_Player</pawnKind> -->
-			<!-- </li> -->
-		  <!-- </overrideKinds> -->
-		  <!-- <xenotypeCounts> -->
-			<!-- <li> -->
-			  <!-- <xenotype>WVC_Meca</xenotype> -->
-			  <!-- <count>1</count> -->
-			  <!-- <description>non-child mechalike</description> -->
-			  <!-- <requiredAtStart>false</requiredAtStart> -->
-			  <!-- <allowedDevelopmentalStages>Adult</allowedDevelopmentalStages> -->
-			<!-- </li> -->
-		  <!-- </xenotypeCounts> -->
+		<!-- <li Class="ScenPart_ConfigPage_ConfigureStartingPawns_KindDefs"> -->
+			<!-- <def>ConfigurePawnsKindDefs</def> -->
+			<!-- <pawnChoiceCount>1</pawnChoiceCount> -->
+			<!-- <kindCounts> -->
+				<!-- <li> -->
+					<!-- <count>1</count> -->
+					<!-- <kindDef>WVC_RuneDryad_Player</kindDef> -->
+				<!-- </li> -->
+			<!-- </kindCounts> -->
 		<!-- </li> -->
+		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+		  <def>ConfigPage_ConfigureStartingPawns</def>
+		  <pawnCount>1</pawnCount>
+		  <pawnChoiceCount>8</pawnChoiceCount>
+		  <visible>false</visible>
+		</li>
+
+		<!-- Player pawns modifiers -->
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_Xenotype">
+		  <def>WVC_XaG_StartingXenotype</def>
+		  <xenotypeChances>
+			<WVC_RuneDryad>0.5</WVC_RuneDryad>
+			<WVC_Golemkind>0.5</WVC_Golemkind>
+		  </xenotypeChances>
+		  <context>PlayerStarter</context>
+		</li>
+
+		<li Class="WVC_XenotypesAndGenes.ScenPart_ForcedMechanitor">
+		  <def>WVC_XaG_ForcedMechlink</def>
+		  <context>PlayerStarter</context>
+		</li>
 
 		<!-- Player starting stuff spawn method-->
 		<li Class="ScenPart_PlayerPawnsArriveMethod">
@@ -218,11 +295,13 @@
 
 		<li Class="ScenPart_DisableMapGen">
 			<def>DisableExostriderRemains</def>
+			<visible>false</visible>
 		</li>
 		<li Class="ScenPart_Naked">
 			<def>Naked</def>
 			<chance>0.25</chance>
 			<context>PlayerStarter</context>
+			<visible>false</visible>
 		</li>
 
 		<li Class="ScenPart_StartingMech">
@@ -257,7 +336,7 @@
 
   <ScenarioDef WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
 	<defName>WVC_XenotypesAndGenes_Undead</defName>
-	<label>Risen from the dead</label>
+	<label>The Undead</label>
 	<description>You no longer remember what motivated you to go on an adventure. This memory was so fleeting and insignificant that you had no desire to focus on it. Now you were more worried about the profuse bleeding from the wound deftly left by the blade. A group of raiders spotted you early and took you by surprise, taking your belongings and leaving you to die, they disappeared as abruptly as they appeared.\n\nBefore you expire, you caught a glimpse of a silhouette as if in a mist. When you opened your eyes, there were no wounds on your body, and you were already the same, but still a different person.</description>
 	<scenario>
 	  <summary>One pawn with no supplies. &lt;color=#fff695&gt;Medium&lt;/color&gt; difficulty.</summary>
@@ -268,15 +347,33 @@
 	  <parts>
 
 		<!-- Config pages -->
-		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_KindDefs">
-			<def>ConfigurePawnsKindDefs</def>
-			<pawnChoiceCount>1</pawnChoiceCount>
-			<kindCounts>
-				<li>
-					<count>1</count>
-					<kindDef>WVC_Undead_Player</kindDef>
-				</li>
-			</kindCounts>
+		<!-- <li Class="ScenPart_ConfigPage_ConfigureStartingPawns_KindDefs"> -->
+			<!-- <def>ConfigurePawnsKindDefs</def> -->
+			<!-- <pawnChoiceCount>1</pawnChoiceCount> -->
+			<!-- <kindCounts> -->
+				<!-- <li> -->
+					<!-- <count>1</count> -->
+					<!-- <kindDef>WVC_Undead_Player</kindDef> -->
+				<!-- </li> -->
+			<!-- </kindCounts> -->
+		<!-- </li> -->
+		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+		  <def>ConfigPage_ConfigureStartingPawns</def>
+		  <pawnCount>1</pawnCount>
+		  <pawnChoiceCount>8</pawnChoiceCount>
+		  <visible>false</visible>
+		</li>
+
+		<!-- Player pawns modifiers -->
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_Xenotype">
+		  <def>WVC_XaG_StartingXenotype</def>
+		  <xenotypeChances>
+			<WVC_Undead>0.60</WVC_Undead>
+			<WVC_Featherdust>0.16</WVC_Featherdust>
+			<WVC_Resurgent>0.17</WVC_Resurgent>
+			<WVC_Ashen MayRequire="ludeon.rimworld.ideology">0.07</WVC_Ashen>
+		  </xenotypeChances>
+		  <context>PlayerStarter</context>
 		</li>
 
 		<!-- Player starting stuff spawn method-->
@@ -295,6 +392,7 @@
 			<def>Naked</def>
 			<chance>1.0</chance>
 			<context>PlayerStarter</context>
+			<visible>false</visible>
 		</li>
 
 	  </parts>
