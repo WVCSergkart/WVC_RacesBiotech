@@ -44,7 +44,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public bool CanAddNewForm => currentLimit > FormsCount;
+		public bool CanAddNewForm => currentLimit > savedGeneSets.Count;
 
 		public void AddLimit(int count = 1)
 		{
@@ -230,7 +230,7 @@ namespace WVC_XenotypesAndGenes
         private void TryCreateNewForm(string phase)
 		{
 			XenotypeHolder xenotypeHolder = null;
-			if (CanAddNewForm)
+			if (savedGeneSets.Count < currentLimit + 1)
             {
                 xenotypeHolder = GetBestNewFormForMorpher();
             }

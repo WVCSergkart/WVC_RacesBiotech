@@ -5,8 +5,8 @@
 	<biostatCpx>2</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>2</biostatMet>
-	<!-- <selectionWeight>0.00</selectionWeight> -->
-	<!-- <canGenerateInGeneSet>false</canGenerateInGeneSet> -->
+	<selectionWeight>0.00</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<displayOrderInCategory>160</displayOrderInCategory>
 	<prerequisite>WVC_Shapeshifter</prerequisite>
   </GeneDef>
@@ -49,8 +49,8 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_PostShapeshift_Regeneration</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_PostShapeshift_Regeneration_v0</iconPath>
 	<displayOrderInCategory>165</displayOrderInCategory>
-	<!-- <selectionWeight>0.000094</selectionWeight> -->
-	<!-- <canGenerateInGeneSet>true</canGenerateInGeneSet> -->
+	<selectionWeight>0.000094</selectionWeight>
+	<canGenerateInGeneSet>true</canGenerateInGeneSet>
 	<customEffectDescriptions>
 		<li>If a pawn has this gene, it is guaranteed to &lt;color=#8a8ae6&gt;heal all scars&lt;/color&gt; and &lt;color=#8a8ae6&gt;regrow missing parts&lt;/color&gt; when using the &lt;color=#8a8ae6&gt;shapeshfit&lt;/color&gt; ability.</li>
 	</customEffectDescriptions>

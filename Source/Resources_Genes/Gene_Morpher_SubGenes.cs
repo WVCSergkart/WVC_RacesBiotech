@@ -310,16 +310,6 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_AbilityMorph : Gene_MorpherTrigger
-	{
-
-		public override bool CanMorph()
-		{
-			return true;
-		}
-
-	}
-
 	public class Gene_DeathrestMorph : Gene_MorpherTrigger
 	{
 
@@ -499,6 +489,41 @@ namespace WVC_XenotypesAndGenes
 		{
 			pawn.psychicEntropy?.OffsetPsyfocusDirectly(-1f);
 			base.MorpherTrigger(geneSet);
+		}
+
+	}
+
+	public class Gene_AbilityMorph : Gene_MorpherTrigger
+	{
+
+		public override bool CanMorph()
+		{
+			return true;
+		}
+
+	}
+
+	public class Gene_MonolithMorph : Gene_AbilityMorph
+	{
+
+        [Unsaved(false)]
+        private GameComponent_Anomaly cachedGameComponent;
+
+        public GameComponent_Anomaly GameComponent
+        {
+            get
+            {
+                if (cachedGameComponent == null)
+                {
+                    cachedGameComponent = Current.Game.GetComponent<GameComponent_Anomaly>();
+                }
+                return cachedGameComponent;
+            }
+        }
+
+        public override bool CanMorph()
+		{
+			return GameComponent?.LevelDef == MonolithLevelDefOf.Embraced;
 		}
 
 	}
