@@ -44,4 +44,13 @@
 	</graphicData>
   </ThingStyleDef>
 
+  <!-- <ThingStyleDef> -->
+	<!-- <defName>WVC_XaG_GenepackAnomaly</defName> -->
+	<!-- <graphicData> -->
+	  <!-- <texPath>WVC/Things/XaG_Items/Anomaly_Genepack</texPath> -->
+	  <!-- <graphicClass>WVC_XenotypesAndGenes.Graphic_XaG_Genepack</graphicClass> -->
+	  <!-- <drawSize>(0.75, 0.75)</drawSize> -->
+	<!-- </graphicData> -->
+  <!-- </ThingStyleDef> -->
+
 </Defs>

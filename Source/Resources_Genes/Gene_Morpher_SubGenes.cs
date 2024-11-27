@@ -130,6 +130,11 @@ namespace WVC_XenotypesAndGenes
 
 		private void FloatMenu()
 		{
+			if (pawn.InMentalState)
+			{
+				Messages.Message("WVC_XaG_ErrorMessage".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+				return;
+			}
 			if (pawn.IsQuestLodger())
 			{
 				Messages.Message("WVC_XaG_PawnIsQuestLodgerMessage".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
@@ -477,8 +482,8 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool CanMorph()
 		{
-			//float? psyfocus = pawn.psychicEntropy?.CurrentPsyfocus;
-			if (pawn.psychicEntropy.NeedsPsyfocus)
+			float? psyfocus = pawn.psychicEntropy?.CurrentPsyfocus;
+			if (psyfocus.HasValue && psyfocus.Value > 0.8f)
 			{
 				return true;
 			}

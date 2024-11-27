@@ -14,6 +14,7 @@ namespace WVC_XenotypesAndGenes
 		public int genesCount = 0;
 		public int architeCount = 0;
 		public float chance = 1.0f;
+		public List<GeneCategoryDef> allowedGeneCategoryDefs;
 		// Tratis
 		public TraitDef traitDef;
 		public float weight = 1f;

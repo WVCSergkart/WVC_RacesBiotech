@@ -297,11 +297,11 @@ namespace WVC_XenotypesAndGenes
 				}
 				else if (holder.genes.HasGeneDefOfType<Gene_MorpherDependant>())
 				{
-					holder.matchPercent = 8f;
+					holder.matchPercent = 3f;
 				}
 				else if (holder.genes.HasGeneDefOfType<Gene_Morpher>())
 				{
-					holder.matchPercent = 4f;
+					holder.matchPercent = 2f;
 				}
 				else
 				{

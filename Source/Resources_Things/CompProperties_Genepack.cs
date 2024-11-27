@@ -1,10 +1,30 @@
 using RimWorld;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
+
+	//public class Graphic_XaG_Genepack : Graphic_Genepack
+	//{
+
+	//	public override Material MatSingleFor(Thing thing)
+	//	{
+	//		return NewSubGraphicFor(thing).MatSingle;
+	//	}
+
+	//	public Graphic NewSubGraphicFor(Thing thing)
+	//	{
+	//		if (thing == null || thing is not Genepack genepack || genepack.GeneSet == null)
+	//		{
+	//			return subGraphics[0];
+	//		}
+	//		return SubGraphicForGeneCount(genepack.GeneSet.GenesListForReading.Count);
+	//	}
+
+	//}
 
 	public class XaG_Genepack : Genepack
 	{

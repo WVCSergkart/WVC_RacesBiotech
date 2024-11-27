@@ -126,6 +126,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
+			if (!geneCount.allowedGeneCategoryDefs.NullOrEmpty() && !WVC_Biotech.settings.hideXaGGenes && !geneCount.allowedGeneCategoryDefs.Contains(gene.displayCategory))
+			{
+				return false;
+			}
 			List<GeneDef> genes = geneSet.GenesListForReading;
 			if (genes.Contains(gene))
 			{

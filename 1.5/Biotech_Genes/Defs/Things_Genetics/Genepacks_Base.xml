@@ -201,6 +201,80 @@
 	</comps>
   </ThingDef>
 
+  <!-- <ThingDef ParentName="WVC_GeneSetHolderBase" WVC_XaG_Tag_Genepacks="AllGenePacks"> -->
+	<!-- <defName>WVC_XaG_AnomalyGenepack</defName> -->
+	<!-- <label>anomaly-pack</label> -->
+	<!-- <graphicData> -->
+	  <!-- <texPath>WVC/Things/XaG_Items/Anomaly_Genepack</texPath> -->
+	<!-- </graphicData> -->
+	<!-- <comps> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.CompProperties_Genepack"> -->
+			<!-- <genepackNamer>WVC_NamerUltraGenepack</genepackNamer> -->
+			<!-- <styleDef MayRequire="ludeon.rimworld.ideology">WVC_XaG_GenepackAnomaly</styleDef> -->
+			<!-- <genesCountProbabilities> -->
+			  <!-- <li> -->
+				<!-- <architeCount>1</architeCount> -->
+				<!-- <genesCount>0</genesCount> -->
+				<!-- <chance>0.70</chance> -->
+				<!-- <allowedGeneCategoryDefs> -->
+				  <!-- <li>WVC_Shapeshifter</li> -->
+				  <!-- <li>WVC_Energy</li> -->
+				<!-- </allowedGeneCategoryDefs> -->
+			  <!-- </li> -->
+			  <!-- <li> -->
+				<!-- <architeCount>2</architeCount> -->
+				<!-- <genesCount>0</genesCount> -->
+				<!-- <chance>0.11</chance> -->
+				<!-- <allowedGeneCategoryDefs> -->
+				  <!-- <li>WVC_Shapeshifter</li> -->
+				  <!-- <li>WVC_Energy</li> -->
+				<!-- </allowedGeneCategoryDefs> -->
+			  <!-- </li> -->
+			  <!-- <li> -->
+				<!-- <architeCount>3</architeCount> -->
+				<!-- <genesCount>0</genesCount> -->
+				<!-- <chance>0.06</chance> -->
+				<!-- <allowedGeneCategoryDefs> -->
+				  <!-- <li>WVC_Shapeshifter</li> -->
+				  <!-- <li>WVC_Energy</li> -->
+				  <!-- <li>WVC_Cosmetic</li> -->
+				<!-- </allowedGeneCategoryDefs> -->
+			  <!-- </li> -->
+			  <!-- <li> -->
+				<!-- <architeCount>4</architeCount> -->
+				<!-- <genesCount>0</genesCount> -->
+				<!-- <chance>0.04</chance> -->
+				<!-- <allowedGeneCategoryDefs> -->
+				  <!-- <li>WVC_Shapeshifter</li> -->
+				  <!-- <li>WVC_Energy</li> -->
+				  <!-- <li>WVC_Cosmetic</li> -->
+				<!-- </allowedGeneCategoryDefs> -->
+			  <!-- </li> -->
+			  <!-- <li> -->
+				<!-- <architeCount>1</architeCount> -->
+				<!-- <genesCount>3</genesCount> -->
+				<!-- <chance>0.05</chance> -->
+				<!-- <allowedGeneCategoryDefs> -->
+				  <!-- <li>WVC_Shapeshifter</li> -->
+				  <!-- <li>WVC_Energy</li> -->
+				  <!-- <li>WVC_Cosmetic</li> -->
+				<!-- </allowedGeneCategoryDefs> -->
+			  <!-- </li> -->
+			  <!-- <li> -->
+				<!-- <architeCount>2</architeCount> -->
+				<!-- <genesCount>1</genesCount> -->
+				<!-- <chance>0.07</chance> -->
+				<!-- <allowedGeneCategoryDefs> -->
+				  <!-- <li>WVC_Shapeshifter</li> -->
+				  <!-- <li>WVC_Energy</li> -->
+				  <!-- <li>WVC_Cosmetic</li> -->
+				<!-- </allowedGeneCategoryDefs> -->
+			  <!-- </li> -->
+			<!-- </genesCountProbabilities> -->
+		<!-- </li> -->
+	<!-- </comps> -->
+  <!-- </ThingDef> -->
+
   <!-- ======================================================= -->
 
   <!-- <ThingDef> -->
