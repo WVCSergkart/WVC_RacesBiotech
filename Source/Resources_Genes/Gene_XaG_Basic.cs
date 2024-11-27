@@ -104,4 +104,16 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public interface IGeneRemoteControl
+	{
+
+		void RemoteControl();
+
+        //void Notify_PawnResurrected();
+
+        string RemoteActionName { get; }
+
+		string RemoteActionDesc { get; }
+	}
+
 }

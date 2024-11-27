@@ -127,29 +127,37 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Holoface : Gene_Eyes
+	public class Gene_Holoface : Gene_Eyes, IGeneRemoteControl
 	{
+        public string RemoteActionName => "WVC_Color".Translate();
 
-		public override float Alpha => 0.8f;
+        public string RemoteActionDesc => "WVC_XaG_RemoteControlBasicDesc".Translate();
 
-		public override IEnumerable<Gizmo> GetGizmos()
+        public void RemoteControl()
 		{
-			if (XaG_GeneUtility.SelectorDraftedActiveFactionMap(pawn, this))
-			{
-				yield break;
-			}
-			yield return new Command_Action
-			{
-				defaultLabel = "WVC_XaG_ColorableEyesLabel".Translate(),
-				defaultDesc = "WVC_XaG_ColorableEyesDesc".Translate(),
-				icon = ContentFinder<Texture2D>.Get(def.iconPath),
-				defaultIconColor = color,
-				action = delegate
-				{
-					ChangeEyesColor();
-				}
-			};
+			ChangeEyesColor();
 		}
+
+        public override float Alpha => 0.8f;
+
+		//public override IEnumerable<Gizmo> GetGizmos()
+		//{
+		//	if (XaG_GeneUtility.SelectorDraftedActiveFactionMap(pawn, this))
+		//	{
+		//		yield break;
+		//	}
+		//	yield return new Command_Action
+		//	{
+		//		defaultLabel = "WVC_XaG_ColorableEyesLabel".Translate(),
+		//		defaultDesc = "WVC_XaG_ColorableEyesDesc".Translate(),
+		//		icon = ContentFinder<Texture2D>.Get(def.iconPath),
+		//		defaultIconColor = color,
+		//		action = delegate
+		//		{
+		//			ChangeEyesColor();
+		//		}
+		//	};
+		//}
 
 	}
 

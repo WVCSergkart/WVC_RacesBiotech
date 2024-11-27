@@ -54,13 +54,17 @@ namespace WVC_XenotypesAndGenes
 
 		public static void ResetGenesInspectString(Pawn pawn)
 		{
-			// Log.Error("Check CompHumanlike");
-			CompHumanlike humanlike = pawn.TryGetComp<CompHumanlike>();
-			if (humanlike != null)
-			{
-				// Log.Error("CompHumanlike Reset");
-				humanlike.ResetInspectString();
-			}
+			pawn.TryGetComp<CompHumanlike>()?.ResetInspectString();
+		}
+
+		public static void Notify_GenesChanged(Pawn pawn)
+		{
+			PawnComponentsUtility.AddAndRemoveDynamicComponents(pawn);
+			pawn.needs?.AddOrRemoveNeedsAsAppropriate();
+			pawn.health?.hediffSet?.DirtyCache();
+			pawn.skills?.DirtyAptitudes();
+			pawn.Notify_DisabledWorkTypesChanged();
+			ResetGenesInspectString(pawn);
 		}
 
 		public static bool Furskin_ShouldNotDrawNow(Pawn pawn)

@@ -514,7 +514,7 @@ namespace WVC_XenotypesAndGenes
 						geneOverridden.Notify_Override();
 					}
 				}
-				if (__instance is IGeneInspectInfo)
+				if (__instance is IGeneInspectInfo || __instance is IGeneRemoteControl)
 				{
 					// Log.Error("ResetGenesInspectString");
 					XaG_GeneUtility.ResetGenesInspectString(__instance.pawn);

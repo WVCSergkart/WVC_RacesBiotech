@@ -9,9 +9,47 @@ namespace WVC_XenotypesAndGenes
 {
 
     public class Gene_OverOverridable : Gene, IGeneOverridden
-    {
+	{
 
-        private int overrideTries = 0;
+  //      public string RemoteActionName
+  //      {
+  //          get
+  //          {
+  //              if (isActive)
+  //              {
+  //                  return "WVC_XaG_Gene_DustMechlink_On".Translate();
+  //              }
+  //              return "WVC_XaG_Gene_DustMechlink_Off".Translate();
+  //          }
+  //      }
+
+  //      public override bool Active
+		//{
+		//	get
+		//	{
+		//		if (!isActive)
+		//		{
+		//			return false;
+		//		}
+		//		return base.Active;
+		//	}
+		//}
+
+		//private bool isActive = true;
+
+		//public void RemoteСontrol()
+		//{
+		//	isActive = !isActive;
+		//	XaG_GeneUtility.Notify_GenesChanged(pawn);
+		//}
+
+		//public override void ExposeData()
+		//{
+		//	base.ExposeData();
+		//	Scribe_Values.Look(ref isActive, "isActive", defaultValue: true);
+		//}
+
+		private int overrideTries = 0;
 
         public void Notify_OverriddenBy(Gene overriddenBy)
         {

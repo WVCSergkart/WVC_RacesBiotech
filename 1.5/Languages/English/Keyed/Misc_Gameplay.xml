@@ -765,6 +765,17 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_MentalBreakReason_Duplicator>This happened because of duplication.</WVC_XaG_MentalBreakReason_Duplicator>
 	<WVC_XaG_LetterDuplicatorMentalBreak>{0} has suffered from the burden of responsibility and unbearable hardships, {PAWN_pronoun} is sure that the duplicate will share this burden with {PAWN_objective}.</WVC_XaG_LetterDuplicatorMentalBreak>
 
+	<!-- =============== REMOTE CONTROL INTERFACE =============== -->
+
+	<WVC_XaG_RemoteControlBasicDesc>This gene responds to the neural activity of the carrier and can change in relation to current desires.</WVC_XaG_RemoteControlBasicDesc>
+
+	<WVC_XaG_RemoteControlEnergyDesc>This gene responds to the neural activity of the carrier and its activity can be suppressed by willpower.</WVC_XaG_RemoteControlEnergyDesc>
+
+	<!-- <WVC_OnOrOff>On/Off</WVC_OnOrOff> -->
+	<WVC_Color>Color</WVC_Color>
+	<WVC_XaG_GenesSettings>Genes settings</WVC_XaG_GenesSettings>
+	<WVC_XaG_GenesSettingsDesc>Allows control of some genes, such as changing the color of the holoface.</WVC_XaG_GenesSettingsDesc>
+
 	<!-- =============== QUEST = ANOMALY LOOP =============== -->
 
 	<!-- <WVC_XaG_FromTheVoidEndingLabel>Noise from the void</WVC_XaG_FromTheVoidEndingLabel> -->

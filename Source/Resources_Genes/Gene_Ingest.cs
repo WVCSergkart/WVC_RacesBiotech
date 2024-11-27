@@ -495,6 +495,10 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Notify_IngestedThing(Thing thing, int numTaken)
 		{
+			if (!Active)
+			{
+				return;
+			}
 			base.Notify_IngestedThing(thing, numTaken);
 			if (Props.specialFoodDefs.Contains(thing.def))
 			{

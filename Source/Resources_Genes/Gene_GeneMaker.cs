@@ -16,7 +16,41 @@ namespace WVC_XenotypesAndGenes
 
 		public int ticksUntilSpawn;
 
-		public override void PostAdd()
+  //      public string RemoteActionName
+  //      {
+  //          get
+  //          {
+  //              if (isActive)
+  //              {
+  //                  return "WVC_XaG_Gene_DustMechlink_On".Translate();
+  //              }
+  //              return "WVC_XaG_Gene_DustMechlink_Off".Translate();
+  //          }
+		//}
+
+  //      public string RemoteActionDesc => "WVC_XaG_RemoteControlEnergyDesc".Translate();
+
+  //      public override bool Active
+		//{
+		//	get
+		//	{
+		//		if (!isActive)
+  //              {
+		//			return false;
+  //              }
+		//		return base.Active;
+		//	}
+		//}
+
+		//private bool isActive = true;
+
+		//public void Remote—ontrol()
+  //      {
+  //          isActive = !isActive;
+		//	XaG_GeneUtility.Notify_GenesChanged(pawn);
+  //      }
+
+        public override void PostAdd()
 		{
 			base.PostAdd();
 			ResetInterval();
@@ -146,6 +180,7 @@ namespace WVC_XenotypesAndGenes
 		public override void ExposeData()
 		{
 			base.ExposeData();
+			//Scribe_Values.Look(ref isActive, "isActive", defaultValue: true);
 			Scribe_Values.Look(ref ticksUntilSpawn, "ticksToSpawnThing", 0);
 		}
 
@@ -160,7 +195,6 @@ namespace WVC_XenotypesAndGenes
 				return "NextSpawnedItemIn".Translate(GenLabel.ThingLabel(ThingDefOf.Genepack, null, 1)).Resolve() + ": " + ticksUntilSpawn.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
 			}
 		}
-
-	}
+    }
 
 }

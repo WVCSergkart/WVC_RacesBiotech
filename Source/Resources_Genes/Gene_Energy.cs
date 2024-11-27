@@ -14,11 +14,45 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Rechargeable : Gene
 	{
 
-		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
+		//public override bool Active
+		//{
+		//	get
+		//	{
+		//		if (!isActive)
+		//		{
+		//			return false;
+		//		}
+		//		return base.Active;
+		//	}
+		//}
+
+		//private bool isActive = true;
+
+		//public void RemoteÑontrol()
+		//{
+		//	isActive = !isActive;
+		//	XaG_GeneUtility.Notify_GenesChanged(pawn);
+		//}
+
+  //      public string RemoteActionName
+  //      {
+  //          get
+  //          {
+  //              if (isActive)
+  //              {
+  //                  return "WVC_XaG_Gene_DustMechlink_On".Translate();
+  //              }
+  //              return "WVC_XaG_Gene_DustMechlink_Off".Translate();
+  //          }
+		//}
+
+  //      public string RemoteActionDesc => "WVC_XaG_RemoteControlEnergyDesc".Translate();
+
+        public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
 
 		public GeneExtension_Opinion Opinion => def?.GetModExtension<GeneExtension_Opinion>();
 
-		public Building_XenoCharger currentCharger;
+        public Building_XenoCharger currentCharger;
 
 		public override void Tick()
         {
@@ -141,15 +175,19 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Notify_IngestedThing(Thing thing, int numTaken)
 		{
+			if (!Active)
+            {
+				return;
+            }
 			if (Props?.foodPoisoningFromFood == false || !WVC_Biotech.settings.rechargeable_enablefoodPoisoningFromFood)
 			{
 				return;
 			}
-			IngestibleProperties ingestible = thing?.def?.ingestible;
-			if (ingestible != null && ingestible.CachedNutrition > 0f)
-			{
-				GeneResourceUtility.OffsetNeedFood(pawn, -1 * ingestible.CachedNutrition);
-			}
+			//IngestibleProperties ingestible = thing?.def?.ingestible;
+			//if (ingestible != null && ingestible.CachedNutrition > 0f)
+			//{
+			//	GeneResourceUtility.OffsetNeedFood(pawn, -1 * ingestible.CachedNutrition);
+			//}
 			if (!thing.def.IsDrug)
 			{
 				MiscUtility.TryAddFoodPoisoningHediff(pawn, thing);
@@ -159,6 +197,7 @@ namespace WVC_XenotypesAndGenes
 		public override void ExposeData()
 		{
 			base.ExposeData();
+			//Scribe_Values.Look(ref isActive, "isActive", defaultValue: true);
 			Scribe_References.Look(ref currentCharger, "currentCharger");
 		}
 

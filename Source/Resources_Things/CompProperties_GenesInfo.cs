@@ -50,27 +50,70 @@ namespace WVC_XenotypesAndGenes
 		// =================
 
 		[Unsaved(false)]
+		private List<IGeneFloatMenuOptions> cachedFloatMenuOptionsGenes;
+		[Unsaved(false)]
 		private List<IGeneInspectInfo> cachedInfoGenes;
+        [Unsaved(false)]
+        private List<IGeneRemoteControl> cachedRemote—ontrolGenes;
 
-		public List<IGeneInspectInfo> InfoGenes
+        public List<IGeneInspectInfo> InfoGenes
 		{
 			get
 			{
 				if (cachedInfoGenes == null)
 				{
-					cachedInfoGenes = new();
-					if (parent is Pawn pawn)
-					{
-						foreach (Gene gene in pawn.genes.GenesListForReading)
-						{
-							if (gene is IGeneInspectInfo geneInspectInfo && gene.Active)
-							{
-								cachedInfoGenes.Add(geneInspectInfo);
-							}
-						}
-					}
+					RecacheGenes();
 				}
 				return cachedInfoGenes;
+			}
+		}
+
+		public List<IGeneFloatMenuOptions> FloatMenuOptions
+		{
+			get
+			{
+				if (cachedFloatMenuOptionsGenes == null)
+				{
+					RecacheGenes();
+				}
+				return cachedFloatMenuOptionsGenes;
+			}
+		}
+
+        public List<IGeneRemoteControl> RemoteControl
+        {
+            get
+            {
+                if (cachedRemote—ontrolGenes == null)
+                {
+                    RecacheGenes();
+                }
+                return cachedRemote—ontrolGenes;
+            }
+        }
+
+        public void RecacheGenes()
+		{
+			cachedInfoGenes = new();
+			cachedFloatMenuOptionsGenes = new();
+			cachedRemote—ontrolGenes = new();
+			if (parent is Pawn pawn)
+			{
+				foreach (Gene gene in pawn.genes.GenesListForReading)
+				{
+					if (gene is IGeneInspectInfo geneInspectInfo && gene.Active)
+					{
+						cachedInfoGenes.Add(geneInspectInfo);
+					}
+					if (gene is IGeneFloatMenuOptions geneFloatMenu && gene.Active)
+					{
+						cachedFloatMenuOptionsGenes.Add(geneFloatMenu);
+					}
+                    if (gene is IGeneRemoteControl geneRemote—ontrol)
+                    {
+                        cachedRemote—ontrolGenes.Add(geneRemote—ontrol);
+                    }
+                }
 			}
 		}
 
@@ -78,6 +121,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			cachedInfoGenes = null;
 			cachedFloatMenuOptionsGenes = null;
+			cachedRemote—ontrolGenes = null;
 			// isBloodeater = null;
 		}
 
@@ -129,31 +173,6 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// =============
-
-		[Unsaved(false)]
-		private List<IGeneFloatMenuOptions> cachedFloatMenuOptionsGenes;
-
-		public List<IGeneFloatMenuOptions> FloatMenuOptions
-		{
-			get
-			{
-				if (cachedFloatMenuOptionsGenes == null)
-				{
-					cachedFloatMenuOptionsGenes = new();
-					if (parent is Pawn pawn)
-					{
-						foreach (Gene gene in pawn.genes.GenesListForReading)
-						{
-							if (gene is IGeneFloatMenuOptions geneInspectInfo && gene.Active)
-							{
-								cachedFloatMenuOptionsGenes.Add(geneInspectInfo);
-							}
-						}
-					}
-				}
-				return cachedFloatMenuOptionsGenes;
-			}
-		}
 
 		public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
 		{
@@ -257,20 +276,36 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override IEnumerable<Gizmo> CompGetGizmosExtra()
-		{
-			if (DebugSettings.ShowDevGizmos)
-			{
-				yield return new Command_Action
+        {
+            if (DebugSettings.ShowDevGizmos)
+            {
+                yield return new Command_Action
                 {
-					defaultLabel = "DEV: ResetXenotype",
-					action = delegate
-					{
+                    defaultLabel = "DEV: ResetXenotype",
+                    action = delegate
+                    {
                         Pawn pawn = parent as Pawn;
                         ReimplanterUtility.SetXenotype(pawn, pawn.genes.Xenotype);
-					}
-				};
-			}
+                    }
+                };
+            }
+            if (RemoteControl.NullOrEmpty())
+            {
+				yield break;
+            }
+            yield return new Command_Action
+            {
+                defaultLabel = "WVC_XaG_GenesSettings".Translate(),
+                defaultDesc = "WVC_XaG_GenesSettingsDesc".Translate(),
+                icon = GenesSettingsGizmo.Texture,
+                action = delegate
+				{
+					Find.WindowStack.Add(new Dialog_GenesSettings(RemoteControl));
+                }
+            };
 		}
+
+		public static readonly CachedTexture GenesSettingsGizmo = new("WVC/UI/XaG_General/UI_GenesSettings_Gizmo");
 
 	}
 

@@ -279,6 +279,12 @@ namespace WVC_XenotypesAndGenes
 				Widgets.DrawTextureFitted(rect, xenotypeIconDef.Icon, scale, material);
 				GUI.color = Color.white;
 			}
+			else if (def is GeneDef geneDef)
+			{
+				GUI.color = color ?? geneDef.IconColor;
+				Widgets.DrawTextureFitted(rect, geneDef.Icon, scale, material);
+				GUI.color = Color.white;
+			}
 		}
 
 		// public static void XaG_CustomXenotypeIcon(Rect rect, CustomXenotype customXenotype, float scale = 1f, Color? color = null, Material material = null)
