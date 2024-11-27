@@ -54,7 +54,7 @@ namespace WVC_XenotypesAndGenes
 		[Unsaved(false)]
 		private List<IGeneInspectInfo> cachedInfoGenes;
         [Unsaved(false)]
-        private List<IGeneRemoteControl> cachedRemote—ontrolGenes;
+        private List<IGeneRemoteControl> cachedRemoteControlGenes;
 
         public List<IGeneInspectInfo> InfoGenes
 		{
@@ -84,11 +84,11 @@ namespace WVC_XenotypesAndGenes
         {
             get
             {
-                if (cachedRemote—ontrolGenes == null)
+                if (cachedRemoteControlGenes == null)
                 {
                     RecacheGenes();
                 }
-                return cachedRemote—ontrolGenes;
+                return cachedRemoteControlGenes;
             }
         }
 
@@ -96,7 +96,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			cachedInfoGenes = new();
 			cachedFloatMenuOptionsGenes = new();
-			cachedRemote—ontrolGenes = new();
+			cachedRemoteControlGenes = new();
 			if (parent is Pawn pawn)
 			{
 				foreach (Gene gene in pawn.genes.GenesListForReading)
@@ -109,9 +109,9 @@ namespace WVC_XenotypesAndGenes
 					{
 						cachedFloatMenuOptionsGenes.Add(geneFloatMenu);
 					}
-                    if (gene is IGeneRemoteControl geneRemote—ontrol)
+                    if (gene is IGeneRemoteControl geneRemoteControl)
                     {
-                        cachedRemote—ontrolGenes.Add(geneRemote—ontrol);
+                        cachedRemoteControlGenes.Add(geneRemoteControl);
                     }
                 }
 			}
@@ -121,7 +121,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			cachedInfoGenes = null;
 			cachedFloatMenuOptionsGenes = null;
-			cachedRemote—ontrolGenes = null;
+			cachedRemoteControlGenes = null;
 			// isBloodeater = null;
 		}
 
