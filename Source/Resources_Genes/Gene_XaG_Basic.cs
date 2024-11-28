@@ -114,6 +114,10 @@ namespace WVC_XenotypesAndGenes
         string RemoteActionName { get; }
 
 		string RemoteActionDesc { get; }
+
+		bool Enabled { get; set; }
+
+		void RemoteControl_Recache();
 	}
 
 }

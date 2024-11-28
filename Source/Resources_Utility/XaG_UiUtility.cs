@@ -15,6 +15,8 @@ namespace WVC_XenotypesAndGenes
 		public static readonly CachedTexture GeneBackground_ArchiteEndogene = new("WVC/UI/Genes/GeneBackground_ArchiteGene");
 		public static readonly CachedTexture GeneBackground_ArchiteXenogene = new("WVC/UI/Genes/GeneBackground_XenoArchiteGene");
 
+		public static readonly CachedTexture GenesSettingsGizmo = new("WVC/UI/XaG_General/UI_GenesSettings_Gizmo");
+
 		public static string OnOrOff(bool onOrOff)
 		{
 			if (onOrOff)

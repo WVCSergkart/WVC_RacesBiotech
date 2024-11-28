@@ -140,24 +140,86 @@ namespace WVC_XenotypesAndGenes
 
         public override float Alpha => 0.8f;
 
-		//public override IEnumerable<Gizmo> GetGizmos()
-		//{
-		//	if (XaG_GeneUtility.SelectorDraftedActiveFactionMap(pawn, this))
-		//	{
-		//		yield break;
-		//	}
-		//	yield return new Command_Action
-		//	{
-		//		defaultLabel = "WVC_XaG_ColorableEyesLabel".Translate(),
-		//		defaultDesc = "WVC_XaG_ColorableEyesDesc".Translate(),
-		//		icon = ContentFinder<Texture2D>.Get(def.iconPath),
-		//		defaultIconColor = color,
-		//		action = delegate
-		//		{
-		//			ChangeEyesColor();
-		//		}
-		//	};
-		//}
+		public bool Enabled
+		{
+			get
+			{
+				return enabled;
+			}
+			set
+			{
+				enabled = value;
+			}
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			if (cachedRemoteControlGenes != null)
+			{
+				foreach (IGeneRemoteControl gene in cachedRemoteControlGenes)
+				{
+					gene.Enabled = true;
+				}
+			}
+		}
+
+		public void RecacheGenes()
+		{
+			if (cachedRemoteControlGenes != null)
+            {
+				foreach (IGeneRemoteControl gene in cachedRemoteControlGenes)
+				{
+					gene.Enabled = true;
+				}
+			}
+			cachedRemoteControlGenes = new();
+			foreach (Gene gene in pawn.genes.GenesListForReading)
+			{
+                if (gene is IGeneRemoteControl geneRemoteControl)
+                {
+                    cachedRemoteControlGenes.Add(geneRemoteControl);
+					geneRemoteControl.Enabled = false;
+				}
+            }
+			enabled = true;
+		}
+
+		public bool enabled = true;
+
+		public void RemoteControl_Recache()
+		{
+			RecacheGenes();
+		}
+
+		[Unsaved(false)]
+		private List<IGeneRemoteControl> cachedRemoteControlGenes;
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (!enabled)
+			{
+				yield break;
+			}
+			if (cachedRemoteControlGenes == null)
+			{
+				RecacheGenes();
+			}
+			if (XaG_GeneUtility.SelectorDraftedFactionMap(pawn))
+			{
+				yield break;
+			}
+			yield return new Command_Action
+			{
+				defaultLabel = "WVC_XaG_GenesSettings".Translate(),
+				defaultDesc = "WVC_XaG_GenesSettingsDesc".Translate(),
+				icon = XaG_UiUtility.GenesSettingsGizmo.Texture,
+				action = delegate
+				{
+					Find.WindowStack.Add(new Dialog_GenesSettings(this, cachedRemoteControlGenes));
+				}
+			};
+		}
 
 	}
 

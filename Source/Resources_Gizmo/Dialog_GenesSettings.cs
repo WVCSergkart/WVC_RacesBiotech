@@ -13,9 +13,10 @@ namespace WVC_XenotypesAndGenes
 
 		public List<IGeneRemoteControl> genes;
 
-		public Dialog_GenesSettings(List<IGeneRemoteControl> list)
+		public Dialog_GenesSettings(IGeneRemoteControl remoteContoller, List<IGeneRemoteControl> genes)
 		{
-			genes = list;
+			remoteContoller.RemoteControl_Recache();
+			this.genes = genes;
 			forcePause = true;
 			doCloseButton = true;
 		}

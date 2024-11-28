@@ -514,11 +514,15 @@ namespace WVC_XenotypesAndGenes
 						geneOverridden.Notify_Override();
 					}
 				}
-				if (__instance is IGeneInspectInfo || __instance is IGeneRemoteControl)
+				if (__instance is IGeneInspectInfo)
 				{
 					// Log.Error("ResetGenesInspectString");
 					XaG_GeneUtility.ResetGenesInspectString(__instance.pawn);
 				}
+				//if (__instance is IGeneRemoteControl remote)
+				//{
+				//	remote.RemoteControl_Recache();
+				//}
 				// if (__instance is IGeneNotifyGenesChanged geneNotifyGenesChanged)
 				// {
 				// geneNotifyGenesChanged.Notify_GenesChanged(overriddenBy);

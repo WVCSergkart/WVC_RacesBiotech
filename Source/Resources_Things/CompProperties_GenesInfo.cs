@@ -53,8 +53,8 @@ namespace WVC_XenotypesAndGenes
 		private List<IGeneFloatMenuOptions> cachedFloatMenuOptionsGenes;
 		[Unsaved(false)]
 		private List<IGeneInspectInfo> cachedInfoGenes;
-        [Unsaved(false)]
-        private List<IGeneRemoteControl> cachedRemoteControlGenes;
+        //[Unsaved(false)]
+        //private List<IGeneRemoteControl> cachedRemoteControlGenes;
 
         public List<IGeneInspectInfo> InfoGenes
 		{
@@ -80,23 +80,23 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        public List<IGeneRemoteControl> RemoteControl
-        {
-            get
-            {
-                if (cachedRemoteControlGenes == null)
-                {
-                    RecacheGenes();
-                }
-                return cachedRemoteControlGenes;
-            }
-        }
+        //public List<IGeneRemoteControl> RemoteControl
+        //{
+        //    get
+        //    {
+        //        if (cachedRemoteControlGenes == null)
+        //        {
+        //            RecacheGenes();
+        //        }
+        //        return cachedRemoteControlGenes;
+        //    }
+        //}
 
         public void RecacheGenes()
 		{
 			cachedInfoGenes = new();
 			cachedFloatMenuOptionsGenes = new();
-			cachedRemoteControlGenes = new();
+			//cachedRemoteControlGenes = new();
 			if (parent is Pawn pawn)
 			{
 				foreach (Gene gene in pawn.genes.GenesListForReading)
@@ -109,10 +109,10 @@ namespace WVC_XenotypesAndGenes
 					{
 						cachedFloatMenuOptionsGenes.Add(geneFloatMenu);
 					}
-                    if (gene is IGeneRemoteControl geneRemoteControl)
-                    {
-                        cachedRemoteControlGenes.Add(geneRemoteControl);
-                    }
+                    //if (gene is IGeneRemoteControl geneRemoteControl)
+                    //{
+                    //    cachedRemoteControlGenes.Add(geneRemoteControl);
+                    //}
                 }
 			}
 		}
@@ -121,7 +121,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			cachedInfoGenes = null;
 			cachedFloatMenuOptionsGenes = null;
-			cachedRemoteControlGenes = null;
+			//cachedRemoteControlGenes = null;
 			// isBloodeater = null;
 		}
 
@@ -289,23 +289,7 @@ namespace WVC_XenotypesAndGenes
                     }
                 };
             }
-            if (RemoteControl.NullOrEmpty())
-            {
-				yield break;
-            }
-            yield return new Command_Action
-            {
-                defaultLabel = "WVC_XaG_GenesSettings".Translate(),
-                defaultDesc = "WVC_XaG_GenesSettingsDesc".Translate(),
-                icon = GenesSettingsGizmo.Texture,
-                action = delegate
-				{
-					Find.WindowStack.Add(new Dialog_GenesSettings(RemoteControl));
-                }
-            };
 		}
-
-		public static readonly CachedTexture GenesSettingsGizmo = new("WVC/UI/XaG_General/UI_GenesSettings_Gizmo");
 
 	}
 

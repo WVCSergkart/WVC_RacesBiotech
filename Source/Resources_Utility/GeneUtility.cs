@@ -22,6 +22,11 @@ namespace WVC_XenotypesAndGenes
 			return Find.Selector.SelectedPawns.Count > 1 || pawn.Faction != Faction.OfPlayer || pawn.Map == null;
 		}
 
+		public static bool SelectorDraftedFactionMap(Pawn pawn)
+		{
+			return Find.Selector.SelectedPawns.Count > 1 || pawn.Drafted || pawn.Faction != Faction.OfPlayer || pawn.Map == null;
+		}
+
 		public static bool ActiveFactionMap(Pawn pawn, Gene gene)
 		{
 			return !gene.Active || pawn.Faction != Faction.OfPlayer || pawn.Map == null;
