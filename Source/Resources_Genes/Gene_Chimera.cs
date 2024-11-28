@@ -480,7 +480,7 @@ namespace WVC_XenotypesAndGenes
 		public void GetRandomGene()
 		{
 			List<GeneDef> geneDefs = DefDatabase<GeneDef>.AllDefsListForReading;
-			if (geneDefs.Where((GeneDef x) => !Chimera.AllGenes.Contains(x)).TryRandomElementByWeight((GeneDef gene) => (1f + gene.selectionWeight * (gene.biostatArc != 0 ? 0.01f : 1f)) + (gene.prerequisite == Chimera.def && gene.GetModExtension<GeneExtension_General>() != null ? gene.GetModExtension<GeneExtension_General>().selectionWeight : 0f), out GeneDef result))
+			if (geneDefs.Where((GeneDef x) => !Chimera.AllGenes.Contains(x) && x.canGenerateInGeneSet && x.selectionWeight > 0f).TryRandomElementByWeight((GeneDef gene) => (1f + gene.selectionWeight * (gene.biostatArc != 0 ? 0.01f : 1f)) + (gene.prerequisite == Chimera.def && gene.GetModExtension<GeneExtension_General>() != null ? gene.GetModExtension<GeneExtension_General>().selectionWeight : 0f), out GeneDef result))
 			{
 				Chimera.AddGene(result);
 			}
