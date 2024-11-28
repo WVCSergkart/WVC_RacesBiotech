@@ -193,55 +193,57 @@ namespace WVC_XenotypesAndGenes
 		//	return null;
 		//}
 
-		public override IEnumerable<Gizmo> GetGizmos()
-		{
-			if (XaG_GeneUtility.SelectorActiveFaction(pawn, this))
-			{
-				yield break;
-			}
-			if (DebugSettings.ShowDevGizmos)
-			{
-				yield return new Command_Action
-				{
-					defaultLabel = "DEV: GeneticInstability",
-					action = delegate
-					{
-						GeneticStuff();
-					}
-				};
-				yield return new Command_Action
-				{
-					defaultLabel = "DEV: Reduce instability ticker",
-					action = delegate
-					{
-						nextTick -= 30000;
-					}
-				};
-			}
-			yield return new Command_Action
-			{
-				defaultLabel = "WVC_XaG_Gene_GeneticThrallLabel".Translate() + ": " + XaG_UiUtility.OnOrOff(useStabilizerAuto),
-				defaultDesc = "WVC_XaG_Gene_GeneticThrallDesc".Translate(),
-				icon = ContentFinder<Texture2D>.Get(def.iconPath),
-				action = delegate
-				{
-					useStabilizerAuto = !useStabilizerAuto;
-					if (useStabilizerAuto)
-					{
-						SoundDefOf.Tick_High.PlayOneShotOnCamera();
-					}
-					else
-					{
-						SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-					}
-				}
-			};
-		}
+		public override string RemoteActionDesc => "WVC_XaG_Gene_GeneticThrallDesc".Translate();
+
+		//public override IEnumerable<Gizmo> GetGizmos()
+		//{
+		//	if (XaG_GeneUtility.SelectorActiveFaction(pawn, this))
+		//	{
+		//		yield break;
+		//	}
+		//	if (DebugSettings.ShowDevGizmos)
+		//	{
+		//		yield return new Command_Action
+		//		{
+		//			defaultLabel = "DEV: GeneticInstability",
+		//			action = delegate
+		//			{
+		//				GeneticStuff();
+		//			}
+		//		};
+		//		yield return new Command_Action
+		//		{
+		//			defaultLabel = "DEV: Reduce instability ticker",
+		//			action = delegate
+		//			{
+		//				nextTick -= 30000;
+		//			}
+		//		};
+		//	}
+		//	yield return new Command_Action
+		//	{
+		//		defaultLabel = "WVC_XaG_Gene_GeneticThrallLabel".Translate() + ": " + XaG_UiUtility.OnOrOff(useStabilizerAuto),
+		//		defaultDesc = "WVC_XaG_Gene_GeneticThrallDesc".Translate(),
+		//		icon = ContentFinder<Texture2D>.Get(def.iconPath),
+		//		action = delegate
+		//		{
+		//			useStabilizerAuto = !useStabilizerAuto;
+		//			if (useStabilizerAuto)
+		//			{
+		//				SoundDefOf.Tick_High.PlayOneShotOnCamera();
+		//			}
+		//			else
+		//			{
+		//				SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+		//			}
+		//		}
+		//	};
+		//}
 
 		// public override void PostRemove()
 		// {
-			// base.PostRemove();
-			// pawn.genes.AddGene(this.def, false);
+		// base.PostRemove();
+		// pawn.genes.AddGene(this.def, false);
 		// }
 
 	}

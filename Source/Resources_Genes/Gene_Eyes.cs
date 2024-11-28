@@ -153,37 +153,15 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override void PostRemove()
-		{
-			base.PostRemove();
-			if (cachedRemoteControlGenes != null)
-			{
-				foreach (IGeneRemoteControl gene in cachedRemoteControlGenes)
-				{
-					gene.Enabled = true;
-				}
-			}
-		}
+        {
+            base.PostRemove();
+			XaG_UiUtility.ResetAllRemoteControllers(ref cachedRemoteControlGenes);
+        }
 
-		public void RecacheGenes()
-		{
-			if (cachedRemoteControlGenes != null)
-            {
-				foreach (IGeneRemoteControl gene in cachedRemoteControlGenes)
-				{
-					gene.Enabled = true;
-				}
-			}
-			cachedRemoteControlGenes = new();
-			foreach (Gene gene in pawn.genes.GenesListForReading)
-			{
-                if (gene is IGeneRemoteControl geneRemoteControl)
-                {
-                    cachedRemoteControlGenes.Add(geneRemoteControl);
-					geneRemoteControl.Enabled = false;
-				}
-            }
-			enabled = true;
-		}
+        public void RecacheGenes()
+        {
+			XaG_UiUtility.RecacheRemoteController(pawn, ref cachedRemoteControlGenes, ref enabled);
+        }
 
 		public bool enabled = true;
 
@@ -197,28 +175,33 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			if (!enabled)
+			//if (!enabled)
+			//{
+			//	yield break;
+			//}
+			//if (cachedRemoteControlGenes == null)
+			//{
+			//	RecacheGenes();
+			//}
+			//if (XaG_GeneUtility.SelectorDraftedFactionMap(pawn))
+			//{
+			//	yield break;
+			//}
+			//yield return new Command_Action
+			//{
+			//	defaultLabel = "WVC_XaG_GenesSettings".Translate(),
+			//	defaultDesc = "WVC_XaG_GenesSettingsDesc".Translate(),
+			//	icon = XaG_UiUtility.GenesSettingsGizmo.Texture,
+			//	action = delegate
+			//	{
+			//		Find.WindowStack.Add(new Dialog_GenesSettings(this, cachedRemoteControlGenes));
+			//	}
+			//};
+			if (enabled)
 			{
-				yield break;
+				return XaG_UiUtility.GetRemoteControllerGizmo(pawn, this, cachedRemoteControlGenes);
 			}
-			if (cachedRemoteControlGenes == null)
-			{
-				RecacheGenes();
-			}
-			if (XaG_GeneUtility.SelectorDraftedFactionMap(pawn))
-			{
-				yield break;
-			}
-			yield return new Command_Action
-			{
-				defaultLabel = "WVC_XaG_GenesSettings".Translate(),
-				defaultDesc = "WVC_XaG_GenesSettingsDesc".Translate(),
-				icon = XaG_UiUtility.GenesSettingsGizmo.Texture,
-				action = delegate
-				{
-					Find.WindowStack.Add(new Dialog_GenesSettings(this, cachedRemoteControlGenes));
-				}
-			};
+			return null;
 		}
 
 	}

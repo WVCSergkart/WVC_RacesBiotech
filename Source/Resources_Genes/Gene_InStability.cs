@@ -186,8 +186,52 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_GeneticInstability : Gene, IGeneInspectInfo
+	public class Gene_GeneticInstability : Gene, IGeneInspectInfo, IGeneRemoteControl
 	{
+		public string RemoteActionName => XaG_UiUtility.OnOrOff(useStabilizerAuto);
+
+		public virtual string RemoteActionDesc => "WVC_XaG_Gene_GeneticInstabilityDesc".Translate();
+
+		public void RemoteControl()
+		{
+			useStabilizerAuto = !useStabilizerAuto;
+		}
+
+		public bool Enabled
+		{
+			get
+			{
+				return enabled;
+			}
+			set
+			{
+				enabled = value;
+			}
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			XaG_UiUtility.ResetAllRemoteControllers(ref cachedRemoteControlGenes);
+		}
+
+		public void RecacheGenes()
+		{
+			XaG_UiUtility.RecacheRemoteController(pawn, ref cachedRemoteControlGenes, ref enabled);
+		}
+
+		public bool enabled = true;
+
+		public void RemoteControl_Recache()
+		{
+			RecacheGenes();
+		}
+
+		[Unsaved(false)]
+		private List<IGeneRemoteControl> cachedRemoteControlGenes;
+
+
+		//===========
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
 
@@ -326,51 +370,58 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			if (XaG_GeneUtility.SelectorActiveFaction(pawn, this))
+            if (DebugSettings.ShowDevGizmos && !XaG_GeneUtility.SelectorActiveFaction(pawn, this))
+            {
+                yield return new Command_Action
+                {
+                    defaultLabel = "DEV: GeneticInstability",
+                    action = delegate
+                    {
+                        GeneticStuff();
+                    }
+                };
+                yield return new Command_Action
+                {
+                    defaultLabel = "DEV: Reduce instability ticker",
+                    action = delegate
+                    {
+                        nextTick -= 30000;
+                    }
+                };
+            }
+			//foreach (Gizmo gizmo in XaG_UiUtility.GetRemoteControllerGizmo(pawn, this, cachedRemoteControlGenes, enabled))
+			//{
+			//	yield return gizmo;
+			//}
+			//if (Props.jobDef == null)
+			//{
+			//	yield break;
+			//}
+			//yield return new Command_Action
+			//{
+			//	defaultLabel = "WVC_XaG_Gene_GeneticInstability".Translate() + ": " + XaG_UiUtility.OnOrOff(useStabilizerAuto),
+			//	defaultDesc = "WVC_XaG_Gene_GeneticInstabilityDesc".Translate(),
+			//	icon = ContentFinder<Texture2D>.Get(def.iconPath),
+			//	action = delegate
+			//	{
+			//		useStabilizerAuto = !useStabilizerAuto;
+			//		if (useStabilizerAuto)
+			//		{
+			//			SoundDefOf.Tick_High.PlayOneShotOnCamera();
+			//		}
+			//		else
+			//		{
+			//			SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+			//		}
+			//	}
+			//};
+			if (enabled)
 			{
-				yield break;
-			}
-			if (DebugSettings.ShowDevGizmos)
-			{
-				yield return new Command_Action
+				foreach (Gizmo gizmo in XaG_UiUtility.GetRemoteControllerGizmo(pawn, this, cachedRemoteControlGenes))
 				{
-					defaultLabel = "DEV: GeneticInstability",
-					action = delegate
-					{
-						GeneticStuff();
-					}
-				};
-				yield return new Command_Action
-				{
-					defaultLabel = "DEV: Reduce instability ticker",
-					action = delegate
-					{
-						nextTick -= 30000;
-					}
-				};
-			}
-			if (Props.jobDef == null)
-			{
-				yield break;
-			}
-			yield return new Command_Action
-			{
-				defaultLabel = "WVC_XaG_Gene_GeneticInstability".Translate() + ": " + XaG_UiUtility.OnOrOff(useStabilizerAuto),
-				defaultDesc = "WVC_XaG_Gene_GeneticInstabilityDesc".Translate(),
-				icon = ContentFinder<Texture2D>.Get(def.iconPath),
-				action = delegate
-				{
-					useStabilizerAuto = !useStabilizerAuto;
-					if (useStabilizerAuto)
-					{
-						SoundDefOf.Tick_High.PlayOneShotOnCamera();
-					}
-					else
-					{
-						SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-					}
+					yield return gizmo;
 				}
-			};
+			}
 		}
 
 		public override void ExposeData()

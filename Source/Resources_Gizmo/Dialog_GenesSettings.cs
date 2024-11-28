@@ -57,10 +57,10 @@ namespace WVC_XenotypesAndGenes
 						SoundDefOf.FlickSwitch.PlayOneShot(new TargetInfo(gene.pawn.Position, gene.pawn.Map));
 					}
 					//Text.Anchor = TextAnchor.UpperLeft;
-					Rect rect4 = new(40f, 0f, 94f, rect.height);
+					Rect rect4 = new(40f, 0f, 200f, rect.height);
 					Text.Anchor = TextAnchor.MiddleLeft;
 					Text.Font = GameFont.Small;
-					Widgets.Label(rect4, gene.LabelCap.Truncate(rect4.width * 2.8f));
+					Widgets.Label(rect4, gene.LabelCap.Truncate(rect4.width * 1.8f));
 					Text.Anchor = TextAnchor.UpperLeft;
 					Rect rect5 = new(0f, 0f, 36f, 36f);
 					XaG_UiUtility.XaG_DefIcon(rect5, gene.def, 1.2f);

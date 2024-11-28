@@ -1,5 +1,6 @@
 using RimWorld;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Verse;
@@ -16,6 +17,54 @@ namespace WVC_XenotypesAndGenes
 		public static readonly CachedTexture GeneBackground_ArchiteXenogene = new("WVC/UI/Genes/GeneBackground_XenoArchiteGene");
 
 		public static readonly CachedTexture GenesSettingsGizmo = new("WVC/UI/XaG_General/UI_GenesSettings_Gizmo");
+
+		public static IEnumerable<Gizmo> GetRemoteControllerGizmo(Pawn pawn, IGeneRemoteControl gene, List<IGeneRemoteControl> cachedRemoteControlGenes)
+		{
+			if (cachedRemoteControlGenes == null)
+			{
+				gene.RemoteControl_Recache();
+			}
+			if (XaG_GeneUtility.SelectorDraftedFactionMap(pawn))
+			{
+				yield break;
+			}
+			yield return new Command_Action
+			{
+				defaultLabel = "WVC_XaG_GenesSettings".Translate(),
+				defaultDesc = "WVC_XaG_GenesSettingsDesc".Translate(),
+				icon = XaG_UiUtility.GenesSettingsGizmo.Texture,
+				action = delegate
+				{
+					Find.WindowStack.Add(new Dialog_GenesSettings(gene, cachedRemoteControlGenes));
+				}
+			};
+		}
+
+		public static void RecacheRemoteController(Pawn pawn, ref List<IGeneRemoteControl> cachedRemoteControlGenes, ref bool enabled)
+		{
+			ResetAllRemoteControllers(ref cachedRemoteControlGenes);
+			cachedRemoteControlGenes = new();
+			foreach (Gene gene in pawn.genes.GenesListForReading)
+			{
+				if (gene is IGeneRemoteControl geneRemoteControl)
+				{
+					cachedRemoteControlGenes.Add(geneRemoteControl);
+					geneRemoteControl.Enabled = false;
+				}
+			}
+			enabled = true;
+		}
+
+		public static void ResetAllRemoteControllers(ref List<IGeneRemoteControl> cachedRemoteControlGenes)
+		{
+			if (cachedRemoteControlGenes != null)
+			{
+				foreach (IGeneRemoteControl gene in cachedRemoteControlGenes)
+				{
+					gene.Enabled = true;
+				}
+			}
+		}
 
 		public static string OnOrOff(bool onOrOff)
 		{

@@ -100,10 +100,6 @@ namespace WVC_XenotypesAndGenes
 
 		public virtual bool TryHuntForFood(bool requestQueueing = true)
 		{
-			if (WVC_Biotech.settings.bloodeater_disableAutoFeed)
-			{
-				return false;
-			}
 			if (Gene_Rechargeable.PawnHaveThisJob(pawn, WVC_GenesDefOf.WVC_XaG_CastBloodfeedOnPawnMelee))
 			{
 				return false;

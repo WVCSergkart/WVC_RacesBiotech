@@ -87,7 +87,7 @@ namespace WVC_XenotypesAndGenes
 		// Hemogenic
 		public bool harmony_EnableGenesMechanicsTriggers = true;
 		public bool bloodeater_SafeBloodfeed = false;
-		public bool bloodeater_disableAutoFeed = false;
+		//public bool bloodeater_disableAutoFeed = false;
 		public bool bloodfeeder_AutoBloodfeed = false;
 		public float hemogenic_ImplanterFangsChanceFactor = 1f;
 		// Thralls
@@ -219,7 +219,7 @@ namespace WVC_XenotypesAndGenes
 			// Hemogenic
 			Scribe_Values.Look(ref harmony_EnableGenesMechanicsTriggers, "harmony_EnableGenesMechanicsTriggers", defaultValue: true);
 			Scribe_Values.Look(ref bloodeater_SafeBloodfeed, "bloodeater_SafeBloodfeed", defaultValue: false);
-			Scribe_Values.Look(ref bloodeater_disableAutoFeed, "bloodeater_disableAutoFeed", defaultValue: false);
+			//Scribe_Values.Look(ref bloodeater_disableAutoFeed, "bloodeater_disableAutoFeed", defaultValue: false);
 			Scribe_Values.Look(ref bloodfeeder_AutoBloodfeed, "bloodfeeder_AutoBloodfeed", defaultValue: false);
 			Scribe_Values.Look(ref hemogenic_ImplanterFangsChanceFactor, "hemogenic_ImplanterFangsChanceFactor", defaultValue: 1f);
 			// Thralls
@@ -787,7 +787,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				//listingStandard.Label("WVC_XaGGeneSettings_Hemogenic".Translate() + ":", -1);
 				listingStandard.CheckboxLabeled("WVC_Label_bloodeater_SafeBloodfeed".Translate(), ref settings.bloodeater_SafeBloodfeed, "WVC_ToolTip_bloodeater_SafeBloodfeed".Translate());
-				listingStandard.CheckboxLabeled("WVC_Label_bloodeater_disableAutoFeed".Translate().Colorize(ColorLibrary.LightBlue), ref settings.bloodeater_disableAutoFeed, "WVC_ToolTip_bloodeater_disableAutoFeed".Translate());
+				//listingStandard.CheckboxLabeled("WVC_Label_bloodeater_disableAutoFeed".Translate().Colorize(ColorLibrary.LightBlue), ref settings.bloodeater_disableAutoFeed, "WVC_ToolTip_bloodeater_disableAutoFeed".Translate());
 				listingStandard.CheckboxLabeled("WVC_Label_bloodfeeder_AutoBloodfeed".Translate(), ref settings.bloodfeeder_AutoBloodfeed, "WVC_ToolTip_bloodfeeder_AutoBloodfeed".Translate());
 				listingStandard.SliderLabeledWithRef("WVC_Label_hemogenic_ImplanterFangsChanceFactor".Translate((settings.hemogenic_ImplanterFangsChanceFactor * 100f).ToString()), ref settings.hemogenic_ImplanterFangsChanceFactor, 0f, 10f, null, 2);
 			}
@@ -1052,7 +1052,7 @@ namespace WVC_XenotypesAndGenes
 			// =
 			WVC_Biotech.settings.harmony_EnableGenesMechanicsTriggers = settingsDef.harmony_EnableGenesMechanicsTriggers;
 			WVC_Biotech.settings.bloodeater_SafeBloodfeed = settingsDef.bloodeater_SafeBloodfeed;
-			WVC_Biotech.settings.bloodeater_disableAutoFeed = settingsDef.bloodeater_disableAutoFeed;
+			//WVC_Biotech.settings.bloodeater_disableAutoFeed = settingsDef.bloodeater_disableAutoFeed;
 			WVC_Biotech.settings.bloodfeeder_AutoBloodfeed = settingsDef.bloodfeeder_AutoBloodfeed;
 			WVC_Biotech.settings.hemogenic_ImplanterFangsChanceFactor = settingsDef.hemogenic_ImplanterFangsChanceFactor;
 			// =

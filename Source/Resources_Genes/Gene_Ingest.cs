@@ -426,21 +426,77 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Bloodeater : Gene_BloodHunter, IGeneBloodfeeder, IGeneFloatMenuOptions
+	public class Gene_Bloodeater : Gene_BloodHunter, IGeneBloodfeeder, IGeneFloatMenuOptions, IGeneRemoteControl
 	{
+		public string RemoteActionName => XaG_UiUtility.OnOrOff(canAutoFeed);
+
+		public string RemoteActionDesc => "WVC_XaG_RemoteControlBloodeaterDesc".Translate();
+
+		public void RemoteControl()
+		{
+			canAutoFeed = !canAutoFeed;
+		}
+
+		public bool Enabled
+		{
+			get
+			{
+				return enabled;
+			}
+			set
+			{
+				enabled = value;
+			}
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			XaG_UiUtility.ResetAllRemoteControllers(ref cachedRemoteControlGenes);
+		}
+
+		public void RecacheGenes()
+		{
+			XaG_UiUtility.RecacheRemoteController(pawn, ref cachedRemoteControlGenes, ref enabled);
+		}
+
+		public bool enabled = true;
+
+		public void RemoteControl_Recache()
+		{
+			RecacheGenes();
+		}
+
+		[Unsaved(false)]
+		private List<IGeneRemoteControl> cachedRemoteControlGenes;
+
+
+		//===========
 
 		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
 
 		// public override void PostAdd()
 		// {
-			// base.PostAdd();
-			// pawn.foodRestriction;
+		// base.PostAdd();
+		// pawn.foodRestriction;
 		// }
+
+		public bool canAutoFeed = true;
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref canAutoFeed, "canAutoFeed", true);
+		}
 
 		public override void Tick()
         {
             base.Tick();
-            if (!pawn.IsHashIntervalTick(2210))
+			if (!canAutoFeed)
+			{
+				return;
+			}
+			if (!pawn.IsHashIntervalTick(2210))
             {
                 return;
             }
@@ -548,6 +604,13 @@ namespace WVC_XenotypesAndGenes
 			foreach (Gizmo item in base.GetGizmos())
 			{
 				yield return item;
+			}
+			if (enabled)
+			{
+				foreach (Gizmo gizmo in XaG_UiUtility.GetRemoteControllerGizmo(pawn, this, cachedRemoteControlGenes))
+				{
+					yield return gizmo;
+				}
 			}
 			if (XaG_GeneUtility.ActiveDowned(pawn, this))
 			{

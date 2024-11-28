@@ -361,8 +361,52 @@ namespace WVC_XenotypesAndGenes
 	//{
 	//}
 
-	public class Gene_Falselink : Gene_Mechlink, IGeneInspectInfo
+	public class Gene_Falselink : Gene_Mechlink, IGeneInspectInfo, IGeneRemoteControl
 	{
+		public string RemoteActionName => XaG_UiUtility.OnOrOff(summonMechanoids);
+
+		public string RemoteActionDesc => "WVC_XaG_Gene_DustMechlinkDesc".Translate();
+
+		public void RemoteControl()
+		{
+			summonMechanoids = !summonMechanoids;
+		}
+
+		public bool Enabled
+		{
+			get
+			{
+				return enabled;
+			}
+			set
+			{
+				enabled = value;
+			}
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			XaG_UiUtility.ResetAllRemoteControllers(ref cachedRemoteControlGenes);
+		}
+
+		public void RecacheGenes()
+		{
+			XaG_UiUtility.RecacheRemoteController(pawn, ref cachedRemoteControlGenes, ref enabled);
+		}
+
+		public bool enabled = true;
+
+		public void RemoteControl_Recache()
+		{
+			RecacheGenes();
+		}
+
+		[Unsaved(false)]
+		private List<IGeneRemoteControl> cachedRemoteControlGenes;
+
+
+		//===========
 
 		public override void PostAdd()
 		{
@@ -413,11 +457,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			if (XaG_GeneUtility.SelectorActiveFactionMapMechanitor(pawn, this))
-			{
-				yield break;
-			}
-			if (DebugSettings.ShowDevGizmos)
+			if (DebugSettings.ShowDevGizmos && !XaG_GeneUtility.SelectorActiveFactionMapMechanitor(pawn, this))
 			{
 				yield return new Command_Action
 				{
@@ -445,31 +485,42 @@ namespace WVC_XenotypesAndGenes
 					}
 				};
 			}
-			Command_Action command_Action = new()
+			//Command_Action command_Action = new()
+			//{
+			//	defaultLabel = "WVC_XaG_Gene_DustMechlink".Translate() + ": " + XaG_UiUtility.OnOrOff(summonMechanoids),
+			//	defaultDesc = "WVC_XaG_Gene_DustMechlinkDesc".Translate(),
+			//	icon = ContentFinder<Texture2D>.Get(def.iconPath),
+			//	action = delegate
+			//	{
+			//		summonMechanoids = !summonMechanoids;
+			//		if (summonMechanoids)
+			//		{
+			//			SoundDefOf.Tick_High.PlayOneShotOnCamera();
+			//		}
+			//		else
+			//		{
+			//			SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+			//		}
+			//	}
+			//};
+			//yield return command_Action;
+			if (enabled)
 			{
-				defaultLabel = "WVC_XaG_Gene_DustMechlink".Translate() + ": " + XaG_UiUtility.OnOrOff(summonMechanoids),
-				defaultDesc = "WVC_XaG_Gene_DustMechlinkDesc".Translate(),
-				icon = ContentFinder<Texture2D>.Get(def.iconPath),
-				action = delegate
+				foreach (Gizmo gizmo in XaG_UiUtility.GetRemoteControllerGizmo(pawn, this, cachedRemoteControlGenes))
 				{
-					summonMechanoids = !summonMechanoids;
-					if (summonMechanoids)
-					{
-						SoundDefOf.Tick_High.PlayOneShotOnCamera();
-					}
-					else
-					{
-						SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-					}
+					yield return gizmo;
 				}
-			};
-			yield return command_Action;
+			}
 		}
 
 		public string GetInspectInfo
 		{
 			get
 			{
+				if (pawn.mechanitor == null)
+				{
+					return null;
+				}
 				if (summonMechanoids)
 				{
 					return "WVC_XaG_Gene_Blesslin_On_Info".Translate().Resolve() + ": " + timeForNextSummon.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);

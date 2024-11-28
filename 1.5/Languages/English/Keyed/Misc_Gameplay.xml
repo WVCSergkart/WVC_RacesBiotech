@@ -774,7 +774,9 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<!-- <WVC_OnOrOff>On/Off</WVC_OnOrOff> -->
 	<WVC_Color>Color</WVC_Color>
 	<WVC_XaG_GenesSettings>Genes settings</WVC_XaG_GenesSettings>
-	<WVC_XaG_GenesSettingsDesc>Allows control of some genes, such as changing the color of the holoface.</WVC_XaG_GenesSettingsDesc>
+	<WVC_XaG_GenesSettingsDesc>Allows you to control genes. For example, change the color of the holoeyes, turn on or off auto feed for the bloodeater, switch the wing mode, etc. If the gene allows you to change some internal settings, then it is most likely in this list.</WVC_XaG_GenesSettingsDesc>
+
+	<WVC_XaG_RemoteControlBloodeaterDesc>If off, then pawn with the bloodEATer gene will not automatically bite colonists</WVC_XaG_RemoteControlBloodeaterDesc>
 
 	<!-- =============== QUEST = ANOMALY LOOP =============== -->
 

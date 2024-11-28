@@ -98,8 +98,51 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Wings : Gene_Flickable
+	public class Gene_Wings : Gene_Flickable, IGeneRemoteControl
 	{
+		public string RemoteActionName => Wings();
+
+		public string RemoteActionDesc => "WVC_XaG_Gene_WingsDesc".Translate();
+
+		public void RemoteControl()
+		{
+			AddOrRemoveHediff(pawn, Props.hediffDefName, this);
+		}
+
+		public bool Enabled
+		{
+			get
+			{
+				return enabled;
+			}
+			set
+			{
+				enabled = value;
+			}
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			XaG_UiUtility.ResetAllRemoteControllers(ref cachedRemoteControlGenes);
+		}
+
+		public void RecacheGenes()
+		{
+			XaG_UiUtility.RecacheRemoteController(pawn, ref cachedRemoteControlGenes, ref enabled);
+		}
+
+		public bool enabled = true;
+
+		public void RemoteControl_Recache()
+		{
+			RecacheGenes();
+		}
+
+		[Unsaved(false)]
+		private List<IGeneRemoteControl> cachedRemoteControlGenes;
+
+		//=================
 
 		private string Wings()
 		{
@@ -112,28 +155,33 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			if (XaG_GeneUtility.SelectorActiveFaction(pawn, this))
+			//if (XaG_GeneUtility.SelectorActiveFaction(pawn, this))
+			//{
+			//	yield break;
+			//}
+			//yield return new Command_Action
+			//{
+			//	defaultLabel = def.LabelCap + ": " + Wings(),
+			//	defaultDesc = "WVC_XaG_Gene_WingsDesc".Translate(),
+			//	icon = ContentFinder<Texture2D>.Get(def.iconPath),
+			//	action = delegate
+			//	{
+			//		AddOrRemoveHediff(pawn, Props.hediffDefName, this);
+			//		if (!pawn.health.hediffSet.HasHediff(Props.hediffDefName))
+			//		{
+			//			SoundDefOf.Tick_High.PlayOneShotOnCamera();
+			//		}
+			//		else
+			//		{
+			//			SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+			//		}
+			//	}
+			//};
+			if (enabled)
 			{
-				yield break;
+				return XaG_UiUtility.GetRemoteControllerGizmo(pawn, this, cachedRemoteControlGenes);
 			}
-			yield return new Command_Action
-			{
-				defaultLabel = def.LabelCap + ": " + Wings(),
-				defaultDesc = "WVC_XaG_Gene_WingsDesc".Translate(),
-				icon = ContentFinder<Texture2D>.Get(def.iconPath),
-				action = delegate
-				{
-					AddOrRemoveHediff(pawn, Props.hediffDefName, this);
-					if (!pawn.health.hediffSet.HasHediff(Props.hediffDefName))
-					{
-						SoundDefOf.Tick_High.PlayOneShotOnCamera();
-					}
-					else
-					{
-						SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-					}
-				}
-			};
+			return null;
 		}
 
 		// public string GetInspectInfo
