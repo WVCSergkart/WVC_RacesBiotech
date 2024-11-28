@@ -176,11 +176,11 @@ namespace WVC_XenotypesAndGenes
 			if (part != null)
 			{
 				pawn.health.RestorePart(part);
-				if (restoreWithFullHP)
+				if (restoreWithFullHP || pawn.health.summaryHealth.SummaryHealthPercent < 0.4f)
 				{
 					return;
 				}
-				if (pawn.health.WouldDieAfterAddingHediff(WVC_GenesDefOf.WVC_RegrowingPart, part, 0.01f))
+				if (pawn.health.WouldDieAfterAddingHediff(WVC_GenesDefOf.WVC_RegrowingPart, part, 0.99f))
 				{
 					return;
 				}
