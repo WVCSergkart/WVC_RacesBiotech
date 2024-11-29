@@ -109,13 +109,13 @@ namespace WVC_XenotypesAndGenes
 			{
 				collapsedCategories.Add(allDef, value: false);
 			}
-			pawnGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.GenesListForReading);
-			pawnXenoGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.Xenogenes);
-			pawnEndoGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.Endogenes);
-			allGenes = gene.CollectedGenes;
-			eatedGenes = gene.EatedGenes;
-			selectedGenes = pawnXenoGenes;
-			// selectedXeno = allGenes.RandomElement();
+			//pawnGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.GenesListForReading);
+			//pawnXenoGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.Xenogenes);
+			//pawnEndoGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.Endogenes);
+			//allGenes = gene.CollectedGenes;
+			//eatedGenes = gene.EatedGenes;
+			//selectedGenes = pawnXenoGenes;
+			UpdateGenesInforamtion();
 			OnGenesChanged();
 		}
 
@@ -801,31 +801,37 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public void EatGenes()
-		{
-			foreach (GeneDef geneDef in selectedGenes)
-			{
-				if (Rand.Chance(0.01f))
-				{
-					gene.GetToolGene();
-				}
-				gene.EatGene(geneDef);
-			}
-			if (!gene.Props.soundDefOnImplant.NullOrUndefined())
-			{
-				gene.Props.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(gene.pawn));
-			}
-			selectedGenes = new();
-			cachedGeneDefsInOrder = new();
-			pawnGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.GenesListForReading);
-			pawnXenoGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.Xenogenes);
-			pawnEndoGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.Endogenes);
-			allGenes = gene.CollectedGenes;
-			eatedGenes = gene.EatedGenes;
-			UpdateSearchResults();
-			// Close(doCloseSound: false);
-		}
+        {
+            foreach (GeneDef geneDef in selectedGenes)
+            {
+                if (Rand.Chance(0.07f))
+                {
+                    gene.GetToolGene();
+                }
+                gene.EatGene(geneDef);
+            }
+            if (!gene.Props.soundDefOnImplant.NullOrUndefined())
+            {
+                gene.Props.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(gene.pawn));
+            }
+            UpdateGenesInforamtion();
+            // Close(doCloseSound: false);
+        }
 
-		private void ClearGenes(List<GeneDef> nonRemoveGenes = null)
+        private void UpdateGenesInforamtion()
+        {
+            //selectedGenes = new();
+            cachedGeneDefsInOrder = new();
+            pawnGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.GenesListForReading);
+            pawnXenoGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.Xenogenes);
+            pawnEndoGenes = XaG_GeneUtility.ConvertGenesInGeneDefs(gene.pawn.genes.Endogenes);
+            allGenes = gene.CollectedGenes;
+            eatedGenes = gene.EatedGenes;
+			selectedGenes = pawnXenoGenes;
+			UpdateSearchResults();
+        }
+
+        private void ClearGenes(List<GeneDef> nonRemoveGenes = null)
 		{
 			foreach (Gene gene in gene.pawn.genes.Xenogenes.ToList())
 			{

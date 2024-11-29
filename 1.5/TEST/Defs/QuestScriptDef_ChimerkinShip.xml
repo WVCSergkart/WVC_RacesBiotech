@@ -4,7 +4,7 @@
   <QuestScriptDef WVC_XaG_XenotypeRemoveTag="General">
 	<defName>WVC_XaG_ChimerkinShip</defName>
 	<hideInvolvedFactionsInfo>true</hideInvolvedFactionsInfo>
-	<expireDaysRange>2</expireDaysRange>
+	<expireDaysRange>1~2</expireDaysRange>
 	<rootMinPoints>300</rootMinPoints>
 	<rootSelectionWeight>0.05</rootSelectionWeight>
 	<minRefireDays>200</minRefireDays>
@@ -37,7 +37,7 @@
 	<questContentRules>
 	  <rulesStrings>
 		<li>sanguophageShuttleCrashedLetterLabel->Crashed shuttle</li>
-		<li>sanguophageShuttleCrashedLetterText->A shuttle has crashed nearby. It looks like there was only a newborn on board.</li>
+		<li>sanguophageShuttleCrashedLetterText->A shuttle has crashed nearby. It looks like there was only a chimerkin baby on board.</li>
 	  </rulesStrings>
 	</questContentRules>
 	<root Class="WVC_XenotypesAndGenes.QuestNode_Root_ChimerkinShip" />

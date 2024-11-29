@@ -7,7 +7,7 @@
 	<!-- <description>Carriers of this gene have a special organ that can store genetic information and implant it into the owner.</description> -->
 	<description>Carriers of this gene have archites that form a special organ that is capable of absorbing genetic information and then implementing it into the owner’s genetic code.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Chimera</geneClass>
-	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_ChimerasGenes</resourceGizmoType>
+	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Chimera</resourceGizmoType>
 	<iconPath>WVC/UI/Genes/Gene_GeneticThief_Bloodfeeder_v0</iconPath>
 	<biostatCpx>6</biostatCpx>
 	<biostatArc>2</biostatArc>

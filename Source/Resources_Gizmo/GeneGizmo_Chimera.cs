@@ -7,29 +7,31 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class GeneGizmo_ChimerasGenes : Gizmo
+	public class GeneGizmo_Chimera : Gizmo
 	{
 
 		private static readonly CachedTexture MenuIcon = new("WVC/UI/XaG_General/Chimera_GizmoMenu");
 
-		public Pawn mechanitor;
+		public Pawn pawn;
 
 		public Gene_Chimera gene;
 
-		public int totalBandwidth = 0;
+		public int collectedGenes = 0;
+		public int eatedGenes = 0;
+		public int destroyedGenes = 0;
 
-		public int usedBandwidth = 0;
+		public int nextRecache = 0;
 
 		public override bool Visible => true;
 
-		public GeneGizmo_ChimerasGenes(Gene_Chimera geneChimera)
+		public GeneGizmo_Chimera(Gene_Chimera geneChimera)
 			: base()
 		{
 			gene = geneChimera;
-			mechanitor = gene?.pawn;
+			pawn = gene?.pawn;
 			Order = -94f;
-			totalBandwidth = gene.AllGenes.Count;
-			usedBandwidth = gene.EatedGenes.Count;
+			collectedGenes = gene.CollectedGenes.Count;
+			eatedGenes = gene.EatedGenes.Count;
 		}
 
 		public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
@@ -37,16 +39,18 @@ namespace WVC_XenotypesAndGenes
 			Rect rect = new(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
 			Rect rect2 = rect.ContractedBy(6f);
 			Widgets.DrawWindowBackground(rect);
-			if (mechanitor.IsHashIntervalTick(60))
+			nextRecache--;
+			if (nextRecache < 0)
 			{
-				totalBandwidth = gene.AllGenes.Count;
-				usedBandwidth = gene.EatedGenes.Count;
+				collectedGenes = gene.CollectedGenes.Count;
+				eatedGenes = gene.EatedGenes.Count;
+				nextRecache = 360;
 			}
-			string text = totalBandwidth.ToString("F0");
+			string text = collectedGenes.ToString("F0");
 			TaggedString taggedString = "WVC_XaG_Gene_Chimera_GizmoLabel".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + text + "\n\n" + "WVC_XaG_Gene_Chimera_GizmoTip".Translate();
-			if (usedBandwidth > 0)
+			if (eatedGenes > 0)
 			{
-				taggedString += (string)("\n\n" + ("WVC_XaG_Gene_Chimera_GizmoEatedLabel".Translate() + ": ")) + usedBandwidth;
+				taggedString += (string)("\n\n" + ("WVC_XaG_Gene_Chimera_GizmoEatedLabel".Translate() + ": ")) + eatedGenes;
 			}
 			TooltipHandler.TipRegion(rect, taggedString);
 			Text.Font = GameFont.Small;

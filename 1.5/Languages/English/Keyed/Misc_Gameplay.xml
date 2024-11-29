@@ -337,7 +337,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<!-- ============================ RESURRECTION ============================ -->
 
 	<WVC_XaG_Gene_DisplayStats_Undead_CanResurrect>resurrection</WVC_XaG_Gene_DisplayStats_Undead_CanResurrect>
-	<WVC_XaG_Gene_DisplayStats_Undead_CanResurrect_Desc>Responsible for whether the pawn can be auto-resurrected after death.</WVC_XaG_Gene_DisplayStats_Undead_CanResurrect_Desc>
+	<WVC_XaG_Gene_DisplayStats_Undead_CanResurrect_Desc>Responsible for whether the pawn can be auto-resurrected after death. If the body deteriorates or rots, then resurrection will be impossible.</WVC_XaG_Gene_DisplayStats_Undead_CanResurrect_Desc>
 	<WVC_XaG_Gene_DisplayStats_Undead_CanResurrectHediffs_Desc>Any of prevent resurrection</WVC_XaG_Gene_DisplayStats_Undead_CanResurrectHediffs_Desc>
 	<WVC_XaG_Gene_DisplayStats_Undead_AlwaysResurrect_Desc>The only way to kill is to destroy the body.</WVC_XaG_Gene_DisplayStats_Undead_AlwaysResurrect_Desc>
 
@@ -366,7 +366,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_Gene_EternalHunger_HuntWarning>{0} is going to bite one of the colonists!</WVC_XaG_Gene_EternalHunger_HuntWarning>
 
-	<WVC_XaG_Gene_HemogenicMetabolismDesc>If enabled, the hunger bar is slowly replenished, but hemogen consumption increases.</WVC_XaG_Gene_HemogenicMetabolismDesc>
+	<WVC_XaG_Gene_HemogenicMetabolismDesc>If enabled, it replenishes the hunger bar, but significantly increases the hemogen consumption. If the bar reaches its maximum or the hemogen drops too low, the effect will automatically turn off.</WVC_XaG_Gene_HemogenicMetabolismDesc>
 
 	<WVC_FeedDownedBloodeaterForced>Downed bloodfeed</WVC_FeedDownedBloodeaterForced>
 	<WVC_FeedDownedBloodeaterForcedDesc>If the bloodeater is unable to eat on its own, you can feed it manually.</WVC_FeedDownedBloodeaterForcedDesc>

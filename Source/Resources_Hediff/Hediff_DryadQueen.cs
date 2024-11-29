@@ -1,4 +1,5 @@
 using RimWorld;
+using System.Collections.Generic;
 using Verse;
 
 
@@ -8,12 +9,12 @@ namespace WVC_XenotypesAndGenes
 	public class HediffWithComps_DryadQueen : HediffWithComps
 	{
 
-		public int cachedDryadsCount;
-		public int refreshInterval = 11982;
+		public int? cachedDryadsCount;
+		public int refreshInterval = 41982;
 
 		private HediffStage curStage;
 
-		public override bool ShouldRemove => false;
+		public override bool ShouldRemove => Gauranlen == null;
 
 		public override bool Visible => false;
 
@@ -32,42 +33,62 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void PostAdd(DamageInfo? dinfo)
-		{
-			base.PostAdd(dinfo);
-			Recache();
-		}
+		//public override void PostAdd(DamageInfo? dinfo)
+		//{
+		//	base.PostAdd(dinfo);
+		//	Recache();
+		//}
 
 		public override HediffStage CurStage
 		{
 			get
 			{
-				if (def is XaG_HediffDef newDef && newDef.statModifiers != null && curStage == null && cachedDryadsCount > 0)
+				//if (def is XaG_HediffDef newDef && newDef.statModifiers != null && curStage == null && cachedDryadsCount > 0)
+				//{
+				//	curStage = new HediffStage
+				//	{
+				//		statOffsets = new(),
+				//		statFactors = new()
+				//	};
+				//	if (!newDef.statModifiers.statFactors.NullOrEmpty())
+				//	{
+				//		foreach (StatModifier item in newDef.statModifiers.statFactors)
+				//		{
+				//			StatModifier statModifier = new();
+				//			statModifier.stat = item.stat;
+				//			statModifier.value = 1f - (item.value * cachedDryadsCount);
+				//			curStage.statFactors.Add(statModifier);
+				//		}
+				//	}
+				//	if (!newDef.statModifiers.statOffsets.NullOrEmpty())
+				//	{
+				//		foreach (StatModifier item in newDef.statModifiers.statOffsets)
+				//		{
+				//			StatModifier statModifier = new();
+				//			statModifier.stat = item.stat;
+				//			statModifier.value = item.value * cachedDryadsCount;
+				//			curStage.statOffsets.Add(statModifier);
+				//		}
+				//	}
+				//}
+				if (curStage == null)
 				{
+					if (!cachedDryadsCount.HasValue)
+					{
+						Recache();
+					}
+					StatModifier statModifier = new()
+					{
+						stat = StatDefOf.MaxNutrition,
+						value = 0.1f * cachedDryadsCount.Value
+					};
 					curStage = new HediffStage
 					{
-						statOffsets = new(),
-						statFactors = new()
+						statOffsets = new List<StatModifier> { statModifier }
 					};
-					if (!newDef.statModifiers.statFactors.NullOrEmpty())
+					if (cachedDryadsCount > 0)
 					{
-						foreach (StatModifier item in newDef.statModifiers.statFactors)
-						{
-							StatModifier statModifier = new();
-							statModifier.stat = item.stat;
-							statModifier.value = 1f - (item.value * cachedDryadsCount);
-							curStage.statFactors.Add(statModifier);
-						}
-					}
-					if (!newDef.statModifiers.statOffsets.NullOrEmpty())
-					{
-						foreach (StatModifier item in newDef.statModifiers.statOffsets)
-						{
-							StatModifier statModifier = new();
-							statModifier.stat = item.stat;
-							statModifier.value = item.value * cachedDryadsCount;
-							curStage.statOffsets.Add(statModifier);
-						}
+						curStage.hungerRateFactor = 1f + (0.1f * cachedDryadsCount.Value);
 					}
 				}
 				return curStage;
@@ -96,11 +117,11 @@ namespace WVC_XenotypesAndGenes
 			curStage = null;
 		}
 
-		public override void ExposeData()
-		{
-			base.ExposeData();
-			Scribe_Values.Look(ref cachedDryadsCount, "cachedDryadsCount", 0);
-		}
+		//public override void ExposeData()
+		//{
+		//	base.ExposeData();
+		//	Scribe_Values.Look(ref cachedDryadsCount, "cachedDryadsCount", 0);
+		//}
 
 	}
 

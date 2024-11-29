@@ -81,7 +81,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				geneThralls = GeneResourceUtility.GetAllThralls(mechanitor);
 				thrallPawnsCount = geneThralls.Count;
-				nextRecache = 600;
+				nextRecache = 300;
 			}
 			string text = thrallPawnsCount.ToString("F0") + " / " + resurgentPawnsCount.ToString("F0");
 			TaggedString taggedString = "WVC_XaG_ThrallsBandwidthGizmoLabel".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + text + "\n\n" + "WVC_XaG_ThrallsBandwidthGizmoGizmoTip".Translate();

@@ -110,16 +110,6 @@ namespace WVC_XenotypesAndGenes
 				genesGizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, this);
 			}
 			yield return genesGizmo;
-			// yield return new Command_Action
-			// {
-				// defaultLabel = def.LabelCap,
-				// defaultDesc = "WVC_XaG_GeneGeneticThief_Desc".Translate(),
-				// icon = ContentFinder<Texture2D>.Get(def.iconPath),
-				// action = delegate
-				// {
-					// Find.WindowStack.Add(new Dialog_CreateChimera(this));
-				// }
-			// };
 			if (DebugSettings.ShowDevGizmos)
 			{
 				yield return new Command_Action
@@ -406,7 +396,7 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
 
-		public int nextDigest = 62556;
+		private int nextDigest = 62556;
 
 		public override void PostAdd()
 		{
@@ -416,8 +406,9 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Tick()
 		{
-			base.Tick();
-			if (!pawn.IsHashIntervalTick(nextDigest))
+			//base.Tick();
+			nextDigest--;
+			if (nextDigest > 0)
 			{
 				return;
 			}
@@ -430,6 +421,10 @@ namespace WVC_XenotypesAndGenes
 			if (Spawner != null)
 			{
 				nextDigest = Spawner.spawnIntervalRange.RandomInRange;
+			}
+			else
+            {
+				nextDigest = 60000;
 			}
 		}
 
@@ -465,13 +460,6 @@ namespace WVC_XenotypesAndGenes
 				SoundDef soundDef = Spawner.soundDef;
 				if (soundDef != null)
 				{
-					// SoundInfo info = SoundInfo.InMap(pawn, MaintenanceType.PerTick);
-					// info.pitchFactor = 1f;
-					// Sustainer sustainer = soundDef.TrySpawnSustainer(info);
-					// if (sustainer != null)
-					// {
-						// sustainer.Maintain();
-					// }
 					soundDef.PlayOneShot(new TargetInfo(pawn.Position, pawn.Map));
 				}
 			}
@@ -483,6 +471,7 @@ namespace WVC_XenotypesAndGenes
 			if (geneDefs.Where((GeneDef x) => !Chimera.AllGenes.Contains(x) && x.canGenerateInGeneSet && x.selectionWeight > 0f).TryRandomElementByWeight((GeneDef gene) => (1f + gene.selectionWeight * (gene.biostatArc != 0 ? 0.01f : 1f)) + (gene.prerequisite == Chimera.def && gene.GetModExtension<GeneExtension_General>() != null ? gene.GetModExtension<GeneExtension_General>().selectionWeight : 0f), out GeneDef result))
 			{
 				Chimera.AddGene(result);
+				Messages.Message("WVC_XaG_GeneGeneticThief_GeneCopied".Translate(pawn.NameShortColored, result.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
 			}
 		}
 

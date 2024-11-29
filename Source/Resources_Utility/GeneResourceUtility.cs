@@ -208,6 +208,20 @@ namespace WVC_XenotypesAndGenes
 			return !foodDisabled;
 		}
 
+		public static bool TryOffsetNeedFood(Pawn pawn, float offset, float minOffset = 0f)
+		{
+			if (pawn.TryGetFood(out Need_Food need_Food))
+			{
+                float value = Mathf.Clamp(need_Food.CurLevel + offset, 0f, need_Food.MaxLevel);
+				if (value > minOffset)
+				{
+					need_Food.CurLevel = value;
+					return true;
+				}
+			}
+			return false;
+		}
+
 		public static void OffsetNeedFood(Pawn pawn, float offset, bool alwaysMaxValue = false)
 		{
 			if (pawn.TryGetFood(out Need_Food need_Food))

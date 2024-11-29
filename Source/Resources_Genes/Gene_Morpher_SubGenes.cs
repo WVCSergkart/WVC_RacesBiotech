@@ -97,13 +97,13 @@ namespace WVC_XenotypesAndGenes
 		private int nextTick = 0;
 		private bool cachedBool = false;
 
-		private bool CacheableBool(int ticksTumeOut = 120)
+		private bool CacheableBool(int ticksTimeOut = 120)
 		{
 			nextTick--;
 			if (nextTick < 0)
 			{
 				cachedBool = !CanMorph();
-				nextTick = ticksTumeOut;
+				nextTick = ticksTimeOut;
 			}
 			return cachedBool;
 		}

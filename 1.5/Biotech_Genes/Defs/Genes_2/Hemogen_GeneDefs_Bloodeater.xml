@@ -75,6 +75,7 @@
 	  </prefixSymbols>
 	  <suffixSymbols>
 		<li><symbol>stomach</symbol></li>
+		<li><symbol>hunger</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
 	<exclusionTags>

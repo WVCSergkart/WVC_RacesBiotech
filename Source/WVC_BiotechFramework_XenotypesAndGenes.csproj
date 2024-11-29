@@ -121,7 +121,7 @@
     <Compile Include="Resources_Gizmo\Dialog_StylingShift.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ThrallMaker.cs" />
     <Compile Include="Resources_Gizmo\Dialog_XenotypesBase.cs" />
-    <Compile Include="Resources_Gizmo\GeneGizmo_ChimerasGenes.cs" />
+    <Compile Include="Resources_Gizmo\GeneGizmo_Chimera.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Dryads.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Golems.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Morpher.cs" />
@@ -139,7 +139,6 @@
     <Compile Include="Resources_Harmony\Harmony.cs" />
     <Compile Include="Resources_Harmony\Harmony_DisablePawnRelations.cs" />
     <Compile Include="Resources_Hediff\HediffCompProperties_PawnHaveWings.cs" />
-    <Compile Include="Resources_Hediff\HediffCompProperties_SuperRegeneration.cs" />
     <Compile Include="Resources_Hediff\HediffComp_ChangeXenotype.cs" />
     <Compile Include="Resources_Hediff\HediffComp_ParentGenes.cs" />
     <Compile Include="Resources_Hediff\HediffComp_RemoveIfGeneIsNotActive.cs" />
@@ -151,7 +150,7 @@
     <Compile Include="Resources_Hediff\Hediff_GestatedDryad.cs" />
     <Compile Include="Resources_Hediff\Hediff_Metabolism.cs" />
     <Compile Include="Resources_Hediff\Hediff_Scarshield.cs" />
-    <Compile Include="Resources_Hediff\OnlyOneOverseer.cs" />
+    <Compile Include="Resources_Hediff\HediffCompProperties_OnlyOneOverseer.cs" />
     <Compile Include="Resources_Main\Misc.cs" />
     <Compile Include="Resources_Main\StaticCollection.cs" />
     <Compile Include="Resources_PawnRenderNodes\PawnRenderNode_ColorableEyes.cs" />
@@ -236,7 +235,7 @@
     <Compile Include="Resources_Hediff\HediffCompProperties_Gestator.cs" />
     <Compile Include="Resources_Hediff\HediffComp_GolemGestator.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_GiveHediff.cs" />
-    <Compile Include="Resources_Hediff\SelfPopulationRegulation.cs" />
+    <Compile Include="Resources_Hediff\HediffCompProperties_InstantKill.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_Summon.cs" />
     <Compile Include="Resources_Quests\QuestNode_Root_MechanitorSummonMech.cs" />
     <Compile Include="Resources_ConditionalStatAffecter\ConditionalStatAffecter_BattleIsStarted.cs" />

@@ -109,6 +109,17 @@ namespace WVC_XenotypesAndGenes
 				Hediff hediff = HediffMaker.MakeHediff(Spawner.postGestationSickness, pawn);
 				pawn.health.AddHediff(hediff);
 			}
+			UpdHediff();
+		}
+
+		public void UpdHediff()
+		{
+			if (pawn.health.hediffSet.TryGetHediff(out HediffWithComps_DryadQueen hediff))
+            {
+				hediff.Recache();
+			}
+			//HediffUtility.TryRemoveHediff(Props.hediffDefName, pawn);
+			//HediffUtility.TryAddOrRemoveHediff(Props.hediffDefName, pawn, this, null);
 		}
 
 		public Pawn GenerateNewDryad(PawnKindDef dryadCaste)
@@ -199,6 +210,7 @@ namespace WVC_XenotypesAndGenes
 				pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Spawner.dryadDiedMemoryDef);
 			}
 			RemoveDryad(oldDryad);
+			UpdHediff();
 		}
 
 		private void ResetInterval()
@@ -296,13 +308,13 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostRemove();
 			KillConnectedDryads();
-			HediffUtility.TryAddOrRemoveHediff(Props.hediffDefName, pawn, this, null);
+			HediffUtility.TryRemoveHediff(Props.hediffDefName, pawn);
 		}
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
 		{
 			KillConnectedDryads();
-			HediffUtility.TryAddOrRemoveHediff(Props.hediffDefName, pawn, this, null);
+			HediffUtility.TryRemoveHediff(Props.hediffDefName, pawn);
 		}
 
 		public void Notify_Override()
@@ -319,6 +331,7 @@ namespace WVC_XenotypesAndGenes
 				dryads[i].Kill(null, null);
 				dryads[i].forceNoDeathNotification = false;
 			}
+			//UpdHediff();
 		}
 
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()

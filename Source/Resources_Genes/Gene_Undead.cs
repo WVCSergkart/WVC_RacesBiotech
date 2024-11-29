@@ -20,10 +20,24 @@ namespace WVC_XenotypesAndGenes
 		[Unsaved(false)]
 		private List<HediffDef> cachedPreventiveHediffs;
 
-		public bool UndeadCanResurrect => PawnCanResurrect();
+        public bool PawnCanResurrect
+		{
+            get
+			{
+				if (Giver.ignoreHediffs)
+				{
+					return base.Active;
+				}
+				if (!HediffUtility.HasAnyHediff(PreventResurrectionHediffs, pawn))
+				{
+					return base.Active;
+				}
+				return false;
+			}
+        }
 
-		// Getter
-		public List<HediffDef> PreventResurrectionHediffs
+        // Getter
+        public List<HediffDef> PreventResurrectionHediffs
 		{
 			get
 			{
@@ -35,36 +49,35 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		private bool PawnCanResurrect()
-		{
-			if (Giver.ignoreHediffs)
-			{
-				return base.Active;
-			}
-			if (!HediffUtility.HasAnyHediff(PreventResurrectionHediffs, pawn))
-			{
-				return base.Active;
-			}
-			return false;
-		}
+		//private bool PawnCanResurrect()
+		//{
+		//	if (Giver.ignoreHediffs)
+		//	{
+		//		return base.Active;
+		//	}
+		//	if (!HediffUtility.HasAnyHediff(PreventResurrectionHediffs, pawn))
+		//	{
+		//		return base.Active;
+		//	}
+		//	return false;
+		//}
 
 		public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
 		{
 			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, 
 			"WVC_XaG_Gene_DisplayStats_Undead_CanResurrect".Translate().CapitalizeFirst(),
-			PawnCanResurrect().ToString(), 
+			PawnCanResurrect.ToString(), 
 			"WVC_XaG_Gene_DisplayStats_Undead_CanResurrect_Desc".Translate()
 			+ "\n\n"
-			+ (PreventResurrectionHediffs != null ? ("WVC_XaG_Gene_DisplayStats_Undead_CanResurrectHediffs_Desc".Translate() + ":"
-			+ "\n"
-			+  PreventResurrectionHediffs.Select((HediffDef x) => x.label).ToLineList("	 - ", capitalizeItems: true)) : "WVC_XaG_Gene_DisplayStats_Undead_AlwaysResurrect_Desc".Translate()),
+			+ (PreventResurrectionHediffs != null ? ("WVC_XaG_Gene_DisplayStats_Undead_CanResurrectHediffs_Desc".Translate() + ":\n"
+			+  PreventResurrectionHediffs.Select((HediffDef x) => x.label).ToLineList("  - ", capitalizeItems: true)) : "WVC_XaG_Gene_DisplayStats_Undead_AlwaysResurrect_Desc".Translate()),
 			1100);
 		}
 
 		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
 		{
 			base.Notify_PawnDied(dinfo, culprit);
-			SetCorpse(PawnCanResurrect(), Giver.additionalDelay.RandomInRange);
+			SetCorpse(PawnCanResurrect, Giver.additionalDelay.RandomInRange);
 		}
 
 		public void SafeWorkSettings()

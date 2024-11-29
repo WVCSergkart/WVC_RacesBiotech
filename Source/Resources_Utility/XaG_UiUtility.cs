@@ -130,36 +130,36 @@ namespace WVC_XenotypesAndGenes
 			return text;
 		}
 
-		[Obsolete]
-		public static string AdditionalInfo_Gene(Gene gene)
-		{
-			string text = "";
-			if (gene is Gene_Undead undead)
-			{
-				if (undead.UndeadCanResurrect)
-				{
-					text += "\n\n" + "WVC_XaG_NewBack_GeneIsActive_Undead".Translate();
-				}
-				else if (undead.PreventResurrectionHediffs != null)
-				{
-					text += "\n\n" + "WVC_XaG_Gene_DisplayStats_Undead_CanResurrectHediffs_Desc".Translate() + ":"
-					+ "\n"
-					+ undead.PreventResurrectionHediffs.Select((HediffDef x) => x.label).ToLineList("  - ", capitalizeItems: true);
-				}
-			}
-			else if (gene is Gene_Reincarnation reincarnation)
-			{
-				if (reincarnation.ReincarnationActive())
-				{
-					text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive_UndeadReincarnate".Translate();
-				}
-			}
-			else if (gene is Gene_Scarifier scarifier)
-			{
-				text += "\n\n" + ("WVC_XaG_NewBack_GeneIsScarifier".Translate() + ": " + scarifier.cachedMaxScars.ToString());
-			}
-			return text.Colorize(ColoredText.SubtleGrayColor);
-		}
+		//[Obsolete]
+		//public static string AdditionalInfo_Gene(Gene gene)
+		//{
+		//	string text = "";
+		//	if (gene is Gene_Undead undead)
+		//	{
+		//		if (undead.UndeadCanResurrect)
+		//		{
+		//			text += "\n\n" + "WVC_XaG_NewBack_GeneIsActive_Undead".Translate();
+		//		}
+		//		else if (undead.PreventResurrectionHediffs != null)
+		//		{
+		//			text += "\n\n" + "WVC_XaG_Gene_DisplayStats_Undead_CanResurrectHediffs_Desc".Translate() + ":"
+		//			+ "\n"
+		//			+ undead.PreventResurrectionHediffs.Select((HediffDef x) => x.label).ToLineList("  - ", capitalizeItems: true);
+		//		}
+		//	}
+		//	else if (gene is Gene_Reincarnation reincarnation)
+		//	{
+		//		if (reincarnation.ReincarnationActive())
+		//		{
+		//			text += "\n\n" + "WVC_XaG_NewBack_GeneIsNotActive_UndeadReincarnate".Translate();
+		//		}
+		//	}
+		//	else if (gene is Gene_Scarifier scarifier)
+		//	{
+		//		text += "\n\n" + ("WVC_XaG_NewBack_GeneIsScarifier".Translate() + ": " + scarifier.cachedMaxScars.ToString());
+		//	}
+		//	return text.Colorize(ColoredText.SubtleGrayColor);
+		//}
 
 		public static void DrawGeneBasics(GeneDef gene, Rect geneRect, GeneType geneType, bool doBackground, bool clickable, bool overridden)
 		{

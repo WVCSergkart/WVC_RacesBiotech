@@ -177,7 +177,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void CompPostTick(ref float severityAdjustment)
 		{
-			base.CompPostTick(ref severityAdjustment);
+			//base.CompPostTick(ref severityAdjustment);
 			ticksCounter++;
 			if (Pawn.Map == null)
 			{

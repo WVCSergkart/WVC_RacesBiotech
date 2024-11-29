@@ -12,15 +12,15 @@
 	<!-- </comps> -->
   </HediffDef>
 
-  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_DryadQueen" Class="WVC_XenotypesAndGenes.XaG_HediffDef">
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_DryadQueen">
 	<defName>WVC_DryadQueen_MaxNutrition</defName>
-	<label>for each gestated dryad</label>
+	<label>dryad queen</label>
 	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_DryadQueen</hediffClass>
-	<statModifiers>
-	  <statOffsets>
-		<MaxNutrition>0.1</MaxNutrition>
-	  </statOffsets>
-	</statModifiers>
+	<!-- <statModifiers> -->
+	  <!-- <statOffsets> -->
+		<!-- <MaxNutrition>0.1</MaxNutrition> -->
+	  <!-- </statOffsets> -->
+	<!-- </statModifiers> -->
   </HediffDef>
 
   <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">

@@ -35,6 +35,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return 0f;
 			}
+			//Log.Error("QualityOffset");
 			return GetBirthQualityOffsetFromGenes(pawn);
 		}
 
@@ -50,14 +51,18 @@ namespace WVC_XenotypesAndGenes
 				return null;
 			}
 			float offset = GetBirthQualityOffsetFromGenes(pawn);
+			//Log.Error("GetDesc");
 			string text = ((offset < 0f) ? "" : "+");
 			return LabelForDesc.Formatted(pawn.Named("PAWN")) + ": " + "OutcomeBonusDesc_QualitySingleOffset".Translate(text + offset.ToStringPercent()) + ".";
 		}
 
 		// public override string GetDesc(LordJob_Ritual ritual = null, RitualOutcomeComp_Data data = null)
 		// {
-			// return null;
+		// return null;
 		// }
+
+		private int nextTick = 0;
+		private float offset = 0;
 
 		public override QualityFactor GetQualityFactor(Precept_Ritual ritual, TargetInfo ritualTarget, RitualObligation obligation, RitualRoleAssignments assignments, RitualOutcomeComp_Data data)
 		{
@@ -66,7 +71,13 @@ namespace WVC_XenotypesAndGenes
 			{
 				return null;
 			}
-			float offset = GetBirthQualityOffsetFromGenes(pawn);
+			//float offset = 0;
+			nextTick--;
+			if (nextTick < 0)
+			{
+				offset = GetBirthQualityOffsetFromGenes(pawn);
+				nextTick = 120;
+			}
 			if (offset == 0f)
 			{
 				return null;
@@ -120,6 +131,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				offest += general.birthQualityOffset;
 			}
+			//Log.Error("GetBirthQualityOffsetFromGenes");
 			return offest;
 		}
 

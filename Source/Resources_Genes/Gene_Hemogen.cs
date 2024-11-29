@@ -38,7 +38,7 @@ namespace WVC_XenotypesAndGenes
 
 		public Gene_Resource Resource => Hemogen;
 
-		public bool CanOffset
+		public virtual bool CanOffset
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public float ResourceLossPerDay => def.resourceLossPerDay;
+		public virtual float ResourceLossPerDay => def.resourceLossPerDay;
 
 		public Pawn Pawn => pawn;
 
@@ -132,52 +132,52 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 		
-		[Obsolete]
-		public static bool PawnHaveBloodHuntJob(Pawn pawn, Job job)
-		{
-			foreach (Job item in pawn.jobs.AllJobs().ToList())
-			{
-				if (item.def == job.def && item.ability == job.ability)
-				{
-					return true;
-				}
-			}
-			return false;
-		}
+		//[Obsolete]
+		//public static bool PawnHaveBloodHuntJob(Pawn pawn, Job job)
+		//{
+		//	foreach (Job item in pawn.jobs.AllJobs().ToList())
+		//	{
+		//		if (item.def == job.def && item.ability == job.ability)
+		//		{
+		//			return true;
+		//		}
+		//	}
+		//	return false;
+		//}
 
-		[Obsolete]
-		public static bool PawnReserved(List<Pawn> biters, Pawn victim, Pawn biter)
-		{
-			foreach (Pawn item in biters)
-			{
-				if (item == biter)
-				{
-					continue;
-				}
-				foreach (Job job in item.jobs.AllJobs().ToList())
-				{
-					if (job?.targetA.Pawn != null && job.targetA.Pawn == victim)
-					{
-						return true;
-					}
-				}
-			}
-			return false;
-		}
+		//[Obsolete]
+		//public static bool PawnReserved(List<Pawn> biters, Pawn victim, Pawn biter)
+		//{
+		//	foreach (Pawn item in biters)
+		//	{
+		//		if (item == biter)
+		//		{
+		//			continue;
+		//		}
+		//		foreach (Job job in item.jobs.AllJobs().ToList())
+		//		{
+		//			if (job?.targetA.Pawn != null && job.targetA.Pawn == victim)
+		//			{
+		//				return true;
+		//			}
+		//		}
+		//	}
+		//	return false;
+		//}
 
-		public static List<Pawn> GetAllBloodHuntersFromList(List<Pawn> pawns)
-		{
-			List<Pawn> hunters = new();
-			foreach (Pawn item in pawns.ToList())
-			{
-				if (item?.genes?.GetFirstGeneOfType<Gene_BloodHunter>() == null)
-				{
-					continue;
-				}
-				hunters.Add(item);
-			}
-			return hunters;
-		}
+		//public static List<Pawn> GetAllBloodHuntersFromList(List<Pawn> pawns)
+		//{
+		//	List<Pawn> hunters = new();
+		//	foreach (Pawn item in pawns.ToList())
+		//	{
+		//		if (item?.genes?.GetFirstGeneOfType<Gene_BloodHunter>() == null)
+		//		{
+		//			continue;
+		//		}
+		//		hunters.Add(item);
+		//	}
+		//	return hunters;
+		//}
 
 		// public static List<Pawn> GetAllBloodfeedPrisonersFromList(List<Pawn> pawns, bool removeFromList = true)
 		// {
@@ -225,7 +225,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			// Log.Error("3");
-			if (GeneUtility.PawnWouldDieFromReimplanting(pawn) || GeneUtility.PawnWouldDieFromReimplanting(victim))
+			if (GeneUtility.PawnWouldDieFromReimplanting(pawn))
 			{
 				return;
 			}
@@ -301,36 +301,14 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_HemogenicMetabolism : Gene_HemogenDependant, IGeneResourceDrain
+	public class Gene_HemogenicMetabolism : Gene_HemogenOffset
 	{
 
 		public bool consumeHemogen = false;
 
-		// public new float ResourceLossPerDay
-		// {
-			// get
-			// {
-				// if (consumeHemogen)
-				// {
-					// return def.resourceLossPerDay;
-				// }
-				// return 0f;
-			// }
-		// }
-
 		private float? cachedNutritionPerTick;
 
-		public Gene_Resource Resource => Hemogen;
-
-		public bool CanOffset
-		{
-			get
-			{
-				return Hemogen?.CanOffset == true;
-			}
-		}
-
-		public float ResourceLossPerDay
+		public override float ResourceLossPerDay
 		{
 			get
 			{
@@ -342,21 +320,13 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public Pawn Pawn => pawn;
-
-		public string DisplayLabel => Label + " (" + "Gene".Translate() + ")";
-
 		public override void Tick()
 		{
-			// base.Tick();
 			if (!consumeHemogen)
 			{
 				return;
 			}
-			if (pawn.IsHashIntervalTick(360))
-			{
-				GeneResourceUtility.TickHemogenDrain(this, 360, CanOffset);
-			}
+			base.Tick();
 			if (!pawn.IsHashIntervalTick(527))
 			{
 				return;
@@ -374,16 +344,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				cachedNutritionPerTick = 0.02f + (pawn.needs?.food != null ? pawn.needs.food.FoodFallPerTick : 0f);
 			}
-			GeneResourceUtility.OffsetNeedFood(pawn, cachedNutritionPerTick.Value);
-		}
-
-		public string Flick()
-		{
-			if (consumeHemogen)
+			if (!GeneResourceUtility.TryOffsetNeedFood(pawn, cachedNutritionPerTick.Value, 0.05f))
 			{
-				return "WVC_XaG_Gene_DustMechlink_On".Translate().Colorize(ColorLibrary.Green);
+				consumeHemogen = false;
 			}
-			return "WVC_XaG_Gene_DustMechlink_Off".Translate().Colorize(ColorLibrary.RedReadable);
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()
@@ -394,7 +358,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			yield return new Command_Action
 			{
-				defaultLabel = def.LabelCap + ": " + Flick(),
+				defaultLabel = def.LabelCap + ": " + XaG_UiUtility.OnOrOff(consumeHemogen),
 				defaultDesc = "WVC_XaG_Gene_HemogenicMetabolismDesc".Translate(),
 				icon = ContentFinder<Texture2D>.Get(def.iconPath),
 				action = delegate
