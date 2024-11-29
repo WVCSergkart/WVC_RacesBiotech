@@ -63,20 +63,20 @@
 	<defName>WVC_DeadStomach</defName>
 	<label>dead stomach</label>
 	<description>Carriers of this gene never experience hunger. They get the vitamins and nutrients the body needs differently.</description>
-	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_HungerlessStomach</geneClass> -->
+	<geneClass>WVC_XenotypesAndGenes.Gene_HungerlessStomach</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_DeadStomach_v0</iconPath>
 	<displayCategory>Archite</displayCategory>
 	<displayOrderInCategory>-4</displayOrderInCategory>
 	<biostatCpx>7</biostatCpx>
 	<biostatMet>-8</biostatMet>
 	<biostatArc>1</biostatArc>
-	<!-- <customEffectDescriptions> -->
-	  <!-- <li>Hunger rate factor x1%</li> -->
-	  <!-- <li>&lt;color=#8a8ae6&gt;Hunger bar is replenished over time.&lt;/color&gt;</li> -->
-	<!-- </customEffectDescriptions> -->
-	<disablesNeeds>
-	  <li>Food</li>
-	</disablesNeeds>
+	<customEffectDescriptions>
+	  <li>Hunger rate factor x1%</li>
+	  <li>&lt;color=#8a8ae6&gt;Hunger bar is replenished over time.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<!-- <disablesNeeds> -->
+	  <!-- <li>Food</li> -->
+	<!-- </disablesNeeds> -->
 	<makeImmuneTo>
 	  <li>GutWorms</li>
 	</makeImmuneTo>
