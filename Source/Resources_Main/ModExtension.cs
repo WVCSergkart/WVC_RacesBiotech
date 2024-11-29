@@ -175,6 +175,8 @@ namespace WVC_XenotypesAndGenes
 		public float birthQualityOffset = 0f;
 		//outcome
 		public List<XenotypeChance> xenotypeChances;
+		//Food
+		public bool isDustogenic = false;
 	}
 
 	public class GeneExtension_Graphic : DefModExtension

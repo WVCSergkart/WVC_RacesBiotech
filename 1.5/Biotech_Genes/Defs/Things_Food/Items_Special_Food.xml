@@ -70,13 +70,11 @@ Poisonous for non-dustogenic pawns.</description>
 		<!-- <glowColor>(241, 175, 129, 0)</glowColor> -->
 	  <!-- </li> -->
 	</comps>
-	<!-- <modExtensions> -->
-		<!-- <li Class="WVC_XenotypesAndGenes.FoodExtension_GeneFood"> -->
-			<!-- <geneDefs> -->
-			  <!-- <li>WVC_Dustogenic</li> -->
-			<!-- </geneDefs> -->
-		<!-- </li> -->
-	<!-- </modExtensions> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<isDustogenic>true</isDustogenic>
+		</li>
+	</modExtensions>
   </ThingDef>
 
   <!-- ========================================================== -->
@@ -106,6 +104,11 @@ Poisonous for non-dustogenic pawns.</description>
 	  <ingestSound>Meal_Eat</ingestSound>
 	</ingestible>
 	<allowedArchonexusCount>40</allowedArchonexusCount>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<isDustogenic>true</isDustogenic>
+		</li>
+	</modExtensions>
   </ThingDef>
 
   <ThingDef ParentName="WVC_XenotypesAndGenes_SpecialMeal_Base">

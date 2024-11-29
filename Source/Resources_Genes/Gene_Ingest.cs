@@ -13,7 +13,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_FoodEfficiency : Gene
 	{
 
-		public GeneExtension_Undead Undead => def?.GetModExtension<GeneExtension_Undead>();
+		//public GeneExtension_Undead Undead => def?.GetModExtension<GeneExtension_Undead>();
 
 		public override void Notify_IngestedThing(Thing thing, int numTaken)
 		{
@@ -21,17 +21,20 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			base.Notify_IngestedThing(thing, numTaken);
-			if (Undead != null && Undead.specialFoodDefs.Contains(thing.def))
+			//base.Notify_IngestedThing(thing, numTaken);
+			//if (Undead != null && Undead.specialFoodDefs.Contains(thing.def))
+			//{
+			//	return;
+			//}
+			IngestibleProperties ingestible = thing.def?.ingestible;
+            if (ingestible == null)
+            {
+                return;
+            }
+            float nutrition = ingestible.CachedNutrition;
+			if (nutrition > 0f)
 			{
-				return;
-			}
-			IngestibleProperties ingestible = thing.def.ingestible;
-			// thing.def.ingestible.CachedNutrition
-			float nutrition = ingestible.CachedNutrition;
-			if (ingestible != null && nutrition > 0f)
-			{
-				GeneResourceUtility.OffsetNeedFood(pawn, (-1f * def.resourceLossPerDay) * nutrition * (float)numTaken);
+				GeneResourceUtility.OffsetNeedFood(pawn, (-1f * def.resourceLossPerDay) * nutrition * numTaken);
 			}
 		}
 
@@ -44,47 +47,108 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Dustogenic : Gene
+	public class Gene_Dustogenic : Gene, IGeneRemoteControl
 	{
+		public string RemoteActionName => XaG_UiUtility.OnOrOff(autoFeed);
 
-		public GeneExtension_Undead Undead => def?.GetModExtension<GeneExtension_Undead>();
+		public string RemoteActionDesc => "WVC_XaG_RemoteControlDustogenicDesc".Translate();
 
-		public override bool Active
+		public void RemoteControl()
+		{
+			autoFeed = !autoFeed;
+		}
+
+		public bool autoFeed = true;
+
+		public bool Enabled
 		{
 			get
 			{
-				if (!foodNeedDisbled)
-				{
-					return base.Active;
-				}
-				return false;
+				return enabled;
 			}
-		}
-
-		public bool foodNeedDisbled = false;
-
-		public override void ExposeData()
-		{
-			base.ExposeData();
-			if (Scribe.mode == LoadSaveMode.PostLoadInit)
+			set
 			{
-				foodNeedDisbled = pawn.needs?.food == null;
+				enabled = value;
 			}
 		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			XaG_UiUtility.ResetAllRemoteControllers(ref cachedRemoteControlGenes);
+		}
+
+		public void RecacheGenes()
+		{
+			XaG_UiUtility.RecacheRemoteController(pawn, ref cachedRemoteControlGenes, ref enabled);
+		}
+
+		public bool enabled = true;
+
+		public void RemoteControl_Recache()
+		{
+			RecacheGenes();
+		}
+
+		[Unsaved(false)]
+		private List<IGeneRemoteControl> cachedRemoteControlGenes;
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (enabled)
+			{
+				return XaG_UiUtility.GetRemoteControllerGizmo(pawn, this, cachedRemoteControlGenes);
+			}
+			return null;
+		}
+
+
+		//===========
+
+		public GeneExtension_Undead Undead => def?.GetModExtension<GeneExtension_Undead>();
+
+		//public override bool Active
+		//{
+		//	get
+		//	{
+		//		if (!foodNeedDisbled)
+		//		{
+		//			return base.Active;
+		//		}
+		//		return false;
+		//	}
+		//}
+
+		//public bool foodNeedDisbled = false;
+
+		//public override void ExposeData()
+		//{
+		//	base.ExposeData();
+		//	Scribe_Values.Look(ref autoFeed, "autoFeed", defaultValue: true);
+		//	if (Scribe.mode == LoadSaveMode.PostLoadInit)
+		//	{
+		//		foodNeedDisbled = pawn.needs?.food == null;
+		//	}
+		//}
+
+		private int nextTick = 539;
 
 		public override void Tick()
 		{
-			base.Tick();
-			if (!pawn.IsHashIntervalTick(539))
+			//base.Tick();
+			if (!autoFeed)
 			{
 				return;
 			}
-			// if (!WVC_Biotech.settings.useAlternativeDustogenicFoodJob)
-			// {
-			// return;
-			// }
+			nextTick--;
+			if (nextTick > 0)
+			{
+				return;
+			}
+			nextTick = 539;
 			if (!pawn.TryGetFood(out Need_Food food))
 			{
+				autoFeed = false;
 				return;
 			}
 			if (food.CurLevelPercentage >= pawn.RaceProps.FoodLevelPercentageWantEat + 0.12f)
@@ -99,23 +163,66 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (pawn.Downed || pawn.Drafted || !pawn.Awake())
 			{
+				nextTick = 900;
 				return;
 			}
-			for (int j = 0; j < Undead.specialFoodDefs.Count; j++)
+			//for (int j = 0; j < Undead.specialFoodDefs.Count; j++)
+			//{
+			//	Thing specialFood = MiscUtility.GetSpecialFood(pawn, Undead.specialFoodDefs[j]);
+			//	if (specialFood == null)
+			//	{
+			//		continue;
+			//	}
+			//	if (!PawnHaveIngestJob(pawn))
+			//	{
+			//		Job job = JobMaker.MakeJob(JobDefOf.Ingest, specialFood);
+			//		job.count = 1;
+			//		pawn.TryTakeOrderedJob(job, JobTag.SatisfyingNeeds, MiscUtility.PawnDoIngestJob(pawn));
+			//	}
+			//	break;
+			//}
+			Thing specialFood = GetDustFood(pawn);
+			if (specialFood == null)
 			{
-				Thing specialFood = MiscUtility.GetSpecialFood(pawn, Undead.specialFoodDefs[j]);
-				if (specialFood == null)
-				{
-					continue;
-				}
-				if (!PawnHaveIngestJob(pawn))
-				{
-					Job job = JobMaker.MakeJob(JobDefOf.Ingest, specialFood);
-					job.count = 1;
-					pawn.TryTakeOrderedJob(job, JobTag.SatisfyingNeeds, MiscUtility.PawnDoIngestJob(pawn));
-				}
-				break;
+				nextTick = 900;
+				return;
 			}
+			if (!PawnHaveIngestJob(pawn))
+			{
+				Job job = JobMaker.MakeJob(JobDefOf.Ingest, specialFood);
+				job.count = 1;
+				pawn.TryTakeOrderedJob(job, JobTag.SatisfyingNeeds, MiscUtility.PawnDoIngestJob(pawn));
+			}
+		}
+
+		public static Thing GetDustFood(Pawn pawn)
+		{
+			Thing carriedThing = pawn.carryTracker.CarriedThing;
+			if (carriedThing != null && carriedThing.IsDustogenicFood())
+			{
+				return carriedThing;
+			}
+			for (int i = 0; i < pawn.inventory.innerContainer.Count; i++)
+			{
+				if (pawn.inventory.innerContainer[i].IsDustogenicFood())
+				{
+					return pawn.inventory.innerContainer[i];
+				}
+			}
+			return GetBestDustFoodStack(pawn, false);
+		}
+
+		public static Thing GetBestDustFoodStack(Pawn pawn, bool forced)
+		{
+			Danger danger = (forced ? Danger.Deadly : Danger.Some);
+			return (Thing)GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForGroup(ThingRequestGroup.FoodSourceNotPlantOrTree), PathEndMode.Touch, TraverseParms.For(pawn, danger), 9999f, delegate (Thing thing)
+			{
+				if (!pawn.CanReach(thing, PathEndMode.InteractionCell, danger))
+				{
+					return false;
+				}
+				return !thing.IsForbidden(pawn) && pawn.CanReserve(thing, 1, -1, null, forced) && thing.IsDustogenicFood();
+			});
 		}
 
 		public bool PawnHaveIngestJob(Pawn pawn)
@@ -126,7 +233,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					continue;
 				}
-				if (item.targetA.Thing != null && Undead.specialFoodDefs.Contains(item.targetA.Thing.def))
+				if (item.targetA.Thing.IsDustogenicFood())
 				{
 					// continue;
 					return true;
@@ -150,7 +257,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			for (int j = 0; j < things.Count; j++)
 			{
-				if (!Undead.specialFoodDefs.Contains(things[j].def))
+				if (!things[j].IsDustogenicFood())
 				{
 					continue;
 				}
@@ -169,8 +276,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			base.Notify_IngestedThing(thing, numTaken);
-			if (Undead.specialFoodDefs.Contains(thing.def) || GeneResourceUtility.PawnDowned(pawn))
+			//base.Notify_IngestedThing(thing, numTaken);
+			if (thing.IsDustogenicFood() || GeneResourceUtility.PawnDowned(pawn))
 			{
 				GeneResourceUtility.OffsetNeedFood(pawn, 10.0f, true);
 				MiscUtility.TryFinalizeAllIngestJobs(pawn);

@@ -233,6 +233,15 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		public static bool IsDustogenicFood(this Thing thing)
+		{
+			if (thing?.def?.ingestible == null)
+			{
+				return false;
+			}
+			return thing.def.GetModExtension<GeneExtension_General>()?.isDustogenic == true;
+		}
+
 		// Shape
 
 		public static void Notify_PreShapeshift(Gene_Shapeshifter shapeshiftGene)

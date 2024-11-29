@@ -769,14 +769,23 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_RemoteControlBasicDesc>This gene responds to the neural activity of the carrier and can change in relation to current desires.</WVC_XaG_RemoteControlBasicDesc>
 
-	<WVC_XaG_RemoteControlEnergyDesc>This gene responds to the neural activity of the carrier and its activity can be suppressed by willpower.</WVC_XaG_RemoteControlEnergyDesc>
+	<!-- <WVC_XaG_RemoteControlEnergyDesc>This gene responds to the neural activity of the carrier and its activity can be suppressed by willpower.</WVC_XaG_RemoteControlEnergyDesc> -->
+
+	<!-- <WVC_XaG_RemoteActive>Active</WVC_XaG_RemoteActive> -->
+	<!-- <WVC_XaG_RemoteDeActive>Deactive</WVC_XaG_RemoteDeActive> -->
 
 	<!-- <WVC_OnOrOff>On/Off</WVC_OnOrOff> -->
 	<WVC_Color>Color</WVC_Color>
 	<WVC_XaG_GenesSettings>Genes settings</WVC_XaG_GenesSettings>
 	<WVC_XaG_GenesSettingsDesc>Allows you to control genes. For example, change the color of the holoeyes, turn on or off auto feed for the bloodeater, switch the wing mode, etc. If the gene allows you to change some internal settings, then it is most likely in this list.</WVC_XaG_GenesSettingsDesc>
 
-	<WVC_XaG_RemoteControlBloodeaterDesc>If off, then pawn with the bloodEATer gene will not automatically bite colonists</WVC_XaG_RemoteControlBloodeaterDesc>
+	<WVC_XaG_RemoteControlBloodeaterDesc>If off, then pawn with the bloodEATer gene will not automatically bite colonists.</WVC_XaG_RemoteControlBloodeaterDesc>
+
+	<WVC_XaG_RemoteControlChargerDesc>If on, the pawn will try to use charger instead of food whenever possible.</WVC_XaG_RemoteControlChargerDesc>
+
+	<WVC_XaG_RemoteControlGeneMakerDesc>If on, genemaker will slowly generate genepacks.</WVC_XaG_RemoteControlGeneMakerDesc>
+
+	<WVC_XaG_RemoteControlDustogenicDesc>If on, the pawn will prefer dustogenic food and will take it whenever possible.</WVC_XaG_RemoteControlDustogenicDesc>
 
 	<!-- =============== QUEST = ANOMALY LOOP =============== -->
 

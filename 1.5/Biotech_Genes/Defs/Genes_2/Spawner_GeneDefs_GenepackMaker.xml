@@ -17,10 +17,11 @@
 	<biostatArc>2</biostatArc>
 	<biostatCpx>0</biostatCpx>
 	<customEffectDescriptions>
-		<li>Every (*DateTime)5-9 days(/DateTime) a &lt;color=#8a8ae6&gt;genepack&lt;/color&gt; spawns containing one &lt;color=#8a8ae6&gt;random gene&lt;/color&gt; of the carrier or a &lt;color=#8a8ae6&gt;xenotype&lt;/color&gt; 40% similar to it.</li>
+		<li>Every (*DateTime)5-9 days(/DateTime) a &lt;color=#8a8ae6&gt;genepack&lt;/color&gt; spawns containing one &lt;color=#8a8ae6&gt;random gene&lt;/color&gt; of the carrier or a &lt;color=#8a8ae6&gt;xenotype&lt;/color&gt; 80% similar to it.</li>
 		<li>After spawning, the carrier receives (*DateTime)4-6 days(/DateTime) of &lt;color=#8a8ae6&gt;genes regrowing&lt;/color&gt;.</li>
-		<li>&lt;color=#ffec85&gt;Support custom xenotypes.&lt;/color&gt;</li>
-		<li>&lt;color=#ff8585&gt;Effect cannot be disabled.&lt;/color&gt;</li>
+		<li>&lt;color=#ffec85&gt;Turns on manually.&lt;/color&gt;</li>
+		<!-- <li>&lt;color=#ffec85&gt;Support custom xenotypes.&lt;/color&gt;</li> -->
+		<!-- <li>&lt;color=#ff8585&gt;Effect cannot be disabled.&lt;/color&gt;</li> -->
 	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>
@@ -35,7 +36,7 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
 			<spawnIntervalRange><min>300000</min><max>900000</max></spawnIntervalRange>
-			<matchPercent>0.4</matchPercent>
+			<matchPercent>0.8</matchPercent>
 			<durationIntervalRange><min>240000</min><max>360000</max></durationIntervalRange>
 			<styleDef MayRequire="ludeon.rimworld.ideology">WVC_XaG_GenepackCrystal</styleDef>
 		</li>

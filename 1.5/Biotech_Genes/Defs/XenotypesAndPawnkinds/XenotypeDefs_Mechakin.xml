@@ -10,7 +10,7 @@
 
 &lt;color=#f5ffa2&gt;Gameplay Effect (Genes):&lt;/color&gt; By default, the xenotype inherits from the &lt;color=#8a8ae6&gt;Blankind&lt;/color&gt; xenotype and receives all its advantages and &lt;color=#8a8ae6&gt;disadvantages&lt;/color&gt;. Take this fact into account.
 
-&lt;color=#f5ffa2&gt;Gameplay Effect (Food):&lt;/color&gt; This xenotype requires charging at special stations instead of food. &lt;color=#8a8ae6&gt;Any food will cause poisoning&lt;/color&gt;.</description>
+&lt;color=#f5ffa2&gt;Gameplay Effect (Food):&lt;/color&gt; Instead of food, it can be charged at charging stations.</description>
 	<descriptionShort>Mechakins are ageless, deathless super-humans powered by archotech-created archites in the bloodstream. They are able to withstand the most extreme temperatures, their skin is incredibly durable, and they never experience a nervous breakdown. They do not suffer from disease or poison. In combat, they can use their deadly scythe tail. The price is that they are very poorly trained and practically cannot master new skills.</descriptionShort>
 	<descriptionHyperlinks>
 	  <ThingDef>WVC_GeneRecharger</ThingDef>

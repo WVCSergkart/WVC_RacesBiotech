@@ -9,46 +9,58 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Genemaker : Gene, IGeneInspectInfo
+	public class Gene_Genemaker : Gene, IGeneInspectInfo, IGeneRemoteControl
 	{
+		public string RemoteActionName => XaG_UiUtility.OnOrOff(spawnGenepack);
+
+		public string RemoteActionDesc => "WVC_XaG_RemoteControlGeneMakerDesc".Translate();
+
+		public void RemoteControl()
+		{
+			spawnGenepack = !spawnGenepack;
+		}
+
+		public bool spawnGenepack = false;
+
+		public bool Enabled
+		{
+			get
+			{
+				return enabled;
+			}
+			set
+			{
+				enabled = value;
+			}
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			XaG_UiUtility.ResetAllRemoteControllers(ref cachedRemoteControlGenes);
+		}
+
+		public void RecacheGenes()
+		{
+			XaG_UiUtility.RecacheRemoteController(pawn, ref cachedRemoteControlGenes, ref enabled);
+		}
+
+		public bool enabled = true;
+
+		public void RemoteControl_Recache()
+		{
+			RecacheGenes();
+		}
+
+		[Unsaved(false)]
+		private List<IGeneRemoteControl> cachedRemoteControlGenes;
+
+
+		//===========
 
 		public GeneExtension_Spawner Props => def.GetModExtension<GeneExtension_Spawner>();
 
 		public int ticksUntilSpawn;
-
-  //      public string RemoteActionName
-  //      {
-  //          get
-  //          {
-  //              if (isActive)
-  //              {
-  //                  return "WVC_XaG_Gene_DustMechlink_On".Translate();
-  //              }
-  //              return "WVC_XaG_Gene_DustMechlink_Off".Translate();
-  //          }
-		//}
-
-  //      public string RemoteActionDesc => "WVC_XaG_RemoteControlEnergyDesc".Translate();
-
-  //      public override bool Active
-		//{
-		//	get
-		//	{
-		//		if (!isActive)
-  //              {
-		//			return false;
-  //              }
-		//		return base.Active;
-		//	}
-		//}
-
-		//private bool isActive = true;
-
-		//public void RemoteÑontrol()
-  //      {
-  //          isActive = !isActive;
-		//	XaG_GeneUtility.Notify_GenesChanged(pawn);
-  //      }
 
         public override void PostAdd()
 		{
@@ -58,7 +70,11 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Tick()
 		{
-			base.Tick();
+			//base.Tick();
+			if (!spawnGenepack)
+			{
+				return;
+			}
 			ticksUntilSpawn--;
 			if (ticksUntilSpawn > 0)
 			{
@@ -98,6 +114,13 @@ namespace WVC_XenotypesAndGenes
 						ResetInterval();
 					}
 				};
+			}
+			if (enabled)
+			{
+				foreach (Gizmo gizmo in XaG_UiUtility.GetRemoteControllerGizmo(pawn, this, cachedRemoteControlGenes))
+				{
+					yield return gizmo;
+				}
 			}
 		}
 
@@ -180,7 +203,7 @@ namespace WVC_XenotypesAndGenes
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			//Scribe_Values.Look(ref isActive, "isActive", defaultValue: true);
+			Scribe_Values.Look(ref spawnGenepack, "spawnGenepack", defaultValue: false);
 			Scribe_Values.Look(ref ticksUntilSpawn, "ticksToSpawnThing", 0);
 		}
 
@@ -188,6 +211,10 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
+				if (!spawnGenepack)
+				{
+					return null;
+				}
 				if (pawn.Drafted)
 				{
 					return null;

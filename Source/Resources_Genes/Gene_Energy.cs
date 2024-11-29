@@ -11,52 +11,68 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Rechargeable : Gene
+	public class Gene_Rechargeable : Gene, IGeneRemoteControl
 	{
+		public string RemoteActionName => XaG_UiUtility.OnOrOff(autoFeed);
 
-		//public override bool Active
-		//{
-		//	get
-		//	{
-		//		if (!isActive)
-		//		{
-		//			return false;
-		//		}
-		//		return base.Active;
-		//	}
-		//}
+		public string RemoteActionDesc => "WVC_XaG_RemoteControlChargerDesc".Translate();
 
-		//private bool isActive = true;
+		public void RemoteControl()
+		{
+			autoFeed = !autoFeed;
+		}
 
-		//public void RemoteÑontrol()
-		//{
-		//	isActive = !isActive;
-		//	XaG_GeneUtility.Notify_GenesChanged(pawn);
-		//}
+		public bool autoFeed = true;
 
-  //      public string RemoteActionName
-  //      {
-  //          get
-  //          {
-  //              if (isActive)
-  //              {
-  //                  return "WVC_XaG_Gene_DustMechlink_On".Translate();
-  //              }
-  //              return "WVC_XaG_Gene_DustMechlink_Off".Translate();
-  //          }
-		//}
+		public bool Enabled
+		{
+			get
+			{
+				return enabled;
+			}
+			set
+			{
+				enabled = value;
+			}
+		}
 
-  //      public string RemoteActionDesc => "WVC_XaG_RemoteControlEnergyDesc".Translate();
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			XaG_UiUtility.ResetAllRemoteControllers(ref cachedRemoteControlGenes);
+		}
 
-        public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
+		public void RecacheGenes()
+		{
+			XaG_UiUtility.RecacheRemoteController(pawn, ref cachedRemoteControlGenes, ref enabled);
+		}
+
+		public bool enabled = true;
+
+		public void RemoteControl_Recache()
+		{
+			RecacheGenes();
+		}
+
+		[Unsaved(false)]
+		private List<IGeneRemoteControl> cachedRemoteControlGenes;
+
+
+		//===========
+
+		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
 
 		public GeneExtension_Opinion Opinion => def?.GetModExtension<GeneExtension_Opinion>();
 
         public Building_XenoCharger currentCharger;
 
 		public override void Tick()
-        {
-            if (!pawn.IsHashIntervalTick(2301))
+		{
+			if (!autoFeed)
+			{
+				return;
+			}
+			if (!pawn.IsHashIntervalTick(2301))
             {
                 return;
 			}
@@ -109,6 +125,13 @@ namespace WVC_XenotypesAndGenes
 						}
 					}
 				};
+			}
+			if (enabled)
+			{
+				foreach (Gizmo gizmo in XaG_UiUtility.GetRemoteControllerGizmo(pawn, this, cachedRemoteControlGenes))
+				{
+					yield return gizmo;
+				}
 			}
 		}
 
@@ -197,7 +220,7 @@ namespace WVC_XenotypesAndGenes
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			//Scribe_Values.Look(ref isActive, "isActive", defaultValue: true);
+			Scribe_Values.Look(ref autoFeed, "autoFeed", defaultValue: true);
 			Scribe_References.Look(ref currentCharger, "currentCharger");
 		}
 
