@@ -4,22 +4,22 @@
   <ThoughtDef>
 	<defName>WVC_IngestedNutrientsInjector</defName>
 	<thoughtClass>Thought_Memory</thoughtClass>
-	<durationDays>3</durationDays>
+	<durationDays>2</durationDays>
 	<stackLimit>5</stackLimit>
-	<nullifyingTraits>
-	  <li>Transhumanist</li>
-	</nullifyingTraits>
+	<!-- <nullifyingTraits> -->
+	  <!-- <li>Transhumanist</li> -->
+	<!-- </nullifyingTraits> -->
 	<nullifyingGenes>
 	  <li>WVC_Dustogenic</li>
 	</nullifyingGenes>
-	<nullifyingPrecepts>
-	  <li MayRequire="Ludeon.RimWorld.Ideology">NutrientPasteEating_DontMind</li>
-	</nullifyingPrecepts>
+	<!-- <nullifyingPrecepts> -->
+	  <!-- <li MayRequire="Ludeon.RimWorld.Ideology">NutrientPasteEating_DontMind</li> -->
+	<!-- </nullifyingPrecepts> -->
 	<stages>
 	  <li>
-		<label>ingested dust food</label>
-		<description>I ingested a dustogenic food. It may be nutritious, but it is completely tasteless.</description>
-		<baseMoodEffect>-8</baseMoodEffect>
+		<label>ingested dustogenic food</label>
+		<description>I ingested a dustogenic food. It may be nutritious, but it tastes indescribably terrible.</description>
+		<baseMoodEffect>-5</baseMoodEffect>
 	  </li>
 	</stages>
   </ThoughtDef>

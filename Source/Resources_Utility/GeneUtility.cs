@@ -244,6 +244,14 @@ namespace WVC_XenotypesAndGenes
 
 		// ============================= Anti-Bug =============================
 
+		public static void Debug_ImplantAllGenes(Pawn pawn, List<GeneDef> geneDefs)
+		{
+			foreach (GeneDef geneDef in geneDefs)
+			{
+				pawn.genes.AddGene(geneDef, true);
+			}
+		}
+
 		public static XenotypeDef GetRandomXenotypeFromList(List<XenotypeDef> xenotypeDefs, List<XenotypeDef> exclude)
 		{
 			XenotypeDef xenotypeDef = null;
