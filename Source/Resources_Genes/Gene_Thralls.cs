@@ -47,6 +47,11 @@ namespace WVC_XenotypesAndGenes
 			cachedShouldDraw = null;
 		}
 
+		public void ThrallMakerDialog()
+		{
+			Find.WindowStack.Add(new Dialog_ThrallMaker(this));
+		}
+
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
 			if (XaG_GeneUtility.SelectorDraftedActiveFactionMap(pawn, this))
@@ -60,7 +65,7 @@ namespace WVC_XenotypesAndGenes
 				icon = ContentFinder<Texture2D>.Get(def.iconPath),
 				action = delegate
 				{
-					Find.WindowStack.Add(new Dialog_ThrallMaker(this));
+					ThrallMakerDialog();
 				}
 			};
 			if (ShouldDrawGizmo)

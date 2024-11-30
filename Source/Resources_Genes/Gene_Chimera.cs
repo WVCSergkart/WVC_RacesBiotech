@@ -314,6 +314,9 @@ namespace WVC_XenotypesAndGenes
 				}
 				pawn.health.RemoveHediff(firstHediffOfDef);
 			}
+			//int architeCount = implantedGenes.Where((geneDef) => geneDef.biostatArc != 0).ToList().Count;
+			//int nonArchiteCount = implantedGenes.Count - architeCount;
+			//int count = nonArchiteCount + (architeCount * 2);
 			int count = (implantedGenes.Count + 1) * 180000;
 			ReimplanterUtility.XenogermReplicating_WithCustomDuration(pawn, new((int)(count * 0.8f), (int)(count * 1.1f)));
 			// pawn.health.AddHediff(HediffDefOf.XenogermReplicating);

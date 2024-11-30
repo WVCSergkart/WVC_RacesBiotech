@@ -961,7 +961,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			return xenotypeDef.genes.Any((GeneDef geneDef) => geneDef.biostatArc > 0);
+			return xenotypeDef.genes.Any((GeneDef geneDef) => geneDef.biostatArc != 0);
 		}
 
 		// XaG test

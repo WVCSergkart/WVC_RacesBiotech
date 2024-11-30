@@ -10,7 +10,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_DryadQueen_Dependant : Gene
+	public class Gene_DryadQueen_Dependant : Gene, IGeneDryadQueen
 	{
 
 		[Unsaved(false)]
@@ -26,6 +26,11 @@ namespace WVC_XenotypesAndGenes
 				}
 				return cachedDryadsQueenGene;
 			}
+		}
+
+		public virtual void Notify_DryadSpawned(Pawn dryad)
+		{
+
 		}
 
 	}
@@ -67,12 +72,12 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_GauranlenDryads_AddPermanentHediff : Gene_DryadQueen_Dependant, IGeneDryadQueen
+	public class Gene_GauranlenDryads_AddPermanentHediff : Gene_DryadQueen_Dependant
 	{
 
 		public GeneExtension_Giver Props => def.GetModExtension<GeneExtension_Giver>();
 
-		public void Notify_DryadSpawned(Pawn dryad)
+		public override void Notify_DryadSpawned(Pawn dryad)
 		{
 			HediffUtility.TryAddHediff(Props.hediffDefName, dryad, null, null, false);
 		}

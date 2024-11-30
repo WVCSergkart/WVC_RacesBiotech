@@ -228,7 +228,16 @@ namespace WVC_XenotypesAndGenes
 				// }
 				Pawn innerPawn = corpse.InnerPawn;
 				MutantDef mutantDef = thrallDef?.mutantDef;
-				if (!innerPawn.IsHuman() || thrallDef == null || innerPawn.IsMutant && !innerPawn.IsMutantOfDef(mutantDef))
+				if (thrallDef == null)
+				{
+					if (throwMessages)
+					{
+						ReimplanterGene?.ThrallMakerDialog();
+						Messages.Message("WVC_XaG_ThrallMakerNonThrallSelected".Translate(), innerPawn, MessageTypeDefOf.RejectInput, historical: false);
+					}
+					return false;
+				}
+				if (!innerPawn.IsHuman() || innerPawn.IsMutant && !innerPawn.IsMutantOfDef(mutantDef))
 				{
 					if (throwMessages)
 					{
