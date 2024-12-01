@@ -11,6 +11,7 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		public List<XenotypeChance> xenotypeChances = new();
+        public List<XenotypeDef> allowedXenotypes = new();
         public List<GeneDef> geneDefs = new();
         public bool addMechlink = false;
         public bool nullifyBackstory = false;
@@ -39,7 +40,9 @@ namespace WVC_XenotypesAndGenes
             foreach (GeneDef geneDef in chimeraGeneDefs)
             {
                 chimera.AddGene(geneDef);
+                p.genes.AddGene(geneDef, true);
             }
+            chimera.UpdateMetabolism();
         }
 
         private void SetGenes(Pawn p)
@@ -85,7 +88,7 @@ namespace WVC_XenotypesAndGenes
             {
                 xenotypes.Add(xenoChance.xenotype);
             }
-            if (xenotypes.Contains(p.genes.Xenotype))
+            if (xenotypes.Contains(p.genes.Xenotype) || !allowedXenotypes.NullOrEmpty() && allowedXenotypes.Contains(p.genes.Xenotype))
             {
                 return;
             }
@@ -101,7 +104,7 @@ namespace WVC_XenotypesAndGenes
             {
                 return base.Summary(scen);
             }
-            return "WVC_AllowedXenotypes".Translate().CapitalizeFirst() + ":\n" + xenotypeChances.Select((XenotypeChance x) => x.xenotype.LabelCap.ToString()).ToLineList(" - ");
+            return "WVC_AllowedXenotypes".Translate().CapitalizeFirst() + ":\n" + xenotypeChances.Select((XenotypeChance x) => x.xenotype.LabelCap.ToString()).ToLineList(" - ") + (!allowedXenotypes.NullOrEmpty() ? "\n" + allowedXenotypes.Select((XenotypeDef x) => x.LabelCap.ToString()).ToLineList(" - ") : "");
         }
 
     }

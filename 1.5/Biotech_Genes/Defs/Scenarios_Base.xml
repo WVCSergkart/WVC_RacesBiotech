@@ -62,11 +62,15 @@
 		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
 		  <def>WVC_XaG_Starting</def>
 		  <xenotypeChances>
-			<WVC_Lilith MayRequire="ludeon.rimworld.royalty">0.35</WVC_Lilith>
-			<WVC_CatDeity MayRequire="ludeon.rimworld.royalty">0.35</WVC_CatDeity>
-			<WVC_Sandycat>0.35</WVC_Sandycat>
-			<WVC_Blank>0.30</WVC_Blank>
+			<WVC_Blank>1.0</WVC_Blank>
 		  </xenotypeChances>
+		  <allowedXenotypes>
+			<li>WVC_Sandycat</li>
+			<li MayRequire="ludeon.rimworld.royalty">WVC_Lilith</li>
+			<li MayRequire="ludeon.rimworld.royalty">WVC_CatDeity</li>
+			<li>WVC_Bloodeater</li>
+			<li>WVC_Shadoweater</li>
+		  </allowedXenotypes>
 		  <context>PlayerStarter</context>
 		</li>
 
@@ -177,10 +181,22 @@
 		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
 		  <def>WVC_XaG_Starting</def>
 		  <xenotypeChances>
-			<WVC_Meca>0.5</WVC_Meca>
-			<WVC_GeneThrower>0.35</WVC_GeneThrower>
-			<WVC_RogueFormer>0.15</WVC_RogueFormer>
+			<WVC_Meca>1.0</WVC_Meca>
+			<WVC_GeneThrower>0.2</WVC_GeneThrower>
+			<!-- <WVC_RogueFormer>0.15</WVC_RogueFormer> -->
 		  </xenotypeChances>
+		  <allowedXenotypes>
+			<li>WVC_RogueFormer</li>
+			<li>WVC_Shadoweater</li>
+		  </allowedXenotypes>
+		  <chimeraGeneDefs>
+			<li>WVC_CyberSkin</li>
+			<li>WVC_MechaPowerSource_Unstable</li>
+			<li>WVC_HairColor_Slate</li>
+			<li>Skin_SheerWhite</li>
+			<li>WVC_HeadBoneCurveHorns</li>
+			<!-- <li>WVC_SkinColor_Metal</li> -->
+		  </chimeraGeneDefs>
 		  <context>PlayerStarter</context>
 		</li>
 
@@ -285,6 +301,16 @@
 			<WVC_RuneDryad>0.5</WVC_RuneDryad>
 			<WVC_Golemkind>0.5</WVC_Golemkind>
 		  </xenotypeChances>
+		  <allowedXenotypes>
+			<li>WVC_Shadoweater</li>
+		  </allowedXenotypes>
+		  <chimeraGeneDefs>
+			<li>WVC_SwarmConnection_Golems</li>
+			<li MayRequire="ludeon.rimworld.ideology">WVC_DryadQueen</li>
+			<li MayRequire="ludeon.rimworld.ideology">WVC_GauranlenDryads_Tough</li>
+			<li>WVC_StoneSkin</li>
+			<li>WVC_SkinColor_Slate</li>
+		  </chimeraGeneDefs>
 		  <context>PlayerStarter</context>
 		  <addMechlink>true</addMechlink>
 		</li>
@@ -387,11 +413,20 @@
 		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
 		  <def>WVC_XaG_Starting</def>
 		  <xenotypeChances>
-			<WVC_Undead>0.60</WVC_Undead>
-			<WVC_Featherdust>0.16</WVC_Featherdust>
-			<WVC_Resurgent>0.17</WVC_Resurgent>
-			<WVC_Ashen MayRequire="ludeon.rimworld.ideology">0.07</WVC_Ashen>
+			<WVC_Undead>0.80</WVC_Undead>
+			<WVC_Featherdust>0.1</WVC_Featherdust>
+			<WVC_Resurgent>0.1</WVC_Resurgent>
+			<!-- <WVC_Ashen MayRequire="ludeon.rimworld.ideology">0.07</WVC_Ashen> -->
 		  </xenotypeChances>
+		  <allowedXenotypes>
+			<li MayRequire="ludeon.rimworld.ideology">WVC_Ashen</li>
+			<li>WVC_Shadoweater</li>
+		  </allowedXenotypes>
+		  <chimeraGeneDefs>
+			<li>WVC_Undead</li>
+			<li>WVC_PredatorPrey_NotTasty</li>
+			<li>WVC_EndogermReimplanter</li>
+		  </chimeraGeneDefs>
 		  <context>PlayerStarter</context>
 		</li>
 
