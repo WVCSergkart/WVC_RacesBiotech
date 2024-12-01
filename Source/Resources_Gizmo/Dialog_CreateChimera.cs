@@ -808,8 +808,8 @@ namespace WVC_XenotypesAndGenes
                 {
                     gene.GetToolGene();
                 }
-                gene.EatGene(geneDef);
-            }
+				gene.EatGene(geneDef);
+			}
             if (!gene.Props.soundDefOnImplant.NullOrUndefined())
             {
                 gene.Props.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(gene.pawn));

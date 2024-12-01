@@ -971,5 +971,10 @@ namespace WVC_XenotypesAndGenes
 			return def?.modContentPack != null && def.modContentPack.PackageId.Contains("wvc.sergkart.races.biotech");
 		}
 
+		public static bool IsVanillaDef(this Def def)
+		{
+			return def?.modContentPack != null && def.modContentPack.IsOfficialMod;
+		}
+
 	}
 }

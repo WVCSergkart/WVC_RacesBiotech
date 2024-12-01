@@ -117,20 +117,19 @@ namespace WVC_XenotypesAndGenes
 					defaultLabel = "DEV: GetRandomGene",
 					action = delegate
 					{
-						// AddGene(DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.endogeneCategory == EndogeneCategory.None && x.selectionWeight > 0f && x.canGenerateInGeneSet && x.passOnDirectly && !AllGenes.Contains(x)).RandomElement());
 						GetRandomGene();
 					}
 				};
 				// yield return new Command_Action
 				// {
-					// defaultLabel = "DEV: GetAllGenes",
-					// action = delegate
-					// {
-						// foreach (GeneDef geneDef in DefDatabase<GeneDef>.AllDefsListForReading)
-						// {
-							// AddGene(geneDef);
-						// }
-					// }
+				// defaultLabel = "DEV: GetAllGenes",
+				// action = delegate
+				// {
+				// foreach (GeneDef geneDef in DefDatabase<GeneDef>.AllDefsListForReading)
+				// {
+				// AddGene(geneDef);
+				// }
+				// }
 				// };
 			}
 		}
@@ -205,16 +204,16 @@ namespace WVC_XenotypesAndGenes
 
 		// public static float GetGeneWeight(GeneDef geneDef)
 		// {
-			// float weight = 1f / (geneDef.biostatCpx + geneDef.biostatMet + geneDef.biostatArc + 1f);
-			// if (weight < 0f)
-			// {
-				// weight *= -1;
-			// }
-			// if (weight == 0f)
-			// {
-				// weight += 1f;
-			// }
-			// return weight;
+		// float weight = 1f / (geneDef.biostatCpx + geneDef.biostatMet + geneDef.biostatArc + 1f);
+		// if (weight < 0f)
+		// {
+		// weight *= -1;
+		// }
+		// if (weight == 0f)
+		// {
+		// weight += 1f;
+		// }
+		// return weight;
 		// }
 
 		// public void Notify_PostStart(Gene_Shapeshifter shapeshiftGene)
@@ -223,11 +222,24 @@ namespace WVC_XenotypesAndGenes
 
 		// public void Notify_PostShapeshift(Gene_Shapeshifter newShapeshiftGene)
 		// {
-			// foreach (Gene gene in pawn.genes.GenesListForReading)
-			// {
-				// AddGene(gene.def);
-			// }
+		// foreach (Gene gene in pawn.genes.GenesListForReading)
+		// {
+		// AddGene(gene.def);
 		// }
+		// }
+
+		public bool TryAddGenesFromList(List<Gene> genes)
+		{
+			if (genes.NullOrEmpty())
+            {
+				return false;
+            }
+			foreach (Gene gene in genes)
+			{
+				AddGene(gene.def);
+			}
+			return true;
+		}
 
 		public bool TryGetGene(List<GeneDef> genes, out GeneDef result)
 		{
@@ -252,10 +264,26 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (TryGetGene(XaG_GeneUtility.ConvertGenesInGeneDefs(genes), out GeneDef result))
+			if (TryGetRandomHumanGene(victim, out GeneDef result) || TryGetGene(XaG_GeneUtility.ConvertGenesInGeneDefs(genes), out result))
 			{
 				Messages.Message("WVC_XaG_GeneGeneticThief_GeneCopied".Translate(pawn.NameShortColored, result.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
 			}
+		}
+
+		private bool TryGetRandomHumanGene(Pawn victim, out GeneDef result)
+		{
+			result = null;
+			if (Rand.Chance(0.5f) && victim?.genes?.Xenotype == XenotypeDefOf.Baseliner || Rand.Chance(0.12f))
+			{
+				List<GeneDef> geneDefs = DefDatabase<GeneDef>.AllDefsListForReading;
+				if (geneDefs.Where((GeneDef x) => !AllGenes.Contains(x) && IsHumanCosmetic(x)).TryRandomElement(out result))
+				{
+					AddGene(result);
+					return true;
+				}
+				return false;
+			}
+			return false;
 		}
 
 		public override void Notify_IngestedThing(Thing thing, int numTaken)
@@ -295,10 +323,15 @@ namespace WVC_XenotypesAndGenes
 		{
 			GeneDef result = DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.biostatArc == 0 && x.selectionWeight > 0f && x.canGenerateInGeneSet && !AllGenes.Contains(x)).RandomElement();
 			AddGene(result);
-			Messages.Message("WVC_XaG_GeneGeneticThief_GeneCopied".Translate(pawn.NameShortColored, result.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+			Messages.Message("WVC_XaG_GeneGeneticThief_GeneObtained".Translate(pawn.NameShortColored, result.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
 		}
 
-		public virtual void UpdateChimeraXenogerm(List<GeneDef> implantedGenes)
+        public static bool IsHumanCosmetic(GeneDef geneDef)
+        {
+            return geneDef.IsVanillaDef() && !geneDef.canGenerateInGeneSet && geneDef.biostatCpx == 0 && geneDef.biostatMet == 0 && geneDef.biostatArc == 0 && !XaG_GeneUtility.IsCosmeticGene(geneDef);
+        }
+
+        public virtual void UpdateChimeraXenogerm(List<GeneDef> implantedGenes)
 		{
 			Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating);
 			if (firstHediffOfDef != null)
@@ -314,10 +347,10 @@ namespace WVC_XenotypesAndGenes
 				}
 				pawn.health.RemoveHediff(firstHediffOfDef);
 			}
-			//int architeCount = implantedGenes.Where((geneDef) => geneDef.biostatArc != 0).ToList().Count;
-			//int nonArchiteCount = implantedGenes.Count - architeCount;
-			//int count = nonArchiteCount + (architeCount * 2);
-			int count = (implantedGenes.Count + 1) * 180000;
+            int architeCount = implantedGenes.Where((geneDef) => geneDef.biostatArc != 0).ToList().Count;
+            int nonArchiteCount = implantedGenes.Count - architeCount;
+            int count = (nonArchiteCount + (architeCount * 3)) * 120000;
+            //int count = (implantedGenes.Count + 1) * 180000;
 			ReimplanterUtility.XenogermReplicating_WithCustomDuration(pawn, new((int)(count * 0.8f), (int)(count * 1.1f)));
 			// pawn.health.AddHediff(HediffDefOf.XenogermReplicating);
 		}
@@ -471,10 +504,10 @@ namespace WVC_XenotypesAndGenes
 		public void GetRandomGene()
 		{
 			List<GeneDef> geneDefs = DefDatabase<GeneDef>.AllDefsListForReading;
-			if (geneDefs.Where((GeneDef x) => !Chimera.AllGenes.Contains(x) && x.canGenerateInGeneSet && x.selectionWeight > 0f).TryRandomElementByWeight((GeneDef gene) => (1f + gene.selectionWeight * (gene.biostatArc != 0 ? 0.01f : 1f)) + (gene.prerequisite == Chimera.def && gene.GetModExtension<GeneExtension_General>() != null ? gene.GetModExtension<GeneExtension_General>().selectionWeight : 0f), out GeneDef result))
+			if (geneDefs.Where((GeneDef x) => !Chimera.AllGenes.Contains(x) && (x.canGenerateInGeneSet && x.selectionWeight > 0f || x.IsVanillaDef())).TryRandomElementByWeight((GeneDef gene) => (1f + gene.selectionWeight * (gene.biostatArc != 0 ? 0.01f : 1f)) + (gene.prerequisite == Chimera.def && gene.GetModExtension<GeneExtension_General>() != null ? gene.GetModExtension<GeneExtension_General>().selectionWeight : 0f), out GeneDef result))
 			{
 				Chimera.AddGene(result);
-				Messages.Message("WVC_XaG_GeneGeneticThief_GeneCopied".Translate(pawn.NameShortColored, result.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+				Messages.Message("WVC_XaG_GeneGeneticThief_GeneObtained".Translate(pawn.NameShortColored, result.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
 			}
 		}
 

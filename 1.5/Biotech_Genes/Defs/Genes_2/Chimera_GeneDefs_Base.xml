@@ -94,6 +94,7 @@
 	<showGizmoOnWorldView>false</showGizmoOnWorldView>
 	<stunTargetWhileCasting>true</stunTargetWhileCasting>
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+	<sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
 	<verbProperties>
 	  <verbClass>Verb_CastAbilityTouch</verbClass>
 	  <drawAimPie>false</drawAimPie>

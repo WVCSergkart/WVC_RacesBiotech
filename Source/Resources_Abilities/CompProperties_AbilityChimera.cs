@@ -28,7 +28,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class CompAbilityEffect_CopyGene : CompAbilityEffect
+	public class CompAbilityEffect_ChimeraDependant : CompAbilityEffect
 	{
 
 		public new CompProperties_AbilityChimera Props => (CompProperties_AbilityChimera)props;
@@ -47,6 +47,11 @@ namespace WVC_XenotypesAndGenes
 				return cachedChimeraGene;
 			}
 		}
+
+	}
+
+	public class CompAbilityEffect_CopyGene : CompAbilityEffect_ChimeraDependant
+	{
 
 		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
 		{
@@ -101,25 +106,8 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class CompAbilityEffect_CopyGeneFromGenepack : CompAbilityEffect
+	public class CompAbilityEffect_CopyGeneFromGenepack : CompAbilityEffect_ChimeraDependant
 	{
-
-		public new CompProperties_AbilityChimera Props => (CompProperties_AbilityChimera)props;
-
-		[Unsaved(false)]
-		private Gene_Chimera cachedChimeraGene;
-
-		public Gene_Chimera ChimeraGene
-		{
-			get
-			{
-				if (cachedChimeraGene == null || !cachedChimeraGene.Active)
-				{
-					cachedChimeraGene = parent?.pawn?.genes?.GetFirstGeneOfType<Gene_Chimera>();
-				}
-				return cachedChimeraGene;
-			}
-		}
 
 		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
 		{
@@ -161,5 +149,114 @@ namespace WVC_XenotypesAndGenes
 		}
 
 	}
+
+	//public class CompAbilityEffect_HarvestGenesFromPawn : CompAbilityEffect_ChimeraDependant
+	//{
+
+	//	public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+	//	{
+	//		base.Apply(target, dest);
+	//		Pawn pawn = target.Pawn;
+	//		if (pawn != null && ChimeraGene != null)
+	//		{
+	//			if (ChimeraGene.TryAddGenesFromList(pawn.genes.GenesListForReading))
+	//			{
+	//				ReimplanterUtility.SetXenotype(pawn, XenotypeDefOf.Baseliner);
+	//				ReimplanterUtility.ExtractXenogerm(pawn);
+	//				Messages.Message("WVC_XaG_GeneGeneticThief_GenesHarvested".Translate(pawn.NameShortColored), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+	//			}
+	//		}
+	//	}
+
+	//	public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest)
+	//	{
+	//		return Valid(target);
+	//	}
+
+	//	public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
+	//	{
+	//		Pawn pawn = target.Pawn;
+	//		if (pawn == null)
+	//		{
+	//			return false;
+	//		}
+	//		if (ChimeraGene == null || !pawn.IsHuman())
+	//		{
+	//			if (throwMessages)
+	//			{
+	//				Messages.Message("WVC_PawnIsAndroidCheck".Translate(), parent.pawn, MessageTypeDefOf.RejectInput, historical: false);
+	//			}
+	//			return false;
+	//		}
+	//		return base.Valid(target, throwMessages);
+	//	}
+
+	//	public override string ExtraLabelMouseAttachment(LocalTargetInfo target)
+	//	{
+	//		Pawn pawn = target.Pawn;
+	//		if (pawn != null)
+	//		{
+	//			string text = null;
+	//			if (pawn.HostileTo(parent.pawn) && !pawn.Downed)
+	//			{
+	//				text += "MessageCantUseOnResistingPerson".Translate(parent.def.Named("ABILITY"));
+	//			}
+	//			return text;
+	//		}
+	//		return null;
+	//	}
+
+	//	public override Window ConfirmationDialog(LocalTargetInfo target, Action confirmAction)
+	//	{
+	//		if (GeneUtility.PawnWouldDieFromReimplanting(target.Pawn))
+	//		{
+	//			return Dialog_MessageBox.CreateConfirmation("WVC_XaG_WarningPawnWillDieFromHarvesting".Translate(target.Pawn.Named("PAWN")), confirmAction, destructive: true);
+	//		}
+	//		return null;
+	//	}
+
+	//}
+
+	//public class CompAbilityEffect_HarvestGenesFromCorpse : CompAbilityEffect_ChimeraDependant
+	//{
+
+	//	public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+	//	{
+	//		base.Apply(target, dest);
+	//		Pawn innerPawn = ((Corpse)target.Thing).InnerPawn;
+	//		if (innerPawn != null && ChimeraGene != null)
+	//		{
+	//			if (ChimeraGene.TryAddGenesFromList(innerPawn.genes.GenesListForReading))
+	//			{
+	//				ReimplanterUtility.SetXenotype(innerPawn, XenotypeDefOf.Baseliner);
+	//				//ReimplanterUtility.ExtractXenogerm(innerPawn);
+	//				Messages.Message("WVC_XaG_GeneGeneticThief_GenesHarvested".Translate(innerPawn.NameShortColored), innerPawn, MessageTypeDefOf.NeutralEvent, historical: false);
+	//			}
+	//		}
+	//	}
+
+	//	public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest)
+	//	{
+	//		return Valid(target);
+	//	}
+
+	//	public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
+	//	{
+	//		if (target.HasThing && target.Thing is Corpse corpse)
+	//		{
+	//			Pawn innerPawn = corpse.InnerPawn;
+	//			if (ChimeraGene == null || !innerPawn.IsHuman())
+	//			{
+	//				if (throwMessages)
+	//				{
+	//					Messages.Message("WVC_PawnIsAndroidCheck".Translate(), parent.pawn, MessageTypeDefOf.RejectInput, historical: false);
+	//				}
+	//				return false;
+	//			}
+	//		}
+	//		return base.Valid(target, throwMessages);
+	//	}
+
+	//}
 
 }
