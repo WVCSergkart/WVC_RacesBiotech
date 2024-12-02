@@ -124,6 +124,7 @@ namespace WVC_XenotypesAndGenes
 		// public List<ShapeshiftModeDef> initialShapeModes;
 		// Chimera
 		public List<GeneDef> chimeraGenesTools;
+		public List<GeneDef> humanBasicGenes;
 	}
 
 	public class GeneExtension_Opinion : DefModExtension

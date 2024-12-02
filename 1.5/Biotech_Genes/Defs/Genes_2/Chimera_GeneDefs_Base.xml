@@ -34,6 +34,15 @@
 			  <li>WVC_Chimera_Packharvest</li>
 			  <li>WVC_Chimera_GeneDigestor</li>
 			</chimeraGenesTools>
+			<humanBasicGenes>
+			  <li>WVC_Mecha_NoTail</li>
+			  <li>Ears_Human</li>
+			  <li>Nose_Human</li>
+			  <li>Jaw_Baseline</li>
+			  <li>Hands_Human</li>
+			  <li>Headbone_Human</li>
+			  <li>Voice_Human</li>
+			</humanBasicGenes>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_ChimeraMetabolism_HungerFactor</hediffDefName>

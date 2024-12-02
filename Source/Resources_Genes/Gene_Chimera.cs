@@ -275,8 +275,7 @@ namespace WVC_XenotypesAndGenes
 			result = null;
 			if (Rand.Chance(0.5f) && victim?.genes?.Xenotype == XenotypeDefOf.Baseliner || Rand.Chance(0.12f))
 			{
-				List<GeneDef> geneDefs = DefDatabase<GeneDef>.AllDefsListForReading;
-				if (geneDefs.Where((GeneDef x) => !AllGenes.Contains(x) && IsHumanCosmetic(x)).TryRandomElement(out result))
+				if (!Props.humanBasicGenes.NullOrEmpty() && Props.humanBasicGenes.Where((GeneDef x) => !AllGenes.Contains(x)).TryRandomElement(out result))
 				{
 					AddGene(result);
 					return true;
@@ -326,10 +325,10 @@ namespace WVC_XenotypesAndGenes
 			Messages.Message("WVC_XaG_GeneGeneticThief_GeneObtained".Translate(pawn.NameShortColored, result.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
 		}
 
-        public static bool IsHumanCosmetic(GeneDef geneDef)
-        {
-            return geneDef.IsVanillaDef() && !geneDef.canGenerateInGeneSet && geneDef.biostatCpx == 0 && geneDef.biostatMet == 0 && geneDef.biostatArc == 0 && !XaG_GeneUtility.IsCosmeticGene(geneDef);
-        }
+        //public static bool IsHumanCosmetic(GeneDef geneDef)
+        //{
+        //    return geneDef.IsVanillaDef() && !geneDef.canGenerateInGeneSet && geneDef.biostatCpx == 0 && geneDef.biostatMet == 0 && geneDef.biostatArc == 0 && !XaG_GeneUtility.IsCosmeticGene(geneDef);
+        //}
 
         public virtual void UpdateChimeraXenogerm(List<GeneDef> implantedGenes)
 		{
