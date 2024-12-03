@@ -79,6 +79,10 @@ namespace WVC_XenotypesAndGenes
 			if (WVC_Biotech.settings.enable_chimeraStartingTools && Props?.chimeraGenesTools != null && Props.chimeraGenesTools.Where((GeneDef geneDef) => !AllGenes.Contains(geneDef)).TryRandomElement(out GeneDef result))
 			{
 				AddGene(result);
+				if (pawn.Spawned)
+				{
+					Messages.Message("WVC_XaG_GeneGeneticThief_GeneObtained".Translate(pawn.NameShortColored, result.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+				}
 			}
 		}
 

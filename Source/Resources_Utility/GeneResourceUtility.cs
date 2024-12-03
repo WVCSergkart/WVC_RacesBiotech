@@ -213,7 +213,8 @@ namespace WVC_XenotypesAndGenes
 			if (pawn.TryGetFood(out Need_Food need_Food))
 			{
                 float value = Mathf.Clamp(need_Food.CurLevel + offset, 0f, need_Food.MaxLevel);
-				if (value > minOffset)
+				//Log.Error(value.ToString());
+				if (value < need_Food.MaxLevel - minOffset)
 				{
 					need_Food.CurLevel = value;
 					return true;

@@ -76,17 +76,17 @@ namespace WVC_XenotypesAndGenes
             {
                 return;
 			}
+			if (pawn.Faction != Faction.OfPlayer)
+			{
+				OffsetNeedFood();
+				return;
+			}
 			if (!pawn.TryGetFood(out Need_Food food))
 			{
 				return;
 			}
 			if (food.CurLevelPercentage >= pawn.RaceProps.FoodLevelPercentageWantEat + 0.09f)
             {
-                return;
-            }
-            if (pawn.Faction != Faction.OfPlayer)
-            {
-                OffsetNeedFood();
                 return;
             }
             if (pawn.Map == null)

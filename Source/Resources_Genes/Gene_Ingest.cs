@@ -354,6 +354,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				AddOrRemoveHediff();
 			}
+			if (pawn.Faction != Faction.OfPlayer)
+			{
+				return;
+			}
 			if (pawn.Map == null)
 			{
 				return;
@@ -363,10 +367,6 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			if (Resource is not Gene_Hemogen gene_hemogen || !gene_hemogen.ShouldConsumeHemogenNow())
-			{
-				return;
-			}
-			if (pawn.Faction != Faction.OfPlayer)
 			{
 				return;
 			}
@@ -613,8 +613,12 @@ namespace WVC_XenotypesAndGenes
             if (!pawn.IsHashIntervalTick(2210))
             {
                 return;
-            }
-            if (!pawn.TryGetFood(out Need_Food food))
+			}
+			if (pawn.Faction != Faction.OfPlayer)
+			{
+				return;
+			}
+			if (!pawn.TryGetFood(out Need_Food food))
             {
                 return;
             }
@@ -627,10 +631,6 @@ namespace WVC_XenotypesAndGenes
 
         private void TryEat(bool queue = false)
         {
-            if (pawn.Faction != Faction.OfPlayer)
-            {
-                return;
-            }
             if (pawn.Map == null)
             {
                 // In caravan use
