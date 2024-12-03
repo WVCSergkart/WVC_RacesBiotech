@@ -48,7 +48,7 @@ namespace WVC_XenotypesAndGenes
 			if (requestQueueing && tag == JobTag.SatisfyingNeeds)
 			{
 				TryFinalizeAllIngestJobs(pawn, false);
-				if (pawn.jobs.curJob.def.suspendable)
+				if (!pawn.jobs.curJob.playerForced && pawn.jobs.curJob.def.suspendable)
 				{
 					pawn.jobs.SuspendCurrentJob(JobCondition.InterruptForced);
 					pawn.jobs.StartJob(job, tag: tag);

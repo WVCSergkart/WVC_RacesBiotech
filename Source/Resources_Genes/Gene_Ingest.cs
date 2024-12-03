@@ -606,11 +606,11 @@ namespace WVC_XenotypesAndGenes
 		public override void Tick()
         {
             base.Tick();
-			if (!canAutoFeed)
-			{
-				return;
-			}
-			if (!pawn.IsHashIntervalTick(2210))
+            if (!canAutoFeed)
+            {
+                return;
+            }
+            if (!pawn.IsHashIntervalTick(2210))
             {
                 return;
             }
@@ -622,6 +622,11 @@ namespace WVC_XenotypesAndGenes
             {
                 return;
             }
+            TryEat();
+        }
+
+        private void TryEat(bool queue = false)
+        {
             if (pawn.Faction != Faction.OfPlayer)
             {
                 return;
@@ -636,7 +641,7 @@ namespace WVC_XenotypesAndGenes
             {
                 return;
             }
-            TryHuntForFood(MiscUtility.PawnDoIngestJob(pawn));
+            TryHuntForFood(MiscUtility.PawnDoIngestJob(pawn), queue);
         }
 
         private void InCaravan()
@@ -691,9 +696,14 @@ namespace WVC_XenotypesAndGenes
 
 		public void Notify_Bloodfeed(Pawn victim)
 		{
-			GeneResourceUtility.OffsetNeedFood(pawn, Props.nutritionPerBite * victim.BodySize * pawn.GetStatValue(StatDefOf.HemogenGainFactor, cacheStaleAfterTicks: 360000));
+			GeneResourceUtility.OffsetNeedFood(pawn, Props.nutritionPerBite * victim.BodySize * pawn.GetStatValue(StatDefOf.MaxNutrition));
 			MiscUtility.TryFinalizeAllIngestJobs(pawn);
-		}
+			if (pawn.TryGetFood(out Need_Food food) && food.CurLevelPercentage < 0.85f)
+			{
+				//Log.Error(food.CurLevelPercentage.ToString());
+				TryEat(true);
+			}
+        }
 
 		public IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
 		{

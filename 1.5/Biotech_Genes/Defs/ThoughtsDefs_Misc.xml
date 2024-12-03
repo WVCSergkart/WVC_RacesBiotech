@@ -145,6 +145,9 @@
 		<baseOpinionOffset>10</baseOpinionOffset>
 	  </li>
 	</stages>
+	<replaceThoughts>
+	  <li>FedOn_Social</li>
+	</replaceThoughts>
   </ThoughtDef>
 
   <ThoughtDef ParentName="WVC_XenotypesAndGenes_Thought_MemorySocial_Base">
