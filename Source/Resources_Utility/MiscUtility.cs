@@ -472,6 +472,7 @@ namespace WVC_XenotypesAndGenes
 			return dryad.TryGetComp<CompGestatedDryad>()?.Master;
 		}
 
+		[Obsolete]
 		public static int CountAllPlayerXenos()
 		{
 			int mult = 0;
@@ -506,6 +507,71 @@ namespace WVC_XenotypesAndGenes
 			return mult;
 		}
 
+		public static void CountAllPlayerControlledPawns_ForIdeology()
+		{
+			int colonists = 0;
+			int xenos = 0;
+			int nonHumans = 0;
+			bool anyAssignedWork = false;
+			//bool leaderIsShapeshifterOrSimilar = false;
+			//bool presentShapeshifter = false;
+			//bool leaderIsUndead = false;
+			//bool presentUndead = false;
+			List<Pawn> pawns = PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_OfPlayerFaction;
+			foreach (Pawn item in pawns)
+			{
+				if (!item.RaceProps.Humanlike)
+				{
+					nonHumans++;
+					continue;
+				}
+				if (!XaG_GeneUtility.PawnIsBaseliner(item) && item.IsHuman())
+				{
+					xenos++;
+					//if (item.IsShapeshifterChimeraOrMorpher())
+					//{
+					//	presentShapeshifter = true;
+					//	Precept_Role precept_Role = item.Ideo?.GetRole(item);
+					//	if (precept_Role != null && precept_Role.ideo == item.Ideo && precept_Role.def == PreceptDefOf.IdeoRole_Leader)
+					//	{
+					//		leaderIsShapeshifterOrSimilar = true;
+					//	}
+					//}
+					//if (item.IsUndead())
+					//{
+					//	presentUndead = true;
+					//	Precept_Role precept_Role = item.Ideo?.GetRole(item);
+					//	if (precept_Role != null && precept_Role.ideo == item.Ideo && precept_Role.def == PreceptDefOf.IdeoRole_Leader)
+					//	{
+					//		leaderIsUndead = true;
+					//	}
+					//}
+				}
+				if (!item.IsQuestLodger() && !item.IsDuplicate && !item.Deathresting && !item.IsPrisoner)
+				{
+					colonists++;
+				}
+				for (int i = 0; i < 24; i++)
+				{
+					if (item.timetable.GetAssignment(i) == TimeAssignmentDefOf.Work)
+					{
+						anyAssignedWork = true;
+						break;
+					}
+				}
+			}
+			StaticCollectionsClass.cachedPawnsCount = colonists;
+			StaticCollectionsClass.cachedXenotypesCount = xenos;
+			StaticCollectionsClass.cachedNonHumansCount = nonHumans;
+			StaticCollectionsClass.haveAssignedWork = anyAssignedWork;
+			//StaticCollectionsClass.leaderIsShapeshifter = leaderIsShapeshifterOrSimilar;
+			//StaticCollectionsClass.leaderIsShapeshifter = presentShapeshifter;
+			//StaticCollectionsClass.leaderIsShapeshifter = leaderIsUndead;
+			//StaticCollectionsClass.leaderIsShapeshifter = presentUndead;
+			//Log.Error("Colonists: " + colonists + ". Xenos: " + xenos + ". Non-humans: " + nonHumans);
+		}
+
+		[Obsolete]
 		public static int CountAllPlayerControlledColonistsExceptClonesAndQuests()
 		{
 			int mult = 0;
@@ -529,6 +595,7 @@ namespace WVC_XenotypesAndGenes
 			return mult;
 		}
 
+		[Obsolete]
 		public static int CountAllPlayerNonHumanlikes()
 		{
 			int mult = 0;
@@ -550,6 +617,7 @@ namespace WVC_XenotypesAndGenes
 			return mult;
 		}
 
+		[Obsolete]
 		public static int CountAllPlayerMechs()
 		{
 			int mult = 0;
@@ -571,6 +639,7 @@ namespace WVC_XenotypesAndGenes
 			return mult;
 		}
 
+		[Obsolete]
 		public static int CountAllPlayerAnimals()
 		{
 			int mult = 0;

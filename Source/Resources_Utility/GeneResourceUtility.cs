@@ -544,5 +544,23 @@ namespace WVC_XenotypesAndGenes
 			return (gene = pawn?.genes?.GetFirstGeneOfType<Gene_Undead>()) != null;
 		}
 
+		public static bool IsShapeshifterChimeraOrMorpher(this Pawn pawn)
+		{
+			if (pawn?.genes == null)
+			{
+				return false;
+			}
+			bool isShapeshifter = false;
+			foreach (Gene gene in pawn?.genes.GenesListForReading)
+			{
+				if ((gene is Gene_Morpher || gene is Gene_Shapeshifter || gene is Gene_Chimera) && gene.Active)
+				{
+					isShapeshifter = true;
+					break;
+				}
+			}
+			return isShapeshifter;
+		}
+
 	}
 }

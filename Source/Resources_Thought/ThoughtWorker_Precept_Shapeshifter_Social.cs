@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -12,21 +13,22 @@ namespace WVC_XenotypesAndGenes
 			{
 				return ThoughtState.Inactive;
 			}
-			return otherPawn.IsShapeshifter();
+			return otherPawn.IsShapeshifterChimeraOrMorpher();
 		}
 	}
 
+	[Obsolete]
 	public class ThoughtWorker_Precept_ShapeshifterPresent : ThoughtWorker_Precept
 	{
 		protected override ThoughtState ShouldHaveThought(Pawn p)
 		{
-			if (!ModsConfig.BiotechActive || !ModsConfig.IdeologyActive || p.IsShapeshifter())
+			if (!ModsConfig.BiotechActive || !ModsConfig.IdeologyActive || p.IsShapeshifterChimeraOrMorpher())
 			{
 				return ThoughtState.Inactive;
 			}
 			foreach (Pawn item in p.MapHeld.mapPawns.AllPawnsSpawned)
 			{
-				if (item.IsShapeshifter() && (item.IsPrisonerOfColony || item.IsSlaveOfColony || item.IsColonist))
+				if (item.IsShapeshifterChimeraOrMorpher() && (item.IsPrisonerOfColony || item.IsSlaveOfColony || item.IsColonist))
 				{
 					return ThoughtState.ActiveDefault;
 				}
@@ -39,7 +41,7 @@ namespace WVC_XenotypesAndGenes
 	{
 		protected override ThoughtState ShouldHaveThought(Pawn p)
 		{
-			if (!ModsConfig.BiotechActive || !ModsConfig.IdeologyActive || p.IsShapeshifter() || p.Faction == null)
+			if (!ModsConfig.BiotechActive || !ModsConfig.IdeologyActive || p.IsShapeshifterChimeraOrMorpher() || p.Faction == null)
 			{
 				return ThoughtState.Inactive;
 			}
@@ -47,7 +49,7 @@ namespace WVC_XenotypesAndGenes
 			bool flag = false;
 			foreach (Pawn item in p.MapHeld.mapPawns.SpawnedPawnsInFaction(p.Faction))
 			{
-				if (item.IsShapeshifter())
+				if (item.IsShapeshifterChimeraOrMorpher())
 				{
 					flag = true;
 					Precept_Role precept_Role = item.Ideo?.GetRole(item);
@@ -73,7 +75,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return ThoughtState.Inactive;
 			}
-			return p.IsShapeshifter();
+			return p.IsShapeshifterChimeraOrMorpher();
 		}
 	}
 

@@ -13,6 +13,11 @@ namespace WVC_XenotypesAndGenes
 		public static int cachedPawnsCount = 0;
 		public static int cachedXenotypesCount = 0;
 		public static int cachedNonHumansCount = 0;
+		public static bool haveAssignedWork = false;
+		//public static bool leaderIsUndead = false;
+		//public static bool leaderIsShapeshifter = false;
+		//public static bool presentUndead = false;
+		//public static bool presentShapeshifter = false;
 
 		//public static bool shapeshifterAppear = false;
 
