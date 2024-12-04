@@ -1,0 +1,26 @@
+using RimWorld;
+using Verse;
+
+namespace WVC_XenotypesAndGenes
+{
+
+	[DefOf]
+	public static class WVC_HistoryEventDefDefOf
+	{
+		[MayRequireIdeology]
+		public static HistoryEventDef WVC_ReimplanterResurrection;
+		[MayRequireIdeology]
+		public static HistoryEventDef WVC_UndeadResurrection;
+		[MayRequireIdeology]
+		public static HistoryEventDef WVC_Shapeshift;
+		[MayRequireIdeology]
+		public static HistoryEventDef WVC_XenotypeSerumUsed;
+        [MayRequireIdeology]
+        public static HistoryEventDef WVC_Morph;
+		//[MayRequireIdeology]
+		//public static HistoryEventDef WVC_ChimeraEvolve;
+		[MayRequireIdeology]
+		public static HistoryEventDef WVC_OneManArmy;
+	}
+
+}

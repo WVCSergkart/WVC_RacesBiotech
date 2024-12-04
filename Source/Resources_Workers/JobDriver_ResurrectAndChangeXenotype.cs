@@ -80,7 +80,7 @@ namespace WVC_XenotypesAndGenes
 				GeneUtility.UpdateXenogermReplication(innerPawn);
 				if (ModLister.IdeologyInstalled)
 				{
-					Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_GenesDefOf.WVC_ReimplanterResurrection, pawn.Named(HistoryEventArgsNames.Doer)));
+					Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_HistoryEventDefDefOf.WVC_ReimplanterResurrection, pawn.Named(HistoryEventArgsNames.Doer)));
 				}
 				if (PawnUtility.ShouldSendNotificationAbout(innerPawn))
 				{

@@ -12,16 +12,6 @@
 	<!-- <label>undead died</label> -->
   <!-- </HistoryEventDef> -->
 
-  <HistoryEventDef>
-	<defName>WVC_ReimplanterResurrection</defName>
-	<label>reimplanter resurrection</label>
-  </HistoryEventDef>
-
-  <HistoryEventDef>
-	<defName>WVC_UndeadResurrection</defName>
-	<label>undead resurrection</label>
-  </HistoryEventDef>
-
   <PreceptDef>
 	<defName>WVC_Undeads_Revered</defName>
 	<issue>WVC_Undeads</issue>

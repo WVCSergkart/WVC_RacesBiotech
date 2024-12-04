@@ -225,7 +225,11 @@ namespace WVC_XenotypesAndGenes
                 }
 				postMorphGene.PostMorph(pawn);
 			}
-        }
+			if (ModLister.IdeologyInstalled)
+			{
+				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_HistoryEventDefDefOf.WVC_Morph, pawn.Named(HistoryEventArgsNames.Doer)));
+			}
+		}
 
         private void TryCreateNewForm(string phase)
 		{

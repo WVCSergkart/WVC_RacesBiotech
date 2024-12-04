@@ -67,14 +67,6 @@ namespace WVC_XenotypesAndGenes
 		// Traits
 		// public static TraitDef WVC_XaG_ShapeshiftPhobia;
 		// History
-		[MayRequireIdeology]
-		public static HistoryEventDef WVC_ReimplanterResurrection;
-		[MayRequireIdeology]
-		public static HistoryEventDef WVC_UndeadResurrection;
-		[MayRequireIdeology]
-		public static HistoryEventDef WVC_Shapeshift;
-		[MayRequireIdeology]
-		public static HistoryEventDef WVC_XenotypeSerumUsed;
 		// [MayRequireIdeology]
 		// public static StatDef WVC_DryadsLimit;
 		// Job

@@ -383,7 +383,7 @@ namespace WVC_XenotypesAndGenes
 			pawn.health.AddHediff(WVC_GenesDefOf.WVC_Resurgent_UndeadResurrectionRecovery);
 			if (ModLister.IdeologyInstalled)
 			{
-				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_GenesDefOf.WVC_UndeadResurrection, pawn.Named(HistoryEventArgsNames.Doer)));
+				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_HistoryEventDefDefOf.WVC_UndeadResurrection, pawn.Named(HistoryEventArgsNames.Doer)));
 			}
 			// Morph
 			//pawn.genes?.GetFirstGeneOfType<Gene_UndeadMorph>()?.TryMorphWithChance(null, 0.2f);

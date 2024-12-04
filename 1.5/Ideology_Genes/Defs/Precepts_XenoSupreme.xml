@@ -9,16 +9,6 @@
 	<iconPath>WVC/UI/Precepts/Precept_GeneticSupremacy_v0</iconPath>
   </IssueDef>
 
-  <HistoryEventDef>
-	<defName>WVC_Shapeshift</defName>
-	<label>shapeshift</label>
-  </HistoryEventDef>
-
-  <HistoryEventDef>
-	<defName>WVC_XenotypeSerumUsed</defName>
-	<label>xenotype serum used</label>
-  </HistoryEventDef>
-
   <!-- Precepts -->
 
   <PreceptDef>

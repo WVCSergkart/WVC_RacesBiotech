@@ -571,6 +571,22 @@ namespace WVC_XenotypesAndGenes
 			//Log.Error("Colonists: " + colonists + ". Xenos: " + xenos + ". Non-humans: " + nonHumans);
 		}
 
+		public static void ForeverAloneDevelopmentPoints()
+		{
+			if (StaticCollectionsClass.cachedPawnsCount > 1)
+			{
+				return;
+			}
+			foreach (Ideo item in Faction.OfPlayer.ideos.AllIdeos)
+			{
+				if (!item.PreceptsListForReading.Any((precept) => precept is Precept_Ritual))
+				{
+					break;
+				}
+				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_HistoryEventDefDefOf.WVC_OneManArmy, Faction.OfPlayer.Named(HistoryEventArgsNames.Doer)));
+			}
+		}
+
 		[Obsolete]
 		public static int CountAllPlayerControlledColonistsExceptClonesAndQuests()
 		{

@@ -41,6 +41,7 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		private int nextRecache = 444;
+		private int nextSecondRecache = 0;
 
 		public Game currentGame;
 
@@ -74,6 +75,12 @@ namespace WVC_XenotypesAndGenes
 				//StaticCollectionsClass.cachedXenotypesCount = MiscUtility.CountAllPlayerXenos();
 				//StaticCollectionsClass.cachedNonHumansCount = MiscUtility.CountAllPlayerNonHumanlikes();
 				//Log.Error("Colonists: " + colonists + ". Xenos: " + xenos + ". Non-humans: " + nonHumans);
+				nextSecondRecache++;
+				if (nextSecondRecache >= 2)
+                {
+					MiscUtility.ForeverAloneDevelopmentPoints();
+					nextSecondRecache = 1;
+				}
 			}
 		}
 
