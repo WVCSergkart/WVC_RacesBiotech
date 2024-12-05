@@ -34,7 +34,8 @@
 	<customEffectDescriptions>
 		<!-- <li>Carriers of this gene get &lt;color=#8a8ae6&gt;psylink&lt;/color&gt; permanently.</li> -->
 		<li>Carriers of this gene have a chance of forming a &lt;color=#8a8ae6&gt;psylink&lt;/color&gt; permanently.</li>
-		<li>&lt;color=#8a8ae6&gt;Psyfocus&lt;/color&gt; is passively &lt;color=#8a8ae6&gt;replenished&lt;/color&gt; relative to the psylink's level.</li>
+		<li>&lt;color=#8a8ae6&gt;Psyfocus&lt;/color&gt; is passively &lt;color=#8a8ae6&gt;replenished&lt;/color&gt; relative to the &lt;color=#8a8ae6&gt;hemogen&lt;/color&gt; level, at low values ​​it begins to &lt;color=#8a8ae6&gt;consume psyfocus&lt;/color&gt; replenishing hemogen.</li>
+		<li>Bloodfeeding replenishes &lt;color=#8a8ae6&gt;psyfocus&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<suppressedTraits>
 	  <li>
@@ -57,14 +58,20 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<curve>
+			  <!-- <points> -->
+				<!-- <li>(0,0.01)</li> -->
+				<!-- <li>(6,0.02)</li> -->
+				<!-- <li>(12,0.03)</li> -->
+				<!-- <li>(30,0.04)</li> -->
+				<!-- <li>(100,0.10)</li> -->
+			  <!-- </points> -->
 			  <points>
 				<!-- Vanilla -->
-				<li>(0,0.01)</li>
-				<li>(6,0.02)</li>
-				<!-- VPE -->
-				<li>(12,0.03)</li>
-				<li>(30,0.04)</li>
-				<li>(100,0.10)</li>
+				<li>(0,-0.1)</li>
+				<li>(0.2,0.0)</li>
+				<li>(0.5,0.01)</li>
+				<li>(1,0.02)</li>
+				<li>(5,0.1)</li>
 			  </points>
 			</curve>
 		</li>

@@ -965,7 +965,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (!list.Any())
 				{
-					list.Add(new FloatMenuOption("ERROR SETTINGS PRESET IS NULL", null));
+					list.Add(new FloatMenuOption("ERROR: SETTINGS PRESET IS NULL", null));
 				}
 				Find.WindowStack.Add(new FloatMenu(list));
 			}

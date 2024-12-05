@@ -154,30 +154,15 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void PsyfocusOffset(Pawn pawn, ref float recoveryRate, GeneExtension_Giver props)
+		public static bool CanTick(ref int nextTick, int updFreq = 750)
 		{
-			if (!pawn.IsHashIntervalTick(750))
+			nextTick--;
+			if (nextTick > 0)
 			{
-				return;
+				return false;
 			}
-			pawn?.psychicEntropy?.OffsetPsyfocusDirectly(recoveryRate);
-			if (!pawn.IsHashIntervalTick(7500))
-			{
-				return;
-			}
-			if (pawn.HasPsylink)
-			{
-				recoveryRate = GetRecoveryRate(pawn, props);
-			}
-		}
-
-		public static float GetRecoveryRate(Pawn pawn, GeneExtension_Giver giver)
-		{
-			if (giver == null)
-			{
-				return 0.01f * pawn.GetPsylinkLevel();
-			}
-			return giver.curve.Evaluate(pawn.GetPsylinkLevel());
+			nextTick = updFreq;
+			return true;
 		}
 
 		// Dust
