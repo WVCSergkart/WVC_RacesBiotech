@@ -547,7 +547,7 @@ namespace WVC_XenotypesAndGenes
 					//	}
 					//}
 				}
-				if (!item.IsQuestLodger() && !item.IsDuplicate && !item.Deathresting && !item.IsPrisoner)
+				if (!item.IsMutant && !item.IsQuestLodger() && !item.IsDuplicate && !item.Deathresting && !item.IsPrisoner)
 				{
 					colonists++;
 				}
