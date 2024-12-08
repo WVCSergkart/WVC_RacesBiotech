@@ -87,7 +87,7 @@ namespace WVC_XenotypesAndGenes
 				nextPawn.Rotation = pawn.Rotation;
 				nextPawn.stances.stunner.StunFor(60, null, addBattleLog: false);
 				phase = "trying transfer holders";
-				TransferHolders(this, archive);
+				TransferHolders(this, archive, nextPawn);
 				phase = "trying create new holder";
 				PawnContainerHolder newHolder = new();
 				archive.SaveFormID(newHolder);
@@ -114,6 +114,18 @@ namespace WVC_XenotypesAndGenes
 				nextPawn?.Destroy();
 			}
 			return false;
+		}
+
+		public override void TransferHolders(Gene_Morpher oldMorpher, Gene_Morpher newMorpher, Pawn newOwner)
+		{
+            base.TransferHolders(oldMorpher, newMorpher, newOwner);
+			foreach (PawnGeneSetHolder holder in newMorpher.SavedGeneSets)
+			{
+				if (holder is PawnContainerHolder container)
+				{
+					container.owner = newOwner;
+				}
+			}
 		}
 
 		private void TryDropNextPawn(ref Pawn nextPawn, ref Gene_Archiver archive, PawnContainerHolder target)

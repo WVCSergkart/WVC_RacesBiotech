@@ -147,6 +147,7 @@
 	</stages>
 	<replaceThoughts>
 	  <li>FedOn_Social</li>
+	  <li MayRequire="vanillaracesexpanded.sanguophage">VRE_FedOnDiablerie_Social</li>
 	</replaceThoughts>
   </ThoughtDef>
 

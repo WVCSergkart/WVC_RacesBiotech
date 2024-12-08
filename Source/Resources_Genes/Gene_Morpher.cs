@@ -106,7 +106,7 @@ namespace WVC_XenotypesAndGenes
 			savedGeneSets = new();
 		}
 
-		public void TransferHolders(Gene_Morpher oldMorpher, Gene_Morpher newMorpher)
+		public virtual void TransferHolders(Gene_Morpher oldMorpher, Gene_Morpher newMorpher, Pawn newOwner)
 		{
 			foreach (PawnGeneSetHolder holder in oldMorpher.savedGeneSets.ToList())
 			{
