@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ScenarioDef WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
+	<defName>WVC_XenotypesAndGenes_Blank</defName>
+	<label>The Subject</label>
+	<description>All your life you have had a strange, eerie feeling that someone is watching you from the shadows. Each of your actions seemed to be a point in some prepared scenario. And the icing on the cake was the fact that your health was deteriorating very quickly. And then when there was almost no hope left, people who were hiding in the shadows came for you and promised to cure all your ailments.\n\nWhen the experiment was over, you were placed in a cryopod, which is the last thing you remember before the drop pod hits the ground.</description>
+	<scenario>
+	  <summary>One pawn with no supplies. &lt;color=#fff695&gt;Medium&lt;/color&gt; difficulty.</summary>
+	  <showInUI>false</showInUI>
+	  <playerFaction>
+		<def>PlayerFaction</def>
+		<factionDef>PlayerColony</factionDef>
+	  </playerFaction>
+	  <parts>
+
+		<!-- Config pages -->
+		<!-- <li Class="ScenPart_ConfigPage_ConfigureStartingPawns_KindDefs"> -->
+			<!-- <def>ConfigurePawnsKindDefs</def> -->
+			<!-- <pawnChoiceCount>1</pawnChoiceCount> -->
+			<!-- <kindCounts> -->
+				<!-- <li> -->
+					<!-- <count>1</count> -->
+					<!-- <kindDef>WVC_Blank_Player</kindDef> -->
+				<!-- </li> -->
+			<!-- </kindCounts> -->
+		<!-- </li> -->
+		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+		  <def>ConfigPage_ConfigureStartingPawns</def>
+		  <pawnCount>1</pawnCount>
+		  <pawnChoiceCount>8</pawnChoiceCount>
+		  <!-- <visible>false</visible> -->
+		</li>
+
+		<!-- Player pawns modifiers -->
+		<li Class="ScenPart_ForcedHediff">
+		  <def>ForcedHediff</def>
+		  <context>PlayerStarter</context>
+		  <chance>0.5</chance>
+		  <hediff>CryptosleepSickness</hediff>
+		  <hideOffMap>true</hideOffMap>
+		  <severityRange>1~1</severityRange>
+		</li>
+
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
+		  <def>WVC_XaG_Starting</def>
+		  <xenotypeChances>
+			<WVC_Blank>1.0</WVC_Blank>
+		  </xenotypeChances>
+		  <allowedXenotypes>
+			<li>WVC_Sandycat</li>
+			<li MayRequire="ludeon.rimworld.royalty">WVC_Lilith</li>
+			<li MayRequire="ludeon.rimworld.royalty">WVC_CatDeity</li>
+			<li>WVC_Bloodeater</li>
+			<li>WVC_Shadoweater</li>
+		  </allowedXenotypes>
+		  <context>PlayerStarter</context>
+		</li>
+
+		<!-- Player starting stuff spawn method-->
+		<li Class="ScenPart_PlayerPawnsArriveMethod">
+		  <def>PlayerPawnsArriveMethod</def>
+		  <visible>false</visible>
+		  <method>DropPods</method>
+		</li>
+
+		<!-- Game start dialog -->
+		<li Class="ScenPart_GameStartDialog">
+		  <def>GameStartDialog</def>
+		  <text>All your life you have had a strange, eerie feeling that someone is watching you from the shadows. Each of your actions seemed to be a point in some prepared scenario. And the icing on the cake was the fact that your health was deteriorating very quickly. And then when there was almost no hope left, people who were hiding in the shadows came for you and promised to cure all your ailments.\n\nWhen the experiment was over, you were placed in a cryopod, which is the last thing you remember before the drop pod hits the ground.</text>
+		  <closeSound>GameStartSting</closeSound>
+		</li>
+
+		<li Class="ScenPart_StartingThing_Defined">
+		  <def>StartingThing_Defined</def>
+		  <thingDef>Wastepack</thingDef>
+		  <count>15</count>
+		  <visible>false</visible>
+		</li>
+		<li Class="ScenPart_ScatterThingsAnywhere">
+		  <def>ScatterThingsAnywhere</def>
+		  <thingDef>Wastepack</thingDef>
+		  <count>50</count>
+		  <visible>false</visible>
+		</li>
+
+		<!-- <li Class="ScenPart_StartingThing_Defined"> -->
+		  <!-- <def>ScatterThingsAnywhere</def> -->
+		  <!-- <thingDef>WVC_XenoSpawnerSeed</thingDef> -->
+		  <!-- <count>1</count> -->
+		<!-- </li> -->
+
+		<li Class="ScenPart_Naked">
+			<def>Naked</def>
+			<chance>1.0</chance>
+			<context>PlayerStarter</context>
+			<!-- <visible>false</visible> -->
+		</li>
+
+		<li MayRequire="oskarpotocki.vanillafactionsexpanded.core,ludeon.rimworld.ideology" Class="KCSG.ScenPart_AddStartingStructure">
+			<def>VFEC_AddStartingStructure</def>
+			<structureLabel>Junkyard</structureLabel>
+			<nearMapCenter>True</nearMapCenter>
+			<chooseFrom>
+				<li>WVC_JunkYard_A</li>
+				<li>WVC_JunkYard_B</li>
+				<li>WVC_JunkYard_C</li>
+			</chooseFrom>
+		</li>
+
+		<li Class="ScenPart_PawnFilter_Age">
+			<def>PawnFilter_Age</def>
+			<allowedAgeRange>14~17</allowedAgeRange>
+			<visible>false</visible>
+		</li>
+
+	  </parts>
+	</scenario>
+  </ScenarioDef>
+
+</Defs>

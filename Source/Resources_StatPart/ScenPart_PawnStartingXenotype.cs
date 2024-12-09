@@ -94,7 +94,7 @@ namespace WVC_XenotypesAndGenes
             }
             if (xenotypeChances.TryRandomElementByWeight((XenotypeChance xenoChance) => xenoChance.chance, out XenotypeChance xenotypeChance))
             {
-                ReimplanterUtility.SetXenotype(p, xenotypeChance.xenotype);
+                ReimplanterUtility.SetXenotype_DoubleXenotype(p, xenotypeChance.xenotype);
             }
         }
 
