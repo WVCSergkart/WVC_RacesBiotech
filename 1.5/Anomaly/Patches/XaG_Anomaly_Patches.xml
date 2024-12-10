@@ -1,45 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
 
-	<!-- <Operation Class="PatchOperationAdd"> -->
-	  <!-- <xpath>/Defs/MutantDef[disablesGenes[li[contains(text(),'Furskin')]]]/disablesGenes</xpath> -->
-	  <!-- <value> -->
-		<!-- <li>WVC_MechaSkin</li> -->
-		<!-- <li>WVC_RuneSkin</li> -->
-		<!-- <li>WVC_StoneSkin</li> -->
-		<!-- <li>WVC_NodeSkin</li> -->
-		<!-- <li>WVC_PatchSkin</li> -->
-		<!-- <li>WVC_FeatherSkin</li> -->
-		<!-- <li>WVC_ShapeshiftSkin</li> -->
-		<!-- <li>WVC_TransparentSkin</li> -->
-		<!-- <li>WVC_GauntSkin</li> -->
-		<!-- <li>WVC_SemifurSkin</li> -->
-		<!-- <li>WVC_GhoulSkin</li> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-
-	<!-- <Operation Class="PatchOperationReplace"> -->
-	  <!-- <xpath>/Defs/WVC_XenotypesAndGenes.ThrallDef[@Name="WVC_XenotypesAndGenes_ThrallDefs_Base"]/generalDesc</xpath> -->
-	  <!-- <value> -->
-		<!-- <generalDesc>In general thralls are rare xenohumans with a set of genes that does not fall into any known xenotype. Thralls are created from fresh corpses and usually cannot exist without the support of a master, since their genetic instabilization inevitably leads to transformation into a ghoul.</generalDesc> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-
-	<!-- <Operation Class="PatchOperationReplace"> -->
-	  <!-- <xpath>/Defs/GeneDef[defName="WVC_Thrall"]/description</xpath> -->
-	  <!-- <value> -->
-		<!-- <description>Carriers of this gene have archites that strongly instabilize genetic integrity and lead to a number of mutations that can lead to critical consequences. To stabilize, archites require a neural cellular resource called resurgent cells, which can be obtained from the fresh blood of resurgent pawns.\n\nDue to their strong sensitivity to dark psychic influences, archites slowly transform the owner into a mindless, eerie creature and instabilization will make these changes permanent.</description> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-	<!-- <Operation Class="PatchOperationReplace"> -->
-	  <!-- <xpath>/Defs/GeneDef[defName="WVC_Thrall"]/customEffectDescriptions</xpath> -->
-	  <!-- <value> -->
-		<!-- <customEffectDescriptions Inherit="False"> -->
-		  <!-- <li>Carrier must regularly cellsfeed on &lt;color=#8a8ae6&gt;resurgent&lt;/color&gt; pawns or it &lt;color=#ff8585&gt;will transform into a ghoul&lt;/color&gt;.</li> -->
-		<!-- </customEffectDescriptions> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
-
 	<Operation Class="PatchOperationReplace">
 	  <xpath>/Defs/XenotypeDef[defName="WVC_Resurgent"]/genes/li[@Tag="AnomalySkin"]</xpath>
 	  <value>
@@ -47,35 +8,25 @@
 	  </value>
 	</Operation>
 
-	<!-- <Operation Class="PatchOperationReplace"> -->
-	  <!-- <xpath>/Defs/XenotypeDef[defName="WVC_GeneThrower"]/genes/li[@Tag="CultSkin"]</xpath> -->
-	  <!-- <value> -->
-		<!-- <li>WVC_CultSkin</li> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/ThingDef[defName="FleshmassNucleus"]/comps</xpath>
+	  <value>
+		<li Class="WVC_XenotypesAndGenes.CompProperties_EntitiesGenes">
+		  <compClass>WVC_XenotypesAndGenes.CompFleshmassGene</compClass>
+		  <geneDef>WVC_FleshmassNucleus</geneDef>
+		  <devourJob>WVC_DevourFleshmassNucleus</devourJob>
+		</li>
+	  </value>
+	</Operation>
 
-	<!-- <Operation Class="PatchOperationSequence"> -->
-		<!-- <success>Always</success> -->
-		<!-- <operations> -->
-			<!-- <li Class="PatchOperationTest"> -->
-			  <!-- <xpath>/Defs/HediffDef[defName="Inhumanized"]/comps</xpath> -->
-			  <!-- <success>Invert</success> -->
-			<!-- </li> -->
-			<!-- <li Class="PatchOperationAdd"> -->
-			  <!-- <xpath>/Defs/HediffDef[defName="Inhumanized"]</xpath> -->
-			  <!-- <success>Always</success> -->
-			  <!-- <value> -->
-				<!-- <comps/> -->
-			  <!-- </value> -->
-			<!-- </li> -->
-		<!-- </operations> -->
-	<!-- </Operation> -->
-
-	<!-- <Operation Class="PatchOperationAdd"> -->
-	  <!-- <xpath>/Defs/HediffDef[defName="Inhumanized"]/comps</xpath> -->
-	  <!-- <value> -->
-		<!-- <li Class="WVC_XenotypesAndGenes.HediffCompProperties_GeneHediff"/> -->
-	  <!-- </value> -->
-	<!-- </Operation> -->
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="FleshWhip" or defName="FleshTentacle"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li>WVC_FleshmassNucleus</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
 
 </Patch>
