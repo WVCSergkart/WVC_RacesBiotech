@@ -38,7 +38,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Tick()
 		{
-			base.Tick();
+			//base.Tick();
 			if (!pawn.IsHashIntervalTick(2317))
 			{
 				return;
@@ -71,7 +71,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_FleshmassNucleus : Gene_OverOverridable
 	{
 
-		public GeneExtension_Undead Undead => def.GetModExtension<GeneExtension_Undead>();
+		public GeneExtension_Undead Undead => def?.GetModExtension<GeneExtension_Undead>();
 
 		private int nextTick = 60000;
 
@@ -99,7 +99,7 @@ namespace WVC_XenotypesAndGenes
         {
             if (Gene_MorphMutations.TryGetBestMutation(pawn, out HediffDef mutation))
 			{
-				if (HediffUtility.TryGiveFleshmassMutation(pawn, mutation))
+				if (HediffUtility.TryGiveFleshmassMutation(pawn, mutation, Undead.maxMutationLevel))
 				{
 					return;
 				}

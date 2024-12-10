@@ -14,7 +14,12 @@ namespace WVC_XenotypesAndGenes
 
 		public int maxMutationLevel = 5;
 
-		private HediffStage curStage;
+		public List<StatDef> ignoredStatDefs = new()
+		{
+			StatDefOf.PawnBeauty
+		};
+
+        private HediffStage curStage;
 
 		public override bool Visible => true;
 
@@ -71,6 +76,10 @@ namespace WVC_XenotypesAndGenes
 						curStage.statFactors = new();
 						foreach (StatModifier statModifier in defStage.statFactors)
 						{
+							if (ignoredStatDefs.Contains(statModifier.stat))
+							{
+								continue;
+							}
 							StatModifier newStatMod = new();
 							newStatMod.value = statModifier.value;
 							newStatMod.stat = statModifier.stat;
@@ -81,34 +90,32 @@ namespace WVC_XenotypesAndGenes
 					{
 						curStage.statOffsets = new();
 						foreach (StatModifier statModifier in defStage.statOffsets)
-                        {
-                            StatModifier newStatMod = new();
-                            newStatMod.value = statModifier.value;
+						{
+							if (ignoredStatDefs.Contains(statModifier.stat))
+							{
+								continue;
+							}
+							StatModifier newStatMod = new();
+							newStatMod.value = statModifier.value;
 							newStatMod.stat = statModifier.stat;
 							curStage.statOffsets.Add(newStatMod);
-						}
-						if (curStage.statOffsets.TryRandomElement((stat) => stat.stat == StatDefOf.PawnBeauty, out StatModifier statMod))
-						{
-							if (statMod.value < 0)
-							{
-								statMod.value *= -1f;
-							}
 						}
 					}
 					if (mutationLevel > 0)
 					{
-						if (curStage.partEfficiencyOffset > 0)
-							curStage.partEfficiencyOffset += mutationLevel * 0.02f;
-						else
-							curStage.partEfficiencyOffset = mutationLevel * 0.02f;
+						if (def.addedPartProps.partEfficiency <= 1f)
+						{
+							if (curStage.partEfficiencyOffset > 0)
+								curStage.partEfficiencyOffset += mutationLevel * 0.02f;
+							else
+								curStage.partEfficiencyOffset = mutationLevel * 0.04f;
+						}
 						if (curStage.regeneration > 0f)
-							curStage.regeneration += mutationLevel * 2f;
+							curStage.regeneration += mutationLevel * 1f;
 						else
 							curStage.regeneration = mutationLevel * 2f;
 						if (mutationLevel >= 5)
-						{
 							curStage.partIgnoreMissingHP = true;
-						}
 					}
 				}
 				return curStage;
@@ -129,6 +136,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref mutationLevel, "mutationLevel", 0);
+			Scribe_Values.Look(ref maxMutationLevel, "maxMutationLevel", 5);
 		}
 
 	}

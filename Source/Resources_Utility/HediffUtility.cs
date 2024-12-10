@@ -10,7 +10,7 @@ namespace WVC_XenotypesAndGenes
 	public static class HediffUtility
 	{
 
-		public static bool TryGiveFleshmassMutation(Pawn pawn, HediffDef mutationDef)
+		public static bool TryGiveFleshmassMutation(Pawn pawn, HediffDef mutationDef, int maxMutationLevel = 5)
         {
             if (!ModsConfig.AnomalyActive)
             {
@@ -40,13 +40,19 @@ namespace WVC_XenotypesAndGenes
             if (bodyPartRecord == null)
             {
                 return false;
+			}
+            if (!TryMakeFleshmassNucleusHediff(mutationDef, pawn, out HediffAddedPart_FleshmassNucleus hediff, bodyPartRecord))
+            {
+                return false;
             }
             MedicalRecipesUtility.SpawnThingsFromHediffs(pawn, bodyPartRecord, pawn.PositionHeld, pawn.MapHeld);
             pawn.health.RestorePart(bodyPartRecord);
-            Type currentClass = mutationDef.hediffClass;
-            mutationDef.hediffClass = typeof(HediffAddedPart_FleshmassNucleus);
-            pawn.health.AddHediff(HediffMaker.MakeHediff(mutationDef, pawn), bodyPartRecord);
-            mutationDef.hediffClass = currentClass;
+			hediff.maxMutationLevel = maxMutationLevel;
+			pawn.health.AddHediff(hediff, bodyPartRecord);
+            //Type currentClass = mutationDef.hediffClass;
+            //mutationDef.hediffClass = typeof(HediffAddedPart_FleshmassNucleus);
+            //pawn.health.AddHediff(HediffMaker.MakeHediff(mutationDef, pawn), bodyPartRecord);
+            //mutationDef.hediffClass = currentClass;
             MutationMeatSplatter(pawn);
             return true;
         }
@@ -66,21 +72,21 @@ namespace WVC_XenotypesAndGenes
             FleshbeastUtility.MeatSplatter(3, pawn.PositionHeld, pawn.MapHeld);
         }
 
-        //public static HediffWithComps_FleshmassHeart MakeHediff(HediffDef def, Pawn pawn, BodyPartRecord partRecord = null)
-        //{
-        //	if (pawn == null)
-        //	{
-        //		Log.Error(string.Concat("Cannot make hediff ", def, " for null pawn."));
-        //		return null;
-        //	}
-        //	HediffWithComps_FleshmassHeart obj = (HediffWithComps_FleshmassHeart)Activator.CreateInstance(typeof(HediffWithComps_FleshmassHeart));
-        //	obj.def = def;
-        //	obj.pawn = pawn;
-        //	obj.Part = partRecord;
-        //	obj.loadID = Find.UniqueIDsManager.GetNextHediffID();
-        //	obj.PostMake();
-        //	return obj;
-        //}
+        public static bool TryMakeFleshmassNucleusHediff(HediffDef def, Pawn pawn, out HediffAddedPart_FleshmassNucleus hediff, BodyPartRecord partRecord = null)
+        {
+			hediff = null;
+			if (pawn == null)
+            {
+                return false;
+            }
+			hediff = (HediffAddedPart_FleshmassNucleus)Activator.CreateInstance(typeof(HediffAddedPart_FleshmassNucleus));
+            hediff.def = def;
+            hediff.pawn = pawn;
+            hediff.Part = partRecord;
+            hediff.loadID = Find.UniqueIDsManager.GetNextHediffID();
+            hediff.PostMake();
+            return true;
+        }
 
         public static float SeverityFromLit(Pawn pawn, float exposurePerSecond_Lit, float exposurePerSecond_Unlit, int ticks = 60)
 		{

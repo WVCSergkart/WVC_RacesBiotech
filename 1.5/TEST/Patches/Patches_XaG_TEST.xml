@@ -28,6 +28,16 @@
 	  </value>
 	</Operation>
 
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="FleshWhip" or defName="FleshTentacle"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li>WVC_FleshmassNucleus</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
 	<!-- <Operation Class="PatchOperationAdd"> -->
 	  <!-- <xpath>/Defs/HediffDef[defName="VoidTouched"]/comps</xpath> -->
 	  <!-- <value> -->

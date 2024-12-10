@@ -125,6 +125,8 @@ namespace WVC_XenotypesAndGenes
 		// Chimera
 		public List<GeneDef> chimeraGenesTools;
 		public List<GeneDef> humanBasicGenes;
+		// Fleshmass
+		public int maxMutationLevel = 5;
 	}
 
 	public class GeneExtension_Opinion : DefModExtension
