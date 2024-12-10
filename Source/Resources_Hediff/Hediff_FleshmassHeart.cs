@@ -1,0 +1,136 @@
+using RimWorld;
+using System;
+using System.Collections.Generic;
+using Verse;
+
+
+namespace WVC_XenotypesAndGenes
+{
+
+	public class HediffAddedPart_FleshmassNucleus : Hediff_AddedPart
+	{
+
+		private int mutationLevel = 0;
+
+		public int maxMutationLevel = 5;
+
+		private HediffStage curStage;
+
+		public override bool Visible => true;
+
+		public override HediffStage CurStage
+		{
+			get
+			{
+				if (curStage == null)
+				{
+					curStage = new();
+                    //curStage = def.stages[CurStageIndex];
+                    HediffStage defStage = def.stages[CurStageIndex];
+                    curStage.foodPoisoningChanceFactor = defStage.foodPoisoningChanceFactor;
+					curStage.partEfficiencyOffset = defStage.partEfficiencyOffset;
+					curStage.hungerRateFactor = defStage.hungerRateFactor;
+                    curStage.hungerRateFactorOffset = defStage.hungerRateFactorOffset;
+                    curStage.totalBleedFactor = defStage.totalBleedFactor;
+                    curStage.fertilityFactor = defStage.fertilityFactor;
+                    curStage.naturalHealingFactor = defStage.naturalHealingFactor;
+                    curStage.partIgnoreMissingHP = defStage.partIgnoreMissingHP;
+                    curStage.regeneration = defStage.regeneration;
+                    curStage.restFallFactor = defStage.restFallFactor;
+                    curStage.restFallFactorOffset = defStage.restFallFactorOffset;
+					if (!defStage.makeImmuneTo.NullOrEmpty())
+					{
+						curStage.makeImmuneTo = new();
+						foreach (HediffDef hediffDef in defStage.makeImmuneTo)
+						{
+							curStage.makeImmuneTo.Add(hediffDef);
+						}
+					}
+					if (!defStage.capMods.NullOrEmpty())
+					{
+						curStage.capMods = new();
+						foreach (PawnCapacityModifier pawnCapacityModifier in defStage.capMods)
+						{
+							//if (pawnCapacityModifier.offset < 0f || pawnCapacityModifier.postFactor < 1f || pawnCapacityModifier.setMax < 2f)
+							//{
+							//	continue;
+							//}
+							PawnCapacityModifier newPawnCapacityModifier = new();
+							newPawnCapacityModifier.statFactorMod = pawnCapacityModifier.statFactorMod;
+							newPawnCapacityModifier.setMaxCurveOverride = pawnCapacityModifier.setMaxCurveOverride;
+							newPawnCapacityModifier.setMaxCurveEvaluateStat = pawnCapacityModifier.setMaxCurveEvaluateStat;
+							newPawnCapacityModifier.capacity = pawnCapacityModifier.capacity;
+							newPawnCapacityModifier.offset = pawnCapacityModifier.offset;
+							newPawnCapacityModifier.postFactor = pawnCapacityModifier.postFactor;
+							//newPawnCapacityModifier.setMax = pawnCapacityModifier.setMax;
+							curStage.capMods.Add(newPawnCapacityModifier);
+						}
+					}
+					if (!defStage.statFactors.NullOrEmpty())
+                    {
+						curStage.statFactors = new();
+						foreach (StatModifier statModifier in defStage.statFactors)
+						{
+							StatModifier newStatMod = new();
+							newStatMod.value = statModifier.value;
+							newStatMod.stat = statModifier.stat;
+							curStage.statFactors.Add(newStatMod);
+						}
+					}
+					if (!defStage.statOffsets.NullOrEmpty())
+					{
+						curStage.statOffsets = new();
+						foreach (StatModifier statModifier in defStage.statOffsets)
+                        {
+                            StatModifier newStatMod = new();
+                            newStatMod.value = statModifier.value;
+							newStatMod.stat = statModifier.stat;
+							curStage.statOffsets.Add(newStatMod);
+						}
+						if (curStage.statOffsets.TryRandomElement((stat) => stat.stat == StatDefOf.PawnBeauty, out StatModifier statMod))
+						{
+							if (statMod.value < 0)
+							{
+								statMod.value *= -1f;
+							}
+						}
+					}
+					if (mutationLevel > 0)
+					{
+						if (curStage.partEfficiencyOffset > 0)
+							curStage.partEfficiencyOffset += mutationLevel * 0.02f;
+						else
+							curStage.partEfficiencyOffset = mutationLevel * 0.02f;
+						if (curStage.regeneration > 0f)
+							curStage.regeneration += mutationLevel * 2f;
+						else
+							curStage.regeneration = mutationLevel * 2f;
+						if (mutationLevel >= 5)
+						{
+							curStage.partIgnoreMissingHP = true;
+						}
+					}
+				}
+				return curStage;
+			}
+		}
+
+		public bool CanLevelUp => mutationLevel < maxMutationLevel;
+
+		public void LevelUp()
+		{
+			mutationLevel++;
+			//Log.Error("Current level: " + mutationLevel);
+			curStage = null;
+			HediffUtility.MutationMeatSplatter(pawn);
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref mutationLevel, "mutationLevel", 0);
+		}
+
+	}
+
+}

@@ -3,7 +3,7 @@
 
   <GeneDef>
 	<defName>WVC_GeneFrenzy</defName>
-	<label>frenzy hearth</label>
+	<label>frenzy heart</label>
 	<description>Carriers of this gene can, at will, saturate the bloodstream with adrenaline, allowing the user to move and attack at high speeds for a short time.</description>
 	<iconPath>WVC/UI/Genes/Gene_Frenzy_v0</iconPath>
 	<displayCategory>Ability</displayCategory>

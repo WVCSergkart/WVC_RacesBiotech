@@ -73,7 +73,8 @@
 	  </points>
 	</biologicalAgeTickFactorFromAgeCurve>
 	<statFactors>
-		<LearningRateFactor>4.0</LearningRateFactor>
+		<!-- <LearningRateFactor>4.0</LearningRateFactor> -->
+		<VEF_GrowthPointMultiplier MayRequire="oskarpotocki.vanillafactionsexpanded.core">4.0</VEF_GrowthPointMultiplier>
 	</statFactors>
   </GeneDef>
 
@@ -93,7 +94,8 @@
 	  </points>
 	</biologicalAgeTickFactorFromAgeCurve>
 	<statFactors>
-		<LearningRateFactor>2.0</LearningRateFactor>
+		<!-- <LearningRateFactor>2.0</LearningRateFactor> -->
+		<VEF_GrowthPointMultiplier MayRequire="oskarpotocki.vanillafactionsexpanded.core">2.0</VEF_GrowthPointMultiplier>
 	</statFactors>
 	<exclusionTags>
 	  <li>WVC_Ageless_FastSlowAging</li>
@@ -116,7 +118,8 @@
 	  </points>
 	</biologicalAgeTickFactorFromAgeCurve>
 	<statFactors>
-		<LearningRateFactor>0.5</LearningRateFactor>
+		<!-- <LearningRateFactor>0.5</LearningRateFactor> -->
+		<VEF_GrowthPointMultiplier MayRequire="oskarpotocki.vanillafactionsexpanded.core">0.5</VEF_GrowthPointMultiplier>
 	</statFactors>
 	<exclusionTags>
 	  <li>WVC_Ageless_FastSlowAging</li>
@@ -139,7 +142,8 @@
 	  </points>
 	</biologicalAgeTickFactorFromAgeCurve>
 	<statFactors>
-		<LearningRateFactor>0.2</LearningRateFactor>
+		<!-- <LearningRateFactor>0.2</LearningRateFactor> -->
+		<VEF_GrowthPointMultiplier MayRequire="oskarpotocki.vanillafactionsexpanded.core">0.2</VEF_GrowthPointMultiplier>
 	</statFactors>
 	<symbolPack>
 	  <wholeNameSymbols>

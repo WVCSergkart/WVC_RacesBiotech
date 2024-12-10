@@ -78,6 +78,7 @@
     <Compile Include="Resources_Genes\Gene_DeathrestSubgenes.cs" />
     <Compile Include="Resources_Genes\Gene_Morpher_SubGenes.cs" />
     <Compile Include="Resources_Gizmo\Dialog_GenesSettings.cs" />
+    <Compile Include="Resources_Hediff\Hediff_FleshmassHeart.cs" />
     <Compile Include="Resources_Main\GenesHolder.cs" />
     <Compile Include="Resources_Main\WVC_HistoryDefOf.cs" />
     <Compile Include="Resources_Quests\QuestNode_Root_ChimerkinBaby.cs" />

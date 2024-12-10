@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
@@ -9,7 +10,79 @@ namespace WVC_XenotypesAndGenes
 	public static class HediffUtility
 	{
 
-		public static float SeverityFromLit(Pawn pawn, float exposurePerSecond_Lit, float exposurePerSecond_Unlit, int ticks = 60)
+		public static bool TryGiveFleshmassMutation(Pawn pawn, HediffDef mutationDef)
+        {
+            if (!ModsConfig.AnomalyActive)
+            {
+                return false;
+            }
+            if (mutationDef.defaultInstallPart == null)
+            {
+                Log.ErrorOnce("Attempted to use mutation hediff which didn't specify a default install part (hediff: " + mutationDef.label, 194783821);
+                return false;
+            }
+            //List<BodyPartRecord> allBodyParts = pawn.RaceProps.body.GetPartsWithDef(mutationDef.defaultInstallPart).Where
+            List<BodyPartRecord> list = (from part in pawn.RaceProps.body.GetPartsWithDef(mutationDef.defaultInstallPart)
+                                         where pawn.health.hediffSet.HasMissingPartFor(part)
+                                         select part).ToList();
+            List<BodyPartRecord> list2 = (from part in pawn.RaceProps.body.GetPartsWithDef(mutationDef.defaultInstallPart)
+                                          where !pawn.health.hediffSet.HasDirectlyAddedPartFor(part)
+                                          select part).ToList();
+            BodyPartRecord bodyPartRecord = null;
+            if (list.Any())
+            {
+                bodyPartRecord = list.RandomElement();
+            }
+            else if (list2.Any())
+            {
+                bodyPartRecord = list2.RandomElement();
+            }
+            if (bodyPartRecord == null)
+            {
+                return false;
+            }
+            MedicalRecipesUtility.SpawnThingsFromHediffs(pawn, bodyPartRecord, pawn.PositionHeld, pawn.MapHeld);
+            pawn.health.RestorePart(bodyPartRecord);
+            Type currentClass = mutationDef.hediffClass;
+            mutationDef.hediffClass = typeof(HediffAddedPart_FleshmassNucleus);
+            pawn.health.AddHediff(HediffMaker.MakeHediff(mutationDef, pawn), bodyPartRecord);
+            mutationDef.hediffClass = currentClass;
+            MutationMeatSplatter(pawn);
+            return true;
+        }
+
+        public static void MutationMeatSplatter(Pawn pawn)
+        {
+			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.BloodLoss))
+			{
+				Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.BloodLoss, pawn);
+				hediff.Severity = 0.2f;
+				pawn.health.AddHediff(hediff);
+			}
+            for (int i = 0; i < 3; i++)
+            {
+                pawn.health.DropBloodFilth();
+            }
+            FleshbeastUtility.MeatSplatter(3, pawn.PositionHeld, pawn.MapHeld);
+        }
+
+        //public static HediffWithComps_FleshmassHeart MakeHediff(HediffDef def, Pawn pawn, BodyPartRecord partRecord = null)
+        //{
+        //	if (pawn == null)
+        //	{
+        //		Log.Error(string.Concat("Cannot make hediff ", def, " for null pawn."));
+        //		return null;
+        //	}
+        //	HediffWithComps_FleshmassHeart obj = (HediffWithComps_FleshmassHeart)Activator.CreateInstance(typeof(HediffWithComps_FleshmassHeart));
+        //	obj.def = def;
+        //	obj.pawn = pawn;
+        //	obj.Part = partRecord;
+        //	obj.loadID = Find.UniqueIDsManager.GetNextHediffID();
+        //	obj.PostMake();
+        //	return obj;
+        //}
+
+        public static float SeverityFromLit(Pawn pawn, float exposurePerSecond_Lit, float exposurePerSecond_Unlit, int ticks = 60)
 		{
 			bool flag = pawn.MapHeld.glowGrid.PsychGlowAt(pawn.PositionHeld) != PsychGlow.Dark;
 			return flag ? exposurePerSecond_Lit * (ticks / 60) : (exposurePerSecond_Unlit * (ticks / 60));

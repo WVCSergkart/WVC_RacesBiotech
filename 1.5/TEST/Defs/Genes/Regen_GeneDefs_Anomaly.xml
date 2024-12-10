@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef>
+	<defName>WVC_WoundHealing_FleshmassNucleus</defName>
+	<label>fleshmass heart</label>
+	<description>Carriers of this gene have archites that form inside the fleshmass nucleus. It gives incredibly fast regeneration and causes constant mutations. However, the death of the carrier can cause the appearance of a fleshmass heart.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_FleshmassNucleus</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_FleshmassNucleus_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>90</displayOrderInCategory>
+	<displayCategory>Archite</displayCategory>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<marketValueFactor>5</marketValueFactor>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>5</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Healing: 100 hp/day</li>
+		<li>Death of the gene carrier spawns a &lt;color=#b0bf80&gt;fleshmass heart&lt;/color&gt;.</li>
+		<li>&lt;color=#b0bf80&gt;Causes mutations from time to time&lt;/color&gt;.</li>
+		<li>Mutations obtained in this way differ from the standard ones.</li>
+		<li>If the mutation fails, one of the &lt;color=#b0bf80&gt;mutations progresses&lt;/color&gt; and becomes stronger.</li>
+	</customEffectDescriptions>
+	<!-- <statFactors> -->
+	  <!-- <VEF_BodySize_Multiplier MayRequire="oskarpotocki.vanillafactionsexpanded.core">4.0</VEF_BodySize_Multiplier> -->
+	  <!-- <VEF_CosmeticBodySize_Multiplier MayRequire="oskarpotocki.vanillafactionsexpanded.core">0.25</VEF_CosmeticBodySize_Multiplier> -->
+	<!-- </statFactors> -->
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<regeneration>100</regeneration>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+
+</Defs>
