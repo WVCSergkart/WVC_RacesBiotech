@@ -2,6 +2,7 @@ using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -72,7 +73,7 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Undead Undead => def.GetModExtension<GeneExtension_Undead>();
 
-		private int nextTick = 0;
+		private int nextTick = 60000;
 
 		public override void PostAdd()
 		{
@@ -97,11 +98,19 @@ namespace WVC_XenotypesAndGenes
         private void TryGiveMutation()
         {
             if (Gene_MorphMutations.TryGetBestMutation(pawn, out HediffDef mutation))
-            {
-                if (!HediffUtility.TryGiveFleshmassMutation(pawn, mutation) && TryGetPawnMutation(out HediffAddedPart_FleshmassNucleus hediffWithComps_FleshmassHeart))
+			{
+				if (HediffUtility.TryGiveFleshmassMutation(pawn, mutation))
+				{
+					return;
+				}
+				if (TryGetPawnMutation(out HediffAddedPart_FleshmassNucleus hediffWithComps_FleshmassHeart))
                 {
                     hediffWithComps_FleshmassHeart.LevelUp();
                 }
+				else
+                {
+					TrySpawnMeat(pawn);
+				}
             }
         }
 
@@ -117,9 +126,26 @@ namespace WVC_XenotypesAndGenes
 				}
             }
             return hediffWithComps_FleshmassHeart != null;
-        }
+		}
 
-        public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
+		public static void TrySpawnMeat(Pawn pawn)
+		{
+			int num = Mathf.CeilToInt(20 * pawn.BodySize * pawn.GetStatValue(StatDefOf.MaxNutrition));
+			int randomInRange = new IntRange(3, 6).RandomInRange;
+			for (int i = 0; i < randomInRange; i++)
+			{
+				if (CellFinder.TryRandomClosewalkCellNear(pawn.PositionHeld, pawn.MapHeld, 3, out var result))
+				{
+					Thing thing = ThingMaker.MakeThing(ThingDefOf.Meat_Twisted);
+					thing.stackCount = Rand.RangeInclusive(4, num);
+					GenDrop.TryDropSpawn(thing, result, pawn.MapHeld, ThingPlaceMode.Near, out var _);
+				}
+			}
+			HediffUtility.MutationMeatSplatter(pawn);
+			//EffecterDefOf.MeatExplosion.Spawn(pawn.PositionHeld, pawn.MapHeld).Cleanup();
+		}
+
+		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
 		{
 			if (!Active)
 			{
@@ -156,6 +182,12 @@ namespace WVC_XenotypesAndGenes
 					}
 				};
 			}
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref nextTick, "nextTick", 0);
 		}
 
 	}

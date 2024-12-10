@@ -51,9 +51,9 @@ namespace WVC_XenotypesAndGenes
             return true;
         }
 
-        public static void MutationMeatSplatter(Pawn pawn)
+        public static void MutationMeatSplatter(Pawn pawn, bool bloodLoss = true)
         {
-			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.BloodLoss))
+			if (bloodLoss && !pawn.health.hediffSet.HasHediff(HediffDefOf.BloodLoss))
 			{
 				Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.BloodLoss, pawn);
 				hediff.Severity = 0.2f;

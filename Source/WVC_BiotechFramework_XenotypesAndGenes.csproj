@@ -167,6 +167,7 @@
     <Compile Include="Resources_Things\CompProperties_AffectedByFacilities.cs" />
     <Compile Include="Resources_Things\CompProperties_ChangeEyesColor.cs" />
     <Compile Include="Resources_Things\CompProperties_DryadCocoon.cs" />
+    <Compile Include="Resources_Things\CompProperties_EntitiesGenes.cs" />
     <Compile Include="Resources_Things\CompProperties_Genepack.cs" />
     <Compile Include="Resources_Things\CompProperties_Golem.cs" />
     <Compile Include="Resources_Things\CompProperties_Xenotype.cs" />
@@ -186,6 +187,7 @@
     <Compile Include="Resources_Workers\JobDriver_ChangeGolemType.cs" />
     <Compile Include="Resources_Workers\JobDriver_ChangeMorpherTriggerGene.cs" />
     <Compile Include="Resources_Workers\JobDriver_DestroyCellularBody.cs" />
+    <Compile Include="Resources_Workers\JobDriver_DevourFleshmassNucleus.cs" />
     <Compile Include="Resources_Workers\JobDriver_FeedTargetWithOwnBlood.cs" />
     <Compile Include="Resources_Workers\JobDriver_RetuneSerum.cs" />
     <Compile Include="Resources_Workers\JobDriver_StomachCharge.cs" />

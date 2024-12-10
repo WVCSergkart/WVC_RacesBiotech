@@ -521,6 +521,9 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_ChimeraApply_Eat>Eat</WVC_XaG_ChimeraApply_Eat>
 	<WVC_XaG_ChimeraApply_Clear>Clear</WVC_XaG_ChimeraApply_Clear>
 
+	<WVC_XaG_GeneChimeraEntitiesDevour>Devour using the chimera gene.</WVC_XaG_GeneChimeraEntitiesDevour>
+	<WVC_XaG_GeneChimeraReqGene>Pawn must have a chimera gene or something similar.</WVC_XaG_GeneChimeraReqGene>
+
 	<!-- ============================ MECHLINK CUSTOM LABEL ============================ -->
 
 	<WVC_XaG_CustomLabeledMechlinkDesc>A neural formation resulting from genetic evolution or modification, similar to what can be obtained by implanting a mechlink.</WVC_XaG_CustomLabeledMechlinkDesc>

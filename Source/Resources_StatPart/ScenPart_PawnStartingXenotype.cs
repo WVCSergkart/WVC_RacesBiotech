@@ -32,17 +32,7 @@ namespace WVC_XenotypesAndGenes
             {
                 return;
             }
-            Gene_Chimera chimera = p.genes?.GetFirstGeneOfType<Gene_Chimera>();
-            if (chimera == null)
-            {
-                return;
-            }
-            foreach (GeneDef geneDef in chimeraGeneDefs)
-            {
-                chimera.AddGene(geneDef);
-                p.genes.AddGene(geneDef, true);
-            }
-            chimera.UpdateMetabolism();
+            XaG_GeneUtility.AddGenesToChimera(p, chimeraGeneDefs);
         }
 
         private void SetGenes(Pawn p)

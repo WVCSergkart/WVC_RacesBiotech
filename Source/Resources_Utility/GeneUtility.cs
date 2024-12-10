@@ -193,6 +193,21 @@ namespace WVC_XenotypesAndGenes
 
 		// Misc
 
+		public static void AddGenesToChimera(Pawn p, List<GeneDef> chimeraGeneDefs)
+		{
+			Gene_Chimera chimera = p.genes?.GetFirstGeneOfType<Gene_Chimera>();
+			if (chimera == null)
+			{
+				return;
+			}
+			foreach (GeneDef geneDef in chimeraGeneDefs)
+			{
+				chimera.AddGene(geneDef);
+				p.genes.AddGene(geneDef, true);
+			}
+			chimera.UpdateMetabolism();
+		}
+
 		public static void UpdateXenogermReplication(Pawn pawn, bool addXenogermReplicating = true, IntRange ticksToDisappear = new())
 		{
 			Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.XenogermReplicating);

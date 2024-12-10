@@ -112,12 +112,10 @@ namespace WVC_XenotypesAndGenes
 					{
 						Thing architeCapsule = GetBestArchiteStack(pawn, false);
 						if (architeCapsule != null)
-						{
-							XaG_Job xaG_Job = new(JobMaker.MakeJob(gene.Giver.morpherTriggerChangeJob, architeCapsule));
-							xaG_Job.geneDef = geneDef;
-							pawn.jobs.TryTakeOrderedJob(xaG_Job, JobTag.Misc);
-						}
-						else
+                        {
+							MiscUtility.MakeJobWithGeneDef(pawn, gene.Giver.morpherTriggerChangeJob, geneDef, architeCapsule);
+                        }
+                        else
 						{
 							Messages.Message("WVC_XaG_GeneMorpherChangeTriggerGene_FailMessage".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
 						}
@@ -127,7 +125,7 @@ namespace WVC_XenotypesAndGenes
 			Find.WindowStack.Add(new FloatMenu(list));
 		}
 
-		public static Thing GetBestArchiteStack(Pawn pawn, bool forced)
+        public static Thing GetBestArchiteStack(Pawn pawn, bool forced)
 		{
 			Danger danger = (forced ? Danger.Deadly : Danger.Some);
 			return (Thing)GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForDef(ThingDefOf.ArchiteCapsule), PathEndMode.Touch, TraverseParms.For(pawn, danger), 9999f, delegate (Thing t)

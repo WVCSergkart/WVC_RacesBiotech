@@ -38,6 +38,13 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public static void MakeJobWithGeneDef(Pawn pawn, JobDef jobDef, GeneDef geneDef, Thing target)
+		{
+			XaG_Job xaG_Job = new(JobMaker.MakeJob(jobDef, target));
+			xaG_Job.geneDef = geneDef;
+			pawn.jobs.TryTakeOrderedJob(xaG_Job, JobTag.Misc);
+		}
+
 		public static bool PawnDoIngestJob(Pawn pawn)
 		{
 			return pawn.jobs?.curJob?.def != JobDefOf.Ingest;
