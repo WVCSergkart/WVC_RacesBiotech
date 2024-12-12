@@ -767,6 +767,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_GeneInhumanDuplicateLetter>{CASTER_nameDef} pulsed with energy and generated a flash of light. {PAWN_nameDef} found {PAWN_objective}self face to face with a copy of {PAWN_objective}self. The duplicate is completely out of {PAWN_possessive} mind, mumbling some incomprehensible nonsense and not responding to attempts to talk to {PAWN_objective}. Something has broken deep inside {PAWN_objective}.</WVC_XaG_GeneInhumanDuplicateLetter>
 
+	<WVC_XaG_GeneDuplicatorMutationLetter>But something went wrong and {PAWN_nameDef} developed a mutation!</WVC_XaG_GeneDuplicatorMutationLetter>
+
 	<WVC_XaG_MentalBreakReason_VoidVoice>{PAWN_nameDef}'s words struck a chord with {TARGET_nameDef}'s soul, and the void filled {TARGET_possessive} thoughts.</WVC_XaG_MentalBreakReason_VoidVoice>
 	<WVC_XaG_MentalBreakReason_Inhumanized>This happened because of a genetic predisposition to psychic void patterns.</WVC_XaG_MentalBreakReason_Inhumanized>
 	<WVC_XaG_MentalBreakReason_Duplicator>This happened because of duplication.</WVC_XaG_MentalBreakReason_Duplicator>
