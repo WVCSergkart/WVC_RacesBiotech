@@ -165,6 +165,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">
 	<defName>WVC_MechaAI_MechanitorNetwork</defName>
 	<label>mecha-network</label>
+	<description>Carriers of this gene have archites that enhance the owner's psychic mechanitor abilities. Thanks to this, the mechanoids distribute their load within the psychic network, which allows for increased efficiency of the mechs under the owner's control.</description>
 	<iconPath>WVC/UI/Genes/MechaNetwork_v0</iconPath>
 	<minAgeActive>3</minAgeActive>
 	<displayCategory>Ability</displayCategory>

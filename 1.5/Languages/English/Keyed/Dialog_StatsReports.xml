@@ -19,7 +19,8 @@
   <!-- <WVC_StatsReport_NonOperatingSystem>non-operating system</WVC_StatsReport_NonOperatingSystem> -->
   <WVC_StatsReport_NonGenes>non-</WVC_StatsReport_NonGenes>
   <!-- <WVC_StatsReport_MechanitorUsedBandwidth>used bandwidth</WVC_StatsReport_MechanitorUsedBandwidth> -->
-  <WVC_StatsReport_MechanitorTotalBandwidth>controlled mechs</WVC_StatsReport_MechanitorTotalBandwidth>
+  <!-- <WVC_StatsReport_MechanitorTotalBandwidth>controlled mechs</WVC_StatsReport_MechanitorTotalBandwidth> -->
+  <WVC_StatsReport_MechanitorTotalBandwidth>colony mechs >= {0}</WVC_StatsReport_MechanitorTotalBandwidth>
   <!-- <WVC_StatsReport_UnknownXenotype>unknown xenotype</WVC_StatsReport_UnknownXenotype> -->
   <WVC_StatsReport_CauseSetting_On>enabled</WVC_StatsReport_CauseSetting_On>
   <WVC_StatsReport_CauseSetting_Off>disabled</WVC_StatsReport_CauseSetting_Off>

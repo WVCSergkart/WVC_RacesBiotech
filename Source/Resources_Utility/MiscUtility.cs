@@ -519,6 +519,7 @@ namespace WVC_XenotypesAndGenes
 			int colonists = 0;
 			int xenos = 0;
 			int nonHumans = 0;
+			int colonyMechs = 0;
 			bool anyAssignedWork = false;
 			//bool leaderIsShapeshifterOrSimilar = false;
 			//bool presentShapeshifter = false;
@@ -530,6 +531,14 @@ namespace WVC_XenotypesAndGenes
 				if (!item.RaceProps.Humanlike)
 				{
 					nonHumans++;
+					if (item.RaceProps.IsMechanoid)
+					{
+						colonyMechs++;
+					}
+					continue;
+				}
+				if (item.IsMutant)
+				{
 					continue;
 				}
 				if (!XaG_GeneUtility.PawnIsBaseliner(item) && item.IsHuman())
@@ -554,7 +563,7 @@ namespace WVC_XenotypesAndGenes
 					//	}
 					//}
 				}
-				if (!item.IsMutant && !item.IsQuestLodger() && !item.IsDuplicate && !item.Deathresting && !item.IsPrisoner)
+				if (!item.IsQuestLodger() && !item.IsDuplicate && !item.Deathresting && !item.IsPrisoner)
 				{
 					colonists++;
 				}
@@ -571,11 +580,12 @@ namespace WVC_XenotypesAndGenes
 			StaticCollectionsClass.cachedXenotypesCount = xenos;
 			StaticCollectionsClass.cachedNonHumansCount = nonHumans;
 			StaticCollectionsClass.haveAssignedWork = anyAssignedWork;
+			StaticCollectionsClass.cachedColonyMechs = colonyMechs;
 			//StaticCollectionsClass.leaderIsShapeshifter = leaderIsShapeshifterOrSimilar;
 			//StaticCollectionsClass.leaderIsShapeshifter = presentShapeshifter;
 			//StaticCollectionsClass.leaderIsShapeshifter = leaderIsUndead;
 			//StaticCollectionsClass.leaderIsShapeshifter = presentUndead;
-			//Log.Error("Colonists: " + colonists + ". Xenos: " + xenos + ". Non-humans: " + nonHumans);
+			//Log.Error("Colonists: " + colonists + ". Xenos: " + xenos + ". Non-humans: " + nonHumans + ". Mechs: " + colonyMechs);
 		}
 
 		public static void ForeverAloneDevelopmentPoints()
