@@ -103,7 +103,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					return;
 				}
-				if (TryGetPawnMutation(out HediffAddedPart_FleshmassNucleus hediffWithComps_FleshmassHeart))
+				if (TryGetWeakerPawnMutation(out HediffAddedPart_FleshmassNucleus hediffWithComps_FleshmassHeart))
                 {
                     hediffWithComps_FleshmassHeart.LevelUp();
                 }
@@ -114,12 +114,13 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        private bool TryGetPawnMutation(out HediffAddedPart_FleshmassNucleus hediffWithComps_FleshmassHeart)
+        private bool TryGetWeakerPawnMutation(out HediffAddedPart_FleshmassNucleus hediffWithComps_FleshmassHeart)
         {
 			hediffWithComps_FleshmassHeart = null;
-			foreach (Hediff hediff in pawn.health.hediffSet.hediffs)
+			List<Hediff> hediffs = pawn.health.hediffSet.hediffs.Where((Hediff hediff) => hediff is HediffAddedPart_FleshmassNucleus massHediff && massHediff.CanLevelUp).OrderBy((hediff) => hediff is HediffAddedPart_FleshmassNucleus massHediff ? massHediff.CurrentLevel : 0f).ToList();
+			foreach (Hediff hediff in hediffs)
             {
-				if (hediff is HediffAddedPart_FleshmassNucleus massHediff && massHediff.CanLevelUp)
+				if (hediff is HediffAddedPart_FleshmassNucleus massHediff)
                 {
 					hediffWithComps_FleshmassHeart = massHediff;
 					break;

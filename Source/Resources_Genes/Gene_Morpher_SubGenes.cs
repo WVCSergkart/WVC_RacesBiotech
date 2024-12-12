@@ -69,7 +69,7 @@ namespace WVC_XenotypesAndGenes
 		public static bool TryGetBestMutation(Pawn pawn, out HediffDef mutation)
 		{
 			mutation = null;
-			if (DefDatabase<HediffDef>.AllDefsListForReading.Where((HediffDef hediffDef) => hediffDef.defaultInstallPart != null && hediffDef.CompProps<HediffCompProperties_FleshbeastEmerge>() != null).TryRandomElementByWeight((HediffDef hediffDef) => pawn.health.hediffSet.HasHediff(hediffDef) ? 1f : 100f, out HediffDef mutationHediff))
+			if (DefDatabase<HediffDef>.AllDefsListForReading.Where((HediffDef hediffDef) => hediffDef.defaultInstallPart != null && hediffDef.CompProps<HediffCompProperties_FleshbeastEmerge>() != null && hediffDef.IsHediffDefOfType<Hediff_AddedPart>()).TryRandomElementByWeight((HediffDef hediffDef) => pawn.health.hediffSet.HasHediff(hediffDef) ? 1f : 100f, out HediffDef mutationHediff))
             {
 				mutation = mutationHediff;
 			}

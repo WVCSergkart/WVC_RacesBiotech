@@ -21,12 +21,12 @@ namespace WVC_XenotypesAndGenes
                 Log.ErrorOnce("Attempted to use mutation hediff which didn't specify a default install part (hediff: " + mutationDef.label, 194783821);
                 return false;
             }
-            //List<BodyPartRecord> allBodyParts = pawn.RaceProps.body.GetPartsWithDef(mutationDef.defaultInstallPart).Where
+			//List<BodyPartRecord> allBodyParts = pawn.RaceProps.body.GetPartsWithDef(mutationDef.defaultInstallPart).Where((part) => !pawn.health.hediffSet.HasHediff(mutationDef, part)).ToList();
             List<BodyPartRecord> list = (from part in pawn.RaceProps.body.GetPartsWithDef(mutationDef.defaultInstallPart)
-                                         where pawn.health.hediffSet.HasMissingPartFor(part)
+										 where pawn.health.hediffSet.HasMissingPartFor(part)
                                          select part).ToList();
             List<BodyPartRecord> list2 = (from part in pawn.RaceProps.body.GetPartsWithDef(mutationDef.defaultInstallPart)
-                                          where !pawn.health.hediffSet.HasDirectlyAddedPartFor(part)
+										  where !pawn.health.hediffSet.HasDirectlyAddedPartFor(part)
                                           select part).ToList();
             BodyPartRecord bodyPartRecord = null;
             if (list.Any())
@@ -49,12 +49,28 @@ namespace WVC_XenotypesAndGenes
             pawn.health.RestorePart(bodyPartRecord);
 			hediff.maxMutationLevel = maxMutationLevel;
 			pawn.health.AddHediff(hediff, bodyPartRecord);
-            //Type currentClass = mutationDef.hediffClass;
-            //mutationDef.hediffClass = typeof(HediffAddedPart_FleshmassNucleus);
-            //pawn.health.AddHediff(HediffMaker.MakeHediff(mutationDef, pawn), bodyPartRecord);
-            //mutationDef.hediffClass = currentClass;
-            MutationMeatSplatter(pawn);
-            return true;
+			//Type currentClass = mutationDef.hediffClass;
+			//if (mutationDef.IsHediffDefOfType<Hediff_AddedPart>())
+			//{
+			//	mutationDef.hediffClass = typeof(HediffAddedPart_FleshmassNucleus);
+			//}
+			//else if (mutationDef.IsHediffDefOfType<Hediff_Implant>())
+			//{
+			//	mutationDef.hediffClass = typeof(HediffImplant_FleshmassNucleus);
+			//}
+			//Hediff hediff = HediffMaker.MakeHediff(mutationDef, pawn);
+			//pawn.health.AddHediff(hediff, bodyPartRecord);
+   //         mutationDef.hediffClass = currentClass;
+			//if (hediff is HediffAddedPart_FleshmassNucleus hediffAddedPart_FleshmassNucleus)
+			//{
+			//	hediffAddedPart_FleshmassNucleus.maxMutationLevel = maxMutationLevel;
+			//}
+			//else if (hediff is HediffImplant_FleshmassNucleus hediffImplant_FleshmassNucleus)
+   //         {
+			//	hediffImplant_FleshmassNucleus.maxMutationLevel = maxMutationLevel;
+			//}
+			MutationMeatSplatter(pawn);
+			return true;
         }
 
         public static void MutationMeatSplatter(Pawn pawn, bool bloodLoss = true)
@@ -70,7 +86,12 @@ namespace WVC_XenotypesAndGenes
                 pawn.health.DropBloodFilth();
             }
             FleshbeastUtility.MeatSplatter(3, pawn.PositionHeld, pawn.MapHeld);
-        }
+		}
+
+		public static bool IsHediffDefOfType<T>(this HediffDef hediffDef)
+		{
+			return hediffDef.hediffClass == typeof(T) || typeof(T).IsAssignableFrom(hediffDef.hediffClass);
+		}
 
         public static bool TryMakeFleshmassNucleusHediff(HediffDef def, Pawn pawn, out HediffAddedPart_FleshmassNucleus hediff, BodyPartRecord partRecord = null)
         {
