@@ -162,6 +162,7 @@
     <Compile Include="Resources_RitualAttachableOutcome\RitualOutcomeComp_Quality.cs" />
     <Compile Include="Resources_StatPart\ScenPart_PawnStartingXenotype.cs" />
     <Compile Include="Resources_StatPart\StatPart_OffsetFromBuildingsOnMap.cs" />
+    <Compile Include="Resources_TEST\CompProperties_Regeneration.cs" />
     <Compile Include="Resources_Things\Building_MechCharger.cs" />
     <Compile Include="Resources_Things\CompBiosculpterPod_Cycle.cs" />
     <Compile Include="Resources_Things\CompProperties_AffectedByFacilities.cs" />

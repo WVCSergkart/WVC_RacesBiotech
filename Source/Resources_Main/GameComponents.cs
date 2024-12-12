@@ -68,19 +68,16 @@ namespace WVC_XenotypesAndGenes
 
 		public void XaG_General()
 		{
-			if (ModLister.IdeologyInstalled)
+			MiscUtility.CountAllPlayerControlledPawns_ForIdeology();
+			//StaticCollectionsClass.cachedPawnsCount = MiscUtility.CountAllPlayerControlledColonistsExceptClonesAndQuests();
+			//StaticCollectionsClass.cachedXenotypesCount = MiscUtility.CountAllPlayerXenos();
+			//StaticCollectionsClass.cachedNonHumansCount = MiscUtility.CountAllPlayerNonHumanlikes();
+			//Log.Error("Colonists: " + colonists + ". Xenos: " + xenos + ". Non-humans: " + nonHumans);
+			nextSecondRecache++;
+			if (nextSecondRecache >= 2)
 			{
-				MiscUtility.CountAllPlayerControlledPawns_ForIdeology();
-				//StaticCollectionsClass.cachedPawnsCount = MiscUtility.CountAllPlayerControlledColonistsExceptClonesAndQuests();
-				//StaticCollectionsClass.cachedXenotypesCount = MiscUtility.CountAllPlayerXenos();
-				//StaticCollectionsClass.cachedNonHumansCount = MiscUtility.CountAllPlayerNonHumanlikes();
-				//Log.Error("Colonists: " + colonists + ". Xenos: " + xenos + ". Non-humans: " + nonHumans);
-				nextSecondRecache++;
-				if (nextSecondRecache >= 2)
-                {
-					MiscUtility.ForeverAloneDevelopmentPoints();
-					nextSecondRecache = 1;
-				}
+				MiscUtility.ForeverAloneDevelopmentPoints();
+				nextSecondRecache = 1;
 			}
 		}
 

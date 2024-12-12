@@ -590,7 +590,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void ForeverAloneDevelopmentPoints()
 		{
-			if (StaticCollectionsClass.cachedPawnsCount > 1)
+			if (StaticCollectionsClass.cachedPawnsCount > 1 || !ModLister.IdeologyInstalled)
 			{
 				return;
 			}
