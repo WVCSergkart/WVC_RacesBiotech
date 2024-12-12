@@ -13,11 +13,15 @@
 	<stages>
 	  <li>
 		<painOffset>0.03</painOffset>
+		<statOffsets>
+		  <MeleeDodgeChance>6</MeleeDodgeChance>
+		  <PawnBeauty>-1</PawnBeauty>
+		</statOffsets>
 	  </li>
 	</stages>
 	<addedPartProps>
 	  <solid>true</solid>
-	  <partEfficiency>1.2</partEfficiency>
+	  <!-- <partEfficiency>1.2</partEfficiency> -->
 	</addedPartProps>
 	<comps>
 	  <li Class="HediffCompProperties_FleshbeastEmerge">
@@ -36,11 +40,16 @@
 	<stages>
 	  <li>
 		<painOffset>0.03</painOffset>
+		<statOffsets>
+		  <MeleeHitChance>4</MeleeHitChance>
+		  <ShootingAccuracyPawn>4</ShootingAccuracyPawn>
+		  <PawnBeauty>-1</PawnBeauty>
+		</statOffsets>
 	  </li>
 	</stages>
 	<addedPartProps>
 	  <solid>true</solid>
-	  <partEfficiency>1.2</partEfficiency>
+	  <!-- <partEfficiency>1.2</partEfficiency> -->
 	</addedPartProps>
 	<renderNodeProperties>
 	  <li Class="PawnRenderNodeProperties_Eye">
@@ -101,12 +110,17 @@
 	<stages>
 	  <li>
 		<painOffset>0.08</painOffset>
-		<naturalHealingFactor>1.2</naturalHealingFactor>
+		<naturalHealingFactor>1.5</naturalHealingFactor>
+		<totalBleedFactor>0.5</totalBleedFactor>
+		<!-- <makeImmuneTo> -->
+		  <!-- <li>HeartArteryBlockage</li> -->
+		  <!-- <li>HeartAttack</li> -->
+		<!-- </makeImmuneTo> -->
 	  </li>
 	</stages>
 	<addedPartProps>
 	  <solid>true</solid>
-	  <partEfficiency>1.20</partEfficiency>
+	  <!-- <partEfficiency>1.20</partEfficiency> -->
 	</addedPartProps>
 	<comps>
 	  <li Class="HediffCompProperties_FleshbeastEmerge">
@@ -180,11 +194,25 @@
 		<statOffsets>
 		  <IncomingDamageFactor>-0.1</IncomingDamageFactor>
 		</statOffsets>
+		<capMods>
+		  <li>
+			<capacity>Manipulation</capacity>
+			<offset>0.1</offset>
+		  </li>
+		  <li>
+			<capacity>Moving</capacity>
+			<offset>0.1</offset>
+		  </li>
+		</capMods>
+		<!-- <makeImmuneTo> -->
+		  <!-- <li>BadBack</li> -->
+		  <!-- <li>Frail</li> -->
+		<!-- </makeImmuneTo> -->
 	  </li>
 	</stages>
 	<addedPartProps>
 	  <solid>true</solid>
-	  <partEfficiency>1.20</partEfficiency>
+	  <!-- <partEfficiency>1.20</partEfficiency> -->
 	</addedPartProps>
 	<comps>
 	  <li Class="HediffCompProperties_FleshbeastEmerge">

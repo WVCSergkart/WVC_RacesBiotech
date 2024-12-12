@@ -1,6 +1,7 @@
 using RimWorld;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 using Verse;
 
 
@@ -12,12 +13,19 @@ namespace WVC_XenotypesAndGenes
 
 		private int mutationLevel = 0;
 
-		public int maxMutationLevel = 5;
+		//public int maxMutationLevel = 5;
 
 		public List<StatDef> ignoredStatDefs = new()
 		{
 			StatDefOf.PawnBeauty
 		};
+
+        public override float PainOffset => 0f;
+
+        public override float PainFactor => 1f;
+
+        //public override Color LabelColor => ColorLibrary.LightPink;
+        //public override float SummaryHealthPercentImpact => 5f * mutationLevel;
 
         private HediffStage curStage;
 
@@ -127,7 +135,7 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        public bool CanLevelUp => mutationLevel < maxMutationLevel;
+        //public bool CanLevelUp => mutationLevel < maxMutationLevel;
 
         public int CurrentLevel => mutationLevel;
 
@@ -143,7 +151,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref mutationLevel, "mutationLevel", 0);
-			Scribe_Values.Look(ref maxMutationLevel, "maxMutationLevel", 5);
+			//Scribe_Values.Look(ref maxMutationLevel, "maxMutationLevel", 5);
 		}
 
     }

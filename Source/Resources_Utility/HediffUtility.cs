@@ -10,7 +10,7 @@ namespace WVC_XenotypesAndGenes
 	public static class HediffUtility
 	{
 
-		public static bool TryGiveFleshmassMutation(Pawn pawn, HediffDef mutationDef, int maxMutationLevel = 5)
+		public static bool TryGiveFleshmassMutation(Pawn pawn, HediffDef mutationDef)
         {
             if (!ModsConfig.AnomalyActive)
             {
@@ -47,7 +47,6 @@ namespace WVC_XenotypesAndGenes
             }
             MedicalRecipesUtility.SpawnThingsFromHediffs(pawn, bodyPartRecord, pawn.PositionHeld, pawn.MapHeld);
             pawn.health.RestorePart(bodyPartRecord);
-			hediff.maxMutationLevel = maxMutationLevel;
 			pawn.health.AddHediff(hediff, bodyPartRecord);
 			//Type currentClass = mutationDef.hediffClass;
 			//if (mutationDef.IsHediffDefOfType<Hediff_AddedPart>())
