@@ -125,6 +125,7 @@ namespace WVC_XenotypesAndGenes
 		// Chimera
 		public List<GeneDef> chimeraGenesTools;
 		public List<GeneDef> humanBasicGenes;
+		public List<GeneDef> chimeraOneManArmyGenes;
 		// Fleshmass
 		public int maxMutationLevel = 5;
 	}

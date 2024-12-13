@@ -10,7 +10,7 @@ namespace WVC_XenotypesAndGenes
 	public static class StaticCollectionsClass
 	{
 
-		public static int cachedPawnsCount = 0;
+		public static int cachedColonistsCount = 0;
 		public static int cachedXenotypesCount = 0;
 		public static int cachedNonHumansCount = 0;
 		public static int cachedColonyMechs = 0;
@@ -21,6 +21,7 @@ namespace WVC_XenotypesAndGenes
 		//public static bool presentShapeshifter = false;
 
 		//public static bool shapeshifterAppear = false;
+		public static bool oneManArmyMode = false;
 
 	}
 

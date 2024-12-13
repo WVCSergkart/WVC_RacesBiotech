@@ -44,6 +44,10 @@
 			  <li>Headbone_Human</li>
 			  <li>Voice_Human</li>
 			</humanBasicGenes>
+			<chimeraOneManArmyGenes>
+			  <li>WVC_Chimera_Xenoharvest</li>
+			  <li>WVC_Chimera_Corpseharvest</li>
+			</chimeraOneManArmyGenes>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_ChimeraMetabolism_HungerFactor</hediffDefName>
@@ -60,6 +64,11 @@
 	<selectionWeight>0.000094</selectionWeight>
 	<displayOrderInCategory>145</displayOrderInCategory>
 	<prerequisite>WVC_Chimera</prerequisite>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenes" Name="WVC_XenotypesAndGenes_GeneChimera_OneManArmySubGenes" Abstract="True">
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<selectionWeight>0</selectionWeight>
   </GeneDef>
 
   <!-- ================================= -->

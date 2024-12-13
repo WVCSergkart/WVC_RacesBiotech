@@ -807,7 +807,11 @@ namespace WVC_XenotypesAndGenes
                 if (Rand.Chance(0.07f))
                 {
                     gene.GetToolGene();
-                }
+				}
+				else if (Rand.Chance(0.24f) && StaticCollectionsClass.oneManArmyMode)
+				{
+					gene.GetSuperToolGene();
+				}
 				gene.EatGene(geneDef);
 			}
             if (!gene.Props.soundDefOnImplant.NullOrUndefined())

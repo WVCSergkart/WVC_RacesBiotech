@@ -76,7 +76,7 @@ namespace WVC_XenotypesAndGenes
 
 		protected override ThoughtState ShouldHaveThought(Pawn p)
 		{
-			if (StaticCollectionsClass.cachedPawnsCount > 5)
+			if (StaticCollectionsClass.cachedColonistsCount > 5)
 			{
 				return ThoughtState.ActiveDefault;
 			}
@@ -85,9 +85,9 @@ namespace WVC_XenotypesAndGenes
 
 		public override float MoodMultiplier(Pawn p)
 		{
-			if (StaticCollectionsClass.cachedPawnsCount > 5)
+			if (StaticCollectionsClass.cachedColonistsCount > 5)
 			{
-				return StaticCollectionsClass.cachedPawnsCount - 5;
+				return StaticCollectionsClass.cachedColonistsCount - 5;
 			}
 			return 0f;
 		}
@@ -99,7 +99,7 @@ namespace WVC_XenotypesAndGenes
 
 		protected override ThoughtState ShouldHaveThought(Pawn p)
 		{
-			if (StaticCollectionsClass.cachedPawnsCount > 1)
+			if (StaticCollectionsClass.cachedColonistsCount > 1)
 			{
 				return ThoughtState.ActiveDefault;
 			}
@@ -108,9 +108,9 @@ namespace WVC_XenotypesAndGenes
 
 		public override float MoodMultiplier(Pawn p)
 		{
-			if (StaticCollectionsClass.cachedPawnsCount > 1)
+			if (StaticCollectionsClass.cachedColonistsCount > 1)
 			{
-				return StaticCollectionsClass.cachedPawnsCount - 1;
+				return StaticCollectionsClass.cachedColonistsCount - 1;
 			}
 			return 0f;
 		}

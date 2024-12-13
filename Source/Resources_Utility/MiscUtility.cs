@@ -514,7 +514,7 @@ namespace WVC_XenotypesAndGenes
 			return mult;
 		}
 
-		public static void CountAllPlayerControlledPawns_ForIdeology()
+		public static void CountAllPlayerControlledPawns_StaticCollection()
 		{
 			int colonists = 0;
 			int xenos = 0;
@@ -528,6 +528,10 @@ namespace WVC_XenotypesAndGenes
 			List<Pawn> pawns = PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_OfPlayerFaction;
 			foreach (Pawn item in pawns)
 			{
+				if (item.IsQuestLodger())
+				{
+					continue;
+				}
 				if (!item.RaceProps.Humanlike)
 				{
 					nonHumans++;
@@ -539,6 +543,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (item.IsMutant)
 				{
+					nonHumans++;
 					continue;
 				}
 				if (!XaG_GeneUtility.PawnIsBaseliner(item) && item.IsHuman())
@@ -563,7 +568,7 @@ namespace WVC_XenotypesAndGenes
 					//	}
 					//}
 				}
-				if (!item.IsQuestLodger() && !item.IsDuplicate && !item.Deathresting && !item.IsPrisoner)
+				if (!item.IsDuplicate && !item.Deathresting && !item.IsPrisoner)
 				{
 					colonists++;
 				}
@@ -576,7 +581,7 @@ namespace WVC_XenotypesAndGenes
 					}
 				}
 			}
-			StaticCollectionsClass.cachedPawnsCount = colonists;
+			StaticCollectionsClass.cachedColonistsCount = colonists;
 			StaticCollectionsClass.cachedXenotypesCount = xenos;
 			StaticCollectionsClass.cachedNonHumansCount = nonHumans;
 			StaticCollectionsClass.haveAssignedWork = anyAssignedWork;
@@ -585,12 +590,13 @@ namespace WVC_XenotypesAndGenes
 			//StaticCollectionsClass.leaderIsShapeshifter = presentShapeshifter;
 			//StaticCollectionsClass.leaderIsShapeshifter = leaderIsUndead;
 			//StaticCollectionsClass.leaderIsShapeshifter = presentUndead;
+			StaticCollectionsClass.oneManArmyMode = nonHumans <= 0 && colonists <= 1;
 			//Log.Error("Colonists: " + colonists + ". Xenos: " + xenos + ". Non-humans: " + nonHumans + ". Mechs: " + colonyMechs);
 		}
 
 		public static void ForeverAloneDevelopmentPoints()
 		{
-			if (StaticCollectionsClass.cachedPawnsCount > 1 || !ModLister.IdeologyInstalled)
+			if (StaticCollectionsClass.cachedColonistsCount > 1 || !ModLister.IdeologyInstalled)
 			{
 				return;
 			}

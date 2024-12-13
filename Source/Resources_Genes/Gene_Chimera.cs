@@ -86,6 +86,18 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public void GetSuperToolGene()
+		{
+			if (WVC_Biotech.settings.enable_chimeraStartingTools && Props?.chimeraOneManArmyGenes != null && Props.chimeraOneManArmyGenes.Where((GeneDef geneDef) => !AllGenes.Contains(geneDef)).TryRandomElement(out GeneDef result))
+			{
+				AddGene(result);
+				if (pawn.Spawned)
+				{
+					Messages.Message("WVC_XaG_GeneGeneticThief_GeneObtained".Translate(pawn.NameShortColored, result.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+				}
+			}
+		}
+
 		public void Local_AddOrRemoveHediff()
 		{
 			HediffUtility.TryAddOrRemoveHediff(Giver.hediffDefName, pawn, this, Giver.bodyparts);

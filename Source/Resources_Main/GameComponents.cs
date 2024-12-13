@@ -68,7 +68,7 @@ namespace WVC_XenotypesAndGenes
 
 		public void XaG_General()
 		{
-			MiscUtility.CountAllPlayerControlledPawns_ForIdeology();
+			MiscUtility.CountAllPlayerControlledPawns_StaticCollection();
 			//StaticCollectionsClass.cachedPawnsCount = MiscUtility.CountAllPlayerControlledColonistsExceptClonesAndQuests();
 			//StaticCollectionsClass.cachedXenotypesCount = MiscUtility.CountAllPlayerXenos();
 			//StaticCollectionsClass.cachedNonHumansCount = MiscUtility.CountAllPlayerNonHumanlikes();
