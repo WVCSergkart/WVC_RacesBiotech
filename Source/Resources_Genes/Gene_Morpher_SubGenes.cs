@@ -147,6 +147,12 @@ namespace WVC_XenotypesAndGenes
 				Messages.Message("WVC_XaG_GeneAbilityMorpherIsNullMessage".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
 				return;
 			}
+			if (!CanMorph() || !Morpher.CanMorphNow)
+			{
+				Messages.Message("WVC_XaG_GeneMorpherCannotMorphNow".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+				cachedBool = true;
+				return;
+			}
 			List<FloatMenuOption> list = new();
 			List<PawnGeneSetHolder> geneSets = Morpher.SavedGeneSets;
 			if (!geneSets.NullOrEmpty())

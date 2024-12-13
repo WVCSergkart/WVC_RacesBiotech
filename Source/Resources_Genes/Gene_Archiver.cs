@@ -24,6 +24,18 @@ namespace WVC_XenotypesAndGenes
 		//	currentLimit += count;
 		//}
 
+		public override bool CanMorphNow
+		{
+			get
+			{
+				if (pawn.Spawned)
+                {
+					return base.CanMorphNow;
+                }
+				return false;
+			}
+		}
+
 		public override bool IsOneTime
 		{
 			get

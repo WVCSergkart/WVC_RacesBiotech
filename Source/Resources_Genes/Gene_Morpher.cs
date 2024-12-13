@@ -17,7 +17,9 @@ namespace WVC_XenotypesAndGenes
 
 		private bool? cachedOneTimeMorpher;
 
-		public virtual bool IsOneTime
+        public virtual bool CanMorphNow => true;
+
+        public virtual bool IsOneTime
         {
 			get
             {
