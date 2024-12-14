@@ -47,6 +47,9 @@
 			<chimeraOneManArmyGenes>
 			  <li>WVC_Chimera_Xenoharvest</li>
 			  <li>WVC_Chimera_Corpseharvest</li>
+			  <li>WVC_Chimera_GenePurifier</li>
+			  <li>WVC_Chimera_CosmeticGen</li>
+			  <li>WVC_Chimera_RandomGenesGen</li>
 			</chimeraOneManArmyGenes>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">

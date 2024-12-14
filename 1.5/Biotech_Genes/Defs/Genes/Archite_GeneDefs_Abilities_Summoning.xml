@@ -41,6 +41,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_MechSummoning">
 	<defName>WVC_MechSummon_Light</defName>
 	<label>light mech summon</label>
+	<biostatCpx>2</biostatCpx>
 	<customEffectDescriptions>
 		<li>After activating the ability, summons from 1 to 5 light class mechanoids.</li>
 	</customEffectDescriptions>
@@ -59,7 +60,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_MechSummoning">
 	<defName>WVC_MechSummon_Medium</defName>
 	<label>medium mech summon</label>
-	<biostatCpx>4</biostatCpx>
+	<biostatCpx>3</biostatCpx>
 	<!-- <biostatArc>1</biostatArc> -->
 	<customEffectDescriptions>
 		<li>After activating the ability, summons from 1 to 2 medium class mechanoids.</li>
@@ -79,7 +80,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_MechSummoning">
 	<defName>WVC_MechSummon_Heavy</defName>
 	<label>heavy mech summon</label>
-	<biostatCpx>5</biostatCpx>
+	<biostatCpx>4</biostatCpx>
 	<biostatArc>2</biostatArc>
 	<customEffectDescriptions>
 		<li>After activating the ability, summons 1 heavy class mechanoid.</li>

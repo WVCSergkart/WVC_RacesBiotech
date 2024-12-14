@@ -808,7 +808,7 @@ namespace WVC_XenotypesAndGenes
                 {
                     gene.GetToolGene();
 				}
-				else if (Rand.Chance(0.24f) && StaticCollectionsClass.oneManArmyMode)
+				else if (Rand.Chance(0.04f) && StaticCollectionsClass.oneManArmyMode)
 				{
 					gene.GetSuperToolGene();
 				}

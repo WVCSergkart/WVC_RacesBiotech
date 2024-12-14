@@ -8,7 +8,7 @@
 	<defName>WVC_FleshmassEar</defName>
 	<label>fleshmass ear</label>
 	<labelNoun>a fleshmass ear</labelNoun>
-	<description>A cancerous mass of semi-sentient flesh. It is more sensitive to sound and allows for noticeably better hearing, and is not subject to degradation or disease.\n\nThe organ has its own neural structures and may become dangerous if removed.</description>
+	<description>A cancerous mass of semi-sentient flesh. It can analyze sound, helping the carrier react more quickly to enemy attacks in close combat.\n\nThe organ has its own neural structures and may become dangerous if removed.</description>
 	<defaultInstallPart>Ear</defaultInstallPart>
 	<stages>
 	  <li>
@@ -35,7 +35,7 @@
 	<defName>WVC_FleshmassEye</defName>
 	<label>fleshmass eye</label>
 	<labelNoun>a fleshmass eye</labelNoun>
-	<description>A cancerous mass of semi-sentient flesh. It is more sensitive and not subject to degradation.\n\nThe organ has its own neural structures and may become dangerous if removed.</description>
+	<description>A cancerous mass of semi-sentient flesh. It is capable of reacting aggressively to threats, enhancing the carrier's combat skills.\n\nThe organ has its own neural structures and may become dangerous if removed.</description>
 	<defaultInstallPart>Eye</defaultInstallPart>
 	<stages>
 	  <li>
@@ -105,7 +105,7 @@
 	<defName>WVC_FleshmassHeart</defName>
 	<label>fleshmass heart</label>
 	<labelNoun>a fleshmass heart</labelNoun>
-	<description>A cancerous mass of semi-sentient flesh. It is self-healing and can restart itself, the constant movement inside is painful but it is immune to heart disease.\n\nThe organ has its own neural structures and may become dangerous if removed.</description>
+	<description>A cancerous mass of semi-sentient flesh. It stabilizes blood flow and improves the natural healing process of wounds.\n\nThe organ has its own neural structures and may become dangerous if removed.</description>
 	<defaultInstallPart>Heart</defaultInstallPart>
 	<stages>
 	  <li>
@@ -134,7 +134,7 @@
 	<defName>WVC_FleshmassLiver</defName>
 	<label>fleshmass liver</label>
 	<labelNoun>a fleshmass liver</labelNoun>
-	<description>A cancerous mass of semi-sentient flesh. The tissues constantly and unlimitedly self-replicate and are capable of restoring severely damaged or even destroyed organs. It is also not vulnerable to liver diseases.\n\nThe organ has its own neural structures and may become dangerous if removed.</description>
+	<description>A cancerous mass of semi-sentient flesh. The tissues constantly and unlimitedly self-replicate and are capable of restoring severely damaged or even destroyed organs.\n\nThe organ has its own neural structures and may become dangerous if removed.</description>
 	<defaultInstallPart>Liver</defaultInstallPart>
 	<stages>
 	  <li>
@@ -160,7 +160,7 @@
 	<defName>WVC_FleshmassKidney</defName>
 	<label>fleshmass kidney</label>
 	<labelNoun>a fleshmass kidney</labelNoun>
-	<description>A cancerous mass of semi-sentient flesh. It effectively filters toxins and increases immunity, and it is also immune to kidney disease.\n\nThe organ has its own neural structures and may become dangerous if removed.</description>
+	<description>A cancerous mass of semi-sentient flesh. It effectively filters toxins and increases immunity.\n\nThe organ has its own neural structures and may become dangerous if removed.</description>
 	<defaultInstallPart>Kidney</defaultInstallPart>
 	<stages>
 	  <li>
@@ -186,7 +186,7 @@
 	<defName>WVC_FleshmassSpine</defName>
 	<label>fleshmass spine</label>
 	<labelNoun>a fleshmass spine</labelNoun>
-	<description>A cancerous mass of semi-sentient flesh. Frighteningly flexible yet strong, it is immune to disease and slightly strengthens its owner.\n\nThe organ has its own neural structures and may become dangerous if removed.</description>
+	<description>A cancerous mass of semi-sentient flesh. It is capable of bending at unnatural angles, which improves flexibility.\n\nThe organ has its own neural structures and may become dangerous if removed.</description>
 	<defaultInstallPart>Spine</defaultInstallPart>
 	<stages>
 	  <li>

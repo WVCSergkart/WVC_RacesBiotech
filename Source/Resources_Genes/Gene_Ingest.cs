@@ -366,7 +366,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (Resource is not Gene_Hemogen gene_hemogen || !gene_hemogen.ShouldConsumeHemogenNow())
+			//if (Resource is not Gene_Hemogen gene_hemogen || !gene_hemogen.ShouldConsumeHemogenNow())
+			//{
+			//	return;
+			//}
+			if (Resource is not Gene_Hemogen gene_hemogen || gene_hemogen.MinLevelForAlert + 0.3f < gene_hemogen.Value)
 			{
 				return;
 			}

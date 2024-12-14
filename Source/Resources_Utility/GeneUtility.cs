@@ -193,6 +193,15 @@ namespace WVC_XenotypesAndGenes
 
 		// Misc
 
+		public static void AddGeneToChimera(Pawn pawn, GeneDef geneDef)
+		{
+			XaG_GeneUtility.AddGenesToChimera(pawn, new() { geneDef });
+            if (pawn.Spawned && pawn.Faction == Faction.OfPlayer)
+			{
+				Messages.Message("WVC_XaG_GeneGeneticThief_GeneObtained".Translate(pawn.NameShortColored, geneDef.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+			}
+		}
+
 		public static void AddGenesToChimera(Pawn p, List<GeneDef> chimeraGeneDefs)
 		{
 			Gene_Chimera chimera = p.genes?.GetFirstGeneOfType<Gene_Chimera>();

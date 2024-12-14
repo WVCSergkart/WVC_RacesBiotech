@@ -2,14 +2,13 @@ using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 using Verse;
 using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Chimera : Gene, IGeneBloodfeeder, IGeneOverridden
+    public class Gene_Chimera : Gene, IGeneBloodfeeder, IGeneOverridden
 	{
 
 		public GeneExtension_Undead Props => def?.GetModExtension<GeneExtension_Undead>();
@@ -48,6 +47,7 @@ namespace WVC_XenotypesAndGenes
 
 		public List<GeneDef> EatedGenes => consumedGenes;
 		public List<GeneDef> CollectedGenes => collectedGenes;
+		public List<GeneDef> DestroyedGenes => destroyedGenes;
 
 		public override void PostAdd()
 		{
@@ -179,6 +179,13 @@ namespace WVC_XenotypesAndGenes
 			{
 				destroyedGenes.Add(geneDef);
 				consumedGenes.Remove(geneDef);
+			}
+		}
+		public void RemoveDestroyedGene(GeneDef geneDef)
+		{
+			if (destroyedGenes.Contains(geneDef))
+			{
+				destroyedGenes.Remove(geneDef);
 			}
 		}
 
@@ -412,135 +419,10 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	[Obsolete]
-	public class Gene_BloodChimera : Gene_Chimera
-	{
+	//[Obsolete]
+	//public class Gene_BloodChimera : Gene_Chimera
+	//{
 
-	}
-
-	// =============================================
-
-	public class Gene_ChimeraDependant : Gene
-	{
-
-		// public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
-
-		[Unsaved(false)]
-		private Gene_Chimera cachedChimeraGene;
-
-		public Gene_Chimera Chimera
-		{
-			get
-			{
-				if (cachedChimeraGene == null || !cachedChimeraGene.Active)
-				{
-					cachedChimeraGene = pawn?.genes?.GetFirstGeneOfType<Gene_Chimera>();
-				}
-				return cachedChimeraGene;
-			}
-		}
-
-	}
-
-	public class Gene_GeneDigestor : Gene_ChimeraDependant
-	{
-
-		public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
-
-		private int nextDigest = 62556;
-
-		public override void PostAdd()
-		{
-			base.PostAdd();
-			ResetTicker();
-		}
-
-		public override void Tick()
-		{
-			//base.Tick();
-			nextDigest--;
-			if (nextDigest > 0)
-			{
-				return;
-			}
-			ResetTicker();
-			Digest();
-		}
-
-		public void ResetTicker()
-		{
-			if (Spawner != null)
-			{
-				nextDigest = Spawner.spawnIntervalRange.RandomInRange;
-			}
-			else
-            {
-				nextDigest = 60000;
-			}
-		}
-
-		public void Digest()
-		{
-			if (Chimera == null)
-			{
-				return;
-			}
-			int countSpawn = Spawner.summonRange.RandomInRange;
-			float geneChance = Spawner.chance;
-			bool playSound = false;
-			for (int i = 0; i < countSpawn; i++)
-			{
-				if (Chimera.EatedGenes.NullOrEmpty())
-				{
-					break;
-				}
-				Chimera.DestroyGene(Chimera.EatedGenes.RandomElement());
-				if (Rand.Chance(geneChance))
-				{
-					GetRandomGene();
-					geneChance -= 0.1f;
-				}
-				else
-				{
-					geneChance += 0.1f;
-				}
-				playSound = true;
-			}
-			if (playSound && pawn.Map != null)
-			{
-				SoundDef soundDef = Spawner.soundDef;
-				if (soundDef != null)
-				{
-					soundDef.PlayOneShot(new TargetInfo(pawn.Position, pawn.Map));
-				}
-			}
-		}
-
-		public void GetRandomGene()
-		{
-			List<GeneDef> geneDefs = DefDatabase<GeneDef>.AllDefsListForReading;
-			if (geneDefs.Where((GeneDef x) => !Chimera.AllGenes.Contains(x) && (x.canGenerateInGeneSet && x.selectionWeight > 0f || x.IsVanillaDef())).TryRandomElementByWeight((GeneDef gene) => (1f + gene.selectionWeight * (gene.biostatArc != 0 ? 0.01f : 1f)) + (gene.prerequisite == Chimera.def && gene.GetModExtension<GeneExtension_General>() != null ? gene.GetModExtension<GeneExtension_General>().selectionWeight : 0f), out GeneDef result))
-			{
-				Chimera.AddGene(result);
-				Messages.Message("WVC_XaG_GeneGeneticThief_GeneObtained".Translate(pawn.NameShortColored, result.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
-			}
-		}
-
-		public override IEnumerable<Gizmo> GetGizmos()
-		{
-			if (DebugSettings.ShowDevGizmos)
-			{
-				yield return new Command_Action
-				{
-					defaultLabel = "DEV: DigestGenes",
-					action = delegate
-					{
-						Digest();
-					}
-				};
-			}
-		}
-
-	}
+	//}
 
 }

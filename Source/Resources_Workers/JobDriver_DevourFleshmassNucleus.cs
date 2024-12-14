@@ -32,15 +32,14 @@ namespace WVC_XenotypesAndGenes
 			yield return Toils_General.Do(delegate
 			{
 				if (job is XaG_Job xaG_Job)
-				{
-					XaG_GeneUtility.AddGenesToChimera(pawn, new() { xaG_Job.geneDef });
-					Messages.Message("WVC_XaG_GeneGeneticThief_GeneObtained".Translate(pawn.NameShortColored, xaG_Job.geneDef.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
-				}
-				HediffUtility.MutationMeatSplatter(Victim, false);
+                {
+					XaG_GeneUtility.AddGeneToChimera(pawn, xaG_Job.geneDef);
+                }
+                HediffUtility.MutationMeatSplatter(Victim, false);
 				Victim.Kill(null);
 			});
 		}
 
-	}
+    }
 
 }
