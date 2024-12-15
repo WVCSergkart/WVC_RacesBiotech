@@ -181,6 +181,8 @@ namespace WVC_XenotypesAndGenes
 		public List<XenotypeChance> xenotypeChances;
 		//Food
 		public bool isDustogenic = false;
+		//Fleshmass
+		public bool isFleshmass = false;
 	}
 
 	public class GeneExtension_Graphic : DefModExtension

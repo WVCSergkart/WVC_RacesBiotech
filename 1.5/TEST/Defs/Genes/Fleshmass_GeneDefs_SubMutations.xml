@@ -11,7 +11,6 @@
 	<iconPath>WVC/UI/Genes/Gene_FleshmassBrain_v0</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
 	<displayOrderInCategory>10</displayOrderInCategory>
-	<displayCategory>WVC_Fleshmass</displayCategory>
 	<biostatCpx>1</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>-2</biostatMet>
@@ -19,6 +18,28 @@
 		<li>Passively generates &lt;color=#8a8ae6&gt;research points&lt;/color&gt;.</li>
 		<li>Each &lt;color=#8a8ae6&gt;colonist&lt;/color&gt; over 1 significantly reduces the effect.</li>
 		<li>&lt;color=#ffec85&gt;Ignores all quest, prisoner, mutant, duplicate and deathresting pawns.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
+	<defName>WVC_FleshmassArmor</defName>
+	<label>fleshmass armor</label>
+	<description>Carriers of this gene have a cancerous mass of semi-sentient flesh all over their skin which provides decent protection but damages clothing due to constant mutations and growths.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_FleshmassArmor</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_FleshmassArmor_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>15</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>1</biostatMet>
+	<statOffsets>
+	  <ArmorRating_Blunt>0.55</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.33</ArmorRating_Sharp>
+	  <ArmorRating_Heat>0.12</ArmorRating_Heat>
+	</statOffsets>
+	<customEffectDescriptions>
+		<li>Damage to clothing: 40 hp/day</li>
+		<li>&lt;color=#ffec85&gt;Ignores nudist clothing.&lt;/color&gt;</li>
 	</customEffectDescriptions>
   </GeneDef>
 

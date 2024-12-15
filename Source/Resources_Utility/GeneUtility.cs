@@ -211,8 +211,10 @@ namespace WVC_XenotypesAndGenes
 			}
 			foreach (GeneDef geneDef in chimeraGeneDefs)
 			{
-				chimera.AddGene(geneDef);
-				p.genes.AddGene(geneDef, true);
+				if (chimera.TryAddGene(geneDef))
+				{
+					p.TryAddGene(geneDef, true);
+				}
 			}
 			chimera.UpdateMetabolism();
 		}

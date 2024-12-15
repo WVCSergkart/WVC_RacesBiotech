@@ -812,7 +812,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					gene.GetSuperToolGene();
 				}
-				gene.EatGene(geneDef);
+				gene.TryEatGene(geneDef);
 			}
             if (!gene.Props.soundDefOnImplant.NullOrUndefined())
             {

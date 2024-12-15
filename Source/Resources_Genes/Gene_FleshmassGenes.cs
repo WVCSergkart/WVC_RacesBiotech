@@ -54,6 +54,23 @@ namespace WVC_XenotypesAndGenes
 					TrySpawnMeat(pawn);
 				}
 			}
+			//Evolve();
+		}
+
+		private void Evolve()
+		{
+			if (!Rand.Chance(0.2f))
+			{
+				return;
+			}
+			if (StaticCollectionsClass.cachedColonistsCount > 1)
+			{
+				return;
+			}
+			if (DefDatabase<GeneDef>.AllDefsListForReading.Where((geneDef) => geneDef.GetModExtension<GeneExtension_General>()?.isFleshmass == true).TryRandomElement(out GeneDef geneDef))
+			{
+				XaG_GeneUtility.AddGeneToChimera(pawn, geneDef);
+			}
 		}
 
 		private bool TryGetWeakerPawnMutation(out HediffAddedPart_FleshmassNucleus hediffWithComps_FleshmassHeart)
@@ -161,6 +178,31 @@ namespace WVC_XenotypesAndGenes
 				pawn.skills.Learn(SkillDefOf.Intellectual, 0.04f * tick);
 				float researchAmount = (cachedResearchSpeed.Value * tick) / (StaticCollectionsClass.cachedColonistsCount > 0 ? StaticCollectionsClass.cachedColonistsCount : 1f);
 				researchManager.ResearchPerformed(researchAmount, pawn);
+			}
+		}
+
+	}
+
+	public class Gene_FleshmassArmor : Gene
+	{
+
+		public override void Tick()
+		{
+			if (pawn.IsHashIntervalTick(16333))
+			{
+				DoApparelDamage(16333);
+			}
+		}
+
+		public void DoApparelDamage(int tick)
+		{
+			List<Apparel> apparels = pawn.apparel.WornApparel;
+			foreach (Apparel apparel in apparels)
+			{
+				if (apparel.def.apparel.countsAsClothingForNudity && apparel.def.useHitPoints)
+				{
+					apparel.HitPoints -= tick / 1500;
+				}
 			}
 		}
 

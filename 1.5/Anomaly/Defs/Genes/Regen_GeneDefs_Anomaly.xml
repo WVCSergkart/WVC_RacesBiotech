@@ -16,6 +16,11 @@
 	<displayOrderInCategory>10</displayOrderInCategory>
 	<displayCategory>WVC_Fleshmass</displayCategory>
 	<marketValueFactor>5</marketValueFactor>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<isFleshmass>true</isFleshmass>
+		</li>
+	</modExtensions>
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">

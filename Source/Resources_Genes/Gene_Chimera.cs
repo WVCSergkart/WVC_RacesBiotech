@@ -63,7 +63,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (geneDefs.Where((GeneDef x) => x.endogeneCategory == EndogeneCategory.None && x.selectionWeight > 0f && x.canGenerateInGeneSet && x.passOnDirectly && !AllGenes.Contains(x)).TryRandomElementByWeight((GeneDef gene) => (gene.selectionWeight * (gene.biostatArc != 0 ? 0.01f : 1f)) + (gene.prerequisite == def && gene.GetModExtension<GeneExtension_General>() != null ? gene.GetModExtension<GeneExtension_General>().selectionWeight : 0f), out GeneDef result))
 				{
-					AddGene(result);
+					TryAddGene(result);
 				}
 				if (cycleTry > WVC_Biotech.settings.chimeraStartingGenes + 3)
 				{
@@ -78,7 +78,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (WVC_Biotech.settings.enable_chimeraStartingTools && Props?.chimeraGenesTools != null && Props.chimeraGenesTools.Where((GeneDef geneDef) => !AllGenes.Contains(geneDef)).TryRandomElement(out GeneDef result))
 			{
-				AddGene(result);
+				TryAddGene(result);
 				if (pawn.Spawned)
 				{
 					Messages.Message("WVC_XaG_GeneGeneticThief_GeneObtained".Translate(pawn.NameShortColored, result.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
@@ -90,7 +90,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (WVC_Biotech.settings.enable_chimeraStartingTools && Props?.chimeraOneManArmyGenes != null && Props.chimeraOneManArmyGenes.Where((GeneDef geneDef) => !AllGenes.Contains(geneDef)).TryRandomElement(out GeneDef result))
 			{
-				AddGene(result);
+				TryAddGene(result);
 				if (pawn.Spawned)
 				{
 					Messages.Message("WVC_XaG_GeneGeneticThief_GeneObtained".Translate(pawn.NameShortColored, result.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
@@ -150,21 +150,25 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public void AddGene(GeneDef geneDef)
+		public bool TryAddGene(GeneDef geneDef)
 		{
 			if (!collectedGenes.Contains(geneDef))
 			{
 				collectedGenes.Add(geneDef);
+				return true;
 			}
+			return false;
 		}
 
-		public void EatGene(GeneDef geneDef)
+		public bool TryEatGene(GeneDef geneDef)
 		{
 			if (!consumedGenes.Contains(geneDef))
 			{
 				consumedGenes.Add(geneDef);
 				RemoveGene(geneDef);
+				return true;
 			}
+			return false;
 		}
 		public void RemoveGene(GeneDef geneDef)
 		{
@@ -259,7 +263,7 @@ namespace WVC_XenotypesAndGenes
             }
 			foreach (Gene gene in genes)
 			{
-				AddGene(gene.def);
+				TryAddGene(gene.def);
 			}
 			return true;
 		}
@@ -269,7 +273,7 @@ namespace WVC_XenotypesAndGenes
 			result = null;
 			if (genes.Where((GeneDef x) => !AllGenes.Contains(x)).TryRandomElementByWeight((GeneDef gene) => 1f + gene.selectionWeight, out result))
 			{
-				AddGene(result);
+				TryAddGene(result);
 				return true;
 			}
 			return false;
@@ -300,7 +304,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (!Props.humanBasicGenes.NullOrEmpty() && Props.humanBasicGenes.Where((GeneDef x) => !AllGenes.Contains(x)).TryRandomElement(out result))
 				{
-					AddGene(result);
+					TryAddGene(result);
 					return true;
 				}
 				return false;
@@ -344,7 +348,7 @@ namespace WVC_XenotypesAndGenes
 		private void GetRandomGene()
 		{
 			GeneDef result = DefDatabase<GeneDef>.AllDefsListForReading.Where((GeneDef x) => x.biostatArc == 0 && x.selectionWeight > 0f && x.canGenerateInGeneSet && !AllGenes.Contains(x)).RandomElement();
-			AddGene(result);
+			TryAddGene(result);
 			Messages.Message("WVC_XaG_GeneGeneticThief_GeneObtained".Translate(pawn.NameShortColored, result.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
 		}
 
