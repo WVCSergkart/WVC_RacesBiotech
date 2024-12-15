@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ============================================================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
+	<defName>WVC_FleshmassBrain</defName>
+	<label>fleshmass thinker</label>
+	<description>Carriers of this gene have a cancerous mass of semi-sentient flesh in their brains, capable of some limited thought and communication with the carrier. This allows them to process information from several points of view and conduct passive research.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_FleshmassBrain</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_FleshmassBrain_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>10</displayOrderInCategory>
+	<displayCategory>WVC_Fleshmass</displayCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<customEffectDescriptions>
+		<li>Passively generates &lt;color=#8a8ae6&gt;research points&lt;/color&gt;.</li>
+		<li>Each &lt;color=#8a8ae6&gt;colonist&lt;/color&gt; over 1 significantly reduces the effect.</li>
+		<li>&lt;color=#ffec85&gt;Ignores all quest, prisoner, mutant, duplicate and deathresting pawns.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+</Defs>

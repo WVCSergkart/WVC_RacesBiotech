@@ -27,4 +27,16 @@
 	<!-- <skinColorOverride>(240,210,240)</skinColorOverride> -->
   </GeneDef>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
+	<defName>WVC_SkinColor_FleshRed</defName>
+	<label>flesh red skin</label>
+	<skinColorOverride>(202,153,153)</skinColorOverride>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
+	<defName>WVC_SkinColor_FleshPink</defName>
+	<label>flesh pink skin</label>
+	<skinColorOverride>(200,150,159)</skinColorOverride>
+  </GeneDef>
+
 </Defs>
