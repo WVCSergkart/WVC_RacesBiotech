@@ -43,4 +43,24 @@
 	</customEffectDescriptions>
   </GeneDef>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
+	<defName>WVC_FleshmassBuilder</defName>
+	<label>fleshmass builder</label>
+	<description>Carriers of this gene have a cancerous mass of semi-sentient flesh with nests of archites capable of performing some construction work and repairing buildings.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_FleshmassBuilder</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_FleshmassBuilder_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>20</displayOrderInCategory>
+	<biostatCpx>3</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>-5</biostatMet>
+	<customEffectDescriptions>
+		<li>Occasionally &lt;color=#8a8ae6&gt;repairs or constructs&lt;/color&gt; buildings.</li>
+		<li>Can only work on 3 &lt;color=#8a8ae6&gt;buildings&lt;/color&gt; or &lt;color=#8a8ae6&gt;frames&lt;/color&gt; at a time.</li>
+		<li>Each &lt;color=#8a8ae6&gt;colonist&lt;/color&gt; over 1 significantly reduces the effect.</li>
+		<li>&lt;color=#ffec85&gt;Construction or repair creates deadlife gas.&lt;/color&gt;</li>
+		<li>&lt;color=#ffec85&gt;Does not haul resources and does not repair breakdowns.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
 </Defs>

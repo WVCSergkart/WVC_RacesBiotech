@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using Verse;
+using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -67,7 +68,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (DefDatabase<GeneDef>.AllDefsListForReading.Where((geneDef) => geneDef.GetModExtension<GeneExtension_General>()?.isFleshmass == true).TryRandomElement(out GeneDef geneDef))
+			if (DefDatabase<GeneDef>.AllDefsListForReading.Where((geneDef) => geneDef != def && geneDef.GetModExtension<GeneExtension_General>()?.isFleshmass == true).TryRandomElement(out GeneDef geneDef))
 			{
 				XaG_GeneUtility.AddGeneToChimera(pawn, geneDef);
 			}
@@ -204,6 +205,89 @@ namespace WVC_XenotypesAndGenes
 					apparel.HitPoints -= tick / 1500;
 				}
 			}
+		}
+
+	}
+
+	public class Gene_FleshmassBuilder : Gene
+	{
+
+		public int nextTick = 6000;
+
+		public override void Tick()
+		{
+			nextTick--;
+			if (nextTick > 0f)
+			{
+				return;
+			}
+			Construct(30);
+		}
+
+		public void Construct(int tick)
+		{
+			int cycleTry = 0;
+			bool pause = true;
+			foreach (Thing thing in pawn.Map.listerBuildings.allBuildingsColonist.ToList())
+			{
+				if (thing is Frame frame && frame.IsCompleted())
+				{
+					cycleTry++;
+					thing.Map.effecterMaintainer.AddEffecterToMaintain(frame.ConstructionEffect.Spawn(thing.Position, thing.Map), thing.Position, 30);
+					//SoundDefOf.Psycast_Skip_Entry.PlayOneShot(new TargetInfo(thing.Position, thing.Map));
+					//GasUtility.AddGas(thing.PositionHeld, thing.MapHeld, GasType.DeadlifeDust, 30);
+					GasUtility.AddDeadifeGas(thing.PositionHeld, thing.MapHeld, pawn.Faction, 30);
+					//FleckMaker.Static(thing.Position, pawn.Map, FleckDefOf.HealingCross, 1f);
+					if (frame.resourceContainer.Count > 0 && pawn.skills != null)
+					{
+						pawn.skills.Learn(SkillDefOf.Construction, 0.05f * tick);
+					}
+					float num = pawn.GetStatValue(StatDefOf.ConstructionSpeed) * 1.7f * tick;
+					if (frame.Stuff != null)
+					{
+						num *= frame.Stuff.GetStatValueAbstract(StatDefOf.ConstructionSpeedFactor);
+					}
+					float workToBuild = frame.WorkToBuild;
+					frame.workDone += num;
+					if (frame.workDone >= workToBuild)
+					{
+						frame.CompleteConstruction(pawn);
+					}
+					pause = false;
+				}
+				else if (thing is Building building)
+				{
+					if (building.HitPoints < building.MaxHitPoints)
+					{
+						cycleTry++;
+						//GasUtility.AddGas(thing.PositionHeld, thing.MapHeld, GasType.DeadlifeDust, radius: 1f);
+						GasUtility.AddDeadifeGas(thing.PositionHeld, thing.MapHeld, pawn.Faction, 30);
+						thing.Map.effecterMaintainer.AddEffecterToMaintain(building.def.repairEffect.Spawn(thing.Position, thing.Map), thing.Position, 30);
+						//FleckMaker.Static(thing.Position, pawn.Map, FleckDefOf.HealingCross, 1f);
+						//SoundDefOf.Psycast_Skip_Entry.PlayOneShot(new TargetInfo(thing.Position, thing.Map));
+						if (pawn.skills != null)
+						{
+							pawn.skills.Learn(SkillDefOf.Construction, 0.01f * tick);
+						}
+						float num = pawn.GetStatValue(StatDefOf.ConstructionSpeed) * 1.7f * tick / 80;
+						building.HitPoints = Mathf.Clamp(building.HitPoints + (int)num, building.HitPoints + 1, building.MaxHitPoints);
+						pawn.Map.listerBuildingsRepairable.Notify_BuildingRepaired(building);
+					}
+					pause = false;
+				}
+				if (cycleTry >= 3)
+				{
+					break;
+				}
+			}
+			if (pause)
+			{
+				nextTick = 6000 * (StaticCollectionsClass.cachedColonistsCount > 0 ? StaticCollectionsClass.cachedColonistsCount : 1);
+			}
+			else
+            {
+				nextTick = 30 * (StaticCollectionsClass.cachedColonistsCount > 0 ? StaticCollectionsClass.cachedColonistsCount : 1);
+            }
 		}
 
 	}
