@@ -132,6 +132,7 @@ namespace WVC_XenotypesAndGenes
 
 	public class GeneExtension_Opinion : DefModExtension
 	{
+		public ThoughtDef thoughtDef;
 		public ThoughtDef AboutMeThoughtDef;
 		public ThoughtDef MeAboutThoughtDef;
 		public bool targetShouldBePsySensitive = false;
@@ -139,6 +140,8 @@ namespace WVC_XenotypesAndGenes
 		public bool ignoreIfHasGene = false;
 		public bool onlySameXenotype = false;
 		public ThoughtDef sameAsMe_AboutMeThoughtDef;
+		//Recluse
+		public int colonistsLimit = 1;
 	}
 
 	public class GeneExtension_General : DefModExtension

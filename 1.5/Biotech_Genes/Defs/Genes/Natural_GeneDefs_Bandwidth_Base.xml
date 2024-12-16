@@ -80,6 +80,7 @@
 	<labelShortAdj>connected</labelShortAdj>
 	<description>Carriers of this gene have archites that amplify the mechlink's signal, allowing the bearer to establish a stable link with a nearby fleet of mechanoids and use their systems. This link opens up access to the almost endless possibilities of mechanoid control.</description>
 	<iconPath>WVC/UI/Genes/FleetConnection</iconPath>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
 	<!-- <iconColor>(255, 255, 255)</iconColor> -->
 	<!-- <iconColor>(255, 230, 215)</iconColor> -->
 	<!-- <iconColor>(79, 80, 81)</iconColor> -->

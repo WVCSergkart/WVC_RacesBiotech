@@ -543,7 +543,10 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (item.IsMutant)
 				{
-					nonHumans++;
+					if (item.IsGhoul)
+					{
+						nonHumans++;
+					}
 					continue;
 				}
 				if (!XaG_GeneUtility.PawnIsBaseliner(item) && item.IsHuman())

@@ -60,6 +60,10 @@ namespace WVC_XenotypesAndGenes
 
 		private void Evolve()
 		{
+			if (pawn.Faction != Faction.OfPlayer)
+			{
+				return;
+			}
 			if (!Rand.Chance(0.2f))
 			{
 				return;
@@ -168,6 +172,10 @@ namespace WVC_XenotypesAndGenes
 
 		public void DoResearch(int tick)
 		{
+			if (pawn.Faction != Faction.OfPlayer)
+			{
+				return;
+			}
 			if (!cachedResearchSpeed.HasValue)
 			{
 				cachedResearchSpeed = pawn.GetStatValue(StatDefOf.ResearchSpeed);
@@ -226,6 +234,10 @@ namespace WVC_XenotypesAndGenes
 
 		public void Construct(int tick)
 		{
+			if (XaG_GeneUtility.FactionMap(pawn))
+			{
+				return;
+			}
 			int cycleTry = 0;
 			bool pause = true;
 			foreach (Thing thing in pawn.Map.listerBuildings.allBuildingsColonist.ToList())

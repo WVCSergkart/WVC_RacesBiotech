@@ -255,4 +255,28 @@
 	<!-- </replaceThoughts> -->
   </ThoughtDef>
 
+  <ThoughtDef>
+	<defName>WVC_Recluse</defName>
+	<durationDays>1</durationDays>
+	<stages>
+	  <li>
+		<label>recluse</label>
+		<description>There are too many of us, it weakens us. Someone has to go.</description>
+		<baseMoodEffect>-20</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+	<defName>WVC_HumanCentric</defName>
+	<durationDays>1</durationDays>
+	<stages>
+	  <li>
+		<label>human-centric</label>
+		<description>These disgusting non-intelligent creatures.. Why should I even tolerate them?</description>
+		<baseMoodEffect>-20</baseMoodEffect>
+	  </li>
+	</stages>
+  </ThoughtDef>
+
 </Defs>

@@ -350,4 +350,58 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_Recluse : Gene
+	{
+
+		public GeneExtension_Opinion Props => def?.GetModExtension<GeneExtension_Opinion>();
+
+		private int nextTick = 841;
+
+		public override void Tick()
+		{
+			if (!GeneResourceUtility.CanTick(ref nextTick, 47618))
+			{
+				return;
+			}
+			TryInteract();
+		}
+
+		public void TryInteract()
+		{
+			pawn.needs?.mood?.thoughts?.memories.RemoveMemoriesOfDef(Props.thoughtDef);
+			if (StaticCollectionsClass.cachedColonistsCount > Props.colonistsLimit)
+			{
+				pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Props.thoughtDef, null);
+			}
+		}
+
+	}
+
+	public class Gene_HumanCentric : Gene
+	{
+
+		public GeneExtension_Opinion Props => def?.GetModExtension<GeneExtension_Opinion>();
+
+		private int nextTick = 842;
+
+		public override void Tick()
+		{
+			if (!GeneResourceUtility.CanTick(ref nextTick, 47619))
+			{
+				return;
+			}
+			TryInteract();
+		}
+
+		public void TryInteract()
+		{
+			pawn.needs?.mood?.thoughts?.memories.RemoveMemoriesOfDef(Props.thoughtDef);
+			if (StaticCollectionsClass.cachedNonHumansCount > 0)
+			{
+				pawn.needs?.mood?.thoughts?.memories.TryGainMemory(Props.thoughtDef, null);
+			}
+		}
+
+	}
+
 }
