@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef>
+	<defName>WVC_Toughspike</defName>
+	<label>toughspike</label>
+	<description>Carriers of this gene grow two spiked limbs that help a little in combat.</description>
+	<!-- <geneClass>WVC_XenotypesAndGenes.Gene_AddOrRemoveHediff</geneClass> -->
+	<iconPath>WVC/UI/Genes/Gene_Toughspike_v0</iconPath>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+	<selectionWeight>0.0012</selectionWeight>
+	<displayCategory>WVC_Cosmetic</displayCategory>
+	<displayOrderInCategory>25</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>0</biostatMet>
+	<minAgeActive>3</minAgeActive>
+	<statOffsets>
+	  <MeleeDamageFactor>0.05</MeleeDamageFactor>
+	</statOffsets>
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Allows the pawn to attack with spikes in melee combat.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<renderNodeProperties>
+	  <li>
+		<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+		<texPaths>
+		  <li>WVC/BodyParts/BodyParts_Wings/Toughspike</li>
+		</texPaths>
+		<colorType>Skin</colorType>
+		<overrideMeshSize>(1.0, 1.0)</overrideMeshSize>
+		<parentTagDef>Body</parentTagDef>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<drawSize>1.5</drawSize>
+		<drawData>
+		  <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+		  <defaultData>
+			<layer>-2</layer>
+		  </defaultData>
+		  <dataNorth>
+			<offset>(0, 0.4, 0.07)</offset>
+			<layer>90</layer>
+		  </dataNorth>
+		  <dataSouth>
+			<offset>(0, -0.4, 0.05)</offset>
+		  </dataSouth>
+		  <dataEast>
+			<offset>(-0.04, 0.4, 0.04)</offset>
+			<layer>90</layer>
+		  </dataEast>
+		  <dataWest>
+			<offset>(0.04, 0.4, 0.04)</offset>
+			<layer>90</layer>
+		  </dataWest>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
+			<!-- <hediffDefName>WVC_ToughspikeSpike</hediffDefName> -->
+			<!-- <bodyparts> -->
+			  <!-- <li>Torso</li> -->
+			<!-- </bodyparts> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
+  </GeneDef>
+
+</Defs>

@@ -11,7 +11,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_FleshmassNucleus : Gene_OverOverridable
+	public class Gene_FleshmassNucleus : Gene
 	{
 
 		public GeneExtension_Undead Undead => def?.GetModExtension<GeneExtension_Undead>();
@@ -146,6 +146,14 @@ namespace WVC_XenotypesAndGenes
 						TryGiveMutation();
 					}
 				};
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: FleshmassEvolve",
+					action = delegate
+					{
+						XaG_GeneUtility.ImplantChimeraDef(pawn, def);
+					}
+				};
 			}
 		}
 
@@ -205,13 +213,10 @@ namespace WVC_XenotypesAndGenes
 
 		public void DoApparelDamage(int tick)
 		{
-			List<Apparel> apparels = pawn.apparel.WornApparel;
+			List<Apparel> apparels = pawn.apparel.WornApparel.Where((apparel) => apparel.def.apparel.countsAsClothingForNudity && apparel.def.useHitPoints).ToList();
 			foreach (Apparel apparel in apparels)
 			{
-				if (apparel.def.apparel.countsAsClothingForNudity && apparel.def.useHitPoints)
-				{
-					apparel.HitPoints -= tick / 1500;
-				}
+				apparel.HitPoints -= Mathf.Clamp(tick / apparels.Count / 1500, 1, apparel.MaxHitPoints);
 			}
 		}
 

@@ -37,6 +37,9 @@
 	  <ArmorRating_Sharp>0.33</ArmorRating_Sharp>
 	  <ArmorRating_Heat>0.12</ArmorRating_Heat>
 	</statOffsets>
+	<statFactors>
+	  <IncomingDamageFactor>0.8</IncomingDamageFactor>
+	</statFactors>
 	<customEffectDescriptions>
 		<li>Damage to clothing: 40 hp/day</li>
 		<li>&lt;color=#ffec85&gt;Ignores nudist clothing.&lt;/color&gt;</li>

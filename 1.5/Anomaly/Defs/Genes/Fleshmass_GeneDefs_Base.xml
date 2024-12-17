@@ -16,11 +16,12 @@
 	<displayOrderInCategory>10</displayOrderInCategory>
 	<displayCategory>WVC_Fleshmass</displayCategory>
 	<marketValueFactor>5</marketValueFactor>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
-			<isFleshmass>true</isFleshmass>
-		</li>
-	</modExtensions>
+	<!-- Unused -->
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_General"> -->
+			<!-- <isFleshmass>true</isFleshmass> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
@@ -59,12 +60,15 @@
 				<li>WVC_SkinColor_FleshRed</li>
 				<li>WVC_BloodyGrowths</li>
 				<li>Sterile</li>
-				<li>WVC_HemogenGain</li>
-				<!-- <li>WVC_Incrementer</li> -->
+				<!-- <li>WVC_HemogenGain</li> -->
+				<li>WVC_TentacleTail</li>
+				<!-- = -->
+				<li>WVC_Toughspike</li>
+				<li>WVC_Incrementer</li>
 			</addedGenes>
 			<removedGenes>
 				<li>WVC_HealingStomach</li>
-				<li>WVC_BodySize_Small</li>
+				<!-- <li>WVC_BodySize_Small</li> -->
 				<li>Hair_LongOnly</li>
 				<li>WVC_DryadSkin</li>
 				<li>WVC_Eyes_Colorful</li>
@@ -73,6 +77,10 @@
 				<li>WVC_HeadBoneHorns</li>
 				<li>DarkVision</li>
 				<li>WVC_ImplanterFangs</li>
+				<li>WVC_DemonTailA</li>
+				<!-- = -->
+				<li>WVC_HemogenicMetabolism</li>
+				<li>PiercingSpine</li>
 			</removedGenes>
 		</li>
 	</modExtensions>

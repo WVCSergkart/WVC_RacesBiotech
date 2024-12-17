@@ -215,6 +215,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (removedGenes.Contains(gene.def))
 				{
+					chimera.TryAddGene(gene.def);
 					pawn.genes.RemoveGene(gene);
 				}
 			}

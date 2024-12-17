@@ -50,4 +50,65 @@
 	</symbolPack>
   </GeneDef>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneTails_Base">
+	<defName>WVC_TentacleTail</defName>
+	<label>tentacle tail</label>
+	<description>Carriers of this gene grow a flexible, muscular tail capable of deftly manipulating objects.</description>
+	<iconPath>WVC/UI/Genes/Gene_TentacleTail_v0</iconPath>
+	<minAgeActive>3</minAgeActive>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<statOffsets>
+	  <MeleeDamageFactor>0.05</MeleeDamageFactor>
+	</statOffsets>
+	<capMods>
+	  <li>
+		<capacity>Manipulation</capacity>
+		<offset>0.2</offset>
+	  </li>
+	</capMods>
+	<renderNodeProperties>
+	  <li>
+		<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+		<texPaths>
+		  <li>WVC/BodyParts/MecaGene_ScytheTail/TentacleTailA</li>
+		  <li>WVC/BodyParts/MecaGene_ScytheTail/TentacleTailB</li>
+		</texPaths>
+		<colorType>Skin</colorType>
+		<overrideMeshSize>(1.0, 1.0)</overrideMeshSize>
+		<drawSize>1.5</drawSize>
+		<parentTagDef>Body</parentTagDef>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<drawData>
+		  <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+		  <defaultData>
+			<layer>-2</layer>
+		  </defaultData>
+		  <dataNorth>
+			<offset>(0.0, 0.2, 0.0)</offset>
+			<layer>90</layer>
+		  </dataNorth>
+		  <dataSouth>
+			<offset>(0.0, -0.1, 0.0)</offset>
+		  </dataSouth>
+		  <dataEast>
+			<offset>(-0.06, -0.1, 0.02)</offset>
+		  </dataEast>
+		  <dataWest>
+			<offset>(0.06, -0.1, 0.02)</offset>
+		  </dataWest>
+		</drawData>
+	  </li>
+	</renderNodeProperties>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>flesh</symbol></li>
+		<li><symbol>beast</symbol></li>
+		<li><symbol>tentacle</symbol></li>
+		<li><symbol>hent</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
 </Defs>
