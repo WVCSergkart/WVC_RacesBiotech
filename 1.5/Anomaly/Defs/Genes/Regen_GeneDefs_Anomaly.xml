@@ -60,6 +60,7 @@
 				<li>WVC_BloodyGrowths</li>
 				<li>Sterile</li>
 				<li>WVC_HemogenGain</li>
+				<!-- <li>WVC_Incrementer</li> -->
 			</addedGenes>
 			<removedGenes>
 				<li>WVC_HealingStomach</li>

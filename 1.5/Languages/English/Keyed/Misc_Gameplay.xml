@@ -75,6 +75,8 @@
 
 	<!-- <WVC_XaG_GestatedDryadDescription>&lt;color=#f5ffa2&gt;Being gestated&lt;/color&gt; by the genetic dryad queen, dryads behave differently from their tree-relatives. They exist in a symbiotic relationship directly with the genetic queen, who in turn gestates new dryads and has a psychic bond with them.</WVC_XaG_GestatedDryadDescription> -->
 
+	<WVC_XaG_GeneImplantImplanter_Succes>The implant was successfully implanted.</WVC_XaG_GeneImplantImplanter_Succes>
+
 	<!-- ============================ BiosculpterPod ============================ -->
 
 	<WVC_XaG_XenogermCycleCompleted>{PAWN_labelShort} completed {1} cycle.</WVC_XaG_XenogermCycleCompleted>
@@ -498,6 +500,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_GeneGeneticThief_AcceptLabelEat>Eat genes</WVC_XaG_GeneGeneticThief_AcceptLabelEat>
 	<WVC_XaG_GeneGeneticThief_AcceptLabelImplant>Implant genes</WVC_XaG_GeneGeneticThief_AcceptLabelImplant>
+
+	<WVC_XaG_GeneChimera_EntityImplant>Chimera evolution applied.</WVC_XaG_GeneChimera_EntityImplant>
 
 	<WVC_XaG_GeneGeneticThief_GeneCopied>{0} copied the {1} gene.</WVC_XaG_GeneGeneticThief_GeneCopied>
 	<WVC_XaG_GeneGeneticThief_GeneObtained>{0} obtained the {1} gene.</WVC_XaG_GeneGeneticThief_GeneObtained>

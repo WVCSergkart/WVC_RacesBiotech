@@ -241,59 +241,106 @@ namespace WVC_XenotypesAndGenes
 
 		// public static void Notify_GeneRemoved(Gene gene, Pawn pawn)
 		// {
-			// foreach (Hediff hediff in pawn.health.hediffSet.hediffs.ToList())
-			// {
-				// hediff?.TryGetComp<HediffComp_GeneHediff>()?.Notify_GeneRemoved(gene);
-			// }
+		// foreach (Hediff hediff in pawn.health.hediffSet.hediffs.ToList())
+		// {
+		// hediff?.TryGetComp<HediffComp_GeneHediff>()?.Notify_GeneRemoved(gene);
+		// }
 		// }
 
 		// Heads
 
-		public static bool HeadTypeIsCorrect(Pawn pawn, List<HeadTypeDef> headTypeDefs)
+		//public static bool TryInstallImplant_Implant(HediffDef hediffDef, Pawn pawn, BodyPartRecord part)
+		//{
+		//	return MedicalRecipesUtility.GetFixedPartsToApplyOn(recipe, pawn, delegate (BodyPartRecord record)
+		//	{
+		//		if (!pawn.health.hediffSet.GetNotMissingParts().Contains(record))
+		//		{
+		//			return false;
+		//		}
+		//		if (pawn.health.hediffSet.PartOrAnyAncestorHasDirectlyAddedParts(record))
+		//		{
+		//			return false;
+		//		}
+		//		return (!pawn.health.hediffSet.hediffs.Any((Hediff x) => x.Part == record && (x.def == recipe.addsHediff || !recipe.CompatibleWithHediff(x.def)))) ? true : false;
+		//	});
+		//	pawn.health.AddHediff(hediffDef, part);
+		//	return true;
+		//}
+
+		public static bool IsImplantable(this ThingDef partDef, Pawn pawn, out IEnumerable<RecipeDef> source)
 		{
-			if (pawn?.genes == null || pawn?.story == null)
+			source = DefDatabase<RecipeDef>.AllDefs.Where((RecipeDef x) => x.IsIngredient(partDef) && pawn.def.AllRecipes.Contains(x));
+			if (source.Any())
 			{
-				return false;
+				return true;
 			}
-			if (headTypeDefs.Contains(pawn.story.headType))
+			return false;
+		}
+
+		public static bool TryInstallPart(Pawn pawn, ThingDef partDef)
+		{
+			//IEnumerable<RecipeDef> source = DefDatabase<RecipeDef>.AllDefs.Where((RecipeDef x) => x.IsIngredient(partDef) && pawn.def.AllRecipes.Contains(x));
+			if (IsImplantable(partDef, pawn, out IEnumerable<RecipeDef> source))
 			{
-				if (pawn?.health != null && pawn?.health?.hediffSet != null)
+				RecipeDef recipeDef = source.RandomElement();
+				if (!recipeDef.targetsBodyPart)
 				{
-					if (HasEyesGraphic(pawn) || AnyEyeIsMissing(pawn))
-					{
-						return false;
-					}
+					recipeDef.Worker.ApplyOnPawn(pawn, null, null, new(), null);
+				}
+				else if (recipeDef.Worker.GetPartsToApplyOn(pawn, recipeDef).Any())
+				{
+					recipeDef.Worker.ApplyOnPawn(pawn, recipeDef.Worker.GetPartsToApplyOn(pawn, recipeDef).RandomElement(), null, new(), null);
 				}
 				return true;
 			}
 			return false;
 		}
 
-		public static bool AnyEyeIsMissing(Pawn pawn)
-		{
-			List<Hediff_MissingPart> missingPart = pawn.health.hediffSet.GetMissingPartsCommonAncestors();
-			for (int i = 0; i < missingPart.Count; i++)
-			{
-				if (missingPart[i].Part.def.tags.Contains(BodyPartTagDefOf.SightSource))
-				{
-					return true;
-				}
-			}
-			return false;
-		}
+		//public static bool HeadTypeIsCorrect(Pawn pawn, List<HeadTypeDef> headTypeDefs)
+		//{
+		//	if (pawn?.genes == null || pawn?.story == null)
+		//	{
+		//		return false;
+		//	}
+		//	if (headTypeDefs.Contains(pawn.story.headType))
+		//	{
+		//		if (pawn?.health != null && pawn?.health?.hediffSet != null)
+		//		{
+		//			if (HasEyesGraphic(pawn) || AnyEyeIsMissing(pawn))
+		//			{
+		//				return false;
+		//			}
+		//		}
+		//		return true;
+		//	}
+		//	return false;
+		//}
 
-		public static bool HasEyesGraphic(Pawn pawn)
-		{
-			List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
-			for (int i = 0; i < hediffs.Count; i++)
-			{
-				if (hediffs[i].def.RenderNodeProperties != null || hediffs[i].def.RenderNodeProperties != null)
-				{
-					return true;
-				}
-			}
-			return false;
-		}
+		//public static bool AnyEyeIsMissing(Pawn pawn)
+		//{
+		//	List<Hediff_MissingPart> missingPart = pawn.health.hediffSet.GetMissingPartsCommonAncestors();
+		//	for (int i = 0; i < missingPart.Count; i++)
+		//	{
+		//		if (missingPart[i].Part.def.tags.Contains(BodyPartTagDefOf.SightSource))
+		//		{
+		//			return true;
+		//		}
+		//	}
+		//	return false;
+		//}
+
+		//public static bool HasEyesGraphic(Pawn pawn)
+		//{
+		//	List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
+		//	for (int i = 0; i < hediffs.Count; i++)
+		//	{
+		//		if (hediffs[i].def.RenderNodeProperties != null || hediffs[i].def.RenderNodeProperties != null)
+		//		{
+		//			return true;
+		//		}
+		//	}
+		//	return false;
+		//}
 
 		// Add and Remove
 

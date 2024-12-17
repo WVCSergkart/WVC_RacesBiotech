@@ -341,14 +341,7 @@ namespace WVC_XenotypesAndGenes
 					continue;
 				}
 				nextTick += 60000 * stabilizer.Props.daysDelay;
-				if (things[j].stackCount > 1)
-				{
-					things[j].stackCount--;
-				}
-				else
-				{
-					things[j].Destroy();
-				}
+				things[j].ReduceStack();
 				break;
 			}
 		}

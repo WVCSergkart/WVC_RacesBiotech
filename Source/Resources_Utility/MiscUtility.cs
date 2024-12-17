@@ -137,65 +137,77 @@ namespace WVC_XenotypesAndGenes
 
 		// public static bool HeadTypeIsCorrect(Pawn pawn, List<HeadTypeDef> headTypeDefs)
 		// {
-			// if (pawn?.genes == null || pawn?.story == null)
-			// {
-				// return false;
-			// }
-			// if (headTypeDefs.Contains(pawn.story.headType))
-			// {
-				// if (HasAnyFaceGraphic(pawn))
-				// {
-					// return false;
-				// }
-				// return true;
-			// }
-			// return false;
+		// if (pawn?.genes == null || pawn?.story == null)
+		// {
+		// return false;
+		// }
+		// if (headTypeDefs.Contains(pawn.story.headType))
+		// {
+		// if (HasAnyFaceGraphic(pawn))
+		// {
+		// return false;
+		// }
+		// return true;
+		// }
+		// return false;
 		// }
 
 		// public static bool HasAnyFaceGraphic(Pawn pawn)
 		// {
-			// pawn.Drawer.renderer.renderTree.
-			// for (int i = 0; i < missingPart.Count; i++)
-			// {
-				// if (missingPart[i].Part.def.tags.Contains(BodyPartTagDefOf.SightSource))
-				// {
-					// return true;
-				// }
-			// }
-			// return false;
+		// pawn.Drawer.renderer.renderTree.
+		// for (int i = 0; i < missingPart.Count; i++)
+		// {
+		// if (missingPart[i].Part.def.tags.Contains(BodyPartTagDefOf.SightSource))
+		// {
+		// return true;
+		// }
+		// }
+		// return false;
 		// }
 
 		// Skills
 
 		// public static void TransferSkills(Pawn student, Pawn teacher)
 		// {
-			// List<SkillRecord> teacherSkills = teacher?.skills?.skills;
-			// if (teacherSkills == null || student?.skills?.skills == null)
-			// {
-				// return;
-			// }
-			// foreach (SkillRecord skill in student.skills.skills)
-			// {
-				// while (skill.levelInt > 0)
-				// {
-					// skill.Learn(-9999999, true);
-				// }
-				// skill.xpSinceLastLevel = 0;
-			// }
-			// foreach (SkillRecord skill in student.skills.skills)
-			// {
-				// foreach (SkillRecord teacherSkill in teacherSkills)
-				// {
-					// if (skill.def != teacherSkill.def)
-					// {
-						// continue;
-					// }
-					// skill.levelInt = teacherSkill.levelInt;
-					// skill.xpSinceLastLevel = 0;
-					// break;
-				// }
-			// }
+		// List<SkillRecord> teacherSkills = teacher?.skills?.skills;
+		// if (teacherSkills == null || student?.skills?.skills == null)
+		// {
+		// return;
 		// }
+		// foreach (SkillRecord skill in student.skills.skills)
+		// {
+		// while (skill.levelInt > 0)
+		// {
+		// skill.Learn(-9999999, true);
+		// }
+		// skill.xpSinceLastLevel = 0;
+		// }
+		// foreach (SkillRecord skill in student.skills.skills)
+		// {
+		// foreach (SkillRecord teacherSkill in teacherSkills)
+		// {
+		// if (skill.def != teacherSkill.def)
+		// {
+		// continue;
+		// }
+		// skill.levelInt = teacherSkill.levelInt;
+		// skill.xpSinceLastLevel = 0;
+		// break;
+		// }
+		// }
+		// }
+
+		public static void ReduceStack(this Thing implant)
+		{
+			if (implant.stackCount > 1)
+			{
+				implant.stackCount--;
+			}
+			else
+			{
+				implant.Destroy();
+			}
+		}
 
 		// Job Misc
 

@@ -264,14 +264,7 @@ namespace WVC_XenotypesAndGenes
 				Notify_IngestedThing(things[j], 1);
 				if (things[j] != null)
 				{
-					if (things[j].stackCount > 1)
-					{
-						things[j].stackCount--;
-					}
-					else
-					{
-						things[j].Destroy();
-					}
+					things[j].ReduceStack();
 				}
 				break;
 			}

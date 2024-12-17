@@ -76,14 +76,7 @@ namespace WVC_XenotypesAndGenes
 			yield return Toils_General.WaitWith(TargetIndex.A, 320, useProgressBar: true).WithEffect(EffecterDefOf.ButcherMechanoid, TargetIndex.A);
 			yield return Toils_General.Do(delegate
             {
-                if (Target.stackCount > 1)
-                {
-                    Target.stackCount -= 1;
-                }
-				else
-                {
-					Target.Destroy();
-				}
+                Target.ReduceStack();
 				if (job is XaG_Job xaG_Job)
 				{
 					Gene_Morpher morpher = pawn.genes?.GetFirstGeneOfType<Gene_Morpher>();

@@ -223,6 +223,7 @@ namespace WVC_XenotypesAndGenes
 				pawn.genes.AddGene(addedGeneDef, false);
 			}
 			chimera.DoEffects();
+			Messages.Message("WVC_XaG_GeneChimera_EntityImplant".Translate(), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
 		}
 
 		public static void AddGeneToChimera(Pawn pawn, GeneDef geneDef)

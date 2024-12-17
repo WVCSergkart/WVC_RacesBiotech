@@ -317,14 +317,7 @@ namespace WVC_XenotypesAndGenes
 						compGolem.SetStoneChunk(chunk.def);
 					}
 					pawn.relations.AddDirectRelation(PawnRelationDefOf.Overseer, summon);
-					if (chunk.stackCount > 1)
-					{
-						chunk.stackCount--;
-					}
-					else
-					{
-						chunk.Kill();
-					}
+					chunk.ReduceStack();
 					Messages.Message("WVC_XaG_GolemCreatedFromRandomChunk_Message".Translate(summon.Name.ToString()), summon, MessageTypeDefOf.PositiveEvent);
 					return true;
 				}
