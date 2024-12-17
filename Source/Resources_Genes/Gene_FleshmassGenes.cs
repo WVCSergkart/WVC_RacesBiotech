@@ -58,25 +58,25 @@ namespace WVC_XenotypesAndGenes
 			//Evolve();
 		}
 
-		private void Evolve()
-		{
-			if (pawn.Faction != Faction.OfPlayer)
-			{
-				return;
-			}
-			if (!Rand.Chance(0.2f))
-			{
-				return;
-			}
-			if (StaticCollectionsClass.cachedColonistsCount > 1)
-			{
-				return;
-			}
-			if (DefDatabase<GeneDef>.AllDefsListForReading.Where((geneDef) => geneDef != def && geneDef.GetModExtension<GeneExtension_General>()?.isFleshmass == true).TryRandomElement(out GeneDef geneDef))
-			{
-				XaG_GeneUtility.AddGeneToChimera(pawn, geneDef);
-			}
-		}
+		//private void Evolve()
+		//{
+		//	if (pawn.Faction != Faction.OfPlayer)
+		//	{
+		//		return;
+		//	}
+		//	if (!Rand.Chance(0.2f))
+		//	{
+		//		return;
+		//	}
+		//	if (StaticCollectionsClass.cachedColonistsCount > 1)
+		//	{
+		//		return;
+		//	}
+		//	if (DefDatabase<GeneDef>.AllDefsListForReading.Where((geneDef) => geneDef != def && geneDef.GetModExtension<GeneExtension_General>()?.isFleshmass == true).TryRandomElement(out GeneDef geneDef))
+		//	{
+		//		XaG_GeneUtility.AddGeneToChimera(pawn, geneDef);
+		//	}
+		//}
 
 		private bool TryGetWeakerPawnMutation(out HediffAddedPart_FleshmassNucleus hediffWithComps_FleshmassHeart)
 		{
@@ -242,36 +242,36 @@ namespace WVC_XenotypesAndGenes
 			GasUtility.AddDeadifeGas(pawn.PositionHeld, pawn.MapHeld, pawn.Faction, 30);
 			int cycleTry = 0;
 			bool pause = true;
-			foreach (Thing thing in pawn.Map.listerBuildings.allBuildingsColonist.ToList())
+			try
 			{
-				if (thing is Frame frame && frame.IsCompleted())
+				foreach (Thing thing in pawn.Map.listerBuildings.allBuildingsColonist.ToList())
 				{
-					cycleTry++;
-					thing.Map.effecterMaintainer.AddEffecterToMaintain(frame.ConstructionEffect.Spawn(thing.Position, thing.Map), thing.Position, 30);
-					//SoundDefOf.Psycast_Skip_Entry.PlayOneShot(new TargetInfo(thing.Position, thing.Map));
-					//GasUtility.AddGas(thing.PositionHeld, thing.MapHeld, GasType.DeadlifeDust, 30);
-					GasUtility.AddDeadifeGas(thing.PositionHeld, thing.MapHeld, pawn.Faction, 30);
-					//FleckMaker.Static(thing.Position, pawn.Map, FleckDefOf.HealingCross, 1f);
-					if (frame.resourceContainer.Count > 0 && pawn.skills != null)
+					if (thing is Frame frame && frame.IsCompleted())
 					{
-						pawn.skills.Learn(SkillDefOf.Construction, 0.05f * tick);
+						cycleTry++;
+						thing.Map.effecterMaintainer.AddEffecterToMaintain(frame.ConstructionEffect.Spawn(thing.Position, thing.Map), thing.Position, 30);
+						//SoundDefOf.Psycast_Skip_Entry.PlayOneShot(new TargetInfo(thing.Position, thing.Map));
+						//GasUtility.AddGas(thing.PositionHeld, thing.MapHeld, GasType.DeadlifeDust, 30);
+						GasUtility.AddDeadifeGas(thing.PositionHeld, thing.MapHeld, pawn.Faction, 30);
+						//FleckMaker.Static(thing.Position, pawn.Map, FleckDefOf.HealingCross, 1f);
+						if (frame.resourceContainer.Count > 0 && pawn.skills != null)
+						{
+							pawn.skills.Learn(SkillDefOf.Construction, 0.05f * tick);
+						}
+						float num = pawn.GetStatValue(StatDefOf.ConstructionSpeed) * 1.7f * tick;
+						if (frame.Stuff != null)
+						{
+							num *= frame.Stuff.GetStatValueAbstract(StatDefOf.ConstructionSpeedFactor);
+						}
+						float workToBuild = frame.WorkToBuild;
+						frame.workDone += num;
+						if (frame.workDone >= workToBuild)
+						{
+							frame.CompleteConstruction(pawn);
+						}
+						pause = false;
 					}
-					float num = pawn.GetStatValue(StatDefOf.ConstructionSpeed) * 1.7f * tick;
-					if (frame.Stuff != null)
-					{
-						num *= frame.Stuff.GetStatValueAbstract(StatDefOf.ConstructionSpeedFactor);
-					}
-					float workToBuild = frame.WorkToBuild;
-					frame.workDone += num;
-					if (frame.workDone >= workToBuild)
-					{
-						frame.CompleteConstruction(pawn);
-					}
-					pause = false;
-				}
-				else if (thing is Building building)
-				{
-					if (building.HitPoints < building.MaxHitPoints)
+					else if (thing is Building building && building.HitPoints < building.MaxHitPoints)
 					{
 						cycleTry++;
 						//GasUtility.AddGas(thing.PositionHeld, thing.MapHeld, GasType.DeadlifeDust, radius: 1f);
@@ -286,13 +286,18 @@ namespace WVC_XenotypesAndGenes
 						float num = pawn.GetStatValue(StatDefOf.ConstructionSpeed) * 1.7f * tick / 80;
 						building.HitPoints = Mathf.Clamp(building.HitPoints + (int)num, building.HitPoints + 1, building.MaxHitPoints);
 						pawn.Map.listerBuildingsRepairable.Notify_BuildingRepaired(building);
+						pause = false;
 					}
-					pause = false;
+					if (cycleTry >= 3)
+					{
+						break;
+					}
 				}
-				if (cycleTry >= 3)
-				{
-					break;
-				}
+			}
+			catch (Exception arg)
+			{
+				nextTick = 180000;
+				Log.Error("Failed do any build job. Reason: " + arg);
 			}
 			if (pause)
 			{

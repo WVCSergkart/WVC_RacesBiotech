@@ -14,6 +14,8 @@ namespace WVC_XenotypesAndGenes
 
 		public JobDef devourJob;
 
+		public string warningText = "WVC_XaG_GeneChimeraDevourFleshmassNucleusWarning";
+
 		public CompProperties_EntitiesGenes()
 		{
 			compClass = typeof(CompFleshmassGene);
@@ -39,7 +41,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (selPawn.IsChimera())
 				{
-					MiscUtility.MakeJobWithGeneDef(selPawn, Props.devourJob, Props.geneDef, parent);
+					Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation(Props.warningText.Translate(), delegate
+					{
+						MiscUtility.MakeJobWithGeneDef(selPawn, Props.devourJob, Props.geneDef, parent);
+					});
+					Find.WindowStack.Add(window);
 				}
 				else
                 {

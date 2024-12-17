@@ -7,6 +7,16 @@ using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
+
+	//public class ChimeraDef : Def
+	//{
+
+	//	public List<GeneDef> addedGenes = new();
+
+	//	public List<GeneDef> removedGenes = new();
+
+	//}
+
 	public class GolemModeDef : Def
 	{
 

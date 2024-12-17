@@ -29,4 +29,21 @@
 	  </value>
 	</Operation>
 
+	<!-- <Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd"> -->
+	  <!-- <xpath>/Defs/ThoughtDef[defName="AB_ForsakenThunderstorm" or defName="AB_ForsakenRain" or defName="AB_ForsakenNight" or defName="EnvironmentDark"]</xpath> -->
+	  <!-- <safetyDepth>1</safetyDepth> -->
+	  <!-- <value> -->
+		<!-- <nullifyingGenes> -->
+		  <!-- <li>WVC_FleshmassSkin</li> -->
+		<!-- </nullifyingGenes> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/ThoughtDef[nullifyingGenes[li[contains(text(),'DarkVision')]]]/nullifyingGenes</xpath>
+	  <value>
+		  <li>WVC_FleshmassSkin</li>
+	  </value>
+	</Operation>
+
 </Patch>

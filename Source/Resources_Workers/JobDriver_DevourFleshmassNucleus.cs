@@ -7,7 +7,7 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class JobDriver_DevourFleshmassNucleus : JobDriver
+	public class JobDriver_DevourFleshmassNucleus : JobDriver_XaGJob_General
 	{
 
 		public Pawn Victim => (Pawn)job.GetTarget(TargetIndex.A).Thing;
@@ -33,13 +33,14 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (job is XaG_Job xaG_Job)
                 {
-					XaG_GeneUtility.AddGeneToChimera(pawn, xaG_Job.geneDef);
-                }
+					//XaG_GeneUtility.AddGeneToChimera(pawn, geneDef);
+					XaG_GeneUtility.ImplantChimeraDef(pawn, geneDef);
+				}
                 HediffUtility.MutationMeatSplatter(Victim, false);
 				Victim.Kill(null);
 			});
 		}
 
-    }
+	}
 
 }

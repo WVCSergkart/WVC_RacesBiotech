@@ -198,6 +198,33 @@ namespace WVC_XenotypesAndGenes
 
 		// Misc
 
+		public static void ImplantChimeraDef(Pawn pawn, GeneDef geneDef)
+		{
+			List<GeneDef> removedGenes = geneDef.GetModExtension<GeneExtension_Undead>()?.removedGenes;
+			List<GeneDef> addedGenes = geneDef.GetModExtension<GeneExtension_Undead>()?.addedGenes;
+			if (addedGenes == null || removedGenes == null)
+			{
+				return;
+			}
+			Gene_Chimera chimera = pawn.genes?.GetFirstGeneOfType<Gene_Chimera>();
+			if (chimera == null)
+            {
+				return;
+			}
+			foreach (Gene gene in pawn.genes.Endogenes.ToList())
+			{
+				if (removedGenes.Contains(gene.def))
+				{
+					pawn.genes.RemoveGene(gene);
+				}
+			}
+			foreach (GeneDef addedGeneDef in addedGenes)
+			{
+				pawn.genes.AddGene(addedGeneDef, false);
+			}
+			chimera.DoEffects();
+		}
+
 		public static void AddGeneToChimera(Pawn pawn, GeneDef geneDef)
 		{
 			XaG_GeneUtility.AddGenesToChimera(pawn, new() { geneDef });

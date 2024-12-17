@@ -128,6 +128,9 @@ namespace WVC_XenotypesAndGenes
 		public List<GeneDef> chimeraOneManArmyGenes;
 		// Fleshmass
 		public int maxMutationLevel = 5;
+		//Chimera
+		public List<GeneDef> addedGenes = new();
+		public List<GeneDef> removedGenes = new();
 	}
 
 	public class GeneExtension_Opinion : DefModExtension

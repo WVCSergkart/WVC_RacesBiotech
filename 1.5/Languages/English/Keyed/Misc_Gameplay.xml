@@ -524,6 +524,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_GeneChimeraEntitiesDevour>Devour using the chimera gene.</WVC_XaG_GeneChimeraEntitiesDevour>
 	<WVC_XaG_GeneChimeraReqGene>Pawn must have a chimera gene or something similar.</WVC_XaG_GeneChimeraReqGene>
 
+	<WVC_XaG_GeneChimeraDevourFleshmassNucleusWarning>Devour will kill the fleshmass nucleus and completely transform the chimera. The pawn will lose some old endogenes and gain a number of new ones related to the fleshmass. These changes are irreversible and have some hidden dangers.\n\nAre you sure you wish to continue?</WVC_XaG_GeneChimeraDevourFleshmassNucleusWarning>
+
 	<!-- ============================ MECHLINK CUSTOM LABEL ============================ -->
 
 	<WVC_XaG_CustomLabeledMechlinkDesc>A neural formation resulting from genetic evolution or modification, similar to what can be obtained by implanting a mechlink.</WVC_XaG_CustomLabeledMechlinkDesc>
