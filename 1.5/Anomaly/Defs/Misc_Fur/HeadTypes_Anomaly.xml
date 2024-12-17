@@ -49,4 +49,12 @@
 	<!-- <eyeOffsetEastWest>(0.15, 0, 0.18)</eyeOffsetEastWest> -->
   <!-- </HeadTypeDef> -->
 
+  <HeadTypeDef ParentName="WVC_XenotypesAndGenes_AverageBase">
+	<defName>WVC_FleshmassHead</defName>
+	<graphicPath>WVC/Heads/Fleshmass_Head/Head</graphicPath>
+	<requiredGenes>
+	  <li>WVC_FleshmassSkin</li>
+	</requiredGenes>
+  </HeadTypeDef>
+
 </Defs>

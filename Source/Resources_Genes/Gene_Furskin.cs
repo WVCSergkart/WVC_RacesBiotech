@@ -109,10 +109,26 @@ namespace WVC_XenotypesAndGenes
 
 	// WIP
 	// [Obsolete]
-	public class Gene_BodySize : Gene
+	//public class Gene_BodySize : Gene
+	//{
+
+	//	public GeneExtension_Graphic Graphic => def?.GetModExtension<GeneExtension_Graphic>();
+
+	//}
+
+
+	public class Gene_FleshmassSkin : Gene_Exoskin
 	{
 
-		public GeneExtension_Graphic Graphic => def?.GetModExtension<GeneExtension_Graphic>();
+		public override void Tick()
+		{
+			// base.Tick();
+			if (!pawn.IsHashIntervalTick(3245))
+			{
+				return;
+			}
+			HealingUtility.Regeneration(pawn, 10, WVC_Biotech.settings.totalHealingIgnoreScarification, 3245);
+		}
 
 	}
 

@@ -236,8 +236,10 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (XaG_GeneUtility.FactionMap(pawn))
 			{
+				nextTick = 60000;
 				return;
 			}
+			GasUtility.AddDeadifeGas(pawn.PositionHeld, pawn.MapHeld, pawn.Faction, 30);
 			int cycleTry = 0;
 			bool pause = true;
 			foreach (Thing thing in pawn.Map.listerBuildings.allBuildingsColonist.ToList())
