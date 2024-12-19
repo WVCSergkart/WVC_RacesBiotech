@@ -222,4 +222,30 @@
 	</comps>
   </HediffDef>
 
+  <HediffDef ParentName="AddedMutationBase">
+	<defName>WVC_FleshmassLeg</defName>
+	<label>fleshmass leg</label>
+	<labelNoun>a fleshmass leg</labelNoun>
+	<description>A cancerous mass of semi-sentient flesh. The joints of this leg can bend in any direction, improving speed and making it easier to dodge in close combat.\n\nThe organ has its own neural structures and may become dangerous if removed.</description>
+	<defaultInstallPart>Leg</defaultInstallPart>
+	<stages>
+	  <li>
+		<painOffset>0.06</painOffset>
+		<statOffsets>
+		  <MoveSpeed>0.4</MoveSpeed>
+		  <MeleeDodgeChance>3</MeleeDodgeChance>
+		</statOffsets>
+	  </li>
+	</stages>
+	<addedPartProps>
+	  <solid>true</solid>
+	</addedPartProps>
+	<comps>
+	  <li Class="HediffCompProperties_FleshbeastEmerge">
+		<letterLabel>Fleshmass operation</letterLabel>
+		<letterText>Attempting to remove {PAWN_nameDef}'s fleshmass leg has caused the twisting mass of flesh to attack. The fleshmass has detached from {PAWN_nameDef} and transformed into a fleshbeast!</letterText>
+	  </li>
+	</comps>
+  </HediffDef>
+
 </Defs>
