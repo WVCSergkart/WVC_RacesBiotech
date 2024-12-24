@@ -9,7 +9,7 @@ namespace WVC_XenotypesAndGenes
 	public class HediffWithComps_DryadQueen : HediffWithComps
 	{
 
-		public int? cachedDryadsCount;
+		//public int? cachedDryadsCount;
 		public int refreshInterval = 41982;
 
 		private HediffStage curStage;
@@ -73,22 +73,16 @@ namespace WVC_XenotypesAndGenes
 				//}
 				if (curStage == null)
 				{
-					if (!cachedDryadsCount.HasValue)
+					curStage = new();
+					if (Gauranlen != null && Gauranlen.DryadsListForReading.Count > 0)
 					{
-						Recache();
-					}
-					StatModifier statModifier = new()
-					{
-						stat = StatDefOf.MaxNutrition,
-						value = 0.1f * cachedDryadsCount.Value
-					};
-					curStage = new HediffStage
-					{
-						statOffsets = new List<StatModifier> { statModifier }
-					};
-					if (cachedDryadsCount > 0)
-					{
-						curStage.hungerRateFactor = 1f + (0.1f * cachedDryadsCount.Value);
+						StatModifier statModifier = new()
+						{
+							stat = StatDefOf.MaxNutrition,
+							value = 0.1f * Gauranlen.DryadsListForReading.Count
+						};
+						curStage.statOffsets = new List<StatModifier> { statModifier };
+						curStage.hungerRateFactor = 1f + (0.1f * Gauranlen.DryadsListForReading.Count);
 					}
 				}
 				return curStage;
@@ -106,12 +100,8 @@ namespace WVC_XenotypesAndGenes
 
 		public void Recache()
 		{
-			if (Gauranlen != null)
+			if (Gauranlen == null)
 			{
-				cachedDryadsCount = Gauranlen.DryadsListForReading.Count;
-			}
-			else
-            {
 				pawn?.health?.RemoveHediff(this);
 			}
 			curStage = null;

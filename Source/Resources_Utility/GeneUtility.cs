@@ -200,8 +200,8 @@ namespace WVC_XenotypesAndGenes
 
 		public static void ImplantChimeraDef(Pawn pawn, GeneDef geneDef)
 		{
-			List<GeneDef> removedGenes = geneDef.GetModExtension<GeneExtension_Undead>()?.removedGenes;
-			List<GeneDef> addedGenes = geneDef.GetModExtension<GeneExtension_Undead>()?.addedGenes;
+			List<GeneDef> removedGenes = geneDef?.GetModExtension<GeneExtension_Undead>()?.removedGenes;
+			List<GeneDef> addedGenes = geneDef?.GetModExtension<GeneExtension_Undead>()?.addedGenes;
 			if (addedGenes == null || removedGenes == null)
 			{
 				return;
@@ -223,8 +223,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				pawn.genes.AddGene(addedGeneDef, false);
 			}
-			chimera.DoEffects();
-			Messages.Message("WVC_XaG_GeneChimera_EntityImplant".Translate(), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+			if (pawn.SpawnedOrAnyParentSpawned)
+			{
+				chimera.DoEffects();
+				Messages.Message("WVC_XaG_GeneChimera_EntityImplant".Translate(), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+			}
 		}
 
 		public static void AddGeneToChimera(Pawn pawn, GeneDef geneDef)

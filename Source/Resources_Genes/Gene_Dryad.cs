@@ -118,6 +118,10 @@ namespace WVC_XenotypesAndGenes
             {
 				hediff.Recache();
 			}
+			else
+			{
+				HediffUtility.TryAddOrRemoveHediff(Props.hediffDefName, pawn, this, null);
+			}
 			//HediffUtility.TryRemoveHediff(Props.hediffDefName, pawn);
 			//HediffUtility.TryAddOrRemoveHediff(Props.hediffDefName, pawn, this, null);
 		}

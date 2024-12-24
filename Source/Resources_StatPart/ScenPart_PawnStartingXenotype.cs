@@ -2,6 +2,7 @@
 using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
@@ -16,6 +17,16 @@ namespace WVC_XenotypesAndGenes
         public bool addMechlink = false;
         public bool nullifyBackstory = false;
         public List<GeneDef> chimeraGeneDefs = new();
+        public GeneDef chimeraEvolveGeneDef;
+
+        //public override void ExposeData()
+        //{
+        //    base.ExposeData();
+        //    Scribe_Values.Look(ref addMechlink, "addMechlink", false);
+        //    Scribe_Values.Look(ref nullifyBackstory, "nullifyBackstory", false);
+        //    Scribe_Values.Look(ref context, "context", PawnGenerationContext.All);
+        //    Scribe_Values.Look(ref hideOffMap, "hideOffMap", defaultValue: false);
+        //}
 
         protected override void ModifyNewPawn(Pawn p)
         {
@@ -23,6 +34,7 @@ namespace WVC_XenotypesAndGenes
             SetGenes(p);
             AddMechlink(p);
             NullifyBackstory(p);
+            ChimeraEvolve(p);
             ChimeraGenes(p);
         }
 
@@ -33,6 +45,15 @@ namespace WVC_XenotypesAndGenes
                 return;
             }
             XaG_GeneUtility.AddGenesToChimera(p, chimeraGeneDefs);
+        }
+
+        private void ChimeraEvolve(Pawn p)
+        {
+            if (chimeraEvolveGeneDef == null)
+            {
+                return;
+            }
+            XaG_GeneUtility.ImplantChimeraDef(p, chimeraEvolveGeneDef);
         }
 
         private void SetGenes(Pawn p)
@@ -90,11 +111,38 @@ namespace WVC_XenotypesAndGenes
 
         public override string Summary(Scenario scen)
         {
-            if (xenotypeChances.NullOrEmpty())
+            StringBuilder stringBuilder = new();
+            if (!xenotypeChances.NullOrEmpty())
             {
-                return base.Summary(scen);
+                stringBuilder.AppendLine();
+                stringBuilder.AppendLine("WVC_AllowedXenotypes".Translate().CapitalizeFirst() + ":\n" + xenotypeChances.Select((XenotypeChance x) => x.xenotype.LabelCap.ToString()).ToLineList(" - ") + (!allowedXenotypes.NullOrEmpty() ? "\n" + allowedXenotypes.Select((XenotypeDef x) => x.LabelCap.ToString()).ToLineList(" - ") : ""));
             }
-            return "WVC_AllowedXenotypes".Translate().CapitalizeFirst() + ":\n" + xenotypeChances.Select((XenotypeChance x) => x.xenotype.LabelCap.ToString()).ToLineList(" - ") + (!allowedXenotypes.NullOrEmpty() ? "\n" + allowedXenotypes.Select((XenotypeDef x) => x.LabelCap.ToString()).ToLineList(" - ") : "");
+            if (addMechlink)
+            {
+                stringBuilder.AppendLine();
+                stringBuilder.AppendLine("WVC_XaG_ScenPart_AddMechlink".Translate().CapitalizeFirst());
+            }
+            if (nullifyBackstory)
+            {
+                stringBuilder.AppendLine();
+                stringBuilder.AppendLine("WVC_XaG_ScenPart_NullifyBackstory".Translate().CapitalizeFirst());
+            }
+            if (!geneDefs.NullOrEmpty())
+            {
+                stringBuilder.AppendLine();
+                stringBuilder.AppendLine("WVC_XaG_ScenPart_StartingGenes".Translate().CapitalizeFirst() + ":\n" + geneDefs.Select((GeneDef x) => x.LabelCap.ToString()).ToLineList(" - "));
+            }
+            if (!chimeraGeneDefs.NullOrEmpty())
+            {
+                stringBuilder.AppendLine();
+                stringBuilder.AppendLine("WVC_XaG_ScenPart_ChimeraStartingGenes".Translate().CapitalizeFirst() + ":\n" + chimeraGeneDefs.Select((GeneDef x) => x.LabelCap.ToString()).ToLineList(" - "));
+            }
+            if (chimeraEvolveGeneDef != null)
+            {
+                stringBuilder.AppendLine();
+                stringBuilder.AppendLine("WVC_XaG_ScenPart_ChimeraStartingEvolution".Translate().CapitalizeFirst());
+            }
+            return stringBuilder.ToString();
         }
 
     }

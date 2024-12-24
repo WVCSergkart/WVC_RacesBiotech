@@ -246,4 +246,68 @@
 	</scenario>
   </ScenarioDef>
 
+  <!-- ========================================================= -->
+
+  <ScenarioDef>
+	<defName>WVC_FleshmassChimerkin</defName>
+	<label>With All Eyes</label>
+	<description>TEST</description>
+	<scenario>
+	  <summary>One pawn with no supplies. &lt;color=#fff695&gt;Medium&lt;/color&gt; difficulty.</summary>
+	  <playerFaction>
+		<def>PlayerFaction</def>
+		<factionDef>PlayerTribe</factionDef>
+	  </playerFaction>
+	  <parts>
+
+		<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+		  <def>ConfigPage_ConfigureStartingPawns</def>
+		  <pawnCount>1</pawnCount>
+		  <pawnChoiceCount>8</pawnChoiceCount>
+		  <!-- <visible>false</visible> -->
+		</li>
+
+		<!-- Player pawns modifiers -->
+		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
+		  <def>WVC_XaG_Starting</def>
+		  <xenotypeChances>
+			<WVC_Shadoweater>1</WVC_Shadoweater>
+		  </xenotypeChances>
+		  <chimeraEvolveGeneDef>WVC_FleshmassNucleus</chimeraEvolveGeneDef>
+		  <chimeraGeneDefs>
+			<li>WVC_OneManArmy</li>
+			<li>WVC_HumanCentric</li>
+			<li>MaxTemp_LargeIncrease</li>
+			<li>MinTemp_LargeDecrease</li>
+		  </chimeraGeneDefs>
+		  <nullifyBackstory>true</nullifyBackstory>
+		  <context>PlayerStarter</context>
+		</li>
+
+		<!-- Player starting stuff spawn method-->
+		<li Class="ScenPart_PlayerPawnsArriveMethod">
+			<def>PlayerPawnsArriveMethod</def>
+		</li>
+
+		<!-- Game start dialog -->
+		<li Class="ScenPart_GameStartDialog">
+		  <def>GameStartDialog</def>
+		  <text>TEST\n\nTEST.</text>
+		  <closeSound>GameStartSting</closeSound>
+		</li>
+
+		<li Class="ScenPart_DisableMapGen">
+			<def>DisableExostriderRemains</def>
+		</li>
+		<li Class="ScenPart_Naked">
+			<def>Naked</def>
+			<chance>1.0</chance>
+			<context>PlayerStarter</context>
+			<!-- <visible>false</visible> -->
+		</li>
+
+	  </parts>
+	</scenario>
+  </ScenarioDef>
+
 </Defs>

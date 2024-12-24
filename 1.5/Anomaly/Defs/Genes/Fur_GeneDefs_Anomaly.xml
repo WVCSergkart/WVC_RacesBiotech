@@ -59,7 +59,7 @@
   <!-- Fleshmass -->
   <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
 	<defName>WVC_FleshmassSkin</defName>
-	<label>fleshmass skin</label>
+	<label>flesh-eye skin</label>
 	<description>Carriers of this gene have a frightening, abnormal body. Their skin is covered with cancerous flesh scars and half-eyes. These eye growths are connected to the nerves of the carrier's eyes and can see with some limitations.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_FleshmassSkin</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_FleshmassSkin_v0</iconPath>
