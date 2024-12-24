@@ -73,18 +73,21 @@ namespace WVC_XenotypesAndGenes
         }
 
         public static void MutationMeatSplatter(Pawn pawn, bool bloodLoss = true)
-        {
+		{
 			if (bloodLoss && !pawn.health.hediffSet.HasHediff(HediffDefOf.BloodLoss))
 			{
 				Hediff hediff = HediffMaker.MakeHediff(HediffDefOf.BloodLoss, pawn);
 				hediff.Severity = 0.2f;
 				pawn.health.AddHediff(hediff);
 			}
-            for (int i = 0; i < 3; i++)
-            {
-                pawn.health.DropBloodFilth();
-            }
-            FleshbeastUtility.MeatSplatter(3, pawn.PositionHeld, pawn.MapHeld);
+			if (pawn.Spawned)
+			{
+				for (int i = 0; i < 3; i++)
+				{
+					pawn.health.DropBloodFilth();
+				}
+				FleshbeastUtility.MeatSplatter(3, pawn.PositionHeld, pawn.MapHeld);
+			}
 		}
 
 		public static bool IsHediffDefOfType<T>(this HediffDef hediffDef)

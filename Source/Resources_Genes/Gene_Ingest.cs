@@ -527,17 +527,17 @@ namespace WVC_XenotypesAndGenes
             GeneResourceUtility.OffsetNeedFood(pawn, 0.1f);
         }
 
-    }
+	}
 
-    //[Obsolete]
-    //public class Gene_HungerlessStomach : Gene
-    //{
+	//[Obsolete]
+	//public class Gene_HungerlessStomach : Gene
+	//{
 
 
 
-    //}
+	//}
 
-    public class Gene_Bloodeater : Gene_BloodHunter, IGeneBloodfeeder, IGeneFloatMenuOptions, IGeneRemoteControl
+	public class Gene_Bloodeater : Gene_BloodHunter, IGeneBloodfeeder, IGeneFloatMenuOptions, IGeneRemoteControl
 	{
 		public string RemoteActionName => XaG_UiUtility.OnOrOff(canAutoFeed);
 

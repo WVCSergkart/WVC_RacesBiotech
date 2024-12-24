@@ -316,4 +316,74 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_SelfDevourStomach : Gene
+	{
+
+		private int nextTick = 7539;
+
+		public override void Tick()
+        {
+            if (!GeneResourceUtility.CanTick(ref nextTick, 8678))
+            {
+                return;
+            }
+            if (pawn.Faction != Faction.OfPlayer)
+            {
+                //GeneResourceUtility.OffsetNeedFood(pawn, 1f, true);
+                return;
+            }
+            if (!pawn.TryGetFood(out Need_Food food))
+            {
+                return;
+            }
+            if (food.CurLevelPercentage > 0.05f)
+            {
+                return;
+            }
+            DevourPart();
+		}
+
+        private void DevourPart()
+        {
+            GeneResourceUtility.OffsetNeedFood(pawn, GetNutritionFromPawn(pawn, true), false);
+			HediffUtility.MutationMeatSplatter(pawn);
+		}
+
+        public static float GetNutritionFromPawn(Pawn pawn, bool applyDigestion)
+		{
+			(from x in pawn.health.hediffSet.GetNotMissingParts()
+			 where !x.def.conceptual && x != pawn.RaceProps.body.corePart && !pawn.health.WouldDieAfterAddingHediff(HediffDefOf.MissingBodyPart, x, 1f)
+			 select x).TryRandomElement(out var result);
+			float bodyPartNutrition = 0f;
+			if (result != null)
+			{
+				bodyPartNutrition = FoodUtility.GetBodyPartNutrition(pawn.GetStatValue(StatDefOf.MeatAmount) * 0.1f * pawn.GetStatValue(StatDefOf.RawNutritionFactor) * pawn.GetStatValue(StatDefOf.MaxNutrition), pawn, result);
+				if (applyDigestion)
+				{
+					Hediff_MissingPart hediff_MissingPart = (Hediff_MissingPart)HediffMaker.MakeHediff(HediffDefOf.MissingBodyPart, pawn, result);
+					hediff_MissingPart.IsFresh = true;
+					hediff_MissingPart.lastInjury = HediffDefOf.Digested;
+					pawn.health.AddHediff(hediff_MissingPart);
+				}
+			}
+			return bodyPartNutrition;
+		}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: SelfDevour",
+					action = delegate
+					{
+						DevourPart();
+					}
+				};
+			}
+		}
+
+	}
+
 }

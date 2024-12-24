@@ -66,4 +66,21 @@
 	</customEffectDescriptions>
   </GeneDef>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
+	<defName>WVC_SelfdevourStomach</defName>
+	<label>self-devour stomach</label>
+	<description>Carriers of this gene have archites that can recycle organs and limbs to satisfy the carrier's hunger.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_SelfDevourStomach</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_SelfeaterStomach_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>25</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<customEffectDescriptions>
+		<li>When &lt;color=#8a8ae6&gt;hunger&lt;/color&gt; is low, &lt;color=#8a8ae6&gt;destroys&lt;/color&gt; a random limb or organ and restores the &lt;color=#8a8ae6&gt;hunger&lt;/color&gt; bar.</li>
+		<li>&lt;color=#ffec85&gt;Can kill the carrier.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
 </Defs>

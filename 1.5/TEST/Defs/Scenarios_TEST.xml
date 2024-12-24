@@ -279,6 +279,8 @@
 			<li>WVC_HumanCentric</li>
 			<li>MaxTemp_LargeIncrease</li>
 			<li>MinTemp_LargeDecrease</li>
+			<li>WVC_TentacleHands</li>
+			<li>WVC_SelfdevourStomach</li>
 		  </chimeraGeneDefs>
 		  <nullifyBackstory>true</nullifyBackstory>
 		  <context>PlayerStarter</context>
