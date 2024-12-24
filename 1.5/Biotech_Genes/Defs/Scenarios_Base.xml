@@ -108,6 +108,11 @@
 		  <closeSound>GameStartSting</closeSound>
 		</li>
 
+		<!-- Player pawns start with no possessions eg. extra drugs. -->
+		<li Class="ScenPart_NoPossessions">
+		  <def>NoPossessions</def>
+		</li>
+
 		<!-- Starting research -->
 		<!-- <li Class="ScenPart_StartingResearch"> -->
 		  <!-- <def>StartingResearch</def> -->
@@ -322,6 +327,11 @@
 			<li>WVC_EndogermReimplanter</li>
 		  </chimeraGeneDefs>
 		  <context>PlayerStarter</context>
+		</li>
+
+		<!-- Player pawns start with no possessions eg. extra drugs. -->
+		<li Class="ScenPart_NoPossessions">
+		  <def>NoPossessions</def>
 		</li>
 
 		<!-- Player starting stuff spawn method-->

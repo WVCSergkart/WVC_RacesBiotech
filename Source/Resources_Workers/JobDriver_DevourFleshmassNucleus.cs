@@ -34,7 +34,7 @@ namespace WVC_XenotypesAndGenes
 				if (job is XaG_Job xaG_Job)
                 {
 					//XaG_GeneUtility.AddGeneToChimera(pawn, geneDef);
-					XaG_GeneUtility.ImplantChimeraDef(pawn, geneDef);
+					XaG_GeneUtility.ImplantChimeraEvolveGeneSet(pawn, geneDef);
 				}
                 HediffUtility.MutationMeatSplatter(Victim, false);
 				Victim.Kill(null);

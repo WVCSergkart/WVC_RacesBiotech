@@ -146,14 +146,14 @@ namespace WVC_XenotypesAndGenes
 						TryGiveMutation();
 					}
 				};
-				yield return new Command_Action
-				{
-					defaultLabel = "DEV: FleshmassEvolve",
-					action = delegate
-					{
-						XaG_GeneUtility.ImplantChimeraDef(pawn, def);
-					}
-				};
+				//yield return new Command_Action
+				//{
+				//	defaultLabel = "DEV: FleshmassEvolve",
+				//	action = delegate
+				//	{
+				//		XaG_GeneUtility.ImplantChimeraDef(pawn, def);
+				//	}
+				//};
 			}
 		}
 
@@ -301,7 +301,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			catch (Exception arg)
 			{
-				//nextTick = 180000;
+				nextTick = 180000;
 				Log.Error("Failed do any build job. Reason: " + arg);
 			}
 			if (pause)

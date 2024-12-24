@@ -47,7 +47,6 @@
 	<description>Carriers of this gene have very nutritious flesh.</description>
 	<iconPath>WVC/UI/Genes/Prey_A</iconPath>
 	<displayOrderInCategory>-115</displayOrderInCategory>
-	<biostatCpx>0</biostatCpx>
 	<statFactors>
 	  <MeatAmount>1.6</MeatAmount>
 	</statFactors>

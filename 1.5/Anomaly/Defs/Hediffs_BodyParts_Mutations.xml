@@ -5,6 +5,31 @@
   <!-- Mutations -->
 
   <HediffDef ParentName="AddedMutationBase">
+	<defName>WVC_FleshmassJaw</defName>
+	<label>fleshmass jaw</label>
+	<labelNoun>a fleshmass jaw</labelNoun>
+	<description>A cancerous mass of semi-sentient flesh. It has several extra rows of teeth, allowing the owner to chew food much more effectively.\n\nThe organ has its own neural structures and may become dangerous if removed.</description>
+	<defaultInstallPart>Jaw</defaultInstallPart>
+	<stages>
+	  <li>
+		<painOffset>0.05</painOffset>
+		<statOffsets>
+		  <EatingSpeed>0.5</EatingSpeed>
+		</statOffsets>
+	  </li>
+	</stages>
+	<addedPartProps>
+	  <solid>true</solid>
+	</addedPartProps>
+	<comps>
+	  <li Class="HediffCompProperties_FleshbeastEmerge">
+		<letterLabel>Fleshmass operation</letterLabel>
+		<letterText>Attempting to remove {PAWN_nameDef}'s fleshmass jaw has caused the twisting mass of flesh to attack. The fleshmass has detached from {PAWN_nameDef} and transformed into a fleshbeast!</letterText>
+	  </li>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="AddedMutationBase">
 	<defName>WVC_FleshmassEar</defName>
 	<label>fleshmass ear</label>
 	<labelNoun>a fleshmass ear</labelNoun>

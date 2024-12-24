@@ -18,6 +18,8 @@ namespace WVC_XenotypesAndGenes
         public bool nullifyBackstory = false;
         public List<GeneDef> chimeraGeneDefs = new();
         public GeneDef chimeraEvolveGeneDef;
+        public bool saveOldChimeraGeneSet = false;
+        public int startingMutations = 0;
 
         //public override void ExposeData()
         //{
@@ -36,6 +38,28 @@ namespace WVC_XenotypesAndGenes
             NullifyBackstory(p);
             ChimeraEvolve(p);
             ChimeraGenes(p);
+            Mutations(p);
+        }
+
+        private void Mutations(Pawn p)
+        {
+            if (startingMutations <= 0)
+            {
+                return;
+            }
+            int cycleTry = 0;
+            int nextMutation = 0;
+            while (cycleTry < 10 + startingMutations && nextMutation < startingMutations)
+            {
+                if (Gene_MorphMutations.TryGetBestMutation(p, out HediffDef mutation))
+                {
+                    if (HediffUtility.TryGiveFleshmassMutation(p, mutation))
+                    {
+                        nextMutation++;
+                    }
+                }
+                cycleTry++;
+            }
         }
 
         private void ChimeraGenes(Pawn p)
@@ -53,7 +77,7 @@ namespace WVC_XenotypesAndGenes
             {
                 return;
             }
-            XaG_GeneUtility.ImplantChimeraDef(p, chimeraEvolveGeneDef);
+            XaG_GeneUtility.ImplantChimeraEvolveGeneSet(p, chimeraEvolveGeneDef, saveOldChimeraGeneSet);
         }
 
         private void SetGenes(Pawn p)
@@ -141,6 +165,11 @@ namespace WVC_XenotypesAndGenes
             {
                 stringBuilder.AppendLine();
                 stringBuilder.AppendLine("WVC_XaG_ScenPart_ChimeraStartingEvolution".Translate().CapitalizeFirst());
+            }
+            if (startingMutations > 0)
+            {
+                stringBuilder.AppendLine();
+                stringBuilder.AppendLine("WVC_XaG_ScenPart_StartingMutations".Translate(startingMutations).CapitalizeFirst());
             }
             return stringBuilder.ToString();
         }

@@ -251,7 +251,7 @@
   <ScenarioDef>
 	<defName>WVC_FleshmassChimerkin</defName>
 	<label>With All Eyes</label>
-	<description>TEST</description>
+	<description>You ran from them. You ran when you heard gunfire. You ran when the streets turned into forests. You ran when the pitch blackness devoured your pursuers. You ran for so long that you no longer remember why. You have no supplies, no weapons, not even a scrap of clothing. Maybe it's time to stop running?</description>
 	<scenario>
 	  <summary>One pawn with no supplies. &lt;color=#fff695&gt;Medium&lt;/color&gt; difficulty.</summary>
 	  <playerFaction>
@@ -281,9 +281,29 @@
 			<li>MinTemp_LargeDecrease</li>
 			<li>WVC_TentacleHands</li>
 			<li>WVC_SelfdevourStomach</li>
+			<li>WVC_PredatorPrey_Tasty</li>
 		  </chimeraGeneDefs>
 		  <nullifyBackstory>true</nullifyBackstory>
+		  <startingMutations>3</startingMutations>
 		  <context>PlayerStarter</context>
+		</li>
+
+		<!-- Player pawns modifiers -->
+		<li Class="ScenPart_ForcedHediff">
+		  <def>ForcedHediff</def>
+		  <visible>false</visible>
+		  <context>PlayerStarter</context>
+		  <chance>1</chance>
+		  <hediff>Malnutrition</hediff>
+		  <severityRange>0.2~0.4</severityRange>
+		</li>
+		<li Class="ScenPart_SetNeedLevel">
+		  <def>SetNeedLevel</def>
+		  <visible>false</visible>
+		  <context>PlayerStarter</context>
+		  <chance>1.0</chance>
+		  <need>Food</need>
+		  <levelRange>0~0.05</levelRange>
 		</li>
 
 		<!-- Player starting stuff spawn method-->
@@ -294,13 +314,21 @@
 		<!-- Game start dialog -->
 		<li Class="ScenPart_GameStartDialog">
 		  <def>GameStartDialog</def>
-		  <text>TEST\n\nTEST.</text>
+		  <text>You ran from them. You ran when you heard gunfire. You ran when the streets turned into forests. You ran when the pitch blackness devoured your pursuers. You ran for so long that you no longer remember why. You have no supplies, no weapons, not even a scrap of clothing. Maybe it's time to stop running?</text>
 		  <closeSound>GameStartSting</closeSound>
+		</li>
+
+		<!-- Player pawns start with no possessions eg. extra drugs. -->
+		<li Class="ScenPart_NoPossessions">
+		  <def>NoPossessions</def>
 		</li>
 
 		<li Class="ScenPart_DisableMapGen">
 			<def>DisableExostriderRemains</def>
 		</li>
+		<!-- <li Class="ScenPart_DisableMapGen"> -->
+			<!-- <def>AnimaTrees</def> -->
+		<!-- </li> -->
 		<li Class="ScenPart_Naked">
 			<def>Naked</def>
 			<chance>1.0</chance>

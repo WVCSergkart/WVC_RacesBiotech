@@ -198,7 +198,7 @@ namespace WVC_XenotypesAndGenes
 
 		// Misc
 
-		public static void ImplantChimeraDef(Pawn pawn, GeneDef geneDef)
+		public static void ImplantChimeraEvolveGeneSet(Pawn pawn, GeneDef geneDef, bool saveOldGeneSet = true)
 		{
 			List<GeneDef> removedGenes = geneDef?.GetModExtension<GeneExtension_Undead>()?.removedGenes;
 			List<GeneDef> addedGenes = geneDef?.GetModExtension<GeneExtension_Undead>()?.addedGenes;
@@ -215,7 +215,10 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (removedGenes.Contains(gene.def))
 				{
-					chimera.TryAddGene(gene.def);
+					if (saveOldGeneSet)
+					{
+						chimera.TryAddGene(gene.def);
+					}
 					pawn.genes.RemoveGene(gene);
 				}
 			}
