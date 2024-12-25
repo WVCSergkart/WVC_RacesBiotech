@@ -22,39 +22,123 @@
 		<!-- <li>Allows the pawn to attack with spikes in melee combat.</li> -->
 	<!-- </customEffectDescriptions> -->
 	<renderNodeProperties>
+	  <!-- <li> -->
+		<!-- <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass> -->
+		<!-- <texPaths> -->
+		  <!-- <li>WVC/BodyParts/BodyParts_Wings/Toughspike</li> -->
+		<!-- </texPaths> -->
+		<!-- <colorType>Skin</colorType> -->
+		<!-- <overrideMeshSize>(1.0, 1.0)</overrideMeshSize> -->
+		<!-- <parentTagDef>Body</parentTagDef> -->
+		<!-- <rotDrawMode>Fresh, Rotting</rotDrawMode> -->
+		<!-- <drawSize>1.5</drawSize> -->
+		<!-- <drawData> -->
+		  <!-- <scaleOffsetByBodySize>true</scaleOffsetByBodySize> -->
+		  <!-- <defaultData> -->
+			<!-- <layer>-2</layer> -->
+		  <!-- </defaultData> -->
+		  <!-- <dataNorth> -->
+			<!-- <offset>(0, 0.4, 0.07)</offset> -->
+			<!-- <layer>90</layer> -->
+		  <!-- </dataNorth> -->
+		  <!-- <dataSouth> -->
+			<!-- <offset>(0, -0.4, 0.05)</offset> -->
+		  <!-- </dataSouth> -->
+		  <!-- <dataEast> -->
+			<!-- <offset>(-0.04, 0.4, 0.04)</offset> -->
+			<!-- <layer>90</layer> -->
+		  <!-- </dataEast> -->
+		  <!-- <dataWest> -->
+			<!-- <offset>(0.04, 0.4, 0.04)</offset> -->
+			<!-- <layer>90</layer> -->
+		  <!-- </dataWest> -->
+		<!-- </drawData> -->
+	  <!-- </li> -->
 	  <li>
 		<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
-		<texPaths>
-		  <li>WVC/BodyParts/BodyParts_Wings/Toughspike</li>
-		</texPaths>
-		<colorType>Skin</colorType>
-		<overrideMeshSize>(1.0, 1.0)</overrideMeshSize>
-		<parentTagDef>Body</parentTagDef>
+		<!-- The animation has too many visual problems.  -->
+		<!-- For example, the center of the texture starts to float, plus on some bodytypes the coordinates start to diverge.  -->
+		<!-- Humans are not suitable for animation. -->
+		 <!-- Class="PawnRenderNodeProperties_Spastic" -->
+		<!-- <rotationRange>-30~30</rotationRange> -->
+		<!-- <durationTicksRange>10~35</durationTicksRange> -->
+		<!-- <nextSpasmTicksRange>10~50</nextSpasmTicksRange> -->
+		<!-- <rotateFacing>false</rotateFacing> -->
+		<debugLabel>SpikeL</debugLabel>
+		<texPath>WVC/BodyParts/BodyParts_Wings/ToughspikeSpike</texPath>
 		<rotDrawMode>Fresh, Rotting</rotDrawMode>
-		<drawSize>1.5</drawSize>
+		<baseLayer>10</baseLayer>
+		<colorType>Skin</colorType>
+		<parentTagDef>Body</parentTagDef>
+		<useRottenColor>true</useRottenColor>
+		<overrideMeshSize>(1.0, 1.0)</overrideMeshSize>
+		<drawSize>1.1</drawSize>
+		<visibleFacing>
+		  <li>South</li>
+		  <li>North</li>
+		  <li>West</li>
+		</visibleFacing>
 		<drawData>
-		  <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
-		  <defaultData>
-			<layer>-2</layer>
-		  </defaultData>
-		  <dataNorth>
-			<offset>(0, 0.4, 0.07)</offset>
-			<layer>90</layer>
-		  </dataNorth>
-		  <dataSouth>
-			<offset>(0, -0.4, 0.05)</offset>
-		  </dataSouth>
-		  <dataEast>
-			<offset>(-0.04, 0.4, 0.04)</offset>
-			<layer>90</layer>
-		  </dataEast>
-		  <dataWest>
-			<offset>(0.04, 0.4, 0.04)</offset>
-			<layer>90</layer>
-		  </dataWest>
+			<scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+			<dataNorth>
+			  <offset>(-0.14, 0.4, 0.07)</offset>
+			  <rotationOffset>-80</rotationOffset>
+			</dataNorth>
+			<dataSouth>
+			  <offset>(0.25, -0.4, 0.05)</offset>
+			  <rotationOffset>50</rotationOffset>
+			</dataSouth>
+			<dataWest>
+			  <offset>(0.12, 0.4, 0.2)</offset>
+			  <rotationOffset>60</rotationOffset>
+			  <flip>true</flip>
+			</dataWest>
+		</drawData>
+	  </li>
+	  <li>
+		<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+		 <!-- Class="PawnRenderNodeProperties_Spastic" -->
+		<!-- <rotationRange>-30~30</rotationRange> -->
+		<!-- <durationTicksRange>10~35</durationTicksRange> -->
+		<!-- <nextSpasmTicksRange>10~50</nextSpasmTicksRange> -->
+		<!-- <rotateFacing>false</rotateFacing> -->
+		<debugLabel>SpikeR</debugLabel>
+		<texPath>WVC/BodyParts/BodyParts_Wings/ToughspikeSpike</texPath>
+		<rotDrawMode>Fresh, Rotting</rotDrawMode>
+		<baseLayer>10</baseLayer>
+		<colorType>Skin</colorType>
+		<parentTagDef>Body</parentTagDef>
+		<useRottenColor>true</useRottenColor>
+		<overrideMeshSize>(1.0, 1.0)</overrideMeshSize>
+		<drawSize>1.1</drawSize>
+		<visibleFacing>
+		  <li>South</li>
+		  <li>North</li>
+		  <li>East</li>
+		</visibleFacing>
+		<drawData>
+			<scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+			<dataNorth>
+			  <offset>(0.14, 0.4, 0.07)</offset>
+			  <rotationOffset>80</rotationOffset>
+			  <flip>true</flip>
+			</dataNorth>
+			<dataSouth>
+			  <offset>(-0.25, -0.4, 0.05)</offset>
+			  <rotationOffset>-50</rotationOffset>
+			  <flip>true</flip>
+			</dataSouth>
+			<dataEast>
+			  <offset>(-0.12, 0.4, 0.2)</offset>
+			  <rotationOffset>-60</rotationOffset>
+			</dataEast>
 		</drawData>
 	  </li>
 	</renderNodeProperties>
+	<exclusionTags>
+	  <li>BMT_ImpalingClaws</li>
+	  <li>ToughspikeSpikes</li>
+	</exclusionTags>
 	<!-- <modExtensions> -->
 		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Giver"> -->
 			<!-- <hediffDefName>WVC_ToughspikeSpike</hediffDefName> -->
