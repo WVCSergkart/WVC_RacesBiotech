@@ -247,49 +247,64 @@ namespace WVC_XenotypesAndGenes
 			GasUtility.AddDeadifeGas(pawn.PositionHeld, pawn.MapHeld, pawn.Faction, 30);
 			int cycleTry = 0;
 			bool pause = true;
+			string phase = "";
 			try
 			{
 				foreach (Thing thing in pawn.Map.listerBuildings.allBuildingsColonist.ToList())
 				{
+					phase = "search buildings";
 					if (thing is Frame frame && frame.IsCompleted())
 					{
+						phase = "try build frame: " + thing.def.defName;
 						cycleTry++;
+						phase = "spawn gas and do effects";
 						thing.Map.effecterMaintainer.AddEffecterToMaintain(frame.ConstructionEffect.Spawn(thing.Position, thing.Map), thing.Position, 30);
 						//SoundDefOf.Psycast_Skip_Entry.PlayOneShot(new TargetInfo(thing.Position, thing.Map));
 						//GasUtility.AddGas(thing.PositionHeld, thing.MapHeld, GasType.DeadlifeDust, 30);
 						GasUtility.AddDeadifeGas(thing.PositionHeld, thing.MapHeld, pawn.Faction, 30);
 						//FleckMaker.Static(thing.Position, pawn.Map, FleckDefOf.HealingCross, 1f);
+						phase = "learn skill";
 						if (frame.resourceContainer.Count > 0 && pawn.skills != null)
 						{
 							pawn.skills.Learn(SkillDefOf.Construction, 0.05f * tick);
 						}
+						phase = "get work speed";
 						float num = pawn.GetStatValue(StatDefOf.ConstructionSpeed) * 1.7f * tick;
 						if (frame.Stuff != null)
 						{
 							num *= frame.Stuff.GetStatValueAbstract(StatDefOf.ConstructionSpeedFactor);
 						}
+						phase = "do work";
 						float workToBuild = frame.WorkToBuild;
 						frame.workDone += num;
 						if (frame.workDone >= workToBuild)
 						{
+							phase = "CompleteConstruction";
 							frame.CompleteConstruction(pawn);
 						}
 						pause = false;
 					}
-					else if (thing is Building building && building.HitPoints < building.MaxHitPoints)
+					else if (thing.def.useHitPoints && thing is Building building && building.HitPoints < building.MaxHitPoints)
 					{
+						phase = "try repair thing: " + thing.def.defName;
 						cycleTry++;
 						//GasUtility.AddGas(thing.PositionHeld, thing.MapHeld, GasType.DeadlifeDust, radius: 1f);
+						phase = "spawn gas and do effects";
 						GasUtility.AddDeadifeGas(thing.PositionHeld, thing.MapHeld, pawn.Faction, 30);
 						thing.Map.effecterMaintainer.AddEffecterToMaintain(building.def.repairEffect.Spawn(thing.Position, thing.Map), thing.Position, 30);
 						//FleckMaker.Static(thing.Position, pawn.Map, FleckDefOf.HealingCross, 1f);
 						//SoundDefOf.Psycast_Skip_Entry.PlayOneShot(new TargetInfo(thing.Position, thing.Map));
+						phase = "learn skill";
 						if (pawn.skills != null)
 						{
 							pawn.skills.Learn(SkillDefOf.Construction, 0.01f * tick);
 						}
-						float num = pawn.GetStatValue(StatDefOf.ConstructionSpeed) * 1.7f * tick / 80;
-						building.HitPoints = Mathf.Clamp(building.HitPoints + (int)num, building.HitPoints + 1, building.MaxHitPoints);
+						//float num = pawn.GetStatValue(StatDefOf.ConstructionSpeed) * 1.7f * tick / 80;
+						//building.HitPoints = Mathf.Clamp(building.HitPoints + (int)num, building.HitPoints + 1, building.MaxHitPoints);
+						phase = "regen hp";
+						building.HitPoints++;
+						building.HitPoints = Mathf.Min(building.HitPoints, building.MaxHitPoints);
+						phase = "Notify_BuildingRepaired";
 						pawn.Map.listerBuildingsRepairable.Notify_BuildingRepaired(building);
 						pause = false;
 					}
@@ -302,7 +317,7 @@ namespace WVC_XenotypesAndGenes
 			catch (Exception arg)
 			{
 				nextTick = 180000;
-				Log.Error("Failed do any build job. Reason: " + arg);
+				Log.Error("Failed do any build job on phase: " + phase + ". Reason: " + arg);
 			}
 			if (pause)
 			{
@@ -352,7 +367,7 @@ namespace WVC_XenotypesAndGenes
         public static float GetNutritionFromPawn(Pawn pawn, bool applyDigestion)
 		{
 			(from x in pawn.health.hediffSet.GetNotMissingParts()
-			 where !x.def.conceptual && x != pawn.RaceProps.body.corePart && x.def.canSuggestAmputation
+			 where !x.def.conceptual && x != pawn.RaceProps.body.corePart && x.def.canSuggestAmputation && !pawn.health.hediffSet.HasDirectlyAddedPartFor(x)
 			 select x).TryRandomElement(out var result);
 			float bodyPartNutrition = 0f;
 			if (result != null)
