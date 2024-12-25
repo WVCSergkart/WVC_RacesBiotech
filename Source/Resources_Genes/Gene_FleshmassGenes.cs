@@ -352,7 +352,7 @@ namespace WVC_XenotypesAndGenes
         public static float GetNutritionFromPawn(Pawn pawn, bool applyDigestion)
 		{
 			(from x in pawn.health.hediffSet.GetNotMissingParts()
-			 where !x.def.conceptual && x != pawn.RaceProps.body.corePart && !pawn.health.WouldDieAfterAddingHediff(HediffDefOf.MissingBodyPart, x, 1f)
+			 where !x.def.conceptual && x != pawn.RaceProps.body.corePart && x.def.canSuggestAmputation
 			 select x).TryRandomElement(out var result);
 			float bodyPartNutrition = 0f;
 			if (result != null)
