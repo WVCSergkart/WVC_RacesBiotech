@@ -804,15 +804,22 @@ namespace WVC_XenotypesAndGenes
         {
             foreach (GeneDef geneDef in selectedGenes)
             {
-                if (Rand.Chance(0.07f))
+                try
                 {
-                    gene.GetToolGene();
-				}
-				else if (Rand.Chance(0.04f) && StaticCollectionsClass.oneManArmyMode)
-				{
-					gene.GetSuperToolGene();
-				}
-				gene.TryEatGene(geneDef);
+                    if (Rand.Chance(0.07f))
+                    {
+                        gene.GetToolGene();
+                    }
+                    else if (Rand.Chance(0.04f))
+                    {
+                        gene.GetUniqueGene();
+                    }
+                }
+                catch (Exception arg)
+                {
+					Log.Error("Failed obtaine gene. Reson: " + arg);
+                }
+                gene.TryEatGene(geneDef);
 			}
             if (!gene.Props.soundDefOnImplant.NullOrUndefined())
             {

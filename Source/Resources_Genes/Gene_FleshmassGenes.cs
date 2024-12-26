@@ -218,7 +218,7 @@ namespace WVC_XenotypesAndGenes
 			List<Apparel> apparels = pawn.apparel.WornApparel.Where((apparel) => apparel.def.apparel.countsAsClothingForNudity && apparel.def.useHitPoints).ToList();
 			foreach (Apparel apparel in apparels)
 			{
-				apparel.HitPoints -= Mathf.Clamp(tick / apparels.Count / 1500, 1, apparel.MaxHitPoints);
+				apparel.HitPoints = Mathf.Clamp(apparel.HitPoints - (tick / apparels.Count / 1500), 1, apparel.MaxHitPoints);
 			}
 		}
 
@@ -236,7 +236,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			Construct(30);
+			Construct(60);
 		}
 
 		public void Construct(int tick)
@@ -260,7 +260,7 @@ namespace WVC_XenotypesAndGenes
 						phase = "try build frame: " + thing.def.defName;
 						cycleTry++;
 						phase = "spawn gas and do effects";
-						thing.Map.effecterMaintainer.AddEffecterToMaintain(frame.ConstructionEffect.Spawn(thing.Position, thing.Map), thing.Position, 30);
+						thing.Map.effecterMaintainer.AddEffecterToMaintain(frame.ConstructionEffect.Spawn(thing.Position, thing.Map), thing.Position, tick);
 						//SoundDefOf.Psycast_Skip_Entry.PlayOneShot(new TargetInfo(thing.Position, thing.Map));
 						//GasUtility.AddGas(thing.PositionHeld, thing.MapHeld, GasType.DeadlifeDust, 30);
 						GasUtility.AddDeadifeGas(thing.PositionHeld, thing.MapHeld, pawn.Faction, 30);
@@ -293,7 +293,7 @@ namespace WVC_XenotypesAndGenes
 						//GasUtility.AddGas(thing.PositionHeld, thing.MapHeld, GasType.DeadlifeDust, radius: 1f);
 						phase = "spawn gas and do effects";
 						GasUtility.AddDeadifeGas(thing.PositionHeld, thing.MapHeld, pawn.Faction, 30);
-						thing.Map.effecterMaintainer.AddEffecterToMaintain(building.def.repairEffect.Spawn(thing.Position, thing.Map), thing.Position, 30);
+						thing.Map.effecterMaintainer.AddEffecterToMaintain(building.def.repairEffect.Spawn(thing.Position, thing.Map), thing.Position, tick);
 						//FleckMaker.Static(thing.Position, pawn.Map, FleckDefOf.HealingCross, 1f);
 						//SoundDefOf.Psycast_Skip_Entry.PlayOneShot(new TargetInfo(thing.Position, thing.Map));
 						phase = "learn skill";
@@ -323,11 +323,11 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (pause)
 			{
-				nextTick = 6000 * (StaticCollectionsClass.cachedColonistsCount > 0 ? StaticCollectionsClass.cachedColonistsCount : 1);
+				nextTick = tick * 300 * (StaticCollectionsClass.cachedColonistsCount > 0 ? StaticCollectionsClass.cachedColonistsCount : 1);
 			}
 			else
             {
-				nextTick = 30 * (StaticCollectionsClass.cachedColonistsCount > 0 ? StaticCollectionsClass.cachedColonistsCount : 1);
+				nextTick = tick * (StaticCollectionsClass.cachedColonistsCount > 0 ? StaticCollectionsClass.cachedColonistsCount : 1);
             }
 		}
 
@@ -362,11 +362,11 @@ namespace WVC_XenotypesAndGenes
 
         private void DevourPart()
         {
-            GeneResourceUtility.OffsetNeedFood(pawn, GetNutritionFromPawn(pawn, true, def), false);
+            GeneResourceUtility.OffsetNeedFood(pawn, GetNutritionFromPawn(pawn, true, def.label), false);
 			HediffUtility.MutationMeatSplatter(pawn);
 		}
 
-        public static float GetNutritionFromPawn(Pawn pawn, bool applyDigestion, GeneDef geneDef)
+        public static float GetNutritionFromPawn(Pawn pawn, bool applyDigestion, string geneDef)
 		{
 			(from x in pawn.health.hediffSet.GetNotMissingParts()
 			 where !x.def.conceptual && x != pawn.RaceProps.body.corePart && x.def.canSuggestAmputation && !pawn.health.hediffSet.HasDirectlyAddedPartFor(x)
@@ -381,7 +381,7 @@ namespace WVC_XenotypesAndGenes
 					hediff_MissingPart.IsFresh = true;
 					hediff_MissingPart.lastInjury = HediffDefOf.Digested;
 					pawn.health.AddHediff(hediff_MissingPart);
-					Messages.Message("WVC_XaG_DigestedBy".Translate(result.def.LabelCap, geneDef.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+					Messages.Message("WVC_XaG_DigestedBy".Translate(result.def.LabelCap, geneDef), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
 				}
 			}
 			return bodyPartNutrition;

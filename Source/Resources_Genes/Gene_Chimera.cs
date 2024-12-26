@@ -86,14 +86,17 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public void GetSuperToolGene()
+		public void GetUniqueGene()
 		{
-			if (WVC_Biotech.settings.enable_chimeraStartingTools && Props?.chimeraOneManArmyGenes != null && Props.chimeraOneManArmyGenes.Where((GeneDef geneDef) => !AllGenes.Contains(geneDef)).TryRandomElement(out GeneDef result))
+			if (WVC_Biotech.settings.enable_chimeraStartingTools && Props?.chimeraConditionalGenes != null && Props.chimeraConditionalGenes.Where((counter) => counter.CanAddGene(pawn)).TryRandomElementByWeight((counter) => counter.chance, out XaG_CountWithChance xaG_CountWithChance))
 			{
-				TryAddGene(result);
-				if (pawn.Spawned)
+				if (xaG_CountWithChance.genes.TryRandomElement(out GeneDef result))
 				{
-					Messages.Message("WVC_XaG_GeneGeneticThief_GeneObtained".Translate(pawn.NameShortColored, result.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+					TryAddGene(result);
+					if (pawn.Spawned)
+					{
+						Messages.Message("WVC_XaG_GeneGeneticThief_GeneObtained".Translate(pawn.NameShortColored, result.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+					}
 				}
 			}
 		}

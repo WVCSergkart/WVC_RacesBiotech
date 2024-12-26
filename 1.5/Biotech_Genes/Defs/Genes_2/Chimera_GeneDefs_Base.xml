@@ -44,13 +44,44 @@
 			  <li>Headbone_Human</li>
 			  <li>Voice_Human</li>
 			</humanBasicGenes>
-			<chimeraOneManArmyGenes>
-			  <li>WVC_Chimera_Xenoharvest</li>
-			  <li>WVC_Chimera_Corpseharvest</li>
-			  <li>WVC_Chimera_GenePurifier</li>
-			  <li>WVC_Chimera_CosmeticGen</li>
-			  <li>WVC_Chimera_RandomGenesGen</li>
-			</chimeraOneManArmyGenes>
+			<chimeraConditionalGenes>
+			  <li>
+				<reqOneManArmy>false</reqOneManArmy>
+				<chance>1.0</chance>
+				<genes>
+				  <li>WVC_Mecha_NoTail</li>
+				  <li>Ears_Human</li>
+				  <li>Nose_Human</li>
+				  <li>Jaw_Baseline</li>
+				  <li>Hands_Human</li>
+				  <li>Headbone_Human</li>
+				  <li>Voice_Human</li>
+				</genes>
+			  </li>
+			  <li>
+				<reqOneManArmy>true</reqOneManArmy>
+				<chance>0.71</chance>
+				<genes>
+				  <li>WVC_Chimera_Xenoharvest</li>
+				  <li>WVC_Chimera_Corpseharvest</li>
+				  <li>WVC_Chimera_GenePurifier</li>
+				  <li>WVC_Chimera_CosmeticGen</li>
+				  <li>WVC_Chimera_RandomGenesGen</li>
+				</genes>
+			  </li>
+			  <li MayRequire="ludeon.rimworld.anomaly">
+				<reqGeneDef>WVC_FleshmassNucleus</reqGeneDef>
+				<reqOneManArmy>true</reqOneManArmy>
+				<chance>0.5</chance>
+				<genes>
+				  <li>WVC_FleshmassSkin</li>
+				  <li>WVC_FleshmassBrain</li>
+				  <li>WVC_FleshmassArmor</li>
+				  <li>WVC_FleshmassBuilder</li>
+				  <li>WVC_SelfdevourStomach</li>
+				</genes>
+			  </li>
+			</chimeraConditionalGenes>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<hediffDefName>WVC_ChimeraMetabolism_HungerFactor</hediffDefName>

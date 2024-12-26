@@ -546,7 +546,10 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (!item.RaceProps.Humanlike)
 				{
-					nonHumans++;
+					if (!item.IsMutant)
+					{
+						nonHumans++;
+					}
 					if (item.RaceProps.IsMechanoid)
 					{
 						colonyMechs++;

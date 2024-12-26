@@ -31,7 +31,16 @@ namespace WVC_XenotypesAndGenes
 		public bool visible = true;
 		[MustTranslate]
 		public string label;
-	}
+		// Chimera
+		public GeneDef reqGeneDef;
+		public bool reqOneManArmy = false;
+		public List<GeneDef> genes;
+
+        public bool CanAddGene(Pawn pawn)
+		{
+			return genes != null && (!reqOneManArmy || StaticCollectionsClass.oneManArmyMode) && (reqGeneDef == null || XaG_GeneUtility.HasActiveGene(reqGeneDef, pawn));
+        }
+    }
 
 	// Exten
 
@@ -125,7 +134,8 @@ namespace WVC_XenotypesAndGenes
 		// Chimera
 		public List<GeneDef> chimeraGenesTools;
 		public List<GeneDef> humanBasicGenes;
-		public List<GeneDef> chimeraOneManArmyGenes;
+		//public List<GeneDef> chimeraOneManArmyGenes;
+		public List<XaG_CountWithChance> chimeraConditionalGenes;
 		// Fleshmass
 		public int maxMutationLevel = 5;
 		//Chimera
