@@ -44,11 +44,13 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (HediffUtility.TryGiveFleshmassMutation(pawn, mutation))
 				{
+					Messages.Message("WVC_XaG_HasReceivedA".Translate(pawn.NameShortColored, mutation.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
 					return;
 				}
 				if (TryGetWeakerPawnMutation(out HediffAddedPart_FleshmassNucleus hediffWithComps_FleshmassHeart))
 				{
 					hediffWithComps_FleshmassHeart.LevelUp();
+					Messages.Message("WVC_XaG_MutationProgressing".Translate(hediffWithComps_FleshmassHeart.def.LabelCap), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
 				}
 				else
 				{
@@ -360,11 +362,11 @@ namespace WVC_XenotypesAndGenes
 
         private void DevourPart()
         {
-            GeneResourceUtility.OffsetNeedFood(pawn, GetNutritionFromPawn(pawn, true), false);
+            GeneResourceUtility.OffsetNeedFood(pawn, GetNutritionFromPawn(pawn, true, def), false);
 			HediffUtility.MutationMeatSplatter(pawn);
 		}
 
-        public static float GetNutritionFromPawn(Pawn pawn, bool applyDigestion)
+        public static float GetNutritionFromPawn(Pawn pawn, bool applyDigestion, GeneDef geneDef)
 		{
 			(from x in pawn.health.hediffSet.GetNotMissingParts()
 			 where !x.def.conceptual && x != pawn.RaceProps.body.corePart && x.def.canSuggestAmputation && !pawn.health.hediffSet.HasDirectlyAddedPartFor(x)
@@ -379,6 +381,7 @@ namespace WVC_XenotypesAndGenes
 					hediff_MissingPart.IsFresh = true;
 					hediff_MissingPart.lastInjury = HediffDefOf.Digested;
 					pawn.health.AddHediff(hediff_MissingPart);
+					Messages.Message("WVC_XaG_DigestedBy".Translate(result.def.LabelCap, geneDef.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
 				}
 			}
 			return bodyPartNutrition;

@@ -56,6 +56,10 @@
 
 	<WVC_SelectedXenotypeGenes>Selected xenotype genes</WVC_SelectedXenotypeGenes>
 
+	<WVC_XaG_DigestedBy>{0} digested by {1}.</WVC_XaG_DigestedBy>
+	<WVC_XaG_HasReceivedA>{0} has received a {1}.</WVC_XaG_HasReceivedA>
+	<WVC_XaG_MutationProgressing>{0} is progressing!</WVC_XaG_MutationProgressing>
+
 	<WVC_XaG_MustTargetGenepack>Must target genepack.</WVC_XaG_MustTargetGenepack>
 	
 	<WVC_AbilityValidation_ReimplantationCheck>Reimplantation in progress. Wait for the process to finish before starting another one.</WVC_AbilityValidation_ReimplantationCheck>

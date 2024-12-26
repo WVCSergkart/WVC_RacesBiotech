@@ -53,7 +53,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostAdd();
 			Local_AddOrRemoveHediff();
-			if (pawn.Spawned)
+			if (Current.ProgramState == ProgramState.Playing)
 			{
 				return;
 			}
