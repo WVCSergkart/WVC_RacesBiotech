@@ -85,11 +85,11 @@
 			  <rotationOffset>-80</rotationOffset>
 			</dataNorth>
 			<dataSouth>
-			  <offset>(0.25, -0.4, 0.05)</offset>
+			  <offset>(0.25, -0.4, 0.07)</offset>
 			  <rotationOffset>50</rotationOffset>
 			</dataSouth>
 			<dataWest>
-			  <offset>(0.12, 0.4, 0.2)</offset>
+			  <offset>(0.15, 0.4, 0.15)</offset>
 			  <rotationOffset>60</rotationOffset>
 			  <flip>true</flip>
 			</dataWest>
@@ -124,12 +124,12 @@
 			  <flip>true</flip>
 			</dataNorth>
 			<dataSouth>
-			  <offset>(-0.25, -0.4, 0.05)</offset>
+			  <offset>(-0.25, -0.4, 0.07)</offset>
 			  <rotationOffset>-50</rotationOffset>
 			  <flip>true</flip>
 			</dataSouth>
 			<dataEast>
-			  <offset>(-0.12, 0.4, 0.2)</offset>
+			  <offset>(-0.15, 0.4, 0.15)</offset>
 			  <rotationOffset>-60</rotationOffset>
 			</dataEast>
 		</drawData>
