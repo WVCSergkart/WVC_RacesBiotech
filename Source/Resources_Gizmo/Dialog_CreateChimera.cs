@@ -817,7 +817,7 @@ namespace WVC_XenotypesAndGenes
                 }
                 catch (Exception arg)
                 {
-					Log.Error("Failed obtaine gene. Reson: " + arg);
+					Log.Error("Failed obtaine gene. Reason: " + arg);
                 }
                 gene.TryEatGene(geneDef);
 			}

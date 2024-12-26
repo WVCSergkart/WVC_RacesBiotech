@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Verse;
+using Verse.AI;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -192,6 +193,86 @@ namespace WVC_XenotypesAndGenes
 		public void ResetAbility()
 		{
 			pawn.abilities?.GetAbility(def.abilities.First())?.ResetCooldown();
+		}
+
+	}
+
+	public class Gene_Deadlife : Gene
+	{
+
+		public int nextTick = 6000;
+
+		public int nextDeathRefusal = 2;
+
+		public override void Tick()
+		{
+			nextTick--;
+			if (nextTick > 0f)
+			{
+				return;
+			}
+			AddDeadifeGas(120);
+		}
+
+		public void AddDeadifeGas(int tick)
+        {
+            if (!pawn.Spawned)
+            {
+                nextTick = 60000;
+                return;
+            }
+            GasUtility.AddDeadifeGas(pawn.PositionHeld, pawn.MapHeld, pawn.Faction, 30);
+            bool pause = true;
+            try
+            {
+                if (pawn.Map.listerThings.AllThings.TryRandomElement((Thing thing) => pawn.CanReach(thing, PathEndMode.Touch, Danger.Deadly) && thing is Corpse, out Thing target))
+                {
+                    GasUtility.AddDeadifeGas(target.PositionHeld, target.MapHeld, pawn.Faction, 30);
+                    pause = false;
+                }
+            }
+            catch (Exception arg)
+            {
+                nextTick = 180000;
+                Log.Error("Failed create shambler. Reason: " + arg);
+			}
+			int colonists = (StaticCollectionsClass.cachedColonistsCount > 0 ? StaticCollectionsClass.cachedColonistsCount : 1);
+			if (pause)
+            {
+                nextTick = 60000 * colonists;
+				nextDeathRefusal--;
+			}
+            else
+            {
+                nextTick = tick * colonists;
+			}
+			if (nextDeathRefusal <= 0)
+			{
+				AddDeathRefusal(pawn);
+				nextDeathRefusal = 2 * colonists;
+			}
+        }
+
+        public static void AddDeathRefusal(Pawn pawn)
+        {
+            Hediff_DeathRefusal firstHediff = pawn.health.hediffSet.GetFirstHediff<Hediff_DeathRefusal>();
+            if (firstHediff != null)
+            {
+                firstHediff.SetUseAmountDirect(firstHediff.UsesLeft + 1, false);
+            }
+            else
+            {
+                Hediff_DeathRefusal hediff_DeathRefusal = (Hediff_DeathRefusal)HediffMaker.MakeHediff(HediffDefOf.DeathRefusal, pawn);
+                hediff_DeathRefusal.SetUseAmountDirect(1);
+                pawn.health.AddHediff(hediff_DeathRefusal);
+            }
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref nextTick, "nextTick");
+			Scribe_Values.Look(ref nextDeathRefusal, "nextDeathRefusal");
 		}
 
 	}

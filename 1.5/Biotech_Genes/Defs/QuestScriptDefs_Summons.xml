@@ -17,22 +17,27 @@
   <QuestScriptDef ParentName="WVC_SummonQuestScript_Base">
 	<defName>WVC_MechanitorSummonLightMech</defName>
 	<root Class="WVC_XenotypesAndGenes.QuestNode_Root_MechanitorSummonMech">
-	  <summonLightMechs>true</summonLightMechs>
+	  <allowedMechWeightClasses>
+		<li>Light</li>
+	  </allowedMechWeightClasses>
 	</root>
   </QuestScriptDef>
 
   <QuestScriptDef ParentName="WVC_SummonQuestScript_Base">
 	<defName>WVC_MechanitorSummonMediumMech</defName>
 	<root Class="WVC_XenotypesAndGenes.QuestNode_Root_MechanitorSummonMech">
-	  <summonMediumMechs>true</summonMediumMechs>
+	  <allowedMechWeightClasses>
+		<li>Medium</li>
+	  </allowedMechWeightClasses>
 	</root>
   </QuestScriptDef>
 
   <QuestScriptDef ParentName="WVC_SummonQuestScript_Base">
 	<defName>WVC_MechanitorSummonHeavyMech</defName>
 	<root Class="WVC_XenotypesAndGenes.QuestNode_Root_MechanitorSummonMech">
-	  <summonHeavyMechs>true</summonHeavyMechs>
-	  <summonUltraHeavyMechs>false</summonUltraHeavyMechs>
+	  <allowedMechWeightClasses>
+		<li>Heavy</li>
+	  </allowedMechWeightClasses>
 	</root>
   </QuestScriptDef>
 
@@ -46,10 +51,12 @@
   <QuestScriptDef ParentName="WVC_SummonQuestScript_Base">
 	<defName>WVC_MechanitorSummon_DustLinkRandomMechanoid</defName>
 	<root Class="WVC_XenotypesAndGenes.QuestNode_Root_MechanitorSummonMech">
-	  <summonLightMechs>true</summonLightMechs>
-	  <summonMediumMechs>true</summonMediumMechs>
-	  <summonHeavyMechs>true</summonHeavyMechs>
-	  <summonUltraHeavyMechs>false</summonUltraHeavyMechs>
+	  <allowedMechWeightClasses>
+		<li>Light</li>
+		<li>Medium</li>
+		<li>Heavy</li>
+		<!-- <li>UltraHeavy</li> -->
+	  </allowedMechWeightClasses>
 	  <hediffDefs>
 		<li>WVC_DustMechanoid_OnlyOneOverseer</li>
 	  </hediffDefs>

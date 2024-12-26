@@ -17,11 +17,13 @@ namespace WVC_XenotypesAndGenes
 
 		public List<HediffDef> hediffDefs;
 
+		public List<MechWeightClass> allowedMechWeightClasses;
+
 		public bool summonGolems = false;
-		public bool summonLightMechs = false;
-		public bool summonMediumMechs = false;
-		public bool summonHeavyMechs = false;
-		public bool summonUltraHeavyMechs = false;
+		//public bool summonLightMechs = false;
+		//public bool summonMediumMechs = false;
+		//public bool summonHeavyMechs = false;
+		//public bool summonUltraHeavyMechs = false;
 
 		protected override void RunInt()
 		{
@@ -77,7 +79,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			else
 			{
-				pawnKindDefs = DefDatabase<PawnKindDef>.AllDefsListForReading.Where((PawnKindDef randomXenotypeDef) => MechanoidsUtility.MechanoidIsPlayerMechanoid(randomXenotypeDef, summonLightMechs, summonMediumMechs, summonHeavyMechs, summonUltraHeavyMechs)).ToList();
+				pawnKindDefs = DefDatabase<PawnKindDef>.AllDefsListForReading.Where((PawnKindDef randomXenotypeDef) => MechanoidsUtility.MechanoidIsPlayerMechanoid(randomXenotypeDef, allowedMechWeightClasses)).ToList();
 			}
 			return pawnKindDefs.RandomElement();
 		}

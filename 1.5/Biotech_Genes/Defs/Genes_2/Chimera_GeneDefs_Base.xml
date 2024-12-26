@@ -79,6 +79,8 @@
 				  <li>WVC_FleshmassArmor</li>
 				  <li>WVC_FleshmassBuilder</li>
 				  <li>WVC_SelfdevourStomach</li>
+				  <li>WVC_Deadlife</li>
+				  <li>WVC_Duplicator</li>
 				</genes>
 			  </li>
 			</chimeraConditionalGenes>

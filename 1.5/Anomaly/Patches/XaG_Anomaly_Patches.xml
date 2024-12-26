@@ -46,4 +46,14 @@
 	  </value>
 	</Operation>
 
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="DeathPall" or defName="GrayPall" or defName="DeadlifeDust"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li>WVC_Deadlife</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
 </Patch>

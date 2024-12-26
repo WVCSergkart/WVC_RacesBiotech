@@ -306,7 +306,7 @@ namespace WVC_XenotypesAndGenes
 		// }
 
 		// Mecha summon
-		public static bool MechanoidIsPlayerMechanoid(PawnKindDef mech, bool summonLightMechs = true, bool summonMediumMechs = true, bool summonHeavyMechs = true, bool summonUltraHeavyMechs = true)
+		public static bool MechanoidIsPlayerMechanoid(PawnKindDef mech, List<MechWeightClass> allowedMechWeightClasses)
 		{
 			if (!mech.race.race.IsMechanoid
 			|| !mech.defName.Contains("Mech_")
@@ -320,19 +320,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return false;
 			}
-			if (!summonLightMechs && mech.race.race.mechWeightClass == MechWeightClass.Light)
-			{
-				return false;
-			}
-			if (!summonMediumMechs && mech.race.race.mechWeightClass == MechWeightClass.Medium)
-			{
-				return false;
-			}
-			if (!summonHeavyMechs && mech.race.race.mechWeightClass == MechWeightClass.Heavy)
-			{
-				return false;
-			}
-			if (!summonUltraHeavyMechs && mech.race.race.mechWeightClass == MechWeightClass.UltraHeavy)
+			if (allowedMechWeightClasses != null && !allowedMechWeightClasses.Contains(mech.race.race.mechWeightClass))
 			{
 				return false;
 			}
