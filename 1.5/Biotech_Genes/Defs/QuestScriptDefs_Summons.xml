@@ -42,6 +42,15 @@
   </QuestScriptDef>
 
   <QuestScriptDef ParentName="WVC_SummonQuestScript_Base">
+	<defName>WVC_MechanitorSummonUltraHeavyMech</defName>
+	<root Class="WVC_XenotypesAndGenes.QuestNode_Root_MechanitorSummonMech">
+	  <allowedMechWeightClasses>
+		<li>UltraHeavy</li>
+	  </allowedMechWeightClasses>
+	</root>
+  </QuestScriptDef>
+
+  <QuestScriptDef ParentName="WVC_SummonQuestScript_Base">
 	<defName>WVC_MechanitorSummonGolems</defName>
 	<root Class="WVC_XenotypesAndGenes.QuestNode_Root_MechanitorSummonMech">
 	  <summonGolems>true</summonGolems>

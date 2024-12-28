@@ -14,7 +14,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool ActiveDowned(Pawn pawn, Gene gene)
 		{
-			return !gene.Active || !pawn.Downed;
+			return !pawn.Downed || !gene.Active;
 		}
 
 		public static bool SelectorFactionMap(Pawn pawn)
@@ -34,7 +34,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool ActiveFactionMap(Pawn pawn, Gene gene)
 		{
-			return !gene.Active || FactionMap(pawn);
+			return FactionMap(pawn) || !gene.Active;
 		}
 
 		public static bool SelectorActiveFactionMap(Pawn pawn, Gene gene)
@@ -54,12 +54,12 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool SelectorActiveFaction(Pawn pawn, Gene gene)
 		{
-			return Find.Selector.SelectedPawns.Count > 1 || !gene.Active || pawn.Faction != Faction.OfPlayer;
+			return Find.Selector.SelectedPawns.Count > 1 || pawn.Faction != Faction.OfPlayer || !gene.Active;
 		}
 
 		public static bool SelectorDraftedActiveFaction(Pawn pawn, Gene gene)
 		{
-			return Find.Selector.SelectedPawns.Count > 1 || pawn.Drafted || !gene.Active || pawn.Faction != Faction.OfPlayer;
+			return Find.Selector.SelectedPawns.Count > 1 || pawn.Drafted || pawn.Faction != Faction.OfPlayer || !gene.Active;
 		}
 
 		public static void ResetGenesInspectString(Pawn pawn)
