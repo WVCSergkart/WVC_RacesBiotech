@@ -71,7 +71,7 @@ namespace WVC_XenotypesAndGenes
 					return false;
 				}
 				Pawn innerPawn = corpse.InnerPawn;
-				if (!innerPawn.IsHuman() || innerPawn.IsMutant)
+				if (!innerPawn.IsHuman() || innerPawn.IsMutant || target.Thing.IsUnnaturalCorpse())
 				{
 					if (throwMessages)
 					{

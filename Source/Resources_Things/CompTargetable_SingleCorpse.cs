@@ -17,7 +17,7 @@ namespace WVC_XenotypesAndGenes
                 canTargetBuildings = false,
                 canTargetItems = true,
                 mapObjectTargetsMustBeAutoAttackable = false,
-                validator = (TargetInfo x) => x.Thing is Corpse corpse && ValidateTarget(x.Thing) && ReimplanterUtility.IsHuman(corpse.InnerPawn)
+                validator = (TargetInfo x) => x.Thing is Corpse corpse && ValidateTarget(x.Thing) && !corpse.IsUnnaturalCorpse() && ReimplanterUtility.IsHuman(corpse.InnerPawn)
             };
         }
 
