@@ -16,6 +16,12 @@ namespace WVC_XenotypesAndGenes
 	public static class MiscUtility
 	{
 
+		public static void DoSkipEffects(IntVec3 spawnCell, Map map)
+		{
+			map.effecterMaintainer.AddEffecterToMaintain(EffecterDefOf.Skip_EntryNoDelay.Spawn(spawnCell, map), spawnCell, 60);
+			SoundDefOf.Psycast_Skip_Entry.PlayOneShot(new TargetInfo(spawnCell, map));
+		}
+
 		public static bool CanStartPregnancy(Pawn pawn, GeneExtension_Giver giver = null)
 		{
 			return HediffUtility.GetFirstHediffPreventsPregnancy(pawn.health.hediffSet.hediffs) == null 

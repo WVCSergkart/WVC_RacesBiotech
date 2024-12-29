@@ -31,7 +31,7 @@ namespace WVC_XenotypesAndGenes
 		// Golems
 		public static StatDef WVC_GolemBond;
 		public static StatDef WVC_GolemBondCost;
-		public static StatDef MechFormingSpeed;
+		// public static StatDef MechFormingSpeed;
 		// Walking Corpses
 		// public static StatDef WVC_SporesBandwidth;
 		// public static StatDef WVC_SporesBandwidthCost;

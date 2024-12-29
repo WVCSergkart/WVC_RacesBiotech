@@ -95,6 +95,9 @@ namespace WVC_XenotypesAndGenes
 		public List<GolemModeDef> golemModeDefs;
 		// Golems
 		public IntRange durationIntervalRange = new(240000, 300000);
+		// Void
+		public HediffDef mechanitorHediff;
+		public HediffDef mechHediff;
 	}
 
 	public class GeneExtension_Undead : DefModExtension

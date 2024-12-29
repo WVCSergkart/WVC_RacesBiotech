@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
+	<defName>WVC_VoidMechanoid</defName>
+	<label>from the void</label>
+	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_VoidMechanoid</hediffClass>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
+	<defName>WVC_VoidMechlink</defName>
+	<label>void mechlink</label>
+	<hediffClass>WVC_XenotypesAndGenes.HediffWithComps_VoidMechanitor</hediffClass>
+  </HediffDef>
+
+</Defs>

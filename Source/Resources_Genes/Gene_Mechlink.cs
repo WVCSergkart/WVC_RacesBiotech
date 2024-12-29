@@ -524,11 +524,165 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Voidlink : Gene_Mechlink
+	public class Gene_Voidlink : Gene_Mechlink, IGeneOverridden, IGeneNotifyOnKilled
 	{
 
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			HediffUtility.TryAddOrRemoveHediff(Spawner.mechanitorHediff, pawn, this, null);
+		}
 
+		public void Notify_OverriddenBy(Gene overriddenBy)
+        {
+            KillMechs();
+            HediffUtility.TryRemoveHediff(Spawner.mechanitorHediff, pawn);
+        }
 
-	}
+        public void Notify_Override()
+		{
+			HediffUtility.TryAddOrRemoveHediff(Spawner.mechanitorHediff, pawn, this, null);
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			KillMechs();
+			HediffUtility.TryRemoveHediff(Spawner.mechanitorHediff, pawn);
+		}
+
+		public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
+		{
+			base.Notify_PawnDied(dinfo, culprit);
+			if (!Active)
+			{
+				return;
+			}
+			if (ModsConfig.AnomalyActive && pawn.Corpse?.Map != null)
+			{
+				MiscUtility.DoSkipEffects(pawn.Corpse.Position, pawn.Corpse.Map);
+				pawn.Corpse.Destroy();
+			}
+		}
+
+		public void Notify_PawnKilled()
+		{
+			KillMechs();
+		}
+
+		public void KillMechs()
+		{
+			if (pawn.mechanitor != null)
+			{
+				List<Pawn> mechs = pawn.mechanitor.ControlledPawns;
+				foreach (Pawn mech in mechs)
+				{
+					if (!mech.Dead && mech.health.hediffSet.HasHediff(Spawner.mechHediff))
+					{
+						mech.forceNoDeathNotification = true;
+						mech.Kill(null);
+						mech.forceNoDeathNotification = false;
+					}
+				}
+			}
+		}
+
+		private Gizmo gizmo;
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (XaG_GeneUtility.SelectorActiveFactionMapMechanitor(pawn, this))
+			{
+				yield break;
+			}
+			if (DebugSettings.ShowDevGizmos)
+			{
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: SkipMechs",
+					action = delegate
+					{
+						List<PawnKindDef> pawnKindDefs = DefDatabase<PawnKindDef>.AllDefsListForReading.Where((mechkind) => MechanoidsUtility.MechanoidIsPlayerMechanoid(mechkind, null)).ToList();
+						selectedMechs = new();
+						selectedMechs.Add(pawnKindDefs.RandomElement());
+						selectedMechs.Add(pawnKindDefs.RandomElement());
+						selectedMechs.Add(pawnKindDefs.RandomElement());
+						timeForNextSummon = 60;
+					}
+				};
+				yield return new Command_Action
+				{
+					defaultLabel = "DEV: KillSummonedMechs",
+					action = delegate
+					{
+						KillMechs();
+					}
+				};
+			}
+            if (gizmo == null)
+            {
+                gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, this);
+            }
+            yield return gizmo;
+        }
+
+		public override void Tick()
+		{
+			base.Tick();
+			if (timeForNextSummon > 0)
+			{
+				timeForNextSummon--;
+				if (timeForNextSummon == 0)
+				{
+					if (TrySummonMechs())
+                    {
+						timeForNextSummon = 30;
+					}
+				}
+			}
+		}
+
+		public List<PawnKindDef> selectedMechs = new();
+
+		private bool TrySummonMechs()
+        {
+			if (selectedMechs.NullOrEmpty())
+            {
+				return false;
+            }
+			PawnKindDef mechKind = selectedMechs.RandomElement();
+			selectedMechs.Remove(mechKind);
+			if (!CellFinder.TryFindRandomCellNear(pawn.Position, pawn.Map, Mathf.FloorToInt(4.9f), pos => pos.Standable(pawn.Map) && pos.Walkable(pawn.Map) && !pos.Fogged(pawn.Map), out var spawnCell, 100))
+			{
+				return false;
+			}
+			PawnGenerationRequest request = new(mechKind, pawn.Faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: false, canGeneratePawnRelations: true, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: true, allowAddictions: true, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Newborn);
+			Pawn mech = PawnGenerator.GeneratePawn(request);
+			MiscUtility.DoSkipEffects(spawnCell, pawn.Map);
+			GenSpawn.Spawn(mech, spawnCell, pawn.Map);
+			pawn.relations.AddDirectRelation(PawnRelationDefOf.Overseer, mech);
+			HediffUtility.TryAddOrRemoveHediff(Spawner.mechHediff, mech, this, null);
+			UpdHediff();
+			return true;
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Collections.Look(ref selectedMechs, "selectedMechs", LookMode.Def);
+		}
+
+		public void UpdHediff()
+		{
+			if (pawn.health.hediffSet.TryGetHediff(out HediffWithComps_VoidMechanitor hediff))
+			{
+				hediff.Recache();
+			}
+			else
+			{
+				HediffUtility.TryAddOrRemoveHediff(Spawner.mechanitorHediff, pawn, this, null);
+			}
+		}
+    }
 
 }

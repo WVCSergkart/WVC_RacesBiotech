@@ -36,8 +36,9 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (doEffects)
 				{
-					map.effecterMaintainer.AddEffecterToMaintain(EffecterDefOf.Skip_EntryNoDelay.Spawn(targetCell, map), targetCell, 60);
-					SoundDefOf.Psycast_Skip_Entry.PlayOneShot(new TargetInfo(targetCell, map));
+					//map.effecterMaintainer.AddEffecterToMaintain(EffecterDefOf.Skip_EntryNoDelay.Spawn(targetCell, map), targetCell, 60);
+					//SoundDefOf.Psycast_Skip_Entry.PlayOneShot(new TargetInfo(targetCell, map));
+					MiscUtility.DoSkipEffects(targetCell, map);
 				}
 				GenSpawn.Spawn(duplicatePawn, targetCell, map);
 			}

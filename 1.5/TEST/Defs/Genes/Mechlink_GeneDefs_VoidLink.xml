@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Base">
+	<defName>WVC_VoidMechlink</defName>
+	<label>void mechlink</label>
+	<description>Carriers of this gene have corrupted archites that have bound them to the void. They sense the presence of machine intelligence and can use this power to call upon mechanoids to aid them.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_Voidlink</geneClass>
+	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Voidlink</resourceGizmoType>
+	<displayCategory>WVC_Energy</displayCategory>
+	<displayOrderInCategory>75</displayOrderInCategory>
+	<iconPath>WVC/UI/Genes/Gene_VoidMechlink_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<minAgeActive>3</minAgeActive>
+	<biostatCpx>-6</biostatCpx>
+	<biostatArc>4</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Allows you to toggle mechanoid summoning.&lt;/color&gt;</li>
+		<li>&lt;color=#8a8ae6&gt;Allows to summon any mechanoids.&lt;/color&gt;</li>
+		<li>&lt;color=#8a8ae6&gt;Bandwidth&lt;/color&gt; has a relative limit and increases with the number of mechanoids.</li>
+		<li>&lt;color=#ff8585&gt;Each occupied bandwidth reduces the social stats of the mechanitor.&lt;/color&gt;</li>
+		<!-- <li>Mechanoids summoned by the gene receive hediff &lt;color=#8a8ae6&gt;from the void&lt;/color&gt;. Which gives them a number of advantages and debuffs.</li> -->
+		<li>&lt;color=#ff8585&gt;Each occupied bandwidth reduces the social stats of the mechanitor.&lt;/color&gt;</li>
+		<li>Instead of mech, a &lt;color=#8a8ae6&gt;nociosphere&lt;/color&gt; can be summoned. Each mech summoned increases this chance by 1%.</li>
+		<li>&lt;color=#ff8585&gt;A summoned nociosphere will be immediately activated and hostile.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<statFactors>
+		<MechFormingSpeed>0.1</MechFormingSpeed>
+	</statFactors>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<mechanitorHediff>WVC_VoidMechlink</mechanitorHediff>
+			<mechHediff>WVC_VoidMechanoid</mechHediff>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

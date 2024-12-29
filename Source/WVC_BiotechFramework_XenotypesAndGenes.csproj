@@ -82,6 +82,7 @@
     <Compile Include="Resources_Genes\Gene_Morpher_SubGenes.cs" />
     <Compile Include="Resources_Genes\Gene_Summon.cs" />
     <Compile Include="Resources_Gizmo\Dialog_GenesSettings.cs" />
+    <Compile Include="Resources_Gizmo\GeneGizmo_Voidlink.cs" />
     <Compile Include="Resources_Hediff\Hediff_FleshmassHeart.cs" />
     <Compile Include="Resources_Hediff\Hediff_Mechanitor.cs" />
     <Compile Include="Resources_Main\GenesHolder.cs" />

@@ -44,7 +44,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool SelectorActiveFactionMapMechanitor(Pawn pawn, Gene gene)
 		{
-			return SelectorActiveFactionMap(pawn, gene) || pawn.mechanitor == null;
+			return pawn.mechanitor == null || SelectorActiveFactionMap(pawn, gene);
 		}
 
 		public static bool SelectorDraftedActiveFactionMap(Pawn pawn, Gene gene)
