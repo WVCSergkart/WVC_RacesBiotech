@@ -524,4 +524,11 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_Voidlink : Gene_Mechlink
+	{
+
+
+
+	}
+
 }

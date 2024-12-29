@@ -17,7 +17,7 @@ namespace WVC_XenotypesAndGenes
         public bool addMechlink = false;
         public bool nullifyBackstory = false;
         public List<GeneDef> chimeraGeneDefs = new();
-        public GeneDef chimeraEvolveGeneDef;
+        //public GeneDef chimeraEvolveGeneDef;
         public bool saveOldChimeraGeneSet = false;
         public int startingMutations = 0;
 
@@ -36,7 +36,7 @@ namespace WVC_XenotypesAndGenes
             SetGenes(p);
             AddMechlink(p);
             NullifyBackstory(p);
-            ChimeraEvolve(p);
+            //ChimeraEvolve(p);
             ChimeraGenes(p);
             Mutations(p);
         }
@@ -71,14 +71,14 @@ namespace WVC_XenotypesAndGenes
             XaG_GeneUtility.AddGenesToChimera(p, chimeraGeneDefs);
         }
 
-        private void ChimeraEvolve(Pawn p)
-        {
-            if (chimeraEvolveGeneDef == null)
-            {
-                return;
-            }
-            XaG_GeneUtility.ImplantChimeraEvolveGeneSet(p, chimeraEvolveGeneDef, saveOldChimeraGeneSet);
-        }
+        //private void ChimeraEvolve(Pawn p)
+        //{
+        //    if (chimeraEvolveGeneDef == null)
+        //    {
+        //        return;
+        //    }
+        //    XaG_GeneUtility.ImplantChimeraEvolveGeneSet(p, chimeraEvolveGeneDef, saveOldChimeraGeneSet);
+        //}
 
         private void SetGenes(Pawn p)
         {
@@ -161,11 +161,11 @@ namespace WVC_XenotypesAndGenes
                 stringBuilder.AppendLine();
                 stringBuilder.AppendLine("WVC_XaG_ScenPart_ChimeraStartingGenes".Translate().CapitalizeFirst() + ":\n" + chimeraGeneDefs.Select((GeneDef x) => x.LabelCap.ToString()).ToLineList(" - "));
             }
-            if (chimeraEvolveGeneDef != null)
-            {
-                stringBuilder.AppendLine();
-                stringBuilder.AppendLine("WVC_XaG_ScenPart_ChimeraStartingEvolution".Translate().CapitalizeFirst());
-            }
+            //if (chimeraEvolveGeneDef != null)
+            //{
+            //    stringBuilder.AppendLine();
+            //    stringBuilder.AppendLine("WVC_XaG_ScenPart_ChimeraStartingEvolution".Translate().CapitalizeFirst());
+            //}
             if (startingMutations > 0)
             {
                 stringBuilder.AppendLine();

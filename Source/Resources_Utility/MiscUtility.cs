@@ -567,7 +567,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					break;
 				}
-				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_HistoryEventDefDefOf.WVC_OneManArmy, Faction.OfPlayer.Named(HistoryEventArgsNames.Doer)));
+				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_HistoryEventDefOf.WVC_OneManArmy, Faction.OfPlayer.Named(HistoryEventArgsNames.Doer)));
 			}
 		}
 

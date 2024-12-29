@@ -271,9 +271,9 @@
 		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
 		  <def>WVC_XaG_Starting</def>
 		  <xenotypeChances>
-			<WVC_Shadoweater>1</WVC_Shadoweater>
+			<WVC_Beholdkind>1</WVC_Beholdkind>
 		  </xenotypeChances>
-		  <chimeraEvolveGeneDef>WVC_FleshmassNucleus</chimeraEvolveGeneDef>
+		  <!-- <chimeraEvolveGeneDef>WVC_FleshmassNucleus</chimeraEvolveGeneDef> -->
 		  <chimeraGeneDefs>
 			<li>WVC_OneManArmy</li>
 			<li>WVC_HumanCentric</li>

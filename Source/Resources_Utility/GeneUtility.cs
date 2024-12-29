@@ -197,23 +197,57 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		// Misc
-
 		public static void ImplantChimeraEvolveGeneSet(Pawn pawn, GeneDef geneDef, bool saveOldGeneSet = true)
 		{
-			List<GeneDef> removedGenes = geneDef?.GetModExtension<GeneExtension_Undead>()?.removedGenes;
-			List<GeneDef> addedGenes = geneDef?.GetModExtension<GeneExtension_Undead>()?.addedGenes;
-			if (addedGenes == null || removedGenes == null)
+			//List<GeneDef> removedGenes = geneDef?.GetModExtension<GeneExtension_Undead>()?.removedGenes;
+			//List<GeneDef> addedGenes = geneDef?.GetModExtension<GeneExtension_Undead>()?.addedGenes;
+			//if (addedGenes == null || removedGenes == null)
+			//{
+			//	return;
+			//}
+			//Gene_Chimera chimera = pawn.genes?.GetFirstGeneOfType<Gene_Chimera>();
+			//if (chimera == null)
+			//         {
+			//	return;
+			//}
+			//foreach (Gene gene in pawn.genes.Endogenes.ToList())
+			//{
+			//	if (removedGenes.Contains(gene.def))
+			//	{
+			//		if (saveOldGeneSet)
+			//		{
+			//			chimera.TryAddGene(gene.def);
+			//		}
+			//		pawn.genes.RemoveGene(gene);
+			//	}
+			//}
+			//foreach (GeneDef addedGeneDef in addedGenes)
+			//{
+			//	pawn.genes.AddGene(addedGeneDef, false);
+			//}
+			//if (pawn.SpawnedOrAnyParentSpawned)
+			//{
+			//	chimera.DoEffects();
+			//	Messages.Message("WVC_XaG_GeneChimera_EntityImplant".Translate(), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+			//}
+			ImplantChimeraEvolveGeneSet(pawn, geneDef?.GetModExtension<GeneExtension_Undead>()?.xenotypeDef, saveOldGeneSet);
+		}
+
+		public static void ImplantChimeraEvolveGeneSet(Pawn pawn, XenotypeDef xenotypeDef, bool saveOldGeneSet = true)
+		{
+			if (xenotypeDef == null)
 			{
 				return;
 			}
 			Gene_Chimera chimera = pawn.genes?.GetFirstGeneOfType<Gene_Chimera>();
 			if (chimera == null)
-            {
+			{
 				return;
 			}
+			ReimplanterUtility.SetXenotypeDirect(null, pawn, xenotypeDef);
 			foreach (Gene gene in pawn.genes.Endogenes.ToList())
 			{
-				if (removedGenes.Contains(gene.def))
+				if (!xenotypeDef.genes.Contains(gene.def))
 				{
 					if (saveOldGeneSet)
 					{
@@ -222,7 +256,7 @@ namespace WVC_XenotypesAndGenes
 					pawn.genes.RemoveGene(gene);
 				}
 			}
-			foreach (GeneDef addedGeneDef in addedGenes)
+			foreach (GeneDef addedGeneDef in xenotypeDef.genes)
 			{
 				pawn.genes.AddGene(addedGeneDef, false);
 			}

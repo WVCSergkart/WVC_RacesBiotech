@@ -776,17 +776,21 @@ namespace WVC_XenotypesAndGenes
 		public void StartChange()
 		{
 			ClearGenes(selectedGenes);
-			if (gene.Props.xenotypeDef != null)
-			{
-				if (gene.pawn.genes.Xenotype != gene.Props.xenotypeDef)
-				{
-					ReimplanterUtility.SetXenotypeDirect(null, gene.pawn, gene.Props.xenotypeDef);
-				}
-			}
-			else
-			{
-				ReimplanterUtility.UnknownXenotype(gene.pawn);
-			}
+			//if (gene.Props.xenotypeDef != null)
+			//{
+			//	if (gene.pawn.genes.Xenotype != gene.Props.xenotypeDef)
+			//	{
+			//		ReimplanterUtility.SetXenotypeDirect(null, gene.pawn, gene.Props.xenotypeDef);
+			//	}
+			//}
+			//else
+			//{
+			//	ReimplanterUtility.UnknownXenotype(gene.pawn);
+			//}
+			//if (gene.pawn.genes.Xenotype?.GetModExtension<GeneExtension_General>()?.isChimerkin != true)
+			//{
+			//}
+			ReimplanterUtility.UnknownChimerkin(gene.pawn);
 			foreach (GeneDef geneDef in selectedGenes)
 			{
 				if (!XaG_GeneUtility.HasGene(geneDef, gene.pawn))

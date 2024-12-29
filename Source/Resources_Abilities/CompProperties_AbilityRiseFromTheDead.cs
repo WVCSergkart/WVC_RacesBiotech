@@ -24,7 +24,7 @@ namespace WVC_XenotypesAndGenes
 			//}
 			if (ModLister.IdeologyInstalled)
 			{
-				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_HistoryEventDefDefOf.WVC_ReimplanterResurrection, parent.pawn.Named(HistoryEventArgsNames.Doer)));
+				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_HistoryEventDefOf.WVC_ReimplanterResurrection, parent.pawn.Named(HistoryEventArgsNames.Doer)));
 			}
 			if (Props.resurrectedThoughtDef != null)
 			{

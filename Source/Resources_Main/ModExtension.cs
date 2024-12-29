@@ -199,6 +199,8 @@ namespace WVC_XenotypesAndGenes
 		public bool isDustogenic = false;
 		//Fleshmass
 		public bool isFleshmass = false;
+		//Xenos
+		public bool isChimerkin = false;
 	}
 
 	public class GeneExtension_Graphic : DefModExtension

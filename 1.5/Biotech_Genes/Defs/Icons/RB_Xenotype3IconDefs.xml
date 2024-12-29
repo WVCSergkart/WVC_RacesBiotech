@@ -108,6 +108,10 @@
 	<defName>WVC_ElfVampire2c</defName>
 	<texPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_Horns_v0</texPath>
   </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_ElfVampire3c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_Eyes_v0</texPath>
+  </XenotypeIconDef>
   <!-- Used -->
 
   <!-- Anomaly -->

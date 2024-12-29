@@ -35,7 +35,7 @@ namespace WVC_XenotypesAndGenes
 			Widgets.BeginScrollView(outRect, ref scrollPosition, viewRect);
 			float num2 = 0f;
 			int num3 = 0;
-			foreach (IGeneRemoteControl controller in genes.ToList())
+			foreach (IGeneRemoteControl controller in genes)
 			{
 				if (controller is Gene gene && num2 + vector.y >= scrollPosition.y && num2 <= scrollPosition.y + outRect.height)
 				{

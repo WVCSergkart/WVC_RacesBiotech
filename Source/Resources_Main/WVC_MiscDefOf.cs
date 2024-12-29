@@ -5,7 +5,7 @@ namespace WVC_XenotypesAndGenes
 {
 
 	[DefOf]
-	public static class WVC_HistoryEventDefDefOf
+	public static class WVC_HistoryEventDefOf
 	{
 		[MayRequireIdeology]
 		public static HistoryEventDef WVC_ReimplanterResurrection;
@@ -22,5 +22,13 @@ namespace WVC_XenotypesAndGenes
 		[MayRequireIdeology]
 		public static HistoryEventDef WVC_OneManArmy;
 	}
+
+	//[DefOf]
+	//public static class WVC_StatDefOf
+	//{
+
+	//	public static StatDef MechFormingSpeed;
+
+	//}
 
 }

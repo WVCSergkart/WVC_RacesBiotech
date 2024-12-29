@@ -97,6 +97,24 @@ namespace WVC_XenotypesAndGenes
 			pawn.genes.iconDef = xenotypeIconDef ?? DefDatabase<XenotypeIconDef>.AllDefsListForReading.RandomElement();
 		}
 
+		public static void UnknownChimerkin(Pawn recipient)
+		{
+			List<XenotypeDef> chimeraXenotypes = DefDatabase<XenotypeDef>.AllDefsListForReading.Where((xenotypeDef) => xenotypeDef?.GetModExtension<GeneExtension_General>()?.isChimerkin == true).ToList();
+			XenotypeDef xenotypeDef = null;
+			foreach (XenotypeDef xenos in chimeraXenotypes)
+            {
+				if (XaG_GeneUtility.GenesIsMatch(recipient.genes.Endogenes, xenos.genes, 1f))
+                {
+					xenotypeDef = xenos;
+					break;
+				}
+            }
+			if (xenotypeDef != null)
+			{
+				ReimplanterUtility.SetXenotypeDirect(null, recipient, xenotypeDef);
+			}
+		}
+
 		public static void GiveReimplantJob(Pawn pawn, Pawn targPawn, JobDef absorbJob)
 		{
 			pawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(absorbJob, targPawn), JobTag.Misc);
@@ -441,7 +459,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (ModLister.IdeologyInstalled)
 			{
-				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_HistoryEventDefDefOf.WVC_XenotypeSerumUsed, pawn.Named(HistoryEventArgsNames.Doer)));
+				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_HistoryEventDefOf.WVC_XenotypeSerumUsed, pawn.Named(HistoryEventArgsNames.Doer)));
 				if (isXenoMod)
 				{
 					Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.InstalledProsthetic, pawn.Named(HistoryEventArgsNames.Doer)));

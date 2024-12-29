@@ -50,38 +50,33 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
 			<regeneration>100</regeneration>
 			<maxMutationLevel>5</maxMutationLevel>
-			<addedGenes>
-				<li>WVC_FleshmassSkin</li>
-				<li>WVC_FleshmassNucleus</li>
-				<li>WVC_FleshmassBuilder</li>
-				<li>WVC_FleshmassArmor</li>
-				<li>WVC_FleshmassBrain</li>
-				<!-- = -->
-				<li>WVC_SkinColor_FleshRed</li>
-				<li>WVC_BloodyGrowths</li>
-				<li>Sterile</li>
-				<!-- <li>WVC_HemogenGain</li> -->
-				<li>WVC_TentacleTail</li>
-				<!-- = -->
-				<li>WVC_Toughspike</li>
-				<li>WVC_Incrementer</li>
-			</addedGenes>
-			<removedGenes>
-				<li>WVC_HealingStomach</li>
-				<!-- <li>WVC_BodySize_Small</li> -->
-				<li>Hair_LongOnly</li>
-				<li>WVC_DryadSkin</li>
-				<li>WVC_Eyes_Colorful</li>
-				<!-- = -->
-				<li>WVC_SkinColor_DarkBlue</li>
-				<li>WVC_HeadBoneHorns</li>
-				<li>DarkVision</li>
-				<li>WVC_ImplanterFangs</li>
-				<li>WVC_DemonTailA</li>
-				<!-- = -->
-				<li>WVC_HemogenicMetabolism</li>
-				<li>PiercingSpine</li>
-			</removedGenes>
+			<xenotypeDef>WVC_Beholdkind</xenotypeDef>
+			<!-- <addedGenes> -->
+				<!-- <li>WVC_FleshmassSkin</li> -->
+				<!-- <li>WVC_FleshmassNucleus</li> -->
+				<!-- <li>WVC_FleshmassBuilder</li> -->
+				<!-- <li>WVC_FleshmassArmor</li> -->
+				<!-- <li>WVC_FleshmassBrain</li> -->
+				<!-- <li>WVC_SkinColor_FleshRed</li> -->
+				<!-- <li>WVC_BloodyGrowths</li> -->
+				<!-- <li>Sterile</li> -->
+				<!-- <li>WVC_TentacleTail</li> -->
+				<!-- <li>WVC_Toughspike</li> -->
+				<!-- <li>WVC_Incrementer</li> -->
+			<!-- </addedGenes> -->
+			<!-- <removedGenes> -->
+				<!-- <li>WVC_HealingStomach</li> -->
+				<!-- <li>Hair_LongOnly</li> -->
+				<!-- <li>WVC_DryadSkin</li> -->
+				<!-- <li>WVC_Eyes_Colorful</li> -->
+				<!-- <li>WVC_SkinColor_DarkBlue</li> -->
+				<!-- <li>WVC_HeadBoneHorns</li> -->
+				<!-- <li>DarkVision</li> -->
+				<!-- <li>WVC_ImplanterFangs</li> -->
+				<!-- <li>WVC_DemonTailA</li> -->
+				<!-- <li>WVC_HemogenicMetabolism</li> -->
+				<!-- <li>PiercingSpine</li> -->
+			<!-- </removedGenes> -->
 		</li>
 	</modExtensions>
   </GeneDef>
