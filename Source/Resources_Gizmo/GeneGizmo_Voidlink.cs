@@ -11,26 +11,17 @@ namespace WVC_XenotypesAndGenes
 	public class GeneGizmo_Voidlink : Gizmo
 	{
 
-		//private static readonly Color EmptyBlockColor = new(0.3f, 0.3f, 0.3f, 1f);
+		private static readonly CachedTexture KillMechsIcon = new("WVC/UI/XaG_General/UI_KillMechs_Gizmos_v0");
 
-		//private static readonly Color FilledBlockColor = ColorLibrary.Orange;
+		private static readonly CachedTexture SummonIcon = new("WVC/UI/XaG_General/UI_VoidlinkSummon_Gizmos_v0");
 
-		//private static readonly Color ExcessBlockColor = ColorLibrary.Red;
+		private static readonly Texture2D BarTex = SolidColorMaterials.NewSolidColorTexture(new ColorInt(93, 101, 126).ToColor);
 
-		private static readonly CachedTexture SummonSettingsIcon = new("WVC/UI/XaG_General/UI_Golemlink_GizmoSummonSettings");
-
-		private static readonly CachedTexture GolemSettingsIcon = new("WVC/UI/XaG_General/UI_Golemlink_GizmoGolemSettings");
+		private static readonly Texture2D EmptyBarTex = SolidColorMaterials.NewSolidColorTexture(new Color(0.03f, 0.035f, 0.05f));
 
 		public Pawn mechanitor;
 
 		public Gene_Voidlink gene;
-
-		//private int totalBandwidth;
-		//private int usedBandwidth;
-
-		//private int nextRecache = -1;
-
-		//private List<Pawn> allControlledGolems;
 
 		public override bool Visible => true;
 
@@ -47,30 +38,17 @@ namespace WVC_XenotypesAndGenes
 			Rect rect = new(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
 			Rect rect2 = rect.ContractedBy(6f);
 			Widgets.DrawWindowBackground(rect);
-			//nextRecache--;
-			//if (nextRecache <= 0)
-			//{
-			//	totalBandwidth = (int)MechanoidsUtility.TotalGolembond(mechanitor);
-			//	usedBandwidth = (int)MechanoidsUtility.GetConsumedGolembond(mechanitor);
-			//	allControlledGolems = MechanoidsUtility.GetAllControlledGolems(mechanitor);
-			//	nextRecache = 120;
-			//}
 			TaggedString taggedString = "WVC_XaG_Gene_Voidlink_GizmoLabel".Translate().Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_Gene_Voidlink_GizmoTip".Translate();
 			Text.Font = GameFont.Small;
 			Text.Anchor = TextAnchor.UpperLeft;
 			Rect rect3 = new(rect2.x, rect2.y, rect2.width, 20f);
 			Widgets.Label(rect3, "WVC_XaG_Gene_Voidlink_GizmoLabel".Translate());
 			TooltipHandler.TipRegion(rect3, taggedString);
-			//Text.Font = GameFont.Small;
-			//Text.Anchor = TextAnchor.UpperRight;
-			//Widgets.Label(rect3, text);
-			//Text.Anchor = TextAnchor.UpperLeft;
-			//int num = Mathf.Max(usedBandwidth, totalBandwidth);
 			Rect rect4 = new(rect2.x, rect3.yMax + 6f, rect2.width - 84f, rect2.height - rect3.height - 6f);
 			TooltipHandler.TipRegion(rect4, taggedString);
 			// Button
 			Rect rectSummonSettings = new(rect4.xMax, rect2.y + 23f, 40f, 40f);
-			Widgets.DrawTextureFitted(rectSummonSettings, SummonSettingsIcon.Texture, 1f);
+			Widgets.DrawTextureFitted(rectSummonSettings, KillMechsIcon.Texture, 1f);
 			if (Mouse.IsOver(rectSummonSettings))
 			{
 				Widgets.DrawHighlight(rectSummonSettings);
@@ -78,7 +56,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_Gene_VoidlinkKillAllVoidMechsWarning".Translate(), delegate
 					{
-						gene.KillMechs();
+						gene.KillMechs(true);
 					});
 					Find.WindowStack.Add(window);
 				}
@@ -86,23 +64,27 @@ namespace WVC_XenotypesAndGenes
 			TooltipHandler.TipRegion(rectSummonSettings, "WVC_XaG_Gene_VoidlinkKillAllVoidMechs".Translate());
 			// Button
 			Rect rectGolemsSettings = new(rectSummonSettings.x + 44f, rectSummonSettings.y, rectSummonSettings.width, rectSummonSettings.height);
-			Widgets.DrawTextureFitted(rectGolemsSettings, GolemSettingsIcon.Texture, 1f);
+			Widgets.DrawTextureFitted(rectGolemsSettings, SummonIcon.Texture, 1f);
 			if (Mouse.IsOver(rectGolemsSettings))
 			{
 				Widgets.DrawHighlight(rectGolemsSettings);
 				if (Widgets.ButtonInvisible(rectGolemsSettings))
 				{
-					//Find.WindowStack.Add(new Dialog_Golemlink(gene));
+					Find.WindowStack.Add(new Dialog_Voidlink(gene));
 				}
 			}
 			TooltipHandler.TipRegion(rectGolemsSettings, "WVC_XaG_Gene_VoidlinkSummonSettings_Desc".Translate());
 			// Bonds
+			Rect barRect = new(rect4.x, rect4.y + 3f, rect4.width - 4f, rect4.height - 9f);
+			Widgets.FillableBar(barRect, gene.ResourcePercent, BarTex, EmptyBarTex, doBorder: true);
+			Text.Anchor = TextAnchor.MiddleCenter;
+			Widgets.Label(barRect, gene.ResourceForDisplay.ToString());
+			Text.Anchor = TextAnchor.UpperLeft;
 			return new GizmoResult(GizmoState.Clear);
 		}
 
 		public override float GetWidth(float maxWidth)
 		{
-			// return 136f;
 			return 220f;
 		}
 

@@ -308,15 +308,11 @@ namespace WVC_XenotypesAndGenes
 		// Mecha summon
 		public static bool MechanoidIsPlayerMechanoid(PawnKindDef mech, List<MechWeightClass> allowedMechWeightClasses)
 		{
-			if (!mech.race.race.IsMechanoid
+			if (!MechanoidIsPlayerMechanoid(mech)
 			|| !mech.defName.Contains("Mech_")
-			|| !MechDefNameShouldNotContain(mech.defName)
-			|| !MechDefNameShouldNotContain(mech.race.defName)
 			|| mech.race.race.thinkTreeMain != WVC_GenesDefOf.Mechanoid
 			|| mech.race.race.thinkTreeConstant != WVC_GenesDefOf.MechConstant
-			|| mech.race.race.lifeStageAges.Count <= 1
-			|| !EverControllable(mech.race)
-			|| !EverRepairable(mech.race))
+			|| mech.race.race.lifeStageAges.Count <= 1)
 			{
 				return false;
 			}
@@ -327,18 +323,32 @@ namespace WVC_XenotypesAndGenes
 			return true;
 		}
 
-		public static bool MechDefNameShouldNotContain(string defName)
+		public static bool MechanoidIsPlayerMechanoid(PawnKindDef mech)
 		{
-			List<string> list = new();
-			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
-			{
-				list.AddRange(item.mechDefNameShouldNotContain);
-			}
-			if (list.Contains(defName))
+			if (!mech.race.race.IsMechanoid
+			|| MechDefNameContainsBannedWords(mech.defName)
+			|| MechDefNameContainsBannedWords(mech.race.defName)
+			|| !EverControllable(mech.race)
+			|| !EverRepairable(mech.race))
 			{
 				return false;
 			}
 			return true;
+		}
+
+		public static bool MechDefNameContainsBannedWords(string defName)
+		{
+			foreach (XenotypesAndGenesListDef item in DefDatabase<XenotypesAndGenesListDef>.AllDefsListForReading)
+			{
+				foreach (string name in item.mechDefNameShouldNotContain)
+				{
+					if (defName.Contains(name))
+					{
+						return true;
+					}
+				}
+			}
+			return false;
 		}
 
 		public static bool EverControllable(ThingDef def)

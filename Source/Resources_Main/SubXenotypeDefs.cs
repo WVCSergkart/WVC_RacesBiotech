@@ -648,4 +648,86 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+    public class MechanoidHolder
+    {
+
+        public PawnKindDef pawnKindDef = null;
+
+        public List<StatDef> displayedStats = new() { StatDefOf.WorkSpeedGlobal, StatDefOf.BandwidthCost, StatDefOf.ArmorRating_Blunt, StatDefOf.ArmorRating_Sharp };
+
+
+		private float? voidEnergyCost;
+
+		public float VoidEnergyCost
+		{
+			get
+			{
+				if (!voidEnergyCost.HasValue)
+                {
+                    voidEnergyCost = (float)Math.Round(GetVoidMechCost(pawnKindDef), 0);
+                }
+                return voidEnergyCost.Value;
+			}
+		}
+
+        public static float GetVoidMechCost(PawnKindDef pawnKindDef)
+        {
+            return (pawnKindDef.race.race.baseBodySize + pawnKindDef.race.race.baseHealthScale) * 2f;
+        }
+
+        private bool? isWorkGolemnoid;
+
+        public bool Worker
+        {
+            get
+            {
+                if (isWorkGolemnoid == null)
+                {
+                    isWorkGolemnoid = !pawnKindDef.race.race.mechEnabledWorkTypes.NullOrEmpty();
+                }
+                return isWorkGolemnoid.Value;
+            }
+        }
+
+        [Unsaved(false)]
+        private string cachedDescription;
+
+        public virtual string Description
+        {
+            get
+            {
+                if (cachedDescription == null)
+                {
+                    StringBuilder stringBuilder = new();
+                    stringBuilder.AppendLine(pawnKindDef.race.description);
+                    stringBuilder.AppendLine();
+                    stringBuilder.AppendLine("WVC_XaG_Dialog_Golemlink_Stats".Translate().Colorize(ColoredText.TipSectionTitleColor) + ":");
+                    if (!displayedStats.NullOrEmpty())
+                    {
+                        for (int j = 0; j < displayedStats.Count; j++)
+                        {
+                            StatDef statDef = displayedStats[j];
+                            stringBuilder.AppendLine(" - " + statDef.LabelCap + ": " + statDef.ValueToString(pawnKindDef.race.GetStatValueAbstract(statDef), statDef.toStringNumberSense));
+                        }
+                    }
+                    if (Worker)
+                    {
+                        stringBuilder.AppendLine();
+                        stringBuilder.AppendLine("MechWorkActivities".Translate().Colorize(ColoredText.TipSectionTitleColor) + ":");
+                        stringBuilder.AppendLine(" - " + pawnKindDef.race.race.mechEnabledWorkTypes.Select((WorkTypeDef w) => w.gerundLabel).ToCommaList(useAnd: true).CapitalizeFirst());
+                    }
+                    if (!pawnKindDef.weaponTags.NullOrEmpty())
+                    {
+                        stringBuilder.AppendLine();
+                        stringBuilder.AppendLine("WVC_XaG_Dialog_Golemlink_Weapon".Translate().Colorize(ColoredText.TipSectionTitleColor) + ":");
+                        stringBuilder.AppendLine(" - " + DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef thing) => !thing.weaponTags.NullOrEmpty() && thing.weaponTags.Contains(pawnKindDef.weaponTags.FirstOrDefault())).FirstOrDefault().label.CapitalizeFirst());
+                    }
+                    cachedDescription = stringBuilder.ToString();
+                }
+                return cachedDescription;
+            }
+        }
+
+	}
+
 }

@@ -37,20 +37,20 @@ namespace WVC_XenotypesAndGenes
 			totalHealingGene = gene?.ResurgentTotalHealing;
 		}
 
-		public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
-		{
-			GizmoResult result = base.GizmoOnGUI(topLeft, maxWidth, parms);
-			float num = Mathf.Repeat(Time.time, 0.85f);
-			if (num < 0.1f)
-			{
-				_ = num / 0.1f;
-			}
-			else if (num >= 0.25f)
-			{
-				_ = 1f - (num - 0.25f) / 0.6f;
-			}
-			return result;
-		}
+		//public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
+		//{
+		//	GizmoResult result = base.GizmoOnGUI(topLeft, maxWidth, parms);
+		//	float num = Mathf.Repeat(Time.time, 0.85f);
+		//	if (num < 0.1f)
+		//	{
+		//		_ = num / 0.1f;
+		//	}
+		//	else if (num >= 0.25f)
+		//	{
+		//		_ = 1f - (num - 0.25f) / 0.6f;
+		//	}
+		//	return result;
+		//}
 
 		protected override void DrawHeader(Rect headerRect, ref bool mouseOverElement)
 		{

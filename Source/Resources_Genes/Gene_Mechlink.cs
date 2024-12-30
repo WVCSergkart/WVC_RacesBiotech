@@ -570,7 +570,7 @@ namespace WVC_XenotypesAndGenes
 			KillMechs();
 		}
 
-		public void KillMechs()
+		public void KillMechs(bool offsetResource = false)
 		{
 			if (pawn.mechanitor != null)
 			{
@@ -579,6 +579,10 @@ namespace WVC_XenotypesAndGenes
 				{
 					if (!mech.Dead && mech.health.hediffSet.HasHediff(Spawner.mechHediff))
 					{
+						if (offsetResource)
+                        {
+							OffsetResource(MechanoidHolder.GetVoidMechCost(mech.kindDef) * 0.01f);
+						}
 						mech.forceNoDeathNotification = true;
 						mech.Kill(null);
 						mech.forceNoDeathNotification = false;
@@ -598,24 +602,24 @@ namespace WVC_XenotypesAndGenes
 			if (DebugSettings.ShowDevGizmos)
 			{
 				yield return new Command_Action
-				{
+                {
 					defaultLabel = "DEV: SkipMechs",
 					action = delegate
-					{
-						List<PawnKindDef> pawnKindDefs = DefDatabase<PawnKindDef>.AllDefsListForReading.Where((mechkind) => MechanoidsUtility.MechanoidIsPlayerMechanoid(mechkind, null)).ToList();
-						selectedMechs = new();
-						selectedMechs.Add(pawnKindDefs.RandomElement());
-						selectedMechs.Add(pawnKindDefs.RandomElement());
-						selectedMechs.Add(pawnKindDefs.RandomElement());
-						timeForNextSummon = 60;
-					}
-				};
+                    {
+                        List<PawnKindDef> pawnKindDefs = MechKindDefs;
+                        selectedMechs = new();
+                        selectedMechs.Add(pawnKindDefs.RandomElement());
+                        selectedMechs.Add(pawnKindDefs.RandomElement());
+                        selectedMechs.Add(pawnKindDefs.RandomElement());
+                        timeForNextSummon = 60;
+                    }
+                };
 				yield return new Command_Action
 				{
-					defaultLabel = "DEV: KillSummonedMechs",
+					defaultLabel = "DEV: AddResource 10",
 					action = delegate
 					{
-						KillMechs();
+						OffsetResource(0.10f);
 					}
 				};
 			}
@@ -626,10 +630,26 @@ namespace WVC_XenotypesAndGenes
             yield return gizmo;
         }
 
+        public List<PawnKindDef> MechKindDefs => DefDatabase<PawnKindDef>.AllDefsListForReading.Where((mechkind) => MechanoidsUtility.MechanoidIsPlayerMechanoid(mechkind, null) || MechanoidsUtility.MechanoidIsPlayerMechanoid(mechkind)).ToList();
+
+		public float geneResource = 0;
+
+		public float ResourceGain => def.resourceLossPerDay / 60000;
+
+		public float MaxResource => 1f;
+
+		public float ResourcePercent => geneResource / MaxResource;
+
+		public float ResourceForDisplay => Mathf.RoundToInt(geneResource * 100f);
+
 		public override void Tick()
 		{
 			base.Tick();
-			if (timeForNextSummon > 0)
+			if (pawn.IsHashIntervalTick(2500))
+            {
+                OffsetResource(ResourceGain * 2500);
+            }
+            if (timeForNextSummon > 0)
 			{
 				timeForNextSummon--;
 				if (timeForNextSummon == 0)
@@ -642,7 +662,12 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public List<PawnKindDef> selectedMechs = new();
+        public void OffsetResource(float value)
+        {
+			geneResource = Mathf.Clamp(geneResource + value, 0f, MaxResource);
+        }
+
+        public List<PawnKindDef> selectedMechs = new();
 
 		private bool TrySummonMechs()
         {
@@ -651,9 +676,32 @@ namespace WVC_XenotypesAndGenes
 				return false;
             }
 			PawnKindDef mechKind = selectedMechs.RandomElement();
+			float consume = MechanoidHolder.GetVoidMechCost(mechKind) * 0.01f;
+			if (consume > geneResource)
+			{
+				selectedMechs = new();
+				Messages.Message("WVC_XaG_Gene_Voidlink_CannotSummon".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+				return false;
+            }
 			selectedMechs.Remove(mechKind);
 			if (!CellFinder.TryFindRandomCellNear(pawn.Position, pawn.Map, Mathf.FloorToInt(4.9f), pos => pos.Standable(pawn.Map) && pos.Walkable(pawn.Map) && !pos.Fogged(pawn.Map), out var spawnCell, 100))
 			{
+				selectedMechs = new();
+				Messages.Message("WVC_XaG_Gene_Voidlink_CannotSummon".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+				return false;
+			}
+            int allMechsCount = pawn.mechanitor.ControlledPawns.Count;
+            float chance = allMechsCount > 10 ? allMechsCount * 0.01f : 0f;
+			float finalChance = chance > 0.5f ? 0.5f : chance;
+			if (Rand.Chance(finalChance))
+			{
+				Pawn sphere = PawnGenerator.GeneratePawn(new PawnGenerationRequest(PawnKindDefOf.Nociosphere, Faction.OfEntities, PawnGenerationContext.NonPlayer, pawn.Map.Tile));
+				NociosphereUtility.SkipTo((Pawn)GenSpawn.Spawn(sphere, spawnCell, sphere.Map), spawnCell);
+				CompActivity activity = sphere.TryGetComp<CompActivity>();
+				if (activity != null)
+				{
+					activity.AdjustActivity(1f);
+				}
 				return false;
 			}
 			PawnGenerationRequest request = new(mechKind, pawn.Faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: false, canGeneratePawnRelations: true, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: true, allowAddictions: true, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Newborn);
@@ -663,12 +711,14 @@ namespace WVC_XenotypesAndGenes
 			pawn.relations.AddDirectRelation(PawnRelationDefOf.Overseer, mech);
 			HediffUtility.TryAddOrRemoveHediff(Spawner.mechHediff, mech, this, null);
 			UpdHediff();
+            OffsetResource(-1f * consume);
 			return true;
 		}
 
 		public override void ExposeData()
 		{
 			base.ExposeData();
+			Scribe_Values.Look(ref geneResource, "geneResource", 0);
 			Scribe_Collections.Look(ref selectedMechs, "selectedMechs", LookMode.Def);
 		}
 

@@ -129,6 +129,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			Thing thing = ThingMaker.MakeThing(rockDef);
 			GenPlace.TryPlaceThing(thing, pawn.Position, prevMap, ThingPlaceMode.Near, null, null, default);
+			//prevMap.effecterMaintainer.AddEffecterToMaintain(EffecterDefOf.ControlMech.SpawnMaintained(thing, prevMap), thing.Position, 120);
 		}
 
 		// public override List<PawnRenderNode> CompRenderNodes()

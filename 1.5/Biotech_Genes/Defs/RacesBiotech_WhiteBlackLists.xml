@@ -84,7 +84,7 @@
 		<li>Undead_</li>
 		<li>Corpse_</li>
 		<li>Android_</li>
-		<li>Medieval</li>
+		<li>Medieval_</li>
 	</mechDefNameShouldNotContain>
 	<!-- Work only for WVC -XaG CompSpawnSubplant. Required thing defNames -->
 	<!-- WVC_XenotypesAndGenes.CompSpawnOnDeath_Subplants or WVC_XenotypesAndGenes.CompSpawnSubplantDuration -->
