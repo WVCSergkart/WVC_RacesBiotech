@@ -7,4 +7,10 @@
 	<reportString>charging.</reportString>
   </JobDef>
 
+  <JobDef>
+	<defName>WVC_RechargeableHemogen</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_HemogenCharge</driverClass>
+	<reportString>hemogen charging.</reportString>
+  </JobDef>
+
 </Defs>

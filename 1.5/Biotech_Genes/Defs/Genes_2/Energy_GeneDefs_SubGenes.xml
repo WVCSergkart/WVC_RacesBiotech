@@ -7,6 +7,34 @@
 	<selectionWeight>0.00125</selectionWeight>
   </GeneDef>
 
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_Base">
+	<defName>WVC_HemogenicCharge</defName>
+	<label>hemogenic charge</label>
+	<description>Carriers of this gene have a special organ that, when stimulated by electricity, generates hemogen.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_HemogenRecharge</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_HemogenicCharge_v0</iconPath>
+	<displayOrderInCategory>15</displayOrderInCategory>
+	<biostatCpx>2</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>2</biostatMet>
+	<prerequisite>Hemogenic</prerequisite>
+	<customEffectDescriptions>
+		<li>&lt;color=#8a8ae6&gt;Recharging&lt;/color&gt; generates &lt;color=#8a8ae6&gt;hemogen&lt;/color&gt;.</li>
+		<li>The carrier of the gene will &lt;color=#8a8ae6&gt;automatically&lt;/color&gt; attempt to recharge when &lt;color=#8a8ae6&gt;hemogen&lt;/color&gt; is low.</li>
+		<li>Any corresponding &lt;color=#8a8ae6&gt;recharge gene&lt;/color&gt; is required for recharge.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
+			<!-- <foodPoisoningFromFood>false</foodPoisoningFromFood> -->
+			<rechargeableStomachJobDef>WVC_RechargeableHemogen</rechargeableStomachJobDef>
+			<xenoChargerDef>WVC_GeneRecharger</xenoChargerDef>
+			<!-- <chargeSpeedFactor>0.8</chargeSpeedFactor> -->
+		</li>
+	</modExtensions>
+  </GeneDef>
+
   <!-- ======================================= -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneArchiteMisc_Software">

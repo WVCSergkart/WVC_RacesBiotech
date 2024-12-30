@@ -395,7 +395,6 @@ namespace WVC_XenotypesAndGenes
 			RecacheGenes();
 		}
 
-		[Unsaved(false)]
 		private List<IGeneRemoteControl> cachedRemoteControlGenes;
 
 

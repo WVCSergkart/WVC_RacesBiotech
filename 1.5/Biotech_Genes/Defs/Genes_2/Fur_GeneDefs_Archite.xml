@@ -59,6 +59,11 @@
 		<li><symbol>id</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
+	<!-- <exclusionTags Inherit="False"> -->
+	  <!-- <li>AG_Bodies</li> -->
+	  <!-- <li>Bodies</li> -->
+	  <!-- <li>Fur</li> -->
+	<!-- </exclusionTags> -->
 	<modExtensions>
 		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
 			<customWoundsFromFleshtype>Mechanoid</customWoundsFromFleshtype>

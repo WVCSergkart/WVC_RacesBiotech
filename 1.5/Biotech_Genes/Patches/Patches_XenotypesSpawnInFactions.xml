@@ -138,7 +138,7 @@
 						<operations>
 
 							<li Class="PatchOperationRemove">
-								<xpath>/Defs/GeneDef[defName="WVC_Chimera" or defName="WVC_FleshmassNucleus"]/modExtensions/li[@Class="WVC_XenotypesAndGenes.GeneExtension_Undead"]/xenotypeDef</xpath>
+								<xpath>/Defs/GeneDef[defName="WVC_Chimera" or defName="WVC_FleshmassNucleus" or defName="WVC_VoidMechlink"]/modExtensions/li[@Class="WVC_XenotypesAndGenes.GeneExtension_Undead"]/xenotypeDef</xpath>
 								<success>Always</success>
 							</li>
 

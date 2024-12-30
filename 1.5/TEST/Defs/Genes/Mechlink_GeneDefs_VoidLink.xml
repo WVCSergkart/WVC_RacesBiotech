@@ -35,6 +35,9 @@
 			<mechanitorHediff>WVC_VoidMechlink</mechanitorHediff>
 			<mechHediff>WVC_VoidMechanoid</mechHediff>
 		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<xenotypeDef>WVC_Chimechkin</xenotypeDef>
+		</li>
 	</modExtensions>
   </GeneDef>
 

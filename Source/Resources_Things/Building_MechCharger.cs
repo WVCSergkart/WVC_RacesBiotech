@@ -133,10 +133,10 @@ namespace WVC_XenotypesAndGenes
 
 		public bool CanPawnChargeCurrently(Pawn pawn)
 		{
-			if (pawn?.needs?.food == null)
-			{
-				return false;
-			}
+			//if (pawn?.needs?.food == null)
+			//{
+			//	return false;
+			//}
 			if (Power.PowerNet == null)
 			{
 				return false;
@@ -206,7 +206,8 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (currentlyChargingMech != null && Power.PowerOn)
 			{
-				currentlyChargingMech.needs.food.CurLevel += chargePerTick * RechargeableStomach.Props.chargeSpeedFactor;
+				//currentlyChargingMech.needs.food.CurLevel += chargePerTick * RechargeableStomach.Props.chargeSpeedFactor;
+				RechargeableStomach.Notify_Charging(chargePerTick, 5);
 				wasteProduced += WasteProducedPerTick;
 				wasteProduced = Mathf.Clamp(wasteProduced, 0f, WasteProducedPerChargingCycle);
 				if (wasteProduced >= (float)WasteProducedPerChargingCycle && !Container.innerContainer.Any)
@@ -271,6 +272,17 @@ namespace WVC_XenotypesAndGenes
 					job.overrideFacing = Rot4.South;
 					selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, false);
 				}), selPawn, this);
+				Gene_HemogenRecharge gene2 = selPawn?.genes?.GetFirstGeneOfType<Gene_HemogenRecharge>();
+				if (gene2?.Props?.xenoChargerDef == def)
+				{
+					// Log.Error("1");
+					yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("WVC_ForceHemogenRecharge".Translate(), delegate
+					{
+						Job job = JobMaker.MakeJob(gene2.Props.rechargeableStomachJobDef, this);
+						job.overrideFacing = Rot4.South;
+						selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc, false);
+					}), selPawn, this);
+				}
 			}
 			// Log.Error("End 0");
 		}

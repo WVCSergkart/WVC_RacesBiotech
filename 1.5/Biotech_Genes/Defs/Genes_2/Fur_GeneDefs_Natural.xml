@@ -164,6 +164,11 @@
 		<li><symbol>bird</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
+	<!-- <exclusionTags Inherit="False"> -->
+	  <!-- <li>AG_Bodies</li> -->
+	  <!-- <li>Bodies</li> -->
+	  <!-- <li>Fur</li> -->
+	<!-- </exclusionTags> -->
   </GeneDef>
 
   <!-- Shift -->
@@ -244,9 +249,9 @@
 		<li><symbol>less</symbol></li>
 	  </suffixSymbols>
 	</symbolPack>
-	<!-- <exclusionTags> -->
-	  <!-- <li>Jaw</li> -->
-	<!-- </exclusionTags> -->
+	<exclusionTags Inherit="False">
+	  <li>Jaw</li>
+	</exclusionTags>
   </GeneDef>
 
   <!-- Gauntskin -->

@@ -120,4 +120,11 @@ namespace WVC_XenotypesAndGenes
 		void RemoteControl_Recache();
 	}
 
+	public interface IGeneChargeable
+	{
+
+		void Notify_Charging(float chargePerTick, int tick, float factor);
+
+	}
+
 }

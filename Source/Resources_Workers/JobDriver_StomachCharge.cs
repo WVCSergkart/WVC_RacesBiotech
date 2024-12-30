@@ -12,7 +12,7 @@ namespace WVC_XenotypesAndGenes
 	public class JobDriver_StomachCharge : JobDriver, IJobCustomEater
 	{
 		// private const TargetIndex ChargerInd = TargetIndex.A;
-		public bool ShouldFinalize => true;
+		public virtual bool ShouldFinalize => true;
 
 		public Building_XenoCharger Charger => (Building_XenoCharger)job.targetA.Thing;
 
@@ -57,6 +57,54 @@ namespace WVC_XenotypesAndGenes
 			});
 			yield return toil;
 		}
+	}
+
+	public class JobDriver_HemogenCharge : JobDriver_StomachCharge
+	{
+
+		private Gene_Hemogen cachedHemogenGene;
+
+		public Gene_Hemogen Hemogen
+		{
+			get
+			{
+				if (cachedHemogenGene == null || !cachedHemogenGene.Active)
+				{
+					cachedHemogenGene = pawn?.genes?.GetFirstGeneOfType<Gene_Hemogen>();
+				}
+				return cachedHemogenGene;
+			}
+		}
+
+		public override bool ShouldFinalize => false;
+
+		protected override IEnumerable<Toil> MakeNewToils()
+		{
+			this.FailOnDespawnedOrNull(TargetIndex.A);
+			this.FailOn(() => Hemogen == null);
+			yield return Toils_Goto.Goto(TargetIndex.A, PathEndMode.InteractionCell).FailOnForbidden(TargetIndex.A);
+			Toil toil = ToilMaker.MakeToil("MakeNewToils");
+			toil.defaultCompleteMode = ToilCompleteMode.Never;
+			toil.initAction = delegate
+			{
+				Charger.StartCharging(pawn);
+			};
+			toil.AddFinishAction(delegate
+			{
+				Charger.StopCharging();
+			});
+			toil.handlingFacing = true;
+			toil.tickAction = (Action)Delegate.Combine(toil.tickAction, (Action)delegate
+			{
+				pawn.rotationTracker.FaceTarget(Charger.Position);
+				if (Hemogen.Value >= Hemogen.Max)
+				{
+					ReadyForNextToil();
+				}
+			});
+			yield return toil;
+		}
+
 	}
 
 }

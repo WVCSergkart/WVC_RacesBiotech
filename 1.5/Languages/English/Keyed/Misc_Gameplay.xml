@@ -389,6 +389,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_NotEnoughBlood>Not enough blood</WVC_NotEnoughBlood>
 
 	<WVC_ForceRecharge>Force recharge</WVC_ForceRecharge>
+	<WVC_ForceHemogenRecharge>Force hemogen recharge</WVC_ForceHemogenRecharge>
 	<!-- <WVC_ForceRechargeDesc>Order the pawn to urgently search for a charger for subsequent charging.</WVC_ForceRechargeDesc> -->
 
 	<WVC_StatsReport_RechargerGeneClass>Required genes</WVC_StatsReport_RechargerGeneClass>

@@ -54,7 +54,6 @@ namespace WVC_XenotypesAndGenes
 			RecacheGenes();
 		}
 
-		[Unsaved(false)]
 		private List<IGeneRemoteControl> cachedRemoteControlGenes;
 
 
@@ -104,47 +103,49 @@ namespace WVC_XenotypesAndGenes
                 OffsetNeedFood();
                 return;
             }
-            TryRecharge(MiscUtility.PawnDoIngestJob(pawn));
+            TryRecharge(pawn, Props.rechargeableStomachJobDef, Props.xenoChargerDef, MiscUtility.PawnDoIngestJob(pawn));
         }
 
         public override IEnumerable<Gizmo> GetGizmos()
 		{
-			if (DebugSettings.ShowDevGizmos)
-			{
-				yield return new Command_Action
-				{
-					defaultLabel = "DEV: TryRecharge",
-					// defaultLabel = "WVC_ForceRecharge".Translate(),
-					// defaultDesc = "WVC_ForceRechargeDesc".Translate(),
-					// icon = ContentFinder<Texture2D>.Get(def.iconPath),
-					action = delegate
-					{
-						if (!TryRecharge(false))
-						{
-							Log.Error("Charger is null");
-						}
-					}
-				};
-			}
+			//if (DebugSettings.ShowDevGizmos)
+			//{
+			//	yield return new Command_Action
+			//	{
+			//		defaultLabel = "DEV: TryRecharge",
+			//		action = delegate
+			//		{
+			//			if (!TryRecharge(pawn, Props.rechargeableStomachJobDef, Props.xenoChargerDef, false))
+			//			{
+			//				Log.Error("Charger is null");
+			//			}
+			//		}
+			//	};
+			//}
+			//if (enabled)
+			//{
+			//	foreach (Gizmo gizmo in XaG_UiUtility.GetRemoteControllerGizmo(pawn, this, cachedRemoteControlGenes))
+			//	{
+			//		yield return gizmo;
+			//	}
+			//}
 			if (enabled)
 			{
-				foreach (Gizmo gizmo in XaG_UiUtility.GetRemoteControllerGizmo(pawn, this, cachedRemoteControlGenes))
-				{
-					yield return gizmo;
-				}
+				return XaG_UiUtility.GetRemoteControllerGizmo(pawn, this, cachedRemoteControlGenes);
 			}
+			return null;
 		}
 
-		public virtual bool TryRecharge(bool requestQueueing = true)
+		public static bool TryRecharge(Pawn pawn, JobDef jobDef, ThingDef thingDef, bool requestQueueing = true)
 		{
-			if (PawnHaveThisJob(pawn, Props.rechargeableStomachJobDef))
+			if (PawnHaveThisJob(pawn, jobDef))
 			{
 				return false;
 			}
-			Building_XenoCharger closestCharger = GetClosestCharger(pawn, forced: false, Props.xenoChargerDef);
+			Building_XenoCharger closestCharger = GetClosestCharger(pawn, forced: false, thingDef);
 			if (closestCharger != null)
 			{
-				Job job = JobMaker.MakeJob(Props.rechargeableStomachJobDef, closestCharger);
+				Job job = JobMaker.MakeJob(jobDef, closestCharger);
 				job.overrideFacing = Rot4.South;
 				pawn.TryTakeOrderedJob(job, JobTag.SatisfyingNeeds, requestQueueing);
 				return true;
@@ -184,6 +185,27 @@ namespace WVC_XenotypesAndGenes
 			{
 				GeneResourceUtility.OffsetNeedFood(pawn, 0.25f);
 			}
+		}
+
+		private int chargingTick = 0;
+
+		public void Notify_Charging(float chargePerTick, int tick = 60)
+		{
+			if (!GeneResourceUtility.CanTick(ref chargingTick, tick))
+			{
+				return;
+			}
+			if (pawn.needs?.food != null)
+			{
+				pawn.needs.food.CurLevel += chargePerTick * tick * Props.chargeSpeedFactor;
+			}
+			foreach (Gene gene in pawn.genes.GenesListForReading)
+            {
+				if (gene is IGeneChargeable charge && gene.Active)
+                {
+					charge.Notify_Charging(chargePerTick, tick, Props.chargeSpeedFactor);
+				}
+            }
 		}
 
 		public void Notify_StopCharging()
@@ -288,6 +310,127 @@ namespace WVC_XenotypesAndGenes
 			MechanoidsUtility.MechSummonQuest(pawn, Spawner.summonQuest);
 			Messages.Message("WVC_RB_Gene_Summoner".Translate(), pawn, MessageTypeDefOf.PositiveEvent);
 			return true;
+		}
+
+	}
+
+    public class Gene_HemogenRecharge : Gene_HemogenDependant, IGeneChargeable, IGeneRemoteControl
+	{
+		public string RemoteActionName => XaG_UiUtility.OnOrOff(autoFeed);
+
+		public string RemoteActionDesc => "WVC_XaG_RemoteControlChargerDesc".Translate();
+
+		public void RemoteControl()
+		{
+			autoFeed = !autoFeed;
+		}
+
+		public bool autoFeed = true;
+
+		public bool Enabled
+		{
+			get
+			{
+				return enabled;
+			}
+			set
+			{
+				enabled = value;
+			}
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			XaG_UiUtility.ResetAllRemoteControllers(ref cachedRemoteControlGenes);
+		}
+
+		public void RecacheGenes()
+		{
+			XaG_UiUtility.RecacheRemoteController(pawn, ref cachedRemoteControlGenes, ref enabled);
+		}
+
+		public bool enabled = true;
+
+		public void RemoteControl_Recache()
+		{
+			RecacheGenes();
+		}
+
+		private List<IGeneRemoteControl> cachedRemoteControlGenes;
+
+
+		//===========
+
+		public GeneExtension_Giver Props => def?.GetModExtension<GeneExtension_Giver>();
+
+		[Unsaved(false)]
+		private Gene_Rechargeable cachedRechargeGene;
+
+		public Gene_Rechargeable Rechargeable
+		{
+			get
+			{
+				if (cachedRechargeGene == null || !cachedRechargeGene.Active)
+				{
+					cachedRechargeGene = pawn?.genes?.GetFirstGeneOfType<Gene_Rechargeable>();
+				}
+				return cachedRechargeGene;
+			}
+		}
+
+		public override void Tick()
+		{
+			if (!autoFeed)
+			{
+				return;
+			}
+			if (!pawn.IsHashIntervalTick(3307))
+			{
+				return;
+			}
+			if (pawn.Faction != Faction.OfPlayer)
+			{
+				return;
+			}
+			if (pawn.Map == null)
+			{
+				return;
+			}
+			if (Rechargeable == null || Hemogen == null)
+			{
+				autoFeed = false;
+				return;
+			}
+			if (!Hemogen.ShouldConsumeHemogenNow())
+			{
+				return;
+			}
+			if (pawn.Drafted || pawn.Downed || !pawn.Awake())
+			{
+				return;
+			}
+			Gene_Rechargeable.TryRecharge(pawn, Props.rechargeableStomachJobDef, Props.xenoChargerDef);
+		}
+
+		public void Notify_Charging(float chargePerTick, int tick, float factor)
+        {
+            Hemogen.Value += chargePerTick * tick * factor;
+		}
+
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			if (enabled)
+			{
+				return XaG_UiUtility.GetRemoteControllerGizmo(pawn, this, cachedRemoteControlGenes);
+			}
+			return null;
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref autoFeed, "autoFeed", defaultValue: true);
 		}
 
 	}
