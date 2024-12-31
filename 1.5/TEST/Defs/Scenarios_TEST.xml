@@ -248,7 +248,7 @@
 
   <!-- ========================================================= -->
 
-  <ScenarioDef>
+  <ScenarioDef WVC_EasyPatch="WVC_XaG_UniqueXenotypesScenarioDefs_Hook">
 	<defName>WVC_FleshmassChimerkin</defName>
 	<label>With All Eyes</label>
 	<description>You ran from them. You ran when you heard gunfire. You ran when the streets turned into forests. You ran when the pitch blackness devoured your pursuers. You ran for so long that you no longer remember why. You have no supplies, no weapons, not even a scrap of clothing. Maybe it's time to stop running?</description>
@@ -285,6 +285,7 @@
 		  </chimeraGeneDefs>
 		  <nullifyBackstory>true</nullifyBackstory>
 		  <startingMutations>3</startingMutations>
+		  <additionalChronoAge>900~1500</additionalChronoAge>
 		  <context>PlayerStarter</context>
 		</li>
 

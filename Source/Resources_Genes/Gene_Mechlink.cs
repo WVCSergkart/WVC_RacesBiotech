@@ -637,6 +637,8 @@ namespace WVC_XenotypesAndGenes
 
 		public float MaxResource => 1f;
 
+		public float MaxMechs => 10f;
+
 		public float ResourcePercent => geneResource / MaxResource;
 
 		public float ResourceForDisplay => Mathf.RoundToInt(geneResource * 100f);
@@ -690,7 +692,7 @@ namespace WVC_XenotypesAndGenes
 				return false;
 			}
             int allMechsCount = pawn.mechanitor.ControlledPawns.Count;
-            float chance = allMechsCount > 10 ? allMechsCount * 0.01f : 0f;
+            float chance = allMechsCount > MaxMechs ? allMechsCount * 0.01f : 0f;
 			float finalChance = chance > 0.5f ? 0.5f : chance;
 			if (Rand.Chance(finalChance))
 			{
@@ -705,6 +707,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			PawnGenerationRequest request = new(mechKind, pawn.Faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: false, canGeneratePawnRelations: true, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: true, allowAddictions: true, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Newborn);
 			Pawn mech = PawnGenerator.GeneratePawn(request);
+			AgelessUtility.SetAge(mech, 3600000 * new IntRange(9, 23).RandomInRange);
 			MiscUtility.DoSkipEffects(spawnCell, pawn.Map);
 			GenSpawn.Spawn(mech, spawnCell, pawn.Map);
 			pawn.relations.AddDirectRelation(PawnRelationDefOf.Overseer, mech);

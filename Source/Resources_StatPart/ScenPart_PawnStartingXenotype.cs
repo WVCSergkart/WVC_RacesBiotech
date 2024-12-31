@@ -20,6 +20,7 @@ namespace WVC_XenotypesAndGenes
         //public GeneDef chimeraEvolveGeneDef;
         public bool saveOldChimeraGeneSet = false;
         public int startingMutations = 0;
+        public IntRange additionalChronoAge;
 
         //public override void ExposeData()
         //{
@@ -39,6 +40,7 @@ namespace WVC_XenotypesAndGenes
             //ChimeraEvolve(p);
             ChimeraGenes(p);
             Mutations(p);
+            AgeCorrection(p);
         }
 
         private void Mutations(Pawn p)
@@ -60,6 +62,15 @@ namespace WVC_XenotypesAndGenes
                 }
                 cycleTry++;
             }
+        }
+
+        private void AgeCorrection(Pawn p)
+        {
+            if (additionalChronoAge == null)
+            {
+                return;
+            }
+            p.ageTracker.AgeChronologicalTicks += (long)(additionalChronoAge.RandomInRange * 3600000L);
         }
 
         private void ChimeraGenes(Pawn p)
@@ -170,6 +181,11 @@ namespace WVC_XenotypesAndGenes
             {
                 stringBuilder.AppendLine();
                 stringBuilder.AppendLine("WVC_XaG_ScenPart_StartingMutations".Translate(startingMutations).CapitalizeFirst());
+            }
+            if (additionalChronoAge != null)
+            {
+                stringBuilder.AppendLine();
+                stringBuilder.AppendLine("WVC_XaG_ScenPart_AddChronoAge".Translate(additionalChronoAge.min, additionalChronoAge.max).CapitalizeFirst());
             }
             return stringBuilder.ToString();
         }
