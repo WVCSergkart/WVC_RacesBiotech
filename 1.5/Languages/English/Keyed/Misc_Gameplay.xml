@@ -32,11 +32,13 @@
 
 	<WVC_XaG_ScenPart_AddMechlink>Starting pawns will receive mechlink.</WVC_XaG_ScenPart_AddMechlink>
 	<WVC_XaG_ScenPart_NullifyBackstory>The backstory of the starting pawns is unknown.</WVC_XaG_ScenPart_NullifyBackstory>
+	<WVC_XaG_ScenPart_NullifySkills>All starting pawns' skills will be 0 and without passions.</WVC_XaG_ScenPart_NullifySkills>
 	<WVC_XaG_ScenPart_StartingGenes>Starting xenogenes</WVC_XaG_ScenPart_StartingGenes>
 	<WVC_XaG_ScenPart_ChimeraStartingGenes>Chimera starting xenogenes</WVC_XaG_ScenPart_ChimeraStartingGenes>
 	<!-- <WVC_XaG_ScenPart_ChimeraStartingEvolution>The chimera will have a unique endogenes set.</WVC_XaG_ScenPart_ChimeraStartingEvolution> -->
 	<WVC_XaG_ScenPart_StartingMutations>Starting pawns will have {0} random mutations.</WVC_XaG_ScenPart_StartingMutations>
 	<WVC_XaG_ScenPart_AddChronoAge>Additional chronological age: {0}~{1} years.</WVC_XaG_ScenPart_AddChronoAge>
+	<!-- <WVC_XaG_ScenPart_EmbraceTheVoid>All starting pawns' skills will be 0 and without passions.</WVC_XaG_ScenPart_EmbraceTheVoid> -->
 
 	<WVC_XaG_GeneralWrongTarget>Wrong target.</WVC_XaG_GeneralWrongTarget>
 

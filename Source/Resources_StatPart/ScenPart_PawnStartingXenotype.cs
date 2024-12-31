@@ -16,6 +16,9 @@ namespace WVC_XenotypesAndGenes
         public List<GeneDef> geneDefs = new();
         public bool addMechlink = false;
         public bool nullifyBackstory = false;
+        public bool nullifySkills = false;
+        //public bool embraceTheVoid = false;
+        public bool addSkipEffect = false;
         public List<GeneDef> chimeraGeneDefs = new();
         //public GeneDef chimeraEvolveGeneDef;
         public bool saveOldChimeraGeneSet = false;
@@ -38,9 +41,48 @@ namespace WVC_XenotypesAndGenes
             AddMechlink(p);
             NullifyBackstory(p);
             //ChimeraEvolve(p);
+            //Void(p);
             ChimeraGenes(p);
             Mutations(p);
             AgeCorrection(p);
+            Skills(p);
+        }
+
+        //private void Void(Pawn p)
+        //{
+        //    if (!embraceTheVoid && !ModsConfig.AnomalyActive)
+        //    {
+        //        return;
+        //    }
+        //    if (Find.Storyteller.difficulty.AnomalyPlaystyleDef.generateMonolith)
+        //    {
+        //        Find.Storyteller.difficulty.AnomalyPlaystyleDef = WVC_GenesDefOf.AmbientHorror;
+        //    }
+        //    p.health.AddHediff(HediffDefOf.VoidTouched);
+        //    p.health.AddHediff(HediffDefOf.Inhumanized);
+        //}
+
+        public override void PostMapGenerate(Map map)
+        {
+            if (addSkipEffect && Find.GameInitData != null)
+            {
+                foreach (Pawn startingAndOptionalPawn in Find.GameInitData.startingAndOptionalPawns)
+                {
+                    if (startingAndOptionalPawn.Spawned)
+                    {
+                        MiscUtility.DoSkipEffects(startingAndOptionalPawn.Position, startingAndOptionalPawn.Map);
+                    }
+                }
+            }
+        }
+
+        private void Skills(Pawn p)
+        {
+            if (!nullifySkills)
+            {
+                return;
+            }
+            DuplicateUtility.NullifySkills(p, true);
         }
 
         private void Mutations(Pawn p)
@@ -162,6 +204,16 @@ namespace WVC_XenotypesAndGenes
                 stringBuilder.AppendLine();
                 stringBuilder.AppendLine("WVC_XaG_ScenPart_NullifyBackstory".Translate().CapitalizeFirst());
             }
+            if (nullifySkills)
+            {
+                stringBuilder.AppendLine();
+                stringBuilder.AppendLine("WVC_XaG_ScenPart_NullifySkills".Translate().CapitalizeFirst());
+            }
+            //if (embraceTheVoid)
+            //{
+            //    stringBuilder.AppendLine();
+            //    stringBuilder.AppendLine("WVC_XaG_ScenPart_EmbraceTheVoid".Translate().CapitalizeFirst());
+            //}
             if (!geneDefs.NullOrEmpty())
             {
                 stringBuilder.AppendLine();

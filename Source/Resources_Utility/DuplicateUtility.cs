@@ -394,7 +394,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void NullifySkills(Pawn pawn)
+		public static void NullifySkills(Pawn pawn, bool removePassion = false)
 		{
 			foreach (SkillRecord skill in pawn.skills.skills.ToList())
 			{
@@ -406,6 +406,10 @@ namespace WVC_XenotypesAndGenes
 					xpSinceLastLevel = 0,
 					xpSinceMidnight = 0
 				};
+				if (removePassion)
+                {
+					item.passion = Passion.None;
+				}
 				pawn.skills.skills.Add(item);
 			}
 		}
