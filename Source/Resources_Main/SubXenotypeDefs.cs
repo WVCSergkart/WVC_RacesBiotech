@@ -101,6 +101,8 @@ namespace WVC_XenotypesAndGenes
 						stringBuilder.AppendLine("WVC_XaG_Dialog_Golemlink_Weapon".Translate().Colorize(ColoredText.TipSectionTitleColor) + ":");
 						stringBuilder.AppendLine(" - " + DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef thing) => !thing.weaponTags.NullOrEmpty() && thing.weaponTags.Contains(pawnKindDef.weaponTags.FirstOrDefault())).FirstOrDefault().label.CapitalizeFirst());
 					}
+					stringBuilder.AppendLine();
+					stringBuilder.Append("WVC_MechWeightClass".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + pawnKindDef.race.race.mechWeightClass.ToStringHuman().CapitalizeFirst());
 					cachedDescription = stringBuilder.ToString();
 				}
 				return cachedDescription;
@@ -670,12 +672,17 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        public static float GetVoidMechCost(PawnKindDef pawnKindDef)
-        {
-            return (pawnKindDef.race.race.baseBodySize + pawnKindDef.race.race.baseHealthScale) * 2f;
-        }
+        public static float GetVoidMechCost(PawnKindDef pawnKindDef, float limit = 99f)
+		{
+			float voidCost = (pawnKindDef.race.race.baseBodySize + pawnKindDef.race.race.baseHealthScale) * 2f * pawnKindDef.race.race.mechWeightClass.ToFloatFactor();
+			if (voidCost > limit)
+			{
+				return limit;
+			}
+			return voidCost;
+		}
 
-        private bool? isWorkGolemnoid;
+		private bool? isWorkGolemnoid;
 
         public bool Worker
         {
@@ -721,8 +728,10 @@ namespace WVC_XenotypesAndGenes
                         stringBuilder.AppendLine();
                         stringBuilder.AppendLine("WVC_XaG_Dialog_Golemlink_Weapon".Translate().Colorize(ColoredText.TipSectionTitleColor) + ":");
                         stringBuilder.AppendLine(" - " + DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef thing) => !thing.weaponTags.NullOrEmpty() && thing.weaponTags.Contains(pawnKindDef.weaponTags.FirstOrDefault())).FirstOrDefault().label.CapitalizeFirst());
-                    }
-                    cachedDescription = stringBuilder.ToString();
+					}
+					stringBuilder.AppendLine();
+					stringBuilder.Append("WVC_MechWeightClass".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + pawnKindDef.race.race.mechWeightClass.ToStringHuman().CapitalizeFirst());
+					cachedDescription = stringBuilder.ToString();
                 }
                 return cachedDescription;
             }

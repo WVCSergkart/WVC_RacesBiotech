@@ -112,6 +112,10 @@
 	<defName>WVC_ElfVampire3c</defName>
 	<texPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_Eyes_v0</texPath>
   </XenotypeIconDef>
+  <XenotypeIconDef>
+	<defName>WVC_ElfVampire4c</defName>
+	<texPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_Cyber_v0</texPath>
+  </XenotypeIconDef>
   <!-- Used -->
 
   <!-- Anomaly -->

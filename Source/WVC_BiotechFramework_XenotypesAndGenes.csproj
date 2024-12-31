@@ -69,6 +69,7 @@
     <Compile Include="Resources_Abilities\CompAbility_Validators.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityChimera.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityDuplicator.cs" />
+    <Compile Include="Resources_Abilities\CompProperties_AbilityMechfeed.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityObsolete.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityReimplantXenotype.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityResurgentCost.cs" />

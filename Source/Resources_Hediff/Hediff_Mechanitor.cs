@@ -13,6 +13,8 @@ namespace WVC_XenotypesAndGenes
 
 		private HediffStage curStage;
 
+		private int? allMechsCount;
+
 		public override bool ShouldRemove => pawn.mechanitor == null;
 
 		public override bool Visible => false;
@@ -32,6 +34,12 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref allMechsCount, "allMechsCount");
+		}
+
 		public override HediffStage CurStage
 		{
 			get
@@ -41,13 +49,16 @@ namespace WVC_XenotypesAndGenes
 					curStage = new();
 					if (Voidlink != null && pawn.mechanitor != null)
 					{
-						int allMechsCount = pawn.mechanitor.UsedBandwidth;
+						if (!allMechsCount.HasValue)
+						{
+							allMechsCount = pawn.mechanitor.UsedBandwidth;
+						}
 						curStage.statOffsets = new List<StatModifier>
 						{
 							new()
 							{
 								stat = StatDefOf.MechBandwidth,
-								value = allMechsCount + 1f
+								value = allMechsCount.Value + 1f
 							}
 						};
 						curStage.statFactors = new List<StatModifier>
@@ -60,15 +71,15 @@ namespace WVC_XenotypesAndGenes
 							new()
 							{
 								stat = StatDefOf.SocialImpact,
-								value = 1f - (0.02f * allMechsCount)
+								value = 1f - (0.02f * allMechsCount.Value)
 							},
 							new()
 							{
 								stat = StatDefOf.MentalBreakThreshold,
-								value = 1f - (0.005f * allMechsCount)
+								value = 1f - (0.005f * allMechsCount.Value)
 							}
 						};
-						float talkCap = 1f / (allMechsCount + 1);
+						float talkCap = 1f / (allMechsCount.Value + 1);
 						curStage.capMods = new()
 						{
 							new()
@@ -98,6 +109,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				pawn?.health?.RemoveHediff(this);
 			}
+			allMechsCount = null;
 			curStage = null;
 		}
 

@@ -314,7 +314,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-    public class Gene_HemogenRecharge : Gene_HemogenDependant, IGeneChargeable, IGeneRemoteControl
+    public class Gene_HemogenRecharge : Gene_HemogenOffset, IGeneChargeable, IGeneRemoteControl
 	{
 		public string RemoteActionName => XaG_UiUtility.OnOrOff(autoFeed);
 

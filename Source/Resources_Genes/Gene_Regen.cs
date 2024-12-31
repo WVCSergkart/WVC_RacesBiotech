@@ -32,6 +32,24 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_SelfRepair : Gene_MachineWoundHealing
+	{
+
+		public override void Tick()
+		{
+			if (!pawn.IsHashIntervalTick(579))
+			{
+				return;
+			}
+			if (pawn.Downed || pawn.Drafted || !pawn.Awake())
+			{
+				return;
+			}
+			HealingUtility.Regeneration(pawn, Undead.regeneration, WVC_Biotech.settings.totalHealingIgnoreScarification, 579);
+		}
+
+	}
+
 	// Health
 	public class Gene_HealingStomach : Gene
 	{

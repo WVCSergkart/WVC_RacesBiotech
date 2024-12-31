@@ -49,6 +49,8 @@
 
 	<WVC_Reset>Reset</WVC_Reset>
 
+	<WVC_MechWeightClass>Mech weight class</WVC_MechWeightClass>
+
 	<WVC_Xenotypes>Xenotypes</WVC_Xenotypes>
 	<WVC_CustomXenotypes>Custom xenotypes</WVC_CustomXenotypes>
 

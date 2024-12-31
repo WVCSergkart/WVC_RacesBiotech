@@ -51,4 +51,44 @@
 	</comps>
   </HediffDef>
 
+  <!-- ================== -->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_CasterMechfeed</defName>
+	<label>hemogen mechanites</label>
+	<description>Mechanites slowly replenish hemogen.</description>
+	<tendable>false</tendable>
+	<comps>
+	  <li Class="HediffCompProperties_Disappears">
+		<disappearsAfterTicks>55000~70000</disappearsAfterTicks>
+		<showRemainingTime>true</showRemainingTime>
+	  </li>
+	  <li Class="HediffCompProperties_GiveHemogen">
+		<amountPerDay>0.5</amountPerDay>
+	  </li>
+	</comps>
+  </HediffDef>
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_Base">
+	<defName>WVC_MechMechfeed</defName>
+	<label>mechfeeder mark</label>
+	<description>The number of mechanites of this mechanoid is less than necessary, it will take time to restore.</description>
+	<tendable>false</tendable>
+	<stages>
+	  <li>
+		<statFactors>
+		  <MechEnergyUsageFactor>1.7</MechEnergyUsageFactor>
+		  <WastepacksPerRecharge>2</WastepacksPerRecharge>
+		  <MechEnergyLossPerHP>1.5</MechEnergyLossPerHP>
+		</statFactors>
+	  </li>
+	</stages>
+	<comps>
+	  <li Class="HediffCompProperties_Disappears">
+		<disappearsAfterTicks>85000~120000</disappearsAfterTicks>
+		<showRemainingTime>true</showRemainingTime>
+	  </li>
+	</comps>
+  </HediffDef>
+
 </Defs>

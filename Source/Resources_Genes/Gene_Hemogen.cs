@@ -246,6 +246,14 @@ namespace WVC_XenotypesAndGenes
 
 	public class Gene_Bloodfeeder : Gene_BloodHunter
 	{
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			if (pawn.IsPrisonerOfColony && pawn.guest != null && pawn.guest.HasInteractionWith((PrisonerInteractionModeDef interaction) => interaction.hideIfNoBloodfeeders))
+			{
+				pawn.guest.SetNoInteraction();
+			}
+		}
 
 		public override void Tick()
 		{

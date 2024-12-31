@@ -4,14 +4,12 @@
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="Bloodeaters">
 	<defName>WVC_Chimechkin</defName>
 	<label>chimechkin</label>
-	<description>Beholdkinds are the archite.
+	<description>Chimechkins are rare super-humans, powered by archotech-created archites in the bloodstream that are a sub-xenotype of the chimerkin. They can replenish hemogen by mechfeeding or charging at special stations. Their mechanoid bodies can withstand more dangerous habitats, and lost organs and limbs grow back over time. But most importantly, they can summon mechs from the void to help them.
 
-&lt;color=#f5ffa2&gt;Gameplay Effect (Genes):&lt;/color&gt; A pawn can collect the genes of other pawns using the bloodfeed ability. The collected genes can be implanted at any time as xenogenes. You can also remove all xenogens at any time.
-
-&lt;color=#f5ffa2&gt;Gameplay Effect (Genes):&lt;/color&gt; Death spawns a fleshmass heart and destroys the body.</description>
-	<descriptionShort>Beholdkinds are the archite.</descriptionShort>
+&lt;color=#f5ffa2&gt;Gameplay Effect (Genes):&lt;/color&gt; Can replenish hemogen on rechargers or by biting mechs.</description>
+	<descriptionShort>Chimechkins are rare super-humans, powered by archotech-created archites in the bloodstream that are a sub-xenotype of the chimerkin. They can replenish hemogen by mechfeeding or charging at special stations. Their mechanoid bodies can withstand more dangerous habitats, and lost organs and limbs grow back over time. But most importantly, they can summon mechs from the void to help them.</descriptionShort>
 	<inheritable>true</inheritable>
-	<iconPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_Eyes_v0</iconPath>
+	<iconPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_Cyber_v0</iconPath>
 	<descriptionHyperlinks>
 	  <XenotypeDef>WVC_Shadoweater</XenotypeDef>
 	</descriptionHyperlinks>
@@ -20,10 +18,10 @@
 	<genes>
 		<li>WVC_Eyes_Colorful</li>
 		<li>Hemogenic</li>
-		<li>Bloodfeeder</li>
+		<!-- <li>Bloodfeeder</li> -->
 		<!-- <li>WVC_Bloodeater</li> -->
 		<li>WVC_NaturalAgeless</li>
-		<li>Hair_LongOnly</li>
+		<li>Hair_ShortOnly</li>
 		<!-- <li>WVC_DryadSkin</li> -->
 		<!-- <li>Hair_SnowWhite</li> -->
 		<li>DarkVision</li>
@@ -35,7 +33,7 @@
 		<li>ToxResist_Total</li>
 		<li>FireWeakness</li>
 		<li>FireTerror</li>
-		<li>WVC_BloodfeederBeauty</li>
+		<!-- <li>WVC_BloodfeederBeauty</li> -->
 		<!-- <li>WVC_HemogenicMetabolism</li> -->
 		<!-- <li>WVC_SkinColor_DarkBlue</li> -->
 		<!-- <li>WVC_HeadBoneHorns</li> -->
@@ -43,8 +41,8 @@
 		<li>WVC_Ears_PointedB</li>
 		<!-- <li>WVC_UVSensitivity_Deadly</li> -->
 		<!-- <li>WVC_HealingStomach</li> -->
-		<li>WVC_WoundHealing_NoHealing</li>
-		<li>WVC_ImplanterFangs</li>
+		<!-- <li>WVC_WoundHealing_NoHealing</li> -->
+		<!-- <li>WVC_ImplanterFangs</li> -->
 		<li>PiercingSpine</li>
 		<li>WVC_Tough</li>
 		<li>WVC_Chimera</li>
@@ -59,6 +57,10 @@
 		<li>WVC_VoidMechlink</li>
 		<li>WVC_MechaAI_MechanitorNetwork</li>
 		<li>WVC_OneManArmy</li>
+		<li>Sterile</li>
+		<li>WVC_WoundHealing_SelfRepair</li>
+		<li>WVC_Mechfeeder</li>
+		<li>WVC_PsychicAbility_AlmostDeaf</li>
 	</genes>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">

@@ -519,7 +519,7 @@ namespace WVC_XenotypesAndGenes
 			return pawn?.genes?.GetFirstGeneOfType<Gene_Morpher>() != null;
 		}
 
-		public static bool IsChimera(this Pawn pawn)
+		public static bool IsChimerkin(this Pawn pawn)
 		{
 			return pawn?.genes?.GetFirstGeneOfType<Gene_Chimera>() != null;
 		}

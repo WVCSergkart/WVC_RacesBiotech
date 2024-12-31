@@ -39,7 +39,7 @@ namespace WVC_XenotypesAndGenes
 			//}
 			yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("WVC_XaG_GeneChimeraEntitiesDevour".Translate(), delegate
 			{
-				if (selPawn.IsChimera())
+				if (selPawn.IsChimerkin())
 				{
 					Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation(Props.warningText.Translate(), delegate
 					{

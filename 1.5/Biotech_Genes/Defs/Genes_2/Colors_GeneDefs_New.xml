@@ -21,4 +21,10 @@
 	<skinColorOverride>(200,150,159)</skinColorOverride>
   </GeneDef>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneSkinColorOverride">
+	<defName>WVC_SkinColor_MilkWhite</defName>
+	<label>milk white skin</label>
+	<skinColorOverride>(214,208,211)</skinColorOverride>
+  </GeneDef>
+
 </Defs>

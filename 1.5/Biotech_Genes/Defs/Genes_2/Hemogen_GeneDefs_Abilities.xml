@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ============================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneHemogen_Base">
+	<defName>WVC_Mechfeeder</defName>
+	<label>mechfeeder</label>
+	<description>Carriers of this gene have small retractable fans and an organ on the roof of the mouth which can extract mechanites from active mechanoids. The extracted mechanites are slowly processed into hemogen, giving a temporary noticeable increase.</description>
+	<iconPath>WVC/UI/Genes/Gene_Mechfeeder_v0</iconPath>
+	<abilities>
+	  <li>WVC_Mechfeed</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_Mechfeed</AbilityDef>
+	</descriptionHyperlinks>
+	<biostatMet>-1</biostatMet>
+	<biostatArc>1</biostatArc>
+	<minAgeActive>3</minAgeActive>
+	<symbolPack>
+	  <wholeNameSymbols>
+		<li><symbol>mechfeeder</symbol></li>
+	  </wholeNameSymbols>
+	  <prefixSymbols>
+		<li><symbol>mech</symbol></li>
+		<li><symbol>blood</symbol></li>
+		<li><symbol>vamp</symbol></li>
+		<li><symbol>fang</symbol></li>
+	  </prefixSymbols>
+	  <suffixSymbols>
+		<li><symbol>fang</symbol></li>
+		<li><symbol>eater</symbol></li>
+		<li><symbol>ubus</symbol></li>
+	  </suffixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+  <AbilityDef ParentName="AbilityTouchBase">
+	<defName>WVC_Mechfeed</defName>
+	<label>mechfeed</label>
+	<description>Bite the target and extract mechanites directly from their hull. The target will temporarily have increased power consumption until the lost mechanites are fully restored.\n\nCan only target controlled mechs that have not yet been bitten by this ability.</description>
+	<iconPath>WVC/UI/Genes/Gene_Mechfeeder_v0</iconPath>
+	<category>Sanguophage</category>
+	<displayOrder>100</displayOrder>
+	<!-- <warmupEffecter>Bloodfeed_Warmup</warmupEffecter> -->
+	<warmupStartSound>Bloodfeed_Cast</warmupStartSound>
+	<hostile>false</hostile>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+	<verbProperties>
+	  <verbClass>Verb_CastAbilityTouch</verbClass>
+	  <drawAimPie>false</drawAimPie>
+	  <range>-1</range>
+	  <warmupTime>2</warmupTime>
+	  <warmupEffecter>ControlMech</warmupEffecter>
+	  <targetParams>
+		<canTargetSelf>false</canTargetSelf>
+		<canTargetBuildings>false</canTargetBuildings>
+		<canTargetMechs>true</canTargetMechs>
+		<canTargetBloodfeeders>false</canTargetBloodfeeders>
+		<canTargetHumans>false</canTargetHumans>
+	  </targetParams>
+	</verbProperties>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityMechfeederBite">
+		<casterHediffDef>WVC_CasterMechfeed</casterHediffDef>
+		<mechHediffDef>WVC_MechMechfeed</mechHediffDef>
+	  </li>
+	  <!-- <li Class="CompProperties_AbilityFleckOnTarget"> -->
+		<!-- <fleckDef>BloodSplash</fleckDef> -->
+	  <!-- </li> -->
+	  <li Class="CompProperties_AbilityRequiresCapacity">
+		<capacity>Eating</capacity>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+  <!-- ============================= -->
+
+</Defs>

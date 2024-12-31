@@ -21,14 +21,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
 			yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch);
-			if (!ModLister.CheckAnomaly("Revenant"))
-			{
-				yield return Toils_General.WaitWith(TargetIndex.A, 120, useProgressBar: true).PlaySustainerOrSound(WVC_GenesDefOf.RevenantSpineSmash);
-			}
-			else
-			{
-				yield return Toils_General.WaitWith(TargetIndex.A, 120, useProgressBar: true);
-			}
+			yield return Toils_General.WaitWith(TargetIndex.A, 720, useProgressBar: true).WithEffect(EffecterDefOf.ControlMech, TargetIndex.A);
 			yield return Toils_General.Do(delegate
 			{
 				if (job is XaG_Job xaG_Job)
@@ -36,8 +29,8 @@ namespace WVC_XenotypesAndGenes
 					//XaG_GeneUtility.AddGeneToChimera(pawn, geneDef);
 					XaG_GeneUtility.ImplantChimeraEvolveGeneSet(pawn, geneDef);
 				}
-                HediffUtility.MutationMeatSplatter(Victim, false);
-				Victim.Kill(null);
+                //HediffUtility.MutationMeatSplatter(Victim, false);
+				Victim.Destroy();
 			});
 		}
 

@@ -31,6 +31,7 @@
 			<collectedGenesColor>(162, 216, 162)</collectedGenesColor>
 			<destroyedGenesColor>(178, 97, 96)</destroyedGenesColor>
 			<chimeraGenesTools>
+			  <li>Bloodfeeder</li>
 			  <li>WVC_Chimera_Geneharvest</li>
 			  <li>WVC_Chimera_Packharvest</li>
 			  <li>WVC_Chimera_GeneDigestor</li>

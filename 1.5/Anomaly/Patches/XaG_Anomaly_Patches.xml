@@ -10,15 +10,29 @@
 
 	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
 		<settingName>disableXenotypes_Bloodeaters</settingName>
-		<caseFalse Class="PatchOperationAdd">
-		  <xpath>/Defs/ThingDef[defName="FleshmassNucleus"]/comps</xpath>
-		  <value>
-			<li Class="WVC_XenotypesAndGenes.CompProperties_EntitiesGenes">
-			  <compClass>WVC_XenotypesAndGenes.CompFleshmassGene</compClass>
-			  <geneDef>WVC_FleshmassNucleus</geneDef>
-			  <devourJob>WVC_DevourFleshmassNucleus</devourJob>
-			</li>
-		  </value>
+		<caseFalse Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAdd">
+				  <xpath>/Defs/ThingDef[defName="FleshmassNucleus"]/comps</xpath>
+				  <value>
+					<li Class="WVC_XenotypesAndGenes.CompProperties_EntitiesGenes">
+					  <compClass>WVC_XenotypesAndGenes.CompFleshmassGene</compClass>
+					  <geneDef>WVC_FleshmassNucleus</geneDef>
+					  <devourJob>WVC_DevourFleshmassNucleus</devourJob>
+					</li>
+				  </value>
+				</li>
+				<li Class="PatchOperationAdd">
+				  <xpath>/Defs/ThingDef[defName="Nociosphere"]/comps</xpath>
+				  <value>
+					<li Class="WVC_XenotypesAndGenes.CompProperties_EntitiesGenes">
+					  <compClass>WVC_XenotypesAndGenes.CompFleshmassGene</compClass>
+					  <geneDef>WVC_VoidMechlink</geneDef>
+					  <devourJob>WVC_DevourFleshmassNucleus</devourJob>
+					</li>
+				  </value>
+				</li>
+			</operations>
 		</caseFalse>
 	</Operation>
 	<!-- <Operation Class="PatchOperationAdd"> -->

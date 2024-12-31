@@ -10,6 +10,18 @@ namespace WVC_XenotypesAndGenes
 	public static class MechanoidsUtility
 	{
 
+		public static float ToFloatFactor(this MechWeightClass weightClass)
+		{
+			return weightClass switch
+			{
+				MechWeightClass.Light => 1,
+				MechWeightClass.Medium => 2,
+				MechWeightClass.Heavy => 3,
+				MechWeightClass.UltraHeavy => 4,
+				_ => 5,
+			};
+		}
+
 		// Golems
 
 		public static string GolemsEnergyPerDayInPercent(float energy)
