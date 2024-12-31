@@ -167,7 +167,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_FleshmassBrain : Gene
+	public class Gene_FleshmassBrain : Gene_AutoResearch
 	{
 
 		public override void Tick()
@@ -175,28 +175,6 @@ namespace WVC_XenotypesAndGenes
 			if (pawn.IsHashIntervalTick(3333))
 			{
 				DoResearch(3333);
-			}
-		}
-
-		private float? cachedResearchSpeed;
-
-		public void DoResearch(int tick)
-		{
-			if (pawn.Faction != Faction.OfPlayer)
-			{
-				return;
-			}
-			if (!cachedResearchSpeed.HasValue)
-			{
-				cachedResearchSpeed = pawn.GetStatValue(StatDefOf.ResearchSpeed);
-			}
-			ResearchManager researchManager = Find.ResearchManager;
-			ResearchProjectDef currentProject = researchManager.GetProject();
-			if (currentProject != null)
-			{
-				pawn.skills.Learn(SkillDefOf.Intellectual, 0.04f * tick);
-				float researchAmount = (cachedResearchSpeed.Value * tick) / (StaticCollectionsClass.cachedColonistsCount > 0 ? StaticCollectionsClass.cachedColonistsCount : 1f);
-				researchManager.ResearchPerformed(researchAmount, pawn);
 			}
 		}
 

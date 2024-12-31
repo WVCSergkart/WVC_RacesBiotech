@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- =============== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneEnergy_Base">
+	<defName>WVC_SleepResearch</defName>
+	<label>sleep research</label>
+	<description>Carriers of this gene have archites that form a special organ that allows the carrier to enter a meditative state and conduct research.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_SleepResearch</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_AutoResearch_Sleep</iconPath>
+	<displayOrderInCategory>40</displayOrderInCategory>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Passively generates &lt;color=#8a8ae6&gt;research points&lt;/color&gt;.</li>
+		<li>Pawn should be &lt;color=#8a8ae6&gt;downed, sleep or deathresting&lt;/color&gt;.</li>
+		<li>Each &lt;color=#8a8ae6&gt;colonist&lt;/color&gt; over 1 significantly reduces the effect.</li>
+		<li>&lt;color=#ffec85&gt;Ignores all quest, prisoner, mutant, duplicate and deathresting pawns.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>auto</symbol></li>
+		<li><symbol>research</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<exclusionTags>
+	  <li>WVC_AutoResearch</li>
+	</exclusionTags>
+  </GeneDef>
+
+</Defs>
