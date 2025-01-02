@@ -79,7 +79,7 @@ namespace WVC_XenotypesAndGenes
 								value = 1f - (0.005f * allMechsCount.Value)
 							}
 						};
-						float talkCap = 1f / (allMechsCount.Value + 1);
+						float talkCap = 1f - (allMechsCount.Value * 0.02f);
 						curStage.capMods = new()
 						{
 							new()

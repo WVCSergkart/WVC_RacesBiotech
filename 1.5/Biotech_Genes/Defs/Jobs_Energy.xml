@@ -13,4 +13,10 @@
 	<reportString>hemogen charging.</reportString>
   </JobDef>
 
+  <JobDef>
+	<defName>WVC_RepairXenoHuman</defName>
+	<driverClass>WVC_XenotypesAndGenes.JobDriver_RepairHuman</driverClass>
+	<reportString>repairing TargetA.</reportString>
+  </JobDef>
+
 </Defs>

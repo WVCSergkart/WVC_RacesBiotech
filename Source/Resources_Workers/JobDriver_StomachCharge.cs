@@ -107,4 +107,87 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class JobDriver_RepairHuman : JobDriver
+	{
+
+		private Gene_SelfRepair cachedRepairGene;
+
+		public Gene_SelfRepair Gene
+		{
+			get
+			{
+				if (cachedRepairGene == null || !cachedRepairGene.Active)
+				{
+					cachedRepairGene = Mech?.genes?.GetFirstGeneOfType<Gene_SelfRepair>();
+				}
+				return cachedRepairGene;
+			}
+		}
+
+		protected int ticksToNextRepair;
+
+		protected Pawn Mech => (Pawn)job.GetTarget(TargetIndex.A).Thing;
+
+		protected virtual bool Remote => false;
+
+		protected int TicksPerHeal => Mathf.RoundToInt(1f / pawn.GetStatValue(StatDefOf.MechRepairSpeed) * 120f);
+
+		public override bool TryMakePreToilReservations(bool errorOnFailed)
+		{
+			return pawn.Reserve(Mech, job, 1, -1, null, errorOnFailed);
+		}
+
+		protected override IEnumerable<Toil> MakeNewToils()
+		{
+			this.FailOnDestroyedOrNull(TargetIndex.A);
+			this.FailOnForbidden(TargetIndex.A);
+			this.FailOn(() => Mech.IsAttacking() || Gene == null);
+			if (!Remote)
+			{
+				yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch);
+			}
+			Toil toil = (Remote ? Toils_General.Wait(int.MaxValue) : Toils_General.WaitWith(TargetIndex.A, int.MaxValue, useProgressBar: false, maintainPosture: true, maintainSleep: true));
+			toil.WithEffect(EffecterDefOf.MechRepairing, TargetIndex.A);
+			toil.PlaySustainerOrSound(Remote ? SoundDefOf.RepairMech_Remote : SoundDefOf.RepairMech_Touch);
+			toil.AddPreInitAction(delegate
+			{
+				ticksToNextRepair = TicksPerHeal;
+			});
+			toil.handlingFacing = true;
+			toil.tickAction = delegate
+			{
+				ticksToNextRepair--;
+				if (ticksToNextRepair <= 0)
+				{
+					Gene.Notify_RepairedBy(pawn, TicksPerHeal);
+					ticksToNextRepair = TicksPerHeal;
+				}
+				pawn.rotationTracker.FaceTarget(Mech);
+				if (pawn.skills != null)
+				{
+					pawn.skills.Learn(SkillDefOf.Crafting, 0.05f);
+				}
+			};
+			toil.AddFinishAction(delegate
+			{
+				if (Mech.jobs?.curJob != null)
+				{
+					Mech.jobs.EndCurrentJob(JobCondition.InterruptForced);
+				}
+			});
+			toil.AddEndCondition(() => (Mech.health.summaryHealth.SummaryHealthPercent < 1f) ? JobCondition.Ongoing : JobCondition.Succeeded);
+			if (!Remote)
+			{
+				toil.activeSkill = () => SkillDefOf.Crafting;
+			}
+			yield return toil;
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref ticksToNextRepair, "ticksToNextRepair", 0);
+		}
+	}
+
 }

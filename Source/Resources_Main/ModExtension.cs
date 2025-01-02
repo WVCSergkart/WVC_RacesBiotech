@@ -268,6 +268,7 @@ namespace WVC_XenotypesAndGenes
 		// Energy
 		public bool foodPoisoningFromFood = false;
 		public JobDef rechargeableStomachJobDef;
+		public JobDef repairJobDef;
 		public ThingDef xenoChargerDef;
 		public float chargeSpeedFactor = 1f;
 		// Morpher
