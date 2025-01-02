@@ -67,6 +67,7 @@ namespace WVC_XenotypesAndGenes
 			pawn.TryGetComp<CompHumanlike>()?.ResetInspectString();
 		}
 
+		[Obsolete]
 		public static void Notify_GenesChanged(Pawn pawn)
 		{
 			PawnComponentsUtility.AddAndRemoveDynamicComponents(pawn);

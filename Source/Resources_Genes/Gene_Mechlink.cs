@@ -707,7 +707,20 @@ namespace WVC_XenotypesAndGenes
 			}
 			PawnGenerationRequest request = new(mechKind, pawn.Faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: false, canGeneratePawnRelations: true, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: true, allowAddictions: true, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Newborn);
 			Pawn mech = PawnGenerator.GeneratePawn(request);
-			AgelessUtility.SetAge(mech, 3600000 * new IntRange(9, 23).RandomInRange);
+			AgelessUtility.SetAge(mech, 3600000 * new IntRange(9, 44).RandomInRange);
+			if (Rand.Chance(0.33f))
+			{
+				FloatRange healthRange = new(0.6f, 0.9f);
+				float minHealth = healthRange.RandomInRange;
+				while (mech.health.summaryHealth.SummaryHealthPercent > minHealth)
+                {
+                    BodyPartRecord part = mech.health.hediffSet.GetNotMissingParts().Where((part) => !mech.health.hediffSet.GetInjuredParts().Contains(part)).RandomElement();
+					IntRange damageRange = new(1, 20);
+					int num = (int)pawn.health.hediffSet.GetPartHealth(part) - 1;
+                    int randomInRange = damageRange.RandomInRange;
+					HealingUtility.TakeDamage(mech, part, Rand.Chance(0.5f) ? DamageDefOf.Blunt : DamageDefOf.Crush, randomInRange > num ? num : randomInRange);
+				}
+			}
 			MiscUtility.DoSkipEffects(spawnCell, pawn.Map);
 			GenSpawn.Spawn(mech, spawnCell, pawn.Map);
 			pawn.relations.AddDirectRelation(PawnRelationDefOf.Overseer, mech);

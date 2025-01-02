@@ -235,28 +235,39 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public static void TakeDamage(Pawn pawn, BodyPartRecord part, DamageDef damageDef, int damageNum)
+		{
+			if (part.coverageAbs <= 0f)
+			{
+				return;
+			}
+			DamageInfo damageInfo = new(damageDef, damageNum, 999f, -1f, null, part, null, DamageInfo.SourceCategory.ThingOrUnknown, null, false, false);
+			damageInfo.SetAllowDamagePropagation(false);
+			pawn.TakeDamage(damageInfo);
+		}
+
 		// Special
 		// public static void RegrowAllBodyParts(Pawn pawn)
 		// {
-			// List<BodyPartRecord> bodyParts = pawn.health.hediffSet.GetNotMissingParts().ToList();
-			// List<BodyPartRecord> missingBodyParts = new();
-			// foreach (Hediff_MissingPart missingPartsCommonAncestor in pawn.health.hediffSet.GetMissingPartsCommonAncestors())
-			// {
-				// BodyPartRecord bodyPart = missingPartsCommonAncestor.Part;
-				// if (pawn.health.hediffSet.PartOrAnyAncestorHasDirectlyAddedParts(bodyPart))
-				// {
-					// continue;
-				// }
-				// missingBodyParts.Add(bodyPart);
-			// }
-			// foreach (BodyPartRecord part in missingBodyParts)
-			// {
-				// RestorePartWith1HP(pawn, part);
-			// }
-			// foreach (BodyPartRecord part in bodyParts)
-			// {
-				// SetPartWith1HP(pawn, part);
-			// }
+		// List<BodyPartRecord> bodyParts = pawn.health.hediffSet.GetNotMissingParts().ToList();
+		// List<BodyPartRecord> missingBodyParts = new();
+		// foreach (Hediff_MissingPart missingPartsCommonAncestor in pawn.health.hediffSet.GetMissingPartsCommonAncestors())
+		// {
+		// BodyPartRecord bodyPart = missingPartsCommonAncestor.Part;
+		// if (pawn.health.hediffSet.PartOrAnyAncestorHasDirectlyAddedParts(bodyPart))
+		// {
+		// continue;
+		// }
+		// missingBodyParts.Add(bodyPart);
+		// }
+		// foreach (BodyPartRecord part in missingBodyParts)
+		// {
+		// RestorePartWith1HP(pawn, part);
+		// }
+		// foreach (BodyPartRecord part in bodyParts)
+		// {
+		// SetPartWith1HP(pawn, part);
+		// }
 		// }
 
 	}
