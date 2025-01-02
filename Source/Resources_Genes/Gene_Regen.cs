@@ -75,11 +75,11 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
-			if (pawn.mechanitor == null)
+			if (!pawn.Downed)
 			{
 				yield break;
 			}
-			if (XaG_GeneUtility.ActiveDowned(pawn, this))
+			if (XaG_GeneUtility.SelectorActiveFactionMapMechanitor(pawn, this))
 			{
 				yield break;
 			}
@@ -122,7 +122,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if ((pawn.Downed || !pawn.Awake() || pawn.Deathresting) && pawn.Map != null)
+			if ((pawn.Downed || !pawn.Awake()) && pawn.Map != null)
 			{
 				if (pawn.mechanitor != null && pawn.health.summaryHealth.SummaryHealthPercent < 1f)
 				{

@@ -292,62 +292,75 @@ namespace WVC_XenotypesAndGenes
 				}
 				else if (recipeDef.Worker.GetPartsToApplyOn(pawn, recipeDef).Any())
 				{
-					recipeDef.Worker.ApplyOnPawn(pawn, recipeDef.Worker.GetPartsToApplyOn(pawn, recipeDef).RandomElement(), null, new(), null);
-				}
+					List<BodyPartRecord> parts = recipeDef.Worker.GetPartsToApplyOn(pawn, recipeDef).ToList();
+					if (parts.Count > 1)
+					{
+						Find.WindowStack.Add(new Dialog_ImplantImplanter(pawn, recipeDef, parts));
+					}
+					else
+                    {
+                        ApplyImplantOnPawn(pawn, recipeDef, parts);
+                    }
+                }
 				return true;
 			}
 			return false;
 		}
 
-		//public static bool HeadTypeIsCorrect(Pawn pawn, List<HeadTypeDef> headTypeDefs)
-		//{
-		//	if (pawn?.genes == null || pawn?.story == null)
-		//	{
-		//		return false;
-		//	}
-		//	if (headTypeDefs.Contains(pawn.story.headType))
-		//	{
-		//		if (pawn?.health != null && pawn?.health?.hediffSet != null)
-		//		{
-		//			if (HasEyesGraphic(pawn) || AnyEyeIsMissing(pawn))
-		//			{
-		//				return false;
-		//			}
-		//		}
-		//		return true;
-		//	}
-		//	return false;
-		//}
+        public static void ApplyImplantOnPawn(Pawn pawn, RecipeDef recipeDef, List<BodyPartRecord> parts)
+        {
+            recipeDef.Worker.ApplyOnPawn(pawn, parts.RandomElement(), null, new(), null);
+        }
 
-		//public static bool AnyEyeIsMissing(Pawn pawn)
-		//{
-		//	List<Hediff_MissingPart> missingPart = pawn.health.hediffSet.GetMissingPartsCommonAncestors();
-		//	for (int i = 0; i < missingPart.Count; i++)
-		//	{
-		//		if (missingPart[i].Part.def.tags.Contains(BodyPartTagDefOf.SightSource))
-		//		{
-		//			return true;
-		//		}
-		//	}
-		//	return false;
-		//}
+        //public static bool HeadTypeIsCorrect(Pawn pawn, List<HeadTypeDef> headTypeDefs)
+        //{
+        //	if (pawn?.genes == null || pawn?.story == null)
+        //	{
+        //		return false;
+        //	}
+        //	if (headTypeDefs.Contains(pawn.story.headType))
+        //	{
+        //		if (pawn?.health != null && pawn?.health?.hediffSet != null)
+        //		{
+        //			if (HasEyesGraphic(pawn) || AnyEyeIsMissing(pawn))
+        //			{
+        //				return false;
+        //			}
+        //		}
+        //		return true;
+        //	}
+        //	return false;
+        //}
 
-		//public static bool HasEyesGraphic(Pawn pawn)
-		//{
-		//	List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
-		//	for (int i = 0; i < hediffs.Count; i++)
-		//	{
-		//		if (hediffs[i].def.RenderNodeProperties != null || hediffs[i].def.RenderNodeProperties != null)
-		//		{
-		//			return true;
-		//		}
-		//	}
-		//	return false;
-		//}
+        //public static bool AnyEyeIsMissing(Pawn pawn)
+        //{
+        //	List<Hediff_MissingPart> missingPart = pawn.health.hediffSet.GetMissingPartsCommonAncestors();
+        //	for (int i = 0; i < missingPart.Count; i++)
+        //	{
+        //		if (missingPart[i].Part.def.tags.Contains(BodyPartTagDefOf.SightSource))
+        //		{
+        //			return true;
+        //		}
+        //	}
+        //	return false;
+        //}
 
-		// Add and Remove
+        //public static bool HasEyesGraphic(Pawn pawn)
+        //{
+        //	List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
+        //	for (int i = 0; i < hediffs.Count; i++)
+        //	{
+        //		if (hediffs[i].def.RenderNodeProperties != null || hediffs[i].def.RenderNodeProperties != null)
+        //		{
+        //			return true;
+        //		}
+        //	}
+        //	return false;
+        //}
 
-		public static void AddHediffsFromList(Pawn pawn, List<HediffDef> hediffDefs)
+        // Add and Remove
+
+        public static void AddHediffsFromList(Pawn pawn, List<HediffDef> hediffDefs)
 		{
 			if (hediffDefs.NullOrEmpty() || pawn?.health?.hediffSet == null)
 			{
