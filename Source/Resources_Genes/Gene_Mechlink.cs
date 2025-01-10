@@ -629,9 +629,9 @@ namespace WVC_XenotypesAndGenes
             yield return gizmo;
         }
 
-        public List<PawnKindDef> MechKindDefs => DefDatabase<PawnKindDef>.AllDefsListForReading.Where((mechkind) => MechanoidsUtility.MechanoidIsPlayerMechanoid(mechkind, null) || MechanoidsUtility.MechanoidIsPlayerMechanoid(mechkind)).ToList();
+        public List<PawnKindDef> MechKindDefs => DefDatabase<PawnKindDef>.AllDefsListForReading.Where((mechkind) => MechanoidsUtility.MechanoidIsPlayerMechanoid(mechkind)).ToList();
 
-		public float geneResource = 0;
+		private float geneResource = 0;
 
 		public float ResourceGain => def.resourceLossPerDay / 60000;
 
