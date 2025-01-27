@@ -83,11 +83,11 @@
 		</value>
 	</Operation>
 
-	<Operation Class="PatchOperationAdd">
-	  <xpath>/Defs/MemeDef[defName="NaturePrimacy" or defName="AnimalPersonhood" or defName="FleshPurity" or defName="Rancher"]/exclusionTags</xpath>
-	  <value>
-		  <li>WVC_GeneticSupremacy_Shapeshifter</li>
-	  </value>
-	</Operation>
+	<!-- <Operation Class="PatchOperationAdd"> -->
+	  <!-- <xpath>/Defs/MemeDef[defName="NaturePrimacy" or defName="AnimalPersonhood" or defName="FleshPurity" or defName="Rancher"]/exclusionTags</xpath> -->
+	  <!-- <value> -->
+		  <!-- <li>WVC_GeneticSupremacy_Shapeshifter</li> -->
+	  <!-- </value> -->
+	<!-- </Operation> -->
 
 </Patch>

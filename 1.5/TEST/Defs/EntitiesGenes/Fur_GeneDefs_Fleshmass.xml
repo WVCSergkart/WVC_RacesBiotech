@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Fleshmass -->
+  <GeneDef ParentName="WVC_XenotypesAndGenes_FurskinNatural" WVC_Tag="MechaAndNodeSkins_EasyPatch">
+	<defName>WVC_FleshmassSkin</defName>
+	<label>flesh-eye skin</label>
+	<description>Carriers of this gene have a frightening, abnormal body. Their skin is covered with cancerous flesh scars and half-eyes. These eye growths are connected to the nerves of the carrier's eyes and can see with some limitations.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_FleshmassSkin</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_FleshmassSkin_v0</iconPath>
+	<biostatArc>1</biostatArc>
+	<selectionWeight>0</selectionWeight>
+	<canGenerateInGeneSet>false</canGenerateInGeneSet>
+	<ignoreDarkness>true</ignoreDarkness>
+	<forcedHeadTypes>
+	  <li>WVC_FleshmassHead</li>
+	</forcedHeadTypes>
+	<fur>WVC_FleshmassSkin</fur>
+	<missingGeneRomanceChanceFactor>0.05</missingGeneRomanceChanceFactor>
+	<customEffectDescriptions>
+		<li>Healing: 10 hp/day</li>
+		<!-- <li>&lt;color=#ffec85&gt;The eyes of the carrier regenerate.&lt;/color&gt;</li> -->
+	</customEffectDescriptions>
+	<conditionalStatAffecters>
+	  <li Class="ConditionalStatAffecter_Unclothed">
+		<statOffsets>
+		  <MeleeDodgeChance>15</MeleeDodgeChance>
+		  <MeleeHitChance>12</MeleeHitChance>
+		  <ShootingAccuracyPawn>12</ShootingAccuracyPawn>
+		  <PawnTrapSpringChance>-0.9</PawnTrapSpringChance>
+		  <IncomingDamageFactor>0.1</IncomingDamageFactor>
+		</statOffsets>
+	  </li>
+	</conditionalStatAffecters>
+	<capMods>
+	  <li>
+		<capacity>Sight</capacity>
+		<offset>0.5</offset>
+	  </li>
+	</capMods>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>flesh</symbol></li>
+		<li><symbol>eye</symbol></li>
+		<li><symbol>eyes</symbol></li>
+		<li><symbol>scar</symbol></li>
+		<li><symbol>anomaly</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<isFleshmass>true</isFleshmass>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+</Defs>

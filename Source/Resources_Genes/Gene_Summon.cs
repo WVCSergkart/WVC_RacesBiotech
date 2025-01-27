@@ -79,6 +79,15 @@ namespace WVC_XenotypesAndGenes
 
 		//===========
 
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			if (Current.ProgramState == ProgramState.Playing)
+			{
+				nextTick = Spawner.spawnIntervalRange.RandomInRange;
+			}
+		}
+
 		public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
 
 		public int nextTick;

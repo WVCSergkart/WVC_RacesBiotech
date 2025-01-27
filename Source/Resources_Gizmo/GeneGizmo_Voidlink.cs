@@ -15,9 +15,8 @@ namespace WVC_XenotypesAndGenes
 
 		private static readonly CachedTexture SummonIcon = new("WVC/UI/XaG_General/UI_VoidlinkSummon_Gizmos_v0");
 
-		private static readonly Texture2D BarTex = SolidColorMaterials.NewSolidColorTexture(new ColorInt(93, 101, 126).ToColor);
-
-		private static readonly Texture2D EmptyBarTex = SolidColorMaterials.NewSolidColorTexture(new Color(0.03f, 0.035f, 0.05f));
+		public Texture2D BarTex = SolidColorMaterials.NewSolidColorTexture(new ColorInt(93, 101, 126).ToColor);
+		public Texture2D EmptyBarTex = SolidColorMaterials.NewSolidColorTexture(new Color(0.03f, 0.035f, 0.05f));
 
 		public Pawn mechanitor;
 
