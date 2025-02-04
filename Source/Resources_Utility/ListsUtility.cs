@@ -184,7 +184,7 @@ namespace WVC_XenotypesAndGenes
 			List<XenotypeDef> list = new();
 			foreach (XenotypeDef item in DefDatabase<XenotypeDef>.AllDefsListForReading)
 			{
-				if (item.Icon == null)
+				if (Current.ProgramState == ProgramState.Playing && item.Icon == null)
 				{
 					Log.Error("Failed find xenotype icon for mod " + (item.modContentPack?.ModMetaData?.Name).ToString() + ". Contact the " + (item.modContentPack?.ModMetaData?.AuthorsString).ToString() + ". " + item.defName + " skipped.");
 					continue;

@@ -38,6 +38,7 @@ namespace WVC_XenotypesAndGenes
 					energyFoodPolicy.filter.SetAllow(item, allow: false);
 				}
 			}
+			//UpdateSavedVersion();
 		}
 
 		private int nextRecache = 444;
@@ -52,6 +53,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void LoadedGame()
 		{
+			//UpdateSavedVersion();
 			DevFixes();
 		}
 
@@ -80,6 +82,22 @@ namespace WVC_XenotypesAndGenes
 				nextSecondRecache = 1;
 			}
 		}
+
+		//private string savedModVersion = null;
+
+		//public void UpdateSavedVersion(bool sendLetter = false)
+		//{
+		//	if (sendLetter && !savedModVersion.Contains(WVC_Biotech.settings.Mod.Content.ModMetaData.ModVersion))
+  //          {
+				
+  //          }
+		//	savedModVersion = WVC_Biotech.settings.Mod.Content.ModMetaData.ModVersion;
+		//}
+
+		//public override void ExposeData()
+		//{
+		//	Scribe_Values.Look(ref savedModVersion, null);
+		//}
 
 		// DEV
 		public void DevFixes()

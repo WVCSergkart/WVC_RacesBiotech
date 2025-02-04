@@ -23,7 +23,7 @@ namespace WVC_XenotypesAndGenes
         //public GeneDef chimeraEvolveGeneDef;
         public bool saveOldChimeraGeneSet = false;
         public int startingMutations = 0;
-        public IntRange additionalChronoAge;
+        public IntRange additionalChronoAge = new(0, 0);
 
         //public override void ExposeData()
         //{
@@ -108,11 +108,10 @@ namespace WVC_XenotypesAndGenes
 
         private void AgeCorrection(Pawn p)
         {
-            if (additionalChronoAge == null)
+            if (additionalChronoAge.max > 0)
             {
-                return;
+                p.ageTracker.AgeChronologicalTicks += (long)(additionalChronoAge.RandomInRange * 3600000L);
             }
-            p.ageTracker.AgeChronologicalTicks += (long)(additionalChronoAge.RandomInRange * 3600000L);
         }
 
         private void ChimeraGenes(Pawn p)
@@ -186,60 +185,66 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
+        private string cachedDesc = null; 
+
         public override string Summary(Scenario scen)
         {
-            StringBuilder stringBuilder = new();
-            if (!xenotypeChances.NullOrEmpty())
+            if (cachedDesc == null)
             {
-                stringBuilder.AppendLine();
-                stringBuilder.AppendLine("WVC_AllowedXenotypes".Translate().CapitalizeFirst() + ":\n" + xenotypeChances.Select((XenotypeChance x) => x.xenotype.LabelCap.ToString()).ToLineList(" - ") + (!allowedXenotypes.NullOrEmpty() ? "\n" + allowedXenotypes.Select((XenotypeDef x) => x.LabelCap.ToString()).ToLineList(" - ") : ""));
+                StringBuilder stringBuilder = new();
+                if (!xenotypeChances.NullOrEmpty())
+                {
+                    stringBuilder.AppendLine();
+                    stringBuilder.AppendLine("WVC_AllowedXenotypes".Translate().CapitalizeFirst() + ":\n" + xenotypeChances.Select((XenotypeChance x) => x.xenotype.LabelCap.ToString()).ToLineList(" - ") + (!allowedXenotypes.NullOrEmpty() ? "\n" + allowedXenotypes.Select((XenotypeDef x) => x.LabelCap.ToString()).ToLineList(" - ") : ""));
+                }
+                if (addMechlink)
+                {
+                    stringBuilder.AppendLine();
+                    stringBuilder.AppendLine("WVC_XaG_ScenPart_AddMechlink".Translate().CapitalizeFirst());
+                }
+                if (nullifyBackstory)
+                {
+                    stringBuilder.AppendLine();
+                    stringBuilder.AppendLine("WVC_XaG_ScenPart_NullifyBackstory".Translate().CapitalizeFirst());
+                }
+                if (nullifySkills)
+                {
+                    stringBuilder.AppendLine();
+                    stringBuilder.AppendLine("WVC_XaG_ScenPart_NullifySkills".Translate().CapitalizeFirst());
+                }
+                //if (embraceTheVoid)
+                //{
+                //    stringBuilder.AppendLine();
+                //    stringBuilder.AppendLine("WVC_XaG_ScenPart_EmbraceTheVoid".Translate().CapitalizeFirst());
+                //}
+                if (!geneDefs.NullOrEmpty())
+                {
+                    stringBuilder.AppendLine();
+                    stringBuilder.AppendLine("WVC_XaG_ScenPart_StartingGenes".Translate().CapitalizeFirst() + ":\n" + geneDefs.Select((GeneDef x) => x.LabelCap.ToString()).ToLineList(" - "));
+                }
+                if (!chimeraGeneDefs.NullOrEmpty())
+                {
+                    stringBuilder.AppendLine();
+                    stringBuilder.AppendLine("WVC_XaG_ScenPart_ChimeraStartingGenes".Translate().CapitalizeFirst() + ":\n" + chimeraGeneDefs.Select((GeneDef x) => x.LabelCap.ToString()).ToLineList(" - "));
+                }
+                //if (chimeraEvolveGeneDef != null)
+                //{
+                //    stringBuilder.AppendLine();
+                //    stringBuilder.AppendLine("WVC_XaG_ScenPart_ChimeraStartingEvolution".Translate().CapitalizeFirst());
+                //}
+                if (startingMutations > 0)
+                {
+                    stringBuilder.AppendLine();
+                    stringBuilder.AppendLine("WVC_XaG_ScenPart_StartingMutations".Translate(startingMutations).CapitalizeFirst());
+                }
+                if (additionalChronoAge.max > 0)
+                {
+                    stringBuilder.AppendLine();
+                    stringBuilder.AppendLine("WVC_XaG_ScenPart_AddChronoAge".Translate(additionalChronoAge.min, additionalChronoAge.max).CapitalizeFirst());
+                }
+                cachedDesc = stringBuilder.ToString();
             }
-            if (addMechlink)
-            {
-                stringBuilder.AppendLine();
-                stringBuilder.AppendLine("WVC_XaG_ScenPart_AddMechlink".Translate().CapitalizeFirst());
-            }
-            if (nullifyBackstory)
-            {
-                stringBuilder.AppendLine();
-                stringBuilder.AppendLine("WVC_XaG_ScenPart_NullifyBackstory".Translate().CapitalizeFirst());
-            }
-            if (nullifySkills)
-            {
-                stringBuilder.AppendLine();
-                stringBuilder.AppendLine("WVC_XaG_ScenPart_NullifySkills".Translate().CapitalizeFirst());
-            }
-            //if (embraceTheVoid)
-            //{
-            //    stringBuilder.AppendLine();
-            //    stringBuilder.AppendLine("WVC_XaG_ScenPart_EmbraceTheVoid".Translate().CapitalizeFirst());
-            //}
-            if (!geneDefs.NullOrEmpty())
-            {
-                stringBuilder.AppendLine();
-                stringBuilder.AppendLine("WVC_XaG_ScenPart_StartingGenes".Translate().CapitalizeFirst() + ":\n" + geneDefs.Select((GeneDef x) => x.LabelCap.ToString()).ToLineList(" - "));
-            }
-            if (!chimeraGeneDefs.NullOrEmpty())
-            {
-                stringBuilder.AppendLine();
-                stringBuilder.AppendLine("WVC_XaG_ScenPart_ChimeraStartingGenes".Translate().CapitalizeFirst() + ":\n" + chimeraGeneDefs.Select((GeneDef x) => x.LabelCap.ToString()).ToLineList(" - "));
-            }
-            //if (chimeraEvolveGeneDef != null)
-            //{
-            //    stringBuilder.AppendLine();
-            //    stringBuilder.AppendLine("WVC_XaG_ScenPart_ChimeraStartingEvolution".Translate().CapitalizeFirst());
-            //}
-            if (startingMutations > 0)
-            {
-                stringBuilder.AppendLine();
-                stringBuilder.AppendLine("WVC_XaG_ScenPart_StartingMutations".Translate(startingMutations).CapitalizeFirst());
-            }
-            if (additionalChronoAge != null)
-            {
-                stringBuilder.AppendLine();
-                stringBuilder.AppendLine("WVC_XaG_ScenPart_AddChronoAge".Translate(additionalChronoAge.min, additionalChronoAge.max).CapitalizeFirst());
-            }
-            return stringBuilder.ToString();
+            return cachedDesc;
         }
 
     }
