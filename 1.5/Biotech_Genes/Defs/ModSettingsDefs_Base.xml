@@ -20,7 +20,7 @@
 	<!-- <reincarnation_MinChronoAge>500</reincarnation_MinChronoAge> -->
 	<!-- <gestatedDryads_AnomalyRegeneration>10</gestatedDryads_AnomalyRegeneration> -->
 	<enable_FurskinIsSkinAutopatch>True</enable_FurskinIsSkinAutopatch>
-	<enable_ReplaceSimilarGenesAutopatch>True</enable_ReplaceSimilarGenesAutopatch>
+	<enable_ReplaceSimilarGenesAutopatch>false</enable_ReplaceSimilarGenesAutopatch>
 	<!-- <bloodfeeder_AutoBloodfeed>True</bloodfeeder_AutoBloodfeed> -->
 	<enable_OverOverridableGenesMechanic>true</enable_OverOverridableGenesMechanic>
 	<generateSkillGenes>false</generateSkillGenes>

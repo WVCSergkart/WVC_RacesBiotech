@@ -27,10 +27,10 @@ namespace WVC_XenotypesAndGenes
 		public override void Tick()
 		{
 			// base.Tick();
-			if (pawn.IsHashIntervalTick(600))
-			{
-				HealingUtility.Regeneration(pawn, Undead.regeneration, WVC_Biotech.settings.totalHealingIgnoreScarification, 600);
-			}
+			//if (pawn.IsHashIntervalTick(600))
+			//{
+			//	HealingUtility.Regeneration(pawn, Undead.regeneration, WVC_Biotech.settings.totalHealingIgnoreScarification, 600);
+			//}
 			//new IntRange(60000, 150000).RandomInRange
 			if (GeneResourceUtility.CanTick(ref nextTick, 150000))
 			{
