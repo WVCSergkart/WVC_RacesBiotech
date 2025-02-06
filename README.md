@@ -30,3 +30,6 @@ Performance impact is always a sticking point for big mods, and this mod is far 
 I made this mod with priority on minimal impact on performance, modification of vanilla code using harmony is kept to a minimum, and most functions using harmony can be disabled in the mod settings.
 
 The mod **should have no impact on performance** if you don't use _things_ from it, and when you do, the impact **should be as low as possible**.
+
+# Important
+The mod is distributed completely free of charge and the author does not receive any payments for it in any form. The official sources of the mod are only [GitHub](https://github.com/WVCSergkart/WVC_RacesBiotech) and [Steam](https://steamcommunity.com/sharedfiles/filedetails/?id=2886992038).
