@@ -51,7 +51,7 @@
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
 	<defName>WVC_FleshmassBuilder</defName>
-	<label>fleshmass builder</label>
+	<label>deadlife builder</label>
 	<description>Carriers of this gene have a cancerous mass of semi-sentient flesh with nests of archites capable of performing some construction work and repairing buildings.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_FleshmassBuilder</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_FleshmassBuilder_v0</iconPath>
@@ -83,6 +83,22 @@
 	<customEffectDescriptions>
 		<li>When &lt;color=#8a8ae6&gt;hunger&lt;/color&gt; is low, &lt;color=#8a8ae6&gt;destroys&lt;/color&gt; a random limb or organ and restores the &lt;color=#8a8ae6&gt;hunger&lt;/color&gt; bar.</li>
 		<li>&lt;color=#ffec85&gt;Can kill the carrier.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneFleshmass_Mutations">
+	<defName>WVC_FleshmassRegeneration</defName>
+	<label>fleshmass regeneration</label>
+	<description>Carriers of this gene have archites that regenerate wounds and restore lost limbs depending on the number of wounds and scars.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_FleshmassRegeneration</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_FleshmassRegen_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>30</displayOrderInCategory>
+	<biostatCpx>4</biostatCpx>
+	<biostatArc>3</biostatArc>
+	<biostatMet>-3</biostatMet>
+	<customEffectDescriptions>
+		<li>Basic healing: 4 hp/day. This value is divided by the &lt;color=#8a8ae6&gt;summary HP percentage&lt;/color&gt;. And then multiplied by the number of &lt;color=#8a8ae6&gt;wounds&lt;/color&gt;, &lt;color=#8a8ae6&gt;scars&lt;/color&gt; and &lt;color=#8a8ae6&gt;lost limbs&lt;/color&gt;.</li>
 	</customEffectDescriptions>
   </GeneDef>
 

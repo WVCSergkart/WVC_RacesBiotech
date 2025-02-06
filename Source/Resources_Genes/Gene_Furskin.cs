@@ -126,7 +126,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			List<Hediff> hediffs = pawn.health.hediffSet.hediffs.Where((hediff) => hediff.def == HediffDefOf.MissingBodyPart && hediff.Part.def.tags.Contains(BodyPartTagDefOf.SightSource)).ToList();
+			List<Hediff> hediffs = pawn.health.hediffSet.hediffs.Where((hediff) => hediff is Hediff_MissingPart && hediff.Part.def.tags.Contains(BodyPartTagDefOf.SightSource)).ToList();
 			foreach (Hediff hediff in hediffs)
 			{
 				BodyPartRecord part = hediff.Part;

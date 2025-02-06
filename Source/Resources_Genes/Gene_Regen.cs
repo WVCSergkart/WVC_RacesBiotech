@@ -171,4 +171,31 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_FleshmassRegeneration : Gene
+	{
+
+		//public GeneExtension_Undead Undead => def.GetModExtension<GeneExtension_Undead>();
+
+		private float? cachedRegen;
+		private int nextRecache = 0;
+
+		public override void Tick()
+		{
+			// base.Tick();
+			if (!pawn.IsHashIntervalTick(597))
+			{
+				return;
+			}
+			if (GeneResourceUtility.CanTick(ref nextRecache, 5))
+			{
+				cachedRegen = ((1 + def.biostatArc) / pawn.health.summaryHealth.SummaryHealthPercent) * pawn.health.hediffSet.hediffs.Where((hediff) => hediff is Hediff_MissingPart || hediff is Hediff_Injury).ToList().Count;
+			}
+			if (cachedRegen.HasValue)
+			{
+				HealingUtility.Regeneration(pawn, cachedRegen.Value, WVC_Biotech.settings.totalHealingIgnoreScarification, 597);
+			}
+		}
+
+	}
+
 }
