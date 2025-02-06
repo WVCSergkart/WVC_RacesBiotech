@@ -32,4 +32,8 @@ I made this mod with priority on minimal impact on performance, modification of 
 The mod **should have no impact on performance** if you don't use _things_ from it, and when you do, the impact **should be as low as possible**.
 
 # Important
-The mod is distributed completely free of charge and the author does not receive any payments for it in any form. The official sources of the mod are only [GitHub](https://github.com/WVCSergkart/WVC_RacesBiotech) and [Steam](https://steamcommunity.com/sharedfiles/filedetails/?id=2886992038).
+The mod is distributed absolutely free of charge. There is only one person behind the mod, without any support from a third party. The author does not receive any monetary or other payments for working on this project. Be careful when downloading the mod from unofficial sources!
+
+The official sources of the mod are only [GitHub](https://github.com/WVCSergkart/WVC_RacesBiotech) and [Steam](https://steamcommunity.com/sharedfiles/filedetails/?id=2886992038).
+
+**If you liked the mod and want to support it, then give it a**:star2:
