@@ -22,6 +22,7 @@
 					  <compClass>WVC_XenotypesAndGenes.CompFleshmassGene</compClass>
 					  <geneDef>WVC_VoidMechlink</geneDef>
 					  <devourJob>WVC_DevourFleshmassNucleus</devourJob>
+					  <warningText>WVC_XaG_GeneChimeraDevourNociosphereWarning</warningText>
 					</li>
 				  </value>
 				</li>

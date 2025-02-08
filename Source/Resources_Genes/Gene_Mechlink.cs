@@ -671,7 +671,11 @@ namespace WVC_XenotypesAndGenes
         public List<PawnKindDef> selectedMechs = new();
 
 		private bool TrySummonMechs()
-        {
+		{
+			if (pawn.mechanitor == null)
+			{
+				return false;
+			}
 			if (selectedMechs.NullOrEmpty())
             {
 				return false;

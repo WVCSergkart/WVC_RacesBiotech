@@ -204,6 +204,7 @@ namespace WVC_XenotypesAndGenes
 		public bool isFleshmass = false;
 		//Xenos
 		public bool isChimerkin = false;
+		//public bool isEvolvedChimerkin = false;
 	}
 
 	public class GeneExtension_Graphic : DefModExtension

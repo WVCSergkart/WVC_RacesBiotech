@@ -551,10 +551,16 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_ChimeraApply_Eat>Eat</WVC_XaG_ChimeraApply_Eat>
 	<WVC_XaG_ChimeraApply_Clear>Clear</WVC_XaG_ChimeraApply_Clear>
 
-	<WVC_XaG_GeneChimeraEntitiesDevour>Devour using the chimera gene.</WVC_XaG_GeneChimeraEntitiesDevour>
-	<WVC_XaG_GeneChimeraReqGene>Pawn must have a chimera gene or something similar.</WVC_XaG_GeneChimeraReqGene>
+	<!-- =============== CHIMERA EVOLVE =============== -->
 
-	<WVC_XaG_GeneChimeraDevourFleshmassNucleusWarning>Devour will kill the fleshmass nucleus and completely transform the chimera. The pawn will lose some old endogenes and gain a number of new ones related to the fleshmass. These changes are irreversible and have some hidden dangers.\n\nAre you sure you wish to continue?</WVC_XaG_GeneChimeraDevourFleshmassNucleusWarning>
+	<WVC_XaG_GeneChimeraEntitiesDevour>Devour using the chimera gene.</WVC_XaG_GeneChimeraEntitiesDevour>
+
+	<!-- <WVC_XaG_GeneChimeraReqGene>Pawn must have a chimera gene or something similar.</WVC_XaG_GeneChimeraReqGene> -->
+	<WVC_XaG_GeneChimeraReqGene>Entityty study is not complete or the pawn does not have the chimera gene.</WVC_XaG_GeneChimeraReqGene>
+
+	<WVC_XaG_GeneChimeraDevourFleshmassNucleusWarning>Devour will destroy the fleshmass nucleus and completely transform the chimera. The pawn will lose some old endogenes and gain a number of new ones related to the fleshmass. The lost endogenes will be copied by the chimera gene and can be re-implanted later. These changes are irreversible and have some hidden dangers.\n\nAre you sure you wish to continue?</WVC_XaG_GeneChimeraDevourFleshmassNucleusWarning>
+
+	<WVC_XaG_GeneChimeraDevourNociosphereWarning>Devour will destroy the nociosphere and completely transform the chimera. The pawn will lose some old endogenes and gain a number of new ones. The lost endogenes will be copied by the chimera gene and can be re-implanted later. These changes are irreversible and have some hidden dangers.\n\nAre you sure you wish to continue?</WVC_XaG_GeneChimeraDevourNociosphereWarning>
 
 	<!-- =============== VOID MECHLINK =============== -->
 

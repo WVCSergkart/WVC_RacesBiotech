@@ -3,11 +3,12 @@
 
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="Bloodeaters">
 	<defName>WVC_Chimechkin</defName>
-	<label>chimechkin</label>
-	<description>Chimechkins are rare super-humans, powered by archotech-created archites in the bloodstream that are a sub-xenotype of the chimerkin. They can replenish hemogen by mechfeeding or charging at special stations. Their mechanoid bodies can withstand more dangerous habitats, and lost organs and limbs grow back over time. But most importantly, they can summon mechs from the void to help them.
+	<!-- chimechkin, nociokin -->
+	<label>nociokin</label>
+	<description>Nociokins are rare super-humans, powered by archotech-created archites in the bloodstream that are a sub-xenotype of the chimerkin. They can replenish hemogen by mechfeeding or charging at special stations. Their mechanoid bodies can withstand more dangerous habitats, and lost organs and limbs grow back over time. But most importantly, they can summon mechs from the void to help them.
 
 &lt;color=#f5ffa2&gt;Gameplay Effect (Genes):&lt;/color&gt; Can replenish hemogen on rechargers or by biting mechs.</description>
-	<descriptionShort>Chimechkins are rare super-humans, powered by archotech-created archites in the bloodstream that are a sub-xenotype of the chimerkin. They can replenish hemogen by mechfeeding or charging at special stations. Their mechanoid bodies can withstand more dangerous habitats, and lost organs and limbs grow back over time. But most importantly, they can summon mechs from the void to help them.</descriptionShort>
+	<descriptionShort>Nociokins are rare super-humans, powered by archotech-created archites in the bloodstream that are a sub-xenotype of the chimerkin. They can replenish hemogen by mechfeeding or charging at special stations. Their mechanoid bodies can withstand more dangerous habitats, and lost organs and limbs grow back over time. But most importantly, they can summon mechs from the void to help them.</descriptionShort>
 	<inheritable>true</inheritable>
 	<iconPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_Cyber_v0</iconPath>
 	<descriptionHyperlinks>
@@ -65,6 +66,7 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
 			<isChimerkin>true</isChimerkin>
+			<!-- <isEvolvedChimerkin>true</isEvolvedChimerkin> -->
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
 			<defaultColor>(255, 133, 133)</defaultColor>
