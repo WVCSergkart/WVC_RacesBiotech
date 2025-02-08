@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ============================= -->
+
+  <GeneDef>
+	<defName>WVC_DarknessExposure</defName>
+	<label>darkness adaptation</label>
+	<description>Carriers of this gene have a special organ that reacts to unnatural darkness. When exposed to darkness for a long time, it begins to produce a special smell that repels creatures hiding in it.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DarknessExposure</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_DarknessExposure_v0</iconPath>
+	<selectionWeight>0.00022</selectionWeight>
+	<displayCategory>WVC_Miscellaneous</displayCategory>
+	<displayOrderInCategory>125</displayOrderInCategory>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>After prolonged &lt;color=#8a8ae6&gt;darkness exposure&lt;/color&gt;, makes the pawn &lt;color=#8a8ae6&gt;immune&lt;/color&gt; to this effect.</li>
+		<li>The immunity disappears 24 hours after the last &lt;color=#8a8ae6&gt;exposure&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>dark</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>

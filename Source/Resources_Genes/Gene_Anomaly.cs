@@ -277,4 +277,38 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_DarknessExposure : Gene
+	{
+
+		private int nextTick = 10;
+		private int updTry = 0;
+
+		public override void Tick()
+		{
+			nextTick--;
+			if (updTry > 0)
+			{
+				updTry--;
+			}
+			if (nextTick > 0)
+			{
+				return;
+			}
+			if (pawn.health.hediffSet.TryGetHediff(HediffDefOf.DarknessExposure, out Hediff hediff))
+			{
+				pawn.health.RemoveHediff(hediff);
+				updTry = 60000;
+			}
+			if (updTry > 0)
+			{
+				nextTick = 30;
+			}
+			else
+			{
+				nextTick = 3333;
+			}
+		}
+
+	}
+
 }

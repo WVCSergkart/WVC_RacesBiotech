@@ -1,6 +1,8 @@
 # Xenotypes and Genes
 The mod has a page on Steam, the Steam version is updated much less frequently. Either with major updates or with bug fixes.
 
+**If you liked the mod and want to support it, then give it a**:star2:
+
 Keep this in mind. Since the _wiki is updated relative to the repository_.
 
 [Release](https://github.com/WVCSergkart/WVC_RacesBiotech/releases) or [Steam page](https://steamcommunity.com/sharedfiles/filedetails/?id=2886992038)
@@ -35,5 +37,3 @@ The mod **should have no impact on performance** if you don't use _things_ from 
 The mod is distributed absolutely free of charge. There is only one person behind the mod, without any support from a third party. The author does not receive any monetary or other payments for working on this project. Be careful when downloading the mod from unofficial sources!
 
 The official sources of the mod are only [GitHub](https://github.com/WVCSergkart/WVC_RacesBiotech) and [Steam](https://steamcommunity.com/sharedfiles/filedetails/?id=2886992038).
-
-**If you liked the mod and want to support it, then give it a**:star2:
