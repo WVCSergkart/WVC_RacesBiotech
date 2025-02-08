@@ -1,11 +1,11 @@
 # Xenotypes and Genes
 The mod has a page on Steam, the Steam version is updated much less frequently. Either with major updates or with bug fixes.
 
-**If you liked the mod and want to support it, then give it a**:star2:
-
 Keep this in mind. Since the _wiki is updated relative to the repository_.
 
 [Release](https://github.com/WVCSergkart/WVC_RacesBiotech/releases) or [Steam page](https://steamcommunity.com/sharedfiles/filedetails/?id=2886992038)
+
+**If you liked the mod and want to support it, then give it a**:star2:
 
 ## Focus
 The main focus of the mod is on xenotypes, and only then on genes. First of all, when creating mechanics for genes, I create them for xenotypes that I plan to add.
