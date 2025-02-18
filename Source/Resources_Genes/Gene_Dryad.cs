@@ -66,50 +66,66 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		private void SpawnDryad()
-		{
-			if (dryads == null)
+        {
+			string phase = "start";
+            try
 			{
-				dryads = new();
-			}
-			foreach (Pawn item in dryads.ToList())
-			{
-				if (item == null || item.Dead || item.Destroyed)
+				if (dryads == null)
 				{
-					// dryads.Remove(item);
-					RemoveDryad(item);
+					dryads = new();
 				}
+				phase = "upd dryads list";
+				foreach (Pawn item in dryads.ToList())
+				{
+					if (item == null || item.Dead || item.Destroyed)
+					{
+						// dryads.Remove(item);
+						RemoveDryad(item);
+					}
+				}
+				if (pawn.Faction != Faction.OfPlayer)
+				{
+					spawnDryads = false;
+				}
+				phase = "get count";
+				int litterSize = ((pawn.RaceProps.litterSizeCurve == null) ? 1 : Mathf.RoundToInt(Rand.ByCurve(pawn.RaceProps.litterSizeCurve)));
+				if (litterSize < 1)
+				{
+					litterSize = 1;
+				}
+				phase = "spawn dryad sequence";
+				for (int i = 0; i < litterSize; i++)
+				{
+					if (!spawnDryads || pawn.Map == null || Spawner?.defaultDryadPawnKindDef == null || dryads.Count >= pawn.GetStatValue(Spawner.dryadsStatLimit, cacheStaleAfterTicks: 120))
+					{
+						return;
+					}
+					phase = "generate dryad";
+					Pawn dryad = GenerateNewDryad(Spawner.defaultDryadPawnKindDef);
+					if (dryad == null)
+					{
+						return;
+					}
+					phase = "spawn dryad";
+					GenSpawn.Spawn(dryad, pawn.Position, pawn.Map).Rotation = Rot4.South;
+					EffecterDefOf.DryadSpawn.Spawn(pawn.Position, pawn.Map).Cleanup();
+					SoundDefOf.Pawn_Dryad_Spawn.PlayOneShot(SoundInfo.InMap(dryad));
+				}
+				// Post Spawn Sickness
+				phase = "upd queen hediff";
+				if (Spawner.postGestationSickness != null)
+				{
+					Hediff hediff = HediffMaker.MakeHediff(Spawner.postGestationSickness, pawn);
+					pawn.health.AddHediff(hediff);
+				}
+				UpdHediff();
 			}
-			if (pawn.Faction != Faction.OfPlayer)
-			{
+			catch (Exception arg)
+            {
 				spawnDryads = false;
+				nextTick = 2000;
+				Log.Error("Failed spawn dryad. On phase: " + phase + ". Reason: " + arg);
 			}
-			int litterSize = ((pawn.RaceProps.litterSizeCurve == null) ? 1 : Mathf.RoundToInt(Rand.ByCurve(pawn.RaceProps.litterSizeCurve)));
-			if (litterSize < 1)
-			{
-				litterSize = 1;
-			}
-			for (int i = 0; i < litterSize; i++)
-			{
-				if (!spawnDryads || pawn.Map == null || Spawner?.defaultDryadPawnKindDef == null || dryads.Count >= pawn.GetStatValue(Spawner.dryadsStatLimit, cacheStaleAfterTicks: 120))
-				{
-					return;
-				}
-				Pawn dryad = GenerateNewDryad(Spawner.defaultDryadPawnKindDef);
-				if (dryad == null)
-				{
-					return;
-				}
-				GenSpawn.Spawn(dryad, pawn.Position, pawn.Map).Rotation = Rot4.South;
-				EffecterDefOf.DryadSpawn.Spawn(pawn.Position, pawn.Map).Cleanup();
-				SoundDefOf.Pawn_Dryad_Spawn.PlayOneShot(SoundInfo.InMap(dryad));
-			}
-			// Post Spawn Sickness
-			if (Spawner.postGestationSickness != null)
-			{
-				Hediff hediff = HediffMaker.MakeHediff(Spawner.postGestationSickness, pawn);
-				pawn.health.AddHediff(hediff);
-			}
-			UpdHediff();
 		}
 
 		public void UpdHediff()
