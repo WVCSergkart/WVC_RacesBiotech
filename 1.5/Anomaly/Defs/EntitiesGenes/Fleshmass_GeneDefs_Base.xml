@@ -50,7 +50,7 @@
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
 			<regeneration>100</regeneration>
 			<maxMutationLevel>5</maxMutationLevel>
-			<xenotypeDef>WVC_Beholdkind</xenotypeDef>
+			<xenotypeDef MayRequire="wvc.sergkart.test.tools">WVC_Beholdkind</xenotypeDef>
 			<!-- <addedGenes> -->
 				<!-- <li>WVC_FleshmassSkin</li> -->
 				<!-- <li>WVC_FleshmassNucleus</li> -->

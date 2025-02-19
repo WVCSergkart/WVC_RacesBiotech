@@ -35,7 +35,7 @@
 			<mechHediff>WVC_VoidMechanoid</mechHediff>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
-			<xenotypeDef>WVC_Chimechkin</xenotypeDef>
+			<xenotypeDef MayRequire="wvc.sergkart.test.tools">WVC_Chimechkin</xenotypeDef>
 		</li>
 	</modExtensions>
   </GeneDef>

@@ -37,7 +37,7 @@ namespace WVC_XenotypesAndGenes
 			Rect rect = new(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
 			Rect rect2 = rect.ContractedBy(6f);
 			Widgets.DrawWindowBackground(rect);
-			TaggedString taggedString = "WVC_XaG_Gene_Voidlink_GizmoLabel".Translate().Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_Gene_Voidlink_GizmoTip".Translate();
+			TaggedString taggedString = "WVC_XaG_Gene_Voidlink_GizmoLabel".Translate().Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_Gene_Voidlink_GizmoTip".Translate(gene.MaxMechs);
 			Text.Font = GameFont.Small;
 			Text.Anchor = TextAnchor.UpperLeft;
 			Rect rect3 = new(rect2.x, rect2.y, rect2.width, 20f);
