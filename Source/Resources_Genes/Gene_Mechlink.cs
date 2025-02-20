@@ -637,11 +637,22 @@ namespace WVC_XenotypesAndGenes
 
 		public float MaxResource => 1f;
 
-		public float MaxMechs => 10f;
+		private float? cachedMaxMechs;
+        public float MaxMechs
+        {
+            get
+            {
+				if (!cachedMaxMechs.HasValue)
+                {
+					cachedMaxMechs = pawn.GetStatValue(Spawner.voidMechsLimit_StatDef);
+				}
+                return cachedMaxMechs.Value;
+            }
+        }
 
-		public float ResourcePercent => geneResource / MaxResource;
+        public float ResourcePercent => geneResource / MaxResource;
 
-		public float ResourceForDisplay => Mathf.RoundToInt(geneResource * 100f);
+		public float ResourceForDisplay => (float)Math.Round(geneResource* 100f, 2);
 
 		public override void Tick()
 		{
@@ -701,14 +712,15 @@ namespace WVC_XenotypesAndGenes
 					return false;
 				}
 				phase = "get mechs count and sphere chance";
+				cachedMaxMechs = null;
 				int allMechsCount = pawn.mechanitor.ControlledPawns.Count;
-				float chance = allMechsCount > MaxMechs ? allMechsCount * 0.01f : 0f;
+				float chance = (allMechsCount - MaxMechs) > 0 ? (allMechsCount - MaxMechs) * 0.01f : 0f;
 				float finalChance = chance > 0.5f ? 0.5f : chance;
 				if (Rand.Chance(finalChance))
 				{
 					phase = "try summon sphere and activate it";
 					Pawn sphere = PawnGenerator.GeneratePawn(new PawnGenerationRequest(PawnKindDefOf.Nociosphere, Faction.OfEntities, PawnGenerationContext.NonPlayer, pawn.Map.Tile));
-					NociosphereUtility.SkipTo((Pawn)GenSpawn.Spawn(sphere, spawnCell, sphere.Map), spawnCell);
+					NociosphereUtility.SkipTo((Pawn)GenSpawn.Spawn(sphere, spawnCell, pawn.Map), spawnCell);
 					CompActivity activity = sphere.TryGetComp<CompActivity>();
 					if (activity != null)
 					{
@@ -721,10 +733,10 @@ namespace WVC_XenotypesAndGenes
 				Pawn mech = PawnGenerator.GeneratePawn(request);
 				phase = "set mech age";
 				AgelessUtility.SetAge(mech, 3600000 * new IntRange(9, 44).RandomInRange);
-				if (Rand.Chance(0.33f))
+				if (Rand.Chance(pawn.GetStatValue(Spawner.voidDamageChance_StatDef)))
 				{
 					phase = "set random damage";
-					FloatRange healthRange = new(0.6f, 0.9f);
+					FloatRange healthRange = new(0.65f, 0.95f);
 					float minHealth = healthRange.RandomInRange;
 					while (mech.health.summaryHealth.SummaryHealthPercent > minHealth)
 					{

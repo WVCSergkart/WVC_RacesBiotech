@@ -98,6 +98,8 @@ namespace WVC_XenotypesAndGenes
 		// Void
 		public HediffDef mechanitorHediff;
 		public HediffDef mechHediff;
+		public StatDef voidMechsLimit_StatDef;
+		public StatDef voidDamageChance_StatDef;
 	}
 
 	public class GeneExtension_Undead : DefModExtension

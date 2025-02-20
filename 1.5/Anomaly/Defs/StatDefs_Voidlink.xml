@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
+	<defName>WVC_VoidMechsLimit</defName>
+	<label>void mechs limit</label>
+	<description>How many mechanoids can be summoned using voidlink without disturbing the nociospher. Each mechanoid controlled above this limit adds 1% chance to summon the sphere.</description>
+	<defaultBaseValue>0</defaultBaseValue>
+	<hideAtValue>0</hideAtValue>
+	<alwaysHide>false</alwaysHide>
+	<category>Mechanitor</category>
+	<displayPriorityInCategory>2010</displayPriorityInCategory>
+	<toStringStyle>FloatOne</toStringStyle>
+  </StatDef>
+
+  <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
+	<defName>WVC_VoidDamageChance</defName>
+	<label>void damage chance</label>
+	<description>Chance that a mechanoid summoned using voidlink will receive damage.</description>
+	<defaultBaseValue>0</defaultBaseValue>
+	<maxValue>1</maxValue>
+	<hideAtValue>0</hideAtValue>
+	<alwaysHide>false</alwaysHide>
+	<category>Mechanitor</category>
+	<displayPriorityInCategory>2015</displayPriorityInCategory>
+	<toStringStyle>PercentZero</toStringStyle>
+  </StatDef>
+
+</Defs>

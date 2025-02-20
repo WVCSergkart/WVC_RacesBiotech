@@ -96,7 +96,7 @@ namespace WVC_XenotypesAndGenes
 				phase = "spawn dryad sequence";
 				for (int i = 0; i < litterSize; i++)
 				{
-					if (!spawnDryads || pawn.Map == null || Spawner?.defaultDryadPawnKindDef == null || dryads.Count >= pawn.GetStatValue(Spawner.dryadsStatLimit, cacheStaleAfterTicks: 120))
+					if (!spawnDryads || pawn.Map == null || Spawner?.defaultDryadPawnKindDef == null || dryads.Count >= pawn.GetStatValue(Spawner.dryadsStatLimit))
 					{
 						return;
 					}
