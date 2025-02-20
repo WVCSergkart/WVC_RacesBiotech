@@ -685,86 +685,104 @@ namespace WVC_XenotypesAndGenes
         {
 			string phase = "start";
             try
-			{
-				if (pawn.mechanitor == null)
+            {
+                if (pawn.Map == null || pawn.mechanitor == null)
+                {
+                    return false;
+                }
+                if (selectedMechs.NullOrEmpty())
+                {
+                    return false;
+				}
+				phase = "check nociosphere presence";
+				if (NociospherePresence())
 				{
+					Messages.Message("WVC_XaG_Gene_Voidlink_NociospherePresence".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
 					return false;
 				}
-				if (selectedMechs.NullOrEmpty())
-				{
-					return false;
-				}
+				phase = "get mech cost";
 				PawnKindDef mechKind = selectedMechs.RandomElement();
-				phase = "try consume resource: get mechs cost";
-				float consume = MechanoidHolder.GetVoidMechCost(mechKind) * 0.01f;
-				if (consume > geneResource)
-				{
-					selectedMechs = new();
-					Messages.Message("WVC_XaG_Gene_Voidlink_CannotSummon".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
-					return false;
-				}
+                float consume = MechanoidHolder.GetVoidMechCost(mechKind) * 0.01f;
+                if (consume > geneResource)
+                {
+                    selectedMechs = new();
+                    Messages.Message("WVC_XaG_Gene_Voidlink_CannotSummon".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+                    return false;
+                }
+                phase = "try find spawn spot near mechanitor";
+                if (!CellFinder.TryFindRandomCellNear(pawn.Position, pawn.Map, Mathf.FloorToInt(4.9f), pos => pos.Standable(pawn.Map) && pos.Walkable(pawn.Map) && !pos.Fogged(pawn.Map), out var spawnCell, 100))
+                {
+                    selectedMechs = new();
+                    Messages.Message("WVC_XaG_Gene_Voidlink_CannotSummon".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+                    return false;
+                }
+                phase = "get mechs count and sphere chance";
+                cachedMaxMechs = null;
+                int allMechsCount = pawn.mechanitor.ControlledPawns.Count;
+                float chance = (allMechsCount - MaxMechs) > 0 ? (allMechsCount - MaxMechs) * 0.01f : 0f;
+                float finalChance = chance > 0.5f ? 0.5f : chance;
+                if (Rand.Chance(finalChance))
+                {
+                    phase = "try summon sphere and activate it";
+                    Pawn sphere = PawnGenerator.GeneratePawn(new PawnGenerationRequest(PawnKindDefOf.Nociosphere, Faction.OfEntities, PawnGenerationContext.NonPlayer, pawn.Map.Tile));
+                    NociosphereUtility.SkipTo((Pawn)GenSpawn.Spawn(sphere, spawnCell, pawn.Map), spawnCell);
+                    CompActivity activity = sphere.TryGetComp<CompActivity>();
+                    if (activity != null)
+                    {
+                        activity.AdjustActivity(1f);
+                    }
+                    return false;
+                }
+                phase = "generate mech";
 				selectedMechs.Remove(mechKind);
-				phase = "try find spawn spot near mechanitor";
-				if (!CellFinder.TryFindRandomCellNear(pawn.Position, pawn.Map, Mathf.FloorToInt(4.9f), pos => pos.Standable(pawn.Map) && pos.Walkable(pawn.Map) && !pos.Fogged(pawn.Map), out var spawnCell, 100))
-				{
-					selectedMechs = new();
-					Messages.Message("WVC_XaG_Gene_Voidlink_CannotSummon".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
-					return false;
-				}
-				phase = "get mechs count and sphere chance";
-				cachedMaxMechs = null;
-				int allMechsCount = pawn.mechanitor.ControlledPawns.Count;
-				float chance = (allMechsCount - MaxMechs) > 0 ? (allMechsCount - MaxMechs) * 0.01f : 0f;
-				float finalChance = chance > 0.5f ? 0.5f : chance;
-				if (Rand.Chance(finalChance))
-				{
-					phase = "try summon sphere and activate it";
-					Pawn sphere = PawnGenerator.GeneratePawn(new PawnGenerationRequest(PawnKindDefOf.Nociosphere, Faction.OfEntities, PawnGenerationContext.NonPlayer, pawn.Map.Tile));
-					NociosphereUtility.SkipTo((Pawn)GenSpawn.Spawn(sphere, spawnCell, pawn.Map), spawnCell);
-					CompActivity activity = sphere.TryGetComp<CompActivity>();
-					if (activity != null)
-					{
-						activity.AdjustActivity(1f);
-					}
-					return false;
-				}
-				phase = "generate mech";
 				PawnGenerationRequest request = new(mechKind, pawn.Faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: false, canGeneratePawnRelations: true, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: true, allowAddictions: true, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Newborn);
-				Pawn mech = PawnGenerator.GeneratePawn(request);
-				phase = "set mech age";
-				AgelessUtility.SetAge(mech, 3600000 * new IntRange(9, 44).RandomInRange);
-				if (Rand.Chance(pawn.GetStatValue(Spawner.voidDamageChance_StatDef)))
-				{
-					phase = "set random damage";
-					FloatRange healthRange = new(0.65f, 0.95f);
-					float minHealth = healthRange.RandomInRange;
-					while (mech.health.summaryHealth.SummaryHealthPercent > minHealth)
-					{
-						BodyPartRecord part = mech.health.hediffSet.GetNotMissingParts().Where((part) => !mech.health.hediffSet.GetInjuredParts().Contains(part)).RandomElement();
-						IntRange damageRange = new(1, 20);
-						int num = (int)pawn.health.hediffSet.GetPartHealth(part) - 1;
-						int randomInRange = damageRange.RandomInRange;
-						HealingUtility.TakeDamage(mech, part, Rand.Chance(0.5f) ? DamageDefOf.Blunt : DamageDefOf.Crush, randomInRange > num ? num : randomInRange);
-					}
-				}
-				phase = "effects and spawn";
-				MiscUtility.DoSkipEffects(spawnCell, pawn.Map);
-				GenSpawn.Spawn(mech, spawnCell, pawn.Map);
-				pawn.relations.AddDirectRelation(PawnRelationDefOf.Overseer, mech);
-				phase = "hediffs and resource offset";
-				HediffUtility.TryAddOrRemoveHediff(Spawner.mechHediff, mech, this, null);
-				UpdHediff();
-				OffsetResource(-1f * consume);
-				return true;
-			}
-			catch (Exception arg)
+                Pawn mech = PawnGenerator.GeneratePawn(request);
+                phase = "set mech age";
+                AgelessUtility.SetAge(mech, 3600000 * new IntRange(9, 44).RandomInRange);
+                if (Rand.Chance(pawn.GetStatValue(Spawner.voidDamageChance_StatDef)))
+                {
+                    phase = "set random damage";
+                    FloatRange healthRange = new(0.65f, 0.95f);
+                    float minHealth = healthRange.RandomInRange;
+                    while (mech.health.summaryHealth.SummaryHealthPercent > minHealth)
+                    {
+                        BodyPartRecord part = mech.health.hediffSet.GetNotMissingParts().Where((part) => !mech.health.hediffSet.GetInjuredParts().Contains(part)).RandomElement();
+                        IntRange damageRange = new(1, 20);
+                        int num = (int)pawn.health.hediffSet.GetPartHealth(part) - 1;
+                        int randomInRange = damageRange.RandomInRange;
+                        HealingUtility.TakeDamage(mech, part, Rand.Chance(0.5f) ? DamageDefOf.Blunt : DamageDefOf.Crush, randomInRange > num ? num : randomInRange);
+                    }
+                }
+                phase = "effects and spawn";
+                MiscUtility.DoSkipEffects(spawnCell, pawn.Map);
+                GenSpawn.Spawn(mech, spawnCell, pawn.Map);
+                pawn.relations.AddDirectRelation(PawnRelationDefOf.Overseer, mech);
+                phase = "hediffs and resource offset";
+                HediffUtility.TryAddOrRemoveHediff(Spawner.mechHediff, mech, this, null);
+                UpdHediff();
+                OffsetResource(-1f * consume);
+                return true;
+            }
+            catch (Exception arg)
             {
 				Log.Error("Voidlink failed summon. On phase: " + phase + ". Reason: " + arg);
             }
 			return false;
 		}
 
-		public override void ExposeData()
+        private bool NociospherePresence()
+        {
+			foreach (Pawn pawn in pawn.Map.mapPawns.AllPawnsSpawned)
+            {
+				if (pawn.kindDef == PawnKindDefOf.Nociosphere)
+                {
+					return true;
+                }
+            }
+            return false;
+        }
+
+        public override void ExposeData()
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref geneResource, "geneResource", 0);

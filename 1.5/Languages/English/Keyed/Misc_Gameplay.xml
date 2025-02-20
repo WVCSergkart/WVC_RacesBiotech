@@ -577,6 +577,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_DialogVoidlink_SelectedMechs>Selected mechs</WVC_XaG_DialogVoidlink_SelectedMechs>
 
 	<WVC_XaG_Gene_Voidlink_CannotSummon>Not enough resource or space for summoning.</WVC_XaG_Gene_Voidlink_CannotSummon>
+	<WVC_XaG_Gene_Voidlink_NociospherePresence>Summoning is not possible due to the presence of nociosphere.</WVC_XaG_Gene_Voidlink_NociospherePresence>
 
 	<WVC_XaG_DialogVoidlink_VoidEnergyLabel>Void energy cost</WVC_XaG_DialogVoidlink_VoidEnergyLabel>
 	<WVC_XaG_DialogVoidlink_VoidEnergyLabel>Cost of summoning this mechanoid. If the cost exceeds the current energy level, the summon will be cancelled.</WVC_XaG_DialogVoidlink_VoidEnergyLabel>
