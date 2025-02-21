@@ -28,6 +28,7 @@ namespace WVC_XenotypesAndGenes
                 {
 					//XaG_GeneUtility.AddGeneToChimera(pawn, geneDef);
 					XaG_GeneUtility.ImplantChimeraEvolveGeneSet(pawn, geneDef);
+					GeneResourceUtility.OffsetNeedFood(pawn, 100, true);
 				}
                 //HediffUtility.MutationMeatSplatter(Victim, false);
 				Victim.Destroy();
