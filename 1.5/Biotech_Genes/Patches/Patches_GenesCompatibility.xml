@@ -14,11 +14,15 @@
 				</li>
 
 				<li Class="PatchOperationRemove">
-					<xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks" or @WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings"]/thingSetMakerTags</xpath>
+					<xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks" or @WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" or @WVC_XaG_Tag_Genepacks="All_XaG_RewardThings"]/thingSetMakerTags</xpath>
+					<success>Always</success>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks" or @WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" or @WVC_XaG_Tag_Genepacks="All_XaG_RewardThings"]/techHediffsTags</xpath>
 					<success>Always</success>
 				</li>
 				<li Class="PatchOperationReplace">
-					<xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks" or @WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings"]/tradeTags</xpath>
+					<xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks" or @WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" or @WVC_XaG_Tag_Genepacks="All_XaG_RewardThings"]/tradeTags</xpath>
 					<success>Always</success>
 					<value>
 					  <tradeTags>
@@ -26,6 +30,13 @@
 					  </tradeTags>
 					</value>
 				</li>
+				<!-- <li Class="PatchOperationReplace"> -->
+					<!-- <xpath>/Defs/ThingDef[@WVC_XaG_Tag_Genepacks="AllGenePacks" or @WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings" or @WVC_XaG_Tag_Genepacks="All_XaG_RewardThings"]/tradeability</xpath> -->
+					<!-- <success>Always</success> -->
+					<!-- <value> -->
+					  <!-- <tradeability>Sellable</tradeability> -->
+					<!-- </value> -->
+				<!-- </li> -->
 
 				<!-- <li Class="PatchOperationRemove"> -->
 					<!-- <xpath>/Defs/ThingDef[defName[contains(text(),'WVC_')]]/thingSetMakerTags</xpath> -->

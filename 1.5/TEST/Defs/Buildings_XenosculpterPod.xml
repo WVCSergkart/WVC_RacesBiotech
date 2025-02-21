@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThingDef ParentName="BuildingBase">
+  <ThingDef ParentName="BuildingBase" WVC_XaG_Tag_Genepacks="All_XaG_GeneticThings">
 	<defName>WVC_XenosculpterPod</defName>
 	<label>xenosculpter pod</label>
 	<containedPawnsSelectable>true</containedPawnsSelectable>
@@ -30,6 +30,7 @@
 	<size>(3,2)</size>
 	<interactionCellOffset>(0,0,2)</interactionCellOffset>
 	<hasInteractionCell>true</hasInteractionCell>
+	<tradeability>Sellable</tradeability>
 	<costList>
 	  <Steel>80</Steel>
 	  <Plasteel>20</Plasteel>

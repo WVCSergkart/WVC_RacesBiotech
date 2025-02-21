@@ -93,7 +93,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (geneDef.customEffectDescriptions.NullOrEmpty())
+			if (geneDef.customEffectDescriptions == null)
 			{
 				geneDef.customEffectDescriptions = new();
 			}
@@ -169,7 +169,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				geneDef.selectionWeight = 0.001f;
 			}
-			OverOverridable(geneDef);
+			UniqueDescAutopatch(geneDef);
 			xenogenesGenes.Add(geneDef);
 			if (!WVC_Biotech.settings.hideXaGGenes)
 			{
@@ -189,8 +189,12 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void OverOverridable(GeneDef geneDef)
+		public static void UniqueDescAutopatch(GeneDef geneDef)
 		{
+			if (geneDef.IsGeneDefOfType<IGeneRemoteControl>())
+			{
+				geneDef.description += "\n\n" + "WVC_XaG_GenesSettings_DescTip".Translate().ToString();
+			}
 			if (!WVC_Biotech.settings.enable_OverOverridableGenesMechanic)
 			{
 				return;
@@ -199,7 +203,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (geneDef.customEffectDescriptions.NullOrEmpty())
+			if (geneDef.customEffectDescriptions == null)
 			{
 				geneDef.customEffectDescriptions = new();
 			}
@@ -282,106 +286,68 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static void ThingDefs()
-		{
-			foreach (ThingDef thingDef in DefDatabase<ThingDef>.AllDefsListForReading)
-			{
-				if (thingDef.IsXenoGenesDef())
-				{
-					if (WVC_Biotech.settings.onlyXenotypesMode)
-					{
-						if (thingDef.thingSetMakerTags != null)
-						{
-							thingDef.thingSetMakerTags = null;
-						}
-						if (thingDef.tradeTags != null)
-						{
-							thingDef.tradeTags = new() { "ExoticMisc" };
-							thingDef.tradeability = Tradeability.Sellable;
-						}
-						if (thingDef.techHediffsTags != null)
-						{
-							thingDef.techHediffsTags = null;
-						}
-					}
-				}
-				// if (thingDef?.race == null)
-				// {
-				// continue;
-				// }
-				// GeneExtension_General modExtension = thingDef?.GetModExtension<GeneExtension_General>();
-				// if (modExtension == null)
-				// {
-				// continue;
-				// }
-				// if (modExtension.removeRepairComp)
-				// {
-				// thingDef.comps.RemoveAll((CompProperties compProperties) => compProperties is CompProperties_MechRepairable);
-				// }
-				// if (modExtension.removeDormantComp)
-				// {
-				// thingDef.comps.RemoveAll((CompProperties compProperties) => compProperties is CompProperties_CanBeDormant);
-				// thingDef.comps.RemoveAll((CompProperties compProperties) => compProperties is CompProperties_WakeUpDormant);
-				// }
-				//ThingDef corpseDef = thingDef.race?.corpseDef;
-				//if (corpseDef != null)
-				//{
-				//	if (modExtension.removeButcherRecipes)
-				//	{
-				//		corpseDef.thingCategories = new();
-				//	}
-				//	if (modExtension.shouldResurrect)
-				//	{
-				//		if (corpseDef.GetCompProperties<CompProperties_UndeadCorpse>() != null)
-				//		{
-				//			continue;
-				//		}
-				//		CompProperties_UndeadCorpse undead_comp = new();
-				//		undead_comp.resurrectionDelay = modExtension.resurrectionDelay;
-				//		undead_comp.uniqueTag = modExtension.uniqueTag;
-				//		corpseDef.comps.Add(undead_comp);
-				//	}
-				//}
-			}
-		}
+		//[Obsolete]
+		//public static void ThingDefs()
+		//{
+		//	foreach (ThingDef thingDef in DefDatabase<ThingDef>.AllDefsListForReading)
+		//	{
+		//		if (thingDef.IsXenoGenesDef())
+		//		{
+		//			if (WVC_Biotech.settings.onlyXenotypesMode)
+		//			{
+		//				if (thingDef.thingSetMakerTags != null)
+		//				{
+		//					thingDef.thingSetMakerTags = null;
+		//				}
+		//				if (thingDef.tradeTags != null)
+		//				{
+		//					thingDef.tradeTags = new() { "ExoticMisc" };
+		//					thingDef.tradeability = Tradeability.Sellable;
+		//				}
+		//				if (thingDef.techHediffsTags != null)
+		//				{
+		//					thingDef.techHediffsTags = null;
+		//				}
+		//			}
+		//		}
+		//	}
+		//}
 
-		public static void XenotypeDefs()
-		{
-			if (!WVC_Biotech.settings.enable_ReplaceSimilarGenesAutopatch)
-			{
-				return;
-			}
-			List<XaG_CountWithChance> similarGenes = ListsUtility.GetIdenticalGeneDefs();
-			foreach (XenotypeDef xenotypeDef in DefDatabase<XenotypeDef>.AllDefsListForReading)
-			{
-				foreach (GeneDef geneDef in xenotypeDef.genes.ToList())
-				{
-					foreach (XaG_CountWithChance similar in similarGenes)
-					{
-						if (similar.sourceGeneDef != null && !similar.dupGeneDefs.NullOrEmpty() && similar.dupGeneDefs.Contains(geneDef))
-						{
-							xenotypeDef.genes.Remove(geneDef);
-							//Log.Error("Target gene " + similar.sourceGeneDef.defName);
-							geneDef.selectionWeight = 0f;
-							geneDef.canGenerateInGeneSet = false;
-							//Log.Error("Null check gene " + similar.sourceGeneDef.defName);
-							if (!similar.sourceGeneDef.randomChosen)
-							{
-								foreach (GeneDef geneDef2 in xenotypeDef.genes.ToList())
-								{
-									if (geneDef2.ConflictsWith(similar.sourceGeneDef))
-									{
-										xenotypeDef.genes.Remove(geneDef2);
-									}
-								}
-							}
-							//Log.Error("Adding gene " + similar.sourceGeneDef.defName);
-							xenotypeDef.genes.Add(similar.sourceGeneDef);
-						}
-					}
-				}
-			}
-		}
+		//[Obsolete]
+		//public static void XenotypeDefs()
+		//{
+		//	if (!WVC_Biotech.settings.enable_ReplaceSimilarGenesAutopatch)
+		//	{
+		//		return;
+		//	}
+		//	List<XaG_CountWithChance> similarGenes = ListsUtility.GetIdenticalGeneDefs();
+		//	foreach (XenotypeDef xenotypeDef in DefDatabase<XenotypeDef>.AllDefsListForReading)
+		//	{
+		//		foreach (GeneDef geneDef in xenotypeDef.genes.ToList())
+		//		{
+		//			foreach (XaG_CountWithChance similar in similarGenes)
+		//			{
+		//				if (similar.sourceGeneDef != null && !similar.dupGeneDefs.NullOrEmpty() && similar.dupGeneDefs.Contains(geneDef))
+		//				{
+		//					xenotypeDef.genes.Remove(geneDef);
+		//					geneDef.selectionWeight = 0f;
+		//					geneDef.canGenerateInGeneSet = false;
+		//					if (!similar.sourceGeneDef.randomChosen)
+		//					{
+		//						foreach (GeneDef geneDef2 in xenotypeDef.genes.ToList())
+		//						{
+		//							if (geneDef2.ConflictsWith(similar.sourceGeneDef))
+		//							{
+		//								xenotypeDef.genes.Remove(geneDef2);
+		//							}
+		//						}
+		//					}
+		//					xenotypeDef.genes.Add(similar.sourceGeneDef);
+		//				}
+		//			}
+		//		}
+		//	}
+		//}
 
 		// public static void SubXenotypes()
 		// {

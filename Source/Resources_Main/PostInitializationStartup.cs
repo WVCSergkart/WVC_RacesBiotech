@@ -16,8 +16,8 @@ namespace WVC_XenotypesAndGenes
 			InitialUtility.InitializeModSettings();
 			// Hediffs();
 			InitialUtility.GenesAndMutants();
-			InitialUtility.ThingDefs();
-			InitialUtility.XenotypeDefs();
+			//InitialUtility.ThingDefs();
+			//InitialUtility.XenotypeDefs();
 			HarmonyPatches.HarmonyUtility.PostInitialPatches();
 		}
 

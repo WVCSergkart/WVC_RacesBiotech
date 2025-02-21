@@ -15,6 +15,7 @@ namespace WVC_XenotypesAndGenes
 
 		// HarmonyHooks
 
+		[Obsolete]
 		public static void AutoColorGenes(List<GeneDef> geneDefList)
 		{
 			if (!WVC_Biotech.settings.generateSkinHairColorGenes)
@@ -33,6 +34,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		[Obsolete]
 		public static void Spawners(List<GeneDef> geneDefList)
 		{
 			if (!WVC_Biotech.settings.generateResourceSpawnerGenes)
@@ -51,6 +53,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		[Obsolete]
 		public static void HybridForcerGenes(List<GeneDef> geneDefList)
 		{
 			if (!WVC_Biotech.settings.generateXenotypeForceGenes)

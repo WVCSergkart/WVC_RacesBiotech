@@ -51,6 +51,7 @@
 	<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
 	<designationCategory>Biotech</designationCategory>
 	<uiOrder>2430</uiOrder>
+	<tradeability>Sellable</tradeability>
 	<statBases>
 	  <MaxHitPoints>200</MaxHitPoints>
 	  <WorkToBuild>8000</WorkToBuild>
@@ -213,6 +214,7 @@
 	<castEdgeShadows>true</castEdgeShadows>
 	<staticSunShadowHeight>0.3</staticSunShadowHeight>
 	<fillPercent>0.5</fillPercent>
+	<tradeability>Sellable</tradeability>
 	<building>
 	  <buildingTags>
 		<li>Biotech</li>

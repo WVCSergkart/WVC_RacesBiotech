@@ -74,12 +74,12 @@ A restart is required.</WVC_ToolTip_genesCanTickOnlyOnMap>
 
 A restart is required.</WVC_ToolTip_flatGenesSpawnChances>
 
-	<WVC_Label_enable_ReplaceSimilarGenesAutopatch>(Experimental) Replace similar genes</WVC_Label_enable_ReplaceSimilarGenesAutopatch>
-	<WVC_ToolTip_enable_ReplaceSimilarGenesAutopatch>If enabled, xenotypes will have some genes replaced with similar genes from the mod. This will not remove genes, but only replace them in xenotypes.
+	<!-- <WVC_Label_enable_ReplaceSimilarGenesAutopatch>(Experimental) Replace similar genes</WVC_Label_enable_ReplaceSimilarGenesAutopatch> -->
+	<!-- <WVC_ToolTip_enable_ReplaceSimilarGenesAutopatch>If enabled, xenotypes will have some genes replaced with similar genes from the mod. This will not remove genes, but only replace them in xenotypes. -->
 
-The genes to replace are specified manually in xml.
+<!-- The genes to replace are specified manually in xml. -->
 
-A restart is required.</WVC_ToolTip_enable_ReplaceSimilarGenesAutopatch>
+<!-- A restart is required.</WVC_ToolTip_enable_ReplaceSimilarGenesAutopatch> -->
 
 	<!-- <WVC_Label_enableBodySizeGenes>Enable body size genes</WVC_Label_enableBodySizeGenes> -->
 	<!-- <WVC_ToolTip_enableBodySizeGenes>If enabled, body size genes will visually change the size of pawns. -->

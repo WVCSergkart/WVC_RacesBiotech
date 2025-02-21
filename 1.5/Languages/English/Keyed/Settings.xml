@@ -25,11 +25,11 @@
 
 <!-- It is recommended to enable all settings for the first acquaintance with the mod. Or disable all settings for a very small performance boost.</WVC_BiotechSettings_Tooltip_Info> -->
 	<WVC_BiotechSettings_Tooltip_Genes>Settings responsible for the special effects of genes.</WVC_BiotechSettings_Tooltip_Genes>
-	<WVC_BiotechSettings_Tooltip_Generators>Settings responsible for generation. For example, skill genes, they are created when the game starts.
+	<!-- <WVC_BiotechSettings_Tooltip_Generators>Settings responsible for generation. For example, skill genes, they are created when the game starts. -->
 
-If you have problems launching the game, it is recommended to disable all generation options.</WVC_BiotechSettings_Tooltip_Generators>
+<!-- If you have problems launching the game, it is recommended to disable all generation options.</WVC_BiotechSettings_Tooltip_Generators> -->
 	<WVC_BiotechSettings_Tooltip_Other>Settings not related to anything specific.</WVC_BiotechSettings_Tooltip_Other>
-	<WVC_BiotechSettings_Tooltip_Serums>Settings responsible for the generation of serums. If game launch too long, it is recommended to disable all.</WVC_BiotechSettings_Tooltip_Serums>
+	<!-- <WVC_BiotechSettings_Tooltip_Serums>Settings responsible for the generation of serums. If game launch too long, it is recommended to disable all.</WVC_BiotechSettings_Tooltip_Serums> -->
 
 	<WVC_BiotechSettings_XenotypesFilter_Reset>Reset to default</WVC_BiotechSettings_XenotypesFilter_Reset>
 	<WVC_BiotechSettings_XenotypesFilter_Title>Set xenotypes that can be used for serums. Restart is required.</WVC_BiotechSettings_XenotypesFilter_Title>
@@ -128,10 +128,10 @@ A restart is required.</WVC_ToolTip_fixVanillaGeneImmunityCheck>
 
 	<!-- ====================================================================================== -->
 
-	<WVC_Label_enableCustomMechLinkName>Enable custom mechlink name</WVC_Label_enableCustomMechLinkName>
-	<WVC_ToolTip_enableCustomMechLinkName>If enabled, the name of the mechlink will be replaced with the name of the gene that this mechlink gives. Works only with genes from the mod.
+	<!-- <WVC_Label_enableCustomMechLinkName>Enable custom mechlink name</WVC_Label_enableCustomMechLinkName> -->
+	<!-- <WVC_ToolTip_enableCustomMechLinkName>If enabled, the name of the mechlink will be replaced with the name of the gene that this mechlink gives. Works only with genes from the mod. -->
 
-Does not affect already spawned mechlinks.</WVC_ToolTip_enableCustomMechLinkName>
+<!-- Does not affect already spawned mechlinks.</WVC_ToolTip_enableCustomMechLinkName> -->
 
 	<!-- ====================================================================================== -->
 
@@ -151,12 +151,12 @@ A restart is required.</WVC_ToolTip_enableHarmonyTelepathyGene>
 
 	<!-- ====================================================================================== -->
 
-	<WVC_Label_useAlternativeDustogenicFoodJob>Use alternative dustogenic food job</WVC_Label_useAlternativeDustogenicFoodJob>
-	<WVC_ToolTip_useAlternativeDustogenicFoodJob>If enabled, the job giver that forces the pawn to eat dustogenic food instead of normal food will be triggered through the gene, rather than being built into thinkTree.
+	<!-- <WVC_Label_useAlternativeDustogenicFoodJob>Use alternative dustogenic food job</WVC_Label_useAlternativeDustogenicFoodJob> -->
+	<!-- <WVC_ToolTip_useAlternativeDustogenicFoodJob>If enabled, the job giver that forces the pawn to eat dustogenic food instead of normal food will be triggered through the gene, rather than being built into thinkTree. -->
 
-This should improve performance, but may cause the pawns to sometimes eat regular food rather than dustogenic ones. This option should also fix a bug where dust pawns would never eat dust food while in a caravan.
+<!-- This should improve performance, but may cause the pawns to sometimes eat regular food rather than dustogenic ones. This option should also fix a bug where dust pawns would never eat dust food while in a caravan. -->
 
-A restart is required.</WVC_ToolTip_useAlternativeDustogenicFoodJob>
+<!-- A restart is required.</WVC_ToolTip_useAlternativeDustogenicFoodJob> -->
 
 	<!-- ====================================================================================== -->
 
@@ -169,10 +169,10 @@ A restart is required.</WVC_ToolTip_useAlternativeDustogenicFoodJob>
 	<!-- <WVC_ToolTip_reincarnationBlockUndeadResurrection></WVC_ToolTip_reincarnationBlockUndeadResurrection> -->
 
 	<!-- ====================================================================================== -->
-	<WVC_Label_minWastepacksPerRecharge>Force minimal waste</WVC_Label_minWastepacksPerRecharge>
-	<WVC_ToolTip_minWastepacksPerRecharge>Force the minimum amount of waste produced by mechanoids, preventing it from dropping below 1.
+	<!-- <WVC_Label_minWastepacksPerRecharge>Force minimal waste</WVC_Label_minWastepacksPerRecharge> -->
+	<!-- <WVC_ToolTip_minWastepacksPerRecharge>Force the minimum amount of waste produced by mechanoids, preventing it from dropping below 1. -->
 
-A restart is required to apply the setting.</WVC_ToolTip_minWastepacksPerRecharge>
+<!-- A restart is required to apply the setting.</WVC_ToolTip_minWastepacksPerRecharge> -->
 
 	<!-- ====================================================================================== -->
 	<!-- <WVC_Label_validatorAbilitiesPatch>Abilities target validation</WVC_Label_validatorAbilitiesPatch> -->
@@ -202,10 +202,10 @@ A restart is required.</WVC_ToolTip_generateTemplateGenes_Aptitudes>
 A restart is required to apply the setting.</WVC_ToolTip_generateSkinHairColorGenes>
 
 	<!-- ====================================================================================== -->
-	<WVC_Label_genesRemoveMechlinkUponDeath>Genes remove mechlink upon death</WVC_Label_genesRemoveMechlinkUponDeath>
-	<WVC_ToolTip_genesRemoveMechlinkUponDeath>If enabled, then in case of death the mechlink will be removed from pawns with the corresponding gene.
+	<!-- <WVC_Label_genesRemoveMechlinkUponDeath>Genes remove mechlink upon death</WVC_Label_genesRemoveMechlinkUponDeath> -->
+	<!-- <WVC_ToolTip_genesRemoveMechlinkUponDeath>If enabled, then in case of death the mechlink will be removed from pawns with the corresponding gene. -->
 
-Please note that resurrecting a pawn will not bring back a disappeared mechlink.</WVC_ToolTip_genesRemoveMechlinkUponDeath>
+<!-- Please note that resurrecting a pawn will not bring back a disappeared mechlink.</WVC_ToolTip_genesRemoveMechlinkUponDeath> -->
 
 	<!-- ====================================================================================== -->
 	<WVC_Label_canNonPlayerPawnResurrect>Can non-colonist pawns be resurrected</WVC_Label_canNonPlayerPawnResurrect>

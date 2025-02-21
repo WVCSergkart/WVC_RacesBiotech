@@ -11,7 +11,7 @@
   <WVC_XenotypesAndGenes.SettingsDef>
 	<defName>WVC_MyChoice</defName>
 	<label>dev choice</label>
-	<description>These are the mod developer's preferred settings. Please note that this preset may not suit your playstyle.</description>
+	<description>These are the mod developer's preferred settings. This preset is focused on testing new mechanics and changes from update to update. Please note that this preset may not suit your playstyle.</description>
 	<presetOrder>20</presetOrder>
 	<onlyXenotypesMode>true</onlyXenotypesMode>
 	<!-- Traders Sell Serums -->
@@ -20,12 +20,48 @@
 	<!-- <reincarnation_MinChronoAge>500</reincarnation_MinChronoAge> -->
 	<!-- <gestatedDryads_AnomalyRegeneration>10</gestatedDryads_AnomalyRegeneration> -->
 	<enable_FurskinIsSkinAutopatch>True</enable_FurskinIsSkinAutopatch>
-	<enable_ReplaceSimilarGenesAutopatch>false</enable_ReplaceSimilarGenesAutopatch>
+	<!-- <enable_ReplaceSimilarGenesAutopatch>false</enable_ReplaceSimilarGenesAutopatch> -->
 	<!-- <bloodfeeder_AutoBloodfeed>True</bloodfeeder_AutoBloodfeed> -->
 	<enable_OverOverridableGenesMechanic>true</enable_OverOverridableGenesMechanic>
 	<generateSkillGenes>false</generateSkillGenes>
 	<!-- <link_addedMechlinkWithGene>false</link_addedMechlinkWithGene> -->
 	<!-- <link_addedPsylinkWithGene>false</link_addedPsylinkWithGene> -->
+  </WVC_XenotypesAndGenes.SettingsDef>
+
+  <WVC_XenotypesAndGenes.SettingsDef>
+	<defName>WVC_OnlyXenotypes</defName>
+	<label>only xenotypes</label>
+	<description>Settings for those who don't need anything but xenotypes. Serums and genepacks won't spawn, but they can be crafted if needed.</description>
+	<presetOrder>30</presetOrder>
+	<onlyXenotypesMode>true</onlyXenotypesMode>
+	<hideXaGGenes>true</hideXaGGenes>
+	<spawnXenoForcerSerumsFromTraders>false</spawnXenoForcerSerumsFromTraders>
+	<enable_OverOverridableGenesMechanic>true</enable_OverOverridableGenesMechanic>
+	<generateSkillGenes>false</generateSkillGenes>
+	<disableUniqueXenotypeScenarios>false</disableUniqueXenotypeScenarios>
+  </WVC_XenotypesAndGenes.SettingsDef>
+
+  <WVC_XenotypesAndGenes.SettingsDef>
+	<defName>WVC_OnlyGenes</defName>
+	<label>only genes</label>
+	<description>Disables xenotypes completely. This preset disables all mechanics that focus on xenotypes. Note that some mechanics are directly tied to xenotypes, which will make it incredibly difficult to obtain certain genes. This will also affect the game logic, as it ignores custom xenotypes, which leads to bugs.</description>
+	<presetOrder>35</presetOrder>
+	<!-- genes -->
+	<hideXaGGenes>false</hideXaGGenes>
+	<spawnXenoForcerSerumsFromTraders>true</spawnXenoForcerSerumsFromTraders>
+	<enable_flatGenesSpawnChances>true</enable_flatGenesSpawnChances>
+	<generateSkillGenes>true</generateSkillGenes>
+	<!-- xenos -->
+	<disableUniqueXenotypeScenarios>true</disableUniqueXenotypeScenarios>
+	<onlyXenotypesMode>false</onlyXenotypesMode>
+	<enable_OverOverridableGenesMechanic>false</enable_OverOverridableGenesMechanic>
+	<disableXenotypes_Misc>true</disableXenotypes_Misc>
+	<disableXenotypes_Bloodeaters>true</disableXenotypes_Bloodeaters>
+	<disableXenotypes_GolemMasters>true</disableXenotypes_GolemMasters>
+	<disableXenotypes_Mechalike>true</disableXenotypes_Mechalike>
+	<disableXenotypes_Psycasters>true</disableXenotypes_Psycasters>
+	<disableXenotypes_Undeads>true</disableXenotypes_Undeads>
+	<disableXenotypes_MainSwitch>true</disableXenotypes_MainSwitch>
   </WVC_XenotypesAndGenes.SettingsDef>
 
   <WVC_XenotypesAndGenes.SettingsDef>
