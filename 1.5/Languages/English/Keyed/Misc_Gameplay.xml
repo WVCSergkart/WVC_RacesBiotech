@@ -103,6 +103,9 @@
 	<WVC_OrderToRepair>Order to repair</WVC_OrderToRepair>
 	<WVC_OrderToRepairDesc>Give the order to one of the controlled mechanoids to repair the mechanitor.</WVC_OrderToRepairDesc>
 
+	<WVC_XaG_DarknessExposureImmunity>darkness immunity</WVC_XaG_DarknessExposureImmunity>
+	<WVC_XaG_DarknessExposureImmunityDesc>Immunity to darkness exposure.\n\nIn order for immunity to appear, the pawn needs to be exposed to darkness for some time. Immunity lasts for 24 hours, and is renewed upon repeated exposure.</WVC_XaG_DarknessExposureImmunityDesc>
+
 	<!-- ============================ BiosculpterPod ============================ -->
 
 	<WVC_XaG_XenogermCycleCompleted>{PAWN_labelShort} completed {1} cycle.</WVC_XaG_XenogermCycleCompleted>
