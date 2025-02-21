@@ -66,7 +66,7 @@
 	<defName>WVC_IncreasedVoidLimit</defName>
 	<label>increased void limit</label>
 	<description>Carriers of this gene have archites that make the connection with the void more reliable, but less stable. Which leads to the fact that the chance of summoning a nociosphere becomes less, but the mechanoids are more likely to receive damage when summoned.</description>
-	<iconPath>WVC/UI/Genes/Gene_VoidHide_v0</iconPath>
+	<iconPath>WVC/UI/Genes/Gene_IncreasedVoidLimit_v0</iconPath>
 	<iconColor>(255, 255, 255)</iconColor>
 	<displayOrderInCategory>75.05</displayOrderInCategory>
 	<biostatCpx>-2</biostatCpx>
@@ -76,6 +76,28 @@
 		<WVC_VoidMechsLimit>5</WVC_VoidMechsLimit>
 		<WVC_VoidDamageChance>0.25</WVC_VoidDamageChance>
 	</statOffsets>
+	<exclusionTags>
+	  <li>WVC_IncreasedVoidLimit</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneVoidlink_SubGenes">
+	<defName>WVC_DecreasedVoidLimit</defName>
+	<label>decreased void limit</label>
+	<description>Carriers of this gene have archites that make the connection with the void more stable, but less reliable. Because of this, the number of mechanoids that can be safely summoned is smaller, as is the chance of them being damaged when summoned.</description>
+	<iconPath>WVC/UI/Genes/Gene_DecreasedVoidLimit_v0</iconPath>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>75.10</displayOrderInCategory>
+	<biostatCpx>-2</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<statOffsets>
+		<WVC_VoidMechsLimit>-3</WVC_VoidMechsLimit>
+		<WVC_VoidDamageChance>-0.2</WVC_VoidDamageChance>
+	</statOffsets>
+	<exclusionTags>
+	  <li>WVC_IncreasedVoidLimit</li>
+	</exclusionTags>
   </GeneDef>
 
 </Defs>
