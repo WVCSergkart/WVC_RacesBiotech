@@ -87,6 +87,7 @@
     <Compile Include="Resources_Gizmo\Dialog_ImplantImplanter.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Voidlink.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Voidlink.cs" />
+    <Compile Include="Resources_Hediff\Hediff_DarknessExposure.cs" />
     <Compile Include="Resources_Hediff\Hediff_FleshmassHeart.cs" />
     <Compile Include="Resources_Hediff\Hediff_Mechanitor.cs" />
     <Compile Include="Resources_Main\GenesHolder.cs" />

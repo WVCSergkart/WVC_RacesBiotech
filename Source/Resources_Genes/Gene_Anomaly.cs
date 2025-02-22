@@ -277,64 +277,113 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_DarknessExposure : Gene
+	public class Gene_DarknessExposure : Gene, IGeneOverridden
 	{
+		//private int updTry = 0;
 
-		private int nextTick = 30;
-        private int updTry = 0;
+		//public override void Tick()
+		//{
+		//    nextTick--;
+		//    if (updTry > 0)
+		//    {
+		//        updTry--;
+		//    }
+		//    if (nextTick > 0)
+		//    {
+		//        return;
+		//    }
+		//    if (pawn.health.hediffSet.TryGetHediff(HediffDefOf.DarknessExposure, out Hediff hediff))
+		//    {
+		//        pawn.health.RemoveHediff(hediff);
+		//        updTry = 60000;
+		//    }
+		//    if (updTry > 0)
+		//    {
+		//        nextTick = 30;
+		//    }
+		//    else
+		//    {
+		//        nextTick = 3333;
+		//    }
+		//}
 
-        public override void Tick()
+		//public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
+		//{
+		//    yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_DarknessExposureImmunity".Translate().CapitalizeFirst(), (updTry > 0).ToStringYesNo(), "WVC_XaG_DarknessExposureImmunityDesc".Translate(), 100);
+		//}
+
+		//public override void ExposeData()
+		//{
+		//    base.ExposeData();
+		//    Scribe_Values.Look(ref updTry, "updTry", defaultValue: 0);
+		//}
+
+		private int nextTick = 320;
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			UpdExposureHediff();
+		}
+
+		public HediffDef DarknessExposure => HediffDefOf.DarknessExposure;
+
+		public override void Tick()
         {
             nextTick--;
-            if (updTry > 0)
-            {
-                updTry--;
-            }
             if (nextTick > 0)
             {
                 return;
             }
-            if (pawn.health.hediffSet.TryGetHediff(HediffDefOf.DarknessExposure, out Hediff hediff))
+            if (!pawn.health.hediffSet.TryGetHediff(DarknessExposure, out Hediff hediff) || hediff is not Hediff_DarknessExposure_Faulty)
             {
-                pawn.health.RemoveHediff(hediff);
-                updTry = 60000;
-            }
-            if (updTry > 0)
-            {
-                nextTick = 30;
-            }
-            else
-            {
-                nextTick = 3333;
-            }
-        }
+				UpdExposureHediff();
+			}
+            nextTick = 133133;
+		}
 
-        public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
-        {
-            yield return new StatDrawEntry(StatCategoryDefOf.Genetics, "WVC_XaG_DarknessExposureImmunity".Translate().CapitalizeFirst(), (updTry > 0).ToStringYesNo(), "WVC_XaG_DarknessExposureImmunityDesc".Translate(), 100);
-        }
+		public void UpdExposureHediff()
+		{
+			HediffUtility.TryRemoveHediff(DarknessExposure, pawn);
+			if (!TryMakeHediff(DarknessExposure, pawn, out Hediff_DarknessExposure_Faulty hediff, null))
+			{
+				return;
+			}
+			pawn.health.AddHediff(hediff);
+		}
 
-        public override void ExposeData()
-        {
-            base.ExposeData();
-            Scribe_Values.Look(ref updTry, "updTry", defaultValue: 0);
-        }
+		public static bool TryMakeHediff(HediffDef def, Pawn pawn, out Hediff_DarknessExposure_Faulty hediff, BodyPartRecord partRecord = null)
+		{
+			hediff = null;
+			if (pawn == null)
+			{
+				return false;
+			}
+			hediff = (Hediff_DarknessExposure_Faulty)Activator.CreateInstance(typeof(Hediff_DarknessExposure_Faulty));
+			hediff.def = def;
+			hediff.pawn = pawn;
+			hediff.Part = partRecord;
+			hediff.loadID = Find.UniqueIDsManager.GetNextHediffID();
+			hediff.PostMake();
+			return true;
+		}
 
-        //public override void Tick()
-        //{
-        //	nextTick--;
-        //	if (nextTick > 0)
-        //	{
-        //		return;
-        //	}
-        //	if (pawn.health.hediffSet.TryGetHediff(HediffDefOf.DarknessExposure, out Hediff hediff))
-        //	{
-        //		pawn.health.RemoveHediff(hediff);
-        //		updTry = 60000;
-        //	}
-        //	nextTick = 133133;
-        //}
+        public void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			HediffUtility.TryRemoveHediff(DarknessExposure, pawn);
+		}
 
-    }
+        public void Notify_Override()
+		{
+			UpdExposureHediff();
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			HediffUtility.TryRemoveHediff(DarknessExposure, pawn);
+		}
+
+	}
 
 }

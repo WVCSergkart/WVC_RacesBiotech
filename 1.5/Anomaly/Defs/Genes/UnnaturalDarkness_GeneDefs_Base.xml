@@ -16,8 +16,9 @@
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
-		<li>After prolonged &lt;color=#8a8ae6&gt;darkness exposure&lt;/color&gt;, makes the pawn &lt;color=#8a8ae6&gt;immune&lt;/color&gt; to this effect.</li>
-		<li>The immunity disappears 24 hours after the last &lt;color=#8a8ae6&gt;exposure&lt;/color&gt;.</li>
+		<!-- <li>After prolonged &lt;color=#8a8ae6&gt;darkness exposure&lt;/color&gt;, makes the pawn &lt;color=#8a8ae6&gt;immune&lt;/color&gt; to this effect.</li> -->
+		<!-- <li>The immunity disappears 24 hours after the last &lt;color=#8a8ae6&gt;exposure&lt;/color&gt;.</li> -->
+		<li>Grants immunity to damage from &lt;color=#8a8ae6&gt;darkness exposure&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<symbolPack>
 	  <prefixSymbols>

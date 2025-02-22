@@ -16,17 +16,17 @@ namespace WVC_XenotypesAndGenes
 		public override bool Visible => false;
 
 		[Unsaved(false)]
-		private Gene_DarknessExposure cachedVoidlinkGene;
+		private Gene_DarknessExposure cachedGene;
 
 		public Gene_DarknessExposure Exposure
 		{
 			get
 			{
-				if (cachedVoidlinkGene == null || !cachedVoidlinkGene.Active)
+				if (cachedGene == null || !cachedGene.Active)
 				{
-					cachedVoidlinkGene = pawn?.genes?.GetFirstGeneOfType<Gene_DarknessExposure>();
+					cachedGene = pawn?.genes?.GetFirstGeneOfType<Gene_DarknessExposure>();
 				}
-				return cachedVoidlinkGene;
+				return cachedGene;
 			}
 		}
 
