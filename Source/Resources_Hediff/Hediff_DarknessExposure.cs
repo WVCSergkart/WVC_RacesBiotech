@@ -15,6 +15,10 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool Visible => false;
 
+		//public override string Description => "WVC_XaG_DarknessExposureImmunityDesc".Translate();
+
+		//public override string Label => "WVC_XaG_DarknessExposureImmunity".Translate();
+
 		[Unsaved(false)]
 		private Gene_DarknessExposure cachedGene;
 

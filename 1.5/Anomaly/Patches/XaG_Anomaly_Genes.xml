@@ -38,4 +38,14 @@
 	  </value>
 	</Operation>
 
+	<Operation Class="WVC_XenotypesAndGenes.PatchOperationSafeAdd">
+	  <xpath>/Defs/ThoughtDef[defName="SwallowedByDarkness"]</xpath>
+	  <safetyDepth>1</safetyDepth>
+	  <value>
+		<nullifyingGenes>
+		  <li>WVC_DarknessExposure</li>
+		</nullifyingGenes>
+	  </value>
+	</Operation>
+
 </Patch>

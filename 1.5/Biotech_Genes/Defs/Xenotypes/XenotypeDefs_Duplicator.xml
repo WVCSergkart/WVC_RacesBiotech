@@ -76,6 +76,8 @@
 		<li>WVC_SlaveSuppression_Submissive</li>
 		<li>WVC_FurskinInstincts_PredatorSense</li>
 		<li>Sterile</li>
+		<!-- Anomaly -->
+		<li MayRequire="ludeon.rimworld.anomaly">WVC_DarknessExposure</li>
 	</genes>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Giver">
