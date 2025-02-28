@@ -81,14 +81,7 @@ namespace WVC_XenotypesAndGenes
 			if (Widgets.ButtonInvisible(rect))
 			{
 				geneAllowed = !geneAllowed;
-				if (geneAllowed)
-				{
-					SoundDefOf.Tick_High.PlayOneShotOnCamera();
-				}
-				else
-				{
-					SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-				}
+				XaG_UiUtility.FlickSound(geneAllowed);
 			}
 			if (Mouse.IsOver(rect))
 			{

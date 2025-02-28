@@ -360,11 +360,14 @@ namespace WVC_XenotypesAndGenes
 			yield return new StatDrawEntry(StatCategoryDefOf.Genetics, stat.LabelCap, pawn.GetStatValue(stat).ToString(), stat.description, 200);
 		}
 
+		public bool gizmoCollapse = WVC_Biotech.settings.geneGizmosDefaultCollapse;
+
 		public override void ExposeData()
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref nextTick, "nextDryad", 0);
 			Scribe_Values.Look(ref spawnDryads, "spawnDryads", false);
+			Scribe_Values.Look(ref gizmoCollapse, "gizmoCollapse", WVC_Biotech.settings.geneGizmosDefaultCollapse);
 			Scribe_Collections.Look(ref dryads, "connectedDryads", LookMode.Reference);
 			// if (!dryads.NullOrEmpty())
 			// {

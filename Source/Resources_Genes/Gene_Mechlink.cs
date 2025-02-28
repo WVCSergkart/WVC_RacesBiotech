@@ -341,10 +341,13 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public bool gizmoCollapse = WVC_Biotech.settings.geneGizmosDefaultCollapse;
+
 		public override void ExposeData()
 		{
 			base.ExposeData();
 			Scribe_Collections.Look(ref golemsForSummon, "golemsForSummon", LookMode.Def);
+			Scribe_Values.Look(ref gizmoCollapse, "gizmoCollapse", WVC_Biotech.settings.geneGizmosDefaultCollapse);
 		}
 
 	}

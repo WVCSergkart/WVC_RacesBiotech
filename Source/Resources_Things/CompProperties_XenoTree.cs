@@ -180,14 +180,7 @@ namespace WVC_XenotypesAndGenes
 				action = delegate
 				{
 					spawnerIsActive = !spawnerIsActive;
-					if (spawnerIsActive)
-					{
-						SoundDefOf.Tick_High.PlayOneShotOnCamera();
-					}
-					else
-					{
-						SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-					}
+					XaG_UiUtility.FlickSound(spawnerIsActive);
 				}
 			};
 			yield return new Command_Action

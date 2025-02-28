@@ -9,6 +9,8 @@
 
 	<!-- <WVC_XaG_MechaGestatorEndGestation>{0} has gestated new pawn.</WVC_XaG_MechaGestatorEndGestation> -->
 
+	<WVC_XaG_CollapseButtonDesc>Allows you to toggle the size of the displayed window, making it smaller or larger.</WVC_XaG_CollapseButtonDesc>
+
 	<WVC_RB_Gene_MechaGestator>{0} has gestated new pawn.</WVC_RB_Gene_MechaGestator>
 
 	<!-- <WVC_XaG_Gene_SimpleGestatorStart>Start gestation</WVC_XaG_Gene_SimpleGestatorStart> -->
@@ -478,7 +480,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<!-- ============================ DRYADS ============================ -->
 	<!-- ============================ DRYADS ============================ -->
 
-	<WVC_XaG_BroodmindLimit>Dryadbond</WVC_XaG_BroodmindLimit>
+	<WVC_XaG_BroodmindLimit>Dryads</WVC_XaG_BroodmindLimit>
 	<WVC_XaG_BroodmindLimitGizmoTip>The dryad master can partially control an unlimited number of dryads, but dryadbond is required to gestate new ones.\n\nEach dryad, regardless of type, consumes 1 dryadbond. Gain more dryadbond by connecting with &lt;color=#f76d6b&gt;gauranlen trees&lt;/color&gt; or with help of &lt;color=#6bb6bb&gt;genes&lt;/color&gt;.\n\nThe level of connection with &lt;color=#f76d6b&gt;gauranlen trees&lt;/color&gt; does not affect the bonus.</WVC_XaG_BroodmindLimitGizmoTip>
 
 	<WVC_XaG_BroodmindUsage>Dryadbond usage</WVC_XaG_BroodmindUsage>

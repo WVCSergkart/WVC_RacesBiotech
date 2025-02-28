@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Verse;
+using Verse.Sound;
 
 namespace WVC_XenotypesAndGenes
 {
@@ -17,6 +18,9 @@ namespace WVC_XenotypesAndGenes
 		public static readonly CachedTexture GeneBackground_ArchiteXenogene = new("WVC/UI/Genes/GeneBackground_XenoArchiteGene");
 
 		public static readonly CachedTexture GenesSettingsGizmo = new("WVC/UI/XaG_General/UI_GenesSettings_Gizmo");
+
+		public static readonly CachedTexture CollapseIcon = new("WVC/UI/XaG_General/UI_CollapseButton");
+		public static readonly CachedTexture NonAggressiveRedCancelIcon = new("WVC/UI/XaG_General/UI_NonAggressiveRed_Cancel");
 
 		public static IEnumerable<Gizmo> GetRemoteControllerGizmo(Pawn pawn, IGeneRemoteControl gene, List<IGeneRemoteControl> cachedRemoteControlGenes)
 		{
@@ -70,9 +74,39 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (onOrOff)
 			{
-				return "WVC_XaG_Gene_DustMechlink_On".Translate().Colorize(ColorLibrary.Green);
+				return "On".Translate().Colorize(ColorLibrary.Green);
 			}
-			return "WVC_XaG_Gene_DustMechlink_Off".Translate().Colorize(ColorLibrary.RedReadable);
+			return "Off".Translate().Colorize(ColorLibrary.RedReadable);
+		}
+
+		public static void FlickSound(bool flick)
+		{
+			if (flick)
+			{
+				SoundDefOf.Tick_High.PlayOneShotOnCamera();
+			}
+			else
+			{
+				SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+			}
+		}
+
+		public static void GizmoButton(Rect rect3, ref bool collapse)
+		{
+			Text.Anchor = TextAnchor.UpperRight;
+			Rect buttonRect = new(rect3.xMax - rect3.height, rect3.y, rect3.height, rect3.height);
+			Widgets.DrawTextureFitted(buttonRect, CollapseIcon.Texture, 1f);
+			if (Mouse.IsOver(buttonRect))
+			{
+				Widgets.DrawHighlight(buttonRect);
+				if (Widgets.ButtonInvisible(buttonRect))
+				{
+					collapse = !collapse;
+					XaG_UiUtility.FlickSound(collapse);
+				}
+			}
+			TooltipHandler.TipRegion(buttonRect, "WVC_XaG_CollapseButtonDesc".Translate());
+			Text.Anchor = TextAnchor.UpperLeft;
 		}
 
 		public static string ToStringHuman(this RotStage rotStage)

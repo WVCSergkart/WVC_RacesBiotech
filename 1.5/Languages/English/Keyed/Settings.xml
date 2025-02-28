@@ -266,4 +266,8 @@ Technologies, buildings and crafting will still be available.
 
 A restart is required.</WVC_ToolTip_onlyXenotypesMode>
 
+	<!-- ====================================================================================== -->
+	<WVC_Label_GeneGizmosDefaultCollapse>Collapse gene gizmos by default</WVC_Label_GeneGizmosDefaultCollapse>
+	<WVC_ToolTip_GeneGizmosDefaultCollapse>Defines the default state of the gizmos supporting collapse. If enabled, they are collapsed; if disabled, they are expanded. For the first acquaintance, it is recommended to disable this option.</WVC_ToolTip_GeneGizmosDefaultCollapse>
+
 </LanguageData>

@@ -279,6 +279,8 @@ namespace WVC_XenotypesAndGenes
 		public bool disableXenotypes_GolemMasters = false;
 		public bool disableXenotypes_Bloodeaters = false;
 		public bool disableXenotypes_Misc = false;
+		// Gizmos
+		public bool geneGizmosDefaultCollapse = false;
 
 	}
 

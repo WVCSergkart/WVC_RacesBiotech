@@ -292,11 +292,14 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		public bool gizmoCollapse = WVC_Biotech.settings.geneGizmosDefaultCollapse;
+
 		public override void ExposeData()
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref geneResource, "geneResource", 0);
 			Scribe_Collections.Look(ref selectedMechs, "selectedMechs", LookMode.Def);
+			Scribe_Values.Look(ref gizmoCollapse, "gizmoCollapse", WVC_Biotech.settings.geneGizmosDefaultCollapse);
 		}
 
 		public void UpdHediff()

@@ -77,26 +77,19 @@ namespace WVC_XenotypesAndGenes
 				yield break;
 			}
 			yield return new Command_Action
-			{
+            {
 				defaultLabel = def.LabelCap + ": " + Flick(pawn, Props.hediffDefName),
 				defaultDesc = Props.message.Translate(),
 				icon = ContentFinder<Texture2D>.Get(def.iconPath),
 				action = delegate
-				{
-					AddOrRemoveHediff(pawn, Props.hediffDefName, this);
-					if (!pawn.health.hediffSet.HasHediff(Props.hediffDefName))
-					{
-						SoundDefOf.Tick_High.PlayOneShotOnCamera();
-					}
-					else
-					{
-						SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-					}
-				}
-			};
+                {
+                    AddOrRemoveHediff(pawn, Props.hediffDefName, this);
+					XaG_UiUtility.FlickSound(!pawn.health.hediffSet.HasHediff(Props.hediffDefName));
+                }
+            };
 		}
 
-	}
+    }
 
 	public class Gene_Wings : Gene_Flickable, IGeneRemoteControl
 	{
@@ -219,14 +212,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					AddOrRemoveHediff(pawn, Props.hediffDefName, this);
 					cooldown = Find.TickManager.TicksGame + 450;
-					if (!pawn.health.hediffSet.HasHediff(Props.hediffDefName))
-					{
-						SoundDefOf.Tick_High.PlayOneShotOnCamera();
-					}
-					else
-					{
-						SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-					}
+					XaG_UiUtility.FlickSound(!pawn.health.hediffSet.HasHediff(Props.hediffDefName));
 				}
 			};
 		}

@@ -137,6 +137,7 @@ namespace WVC_XenotypesAndGenes
 		// public bool pregnantHuman_TrueParentGenesPatch = false;
 		// public bool pregnantHuman_InheritSurrogateGenes = false;
 		// public bool pregnantHuman_InheritArchiteGenes = false;
+		public bool geneGizmosDefaultCollapse = false;
 
 		public IEnumerable<string> GetEnabledSettings => from specificSetting in GetType().GetFields()
 														 where specificSetting.FieldType == typeof(bool) && (bool)specificSetting.GetValue(this)
@@ -268,6 +269,7 @@ namespace WVC_XenotypesAndGenes
 			// Scribe_Values.Look(ref pregnantHuman_TrueParentGenesPatch, "pregnantHuman_TrueParentGenesPatch", defaultValue: false);
 			// Scribe_Values.Look(ref pregnantHuman_InheritSurrogateGenes, "pregnantHuman_InheritSurrogateGenes", defaultValue: false);
 			// Scribe_Values.Look(ref pregnantHuman_InheritArchiteGenes, "pregnantHuman_InheritArchiteGenes", defaultValue: false);
+			Scribe_Values.Look(ref geneGizmosDefaultCollapse, "geneGizmosDefaultCollapse", defaultValue: false);
 			// End
 			Scribe_Collections.Look(ref WVC_Biotech.cachedXenotypesFilter, "cachedXenotypesFilter", LookMode.Value, LookMode.Value);
 		}
@@ -375,6 +377,7 @@ namespace WVC_XenotypesAndGenes
 			listingStandard.CheckboxLabeled("WVC_Label_disableUniqueGeneInterface".Translate().Colorize(ColorLibrary.LightPurple), ref settings.disableUniqueGeneInterface, "WVC_ToolTip_disableUniqueGeneInterface".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_disableEyesGraphic".Translate(), ref settings.disableEyesGraphic, "WVC_ToolTip_disableEyesGraphic".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_useMaskForFurskinGenes".Translate(), ref settings.useMaskForFurskinGenes, "WVC_ToolTip_useMaskForFurskinGenes".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_GeneGizmosDefaultCollapse".Translate(), ref settings.geneGizmosDefaultCollapse, "WVC_ToolTip_GeneGizmosDefaultCollapse".Translate());
 			//listingStandard.CheckboxLabeled("WVC_Label_enableBodySizeGenes".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enableBodySizeGenes, "WVC_ToolTip_enableBodySizeGenes".Translate());
 			// Info
 			// listingStandard.Gap();
@@ -1106,6 +1109,7 @@ namespace WVC_XenotypesAndGenes
 			// XenotypesSettings
 			// WVC_Biotech.cachedXenotypesFilter.Clear();
 			// XaG_PostInitialization.SetValues();
+			WVC_Biotech.settings.geneGizmosDefaultCollapse = settingsDef.geneGizmosDefaultCollapse;
 			// Initial
 			WVC_Biotech.settings.firstModLaunch = false;
 			WVC_Biotech.settings.Write();

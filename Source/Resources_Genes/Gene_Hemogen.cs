@@ -372,14 +372,7 @@ namespace WVC_XenotypesAndGenes
 				action = delegate
 				{
 					consumeHemogen = !consumeHemogen;
-					if (!consumeHemogen)
-					{
-						SoundDefOf.Tick_High.PlayOneShotOnCamera();
-					}
-					else
-					{
-						SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-					}
+					XaG_UiUtility.FlickSound(!consumeHemogen);
 				}
 			};
 		}

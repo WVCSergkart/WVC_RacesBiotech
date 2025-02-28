@@ -26,6 +26,7 @@
 	<generateSkillGenes>false</generateSkillGenes>
 	<!-- <link_addedMechlinkWithGene>false</link_addedMechlinkWithGene> -->
 	<!-- <link_addedPsylinkWithGene>false</link_addedPsylinkWithGene> -->
+	<geneGizmosDefaultCollapse>true</geneGizmosDefaultCollapse>
   </WVC_XenotypesAndGenes.SettingsDef>
 
   <WVC_XenotypesAndGenes.SettingsDef>
@@ -83,6 +84,7 @@
 	<enable_dryadQueenMechanicGenerator>false</enable_dryadQueenMechanicGenerator>
 	<enable_StartingFoodPolicies>false</enable_StartingFoodPolicies>
 	<enable_OverOverridableGenesMechanic>false</enable_OverOverridableGenesMechanic>
+	<geneGizmosDefaultCollapse>true</geneGizmosDefaultCollapse>
   </WVC_XenotypesAndGenes.SettingsDef>
 
 	<!-- Default Settings -->
@@ -203,5 +205,7 @@
 	<!-- public bool disableXenotypes_GolemMasters = false; -->
 	<!-- public bool disableXenotypes_Bloodeaters = false; -->
 	<!-- public bool disableXenotypes_Misc = false; -->
+	<!-- // Gizmos -->
+	<!-- public bool geneGizmosDefaultCollapse = false; -->
 
 </Defs>
