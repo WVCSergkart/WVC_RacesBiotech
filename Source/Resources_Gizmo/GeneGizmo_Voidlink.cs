@@ -22,7 +22,7 @@ namespace WVC_XenotypesAndGenes
 
 		public Gene_Voidlink gene;
 
-		public override bool Visible => true;
+        public override bool Visible => true;
 
 		public GeneGizmo_Voidlink(Gene_Voidlink geneMechlink)
 			: base()
@@ -33,56 +33,59 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
-		{
-			Rect rect = new(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
-			Rect rect2 = rect.ContractedBy(6f);
-			Widgets.DrawWindowBackground(rect);
-			TaggedString taggedString = "WVC_XaG_Gene_Voidlink_GizmoLabel".Translate().Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_Gene_Voidlink_GizmoTip".Translate(gene.MaxMechs);
-			Text.Font = GameFont.Small;
-			Text.Anchor = TextAnchor.UpperLeft;
-			Rect rect3 = new(rect2.x, rect2.y, rect2.width, 20f);
-			Widgets.Label(rect3, "WVC_XaG_Gene_Voidlink_GizmoLabel".Translate());
-			TooltipHandler.TipRegion(rect3, taggedString);
-			Rect rect4 = new(rect2.x, rect3.yMax + 6f, rect2.width - 84f, rect2.height - rect3.height - 6f);
-			TooltipHandler.TipRegion(rect4, taggedString);
-			// Button
-			Rect rectSummonSettings = new(rect4.xMax, rect2.y + 23f, 40f, 40f);
-			Widgets.DrawTextureFitted(rectSummonSettings, KillMechsIcon.Texture, 1f);
-			if (Mouse.IsOver(rectSummonSettings))
-			{
-				Widgets.DrawHighlight(rectSummonSettings);
-				if (Widgets.ButtonInvisible(rectSummonSettings))
-				{
-					Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_Gene_VoidlinkKillAllVoidMechsWarning".Translate(), delegate
-					{
-						gene.KillMechs(true);
-					});
-					Find.WindowStack.Add(window);
-				}
-			}
-			TooltipHandler.TipRegion(rectSummonSettings, "WVC_XaG_Gene_VoidlinkKillAllVoidMechs".Translate());
-			// Button
-			Rect rectGolemsSettings = new(rectSummonSettings.x + 44f, rectSummonSettings.y, rectSummonSettings.width, rectSummonSettings.height);
-			Widgets.DrawTextureFitted(rectGolemsSettings, SummonIcon.Texture, 1f);
-			if (Mouse.IsOver(rectGolemsSettings))
-			{
-				Widgets.DrawHighlight(rectGolemsSettings);
-				if (Widgets.ButtonInvisible(rectGolemsSettings))
-				{
-					Find.WindowStack.Add(new Dialog_Voidlink(gene));
-				}
-			}
-			TooltipHandler.TipRegion(rectGolemsSettings, "WVC_XaG_Gene_VoidlinkSummonSettings_Desc".Translate());
-			// Bonds
-			Rect barRect = new(rect4.x, rect4.y + 3f, rect4.width - 4f, rect4.height - 9f);
-			Widgets.FillableBar(barRect, gene.ResourcePercent, BarTex, EmptyBarTex, doBorder: true);
-			Text.Anchor = TextAnchor.MiddleCenter;
-			Widgets.Label(barRect, gene.ResourceForDisplay.ToString());
-			Text.Anchor = TextAnchor.UpperLeft;
-			return new GizmoResult(GizmoState.Clear);
-		}
+        {
+            Rect rect = new(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
+            Rect rect2 = rect.ContractedBy(6f);
+            Widgets.DrawWindowBackground(rect);
+            TaggedString taggedString = "WVC_XaG_Gene_Voidlink_GizmoLabel".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + "WVC_XaG_Gene_Voidlink_GizmoResourceLabel".Translate(gene.CurrentResource * 100, gene.MaxResource * 100, gene.ResourcePerDay) + "\n\n" + "WVC_XaG_Gene_Voidlink_GizmoTip".Translate(gene.MaxMechs);
+            Text.Font = GameFont.Small;
+            Text.Anchor = TextAnchor.UpperLeft;
+            Rect rect3 = new(rect2.x, rect2.y, rect2.width, 20f);
+            Widgets.Label(rect3, "WVC_XaG_Gene_Voidlink_GizmoLabel".Translate());
+            Text.Anchor = TextAnchor.UpperRight;
+            Widgets.Label(rect3, gene.ResourcePerDay);
+            Text.Anchor = TextAnchor.UpperLeft;
+            TooltipHandler.TipRegion(rect3, taggedString);
+            Rect rect4 = new(rect2.x, rect3.yMax + 6f, rect2.width - 84f, rect2.height - rect3.height - 6f);
+            TooltipHandler.TipRegion(rect4, taggedString);
+            // Button
+            Rect rectSummonSettings = new(rect4.xMax, rect2.y + 23f, 40f, 40f);
+            Widgets.DrawTextureFitted(rectSummonSettings, KillMechsIcon.Texture, 1f);
+            if (Mouse.IsOver(rectSummonSettings))
+            {
+                Widgets.DrawHighlight(rectSummonSettings);
+                if (Widgets.ButtonInvisible(rectSummonSettings))
+                {
+                    Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_Gene_VoidlinkKillAllVoidMechsWarning".Translate(), delegate
+                    {
+                        gene.KillMechs(true);
+                    });
+                    Find.WindowStack.Add(window);
+                }
+            }
+            TooltipHandler.TipRegion(rectSummonSettings, "WVC_XaG_Gene_VoidlinkKillAllVoidMechs".Translate());
+            // Button
+            Rect rectGolemsSettings = new(rectSummonSettings.x + 44f, rectSummonSettings.y, rectSummonSettings.width, rectSummonSettings.height);
+            Widgets.DrawTextureFitted(rectGolemsSettings, SummonIcon.Texture, 1f);
+            if (Mouse.IsOver(rectGolemsSettings))
+            {
+                Widgets.DrawHighlight(rectGolemsSettings);
+                if (Widgets.ButtonInvisible(rectGolemsSettings))
+                {
+                    Find.WindowStack.Add(new Dialog_Voidlink(gene));
+                }
+            }
+            TooltipHandler.TipRegion(rectGolemsSettings, "WVC_XaG_Gene_VoidlinkSummonSettings_Desc".Translate());
+            // Bonds
+            Rect barRect = new(rect4.x, rect4.y + 3f, rect4.width - 4f, rect4.height - 9f);
+            Widgets.FillableBar(barRect, gene.ResourcePercent, BarTex, EmptyBarTex, doBorder: true);
+            Text.Anchor = TextAnchor.MiddleCenter;
+            Widgets.Label(barRect, gene.ResourceForDisplay.ToString());
+            Text.Anchor = TextAnchor.UpperLeft;
+            return new GizmoResult(GizmoState.Clear);
+        }
 
-		public override float GetWidth(float maxWidth)
+        public override float GetWidth(float maxWidth)
 		{
 			return 220f;
 		}
