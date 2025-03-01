@@ -208,7 +208,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_ChimeraPsychicHarvester : Gene_ChimeraDependant
+	public class Gene_ChimeraDependant_PsychicHarvester : Gene_ChimeraDependant
 	{
 
 		private int nextTick = 44344;
@@ -221,39 +221,107 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public override void Tick()
-        {
-            if (!GeneResourceUtility.CanTick(ref nextTick, updTick))
-            {
-                return;
-            }
-            Harvest();
-            ResetTicker();
-        }
-
-        private void ResetTicker()
-        {
-            //IntRange range = new(44444, 67565);
-            updTick = Spawner.spawnIntervalRange.RandomInRange;
-        }
-
-        public void Harvest()
 		{
-			List<Pawn> pawns = new();
-			foreach (DirectPawnRelation relation in pawn.relations.DirectRelations)
-            {
-				if (relation.def.reflexive)
-                {
-					pawns.Add(relation.otherPawn);
-				}
-            }
-			//pawn.relations.GetDirectRelations(PawnRelationDefOf.Lover, ref pawns);
+			if (!GeneResourceUtility.CanTick(ref nextTick, updTick))
+			{
+				return;
+			}
+			Harvest();
+			ResetTicker();
+		}
+
+		private void ResetTicker()
+		{
+			//IntRange range = new(44444, 67565);
+			updTick = Spawner.spawnIntervalRange.RandomInRange;
+		}
+
+		public virtual void Harvest()
+		{
+
+		}
+
+		public void GetGene(List<Pawn> pawns)
+		{
 			foreach (Pawn pawn in pawns)
-            {
+			{
 				if (Rand.Chance(Spawner.chance))
 				{
 					Chimera.GetGeneFromHuman(pawn);
 				}
+			}
+		}
+
+	}
+
+	public class Gene_ChimeraPsychicHarvester_Lover : Gene_ChimeraDependant_PsychicHarvester
+	{
+
+        public override void Harvest()
+        {
+            List<Pawn> pawns = new();
+            foreach (DirectPawnRelation relation in pawn.relations.DirectRelations)
+            {
+                if (relation.def.reflexive)
+                {
+                    pawns.Add(relation.otherPawn);
+                }
             }
+            //pawn.relations.GetDirectRelations(PawnRelationDefOf.Lover, ref pawns);
+            GetGene(pawns);
+        }
+    }
+
+	public class Gene_ChimeraPsychicHarvester_Friend : Gene_ChimeraDependant_PsychicHarvester
+	{
+
+		public override void Harvest()
+		{
+			List<Pawn> pawns = new();
+			foreach (DirectPawnRelation relation in pawn.relations.DirectRelations)
+			{
+				if (pawn.relations.OpinionOf(relation.otherPawn) >= 20)
+				{
+					pawns.Add(relation.otherPawn);
+				}
+			}
+			GetGene(pawns);
+		}
+
+	}
+
+	public class Gene_ChimeraPsychicHarvester_Rival : Gene_ChimeraDependant_PsychicHarvester
+	{
+
+		public override void Harvest()
+		{
+			List<Pawn> pawns = new();
+			foreach (DirectPawnRelation relation in pawn.relations.DirectRelations)
+			{
+				if (pawn.relations.OpinionOf(relation.otherPawn) <= -20)
+				{
+					pawns.Add(relation.otherPawn);
+				}
+			}
+			GetGene(pawns);
+		}
+
+	}
+
+	public class Gene_ChimeraPsychicHarvester_Family : Gene_ChimeraDependant_PsychicHarvester
+	{
+
+		public override void Harvest()
+		{
+			List<Pawn> pawns = new();
+			foreach (DirectPawnRelation relation in pawn.relations.DirectRelations)
+			{
+				if (relation.def.familyByBloodRelation)
+				{
+					pawns.Add(relation.otherPawn);
+				}
+			}
+			GetGene(pawns);
 		}
 
 	}
