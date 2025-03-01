@@ -14,6 +14,17 @@ namespace WVC_XenotypesAndGenes
 			pawn.ageTracker.AgeChronologicalTicks = (long)age;
 		}
 
+		public static void AddAge(Pawn pawn, int age)
+		{
+			pawn.ageTracker.AgeBiologicalTicks += (long)age;
+			pawn.ageTracker.AgeChronologicalTicks += (long)age;
+		}
+
+		public static void AddAgeInYears(Pawn pawn, int ageInYears)
+		{
+			AddAge(pawn, ageInYears * 3600000);
+		}
+
 		public static void Rejuvenation(Pawn pawn)
 		{
 			if ((3600000 * 18) <= pawn.ageTracker.AgeBiologicalTicks)

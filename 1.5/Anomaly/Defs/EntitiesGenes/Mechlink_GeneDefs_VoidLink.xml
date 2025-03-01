@@ -62,6 +62,8 @@
 	<minAgeActive>3</minAgeActive>
   </GeneDef>
 
+  <!-- ====================== -->
+
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneVoidlink_SubGenes">
 	<defName>WVC_IncreasedVoidLimit</defName>
 	<label>increased void limit</label>
@@ -99,5 +101,46 @@
 	  <li>WVC_IncreasedVoidLimit</li>
 	</exclusionTags>
   </GeneDef>
+
+  <!-- ====================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneVoidlink_SubGenes">
+	<defName>WVC_VoidResourceGain</defName>
+	<label>void enery gain</label>
+	<description>Carriers of this gene are better at accumulating the void energy needed to summon mechanoids.</description>
+	<iconPath>WVC/UI/Genes/Gene_VoidResourceGain_v0</iconPath>
+	<geneClass>WVC_XenotypesAndGenes.Gene_VoidlinkOffset</geneClass>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>75.15</displayOrderInCategory>
+	<biostatCpx>0</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-3</biostatMet>
+	<resourceLossPerDay>0.15</resourceLossPerDay>
+	<customEffectDescriptions>
+		<li>Generates an additional 15 energy per day.</li>
+	</customEffectDescriptions>
+	<exclusionTags>
+	  <li>WVC_VoidResourceGain</li>
+	</exclusionTags>
+  </GeneDef>
+
+  <!-- <GeneDef ParentName="WVC_XenotypesAndGenes_GeneVoidlink_SubGenes"> -->
+	<!-- <defName>WVC_VoidResourceGain</defName> -->
+	<!-- <label>void enery gain</label> -->
+	<!-- <description>Carriers of this gene are much better at accumulating the void energy needed to summon mechanoids.</description> -->
+	<!-- <iconPath>WVC/UI/Genes/Gene_VoidResourceGain_v0</iconPath> -->
+	<!-- <iconColor>(255, 255, 255)</iconColor> -->
+	<!-- <displayOrderInCategory>75.20</displayOrderInCategory> -->
+	<!-- <biostatCpx>0</biostatCpx> -->
+	<!-- <biostatArc>1</biostatArc> -->
+	<!-- <biostatMet>-6</biostatMet> -->
+	<!-- <resourceLossPerDay>0.3</resourceLossPerDay> -->
+	<!-- <customEffectDescriptions> -->
+		<!-- <li>Generates an additional 30 energy per day.</li> -->
+	<!-- </customEffectDescriptions> -->
+	<!-- <exclusionTags> -->
+	  <!-- <li>WVC_VoidResourceGain</li> -->
+	<!-- </exclusionTags> -->
+  <!-- </GeneDef> -->
 
 </Defs>

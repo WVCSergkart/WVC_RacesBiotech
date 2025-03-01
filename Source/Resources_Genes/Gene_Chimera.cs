@@ -287,7 +287,7 @@ namespace WVC_XenotypesAndGenes
 			GetGeneFromHuman(victim);
 		}
 
-		private void GetGeneFromHuman(Pawn victim)
+		public void GetGeneFromHuman(Pawn victim)
 		{
 			List<Gene> genes = victim?.genes?.GenesListForReading;
 			if (genes.NullOrEmpty())

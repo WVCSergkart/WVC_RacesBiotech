@@ -41,9 +41,6 @@ namespace WVC_XenotypesAndGenes
 			//UpdateSavedVersion();
 		}
 
-		private int nextRecache = 444;
-		private int nextSecondRecache = 0;
-
 		public Game currentGame;
 
 		public XaG_GameComponent(Game game)
@@ -68,6 +65,9 @@ namespace WVC_XenotypesAndGenes
 			ResetCounter(new(40000, 70000));
 		}
 
+		private int nextRecache = 444;
+		private int nextSecondRecache = 0;
+
 		public void XaG_General()
 		{
 			MiscUtility.CountAllPlayerControlledPawns_StaticCollection();
@@ -83,14 +83,23 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public void DelayRecache(int delay = 1500)
+		{
+			nextRecache += delay;
+			if (delay > 26666)
+            {
+				nextSecondRecache++;
+			}
+		}
+
 		//private string savedModVersion = null;
 
 		//public void UpdateSavedVersion(bool sendLetter = false)
 		//{
 		//	if (sendLetter && !savedModVersion.Contains(WVC_Biotech.settings.Mod.Content.ModMetaData.ModVersion))
-  //          {
-				
-  //          }
+		//          {
+
+		//          }
 		//	savedModVersion = WVC_Biotech.settings.Mod.Content.ModMetaData.ModVersion;
 		//}
 

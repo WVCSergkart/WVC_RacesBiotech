@@ -96,4 +96,29 @@
 	</modExtensions>
   </GeneDef>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_OneManArmySubGenes">
+	<defName>WVC_Chimera_PsychicLoveHarvester</defName>
+	<label>psychic geneharvest</label>
+	<description>Carriers of this gene can copy the genes of pawns with whom they have a love affair.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_ChimeraPsychicHarvester</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_ChimeraPsychicHarvest_v0</iconPath>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>0</biostatArc>
+	<biostatMet>-2</biostatMet>
+	<displayOrderInCategory>145.015</displayOrderInCategory>
+	<customEffectDescriptions>
+		<li>With a &lt;color=#8a8ae6&gt;small chance&lt;/color&gt;, it can copy a &lt;color=#8a8ae6&gt;random gene&lt;/color&gt; of pawns with whom the carrier has a &lt;color=#8a8ae6&gt;love relationship&lt;/color&gt;.</li>
+		<li>Supported relations: Lover, fiance, spouse. And any other &lt;color=#8a8ae6&gt;reflexive&lt;/color&gt; relationships.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<selectionWeight>2</selectionWeight>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
+			<spawnIntervalRange>44444~67565</spawnIntervalRange>
+			<chance>0.07</chance>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
 </Defs>

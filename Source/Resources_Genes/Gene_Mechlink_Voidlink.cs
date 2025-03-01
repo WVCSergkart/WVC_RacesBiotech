@@ -248,7 +248,7 @@ namespace WVC_XenotypesAndGenes
 				PawnGenerationRequest request = new(mechKind, pawn.Faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: false, allowDowned: false, canGeneratePawnRelations: true, mustBeCapableOfViolence: false, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: true, allowPregnant: false, allowFood: true, allowAddictions: true, inhabitant: false, certainlyBeenInCryptosleep: false, forceRedressWorldPawnIfFormerColonist: false, worldPawnFactionDoesntMatter: false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null, null, forceNoIdeo: false, forceNoBackstory: false, forbidAnyTitle: false, forceDead: false, null, null, null, null, null, 0f, DevelopmentalStage.Newborn);
 				Pawn mech = PawnGenerator.GeneratePawn(request);
 				phase = "set mech age";
-				AgelessUtility.SetAge(mech, 3600000 * new IntRange(9, 44).RandomInRange);
+				AgelessUtility.SetAge(mech, 3600000 * new IntRange(5, 44).RandomInRange);
 				if (Rand.Chance(pawn.GetStatValue(Spawner.voidDamageChance_StatDef)))
 				{
 					phase = "set random damage";
@@ -261,6 +261,7 @@ namespace WVC_XenotypesAndGenes
 						int num = (int)pawn.health.hediffSet.GetPartHealth(part) - 1;
 						int randomInRange = damageRange.RandomInRange;
 						HealingUtility.TakeDamage(mech, part, Rand.Chance(0.5f) ? DamageDefOf.Blunt : DamageDefOf.Crush, randomInRange > num ? num : randomInRange);
+						AgelessUtility.AddAgeInYears(mech, 1);
 					}
 				}
 				phase = "effects and spawn";

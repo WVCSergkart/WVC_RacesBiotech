@@ -14,6 +14,8 @@ namespace WVC_XenotypesAndGenes
 
 		// public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
+		public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
+
 		[Unsaved(false)]
 		private Gene_Chimera cachedChimeraGene;
 
@@ -33,8 +35,6 @@ namespace WVC_XenotypesAndGenes
 
 	public class Gene_ChimeraGenesGen : Gene_ChimeraDependant
 	{
-
-		public GeneExtension_Spawner Spawner => def?.GetModExtension<GeneExtension_Spawner>();
 
 		private int nextTick = 62556;
 
@@ -204,6 +204,56 @@ namespace WVC_XenotypesAndGenes
 				Chimera.TryAddGene(result);
 				Messages.Message("WVC_XaG_GeneGeneticThief_GeneObtained".Translate(pawn.NameShortColored, result.label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
 			}
+		}
+
+	}
+
+	public class Gene_ChimeraPsychicHarvester : Gene_ChimeraDependant
+	{
+
+		private int nextTick = 44344;
+		private int updTick = 45454;
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			ResetTicker();
+		}
+
+		public override void Tick()
+        {
+            if (!GeneResourceUtility.CanTick(ref nextTick, updTick))
+            {
+                return;
+            }
+            Harvest();
+            ResetTicker();
+        }
+
+        private void ResetTicker()
+        {
+            //IntRange range = new(44444, 67565);
+            updTick = Spawner.spawnIntervalRange.RandomInRange;
+        }
+
+        public void Harvest()
+		{
+			List<Pawn> pawns = new();
+			foreach (DirectPawnRelation relation in pawn.relations.DirectRelations)
+            {
+				if (relation.def.reflexive)
+                {
+					pawns.Add(relation.otherPawn);
+				}
+            }
+			//pawn.relations.GetDirectRelations(PawnRelationDefOf.Lover, ref pawns);
+			foreach (Pawn pawn in pawns)
+            {
+				if (Rand.Chance(Spawner.chance))
+				{
+					Chimera.GetGeneFromHuman(pawn);
+				}
+            }
 		}
 
 	}

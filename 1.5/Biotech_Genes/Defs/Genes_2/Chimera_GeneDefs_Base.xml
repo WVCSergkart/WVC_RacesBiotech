@@ -35,6 +35,7 @@
 			  <li>WVC_Chimera_Geneharvest</li>
 			  <li>WVC_Chimera_Packharvest</li>
 			  <li>WVC_Chimera_GeneDigestor</li>
+			  <li>WVC_Chimera_PsychicLoveHarvester</li>
 			</chimeraGenesTools>
 			<humanBasicGenes>
 			  <li>WVC_Mecha_NoTail</li>
@@ -92,6 +93,7 @@
 				<genes>
 				  <li>WVC_IncreasedVoidLimit</li>
 				  <li>WVC_DecreasedVoidLimit</li>
+				  <li>WVC_VoidResourceGain</li>
 				</genes>
 			  </li>
 			</chimeraConditionalGenes>
