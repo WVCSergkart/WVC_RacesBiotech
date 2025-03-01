@@ -61,7 +61,7 @@
 			  </li>
 			  <li>
 				<reqOneManArmy>true</reqOneManArmy>
-				<chance>0.71</chance>
+				<chance>0.57</chance>
 				<genes>
 				  <li>WVC_Chimera_Xenoharvest</li>
 				  <li>WVC_Chimera_Corpseharvest</li>
@@ -73,15 +73,25 @@
 			  <li MayRequire="ludeon.rimworld.anomaly">
 				<reqGeneDef>WVC_FleshmassNucleus</reqGeneDef>
 				<reqOneManArmy>true</reqOneManArmy>
-				<chance>0.5</chance>
+				<chance>0.33</chance>
 				<genes>
 				  <li>WVC_FleshmassSkin</li>
 				  <li>WVC_FleshmassBrain</li>
 				  <li>WVC_FleshmassArmor</li>
 				  <li>WVC_FleshmassBuilder</li>
+				  <li>WVC_FleshmassRegeneration</li>
 				  <li>WVC_SelfdevourStomach</li>
 				  <li>WVC_Deadlife</li>
 				  <li>WVC_Duplicator</li>
+				</genes>
+			  </li>
+			  <li MayRequire="ludeon.rimworld.anomaly">
+				<reqGeneDef>WVC_VoidMechlink</reqGeneDef>
+				<reqOneManArmy>true</reqOneManArmy>
+				<chance>0.04</chance>
+				<genes>
+				  <li>WVC_IncreasedVoidLimit</li>
+				  <li>WVC_DecreasedVoidLimit</li>
 				</genes>
 			  </li>
 			</chimeraConditionalGenes>
