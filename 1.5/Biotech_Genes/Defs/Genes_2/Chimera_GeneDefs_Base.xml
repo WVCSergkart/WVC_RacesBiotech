@@ -27,16 +27,18 @@
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
 			<soundDefOnImplant>PawnBecameSanguophage</soundDefOnImplant>
+			<!-- Unused? -->
 			<xenotypeDef>WVC_Shadoweater</xenotypeDef>
 			<collectedGenesColor>(162, 216, 162)</collectedGenesColor>
 			<destroyedGenesColor>(178, 97, 96)</destroyedGenesColor>
+			<!-- Start or genes eater -->
 			<chimeraGenesTools>
 			  <li>Bloodfeeder</li>
 			  <li>WVC_Chimera_Geneharvest</li>
 			  <li>WVC_Chimera_Packharvest</li>
 			  <li>WVC_Chimera_GeneDigestor</li>
-			  <li>WVC_Chimera_PsychicHarvester_Lover</li>
 			</chimeraGenesTools>
+			<!-- Bite or harvest -->
 			<humanBasicGenes>
 			  <li>WVC_Mecha_NoTail</li>
 			  <li>Ears_Human</li>
@@ -46,7 +48,9 @@
 			  <li>Headbone_Human</li>
 			  <li>Voice_Human</li>
 			</humanBasicGenes>
+			<!-- Genes eater -->
 			<chimeraConditionalGenes>
+			  <!-- Human basic -->
 			  <li>
 				<reqOneManArmy>false</reqOneManArmy>
 				<chance>1.0</chance>
@@ -60,6 +64,18 @@
 				  <li>Voice_Human</li>
 				</genes>
 			  </li>
+			  <!-- Chimera rare -->
+			  <li>
+				<reqOneManArmy>false</reqOneManArmy>
+				<chance>0.27</chance>
+				<genes>
+				  <li>WVC_Chimera_PsychicHarvester_Family</li>
+				  <li>WVC_Chimera_PsychicHarvester_Rival</li>
+				  <li>WVC_Chimera_PsychicHarvester_Lover</li>
+				  <li>WVC_Chimera_PsychicHarvester_Friend</li>
+				</genes>
+			  </li>
+			  <!-- Basic solo -->
 			  <li>
 				<reqOneManArmy>true</reqOneManArmy>
 				<chance>0.57</chance>
@@ -71,6 +87,7 @@
 				  <li>WVC_Chimera_RandomGenesGen</li>
 				</genes>
 			  </li>
+			  <!-- Beholder solo -->
 			  <li MayRequire="ludeon.rimworld.anomaly">
 				<reqGeneDef>WVC_FleshmassNucleus</reqGeneDef>
 				<reqOneManArmy>true</reqOneManArmy>
@@ -86,6 +103,7 @@
 				  <li>WVC_Duplicator</li>
 				</genes>
 			  </li>
+			  <!-- Summoner solo -->
 			  <li MayRequire="ludeon.rimworld.anomaly">
 				<reqGeneDef>WVC_VoidMechlink</reqGeneDef>
 				<reqOneManArmy>true</reqOneManArmy>

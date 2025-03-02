@@ -9,7 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_ChimeraStorageImplanter : Gene_ChimeraDependant
+    public class Gene_StorageImplanter : Gene
     {
 
         private List<GeneDef> genes = new();
