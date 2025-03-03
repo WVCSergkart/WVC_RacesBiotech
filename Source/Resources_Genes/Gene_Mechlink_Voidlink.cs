@@ -9,7 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Voidlink : Gene_Mechlink, IGeneOverridden, IGeneNotifyOnKilled
+	public class Gene_Voidlink : Gene_Mechlink, IGeneOverridden, IGeneNotifyOnKilled, IGeneNotifyGenesChanged
 	{
 
 		public override void PostAdd()
@@ -171,9 +171,25 @@ namespace WVC_XenotypesAndGenes
             }
 		}
 
-		public void UpdMaxResource()
+		public void Notify_GenesChanged(Gene changedGene)
 		{
+			CacheReset();
+		}
+
+		public void CacheReset(bool notifyBandwidth = false)
+		{
+			//if (pawn.mechanitor == null)
+			//{
+			//	return;
+			//}
+			if (notifyBandwidth)
+			{
+				pawn.mechanitor?.Notify_BandwidthChanged();
+			}
 			cachedMaxResource = null;
+			allMechsCount = null;
+			cachedMaxMechs = null;
+			sphereChance = null;
 		}
 
 		public float CurrentResource => (float)Math.Round(geneResource, 2);
@@ -215,42 +231,34 @@ namespace WVC_XenotypesAndGenes
 					}
 					else
                     {
-						PostSummon();
+						CacheReset(true);
 					}
 				}
 			}
 		}
 
-		public void PostSummon()
-		{
-			if (pawn.mechanitor == null)
-			{
-				return;
-			}
-			foreach (Pawn mech in pawn.mechanitor.ControlledPawns.ToList())
-			{
-				if (mech.Dead)
-				{
-					continue;
-				}
-				MechanitorControlGroup savedGroup = pawn.mechanitor.GetControlGroup(mech);
-				MechanoidsUtility.SetOverseer(pawn, mech);
-				savedGroup.Assign(mech);
-			}
-			allMechsCount = null;
-			sphereChance = null;
-			cachedMaxMechs = null;
-			UpdMaxResource();
-		}
+		//public void PostSummon()
+		//{
+		//	foreach (Pawn mech in pawn.mechanitor.ControlledPawns.ToList())
+		//	{
+		//		if (mech.Dead)
+		//		{
+		//			continue;
+		//		}
+		//		MechanitorControlGroup savedGroup = pawn.mechanitor.GetControlGroup(mech);
+		//		MechanoidsUtility.SetOverseer(pawn, mech);
+		//		savedGroup.Assign(mech);
+		//	}
+		//}
 
-		private int? allMechsCount;
+        private int? allMechsCount;
         public int AllMechsCount
         {
             get
             {
 				if (!allMechsCount.HasValue)
                 {
-					allMechsCount = pawn.mechanitor.ControlledPawns.Count;
+					allMechsCount = pawn.mechanitor.ControlledPawns.Where((mech) => !mech.Dead).ToList().Count;
 				}
                 return allMechsCount.Value;
             }
@@ -397,6 +405,6 @@ namespace WVC_XenotypesAndGenes
 				HediffUtility.TryAddOrRemoveHediff(Spawner.mechanitorHediff, pawn, this, null);
 			}
 		}
-	}
+    }
 
 }

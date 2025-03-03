@@ -265,6 +265,17 @@ namespace WVC_XenotypesAndGenes
 			ReimplanterUtility.FixGeneTraits(pawn);
 		}
 
+		public static void NotifyGenesChanged(Pawn pawn)
+		{
+			foreach (Gene item in pawn.genes.GenesListForReading)
+			{
+				if (item is IGeneNotifyGenesChanged targetGene)
+				{
+					targetGene.Notify_GenesChanged(null);
+				}
+			}
+		}
+
 		public static void OverrideAllConflictsWith(Gene gene, List<Gene> genes)
 		{
 			foreach (Gene item in genes)

@@ -146,6 +146,7 @@ namespace WVC_XenotypesAndGenes
 				MiscUtility.DoSkipEffects(pawn.Corpse.Position, pawn.Corpse.Map);
 				pawn.Corpse.Destroy();
 			}
+			Voidlink.CacheReset(false);
 		}
 
 		public override IEnumerable<Gizmo> GetGizmos()

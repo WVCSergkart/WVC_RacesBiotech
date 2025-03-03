@@ -9,7 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_VoidlinkDependant : Gene
+	public class Gene_VoidlinkDependant : Gene, IGeneOverridden
 	{
 
 		//public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
@@ -29,16 +29,26 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void PostAdd()
+        public virtual void Notify_OverriddenBy(Gene overriddenBy)
+		{
+			MasterGene?.CacheReset();
+		}
+
+        public virtual void Notify_Override()
+		{
+			MasterGene?.CacheReset();
+		}
+
+        public override void PostAdd()
 		{
 			base.PostAdd();
-			MasterGene?.UpdMaxResource();
+			MasterGene?.CacheReset();
 		}
 
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			MasterGene?.UpdMaxResource();
+			MasterGene?.CacheReset();
 		}
 
 	}
