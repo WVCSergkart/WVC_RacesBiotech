@@ -690,7 +690,7 @@ namespace WVC_XenotypesAndGenes
             {
                 if (isWorkGolemnoid == null)
                 {
-                    isWorkGolemnoid = !pawnKindDef.race.race.mechEnabledWorkTypes.NullOrEmpty();
+                    isWorkGolemnoid = pawnKindDef?.race?.race?.mechEnabledWorkTypes?.NullOrEmpty() == false;
                 }
                 return isWorkGolemnoid.Value;
             }
@@ -705,33 +705,46 @@ namespace WVC_XenotypesAndGenes
             {
                 if (cachedDescription == null)
                 {
-                    StringBuilder stringBuilder = new();
-                    stringBuilder.AppendLine(pawnKindDef.race.description);
-                    stringBuilder.AppendLine();
-                    stringBuilder.AppendLine("WVC_XaG_Dialog_Golemlink_Stats".Translate().Colorize(ColoredText.TipSectionTitleColor) + ":");
-                    if (!displayedStats.NullOrEmpty())
-                    {
-                        for (int j = 0; j < displayedStats.Count; j++)
-                        {
-                            StatDef statDef = displayedStats[j];
-                            stringBuilder.AppendLine(" - " + statDef.LabelCap + ": " + statDef.ValueToString(pawnKindDef.race.GetStatValueAbstract(statDef), statDef.toStringNumberSense));
-                        }
-                    }
-                    if (Worker)
-                    {
-                        stringBuilder.AppendLine();
-                        stringBuilder.AppendLine("MechWorkActivities".Translate().Colorize(ColoredText.TipSectionTitleColor) + ":");
-                        stringBuilder.AppendLine(" - " + pawnKindDef.race.race.mechEnabledWorkTypes.Select((WorkTypeDef w) => w.gerundLabel).ToCommaList(useAnd: true).CapitalizeFirst());
-                    }
-                    if (!pawnKindDef.weaponTags.NullOrEmpty())
-                    {
-                        stringBuilder.AppendLine();
-                        stringBuilder.AppendLine("WVC_XaG_Dialog_Golemlink_Weapon".Translate().Colorize(ColoredText.TipSectionTitleColor) + ":");
-                        stringBuilder.AppendLine(" - " + DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef thing) => !thing.weaponTags.NullOrEmpty() && thing.weaponTags.Contains(pawnKindDef.weaponTags.FirstOrDefault())).FirstOrDefault().label.CapitalizeFirst());
+					string phase = "start";
+                    try
+					{
+						StringBuilder stringBuilder = new();
+						stringBuilder.AppendLine(pawnKindDef.race.description);
+						stringBuilder.AppendLine();
+						phase = "get stats";
+						stringBuilder.AppendLine("WVC_XaG_Dialog_Golemlink_Stats".Translate().Colorize(ColoredText.TipSectionTitleColor) + ":");
+						if (!displayedStats.NullOrEmpty())
+						{
+							for (int j = 0; j < displayedStats.Count; j++)
+							{
+								StatDef statDef = displayedStats[j];
+								stringBuilder.AppendLine(" - " + statDef.LabelCap + ": " + statDef.ValueToString(pawnKindDef.race.GetStatValueAbstract(statDef), statDef.toStringNumberSense));
+							}
+						}
+						phase = "get mechEnabledWorkTypes";
+						if (Worker)
+						{
+							stringBuilder.AppendLine();
+							stringBuilder.AppendLine("MechWorkActivities".Translate().Colorize(ColoredText.TipSectionTitleColor) + ":");
+							stringBuilder.AppendLine(" - " + pawnKindDef.race.race.mechEnabledWorkTypes.Select((WorkTypeDef w) => w.gerundLabel).ToCommaList(useAnd: true).CapitalizeFirst());
+						}
+						phase = "get weaponTags";
+						if (!pawnKindDef.weaponTags.NullOrEmpty())
+						{
+							stringBuilder.AppendLine();
+							stringBuilder.AppendLine("WVC_XaG_Dialog_Golemlink_Weapon".Translate().Colorize(ColoredText.TipSectionTitleColor) + ":");
+							stringBuilder.AppendLine(" - " + DefDatabase<ThingDef>.AllDefsListForReading.Where((ThingDef thing) => !thing.weaponTags.NullOrEmpty() && thing.weaponTags.Contains(pawnKindDef.weaponTags.FirstOrDefault()))?.FirstOrDefault()?.label.CapitalizeFirst());
+						}
+						stringBuilder.AppendLine();
+						phase = "get MechWeightClass";
+						stringBuilder.Append("WVC_MechWeightClass".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + pawnKindDef.race.race.mechWeightClass.ToStringHuman().CapitalizeFirst());
+						cachedDescription = stringBuilder.ToString();
 					}
-					stringBuilder.AppendLine();
-					stringBuilder.Append("WVC_MechWeightClass".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + pawnKindDef.race.race.mechWeightClass.ToStringHuman().CapitalizeFirst());
-					cachedDescription = stringBuilder.ToString();
+                    catch (Exception arg)
+                    {
+						Log.Error("Failed get description for mechanoid. On phase: " + phase + " Reason: " + arg);
+						cachedDescription = "WVC_XaG_NoDescError".Translate() + " Cause failed get description for mechanoid. On phase: " + phase;
+					}
                 }
                 return cachedDescription;
             }

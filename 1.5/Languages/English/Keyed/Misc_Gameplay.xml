@@ -5,6 +5,8 @@
 
 	<!-- ================================== -->
 
+	<WVC_XaG_NoDescError>No information available.</WVC_XaG_NoDescError>
+
 	<!-- <WVC_RB_Gene_MechaGestatorLabel>H.</WVC_RB_Gene_MechaGestatorLabel> -->
 
 	<!-- <WVC_XaG_MechaGestatorEndGestation>{0} has gestated new pawn.</WVC_XaG_MechaGestatorEndGestation> -->
