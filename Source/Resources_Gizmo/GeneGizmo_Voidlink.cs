@@ -46,21 +46,27 @@ namespace WVC_XenotypesAndGenes
 
         private void Collapsed(Vector2 topLeft, float maxWidth)
         {
-            Rect rect = new(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
-            Rect rect2 = rect.ContractedBy(6f);
-            Widgets.DrawWindowBackground(rect);
-            TaggedString taggedString = "WVC_XaG_Gene_Voidlink_GizmoLabel".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + "WVC_XaG_Gene_Voidlink_GizmoResourceLabel".Translate(gene.CurrentResource * 100, gene.MaxResource * 100, gene.ResourcePerDay) + "\n\n" + "WVC_XaG_Gene_Voidlink_GizmoTip".Translate(gene.MaxMechs);
-            Text.Font = GameFont.Small;
-            Text.Anchor = TextAnchor.UpperLeft;
-            Rect rect3 = new(rect2.x, rect2.y, rect2.width, 20f);
-            Widgets.Label(rect3, "WVC_XaG_Gene_Voidlink_GizmoLabel".Translate());
-            XaG_UiUtility.GizmoButton(rect3, ref gene.gizmoCollapse);
-            TooltipHandler.TipRegion(rect3, taggedString);
+            LabelAndDesc(topLeft, maxWidth, out Rect rect2, out _, out _);
             Rect rect4 = new(rect2.x, rect2.y + 23f, 40f, 40f);
             Button1(rect4);
             // Button
             Rect rect5 = new(rect4.x + 44f, rect4.y, rect4.width, rect4.height);
             Button2(rect5);
+        }
+
+        private void LabelAndDesc(Vector2 topLeft, float maxWidth, out Rect rect2, out TaggedString taggedString, out Rect rect3)
+        {
+            Rect rect = new(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
+            rect2 = rect.ContractedBy(6f);
+            Widgets.DrawWindowBackground(rect);
+            taggedString = "WVC_XaG_Gene_Voidlink_GizmoLabel".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + "WVC_XaG_Gene_Voidlink_GizmoResourceLabel".Translate(gene.CurrentResource * 100, gene.MaxResource * 100, gene.ResourcePerDay) + "\n\n" + "WVC_XaG_Gene_Voidlink_GizmoTip".Translate(gene.MaxMechs, gene.AllMechsCount, gene.SphereChance * 100);
+            Text.Font = GameFont.Small;
+            Text.Anchor = TextAnchor.UpperLeft;
+            rect3 = new(rect2.x, rect2.y, rect2.width, 20f);
+            Widgets.Label(rect3, "WVC_XaG_Gene_Voidlink_GizmoLabel".Translate());
+            XaG_UiUtility.GizmoButton(rect3, ref gene.gizmoCollapse);
+            //Widgets.Label(rect3, gene.ResourcePerDay);
+            TooltipHandler.TipRegion(rect3, taggedString);
         }
 
         private void Button1(Rect rect4)
@@ -97,17 +103,7 @@ namespace WVC_XenotypesAndGenes
 
         private void Uncollapsed(Vector2 topLeft, float maxWidth)
         {
-            Rect rect = new(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
-            Rect rect2 = rect.ContractedBy(6f);
-            Widgets.DrawWindowBackground(rect);
-            TaggedString taggedString = "WVC_XaG_Gene_Voidlink_GizmoLabel".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + "WVC_XaG_Gene_Voidlink_GizmoResourceLabel".Translate(gene.CurrentResource * 100, gene.MaxResource * 100, gene.ResourcePerDay) + "\n\n" + "WVC_XaG_Gene_Voidlink_GizmoTip".Translate(gene.MaxMechs);
-            Text.Font = GameFont.Small;
-            Text.Anchor = TextAnchor.UpperLeft;
-            Rect rect3 = new(rect2.x, rect2.y, rect2.width, 20f);
-            Widgets.Label(rect3, "WVC_XaG_Gene_Voidlink_GizmoLabel".Translate());
-            XaG_UiUtility.GizmoButton(rect3, ref gene.gizmoCollapse);
-            //Widgets.Label(rect3, gene.ResourcePerDay);
-            TooltipHandler.TipRegion(rect3, taggedString);
+            LabelAndDesc(topLeft, maxWidth, out Rect rect2, out TaggedString taggedString, out Rect rect3);
             Rect rect4 = new(rect2.x, rect3.yMax + 6f, rect2.width - 84f, rect2.height - rect3.height - 6f);
             TooltipHandler.TipRegion(rect4, taggedString);
             // Button

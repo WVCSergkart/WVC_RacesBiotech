@@ -10,6 +10,17 @@ namespace WVC_XenotypesAndGenes
 	public static class MechanoidsUtility
 	{
 
+		public static void SetOverseer(Pawn newOverseer, Pawn mech)
+		{
+			//if (newOverseer.mechanitor == null)
+			//{
+			//	return;
+			//}
+            mech.GetOverseer()?.relations.RemoveDirectRelation(PawnRelationDefOf.Overseer, mech);
+			mech.SetFaction(newOverseer.Faction);
+			newOverseer.relations.AddDirectRelation(PawnRelationDefOf.Overseer, mech);
+		}
+
 		public static float ToFloatFactor(this MechWeightClass weightClass)
 		{
 			return weightClass switch

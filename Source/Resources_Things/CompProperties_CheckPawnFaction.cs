@@ -33,9 +33,10 @@ namespace WVC_XenotypesAndGenes
 				List<Pawn> mechanitors = MechanoidsUtility.GetAllMechanitors(parent.Map);
 				if (!mechanitors.NullOrEmpty())
 				{
-					pawn.GetOverseer()?.relations.RemoveDirectRelation(PawnRelationDefOf.Overseer, pawn);
-					pawn.SetFaction(Faction.OfPlayer);
-					mechanitors.RandomElement().relations.AddDirectRelation(PawnRelationDefOf.Overseer, pawn);
+					MechanoidsUtility.SetOverseer(mechanitors.RandomElement(), pawn);
+					//pawn.GetOverseer()?.relations.RemoveDirectRelation(PawnRelationDefOf.Overseer, pawn);
+					//pawn.SetFaction(Faction.OfPlayer);
+					//mechanitors.RandomElement().relations.AddDirectRelation(PawnRelationDefOf.Overseer, pawn);
 				}
 			}
 		}

@@ -666,7 +666,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (!voidEnergyCost.HasValue)
                 {
-                    voidEnergyCost = (float)Math.Round(GetVoidMechCost(pawnKindDef), 0);
+                    voidEnergyCost = (float)Math.Round(GetVoidMechCost(pawnKindDef) + 0.51f, 0);
                 }
                 return voidEnergyCost.Value;
 			}

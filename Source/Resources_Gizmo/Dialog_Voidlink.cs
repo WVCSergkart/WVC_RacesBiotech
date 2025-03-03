@@ -310,7 +310,7 @@ namespace WVC_XenotypesAndGenes
 			if (Mouse.IsOver(rect3))
 			{
 				Widgets.DrawHighlight(rect3);
-				TooltipHandler.TipRegion(rect3, "WVC_XaG_DialogVoidlink_VoidEnergyLabel".Translate().CapitalizeFirst().Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_DialogVoidlink_VoidEnergyLabel".Translate());
+				TooltipHandler.TipRegion(rect3, "WVC_XaG_DialogVoidlink_VoidEnergyLabel".Translate().CapitalizeFirst().Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_DialogVoidlink_VoidEnergyDesc".Translate());
 			}
 			curX += 34f;
 		}

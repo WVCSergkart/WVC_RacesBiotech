@@ -316,7 +316,8 @@ namespace WVC_XenotypesAndGenes
 					{
 						compGolem.SetStoneChunk(chunk.def);
 					}
-					pawn.relations.AddDirectRelation(PawnRelationDefOf.Overseer, summon);
+					MechanoidsUtility.SetOverseer(pawn, summon);
+					//pawn.relations.AddDirectRelation(PawnRelationDefOf.Overseer, summon);
 					chunk.ReduceStack();
 					Messages.Message("WVC_XaG_GolemCreatedFromRandomChunk_Message".Translate(summon.Name.ToString()), summon, MessageTypeDefOf.PositiveEvent);
 					return true;
