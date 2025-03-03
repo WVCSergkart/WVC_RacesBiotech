@@ -148,6 +148,24 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public override IEnumerable<Gizmo> GetGizmos()
+		{
+			yield return new Command_Action
+			{
+				defaultLabel = "WVC_XaG_Gene_VoidlinkKillVoidMechLabel".Translate(),
+				defaultDesc = "WVC_XaG_Gene_VoidlinkKillVoidMechDesc".Translate(),
+				icon = GeneGizmo_Voidlink.KillMechsIcon.Texture,
+				action = delegate
+				{
+					Dialog_MessageBox window = Dialog_MessageBox.CreateConfirmation("WVC_XaG_Gene_VoidlinkKillVoidMechDesc".Translate() + "\n\n" + "WouldYouLikeToContinue".Translate(), delegate
+					{
+						Voidlink.KillSelectedMech(true, pawn);
+					});
+					Find.WindowStack.Add(window);
+				}
+			};
+		}
+
 		public override void PostTick()
 		{
 			if (!pawn.IsHashIntervalTick(600))

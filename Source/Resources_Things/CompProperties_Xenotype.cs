@@ -6,6 +6,7 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
+	[Obsolete]
 	public class CompProperties_Xenotype : CompProperties
 	{
 
@@ -39,6 +40,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	[Obsolete]
 	public class CompXenotype : ThingComp
 	{
 

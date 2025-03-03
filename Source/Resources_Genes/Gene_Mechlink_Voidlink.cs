@@ -63,20 +63,28 @@ namespace WVC_XenotypesAndGenes
 				foreach (Pawn mech in mechs)
 				{
 					if (!mech.Dead && mech.health.hediffSet.HasHediff(Spawner.mechHediff))
-					{
-						if (offsetResource)
-						{
-							OffsetResource(MechanoidHolder.GetVoidMechCost(mech.kindDef) * 0.0025f);
-						}
-						mech.forceNoDeathNotification = true;
-						mech.Kill(null);
-						mech.forceNoDeathNotification = false;
-					}
-				}
+                    {
+                        KillSelectedMech(offsetResource, mech);
+                    }
+                }
 			}
 		}
 
-		private Gizmo gizmo;
+        public void KillSelectedMech(bool offsetResource, Pawn mech)
+        {
+            if (offsetResource)
+            {
+                OffsetResource(MechanoidHolder.GetVoidMechCost(mech.kindDef) * 0.0025f * mech.health.summaryHealth.SummaryHealthPercent);
+            }
+            mech.forceNoDeathNotification = true;
+            bool cachedGearDrop = mech.kindDef.destroyGearOnDrop;
+            mech.kindDef.destroyGearOnDrop = true;
+            mech.Kill(null);
+            mech.forceNoDeathNotification = false;
+            mech.kindDef.destroyGearOnDrop = cachedGearDrop;
+        }
+
+        private Gizmo gizmo;
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
@@ -178,17 +186,17 @@ namespace WVC_XenotypesAndGenes
 				{
 					if (TrySummonMechs())
 					{
-						timeForNextSummon = 30;
+						timeForNextSummon = 45;
 					}
 					else
                     {
-						UpdMechControl();
+						PostSummon();
 					}
 				}
 			}
 		}
 
-		public void UpdMechControl()
+		public void PostSummon()
 		{
 			if (pawn.mechanitor == null)
 			{
@@ -268,14 +276,14 @@ namespace WVC_XenotypesAndGenes
                 float consume = MechanoidHolder.GetVoidMechCost(mechKind) * 0.01f;
                 if (consume > geneResource)
                 {
-                    selectedMechs = new();
+                    //selectedMechs = new();
                     Messages.Message("WVC_XaG_Gene_Voidlink_CannotSummon".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
                     return false;
                 }
                 phase = "try find spawn spot near mechanitor";
                 if (!CellFinder.TryFindRandomCellNear(pawn.Position, pawn.Map, Mathf.FloorToInt(4.9f), pos => pos.Standable(pawn.Map) && pos.Walkable(pawn.Map) && !pos.Fogged(pawn.Map), out var spawnCell, 100))
                 {
-                    selectedMechs = new();
+                    //selectedMechs = new();
                     Messages.Message("WVC_XaG_Gene_Voidlink_CannotSummon".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
                     return false;
                 }

@@ -11,7 +11,7 @@ namespace WVC_XenotypesAndGenes
 	public class GeneGizmo_Voidlink : Gizmo
 	{
 
-		private static readonly CachedTexture KillMechsIcon = new("WVC/UI/XaG_General/UI_KillMechs_Gizmos_v0");
+		public static readonly CachedTexture KillMechsIcon = new("WVC/UI/XaG_General/UI_KillMechs_Gizmos_v0");
 		private static readonly CachedTexture SummonIcon = new("WVC/UI/XaG_General/UI_VoidlinkSummon_Gizmos_v0");
 
         public Texture2D BarTex = SolidColorMaterials.NewSolidColorTexture(new ColorInt(93, 101, 126).ToColor);

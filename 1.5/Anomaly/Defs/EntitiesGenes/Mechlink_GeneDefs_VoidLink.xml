@@ -4,7 +4,7 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMechlink_Base">
 	<defName>WVC_VoidMechlink</defName>
 	<label>void mechlink</label>
-	<description>Carriers of this gene have corrupted archites that have bound them to the void. They sense the presence of machine intelligence and can use this power to call upon mechanoids to aid them.</description>
+	<description>Carriers of this gene have corrupted archites that connect them to the void. They are able to skip mechanoids from different parts of the universe and take control of them.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_Voidlink</geneClass>
 	<resourceGizmoType>WVC_XenotypesAndGenes.GeneGizmo_Voidlink</resourceGizmoType>
 	<displayCategory>WVC_Energy</displayCategory>
