@@ -191,7 +191,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void UniqueDescAutopatch(GeneDef geneDef)
 		{
-			if (geneDef.IsGeneDefOfType<IGeneRemoteControl>())
+			if (WVC_Biotech.settings.showGenesSettingsGizmo && geneDef.IsGeneDefOfType<IGeneRemoteControl>())
 			{
 				geneDef.description += "\n\n" + "WVC_XaG_GenesSettings_DescTip".Translate().ToString();
 			}

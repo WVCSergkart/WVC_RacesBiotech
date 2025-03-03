@@ -270,4 +270,8 @@ A restart is required.</WVC_ToolTip_onlyXenotypesMode>
 	<WVC_Label_GeneGizmosDefaultCollapse>Collapse gene gizmos by default</WVC_Label_GeneGizmosDefaultCollapse>
 	<WVC_ToolTip_GeneGizmosDefaultCollapse>Defines the default state of the gizmos supporting collapse. If enabled, they are collapsed; if disabled, they are expanded. For the first acquaintance, it is recommended to disable this option.</WVC_ToolTip_GeneGizmosDefaultCollapse>
 
+	<!-- ====================================================================================== -->
+	<WVC_Label_showGenesSettingsGizmo>Show genes settings gizmo</WVC_Label_showGenesSettingsGizmo>
+	<WVC_ToolTip_showGenesSettingsGizmo>If enabled, the Genes Settings gizmo will be displayed if there is a gene using it. Genes Settings allows you to conveniently and quickly switch gene settings (which involve simple switches) without bloating the interface with identical buttons.\n\nDisabling will not move the gene buttons to the UI, but will only make them unavailable until you re-enable this option.\n\nThis has a purely cosmetic effect, and should not affect performance.</WVC_ToolTip_showGenesSettingsGizmo>
+
 </LanguageData>

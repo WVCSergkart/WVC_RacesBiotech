@@ -10,8 +10,51 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_ThrallMaker : Gene, IGeneNotifyGenesChanged
+	public class Gene_ThrallMaker : Gene, IGeneRemoteControl
 	{
+		public string RemoteActionName => "WVC_HideShow".Translate();
+
+		public string RemoteActionDesc => "WVC_XaG_HideShowDesc".Translate();
+
+		public void RemoteControl()
+		{
+			shouldDrawGizmo = !shouldDrawGizmo;
+		}
+
+		public bool Enabled
+		{
+			get
+			{
+				return enabled;
+			}
+			set
+			{
+				enabled = value;
+			}
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			XaG_UiUtility.ResetAllRemoteControllers(ref cachedRemoteControlGenes);
+		}
+
+		public void RecacheGenes()
+		{
+			XaG_UiUtility.RecacheRemoteController(pawn, ref cachedRemoteControlGenes, ref enabled);
+		}
+
+		public bool enabled = true;
+
+		public void RemoteControl_Recache()
+		{
+			RecacheGenes();
+		}
+
+		private List<IGeneRemoteControl> cachedRemoteControlGenes;
+
+
+		//===========
 
 		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
@@ -19,33 +62,18 @@ namespace WVC_XenotypesAndGenes
 
 		private Gizmo gizmo;
 
-		//public override void PostAdd()
+        public override void PostAdd()
+        {
+            base.PostAdd();
+			shouldDrawGizmo = pawn?.genes?.GetFirstGeneOfType<Gene_ResurgentCells>() != null;
+		}
+
+        private bool shouldDrawGizmo;
+
+		//public void Notify_GenesChanged(Gene changedGene)
 		//{
-		//	base.PostAdd();
-		//	if (thrallDef == null)
-		//	{
-		//		thrallDef = DefDatabase<ThrallDef>.AllDefsListForReading.RandomElement();
-		//	}
+		//	cachedShouldDraw = pawn?.genes?.GetFirstGeneOfType<Gene_ResurgentCells>() != null;
 		//}
-		[Unsaved(false)]
-		private bool? cachedShouldDraw;
-
-		public bool ShouldDrawGizmo
-		{
-			get
-			{
-				if (!cachedShouldDraw.HasValue)
-				{
-					cachedShouldDraw = pawn?.genes?.GetFirstGeneOfType<Gene_ResurgentCells>() != null;
-				}
-				return cachedShouldDraw.Value;
-			}
-		}
-
-		public void Notify_GenesChanged(Gene changedGene)
-		{
-			cachedShouldDraw = null;
-		}
 
 		public void ThrallMakerDialog()
 		{
@@ -54,6 +82,13 @@ namespace WVC_XenotypesAndGenes
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
+			if (enabled)
+			{
+				foreach (Gizmo gizmo in XaG_UiUtility.GetRemoteControllerGizmo(pawn, this, cachedRemoteControlGenes))
+				{
+					yield return gizmo;
+				}
+			}
 			if (XaG_GeneUtility.SelectorDraftedActiveFactionMap(pawn, this))
 			{
 				yield break;
@@ -68,7 +103,7 @@ namespace WVC_XenotypesAndGenes
 					ThrallMakerDialog();
 				}
 			};
-			if (ShouldDrawGizmo)
+			if (shouldDrawGizmo)
 			{
 				if (gizmo == null)
 				{
@@ -82,6 +117,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.ExposeData();
 			Scribe_Defs.Look(ref thrallDef, "thrallDef");
+			Scribe_Values.Look(ref shouldDrawGizmo, "shouldDrawGizmo", defaultValue: true);
 		}
 
     }

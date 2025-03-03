@@ -281,8 +281,15 @@ namespace WVC_XenotypesAndGenes
 		public bool disableXenotypes_Misc = false;
 		// Gizmos
 		public bool geneGizmosDefaultCollapse = false;
+		public bool showGenesSettingsGizmo = true;
 
 	}
 
+	public class Command_GenesSettings : Command_Action
+	{
+
+		public override bool Visible => WVC_Biotech.settings.showGenesSettingsGizmo;
+
+	}
 
 }

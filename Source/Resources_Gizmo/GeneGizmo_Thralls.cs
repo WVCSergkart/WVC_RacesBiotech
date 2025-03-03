@@ -77,7 +77,7 @@ namespace WVC_XenotypesAndGenes
 				if (newResurgentPawnsCount != resurgentPawnsCount)
 				{
 					resurgentPawnsCount = newResurgentPawnsCount;
-					gene.Notify_GenesChanged(null);
+					//gene.Notify_GenesChanged(null);
 				}
 				geneThralls = GeneResourceUtility.GetAllThralls(mechanitor);
 				thrallPawnsCount = geneThralls.Count;

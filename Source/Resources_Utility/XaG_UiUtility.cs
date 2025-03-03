@@ -32,11 +32,12 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
-			yield return new Command_Action
+			yield return new Command_GenesSettings
 			{
 				defaultLabel = "WVC_XaG_GenesSettings".Translate(),
 				defaultDesc = "WVC_XaG_GenesSettingsDesc".Translate(),
 				icon = XaG_UiUtility.GenesSettingsGizmo.Texture,
+				shrinkable = true,
 				action = delegate
 				{
 					Find.WindowStack.Add(new Dialog_GenesSettings(gene, cachedRemoteControlGenes));

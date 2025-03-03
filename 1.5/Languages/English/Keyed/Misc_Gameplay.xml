@@ -855,6 +855,10 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<!-- <WVC_XaG_RemoteActive>Active</WVC_XaG_RemoteActive> -->
 	<!-- <WVC_XaG_RemoteDeActive>Deactive</WVC_XaG_RemoteDeActive> -->
 
+	<WVC_HideShow>Hide/Show</WVC_HideShow>
+
+	<WVC_XaG_HideShowDesc>Allows you to hide or show the gizmo for the corresponding gene.</WVC_XaG_HideShowDesc>
+
 	<!-- <WVC_OnOrOff>On/Off</WVC_OnOrOff> -->
 	<WVC_Color>Color</WVC_Color>
 	<WVC_XaG_GenesSettings>Genes settings</WVC_XaG_GenesSettings>
