@@ -105,7 +105,7 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_ChimeraPsychicHarvester_Lover</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_ChimeraPsychicHarvest_v0</iconPath>
 	<biostatCpx>1</biostatCpx>
-	<biostatArc>0</biostatArc>
+	<!-- <biostatArc>0</biostatArc> -->
 	<biostatMet>-2</biostatMet>
 	<displayOrderInCategory>145.015</displayOrderInCategory>
 	<customEffectDescriptions>
@@ -133,7 +133,7 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_ChimeraPsychicHarvester_Friend</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_ChimeraPsychicHarvest_Friend_v0</iconPath>
 	<biostatCpx>1</biostatCpx>
-	<biostatArc>0</biostatArc>
+	<!-- <biostatArc>0</biostatArc> -->
 	<biostatMet>-3</biostatMet>
 	<displayOrderInCategory>145.020</displayOrderInCategory>
 	<customEffectDescriptions>
@@ -161,7 +161,7 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_ChimeraPsychicHarvester_Rival</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_ChimeraPsychicHarvest_Rival_v0</iconPath>
 	<biostatCpx>1</biostatCpx>
-	<biostatArc>0</biostatArc>
+	<!-- <biostatArc>0</biostatArc> -->
 	<biostatMet>-1</biostatMet>
 	<displayOrderInCategory>145.025</displayOrderInCategory>
 	<customEffectDescriptions>
@@ -189,7 +189,7 @@
 	<geneClass>WVC_XenotypesAndGenes.Gene_ChimeraPsychicHarvester_Family</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_ChimeraPsychicHarvest_Family_v0</iconPath>
 	<biostatCpx>1</biostatCpx>
-	<biostatArc>0</biostatArc>
+	<!-- <biostatArc>0</biostatArc> -->
 	<biostatMet>1</biostatMet>
 	<displayOrderInCategory>145.030</displayOrderInCategory>
 	<customEffectDescriptions>

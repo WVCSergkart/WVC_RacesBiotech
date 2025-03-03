@@ -119,7 +119,7 @@
 		<li Class="WVC_XenotypesAndGenes.ScenPart_PawnModifier_XenotypesAndGenes">
 		  <def>WVC_XaG_Starting</def>
 		  <xenotypeChances>
-			<WVC_Chimechkin>1</WVC_Chimechkin>
+			<WVC_Nociokin>1</WVC_Nociokin>
 		  </xenotypeChances>
 		  <!-- <chimeraEvolveGeneDef>WVC_FleshmassNucleus</chimeraEvolveGeneDef> -->
 		  <chimeraGeneDefs>
@@ -128,7 +128,8 @@
 			<li>WVC_Chimera_Corpseharvest</li>
 			<li>HemogenDrain</li>
 			<li>WVC_MecaBodyParts_Heart</li>
-			<li>WVC_MecaBodyParts_Leg</li>
+			<!-- <li>WVC_MecaBodyParts_Leg</li> -->
+			<li>WVC_MaxVoidEnergy_AccurateSummon</li>
 			<!-- <li>WVC_MecaBodyParts_Spine</li> -->
 			<li>WVC_PredatorPrey_NotTasty</li>
 		  </chimeraGeneDefs>

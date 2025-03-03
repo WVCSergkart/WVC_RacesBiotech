@@ -150,7 +150,32 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        public float MaxResource => 1f;
+		private float? cachedMaxResource;
+        public float MaxResource
+        {
+            get
+            {
+				if (!cachedMaxResource.HasValue)
+				{
+					//cachedMaxResource = 1f;
+					//foreach (Gene gene in pawn.genes.GenesListForReading)
+					//{
+					//	if (gene is Gene_VoidlinkMaxResource resource && resource.Giver != null)
+					//	{
+					//		cachedMaxResource += resource.Giver.maxVoidEnergyOffset;
+					//	}
+					//}
+					cachedMaxResource = pawn.GetStatValue(Spawner.voidMaxResource_StatDef);
+				}
+                return cachedMaxResource.Value;
+            }
+		}
+
+		public void UpdMaxResource()
+		{
+			cachedMaxResource = null;
+		}
+
 		public float CurrentResource => (float)Math.Round(geneResource, 2);
 
 		private float? cachedMaxMechs;
@@ -215,6 +240,7 @@ namespace WVC_XenotypesAndGenes
 			allMechsCount = null;
 			sphereChance = null;
 			cachedMaxMechs = null;
+			UpdMaxResource();
 		}
 
 		private int? allMechsCount;

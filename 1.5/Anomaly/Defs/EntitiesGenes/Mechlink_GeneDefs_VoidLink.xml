@@ -41,9 +41,10 @@
 			<mechHediff>WVC_VoidMechanoid</mechHediff>
 			<voidMechsLimit_StatDef>WVC_VoidMechsLimit</voidMechsLimit_StatDef>
 			<voidDamageChance_StatDef>WVC_VoidDamageChance</voidDamageChance_StatDef>
+			<voidMaxResource_StatDef>WVC_MaxVoidEnergy</voidMaxResource_StatDef>
 		</li>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
-			<xenotypeDef MayRequire="wvc.sergkart.test.tools">WVC_Chimechkin</xenotypeDef>
+			<xenotypeDef MayRequire="wvc.sergkart.test.tools">WVC_Nociokin</xenotypeDef>
 		</li>
 	</modExtensions>
   </GeneDef>
@@ -115,6 +116,7 @@
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
 	<biostatMet>-3</biostatMet>
+	<!-- gain per day -->
 	<resourceLossPerDay>0.15</resourceLossPerDay>
 	<customEffectDescriptions>
 		<li>Generates an additional 15 energy per day.</li>
@@ -142,5 +144,23 @@
 	  <!-- <li>WVC_VoidResourceGain</li> -->
 	<!-- </exclusionTags> -->
   <!-- </GeneDef> -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneVoidlink_SubGenes">
+	<defName>WVC_MaxVoidEnergy_AccurateSummon</defName>
+	<label>accurate summon</label>
+	<description>Carriers of this gene have archites that help them more accurately distinguish mechanoids from nociospheres, but because of this, carriers have a more limited choice for summoning.</description>
+	<iconPath>WVC/UI/Genes/Gene_VoidHide_v0</iconPath>
+	<!-- Any VoidlinkDependant class is req. for the WVC_MaxVoidEnergy stat. Otherwise, errors and bugs may occur. -->
+	<geneClass>WVC_XenotypesAndGenes.Gene_VoidlinkDependant</geneClass>
+	<iconColor>(255, 255, 255)</iconColor>
+	<displayOrderInCategory>75.30</displayOrderInCategory>
+	<biostatCpx>-3</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<statOffsets>
+		<WVC_MaxVoidEnergy>-0.75</WVC_MaxVoidEnergy>
+		<WVC_VoidMechsLimit>15</WVC_VoidMechsLimit>
+	</statOffsets>
+  </GeneDef>
 
 </Defs>

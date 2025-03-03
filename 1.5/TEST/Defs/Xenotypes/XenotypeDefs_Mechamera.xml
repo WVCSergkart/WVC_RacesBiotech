@@ -2,7 +2,7 @@
 <Defs>
 
   <XenotypeDef ParentName="WVC_RB_Xenotypes_Base" WVC_XaG_XenotypeRemoveTag="Bloodeaters">
-	<defName>WVC_Chimechkin</defName>
+	<defName>WVC_Nociokin</defName>
 	<!-- chimechkin, nociokin -->
 	<label>nociokin</label>
 	<description>Nociokins are rare super-humans, powered by archotech-created archites in the bloodstream that are a sub-xenotype of the chimerkin. They can replenish hemogen by mechfeeding or charging at special stations. Their mechanoid bodies can withstand more dangerous habitats, and lost organs and limbs grow back over time. But most importantly, they can summon mechs from the void to help them.

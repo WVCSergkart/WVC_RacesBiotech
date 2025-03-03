@@ -100,6 +100,7 @@ namespace WVC_XenotypesAndGenes
 		public HediffDef mechHediff;
 		public StatDef voidMechsLimit_StatDef;
 		public StatDef voidDamageChance_StatDef;
+		public StatDef voidMaxResource_StatDef;
 	}
 
 	public class GeneExtension_Undead : DefModExtension
@@ -285,6 +286,8 @@ namespace WVC_XenotypesAndGenes
 		public JobDef morpherTriggerChangeJob;
 		public List<XenotypeDef> morpherXenotypeDefs;
 		public List<XenotypeChance> morpherXenotypeChances;
+		//Voidlink
+		//public float maxVoidEnergyOffset = 0f;
 	}
 
 	public class GeneExtension_Obsolete : DefModExtension

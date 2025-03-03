@@ -12,6 +12,8 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_VoidlinkDependant : Gene
 	{
 
+		//public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
+
 		[Unsaved(false)]
 		private Gene_Voidlink cachedGene;
 
@@ -25,6 +27,18 @@ namespace WVC_XenotypesAndGenes
 				}
 				return cachedGene;
 			}
+		}
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			MasterGene?.UpdMaxResource();
+		}
+
+		public override void PostRemove()
+		{
+			base.PostRemove();
+			MasterGene?.UpdMaxResource();
 		}
 
 	}
@@ -43,5 +57,10 @@ namespace WVC_XenotypesAndGenes
 		}
 
 	}
+
+	//public class Gene_VoidlinkMaxResource : Gene_VoidlinkDependant
+	//{
+
+	//}
 
 }
