@@ -57,27 +57,7 @@ namespace WVC_XenotypesAndGenes
 
         private void Collapsed(Vector2 topLeft, float maxWidth)
         {
-            Rect rect = new(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
-            Rect rect2 = rect.ContractedBy(6f);
-            Widgets.DrawWindowBackground(rect);
-            RecacheTick();
-            string text = usedBandwidth.ToString("F0") + " / " + totalBandwidth.ToString("F0");
-            TaggedString taggedString = "WVC_XaG_GolemBandwidth".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + text + "\n\n" + "WVC_XaG_GolemBandwidthGizmoTip".Translate() + "\n\n" + "WVC_XaG_Gene_GolemlinkGizmoSpawnLabel".Translate() + ": " + XaG_UiUtility.OnOrOff(gene.summonMechanoids);
-            if (usedBandwidth > 0)
-            {
-                taggedString += (string)("\n\n" + ("WVC_XaG_GolemBandwidthUsage".Translate() + ": ")) + usedBandwidth;
-                IEnumerable<string> entries = from p in allControlledGolems
-                                              where !p.IsGestating()
-                                              group p by p.kindDef into p
-                                              select (string)(p.Key.LabelCap + " x") + p.Count() + " (+" + p.Sum((Pawn mech) => mech.GetStatValue(WVC_GenesDefOf.WVC_GolemBondCost)) + ")";
-                taggedString += "\n\n" + entries.ToLineList(" - ");
-            }
-            Text.Font = GameFont.Small;
-            Text.Anchor = TextAnchor.UpperLeft;
-            Rect rect3 = new(rect2.x, rect2.y, rect2.width, 20f);
-            Widgets.Label(rect3, "WVC_XaG_GolemBandwidth".Translate());
-            XaG_UiUtility.GizmoButton(rect3, ref gene.gizmoCollapse);
-            TooltipHandler.TipRegion(rect3, taggedString);
+            LabelAndDesc(topLeft, maxWidth, out Rect rect2, out _, out _, out _);
             Rect rect4 = new(rect2.x, rect2.y + 23f, 40f, 40f);
             Button1(rect4);
             // Button
@@ -132,27 +112,7 @@ namespace WVC_XenotypesAndGenes
 
         private void Uncollapsed(Vector2 topLeft, float maxWidth)
         {
-            Rect rect = new(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
-            Rect rect2 = rect.ContractedBy(6f);
-            Widgets.DrawWindowBackground(rect);
-            RecacheTick();
-            string text = usedBandwidth.ToString("F0") + " / " + totalBandwidth.ToString("F0");
-            TaggedString taggedString = "WVC_XaG_GolemBandwidth".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + text + "\n\n" + "WVC_XaG_GolemBandwidthGizmoTip".Translate() + "\n\n" + "WVC_XaG_Gene_GolemlinkGizmoSpawnLabel".Translate() + ": " + XaG_UiUtility.OnOrOff(gene.summonMechanoids);
-            if (usedBandwidth > 0)
-            {
-                taggedString += (string)("\n\n" + ("WVC_XaG_GolemBandwidthUsage".Translate() + ": ")) + usedBandwidth;
-                IEnumerable<string> entries = from p in allControlledGolems
-                                              where !p.IsGestating()
-                                              group p by p.kindDef into p
-                                              select (string)(p.Key.LabelCap + " x") + p.Count() + " (+" + p.Sum((Pawn mech) => mech.GetStatValue(WVC_GenesDefOf.WVC_GolemBondCost)) + ")";
-                taggedString += "\n\n" + entries.ToLineList(" - ");
-            }
-            Text.Font = GameFont.Small;
-            Text.Anchor = TextAnchor.UpperLeft;
-            Rect rect3 = new(rect2.x, rect2.y, rect2.width, 20f);
-            Widgets.Label(rect3, "WVC_XaG_GolemBandwidth".Translate());
-            XaG_UiUtility.GizmoButton(rect3, ref gene.gizmoCollapse);
-            TooltipHandler.TipRegion(rect3, taggedString);
+            LabelAndDesc(topLeft, maxWidth, out Rect rect2, out string text, out TaggedString taggedString, out Rect rect3);
             Text.Anchor = TextAnchor.UpperRight;
             Rect totalLabelRect = new(rect3.x - rect3.height, rect3.y, rect3.width, rect3.height);
             Widgets.Label(totalLabelRect, text);
@@ -205,6 +165,31 @@ namespace WVC_XenotypesAndGenes
                     }
                 }
             }
+        }
+
+        private void LabelAndDesc(Vector2 topLeft, float maxWidth, out Rect rect2, out string text, out TaggedString taggedString, out Rect rect3)
+        {
+            Rect rect = new(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
+            rect2 = rect.ContractedBy(6f);
+            Widgets.DrawWindowBackground(rect);
+            RecacheTick();
+            text = usedBandwidth.ToString("F0") + " / " + totalBandwidth.ToString("F0");
+            taggedString = "WVC_XaG_GolemBandwidth".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + text + "\n\n" + "WVC_XaG_GolemBandwidthGizmoTip".Translate() + "\n\n" + "WVC_XaG_Gene_GolemlinkGizmoSpawnLabel".Translate() + ": " + XaG_UiUtility.OnOrOff(gene.summonMechanoids);
+            if (usedBandwidth > 0)
+            {
+                taggedString += (string)("\n\n" + ("WVC_XaG_GolemBandwidthUsage".Translate() + ": ")) + usedBandwidth;
+                IEnumerable<string> entries = from p in allControlledGolems
+                                              where !p.IsGestating()
+                                              group p by p.kindDef into p
+                                              select (string)(p.Key.LabelCap + " x") + p.Count() + " (+" + p.Sum((Pawn mech) => mech.GetStatValue(WVC_GenesDefOf.WVC_GolemBondCost)) + ")";
+                taggedString += "\n\n" + entries.ToLineList(" - ");
+            }
+            Text.Font = GameFont.Small;
+            Text.Anchor = TextAnchor.UpperLeft;
+            rect3 = new(rect2.x, rect2.y, rect2.width, 20f);
+            Widgets.Label(rect3, "WVC_XaG_GolemBandwidth".Translate());
+            XaG_UiUtility.GizmoButton(rect3, ref gene.gizmoCollapse);
+            TooltipHandler.TipRegion(rect3, taggedString);
         }
 
         public override float GetWidth(float maxWidth)

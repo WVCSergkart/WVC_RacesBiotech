@@ -9,9 +9,9 @@
 				  <xpath>/Defs/ThingDef[defName="FleshmassNucleus"]/comps</xpath>
 				  <value>
 					<li Class="WVC_XenotypesAndGenes.CompProperties_EntitiesGenes">
-					  <compClass>WVC_XenotypesAndGenes.CompFleshmassGene</compClass>
+					  <compClass>WVC_XenotypesAndGenes.CompEntitiesGenes</compClass>
 					  <geneDef>WVC_FleshmassNucleus</geneDef>
-					  <devourJob>WVC_DevourFleshmassNucleus</devourJob>
+					  <devourJob>WVC_DevourEntitie</devourJob>
 					</li>
 				  </value>
 				</li>
@@ -19,9 +19,9 @@
 				  <xpath>/Defs/ThingDef[defName="Nociosphere"]/comps</xpath>
 				  <value>
 					<li Class="WVC_XenotypesAndGenes.CompProperties_EntitiesGenes">
-					  <compClass>WVC_XenotypesAndGenes.CompFleshmassGene</compClass>
+					  <compClass>WVC_XenotypesAndGenes.CompEntitiesGenes</compClass>
 					  <geneDef>WVC_VoidMechlink</geneDef>
-					  <devourJob>WVC_DevourFleshmassNucleus</devourJob>
+					  <devourJob>WVC_DevourEntitie</devourJob>
 					  <warningText>WVC_XaG_GeneChimeraDevourNociosphereWarning</warningText>
 					</li>
 				  </value>

@@ -45,7 +45,7 @@ namespace WVC_XenotypesAndGenes
             return false;
         }
 
-        public void ResetGenes()
+        public void PostImplant()
         {
             genes = new();
         }

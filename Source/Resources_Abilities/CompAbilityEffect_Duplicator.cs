@@ -57,7 +57,7 @@ namespace WVC_XenotypesAndGenes
 			Pawn pawn = target.Pawn;
 			if (pawn == null)
 			{
-				return base.Valid(target, throwMessages);
+				return false;
 			}
 			if (!pawn.IsHuman())
 			{

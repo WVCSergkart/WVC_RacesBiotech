@@ -42,7 +42,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Tick()
 		{
-			base.Tick();
+			//base.Tick();
 			ticksUntilSpawn--;
 			if (ticksUntilSpawn > 0)
 			{

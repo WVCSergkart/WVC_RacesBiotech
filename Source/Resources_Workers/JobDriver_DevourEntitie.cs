@@ -7,7 +7,7 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class JobDriver_DevourFleshmassNucleus : JobDriver_XaGJob_General
+	public class JobDriver_DevourEntitie : JobDriver_XaGJob_General
 	{
 
 		public Pawn Victim => (Pawn)job.GetTarget(TargetIndex.A).Thing;

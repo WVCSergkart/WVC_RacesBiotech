@@ -558,7 +558,10 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 
 	<WVC_XaG_ChimeraApply_Implant>Implant</WVC_XaG_ChimeraApply_Implant>
 	<WVC_XaG_ChimeraApply_Eat>Eat</WVC_XaG_ChimeraApply_Eat>
+	<!-- <WVC_XaG_ChimeraApply_Store>Store</WVC_XaG_ChimeraApply_Store> -->
 	<WVC_XaG_ChimeraApply_Clear>Clear</WVC_XaG_ChimeraApply_Clear>
+
+	<!-- <WVC_XaG_StorageImplanter_ChimeraStoreDesc>If the storage implanter gene is present, the Chimera loses the ability to eat genes. Instead, the Chimera moves these genes to the storage implanter. All effects of eating are retained, but the gene is not considered eaten and can be re-obtained later.</WVC_XaG_StorageImplanter_ChimeraStoreDesc> -->
 
 	<!-- =============== CHIMERA EVOLVE =============== -->
 

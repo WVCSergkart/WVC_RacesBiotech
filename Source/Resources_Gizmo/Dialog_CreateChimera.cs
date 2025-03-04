@@ -94,18 +94,21 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		//public Gene_StorageImplanter storageImplanter = null;
+
 		public Dialog_CreateChimera(Gene_Chimera chimera)
 		{
 			// generationRequestIndex = index;
 			// this.callback = callback;
 			xenotypeName = string.Empty;
 			gene = chimera;
+			//storageImplanter = gene.pawn.genes.GetFirstGeneOfType<Gene_StorageImplanter>();
 			forcePause = true;
 			closeOnAccept = false;
 			absorbInputAroundWindow = true;
 			alwaysUseFullBiostatsTableHeight = true;
 			searchWidgetOffsetX = GeneCreationDialogBase.ButSize.x * 2f + 4f;
-			foreach (GeneCategoryDef allDef in DefDatabase<GeneCategoryDef>.AllDefs)
+			foreach (GeneCategoryDef allDef in DefDatabase<GeneCategoryDef>.AllDefsListForReading)
 			{
 				collapsedCategories.Add(allDef, value: false);
 			}

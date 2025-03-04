@@ -184,20 +184,17 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Speaker : Gene
 	{
 
-		private int hashIntervalTick = 7200;
+		private int nextTick = 7200;
 
 		public override void Tick()
 		{
-			hashIntervalTick--;
-			if (hashIntervalTick > 0)
+			nextTick--;
+			if (nextTick > 0)
 			{
 				return;
 			}
-			//if (!pawn.IsHashIntervalTick(hashIntervalTick))
-			//{
-			//	return;
-			//}
-			if (hashIntervalTick < 0)
+			// Debugger
+			if (nextTick < 0)
 			{
 				ResetInterval(new(7200, 7200));
 				return;
@@ -228,13 +225,13 @@ namespace WVC_XenotypesAndGenes
 		public virtual void ResetInterval(IntRange range)
 		{
 			//IntRange range = new(16000, 32000);
-			hashIntervalTick = range.RandomInRange;
+			nextTick = range.RandomInRange;
 		}
 
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Values.Look(ref hashIntervalTick, "hashIntervalTick", 0);
+			Scribe_Values.Look(ref nextTick, "hashIntervalTick", 0);
 		}
 
 	}

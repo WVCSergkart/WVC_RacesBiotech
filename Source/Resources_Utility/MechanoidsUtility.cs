@@ -17,7 +17,10 @@ namespace WVC_XenotypesAndGenes
 			//	return;
 			//}
             mech.GetOverseer()?.relations.RemoveDirectRelation(PawnRelationDefOf.Overseer, mech);
-			mech.SetFaction(newOverseer.Faction);
+			if (mech.Faction != newOverseer.Faction)
+			{
+				mech.SetFaction(newOverseer.Faction);
+			}
 			newOverseer.relations.AddDirectRelation(PawnRelationDefOf.Overseer, mech);
 		}
 

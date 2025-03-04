@@ -18,11 +18,11 @@ namespace WVC_XenotypesAndGenes
 
 		public CompProperties_EntitiesGenes()
 		{
-			compClass = typeof(CompFleshmassGene);
+			compClass = typeof(CompEntitiesGenes);
 		}
 	}
 
-	public class CompFleshmassGene : ThingComp
+	public class CompEntitiesGenes : ThingComp
 	{
 
 		public CompProperties_EntitiesGenes Props => (CompProperties_EntitiesGenes)props;

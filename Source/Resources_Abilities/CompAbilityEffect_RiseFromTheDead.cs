@@ -40,13 +40,14 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (ReimplanterUtility.TryReimplant(parent.pawn, innerPawn, Props.reimplantEndogenes, Props.reimplantXenogenes))
 				{
-					FleckMaker.AttachedOverlay(innerPawn, FleckDefOf.FlashHollow, new Vector3(0f, 0f, 0.26f));
-					if (PawnUtility.ShouldSendNotificationAbout(parent.pawn) || PawnUtility.ShouldSendNotificationAbout(innerPawn))
-					{
-						int max = HediffDefOf.XenogerminationComa.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.max;
-						int max2 = HediffDefOf.XenogermLossShock.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.max;
-						Find.LetterStack.ReceiveLetter("WVC_LetterLabel_GeneRiseFromTheDead".Translate(), "WVC_LetterText_GeneRiseFromTheDead".Translate(innerPawn.Named("TARGET")) + "\n\n" + "LetterTextGenesImplanted".Translate(parent.pawn.Named("CASTER"), innerPawn.Named("TARGET"), max.ToStringTicksToPeriod().Named("COMADURATION"), max2.ToStringTicksToPeriod().Named("SHOCKDURATION")), LetterDefOf.NeutralEvent, new LookTargets(parent.pawn, innerPawn));
-					}
+					//FleckMaker.AttachedOverlay(innerPawn, FleckDefOf.FlashHollow, new Vector3(0f, 0f, 0.26f));
+					//if (PawnUtility.ShouldSendNotificationAbout(parent.pawn) || PawnUtility.ShouldSendNotificationAbout(innerPawn))
+					//{
+					//	int max = HediffDefOf.XenogerminationComa.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.max;
+					//	int max2 = HediffDefOf.XenogermLossShock.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.max;
+					//	Find.LetterStack.ReceiveLetter("WVC_LetterLabel_GeneRiseFromTheDead".Translate(), "WVC_LetterText_GeneRiseFromTheDead".Translate(innerPawn.Named("TARGET")) + "\n\n" + "LetterTextGenesImplanted".Translate(parent.pawn.Named("CASTER"), innerPawn.Named("TARGET"), max.ToStringTicksToPeriod().Named("COMADURATION"), max2.ToStringTicksToPeriod().Named("SHOCKDURATION")), LetterDefOf.NeutralEvent, new LookTargets(parent.pawn, innerPawn));
+					//}
+					ReimplanterUtility.FleckAndLetter(parent.pawn, innerPawn);
 				}
 				foreach (Gene gene in parent.pawn.genes.GenesListForReading)
 				{

@@ -17,7 +17,7 @@
 	<biostatMet>0</biostatMet>
 	<marketValueFactor>2</marketValueFactor>
 	<!-- gain per day -->
-	<resourceLossPerDay>0.07</resourceLossPerDay>
+	<resourceLossPerDay>0.03</resourceLossPerDay>
 	<selectionWeight>0</selectionWeight>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<customEffectDescriptions>
@@ -61,6 +61,7 @@
 	<displayCategory>WVC_Energy</displayCategory>
 	<prerequisite>WVC_VoidMechlink</prerequisite>
 	<minAgeActive>3</minAgeActive>
+	<geneClass>WVC_XenotypesAndGenes.Gene_VoidlinkDependant</geneClass>
   </GeneDef>
 
   <!-- ====================== -->
@@ -115,7 +116,7 @@
 	<displayOrderInCategory>75.15</displayOrderInCategory>
 	<biostatCpx>0</biostatCpx>
 	<biostatArc>1</biostatArc>
-	<biostatMet>-3</biostatMet>
+	<biostatMet>-5</biostatMet>
 	<!-- gain per day -->
 	<resourceLossPerDay>0.07</resourceLossPerDay>
 	<customEffectDescriptions>

@@ -136,7 +136,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
-			if (ReimplanterComp?.Props?.absorberJob == null || !ReimplanterUtility.CanAbsorbGenogerm(pawn))
+			if (ReimplanterComp?.Props?.absorberJob == null)
 			{
 				yield break;
 			}
@@ -181,7 +181,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				yield break;
 			}
-			if (ReimplanterComp?.Props?.absorberJob == null || !ReimplanterUtility.CanAbsorbGenogerm(pawn))
+			if (ReimplanterComp?.Props?.absorberJob == null)
 			{
 				yield break;
 			}
@@ -200,7 +200,7 @@ namespace WVC_XenotypesAndGenes
 						Pawn absorber = list2[i];
 						if (absorber != pawn && absorber.IsColonistPlayerControlled && absorber.CanReach(pawn, PathEndMode.ClosestTouch, Danger.Deadly) && absorber.IsHuman())
 						{
-							if (!CompAbilityEffect_Reimplanter.PawnIdeoCanAcceptReimplant(myPawn, absorber))
+							if (!ReimplanterUtility.PawnIdeoCanAcceptReimplant(myPawn, absorber))
 							{
 								list.Add(new FloatMenuOption(absorber.LabelCap + ": " + "IdeoligionForbids".Translate(), null, absorber, Color.white));
 							}

@@ -26,12 +26,12 @@ namespace WVC_XenotypesAndGenes
 			//{
 			//	return;
 			//}
-			IngestibleProperties ingestible = thing.def?.ingestible;
-            if (ingestible == null)
-            {
-                return;
-            }
-            float nutrition = ingestible.CachedNutrition;
+			//IngestibleProperties ingestible = thing.def?.ingestible;
+			//if (ingestible == null)
+			//{
+			//	return;
+			//}
+            float nutrition = thing.def.GetStatValueAbstract(StatDefOf.Nutrition);
 			if (nutrition > 0f)
 			{
 				GeneResourceUtility.OffsetNeedFood(pawn, (-1f * def.resourceLossPerDay) * nutrition * numTaken);

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using UnityEngine;
 using Verse;
 using Verse.AI;
 using Verse.Sound;
@@ -124,24 +125,13 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		[Obsolete]
 		public static bool CanAbsorbGenogerm(Pawn pawn)
 		{
 			if (pawn?.genes == null)
 			{
 				return false;
 			}
-			// if (!pawn.genes.HasGene(GeneDefOf.XenogermReimplanter))
-			// {
-				// return false;
-			// }
-			// if (!MiscUtility.HasReimplanterAbility(pawn))
-			// {
-				// return false;
-			// }
-			// if (!XaG_GeneUtility.HasActiveGene(gene.def, pawn))
-			// {
-				// return false;
-			// }
 			if (pawn.IsPrisonerOfColony && pawn.guest.PrisonerIsSecure)
 			{
 				return true;
@@ -445,7 +435,17 @@ namespace WVC_XenotypesAndGenes
 			ReimplanterUtility.PostImplantDebug(pawn);
 		}
 
-		private static void SetCustomGenes(Pawn pawn, List<GeneDef> genes, XenotypeIconDef iconDef, string name, bool inheritable)
+		//public static bool TrySetCustomGenes(Pawn pawn, List<GeneDef> genes, XenotypeIconDef iconDef, string name, bool inheritable)
+		//{
+		//	if (!pawn.IsHuman())
+		//	{
+		//		return false;
+		//	}
+		//	SetCustomGenes(pawn, genes, iconDef, name, inheritable);
+		//	return true;
+		//}
+
+		public static void SetCustomGenes(Pawn pawn, List<GeneDef> genes, XenotypeIconDef iconDef, string name, bool inheritable)
         {
             Pawn_GeneTracker geneTracker = pawn.genes;
 			geneTracker.Xenogenes.RemoveAllGenes();
@@ -476,6 +476,68 @@ namespace WVC_XenotypesAndGenes
 					Find.HistoryEventsManager.RecordEvent(new HistoryEvent(HistoryEventDefOf.InstalledProsthetic, pawn.Named(HistoryEventArgsNames.Doer)));
 				}
 			}
+		}
+
+		public static void FleckAndLetter(Pawn caster, Pawn victim)
+		{
+			FleckMaker.AttachedOverlay(victim, FleckDefOf.FlashHollow, new Vector3(0f, 0f, 0.26f));
+			if (PawnUtility.ShouldSendNotificationAbout(caster) || PawnUtility.ShouldSendNotificationAbout(victim))
+			{
+				int max = HediffDefOf.XenogerminationComa.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.max;
+				int max2 = HediffDefOf.XenogermLossShock.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.max;
+				Find.LetterStack.ReceiveLetter("LetterLabelGenesImplanted".Translate(), "LetterTextGenesImplanted".Translate(caster.Named("CASTER"), victim.Named("TARGET"), max.ToStringTicksToPeriod().Named("COMADURATION"), max2.ToStringTicksToPeriod().Named("SHOCKDURATION")), LetterDefOf.NeutralEvent, new LookTargets(caster, victim));
+			}
+		}
+
+		public static bool ImplanterValidation(Pawn parent, LocalTargetInfo target, bool throwMessages)
+		{
+			Pawn pawn = target.Pawn;
+			if (pawn == null)
+			{
+				return false;
+			}
+			if (pawn.IsQuestLodger())
+			{
+				if (throwMessages)
+				{
+					Messages.Message("MessageCannotImplantInTempFactionMembers".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return false;
+			}
+			if (pawn.HostileTo(parent) && !pawn.Downed)
+			{
+				if (throwMessages)
+				{
+					Messages.Message("MessageCantUseOnResistingPerson".Translate(parent.def.Named("ABILITY")), pawn, MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return false;
+			}
+			if (!PawnIdeoCanAcceptReimplant(parent, pawn))
+			{
+				if (throwMessages)
+				{
+					Messages.Message("MessageCannotBecomeNonPreferredXenotype".Translate(pawn), pawn, MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return false;
+			}
+			if (!pawn.IsHuman())
+			{
+				if (throwMessages)
+				{
+					Messages.Message("WVC_PawnIsAndroidCheck".Translate(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return false;
+			}
+			return true;
+		}
+
+		public static bool PawnIdeoCanAcceptReimplant(Pawn implanter, Pawn implantee)
+		{
+			if (implantee.Downed)
+			{
+				return true;
+			}
+			return CompAbilityEffect_ReimplantXenogerm.PawnIdeoCanAcceptReimplant(implanter, implantee);
 		}
 
 	}
