@@ -32,8 +32,8 @@
 		<MechFormingSpeed>0.1</MechFormingSpeed>
 	</statFactors>
 	<statOffsets>
-		<WVC_VoidMechsLimit>10</WVC_VoidMechsLimit>
-		<WVC_VoidDamageChance>0.25</WVC_VoidDamageChance>
+		<WVC_VoidMechsLimit>7</WVC_VoidMechsLimit>
+		<WVC_VoidDamageChance>0.22</WVC_VoidDamageChance>
 	</statOffsets>
 	<modExtensions>
 		<li Class="WVC_XenotypesAndGenes.GeneExtension_Spawner">
@@ -159,8 +159,8 @@
 	<biostatArc>1</biostatArc>
 	<biostatMet>0</biostatMet>
 	<statOffsets>
-		<WVC_MaxVoidEnergy>-0.75</WVC_MaxVoidEnergy>
-		<WVC_VoidMechsLimit>15</WVC_VoidMechsLimit>
+		<WVC_MaxVoidEnergy>-0.80</WVC_MaxVoidEnergy>
+		<WVC_VoidMechsLimit>11</WVC_VoidMechsLimit>
 	</statOffsets>
   </GeneDef>
 

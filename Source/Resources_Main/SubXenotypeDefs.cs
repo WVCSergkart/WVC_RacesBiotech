@@ -666,7 +666,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (!voidEnergyCost.HasValue)
                 {
-                    voidEnergyCost = (float)Math.Round(GetVoidMechCost(pawnKindDef) + 0.51f, 0);
+                    voidEnergyCost = GetVoidMechCost(pawnKindDef);
                 }
                 return voidEnergyCost.Value;
 			}
@@ -674,7 +674,7 @@ namespace WVC_XenotypesAndGenes
 
         public static float GetVoidMechCost(PawnKindDef pawnKindDef, float limit = 99f)
 		{
-			float voidCost = (pawnKindDef.race.race.baseBodySize + pawnKindDef.race.race.baseHealthScale) * 2f * pawnKindDef.race.race.mechWeightClass.ToFloatFactor();
+			float voidCost = (float)Math.Round((pawnKindDef.race.race.baseBodySize + pawnKindDef.race.race.baseHealthScale + (pawnKindDef.race.race.mechEnabledWorkTypes != null ? pawnKindDef.race.race.mechEnabledWorkTypes.Count : 0)) * 2f * pawnKindDef.race.race.mechWeightClass.ToFloatFactor() + 0.51f, 0);
 			if (voidCost > limit)
 			{
 				return limit;

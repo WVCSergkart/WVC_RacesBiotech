@@ -16,6 +16,12 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostAdd();
 			HediffUtility.TryAddOrRemoveHediff(Spawner.mechanitorHediff, pawn, this, null);
+			if (Current.ProgramState == ProgramState.Playing)
+			{
+				return;
+			}
+			FloatRange range = new(0.01f, 0.17f);
+			OffsetResource(range.RandomInRange);
 		}
 
 		public void Notify_OverriddenBy(Gene overriddenBy)
