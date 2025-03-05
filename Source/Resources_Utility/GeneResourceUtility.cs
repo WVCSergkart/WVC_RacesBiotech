@@ -91,14 +91,23 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
+			if (TryAddMechlink(pawn))
 			{
-				pawn.health.AddHediff(HediffDefOf.MechlinkImplant, pawn.health.hediffSet.GetBrain());
 				if (pawn.Faction == Faction.OfPlayer)
 				{
 					Find.LetterStack.ReceiveLetter("WVC_XaG_GeneNaturalMechlinkLetterLabel".Translate(), "WVC_XaG_GeneNaturalMechlinkLetterDesc".Translate(pawn.Named("PAWN")), LetterDefOf.PositiveEvent, pawn);
 				}
 			}
+		}
+
+		public static bool TryAddMechlink(Pawn pawn)
+		{
+			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
+			{
+				pawn.health.AddHediff(HediffDefOf.MechlinkImplant, pawn.health.hediffSet.GetBrain());
+				return true;
+			}
+			return false;
 		}
 
 		// Psylinks

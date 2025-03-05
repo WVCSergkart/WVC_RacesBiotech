@@ -137,6 +137,7 @@
 		  <nullifyBackstory>true</nullifyBackstory>
 		  <nullifySkills>true</nullifySkills>
 		  <addSkipEffect>true</addSkipEffect>
+		  <!-- <newGamePlus>true</newGamePlus> -->
 		  <!-- <embraceTheVoid>true</embraceTheVoid> -->
 		  <additionalChronoAge>888~1777</additionalChronoAge>
 		  <context>PlayerStarter</context>

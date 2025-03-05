@@ -21,23 +21,20 @@ namespace WVC_XenotypesAndGenes
 		//public bool pawnHadMechlinkBefore = false;
 
 		public override void PostAdd()
-		{
-			base.PostAdd();
-			if (!WVC_Biotech.settings.link_addedMechlinkWithGene)
-			{
-				return;
-			}
-			if (!pawn.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
-			{
-				pawn.health.AddHediff(HediffDefOf.MechlinkImplant, pawn.health.hediffSet.GetBrain());
-			}
-			//else
-			//{
-			//	pawnHadMechlinkBefore = true;
-			//}
-		}
+        {
+            base.PostAdd();
+            if (!WVC_Biotech.settings.link_addedMechlinkWithGene)
+            {
+                return;
+            }
+			GeneResourceUtility.TryAddMechlink(pawn);
+            //else
+            //{
+            //	pawnHadMechlinkBefore = true;
+            //}
+        }
 
-		public override void Tick()
+        public override void Tick()
 		{
 			//base.Tick();
 			GeneResourceUtility.TryAddMechlinkRandomly(pawn, WVC_Biotech.settings.mechlink_HediffFromGeneChance);

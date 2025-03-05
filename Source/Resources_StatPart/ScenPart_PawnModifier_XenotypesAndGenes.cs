@@ -21,9 +21,10 @@ namespace WVC_XenotypesAndGenes
         public bool addSkipEffect = false;
         public List<GeneDef> chimeraGeneDefs = new();
         //public GeneDef chimeraEvolveGeneDef;
-        public bool saveOldChimeraGeneSet = false;
+        //public bool saveOldChimeraGeneSet = false;
         public int startingMutations = 0;
         public IntRange additionalChronoAge = new(0, 0);
+        //public bool newGamePlus = false;
 
         //public override void ExposeData()
         //{
@@ -32,6 +33,22 @@ namespace WVC_XenotypesAndGenes
         //    Scribe_Values.Look(ref nullifyBackstory, "nullifyBackstory", false);
         //    Scribe_Values.Look(ref context, "context", PawnGenerationContext.All);
         //    Scribe_Values.Look(ref hideOffMap, "hideOffMap", defaultValue: false);
+        //}
+        //public override void PostIdeoChosen()
+        //{
+        //    if (!newGamePlus || StaticCollectionsClass.voidLinkNewGamePlusPawn == null)
+        //    {
+        //        return;
+        //    }
+        //    try
+        //    {
+        //        Pawn voidLinkNewGamePlusPawn = StaticCollectionsClass.voidLinkNewGamePlusPawn;
+        //        DuplicateUtility.CopyPawn(voidLinkNewGamePlusPawn, Find.GameInitData.startingAndOptionalPawns.RandomElement());
+        //    }
+        //    catch
+        //    {
+        //        Log.Warning("Failed generate new game plus pawn.");
+        //    }
         //}
 
         protected override void ModifyNewPawn(Pawn p)
@@ -152,15 +169,16 @@ namespace WVC_XenotypesAndGenes
         {
             if (nullifyBackstory)
             {
+                p.relations.ClearAllRelations();
                 DuplicateUtility.NullifyBackstory(p);
             }
         }
 
         private void AddMechlink(Pawn p)
         {
-            if (addMechlink && !p.health.hediffSet.HasHediff(HediffDefOf.MechlinkImplant))
+            if (addMechlink)
             {
-                p.health.AddHediff(HediffDefOf.MechlinkImplant, p.health.hediffSet.GetBrain());
+                GeneResourceUtility.TryAddMechlink(p);
             }
         }
 

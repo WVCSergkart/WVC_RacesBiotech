@@ -28,7 +28,7 @@ namespace WVC_XenotypesAndGenes
 				}
 				else
 				{
-					PawnGenerationRequest request = DuplicateUtility.RequestCopy(originalPawn);
+					PawnGenerationRequest request = RequestCopy(originalPawn);
 					duplicatePawn = PawnGenerator.GeneratePawn(request);
 					DuplicatePawn(originalPawn, duplicatePawn, false);
 					letterDef = LetterDefOf.PositiveEvent;
@@ -235,39 +235,46 @@ namespace WVC_XenotypesAndGenes
 		}
 
 		public static void DuplicatePawn(Pawn progenitor, Pawn clone, bool addParent = true)
-		{
-			clone.apparel.DestroyAll();
-			DuplicateUtility.CopyStory(progenitor, clone);
-			DuplicateUtility.CopyApperance(progenitor, clone);
-			DuplicateUtility.CopyTraits(progenitor, clone);
-			DuplicateUtility.CopyGenes(progenitor, clone);
-			DuplicateUtility.CopySkills(progenitor, clone);
-			// DuplicateUtility.CopyNeeds(progenitor, clone);
-			if (ModsConfig.IdeologyActive)
-			{
-				clone.ideo.SetIdeo(progenitor.ideo.Ideo);
-			}
-			if (clone.playerSettings != null && progenitor.playerSettings != null)
-			{
-				clone.playerSettings.AreaRestrictionInPawnCurrentMap = progenitor.playerSettings.AreaRestrictionInPawnCurrentMap;
-			}
-			if (addParent && clone.RaceProps.IsFlesh && progenitor.RaceProps.IsFlesh)
-			{
-				clone.relations.AddDirectRelation(PawnRelationDefOf.Parent, progenitor);
-			}
-			//if (xenotypeDef != null)
-			//{
-			//	clone.health.AddHediff(HediffDefOf.XenogerminationComa);
-			//	GeneUtility.UpdateXenogermReplication(clone);
-			//	ReimplanterUtility.ExtractXenogerm(progenitor);
-			//	ReimplanterUtility.SetXenotype_DoubleXenotype(clone, xenotypeDef);
-			//}
-			// GestationUtility.GetBabyName(clone, progenitor);
-			clone?.Drawer?.renderer?.SetAllGraphicsDirty();
-			clone?.Notify_DisabledWorkTypesChanged();
+        {
+            clone.apparel.DestroyAll();
+            CopyPawn(progenitor, clone);
+            // DuplicateUtility.CopyNeeds(progenitor, clone);
+            if (ModsConfig.IdeologyActive)
+            {
+                clone.ideo.SetIdeo(progenitor.ideo.Ideo);
+            }
+            if (clone.playerSettings != null && progenitor.playerSettings != null)
+            {
+                clone.playerSettings.AreaRestrictionInPawnCurrentMap = progenitor.playerSettings.AreaRestrictionInPawnCurrentMap;
+            }
+            if (addParent && clone.RaceProps.IsFlesh && progenitor.RaceProps.IsFlesh)
+            {
+                clone.relations.AddDirectRelation(PawnRelationDefOf.Parent, progenitor);
+            }
+            //if (xenotypeDef != null)
+            //{
+            //	clone.health.AddHediff(HediffDefOf.XenogerminationComa);
+            //	GeneUtility.UpdateXenogermReplication(clone);
+            //	ReimplanterUtility.ExtractXenogerm(progenitor);
+            //	ReimplanterUtility.SetXenotype_DoubleXenotype(clone, xenotypeDef);
+            //}
+            // GestationUtility.GetBabyName(clone, progenitor);
+            clone?.Drawer?.renderer?.SetAllGraphicsDirty();
+            clone?.Notify_DisabledWorkTypesChanged();
+        }
+
+        public static void CopyPawn(Pawn progenitor, Pawn clone)
+        {
+            CopyStory(progenitor, clone);
+            CopyApperance(progenitor, clone);
+            CopyTraits(progenitor, clone);
+            CopyGenes(progenitor, clone);
+            CopySkills(progenitor, clone);
+			//CopyHediffs(progenitor, clone);
+			CopyNeeds(progenitor, clone);
 		}
 
-		public static void CopyGenes(Pawn pawn, Pawn newPawn)
+        public static void CopyGenes(Pawn pawn, Pawn newPawn)
         {
             ReimplanterUtility.ReimplantGenesHybrid(pawn, newPawn, xenogerm: false);
             CopyGenesOverrides(newPawn, newPawn.genes.Endogenes, pawn.genes.Endogenes);
@@ -311,31 +318,41 @@ namespace WVC_XenotypesAndGenes
 			return null;
 		}
 
-		// Broke stuff
 		public static void CopyNeeds(Pawn pawn, Pawn newPawn)
 		{
-			newPawn.needs.AllNeeds.Clear();
-			foreach (Need allNeed in pawn.needs.AllNeeds)
+			// Broke stuff
+			//newPawn.needs.AllNeeds.Clear();
+			//foreach (Need allNeed in pawn.needs.AllNeeds)
+			//{
+			//	Need need = (Need)Activator.CreateInstance(allNeed.def.needClass, newPawn);
+			//	need.def = allNeed.def;
+			//	newPawn.needs.AllNeeds.Add(need);
+			//	need.SetInitialLevel();
+			//	need.CurLevel = allNeed.CurLevel;
+			//	newPawn.needs.BindDirectNeedFields();
+			//}
+			//if (pawn.needs.mood == null)
+			//{
+			//	return;
+			//}
+			//List<Thought_Memory> memories = newPawn.needs.mood.thoughts.memories.Memories;
+			//memories.Clear();
+			//foreach (Thought_Memory memory in pawn.needs.mood.thoughts.memories.Memories)
+			//{
+			//	Thought_Memory thought_Memory = (Thought_Memory)ThoughtMaker.MakeThought(memory.def);
+			//	thought_Memory.CopyFrom(memory);
+			//	thought_Memory.pawn = newPawn;
+			//	memories.Add(thought_Memory);
+			//}
+			foreach (Need need in pawn.needs.AllNeeds)
 			{
-				Need need = (Need)Activator.CreateInstance(allNeed.def.needClass, newPawn);
-				need.def = allNeed.def;
-				newPawn.needs.AllNeeds.Add(need);
-				need.SetInitialLevel();
-				need.CurLevel = allNeed.CurLevel;
-				newPawn.needs.BindDirectNeedFields();
-			}
-			if (pawn.needs.mood == null)
-			{
-				return;
-			}
-			List<Thought_Memory> memories = newPawn.needs.mood.thoughts.memories.Memories;
-			memories.Clear();
-			foreach (Thought_Memory memory in pawn.needs.mood.thoughts.memories.Memories)
-			{
-				Thought_Memory thought_Memory = (Thought_Memory)ThoughtMaker.MakeThought(memory.def);
-				thought_Memory.CopyFrom(memory);
-				thought_Memory.pawn = newPawn;
-				memories.Add(thought_Memory);
+				foreach (Need newNeed in newPawn.needs.AllNeeds)
+				{
+					if (need.def == newNeed.def)
+					{
+						newNeed.CurLevel = need.CurLevel;
+					}
+				}
 			}
 		}
 
@@ -391,6 +408,27 @@ namespace WVC_XenotypesAndGenes
 					xpSinceMidnight = skill.xpSinceMidnight
 				};
 				newPawn.skills.skills.Add(item);
+			}
+		}
+
+		public static void CopyHediffs(Pawn pawn, Pawn newPawn)
+		{
+			//newPawn.health.hediffSet.hediffs.Clear();
+			foreach (Hediff item in newPawn.health.hediffSet.hediffs)
+			{
+				if (item.def.duplicationAllowed)
+				{
+					newPawn.health.RemoveHediff(item);
+				}
+			}
+			foreach (Hediff item in pawn.health.hediffSet.hediffs)
+			{
+				if (item.def.duplicationAllowed)
+				{
+					Hediff hediff = HediffMaker.MakeHediff(item.def, newPawn, item.Part);
+					hediff.CopyFrom(item);
+					newPawn.health.hediffSet.AddDirect(hediff);
+				}
 			}
 		}
 

@@ -59,6 +59,7 @@ namespace WVC_XenotypesAndGenes
 		public void Notify_PawnKilled()
 		{
 			KillMechs();
+			//StaticCollectionsClass.voidLinkNewGamePlusPawn = pawn;
 		}
 
 		public void KillMechs(bool offsetResource = false)

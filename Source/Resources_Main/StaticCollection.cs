@@ -23,6 +23,8 @@ namespace WVC_XenotypesAndGenes
 		//public static bool shapeshifterAppear = false;
 		public static bool oneManArmyMode = false;
 
+		//public static Pawn voidLinkNewGamePlusPawn;
+
 	}
 
 	public class GeneSetPresets : IExposable
