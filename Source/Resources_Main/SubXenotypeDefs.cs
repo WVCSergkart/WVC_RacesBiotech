@@ -666,7 +666,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				if (!voidEnergyCost.HasValue)
                 {
-                    voidEnergyCost = GetVoidMechCost(pawnKindDef);
+                    voidEnergyCost = GetVoidMechCost(pawnKindDef, 99f);
                 }
                 return voidEnergyCost.Value;
 			}
@@ -674,7 +674,7 @@ namespace WVC_XenotypesAndGenes
 
         public static float GetVoidMechCost(PawnKindDef pawnKindDef, float limit = 99f)
 		{
-			float voidCost = (float)Math.Round((pawnKindDef.race.race.baseBodySize + pawnKindDef.race.race.baseHealthScale + (pawnKindDef.race.race.mechEnabledWorkTypes != null ? pawnKindDef.race.race.mechEnabledWorkTypes.Count : 0)) * 2f * pawnKindDef.race.race.mechWeightClass.ToFloatFactor() + 0.51f, 0);
+			float voidCost = (float)Math.Round((pawnKindDef.race.race.baseBodySize + pawnKindDef.race.race.baseHealthScale + (pawnKindDef.race.race.mechEnabledWorkTypes != null ? pawnKindDef.race.race.mechEnabledWorkTypes.Count : 0)) * WVC_Biotech.settings.voidlink_mechCostFactor * pawnKindDef.race.race.mechWeightClass.ToFloatFactor() + 0.51f, 0);
 			if (voidCost > limit)
 			{
 				return limit;
@@ -710,6 +710,8 @@ namespace WVC_XenotypesAndGenes
 					{
 						StringBuilder stringBuilder = new();
 						stringBuilder.AppendLine(pawnKindDef.race.description);
+						stringBuilder.AppendLine();
+						stringBuilder.AppendLine("WVC_XaG_DialogVoidlink_DescEnergyCost".Translate(GetVoidMechCost(pawnKindDef, WVC_Biotech.settings.voidlink_mechCostLimit)).ToString());
 						stringBuilder.AppendLine();
 						phase = "get stats";
 						stringBuilder.AppendLine("WVC_XaG_Dialog_Golemlink_Stats".Translate().Colorize(ColoredText.TipSectionTitleColor) + ":");

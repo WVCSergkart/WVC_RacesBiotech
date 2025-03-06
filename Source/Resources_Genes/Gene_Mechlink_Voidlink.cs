@@ -81,7 +81,7 @@ namespace WVC_XenotypesAndGenes
         {
             if (offsetResource)
             {
-                OffsetResource(MechanoidHolder.GetVoidMechCost(mech.kindDef) * 0.0025f * mech.health.summaryHealth.SummaryHealthPercent);
+                OffsetResource(MechanoidHolder.GetVoidMechCost(mech.kindDef, 25f) * 0.0025f * mech.health.summaryHealth.SummaryHealthPercent);
             }
             mech.forceNoDeathNotification = true;
             bool cachedGearDrop = mech.kindDef.destroyGearOnDrop;
@@ -314,7 +314,7 @@ namespace WVC_XenotypesAndGenes
                 }
                 phase = "get mech cost";
                 PawnKindDef mechKind = selectedMechs.RandomElement();
-                float consume = MechanoidHolder.GetVoidMechCost(mechKind) * 0.01f;
+                float consume = MechanoidHolder.GetVoidMechCost(mechKind, WVC_Biotech.settings.voidlink_mechCostLimit) * 0.01f;
                 if (consume > geneResource)
                 {
                     //selectedMechs = new();

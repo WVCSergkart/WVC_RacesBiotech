@@ -106,6 +106,8 @@ namespace WVC_XenotypesAndGenes
 		public IntRange golemlink_golemsToSpawnRange = new(1, 3);
 		public IntRange falselink_spawnIntervalRange = new(480000, 960000);
 		public IntRange falselink_mechsToSpawnRange = new(1, 6);
+		public float voidlink_mechCostFactor = 2f;
+		public float voidlink_mechCostLimit = 99f;
 		// Shapeshifter
 		// public bool shapeshifter_enableStyleButton = true;
 		public float shapeshifer_GeneCellularRegeneration = 1f;
@@ -240,6 +242,8 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref golemlink_golemsToSpawnRange, "golemlink_golemsToSpawnRange", defaultValue: new(1, 3));
 			Scribe_Values.Look(ref falselink_spawnIntervalRange, "falselink_spawnIntervalRange", defaultValue: new(480000, 960000));
 			Scribe_Values.Look(ref falselink_mechsToSpawnRange, "falselink_mechsToSpawnRange", defaultValue: new(1, 6));
+			Scribe_Values.Look(ref voidlink_mechCostFactor, "voidlink_mechCostFactor", defaultValue: 2f);
+			Scribe_Values.Look(ref voidlink_mechCostLimit, "voidlink_mechCostLimit", defaultValue: 99f);
 			// shapeshifter
 			Scribe_Values.Look(ref shapeshifer_GeneCellularRegeneration, "shapeshifer_GeneCellularRegeneration", defaultValue: 1f);
 			Scribe_Values.Look(ref enable_MorpherExperimentalMode, "enable_MorpherExperimentalMode", defaultValue: false);
@@ -791,6 +795,8 @@ namespace WVC_XenotypesAndGenes
 				listingStandard.IntRangeLabeledWithRef("WVC_Label_golemlink_golemsToSpawnRange".Translate(settings.golemlink_golemsToSpawnRange.ToString()), ref settings.golemlink_golemsToSpawnRange, 1, 10);
 				listingStandard.IntRangeLabeledWithRef("WVC_Label_falselink_spawnIntervalRange".Translate((int)settings.falselink_spawnIntervalRange.min.TicksToDays() + "~" + (int)settings.falselink_spawnIntervalRange.max.TicksToDays()), ref settings.falselink_spawnIntervalRange, 60000, 1800000);
 				listingStandard.IntRangeLabeledWithRef("WVC_Label_falselink_mechsToSpawnRange".Translate(settings.falselink_mechsToSpawnRange.ToString()), ref settings.falselink_mechsToSpawnRange, 1, 10);
+				listingStandard.SliderLabeledWithRef("WVC_Label_voidlink_mechCostFactor".Translate((settings.voidlink_mechCostFactor).ToString()), ref settings.voidlink_mechCostFactor, 0f, 5f, "WVC_ToolTip_voidlink_mechCostFactor".Translate(), round: 1);
+				listingStandard.SliderLabeledWithRef("WVC_Label_voidlink_mechCostLimit".Translate((settings.voidlink_mechCostLimit).ToString()), ref settings.voidlink_mechCostLimit, 99f, 200f, "WVC_ToolTip_voidlink_mechCostLimit".Translate(), round: 0);
 			}
 			listingStandard.GapLine();
 			// =
@@ -1089,6 +1095,8 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.golemlink_golemsToSpawnRange = settingsDef.golemlink_golemsToSpawnRange;
 			WVC_Biotech.settings.falselink_spawnIntervalRange = settingsDef.falselink_spawnIntervalRange;
 			WVC_Biotech.settings.falselink_mechsToSpawnRange = settingsDef.falselink_mechsToSpawnRange;
+			WVC_Biotech.settings.voidlink_mechCostFactor = settingsDef.voidlink_mechCostFactor;
+			WVC_Biotech.settings.voidlink_mechCostLimit = settingsDef.voidlink_mechCostLimit;
 			// =
 			WVC_Biotech.settings.rechargeable_enablefoodPoisoningFromFood = settingsDef.rechargeable_enablefoodPoisoningFromFood;
 			// =

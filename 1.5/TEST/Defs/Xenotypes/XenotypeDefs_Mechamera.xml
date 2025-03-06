@@ -5,10 +5,12 @@
 	<defName>WVC_Nociokin</defName>
 	<!-- chimechkin, nociokin -->
 	<label>nociokin</label>
-	<description>Nociokins are rare super-humans, powered by archotech-created archites in the bloodstream that are a sub-xenotype of the chimerkin. They can replenish hemogen by mechfeeding or charging at special stations. Their mechanoid bodies can withstand more dangerous habitats, and lost organs and limbs grow back over time. But most importantly, they can summon mechs from the void to help them.
+	<description>Nociokins are rare super-humans, powered by archotech-created archites in the bloodstream that are a sub-xenotype of the chimerkin. They can replenish hemogen by mechfeeding or charging at special stations. Their mechanoid bodies can withstand more dangerous habitats, and lost organs and limbs grow back over time. But most importantly, they can skip mechs from the void to help them.
 
-&lt;color=#f5ffa2&gt;Gameplay Effect (Genes):&lt;/color&gt; Can replenish hemogen on rechargers or by biting mechs.</description>
-	<descriptionShort>Nociokins are rare super-humans, powered by archotech-created archites in the bloodstream that are a sub-xenotype of the chimerkin. They can replenish hemogen by mechfeeding or charging at special stations. Their mechanoid bodies can withstand more dangerous habitats, and lost organs and limbs grow back over time. But most importantly, they can summon mechs from the void to help them.</descriptionShort>
+&lt;color=#f5ffa2&gt;Gameplay Effect (Genes):&lt;/color&gt; Can replenish hemogen on rechargers or by biting mechs.
+
+&lt;color=#f5ffa2&gt;Gameplay Effect (Abilities):&lt;/color&gt; Can summon (skip) mechanoids using a special resource.</description>
+	<descriptionShort>Nociokins are rare super-humans, powered by archotech-created archites in the bloodstream that are a sub-xenotype of the chimerkin. They can replenish hemogen by mechfeeding or charging at special stations. Their mechanoid bodies can withstand more dangerous habitats, and lost organs and limbs grow back over time. But most importantly, they can skip mechs from the void to help them.</descriptionShort>
 	<inheritable>true</inheritable>
 	<iconPath>WVC/UI/Mecha_Icons/Xeno_ElfVampire_Cyber_v0</iconPath>
 	<descriptionHyperlinks>

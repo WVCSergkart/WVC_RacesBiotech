@@ -252,6 +252,8 @@ namespace WVC_XenotypesAndGenes
 		public IntRange golemlink_golemsToSpawnRange = new(1, 3);
 		public IntRange falselink_spawnIntervalRange = new(480000, 960000);
 		public IntRange falselink_mechsToSpawnRange = new(1, 6);
+		public float voidlink_mechCostFactor = 2f;
+		public float voidlink_mechCostLimit = 99f;
 		// Shapeshifter
 		// public bool shapeshifter_enableStyleButton = true;
 		public float shapeshifer_GeneCellularRegeneration = 1f;

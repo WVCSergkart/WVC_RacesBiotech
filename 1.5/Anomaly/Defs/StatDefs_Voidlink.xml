@@ -4,7 +4,7 @@
   <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
 	<defName>WVC_VoidMechsLimit</defName>
 	<label>void mechs limit</label>
-	<description>How many mechanoids can be summoned using voidlink without disturbing the nociosphere. Each mechanoid controlled above this limit adds 1% chance to summon the sphere.</description>
+	<description>How many mechanoids can be skipped using voidlink without disturbing the nociosphere. Each mechanoid controlled above this limit adds 1% chance to skip the sphere.</description>
 	<defaultBaseValue>0</defaultBaseValue>
 	<hideAtValue>0</hideAtValue>
 	<alwaysHide>false</alwaysHide>
@@ -16,7 +16,7 @@
   <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
 	<defName>WVC_VoidDamageChance</defName>
 	<label>void damage chance</label>
-	<description>Chance that a mechanoid summoned using voidlink will receive damage.</description>
+	<description>Chance that a mechanoid skipped using voidlink will receive damage.</description>
 	<defaultBaseValue>0</defaultBaseValue>
 	<maxValue>1</maxValue>
 	<hideAtValue>0</hideAtValue>
@@ -29,7 +29,7 @@
   <!-- Used only for internal calculations. Should be invisible in the stats window. -->
   <StatDef ParentName="WVC_Biotech_ForcedStat_Base">
 	<defName>WVC_MaxVoidEnergy</defName>
-	<label>max void enery</label>
+	<label>max voidlink resource</label>
 	<!-- <description>The maximum amount of void energy that a voidlink can accumulate. This energy is used to summon mechanoids, each mechanoid has its own cost. Mechanoids that are more expensive than this value cannot be summoned.</description> -->
 	<defaultBaseValue>1</defaultBaseValue>
 	<hideAtValue>1</hideAtValue>

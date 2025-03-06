@@ -62,7 +62,7 @@ A restart is required.</WVC_ToolTip_enable_OverOverridableGenesMechanic>
 
 	<!-- ================================== -->
 
-	<WVC_Label_genesCanTickOnlyOnMap>Genes tick only on map</WVC_Label_genesCanTickOnlyOnMap>
+	<WVC_Label_genesCanTickOnlyOnMap>(Dev) Genes tick only on map</WVC_Label_genesCanTickOnlyOnMap>
 	<WVC_ToolTip_genesCanTickOnlyOnMap>If enabled, genes cannot tick outside the map, which should improve performance. However, this may break some gene mechanics that are designed to work outside of the map.
 
 Use this option only if you are sure of what you are doing.
@@ -192,6 +192,11 @@ A restart is required.</WVC_ToolTip_golembond_ShrinesStatPartOffset>
 	<WVC_Label_golemlink_golemsToSpawnRange>Golemlink spawn count {0}</WVC_Label_golemlink_golemsToSpawnRange>
 	<WVC_Label_falselink_spawnIntervalRange>Falselink interval range {0} days</WVC_Label_falselink_spawnIntervalRange>
 	<WVC_Label_falselink_mechsToSpawnRange>Falselink spawn count {0}</WVC_Label_falselink_mechsToSpawnRange>
+
+	<WVC_Label_voidlink_mechCostFactor>Voidlink mechs cost x{0}</WVC_Label_voidlink_mechCostFactor>
+	<WVC_ToolTip_voidlink_mechCostFactor>Multiplies the cost of mechs by the specified value. The higher the value, the more &lt;color=#80b5e1&gt;voidsence&lt;/color&gt; is needed to summon. Default is 2.</WVC_ToolTip_voidlink_mechCostFactor>
+	<WVC_Label_voidlink_mechCostLimit>Voidlink mechs max cost {0}</WVC_Label_voidlink_mechCostLimit>
+	<WVC_ToolTip_voidlink_mechCostLimit>Determines the maximum possible cost of summoning a mechanoid. Values ​​above 99 are not displayed in the interface.</WVC_ToolTip_voidlink_mechCostLimit>
 
 	<!-- ================================== -->
 

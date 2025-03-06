@@ -21,12 +21,12 @@
 	<selectionWeight>0</selectionWeight>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<customEffectDescriptions>
-		<li>&lt;color=#8a8ae6&gt;Allows to summon any mechanoids.&lt;/color&gt;</li>
+		<li>&lt;color=#8a8ae6&gt;Allows to skip any mechanoids.&lt;/color&gt;</li>
 		<li>&lt;color=#8a8ae6&gt;Bandwidth&lt;/color&gt; has a relative limit and increases with the number of mechanoids.</li>
 		<!-- <li>Each &lt;color=#ff8585&gt;occupied bandwidth reduces&lt;/color&gt; the &lt;color=#8a8ae6&gt;social stats&lt;/color&gt;.</li> -->
 		<li>Each occupied &lt;color=#8a8ae6&gt;bandwidth&lt;/color&gt; reduces &lt;color=#ff8585&gt;social stats&lt;/color&gt; and the chance of a &lt;color=#8a8ae6&gt;nervous breakdown&lt;/color&gt;.</li>
-		<li>Instead of mech, a &lt;color=#b0bf80&gt;nociosphere&lt;/color&gt; can be summoned. Each controlled mech increases this chance by 1%. &lt;color=#b0bf80&gt;Nociosphere&lt;/color&gt; will be immediately &lt;color=#ff8585&gt;activated&lt;/color&gt;.</li>
-		<li>&lt;color=#ff8585&gt;Any nociosphere presence prevent summoning.&lt;/color&gt;</li>
+		<li>Instead of mech, a &lt;color=#b0bf80&gt;nociosphere&lt;/color&gt; can be skipped. Each controlled mech increases this chance by 1%. &lt;color=#b0bf80&gt;Nociosphere&lt;/color&gt; will be immediately &lt;color=#ff8585&gt;activated&lt;/color&gt;.</li>
+		<li>&lt;color=#ff8585&gt;Any nociosphere presence prevent skipping.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<statFactors>
 		<MechFormingSpeed>0.1</MechFormingSpeed>
