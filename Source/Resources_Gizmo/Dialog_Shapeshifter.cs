@@ -88,6 +88,27 @@ namespace WVC_XenotypesAndGenes
 				Text.Anchor = TextAnchor.UpperLeft;
 				GUI.color = Color.white;
 			}
+			else
+            {
+				if (Widgets.ButtonText(new Rect(rect.xMax - (ButSize.x * 2), rect.y, ButSize.x, ButSize.y), "WVC_XaG_StorageImplanter_Apply".Translate()))
+				{
+					Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_StorageImplanter_Warning".Translate(gene.pawn.LabelCap), StorageImplanterSet));
+				}
+			}
+		}
+
+		private void StorageImplanterSet()
+		{
+			Gene_StorageImplanter implanter = gene.pawn.genes.GetFirstGeneOfType<Gene_StorageImplanter>();
+			if (implanter != null)
+            {
+				implanter.SetupHolder(selectedXenoHolder);
+				Messages.Message("WVC_XaG_StorageImplanter_Message".Translate(), null, MessageTypeDefOf.PositiveEvent, historical: false);
+			}
+			else
+			{
+				Messages.Message("WVC_XaG_StorageImplanter_ErrorMessage".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
+			}
 		}
 
 		protected override bool CanAccept()

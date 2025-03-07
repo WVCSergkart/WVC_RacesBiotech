@@ -54,6 +54,7 @@ namespace WVC_XenotypesAndGenes
 			//closeOnAccept = false;
 			//closeOnCancel = false;
 			desireColor = gene.color;
+			closeOnClickedOutside = true;
 		}
 
 		public override void DoWindowContents(Rect inRect)

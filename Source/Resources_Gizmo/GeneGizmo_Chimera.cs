@@ -16,11 +16,11 @@ namespace WVC_XenotypesAndGenes
 
 		public Gene_Chimera gene;
 
-		public int collectedGenes = 0;
-		public int eatedGenes = 0;
-		public int destroyedGenes = 0;
+		//public int collectedGenes = 0;
+		//public int eatedGenes = 0;
+		//public int destroyedGenes = 0;
 
-		public int nextRecache = 0;
+		//public int nextRecache = 0;
 
 		public override bool Visible => true;
 
@@ -30,8 +30,8 @@ namespace WVC_XenotypesAndGenes
 			gene = geneChimera;
 			pawn = gene?.pawn;
 			Order = -94f;
-			collectedGenes = gene.CollectedGenes.Count;
-			eatedGenes = gene.EatedGenes.Count;
+			//collectedGenes = gene.CollectedGenes.Count;
+			//eatedGenes = gene.EatedGenes.Count;
 		}
 
 		public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
@@ -39,29 +39,30 @@ namespace WVC_XenotypesAndGenes
 			Rect rect = new(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
 			Rect rect2 = rect.ContractedBy(6f);
 			Widgets.DrawWindowBackground(rect);
-			nextRecache--;
-			if (nextRecache < 0)
-			{
-				collectedGenes = gene.CollectedGenes.Count;
-				eatedGenes = gene.EatedGenes.Count;
-				nextRecache = 360;
-			}
-			string text = collectedGenes.ToString("F0");
-			TaggedString taggedString = "WVC_XaG_Gene_Chimera_GizmoLabel".Translate().Colorize(ColoredText.TipSectionTitleColor) + ": " + text + "\n\n" + "WVC_XaG_Gene_Chimera_GizmoTip".Translate();
-			if (eatedGenes > 0)
-			{
-				taggedString += (string)("\n\n" + ("WVC_XaG_Gene_Chimera_GizmoEatedLabel".Translate() + ": ")) + eatedGenes;
-			}
+			//nextRecache--;
+			//if (nextRecache < 0)
+			//{
+			//	collectedGenes = gene.CollectedGenes.Count;
+			//	eatedGenes = gene.EatedGenes.Count;
+			//	nextRecache = 360;
+			//}
+			//string text = collectedGenes.ToString("F0");
+			TaggedString taggedString = "WVC_XaG_Gene_Chimera_GizmoLabel".Translate().Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + "WVC_XaG_Gene_Chimera_GizmoTip".Translate(gene.CollectedGenes.Count, gene.EatedGenes.Count, gene.DestroyedGenes.Count);
+			//if (eatedGenes > 0)
+			//{
+			//	taggedString += (string)("\n\n" + ("WVC_XaG_Gene_Chimera_GizmoEatedLabel".Translate() + ": ")) + eatedGenes;
+			//}
 			TooltipHandler.TipRegion(rect, taggedString);
 			Text.Font = GameFont.Small;
 			Text.Anchor = TextAnchor.UpperLeft;
 			Rect rect3 = new(rect2.x, rect2.y, rect2.width, 20f);
 			// Widgets.Label(rect3, "Genes".Translate().CapitalizeFirst());
 			Widgets.Label(rect3, "WVC_XaG_GeneChimeraGizmoLabel".Translate().CapitalizeFirst());
-			Text.Font = GameFont.Small;
-			Text.Anchor = TextAnchor.UpperRight;
-			Widgets.Label(rect3, text);
-			Text.Anchor = TextAnchor.UpperLeft;
+			//Text.Font = GameFont.Small;
+			//Text.Anchor = TextAnchor.UpperRight;
+			XaG_UiUtility.StyleButton_WithoutRect(new(rect3.xMax - rect3.height, rect3.y, rect3.height, rect3.height), pawn, gene, false);
+			//Widgets.Label(rect3, text);
+			//Text.Anchor = TextAnchor.UpperLeft;
 			// Button
 			Rect rect4 = new(rect2.x, rect3.yMax + 6f, rect2.width, rect2.height - rect3.height - 6f);
 			Widgets.DrawTextureFitted(rect4, MenuIcon.Texture, 1f);

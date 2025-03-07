@@ -52,8 +52,14 @@ namespace WVC_XenotypesAndGenes
 
         public void SetupHolder(XenotypeDef xenotypeDef = null, List<GeneDef> genes = null, bool inheritable = false, XenotypeIconDef icon = null, string name = null)
         {
-            xenotypeHolder = new SaveableXenotypeHolder(xenotypeDef, genes, inheritable, icon, name);
-            xenotypeHolder.PostSetup();
+            this.xenotypeHolder = new SaveableXenotypeHolder(xenotypeDef, genes, inheritable, icon, name);
+            this.xenotypeHolder.PostSetup();
+        }
+
+        public void SetupHolder(XenotypeHolder xenotypeHolder)
+        {
+            this.xenotypeHolder = new SaveableXenotypeHolder(xenotypeHolder);
+            this.xenotypeHolder.PostSetup();
         }
 
         public bool TryAddGene(GeneDef geneDef)

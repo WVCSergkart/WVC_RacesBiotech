@@ -140,7 +140,7 @@ namespace WVC_XenotypesAndGenes
 			forcePause = true;
 			showClothes = false;
 			closeOnAccept = false;
-			closeOnCancel = false;
+			closeOnCancel = true;
 			foreach (Apparel item in pawn.apparel.WornApparel)
 			{
 				if (item.TryGetComp<CompColorable>() != null)

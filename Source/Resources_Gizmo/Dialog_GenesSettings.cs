@@ -50,6 +50,7 @@ namespace WVC_XenotypesAndGenes
 					//Rect rect2 = new(rect.width - 36f, (rect.height - 36f) / 2f, 36f, 36f);
 					//TooltipHandler.TipRegionByKey(rect2, deleteTipKey);
 					//Text.Font = GameFont.Small;
+					Text.Font = GameFont.Small;
 					Rect rect3 = new(rect.width - 100f, (rect.height - 36f) / 2f, 100f, 36f);
 					if (Widgets.ButtonText(rect3, controller.RemoteActionName))
 					{
@@ -59,7 +60,6 @@ namespace WVC_XenotypesAndGenes
 					//Text.Anchor = TextAnchor.UpperLeft;
 					Rect rect4 = new(40f, 0f, 200f, rect.height);
 					Text.Anchor = TextAnchor.MiddleLeft;
-					Text.Font = GameFont.Small;
 					Widgets.Label(rect4, gene.LabelCap.Truncate(rect4.width * 1.8f));
 					Text.Anchor = TextAnchor.UpperLeft;
 					Rect rect5 = new(0f, 0f, 36f, 36f);

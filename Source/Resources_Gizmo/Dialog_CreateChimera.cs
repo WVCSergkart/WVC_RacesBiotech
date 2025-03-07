@@ -655,26 +655,44 @@ namespace WVC_XenotypesAndGenes
 			}
 			// if (!Widgets.ButtonText(new Rect(rect.xMax - GeneCreationDialogBase.ButSize.x * 2f - 4f, rect.y, GeneCreationDialogBase.ButSize.x, GeneCreationDialogBase.ButSize.y), "LoadPremade".Translate()))
 			// {
-				// return;
+			// return;
 			// }
 			// List<FloatMenuOption> list = new List<FloatMenuOption>();
 			// foreach (XenotypeDef item in DefDatabase<XenotypeDef>.AllDefs.OrderBy((XenotypeDef c) => 0f - c.displayPriority))
 			// {
-				// XenotypeDef xenotype2 = item;
-				// list.Add(new FloatMenuOption(xenotype2.LabelCap, delegate
-				// {
-					// xenotypeName = xenotype2.label;
-					// selectedGenes.Clear();
-					// selectedGenes.AddRange(xenotype2.genes);
-					// eatAllSelectedGenes = xenotype2.eatAllSelectedGenes;
-					// OnGenesChanged();
-					// ignoreRestrictions = selectedGenes.Any((GeneDef g) => g.biostatArc > 0) || !WithinAcceptableBiostatLimits(showMessage: false);
-				// }, xenotype2.Icon, XenotypeDef.IconColor, MenuOptionPriority.Default, delegate(Rect r)
-				// {
-					// TooltipHandler.TipRegion(r, xenotype2.descriptionShort ?? xenotype2.description);
-				// }));
+			// XenotypeDef xenotype2 = item;
+			// list.Add(new FloatMenuOption(xenotype2.LabelCap, delegate
+			// {
+			// xenotypeName = xenotype2.label;
+			// selectedGenes.Clear();
+			// selectedGenes.AddRange(xenotype2.genes);
+			// eatAllSelectedGenes = xenotype2.eatAllSelectedGenes;
+			// OnGenesChanged();
+			// ignoreRestrictions = selectedGenes.Any((GeneDef g) => g.biostatArc > 0) || !WithinAcceptableBiostatLimits(showMessage: false);
+			// }, xenotype2.Icon, XenotypeDef.IconColor, MenuOptionPriority.Default, delegate(Rect r)
+			// {
+			// TooltipHandler.TipRegion(r, xenotype2.descriptionShort ?? xenotype2.description);
+			// }));
 			// }
 			// Find.WindowStack.Add(new FloatMenu(list));
+		}
+
+		private void StorageImplanterSet()
+		{
+			Gene_StorageImplanter implanter = gene.pawn.genes.GetFirstGeneOfType<Gene_StorageImplanter>();
+			if (implanter != null)
+			{
+				implanter.SetupHolder(XenotypeDefOf.Baseliner, selectedGenes, false, DefDatabase<XenotypeIconDef>.AllDefsListForReading.RandomElement(), xenotypeName?.Trim());
+				foreach (GeneDef geneDef in selectedGenes)
+                {
+					gene.RemoveGene(geneDef);
+                }
+				Messages.Message("WVC_XaG_StorageImplanter_Message".Translate(), null, MessageTypeDefOf.PositiveEvent, historical: false);
+			}
+			else
+			{
+				Messages.Message("WVC_XaG_StorageImplanter_ErrorMessage".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
+			}
 		}
 
 		protected override void DoBottomButtons(Rect rect)
@@ -688,17 +706,21 @@ namespace WVC_XenotypesAndGenes
 			{
 				Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_GeneGeneticThief_EatSelectedGenes".Translate(gene.pawn.LabelCap), EatGenes));
 			}
+			if (Widgets.ButtonText(new Rect(rect.xMax - (ButSize.x * 2), rect.y, ButSize.x, ButSize.y), "WVC_XaG_StorageImplanter_Apply".Translate()))
+			{
+				Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_StorageImplanter_Warning".Translate(gene.pawn.LabelCap), StorageImplanterSet));
+			}
 			// if (leftChosenGroups.Any())
 			// {
-				// int num = leftChosenGroups.Sum((GeneLeftChosenGroup x) => x.overriddenGenes.Count);
-				// GeneLeftChosenGroup geneLeftChosenGroup = leftChosenGroups[0];
-				// string text = "GenesConflict".Translate() + ": " + "GenesConflictDesc".Translate(geneLeftChosenGroup.leftChosen.Named("FIRST"), geneLeftChosenGroup.overriddenGenes[0].Named("SECOND")).CapitalizeFirst() + ((num > 1) ? (" +" + (num - 1)) : string.Empty);
-				// float x2 = Text.CalcSize(text).x;
-				// GUI.color = ColorLibrary.RedReadable;
-				// Text.Anchor = TextAnchor.MiddleLeft;
-				// Widgets.Label(new Rect(rect.xMax - GeneCreationDialogBase.ButSize.x - x2 - 4f, rect.y, x2, rect.height), text);
-				// Text.Anchor = TextAnchor.UpperLeft;
-				// GUI.color = Color.white;
+			// int num = leftChosenGroups.Sum((GeneLeftChosenGroup x) => x.overriddenGenes.Count);
+			// GeneLeftChosenGroup geneLeftChosenGroup = leftChosenGroups[0];
+			// string text = "GenesConflict".Translate() + ": " + "GenesConflictDesc".Translate(geneLeftChosenGroup.leftChosen.Named("FIRST"), geneLeftChosenGroup.overriddenGenes[0].Named("SECOND")).CapitalizeFirst() + ((num > 1) ? (" +" + (num - 1)) : string.Empty);
+			// float x2 = Text.CalcSize(text).x;
+			// GUI.color = ColorLibrary.RedReadable;
+			// Text.Anchor = TextAnchor.MiddleLeft;
+			// Widgets.Label(new Rect(rect.xMax - GeneCreationDialogBase.ButSize.x - x2 - 4f, rect.y, x2, rect.height), text);
+			// Text.Anchor = TextAnchor.UpperLeft;
+			// GUI.color = Color.white;
 			// }
 		}
 
