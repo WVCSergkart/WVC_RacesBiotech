@@ -252,6 +252,7 @@ namespace WVC_XenotypesAndGenes
 
 		// XenoForcers
 
+		[Obsolete]
 		public static GeneDef GetFromTemplate_XenotypeForcer(XenotypeForcerGeneTemplateDef template, XenotypeDef def, int displayOrderBase)
 		{
 			GeneDef geneDef = new()
@@ -355,6 +356,7 @@ namespace WVC_XenotypesAndGenes
 
 		// ============================ SPAWNER ============================
 
+		[Obsolete]
 		public static GeneDef GetFromTemplate_SpawnerGenes_Resources(SpawnerGeneTemplateDef template, ThingDef thingDef, int displayOrderBase)
 		{
 			GeneDef geneDef = new()
@@ -410,6 +412,7 @@ namespace WVC_XenotypesAndGenes
 
 		// ============================ HAIR AND BODY COLOR OVERRIDE ============================
 
+		[Obsolete]
 		public static GeneDef GetFromTemplate_SkinHairColorGenes_FromResources(ColorGeneTemplateDef template, ThingDef thingDef, int displayOrderBase)
 		{
 			GeneDef geneDef = new()

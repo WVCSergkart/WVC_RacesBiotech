@@ -9,7 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Dialog_StylingShift : Window
+	public class Dialog_StylingGene : Window
 	{
 		public enum StylingTab
 		{
@@ -22,7 +22,7 @@ namespace WVC_XenotypesAndGenes
 
 		public Pawn pawn;
 
-		public Gene_Shapeshifter gene_Shapeshifter;
+		public Gene gene;
 
 		public HairDef initialHairDef;
 
@@ -57,6 +57,8 @@ namespace WVC_XenotypesAndGenes
 		private bool showClothes;
 
 		private bool devEditMode;
+
+		public bool unlockRecolor;
 
 		// private List<Color> allColors;
 
@@ -111,7 +113,7 @@ namespace WVC_XenotypesAndGenes
 				if (allHairColors == null)
 				{
 					allHairColors = new List<Color>();
-					foreach (ColorDef allDef in DefDatabase<ColorDef>.AllDefs)
+					foreach (ColorDef allDef in DefDatabase<ColorDef>.AllDefsListForReading)
 					{
 						Color color = allDef.color;
 						if (allDef.displayInStylingStationUI && !allHairColors.Any((Color x) => x.WithinDiffThresholdFrom(color, 0.15f)))
@@ -125,15 +127,16 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public Dialog_StylingShift(Pawn pawn, Gene_Shapeshifter gene_Shapeshifter)
+		public Dialog_StylingGene(Pawn pawn, Gene gene, bool unlockRecolor)
 		{
 			this.pawn = pawn;
-			this.gene_Shapeshifter = gene_Shapeshifter;
+			this.gene = gene;
 			initialHairDef = pawn.story.hairDef;
 			desiredHairColor = pawn.story.HairColor;
 			initialBeardDef = pawn.style.beardDef;
 			initialFaceTattoo = pawn.style.FaceTattoo;
 			initialBodyTattoo = pawn.style.BodyTattoo;
+			this.unlockRecolor = unlockRecolor;
 			forcePause = true;
 			showClothes = false;
 			closeOnAccept = false;
@@ -237,14 +240,17 @@ namespace WVC_XenotypesAndGenes
 					curTab = StylingTab.Beard;
 				}, curTab == StylingTab.Beard));
 			}
-			tabs.Add(new TabRecord("TattooFace".Translate().CapitalizeFirst(), delegate
+			if (unlockRecolor)
 			{
-				curTab = StylingTab.TattooFace;
-			}, curTab == StylingTab.TattooFace));
-			tabs.Add(new TabRecord("TattooBody".Translate().CapitalizeFirst(), delegate
-			{
-				curTab = StylingTab.TattooBody;
-			}, curTab == StylingTab.TattooBody));
+				tabs.Add(new TabRecord("TattooFace".Translate().CapitalizeFirst(), delegate
+				{
+					curTab = StylingTab.TattooFace;
+				}, curTab == StylingTab.TattooFace));
+				tabs.Add(new TabRecord("TattooBody".Translate().CapitalizeFirst(), delegate
+				{
+					curTab = StylingTab.TattooBody;
+				}, curTab == StylingTab.TattooBody));
+			}
 			// tabs.Add(new TabRecord("ApparelColor".Translate().CapitalizeFirst(), delegate
 			// {
 				// curTab = StylingTab.ApparelColor;
@@ -264,7 +270,7 @@ namespace WVC_XenotypesAndGenes
 				}, delegate(HairDef h)
 				{
 					pawn.story.hairDef = h;
-				}, (StyleItemDef h) => pawn.story.hairDef == h, (StyleItemDef h) => initialHairDef == h, null, doColors: true);
+				}, (StyleItemDef h) => pawn.story.hairDef == h, (StyleItemDef h) => initialHairDef == h, null, doColors: unlockRecolor);
 				break;
 			case StylingTab.Beard:
 				DrawStylingItemType(rect, ref beardScrollPosition, delegate(Rect r, BeardDef b)
@@ -547,7 +553,10 @@ namespace WVC_XenotypesAndGenes
 				// {
 					// WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(pawn, pawn.Map).Trigger(pawn, null);
 				// }
-				gene_Shapeshifter.DoEffects();
+				if (gene is IGeneWithEffects effecter)
+				{
+					effecter.DoEffects();
+				}
 			}
 			// ApplyApparelColors();
 			Close();

@@ -8,6 +8,7 @@ using Verse.AI;
 namespace WVC_XenotypesAndGenes
 {
 
+	[Obsolete]
 	public class CompAbilityEffect_ReimplanterFromGeneReimplanter : CompAbilityEffect
 	{
 

@@ -8,7 +8,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Morpher : Gene
+	public class Gene_Morpher : Gene, IGeneWithEffects
 	{
 
 		//public GeneExtension_Undead Props => def?.GetModExtension<GeneExtension_Undead>();
@@ -545,13 +545,18 @@ namespace WVC_XenotypesAndGenes
 			return null;
 		}
 
-		public void DoEffects(Pawn pawn)
+		public virtual void DoEffects(Pawn pawn)
 		{
 			if (pawn.Map == null)
 			{
 				return;
 			}
 			WVC_GenesDefOf.CocoonDestroyed.SpawnAttached(pawn, pawn.Map).Trigger(pawn, null);
+		}
+
+		public void DoEffects()
+		{
+			DoEffects(pawn);
 		}
 
 		private void SaveGenes()

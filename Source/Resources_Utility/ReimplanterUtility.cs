@@ -533,7 +533,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool PawnIdeoCanAcceptReimplant(Pawn implanter, Pawn implantee)
 		{
-			if (implantee.Downed)
+			if (implantee.Downed || implantee.Deathresting)
 			{
 				return true;
 			}

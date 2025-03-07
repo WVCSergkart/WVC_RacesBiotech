@@ -19,6 +19,8 @@ namespace WVC_XenotypesAndGenes
 
 		public static readonly CachedTexture GenesSettingsGizmo = new("WVC/UI/XaG_General/UI_GenesSettings_Gizmo");
 
+		public static readonly CachedTexture StyleIcon = new("WVC/UI/XaG_General/Shapeshifter_GizmoStyle");
+
 		public static readonly CachedTexture CollapseIcon = new("WVC/UI/XaG_General/UI_CollapseButton");
 		public static readonly CachedTexture NonAggressiveRedCancelIcon = new("WVC/UI/XaG_General/UI_NonAggressiveRed_Cancel");
 
@@ -108,6 +110,27 @@ namespace WVC_XenotypesAndGenes
 			}
 			TooltipHandler.TipRegion(buttonRect, "WVC_XaG_CollapseButtonDesc".Translate());
 			Text.Anchor = TextAnchor.UpperLeft;
+		}
+
+		public static void StyleButton_WithoutRect(Rect rect5, Pawn pawn, Gene gene, bool unlocked)
+		{
+			Widgets.DrawTextureFitted(rect5, StyleIcon.Texture, 1f);
+			if (Mouse.IsOver(rect5))
+			{
+				Widgets.DrawHighlight(rect5);
+				if (Widgets.ButtonInvisible(rect5))
+				{
+					Find.WindowStack.Add(new Dialog_StylingGene(pawn, gene, unlocked));
+					//if (ModLister.IdeologyInstalled)
+					//{
+					//}
+					//else
+					//{
+					//	Messages.Message("WVC_XaG_ReqIdeology".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+					//}
+				}
+			}
+			TooltipHandler.TipRegion(rect5, "WVC_XaG_GeneShapeshifterStyles_Desc".Translate());
 		}
 
 		public static string ToStringHuman(this RotStage rotStage)

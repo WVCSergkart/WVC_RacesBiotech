@@ -9,6 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
+	[Obsolete]
 	public class Dialog_XenotypesBase : Window
 	{
 

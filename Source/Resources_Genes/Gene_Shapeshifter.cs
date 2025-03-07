@@ -9,7 +9,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-	public class Gene_Shapeshifter : Gene, IGeneOverridden, IGenePregnantHuman
+	public class Gene_Shapeshifter : Gene, IGeneOverridden, IGenePregnantHuman, IGeneWithEffects
 	{
 
 		public GeneExtension_Undead Props => def?.GetModExtension<GeneExtension_Undead>();
@@ -139,7 +139,7 @@ namespace WVC_XenotypesAndGenes
 			DoEffects();
 		}
 
-		public void DoEffects()
+		public virtual void DoEffects()
 		{
 			if (pawn.Map == null)
 			{
@@ -150,6 +150,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				Props.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(pawn));
 			}
+		}
+
+		public void DoEffects(Pawn pawn)
+		{
+			DoEffects();
 		}
 
 		private void Reimplant(XenotypeHolder xenotypeHolder, bool xenogenes = true)

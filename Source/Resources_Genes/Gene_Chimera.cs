@@ -8,7 +8,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class Gene_Chimera : Gene, IGeneBloodfeeder, IGeneOverridden
+    public class Gene_Chimera : Gene, IGeneBloodfeeder, IGeneOverridden, IGeneWithEffects
 	{
 
 		public GeneExtension_Undead Props => def?.GetModExtension<GeneExtension_Undead>();
@@ -411,7 +411,7 @@ namespace WVC_XenotypesAndGenes
 			GeneResourceUtility.UpdMetabolism(pawn);
         }
 
-        public void DoEffects()
+        public virtual void DoEffects()
 		{
 			if (pawn.Map == null)
 			{
@@ -422,6 +422,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				Props.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(pawn));
 			}
+		}
+
+		public void DoEffects(Pawn pawn)
+		{
+			DoEffects();
 		}
 
 	}

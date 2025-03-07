@@ -127,4 +127,13 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public interface IGeneWithEffects
+	{
+
+		void DoEffects();
+
+		void DoEffects(Pawn pawn);
+
+	}
+
 }

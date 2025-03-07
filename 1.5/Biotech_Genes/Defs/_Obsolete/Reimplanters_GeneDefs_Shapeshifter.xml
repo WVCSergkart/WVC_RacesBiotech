@@ -25,6 +25,12 @@
 		<li>Completely changes the genes of the target pawn to the genes of the choosen xenotype.</li>
 		<li>&lt;color=#ff8585&gt;Can't be absorbed forcly.&lt;/color&gt;</li>
 	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="VanillaGenesExpanded.GeneExtension" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+			<hideGene>true</hideGene>
+		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Obsolete"/>
+	</modExtensions>
 	<exclusionTags>
 		<li>WVC_ReimplanterXenotype</li>
 	</exclusionTags>

@@ -33,9 +33,9 @@ namespace WVC_XenotypesAndGenes
 			Pawn pawn = target.Pawn;
 			if (pawn != null)
 			{
-				ReimplanterUtility.SetCustomGenes(pawn, Gene.StoredGenes, DefDatabase<XenotypeIconDef>.AllDefsListForReading.RandomElement(), pawn.genes.Xenotype.label, false);
+				ReimplanterUtility.SetXenotype(pawn, Gene.XenotypeHolder);
 				ReimplanterUtility.FleckAndLetter(parent.pawn, pawn);
-				Gene.PostImplant();
+				Gene.ResetHolder();
 			}
 		}
 

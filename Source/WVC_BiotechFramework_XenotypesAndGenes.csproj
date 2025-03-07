@@ -71,7 +71,7 @@
     <Compile Include="Resources_Abilities\CompAbilityEffect_Duplicator.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityMechfeed.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityObsolete.cs" />
-    <Compile Include="Resources_Abilities\CompAbilityEffect_ReimplanterFromGeneReimplanter.cs" />
+    <Compile Include="Obsolete_0\CompAbilityEffect_ReimplanterFromGeneReimplanter.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityResurgentCost.cs" />
     <Compile Include="Resources_Abilities\CompAbilityEffect_RiseFromTheDead.cs" />
     <Compile Include="Resources_Abilities\CompProperties_AbilityThrallMaker.cs" />
@@ -88,6 +88,7 @@
     <Compile Include="Resources_Genes\Gene_Mechlink_Voidlink.cs" />
     <Compile Include="Resources_Genes\Gene_StorageImplanter.cs" />
     <Compile Include="Resources_Genes\Gene_Chimera_PsychicHarvester.cs" />
+    <Compile Include="Obsolete_0\Gene_ObsoleteReimplanter.cs" />
     <Compile Include="Resources_Gizmo\Dialog_GenesSettings.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ImplantImplanter.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Voidlink.cs" />
@@ -133,12 +134,12 @@
     <Compile Include="Resources_Gizmo\Dialog_Golemlink.cs" />
     <Compile Include="Resources_Gizmo\Dialog_GolemMode.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Morpher.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_Reimplanter.cs" />
+    <Compile Include="Obsolete_0\Dialog_Reimplanter.cs" />
     <Compile Include="Resources_Gizmo\Dialog_RetuneSerum.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Shapeshifter.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_StylingShift.cs" />
+    <Compile Include="Resources_Gizmo\Dialog_StylingGene.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ThrallMaker.cs" />
-    <Compile Include="Resources_Gizmo\Dialog_XenotypesBase.cs" />
+    <Compile Include="Obsolete_0\Dialog_XenotypesBase.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Chimera.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Dryads.cs" />
     <Compile Include="Resources_Gizmo\GeneGizmo_Golems.cs" />

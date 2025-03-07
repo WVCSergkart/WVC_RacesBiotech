@@ -787,7 +787,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<!-- <WVC_XaG_ShapeshifterWarning_NeedMoreGenesSlots>There are too many evolve genes or the pawn already has this gene.</WVC_XaG_ShapeshifterWarning_NeedMoreGenesSlots> -->
 
 	<WVC_XaG_GeneShapeshifterStyles_Label>Change style</WVC_XaG_GeneShapeshifterStyles_Label>
-	<WVC_XaG_GeneShapeshifterStyles_Desc>Opens a menu where you can change the style of the pawn. Including hairstyle and its color, as well as tattoos, both for the face and body.</WVC_XaG_GeneShapeshifterStyles_Desc>
+	<!-- <WVC_XaG_GeneShapeshifterStyles_Desc>Opens a menu where you can change the style of the pawn. Including hairstyle and its color, as well as tattoos, both for the face and body.</WVC_XaG_GeneShapeshifterStyles_Desc> -->
+	<WVC_XaG_GeneShapeshifterStyles_Desc>Opens the ideology style menu. Which allows you to change the appearance of the pawn. (req Ideology DLC)</WVC_XaG_GeneShapeshifterStyles_Desc>
 
 	<!-- <WVC_XaG_GeneShapeshifter_DuplicateMode>This person shapeshift mechanites are in overclocking mode. The carrier's genes will not be changed, but instead a copy of the carrier will be created with the set of genes of the selected xenotype.</WVC_XaG_GeneShapeshifter_DuplicateMode> -->
 

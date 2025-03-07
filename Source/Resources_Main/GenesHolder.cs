@@ -2,11 +2,275 @@ using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using UnityEngine;
 using Verse;
 
 namespace WVC_XenotypesAndGenes
 {
+
+	public class XenotypeHolder
+	{
+
+		public string name = null;
+
+		public XenotypeIconDef iconDef = null;
+
+		public XenotypeDef xenotypeDef = null;
+
+		public List<GeneDef> genes = new();
+
+		public bool inheritable;
+
+		public float displayPriority;
+
+		public bool shouldSkip = false;
+
+		public bool isTrueShiftForm;
+
+		public bool isOverriden;
+
+		public float? matchPercent;
+
+		//public string customEffectsDesc = null;
+
+		public bool Baseliner => xenotypeDef == XenotypeDefOf.Baseliner && genes.NullOrEmpty();
+
+		public bool CustomXenotype => xenotypeDef == XenotypeDefOf.Baseliner && !genes.NullOrEmpty();
+
+		public XenotypeHolder()
+		{
+
+		}
+
+		public XenotypeHolder(XenotypeDef xenotypeDef)
+		{
+			this.xenotypeDef = xenotypeDef;
+			genes = xenotypeDef.genes;
+			inheritable = xenotypeDef.inheritable;
+		}
+
+		[Unsaved(false)]
+		private TaggedString cachedLabelCap = null;
+
+		[Unsaved(false)]
+		private TaggedString cachedLabel = null;
+
+		public virtual TaggedString Label
+		{
+			get
+			{
+				if (cachedLabel == null)
+				{
+					if (name.NullOrEmpty())
+					{
+						cachedLabel = xenotypeDef.label;
+					}
+					else
+					{
+						cachedLabel = name;
+					}
+				}
+				return cachedLabel;
+			}
+		}
+
+		public virtual TaggedString LabelCap
+		{
+			get
+			{
+				if (cachedLabelCap == null)
+				{
+					cachedLabelCap = Label.CapitalizeFirst();
+				}
+				return cachedLabelCap;
+			}
+		}
+
+		[Unsaved(false)]
+		private string cachedDescription;
+
+		public virtual string Description
+		{
+			get
+			{
+				if (cachedDescription == null)
+				{
+					StringBuilder stringBuilder = new();
+					stringBuilder.AppendLine(LabelCap.Colorize(ColoredText.TipSectionTitleColor));
+					stringBuilder.AppendLine();
+					if (xenotypeDef != XenotypeDefOf.Baseliner)
+					{
+						stringBuilder.AppendLine(!xenotypeDef.descriptionShort.NullOrEmpty() ? xenotypeDef.descriptionShort : xenotypeDef.description);
+						if (!xenotypeDef.doubleXenotypeChances.NullOrEmpty())
+						{
+							stringBuilder.AppendLine();
+							stringBuilder.AppendLine(("WVC_DoubleXenotypes".Translate() + ":").Colorize(ColoredText.TipSectionTitleColor) + "\n" + xenotypeDef.doubleXenotypeChances.Select((XenotypeChance x) => "WVC_XaG_DoubleXenotypeWithChanceText".Translate(x.xenotype.LabelCap, (x.chance * 100f).ToString()).ToString()).ToLineList(" - "));
+						}
+					}
+					else
+					{
+						stringBuilder.AppendLine("UniqueXenotypeDesc".Translate());
+					}
+					stringBuilder.AppendLine();
+					//if (customEffectsDesc != null)
+					//{
+					//	stringBuilder.AppendLine(customEffectsDesc);
+					//	stringBuilder.AppendLine();
+					//}
+					XaG_GeneUtility.GetBiostatsFromList(genes, out int biostatCpx, out int biostatMet, out int biostatArc);
+					bool flag2 = false;
+					if (biostatCpx != 0)
+					{
+						stringBuilder.AppendLineTagged("Complexity".Translate().Colorize(GeneUtility.GCXColor) + ": " + biostatCpx.ToStringWithSign());
+						flag2 = true;
+					}
+					if (biostatMet != 0)
+					{
+						stringBuilder.AppendLineTagged("Metabolism".Translate().CapitalizeFirst().Colorize(GeneUtility.METColor) + ": " + biostatMet.ToStringWithSign());
+						flag2 = true;
+					}
+					if (biostatArc != 0)
+					{
+						stringBuilder.AppendLineTagged("ArchitesRequired".Translate().Colorize(GeneUtility.ARCColor) + ": " + biostatArc.ToStringWithSign());
+						flag2 = true;
+					}
+					if (flag2)
+					{
+						stringBuilder.AppendLine();
+					}
+					stringBuilder.Append(("WVC_Inheritable".Translate() + ":").Colorize(ColoredText.TipSectionTitleColor) + " " + inheritable.ToStringYesNo());
+					cachedDescription = stringBuilder.ToString();
+				}
+				return cachedDescription;
+			}
+		}
+
+	}
+
+	public class ThrallHolder : XenotypeHolder
+	{
+
+		public ThrallDef thrallDef;
+
+		[Unsaved(false)]
+		private string cachedDescription;
+
+		public override string Description
+		{
+			get
+			{
+				if (cachedDescription == null)
+				{
+					StringBuilder stringBuilder = new();
+					stringBuilder.AppendLine(LabelCap.Colorize(ColoredText.TipSectionTitleColor));
+					stringBuilder.AppendLine();
+					stringBuilder.AppendLine(thrallDef.description);
+					if (thrallDef.xenotypeDef != null && !thrallDef.xenotypeDef.descriptionShort.NullOrEmpty())
+					{
+						stringBuilder.AppendLine();
+						stringBuilder.AppendLine(thrallDef.xenotypeDef.descriptionShort);
+					}
+					if (thrallDef.reqGeneDef != null)
+					{
+						stringBuilder.AppendLine();
+						stringBuilder.AppendLine("Requires".Translate() + ": " + thrallDef.reqGeneDef.LabelCap);
+					}
+					stringBuilder.AppendLine();
+					stringBuilder.Append("WVC_XaG_AcceptableRotStages".Translate().Colorize(ColoredText.TipSectionTitleColor) + ":\n" + thrallDef.acceptableRotStages.Select((RotStage x) => x.ToStringHuman()).ToLineList(" - "));
+					cachedDescription = stringBuilder.ToString();
+				}
+				return cachedDescription;
+			}
+		}
+
+	}
+
+	public class GeneSetPresets : IExposable
+	{
+
+		public string name;
+
+		public List<GeneDef> geneDefs = new();
+
+		public void ExposeData()
+		{
+			Scribe_Values.Look(ref name, "name");
+			Scribe_Collections.Look(ref geneDefs, "geneDefs", LookMode.Def);
+			if (Scribe.mode == LoadSaveMode.LoadingVars && geneDefs != null && geneDefs.RemoveAll((GeneDef x) => x == null) > 0)
+			{
+				Log.Warning("Removed null geneDef(s)");
+			}
+		}
+
+	}
+
+	public class SaveableXenotypeHolder : XenotypeHolder, IExposable
+	{
+
+		public void ExposeData()
+		{
+			Scribe_Defs.Look(ref xenotypeDef, "xenotypeDef");
+			Scribe_Defs.Look(ref iconDef, "iconDef");
+			Scribe_Values.Look(ref name, "name");
+			Scribe_Values.Look(ref inheritable, "inheritable");
+			Scribe_Collections.Look(ref genes, "genes", LookMode.Def);
+			if (Scribe.mode == LoadSaveMode.LoadingVars && genes != null && genes.RemoveAll((GeneDef x) => x == null) > 0)
+			{
+				Log.Warning("Removed null geneDef(s)");
+			}
+			if (Scribe.mode == LoadSaveMode.PostLoadInit)
+            {
+                PostSetup();
+            }
+        }
+
+        public void PostSetup()
+        {
+            if (xenotypeDef == null)
+            {
+                xenotypeDef = XenotypeDefOf.Baseliner;
+            }
+            if (genes == null)
+            {
+                genes = new();
+            }
+            if (xenotypeDef != XenotypeDefOf.Baseliner)
+            {
+                genes = xenotypeDef.genes;
+                name = null;
+                iconDef = null;
+                inheritable = xenotypeDef.inheritable;
+            }
+        }
+
+        public SaveableXenotypeHolder()
+		{
+
+		}
+
+		public SaveableXenotypeHolder(XenotypeHolder holder)
+		{
+			xenotypeDef = holder.xenotypeDef;
+			name = holder.name;
+			iconDef = holder.iconDef;
+			genes = holder.genes;
+			inheritable = holder.inheritable;
+		}
+
+		public SaveableXenotypeHolder(XenotypeDef xenotypeDef, List<GeneDef> genes, bool inheritable, XenotypeIconDef icon, string name)
+		{
+			//genes = new();
+			//SaveableXenotypeHolder newHolder = new();
+			this.xenotypeDef = xenotypeDef;
+			this.genes = genes;
+			this.inheritable = inheritable;
+			this.iconDef = icon;
+			this.name = name;
+			//xenotypeHolder = newHolder;
+		}
+
+	}
 
 	public class PawnGeneSetHolder : IExposable
 	{

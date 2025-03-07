@@ -1,4 +1,5 @@
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Verse;
@@ -7,6 +8,7 @@ using Verse.Sound;
 namespace WVC_XenotypesAndGenes
 {
 
+	[Obsolete]
 	public class Dialog_ReimplanterXenotype : Dialog_XenotypesBase
 	{
 
