@@ -76,8 +76,9 @@ namespace WVC_XenotypesAndGenes
 				}
 				// SerumUtility.XenotypeSerum(innerPawn, XenotypeFilterUtility.BlackListedXenotypesForSerums(false), xenotypeDef, false, false);
 				ReimplanterUtility.SetXenotype(innerPawn, xenotypeDef);
-				innerPawn.health.AddHediff(HediffDefOf.XenogerminationComa);
-				GeneUtility.UpdateXenogermReplication(innerPawn);
+				//innerPawn.health.AddHediff(HediffDefOf.XenogerminationComa);
+				//GeneUtility.UpdateXenogermReplication(innerPawn);
+				ReimplanterUtility.UpdateXenogermReplication_WithComa(innerPawn);
 				if (ModLister.IdeologyInstalled)
 				{
 					Find.HistoryEventsManager.RecordEvent(new HistoryEvent(WVC_HistoryEventDefOf.WVC_ReimplanterResurrection, pawn.Named(HistoryEventArgsNames.Doer)));

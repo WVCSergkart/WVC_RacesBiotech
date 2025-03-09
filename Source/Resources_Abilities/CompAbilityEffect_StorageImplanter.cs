@@ -34,6 +34,8 @@ namespace WVC_XenotypesAndGenes
 			if (pawn != null)
 			{
 				ReimplanterUtility.SetXenotype(pawn, Gene.XenotypeHolder);
+				ReimplanterUtility.UpdateXenogermReplication_WithComa(pawn);
+				ReimplanterUtility.ExtractXenogerm(parent.pawn);
 				ReimplanterUtility.FleckAndLetter(parent.pawn, pawn);
 				Gene.ResetHolder();
 			}
@@ -41,6 +43,14 @@ namespace WVC_XenotypesAndGenes
 
 		public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
 		{
+			if (Gene?.XenotypeHolder == null)
+			{
+				if (throwMessages)
+				{
+					Messages.Message("WVC_XaG_StorageImplanter_NonValidMessage".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
+				}
+				return false;
+			}
 			return ReimplanterUtility.ImplanterValidation(parent.pawn, target, throwMessages) && base.Valid(target, throwMessages);
 		}
 
@@ -57,6 +67,11 @@ namespace WVC_XenotypesAndGenes
 		{
 			Pawn pawn = target.Pawn;
 			yield return MoteMaker.MakeAttachedOverlay(pawn, ThingDefOf.Mote_XenogermImplantation, new Vector3(0f, 0f, 0.3f));
+		}
+
+		public override string ExtraTooltipPart()
+		{
+			return "WVC_XaG_StorageImplanter_ExtraTooltip".Translate(Gene.XenotypeHolder != null ? Gene.XenotypeHolder.LabelCap : " - ", Gene.XenotypeHolder != null ? Gene.XenotypeHolder.genes.Count : "0").ToString();
 		}
 
 	}

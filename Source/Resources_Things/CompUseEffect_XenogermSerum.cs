@@ -195,8 +195,9 @@ namespace WVC_XenotypesAndGenes
 				}
 				ReimplanterUtility.SetXenotype(pawn, xenotypeHolder);
 			}
-			pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
-			GeneUtility.UpdateXenogermReplication(pawn);
+			//pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
+			//GeneUtility.UpdateXenogermReplication(pawn);
+			ReimplanterUtility.UpdateXenogermReplication_WithComa(pawn);
 			if (PawnUtility.ShouldSendNotificationAbout(pawn))
 			{
 				int max = HediffDefOf.XenogerminationComa.CompProps<HediffCompProperties_Disappears>().disappearsAfterTicks.max;

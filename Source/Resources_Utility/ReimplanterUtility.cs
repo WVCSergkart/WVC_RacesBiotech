@@ -184,8 +184,9 @@ namespace WVC_XenotypesAndGenes
 			if (pawn.genes != null && pawn.genes.Xenogenes.NullOrEmpty())
 			{
 				SetXenotype(pawn, xenotypeDef);
-				pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
-				GeneUtility.UpdateXenogermReplication(pawn);
+				//pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
+				//GeneUtility.UpdateXenogermReplication(pawn);
+				ReimplanterUtility.UpdateXenogermReplication_WithComa(pawn);
 			}
 		}
 
@@ -232,17 +233,22 @@ namespace WVC_XenotypesAndGenes
 				{
 					caster.genes.Xenotype.soundDefOnImplant.PlayOneShot(SoundInfo.InMap(recipient));
 				}
-				recipient.health.AddHediff(HediffDefOf.XenogerminationComa);
-				GeneUtility.UpdateXenogermReplication(recipient);
-			}
+				UpdateXenogermReplication_WithComa(recipient);
+            }
             //XaG_GameComponent.AddMissingGeneAbilities(recipient);
             //FixGeneTraits(recipient);
             ReimplanterUtility.PostImplantDebug(recipient);
         }
 
-		// =============================== New ===============================
+        public static void UpdateXenogermReplication_WithComa(Pawn recipient)
+        {
+            recipient.health.AddHediff(HediffDefOf.XenogerminationComa);
+            GeneUtility.UpdateXenogermReplication(recipient);
+        }
 
-		public static void PostImplantDebug(Pawn pawn)
+        // =============================== New ===============================
+
+        public static void PostImplantDebug(Pawn pawn)
 		{
             foreach (Gene item in pawn.genes.GenesListForReading)
             {

@@ -54,12 +54,14 @@ namespace WVC_XenotypesAndGenes
         {
             this.xenotypeHolder = new SaveableXenotypeHolder(xenotypeDef, genes, inheritable, icon, name);
             this.xenotypeHolder.PostSetup();
+            //GeneUtility.UpdateXenogermReplication(pawn);
         }
 
         public void SetupHolder(XenotypeHolder xenotypeHolder)
         {
             this.xenotypeHolder = new SaveableXenotypeHolder(xenotypeHolder);
             this.xenotypeHolder.PostSetup();
+            //GeneUtility.UpdateXenogermReplication(pawn);
         }
 
         public bool TryAddGene(GeneDef geneDef)

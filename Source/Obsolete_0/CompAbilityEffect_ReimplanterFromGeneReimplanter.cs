@@ -36,8 +36,9 @@ namespace WVC_XenotypesAndGenes
 			if (pawn != null)
 			{
 				ReimplanterUtility.SetXenotype_DoubleXenotype(pawn, ReimplanterGene.xenotypeDef);
-				pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
-				GeneUtility.UpdateXenogermReplication(pawn);
+				//pawn.health.AddHediff(HediffDefOf.XenogerminationComa);
+				//GeneUtility.UpdateXenogermReplication(pawn);
+				ReimplanterUtility.UpdateXenogermReplication_WithComa(pawn);
 				ReimplanterUtility.ExtractXenogerm(parent.pawn);
 				ReimplanterUtility.FleckAndLetter(parent.pawn, pawn);
 			}

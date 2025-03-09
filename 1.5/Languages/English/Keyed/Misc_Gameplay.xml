@@ -560,10 +560,15 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_ChimeraApply_Eat>Eat</WVC_XaG_ChimeraApply_Eat>
 	<WVC_XaG_ChimeraApply_Clear>Clear</WVC_XaG_ChimeraApply_Clear>
 
+	<!-- =============== STORAGE IMPLANTER =============== -->
+
 	<WVC_XaG_StorageImplanter_Apply>Store</WVC_XaG_StorageImplanter_Apply>
 	<WVC_XaG_StorageImplanter_Warning>If a pawn has a storage implanter gene, then the selected genes/geneset/xenotype can be written into it and then implanted using the appropriate implanter ability.\n\nIf the storage implanter already contains gene information, it will be overwritten.\n\nNote that in some cases the selected genes will be extracted from the source and cannot be returned. For example, the chimera will lose these genes if they were stored in it.</WVC_XaG_StorageImplanter_Warning>
-	<WVC_XaG_StorageImplanter_Message>The genetic information has been successfully recorded.</WVC_XaG_StorageImplanter_Message>
+	<WVC_XaG_StorageImplanter_Message>The genetic information has been successfully saved.</WVC_XaG_StorageImplanter_Message>
 	<WVC_XaG_StorageImplanter_ErrorMessage>Storage implanter gene is missing.</WVC_XaG_StorageImplanter_ErrorMessage>
+	<WVC_XaG_StorageImplanter_NonValidMessage>Storage implanter is empty or missing.</WVC_XaG_StorageImplanter_NonValidMessage>
+
+	<WVC_XaG_StorageImplanter_ExtraTooltip> -  Xenotype: {0}\n -  Total genes: {1}</WVC_XaG_StorageImplanter_ExtraTooltip>
 
 	<!-- =============== CHIMERA EVOLVE =============== -->
 

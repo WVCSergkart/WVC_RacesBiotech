@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ============================================================================== -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_Reimplanters_Base">
+	<defName>WVC_StorageImplanter</defName>
+	<label>storage implanter</label>
+	<description>Carriers of this gene can implant a saved xenogerm into another person through a somewhat gross-looking injector organ. Their own genetic material will then regrow very slowly. If they implant while their genes are regrowing, they will die.</description>
+	<iconPath>WVC/UI/Genes/Gene_StorageImplanter_v0</iconPath>
+	<displayCategory>WVC_Energy</displayCategory>
+	<displayOrderInCategory>200</displayOrderInCategory>
+	<selectionWeight>0.00125</selectionWeight>
+	<geneClass>WVC_XenotypesAndGenes.Gene_StorageImplanter</geneClass>
+	<abilities>
+	  <li>WVC_StorageImplanter</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_StorageImplanter</AbilityDef>
+	</descriptionHyperlinks>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>2</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<li>Completely changes the genes of the target pawn to the genes of the saved xenotype.</li>
+		<li>To create a xenogerm, any gene capable of preserving them is &lt;color=#ff8585&gt;required&lt;/color&gt;.</li>
+		<li>&lt;color=#ff8585&gt;Can't be absorbed forcly.&lt;/color&gt;</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
+  <!-- ============================================================================== -->
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base">
+	<defName>WVC_StorageImplanter</defName>
+	<label>storage implanter</label>
+	<iconPath>WVC/UI/Genes/Gene_StorageImplanter_v0</iconPath>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_StorageImplanter</compClass>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+</Defs>

@@ -33,7 +33,7 @@ namespace WVC_XenotypesAndGenes
 						}
 						colors.Add(colorHolder.color);
 					}
-					foreach (ColorDef allDef in DefDatabase<ColorDef>.AllDefs)
+					foreach (ColorDef allDef in DefDatabase<ColorDef>.AllDefsListForReading)
 					{
 						if (colors.Contains(allDef.color))
 						{
