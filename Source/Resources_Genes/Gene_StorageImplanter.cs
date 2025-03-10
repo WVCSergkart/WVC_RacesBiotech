@@ -50,6 +50,18 @@ namespace WVC_XenotypesAndGenes
         //    xenotypeHolder = new();
         //}
 
+        public static bool CanStoreGenes(Pawn pawn, out Gene_StorageImplanter implanter)
+        {
+            implanter = pawn.genes?.GetFirstGeneOfType<Gene_StorageImplanter>();
+            if (implanter != null)
+            {
+                Messages.Message("WVC_XaG_StorageImplanter_Message".Translate(), null, MessageTypeDefOf.PositiveEvent, historical: false);
+                return true;
+            }
+            Messages.Message("WVC_XaG_StorageImplanter_ErrorMessage".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
+            return false;
+        }
+
         public void SetupHolder(XenotypeDef xenotypeDef = null, List<GeneDef> genes = null, bool inheritable = false, XenotypeIconDef icon = null, string name = null)
         {
             this.xenotypeHolder = new SaveableXenotypeHolder(xenotypeDef, genes, inheritable, icon, name);

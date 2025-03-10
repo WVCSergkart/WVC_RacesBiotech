@@ -568,7 +568,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_StorageImplanter_ErrorMessage>Storage implanter gene is missing.</WVC_XaG_StorageImplanter_ErrorMessage>
 	<WVC_XaG_StorageImplanter_NonValidMessage>Storage implanter is empty or missing.</WVC_XaG_StorageImplanter_NonValidMessage>
 
-	<WVC_XaG_StorageImplanter_ExtraTooltip> -  Xenotype: {0}\n -  Total genes: {1}</WVC_XaG_StorageImplanter_ExtraTooltip>
+	<WVC_XaG_StorageImplanter_ExtraTooltip> -  Xenotype: {0}\n -  Total genes: {1}\n -  Inheritable: {2}\n -  Unique: {3}</WVC_XaG_StorageImplanter_ExtraTooltip>
 
 	<!-- =============== CHIMERA EVOLVE =============== -->
 

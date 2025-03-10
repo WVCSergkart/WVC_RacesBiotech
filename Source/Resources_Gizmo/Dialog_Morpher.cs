@@ -17,19 +17,8 @@ namespace WVC_XenotypesAndGenes
 		public List<GeneDef> selectedEndogenes = new();
 		public List<GeneDef> selectedXenogenes = new();
 
-		// protected HashSet<XenotypeDef> matchingXenotypes = new();
-		// protected HashSet<CustomXenotype> matchingCustomXenotypes = new();
-
 		private bool? selectedCollapsedEndogenes = false;
 		private bool? selectedCollapsedXenogenes = false;
-
-		// public HashSet<GeneCategoryDef> matchingCategories = new();
-
-		// public Dictionary<GeneCategoryDef, bool> collapsedCategories = new();
-
-		// private bool hoveredAnyGene;
-
-		// private XenotypeDef hoveredGene;
 
 		public static readonly Vector2 XenotypeSize = new(87f, 68f);
 
@@ -84,23 +73,6 @@ namespace WVC_XenotypesAndGenes
 				return cachedXenotypeDefsInOrder;
 			}
 		}
-
-		// public List<CustomXenotype> CustomtypesInOrder
-		// {
-			// get
-			// {
-				// if (cachedCustomXenotypesInOrder == null)
-				// {
-					// cachedCustomXenotypesInOrder = new();
-					// foreach (CustomXenotype allDef in customXenotypes)
-					// {
-						// cachedCustomXenotypesInOrder.Add(allDef);
-					// }
-					// cachedCustomXenotypesInOrder.SortBy((CustomXenotype x) => x.inheritable ? 1f : 0);
-				// }
-				// return cachedCustomXenotypesInOrder;
-			// }
-		// }
 
 		public Dialog_Morpher(Gene_Morpher morpher)
 		{
@@ -318,17 +290,6 @@ namespace WVC_XenotypesAndGenes
 			DrawBiostats(geneSet.AllGenesCount, ref curX, curY, 4f);
 			Rect xenoRect = new(curX, curY + 4f, XenotypeSize.x, XenotypeSize.y);
 			DrawXenotypeBasics(geneSet, xenoRect);
-			//if (Mouse.IsOver(xenoRect))
-			//{
-			//	string text = geneSet.name.CapitalizeFirst.Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + (!geneSet.descriptionShort.NullOrEmpty() ? geneSet.descriptionShort : geneSet.description);
-			//	text += "\n\n" + ("WVC_Inheritable".Translate() + ":").Colorize(ColoredText.TipSectionTitleColor) + " " + geneSet.inheritable.ToStringYesNo();
-			//	if (!geneSet.doubleXenotypeChances.NullOrEmpty())
-			//	{
-			//		text += "\n\n" + ("WVC_DoubleXenotypes".Translate() + ":").Colorize(ColoredText.TipSectionTitleColor) + "\n" + geneSet.doubleXenotypeChances.Select((XenotypeChance x) => "WVC_XaG_DoubleXenotypeWithChanceText".Translate(x.xenotype.LabelCap, (x.chance * 100f).ToString()).ToString()).ToLineList(" - ");
-			//	}
-			//	text += "\n\n" + (selected ? "ClickToRemove" : "ClickToAdd").Translate().Colorize(ColoredText.SubtleGrayColor);
-			//	TooltipHandler.TipRegion(xenoRect, text);
-			//}
 			curX += XenotypeSize.x + 4f;
 			if (Widgets.ButtonInvisible(rect))
 			{
@@ -472,137 +433,36 @@ namespace WVC_XenotypesAndGenes
 			//postXenotypeHeight = rect11.yMax - num4;
 			//PostXenotypeOnGUI(rect6.xMin, rect9.y + 24f);
 			// Presets
-			//Rect rect12 = rect;
-			//rect12.yMin = rect12.yMax - ButSize.y;
-			//DoBottomButtons(rect12);
+			Rect rect12 = rect;
+			rect12.yMin = rect12.yMax - ButSize.y;
+			DoBottomButtons(rect12);
 		}
-
-		// protected override void DrawSearchRect(Rect rect)
-		// {
-			// base.DrawSearchRect(rect);
-			// if (Widgets.ButtonText(new Rect(rect.xMax - ButSize.x, rect.y, ButSize.x, ButSize.y), "WVC_XaG_CreateChimera_PresetsLoad".Translate()))
-			// {
-				// if (!gene.geneSetPresets.NullOrEmpty())
-				// {
-					// Find.WindowStack.Add(new Dialog_ChimeraPresetsList_Load(this));
-				// }
-				// else
-				// {
-					// Messages.Message("WVC_XaG_CreateChimera_PresetsIsNull".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
-				// }
-			// }
-			// if (Widgets.ButtonText(new Rect(rect.xMax - ButSize.x * 2f - 4f, rect.y, ButSize.x, ButSize.y), "WVC_XaG_CreateChimera_PresetsSave".Translate()))
-			// {
-				// if (xenotypeName.NullOrEmpty())
-				// {
-					// Messages.Message("WVC_XaG_CreateChimera_PresetsNameMessageError".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
-				// }
-				// else
-				// {
-					// if (!gene.geneSetPresets.NullOrEmpty())
-					// {
-						// foreach (GeneSetPresets geneSetPresets in gene.geneSetPresets.ToList())
-						// {
-							// if (geneSetPresets.name == xenotypeName)
-							// {
-								// gene.geneSetPresets.Remove(geneSetPresets);
-							// }
-						// }
-					// }
-					// else
-					// {
-						// gene.geneSetPresets = new();
-					// }
-					// GeneSetPresets preset = new();
-					// preset.name = xenotypeName;
-					// preset.geneDefs = selectedGenes;
-					// gene.geneSetPresets.Add(preset);
-					// Messages.Message("WVC_XaG_CreateChimera_NewPresetSaved".Translate().CapitalizeFirst(), null, MessageTypeDefOf.PositiveEvent, historical: false);
-				// }
-			// }
-		// }
 
 		protected override void DoBottomButtons(Rect rect)
 		{
-			//base.DoBottomButtons(rect);
-			//if (genesRegrowing)
-			//{
-			//	string text = "WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate();
-			//	float x2 = Text.CalcSize(text).x;
-			//	GUI.color = ColorLibrary.RedReadable;
-			//	Text.Anchor = TextAnchor.MiddleLeft;
-			//	Widgets.Label(new Rect(rect.xMax - GeneCreationDialogBase.ButSize.x - x2 - 4f, rect.y, x2, rect.height), text);
-			//	Text.Anchor = TextAnchor.UpperLeft;
-			//	GUI.color = Color.white;
-			//}
+			if (selectedGeneSetHolder != null && Widgets.ButtonText(new Rect(rect.xMax - (ButSize.x * 2), rect.y, ButSize.x, ButSize.y), "WVC_XaG_StorageImplanter_Apply".Translate()))
+			{
+				Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_StorageImplanter_Warning".Translate(gene.pawn.LabelCap), StorageImplanterSet));
+			}
 		}
 
-        //protected override bool CanAccept()
-        //{
-        //	if (trueFormXenotypes.Contains(selectedXenotype))
-        //	{
-        //		return true;
-        //	}
-        //	if (genesRegrowing)
-        //	{
-        //		Messages.Message("WVC_XaG_GeneShapeshifter_DisabledGenesRegrowing".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
-        //		return false;
-        //	}
-        //	return true;
-        //}
+		private void StorageImplanterSet()
+		{
+			if (Gene_StorageImplanter.CanStoreGenes(gene.pawn, out Gene_StorageImplanter implanter))
+			{
+				gene.StoreGeneSet(selectedGeneSetHolder, implanter);
+				Close();
+			}
+		}
 
-        protected override void Accept()
+		protected override void Accept()
         {
-            // Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("WVC_XaG_GeneShapeshifter_ShapeshiftWarning".Translate(gene.pawn.LabelCap), StartChange));
+
         }
-
-        //public void StartChange()
-        //{
-        //	GeneResourceUtility.TryShapeshift(gene, this);
-        //	Close(doCloseSound: false);
-        //}
-
-        //protected override void PostXenotypeOnGUI(float curX, float curY)
-        //{
-        //	TaggedString taggedString = "WVC_XaG_GeneShapeshifter_CheckBox_ClearXenogenesBeforeImplant".Translate();
-        //	TaggedString taggedString2 = "WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype".Translate();
-        //	float width = Mathf.Max(Text.CalcSize(taggedString).x, Text.CalcSize(taggedString2).x) + 4f + 24f;
-        //	Rect rect = new(curX, curY, width, Text.LineHeight);
-        //	Widgets.CheckboxLabeled(rect, taggedString, ref clearXenogenes);
-        //	if (Mouse.IsOver(rect))
-        //	{
-        //		Widgets.DrawHighlight(rect);
-        //		TooltipHandler.TipRegion(rect, "WVC_XaG_GeneShapeshifter_CheckBox_ClearXenogenesBeforeImplant_Desc".Translate());
-        //	}
-        //	rect.y += Text.LineHeight;
-        //	Widgets.CheckboxLabeled(rect, taggedString2, ref doubleXenotypeReimplantation);
-        //	if (Mouse.IsOver(rect))
-        //	{
-        //		Widgets.DrawHighlight(rect);
-        //		TooltipHandler.TipRegion(rect, "WVC_XaG_GeneShapeshifter_CheckBox_ImplantDoubleXenotype_Desc".Translate());
-        //	}
-        //	postXenotypeHeight += rect.yMax - curY;
-        //}
 
         protected override void UpdateSearchResults()
         {
-            //quickSearchWidget.noResultsMatched = false;
-            //matchingXenotypes.Clear();
-            //if (!quickSearchWidget.filter.Active)
-            //{
-            //    return;
-            //}
-            //foreach (XenotypeDef item in XenotypesInOrder)
-            //{
-            //    if (item != selectedXenotype)
-            //    {
-            //        if (quickSearchWidget.filter.Matches(item.label))
-            //        {
-            //            matchingXenotypes.Add(item);
-            //        }
-            //    }
-            //}
-            //quickSearchWidget.noResultsMatched = !matchingXenotypes.Any();
+
         }
 
     }

@@ -71,7 +71,12 @@ namespace WVC_XenotypesAndGenes
 
 		public override string ExtraTooltipPart()
 		{
-			return "WVC_XaG_StorageImplanter_ExtraTooltip".Translate(Gene.XenotypeHolder != null ? Gene.XenotypeHolder.LabelCap : " - ", Gene.XenotypeHolder != null ? Gene.XenotypeHolder.genes.Count : "0").ToString();
+			SaveableXenotypeHolder xenotypeHolder = Gene.XenotypeHolder;
+			if (xenotypeHolder != null)
+			{
+                return "WVC_XaG_StorageImplanter_ExtraTooltip".Translate(xenotypeHolder.LabelCap, xenotypeHolder.genes.Count, xenotypeHolder.inheritable.ToStringYesNo(), xenotypeHolder.CustomXenotype.ToStringYesNo()).ToString();
+			}
+			return "WVC_XaG_StorageImplanter_ExtraTooltip".Translate("-", "-", "-", "-").ToString();
 		}
 
 	}

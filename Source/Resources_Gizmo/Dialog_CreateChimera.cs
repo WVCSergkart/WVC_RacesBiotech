@@ -679,19 +679,13 @@ namespace WVC_XenotypesAndGenes
 
 		private void StorageImplanterSet()
 		{
-			Gene_StorageImplanter implanter = gene.pawn.genes.GetFirstGeneOfType<Gene_StorageImplanter>();
-			if (implanter != null)
+			if (Gene_StorageImplanter.CanStoreGenes(gene.pawn, out Gene_StorageImplanter implanter))
 			{
 				implanter.SetupHolder(XenotypeDefOf.Baseliner, selectedGenes, false, DefDatabase<XenotypeIconDef>.AllDefsListForReading.RandomElement(), xenotypeName?.Trim());
 				foreach (GeneDef geneDef in selectedGenes)
-                {
+				{
 					gene.RemoveGene(geneDef);
-                }
-				Messages.Message("WVC_XaG_StorageImplanter_Message".Translate(), null, MessageTypeDefOf.PositiveEvent, historical: false);
-			}
-			else
-			{
-				Messages.Message("WVC_XaG_StorageImplanter_ErrorMessage".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
+				}
 			}
 		}
 

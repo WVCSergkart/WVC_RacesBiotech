@@ -763,6 +763,30 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public virtual void StoreGeneSet(PawnGeneSetHolder geneSet, Gene_StorageImplanter storage)
+		{
+			List<GeneDef> selectedGenes = new();
+			if (!geneSet.endogeneDefs.NullOrEmpty())
+			{
+				selectedGenes.AddRange(geneSet.endogeneDefs);
+			}
+			if (!geneSet.xenogeneDefs.NullOrEmpty())
+			{
+				selectedGenes.AddRange(geneSet.xenogeneDefs);
+			}
+			XenotypeIconDef iconDef = geneSet.iconDef;
+			if (iconDef == null)
+			{
+				iconDef = DefDatabase<XenotypeIconDef>.AllDefsListForReading.RandomElement();
+			}
+			if (!selectedGenes.Contains(def))
+			{
+				selectedGenes.Add(def);
+			}
+			storage.SetupHolder(XenotypeDefOf.Baseliner, selectedGenes, false, iconDef, geneSet.name?.Trim());
+			RemoveSetHolder(geneSet);
+		}
+
 	}
 
 }
