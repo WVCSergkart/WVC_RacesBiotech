@@ -44,7 +44,7 @@ namespace WVC_XenotypesAndGenes
 			Rect rect2 = rect.ContractedBy(6f);
 			Widgets.DrawWindowBackground(rect);
 			// Tip
-			TaggedString taggedString = gene.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + ": " + "\n\n" + gene.GizmoTootip + "\n\n" + "WVC_XaG_MorpherGizmoLimitTip".Translate(gene.FormsCount, gene.CurrentLimit);
+			TaggedString taggedString = gene.LabelCap.Colorize(ColoredText.TipSectionTitleColor) + "\n\n" + gene.GizmoTootip + "\n\n" + "WVC_XaG_MorpherGizmoLimitTip".Translate(gene.FormsCount, gene.CurrentLimit);
 			Text.Font = GameFont.Small;
 			Text.Anchor = TextAnchor.UpperLeft;
 			// Label
