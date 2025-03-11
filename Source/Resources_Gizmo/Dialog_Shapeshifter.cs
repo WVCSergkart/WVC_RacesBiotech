@@ -102,11 +102,16 @@ namespace WVC_XenotypesAndGenes
 			if (Gene_StorageImplanter.CanStoreGenes(gene.pawn, out Gene_StorageImplanter implanter))
 			{
 				implanter.SetupHolder(selectedXenoHolder);
+				Close();
 			}
 		}
 
 		protected override bool CanAccept()
 		{
+			if (!GeneResourceUtility.CanDo_ShifterGeneticStuff(gene.pawn))
+			{
+				return false;
+			}
 			if (selectedXenoHolder.isTrueShiftForm)
 			{
 				return true;

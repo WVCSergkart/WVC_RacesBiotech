@@ -613,7 +613,7 @@ namespace WVC_XenotypesAndGenes
 		protected override void DrawSearchRect(Rect rect)
 		{
 			base.DrawSearchRect(rect);
-			if (Widgets.ButtonText(new Rect(rect.xMax - ButSize.x, rect.y, ButSize.x, ButSize.y), "WVC_XaG_CreateChimera_PresetsLoad".Translate()))
+			if (Widgets.ButtonText(new Rect(rect.xMax - ButSize.x, rect.y, ButSize.x, ButSize.y), "Load".Translate()))
 			{
 				if (!gene.geneSetPresets.NullOrEmpty())
 				{
@@ -624,7 +624,7 @@ namespace WVC_XenotypesAndGenes
 					Messages.Message("WVC_XaG_CreateChimera_PresetsIsNull".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
 				}
 			}
-			if (Widgets.ButtonText(new Rect(rect.xMax - ButSize.x * 2f - 4f, rect.y, ButSize.x, ButSize.y), "WVC_XaG_CreateChimera_PresetsSave".Translate()))
+			if (Widgets.ButtonText(new Rect(rect.xMax - ButSize.x * 2f - 4f, rect.y, ButSize.x, ButSize.y), "Save".Translate()))
 			{
 				if (xenotypeName.NullOrEmpty())
 				{
@@ -681,11 +681,12 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (Gene_StorageImplanter.CanStoreGenes(gene.pawn, out Gene_StorageImplanter implanter))
 			{
-				implanter.SetupHolder(XenotypeDefOf.Baseliner, selectedGenes, false, DefDatabase<XenotypeIconDef>.AllDefsListForReading.RandomElement(), xenotypeName?.Trim());
+				implanter.SetupHolder(XenotypeDefOf.Baseliner, selectedGenes, false, null, xenotypeName?.Trim());
 				foreach (GeneDef geneDef in selectedGenes)
 				{
 					gene.RemoveGene(geneDef);
 				}
+				Close();
 			}
 		}
 
@@ -722,8 +723,12 @@ namespace WVC_XenotypesAndGenes
 		{
 			// if (eatAllSelectedGenes)
 			// {
-				// return true;
+			// return true;
 			// }
+			if (!GeneResourceUtility.CanDo_ShifterGeneticStuff(gene.pawn))
+			{
+				return false;
+			}
 			List<GeneDef> selectedGenes = SelectedGenes;
 			foreach (GeneDef selectedGene in SelectedGenes)
 			{
@@ -752,7 +757,7 @@ namespace WVC_XenotypesAndGenes
 				Messages.Message("WVC_XaG_GeneGeneticThief_ConflictingGenesMessage".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
 				return false;
 			}
-			return true;
+            return true;
 		}
 
 		protected override void Accept()

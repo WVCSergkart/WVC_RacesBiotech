@@ -64,6 +64,17 @@ namespace WVC_XenotypesAndGenes
 
         public void SetupHolder(XenotypeDef xenotypeDef = null, List<GeneDef> genes = null, bool inheritable = false, XenotypeIconDef icon = null, string name = null)
         {
+            if (xenotypeDef == XenotypeDefOf.Baseliner)
+            {
+                if (name.NullOrEmpty())
+                {
+                    name = GeneUtility.GenerateXenotypeNameFromGenes(genes);
+                }
+                if (icon == null)
+                {
+                    icon = DefDatabase<XenotypeIconDef>.AllDefsListForReading.RandomElement();
+                }
+            }
             this.xenotypeHolder = new SaveableXenotypeHolder(xenotypeDef, genes, inheritable, icon, name);
             this.xenotypeHolder.PostSetup();
             //GeneUtility.UpdateXenogermReplication(pawn);

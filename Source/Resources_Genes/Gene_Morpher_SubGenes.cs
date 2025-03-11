@@ -130,14 +130,8 @@ namespace WVC_XenotypesAndGenes
 
 		private void FloatMenu()
 		{
-			if (pawn.InMentalState)
+			if (!GeneResourceUtility.CanDo_GeneralGeneticStuff(pawn))
 			{
-				Messages.Message("WVC_XaG_ErrorMessage".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
-				return;
-			}
-			if (pawn.IsQuestLodger())
-			{
-				Messages.Message("WVC_XaG_PawnIsQuestLodgerMessage".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
 				return;
 			}
 			if (Morpher == null)

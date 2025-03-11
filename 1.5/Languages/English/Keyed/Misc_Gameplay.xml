@@ -94,9 +94,13 @@
 
 	<WVC_XaG_MetalhorrorReasonGeneRejection>{INFECTED_nameDef}'s metalhorror emerged for genetic rejection.</WVC_XaG_MetalhorrorReasonGeneRejection>
 
-	<WVC_XaG_PawnIsQuestLodgerMessage>Pawn must belong to the player's faction.</WVC_XaG_PawnIsQuestLodgerMessage>
-
 	<WVC_XaG_ErrorMessage>Not possible in the current state.</WVC_XaG_ErrorMessage>
+	<WVC_XaG_PawnIsQuestLodgerMessage>{0} must belong to the player's faction.</WVC_XaG_PawnIsQuestLodgerMessage>
+	<WVC_InMentalState>{0} in mental state.</WVC_InMentalState>
+	<WVC_IsUnconscious>{0} is unconscious.</WVC_IsUnconscious>
+	<WVC_IsIncapacitated>{0} is incapacitated.</WVC_IsIncapacitated>
+	<WVC_IsDeathresting>{0} is deathresting.</WVC_IsDeathresting>
+	<WVC_InPainShock>{0} is pain shock.</WVC_InPainShock>
 
 	<!-- <WVC_XaG_GestatedDryadDescription>&lt;color=#f5ffa2&gt;Being gestated&lt;/color&gt; by the genetic dryad queen, dryads behave differently from their tree-relatives. They exist in a symbiotic relationship directly with the genetic queen, who in turn gestates new dryads and has a psychic bond with them.</WVC_XaG_GestatedDryadDescription> -->
 

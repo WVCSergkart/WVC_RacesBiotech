@@ -174,6 +174,50 @@ namespace WVC_XenotypesAndGenes
 			return true;
 		}
 
+		public static bool CanDo_GeneralGeneticStuff(Pawn pawn)
+		{
+			if (pawn.InMentalState)
+			{
+				Messages.Message("WVC_InMentalState".Translate(pawn.LabelShort).CapitalizeFirst(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+				return false;
+			}
+			if (pawn.IsQuestLodger())
+			{
+				Messages.Message("WVC_XaG_PawnIsQuestLodgerMessage".Translate(pawn.LabelShort).CapitalizeFirst(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+				return false;
+			}
+			if (!pawn.health.capacities.CanBeAwake)
+			{
+				Messages.Message("WVC_IsUnconscious".Translate(pawn.LabelShort).CapitalizeFirst(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+				return false;
+			}
+			return true;
+		}
+
+		public static bool CanDo_ShifterGeneticStuff(Pawn pawn)
+		{
+			if (!CanDo_GeneralGeneticStuff(pawn))
+			{
+				return false;
+			}
+            if (pawn.health.InPainShock)
+            {
+                Messages.Message("WVC_InPainShock".Translate(pawn.LabelShort).CapitalizeFirst(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+                return false;
+            }
+            if (pawn.Deathresting)
+            {
+                Messages.Message("WVC_IsDeathresting".Translate(pawn.LabelShort).CapitalizeFirst(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+                return false;
+            }
+            if (pawn.Downed && !LifeStageUtility.AlwaysDowned(pawn))
+            {
+                Messages.Message("WVC_IsIncapacitated".Translate(pawn.LabelShort).CapitalizeFirst(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+                return false;
+            }
+            return true;
+		}
+
 		// Dust
 
 		public static void IngestedThingWithFactor(Gene gene, Thing thing, Pawn pawn, float factor)

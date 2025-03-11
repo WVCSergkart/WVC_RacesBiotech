@@ -343,16 +343,11 @@ namespace WVC_XenotypesAndGenes
 				{
 					selectedGenes.AddRange(XaG_GeneUtility.ConvertGenesInGeneDefs(geneTracker.Endogenes));
 				}
-				XenotypeIconDef iconDef = geneSet.iconDef;
-				if (iconDef == null)
-				{
-					iconDef = DefDatabase<XenotypeIconDef>.AllDefsListForReading.RandomElement();
-				}
 				if (!selectedGenes.Contains(def))
 				{
 					selectedGenes.Add(def);
 				}
-				storage.SetupHolder(XenotypeDefOf.Baseliner, selectedGenes, false, iconDef, geneSet.name?.Trim());
+				storage.SetupHolder(XenotypeDefOf.Baseliner, selectedGenes, geneTracker.Xenotype.inheritable, geneTracker.iconDef, null);
 			}
 		}
 
