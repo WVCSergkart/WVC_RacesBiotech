@@ -131,35 +131,40 @@ namespace WVC_XenotypesAndGenes
             }
         }
 
-        //public override string LabelCap
-        //{
-        //	get
-        //	{
-        //		if (currentFormName.NullOrEmpty())
-        //		{
-        //			return base.LabelCap;
-        //		}
-        //		return base.LabelCap + " (" + currentFormName.CapitalizeFirst() + ")";
-        //	}
-        //}
+		//public override string LabelCap
+		//{
+		//	get
+		//	{
+		//		if (currentFormName.NullOrEmpty())
+		//		{
+		//			return base.LabelCap;
+		//		}
+		//		return base.LabelCap + " (" + currentFormName.CapitalizeFirst() + ")";
+		//	}
+		//}
 
-        //public override void PostAdd()
-        //{
-        //	base.PostAdd();
-        //	ResetInterval(new IntRange(1200, 3400));
-        //}
+		//public override void PostAdd()
+		//{
+		//	base.PostAdd();
+		//	ResetInterval(new IntRange(1200, 3400));
+		//}
 
-        //public override void Tick()
-        //{
-        //	nextTick--;
-        //	if (nextTick > 0)
-        //	{
-        //		return;
-        //	}
-        //	Morph();
-        //}
+		//public override void Tick()
+		//{
+		//	nextTick--;
+		//	if (nextTick > 0)
+		//	{
+		//		return;
+		//	}
+		//	Morph();
+		//}
 
-        public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
+		public override void Tick()
+		{
+
+		}
+
+		public GeneExtension_Giver Giver => def?.GetModExtension<GeneExtension_Giver>();
 
 		public GeneExtension_Giver XenotypeGiver => pawn.genes?.Xenotype?.GetModExtension<GeneExtension_Giver>();
 

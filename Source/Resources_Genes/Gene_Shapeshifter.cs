@@ -66,6 +66,11 @@ namespace WVC_XenotypesAndGenes
 			geneSet.SortGenes();
 		}
 
+		public override void Tick()
+		{
+
+		}
+
 		public override void PostRemove()
 		{
 			base.PostRemove();

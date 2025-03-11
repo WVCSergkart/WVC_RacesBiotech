@@ -286,6 +286,8 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		// Resources
+
 		public static bool IsDustogenicFood(this Thing thing)
 		{
 			if (thing?.def?.ingestible == null)
@@ -293,6 +295,28 @@ namespace WVC_XenotypesAndGenes
 				return false;
 			}
 			return thing.def.GetModExtension<GeneExtension_General>()?.isDustogenic == true;
+		}
+
+		public static bool IsHemogenPack(this ThingDef thingDef, out float offsetHemogen)
+		{
+			offsetHemogen = 0f;
+			IngestionOutcomeDoer doer = null;
+			if (thingDef?.ingestible?.outcomeDoers?.TryRandomElement((IngestionOutcomeDoer outcome) => outcome is IngestionOutcomeDoer_OffsetHemogen, out doer) == true)
+			{
+				offsetHemogen = (doer as IngestionOutcomeDoer_OffsetHemogen).offset;
+				return true;
+			}
+			return false;
+		}
+
+		public static bool IsHemogenPack(this Thing thing, out float offsetHemogen)
+		{
+            offsetHemogen = 0f;
+			if (thing?.def?.IsHemogenPack(out offsetHemogen) == true)
+            {
+				return true;
+			}
+			return false;
 		}
 
 		// Shape

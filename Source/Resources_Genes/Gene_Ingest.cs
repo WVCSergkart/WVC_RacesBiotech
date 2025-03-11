@@ -670,7 +670,11 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			base.Notify_IngestedThing(thing, numTaken);
-			if (Props.specialFoodDefs.Contains(thing.def))
+			//if (Props.specialFoodDefs.Contains(thing.def))
+			//{
+			//	return;
+			//}
+			if (thing.IsHemogenPack(out _))
 			{
 				return;
 			}

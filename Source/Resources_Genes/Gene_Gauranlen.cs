@@ -33,6 +33,11 @@ namespace WVC_XenotypesAndGenes
 
 		}
 
+		public override void Tick()
+		{
+
+		}
+
 	}
 
 	public class Gene_GauranlenConnection : Gene
@@ -40,7 +45,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Tick()
 		{
-			base.Tick();
+			//base.Tick();
 			if (!pawn.IsHashIntervalTick(23195))
 			{
 				return;

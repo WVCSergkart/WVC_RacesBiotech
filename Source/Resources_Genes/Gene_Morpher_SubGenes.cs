@@ -38,7 +38,12 @@ namespace WVC_XenotypesAndGenes
 
 		}
 
-	}
+        public override void Tick()
+        {
+
+        }
+
+    }
 
 	// In Dev
 	public class Gene_MorpherOneTimeUse : Gene_MorpherDependant

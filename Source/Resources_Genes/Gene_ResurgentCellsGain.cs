@@ -28,14 +28,22 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Notify_IngestedThing(Thing thing, int numTaken)
 		{
-			if (Props.specialFoodDefs.Contains(thing.def) && Cells != null)
+			//if (Props.specialFoodDefs.Contains(thing.def) && Cells != null)
+			//{
+			//	IngestibleProperties ingestible = thing.def.ingestible;
+			//	float nutrition = ingestible.CachedNutrition;
+			//	if (ingestible != null && nutrition > 0f)
+			//	{
+			//		GeneResourceUtility.OffsetResource(Cells, nutrition);
+			//	}
+			//}
+			if (!Active)
+            {
+				return;
+            }
+			if (thing.IsHemogenPack(out float offsetHemogen) && Cells != null)
 			{
-				IngestibleProperties ingestible = thing.def.ingestible;
-				float nutrition = ingestible.CachedNutrition;
-				if (ingestible != null && nutrition > 0f)
-				{
-					GeneResourceUtility.OffsetResource(Cells, nutrition);
-				}
+				GeneResourceUtility.OffsetResource(Cells, offsetHemogen * 0.5f);
 			}
 		}
 
@@ -43,7 +51,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			if (Cells != null)
 			{
-				GeneResourceUtility.OffsetResource(Cells, Props.nutritionPerBite * victim.BodySize * pawn.GetStatValue(StatDefOf.HemogenGainFactor, cacheStaleAfterTicks: 360000));
+				GeneResourceUtility.OffsetResource(Cells, Props.nutritionPerBite * victim.BodySize * pawn.GetStatValue(StatDefOf.HemogenGainFactor));
 			}
 		}
 
@@ -65,6 +73,11 @@ namespace WVC_XenotypesAndGenes
 				}
 				return cachedResurgentGene;
 			}
+		}
+
+		public override void Tick()
+		{
+
 		}
 
 	}
@@ -144,8 +157,8 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			int cachedMapTreesCount = CountSpecialTrees();
-			if (cachedMapTreesCount >= Spawner.specialTreesMax)
+			int mapTreesCount = CountSpecialTrees();
+			if (mapTreesCount >= Spawner.specialTreesMax)
 			{
 				return;
 			}
@@ -153,7 +166,7 @@ namespace WVC_XenotypesAndGenes
 			IncidentDef result = Spawner.incidentDef;
 			if (result != null)
 			{
-				if (!result.Worker.CanFireNow(parms) && cachedMapTreesCount > Spawner.specialTreesMin)
+				if (!result.Worker.CanFireNow(parms) && mapTreesCount > Spawner.specialTreesMin)
 				{
 					return;
 				}

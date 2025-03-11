@@ -28,10 +28,15 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public override void Tick()
+		{
+
+		}
+
 		// public override void PostRemove()
 		// {
-			// base.PostRemove();
-			// HediffUtility.Notify_GeneRemoved(this, pawn);
+		// base.PostRemove();
+		// HediffUtility.Notify_GeneRemoved(this, pawn);
 		// }
 
 	}
@@ -113,7 +118,7 @@ namespace WVC_XenotypesAndGenes
 		public override void PostAdd()
 		{
 			base.PostAdd();
-			if (!pawn.Spawned)
+			if (Current.ProgramState != ProgramState.Playing)
 			{
 				Scarify();
 			}

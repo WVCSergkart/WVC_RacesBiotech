@@ -27,7 +27,7 @@ namespace WVC_XenotypesAndGenes
 					bloodEaterFoodPolicy.filter.SetAllow(item, allow: true);
 					energyFoodPolicy.filter.SetAllow(item, allow: true);
 				}
-				else if (item.ingestible?.foodType == FoodTypeFlags.Fluid)
+				else if (item.ingestible?.foodType == FoodTypeFlags.Fluid || item.IsHemogenPack(out _))
 				{
 					bloodEaterFoodPolicy.filter.SetAllow(item, allow: true);
 					energyFoodPolicy.filter.SetAllow(item, allow: false);
