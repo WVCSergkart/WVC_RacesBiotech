@@ -68,7 +68,7 @@ namespace WVC_XenotypesAndGenes
 			shouldDrawGizmo = pawn?.genes?.GetFirstGeneOfType<Gene_ResurgentCells>() != null;
 		}
 
-        private bool shouldDrawGizmo;
+        public bool shouldDrawGizmo = true;
 
 		//public void Notify_GenesChanged(Gene changedGene)
 		//{
@@ -89,22 +89,22 @@ namespace WVC_XenotypesAndGenes
 					yield return gizmo;
 				}
 			}
-			if (XaG_GeneUtility.SelectorDraftedActiveFactionMap(pawn, this))
-			{
-				yield break;
-			}
-			yield return new Command_Action
-			{
-				defaultLabel = thrallDef != null ? thrallDef.LabelCap.ToString() : "WVC_XaG_XenoTreeXenotypeChooseLabel".Translate(),
-				defaultDesc = "WVC_XaG_GeneThrallMaker_ButtonDesc".Translate(),
-				icon = ContentFinder<Texture2D>.Get(def.iconPath),
-				action = delegate
-				{
-					ThrallMakerDialog();
-				}
-			};
+			//yield return new Command_Action
+			//{
+			//	defaultLabel = thrallDef != null ? thrallDef.LabelCap.ToString() : "WVC_XaG_XenoTreeXenotypeChooseLabel".Translate(),
+			//	defaultDesc = "WVC_XaG_GeneThrallMaker_ButtonDesc".Translate(),
+			//	icon = ContentFinder<Texture2D>.Get(def.iconPath),
+			//	action = delegate
+			//	{
+			//		ThrallMakerDialog();
+			//	}
+			//};
 			if (shouldDrawGizmo)
 			{
+				if (XaG_GeneUtility.SelectorDraftedActiveFactionMap(pawn, this))
+				{
+					yield break;
+				}
 				if (gizmo == null)
 				{
 					gizmo = (Gizmo)Activator.CreateInstance(def.resourceGizmoType, this);
@@ -113,11 +113,14 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
+		public bool gizmoCollapse = WVC_Biotech.settings.geneGizmosDefaultCollapse;
+
 		public override void ExposeData()
 		{
 			base.ExposeData();
 			Scribe_Defs.Look(ref thrallDef, "thrallDef");
 			Scribe_Values.Look(ref shouldDrawGizmo, "shouldDrawGizmo", defaultValue: true);
+			Scribe_Values.Look(ref gizmoCollapse, "gizmoCollapse", WVC_Biotech.settings.geneGizmosDefaultCollapse);
 		}
 
     }

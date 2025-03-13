@@ -212,6 +212,8 @@ namespace WVC_XenotypesAndGenes
 			HediffUtility.TryRemoveHediff(Giver.hediffDefName, pawn);
 		}
 
+		public bool gizmoCollapse = true;
+
 		public override void ExposeData()
 		{
 			base.ExposeData();
@@ -230,6 +232,7 @@ namespace WVC_XenotypesAndGenes
 					geneSetPresets = new();
 				}
 			}
+			Scribe_Values.Look(ref gizmoCollapse, "gizmoCollapse", true);
 		}
 
 		// public static float GetGeneWeight(GeneDef geneDef)

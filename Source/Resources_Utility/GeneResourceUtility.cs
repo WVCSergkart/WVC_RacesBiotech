@@ -48,7 +48,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return 0;
 			}
-			limit = (int)((limit / (cellsPerDay > 0f ? cellsPerDay : 0.01f)) * 100);
+			limit = (int)(Math.Round(((limit / (cellsPerDay > 0f ? cellsPerDay : 0.01f)) * 100) - 1, 0, MidpointRounding.ToEven));
 			// Log.Error("Limit v1: " + limit.ToString());
 			if (limit >= 1000f)
 			{

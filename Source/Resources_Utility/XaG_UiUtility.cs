@@ -24,6 +24,8 @@ namespace WVC_XenotypesAndGenes
 		public static readonly CachedTexture CollapseIcon = new("WVC/UI/XaG_General/UI_CollapseButton");
 		public static readonly CachedTexture NonAggressiveRedCancelIcon = new("WVC/UI/XaG_General/UI_NonAggressiveRed_Cancel");
 
+		public static readonly CachedTexture GermlineImplanterIcon = new("WVC/UI/XaG_General/ThrallMaker_Implanter_Gizmo_v0");
+
 		public static IEnumerable<Gizmo> GetRemoteControllerGizmo(Pawn pawn, IGeneRemoteControl gene, List<IGeneRemoteControl> cachedRemoteControlGenes)
 		{
 			if (cachedRemoteControlGenes == null)

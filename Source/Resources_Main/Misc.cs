@@ -294,4 +294,17 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Command_HiddenAbility : Command_Ability
+	{
+
+		public Command_HiddenAbility(Ability ability, Pawn pawn)
+			: base(ability, pawn)
+		{
+
+		}
+
+		public override bool Visible => false;
+
+	}
+
 }

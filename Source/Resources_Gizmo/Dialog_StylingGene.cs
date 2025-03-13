@@ -16,8 +16,8 @@ namespace WVC_XenotypesAndGenes
 			Hair,
 			Beard,
 			TattooFace,
-			TattooBody
-			// ApparelColor
+			TattooBody,
+			EyesColor
 		}
 
 		public Pawn pawn;
@@ -57,8 +57,6 @@ namespace WVC_XenotypesAndGenes
 		private bool showClothes;
 
 		private bool devEditMode;
-
-		public bool unlockRecolor;
 
 		// private List<Color> allColors;
 
@@ -127,7 +125,10 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public Dialog_StylingGene(Pawn pawn, Gene gene, bool unlockRecolor)
+		public bool unlockRecolor;
+		public bool unlockEyesRecolor;
+
+		public Dialog_StylingGene(Pawn pawn, Gene gene, bool unlockRecolor, bool unlockEyesRecolor = true)
 		{
 			this.pawn = pawn;
 			this.gene = gene;
@@ -137,6 +138,7 @@ namespace WVC_XenotypesAndGenes
 			initialFaceTattoo = pawn.style.FaceTattoo;
 			initialBodyTattoo = pawn.style.BodyTattoo;
 			this.unlockRecolor = unlockRecolor;
+			this.unlockEyesRecolor = unlockEyesRecolor;
 			forcePause = true;
 			showClothes = false;
 			closeOnAccept = false;
@@ -251,9 +253,25 @@ namespace WVC_XenotypesAndGenes
 					curTab = StylingTab.TattooBody;
 				}, curTab == StylingTab.TattooBody));
 			}
+			if (unlockEyesRecolor)
+			{
+                tabs.Add(new TabRecord("WVC_EyesColor".Translate().CapitalizeFirst(), delegate
+				{
+                    Gene_Eyes gene_Eyes = pawn.genes.GetFirstGeneOfType<Gene_Eyes>();
+                    if (gene_Eyes != null)
+                    {
+						gene_Eyes.ChangeEyesColor(false);
+					}
+					else
+					{
+						Messages.Message("WVC_XaG_Message_EyesColor_Error".Translate().CapitalizeFirst(), null, MessageTypeDefOf.RejectInput, historical: false);
+					}
+					//curTab = StylingTab.EyesColor;
+				}, curTab == StylingTab.EyesColor));
+			}
 			// tabs.Add(new TabRecord("ApparelColor".Translate().CapitalizeFirst(), delegate
 			// {
-				// curTab = StylingTab.ApparelColor;
+			// curTab = StylingTab.ApparelColor;
 			// }, curTab == StylingTab.ApparelColor));
 			Widgets.DrawMenuSection(rect);
 			TabDrawer.DrawTabs(rect, tabs);

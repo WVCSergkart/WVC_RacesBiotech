@@ -126,6 +126,11 @@ namespace WVC_XenotypesAndGenes
 		public override void Reset()
 		{
 			base.Reset();
+			if (Current.ProgramState == ProgramState.Playing)
+			{
+				Value = 0.5f;
+				return;
+			}
 			FloatRange floatRange = new(0.06f, 0.97f);
 			Value = floatRange.RandomInRange;
 		}

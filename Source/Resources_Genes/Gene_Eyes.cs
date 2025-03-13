@@ -98,9 +98,9 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-        public void ChangeEyesColor()
+        public void ChangeEyesColor(bool closeOnAccept = true)
 		{
-			Find.WindowStack.Add(new Dialog_ChangeEyesColor(this));
+			Find.WindowStack.Add(new Dialog_ChangeEyesColor(this, closeOnAccept));
 			//        List<FloatMenuOption> list = new();
 			//        List<XaG_CountWithChance> list2 = Props.holofaces;
 			//        for (int i = 0; i < list2.Count; i++)

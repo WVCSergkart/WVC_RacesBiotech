@@ -44,6 +44,7 @@
 	<description>Implant a copy of choosen germline into dead person through a somewhat gross-looking injector organ. Subsequently, the target turns into a genetic thrall; genetic thralls must regularly delay instabilization in order to survive.</description>
 	<iconPath>WVC/UI/Genes/Gene_ThrallMaker_v0</iconPath>
 	<cooldownTicksRange>540000</cooldownTicksRange><!-- 9 days -->
+	<gizmoClass>WVC_XenotypesAndGenes.Command_HiddenAbility</gizmoClass>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityReimplanter">
 		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_ReimplanterThrallMaker</compClass>

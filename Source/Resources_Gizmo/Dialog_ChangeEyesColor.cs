@@ -47,14 +47,18 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public Dialog_ChangeEyesColor(Gene_Eyes gene)
+		public bool closeOnAccpet;
+
+		public Dialog_ChangeEyesColor(Gene_Eyes gene, bool closeOnAccpet)
 		{
 			this.gene = gene;
 			forcePause = true;
 			//closeOnAccept = false;
 			//closeOnCancel = false;
+			draggable = true;
+			this.closeOnAccpet = closeOnAccpet;
 			desireColor = gene.color;
-			closeOnClickedOutside = true;
+			closeOnClickedOutside = !closeOnAccpet;
 		}
 
 		public override void DoWindowContents(Rect inRect)
@@ -92,12 +96,18 @@ namespace WVC_XenotypesAndGenes
 			if (Widgets.ButtonText(new Rect(inRect.xMin + inRect.width / 3f - ButSize.x / 3f, inRect.yMax - ButSize.y, ButSize.x, ButSize.y), "Disable".Translate()))
 			{
 				Disable();
-				Close();
+				if (this.closeOnAccpet)
+				{
+					Close();
+				}
 			}
 			if (Widgets.ButtonText(new Rect(inRect.xMax - ButSize.x, inRect.yMax - ButSize.y, ButSize.x, ButSize.y), "Accept".Translate()))
 			{
 				Accept();
-				Close();
+				if (this.closeOnAccpet)
+				{
+					Close();
+				}
 			}
 		}
 

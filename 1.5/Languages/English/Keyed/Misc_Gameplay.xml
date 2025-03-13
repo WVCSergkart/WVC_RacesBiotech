@@ -61,6 +61,9 @@
 
 	<WVC_Reset>Reset</WVC_Reset>
 
+	<WVC_EyesColor>Eyes color</WVC_EyesColor>
+	<WVC_XaG_Message_EyesColor_Error>The pawn does not have the gene for recoloring eyes.</WVC_XaG_Message_EyesColor_Error>
+
 	<WVC_MechWeightClass>Mech weight class</WVC_MechWeightClass>
 
 	<WVC_Xenotypes>Xenotypes</WVC_Xenotypes>
@@ -474,9 +477,10 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<!-- <WVC_XaG_SporesGestationBandwidthUsed>Resurgent spores gestation bandwidth</WVC_XaG_SporesGestationBandwidthUsed> -->
 
 	<WVC_XaG_ThrallsBandwidthGizmoLabel>Thralls</WVC_XaG_ThrallsBandwidthGizmoLabel>
-	<WVC_XaG_ThrallsBandwidthGizmoGizmoTip>Thrall master can create an unlimited number of thralls. But each thrall requires a source of resurgent cells for its existence. If the thralls are unable to &lt;color=#95d0fc&gt;cellsfeed&lt;/color&gt; for too long, they will begin to die.\n\nThe main source of resurgent cells for thralls are resurgent pawns; the more &lt;color=#6bb6bb&gt;resurgent pawns&lt;/color&gt;, the more thralls can be kept alive. &lt;color=#6bb6bb&gt;Genetic stabilizers&lt;/color&gt; can also be used as an alternative.\n\nThralls cannot &lt;color=#95d0fc&gt;cellsfeed&lt;/color&gt; on pawns with cells level below 20%.</WVC_XaG_ThrallsBandwidthGizmoGizmoTip>
+	<WVC_XaG_ThrallsBandwidthGizmoGizmoTip>Thrall master can create an unlimited number of thralls. But each thrall requires a source of resurgent cells for its existence. If the thralls are unable to &lt;color=#95d0fc&gt;cellsfeed&lt;/color&gt; for too long, they will start dying or turning into ghouls.\n\nThe main source of resurgent cells for thralls are resurgent pawns; the more &lt;color=#6bb6bb&gt;resurgent pawns&lt;/color&gt;, the more thralls can be kept alive. &lt;color=#6bb6bb&gt;Genetic stabilizers&lt;/color&gt; can also be used as an alternative.\n\nThralls cannot &lt;color=#95d0fc&gt;cellsfeed&lt;/color&gt; on pawns with cells level below 20%.</WVC_XaG_ThrallsBandwidthGizmoGizmoTip>
 
 	<WVC_XaG_ThrallsBandwidthUsage>Thralls in colony</WVC_XaG_ThrallsBandwidthUsage>
+	<WVC_XaG_CooldownIn>Cooldown in {0}</WVC_XaG_CooldownIn>
 
 	<WVC_XaG_ThrallsBandwidth_NextFeeding>cellsfeed in</WVC_XaG_ThrallsBandwidth_NextFeeding>
 
@@ -894,6 +898,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_RemoteControlDustogenicDesc>If on, the pawn will prefer dustogenic food and will take it whenever possible.</WVC_XaG_RemoteControlDustogenicDesc>
 
 	<WVC_XaG_RemoteControlMechsSummonAbilityDesc>After activating the ability, summons several mechanoids that will automatically attach to the mechanitor.</WVC_XaG_RemoteControlMechsSummonAbilityDesc>
+
+	<!-- <WVC_XaG_RemoteControlColorableEyesDesc>This gene responds to the neural activity of the carrier and can change in relation to current desires.</WVC_XaG_RemoteControlColorableEyesDesc> -->
 
 	<!-- =============== QUEST = ANOMALY LOOP =============== -->
 
