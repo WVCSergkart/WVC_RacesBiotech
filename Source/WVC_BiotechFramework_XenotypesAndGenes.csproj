@@ -89,6 +89,7 @@
     <Compile Include="Resources_Genes\Gene_StorageImplanter.cs" />
     <Compile Include="Resources_Genes\Gene_Chimera_PsychicHarvester.cs" />
     <Compile Include="Obsolete_0\Gene_ObsoleteReimplanter.cs" />
+    <Compile Include="Resources_Genes\Gene_Mechlink_Golemlink.cs" />
     <Compile Include="Resources_Gizmo\Dialog_GenesSettings.cs" />
     <Compile Include="Resources_Gizmo\Dialog_ImplantImplanter.cs" />
     <Compile Include="Resources_Gizmo\Dialog_Voidlink.cs" />

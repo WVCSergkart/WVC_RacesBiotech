@@ -2,7 +2,7 @@
 <Patch>
 
 	<Operation Class="WVC_XenotypesAndGenes.PatchOperationOptional">
-		<settingName>disableXenotypes_Bloodeaters</settingName>
+		<settingName>disableXenotypes_MainSwitch</settingName>
 		<caseFalse Class="PatchOperationSequence">
 			<operations>
 				<li Class="PatchOperationAdd">

@@ -401,11 +401,11 @@ namespace WVC_XenotypesAndGenes
 			// Misc
 			listingStandard.Label("WVC_BiotechSettings_Label_Other".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Other".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_generateSkillGenes".Translate().Colorize(ColorLibrary.LightOrange), ref settings.generateSkillGenes, "WVC_ToolTip_generateTemplateGenes_Aptitudes".Translate());
-			// Outdated. No longer supported and maintained
-			if (settings.generateXenotypeForceGenes)
+			if (settings.generateXenotypeForceGenes || Prefs.DevMode)
 			{
-				listingStandard.CheckboxLabeled("WVC_Label_generateXenotypeForceGenes".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.generateXenotypeForceGenes, "WVC_ToolTip_generateTemplateGenes".Translate());
+				listingStandard.CheckboxLabeled("WVC_Label_generateXenotypeForceGenes".Translate().Colorize(ColorLibrary.LightOrange), ref settings.generateXenotypeForceGenes, "WVC_ToolTip_generateXenoForcerGenes".Translate());
 			}
+			// Outdated. No longer supported and maintained
 			if (settings.generateResourceSpawnerGenes)
 			{
 				listingStandard.CheckboxLabeled("WVC_Label_generateResourceSpawnerGenes".Translate().Colorize(ColoredText.SubtleGrayColor), ref settings.generateResourceSpawnerGenes, "WVC_ToolTip_generateTemplateGenes".Translate());
@@ -888,7 +888,10 @@ namespace WVC_XenotypesAndGenes
 				listingStandard.SliderLabeledWithRef("WVC_Label_chimeraStartingGenes".Translate((settings.chimeraStartingGenes).ToString()), ref settings.chimeraStartingGenes, 0f, 50f, round: 0);
 				listingStandard.CheckboxLabeled("WVC_Label_enable_chimeraStartingTools".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_chimeraStartingTools, "WVC_ToolTip_enable_chimeraStartingTools".Translate());
 				listingStandard.SliderLabeledWithRef("WVC_Label_duplicator_RandomOutcomeChance".Translate((settings.duplicator_RandomOutcomeChance).ToString()), ref settings.duplicator_RandomOutcomeChance, 0f, 1f, round: 2, tooltip: "WVC_Tooltip_duplicator_RandomOutcomeChance".Translate());
-				listingStandard.CheckboxLabeled("WVC_Label_enable_MorpherExperimentalMode".Translate().Colorize(ColorLibrary.RedReadable), ref settings.enable_MorpherExperimentalMode, "WVC_ToolTip_enable_MorpherExperimentalMode".Translate());
+				if (settings.enable_MorpherExperimentalMode || Prefs.DevMode)
+				{
+					listingStandard.CheckboxLabeled("WVC_Label_enable_MorpherExperimentalMode".Translate().Colorize(ColorLibrary.RedReadable), ref settings.enable_MorpherExperimentalMode, "WVC_ToolTip_enable_MorpherExperimentalMode".Translate().ToString());
+				}
 			}
 			listingStandard.GapLine();
 			// =

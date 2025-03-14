@@ -18,12 +18,15 @@ ATTENTION: The mod does NOT REQUIRE anything other than the Biotech DLC and Harm
 
 ======================================
 
-Xenotypes and Genes
-The mod adds over 400+ new genes, as well as several xenotypes. Some have little impact on the game, some big. Almost all genes can be found in genepacks.
+The mod contains more than 400 manually created genes, with a unique icon and description for them. This list does not include auto-generated genes, which can be enabled or disabled at the player's discretion. All genes were made with a focus on being within the lore of the game and all the released DLC, and not straying from it. The mod does not have any joke or crazy genes, funny descriptions and other crap.
+
+Note that some genes imply the lore of some DLCs in the descriptions, even if they are available without them.
+
+The mod is already quite a few years old, and in such projects, forgotten descriptions written in a hurry during development or banal typos inevitably appear. Therefore, if you find contradictions in the texts, please report this as well as other bugs in the Steam bug report or GitHub issue.
 
 FAQ
-Q: Can "gene_name" be a separate mod?
-A: No, I will not separate genes into separate mods.
+Q: Can "anything_name" be a separate mod?
+A: No, I will not separate anything into separate mods.
 
 Q: Is it possible to disable graphics?
 A: Yes. In the settings. New game only!
