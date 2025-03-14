@@ -96,9 +96,7 @@ namespace WVC_XenotypesAndGenes
                     {
                         continue;
                     }
-                    StatModifier newStatMod = new();
-                    newStatMod.value = statModifier.value;
-                    newStatMod.stat = statModifier.stat;
+                    StatModifier newStatMod = MiscUtility.MakeStatModifier(statModifier);
                     curStage.statFactors.Add(newStatMod);
                 }
             }
@@ -111,9 +109,7 @@ namespace WVC_XenotypesAndGenes
                     {
                         continue;
                     }
-                    StatModifier newStatMod = new();
-                    newStatMod.value = statModifier.value;
-                    newStatMod.stat = statModifier.stat;
+                    StatModifier newStatMod = MiscUtility.MakeStatModifier(statModifier);
                     curStage.statOffsets.Add(newStatMod);
                 }
             }

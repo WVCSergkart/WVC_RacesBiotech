@@ -125,18 +125,18 @@ namespace WVC_XenotypesAndGenes
 			{
 				foreach (GeneDef inheritableGeneDef in inheritableGeneDefs)
 				{
-					MiscUtility.InheritGeneDefFrom(geneDef, inheritableGeneDef);
+					MiscUtility.CopyStatsFromGeneDef(geneDef, inheritableGeneDef);
 				}
 			}
 		}
 
 		private static void FurskinIsSkin(GeneDef geneDef)
 		{
-			if (!WVC_Biotech.settings.enable_FurskinIsSkinAutopatch || WVC_Biotech.settings.disableFurGraphic)
+			if (geneDef.fur == null)
 			{
 				return;
 			}
-			if (geneDef.fur == null)
+			if (!WVC_Biotech.settings.enable_FurskinIsSkinAutopatch || WVC_Biotech.settings.disableFurGraphic)
 			{
 				return;
 			}

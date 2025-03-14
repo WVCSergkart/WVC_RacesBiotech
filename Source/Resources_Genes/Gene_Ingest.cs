@@ -145,7 +145,7 @@ namespace WVC_XenotypesAndGenes
 				return;
 			}
 			nextTick = 539;
-			if (!pawn.TryGetFood(out Need_Food food))
+			if (!pawn.TryGetNeedFood(out Need_Food food))
 			{
 				autoFeed = false;
 				return;
@@ -290,6 +290,10 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Notify_IngestedThing(Thing thing, int numTaken)
 		{
+			if (!Active)
+			{
+				return;
+			}
 			GeneResourceUtility.IngestedThingWithFactor(this, thing, pawn, 5 * numTaken);
 		}
 
@@ -300,6 +304,10 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Notify_IngestedThing(Thing thing, int numTaken)
 		{
+			if (!Active)
+			{
+				return;
+			}
 			GeneResourceUtility.IngestedThingWithFactor(this, thing, pawn, 5 * numTaken);
 		}
 
@@ -370,7 +378,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (TryHuntForFood())
+			if (Gene_BloodHunter.TryHuntForFood(pawn))
 			{
 				Messages.Message("WVC_XaG_Gene_EternalHunger_HuntWarning".Translate(pawn.NameShortColored.ToString()), pawn, MessageTypeDefOf.NeutralEvent);
 			}
@@ -424,7 +432,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			get
 			{
-				if (!foodNeedDisbled)
+				if (!foodNeedDisabled)
 				{
 					return base.Active;
 				}
@@ -432,20 +440,20 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public bool foodNeedDisbled = false;
+		public bool foodNeedDisabled = false;
 
 		public override void ExposeData()
 		{
 			base.ExposeData();
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
-				foodNeedDisbled = pawn.needs?.food == null;
+				foodNeedDisabled = pawn.needs?.food == null;
 			}
 		}
 
 		public bool TryGetFood()
 		{
-			if (!pawn.TryGetFoodWithRef(out Need_Food need_Food, ref foodNeedDisbled))
+			if (!pawn.TryGetNeedFood_WithRef(out Need_Food need_Food, ref foodNeedDisabled))
 			{
 				return false;
 			}
@@ -613,7 +621,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (!pawn.TryGetFood(out Need_Food food))
+			if (!pawn.TryGetNeedFood(out Need_Food food))
             {
                 return;
             }
@@ -636,7 +644,7 @@ namespace WVC_XenotypesAndGenes
             {
                 return;
             }
-            TryHuntForFood(MiscUtility.PawnDoIngestJob(pawn), queue);
+            Gene_BloodHunter.TryHuntForFood(pawn, MiscUtility.PawnDoIngestJob(pawn), queue);
         }
 
         private void InCaravan()
@@ -697,7 +705,7 @@ namespace WVC_XenotypesAndGenes
 		{
 			GeneResourceUtility.OffsetNeedFood(pawn, Props.nutritionPerBite * victim.BodySize * pawn.GetStatValue(StatDefOf.MaxNutrition));
 			MiscUtility.TryFinalizeAllIngestJobs(pawn);
-			if (pawn.TryGetFood(out Need_Food food) && food.CurLevelPercentage < 0.85f)
+			if (pawn.TryGetNeedFood(out Need_Food food) && food.CurLevelPercentage < 0.85f)
 			{
 				//Log.Error(food.CurLevelPercentage.ToString());
 				TryEat(true);

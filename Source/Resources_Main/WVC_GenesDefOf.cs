@@ -74,7 +74,7 @@ namespace WVC_XenotypesAndGenes
 		// public static JobDef WVC_XenotypesAndGenes_EternalHungerBite;
 		// Damage
 		// public static DamageDef WVC_RegrowingPart;
-		public static HediffDef WVC_RegrowingPart;
+		//public static HediffDef WVC_RegrowingPart;
 		// Backstory
 		public static BackstoryDef WVC_RacesBiotech_Amnesia_Child;
 		public static BackstoryDef WVC_RacesBiotech_Amnesia_Adult;

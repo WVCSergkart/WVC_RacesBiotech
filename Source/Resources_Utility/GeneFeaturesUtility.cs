@@ -413,23 +413,23 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
-		public static bool PawnSkillsNotDecay(Pawn pawn)
-		{
-			return pawn?.genes?.GetFirstGeneOfType<Gene_Learning>() != null;
-		}
+		//public static bool PawnSkillsNotDecay(Pawn pawn)
+		//{
+		//	return pawn?.genes?.GetFirstGeneOfType<Gene_Learning>() != null;
+		//}
 
-		public static bool EyesShouldBeInvisble(Pawn pawn)
-		{
-			if (pawn?.genes == null || pawn?.story == null || pawn?.story?.headType == null)
-			{
-				return false;
-			}
-			if (pawn.story.headType.defName.Contains("WVC_Faceless"))
-			{
-				return true;
-			}
-			return false;
-		}
+		//public static bool EyesShouldBeInvisble(Pawn pawn)
+		//{
+		//	if (pawn?.genes == null || pawn?.story == null || pawn?.story?.headType == null)
+		//	{
+		//		return false;
+		//	}
+		//	if (pawn.story.headType.defName.Contains("WVC_Faceless"))
+		//	{
+		//		return true;
+		//	}
+		//	return false;
+		//}
 
 
 	}

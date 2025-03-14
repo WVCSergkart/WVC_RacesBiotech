@@ -253,14 +253,27 @@ namespace WVC_XenotypesAndGenes
 			// }
 		// }
 
-		public override void Tick()
+		private bool? regenerateEyes;
+		public bool RegenerateEyes
+		{
+			get
+			{
+				if (!regenerateEyes.HasValue)
+                {
+                    regenerateEyes = HealingUtility.ShouldRegenerateEyes(pawn);
+                }
+                return regenerateEyes.Value;
+			}
+		}
+
+        public override void Tick()
 		{
 			base.Tick();
 			if (!pawn.IsHashIntervalTick(22222))
 			{
 				return;
 			}
-			HealingUtility.Regeneration(pawn, WVC_Biotech.settings.shapeshifer_GeneCellularRegeneration, WVC_Biotech.settings.totalHealingIgnoreScarification, 22222);
+			HealingUtility.Regeneration(pawn, WVC_Biotech.settings.shapeshifer_GeneCellularRegeneration, WVC_Biotech.settings.totalHealingIgnoreScarification, 22222, RegenerateEyes);
 		}
 
 		public IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)

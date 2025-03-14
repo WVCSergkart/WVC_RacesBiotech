@@ -327,7 +327,7 @@ namespace WVC_XenotypesAndGenes
                 //GeneResourceUtility.OffsetNeedFood(pawn, 1f, true);
                 return;
             }
-            if (!pawn.TryGetFood(out Need_Food food))
+            if (!pawn.TryGetNeedFood(out Need_Food food))
             {
                 return;
             }

@@ -12,7 +12,7 @@ namespace WVC_XenotypesAndGenes
 	{
 
 		// Regeneration
-		public static void Regeneration(Pawn pawn, float regeneration = -1, bool ignoreScarification = true, int tick = 10)
+		public static void Regeneration(Pawn pawn, float regeneration = -1, bool ignoreScarification = true, int tick = 10, bool regenEyes = true)
 		{
 			List<Hediff_Injury> tmpHediffInjuries = new();
 			List<Hediff_MissingPart> tmpHediffMissing = new();
@@ -40,23 +40,45 @@ namespace WVC_XenotypesAndGenes
 				}
 				if (regeneration > 0f)
 				{
-					pawn.health.hediffSet.GetHediffs(ref tmpHediffMissing, (Hediff_MissingPart h) => h.Part.parent != null && !tmpHediffInjuries.Any((Hediff_Injury x) => x.Part == h.Part.parent) && pawn.health.hediffSet.GetFirstHediffMatchingPart<Hediff_MissingPart>(h.Part.parent) == null && pawn.health.hediffSet.GetFirstHediffMatchingPart<Hediff_AddedPart>(h.Part.parent) == null);
+					pawn.health.hediffSet.GetHediffs(ref tmpHediffMissing, (Hediff_MissingPart missingPart) => missingPart.Part.parent != null && !tmpHediffInjuries.Any((Hediff_Injury injury) => injury.Part == missingPart.Part.parent) && pawn.health.hediffSet.GetFirstHediffMatchingPart<Hediff_MissingPart>(missingPart.Part.parent) == null && pawn.health.hediffSet.GetFirstHediffMatchingPart<Hediff_AddedPart>(missingPart.Part.parent) == null && (regenEyes || !missingPart.Part.def.tags.Contains(BodyPartTagDefOf.SightSource)));
 					using List<Hediff_MissingPart>.Enumerator enumerator3 = tmpHediffMissing.GetEnumerator();
 					if (enumerator3.MoveNext())
 					{
-						Hediff_MissingPart current4 = enumerator3.Current;
-						BodyPartRecord part = current4.Part;
-						pawn.health.RemoveHediff(current4);
-						Hediff hediff2 = pawn.health.AddHediff(HediffDefOf.Misc, part);
-						float partHealth = pawn.health.hediffSet.GetPartHealth(part);
-						hediff2.Severity = Mathf.Max(partHealth - 1f, partHealth * 0.9f);
-						pawn.health.hediffSet.Notify_Regenerated(partHealth - hediff2.Severity);
+						//Hediff_MissingPart current4 = enumerator3.Current;
+						//BodyPartRecord part = current4.Part;
+						//pawn.health.RemoveHediff(current4);
+						//Hediff hediff2 = pawn.health.AddHediff(HediffDefOf.Misc, part);
+						//float partHealth = pawn.health.hediffSet.GetPartHealth(part);
+						//hediff2.Severity = Mathf.Max(partHealth - 1f, partHealth * 0.9f);
+						//pawn.health.hediffSet.Notify_Regenerated(partHealth - hediff2.Severity);
+						HealingUtility.Regenerate(pawn, enumerator3.Current);
 					}
 				}
 			}
 		}
 
-		public static void Immunization(Pawn pawn, float immunization = -1, int tick = 200)
+		public static bool ShouldRegenerateEyes(Pawn pawn)
+		{
+			return !ModLister.IdeologyInstalled || !pawn.ideo.Ideo.IdeoApprovesOfBlindness();
+		}
+
+		public static void Regenerate(Pawn pawn, Hediff hediff)
+        {
+            BodyPartRecord part = hediff.Part;
+            pawn.health.RemoveHediff(hediff);
+            Regenerate(pawn, part);
+        }
+
+        public static void Regenerate(Pawn pawn, BodyPartRecord part, int initialAgeTicks = 0)
+        {
+            Hediff hediff2 = pawn.health.AddHediff(HediffDefOf.Misc, part);
+            float partHealth = pawn.health.hediffSet.GetPartHealth(part);
+            hediff2.Severity = Mathf.Max(partHealth - 1f, partHealth * 0.9f);
+			hediff2.ageTicks = initialAgeTicks;
+			pawn.health.hediffSet.Notify_Regenerated(partHealth - hediff2.Severity);
+        }
+
+        public static void Immunization(Pawn pawn, float immunization = -1, int tick = 200)
 		{
 			//List<HediffWithComps> tmpHediffInjuries = new();
 			immunization *= 0.00333333341f;
@@ -181,94 +203,96 @@ namespace WVC_XenotypesAndGenes
 				{
 					return;
 				}
-				if (pawn.health.WouldDieAfterAddingHediff(WVC_GenesDefOf.WVC_RegrowingPart, part, 0.99f))
+				if (pawn.health.WouldDieAfterAddingHediff(HediffDefOf.Misc, part, 0.99f))
 				{
 					return;
 				}
-				// WVC_GenesDefOf.WVC_RegrowingPart
-				// DamageDefOf.Cut
-				TakeDamage(pawn, part);
-				for (int i = 0; i < part.parts.Count; i++)
+				Regenerate(pawn, part);
+                //TakeDamage(pawn, part);
+                for (int i = 0; i < part.parts.Count; i++)
 				{
+					if (pawn.health.summaryHealth.SummaryHealthPercent < 0.4f)
+					{
+						break;
+					}
 					SetPartWith1HP(pawn, part.parts[i]);
-				}
-			}
+                }
+            }
 		}
 
-		// Regrow
-		public static void SetPartWith1HP(Pawn pawn, BodyPartRecord part)
-		{
-			if (part != null)
+        // Regrow
+        public static void SetPartWith1HP(Pawn pawn, BodyPartRecord part)
+        {
+            if (part != null)
 			{
-				TakeDamage(pawn, part);
-				for (int i = 0; i < part.parts.Count; i++)
-				{
-					SetPartWith1HP(pawn, part.parts[i]);
-				}
-			}
-		}
+				Regenerate(pawn, part, 3600000);
+				//TakeDamage(pawn, part);
+                for (int i = 0; i < part.parts.Count; i++)
+                {
+                    SetPartWith1HP(pawn, part.parts[i]);
+                }
+            }
+        }
 
-		public static void TakeDamage(Pawn pawn, BodyPartRecord part, DamageDef damageDef = null)
-		{
-			if (part.coverageAbs <= 0f)
-			{
-				return;
-			}
-			int num = (int)pawn.health.hediffSet.GetPartHealth(part) - 1;
-			if (damageDef != null)
-			{
-				// Too buggy
-				DamageInfo damageInfo = new(damageDef, num, 999f, -1f, null, part, null, DamageInfo.SourceCategory.ThingOrUnknown, null, false, false);
-				damageInfo.SetAllowDamagePropagation(false);
-				pawn.TakeDamage(damageInfo);
-			}
-			else
-			{
-				// Less buggy
-				Hediff_Injury hediff_Injury = (Hediff_Injury)HediffMaker.MakeHediff(WVC_GenesDefOf.WVC_RegrowingPart, pawn);
-				hediff_Injury.Part = part;
-				hediff_Injury.sourceDef = null;
-				hediff_Injury.sourceBodyPartGroup = null;
-				hediff_Injury.sourceHediffDef = null;
-				hediff_Injury.Severity = num;
-				pawn.health.AddHediff(hediff_Injury);
-			}
-		}
+        //public static void TakeDamage(Pawn pawn, BodyPartRecord part, DamageDef damageDef = null)
+        //{
+        //	if (part.coverageAbs <= 0f)
+        //	{
+        //		return;
+        //	}
+        //	int num = (int)pawn.health.hediffSet.GetPartHealth(part) - 1;
+        //	if (damageDef != null)
+        //	{
+        //		DamageInfo damageInfo = new(damageDef, num, 999f, -1f, null, part, null, DamageInfo.SourceCategory.ThingOrUnknown, null, false, false);
+        //		damageInfo.SetAllowDamagePropagation(false);
+        //		pawn.TakeDamage(damageInfo);
+        //	}
+        //	else
+        //	{
+        //		Hediff_Injury hediff_Injury = (Hediff_Injury)HediffMaker.MakeHediff(WVC_GenesDefOf.WVC_RegrowingPart, pawn);
+        //		hediff_Injury.Part = part;
+        //		hediff_Injury.sourceDef = null;
+        //		hediff_Injury.sourceBodyPartGroup = null;
+        //		hediff_Injury.sourceHediffDef = null;
+        //		hediff_Injury.Severity = num;
+        //		pawn.health.AddHediff(hediff_Injury);
+        //	}
+        //}
 
-		public static void TakeDamage(Pawn pawn, BodyPartRecord part, DamageDef damageDef, int damageNum)
-		{
-			if (part.coverageAbs <= 0f)
-			{
-				return;
-			}
-			DamageInfo damageInfo = new(damageDef, damageNum, 999f, -1f, null, part, null, DamageInfo.SourceCategory.ThingOrUnknown, null, false, false);
-			damageInfo.SetAllowDamagePropagation(false);
-			pawn.TakeDamage(damageInfo);
-		}
+        public static void TakeDamage(Pawn pawn, BodyPartRecord part, DamageDef damageDef, int damageNum)
+        {
+            if (part.coverageAbs <= 0f)
+            {
+                return;
+            }
+            DamageInfo damageInfo = new(damageDef, damageNum, 999f, -1f, null, part, null, DamageInfo.SourceCategory.ThingOrUnknown, null, false, false);
+            damageInfo.SetAllowDamagePropagation(false);
+            pawn.TakeDamage(damageInfo);
+        }
 
-		// Special
-		// public static void RegrowAllBodyParts(Pawn pawn)
-		// {
-		// List<BodyPartRecord> bodyParts = pawn.health.hediffSet.GetNotMissingParts().ToList();
-		// List<BodyPartRecord> missingBodyParts = new();
-		// foreach (Hediff_MissingPart missingPartsCommonAncestor in pawn.health.hediffSet.GetMissingPartsCommonAncestors())
-		// {
-		// BodyPartRecord bodyPart = missingPartsCommonAncestor.Part;
-		// if (pawn.health.hediffSet.PartOrAnyAncestorHasDirectlyAddedParts(bodyPart))
-		// {
-		// continue;
-		// }
-		// missingBodyParts.Add(bodyPart);
-		// }
-		// foreach (BodyPartRecord part in missingBodyParts)
-		// {
-		// RestorePartWith1HP(pawn, part);
-		// }
-		// foreach (BodyPartRecord part in bodyParts)
-		// {
-		// SetPartWith1HP(pawn, part);
-		// }
-		// }
+        // Special
+        // public static void RegrowAllBodyParts(Pawn pawn)
+        // {
+        // List<BodyPartRecord> bodyParts = pawn.health.hediffSet.GetNotMissingParts().ToList();
+        // List<BodyPartRecord> missingBodyParts = new();
+        // foreach (Hediff_MissingPart missingPartsCommonAncestor in pawn.health.hediffSet.GetMissingPartsCommonAncestors())
+        // {
+        // BodyPartRecord bodyPart = missingPartsCommonAncestor.Part;
+        // if (pawn.health.hediffSet.PartOrAnyAncestorHasDirectlyAddedParts(bodyPart))
+        // {
+        // continue;
+        // }
+        // missingBodyParts.Add(bodyPart);
+        // }
+        // foreach (BodyPartRecord part in missingBodyParts)
+        // {
+        // RestorePartWith1HP(pawn, part);
+        // }
+        // foreach (BodyPartRecord part in bodyParts)
+        // {
+        // SetPartWith1HP(pawn, part);
+        // }
+        // }
 
-	}
+    }
 }

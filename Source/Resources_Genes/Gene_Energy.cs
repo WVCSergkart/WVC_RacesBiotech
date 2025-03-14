@@ -80,7 +80,7 @@ namespace WVC_XenotypesAndGenes
 				OffsetNeedFood();
 				return;
 			}
-			if (!pawn.TryGetFood(out Need_Food food))
+			if (!pawn.TryGetNeedFood(out Need_Food food))
 			{
 				return;
 			}

@@ -21,6 +21,11 @@ namespace WVC_XenotypesAndGenes
 			AnomalyHeadsFix();
 		}
 
+		public override void Tick()
+		{
+
+		}
+
 		public void AnomalyHeadsFix()
 		{
 			if (!Active)
@@ -128,18 +133,12 @@ namespace WVC_XenotypesAndGenes
 			}
 			List<Hediff> hediffs = pawn.health.hediffSet.hediffs.Where((hediff) => hediff is Hediff_MissingPart && hediff.Part.def.tags.Contains(BodyPartTagDefOf.SightSource)).ToList();
 			foreach (Hediff hediff in hediffs)
-			{
-				BodyPartRecord part = hediff.Part;
-				pawn.health.RemoveHediff(hediff);
-				Hediff hediff2 = pawn.health.AddHediff(HediffDefOf.Misc, part);
-				float partHealth = pawn.health.hediffSet.GetPartHealth(part);
-				hediff2.Severity = Mathf.Max(partHealth - 1f, partHealth * 0.9f);
-				pawn.health.hediffSet.Notify_Regenerated(partHealth - hediff2.Severity);
-			}
-			//HealingUtility.Regeneration(pawn, 10, WVC_Biotech.settings.totalHealingIgnoreScarification, 3245);
-		}
-
-	}
+            {
+				HealingUtility.Regenerate(pawn, hediff);
+            }
+            //HealingUtility.Regeneration(pawn, 10, WVC_Biotech.settings.totalHealingIgnoreScarification, 3245);
+        }
+    }
 
 	[Obsolete]
 	public class Gene_FleshmassSkin : Gene_FleshEyesSkin

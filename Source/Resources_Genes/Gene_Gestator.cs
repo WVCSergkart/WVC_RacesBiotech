@@ -51,7 +51,7 @@ namespace WVC_XenotypesAndGenes
 				icon = ContentFinder<Texture2D>.Get(def.iconPath),
 				action = delegate
 				{
-					if (MiscUtility.CanStartPregnancy(pawn, Giver))
+					if (MiscUtility.CanStartPregnancy_Gestator(pawn, Giver))
 					{
 						if (UseDialogWarning)
 						{

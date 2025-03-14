@@ -233,22 +233,22 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public static bool TryGetFood(this Pawn pawn, out Need_Food food)
+		public static bool TryGetNeedFood(this Pawn pawn, out Need_Food food)
 		{
 			food = pawn?.needs?.food;
 			return food != null;
 		}
 
-		public static bool TryGetFoodWithRef(this Pawn pawn, out Need_Food food, ref bool foodDisabled)
+		public static bool TryGetNeedFood_WithRef(this Pawn pawn, out Need_Food food, ref bool foodDisabled)
 		{
 			//food = pawn?.needs?.food;
-			foodDisabled = !pawn.TryGetFood(out food);
+			foodDisabled = !pawn.TryGetNeedFood(out food);
 			return !foodDisabled;
 		}
 
 		public static bool TryOffsetNeedFood(Pawn pawn, float offset, float minOffset = 0f)
 		{
-			if (pawn.TryGetFood(out Need_Food need_Food))
+			if (pawn.TryGetNeedFood(out Need_Food need_Food))
 			{
                 float value = Mathf.Clamp(need_Food.CurLevel + offset, 0f, need_Food.MaxLevel);
 				//Log.Error(value.ToString());
@@ -263,7 +263,7 @@ namespace WVC_XenotypesAndGenes
 
 		public static void OffsetNeedFood(Pawn pawn, float offset, bool alwaysMaxValue = false)
 		{
-			if (pawn.TryGetFood(out Need_Food need_Food))
+			if (pawn.TryGetNeedFood(out Need_Food need_Food))
 			{
 				if (alwaysMaxValue)
 				{

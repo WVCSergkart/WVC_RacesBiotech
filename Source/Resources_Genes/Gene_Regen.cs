@@ -14,14 +14,27 @@ namespace WVC_XenotypesAndGenes
 
 		public GeneExtension_Undead Undead => def.GetModExtension<GeneExtension_Undead>();
 
-		public override void Tick()
+		private bool? regenerateEyes;
+		public bool RegenerateEyes
+        {
+			get
+            {
+				if (!regenerateEyes.HasValue)
+				{
+					regenerateEyes = HealingUtility.ShouldRegenerateEyes(pawn);
+				}
+				return regenerateEyes.Value;
+            }
+        }
+
+        public override void Tick()
 		{
 			// base.Tick();
 			if (!pawn.IsHashIntervalTick(676))
 			{
 				return;
 			}
-			HealingUtility.Regeneration(pawn, Undead.regeneration, WVC_Biotech.settings.totalHealingIgnoreScarification, 676);
+			HealingUtility.Regeneration(pawn, Undead.regeneration, WVC_Biotech.settings.totalHealingIgnoreScarification, 676, RegenerateEyes);
 		}
 
 	}
@@ -68,7 +81,7 @@ namespace WVC_XenotypesAndGenes
 
         public virtual void Notify_RepairedBy(Pawn worker, int tick)
 		{
-			HealingUtility.Regeneration(pawn, Undead.regeneration * 10, WVC_Biotech.settings.totalHealingIgnoreScarification, tick);
+			HealingUtility.Regeneration(pawn, Undead.regeneration * 10, WVC_Biotech.settings.totalHealingIgnoreScarification, tick, RegenerateEyes);
 			pawn.stances.stunner.StunFor(tick, worker, addBattleLog: false);
 			GeneResourceUtility.OffsetNeedFood(pawn, -0.01f);
 		}
@@ -122,15 +135,16 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if ((pawn.Downed || !pawn.Awake()) && pawn.Map != null)
+			if (pawn.Map != null && pawn.mechanitor != null && (pawn.Downed || !pawn.Awake()) && pawn.health.summaryHealth.SummaryHealthPercent < 1f)
 			{
-				if (pawn.mechanitor != null && pawn.health.summaryHealth.SummaryHealthPercent < 1f)
+				List<Pawn> mechs = pawn.mechanitor.ControlledPawns;
+				if (!mechs.NullOrEmpty())
 				{
-					GiveRepairJob(pawn.mechanitor.ControlledPawns.Where((mech) => mech.CanReserveAndReach(pawn, PathEndMode.Touch, Danger.Deadly)).RandomElement());
+					GiveRepairJob(mechs.Where((mech) => mech.CanReserveAndReach(pawn, PathEndMode.Touch, Danger.Deadly)).RandomElement());
 				}
 				return;
 			}
-			HealingUtility.Regeneration(pawn, Undead.regeneration, WVC_Biotech.settings.totalHealingIgnoreScarification, 1626);
+			HealingUtility.Regeneration(pawn, Undead.regeneration, WVC_Biotech.settings.totalHealingIgnoreScarification, 1626, RegenerateEyes);
 		}
 
 	}
@@ -179,6 +193,19 @@ namespace WVC_XenotypesAndGenes
 		private float? cachedRegen;
 		private int nextRecache = 0;
 
+		private bool? regenerateEyes;
+		public bool RegenerateEyes
+		{
+			get
+			{
+				if (!regenerateEyes.HasValue)
+				{
+					regenerateEyes = HealingUtility.ShouldRegenerateEyes(pawn);
+				}
+				return regenerateEyes.Value;
+			}
+		}
+
 		public override void Tick()
 		{
 			// base.Tick();
@@ -192,7 +219,7 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (cachedRegen.HasValue)
 			{
-				HealingUtility.Regeneration(pawn, cachedRegen.Value, WVC_Biotech.settings.totalHealingIgnoreScarification, 597);
+				HealingUtility.Regeneration(pawn, cachedRegen.Value, WVC_Biotech.settings.totalHealingIgnoreScarification, 597, RegenerateEyes);
 			}
 		}
 

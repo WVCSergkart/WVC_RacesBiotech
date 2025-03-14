@@ -82,9 +82,22 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_Deathrest_Healing : Gene_DeathrestDependant
 	{
 
+		private bool? regenerateEyes;
+		public bool RegenerateEyes
+		{
+			get
+			{
+				if (!regenerateEyes.HasValue)
+				{
+					regenerateEyes = HealingUtility.ShouldRegenerateEyes(pawn);
+				}
+				return regenerateEyes.Value;
+			}
+		}
+
 		public override void DoTick(int tick)
 		{
-			HealingUtility.Regeneration(pawn, Undead.regeneration, WVC_Biotech.settings.totalHealingIgnoreScarification, tick);
+			HealingUtility.Regeneration(pawn, Undead.regeneration, WVC_Biotech.settings.totalHealingIgnoreScarification, tick, RegenerateEyes);
 		}
 
 	}

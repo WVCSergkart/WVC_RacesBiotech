@@ -117,6 +117,8 @@
 	<!-- <WVC_XaG_DarknessExposureImmunity>darkness adaptation</WVC_XaG_DarknessExposureImmunity> -->
 	<!-- <WVC_XaG_DarknessExposureImmunityDesc>This creature is not susceptible to the dangers lurking in the unnatural darkness.</WVC_XaG_DarknessExposureImmunityDesc> -->
 
+	<WVC_XaG_HemogenicMetabolism_LowHemogen>Hemogen level too low. Conversion of hemogen into nutrients is no longer possible.</WVC_XaG_HemogenicMetabolism_LowHemogen>
+
 	<!-- ============================ BiosculpterPod ============================ -->
 
 	<WVC_XaG_XenogermCycleCompleted>{PAWN_labelShort} completed {1} cycle.</WVC_XaG_XenogermCycleCompleted>

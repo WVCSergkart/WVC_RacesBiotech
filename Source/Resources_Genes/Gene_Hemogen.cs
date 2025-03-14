@@ -89,7 +89,7 @@ namespace WVC_XenotypesAndGenes
 					defaultLabel = "DEV: TryHuntForFood",
 					action = delegate
 					{
-						if (!TryHuntForFood())
+						if (!TryHuntForFood(pawn))
 						{
 							Log.Error("Target is null");
 						}
@@ -98,7 +98,7 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public virtual bool TryHuntForFood(bool requestQueueing = true, bool queue = false)
+		public static bool TryHuntForFood(Pawn pawn, bool requestQueueing = true, bool queue = false)
 		{
 			if (!queue && Gene_Rechargeable.PawnHaveThisJob(pawn, WVC_GenesDefOf.WVC_XaG_CastBloodfeedOnPawnMelee))
 			{
@@ -244,14 +244,29 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
-	public class Gene_Bloodfeeder : Gene_BloodHunter
+	public class Gene_Bloodfeeder : Verse.Gene_Bloodfeeder
 	{
-		public override void PostAdd()
+		//public override void PostAdd()
+		//{
+		//	base.PostAdd();
+		//	if (pawn.IsPrisonerOfColony && pawn.guest != null && pawn.guest.HasInteractionWith((PrisonerInteractionModeDef interaction) => interaction.hideIfNoBloodfeeders))
+		//	{
+		//		pawn.guest.SetNoInteraction();
+		//	}
+		//}
+
+		[Unsaved(false)]
+		private Gene_Hemogen cachedHemogenGene;
+
+		public Gene_Hemogen Hemogen
 		{
-			base.PostAdd();
-			if (pawn.IsPrisonerOfColony && pawn.guest != null && pawn.guest.HasInteractionWith((PrisonerInteractionModeDef interaction) => interaction.hideIfNoBloodfeeders))
+			get
 			{
-				pawn.guest.SetNoInteraction();
+				if (cachedHemogenGene == null || !cachedHemogenGene.Active)
+				{
+					cachedHemogenGene = pawn?.genes?.GetFirstGeneOfType<Gene_Hemogen>();
+				}
+				return cachedHemogenGene;
 			}
 		}
 
@@ -262,11 +277,11 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			if (Hemogen?.ShouldConsumeHemogenNow() != true)
+			if (pawn.Faction != Faction.OfPlayer)
 			{
 				return;
 			}
-			if (pawn.Faction != Faction.OfPlayer)
+			if (Hemogen?.ShouldConsumeHemogenNow() != true)
 			{
 				return;
 			}
@@ -280,7 +295,7 @@ namespace WVC_XenotypesAndGenes
 			{
 				return;
 			}
-			TryHuntForFood();
+			Gene_BloodHunter.TryHuntForFood(pawn);
 		}
 
 		private void InCaravan()
@@ -343,6 +358,7 @@ namespace WVC_XenotypesAndGenes
 			if (Hemogen == null || Hemogen.MinLevelForAlert > Hemogen.Value)
 			{
 				consumeHemogen = false;
+				Messages.Message("WVC_XaG_HemogenicMetabolism_LowHemogen".Translate(), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
 			}
 		}
 

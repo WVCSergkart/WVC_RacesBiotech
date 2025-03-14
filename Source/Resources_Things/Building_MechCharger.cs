@@ -343,7 +343,7 @@ namespace WVC_XenotypesAndGenes
 				{
 					action = delegate
 					{
-						if (currentlyChargingMech.TryGetFood(out Need_Food food))
+						if (currentlyChargingMech.TryGetNeedFood(out Need_Food food))
 						{
 							food.CurLevelPercentage = 1f;
 						}
