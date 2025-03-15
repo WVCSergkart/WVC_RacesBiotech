@@ -181,7 +181,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void OffsetNeedFood()
 		{
-			if (Props?.foodPoisoningFromFood != false || !WVC_Biotech.settings.rechargeable_enablefoodPoisoningFromFood)
+			if (Props?.foodPoisoningFromFood != false)
 			{
 				GeneResourceUtility.OffsetNeedFood(pawn, 0.25f);
 			}
@@ -224,7 +224,7 @@ namespace WVC_XenotypesAndGenes
             {
 				return;
             }
-			if (Props?.foodPoisoningFromFood == false || !WVC_Biotech.settings.rechargeable_enablefoodPoisoningFromFood)
+			if (Props?.foodPoisoningFromFood == false)
 			{
 				return;
 			}

@@ -265,6 +265,8 @@ namespace WVC_XenotypesAndGenes
 		public bool enable_chimeraStartingTools = true;
 		// Duplicator
 		public float duplicator_RandomOutcomeChance = 0.66f;
+		// Fleshmass
+		public float fleshmass_MaxMutationsLevel = 5f;
 		// DryadQueen
 		public bool enable_dryadQueenMechanicGenerator = true;
 		public float gestatedDryads_FilthRateFactor = 0.1f;

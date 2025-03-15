@@ -135,7 +135,7 @@
 		<!-- = -->
 		<li>WVC_Undead</li>
 		<li>WVC_NeverDead</li>
-		<li>WVC_NaturalUndead</li>
+		<!-- <li>WVC_NaturalUndead</li> -->
 		<!-- = -->
 		<li>WVC_BodySize_Large</li>
 		<li>WVC_BodySize_Average</li>
@@ -169,85 +169,6 @@
 		<li MayRequire="ludeon.rimworld.ideology">Gaumaker</li>
 		<li MayRequire="sarg.alphamemes">AM_Corruptor</li>
 	</ignoredGauranlenTreeModeDefs>
-	<!-- Obsolete. Genes that the shapeshifter can move between forms. Required any GeneDefs -->
-	<!-- <shapeshifterHeritableGenes> -->
-		<!-- <li>Deathless</li> -->
-		<!-- <li>WVC_Undead</li> -->
-		<!-- <li>WVC_Shapeshift_Deathless</li> -->
-		<!-- <li>WVC_PostShapeshift_Recovery</li> -->
-		<!-- <li>WVC_PostShapeshift_Regeneration</li> -->
-		<!-- <li>WVC_PostShapeshift_Metabolism</li> -->
-		<!-- <li MayRequire="ludeon.rimworld.ideology">WVC_PostShapeshift_Scarred</li> -->
-	<!-- </shapeshifterHeritableGenes> -->
-	<!-- (Experimental) Similar geneDefs. Required any GeneDefs -->
-	<identicalGeneDefs>
-	  <li>
-		<sourceGeneDef>WVC_ReimplanterArchite_Xenogenes</sourceGeneDef>
-		<dupGeneDefs>
-		  <li>XenogermReimplanter</li>
-		</dupGeneDefs>
-	  </li>
-	  <li>
-		<sourceGeneDef>WVC_PsychicAbility_Deaf</sourceGeneDef>
-		<dupGeneDefs>
-		  <li>PsychicAbility_Deaf</li>
-		</dupGeneDefs>
-	  </li>
-	  <li>
-		<sourceGeneDef>WVC_PsychicAbility_Dull</sourceGeneDef>
-		<dupGeneDefs>
-		  <li>PsychicAbility_Dull</li>
-		</dupGeneDefs>
-	  </li>
-	  <!-- <li> -->
-		<!-- <sourceGeneDef>WVC_Eyes_ce6969_HEX</sourceGeneDef> -->
-		<!-- <dupGeneDefs> -->
-		  <!-- <li>Eyes_Red</li> -->
-		<!-- </dupGeneDefs> -->
-	  <!-- </li> -->
-	  <!-- <li> -->
-		<!-- <sourceGeneDef>WVC_Eyes_afafaf_HEX</sourceGeneDef> -->
-		<!-- <dupGeneDefs> -->
-		  <!-- <li>Eyes_Gray</li> -->
-		<!-- </dupGeneDefs> -->
-	  <!-- </li> -->
-	  <li>
-		<sourceGeneDef>WVC_ReimplanterArchite_Endogenes</sourceGeneDef>
-		<dupGeneDefs>
-		  <li MayRequire="vanillaracesexpanded.lycanthrope">VRE_GermlineReimplanter</li>
-		</dupGeneDefs>
-	  </li>
-	  <li>
-		<sourceGeneDef>WVC_Pain_Extra</sourceGeneDef>
-		<dupGeneDefs>
-		  <li>Pain_Extra</li>
-		</dupGeneDefs>
-	  </li>
-	  <li>
-		<sourceGeneDef>WVC_Delicate</sourceGeneDef>
-		<dupGeneDefs>
-		  <li>Delicate</li>
-		</dupGeneDefs>
-	  </li>
-	  <!-- <li> -->
-		<!-- <sourceGeneDef>WVC_GauntSkin</sourceGeneDef> -->
-		<!-- <dupGeneDefs> -->
-		  <!-- <li>Head_Gaunt</li> -->
-		<!-- </dupGeneDefs> -->
-	  <!-- </li> -->
-	  <li>
-		<sourceGeneDef>WVC_BodySize_Large</sourceGeneDef>
-		<dupGeneDefs>
-		  <li MayRequire="vanillaracesexpanded.hussar">VREH_Giant</li>
-		</dupGeneDefs>
-	  </li>
-	  <li>
-		<sourceGeneDef>WVC_Tough</sourceGeneDef>
-		<dupGeneDefs>
-		  <li MayRequire="vanillaracesexpanded.hussar">VREH_Toughness</li>
-		</dupGeneDefs>
-	  </li>
-	</identicalGeneDefs>
   </WVC_XenotypesAndGenes.XenotypesAndGenesListDef>
 
   <!-- ======================================================================= -->

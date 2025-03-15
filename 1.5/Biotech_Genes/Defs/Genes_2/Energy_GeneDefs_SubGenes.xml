@@ -103,12 +103,12 @@
 	<exclusionTags>
 	  <li>WVC_MechaAI_SoftwareDisableTalking</li>
 	</exclusionTags>
-	<modExtensions>
-		<li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion">
-			<MeAboutThoughtDef>WVC_XenotypesAndGenes_Hater</MeAboutThoughtDef>
-			<ignoreIfHasGene>true</ignoreIfHasGene>
-		</li>
-	</modExtensions>
+	<!-- <modExtensions> -->
+		<!-- <li Class="WVC_XenotypesAndGenes.GeneExtension_Opinion"> -->
+			<!-- <MeAboutThoughtDef>WVC_XenotypesAndGenes_Hater</MeAboutThoughtDef> -->
+			<!-- <ignoreIfHasGene>true</ignoreIfHasGene> -->
+		<!-- </li> -->
+	<!-- </modExtensions> -->
   </GeneDef>
 
   <!-- ============== -->

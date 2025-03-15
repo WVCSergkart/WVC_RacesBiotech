@@ -23,7 +23,6 @@ namespace WVC_XenotypesAndGenes
 		public bool disableUniqueGeneInterface = false;
 		public bool disableEyesGraphic = false;
 		public bool useMaskForFurskinGenes = true;
-		// public bool enableBodySizeGenes = true;
 		// Generator
 		public bool generateSkillGenes = true;
 		public bool generateXenotypeForceGenes = false;
@@ -32,50 +31,27 @@ namespace WVC_XenotypesAndGenes
 		// Genes
 		public bool onlyXenotypesMode = false;
 		public bool canNonPlayerPawnResurrect = true;
-		//public bool allowShapeshiftAfterDeath = true;
 		public bool totalHealingIgnoreScarification = true;
-		// public bool genesRemoveMechlinkUponDeath = false;
-		// public bool enableCustomMechLinkName = false;
-		// public bool shapeshifterGeneUnremovable = true;
 		public bool enableIncestLoverGene = true;
 		public bool disableNonAcceptablePreyGenes = false;
 		public bool enableHarmonyTelepathyGene = false;
 		public bool enable_OverOverridableGenesMechanic = false;
-		// public bool useAlternativeDustogenicFoodJob = true;
 		public bool learningTelepathWorkForBothSides = false;
 		public bool disableUniqueXenotypeScenarios = false;
 		public bool restoreBodyPartsWithFullHP = false;
-		// public bool reimplantResurrectionRecruiting = false;
 		public bool thrallMaker_ThrallsInheritMasterGenes = true;
 		// Info
 		public bool enable_xagHumanComponent = true;
 		public bool enable_StartingFoodPolicies = true;
-		// public bool enableGeneSpawnerGizmo = true;
-		// public bool enableGeneWingInfo = false;
-		// public bool enableGeneBlesslinkInfo = true;
-		// public bool enableGeneUndeadInfo = false;
-		// public bool enableGeneScarifierInfo = false;
-		// public bool enableGeneInstabilityInfo = true;
-		// public bool enableGeneGauranlenConnectionInfo = true;
-		// Serums
-		// public bool serumsForAllXenotypes = false;
-		// public bool serumsForAllXenotypes_GenBase = true;
-		// public bool serumsForAllXenotypes_GenUltra = false;
-		// public bool serumsForAllXenotypes_GenHybrid = false;
-		// public bool serumsForAllXenotypes_Recipes = true;
-		// public bool serumsForAllXenotypes_Spawners = false;
 		// ExtraSettings
 		public bool genesCanTickOnlyOnMap = false;
 		public bool enable_flatGenesSpawnChances = false;
-		// public float flatGenesSpawnChances_selectionWeight = 0.001f;
-		//public bool enable_ReplaceSimilarGenesAutopatch = false;
 		// Fix
 		public bool fixVanillaGeneImmunityCheck = true;
 		public bool spawnXenoForcerSerumsFromTraders = true;
 		public bool resetGenesOnLoad = false;
 		public bool fixGeneAbilitiesOnLoad = false;
 		public bool fixGeneTypesOnLoad = false;
-		// public bool fixThrallTypesOnLoad = false;
 		// Gestator
 		public bool enable_birthQualityOffsetFromGenes = true;
 		public float xenotypeGestator_GestationTimeFactor = 1f;
@@ -87,7 +63,6 @@ namespace WVC_XenotypesAndGenes
 		// Hemogenic
 		public bool harmony_EnableGenesMechanicsTriggers = true;
 		public bool bloodeater_SafeBloodfeed = false;
-		//public bool bloodeater_disableAutoFeed = false;
 		public bool bloodfeeder_AutoBloodfeed = false;
 		public float hemogenic_ImplanterFangsChanceFactor = 1f;
 		// Thralls
@@ -98,8 +73,6 @@ namespace WVC_XenotypesAndGenes
 		public bool link_addedPsylinkWithGene = false;
 		public float mechlink_HediffFromGeneChance = 0.02f;
 		public float psylink_HediffFromGeneChance = 0.02f;
-		//public bool link_removeMechlinkWithGene = false;
-		//public bool link_removePsylinkWithGene = false;
 		public float golemnoids_ShutdownRechargePerTick = 1f;
 		public bool golembond_ShrinesStatPartOffset = false;
 		public IntRange golemlink_spawnIntervalRange = new(240000, 420000);
@@ -109,25 +82,22 @@ namespace WVC_XenotypesAndGenes
 		public float voidlink_mechCostFactor = 2f;
 		public float voidlink_mechCostLimit = 99f;
 		// Shapeshifter
-		// public bool shapeshifter_enableStyleButton = true;
 		public float shapeshifer_GeneCellularRegeneration = 1f;
 		public bool enable_MorpherExperimentalMode = false;
 		// Chimera
 		public bool enable_chimeraMetabolismHungerFactor = true;
-		//public float chimeraMinGeneCopyChance = 0.35f;
 		public float chimeraStartingGenes = 5f;
 		public bool enable_chimeraStartingTools = true;
 		// Duplicator
 		public float duplicator_RandomOutcomeChance = 0.66f;
+		// Fleshmass
+		public float fleshmass_MaxMutationsLevel = 5f;
 		// DryadQueen
 		public bool enable_dryadQueenMechanicGenerator = true;
 		public float gestatedDryads_FilthRateFactor = 0.1f;
 		public float gestatedDryads_AnomalyRegeneration = 0f;
-		// Rechargeable
-		public bool rechargeable_enablefoodPoisoningFromFood = true;
 		// Xenotypes
 		public bool enable_spawnXenotypesInFactions = false;
-		// public bool increasedXenotypesFactionlessGenerationWeight_MainSwitch = false;
 		public bool disableXenotypes_MainSwitch = false;
 		public bool disableXenotypes_Undeads = false;
 		public bool disableXenotypes_Psycasters = false;
@@ -135,10 +105,7 @@ namespace WVC_XenotypesAndGenes
 		public bool disableXenotypes_GolemMasters = false;
 		public bool disableXenotypes_Bloodeaters = false;
 		public bool disableXenotypes_Misc = false;
-		// PregnantHuman
-		// public bool pregnantHuman_TrueParentGenesPatch = false;
-		// public bool pregnantHuman_InheritSurrogateGenes = false;
-		// public bool pregnantHuman_InheritArchiteGenes = false;
+		// Misc
 		public bool geneGizmosDefaultCollapse = false;
 		public bool showGenesSettingsGizmo = true;
 
@@ -261,7 +228,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref gestatedDryads_FilthRateFactor, "gestatedDryads_FilthRateFactor", defaultValue: 0.1f);
 			Scribe_Values.Look(ref gestatedDryads_AnomalyRegeneration, "gestatedDryads_AnomalyRegeneration", defaultValue: 0f);
 			// Rechargeable
-			Scribe_Values.Look(ref rechargeable_enablefoodPoisoningFromFood, "rechargeable_enablefoodPoisoningFromFood", defaultValue: true);
+			//Scribe_Values.Look(ref rechargeable_enablefoodPoisoningFromFood, "rechargeable_enablefoodPoisoningFromFood", defaultValue: true);
 			// Reincarnation
 			Scribe_Values.Look(ref disableXenotypes_MainSwitch, "disableXenotypes_MainSwitch", defaultValue: false);
 			Scribe_Values.Look(ref disableXenotypes_Undeads, "disableXenotypes_Undeads", defaultValue: false);
@@ -557,7 +524,7 @@ namespace WVC_XenotypesAndGenes
 			// Extra
 			listingStandard.Label("WVC_BiotechSettings_Label_Genes".Translate() + ":", -1, "WVC_BiotechSettings_Tooltip_Genes".Translate());
 			listingStandard.CheckboxLabeled("WVC_Label_genesCanTickOnlyOnMap".Translate().Colorize(ColorLibrary.LightPurple), ref settings.genesCanTickOnlyOnMap, "WVC_ToolTip_genesCanTickOnlyOnMap".Translate());
-			listingStandard.CheckboxLabeled("WVC_Label_flatGenesSpawnChances".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_flatGenesSpawnChances, "WVC_ToolTip_flatGenesSpawnChances".Translate());
+			listingStandard.CheckboxLabeled("WVC_Label_flatGenesSpawnChances".Translate(), ref settings.enable_flatGenesSpawnChances, "WVC_ToolTip_flatGenesSpawnChances".Translate());
 			//listingStandard.CheckboxLabeled("WVC_Label_enable_ReplaceSimilarGenesAutopatch".Translate().Colorize(ColorLibrary.LightBlue), ref settings.enable_ReplaceSimilarGenesAutopatch, "WVC_ToolTip_enable_ReplaceSimilarGenesAutopatch".Translate());
 			// listingStandard.CheckboxLabeled("WVC_Label_autoPatchVanillaArchiteImmunityGenes".Translate().Colorize(ColorLibrary.LightBlue), ref settings.autoPatchVanillaArchiteImmunityGenes, "WVC_ToolTip_autoPatchVanillaArchiteImmunityGenes".Translate());
 			listingStandard.Gap();
@@ -741,11 +708,12 @@ namespace WVC_XenotypesAndGenes
 		private bool collapse_genesSettings_general = false;
 		private bool collapse_genesSettings_MechAndPsyLinks = false;
 		private bool collapse_genesSettings_Hemogenic = false;
-		private bool collapse_genesSettings_Energy = false;
+		//private bool collapse_genesSettings_Energy = false;
 		private bool collapse_genesSettings_XenotypeGestator = false;
 		private bool collapse_genesSettings_Undead = false;
 		private bool collapse_genesSettings_TotalHealing = false;
 		private bool collapse_genesSettings_Shapeshifer = false;
+		private bool collapse_genesSettings_Anomaly = false;
 		private bool collapse_genesSettings_DryadQueen = false;
 
 
@@ -814,16 +782,15 @@ namespace WVC_XenotypesAndGenes
 			}
 			listingStandard.GapLine();
 			// =
-			if (listingStandard.ButtonTextWithTooltip("WVC_XaGGeneSettings_Energy".Translate()))
-			{
-				collapse_genesSettings_Energy = !collapse_genesSettings_Energy;
-			}
-			if (collapse_genesSettings_Energy)
-			{
-				//listingStandard.Label("WVC_XaGGeneSettings_Energy".Translate() + ":", -1);
-				listingStandard.CheckboxLabeled("WVC_Label_rechargeable_enablefoodPoisoningFromFood".Translate().Colorize(ColorLibrary.LightBlue), ref settings.rechargeable_enablefoodPoisoningFromFood, "WVC_ToolTip_rechargeable_enablefoodPoisoningFromFood".Translate());
-			}
-			listingStandard.GapLine();
+			//if (listingStandard.ButtonTextWithTooltip("WVC_XaGGeneSettings_Energy".Translate()))
+			//{
+			//	collapse_genesSettings_Energy = !collapse_genesSettings_Energy;
+			//}
+			//if (collapse_genesSettings_Energy)
+			//{
+			//	listingStandard.CheckboxLabeled("WVC_Label_rechargeable_enablefoodPoisoningFromFood".Translate().Colorize(ColorLibrary.LightBlue), ref settings.rechargeable_enablefoodPoisoningFromFood, "WVC_ToolTip_rechargeable_enablefoodPoisoningFromFood".Translate());
+			//}
+			//listingStandard.GapLine();
 			// =
 			if (listingStandard.ButtonTextWithTooltip("WVC_XaGGeneSettings_XenotypeGestator".Translate()))
 			{
@@ -894,17 +861,27 @@ namespace WVC_XenotypesAndGenes
 				}
 			}
 			listingStandard.GapLine();
-			// =
-			//listingStandard.Label("WVC_XaGGeneSettings_IncestLover".Translate() + ":", -1);
-			//listingStandard.GapLine();
-			//listingStandard.Label("WVC_XaGGeneSettings_AcceptablePrey".Translate() + ":", -1);
-			//listingStandard.GapLine();
-			//listingStandard.Label("WVC_XaGGeneSettings_Telepath".Translate() + ":", -1);
-			//listingStandard.GapLine();
-			//listingStandard.Label("WVC_XaGGeneSettings_TelepathStudy".Translate() + ":", -1);
-			//listingStandard.GapLine();
-			// =
-			if (listingStandard.ButtonTextWithTooltip("WVC_XaGGeneSettings_DryadQueen".Translate()))
+            // =
+            if (listingStandard.ButtonTextWithTooltip("WVC_XaGGeneSettings_Fleshmass".Translate()))
+            {
+				collapse_genesSettings_Anomaly = !collapse_genesSettings_Anomaly;
+            }
+            if (collapse_genesSettings_Anomaly)
+            {
+                listingStandard.SliderLabeledWithRef("WVC_Label_fleshmass_MaxMutationsLevel".Translate(settings.fleshmass_MaxMutationsLevel), ref settings.fleshmass_MaxMutationsLevel, 0f, 100f, "WVC_ToolTip_fleshmass_MaxMutationsLevel".Translate(), 0);
+            }
+            listingStandard.GapLine();
+            // =
+            //listingStandard.Label("WVC_XaGGeneSettings_IncestLover".Translate() + ":", -1);
+            //listingStandard.GapLine();
+            //listingStandard.Label("WVC_XaGGeneSettings_AcceptablePrey".Translate() + ":", -1);
+            //listingStandard.GapLine();
+            //listingStandard.Label("WVC_XaGGeneSettings_Telepath".Translate() + ":", -1);
+            //listingStandard.GapLine();
+            //listingStandard.Label("WVC_XaGGeneSettings_TelepathStudy".Translate() + ":", -1);
+            //listingStandard.GapLine();
+            // =
+            if (listingStandard.ButtonTextWithTooltip("WVC_XaGGeneSettings_DryadQueen".Translate()))
 			{
 				collapse_genesSettings_DryadQueen = !collapse_genesSettings_DryadQueen;
 			}
@@ -1101,7 +1078,8 @@ namespace WVC_XenotypesAndGenes
 			WVC_Biotech.settings.voidlink_mechCostFactor = settingsDef.voidlink_mechCostFactor;
 			WVC_Biotech.settings.voidlink_mechCostLimit = settingsDef.voidlink_mechCostLimit;
 			// =
-			WVC_Biotech.settings.rechargeable_enablefoodPoisoningFromFood = settingsDef.rechargeable_enablefoodPoisoningFromFood;
+			//WVC_Biotech.settings.rechargeable_enablefoodPoisoningFromFood = settingsDef.rechargeable_enablefoodPoisoningFromFood;
+			WVC_Biotech.settings.fleshmass_MaxMutationsLevel = settingsDef.fleshmass_MaxMutationsLevel;
 			// =
 			// Extra
 			WVC_Biotech.settings.genesCanTickOnlyOnMap = settingsDef.genesCanTickOnlyOnMap;

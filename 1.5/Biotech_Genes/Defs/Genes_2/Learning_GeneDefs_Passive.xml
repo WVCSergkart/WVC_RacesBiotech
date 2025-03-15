@@ -13,7 +13,7 @@
 	<biostatArc>3</biostatArc>
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
-		<li>Every (*DateTime)1-2 days(/DateTime) increases one random &lt;color=#8a8ae6&gt;skill&lt;/color&gt; by one &lt;color=#8a8ae6&gt;level&lt;/color&gt;, maximum 20.</li>
+		<li>Every (*DateTime)2-4 days(/DateTime) increases one random &lt;color=#8a8ae6&gt;skill&lt;/color&gt; by one &lt;color=#8a8ae6&gt;level&lt;/color&gt;, maximum 20.</li>
 		<li>Skills related to &lt;color=#8a8ae6&gt;passion&lt;/color&gt; have a higher priority regardless of &lt;color=#8a8ae6&gt;aptitudes&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<statFactors>

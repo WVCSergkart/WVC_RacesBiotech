@@ -8,10 +8,10 @@
 	<WVC_BiotechSettings_Tab_ExtraSettings>Extra</WVC_BiotechSettings_Tab_ExtraSettings>
 
 	<WVC_XaGGeneSettings_XenotypeGestator>Xenotype gestator</WVC_XaGGeneSettings_XenotypeGestator>
-	<WVC_XaGGeneSettings_Undead>Undead</WVC_XaGGeneSettings_Undead>
+	<WVC_XaGGeneSettings_Undead>Undead, Thralls, Destined dead (reincarnation)</WVC_XaGGeneSettings_Undead>
 	<WVC_XaGGeneSettings_Thralls>Thralls</WVC_XaGGeneSettings_Thralls>
 	<WVC_XaGGeneSettings_Reincarnation>Destined dead</WVC_XaGGeneSettings_Reincarnation>
-	<WVC_XaGGeneSettings_Shapeshifer>Shapeshifer</WVC_XaGGeneSettings_Shapeshifer>
+	<WVC_XaGGeneSettings_Shapeshifer>Shapeshifer, Morpher, Chimera, Duplicator</WVC_XaGGeneSettings_Shapeshifer>
 	<WVC_XaGGeneSettings_TotalHealing>Total healing and similar</WVC_XaGGeneSettings_TotalHealing>
 	<WVC_XaGGeneSettings_IncestLover>Incest lover</WVC_XaGGeneSettings_IncestLover>
 	<WVC_XaGGeneSettings_AcceptablePrey>Tasty (Acceptable Prey)</WVC_XaGGeneSettings_AcceptablePrey>
@@ -20,8 +20,9 @@
 	<WVC_XaGGeneSettings_TelepathStudy>Telepath study</WVC_XaGGeneSettings_TelepathStudy>
 	<WVC_XaGGeneSettings_Hemogenic>Hemogenic</WVC_XaGGeneSettings_Hemogenic>
 	<WVC_XaGGeneSettings_Energy>Energy (Rechargeable)</WVC_XaGGeneSettings_Energy>
-	<WVC_XaGGeneSettings_MechAndPsyLinks>Mechlink and Psylink</WVC_XaGGeneSettings_MechAndPsyLinks>
+	<WVC_XaGGeneSettings_MechAndPsyLinks>Mechlinks and Psylinks</WVC_XaGGeneSettings_MechAndPsyLinks>
 	<WVC_XaGGeneSettings_DryadQueen>Dryad queen</WVC_XaGGeneSettings_DryadQueen>
+	<WVC_XaGGeneSettings_Fleshmass>Anomaly (Fleshmass)</WVC_XaGGeneSettings_Fleshmass>
 
 	<WVC_Label_harmony_EnableGenesMechanicsTriggers>Enable genes triggers</WVC_Label_harmony_EnableGenesMechanicsTriggers>
 	<WVC_ToolTip_harmony_EnableGenesMechanicsTriggers>If enabled, the harmony patch will add triggers that are needed for some complex genes to work. Disabling this option will not prevent the mod from working, but it can greatly affect most of the mechanics.
@@ -252,14 +253,19 @@ A restart is required.</WVC_ToolTip_disableNonAcceptablePreyGenes>
 
 	<!-- ================================== -->
 
-	<WVC_Label_rechargeable_enablefoodPoisoningFromFood>Enable food poisoning from any food</WVC_Label_rechargeable_enablefoodPoisoningFromFood>
-	<WVC_ToolTip_rechargeable_enablefoodPoisoningFromFood>If enabled, pawns with the "Rechargeable" gene will get poisoned from food.
+	<!-- <WVC_Label_rechargeable_enablefoodPoisoningFromFood>Enable food poisoning from any food</WVC_Label_rechargeable_enablefoodPoisoningFromFood> -->
+	<!-- <WVC_ToolTip_rechargeable_enablefoodPoisoningFromFood>If enabled, pawns with the "Rechargeable" gene will get poisoned from food. -->
 
-This affects all rechargeable class genes that cause poisoning.</WVC_ToolTip_rechargeable_enablefoodPoisoningFromFood>
+<!-- This affects all rechargeable class genes that cause poisoning.</WVC_ToolTip_rechargeable_enablefoodPoisoningFromFood> -->
 
 	<!-- ================================== -->
 
 	<WVC_Label_duplicator_RandomOutcomeChance>Duplicator random outcome chance {0}%</WVC_Label_duplicator_RandomOutcomeChance>
 	<WVC_Tooltip_duplicator_RandomOutcomeChance>Affects the chance that something will be wrong with the duplicate. Requires the Anomaly DLC, for obvious reasons.</WVC_Tooltip_duplicator_RandomOutcomeChance>
+
+	<!-- ================================== -->
+
+	<WVC_Label_fleshmass_MaxMutationsLevel>Max mutations level {0}</WVC_Label_fleshmass_MaxMutationsLevel>
+	<WVC_ToolTip_fleshmass_MaxMutationsLevel>The maximum possible level that mutations created by the fleshmass nucleus gene can gain. The special bonus is present only for level 5, lower or higher mutation will receive a standard bonus only to efficiency and regeneration.</WVC_ToolTip_fleshmass_MaxMutationsLevel>
 
 </LanguageData>

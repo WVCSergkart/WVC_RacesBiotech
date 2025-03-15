@@ -308,7 +308,7 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_CyclicallySelfLearning : Gene
 	{
 
-		private int hashIntervalTick = 6000;
+		private int hashIntervalTick = 36000;
 
 		public override void PostAdd()
 		{
@@ -318,17 +318,13 @@ namespace WVC_XenotypesAndGenes
 
 		public override void Tick()
 		{
-			base.Tick();
+			//base.Tick();
 			if (!pawn.IsHashIntervalTick(hashIntervalTick))
 			{
 				return;
 			}
-			if (!Active)
-			{
-				return;
-			}
-			TryLearning();
 			ResetInterval();
+			TryLearning();
 		}
 
 		public void TryLearning()
@@ -338,7 +334,7 @@ namespace WVC_XenotypesAndGenes
 
 		private void ResetInterval()
 		{
-			IntRange range = new(60000, 120000);
+			IntRange range = new(120000, 240000);
 			hashIntervalTick = range.RandomInRange;
 		}
 
@@ -360,7 +356,7 @@ namespace WVC_XenotypesAndGenes
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Values.Look(ref hashIntervalTick, "hashIntervalTick", 6000);
+			Scribe_Values.Look(ref hashIntervalTick, "hashIntervalTick", 36000);
 		}
 
 	}

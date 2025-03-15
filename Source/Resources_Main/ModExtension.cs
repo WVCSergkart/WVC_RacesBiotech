@@ -143,7 +143,7 @@ namespace WVC_XenotypesAndGenes
 		//public List<GeneDef> chimeraOneManArmyGenes;
 		public List<XaG_CountWithChance> chimeraConditionalGenes;
 		// Fleshmass
-		public int maxMutationLevel = 5;
+		//public int maxMutationLevel = 5;
 		//Chimera
 		public List<GeneDef> addedGenes = new();
 		public List<GeneDef> removedGenes = new();
