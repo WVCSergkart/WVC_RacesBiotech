@@ -50,31 +50,53 @@ namespace WVC_XenotypesAndGenes
 		public List<GeneDef> DestroyedGenes => destroyedGenes;
 
 		public override void PostAdd()
-		{
-			base.PostAdd();
-			Local_AddOrRemoveHediff();
-			if (Current.ProgramState == ProgramState.Playing)
-			{
-				return;
-			}
-			List<GeneDef> geneDefs = DefDatabase<GeneDef>.AllDefsListForReading;
-			int cycleTry = 0;
-			while (collectedGenes.Count < WVC_Biotech.settings.chimeraStartingGenes)
-			{
-				if (geneDefs.Where((GeneDef x) => x.endogeneCategory == EndogeneCategory.None && x.selectionWeight > 0f && x.canGenerateInGeneSet && x.passOnDirectly && !AllGenes.Contains(x)).TryRandomElementByWeight((GeneDef gene) => (gene.selectionWeight * (gene.biostatArc != 0 ? 0.01f : 1f)) + (gene.prerequisite == def && gene.GetModExtension<GeneExtension_General>() != null ? gene.GetModExtension<GeneExtension_General>().selectionWeight : 0f), out GeneDef result))
-				{
-					TryAddGene(result);
-				}
-				if (cycleTry > WVC_Biotech.settings.chimeraStartingGenes + 3)
-				{
-					break;
-				}
-				cycleTry++;
+        {
+            base.PostAdd();
+            Local_AddOrRemoveHediff();
+            if (Current.ProgramState != ProgramState.Playing)
+            {
+                StarterPackSetup();
+                NPC_RandomGeneSetSetup();
+            }
+        }
+
+        private void StarterPackSetup()
+        {
+            List<GeneDef> geneDefs = DefDatabase<GeneDef>.AllDefsListForReading;
+            int cycleTry = 0;
+            while (collectedGenes.Count < WVC_Biotech.settings.chimeraStartingGenes)
+            {
+                if (geneDefs.Where((GeneDef x) => x.endogeneCategory == EndogeneCategory.None && x.selectionWeight > 0f && x.canGenerateInGeneSet && x.passOnDirectly && !AllGenes.Contains(x)).TryRandomElementByWeight((GeneDef gene) => (gene.selectionWeight * (gene.biostatArc != 0 ? 0.01f : 1f)) + (gene.prerequisite == def && gene.GetModExtension<GeneExtension_General>() != null ? gene.GetModExtension<GeneExtension_General>().selectionWeight : 0f), out GeneDef result))
+                {
+                    TryAddGene(result);
+                }
+                if (cycleTry > WVC_Biotech.settings.chimeraStartingGenes + 3)
+                {
+                    break;
+                }
+                cycleTry++;
 			}
 			GetToolGene();
 		}
 
-		public void GetToolGene()
+        public void NPC_RandomGeneSetSetup(bool forceSetup = false)
+		{
+			if (pawn.Faction == Faction.OfPlayer)
+			{
+				return;
+			}
+			if (!forceSetup && !Rand.Chance(0.22f))
+            {
+                return;
+            }
+            List<XaG_CountWithChance> chimeraConditionalGenes = pawn.genes?.Xenotype?.GetModExtension<GeneExtension_Undead>()?.chimeraConditionalGenes;
+            if (chimeraConditionalGenes != null && chimeraConditionalGenes.TryRandomElementByWeight((count) => count.chance, out XaG_CountWithChance geneSet))
+            {
+                XaG_GeneUtility.AddGenesToChimera(pawn, geneSet.genes);
+            }
+        }
+
+        public void GetToolGene()
 		{
 			if (WVC_Biotech.settings.enable_chimeraStartingTools && Props?.chimeraGenesTools != null && Props.chimeraGenesTools.Where((GeneDef geneDef) => !AllGenes.Contains(geneDef)).TryRandomElement(out GeneDef result))
 			{

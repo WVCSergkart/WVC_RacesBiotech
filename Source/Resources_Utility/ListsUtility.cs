@@ -12,6 +12,7 @@ namespace WVC_XenotypesAndGenes
 	public static class ListsUtility
 	{
 
+		[Obsolete]
 		public static List<XaG_CountWithChance> GetIdenticalGeneDefs()
 		{
 			List<XaG_CountWithChance> list = new();

@@ -42,6 +42,60 @@
 			<defaultColor>(255, 133, 133)</defaultColor>
 			<morpherTriggerGene>WVC_MorphCondition_Deathrest</morpherTriggerGene>
 		</li>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_Undead">
+			<!-- possible genesets: non player -->
+			<chimeraConditionalGenes>
+			  <!-- mechalike -->
+			  <li>
+				<chance>1.0</chance>
+				<genes>
+					<li>WVC_CyberSkin</li>
+					<li>WVC_MechaPowerSource_Unstable</li>
+					<li>WVC_HairColor_Slate</li>
+					<li>Skin_SheerWhite</li>
+					<li>WVC_HeadBoneCurveHorns</li>
+				</genes>
+			  </li>
+			  <!-- dryads and golems -->
+			  <li>
+				<chance>0.45</chance>
+				<genes>
+					<li>WVC_SwarmConnection_Golems</li>
+					<li MayRequire="ludeon.rimworld.ideology">WVC_DryadQueen</li>
+					<li MayRequire="ludeon.rimworld.ideology">WVC_GauranlenDryads_Tough</li>
+					<li>WVC_StoneSkin</li>
+					<li>WVC_SkinColor_Slate</li>
+				</genes>
+			  </li>
+			  <!-- undead -->
+			  <li>
+				<chance>1.0</chance>
+				<genes>
+					<li>WVC_Undead</li>
+					<li>WVC_PredatorPrey_NotTasty</li>
+					<li>WVC_EndogermReimplanter</li>
+				</genes>
+			  </li>
+			  <!-- dryads -->
+			  <li MayRequire="ludeon.rimworld.ideology">
+				<chance>0.86</chance>
+				<genes>
+					<li MayRequire="ludeon.rimworld.ideology">WVC_DryadQueen</li>
+					<li MayRequire="ludeon.rimworld.ideology">WVC_GauranlenDryads_Tough</li>
+					<li MayRequire="ludeon.rimworld.ideology">WVC_GauranlenDryads_DryadbondEnchanced</li>
+				</genes>
+			  </li>
+			  <!-- golems -->
+			  <li>
+				<chance>0.83</chance>
+				<genes>
+					<li>WVC_SwarmConnection_Golems</li>
+					<li>WVC_StoneSkin</li>
+					<li>WVC_SkinColor_Slate</li>
+				</genes>
+			  </li>
+			</chimeraConditionalGenes>
+		</li>
 	</modExtensions>
   </XenotypeDef>
 

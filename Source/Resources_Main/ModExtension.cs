@@ -317,8 +317,9 @@ namespace WVC_XenotypesAndGenes
 		public List<MutantDef> xenoGenesMutantsExceptions = new();
 		public List<GeneDef> anomalyXenoGenesExceptions = new();
 		public List<GauranlenTreeModeDef> ignoredGauranlenTreeModeDefs = new();
-		public List<XaG_CountWithChance> identicalGeneDefs = new();
 
+		[Obsolete]
+		public List<XaG_CountWithChance> identicalGeneDefs = new();
 		[Obsolete]
 		public List<GeneDef> shapeshifterHeritableGenes = new();
 		[Obsolete]
