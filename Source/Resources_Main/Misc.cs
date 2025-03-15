@@ -188,7 +188,6 @@ namespace WVC_XenotypesAndGenes
 		public bool enableHarmonyTelepathyGene = false;
 		public bool enable_OverOverridableGenesMechanic = false;
 		// public bool useAlternativeDustogenicFoodJob = true;
-		public bool learningTelepathWorkForBothSides = false;
 		public bool disableUniqueXenotypeScenarios = false;
 		public bool restoreBodyPartsWithFullHP = false;
 		// public bool reimplantResurrectionRecruiting = false;
@@ -196,6 +195,9 @@ namespace WVC_XenotypesAndGenes
 		// Info
 		public bool enable_xagHumanComponent = true;
 		public bool enable_StartingFoodPolicies = true;
+		// Learning
+		public bool learningTelepathWorkForBothSides = false;
+		public float learning_CyclicallySelfLearning_MaxSkillLevel = 20f;
 		// public bool enableGeneSpawnerGizmo = true;
 		// public bool enableGeneWingInfo = false;
 		// public bool enableGeneBlesslinkInfo = true;

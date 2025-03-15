@@ -183,16 +183,16 @@ namespace WVC_XenotypesAndGenes
                 {
                     return;
                 }
-                studentSkills.Where((SkillRecord ssr) => !ssr.TotallyDisabled && ssr.GetLevel(false) < maxLevel).TryRandomElementByWeight((SkillRecord wssr) => wssr.passion != Passion.None ? 1f : 0.1f, out SkillRecord studentSkill);
+                studentSkills.Where((SkillRecord ssr) => !ssr.TotallyDisabled && (ssr.Aptitude > 0 ? ssr.GetLevel(true) : ssr.GetLevel(false)) < maxLevel).TryRandomElementByWeight((SkillRecord wssr) => wssr.passion != Passion.None ? 1f : 0.5f, out SkillRecord studentSkill);
                 if (studentSkill == null)
                 {
                     return;
                 }
                 if (studentSkill.GetLevel(false) >= maxLevel)
                 {
-                    Log.Error("Tryed lvl up maxed skill: " + studentSkill.def.LabelCap);
+                    Log.Warning("Tryed lvl up maxed skill: " + studentSkill.def.LabelCap);
                 }
-                studentSkill.Learn(studentSkill.XpRequiredForLevelUp * 1.05f, true);
+                studentSkill.Learn(studentSkill.XpRequiredForLevelUp * 0.3f, true);
                 if (student.Map != null)
                 {
                     FleckMaker.AttachedOverlay(student, DefDatabase<FleckDef>.GetNamed("PsycastPsychicEffect"), Vector3.zero);

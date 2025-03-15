@@ -17,7 +17,7 @@
 	<biostatMet>0</biostatMet>
 	<marketValueFactor>2</marketValueFactor>
 	<!-- gain per day -->
-	<resourceLossPerDay>0.03</resourceLossPerDay>
+	<resourceLossPerDay>0.01</resourceLossPerDay>
 	<selectionWeight>0</selectionWeight>
 	<canGenerateInGeneSet>false</canGenerateInGeneSet>
 	<customEffectDescriptions>
@@ -118,9 +118,9 @@
 	<biostatArc>1</biostatArc>
 	<biostatMet>-5</biostatMet>
 	<!-- gain per day -->
-	<resourceLossPerDay>0.07</resourceLossPerDay>
+	<resourceLossPerDay>0.04</resourceLossPerDay>
 	<customEffectDescriptions>
-		<li>Generates an additional 7 energy per day.</li>
+		<li>Generates an additional 4 energy per day.</li>
 	</customEffectDescriptions>
 	<exclusionTags>
 	  <li>WVC_VoidResourceGain</li>

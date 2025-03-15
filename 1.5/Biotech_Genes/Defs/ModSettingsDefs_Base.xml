@@ -109,10 +109,12 @@
 	<!-- public bool disableNonAcceptablePreyGenes = false; -->
 	<!-- public bool enableHarmonyTelepathyGene = false; -->
 	<!-- public bool enable_OverOverridableGenesMechanic = false; -->
-	<!-- public bool learningTelepathWorkForBothSides = false; -->
 	<!-- public bool disableUniqueXenotypeScenarios = false; -->
 	<!-- public bool restoreBodyPartsWithFullHP = false; -->
 	<!-- public bool thrallMaker_ThrallsInheritMasterGenes = true; -->
+	<!-- // Learning -->
+	<!-- public bool learningTelepathWorkForBothSides = false; -->
+	<!-- public float learning_CyclicallySelfLearning_MaxSkillLevel = 20f; -->
 	<!-- // Info -->
 	<!-- public bool enable_xagHumanComponent = true; -->
 	<!-- public bool enable_StartingFoodPolicies = true; -->

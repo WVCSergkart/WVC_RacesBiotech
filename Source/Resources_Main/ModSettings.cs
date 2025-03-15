@@ -36,10 +36,12 @@ namespace WVC_XenotypesAndGenes
 		public bool disableNonAcceptablePreyGenes = false;
 		public bool enableHarmonyTelepathyGene = false;
 		public bool enable_OverOverridableGenesMechanic = false;
-		public bool learningTelepathWorkForBothSides = false;
 		public bool disableUniqueXenotypeScenarios = false;
 		public bool restoreBodyPartsWithFullHP = false;
 		public bool thrallMaker_ThrallsInheritMasterGenes = true;
+		// Learning
+		public bool learningTelepathWorkForBothSides = false;
+		public float learning_CyclicallySelfLearning_MaxSkillLevel = 20f;
 		// Info
 		public bool enable_xagHumanComponent = true;
 		public bool enable_StartingFoodPolicies = true;
@@ -174,6 +176,7 @@ namespace WVC_XenotypesAndGenes
 			// Scribe_Values.Look(ref serumsForAllXenotypes_GenHybrid, "serumsForAllXenotypes_GenHybrid", defaultValue: false);
 			// Scribe_Values.Look(ref serumsForAllXenotypes_Recipes, "serumsForAllXenotypes_Recipes", defaultValue: true);
 			// Scribe_Values.Look(ref serumsForAllXenotypes_Spawners, "serumsForAllXenotypes_Spawners", defaultValue: false);
+			Scribe_Values.Look(ref learning_CyclicallySelfLearning_MaxSkillLevel, "learning_CyclicallySelfLearning_MaxSkillLevel", defaultValue: 20f);
 			// ExtraSettings
 			Scribe_Values.Look(ref genesCanTickOnlyOnMap, "genesCanTickOnlyOnMap", defaultValue: false);
 			Scribe_Values.Look(ref enable_flatGenesSpawnChances, "enable_flatGenesSpawnChances", defaultValue: false);
@@ -223,6 +226,8 @@ namespace WVC_XenotypesAndGenes
 			Scribe_Values.Look(ref enable_chimeraStartingTools, "enable_chimeraStartingTools", defaultValue: true);
 			// Duplicator
 			Scribe_Values.Look(ref duplicator_RandomOutcomeChance, "duplicator_RandomOutcomeChance", defaultValue: 0.66f);
+			// Fleshmass
+			Scribe_Values.Look(ref fleshmass_MaxMutationsLevel, "fleshmass_MaxMutationsLevel", defaultValue: 5f);
 			// DryadQueen
 			Scribe_Values.Look(ref enable_dryadQueenMechanicGenerator, "enable_dryadQueenMechanicGenerator", defaultValue: true);
 			Scribe_Values.Look(ref gestatedDryads_FilthRateFactor, "gestatedDryads_FilthRateFactor", defaultValue: 0.1f);
@@ -706,6 +711,7 @@ namespace WVC_XenotypesAndGenes
 		// Genes Settings
 		// Genes Settings
 		private bool collapse_genesSettings_general = false;
+		private bool collapse_genesSettings_Learning = false;
 		private bool collapse_genesSettings_MechAndPsyLinks = false;
 		private bool collapse_genesSettings_Hemogenic = false;
 		//private bool collapse_genesSettings_Energy = false;
@@ -739,8 +745,19 @@ namespace WVC_XenotypesAndGenes
 				listingStandard.CheckboxLabeled("WVC_Label_enableIncestLoverGene".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enableIncestLoverGene, "WVC_ToolTip_enableIncestLoverGene".Translate());
 				listingStandard.CheckboxLabeled("WVC_Label_disableNonAcceptablePreyGenes".Translate().Colorize(ColorLibrary.LightPurple), ref settings.disableNonAcceptablePreyGenes, "WVC_ToolTip_disableNonAcceptablePreyGenes".Translate());
 				listingStandard.CheckboxLabeled("WVC_Label_enableHarmonyTelepathyGene".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enableHarmonyTelepathyGene, "WVC_ToolTip_enableHarmonyTelepathyGene".Translate());
-				listingStandard.CheckboxLabeled("WVC_Label_learningTelepathWorkForBothSides".Translate().Colorize(ColorLibrary.LightBlue), ref settings.learningTelepathWorkForBothSides, "WVC_ToolTip_learningTelepathWorkForBothSides".Translate());
 				listingStandard.CheckboxLabeled("WVC_Label_enable_OverOverridableGenesMechanic".Translate().Colorize(ColorLibrary.LightPurple), ref settings.enable_OverOverridableGenesMechanic, "WVC_ToolTip_enable_OverOverridableGenesMechanic".Translate());
+			}
+			listingStandard.GapLine();
+			// =
+			if (listingStandard.ButtonTextWithTooltip("WVC_XaGGeneSettings_Learning".Translate()))
+			{
+				collapse_genesSettings_Learning = !collapse_genesSettings_Learning;
+			}
+			if (collapse_genesSettings_Learning)
+			{
+				//listingStandard.Label("WVC_XaGGeneSettings_XenotypeGestator".Translate() + ":", -1);
+				listingStandard.CheckboxLabeled("WVC_Label_learningTelepathWorkForBothSides".Translate().Colorize(ColorLibrary.LightBlue), ref settings.learningTelepathWorkForBothSides, "WVC_ToolTip_learningTelepathWorkForBothSides".Translate());
+				listingStandard.SliderLabeledWithRef("WVC_Label_learning_CyclicallySelfLearning_MaxSkillLevel".Translate((settings.learning_CyclicallySelfLearning_MaxSkillLevel).ToString()), ref settings.learning_CyclicallySelfLearning_MaxSkillLevel, 1f, 100f, "WVC_ToolTip_learning_CyclicallySelfLearning_MaxSkillLevel".Translate(), 0);
 			}
 			listingStandard.GapLine();
 			// =
@@ -1042,6 +1059,7 @@ namespace WVC_XenotypesAndGenes
 			// WVC_Biotech.settings.useAlternativeDustogenicFoodJob = true;
 			// =
 			WVC_Biotech.settings.learningTelepathWorkForBothSides = settingsDef.learningTelepathWorkForBothSides;
+			WVC_Biotech.settings.learning_CyclicallySelfLearning_MaxSkillLevel = settingsDef.learning_CyclicallySelfLearning_MaxSkillLevel;
 			// =
 			WVC_Biotech.settings.enable_birthQualityOffsetFromGenes = settingsDef.enable_birthQualityOffsetFromGenes;
 			WVC_Biotech.settings.xenotypeGestator_GestationTimeFactor = settingsDef.xenotypeGestator_GestationTimeFactor;

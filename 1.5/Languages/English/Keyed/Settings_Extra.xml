@@ -23,6 +23,7 @@
 	<WVC_XaGGeneSettings_MechAndPsyLinks>Mechlinks and Psylinks</WVC_XaGGeneSettings_MechAndPsyLinks>
 	<WVC_XaGGeneSettings_DryadQueen>Dryad queen</WVC_XaGGeneSettings_DryadQueen>
 	<WVC_XaGGeneSettings_Fleshmass>Anomaly (Fleshmass)</WVC_XaGGeneSettings_Fleshmass>
+	<WVC_XaGGeneSettings_Learning>Learning genes</WVC_XaGGeneSettings_Learning>
 
 	<WVC_Label_harmony_EnableGenesMechanicsTriggers>Enable genes triggers</WVC_Label_harmony_EnableGenesMechanicsTriggers>
 	<WVC_ToolTip_harmony_EnableGenesMechanicsTriggers>If enabled, the harmony patch will add triggers that are needed for some complex genes to work. Disabling this option will not prevent the mod from working, but it can greatly affect most of the mechanics.
@@ -267,5 +268,10 @@ A restart is required.</WVC_ToolTip_disableNonAcceptablePreyGenes>
 
 	<WVC_Label_fleshmass_MaxMutationsLevel>Max mutations level {0}</WVC_Label_fleshmass_MaxMutationsLevel>
 	<WVC_ToolTip_fleshmass_MaxMutationsLevel>The maximum possible level that mutations created by the fleshmass nucleus gene can gain. The special bonus is present only for level 5, lower or higher mutation will receive a standard bonus only to efficiency and regeneration.</WVC_ToolTip_fleshmass_MaxMutationsLevel>
+
+	<!-- ================================== -->
+
+	<WVC_Label_learning_CyclicallySelfLearning_MaxSkillLevel>Cycl. self-learn. max level {0}</WVC_Label_learning_CyclicallySelfLearning_MaxSkillLevel>
+	<WVC_ToolTip_learning_CyclicallySelfLearning_MaxSkillLevel>Affects the skill level up to which the gene will give experience. By default, 20, which means that when the skill reaches level 20, the gene stops giving experience to this skill.\n\nIt is not recommended to set values ​​higher than 20, unless you have mods that raise the cap.</WVC_ToolTip_learning_CyclicallySelfLearning_MaxSkillLevel>
 
 </LanguageData>

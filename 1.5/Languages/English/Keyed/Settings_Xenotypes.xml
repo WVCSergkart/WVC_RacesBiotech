@@ -30,6 +30,8 @@ A restart is required.</WVC_ToolTip_enable_spawnXenotypesInFactions>
 	<WVC_Label_disableXenotypes_MainSwitch>Disable xenotype-related things</WVC_Label_disableXenotypes_MainSwitch>
 	<WVC_ToolTip_disableXenotypes_MainSwitch>Removes things associated with xenotypes. Mandatory option to disable any xenotypes.
 
+Please note that this may impact some mechanics, which may become unavailable or severely limited as a result.
+
 A restart is required.</WVC_ToolTip_disableXenotypes_MainSwitch>
 
 	<WVC_Label_disableXenotypes_Undeads>|- Disable undeads</WVC_Label_disableXenotypes_Undeads>

@@ -6,14 +6,16 @@
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneLearning_Psychic">
 	<defName>WVC_CyclicallySelfLearning</defName>
 	<label>cyclically self-learning</label>
-	<description>Carriers of this gene have archites that cyclically develop the carrier's neural connections, extracting experience from the psy-field.</description>
+	<!-- <description>Carriers of this gene have archites that cyclically develop the carrier's neural connections, extracting experience from the psy-field.</description> -->
+	<description>Carriers of this gene have archites that cyclically improve the carriers' skills by creating complex simulations in their minds of possible situations in which they could be used.</description>
 	<geneClass>WVC_XenotypesAndGenes.Gene_CyclicallySelfLearning</geneClass>
 	<iconPath>WVC/UI/Genes/Gene_CyclicallySelfLearning_v0</iconPath>
 	<displayOrderInCategory>35</displayOrderInCategory>
 	<biostatArc>3</biostatArc>
 	<biostatMet>0</biostatMet>
 	<customEffectDescriptions>
-		<li>Every (*DateTime)2-4 days(/DateTime) increases one random &lt;color=#8a8ae6&gt;skill&lt;/color&gt; by one &lt;color=#8a8ae6&gt;level&lt;/color&gt;, maximum 20.</li>
+		<!-- <li>Every (*DateTime)2-4 days(/DateTime) increases one random &lt;color=#8a8ae6&gt;skill&lt;/color&gt; by one &lt;color=#8a8ae6&gt;level&lt;/color&gt;, maximum 20.</li> -->
+		<li>Every 2 days increases the &lt;color=#8a8ae6&gt;experience&lt;/color&gt; of one random &lt;color=#8a8ae6&gt;skill&lt;/color&gt; by 30%.</li>
 		<li>Skills related to &lt;color=#8a8ae6&gt;passion&lt;/color&gt; have a higher priority regardless of &lt;color=#8a8ae6&gt;aptitudes&lt;/color&gt;.</li>
 	</customEffectDescriptions>
 	<statFactors>
