@@ -308,22 +308,22 @@ namespace WVC_XenotypesAndGenes
 	public class Gene_CyclicallySelfLearning : Gene
 	{
 
-		private int hashIntervalTick = 120000;
+		// private int hashIntervalTick = 120000;
 
-		public override void PostAdd()
-		{
-			base.PostAdd();
-			ResetInterval();
-		}
+		// public override void PostAdd()
+		// {
+			// base.PostAdd();
+			// ResetInterval();
+		// }
 
 		public override void Tick()
 		{
 			//base.Tick();
-			if (!pawn.IsHashIntervalTick(hashIntervalTick))
+			if (!pawn.IsHashIntervalTick(119357))
 			{
 				return;
 			}
-			ResetInterval();
+			// ResetInterval();
 			TryLearning();
 		}
 
@@ -332,12 +332,12 @@ namespace WVC_XenotypesAndGenes
 			GeneFeaturesUtility.TryLevelUpRandomSkill(pawn, (int)WVC_Biotech.settings.learning_CyclicallySelfLearning_MaxSkillLevel);
 		}
 
-		private void ResetInterval()
-		{
+		// private void ResetInterval()
+		// {
 			//IntRange range = new(120000, 240000);
 			//hashIntervalTick = range.RandomInRange;
-			hashIntervalTick = 120000;
-		}
+			// hashIntervalTick = 120000;
+		// }
 
 		public override IEnumerable<Gizmo> GetGizmos()
 		{
@@ -354,11 +354,11 @@ namespace WVC_XenotypesAndGenes
 			}
 		}
 
-		public override void ExposeData()
-		{
-			base.ExposeData();
-			Scribe_Values.Look(ref hashIntervalTick, "hashIntervalTick", 120000);
-		}
+		// public override void ExposeData()
+		// {
+			// base.ExposeData();
+			// Scribe_Values.Look(ref hashIntervalTick, "hashIntervalTick", 120000);
+		// }
 
 	}
 
