@@ -62,7 +62,8 @@ namespace WVC_XenotypesAndGenes
 				if (nextGeneSet is PawnContainerHolder target)
                 {
                     phase = "try drop pawn";
-                    TryDropNextPawn(ref nextPawn, ref archive, target);
+					BeforeDrop(target);
+					TryDropNextPawn(ref nextPawn, ref archive, target);
                 }
                 else if (nextGeneSet == null && CanAddNewForm)
 				{
@@ -128,6 +129,15 @@ namespace WVC_XenotypesAndGenes
 			return false;
 		}
 
+		private void BeforeDrop(PawnContainerHolder holder)
+		{
+			int ticks = Find.TickManager.TicksGame - holder.lastTimeSeenByPlayer;
+			if (ticks > 0)
+			{
+				HealingUtility.Regeneration(holder.holded, 50, true, ticks, HealingUtility.ShouldRegenerateEyes(holder.holded));
+			}
+		}
+
 		public override void TransferHolders(Gene_Morpher oldMorpher, Gene_Morpher newMorpher, Pawn newOwner)
 		{
             base.TransferHolders(oldMorpher, newMorpher, newOwner);
@@ -154,7 +164,7 @@ namespace WVC_XenotypesAndGenes
 			RemoveSetHolder(target);
 		}
 
-        private void PostMorph(Pawn newPawn, Pawn oldPawn)
+		private void PostMorph(Pawn newPawn, Pawn oldPawn)
 		{
 			newPawn.ideo?.SetIdeo(oldPawn.ideo.Ideo);
 			//if (newPawn.ideo != null)

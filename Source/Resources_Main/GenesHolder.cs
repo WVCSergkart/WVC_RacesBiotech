@@ -765,6 +765,8 @@ namespace WVC_XenotypesAndGenes
 
 		public ThingOwner innerContainer;
 
+		public int lastTimeSeenByPlayer = -1;
+
 		public override int AllGenesCount
 		{
 			get
@@ -786,6 +788,7 @@ namespace WVC_XenotypesAndGenes
 				this.holded = toHold;
 				name = toHold.Name.ToStringShort;
 				xenotypeDef = toHold.genes.Xenotype;
+				lastTimeSeenByPlayer = Find.TickManager.TicksGame;
 				//endogeneDefs.AddRange(XaG_GeneUtility.ConvertGenesInGeneDefs(toHold.genes.Endogenes));
 				//xenogeneDefs.AddRange(XaG_GeneUtility.ConvertGenesInGeneDefs(toHold.genes.Xenogenes));
 				if (toHold.genes.UniqueXenotype)
@@ -826,6 +829,7 @@ namespace WVC_XenotypesAndGenes
 			Scribe_References.Look(ref owner, "owner", saveDestroyedThings: true);
 			Scribe_References.Look(ref holded, "holded", saveDestroyedThings: true);
 			base.ExposeData();
+			Scribe_Values.Look(ref lastTimeSeenByPlayer, "lastTimeSeenByPlayer", -1);
 		}
 	}
 

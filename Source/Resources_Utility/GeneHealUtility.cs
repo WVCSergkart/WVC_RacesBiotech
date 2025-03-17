@@ -59,7 +59,8 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool ShouldRegenerateEyes(Pawn pawn)
 		{
-			return !ModLister.IdeologyInstalled || !pawn.ideo.Ideo.IdeoApprovesOfBlindness();
+			//return !ModLister.IdeologyInstalled || !pawn.ideo.Ideo.IdeoApprovesOfBlindness();
+			return pawn.ideo?.Ideo?.IdeoApprovesOfBlindness() != true;
 		}
 
 		public static void Regenerate(Pawn pawn, Hediff hediff)
