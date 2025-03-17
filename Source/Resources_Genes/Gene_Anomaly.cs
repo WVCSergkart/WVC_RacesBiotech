@@ -248,25 +248,10 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (nextDeathRefusal <= 0)
 			{
-				AddDeathRefusal(pawn);
+				Gene_DeathRefusal.AddDeathRefusal(pawn, false, this);
 				nextDeathRefusal = 2 + StaticCollectionsClass.cachedColonistsCount;
 			}
         }
-
-        public static void AddDeathRefusal(Pawn pawn)
-        {
-            Hediff_DeathRefusal firstHediff = pawn.health.hediffSet.GetFirstHediff<Hediff_DeathRefusal>();
-            if (firstHediff != null)
-            {
-                firstHediff.SetUseAmountDirect(firstHediff.UsesLeft + 1, false);
-            }
-            else
-            {
-                Hediff_DeathRefusal hediff_DeathRefusal = (Hediff_DeathRefusal)HediffMaker.MakeHediff(HediffDefOf.DeathRefusal, pawn);
-                hediff_DeathRefusal.SetUseAmountDirect(1);
-                pawn.health.AddHediff(hediff_DeathRefusal);
-            }
-		}
 
 		public override void ExposeData()
 		{
@@ -382,6 +367,57 @@ namespace WVC_XenotypesAndGenes
 		{
 			base.PostRemove();
 			HediffUtility.TryRemoveHediff(DarknessExposure, pawn);
+		}
+
+	}
+
+	public class Gene_DeathRefusal : Gene
+	{
+
+		public int nextDeathRefusal = -1;
+
+		public override void PostAdd()
+		{
+			base.PostAdd();
+			if (Current.ProgramState != ProgramState.Playing && Rand.Chance(0.2f))
+			{
+				AddDeathRefusal(pawn);
+			}
+			nextDeathRefusal = 296774;
+		}
+
+		public override void Tick()
+		{
+			if (!GeneResourceUtility.CanTick(ref nextDeathRefusal, 360000))
+			{
+				return;
+			}
+			AddDeathRefusal(pawn, false, this);
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look(ref nextDeathRefusal, "nextDeathRefusal", -1);
+		}
+
+		public static void AddDeathRefusal(Pawn pawn, bool ignoreLimit = false, Gene gene = null)
+		{
+			Hediff_DeathRefusal firstHediff = pawn.health.hediffSet.GetFirstHediff<Hediff_DeathRefusal>();
+			if (firstHediff != null)
+			{
+				firstHediff.SetUseAmountDirect(firstHediff.UsesLeft + 1, ignoreLimit);
+			}
+			else
+			{
+				Hediff_DeathRefusal hediff_DeathRefusal = (Hediff_DeathRefusal)HediffMaker.MakeHediff(HediffDefOf.DeathRefusal, pawn);
+				hediff_DeathRefusal.SetUseAmountDirect(1);
+				pawn.health.AddHediff(hediff_DeathRefusal);
+			}
+			if (gene != null && PawnUtility.ShouldSendNotificationAbout(pawn))
+			{
+				Messages.Message("WVC_XaG_AddedDeathRefusalAttempt".Translate(pawn.NameShortColored, gene.Label), pawn, MessageTypeDefOf.NeutralEvent, historical: false);
+			}
 		}
 
 	}

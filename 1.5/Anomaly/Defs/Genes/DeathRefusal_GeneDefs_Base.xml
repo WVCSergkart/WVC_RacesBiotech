@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ============================= -->
+
+  <GeneDef>
+	<defName>WVC_DeathRefusal</defName>
+	<label>death refusal</label>
+	<description>Carriers of this gene have archites capable of slowly generating seeds of nanoscale archotech machines that can recreate life.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DeathRefusal</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_DeathRefusal_v0</iconPath>
+	<selectionWeight>0.00022</selectionWeight>
+	<displayCategory>Archite</displayCategory>
+	<marketValueFactor>2</marketValueFactor>
+	<biostatCpx>7</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<customEffectDescriptions>
+		<!-- <li>Slowly accumulates &lt;color=#8a8ae6&gt;death refusal&lt;/color&gt; attempts.</li> -->
+		<li>Every 6 days gives 1 &lt;color=#8a8ae6&gt;death refusal&lt;/color&gt; attempt up to a maximum of 2.</li>
+	</customEffectDescriptions>
+	<symbolPack>
+	  <prefixSymbols>
+		<li><symbol>death</symbol></li>
+		<li><symbol>refuse</symbol></li>
+	  </prefixSymbols>
+	</symbolPack>
+  </GeneDef>
+
+</Defs>
