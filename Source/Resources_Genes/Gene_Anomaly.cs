@@ -236,20 +236,20 @@ namespace WVC_XenotypesAndGenes
                 nextTick = 180000;
                 Log.Error("Failed create shambler. Reason: " + arg);
 			}
-			int colonists = (StaticCollectionsClass.cachedColonistsCount > 0 ? StaticCollectionsClass.cachedColonistsCount : 1);
+			float penaltyTick = 6000 * StaticCollectionsClass.cachedColonistsCount * 0.6f;
 			if (pause)
             {
-                nextTick = 60000 * colonists;
+                nextTick = 60000 + (int)penaltyTick;
 				nextDeathRefusal--;
 			}
             else
             {
-                nextTick = tick * colonists;
+                nextTick = tick + (int)penaltyTick;
 			}
 			if (nextDeathRefusal <= 0)
 			{
 				AddDeathRefusal(pawn);
-				nextDeathRefusal = 2 * colonists;
+				nextDeathRefusal = 2 + StaticCollectionsClass.cachedColonistsCount;
 			}
         }
 

@@ -16,7 +16,7 @@
 	<customEffectDescriptions>
 		<li>Passively generates &lt;color=#8a8ae6&gt;research points&lt;/color&gt;.</li>
 		<li>Pawn should be &lt;color=#8a8ae6&gt;downed, sleep or deathresting&lt;/color&gt;.</li>
-		<li>Each &lt;color=#8a8ae6&gt;colonist&lt;/color&gt; over 1 significantly reduces the effect.</li>
+		<li>Each &lt;color=#8a8ae6&gt;colonist&lt;/color&gt; over 1 reduces the effect.</li>
 		<li>&lt;color=#ffec85&gt;Ignores all quest, prisoner, mutant, duplicate and deathresting pawns.&lt;/color&gt;</li>
 	</customEffectDescriptions>
 	<symbolPack>

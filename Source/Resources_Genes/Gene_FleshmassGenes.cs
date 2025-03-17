@@ -301,11 +301,11 @@ namespace WVC_XenotypesAndGenes
 			}
 			if (pause)
 			{
-				nextTick = tick * 300 * (StaticCollectionsClass.cachedColonistsCount > 0 ? StaticCollectionsClass.cachedColonistsCount : 1);
+				nextTick = tick * (int)(300 + (StaticCollectionsClass.cachedColonistsCount > 0 ? StaticCollectionsClass.cachedColonistsCount * 0.6f : 1));
 			}
 			else
             {
-				nextTick = tick * (StaticCollectionsClass.cachedColonistsCount > 0 ? StaticCollectionsClass.cachedColonistsCount : 1);
+				nextTick = tick;
             }
 		}
 

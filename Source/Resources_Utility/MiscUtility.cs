@@ -142,6 +142,11 @@ namespace WVC_XenotypesAndGenes
 
 		public static bool IsUnnaturalCorpse(this Thing corpse)
 		{
+			//if (ModsConfig.AnomalyActive)
+			//{
+			//	return corpse is UnnaturalCorpse;
+			//}
+			//return false;
 			return corpse is UnnaturalCorpse;
 		}
 
@@ -556,7 +561,8 @@ namespace WVC_XenotypesAndGenes
 			//StaticCollectionsClass.leaderIsShapeshifter = presentShapeshifter;
 			//StaticCollectionsClass.leaderIsShapeshifter = leaderIsUndead;
 			//StaticCollectionsClass.leaderIsShapeshifter = presentUndead;
-			StaticCollectionsClass.oneManArmyMode = nonHumans <= 0 && colonists <= 1;
+			StaticCollectionsClass.oneManArmyMode = colonists <= 1;
+			//StaticCollectionsClass.oneManArmyMode = nonHumans <= 0 && colonists <= 1;
 			//Log.Error("Colonists: " + colonists + ". Xenos: " + xenos + ". Non-humans: " + nonHumans + ". Mechs: " + colonyMechs);
 		}
 

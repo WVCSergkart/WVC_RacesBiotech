@@ -81,14 +81,19 @@ namespace WVC_XenotypesAndGenes
 
         public override void PostMapGenerate(Map map)
         {
-            if (addSkipEffect && Find.GameInitData != null)
+            //if (Find.GameInitData == null || !hideOffMap || !context.Includes(PawnGenerationContext.PlayerStarter))
+            //{
+            //    return;
+            //}
+            if (!addSkipEffect || Find.GameInitData == null || !context.Includes(PawnGenerationContext.PlayerStarter))
             {
-                foreach (Pawn startingAndOptionalPawn in Find.GameInitData.startingAndOptionalPawns)
+                return;
+            }
+            foreach (Pawn startingAndOptionalPawn in Find.GameInitData.startingAndOptionalPawns)
+            {
+                if (startingAndOptionalPawn.Spawned)
                 {
-                    if (startingAndOptionalPawn.Spawned)
-                    {
-                        MiscUtility.DoSkipEffects(startingAndOptionalPawn.Position, startingAndOptionalPawn.Map);
-                    }
+                    MiscUtility.DoSkipEffects(startingAndOptionalPawn.Position, startingAndOptionalPawn.Map);
                 }
             }
         }

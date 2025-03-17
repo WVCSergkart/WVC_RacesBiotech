@@ -237,7 +237,7 @@ namespace WVC_XenotypesAndGenes
 				//	}
 				//	return false;
 				//}
-				if (!innerPawn.IsHuman() || innerPawn.IsMutant && !innerPawn.IsMutantOfDef(mutantDef))
+				if (!innerPawn.IsHuman() || innerPawn.IsMutant && !innerPawn.IsMutantOfDef(mutantDef) || corpse.IsUnnaturalCorpse())
 				{
 					if (throwMessages)
 					{

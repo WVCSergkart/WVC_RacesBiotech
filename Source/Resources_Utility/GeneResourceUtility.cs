@@ -321,6 +321,11 @@ namespace WVC_XenotypesAndGenes
 
 		// Shape
 
+		//public static int GetCachedColonistsFromStaticCollection()
+		//{
+		//	return StaticCollectionsClass.cachedColonistsCount > 1 ? StaticCollectionsClass.cachedColonistsCount : 1;
+		//}
+
 		public static void Notify_PreShapeshift(Gene_Shapeshifter shapeshiftGene)
 		{
 			foreach (Gene gene in shapeshiftGene.pawn.genes.GenesListForReading)

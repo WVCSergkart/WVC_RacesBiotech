@@ -15,7 +15,8 @@
 	<generateWithXenogermReplicatingHediffChance>0.1</generateWithXenogermReplicatingHediffChance>
 	<xenogermReplicatingDurationLeftDaysRange>0.1~25</xenogermReplicatingDurationLeftDaysRange>
 	<combatPowerFactor>5.0</combatPowerFactor>
-	<factionlessGenerationWeight>0.002</factionlessGenerationWeight>
+	<!-- <factionlessGenerationWeight>0.002</factionlessGenerationWeight> -->
+	<factionlessGenerationWeight>0</factionlessGenerationWeight>
 	<genes>
 		<!-- = -->
 		<li>WVC_NaturalReimplanter_RiseFromTheDead</li>
