@@ -554,6 +554,7 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_GeneGeneticThief_GeneObtained>{0} obtained the {1} gene.</WVC_XaG_GeneGeneticThief_GeneObtained>
 	<WVC_XaG_GeneGeneticThief_GenesHarvested>{0}'s genes were harvested, {0}'s xenotype was reset to the baseliner.</WVC_XaG_GeneGeneticThief_GenesHarvested>
 	<WVC_XaG_WarningPawnWillDieFromHarvesting>Warning: {PAWN_nameDef}'s genes are currently regrowing. If {PAWN_pronoun} will be harvested before {PAWN_possessive} genes are fully regrown, it will kill {PAWN_objective}.\n\nAre you sure you wish to continue?</WVC_XaG_WarningPawnWillDieFromHarvesting>
+	<WVC_XaG_ChimeraDeathMark_GenesObtained>{0}'s genes were obtained.</WVC_XaG_ChimeraDeathMark_GenesObtained>
 
 	<WVC_XaG_CreateChimera>Create chimera</WVC_XaG_CreateChimera>
 
@@ -571,6 +572,8 @@ It will take {PAWN_objective} some time to recover, but if {PAWN_pronoun} dies a
 	<WVC_XaG_ChimeraApply_Implant>Implant</WVC_XaG_ChimeraApply_Implant>
 	<WVC_XaG_ChimeraApply_Eat>Eat</WVC_XaG_ChimeraApply_Eat>
 	<WVC_XaG_ChimeraApply_Clear>Clear</WVC_XaG_ChimeraApply_Clear>
+
+	<WVC_XaG_ChimeraDeathMarkAdded>Mark added to target.</WVC_XaG_ChimeraDeathMarkAdded>
 
 	<!-- =============== STORAGE IMPLANTER =============== -->
 

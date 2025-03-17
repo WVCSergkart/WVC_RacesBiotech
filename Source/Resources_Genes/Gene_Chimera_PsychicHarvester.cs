@@ -133,7 +133,7 @@ namespace WVC_XenotypesAndGenes
 			List<Pawn> pawns = new();
 			foreach (Pawn otherPawn in potentialVictims)
 			{
-				if (pawn.relations.OpinionOf(otherPawn) >= 20 && otherPawn.relations.OpinionOf(pawn) >= 20)
+				if (pawn.relations.OpinionOf(otherPawn) >= 40 && otherPawn.relations.OpinionOf(pawn) >= 40)
 				{
 					pawns.Add(otherPawn);
 				}
@@ -151,7 +151,7 @@ namespace WVC_XenotypesAndGenes
 			List<Pawn> pawns = new();
 			foreach (Pawn otherPawn in potentialVictims)
 			{
-				if (pawn.relations.OpinionOf(otherPawn) <= -20 && otherPawn.relations.OpinionOf(pawn) <= -20)
+				if (pawn.relations.OpinionOf(otherPawn) <= -40 && otherPawn.relations.OpinionOf(pawn) <= -40)
 				{
 					pawns.Add(otherPawn);
 				}
@@ -179,6 +179,7 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	// Too dangerous. Unused.
 	public class Gene_ChimeraPsychicHarvester_Destructive : Gene_ChimeraDependant_PsychicHarvester
 	{
 

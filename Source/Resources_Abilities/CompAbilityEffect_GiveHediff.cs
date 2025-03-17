@@ -5,17 +5,8 @@ using Verse;
 namespace WVC_XenotypesAndGenes
 {
 
-    public class CompProperties_AbilityGiveHediff : CompProperties_AbilityEffectWithDuration
+    public class CompProperties_AbilityGiveHediff : RimWorld.CompProperties_AbilityGiveHediff
 	{
-		public HediffDef hediffDef;
-
-		public bool onlyBrain = false;
-
-		public bool applyToSelf = false;
-
-		public bool onlyApplyToSelf = false;
-
-		public bool applyToTarget = true;
 
 		public bool humanityCheck = false;
 
@@ -24,11 +15,12 @@ namespace WVC_XenotypesAndGenes
 
 		public bool serumsCheck = false;
 
-		public bool replaceExisting = false;
-
 		public bool onlyReproductive = false;
 
-		public float severity = -1f;
+		public bool psychicSensitive = false;
+
+		public string simpleMessage = "ERROR";
+
 	}
 
 	public class CompAbilityEffect_GiveHediff : CompAbilityEffect_WithDuration
@@ -116,5 +108,67 @@ namespace WVC_XenotypesAndGenes
 			target.health.AddHediff(hediff);
 		}
 	}
+
+	public class CompAbilityEffect_SimpleGiveHediff : CompAbilityEffect
+	{
+
+		public new CompProperties_AbilityGiveHediff Props => (CompProperties_AbilityGiveHediff)props;
+
+		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
+		{
+			base.Apply(target, dest);
+			Pawn pawn = target.Pawn;
+			if (Props.hediffDef != null)
+			{
+				Hediff hediff = pawn.health.GetOrAddHediff(Props.hediffDef);
+				PostHediffAdd(hediff);
+				Messages.Message(Props.simpleMessage.Translate(), new LookTargets(target.Pawn, parent.pawn), MessageTypeDefOf.NeutralEvent, historical: false);
+			}
+		}
+
+		public override bool CanApplyOn(LocalTargetInfo target, LocalTargetInfo dest)
+		{
+            Pawn pawn = target.Pawn;
+			if (pawn == null)
+			{
+				return false;
+			}
+			if (!GeneResourceUtility.CanDo_General(pawn))
+			{
+				return false;
+			}
+			if (Props.humanityCheck && !ReimplanterUtility.IsHuman(pawn))
+			{
+				Messages.Message("WVC_PawnIsAndroidCheck".Translate(), target.Pawn, MessageTypeDefOf.RejectInput, historical: false);
+				return false;
+			}
+			if (Props.psychicSensitive && pawn.IsPsychicSensitive())
+			{
+				// Messages.Message("WVC_PawnIsAndroidCheck".Translate(), target.Pawn, MessageTypeDefOf.RejectInput, historical: false);
+				return false;
+			}
+			return true;
+		}
+
+		public virtual void PostHediffAdd(Hediff hediff)
+		{
+
+		}
+
+	}
+
+	public class CompAbilityEffect_ChimeraDeathMarkHediff : CompAbilityEffect_SimpleGiveHediff
+	{
+
+		public override void PostHediffAdd(Hediff hediff)
+        {
+            HediffComp_ChimeraDeathMark mark = hediff.TryGetComp<HediffComp_ChimeraDeathMark>();
+			if (mark != null)
+            {
+				mark.caster = parent.pawn;
+			}
+		}
+
+    }
 
 }

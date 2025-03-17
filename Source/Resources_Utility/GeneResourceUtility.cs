@@ -174,7 +174,7 @@ namespace WVC_XenotypesAndGenes
 			return true;
 		}
 
-		public static bool CanDo_GeneralGeneticStuff(Pawn pawn)
+		public static bool CanDo_General(Pawn pawn)
 		{
 			if (pawn.InMentalState)
 			{
@@ -184,6 +184,15 @@ namespace WVC_XenotypesAndGenes
 			if (pawn.IsQuestLodger())
 			{
 				Messages.Message("WVC_XaG_PawnIsQuestLodgerMessage".Translate(pawn.LabelShort).CapitalizeFirst(), pawn, MessageTypeDefOf.RejectInput, historical: false);
+				return false;
+			}
+			return true;
+		}
+
+		public static bool CanDo_GeneralGeneticStuff(Pawn pawn)
+		{
+			if (!CanDo_General(pawn))
+			{
 				return false;
 			}
 			if (!pawn.health.capacities.CanBeAwake)

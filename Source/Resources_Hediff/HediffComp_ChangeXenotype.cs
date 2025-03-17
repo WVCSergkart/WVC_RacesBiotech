@@ -36,7 +36,7 @@ namespace WVC_XenotypesAndGenes
 
 		public override void CompPostTick(ref float severityAdjustment)
 		{
-			base.CompPostTick(ref severityAdjustment);
+			//base.CompPostTick(ref severityAdjustment);
 			if (!Pawn.IsHashIntervalTick(1500))
 			{
 				return;

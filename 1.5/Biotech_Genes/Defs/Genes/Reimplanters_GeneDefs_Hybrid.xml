@@ -153,7 +153,7 @@
 	<iconPath>WVC/UI/Genes/Gene_HandsAngels_v0</iconPath>
 	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
 	<verbProperties>
-	  <violent>true</violent>
+	  <violent>false</violent>
 	</verbProperties>
 	<comps>
 	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGiveHediff">

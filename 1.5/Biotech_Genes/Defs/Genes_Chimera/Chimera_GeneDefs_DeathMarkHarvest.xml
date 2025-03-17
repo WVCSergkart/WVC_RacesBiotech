@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ================================= -->
+
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneChimera_SubGenes">
+	<defName>WVC_Chimera_DeathMarkHarvest</defName>
+	<label>death mark harvest</label>
+	<description>Carriers of this gene have archites that allow them to infect a victim with the archite virus, which gradually collects a copy of the victim's genes, and after the victim's death, sends it to the caster.</description>
+	<iconPath>WVC/UI/Genes/Gene_ChimeraDeathMarkHarvest_v0</iconPath>
+	<biostatCpx>1</biostatCpx>
+	<biostatArc>1</biostatArc>
+	<biostatMet>-4</biostatMet>
+	<abilities>
+	  <li>WVC_Chimera_DeathMarkHarvest</li>
+	</abilities>
+	<descriptionHyperlinks>
+	  <AbilityDef>WVC_Chimera_DeathMarkHarvest</AbilityDef>
+	</descriptionHyperlinks>
+	<customEffectDescriptions>
+		<!-- <li>&lt;color=#8a8ae6&gt;Harvest&lt;/color&gt; all of the target's &lt;color=#8a8ae6&gt;genes&lt;/color&gt; and reset its xenotype to &lt;color=#8a8ae6&gt;baseliner&lt;/color&gt;.</li> -->
+		<li>Allows you to mark a target pawn with a &lt;color=#8a8ae6&gt;death mark&lt;/color&gt;.</li>
+		<li>The &lt;color=#8a8ae6&gt;death mark&lt;/color&gt; lasts until the target dies, but does not contribute to it in any way.</li>
+		<li>The &lt;color=#8a8ae6&gt;death mark&lt;/color&gt; slowly accumulates a copy of the target's genes, and after &lt;color=#8a8ae6&gt;death&lt;/color&gt; sends them to the caster.</li>
+		<li>The chance of receiving the genes depends only on the caster's &lt;color=#8a8ae6&gt;psi-sensitivity&lt;/color&gt;.</li>
+	</customEffectDescriptions>
+	<modExtensions>
+		<li Class="WVC_XenotypesAndGenes.GeneExtension_General">
+			<selectionWeight>0.01</selectionWeight>
+		</li>
+	</modExtensions>
+  </GeneDef>
+
+  <!-- Ability -->
+
+  <AbilityDef ParentName="WVC_XenotypesAndGenes_AbilityTouchReimplanter_Base">
+	<defName>WVC_Chimera_DeathMarkHarvest</defName>
+	<label>death mark</label>
+	<description>Infect a victim with the archite virus, which gradually collects a copy of the victim's genes, and after the victim's death, sends it to the caster.</description>
+	<iconPath>WVC/UI/Genes/Gene_ChimeraDeathMarkHarvest_v0</iconPath>
+	<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+	<showWhenDrafted>true</showWhenDrafted>
+	<cooldownTicksRange>120000</cooldownTicksRange><!-- 2 days -->
+	<verbProperties>
+	  <violent>false</violent>
+	</verbProperties>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.CompProperties_AbilityGiveHediff">
+		<compClass>WVC_XenotypesAndGenes.CompAbilityEffect_ChimeraDeathMarkHediff</compClass>
+		<hediffDef>WVC_Chimera_DeathMarkHarvest</hediffDef>
+		<humanityCheck>true</humanityCheck>
+		<simpleMessage>WVC_XaG_ChimeraDeathMarkAdded</simpleMessage>
+	  </li>
+	  <li Class="CompProperties_AbilityRequiresCapacity">
+		<capacity>Manipulation</capacity>
+	  </li>
+	</comps>
+  </AbilityDef>
+
+  <!-- Hediff -->
+
+  <HediffDef ParentName="WVC_XenotypesAndGenes_Hediffs_OneTime">
+	<defName>WVC_Chimera_DeathMarkHarvest</defName>
+	<label>chimera death mark</label>
+	<description>Archite virus implanted via a chimera subgene. It is harmless to the host.</description>
+	<defaultLabelColor>(255, 255, 255)</defaultLabelColor>
+	<stages>
+	  <li>
+		<becomeVisible>true</becomeVisible>
+	  </li>
+	</stages>
+	<comps>
+	  <li Class="WVC_XenotypesAndGenes.HediffCompProperties_ChimeraDeathMark"/>
+	  <li Class="HediffCompProperties_DisappearsOnDeath"/>
+	</comps>
+  </HediffDef>
+
+</Defs>

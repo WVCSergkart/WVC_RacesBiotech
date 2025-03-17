@@ -97,6 +97,7 @@
     <Compile Include="Resources_Hediff\Hediff_DarknessExposure.cs" />
     <Compile Include="Resources_Hediff\Hediff_FleshmassHeart.cs" />
     <Compile Include="Resources_Hediff\Hediff_Mechanitor.cs" />
+    <Compile Include="Resources_Hediff\HediffComp_ChimeraDeathMark.cs" />
     <Compile Include="Resources_Main\GenesHolder.cs" />
     <Compile Include="Resources_Main\WVC_MiscDefOf.cs" />
     <Compile Include="Resources_Quests\QuestNode_Root_ChimerkinBaby.cs" />
