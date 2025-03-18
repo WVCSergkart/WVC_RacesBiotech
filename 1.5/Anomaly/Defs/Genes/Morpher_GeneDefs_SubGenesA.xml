@@ -17,6 +17,23 @@
 	</customEffectDescriptions>
   </GeneDef>
 
+  <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_Triggers">
+	<defName>WVC_MorphCondition_DeathRefusal</defName>
+	<label>death refusal trigger</label>
+	<description>Carriers of this gene can morph at the cost of death refusal attempts.</description>
+	<geneClass>WVC_XenotypesAndGenes.Gene_DeathRefusalMorph</geneClass>
+	<iconPath>WVC/UI/Genes/Gene_MorpherSubGene_DearhRefusal</iconPath>
+	<displayOrderInCategory>-95.110</displayOrderInCategory>
+	<biostatArc>1</biostatArc>
+	<biostatMet>0</biostatMet>
+	<!-- <selectionWeight>0.00</selectionWeight> -->
+	<!-- <canGenerateInGeneSet>false</canGenerateInGeneSet> -->
+	<customEffectDescriptions>
+		<li>Allows &lt;color=#8a8ae6&gt;morph&lt;/color&gt; in the presence of &lt;color=#b0bf80&gt;death refusal&lt;/color&gt; attempts.</li>
+		<li>&lt;color=#8a8ae6&gt;Morph&lt;/color&gt; consumes 1 attempt per use.</li>
+	</customEffectDescriptions>
+  </GeneDef>
+
   <!-- =============== -->
 
   <GeneDef ParentName="WVC_XenotypesAndGenes_GeneMorpher_SubGenes">

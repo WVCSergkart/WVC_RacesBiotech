@@ -538,4 +538,29 @@ namespace WVC_XenotypesAndGenes
 
 	}
 
+	public class Gene_DeathRefusalMorph : Gene_MorpherTrigger
+	{
+
+		public override bool CanMorph()
+		{
+			return pawn.health?.hediffSet?.HasHediff(HediffDefOf.DeathRefusal) == true;
+		}
+
+		public override void MorpherTrigger(PawnGeneSetHolder geneSet)
+		{
+			Hediff resurrectionSickness = null;
+			pawn.health?.hediffSet?.TryGetHediff(HediffDefOf.DeathRefusal, out resurrectionSickness);
+			if (resurrectionSickness is Hediff_DeathRefusal refusal && refusal.UsesLeft > 1)
+			{
+				refusal.SetUseAmountDirect(refusal.UsesLeft - 1, true);
+			}
+			else
+            {
+				pawn.health.RemoveHediff(resurrectionSickness);
+            }
+			base.MorpherTrigger(geneSet);
+		}
+
+	}
+
 }
